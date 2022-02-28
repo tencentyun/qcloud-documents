@@ -109,6 +109,29 @@ Namespace=QCE/TXMR_NODE
 | NodeNetworkTcp<br>ConnectionStateCloseWait    | TCP 链接状态<br/>\_CLOSE-WAIT             | 个       | CLOSE-WAIT 状态的 TCP 链接数量                               | host4nodenetwork、<br/>id4nodenetwork |
 | NodeNetworkTcp<br>ConnectionStateListen       | TCP 链接状态<br/>\_LISTEN                 | 个       | LISTEN 状态的 TCP 链接数量                                   | host4nodenetwork、<br/>id4nodenetwork |
 | NodeNetworkTcp<br>ConnectionStateClosing      | TCP 链接状态<br/>\_CLOSING                | 个       | CLOSEING 状态的 TCP 链接数量                                 | host4nodenetwork、<br/>id4nodenetwork |
+|NodeNetworkRwBytesEth0ReceiveBytes	|网卡收发数据速率_eth0-receive_bytes|	MiBit/s	|-|host4nodenetwork、id4nodenetwork|
+
+### 磁盘
+| 指标英文名                       | 指标中文名                       | 指标单位 | 维度                       |
+| -------------------------------- | -------------------------------- | -------- | -------------------------- |
+| NodeDiskInodesFreeAll            | INODES_free_all                  | 个       | host4nodedisk、id4nodedisk |
+| NodeDiskInodesTotalAll           | INODES_total_all                 | 个       | host4nodedisk、id4nodedisk |
+| NodeDiskInodesUsedPercentUsedAll | INODES使用率_used_all            | %        | host4nodedisk、id4nodedisk |
+| NodeDiskIoNowAll                 | 设备IOPS_all                     | 个/秒    | host4nodedisk、id4nodedisk |
+| NodeDiskIoOpsMergedReadAll       | 设备读写请求QPS_merged_read_all  | 个/秒    | host4nodedisk、id4nodedisk |
+| NodeDiskIoOpsMergedWriteAll      | 设备读写请求QPS_merged_write_all | 个/秒    | host4nodedisk、id4nodedisk |
+| NodeDiskIoOpsReadAll             | 设备读写请求QPS_read_all         | 个/秒    | host4nodedisk、id4nodedisk |
+| NodeDiskIoOpsWriteAll            | 设备读写请求QPS_write_all        | 个/秒    | host4nodedisk、id4nodedisk |
+| NodeDiskIoRateReadAll            | 设备读写速率_read_all            | MB/s     | host4nodedisk、id4nodedisk |
+| NodeDiskIoRateWriteAll           | 设备读写速率_write_all           | MB/s     | host4nodedisk、id4nodedisk |
+| NodeDiskIoTimeIoAll              | IO操作时间_io_all                | ms       | host4nodedisk、id4nodedisk |
+| NodeDiskIoTimeReadAll            | IO操作时间_read_all              | ms       | host4nodedisk、id4nodedisk |
+| NodeDiskIoTimeWriteAll           | IO操作时间_write_all             | ms       | host4nodedisk、id4nodedisk |
+| NodeDiskSpaceGbAvaliableAll      | 磁盘空间_avaliable_all           | GB       | host4nodedisk、id4nodedisk |
+| NodeDiskSpaceGbFreeAll           | 磁盘空间_free_all                | GB       | host4nodedisk、id4nodedisk |
+| NodeDiskSpaceGbTotalAll          | 磁盘空间_total_all               | GB       | host4nodedisk、id4nodedisk |
+| NodeDiskSpaceUsedPercentUsedAll  | 磁盘空间使用率_used_all          | %        | host4nodedisk、id4nodedisk |
+| NodeDiskUtilPercentAll           | IO设备使用率_all                 | %        | host4nodedisk、id4nodedisk |
 
 ### 主机-Filehandle 
 
@@ -153,6 +176,10 @@ Namespace=QCE/TXMR_NODE
 | Instances.N.Dimensions.0.Value | id4nodeprocess      | EMR 实例具体 ID               | 输入具体实例  ID，例如：emr-abcdef88                         |
 | Instances.N.Dimensions.1.Name  | host4nodeprocess    | EMR 实例中节点 IP 的维度名称  | 输入String 类型维度名称：host4nodeprocess                    |
 | Instances.N.Dimensions.1.Name  | host4nodeprocess    | EMR 实例中具体节点 IP         | 输入具体节点  IP ，可从控制台获取，登录 [腾讯云 MapReduce 控制台](https://console.cloud.tencent.com/emr) > 单击实例 > 集群资源 > 资源管理 > 节点内网 IP。也可通过 [查询节点信息](https://cloud.tencent.com/document/product/589/41707) API 获取。 |
+| Instances.N.Dimensions.0.Name  |  id4nodedisk     | EMR 实例 ID 的维度名称        | 输入 String 类型维度名称：  id4nodedisk            |
+| Instances.N.Dimensions.0.Value |   id4nodedisk     | EMR 实例具体 ID               | 输入具体实例  ID，例如：emr-abcdef88                         |
+| Instances.N.Dimensions.1.Name  | host4nodedisk  | EMR 实例中节点 IP 的维度名称  | 输入String 类型维度名称：host4nodedisk              |
+| Instances.N.Dimensions.1.Name  |host4nodedisk   | EMR 实例中具体节点 IP         | 输入具体节点  IP ，可从控制台获取，登录 [腾讯云 MapReduce 控制台](https://console.cloud.tencent.com/emr) > 单击实例 > 集群资源 > 资源管理 > 节点内网 IP。也可通过 [查询节点信息](https://cloud.tencent.com/document/product/589/41707) API 获取。 |
 
 
 ## 入参说明
@@ -180,14 +207,21 @@ Namespace=QCE/TXMR_NODE
 &Instances.N.Dimensions.1.Name=host4nodenetwork
 &Instances.N.Dimensions.1.Value=EMR 实例中具体节点 IP
 
-**4. 查询主机-Filehandle  的指标监控数据，入参取值如下：**
+**4. 查询主机-磁盘的指标监控数据，入参取值如下：**
+&Namespace=QCE/TXMR_NODE
+&Instances.N.Dimensions.0.Name= id4nodedisk  
+&Instances.N.Dimensions.0.Value=EMR 实例 ID 
+&Instances.N.Dimensions.1.Name=host4nodedisk
+&Instances.N.Dimensions.1.Value=EMR 实例中具体节点 IP
+
+**5. 查询主机-Filehandle  的指标监控数据，入参取值如下：**
 &Namespace=QCE/TXMR_NODE
 &Instances.N.Dimensions.0.Name=id4nodefilehandle
 &Instances.N.Dimensions.0.Value=EMR 实例 ID 
 &Instances.N.Dimensions.1.Name=host4nodefilehandle
 &Instances.N.Dimensions.1.Value=EMR 实例中具体节点 IP
 
-**5. 查询主机-PROCESS  的指标监控数据，入参取值如下：**
+**6. 查询主机-PROCESS  的指标监控数据，入参取值如下：**
 &Namespace=QCE/TXMR_NODE
 &Instances.N.Dimensions.0.Name= id4nodeprocess
 &Instances.N.Dimensions.0.Value=EMR 实例 ID 
