@@ -152,14 +152,12 @@
 
 <tr>
 <td style="text-align:center" >IM Demo (uni-app)  </td>
-<td style="text-align:center" >包含IM 主要功能以及在线客服场景能力</td>
+<td style="text-align:center" >包含 IM 主要功能以及在线客服场景能力</td>
 <td style="text-align:center" >uni-app</td>
 <td style="text-align:center" ><a href="https://github.com/tencentyun/TIMSDK/tree/master/uni-app">Github(推荐)</a></td>
 <td style="text-align:center" ><a href="https://gitee.com/cloudtencent/TIMSDK/tree/master/uni-app">Gitee</a></td>
 <td style="text-align:left" ><a href="https://cloud.tencent.com/document/product/269/64506">快速入门（uni-app）</a></td>
 </tr>
-
-
 <tr>
 <td style="text-align:center" >IM Demo (Flutter)  </td>
 <td style="text-align:center" >包含 IM 主要功能。</td>
@@ -167,6 +165,14 @@
 <td style="text-align:center" ><a href="https://github.com/tencentyun/TIMSDK/tree/master/Flutter/Demo/im_discuss">Github(推荐)</a></td>
 <td style="text-align:center" ><a href="https://upload-dianshi-1255598498.cos.ap-guangzhou.myqcloud.com/nodir/TencentImSDKPlugin-1610442889170.zip">ZIP</a></td>
 <td style="text-align:left" >参考 github README</td>
+</tr>
+<tr>
+<td style="text-align:center" >IM Demo（Electron） </td>
+<td style="text-align:center" >包含所有 IM 功能、音视频通话及视频会议功能</td>
+<td style="text-align:center" >Electron</td>
+<td style="text-align:center" ><a href="https://github.com/tencentyun/im_electron_demo">Github(推荐)</a></td>
+<td style="text-align:center" ><a href="https://github.com/tencentyun/im_electron_demo">ZIP</a></td>
+<td style="text-align:left" ><a href="https://cloud.tencent.com/document/product/269/63007">快速入门（Electron）</a></td>
 </tr>
 <tr>
 <td style="text-align:center" >直播电商 Demo  </td>
