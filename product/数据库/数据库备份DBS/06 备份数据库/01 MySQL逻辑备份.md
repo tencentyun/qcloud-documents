@@ -81,7 +81,7 @@ GRANT SELECT ON 待备份的库.* TO '帐号';
    - 指定对象：备份指定对象，然后在下面的界面中选择需要备份的指定库、表等。
 ![](https://qcloudimg.tencent-cloud.cn/raw/069c3df7c09a9b5f97a2c597053176b0.png)
 4. 在**选择备份策略**页面，选择策略模板、备份方式、备份频率、备份周期等，单击**下一步**。
-<img src="https://qcloudimg.tencent-cloud.cn/raw/2e55da1199d1137fbb9f73b3f1d8e328.png" style="zoom:67%;" />
+<img src="https://qcloudimg.tencent-cloud.cn/raw/2e034676dcd755a7795c6ffb32512832.png" style="zoom:67%;" />
 <table>
 <thead><tr><th width="20%">配置项</th><th width="80%">说明</th></tr></thead>
 <tbody>
@@ -103,9 +103,6 @@ GRANT SELECT ON 待备份的库.* TO '帐号';
 <tr>
 <td>存储池</td>
 <td>选择该备份计划地域的存储池。</td></tr>
-<tr>
-<td>存储方式</td>
-<td><ul><li>非存储加密：数据保存在 DBS 内置存储中，不加密。</li><li>内置加密存储：数据以加密的方式保存在 DBS 内置存储中，加密方式为存储系统自身的加密方式，数据上传到存储系统时加密，从存储系统获取数据即解密。</li><li>KMS 加密存储：数据以 KMS （<a href="https://cloud.tencent.com/document/product/573">密钥管理系统</a>）加密方式保存在 DBS 内置存储中，加密密钥为  <a href="https://console.cloud.tencent.com/kms2">KMS 中设置的密钥</a>。</li></ul></td></tr>
 <tr>
 <td>保留时间</td>
 <td>可设置范围为7天到3650天（10年）。</td></tr>
