@@ -76,7 +76,6 @@ VPN 通道的建立包括以下配置信息：
 <tr>
 <td>开启健康检查</td>
 <td>健康检查的开启/关闭开关，用于检测链路健康状态，默认不开启。
-
 <dx-alert infotype="explain" title="">
 健康检查参数配置完成后，您还需要在 [步骤6](#buzhou6) 中配置健康检查的 SPD 策略，这样健康检查功能才会生效。健康检查操作指导可参考 [配置健康检查](https://cloud.tencent.com/document/product/554/70209)。
 </dx-alert>
@@ -96,7 +95,7 @@ VPN 通道的建立包括以下配置信息：
 </tr>
 </table>
 5. 单击**下一步**，进入**SPD 策略**配置界面。
-6. [](id:cfg_vpn_spd)配置 SPD 策略。[](id:buzhou6)
+6. 配置 SPD 策略。[](id:buzhou6)[](id:cfg_vpn_spd)
 >?
 >+ SPD（Security Policy Database）策略由一系列 SPD 规则组成，用于指定 VPC 或云联网内哪些网段可以和 IDC 内哪些网段通信。每条 SPD 规则包括一个本端网段 CIDR，和至少一个对端网段 CIDR。一个本端网段 CIDR 和一个对端网段 CIDR 构成一组匹配关系。一个 SPD 规则下可以有多组匹配关系。
 >+ 同一 VPN 网关下所有通道内的规则，匹配关系不能重叠，即一组的匹配关系中，本端网段和对端网段不能同时重叠。
