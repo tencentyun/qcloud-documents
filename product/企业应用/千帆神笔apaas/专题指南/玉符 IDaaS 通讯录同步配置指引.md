@@ -6,10 +6,10 @@
 
 ### 千帆玉符人员同步
 
-1. 登录 [千帆神笔 aPaaS 运行态首页](https://apaas.weworkpro.tencent-cloud.com/1475709344300523568/main/)，单击管理后台按钮，进入管理后台页面。 ![1643096827858](https://qcloudimg.tencent-cloud.cn/raw/3edb6cb4ff5cf79f4d169640eb60011e.png)
+1. 登录 [千帆神笔 aPaaS 运行态首页](https://apaas.weworkpro.tencent-cloud.com/1475709344300523568/main/)，单击管理后台按钮，进入管理后台页面。 ![1643096827858](https://qcloudimg.tencent-cloud.cn/raw/186536a07992ac48f596be1957b1919d.png)
 2. 在管理后台的左侧导航栏中，单击**用户管理**，选择千帆玉符人员组织架构。
-   - 首次进行人员组织初始化时，进入下图页面。对于用户管理的基本介绍可参考 [用户管理](https://cloud.tencent.com/document/product/1365/67915)。 ![img](https://qcloudimg.tencent-cloud.cn/raw/b5f57dab277b6708772c01ecd5b5698a.png)
-   - 切换人员组织架构时，会进入以下页面，单击**其他用户来源**，选择千帆玉符同步。 ![img](https://qcloudimg.tencent-cloud.cn/raw/ce822bd0284f129d7e01d0b59ad75be2.png)
+   - 首次进行人员组织初始化时，进入下图页面。对于用户管理的基本介绍可参考 [用户管理](https://cloud.tencent.com/document/product/1365/67915)。 ![img](https://qcloudimg.tencent-cloud.cn/raw/cf552d98c0ea5536f8ce11974a534c44.png)
+   - 切换人员组织架构时，会进入以下页面，单击**其他用户来源**，选择千帆玉符同步。 ![img](https://qcloudimg.tencent-cloud.cn/raw/2c444d4c58a72aee5335454afba0369d.png)
 3. 进行千帆玉符人员同步信息填写。 ![img](https://qcloudimg.tencent-cloud.cn/raw/35b9c3b6189dd16eec91217e76919e43.png)
 
 ### 获取玉符 Domain
@@ -36,18 +36,24 @@
 
 3. 在添加应用页面，单击**创建自定义应用**，进入创建应用页面。 ![img](https://qcloudimg.tencent-cloud.cn/raw/64f83325d7f477491585103ea3d86bc1.png)
 
-4. 选择 OpenID Connect 类型。 ![img](https://qcloudimg.tencent-cloud.cn/raw/b0017b1d0b774e78ce445bad56ef525b.png)
+4. 选择 OpenID Connect 类型。
 
-5. 选择适用的应用平台。 ![img](https://qcloudimg.tencent-cloud.cn/raw/5a90963879a885fbd01f34c02a2a8b03.png)
+ ![img](https://qcloudimg.tencent-cloud.cn/raw/b0017b1d0b774e78ce445bad56ef525b.png)
 
-6. 填写应用基本信息，单击**确定**，完成创建。 ![img](https://qcloudimg.tencent-cloud.cn/raw/d8e8d06644fad3ce01f49f25652e9f29.png)
+5. 选择适用的应用平台。
+
+ ![img](https://qcloudimg.tencent-cloud.cn/raw/5a90963879a885fbd01f34c02a2a8b03.png)
+
+6. 填写应用基本信息，单击**确定**，完成创建。
+
+ ![img](https://qcloudimg.tencent-cloud.cn/raw/d8e8d06644fad3ce01f49f25652e9f29.png)
 
 ### 获取应用 Well-known 接口、 Clicent ID 和 Clicent Secret
 
 1. 登录千帆玉符管理后台，在左侧导航栏单击**应用** > **应用管理**，进入应用管理页面。
 2. 在应用管理页面，单击已经创建完成的 OIDC 类型应用，进入应用详情页。 ![img](https://qcloudimg.tencent-cloud.cn/raw/e3078b0eb81dfb8ccc3e7d94da9b66bd.png)
 3. 在应用详情页，单击**常规配置**。 ![img](https://qcloudimg.tencent-cloud.cn/raw/f90dc4bce11b480a3b67050e2ab9fe9b.png)
-4. 在登录常规配置窗口，您可以查看 Well-kown 接口地址、Client ID 和 Client Secret 等信息。单击复制图标，并将其填入配置页面对应字段。 ![img](https://qcloudimg.tencent-cloud.cn/raw/7e6cc44d6943711341933ea0fd50dea0.png)
+4. 在登录常规配置窗口，您可以查看 Well-kown 接口地址、Client ID 和 Client Secret 等信息。单击复制图标，并将其填入配置页面对应字段。 ![img](https://qcloudimg.tencent-cloud.cn/raw/78edd7216599356a31863268e2f8656b.png)
 
 ### 获取回调 URL 和单点登录 URL 地址
 
