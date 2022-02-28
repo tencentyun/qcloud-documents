@@ -33,7 +33,7 @@
 	- **主机名称**：请填写您的**域名名称**。
 	- **用户名/电子邮件**：请填写您获取到的 **SecretId** 信息。
 	- **密码/密钥**：请填写您获取到的 **SecretKey** 信息。
-	- **从 Tencent Cloud 获取证书，并将其设置为默认证书**： 勾选选项后，可自动将您申请腾讯云 TrustAsia SSL 免费证书替换为 NAS 的默认 SSL 证书。
+	- **从 Tencent Cloud 获取证书，并将其设置为默认证书**：勾选选项后，可自动为您申请腾讯云 TrustAsia SSL 免费证书并替换 NAS 的默认 SSL 证书。
 >?单击**测试联机**，测试是否能联机成功。如状态栏显示为**正常**，则代表联机成功。
 >
 3. 单击**确定**，即可完成设置。等待解析生效后，即可使用域名访问您的群晖（Synology）NAS。
@@ -43,7 +43,8 @@
 ### 步骤3：手动更新 DDNS（可选）
 1. 完成设置后，单击**立即更新**，系统将为您更新最新的 DDNS 解析记录，并确认状态是否显示为<font color=#009e05>正常</font>。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/fb2e3dfe6a1ea56138ab4cf73912ce71.png)
-2. 返回 [我的域名](https://console.dnspod.cn/dns/list) 管理页面，单击您的域名，即可查看记录值是否已变更为您的公网 IP 地址。
+2. 返回 [我的域名](https://console.dnspod.cn/dns/list) 管理页面，单击您的域名，即可查看记录值是否已变更为您的公网 IP 地址。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/c8452694f979be2e91afef3182b9fa9f.png)
 	- 若已变更，则设置成功。
 	- 若未变更，请根据以下常见问题进行排查。
 
