@@ -59,44 +59,35 @@ framework 签名可以直接在 General-->Masonry.framework 和 libpag.framework
 [](id:step2)
 ### 步骤二：鉴权
 1. 申请授权，得到 LicenseURL 和 LicenseKEY，请参见 [License 指引](https://cloud.tencent.com/document/product/616/65879)。
-> ! **不需要**把 License 文件下载下来放到本地工程里。
-2. 在工程 AppDelegate 的 didFinishLaunchingWithOptions 中添加如下代码，触发 license 下载，避免在使用前才临时去下载。其中，LicenseURL 和 LicenseKey 是控制台绑定 License 时生成的授权信息。
+> ! 正常情况下，只要app成功联网一次，就能完成鉴权流程，因此您**不需要**把 License 文件放到工程的工程目录里。但是如果您的app在从未联网的情况下也需要使用SDK相关功能，那么您可以把license文件下载下来放到工程目录，作为保底方案，此时license文件名必须是v_cube.license。
+2. 在相关业务模块的初始化代码中设置 URL 和 KEY，触发 license 下载，避免在使用前才临时去下载。也可以在 AppDelegate 的 didFinishLaunchingWithOptions 方法里触发下载。其中，LicenseURL 和 LicenseKey 是控制台绑定 License 时生成的授权信息。
 ```
-[TESign setKeyUrl:LicenseKey url:LicenseURL];
-```
-3. 然后在真正要使用美颜功能时，再去做鉴权。
-> !部分代码与 Demo 工程中的代码有差异，请以本文档描述为准。
-> 
-```
-licenseObserver = [[NSNotificationCenter defaultCenter] addObserverForName:@"kTESignLicenceLoadNotification" object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
-        NSLog(@"test --%@",note.object);
-        if(note.object != nil){
-            int code = [[note.object objectForKey:@"result"] intValue];
-            NSLog(@"code --%d",code);
-            if(code == 0){
-                NSString* lic = [TESign getLicenceInfo];
-                if(lic == nil){
-                    lic = @"";
-                }
-                int authRet = 0;
-                NSError* error = noErr;
-                NSData * getJsonData = [lic dataUsingEncoding:NSUTF8StringEncoding];
-                NSDictionary * getDict = [NSJSONSerialization JSONObjectWithData:getJsonData options:NSJSONReadingMutableContainers error:&error];
-                authRet = [XMagicAuthManager initAuthByString:[getDict objectForKey:@"TELicense"] withSecretKey:@""];
-                NSLog(@"errorCode: %@, authRet: %d", error, authRet);
-                if(authRet!=0){
-                    NSLog(@"licenseInfo: %@", lic);
-                    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"提醒" message:@"授权失败" delegate:nil cancelButtonTitle:@"取消" otherButtonTitles: nil];
-                    [alert show];
-                    return;
-                }
-            }
+[TELicenseCheck setTELicense:LicenseURL key:LicenseKey completion:^(NSInteger authresult, NSString * _Nonnull errorMsg) {
+       if (authresult == TELicenseCheckOk) {
+            NSLog(@"鉴权成功");
+        } else {
+            NSLog(@"鉴权失败");
         }
-        [[NSNotificationCenter defaultCenter] removeObserver:licenseObserver];
-        
     }];
-    [TESign setKeyUrl:@"Key" url:@"LicenseURL"];
 ```
+鉴权errorCode说明
+
+| 错误码 | 说明                                                  |
+| :----- | ----------------------------------------------------- |
+| 0      | 成功。Success                                         |
+| -1     | 输入参数无效，例如URL或KEY为空                        |
+| -3     | 下载环节失败，请检查网络设置                          |
+| -4     | 从本地读取的TE授权信息为空，可能是IO失败引起          |
+| -5     | 读取 VCUBE TEMP License文件内容为空，可能是IO失败引起 |
+| -6     | v_cube.license文件JSON字段不对。请联系腾讯云团队处理  |
+| -7     | 签名校验失败。请联系腾讯云团队处理                    |
+| -8     | 解密失败。请联系腾讯云团队处理                        |
+| -9     | TELicense字段里的JSON字段不对。请联系腾讯云团队处理   |
+| -10    | 从网络解析的TE授权信息为空。请联系腾讯云团队处理      |
+| -11    | 把TE授权信息写到本地文件时失败，可能是IO失败引起      |
+| -12    | 下载失败，解析本地asset也失败                         |
+| -13    | 鉴权失败                                              |
+| 其他   | 请联系腾讯云团队处理                                  |
 
 [](id:step3)
 ### 步骤三：加载 SDK：XMagic.framework
