@@ -127,17 +127,17 @@ startup.bat
     <!-- Authorization setting for SSL -->
     <auth-method>CLIENT-CERT</auth-method>
     <realm-name>Client Cert Users-only Area</realm-name>
-    </login-config>
-    <security-constraint>
-    <!-- Authorization setting for SSL -->
-    <web-resource-collection>
-    <web-resource-name>SSL</web-resource-name>
-    <url-pattern>/*</url-pattern>
-    </web-resource-collection>
-    <user-data-constraint>
-    <transport-guarantee>CONFIDENTIAL</transport-guarantee>
-    </user-data-constraint>
-    </security-constraint>
+</login-config>
+<security-constraint>
+   <!-- Authorization setting for SSL -->
+   <web-resource-collection>
+      <web-resource-name>SSL</web-resource-name>
+      <url-pattern>/*</url-pattern>
+   </web-resource-collection>
+   <user-data-constraint>
+      <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+   </user-data-constraint>
+</security-constraint>
 ```
 3. 编辑 Tomcat 安装目录下的 `server.xml` 文件，将 redirectPort 参数修改为 SSL 的 connector 的端口，即443端口。如下所示：
 ```
