@@ -33,7 +33,7 @@
 - 腾讯云 CDN 现已支持 ECC 证书部署。
 - 证书内容需要为 PEM 格式，非此格式证书请参考 [PEM 格式转换](https://cloud.tencent.com/document/product/228/41686#.E6.A0.BC.E5.BC.8F.E8.BD.AC.E6.8D.A2)。
 - 可选择腾讯云托管证书，直接进行一键部署。
-![](https://main.qcloudimg.com/raw/05bf07790a4cffc1ca98877c14767471.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/33e7ec5685282f7f0a17eb2d0edcdfa7.png)
 
 
 
@@ -53,7 +53,7 @@
 #### 2. 选择域名
 
 根据上传 / 选择的证书，CDN 会自动匹配出允许配置的域名列表，可按需进行勾选配置：
-![](https://qcloudimg.tencent-cloud.cn/raw/edf2c2f0f544899b4f75f4db7a9ba392.png)
+![](https://main.qcloudimg.com/raw/89ad35a4fb3a5b30c0736c88bb06cf37.png)
 
 
 
