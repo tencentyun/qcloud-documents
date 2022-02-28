@@ -4,7 +4,7 @@
 ## 前提条件
 - 源数源数据库符合备份功能和版本要求，请参见 [备份和恢复能力汇总](https://cloud.tencent.com/document/product/1513/64026) 进行核对。
 - 已完成 [准备工作](https://cloud.tencent.com/document/product/1513/64040)。
-- 备份账号需要具备源数据库的相关权限，如下为全量和增量备份的授权，如果仅全量，无增量备份，则不需要 REPLICATION CLIENT,REPLICATION SLAVE 和 `__tencentdb__` 的授权。
+- 备份账号需要具备源数据库的相关权限，如下为全量和增量备份的授权，如果仅全量，无增量备份，则不需要 REPLICATION CLIENT、REPLICATION SLAVE 和 `__tencentdb__` 的授权。
   - “整个实例”备份：
 ```
 CREATE USER '帐号'@'%' IDENTIFIED BY '密码';  
