@@ -83,7 +83,6 @@
 #### 类型定义
 
 ```c++
-
 /**
 	加密方式
 **/
@@ -176,12 +175,12 @@ msdkDns?.initConfig(with: [
 **获取 IP 共有以下四个接口，**引入头文件，调用相应接口即可。
 - 同步接口 
 	-	单个查询 **WGGetHostByName:**；
-	- 批量查询（返回单个ip）**WGGetHostsByNames:**；
-	- 批量查询（返回所有ip）**WGGetAllHostsByNames:**；
+	- 批量查询（返回单个 IP）**WGGetHostsByNames:**；
+	- 批量查询（返回所有 IP）**WGGetAllHostsByNames:**；
 - 异步接口 
 	- 单个查询 **WGGetHostByNameAsync:returnIps:**；
-	- 批量查询 (返回单个ip）**WGGetHostsByNamesAsync:returnIps:**；
-	- 批量查询（返回所有ip）**WGGetAllHostsByNamesAsync:returnIps:**；
+	- 批量查询 (返回单个 IP）**WGGetHostsByNamesAsync:returnIps:**；
+	- 批量查询（返回所有 IP）**WGGetAllHostsByNamesAsync:returnIps:**；
 
 **返回的地址格式如下：**
 - **单个查询**：单个查询接口返回 NSArray，固定长度为2，其中第一个值为 IPv4 地址，第二个值为 IPv6 地址。以下为返回格式的详细说明：
@@ -189,13 +188,13 @@ msdkDns?.initConfig(with: [
  - IPv6 下，仅返回 IPv6 地址，即返回格式为：[0, ipv6]。
  - 双栈网络下，返回解析到 IPv4&IPv6（如果存在）地址，即返回格式为：[ipv4, ipv6]。
  - 解析失败，返回[0, 0]，业务重新调用 WGGetHostByName 接口即可。
-- **批量查询（返回单个ip）**：批量查询接口返回 NSDictionary，key 为查询的域名，value 为 NSArray，固定长度为2，其他第一个值为 IPv4 地址，第二个值为 IPv6 地址。以下为返回格式的详细说明：
+- **批量查询（返回单个 IP）**：批量查询接口返回 NSDictionary，key 为查询的域名，value 为 NSArray，固定长度为2，其他第一个值为 IPv4 地址，第二个值为 IPv6 地址。以下为返回格式的详细说明：
  - IPv4 下，仅返回 IPv4 地址，即返回格式为：{"queryDomain" : [ipv4, 0]}。
  - IPv6 下，仅返回 IPv6 地址，即返回格式为：{"queryDomain" : [0, ipv6]}。
  - 双栈网络下，返回解析到 IPv4&IPv6（如果存在）地址，即返回格式为：{"queryDomain" : [ipv4, ipv6]}。
  - 解析失败，返回{"queryDomain" : [0, 0]}，业务重新调用 WGGetHostByNames 接口即可。
-- **批量查询（返回所有ip）**：批量查询接口返回 NSDictionary，key 为查询的域名，value 为 NSDictionary，包含两个 key（ipv4、ipv6），对应的 value 为 NSArray 对象，表示所有的ipv4/ipv6解析结果ip。以下为返回格式的详细说明：
- - {"queryDomain" : { "ipv4": [], "ipv6": []}}。
+- **批量查询（返回所有 IP）**：批量查询接口返回 NSDictionary，key 为查询的域名，value 为 NSDictionary，包含两个 key（ipv4、ipv6），对应的 value 为 NSArray 对象，表示所有的ipv4/ipv6 解析结果 IP。以下为返回格式的详细说明：
+ 返回格式为：{"queryDomain" : { "ipv4": [], "ipv6": []}}。
 
 >!
 >- 使用 IPv6 地址进行 URL 请求时，需添加方框号[ ]进行处理，例如：`http://[64:ff9b::b6fe:7475]/`。
@@ -339,12 +338,11 @@ if (result) {
 
 ## 接入验证
 ### 日志验证
-
-开启sdk调试日志（设置 DnsConfig 中 debug 为 YES ），找到打印的 `ReportingEvent, name:HDNSGetHostByName, events: { ... }` 日志，并检查 LocalDns（日志上为 ldns_ip）和 HTTPDNS（日志上为 hdns_ip）相关日志，可以确认接入是否成功。
+开启 SDK 调试日志（设置 DnsConfig 中 debug 为 YES），找到打印的 `ReportingEvent, name:HDNSGetHostByName, events: { ... }` 日志，并检查 LocalDns（日志上为 ldns_ip）和 HTTPDNS（日志上为 hdns_ip）相关日志，可以确认接入是否成功。
 - key 为 ldns_ip 的是 LocalDNS 的解析结果。
 - key 为 hdns_ip 的是 HTTPDNS A 记录的解析结果。
 - key 为 hdns_4a_ips 的是 HTTPDNS AAAA 记录的解析结果。
-如果 hdns_ip 或 hdns_4a_ips 不为空说明接入成功。
+- 如果 hdns_ip 或 hdns_4a_ips 不为空，则说明接入成功。
 
 
 ## 注意事项
