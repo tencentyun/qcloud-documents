@@ -63,7 +63,7 @@
 >
 ```
  <?xml version="1.0" encoding="UTF-8"?>
-  <Server port="8005" shutdown="SHUTDOWN">
+ <Server port="8005" shutdown="SHUTDOWN">
     <Listener className="org.apache.catalina.startup.VersionLoggerListener" />
     <Listener className="org.apache.catalina.core.AprLifecycleListener" SSLEngine="on" />
     <Listener className="org.apache.catalina.core.JreMemoryLeakPreventionListener" />
@@ -75,24 +75,24 @@
               description="User database that can be updated and saved"
               factory="org.apache.catalina.users.MemoryUserDatabaseFactory"
               pathname="conf/tomcat-users.xml" />
-  </GlobalNamingResources>
-  <Service name="Catalina">
+ </GlobalNamingResources>
+   <Service name="Catalina">
         <Connector port="80" protocol="HTTP/1.1" connectionTimeout="20000"  redirectPort="8443" />
         <Connector port="443" protocol="HTTP/1.1"
                maxThreads="150" SSLEnabled="true" scheme="https" secure="true"
                clientAuth="false"
                 keystoreFile="Tomcat 安装目录/conf/cloud.tencent.com.jks"
                 keystorePass="******" />
-    <Connector port="8009" protocol="AJP/1.3" redirectPort="8443" />
-   <Engine name="Catalina" defaultHost="cloud.tencent.com">
-      <Realm className="org.apache.catalina.realm.LockOutRealm">
+        <Connector port="8009" protocol="AJP/1.3" redirectPort="8443" />
+    <Engine name="Catalina" defaultHost="cloud.tencent.com">
+        <Realm className="org.apache.catalina.realm.LockOutRealm">
         <Realm className="org.apache.catalina.realm.UserDatabaseRealm"
                resourceName="UserDatabase"/>
-      </Realm>
-    <Host name="cloud.tencent.com"  appBase="webapps" 
+        </Realm>
+     <Host name="cloud.tencent.com"  appBase="webapps" 
         unpackWARs="true" autoDeploy="true" >
         <Context path="" docBase ="Knews" />
-    <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs"
+        <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs"
            prefix="localhost_access_log" suffix=".txt"  
            pattern="%h %l %u %t &quot;%r&quot; %s %b" />
       </Host>
