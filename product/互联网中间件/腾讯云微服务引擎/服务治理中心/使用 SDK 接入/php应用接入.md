@@ -33,9 +33,13 @@
 :::
 </dx-codeblock>
 6. 上传 demo 源码以及 polaris-php 插件到 CVM 环境中。
-   1. 安装 php 环境以及 php 插件编译开发以来。
+   1. 安装 php 环境以及 php 插件编译开发依赖。
 <dx-codeblock>
 :::  shell
+   ## 内核版本信息
+   Linux VM-50-33-centos 4.14.105-1-tlinux3-0022
+   ## 启用 remi, 这里仅提供上述内核版本的 remi 启用命令
+   rpm -ivh http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
    ## 下载php-5.x版本
    yum -y install --enablerepo=remi --enablerepo=remi-php56 php
    yum -y install --enablerepo=remi --enablerepo=remi-php56 php-devel

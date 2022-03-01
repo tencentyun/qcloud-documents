@@ -1,35 +1,6 @@
-## 产品概述
-实时音视频 TRTC & 版权曲库 AME 在线 KTV 联合解决方案深度整合腾讯在音视频深度积累的技术能力以及音乐内容版权上的核心优势产生1+1大于2的化学反应，帮助开发者极速搭建在线 KTV 业务。
-
-- **实时音视频 TRTC** 提供全球端到端平均延时 &lt; 300 ms实时连麦以及10万人 &lt; 1s的超低延时观看的技术方案。
-同时面向在线 KTV 场景提供48kHz采样率，128kbps立体声音频、低延时耳返让线上拥有媲美线下的 KTV 体验；更有变声、气氛音效、混响等多种趣味玩法。
-- **正版曲库直通车**聚合 TME 等多家版权方优质曲目资源，结合腾讯云存储、编解码、内容分发、边缘计算等能力，有效解决多场景音乐素材应用版权问题。您可在控制台选购单曲/曲库包，提供下载/API/SDK 多种接入方式，灵活高效实现正版音乐素材在多端的顺畅播放与应用。
-
 ## 产品原理
-```mermaid
-sequenceDiagram
-participant App客户端
-participant App后台
-participant TRTC SDK
-participant TXCopyrightedMedia
-participant 腾讯云后台
+![](https://qcloudimg.tencent-cloud.cn/raw/db639f3a557af501701d165a1dc700d4.png)
 
-App客户端 ->> App后台:请求搜索音乐
-App后台 ->> 腾讯云后台:请求搜索音乐 SearchKTVMusics
-腾讯云后台 -->> App后台:返回音乐列表
-App后台 -->> App客户端:返回音乐列表
-
-App客户端 -->> App后台:请求音乐详情
-App后台 ->> 腾讯云后台:请求音乐详情 DescribeKTVMusicDetail（带musicId）
-腾讯云后台 -->> App后台:返回音乐详情
-App后台 -->> App客户端:返回音乐详情
-
-App客户端 ->> TXCopyrightedMedia:preloadMusic（传入musicId+playToken）
-TXCopyrightedMedia ->> 腾讯云后台:请求Music数据
-腾讯云后台 -->> TXCopyrightedMedia:返回Music数据
-TXCopyrightedMedia -->> App客户端:回调preloadMusic进度和结果
-App客户端 ->> TRTC SDK:startPlayMusic（传入genMusicURI返回值）
-```
 ## 接入前准备工作
 
 ### 步骤1：账号注册及认证

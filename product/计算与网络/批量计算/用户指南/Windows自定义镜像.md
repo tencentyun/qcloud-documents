@@ -22,10 +22,11 @@
 1. 选择云服务器所在行右侧**更多** > **选择镜像**。如下图所示：
 ![](https://main.qcloudimg.com/raw/24419aaa4f798add0d0dbcf0c2dcdd3a.png)
 2. 在弹出框中输入镜像名称及描述，单击**制作镜像**即可创建镜像。
-3. 镜像创建完成后，单击左侧导航栏中的**镜像**即可查看自定义镜像。如下图所示：
->!您可通过查看镜像信息获取自定义镜像 ID。
->
-![](https://main.qcloudimg.com/raw/811c25501f2a73675a11ee3639faa595.png)
+3. 镜像创建完成后，单击左侧导航栏中的 **[镜像](https://console.cloud.tencent.com/cvm/image/index?rid=1)** 即可查看自定义镜像。如下图所示：
+<dx-alert infotype="notice" title="">
+您可通过查看镜像信息获取自定义镜像 ID。
+</dx-alert>
+<img src="https://qcloudimg.tencent-cloud.cn/raw/393d0dd80b30504a987b407ea4d8f983.png">
 
 
 
