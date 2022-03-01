@@ -36,7 +36,7 @@
 <tr>
 <td align="left">按带宽计费</td>
 <td align="left">后付费</td>
-<td align="left">开启弹性业务规模后，超出预设定规格部分将按照6元/M/天收费，请合理评估业务带宽规模后选择规格。</td>
+<td align="left">开启弹性业务规模后，超出预设定规格部分将按照6元/Mbps/天收费，请合理评估业务带宽规模后选择规格。</td>
 </tr>
 </tbody></table>
 
