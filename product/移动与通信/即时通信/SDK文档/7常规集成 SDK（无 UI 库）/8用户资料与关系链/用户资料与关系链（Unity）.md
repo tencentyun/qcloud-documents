@@ -9,7 +9,7 @@
 
 - **拉黑某人**
   如需屏蔽某人的消息，请调用 [FriendshipAddToBlackList](https://comm.qq.com/im/sdk/unity_plus/_site/api/com.tencent.imsdk.unity.TencentIMSDK.html#com_tencent_imsdk_unity_TencentIMSDK_FriendshipAddToBlackList_System_Collections_Generic_List_System_String__com_tencent_imsdk_unity_callback_ValueCallback_) 接口把该用户加入黑名单，即拉黑该用户。
-  被拉黑的用户默认不会感知到“被拉黑”的状态，消息发送后不会返回已被对方拉黑的错误码。如果希望被拉黑的用户在发消息时返回已被对方拉黑的错误提醒，可以参考 被拉黑的用户发消息怎么给错误提示。
+  被拉黑的用户默认不会感知到“被拉黑”的状态，消息发送后不会返回已被对方拉黑的错误码。如果希望被拉黑的用户在发消息时返回已被对方拉黑的错误提醒，可以参见 [被拉黑的用户发消息怎么给错误提示](#block)。
 - **解除拉黑**
   从黑名单中移除对方后可再次接收对方的消息，可调用 [FriendshipDeleteFromBlackList](https://comm.qq.com/im/sdk/unity_plus/_site/api/com.tencent.imsdk.unity.TencentIMSDK.html#com_tencent_imsdk_unity_TencentIMSDK_FriendshipDeleteFromBlackList_System_Collections_Generic_List_System_String__com_tencent_imsdk_unity_callback_ValueCallback_)。
 - **获取黑名单列表**
@@ -34,7 +34,7 @@ IM SDK 支持好友关系链逻辑，您可以调用 [FriendshipGetFriendProfile
 
 SDK 默认不限制非好友之间收发消息。如果您希望只允许好友之间收发消息，请在 [**即时通信 IM 控制台**](https://console.cloud.tencent.com/im) > **功能配置** > **登录与消息** > **好友关系检查** 中开启"发送单聊消息检查关系链"。开启之后，给陌生人发消息时，SDK 会报20009错误码。
 
-### 2. 被拉黑的用户发消息怎么给错误提示？
+### 2. 被拉黑的用户发消息怎么给错误提示？[](id:block)
 
 当消息发送者被拉黑后，发送者默认不会感知到“被拉黑”的状态，即发送消息后仍展示发送成功（实际上此时接收方不会收到消息）。如果需要被拉黑的发送者收到消息发送失败的提示，请在 [**即时通信 IM 控制台**](https://console.cloud.tencent.com/im) > **功能配置** > **登录与消息** > **黑名单检查** 中关闭"发送消息后展示发送成功"，关闭后，被拉黑的发送者在发送消息时，SDK 会报20007错误码。
 
