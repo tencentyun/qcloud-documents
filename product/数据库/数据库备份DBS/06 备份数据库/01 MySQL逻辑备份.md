@@ -12,7 +12,7 @@ GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHO
 GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '迁移帐号'@'%'; //如果源端为腾讯云数据库需要授予`__tencentdb__`权限  
 GRANT SELECT ON *.* TO '帐号';
 ```
-   - “指定对象”备份：
+  - “指定对象”备份：
 ```
 CREATE USER '帐号'@'%' IDENTIFIED BY '密码';  
 GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO '帐号'@'%';  //源库为阿里云数据库时，不需要授权 SHOW DATABASES，其他场景则需要授权。阿里云数据库授权，请参考 https://help.aliyun.com/document_detail/96101.html  
