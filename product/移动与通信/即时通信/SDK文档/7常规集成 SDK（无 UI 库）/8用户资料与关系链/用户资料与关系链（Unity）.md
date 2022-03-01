@@ -3,7 +3,7 @@
 ### 查询和修改自己的资料
 
 -  **查询自己的资料**接口为 [ProfileGetUserProfileList](https://comm.qq.com/im/sdk/unity_plus/_site/api/com.tencent.imsdk.unity.TencentIMSDK.html#com_tencent_imsdk_unity_TencentIMSDK_ProfileGetUserProfileList_com_tencent_imsdk_unity_types_FriendShipGetProfileListParam_com_tencent_imsdk_unity_callback_ValueCallback_)，其中参数 `userIDList` 需填入自己的 UserID。
-- **修改自己的资料**接口为 [ProfileModifySelfUserProfile](https://comm.qq.com/im/sdk/unity_plus/_site/api/com.tencent.imsdk.unity.TencentIMSDK.html#com_tencent_imsdk_unity_TencentIMSDK_ProfileModifySelfUserProfile_com_tencent_imsdk_unity_types_UserProfileItem_com_tencent_imsdk_unity_callback_ValueCallback_)。修改自己的资料成功后，会收到 [UpdateFriendProfileCallback](https://comm.qq.com/im/sdk/unity_plus/_site/api/com.tencent.imsdk.unity.callback.UpdateFriendProfileCallback.html)回调。
+- **修改自己的资料**接口为 [ProfileModifySelfUserProfile](https://comm.qq.com/im/sdk/unity_plus/_site/api/com.tencent.imsdk.unity.TencentIMSDK.html#com_tencent_imsdk_unity_TencentIMSDK_ProfileModifySelfUserProfile_com_tencent_imsdk_unity_types_UserProfileItem_com_tencent_imsdk_unity_callback_ValueCallback_)。修改自己的资料成功后，会收到 [UpdateFriendProfileCallback](https://comm.qq.com/im/sdk/unity_plus/_site/api/com.tencent.imsdk.unity.callback.UpdateFriendProfileCallback.html) 回调。
 
 ## 屏蔽某人消息
 
