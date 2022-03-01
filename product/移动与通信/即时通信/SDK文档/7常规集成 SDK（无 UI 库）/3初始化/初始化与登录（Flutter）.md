@@ -15,7 +15,7 @@ import 'package:tencent_im_sdk_plugin/tencent_im_sdk_plugin.dart';
 ```
 
 
-初始化接口 initSDK（SDKAppID, loglevel, listener）包含三个必填的参数，分别是 SDKAppID，LogLevelEnum 和事件监听器。
+初始化接口 initSDK（SDKAppID、loglevel、listener）包含三个必填的参数，分别是 SDKAppID，LogLevelEnum 和事件监听器。
 
 ### SDKAppID
 SDKAppID 即应用 ID，它是腾讯云 IM 服务用于区分客户帐号的唯一标识。每一个独立的 App 都建议申请一个新的 SDKAppID，不同 SDKAppID 之间的消息天然隔离，不能互通。
