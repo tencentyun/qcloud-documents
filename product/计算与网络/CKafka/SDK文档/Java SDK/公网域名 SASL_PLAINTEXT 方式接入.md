@@ -66,7 +66,7 @@ username 是`实例 ID` + `#` + `配置的用户名`，password 是配置的用�
 <dx-codeblock>
 :::  properties
 ## 配置接入网络，在控制台的实例详情页面接入方式模块的网络列复制。
-bootstrap.servers=xx.xx.xx.xx:xxxx
+bootstrap.servers=ckafka-xxxxxxx
 ## 配置 Topic，在控制台上 topic 管理页面复制。
 topic=XXX
 ## 配置 consumer group，您可以自定义设置
