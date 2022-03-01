@@ -14,19 +14,19 @@
 ### 取消邀请
 邀请者可以在超时前且被邀请者未处理前取消邀请 [cancel](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_signaling_manager/V2TIMSignalingManager/cancel.html)。被邀请者会收到取消通知 [onInvitationCancelled](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/enum_V2TimSignalingListener/V2TimSignalingListener/onInvitationCancelled.html)，该邀请流程结束。
 
-![取消邀请](https://sdk-im-1252463788.cos.ap-hongkong.myqcloud.com/tools/resource/signaling/01_signaling_c2c_cancel.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/329f9386b56c265f80451c5ee05bcba5.png)
 
 ### 接受邀请
 被邀请者收到邀请通知 [onReceiveNewInvitation](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/enum_V2TimSignalingListener/V2TimSignalingListener/onReceiveNewInvitation.html) 后可以在超时前且邀请者取消前接受邀请 [accept](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_signaling_manager/V2TIMSignalingManager/accept.html)，邀请者会收到接受邀请通知 [onInviteeAccepted](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/enum_V2TimSignalingListener/V2TimSignalingListener/onInviteeAccepted.html)，所有被邀请者处理完后（包括接受、拒绝、超时）该邀请流程结束。
 
-![接受/拒绝邀请](https://sdk-im-1252463788.cos.ap-hongkong.myqcloud.com/tools/resource/signaling/02_signaling_c2c_accept_reject.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/90c2884f71a358d271c3543dc27a387f.png)
 
 ### 拒绝邀请
 被邀请者收到邀请通知 [onReceiveNewInvitation](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/enum_V2TimSignalingListener/V2TimSignalingListener/onReceiveNewInvitation.html)后可以在超时前且邀请者取消前拒绝邀请 [reject](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_signaling_manager/V2TIMSignalingManager/reject.html)，邀请者会收到拒绝邀请通知 [onInviteeRejected](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/enum_V2TimSignalingListener/V2TimSignalingListener/onInviteeRejected.html)，所有被邀请者处理完后（包括接受、拒绝、超时）该邀请流程结束。
 ### 邀请超时
 若邀请接口的超时时间大于0，且被邀请者未在超时时间之内响应则邀请超时，邀请者和被邀请者都会收到超时通知 [onInvitationTimeout](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/enum_V2TimSignalingListener/V2TimSignalingListener/onInvitationTimeout.html)，所有被邀请者处理完后（包括接受、拒绝、超时）该邀请流程结束。若邀请接口的超时时间等于0，则不会有超时通知。
 
-![邀请超时](https://sdk-im-1252463788.cos.ap-hongkong.myqcloud.com/tools/resource/signaling/03_signaling_c2c_timeout.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/956ddcd6218453a86e5c3cdef83d9a06.png)
 
 ## 应用场景案例
 ### 音视频通话
@@ -43,7 +43,7 @@
 5. 通话结束即某一方挂断电话，该用户退出 TRTC 房间。对方收到 TRTC SDK 的 `onRemoteUserLeaveRoom` 回调后计算通话总时长并再次发起一次邀请，此邀请的自定义数据中标明是结束通话并附带通话时长，方便 UI 界面做展示。
 
 **时序图**
-![](https://sdk-im-1252463788.cos.ap-hongkong.myqcloud.com/tools/resource/signaling/04_time_squence.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/71bc2af7725ea31b16fa22e51e96b7bd.png)
 
 ### 教育场景中老师邀请学生举手发言
 该场景为老师先让同学们举手，再从举手的同学中选一个同学进行发言。详细流程如下：
