@@ -4,13 +4,8 @@
 2. 将 Demo ⼯程中的 X - magic 模块引⼊到实际项⽬⼯程中。
 
 [](id:step2)
-## 步骤二：鉴权
-鉴权流程请参考
 
-[https://cloud.tencent.com/document/product/616/65891#.E6.AD.A5.E9.AA.A4.E4.B8.80.EF.BC.9A.E9.89.B4.E6.9D.83](
-
-[](id:step3)
-## 步骤三：打开 app 模块的 build.gradle
+## 步骤二：打开 app 模块的 build.gradle
 1. 将 applicationId 修改成与申请的测试授权⼀致的包名。
 2. 添加 gson 依赖设置。
 ```groovy
@@ -19,24 +14,35 @@ all*.exclude  group:  'com.google.code.gson'
 }
 ```
 
-[](id:step4)
-## 步骤四：SDK 接口集成
+[](id:step3)
+
+## 步骤三：SDK 接口集成
 可参考 Demo ⼯程的 ThirdBeautyActivity 类。
 1. **授权**：
-```
-XMagicImpl.initAuth(getApplicationContext());
+```java
+ //鉴权注意事项及错误码详情，请参考 https://cloud.tencent.com/document/product/616/65891#.E6.AD.A5.E9.AA.A4.E4.B8.80.EF.BC.9A.E9.89.B4.E6.9D.83
+XMagicImpl.checkAuth((errorCode, msg) -> {
+            if (errorCode == TELicenseCheck.ERROR_OK) {
+                showLoadResourceView();
+            } else {
+                TXCLog.e(TAG, "鉴权失败，请检查鉴权url和key" + errorCode + " " + msg);
+            }
+        });
 ```
 2. **初始化素材**：
 ```java
-XmagicLoadAssetsView loadAssetsView = new XmagicLoadAssetsView(this);
-loadAssetsView.setOnAssetsLoadFinishListener(new XmagicLoadAssetsView.OnAssetsLoadFinishListener() {
-@Override
-public void onAssetsLoadFinish() {
-XmagicResParser.parseRes();
-XmagicUIState.initDatas(XmagicResParser.getProperties());
-initXMagic();
-}
-}); 
+   private void showLoadResourceView() {
+        if (XmagicLoadAssetsView.isCopyedRes) {
+            XmagicResParser.parseRes(getApplicationContext());
+            initXMagic();
+        } else {
+            XmagicLoadAssetsView loadAssetsView = new XmagicLoadAssetsView(this);
+            loadAssetsView.setOnAssetsLoadFinishListener(() -> {
+                XmagicResParser.parseRes(getApplicationContext());
+                initXMagic();
+            });
+        }
+    }
 ```
 3. **启动推流设置**：
 ```java
@@ -78,20 +84,30 @@ if (mXMagic != null) {
 return srcFrame.texture.textureId;
 ```
 5. **暂停/销毁 SDK**：
-> !当调用 onPause 方法后，需要调用 onDestroy 方法销毁，如果需要再次使用，则需要重新创建 mXMagic 对象。
-> 
+
+   onPause()用于暂停美颜效果，可以在Activity/Fragment生命周期方法中执行， onDestroy 方法需要在GL线程调用（可以在 onTextureDestroyed方法中调用XMagicImpl对象的onDestroy() ） ，更多使用请参考demo。  
 ```java
 mXMagic.onPause();   //暂停，与Activity的onPause方法绑定
-mXMagic.onDestroy();  //销毁，与Activity的onDestroy方法绑定
+mXMagic.onDestroy();  // //销毁，需要在GL线程中调用
 ```
 6. **布局中添加 SDK 美颜面板**：
+```xml
+    <RelativeLayout
+        android:id="@+id/livepusher_bp_beauty_pannel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ll_edit_info" />
 ```
-<include
-android:id="@+id/livepusher_bp_beauty_pannel"
-layout="@layout/xmagic_panel"
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
-android:layout_above="@+id/ll_edit_info" />
+7. **初始化面板**：
+
+```java
+  private void initXMagic() {
+          if (mXMagic == null) {
+              mXMagic = new XMagicImpl(this, mBeautyPanelView);
+          }else {
+              mXMagic.onResume();
+          }
+      }
 ```
-7. **初始化面板与美颜设置回调接口**：
-具体操作请参见 Demo⼯程的 `ThirdBeautyActivity.initXMagic();` ⽅法。
+
+  具体操作请参见 Demo⼯程的 `ThirdBeautyActivity.initXMagic();`⽅法。
