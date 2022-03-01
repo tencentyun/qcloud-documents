@@ -84,8 +84,7 @@ if (mXMagic != null) {
 return srcFrame.texture.textureId;
 ```
 5. **暂停/销毁 SDK**：
-
-   onPause()用于暂停美颜效果，可以在Activity/Fragment生命周期方法中执行， onDestroy 方法需要在GL线程调用（可以在 onTextureDestroyed方法中调用XMagicImpl对象的onDestroy() ） ，更多使用请参考demo。  
+`onPause()` 用于暂停美颜效果，可以在 Activity/Fragment 生命周期方法中执行， onDestroy 方法需要在 GL 线程调用（可以在 onTextureDestroyed 方法中调用 XMagicImpl 对象的 `onDestroy()`） ，更多使用请参考 Demo。  
 ```java
 mXMagic.onPause();   //暂停，与Activity的onPause方法绑定
 mXMagic.onDestroy();  // //销毁，需要在GL线程中调用
@@ -99,7 +98,6 @@ mXMagic.onDestroy();  // //销毁，需要在GL线程中调用
         android:layout_above="@+id/ll_edit_info" />
 ```
 7. **初始化面板**：
-
 ```java
   private void initXMagic() {
           if (mXMagic == null) {
@@ -110,4 +108,4 @@ mXMagic.onDestroy();  // //销毁，需要在GL线程中调用
       }
 ```
 
-  具体操作请参见 Demo⼯程的 `ThirdBeautyActivity.initXMagic();`⽅法。
+具体操作请参见 Demo⼯程的 `ThirdBeautyActivity.initXMagic();`⽅法。
