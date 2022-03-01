@@ -2,8 +2,8 @@
 ## 操作场景
 本场景介绍恢复逻辑备份到腾讯云 MySQL 数据库的操作指导，因为如下场景的操作和要求类似，本章节仅选取 MySQL 逻辑备份恢复到腾讯云 MySQL 作为示例。
 
-- MariaDB 逻辑备份恢复到腾讯云 MySQL（示例）
-- MySQL 逻辑备份恢复到腾讯云 MySQL
+- MySQL 逻辑备份恢复到腾讯云 MySQL（示例）
+- MariaDB 逻辑备份恢复到腾讯云 MySQL
 - Percona 逻辑备份恢复到腾讯云 MySQL
 
 ## 前提条件
