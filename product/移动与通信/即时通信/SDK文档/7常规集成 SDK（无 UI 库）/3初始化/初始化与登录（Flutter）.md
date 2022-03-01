@@ -1,4 +1,4 @@
-## 初始化与登陆
+## 初始化与登录
 类 [V2TIMManager](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_manager/V2TIMManager-class.html) 是 IM SDK 主核心类也是 IM SDK 的入口类，负责 IM SDK 的初始化、登录、消息收发，建群退群等功能。调用 [initSDK](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_manager/V2TIMManager/initSDK.html) 接口即可完成初始化：
 
 ```
