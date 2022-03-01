@@ -21,18 +21,15 @@
 | 群 Tips 消息 | GroupTipsElem | 群 Tips 消息常被用于承载群中的系统性通知消息，例如有成员进出群组，群的描述信息被修改，群成员的资料发生变化等。 |
 
 ## 收发简单消息
-在IM Flutter SDK中有两大类消息（简单消息和富媒体消息），这里我们先介绍简单消息。在V2TIMManager.getMessageManager() 中提供了一组简单消息的收发接口，可直接用于文本消息和自定义（信令）消息的收发，但3.6.0后我们不推荐您使用。建议您也走富媒体消息流程，先 create 对应 [V2TimMessage](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/models_v2_tim_message/V2TimMessage-class.html)，再调用统一的[sendMessage](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/im_flutter_plugin_platform_interface/ImFlutterPlatform/sendMessage.html)接口。
+在IM Flutter SDK中有两大类消息（简单消息和富媒体消息），这里我们先介绍简单消息。在V2TIMManager.getMessageManager() 中提供了一组简单消息的收发接口，可直接用于文本消息和自定义（信令）消息的收发，但3.6.0后我们不推荐您使用。建议您也走富媒体消息流程，先 create 对应 [V2TimMessage](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/models_v2_tim_message/V2TimMessage-class.html)，再调用统一的 [sendMessage](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/im_flutter_plugin_platform_interface/ImFlutterPlatform/sendMessage.html) 接口。
 
 简单消息：
 
 在 IM Flutter SDK 中有两种简单消息 [文本消息（V2TimTextElem）](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/models_v2_tim_text_elem/V2TimTextElem-class.html) 和 [自定义消息（V2TimCustomElem）](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/models_v2_tim_custom_elem/V2TimCustomElem-class.html)，但以下简单消息发送接口在3.6.0后不推荐使用。
 
 - [sendC2CTextMessage（3.6.0后不建议使用）](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/im_flutter_plugin_platform_interface/ImFlutterPlatform/sendC2CTextMessage.html) 
-
 - [sendGroupTextMessage（3.6.0后不建议使用）](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/im_flutter_plugin_platform_interface/ImFlutterPlatform/sendGroupTextMessage.html) 
-
 -  [sendC2CCustomMessage（3.6.0后不建议使用）](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/im_flutter_plugin_platform_interface/ImFlutterPlatform/sendC2CCustomMessage.html) 
-
 - [sendGroupCustomMessage（3.6.0后不建议使用）](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/im_flutter_plugin_platform_interface/ImFlutterPlatform/sendGroupCustomMessage.html) 
 
 ### 发送消息和信令消息
@@ -224,12 +221,12 @@ List<String> atUserList = ['AT_ALL_TAG',"何大佬的userID"]; // 既 @全体又
 | lynx：计划下周一，具体时间要看下这两天的系统测试情况..| abstract2     （摘要信息2） |
 | vinson：好的 | abstract3     （摘要信息3） |
 
-聊天界面只会显示合并消息的标题和摘要信息，只有用户点击合并消息的时候才会展示合并消息列表，我们在创建一条合并消息的时候不仅要设置合并消息列表，还要设置标题和摘要信息，实现流程如下：
+聊天界面只会显示合并消息的标题和摘要信息，只有用户单机合并消息的时候才会展示合并消息列表，我们在创建一条合并消息的时候不仅要设置合并消息列表，还要设置标题和摘要信息，实现流程如下：
 1、调用 [createMergerMessage](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/im_flutter_plugin_platform_interface/ImFlutterPlatform/createMergerMessage.html) 接口创建一条合并消息。
 2、调用 [sendMessage](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/im_flutter_plugin_platform_interface/ImFlutterPlatform/sendMessage.html) 接口发送合并消息。
 
 - **接收合并转发消息：**
-当我们收到一条合并消息 [V2TIMMessage](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/models_v2_tim_message/V2TimMessage-class.html)，可以先通过合并消息元素 [V2TIMMergerElem](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMMergerElem.html) 获取 [title](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMMergerElem.html#a864916a91d453e2124c12e0ccbb66550) 和  [abstractList](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/models_v2_tim_merger_elem/V2TimMergerElem/abstractList.html)  UI 展示，当用户点击合并消息的时候再调用 [downloadMergerMessage](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMMergerElem.html#af34d8228a9842875652a726f24ac3d30) 接口下载合并消息列表 UI 展示。
+当我们收到一条合并消息 [V2TIMMessage](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/models_v2_tim_message/V2TimMessage-class.html)，可以先通过合并消息元素 [V2TIMMergerElem](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMMergerElem.html) 获取 [title](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMMergerElem.html#a864916a91d453e2124c12e0ccbb66550) 和  [abstractList](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/models_v2_tim_merger_elem/V2TimMergerElem/abstractList.html)  UI 展示，当用户单机合并消息的时候再调用 [downloadMergerMessage](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMMergerElem.html#af34d8228a9842875652a726f24ac3d30) 接口下载合并消息列表 UI 展示。
 
 
 ### 经典示例：收发合并转发消息
@@ -281,12 +278,12 @@ List<String> atUserList = ['AT_ALL_TAG',"何大佬的userID"]; // 既 @全体又
 		String title = mergerElem.title;
 		// 获取摘要列表
 		List<String> abstractList = mergerElem.abstractList;
-		// 用户点击合并消息的时候下载合并消息列表
+		// 用户单机合并消息的时候下载合并消息列表
 		// ...
 		};
 }
 
-	// 点击mergeMessage下载mergeMessage
+	// 单机mergeMessage下载mergeMessage
   handleTap(BuildContext context, String msgID) async {
     final res = await TencentImSDKPlugin.v2TIMManager
         .getMessageManager()
@@ -354,7 +351,7 @@ List<String> atUserList = ['AT_ALL_TAG',"何大佬的userID"]; // 既 @全体又
 >- 定向群消息默认不计入群会话的未读计数。
 
 ## 设置离线推送
-当接收方的 App 被 kill 时，IM SDK 无法通过正常的网络连接收取新消息。如需实现在此场景下接收方仍能感知到新消息，需要使用各个手机厂商提供的离线推送服务，新用户推荐使用 TPNS 推送（详情请参见 [离线推送部分](xxxxxxxxxx)。)
+当接收方的 App 被 kill 时，IM SDK 无法通过正常的网络连接收取新消息。如需实现在此场景下接收方仍能感知到新消息，需要使用各个手机厂商提供的离线推送服务，新用户推荐使用 TPNS 推送（详情请参见 [离线推送部分](https://cloud.tencent.com/document/product/269/68720)。)
 
 ### 设置离线推送的标题和内容
 您可以在发送消息时，通过 [sendMessage](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/im_flutter_plugin_platform_interface/ImFlutterPlatform/sendMessage.html) 接口中的 **offlinePushInfo** 字段，设置离线推送的标题和内容。
@@ -379,7 +376,7 @@ List<String> atUserList = ['AT_ALL_TAG',"何大佬的userID"]; // 既 @全体又
             );
 ```
 
-### 点击推送消息跳转到对应的聊天窗口
+### 单机推送消息跳转到对应的聊天窗口
 如需实现该功能，发送消息时需设置离线推送对象 `offlinePushInfo` 的扩展字段 `ext`，收到消息的用户打开 App 时可以通过不同厂商提供的获取自定义内容的方式拿到这个扩展字段 `ext`，然后根据 `ext` 内容跳转到对应的聊天界面。
 
 本文以 `“denny 给 vinson 发送消息”` 的场景为例。
