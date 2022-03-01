@@ -76,4 +76,4 @@ public class TextModeration {
 ```
 
 ## 设置接口参数
-文本内容安全接口使用说明及参数说明详情请参加见 [文本内容安全相关接口](https://cloud.tencent.com/document/product/1124/51860)。
+文本内容安全接口使用说明及参数说明详情请参见 [文本内容安全相关接口](https://cloud.tencent.com/document/product/1124/51860)。
