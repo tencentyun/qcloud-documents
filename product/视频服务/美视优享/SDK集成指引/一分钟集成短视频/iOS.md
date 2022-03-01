@@ -15,6 +15,14 @@
 
 ```
 [TXUGCBase setLicenceURL:LicenseURL key:LicenseKey];
+
+[TELicenseCheck setTELicense:@"https://license.vod2.myqcloud.com/license/v2/1258289294_1/v_cube.license" key:@"3c16909893f53b9600bc63941162cea3" completion:^(NSInteger authresult, NSString * _Nonnull errorMsg) {
+              if (authresult == TELicenseCheckOk) {
+                   NSLog(@"鉴权成功");
+               } else {
+                   NSLog(@"鉴权失败");
+               }
+       }];
 ```
 授权代码可参考 Demo 中 UGCKitRecordViewController 类 viewDidLoad 中的授权代码：
 ```
