@@ -1,4 +1,4 @@
-腾讯特效 SDK 核心接口类。用于初始化 SDK、更新美颜数值、调用动效等功能。
+XmagicApi.java，腾讯特效 SDK 核心接口类。用于初始化 SDK、更新美颜数值、调用动效等功能。
 
 ## Public 成员函数
 
@@ -8,18 +8,21 @@
 | [updateProperty](#updateproperty)                            | 更新属性， 可在任意线程调用。                                |
 | [updateProperties](#updateproperties)                        | 更新属性，可在任意线程调用。                                 |
 | [setTipsListener](#settipslistener)                          | 设置动效提示语回调函数，用于将提示语展示到前端页面上。       |
-| [setYTDataListener](#setytdatalistener)                      | 设置人脸信息等数据回调。                                     |
+| [setYTDataListener](#setytdatalistener)                      | 设置人脸点位信息等数据回调(S1-05和S1-06套餐才会有回调)。               |
+| [setAIDataListener](setAIDataListener) | 设置人脸、手势、身体检测状态回调。 |
 | [onPause](#onpause)                                          | 暂停声音播放，可与 Activity onPause 生命周期绑定。           |
-| [onResume](#onresume)                                        | 恢复渲染，可与 Activity onPause 生命周期绑定。               |
+| [onResume](#onresume)                                        | 恢复渲染，可与 Activity onResume 生命周期绑定。         |
+| [onDestroy](#onDestroy) | 销毁xmagic，需要在GL线程中调用 |
 | [process](#process)                                          | SDK 渲染接受数据的方法，可在相机数据回调函数内使用。         |
 | [onPauseAudio](#onpauseaudio)                                | 当仅需要停止音频，但不需要释放 GL 线程时调用此函数。         |
 | [sensorChanged](#sensorchanged)                              | 用于判断当前手机旋转的角度，从而调整 AI 识别人脸的判断角度依据。 |
-| [isDeviceSupport](#isdevicesupport)                          | 本地集成资源检测兼容性方案：将动效资源列表传入 SDK 中做检测，执行后 `XmagicProperty.isSupport` 字段标识该原子能力是否可用。 |
-| [getPropertyRequiredAbilities](#getpropertyrequiredabilities) | 网络获取资源检测兼容性方案：传入一个动效资源列表，返回每一个资源所使用到的 SDK 原子能力列表。 |
-| [getDeviceAbilities](#getdeviceabilities)                    | 网络获取资源检测兼容性方案：返回所有原子能力在当前设备是否支持的配置表。 |
+| [isDeviceSupport](#isdevicesupport)                          | 将动效资源列表传入sdk中做检测，执行后XmagicProperty.isSupport字段标识该原子能力是否可用。 根据XmagicProperty.isSupport 可UI层控制点击限制，或者直接从资源列表删除。 |
+| [getPropertyRequiredAbilities](#getpropertyrequiredabilities) | 传入一个动效资源列表，返回每一个资源所使用到的sdk原子能力列表。 |
+| [getDeviceAbilities](#getdeviceabilities)                    | 返回当前设备支持的原子能力表 |
 | [isSupportBeauty](#issupportbeauty)                          | 判断当前机型是否支持美颜（OpenGL3.0）。                      |
-| [isBeautyAuthorized](#isbeautyauthorized)                    | 判断当前的 lic 授权支持哪些美颜。                            |
+| [isBeautyAuthorized](#isbeautyauthorized)                    | 判断当前的lic授权支持哪些美颜。 仅支持BEAUTY和 BODY_BEAUTY类型的美颜项检测。检测后的结果会赋值到各个美颜对象XmagicProperty.isAuth字段中。 |
 | [setXmagicStreamType](#setxmagicstreamtype)                  | 设置输入数据类型，默认 Android camera 数据流。               |
+| [setXmagicLogLevel](#setXmagicLogLevel) | 设置SDK的log等级，建议开发调试时设为Log.DEBUG，正式发布时设置为Log.WARN，如果正式发布设置为Log.DEBUG，大量的日志会影响性能。<br />在new XmagicApi() 之后调用 |
 
 ## 静态函数
 
@@ -34,16 +37,17 @@
 构造函数。
 
 ```
+XmagicApi(Context context, String resDir)
 XmagicApi(Context context, String resDir,OnXmagicPropertyErrorListener xmagicPropertyErrorListener)
 ```
 
 #### 参数
 
-| 参数                                                        | 含义                                             |
-| --------------------------------------------------------- | ---------------------------------------------- |
-| Context context                                           | 上下文。                                           |
-| String resDir                                             | 资源文件目录，V1版本固定写法 `XmagicResParser.getResPath()`。 |
-| OnXmagicPropertyErrorListener xmagicPropertyErrorListener | 错误回调接口。                                         |
+| 参数                                                      | 含义                                                         |
+| --------------------------------------------------------- | ------------------------------------------------------------ |
+| Context context                                           | 上下文。                                                     |
+| String resDir                                             | 资源文件目录。<br />（1）如果SDK资源文件是内置在assets的，那么首次使用SDK之前，需要把资源copy到app的私有目录：先通过XmagicResParser.setResPath(new File(getFilesDir(), "xmagic").getAbsolutePath())设置资源路径，再通过XmagicResParser.copyRes(getApplicationContext())完成资源拷贝，详见Demo的LaunchActivity.java。<br />（2）如果SDK资源文件是联网下载的，下载成功后，通过XmagicResParser.setResPath(validAssetsDirectory)设置资源路径<br /> <br />通过XmagicResParser.getResPath() 获取先前设置的路径。 |
+| OnXmagicPropertyErrorListener xmagicPropertyErrorListener | 错误回调接口。                                               |
 
 返回错误码含义对照表
 
@@ -68,7 +72,7 @@ XmagicApi(Context context, String resDir,OnXmagicPropertyErrorListener xmagicPro
 
 ### updateProperty
 
-更改某一项美颜数值或者动效、滤镜。
+更改某一项美颜数值或者动效、滤镜，可在任意线程调用。
 
 ```
 void updateProperty(XmagicProperty<?> p) 
@@ -76,15 +80,17 @@ void updateProperty(XmagicProperty<?> p)
 
 #### 参数
 
-| 参数                  | 含义                                                                |
-| ------------------- | ----------------------------------------------------------------- |
-| XmagicProperty<?> p | 腾讯特效数据实体类。无需用户手动构造。可通过 `XmagicResParser.getProperties()` 获取所有腾讯特效实体类。 |
+| 参数                | 含义                                                         |
+| ------------------- | ------------------------------------------------------------ |
+| XmagicProperty<?> p | 腾讯特效数据实体类。<br />(1)以"磨皮"为例，可以按如下方式new一个实例：<br />new XmagicProperty<>(Category.BEAUTY,  null,  null,  BeautyConstant.BEAUTY_SMOOTH, new XmagicPropertyValues(0, 100, 50, 0, 1)));<br />(2)以“2D动效兔兔酱”为例，可以按如下方式new一个实例：<br />new XmagicProperty<>(Category.MOTION, "video_tutujiang" ,  "动效的文件路径",  null, null);<br />更多的例子，请参考demo工程的 XmagicResParser.java |
+
+
 
 ------
 
 ### updateProperties
 
-批量更改某一项美颜数值或者动效、滤镜。
+批量更改某一项美颜数值或者动效、滤镜，可在任意线程调用。
 
 ```
 void updateProperties(List<XmagicProperty<?>> properties)
@@ -92,15 +98,15 @@ void updateProperties(List<XmagicProperty<?>> properties)
 
 #### 参数
 
-| 参数                                  | 含义                                                               |
-| ----------------------------------- | ---------------------------------------------------------------- |
-| (List<XmagicProperty<?>> properties | 腾讯特效数据列表。无需用户手动构造。可通过 `XmagicResParser.getProperties()` 获取所有腾讯特效实体类。 |
+| 参数                                | 含义                         |
+| ----------------------------------- | ---------------------------- |
+| (List<XmagicProperty<?>> properties | 详见updateProperty方法的说明 |
 
 ***
 
 ### setTipsListener
 
-设置动效提示语回调函数，用于将提示语展示到前端页面上。
+设置动效提示语回调函数，用于将提示语展示到前端页面上。比如某些素材会提示用户点点头、伸出手掌、比心等。
 
 ```
 void setTipsListener(XmagicApi.XmagicTipsListener effectTipsListener) 
@@ -108,14 +114,14 @@ void setTipsListener(XmagicApi.XmagicTipsListener effectTipsListener)
 
 #### 参数
 
-| 参数                                              | 含义       |
-| ----------------------------------------------- | -------- |
-| XmagicApi.XmagicTipsListener effectTipsListener | 回调函数实现类。 |
+| 参数                                            | 含义                                 |
+| ----------------------------------------------- | ------------------------------------ |
+| XmagicApi.XmagicTipsListener effectTipsListener | 回调函数实现类。回调不一定在主线程。 |
 
 ------
 
 ### setYTDataListener
-设置人脸信息等数据回调。
+设置人脸点位信息等数据回调。
 ```
 void setYTDataListener(XmagicApi.XmagicYTDataListener ytDataListener)
 设置人脸信息等数据回调
@@ -172,9 +178,23 @@ onYTDataUpdate 返回 JSON string 结构，最多返回5个人脸信息：
 
 ------
 
+### setAIDataListener
+
+检测到人脸、身体、手势时，会回调这些部位的点位信息
+
+```
+public interface OnAIDataListener {
+
+    void onFaceDataUpdated(List<FaceData> faceDataList);
+    void onHandDataUpdated(List<HandData> handDataList);
+    void onBodyDataUpdated(List<BodyData> bodyDataList);
+
+}
+```
+
 ### onPause
 
-暂停渲染，可与 Activity onPause 生命周期绑定，内部调用`onPauseAudio`,`onPauseGL`。
+暂停渲染，可与 Activity onPause 生命周期绑定，目前内部仅调用`onPauseAudio`。
 
 ```
 void onPause() 
@@ -184,7 +204,7 @@ void onPause()
 
 ### onResume
 
-恢复渲染，可与 Activity onPause 生命周期绑定。
+恢复渲染，可与 Activity onResume 生命周期绑定。
 
 ```
 void onResume() 
@@ -192,21 +212,58 @@ void onResume()
 
 ------
 
+### onDestroy
+
+清理GL线程资源，需要在 GL 线程内调用。示例代码：
+
+```java
+//示例代码见 MainActivity.java
+glSurfaceView.queueEvent(() -> {
+                if (mXmagicApi != null) {
+                    mXmagicApi.onPause();
+                    mXmagicApi.onDestroy();
+                }
+            });
+            
+//示例代码见 ImageInputActivity.java
+@Override
+protected void onDestroy() {
+
+    if (mHandler != null) {
+        mHandler.destroy(() -> {
+            if (mXmagicApi != null) {
+                mXmagicApi.onPause();
+                mXmagicApi.onDestroy();
+        		}
+    		});
+    		mHandler.waitDone();
+    }
+
+    XmagicPanelDataManager.getInstance().clearData();
+    super.onDestroy();
+}
+```
+
 ### process
 
 SDK 渲染接受数据的方法。可在相机数据回调函数内使用。
 
 ```
+//渲染纹理
 int process(int srcTextureId, int srcTextureWidth, int srcTextureHeight) 
+//渲染bitmap
+Bitmap process(Bitmap bitmap, boolean needReset){
 ```
 
 #### 参数
 
-| 参数                     | 含义         |
-| ---------------------- | ---------- |
-| int srcTextureId       | 需要被渲染的纹理。  |
-| id int srcTextureWidth | 需要被渲染的纹理宽。 |
-| int srcTextureHeight   | 需要被渲染的纹理高。 |
+| 参数                   | 含义                                                         |
+| ---------------------- | ------------------------------------------------------------ |
+| int srcTextureId       | 需要被渲染的纹理。                                           |
+| id int srcTextureWidth | 需要被渲染的纹理宽。                                         |
+| int srcTextureHeight   | 需要被渲染的纹理高。                                         |
+| Bitmap bitmap          | 建议最大尺寸 2160*4096。超过这个尺寸的图片人脸识别效果不佳或无法识别到人脸， *               同时容易引起OOM问题，建议把大图缩小后再传入 |
+| boolean needReset      | 1、切换图片；2、首次使用分割；3、首次使用动效；4、首次使用美妆 这几种场景needReset设置为true。 |
 
 ------
 
@@ -222,7 +279,7 @@ void onPauseAudio()
 
 ### sensorChanged
 
-用于判断当前手机旋转的角度，从而调整 AI 识别人脸的判断角度依据。
+用于判断当前手机旋转的角度，从而调整AI识别人脸的判断角度依据，需在陀螺仪传感器回调函数内调用。
 
 ```
 void sensorChanged(SensorEvent event, Sensor accelerometer) 
@@ -239,7 +296,7 @@ void sensorChanged(SensorEvent event, Sensor accelerometer)
 
 ### isDeviceSupport
 
-本地集成资源检测兼容性方案：将动效资源列表传入 SDK 中做检测，执行后 `XmagicProperty.isSupport` 字段标识该原子能力是否可用。针对不支持本设备的设备进行检索，根据 `XmagicProperty.isSupport` 可 UI 层控制点击限制，或者直接从资源列表删除。
+将动效资源列表传入sdk中做检测，执行后XmagicProperty.isSupport字段标识该素材是否可用。 根据XmagicProperty.isSupport 可UI层控制点击限制，或者直接从资源列表删除。
 
 ```
 void isDeviceSupport(List<XmagicProperty<?>> assetsList)
@@ -255,13 +312,9 @@ void isDeviceSupport(List<XmagicProperty<?>> assetsList)
 
 ### getPropertyRequiredAbilities
 
-网络获取资源检测兼容性方案：传入一个动效资源列表，返回每一个资源所使用到的sdk原子能力列表。宿主层可将返回的数据生成一个协议文件，上传至服务端，用于当前设备是否支持对应的原子能力比对。
-
-> !如果对应的特效资源返回的能力列表是一个空列表，则表示当前素材不存在兼容性问题，默认兼容一切设备。
-
-```
-Map<XmagicProperty<?>,ArrayList<String>> getPropertyRequiredAbilities(List<XmagicProperty<?>> assets) xxxxxxxxxx 需要检测的动效素材列表Map<XmagicProperty<?>,ArrayList<String>> getPropertyRequiredAbilities(List<XmagicProperty<?>> assets) 
-```
+传入一个动效资源列表，返回每一个资源所使用到的sdk原子能力列表。
+这个方法的使用场景是：
+您购买或制作了若干款动效素材，调用这个方法，会返回每一个素材需要使用的原子能力列表。例如素材1需要使用能力A、B、C，素材2需要使用能力B、C、D，然后您把这样的能力列表保持在服务器上。之后，当用户要从服务器下载动效素材时，用户先通过getDeviceAbilities方法获取他手机具备的原子能力列表（比如这台手机具备能力A、B、C，但不具备能力D），把他的能力列表传给服务器，服务器判断该设备不具备能力D，因此不给该用户下发素材2。
 
 #### 参数
 
@@ -280,7 +333,7 @@ Map<XmagicProperty<?>,ArrayList<String>> getPropertyRequiredAbilities(List<Xmagi
 
 ### getDeviceAbilities
 
-网络获取资源检测兼容性方案：返回所有原子能力在当前设备是否支持的配置表。宿主层可将返回的数据传至服务端，用于判断当前设备支持哪些动效素材。
+返回当前设备支持的原子能力表。与getPropertyRequiredAbilities方法搭配使用，详见getPropertyRequiredAbilities的说明。
 
 ```
 Map<String,Boolean> getDeviceAbilities() 
@@ -310,7 +363,7 @@ boolean isSupportBeauty()
 
 ### isBeautyAuthorized
 
-判断当前的 lic 授权支持哪些美颜。 仅支持 BEAUTY 类型的美颜项检测。检测后的结果会赋值到各个美颜对象 `XmagicProperty.isAuth` 字段中。
+判断当前的 license 授权支持哪些美颜或美体项。 仅支持 BEAUTY 和BODY_BEAUTY类型的美颜项检测。检测后的结果会赋值到各个美颜对象 `XmagicProperty.isAuth` 字段中。如果isAuth字段为false，可以在UI上屏蔽这些项的入口。
 
 ```
 void isBeautyAuthorized(List<XmagicProperty<?>> properties) 
@@ -344,9 +397,9 @@ void setXmagicStreamType(int type)
 
 ### setLibPathAndLoad
 
-设置 libPath。需要在 `new XmagicApi` 之前调用。否则将从默认路径加载 libs。该接口用于 so 库外部存放集成场景下使用。 
-- 传入 null ：表示从默认路径加载 so，请确保 so 在包里是存在的。
-- 传入非 null：如 `data/data/包名/files/xmagic_libs`，那么将从这个目录去加载 so。
+设置 so的路径，并触发加载。如果so是内置在assets里的，则无需调用此方法。如果so是动态下载的，则需要在鉴权和 `new XmagicApi` 之前调用。 
+- 传入 null ：表示从默认路径加载 so，请确保 so是内置在apk包里的。
+- 传入非 null：如 `data/data/包名/files/xmagic_libs`，将从这个目录去加载 so。
 
 ```
 static boolean setLibPathAndLoad(String path) 
