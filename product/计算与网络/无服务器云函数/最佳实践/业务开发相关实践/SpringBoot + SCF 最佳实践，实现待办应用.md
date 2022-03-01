@@ -34,19 +34,19 @@ SCF 提供模板函数，按照如下流程操作可使用 Web 函数快速创�
 在**函数代码**页签，按照如下流程操作，通过测试模板发起模拟请求体验待办应用增删改查功能：
 
 -   查询待办列表：
- 请求方式选择 GET, path 填写 `/todos`，单击**测试**后，在响应 Body 中可以查看到当前的待办事项。
+ 请求方式选择 GET, path 填写 `/todos`，单击**测试**后，在响应 Body 中可以查看到当前的待办事项。如下图所示：
  ![](https://qcloudimg.tencent-cloud.cn/raw/848f77562bfcd160ed6ce63befcbbc4b.png )
 
 -   增加待办事项：
- 请求方式选择 POST, path 填写 `/todos`，body 填写 `{"key":"3","content":"Third todo","done": false}`，单击**测试**增加一个待办事项。
+ 请求方式选择 POST, path 填写 `/todos`，body 填写 `{"key":"3","content":"Third todo","done": false}`，单击**测试**增加一个待办事项。如下图所示：
  ![](https://qcloudimg.tencent-cloud.cn/raw/3660186c9ed79d085fe996d328b24050.png )
 
 -   删除待办事项：
- 请求方式选择 DELETE，以删除 key 为 2 的待办事项为例，path 填写 `/todos/2`，单击**测试**。
+ 请求方式选择 DELETE，以删除 key 为 2 的待办事项为例，path 填写 `/todos/2`，单击**测试**。如下图所示：
   ![](https://qcloudimg.tencent-cloud.cn/raw/0e360c365bf56fec6743965c744b56e6.png )
 
 -   修改待办事项：
- 请求方式选择 PUT，以将 key 为 3 的待办事项由未完成改为完成为例，path 填写 `/todos/3`，body 填写 `{"key":"3","content":"Third todo","done": true}`，单击**测试**。
+ 请求方式选择 PUT，以将 key 为 3 的待办事项由未完成改为完成为例，path 填写 `/todos/3`，body 填写 `{"key":"3","content":"Third todo","done": true}`，单击**测试**。如下图所示：
  ![](https://qcloudimg.tencent-cloud.cn/raw/059637de6730a53a0b13ca912c17e882.png )
 
 
