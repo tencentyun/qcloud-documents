@@ -49,7 +49,7 @@ SDKAppID 即应用 ID，它是腾讯云 IM 服务用于区分客户帐号的唯�
 >!若收到 `onUserSigExpired` 回调，说明您登录用的 UserSig 票据已经过期，请更新后重新登录。如果继续使用过期的 UserSig，会导致 SDK 登录死循环。
 
 ## 登录
-调用 `v2TIMManager` 的 [login(userID, userSig)](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/im_flutter_plugin_platform_interface/ImFlutterPlatform/login.html) 函数可以进行登录，只有在 SDK 登录成功后，才能使用 IM SDK 的各项能力。
+调用 `v2TIMManager` 的 [login(userID, userSig)](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_manager/V2TIMManager/login.html) 函数可以进行登录，只有在 SDK 登录成功后，才能使用 IM SDK 的各项能力。
 
 ```
     V2TimCallback res = await TencentImSDKPlugin.v2TIMManager.login(
@@ -76,7 +76,7 @@ SDKAppID 即应用 ID，它是腾讯云 IM 服务用于区分客户帐号的唯�
 同样类型的两台手机不能同时登录一个帐号，例如两台苹果手机不能同时登录一个帐号。但是一台 Android 手机和一台苹果手机会被认为是两端，可以同时登录。多端登录相关配置请参考 [登录设置](https://cloud.tencent.com/document/product/269/38656#.E7.99.BB.E5.BD.95.E8.AE.BE.E7.BD.AE)。
 
 ## 登出
-登出比较简单，使用 [logout()](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/im_flutter_plugin_platform_interface/ImFlutterPlatform/logout.html) 函数即可。
+登出比较简单，使用 [logout()](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_manager/V2TIMManager/logout.html) 函数即可。
 
 
 
