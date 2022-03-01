@@ -4,17 +4,19 @@
 ## 前提条件
 - 源数源数据库符合备份功能和版本要求，请参见 [备份和恢复能力汇总](https://cloud.tencent.com/document/product/1513/64026) 进行核对。
 - 已完成 [准备工作](https://cloud.tencent.com/document/product/1513/64040)。
-- 备份账号需要具备源数据库的对应权限，请参考如下指导进行授权。
+- 备份账号需要具备源数据库的相关权限，如下为全量和增量备份的授权，如果仅全量，无增量备份，则不需要 REPLICATION CLIENT、REPLICATION SLAVE 和 `__tencentdb__` 的授权。
   - “整个实例”备份：
 ```
 CREATE USER '帐号'@'%' IDENTIFIED BY '密码';  
-GRANT RELOAD,LOCK TABLES,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO '帐号'@'%';  //源库为阿里云数据库时，不需要授权 SHOW DATABASES，其他场景则需要授权。阿里云数据库授权，请参考 https://help.aliyun.com/document_detail/96101.html 
+GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO '帐号'@'%';  //源库为阿里云数据库时，不需要授权 SHOW DATABASES，其他场景则需要授权。阿里云数据库授权，请参考 https://help.aliyun.com/document_detail/96101.html
+GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '迁移帐号'@'%'; //如果源端为腾讯云数据库需要授予`__tencentdb__`权限  
 GRANT SELECT ON *.* TO '帐号';
 ```
   - “指定对象”备份：
 ```
 CREATE USER '帐号'@'%' IDENTIFIED BY '密码';  
-GRANT RELOAD,LOCK TABLES,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO '帐号'@'%';  //源库为阿里云数据库时，不需要授权 SHOW DATABASES，其他场景则需要授权。阿里云数据库授权，请参考 https://help.aliyun.com/document_detail/96101.html  
+GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO '帐号'@'%';  //源库为阿里云数据库时，不需要授权 SHOW DATABASES，其他场景则需要授权。阿里云数据库授权，请参考 https://help.aliyun.com/document_detail/96101.html  
+GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '迁移帐号'@'%'; //如果源端为腾讯云数据库需要授予`__tencentdb__`权限  
 GRANT SELECT ON `mysql`.* TO '帐号'@'%';
 GRANT SELECT ON 待备份的库.* TO '帐号';
 ```
@@ -79,7 +81,7 @@ GRANT SELECT ON 待备份的库.* TO '帐号';
    - 指定对象：备份指定对象，然后在下面的界面中选择需要备份的指定库、表等。
 ![](https://qcloudimg.tencent-cloud.cn/raw/069c3df7c09a9b5f97a2c597053176b0.png)
 4. 在**选择备份策略**页面，选择策略模板、备份方式、备份频率、备份周期等，单击**下一步**。
-<img src="https://qcloudimg.tencent-cloud.cn/raw/2e55da1199d1137fbb9f73b3f1d8e328.png" style="zoom:67%;" />
+<img src="https://qcloudimg.tencent-cloud.cn/raw/2e034676dcd755a7795c6ffb32512832.png" style="zoom:67%;" />
 <table>
 <thead><tr><th width="20%">配置项</th><th width="80%">说明</th></tr></thead>
 <tbody>
@@ -101,9 +103,6 @@ GRANT SELECT ON 待备份的库.* TO '帐号';
 <tr>
 <td>存储池</td>
 <td>选择该备份计划地域的存储池。</td></tr>
-<tr>
-<td>存储方式</td>
-<td><ul><li>非存储加密：数据保存在 DBS 内置存储中，不加密。</li><li>内置加密存储：数据以加密的方式保存在 DBS 内置存储中，加密方式为存储系统自身的加密方式，数据上传到存储系统时加密，从存储系统获取数据即解密。</li><li>KMS 加密存储：数据以 KMS （<a href="https://cloud.tencent.com/document/product/573">密钥管理系统</a>）加密方式保存在 DBS 内置存储中，加密密钥为  <a href="https://console.cloud.tencent.com/kms2">KMS 中设置的密钥</a>。</li></ul></td></tr>
 <tr>
 <td>保留时间</td>
 <td>可设置范围为7天到3650天（10年）。</td></tr>

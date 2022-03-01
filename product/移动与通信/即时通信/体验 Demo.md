@@ -77,7 +77,7 @@
                             <img src="https://main.qcloudimg.com/raw/98394fa5d669de7fb7a187565d138cdb.svg" data-nonescope="true">
                              <p class="titlename">Web</p>
                 <div style="width: 100px; margin: auto;">
-                                <p style="height: 100px;display: flex; justify-content: center;
+                                <p style="height: 107.53px;display: flex; justify-content: center;
                                 align-items: center;"><input type="button" value="基础聊天" style="height: 30px;width: 110px;background-color: #006eff;
     color: #fff;border: 1px solid #006eff;line-height: 30px;text-align: center;display: inline-block;cursor: pointer;outline: 0 none;
     box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;border-radius: 15px;"  onclick="window.open('https://web.sdk.qcloud.com/im/demo/latest/index.html')" /></p>
@@ -149,7 +149,7 @@
                             <div style="width: 100px; height: 100px;margin: auto;">
                                 <p class="titlename"><input type="button" value="Windows 版" style="height: 30px;width: 100px;min-width: 24px;background-color: #006eff;
     color: #fff;border: 1px solid #006eff;line-height: 30px;text-align: center;display: inline-block;cursor: pointer;outline: 0 none;
-    box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;border-radius: 15px;"  onclick="window.open('https://comm.qq.com/im_demo_download/index.html#/pc-windows')" /><br><br><input type="button" value="macOS 版" style="height: 30px;width: 100px;margin-top: -10px;min-width: 24px;background-color: #006eff;color: #fff;border: 1px solid #006eff;line-height: 30px;text-align: center;display: inline-block;cursor: pointer;outline: 0 none;box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;border-radius: 15px;" onclick="window.open('https://comm.qq.com/im_demo_download/index.html#/pc')" /></p>
+    box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;border-radius: 15px;"  onclick="window.open('https://comm.qq.com/im_demo_download/index.html#/pc-windows')" /><br><br><input type="button" value="Mac OS 版" style="height: 30px;width: 100px;margin-top: -10px;min-width: 24px;background-color: #006eff;color: #fff;border: 1px solid #006eff;line-height: 30px;text-align: center;display: inline-block;cursor: pointer;outline: 0 none;box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;border-radius: 15px;" onclick="window.open('https://comm.qq.com/im_demo_download/index.html#/pc')" /></p>
                             </div>
                 <p style="color:#586376;"></p>
                                 <a href="https://cloud.tencent.com/document/product/269/63007">快速入门</a>

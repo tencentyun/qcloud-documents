@@ -492,7 +492,7 @@
 
 | 产品                                                         | CAM 中简称 | 授权粒度 | 控制台 | 根据标签进行授权 | 服务角色 | 参考文档 |
 | ------------------------------------------------------------ | ---------- | -------- | ------ | ---------------- | -------- | -------- |
-| [企业集成服务](https://cloud.tencent.com/document/product/1270) | eis        | 操作级   | ✓      | -                | -        | -        |
+| [千帆鹊桥 iPaaS](https://cloud.tencent.com/document/product/1270) | eis        | 操作级   | ✓      | -                | -        | -        |
 | [品牌经营管家](https://cloud.tencent.com/document/product/1296) | bma        | 服务级   | ✓      | -                | -        | -        |
 | [区块链可信取证](https://cloud.tencent.com/document/product/1259) | btoe       | 服务级   | ✓      | -                | -        | -        |
 | [腾讯电子签   SaaS 版](https://cloud.tencent.com/document/product/1323) | ess        | 服务级   | -      | -                | -        | -        |
