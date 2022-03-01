@@ -97,5 +97,5 @@ mXMagic.onDestroy();  //销毁，需要在GL线程中调用
     }
 ```
 
-  具体操作请参见 Demo⼯程的 `TCVideoRecordActivity.initXMagic();`⽅法。
+具体操作请参见 Demo ⼯程的 `TCVideoRecordActivity.initXMagic();`⽅法。
 
