@@ -1,6 +1,6 @@
 本文介绍如何使用 Java 连接和操作图数据库 KonisGraph。以 [Gremlin-console tutorials](https://tinkerpop.apache.org/docs/3.5.1/tutorials/getting-started/#_the_first_five_minutes) 中的人和软件的关系图为示例。
 ![enter image description here](https://main.qcloudimg.com/raw/51a52aabf2b24289aa61f713a8cd1eb4.png)
-如图所示，整个图包含2类点 person 和 software ，2类边 knows 和 created，和几类属性 id、name、age、lang、weight。
+如图所示，整个图包含2类点 person 和 software，2类边 knows 和 created，和几类属性 id、name、age、lang、weight。
 
 ## 环境准备
 1. 安装 JDK 8.0，并配置 Java 环境。
