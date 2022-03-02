@@ -208,9 +208,18 @@ List<String> atUserList = ['AT_ALL_TAG',"何大佬的userID"]; // 既 @全体又
 ## 收发合并转发消息
 要实现类似于微信的合并转发功能，首先需要根据原始消息列表创建一条合并消息，然后把合并消息发送到对端，对端收到合并消息后再解析出原始消息列表，合并消息的展示还需要标题和摘要信息，如下图所示：
 
-| 合并转发 | 合并消息展示 | 单机合并消息下载合并消息列表展示 |
-|---------|---------|---------|
-|<img style="width:170px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/ca62239bbab545665df617c928960d5a.jpg" />  |<img style="width:170px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/ae0bbf431eee95aa1b0be04b2346837f.jpg" /> | <img style="width:170px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/b145e9c869fc84ead6477f9fa9012d72.jpg" /> |
+<table>
+   <tr>
+      <th width="0px" style="text-align:center">合并转发</td>
+      <th width="0px" style="text-align:center">合并消息展示</td>
+      <th width="0px"  style="text-align:center">单击合并消息下载合并消息列表展示</td>
+   </tr>
+   <tr>
+      <td style="text-align:center"><img style="width:190px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/ca62239bbab545665df617c928960d5a.jpg" /></td>
+      <td style="text-align:center"><img style="width:190px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/ae0bbf431eee95aa1b0be04b2346837f.jpg" /></td>
+      <td style="text-align:center"><img style="width:190px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/b145e9c869fc84ead6477f9fa9012d72.jpg" /></td>
+   </tr>
+</table>
 
 - **发送合并转发消息：**
 通常我们在收到一条合并消息的时候，会在聊天界面这样显示：
@@ -221,12 +230,12 @@ List<String> atUserList = ['AT_ALL_TAG',"何大佬的userID"]; // 既 @全体又
 | lynx：计划下周一，具体时间要看下这两天的系统测试情况..| abstract2     （摘要信息2） |
 | vinson：好的 | abstract3     （摘要信息3） |
 
-聊天界面只会显示合并消息的标题和摘要信息，只有用户单机合并消息的时候才会展示合并消息列表，我们在创建一条合并消息的时候不仅要设置合并消息列表，还要设置标题和摘要信息，实现流程如下：
+聊天界面只会显示合并消息的标题和摘要信息，只有用户单击合并消息的时候才会展示合并消息列表，我们在创建一条合并消息的时候不仅要设置合并消息列表，还要设置标题和摘要信息，实现流程如下：
 1、调用 [createMergerMessage](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/im_flutter_plugin_platform_interface/ImFlutterPlatform/createMergerMessage.html) 接口创建一条合并消息。
 2、调用 [sendMessage](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/im_flutter_plugin_platform_interface/ImFlutterPlatform/sendMessage.html) 接口发送合并消息。
 
 - **接收合并转发消息：**
-当我们收到一条合并消息 [V2TIMMessage](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/models_v2_tim_message/V2TimMessage-class.html)，可以先通过合并消息元素 [V2TIMMergerElem](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMMergerElem.html) 获取 [title](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMMergerElem.html#a864916a91d453e2124c12e0ccbb66550) 和  [abstractList](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/models_v2_tim_merger_elem/V2TimMergerElem/abstractList.html)  UI 展示，当用户单机合并消息的时候再调用 [downloadMergerMessage](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMMergerElem.html#af34d8228a9842875652a726f24ac3d30) 接口下载合并消息列表 UI 展示。
+当我们收到一条合并消息 [V2TIMMessage](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/models_v2_tim_message/V2TimMessage-class.html)，可以先通过合并消息元素 [V2TIMMergerElem](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMMergerElem.html) 获取 [title](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMMergerElem.html#a864916a91d453e2124c12e0ccbb66550) 和  [abstractList](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/models_v2_tim_merger_elem/V2TimMergerElem/abstractList.html)  UI 展示，当用户单击合并消息的时候再调用 [downloadMergerMessage](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMMergerElem.html#af34d8228a9842875652a726f24ac3d30) 接口下载合并消息列表 UI 展示。
 
 
 ### 经典示例：收发合并转发消息
@@ -278,12 +287,12 @@ List<String> atUserList = ['AT_ALL_TAG',"何大佬的userID"]; // 既 @全体又
 		String title = mergerElem.title;
 		// 获取摘要列表
 		List<String> abstractList = mergerElem.abstractList;
-		// 用户单机合并消息的时候下载合并消息列表
+		// 用户单击合并消息的时候下载合并消息列表
 		// ...
 		};
 }
 
-	// 单机mergeMessage下载mergeMessage
+	// 单击mergeMessage下载mergeMessage
   handleTap(BuildContext context, String msgID) async {
     final res = await TencentImSDKPlugin.v2TIMManager
         .getMessageManager()
@@ -376,7 +385,7 @@ List<String> atUserList = ['AT_ALL_TAG',"何大佬的userID"]; // 既 @全体又
             );
 ```
 
-### 单机推送消息跳转到对应的聊天窗口
+### 单击推送消息跳转到对应的聊天窗口
 如需实现该功能，发送消息时需设置离线推送对象 `offlinePushInfo` 的扩展字段 `ext`，收到消息的用户打开 App 时可以通过不同厂商提供的获取自定义内容的方式拿到这个扩展字段 `ext`，然后根据 `ext` 内容跳转到对应的聊天界面。
 
 本文以 `“denny 给 vinson 发送消息”` 的场景为例。
