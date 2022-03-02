@@ -5,7 +5,6 @@
 ### 内网 NTP 服务器
 
 ```ruby
-time.cloud.tencent.com
 time1.tencentyun.com
 time2.tencentyun.com
 time3.tencentyun.com
