@@ -28,7 +28,7 @@
 >
 ![](https://qcloudimg.tencent-cloud.cn/raw/2947b081fffc641399f94e37ca6e15c7.png)
 
-### 下载Agent 
+### 下载 Agent 
 1. 登录 [数据安全审计控制台](https://console.cloud.tencent.com/dsaudit)，在左侧导航栏中，单击**配置管理** > **Agent 管理** > **Agent 部署**，进入 Agent 部署页面。
 2. 在 Agent 部署页面，选择下载 Linux Agent 或 Windows Agent。
 >!Agent 安装包已通过文件名区分部署场景，在部署前仔细检查，避免出错。
