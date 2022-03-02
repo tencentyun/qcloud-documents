@@ -16,9 +16,9 @@
 
 1. 登录千帆玉符管理后台。
 
-> - 如需开通千帆玉符账号，请发送邮件至 [v_vyingguo@tencent.com](mailto:v_vyingguo@tencent.com)，我们会尽快安排工作人员为您开通。
+>?如需开通千帆玉符账号，请发送邮件至 [v_vyingguo@tencent.com](mailto:v_vyingguo@tencent.com)，我们会尽快安排工作人员为您开通。
 >
-> - 线下开通后，每位租户会有一个独立的登录链接，由工作人员提供 。
+>?线下开通后，每位租户会有一个独立的登录链接，由工作人员提供 。
 
 ![img](https://qcloudimg.tencent-cloud.cn/raw/1e55c1e39e38113ad8723087950f2fee.png)
 
