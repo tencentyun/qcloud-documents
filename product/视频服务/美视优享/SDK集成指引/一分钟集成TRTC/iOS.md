@@ -1,7 +1,6 @@
 ## 集成准备
 
-1. 下载并解压 [Demo 包](https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.4.0.vcube/TRTC-API-Example.zip
-)，将 Demo 工程中的 xmagic 模块（bundle，XmagicIconRes，Xmagic 文件夹）导入到实际项目工程中。
+1. 下载并解压 [Demo 包](https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.4.1vcube/TRTC-API-Example.zip)，将 Demo 工程中的 xmagic 模块（bundle，XmagicIconRes，Xmagic 文件夹）导入到实际项目工程中。
 2. 导入 SDK 目录中的 `libpag.framework`，`Masonry.framework`，`XMagic.framework`，`YTCommonXMagic.framework`。
 3. framework 签名 **General--> Masonry.framework** 和 **libpag.framework** 选 **Embed & Sign**。
 4. 将 Bundle ID 修改成与申请的测试授权一致。
@@ -13,14 +12,11 @@
 
 ### 步骤一：初始化授权[](id:step1)
 
-1. 首先在工程 AppDelegate 的 didFinishLaunchingWithOptions 中添加如下鉴权代码，其中 LicenseURL，LicenseKey 为腾讯云官网申请到授权信息，请参见 [License 指引](https://cloud.tencent.com/document/product/616/65879)：
-
+1. 首先在工程 AppDelegate 的 didFinishLaunchingWithOptions 中添加如下鉴权代码，其中 LicenseURL 和 LicenseKey 为腾讯云官网申请到授权信息，请参见 [License 指引](https://cloud.tencent.com/document/product/616/65879)：
 ```
 [TXLiveBase setLicenceURL:LicenseURL key:LicenseKey];
 ```
-
-2. Xmagic鉴权：在相关业务模块的初始化代码中设置 URL 和 KEY，触发 license 下载，避免在使用前才临时去下载。也可以在 AppDelegate 的 didFinishLaunchingWithOptions 方法里触发下载。其中，LicenseURL 和 LicenseKey 是控制台绑定 License 时生成的授权信息。
-
+2. Xmagic 鉴权：在相关业务模块的初始化代码中设置 URL 和 KEY，触发 License 下载，避免在使用前才临时去下载。也可以在 AppDelegate 的 didFinishLaunchingWithOptions 方法里触发下载。其中，LicenseURL 和 LicenseKey 是控制台绑定 License 时生成的授权信息。
 ```
 [TELicenseCheck setTELicense:LicenseURL key:LicenseKey completion:^(NSInteger authresult, NSString * _Nonnull errorMsg) {
        if (authresult == TELicenseCheckOk) {
@@ -30,25 +26,71 @@
         }
     }];
 ```
-
-鉴权errorCode说明
-
-| 错误码 | 说明                                                  |
-| :----- | ----------------------------------------------------- |
-| 0      | 成功。Success                                         |
-| -1     | 输入参数无效，例如URL或KEY为空                        |
-| -3     | 下载环节失败，请检查网络设置                          |
-| -4     | 从本地读取的TE授权信息为空，可能是IO失败引起          |
-| -5     | 读取 VCUBE TEMP License文件内容为空，可能是IO失败引起 |
-| -6     | v_cube.license文件JSON字段不对。请联系腾讯云团队处理  |
-| -7     | 签名校验失败。请联系腾讯云团队处理                    |
-| -8     | 解密失败。请联系腾讯云团队处理                        |
-| -9     | TELicense字段里的JSON字段不对。请联系腾讯云团队处理   |
-| -10    | 从网络解析的TE授权信息为空。请联系腾讯云团队处理      |
-| -11    | 把TE授权信息写到本地文件时失败，可能是IO失败引起      |
-| -12    | 下载失败，解析本地asset也失败                         |
-| -13    | 鉴权失败                                              |
-| 其他   | 请联系腾讯云团队处理                                  |
+**鉴权 errorCode 说明**：
+<table>
+<thead>
+<tr>
+<th>错误码</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>成功。Success</td>
+</tr>
+<tr>
+<td>-1</td>
+<td>输入参数无效，例如 URL 或 KEY 为空</td>
+</tr>
+<tr>
+<td>-3</td>
+<td>下载环节失败，请检查网络设置</td>
+</tr>
+<tr>
+<td>-4</td>
+<td>从本地读取的 TE 授权信息为空，可能是 IO 失败引起</td>
+</tr>
+<tr>
+<td>-5</td>
+<td>读取 VCUBE TEMP License文件内容为空，可能是 IO 失败引起</td>
+</tr>
+<tr>
+<td>-6</td>
+<td>v_cube.license 文件 JSON 字段不对。请联系腾讯云团队处理</td>
+</tr>
+<tr>
+<td>-7</td>
+<td>签名校验失败。请联系腾讯云团队处理</td>
+</tr>
+<tr>
+<td>-8</td>
+<td>解密失败。请联系腾讯云团队处理</td>
+</tr>
+<tr>
+<td>-9</td>
+<td>TELicense 字段里的 JSON 字段不对。请联系腾讯云团队处理</td>
+</tr>
+<tr>
+<td>-10</td>
+<td>从网络解析的 TE 授权信息为空。请联系腾讯云团队处理</td>
+</tr>
+<tr>
+<td>-11</td>
+<td>把TE授权信息写到本地文件时失败，可能是 IO 失败引起</td>
+</tr>
+<tr>
+<td>-12</td>
+<td>下载失败，解析本地 asset 也失败</td>
+</tr>
+<tr>
+<td>-13</td>
+<td>鉴权失败</td>
+</tr>
+<tr>
+<td>其他</td>
+<td>请联系腾讯云团队处理</td>
+</tr>
+</tbody></table>
 
 ### 步骤二：设置 SDK 素材资源路径[](id:step2)
 
