@@ -2,10 +2,10 @@
 
 >!接入 TPNS 需升级 IM Flutter SDK 至3.7.2及以上。
 ## 接入 TPNS 推送跑通离线推送功能
-### 步骤一：申请苹果推送证书
+### 步骤1：申请苹果推送证书
 离线推送依赖于苹果的原生推送通道，在配置 TPNS 推送之前，需要参见 [推送证书获取指引](https://cloud.tencent.com/document/product/548/36664)  获取苹果推送证书。
 
-### 步骤二：TPNS 控制台配置
+### 步骤2：TPNS 控制台配置
 
 如果您之前没有在 IM 控制台配置过离线推送信息，请您直接登录到 [TPNS 控制台](https://console.cloud.tencent.com/tpns/product) ，按照下面的步骤配置离线推送信息。
 
@@ -30,7 +30,7 @@
 >? 如果您之前已经在 IM 控制台配置了离线推送信息, 我们会自动把这些配置信息迁移到  [TPNS 控制台](https://console.cloud.tencent.com/tpns/product)，您可以登录  [TPNS 控制台](https://console.cloud.tencent.com/tpns/product) 修改配置信息。即时通信 IM 会继续使用这些配置信息进行离线推送。
 ![](https://qcloudimg.tencent-cloud.cn/raw/501fbd5af9d19961827968d608755bf3.png)
 
-### 步骤三：FLutter TPNS 接入
+### 步骤3：FLutter TPNS 接入
 1. 引入 SDK：
 ```yaml
 tpns_flutter_plugin:
@@ -147,8 +147,3 @@ TencentImSDKPlugin.v2TIMManager.getMessageManager().sendMessage(
 
 ### 如何关闭离线推送消息的接收？
 如果您想关闭离线推送消息的接收，可以通过设置 [setAPNS](https://im.sdk.qcloud.com/doc/zh-cn/categoryV2TIMManager_07APNS_08.html#a6aecbdc0edaa311c3e4e0ed3e71495b1) 接口的 `config` 参数为 `nil` 来实现。该功能从5.6.1200版本开始支持。
-
-
-
-
-
