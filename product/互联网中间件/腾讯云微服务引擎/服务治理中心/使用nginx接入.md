@@ -73,7 +73,7 @@
 :::
 </dx-codeblock>
   - 构建后，ngnix 整体会安装到 /usr/local/nginx 下面，需要将 nginx-1.20.2/polaris.yaml 配置文件拷贝到 /usr/local/nginx/sbin 下面，完成整个编译过程。
-  - 修改 /usr/local/nginx/nginx.conf 文件，指定使用 polarismesh 进行反向转发。示例只展示关键修改点：
+  - 修改 /usr/local/nginx/conf/nginx.conf 文件，指定使用 polarismesh 进行反向转发。示例只展示关键修改点：
 <dx-codeblock>
 :::  c
     http {

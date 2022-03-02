@@ -1,9 +1,11 @@
 
 ## 操作场景
-本章节介绍 MariaDB/Percona 逻辑备份的数据恢复操作，因为如下场景的操作和要求类似，本章节仅选取 MariaDB 逻辑备份的恢复作为示例。
+本章节介绍恢复逻辑备份到腾讯云 MariaDB 的操作指导，因为如下场景的操作和要求类似，本章节仅选取 MariaDB 逻辑备份恢复到腾讯云 MariaDB 作为示例。
 
-- MariaDB 逻辑备份恢复到腾讯云 MySQL/MariaDB（示例）
+- MariaDB 逻辑备份恢复到腾讯云 MariaDB（示例）
+- MySQL 逻辑备份恢复到腾讯云 MariaDB
 - Percona 逻辑备份恢复到腾讯云 MariaDB
+>? 恢复到腾讯云 MariaDB 时，要求恢复的对象必须有主键，或者有非空唯一键，否则校验不通过，恢复任务报错。
 
 ## 前提条件
 - 恢复目标数据库符合备份功能和版本要求，请参见 [备份和恢复能力汇总](https://cloud.tencent.com/document/product/1513/64026) 进行核对。
