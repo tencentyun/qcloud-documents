@@ -153,7 +153,7 @@
 3. 发送方调用 [sendMessage](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/sendMessage.html) 接口将刚才创建的 @ 消息对象发送出去。
 
 ### 接收群 @ 消息
-1. 在加载和更新会话处，需要监听 [V2TIMConversation](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/models_v2_tim_conversation/V2TimConversation-class.html) 的 [OnConversationChangedCallback](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/enum_callbacks/OnConversationChangedCallback.html)回调来获取会话的@列表，将来会提供方法`getGroupAtInfoList`手动获取atInfoList。
+1. 在加载和更新会话处，需要监听 [V2TIMConversation](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/models_v2_tim_conversation/V2TimConversation-class.html) 的 [OnConversationChangedCallback](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/enum_callbacks/OnConversationChangedCallback.html) 回调来获取会话的@列表，将来会提供方法`getGroupAtInfoList`手动获取 atInfoList。
 2. 通过列表中 [V2TIMGroupAtInfo](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/models_v2_tim_group_at_info/V2TimGroupAtInfo-class.html) 对象的 [atType](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/models_v2_tim_group_at_info/V2TimGroupAtInfo/atType.html) 接口获取 @ 数据类型，并更新到当前会话的 @ 信息。
 
 ### 经典示例：收发群 @ 消息
@@ -210,7 +210,7 @@ List<String> atUserList = ['AT_ALL_TAG',"何大佬的userID"]; // 既 @全体又
 
 | 合并转发 | 合并消息展示 | 单机合并消息下载合并消息列表展示 |
 |---------|---------|---------|
-| ![](https://qcloudimg.tencent-cloud.cn/raw/26754de280edccbf3fc93fc60c9af0ac.png) |![](https://qcloudimg.tencent-cloud.cn/raw/e081285b742e4e614bf563842b7daf60.png) | ![](https://qcloudimg.tencent-cloud.cn/raw/0f86d2cb168ff4fd9640feeccf11220c.png) |
+|<img style="width:120px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/26754de280edccbf3fc93fc60c9af0ac.png" />  |<img style="width:120px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/e081285b742e4e614bf563842b7daf60.png" /> | !<img style="width:120px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/0f86d2cb168ff4fd9640feeccf11220c.png" /> |
 
 - **发送合并转发消息：**
 通常我们在收到一条合并消息的时候，会在聊天界面这样显示：
