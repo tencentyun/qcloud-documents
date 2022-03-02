@@ -3,10 +3,10 @@
 
 ## 对接指引
 ### 步骤1：购买套餐包
-请前往 [购买旗舰版套餐包](https://cloud.tencent.com/document/product/269/32458)。 
+请将套餐升级到旗舰版，请参见  [购买指引](https://cloud.tencent.com/document/product/269/32458)。
 
 ### 步骤2：调用搜索本地用户资料接口
-调用接口 [searchFriends](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_friendship_manager/V2TIMFriendshipManager/searchFriends.html) 可以搜索本地用户资料，其中的接口参数[searchParams](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/models_v2_tim_friend_search_param/V2TimFriendSearchParam-class.html)支持搜索`nickName、userID、remark`字段。可以使用此接口实现好友搜索功能，如昵称搜索等。
+调用接口 [searchFriends](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_friendship_manager/V2TIMFriendshipManager/searchFriends.html) 可以搜索本地用户资料，其中的接口参数 [searchParams](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/models_v2_tim_friend_search_param/V2TimFriendSearchParam-class.html) 支持搜索`nickName、userID、remark`字段。可以使用此接口实现好友搜索功能，如昵称搜索等。
 
 ```dart
  V2TimFriendSearchParam searchParam = new V2TimFriendSearchParam(
@@ -18,8 +18,6 @@
         .getFriendshipManager()
         .searchFriends(searchParam: searchParam);
 ```
-
-  <br/>
 
 ### 步骤3：调用搜索本地群组和群成员接口
 
@@ -178,5 +176,4 @@ int index = 0;
 
 ### 2. 如何搜索富媒体消息
 富媒体消息包含文件、图片、语音、视频消息。
-对于文件消息，界面通常显示文件名，因此创建时可以设置 `fileName` 参数，作为被搜索的内容，如果 `fileName` 不设置则会从 `filePath` 提取文件名，并且都会保存到本地和服务器，需要注意的是在 Web 无法搜索文件
-而对于图片、语音、视频消息，界面通常显示缩略图或时长，可以指定消息类型做分类搜索，但不能通过关键字搜索。
+对于文件消息，界面通常显示文件名，因此创建时可以设置 `fileName` 参数，作为被搜索的内容，如果 `fileName` 不设置则会从 `filePath` 提取文件名，并且都会保存到本地和服务器，需要注意的是在 Web 无法搜索文件，而对于图片、语音、视频消息，界面通常显示缩略图或时长，可以指定消息类型做分类搜索，但不能通过关键字搜索。
