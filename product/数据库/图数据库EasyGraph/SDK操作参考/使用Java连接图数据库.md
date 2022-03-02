@@ -5,6 +5,7 @@
 ## 环境准备
 1. 安装 JDK 8.0，并配置 Java 环境。
 2. 安装 maven，参考 [Installing Apaceh Maven](https://maven.apache.org/install.html)。
+3. 获取图数据库的连接参数。在 [控制台](https://console.cloud.tencent.com/konisgraph) 实例详情页中可以查看实例的 VIP 和 PORT，即内网地址和 Gremlin 端口。
 
 ## 示例代码
 1. 创建 graph_demo 目录。
