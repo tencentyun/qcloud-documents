@@ -30,7 +30,7 @@
 >? 如果您之前已经在 IM 控制台配置了离线推送信息, 我们会自动把这些配置信息迁移到  [TPNS 控制台](https://console.cloud.tencent.com/tpns/product)，您可以登录  [TPNS 控制台](https://console.cloud.tencent.com/tpns/product) 修改配置信息。即时通信 IM 会继续使用这些配置信息进行离线推送。
 ![](https://qcloudimg.tencent-cloud.cn/raw/501fbd5af9d19961827968d608755bf3.png)
 
-### 步骤3：FLutter TPNS 接入
+### 步骤3：Flutter TPNS 接入
 1. 引入 SDK：
 ```yaml
 tpns_flutter_plugin:
