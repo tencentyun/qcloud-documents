@@ -16,7 +16,7 @@
       <td rowspan='2'>Web 端</td>
       <td>超级播放器</td>
       <td><a href="https://cloud.tencent.com/document/product/881/30818">SDK</a></td>
-      <td><a href="https://imgcache.qq.com/open/qcloud/video/tcplayer/examples/vod/tcplayer-vod-base.html">Demo</a></td>
+      <td><a href="https://tcplayer.vcube.tencent.com/">Demo</a></td>
       <td><a href="https://cloud.tencent.com/document/product/881/30818">Web - 超级播放器</a></td>
    </tr>
    <tr>
