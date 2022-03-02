@@ -69,4 +69,4 @@
 3. 请设置千帆神笔 aPaaS 平台企业管理员。
 ![1643100128224](https://qcloudimg.tencent-cloud.cn/raw/adf9e5de703324f739e25195c8a84979.png)
 4. 千帆玉符人员组织信息同步成功，下次登录神笔平台时，请通过千帆玉符扫码登录。
-![1643102784965](https://qcloudimg.tencent-cloud.cn/raw/574504276ae3a0951a98bad217fff5ad.png)
+![1643102784965](https://qcloudimg.tencent-cloud.cn/raw/329de2a7bb81f22191b82860906a972c.png)
