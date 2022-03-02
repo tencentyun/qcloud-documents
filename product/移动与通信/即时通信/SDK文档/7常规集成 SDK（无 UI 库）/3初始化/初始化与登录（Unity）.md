@@ -61,11 +61,11 @@ public static void Login() {
 }
 ```
 
-## userid
+## UserID
 
 登录用户唯一 ID， 建议只包含大小写英文字母（a-z、A-Z）、数字（0-9）、下划线（_）和连词符（-），长度最大不超过32字节。
 
-## usersig
+## UserSig
 
 IM SDK 登录票据，由您的业务服务器进行计算以保证安全，计算方法请参考 [UserSig 后台 API](https://cloud.tencent.com/document/product/269/32688)。
 
