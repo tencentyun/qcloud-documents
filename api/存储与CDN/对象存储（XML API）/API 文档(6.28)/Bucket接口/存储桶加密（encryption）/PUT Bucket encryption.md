@@ -50,7 +50,7 @@ Authorization: Auth String
 | ---------------------------------- | ---------------------------------- | -------------------------------------- | --------- | -------- |
 | ServerSideEncryptionConfiguration  | 无                                 | 包含默认加密的配置参数                 | Container | 是       |
 | Rule                              | ServerSideEncryptionConfiguration  | 默认的服务端加密配置规则               | Container | 是       |
-| ApplyServerSideEncryptionByDefault | Rules                              | 服务端加密的默认配置信息               | Container | 是       |
+| ApplyServerSideEncryptionByDefault | Rule                              | 服务端加密的默认配置信息               | Container | 是       |
 | SSEAlgorithm                       | ApplyServerSideEncryptionByDefault | 要使用的服务端加密算法，枚举值：AES256 | String    | 是       |
 
 ## 响应
