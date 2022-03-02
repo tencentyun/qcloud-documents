@@ -6,7 +6,7 @@
 ## 前提条件
 - 您已经 [购买 Web 应用防火墙套餐](https://buy.cloud.tencent.com/buy/waf)，完成防护域名添加，域名处于正常防护状态。
 - 情报 IP 封禁当前处于灰度阶段，如需试用请 [联系我们](https://cloud.tencent.com/act/event/connect-service) 进行开通。在灰度期间您可以免费使用，正式发布后，将按官网公布刊例价正常收取费用。
-- 当前IP封禁支持域名级区分封禁，不同域名检测时长不同，封禁时间也单独计算。
+- 当前 IP 封禁支持域名级区分封禁，不同域名检测时长不同，封禁时间也单独计算。
 
 ## 操作步骤
 1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia)，在左侧导航栏中，选择**基础安全** > **WEB 安全**。
