@@ -1,12 +1,14 @@
 ## 操作场景
-本文以标准登录方式（WebShell）登录实例为例，为您详细介绍如何在 Linux 客户端上使用 Turbo 文件系统。
+在计算节点上使用挂载命令将文件系统挂载到本地目录后，即可像使用本地文件系统一样使用 Turbo 文件系统。本文以标准登录方式（WebShell）登录实例为例，为您详细介绍如何在 Linux 客户端上使用 Turbo 文件系统。
 更多登录 Linux 实例的方式请参见 [登录 Linux 实例](https://cloud.tencent.com/document/product/213/16515)。
 
 
 ## 前提条件
-- 已 [创建文件系统及挂载点](https://cloud.tencent.com/document/product/1546/68774)。
-- 已在云联网内的某个私有网络 VPC 下 [创建实例](https://cloud.tencent.com/document/product/213/4855)。
-- 需要和存储通信的计算实例，且已双向放通云联网内 Turbo 所在 VPC 全部 IP 地址的988端口。
+为能够正常使用产品，请在使用前完成如下条件，并确保配置和安装成功，否则将影响您的正常使用。
+- [创建文件系统及挂载点](https://cloud.tencent.com/document/product/1546/68774)。
+- 在云联网内的某个私有网络 VPC 下 [创建实例](https://cloud.tencent.com/document/product/213/4855)。
+- 待访问存储的计算节点**双向放通**云联网内 Turbo 所在 VPC 全部 IP 地址的988端口。
+
 
 ## 操作步骤
 
@@ -261,7 +263,6 @@ https://cfsturbo-client-1251013638.cos.ap-guangzhou.myqcloud.com/2.12.4/centos/3
 	</td>
   </tr>
 </table>
-
 4. 根据实例的操作系统类型，执行相应命令，安装客户端。
    - Ubuntu 操作系统：
 ```

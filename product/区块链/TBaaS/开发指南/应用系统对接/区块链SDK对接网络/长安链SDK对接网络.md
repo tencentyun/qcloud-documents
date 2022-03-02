@@ -172,4 +172,4 @@ go run main.go config/config.yml
 
 ## 更多对接方式
 
-长安链提供了多种语言的 SDK，包括 Go SDK、Java SDK 等，方便开发者根据需求进行选用。更多详情请参见 [长安链 SDK 开发指南](https://docs.chainmaker.org.cn/dev/SDK.html)。
+长安链提供了多种语言的 SDK，包括 Go SDK、Java SDK 等，方便开发者根据需求进行选用。更多详情请参见 [长安链 SDK 开发指南](https://docs.chainmaker.org.cn/v1.2.0/html/dev/SDK.html#)。

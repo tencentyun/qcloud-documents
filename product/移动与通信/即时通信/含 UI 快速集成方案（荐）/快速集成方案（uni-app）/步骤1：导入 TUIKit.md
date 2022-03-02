@@ -34,7 +34,6 @@ uni-app TUIKit 是基于 IM SDK 实现的一套 UI 组件，其包含会话、�
 ![](https://qcloudimg.tencent-cloud.cn/raw/096980f3029fae3e2750d4b77082cb55.png)
 2. 根据 package.json 进行对应依赖安装。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d0594851c404f6bb4c5ed30b1ab02359.png)
->?可参见 [uni-app 官网](https://www.cxybb.com/article/weixin_44168109/111037919)
 
 ### 步骤2：初始化TUIKit
 将 app.vue 中的代码复制到 myApplication 项目中，填写 SDKAppID。
