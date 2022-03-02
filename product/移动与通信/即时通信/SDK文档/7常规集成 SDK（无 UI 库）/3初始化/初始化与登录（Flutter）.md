@@ -20,7 +20,7 @@ import 'package:tencent_im_sdk_plugin/tencent_im_sdk_plugin.dart';
 ### SDKAppID
 SDKAppID 即应用 ID，它是腾讯云 IM 服务用于区分客户帐号的唯一标识。每一个独立的 App 都建议申请一个新的 SDKAppID，不同 SDKAppID 之间的消息天然隔离，不能互通。
 您可以在 [即时通信 IM 控制台](https://console.cloud.tencent.com/im) 查看所有的 SDKAppID，单击 **创建新应用** 即可创建新的 SDKAppID。
-![](https://qcloudimg.tencent-cloud.cn/raw/febed2f15dee6ff09f066ba228c7fc27.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/d7f4bacfc440fe50cec41a48030a9928.png)
 
 ### loglevel
 参数 `loglevel` 用于对日志级别的设置，即 [logLevel](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/enum_log_level_enum/LogLevelEnum.html) 参数，日志级别如下表所示：
