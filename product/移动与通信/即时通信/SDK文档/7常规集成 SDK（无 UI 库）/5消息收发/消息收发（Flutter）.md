@@ -562,9 +562,7 @@ SDK 发送的文本消息默认会经过即时通信 IM 的敏感词过滤，如
 ### 2. App 卸载重装后已读回执为什么失效了？
 在单聊场景下，接收方如果调用 [markC2CMessageAsRead](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/im_flutter_plugin_platform_interface/ImFlutterPlatform/markC2CMessageAsRead.html) 设置消息已读，发送方收到的已读回执里面包含了对方已读的时间戳 `timestamp`，SDK 内部会根据 `timestamp` 判断消息对方是否已读， `timestamp` 目前只在本地保存，程序卸载重装后会丢失。
 
-
-
-### 4. 如何解析多个 Elem 的消息？
+### 3. 如何解析多个 Elem 的消息？
 1. 通过 `Message` 对象正常解析出第一个 `Elem` 对象。
 2. 通过第一个 `Elem` 对象的 [nextElem](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/models_v2_tim_elem/V2TIMElem/nextElem.html) 方法获取下一个 `Elem` 对象。如果下一个 `Elem` 对象存在，会返回 `Elem` 对象实例，如果不存在，会返回 `null`。
 ```dart
@@ -593,5 +591,5 @@ SDK 发送的文本消息默认会经过即时通信 IM 的敏感词过滤，如
 ```
 
 [](id:msgAnalyze)
-### 5. 各种不同类型的消息应该如何解析？
+### 4. 各种不同类型的消息应该如何解析？
 解析消息相对复杂，我们提供了各种类型消息解析的 [示例代码](https://github.com/tencentyun/TIMSDK/blob/master/Flutter/Demo/im_discuss/lib/pages/conversion/component/common_content.dart)，您可以直接把相关代码拷贝到您的工程，然后根据实际需求进行二次开发。
