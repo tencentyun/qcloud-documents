@@ -210,7 +210,7 @@ List<String> atUserList = ['AT_ALL_TAG',"何大佬的userID"]; // 既 @全体又
 
 | 合并转发 | 合并消息展示 | 单机合并消息下载合并消息列表展示 |
 |---------|---------|---------|
-|<img style="width:170px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/ca62239bbab545665df617c928960d5a.jpg" />  |<img style="width:170px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/ae0bbf431eee95aa1b0be04b2346837f.jpg" /> | !<img style="width:170px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/b145e9c869fc84ead6477f9fa9012d72.jpg" /> |
+|<img style="width:170px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/ca62239bbab545665df617c928960d5a.jpg" />  |<img style="width:170px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/ae0bbf431eee95aa1b0be04b2346837f.jpg" /> | <img style="width:170px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/b145e9c869fc84ead6477f9fa9012d72.jpg" /> |
 
 - **发送合并转发消息：**
 通常我们在收到一条合并消息的时候，会在聊天界面这样显示：
