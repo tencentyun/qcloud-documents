@@ -9,7 +9,7 @@
 本功能限制如下：
 - 仅支持自建的 MySQL、MariaDB，不支持云数据库，也不支持其他类型的数据库。
 - 支持的协议版本及加密算法如下，其他协议及加密算法暂不支持。下方提供对应检测方式。
-  - 支持的通信协议版本：TLS 1.2。
+  - 支持的通信协议版本：TLS1.1、TLS1.2。
   - 支持的加密算法：TLS_RSA_WITH_AES_128_CBC_SHA 、TLS_RSA_WITH_AES_256_CBC_SHA 、TLS_RSA_WITH_AES_128_CBC_SHA256、 TLS_RSA_WITH_AES_256_CBC_SHA256。
 
 ## 检测方式[](id:JCFS)
@@ -41,13 +41,13 @@ dba:(none)> show global variables like '%ssl%';
 ```
 show variables like "tls_version";
 ```
-2. 若 tls_version 的值为 TLSv1.2，则表示是支持的，若包含其他值，如下所示则表示不支持，需要进行修改。
+2. 若 tls_version 的值仅包含 TLSv1.1和 TLSv1.2，则表示是支持的，若包含其他值，如下所示则表示不支持，需要进行修改。
 ```
 dba:(none)> show global variables like 'tls_version';
 +---------------+----------------------+
 | Variable_name | Value                |
 +---------------+----------------------+
-| tls_version   | TLSv1,TLSv1.1,TLSv1.2|    #不只包含TLSv1.2，是不支持的
+| tls_version   | TLSv1,TLSv1.1,TLSv1.2|   #包含TLSv1，是不支持的
 +---------------+----------------------+
 ```
 

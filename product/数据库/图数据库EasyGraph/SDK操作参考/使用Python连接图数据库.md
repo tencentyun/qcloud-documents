@@ -1,21 +1,17 @@
-本文介绍如何使用Python语言连接和操作图数据库KonisGraph。
-
-以 [Gremlin-console tutorials](https://tinkerpop.apache.org/docs/3.5.1/tutorials/getting-started/#_the_first_five_minutes) 中的人和软件的关系图为示例。
+本文介绍如何使用 Python 语言连接和操作图数据库 KonisGraph。以 [Gremlin-console tutorials](https://tinkerpop.apache.org/docs/3.5.1/tutorials/getting-started/#_the_first_five_minutes) 中的人和软件的关系图为示例。
 ![enter image description here](https://main.qcloudimg.com/raw/51a52aabf2b24289aa61f713a8cd1eb4.png)
-如图所示，整个图包含2类点 person 和 software ，2类边 knows 和 created ，和几类属性 id 、name 、 age 、 lang 、 weight。
+如图所示，整个图包含2类点 person 和 software，2类边 knows 和 created，和几类属性 id、name、age、lang、weight。
 
-# 环境准备
-1. 安装python语言环境
-2. 安装gremlinpython
-
+## 环境准备
+1. 安装 Python 语言环境。
+2. 安装 gremlinpython。
 ```sh
 pip3 install gremlinpython
 ```
->？
-**注意：gremlinpython依赖python3.5及以上版本**
+>!gremlinpython 依赖 python 3.5 及以上版本。
+3. 获取图数据库的连接参数。在 [控制台](https://console.cloud.tencent.com/konisgraph) 实例详情页中可以查看实例的 VIP 和 PORT，即内网地址和 Gremlin 端口。
 
-# 示例程序
-
+## 示例程序
 ```python
 from gremlin_python.driver import client
 from gremlin_python.driver.protocol import GremlinServerError
@@ -112,8 +108,8 @@ if __name__ == "__main__":
         t.close()
 ```
 
-# 运行程序
-
+## 运行程序
 ```sh
 python3 tutorial.py
 ```
+

@@ -1,19 +1,15 @@
-本文介绍如何使用Java连接和操作图数据库KonisGraph。
-
-以 [Gremlin-console tutorials](https://tinkerpop.apache.org/docs/3.5.1/tutorials/getting-started/#_the_first_five_minutes) 中的人和软件的关系图为示例。
+本文介绍如何使用 Java 连接和操作图数据库 KonisGraph。以 [Gremlin-console tutorials](https://tinkerpop.apache.org/docs/3.5.1/tutorials/getting-started/#_the_first_five_minutes) 中的人和软件的关系图为示例。
 ![enter image description here](https://main.qcloudimg.com/raw/51a52aabf2b24289aa61f713a8cd1eb4.png)
-如图所示，整个图包含2类点 person 和 software ，2类边 knows 和 created ，和几类属性 id 、name 、 age 、 lang 、 weight。
+如图所示，整个图包含2类点 person 和 software，2类边 knows 和 created，和几类属性 id、name、age、lang、weight。
 
-# 环境准备
+## 环境准备
+1. 安装 JDK 8.0，并配置 Java 环境。
+2. 安装 maven，参考 [Installing Apaceh Maven](https://maven.apache.org/install.html)。
+3. 获取图数据库的连接参数。在 [控制台](https://console.cloud.tencent.com/konisgraph) 实例详情页中可以查看实例的 VIP 和 PORT，即内网地址和 Gremlin 端口。
 
-1. 安装JDK 8.0并配置Java环境
-2. 安装maven，参考[Installing Apaceh Maven](https://maven.apache.org/install.html)
-
-# 示例代码
-
-1. 创建graph_demo目录
-2. 创建pom.xml文件，并写入如下内容：
-
+## 示例代码
+1. 创建 graph_demo 目录。
+2. 创建 pom.xml 文件，并写入如下内容：
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -93,16 +89,12 @@
     </build>
 </project>
 ```
-
-3. 创建目录并新建文件
-
+3. 创建目录并新建文件。
 ```sh
 mkdir -p src/main/java/com/tencent/konisgraph/
 touch src/main/java/com/tencent/konisgraph/App.java
 ```
-
-4. 编写测试程序
-
+4. 编写测试程序。
 ```java
 package com.tencent.konisgraph;
 
@@ -121,7 +113,7 @@ import static org.apache.tinkerpop.gremlin.process.traversal.AnonymousTraversalS
 public class App {
 
     public static void main(String[] args) {
-        // 设置正确的serializer
+        // 设置正确的 serializer
         MessageSerializer serializer = new GryoMessageSerializerV3d0();
         Cluster cluster = Cluster.build().
             addContactPoint("KONISGRAPH_VIP").port(KONISGRAPH_PORT).
@@ -130,7 +122,7 @@ public class App {
             create();
         Client client = cluster.connect();
        
-        // 添加属性、点、边等元数据。submit方法需要捕获异常处理
+        // 添加属性、点、边等元数据。submit 方法需要捕获异常处理
         try {
             client.submit("s.addP('id', 'T_LONG', '0')").all().get();
             client.submit("s.addP('name', 'T_STRING', '')").all().get();
@@ -145,7 +137,7 @@ public class App {
             e.printStackTrace();
         }
 
-        // 创建一个GraphTraversalSource实例用于查询数据
+        // 创建一个 GraphTraversalSource 实例用于查询数据
         GraphTraversalSource g = traversal().withRemote(DriverRemoteConnection.using(cluster));
 
         // property 必须分开写才能成功
@@ -176,8 +168,7 @@ public class App {
 }
 ```
 
-# 编译运行
-
+## 编译运行
 ```sh
 mvn package
 java -jar target/tutorial-0.1-jar-with-dependencies.jar

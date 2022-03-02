@@ -1,23 +1,20 @@
-本文介绍如何使用Go语言连接和操作图数据库KonisGraph。
-以 [Gremlin-console tutorials](https://tinkerpop.apache.org/docs/3.5.1/tutorials/getting-started/#_the_first_five_minutes) 中的人和软件的关系图为示例。
+本文介绍如何使用 Go 语言连接和操作图数据库 KonisGraph。以 [Gremlin-console tutorials](https://tinkerpop.apache.org/docs/3.5.1/tutorials/getting-started/#_the_first_five_minutes) 中的人和软件的关系图为示例。
 ![enter image description here](https://main.qcloudimg.com/raw/51a52aabf2b24289aa61f713a8cd1eb4.png)
-如图所示，整个图包含2类点 person 和 software ，2类边 knows 和 created ，和几类属性 id 、name 、 age 、 lang 、 weight。
+如图所示，整个图包含2类点 person 和 software，2类边 knows 和 created，和几类属性 id、name、age、lang、weight。
 
-# 环境准备
-1. 安装go语言环境，参考[go语言官网](https://go.dev/doc/install)
-2. 获取图数据库的连接参数。在实例详情页中可以查看实例的VIP和PORT，即内网地址和Gremlin端口。
+## 环境准备
+1. 安装 Go 语言环境，参考 [Go 语言官网](https://go.dev/doc/install)。
+2. 获取图数据库的连接参数。在 [控制台](https://console.cloud.tencent.com/konisgraph) 实例详情页中可以查看实例的 VIP 和 PORT，即内网地址和 Gremlin 端口。
 
-# 示例程序
-
-## 新建一个demo目录，并初始化module
+## 示例程序
+### 新建一个 demo 目录，并初始化 module
 ```
 mkdir graph_demo
 cd graph_demo
 go mod init demo
 ```
 
-### 示例项目目录结构
-
+#### 示例项目目录结构
 ```
 |- graph_demo
 	|- go.mod
@@ -30,10 +27,8 @@ go mod init demo
 		|- edge.go
 ```
 
-## 定义点、边及属性等模型
-
-### meta.go: 属性、点边等对应的元数据定义
-	
+### 定义点、边及属性等模型
+#### meta.go: 属性、点边等对应的元数据定义
 ```go
 package model
 
@@ -67,8 +62,7 @@ type EdgeMeta struct {
 }
 ```
 
-### property.go: 属性模型定义
-	
+#### property.go: 属性模型定义
 ```go
 package model
 
@@ -83,8 +77,7 @@ type PropertyValue struct {
 }
 ```
 
-### vertex.go: 点模型定义
-
+#### vertex.go: 点模型定义
 ```go
 package model
 
@@ -122,8 +115,7 @@ func (vl *VertexList) UnmarshalJSON(data []byte) error {
 }
 ```
 
-### edge.go: 边模型定义
-
+#### edge.go: 边模型定义
 ```go
 package model
 
@@ -160,8 +152,7 @@ func (el *EdgeList) UnmarshalJSON(data []byte) error {
 }
 ```
 
-## 数据库操作
-
+### 数据库操作
 ```go
 package main
 
@@ -286,13 +277,13 @@ func main() {
 
 	// 做一些查询
 	g := grammes.Traversal()
-	// 查看marko的信息
+	// 查看 marko 的信息
 	data, _ := tutorial.ExecuteQuery(g.V().HasLabel("person").Has("name", "marko").ValueMap())
 	for _, item := range data {
 		log.Println(string(item))
 	}
 
-	// 查找marko都认识哪些人
+	// 查找 marko 都认识哪些人
 	data, _ = tutorial.ExecuteQuery(g.V().HasLabel("person").Has("name", "marko").Out("knows"))
 	for _, item := range data {
 		var vertices model.VertexList
@@ -306,7 +297,7 @@ func main() {
 		log.Print("Who marko knows: ", names)
 	}
 
-	// 查找哪些人创建了软件lop
+	// 查找哪些人创建了软件 lop
 	data, _ = tutorial.ExecuteQuery(g.V().HasLabel("software").Has("name", "lop").In("created"))
 	for _, item := range data {
 		var vertices model.VertexList
@@ -322,8 +313,7 @@ func main() {
 }
 ```
 
-# 运行示例程序
-
+## 运行示例程序
 ```shell
 go run main.go
 ```

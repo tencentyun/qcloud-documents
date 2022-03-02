@@ -1,6 +1,6 @@
 ## 初始化
 
-即时通信 IM Unity SDK 需要初始化并登录后才能使用。集成 SDK 后，首先需要进行初始化，在 Unity 中，代码如下：
+即时通信 IM Unity SDK 需要初始化并登录后才能使用。集成 SDK 后，首先需要进行初始化，在 Unity 中代码如下：
 
 ```c#
 public static void Init() {
@@ -40,7 +40,7 @@ SDKAppID 即应用 ID，它是腾讯云 IM 服务用于区分客户帐号的唯�
 
 ### TIMResult
 
-调用 SDK 同步返回的结果，当 res 为 TIMResult.TIM_SUCC = 0 时为接口调用成功。
+调用 SDK 同步返回的结果，当 res 为 TIMResult.TIM_SUCC = 0 时接口调用成功。
 
 ### 其他
 
@@ -61,11 +61,11 @@ public static void Login() {
 }
 ```
 
-## userid
+## UserID
 
 登录用户唯一 ID， 建议只包含大小写英文字母（a-z、A-Z）、数字（0-9）、下划线（_）和连词符（-），长度最大不超过32字节。
 
-## usersig
+## UserSig
 
 IM SDK 登录票据，由您的业务服务器进行计算以保证安全，计算方法请参考 [UserSig 后台 API](https://cloud.tencent.com/document/product/269/32688)。
 

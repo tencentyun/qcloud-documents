@@ -9,8 +9,8 @@
 |iOS|Xcode 11.0及以上版本，真机调试请确保您的项目已设置有效的开发者签名。|
 
 
-## 集成 IMSDK
-您可以通过 [pub add](https://pub.dev/packages/tencent_im_sdk_plugin) 的方式直接集成腾讯云 IM SDK（flutter），或者在 pubspec.yaml 中写入 IM SDK 的方式来集成。
+## 集成 IM SDK
+您可以通过 [pub add](https://pub.dev/packages/tencent_im_sdk_plugin) 的方式直接集成腾讯云 IM SDK（Flutter），或者在 pubspec.yaml 中写入 IM SDK 的方式来集成。
 
 
 ### flutter pub add 安装
