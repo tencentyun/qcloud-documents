@@ -21,7 +21,7 @@
 | 群 Tips 消息 | GroupTipsElem | 群 Tips 消息常被用于承载群中的系统性通知消息，例如有成员进出群组，群的描述信息被修改，群成员的资料发生变化等。 |
 
 ## 收发简单消息
-在IM Flutter SDK中有两大类消息（简单消息和富媒体消息），这里我们先介绍简单消息。在V2TIMManager.getMessageManager() 中提供了一组简单消息的收发接口，可直接用于文本消息和自定义（信令）消息的收发，但3.6.0后我们不推荐您使用。建议您也走富媒体消息流程，先 create 对应 [V2TimMessage](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/models_v2_tim_message/V2TimMessage-class.html)，再调用统一的 [sendMessage](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/im_flutter_plugin_platform_interface/ImFlutterPlatform/sendMessage.html) 接口。
+在 IM Flutter SDK 中有两大类消息（简单消息和富媒体消息），这里我们先介绍简单消息。在V2TIMManager.getMessageManager() 中提供了一组简单消息的收发接口，可直接用于文本消息和自定义（信令）消息的收发，但3.6.0后我们不推荐您使用。建议您也走富媒体消息流程，先 create 对应 [V2TimMessage](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/models_v2_tim_message/V2TimMessage-class.html)，再调用统一的 [sendMessage](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/im_flutter_plugin_platform_interface/ImFlutterPlatform/sendMessage.html) 接口。
 
 简单消息：
 
@@ -52,7 +52,7 @@
 ```
 在createMessage后，会返回一个消息创建 id，将消息创建 id 传递给 sendMessage 即可将消息发送出去。sendMessage 方法为所有消息发送的通用方法 receiver、groupID 二选一填写，另一个传递空字符串即可。
 
->!发送文本消息，其中文本消息会经过即时通信 IM 的敏感词过滤，包含的敏感词消息在发送时会报80001错误码。调用 createMessage 再调用 sendMessage 可以发送 C2C 自定义（信令）消息，自定义消息本质是一段二进制 buffer，通常用于传输您应用中的自定义信令，内容不会经过敏感词过滤。此外 Flutter IM SDK，额外封装了一个信令供您调用（将在下方介绍）。
+>!发送文本消息，其中文本消息会经过即时通信 IM 的敏感词过滤，包含的敏感词消息在发送时会报80001错误码。调用 createMessage 再调用 sendMessage 可以发送 C2C 自定义（信令）消息，自定义消息本质是一段二进制 buffer，通常用于传输您应用中的自定义信令，内容不会经过敏感词过滤。此外 Flutter IM SDK 额外封装了一个信令供您调用（将在下方介绍）。
 
 ### 接收文本和信令消息
 通过  [addSimpleMsgListener](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_manager/V2TIMManager/addSimpleMsgListener.html) 可以监听简单的文本和信令消息，复杂的图片、视频、语音消息则需要通过 v2TIMManager.getMessageManager() 中定义的 [addAdvancedMsgListener](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/addAdvancedMsgListener.html) 实现。
