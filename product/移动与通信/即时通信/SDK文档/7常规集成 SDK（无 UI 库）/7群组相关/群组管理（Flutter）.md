@@ -146,7 +146,7 @@
 ```
 
 
-- 参数 `groupType` 是字符串类型，可以选择 “Work”、“Public”、“Meeting” 和 “AVChatRoom” 中的任何一个，各种不同类型之间的差异请参见 [群类型介绍](#type)。
+- 参数 `groupType` 是字符串类型，可以选择 “Work”、“Public”、“Meeting” 、“Community”和 “AVChatRoom” 中的任何一个，各种不同类型之间的差异请参见 [群类型介绍](#type)。
 - 参数 `groupID` 用于指定群组 ID，它用于唯一标识一个群，请勿在同一个 SDKAppID 下创建相同 `groupID`  的群。如果您指定 `groupID` 为 null，系统会为您默认分配一个群 ID。
 - 参数 `groupName` 用于指定群的描述信息，最长支持30个字节。
 
