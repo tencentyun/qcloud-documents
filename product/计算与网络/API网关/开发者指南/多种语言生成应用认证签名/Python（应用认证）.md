@@ -311,7 +311,7 @@ xDate = datetime.datetime.utcnow().strftime(GMT_FORMAT)
 
   signing_str = 'x-date: %s\n%s\n%s\n%s\n%s\n%s' % (
 
-​    xDate, HTTPMethod, Accept, content_type, ContentMD5, Path)
+    xDate, HTTPMethod, Accept, content_type, ContentMD5, Path)
 
 
 
@@ -361,25 +361,25 @@ xDate = datetime.datetime.utcnow().strftime(GMT_FORMAT)
 
   **for** (key, value) **in** fields:
 
-​    L.append('--' + BOUNDARY)
+    L.append('--' + BOUNDARY)
 
-​    L.append('Content-Disposition: form-data; name="%s"' % key)
+    L.append('Content-Disposition: form-data; name="%s"' % key)
 
-​    L.append('')
+    L.append('')
 
-​    L.append(value)
+    L.append(value)
 
   **for** (key, filename, value) **in** files:
 
-​    L.append('--' + BOUNDARY)
+    L.append('--' + BOUNDARY)
 
-​    L.append('Content-Disposition: form-data; name="%s"; filename="%s"' % (key, filename))
+    L.append('Content-Disposition: form-data; name="%s"; filename="%s"' % (key, filename))
 
-​    L.append('Content-Type: %s' % get_content_type(filename))
+    L.append('Content-Type: %s' % get_content_type(filename))
 
-​    L.append('')
+    L.append('')
 
-​    L.append(value)
+    L.append(value)
 
   L.append('--' + BOUNDARY + '--')
 
@@ -775,7 +775,7 @@ xDate = datetime.datetime.utcnow().strftime(GMT_FORMAT)
 
   signing_str = 'x-date: %s\n%s\n%s\n%s\n%s\n%s' % (
 
-​    xDate, HTTPMethod, Accept, content_type, ContentMD5, Path)
+    xDate, HTTPMethod, Accept, content_type, ContentMD5, Path)
 
 
 
@@ -825,25 +825,25 @@ xDate = datetime.datetime.utcnow().strftime(GMT_FORMAT)
 
   **for** (key, value) **in** fields:
 
-​    L.append('--' + BOUNDARY)
+    L.append('--' + BOUNDARY)
 
-​    L.append('Content-Disposition: form-data; name="%s"' % key)
+    L.append('Content-Disposition: form-data; name="%s"' % key)
 
-​    L.append('')
+    L.append('')
 
-​    L.append(value)
+    L.append(value)
 
   **for** (key, filename, value) **in** files:
 
-​    L.append('--' + BOUNDARY)
+    L.append('--' + BOUNDARY)
 
-​    L.append('Content-Disposition: form-data; name="%s"; filename="%s"' % (key, filename))
+    L.append('Content-Disposition: form-data; name="%s"; filename="%s"' % (key, filename))
 
-​    L.append('Content-Type: %s' % get_content_type(filename))
+    L.append('Content-Type: %s' % get_content_type(filename))
 
-​    L.append('')
+    L.append('')
 
-​    L.append(value)
+    L.append(value)
 
   L.append('--' + BOUNDARY + '--')
 
