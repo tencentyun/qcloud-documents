@@ -3,10 +3,10 @@
 
 ## 对接指引
 ### 步骤1：购买套餐包
-请前往 [购买旗舰版套餐包](https://cloud.tencent.com/document/product/269/32458)。 
+请将套餐升级到旗舰版，请参见  [购买指引](https://cloud.tencent.com/document/product/269/32458)。
 
 ### 步骤2：调用搜索本地用户资料接口
-调用接口 [searchFriends](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_friendship_manager/V2TIMFriendshipManager/searchFriends.html) 可以搜索本地用户资料，其中的接口参数[searchParams](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/models_v2_tim_friend_search_param/V2TimFriendSearchParam-class.html)支持搜索`nickName、userID、remark`字段。可以使用此接口实现好友搜索功能，如昵称搜索等。
+调用接口 [searchFriends](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_friendship_manager/V2TIMFriendshipManager/searchFriends.html) 可以搜索本地用户资料，其中的接口参数 [searchParams](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/models_v2_tim_friend_search_param/V2TimFriendSearchParam-class.html) 支持搜索`nickName、userID、remark`字段。可以使用此接口实现好友搜索功能，如昵称搜索等。
 
 ```dart
  V2TimFriendSearchParam searchParam = new V2TimFriendSearchParam(
@@ -18,8 +18,6 @@
         .getFriendshipManager()
         .searchFriends(searchParam: searchParam);
 ```
-
-  <br/>
 
 ### 步骤3：调用搜索本地群组和群成员接口
 
