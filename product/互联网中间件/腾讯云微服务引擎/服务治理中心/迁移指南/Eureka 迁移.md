@@ -1,6 +1,6 @@
 ## 操作场景
-
-本文通过一个 demo 进行应用使用`spring-cloud-eureka-client`接入微服务引擎托管的 PolarisMesh 治理中心的全流程操作演示，帮助您快速了解如何使用服务治理中心。
+ 
+本文通过一个 demo 进行应用使用 `spring-cloud-eureka-client` 接入微服务引擎托管的 PolarisMesh 治理中心的全流程操作演示，帮助您快速了解如何使用服务治理中心。
 
 ## 前提条件
 
@@ -15,14 +15,10 @@
 ## 操作步骤
 
 1. 登录 [TSE 控制台](https://console.cloud.tencent.com/tse)。
-
 2. 在**治理中心**下的 **polarismesh** 页面，单击页面左上方下拉列表，选择目标地域。
-
 3. 单击目标引擎的“ID”，进入基本信息页面。
-
 4. 查看访问地址，eureka-client 应用访问使用 eureka 端口（8761）：
 ![](https://qcloudimg.tencent-cloud.cn/raw/e7dc5ac5f7c76a316ae68b667d8a365f.png)
-
 5. 修改 demo 中的注册中心地址。
   - 在下载到本地的 [demo 源码目录](https://github.com/polarismesh/examples/tree/main/eureka/eureka-java) 下，分别找到
 `eureka/eureka-java/consumer/src/main/resources/application.yml`和`eureka/eureka-java/provider/src/main/resources/application.yml`两个文件。
@@ -35,9 +31,8 @@ eureka:
       defaultZone: http://10.0.4.6:8761/eureka/
 :::
 </dx-codeblock> 
-
 6. 打包 demo 源码成 jar 包。
-  1. 在`eureka-java`源码根目录下，打开 cmd 命令，执行 mvn clean package 命令，对项目进行打包编译。
+  1. 在 `eureka-java` 源码根目录下，打开 cmd 命令，执行 mvn clean package 命令，对项目进行打包编译。
   - 编译成功后，生成如下表所示的2个 Jar 包。
 <table>
 <tr>
@@ -56,7 +51,6 @@ eureka:
 <td>服务消费者</td>
 </tr>
 </table>
-
 7. 部署 provider 和 consumer 微服务应用，虚拟机部署方式、容器化部署方式以及TEM部署方式根据您业务实际的部署方式选择一种即可。
  1. **虚拟机部署**部署 provider 和 consumer 微服务应用。
     - 上传 Jar 包至 CVM 实例。
@@ -75,7 +69,6 @@ eureka:
      ENTRYPOINT  ["java","-jar","/root/app.jar"]
 :::
      </dx-codeblock>   
-
       - 通过 TKE 部署并运行镜像。
   3. **TEM 部署**部署 provider 和 consumer 微服务应用。
       - 选择 TEM 环境，注意所选择的环境，其依赖的 VPC，必须和上面已经创建的治理中心实例所依赖的 VPC 一致：     
@@ -92,7 +85,7 @@ eureka:
     - 若实例数量值不为0，则表示已经成功接入微服务引擎。
     - 若实例数量为0，或者找不到具体服务的服务名，则表示微服务应用接入微服务引擎失败。
     ![](https://qcloudimg.tencent-cloud.cn/raw/985cb619571e020d984ec84a89e7624d.png)
- - 调用 consumer 的 HTTP 接口
+ - 调用 consumer 的 HTTP 接口。
     - 执行 http 调用，其中`${app.port}`替换为 consumer 的监听端口（默认为20002），`${add.address}`则替换为 consumer 暴露的地址。
 <dx-codeblock>
 :::  shell
