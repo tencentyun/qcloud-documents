@@ -2,7 +2,7 @@
 
 ### 开发者环境要求
 
-- 开发工具 XCode 11 及以上：App Store 或单击 [下载地址](https://developer.apple.com/xcode/resources/)。
+- 开发工具 XCode 11 及以上：App Store 或单击 [下载地址](https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.4.1.16/demo.zip)。
 - 建议运行环境：
   - 设备要求：iPhone 5 及以上；iPhone 6 及以下前置摄像头最多支持到 720p，不支持 1080p。
   - 系统要求：iOS 10.0 及以上。
@@ -70,27 +70,62 @@ framework 签名可以直接在 General-->Masonry.framework 和 libpag.framework
         }
     }];
 ```
-鉴权errorCode说明
-
-| 错误码 | 说明                                                  |
-| :----- | ----------------------------------------------------- |
-| 0      | 成功。Success                                         |
-| -1     | 输入参数无效，例如URL或KEY为空                        |
-| -3     | 下载环节失败，请检查网络设置                          |
-| -4     | 从本地读取的TE授权信息为空，可能是IO失败引起          |
-| -5     | 读取 VCUBE TEMP License文件内容为空，可能是IO失败引起 |
-| -6     | v_cube.license文件JSON字段不对。请联系腾讯云团队处理  |
-| -7     | 签名校验失败。请联系腾讯云团队处理                    |
-| -8     | 解密失败。请联系腾讯云团队处理                        |
-| -9     | TELicense字段里的JSON字段不对。请联系腾讯云团队处理   |
-| -10    | 从网络解析的TE授权信息为空。请联系腾讯云团队处理      |
-| -11    | 把TE授权信息写到本地文件时失败，可能是IO失败引起      |
-| -12    | 下载失败，解析本地asset也失败                         |
-| -13    | 鉴权失败                                              |
-| 其他   | 请联系腾讯云团队处理                                  |
+**鉴权 errorCode 说明**：
+<table>
+<thead>
+<tr>
+<th>错误码</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>成功。Success</td>
+</tr>
+<tr>
+<td>-1</td>
+<td>输入参数无效，例如 URL 或 KEY 为空</td>
+</tr><tr>
+<td>-3</td>
+<td>下载环节失败，请检查网络设置</td>
+</tr><tr>
+<td>-4</td>
+<td>从本地读取的 TE 授权信息为空，可能是 IO 失败引起</td>
+</tr><tr>
+<td>-5</td>
+<td>读取 VCUBE TEMP License文件内容为空，可能是 IO 失败引起</td>
+</tr><tr>
+<td>-6</td>
+<td>v_cube.license 文件 JSON 字段不对。请联系腾讯云团队处理</td>
+</tr><tr>
+<td>-7</td>
+<td>签名校验失败。请联系腾讯云团队处理</td>
+</tr><tr>
+<td>-8</td>
+<td>解密失败。请联系腾讯云团队处理</td>
+</tr><tr>
+<td>-9</td>
+<td>TELicense 字段里的 JSON 字段不对。请联系腾讯云团队处理</td>
+</tr><tr>
+<td>-10</td>
+<td>从网络解析的TE授权信息为空。请联系腾讯云团队处理</td>
+</tr><tr>
+<td>-11</td>
+<td>把 TE 授权信息写到本地文件时失败，可能是IO失败引起</td>
+</tr><tr>
+<td>-12</td>
+<td>下载失败，解析本地 asset 也失败</td>
+</tr><tr>
+<td>-13</td>
+<td>鉴权失败</td>
+</tr><tr>
+<td>其他</td>
+<td>请联系腾讯云团队处理</td>
+</tr>
+</tbody></table>
 
 [](id:step3)
-### 步骤三：加载 SDK：XMagic.framework
+### 步骤三：加载 SDK（XMagic.framework）
 使用腾讯特效 SDK 生命周期大致如下:
 1. 加载美颜相关资源。
 ```
@@ -140,7 +175,7 @@ deinit (XMagic)
 ### 问题1：编译报错：“unexpected service error: build aborted due to an internal error: unable to write manifest to-xxxx-manifest.xcbuild': mkdir(/data, S_IRWXU | S_IRWXG | S_IRWXO): Read-only file system (30):”？
 
 1. 前往 **File** > **Project settings** > **Build System** 选择 **Legacy Build System**。
-2. Xcode 13.0++  需要在 **File** >**Workspace Settings**  勾选 **Do not show a diagnostic issue about build system deprecation**。
+2. Xcode 13.0++  需要在 **File** > **Workspace Settings**  勾选 **Do not show a diagnostic issue about build system deprecation**。
 
 [](id:que2)
 ### 问题2：iOS 导入资源运行后报错：“Xcode 12.X 版本编译提示 Building for iOS Simulator, but the linked and embedded framework '.framework'...”？
@@ -149,14 +184,11 @@ deinit (XMagic)
 > ?  Validate Workspace 改为 Yes 之后编译完成，再改回 No，也可以正常运行，所这里有这个问题注意下即可。
 
 [](id:que3)
-
 ### 问题3：滤镜设置没反应？
-
 检查下设置的值是否正确，范围为 0-100，可能值太小了效果不明显。
 
 [](id:que4)
-
-### 问题4：iOS demo编译，生成 dSYM 时报错？
+### 问题4：iOS Demo 编译，生成 dSYM 时报错？
 ```
 PhaseScriptExecution CMake\ PostBuild\ Rules build/XMagicDemo.build/Debug-iphoneos/XMagicDemo.build/Script-81731F743E244CF2B089C1BF.sh
     cd /Users/zhenli/Downloads/xmagic_s106
