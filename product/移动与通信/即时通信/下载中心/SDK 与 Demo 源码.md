@@ -155,7 +155,7 @@
                     <div style="margin-top: 13px;" >
                         <a  href="https://pub.dev/packages/tencent_im_sdk_plugin">Github 下载</a>
                                 <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/269/68823">集成指引</a>
-                                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/32396">更新日志</a>
+                                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/269/52049">更新日志</a>
                     </div>
             </div>
         </div>
