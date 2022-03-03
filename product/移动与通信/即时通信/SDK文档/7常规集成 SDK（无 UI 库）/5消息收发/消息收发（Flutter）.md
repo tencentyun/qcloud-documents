@@ -305,7 +305,7 @@ List<String> atUserList = ['AT_ALL_TAG',"何大佬的userID"]; // 既 @全体又
 ```
 
 ## 发送不计入未读数的消息
-正常情况下，无论是发送 C2C 单聊消息还是发送 Group 群消息，都会计入未读消息数（通过会话对象 [V2TIMConversation](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/models_v2_tim_conversation/V2TimConversation-class.html) 的 [unreadCount](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/models_v2_tim_conversation/V2TimConversation/unreadCount.html) 接口，可以拿到一个会话的未读消息数）。当您希望发送一些不计入未读计数的消息时，比如提示类或者控制类的消息，可以按照下面的方式来发送：
+正常情况下，无论是发送 C2C 单聊消息还是发送 Group 群消息，都会计入未读消息数（通过会话对象 [V2TIMConversation](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/models_v2_tim_conversation/V2TimConversation-class.html) 的 [unreadCount](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/models_v2_tim_conversation/V2TimConversation/unreadCount.html) 接口，可以拿到一个会话的未读消息数）。当您希望发送一些不计入未读计数的消息时，例如提示类或者控制类的消息，可以按照下面的方式来发送：
 
 ```dart
     V2TimValueCallback<V2TimMsgCreateInfoResult> createMessage =
