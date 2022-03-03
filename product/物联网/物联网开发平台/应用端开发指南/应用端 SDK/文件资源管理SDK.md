@@ -7,17 +7,23 @@
 | sdk     | object   | 依赖的sdk，h5依赖qcloud-iotexplorer-h5-panel-sdk，小程序依赖qcloud-iotexplorer-appdev-sdk |
 | request | Function | 调用应用端api                                                |
 
-### 前提条件
+### 获取实例
 
-初始化小程序 SDK：请参见 [小程序 SDK 初始化](https://cloud.tencent.com/document/product/1081/68796)
+**1.自主品牌小程序使用**
 
-### 创建实例
-
-```
+```javascript
 const { FileSdkForMiniProgram } = require('qcloud-iotexplorer-fileresource-sdk');
-const app = getApp();
-const fileSdk = new FileSdkForMiniProgram(app.sdk);
+const fileSdk = new FileSdkForMiniProgram(appDevSdk);
 ```
+
+**2.自定义H5使用**
+
+```javascript
+import { FileSdkForH5 } from 'qcloud-iotexplorer-fileresource-sdk';
+let fileSdk = new FileSdkForH5(window.h5PanelSdk);
+```
+
+
 
 ### 上传文件资源
 
