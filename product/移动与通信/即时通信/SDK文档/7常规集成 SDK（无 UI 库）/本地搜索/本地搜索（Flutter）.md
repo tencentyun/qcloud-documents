@@ -57,7 +57,7 @@ messageList 在进行`特定会话`搜索时则会表搜索到本会话中所有
 
 **展示所有搜索到的消息所属的会话列表**
 ![](https://qcloudimg.tencent-cloud.cn/raw/9329201c0ce22f251c31930b53472102.png)
-例如单击图1中的“更多聊天记录”跳转到图2来展示所有搜索到的消息所属的会话列表，其中的搜索参数和搜索结果描述跟上面的场景类似。为了防止内存膨胀，强烈建议对会话列表分页加载。比如您希望每页展示10条会话结果，搜索参数 [V2TIMMessageSearchParam](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/models_v2_tim_message_search_param/V2TimMessageSearchParam-class.html) 可以参见如下设置：
+例如单击图1中的“更多聊天记录”跳转到图2来展示所有搜索到的消息所属的会话列表，其中的搜索参数和搜索结果描述跟上面的场景类似。为了防止内存膨胀，强烈建议对会话列表分页加载。例如您希望每页展示10条会话结果，搜索参数 [V2TIMMessageSearchParam](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/models_v2_tim_message_search_param/V2TimMessageSearchParam-class.html) 可以参见如下设置：
 - 首次调用：设置参数 pageSize = 10，pageIndex = 0，调用 [searchLocalMessages](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/searchLocalMessages.html) 从结果回调中的 totalCount 可以获取会话总数量；
 - 计算页数：totalPage = (totalCount % pageSize == 0) ? (totalCount / pageSize) : (totalCount / pageSize + 1) 。
 - 再次调用：可以通过指定参数 pageIndex（pageIndex < totalPage）返回后续页号的结果
