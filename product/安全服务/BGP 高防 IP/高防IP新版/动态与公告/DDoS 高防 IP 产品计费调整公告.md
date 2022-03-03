@@ -31,13 +31,13 @@
 </tr>
 <tr>
 <th> 保底防护</th>
-<th> 刊例价</th>
+<th> 刊例价（元）</th>
 <th> 保底防护</th>
-<th>刊例价</th>
+<th>刊例价（元）</th>
 <th> 保底防护</th>
-<th> 刊例价</th>
+<th> 刊例价（元）</th>
 <th> 保底防护</th>
-<th>刊例价</th>
+<th>刊例价（元）</th>
 </tr>
 <tr>
 <td>20G</td>
@@ -61,7 +61,7 @@
 </tr>
 <tr>
 <td>100G</td>
-<td>28,000</td>
+<td>-</td>
 <td>100G</td>
 <td>-</td>
 <td>100G</td>
@@ -71,7 +71,7 @@
 </tr>
 <tr>
 <td>300G</td>
-<td>36,800</td>
+<td>-</td>
 <td>300G</td>
 <td>-</td>
 <td>300G</td>
@@ -81,7 +81,7 @@
 </tr>
 <tr>
 <td>500G</td>
-<td>288,200</td>
+<td>-</td>
 <td>500G</td>
 <td>-</td>
 <td>500G</td>
@@ -91,7 +91,7 @@
 </tr>
 <tr>
 <td>800G</td>
-<td>488,200</td>
+<td>-</td>
 <td>800G</td>
 <td>-</td>
 <td>800G</td>
@@ -101,7 +101,7 @@
 </tr>
 <tr>
 <td>1T</td>
-<td>588,200</td>
+<td>-</td>
 <td>1T</td>
 <td>-</td>
 <td>1T</td>
