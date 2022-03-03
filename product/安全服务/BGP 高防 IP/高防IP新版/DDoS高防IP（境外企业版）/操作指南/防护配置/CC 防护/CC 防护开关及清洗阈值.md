@@ -8,7 +8,7 @@ CC 防护根据访问特征和连接状态判定恶意行为， 阻断黑客的�
 
 ## 操作步骤
 1. 登录 [DDoS 高防 IP（境外企业版）](https://console.cloud.tencent.com/ddos/ddos-basic) 控制台 ，在左侧导航中，单击 **DDoS 高防 IP** > **防护配置** > **CC 防护**。
-2. 在 CC 防护页面的左侧列表中，选中高防IP的 ID，如“bgp-00xxxxxx”。
+2. 在 CC 防护页面的左侧列表中，选中高防 IP 的 ID，如“bgp-00xxxxxx”。
 ![](https://qcloudimg.tencent-cloud.cn/raw/8dffdad7a2bb7a9cf45d59390c4597d1.png)
 3. 在 CC 防护开关和清洗阈值卡片中，单击**设置**。
 4. 在 CC 防护开关及清洗阈值列表，单击**新建**，输入所需参数和清洗阈值。
