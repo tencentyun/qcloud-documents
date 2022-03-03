@@ -4,7 +4,7 @@
 
 ### 内网 NTP 服务器
 
-```
+```ruby
 time1.tencentyun.com
 time2.tencentyun.com
 time3.tencentyun.com
@@ -14,7 +14,8 @@ time5.tencentyun.com
 
 ### 外网 NTP 服务器
 
-```
+```ruby
+time.cloud.tencent.com
 time1.cloud.tencent.com 
 time2.cloud.tencent.com 
 time3.cloud.tencent.com
