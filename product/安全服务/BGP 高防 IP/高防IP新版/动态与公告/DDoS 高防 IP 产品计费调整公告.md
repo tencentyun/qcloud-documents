@@ -1,12 +1,10 @@
 
-腾讯云 DDoS 高防 IP 价格策略调整，新计费将于**2022年03月08日**正式启用。
+腾讯云 DDoS 高防 IP 高防IP计费调整，新版计费规则将于**2022年03月08日**正式启用。
 
 在2022年3月31日前，现有的官网在售规格的 DDoS 高防包、 DDoS 高防 IP 产品可按照此次调整前的价格和折扣优惠进行续费，其他非官网在售规格的产品可以联系您的商务先升级到当前官网在售规格后再进行续费。**至2022年4月1日起，原规格的 DDoS 高防包、DDoS 高防 IP 产品到期后不支持续费。**
-
 ## 调整内容
 - 保底防护带宽规格、价格调整。
 - 弹性防护带宽计费模式调整。
-- 转发规则数价格调整。
 - 业务带宽价格调整。
 
 
@@ -43,73 +41,73 @@
 </tr>
 <tr>
 <td>20G</td>
-<td>6000</td>
+<td>6,000</td>
 <td><strong>30G</strong></td>
-<td><strong>19800</strong></td>
+<td><strong>19,800</strong></td>
 <td>20G</td>
-<td>72000</td>
+<td>72,000</td>
 <td><strong>30G</strong></td>
-<td><strong>237600</strong></td>
+<td><strong>237,600</strong></td>
 </tr>
 <tr>
 <td>50G</td>
-<td>25600</td>
+<td>25,600</td>
 <td><strong>60G</strong></td>
-<td><strong>42800</strong></td>
+<td><strong>42,800</strong></td>
 <td>50G</td>
-<td>307200</td>
+<td>307,200</td>
 <td><strong>60G</strong></td>
-<td><strong>513600</strong></td>
+<td><strong>513,600</strong></td>
 </tr>
 <tr>
 <td>100G</td>
-<td>28000</td>
+<td>28,000</td>
 <td>100G</td>
 <td>-</td>
 <td>100G</td>
-<td>280000</td>
+<td>280,000</td>
 <td>100G</td>
-<td><strong>308000</strong></td>
+<td><strong>308,000</strong></td>
 </tr>
 <tr>
 <td>300G</td>
-<td>36800</td>
+<td>36,800</td>
 <td>300G</td>
 <td>-</td>
 <td>300G</td>
-<td>368000</td>
+<td>368,000</td>
 <td>300G</td>
-<td><strong>508000</strong></td>
+<td><strong>508,000</strong></td>
 </tr>
 <tr>
 <td>500G</td>
-<td>288200</td>
+<td>288,200</td>
 <td>500G</td>
 <td>-</td>
 <td>500G</td>
-<td>2882000</td>
+<td>2,882,000</td>
 <td>500G</td>
-<td><strong>3680000</strong></td>
+<td><strong>3,680,000</strong></td>
 </tr>
 <tr>
 <td>800G</td>
-<td>488200</td>
+<td>488,200</td>
 <td>800G</td>
 <td>-</td>
 <td>800G</td>
-<td>4882000</td>
+<td>4,882,000</td>
 <td>800G</td>
-<td><strong>4982000</strong></td>
+<td><strong>4,982,000</strong></td>
 </tr>
 <tr>
 <td>1T</td>
-<td>588200</td>
+<td>588,200</td>
 <td>1T</td>
 <td>-</td>
 <td>1T</td>
-<td>5882000</td>
+<td>5,882,000</td>
 <td>1T</td>
-<td><strong>5982000</strong></td>
+<td><strong>5,982,000</strong></td>
 </tr>
 </tbody></table>
 
@@ -124,12 +122,7 @@
 | 调整前        | 按当天最高攻击峰值所对应的弹性防护区间计费，账单次日生成。   |
 | 调整后        | 按当天最高攻击峰值**扣减保底防护后**所对应的弹性防护区间计费，账单次日生成。 |
 
-### 转发规则数价格调整
 
-| **调整前/后** | **计费模式**                                               |
-| ------------- | ---------------------------------------------------------- |
-| 调整前        | 转发规则数：60个以内包括60免费，60个以上500元/月/10个。    |
-| 调整后        | 转发规则数：**60个以内包括60免费，60个以上60元/月/10个**。 |
 
 ### 业务带宽价格调整
 调整后业务带宽单价分阶梯计费。
