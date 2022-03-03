@@ -1,4 +1,4 @@
-DDoS 高防支持对于业务 IP，基于 IP+端口的维度进行流量访问限速。
+DDoS 高防 IP （境外企业版）支持对于业务 IP，基于 IP+端口的维度进行流量访问限速。
  
 ## 前提条件
 您需要成功 [购买 DDoS 高防 IP （境外企业版）](https://cloud.tencent.com/document/product/1014/56255) ，并设置防护对象。
