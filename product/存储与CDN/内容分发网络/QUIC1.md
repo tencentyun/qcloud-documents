@@ -19,8 +19,7 @@ QUIC (Quick UDP Internet Connections) 是一个通用的网络协议，能够保
 
 登录 [CDN 控制台](https://console.cloud.tencent.com/cdn) 成功添加域名后，可进入域名管理，切换 Tab 至 **HTTPS 配置**，即可找到 **QUIC** 配置：默认为关闭状态，您可自助开启。
   **注：**开启前请先配置 HTTPS 证书。
-![image-20220104145444198](https://tva1.sinaimg.cn/large/008i3skNgy1gy1n9yh7mlj30l703e0sr.jpg)
-
+![](https://qcloudimg.tencent-cloud.cn/raw/eb76b16f45c29189097dbcc62cfd4b4d.jpg)
 >!
 > - 业务类型切换涉及资源平台调度，接入 QUIC 平台后，建议您不要再切换域名的业务类型。
 > - 当前不支持 QUIC 回源。
