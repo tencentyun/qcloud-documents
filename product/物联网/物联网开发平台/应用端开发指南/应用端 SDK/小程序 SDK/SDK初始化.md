@@ -17,13 +17,13 @@ npm install qcloud-iotexplorer-appdev-sdk
 
 ### AppDevSdk 构造函数
 
-**1.接口描述**
+#### 1. 接口描述
 
 接口功能：调用 `AppDevSdk` 的构造函数并传入配置项，创建 SDK 对象。
 
 接口声明：`new AppDevSdk()`
 
-**2.输入参数**
+#### 2. 输入参数
 
 | 参数名         | 参数描述                                                     | 类型           | 必填 |
 | -------------- | ------------------------------------------------------------ | -------------- | ---- |
@@ -50,13 +50,13 @@ SDK 初始化时，将调用 `getAccessToken` 回调函数以取得物联网开�
 | url                   | websocket 服务的 URL，默认为：wss://iot.cloud.tencent.com/ws/explorer | string  | 否   |
 | heartbeatInterval     | 心跳包的发送间隔，单位毫秒，默认为：60000                    | number  | 否   |
 
-**3.输出参数**
+#### 3. 输出参数
 
 | 参数名 | 参数描述           | 类型   | 必填 |
 | ------ | ------------------ | ------ | ---- |
 | -      | AppDevSdk 实例对象 | Object | 是   |
 
-**4.示例代码**
+#### 4. 示例代码
 
 ```typescript
 const sdk = new AppDevSdk({
