@@ -10,13 +10,13 @@ SDK 目前支持 SoftAP、SmartConfig、simpleConfig、AirKiss、BLE-Combo 这�
 
 通过4步可以运行配网插件，以 `SoftAp` 配网为例，其余配网方式步骤相同，后面关于配网步骤和参数说明会有具体阐述。
 
-### 1.安装依赖
+### 1. 安装依赖
 
 ```bash
 npm install qcloud-iotexplorer-appdev-plugin-wificonf-softap
 ```
 
-### 2.注册插件
+### 2. 注册插件
 
 调用插件上 `install` 方法来注册插件，调用时需要传入实例化的小程序SDK。
 
@@ -27,7 +27,7 @@ const SoftApPlug = require('qcloud-iotexplorer-appdev-plugin-wificonf-softap');
 SoftApPlug.install(appDevSdk);
 ```
 
-### 3.生成配网 Token
+### 3. 生成配网 Token
 
 调用应用端 API [生成 Wi-Fi 设备配网 Token](https://cloud.tencent.com/document/product/1081/44044) 来获取 Wi-Fi 设备配网 Token
 
@@ -39,7 +39,7 @@ sdk.requestApi('AppCreateDeviceBindToken')
   });
 ```
 
-### 4.使用配网插件
+### 4. 使用配网插件
 
 从appDevSdk实例的 `plugins` 中获取已注册的插件实例，调用配网插件实例的 `start ` 方法开始配网流程。
 
