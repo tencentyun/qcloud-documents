@@ -9,7 +9,7 @@
 
 >? 如果您不需要对子账号进行相关资源的访问管理，可以跳过本步骤。
 
-主帐号默认拥有访问管理 CAM 所有资源的权限，若以子账号访问 CAM ，子账号需要获得主帐号对访问 CAM 授权时。否者子账号在 成员管理/角色管理，将获取其他子账号的信息，并且会受到 CAM 的鉴权错误提示。
+主帐号默认拥有访问管理 CAM 所有资源的权限，若以子账号访问 CAM ，子账号需要获得主帐号对访问 CAM 授权时。否则子账号在 成员管理/角色管理，将获取其他子账号的信息，并且会受到 CAM 的鉴权错误提示。
 可参考 [授权管理](https://cloud.tencent.com/document/product/598/10602)，将预设策略  QcloudCamReadOnlyAccess 授权给用户，详情参见 [Oceanus 角色权限]()。
 ![](https://qcloudimg.tencent-cloud.cn/raw/33c0956a315cd76f21cb3c311bf8c406.png)
 
