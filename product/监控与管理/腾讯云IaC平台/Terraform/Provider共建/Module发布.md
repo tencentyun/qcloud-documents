@@ -23,7 +23,8 @@ Module 是 Terraform 组合多种资源的配置形态。在部分多资源场�
 
 
 ### 发布 Module 
-1. 登录 [registry.terraform.io](https://registry.terraform.io/)，选择页面右上角的 **Publish**，并在下拉列表中单击 **Module**。
+1. 登录 [registry.terraform.io](https://registry.terraform.io/)，选择页面右上角的 **Publish**，并在下拉列表中单击 **Module**。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/21b9530913836f7264352c09d27f25d1.png)
 2. 在页面中展开 “Select Repository on GitHub” 下拉列表，可在列表中查看个人账户下有管理权限的 Modules 仓库，选择需发布的 Module。如下图所示：
 <img src="https://qcloudimg.tencent-cloud.cn/raw/8d0bd74baf57150f418e4639663695b6.png" style="width:60%"/> <dx-alert infotype="notice" title="">
 Module 可以使用个人 GitHub 仓库发布。若仓库名称符合 `terraform-tencentcloud-<NAME>`，则该 Modules 也会收录在 tencentcloud 的 Modules 中。
