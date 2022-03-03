@@ -95,16 +95,16 @@
 
 
 #### 调整后刊例价
-
 <table>
 <thead>
 <tr>
 <th>业务规模(Mbps)</th>
-<th colspan=3>高防包-按年售卖（调整后-6.25折后价，单位元 ）</th>
-<th colspan=3>高防包-按年售卖（调整后-刊例价，单位元）</th>
+<th colspan="3">高防包-按年售卖（调整后-6.25折后价，单位元 ）</th>
+<th colspan="3">高防包-按年售卖（调整后-刊例价，单位元）</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>-</td>
 <td>10 个 IP</td>
 <td>50 个 IP</td>
@@ -128,7 +128,6 @@
 <td>-</td>
 <td>-</td>
 <td>688,000</td>
-<td-</td>
 <td>-</td>
 </tr>
 <tr>
