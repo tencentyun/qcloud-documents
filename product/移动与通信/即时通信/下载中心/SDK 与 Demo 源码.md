@@ -256,7 +256,7 @@
                      <div style="margin-top: 13px; " >
                     <a href="https://github.com/tencentyun/TIMSDK/tree/master/Flutter/Demo/im_discuss">Github 下载</a>
                         <a style="margin-left: 10px;" href="https://upload-dianshi-1255598498.cos.ap-guangzhou.myqcloud.com/nodir/TencentImSDKPlugin-1610442889170.zip">ZIP 下载</a>
-                     </div>
+                     <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/269/68823">集成指引</a></div>
             </div>
         </div>
         <div class="card-container">
