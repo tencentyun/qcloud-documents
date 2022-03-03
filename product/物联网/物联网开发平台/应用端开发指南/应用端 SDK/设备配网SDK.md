@@ -1,25 +1,35 @@
 ## 配网概述
 
-SDK 目前支持 softAP、SmartConfig、simpleConfig、AirKiss、BLE-Combo 这五种方式进行设备配网。这五种配网方式是以**插件**的方式按需引入的，这里为了方便大家理解，下图是设计思路，可以看出这5个插件的依赖关系
+SDK 目前支持 SoftAP、SmartConfig、simpleConfig、AirKiss、BLE-Combo 这五种方式进行设备配网。
+
+这五种配网方式的SDK都是以**插件**的方式按需引入的，为了方便大家理解，下图可以看出这5个SDK的依赖关系。
 
 ![](https://main.qcloudimg.com/raw/69f79c09c8b3a995cb90b8d2e0de952e.png)
 
-通过4步可以运行插件，以`SoftAp`为例，其余的配网方式步骤一样，后面关于配网步骤和参数说明会具体阐述。
+## 基本使用
 
-1.安装依赖
+通过4步可以运行配网插件，以 `SoftAp` 配网为例，其余配网方式步骤相同，后面关于配网步骤和参数说明会有具体阐述。
+
+### 1.安装依赖
 
 ```bash
 npm install qcloud-iotexplorer-appdev-plugin-wificonf-softap
 ```
 
-2.注册插件
+### 2.注册插件
+
+调用插件上 `install` 方法来注册插件，调用时需要传入实例化的小程序SDK。
+
+插件注册时的名称分别为：**wifiConfSoftAp、wifiConfSmartConfig、wifiConfSimpleConfig、wifiConfBleCombo、wifiConfAirKiss，**之后可通过插件名称来获取插件实例。
 
 ```javascript
 const SoftApPlug = require('qcloud-iotexplorer-appdev-plugin-wificonf-softap');
-SoftApPlug.install(sdk);
+SoftApPlug.install(appDevSdk);
 ```
 
-3.生成配网 Token，调用 [生成 Wi-Fi 设备配网 Token](https://cloud.tencent.com/document/product/1081/44044) 应用端 API 获取 Wi-Fi 设备配网 Token
+### 3.生成配网 Token
+
+调用应用端 API [生成 Wi-Fi 设备配网 Token](https://cloud.tencent.com/document/product/1081/44044) 来获取 Wi-Fi 设备配网 Token
 
 ```javascript
 sdk.requestApi('AppCreateDeviceBindToken')
@@ -29,7 +39,11 @@ sdk.requestApi('AppCreateDeviceBindToken')
   });
 ```
 
-4.使用配网插件。`plugin` 注册时的名称分别为：`wifiConfSoftAp` 、`wifiConfSmartConfig` 、`wifiConfSmartConfig` 、`wifiConfAirKiss` 、`wifiConfBleCombo`
+### 4.使用配网插件
+
+从appDevSdk实例的 `plugins` 中获取已注册的插件实例，调用配网插件实例的 `start ` 方法开始配网流程。
+
+**示例代码**
 
 ``` javascript
 sdk.plugins['wifiConfSoftAp'].start({

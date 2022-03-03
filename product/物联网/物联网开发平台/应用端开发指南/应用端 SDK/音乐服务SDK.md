@@ -1,6 +1,9 @@
-## 公共说明
 
-**获取实例**
+## 初始化SDK
+
+### **获取实例**
+
+**1.自主品牌小程序中使用**
 
 ```typescript
 npm install qcloud-iotexplorer-tme-sdk
@@ -10,14 +13,22 @@ import { TMESdkForMiniProgram } from 'qcloud-iotexplorer-tme-sdk';
 const tmeSdk = new TMESdkForMiniProgram(appDevSdk);
 ```
 
-**接口统一返回值**
+**2.自定义H5中使用**
+
+```javascript
+const tmeSdk = await window.h5PanelSdk.getTMESdk();
+```
+
+
+
+### **接口统一返回值**
 
 接口调用的返回值统一为 `Promise<TMEResponse>` 类型
 
 ```typescript
 interface TMEResponse {
-  error_code: number,
-  error_msg: string,
+  error_code: number;
+  error_msg: string;
   data?: any;
 }
 ```
@@ -48,7 +59,7 @@ interface TMEResponse {
 
 
 
-## 登录授权部分
+## 登录授权
 
 ### 用户设备登录授权
 
