@@ -15,7 +15,7 @@
 1. 根据实际业务需求 [下载](https://cloud.tencent.com/document/product/454/7873) 相应的压缩包，这里以 [Professional](https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_Professional_iOS_latest.zip) 为例。
 2. 下载完成后，解压。<br>
 <img src="https://main.qcloudimg.com/raw/e0d2391f4e5bd316ac702e7980393584.png" width=300px>
->!源码也可以从 [Github](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/MLVB-API-Example-OC) 获得。
+>!源码也可以从 [Github](https://github.com/LiteAVSDK/Live_iOS/tree/main/MLVB-API-Example-OC) 获得。
 
 [](id:step2)
 ### 步骤二：配置 License
@@ -61,7 +61,7 @@
 [](id:push)
 #### 配置推流参数
 1. 找到并打开 `LiteAVSDK_Professional_iOS_版本号/MLVB-API-Example-OC/Debug/GenerateTestUserSig.h` 文件。
-2. 根据上面  [服务开通](#step41) 设置  [GenerateTestUserSig.h](https://github.com/tencentyun/MLVBSDK/blob/master/iOS/MLVB-API-Example/Debug/GenerateTestUserSig.h)  文件中的相关参数：
+2. 根据上面  [服务开通](#step41) 设置  [GenerateTestUserSig.h](https://github.com/LiteAVSDK/Live_iOS/tree/main/MLVB-API-Example-OC/Debug/GenerateTestUserSig.h)  文件中的相关参数：
  - SDKAppID：默认为 0 ，请设置为实际的 SDKAppID。
  - SECRETKEY：默认为空 ，请设置为实际的密钥信息。
  <img src="https://main.qcloudimg.com/raw/861170156910720be7ba980bcb625ceb.png" width=700px>
