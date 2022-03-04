@@ -32,8 +32,8 @@ cd 对应挂载点
 du -x --max-depth=1 | sort -n
 ```
 根据定位到占用空间最大的目录容量情况，执行以下步骤：
- - 目录容量远低于硬盘总空间，则请参考 [解决 df du 不一致问题](#dfdu) 步骤继续排查问题。
- - 目录容量较大，则请执行 [步骤2](#Step2) 定位到占用空间较大的文件，综合业务情况评估是否可删除。若无法删除，则请通过 [扩容云硬盘](https://cloud.tencent.com/document/product/213/34068) 扩大硬盘存储空间。
+   - 目录容量远低于硬盘总空间，则请参考 [解决 df du 不一致问题](#dfdu) 步骤继续排查问题。
+   - 目录容量较大，则请执行 [步骤2](#Step2) 定位到占用空间较大的文件，综合业务情况评估是否可删除。若无法删除，则请通过 [扩容云硬盘](https://cloud.tencent.com/document/product/213/34068) 扩大硬盘存储空间。
 
 
 ### 解决文件系统 inode 满问题
@@ -69,7 +69,7 @@ lsof ｜ grep delete
 #### 解决 mount 挂载嵌套问题
 1. 执行 mount 命令，mount 占用空间大的磁盘到 `/mnt`。例如：
 ```
-mount /dev/vda1/mnt
+mount /dev/vda1 /mnt
 ```
 2. 执行以下命令，进入 `/mnt`。
 ```
@@ -82,5 +82,5 @@ du -x --max-depth=1 | sort -n
 根据返回结果，综合业务情况评估是否可删除目录或文件。
 4. 执行 umount 命令，umount 磁盘。例如：
 ```
-umount /dev/vda1/mnt
+umount /mnt
 ```

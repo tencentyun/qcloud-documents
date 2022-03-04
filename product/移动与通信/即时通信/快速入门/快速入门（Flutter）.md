@@ -38,7 +38,7 @@ flutter run --dart-define=SDK_APPID=xxxx --dart-define=ISPRODUCT_ENV=false --dar
 :::
 </dx-codeblock>
 >?
->-  `--dart-define=SDK_APPID=xxxx`其中`xxxx`需替换成替换成 [步骤1](#step1) 中您创建的 SDKAppID。
+>-  `--dart-define=SDK_APPID=xxxx`其中`xxxx`需替换成 [步骤1](#step1) 中您创建的 SDKAppID。
 >- `--dart-define=ISPRODUCT_ENV=false` 对开发生产环境做判断，如您是开发环境请标 false。
 >-  `--dart-define=KEY=xxxx` 其中`xxxx`需替换成 [步骤1](#step1) 中的密钥信息。
 4. Visual Studio 配置 launch.json 启动。
@@ -49,17 +49,17 @@ flutter run --dart-define=SDK_APPID=xxxx --dart-define=ISPRODUCT_ENV=false --dar
 <dx-tabs>
 ::: Android 平台[](id:android)
 1. 在 Android Studio 打开 discuss/andorid 目录。
-![](https://comm.qq.com/imsdk/im-flutter-plugin-doc/doc_04.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/6516f9b17c58915c4ebc93c5c8829831.png)
 2. 启动一个 Android 的模拟器，单击 **Build And Run**，Demo 可以运行起来。您可以随机输入一个 UserID（数字字母组合）。
 >?UI 可能会有部分调整更新，请以最新版为准。
 :::
 ::: iOS 平台[](id:ios)
 1. 打开 Xcode，打开文件 discuss/ios/Runner.xcodeproj：
-![](https://comm.qq.com/imsdk/im-flutter-plugin-doc/doc_05.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/6d74814ba9bce54c7439e8b3cea53e73.png)
 2. 连接 iPhone 真机，单击 **Build And Run**，iOS 工程等待编译完成，会有新窗口弹出 Xcode 工程。
 3. 打开 iOS 工程，设置主 Target 的 Signing & Capabilities（需要苹果开发者帐号），让项目可以在 iPhone 真机上运行。
 4. 启动项目，在真机上进行 Demo 的调试。
-![](https://comm.qq.com/imsdk/im-flutter-plugin-doc/doc_06.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/3fe6bbac88bb21ad7a7822bb297793b3.png)
 :::
 </dx-tabs>
 
@@ -76,4 +76,3 @@ flutter run --dart-define=SDK_APPID=xxxx --dart-define=ISPRODUCT_ENV=false --dar
 
 ### Flutter 环境问题
 如您需得知 Flutter 的环境是否存在问题，请运行 Flutter doctor 检测 Flutter 环境是否装好。
-

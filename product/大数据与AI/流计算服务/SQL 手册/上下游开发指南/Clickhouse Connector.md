@@ -7,6 +7,7 @@ ClickHouse Sink Connector 提供了对 ClickHouse 数据仓库的写入支持。
 | :-------- | :--- |
 | 1.11      | 支持 Sink |
 | 1.13      | 支持 Source 和 Sink |
+| 1.14      | 不支持 |
 
 ## 使用范围
 ClickHouse 不支持标准的 update 和 delete 操作。作为 Sink 时，若您的任务有 update 和 delete 操作，可以通过 [CollapsingMergeTree](https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/collapsingmergetree/) 来实现。对于 JAR 作业，Java/Scala 编写的作业可以参考 [JDBC](https://cloud.tencent.com/document/product/849/48312) 方式写入 ClickHouse，这里不做阐述。

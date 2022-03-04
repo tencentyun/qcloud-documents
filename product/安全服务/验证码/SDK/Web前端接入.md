@@ -293,10 +293,10 @@ options 提供以下配置参数：
 | sdkOpts        | Object          | 示例 {"width": 140, "height": 140}<br>仅支持移动端原生 webview 调用时传入，为设置的验证码元素 loading 弹框大小。 |
 | ready          | Function        | 验证码加载完成的回调，回调参数为验证码实际的宽高：<br>{"sdkView": {<br>"width": number,<br>"height": number<br>}}<br>请勿使用此参数直接设定宽高。 |
 | needFeedBack   | Boolean         | 隐藏帮助按钮。 示例 { needFeedBack: false }                  |
-| userLanguage   | String          | 指定验证码提示文案的语言，优先级高于后台配置，暂时仅支持滑块拼图验证码。支持传入值同 navigator.language 用户首选语言，大小写不敏感。详情请参见 [userLaguage 配置参数](#userLanguage)。 |
+| userLanguage   | String          | 指定验证码提示文案的语言，优先级高于后台配置，暂时仅支持滑块拼图验证码。支持传入值同 navigator.language 用户首选语言，大小写不敏感。详情请参见 [userLanguage 配置参数](#userLanguage)。 |
 |type|String|定义验证码展示方式。<li>popup（默认）弹出式，以浮层形式展示验证码。</li><li>embed 嵌入式，以嵌入指定容器元素中的方式展示验证码。详情请参见 [热点问题-验证码以嵌入式方式进行展示如何配置?](#Q1)。</li>|
 
-**userLaguage 配置参数**[](id:userLanguage)
+**userLanguage 配置参数**[](id:userLanguage)
 
 | 参数名 | 说明                 |
 | :------- | :------------------- |

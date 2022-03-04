@@ -1,6 +1,6 @@
 
 
-本文承接《使用 iPaaS 写入数据（一）》文档，主要讲附件、图片等二进制数据通过 iPaaS 写入到 aPaaS。
+本文承接 [使用 iPaaS 写入数据（一）](https://cloud.tencent.com/document/product/1365/68051)文档，主要讲附件、图片等二进制数据通过 iPaaS 写入到 aPaaS。
 
 ## 操作场景
 
@@ -73,14 +73,14 @@ def dw_process(msg):
 4. 创建千帆连接器，选择文件上传：
 <img src="https://qcloudimg.tencent-cloud.cn/raw/c0bb0fea2e6e6b62f354202adb3c9471.png"></img>
 5. 配置文件上传组件：
-	- 配置应用 code，方式见文档：《使用iPaaS写入数据（一）》
+	- 配置应用 code，方式见文档： [使用 iPaaS 写入数据（一）](https://cloud.tencent.com/document/product/1365/68051)
 	- 配置文件名列表
 	- 配置文件内容列表
 <img src="https://qcloudimg.tencent-cloud.cn/raw/ac8ef5d8a893d5cf70b23be47cd32836.png"></img>
 
 6. 配置创建记录组件，如下所示：
-	- 配置应用code，方式见文档：《使用iPaaS写入数据（一）》
-	- 配置对象key，方式见文档 ：《使用iPaaS写入数据（一）》
+	- 配置应用code，方式见文档： [使用 iPaaS 写入数据（一）](https://cloud.tencent.com/document/product/1365/68051)
+	- 配置对象key，方式见文档 ： [使用 iPaaS 写入数据（一）](https://cloud.tencent.com/document/product/1365/68051)
 	- 配置字段值列表：
 
 <img src="https://qcloudimg.tencent-cloud.cn/raw/b81ea096d69d90cd3b646e0c44f4cee3.png"></img>

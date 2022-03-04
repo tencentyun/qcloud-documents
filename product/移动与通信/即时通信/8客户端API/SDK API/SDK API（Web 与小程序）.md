@@ -35,12 +35,18 @@ TIM 是 IM Web SDK 的命名空间，提供了创建 SDK 实例的静态方法 [
 | [off](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#off) | 取消监听事件。 |
 
 ### 注册插件
+| API | 描述 |
+| --- | --- |
 | [registerPlugin](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#registerPlugin) | 注册插件。 |
 
 ### 设置日志级别
+| API | 描述 |
+| --- | --- |
 | [setLogLevel](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#setLogLevel) | 设置日志级别。 |
 
 ### 销毁 SDK 实例
+| API | 描述 |
+| --- | --- |
 | [destroy](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#destroy)  | 销毁 SDK 实例。 |
 
 ### 登录相关

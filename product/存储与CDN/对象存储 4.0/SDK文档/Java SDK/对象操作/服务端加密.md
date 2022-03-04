@@ -49,7 +49,7 @@ try {
 
 // 确定本进程不再使用 transferManager 实例之后，关闭之
 // 详细代码参见本页：高级接口 -> 关闭 TransferManager
-shutdownTransferManger(transferManager);
+shutdownTransferManager(transferManager);
 ```
 
 ### 使用客户提供的加密密钥的服务端加密 （SSE-C）保护数据
@@ -100,7 +100,7 @@ try {
 
 // 确定本进程不再使用 transferManager 实例之后，关闭之
 // 详细代码参见本页：高级接口 -> 关闭 TransferManager
-shutdownTransferManger(transferManager);
+shutdownTransferManager(transferManager);
 ```
 
 ### 使用 KMS 托管加密密钥的服务端加密（SSE-KMS）保护数据
@@ -147,5 +147,5 @@ try {
 
 // 确定本进程不再使用 transferManager 实例之后，关闭之
 // 详细代码参见本页：高级接口 -> 关闭 TransferManager
-shutdownTransferManger(transferManager);
+shutdownTransferManager(transferManager);
 ```

@@ -4,11 +4,11 @@
 
 ## 操作步骤
 
-1. 在 [API 网关控制台](https://console.cloud.tencent.com/apigateway/index?rid=1)，创建一个 API，选择鉴权类型为“应用认证”（参考 [创建 API 概述](https://cloud.tencent.com/document/product/628/11795)）。
-2. 将 API 所在服务发布至发布环境（参考 [服务发布与下线](https://cloud.tencent.com/document/product/628/11809)）。
+1. 在 [API 网关控制台](https://console.cloud.tencent.com/apigateway/index?rid=1)，创建一个 API，选择鉴权类型为“应用认证”（参见 [创建 API 概述](https://cloud.tencent.com/document/product/628/11795)）。
+2. 将 API 所在服务发布至发布环境（参见 [服务发布与下线](https://cloud.tencent.com/document/product/628/11809)）。
 3. 在控制台 [应用管理](https://console.cloud.tencent.com/apigateway/app) 界面创建应用。
 4. 在应用列表中选中已经创建好的应用，单击**绑定 API**，选择服务和 API 后单击**提交**，即可将应用与 API 建立绑定关系。
-5. 参考 [示例代码](#示例代码)，使用 PHP 语言生成签名内容。
+5. 参见 [示例代码](#示例代码)，使用 PHP 语言生成签名内容。
 
 ## 环境依赖
 
@@ -17,14 +17,14 @@
 
 ## 注意事项
 
-- 应用生命周期管理，以及 API 向应用授权、应用绑定 API 等操作请您参考 [应用管理](https://cloud.tencent.com/document/product/628/55087)。
-- 应用生成签名过程请您参考 [应用认证方式](https://cloud.tencent.com/document/product/628/55088)。
+- 应用生命周期管理，以及 API 向应用授权、应用绑定 API 等操作请您参见 [应用管理](https://cloud.tencent.com/document/product/628/55087)。
+- 应用生成签名过程请您参见 [应用认证方式](https://cloud.tencent.com/document/product/628/55088)。
 
 ## 示例代码[](id:示例代码)
-
-### 基础代码
-
-``` php
+<dx-accordion>
+::: 基础代码
+<dx-codeblock>
+:::  php
 <?php
 
 const FORM_URLENCODED = "application/x-www-form-urlencoded";
@@ -169,11 +169,12 @@ function sendRequestWithAppAuth($apiAppKey, $apiAppSecret, $method, $url, $conte
         curl_close($ch);
     }
 }
-```
-
-### GET 请求示例
-
-```php
+:::
+</dx-codeblock>
+:::
+::: GET 请求示例
+<dx-codeblock>
+:::  php
 // ==========================================================
 // Example 1: send a GET request without a request body
 // ==========================================================
@@ -186,11 +187,12 @@ $acceptHeader = "application/json";
 // Note: environment path, such as `/release`, is not supported with App Authorization
 $url = 'https://service-xxxx-xxxx.gz.apigw.tencentcs.com/testmock?b=1&a=2';
 sendRequestWithAppAuth($apiAppKey, $apiAppSecret, $httpMethod, $url, "", $acceptHeader);
-```
-
-### POST JSON 请求示例
-
-```php
+:::
+</dx-codeblock>
+:::
+::: POST JSON 请求示例
+<dx-codeblock>
+:::  php
 // ==========================================================
 // Example 2: send a POST request with JSON request body
 // ==========================================================
@@ -206,11 +208,12 @@ $url = 'https://service-xxxx-xxxx.gz.apigw.tencentcs.com/testmock?b=1&a=2';
 $jsonBody = "{\"data\":1}";
 sendRequestWithAppAuth($apiAppKey, $apiAppSecret, $httpMethod, $url,
     $contentType, $acceptHeader, $jsonBody);
-```
-
-### POST form-urlencoded 请求示例
-
-```php
+:::
+</dx-codeblock>
+:::
+::: POST form-urlencoded 请求示例
+<dx-codeblock>
+:::  php
 $apiAppKey = '<your_app_key>';
 $apiAppSecret = '<your_app_secret>';
 
@@ -224,4 +227,9 @@ $customHeaders = array("x-custom-header" => 1);
 $formParam = array('id' => 1, 'name' => 'tencent');
 sendRequestWithAppAuth($apiAppKey, $apiAppSecret, $httpMethod, $url,
     $contentType, $acceptHeader, null, $formParam, null, $customHeaders);
-```
+:::
+</dx-codeblock>
+:::
+</dx-accordion>
+
+

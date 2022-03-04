@@ -1,19 +1,14 @@
 ## TrustAsia 品牌根证书变更通知
-接 TrustAsia  品牌 CA 机构通知，自2021年1月20日起，原 TrustAsia 根证书签发由 Digicert 根证书变更为 Sectigo 根证书。您可以理解为2021年1月20日前申请的 TrustAsia  品牌 SSL 证书根证书由 Digicert 进行签发，2021年1月20日后申请的 TrustAsia  品牌 SSL 证书根证书由 Sectigo 进行签发。
+接 TrustAsia  品牌 CA 机构通知，自**2022年03月03日22:00:00**起，TrustAsia 根证书签发由 Digicert 根证书变更为 Sectigo 根证书。您可以理解为**2022年03月03日22:00:00**前申请的 TrustAsia  品牌 SSL 证书根证书由 Digicert 进行签发，**2022年03月03日22:00:00**后申请的 TrustAsia  品牌 SSL 证书根证书由 Sectigo 进行签发。
 
-届时 SecureSite、GeoTrust 品牌 SSL 证书将临时下架，无法在 [SSL 证书购买页 ](https://buy.cloud.tencent.com/ssl?fromSource=ssl)进行购买。
-在此期间，您可选购其他品牌 SSL 证书。若您已购买但未成功颁发 SSL 证书，可自行申请退款。详情请参见 [SSL 证书退款流程](https://cloud.tencent.com/document/product/400/56335)。
+根证书变更后，基于 Sectigo 根证书支持中国区 OCSP（在线证书状态协议）节点特性，将在很大程度上解决中国区网站设置 HTTPS 后访问速度变慢问题。
+
+若需使用 Digcert 颁发证书，请于**2022年03月03日22:00:00**前，前往 [SSL 证书管理控制台](https://console.cloud.tencent.com/ssl) 进行 [证书申请](https://cloud.tencent.com/document/product/400/54495) 操作。申请成功并颁发后，您可将您的证书部署至云服务。详情参见：[如何选择 SSL 证书安装部署类型？](https://cloud.tencent.com/document/product/400/4143)
+
 
 >!
->- 此次根证书变更对于证书交付和使用流程没有任何影响。
+>- 该变更对于已颁发使用的 SSL 证书没有任何影响。
 >- 变更后，原有的产品功能和服务保持不变。
 
-
-## 原厂公告
-以下是原厂公告：
-
->?
->- 感谢您对腾讯云的支持，我们将一如既往给您提供 HTTPS 专业服务！
->- 如您使用过程中遇到产品相关问题，您可咨询 [在线咨询](https://cloud.tencent.com/online-service?from=connect-us) 寻求帮助。
 
 

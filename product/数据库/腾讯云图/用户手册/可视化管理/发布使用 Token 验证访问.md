@@ -7,6 +7,8 @@
 • HMAC-SHA256
 • BASE64
 
+>?仅限企业版应用此功能。
+
 ## 如何接入
 ### 获取 accessId/token
 单击**发布**，记录下 accessId 和 token，具体如下图。
@@ -72,5 +74,6 @@ public class TcvTokenSignClientDemo {
 ```
 
 ### 安全校验策略说明
-链接校验具备时效性，生成链接1分钟内校验有效，在此时间内校验通过，之后连续访问时间间隔超过12小时则会失效。
+链接校验具备时效性，生成链接1分钟内校验有效，在此时间内校验通过，之后连续访问时间间隔可通过验证有效期进行配置，如设置为24小时，则有效期在24小时之后会失效。
+<img src="https://qcloudimg.tencent-cloud.cn/raw/37a1ed5be535727a8931cb765be69664.png"  style="zoom:60%;">
 

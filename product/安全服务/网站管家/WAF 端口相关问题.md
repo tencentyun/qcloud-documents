@@ -1,7 +1,7 @@
 ### WAF 支持哪些端口？
 WAF 套餐端口支持情况，可以在控制台进行查看并配置。
-1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/waf/config) ，在左侧导航中，选择【Web 安全防护】>【防护设置】，进入防护设置页面。
-2. 在防护设置页面，单击【添加域名】，进入添加域名页面。
+1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/waf/config) ，在左侧导航中，选择 **Web 安全防护** > **防护设置**，进入防护设置页面。
+2. 在防护设置页面，单击**添加域名**，进入添加域名页面。
 3. 在添加域名页面的“服务器配置”中，选择对应的协议查看并配置端口，一个域名最多可配置5个端口。
 	- WAF 高级版默认⽀持 HTTP（80/8080）和 HTTPS（443/8443）标准端口防护，不支持非标端口。
 	- WAF 企业版和旗舰版套餐中除了默认⽀持 HTTP（80/8080）和 HTTPS（443/8443）标准端口防护外，还支持非标端口。 企业版和旗舰版支持的所有端口详情如下：
@@ -16,11 +16,8 @@ WAF 套餐端口支持情况，可以在控制台进行查看并配置。
 							</div>
                <p></p>
 <ul>
-<li>针对旗舰版用户，如果您需要防护的端口不在所支持的 HTTP 协议或 HTTPS 协议列表中，WAF 支持为您提供非标端口定制服务（范围为1 - 65535），套餐内所有域名非标端口定制总数不多于5个，如有需要可以 <a href="https://console.cloud.tencent.com/workorder/category?level1_id=141&amp;level2_id=642&amp;source=0&amp;data_title=T-Sec-Web%E5%BA%94%E7%94%A8%E9%98%B2%E7%81%AB%E5%A2%99&amp;level3_id=866&amp;radio_title=%E8%87%AA%E5%AE%9A%E4%B9%89%E9%98%B2%E6%8A%A4%E7%AD%96%E7%95%A5&amp;queue=15&amp;scene_code=31044&amp;step=2" target="_blank">提交工单</a> 联系我们。</li>
+<li>针对旗舰版用户，如果您需要防护的端口不在所支持的 HTTP 协议或 HTTPS 协议列表中，WAF 支持为您提供非标端口定制服务（范围为1 - 65535），套餐内所有域名非标端口定制总数不多于5个，如有需要可以 <a href="https://console.cloud.tencent.com/workorder/category?level1_id=141&amp;level2_id=642&amp;source=0&amp;data_title=T-Sec-Web%E5%BA%94%E7%94%A8%E9%98%B2%E7%81%AB%E5%A2%99&amp;level3_id=866&amp;radio_title=%E8%87%AA%E5%AE%9A%E4%B9%89%E9%98%B2%E6%8A%A4%E7%AD%96%E7%95%A5&amp;queue=15&amp;scene_code=31044&amp;step=2" target="_blank">提交工单</a> 联系 WAF_hepler 处理。</li>
 <li>已在 HTTP 协议或 HTTPS 协议列表中的端口不支持跨协议定制。</li>
+<li><strong>选择 HTTP 和 HTTPS 非标端口需要 <a href="https://console.cloud.tencent.com/workorder/category?level1_id=141&amp;level2_id=642&amp;source=0&amp;data_title=T-Sec-Web%E5%BA%94%E7%94%A8%E9%98%B2%E7%81%AB%E5%A2%99&amp;level3_id=866&amp;radio_title=%E8%87%AA%E5%AE%9A%E4%B9%89%E9%98%B2%E6%8A%A4%E7%AD%96%E7%95%A5&amp;queue=15&amp;scene_code=31044&amp;step=2" target="_blank">提交工单</a> ，联系 WAF_hepler 进行加白处理<strong>。
 </ul>
-
-
-
-
 

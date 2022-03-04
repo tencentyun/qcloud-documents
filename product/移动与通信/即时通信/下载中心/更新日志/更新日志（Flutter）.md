@@ -1,3 +1,106 @@
+## IM Flutter SDK 3.7.5 @2022.01.23
+- 升级底层库到6.0.1975
+- 离线推送配置支持 TPNS TOKEN
+
+
+## IM Flutter SDK 3.7.1 @2022.01.12
+- 消息发送进度事件返回创建消息的 id
+- 优化回调部分，提示业务方回调的错误在 SDK 中被 catch 需业务方修改
+
+## IM Flutter SDK 3.7.0 @2022.01.10
+- 优化 cloudCustomData 解包
+
+
+## IM Flutter SDK 3.6.9 @2022.01.06
+- 回复消息参数优化
+
+
+## IM Flutter SDK 3.6.8 @2022.01.06
+- 回复消息接口优化
+
+
+## IM Flutter SDK 3.6.7 @2022.01.05
+- iOS 编译环境从8.0升到9.0
+
+
+## IM Flutter SDK 3.6.6 @2021.12.30
+- 添加消息回复接口
+- 修复 Web 端 release mode 下报错问题
+
+
+## IM Flutter SDK 3.6.5 @2021.12.17
+- 修复 java 语法错误
+
+## IM Flutter SDK 3.6.4  @2021.12.17
+- 修复安卓异步注册事件无返回 bug
+- 修复移除基础监听事件报错
+- 消息进度事件增加发送中的消息的 uuid
+
+## IM Flutter SDK 3.6.3 @2021.12.9
+- addFriend 接口优化: addType 由 int 变更为 FriendTypeEnum
+- acceptFriendApplication 接口优化: acceptType 由 int 变更为 FriendResponseTypeEnum
+- checkFriend 接口优化: checkType 由 int 变更为 FriendTypeEnum
+- createGroup 接口优化: addOpt 由 int 变更为 GroupAddOptTypeEnum
+- deleteFromFriendList 接口优化: deleteType 由 int 变更为 FriendTypeEnum
+- getGroupMemberList 接口优化: filter 由 int 变更为 GroupMemberFilterTypeEnum
+- getHistoryMessageList 接口优化: type 由 int 变更为 HistoryMsgGetTypeEnum
+- getHistoryMessageListWithoutFormat 接口优化: type 由 int 变更为 HistoryMsgGetTypeEnum
+- getGroupMemberList 接口优化: type 由 int 变更为 GroupMemberFilterTypeEnum
+- getGroupMemberList 接口优化: filter 由 int 变更为 GroupMemberFilterTypeEnum
+- initSDK 接口优化: loglevel 由 int 变更为 LogLevelEnum
+- refuseFriendApplication 接口优化: acceptType 由 int 变更为 FriendApplicationTypeEnum
+- sendCustomMessage 接口优化: priority 由 int 变更为 MessagePriorityEnum
+- sendFaceMessage 接口优化: priority 由 int 变更为 MessagePriorityEnum
+- sendFileMessage 接口优化: priority 由 int 变更为 MessagePriorityEnum
+- sendForwardMessage 接口优化: priority 由 int 变更为 MessagePriorityEnum
+- sendImageMessage 接口优化: priority 由 int 变更为 MessagePriorityEnum
+- sendLocationMessage 接口优化: priority 由 int 变更为 MessagePriorityEnum
+- sendMergerMessage 接口优化: priority 由 int 变更为 MessagePriorityEnum
+- sendSoundMessage 接口优化: priority 由 int 变更为 MessagePriorityEnum
+- sendTextAtMessage 接口优化: priority 由 int 变更为 MessagePriorityEnum
+- sendTextMessage 接口优化: priority 由 int 变更为 MessagePriorityEnum
+- setGroupMemberRole 接口优化: role 由 int 变更为 GroupMemberRoleTypeEnum
+- 事件回调注册返回修改为异步
+
+## IM Flutter SDK 3.6.2 @2021.12.9
+- 修复移除高级消息未传 uuid
+
+
+## IM Flutter SDK 3.6.1 @2021.12.8
+- 修复文件进度事件丢失
+
+
+## IM Flutter SDK 3.6.0 @2021.12.1
+- 各个模块支持 listener 多次注册，多次回调
+- 新增 api markAllMessageAsRead 设置全部会话已读
+- 新增组合消息解析
+- 升级 native 版本至5.8.1668
+
+
+## IM Flutter SDK 3.5.6 @2021.11.25
+- 修复 checkFriend 失败问题
+- 修复 getC2CHistoryMessageList 无法获取后续消息问题
+
+## IM Flutter SDK 3.5.5 @2021.11.23
+- 架构调整
+
+
+## IM Flutter SDK 3.5.4 @2021.11.22
+- 新增 downloadMergeMesasge 接口
+
+
+## IM Flutter SDK 3.5.3 @2021.11.15
+- 新增 onTotalUnreadMessageCountChanged 事件
+- V2TimConversation 新增 orderkey 字段，用于会话排序
+
+
+## IM Flutter SDK 3.5.2 @2021.11.12
+add web support
+
+## IM Flutter SDK 3.5.1 @2021.11.10
+- 数组越界兼容逻辑
+
+
 ## IM Flutter SDK 3.5.0 @2021.10.1
 - 修复若干已知问题
 - 新增接口如下：

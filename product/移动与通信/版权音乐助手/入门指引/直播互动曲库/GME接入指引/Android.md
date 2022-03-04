@@ -1,34 +1,5 @@
-## 产品概述
-
-正版曲库直通车（Authorized Music Express，AME）聚合TME等多家版权方优质曲目资源，结合腾讯云存储、编解码、内容分发、边缘计算等能力，有效解决多场景音乐素材应用版权问题。提供API及SDK，灵活高效实现正版音乐素材在多端的顺畅播放与应用。
-
-游戏多媒体引擎（Game Multimedia Engine, GME）提供一站式语音解决方案。针对游戏场景，提供实时语音、语音消息、语音转文本、语音内容安全、未成年人识别、正版曲库、语音录制等服务，覆盖 FPS、MOBA、MMORPG、休闲对战、棋牌、线上桌游等多种游戏玩法类型；支持移动游戏、端游、主机游戏、网页游戏跨平台互通，一次接入即可满足多样化的语音需求。
-
 ## 产品原理
-```mermaid
-sequenceDiagram
-participant App客户端
-participant App后台
-participant TRTC SDK
-participant TXCopyrightedMedia
-participant 腾讯云后台
-
-App客户端 ->> App后台:请求搜索音乐
-App后台 ->> 腾讯云后台:请求搜索音乐 SearchKTVMusics
-腾讯云后台 -->> App后台:返回音乐列表
-App后台 -->> App客户端:返回音乐列表
-
-App客户端 -->> App后台:请求音乐详情
-App后台 ->> 腾讯云后台:请求音乐详情 DescribeKTVMusicDetail（带musicId）
-腾讯云后台 -->> App后台:返回音乐详情
-App后台 -->> App客户端:返回音乐详情
-
-App客户端 ->> TXCopyrightedMedia:preloadMusic（传入musicId+playToken）
-TXCopyrightedMedia ->> 腾讯云后台:请求Music数据
-腾讯云后台 -->> TXCopyrightedMedia:返回Music数据
-TXCopyrightedMedia -->> App客户端:回调preloadMusic进度和结果
-App客户端 ->> TRTC SDK:startPlayMusic（传入genMusicURI返回值）
-```
+![](https://qcloudimg.tencent-cloud.cn/raw/76c8395117f7d0cd162444a58e04f02d.png)
 
 ## 接入前准备工作
 
@@ -113,7 +84,7 @@ copyrightedMedia.setLicense(Context context, String licenseUrl, String key);
 </tr><tr>
 <td>licenseUrl</td>
 <td>String</td>
-<td>控制台生成的 LicenseURL</td>
+<td>控制台生成的 License URI</td>
 </tr><tr>
 <td>key</td>
 <td>String</td>
@@ -129,7 +100,7 @@ copyrightedMedia.init();
 copyrightedMedia.destroy();
 ```
 - **预加载 Music 数据**
-预加载 Music 数据，每次播放/重播前都需要调用该接口。
+每次播放/重播前都需要调用该接口。
 ```
 copyrightedMedia.preloadMusic(String musicId, String bitrateDefinition, String playToken, ITXMusicPreloadCallback callback);
 ```
@@ -171,7 +142,7 @@ errCode 返回错误码定义如下：
 </tr><tr>
 <td>ERR_CANCEL</td><td>-2</td><td>用户取消数据获取</td>
 </tr><tr>
-<td>ERR_TOKEN_FAIL</td><td>-3</td><td>token 过期</td>
+<td>ERR_TOKEN_FAIL</td><td>-3</td><td>Token 过期</td>
 </tr><tr>
 <td>ERR_NET_FAIL</td><td>-4</td><td>网络错误</td>
 </tr><tr>
@@ -244,7 +215,7 @@ String MusicUri = TXCopyrightedMedia.genMusicURI(String musicId，int musicType)
 <tbody><tr>
 <td>musicUri</td>
 <td>String</td>
-<td><ul style="margin:0"><li>原唱&amp;伴奏：传给 TRTC 播放的 URL，格式 <code>CopyRightMusic://audiotype=xxxx&amp;musicid=xxxx</code></li><li>歌词：返回歌词的本地路径</li></ul></td>
+<td><ul style="margin:0"><li>原唱&amp;伴奏：传给 TRTC 播放的 URI，格式 <code>CopyRightMusic://audiotype=xxxx&amp;musicid=xxxx</code></li><li>歌词：返回歌词的本地路径</li></ul></td>
 </tr></tbody></table>
 - **清理歌曲缓存**
 清理本地所有缓存歌曲数据。
@@ -265,7 +236,6 @@ copyrightedMedia.setMusicCacheMaxCount(int maxCount);
 </tr></tbody></table>
 
 
-
 ### 代码示例
 - application 创建时候调用：
 ```
@@ -279,7 +249,7 @@ TXCopyrightedMedia.instance().init();
 ```
 TXCopyrightedMedia.instance().destroy();
 ```
-- 进入 K 歌房间，单击 **K 歌**并下载 Music：
+- 进入 K 歌房间，单击 **K 歌**，下载 Music：
 ```
 TXCopyrightedMedia copyRightedMedia = TXCopyrightedMedia.instance();
 if(copyRightedMedia.isMusicPreloaded(musicId, bitrateDefinition){

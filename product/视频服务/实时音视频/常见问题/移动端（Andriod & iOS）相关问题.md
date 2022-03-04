@@ -60,7 +60,7 @@ TRTC 6.3 版本开始已提供 arm64-v8a 架构 ABI 支持。
 双方都可以主动发起，观众和主播发起逻辑一致，具体操作请参见  [跑通直播模式(Android)](https://cloud.tencent.com/document/product/647/35428) 。
 
 [](id:que14)
-### 多人音视频互动中，移动端和 Web 端是否可以进入同一房间？
+### 多人音视频房间中，移动端和 Web 端是否可以进入同一房间？
 可以。需保证 [SDKAppID](https://console.cloud.tencent.com/trtc/app) 和房间号一致，且用户 ID 不一致。
 
 [](id:que15)
