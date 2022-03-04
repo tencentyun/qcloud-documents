@@ -6,9 +6,9 @@ TRTC Web SDK 屏幕分享支持度请查看 [浏览器支持情况](https://web.
 > - Native（iOS、Android、Mac、Windows 等）端支持发布辅流，并且发布屏幕分享是通过发布辅流实现的。远端屏幕分享流来自于 Native 用户时，[RemoteStream.getType()](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/RemoteStream.html#getType) 返回值为 'auxiliary'。
 
 ## 创建和发布屏幕分享流
-**请严格按照以下顺序执行创建和发布屏幕分享流的代码。**
+>!请严格按照以下顺序执行创建和发布屏幕分享流的代码。
 
-**第一步：创建负责进行屏幕分享的客户端对象**
+### 步骤1：创建负责进行屏幕分享的客户端对象
 通常情况下，建议给 userId 加上后缀 `_share`，用来标识这是一个屏幕分享的客户端对象。
 <dx-codeblock>
 :::javascript
@@ -29,7 +29,7 @@ try {
 :::
 </dx-codeblock>
 
-**第二步：创建屏幕分享流**
+### 步骤2：创建屏幕分享流
 屏幕分享流包含视频流和音频流。其中音频流分为麦克风音频或者系统音频。
 <dx-codeblock>
 :::javascript
@@ -53,7 +53,7 @@ const shareStream = TRTC.createStream({ camera: true, screenAudio: true });
 >- audio 与 screenAudio 属性不能同时设为true，camera 与 screenAudio 属性不能同时设为true。关于 screenAudio 更多信息会在本文第五部分介绍。
 >- camera 与 screen 属性不能同时设为true。
 
-**第三步：初始化屏幕分享流**
+### 步骤3：初始化屏幕分享流
 初始化时浏览器会向用户请求屏幕共享的内容和权限，如果用户拒绝授权或者系统未授予浏览器屏幕分享的权限，代码会捕获到 `NotReadableError` 或者 `NotAllowedError` 错误，这时需要引导用户进行浏览器设置或者系统设置开启屏幕共享权限。
 <dx-codeblock>
 :::javascript
@@ -80,7 +80,7 @@ try {
 :::
 </dx-codeblock>
 
-**第四步：发布屏幕分享流**
+### 步骤4：发布屏幕分享流
 通过第一步创建的客户端对象进行发布。发布成功后，远端就能收到屏幕分享流。
 <dx-codeblock>
 :::javascript
@@ -92,7 +92,7 @@ try {
 :::
 </dx-codeblock>
 
-**完整代码**
+### 完整代码
 <dx-codeblock>
 :::javascript
 const shareClient = TRTC.createClient({
@@ -142,11 +142,8 @@ try {
 :::
 </dx-codeblock>
 
----
-
 ## 屏幕分享参数配置
-可设置的参数包括分辨率、帧率和码率，如果有需要可以通过 [setScreenProfile()](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/LocalStream.html#setScreenProfile) 接口指定
-profile，每个 profile 对应着一组分辨率、帧率和码率。SDK 默认使用 '1080p' 的配置。
+可设置的参数包括分辨率、帧率和码率，如果有需要可以通过 [setScreenProfile()](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/LocalStream.html#setScreenProfile) 接口指定 profile，每个 profile 对应着一组分辨率、帧率和码率。SDK 默认使用 '1080p' 的配置。
 
 <dx-codeblock>
 :::javascript
@@ -180,8 +177,6 @@ await shareStream.initialize();
 
 >! 建议按照推荐的参数进行配置，避免设置过高的参数，引发不可预料的问题。
 
----
-
 ## 停止屏幕分享
 
 <dx-codeblock>
@@ -198,7 +193,6 @@ await shareClient.leave();
 </dx-codeblock>
 
 另外用户还可能会通过浏览器自带的按钮停止屏幕分享，因此屏幕分享流需要监听屏幕分享停止事件，并进行相应的处理。
-
 <img src="https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/assets/screen-sharing-stop.png" width="600px">
 
 <dx-codeblock>
@@ -215,8 +209,6 @@ shareStream.on('screen-sharing-stopped', event => {
 :::
 </dx-codeblock>
 
----
-
 ## 同时发布摄像头视频和屏幕分享
 一个 Client 至多只能同时发布一路音频和一路视频。同时发布摄像头视频和屏幕分享，需要创建两个 Client，让它们“各司其职”。
 例如创建两个 Client 分别为：
@@ -224,7 +216,7 @@ shareStream.on('screen-sharing-stopped', event => {
 - **shareClient**：负责发布屏幕分享流，且不订阅任何远端流。
 
 >! 
->- 负责屏幕分享的 shareClient 需要关闭自动订阅，否则会出现重复订阅远端流的情况。参见[API说明](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/TRTC.html#createClient)。
+>- 负责屏幕分享的 shareClient 需要关闭自动订阅，否则会出现重复订阅远端流的情况。请参见 [API说明](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/TRTC.html#createClient)。
 >- 负责本地音视频流发布的 client 需要取消订阅 shareClient 发布的流。否则会出现自己订阅自己的情况。
 
 示例代码：
@@ -257,8 +249,6 @@ const shareStream = TRTC.createStream({ audio: false, screen: true, userId });
 
 :::
 </dx-codeblock>
-
----
 
 ## 屏幕分享采集系统声音
 
