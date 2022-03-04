@@ -209,7 +209,7 @@ uint32_t CreateSDKBuffFromStr(char *pSDKinfo, uint8_t *buffer, char* uDstIp, uin
 			char *pSDKinfo = "566c2dea9420eb37-b6c8-566c2dea9420eb3710525135e8485e80806a2f9c";
 					uint8_t buffer[20];
 					char *uDstIp = "1xx.xxx.xxx.xxx";
-					uint16_t uDstPort = 8899;
+					uint16_t uDstPort = 8xx9;
 
 					CreateSDKBuffFromStr(pSDKinfo, buffer, uDstIp, uDstPort);
 
@@ -274,9 +274,9 @@ uint32_t CreateSDKBuffFromStr(char *pSDKinfo, uint8_t *buffer, char* uDstIp, uin
     uint8_t buffer[BUFFER_SIZE];
     memset(buffer, 0, BUFFER_SIZE);
     
-    int UDP_TEST_PORT = 8899;
+    int UDP_TEST_PORT = 8xx9;
     
-    const char * CONST_UDP_SERVER_IP  = "115.159.147.198";
+    const char * CONST_UDP_SERVER_IP  = "1xx.xxx.xxx.xxx";
     char * UDP_SERVER_IP = new char[strlen(CONST_UDP_SERVER_IP)];
     strcpy(UDP_SERVER_IP, CONST_UDP_SERVER_IP);
     
