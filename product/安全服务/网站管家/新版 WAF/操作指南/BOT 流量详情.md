@@ -5,10 +5,10 @@ BOT 流量分析通过采集 BOT 行为管理中的数据，可以快速了解�
 
 
 ## 前提条件
-购买 WAF 并购买 BOT 行为管理扩展包后，开启 BOT 流量分析。
+购买 WAF 并购买 [BOT 行为管理扩展包](https://cloud.tencent.com/document/product/627/11730#bot-.E8.A1.8C.E4.B8.BA.E7.AE.A1.E7.90.86.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E) 后，开启 BOT 流量分析。
 
 ## 操作步骤
-1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/tea-flowanalysis)，在左侧导航栏中选择 **BOT 流量分析**> **BOT 流量详情**。
+1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/tea-flowanalysis)，在左侧导航栏中选择 **BOT 流量分析** > **BOT 流量详情**。
 2. 在 BOT 流量详情页面，单击左上角“全部域名”下拉框，选择要查看的域名。
 3. 在 BOT 流量详情页面，可以通过时间或筛选器，搜索全部域名或某个域名的 TOP10流量信息，并可以快速进入相关的日志中。
 ![](https://qcloudimg.tencent-cloud.cn/raw/9ed0889e5173cfa9a0f8c37589b704cb.png)
