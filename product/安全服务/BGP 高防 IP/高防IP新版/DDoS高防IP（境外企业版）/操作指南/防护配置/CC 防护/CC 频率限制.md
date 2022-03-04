@@ -35,5 +35,6 @@ DDoS 高防  IP（境外企业版）为已接入防护的网站业务提供 CC �
 ![](https://qcloudimg.tencent-cloud.cn/raw/55ec4068e2b631871156fb67cfdd6cbc.png)
 5.	如需设置自定义规则，单击**新增规则**，创建频率限制规则，填写相关字段，单击**确定**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/6501cf5a33080f8a2f5ec08a04fff270.png)
+**参数说明：**
 6. 新建完成后，在 CC 频率限制列表将新增一条 CC 频率限制规则，可以在右侧操作列单击**配置**，修改 CC 频率限制规则。
 ![](https://qcloudimg.tencent-cloud.cn/raw/1b6c04d65c5052287bbfab26bf9e115f.png)
