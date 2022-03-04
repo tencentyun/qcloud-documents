@@ -9,13 +9,14 @@ TRTC Web SDK 屏幕分享支持度请查看 [浏览器支持情况](https://web.
 >!请严格按照以下顺序执行创建和发布屏幕分享流的代码。
 
 ### 步骤1：创建负责进行屏幕分享的客户端对象
-通常情况下，建议给 userId 加上后缀 `_share`，用来标识这是一个屏幕分享的客户端对象。
+通常情况下，建议给 userId 加上前缀 `share_`，用来标识这是一个屏幕分享的客户端对象。
+
 <dx-codeblock>
 :::javascript
 const shareClient = TRTC.createClient({
   mode: 'rtc',
   sdkAppId,
-  userId, // 例如：‘teacher_share’
+  userId, // 例如：‘share_teacher’
   userSig
 });
 // 客户端对象进入房间
@@ -98,7 +99,7 @@ try {
 const shareClient = TRTC.createClient({
   mode: 'rtc',
   sdkAppId,
-  userId, // 例如：‘teacher_share’
+  userId, // 例如：‘share_teacher’
   userSig
 });
 // 客户端对象进入房间
@@ -224,13 +225,13 @@ shareStream.on('screen-sharing-stopped', event => {
 :::javascript
 const client = TRTC.createClient({ mode: 'rtc', sdkAppId, userId, userSig });
 // 需要设置 shareClient 关闭自动订阅远端流，即：autoSubscribe: false
-const shareClient = TRTC.createClient({ mode: 'rtc', sdkAppId, `${userId}_share`, userSig, autoSubscribe: false,});
+const shareClient = TRTC.createClient({ mode: 'rtc', sdkAppId, `share_${userId}`, userSig, autoSubscribe: false,});
 
 // 负责本地音视频流发布的 client 需要取消订阅 shareClient 发布的流。
 client.on('stream-added', event => {
   const remoteStream = event.stream;
   const remoteUserId = remoteStream.getUserId();
-  if (remoteUserId === `${userId}_share`) {
+  if (remoteUserId === `share_${userId}`) {
     // 取消订阅自己的屏幕分享流
     client.unsubscribe(remoteStream);
   } else {
