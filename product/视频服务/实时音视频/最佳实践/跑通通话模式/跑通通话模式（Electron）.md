@@ -18,7 +18,7 @@ TRTC 云服务由两种不同类型的服务器节点组成，分别是“接口
 
 ## 示例代码
 
-您可以登录 [Github](https://github.com/tencentyun/TRTCSDK/tree/master/Electron) 获取本文档相关的示例代码。
+您可以登录 [Github](https://github.com/LiteAVSDK/TRTC_Electron) 获取本文档相关的示例代码。
 
 ## 操作步骤
 
@@ -67,9 +67,9 @@ trtcCloud.on('onError',onError);
 
 | 参数     | 类型   | 说明                                                         | 示例                   |
 | :------- | :----- | :----------------------------------------------------------- | :--------------------- |
-| sdkAppId | 数字   | 应用 ID，您可以在 [控制台](https://console.cloud.tencent.com/trtc/app) >【应用管理】>【应用信息】中查找到。 | 1400000123  |
-| userId   | 字符串 | 只允许包含大小写英文字母（a-z、A-Z）、数字（0-9）及下划线和连词符。 | test_user_001 |
-| userSig  | 字符串 | 基于 userId 可以计算出 userSig，计算方法请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275) 。 | eJyrVareCeYrSy1SslI... |
+| sdkAppId | 数字   | 应用 ID，您可以在 [控制台](https://console.cloud.tencent.com/trtc/app) >**应用管理**>**应用信息**中查找到。 | 1400000123  |
+| userId   | 字符串 | 只允许包含大小写英文字母（a-z、A-Z）、数字（0-9）及下划线和连词符。建议结合业务实际账号体系自行设置。 | test_user_001 |
+| userSig  | 字符串 | 基于 userId 可以计算出 userSig，计算方法请参见 [如何计算及使用 UserSig](https://cloud.tencent.com/document/product/647/17275) 。 | eJyrVareCeYrSy1SslI... |
 | roomId   | 数字   | 数字类型的房间号。如果您想使用字符串形式的房间号，请使用 TRTCParams 中的 strRoomId。 | 29834 |
 
 <dx-codeblock>
@@ -99,14 +99,13 @@ param.userSig = 'eJyrVareCeYrSy1SslI...';
 2. 请根据应用场景设置合适的  `appScene`  参数，使用错误可能会导致卡顿率或画面清晰度不达预期。
    - 视频通话，请设置为 `TRTCAppScene.TRTCAppSceneVideoCall`。
    - 语音通话，请设置为 `TRTCAppScene.TRTCAppSceneAudioCall`。
->? 关于 `TRTCAppScene` 的详细介绍，请参见 [TRTCAppScene ](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/global.html#TRTCAppScene)。
+>? 关于 `TRTCAppScene` 的详细介绍，请参见 [TRTCAppScene](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/global.html#TRTCAppScene)。
 3. 进房成功后，SDK 会回调 [onEnterRoom(result)](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCallback.html#event:onEnterRoom) 事件。其中，参数 `result` 大于0时表示进房成功，具体数值为加入房间所消耗的时间，单位为毫秒（ms）；当 `result` 小于0时表示进房失败，具体数值为进房失败的错误码。
 
 <dx-codeblock>
 ::: javascript javascript
 import TRTCCloud from 'trtc-electron-sdk';
 import { TRTCParams, TRTCAppScene } from "trtc-electron-sdk/liteav/trtc_define";
-import TRTCCloud from 'trtc-electron-sdk';
 let trtcCloud = new TRTCCloud();
 
 let onEnterRoom = function (result) {

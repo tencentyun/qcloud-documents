@@ -1,4 +1,4 @@
-LogListener 是腾讯云日志服务 CLS 所提供的专用日志采集器，将它安装部署到服务器上，可快速采集日志到日志服务。
+LogListener 是腾讯云日志服务（Cloud Log Service，CLS）所提供的专用日志采集器，将它安装部署到服务器上，可快速采集日志到日志服务。
 
 ## 安装环境
 
@@ -28,16 +28,16 @@ LogListener 版本支持新功能如下：
 
 ### 1. 下载安装 LogListener
 
-LogListener 最新版本下载地址：[公网下载 LogListener](https://mirrors.tencent.com/install/cls/loglistener-linux-x64-2.6.4.tar.gz)、[内网下载 LogListener](http://mirrors.tencentyun.com/install/cls/loglistener-linux-x64-2.6.4.tar.gz)
+LogListener 最新版本下载地址：[公网下载 LogListener](https://mirrors.tencent.com/install/cls/loglistener-linux-x64-2.6.5.tar.gz)、[内网下载 LogListener](http://mirrors.tencentyun.com/install/cls/loglistener-linux-x64-2.6.5.tar.gz)
 
 以安装路径`/usr/local/`为例： 下载 LogListener 安装包并解压，解压路径为`/usr/local/` ，解压完成后进入 LogListener 目录`loglistener/tools`，执行安装命令 。
 - 公网环境下，操作命令如下：
 ```plaintext
-wget https://mirrors.tencent.com/install/cls/loglistener-linux-x64-2.6.4.tar.gz  && tar -zxvf loglistener-linux-x64-2.6.4.tar.gz -C /usr/local && cd /usr/local/loglistener-2.6.4/tools && ./loglistener.sh install
+wget https://mirrors.tencent.com/install/cls/loglistener-linux-x64-2.6.5.tar.gz  && tar -zxvf loglistener-linux-x64-2.6.5.tar.gz -C /usr/local && cd /usr/local/loglistener-2.6.5/tools && ./loglistener.sh install
 ```
 - 内网环境下，操作命令如下：
 ```plaintext
-wget http://mirrors.tencentyun.com/install/cls/loglistener-linux-x64-2.6.4.tar.gz  && tar -zxvf loglistener-linux-x64-2.6.4.tar.gz -C /usr/local && cd /usr/local/loglistener-2.6.4/tools && ./loglistener.sh install
+wget http://mirrors.tencentyun.com/install/cls/loglistener-linux-x64-2.6.5.tar.gz  && tar -zxvf loglistener-linux-x64-2.6.5.tar.gz -C /usr/local && cd /usr/local/loglistener-2.6.5/tools && ./loglistener.sh install
 ```
 
 ### 2. 初始化 LogListener

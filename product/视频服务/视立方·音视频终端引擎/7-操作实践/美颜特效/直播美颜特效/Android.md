@@ -15,7 +15,7 @@
 
 ### 2. 下载企业版 SDK
 
-下载并解压 [企业版 SDK](https://github.com/tencentyun/TRTCSDK/blob/master/SDK%E4%B8%8B%E8%BD%BD.md#%E4%BC%81%E4%B8%9A%E7%89%88-sdk-%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80) ，解压时需要解压密码，解压密码在申请 License 成功后即可获取，解压后的目录结构如下：
+下载并解压 [企业版 SDK](https://cloud.tencent.com/document/product/454/7873) ，解压时需要解压密码，解压密码在申请 License 成功后即可获取，解压后的目录结构如下：
 
 | 文件名称                     | 文件内容                                      |
 | ---------------------------- | --------------------------------------------- |
@@ -49,7 +49,7 @@
         }
     }
 ```
-5. 单击【Sync Now】，完成 LiteAVSDK 的集成工作。
+5. 单击**Sync Now**，完成 LiteAVSDK 的集成工作。
 :::
 ::: 方式二：jar集成方式
  若您不想集成 aar 库，也可以通过导入 jar 和 so 库的方式集成 LiteAVSDK：
@@ -76,7 +76,7 @@
         }
     }
 ```
- 7. 单击【Sync Now】，完成 LiteAVSDK 的集成工作。
+ 7. 单击**Sync Now**，完成 LiteAVSDK 的集成工作。
 :::
 </dx-tabs>
 

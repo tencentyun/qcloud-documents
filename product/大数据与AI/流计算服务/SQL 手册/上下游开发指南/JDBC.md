@@ -9,6 +9,7 @@ JDBC Connector 提供了对 MySQL、PostgreSQL、Oracle 等常见的数据库读
 | :-------- | :--- |
 | 1.11      | 支持 |
 | 1.13      | 支持 |
+| 1.14      | 不支持 |
 
 ## 使用范围
 JDBC 支持用作数据源表（Source），用于按固定列扫描表和用于 JOIN 的右表（维表）；也支持用作数据目的表（sink），用于 Tuple 数据流表和用于 Upsert 数据流表（需要指定主键）。

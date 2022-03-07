@@ -27,9 +27,9 @@ npm update -g serverless
 
 安装完毕后，通过运行 `serverless -v` 命令，查看 Serverless Framework 的版本信息，如果有版本信息返回，则已经安装成功。
 
-### 2. 初始化模版
+### 2. 初始化模板
 
-通过如下命令直接下载该模版：
+通过如下命令直接下载该模板：
 
 ```bash
 serverless init fullstack-mysql --name example

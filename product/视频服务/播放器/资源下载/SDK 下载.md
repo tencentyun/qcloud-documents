@@ -1,9 +1,9 @@
 <style>
 .markdown-text-box table td, .markdown-text-box table th{text-align:center}
 </style>
- 
+  
 播放器 SDK 支持支持 Web、iOS、Android 和 Flutter 四大终端, 详情请参见表格中的文档。
-
+ 
 <table>
    <tr>
       <th width="12%">终端类别</td>
@@ -16,7 +16,7 @@
       <td rowspan='2'>Web 端</td>
       <td>超级播放器</td>
       <td><a href="https://cloud.tencent.com/document/product/881/30818">SDK</a></td>
-      <td><a href="https://imgcache.qq.com/open/qcloud/video/tcplayer/examples/vod/tcplayer-vod-base.html">Demo</a></td>
+      <td><a href="https://tcplayer.vcube.tencent.com/">Demo</a></td>
       <td><a href="https://cloud.tencent.com/document/product/881/30818">Web - 超级播放器</a></td>
    </tr>
    <tr>

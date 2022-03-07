@@ -18,7 +18,7 @@ while (true) {
             ConsumerRecords<String, String> records = consumer.poll(100);
 }
 ```
-初始的消费者数量可以根据客户端的资源情况进行初始的部署，然后配置消费者组的堆积告警，如果出现堆积的时候再扩容消费者。配置告警方式参考 [配置告警](https://cloud.tencent.com/document/product/597/57244)，配置页面如下图所示。
+初始的消费者数量可以根据客户端的资源情况进行初始的部署，然后配置消费者组的堆积告警，如果出现堆积的时候再扩容消费者。配置告警方式参见 [配置告警](https://cloud.tencent.com/document/product/597/57244)，配置页面如下图所示。
 ![](https://main.qcloudimg.com/raw/d84892ff3a2cf3f37340e213454e3308.png)
 
 

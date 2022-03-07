@@ -1,8 +1,8 @@
-﻿SMTP 服务地址如下：
+SMTP 服务地址如下：
 
 | 地址 | 说明 | 
 |---------|---------|
-| SMTP 服务地址（香港） | smtp.qcloudmail.com | 
+| SMTP 服务地址（中国香港） | smtp.qcloudmail.com | 
 |SMTP 服务地址（新加坡）|sg-smtp.qcloudmail.com|
 
 SMTP 端口号如下：

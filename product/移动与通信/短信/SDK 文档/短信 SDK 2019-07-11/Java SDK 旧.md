@@ -33,7 +33,9 @@ SDK 3.0是云 API 3.0平台的配套工具，您可以通过 SDK 使用所有 [�
 
 1. 访问 [Maven 官网](https://maven.apache.org/) 下载对应系统 Maven 安装包进行安装。
 2. 添加 Maven 依赖项，只需在 Maven pom.xml 添加以下依赖项即可：
->!版本号仅为示例，请在 [Maven 仓库](https://search.maven.org/search?q=tencentcloud-sdk-java) 获取最新的版本号并替换。
+>!
+>- 版本号仅为示例，请在 [Maven 仓库](https://search.maven.org/search?q=tencentcloud-sdk-java) 获取最新的版本号并替换。
+>- Maven 仓库中显示的 4.0.11 是废弃版本，由于 Maven 索引更新问题尚未完全删除。
 
 <pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.tencentcloudapi<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
@@ -102,8 +104,7 @@ public class AddSmsTemplate
             /* SDK 有默认的超时时间，非必要请不要进行调整
              * 如有需要请在代码中查阅以获取最新的默认值 */
             httpProfile.setConnTimeout(60);
-            /* SDK 会自动指定域名，通常无需指定域名，但访问金融区的服务时必须手动指定域名
-             * 例如 SMS 的上海金融区域名为 sms.ap-shanghai-fsi.tencentcloudapi.com      */
+            /* 指定接入地域域名，默认就近地域接入域名为 sms.tencentcloudapi.com ，也支持指定地域域名访问，例如广州地域的域名为 sms.ap-guangzhou.tencentcloudapi.com      */
             httpProfile.setEndpoint("sms.tencentcloudapi.com");
 
             /* 非必要步骤:
@@ -213,8 +214,7 @@ public class SendSms
             /* SDK 有默认的超时时间，非必要请不要进行调整
              * 如有需要请在代码中查阅以获取最新的默认值 */
             httpProfile.setConnTimeout(60);
-            /* SDK 会自动指定域名，通常无需指定域名，但访问金融区的服务时必须手动指定域名
-             * 例如 SMS 的上海金融区域名为 sms.ap-shanghai-fsi.tencentcloudapi.com */
+            /* 指定接入地域域名，默认就近地域接入域名为 sms.tencentcloudapi.com ，也支持指定地域域名访问，例如广州地域的域名为 sms.ap-guangzhou.tencentcloudapi.com */
             httpProfile.setEndpoint("sms.tencentcloudapi.com");
 
             /* 非必要步骤:
@@ -336,8 +336,7 @@ public class PullSmsSendStatus {
             /* SDK 有默认的超时时间，非必要请不要进行调整
              * 如有需要请在代码中查阅以获取最新的默认值 */
             httpProfile.setConnTimeout(60);
-            /* SDK 会自动指定域名，通常无需指定域名，但访问金融区的服务时必须手动指定域名
-             * 例如 SMS 的上海金融区域名为 sms.ap-shanghai-fsi.tencentcloudapi.com */
+            /* 指定接入地域域名，默认就近地域接入域名为 sms.tencentcloudapi.com ，也支持指定地域域名访问，例如广州地域的域名为 sms.ap-guangzhou.tencentcloudapi.com */
             httpProfile.setEndpoint("sms.tencentcloudapi.com");
 
             /* 非必要步骤:
@@ -432,8 +431,7 @@ public class SendStatusStatistics {
             /* SDK 有默认的超时时间，非必要请不要进行调整
              * 如有需要请在代码中查阅以获取最新的默认值 */
             httpProfile.setConnTimeout(60);
-            /* SDK 会自动指定域名，通常无需指定域名，但访问金融区的服务时必须手动指定域名
-             * 例如 SMS 的上海金融区域名为 sms.ap-shanghai-fsi.tencentcloudapi.com */
+            /* 指定接入地域域名，默认就近地域接入域名为 sms.tencentcloudapi.com ，也支持指定地域域名访问，例如广州地域的域名为 sms.ap-guangzhou.tencentcloudapi.com */
             httpProfile.setEndpoint("sms.tencentcloudapi.com");
 
             /* 非必要步骤:

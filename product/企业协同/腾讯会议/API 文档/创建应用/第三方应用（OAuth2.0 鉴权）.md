@@ -6,7 +6,7 @@ OAuth（开放授权）是一个开放标准，允许用户授权应用访问其
 1. 登录 腾讯会议 [开放平台](https://meeting.tencent.com/open-api.html)，单击**创建应用**。
 ![](https://main.qcloudimg.com/raw/2f3e024248988a4f499ada81dfec0e8e.png)
 2. 选择“应用类型”，填写应用名称、应用图标和简短描述，选择是否推送到应用市场，完成应用创建。
-![](https://main.qcloudimg.com/raw/999db79f7e1cda5b53b5e33308f97efe.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/8c2850202ed3bdf835651f5fcef38829.png)
 
 
 **第三方应用类型**
@@ -73,12 +73,3 @@ OAuth（开放授权）是一个开放标准，允许用户授权应用访问其
 ## 激活应用
 在激活应用时，我们会进行应用必填内容的判断，需按照要求把必填项都填写完成，才能完成应用的最终创建。如内容全部填写完成，您将能够在平台或者工具中集成腾讯会议的服务和 API。
 ![](https://main.qcloudimg.com/raw/b162d633ce87e2270332ee4a3c44d017.png)
-
-
-
-
-
-
-
-
-

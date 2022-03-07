@@ -6,14 +6,6 @@ width: 300px;
 }
 </style>
 
-## 消息相关接口
-
-| 接口名称                                                     | 接口功能                |
-| :----------------------------------------------------------- | :---------------------- |
-| [ClearCmqQueue](https://cloud.tencent.com/document/api/1179/55922) | 清空 TDMQ CMQ 版中的消息 |
-| [ClearCmqSubscriptionFilterTags](https://cloud.tencent.com/document/api/1179/55921) | 清空 TDMQ CMQ 版订阅者消息标签   |
-| [PublishCmqMsg](https://cloud.tencent.com/document/api/1179/55920) | 发送 TDMQ CMQ 版主题消息         |
-| [SendCmqMsg](https://cloud.tencent.com/document/api/1179/55919) | 发送 TDMQ CMQ 版消息             |
 
 ## 管理相关接口
 

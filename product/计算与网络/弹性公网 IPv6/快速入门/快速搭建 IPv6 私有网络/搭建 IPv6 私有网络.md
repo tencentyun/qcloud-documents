@@ -19,6 +19,7 @@
 ### 步骤一：为 VPC 分配 IPv6 CIDR[](id:step1)
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc)。
 2. 选择支持 IPv6 的地域，在 VPC 所在行的右侧操作栏下，选择**更多** > **编辑 IPv6 CIDR**。
+![](https://qcloudimg.tencent-cloud.cn/raw/5c02c1344ace4a56d7dd4418a4c09487.png)
 3. 在“编辑 IPv6 CIDR” 弹框中，单击**获取**并确认相关信息后，单击**确定**。
 系统将为 VPC 分配一个`/56`的 IPv6 地址段，您可以在列表中，查看到 IPv6 地址段的详细信息。
 ![](https://main.qcloudimg.com/raw/12f6f55a2dfa1047ec5e2fa0f82c1517.png)
@@ -81,8 +82,8 @@
 >?
 >- 如果测试公网连通性，请确保已经在“安全组”设置 IPv6 策略、并在“弹性公网 IPv6”设置 IPv6 公网带宽。
 >- 如果未开通 IPv6 公网，但需要测试 IPv6 云服务器的连通性（Ping 测试、SSH、远程桌面测试），可使用同一私有网络下已经获取 IPv6 地址的云服务器进行连通性测试。
->- 如果云服务器镜像开启了 IPv6，系统则会为每个网卡默认分配一个“FE80”开头的 link-local 地址，该link-local 并不能作为内外网通信的 IPv6 地址。
->- 建议您选择就近测试点 ping 测，例如国内用户可通过 ping6 www.qq.com 等国内网站测试、境外地域可通过 ping ipv6.google.com 等境外网站测试。
+>- 如果云服务器镜像开启了 IPv6，系统则会为每个网卡默认分配一个“FE80”开头的 link-local 地址，该 link-local 并不能作为内外网通信的 IPv6 地址。
+>- 建议您选择就近测试点 ping 测。
 >
 
 <dx-tabs>

@@ -11,17 +11,21 @@
 >- 网站建设暂不支持国密证书（DNSPod 证书）部署。
 
 ## 操作步骤
+### 证书申请
+1. 证书与私钥文件您可在 [SSL 证书控制台](https://console.cloud.tencent.com/ssl) 申请后，待审核通过后单击**下载**。
+2. 在弹出的 “证书下载” 窗口中，服务器类型选择 **Nginx**，单击操作栏的**下载**。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/f32e02c9f42ccb4391e0860097dd7a5a.png)
+>?申请 SSL 证书操作请参见 [SSL 证书申请流程](https://cloud.tencent.com/document/product/400/43473)。
+
 ### 证书安装
 1. 登录腾讯云 [网站建设控制台](https://console.cloud.tencent.com/wds)，选择您需要进行建站服务的 “服务名称”，单击**管理**。
 2. 在网站服务详情中，单击 “网站管理” 模块下的**管理后台地址**。
 3. 由网站建设控制台跳转到建站引导页面后，选择您需要部署的网站，单击**免费开启**。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/64726d0c23668f5abe4e75d26abb9678.png)
 4. 在弹出的 “开启 https 窗口” 中，单击**浏览**上传证书与私钥文件。如下图所示：
->?请您在 [SSL 证书控制台](https://console.cloud.tencent.com/ssl) 下载证书文件，并上传 Nginx 文件内容至证书与私钥文件。
->
 ![](https://main.qcloudimg.com/raw/d276400ebbd532393623d3dfe4f30cad.png)
- - **证书文件**：请上传 Nginx 目录下 .crt 后缀证书文件。
- - **私钥文件**：请上传 Nginx 目录下 .key 后缀私钥文件。
+ - **证书文件**：请上传证书目录下 .crt 后缀证书文件。
+ - **私钥文件**：请上传证书目录下 .key 后缀私钥文件。
 5. 单击**确认上传**。证书状态为 “证书部署成功” 即可完成部署证书操作。如下图所示：
 ![](https://main.qcloudimg.com/raw/a66d1a4865cc733d8e7fc635ad913eb2.png)
 

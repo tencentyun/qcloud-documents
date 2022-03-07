@@ -1,14 +1,28 @@
+## Version 9.5 @ 2022.01.11
+
+**故障修复：**
+- 全平台：提升 API 易用性，修复部分 API 特定调用时序导致自定义渲染播放黑屏的问题。
+- Windows：修复屏幕分享采集区域不完整的问题。
+- iOS：修复 [muteLocalVideo](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#ac3a158f935a99abd4965d308c0f88977) 调用后退房下次进房还是不推流状态的问题。
+- iOS：修复混流设置背景图无效的问题。
+
+**功能优化：**
+- 全平台：优化通话场景在弱网时的流畅度。
+- Windows：优化摄像头兼容性，解决部分设备采集帧率与设定值不符或开启失败的问题。
+- iOS：提升兼容性，降低和其他渲染组件如 cocos2D 共用时的冲突。
+- Android：修复上行关闭再开启摄像头，播放端先显示关闭前最后一帧再正常显示的问题。
+
 ## Version 9.4 @ 2021.12.08
 
 **功能新增：**
-- 全平台：增加语音聚焦功能，您可以通过 [setRemoteAudioParallelParams](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#a0e6e6434aaa03ce878280125a9c0fa4b) 接口让 SDK 只播放房间中音量最大的几路音频，这对于提升大型语音房间的性能表现非常有帮助。
+- 全平台：新增语音追光功能，适用于大型语音连麦场景，即使在多人同时开麦的嘈杂的环境下，仍然能聚焦关键用户的声音。您可以通过 [setRemoteAudioParallelParams](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#a0e6e6434aaa03ce878280125a9c0fa4b) 接口进行设置。
 - Mac：增加对系统声音采集 [startSystemAudioLoopback](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a2979e32c019708dcc9209bb6d2db9486) 的双声道支持。
 - iOS：增加对 24 位 wav 格式的背景音乐文件的支持。
 - Android&iOS：本版本符合国家隐私安全规范的规定，已经经过腾讯内部多款产品的验证。
 
 **问题修复：**
 - 全平台：修复快速调用 [switchRoom](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#a1f3bed34f92b3ff908beb2d0ed2866c9) 可能导致切换房间失败的问题。
-- iOS：修复在应用内录屏 [startScreenCaptureInApp](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#abf51acf26b2212192f7145468886b791) 过程中设置 [setVideoEncoderRotation](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a200c174b27bbe7397b0639e707ee6547) 无效的问题。
+- iOS：修复在应用内录屏 [startScreenCaptureInApp](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#abf51acf26b2212192f7145468886b791) 过程中设置  [setVideoEncoderRotation](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a200c174b27bbe7397b0639e707ee6547) 无效的问题。
 - iOS：修复系统录屏 [startScreenCaptureByReplaykit](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#abebcd402e310d5d7dcbef9f6b601cfc4) 过程中偶现的内存上涨问题。
 
 **功能优化：**

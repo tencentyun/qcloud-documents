@@ -8,7 +8,7 @@ Web 端播放器支持 PC 端和移动端的浏览器视频播放，丰富灵活
 ![](https://main.qcloudimg.com/raw/489b5a53fadb14e982406b927589ad62.png)
 
 ### Demo 下载
-[Web 端超级播放器 - 点播播放 Demo](https://tcplayer-1306264703.cos.ap-nanjing.myqcloud.com/build/index.html)
+[Web 端超级播放器 - 点播播放 Demo](https://tcplayer.vcube.tencent.com/)
 
 [](id:mobile)
 ## 移动端

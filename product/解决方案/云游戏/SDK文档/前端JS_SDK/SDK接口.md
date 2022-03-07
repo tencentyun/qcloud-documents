@@ -644,7 +644,7 @@ function(res) {
 [](id:TCGSDK.setVideoOrientation(deg,rotateContainer))
 ### TCGSDK.setVideoOrientation(deg,rotateContainer)
 
-设置云游戏页面的背景图。
+设置 video 的旋转角度。
 
 | 参数 | 参数类型 | 说明     |
 | ---- | -------- | ------------ |

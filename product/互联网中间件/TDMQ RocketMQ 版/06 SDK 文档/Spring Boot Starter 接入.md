@@ -7,7 +7,7 @@
 - [完成资源创建与准备](https://cloud.tencent.com/document/product/1495/61829)
 - [安装1.8或以上版本 JDK](https://www.oracle.com/java/technologies/javase-downloads.html)
 - [安装2.5或以上版本 Maven](http://maven.apache.org/download.cgi#)
-- [下载 Demo](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-rocketmq-demo/tdmq-rocketmq-springboot-demo.zip)
+- [下载 Demo](https://tdmq-document-1306598660.cos.ap-nanjing.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91demo/rocketmq/tdmq-rocketmq-springboot-demo.zip)
 
 ## 操作步骤
 
@@ -130,7 +130,7 @@ rocketmq:
    }
    ```
 
-   该示例为同步发送。异步发送，单向发送等请参考 [Demo](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-rocketmq-demo/tdmq-rocketmq-springboot-demo.zip) 或参考 [RocketMQ Spring](https://github.com/apache/rocketmq-spring)。
+>?该示例为同步发送。异步发送，单向发送等请见 [Demo](https://tdmq-document-1306598660.cos.ap-nanjing.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91demo/rocketmq/tdmq-rocketmq-springboot-demo.zip) 或 [RocketMQ Spring](https://github.com/apache/rocketmq-spring)。
 
 ### 步骤4：消费消息 
 
@@ -153,7 +153,7 @@ public class MessageConsumer implements RocketMQListener<String> {
 
 可根据业务需求配置多个消费者。消费者其他配置可根据具体业务需求进行配置。
 
-完整示例参考 [Demo](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-rocketmq-demo/tdmq-rocketmq-springboot-demo.zip) 或参考 [RocketMQ Spring](https://github.com/apache/rocketmq-spring)。
+>?完整示例参见 [Demo](https://tdmq-document-1306598660.cos.ap-nanjing.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91demo/rocketmq/tdmq-rocketmq-springboot-demo.zip) 或 [RocketMQ Spring](https://github.com/apache/rocketmq-spring)。
 
 ### 步骤5：查看消费详情
 

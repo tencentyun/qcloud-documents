@@ -7,7 +7,6 @@
 | 操作系统平台  | 浏览器/Webview  | 版本要求  |  备注|
 | ------------------------- | -------- | ---------------------- |------- |
 | Windows  | Chrome | 50+   |   Win7+   |
-| Windows  | IE | 10+ | Win7+    |
 | Windows  | Firefox | 50+ | Win7+    |
 | Mac  | Chrome | 50+   |   -   |
 | Mac  | Safari | 8+ | -    |
@@ -25,7 +24,7 @@
 <!-- COS SDK -->
 <script src="https://res.qcloudtiw.com/board/third/cos/5.1.0/cos.min.js"></script>
 <!-- TEduBoard SDK -->
-<script src="https://res.qcloudtiw.com/board/2.6.7/TEduBoard.min.js"></script>
+<script src="https://res.qcloudtiw.com/board/2.6.9/TEduBoard.min.js"></script>
 ```
 
 如果您需要添加视频文件还需要添加以下代码：
@@ -115,7 +114,7 @@ this.tim.on(window.TIM.EVENT.MESSAGE_RECEIVED, () => {
           elements.forEach((element) => {
             if (element.type === 'TIMCustomElem') {
               if (element.content.extension === 'TXWhiteBoardExt') {
-                if (message.from != this.userId) {
+                if (message.from != this.userId) { // 过滤自己本人的操作信令
                   teduBoard.addSyncData(JSON.parse(element.content.data));
                 }
               }

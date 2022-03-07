@@ -16,7 +16,7 @@
 ![](https://main.qcloudimg.com/raw/1582a5954a13d0ffed85753eebd6fecd.png)
 4. 复制 COS 文件 URL。
 ![](https://main.qcloudimg.com/raw/2c97efe3a6a7f76761cfb39de6040636.png)
-5. 登录 [威胁发现控制台](https://console.cloud.tencent.com/developer-security/threat-discovery)，单击左侧菜单栏的 **IP 清单**。
+5. 登录 [账号威胁发现控制台](https://console.cloud.tencent.com/developer-security/threat-discovery)，单击左侧菜单栏的 **IP 清单**。
 6. 根据需求，单击**添加可信 IP 列表**或**添加威胁 IP 列表**。
 7. 进入弹窗填写列表名称、列表文件 URL，选择格式和同意协议。
 	- 列表名称：填写名称，不可与列表中的其它名称重复。

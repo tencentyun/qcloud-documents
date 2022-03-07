@@ -202,7 +202,7 @@
 ```
 
 <span id="zhongduan"></span>
-
+[](id:zhongduan)
 
 ### 客户端获取参数
 1. 在您跳转指定的 activity 页面 onCreate 方法内，添加如下获取 intent uri 代码：
@@ -214,14 +214,22 @@ protected void onCreate(Bundle savedInstanceState) {
 
     // ...
 
-    // onCreate 内获取 intent uri 代码
+    // onCreate 内获取
+
+    // 当使用 intent uri （客户端自定义）方式推送，且在 intent 尾部添加了参数，可以通过此段代码获取各参数值。
+    // 例如推送的 intent 值为 xgscheme://com.tpns.push/notify_detail?param1=aa&param2=bb,
+    // 则可以通过此段代码获取到 param1 的值 aa 和 param2 的值 bb。
     Uri uri = getIntent().getData();
     Log.i(TAG, "onCreate get data uri: " + uri);
-    if (uri != null) {                
+    if (uri != null) {
         String url = uri.toString();
-        String p1= uri.getQueryParameter("param1");
-        String p2= uri.getQueryParameter("param2");
+        String p1 = uri.getQueryParameter("param1");
+        String p2 = uri.getQueryParameter("param2");
     }
+
+    // SDK 1.3.2.0 起新增
+    // 当创建推送任务时有填自定义参数（custom_content），可以通过此接口获取 custom_content 字符串内容。
+    String customContent = XGPushManager.getCustomContentFromIntent(this, this.getIntent());
 
     // ...
 }
@@ -234,14 +242,22 @@ protected void onNewIntent(Intent intent) {
 
     // ...
 
-    // onNewIntent 内获取 intent uri 代码
+    // onNewIntent 内获取
+
+    // 当使用 intent uri （客户端自定义）方式推送，且在 intent 尾部添加了参数，可以通过此段代码获取各参数值。
+    // 例如推送的 intent 值为 xgscheme://com.tpns.push/notify_detail?param1=aa&param2=bb,
+    // 则可以通过此段代码获取到 param1 的值 aa 和 param2 的值 bb。
     Uri uri = intent.getData();
     Log.i(TAG, "onNewIntent get data uri: " + uri);
     if (uri != null) {
         String url = uri.toString();
-        String p1= uri.getQueryParameter("param1");
-        String p2= uri.getQueryParameter("param2");
+        String p1 = uri.getQueryParameter("param1");
+        String p2 = uri.getQueryParameter("param2");
     }
+
+    // SDK 1.3.2.0 起新增
+    // 当创建推送任务时有填自定义参数（custom_content），可以通过此接口获取 custom_content 字符串内容。
+    String customContent = XGPushManager.getCustomContentFromIntent(this, intent);
 
     // ...
 }

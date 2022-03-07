@@ -14,6 +14,9 @@ UserSig 的计算原理如下所示，其本质就是对 SDKAppID、UserID 和 E
 usersig = hmacsha256(secretkey, (userid + sdkappid + currtime + expire + 
                                  base64(userid + sdkappid + currtime + expire)))
 ```
+>?
+>- `currtime` 为当前系统的时间，`expire` 为签名过期的时间。
+>- 更多相关详情，请参见 [客户端计算 UserSig](#Client) 和 [服务端计算 UserSig](#Server)。
 
 [](id:Key)
 ### 密钥获取
@@ -28,7 +31,7 @@ usersig = hmacsha256(secretkey, (userid + sdkappid + currtime + expire +
 
 | 语言版本 |  适用平台 | 源码位置 |
 |:---------:|:---------:|:---------:|
-| Objective-C | iOS  | [Github](https://github.com/tencentyun/MLVBSDK/blob/master/iOS/MLVB-API-Example/Debug/GenerateTestUserSig.h)|
+| Objective-C | iOS  | [Github](https://github.com/LiteAVSDK/Live_iOS/blob/main/MLVB-API-Example-OC/Debug/GenerateTestUserSig.h)|
 | Java | Android  | [Github](https://github.com/tencentyun/MLVBSDK/blob/master/Android/Demo/debug/src/main/java/com/tencent/liteav/debug/GenerateTestUserSig.java) |
 | Javascript | 小程序 | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/WXMini/pages/mlvb-live-room-demo/debug/GenerateTestUserSig.js)|
 

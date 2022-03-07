@@ -11,7 +11,7 @@
 
 1. 接入 SDK 之前，需要您前往 [移动推送 TPNS 控制台](https://console.cloud.tencent.com/tpns) 创建产品和 iOS 应用，详情请参见 [创建产品和应用](https://cloud.tencent.com/document/product/548/37241) 文档。
    ![](https://main.qcloudimg.com/raw/e6e1805c3198704a0d24ed20fe65f25a.png)
-2. 在【配置管理】页面上传推送证书，您可以参考 [证书获取指引](https://cloud.tencent.com/document/product/548/36664) 操作获取推送证书。
+2. 在**配置管理**页面上传推送证书，您可以参考 [证书获取指引](https://cloud.tencent.com/document/product/548/36664) 操作获取推送证书。
    ![](https://main.qcloudimg.com/raw/d7ed258ecf2eda9d32e986039bc9bb3c.png)
    ![](https://main.qcloudimg.com/raw/c4eaeb3f2d9c3fbb42dbb75f2c5c12dc.png)
 3. 完成以上步骤后，单击快速接入，下载快速集成工具。
@@ -20,15 +20,15 @@
    ![](https://main.qcloudimg.com/raw/b900deaadd11180abd6918e400ed55b6.png)
 5. 此时会提示“无法打开 TPNS Smart Tool”。
    ![](https://main.qcloudimg.com/raw/67334a5258eb5d879c54663d158029ee.png)
-6. 前往【系统偏好设置】>【安全性与隐私】> 通用中单击【仍要打开】。
+6. 前往**系统偏好设置**>**安全性与隐私**> 通用中单击**仍要打开**。
    ![](https://main.qcloudimg.com/raw/2c5313c7d0e07ef38e231c16f056dfb2.jpg)
-7. 按照系统提示输入本机密码确认操作，正确无误后再次单击【仍要打开】，此时会出现【打开】，单击【打开】。
+7. 按照系统提示输入本机密码确认操作，正确无误后再次单击**仍要打开**，此时会出现**打开**，单击**打开**。
    ![](https://main.qcloudimg.com/raw/9737b9509dd4beb08520ef9298136af5.png)
 
 
 ## 开始接入
 
-1. 启动一键集成工具之后，进入首页，单击【开始集成】。
+1. 启动一键集成工具之后，进入首页，单击**开始集成**。
    ![](https://main.qcloudimg.com/raw/7b1c2c361559c93aa9b78c0e158e3051.jpg)
 2. 进入配置页面，下面我们逐一对6个配置项进行说明
    ![](https://main.qcloudimg.com/raw/87639f21e8ebe1c89b2c70d71b0c2820.jpg)
@@ -75,11 +75,9 @@
 >- 您可以单独集成配置项5或者6，也可以同时集成5和6，请根据您的项目情况自行选择。
 
 
-
-
 ### 进行 TPNS SDK 集成
 
-1. 完成上述6项配置之后，【一键集成】将变成蓝色可单击状态，单击【一键集成】。
+1. 完成上述6项配置之后，**一键集成**将变成蓝色可单击状态，单击**一键集成**。
   ![](https://main.qcloudimg.com/raw/30059198465ce5fb475e848aa2214372.jpg)
 2. 集成成功之后，将展示如下弹框。
   ![](https://main.qcloudimg.com/raw/764b0e1a12f51b2d48f106439ab5539a.jpg)
