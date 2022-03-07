@@ -3,7 +3,7 @@
 
 | 消息分类 | API 关键词 | 说明 |
 |---------|---------|---------|
-| 单聊消息 | C2CMessage | 又称 C2C 消息，在发送时需要指定消息接收者的 UserID，只有接受者可以收到该消息。 |
+| 单聊消息 | C2CMessage | 又称 C2C 消息，在发送时需要指定消息接收者的 UserID，只有接收者可以收到该消息。 |
 | 群聊消息 | GroupMessage | 在发送时需要指定目标群组的 groupID，该群中的所有用户均能收到消息。|
 
 按照消息承载的内容可以分为：“文本消息”、“自定义（信令）消息”，“图片消息”、“视频消息”、“语音消息”、“文件消息”、“位置消息”、“合并消息”、“群 Tips 消息”等几种类型。
@@ -21,7 +21,7 @@
 | 群 Tips 消息 | GroupTipsElem | 群 Tips 消息常被用于承载群中的系统性通知消息，例如有成员进出群组，群的描述信息被修改，群成员的资料发生变化等。 |
 
 ## 收发简单消息
-在IM Flutter SDK中有两大类消息（简单消息和富媒体消息），这里我们先介绍简单消息。在V2TIMManager.getMessageManager() 中提供了一组简单消息的收发接口，可直接用于文本消息和自定义（信令）消息的收发，但3.6.0后我们不推荐您使用。建议您也走富媒体消息流程，先 create 对应 [V2TimMessage](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/models_v2_tim_message/V2TimMessage-class.html)，再调用统一的 [sendMessage](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/im_flutter_plugin_platform_interface/ImFlutterPlatform/sendMessage.html) 接口。
+在 IM Flutter SDK 中有两大类消息（简单消息和富媒体消息），这里我们先介绍简单消息。在V2TIMManager.getMessageManager() 中提供了一组简单消息的收发接口，可直接用于文本消息和自定义（信令）消息的收发，但3.6.0后我们不推荐您使用。建议您也走富媒体消息流程，先 create 对应 [V2TimMessage](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/models_v2_tim_message/V2TimMessage-class.html)，再调用统一的 [sendMessage](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/im_flutter_plugin_platform_interface/ImFlutterPlatform/sendMessage.html) 接口。
 
 简单消息：
 
@@ -52,7 +52,7 @@
 ```
 在createMessage后，会返回一个消息创建 id，将消息创建 id 传递给 sendMessage 即可将消息发送出去。sendMessage 方法为所有消息发送的通用方法 receiver、groupID 二选一填写，另一个传递空字符串即可。
 
->!发送文本消息，其中文本消息会经过即时通信 IM 的敏感词过滤，包含的敏感词消息在发送时会报80001错误码。调用 createMessage 再调用 sendMessage 可以发送 C2C 自定义（信令）消息，自定义消息本质是一段二进制 buffer，通常用于传输您应用中的自定义信令，内容不会经过敏感词过滤。此外 Flutter IM SDK，额外封装了一个信令供您调用（将在下方介绍）。
+>!发送文本消息，其中文本消息会经过即时通信 IM 的敏感词过滤，包含的敏感词消息在发送时会报80001错误码。调用 createMessage 再调用 sendMessage 可以发送 C2C 自定义（信令）消息，自定义消息本质是一段二进制 buffer，通常用于传输您应用中的自定义信令，内容不会经过敏感词过滤。此外 Flutter IM SDK 额外封装了一个信令供您调用（将在下方介绍）。
 
 ### 接收文本和信令消息
 通过  [addSimpleMsgListener](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_manager/V2TIMManager/addSimpleMsgListener.html) 可以监听简单的文本和信令消息，复杂的图片、视频、语音消息则需要通过 v2TIMManager.getMessageManager() 中定义的 [addAdvancedMsgListener](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/addAdvancedMsgListener.html) 实现。
@@ -153,7 +153,7 @@
 3. 发送方调用 [sendMessage](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/sendMessage.html) 接口将刚才创建的 @ 消息对象发送出去。
 
 ### 接收群 @ 消息
-1. 在加载和更新会话处，需要监听 [V2TIMConversation](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/models_v2_tim_conversation/V2TimConversation-class.html) 的 [OnConversationChangedCallback](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/enum_callbacks/OnConversationChangedCallback.html)回调来获取会话的@列表，将来会提供方法`getGroupAtInfoList`手动获取atInfoList。
+1. 在加载和更新会话处，需要监听 [V2TIMConversation](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/models_v2_tim_conversation/V2TimConversation-class.html) 的 [OnConversationChangedCallback](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/enum_callbacks/OnConversationChangedCallback.html) 回调来获取会话的@列表，将来会提供方法`getGroupAtInfoList`手动获取 atInfoList。
 2. 通过列表中 [V2TIMGroupAtInfo](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/models_v2_tim_group_at_info/V2TimGroupAtInfo-class.html) 对象的 [atType](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/models_v2_tim_group_at_info/V2TimGroupAtInfo/atType.html) 接口获取 @ 数据类型，并更新到当前会话的 @ 信息。
 
 ### 经典示例：收发群 @ 消息
@@ -208,9 +208,18 @@ List<String> atUserList = ['AT_ALL_TAG',"何大佬的userID"]; // 既 @全体又
 ## 收发合并转发消息
 要实现类似于微信的合并转发功能，首先需要根据原始消息列表创建一条合并消息，然后把合并消息发送到对端，对端收到合并消息后再解析出原始消息列表，合并消息的展示还需要标题和摘要信息，如下图所示：
 
-| 合并转发 | 合并消息展示 | 单机合并消息下载合并消息列表展示 |
-|---------|---------|---------|
-| ![](https://qcloudimg.tencent-cloud.cn/raw/26754de280edccbf3fc93fc60c9af0ac.png) |![](https://qcloudimg.tencent-cloud.cn/raw/e081285b742e4e614bf563842b7daf60.png) | ![](https://qcloudimg.tencent-cloud.cn/raw/0f86d2cb168ff4fd9640feeccf11220c.png) |
+<table>
+   <tr>
+      <th width="0px" style="text-align:center">合并转发</td>
+      <th width="0px" style="text-align:center">合并消息展示</td>
+      <th width="0px"  style="text-align:center">单击合并消息下载合并消息列表展示</td>
+   </tr>
+   <tr>
+      <td style="text-align:center"><img style="width:190px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/ca62239bbab545665df617c928960d5a.jpg" /></td>
+      <td style="text-align:center"><img style="width:190px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/ae0bbf431eee95aa1b0be04b2346837f.jpg" /></td>
+      <td style="text-align:center"><img style="width:190px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/b145e9c869fc84ead6477f9fa9012d72.jpg" /></td>
+   </tr>
+</table>
 
 - **发送合并转发消息：**
 通常我们在收到一条合并消息的时候，会在聊天界面这样显示：
@@ -221,12 +230,12 @@ List<String> atUserList = ['AT_ALL_TAG',"何大佬的userID"]; // 既 @全体又
 | lynx：计划下周一，具体时间要看下这两天的系统测试情况..| abstract2     （摘要信息2） |
 | vinson：好的 | abstract3     （摘要信息3） |
 
-聊天界面只会显示合并消息的标题和摘要信息，只有用户单机合并消息的时候才会展示合并消息列表，我们在创建一条合并消息的时候不仅要设置合并消息列表，还要设置标题和摘要信息，实现流程如下：
+聊天界面只会显示合并消息的标题和摘要信息，只有用户单击合并消息的时候才会展示合并消息列表，我们在创建一条合并消息的时候不仅要设置合并消息列表，还要设置标题和摘要信息，实现流程如下：
 1、调用 [createMergerMessage](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/im_flutter_plugin_platform_interface/ImFlutterPlatform/createMergerMessage.html) 接口创建一条合并消息。
 2、调用 [sendMessage](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/im_flutter_plugin_platform_interface/ImFlutterPlatform/sendMessage.html) 接口发送合并消息。
 
 - **接收合并转发消息：**
-当我们收到一条合并消息 [V2TIMMessage](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/models_v2_tim_message/V2TimMessage-class.html)，可以先通过合并消息元素 [V2TIMMergerElem](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMMergerElem.html) 获取 [title](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMMergerElem.html#a864916a91d453e2124c12e0ccbb66550) 和  [abstractList](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/models_v2_tim_merger_elem/V2TimMergerElem/abstractList.html)  UI 展示，当用户单机合并消息的时候再调用 [downloadMergerMessage](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMMergerElem.html#af34d8228a9842875652a726f24ac3d30) 接口下载合并消息列表 UI 展示。
+当我们收到一条合并消息 [V2TIMMessage](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/models_v2_tim_message/V2TimMessage-class.html)，可以先通过合并消息元素 [V2TIMMergerElem](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMMergerElem.html) 获取 [title](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMMergerElem.html#a864916a91d453e2124c12e0ccbb66550) 和  [abstractList](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/models_v2_tim_merger_elem/V2TimMergerElem/abstractList.html)  UI 展示，当用户单击合并消息的时候再调用 [downloadMergerMessage](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMMergerElem.html#af34d8228a9842875652a726f24ac3d30) 接口下载合并消息列表 UI 展示。
 
 
 ### 经典示例：收发合并转发消息
@@ -278,12 +287,12 @@ List<String> atUserList = ['AT_ALL_TAG',"何大佬的userID"]; // 既 @全体又
 		String title = mergerElem.title;
 		// 获取摘要列表
 		List<String> abstractList = mergerElem.abstractList;
-		// 用户单机合并消息的时候下载合并消息列表
+		// 用户单击合并消息的时候下载合并消息列表
 		// ...
 		};
 }
 
-	// 单机mergeMessage下载mergeMessage
+	// 单击mergeMessage下载mergeMessage
   handleTap(BuildContext context, String msgID) async {
     final res = await TencentImSDKPlugin.v2TIMManager
         .getMessageManager()
@@ -296,7 +305,7 @@ List<String> atUserList = ['AT_ALL_TAG',"何大佬的userID"]; // 既 @全体又
 ```
 
 ## 发送不计入未读数的消息
-正常情况下，无论是发送 C2C 单聊消息还是发送 Group 群消息，都会计入未读消息数（通过会话对象 [V2TIMConversation](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/models_v2_tim_conversation/V2TimConversation-class.html) 的 [unreadCount](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/models_v2_tim_conversation/V2TimConversation/unreadCount.html) 接口，可以拿到一个会话的未读消息数）。当您希望发送一些不计入未读计数的消息时，比如提示类或者控制类的消息，可以按照下面的方式来发送：
+正常情况下，无论是发送 C2C 单聊消息还是发送 Group 群消息，都会计入未读消息数（通过会话对象 [V2TIMConversation](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/models_v2_tim_conversation/V2TimConversation-class.html) 的 [unreadCount](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/models_v2_tim_conversation/V2TimConversation/unreadCount.html) 接口，可以拿到一个会话的未读消息数）。当您希望发送一些不计入未读计数的消息时，例如提示类或者控制类的消息，可以按照下面的方式来发送：
 
 ```dart
     V2TimValueCallback<V2TimMsgCreateInfoResult> createMessage =
@@ -376,7 +385,7 @@ List<String> atUserList = ['AT_ALL_TAG',"何大佬的userID"]; // 既 @全体又
             );
 ```
 
-### 单机推送消息跳转到对应的聊天窗口
+### 单击推送消息跳转到对应的聊天窗口
 如需实现该功能，发送消息时需设置离线推送对象 `offlinePushInfo` 的扩展字段 `ext`，收到消息的用户打开 App 时可以通过不同厂商提供的获取自定义内容的方式拿到这个扩展字段 `ext`，然后根据 `ext` 内容跳转到对应的聊天界面。
 
 本文以 `“denny 给 vinson 发送消息”` 的场景为例。
@@ -428,7 +437,7 @@ SDK 支持三种类型的消息接收选项：
 ## 撤回消息
 
 发送方通过  [revokeMessage](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/revokeMessage.html) 接口可以撤回一条已经发送成功的消息。默认情况下，发送者只能撤回2分钟以内的消息，您可以按需更改消息撤回时间限制，具体操作请参见 [消息撤回设置](https://cloud.tencent.com/document/product/269/38656#.E6.B6.88.E6.81.AF.E6.92.A4.E5.9B.9E.E8.AE.BE.E7.BD.AE)。
-消息的撤回同时需要接收方 UI 代码的配合：当发送方撤回一条消息后，接收方会收到消息撤回通知 [onRecvMessageRevoked](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/enum_callbacks/OnRecvMessageRevokedCallback.html)，通知中包含了撤回消息的 `msgID`，您可以根据这个 `msgID` 判断 UI 层是哪一条消息撤回了，然后把对应的消息气泡切换成 "消息已被撤回" 状态。
+消息撤回同时需要接收方 UI 代码的配合：当发送方撤回一条消息后，接收方会收到消息撤回通知 [onRecvMessageRevoked](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/enum_callbacks/OnRecvMessageRevokedCallback.html)，通知中包含了撤回消息的 `msgID`，您可以根据这个 `msgID` 判断 UI 层是哪一条消息撤回了，然后把对应的消息气泡切换成 "消息已被撤回" 状态。
 
 ### 发送方撤回一条消息
 
@@ -562,9 +571,7 @@ SDK 发送的文本消息默认会经过即时通信 IM 的敏感词过滤，如
 ### 2. App 卸载重装后已读回执为什么失效了？
 在单聊场景下，接收方如果调用 [markC2CMessageAsRead](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/im_flutter_plugin_platform_interface/ImFlutterPlatform/markC2CMessageAsRead.html) 设置消息已读，发送方收到的已读回执里面包含了对方已读的时间戳 `timestamp`，SDK 内部会根据 `timestamp` 判断消息对方是否已读， `timestamp` 目前只在本地保存，程序卸载重装后会丢失。
 
-
-
-### 4. 如何解析多个 Elem 的消息？
+### 3. 如何解析多个 Elem 的消息？
 1. 通过 `Message` 对象正常解析出第一个 `Elem` 对象。
 2. 通过第一个 `Elem` 对象的 [nextElem](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/models_v2_tim_elem/V2TIMElem/nextElem.html) 方法获取下一个 `Elem` 对象。如果下一个 `Elem` 对象存在，会返回 `Elem` 对象实例，如果不存在，会返回 `null`。
 ```dart
@@ -593,5 +600,5 @@ SDK 发送的文本消息默认会经过即时通信 IM 的敏感词过滤，如
 ```
 
 [](id:msgAnalyze)
-### 5. 各种不同类型的消息应该如何解析？
+### 4. 各种不同类型的消息应该如何解析？
 解析消息相对复杂，我们提供了各种类型消息解析的 [示例代码](https://github.com/tencentyun/TIMSDK/blob/master/Flutter/Demo/im_discuss/lib/pages/conversion/component/common_content.dart)，您可以直接把相关代码拷贝到您的工程，然后根据实际需求进行二次开发。

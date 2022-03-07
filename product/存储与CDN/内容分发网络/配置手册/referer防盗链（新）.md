@@ -16,7 +16,7 @@
 ### 开启配置
 
 单击开关，选择防盗链类型并填入列表，即可启用防盗链配置：
-![](https://qcloudimg.tencent-cloud.cn/raw/e98ae5773d62cc7a07131d128beffe70.png)
+
 
 **referer 黑名单：**
 
@@ -24,12 +24,17 @@
 - 若请求的 referer 不匹配黑名单内设置的内容，则 CDN 节点正常返回请求信息。
 - 空referer选项勾选**拒绝空 referer访问** 选项时，此时若请求 referer 字段为空或无 referer 字段（如浏览器请求），则 CDN 节点拒绝返回该请求信息，返回403状态码。
 
+<img src="https://qcloudimg.tencent-cloud.cn/raw/a4d464b0ca1fe91eff1831d18acb8280.png" width="530px">
+
+
 **referer白名单：**
 
 - 若请求的 referer 字段匹配白名单设置的内容，则 CDN 节点正常返回请求信息。
 - 若请求的 referer 字段不匹配白名单设置的内容，则 CDN 节点拒绝返回该请求信息，会直接返回状态码403。
 - 当设置白名单时，CDN 节点只能返回符合该白名单内字符串内容的请求。
 - 空referer选项勾选**允许空 referer访问** 选项时，此时若请求 referer 字段为空或无 referer 字段（如浏览器请求），则 CDN 正常返回请求信息。
+
+<img src="https://qcloudimg.tencent-cloud.cn/raw/68f280cd104a2e3ff5211481758f8682.png" width="530px">
 
 **配置约束：**
 

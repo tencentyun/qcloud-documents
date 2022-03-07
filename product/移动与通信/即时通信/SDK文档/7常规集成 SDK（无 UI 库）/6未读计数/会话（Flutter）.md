@@ -20,8 +20,8 @@
 
 | 字段名称 | 含义 |
 |---------|---------|
-| [showName](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/models_v2_tim_conversation/V2TimConversation/showName.html) | 会话名称：<ul><li>如果是单聊，此接口会优先返回对方好友备注，若没有备注或者不是好友，则返回对方昵称，若昵称也没有，则返回对方的 UserID。</li><li>如果是群聊，会显示群的名称。</li></ul> |
-|[faceUrl](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/models_v2_tim_conversation/V2TimConversation/faceUrl.html)|会话头像：<ul><li>如果是单聊，会显示对方的头像。</li><li>如果是群聊，会显示群头像。</li></ul>|
+| [showName](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/models_v2_tim_conversation/V2TimConversation/showName.html) | 会话名称：<li>如果是单聊，此接口会优先返回对方好友备注，若没有备注或者不是好友，则返回对方昵称，若昵称也没有，则返回对方的 UserID。</li><li>如果是群聊，会显示群的名称。</li> |
+|[faceUrl](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/models_v2_tim_conversation/V2TimConversation/faceUrl.html)|会话头像：<li>如果是单聊，会显示对方的头像。</li><li>如果是群聊，会显示群头像。</li>|
 |[recvOpt](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/models_v2_tim_conversation/V2TimConversation/recvOpt.html)|消息接收选项，一般用于群会话，可以显示该群是否设置了“消息免打扰”模式。|
 |[readCount](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/models_v2_tim_conversation/V2TimConversation/unreadCount.html)|用于显示未读计数，表示有多少条未读消息。|
 |[lastMessage](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/models_v2_tim_conversation/V2TimConversation/lastMessage.html)|最后一条消息，用于显示会话的消息摘要。|

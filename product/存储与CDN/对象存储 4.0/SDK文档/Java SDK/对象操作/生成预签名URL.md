@@ -277,7 +277,7 @@ headers.put("header1", "value1");
 // 请求的 HTTP 方法，上传请求用 PUT，下载请求用 GET，删除请求用 DELETE
 HttpMethodName method = HttpMethodName.GET;
 
-String sign = signer.buildAuthorizationStr(method, key, headers, params, cred, expirationDate);
+String sign = signer.buildAuthorizationStr(method, key, headers, params, cred, expirationDate, true);
 ```
 
 ### 使用永久密钥
@@ -315,5 +315,5 @@ headers.put("header1", "value1");
 // 请求的 HTTP 方法，上传请求用 PUT，下载请求用 GET，删除请求用 DELETE
 HttpMethodName method = HttpMethodName.GET;
 
-String sign = signer.buildAuthorizationStr(method, key, headers, params, cred, expirationDate);
+String sign = signer.buildAuthorizationStr(method, key, headers, params, cred, expirationDate, true);
 ```

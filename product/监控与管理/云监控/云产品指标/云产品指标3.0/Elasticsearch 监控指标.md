@@ -85,14 +85,14 @@ Namespace = QCE/CES
 
 | 指标英文名       | 指标中文名   | 单位     | 维度                         | 统计粒度（period）       |
 | ---------------- | ------------ | -------- | ---------------------------- | ------------------------ |
-| DiskUsage        | 磁盘使用率   | %        | uInstanceId、device、env、ip | 60s、300s、3600s、86400s |
-| DiskAwait        | 操作等待时间 | ms       | uInstanceId、device、env、ip | 60s、300s、3600s、86400s |
-| DiskIoutil       | 磁盘 IO Util  | %        | uInstanceId、device、env、ip | 60s、300s、3600s、86400s |
-| DiskIps          | 每秒写入次数 | 次     | uInstanceId、device、env、ip | 60s、300s、3600s、86400s |
-| DiskOps          | 每秒读取次数 | 次   | uInstanceId、device、env、ip | 60s、300s、3600s、86400s |
-| DiskReadTraffic  | 硬盘读流量   | KB/s | uInstanceId、device、env、ip | 60s、300s、3600s、86400s |
-| DiskSvctm        | 操作服务时间 | ms       | uInstanceId、device、env、ip | 60s、300s、3600s、86400s |
-| DiskWriteTraffic | 硬盘写流量   | KB/s | uInstanceId、device、env、ip | 60s、300s、3600s、86400s |
+| DiskUsage        | 磁盘使用率   | %        | uInstanceId、device、env、IP | 60s、300s、3600s、86400s |
+| DiskAwait        | 操作等待时间 | ms       | uInstanceId、device、env、IP | 60s、300s、3600s、86400s |
+| DiskIoutil       | 磁盘 IO Util  | %        | uInstanceId、device、env、IP | 60s、300s、3600s、86400s |
+| DiskIPs          | 每秒写入次数 | 次     | uInstanceId、device、env、IP | 60s、300s、3600s、86400s |
+| DiskOps          | 每秒读取次数 | 次   | uInstanceId、device、env、IP | 60s、300s、3600s、86400s |
+| DiskReadTraffic  | 硬盘读流量   | KB/s | uInstanceId、device、env、IP | 60s、300s、3600s、86400s |
+| DiskSvctm        | 操作服务时间 | ms       | uInstanceId、device、env、IP | 60s、300s、3600s、86400s |
+| DiskWriteTraffic | 硬盘写流量   | KB/s | uInstanceId、device、env、IP | 60s、300s、3600s、86400s |
 
 ### 节点指标
 
@@ -173,11 +173,11 @@ Namespace = QCE/CES
 
 | 指标英文名      | 指标中文名       | 单位 | 维度            | 统计粒度（period）       |
 | --------------- | ---------------- | ---- | --------------- | ------------------------ |
-| KibanaDiskUsage | 磁盘使用率       | %    | uInstanceId、ip | 60s、300s、3600s、86400s |
-| KibanaCpuLoad1  | CPU 1分钟平均负载 | -    | uInstanceId、ip | 60s、300s、3600s、86400s |
-| KibanaCpuUsage  | CPU 使用率        | %    | uInstanceId、ip | 60s、300s、3600s、86400s |
-| KibanaMemUsage  | 内存使用率       | %    | uInstanceId、ip | 60s、300s、3600s、86400s |
-| KibanaStatus    | kibana 进程状态   | -    | uInstanceId、ip | 60s、300s、3600s、86400s |
+| KibanaDiskUsage | 磁盘使用率       | %    | uInstanceId、IP | 60s、300s、3600s、86400s |
+| KibanaCpuLoad1  | CPU 1分钟平均负载 | -    | uInstanceId、IP | 60s、300s、3600s、86400s |
+| KibanaCpuUsage  | CPU 使用率        | %    | uInstanceId、IP | 60s、300s、3600s、86400s |
+| KibanaMemUsage  | 内存使用率       | %    | uInstanceId、IP | 60s、300s、3600s、86400s |
+| KibanaStatus    | kibana 进程状态   | -    | uInstanceId、IP | 60s、300s、3600s、86400s |
 
 ## 各维度对应参数总览
 
@@ -195,8 +195,8 @@ Namespace = QCE/CES
 | Instances.N.Dimensions.0.Value | device    | 磁盘具体 ID      | 输入磁盘具体 ID，例如:disk-123456|
 | Instances.N.Dimensions.0.Name  |env    |磁盘所属环境的维度名称  | 输入 String 类型维度名称： env                          |
 | Instances.N.Dimensions.0.Value |env     | 具体环境名称      | 输入具体环境名称，例如：cvm            |
-| Instances.N.Dimensions.0.Name  | ip      | 所属 IP 的维度名称  | 输入 String 类型维度名称：ip                            |
-| Instances.N.Dimensions.0.Value | ip      | 具体 ip       | 输入 IP，例如：111.111.111.111                  |
+| Instances.N.Dimensions.0.Name  | IP      | 所属 IP 的维度名称  | 输入 String 类型维度名称：IP                            |
+| Instances.N.Dimensions.0.Value | IP      | 具体 IP       | 输入 IP，例如：111.111.111.111                  |
 
 ## 入参说明
 
@@ -213,8 +213,8 @@ Namespace = QCE/CES
 &Instances.N.Dimensions.1.Value =  磁盘具体 ID
 &Instances.N.Dimensions.2.Name = env
 &Instances.N.Dimensions.2.Value =  磁盘所属环境
-&Instances.N.Dimensions.3.Name = ip
-&Instances.N.Dimensions.3.Value =  磁盘所属 ip
+&Instances.N.Dimensions.3.Name = IP
+&Instances.N.Dimensions.3.Value =  磁盘所属 IP
 
 3. 查询 Elasticsearch Service -节点指标监控数据，入参取值如下：
 &Namespace = QCE/CES
@@ -238,5 +238,5 @@ Namespace = QCE/CES
 &Namespace = QCE/CES
 &Instances.N.Dimensions.0.Name = uInstanceId
 &Instances.N.Dimensions.0.Value = ES 具体实例 ID
-&Instances.N.Dimensions.1.Name = ip
-&Instances.N.Dimensions.1.Value =  节点所属 ip
+&Instances.N.Dimensions.1.Name = IP
+&Instances.N.Dimensions.1.Value =  节点所属 IP

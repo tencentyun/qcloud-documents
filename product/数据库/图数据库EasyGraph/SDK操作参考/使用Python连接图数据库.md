@@ -9,6 +9,7 @@
 pip3 install gremlinpython
 ```
 >!gremlinpython 依赖 python 3.5 及以上版本。
+3. 获取图数据库的连接参数。在 [控制台](https://console.cloud.tencent.com/konisgraph) 实例详情页中可以查看实例的 VIP 和 PORT，即内网地址和 Gremlin 端口。
 
 ## 示例程序
 ```python

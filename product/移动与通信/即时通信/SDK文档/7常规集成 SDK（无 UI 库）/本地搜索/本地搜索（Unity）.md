@@ -1,4 +1,4 @@
-Unity SDK 支持本地搜索，但是需要旗舰版SDK，请参见 [购买指引](https://cloud.tencent.com/document/product/269/32458)。
+Unity SDK 支持本地搜索，但是需要将套餐升级到旗舰版，请参见 [购买指引](https://cloud.tencent.com/document/product/269/32458)。
 
 搜索接口的界面分为以下部分，最上面是搜索好友，中间部分是搜索群组、群成员，最下面是搜索消息且按照会话分组。
 

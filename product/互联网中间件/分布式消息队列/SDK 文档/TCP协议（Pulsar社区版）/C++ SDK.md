@@ -52,21 +52,22 @@
 3. 创建生产者。
 <dx-codeblock>
 :::  c++
-   // 生产者配置
-   ProducerConfiguration producerConf;
-   producerConf.setBlockIfQueueFull(true);
-   producerConf.setSendTimeout(5000);
-   // 生产者
-   Producer producer;
-   // 创建生产者
-   Result result = client.createProducer(
-       // topic完整路径，格式为persistent://集群（租户）ID/命名空间/Topic名称
-       "persistent://pulsar-xxx/sdk_cpp/topic1",
-       producer);
-   if (result != ResultOk) {
-       std::cout << "Error creating producer: " << result << std::endl;
-       return -1;
-   }
+// 生产者配置
+ProducerConfiguration producerConf;
+producerConf.setBlockIfQueueFull(true);
+producerConf.setSendTimeout(5000);
+// 生产者
+Producer producer;
+// 创建生产者
+Result result = client.createProducer(
+    // topic完整路径，格式为persistent://集群（租户）ID/命名空间/Topic名称
+    "persistent://pulsar-xxx/sdk_cpp/topic1",
+    producerConf,
+    producer);
+if (result != ResultOk) {
+    std::cout << "Error creating producer: " << result << std::endl;
+    return -1;
+}
 :::
 </dx-codeblock>
 <dx-alert infotype="explain" title="">

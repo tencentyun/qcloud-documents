@@ -36,7 +36,7 @@ TencentIMSDK.ConvGetTotalUnreadMessageCount((int code, string desc, string json_
 
 ## 设置所有会话已读
 
-Unity SDK提供一键设置会话已读功能，可以调用 [MsgMarkAllMessageAsRead](https://comm.qq.com/im/sdk/unity_plus/_site/api/com.tencent.imsdk.unity.TencentIMSDK.html#com_tencent_imsdk_unity_TencentIMSDK_MsgMarkAllMessageAsRead_com_tencent_imsdk_unity_callback_ValueCallback_)。
+Unity SDK 提供一键设置会话已读功能，可以调用 [MsgMarkAllMessageAsRead](https://comm.qq.com/im/sdk/unity_plus/_site/api/com.tencent.imsdk.unity.TencentIMSDK.html#com_tencent_imsdk_unity_TencentIMSDK_MsgMarkAllMessageAsRead_com_tencent_imsdk_unity_callback_ValueCallback_)。
 
 ```c#
 TencentIMSDK.MsgMarkAllMessageAsRead((int code, string desc, string json_param, string user_data)=>{
