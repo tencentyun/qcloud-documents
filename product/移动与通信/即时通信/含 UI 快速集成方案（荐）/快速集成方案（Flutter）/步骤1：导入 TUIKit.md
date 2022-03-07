@@ -5,4 +5,4 @@ TUIKit 是基于 IM SDK 实现的一套 UI 组件，其包含会话、聊天、�
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/f704b22c049c9915ffa5ccdca2aeab85.png)
 
-- [快速集成文档](https://git.woa.com/29294-22989-29805-29810/im-flutter-uikit/blob/feature/add-doc/package_src/tim_ui_kit/doc/FAST_INTEGRATED.md)
+您可以参见 [快速集成方案](https://cloud.tencent.com/document/product/269/70746)。
