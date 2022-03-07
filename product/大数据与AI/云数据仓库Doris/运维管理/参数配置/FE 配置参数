@@ -1,198 +1,130 @@
-FE 的配置文件 `fe.conf` 通常存放在 FE 部署路径的 `conf/` 目录下。 而在 0.14 版本中会引入另一个配置文件 `fe_custom.conf`。该配置文件用于记录用户在运行是动态配置并持久化的配置项。
-
-FE 进程启动后，会先读取 `fe.conf` 中的配置项，之后再读取 `fe_custom.conf` 中的配置项。`fe_custom.conf` 中的配置项会覆盖 `fe.conf` 中相同的配置项。
-
+本文档主要介绍 FE 的相关配置项。FE 的配置文件 `fe.conf` 通常存放在 FE 部署路径的 `conf/` 目录下。 而在 0.14 版本中会引入另一个配置文件 `fe_custom.conf`。该配置文件用于记录用户在运行是动态配置并持久化的配置项。
+FE 进程启动后，会先读取 `fe.conf` 中的配置项，之后再读取 `fe_custom.conf` 中的配置项。
+`fe_custom.conf` 中的配置项会覆盖 `fe.conf` 中相同的配置项。
 `fe_custom.conf` 文件的位置可以在 `fe.conf` 通过 `custom_config_dir` 配置项配置。
 
 ## 查看配置项
-
 FE 的配置项有两种方式进行查看：
+1. FE 前端页面查看。
+在浏览器中打开 FE 前端页面 `http://fe_host:fe_http_port/variable`。在 `Configure Info` 中可以看到当前生效的 FE 配置项。
 
-1. FE 前端页面查看
-
-   在浏览器中打开 FE 前端页面 `http://fe_host:fe_http_port/variable`。在 `Configure Info` 中可以看到当前生效的 FE 配置项。
-
-2. 通过命令查看
-
-   FE 启动后，可以在 MySQL 客户端中，通过以下命令查看 FE 的配置项：
-
-   `ADMIN SHOW FRONTEND CONFIG;`
-
-   结果中各列含义如下：
-
-   - Key：配置项名称。
-   - Value：当前配置项的值。
-   - Type：配置项值类型，如果整型、字符串。
-   - IsMutable：是否可以动态配置。如果为 true，表示该配置项可以在运行时进行动态配置。如果false，则表示该配置项只能在 `fe.conf` 中配置并且重启 FE 后生效。
-   - MasterOnly：是否为 Master FE 节点独有的配置项。如果为 true，则表示该配置项仅在 Master FE 节点有意义，对其他类型的 FE 节点无意义。如果为 false，则表示该配置项在所有 FE 节点中均有意义。
-   - Comment：配置项的描述。
+2. 通过命令查看。
+FE 启动后，可以在 MySQL 客户端中，通过以下命令查看 FE 的配置项：
+`ADMIN SHOW FRONTEND CONFIG;`
+结果中各列含义如下：
+	- Key：配置项名称。
+	- Value：当前配置项的值。
+	- Type：配置项值类型，如果整型、字符串。
+	- IsMutable：是否可以动态配置。如果为 true，表示该配置项可以在运行时进行动态配置。如果false，则表示该配置项只能在 `fe.conf` 中配置并且重启 FE 后生效。
+	- MasterOnly：是否为 Master FE 节点独有的配置项。如果为 true，则表示该配置项仅在 Master FE 节点有意义，对其他类型的 FE 节点无意义。如果为 false，则表示该配置项在所有 FE 节点中均有意义。
+	- Comment：配置项的描述。
 
 ## 设置配置项
-
 FE 的配置项有两种方式进行配置：
+1. 静态配置。
+在 `conf/fe.conf` 文件中添加和设置配置项。`fe.conf` 中的配置项会在 FE 进程启动时被读取。没有在 `fe.conf` 中的配置项将使用默认值。
+2. 通过 MySQL 协议动态配置。
+FE 启动后，可以通过以下命令动态设置配置项。该命令需要管理员权限。
+`ADMIN SET FRONTEND CONFIG ("fe_config_name" = "fe_config_value");`
+不是所有配置项都支持动态配置。可以通过 `ADMIN SHOW FRONTEND CONFIG;` 命令结果中的 `IsMutable` 列查看是否支持动态配置。 如果是修改 `MasterOnly` 的配置项，则该命令会直接转发给 Master FE 并且仅修改 Master FE 中对应的配置项。
+**通过该方式修改的配置项将在 FE 进程重启后失效。**
+更多该命令的帮助，可以通过 `HELP ADMIN SET CONFIG;` 命令查看。
 
-1. 静态配置
-
-   在 `conf/fe.conf` 文件中添加和设置配置项。`fe.conf` 中的配置项会在 FE 进程启动时被读取。没有在 `fe.conf` 中的配置项将使用默认值。
-
-2. 通过 MySQL 协议动态配置
-
-   FE 启动后，可以通过以下命令动态设置配置项。该命令需要管理员权限。
-
-   `ADMIN SET FRONTEND CONFIG ("fe_config_name" = "fe_config_value");`
-
-   不是所有配置项都支持动态配置。可以通过 `ADMIN SHOW FRONTEND CONFIG;` 命令结果中的 `IsMutable` 列查看是否支持动态配置。
-
-   如果是修改 `MasterOnly` 的配置项，则该命令会直接转发给 Master FE 并且仅修改 Master FE 中对应的配置项。
-
-   **通过该方式修改的配置项将在 FE 进程重启后失效。**
-
-   更多该命令的帮助，可以通过 `HELP ADMIN SET CONFIG;` 命令查看。
-
-3. 通过 HTTP 协议动态配置
-
-   具体请参阅 [Set Config Action](http://doris.apache.org/master/zh-CN/administrator-guide/http-actions/fe/set-config-action.html)
-
-   该方式也可以持久化修改后的配置项。配置项将持久化在 `fe_custom.conf` 文件中，在 FE 重启后仍会生效。
+3. 通过 HTTP 协议动态配置。
+具体请参阅 [Set Config Action](http://doris.apache.org/master/zh-CN/administrator-guide/http-actions/fe/set-config-action.html)。该方式也可以持久化修改后的配置项。配置项将持久化在 `fe_custom.conf` 文件中，在 FE 重启后仍会生效。
 
 ## 应用举例
+1. 修改 `async_pending_load_task_pool_size`。
+ 通过 `ADMIN SHOW FRONTEND CONFIG;` 可以查看到该配置项不能动态配置（`IsMutable` 为 false）。则需要在 `fe.conf` 中添加：`async_pending_load_task_pool_size=20`，之后重启 FE 进程以生效该配置。
 
-1. 修改 `async_pending_load_task_pool_size`
-
-   通过 `ADMIN SHOW FRONTEND CONFIG;` 可以查看到该配置项不能动态配置（`IsMutable` 为 false）。则需要在 `fe.conf` 中添加：
-
-   `async_pending_load_task_pool_size=20`
-
-   之后重启 FE 进程以生效该配置。
-
-2. 修改 `dynamic_partition_enable`
-
-   通过 `ADMIN SHOW FRONTEND CONFIG;` 可以查看到该配置项可以动态配置（`IsMutable` 为 true）。并且是 Master FE 独有配置。则首先我们可以连接到任意 FE，执行如下命令修改配置：
-
-   ```text
-   ADMIN SET FRONTEND CONFIG ("dynamic_partition_enable" = "true");`
-   ```
-
-   之后可以通过如下命令查看修改后的值：
-
-   ```text
+2. 修改 `dynamic_partition_enable`。
+通过 `ADMIN SHOW FRONTEND CONFIG;` 可以查看到该配置项可以动态配置（`IsMutable` 为 true）。并且是 Master FE 独有配置。则首先我们可以连接到任意 FE，执行如下命令修改配置：
+```
+ADMIN SET FRONTEND CONFIG ("dynamic_partition_enable" = "true");`
+```
+之后可以通过如下命令查看修改后的值：
+ ```text
    set forward_to_master=true;
    ADMIN SHOW FRONTEND CONFIG;
-   ```
+```
+通过以上方式修改后，如果 Master FE 重启或进行了 Master 切换，则配置将失效。可以通过在 `fe.conf` 中直接添加配置项，并重启 FE 后，永久生效该配置项。
 
-   通过以上方式修改后，如果 Master FE 重启或进行了 Master 切换，则配置将失效。可以通过在 `fe.conf` 中直接添加配置项，并重启 FE 后，永久生效该配置项。
-
-3. 修改 `max_distribution_pruner_recursion_depth`
-
-   通过 `ADMIN SHOW FRONTEND CONFIG;` 可以查看到该配置项可以动态配置（`IsMutable` 为 true）。并且不是 Master FE 独有配置。
-
-   同样，我们可以通过动态修改配置的命令修改该配置。因为该配置不是 Master FE 独有配置，所以需要单独连接到不同的 FE，进行动态修改配置的操作，这样才能保证所有 FE 都使用了修改后的配置值
+3. 修改 `max_distribution_pruner_recursion_depth`。
+通过 `ADMIN SHOW FRONTEND CONFIG;` 可以查看到该配置项可以动态配置（`IsMutable` 为 true）。并且不是 Master FE 独有配置。
+同样，我们可以通过动态修改配置的命令修改该配置。因为该配置不是 Master FE 独有配置，所以需要单独连接到不同的 FE，进行动态修改配置的操作，这样才能保证所有 FE 都使用了修改后的配置值
 
 ## 配置项列表
 
-### max_dynamic_partition_num
+| 配置项 | 默认值 | 是否可以动态配置 |是否为 Master FE 节点独有的配置项 |说明 |
+|---------|---------|---------|---------|---------|
+| max_dynamic_partition_num | 500 | true |true | 用于限制创建动态分区表时可以创建的最大分区数，避免一次创建过多分区。 数量由动态分区参数中的“开始”和“结束”决定 |
 
-默认值：500
-
-是否可以动态配置：true
-
-是否为 Master FE 节点独有的配置项：true
-
-用于限制创建动态分区表时可以创建的最大分区数，避免一次创建过多分区。 数量由动态分区参数中的“开始”和“结束”决定。 
 
 ### grpc_max_message_size_bytes
-
-默认值：1G
-
+- 默认值：1G。
 用于设置 GRPC 客户端通道的初始流窗口大小，也用于设置最大消息大小。当结果集较大时，可能需要增大该值。
 
 ### enable_outfile_to_local
-
-默认值：false
-是否允许outfile函数将结果导出到本地磁盘
+- 默认值：false。
+是否允许outfile函数将结果导出到本地磁盘。
 
 ### enable_access_file_without_broker
-
-默认值：false
-
-是否可以动态配置：true
-
-是否为 Master FE 节点独有的配置项：true
-
-此配置用于在通过代理访问 bos 或其他云存储时尝试跳过代理
+- 默认值：false。
+- 是否可以动态配置：true。
+- 是否为 Master FE 节点独有的配置项：true。
+此配置用于在通过代理访问 bos 或其他云存储时尝试跳过代理。
 
 ### enable_bdbje_debug_mode
-
-默认值：false
-
-如果设置为 true，FE 将在 BDBJE 调试模式下启动，在 Web 页面 `System->bdbje` 可以查看相关信息，否则不可以查看
+- 默认值：false。
+如果设置为 true，FE 将在 BDBJE 调试模式下启动，在 Web 页面 `System->bdbje` 可以查看相关信息，否则不可以查看。
 
 ### enable_fe_heartbeat_by_thrift
-
-默认值：false
-
-是否可以动态配置：true
-
-是否为 Master FE 节点独有的配置项：true
-
-这个配置是用来解决 fe 心跳响应读超时的问题，当 config 设置为 true 时，master 会通过 thrift 协议而不是 http 协议来获取 fe heartbeat response。 为了保持与旧版本的兼容性，默认为 false，在所有 fe 都升级之前不能将配置改为 true。
+- 默认值：false。
+- 是否可以动态配置：true。
+- 是否为 Master FE 节点独有的配置项：true。
+这个配置是用来解决 FE 心跳响应读超时的问题，当 config 设置为 true 时，master 会通过 thrift 协议而不是 http 协议来获取 fe heartbeat response。 为了保持与旧版本的兼容性，默认为 false，在所有 fe 都升级之前不能将配置改为 true。
 
 ### enable_alpha_rowset
-
-默认值：false
-
-是否支持创建 alpha rowset。默认为 false，只应在紧急情况下使用，此配置应在未来的某个版本中删除
+- 默认值：false。
+是否支持创建 alpha rowset。默认为 false，只应在紧急情况下使用，此配置应在未来的某个版本中删除。
 
 ### enable_http_server_v2
-
-默认值：从官方 0.14.0 release 版之后默认是 true，之前默认 false
-
-HTTP Server V2 由 SpringBoot 实现。它采用前后端分离的架构。只有启用 httpv2 才能用户使用新的前端 UI 界面
+- 默认值：从官方 0.14.0 release 版之后默认是 true，之前默认 false。
+HTTP Server V2 由 SpringBoot 实现。它采用前后端分离的架构。只有启用 httpv2 才能用户使用新的前端 UI 界面。
 
 ### jetty_server_acceptors
-
-默认值：2
+- 默认值：2。
 
 ### jetty_server_selectors
-
-默认值：4
+- 默认值：4。
 
 ### jetty_server_workers
-
-默认值：0
+- 默认值：0。
 
 以上三个参数，Jetty的线程架构模型非常简单，分为 acceptors，selectors 和 workers 三个线程池。acceptors 负责接受新连接，然后交给selectors处理HTTP消息协议的解包，最后由workers处理请求。前两个线程池采用非阻塞模型，一个线程可以处理很多socket的读写，所以线程池数量较小。
 
 大多数项目，acceptors 线程只需要1-2个，selectors 线程配置2～4个足矣。workers 是阻塞性的业务逻辑，往往有较多的数据库操作，需要的线程数量较多，具体数量随应用程序的 QPS 和 IO 事件占比而定。QPS 越高，需要的线程数量越多，IO 占比越高，等待的线程数越多，需要的总线程数也越多。
 
-workers 线程池默认不做设置，根据自己需要进行设置
+workers 线程池默认不做设置，根据自己需要进行设置。
 
 ### jetty_server_max_http_post_size
+- 默认值：100 * 1024 * 1024  （100MB）。
 
-默认值：100 * 1024 * 1024  （100MB）
-
-这个是put或post方法上传文件的最大字节数，默认值：100MB
+这个是put或post方法上传文件的最大字节数，默认值：100MB。
 
 ### default_max_filter_ratio
+- 默认值：0。
+- 是否可以动态配置：true。
+- 是否为 Master FE 节点独有的配置项：true。
 
-默认值：0
-
-是否可以动态配置：true
-
-是否为 Master FE 节点独有的配置项：true
-
-可过滤数据的最大百分比（由于数据不规则等原因）默认值为0。表示严格模式，只要数据有一条被过滤掉整个导入失败
+可过滤数据的最大百分比（由于数据不规则等原因）默认值为0。表示严格模式，只要数据有一条被过滤掉整个导入失败。
 
 ### default_db_data_quota_bytes
-
-默认值：1PB
-
-是否可以动态配置：true
-
-是否为 Master FE 节点独有的配置项：true
+- 默认值：1PB。
+- 是否可以动态配置：true。
+- 是否为 Master FE 节点独有的配置项：true。
 
 用于设置默认数据库数据配额大小，设置单个数据库的配额大小可以使用：
-
 ```
 设置数据库数据量配额，单位为B/K/KB/M/MB/G/GB/T/TB/P/PB
 ALTER DATABASE db_name SET DATA QUOTA quota;
@@ -201,74 +133,53 @@ show data （其他用法：HELP SHOW DATA）
 ```
 
 ### enable_batch_delete_by_default
+- 默认值：false。
+- 是否可以动态配置：true。
+- 是否为 Master FE 节点独有的配置项：true。
 
-默认值：false
-
-是否可以动态配置：true
-
-是否为 Master FE 节点独有的配置项：true
-
-创建唯一表时是否添加删除标志列，具体原理参照官方文档：操作手册->数据导入->批量删除
+创建唯一表时是否添加删除标志列，具体原理参照官方文档：**操作手册 > 数据导入 > 批量删除**。
 
 ### recover_with_empty_tablet
+- 默认值：false。
+- 是否可以动态配置：true。
+- 是否为 Master FE 节点独有的配置项：true。
 
-默认值：false
-
-是否可以动态配置：true
-
-是否为 Master FE 节点独有的配置项：true
-
-在某些情况下，某些 tablet 可能会损坏或丢失所有副本。 此时数据已经丢失，损坏的tablet会导致整个查询失败，无法查询剩余的健康 tablet。 在这种情况下，您可以将此配置设置为 true。 系统会将损坏的药片替换为空药片，以确保查询可以执行。 （但此时数据已经丢失，所以查询结果可能不准确）
+在某些情况下，某些 tablet 可能会损坏或丢失所有副本。 此时数据已经丢失，损坏的tablet会导致整个查询失败，无法查询剩余的健康 tablet。 在这种情况下，您可以将此配置设置为 true。 系统会将损坏的药片替换为空药片，以确保查询可以执行。 （但此时数据已经丢失，所以查询结果可能不准确）。
 
 ### max_allowed_in_element_num_of_delete
+- 默认值：1024。
+- 是否可以动态配置：true。
+- 是否为 Master FE 节点独有的配置项：true。
 
-默认值：1024
-
-是否可以动态配置：true
-
-是否为 Master FE 节点独有的配置项：true
-
-用于限制 delete 语句中 Predicate 的元素个数
+用于限制 delete 语句中 Predicate 的元素个数。
 
 ### cache_result_max_row_count
+- 默认值：3000。
+- 是否可以动态配置：true。
+- 是否为 Master FE 节点独有的配置项：false。
 
-默认值：3000
-
-是否可以动态配置：true
-
-是否为 Master FE 节点独有的配置项：false
-
-设置可以缓存的最大行数，详细的原理可以参考官方文档：操作手册->分区缓存
+设置可以缓存的最大行数，详细的原理可以参考官方文档：**操作手册 > 分区缓存**。
 
 ### cache_last_version_interval_second
+- 默认值：900。
+- 是否可以动态配置：true。
+- 是否为 Master FE 节点独有的配置项：false。
 
-默认值：900
-
-是否可以动态配置：true
-
-是否为 Master FE 节点独有的配置项：false
-
-缓存结果时上一版本的最小间隔，该参数区分离线更新和实时更新
+缓存结果时上一版本的最小间隔，该参数区分离线更新和实时更新。
 
 ### cache_enable_partition_mode
-
-默认值：true
-
-是否可以动态配置：true
-
-是否为 Master FE 节点独有的配置项：false
+- 默认值：true。
+- 是否可以动态配置：true。
+- 是否为 Master FE 节点独有的配置项：false。
 
 如果设置为 true，fe 将从 be cache 中获取数据，该选项适用于部分分区的实时更新。
 
 ### cache_enable_sql_mode
+- 默认值：true。
+- 是否可以动态配置：true。
+- 是否为 Master FE 节点独有的配置项：false。
 
-默认值：true
-
-是否可以动态配置：true
-
-是否为 Master FE 节点独有的配置项：false
-
-如果设置为 true，fe 会启用 sql 结果缓存该选项适用于离线数据更新场景
+如果设置为 true，fe 会启用 sql 结果缓存该选项适用于离线数据更新场景。
 
 |                        | case1 | case2 | case3 | case4 |
 | ---------------------- | ----- | ----- | ----- | ----- |
@@ -276,12 +187,9 @@ show data （其他用法：HELP SHOW DATA）
 | enable_partition_cache | false | false | true  | true  |
 
 ### min_clone_task_timeout_sec  和 max_clone_task_timeout_sec
-
-默认值：最小3分钟，最大两小时
-
-是否可以动态配置：true
-
-是否为 Master FE 节点独有的配置项：true
+- 默认值：最小3分钟，最大两小时。
+- 是否可以动态配置：true。
+- 是否为 Master FE 节点独有的配置项：true。
 
 `min_clone_task_timeout_sec` 和 `max_clone_task_timeout_sec` 用于限制克隆任务的最小和最大超时间。 一般情况下，克隆任务的超时时间是通过数据量和最小传输速度（5MB/s）来估计的。 但在特殊情况下，您可能需要手动设置这两个配置，以确保克隆任务不会因超时而失败。
 
