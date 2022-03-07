@@ -63,7 +63,7 @@ source ~/.bashrc
 
 ### 如何设定 COSFS 开机自动挂载？
 
-需要先安装 fuse 包:
+需要先安装 fuse 包：
 ```shell
 #CentOS系统
 #sudo yum install -y fuse
