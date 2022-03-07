@@ -32,9 +32,8 @@
 ![](https://main.qcloudimg.com/raw/3395c68a22bb248fd5275bb96ad0f299.png)
  - **使用 DNSPod**：自动为该域名匹配 DNSPod 服务器的 DNS 地址。
  - **自定义 DNS**： 填写您需要设置的 DNS 服务器地址。
->? 
->- 自定义的 DNS 服务器域名不能是私建的 DNS 服务器域名，必须是解析商的权威 DNS 服务器域名。
->- 需要在腾讯云进行解析的域名，修改 DNS 服务器地址请参考 [各个套餐对应的 DNS 服务器地址](https://cloud.tencent.com/document/product/302/9070)。
+>? 自定义的 DNS 服务器域名不能是私建的 DNS 服务器域名，必须是解析商的权威 DNS 服务器域名。
+
   
 
 ### 其他注册商域名修改 DNS[](id:edit)

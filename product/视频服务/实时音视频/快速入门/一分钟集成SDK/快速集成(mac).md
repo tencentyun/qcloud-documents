@@ -59,7 +59,7 @@ pod update
 pod 命令执行完后，会生成集成了 SDK 的 `.xcworkspace` 后缀的工程文件，双击打开即可。
 
 ### 手动集成
-1. 下载 [TRTC-SDK ](https://github.com/tencentyun/TRTCSDK/tree/master/Mac) 的 Mac 版本。
+1. 下载 [TRTC-SDK ](https://github.com/LiteAVSDK/TRTC_Mac) 的 Mac 版本。
 2. 打开您的 Xcode 工程项目，将第一步中下载的 framework 导入到您的工程。
 3. 选择要运行的 target，选中 Build Phases 项。
 ![](https://main.qcloudimg.com/raw/b5097f8ac4cbaa5044d92b2a96ea2b9e.jpg)

@@ -66,7 +66,7 @@
 String bucketName = "examplebucket-1250000000";
 String key = "qrcode.png";
 GetObjectRequest getObj = new GetObjectRequest(bucketName, key);
-// 宽高缩放50%
+// 宽高缩放为原图的50%
 String rule = "imageMogr2/thumbnail/!50p";
 getObj.putCustomQueryParameter(rule, null);
 cosClient.getObject(getObj, new File("qrcode-50p.png"));
@@ -78,7 +78,7 @@ cosClient.getObject(getObj, new File("qrcode-50p.png"));
 String bucketName = "examplebucket-1250000000";
 String key = "qrcode.png";
 GetObjectRequest getObj = new GetObjectRequest(bucketName, key);
-// 宽高缩放50%
+// 裁剪内切圆的半径，取值范围为大于0且小于原图最小边一半的整数。内切圆的圆心为图片的中心
 String rule = "imageMogr2/iradius/150";
 getObj.putCustomQueryParameter(rule, null);
 cosClient.getObject(getObj, new File("qrcode-cropping.png"));
@@ -90,7 +90,7 @@ cosClient.getObject(getObj, new File("qrcode-cropping.png"));
 String bucketName = "examplebucket-1250000000";
 String key = "qrcode.png";
 GetObjectRequest getObj = new GetObjectRequest(bucketName, key);
-// 宽高缩放50%
+// 顺时针旋转90度
 String rule = "imageMogr2/rotate/90";
 getObj.putCustomQueryParameter(rule, null);
 cosClient.getObject(getObj, new File("qrcode-rotate.png"));

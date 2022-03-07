@@ -38,23 +38,23 @@ usersig = hmacsha256(secretkey, (userid + sdkappid + currtime + expire +
 <thead><tr><th>适用平台</th><th>文件源码</th><th>文件相对路径</th></tr></thead>
 <tbody><tr>
 <td>iOS</td>
-<td><a href="https://github.com/tencentyun/TRTCSDK/blob/master/iOS/TRTC-API-Example-OC/Debug/GenerateTestUserSig.h">Github</a></td>
+<td><a href="https://github.com/LiteAVSDK/TRTC_iOS/tree/main/TRTC-API-Example-OC/Debug/GenerateTestUserSig.h">Github</a></td>
 <td>iOS/TRTC-API-Example-OC/Debug/GenerateTestUserSig.h</td>
 </tr><tr>
 <td>Mac</td>
-<td><a href="https://github.com/tencentyun/TRTCSDK/blob/master/Mac/OCDemo/TRTCDemo/TRTC/GenerateTestUserSig.h">Github</a></td>
+<td><a href="https://github.com/LiteAVSDK/TRTC_Mac/tree/main/OCDemo/TRTCDemo/TRTC/GenerateTestUserSig.h">Github</a></td>
 <td>Mac/OCDemo/TRTCDemo/TRTC/GenerateTestUserSig.h</td>
 </tr><tr>
 <td>Android</td>
-<td><a href="https://github.com/tencentyun/TRTCSDK/blob/master/Android/TRTC-API-Example/Debug/src/main/java/com/tencent/trtc/debug/GenerateTestUserSig.java">Github</a></td>
+<td><a href="https://github.com/LiteAVSDK/TRTC_Android/tree/main/TRTC-API-Example/Debug/src/main/java/com/tencent/trtc/debug/GenerateTestUserSig.java">Github</a></td>
 <td>Android/TRTC-API-Example/Debug/src/main/java/com/tencent/trtc/debug/GenerateTestUserSig.java</td>
 </tr><tr>
 <td>Windows（C++）</td>
-<td><a href="https://github.com/tencentyun/TRTCSDK/tree/master/Windows/DuilibDemo/GenerateTestUserSig.h">Github</a></td>
+<td><a href="https://github.com/LiteAVSDK/TRTC_Windows/tree/main/DuilibDemo/GenerateTestUserSig.h">Github</a></td>
 <td>Windows/DuilibDemo/GenerateTestUserSig.h</td>
 </tr><tr>
 <td>Windows（C#）</td>
-<td><a href="https://github.com/tencentyun/TRTCSDK/tree/master/Windows/CSharpDemo/GenerateTestUserSig.cs">Github</a></td>
+<td><a href="https://github.com/LiteAVSDK/TRTC_Windows/tree/main/CSharpDemo/GenerateTestUserSig.cs">Github</a></td>
 <td>Windows/CSharpDemo/GenerateTestUserSig.cs</td>
 </tr><tr>
 <td>Web</td>
@@ -62,7 +62,7 @@ usersig = hmacsha256(secretkey, (userid + sdkappid + currtime + expire +
 <td>Web/base-js/js/debug/GenerateTestUserSig.js</td>
 </tr><tr>
 <td>微信小程序</td>
-<td><a href="https://github.com/tencentyun/TRTCSDK/blob/master/WXMini/TRTCSimpleDemo/debug/GenerateTestUserSig.js">Github</a></td>
+<td><a href="https://github.com/LiteAVSDK/Live_WXMini/tree/main/TRTCSimpleDemo/debug/GenerateTestUserSig.js">Github</a></td>
 <td>WXMini/TRTCSimpleDemo/debug/GenerateTestUserSig.js</td>
 </tr><tr>
 <td>Flutter</td>

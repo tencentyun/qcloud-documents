@@ -24,7 +24,7 @@ flutter pub add tencent_im_sdk_plugin
 dependencies:
   tencent_im_sdk_plugin: ^3.8.2
 ```
-此时您的 editor 或许会自动 flutter pub get，如果没有请你在命令行中手动输入 flutter pub get。
+此时您的 editor 或许会自动 flutter pub get，如果没有请您在命令行中手动输入 flutter pub get。
 
 
 ### 引入并初始化 SDK

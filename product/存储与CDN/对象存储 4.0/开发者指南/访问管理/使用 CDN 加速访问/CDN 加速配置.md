@@ -119,6 +119,11 @@ CDN 回源鉴权、CDN 鉴权配置会影响 CDN 加速域名和 COS 域名对�
 1. 若您的域名接入国内 CDN，需要备案。但不要求必须通过腾讯云备案，保证接入的域名已备案即可。
 2. 若您的域名接入海外 CDN，不需要备案。但需要注意，您在腾讯云上存放的数据和操作行为仍需遵守相关国家的法律法规，以及[《腾讯云服务协议》](https://cloud.tencent.com/document/product/301/1967)。
 
+### 获取自定义域名并备案
+
+1. 注册域名。您可以通过腾讯云 [域名注册](https://console.cloud.tencent.com/domain) 或其他服务商注册域名。
+2. 域名备案。若域名接入国内 CDN，需要完成域名备案，具体介绍请参见 [备案指引](https://cloud.tencent.com/document/product/243)。
+
 ### 开启功能
 >!COS 控制台和 CDN 控制台均可完成自定义域名添加及开启 CDN 加速，若要从 CDN 控制台添加自定义域名，可以参考 [接入域名](https://cloud.tencent.com/document/product/228/41215)。
 

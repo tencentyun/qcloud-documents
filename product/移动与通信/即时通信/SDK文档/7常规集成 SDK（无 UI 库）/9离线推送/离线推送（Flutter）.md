@@ -1,6 +1,6 @@
 即时通信 IM 的离线推送功能由 [TPNS（Tencent Push Notification Service）](https://cloud.tencent.com/document/product/548/36645)提供，本文向您介绍接入 TPNS 并跑通离线推送功能的详细步骤。
 
->!接入 TPNS 需升级 IM Flutter SDK 至3.7.2及以上。
+>!接入 TPNS 需升级 IM Flutter SDK 至 [3.7.2及以上版本](https://cloud.tencent.com/document/product/269/36887#opensource)。
 ## 接入 TPNS 推送跑通离线推送功能
 ### 步骤1：申请苹果推送证书
 离线推送依赖于苹果的原生推送通道，在配置 TPNS 推送之前，需要参见 [推送证书获取指引](https://cloud.tencent.com/document/product/548/36664)  获取苹果推送证书。
@@ -11,7 +11,7 @@
 
 1. 进入 **TPNS 控制台** > **产品管理** > **新增产品**, 输入名称和描述等信息。[](id:step1)
 >!服务接入点的选择：
->- 需要支持海外客户，请选择新加坡或中国香港接入点。
+>- 需要支持境外客户，请选择新加坡或中国香港接入点。
 >- 仅支持国内客户，请选择广州或上海接入点。
 >
 ![](https://qcloudimg.tencent-cloud.cn/raw/44b868c7e3781ceed24c5e1e925ab2c3.png)

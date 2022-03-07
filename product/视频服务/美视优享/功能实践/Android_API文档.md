@@ -55,7 +55,7 @@ XmagicApi(Context context, String resDir,OnXmagicPropertyErrorListener xmagicPro
 <tr>
 <td>String resDir</td>
 <td>资源文件目录。<ul style="margin:0">
-<li>如果 SDK 资源文件是内置在assets的，那么首次使用 SDK 之前，需要把资源 copy 到 App 的私有目录：先通过 <code>XmagicResParser.setResPath(new File(getFilesDir(), "xmagic").getAbsolutePath())</code> 设置资源路径，再通过 <code>XmagicResParser.copyRes(getApplicationContext())</code> 完成资源拷贝，详见 Demo 的 <code>LaunchActivity.java</code>。</li>
+<li>如果 SDK 资源文件是内置在 assets 的，那么首次使用 SDK 之前，需要把资源 copy 到 App 的私有目录：先通过 <code>XmagicResParser.setResPath(new File(getFilesDir(), "xmagic").getAbsolutePath())</code> 设置资源路径，再通过 <code>XmagicResParser.copyRes(getApplicationContext())</code> 完成资源拷贝，详见 Demo 的 <code>LaunchActivity.java</code>。</li>
 <li>如果 SDK 资源文件是联网下载的，下载成功后，通过 <code>XmagicResParser.setResPath(validAssetsDirectory)</code> 设置资源路径</li>
 <li>通过 <code>XmagicResParser.getResPath()</code> 获取先前设置的路径。</li></ul></td>
 </tr>
@@ -122,7 +122,7 @@ void updateProperties(List<XmagicProperty<?>> properties)
 
 | 参数                                | 含义                         |
 | ----------------------------------- | ---------------------------- |
-| (List<XmagicProperty<?>> properties | 详见 updateProperty 方法的说明。 |
+| (List&lt;XmagicProperty&lt;?>> properties | 详见 updateProperty 方法的说明。 |
 
 ***
 
@@ -301,7 +301,7 @@ void onPauseAudio()
 
 ### sensorChanged
 
-用于判断当前手机旋转的角度，从而调整AI识别人脸的判断角度依据，需在陀螺仪传感器回调函数内调用。
+用于判断当前手机旋转的角度，从而调整 AI 识别人脸的判断角度依据，需在陀螺仪传感器回调函数内调用。
 
 ```
 void sensorChanged(SensorEvent event, Sensor accelerometer) 
@@ -328,7 +328,7 @@ void isDeviceSupport(List<XmagicProperty<?>> assetsList)
 
 | 参数                                 | 含义           |
 | ---------------------------------- | ------------ |
-| List<XmagicProperty<?>> assetsList | 需要检测的动效素材列表。 |
+| List&lt;XmagicProperty&lt;?>> assetsList | 需要检测的动效素材列表。 |
 
 ------
 
@@ -342,7 +342,7 @@ void isDeviceSupport(List<XmagicProperty<?>> assetsList)
 
 | 参数                             | 含义               |
 | ------------------------------ | ---------------- |
-| List<XmagicProperty<?>> assets | 需要检测原子能力的动效资源列表。 |
+| List&lt;XmagicProperty&lt;?>> assets | 需要检测原子能力的动效资源列表。 |
 
 #### 返回
 
@@ -385,7 +385,7 @@ boolean isSupportBeauty()
 
 ### isBeautyAuthorized
 
-判断当前的 License 授权支持哪些美颜或美体项。 仅支持 BEAUTY 和 BODY_BEAUTY 类型的美颜项检测。检测后的结果会赋值到各个美颜对象 `XmagicProperty.isAuth` 字段中。如果 isAuth 字段为 false，可以在UI上屏蔽这些项的入口。
+判断当前的 License 授权支持哪些美颜或美体项。 仅支持 BEAUTY 和 BODY_BEAUTY 类型的美颜项检测。检测后的结果会赋值到各个美颜对象 `XmagicProperty.isAuth` 字段中。如果 isAuth 字段为 false，可以在 UI 上屏蔽这些项的入口。
 
 ```
 void isBeautyAuthorized(List<XmagicProperty<?>> properties) 
@@ -395,7 +395,7 @@ void isBeautyAuthorized(List<XmagicProperty<?>> properties)
 
 | 参数                                 | 含义        |
 | ---------------------------------- | --------- |
-| List<XmagicProperty<?>> properties | 需要检测的美颜项。 |
+| List&lt;XmagicProperty&lt;?>> properties | 需要检测的美颜项。 |
 
 ------
 
@@ -432,3 +432,4 @@ static boolean setLibPathAndLoad(String path)
 | 参数          | 含义      |
 | ----------- | ------- |
 | String path | so 库存放路径。 |
+

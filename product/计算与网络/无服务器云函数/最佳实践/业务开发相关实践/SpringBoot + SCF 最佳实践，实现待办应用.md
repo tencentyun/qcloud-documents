@@ -1,5 +1,5 @@
 
-## 简介
+## 操作场景
 
  [Spring Boot](https://spring.io/projects/spring-boot) 是由 Pivotal 团队提供的框架，用来简化新 Spring 应用的初始搭建以及开发过程。该框架使用了特定的方式来进行配置，从而使开发人员不再需要定义样板化的配置。
 
@@ -55,7 +55,7 @@ SCF 提供模板函数，按照如下流程操作可使用 Web 函数快速创�
 
 在 [创建函数](#createwebfunc) 步骤中，您也可以根据业务需求修改函数模板。在**模板选择**页面，单击模板卡片右上角的**查看详情**，在展开的页面中单击**单击下载模板函数**即可获取模板函数源码。
 
-原生 SpringBoot 项目迁移到 Web 函数几乎没有改造成本，只需要执行如下步骤：
+原生 SpringBoot 项目迁移到 Web 函数需要执行如下步骤：
 
 -   确保 Spring 监听端口为 9000（SCF Web 函数指定监听端口）。
  ![](https://qcloudimg.tencent-cloud.cn/raw/d47575ec0139f5eb6f4293e87fd93a4a.png )

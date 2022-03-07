@@ -65,7 +65,7 @@ pod 命令执行完后，会生成集成了 SDK 的 .xcworkspace 后缀的工程
 >? 需要手动添加所需系统依赖库 **Accelerate.framework**。
 
 ### 手动集成
-1. 下载 [TRTC - SDK ](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/SDK) ，下载完成后进行解压。
+1. 下载 [TRTC - SDK ](https://github.com/LiteAVSDK/TRTC_iOS/tree/main/SDK) ，下载完成后进行解压。
 2. 打开您的 Xcode 工程项目，选择要运行的 target , 选中 **Build Phases** 项。
  ![](https://main.qcloudimg.com/raw/85509cc24bd958e7b9978e11937597c5.png)
 3. 单击 **Link Binary with Libraries** 项展开，单击底下的“+”号图标去添加依赖库。
@@ -110,6 +110,6 @@ using namespace trtc;
 >? 对于 C++ 接口的使用方式，请参见 [全平台（C++）API 概览](https://cloud.tencent.com/document/product/647/32268)。
 
 ## 常见问题
-### 1. TRTC SDK 是否支持后台运行？
+### TRTC SDK 是否支持后台运行？
 支持，如需要进入后台仍然运行相关功能，可选中当前工程项目，在 **Capabilities** 下的设置  **Background Modes** 打开为 **ON**，并勾选 **Audio，AirPlay and Picture in Picture** ，如下图所示：
 ![](https://main.qcloudimg.com/raw/d960dfec88388936abce2d4cb77ac766.jpg)

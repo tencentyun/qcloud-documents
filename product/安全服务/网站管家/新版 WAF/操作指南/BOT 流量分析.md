@@ -5,13 +5,13 @@ BOT 流量分析通过采集 BOT 行为管理中的数据，可以快速了解�
 
 
 ## 操作步骤
-1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/tea-botconfig)，在左侧导航栏中选择**BOT流量分析** ，进入 BOT 流量分析页面。
+1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/tea-botconfig)，在左侧导航栏中选择 **BOT流量分析** ，进入 BOT 流量分析页面。
 2. 在 BOT 流量分析页面，单击左上角“全部域名”下拉框，选择要查看的域名。
 3. 在选中非全部域名的情况下，单击左上角**查看配置**，会跳转至对应域名的 BOT 与业务安全页面。
-![](https://qcloudimg.tencent-cloud.cn/raw/f6a68a0343e210dc8ddc3e12b4ecd739.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/eef25fb5ce9929d01752e027bda4455e.png)
 4. 在 BOT 流量分析页面，可以通过时间或筛选器，搜索某个域名的防护数据。
     - 相关通过指定的时间范围，搜索某个域名在查询时间范围内的 BOT 防护效果数据。
-        ![](https://qcloudimg.tencent-cloud.cn/raw/87b837a8e98fe587800035d1ac769f63.png)
+        ![](https://qcloudimg.tencent-cloud.cn/raw/6efa77c0f556edd54a28396c342bc2bc.png)
     - 单击下方的**筛选器**，可出现 BOT 流量分析的过滤器，在此过滤器中将对应条件进行筛选。
     ![](https://qcloudimg.tencent-cloud.cn/raw/dea0cb04859ebeb7f9a9a1f1857132e0.png)
 5.  在流量分类趋势模块，可查看当前选中的域名（可选全局域名）的 BOT 流量分类的趋势和 BOT 会话得分趋势。

@@ -19,8 +19,8 @@
 
 | 平台    | 源码地址                                                     |  目标文件夹  |
 | -------| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Android | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/Android/MLVB-API-Example) | [LiveLink](https://github.com/tencentyun/MLVBSDK/tree/master/Android/MLVB-API-Example/Basic/LiveLink) |
-| iOS      | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/MLVB-API-Example)|[LiveLink](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/MLVB-API-Example/Basic/LiveLink) |
+| Android | [Github](https://github.com/LiteAVSDK/Live_Android/tree/main/MLVB-API-Example) | [LiveLink](https://github.com/LiteAVSDK/Live_Android/tree/main/MLVB-API-Example/Basic/LiveLink) |
+| iOS      | [Github](https://github.com/LiteAVSDK/Live_iOS/tree/main/MLVB-API-Example)|[LiveLink](https://github.com/LiteAVSDK/Live_iOS/tree/main/MLVB-API-Example/Basic/LiveLink) |
 
 ### 演示图示
 

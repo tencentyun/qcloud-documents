@@ -1,4 +1,12 @@
 ## 超级播放器
+### 超级播放器 9.5.29009  @ 2022.03.03
+- Android&iOS：支持终端极速高清，可通过插件接入。
+- Android&iOS：优化视频私有加密。
+- Android&iOS：优化精准 seek 到帧。
+- Android&iOS：HLS 支持 EXT-X-DISCONTINUITY 标签。
+- Android&iOS：优化播放器内核， 提升性能。
+- Android&iOS：播放器组件提供沉浸式短视频、Feed 视频流、视频试看、视频封面和视频动态水印等功能 Demo。
+
 ### 超级播放器 9.5 @ 2022.01.11
 - Android：修复视频列表中任意视频播放到最后连续切换两次清晰度会重播的问题。
 - Android&iOS：修复不同时间点回看播放时间点不准的问题。
