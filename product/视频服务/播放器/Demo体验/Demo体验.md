@@ -38,6 +38,6 @@ Web 端超级播放器 TCPlayer 提供了可对比查看视频播放功能效果
 </tr>
 <tr>
 <td style="text-align:center">Flutter</td>
-<td style="text-align:center"><a href="https://github.com/tencentyun/SuperPlayer/tree/main/Flutter">Demo</a></td>
-<td style="text-align:center"><a href="https://github.com/tencentyun/SuperPlayer/tree/main/Flutter">Github</a></td>
+<td style="text-align:center"><a href="https://github.com/LiteAVSDK/Player_Flutter">Demo</a></td>
+<td style="text-align:center"><a href="https://github.com/LiteAVSDK/Player_Flutter">Github</a></td>
 </tr></table>
