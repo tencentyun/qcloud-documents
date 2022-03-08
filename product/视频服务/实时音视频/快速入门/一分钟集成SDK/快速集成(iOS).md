@@ -73,7 +73,7 @@ pod 命令执行完后，会生成集成了 SDK 的 .xcworkspace 后缀的工程
 4. 依次添加所下载的 TRTC SDK Framework 及其所需依赖库 **libc++.tbd** 、**Accelerate.framework** 和 **libresolv.tbd**、**AVFoundation.framework**。
  ![](https://main.qcloudimg.com/raw/2fa94b7f81c7e9c4ac09733782e79c10.png)
 5. **TRTC SDK  9.5.11234 及以上版本** 需要添加动态库依赖。
-单击**General**，选择**Frameworks,Libraries,and Embedded Content**，单击底下的“+”号图标依次添加TXLiteAVSDK_TRTC.framework所需要动态库**BoringSSL.xcframework**、**FFmpeg.xcframework**、**SoundTouch.xcframework**，选择**Embed & Sign**。
+单击 **General**，选择 **Frameworks,Libraries,and Embedded Content**，单击底下的“+”号图标依次添加 TXLiteAVSDK_TRTC.framework 所需要动态库 **BoringSSL.xcframework**、**FFmpeg.xcframework**、**SoundTouch.xcframework**，选择 **Embed & Sign**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d37750717aa62594063674d535e9702f.png)
 
 ## 授权摄像头和麦克风使用权限
