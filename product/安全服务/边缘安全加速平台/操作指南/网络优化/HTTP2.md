@@ -11,7 +11,7 @@
 
 ## 操作步骤
 1. 登录 [边缘安全加速平台控制台](https://console.cloud.tencent.com/teo) ，在左侧菜单栏中，单击**站点加速** > **网络优化**。
-2. 在网络优化页面，选择所需站点，单击 HTTP/2 模块的，开启 HTTP/2 功能。
+2. 在网络优化页面，选择所需站点，单击 HTTP/2 模块的![](https://qcloudimg.tencent-cloud.cn/raw/6bfbd5ffb275d58e46f69740ed95a63c.png)，开启 HTTP/2 功能。
  - 开启状态（默认）：使用 HTTP/2 加速站点。
  - 关闭状态：不支持使用 HTTP/2 加速站点。
 
