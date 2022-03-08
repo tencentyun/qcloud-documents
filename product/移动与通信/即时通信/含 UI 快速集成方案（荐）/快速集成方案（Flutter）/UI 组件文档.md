@@ -72,9 +72,9 @@ _coreInstance.setTheme(TUITheme theme: theme) // 设置主题色
 ```
 
 ### 静态方法
-- **TIMUIKitCore.getInstance()**:
+- **TIMUIKitCore.getInstance()**：
 返回`CoreServicesImpl`实例
-- **TIMUIKitCore.getSDKInstance()**:
+- **TIMUIKitCore.getSDKInstance()**：
 返回为`V2TIMManager`为 SDK 实例，具体使用方式请参见 [Flutter IM SDK 文档](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_manager/V2TIMManager/initSDK.html)
 
 
@@ -128,19 +128,19 @@ TIMUIKitConversation(
 
 #### 方法:
 
-- **loadData(int count)**:
+- **loadData(int count)**：
 加载会话列表，count 为单次加载数量
-- **reloadData(int count)**:
+- **reloadData(int count)**：
 重新加载会话列表，count 为单次加载数量
-- **pinConversation({required String conversationID, required bool isPinned})**:
+- **pinConversation({required String conversationID, required bool isPinned})**：
 会话置顶
-- **clearHistoryMessage({required V2TimConversation conversation})**:
+- **clearHistoryMessage({required V2TimConversation conversation})**：
 清除指定会话消息
-- **deleteConversation({required String conversationID})**:
+- **deleteConversation({required String conversationID})**：
 删除指定会话
-- **setConversationListener({V2TimConversationListener? listener})**:
+- **setConversationListener({V2TimConversationListener? listener})**：
 添加会话监听器
-- **dipose()**:
+- **dipose()**：
 销毁
 
 
@@ -208,19 +208,19 @@ TIMUIKitProfile(
 ```
 
 ### TIMUIKitProfileController
-- **pinedConversation(bool isPined，String convID)**:
+- **pinedConversation(bool isPined，String convID)**：
 会话置顶，`isPined`为是否置顶，`convID`为需要置顶的会话 ID
-- **addUserToBlackList(bool shouldAdd，String userID)**:
+- **addUserToBlackList(bool shouldAdd，String userID)**：
 添加用户至黑名单，`shouldAdd`为是否需要添加至黑名单，`userID`为需要被添加到黑名单的用户
-- **changeFriendVerificationMethod(int allowType)**:
+- **changeFriendVerificationMethod(int allowType)**：
 更改好友验证方式，`0`为"同意任何用户添加好友"、`1`为"需要验证"、`2`为"拒绝任何人加好友"
-- **updateRemarks(String userID，String remark)**:
+- **updateRemarks(String userID，String remark)**：
 更新好友备注，`userID`为被更新的用户 ID，`remark`为备注
-- **loadData**:
+- **loadData**：
 加载数据
-- **dispose()**:
+- **dispose()**：
 销毁
-- **addFriend(String userID)**:
+- **addFriend(String userID)**：
 添加好友，`userID`为被添加好友的用户 ID
 
 
@@ -238,17 +238,17 @@ TIMUIKitGroupProfile(
 `operationListBuilder`及`bottomOperationListBuilder`主要给予用户可配置操作条目的能力，同时可结合子组件配合使用，可以自己选择搭配。
 
 ### 静态方法
-- **TIMUIKitGroupProfile.memberTile()**:
+- **TIMUIKitGroupProfile.memberTile()**：
 群成员卡片、用于显示群成员概览、群成员列表、删除群成员等操作
-- **TIMUIKitGroupProfile.groupNotification()**:
+- **TIMUIKitGroupProfile.groupNotification()**：
 群公告显示及群公告更改
-- **TIMUIKitGroupProfile.groupManage()**:
+- **TIMUIKitGroupProfile.groupManage()**：
 群管理、可设置管理员、禁言等
-- **TIMUIKitGroupProfile.groupType()**:
+- **TIMUIKitGroupProfile.groupType()**：
 显示群类型
-- **TIMUIKitGroupProfile.groupAddOpt()**:
+- **TIMUIKitGroupProfile.groupAddOpt()**：
 加群方式及修改
-- **TIMUIKitGroupProfile.nameCard()**:
+- **TIMUIKitGroupProfile.nameCard()**：
 群昵称及修改
 
 
