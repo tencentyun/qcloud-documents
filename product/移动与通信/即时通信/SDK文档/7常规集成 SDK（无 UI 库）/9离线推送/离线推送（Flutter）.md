@@ -66,7 +66,7 @@ class OfflinePush {
       xgPushDidClearAllIdentifiers: (String msg) async {},
       xgPushClickAction: (Map<String, dynamic> msg) async {},
     );
-    tpush.startXg("", ""); // tpns控制塔获取
+    tpush.startXg("", ""); // tpns控制台获取
   }
 
   static Future<String> getDeviceToken() async {

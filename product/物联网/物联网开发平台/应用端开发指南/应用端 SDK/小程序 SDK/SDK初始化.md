@@ -38,7 +38,7 @@ npm install qcloud-iotexplorer-appdev-sdk
 
 **getAccessToken 回调函数说明**
 
-SDK 初始化时，将调用 `getAccessToken` 回调函数以取得物联网开发平台的 AccessToken。开发者需要在 `getAccessToken` 函数中实现获取 AccessToken 的流程，请参见 [接入微信登录]()。
+SDK 初始化时，将调用 `getAccessToken` 回调函数以取得物联网开发平台的 AccessToken。开发者需要在 `getAccessToken` 函数中实现获取 AccessToken 的流程，请参见 [接入微信登录](https://cloud.tencent.com/document/product/1081/47686#.E6.8E.A5.E5.85.A5.E5.BE.AE.E4.BF.A1.E7.99.BB.E5.BD.95)。
 
 **WsOptions 数据结构**
 

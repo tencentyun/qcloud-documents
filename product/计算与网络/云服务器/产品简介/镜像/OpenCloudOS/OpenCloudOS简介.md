@@ -26,6 +26,8 @@ OpenCloudOS Kernel 为基于社区5.4 LTS 打造的稳定、高性能 kernel。�
 ## 获取 OpenCloudOS
 请前往 [OpenCloudOS 8.5](http://mirrors.tencent.com/opencloudos/8.5/isos/) 获取 OpenCloudOS。
 
+## 更新记录
+详情请参见 [OpenCloudOS 镜像更新日志](https://cloud.tencent.com/document/product/213/70726)。
 
 ## 服务与更新
 OpenCloudOS 社区将为每个 OpenCloudOS 大版本（例如 OpenCloudOS 8）提供有长达10年的维护和更新，包括最新的 kernel 特性、安全漏洞修复及 bug 修复等。存量服务器可以通过 yum 升级，及时完成漏洞修复。

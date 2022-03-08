@@ -25,7 +25,9 @@ TRTC Web SDK 基于 WebRTC 实现，目前支持桌面端和移动端的主流�
 TRTC Web SDK 依赖以下端口及域名进行数据传输，请将其加入防火墙白名单。配置完成后，您可以通过访问并体验 [官网 Demo](https://web.sdk.qcloud.com/trtc/webrtc/demo/api-sample/basic-rtc.html) 检查配置是否生效。具体请参见 [应对防火墙限制相关](https://cloud.tencent.com/document/product/647/34399)。
 - TCP 端口：8687
 - UDP 端口：8000，8080，8800，843，443，16285
-- 域名：*.rtc.qq.com，yun.tim.qq.com
+- 域名：`*.rtc.qq.com`，`yun.tim.qq.com`
+
+
 ## 前提条件
 您已 [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 账号，并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
 
@@ -37,7 +39,7 @@ TRTC Web SDK 依赖以下端口及域名进行数据传输，请将其加入防�
 1. 登录实时音视频控制台，选择 **开发辅助**> **[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)**。
 2. 单击 **新建应用** 输入应用名称，例如 `TestTRTC`；若您已创建应用可单击 **选择已有应用**。
 3. 根据实际业务需求添加或编辑标签，单击 **创建**。
-   
+
 ![](https://main.qcloudimg.com/raw/f04d288ed091c98a5e8056eb86fb49e8.png)
 
 >?
@@ -54,14 +56,11 @@ TRTC Web SDK 依赖以下端口及域名进行数据传输，请将其加入防�
 [](id:step3)
 ### 步骤3：配置 Demo 工程文件
 1. 进入修改配置页，获取 `SDKAppID` 和`密钥`。
-
 <img src="https://qcloudimg.tencent-cloud.cn/raw/1aa752664de9fa0dfaf163a8092b9b40.png" width="800px">
-
 2. 在下载的源码中找到并打开 `Web/base-js/js/debug/GenerateTestUserSig.js` 文件。
 3. 设置 `GenerateTestUserSig.js` 文件中的相关参数：
   - SDKAPPID：默认为0，请设置为实际的 `SDKAppID`。
   - SECRETKEY：默认为空字符串，请设置为实际的`密钥`信息。 
-
 <img src="https://imgcache.qq.com/operation/dianshi/other/pic-demo-web.56f27c320c21670c64d708d7008588bbd0cea2db.png" width="800px">
 
 4. 粘贴完成后，单击 **已复制粘贴，下一步** 即创建成功。
@@ -78,7 +77,6 @@ TRTC Web SDK 依赖以下端口及域名进行数据传输，请将其加入防�
 > - 目前桌面端 Chrome 浏览器支持 TRTC Web SDK 的相关特性比较完整，因此建议使用 Chrome 浏览器进行体验。
 
 Demo 运行界面如图所示：
-
 ![](https://main.qcloudimg.com/raw/e989c968446e6e3bdcc19c58e40e2b86.png)
 
 - 单击 **加入房间** 加入音视频通话房间并且发布本地音视频流。
@@ -89,9 +87,8 @@ Demo 运行界面如图所示：
 > ![](https://main.qcloudimg.com/raw/1a2c1e7036720b11f921f8ee1829762a.png)
 
 ## 运行在线 Demo
-同时我们提供在线运行 Demo 的方式，在获取 `SDKAppID` 和`密钥`后，单击打开[快速运行 demo](https://web.sdk.qcloud.com/trtc/webrtc/demo/quick/index.html)，按照页面指引运行即可。
-
-<img src="https://qcloudimg.tencent-cloud.cn/raw/18b7ec2993c88327a2e2c674a0909d82.png" width="800px">
+同时我们提供在线运行 Demo 的方式，在获取 `SDKAppID` 和`密钥`后，单击打开 [快速运行 demo](https://web.sdk.qcloud.com/trtc/webrtc/demo/quick/index.html)，按照页面指引运行即可。
+![](https://qcloudimg.tencent-cloud.cn/raw/3d674cf542c6675d419aceaab0429769.png)
 
 ## 常见问题
 ### 1. 查看密钥时只能获取公钥和私钥信息，要如何获取密钥？

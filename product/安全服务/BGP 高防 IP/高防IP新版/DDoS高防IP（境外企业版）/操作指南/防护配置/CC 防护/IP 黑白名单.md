@@ -16,6 +16,10 @@ DDoS 高防  IP（境外企业版）支持通过配置 IP 黑名单和白名单�
 4. 在 IP 黑白名单列表，单击**新建**，填写相关字段。
 ![](https://qcloudimg.tencent-cloud.cn/raw/7e978b233c7aac61dcbc4a53cf0e681e.png)
 **参数说明：**
+ - 协议类型：根据实际需求选择 http 或 https。
+ - 域名：该资源 IP 下的业务域名。
+ - IP 名单：支持IP 或 IP 段，以 IP 或 IP/掩码的格式填写。
+ - 类型：根据实际需求选择黑名单或白名单。
 5. 单击**保存**，添加规则。
 6. （可选）新建完成后，IP 黑白名单列表将新增一条 IP 黑白名单规则，可以在右侧操作栏中，单击**删除**，删除 IP 黑白名单规则。
 ![](https://qcloudimg.tencent-cloud.cn/raw/7e5d5767bb2f2a96d87348db5a3c094d.png)
