@@ -22,9 +22,20 @@ GRANT SELECT ON 待备份的库.* TO '帐号';
 ```
 
 ## 约束限制
-逻辑备份的对象仅支持库、表、索引、视图，不支持用户数据、存储过程、Function 等。
+- 逻辑备份的对象仅支持库、表、索引、视图，不支持用户数据、存储过程、Function 等。
+- 不支持 GIS 地理类型的数据备份。
+- 只支持备份 InnoDB、MyISAM、TokuDB 三种数据库引擎，如果存在这三种以外的数据引擎表则默认跳过不进行备份。
+- 全量备份阶段，源库不能进行 DDL 操作，否则任务报错，增量备份阶段可以进行 DDL 操作。  
+
+## 支持的 SQL 操作
+
+| 操作类型 | 支持的 SQL 操作                                              |
+| -------- | ------------------------------------------------------------ |
+| DML      | INSERT、UPDATE、DELETE、REPLACE                              |
+| DDL      | TABLE：CREATE TABLE、ALTER TABLE、DROP TABLE、TRUNCATE TABLE、RENAEM TABLE  VIEW：CREATE VIEW、DROP VIEW INDEX：CREATE INDEX、DROP INDEX  DATABASE：CREATE DATABASE、ALTER DATABASE、DROP DATABASE |
 
 ## 操作步骤
+
 ### 购买备份计划
 登录 [DBS 控制台](https://console.cloud.tencent.com/dbs)，在左侧导航选择**备份计划**页，单击**新建备份计划**，跳转到购买备份计划页面，根据实际需求选择各项配置信息，确认无误后，单击**立即购买**。
 - **商品类型**：备份计划实例。
