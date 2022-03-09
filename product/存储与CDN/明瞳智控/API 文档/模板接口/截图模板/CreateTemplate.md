@@ -109,12 +109,12 @@ Container 节点 Response 的内容：
 | 节点名称（关键字） | 父节点                | 描述                                                         | 类型      |
 | :----------------- | :-------------------- | :----------------------------------------------------------- | :-------- |
 | Tag                | Response | 模板类型固定值为 Snapshot                                           | String    |
-| Name               | Response | 模版名字                                                     | String    |
-| Desc               | Response | 模版描述                                                     | String    |
-| TemplateId         | Response | 模版 ID                                                      | String    |
+| Name               | Response | 模板名字                                                     | String    |
+| Desc               | Response | 模板描述                                                     | String    |
+| TemplateId         | Response | 模板 ID                                                      | String    |
 | UpdateTime         | Response | 更新时间                                                     | String    |
 | CreateTime         | Response | 创建时间                                                     | String    |
-| Snapshot           | Response | 其详细的模版参数，同上述请求体部分 Snapshot 说明 | Container |
+| Snapshot           | Response | 其详细的模板参数，同上述请求体部分 Snapshot 说明 | Container |
 
 
 #### 错误码
