@@ -41,7 +41,7 @@ if (context.data.hiredate - today() <= 0) {
 }
 
 // 如果人员的邮箱包含tencent，不进行更新操作
-if (context.data.email contain("tencent")) {
+if (context.data.email.contain("tencent")) {
     repo.abort("UPDATE");
     return context;
 }

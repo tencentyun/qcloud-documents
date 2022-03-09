@@ -6,13 +6,28 @@
 	<th style="width: 25%;"><center>更新时间</center></th>
 	</tr>
 	<tr>
+<td><center>V2.12.100</td>	</td>	
+<td>1.支持会中视频小窗缩放。<br>
+2.Rooms 音频模式时可显示更多人。<br>
+3.优化了会议室管理页 UI 及视觉布局。	</td>	
+<td><center>2022-03-01</td>
+	</tr>
+	<tr>
+<td><center>V2.12.90</td>	
+<td>1.管理后台支持批量添加会议室。<br>
+2.支持 Rooms 白板手势缩放。<br>
+3.支持 Rooms 直接返回系统桌面。<br>
+4.Rooms 关联账号后显示个人头像。	</td>
+<td><center>2022-01-21</td>	
+	</tr>
+<tr>
 <td><center>V2.12.80</td>	
 <td>
 1.支持批量设置自定义背景图。<br>
 2.支持设置 Rooms 屏幕默认视图布局。<br>
 3.添加快速退出 Rooms 应用入口。	</td>	
 <td><center>2022-01-05</td>	
-	</tr>
+</tr>
 	<tr>
 <td><center>V2.12.70</td>	
 <td>
@@ -49,6 +64,21 @@
 	<th style="width: 25%;"><center>更新时间</center></th>
 	</tr>
 	<tr>
+<td><center>V2.12.100</td>	</td>	
+<td>1.支持会中视频小窗缩放。<br>
+2.Rooms 音频模式时可显示更多人。<br>
+3.优化了会议室管理页 UI 及视觉布局。	</td>	
+<td><center>2022-03-01</td>
+	</tr>
+	<tr>
+<td><center>V2.12.90</td>	
+<td>1.管理后台支持批量添加会议室。<br>
+2.支持 Rooms 白板手势缩放。<br>
+3.支持 Rooms 直接返回系统桌面。<br>
+4.Rooms 关联账号后显示个人头像。	</td>
+<td><center>2022-01-21</td>	
+	</tr>
+<tr>
 <td><center>V2.12.80</td>	
 <td>
 1.支持批量设置自定义背景图。<br>

@@ -26,7 +26,7 @@
 
 
 1. 单击上述步骤创建的服务名称，进入服务管理页面。
-![](https://main.qcloudimg.com/raw/e6d93ba3b35ae55cf4d5a080ee704d7c.jpg)
+![](https://qcloudimg.tencent-cloud.cn/raw/25e5ea9d9e59603ce9585338198543af.png)
 2. 单击**新建版本**，可对新版本进行配置，详情参考如下步骤。
 
 #### 基础配置
@@ -57,7 +57,7 @@
 2. 单击**流量配置**，目前支持按源 IP 的流量灰度。
 ![](https://main.qcloudimg.com/raw/82ea48ad37c3b53261ca0adf41c86f0e.jpg)
 3. 选择对应版本的流量比例，所有版本流量百分比相加需为100%。
-![](https://main.qcloudimg.com/raw/74df775c9156da323a13c0bc51ba4f55.jpg)
+![](https://qcloudimg.tencent-cloud.cn/raw/271049289ecd83392ed67e6a60dea38f.png)
 
 
 

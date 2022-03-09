@@ -30,7 +30,7 @@
 wget https://nodejs.org/dist/v10.16.3/node-v10.16.3-linux-x64.tar.xz
 ```
 <dx-alert infotype="explain" title="">
-该步骤以下载 Node.js 64位二进制安装包为例，请对应您的实例规格，前往 [Node.js 官网](https://nodejs.org/zh-cn/download/) 获取更多安装信息。
+该步骤以下载 Node.js 64位二进制安装包为例，不适用于 [标准型 SR1](https://cloud.tencent.com/document/product/213/11518#SR1) 实例，请对应您的实例规格，前往 [Node.js 官网](https://nodejs.org/zh-cn/download/) 获取更多安装信息。
 </dx-alert>
 2. 执行以下命令，解压安装包。
 ```

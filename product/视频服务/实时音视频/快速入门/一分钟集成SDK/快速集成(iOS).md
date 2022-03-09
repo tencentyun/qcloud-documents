@@ -72,7 +72,9 @@ pod 命令执行完后，会生成集成了 SDK 的 .xcworkspace 后缀的工程
  ![](https://main.qcloudimg.com/raw/54be71cc14ec79ce642216612544a8a4.png)
 4. 依次添加所下载的 TRTC SDK Framework 及其所需依赖库 **libc++.tbd** 、**Accelerate.framework** 和 **libresolv.tbd**、**AVFoundation.framework**。
  ![](https://main.qcloudimg.com/raw/2fa94b7f81c7e9c4ac09733782e79c10.png)
-
+5. **TRTC SDK  9.5.11234 及以上版本** 需要添加动态库依赖。
+单击 **General**，选择 **Frameworks,Libraries,and Embedded Content**，单击底下的“+”号图标依次添加 TXLiteAVSDK_TRTC.framework 所需要动态库 **BoringSSL.xcframework**、**FFmpeg.xcframework**、**SoundTouch.xcframework**，选择 **Embed & Sign**。
+![](https://qcloudimg.tencent-cloud.cn/raw/d37750717aa62594063674d535e9702f.png)
 
 ## 授权摄像头和麦克风使用权限
 使用 SDK 的音视频功能，需要授权麦克风和摄像头的使用权限。在 App 的 Info.plist 中添加以下两项，分别对应麦克风和摄像头在系统弹出授权对话框时的提示信息。
