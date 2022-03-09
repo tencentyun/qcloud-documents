@@ -157,4 +157,4 @@ if (isAgree) {
 
 ## 五、关闭本 SDK 
 您可以告知终端用户选择关闭相应的权限，其个人信息将不会被本 SDK 处理与使用。
-我们建议您在终端用户需要注销其个人信息时，您可以通过 [**腾讯云QAPM**](https://yzf.qq.com/xv/web/static/chat/index.html?sign=37ef9b97d67d519574409ee64de3e23374aad371f460d716f55689f17061b9e422e908bdaa4cd5c7902d11ae7fb2e7b08314e07e) 直接联系我们进行处理，以便终端用户更便捷行使其权利。
+我们建议您在终端用户需要注销其个人信息时，您可以通过 [**腾讯云 QAPM**](https://yzf.qq.com/xv/web/static/chat/index.html?sign=37ef9b97d67d519574409ee64de3e23374aad371f460d716f55689f17061b9e422e908bdaa4cd5c7902d11ae7fb2e7b08314e07e) 直接联系我们进行处理，以便终端用户更便捷行使其权利。
