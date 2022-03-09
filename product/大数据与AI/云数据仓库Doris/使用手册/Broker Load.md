@@ -1,4 +1,4 @@
-﻿Broker load 是一个异步的导入方式，支持的数据源取决于 Broker 进程支持的数据源。用户需要通过 MySQL 协议 创建 Broker load 导入，并通过查看导入命令检查导入结果。
+Broker load 是一个异步的导入方式，支持的数据源取决于 Broker 进程支持的数据源。用户需要通过 MySQL 协议 创建 Broker load 导入，并通过查看导入命令检查导入结果。
 
 ## 适用场景
 - 源数据在 Broker 可以访问的存储系统中，如 HDFS。
@@ -299,7 +299,7 @@ Broker load 导入由于没有 ETL 阶段，所以其 EtlStartTime, EtlFinishTim
 使用 Broker load 最适合的场景就是原始数据在文件系统（HDFS，BOS，AFS）中的场景。其次，由于 Broker load 是单次导入中唯一的一种异步导入的方式，所以如果用户在导入大文件中，需要使用异步接入，也可以考虑使用 Broker load。
 
 ### 数据量
-这里仅讨论单个 BE 的情况，如果用户集群有多个 BE 则下面标题中的数据量应该乘以 BE 个数来计算。比如：如果用户有3个 BE，则 3G 以下（包含）则应该乘以 3，也就是 9G 以下（包含）。
+这里仅讨论单个 BE 的情况，如果用户集群有多个 BE 则下面标题中的数据量应该乘以 BE 个数来计算。例如：如果用户有3个 BE，则 3G 以下（包含）则应该乘以 3，也就是 9G 以下（包含）。
 
 - 3G 以下（包含）
 用户可以直接提交 Broker load 创建导入请求。
@@ -314,7 +314,7 @@ Broker load 导入由于没有 ETL 阶段，所以其 EtlStartTime, EtlFinishTim
 		当前导入任务单个 BE 处理的数据量 = 原始文件大小 / max_broker_concurrency
 		max_bytes_per_broker_scanner >= 当前导入任务单个 BE 处理的数据量
 
-		比如一个 100G 的文件，集群的 BE 个数为 10 个
+		例如一个 100G 的文件，集群的 BE 个数为 10 个
 		max_broker_concurrency = 10
 		max_bytes_per_broker_scanner >= 10G = 100G / 10
 ```
@@ -324,7 +324,7 @@ Broker load 导入由于没有 ETL 阶段，所以其 EtlStartTime, EtlFinishTim
 ```
 		当前导入任务单个 BE 处理的数据量 / 用户 Doris 集群最慢导入速度(MB/s) >= 当前导入任务的 timeout 时间 >= 当前导入任务单个 BE 处理的数据量 / 10M/s
 
-		比如一个 100G 的文件，集群的 BE 个数为 10个
+		例如一个 100G 的文件，集群的 BE 个数为 10个
 		timeout >= 1000s = 10G / 10M/s
 ```
 	3. 当用户发现第二步计算出的 timeout 时间超过系统默认的导入最大超时时间 4小时。
@@ -332,7 +332,7 @@ Broker load 导入由于没有 ETL 阶段，所以其 EtlStartTime, EtlFinishTim
 可以通过如下公式计算出 Doris 集群期望最大导入文件数据量：
 ```
 		期望最大导入文件数据量 = 14400s * 10M/s * BE 个数
-		比如：集群的 BE 个数为 10个
+		例如：集群的 BE 个数为 10个
 		期望最大导入文件数据量 = 14400s * 10M/s * 10 = 1440000M ≈ 1440G
 
 		注意：一般用户的环境可能达不到 10M/s 的速度，所以建议超过 500G 的文件都进行文件切分，再导入。
