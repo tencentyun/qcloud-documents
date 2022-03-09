@@ -35,3 +35,10 @@ public class MessageReceiver extends XGPushBaseReceiver {
 }
 ```
 
+## TPNS Android SDK 1.3.2.0
+### OPPO 推送 SDK 升级
+升级TPNS OPPO 推送 SDK 1.3.2.0 时，请注意一并加入以下依赖语句，否则可能导致 OPPO 推送注册失败
+```
+implementation 'com.google.code.gson:gson:2.6.2'
+implementation 'commons-codec:commons-codec:1.15'
+```
