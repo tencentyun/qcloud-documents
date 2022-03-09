@@ -247,8 +247,8 @@ Stream load 的 Label 重复排查步骤如下：
 排查上述可能的方法：使用 Label 搜索 FE Master 的日志，看是否存在同一个 Label 出现了两次 `redirect load action to destination= ` 的情况。如果有就说明，请求被 Client 端重复提交了。
 建议用户根据当前请求的数据量，计算出大致导入的时间，并根据导入超时时间，将Client 端的请求超时间改成大于导入超时时间的值，避免请求被 Client 端多次提交。
 	3. Connection reset 异常
-在社区版 0.14.0 及之前的版本在启用Http V2之后出现connection reset异常，因为Web 容器内置的是tomcat，Tomcat 在 307 (Temporary Redirect) 是有坑的，对这个协议实现是有问题的，所有在使用Stream load 导入大数据量的情况下会出现connect  reset异常，这个是因为tomcat在做307跳转之前就开始了数据传输，这样就造成了BE收到的数据请求的时候缺少了认证信息，之后将内置容器改成了Jetty解决了这个问题，如果你遇到这个问题，请升级你的Doris或者禁用Http V2（`enable_http_server_v2=false`）。
-升级以后同时升级你程序的http client 版本到 `4.5.13`，在你的pom.xml文件中引入下面的依赖：
+在社区版 0.14.0 及之前的版本在启用Http V2之后出现connection reset异常，因为Web 容器内置的是tomcat，Tomcat 在 307 (Temporary Redirect) 是有坑的，对这个协议实现是有问题的，所有在使用Stream load 导入大数据量的情况下会出现connect  reset异常，这个是因为tomcat在做307跳转之前就开始了数据传输，这样就造成了BE收到的数据请求的时候缺少了认证信息，之后将内置容器改成了Jetty解决了这个问题，如果您遇到这个问题，请升级您的Doris或者禁用Http V2（`enable_http_server_v2=false`）。
+升级以后同时升级您程序的http client 版本到 `4.5.13`，在您的pom.xml文件中引入下面的依赖：
 ```xml
  <dependency>
 	 <groupId>org.apache.httpcomponents</groupId>
@@ -258,6 +258,3 @@ Stream load 的 Label 重复排查步骤如下：
 ```
        
        
-
-
-
