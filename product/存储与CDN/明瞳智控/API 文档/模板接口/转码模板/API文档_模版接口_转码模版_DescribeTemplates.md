@@ -2,7 +2,7 @@
 DescribeTemplates 用于搜索转码模板。
 
 ## 请求
-### 请求实例
+#### 请求实例
 
 ```shell
 GET /template HTTP/1.1
@@ -15,15 +15,14 @@ Content-Type: application/xml
 ```
 
 >? Authorization: Auth String （详情请查阅 [请求签名](https://cloud.tencent.com/document/product/1344/50456) 文档）。
+>
 
 
-### 请求头
-#### 公共头部
-该请求操作的实现使用公共请求头，了解公共请求头详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/1344/50451) 文档。
-#### 非公共头部
-该请求操作无特殊的请求头部信息。
+#### 请求头
 
-### 请求体
+此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/460/42865) 文档。
+
+#### 请求体
 该请求的请求体为空。
 
 #### 请求参数
@@ -40,14 +39,12 @@ Content-Type: application/xml
 
 
 ## 响应
-### 响应头
 
-#### 公共响应头
-该响应包含公共响应头，了解公共响应头详情请参见 [公共响应头部]( https://cloud.tencent.com/document/product/1344/50452) 文档。
-#### 特有响应头
-该响应无特殊的响应头。
+#### 响应头
 
-### 响应体
+此接口仅返回公共响应头部，详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/460/42866) 文档。
+
+#### 响应体
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
 
 ``` shell
@@ -194,7 +191,7 @@ TransTpl 节点 TransConfig 的具体数据描述如下：
 | AudioBitrateAdjMethod | Response.TemplateList.<br>TransTpl.TransConfig | 音频码率调整方式 | String | 否   | 0      | 1. 取值0、1；0 表示使用原音频码率；1表示返回转码失败<br/>2. 当 IsCheckAudioBitrate 为 true 时生效 |
 
 
-### 错误码
+#### 错误码
 
 该请求无特有错误信息，常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/1344/50457) 文档。
 
@@ -211,7 +208,7 @@ Content-Type: application/xml
 
 ```
 
-### 响应
+#### 响应
 
 ```shell
 HTTP/1.1 200 OK
