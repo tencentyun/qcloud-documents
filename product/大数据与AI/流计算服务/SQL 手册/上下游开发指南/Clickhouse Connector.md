@@ -107,7 +107,7 @@ CREATE TABLE `clickhouse_dimension` (
 | local.read-write        | 否   | false            | 是否写入本地表。默认 false 不开启写入本地表策略              |
 | table.local-nodes  | 否   | -             | local node 列表，举例 '127.1.1.10:8123,127.1.2.13:8123'（**需要使用 http port**） |
 | sink.partition-strategy | 否   | balenced         | 数据分发策略，支持 balanced/shuffle/hash。当设置 sink.write-local 为 true 时启用。取值为 hash 时需要配合 sink.partition-key 使用。取值说明：balanced 轮询模式写入 shuffle 随机挑选节点写入 hash 根据 partition-key hash 值选择节点写入 |
-| sink.partition-key      | 否   | -   | 当设置 sink.write-loal 为 true 且 sink.partition-strategy 为 hash 时需要设置，值为所定义表中的字段 |
+| sink.partition-key      | 否   | -   | 当设置 sink.write-local 为 true 且 sink.partition-strategy 为 hash 时需要设置，值为所定义表中的字段 |
 | scan.fetch-size | 否 | 100 | 每次从数据库读取时，批量获取的行数。 |
 | scan.by-part.enabled | 否 | false | 是否启用读ClickHouse 表 part。若启用，必须先在所有节点上使用命令'STOP MERGES'和'STOP TTL MERGES'停止表的后台merge和基于TTL的数据删除操作，否则读取的数据会不正确。 |
 | scan.part.modification-time.lower-bound | 否 | - | 用于根据modification_time过滤ClickHouse 表 part的最小时间（包含），格式 yyyy-MM-dd HH:mm:ss。|
