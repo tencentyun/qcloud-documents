@@ -109,24 +109,24 @@ Container 节点 Response 的内容：
 | 节点名称（关键字） | 父节点   | 描述                           | 类型      |
 | :----------------- | :------- | :----------------------------- | :-------- |
 | RequestId          | Response | 请求的唯一 ID                   | String    |
-| TotalCount         | Response | 模版总数                       | Int       |
+| TotalCount         | Response | 模板总数                       | Int       |
 | PageNumber         | Response | 当前页数，同请求中的 pageNumber | Int       |
 | PageSize           | Response | 每页个数，同请求中的 pageSize   | Int       |
-| TemplateList       | Response | 模版数组                       | Container |
+| TemplateList       | Response | 模板数组                       | Container |
 
 Container 节点 TemplateList 的内容：
 
 | 节点名称（关键字） | 父节点                | 描述                                                         | 类型      |
 | :----------------- | :-------------------- | :----------------------------------------------------------- | :-------- |
-| TemplateId         | Response.TemplateList | 模版 ID                                                      | String    |
-| Name               | Response.TemplateList | 模版名字                                                     | String    |
-| Desc               | Response.TemplateList | 模版描述                                                     | String    |
-| BucketId           | Response.TemplateList | 模版所属存储桶                                                | String    |
-| Category           | Response.TemplateList | 模版属性，Custom 或者 Official                                | String    |
-| Tag                | Response.TemplateList | 模版类型，Transcode                                          | String    |
+| TemplateId         | Response.TemplateList | 模板 ID                                                      | String    |
+| Name               | Response.TemplateList | 模板名字                                                     | String    |
+| Desc               | Response.TemplateList | 模板描述                                                     | String    |
+| BucketId           | Response.TemplateList | 模板所属存储桶                                                | String    |
+| Category           | Response.TemplateList | 模板属性，Custom 或者 Official                                | String    |
+| Tag                | Response.TemplateList | 模板类型，Transcode                                          | String    |
 | UpdateTime         | Response.TemplateList | 更新时间                                                     | String    |
 | CreateTime         | Response.TemplateList | 创建时间                                                     | String    |
-| TransTpl           | Response.TemplateList | 详细的模版参数                                                | Container |
+| TransTpl           | Response.TemplateList | 详细的模板参数                                                | Container |
 
 Container 节点 TransTpl 的内容：
 
