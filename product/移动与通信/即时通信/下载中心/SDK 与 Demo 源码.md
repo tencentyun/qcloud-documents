@@ -198,6 +198,7 @@
                 <p style="color:#586376;">包含所有 IM 功能以及群直播连麦语聊能力</p>
                     <div style="margin-top: 13px;" >
                     <a href="https://github.com/tencentyun/TIMSDK/tree/master/Android">Github 下载</a>
+                                <a style="margin-left: 10px;" href="https://im.sdk.qcloud.com/download/github/TIMSDK.zip">ZIP 下载</a>
                                 <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/269/36838">集成指引</a>
                     </div>
             </div>
@@ -209,6 +210,7 @@
                 <p style="color:#586376;">包含所有 IM 功能以及群直播连麦语聊能力</p>
                     <div style="margin-top: 13px;" >
                     <a  href="https://github.com/tencentyun/TIMSDK/tree/master/iOS">Github 下载</a>
+                          <a  style="margin-left: 10px;"href="https://im.sdk.qcloud.com/download/github/TIMSDK.zip">ZIP 下载</a>
                                 <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/269/36838">集成指引</a>
                     </div>
             </div>
@@ -230,7 +232,6 @@
                                 <p class="titlename"> IM Demo （微信小程序）</p>
                 <p style="color:#586376;">包含 IM 主要功能以及在线客服场景能力</p>
                     <div style="margin-top: 13px;" >
-                    <a href="https://github.com/tencentyun/TIMSDK/tree/master/MiniProgram">Github 下载</a>
                                 <a style="margin-left: 10px;"  href="https://cloud.tencent.com/document/product/269/68376">集成指引</a>
                     </div>
             </div>
@@ -252,7 +253,7 @@
                                 <p class="titlename"> IM Demo （Flutter）</p>
                 <p style="color:#586376;">包含 IM 主要功能</p>
                      <div style="margin-top: 13px; " >
-                    <a href="https://github.com/tencentyun/TIMSDK/tree/master/Flutter/Demo/im-flutter-uikit">Github 下载</a>
+                        <a style="margin-left: 10px;" href="https://upload-dianshi-1255598498.cos.ap-guangzhou.myqcloud.com/nodir/TencentImSDKPlugin-1610442889170.zip">ZIP 下载</a>
                      <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/269/68823">集成指引</a></div>
             </div>
         </div>
