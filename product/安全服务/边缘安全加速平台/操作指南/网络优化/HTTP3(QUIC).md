@@ -14,5 +14,5 @@ QUIC（Quick UDP Internet Connections）是一个通用的网络协议，提供�
 >!仅配置 HTTPS 证书后才生效，请先配置 HTTPS 证书。
 
 ## 注意事项
-- 若同时开启 HTTP/2 和 HTTP/3 (QUIC) ，则根据实际客户端请求使用 HTTP/2 或 QUIC。
-- 此处仅支持请求访问，不支持 HTTP/3 (QUIC) 回源。
+1. 若同时开启 HTTP/2 和 HTTP/3 (QUIC) ，则根据实际客户端请求使用 HTTP/2 或 QUIC。
+2. 此处仅支持请求访问，不支持 HTTP/3 (QUIC) 回源。
