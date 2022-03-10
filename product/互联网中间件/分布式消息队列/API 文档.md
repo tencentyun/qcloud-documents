@@ -1,5 +1,11 @@
 TDMQ Pulsar 版相关接口如下表所示。
 
+<style>
+th{
+width:50%;
+}
+</style>
+
 ## 集群相关接口
 
 | 接口名称                                                     | 接口功能         |
