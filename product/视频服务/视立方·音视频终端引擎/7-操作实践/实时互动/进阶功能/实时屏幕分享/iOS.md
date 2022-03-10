@@ -43,7 +43,7 @@
 ## 跨应用分享
 
 ### 示例代码
-我们在 [Github](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/TRTC-API-Example-OC) 中的 **ScreenShare** 目录下放置了一份跨应用分享的示例代码，其包含如下一些文件：
+我们在 [Github](https://github.com/LiteAVSDK/TRTC_iOS/blob/main/TRTC-API-Example-OC) 中的 **ScreenShare** 目录下放置了一份跨应用分享的示例代码，其包含如下一些文件：
 
 ```
 ├─ TRTC-API-Example-OC              // TRTC API Example 
@@ -66,7 +66,7 @@
 |  |  |  │   └── SampleHandler.m                // 用于接收来自系统的录屏数据
 ```
 
-您可以通过 [README](https://github.com/tencentyun/TRTCSDK/blob/master/iOS/TRTC-API-Example-OC/README.md) 中的指引跑通该示例 Demo。
+您可以通过 [README](https://github.com/LiteAVSDK/TRTC_iOS/blob/main/TRTC-API-Example-OC/README.md) 中的指引跑通该示例 Demo。
 
 
 ### 对接步骤
@@ -84,23 +84,23 @@ iOS 系统上的跨应用屏幕分享，需要增加 Extension 录屏进程以�
 #### 步骤1：创建 App Group
 使用您的帐号登录 [**https://developer.apple.com/**](https://developer.apple.com/) ，进行以下操作，**注意完成后需要重新下载对应的 Provisioning Profile**。
 
-1. 单击【Certificates, IDs & Profiles】。
+1. 单击**Certificates, IDs & Profiles**。
 2. 在右侧的界面中单击加号。
-3. 选择【App Groups】，单击【Continue】。
-4. 在弹出的表单中填写 Description 和 Identifier, 其中 Identifier 需要传入接口中的对应的 AppGroup 参数。完成后单击【Continue】。
+3. 选择**App Groups**，单击**Continue**。
+4. 在弹出的表单中填写 Description 和 Identifier, 其中 Identifier 需要传入接口中的对应的 AppGroup 参数。完成后单击**Continue**。
  ![](https://main.qcloudimg.com/raw/43dd60f5053b21c167ee3a8dbe7d16f9/Create_AppGroup.jpg)
-5. 回到 Identifier 页面，左上边的菜单中选择【App IDs】，然后单击您的 App ID（主 App 与 Extension 的 AppID 需要进行同样的配置）。
-6. 选中【App Groups】并单击【Edit】。
-7. 在弹出的表单中选择您之前创建的 App Group，单击【Continue】返回编辑页，单击【Save】保存。
+5. 回到 Identifier 页面，左上边的菜单中选择**App IDs**，然后单击您的 App ID（主 App 与 Extension 的 AppID 需要进行同样的配置）。
+6. 选中**App Groups**并单击**Edit**。
+7. 在弹出的表单中选择您之前创建的 App Group，单击**Continue**返回编辑页，单击**Save**保存。
  ![](https://main.qcloudimg.com/raw/962c1b705433aa62c9617f90d28238c5/Apply_AppGroup.jpg)
 8. 重新下载 Provisioning Profile 并配置到 XCode 中。
 
 [](id:createExtension)
 #### 步骤2：创建 Broadcast Upload Extension
-1. 在 Xcode 菜单依次单击【File】、【New】 、【Target...】，选择【Broadcast Upload Extension】。
-2. 在弹出的对话框中填写相关信息，**不用**勾选"【Include UI Extension】，单击【Finish】完成创建。
+1. 在 Xcode 菜单依次单击**File**、**New** 、**Target...**，选择**Broadcast Upload Extension**。
+2. 在弹出的对话框中填写相关信息，**不用**勾选"**Include UI Extension**，单击**Finish**完成创建。
 3. 将下载到的 SDK 压缩包中的 TXLiteAVSDK_ReplayKitExt.framework 拖动到工程中，勾选刚创建的 Target。
-4. 选中新增加的 Target，依次单击【+ Capability】，双击【App Groups】，如下图：
+4. 选中新增加的 Target，依次单击**+ Capability**，双击**App Groups**，如下图：
  ![AddCapability](https://main.qcloudimg.com/raw/a2b38f1581a495f2a966f6eaf464e057.png)
     操作完成后，会在文件列表中生成一个名为 `Target名.entitlements` 的文件，如下图所示，选中该文件并单击 + 号填写上述步骤中的 App Group 即可。
     ![AddGroup](https://main.qcloudimg.com/raw/b4904a8b425cf55e58497b35c0700966.png)
@@ -217,7 +217,7 @@ iOS 系统上的跨应用屏幕分享，需要增加 Extension 录屏进程以�
 截止到 [步骤3](#receive)，我们的屏幕分享还必须要用户从控制中心中长按录屏按钮来手动启动。您可通过下述方法实现类似腾讯会议的单击按钮即可触发的效果：
 ![](https://main.qcloudimg.com/raw/4a759043c613a558400cce8b539fd7d9.png)
 
-1. 在 [Demo](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/TRTC-API-Example-OC/Basic/ScreenShare) 中寻找 `TRTCBroadcastExtensionLauncher` 这个类，并将其加入到您的工程中。
+1. 在 [Demo](https://github.com/LiteAVSDK/TRTC_iOS/blob/main/TRTC-API-Example-OC/Basic/ScreenShare) 中寻找 `TRTCBroadcastExtensionLauncher` 这个类，并将其加入到您的工程中。
 2. 在您的界面上放置一个按钮，并在按钮的响应函数中调用 `TRTCBroadcastExtensionLauncher` 中的 `launch` 函数，就可以唤起屏幕分享功能了。
 <dx-codeblock>
 ::: code 

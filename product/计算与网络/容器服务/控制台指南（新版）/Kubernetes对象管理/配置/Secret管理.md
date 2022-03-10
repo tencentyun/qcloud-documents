@@ -13,7 +13,7 @@ Secret 可用于存储密码、令牌、密钥等敏感信息，降低直接对�
 ![](https://main.qcloudimg.com/raw/a0c5ec51165aa0cfff4bfbfc303246b7.png)
  - **名称**：请输入自定义名称。
  - **Secret类型**：提供**Opaque**和**Dockercfg**两种类型，请根据实际需求进行选择。
-        - **Opaque**：适用于保存秘钥证书和配置文件，Value 将以 base64 格式编码。
+        - **Opaque**：适用于保存密钥证书和配置文件，Value 将以 base64 格式编码。
         - **Dockercfg**：适用于保存私有 Docker Registry 的认证信息。
  - **生效范围**：提供以下两种范围，请根据实际需求进行选择。
         - **存量所有命名空间**：不包括 kube-system、kube-public 和后续增量命名空间。

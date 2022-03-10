@@ -36,7 +36,7 @@
 
 ### 配置自建 Kafka 集群
 #### 修改自建 Kafka 集群配置
-自建 Kafka 集群连接时 `bootstrap-servers` 参数常常使用 hostname 而不是 IP 来连接。但用自建 Kafka 集群连接腾讯云上的 Oceanus 集群为全托管集群， Oceanus 集群的节点上无法解析自建集群的 hostname 与 IP 的映射关系，所以需要改监听器地址由 hostname 为 IP 地址连接的形式。
+自建 Kafka 集群连接时 `bootstrap-servers` 参数常使用 hostname 而不是 IP 来连接。但用自建 Kafka 集群连接腾讯云上的 Oceanus 集群为全托管集群， Oceanus 集群的节点上无法解析自建集群的 hostname 与 IP 的映射关系，所以需要改监听器地址由 hostname 为 IP 地址连接的形式。
 
 - 将 `config/server.properties` 配置文件中 `advertised.listeners` 参数配置为 IP 地址。
 ```shell

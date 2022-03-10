@@ -89,12 +89,12 @@ npx serve
 
 >? 如果 SDK 成功使用匿名身份登录，那么您应该可以看到一个弹窗。
 
-登录成功后，便可以访问和使用云开发的各类资源，详情请参见 [Web SDK 文档](https://docs.cloudbase.net/api-reference/webv2/initialization.html)。
+登录成功后，便可以访问和使用云开发的各类资源，详情请参见 [Web SDK 文档](https://docs.cloudbase.net/api-reference/webv2/initialization)。
 
-- [登录认证](https://docs.cloudbase.net/api-reference/webv2/authentication.html)
-- [云函数](https://docs.cloudbase.net/api-reference/webv2/functions.html)
-- [数据库](https://docs.cloudbase.net/api-reference/webv2/database.html)
-- [文件存储](https://docs.cloudbase.net/api-reference/webv2/storage.html)
+- [登录认证](https://docs.cloudbase.net/api-reference/webv2/authentication)
+- [云函数](https://docs.cloudbase.net/api-reference/webv2/functions)
+- [数据库](https://docs.cloudbase.net/api-reference/webv2/database)
+- [文件存储](https://docs.cloudbase.net/api-reference/webv2/storage)
 
 ## 第 5 步（可选）：使用云开发部署静态页面
 1. 开通 [静态网站服务](https://console.cloud.tencent.com/tcb/hosting)。

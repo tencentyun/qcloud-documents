@@ -28,7 +28,7 @@
 ### 1. 配置 MLVB-API-Example 工程文件
 1. 根据实际业务下载对应的 [SDK](https://cloud.tencent.com/document/product/454/7873)，这里以 [Professional](https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_Professional_iOS_latest.zip) 为例。
 2. 找到并打开 `LiteAVSDK_Professional_iOS_版本号/MLVB-API-Example-OC/Debug/GenerateTestUserSig.h` 文件。
-3. 根据上面  [服务开通](#step1) 设置  [GenerateTestUserSig.](https://github.com/tencentyun/MLVBSDK/blob/master/iOS/MLVB-API-Example/Debug/GenerateTestUserSig.h)  文件中的相关参数：
+3. 根据上面  [服务开通](#step1) 设置  [GenerateTestUserSig.](https://github.com/LiteAVSDK/Live_iOS/blob/main/MLVB-API-Example-OC/Debug/GenerateTestUserSig.h)  文件中的相关参数：
  - SDKAppID：默认为 0 ，请设置为实际的 SDKAppID。
  - SECRETKEY：默认为空 ，请设置为实际的密钥信息。
  <img src="https://main.qcloudimg.com/raw/861170156910720be7ba980bcb625ceb.png" width=700px>
@@ -55,7 +55,7 @@ trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&userId=A&usersig=xxxx
 
 [](id:step2_2_2)
 #### Demo 示例代码详解：
-- URL 拼接流程，可以参考 [LiveUrl.m#generateTRTCPushUrl()](https://github.com/tencentyun/MLVBSDK/blob/master/iOS/MLVB-API-Example/App/Common/LiveUrl.m) 方法。
+- URL 拼接流程，可以参考 [LiveUrl.m#generateTRTCPushUrl()](https://github.com/LiteAVSDK/Live_iOS/blob/main/MLVB-API-Example-OC/App/Common/LiveUrl.m) 方法。
 ```
 + (NSString*)generateTRTCPushUrl:(NSString*)streamId userId:(NSString*)userId {
     NSString *url = [NSString stringWithFormat:@"trtc://cloud.tencent.com/push/%@?sdkappid=%d&amp;userid=%@&amp;usersig=%@&amp;appscene=live",streamId, SDKAppID, userId, [GenerateTestUserSig genTestUserSig:userId]];
@@ -65,7 +65,7 @@ trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&userId=A&usersig=xxxx
 - 拼接好 URL 即可开始推流，可以在 MLVB-API-Example 中的 **连麦互动** 或者 **PK互动** 两处基础功能中体验：
 	<img src="https://main.qcloudimg.com/raw/088f88d78fff2fea11e24310a53bb2c6.png" width=300>
 
-	这里代码示例以 [LivePkAnchorViewController.m#startPush()](https://github.com/tencentyun/MLVBSDK/blob/master/iOS/MLVB-API-Example/Basic/LivePK/LivePkAnchorViewController.m) 为例：
+	这里代码示例以 [LivePkAnchorViewController.m#startPush()](https://github.com/LiteAVSDK/Live_iOS/blob/main/MLVB-API-Example-OC/Basic/LivePK/LivePkAnchorViewController.m) 为例：
 ```objc
 // 拼接推流 URL
 NSString *url = [LiveUrl generateTRTCPushUrl:self.streamId userId:self.userId];
@@ -144,7 +144,7 @@ trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&userId=A&usersig=xxxx
 - 单击 **基础功能** > **直播拉流**，即可以到直播拉流界面，输入推流端的 streamId 即可观看。
 >? 在此之前，请参考 [跑通 Demo](https://cloud.tencent.com/document/product/454/60985) 配置好播放相关的 `PLAY_DOMAIN` 等信息。
 <img src="https://main.qcloudimg.com/raw/049435938c2343c4398861f056bf2a35.png" width=400px>
-- V2TXLivePlayer 的构造和播放相关的代码请参见[LivePlayViewController.m#startPlay()](https://github.com/tencentyun/MLVBSDK/blob/master/iOS/MLVB-API-Example/Basic/LivePlay/LivePlayViewController.m)。
+- V2TXLivePlayer 的构造和播放相关的代码请参见[LivePlayViewController.m#startPlay()](https://github.com/LiteAVSDK/Live_iOS/blob/main/MLVB-API-Example-OC/Basic/LivePlay/LivePlayViewController.m)。
 ```
 // 随机生成一个 userId
 String userId = String.valueOf(new Random().nextInt(10000));
@@ -156,7 +156,7 @@ mLivePlayer.setRenderView(mPlayRenderView);
 int result = mLivePlayer.startPlay(playURL);
 Log.d(TAG, "startPlay : " + result);
 ```
-其中 URL 的生成可以按照 [LiveUrl.m#generateRtmpPlayUrl()](https://github.com/tencentyun/MLVBSDK/blob/master/iOS/MLVB-API-Example/App/Common/LiveUrl.m) 拼接：
+其中 URL 的生成可以按照 [LiveUrl.m#generateRtmpPlayUrl()](https://github.com/LiteAVSDK/Live_iOS/blob/main/MLVB-API-Example-OC/App/Common/LiveUrl.m) 拼接：
 ```
 // rtmp 协议
 + (NSString*)generateRtmpPlayUrl:(NSString*)streamId {

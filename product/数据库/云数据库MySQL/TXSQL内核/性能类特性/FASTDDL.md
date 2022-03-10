@@ -2,7 +2,8 @@
 该功能优化二级索引创建过程的耗时。开启该功能会使用多线程并发对二级索引数据进行外部排序，同时优化 flush bulk loading 阶段对 flush list 的加锁操作，有效降低 CREATE INDEX 的耗时和对并发 DML 的影响。
 
 ## 支持版本
-内核版本 MySQL 8.0 20210330 及以上
+- 内核版本 MySQL 8.0 20210330 及以上
+- 内核版本 MySQL 5.7 20210331 及以上
 
 ## 适用场景
 数据库经常会执行 DDL 操作，也经常会遇到 DDL 相关的问题，例如：
@@ -28,3 +29,6 @@ Query OK, 0 rows affected (0.00 sec)
 | ----------------------------- | ---- | ------- | ---- | ---------- | ---------------------------- |
 | innodb_fast_ddl               | Yes  | bool    | OFF  | {ON,OFF}   | 开启或关闭 FAST DDL           |
 | innodb_parallel_merge_threads | Yes  | Integer | 8    | 1 - 32       | merge sort 时使用的并发线程数 |
+
+>?用户目前无法直接修改以上参数的参数值，如需修改可 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行修改。
+>

@@ -175,7 +175,7 @@ http_code<400 | select round(sum(case when hit='hit' then 1.00 else 0.00 end) / 
 
 **客户端分布**
 ```sql
-鹅湖单xxxxxxxxxx *  | select ua as "客户端版本", count(*) as "错误次数"  where http_code > 400 group by ua order by "错误次数" desc limit 10sql
+* | select ua as "客户端版本", count(*) as "错误次数" where http_code > 400 group by ua order by "错误次数" desc limit 10
 ```
 
 ![](https://main.qcloudimg.com/raw/06582e8e14a4f5d44537e3317240312c.png)
@@ -218,7 +218,7 @@ http_code < 400 | select url ,count(*) as  "访问次数", round(sum(rsp_size)/1
 ![](https://main.qcloudimg.com/raw/ed3d50ce8310e69ab72e50309ccc31b4/14.png)
 - 访问 PV、UV 统计，统计某一时间段内的访问次数和独立的 client ip 的变化趋势
 ```sql
-* | select date_trunc('minute', __TIMESTAMP__) as time, count(*) as pv,count( distinct client_ip) as uv group by time order by time limit 1000 
+* | select time_series(__TIMESTAMP__, '1m', '%Y-%m-%dT%H:%i:%s+08:00', '0') as time, count(*) as pv,approx_distinct(client_ip) as uv group by time order by time limit 1000
 ```
 ![](https://main.qcloudimg.com/raw/1932a986b7754f2749651fce12f844da/9.png)
 

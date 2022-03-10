@@ -28,4 +28,9 @@ peer <bgp_peer_address> description <bgp_desc>
 ipv4-family unicast
 peer <bgp_peer_address> enable
 commit
+
+# 设置 eBGP 的BFD配置
+bgp <as_number>
+router-id <route_id>
+peer <bgp_peer_address> bfd min-tx-interval <time value> min-rx-interval <time value> detect-multiplier <value>
 ```

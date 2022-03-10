@@ -34,8 +34,13 @@ OPPO 通道是由 OPPO 官方提供的系统级推送通道。在 OPPO 手机上
 #### AndroidStudio 集成方法
 
 导入 OPPO 推送相关依赖。示例代码如下：
-```js
-implementation 'com.tencent.tpns:oppo:[VERSION]-release'//OPPO 推送 [VERSION] 为当前 SDK 版本号，版本号可在 Android SDK 发布动态查看
+```
+//  OPPO 推送 SDK，[VERSION] 为当前 SDK 版本号，版本号可在 Android SDK 发布动态查看
+implementation 'com.tencent.tpns:oppo:[VERSION]-release'
+
+// 自 SDK 1.3.2.0 起，需一并加入以下依赖语句，否则可能导致 OPPO 推送注册失败
+implementation 'com.google.code.gson:gson:2.6.2'
+implementation 'commons-codec:commons-codec:1.15'
 ```
 >? OPPO 推送 [VERSION] 为当前 SDK 版本号，版本号可在 [Android SDK 发布动态](https://console.cloud.tencent.com/tpns/sdkdownload) 查看。
 >

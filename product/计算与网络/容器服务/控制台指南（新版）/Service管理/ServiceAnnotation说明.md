@@ -33,7 +33,7 @@ metadata:
 :::
 ::: service.kubernetes.io/local-svc-only-bind-node-with-pod
 **说明：**
-Serice Local 模式下仅绑定有 Pod 存在的节点。
+Service Local 模式下仅绑定有 Pod 存在的节点。
 **使用示例：**
 使用方式详情见 [Service Local 模式](https://cloud.tencent.com/document/product/457/45492#service-local-.E6.A8.A1.E5.BC.8F)。
 :::

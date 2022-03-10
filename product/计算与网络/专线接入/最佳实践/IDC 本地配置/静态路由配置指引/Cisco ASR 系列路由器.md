@@ -20,10 +20,23 @@ encapsulation dot1q <subinterface_vlanid>
 ipv4 address <subinterface_ipaddress> <subinterface_netmask>
 commit
 
+# 配置IP SLA（NQA）
+ip sla <operation-number>
+icmp-echo x.x.x.x<nexthop_address> source-ip x.x.x.x <source_address>
+frequency <value> //设置探测频率
+timeout <value> //设置超时时间
+ip sla schedule <operation-number> life forever start-time now
+en
+
+# 配置TRACK 关联 IP SLA
+track <operation-number> ip sla <operation-number> reachability
+end
+
 # 设置静态路由
 router static
 vrf <vrf-name> //如果没有指定 VRF，静态路由在 default VRF 下
   address-family <ipv4 | ipv6> unicast
-  <ip-prefix/netmask> <next_hop_ip> <interface_number> <description_text> <distance> <tag tag_value>
+  <ip-prefix/netmask> <next_hop_ip> <interface_number> <description_text> <distance> <tag tag_value> track <operation-number>
 commit
+
 ```

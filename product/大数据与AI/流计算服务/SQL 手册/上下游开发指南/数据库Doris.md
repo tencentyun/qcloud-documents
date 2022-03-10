@@ -1,6 +1,6 @@
 ## 介绍
 
-Flink Connector Doris 目前支持通过 Flink 将数据写入 Doris，基于 [开源版本](https://doris.apache.org/master/zh-CN/extending-doris/flink-doris-connector.html) 实现。
+Flink Connector Doris 目前支持通过 Flink 将数据写入 Doris，基于 [开源版本](https://doris.apache.org/extending-doris/flink-doris-connector.html) 实现。
 
 ## 版本说明
 
@@ -8,6 +8,7 @@ Flink Connector Doris 目前支持通过 Flink 将数据写入 Doris，基于 [�
 | :-------- | :--- |
 | 1.11      | 支持 |
 | 1.13      | 支持 |
+| 1.14      | 不支持 |
 
 ## 使用范围
 
@@ -21,7 +22,7 @@ CREATE TABLE doris_sink_table (
   name VARCHAR
 ) WITH (
   'connector' = 'doris',                    -- 固定值 'doris'
-  'fenodes' = 'FE_IP:FE_RESFUL_PORT',       -- Doris FE http 地址
+  'fenodes' = 'FE_IP:FE_HTTP_PORT',       -- Doris FE http 地址
   'table.identifier' = 'test.sales_order',  -- Doris 表名 格式：db.tbl
   'username' = 'root',                      -- 访问Doris的用户名，拥有库的写权限
   'password' = 'password',                  -- 访问Doris的密码
@@ -148,15 +149,25 @@ INSERT INTO doris_sink_table select * from datagen_source_table;
 ## 注意事项
 ### Upsert
 
-若需要 Upsert，则要求 doris 表必须带 `UNIQUE KEY` 约束，例如 `UNIQUE KEY(`id`)`，doris 底层表建表语句如下：
-
+若需要 Upsert ，则要求 Doris 表必须是 Uniqe 模型或者 Aggregate 模型。建表示例如下：
 ```sql
+-- Uniqe 模型建表语句
 CREATE TABLE `doris_sink_table` (
-	`id` int(11),
-	`name` varchar(32)
+    `id`   int(11),
+    `name` varchar(32)
 ) 
 UNIQUE KEY(`id`) 
-DISTRIBUTED BY HASH(`id`) BUCKETS 10;
+DISTRIBUTED BY HASH(`id`) BUCKETS 10
+PROPERTIES("replication_num" = "3");
+
+-- Aggregate 模型建表语句
+CREATE TABLE `doris_sink_table` (
+    `id`   int(11),
+    `name` varchar(32) REPLACE DEFAULT '0'
+) 
+AGGREGATE KEY('id')
+DISTRIBUTED BY HASH(`id`) BUCKETS 10
+PROPERTIES("replication_num" = "3");  -- 注意若 BE 节点不够，会报 `Failed to find enough host in all backends` 错误，可适当减少该值。
 ```
 
 ### 用户权限

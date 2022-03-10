@@ -1,4 +1,4 @@
->?此文档为原 TKE 控制台 Ingress 使用介绍，TKE 已于2019年6月17日起默认采用兼容原生 kubernetes 特性的新版控制台，请结合 [Ingress 管理](https://cloud.tencent.com/document/product/457/31711) 前往 [新版控制台](https://console.cloud.tencent.com/tke2) 进行使用。
+>?此文档为原 容器服务控制台 Ingress 使用介绍，TKE 已于2019年6月17日起默认采用兼容原生 kubernetes 特性的新版控制台，请结合 [Ingress 管理](https://cloud.tencent.com/document/product/457/31711) 前往 [新版控制台](https://console.cloud.tencent.com/tke2) 进行使用。
 
 ### 使用限制
 在集群中不启用访问方式的服务无法使用 Ingress，可使用 Ingress 的服务类型为：

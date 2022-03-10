@@ -12,7 +12,7 @@
 
 ## SDK 下载
 
-腾讯云视立方 Andriod 超级播放器 Adapter SDK 和 Demo 项目下载地址 [TXCPlayerAdapterSDK_Android](https://mediacloud-76607.gzc.vod.tencent-cloud.com/TXCPlayerAdapter/Release/1.0.0/TXCPlayerAdapterSDK_1.0.0_Android.zip)。 
+腾讯云视立方 Andriod 超级播放器 Adapter SDK 和 Demo 项目下载地址 [TXCPlayerAdapterSDK_Android](https://mediacloud-76607.gzc.vod.tencent-cloud.com/TXCPlayerAdapter/Release/1.2.0/TXCPlayerAdapterSDK_1.2.0_Android.zip)。 
 
 ## 集成指引
 
@@ -271,3 +271,4 @@ TCXImageSpriteInfo 参数如下：
 | webVttUrl | String | 缩略图 VTT 文件下载 URL            |
 
 
+	

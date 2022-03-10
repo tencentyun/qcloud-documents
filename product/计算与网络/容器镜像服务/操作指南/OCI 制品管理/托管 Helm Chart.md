@@ -18,7 +18,7 @@
    - **名称**：Helm Chart 名称，单击可进入 Chart 详情页，可查看并管理 Chart 各个版本，并可在**基本信息**页签内查看各个版本 Chart 包内的文件详情。
    - **命名空间**：Helm Chart 所属命名空间。
    - **创建时间**：Helm 首次推送至仓库的时间。
-   - **操作**：单击**快捷指令**获取操作当前仓库的快捷指令；单击**删除**以删除当前仓库。
+   - **操作**：单击**快捷指令**获取操作当前仓库的快捷指令，具体操作指令请参考 [使用 Helm 客户端上传及下载 Helm Chart](https://cloud.tencent.com/document/product/1141/41944#.E4.BD.BF.E7.94.A8-helm-.E5.AE.A2.E6.88.B7.E7.AB.AF.E4.B8.8A.E4.BC.A0.E5.8F.8A.E4.B8.8B.E8.BD.BD-helm-chart)；单击**删除**以删除当前仓库。
 3. 单击指定 Helm Chart 仓库名称，进入该仓库详情页。
 	- **版本管理**：此页面展示当前仓库内已有的 Chart 版本，可**下载**或**删除**指定版本。如下图所示：
 ![](https://main.qcloudimg.com/raw/d7540f28ae109843a3c2a4eebc1747fd.png)

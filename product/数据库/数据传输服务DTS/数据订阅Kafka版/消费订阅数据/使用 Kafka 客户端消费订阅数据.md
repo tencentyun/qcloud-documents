@@ -1,7 +1,7 @@
 
 数据订阅 Kafka 版中，您可以直接通过0.11版本及以上的 [Kafka 客户端](http://kafka.apache.org/downloads) 进行消费订阅数据，本文为您提供了 Java、Go、Python 语言的客户端消费 Demo。
 
-## 消费 Demo 下载（云数据库 MySQL、MariaDB）
+## 消费 Demo 下载（云数据库 MySQL、MariaDB、TDSQL-C）
 参考下表下载数据订阅 Kafka 版客户端消费 Demo 代码：
 
 | Demo 语言 | 下载地址                                             |
@@ -23,6 +23,8 @@
 | 协议文件 | 下载地址                                             |
 | ------------- | ------------------------------------------------------------ |
 | Protobuf      | [地址](https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/subscribe.proto) |
+>?请使用 Protobuf 3.X 版本进行代码生成，以便数据结构可以正确兼容。
+>
 
 ## 配置参数说明
 | 参数       | 说明                        |

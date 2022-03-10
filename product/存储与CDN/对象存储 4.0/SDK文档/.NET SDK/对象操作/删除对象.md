@@ -89,11 +89,13 @@ catch (COSXML.CosException.CosServerException serverEx)
 
 > ?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/dotnet/dist/DeleteObject.cs) 查看。
 
-## 指定前缀删除
+## 指定前缀删除(删除文件夹)
 
 #### 功能说明
 
 指定前缀删除可以实现类似于删除目录的功能。
+对象存储中本身是没有目录的概念的，为了满足用户使用习惯，用户可通过分隔符/来模拟“目录”。
+删除目录及其文件这一场景，实际在 COS 上相当于删除一批有着同样前缀的对象。目前 COS .NET SDK 没有提供一个接口去实现这样的操作，但是可以通过组合查询对象列表加上批量删除对象的基本操作，达到删除文件夹下对象的目的。
 
 #### 示例代码
 

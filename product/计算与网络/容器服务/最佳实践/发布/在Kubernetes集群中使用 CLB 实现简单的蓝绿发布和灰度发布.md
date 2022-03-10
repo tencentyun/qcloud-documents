@@ -1,6 +1,6 @@
 ## 操作场景
-腾讯云 Kubernetes 集群实现蓝绿发布或灰度发布通常需向集群额外部署其他开源工具，例如 Nginx Ingress、Traefik 或将业务部署至服务网格 Service Mesh，利用服务网格的能力实现。这些方案均具有一定难度，若您的蓝绿发布或灰度需求不复杂，且不期望集群引入过多的组件或复杂的用法，则可参考本文利用 Kubernetes 原生的特性以及腾讯云容器服务 TKE、弹性容器服务 EKS 集群自带的 LB 插件实现简单的蓝绿发布和灰度发布。
->!本文仅适用于 TKE 集群及 EKS 集群。
+腾讯云 Kubernetes 集群实现蓝绿发布或灰度发布通常需向集群额外部署其他开源工具，例如 Nginx Ingress、Traefik 或将业务部署至服务网格 Service Mesh，利用服务网格的能力实现。这些方案均具有一定难度，若您的蓝绿发布或灰度需求不复杂，且不期望集群引入过多的组件或复杂的用法，则可参考本文利用 Kubernetes 原生的特性以及腾讯云容器服务 TKE、弹性容器服务 EKS 集群自带的 LB 插件实现简单的蓝绿发布和灰度发布。 
+>!本文仅适用于 TKE 集群及 EKS 集群。 
 
 ## 原理介绍
 用户通常使用 Deployment、StatefulSet 等 Kubernetes 自带的工作负载来部署业务，每个工作负载管理一组 Pod。以 Deployment 为例，示意图如下：
@@ -19,8 +19,8 @@
 ## 操作步骤
 ### 使用 YAML 创建资源
 本文提供以下两种方式使用 YAML 部署工作负载及创建 Servcie：
- - 方式1：单击 TKE 或 EKS 集群详情页右上角的**YAML创建资源**，并将本文示例的 YAML 文件内容输入编辑界面。
- - 方式2：将示例 YAML 保存为文件，再使用 kubectl 指定 YAML 文件进行创建。例如 `kubectl apply -f xx.yaml`。
+ - 方式1：单击 TKE 或 EKS 集群详情页右上角的**YAML创建资源**，并将本文示例的 YAML 文件内容输入编辑界面。 
+ - 方式2：将示例 YAML 保存为文件，再使用 kubectl 指定 YAML 文件进行创建。例如 `kubectl apply -f xx.yaml`。 
 
 
 ### 部署多版本工作负载
@@ -178,11 +178,11 @@ spec:
     app: nginx
     version: v1
 ```
-2. 执行以下命令，测试访问。
+2. 执行以下命令，测试访问。 
 ``` bash
 for i in {1..10}; do curl EXTERNAL-IP; done; # 替换 EXTERNAL-IP 为 Service 的 CLB IP 地址
 ```
-返回结果如下，均为 v1 版本的响应。
+返回结果如下，均为 v1 版本的响应。 
 ```
 nginx-v1
 nginx-v1
@@ -197,7 +197,7 @@ nginx-v1
 ```
 3. 通过控制台或 kubectl 方式修改 Service 的 selector，使其选中 v2 版本的服务：
  - **通过控制台修改**：
-    1. 进入集群详情页，选择左侧**服务与路由** > **Service**。
+    1. 进入集群详情页，选择左侧**服务与路由** > **Service**。 
     2. 在 “Service” 页面中选择需修改 Service 所在行右侧的**编辑YAML**。如下图所示：
 <img style="width:80%" src="https://main.qcloudimg.com/raw/fd90554aa91b092e2c9cb4706ba45ab4.png" data-nonescope="true"></img>
 修改 selector 部分为如下内容：
@@ -210,11 +210,11 @@ nginx-v1
 ``` bash
 kubectl patch service nginx -p '{"spec":{"selector":{"version":"v2"}}}'
 ```
-4. 执行以下命令，再次测试访问。
+4. 执行以下命令，再次测试访问。 
 ``` bash
 $ for i in {1..10}; do curl EXTERNAL-IP; done; # 替换 EXTERNAL-IP 为 Service 的 CLB IP 地址
 ```
-返回结果如下，均为 v2 版本的响应，成功实现了蓝绿发布。
+返回结果如下，均为 v2 版本的响应，成功实现了蓝绿发布。 
 ```
 nginx-v2
 nginx-v2
@@ -245,11 +245,11 @@ spec:
   selector:
     app: nginx
 ```
-2. 执行以下命令，测试访问。
+2. 执行以下命令，测试访问。 
 ``` yaml
 for i in {1..10}; do curl EXTERNAL-IP; done; # 替换 EXTERNAL-IP 为 Service 的 CLB IP 地址
 ```
-返回结果如下，一半是 v1 版本的响应，另一半是 v2 版本的响应。
+返回结果如下，一半是 v1 版本的响应，另一半是 v2 版本的响应。 
 ```
 nginx-v1
 nginx-v1
@@ -264,19 +264,19 @@ nginx-v2
 ```
 3. 通过控制台或 kubectl 方式调节 v1 和 v2 版本的 Deployment 的副本，将 v1 版本调至 1 个副本，v2 版本调至 4 个副本：
  - **通过控制台修改**：
-    1. 进入集群 “Deployment” 管理页，选择 v1 版本 Deployment 所在行右侧的**更多** > **编辑YAML**。
-    2. 在 YAML 编辑页面，将 v1 版本的 `replicas` 修改为1并单击**完成**。
-    3. 重复上述步骤，将 v2 版本的 `replicas` 修改为4并单击**完成**。
+    1. 进入集群 “Deployment” 管理页，选择 v1 版本 Deployment 所在行右侧的**更多** > **编辑YAML**。 
+    2. 在 YAML 编辑页面，将 v1 版本的 `replicas` 修改为1并单击**完成**。 
+    3. 重复上述步骤，将 v2 版本的 `replicas` 修改为4并单击**完成**。 
  - **通过 kubectl 修改**：
 ``` bash
 kubectl scale deployment/nginx-v1 --replicas=1
 kubectl scale deployment/nginx-v2 --replicas=4
 ```
-4. 执行以下命令，再次进行访问测试。
+4. 执行以下命令，再次进行访问测试。 
 ``` bash
 for i in {1..10}; do curl EXTERNAL-IP; done; # 替换 EXTERNAL-IP 为 Service 的 CLB IP 地址
 ```
-返回结果如下，10次访问中仅2次返回了 v1 版本，v1 与 v2 的响应比例与其副本数比例一致，为 1:4。通过控制不同版本服务的副本数就实现了灰度发布。
+返回结果如下，10次访问中仅2次返回了 v1 版本，v1 与 v2 的响应比例与其副本数比例一致，为 1:4。通过控制不同版本服务的副本数就实现了灰度发布。 
 ```
 nginx-v2
 nginx-v1

@@ -22,4 +22,4 @@ cloudbase framework deploy -e <your-env-id>
 
 <div style="background-color:#00A4FF; width: 125px; height: 35px; line-height:35px; text-align:center;"><a href="https://console.cloud.tencent.com/tcb/env/index?action=CreateAndDeployCloudBaseProject&appUrl=https%3A%2F%2Fgithub.com%2FTencentCloudBase%2Fcloudbase-templates&workDir=gatsby-app&branch=master" target="_blank"  style="color: white; font-size:13px;">部署到云开发</a></div><br>
 
-更多内容请参见 [CloudBase Framework 文档](https://docs.cloudbase.net/framework/index.html)。
+更多内容请参见 [CloudBase Framework 文档](https://docs.cloudbase.net/framework/index)。

@@ -38,39 +38,23 @@
 
 
 [](id:region)
-## 地域与可用区
+## 地域
 <table>
 	<tr>
 	<th colspan=2>地域</th>
-	<th>可用区</th>
 	</tr>
 	<tr>
-	<td rowspan=6>公有云地域</td>
-	<td rowspan=2>广州</td>
-	<td>广州三区</td>
+	<td rowspan=3>公有云地域</td>
+	<td>广州</td>
 	</tr>
 	<tr>
-		<td>广州四区</td>
-	</tr>
-	<tr>
-	<td rowspan=3>北京</td>
-	<td>北京三区</td>
-	</tr>
-	<tr>
-		<td>北京四区</td>
-	</tr>
-	<tr>
-		<td>北京五区</td>
-	</tr>
+	<td>北京</td>
 	<tr>
 		<td>中国香港</td>
-		<td>中国香港二区</td>
 	</tr>
 	<tr>
 	  <td>金融云地域</td>
 		<td>上海</td>
-		<td>上海金融三区</td>
 	</tr>
 </table>
-
 

@@ -8,7 +8,7 @@
 ```
 #1227-Access denied;you need(at least one of)the SUPER privilege (s) for this operation
 ```     
-解决方法：如果需要 set 修改相关参数，可以使用控制台实例管理页的【数据库管理】>【参数设置】功能完成。
+解决方法：如果需要 set 修改相关参数，可以使用控制台实例管理页的**数据库管理** > **参数设置**功能完成。
 - 按需授权，一般应用程序只授权 DML（SELECT、UPDATE、INSERT、DELETE）权限即可。
 - 授权对象最小化原则，一般的应用程序访问用户按库级别来授权。
 - 授权用户访问时只允许特定 IP 或 IP 段访问，可以在控制台配置安全组来做限制，安全组的设置请一定按照控制台提示的标准来操作，如果是公网访问设置安全组的场景，请一定放通所有涉及到的出口 IP。
@@ -80,7 +80,7 @@
 - 尽量避免使用大事务，建议大事务拆小事务，规避主从延迟。
 - 业务代码中事务及时提交，避免产生没必要的锁等待。
 - 少用多表 join，大表禁止 join，两张表 join 必须让小表做驱动表，join 列必须字符集一致并且都建有索引。
-- LIMIT 分页优化，LIMIT 80000，10这种操作是取出80010条记录，再返回后10条，数据库压力很大，推荐先确认首记录的位置再分页，例如`SELECT * FROM test WHERE id = ( SELECT sql_no_cache id FROM test order by id LIMIT 80000,1 ) LIMIT 10 ;`。
+- LIMIT 分页优化，LIMIT 80000，10这种操作是取出80010条记录，再返回后10条，数据库压力很大，推荐先确认首记录的位置再分页，例如`SELECT * FROM test WHERE id >= ( SELECT sql_no_cache id FROM test order by id LIMIT 80000,1 ) LIMIT 10 ;`。
 - 避免多层子查询嵌套的 SQL 语句，MySQL 5.5 之前的查询优化器会把 in 改成 exists，会导致索引失效，若外表很大则性能会很差。
 
 >?

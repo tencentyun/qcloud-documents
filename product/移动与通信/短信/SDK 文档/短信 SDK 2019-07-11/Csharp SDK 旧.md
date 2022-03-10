@@ -1,7 +1,7 @@
 SDK 3.0是云 API 3.0平台的配套工具，您可以通过 SDK 使用所有 [短信 API](https://cloud.tencent.com/document/product/382/38764)。新版 SDK 实现了统一化，具有各个语言版本的 SDK 使用方法相同，接口调用方式相同，错误码相同以及返回包格式相同等优点。
 >!
 >- 发送短信相关接口
->一次群发请求最多支持200个号码，如对号码数量有特殊需求请联系 [腾讯云短信小助手](https://tccc.qcloud.com/web/im/index.html#/chat?webAppId=8fa15978f85cb41f7e2ea36920cb3ae1&title=Sms)。
+>一次群发请求最多支持200个号码。
 >- 签名、正文模板相关接口
 >个人认证用户不支持使用签名、正文模板相关接口，只能通过短信控制台 [管理短信签名](https://cloud.tencent.com/document/product/382/37794) 和 [管理短信正文模板](https://cloud.tencent.com/document/product/382/37795)。如需使用该类接口，请将 “个人认证” 变更为 “企业认证”，具体操作请参见 [实名认证变更指引](https://cloud.tencent.com/document/product/378/34075)。
 
@@ -90,8 +90,7 @@ namespace TencentCloudExamples
                 /* SDK 有默认的超时时间，非必要请不要进行调整
 	             * 如有需要请在代码中查阅以获取最新的默认值 */
                 httpProfile.Timeout = 10; // 请求连接超时时间，单位为秒(默认60秒)
-                /* SDK 会自动指定域名，通常无需指定域名，但访问金融区的服务时必须手动指定域名
-               * 例如 SMS 的上海金融区域名为 sms.ap-shanghai-fsi.tencentcloudapi.com */
+                /* 指定接入地域域名，默认就近地域接入域名为 sms.tencentcloudapi.com ，也支持指定地域域名访问，例如广州地域的域名为 sms.ap-guangzhou.tencentcloudapi.com */
                 httpProfile.Endpoint = "sms.tencentcloudapi.com";
                 // 代理服务器，当您的环境下有代理服务器时设定
                 // httpProfile.WebProxy = Environment.GetEnvironmentVariable("HTTPS_PROXY");
@@ -195,8 +194,7 @@ namespace TencentCloudExamples
                 /* SDK 有默认的超时时间，非必要请不要进行调整
 	             * 如有需要请在代码中查阅以获取最新的默认值 */
                 httpProfile.Timeout = 10; // 请求连接超时时间，单位为秒(默认60秒)
-               /* SDK 会自动指定域名，通常无需指定域名，但访问金融区的服务时必须手动指定域名
-               * 例如 SMS 的上海金融区域名为 sms.ap-shanghai-fsi.tencentcloudapi.com */
+               /* 指定接入地域域名，默认就近地域接入域名为 sms.tencentcloudapi.com ，也支持指定地域域名访问，例如广州地域的域名为 sms.ap-guangzhou.tencentcloudapi.com */
                 httpProfile.Endpoint = "sms.tencentcloudapi.com";
                 // 代理服务器，当您的环境下有代理服务器时设定
                 // httpProfile.WebProxy = Environment.GetEnvironmentVariable("HTTPS_PROXY");
@@ -306,8 +304,7 @@ namespace TencentCloudExamples
                 /* SDK 有默认的超时时间，非必要请不要进行调整
 	             * 如有需要请在代码中查阅以获取最新的默认值 */
                 httpProfile.Timeout = 10; // 请求连接超时时间，单位为秒(默认60秒)
-                /* SDK 会自动指定域名，通常无需指定域名，但访问金融区的服务时必须手动指定域名
-               * 例如 SMS 的上海金融区域名为 sms.ap-shanghai-fsi.tencentcloudapi.com */
+                /* 指定接入地域域名，默认就近地域接入域名为 sms.tencentcloudapi.com ，也支持指定地域域名访问，例如广州地域的域名为 sms.ap-guangzhou.tencentcloudapi.com */
                 httpProfile.Endpoint = "sms.tencentcloudapi.com";
                 // 代理服务器，当您的环境下有代理服务器时设定
                 // httpProfile.WebProxy = Environment.GetEnvironmentVariable("HTTPS_PROXY");
@@ -400,8 +397,7 @@ namespace TencentCloudExamples
                 /* SDK 有默认的超时时间，非必要请不要进行调整
 	             * 如有需要请在代码中查阅以获取最新的默认值 */
                 httpProfile.Timeout = 10; // 请求连接超时时间，单位为秒(默认60秒)
-                /* SDK 会自动指定域名，通常无需指定域名，但访问金融区的服务时必须手动指定域名
-               * 例如 SMS 的上海金融区域名为 sms.ap-shanghai-fsi.tencentcloudapi.com */
+                /* 指定接入地域域名，默认就近地域接入域名为 sms.tencentcloudapi.com ，也支持指定地域域名访问，例如广州地域的域名为 sms.ap-guangzhou.tencentcloudapi.com */
                 httpProfile.Endpoint = "sms.tencentcloudapi.com";
                 // 代理服务器，当您的环境下有代理服务器时设定
                 // httpProfile.WebProxy = Environment.GetEnvironmentVariable("HTTPS_PROXY");

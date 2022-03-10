@@ -44,4 +44,4 @@ SSL VPN 网关是 VPC 建立 SSL VPN 连接的出口网关 ，主要用于腾讯
 </tr>
 </table>
 5. 完成网关参数设置后，单击**创建**。
-![](https://qcloudimg.tencent-cloud.cn/raw/3802654ba785b089c20622d0b4b26fb4.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/924af0981d7e15edb7543e2c24c46b94.png)

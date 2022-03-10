@@ -1,3 +1,5 @@
+>!因产品策略调整，游戏联机对战引擎后续将与云开发 CloudBase 整合为新产品形态，现将该产品保持维护状态，不再接收新用户使用申请，老用户仍可正常使用。
+
 
 ## 操作场景
 本文档指导您如何使用游戏联机对战引擎 C# SDK。
@@ -250,7 +252,6 @@ room.StopFrameSync (eve => {
 
 // 广播：停止帧同步
 room.OnStopFrameSync = eve => {
-	RecvFrameBst bst = (RecvFrameBst) eve.Data;
 	Debug.LogFormat ("停止帧同步: {0}", eve.Data);
 };
 ```

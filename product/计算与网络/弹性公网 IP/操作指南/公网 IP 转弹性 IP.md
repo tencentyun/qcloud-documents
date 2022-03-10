@@ -1,7 +1,7 @@
 您可以将云服务器的普通公网 IP 转换为弹性公网 IP（EIP），转换后，弹性公网 IP 具备随时与云服务器解绑和绑定的能力，更易于实现公网 IP 的灵活管理。
 >?
 >- 当前普通公网 IP 仅支持常规 BGP IP 线路类型。
->- 若您的账户为标准账户类型，则按带宽包年包月计费的公网 IP 暂不支持转换为 EIP，请先切换网络计费模式为按流量计费或带宽按小时后付费。若您无法确定账户类型，请参见 [判断账户类型](https://cloud.tencent.com/document/product/1199/49090#judge)。
+>- 若您的账户为标准账户类型，则按带宽包年包月计费的普通公网 IP 暂不支持转换为 EIP。您可以将网络计费模式切换为按流量计费或带宽按小时后付费。注意切换网络计费模式后，代金券及购买优惠折扣不退还。若您后续重新变更计费模式为**包月带宽**，则需要重新按官网刊例价购买。若您无法确定账户类型，请参见 [判断账户类型](https://cloud.tencent.com/document/product/1199/49090#judge)。
 >
 
 ## 背景信息
@@ -69,7 +69,7 @@
 3. 在公网 IP 列表中找到目标普通公网 IP 所在行的操作列，选择**更多 > 转换为弹性公网 IP**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/4cd1195003398ef725a11f56c4ddb9bc.png)
 4. 在弹出的**转换为弹性公网 IP**窗口中，单击**确定**。</br>
-<img src="https://qcloudimg.tencent-cloud.cn/raw/0fd87557e2e6daf45696e271976fd377.png" width="50%">
+<img src="https://qcloudimg.tencent-cloud.cn/raw/7e4d9c592082f338c8126a0098c8744d.png" width="50%">
 
 
 ### 方式二：在云服务器控制台调整

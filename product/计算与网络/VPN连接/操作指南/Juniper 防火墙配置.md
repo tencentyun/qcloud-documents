@@ -1,7 +1,7 @@
 使用 IPsec VPN 建立腾讯云 VPC 到用户 IDC 的连接时，在配置完腾讯云 VPN 网关后，您还需在用户 IDC 本地站点的网关设备中进行 VPN 配置。本文以 Juniper 防火墙为例介绍如何在本地站点中进行 VPN 配置。
 
 >?
-> + 支持 Juniper SRX 系列防火墙以及 vSRX 系列虚拟防火墙。
+> + 支持 Juniper SRX 系列防火墙以及 vSRX 系列虚拟防火墙，所有版本均支持。
 > + 本文所有 IP、接口等参数取值均仅用于举例，请具体配置时，使用实际值进行替换。
 ## 前提条件
 请确保您已经在腾讯云 VPC 内[ 创建 VPN](https://cloud.tencent.com/document/product/554/52861)，并完成 并完成 [VPN 通道配置](https://cloud.tencent.com/document/product/554/52864)。

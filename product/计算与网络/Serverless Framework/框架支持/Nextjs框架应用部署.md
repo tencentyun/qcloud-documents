@@ -12,7 +12,7 @@
 
 ## 操作步骤
 
-### 模版部署 -- 部署 Next.js 示例代码
+### 模板部署 -- 部署 Next.js 示例代码
 1. 登录 [Serverless 应用控制台](https://console.cloud.tencent.com/sls)。
 2. 选择**Web 应用>Next.js 框架**，如下图所示：
 ![](https://main.qcloudimg.com/raw/fb2c3d23447e36dc0fb1190002edd780.png)

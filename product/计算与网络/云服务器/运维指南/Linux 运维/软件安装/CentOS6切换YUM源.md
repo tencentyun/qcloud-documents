@@ -1,5 +1,5 @@
 ## 操作背景
-CentOS 6操作系统版本生命周期（EOL）于2020年11月30日结束，Linux 社区不再维护该操作系统版本。按照社区规则，CentOS 6的源地址 `http://mirror.centos.org/centos-6/` 内容已移除，且目前第三方的镜像站中均已移除 CentOS 6的源。腾讯云的源 `http://mirrors.cloud.tencent.com/和http://mirrors.tencentyun.com/` 也无法同步到 CentOS 6的源，当您在腾讯云上继续使用默认配置的 CentOS 6的源会发生报错。
+CentOS 6操作系统版本生命周期（EOL）于2020年11月30日结束，Linux 社区不再维护该操作系统版本。按照社区规则，CentOS 6的源地址 `http://mirror.centos.org/centos-6/` 内容已移除，且目前第三方的镜像站中均已移除 CentOS 6的源。腾讯云的源 `http://mirrors.tencent.com/` 和`http://mirrors.tencentyun.com/` 也无法同步到 CentOS 6的源，当您在腾讯云上继续使用默认配置的 CentOS 6的源会发生报错。
 
 <dx-alert infotype="explain" title="">
 建议您升级操作系统至 CentOS 7及以上，如果您的业务过渡期仍需要使用 CentOS 6操作系统中的一些安装包，请根据本文提供的信息切换 CentOS 6的源。
@@ -24,7 +24,7 @@ vim /etc/yum.repos.d/CentOS-Base.repo
 <dx-alert infotype="explain" title="">
 您可参考 [内网服务[]()](https://cloud.tencent.com/document/product/213/5225) 及 [公网服务](https://cloud.tencent.com/document/product/213/5224) 判断实例需使用的源：
 - 内网访问需切换为：`http://mirrors.tencentyun.com/centos-vault/6.x/` 源。
-- 公网访问需切换为：`https://mirrors.cloud.tencent.com/centos-vault/6.x/` 源。
+- 公网访问需切换为：`http://mirrors.tencent.com/centos-vault/6.x/` 源。
 </dx-alert>
 本文以实例操作系统为 CentOS 6.9，使用内网访问为例。修改完成后 <code>CentOS-Base.repo</code> 文件如下图所示：
 <img src="https://main.qcloudimg.com/raw/1d2485a9be0df6d5f7c46151fc50d73b.png"/>

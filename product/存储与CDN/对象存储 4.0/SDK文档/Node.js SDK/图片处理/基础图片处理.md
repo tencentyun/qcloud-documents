@@ -132,7 +132,9 @@ var url1 = cos.getObjectUrl({
     Bucket: 'examplebucket-1250000000',
     Region: 'COS_REGION',
     Key: 'exampleobject',
-    QueryString: `imageMogr2/thumbnail/200x/`,
+    Query: {
+      `imageMogr2/thumbnail/200x/`: ''
+    },
     Expires: 1800,
     Sign: true,
 }, function (err, data) {
@@ -146,7 +148,9 @@ var url2 = cos.getObjectUrl({
     Bucket: 'examplebucket-1250000000',
     Region: 'COS_REGION',
     Key: 'exampleobject',
-    QueryString: `imageMogr2/thumbnail/200x/`,
+    Query: {
+      `imageMogr2/thumbnail/200x/`: ''
+    },
     Sign: false,
 }, function (err, data) {
     if(data){

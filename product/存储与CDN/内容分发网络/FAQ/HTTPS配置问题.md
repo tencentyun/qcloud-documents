@@ -17,7 +17,7 @@ HTTPS，是指超文本传输安全协议（Hypertext Transfer Protocol Secure�
 
 [](id:q5)
 ### CDN 有没有方法让用户控制只允许 HTTPS 访问，禁止 HTTP 访问？
-使用 [强制扭转功能](https://cloud.tencent.com/document/product/228/41688)。HTTPS 证书配置成功后，可以开启 Http->Https 功能，开启后，即使用户发起 HTTP 请求，也会强制跳转为 HTTPS 进行访问。
+使用 [强制跳转功能](https://cloud.tencent.com/document/product/228/41688)。HTTPS 证书配置成功后，可以开启 Http->Https 功能，开启后，即使用户发起 HTTP 请求，也会强制跳转为 HTTPS 进行访问。
 ![](https://main.qcloudimg.com/raw/7161b36b260f3af2d75931b2e567295d.png)
 
 

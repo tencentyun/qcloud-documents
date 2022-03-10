@@ -11,8 +11,6 @@
 | 支持情况 | -  | -  | -  | &#10003;  | -  | &#10003;  |
 | SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=allPart) |
 
-不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
-
 ## 环境要求
 请使用最新版本的 Chrome 浏览器。目前桌面端 Chrome 浏览器支持 TRTC Web SDK 的相关特性比较完整，因此建议使用 Chrome 浏览器进行体验。
 
@@ -20,7 +18,9 @@ TRTCCalling 依赖以下端口进行数据传输，请将其加入防火墙白�
   - TCP 端口：8687
   - UDP 端口：8000，8080，8800，843，443，16285
   - 域名：qcloud.rtc.qq.com
+具体请参见 [应对防火墙限制相关](https://cloud.tencent.com/document/product/647/34399)。
 
+## 平台支持
 目前该方案支持如下平台：
 
 | 操作系统 |          浏览器类型          | 浏览器最低版本要求 |
@@ -34,26 +34,37 @@ TRTCCalling 依赖以下端口进行数据传输，请将其加入防火墙白�
 | Windows  |    桌面版 Firefox 浏览器     |        56+         |
 | Windows  |      桌面版 Edge 浏览器      |        80+         |
 
-详细兼容性查询，具体请参见 [浏览器支持情况](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/tutorial-05-info-browser.html)。同时，您可通过 [TRTC 检测页面](https://web.sdk.qcloud.com/trtc/webrtc/demo/detect/index.html) 在线检测。
+>? 详细兼容性查询，具体请参见 [浏览器支持情况](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/tutorial-05-info-browser.html)。同时，您可通过 [TRTC 检测页面](https://web.sdk.qcloud.com/trtc/webrtc/demo/detect/index.html) 在线检测。
+
+
+## URL 域名协议限制
+| 应用场景     | 协议             | 接收（播放） | 发送（上麦） | 屏幕分享 | 备注 |
+| ------------ | :--------------- | :----------- | ------------ | -------- | ---- |
+| 生产环境     | HTTPS 协议        | 支持         | 支持         | 支持     | 推荐 |
+| 生产环境     | HTTP 协议         | 支持         | 不支持       | 不支持   |  -    |
+| 本地开发环境 | http://localhost | 支持         | 支持         | 支持     | 推荐 |
+| 本地开发环境 | http://127.0.0.1 | 支持         | 支持         | 支持     |  -    |
+| 本地开发环境 | http://[本机IP]  | 支持         | 不支持       | 不支持   |   -   |
+| 本地开发环境 | file:///         | 支持         | 支持         | 支持     |   -   |
+
 
 ## 跑通测试 Demo
 [](id:step1)
 ### 步骤1：创建新的应用
-1. [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 账号，并完成 实名认证。
-2. 登录实时音视频控制台，选择 **开发辅助>[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)**。
+1. [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 账号，并完成实名认证。
+2. 登录实时音视频控制台，选择 **开发辅助** > [**快速跑通Demo**](https://console.cloud.tencent.com/trtc/quickstart)。
 3. 输入应用名称，例如 TestTRTC ，单击 **创建**。
 
-
 [](id:step2)
-### 步骤2：下载 SDK 和 Demo 源码
-1. 根据实际业务需求下载 SDK 及配套的 Demo 源码。
+### 步骤2：下载 Demo
+1. 根据实际业务需求下载 Demo 源码或单击进入 [TUICalling](https://github.com/tencentyun/TUICalling)下载 Demo 源码。
 2. 下载完成后，单击 **已下载，下一步**。
 ![](https://main.qcloudimg.com/raw/a4f5a2ac1f49d67b4c6968d8b22cdeb0.png)
 
 [](id:step3)
 ### 步骤3：配置 Demo 工程文件
 1. 进入修改配置页，根据您下载的源码包，选择相应的开发环境。
-2. 找到并打开 `Web/js/debug/GenerateTestUserSig.js` 文件。
+2. 找到并打开 `Web/public/debug/GenerateTestUserSig.js` 文件。
 3. 设置 `GenerateTestUserSig.js` 文件中的相关参数：
   <ul><li>SDKAPPID：默认为0，请设置为实际的 SDKAppID。</li>
   <li>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</li></ul> 
@@ -131,7 +142,7 @@ const trtcCalling = new TRTCCalling(options);
 </dx-codeblock>
 
 ### 步骤3：完成登录
-调用 login 函数完成登录操作，参数中的 userID 为用户名，userSig 为用户签名，userSig 的计算方式请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/1449/58939)。
+调用 login 函数完成登录操作，参数中的 userID 为用户名，userSig 为用户签名，userSig 的计算方式请参见 [如何计算及使用 UserSig](https://cloud.tencent.com/document/product/647/17275)。
 
 ```javascript
 trtcCalling.login({
@@ -152,16 +163,9 @@ trtcCalling.call({
 - **被叫方：接听新的呼叫**
 ```javascript
 // 接听
-trtcCalling.accept({
-  inviteID, //邀请 ID, 标识一次邀请
-  roomID,   //通话房间号 ID
-  callType  //0-未知， 1-语音通话，2-视频通话
-});
+trtcCalling.accept();
 //拒绝
-trtcCalling.reject({ 
-  inviteID, //邀请 ID, 标识一次邀请
-  isBusy //是否是忙线中， 0-未知， 1-语音通话，2-视频通话
-})
+trtcCalling.reject()
 ```
 - **打开本地摄像头**
 ```javascript
@@ -185,3 +189,23 @@ trtcCalling.startLocalView({
 ```javascript
 trtcCalling.hangup()
 ```
+## 常见问题
+
+#### 为什么拨打不通，或者被踢下线？
+组件暂不支持多实例登入，不支持**离线推送信令**功能，请您确认登入账号的唯一性。
+> ?
+> - **多实例**：一个 UserID 重复登入，或在不同端登入，将会引起信令的混乱。
+> - **离线推送**：实例在线才能接收消息，实例离线时接收到的信令不会在上线后重新推送。
+更多常见问题，请参见 [TRTCCalling Web 相关问题](https://cloud.tencent.com/document/product/647/62484)。
+
+## 技术咨询[](id:QQ)
+了解更多详情您可以 QQ 咨询：592465424 <dx-tag-link link="#QQ" tag="技术支持"></dx-tag-link>
+
+
+
+## 参考文档
+- [TRTCCalling web 官网体验](https://web.sdk.qcloud.com/component/trtccalling/demo/web/latest/index.html#/login)
+- [TRTCCalling npm](https://www.npmjs.com/package/trtc-calling-js)
+- [TRTCCalling web demo 源码](https://github.com/tencentyun/TUICalling)
+- [TRTCCalling web API](https://web.sdk.qcloud.com/component/trtccalling/doc/web/zh-cn/TRTCCalling.html)
+- [TRTCCalling web 相关问题](https://cloud.tencent.com/document/product/647/62484)

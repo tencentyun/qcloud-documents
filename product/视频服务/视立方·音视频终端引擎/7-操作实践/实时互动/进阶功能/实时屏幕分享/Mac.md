@@ -67,25 +67,25 @@ Mac OS 里的桌面屏幕也是一个可共享目标，普通的 Mac 窗口的 t
 
 ```Objective-C
  /**
- *  7.6 【屏幕共享】启动屏幕分享
+ *  7.6 **屏幕共享**启动屏幕分享
  *  @param view 渲染控件所在的父控件
  */
 - (void)startScreenCapture:(NSView *)view;
 
 /**
- *  7.7 【屏幕共享】停止屏幕采集
+ *  7.7 **屏幕共享**停止屏幕采集
  *  @return 0：成功 <0:失败
  */
 - (int)stopScreenCapture;
 
 /**
- *  7.8 【屏幕共享】暂停屏幕分享
+ *  7.8 **屏幕共享**暂停屏幕分享
  *  @return 0：成功 <0:失败
  */
 - (int)pauseScreenCapture;
 
 /**
- *  7.9 【屏幕共享】恢复屏幕分享
+ *  7.9 **屏幕共享**恢复屏幕分享
  *
  *  @return 0：成功 <0:失败
  */
