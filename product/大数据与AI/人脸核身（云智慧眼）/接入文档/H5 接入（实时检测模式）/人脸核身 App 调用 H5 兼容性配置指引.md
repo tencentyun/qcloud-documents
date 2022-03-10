@@ -39,7 +39,7 @@ config.allowsInlineMediaPlayback = YES;
 WBH5FaceVerifySDK.getInstance().setWebViewSettings(mWebView,getApplicationContext());
 ```
 4. 重写 WebChromeClient
- 调用 WebView.loadUrl(String url) 前，WebView 必须调用 setWebChormeClient(WebChromeClient webChormeClient)，并重写 WebChromeClient 的如下三个函数：
+ 调用 WebView.loadUrl(String url) 前，WebView 必须调用 setWebChromeClient(WebChromeClient webChromeClient)，并重写 WebChromeClient 的如下三个函数：
 >!
 >- 如果第三方已重写以下函数，只要将如下所示的函数体内容添加至第三方的对应函数体首行即可。
 >- 如果第三方没有重写以下函数，则直接按以下代码示重写。

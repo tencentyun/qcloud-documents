@@ -1,8 +1,7 @@
-在 NS 接入方式下，支持通过修改 NS 记录，将 DNS 解析权转移给 EdgeOne，实现稳定专业的解析服务的同时，一键开启 EdgeOne 安全/加速服务。
+在[ NS 接入方式](https://cloud.tencent.com/document/product/1552/70825#NS) 下，支持通过修改 NS 记录，将 DNS 解析权转移给 EdgeOne，实现稳定专业的解析服务的同时，一键开启 EdgeOne 安全/加速服务。
 
 ## 记录管理
 EdgeOne DNS 支持多种记录类型的智能解析服务，根据用户所在地理位置及运营商智能返回最佳解析线路。
-
 1. 登录 [边缘安全加速平台控制台](https://console.cloud.tencent.com/teo) ，在左侧菜单栏中，单击 **DNS 服务**。
 2. 在 DNS 服务页面，选择所需站点，单击**记录管理** 。
 3. 在记录管理页面，选择所需记录，单击**编辑**，编辑相关参数，单击**保存**。
@@ -39,7 +38,7 @@ EdgeOne DNS 支持多种记录类型的智能解析服务，根据用户所在�
 </tr>
 <tr>
 <td align="left">TXT</td>
-<td align="left">ba21a62exxxxxxxxxxcf5f06exxxb9cb</td>
+<td align="left">ba21a62exxxxxxxxxxcf5f06e</td>
 <td align="left">对域名进行标识和说明，常用于域名验证和 SPF 记录（反垃圾邮件）</td>
 </tr>
 <tr>
@@ -170,6 +169,17 @@ EdgeOne DNS 支持多种记录类型的智能解析服务，根据用户所在�
 >?
 > - 代理加速/安全加速下，TTL 默认为自动，无法选择。
 >- 实际情况一般 LDNS 缓存配置不一定遵循 TTL，导致解析记录更新生效时间经常远大于 TTL。
+
+
+## 切换 CNAME 接入
+在 NS 接入页面，单击列表右上角的**切换为 CNAME 接入**，可以切换至 CNAME 接入模式。首次切换需要进行 [站点验证](https://cloud.tencent.com/document/product/1552/70789)，如站点之前已经验证过，则会跳过验证，直接完成切换。切换之后：
+- 保留原有的 DNS 记录，A/AAAA/CNAME 记录可以编辑/删除，MX/NS/TXT 记录无法编辑只能删除。
+- 继承所有记录原有的代理模式，其中代理模式为“仅 DNS”的记录，切换后会变成“关闭代理”的状态。
+- 保留 EdgeOne 通用证书，但 CNAME 模式下证书无法自动更新，过期后将自动删除。
+- 保留所有子域名的自定义证书。
+
+![](https://qcloudimg.tencent-cloud.cn/raw/a4325ae0876db1179a574be6f6775042.png)
+
 
 ## 高级配置
 支持 DNSSEC、自定义 NS 服务器、CNAME 加速等高级配置。

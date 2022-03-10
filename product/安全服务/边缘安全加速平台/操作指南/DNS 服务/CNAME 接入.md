@@ -1,19 +1,14 @@
-在 CNAME 接入方式下，用户无需将 DNS 解析权转移给 EdgeOne，只需添加记录（子域名）并选定相应的代理模式，在 DNS 解析商处添加指定的 CNAME 记录，即可接入 EdgeOne 安全/加速服务。
+在 [CNAME 接入方式](https://cloud.tencent.com/document/product/1552/70787#CNAME) 下，用户无需将 DNS 解析权转移给 EdgeOne，只需添加记录（子域名）并选定相应的代理模式，在 DNS 解析商处添加指定的 CNAME 记录，即可接入 EdgeOne 安全/加速服务。
 
 
-
-
-### 添加记录（子域名接入）
-
+## 添加记录（子域名接入）
 在CNAME 接入方式下，通过添加记录来为该站点的子域名接入相应的服务。
 
 1. 登录 [边缘安全加速平台控制台](https://console.cloud.tencent.com/teo) ，在左侧菜单栏中，单击 **DNS 服务**。
-2. 在 DNS 服务页面，选择所需站点，单击**切换为 CNAME 接入模式**。
->?切换至 CNAME 接入需要验证站点所有权，如果您已 [验证过站点](https://cloud.tencent.com/document/product/1552/70789)，则会直接完成切换。
->
-![](https://qcloudimg.tencent-cloud.cn/raw/5b7671cb8671c27369c2717cac53a7e3.png)
-3. 在记录管理页面，选择所需记录，单击**编辑**，编辑相关参数，单击**保存**。
-![](https://qcloudimg.tencent-cloud.cn/raw/14d394f2cda47ac2328e3c25256a6f9d.png)
+2. 在 DNS 服务页面，选择所需站点，单击**添加记录**。
+![](https://qcloudimg.tencent-cloud.cn/raw/b4d03b29540ebf6fed378c9f153cfa43.png)
+3. 填写相关参数，单击**保存**。
+![](https://qcloudimg.tencent-cloud.cn/raw/9917f19924f371363e34351cdc57f1b7.png)
 **参数说明：**
  - 记录类型：表示源站的类型。
  - 记录值：代表源站地址。
@@ -72,3 +67,10 @@
     - 安全加速
  - CNAME：选中不同代理模式，系统将指定不同的 CNAME 后缀，用户需在 DNS 服务商处添加指定的 CNAME 记录。
  - HTTPS 证书：在 CNAME 接入方式下，系统不提供 EdgeOne 通用证书。需要手动为每个子域名关联证书，方可正常使用 HTTPS 服务。
+
+## 切换 NS 接入
+在 CNAME 接入页面，点击列表右上角**切换为 NS 接入**，可以切换至 NS 接入模式。切换后用户还需按要求修改 NS 服务器记录，修改生效后系统会通过邮件/短信/站内信通知。切换之后：
+- 保留所有 CNAME 接入记录及代理模式，“关闭代理”的记录会变成“仅 DNS”。
+- 保留所有子域名的自定义证书。
+
+![](https://qcloudimg.tencent-cloud.cn/raw/837639d68b3d750e22902048ee583fbb.png)
