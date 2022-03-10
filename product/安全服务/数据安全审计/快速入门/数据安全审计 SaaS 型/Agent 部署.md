@@ -47,7 +47,7 @@
 3. 执行 `cd CapAgent/bin`，再执行`./start.sh`，结果如下。
 ![](https://qcloudimg.tencent-cloud.cn/raw/81b0f1add2be91ed9930ced33b975d39.png)
 4. 在命令行，执行 `netstat -ano | grep 7000` 如下图即确认连接成功。
-![](https://qcloudimg.tencent-cloud.cn/raw/cb7d4975c71891640172832428d420d7.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/d65b0aa4dd658b6708907e344a8f1391.png)
 
 ### Windows 版本
 数据安全审计 Agent Windows 版本只支持 Windows vista/2008 及以上版本。

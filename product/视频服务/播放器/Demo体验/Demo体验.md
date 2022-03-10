@@ -29,12 +29,12 @@ Web 端超级播放器 TCPlayer 提供了可对比查看视频播放功能效果
 <th style="text-align:center">平台</th><th style="text-align:center">Demo 体验</th><th style="text-align:center">源码地址</th></tr><tr>
 <td style="text-align:center">iOS</td>
 <td style="text-align:center"><img src="https://main.qcloudimg.com/raw/12c7da97cc910eda673cb19b66fc7cb3.png" width="150"></td>
-<td style="text-align:center"><a href="https://github.com/tencentyun/LiteAVProfessional_iOS/tree/master/Demo">Github</a></td>
+<td style="text-align:center"><a href="https://github.com/LiteAVSDK/Player_iOS">Github</a></td>
 </tr>
 <tr >
 <td style="text-align:center">Android</td>
 <td style="text-align:center"><img src="https://main.qcloudimg.com/raw/6790ddaf4ffe4afd0ceb96b309a16496.png" width="150"></td>
-<td style="text-align:center"><a href="https://github.com/tencentyun/LiteAVProfessional_Android/tree/master/Demo">Github</a></td>
+<td style="text-align:center"><a href="https://github.com/LiteAVSDK/Player_Android">Github</a></td>
 </tr>
 <tr>
 <td style="text-align:center">Flutter</td>
