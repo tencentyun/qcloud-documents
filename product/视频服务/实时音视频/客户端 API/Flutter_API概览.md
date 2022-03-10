@@ -250,16 +250,16 @@
 
 | 类名                                                         | 描述                                    |
 | ------------------------------------------------------------ | --------------------------------------- |
-| [TRTCCloudDef](https://comm.qq.com/trtc/flutter/cn/trtc_cloud_def/trtc_cloud_def-library.html/TRTCCloudDef-class.html) | 关键类型定义变量。                              |
-| [TRTCParams](https://comm.qq.com/trtc/flutter/cn/trtc_cloud_def/trtc_cloud_def-library.html/TRTCParams-class.html) | 进房参数。                              |
-| [TRTCSwitchRoomConfig](https://comm.qq.com/trtc/flutter/cn/trtc_cloud_def/trtc_cloud_def-library.html/TRTCSwitchRoomConfig-class.html) | 切换房间参数参数。                              |
-| [TRTCVideoEncParam](https://comm.qq.com/trtc/flutter/cn/trtc_cloud_def/trtc_cloud_def-library.html/TRTCVideoEncParam-class.html) | 视频编码参数。                              |
-| [TRTCNetworkQosParam](https://comm.qq.com/trtc/flutter/cn/trtc_cloud_def/trtc_cloud_def-library.html/TRTCNetworkQosParam-class.html) | 网络流控相关参数。                      |
-| [TRTCRenderParams](https://comm.qq.com/trtc/flutter/cn/trtc_cloud_def/trtc_cloud_def-library.html/TRTCRenderParams-class.html) | 远端图像参数。 |
-| [TRTCMixUser](https://comm.qq.com/trtc/flutter/cn/trtc_cloud_def/trtc_cloud_def-library.html/TRTCMixUser-class.html) | 云端混流中每一路子画面的位置信息。 |
-| [TRTCTranscodingConfig](https://comm.qq.com/trtc/flutter/cn/trtc_cloud_def/trtc_cloud_def-library.html/TRTCTranscodingConfig-class.html) | 云端混流（转码）配置。 |
-| [TXVoiceChangerType](https://comm.qq.com/trtc/flutter/cn/trtc_cloud_def/trtc_cloud_def-library.html/TXVoiceChangerType-class.html) | 变声类型定义（萝莉、大叔、重金属、外国人等）。 |
-| [TXVoiceReverbType](https://comm.qq.com/trtc/flutter/cn/trtc_cloud_def/trtc_cloud_def-library.html/TXVoiceReverbType-class.html) | 变声类型定义（KTV、小房间、大会堂、低沉、洪亮等）。 |
-| [AudioMusicParam](https://comm.qq.com/trtc/flutter/cn/trtc_cloud_def/trtc_cloud_def-library.html/AudioMusicParam-class.html) | 音乐和人声设置接口参数。 |
-| [TRTCAudioRecordingParams](https://comm.qq.com/trtc/flutter/cn/trtc_cloud_def/trtc_cloud_def-library.html/TRTCAudioRecordingParams-class.html) | 录音参数。 |
-| [TRTCPublishCDNParam](https://comm.qq.com/trtc/flutter/cn/trtc_cloud_def/trtc_cloud_def-library.html/TRTCPublishCDNParam-class.html) | CDN 转推参数。 |
+| [TRTCCloudDef](https://comm.qq.com/trtc/flutter/cn/trtc_cloud_def/TRTCCloudDef-class.html) | 关键类型定义变量。                              |
+| [TRTCParams](https://comm.qq.com/trtc/flutter/cn/trtc_cloud_def/TRTCParams-class.html) | 进房参数。                              |
+| [TRTCSwitchRoomConfig](https://comm.qq.com/trtc/flutter/cn/trtc_cloud_def/TRTCSwitchRoomConfig-class.html) | 切换房间参数参数。                              |
+| [TRTCVideoEncParam](https://comm.qq.com/trtc/flutter/cn/trtc_cloud_def/TRTCVideoEncParam-class.html) | 视频编码参数。                              |
+| [TRTCNetworkQosParam](https://comm.qq.com/trtc/flutter/cn/trtc_cloud_def/TRTCNetworkQosParam-class.html) | 网络流控相关参数。                      |
+| [TRTCRenderParams](https://comm.qq.com/trtc/flutter/cn/trtc_cloud_def/TRTCRenderParams-class.html) | 远端图像参数。 |
+| [TRTCMixUser](https://comm.qq.com/trtc/flutter/cn/trtc_cloud_def/TRTCMixUser-class.html) | 云端混流中每一路子画面的位置信息。 |
+| [TRTCTranscodingConfig](https://comm.qq.com/trtc/flutter/cn/trtc_cloud_def/TRTCTranscodingConfig-class.html) | 云端混流（转码）配置。 |
+| [TXVoiceChangerType](https://comm.qq.com/trtc/flutter/cn/trtc_cloud_def/TXVoiceChangerType-class.html) | 变声类型定义（萝莉、大叔、重金属、外国人等）。 |
+| [TXVoiceReverbType](https://comm.qq.com/trtc/flutter/cn/trtc_cloud_def/TXVoiceReverbType-class.html) | 变声类型定义（KTV、小房间、大会堂、低沉、洪亮等）。 |
+| [AudioMusicParam](https://comm.qq.com/trtc/flutter/cn/trtc_cloud_def/AudioMusicParam-class.html) | 音乐和人声设置接口参数。 |
+| [TRTCAudioRecordingParams](https://comm.qq.com/trtc/flutter/cn/trtc_cloud_def/TRTCAudioRecordingParams-class.html) | 录音参数。 |
+| [TRTCPublishCDNParam](https://comm.qq.com/trtc/flutter/cn/trtc_cloud_def/TRTCPublishCDNParam-class.html) | CDN 转推参数。 |
