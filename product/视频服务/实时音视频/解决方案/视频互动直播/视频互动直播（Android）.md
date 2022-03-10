@@ -152,7 +152,7 @@ dependencies {
 }
 :::
 </dx-codeblock>
->?两个 SDK 的最新版本号，可以在 [TRTC](https://github.com/tencentyun/TRTCSDK) 和 [IM](https://github.com/tencentyun/TIMSDK) 的 Github 首页获取。
+
 2. 在 defaultConfig 中，指定 App 使用的 CPU 架构。
 <dx-codeblock>
 ::: java java
@@ -243,7 +243,7 @@ src/main/java/com/tencent/liteav/liveroom/model
 </tr>
 <tr>
 <td>userSig</td>
-<td>腾讯云设计的一种安全保护签名，获取方式请参考 <a href="https://cloud.tencent.com/document/product/647/17275">如何计算 UserSig</a>。</td>
+<td>腾讯云设计的一种安全保护签名，获取方式请参考 <a href="https://cloud.tencent.com/document/product/647/17275">如何计算及使用 UserSig</a>。</td>
 </tr>
 <tr>
 <td>config</td>

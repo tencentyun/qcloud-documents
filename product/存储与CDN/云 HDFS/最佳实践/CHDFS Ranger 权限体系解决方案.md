@@ -27,6 +27,7 @@ Hadoop 权限体系中，认证由 Kerberos 提供，授权鉴权由 Ranger 负�
 >
 
 ## 部署组件
+部署组件请按照 CHDFS-Ranger-Plugin、Cos-Ranger-Service、Cos-Ranger-Client、CHDFS 次序进行。
 
 <dx-tabs>
 ::: 部署CHDFS-Ranger-Plugin
@@ -46,7 +47,7 @@ V1.2版本及以上。
  1. 腾讯云的 EMR 环境，路径是 ranger/ews/webapp/WEB-INF/classes/ranger-plugins。
  2. 自建的 hadoop 环境，可以通过在ranger目录下 find hdfs 等方式找到已经接入到 ranger 服务的组件，查找 ranger-plugins 目录位置。
 ![](https://main.qcloudimg.com/raw/679f61339b8c3864a84b3b757dd84815.png)
-2. 在 CHDFS 目录下，放入 cos-chdfs-ranger-plugin-xxx.jar（注意： jar 包至少有 r 权限）。
+2. 在 CHDFS 目录下，放入 cos-chdfs-ranger-plugin-xxx.jar（注意： jar 包至少有 r 权限）。若使用 CHDFS 服务，需要在机器上放入 chdfs-ranger.json；若使用 COSN 服务，需要放入 cos-ranger.json；若同时使用 CHDFS 和 COSN 服务，需要同时放入 chdfs-ranger.json 和 cos-ranger.json 文件，可前往 [Github](https://github.com/tencentyun/cos-ranger-service/tree/main/ranger-plugin) 获取。
 3. 重启 Ranger 服务。
 4. 在 Ranger 上注册 CHDFS Service。可参考如下命令：
 <dx-codeblock>
@@ -54,20 +55,25 @@ V1.2版本及以上。
 ##生成服务，需传入 Ranger 管理员账号密码，以及 Ranger 服务的地址。
 ##对于腾讯云 EMR 集群，管理员用户是 root，密码是构建 emr 集群时设置的 root 密码，ranger 服务的 IP 换成 EMR 的 master 节点 IP。
 adminUser=root
+##构建 EMR 集群时设置的密码，也是 ranger 服务 web 页面的登录密码。
 adminPasswd=xxxxxx
+##如果 ranger 服务有多个 master 节点，任选一个 master 即可
 rangerServerAddr=10.0.0.1:6080
+##命令行中 -d 指定步骤 2 中的 json 文件
 curl -v -u${adminUser}:${adminPasswd} -X POST -H "Accept:application/json" -H "Content-Type:application/json" -d @./chdfs-ranger.json http://${rangerServerAddr}/service/plugins/definitions
 ##如果要删除刚定义的服务，则传入刚刚创建服务时，返回的服务 ID
 serviceId=102
 curl -v -u${adminUser}:${adminPasswd} -X DELETE -H "Accept:application/json" -H "Content-Type:application/json" http://${rangerServerAddr}/service/plugins/definitions/${serviceId}
 :::
 </dx-codeblock>
-5. 创建服务成功后，可在 Ranger 控制台看到 CHDFS 服务。如下所示：
+5. 创建服务成功后，可在 Ranger 控制台看到 CHDFS 服务（以 CHDFS 为例，COSN 类似）。如下所示：
 ![](https://main.qcloudimg.com/raw/163aac38c68931f51ab34c221ea3cef1.png)
 6. 在 CHDFS 服务侧单击【+】，定义新服务实例，服务实例名可自定义，例如`chdfs`或者`chdfs_test`。服务的配置如下所示：
 ![](https://main.qcloudimg.com/raw/255869b8c485a93427585d21476ec001.png)
 其中 policy.grantrevoke.auth.users 需设置后续启动 COSRangerService 服务的用户名。通常建议设置成 hadoop，后续 COSRangerService 可使用此用户名进行启动。
-7. 单击新生成的 CHDFS 服务实例，添加 policy。如下所示：
+7. 单击新生成的 CHDFS 服务实例。
+![](https://qcloudimg.tencent-cloud.cn/raw/ca5c4cf4e5a69697fb195e6b5902b28b.png)
+添加 policy，如下所示：
 ![](https://main.qcloudimg.com/raw/f0d76ecf787eec3340f7d923e65b9b48.png)
 8. 在跳转界面中，配置以下参数。具体说明如下：
 ![](https://main.qcloudimg.com/raw/317e1b5cb39abae6904552cb1ebade58.png)
@@ -94,17 +100,17 @@ COS-Ranger-Service 支持一主多备的 HA 部署，DelegationToken 状态持�
 
 #### 版本
 
-V5.0.4版本及以上。
+V5.0.6版本及以上。
 
 #### 部署步骤
 
 1. 将 COS Ranger Service 服务代码拷贝到集群的几台机器上，生产环境建议至少两台机器（一主一备）。因为涉及到敏感信息，建议是堡垒机或者权限严格管控的机器。
-2. 修改 cos-ranger.xml 文件中的相关配置，其中必须修改的配置项如下所示。配置项说明请参见文件中的注释说明。
+2. 修改 cos-ranger.xml 文件中的相关配置，其中必须修改的配置项如下所示。配置项说明请参见文件中的注释说明（配置文件可前往 [Github](https://github.com/tencentyun/cos-ranger-service) 的 cos-ranger-service/conf 目录下获取）。
  -  qcloud.object.storage.rpc.address
  -  qcloud.object.storage.status.port
  -  qcloud.object.storage.enable.chdfs.ranger
- -  qcloud.object.storage.zk.address
-3. 修改 ranger-chdfs-security.xml 文件中的相关配置。其中必须修改的配置项有如下所示。配置项说明请参见文件中的注释说明。
+ -  qcloud.object.storage.zk.address （zk 地址，cos ranger service 启动后注册到 zk 上）
+3. 修改 ranger-chdfs-security.xml 文件中的相关配置。其中必须修改的配置项有如下所示。配置项说明请参见文件中的注释说明（配置文件可前往 [Github](https://github.com/tencentyun/cos-ranger-service) 的 cos-ranger-service/conf 目录下获取）。
  -  ranger.plugin.chdfs.policy.cache.dir
  -  ranger.plugin.chdfs.policy.rest.url
  -  ranger.plugin.chdfs.service.name
@@ -115,12 +121,14 @@ chmod +x start_rpc_server.sh
 nohup ./start_rpc_server.sh &> nohup.txt &
 ```
 6. 如果启动失败，查看 log 下 error 日志是否有错误信息。
-7. cos-ranger-service 支持展示 HTTP 端口状态（端口名为 qcloud.object.storage.status.port，默认值为9998）。用户可通过以下命令获取状态信息（例如是否包含 leader、鉴权数量统计等)。
+7. cos-ranger-service 支持展示 HTTP 端口状态（端口名为 qcloud.object.storage.status.port，默认值为9998）。用户可通过以下命令获取状态信息（例如是否包含 leader、鉴权数量统计等）。
 ```
 # 请将下面的10.xx.xx.xxx替换为部署 ranger service 的机器 IP
 # port 9998 设置为 qcloud.object.storage.status.port 配置值
 curl -v http://10.xx.xx.xxx:9998/status
 ```
+ - 如果只部署了一个 cos ranger service 节点，会在上述接口响应中看到当前节点成为 leader。
+ - 如果部署了多个 cos ranger service 节点，会在上述接口响应中看到其他节点成为 leader，完成全部节点重启后，会看到最早完成重启的节点成为 leader。
 
 :::
 ::: 部署COS-Ranger-Client
@@ -132,20 +140,20 @@ COS-Ranger-Client 由 hadoop chdfs 插件动态加载，并代理访问 COS-Rang
 
 #### 版本
 
-V3.4版本及以上。
+V3.8版本及以上。
 
 #### 部署方式
-1. 将 cos-ranger-client jar 包和cosn-ranger-interface jar 包拷贝到与 CHDFS 插件 同一目录下（请选择拷贝与自身 hadoop 大版本一致的  jar 包）。
+1. 将 cos-ranger-client jar 包和cosn-ranger-interface jar 包拷贝到与 CHDFS 插件同一目录下（通常在/usr/local/service/hadoop/share/hadoop/common/lib/目录下；请选择拷贝与自身 hadoop 大版本一致的 jar 包，最后确保 jar 包有可读权限）。
 2. 在 core-site.xml 添加如下配置项：
 <dx-codeblock>
 ::: xml
 ```
 <configuration>
            <!--*****必须配置********-->
-           <!-- zk 的地址，客户端从 zk 上查询得知 ranger-service 的服务地址 -->
+           <!-- zk 的地址，客户端从 zk 上查询得知 cos-ranger-service 的服务地址 -->
            <property>
                <name>qcloud.object.storage.zk.address</name>
-               <value>10.0.0.8:2121</value>
+               <value>10.0.0.8:2181,10.0.0.9:2181,10.0.0.10:2181</value>
            </property>
 
            <!--***可选配置****-->           
@@ -223,3 +231,7 @@ hadoop fs -rm ofs://f4mxxxxyyyy-zzzz.chdfs.ap-guangzhou.myqcloud.com/exampleobje
 #### 开启了 ranger 后，CHDFS 端是否还会进行 POSIX 鉴权？
 
 Ranger 鉴权是在客户端环境进行的，经过 ranger 鉴权的请求，会发给 CHDFS 服务端，服务端默认会进行 POSIX 鉴权。因此如果权限都在 Ranger 端进行控制，请在 CHDFS 控制台关闭 POSIX 权限。
+
+### 在 ranger 页面更改了 Policy 未生效怎么办？
+请修改 cos-ranger-service 服务目录 conf 下的 ranger-chdfs-security.xml 文件的配置项：ranger.plugin.chdfs.policy.pollIntervalMs，调小该配置项（单位为毫秒），然后重启 cos-ranger-service 服务。Policy 相关测试结束后，建议修改回原来值（时间间隔太小导致轮训频率高，从而导致 CPU 利用率高企）。
+

@@ -56,5 +56,5 @@
 	如果 Targets 状态为 `DOWN` 则需要检查网络访问是否可达，或根据状态栏最后的 Error 选项查看原因。
 
 6. 查询监控指标数据。
-   单击 Graph 选项输入查询的指标名称即可看到相应的监控数据，例如输入`node_memory_MemAvailable_bytes` ，点击**execute**。
+   单击 Graph 选项输入查询的指标名称即可看到相应的监控数据，例如输入`node_memory_MemAvailable_bytes` ，单击**execute**。
 	 ![](https://qcloudimg.tencent-cloud.cn/raw/118a8acfadc562a83f0ebc621eaf79fe.png)

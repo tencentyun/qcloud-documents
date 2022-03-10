@@ -100,7 +100,7 @@ document.getElementById('submitBtn').onclick = function (e) {
     document.getElementById('msg').innerText = '未选择上传文件';
     return;
   }
-  handleFileInUploading();
+  handleFileInUploading(file);
 };
 ```
 

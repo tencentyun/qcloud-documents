@@ -117,8 +117,8 @@
 > - 正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/647/17275#Server)。
 
 > ? 在服务开通后，建议先可以编译&体验一下腾讯云提供的 SimpleCode（一个极简的 Demo），配合下文说明，方便您快速了解API 的使用。
-> - [Android](https://github.com/tencentyun/MLVBSDK/tree/master/Android/MLVB-API-Example)
-> - [iOS](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/MLVB-API-Example)
+> - [Android](https://github.com/LiteAVSDK/Live_Android/tree/main/MLVB-API-Example)
+> - [iOS](https://github.com/LiteAVSDK/Live_iOS/tree/main/MLVB-API-Example)
 
 
 [](id:step2)

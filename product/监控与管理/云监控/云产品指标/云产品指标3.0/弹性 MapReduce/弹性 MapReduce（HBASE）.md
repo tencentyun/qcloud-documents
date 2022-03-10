@@ -46,8 +46,8 @@ Namespace=QCE/TXMR_HBASE
 
 | 指标中文名                                            | 指标中文名                                 | 指标单位 | 指标含义       | 维度                                |
 | ----------------------------------------------------- | ------------------------------------------ | -------- | -------------- | ----------------------------------- |
-| HbaseHmGcUtilGcCounYgc                                | GC次数_FGC                                 | 次       | GC 次数        | host4hbasehmaster、 id4hbasehmaster |
-| HbaseHmGcUtilGcCountgc                                | GC次数_YGC                                 | 次       | GC 次数        | host4hbasehmaster、 id4hbasehmaster |
+| HbaseHmGcUtilGcCountFgc                                | GC次数_FGC                                 | 次       | GC 次数        | host4hbasehmaster、 id4hbasehmaster |
+| HbaseHmGcUtilGcCounYgc                                | GC次数_YGC                                 | 次       | GC 次数        | host4hbasehmaster、 id4hbasehmaster |
 | HbaseHmGcUtilGcTimeFgct                               | GC时间_FGCT                                | s        | GC 时间        | host4hbasehmaster、 id4hbasehmaster |
 | HbaseHmGcUtilGcTimeGct                                | GC时间_GCT                                 | s        | GC 时间        | host4hbasehmaster、 id4hbasehmaster |
 | HbaseHmGcUtilGcTimeYgct                               | GC时间_YGCT                                | s        | GC 时间        | host4hbasehmaster、 id4hbasehmaster |

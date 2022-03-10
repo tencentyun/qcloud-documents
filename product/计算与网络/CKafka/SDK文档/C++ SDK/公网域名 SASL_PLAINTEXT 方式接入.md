@@ -10,11 +10,11 @@
 
 ## 操作步骤
 
-### 步骤一：安装 C/C++ 依赖库
+### 步骤1：安装 C/C++ 依赖库
 
 [安装 librdkafka](https://github.com/edenhill/librdkafka#installation)
 
-### 步骤二：安装 SSL/SASL 依赖
+### 步骤2：安装 SSL/SASL 依赖
 
 ```c++
 yum install openssl openssl-devel
@@ -22,7 +22,7 @@ yum install cyrus-sasl{,-plain}
 ```
 
 
-### 步骤三：发送消息
+### 步骤3：发送消息
 
 1. 创建 producer.c 文件。
 
@@ -356,7 +356,7 @@ gcc -lrdkafka ./producer.c -o producer
 
 
 
-### 步骤四：消费消息
+### 步骤4：消费消息
 
 1. 创建 consumer.c 文件。
 

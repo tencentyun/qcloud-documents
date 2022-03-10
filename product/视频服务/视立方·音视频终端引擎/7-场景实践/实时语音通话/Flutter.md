@@ -16,7 +16,7 @@
 
 ### 步骤1：创建新的应用
 
-1. 登录实时音视频控制台，选择**开发辅助** > **[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)**。
+1. 登录实时音视频控制台，选择**开发辅助** > [**快速跑通Demo**](https://console.cloud.tencent.com/trtc/quickstart)。
 2. 输入应用名称，例如 `TestAudioCall` ，单击**创建**。
 
 >!本功能同时使用了腾讯云视立方音视频通话 TRTC 和 [即时通信 IM](https://cloud.tencent.com/document/product/269) 两个基础 PaaS 服务，开通实时音视频后会同步开通即时通信 IM 服务。 即时通信 IM 属于增值服务，详细计费规则请参见 [即时通信 IM 价格说明](https://cloud.tencent.com/document/product/269/11673)。
@@ -136,7 +136,7 @@ dependencies:
 <td>	当前用户的 ID，字符串类型，只允许包含英文字母（a-z 和 A-Z）、数字（0-9）、连词符（-）和下划线（_）。建议结合业务实际账号体系自行设置。</td>
 </tr><tr>
 <td>userSig</td>
-<td>腾讯云设计的一种安全保护签名，计算方式请参见 <a href="https://cloud.tencent.com/document/product/647/17275">如何计算 UserSig</a>。</td>
+<td>腾讯云设计的一种安全保护签名，计算方式请参见 <a href="https://cloud.tencent.com/document/product/647/17275">如何计算及使用 UserSig</a>。</td>
 </tr></table>
 <dx-codeblock>
 ::: java 

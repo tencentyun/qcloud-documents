@@ -1,4 +1,6 @@
-TCPlayerLite 为旧版播放器，后续将不再更新迭代。Web超级播放器（TCPlayer）不仅包含TCPlayerLite 全部能力，同时具备更多其他能力。若您仍在使用 TCPlayerLite，建议您尽早切换为 [超级播放器](https://cloud.tencent.com/document/product/881/30818)。
+>?
+>- TCPlayerLite 为旧版播放器，后续将持续维护，但不再主动做功能迭代，后续 Web 端播放器功能迭代将在超级播放器 TCPlayer 内进行。
+>- 当前超级播放器 TCPlayer 已包含旧版播放器 TCPlayerLite 的全部能力，同时具备更多丰富功能。若您首次使用腾讯云 Web 播放器，建议您直接使用超级播放器 TCPlayer。若您当前仍在使用 TCPlayerLite，建议您尽早切换为超级播放器 TCPlayer，以享受更多更全面的功能及服务。
 
 ## 功能介绍
 腾讯云 Web 超级播放器 TCPlayerLite 是为了解决在手机浏览器和 PC 浏览器上播放音视频流的问题，它使您的视频内容可以不依赖用户安装 App，就能在朋友圈和微博等社交平台进行传播。本文档适合有一定 Javascript 语言基础的开发人员阅读。
@@ -174,7 +176,7 @@ style 支持的样式如下：
 ```
 #### 4.3 实现用例
 
-使用 cover 方式显示封面。线上示例如下，在 PC 浏览器中右键单击**查看页面源码**即可查看页面的代码实现：
+使用 cover 方式显示封面。线上示例如下，在 PC 浏览器中右键单击【查看页面源码】即可查看页面的代码实现：
 [视频封面](https://web.sdk.qcloud.com/player/tcplayerlite/tcplayer-poster.html)
 >!
 >- 在某些移动端设置封面会无效，具体说明请参见 [常见问题](https://cloud.tencent.com/document/product/1449/58949#que1)。
@@ -218,7 +220,7 @@ var player = new TcPlayer('id_test_video', {
 
 
 #### 5.3 实现用例
-使用多种分辨率的设置及切换功能。线上示例如下，在 PC 浏览器中右键单击**查看页面源码**即可查看页面的代码实现，请参见 [分辨率切换](https://web.sdk.qcloud.com/player/tcplayerlite/tcplayer-clarity.html)。
+使用多种分辨率的设置及切换功能。线上示例如下，在 PC 浏览器中右键单击【查看页面源码】即可查看页面的代码实现，请参见 [分辨率切换](https://web.sdk.qcloud.com/player/tcplayerlite/tcplayer-clarity.html)。
 正常情况将看到如下效果：
 ![](https://main.qcloudimg.com/raw/99c05e75f0d417df33942d18dad2f509.jpg)
 >!
@@ -245,7 +247,7 @@ var player = new TcPlayer('id_test_video', {
 </dx-codeblock>
 
 #### 6.2 实现用例
-视频播放失败，同时使用自定义提示文案的功能。线上示例如下，在 PC 浏览器中右键单击**查看页面源码**即可查看页面的代码实现：
+视频播放失败，同时使用自定义提示文案的功能。线上示例如下，在 PC 浏览器中右键单击【查看页面源码】即可查看页面的代码实现：
 
 ```
 https://web.sdk.qcloud.com/player/tcplayerlite/tcplayer-error.html
@@ -277,7 +279,7 @@ https://web.sdk.qcloud.com/player/tcplayerlite/tcplayer-error.html
 >- 由于 Flash 的黑盒特性以及 H5 视频播放标准的不确定性，错误提示语会不定期更新。
 
 ## 源码参考
-如下是一个线上示例代码，在 PC 浏览器中右键单击**查看页面源码**即可查看页面的代码实现，请参见 [播放示例](https://web.sdk.qcloud.com/player/tcplayerlite/tcplayer.html)。
+如下是一个线上示例代码，在 PC 浏览器中右键单击【查看页面源码】即可查看页面的代码实现，请参见 [播放示例](https://web.sdk.qcloud.com/player/tcplayerlite/tcplayer.html)。
 >!以上示例链接仅用于文档演示，请勿用于生产环境。
 
 ## 参数列表

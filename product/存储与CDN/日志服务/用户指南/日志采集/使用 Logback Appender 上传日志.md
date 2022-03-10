@@ -31,7 +31,7 @@ Logback 是 Apache 的一个开源项目。通过使用 Logback，我们可以�
 
 ### 修改 logback 配置文件
 ```
-  <appender name="LoghubAppender" class="com.tencentcloud.cls.LoghubAppender">
+  <appender name="LoghubAppender" class="com.tencentcloudapi.cls.LoghubAppender">
         <!--必选项-->
         <endpoint>ap-guangzhou.cls.tencentcs.com</endpoint>
         <accessKeyId>${accesskey}</accessKeyId>

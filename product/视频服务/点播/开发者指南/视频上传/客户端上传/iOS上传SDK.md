@@ -7,7 +7,7 @@
 ## 集成上传库和源码
 
 1. 拷贝上传源码目录`TXUGCUploadDemo/upload`到您的工程中。
-2. 导入动态库`QCloudCore.framework`、`QCloudCOSXML.framework`和静态库`libmtasdk.a`（在`TXUGCUploadDemo/upload/COSSDK/`目录下）到您的工程中，并添加以下依赖库：
+2. 导入动态库`QCloudCore.framework`、`QCloudCOSXML.framework`（在`TXUGCUploadDemo/upload/COSSDK/`目录下）到您的工程中，并添加以下依赖库：
     ```
     1. CoreTelephony.framework
     2. Foundation.framework

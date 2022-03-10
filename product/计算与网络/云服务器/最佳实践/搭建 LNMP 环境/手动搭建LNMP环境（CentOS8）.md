@@ -5,17 +5,16 @@ LNMP 环境是指在 Linux 系统下，由 Nginx + MySQL/MariaDB + PHP 组成的
 
 <dx-alert infotype="notice" title="">
 腾讯云建议您可以通过云市场的镜像环境部署 LNMP 环境，手动搭建 LNMP 环境可能需要较长的时间。具体步骤可参考 [镜像部署 LNMP 环境](https://cloud.tencent.com/document/product/213/38053)。
-
 </dx-alert>
 
 
 
 ## 示例软件版本
 本文搭建的 LNMP 环境软件组成版本及说明如下：
-Linux：Linux 操作系统，本文以 CentOS 8.0 为例。
+Linux：Linux 操作系统，本文以 CentOS 8.2 为例。
 Nginx：Web 服务器，本文以 Nginx 1.18.0 为例。
 MySQL：数据库，本文以 MySQL 8.0.21 为例。
-PHP：脚本语言，本文以 PHP 7.4.11 为例。
+PHP：脚本语言，本文以 PHP 7.3.20 为例。
 
 ## 前提条件
 已购买 Linux 云服务器。如果您还未购买云服务器，请参考 [快速配置 Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)。
@@ -130,16 +129,9 @@ dnf clean all
 ```
 dnf makecache
 ```
-3. 执行以下命令，安装 remi 源。
-<dx-alert infotype="explain" title="">
-安装 PHP 7.4.11 需安装 remi 源，请对应您实际安装的 PHP 版本执行此命令。
-</dx-alert>
+3. 执行以下命令，启动 PHP 7.3 模块。
 ```
-dnf -y install https://rpms.remirepo.net/enterprise/remi-release-8.rpm
-```
-4. 执行以下命令，启动 PHP 7.4 模块。
-```
-dnf module install php:remi-7.4
+dnf module enable php:7.3
 ```
 5. 执行以下命令，安装所需 PHP 对应模块。
 ```
@@ -151,10 +143,9 @@ php -v
 ```
 返回类似如下结果，则表明已安装成功。
 ```
-PHP 7.4.11 (cli) (built: Sep 29 2020 10:17:06) ( NTS )
-Copyright (c) The PHP Group
-Zend Engine v3.4.0, Copyright (c) Zend Technologies
-    with Zend OPcache v7.4.11, Copyright (c), by Zend Technologies
+PHP 7.3.20 (cli) (built: Jul  7 2020 07:53:49) ( NTS )
+Copyright (c) 1997-2018 The PHP Group
+Zend Engine v3.3.20, Copyright (c) 1998-2018 Zend Technologies
 ```
 7. 执行以下命令，打开 www.conf 文件。
 ```
@@ -185,7 +176,7 @@ echo "<?php phpinfo(); ?>" >> /usr/share/nginx/html/index.php
 http://云服务器实例的公网 IP/index.php
 ```
 显示结果如下，则说明环境配置成功。
-![](https://main.qcloudimg.com/raw/182c0f73df20d66216a9b73d571b2093.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/e53690c079957a962403d33bf423f1a6.png)
 
 ## 相关操作
 在完成了 LNMP 环境搭建之后，您可在此基础上进行 [手动搭建 Wordpress 个人站点](https://cloud.tencent.com/document/product/213/8044) 实践，了解并掌握更多关于云服务器的相关功能。

@@ -1,3 +1,12 @@
+### 2.6.9.145 @ 2021-12-31
+* [单击下载 SDK](https://sdk.qcloudtiw.com/android/TEduBoardSdk_2.6.9.145.zip)  
+
+- 新增接口
+    1. 支持PPT课件进行静音操作(soundMuteForPPT)
+    2. 课件资源预加载，支持课前和课中加载，具体请参考 [课件预加载文档](https://cloud.tencent.com/document/product/1137/67344)
+- 功能优化
+    1. 优化课件加载
+    2. 截图功能在异常 dpr 中丢失几个像素的问题
 ### 2.6.8.144 @ 2021.12.10
 * [单击下载 SDK](https://sdk.qcloudtiw.com/android/TEduBoardSdk_2.6.8.144.zip)  
 - 新增接口  
@@ -38,7 +47,7 @@
   1.设置远端画笔在本地是否可见(setRemoteCursorVisible)
     
 - 调整全局变量
-  1.白板警告码(TEduBoardWarningCode)，新增静态ppt重复的告警码
+  1.白板警告码(TEduBoardWarningCode)，新增静态 ppt 重复的告警码
     
 - 功能优化
   1.弱网环境下涂鸦同步
@@ -56,7 +65,7 @@
   2. addH5File(url, title, needSwitch) 支持title,needSwitch
   3. addVideoFile(url, title, needSwitch) 支持title,needSwitch
 - 实体类调整  
-  1. TEduBoardFileInfo，新增fileType字段
+  1. TEduBoardFileInfo，新增 fileType 字段
 - 新增常量  
   1. TEduBoardFileType
   
