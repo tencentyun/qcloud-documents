@@ -33,7 +33,7 @@ https://api.meeting.qq.com/v1/real-control/meetings/{meetingId}/names
 |----------|----- |--------- |--------- |
 |ms_open_id |是 |String |被操作者在当场会议的用户临时 ID，可用于会控操作，适用于所有用户。 |
 |instanceid |是 |Integer |用户的终端设备类型：<br>1：PC<br>2：Mac<br>3：Android<br>4：iOS<br>5：Web<br>6：iPad<br>7：Android Pad<br>8：小程序<br>说明：请与被操作者的设备类型保持一致，否则不生效。 |
-|nick_name |否 |String |用户昵称字符串，限制20个字符。|
+|nick_name |是 |String |用户昵称字符串，限制20个字符。|
 
 ## 输出参数
 成功返回空消息体，失败返回 [错误码](https://cloud.tencent.com/document/product/1095/43704) 和 错误信息。
