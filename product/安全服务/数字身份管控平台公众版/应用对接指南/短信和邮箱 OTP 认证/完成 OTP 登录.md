@@ -11,7 +11,7 @@ POST
 
 ## 请求路径
 ```
-/otp/send
+/oauth2/token
 ```
 
 ## 请求 Content-Type

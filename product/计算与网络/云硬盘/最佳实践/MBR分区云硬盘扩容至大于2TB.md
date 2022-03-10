@@ -77,7 +77,7 @@ mount /dev/vdb1 /data
 ::: 扩容 xfs 文件系统
 执行以下命令，扩容 xfs 文件系统。
 ```
- resize2fs /dev/对应分区
+xfs_growfs /dev/对应分区
 ```
 本文以分区路径以 `/dev/vdb1`，则执行：
 ```

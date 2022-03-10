@@ -128,4 +128,4 @@ subjects:
 **问题描述**：授权时发现，TKE 集群没有开启内网访问功能。
 <img src="https://qcloudimg.tencent-cloud.cn/raw/5f87b05a0ceb35b43cb881634687ba55.png" width="450px">              
 
-**解决方法**：主动 [开启 TKE 集群内网访问功能](https://cloud.tencent.com/document/product/628/64693#.E5.A6.82.E4.BD.95.E5.BC.80.E5.90.AF-tke-.E9.9B.86.E7.BE.A4.E5.86.85.E7.BD.91.E8.AE.BF.E9.97.AE.E5.8A.9F.E8.83.BD.EF.BC.9F)，然后点击重试。
+**解决方法**：主动 [开启 TKE 集群内网访问功能](https://cloud.tencent.com/document/product/628/64693#.E5.A6.82.E4.BD.95.E5.BC.80.E5.90.AF-tke-.E9.9B.86.E7.BE.A4.E5.86.85.E7.BD.91.E8.AE.BF.E9.97.AE.E5.8A.9F.E8.83.BD.EF.BC.9F)，然后单击重试。

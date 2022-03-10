@@ -3,6 +3,9 @@
 ## 注意事项
 - DTS 在执行全量数据同步时，会占用一定源端实例资源，可能会导致源实例负载上升，增加数据库自身压力。如果您数据库配置过低，建议您在业务低峰期进行。
 - 为了避免数据重复，请确保需要同步的表具有主键或者非空唯一键。
+- 数据同步时，DTS 会使用执行同步任务的账号在源库中写入系统库`__tencentdb__`，用于记录同步任务过程中的数据对比信息。
+  - 为保证后续数据对比问题可定位，同步任务结束后不会删除源库中的`__tencentdb__`。
+  - `__tencentdb__`系统库占用空间非常小，约为源库存储空间的千分之一到万分之一（例如源库为50G，则`__tencentdb__`系统库约为 5K-50K） ，并且采用单线程，等待连接机制，所以对源库的性能几乎无影响，也不会抢占资源。 
 
 ## [前提条件](id:qttj)
 - 源数据库和目标数据库符合同步功能和版本要求，请参考 [数据同步支持的数据库](https://cloud.tencent.com/document/product/571/58672) 进行核对。
@@ -18,7 +21,7 @@ FLUSH PRIVILEGES;
 - 只支持同步基础表和视图，不支持同步函数、触发器、存储过程等对象。 
 - 在导出视图结构时，DTS 会检查源库中 `DEFINER` 对应的 user1（ [DEFINER = user1]）和同步用户的 user2 是否一致，如果不一致，则会修改 user1 在目标库中的 `SQL SECURITY` 属性，由 `DEFINER` 转换为 `INVOKER`（ [INVOKER = user1]），同时设置目标库中 `DEFINER` 为同步用户的 user2（[DEFINER = user2]）。
 - 源端如果是非 GTID 实例，DTS 不支持源端 HA 切换，一旦源端 MySQL 发生切换可能会导致 DTS 增量同步中断。
-- 只支持同步 InnoDB、MySIAM、TokuDB 三种数据库引擎，如果存在这三种以外的数据引擎表则默认跳过不进行同步。
+- 只支持同步 InnoDB、MyISAM、TokuDB 三种数据库引擎，如果存在这三种以外的数据引擎表则默认跳过不进行同步。
 - 相互关联的数据对象需要一起同步，否则会导致同步失败。常见的关联关系：视图引用表、视图引用视图、存储过程/函数/触发器引用视图/表、主外键关联表等。
 - 增量同步过程中，若源库存在分布式事务或者产生了类型为 `STATEMENT` 格式的 Binlog 语句，则会导致同步失败。
 - 源数据库为阿里云 MySQL，则阿里云 MySQL 5.6 版本待同步表不能存在无主键表，MySQL 5.7 及以后版本不限制。源数据库为 AWS MySQL，则 AWS MySQL 待同步表不能存在无主键表。
@@ -36,7 +39,7 @@ FLUSH PRIVILEGES;
 | 操作类型 | SQL 操作语句                                                 |
 | -------- | ------------------------------------------------------------ |
 | DML      | INSERT、UPDATE、DELETE                                       |
-| DDL      | CREATE DATABASE、DROP DATABASE、ALTER DATABASE、CREATE TABLE、ALTER TABLE、DROP TABLE、TRUNCATE TABLE、RENAEM TABLE、CREATE VIEW、DROP VIEW、CREATE INDEX、DROP INDEX |
+| DDL      | CREATE DATABASE、DROP DATABASE、ALTER DATABASE、CREATE TABLE、ALTER TABLE、DROP TABLE、TRUNCATE TABLE、RENAEM TABLE、CREATE VIEW、DROP VIEW、CREATE INDEX、DROP INDEX<br/><dx-alert infotype="explain" title="说明">不支持同步涉及分区（Partition）的 DDL。</dx-alert> |
 
 ## 环境要求
 <table>
@@ -93,17 +96,13 @@ FLUSH PRIVILEGES;
 <tr>
 <td>同步任务规格</td><td>目前只支持标准版。</td></tr>
 </tbody></table>
-
 2. 购买完成后，返回 [数据同步列表](https://console.cloud.tencent.com/dts/replication)，可看到刚创建的数据同步任务，刚创建的同步任务需要进行配置后才可以使用。
 3. 在数据同步列表，单击**操作**列的**配置**，进入配置同步任务页面。
 ![](https://main.qcloudimg.com/raw/b21f1336854375bb1343c7ccb144900b.png)
 4. 在配置同步任务页面，配置源端实例、帐号密码，配置目标端实例、帐号和密码，测试连通性后，单击**下一步**。
-<img src="https://qcloudimg.tencent-cloud.cn/raw/0a61f9b3a78e0dbd165d745f90e320a7.png" style="zoom:70%;" />
-
+![](https://qcloudimg.tencent-cloud.cn/raw/0a61f9b3a78e0dbd165d745f90e320a7.png)
 **因源数据库部署形态和接入类型的交叉场景较多，各场景同步操作步骤类似，如下仅提供典型场景的配置示例，其他场景请用户参考配置。**
-
 **示例一**：本地自建数据库通过专线/VPN方式同步至腾讯云数据库
-
 <table>
 <thead><tr><th width="10%">设置项</th><th width="15%">参数</th><th width="75%">描述</th></tr></thead>
 <tbody><tr>
@@ -157,9 +156,7 @@ FLUSH PRIVILEGES;
 <tr>
 <td>密码</td><td>目标实例帐号的密码。</td></tr>
 </tbody></table>
-
-**示例二**：腾讯云数据库同步至腾讯云数据库
-
+<b>示例二</b>：腾讯云数据库同步至腾讯云数据库
 <table>
 <thead><tr><th width="10%">设置项</th><th width="15%">参数</th><th width="75%">描述</th></tr></thead>
 <tbody><tr>
@@ -207,9 +204,7 @@ FLUSH PRIVILEGES;
 <tr>
 <td>密码</td><td>目标实例帐号的密码。</td></tr>
 </tbody></table>
-
-**示例三**：阿里云 RDS 通过公网方式同步至腾讯云数据库
-
+<b>示例三</b>：阿里云 RDS 通过公网方式同步至腾讯云数据库
 <table>
 <thead><tr><th width="10%">设置项</th><th width="15%">参数</th><th width="75%">描述</th></tr></thead>
 <tbody><tr>
@@ -259,18 +254,15 @@ FLUSH PRIVILEGES;
 <tr>
 <td>密码</td><td>目标实例帐号的密码。</td></tr>
 </tbody></table>
-
-5. 在设置同步选项和同步对象页面，将对数据初始化选项、数据同步选项、同步对象选项进行设置，
-6. 在设置完成后单击**保存并下一步**。
+5. 在设置同步选项和同步对象页面，将对数据初始化选项、数据同步选项、同步对象选项进行设置，在设置完成后单击**保存并下一步**。
 >?
 >- 当**初始化类型**仅选择**全量数据初始化**，系统默认用户在目标库已经创建了表结构，不会进行表结构迁移，也不会校验源库和目标库是否有同名表，所以当用户同时在**已存在同名表**项选择**前置校验并报错**，则校验并报错功能不生效。
 >- 仅选择**全量数据初始化**的场景，用户需要提前在目标库创建好表结构。
 >- 如果用户在同步过程中确定会使用 gh-ost、pt-osc 等工具对某张表做 Online DDL，则**同步对象**需要选择这个表所在的整个库（或者整个实例），不能仅选择这个表，否则无法同步 Online DDL 变更产生的临时表数据到目标数据库。
 >- 如果用户在同步过程中确定会对某张表使用 rename 操作（例如将 table A rename 为 table B），则**同步对象**需要选择 table A 所在的整个库（或者整个实例），不能仅选择 table A，否则系统会报错。
 >
-<img src="https://main.qcloudimg.com/raw/272026696de9d8dd15b0034f7bf8f0dd.png"  style="margin:0;">
-<strong>库表映射</strong>：在已选对象中，鼠标放在右侧将出现编辑按钮，单击后可在弹窗中填写映射名。
-<img src="https://main.qcloudimg.com/raw/533a454e1edc2dded72ac92b65948f31.png"  style="margin:0;">
+![](https://qcloudimg.tencent-cloud.cn/raw/793b1914c8bb9eec917d3296d92000e9.png)
+<strong>库表重命名</strong>：如需要修改目标库中的对象名称，请在已选对象中，鼠标放在右侧将出现编辑按钮，单击后可在弹窗中填写新的名称。
 <table>
 <thead><tr><th>设置项</th><th>参数</th><th>描述</th></tr></thead>
 <tbody>
@@ -286,7 +278,7 @@ FLUSH PRIVILEGES;
 <td>冲突处理机制</td>
 <td><ul><li>冲突报错：在同步时发现表主键冲突，报错并暂停数据同步任务。<li>冲突忽略：在同步时发现表主键冲突，保留目标库主键记录。<li>冲突覆盖：在同步时发现表主键冲突，用源库主键记录覆盖目标库主键记录。</td></tr>
 <tr>
-<td>同步操作类型</td><td>支持操作：Insert、Update、Delete、DDL。</td></tr>
+<td>同步操作类型</td><td>支持操作：Insert、Update、Delete、DDL。勾选“DDL自定义”，可以根据需要选择不同的DDL同步策略。详情请参考 <a href="https://cloud.tencent.com/document/product/571/63955">设置 SQL 过滤策略</a>。</td></tr>
 <tr>
 <td rowspan=2>同步对象选项</td>
 <td>源实例库表对象</td><td>选择待同步的对象，支持库级别和表及视图级别。</td></tr>

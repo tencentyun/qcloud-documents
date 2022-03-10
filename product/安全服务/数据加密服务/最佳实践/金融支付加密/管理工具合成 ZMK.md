@@ -3,7 +3,7 @@
 
 
 ## 操作步骤
-1. 打开 VsmManager 软件，单击**密钥管理** > **对称密钥管理**。
+1. 登录 VsmManager 客户端，单击**密钥管理** > **对称密钥管理**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/3556f50d469f25598d2e8318bdaadec2.png)
 2. 在对称密钥管理弹窗中，单击**成份合成密钥**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/49917a9b76d7d87cfb5dbd4bc87a739b.png)

@@ -8,5 +8,5 @@
 >
 ![](https://qcloudimg.tencent-cloud.cn/raw/f31ef263f4b6c5512c84bd58e25574e5.png)
 3. 在弹出的 “一键 HTTPS 套餐续费” 窗口中，勾选您需续费的时长。如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/0794e54cad123880645c0b3839cc5a7d.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/78828f93648c214d8aaa78d1680c83ac.png)
 4. 单击**确定**，完成支付后即可续费成功。

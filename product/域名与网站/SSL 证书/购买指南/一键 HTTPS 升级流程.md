@@ -10,7 +10,7 @@
 3. 在弹出的“一键 HTTPS 套餐升级” 窗口中，确认升级的套餐类型以及套餐详情。如下图所示：
 >?一键 HTTPS 目前仅支持超轻版升级敏捷版。
 >
-![](https://qcloudimg.tencent-cloud.cn/raw/92f517cfeb7e4c6917feba687eac15f4.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/8f9557c2dfe79fa5a1ea863835638fc4.png)
 4. 单击**确定**，完成支付后即可升级成功。
 
 

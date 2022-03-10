@@ -89,8 +89,7 @@ Topic（主题）是某一种分类的名字，消息在 Topic 中可以被存�
 
 1. 在实例列表页，单击目标实例的“ID/名称”，进入实例详情页。
 2. 在实例详情页，单击 **topic 管理**标签页，在操作栏单击**生产端连接关系**，查看与 Topic 连接的生产者列表信息。
-
-![](https://qcloudimg.tencent-cloud.cn/raw/017436a03536e7694f4011a2379e2dbe.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/5964448721f3c3a94d4deced5ec2ba88.png)
 
 
 

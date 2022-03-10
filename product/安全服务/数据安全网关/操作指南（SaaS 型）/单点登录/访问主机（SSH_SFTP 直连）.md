@@ -1,10 +1,10 @@
 ## 操作场景
-用户通过堡垒机进行对主机的访问和操作。下面将为您详细介绍如何通过 SSH/SFTP 客户端直连方式访问主机。下面以 macOS 系统下的 SecureCRT 为例，介绍如何通过 SSH 客户端直连方式访 问Linux 主机，其他客户端（例如 XShell、Xftp、Transmit 等）请参考以下方式进行访问。
+用户通过堡垒机进行对主机的访问和操作。下面将为您详细介绍如何通过 SSH/SFTP 客户端直连方式访问主机。下面以 macOS 系统下的 SecureCRT 为例，介绍如何通过 SSH 客户端直连方式访问 Linux 主机，其他客户端（例如 XShell、Xftp、Transmit 等）请参考以下方式进行访问。
 
 ## 前提条件
 - 管理员已告知运维人员登录地址。
 - 管理员已授予运维人员访问主机的权限。
-- 运维人员已完成账号激活。
+- 运维人员已完成 [账号激活](https://cloud.tencent.com/document/product/1025/55183#step2)。
 - 使用以下信息登录指定目标主机：
  - IP 地址：堡垒机的 IP 地址。
  - 端口：8322。
@@ -15,7 +15,7 @@
 >
 
 ## 操作步骤
-1.	打开SecureCRT，单击左侧的 **Session Manager**。
+1.	打开 SecureCRT，单击左侧的 **Session Manager**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/9d191e9d1ace8c665073422cfda0948a.png)
 2. 单击 **New Session**，打开 New Session Wizard 窗口，窗口当中 Protocol 设置为 **SSH2**，单击 **Continue**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/086965702afe3926a9e3782e5d5ce077.png)

@@ -3,8 +3,8 @@
 ## 前提条件
 您需要 [创建全局接入实例](https://cloud.tencent.com/document/product/1510/61383)。
 
-## 配置 UDP 监听器
-### [步骤一：配置监听器基本信息](id:step1)
+
+## [步骤一：配置监听器基本信息](id:step1)
 1. 登录 [全局接入控制台](https://console.cloud.tencent.com/ga/instance)。
 2. 在**实例管理**页面，找到目标实例，单击右侧**操作**列的**配置监听器**。
 3. 在 TCP/UDP 监听器页签，单击**新建**。
@@ -37,7 +37,7 @@
 </tr>
 </tbody></table>
 
-### [步骤二：配置健康检查](id:step2)
+## [步骤二：配置健康检查](id:step2)
 在**健康检查**页签配置监听器的健康检查信息，配置完成后单击**下一步：会话保持**。
 <dx-accordion>
 ::: 配置 UDP 健康检查 - 检查端口
@@ -111,7 +111,7 @@
 :::
 </dx-accordion>
 
-### 步骤三：配置会话保持
+## 步骤三：配置会话保持
 在**会话保持**页签配置监听器的会话保持，配置完成后单击**完成**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/c3e05ff5cb914831277c8d7ca96bace5.png)
 <table>

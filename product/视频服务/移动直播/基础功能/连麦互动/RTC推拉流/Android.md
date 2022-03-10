@@ -27,7 +27,7 @@
 ### 配置 MLVB-API-Example 工程文件
 1. 根据实际业务下载对应的 [SDK](https://cloud.tencent.com/document/product/454/7873)，这里以 [Professional](https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_Professional_Android_latest.zip) 为例。
 2. 找到并打开 `LiteAVSDK_Professional_Android版本号/MLVB-API-Example/Debug/src/main/java/com/tencent/mlvb/debug/GenerateTestUserSig.java` 文件。
-3. 根据上面 [服务开通](#step1) 设置 [GenerateTestUserSig.java](https://github.com/tencentyun/MLVBSDK/blob/master/Android/MLVB-API-Example/Debug/src/main/java/com/tencent/mlvb/debug/GenerateTestUserSig.java) 文件中的相关参数：
+3. 根据上面 [服务开通](#step1) 设置 [GenerateTestUserSig.java](https://github.com/LiteAVSDK/Live_Android/tree/main/MLVB-API-Example/Debug/src/main/java/com/tencent/mlvb/debug/GenerateTestUserSig.java) 文件中的相关参数：
   - SDKAPPID：默认为 PLACEHOLDER，请设置为实际的 SDKAppID。
   - SECRETKEY：默认为 PLACEHOLDER，请设置为实际的密钥信息。
 <img src="https://main.qcloudimg.com/raw/67e7a39541d3959fb90c76a633c822e2.png" width=700px>
@@ -54,12 +54,12 @@ trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&userId=A&usersig=xxxx
 
 [](id:step2_2_2)
 #### Demo 示例代码详解
-- URL 拼接流程，可以参考 [AddressUtils.java#generatePushUrl()](https://github.com/tencentyun/MLVBSDK/blob/master/Android/MLVB-API-Example/Debug/src/main/java/com/tencent/mlvb/debug/AddressUtils.java) 方法。
+- URL 拼接流程，可以参考 [AddressUtils.java#generatePushUrl()](https://github.com/LiteAVSDK/Live_Android/tree/main/MLVB-API-Example/Debug/src/main/java/com/tencent/mlvb/debug/AddressUtils.java) 方法。
 ![](https://main.qcloudimg.com/raw/5bea0fedc12ec8e248977bb6807bacaf.png)
 - 拼接好 URL 即可开始推流，可以在 MLVB-API-Example 中的 **连麦互动** 或者 **PK互动** 两处基础功能中体验：<br>
   <img src="https://main.qcloudimg.com/raw/4df35a3f2313089f27772b6e416c31dc.png" width=250px/>
 
-   这里代码示例以 [LivePKAnchorActivity.java#startPush()](https://github.com/tencentyun/MLVBSDK/blob/master/Android/MLVB-API-Example/Basic/LivePK/src/main/java/com/tencent/mlvb/linkpk/LivePKAnchorActivity.java) 为例：
+   这里代码示例以 [LivePKAnchorActivity.java#startPush()](https://github.com/LiteAVSDK/Live_Android/tree/main/MLVB-API-Example/Basic/LivePK/src/main/java/com/tencent/mlvb/linkpk/LivePKAnchorActivity.java) 为例：
 ```java
 // 拼接推流 URL
 String pushUrl = AddressUtils.generatePushUrl(mStreamId, mUserId, 0);
@@ -133,7 +133,7 @@ trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&userId=A&usersig=xxxx
 - 单击 **基础功能** > **直播拉流**，即可以到直播拉流界面，输入推流端的 streamId 即可观看。
 >? 在此之前，请参考 [跑通 Demo](https://cloud.tencent.com/document/product/454/60981) 配置好播放相关的 `PLAY_DOMAIN` 等信息。
 <img src="https://main.qcloudimg.com/raw/ddd1c8222a12ca496299cc9d7e028076.png" width=400px>
-- V2TXLivePlayer 的构造和播放相关的代码可以参考：[LivePlayActivity.java#startPlay()](https://github.com/tencentyun/MLVBSDK/blob/master/Android/MLVB-API-Example/Basic/LivePlay/src/main/java/com/tencent/mlvb/liveplay/LivePlayActivity.java)。
+- V2TXLivePlayer 的构造和播放相关的代码可以参考：[LivePlayActivity.java#startPlay()](https://github.com/LiteAVSDK/Live_Android/tree/main/MLVB-API-Example/Basic/LivePlay/src/main/java/com/tencent/mlvb/liveplay/LivePlayActivity.java)。
 ```
 // 随机生成一个 userId
 String userId = String.valueOf(new Random().nextInt(10000));
@@ -145,7 +145,7 @@ mLivePlayer.setRenderView(mPlayRenderView);
 int result = mLivePlayer.startPlay(playURL);
 Log.d(TAG, "startPlay : " + result);
 ```
-其中 URL 的生成可以按照 [AddressUtils.java#generatePlayUrl()](https://github.com/tencentyun/MLVBSDK/blob/master/Android/MLVB-API-Example/Debug/src/main/java/com/tencent/mlvb/debug/AddressUtils.java) 拼接：
+其中 URL 的生成可以按照 [AddressUtils.java#generatePlayUrl()](https://github.com/LiteAVSDK/Live_Android/tree/main/MLVB-API-Example/Debug/src/main/java/com/tencent/mlvb/debug/AddressUtils.java) 拼接：
 ![](https://main.qcloudimg.com/raw/feac9aaf9a5e03842fa017854bb9ec74.png)
 
 [](id:que)

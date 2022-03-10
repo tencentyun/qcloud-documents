@@ -35,7 +35,7 @@ dependencies {
 
 #### 1. 下载 SDK
 
-单击下载最新版 [TEduBaord SDK](https://tic-res-1259648581.cos.ap-shanghai.myqcloud.com/sdk/Android.zip) 。前往 [即时通讯官网](https://cloud.tencent.com/document/product/269/36887) 下载 TIMSDK。
+单击下载最新版 [TEduBaord SDK](https://tic-res-1259648581.cos.ap-shanghai.myqcloud.com/sdk/Android.zip) 。前往 [即时通信 IM](https://cloud.tencent.com/document/product/269/36887) 下载 TIMSDK。
 
 #### 2. 导入 SDK
 

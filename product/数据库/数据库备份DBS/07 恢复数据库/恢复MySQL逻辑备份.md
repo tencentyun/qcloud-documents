@@ -1,9 +1,13 @@
 
 ## 操作场景
-本场景介绍恢复 MySQL 逻辑备份到腾讯云 MySQL 数据库中。
+本场景介绍恢复逻辑备份到腾讯云 MySQL 数据库的操作指导，因为如下场景的操作和要求类似，本章节仅选取 MySQL 逻辑备份恢复到腾讯云 MySQL 作为示例。
+
+- MySQL 逻辑备份恢复到腾讯云 MySQL（示例）
+- MariaDB 逻辑备份恢复到腾讯云 MySQL
+- Percona 逻辑备份恢复到腾讯云 MySQL
 
 ## 前提条件
-- 恢复目标数据库符合备份功能和版本要求，请参见 [支持的备份能力](https://cloud.tencent.com/document/product/1513/64026) 进行核对。
+- 恢复目标数据库符合备份功能和版本要求，请参见 [备份和恢复能力汇总](https://cloud.tencent.com/document/product/1513/64026) 进行核对。
 - 恢复账号需要具备目标数据库的如下对应权限。
 ALTER, ALTER ROUTINE, CREATE, CREATE ROUTINE, CREATE TEMPORARY TABLES, CREATE USER, CREATE VIEW, DELETE, DROP, EVENT, EXECUTE, INDEX, INSERT, LOCK TABLES, PROCESS, REFERENCES, RELOAD, SELECT, SHOW DATABASES, SHOW VIEW, TRIGGER, UPDATE。 
 

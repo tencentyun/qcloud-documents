@@ -51,4 +51,4 @@
 ## 开源社区
 更多长安链相关信息，欢迎关注长安链开源社区！
 - [长安链·ChainMaker 开源社区](https://chainmaker.org/)
-- [长安链·ChainMaker 文档地址](https://docs.chainmaker.org.cn/index.html)
+- [长安链·ChainMaker 文档地址](https://docs.chainmaker.org.cn/v1.2.0/html/intro/%E5%B9%B3%E5%8F%B0%E7%AE%80%E4%BB%8B.html)
