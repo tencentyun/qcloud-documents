@@ -31,7 +31,8 @@ TransferConfig transferConfig = new TransferConfig.Builder().build();
 //初始化 TransferManager
 TransferManager transferManager = new TransferManager(cosXmlService,
         transferConfig);
-String bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
+// 存储桶名称，由bucketname-appid 组成，appid必须填入，可以在COS控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
+String bucket = "examplebucket-1250000000";
 String cosPath = "exampleobject"; //对象在存储桶中的位置标识符，即称对象键
 String srcPath = new File(context.getCacheDir(), "exampleobject")
         .toString(); //本地文件的绝对路径
@@ -52,13 +53,15 @@ cosxmlUploadTask.setCosXmlResultListener(new CosXmlResultListener() {
 
     @Override
     public void onSuccess(CosXmlRequest request, CosXmlResult result) {
-        COSXMLUploadTask.COSXMLUploadTaskResult cOSXMLUploadTaskResult =
+        COSXMLUploadTask.COSXMLUploadTaskResult uploadResult =
                 (COSXMLUploadTask.COSXMLUploadTaskResult) result;
     }
+    // 如果您使用 kotlin 语言来调用，请注意回调方法中的异常是可空的，否则不会回调 onFail 方法，即：
+    // clientException 的类型为 CosXmlClientException?，serviceException 的类型为 CosXmlServiceException?
     @Override
     public void onFail(CosXmlRequest request,
-                       CosXmlClientException clientException,
-                       CosXmlServiceException serviceException) {
+                       @Nullable CosXmlClientException clientException,
+                       @Nullable CosXmlServiceException serviceException) {
         if (clientException != null) {
             clientException.printStackTrace();
         } else {
@@ -80,7 +83,8 @@ COS 支持为已存在的对象设置标签。通过为对象添加键值对作�
 
 [//]: # (.cssg-snippet-put-object-tagging)
 ```java
-String bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
+// 存储桶名称，由bucketname-appid 组成，appid必须填入，可以在COS控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
+String bucket = "examplebucket-1250000000";
 String cosPath = "exampleobject"; //对象在存储桶中的位置标识符，即称对象键
 PutObjectTaggingRequest putObjectTaggingRequest = new PutObjectTaggingRequest(bucket, cosPath);
 putObjectTaggingRequest.addTag("key", "value");
@@ -105,7 +109,8 @@ try {
 
 [//]: # (.cssg-snippet-get-object-tagging)
 ```java
-String bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
+// 存储桶名称，由bucketname-appid 组成，appid必须填入，可以在COS控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
+String bucket = "examplebucket-1250000000";
 String cosPath = "exampleobject"; //对象在存储桶中的位置标识符，即称对象键
 GetObjectTaggingRequest getObjectTaggingRequest = new GetObjectTaggingRequest(bucket, cosPath);
 try {
@@ -129,7 +134,8 @@ try {
 
 [//]: # (.cssg-snippet-delete-object-tagging)
 ```java
-String bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
+// 存储桶名称，由bucketname-appid 组成，appid必须填入，可以在COS控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
+String bucket = "examplebucket-1250000000";
 String cosPath = "exampleobject"; //对象在存储桶中的位置标识符，即称对象键
 DeleteObjectTaggingRequest deleteObjectTaggingRequest = new DeleteObjectTaggingRequest(bucket, cosPath);
 try {

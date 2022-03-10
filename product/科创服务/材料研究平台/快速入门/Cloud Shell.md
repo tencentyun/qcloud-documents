@@ -15,14 +15,45 @@
 
 ### mrp submit 命令参数
 
-|  **参数**    | **是否可选**                         | **参数释义**                                                     |
-| ---- | -------------------------------- | ------------------------------------------------------------ |
-| -n    | 可选                  | 指定腾讯云服务器 CVM 的数量，默认值为1。                                    |
-| -d   | 必填       | device 的缩写，指定腾讯云服务器 CVM 的机型。                      |
-| -c   | 可选 | 指定计费模式，当前包括竞价实例（SPOTPAID）和<br>按量计费（POSTPAID_BY_HOUR）两种取值，默认值为  POSTPAID_BY_HOUR。 |
-| -t   | 可选         | type 的缩写，指定计算软件的类型，包括 vasp_std、vasp_gam、<br>vasp_ncl 和 lammps 四种可选类型，默认值为 vasp_std |
-| -ppn  | 可选  | 指定计算时每台腾讯云服务器 CVM 使用的核数，默认值为当前机器的总核数。<br>对 GPU 版本的 VASP 计算，-ppn 的值始终等于 GPU 机型的卡数，不需要额外指定。  |
-| -in   | 可选                             | 提交 lammps 实验时使用，用于指定 lammps 计算时的 in 文件。<br>（为了保证实验的准确性，建议用户填写）。 |
+<table>
+<thead>
+<tr>
+<th width='10%'><strong>参数</strong></th>
+<th width='10%'><strong>是否可选</strong></th>
+<th width='80%'><strong>参数释义</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-n</td>
+<td>可选</td>
+<td>指定腾讯云服务器 CVM 的数量，默认值为1。</td>
+</tr>
+<tr>
+<td>-d</td>
+<td>必填</td>
+<td>device 的缩写，指定腾讯云服务器 CVM 的机型。</td>
+</tr>
+<tr>
+<td>-c</td>
+<td>可选</td>
+<td>指定计费模式，当前包括竞价实例（SPOTPAID）和<br>按量计费（POSTPAID_BY_HOUR）两种取值，默认值为  POSTPAID_BY_HOUR。</td>
+</tr>
+<tr>
+<td>-t</td>
+<td>可选</td>
+<td>type 的缩写，指定计算软件的类型，包括 vasp_std、vasp_gam、<br>vasp_ncl 和 lammps 四种可选类型，默认值为 vasp_std</td>
+</tr>
+<tr>
+<td>-ppn</td>
+<td>可选</td>
+<td>指定计算时每台腾讯云服务器 CVM 使用的核数，默认值为当前机器的总核数。<br>对 GPU 版本的 VASP 计算，-ppn 的值始终等于 GPU 机型的卡数，不需要额外指定。</td>
+</tr>
+<tr>
+<td>-in</td>
+<td>可选</td>
+<td>提交 lammps 实验时使用，用于指定 lammps 计算时的 in 文件。<br>（为了保证实验的准确性，建议用户填写）。</td>
+</tr>
+</tbody></table>
 
 ### 实验示例
 为了用户更好地理解提交实验指令，以下给出提交 VASP 和 LAMMPS 实验的示例：
@@ -35,5 +66,5 @@
 
 ## 步骤3：提交完成
 1. 用户编辑完成 mrp submit 命令，单击回车即可提交实验。
-2. 实验提交后，用户可在控制台 [实验列表](https://console.cloud.tencent.com/mrp) 页中查看实验状态，单击“实验名称”可查看实验计算详情。
+2. 实验提交后，用户可在控制台 [实验列表](https://console.cloud.tencent.com/mrp/workbench) 页中查看实验状态，单击“实验名称”可查看实验计算详情。
 3. 实验计算完成后，用户可查看并处理实验计算数据。详情请参见 [数据处理](https://cloud.tencent.com/document/product/1526/66698)。

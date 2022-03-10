@@ -36,6 +36,9 @@ unzip go2tencentcloud_tool.zip
 ```sh
 cd go2tencentcloud_tool
 ```
+<dx-alert infotype="explain" title="">
+`go2tencentcloud` 目录下的文件将不会被迁移，请勿将需迁移的文件放置在该目录下。
+</dx-alert>
 2. 在 `user.json` 文件中配置目标云服务器。
 请按照 [user.json 文件参数说明](https://cloud.tencent.com/document/product/213/65714#userJsonState) 配置必填项和所需项的值。请将对应参数值替换为您实际的配置参数，参考示例如下：
  - 示例1：将一台 Linux 源端主机迁移至腾讯云广州地域的一台云服务器中，`user.json` 文件配置为以下内容：

@@ -33,7 +33,7 @@
 >!目前只支持北京、上海、广州三个地域。其中广州四区为默认区域。
 
 1. 登录[ Serverless 应用控制台](https://console.cloud.tencent.com/sls?from=wpdocs), 单击**新建应用**。
-2. 选择**应用模版** > **快速部署一个WordPress框架**，单击**下一步**。
+2. 选择**应用模板** > **快速部署一个WordPress框架**，单击**下一步**。
 ![](https://main.qcloudimg.com/raw/69c8613f66c793d53afb879e5e11e4ae.png)
 3. 输入应用名。您可以选择使用默认的或连接自建数据库和指定私有网络。
 <dx-tabs>

@@ -3,7 +3,7 @@
 >?添加 PTR 记录前需要先配置反向私有域解析。具体操作请参考 [反向解析及 PTR 记录说明](https://cloud.tencent.com/document/product/1338/50546)。
 
 ## 前提条件
-- 已创建对应的私有域。
+- 已创建对应的私有域。详情请查看 [创建私有域](https://cloud.tencent.com/document/product/1338/50532)。
 - 已配置反向私有域解析。
 
 ## 操作步骤

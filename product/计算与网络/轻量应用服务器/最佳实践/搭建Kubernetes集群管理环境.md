@@ -46,7 +46,7 @@ Kubernetes Dashboard 默认端口为9090。
 ## 相关操作
 
 ### 增加集群节点
-使用 K3s 应用镜像创建的实例即为集群 master 节点。您可参考本步骤，向集群中增加其他节点。
+使用 K3s 应用镜像创建的实例即为集群 Master 节点。您可参考本步骤，向集群中增加其他 Node 节点。
 
 1. 进入实例详情页，选择**防火墙**页签，参考 [配置轻量应用服务器网络防火墙](#configFirewall) 步骤放通 `TCP:6443` 端口。
 2. 在“应用内软件信息”栏中，单击**登录**。
@@ -55,8 +55,9 @@ Kubernetes Dashboard 默认端口为9090。
 k3s-add-node {node-ip}
 ```
 <dx-alert infotype="explain" title="">
-- master 节点操作系统为 CentOS 8.2，建议您添加相似机型实例作为集群其他节点。如需创建实例，可选择在同地域下使用 CentOS 8.2 系统镜像参考 [快速创建 Linux 实例](https://cloud.tencent.com/document/product/1207/44548) 进行创建。
-- 建议 `node-ip` 使用同地域实例的内网 IP。若您需使用公网 IP，则请确保网络畅通。
+- Master 节点操作系统为 CentOS 8.2，建议您添加同地域同可用区下的其他轻量应用服务器实例作为集群 Node 节点。您可先使用 CentOS 8.2 系统镜像参考 [快速创建 Linux 实例](https://cloud.tencent.com/document/product/1207/44548) 创建实例，再通过以上命令将实例加入集群作为 Node 节点。
+- Node 节点需与 Master 节点内网互通。
+同账号下同一地域内的不同轻量应用服务器默认内网互通。更多轻量应用服务器内网连通能力介绍，请参见 [内网连通性说明](https://cloud.tencent.com/document/product/1207/50103#IntranetUnicom)。
 </dx-alert>
 示例命令如下：
 ```
@@ -73,6 +74,26 @@ root@10.0.5.158's password:
 </dx-alert>
 
 
+### 修改 NodePort
+默认 NodePort 范围为30000 - 32767。某些情况下，因为网络策略限制，您可能需要修改 NodePort 的端口范围，可参考以下步骤完成修改：
+
+1. 进入实例详情页，选择**防火墙**页签，参考 [配置轻量应用服务器网络防火墙](#configFirewall) 步骤放通修改的 NodePort。例如 `30000-42767` 端口。
+2. 在实例详情页的“远程登录”中，单击**登录**。
+3. 执行以下命令，编辑 `k3s.service` 配置文件。
+```
+sudo vi /etc/systemd/system/k3s.service
+```
+4. 按 **i** 进入编辑模式，找到 `ExecStart` 并增加 `--service-node-port-range` 参数指定 NodePort。例如：
+```
+ExecStart=/usr/local/bin/k3s server --write-kubeconfig-mode=644 --service-node-port-range=30000-42767
+```
+修改完成后，如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/f2942d70f5499b99eb1b93f26a2a2f3f.png)
+5. 按 **Esc** 输入 **:wq** 保存修改并退出编辑模式。
+6. 执行以下命令，并输入 `root` 账户密码重启 K3s 服务，使配置生效。
+```shell
+systemctl daemon-reload && systemctl restart k3s
+```
 
 
 ### 域名与 DNS 解析设置

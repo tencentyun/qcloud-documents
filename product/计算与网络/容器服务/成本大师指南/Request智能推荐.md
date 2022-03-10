@@ -1,6 +1,5 @@
 
 ## Request 智能推荐
->? Request 智能推荐功能目前处于内部邀请使用阶段，如需使用可 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请。
 
 
 ### 介绍

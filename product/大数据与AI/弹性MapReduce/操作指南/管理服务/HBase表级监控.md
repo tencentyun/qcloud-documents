@@ -1,7 +1,7 @@
 ## 功能说明
-Hbase 表级监控提供了 HBASE 中各表的读写请求数以及表存储情况的监控。
+HBase 表级监控提供了 HBase 中各表的读写请求数以及表存储情况的监控。
 ## HBase表负载列表
-1. 登录 [EMR 控制台](https://console.cloud.tencent.com/emr)，在集群列表中单击对应的集群** ID/名称**进入集群详情页。
+1. 登录 [EMR 控制台](https://console.cloud.tencent.com/emr)，在集群列表中单击对应的**集群ID/名称**进入集群详情页。
 2. 在集群详情页中单击集群服务，然后选择 HBase 组件右上角**操作 > 表级监控**，即可进行相关 HBase 表负载查询。
 ![](https://qcloudimg.tencent-cloud.cn/raw/a10a518079e131cdb560cf9ef5eeca12.png)
 

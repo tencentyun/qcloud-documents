@@ -1,22 +1,61 @@
-## 问题描述
-用户使用容器服务 TKE 时，会遇到因 CLB 回环问题导致服务访问不通或访问 Ingress 存在几秒延时的现象，本文档介绍该问题的相关现象、原因，并提供解决方法。
+## 背景
+为了使集群内的业务通过 CLB 访问 LoadBalancer 类型的 Service 时链路更短，性能更好，社区版本的 Kube-Proxy 在 IPVS 模式下会将 CLB IP 绑定到本地 dummy 网卡，使得该流量在节点发生短路，不再经过 CLB，直接在本地转发到 Endpoint。但这种优化行为和腾讯云 CLB 的健康检查机制会产生冲突，下面将做具体分析，并给出对应解法。
+
+同样，用户使用容器服务 TKE 时，会遇到因 CLB 回环问题导致服务访问不通或访问 Ingress 存在几秒延时的现象。本文档介绍该问题的相关现象、原因，并提供解决方法。
 
 
 ## 现象描述
 
 CLB 回环问题可能导致存在以下现象：
 
-- 无论是 iptables 或是 ipvs 模式，访问本集群内网 Ingress 会出现4秒延时或不通。
-- ipvs 模式下，集群内访问本集群 LoadBanacer 类型的内网 Service 出现完全不通，或者联通不稳定。
+- 无论是 IPtables 或是 IPVS 模式，访问本集群内网 Ingress 会出现4秒延时或不通。
+- IPVS 模式下，集群内访问本集群 LoadBanacer 类型的内网 Service 出现完全不通，或者联通不稳定。
+
+## 规避方法
+
+### 避免四层回环问题
+>? 避免四层回环问题需要 CLB 支持 [健康检查源 IP 支持非 VIP](https://cloud.tencent.com/document/product/214/65860)，该功能目前处于内测中，如需使用可通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 来联系我们。
+>
+
+
+解决使用 Service 时可能遇到的回环问题，步骤如下：
+
+1. 检查 kube-proxy 的版本是否是最新版本，如果不是请参照如下步骤升级：
+   1. 解决该问题需要 kube-proxy 支持把 LB 地址绑定到 IPVS 网卡，可以在 [TKE Kubernetes Revision 版本历史](https://cloud.tencent.com/document/product/457/9315) 里找到支持该能力的版本号，例如：v1.20.6-tke.12、v1.18.4-tke.20、v1.16.3-tke.25、v1.14.3-tke.24、v1.12.4-tke.30。后续更大的版本号也支持该能力：![](https://qcloudimg.tencent-cloud.cn/raw/aba40d48b7fccf1c95a881cb974eb47a.png)
+   2. 确定集群的版本：您可以在集群里面的**基本信息**页查看到当前集群的版本号，如下图所示的集群是1.18.4的版本：![](https://qcloudimg.tencent-cloud.cn/raw/6d3c6043338281346fae36d8dac3a851.png)
+   3. 找到 kube-system 命名空间下面名为 kube-proxy 的 DaemonSet，更新其镜像的版本号，选择支持该能力的版本号，或者大于该版本号的版本。例如，1.18 版本的集群要选择的镜像版本号要大于 v1.18.4-tke.20。如下图所示：![](https://qcloudimg.tencent-cloud.cn/raw/92869bbbb1dae714164390b7928a335f.png)
+
+2. 为所有的 Service 添加注解：
+   `service.cloud.tencent.com/prevent-loopback: "true"`
+
+   效果：
+   * kube-proxy 将据此信息将 CLB VIP 绑定到本地 —— 解决回环问题
+   * service-controller 将调用 CLB 接口，将其健康探测 IP 改为 100.64 网段 IP ——解决健康检查问题
+
+### 避免七层回环问题
+
+解决使用 Ingress 时可能遇到的回环问题，步骤如下：
+
+1.  [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通 CLB 7层 SNAT 和 Keep Alive 能力的白名单。
+>! 该能力将启用长连接，CLB 与后端服务之间使用长连接，CLB 不再透传源 IP，请从 XFF 中获取源 IP。为保证正常转发，请在 CLB 上打开安全组默认放通或者在 CVM 的安全组上放通 100.127.0.0/16。更多请参考 [配置监听器](https://cloud.tencent.com/document/product/214/36384#.E6.AD.A5.E9.AA.A4.E4.B8.80.EF.BC.9A.E9.85.8D.E7.BD.AE.E7.9B.91.E5.90.AC.E5.99.A8)。
+
+2. 利用 TkeServiceConfig 的能力增强 Ingress 的配置能力,对于存量的 Ingress，需要添加一个 annotation：`ingress.cloud.tencent.com/tke-service-config-auto: "true"`，[Ingress Annotation 说明](https://cloud.tencent.com/document/product/457/56112) 可以参考下图：
+   ![](https://qcloudimg.tencent-cloud.cn/raw/b8d84d9072d8b81877e51d513b1be8e9.png)
+   **目的**：为该 Ingress 自动生成对应的 TkeServiceConfig，提供 Ingress 额外的配置
+   **效果**：该 Ingress 会生成一个名为：<IngressName>-auto-ingress-config 的 TkeServiceConfig 类型资源
+
+3. 在生成名为：<IngressName>-auto-ingress-config 的 TkeServiceConfig 里面添加一个字段，字段名为 `spec.loadBalancer.l7Listeners[].keepaliveEnable`，字段值为1。注意每一个端口都需要添加该字段，如下图所示：
+ ![](https://qcloudimg.tencent-cloud.cn/raw/c1d578803b4ff850ba4492b1fa278477.png)
+    更多请参考 [Ingress 使用 TkeServiceConfig 配置 CLB](https://cloud.tencent.com/document/product/457/45700)。
+
+
 
 ## 问题原因
 
 根本原因在于 CLB 将请求转发到后端 RS 时，报文的源目的 IP 都在同一节点内，而 Linux 默认忽略收到源 IP 是本机 IP 的报文，导致数据包在子机内部回环，如下图所示：
 ![](https://main.qcloudimg.com/raw/7cdff4fde69e4e95e75002ae47379d01.png)
 
-
-
-### 分析 Ingress 回环
+### 分析七层回环问题
 
 使用 TKE CLB 类型的 Ingress，会为每个 Ingress 资源创建一个 CLB 以及80、443的7层监听器规则（HTTP/HTTPS），并为 Ingress 每个 location 绑定对应 TKE 各个节点某个相同的 NodePort 作为 RS（每个 location 对应一个 Service，每个 Service 都通过各个节点的某个相同 NodePort 暴露流量），CLB 根据请求匹配 location 转发到相应的 RS（即 NodePort），流量经过 NodePort 后会再经过 Kubernetes 的 iptables 或 ipvs 转发给对应的后端 Pod。集群中的 Pod 访问本集群的内网 Ingress，CLB 将请求转发给其中一台节点的对应 NodePort：
 ![img](https://main.qcloudimg.com/raw/cf3003d32c45aeea25330400e4827ad7.png)
@@ -29,7 +68,7 @@ CLB 回环问题可能导致存在以下现象：
 访问集群内 Ingress 的故障现象大多为几秒延时，原因是7层 CLB 如果请求 RS 后端超时（大概4s），会重试下一个 RS，所以如果 Client 设置的超时时间较长，出现回环问题的现象就是请求响应慢，有几秒的延时。如果集群只有一个节点，CLB 没有可以重试的 RS，则现象为访问不通。
 
 
-### 分析 LoadBalancer Service 回环
+### 分析四层回环问题
 
 当使用 LoadBalancer 类型的内网 Service 时暴露服务时，会创建内网 CLB 并创建对应的4层监听器（TCP/UDP）。当集群内 Pod 访问 LoadBalancer 类型 Service 的 `EXTERNAL-IP` 时（即 CLB IP），原生 Kubernetes 实际上不会去真正访问 LB，而是直接通过 iptables 或 ipvs 转发到后端 Pod （不经过 CLB），如下图所示：
 ![](https://main.qcloudimg.com/raw/c116a45c8cf269764e31d4317d31c366.png)
@@ -85,7 +124,7 @@ TKE 通常用的 Global Router 网络模式（网桥方案），还有一种是 
 
 访问集群内服务尽量使用 Service 名称，例如 `server.prod.svc.cluster.local` ，通过这样的配置将不会经过 CLB，也不会导致回环问题。
 
-如果业务有耦合域名，不能使用 Service 名称，可以使用 coredns 的 rewirte 插件，将域名指向集群内的 Service，coredns 配置示例如下：
+如果业务有耦合域名，不能使用 Service 名称，可以使用 coredns 的 rewrite 插件，将域名指向集群内的 Service，coredns 配置示例如下：
 ```yaml
 apiVersion: v1
 kind: ConfigMap

@@ -1,7 +1,7 @@
 腾讯云 Elasticsearch Service 白金版中支持了 X-Pack Watcher 特性，通过添加触发器、操作等配置，可以实现当条件满足时执行某些特定操作。例如当检测到索引中出现错误日志时自动发送告警。本文介绍如何配置企业微信机器人接收 Watcher 发出的告警。
->!
-- X-Pack Watcher 特性仅在白金版中提供。
-- 由于腾讯云 Elasticsearch Service 网络架构调整，仅2020年6月及之后创建的实例支持配置企业微信机器人接收 Watcher 告警。
+>! 
+>- X-Pack Watcher 特性仅在白金版中提供。
+>- 由于腾讯云 Elasticsearch Service 网络架构调整，仅2020年6月及之后创建的实例支持配置企业微信机器人接收 Watcher 告警。
 
 ## 背景信息
 一个 Watcher 由4部分组成，具体如下：
@@ -61,13 +61,13 @@ server {
 /usr/local/webserver/nginx/sbin/nginx -s reload
 /usr/local/webserver/nginx/sbin/nginx -s reopen
 ```
-5. 配置 Watcher 报警规则。**此步骤可以在 Kibana 界面【Management】>【Watcher】选项中进行图形化操作。**
+5. 配置 Watcher 报警规则。**此步骤可以在 Kibana 界面 Management > Watcher 选项中进行图形化操作。**
 ![](https://main.qcloudimg.com/raw/125ca1068c3a8905212de5c158dd13c5.png)
  - `Create threshold alert` 在界面进行阈值告警设置。可以针对某索引的特定条件进行监控告警，例如 CPU 使用率、文档个数等，可以在下面的 Condition 选项作更细节的设置，参考如下：
 ![image](https://main.qcloudimg.com/raw/7035acfff95d603d797fa95d6ed6f9ec.png)
-单击右上角的【Add action】, 选择 “Wehhook”，相关设置如下：
+单击右上角的 **Add action**, 选择 “Wehhook”，相关设置如下：
 ![image](https://main.qcloudimg.com/raw/e4d83130fa2405c24722f3f950bb71d0.png)
-单击【Send request】可以进行测试，然后单击【Create alert】即可。
+单击 **Send request** 可以进行测试，然后单击 **Create alert** 即可。
  - `Create advanced watch` 通过 API 设置 Watcher 各参数，API 详情请参见 [PUT Watch](https://www.elastic.co/guide/en/elasticsearch/reference/6.8/watcher-api-put-watch.html)。
 6. 以上步骤配置完成后，即可在自己创建的企业微信群中接收到机器人发来的告警信息。
 ![](https://main.qcloudimg.com/raw/7b3bd3d2ab9c94c12f6260ff0a3e0dde.png)

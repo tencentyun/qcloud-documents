@@ -28,7 +28,7 @@ pod init
  platform :ios, '8.0'
   
   target 'App' do
-  pod 'TXLiteAVSDK_TRTC', :podspec => 'http://pod-1252463788.cosgz.myqcloud.com/liteavsdkspec/TXLiteAVSDK_TRTC.podspec'
+  pod 'TXLiteAVSDK_TRTC', :podspec => 'https://liteav.sdk.qcloud.com/pod/liteavsdkspec/TXLiteAVSDK_TRTC.podspec'
   end
 ```
 
@@ -37,7 +37,7 @@ pod init
  platform :ios, '8.0'
   
   target 'App' do
-  pod 'TXLiteAVSDK_Professional', :podspec => 'http://pod-1252463788.cosgz.myqcloud.com/liteavsdkspec/TXLiteAVSDK_Professional.podspec'
+  pod 'TXLiteAVSDK_Professional', :podspec => 'https://liteav.sdk.qcloud.com/pod/liteavsdkspec/TXLiteAVSDK_Professional.podspec'
   end
 ```
 
@@ -65,14 +65,16 @@ pod 命令执行完后，会生成集成了 SDK 的 .xcworkspace 后缀的工程
 >? 需要手动添加所需系统依赖库 **Accelerate.framework**。
 
 ### 手动集成
-1. 下载 [TRTC - SDK ](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/SDK) ，下载完成后进行解压。
+1. 下载 [TRTC - SDK ](https://github.com/LiteAVSDK/TRTC_iOS/tree/main/SDK) ，下载完成后进行解压。
 2. 打开您的 Xcode 工程项目，选择要运行的 target , 选中 **Build Phases** 项。
  ![](https://main.qcloudimg.com/raw/85509cc24bd958e7b9978e11937597c5.png)
 3. 单击 **Link Binary with Libraries** 项展开，单击底下的“+”号图标去添加依赖库。
  ![](https://main.qcloudimg.com/raw/54be71cc14ec79ce642216612544a8a4.png)
 4. 依次添加所下载的 TRTC SDK Framework 及其所需依赖库 **libc++.tbd** 、**Accelerate.framework** 和 **libresolv.tbd**、**AVFoundation.framework**。
  ![](https://main.qcloudimg.com/raw/2fa94b7f81c7e9c4ac09733782e79c10.png)
-
+5. **TRTC SDK  9.5.11234 及以上版本** 需要添加动态库依赖。
+单击 **General**，选择 **Frameworks,Libraries,and Embedded Content**，单击底下的“+”号图标依次添加 TXLiteAVSDK_TRTC.framework 所需要动态库 **BoringSSL.xcframework**、**FFmpeg.xcframework**、**SoundTouch.xcframework**，选择 **Embed & Sign**。
+![](https://qcloudimg.tencent-cloud.cn/raw/d37750717aa62594063674d535e9702f.png)
 
 ## 授权摄像头和麦克风使用权限
 使用 SDK 的音视频功能，需要授权麦克风和摄像头的使用权限。在 App 的 Info.plist 中添加以下两项，分别对应麦克风和摄像头在系统弹出授权对话框时的提示信息。
@@ -110,6 +112,6 @@ using namespace trtc;
 >? 对于 C++ 接口的使用方式，请参见 [全平台（C++）API 概览](https://cloud.tencent.com/document/product/647/32268)。
 
 ## 常见问题
-### 1. TRTC SDK 是否支持后台运行？
+### TRTC SDK 是否支持后台运行？
 支持，如需要进入后台仍然运行相关功能，可选中当前工程项目，在 **Capabilities** 下的设置  **Background Modes** 打开为 **ON**，并勾选 **Audio，AirPlay and Picture in Picture** ，如下图所示：
 ![](https://main.qcloudimg.com/raw/d960dfec88388936abce2d4cb77ac766.jpg)

@@ -10,6 +10,8 @@
 • HMAC-SHA256
 • BASE64
 
+>?仅限企业版应用此功能。
+
 ## 如何接入
 
 ### 获取 accessId/token
