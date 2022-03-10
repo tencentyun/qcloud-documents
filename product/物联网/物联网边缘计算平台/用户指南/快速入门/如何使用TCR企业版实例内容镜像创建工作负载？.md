@@ -20,7 +20,7 @@
 容器镜像托管在具体的镜像仓库内，请参考 [创建镜像仓库](https://cloud.tencent.com/document/product/1141/41811#.E5.88.9B.E5.BB.BA.E9.95.9C.E5.83.8F.E4.BB.93.E5.BA.93) 按需完成创建。镜像仓库名称请设置为期望部署的容器镜像名称，本文以 getting-started 为例。创建成功后如下图所示：
 >? 通过 dockercli 或其他镜像工具，例如 Jenkins 推送镜像至企业版实例内时，若镜像仓库不存在，将会自动创建，无需提前手动创建。
 >
-![](https://qcloudimg.tencent-cloud.cn/raw/d39bdcfa85efbcdddf454e06747fc61e.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/bc6ed32cc7206f316bc77a46dd1de5f5.png)
 
 #### 推送容器镜像
 您可通过 docker cli 或其他镜像构建工具，例如 jenkins 推送镜像至指定镜像仓库内，本文以 docker cli 为例。此步骤需要您使用一台安装有 Docker 的云服务器或物理机，并确保访问的客户端已在 [配置网络访问策略](https://cloud.tencent.com/document/product/1141/41836) 定义的公网或内网允许访问范围内。
