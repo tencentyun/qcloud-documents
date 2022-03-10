@@ -193,11 +193,11 @@ DNSSEC (DNS Security Extension，DNS 安全扩展) 通过数字签名对 DNS 数
 自定义名称服务器允许您创建自己站点专属的名称服务器，以替代所分配默认名称服务器。创建后 EdgeOne 会自动为自定义 NS 分配对应的 IP 地址。
 >?自定义 NS 服务器有如下限制：
 >- 只能以当前站点 (example.com) 的子域名 (ns.example.com) 作为自定义 NS。
->-  自定义 NS 需至少有 2 个，最多可添加 5 个。
+>- 自定义 NS 需至少有 2 个，最多可添加 5 个。
+>- 首次开启需添加两个自定义 NS 域名，自定义名称不能和现有 DNS 记录冲突。
 
 1. 在 [DNS 服务页面](https://console.cloud.tencent.com/edgeone/dns?tab=config)，选择所需站点，单击**高级配置** 。
 2. 在高级配置页面，单击自定义 NS 服务模块的![](https://qcloudimg.tencent-cloud.cn/raw/20efaa7f4ecc99b93da623f1c61784ac.png)，输入自定义 NS 域名，单击**添加**。
->?首次开启需添加两个自定义 NS 域名，自定义名称不能和现有 DNS 记录冲突。
 3. 添加成功后，**需要在域名注册商添加该自定义 NS 的胶水记录，才能真正生效**。
 
 ### CNAME 加速
