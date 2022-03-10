@@ -1,4 +1,4 @@
-在 NS 接入方式下，支持通过修改 NS 记录，将 DNS 解析权转移给 EdgeOne，实现稳定专业的解析服务的同时，一键开启 EdgeOne 安全/加速服务。
+在[ NS 接入方式](https://cloud.tencent.com/document/product/1552/70825#NS) 下，支持通过修改 NS 记录，将 DNS 解析权转移给 EdgeOne，实现稳定专业的解析服务的同时，一键开启 EdgeOne 安全/加速服务。
 
 ## 记录管理
 EdgeOne DNS 支持多种记录类型的智能解析服务，根据用户所在地理位置及运营商智能返回最佳解析线路。
@@ -39,7 +39,7 @@ EdgeOne DNS 支持多种记录类型的智能解析服务，根据用户所在�
 </tr>
 <tr>
 <td align="left">TXT</td>
-<td align="left">ba21a62exxxxxxxxxxcf5f06exxxb9cb</td>
+<td align="left">ba21a62exxxxxxxxxxcf5f06e</td>
 <td align="left">对域名进行标识和说明，常用于域名验证和 SPF 记录（反垃圾邮件）</td>
 </tr>
 <tr>
