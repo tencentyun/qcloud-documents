@@ -17,7 +17,7 @@
 1. 登录 [边缘安全加速平台控制台](https://console.cloud.tencent.com/teo) ，在左侧菜单栏中，单击**站点加速** > **缓存配置**。
 2. 在缓存配置页面，选择所需站点，单击预热 URL 模块的**预热资源**。
 3. 在预热 URL 弹窗中，输入或上传 URL，单击**确认预热**。
-![](https://qcloudimg.tencent-cloud.cn/raw/6117e8f3366dca418aa914b2ed59c483.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/ab194cdef6adb850913a376152daf064.png)
  
 ## 注意事项
 ### 内容规范
