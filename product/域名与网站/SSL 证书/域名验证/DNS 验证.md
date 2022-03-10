@@ -21,7 +21,7 @@
 >?DNS 记录仅支持 CNAME 及 TXT 记录类型，且不同记录类型适用不同的品牌证书，请结合实际情形进行选择。
 >
 <dx-tabs>
-::: TrustAsia 、Wotrus\s品牌证书（免费证书）
+::: TrustAsia 、Wotrus\s品牌证书
 TrustAsia 、Wotrus品牌证书需填写记录类型为 CNAME 的解析记录。如下图所示：
 ![](https://main.qcloudimg.com/raw/a3b57cc3d516d7b6320af4fea47b7dd3.png)
  - **主机记录**：请按照 [步骤1](#details) 执行并获取主机记录值。
