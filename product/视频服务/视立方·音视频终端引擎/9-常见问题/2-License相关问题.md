@@ -97,9 +97,9 @@
 <img src="https://main.qcloudimg.com/raw/7423d2e7912de344052c7891629d528b.png" width=400px>
 
 #### 问题解析：
-音视频终端引擎控制台需要主账号为子账号独立进行授权策略后方可访问控制台页面。
-- 若您仅需要提供子账号访问音视频终端引擎控制台只读的权限，请授权 QcloudVCUBEReadOnlyAccess 策略。
-- 若您需要提供子账访问音视频终端引擎号所有操作权限，请授权 QcloudVCUBEFullAccess 策略。
+音视频终端 SDK 控制台需要主账号为子账号独立进行授权策略后方可访问控制台页面。
+- 若您仅需要提供子账号访问音视频终端 SDK 控制台只读的权限，请授权 QcloudVCUBEReadOnlyAccess 策略。
+- 若您需要提供子账访问音视频终端 SDK 号所有操作权限，请授权 QcloudVCUBEFullAccess 策略。
 为用户/用户组关联策略以授权相关操作权限的关联指引请参见 [策略授权管理](https://cloud.tencent.com/document/product/598/10602)。
 
 #### 相关问题：
@@ -107,5 +107,5 @@
 - [子账户为什么无法访问点播控制台 License 相关界面？](https://cloud.tencent.com/document/product/266/50296#que12)
 
 [](id:que14)
-### 为什么接收不到音视频终端引擎产品和 License 相关消息通知？
-您可以通过在 [消息订阅](https://console.cloud.tencent.com/message/subscription) 中订阅音视频终端引擎，配置**站内信**/**邮件**/**短信**/**微信**/**企微**等消息接收渠道，接收正式版 License 到期提醒。正式版 License 将在到期时间距离当前时间为30天、15天、7天、1天时各向您发送一次到期提醒，提示您及时续费以免影响正常业务运行。
+### 为什么接收不到音视频终端 SDK 产品和 License 相关消息通知？
+您可以通过在 [消息订阅](https://console.cloud.tencent.com/message/subscription) 中订阅音视频终端 SDK，配置**站内信**/**邮件**/**短信**/**微信**/**企微**等消息接收渠道，接收正式版 License 到期提醒。正式版 License 将在到期时间距离当前时间为30天、15天、7天、1天时各向您发送一次到期提醒，提示您及时续费以免影响正常业务运行。
