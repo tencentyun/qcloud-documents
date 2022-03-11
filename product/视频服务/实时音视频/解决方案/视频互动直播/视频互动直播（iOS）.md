@@ -18,7 +18,7 @@
 [](id:ui.step1)
 ### 步骤1：创建新的应用
 1. 登录实时音视频控制台，选择**开发辅助** > **[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)**。
-2. 输入应用名称，例如 `TestLiveRoom`，单击**创建**。
+2. 输入应用名称，例如 `TestLiveRoom` ，单击**创建**。
 3. 单击**已下载，下一步**，跳过此步骤。
 
 ![](https://main.qcloudimg.com/raw/a4f5a2ac1f49d67b4c6968d8b22cdeb0.png)
@@ -86,7 +86,7 @@
 
 ## 房间状态监听&PK 列表接入
 房间状态可使用 `TRTCLiveRoom` 进行监听，如下：
-```objc
+```objectivec
  //////////////////////////////////////////////////////////
  //
  //                  房间管理相关
@@ -150,7 +150,7 @@ NS_SWIFT_NAME(getRoomInfos(roomIDs:callback:));
 1. 将工程目录下的 `Source`、`Resources`、`TCBeautyKit`、`TXAppBasic` 文件夹、`TUILiveRoom.podspec` 文件拷贝到您的工程目录下。
 2. 在您的 `Podfile` 文件中添加以下依赖。之后执行 `pod install` 命令，完成导入。
 
-```swift
+```swift\
 # :path => "指向TXAppBasic.podspec所在目录的相对路径"
 pod 'TXAppBasic', :path => "TXAppBasic/"
 
@@ -161,16 +161,17 @@ pod 'TCBeautyKit', :path => "TCBeautyKit/"
 pod 'TUILiveRoom', :path => "./", :subspecs => ["TRTC"]
 ```
 
->!  `Source`、`Resources`文件夹 和 `TUILiveRoom.podspec` 文件必需在同一目录下。
-> TXAppBasic.podspec 在TXAppBasic文件夹下。
-> TCBeautyKit.podspec 在TCBeautyKit文件夹下。
+>! 
+>-  `Source`、`Resources`文件夹 和 `TUILiveRoom.podspec` 文件必需在同一目录下。
+>-  TXAppBasic.podspec 在TXAppBasic文件夹下。
+>-  TCBeautyKit.podspec 在TCBeautyKit文件夹下。
 
 [](id:model.step3)
 ### 步骤3：创建并登录组件
 1. 调用 TRTCLiveRoom 的 `init` 接口可以创建一个 TRTCLiveRoom 组件的实例对象。
 2. 创建一个 `TRTCLiveRoomConfig` 对象，该对象可以设置  useCDNFirst 和 CDNPlayDomain 属性：
- - **useCDNFirst 属性**：用于设置观众观看方式。true 表示普通观众通过 CDN 观看，计费便宜但延时较高。false 表示普通观众通过低延时观看，计费价格介于 CDN 和连麦之间，但延迟可控制在1s以内。
- - **CDNPlayDomain 属性**：在 useCDNFirst 设置为 true 时才会生效，用于指定 CDN 观看的播放域名，您可以登录直播控制台 >**[域名管理](https://console.cloud.tencent.com/live/domainmanage)**页面中进行设置。
+ - useCDNFirst 属性：用于设置观众观看方式。true 表示普通观众通过 CDN 观看，计费便宜但延时较高。false 表示普通观众通过低延时观看，计费价格介于 CDN 和连麦之间，但延迟可控制在1s以内。
+ - CDNPlayDomain 属性：在 useCDNFirst 设置为 true 时才会生效，用于指定 CDN 观看的播放域名，您可以登录直播控制台 >**[域名管理](https://console.cloud.tencent.com/live/domainmanage)**页面中进行设置。
 3. 调用 `login` 函数完成组件的登录，请参考下表填写关键参数：
 <table> 
 <tr>
@@ -193,7 +194,7 @@ pod 'TUILiveRoom', :path => "./", :subspecs => ["TRTC"]
 <td>config</td>
 <td>全局配置信息，请在登录时初始化，登录之后不可变更。<ul style="margin:0;">
 <li>useCDNFirst 属性：用于设置观众观看方式。true 表示普通观众通过 CDN 观看，计费便宜但延时较高。false 表示普通观众通过低延时观看，计费价格介于 CDN 和连麦之间，但延迟可控制在1s以内。</li>
-<li>CDNPlayDomain 属性：在 useCDNFirst 设置为 true 时才会生效，用于指定 CDN 观看的播放域名，您可以登录<b>直播控制台 > <a href="https://console.cloud.tencent.com/live/domainmanage">域名管理</a></b> 页面中进行设置。</li>
+<li>CDNPlayDomain 属性：在 useCDNFirst 设置为 true 时才会生效，用于指定 CDN 观看的播放域名，您可以登录直播控制台 >**<a href="https://console.cloud.tencent.com/live/domainmanage">域名管理</a>**页面中进行设置。</li>
 </ul></td>
 </tr>
 <tr>
@@ -222,7 +223,7 @@ pod 'TUILiveRoom', :path => "./", :subspecs => ["TRTC"]
 ### 步骤4：主播端开播
 1. 主播执行 [步骤4](#model.step4) 登录后，可以调用 `setSelfProfile` 设置自己的昵称和头像。
 2. 主播在开播前可先调用 `startCameraPreview` 开启摄像头预览，界面上可以配置美颜调节按钮调用，通过 `getBeautyManager` 进行美颜设置。
->?非企业版 SDK 不支持变脸和贴图挂件等高级美颜功能。
+ >?非企业版 SDK 不支持变脸和贴图挂件等高级美颜功能。
 3. 主播调整美颜效果后，可以调用 `createRoom` 创建新的直播间。
 4. 主播调用 `startPublish` 开始推流。如需支持 CDN 观看，请在 login 时传入的 `TRTCLiveRoomConfig` 参数中指定 `useCDNFirst` 和 `CDNPlayDomain` 并在 `startPublish` 时指定直播拉流用的 streamID。
 
