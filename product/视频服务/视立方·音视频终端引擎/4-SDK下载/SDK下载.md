@@ -5,7 +5,7 @@
 <table id="download">
 <thead>
 <tr style="text-align:center">
-<th colspan="2" width="25%">音视频终端引擎版本</th>
+<th colspan="2" width="25%">音视频终端 SDK 版本</th>
 <th style="text-align:center">基础直播<br>Smart</th>
 <th style="text-align:center">互动直播<br>Live</th>
 <th style="text-align:center">短视频<br>UGSV</th>
@@ -101,7 +101,7 @@
 
 ### 基础直播 Smart
 
-基础直播 Smart 是腾讯视立方·音视频终端引擎版本之一，包含**主播开播**和**直播观看**两个功能模块。
+基础直播 Smart 是音视频终端 SDK 版本之一，包含**主播开播**和**直播观看**两个功能模块。
 
 ### 互动直播 Live
 
