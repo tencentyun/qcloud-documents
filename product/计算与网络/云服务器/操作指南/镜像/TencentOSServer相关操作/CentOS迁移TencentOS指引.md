@@ -67,6 +67,9 @@ uname -r
 ```
 返回如下图所示信息：
 ![](https://qcloudimg.tencent-cloud.cn/raw/cb34dbe478757069a4d3136a9384f711.png)
+<dx-alert infotype="explain" title="">
+内核默认为 yum 最新版本，请以您的实际返回结果为准，本文以图示版本为例。
+</dx-alert>
   3. 执行以下命令，检查 yum。
 ```shell
 yum makecache
@@ -110,6 +113,9 @@ uname -r
 ```
 返回如下图所示信息：
 ![](https://qcloudimg.tencent-cloud.cn/raw/9bba4c6112c4bec1482d827ad02a39d6.png)
+<dx-alert infotype="explain" title="">
+内核默认为 yum 最新版本，请以您的实际返回结果为准，本文以图示版本为例。
+</dx-alert>
   3. 执行以下命令，检查 yum。
 ```shell
 yum makecache
