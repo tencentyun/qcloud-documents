@@ -55,15 +55,15 @@
 ![](https://main.qcloudimg.com/raw/6a62f95943713c1a8a36779315d84194.png)
 >! 
 >**选择直播流量包仅用于直播推流 License（原移动直播基础版 License）绑定流量包的有效期，流量包的流量可用于当前账号所有 License 直播流量消耗。**
-	例如，您的标准直播服务是日结流量计费，在2021年08月01日 15:50:24购买了10TB的直播流量包，为直播 App 创建了直播推流 License A；在2021年09月01日 09：23:44购买了50TB的直播流量包，为另一个直播 App 创建了直播推流 License B。
-	则 A 和 B 可共用60TB的流量，其中10TB流量包于2022年08月01日 15:50:24到期，License A 都在2022年08月02日00:00:00到期；50TB流量包于2022年09月01日 09：23:44到期，License B 都在2022年09月02日00:00:00到期。
+  例如，您的标准直播服务是日结流量计费，在2021年08月01日 15:50:24购买了10TB的直播流量包，为直播 App 创建了直播推流 License A；在2021年09月01日 09：23:44购买了50TB的直播流量包，为另一个直播 App 创建了直播推流 License B。
+  则 A 和 B 可共用60TB的流量，其中10TB流量包于2022年08月01日 15:50:24到期，License A 都在2022年08月02日00:00:00到期；50TB流量包于2022年09月01日 09：23:44到期，License B 都在2022年09月02日00:00:00到期。
 4. 正式版 License 成功创建后，页面会显示生成的正式版 License 信息。在 SDK 初始化配置时需要传入 Key 和 License URL 两个参数，请妥善保存以下信息。
 ![](https://main.qcloudimg.com/raw/3335b76fb8558a3f967149c20bf73b90.png)
 
 
 [](id:update_formal)
 ### 更新正式版 License 有效期
-您可以登录  **直播 SDK**>**[License 管理](https://console.cloud.tencent.com/live/license)** 页面查看直播推流正式版 License（原直播基础版 License）的有效期，也可通过在 [消息订阅](https://console.cloud.tencent.com/message/subscription) 中订阅音视频终端引擎，配置**站内信**/**邮件**/**短信**/**微信**/**企微**等消息接收渠道，接收正式版 License 到期提醒。直播推流正式版 License 将在到期时间距离当前时间为30天、15天、7天、1天时各向您发送一次到期提醒，提示您及时续费以免影响正常业务运行。若您的直播推流正式版 License 已到期，可进行如下操作进行续期：
+您可以登录  **直播 SDK**>**[License 管理](https://console.cloud.tencent.com/live/license)** 页面查看直播推流正式版 License（原直播基础版 License）的有效期，也可通过在 [消息订阅](https://console.cloud.tencent.com/message/subscription) 中订阅音视频终端 SDK ，配置**站内信**/**邮件**/**短信**/**微信**/**企微**等消息接收渠道，接收正式版 License 到期提醒。直播推流正式版 License 将在到期时间距离当前时间为30天、15天、7天、1天时各向您发送一次到期提醒，提示您及时续费以免影响正常业务运行。若您的直播推流正式版 License 已到期，可进行如下操作进行续期：
 1. 购买指定规格的 [直播流量包](https://buy.cloud.tencent.com/vcube?sdk-version=2&function-module=LIVE)，赠送1年有效期的正式直播推流 License（原直播基础版 License）使用权限，具体价格请参见 [价格总览](https://cloud.tencent.com/document/product/454/8008)。
 2. 选择您需要更新有效期的 License，单击直播推流模块内的 **更新有效期**。
 ![](https://main.qcloudimg.com/raw/72e03f5ff392eac9e6d82cb20dcbf79d.png)
