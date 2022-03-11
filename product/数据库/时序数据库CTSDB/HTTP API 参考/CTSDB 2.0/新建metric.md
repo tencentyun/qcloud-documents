@@ -1,30 +1,16 @@
-## 新建metric
-
-- [请求地址](跳转超链接)
-- [请求路径和方法](跳转超链接)
-- [请求参数](跳转超链接)
-- [请求内容](跳转超链接)
-- [返回内容](跳转超链接)
-- [CURL 示例说明](跳转超链接)
-
-### 请求地址
-
+## 请求地址
 地址为实例的 IP 和 PORT，可从控制台获取到，例如10.13.20.15:9200。
 
-### 请求路径和方法
-
+## 请求路径和方法
 - 路径：`/_metric/${metric_name}`，`${metric_name}` 为新建的 metric 的名称。
 - 方法：PUT
 
-> 说明：
->
-> `metric` 命名限制请参见 [系统限制](跳转超链接)。
+>?`metric` 命名限制请参见 [系统限制](跳转超链接)。
 
-### 请求参数
-
+## 请求参数
 无
 
-### 请求内容
+## 请求内容
 
 | 参数名称 | 必选 | 类型 | 描述                                                         |
 | :------- | :--- | :--- | :----------------------------------------------------------- |
@@ -33,12 +19,9 @@
 | fields   | 否   | map  | 数据列，用于存储数据，为了节省空间，建议使用最适合实际业务使用的类型，支持的数据类型：string（字符串）、long、integer、short、byte、double、float、date、boolean。 例如`{"cpu_usage":"float"}` |
 | options  | 否   | map  | 常用的调优配置信息 例如`{"expire_day":7,"refresh_interval":"10s","number_of_shards":5,"number_of_replicas":1,"rolling_period":1,"max_string_length": 256,"default_date_format":"strict_date_optional_time","indexed_fields":["host"]}` |
 
- 
-
 - time 字段的 name 默认为 timestamp，时间格式（format）完全兼容 Elasticsearch 的时间格式，如 epoch_millis（以毫秒为单位的 Unix 时间戳）、epoch_second（以秒为单位的 Unix 时间戳）、basic_date（格式如 yyyyMMdd）、basic_date_time（格式如 yyyyMMdd'T'HHmmss.SSSZ）等。
 
 - options 选项及解释如下：
-
   - expire_day：数据过期时间（单位：天），取值范围为非零整数，过期后数据自动清理，缺省情况下为最小值-1（代表永不过期）。
 
   - refresh_interval：数据刷新频率，写入的数据从内存刷新到磁盘后可查询。默认为10秒。
@@ -57,23 +40,21 @@
 
   - default_type：指定新增字段的默认类型。可选项为 tag、field，系统默认值为 tag。
 
-    | 过期时间        | 子表时长 |
-    | :-------------- | :------- |
-    | ≤ 7天           | 1天      |
-    | > 7天，≤ 20天   | 3天      |
-    | > 20天，≤ 49天  | 7天      |
-    | > 49天，≤ 3个月 | 15天     |
-    | ＞3个月         | 30天     |
-    | 永不过期        | 30天     |
 
-### 返回内容
+| 过期时间        | 子表时长 |
+| :-------------- | :------- |
+| ≤ 7天           | 1天      |
+| > 7天，≤ 20天   | 3天      |
+| > 20天，≤ 49天  | 7天      |
+| > 49天，≤ 3个月 | 15天     |
+| ＞3个月         | 30天     |
+| 永不过期        | 30天     |
 
+## 返回内容
 需要通过 error 字段判断请求是否成功，若返回内容有 error 字段则请求失败，具体错误详情请参照 error 字段描述。
 
-### CURL 示例说明
-
+## CURL 示例说明
 请求：
-
 ```
 curl -u root:le201909 -H 'Content-Type:application/json' -X PUT 172.16.345.14:9201/_metric/ctsdb_test -d'
 {
@@ -101,7 +82,6 @@ curl -u root:le201909 -H 'Content-Type:application/json' -X PUT 172.16.345.14:92
 ```
 
 成功的返回：
-
 ```
 {
     "acknowledged": true,
@@ -110,7 +90,6 @@ curl -u root:le201909 -H 'Content-Type:application/json' -X PUT 172.16.345.14:92
 ```
 
 失败的返回：
-
 ```
   {
     "error": {
