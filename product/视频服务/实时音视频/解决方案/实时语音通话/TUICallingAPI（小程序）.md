@@ -177,5 +177,5 @@ TUICallingContext.groupCall({userIDList, type, groupID})
 
 ## 参考文档
 - [TUICalling 组件源码](https://github.com/tencentyun/TUICalling/tree/main/MiniProgram)
-- [TUICalling demo 源码](https://github.com/LiteAVSDK/Live_WXMini/tree/main/TRTCScenesDemo/trtc-calling-miniapp)
+- [TUICalling demo 源码](https://github.com/tencentyun/TUICalling)
 - [小程序端相关问题](https://cloud.tencent.com/document/product/647/45532)

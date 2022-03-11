@@ -74,6 +74,7 @@ https://api.meeting.qq.com/v1/meetings?meeting_code={meetingCode}&userid={userid
 
 | 参数名称                        | 参数类型 | 参数描述                                                     |
 | ------------------------------- | -------- | ------------------------------------------------------------ |
+| mute_enable_type_join                | Integer     |  成员入会时静音选项。<br>当同时返回“mute_enable_join”和“mute_enable_type_join”时，请以“mute_enable_type_join”的结果为准。<br>0：关闭<br>1：开启<br>2：超过6人后自动开启             |
 | mute_enable_join                | Boolean     | 加入静音状态，默认值为true。<br>true：开启<br>false：关闭              |
 | allow_unmute_self               | Boolean     | 是否允许参会者取消静音，默认值为true。<br>true：开启<br>false：关闭            |
 | allow_in_before_host            | Boolean     | 是否允许成员在主持人进会前加入会议，默认值为 true。<br>true：允许<br>false：不允许     |
@@ -165,13 +166,13 @@ GET https://api.meeting.qq.com/v1/meetings?meeting_code=806146667&userid=tester1
       "join_url": "https://wemeet.qq.com/w/5NmV29k",
       "meeting_type":0,      
       "settings": {        
-        "mute_enable_join": true,        
+        "mute_enable_type_join": 2,        
         "allow_unmute_self": false,
         "play_ivr_on_leave": false,
         "allow_in_before_host": true,
-	    "auto_in_waiting_room": false,
-	    "allow_screen_shared_watermark": true,
-	    "only_allow_enterprise_user_join": false     
+        "auto_in_waiting_room": false,
+        "allow_screen_shared_watermark": true,
+        "only_allow_enterprise_user_join": false     
       },
       "enable_live":true,
       "live_config":{
@@ -195,7 +196,6 @@ GET https://api.meeting.qq.com/v1/meetings?meeting_code=806146667&userid=tester1
     }  
   ]
 }
-
 ```
 #### 输出示例（周期性会议）
 ```plaintext
@@ -218,7 +218,7 @@ GET https://api.meeting.qq.com/v1/meetings?meeting_code=806146667&userid=tester1
       ],
       "join_url": "https://meeting.tencent.com/s/iY4GQ2HkQQGL",
       "settings": {
-        "mute_enable_join": true,
+        "mute_enable_type_join": 2,
         "allow_unmute_self": false,
         "allow_in_before_host": true,
         "auto_in_waiting_room": true,

@@ -75,6 +75,8 @@ pod install
  - iOS 进入 iOS/TUIKitDemo 文件夹，打开`TUIKitDemo.xcworkspace`编译运行。
  - Mac 进入Mac/TUIKitDemo 文件夹，打开`TUIKitDemo.xcworkspace`编译运行。
 
+>!Demo 默认集成了音视频通话功能，由于该功能依赖的音视频 SDK 暂不支持模拟器，请使用真机调试或者运行 Demo。
+
 
 ## 进阶功能
 - [UI 界面库](https://cloud.tencent.com/document/product/269/37190)
