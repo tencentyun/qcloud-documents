@@ -8,7 +8,9 @@
 
 
 
-> ? 当前 GlobalRouter 和 VPC-CNI 容器网络模式均支持直连 Pod 模式，您可以在 [集群列表](https://console.cloud.tencent.com/tke2/cluster?rid=1) 中单击集群 ID 进入集群详情页面，在集群的“基本信息”页面中查看当前集群使用的网络插件。
+> ? 
+- 若您的集群是 EKS ，则默认为直连 Pod 模式，您无需任何操作。
+- 当前 GlobalRouter 和 VPC-CNI 容器网络模式均支持直连 Pod 模式，您可以在 [集群列表](https://console.cloud.tencent.com/tke2/cluster?rid=1) 中单击集群 ID 进入集群详情页面，在集群的“基本信息”页面中查看当前集群使用的网络插件。
 >
 
 
