@@ -6,5 +6,5 @@ CentOS 官方计划停止维护 CentOS Linux 项目，并于2022年01月01日停
 - [OpenCloudOS Server](https://cloud.tencent.com/document/product/213/70717)
 - CentOS Stream 版本以及其他发行版，例如 Ubuntu
 
-若您正在使用 CentOS，建议尽快迁移到 TencentOS 对应版本，具体迁移操作请参见 []()。
+若您正在使用 CentOS，建议尽快迁移到 TencentOS 对应版本，具体迁移操作请参见 [CentOS 迁移 TencentOS 指引](https://cloud.tencent.com/document/product/213/70900)。
 更多问题，欢迎咨询 [腾讯云助手](https://cloud.tencent.com/product/tca)。
