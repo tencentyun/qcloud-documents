@@ -99,7 +99,7 @@
 #### 问题解析：
 音视频终端 SDK 控制台需要主账号为子账号独立进行授权策略后方可访问控制台页面。
 - 若您仅需要提供子账号访问音视频终端 SDK 控制台只读的权限，请授权 QcloudVCUBEReadOnlyAccess 策略。
-- 若您需要提供子账访问音视频终端 SDK 号所有操作权限，请授权 QcloudVCUBEFullAccess 策略。
+- 若您需要提供子账号访问音视频终端 SDK 所有操作权限，请授权 QcloudVCUBEFullAccess 策略。
 为用户/用户组关联策略以授权相关操作权限的关联指引请参见 [策略授权管理](https://cloud.tencent.com/document/product/598/10602)。
 
 #### 相关问题：
