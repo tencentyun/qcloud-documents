@@ -39,7 +39,7 @@
 2. 在“标准登录 | Linux 实例”窗口中，输入云服务器的用户名和密码，并单击**登录**即可正常登录。如下图所示：
 ![](https://main.qcloudimg.com/raw/ddd85a45a55eac09c988c5c52be4f818.png)
 3. 登录成功后，界面如下图所示：
-![](https://main.qcloudimg.com/raw/7a9fbd597fa7542f87a87c67986a64b4.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/c6fad14fa151973fd433bd8681451ae8.png)
 
 
 ## 下一步操作：使用云服务器

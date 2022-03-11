@@ -116,6 +116,7 @@ BANDWIDTH_POSTPAID_BY_HOUR 按带宽按小时后计费。
 :::
 ::: kubernetes.io/service.internetMaxBandwidthOut
 **说明：**
+CLB 带宽设置，当前仅在创建时支持，创建后不支持修改带宽，创建后修改本注解无效。
 指定创建负载均衡时，负载均衡的最大出带宽，仅对公网属性的 LB 生效。需配合 `kubernetes.io/service.internetChargeType` 注解一起使用。
 
 **可选值：**

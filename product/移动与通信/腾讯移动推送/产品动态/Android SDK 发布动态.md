@@ -21,6 +21,7 @@
         <td>2022-02-23</td><td>
 		<li><a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</a></li>
 		<li>获取随推送下发的 custom_content 请参见 <a href="https://cloud.tencent.com/document/product/548/48572#.E5.AE.A2.E6.88.B7.E7.AB.AF.E8.8E.B7.E5.8F.96.E5.8F.82.E6.95.B0">通知点击跳转 > 客户端获取参数</a></li>
+		<li><a href="https://cloud.tencent.com/document/product/548/56364">Android SDK 升级指南</a></li>
 </td>
     </tr>
 <tr>

@@ -23,7 +23,7 @@
 <td>腾讯云支持常规 IP、加速 IP 和静态单线 IP 等多种类型的 EIP。
 <ul>
 <li>常规 BGP IP：普通 BGP IP，用于平衡网络质量与成本。</li>
-<li>精品 BGP IP：专属线路，避免绕行国际运营商出口，网络延时更低。目前仅标准账户类型支持，传统账户类型需升级后才能使用，升级详情请参见 <a href="https://cloud.tencent.com/document/product/1199/49090">账户类型升级说明</a>。仅香港地域支持精品 BGP IP，价格详情请参见<a href="https://cloud.tencent.com/document/product/1199/51693#ylb"> 公网网络费用</a>。如需体验，请提交 <a href="https://cloud.tencent.com/apply/p/224jt7718s8">内测申请</a>。</li>
+<li>精品 BGP IP：专属线路，避免绕行国际运营商出口，网络延时更低。目前仅标准账户类型支持，传统账户类型需升级后才能使用，升级详情请参见 <a href="https://cloud.tencent.com/document/product/1199/49090">账户类型升级说明</a>。仅香港地域支持，价格详情请参见 <a href="https://cloud.tencent.com/document/product/684/15255#cn2">精品网带宽包</a>。如需体验，请提交 <a href="https://cloud.tencent.com/apply/p/224jt7718s8">内测申请</a>。</li>
 <li>加速 IP：采用 Anycast 加速，使公网访问更稳定、可靠、低延迟。加速 IP 需要开通 <a href="https://cloud.tencent.com/document/product/644">Anycast 公网加速</a> 才可申请，请提交  <a href="https://cloud.tencent.com/apply/p/47mdddtoc56">内测申请</a>。</li>
 <li>静态单线 IP：通过单个网络运营商访问公网，成本低且便于自主调度。如需体验，请联系商务经理申请。该功能的地域支持情况请参见 <a href="https://cloud.tencent.com/document/product/1199/41648#.E4.BD.BF.E7.94.A8.E8.A7.84.E5.88.99">使用限制</a>。</li>
 </ul>
@@ -39,8 +39,10 @@
 <ul>
 <li>常规 BGP IP 支持按流量、包月带宽、按小时带宽和共享带宽包计费模式，详情请参见 <a href="https://cloud.tencent.com/document/product/1199/51693">公网网络费用</a>。
 </li>
-<li>加速 IP 和静态单线 IP 只支持共享带宽包计费模式，不支持其它计费模式，创建后会自动新增并添加到共享带宽包中。
+<li>精品 BGP IP、加速 IP 和静态单线 IP 只支持共享带宽包计费模式，不支持其它计费模式，创建后会自动新增并添加到共享带宽包中。
 </li>
+
+</ul>
 </ul>
 </td>
 </tr>
