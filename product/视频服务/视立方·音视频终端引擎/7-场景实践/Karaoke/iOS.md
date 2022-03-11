@@ -29,7 +29,7 @@
 [](id:ui.step1)
 ### 步骤1：创建新的应用
 1. 登录实时音视频控制台，选择**开发辅助** > **[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)**。
-2. 输入应用名称，例如  `TestKaraoke`，单击**创建**。
+2. 输入应用名称，例如  `TestKaraoke`  ，单击**创建**。
 3. 单击**已下载，下一步**，跳过此步骤。
 
 ![](https://main.qcloudimg.com/raw/a4f5a2ac1f49d67b4c6968d8b22cdeb0.png)
@@ -71,7 +71,7 @@
 | TRTCCreateKaraokeViewController | 创建 KTV 页面逻辑。 |
 | TRTCKaraokeViewController | 主房间页面，包括房主和听众两种界面。 |
 
-每个 `TRTC'XXXX'ViewController` 文件夹下均包含 `ViewController`、`RootView` 和 `ViewModel`，各个文件的作用如下表所示：
+每个`TRTC'XXXX'ViewController`文件夹下均包含`ViewController`、`RootView`和`ViewModel`，各个文件的作用如下表所示：
 
 | 文件 | 功能描述 |
 |:-------:|:--------|
@@ -123,8 +123,8 @@ pod 'TXAppBasic', :path => "../TXAppBasic/"
 pod 'TUIKaraoke', :path => "./", :subspecs => ["TRTC"]
 ```
 
->! 
->- `Source`、`Resources`文件夹 和 `TUIKaraoke.podspec` 文件必需在同一目录下。
+>!
+>-   `Source`、`Resources`文件夹 和 `TUIKaraoke.podspec` 文件必需在同一目录下。
 >-  TXAppBasic.podspec 在TXAppBasic文件夹下。
 
 [](id:model.step3)
@@ -182,8 +182,7 @@ self.karaokeRoom.login(sdkAppId: sdkAppID, userId: userId, userSig: userSig) { [
 <img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/ktv_chart_anchor_page.png">
 
 示例代码：
-<dx-codeblock>
-::: swift
+```swift
 // 1.房主设置昵称和头像
 self.karaokeRoom.setSelfProfile(userName: userName, avatarUrl: avatarURL) { (code, message) in
     // 结果回调           
@@ -226,9 +225,7 @@ func onSeatListChange(seatInfoList: [SeatInfo]) {
 func onAnchorEnterSeat(index: Int, user: UserInfo) {
   // 处理房主上麦事件
 }
-
-:::
-</dx-codeblock>
+```
 
 [](id:model.step5)
 ### 步骤5：听众端观看
@@ -456,3 +453,4 @@ func onRecvRoomCustomMsg(cmd: String, message: String, userInfo: UserInfo) {
 }
 :::
 </dx-codeblock>
+
