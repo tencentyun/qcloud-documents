@@ -98,7 +98,7 @@ Xcode（11.0及以上的版本）打开源码工程 `TUICalling/Example/TUICalli
 1. 将工程目录下的 `Source`、`Resources` 文件夹 和 `TUICalling.podspec` 文件拷贝到您的工程目录下。
 2. 在您的 `Podfile` 文件中添加以下依赖。之后执行 `pod install` 命令，完成导入。
 
-```swift
+```swift\
 # :path => "指向TUICalling.podspec所在目录的相对路径"
  pod 'TUICalling', :path => "../", :subspecs => ["TRTC"]
 ```
