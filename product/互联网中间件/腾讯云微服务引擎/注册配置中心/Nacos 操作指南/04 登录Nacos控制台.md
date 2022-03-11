@@ -11,11 +11,11 @@
 1. 登录 [TSE 控制台](https://console.cloud.tencent.com/tse)。
 2. 在左侧导航栏，单击 **nacos**，进入 Nacos 注册中心页面。
 3. 单击目标实例的 ID，从基本信息页中，找到 控制台访问 的公网地址，通过 web 访问 Nacos 原生控制台。
-   ![](https://qcloudimg.tencent-cloud.cn/raw/a44fdc36b9b8e6e2199e361b9ed4fd1d.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/40cf753b08f66715fac5e920c88236a4.png)
 
 ## 登录账号
 
-在控制台登录页面，您可以通过 Nacos 原生账号（初始登录账号及由初始账号创建的账号）进行登录，也可以使用腾讯云账号下的 [API密钥管理](https://console.cloud.tencent.com/cam/capi) 中的 SecretId 和 SecretKey 进行登录，如果子用户没有 SecretId 和 SecretKey ，请联系主账号申请。
+在控制台登录页面，您可以通过 Nacos 原生账号（初始登录账号及由初始账号创建的账号）进行登录，也可以使用腾讯云账号下的 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中的 SecretId 和 SecretKey 进行登录，如果子用户没有 SecretId 和 SecretKey ，请联系主账号申请。
 
 - **Nacos原生账号登录**：使用初始登录账号登录，或由初始账号创建的账号登录。
   ![](https://qcloudimg.tencent-cloud.cn/raw/421b6a82b0a1037fdbe67d73a28ab912.png)
