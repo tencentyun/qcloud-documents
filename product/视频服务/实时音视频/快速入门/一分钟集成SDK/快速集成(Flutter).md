@@ -55,17 +55,14 @@ dependencies:
 添加后如下图所示：
 ![](https://imgcache.qq.com/operation/dianshi/other/lib.7518607f9764321c99fbcf14348715b65563bca2.png)
 :::
-
 ::: Android\s端
 1. 打开 `/android/app/src/main/AndroidManifest.xml` 文件。
 2. 将 `xmlns:tools="http://schemas.android.com/tools"` 加入到 manifest 中。
 3. 将 `tools:replace="android:label"` 加入到 application 中。
 >? 若不执行此步，会出现 [Android Manifest merge failed 编译失败](https://cloud.tencent.com/document/product/647/51623#que6) 问题。
 
-
 ![图示](https://main.qcloudimg.com/raw/7a37917112831488423c1744f370c883.png)
 :::
-
 ::: Windows\s端
 1. 启用 Windows 支持：`flutter config --enable-windows-desktop`。
 2. `flutter run -d windows`。
