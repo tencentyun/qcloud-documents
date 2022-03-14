@@ -18,7 +18,6 @@ TUICalling 是基于腾讯云实时音视频（TRTC）和即时通信 IM 服务�
 | [enableMuteMode](#enablemutemode)               | 开启静音模式              |
 | [enableCustomViewRoute](#enablecustomviewroute) | 开启自定义视图            |
 
-
 ## TUICallingListener API 概览
 [](id:TUICallingListener)
 
@@ -30,6 +29,8 @@ TUICalling 是基于腾讯云实时音视频（TRTC）和即时通信 IM 服务�
 | [onCallStart](#oncallstart)                   | 呼叫开始回调。主叫、被叫均会触发 |
 | [onCallEnd](#oncallend)                       | 通话回调。主叫、被叫均会触发     |
 | [onCallEvent](#oncallevent)                   | 通话事件回调                     |
+
+
 
 ## Type API 概览
 [](id:Type)
