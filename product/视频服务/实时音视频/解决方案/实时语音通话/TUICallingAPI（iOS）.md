@@ -1,4 +1,5 @@
 TUICalling 是基于腾讯云实时音视频（TRTC）和即时通信 IM 服务组合而成的，支持1v1和多人视频通话。TUICalling 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体的实现过程请参见 [实时语音通话（iOS）](https://cloud.tencent.com/document/product/647/42046)。
+
 - TRTC SDK：使用 [TRTC SDK](https://cloud.tencent.com/document/product/647) 作为低延时音视频通话组件。
 - IM SDK：使用 [IM SDK](https://cloud.tencent.com/document/product/269) 发送和处理信令消息。
 
@@ -17,7 +18,6 @@ TUICalling 是基于腾讯云实时音视频（TRTC）和即时通信 IM 服务�
 | [enableMuteMode](#enablemutemode)               | 开启静音模式              |
 | [enableCustomViewRoute](#enablecustomviewroute) | 开启自定义视图            |
 
-
 ## TUICallingListener API 概览
 [](id:TUICallingListener)
 
@@ -29,6 +29,8 @@ TUICalling 是基于腾讯云实时音视频（TRTC）和即时通信 IM 服务�
 | [onCallStart](#oncallstart)                   | 呼叫开始回调。主叫、被叫均会触发 |
 | [onCallEnd](#oncallend)                       | 通话回调。主叫、被叫均会触发     |
 | [onCallEvent](#oncallevent)                   | 通话事件回调                     |
+
+
 
 ## Type API 概览
 [](id:Type)
@@ -219,6 +221,7 @@ C2C 邀请通话。
 | type | TUICallingType | 通话类型：音频/视频 |
 | role | TUICallingRole | 用户角色类型：主叫/被叫 |
 | message | NSString | 事件的描述信息 |
+
 
 
 
