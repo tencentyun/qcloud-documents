@@ -1,6 +1,6 @@
 本文主要介绍如何快速地将腾讯云 TRTC SDK（Flutter）集成到您的项目中，只要按照如下步骤进行配置，就可以完成 SDK 的集成工作。
 
->! 目前 Windows/MacOs 端仅支持音频，视频接口暂不支持。Android/iOS 端支持视频通话。
+>! 目前 Windows/MacOs 端暂不支持屏幕分享及设备选择功能。
 
 ## 环境要求
 - Flutter 2.0 及以上版本。
