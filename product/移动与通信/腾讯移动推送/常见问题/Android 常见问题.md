@@ -1,3 +1,11 @@
+### 如何设置自定义铃声？
+
+使用自定义铃声可以通过创建通知渠道实现：
+1. 创建通知渠道，通过 TPNS 封装 API 或安卓原生 API 创建指定自定义铃声文件的通知渠道，可参考 [创建通知渠道](https://cloud.tencent.com/document/product/548/36659#.E5.88.9B.E5.BB.BA.E9.80.9A.E7.9F.A5.E6.B8.A0.E9.81.93)。
+2. 在 TPNS 推送 REST API 指定相同的通知渠道`n_ch_id `进行推送,厂商通道需指定厂商渠道 ID，如华为通道需指定`hw_ch_id`,小米通道需指定`xm_ch_id`。
+
+>? 目前仅华为、小米、FCM 和 TPNS 通道支持自定义铃声，厂商通道渠道 ID 申请步骤可参考 [厂商通道消息分类功能使用说明](https://cloud.tencent.com/document/product/548/44531)。
+>
 
 ### 如何关闭 TPNS 的保活功能？
 
@@ -21,6 +29,19 @@ XGPushConfig.enablePullUpOtherApp(Context context, boolean pullUp);
 
 若控制台有以下日志打印，则表明联合保活功能已经关闭：`I/TPush: [ServiceUtil] disable pull up other app`。
 
+### 首次安装启动时如何配置不自动启动推送服务？
+
+针对“用户同意隐私服务协议” 场景，开发者可以在 AndroidManifest.xml 文件添加以下节点，应用首次安装启动时即不会自启推送服务，直到调用了推送服务注册接口`XGPushManager.registerPush()` 才会开启：
+
+```
+<meta-data
+android:name="XG_SERVICE_PULL_UP_OFF"
+android:value="true" />
+```
+### TPNS SDK 支持鸿蒙系统的推送吗？
+
+鸿蒙系统完全兼容 Android SDK，推送功能可正常使用。
+
 
 ### 厂商推送服务需要上架应用市场才可以开通吗？
 
@@ -39,7 +60,7 @@ XGPushConfig.enablePullUpOtherApp(Context context, boolean pullUp);
 开发者在集成 vivo 厂商通道推送服务后，部分安全检测工具可能会提示 “APP 包含未使用的权限字符串”，详情如下： 
 问题来源：vivo 厂商通道推送 SDK 版本名 2.3.4。
 涉及类文件：com.vivo.push.util.z 涉及敏感权限字符串：android.permission.GET_ACCOUNTS。
->! 经检查发现最新的 vivo 厂商通道推送 SDK 版本名 3.0.0.0 中同样包含此问题。
+>! 经检查发现最新的 vivo 厂商通道推送 SDK 版本名 3.0.0.3 中同样包含此问题。
 
 问题代码来源为 vivo 厂商通道推送 SDK，TPNS 项目组无法变更其内容；此问题已向 vivo 推送服务相关人员反馈，表示相关静态字段为 SDK 遗留代码，并无实际使用，会尽快排期修复。 当前可参考的快速解决办法如下：
 - 方式一（推荐）： 在《APP隐私声明》里增加 [移动推送 TPNS 的隐私说明](https://cloud.tencent.com/document/product/548/36652#.E9.9A.90.E7.A7.81.E5.8D.8F.E8.AE.AE.E5.A3.B0.E6.98.8E.E5.BB.BA.E8.AE.AE)。 
@@ -115,16 +136,18 @@ XGPushConfig.enablePullUpOtherApp(Context context, boolean pullUp);
 >
 
 
+### 为什么关闭应用时，onNotifactionClickedResult、onNotificationShowedResult 获取的 title 和 content 为空？
+
+由于厂商通道推送的 title 和 content 是拼接在 intent 中下发的，因此，在使用 onNotifactionClickedResult、onNotificationShowedResult 方法时，无法获取 title 和 content。如需获取参数，请使用 intent 的方式，详情请参考 [通知点击跳转](https://cloud.tencent.com/document/product/548/48572)。
+
+
 ### 应用接入了厂商通道，但在调试过程中遇到 other push Token 为空的问题，如何解决？
 
 
 在应用运行日志中观察到如下类似日志： 
-
 ```
 [OtherPushClient] handleUpdateToken other push token is :  other push type: huawei
 ```
-
-
 
 表示您的应用注册该厂商通道失败，您可以通过获取厂商通道注册失败的返回码来进行问题定位和排查，详情请参见 [厂商通道注册失败排查指南](https://cloud.tencent.com/document/product/548/45659)。
 
@@ -132,11 +155,10 @@ XGPushConfig.enablePullUpOtherApp(Context context, boolean pullUp);
 
 目前 IM 已使用 TPNS 提供的厂商 jar 包，请按照下方表格替换相关依赖包，替换后即可解决。
 
-
  | 推送通道 | 系统要求 | 条件说明 |
  | --------------- | ------| -------------------------------------------- | 
  | 小米推送| MIUI|使用小米推送，添加依赖：`implementation 'com.tencent.tpns:xiaomi:1.2.1.3-release'`|
- | 华为推送| EMUI|使用华为推送，添加依赖：<li>`implementation 'com.tencent.tpns:huawei:1.2.1.3-release'`<li>`implementation 'com.huawei.hms:push:5.0.2.300'`| 
+ | 华为推送| EMUI|使用华为推送，添加依赖：<li>`implementation 'com.tencent.tpns:huawei:1.2.1.3-release'`</li><li>`implementation 'com.huawei.hms:push:5.0.2.300'`</li>| 
 | Google FCM 推送| Android 4.1及以上|手机端需安装 Google Play Services 且在中国大陆地区以外使用。添加依赖：`implementation 'com.google.firebase:firebase-messaging:20.2.3'`| 
 | 魅族推送 | Flyme| 使用魅族推送，添加依赖：`implementation 'com.tencent.tpns:meizu:1.2.1.3-release'` | 
 | OPPO 推送| ColorOS |并非所有 OPPO 机型和版本都支持使用 OPPO 推送，使用 OPPO 推送，添加依赖：`implementation 'com.tencent.tpns:oppo:1.2.1.3-release'`| 
@@ -160,7 +182,7 @@ XGPushConfig.enablePullUpOtherApp(Context context, boolean pullUp);
 }
 ```
 
-适配后的具体效果如下，建议参考 Demo logo 图标进行作图。
+适配后的具体效果如下，[建议参考 Demo logo 图标进行作图](https://git.code.tencent.com/tpns/TPNS-Demo-Android/blob/master/app/src/main/res/drawable/notification_icon.png)。
 
 <img src="https://main.qcloudimg.com/raw/d9f92fb413aa98a01af64b2c17680bef.jpg" width="60%"></img>
 
@@ -180,8 +202,6 @@ XGPushConfig.enablePullUpOtherApp(Context context, boolean pullUp);
 以上两种情况，需要在 drawable 不同分辨率的文件夹下对应放置一张名称必须为 stat_sys_third_app_notify 的图片，详情请参考 [TPNS Android SDK](https://console.cloud.tencent.com/tpns/sdkdownload) 中魅族厂商依赖目录的 flyme-notification-res 文件夹。
 
 
-
-
 ### 使用控制台快速集成时出现异常，如何解决？
 
 1. 如果集成出现异常， 则将 `tpns-configs.json `文件中的 `"debug"` 字段置为` true`,  运行命令： 
@@ -190,10 +210,9 @@ XGPushConfig.enablePullUpOtherApp(Context context, boolean pullUp);
 ```
 并通过` "TpnsPlugin" `关键字进行分析。
 2. 单击【sync projects】。
-   ![](https://main.qcloudimg.com/raw/5fecbe6b63374e7e0e58c4b2cd215acb.png)
+![](https://main.qcloudimg.com/raw/5fecbe6b63374e7e0e58c4b2cd215acb.png)
 3. 在项目的 External Libraries 中查看是否有相关依赖。
-   ![](https://main.qcloudimg.com/raw/485c7595f1b478a6fad725d38deb87b4.png)
-
+![](https://main.qcloudimg.com/raw/485c7595f1b478a6fad725d38deb87b4.png)
 
 
 ### Android 拓展库 V4 到 AndroidX 如何转换？
@@ -215,7 +234,6 @@ android.useAndroidX=trueandroid.enableJetifier=true
 2. 魅族推送 SDK：`http://norma-external-collect.meizu.com/android/exchange/getpublickey.do，http://norma-external-collect.meizu.com/push/android/external/add.do`
 
 以上 HTTP URL 均来自各厂商推送 SDK，TPNS 项目组无法明确其目的或控制其行为，但正在积极与厂商服务提供者联系并推动 HTTPS 改造；开发者当前可以自行评估选择是否继续使用以上厂商提供的推送服务。
-
 
 
 ### Android 版本4.4.4编译报错，怎么办？

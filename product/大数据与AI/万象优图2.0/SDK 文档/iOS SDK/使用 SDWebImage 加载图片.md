@@ -3,13 +3,13 @@
 
 ## 基础图片处理
 
-与 SDWebImage 配合使用数据万象基础图片处理操作（除 TPG、WEBP 相关功能外）。
+与 SDWebImage 配合使用数据万象基础图片处理操作（除 TPG、AVIF、WEBP 相关功能外）。
 
 1. 在使用数据万象基础图片处理操作时，需要集成 CloudInfinite/SDWebImage-CloudInfinite 模块。
 ```
    pod 'CloudInfinite/SDWebImage-CloudInfinite'
 ```
-2. 使用 UIImageView+CI，模仿 SDWebImage 调用风格封装了一组可以传入 transform 的方法。
+2. 使用 UIImageView+CI，模仿 SDWebImage 调用风格，封装了一组可以传入 transform 的方法。
 **Objective-C**
 ```
 // 实例化 CITransformation 类并添加需要使用的操作；
@@ -138,5 +138,41 @@ transform.setFormatWith(CIImageFormat.typeWEBP, options: CILoadTypeEnum.urlFoote
 // 调用 UIImageView+CI 类种方法，加载图片
 imageView.sd_CI_setImage(with: NSURL.init(string: "图片链接"), transformation: transform)
 
+```
+
+## 使用数据万象 AVIF 功能
+
+与 SDWebImage 配合使用数据万象 AVIF 功能，支持 AVIF 动图加载，无需额外处理。在使用 AVIF 功能时，SDWebImage-CloudInfinite 需要依赖 CloudInfinite/AVIF 模块。
+```
+pod 'CloudInfinite/AVIF'
+```
+
+
+### 调用 UIImageView+CI 加载 AVIF
+
+**Objective-C**
+
+```
+// 构建 CITransformation实例
+CITransformation * tran = [CITransformation new];
+
+// 设置AVIF格式以及传参方式
+[tran setFormatWith:CIImageTypeAVIF options:CILoadTypeUrlFooter];
+
+// 调用UIImageView+CI 类种方法，加载图片
+[self.imageView sd_CI_setImageWithURL:[NSURL URLWithString:@"图片链接"] transformation:transform];
+```
+
+**swift**
+
+```
+// 构建 CITransformation 实例
+ let transform = CITransformation();
+
+ // 设置 AVIF 格式以及传参方式
+transform.setFormatWith(CIImageFormat.typeAVIF, options: CILoadTypeEnum.urlFooter);
+
+ // 调用 UIImageView+CI 类种方法，加载图片
+imageView.sd_CI_setImage(with: NSURL.init(string: "图片链接"), transformation: transform)
 ```
 

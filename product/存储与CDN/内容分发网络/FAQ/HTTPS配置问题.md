@@ -12,13 +12,12 @@ HTTPS，是指超文本传输安全协议（Hypertext Transfer Protocol Secure�
 
 [](id:q4)
 ### 源站的 HTTPS 证书更新了，CDN 上需要同步更新吗？
-由您的回源方式决定：
-HTTP 回源：不需要。
-HTTPS 回源：源站更新证书，CDN 节点也需要同步更新。客户端到节点，节点到源站证书是需要一致的，否则会导致回源失败。
+不需要。源站的 HTTPS 证书更新后不会影响 CDN 上的 HTTPS 证书，当您在 CDN 上配置的 HTTPS 证书将要到期或者已经到期时，您才需要在 CDN 上更新 HTTPS 证书。
+
 
 [](id:q5)
 ### CDN 有没有方法让用户控制只允许 HTTPS 访问，禁止 HTTP 访问？
-使用 [强制扭转功能](https://cloud.tencent.com/document/product/228/41688)。HTTPS 证书配置成功后，可以开启 Http->Https 功能，开启后，即使用户发起 HTTP 请求，也会强制跳转为 HTTPS 进行访问。
+使用 [强制跳转功能](https://cloud.tencent.com/document/product/228/41688)。HTTPS 证书配置成功后，可以开启 Http->Https 功能，开启后，即使用户发起 HTTP 请求，也会强制跳转为 HTTPS 进行访问。
 ![](https://main.qcloudimg.com/raw/7161b36b260f3af2d75931b2e567295d.png)
 
 

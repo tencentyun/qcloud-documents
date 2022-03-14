@@ -1,20 +1,24 @@
 
+
 ## 简介
 游戏进程和 GSE 通过 grpc 通信，通信 pb 的协议见 GameServerGrpcSdkService.proto 和 GseGrpcSdkService.proto。
 
 GameServerGrpcSdkService.proto 定义了三个服务接口，需要由游戏进程来实现。
 GseGrpcSdkService.proto 定义的服务接口 GSE 来实现，游戏进程需要在合适的时机调用对应的接口，GSE 接口监听的 grpc 端口为5758。游戏开发者根据需要，生成对应语言的 pb 文件。
 
->?
+<dx-alert infotype="explain" title="">
 - gproxy 的使用可以参考 [中文版](http://doc.oschina.net/grpc) 和 [英文版](https://www.grpc.io/)。
 - 使用示例基于 go 语言，proto 生成的包名为 grpcsdk。 示例使用的公共函数 getContext，常量 LOCAL_ADDRESS 以及 message GseResponse 结构体请参见 [其他部分](#other)。
+</dx-alert>
+
+
 
 
 
 ## 游戏进程集成流程
 游戏进程在启动后，需要实现 grpc server，并实现 GameServerGrpcSdkService.proto 定义的三个接口。
 
-<span id="OnHealthCheck"></span>
+[](id:OnHealthCheck)
 ### OnHealthCheck
 
 #### 接口描述
@@ -56,12 +60,12 @@ func (s *rpcService) OnHealthCheck(ctx context.Context, req *grpcsdk.HealthCheck
 }
 ```
 
-<span id="OnStartGameServerSession"></span>
+[](id:OnStartGameServerSession)
 ### OnStartGameServerSession
 
 #### 接口说明
 
-当游戏开发者通过调用腾讯云 CreateGameServerSession 等相关云 API 接口生成 GameServerSession 后，GSE 会通过 OnStartGameServerSession 接口，将 GameServerSession 相关信息回传给游戏进程，游戏进程收到请求后，需要保存该 GameServerSession 对应的信息，并需要在其实现里调用 GSE 的[ActivateGameServerSession 接口](#ActivateGameServerSession)。
+当游戏开发者通过调用腾讯云 CreateGameServerSession 等相关云 API 接口生成 GameServerSession 后，GSE 会通过 OnStartGameServerSession 接口，将 GameServerSession 相关信息回传给游戏进程，游戏进程收到请求后，需要保存该 GameServerSession 对应的信息，并需要在其实现里调用 GSE 的 [ActivateGameServerSession 接口](#ActivateGameServerSession)。
 
 #### 请求消息体
 
@@ -81,7 +85,7 @@ message GameServerSession {
     string dnsName = 11;
 }
 
-// 分配gameserversession到游戏进程
+// 分配 gameserversession 到游戏进程
 message StartGameServerSessionRequest {
     GameServerSession gameServerSession = 1;
 }
@@ -120,7 +124,7 @@ message GseResponse {
 
 ```
 func (s *rpcService) OnStartGameServerSession(ctx context.Context, req *grpcsdk.StartGameServerSessionRequest) (*grpcsdk.GseResponse, error) {
-	s.GameServerSession = req.GameServerSession  // 保存GameServerSession
+	s.GameServerSession = req.GameServerSession  // 保存 GameServerSession
 	conn, _ := grpc.DialContext(context.Background(), LOCAL_ADDRESS, grpc.WithInsecure())
 	defer conn.Close()
 	cli := grpcsdk.NewGseGrpcSdkServiceClient(conn)
@@ -134,7 +138,7 @@ func (s *rpcService) OnStartGameServerSession(ctx context.Context, req *grpcsdk.
 }
 ```
 
-<span id="OnProcessTerminate"></span>
+[](id:OnProcessTerminate)
 ### OnProcessTerminate
 
 #### 接口说明
@@ -181,10 +185,10 @@ func (s *rpcService) OnProcessTerminates(ctx context.Context, req *grpcsdk.Proce
 }
 ```
 
-<span id="GSE"></span>
+[](id:GSE)
 ## GSE 相关接口
 
-<span id="ProcessReady"></span>
+[](id:ProcessReady)
 ### ProcessReady
 
 #### 接口说明
@@ -270,7 +274,7 @@ message GseResponse
 使用示例请参见 [OnStartGameServerSession 接口](#OnStartGameServerSession)。
 
 
-<span id="AcceptPlayerSession"></span>
+[](id:AcceptPlayerSession)
 ### AcceptPlayerSession 
 
 #### 接口说明
@@ -318,7 +322,7 @@ func (r *rpcClient) AcceptPlayerSession(gameServerSessionId, playerSessionId str
 }
 ```
 
-<span id="RemovePlayerSession"></span>
+[](id:RemovePlayerSession)
 ### RemovePlayerSession 
 
 #### 接口说明
@@ -359,7 +363,7 @@ func (r *rpcClient) RemovePlayerSession(gameServerSessionId, playerSessionId str
 }
 ```
 
-<span id="DescribePlayerSessions"></span>
+[](id:DescribePlayerSessions)
 ### DescribePlayerSessions 
 
 #### 接口说明
@@ -375,7 +379,7 @@ message DescribePlayerSessionsRequest {
    string playerSessionId = 3;
    string playerSessionStatusFilter = 4;
    string nextToken = 5;
-   int32 limit = 6 ;
+   int32 limit = 6;
 }
 ```
 
@@ -480,7 +484,7 @@ func (r *rpcClient) UpdatePlayerSessionCreationPolicy(gameServerSessionId, newpo
 }
 ```
 
-<span id="TerminateGameServerSession"></span>
+[](id:TerminateGameServerSession)
 ### TerminateGameServerSession 
 
 #### 接口说明	
@@ -524,7 +528,7 @@ func (r *rpcClient) TerminateGameServerSession(gameServerSessionId string) (*grp
 }
 ```
 
-<span id="ProcessEnding"></span>
+[](id:ProcessEnding)
 ### ProcessEnding 
 
 #### 接口说明
@@ -561,7 +565,7 @@ func (r *rpcClient) ProcessEnding() (*grpcsdk.GseResponse, error) {
 }
 ```
 
-<span id="ReportCustomData"></span>
+[](id:ReportCustomData)
 ### ReportCustomData 
 
 #### 接口说明
@@ -572,7 +576,7 @@ func (r *rpcClient) ProcessEnding() (*grpcsdk.GseResponse, error) {
 
 ```
 message ReportCustomDataRequest {
-    int32 currentCustomCount = 1 ;
+    int32 currentCustomCount = 1;
     int32 maxCustomCount = 2;
 }
 ```
@@ -609,7 +613,7 @@ func (r *rpcClient) ReportCustomData(currentCustomCount, maxCustomCount int32) (
 ```
 
 
-<span id="other"></span>
+[](id:other)
 ## 其他
 
 ### 请求 meta

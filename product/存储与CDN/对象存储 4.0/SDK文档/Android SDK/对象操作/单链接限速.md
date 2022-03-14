@@ -2,6 +2,10 @@
 
 本文档提供关于调用上传下载接口时对链接进行限速。
 
+## SDK API 参考
+
+SDK 所有接口的具体参数与方法说明，请参考 [SDK API 参考](https://cos-android-sdk-doc-1253960454.file.myqcloud.com/)。
+
 ## 使用说明
 
 限速值设置范围为 **819200 - 838860800**，单位默认为 bit/s，即100KB/s - 100MB/s，如果超出该范围将返回400错误。
@@ -15,7 +19,8 @@ TransferConfig transferConfig = new TransferConfig.Builder().build();
 TransferManager transferManager = new TransferManager(cosXmlService,
         transferConfig);
 
-String bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
+// 存储桶名称，由bucketname-appid 组成，appid必须填入，可以在COS控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
+String bucket = "examplebucket-1250000000";
 String cosPath = "exampleobject"; //对象在存储桶中的位置标识符，即称对象键
 String srcPath = new File(context.getCacheDir(), "exampleobject")
         .toString(); //本地文件的绝对路径
@@ -40,14 +45,16 @@ cosxmlUploadTask.setCosXmlProgressListener(new CosXmlProgressListener() {
 cosxmlUploadTask.setCosXmlResultListener(new CosXmlResultListener() {
     @Override
     public void onSuccess(CosXmlRequest request, CosXmlResult result) {
-        COSXMLUploadTask.COSXMLUploadTaskResult cOSXMLUploadTaskResult =
+        COSXMLUploadTask.COSXMLUploadTaskResult uploadResult =
                 (COSXMLUploadTask.COSXMLUploadTaskResult) result;
     }
 
+    // 如果您使用 kotlin 语言来调用，请注意回调方法中的异常是可空的，否则不会回调 onFail 方法，即：
+    // clientException 的类型为 CosXmlClientException?，serviceException 的类型为 CosXmlServiceException?
     @Override
     public void onFail(CosXmlRequest request,
-                       CosXmlClientException clientException,
-                       CosXmlServiceException serviceException) {
+                       @Nullable CosXmlClientException clientException,
+                       @Nullable CosXmlServiceException serviceException) {
         if (clientException != null) {
             clientException.printStackTrace();
         } else {
@@ -80,7 +87,8 @@ TransferConfig transferConfig = new TransferConfig.Builder().build();
 TransferManager transferManager = new TransferManager(cosXmlService,
         transferConfig);
 
-String bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
+// 存储桶名称，由bucketname-appid 组成，appid必须填入，可以在COS控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
+String bucket = "examplebucket-1250000000";
 String cosPath = "exampleobject"; //对象在存储桶中的位置标识符，即称对象键
 //本地目录路径
 String savePathDir = context.getExternalCacheDir().toString();
@@ -111,10 +119,12 @@ cosxmlDownloadTask.setCosXmlResultListener(new CosXmlResultListener() {
                 (COSXMLDownloadTask.COSXMLDownloadTaskResult) result;
     }
 
+    // 如果您使用 kotlin 语言来调用，请注意回调方法中的异常是可空的，否则不会回调 onFail 方法，即：
+    // clientException 的类型为 CosXmlClientException?，serviceException 的类型为 CosXmlServiceException?
     @Override
     public void onFail(CosXmlRequest request,
-                       CosXmlClientException clientException,
-                       CosXmlServiceException serviceException) {
+                       @Nullable CosXmlClientException clientException,
+                       @Nullable CosXmlServiceException serviceException) {
         if (clientException != null) {
             clientException.printStackTrace();
         } else {

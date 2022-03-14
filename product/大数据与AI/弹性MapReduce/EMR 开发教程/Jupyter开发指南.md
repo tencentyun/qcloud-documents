@@ -17,7 +17,7 @@ Jupyter Notebook 中所有交互计算、编写说明文档、数学公式、图
 5. 支持使用 LaTeX 编写数学性说明。
 
 ## 安装 jupyter
-进入 EMR [购买页](https://cloud.tencent.com/product/emr)。
+进入 EMR [购买页](https://buy.cloud.tencent.com/emr)。
 - 选择产品版本：EMR-V2.3.0。
 - 在【可选组件】列表中，选择【tensorflowonspark 1.4.4】后就会默认安装 Jupyter，安装目录位于`/usr/local/server/jupyter`；jupyter 不会启动任何服务，如果您没有安装 tensorflowonspark，那默认的安装路径位于`/usr/local/server/apps/jupyter`。
 
@@ -79,11 +79,13 @@ https://IP:10086/
 在这里输入刚设置的密码后即可进入 jupyter 主页。
 
 ### 使用 jupyter 进行开发操作
-#### **创建目录**
+#### 创建目录
 ![](https://main.qcloudimg.com/raw/a3f45bd82c24abf780f9916ea388f693.png)
-#### **rename 目录**
+
+#### rename 目录
 ![](https://main.qcloudimg.com/raw/7ec7be4ee84cd0a2ba5ac9e69561856b.png)
-#### **编写 tensorflow 代码**
+
+#### 编写 tensorflow 代码
 可参考 [tensorflow 官网](https://github.com/tensorflow/docs/tree/master/site/en/r1/tutorials)。
 ![](https://main.qcloudimg.com/raw/ae58da462ab0f93f1078737959998397.png)
 >?这里需下载数据集，国内网速会比较慢。
@@ -110,9 +112,11 @@ metrics=['accuracy'])
 model.fit(x_train, y_train, epochs=5)
 model.evaluate(x_test, y_test)
 ```
+
 #### 运行代码
 重新在 jupyter 上执行模型训练。
 ![](https://main.qcloudimg.com/raw/5c77e7740257a832c92ed87d2058f9ae.png)
+
 #### 停止 jupyter 服务
 ```
 ./stop_jupy.sh [jupyter_port]

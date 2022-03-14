@@ -1,9 +1,9 @@
-
 ## 简介
 
-Android SDK 是移动推送 TPNS 服务为客户端实现消息推送而提供给开发者的接口，本文将提供 AndroidStudio Gradle 自动集成和 Android Studio 手动集成两种方式。
+本文内容引导集成 TPNS SDK 在线通道推送能力，提供 AndroidStudio Gradle 自动集成和 Android Studio 手动集成两种方式指引。如需在应用进程被杀时也能收到推送，请在完成本文的集成操作后，参考 [厂商通道接入指南](https://cloud.tencent.com/document/product/548/61135) 文档，完成各厂商通道的接入。
 
-
+>! 为了避免您的 App 被监管部门通报或下架，请您在接入 SDK 之前务必按照 [Android 合规指南](https://cloud.tencent.com/document/product/548/57361) 在《隐私政策》中增加 TPNS 相关说明，并且在用户同意《隐私政策》后再初始化 TPNS SDK。
+>
 
 ## SDK 集成（二选一）
 
@@ -11,13 +11,13 @@ Android SDK 是移动推送 TPNS 服务为客户端实现消息推送而提供�
 
 #### 操作步骤
 
->!在配置 SDK 前，确保已创建 Android 平台的应用。
+>! 在配置 SDK 前，确保已创建 Android 平台的应用。
+>
 
-1. 登录 [移动推送 TPNS 控制台](https://console.cloud.tencent.com/tpns)，在【产品管理】>【配置管理】页面获取应用的 AccessID、AccessKey。
+1. 登录 [移动推送 TPNS 控制台](https://console.cloud.tencent.com/tpns)，在**产品管理**>**配置管理**页面获取应用的 AccessID、AccessKey。
 2. 在 [SDK 下载](https://console.cloud.tencent.com/tpns/sdkdownload) 页面，获取当前最新版本号。
-![](https://main.qcloudimg.com/raw/14e6c42845be00c1e2cf964482062794.png)
+![](https://main.qcloudimg.com/raw/37b19f4e6c8dba5084c052f7e442be7f.png)
 3. 在 app build.gradle 文件下，配置以下内容：
-
 ```
 android {
     ......
@@ -45,18 +45,17 @@ android {
 
 dependencies {
     ......
-    //添加以下依赖
-    implementation 'com.tencent.jg:jg:1.1'                  
+    //添加以下依赖             
     implementation 'com.tencent.tpns:tpns:[VERSION]-release' 
 		  // TPNS 推送 [VERSION] 为最新 SDK 版本号，即为上述步骤2获取的版本号
 }
 ```
 
 >!
- - 如果您的应用服务接入点为广州，SDK 默认实现该配置。
- - 如果您的应用服务接入点为上海、新加坡或中国香港，请按照下文步骤完成其他服务接入点域名配置。
-   在 AndroidManifest 文件 application 标签内添加以下元数据：
-```
+> - 如果您的应用服务接入点为广州，SDK 默认实现该配置。
+> - 如果您的应用服务接入点为上海、新加坡或中国香港，请按照下文步骤完成其他服务接入点域名配置，否则会导致注册推送服务失败并返回-502或1008003错误码。
+> 在 AndroidManifest 文件 application 标签内添加以下元数据：
+> ```
 <application>
 	// 其他安卓组件
 	<meta-data
@@ -64,10 +63,11 @@ dependencies {
 			android:value="其他服务接入点域名" />
 </application>
 ```
-其他服务接入点域名如下：
-- 上海：`tpns.sh.tencent.com`
-- 新加坡：`tpns.sgp.tencent.com`
-- 中国香港：`tpns.hk.tencent.com`
+> 其他服务接入点域名如下：
+>   - 上海：`tpns.sh.tencent.com`
+>  - 新加坡：`tpns.sgp.tencent.com`
+>  - 中国香港：`tpns.hk.tencent.com`
+>  
 
 #### 注意事项
 
@@ -151,40 +151,68 @@ dependencies {
 
 ```xml
 <application>
-    <!-- 应用的其它配置 -->
-    <uses-library android:name="org.apache.http.legacy" android:required="false"/> 
-    <!-- 【必须】 移动推送 TPNS 默认通知 -->
     <activity android:name="com.tencent.android.tpush.TpnsActivity"
-               android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:launchMode="singleInstance"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="${applicationId}.OPEN_TPNS_ACTIVITY" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
             <intent-filter>
                 <data
                     android:scheme="tpns"
-                    android:host="应用包名"/>
+                    android:host="${applicationId}"/>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action" />
+            </intent-filter>
         </activity>
-		
-    <!-- 【必须】 移动推送 TPNS receiver广播接收 -->
-    <receiver
-        android:name="com.tencent.android.tpush.XGPushReceiver"
-        android:process=":xg_vip_service">
-        <intent-filter android:priority="0x7fffffff">
-            <!-- 【必须】 移动推送 TPNS SDK的内部广播 -->
-            <action android:name="com.tencent.android.xg.vip.action.SDK" />
-            <action android:name="com.tencent.android.xg.vip.action.INTERNAL_PUSH_MESSAGE" />
-            <action android:name="com.tencent.android.xg.vip.action.ACTION_SDK_KEEPALIVE" />
-            <!-- 【可选】 系统广播：网络切换 -->
-            <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-            <!-- 【可选】 系统广播：开屏 -->
-            <action android:name="android.intent.action.USER_PRESENT" />
-            <!-- 【可选】 一些常用的系统广播，增强移动推送 TPNS service的复活机会，请根据需要选择。当然，您也可以添加App自定义的一些广播让启动service -->
-            <action android:name="android.bluetooth.adapter.action.STATE_CHANGED" />
-            <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
-            <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
-        </intent-filter>
-    </receiver>
+
+        <activity
+            android:name="com.tencent.android.tpush.InnerTpnsActivity"
+            android:exported="false"
+            android:launchMode="singleInstance"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            <intent-filter>
+                <action android:name="${applicationId}.OPEN_TPNS_ACTIVITY_V2" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <data
+                    android:host="${applicationId}"
+                    android:scheme="stpns" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action" />
+            </intent-filter>
+        </activity>
+
+        <!-- 【必须】 信鸽receiver广播接收 -->
+        <receiver
+            android:name="com.tencent.android.tpush.XGPushReceiver"
+            android:exported="false"
+            android:process=":xg_vip_service">
+
+            <intent-filter android:priority="0x7fffffff">
+
+
+                <!-- 【必须】 信鸽SDK的内部广播 -->
+                <action android:name="com.tencent.android.xg.vip.action.SDK" />
+                <action android:name="com.tencent.android.xg.vip.action.INTERNAL_PUSH_MESSAGE" />
+                <action android:name="com.tencent.android.xg.vip.action.ACTION_SDK_KEEPALIVE" />
+            </intent-filter>
+
+        </receiver>
 
     <!-- 【必须】移动推送 TPNS service -->
     <service
@@ -271,10 +299,10 @@ dependencies {
 ```
 
 >!
- - 如果您的应用服务接入点为广州，SDK 默认实现该配置。
- - 如果您的应用服务接入点为上海、新加坡或中国香港，请按照下文步骤完成其他服务接入点域名配置。
-   在 AndroidManifest 文件 application 标签内添加以下元数据：
-```
+>  - 如果您的应用服务接入点为广州，SDK 默认实现该配置。
+>  - 如果您的应用服务接入点为上海、新加坡或中国香港，请按照下文步骤完成其他服务接入点域名配置，否则会导致注册推送服务失败并返回-502或1008003错误码。
+>  在 AndroidManifest 文件 application 标签内添加以下元数据：
+> ```
 <application>
 	// 其他安卓组件
 	<meta-data
@@ -282,17 +310,18 @@ dependencies {
 			android:value="其他服务接入点域名" />
 </application>
 ```
-其他服务接入点域名如下：
-- 上海：`tpns.sh.tencent.com`
-- 新加坡：`tpns.sgp.tencent.com`
-- 中国香港：`tpns.hk.tencent.com`
+> 其他服务接入点域名如下：
+>   - 上海：`tpns.sh.tencent.com`
+>   - 新加坡：`tpns.sgp.tencent.com`
+>   - 中国香港：`tpns.hk.tencent.com`
 
 
 ## 调试及设备注册
 
 ### 开启 Debug 日志数据
 
->!上线时请设置为 false。
+>! 上线时请设置为 false。
+>
 
 ```java
 XGPushConfig.enableDebug(this,true);
@@ -300,6 +329,10 @@ XGPushConfig.enableDebug(this,true);
 
 
 ### Token 注册
+在需要启动推送服务的地方调用推送服务注册接口：
+
+>! 建议仅在 App 的主进程内调用注册接口。
+>
 
 ```java
 XGPushManager.registerPush(this, new XGIOperateCallback() {
@@ -321,7 +354,13 @@ XGPushManager.registerPush(this, new XGIOperateCallback() {
 ```xml
 TPNS register push success with token : 6ed8af8d7b18049d9fed116a9db9c71ab44d5565
 ```
+### 关闭日志打印
+调用 XGPushConfig.enableDebug(context, false) 关闭 SDK debug 日志开关时，SDK 默认仍会打印部分日常运行日志（包含 TPNS Token）。
 
+您可以通过在 Application.onCreate 内调用如下方法，来关闭这些日常运行日志在控制台的输出打印：
+```java
+new XGPushConfig.Build(context).setLogLevel(Log.ERROR);
+```
 
 ## 代码混淆
 
@@ -367,11 +406,11 @@ TPNS register push success with token : 6ed8af8d7b18049d9fed116a9db9c71ab44d5565
 <ImageView android:layout_height="25dp" android:layout_width="25dp" android:id="@+id/xg_notification_audio_stop" android:layout_marginLeft="30dp" android:layout_toRightOf="@+id/xg_notification_audio_play" android:visibility="gone" android:background="@android:drawable/ic_media_pause" android:layout_alignParentBottom="true"/></RelativeLayout>
 ```
 
-
 ### 关闭联合保活
 
 如需关闭联合保活功能，请在应用初始化的时候，例如 Application 或 LauncherActivity 的 onCreate 中调用如下接口，并传递 false 值：
->!仅 1.1.6.0 之后版本支持关闭联合保活功能，1.1.6.0之前版本TPNS 默认开启联合保活能力，且不可关闭。
+>! 仅 1.1.6.0 之后版本支持关闭联合保活功能，1.1.6.0之前版本TPNS 默认开启联合保活能力，且不可关闭。
+>
 
 ```java
 XGPushConfig.enablePullUpOtherApp(Context context, boolean pullUp);
@@ -402,6 +441,25 @@ XGPushConfig.getToken(getApplicationContext());
 
 ![](https://main.qcloudimg.com/raw/854020af14428df9972629e7dbbee55f.png)
 
+### 获取 TPNS 运行日志交互建议
+
+SDK 提供日志上报接口。如用户在应用上线后遇到推送相关问题，可以通过引导用户操作触发此接口，上传 SDK 运行日志并获取回调返回的日志文件下载地址，方便问题排查。详情参考 [日志上报接口](https://cloud.tencent.com/document/product/548/36659#.E6.96.B0.E5.A2.9E.E6.97.A5.E5.BF.97.E4.B8.8A.E6.8A.A5.E6.8E.A5.E5.8F.A3)。
+
+示例代码如下：
+```java
+XGPushManager.uploadLogFile(context, new HttpRequestCallback() {
+    @Override
+    public void onSuccess(String result) {
+        Log.d("TPush", "上传成功，文件地址：" + result);
+    }
+        @Override
+    public void onFailure(int errCode, String errMsg) {
+        Log.d("TPush", "上传失败，错误码：" + errCode + ",错误信息：" + errMsg);
+    }
+});
+```
+
+
 ### 隐私协议声明建议
 
 您可在申请 App 权限使用时，使用以下内容声明授权的用途：
@@ -410,8 +468,6 @@ XGPushConfig.getToken(getApplicationContext());
 <pre>
 我们使用 <a href="https://cloud.tencent.com/product/tpns">腾讯云移动推送 TPNS</a> 用于实现产品信息的推送，在您授权我们“访问网络连接”和“访问网络状态”权限后，表示您同意 <a href="https://cloud.tencent.com/document/product/548/50955">腾讯 SDK 隐私协议</a>。您可以通过关闭终端设备中的通知选项来拒绝接受此 SDK 推送服务。
 </pre>
-
-
 
 其中上述声明授权的两个链接如下：
 - 腾讯云移动推送 TPNS ：`https://cloud.tencent.com/product/tpns`

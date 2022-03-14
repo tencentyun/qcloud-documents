@@ -269,19 +269,24 @@ public interface OnSdkKitInitCallback {
  * The interface Q bar sdk callback.
  */
 public interface QBarSdkCallback {
+
     /**
-     * 解码结果回调
+     * 如果只一个码，解码结果回调
      *
-     * @param result 扫码结果数据
+     * @param result 数据
      */
     void onIdentityResult(ScanResult result);
+
+    /**
+     * 扫码过程中出现的异常
+     * @param errorCode 错误码
+     * @param errorMsg 错误信息
+     */
+    void onFail(int errorCode, String errorMsg);
 }
 ```
 
 ScanResult 包含属性及含义：
-
-**String data** 识别到的内容信息
-
-**String charset** 内容包含的字符集
-
-**String typeName** 所扫描图片包含的二维码类型
+- **String data** 识别到的内容信息。
+- **String charset** 内容包含的字符集。
+- **String typeName** 所扫描图片包含的二维码类型。

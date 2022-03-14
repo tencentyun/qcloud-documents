@@ -1,0 +1,122 @@
+## 功能说明
+
+数据万象支持自定义设置回调 URL，在工作流开启状态下，每执行一个实例后，系统会向该 URL 发送 HTTP POST 请求，请求体中包含通知内容。您可通过配置的回调地址及时了解工作流实例处理的进展和状态，以便进行其他业务操作。
+
+## 回调内容
+
+任务完成后，系统会向您设置的回调地址发送回调内容，该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
+
+```plaintext
+<Response>
+        <WorkflowExecution>
+            <RunId></RunId>
+            <BucketId></BucketId>
+            <Object></Object>
+            <CosHeaders>
+                <Key></Key>
+                <Value></Value>
+            </CosHeaders>
+            <WorkflowId></WorkflowId>
+            <WorkflowName></WorkflowName>
+            <CreateTime></CreateTime>
+            <State></State>
+            <Tasks>
+                   <Type></Type>
+                   <CreateTime></CreateTime>
+                   <EndTime></EndTime>
+                   <State></State>
+                   <JobId></JobId>
+                   <Name></Name>
+                   <TemplateId></TemplateId>
+                   <TemplateName></TemplateName>
+            </Tasks>
+        </WorkflowExecution>
+</Response>
+```
+
+具体的数据内容如下：
+
+| 节点名称（关键字） | 父节点 | 描述           | 类型      |
+| :----------------- | :----- | :------------- | :-------- |
+| Response           | 无     | 保存结果的容器 | Container |
+
+Container 节点 Response 的内容：
+
+| 节点名称（关键字） | 父节点   | 描述             | 类型      |
+| :----------------- | :------- | :--------------- | :-------- |
+| WorkflowExecution  | Response | 工作流的详细信息 | Container |
+
+Container 节点 WorkflowExecution 的内容：
+
+| 节点名称（关键字） | 父节点                     | 描述                                                         | 类型      |
+| :----------------- | :------------------------- | :----------------------------------------------------------- | :-------- |
+| RunId              | Response.WorkflowExecution | 工作流实例的 ID                                               | String    |
+| BucketId           | Response.WorkflowExecution | 被处理文件所属的存储桶                                           | String    |
+| Object             | Response.WorkflowExecution | 该实例处理的文件名                                      | String    |
+| CosHeaders         | Response.WorkflowExecution | 该 Object 上传时设定的自定义 Header 列表，没有设置时无此内容     | Container |
+| State              | Response.WorkflowExecution | 实例的状态，值为 Success、Failed 其中一个。Tasks 存在一个 Failed，则此实例视为 Failed | String    |
+| CreateTime         | Response.WorkflowExecution | 实例的创建时间                                               | String    |
+| WorkflowId         | Response.WorkflowExecution | 工作流 ID                                                     | String    |
+| WorkflowName       | Response.WorkflowExecution | 工作流的名称                                                 | String    |
+| Tasks              | Response.WorkflowExecution | 任务信息列表                                                 | Container |
+
+Container 节点 CosHeaders 的内容：
+
+| 节点名称（关键字） | 父节点                                | 描述               | 类型   |
+| :----------------- | :------------------------------------ | :----------------- | :----- |
+| Key                | Response.WorkflowExecution.CosHeaders | 自定义 Header 的名称 | String |
+| Value              | Response.WorkflowExecution.CosHeaders | 自定义 Header 的值   | String |
+
+Container 节点 Tasks 的内容：
+
+| 节点名称（关键字） | 父节点                           | 描述                                                  | 类型   |
+| :----------------- | :------------------------------- | :---------------------------------------------------- | :----- |
+| Type               | Response.WorkflowExecution.Tasks | 任务类型，值为 Snapshot、Transcode、SmartCover、Concat 等 | String |
+| Createtime         | Response.WorkflowExecution.Tasks | 任务的创建时间                                        | String |
+| EndTime            | Response.WorkflowExecution.Tasks | 任务的完成时间                                        | String |
+| State              | Response.WorkflowExecution.Tasks | 任务的状态，值为 Success、Failed 等                       | String |
+| JobId              | Response.WorkflowExecution.Tasks | 任务的 ID                                              | String |
+| Name               | Response.WorkflowExecution.Tasks | 任务在工作流中的节点名称                              | String |
+| TemplateId   | Response.WorkflowExecution.Tasks | 任务使用的模板 ID   | String |
+| TemplateName | Response.WorkflowExecution.Tasks | 任务使用的模板名称 | String |
+
+
+## 实际案例
+
+```plaintext
+<Response>
+    <WorkflowExecution>
+        <RunId>ie4d9187d35dc11eb9cec525400860000</RunId>
+        <BucketId>examplebucket-1250000000</BucketId>
+        <Object>0000.mp4</Object>
+        <CosHeaders>
+            <Key>x-cos-meta-id</Key>
+            <Value>testid</Value>
+        </CosHeaders>
+        <WorkflowId>w2b22307fb0e44107bc8ffe71e1d20000</WorkflowId>
+        <WorkflowName>example</WorkflowName>
+        <CreateTime>2020-12-01 11:00:41+0800</CreateTime>
+        <State>Success</State>
+        <Tasks>
+            <Type>Transcode</Type>
+            <CreateTime>2020-12-01 11:00:42+0800</CreateTime>
+            <EndTime>2020-12-01 11:00:45+0800</EndTime>
+            <State>Success</State>
+            <JobId>je5195f3e35dc11ebbe6fed17a7c10000</JobId>
+            <Name>Transcode_1600413767353</Name>
+            <TemplateId>t182c0ca7d91ca40969a3fc97c5559091a</TemplateId>
+            <TemplateName>example</TemplateName>
+        </Tasks>
+        <Tasks>
+            <Type>Transcode</Type>
+            <CreateTime>2020-12-01 11:00:42+0800</CreateTime>
+            <EndTime>2020-12-01 11:00:45+0800</EndTime>
+            <State>Success</State>
+            <JobId>je55e922035dc11ebbe6fed17a7c10000</JobId>
+            <Name>Transcode_1600413767444</Name>
+            <TemplateId>t182c0ca7d91ca40969a3fc97c5559091b</TemplateId>
+            <TemplateName>example</TemplateName>
+        </Tasks>
+    </WorkflowExecution>
+</Response>
+```

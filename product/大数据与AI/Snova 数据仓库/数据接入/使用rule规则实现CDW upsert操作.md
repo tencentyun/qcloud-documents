@@ -43,9 +43,9 @@ Rules:
     r1 AS
     ON INSERT TO my_test
    WHERE (EXISTS ( SELECT 1
-           FROM my_test my_test_1
-          WHERE my_test_1.id = new.id
-         LIMIT 1)) DO INSTEAD  UPDATE my_test SET num1 = new.num1, num2 = new.num2, str1 = new.str1, str2 = new.str2
+	 FROM my_test my_test_1
+ 	WHERE my_test_1.id = new.id
+	 LIMIT 1)) DO INSTEAD  UPDATE my_test SET num1 = new.num1, num2 = new.num2, str1 = new.str1, str2 = new.str2
 ```
 
 

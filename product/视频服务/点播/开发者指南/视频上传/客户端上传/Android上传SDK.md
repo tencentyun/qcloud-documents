@@ -2,7 +2,7 @@
 
 ## 源码下载
 
-1. [单击下载](https://ugcupload-1252463788.file.myqcloud.com/LiteAVSDK_UGC_Upload_Android.zip) Android 上传 Demo 及源码。
+1. [单击下载](https://liteav.sdk.qcloud.com/download/ugc/LiteAVSDK_UGC_Upload_Android.zip) Android 上传 Demo 及源码。
 2. 将下载好的压缩包解压，可以看到 Demo 目录，上传源码在`Demo/app/src/main/java/com/tencent/ugcupload/demo/videoupload`目录下。
 
 ##  集成上传库和源码
@@ -14,7 +14,7 @@
         exclude group: 'com.tencent.qcloud', module: 'mtaUtils' //关闭 mta 上报功能}
     }
     ```
-    >?您也可以参考 [手动集成](https://cloud.tencent.com/document/product/436/12159#.E6.96.B9.E5.BC.8F.E4.BA.8C.EF.BC.9A.E6.89.8B.E5.8A.A8.E9.9B.86.E6.88.90) 文档集成对应版本的依赖库。
+>?您也可以参考 [手动集成](https://cloud.tencent.com/document/product/436/12159#.E6.96.B9.E5.BC.8F.E4.BA.8C.EF.BC.9A.E6.89.8B.E5.8A.A8.E9.9B.86.E6.88.90) 文档集成对应版本的依赖库。
 3. 使用视频上传需要网络、存储等相关访问权限，可在`AndroidManifest.xml`中增加如下权限声明：
 	```xml
 	<uses-permission android:name="android.permission.INTERNET"/>
@@ -110,8 +110,10 @@ param.mediaPath = "xxx";
 int publishCode = mVideoPublish.publishMedia(param);
 ```
 
->?上传方法根据用户文件的长度，自动选择普通上传以及分片上传，用户不用关心分片上传的每个步骤，即可实现分片上传。
-
+>?
+>- 上传方法根据用户文件的长度，自动选择普通上传以及分片上传，用户不用关心分片上传的每个步骤，即可实现分片上传。
+>- 如需上传至指定子应用下，请参见 [子应用体系 - 客户端上传](https://cloud.tencent.com/document/product/266/14574#.E5.AE.A2.E6.88.B7.E7.AB.AF.E4.B8.8A.E4.BC.A0)。
+>
 ## 高级功能
 
 #### 携带封面

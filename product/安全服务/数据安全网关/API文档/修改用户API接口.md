@@ -1,3 +1,4 @@
+
 ## 接口描述
 
 - **请求 URL**：`https://ip/iam/api/user`
@@ -23,6 +24,7 @@
 
 ```shell
 {
+  "X-Auth-Token":"fnBIaLG275EtTswn2FwP4tWNjYNCvzqM1JoCabgyHjg=",
   "uid": "test",
   "name": "测试用户",
   "typeStr": "测试",

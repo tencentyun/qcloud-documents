@@ -1,4 +1,4 @@
-腾讯云 EMR 的 Hadoop 集成了腾讯云对象存储，如果您在购买的时候勾选了支持 COS，那么您也可以通过常见的 hadoop 命令操作 COS 上的数据。您可通过如下命令操作集群中的数据。
+腾讯云 EMR 的 Hadoop 集成了腾讯云对象存储，如果您在购买的时候勾选了支持 COS，那么您也可以通过常见的 hadoop 命令操作 COS 上的数据。可通过如下命令操作集群中的数据。
 ``` shell
 #cat 数据
 hadoop fs -cat /usr/hive/warehouse/hivewithhdfs.db/record/data.txt

@@ -139,10 +139,10 @@ TRTCParams 是 SDK 最关键的一个参数，它包含如下四个必填的字�
   您可以随意指定，由于是字符串类型，可以直接跟您现有的账号体系保持一致，但请注意，**同一个音视频房间里不应该有两个同名的 userId**。
 
 - **userSig**
-  基于 SDKAppID 和 userId 可以计算出 userSig，计算方法请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。
+  基于 SDKAppID 和 userId 可以计算出 userSig，计算方法请参见 [如何计算及使用 UserSig](https://cloud.tencent.com/document/product/647/17275)。
 
 - **roomId**
-  房间号是数字类型，您可以随意指定，但请注意，**同一个应用里的两个音视频房间不能分配同一个 roomId**。
+  房间号是数字类型，您可以随意指定，但请注意，**同一个应用里的两个音视频房间不能分配同一个 roomId**。如果您想使用字符串形式的房间号，请使用 TRTCParams 中的 strRoomId。
 
 ### 3. 主播预览摄像头画面
 TRTC SDK 并不会默认打开本地的摄像头采集，`startLocalPreview` 可以开启本地的摄像头并显示预览画面，`stopLocalPreview` 则会关闭。
@@ -365,7 +365,9 @@ public void onUserVideoAvailable(string userId, bool available)
 :::
 </dx-codeblock>
 
->!在 TRTCAppSceneLIVE 模式下，同一个房间中的观众（TRTCRoleAudience）人数没有限制。
+>!
+>- 在 TRTCAppSceneLIVE 模式下，同一个房间中的观众（TRTCRoleAudience）人数没有限制。
+>- 每个端在应用场景 appScene 上必须要进行统一，否则会出现一些不可预料的问题。
 
 ### 8. 观众跟主播连麦
 主播和观众都可以通过 TRTCCloud 提供的 `switchRole` 进行角色间的相互切换，最常见的场景是观众跟主播连麦：观众可以通过该接口切换成“小主播”，然后跟房间里原来的“大主播”进行连麦互动。

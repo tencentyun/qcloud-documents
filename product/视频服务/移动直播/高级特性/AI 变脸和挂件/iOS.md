@@ -15,7 +15,7 @@
 
 ### 2. 下载企业版 SDK
 
-下载并解压 [企业版 SDK](https://github.com/tencentyun/TRTCSDK/blob/master/SDK%E4%B8%8B%E8%BD%BD.md#%E4%BC%81%E4%B8%9A%E7%89%88-sdk-%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80) ，解压时需要解压密码，解压密码在申请 License 成功后即可获取，解压后的目录结构如下：
+下载并解压 [企业版 SDK](https://cloud.tencent.com/document/product/454/7873#Enterprise) ，解压时需要解压密码，解压密码在申请 License 成功后即可获取，解压后的目录结构如下：
 
 | 目录名称                         | 目录内容                      |
 | -------------------------------- | ----------------------------- |
@@ -78,7 +78,7 @@ Metal.framework
 ## 功能调用
 
 ### 高级美颜接口（大眼、瘦脸等）
-美妆接口的设置对象可以通过 TXLivePusher 的 [getBeautyManager](https://cloud.tencent.com/document/product/454/34772#getbeautymanager) 方法获取。
+美妆接口的设置对象可以通过 V2TXLivePusher 的 [getBeautyManager](https://cloud.tencent.com/document/product/454/56609#getbeautymanager) 方法获取。
 美妆接口的调用比较简单，只需要对指定的接口调用0 - 9之间的一个数值即可，0表示关闭，数值越大，效果越明显。
 <dx-codeblock>
 ::: bjective-c bjective-c
@@ -245,7 +245,7 @@ Metal.framework
 
 [](id:beauty_dynamic)
 ### 美颜动效（动效贴纸、AI抠图、美妆、手势）
-美颜动效接口的设置对象可以通过 TXLivePusher 的 [getBeautyManager](https://cloud.tencent.com/document/product/454/34772#getbeautymanager) 方法获取。
+美颜动效接口的设置对象可以通过 V2TXLivePusher 的 [getBeautyManager](https://cloud.tencent.com/document/product/454/56609#getbeautymanager) 方法获取。
 购买美颜动效素材后，您可以获得对应效果的素材包。每一个素材包就是一个独立的目录，目录里包含了很多资源文件。每个素材包因其复杂度不同，文件数量和大小尺寸也各不相同。
 
 为了节省安装包体积，我们建议您将素材包上传到您的服务器上，并将下载地址配置在您的 App 中，例如：`http://yourcompany.com/hudongzhibo/AISpecial/**/{动效名}.zip`。
@@ -263,7 +263,7 @@ Metal.framework
 ```
 
 ### 绿幕功能
-绿幕接口的设置对象可以通过 TXLivePusher 的 [getBeautyManager](https://cloud.tencent.com/document/product/454/34772#getbeautymanager) 方法获取。
+绿幕接口的设置对象可以通过 V2TXLivePusher 的 [getBeautyManager](https://cloud.tencent.com/document/product/454/56609#getbeautymanager) 方法获取。
 如果要使用绿幕功能，需要先让主播站在一个绿色背景前。开启绿幕功能以后，SDK 会识别出图像中的绿色区域，并将其替换成视频内容。
 ![](https://main.qcloudimg.com/raw/8a5038bcd30151d6a7224a8450d1525a.png)
 您需要先准备一个用于播放的 mp4 文件，然后通过调用如下接口即可开启绿幕效果：

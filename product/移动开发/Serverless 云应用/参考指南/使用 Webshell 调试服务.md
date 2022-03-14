@@ -9,33 +9,34 @@
 > - 若您在 Webshell 中的操作引起容器 OOM，可能会带来服务中断。
 > - 若您在 Webshell 中直接修改了容器配置，可能会导致与云托管中记录的容器配置不一致，引起后续操作混乱。
 
-## 步骤 1：登录控制台
+## 步骤1：登录控制台
 
 登录 [云托管控制台](https://console.cloud.tencent.com/tcb/service)，再按需要切换到指定的环境。
-![](https://main.qcloudimg.com/raw/38110b543ebe9c38b0e25370b1dfaf3a.png)
+![](https://main.qcloudimg.com/raw/23c6ea9af428c46e0f9011d7264b04ad.png)
 
-## 步骤 2：进入服务详情页面
+## 步骤2：进入服务详情页面
 
 单击服务名称进入服务详情页面。
 
 ![](https://main.qcloudimg.com/raw/0f5797a3dec470fe211e1e47a05cecbd.jpg)
 
-## 步骤 4：进入版本详情页面
+## 步骤3：进入版本详情页面
 
 单击版本名称进入版本详情页面。
 ![](https://main.qcloudimg.com/raw/6e5ceb94a9c2839fbc7f5e23117b968c.png)
 
-## 步骤 5：进入实例页面
+## 步骤4：进入实例页面
 
-单击【实例】页签，进入实例管理页面。
+单击**实例**页签，进入实例管理页面。
 ![](https://main.qcloudimg.com/raw/4de5df20f7e9930a03cf198e6667a231.png)
 
-## 步骤 6：进入 Webshell 页面
+## 步骤5：进入 Webshell 页面
 
-单击需要调试的容器对应的【Webshell】，进入 Webshell 管理页面。
+单击需要调试的容器对应的 **Webshell**，进入 Webshell 管理页面。
 
 >? 根据版本的“副本个数”、“扩缩容条件”和当前版本流量情况，您的版本下可能有多个实例（容器）。同一个版本下所有的容器都是根据“版本配置”创建出来的，配置信息完全一致，因此绝大多数情况下您任意选择一个容器进入 Webshell 都可对当前版本进行调试和问题定位。但不排除某些特殊情况下，仅有个别容器状态异常。
 
-## 步骤 7：调试
+## 步骤6：调试
 
 您可以开始对自己的服务进行调试。
+

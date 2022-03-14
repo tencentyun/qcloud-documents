@@ -13,29 +13,30 @@ Namespace=QCE/TXMR_HDFS
 
 | 指标英文名                                                   | 指标中文名                               | 单位 | 指标含义                                      | 维度                                    |
 | ------------------------------------------------------------ | ---------------------------------------- | ---- | --------------------------------------------- | --------------------------------------- |
-| EmrHdfsOverview<br>HdfsNnBlockCapacityTotal                  | 集群存储容量_CapacityTotal               | GB   | 集群存储总容量                                | host4hdfsoverview、<br>id4hdfsoverview  |
-| EmrHdfsOverview<br/>HdfsNnBlockCapacityUsed                  | 集群存储容量_CapacityUsed                | GB   | 集群储存已使用容量                            | host4hdfsoverview、<br/>id4hdfsoverview |
-| EmrHdfsOverview<br/>HdfsNnBlockCapacityRemaining             | 集群存储容量_CapacityRemaining           | GB   | 集群存储剩余容量                              | host4hdfsoverview、<br/>id4hdfsoverview |
-| EmrHdfsOverview<br/>HdfsNnBlockCapacity<br>UsedNonDFS        | 集群存储容量_CapacityUsedNonDFS          | GB   | 集群非 HDFS 使用容量                          | host4hdfsoverview、<br/>id4hdfsoverview |
-| EmrHdfsOverview<br/>HdfsNnBlockTotalLoad                     | 集群负载_TotalLoad                       | 个   | 当前连接数                                    | host4hdfsoverview、<br>id4hdfsoverview  |
-| EmrHdfsOverview<br/>HdfsNnBlockFilesTotal                    | 群文件总数量_FilesTotal                  | 个   | 总文件数量                                    | host4hdfsoverview、<br>id4hdfsoverview  |
-| EmrHdfsOverview<br/>HdfsNnBlockBlockstotal                   | BLOCKS 数量_BlocksTotal                  | 个   | 总 BLOCK 数量                                 | host4hdfsoverview、<br>id4hdfsoverview  |
-| EmrHdfsOverview<br/>HdfsNnBlockPending<br>ReplicationBlocks  | BLOCKS 数量_PendingReplicationBlocks     | 个   | 等待被备份的块数量                            | host4hdfsoverview、<br>id4hdfsoverview  |
-| EmrHdfsOverview<br/>HdfsNnBlockUnder<br>ReplicatedBlocks     | BLOCKS 数量_UnderReplicatedBlocks        | 个   | 副本数不够的块数量                            | host4hdfsoverview、<br>id4hdfsoverview  |
-| EmrHdfsOverview<br/>HdfsNnBlockBlocksCorruptblocks           | BLOCKS 数量_CorruptBlocks                | 个   | 坏块数量                                      | host4hdfsoverview、<br>id4hdfsoverview  |
-| EmrHdfsOverview<br/>HdfsNnBlockScheduled<br>ReplicationBlocks | BLOCKS 数量_ScheduledReplicationBlocks   | 个   | 安排要备份的块数量                            | host4hdfsoverview、<br>id4hdfsoverview  |
-| EmrHdfsOverview<br/>HdfsNnBlockPending<br>DeletionBlocks     | BLOCKS 数量_PendingDeletionBlocks        | 个   | 等待被删除的块数量                            | host4hdfsoverview、<br>id4hdfsoverview  |
-| EmrHdfsOverview<br/>HdfsNnBlockCorruptblocks                 | BLOCKS 数量_CorruptBlocks                | 个   | 多于的块数量                                  | host4hdfsoverview、<br>id4hdfsoverview  |
-| EmrHdfsOverview<br/>HdfsNnBlockPostponed<br>MisreplicatedBlocks | BLOCKS 数量_PostponedMisreplicatedBlocks | 个   | 被推迟处理的异常块数量                        | host4hdfsoverview、<br>id4hdfsoverview  |
-| EmrHdfsOverview<br/>HdfsNnBlockBlockCapacity                 | BLOCK容量_BlockCapacity                  | 个   | BLOCK 容量                                    | host4hdfsoverview、<br>id4hdfsoverview  |
-| EmrHdfsOverview<br/>HdfsNnBlockNumLiveDataNodes              | 集群数据节点_NumLiveDataNodes            | 个   | 个活的数据节点数量                            | host4hdfsoverview、<br>id4hdfsoverview  |
-| EmrHdfsOverview<br/>HdfsNnBlockNumDeadDataNodes              | 集群数据节点_NumDeadDataNodes            | 个   | 已经标记为 Dead 状态的数据节点数量            | host4hdfsoverview、<br>id4hdfsoverview  |
-| EmrHdfsOverview<br/>HdfsNnBlockNum<br>DecomLiveDataNodes     | 集群数据节点_NumDecomLiveDataNodes       | 个   | 下线且 Live 的节点数量                        | host4hdfsoverview、<br>id4hdfsoverview  |
-| EmrHdfsOverview<br/>HdfsNnBlockNum<br>DecomDeadDataNodes     | 集群数据节点_NumDecomDeadDataNodes       | 个   | 下线且 Dead 的节点数量                        | host4hdfsoverview、<br>id4hdfsoverview  |
-| EmrHdfsOverview<br/>HdfsNnBlockNum<br>DecommissioningDataNodes | 集群数据节点_NumDecommissioningDataNodes | 个   | 正在下线的节点数量                            | host4hdfsoverview、<br>id4hdfsoverview  |
-| EmrHdfsOverview<br/>HdfsNnBlockNum<br>StaleDataNodes         | 集群数据节点_NumStaleDataNodes           | 个   | 由于心跳延迟而标记为过期的 DataNodes 当前数量 | host4hdfsoverview、<br>id4hdfsoverview  |
-| EmrHdfsOverview<br/>HdfsNnBlockSnapshots                     | SNAPSHOT 相关_Snapshots                  | 个   | Snapshots 数量                                | host4hdfsoverview、<br>id4hdfsoverview  |
-| EmrHdfsOverview<br/>HdfsNnBlockVolumeFailuresTotal           | 磁盘故障_VolumeFailuresTotal             | 次   | 所有 Datanodes 的全故障总数                   | host4hdfsoverview、<br>id4hdfsoverview  |
+| EmrHdfsOverviewHdfsNn<br>CapacityCapacitytotal               | 集群存储容量_CapacityTotal               | GB   | 集群存储总容量                                | id4hdfsoverview |
+| EmrHdfsOverviewHdfsNn<br/>CapacityCapacityused               | 集群存储容量_CapacityUsed                | GB   | 集群储存已使用容量                            | id4hdfsoverview |
+| EmrHdfsOverviewHdfsNn<br/>CapacityCapacityremaining          | 集群存储容量_CapacityRemaining           | GB   | 集群存储剩余容量                              | id4hdfsoverview |
+| EmrHdfsOverviewHdfsNn<br/>CapacityCapacityusednondfs         | 集群存储容量_CapacityUsedNonDFS          | GB   | 集群非 HDFS 使用容量                          | id4hdfsoverview |
+| EmrHdfsOverview<br/>HdfsNnLoadTotalload                      | 集群负载_TotalLoad                       | 个   | 当前连接数                                    | id4hdfsoverview |
+| EmrHdfsOverview<br/>HdfsNnFilesTotalFilestotal               | 群文件总数量_FilesTotal                  | 个   | 总文件数量                                    | id4hdfsoverview |
+| EmrHdfsOverviewHdfsNn<br/>BlocksBlockstotal                  | BLOCKS 数量_BlocksTotal                  | 个   | 总 BLOCK 数量                                 | id4hdfsoverview |
+| EmrHdfsOverviewHdfsNn<br/>BlocksPending<br>replicationblocks     | BLOCKS 数量_PendingReplicationBlocks     | 个   | 等待被备份的块数量                            | id4hdfsoverview |
+| EmrHdfsOverviewHdfs<br/>NnBlocksUnderre<br>plicatedblocks        | BLOCKS 数量_UnderReplicatedBlocks        | 个   | 副本数不够的块数量                            | id4hdfsoverview |
+| EmrHdfsOverviewHdfsNn<br/>BlocksCorruptblocks                | BLOCKS 数量_CorruptBlocks                | 个   | 坏块数量                                      | id4hdfsoverview |
+| EmrHdfsOverviewHdfsNn<br/>BlocksScheduledreplicationblocks   | BLOCKS 数量_ScheduledReplicationBlocks   | 个   | 安排要备份的块数量                            | id4hdfsoverview |
+| EmrHdfsOverviewHdfsNn<br/>BlocksPendingdeletionblocks        | BLOCKS 数量_PendingDeletionBlocks        | 个   | 等待被删除的块数量                            | id4hdfsoverview |
+| EmrHdfsOverviewHdfs<br/>NnBlocksCorruptblocks                | BLOCKS 数量_CorruptBlocks                | 个   | 多于的块数量                                  | id4hdfsoverview |
+| EmrHdfsOverviewHdfs<br/>NnBlocksPostponedmisre<br/>plicatedblocks | BLOCKS 数量_PostponedMisreplicatedBlocks | 个   | 被推迟处理的异常块数量                        | id4hdfsoverview |
+| EmrHdfsOverviewHdfsNnBlock<br/>CapacityBlockcapacity         | BLOCK容量_BlockCapacity                  | 个   | BLOCK 容量                                    | id4hdfsoverview |
+| EmrHdfsOverviewHdfsNn<br/>DatanodesCountNum<br/>livedatanodes | 集群数据节点_NumLiveDataNodes            | 个   | 个活的数据节点数量                            | id4hdfsoverview |
+| EmrHdfsOverviewHdfsNn<br/>DatanodesCountNum<br/>deaddatanodes | 集群数据节点_NumDeadDataNodes            | 个   | 已经标记为 Dead 状态的数据节点数量            | id4hdfsoverview |
+| EmrHdfsOverviewHdfsNn<br/>DatanodesCountNumdecom<br/>livedatanodes | 集群数据节点_NumDecomLiveDataNodes       | 个   | 下线且 Live 的节点数量                        | id4hdfsoverview |
+| EmrHdfsOverviewHdfsNn<br/>DatanodesCountNumde<br/>comdeaddatanodes | 集群数据节点_NumDecomDeadDataNodes       | 个   | 下线且 Dead 的节点数量                        | id4hdfsoverview |
+| EmrHdfsOverviewHdfs<br/>NnDatanodesCountNumde<br/>commissioningdatanodes | 集群数据节点_NumDecommissioningDataNodes | 个   | 正在下线的节点数量                            | id4hdfsoverview |
+| EmrHdfsOverviewHdfs<br/>NnDatanodesCountNumstale<br/>datanodes | 集群数据节点_NumStaleDataNodes           | 个   | 由于心跳延迟而标记为过期的 DataNodes 当前数量 | id4hdfsoverview |
+| EmrHdfsOverviewHdfsNn<br/>SnapshotsSnapshots                 | SNAPSHOT 相关_Snapshots                  | 个   | Snapshots 数量                                | id4hdfsoverview |
+| EmrHdfsOverviewHdfs<br/>NnVolumeFailures<br/>Volumefailurestotal | 磁盘故障_VolumeFailuresTotal             | 次   | 所有 Datanodes 的全故障总数                   | id4hdfsoverview |
+|HdfsStatUsageRatio<br>Capacityusedrate | 	HDFS存储空间使用率         |%  | HDFS存储空间使用率              | id4hdfsoverview |
 
 ## HDFS-OverviewAggregation
 
@@ -148,6 +149,8 @@ Namespace=QCE/TXMR_HDFS
 | HdfsNnThreadCountPeakthreadcount                             | 线程数量_PeakThreadCount                                     | 个       | 峰值线程数                                           | host4hdfsnamenode、<br> id4hdfsnamenode |
 | HdfsNnThreadCountThreadcount                                 | 线程数量_ThreadCount                                         | 个       | 线程数量                                             | host4hdfsnamenode、<br> id4hdfsnamenode |
 | HdfsNnThreadCount<br>Daemonthreadcount                       | 线程数量_DaemonThreadCount                                   | 个       | 后台线程数量                                         | host4hdfsnamenode、<br> id4hdfsnamenode |
+| HdfsNnPort4007Rt<br>Rpcprocessingtimeavgtime                     | 请求处理延迟_ RpcProcessingTimeAvgTime	                                  | ms       | 请求处理延迟                                  | host4hdfsnamenode、<br> id4hdfsnamenode |
+
 
 ### HDFS-DataNode
 
@@ -318,23 +321,23 @@ Namespace=QCE/TXMR_HDFS
 | Instances.N.Dimensions.0.Name  | id4hdfsoverview               | EMR 实例 ID 的维度名称        | 输入  String 类型维度名称：id4hdfsoverview                   |
 | Instances.N.Dimensions.0.Value | id4hdfsoverview               | EMR  实例具体 ID              | 输入  EMR 具体实例 ID，例如 ：emr-mm8bs222                   |
 | Instances.N.Dimensions.1.Name  | host4hdfsoverview             | EMR  实例中节点 IP 的维度名称 | 输入String  类型维度名称：host4hdfsoverview                  |
-| Instances.N.Dimensions.1.Value | host4hdfsoverview             | EMR  实例中具体节点 IP        | 输入具体节点  IP ，可从控制台获取，登录 [腾讯云 MapReduce 控制台](https://console.cloud.tencent.com/emr) > 点击实例 > 集群资源 > 资源管理 > 节点内网 IP。也可通过 [查询节点信息](https://cloud.tencent.com/document/product/589/41707) API 获取。 |
+| Instances.N.Dimensions.1.Value | host4hdfsoverview             | EMR  实例中具体节点 IP        | 输入具体节点  IP ，可从控制台获取，登录 [腾讯云 MapReduce 控制台](https://console.cloud.tencent.com/emr) > 单击实例 > 集群资源 > 资源管理 > 节点内网 IP。也可通过 [查询节点信息](https://cloud.tencent.com/document/product/589/41707) API 获取。 |
 | Instances.N.Dimensions.0.Name  | id4hdfsnamenode               | EMR 实例 ID 的维度名称        | 输入 String  类型维度名称：id4hdfsnamenode                   |
 | Instances.N.Dimensions.0.Value | id4hdfsnamenode               | EMR 实例具体 ID               | 输入 EMR 具体实例 ID，例如  ：emr-mm8bs222                   |
 | Instances.N.Dimensions.1.Name  | host4hdfsnamenode             | EMR 实例中节点 IP 的维度名称  | 输入String  类型维度名称：host4hdfsnamenode                  |
-| Instances.N.Dimensions.1.Value | host4hdfsnamenode             | EMR 实例中具体节点 IP         | 输入具体节点  IP ，可从控制台获取，登录 [腾讯云 MapReduce 控制台](https://console.cloud.tencent.com/emr) > 点击实例 > 集群资源 > 资源管理 > 节点内网 IP。也可通过 [查询节点信息](https://cloud.tencent.com/document/product/589/41707) API 获取。 |
+| Instances.N.Dimensions.1.Value | host4hdfsnamenode             | EMR 实例中具体节点 IP         | 输入具体节点  IP ，可从控制台获取，登录 [腾讯云 MapReduce 控制台](https://console.cloud.tencent.com/emr) > 单击实例 > 集群资源 > 资源管理 > 节点内网 IP。也可通过 [查询节点信息](https://cloud.tencent.com/document/product/589/41707) API 获取。 |
 | Instances.N.Dimensions.0.Name  | id4hdfsdatanode               | EMR  实例 ID 的维度名称       | 输入 String  类型维度名称：id4hdfsdatanode                   |
 | Instances.N.Dimensions.0.Value | id4hdfsdatanode               | EMR  实例具体 ID              | 输入 EMR 具体实例 ID，例如  ：emr-mm8bs222                   |
 | Instances.N.Dimensions.1.Name  | host4hdfsdatanode             | EMR  实例中节点 IP 的维度名称 | 输入String  类型维度名称：host4hdfsdatanode                  |
-| Instances.N.Dimensions.1.Value | host4hdfsdatanode             | EMR  实例中具体节点 IP        | 输入具体节点  IP ，可从控制台获取，登录 [腾讯云 MapReduce 控制台](https://console.cloud.tencent.com/emr) > 点击实例 > 集群资源 > 资源管理 > 节点内网 IP。也可通过 [查询节点信息](https://cloud.tencent.com/document/product/589/41707) API 获取。 |
+| Instances.N.Dimensions.1.Value | host4hdfsdatanode             | EMR  实例中具体节点 IP        | 输入具体节点  IP ，可从控制台获取，登录 [腾讯云 MapReduce 控制台](https://console.cloud.tencent.com/emr) > 单击实例 > 集群资源 > 资源管理 > 节点内网 IP。也可通过 [查询节点信息](https://cloud.tencent.com/document/product/589/41707) API 获取。 |
 | Instances.N.Dimensions.0.Name  | id4hdfsjournalnode            | EMR 实例 ID 的维度名称        | 输入 String  类型维度名称：id4hdfsjournalnode                |
 | Instances.N.Dimensions.0.Value | id4hdfsjournalnode            | EMR 实例具体 ID               | 输入 EMR 具体实例 ID，例如  ：emr-mm8bs222                   |
 | Instances.N.Dimensions.1.Name  | host4hdfsjournalnode          | EMR 实例中节点 IP 的维度名称  | 输入String  类型维度名称：host4hdfsjournalnode               |
-| Instances.N.Dimensions.1.Value | host4hdfsjournalnode          | EMR 实例中具体节点 IP         | 输入具体节点  IP ，可从控制台获取，登录 [腾讯云 MapReduce 控制台](https://console.cloud.tencent.com/emr) > 点击实例 > 集群资源 > 资源管理 > 节点内网 IP。也可通过 [查询节点信息](https://cloud.tencent.com/document/product/589/41707) API 获取。 |
+| Instances.N.Dimensions.1.Value | host4hdfsjournalnode          | EMR 实例中具体节点 IP         | 输入具体节点  IP ，可从控制台获取，登录 [腾讯云 MapReduce 控制台](https://console.cloud.tencent.com/emr) > 单击实例 > 集群资源 > 资源管理 > 节点内网 IP。也可通过 [查询节点信息](https://cloud.tencent.com/document/product/589/41707) API 获取。 |
 | Instances.N.Dimensions.0.Name  | id4hdfszkfailovercontroller   | EMR  实例 ID 的维度名称       | 输入  String 类型维度名称：id4hdfszkfailovercontroller       |
 | Instances.N.Dimensions.0.Value | id4hdfszkfailovercontroller   | EMR  实例具体 ID              | 输入  EMR 具体实例 ID，例如 ：emr-mm8bs222                   |
 | Instances.N.Dimensions.1.Name  | host4hdfszkfailovercontroller | EMR  实例中节点 IP 的维度名称 | 输入String  类型维度名称：host4hdfszkfailovercontroller      |
-| Instances.N.Dimensions.1.Value | host4hdfszkfailovercontroller | EMR  实例中具体节点 IP        | 输入具体节点  IP ，可从控制台获取，登录 [腾讯云 MapReduce 控制台](https://console.cloud.tencent.com/emr) > 点击实例 > 集群资源 > 资源管理 > 节点内网IP。也可通过 [查询节点信息](https://cloud.tencent.com/document/product/589/41707) API 获取。 |
+| Instances.N.Dimensions.1.Value | host4hdfszkfailovercontroller | EMR  实例中具体节点 IP        | 输入具体节点  IP ，可从控制台获取，登录 [腾讯云 MapReduce 控制台](https://console.cloud.tencent.com/emr) > 单击实例 > 集群资源 > 资源管理 > 节点内网IP。也可通过 [查询节点信息](https://cloud.tencent.com/document/product/589/41707) API 获取。 |
 
 ## 入参说明
 

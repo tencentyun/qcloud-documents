@@ -6,12 +6,12 @@
 - 准备 OpenAPI 3.0.0 标准的 API 描述文件，文本格式为 YAML 或 JSON。
 
 ## 操作步骤
-1. 登录 [API 网关控制台](https://console.cloud.tencent.com/apigateway)，在左侧导航栏单击【服务】。
+1. 登录 [API 网关控制台](https://console.cloud.tencent.com/apigateway)，在左侧导航栏单击**服务**。
 2. 在服务列表中，单击目标服务的服务名，查看该服务。
-3. 在服务信息中，单击【管理 API】标签页，查看该服务下的 API 列表。
-4. 单击 API 列表上方的【导入 API】，进入导入 API 页面。
-5. 选择文本格式（YAML 或 JSON），并单击【上传文件】，选择要上传的 API 描述文件；或者直接在代码编辑器中输入描述 API 的内容。
-6. 单击【保存】，API 网关将根据您输入的内容创建 API，并在创建完成后返回本次创建成功的 API 列表。
+3. 在服务信息中，单击**管理 API** 标签页，查看该服务下的 API 列表。
+4. 单击 API 列表上方的**导入 API**，进入导入 API 页面。
+5. 选择文本格式（YAML 或 JSON），并单击**上传文件**，选择要上传的 API 描述文件；或者直接在代码编辑器中输入描述 API 的内容。
+6. 单击**保存**，API 网关将根据您输入的内容创建 API，并在创建完成后返回本次创建成功的 API 列表。
 ![](https://main.qcloudimg.com/raw/b1ee822a7519f9452b73d99077fa27e4.png)
 
 ## 注意事项

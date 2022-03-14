@@ -1,8 +1,11 @@
 ## 操作场景
 本文以使用 LAMP 应用镜像的轻量应用服务器为例，介绍如何在服务器中安装 SSL 证书并开启 HTTPS 访问。该服务器中默认已安装 Apache 软件，您可参考本文并结合实际情况进行操作。
 
->?本文档以通过腾讯云 SSL 证书服务申请的付费、免费证书为例。腾讯云 SSL 证书服务相关信息可参考 [SSL 证书产品介绍](https://cloud.tencent.com/document/product/400/7572)、[SSL 证书购买指南](https://cloud.tencent.com/document/product/400/7994) 和 [申请免费 SSL 证书](https://cloud.tencent.com/document/product/400/6814)。
->
+<dx-alert infotype="explain" title="">
+本文档以通过腾讯云 SSL 证书服务申请的付费、免费证书为例。腾讯云 SSL 证书服务相关信息可参考 [SSL 证书产品介绍](https://cloud.tencent.com/document/product/400/7572)、[SSL 证书购买指南](https://cloud.tencent.com/document/product/400/7994) 和 [申请免费 SSL 证书](https://cloud.tencent.com/document/product/400/6814)。
+</dx-alert>
+
+
 
 ## 前提条件
 - 已准备文件远程拷贝软件，例如 WinSCP（建议从官方网站获取最新版本）。
@@ -27,19 +30,22 @@
 <td>登录轻量应用服务器操作系统所使用的用户名对应的密码，或者已绑定的 SSH 密钥。</td>
 </tr>
 </table>
+<dx-alert infotype="notice" title="">
+您可以登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse) 找到对应的服务器实例，进入实例详情页查看服务器的公网 IP 地址。如果该实例创建后未执行重置密码或者绑定 SSH 密钥操作，请您执行重置密码操作并牢记密码，或绑定 SSH 密钥并保存私钥文件。详情请参见 [重置密码](https://cloud.tencent.com/document/product/1207/44575) 和 [绑定密钥](https://cloud.tencent.com/document/product/1207/44573)。
+</dx-alert>
 
->!您可以登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse) 找到对应的服务器实例，进入实例详情页查看服务器的公网 IP 地址。如果该实例创建后未执行重置密码或者绑定 SSH 密钥操作，请您执行重置密码操作并牢记密码，或绑定 SSH 密钥并保存私钥文件。详情请参见 [重置密码](https://cloud.tencent.com/document/product/1207/44575) 和 [绑定密钥](https://cloud.tencent.com/document/product/1207/44573)。
+
 
 ## 操作步骤
 ### 证书安装
 1. 前往 [SSL 证书管理控制台](https://console.cloud.tencent.com/ssl)，下载并解压缩 SSL 证书（名称以 `cloud.tencent.com` 为例）文件压缩包到本地目录。
 解压缩后，获得相关类型的证书文件。其中包含 Apache 文件夹和 CSR 文件：
- - **文件夹名称**：Apache
- - **文件夹内容**：
-    - `1_root_bundle.crt` 证书文件
-    - `2_cloud.tencent.com.crt` 证书文件
-    - `3_cloud.tencent.com.key` 私钥文件
- - **CSR 文件内容**：`cloud.tencent.com.csr` 文件
+   - **文件夹名称**：Apache
+   - **文件夹内容**：
+     - `1_root_bundle.crt` 证书文件
+     - `2_cloud.tencent.com.crt` 证书文件
+     - `3_cloud.tencent.com.key` 私钥文件
+   - **CSR 文件内容**：`cloud.tencent.com.csr` 文件
  <dx-alert infotype="explain" title="">
 CSR 文件是申请证书时由您上传或系统在线生成的，用于提供给 CA 机构。安装时可忽略该文件。
 </dx-alert>
@@ -51,7 +57,7 @@ cd /usr/local/lighthouse/softwares/apache
 ```
 sudo mkdir ssl
 ```
-4. 将已获取到的 `1_root_bundle.crt` 证书文件、`2_cloud.tencent.com.crt` 证书文件以及 `3_cloud.tencent.com.key` 私钥文件从本地目录拷贝到已创建的 `/usr/local/lighthouse/softwares/apache/ssl` 目录下。  
+4. 将已获取到的 `1_root_bundle.crt` 证书文件、`2_cloud.tencent.com.crt` 证书文件以及 `3_cloud.tencent.com.key` 私钥文件从本地目录拷贝到已创建的 `/usr/local/lighthouse/softwares/apache/ssl` 目录下。您可参考 [如何将本地文件拷贝到轻量应用服务器](https://cloud.tencent.com/document/product/1207/53135) 上传证书文件。
 5. 执行以下命令，编辑配置文件 httpd.conf。
 ```
 sudo vim /usr/local/lighthouse/softwares/apache/conf/httpd.conf

@@ -1,12 +1,14 @@
+## 操作场景
+
 TSF 框架在微服务注册时，会自动收集并注册微服务提供的 API 接口，用户可通过 TSF 控制台实时掌握当前微服务提供的 API 情况。API 注册功能基于 [OpenApi Specification 3.0](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md) 规范注册 API 元数据信息。 用户在查看 API 接口的同时，可查看到 API 出入参数据结构信息。
 
-## 准备工作
+## 前提条件
 
 开始实践 API 注册功能前，请确保已完成了 [SDK 下载](https://cloud.tencent.com/document/product/649/20231)。
 
 ## 添加依赖
 
-向工程中添加 `spring-cloud-tsf-starter` 依赖并开启 `@EnableTsf` 注解，详情请参考 [快速入门](https://cloud.tencent.com/document/product/649/20261) 文档。
+向工程中添加 `spring-cloud-tsf-starter` 依赖并开启 `@EnableTsf` 注解，详情请参考 [Demo工程概述](https://cloud.tencent.com/document/product/649/20261) 文档。
 
 >!如果您使用的是 1.15.0-Edgware-RELEASE/1.15.0-Finchley-RELEASE 及之前的版本，使用方法参考 [Spring Cloud SDK 历史版本使用方法](https://cloud.tencent.com/document/product/649/45864)。
 
@@ -22,10 +24,11 @@ API 注册功能基于 Swagger 原生规范实现，提供多个配置以适配 
 | tsf.swagger.group       | String  | 否   | default                         | swagger docket 分组                                          |
 
 ## 代码和示例
-- SDK 会自动扫描 API 的 path 和 出入参。
-- 如果需要上报 API 的描述，需要`import io.swagger.annotations.ApiOperation;` ，同时在 API 上加上注解 `@ApiOperation(value = "url路径值",notes = "对api资源的描述")`。如果不关注 API 描述，可以不设置 @ApiOperation。
 
-```java
+- SDK 会自动扫描 API 的 path 和 出入参。
+- 如果需要上报 API 的描述，需要 `import io.swagger.annotations.ApiOperation;` ，同时在 API 上加上注解 `@ApiOperation(value = "url路径值",notes = "对api资源的描述")`。如果不关注 API 描述，可以不设置 @ApiOperation。
+<dx-codeblock>
+:::  java
 package com.tsf.demo.provider.controller;
 // 省略掉部分 import
 import io.swagger.annotations.ApiOperation;
@@ -47,4 +50,24 @@ public class ProviderController {
         return result;
     }
 }
-```
+:::
+</dx-codeblock>
+
+<dx-alert infotype="explain" title="">
+依赖 spring-cloud-tsf-starter 后，将同时为您开启查看 API 文档能力，您可以通过  `ip:pot/swagger.html` 页面进行 API 查看。如果您不需要这个能力，可以在依赖中进行排除，示例如下：
+<dx-codeblock>
+:::  xml
+<dependency>
+    <groupId>com.tencent.tsf</groupId>
+    <artifactId>spring-cloud-tsf-starter</artifactId>
+    <exclusions>
+        <exclusion>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <groupId>io.springfox</groupId>
+        </exclusion>
+    </exclusions>
+</dependency>
+:::
+</dx-codeblock>排除后，不影响在 TSF 服务治理 - 接口列表中查询 API 的能力，仅仅不支持通过 `ip:pot/swagger.html` 查看。
+</dx-alert>
+

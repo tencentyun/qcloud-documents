@@ -1,3 +1,6 @@
+>!因产品策略调整，游戏联机对战引擎后续将与云开发 CloudBase 整合为新产品形态，现将该产品保持维护状态，不再接收新用户使用申请，老用户仍可正常使用。
+
+
 ## 操作场景
 本文档指导您如何初始化 SDK。
 
@@ -25,9 +28,9 @@ import "./view/GameView.js";
 const gameInfo = {
     // 随机生成 玩家 ID
     openId: Util.mockOpenId(),
-    // 替换 为控制台上的“游戏ID”
+    // 替换 为控制台上的“游戏 ID”
     gameId: "xxxxxx",
-    // 替换 为控制台上的“游戏Key”
+    // 替换 为控制台上的“游戏 Key”
     secretKey: 'xxxxxxxxxxxxxxxxxxx',
 };
 

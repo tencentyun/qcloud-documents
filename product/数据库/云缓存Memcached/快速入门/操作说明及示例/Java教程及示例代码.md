@@ -1,4 +1,3 @@
-
 ## 环境及依赖
 环境：在腾讯云 CVM 上安装对应的 Java JDK，[下载地址](http://www.oracle.com/technetwork/java/javase/downloads/index.html?spm=5176.775974146.2.4.9Oqs71)。
 

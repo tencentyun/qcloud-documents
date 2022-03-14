@@ -36,3 +36,6 @@ sudo dpkg -l 软件名
 
 查看已安装的 Nginx 信息。如下图所示：
 ![](https://mc.qcloudimg.com/static/img/8bbc99d7a31e8463da36f3dc2221c028/46.png)
+
+
+

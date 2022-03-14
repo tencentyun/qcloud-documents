@@ -1,4 +1,4 @@
-使用 IPsec VPN 建立腾讯云 VPC 到用户 IDC 的连接时，在配置完腾讯云 VPN 网关后，您还需要在用户 IDC 本地站点的网关设备中进行 VPN 配置。本文以山石防火墙为例介绍如何在本地站点中加载 VPN 配置。
+使用 IPsec VPN 建立腾讯云 VPC 到用户 IDC 的连接时，在配置完腾讯云 VPN 网关后，您还需要在用户 IDC 本地站点的网关设备中进行 VPN 配置。本文以山石防火墙为例介绍如何在本地站点中进行 VPN 配置。
 >?本文仅支持 IKEv1 协议的配置。
 
 ## 前提条件
@@ -12,7 +12,7 @@
 <tr>
 <td rowspan="4">网络配置 </td>
 <td rowspan="2">VPC 信息 </td>
-<td>VPC CIDR</td>
+<td>子网 CIDR</td>
 <td>10.1.1.0/24 </td>
 </tr>
 <tr>

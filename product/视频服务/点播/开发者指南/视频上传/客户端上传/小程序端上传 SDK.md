@@ -76,7 +76,7 @@ getSignature: function(callback) {
     },
 });
 ```
-
+>?如需上传至指定子应用下，请参见 [子应用体系 - 客户端上传](https://cloud.tencent.com/document/product/266/14574#.E5.AE.A2.E6.88.B7.E7.AB.AF.E4.B8.8A.E4.BC.A0)。
 
 ## 接口描述
 

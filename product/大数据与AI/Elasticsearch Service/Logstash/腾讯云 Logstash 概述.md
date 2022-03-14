@@ -9,4 +9,4 @@
 - 易于部署和管理，简化运维操作。
 - 支持弹性扩展节点数量。
 - 集成官方所有 Input、Output、Filter 插件。
-- 支持 CKafka、MySQL、PostgreSQL 等腾讯云产品的输入或输出插件。
+- 支持 CKafka、MySQL、PostgreSQL、COS 等腾讯云产品的输入或输出插件。

@@ -34,7 +34,7 @@ sudo netstat -antup | grep ftp
 此时，vsftpd 已默认开启匿名访问模式，无需通过用户名和密码即可登录 FTP 服务器。使用此方式登录 FTP 服务器的用户没有权修改或上传文件的权限。
 
 
-### 步骤3：配置 vsftpd<span id="user"></span>
+### 步骤3：配置 vsftpd[](id:user)
 1. 执行以下命令，为 FTP 服务创建用户，本文以 ftpuser 为例。
 ```
 sudo useradd ftpuser
@@ -56,9 +56,10 @@ sudo chown -R ftpuser:ftpuser /var/ftp/test
 ```
 sudo vim /etc/vsftpd/vsftpd.conf
 ```
-6. 按 **i** 切换至编辑模式，根据实际需求选择 FTP 模式，修改配置文件 `vsftpd.conf`：<span id="config"></span>
->! FTP 可通过主动模式和被动模式与客户端机器进行连接并传输数据。由于大多数客户端机器的防火墙设置及无法获取真实 IP 等原因，建议您选择**被动模式**搭建 FTP 服务。如下修改以设置被动模式为例，您如需选择主动模式，请前往 [设置 FTP 主动模式](#port)。
->
+6. 按 **i** 切换至编辑模式，根据实际需求选择 FTP 模式，修改配置文件 `vsftpd.conf`：[](id:config)
+<dx-alert infotype="notice" title="">
+FTP 可通过主动模式和被动模式与客户端机器进行连接并传输数据。由于大多数客户端机器的防火墙设置及无法获取真实 IP 等原因，建议您选择**被动模式**搭建 FTP 服务。如下修改以设置被动模式为例，您如需选择主动模式，请前往 [设置 FTP 主动模式](#port)。
+</dx-alert>
  1. 修改以下配置参数，设置匿名用户和本地用户的登录权限，设置指定例外用户列表文件的路径，并开启监听 IPv4 sockets。
 ```
 anonymous_enable=NO
@@ -101,9 +102,9 @@ sudo systemctl restart vsftpd
 
 ### 步骤5：验证 FTP 服务
 您可通过 FTP 客户端软件、浏览器或文件资源管理器等工具验证 FTP 服务，本文以客户端的文件资源管理器为例。
-1. 打开客户端的 IE 浏览器，选择【工具】>【Internet 选项】>【高级】，根据您选择的 FTP 模式进行修改：
- - 主动模式：取消勾选【使用被动 FTP】。
- - 被动模式：勾选【使用被动 FTP】。
+1. 打开客户端的 IE 浏览器，选择**工具** > **Internet 选项** > **高级**，根据您选择的 FTP 模式进行修改：
+ - 主动模式：取消勾选“使用被动 FTP”。
+ - 被动模式：勾选“使用被动 FTP”。
 2. 打开客户端的计算机，在路径栏中访问以下地址。如下图所示：
 ```
 ftp://轻量应用服务器公网IP:21
@@ -114,7 +115,7 @@ ftp://轻量应用服务器公网IP:21
 
 
 ## 附录
-### 设置 FTP 主动模式<span id="port"></span>
+### 设置 FTP 主动模式[](id:port)
 主动模式需修改的配置如下，其余配置保持默认设置：
 ```
 anonymous_enable=NO      #禁止匿名用户登录
@@ -151,7 +152,7 @@ ls -l /home/test
 # /home/test 为 FTP 目录，请修改为您实际的 FTP 目录。
 ```
  - 若返回结果中没有 `w`，则表示该用户没有写的权限，请执行下一步。
- - 若返回结果中已有 `w`，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行反馈。
+ - 若返回结果中已有 `w`，请前往 [在线支持](https://cloud.tencent.com/online-service?from=doc_1207) 进行反馈。
 3. 执行以下命令，对 FTP 目录加上写的权限。
 ```
 sudo chmod +w /home/test 
@@ -162,7 +163,4 @@ sudo chmod +w /home/test
 ls -l /home/test   
 # /home/test 为 FTP 目录，请修改为您实际的 FTP 目录。
 ``` 
-
-
-
 

@@ -92,7 +92,7 @@ AJAX 上传需要浏览器支持基本的 HTML5 特性，当前方案使用 [PUT
                 } catch (e) {}
                 if (credentials) {
                     callback(null, {
-                        XCosSecurityToken: credentials.sessionToken,
+                        SecurityToken: credentials.sessionToken,
                         Authorization: CosAuth({
                             SecretId: credentials.tmpSecretId,
                             SecretKey: credentials.tmpSecretKey,
@@ -122,12 +122,12 @@ AJAX 上传需要浏览器支持基本的 HTML5 特性，当前方案使用 [PUT
                 }
 
                 var auth = info.Authorization;
-                var XCosSecurityToken = info.XCosSecurityToken;
+                var SecurityToken = info.SecurityToken;
                 var url = prefix + camSafeUrlEncode(Key).replace(/%2F/g, '/');
                 var xhr = new XMLHttpRequest();
                 xhr.open('PUT', url, true);
                 xhr.setRequestHeader('Authorization', auth);
-                XCosSecurityToken && xhr.setRequestHeader('x-cos-security-token', XCosSecurityToken);
+                SecurityToken && xhr.setRequestHeader('x-cos-security-token', SecurityToken);
                 xhr.upload.onprogress = function (e) {
                     console.log('上传进度 ' + (Math.round(e.loaded / e.total * 10000) / 100) + '%');
                 };
@@ -243,7 +243,7 @@ Form 表单上传支持低版本的浏览器的上传（如 IE8），当前方�
                         } catch (e) {}
                         if (credentials) {
                             callback(null, {
-                                XCosSecurityToken: credentials.sessionToken,
+                                SecurityToken: credentials.sessionToken,
                                 Authorization: CosAuth({
                                     SecretId: credentials.tmpSecretId,
                                     SecretKey: credentials.tmpSecretKey,
@@ -302,7 +302,7 @@ Form 表单上传支持低版本的浏览器的上传（如 IE8），当前方�
                 document.getElementById('success_action_redirect').value = location.href.substr(0, location.href.lastIndexOf('/') + 1) + 'empty.html';
                 document.getElementById('key').value = Key;
                 document.getElementById('Signature').value = AuthData.Authorization;
-                document.getElementById('x-cos-security-token').value = AuthData.XCosSecurityToken || '';
+                document.getElementById('x-cos-security-token').value = AuthData.SecurityToken || '';
                 form.submit();
             });
         };

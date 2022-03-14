@@ -80,10 +80,10 @@ Capacity Scheduler 将集群资源粗略的分配给不同的队列，不能指�
 确认您已经开通了腾讯云，并且创建了一个 EMR 集群。
 2. 检查 YARN 组件配置
 在“集群服务”页面中，选择 YARN 组件进入组件管理界面，然后切换至配置管理标签页，修改`yarn-site.xml`中相关参数，保存并重启所有 YARN 组件。在角色管理标签页确认 ResourceManager 服务所在节点 IP，之后切换至配置管理标签页修改`yarn-site.xml`中相关参数，保存并重启所有 YARN 组件。
- - 在集群列表中单击集群实例 ID，进入集群信息页面，然后单击左侧菜单栏【集群服务】，选择 YARN 组件管理中【操作】>【配置管理】。
+ - 在集群列表中单击集群实例 ID，进入集群信息页面，然后单击左侧菜单栏**集群服务**，选择 YARN 组件管理中**操作 > 配置管理**。
 ![](https://main.qcloudimg.com/raw/c5c79e5a9c57bb1d1521df0979a18597.png)
  - 确认 RM 的 IP 地址。
- - 在 YARN 组件“配置管理”页面，选择【维度范围】为节点维度，选择节点为 RM 的 IP 地址，单击【修改配置】修改 RM 所在节点`yarn-site.xml`的`yarn.resourcemanager.scheduler.class`参数。
+ - 在 YARN 组件“配置管理”页面，选择**维度范围**为节点维度，选择节点为 RM 的 IP 地址，单击**修改配置**修改 RM 所在节点`yarn-site.xml`的`yarn.resourcemanager.scheduler.class`参数。
 ![](https://main.qcloudimg.com/raw/bf78928e3a62b2ff96b78d8e4e3cf93f.png)
 
 ### 在 Capacity-Scheduler.xml 中配置 Node Label 与队列的映射关系和占比
@@ -99,89 +99,89 @@ Capacity Scheduler 将集群资源粗略的分配给不同的队列，不能指�
 ![](https://main.qcloudimg.com/raw/6e9a88107651955f1e6b9b783b85bf4b.png)
 5. 使用`yarn rmadmin -replaceLabelsOnNode`命令给节点打标签。
 ![](https://main.qcloudimg.com/raw/6824f8a6eed39c25bb127a532ed615b3.png)
-	在 NodeLabels 面板中可以看到 normal、cpu 分区的节点个数从0变为1。
+在 NodeLabels 面板中可以看到 normal、cpu 分区的节点个数从0变为1。
 ![](https://main.qcloudimg.com/raw/45e47b8fa8f27246dc77cbcc94e8a332.png)
- 在 Scheduler 面板中可以看到，测试系统的两个节点对应的标签已经发生改变。
-![](https://main.qcloudimg.com/raw/0388a5e8ecf0a148ad5985080a04e145.jpg)
+在 Scheduler 面板中可以看到，测试系统的两个节点对应的标签已经发生改变。
+![](https://main.qcloudimg.com/raw/1d533a728eb26f94deb8814e81647174.jpg)
 6. 编辑`Capacity-Scheduler.xml`中的配置项，配置集群队列、队列的资源占比和队列的可访问标签。示例如下：
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
 <configuration><property>
-        <name>yarn.scheduler.capacity.maximum-am-resource-percent</name>
-        <value>0.8</value>
+	<name>yarn.scheduler.capacity.maximum-am-resource-percent</name>
+	<value>0.8</value>
 </property>
 <property>
-        <name>yarn.scheduler.capacity.maximum-applications</name>
-        <value>1000</value>
+	<name>yarn.scheduler.capacity.maximum-applications</name>
+	<value>1000</value>
 </property>
 <property>
-        <name>yarn.scheduler.capacity.root.queues</name>
-        <value>default,dev,product</value>
+	<name>yarn.scheduler.capacity.root.queues</name>
+	<value>default,dev,product</value>
 </property>
 <property>
-        <name>yarn.scheduler.capacity.root.default.capacity</name>
-        <value>20</value>
+	<name>yarn.scheduler.capacity.root.default.capacity</name>
+	<value>20</value>
 </property>
 <property>
-        <name>yarn.scheduler.capacity.root.dev.capacity</name>
-        <value>40</value>
+	<name>yarn.scheduler.capacity.root.dev.capacity</name>
+	<value>40</value>
 </property>
 <property>
-        <name>yarn.scheduler.capacity.root.product.capacity</name>
-        <value>40</value>
+	<name>yarn.scheduler.capacity.root.product.capacity</name>
+	<value>40</value>
 </property>
 <property>
-        <name>yarn.scheduler.capacity.root.accessible-node-labels.cpu.capacity</name>
-        <value>100</value>
+	<name>yarn.scheduler.capacity.root.accessible-node-labels.cpu.capacity</name>
+	<value>100</value>
 </property>
 <property>
-        <name>yarn.scheduler.capacity.root.accessible-node-labels.normal.capacity</name>
-        <value>100</value>
+	<name>yarn.scheduler.capacity.root.accessible-node-labels.normal.capacity</name>
+	<value>100</value>
 </property>
 <property>
-        <name>yarn.scheduler.capacity.root.accessible-node-labels</name>
-        <value>*</value>
+	<name>yarn.scheduler.capacity.root.accessible-node-labels</name>
+	<value>*</value>
 </property>
 <property>
-        <name>yarn.scheduler.capacity.root.dev.accessible-node-labels.normal.capacity</name>
-        <value>100</value>
+	<name>yarn.scheduler.capacity.root.dev.accessible-node-labels.normal.capacity</name>
+	<value>100</value>
 </property>
 <property>
-        <name>yarn.scheduler.capacity.root.dev.accessible-node-labels.cpu.capacity</name>
-        <value>100</value>
+	<name>yarn.scheduler.capacity.root.dev.accessible-node-labels.cpu.capacity</name>
+	<value>100</value>
 </property>
 <property>
-        <name>yarn.scheduler.capacity.root.dev.accessible-node-labels</name>
-        <value>normal</value>
+	<name>yarn.scheduler.capacity.root.dev.accessible-node-labels</name>
+	<value>normal</value>
 </property>
 <property>
-        <name>yarn.scheduler.capacity.root.dev.default-node-label-expression</name>
-        <value>normal</value>
+	<name>yarn.scheduler.capacity.root.dev.default-node-label-expression</name>
+	<value>normal</value>
 </property>
 <property>
-        <name>yarn.scheduler.capacity.root.product.accessible-node-labels</name>
-        <value>cpu</value>
+	<name>yarn.scheduler.capacity.root.product.accessible-node-labels</name>
+	<value>cpu</value>
 </property>
 <property>
-        <name>yarn.scheduler.capacity.root.product.default-node-label-expression</name>
-        <value>cpu</value>
+	<name>yarn.scheduler.capacity.root.product.default-node-label-expression</name>
+	<value>cpu</value>
 </property>
 <property>
-        <name>yarn.scheduler.capacity.normal.sharable-partitions</name>
-        <value>cpu</value>
+	<name>yarn.scheduler.capacity.normal.sharable-partitions</name>
+	<value>cpu</value>
 </property>
 <property>
-        <name>yarn.scheduler.capacity.normal.require-other-partition-resource</name>
-        <value>true</value>
+	<name>yarn.scheduler.capacity.normal.require-other-partition-resource</name>
+	<value>true</value>
 </property>
 <property>
-        <name>yarn.scheduler.capacity.cpu.sharable-partitions</name>
-        <value></value>
+	<name>yarn.scheduler.capacity.cpu.sharable-partitions</name>
+	<value></value>
 </property>
 <property>
-        <name>yarn.scheduler.capacity.cpu.require-other-partition-resource</name>
-        <value>true</value>
+	<name>yarn.scheduler.capacity.cpu.require-other-partition-resource</name>
+	<value>true</value>
 </property>
 </configuration>
 ```

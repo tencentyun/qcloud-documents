@@ -1,7 +1,7 @@
 ## 基于 Android 平台
 腾讯云 TRTC 在 Android 系统上支持屏幕分享，即将当前系统的屏幕内容通过 TRTC SDK 分享给房间里的其他用户。关于此功能，有两点需要注意：
 
-- TRTC Android 版本的屏幕分享并不像桌面端版本一样支持“辅路分享”，因此在启动屏幕分享时，摄像头的采集需要先被停止，否则会相互冲突。
+- 移动端 TRTC Android 8.6 之前的版本屏幕分享并不像桌面端版本一样支持“辅路分享”，因此在启动屏幕分享时，摄像头的采集需要先被停止，否则会相互冲突；8.6 及之后的版本支持“辅路分享”，则不需要停止摄像头的采集。
 - 当一个 Android 系统上的后台 App 在持续使用 CPU 时，很容易会被系统强行杀掉，而且屏幕分享本身又必然会消耗 CPU。要解决这个看似矛盾的冲突，我们需要在 App 启动屏幕分享的同时，在 Android 系统上弹出悬浮窗。由于 Android 不会强杀包含前台 UI 的 App 进程，因此该种方案可以让您的 App 可以持续进行屏幕分享而不被系统自动回收。如下图所示：
 ![](https://main.qcloudimg.com/raw/e7dad1db0a99add95ac372634bddc2bf.png)
 
@@ -59,10 +59,8 @@
 - **[跨应用分享](#Cross)**
 基于苹果的 Replaykit 方案，能够分享整个系统的屏幕内容，但需要当前 App 额外提供一个 Extension 扩展组件，因此对接步骤也相对应用内分享要多一点。
 
->! 需要注意的一点是，TRTC SDK 的移动端版本并不像桌面端版本一样支持“辅路分享”，因为 iOS 和 Android 系统都对运行于后台的 App 限制了摄像头使用权，因此支持辅路分享的意义并不大。
-
-
-### 方案1：iOS 平台应用内分享[](id:Internal)
+[](id:Internal)
+### 方案1：iOS 平台应用内分享
 
 应用内分享的方案非常简单，只需要调用 TRTC SDK 提供的接口 [startScreenCapture](https://pub.flutter-io.cn/documentation/tencent_trtc_cloud/latest/trtc_cloud/TRTCCloud/startScreenCapture.html) 并传入编码参数`TRTCVideoEncParam`和 参数`appGroup`设置为`''`。`TRTCVideoEncParam` 参数可以设置为 null，此时 SDK 会沿用开始屏幕分享之前的编码参数。
 
@@ -80,11 +78,11 @@
 - 如果您要分享的屏幕内容包含大量文字，可以适当提高分辨率和码率设置。
 - 最高码率（videoBitrate）是指画面在剧烈变化时的最高输出码率，如果屏幕内容变化较少，实际编码码率会比较低。
 
-
-### 方案2：iOS 平台跨应用分享[](id:Cross)
+[](id:Cross)
+### 方案2：iOS 平台跨应用分享
 
 #### 示例代码
-我们在 [Github](https://github.com/c1avie/trtc_demo) 中的 ** trtc_demo/ios ** 目录下放置了一份跨应用分享的示例代码，其包含如下一些文件：
+我们在 [Github](https://github.com/c1avie/trtc_demo) 中的 **trtc_demo/ios** 目录下放置了一份跨应用分享的示例代码，其包含如下一些文件：
 
 ```
 ├── Broadcast.Upload        //录屏进程 Broadcast Upload Extension 代码详见步骤2
@@ -115,9 +113,9 @@ dependencies:
 
 >! 如果跳过 [步骤1](#Step1)，也就是不配置 App Group（接口传 null），屏幕分享依然可以运行，但稳定性要打折扣，故虽然步骤较多，但请尽量配置正确的 App Group 以保障屏幕分享功能的稳定性。
 
-[](id:createGroup)
-##### 步骤1：创建 App Group[](id:Step1)
-使用您的帐号登录 [**https://developer.apple.com/**](https://developer.apple.com/) ，进行以下操作，**注意完成后需要重新下载对应的 Provisioning Profile**。
+[](id:createGroup)[](id:Step1)
+#### 步骤1：创建 App Group
+使用您的帐号登录 [**https://developer.apple.com/**](https://developer.apple.com/)，进行以下操作，**注意完成后需要重新下载对应的 Provisioning Profile**。
 
 1. 单击【Certificates, IDs & Profiles】。
 2. 在右侧的界面中单击加号。
@@ -131,7 +129,7 @@ dependencies:
 8. 重新下载 Provisioning Profile 并配置到 XCode 中。
 
 [](id:createExtension)
-##### 步骤2：创建 Broadcast Upload Extension
+#### 步骤2：创建 Broadcast Upload Extension
 1. 在 Xcode 菜单依次单击【File】>【New】 >【Target...】，选择【Broadcast Upload Extension】。
 2. 在弹出的对话框中填写相关信息，**不用**勾选"【Include UI Extension】，单击【Finish】完成创建。
 3. 将下载到的 SDK 压缩包中的 TXLiteAVSDK_ReplayKitExt.framework 拖动到工程中，勾选刚创建的 Target。
@@ -214,7 +212,7 @@ class SampleHandler: RPBroadcastSampleHandler, TXReplayKitExtDelegate {
 </dx-codeblock>
 
 [](id:receive)
-##### 步骤3：对接主 App 端的接收逻辑
+#### 步骤3：对接主 App 端的接收逻辑
 按照如下步骤，对接主 App 端的接收逻辑。也就是在用户触发屏幕分享之前，要让主 App 处于“等待”状态，以便随时接收来自 Broadcast Upload Extension 进程的录屏数据。
 1. 确保 TRTCCloud 已经关闭了摄像头采集，如果尚未关闭，请调用 [stopLocalPreview](https://pub.flutter-io.cn/documentation/tencent_trtc_cloud/latest/trtc_cloud/TRTCCloud/stopLocalPreview.html) 关闭摄像头采集。
 2. 调用 [startScreenCapture](https://pub.flutter-io.cn/documentation/tencent_trtc_cloud/latest/trtc_cloud/TRTCCloud/startScreenCapture.html) 方法，并传入 [步骤1](#createGroup) 中设置的 AppGroup，让 SDK 进入“等待”状态。
@@ -248,7 +246,7 @@ onRtcListener(type, param){
 </dx-codeblock>
 
 [](id:launch)
-##### 步骤4：增加屏幕分享的触发按钮（可选）
+#### 步骤4：增加屏幕分享的触发按钮（可选）
 截止到 [步骤3](#receive)，我们的屏幕分享还必须要用户从控制中心中长按录屏按钮来手动启动。您可通过下述方法实现类似 TRTC Demo Screen 的单击按钮即可触发的效果：
 ![](https://tccweb-1258344699.cos.ap-nanjing.myqcloud.com/sdk/trtc/trtcdemo/2.png)
 

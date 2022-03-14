@@ -1,5 +1,5 @@
 ### 如何调整 GetMonitorData 接口每秒频率上限？
-GetMonitorData 接口默认调用频率上限为 20次/秒，超过该频率会导致接口调用失败。若调用接口出现如下报错： “您当前每秒请求 `20+n` 次，超过了每秒频率上限 `20`次，请稍后重试”。可进入 [云监控接口调频申请页](https://cloud.tencent.com/apply/p/ndlajjkklws)  申请提高 GetMonitorData 接口频率上限。
+GetMonitorData 接口默认调用频率上限为 20次/秒，超过该频率会导致接口调用失败。若调用接口出现如下报错： “您当前每秒请求 `20+n` 次，超过了每秒频率上限 `20`次，请稍后重试”。可进入 [提交工单](https://console.cloud.tencent.com/workorder/category)  申请提高 GetMonitorData 接口频率上限。
 
 
 ###  如何解决 GetMonitorData 接口报错 ？
@@ -12,8 +12,8 @@ GetMonitorData 接口常见报错 ：<font>**Unauthorized operation or the insta
 
 ### GetMonitorData 接口如何查询项目下所有实例的监控数据？
 GetMonitorData 接口限制说明：
-1. GetMonitorData 接口单次调用仅支持单种产品、单个指标，如果要跨产品类型查询，或跨指标查询，需要多次调用。
-2. GetMonitorData 接口单次调用支持查询多个实例，但不支持根据项目 ID 查询，需要填写明确的实例ID列表。
+- GetMonitorData 接口单次调用仅支持单种产品、单个指标，如果要跨产品类型查询，或跨指标查询，需要多次调用。
+- GetMonitorData 接口单次调用支持查询多个实例，但不支持根据项目 ID 查询，需要填写明确的实例 ID 列表。
 
 如果业务需要拉取某个项目下所有实例监控数据，可以参考以下两种方法：
 #### 方法一：

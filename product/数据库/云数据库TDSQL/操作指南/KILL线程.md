@@ -1,4 +1,3 @@
-
 在使用数据库运行某些语句时，会因数据量太大而导致死锁，没有反应。这个时候，就需要 KILL 掉某个正在消耗资源的 query 语句即可，KILL 命令的语法格式如下：
 ```
 	KILL [CONNECTION | QUERY] thread_id

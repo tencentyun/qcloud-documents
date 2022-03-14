@@ -1,9 +1,9 @@
 TRTCVoiceRoom 是基于腾讯云实时音视频（TRTC）和即时通信 IM 服务组合而成的组件，支持以下功能：
 
-- 主播创建新的语音聊天室开播，观众进入语聊房间收听/互动。
-- 主播可以邀请观众上麦、将座位上的麦上主播踢下麦。
-- 主播还能对座位进行封禁，其他观众就不能再进行申请上麦了。
-- 观众可以申请上麦，变成麦上主播，可以和其他人语音互动，也可以随时下麦成为普通的观众。
+- 房主创建新的语音聊天室开播，听众进入语聊房间收听/互动。
+- 房主可以邀请听众上麦、将座位上的麦上主播踢下麦。
+- 房主还能对座位进行封禁，其他听众就不能再进行申请上麦了。
+- 听众可以申请上麦，变成麦上主播，可以和其他人语音互动，也可以随时下麦成为普通的听众。
 - 支持发送各种文本消息和自定义消息，自定义消息可用于实现弹幕、点赞和礼物等。
 
 TRTCVoiceRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体的实现过程请参见 [语音聊天室（iOS）](https://cloud.tencent.com/document/product/647/45753)。
@@ -30,23 +30,24 @@ TRTCVoiceRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 
 | API                                 | 描述                                                         |
 | ----------------------------------- | ------------------------------------------------------------ |
-| [createRoom](#createroom)           | 创建房间（主播调用），若房间不存在，系统将自动创建一个新房间。 |
-| [destroyRoom](#destroyroom)         | 销毁房间（主播调用）。                                       |
-| [enterRoom](#enterroom)             | 进入房间（观众调用）。                                       |
-| [exitRoom](#exitroom)               | 离开房间（观众调用）。                                       |
+| [createRoom](#createroom)           | 创建房间（房主调用），若房间不存在，系统将自动创建一个新房间。 |
+| [destroyRoom](#destroyroom)         | 销毁房间（房主调用）。                                       |
+| [enterRoom](#enterroom)             | 进入房间（听众调用）。                                       |
+| [exitRoom](#exitroom)               | 退出房间（听众调用）。                                       |
 | [getRoomInfoList](#getroominfolist) | 获取房间列表的详细信息。                                     |
-| [getUserInfoList](#getuserinfolist) | 获取指定 userId 的用户信息，如果为 null，则获取房间内所有人的信息。 |
+| [getUserInfoList](#getuserinfolist) | 获取指定 userId 的用户信息，如果为 nil，则获取房间内所有人的信息。 |
 
 ### 麦位管理接口
 
 | API                     | 描述                                |
 | ----------------------- | ----------------------------------- |
-| [enterSeat](#enterseat) | 主动上麦（观众端和主播均可调用）。  |
-| [leaveSeat](#leaveseat) | 主动下麦（观众端和主播均可调用）。  |
-| [pickSeat](#pickseat)   | 抱人上麦（主播调用）。              |
-| [kickSeat](#kickseat)   | 踢人下麦（主播调用）。              |
-| [muteSeat](#muteseat)   | 静音/解除静音某个麦位（主播调用）。 |
-| [closeSeat](#closeseat) | 封禁/解禁某个麦位（主播调用）。     |
+| [enterSeat](#enterseat) | 主动上麦（听众端和房主均可调用）。  |
+| [moveSeat](#moveseat)   | 移动麦位 (麦上主播端可调用) 。 |
+| [leaveSeat](#leaveseat) | 主动下麦（主播调用）。  |
+| [pickSeat](#pickseat)   | 抱人上麦（房主调用）。              |
+| [kickSeat](#kickseat)   | 踢人下麦（房主调用）。              |
+| [muteSeat](#muteseat)   | 静音/解除静音某个麦位（房主调用）。 |
+| [closeSeat](#closeseat) | 封禁/解禁某个麦位（房主调用）。     |
 
 ### 本地音频操作接口
 
@@ -59,6 +60,7 @@ TRTCVoiceRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 | [setSpeaker](#setspeaker)                       | 设置开启扬声器。     |
 | [setAudioCaptureVolume](#setaudiocapturevolume) | 设置麦克风采集音量。 |
 | [setAudioPlayoutVolume](#setaudioplayoutvolume) | 设置播放音量。       |
+| [setVoiceEarMonitorEnable](#setvoiceearmonitorenable) | 开启/关闭 耳返。       |
 
 
 ### 远端用户音频操作接口
@@ -113,17 +115,18 @@ TRTCVoiceRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 | API                                     | 描述                                  |
 | --------------------------------------- | ------------------------------------- |
 | [onSeatListChange](#onseatlistchange)   | 全量的麦位列表变化。                  |
-| [onAnchorEnterSeat](#onanchorenterseat) | 有成员上麦（主动上麦/主播抱人上麦）。 |
-| [onAnchorLeaveSeat](#onanchorleaveseat) | 有成员下麦（主动下麦/主播踢人下麦）。 |
-| [onSeatMute](#onseatmute)               | 主播禁麦。                            |
-| [onSeatClose](#onseatclose)             | 主播封麦。                            |
+| [onAnchorEnterSeat](#onanchorenterseat) | 有成员上麦（主动上麦/房主抱人上麦）。 |
+| [onAnchorLeaveSeat](#onanchorleaveseat) | 有成员下麦（主动下麦/房主踢人下麦）。 |
+| [onSeatMute](#onseatmute)               | 房主禁麦。                            |
+| [onUserMicrophoneMute](#onusermicrophonemute)               | 用户麦克风是否静音。                          |
+| [onSeatClose](#onseatclose)             | 房主封麦。                            |
 
-### 观众进出事件回调
+### 听众进出事件回调
 
 | API                                 | 描述               |
 | ----------------------------------- | ------------------ |
-| [onAudienceEnter](#onaudienceenter) | 收到观众进房通知。 |
-| [onAudienceExit](#onaudienceexit)   | 收到观众退房通知。 |
+| [onAudienceEnter](#onaudienceenter) | 收到听众进房通知。 |
+| [onAudienceExit](#onaudienceexit)   | 收到听众退房通知。 |
 
 ### 消息事件回调
 
@@ -231,9 +234,9 @@ TRTCVoiceRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 
 | 参数     | 类型           | 含义                                                         |
 | -------- | -------------- | ------------------------------------------------------------ |
-| sdkAppId | int            | 您可以在实时音视频控制台 >【[应用管理](https://console.cloud.tencent.com/trtc/app)】> 应用信息中查看 SDKAppID。 |
-| userId   | String         | 当前用户的 ID，字符串类型，只允许包含英文字母（a-z 和 A-Z）、数字（0-9）、连词符（-）和下划线（\_）。 |
-| userSig  | String         | 腾讯云设计的一种安全保护签名，获取方式请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。 |
+| sdkAppId | int            | 您可以在**实时音视频控制台 >[应用管理](https://console.cloud.tencent.com/trtc/app)**> 应用信息中查看 SDKAppID。 |
+| userId   | NSString       | 当前用户的 ID，字符串类型，只允许包含英文字母（a-z 和 A-Z）、数字（0-9）、连词符（-）和下划线（\_）。 |
+| userSig  | NSString       | 腾讯云设计的一种安全保护签名，获取方式请参见 [如何计算及使用 UserSig](https://cloud.tencent.com/document/product/647/17275)。 |
 | callback | ActionCallback | 登录回调，成功时 code 为0。                                  |
 
    
@@ -266,8 +269,8 @@ TRTCVoiceRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 
 | 参数      | 类型           | 含义                                |
 | --------- | -------------- | ----------------------------------- |
-| userName  | String         | 昵称。                              |
-| avatarURL | String         | 头像地址。                          |
+| userName  | NSString       | 昵称。                              |
+| avatarURL | NSString       | 头像地址。                          |
 | callback  | ActionCallback | 个人信息设置回调，成功时 code 为0。 |
 
    
@@ -277,7 +280,7 @@ TRTCVoiceRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 
 ### createRoom
 
-创建房间（主播调用）。
+创建房间（房主调用）。
 
 ```Objective-C
 - (void)createRoom:(int)roomID roomParam:(VoiceRoomParam *)roomParam callback:(ActionCallback _Nullable)callback NS_SWIFT_NAME(createRoom(roomID:roomParam:callback:));
@@ -288,20 +291,20 @@ TRTCVoiceRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 | 参数      | 类型                | 含义                                                         |
 | --------- | ------------------- | ------------------------------------------------------------ |
 | roomId    | int                 | 房间标识，需要由您分配并进行统一管理。多个 roomID 可以汇总成一个语聊房间列表，腾讯云暂不提供语聊房间列表的管理服务，请自行管理您的语聊房间列表。 |
-| roomParam | TRTCCreateRoomParam | 房间信息，用于房间描述的信息。例如房间名称、麦位信息、封面信息等。如果需要麦位管理，必须要填入房间的麦位数。 |
+| roomParam | VoiceRoomParam | 房间信息，用于房间描述的信息。例如房间名称、麦位信息、封面信息等。如果需要麦位管理，必须要填入房间的麦位数。 |
 | callback  | ActionCallback      | 创建房间的结果回调，成功时 code 为0。                        |
 
-主播开播的正常调用流程如下： 
-1. 主播调用 `createRoom` 创建新的语音聊天室，此时传入房间 ID、上麦是否需要房主确认、麦位数等房间属性信息。
-2. 主播创建房间成功后，调用 `enterSeat` 进入座位。
-3. 主播收到组件的 `onSeatListChange` 麦位表变化事件通知，此时可以将麦位表变化刷新到 UI 界面上。
-4. 主播还会收到麦位表有成员进入的 `onAnchorEnterSeat` 的事件通知，此时会自动打开麦克风采集。
+房主开播的正常调用流程如下： 
+1. 房主调用 `createRoom` 创建新的语音聊天室，此时传入房间 ID、上麦是否需要房主确认、麦位数等房间属性信息。
+2. 房主创建房间成功后，调用 `enterSeat` 进入座位。
+3. 房主收到组件的 `onSeatListChange` 麦位表变化事件通知，此时可以将麦位表变化刷新到 UI 界面上。
+4. 房主还会收到麦位表有成员进入的 `onAnchorEnterSeat` 的事件通知，此时会自动打开麦克风采集。
 
    
 
 ### destroyRoom
 
-销毁房间（主播调用）。主播在创建房间后，可以调用这个函数来销毁房间。
+销毁房间（房主调用）。房主在创建房间后，可以调用这个函数来销毁房间。
 
 ```Objective-C
 - (void)destroyRoom:(ActionCallback _Nullable)callback NS_SWIFT_NAME(destroyRoom(callback:));
@@ -316,7 +319,7 @@ TRTCVoiceRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 
 ### enterRoom
 
-进入房间（观众调用）。
+进入房间（听众调用）。
 
 ```Objective-C
 - (void)enterRoom:(NSInteger)roomID callback:(ActionCallback _Nullable)callback NS_SWIFT_NAME(enterRoom(roomID:callback:));
@@ -326,21 +329,21 @@ TRTCVoiceRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 
 | 参数     | 类型           | 含义                                  |
 | -------- | -------------- | ------------------------------------- |
-| roomId   | int            | 房间标识。                            |
+| roomId   | NSInteger            | 房间标识。                            |
 | callback | ActionCallback | 进入房间的结果回调，成功时 code 为0。 |
 
 
-观众进房收听的正常调用流程如下： 
+听众进房收听的正常调用流程如下： 
 
-1. 观众向您的服务端获取最新的语音聊天室列表，可能包含多个语聊房间的 roomId 和房间信息。
-2. 观众选择一个语音聊天室，调用 `enterRoom` 并传入房间号即可进入该房间。
-3. 进房后会收到组件的 `onRoomInfoChange` 房间属性变化事件通知，此时可以记录房间属性并做相应改变，例如 UI 展示房间名、记录上麦是否需要请求主播同意等。
+1. 听众向您的服务端获取最新的语音聊天室列表，可能包含多个语聊房间的 roomId 和房间信息。
+2. 听众选择一个语音聊天室，调用 `enterRoom` 并传入房间号即可进入该房间。
+3. 进房后会收到组件的 `onRoomInfoChange` 房间属性变化事件通知，此时可以记录房间属性并做相应改变，例如 UI 展示房间名、记录上麦是否需要请求房主同意等。
 4. 进房后会收到组件的 `onSeatListChange` 麦位表变化事件通知，此时可以将麦位表变化刷新到 UI 界面上。
 5. 进房后还会收到麦位表有主播进入的 `onAnchorEnterSeat` 的事件通知。
 
 ### exitRoom
 
-离开房间。
+退出房间。
 
 ```Objective-C
 - (void)exitRoom:(ActionCallback _Nullable)callback NS_SWIFT_NAME(exitRoom(callback:));
@@ -356,7 +359,7 @@ TRTCVoiceRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 
 ### getRoomInfoList
 
-获取房间列表的详细信息，其中房间名称、房间封面是主播在创建 `createRoom()` 时通过 roomInfo 设置的。
+获取房间列表的详细信息，其中房间名称、房间封面是房主在创建 `createRoom()` 时通过 roomInfo 设置的。
 
 >?如果房间列表和房间信息都由您自行管理，可忽略该函数。
 
@@ -369,7 +372,7 @@ TRTCVoiceRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 
 | 参数       | 类型                | 含义               |
 | ---------- | ------------------- | ------------------ |
-| roomIdList | List&lt;Integer&gt; | 房间号列表。       |
+| roomIdList | NSArray&lt;NSNumber&gt; | 房间号列表。       |
 | callback   | RoomInfoCallback    | 房间详细信息回调。 |
 
 
@@ -385,7 +388,7 @@ TRTCVoiceRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 
 | 参数             | 类型               | 含义                                                         |
 | ---------------- | ------------------ | ------------------------------------------------------------ |
-| userIdList       | List&lt;String&gt; | 需要获取的用户 ID 列表，如果为 null，则获取房间内所有人的信息。 |
+| userIdList       | NSArray&lt;NSString&gt; | 需要获取的用户 ID 列表，如果为 null，则获取房间内所有人的信息。 |
 | userlistcallback | UserListCallback   | 用户详细信息回调。                                           |
 
 
@@ -393,7 +396,7 @@ TRTCVoiceRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 
 ### enterSeat
 
-主动上麦（观众端和主播均可调用）。
+主动上麦（听众端和房主均可调用）。
 
 >?上麦成功后，房间内所有成员会收到 `onSeatListChange` 和 `onAnchorEnterSeat` 的事件通知。
 
@@ -405,14 +408,37 @@ TRTCVoiceRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 
 | 参数      | 类型           | 含义                 |
 | --------- | -------------- | -------------------- |
-| seatIndex | int            | 需要上麦的麦位序号。 |
+| seatIndex | NSInteger      | 需要上麦的麦位序号。 |
 | callback  | ActionCallback | 操作回调。           |
 
-调用该接口会立即修改麦位表。如果是观众需要主播申请的场景，可以先调用 `sendInvitation` 向主播申请，收到 `onInvitationAccept ` 后再调用该函数。
+调用该接口会立即修改麦位表。如果是听众申请上麦需要房主同意的场景，可以先调用 `sendInvitation` 向房主申请，收到 `onInvitationAccept ` 后再调用该函数。
+
+### moveSeat
+移动麦位 (麦上主播端可调用)。
+>? 移动麦位成功后，房间内所有成员会收到 `onSeatListChange`、 `onAnchorLeaveSeat` 和 `onAnchorEnterSeat` 的事件通知。(主播调用后，只是修改麦位座位号信息，并不会切换该用户的主播身份。)
+
+```Objective-C
+- (NSInteger)moveSeat:(NSInteger)seatIndex callback:(ActionCallback _Nullable)callback
+NS_SWIFT_NAME(moveSeat(seatIndex:callback:))
+```
+参数如下表所示：
+
+| 参数      | 类型           | 含义                 |
+| --------- | -------------- | -------------------- |
+| seatIndex | NSInteger      | 需要移动到的麦位序号。 |
+| callback  | ActionCallback | 操作回调。           |
+
+返回值：
+
+| 返回值   | 类型   | 含义                  |
+| -------- | --------- | --------------------- |
+| code     | NSInteger | 移动麦位操作结果（0为成功，其它为失败，10001为接口调用限频）。 |
+
+调用该接口会立即修改麦位表。如果是听众申请上麦需要房主同意的场景，可以先调用 `sendInvitation` 向房主申请，收到 `onInvitationAccept` 后再调用该函数。
 
 ### leaveSeat
 
-主动下麦（观众端和主播均可调用）。
+主动下麦（主播调用）。
 
 >? 下麦成功后，房间内所有成员会收到 `onSeatListChange` 和 `onAnchorLeaveSeat` 的事件通知。
 
@@ -428,9 +454,9 @@ TRTCVoiceRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 
 ### pickSeat
 
-抱人上麦（主播调用）。
+抱人上麦（房主调用）。
 
->? 主播抱人上麦，房间内所有成员会收到 `onSeatListChange` 和 `onAnchorEnterSeat` 的事件通知。
+>? 房主抱人上麦，房间内所有成员会收到 `onSeatListChange` 和 `onAnchorEnterSeat` 的事件通知。
 
 ```Objective-C
 - (void)pickSeat:(NSInteger)seatIndex userId:(NSString *)userId callback:(ActionCallback _Nullable)callback NS_SWIFT_NAME(pickSeat(seatIndex:userId:callback:));
@@ -440,18 +466,18 @@ TRTCVoiceRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 
 | 参数      | 类型           | 含义                   |
 | --------- | -------------- | ---------------------- |
-| seatIndex | int            | 需要抱上麦的麦位序号。 |
-| userId    | String         | 用户 ID。              |
+| seatIndex | NSInteger      | 需要抱上麦的麦位序号。 |
+| userId    | NSString       | 用户 ID。              |
 | callback  | ActionCallback | 操作回调。             |
 
-调用该接口会立即修改麦位表。如果是主播需要观众同意才能上麦的场景，可以先调用 `sendInvitation` 向观众申请，收到 `onInvitationAccept `后再调用该函数。
+调用该接口会立即修改麦位表。如果是房主需要听众同意，听众才会上麦的场景，可以先调用 `sendInvitation` 向听众申请，收到 `onInvitationAccept `后再调用该函数。
 
 
 ### kickSeat
 
-踢人下麦（主播调用）。
+踢人下麦（房主调用）。
 
->? 主播踢人下麦，房间内所有成员会收到 `onSeatListChange` 和 `onAnchorLeaveSeat` 的事件通知。
+>? 房主踢人下麦，房间内所有成员会收到 `onSeatListChange` 和 `onAnchorLeaveSeat` 的事件通知。
 
 ```Objective-C
 - (void)kickSeat:(NSInteger)seatIndex callback:(ActionCallback _Nullable)callback NS_SWIFT_NAME(kickSeat(seatIndex:callback:));
@@ -461,14 +487,14 @@ TRTCVoiceRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 
 | 参数      | 类型           | 含义                   |
 | --------- | -------------- | ---------------------- |
-| seatIndex | int            | 需要踢下麦的麦位序号。 |
+| seatIndex | NSInteger      | 需要踢下麦的麦位序号。 |
 | callback  | ActionCallback | 操作回调。             |
 
-调用该接口会立即修改麦位表。如果是主播需要观众同意才能上麦的场景，可以先调用 `sendInvitation` 向观众申请，收到 `onInvitationAccept` 后再调用该函数。
+调用该接口会立即修改麦位表。
 
 ### muteSeat
 
-静音/解除静音某个麦位（主播调用）。
+静音/解除静音某个麦位（房主调用）。
 
 >? 静音/解除静音某个麦位，房间内所有成员会收到 `onSeatListChange` 和 `onSeatMute` 的事件通知。
 
@@ -480,17 +506,17 @@ TRTCVoiceRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 
 | 参数      | 类型           | 含义                                          |
 | --------- | -------------- | --------------------------------------------- |
-| seatIndex | int            | 需要操作的麦位序号。                          |
-| isMute    | boolean        | true：静音对应麦位；false：解除静音对应麦位。 |
+| seatIndex | NSInteger      | 需要操作的麦位序号。                          |
+| isMute    | BOOL           | YES：静音对应麦位；NO：解除静音对应麦位。 |
 | callback  | ActionCallback | 操作回调。                                    |
 
 调用该接口会立即修改麦位表。对应 seatIndex 座位上的主播，会自动调用 muteAudio 进行静音/解禁。
 
 ### closeSeat
 
-封禁/解禁某个麦位（主播调用）。
+封禁/解禁某个麦位（房主调用）。
 
->? 主播封禁/解禁对应麦位，房间内所有成员会收到 `onSeatListChange` 和 `onSeatClose` 的事件通知。
+>? 房主封禁/解禁对应麦位，房间内所有成员会收到 `onSeatListChange` 和 `onSeatClose` 的事件通知。
 
 ```Objective-C
 - (void)closeSeat:(NSInteger)seatIndex isClose:(BOOL)isClose callback:(ActionCallback _Nullable)callback NS_SWIFT_NAME(closeSeat(seatIndex:isClose:callback:));
@@ -500,8 +526,8 @@ TRTCVoiceRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 
 | 参数      | 类型           | 含义                                       |
 | --------- | -------------- | ------------------------------------------ |
-| seatIndex | int            | 需要操作的麦位序号。                       |
-| isClose   | boolean        | true：封禁对应麦位； false：解封对应麦位。 |
+| seatIndex | NSInteger      | 需要操作的麦位序号。                       |
+| isClose   | BOOL           | YES：封禁对应麦位； NO：解封对应麦位。 |
 | callback  | ActionCallback | 操作回调。                                 |
 
 调用该接口会立即修改麦位表。封禁对应 seatIndex 座位上的主播，会自动下麦。
@@ -536,8 +562,8 @@ TRTCVoiceRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 参数如下表所示：
 
 | 参数    | 类型 | 含义                                                         |
-| ------- | ---- | ------------------------------------------------------------ |
-| quality | int  | 音频质量，详情请参见 [TRTC SDK](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a955cccaddccb0c993351c656067bee55)。 |
+| ------- | ---------- | ------------------------------------------------------------ |
+| quality | NSInteger  | 音频质量，详情请参见 [TRTC SDK](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a955cccaddccb0c993351c656067bee55)。 |
 
 
 ### muteLocalAudio
@@ -552,7 +578,7 @@ TRTCVoiceRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 
 | 参数 | 类型    | 含义                                                         |
 | ---- | ------- | ------------------------------------------------------------ |
-| mute | boolean | 静音/取消静音，详情请参见 [TRTC SDK](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a37f52481d24fa0f50842d3d8cc380d86)。 |
+| mute | BOOL    | 静音/取消静音，详情请参见 [TRTC SDK](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a37f52481d24fa0f50842d3d8cc380d86)。 |
 
 
 
@@ -568,7 +594,7 @@ TRTCVoiceRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 
 | 参数       | 类型    | 含义                        |
 | ---------- | ------- | --------------------------- |
-| useSpeaker | boolean | true：扬声器；false：听筒。 |
+| useSpeaker | BOOL    | YES：扬声器；NO：听筒。 |
 
 
 
@@ -584,7 +610,7 @@ TRTCVoiceRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 
 | 参数   | 类型 | 含义                          |
 | ------ | ---- | ----------------------------- |
-| volume | int  | 采集音量，0 - 100， 默认100。 |
+| volume | NSInteger  | 采集音量，0 - 100， 默认100。 |
 
 
 ### setAudioPlayoutVolume
@@ -598,8 +624,8 @@ TRTCVoiceRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 参数如下表所示：
 
 | 参数   | 类型 | 含义                          |
-| ------ | ---- | ----------------------------- |
-| volume | int  | 播放音量，0 - 100， 默认100。 |
+| ------ | ---------- | ----------------------------- |
+| volume | NSInteger  | 播放音量，0 - 100， 默认100。 |
 
 ### muteRemoteAudio
 
@@ -613,8 +639,8 @@ TRTCVoiceRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 
 | 参数   | 类型    | 含义                              |
 | ------ | ------- | --------------------------------- |
-| userId | String  | 指定的用户 ID。                   |
-| mute   | boolean | true：开启静音；false：关闭静音。 |
+| userId | NSString  | 指定的用户 ID。                   |
+| mute   | BOOL      | YES：开启静音；NO：关闭静音。 |
 
 ### muteAllRemoteAudio
 
@@ -628,9 +654,21 @@ TRTCVoiceRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 
 | 参数 | 类型    | 含义                              |
 | ---- | ------- | --------------------------------- |
-| mute | boolean | true：开启静音；false：关闭静音。 |
+| mute | BOOL | YES：开启静音；NO：关闭静音。 |
 
-   
+### setVoiceEarMonitorEnable
+
+开启/关闭 耳返。
+
+```Objective-C
+- (void)setVoiceEarMonitorEnable:(BOOL)enable NS_SWIFT_NAME(setVoiceEarMonitor(enable:));
+```
+参数如下表所示：
+
+| 参数 | 类型    | 含义                              |
+| ---- | ------- | --------------------------------- |
+| enable | BOOL | YES：开启耳返；NO：关闭耳返。 |
+
 
 ## 背景音乐音效相关接口函数
 
@@ -657,7 +695,7 @@ TRTCVoiceRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 
 | 参数     | 类型           | 含义           |
 | -------- | -------------- | -------------- |
-| message  | String         | 文本消息。     |
+| message  | NSString       | 文本消息。     |
 | callback | ActionCallback | 发送结果回调。 |
 
    
@@ -674,8 +712,8 @@ TRTCVoiceRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 
 | 参数     | 类型           | 含义                                               |
 | -------- | -------------- | -------------------------------------------------- |
-| cmd      | String         | 命令字，由开发者自定义，主要用于区分不同消息类型。 |
-| message  | String         | 文本消息。                                         |
+| cmd      | NSString        | 命令字，由开发者自定义，主要用于区分不同消息类型。 |
+| message  | NSString        | 文本消息。                                         |
 | callback | ActionCallback | 发送结果回调。                                     |
 
    
@@ -697,30 +735,30 @@ TRTCVoiceRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 
 | 参数     | 类型           | 含义             |
 | -------- | -------------- | ---------------- |
-| cmd      | String         | 业务自定义指令。 |
-| userId   | String         | 邀请的用户 ID。  |
-| content  | String         | 邀请的内容。     |
+| cmd      | NSString       | 业务自定义指令。 |
+| userId   | NSString       | 邀请的用户 ID。  |
+| content  | NSString       | 邀请的内容。     |
 | callback | ActionCallback | 发送结果回调。   |
 
 返回值：
 
 | 返回值   | 类型   | 含义                  |
 | -------- | ------ | --------------------- |
-| inviteId | String | 用于标识此次邀请 ID。 |
+| inviteId | NSString | 用于标识此次邀请 ID。 |
 
 ### acceptInvitation
 
 接受邀请。
 
 ```Objective-C
-- (void)acceptInvitation:(NSString *)identifier callback:(ActionCallback _Nullable)callback NS_SWIFT_NAME(acceptInvitation(identifier:callback:));
+- (void)acceptInvitation:(NSString *)identifier callback:(ActionCallback _Nullable)callback NS_SWIFT_NAME(acceptInvitation(id:callback:));
 ```
 
 参数如下表所示：
 
 | 参数     | 类型           | 含义           |
 | -------- | -------------- | -------------- |
-| id       | String         | 邀请 ID。      |
+| id       | NSString       | 邀请 ID。      |
 | callback | ActionCallback | 发送结果回调。 |
 
 ### rejectInvitation
@@ -728,14 +766,14 @@ TRTCVoiceRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 拒绝邀请。
 
 ```Objective-C
-- (void)rejectInvitation:(NSString *)identifier callback:(ActionCallback _Nullable)callback NS_SWIFT_NAME(rejectInvitation(identifier:callback:));
+- (void)rejectInvitation:(NSString *)identifier callback:(ActionCallback _Nullable)callback NS_SWIFT_NAME(rejectInvitation(id:callback:));
 ```
 
 参数如下表所示：
 
 | 参数     | 类型           | 含义           |
 | -------- | -------------- | -------------- |
-| id       | String         | 邀请 ID。      |
+| id       | NSString       | 邀请 ID。      |
 | callback | ActionCallback | 发送结果回调。 |
 
 
@@ -744,17 +782,18 @@ TRTCVoiceRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 取消邀请。
 
 ```Objective-C
-- (void)cancelInvitation:(NSString *)identifier callback:(ActionCallback _Nullable)callback NS_SWIFT_NAME(cancelInvitation(identifier:callback:));
+- (void)cancelInvitation:(NSString *)identifier callback:(ActionCallback _Nullable)callback NS_SWIFT_NAME(cancelInvitation(id:callback:));
 ```
 
 参数如下表所示：
 
 | 参数     | 类型           | 含义           |
 | -------- | -------------- | -------------- |
-| id       | String         | 邀请 ID。      |
+| id       | NSString       | 邀请 ID。      |
 | callback | ActionCallback | 发送结果回调。 |
 
-## TRTCVoiceRoomDelegate事件回调
+[](id:TRTCVoiceRoomDelegate)
+## TRTCVoiceRoomDelegate 事件回调
 
 ## 通用事件回调
 
@@ -775,7 +814,7 @@ NS_SWIFT_NAME(onError(code:message:));
 | 参数    | 类型   | 含义       |
 | ------- | ------ | ---------- |
 | code    | int    | 错误码。   |
-| message | String | 错误信息。 |
+| message | NSString | 错误信息。 |
 
 
 ### onWarning
@@ -793,7 +832,7 @@ NS_SWIFT_NAME(onWarning(code:message:));
 | 参数    | 类型   | 含义       |
 | ------- | ------ | ---------- |
 | code    | int    | 错误码。   |
-| message | String | 警告信息。 |
+| message | NSString | 警告信息。 |
 
    
 
@@ -810,7 +849,7 @@ NS_SWIFT_NAME(onDebugLog(message:));
 
 | 参数    | 类型   | 含义       |
 | ------- | ------ | ---------- |
-| message | String | 日志信息。 |
+| message | NSString | 日志信息。 |
 
    
 
@@ -819,23 +858,23 @@ NS_SWIFT_NAME(onDebugLog(message:));
 
 ### onRoomDestroy
 
-房间被销毁的回调。主播解散房间时，房间内的所有用户都会收到此通知。
+房间被销毁的回调。房主解散房间时，房间内的所有用户都会收到此通知。
 
 ```Objective-C
-- (void)onRoomDestroy:(NSString *)message
-NS_SWIFT_NAME(onRoomDestroy(message:));
+- (void)onRoomDestroy:(NSString *)roomId
+NS_SWIFT_NAME(onRoomDestroy(roomId:));
 ```
 
 参数如下表所示：
 
 | 参数   | 类型   | 含义      |
 | ------ | ------ | --------- |
-| roomId | String | 房间 ID。 |
+| roomId | NSString | 房间 ID。 |
 
 
 ### onRoomInfoChange
 
-进房成功后会回调该接口，roomInfo 中的信息在创建房间。
+进房成功后会回调该接口，roomInfo 中的信息在房主创建房间的时候传入。
 
 ```Objective-C
 - (void)onRoomInfoChange:(VoiceRoomInfo *)roomInfo
@@ -846,26 +885,42 @@ NS_SWIFT_NAME(onRoomInfoChange(roomInfo:));
 
 | 参数     | 类型     | 含义       |
 | -------- | -------- | ---------- |
-| roomInfo | RoomInfo | 房间信息。 |
+| roomInfo | VoiceRoomInfo | 房间信息。 |
 
-   
 
-### onUserVolumeUpdate
+### onUserMicrophoneMute
 
-启用音量大小提示，会通知每个成员的音量大小。
+用户麦克风是否静音回调，当用户调用muteLocalAudio，房间内的其他用户都会收到此通知。
 
 ```Objective-C
-- (void)onUserVolumeUpdate:(NSString *)userId
-                              volume:(NSInteger)volume
-NS_SWIFT_NAME(onUserVolumeUpdate(userId:volume:));
+- (void)onUserMicrophoneMute:(NSString *)userId mute:(BOOL)mute
+NS_SWIFT_NAME(onUserMicrophoneMute(userId:mute:));
+
 ```
 
 参数如下表所示：
 
 | 参数   | 类型   | 含义                      |
 | ------ | ------ | ------------------------- |
-| userId | String | 用户 ID。                 |
-| volume | int    | 音量大小，取值：0 - 100。 |
+| userId | NSString | 用户 ID。                 |
+| mute | BOOL    | YES：静音麦位； NO：解除静音。 |
+
+
+### onUserVolumeUpdate
+
+启用音量大小提示，会通知每个成员的音量大小。
+
+```Objective-C
+- (void)onUserVolumeUpdate:(NSArray<TRTCVolumeInfo *> *)userVolumes totalVolume:(NSInteger)totalVolume
+NS_SWIFT_NAME(onUserVolumeUpdate(userVolumes:totalVolume:));
+```
+
+参数如下表所示：
+
+| 参数   | 类型   | 含义                      |
+| ------ | ------ | ------------------------- |
+| userVolumes | NSArray | 用户列表。                 |
+| totalVolume | NSInteger    | 音量大小，取值：0 - 100。 |
 
 
 ## 麦位回调
@@ -883,11 +938,11 @@ NS_SWIFT_NAME(onSeatListChange(seatInfoList:));
 
 | 参数         | 类型                 | 含义             |
 | ------------ | -------------------- | ---------------- |
-| seatInfoList | List&lt;SeatInfo&gt; | 全量的麦位列表。 |
+| seatInfoList | NSArray&lt;VoiceRoomSeatInfo&gt; | 全量的麦位列表。 |
 
 ### onAnchorEnterSeat
 
-有成员上麦(主动上麦/主播抱人上麦)。
+有成员上麦(主动上麦/房主抱人上麦)。
 
 ```Objective-C
 - (void)onAnchorEnterSeat:(NSInteger)index
@@ -899,12 +954,12 @@ NS_SWIFT_NAME(onAnchorEnterSeat(index:user:));
 
 | 参数  | 类型     | 含义                 |
 | ----- | -------- | -------------------- |
-| index | int      | 成员上麦的麦位。     |
-| user  | UserInfo | 上麦用户的详细信息。 |
+| index | NSInteger      | 成员上麦的麦位。     |
+| user  | VoiceRoomUserInfo | 上麦用户的详细信息。 |
 
 ### onAnchorLeaveSeat
 
-有成员下麦(主动下麦/主播踢人下麦)。
+有成员下麦(主动下麦/房主踢人下麦)。
 
 ```Objective-C
 - (void)onAnchorLeaveSeat:(NSInteger)index
@@ -916,12 +971,12 @@ NS_SWIFT_NAME(onAnchorLeaveSeat(index:user:));
 
 | 参数  | 类型     | 含义                 |
 | ----- | -------- | -------------------- |
-| index | int      | 下麦的麦位。         |
-| user  | UserInfo | 上麦用户的详细信息。 |
+| index | NSInteger      | 下麦的麦位。         |
+| user  | VoiceRoomUserInfo | 上麦用户的详细信息。 |
 
 ### onSeatMute
 
-主播禁麦。
+房主禁麦。
 
 ```Objective-C
 - (void)onSeatMute:(NSInteger)index
@@ -933,12 +988,12 @@ NS_SWIFT_NAME(onSeatMute(index:isMute:));
 
 | 参数   | 类型    | 含义                               |
 | ------ | ------- | ---------------------------------- |
-| index  | int     | 操作的麦位。                       |
-| isMute | boolean | true：静音麦位； false：解除静音。 |
+| index  | NSInteger     | 操作的麦位。                       |
+| isMute | BOOL | YES：静音麦位； NO：解除静音。 |
 
 ### onSeatClose
 
-主播封麦。
+房主封麦。
 
 ```Objective-C
 - (void)onSeatClose:(NSInteger)index
@@ -950,14 +1005,14 @@ NS_SWIFT_NAME(onSeatClose(index:isClose:));
 
 | 参数    | 类型    | 含义                                |
 | ------- | ------- | ----------------------------------- |
-| index   | int     | 操作的麦位。                        |
-| isClose | boolean | true：封禁麦位； false： 解禁麦位。 |
+| index   | NSInteger     | 操作的麦位。                        |
+| isClose | BOOL | YES：封禁麦位； NO： 解禁麦位。 |
 
-## 观众进出事件回调
+## 听众进出事件回调
 
 ### onAudienceEnter
 
-收到观众进房通知。
+收到听众进房通知。
 
 ```Objective-C
 - (void)onAudienceEnter:(VoiceRoomUserInfo *)userInfo
@@ -968,11 +1023,11 @@ NS_SWIFT_NAME(onAudienceEnter(userInfo:));
 
 | 参数     | 类型     | 含义           |
 | -------- | -------- | -------------- |
-| userInfo | UserInfo | 进房观众信息。 |
+| userInfo | VoiceRoomUserInfo | 进房听众信息。 |
 
 ### onAudienceExit
 
-收到观众退房通知。
+收到听众退房通知。
 
 ```Objective-C
 - (void)onAudienceExit:(VoiceRoomUserInfo *)userInfo
@@ -983,7 +1038,7 @@ NS_SWIFT_NAME(onAudienceExit(userInfo:));
 
 | 参数     | 类型     | 含义           |
 | -------- | -------- | -------------- |
-| userInfo | UserInfo | 退房观众信息。 |
+| userInfo | VoiceRoomUserInfo | 退房听众信息。 |
 
    
 
@@ -1003,8 +1058,8 @@ NS_SWIFT_NAME(onRecvRoomTextMsg(message:userInfo:));
 
 | 参数     | 类型     | 含义             |
 | -------- | -------- | ---------------- |
-| message  | String   | 文本消息。       |
-| userInfo | UserInfo | 发送者用户信息。 |
+| message  | NSString   | 文本消息。       |
+| userInfo | VoiceRoomUserInfo | 发送者用户信息。 |
 
    
 
@@ -1013,19 +1068,19 @@ NS_SWIFT_NAME(onRecvRoomTextMsg(message:userInfo:));
 收到自定义消息。
 
 ```Objective-C
-- (void)onRecvRoomCustomMsg:(NSString *)cmd
+- (void)onRecvRoomCustomMsg:(NSString *)command
                     message:(NSString *)message
                    userInfo:(VoiceRoomUserInfo *)userInfo
-NS_SWIFT_NAME(onRecvRoomCustomMsg(cmd:message:userInfo:));
+NS_SWIFT_NAME(onRecvRoomCustomMsg(command:message:userInfo:));
 ```
 
 参数如下表所示：
 
 | 参数     | 类型     | 含义                                               |
 | -------- | -------- | -------------------------------------------------- |
-| command  | String   | 命令字，由开发者自定义，主要用于区分不同消息类型。 |
-| message  | String   | 文本消息。                                         |
-| userInfo | UserInfo | 发送者用户信息。                                   |
+| command  | NSString   | 命令字，由开发者自定义，主要用于区分不同消息类型。 |
+| message  | NSString   | 文本消息。                                         |
+| userInfo | VoiceRoomUserInfo | 发送者用户信息。                                   |
 
 ## 邀请信令事件回调
 
@@ -1038,17 +1093,17 @@ NS_SWIFT_NAME(onRecvRoomCustomMsg(cmd:message:userInfo:));
                        inviter:(NSString *)inviter
                            cmd:(NSString *)cmd
                        content:(NSString *)content
-NS_SWIFT_NAME(onReceiveNewInvitation(identifier:inviter:cmd:content:));
+NS_SWIFT_NAME(onReceiveNewInvitation(id:inviter:cmd:content:));
 ```
 
 参数如下表所示：
 
 | 参数    | 类型     | 含义                               |
 | ------- | -------- | ---------------------------------- |
-| id      | String   | 邀请 ID。                          |
-| inviter | String   | 邀请人的用户 ID。                  |
-| cmd     | String   | 业务指定的命令字，由开发者自定义。 |
-| content | UserInfo | 业务指定的内容。                   |
+| id      | NSString   | 邀请 ID。                          |
+| inviter | NSString   | 邀请人的用户 ID。                  |
+| cmd     | NSString   | 业务指定的命令字，由开发者自定义。 |
+| content | NSString | 业务指定的内容。                   |
 
 ### onInviteeAccepted
 
@@ -1057,15 +1112,15 @@ NS_SWIFT_NAME(onReceiveNewInvitation(identifier:inviter:cmd:content:));
 ```Objective-C
 - (void)onInviteeAccepted:(NSString *)identifier
                   invitee:(NSString *)invitee
-NS_SWIFT_NAME(onInviteeAccepted(identifier:invitee:));
+NS_SWIFT_NAME(onInviteeAccepted(id:invitee:));
 ```
 
 参数如下表所示：
 
 | 参数    | 类型   | 含义                |
 | ------- | ------ | ------------------- |
-| id      | String | 邀请 ID。           |
-| invitee | String | 被邀请人的用户 ID。 |
+| id      | NSString | 邀请 ID。           |
+| invitee | NSString | 被邀请人的用户 ID。 |
 
 ### onInviteeRejected
 
@@ -1074,15 +1129,15 @@ NS_SWIFT_NAME(onInviteeAccepted(identifier:invitee:));
 ```Objective-C
 - (void)onInviteeRejected:(NSString *)identifier
                   invitee:(NSString *)invitee
-NS_SWIFT_NAME(onInviteeRejected(identifier:invitee:));
+NS_SWIFT_NAME(onInviteeRejected(id:invitee:));
 ```
 
 参数如下表所示：
 
 | 参数    | 类型   | 含义                |
 | ------- | ------ | ------------------- |
-| id      | String | 邀请 ID。           |
-| invitee | String | 被邀请人的用户 ID。 |
+| id      | NSString | 邀请 ID。           |
+| invitee | NSString | 被邀请人的用户 ID。 |
 
 ### onInvitationCancelled
 
@@ -1090,12 +1145,12 @@ NS_SWIFT_NAME(onInviteeRejected(identifier:invitee:));
 
 ```Objective-C
 - (void)onInvitationCancelled:(NSString *)identifier
-                      invitee:(NSString *)invitee NS_SWIFT_NAME(onInvitationCancelled(identifier:invitee:));
+                      invitee:(NSString *)invitee NS_SWIFT_NAME(onInvitationCancelled(id:invitee:));
 ```
 
 参数如下表所示：
 
 | 参数    | 类型   | 含义              |
 | ------- | ------ | ----------------- |
-| id      | String | 邀请 ID。         |
-| inviter | String | 邀请人的用户 ID。 |
+| id      | NSString | 邀请 ID。         |
+| inviter | NSString | 邀请人的用户 ID。 |

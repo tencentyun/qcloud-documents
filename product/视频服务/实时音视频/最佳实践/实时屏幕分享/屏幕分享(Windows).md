@@ -109,8 +109,6 @@ TRTC SDK 支持三种分享模式，您可以通过 `selectScreenCaptureTarget` 
   若用户通过 Android / iOS 进行屏幕分享，会通过主流进行分享。房间里的其他用户会通过 TRTCCloudDelegate 中的 [onUserVideoAvailable](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDelegate__ios.html#a533d6ea3982a922dd6c0f3d05af4ce80) 事件获得这个通知。
   希望观看屏幕分享的用户可以通过 [startRemoteView](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#af85283710ba6071e9fd77cc485baed49) 接口来启动渲染远端用户主流画面。
 
-
-
 ```C++
 //示例代码：观看屏幕分享的画面
 void CTRTCCloudSDK::onUserSubStreamAvailable(const char * userId, bool available)

@@ -1,3 +1,5 @@
+>!因产品策略调整，游戏联机对战引擎后续将与云开发 CloudBase 整合为新产品形态，现将该产品保持维护状态，不再接收新用户使用申请，老用户仍可正常使用。
+
 
 GameServer.IGameServer 对象即实时服务器接口。提供了接收客户端消息、监听房间广播相关接口。
 
@@ -76,7 +78,13 @@ IPlayerInfo 定义如下：
 GameData 默认为 object 类型，您可以根据需要进行自定义。
 
 
->?onInitGameData 方法是在收到任意广播时检查 gameData，如果 gameData 为空，先执行 onInitGameData 再执行广播回调函数。
+
+
+<dx-alert infotype="explain" title="">
+onInitGameData 方法是在收到任意广播时检查 gameData，如果 gameData 为空，先执行 onInitGameData 再执行广播回调函数。
+</dx-alert>
+
+
 
 **使用示例**
 
@@ -107,7 +115,13 @@ UserDefinedData 即玩家的消息类型，类型为 object。您可以根据需
 
 无。
 
->? mode 为 "sync" 时需要在该回调里面显式调用 args.SDK.exitAction 方法才能继续处理下一条 onRecvFromClient 广播消息。
+
+
+<dx-alert infotype="explain" title="">
+ mode 为 "sync" 时需要在该回调里面显式调用 args.SDK.exitAction 方法才能继续处理下一条 onRecvFromClient 广播消息。
+</dx-alert>
+
+
 
 **使用示例**
 
@@ -123,7 +137,7 @@ gameServer.onRecvFromClient = args => {
 
     // 收到的数据
     const actionData = args.actionData;
-    // 发送消息的玩家ID为
+    // 发送消息的玩家 ID 为
     const sender = args.sender;
 
     // 可以调用 args.SDK.sendData 方法发消息给客户端

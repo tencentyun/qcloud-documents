@@ -38,7 +38,7 @@ echo 'export PATH=/usr/local/cuda/bin:$PATH' | sudo tee /etc/profile.d/cuda.sh
 ```
 source /etc/profile
 ```
-8. <span id="Step8"></span>依次执行以下命令，验证 CUDA 安装是否成功。
+10. [](id:Step10)依次执行以下命令，验证 CUDA 安装是否成功。
 ```
 cd /usr/local/cuda-10.1/samples/1_Utilities/deviceQuery
 ```
@@ -55,7 +55,7 @@ make
 ```
 yum install -y gcc-c++
 ```
-安装完成后，再次执行 [步骤8](#Step8) 进行验证即可。
+安装完成后，再次执行 [步骤10](#Step10) 进行验证即可。
 
 
 ### Windows 系统指引

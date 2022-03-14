@@ -118,7 +118,7 @@ NS_SWIFT_NAME(login(sdkAppID:user:userSig:success:failed:));
 | -------- | --------------------- | ------------------------------------------------------------ |
 | sdkAppID | UInt32                | 您可以在实时音视频控制台 >【[应用管理](https://console.cloud.tencent.com/trtc/app)】> 应用信息中查看 SDKAppID。 |
 | user     | String                | 当前用户的 ID，字符串类型，只允许包含英文字母（a-z 和 A-Z）、数字（0-9）、连词符（-）和下划线（\_）。 |
-| userSig  | String                | 腾讯云设计的一种安全保护签名，获取方式请参考 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。 |
+| userSig  | String                | 腾讯云设计的一种安全保护签名，获取方式请参见 [如何计算及使用 UserSig](https://cloud.tencent.com/document/product/647/17275)。 |
 | success  | CallingActionCallback | 登录成功回调。                                               |
 | failed   | ErrorCallback         | 登录失败回调。                                               |
 
@@ -184,7 +184,7 @@ NS_SWIFT_NAME(groupCall(userIDs:type:groupID:));
 
 | 参数    | 类型     | 含义                  |
 | ------- | -------- | --------------------- |
-| userIDs | [String] | 邀请 ID 列表。        |
+| userIDs | [String]   | 邀请 ID 列表。        |
 | type    | CallType | 通话类型：视频/语音。 |
 | groupID | String   | 群 ID。               |
 
@@ -278,7 +278,7 @@ NS_SWIFT_NAME(onError(code:msg:));
 | 参数 | 类型    | 含义       |
 | ---- | ------- | ---------- |
 | code | Int     | 错误码。   |
-| msg  | String? | 错误信息。 |
+| msg  | String  | 错误信息。 |
 
 
 ## 邀请方回调
@@ -360,7 +360,7 @@ NS_SWIFT_NAME(onInvited(sponsor:userIds:isFromGroup:callType:));
 | 参数        | 类型     | 含义                  |
 | ----------- | -------- | --------------------- |
 | sponsor     | String   | 发起方的 ID。         |
-| userIds     | [String] | 邀请 ID 列表。        |
+| userIds     | [String]   | 邀请 ID 列表。        |
 | isFromGroup | Bool     | 是否多人通话邀请。    |
 | callType    | CallType | 通话类型：语音/视频。 |
 
@@ -402,7 +402,7 @@ NS_SWIFT_NAME(onGroupCallInviteeListUpdate(userIds:));
 
 | 参数    | 类型     | 含义           |
 | ------- | -------- | -------------- |
-| userIds | [String] | 邀请 ID 列表。 |
+| userIds | [String]   | 邀请 ID 列表。 |
 
 ### onUserEnter
 

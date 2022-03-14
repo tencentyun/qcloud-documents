@@ -40,4 +40,4 @@ mTXCameraRecord2.stopRecord();
 :::
 </dx-codeblock>
 
->?具体实现方法请参考 [小视频源码](https://cloud.tencent.com/document/product/584/9366) 中录制中的 RecordDraftMgr 类的使用。
+>?具体实现方法请参考 [小视频源码](https://cloud.tencent.com/document/product/584/9366) 中录制中的 RecordDraftManager 类的使用。

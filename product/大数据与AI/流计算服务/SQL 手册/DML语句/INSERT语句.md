@@ -1,13 +1,13 @@
 ## INSERT INTO
 INSERT INTO 语句必须和 SELECT 子查询联用，SELECT 的数据会写入到指定的数据目的表（Table Sink）中。
 
-#### 语法
+### 语法
 ```
 INSERT INTO 数据目的表
 SELECT 子句
 ```
 
-#### 示例
+### 示例
 将 SELECT 查询的结果插入名为 KafkaSink1 的数据目的表（Sink）。
 ```
 INSERT INTO KafkaSink1

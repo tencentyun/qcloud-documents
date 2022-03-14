@@ -65,7 +65,7 @@
 ### 准备个人密钥[](id:step1)
 
 1. 登录 [API 密钥管理](https://console.cloud.tencent.com/cam/capi)。
-2. 若还未创建密钥，则需单击【新建密钥】以创建密钥；若已创建密钥，可单击 SecretKey 的【显示】获取密钥。
+2. 若还未创建密钥，则需单击**新建密钥**以创建密钥；若已创建密钥，可单击 SecretKey 的**显示**获取密钥。
 ![](https://main.qcloudimg.com/raw/dfc5cf24f6d04bcf87a64ec325b6e915.png)
 
 
@@ -75,7 +75,7 @@
 本文以云服务器 CPU 利用率指标为例。
 
 1.	查看 [云服务器监控指标文档](https://cloud.tencent.com/document/product/248/6843),
-2.	找到 CPU 利用率指标，即可查看 CPU 利用率指标名、维度，统计周期等相关信息。
+2.	找到 CPU 利用率指标，即可查看 CPU 利用率指标名、维度，统计粒度等相关信息。
 ![](https://main.qcloudimg.com/raw/0140541d15e09a5ae4b41394f4f529e4.png)
 
 
@@ -85,14 +85,14 @@
 
 1. 登录 [API Explorer](https://console.cloud.tencent.com/api/explorer?Product=monitor&Version=2018-07-24&Action=GetMonitorData&SignVersion=) 在线调试页面。
 2. 将 [准备好的个人密钥](#step1) 对应复制到对应的 SecretId、SecretKey 文本框。
-3. 在【输入参数】配置项找到 Region，选择相关地域。
-4. 将 [准备好的云产品信息](#step2)，填入对应的【输入参数】配置项文本框。
+3. 在**输入参数**配置项找到 Region，选择相关地域。
+4. 将 [准备好的云产品信息](#step2)，填入对应的**输入参数**配置项文本框。
  - **Namespace**：填入 QCE/CVM。
  - **MetricName**：填入 CPU 利用率指标英文名，即 CPUUsage。
  - **Dimensions.N-Name**：填入支持的维度名称，即 InstanceId。
  - **Dimensions.N-Value**：填入对应的 InstanceId 值（云服务器实例 ID），可通过云服务器 [查询实例列表接口](https://cloud.tencent.com/document/product/213/15728) 获取实例对应的 ID，例如 ins—12345678。
- - **Period**：填入指标支持的统计周期，例如300。
+ - **Period**：填入指标支持的统计粒度，例如300。
  - **StartTime**：填入需要查询的起始时间（时间类型为 datetime_iso），格式为 `2020-12-20T19:51:23+08:00`。
  - **EndTime**：填入需要查询的起始时间结束时间（时间类型为 datetime_iso），EndTime 不能小于 StartTime。格式为 `2020-12-20T20:51:23+08:00`。
 ![](https://main.qcloudimg.com/raw/ad04f8261b114d1482a03abef2eaa658.png)
-5. 以上信息填完后，您可以复制【代码生成】中对应语言的代码，将相关的监控数据集成到您的自建监控系统，您还可以使用【在线调用】发送请求进行在线查询监控数据。
+5. 以上信息填完后，您可以复制**代码生成**中对应语言的代码，将相关的监控数据集成到您的自建监控系统，您还可以使用**在线调用**发送请求进行在线查询监控数据。

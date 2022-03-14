@@ -64,13 +64,9 @@ Alluxio 提供了位置策略来选择要存储文件块到哪一个 worker。�
 Alluxio 支持自定义策略，所以您也可以通过实现接口 `alluxio.client.file.policyFileWriteLocationPolicy` 制定适合自己的策略。
 >!默认策略必须有一个空的构造函数。并使用 ASYNC_THROUGH 写入类型，所有块的文件必须写入同一个 worker。
 
-Alluxio 允许客户在向本地 worker 写入数据块时选择一个层级偏好。目前这种策略偏好只适用于本地 worker 而不是远程 worker；远程 worker 会写到最高层。
+Alluxio 允许客户在向本地 worker 写入数据块时选择一个层级偏好。目前这种策略偏好只适用于本地 worker 而不是远程 worker；远程 worker 会写到最高层。默认情况下，数据被写入顶层。用户可以通过 `alluxio.user.file.write.tier.default` 配置项修改默认设置，或通过 `FileSystem#createFile(AlluxioURI)API` 调用覆盖它。
 
-默认情况下，数据被写入顶层。用户可以通过 `alluxio.user.file.write.tier.default` 配置项修改默认设置，或通过 `FileSystem#createFile(AlluxioURI)API` 调用覆盖它。
-
-对现有文件或目录的所有操作都要求用户指定 AlluxioURI。使用 AlluxioURI，用户可以使用 FileSystem 中的任何方法来访问资源。
-
-AlluxioURI 可用于执行 Alluxio FileSystem 操作，例如修改文件元数据、ttl 或 pin 状态，或者获取输入流来读取文件。例如，要读取一个文件：
+对现有文件或目录的所有操作都要求用户指定 AlluxioURI。使用 AlluxioURI，用户可以使用 FileSystem 中的任何方法来访问资源。AlluxioURI 可用于执行 Alluxio FileSystem 操作，例如修改文件元数据、ttl 或 pin 状态，或者获取输入流来读取文件。例如，要读取一个文件：
 ```
 FileSystem fs = FileSystem.Factory.get();
 AlluxioURI path = new AlluxioURI("/myFile");

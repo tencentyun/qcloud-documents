@@ -4,12 +4,12 @@ Hbase 表是基于 hadoop HDFS 构建，所以 Hbase 的迁移可从两个维度
 
 ### HBase 基于 Snapshot 迁移
 1. 在新集群上建立表结构一样的表。
-2. 使用`hbase shell`在原始集群中创建一个快照。
+2. 使用 `hbase shell` 在原始集群中创建一个快照。
 ```
 $ ./bin/hbase shell  
 hbase>snapshot 'myTable', 'myTableSnapshot'  
 ```
-这里`'myTable'`是 hbase 的表名，`'myTableSnapshot'`是快照的名称。创建完成后可使用 list_snapshots 确认是否成功，或使用 delete_snapshot 删除快照。
+这里 `'myTable'` 是 hbase 的表名，`'myTableSnapshot'` 是快照的名称。创建完成后可使用 list_snapshots 确认是否成功，或使用 delete_snapshot 删除快照。
 ```
 hbase> delete_snapshot 'myTableSnapshot'  
 ```

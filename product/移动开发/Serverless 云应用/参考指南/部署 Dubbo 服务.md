@@ -9,18 +9,17 @@
 - 注册中心（nacos），使用腾讯云 CVM 部署。
 
 ## 部署流程
+以下所有涉及的 CVM 实例、云托管实例，都处于同一个 VPC 内。您可以在云托管详情内看到您的应用所属的 VPC。
 
->? 以下所有涉及的 CVM 实例、云托管实例，都处于同一个 VPC 内。您可以在云托管详情内看到您的应用所属的 VPC。
+### 步骤1：部署注册中心
 
-### 第 1 步：部署注册中心
+在您的 CVM 实例内安装并启动 Nacos，详情请参见 [Nacos 文档](https://nacos.io/zh-cn/docs/quick-start.html)。
 
-在您的 CVM 实例内安装并启动 Nacos，具体可以参考 [Nacos 文档](https://nacos.io/zh-cn/docs/quick-start.html)
+### 步骤2：创建服务提供方
 
-### 第 2 步：创建服务提供方
-
-创建 Maven 项目，在 `pom.xml` 文件中添加依赖：
-
-```xml
+1. 创建 Maven 项目，在 `pom.xml` 文件中添加依赖：
+<dx-codeblock>
+:::  xml
 <dependencies>
   <dependency>
     <groupId>org.springframework.boot</groupId>
@@ -48,22 +47,22 @@
     <version>2.7.3</version>
   </dependency>
 </dependencies>
-```
-
-在 `src/main/java` 路径下新建 `com.cloudrun.dubbo.inface`，然后创建一个接口 `IHelloService`：
-
-```java
+:::
+</dx-codeblock>
+2. 在 `src/main/java` 路径下新建 `com.cloudrun.dubbo.inface`，然后创建一个接口 `IHelloService`：
+<dx-codeblock>
+:::  java
 package com.cloudrun.dubbo.inface;
 
 public interface IHelloService {
   String sayHello(String str);
 }
 
-```
-
-在 `src/main/java` 路径下新建 `com.cloudrun.dubbo.provider`，创建一个类 `IHelloServiceImpl`，实现此接口：
-
-```java
+:::
+</dx-codeblock>
+3. 在 `src/main/java` 路径下新建 `com.cloudrun.dubbo.provider`，创建一个类 `IHelloServiceImpl`，实现此接口：
+<dx-codeblock>
+:::  java
 package com.cloudrun.dubbo.provider;
 
 import com.cloudrun.dubbo.inface.IHelloService;
@@ -75,12 +74,11 @@ public class HelloServiceImpl implements IHelloService {
     return "hello " + str;
   }
 }
-
-```
-
-在 `src/main/resources` 路径下创建 `provider.xml` 文件，配置 Dubbo 服务：
-
-```xml
+:::
+</dx-codeblock>
+4. 在 `src/main/resources` 路径下创建 `provider.xml` 文件，配置 Dubbo 服务：
+<dx-codeblock>
+:::  xml
 <beans
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns:dubbo="http://dubbo.apache.org/schema/dubbo"
@@ -100,11 +98,11 @@ public class HelloServiceImpl implements IHelloService {
   <!-- nacos-ip 为您的nacos地址 -->
   <dubbo:registry address="nacos://{nacos-ip}:8848" />
 </beans>
-```
-
-在 `com.cloudrun.dubbo` 新建 `dubbo` 服务启动类 `ProviderApplication`：
-
-```java
+:::
+</dx-codeblock>
+5. 在 `com.cloudrun.dubbo` 新建 `dubbo` 服务启动类 `ProviderApplication`：
+<dx-codeblock>
+:::  java
 package com.cloudrun.dubbo;
 
 import org.apache.dubbo.config.spring.context.annotation.DubboComponentScan;
@@ -123,12 +121,11 @@ public class ProviderApplication {
     SpringApplication.run(ProviderApplication.class, args);
   }
 }
-
-```
-
-在 `pom.xml` 文件中添加应用编译配置：
-
-```xml
+:::
+</dx-codeblock>
+6. 在 `pom.xml` 文件中添加应用编译配置：
+<dx-codeblock>
+:::  xml
 <build>
   <plugins>
     <plugin>
@@ -148,29 +145,27 @@ public class ProviderApplication {
     </plugin>
   </plugins>
 </build>
-```
-
-然后运行以下命令，将本地项目构建为可执行的 jar 包：
-
-```
+:::
+</dx-codeblock>
+7. 然后运行以下命令，将本地项目构建为可执行的 jar 包：
+<dx-codeblock>
+:::  sh
 mvn clean package
-```
+:::
+</dx-codeblock>
 
-### 第 3 步：部署服务提供方
 
-开通 CloudBase 云托管，创建服务 `hello-world-provider`，然后创建一个版本：
+### 步骤3：部署服务提供方
 
-![](https://main.qcloudimg.com/raw/ac4b8d0b851f375ec13c0beeab36e149.png)
-
-部署成功后，登录 nacos 控制台 `http://${nacos-ip}:8848`，在左侧导航栏中单击服务列表，查看提供者列表。可以看到服务提供者里已经包含了 `com.cloudrun.dubbo.inface.IHelloService`，且可以查询该服务的服务分组和提供者 IP：
-
+1. 开通 CloudBase 云托管，创建服务 `hello-world-provider`，然后创建一个版本：
+<img src = "https://main.qcloudimg.com/raw/ac4b8d0b851f375ec13c0beeab36e149.png" style="width: 80%"> 
+2. 部署成功后，登录 nacos 控制台 `http://${nacos-ip}:8848`，在左侧导航栏中单击服务列表，查看提供者列表。可以看到服务提供者里已经包含了 `com.cloudrun.dubbo.inface.IHelloService`，且可以查询该服务的服务分组和提供者 IP：
 ![](https://main.qcloudimg.com/raw/fd6ef566091da7d517b8e22937529d23.png)
 
-### 第 4 步：创建服务消费方
-
-创建 Maven 项目，在 `pom.xml` 文件中添加依赖：
-
-```xml
+### 步骤4：创建服务消费方
+1. 创建 Maven 项目，在 `pom.xml` 文件中添加依赖：
+<dx-codeblock>
+:::  xml
 <dependencies>
   <dependency>
     <groupId>org.springframework.boot</groupId>
@@ -198,22 +193,21 @@ mvn clean package
     <version>2.7.3</version>
   </dependency>
 </dependencies>
-```
-
-在 `src/main/java` 路径下新建 `com.cloudrun.dubbo.inface`，然后创建一个接口 `IHelloService`：
-
-```java
+:::
+</dx-codeblock>
+2. 在 `src/main/java` 路径下新建 `com.cloudrun.dubbo.inface`，然后创建一个接口 `IHelloService`：
+<dx-codeblock>
+:::  java
 package com.cloudrun.dubbo.inface;
 
 public interface IHelloService {
   String sayHello(String str);
 }
-
-```
-
-在 `src/main/java` 路径下创建 `com.cloudrun.dubbo.controller`，然后创建类 `SayHelloController`：
-
-```java
+:::
+</dx-codeblock>
+3. 在 `src/main/java` 路径下创建 `com.cloudrun.dubbo.controller`，然后创建类 `SayHelloController`：
+<dx-codeblock>
+:::  java
 package com.cloudrun.controller;
 
 import com.cloudrun.dubbo.inface.IHelloService;
@@ -233,11 +227,11 @@ public class SayHelloController {
   }
 }
 
-```
-
-在 `com.cloudrun` 下创建启动类 `ConsumerApplication`：
-
-```java
+:::
+</dx-codeblock>
+4. 在 `com.cloudrun` 下创建启动类 `ConsumerApplication`：
+<dx-codeblock>
+:::  java
 package com.cloudrun;
 
 import org.apache.dubbo.config.spring.context.annotation.DubboComponentScan;
@@ -256,12 +250,11 @@ public class ConsumerApplication {
     SpringApplication.run(ConsumerApplication.class, args);
   }
 }
-
-```
-
-在 `src/main/resources` 路径下创建 `consumer.xml` 文件，配置 `dubbo` 服务：
-
-```XML
+:::
+</dx-codeblock>
+5. 在 `src/main/resources` 路径下创建 `consumer.xml` 文件，配置 `dubbo` 服务：
+<dx-codeblock>
+:::  XML
 <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:dubbo="http://dubbo.apache.org/schema/dubbo"
        xmlns="http://www.springframework.org/schema/beans"
@@ -277,17 +270,17 @@ public class ConsumerApplication {
   <!-- nacos-ip 为您的nacos地址 -->
   <dubbo:registry address="nacos://{nacos-ip}:8848" />
 </beans>
-```
-
-在 `src/main/resources` 路径下创建 `application.properties` 文件，配置服务端口：
-
-```properties
+:::
+</dx-codeblock>
+6. 在 `src/main/resources` 路径下创建 `application.properties` 文件，配置服务端口：
+<dx-codeblock>
+:::  properties
 server.port=8081
-```
-
-在 `pom.xml` 文件中添加应用编译配置：
-
-```xml
+:::
+</dx-codeblock>
+7. 在 `pom.xml` 文件中添加应用编译配置：
+<dx-codeblock>
+:::  xml
 <build>
   <plugins>
     <plugin>
@@ -307,26 +300,21 @@ server.port=8081
     </plugin>
   </plugins>
 </build>
-```
+:::
+</dx-codeblock>
+8. 并执行 `mvn clean package` 将本地的程序打成可执行的 `jar` 包。
 
-并执行 `mvn clean package` 将本地的程序打成可执行的 `jar` 包。
+### 步骤5：部署服务消费方
 
-### 第 5 步：部署服务消费方
-
-创建一个新的云托管服务 `hello-world-consumer`，然后创建一个版本：
-
-![](https://main.qcloudimg.com/raw/848a39e405597c4090a3797ee98fc6a8.jpg)
-
-登录 nacos 控制台 `http://${nacos-ip}:8848`，在左侧导航栏中单击**服务列表**，查看提供者列表。可以看到服务提供者里已经包含了 `com.cloudrun.dubbo.inface.IHelloService` 的消费者，且可以查询该服务的**服务分组**和**提供者 IP**：
-
+1. 创建一个新的云托管服务 `hello-world-consumer`，然后创建一个版本：
+<img src = "https://main.qcloudimg.com/raw/848a39e405597c4090a3797ee98fc6a8.jpg" style="width: 80%"> 
+2. 登录 nacos 控制台 `http://${nacos-ip}:8848`，在左侧导航栏中单击**服务列表**，查看提供者列表。可以看到服务提供者里已经包含了 `com.cloudrun.dubbo.inface.IHelloService` 的消费者，且可以查询该服务的**服务分组**和**提供者 IP**：
 ![](https://main.qcloudimg.com/raw/aadb6cb0b43a3337fda3ee540ce7d6cd.jpg)
+3. 然后设置服务消费者的公网 HTTP 访问路径：
+![](https://qcloudimg.tencent-cloud.cn/raw/a2f56b6a7c8ef216d8c52b5142c650ff.jpg)
 
-然后设置服务消费者的公网 HTTP 访问路径：
-
-![](https://main.qcloudimg.com/raw/ac48b436a4b407e244597c7b32626c2d.jpg)
-
-### 验证服务
+## 验证服务
 
 浏览器访问上图中的 HTTP 地址：
+![](https://qcloudimg.tencent-cloud.cn/raw/83f4c2c0254be5ec1760d27c84278d90.jpg)
 
-![](https://main.qcloudimg.com/raw/9dc212e434228a644a2c24ebddb23bdd.jpg)

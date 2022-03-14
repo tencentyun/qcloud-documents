@@ -96,11 +96,11 @@ docker push ccr.ccs.tencentyun.com/prom_spring_demo/spring-boot-demo:latest
 #### 步骤3：应用部署
 
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2/cluster?rid=1)，选择需要部署的容器集群。
-2. 单击【工作负载】>【Deployment】，进入 Deployment 管理页面，选择对应的命名空间来进行部署服务，这里选择通过控制台的方式创建，同时打开 Service 访问方式，您也可以选择通过命令行的方式创建。
+2. 单击**工作负载** > **Deployment**，进入 Deployment 管理页面，选择对应的命名空间来进行部署服务，这里选择通过控制台的方式创建，同时打开 Service 访问方式，您也可以选择通过命令行的方式创建。
 ![](https://main.qcloudimg.com/raw/396a36fccd6f9c5568bcdac692626114.png)
 ![](https://main.qcloudimg.com/raw/22e6bb4a200f2664a8005f54f977a72b.png)
 3. 为对应的 Service 添加 K8S Labels，如果使用命令方式新建，可以将 Labels 直接加上。这里介绍在容器控制台调整配置，选择需要调整的容器集群。
-单击【服务与路由】>【Service】，进入 Service 管理页面，选择对应的命名空间来调整 Service Yaml 配置，如下图：
+单击**服务与路由** > **Service**，进入 Service 管理页面，选择对应的命名空间来调整 Service Yaml 配置，如下图：
 ![](https://main.qcloudimg.com/raw/fab7f044fdc658a7608214d86eed740e.png)
 配置示例如下：
 
@@ -130,7 +130,7 @@ docker push ccr.ccs.tencentyun.com/prom_spring_demo/spring-boot-demo:latest
 #### 步骤4：添加采取任务
 
 1. 登录 [云监控 Prometheus 控制台](https://console.cloud.tencent.com/monitor/prometheus)，选择对应 Prometheus 实例进入管理页面。
-2. 单击集成容器服务列表中的【集群 ID】，进入到容器服务集成管理页面。
+2. 单击集成容器服务列表中的**集群 ID**，进入到容器服务集成管理页面。
 3. 通过服务发现添加 Service Monitor，目前支持基于 Labels 发现对应的目标实例地址，所以可以对一些服务添加特定的 K8S Labels，配置之后在 Labels 下的服务都将被 Prometheus 服务自动识别出来，不需要再为每个服务一一添加采取任务。以该例子介绍，配置信息如下：
 > ?这里需要注意的是 `port` 的取值为 `service yaml` 配置文件里的 `spec/ports/name` 对应的值。
 

@@ -17,7 +17,7 @@
 1. HTTP 方法的大小字符串 (“POST”，“GET”，“PUT”，“DELETE”)；
 2. 参加签名的 HTTP 头组成的串；
 3. HTTP URI；
-4. HTTP body，如果 body 为空，例如 GET 消息，则用空字符串(“”)。
+4. HTTP body，如 body 为空，例如 GET 消息，则用空字符串(“”)。
 
 **被签名串的注意点**
 1. HTTP 方法要大写：“POST”，“GET”，“PUT”，“DELETE”；

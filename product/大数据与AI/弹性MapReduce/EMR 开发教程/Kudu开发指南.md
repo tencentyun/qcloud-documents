@@ -25,7 +25,7 @@ Kudu 包含如下两种类型的组件：
 
 
 ## Kudu 使用
-EMR-2.4.0版本支持了 Kudu 组件。在创建 Hadoop 集群时勾选 Kudu 组件，即会创建 Kudu 集群。默认情况下 Kudu 集群包含5个 Kudu Master 服务并开启 HA。 
+EMR-2.4.0版本支持了 Kudu 组件。在创建 Hadoop 集群时勾选 Kudu 组件，即会创建 Kudu 集群。默认情况下 Kudu 集群包含3个 Kudu Master 服务并开启 HA。 
 >?以下所用到的 IP 为内网 IP。
 >
 - Impala 与 Kudu 集成

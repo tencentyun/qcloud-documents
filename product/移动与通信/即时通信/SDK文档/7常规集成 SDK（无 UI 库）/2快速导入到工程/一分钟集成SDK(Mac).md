@@ -66,7 +66,7 @@ pod 命令执行完后，会生成集成了 SDK 的 .xcworkspace 后缀的工程
 
 #### 2. 集成 IM SDK
 
-**添加依赖库：**选中 Demo 的【Target】，在【General】面板中的 【Embedded Binaries】和【Linked Frameworks and Libraries】添加依赖库。
+**添加依赖库：**选中 Demo 的**Target**，在**General**面板中的 **Embedded Binaries**和**Linked Frameworks and Libraries**添加依赖库。
 
 ![](https://main.qcloudimg.com/raw/440dd55e50d2fe52e1d83ed0aa4284be.png)
 
@@ -74,7 +74,7 @@ pod 命令执行完后，会生成集成了 SDK 的 .xcworkspace 后缀的工程
 ```
 ImSDKForMac.framework
 ```
->! 需要在【Build Setting】-【Other Linker Flags】添加 `-ObjC`。
+>! 需要在**Build Setting**-**Other Linker Flags**添加 `-ObjC`。
 
 ## 引用 IM SDK
 项目代码中使用 SDK 有两种方式：

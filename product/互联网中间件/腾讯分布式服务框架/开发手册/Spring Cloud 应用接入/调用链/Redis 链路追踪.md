@@ -1,7 +1,7 @@
 ## 添加依赖
 考虑到 Redis 库的多样性，以及 spring-data-redis 库的易用性，目前只对`spring-boot-starter-data-redis`进行支持，在引用 spring-boot-starter-data-redis 时不要指定版本，只需要整个工程依赖 parent pom 即可：
 
-```pom
+```xml
 <parent>
     <groupId>com.tencent.tsf</groupId>
     <artifactId>spring-cloud-tsf-dependencies</artifactId>
@@ -21,7 +21,7 @@
 ### lettuce 方式
 使用 lettuce 方式，pom 依赖如下：
 
-```pom.xml
+```xml
 <dependency>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-data-redis</artifactId>
@@ -33,7 +33,7 @@
 ### jedis 方式
 使用 jedis 方式，pom 依赖如下：
 
-```pom.xml
+```xml
 <dependency>
     <groupId>org.springframework.data</groupId>
     <artifactId>spring-data-redis</artifactId>

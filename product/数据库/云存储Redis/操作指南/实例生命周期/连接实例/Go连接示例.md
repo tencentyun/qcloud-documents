@@ -1,4 +1,3 @@
-
 **运行前必备**：
 下载客户端 [Go-redis](https://github.com/alphazero/Go-Redis)。
 

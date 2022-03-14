@@ -40,11 +40,11 @@ Kylin 能提供低延迟（sub-second latency）的秘诀就是预计算，即�
 ```
 /usr/local/service/kylin/bin/sample.sh
 ```
-使用默认用户名和密码 ADMIN/KYLIN 登录 Kylin 网站，在左上角项目下拉框中选择`learn_kylin`工程，然后选择名为`kylin_sales_cube`的样例 Cube，选择【Actions】>【Build】，选择一个在2014-01-01之后的日期（覆盖所有的10000样例记录）。
+使用默认用户名和密码 ADMIN/KYLIN 登录 Kylin 网站，在左上角项目下拉框中选择`learn_kylin`工程，然后选择名为`kylin_sales_cube`的样例 Cube，选择 **Actions > Build**，选择一个在2014-01-01之后的日期（覆盖所有的10000样例记录）。
 ![](https://main.qcloudimg.com/raw/a1a6c3b4dfb1d75411480d2a17227ac8.png)
-单击【Monitor】，查看 build 进度直至100%。
+单击 **Monitor**，查看 build 进度直至100%。
 ![](https://main.qcloudimg.com/raw/6af053d26b3a044d3f13dcd8bf6a511a.png)
-单击【Insight】，执行 SQLs，例如：
+单击 **Insight**，执行 SQLs，例如：
 ![](https://main.qcloudimg.com/raw/d2bf312a8be722bbdd44318da80f54f5.png)
 ```
 select part_dt, sum(price) as total_sold, count(distinct seller_id) as sellers from kylin_sales group by part_dt order by part_dt
@@ -105,15 +105,15 @@ kylin.engine.spark-conf.spark.yarn.archive=hdfs://sandbox.hortonworks.com:8020/k
 /usr/local/service/kylin/bin/sample.sh
 /usr/local/service/kylin/bin/kylin.sh start
 ```
-Kylin 启动后，访问 Kylin 网站，在“Advanced Setting”页，编辑名为`kylin_sales`的 cube，将【Cube Engine】由【MapReduce】修改为【Spark(Beta)】：
+Kylin 启动后，访问 Kylin 网站，在“Advanced Setting”页，编辑名为`kylin_sales`的 cube，将 **Cube Engine** 由 **MapReduce** 修改为 **Spark(Beta)**：
 ![](https://main.qcloudimg.com/raw/6fa490fc0ef201b59ebe40fc43fb165b.png)
- 单击【Next】进入“Configuration Overwrites”页面，单击【+ Property】添加属性 `kylin.engine.spark.rdd-partition-cut-mb` 其值为500。
+ 单击 **Next** 进入“Configuration Overwrites”页面，单击 **+ Property** 添加属性 `kylin.engine.spark.rdd-partition-cut-mb` 其值为500。
 ![](https://main.qcloudimg.com/raw/641edfcbcc8c63efbbc5827f70585adc.png)
-样例 cube 有两个耗尽内存的度量：COUNT DISTINCT 和 TOPN(100)。当源数据较小，它们预估的大小会比真实的大很多，导致了更多的 RDD partitions 被切分，使得 build 的速度降低。500是一个较为合理的数字。单击【Next】和【Save】保存 cube。
+样例 cube 有两个耗尽内存的度量：COUNT DISTINCT 和 TOPN(100)。当源数据较小，它们预估的大小会比真实的大很多，导致了更多的 RDD partitions 被切分，使得 build 的速度降低。500是一个较为合理的数字。单击 **Next** 和 **Save** 保存 cube。
 >?对于没有 COUNT DISTINCT 和 TOPN 的 cube，请保留默认配置。
 >
 4. 用 Spark 构建 Cube
-单击【Build】，选择当前日期为 end date。Kylin 会在“Monitor”页生成一个构建 job，第7步是 Spark cubing。Job engine 开始按照顺序执行每一步。
+单击 **Build**，选择当前日期为 end date。Kylin 会在“Monitor”页生成一个构建 job，第7步是 Spark cubing。Job engine 开始按照顺序执行每一步。
 ![](https://main.qcloudimg.com/raw/bed9a9eee9d53c3ac23f11e0cabd242c.png)
 当 Kylin 执行这一步时，您可以监视 Yarn 资源管理器中的状态，单击“Application Master”链接将会打开 Spark 的 UI 网页，它会显示每一个 stage 的进度以及详细的信息。
 ![](https://main.qcloudimg.com/raw/4bc73b8571b39eaee400d4b318a3ff63.png)

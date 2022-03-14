@@ -1,3 +1,4 @@
+
 本文将为您介绍如何接入水印 SDK，本文主要包括 Android、iOS 和 Windows 三个版本的接入指南。
 ## SDK 准备
 下载相关 [Demo 及 SDK](https://main.qcloudimg.com/raw/5066e0eda60b0e00c9e78e0acfa7ec55/%E6%B0%B4%E5%8D%B0SDK.zip)。
@@ -96,8 +97,8 @@ byte [ ] CreateSDKBuffFromStr (String pSDKinfo, String buffer, String uDesIp, in
  - **调用示例：**
 ```
 String pSDKinfo = "566c2dea9420eb37-b6c8-566c2dea9420eb3710525135e8485e80806a2f9c";
-String uDesIp = "115.159.147.198";
-int uDesPort = 8899 ;
+String uDesIp = "1xx.xxx.xxx.xxx";
+int uDesPort = 8xx9 ;
 byte[] bytes = mark.CreateSDKBuffFromStr(pSDKinfo, "", uDesIp, uDesPort);
 ```
 
@@ -137,7 +138,7 @@ s.close();
 ![](https://main.qcloudimg.com/raw/4ab142c35d9d85b6365e9eecce5f66d8.png)
 2. 将 SDK 文件添加到 Xcode。右键工程名，单击 “Add Files to”。
 ![](https://main.qcloudimg.com/raw/babb1d9440fc75f8f79eca4efa007dfe.png)
-3. 在对话框中勾选 “Create folder references”，选中 SDK 的两个文件，单击【Add】。
+3. 在对话框中勾选 “Create folder references”，选中 SDK 的两个文件，单击 **Add**。
 ![](https://main.qcloudimg.com/raw/bb83314a0468f9cc189bb36268ca2853.png)
 4. 左键工程名，选择 General，将 a 文件添加到 “Linked Framews and Libraries”：
 ![](https://main.qcloudimg.com/raw/286f35e15a6e269b62f489fd9c838904.png)
@@ -183,8 +184,8 @@ uint32_t CreateSDKBuffFromStr(char *pSDKinfo, uint8_t *buffer, char* uDstIp, uin
 <td>服务器端口</td>
 </tr>
 </table>
- 
- >!水印结果保存在参数 buffer 中，取20字节。
+>!水印结果保存在参数 buffer 中，取20字节。
+>
 3. 调用示例。
 **Swift 调用：**
 ```
@@ -193,7 +194,7 @@ uint32_t CreateSDKBuffFromStr(char *pSDKinfo, uint8_t *buffer, char* uDstIp, uin
 			as NSString).utf8String);
 					var buffer = UnsafeMutablePointer<UInt8>.allocate(capacity: 20);
 			let uDstIp = UnsafeMutablePointer<Int8>(mutating: (
-			"115.159.147.198" as NSString).utf8String);
+			"1xx.xxx.xxx.xxx" as NSString).utf8String);
 					let uDstport = UInt16.init("8899")!;
 
 			CreateSDKBuffFromStr(pSDKinfo, buffer, uDstIp, uDstport);
@@ -207,8 +208,8 @@ uint32_t CreateSDKBuffFromStr(char *pSDKinfo, uint8_t *buffer, char* uDstIp, uin
 
 			char *pSDKinfo = "566c2dea9420eb37-b6c8-566c2dea9420eb3710525135e8485e80806a2f9c";
 					uint8_t buffer[20];
-					char *uDstIp = "115.159.147.198";
-					uint16_t uDstPort = 8899;
+					char *uDstIp = "1xx.xxx.xxx.xxx";
+					uint16_t uDstPort = 8xx9;
 
 					CreateSDKBuffFromStr(pSDKinfo, buffer, uDstIp, uDstPort);
 
@@ -254,8 +255,7 @@ uint32_t CreateSDKBuffFromStr(char *pSDKinfo, uint8_t *buffer, char* uDstIp, uin
 <td>服务器端口</td>
 </tr>
 </table>
-
- >!水印结果保存在参数 buffer 中，取20字节。
+>!水印结果保存在参数 buffer 中，取20字节。
 
 
 ### 接口调用
@@ -273,9 +273,9 @@ uint32_t CreateSDKBuffFromStr(char *pSDKinfo, uint8_t *buffer, char* uDstIp, uin
     uint8_t buffer[BUFFER_SIZE];
     memset(buffer, 0, BUFFER_SIZE);
     
-    int UDP_TEST_PORT = 8899;
+    int UDP_TEST_PORT = 8xx9;
     
-    const char * CONST_UDP_SERVER_IP  = "115.159.147.198";
+    const char * CONST_UDP_SERVER_IP  = "1xx.xxx.xxx.xxx";
     char * UDP_SERVER_IP = new char[strlen(CONST_UDP_SERVER_IP)];
     strcpy(UDP_SERVER_IP, CONST_UDP_SERVER_IP);
     

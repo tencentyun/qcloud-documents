@@ -11,7 +11,7 @@
 本节主要说明如何在腾讯云 EMR 上创建开箱即用的 Alluxio 集群。EMR 创建集群提供了购买页创建和 API 创建两种方式。
 
 ### 购买页创建集群
-您需要登录腾讯云 EMR [购买页](https://buy.cloud.tencent.com/emapreduce/)，在购买页选择支持的 Alluxio 发布版本，并且在可选组件列表中勾选 Alluxio 组件。
+您需要登录腾讯云 EMR [购买页](https://buy.cloud.tencent.com/emr)，在购买页选择支持的 Alluxio 发布版本，并且在可选组件列表中勾选 Alluxio 组件。
 ![](https://main.qcloudimg.com/raw/32d5f013d14def8a396951cd751e1352.png)
 其他的选项可根据业务具体业务场景，进行个性化配置，创建过程中的具体选项可参考 [创建 EMR 集群](https://cloud.tencent.com/document/product/589/10981)。
 
@@ -31,7 +31,7 @@
 在腾讯云 EMR 集群上默认已部署使用 COS 作为 UFS 的依赖 jar 包，只需授予访问 COS 的权限，并把 COS mount 到 Alluxio 上即可使用。
 
 ### 授权
-若当前集群未开启对象存储，可在【[访问管理控制台-角色管理](https://console.cloud.tencent.com/cam/role/grant?roleName=EMR_QCSRole&policyName=QcloudAccessForEMRRoleInApplicationDataAccess&principal=eyJzZXJ2aWNlIjoiZW1yLmNsb3VkLnRlbmNlbnQuY29tIn0=&serviceType=EMR&s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2Femr%2Fstatic%2Fframework%2Femr-g9qk9p0g%3Ftype%3DinstanceDetail%26regionId%3D8)】中进行授权，授权后 EMR 中节点可以通过临时密钥访问 COS 中数据。
+若当前集群未开启对象存储，可在【[访问管理控制台-角色](https://console.cloud.tencent.com/cam/role)】中进行授权，授权后 EMR 中节点可以通过临时密钥访问 COS 中数据。
 ![](https://main.qcloudimg.com/raw/12fa4b6008bdfaa3643517cc7de0eac1.png)
 
 ### Mount

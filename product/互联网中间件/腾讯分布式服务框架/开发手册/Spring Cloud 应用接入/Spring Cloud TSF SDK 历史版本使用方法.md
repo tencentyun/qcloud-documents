@@ -146,3 +146,4 @@ public class ProviderApplication {
 </dependency>
 ```
 添加依赖包后，TSF API 注册功能即生效。
+

@@ -46,7 +46,7 @@ Hudi 支持以下存储类型：
 - COS
 
 ## 安装 Hudi
-进入 [EMR 购买页](https://buy.cloud.tencent.com/emapreduce?regionId=1#/)，选择【产品版本】为 EMR-V2.2.0，选择【可选组件】为【hudi 0.5.1】。hudi 组件默认安装在 master 和 router 节点上。
+进入 [EMR 购买页](https://buy.cloud.tencent.com/emapreduce?regionId=1#/)，选择**产品版本**为 EMR-V2.2.0，选择**可选组件**为 **hudi 0.5.1**。hudi 组件默认安装在 master 和 router 节点上。
 >! hudi 组件依赖 hive 和 spark 组件， 如果选择安装 hudi 组件，EMR 将自动安装 hive 和 spark 组件。
 
 ## 使用示例

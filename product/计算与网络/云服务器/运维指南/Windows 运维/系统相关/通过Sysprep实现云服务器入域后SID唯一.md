@@ -23,24 +23,28 @@
 
 1. 在操作系统界面，单击 <img src="https://main.qcloudimg.com/raw/f0c84862ef30956c201c3e7c85a26eec.png"></img>，打开 Windows PowerShell 窗口。
 2. 在 Windows PowerShell 窗口中，执行以下命令，进入 Cloudbase-init 工具的安装路径。
->? 以 Cloudbase-init 工具安装在 `C:\Program Files\Cloudbase Solutions\` 目录下为例。
->
+<dx-alert infotype="explain" title="">
+以 Cloudbase-init 工具安装在 `C:\Program Files\Cloudbase Solutions\` 目录下为例。
+</dx-alert>
 ```
 cd 'C:\Program Files\Cloudbase Solutions\Cloudbase-Init\conf'
 ```
 3. 执行以下命令，对 Windows 系统进行封装。
->! 
-> - 执行以下命令时，命令必须包含`/unattend:Unattend.xml`，否则会重置您当前云服务器的用户名、密码等重要配置信息。后续使用此镜像创建云服务器时，若登录方式选择了“保留镜像设置”，启动云服务器后需要手动重置该云服务器的用户名和密码。
-> - 执行以下命令后，云服务器会自动关机。为了保证后续通过此镜像创建的云服务器 SID 唯一，在创建自定义镜像之前，请不要重新启动该台云服务器，否则此操作将仅对当前云服务器生效。  
-> - 针对 Windows Server 2012 以及 Windows Server 2012 R2 的操作系统，执行以下命令后，该云服务器的帐户（Administrator）和密码会被清除。待重新启动云服务器后，请重置您的帐户和密码，并妥善保管新设置的密码。具体操作请参见 [重置实例密码](https://cloud.tencent.com/document/product/213/16566)。
-> 
+<dx-alert infotype="notice" title="">
+ - 执行以下命令时，命令必须包含`/unattend:Unattend.xml`，否则会重置您当前云服务器的用户名、密码等重要配置信息。后续使用此镜像创建云服务器时，若登录方式选择了“保留镜像设置”，启动云服务器后需要手动重置该云服务器的用户名和密码。
+- 执行以下命令后，云服务器会自动关机。为了保证后续通过此镜像创建的云服务器 SID 唯一，在创建自定义镜像之前，请不要重新启动该台云服务器，否则此操作将仅对当前云服务器生效。  
+- 针对 Windows Server 2012 以及 Windows Server 2012 R2 的操作系统，执行以下命令后，该云服务器的帐户（Administrator）和密码会被清除。待重新启动云服务器后，请重置您的帐户和密码，并妥善保管新设置的密码。具体操作请参见 [重置实例密码](https://cloud.tencent.com/document/product/213/16566)。
+</dx-alert>
 ```
 C:\Windows\System32\sysprep\sysprep.exe /generalize /oobe /unattend:Unattend.xml
 ```
 4. 参考 [创建自定义镜像](https://cloud.tencent.com/document/product/213/4942)，将执行了 Sysprep 操作的云服务器实例制作成镜像，并使用该镜像创建云服务器实例。
 即可实现所有新建的云服务器实例入域后具有唯一的 SID。
->? 您可以通过执行 `whoami /user` 命令，查看云服务器的 SID。
->
+<dx-alert infotype="explain" title="">
+您可以通过执行 `whoami /user` 命令，查看云服务器的 SID。
+</dx-alert>
+
+
 
 
 

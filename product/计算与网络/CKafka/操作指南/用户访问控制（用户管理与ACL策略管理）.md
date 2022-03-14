@@ -7,17 +7,17 @@
 
 ## 操作步骤
 
-###  步骤一：创建实例
-单击实例列表页的【新建】，创建并购买实例。详情请参见 [创建实例](https://cloud.tencent.com/document/product/597/30931) 文档。
+###  步骤1：创建实例
+单击实例列表页的**新建**，创建并购买实例。详情请参见 [创建实例](https://cloud.tencent.com/document/product/597/30931) 文档。
 
 
-### 步骤二：配置用户信息
+### 步骤2：配置用户信息
 您可以通过 Client 端或 CKafka 实例两种方式配置用户信息。
 
 ####  Client 端配置
-1. 在 CKafka 实例的用户管理页面，单击【新建】，创建用户。
+1. 在 CKafka 实例的用户管理页面，单击**新建**，创建用户。
 ![](https://main.qcloudimg.com/raw/43fc21203648cbb27b91ba1d37b218f2.png)
-2. 输入用户名和密码信息，单击【提交】完成用户新增。
+2. 输入用户名和密码信息，单击**提交**完成用户新增。
 ![](https://main.qcloudimg.com/raw/8c8e2e57d320ba2b25e0aecf0dbb3b28.png)
 
 ####  CKafka 实例配置
@@ -48,8 +48,8 @@ security.protocol=SASL_PLAINTEXT
 sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="INSTANCE-2#admin" password="admin";
 ```
 
-###  步骤三：配置 ACL 策略
-1. 在 ACL 策略管理列表页，选择需要配置策略的 Topic 资源，单击操作列的【编辑 acl 策略】。
+###  步骤3：配置 ACL 策略
+1. 在 ACL 策略管理列表页，选择需要配置策略的 Topic 资源，单击操作列的**编辑 acl 策略**。
 2. 在新增 ACL 策略的弹窗中，填选配置用户及 IP，不选为默认所有用户/host 都支持。
     ACL 策略示例： 允许/拒绝用户 user 通过 IP 读/写 Topic 资源  resource。
 ![](https://main.qcloudimg.com/raw/09d00ca8725b9f8ad080a05f5f3b8f7f.png)
@@ -59,7 +59,7 @@ sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule require
 - 如果您在开通公网访问路由的同时还使用了 PLAINTEXT 方式接入 Kafka，那么之前为  Topic 设置的 ACL 仍然会生效；如果希望 PLAINTEXT 方式的访问不受影响，请为 PLAINTEXT 需要访问的 Topic 添加全部用户的可读写的权限。
 - 如果该 Topic 已经在有其他云产品在使用（例如：日志服务 CLS 的日志投递、云函数 SCF 消息转储、大数据 EMR 组件的消费等），开启 ACL 策略相当于对这些联动能力的权限加以限制，会直接导致这些能力不可用，请一定谨慎操作。对于此类情况建议生产同一份数据到另一个 Topic 做分别处理，不要在同一个 Topic 上配置统一的 ACL 策略。
 
-###  步骤四：连通性测试
+###  步骤4：连通性测试
 ####  Kafka 自带工具脚本
 
 将 SASL_PLAINTEXT 方式需要的配置写入 producer.properties（配置内容参见 [配置文件示例](#example)）文件中，运行下列命令生产消息：
@@ -174,7 +174,7 @@ consumer = KafkaConsumer (
     api_version=(0,10,0)
 )
 ```
-更多配置及用法请参考 [Python-Kafka 文档](https://kafka-python.readthedocs.io/en/master/apidoc/modules.html)。
+更多配置及用法请参见 [Python-Kafka 文档](https://kafka-python.readthedocs.io/en/master/apidoc/modules.html)。
 
 #### Go 客户端
 

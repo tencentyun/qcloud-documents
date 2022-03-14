@@ -10,30 +10,35 @@
 [](id:step1)
 
 ### 步骤1：创建新的应用
-
-1. 登录实时音视频控制台，选择【开发辅助】>【[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)】。
-2. 输入应用名称，例如 TestTRTC，单击【创建】。
-![](https://main.qcloudimg.com/raw/9b2db43594f4744b42ef74c94494ea8e.png)
+1. 登录实时音视频控制台，选择**开发辅助** > [**快速跑通Demo**](https://console.cloud.tencent.com/trtc/quickstart)。
+2. 单击**新建应用**输入应用名称，例如 `TestTRTC`；若您已创建应用可单击**选择已有应用**。
+3. 根据实际业务需求添加或编辑标签，单击**创建**。
+![](https://main.qcloudimg.com/raw/f04d288ed091c98a5e8056eb86fb49e8.png)
+>?
+>- 应用名称只能包含数字、中英文字符和下划线，长度不能超过15个字符。
+>- 标签用于标识和组织您在腾讯云的各种资源。例如：企业可能有多个业务部门，每个部门有1个或多个 TRTC 应用，这时，企业可以通过给 TRTC 应用添加标签来标记部门信息。标签并非必选项，您可根据实际业务需求添加或编辑。
 
 [](id:step2)
-
 ### 步骤2：下载 SDK 和 Demo 源码
 1.根据实际业务需求下载 SDK 及配套的 Demo 源码。
-2.下载完成后，单击【已下载，下一步】。
-![](https://main.qcloudimg.com/raw/3b115019ddfd0866108ed1add30810d8.png)
+2.下载完成后，单击**已下载，下一步**。
+![](https://main.qcloudimg.com/raw/a4f5a2ac1f49d67b4c6968d8b22cdeb0.png)
 
 [](id:step3)
 ### 步骤3：配置 Demo 工程文件
 1. 进入修改配置页，根据您下载的源码包，选择相应的开发环境。
-2. 找到 `TRTCSDK/Electron/TRTCSimpleDemo/` 目录，此为 **项目目录**，下文中提到的[](id:projectFolder)“项目目录”，指的即是 `TRTCSDK/Electron/TRTCSimpleDemo/` 目录。
-2.  找到项目目录中的 `debug/gen-test-user-sig.js` 文件，并打开。
-3.  设置 `gen-test-user-sig.js` 文件中的相关参数：
+2. 找到并打开 `Electron/js/GenerateTestUserSig.js` 文件。
+3. 设置 `GenerateTestUserSig.js` 文件中的相关参数：
 <ul>
  <li/>SDKAPPID：默认为0 ，请设置为实际的 SDKAppID。
  <li/>SECRETKEY：默认为空字符串 ，请设置为实际的密钥信息。</ul>
- <img src="https://main.qcloudimg.com/raw/514e5d216de1b724d2a360a59db66351.png">
-4. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
-5. 编译完成后，单击【回到控制台概览】即可。
+ <img src="https://main.qcloudimg.com/raw/c3e8d8bfe0dba5130bcf0d20b6df0778.png">
+4. 粘贴完成后，单击**已复制粘贴，下一步**即创建成功。
+5. 编译完成后，单击**回到控制台概览**即可。
+
+>!
+>- 本文提到的生成 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 Demo 和功能调试**。
+>- 正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/647/17275#Server)。
 
 **文件目录说明：**
 ```bash
@@ -131,8 +136,8 @@ TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256�
 
 **升级操作：**
 1.  登录 [实时音视频控制台](https://console.cloud.tencent.com/trtc)。
-2.  在左侧导航栏选择【应用管理】，单击目标应用所在行的【应用信息】。
-3.  选择【快速上手】页签，单击【第二步 获取签发UserSig的密钥】区域的【点此升级】。
+2.  在左侧导航栏选择**应用管理**，单击目标应用所在行的**应用信息**。
+3.  选择**快速上手**页签，单击**第二步 获取签发UserSig的密钥**区域的**点此升级**。
 
 ### 2. 两台设备同时运行 Demo，为什么看不到彼此的画面？
 
@@ -145,3 +150,17 @@ TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256�
 由于 SDK 使用 UDP 协议进行音视频传输，所以对 UDP 有拦截的办公网络下无法使用，如遇到类似问题，请参见 [应对公司防火墙限制](https://cloud.tencent.com/document/product/647/34399)。
 
 
+
+>? 更多相关问题，请参见 [Electron 相关常见问题](https://cloud.tencent.com/document/product/647/62562)。
+
+[](id:QQ)
+## 技术咨询
+了解更多详情您可 QQ 咨询：<dx-tag-link link="#QQ" tag="技术交流群">695855795</dx-tag-link>
+
+## 参考文档
+
+- [SDK API 手册](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/index.html)
+- [SDK 更新日志](https://cloud.tencent.com/document/product/647/43117)
+- [Simple Demo 源码](https://github.com/LiteAVSDK/TRTC_Electron/tree/main/TRTCSimpleDemo)
+- [API Example 源码](https://github.com/LiteAVSDK/TRTC_Electron/tree/main/TRTC-API-Example)
+- [Electron 常见问题](https://cloud.tencent.com/document/product/647/62562)

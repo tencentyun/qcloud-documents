@@ -14,9 +14,9 @@ SDK 支持 C/C++/C#/Java。SDK 说明请参见 [SDK](https://cloud.tencent.com/d
 >?流程图中的 out_mch_id、out_sub_mch_id、out_shop_id、decive_id、staff_id、子商户订单前缀、认证 key、私钥在调用刷卡支付时需用到。
 
 - **获取云支付服务商账号**
-登录 [云支付控制台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2Fcpay)，选择【服务商账户管理】，在服务商账号列表可查看云支付服务商账号。
+登录 [云支付控制台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2Fcpay)，选择**服务商账户管理**，在服务商账号列表可查看云支付服务商账号。
 2. **获取云支付子商户账号**
-登录 [云支付控制台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2Fcpay)，选择【子商户管理】，在子商户账号列表可查看云支付子商户账号。
+登录 [云支付控制台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2Fcpay)，选择**子商户管理**，在子商户账号列表可查看云支付子商户账号。
 3. **获取订单号前缀**
 在子商户详情页有两个订单前缀，推荐使用纯数字的8位订单前缀，便于机具扫订单条码退款时很容易扫上。 
 4. **获取门店全局 ID、设备 ID（设备编号）、店员 ID（店员编号）**

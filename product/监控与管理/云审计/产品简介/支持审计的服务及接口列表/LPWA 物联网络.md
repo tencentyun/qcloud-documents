@@ -28,3 +28,5 @@
 | 流量历史折线图          | lpwa | DescribeNetStat            |
 | 运行参数上下行统计        | lpwa | DescribeNetSumary          |
 | 更新节点设备配置信息       | lpwa | ModifyGateway              |
+
+

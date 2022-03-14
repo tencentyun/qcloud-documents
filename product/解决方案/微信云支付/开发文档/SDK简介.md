@@ -10,7 +10,7 @@ SDK 支持微信支付和支付宝。
 ## SDK 平台和语言
 - Windows 环境下的 C++
 - C
-- .NET C#
+- .NET C#（.net的版本要支持 tls1.2，.net版本要 >= 4.6）
 - Java
 
 ## 下载地址

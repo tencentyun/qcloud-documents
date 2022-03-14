@@ -1,4 +1,3 @@
-
 ## 建立 Rollup 任务
 在海量数据场景下，业务系统每天甚至每小时会产生 PB 级别数据。而时序数据的最主要的特点就是海量性、时效性和趋势性，因此通常情况下，使用数据的系统（例如监控系统或数据分析系统）通常只需要最近时间段内的高精度数据，而历史数据只需降精度（Downsampling）保存即可。用户可通过配置 Rollup 任务定时聚合历史数据保存至新的数据表。Rollup 任务不仅能降精度保存历史数据，也能提高查询性能，降低存储成本。需要注意的是，Rollup 任务会自动根据 base_metric 建立子表，继承父表的所有配置，如果指定 options，会覆盖父表配置。
 
@@ -34,7 +33,7 @@
 ### 6. CURL 示例说明
 请求：
 ```
-curl -u root:le201909 -H 'Content-Type:application/json' -X POST 172.16.345.14:9201/_rollup/ctsdb_rollup_task_test -d'
+curl -u root:le201909 -H 'Content-Type:application/json' -X PUT 172.16.345.14:9201/_rollup/ctsdb_rollup_task_test -d'
 {
     "base_metric": %{base_metric_name},      
     "rollup_metric": %{rollup_metric_name},    

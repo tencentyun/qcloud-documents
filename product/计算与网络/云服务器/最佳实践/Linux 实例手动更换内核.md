@@ -1,5 +1,7 @@
 ## 操作场景
-Bottleneck Bandwidth and Round-trip propagation time（BBR），是 Google 在2016年开发的 TCP 拥塞控制算法，可以使 Linux 服务器显著地提高吞吐量和减少 TCP 连接的延迟。由于开启 BBR 需 4.10 以上版本 Linux 内核，如果您的 Linux 服务器内核低于4.10，可参考本文进行操作。本文指导您如何在 Linux 系统中手动更换内核，开启 BBR。
+Bottleneck Bandwidth and Round-trip propagation time（BBR），是 Google 在2016年开发的 TCP 拥塞控制算法，可以使 Linux 服务器显著地提高吞吐量和减少 TCP 连接的延迟。由于开启 BBR 需 4.10 以上版本 Linux 内核，如果您的 Linux 服务器内核低于4.10，可参考本文进行操作。
+
+本文以 CentOS 7.5 操作系统的云服务器为例，指导您如何在 Linux 系统中手动更换内核，开启 BBR。
 
 ## 操作步骤
 

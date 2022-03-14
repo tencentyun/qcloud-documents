@@ -42,3 +42,11 @@ sdk 回调线程不一定是主线程，请不要直接操作 ui。
 
 ### 调用接口报错 403 权限错误，该如何处理？
 权限问题一般不是 SDK 的问题，请检查自己授权信息。您也可以 [联系我们](https://cloud.tencent.com/document/product/436/37708) 处理。
+
+
+### Android SDK 是否支持断点续传？
+
+COS 的 Android SDK 高级接口支持断点续传，您可以参见 [上传与复制对象](https://cloud.tencent.com/document/product/436/46415#.E4.B8.8A.E4.BC.A0.E5.AF.B9.E8.B1.A1) 文档中的高级接口实现。
+
+
+

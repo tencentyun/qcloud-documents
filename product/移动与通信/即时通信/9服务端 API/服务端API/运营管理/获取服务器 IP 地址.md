@@ -1,6 +1,6 @@
 ## 功能说明
 基于安全等考虑，您可能需要获知服务器的 IP 地址列表，以便进行相关限制。App 管理员可以通过该接口获得 SDK、第三方回调所使用到的服务器 IP 地址列表或 IP 网段信息。  
->!仅支持获取中国大陆地区的 IP 地址或 IP 网段信息。
+>!此接口仅支持获取中国大陆地区的所有 IM 接入方式的 IP 地址或 IP 网段信息。（如需获取国外 IP 或者指定接入方式 IP，您可 [联系我们](https://cloud.tencent.com/document/product/269/59590) 申请开通该功能，申请后我们将对您的需求进行评估，需求评估合理后您方可使用该功能）。
 
 ## 接口调用说明
 ### 请求 URL 示例
@@ -19,7 +19,7 @@ https://console.tim.qq.com/v4/ConfigSvc/GetIPList?sdkappid=88888888&identifier=a
 | identifier         | 必须为 App 管理员帐号，更多详情请参见 [App 管理员](https://cloud.tencent.com/document/product/269/31999#app-.E7.AE.A1.E7.90.86.E5.91.98)                |
 | usersig            | App 管理员帐号生成的签名，具体操作请参见 [生成 UserSig](https://cloud.tencent.com/document/product/269/32688)    |
 | random             | 请输入随机的32位无符号整数，取值范围0 - 4294967295                 |
-
+|contenttype|请求格式固定值为`json`|
 
 ### 最高调用频率
 200次/秒。
@@ -57,3 +57,5 @@ https://console.tim.qq.com/v4/ConfigSvc/GetIPList?sdkappid=88888888&identifier=a
 ## 接口调试工具
 
 通过 [REST API 在线调试工具](https://29294-22989-29805-29810.cdn-go.cn/api-test.html#v4/ConfigSvc/GetIPList)调试本接口。
+
+

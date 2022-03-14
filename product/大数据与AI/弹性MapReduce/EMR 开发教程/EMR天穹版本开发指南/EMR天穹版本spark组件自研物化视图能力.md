@@ -1,12 +1,12 @@
 物化视图主要用于预先计算并保存表连接或聚合等耗时较多的操作结果；在执行查询任务时，可以避免进行一些耗时操作，从而快速的得到结果。这种物化视图使用查询重写（query rewrite）机制，不需要修改原有的查询语句，会选择合适的物化视图进行查询，完全对应用透明。
+
 物化视图使用限制：
 - 不支持子查询创建物化视图
 - 不支持 union 语句创建物化视图
 
 在本文档中，我们提供有关 SparkSql 中物化视图创建和管理的详细信息，并通过一些示例描述重写算法的当前覆盖范围和使用限制。
+
 ## 物化视图的创建
-
-
 ```
 CREATE MATERIALIZED VIEW [IF NOT EXISTS] [db_name.]materialized_view_name
 [DISABLE REWRITE]
@@ -105,7 +105,6 @@ spark.sql.materializedView.multiplePolicy.limit
 spark-sql>set spark.sql.materializedView.matchPolicy=multiple;
 spark-sql>set spark.sql.materializedView.multiplePolicy.limit=5;
 ```
-
 
 ## 物化视图重建
 当实例化视图使用的源表中的数据发生更改时，例如，插入新数据或修改现有数据时，我们将需要刷新实例化视图的内容，以使其与这些更改保持最新。当前，物化视图的重建操作需要由用户触发。用户应执行以下语句：

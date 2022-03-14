@@ -9,7 +9,7 @@
 >- 云数据仓库 PostgreSQL 侧导入 COS 数据的效率与文件的个数有一定关系，建议个数为云数据仓库 PostgreSQL 计算节点个数的 N 倍。
 
 1. 开启 EMR 读写对象存储能力
-首先需要保证 EMR 具备读写 COS 的能力，可在创建 EMR 时，勾选【开启】对象存储。
+首先需要保证 EMR 具备读写 COS 的能力，可在创建 EMR 时，勾选**开启**对象存储。
 ![](https://main.qcloudimg.com/raw/160a06fdf4442962f901b360a06b364c.png)
 2. 创建 Hive 本地表并写入数据
 ```

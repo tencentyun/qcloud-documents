@@ -7,12 +7,12 @@
 ## 准备工作
 1. 在 [微信公众平台](https://mp.weixin.qq.com) 注册并登录小程序。
 2. 符合接入要求，申请插件并购买小程序·云直播服务，详见 [小程序·云直播插件](https://cloud.tencent.com/document/product/1078/42916)。
-3. 开通小程序·云直播服务后，登录 [云直播控制台](https://console.cloud.tencent.com/live)，在【域名管理】中添加小程序直播域名，然后 [自助拼接直播地址](https://cloud.tencent.com/document/product/267/32720)。
+3. 开通小程序·云直播服务后，登录 [云直播控制台](https://console.cloud.tencent.com/live)，在 **域名管理** 中添加小程序直播域名，然后 [自助拼接直播地址](https://cloud.tencent.com/document/product/267/32720)。
 4. 下载并安装最新版本的 [微信开发者工具](https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/download.html)，使用小程序绑定的微信号扫码登录开发者工具。
    ![](https://main.qcloudimg.com/raw/366e52aa9cc84949271b87a4678da636.png)
-
+ 
 ## 引入插件代码
-在小程序中引入插件代码，可参考 [demo 源码](https://bizlive-1258550678.cos.ap-chengdu.myqcloud.com/plugin-demo.zip)。使用插件前需在小程序工程的`app.json`中声明要使用的插件，例如：
+在小程序中引入插件代码，可参考 [Demo 源码](https://bizlive-1258550678.cos.ap-chengdu.myqcloud.com/plugin-demo.zip)。使用插件前需在小程序工程的`app.json`中声明要使用的插件，例如：
 ```
 {
   ……
@@ -141,7 +141,7 @@ this.audio.protocol = 'hls';// 这个属性设置为 hls 才支持 m3u8 类型�
 this.audio.title = '后台音乐';// 显示在状态栏的标题
 this.audio.src = "http://domain/live/streamName_pureAudio.m3u8?txSecret=xxxx&txTime=xxxxx"; 
 // 注：domain 是小程序域名，streamName 是指定的流名称，
-// 后面加 _pureAudio 就是纯音频转码流，后台播放时可以节省流量 。
+// 后面加 _pureAudio 就是纯音频转码流，后台播放时可以节省流量。
 ```
 
 ## 播放事件

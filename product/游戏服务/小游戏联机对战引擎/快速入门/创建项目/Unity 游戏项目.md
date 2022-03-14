@@ -1,6 +1,8 @@
+>!因产品策略调整，游戏联机对战引擎后续将与云开发 CloudBase 整合为新产品形态，现将该产品保持维护状态，不再接收新用户使用申请，老用户仍可正常使用。
 
 
-本文档以 Unity Editor 2019.3 版本为例，指导开发者在 Unity 项目中快速接入游戏联机对战引擎 MGOBE 。
+
+本文档以 Unity Editor 2019.3 版本为例，指导开发者在 Unity 项目中快速接入游戏联机对战引擎 MGOBE。
 
 ## 版本支持
 Unity Editor 版本： 2019.1.9+。
@@ -15,15 +17,19 @@ Unity Editor 版本： 2019.1.9+。
 ### 创建游戏项目
 1. 打开 Unity Hub，创建一个游戏项目。如下图所示：
 ![](https://main.qcloudimg.com/raw/4ef6bac33e204456e4a0870f8ff0186c.jpg)
-2. 单击【创建】，进入项目开发界面：
+2. 单击**创建**，进入项目开发界面：
 ![](https://main.qcloudimg.com/raw/714a449465bec007689a6c2325712356.jpg)
 
 
 
 ### 导入 Mgobe Package
-1. 将 `com.unity.Mgobe.unitypackage` 拖入 editor 中的 Project 栏，单击【import】进行 package 导入。 
->?您可通过 [SDK 下载](https://cloud.tencent.com/document/product/1038/33406) 页面，下载 Package 即 Unity SDK 。
->
+1. 将 `com.unity.Mgobe.unitypackage` 拖入 editor 中的 Project 栏，单击**import**进行 package 导入。 
+
+
+<dx-alert infotype="explain" title="">
+您可通过 [SDK 下载](https://cloud.tencent.com/document/product/1038/33406) 页面，下载 Package 即 Unity SDK 。
+</dx-alert>
+
 ![](https://main.qcloudimg.com/raw/77671c4601cd26f2cffdce577b802528.jpg)
 ![](https://main.qcloudimg.com/raw/2cc301f6917c6a7026558fb2ca920079.jpg)
 2. 在 Assets 目录下创建 “Scripts” 文件夹，并新建 Scripts/main.cs 文件。
@@ -38,7 +44,8 @@ using com.unity.mgobe;
 
 ### 调用 API 
 1. 在 main.cs 中输入以下代码，完成 SDK 初始化，获得 room 实例。
-```
+<dx-codeblock>
+:::  Java
 GameInfoPara gameInfo = new GameInfoPara {
 		// 替换 为控制台上的“游戏ID”
 		GameId = "xxxxxxxxxx",
@@ -69,10 +76,12 @@ Listener.Init (gameInfo, config, (ResponseEvent eve) => {
 		// 初始化广播回调事件
 		// ...
 });
-```
+:::
+</dx-codeblock>
 
 2. 修改初始化回调函数，调用 room 对象的查询房间接口（getRoomDetail），即可验证是否成功接入对战平台。示例代码如下所示：
-```
+<dx-codeblock>
+:::  Java
 // 初始化监听器 Listener
 Listener.Init (gameInfo, config, (ResponseEvent eve) => {
 		if (eve.Code == 0) {
@@ -101,6 +110,9 @@ Listener.Init (gameInfo, config, (ResponseEvent eve) => {
 		// 初始化广播回调事件
 		// ...
 });
-```
+:::
+</dx-codeblock>
+
+
 
 3. 编译并运行项目，控制台中输出“查询成功”信息即表示接入成功。

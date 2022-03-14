@@ -20,7 +20,7 @@
    <tr>
       <td rowspan='3' style="text-align:center">输入格式</td>
       <td style="text-align:center">封装格式</td>
-      <td>3GP、AVI、FLV、MP4、M3U8、MPG、ASF、WMV、MKV、MOV、TS、WebM、MXF</td>
+      <td>WMV、RM、MOV、MPEG、MP4、3GP、FLV、AVI、RMVB、TS、ASF、MPG、WEBM、MKV 、M3U8、WM、ASX、RAM、MPE、VOB、DAT、MP4V、M4V、F4V、MXF、QT、OGG</td>
    </tr>
    <tr>
       <td style="text-align:center">视频编码格式</td>

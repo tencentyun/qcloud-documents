@@ -16,7 +16,7 @@
 ### 配置客户端
 
 1. 在 [Github 仓库 ](https://github.com/tencentyun/qcloud-sdk-android-samples/tree/master/COSTransferPractice) 下载项目文件，然后用 IDE 打开。
-2. 在环境变量中配置您的 COS_APP_ID、COS_SECRET_ID、COS_SECRET_KEY。
+2. 在环境变量中配置您的 APPID、SecretId、SecretKey。
 3. 运行项目，体验 COS 传输实践 demo。
 
 >!

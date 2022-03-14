@@ -1,4 +1,4 @@
-本文使用 mit 的 kerberos 来作为 kdc 服务。假设 kdc 服务已经安装好并启动，使用 kerberos，首先要创建域（realm），再添加相关角色的 principal（包括 server 和 client），然后生成 keytab 文件。
+本文使用 mit 的 kerberos 来作为 kdc 服务。假设 kdc 服务已安装并启动，使用 kerberos，首先要创建域（realm），再添加相关角色的 principal（包括 server 和 client），然后生成 keytab 文件。
 
 ## 创建数据库
 使用`kdb5_util`命令创建数据库，存放 principal 相关的信息。
@@ -28,7 +28,7 @@ Re-enter KDC database master key to verify: <Type it again>
 
  Entry for principal test/host@EXAMPLE.COM with kvno 2, encryption type des3-cbc-sha1 added to keytab WRFILE:/var/krb5kdc/test.keytab.
 ```
- 这里，我们创建了新的用户：test/host@EXAMPLE.COM ，并且将这个用户的密钥放置到 /var/krb5kdc/test.keytab 文件中。
+这里，我们创建了新的用户：test/host@EXAMPLE.COM ，并且将这个用户的密钥放置到 `/var/krb5kdc/test.keytab` 文件中。
 
 ## 启动 kdc
 ```

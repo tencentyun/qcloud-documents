@@ -2,7 +2,7 @@ Tencent Cloud VOD provides Android upload DEMO for the scenario of uploading vid
 
 ## Download Source Code
 
-You can update [Android upload demo+source code](http://ugcupload-1252463788.file.myqcloud.com/LiteAVSDK_UGC_Upload_Android.zip) on the Tencent Cloud official website.
+You can update [Android upload demo+source code](https://liteav.sdk.qcloud.com/download/ugc/LiteAVSDK_UGC_Upload_Android.zip) on the Tencent Cloud official website.
 You can see the Demo directory after decompressing the downloaded zip file. Upload-related source code is located in Demo/app/src/main/java/com/tencent/ugcupload/demo/videoupload.
 
 ## Integrate Upload Library and Source Code

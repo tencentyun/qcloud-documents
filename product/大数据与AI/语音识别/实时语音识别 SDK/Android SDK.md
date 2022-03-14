@@ -3,45 +3,39 @@ Android SDK 接入请观看视频：
 
 ## 接入准备
 ### SDK 获取
-实时语音识别 Android SDK 及 Demo 下载地址：[Android SDK](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/realtime/QCloudSDK_Android_v2.4.6.zip)。
+实时语音识别 Android SDK 及 Demo 下载地址：[Android SDK](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/realtime/QCloudSDK_Android_v2.6.7.zip)。
 
 ### 接入须知
 - 开发者在调用前请先查看实时语音识别的 [接口说明](https://cloud.tencent.com/document/product/1093/37138)，了解接口的**使用要求**和**使用步骤**。
-- 该接口需要手机能够连接网络（GPRS、3G 或 Wi-Fi 等），且系统为 **Android 4.0** 及其以上版本。
+- 该接口需要手机能够连接网络（3G、4G、5G 或 Wi-Fi 等），且系统为 **Android 5.0** 及其以上版本。
 
 ### 开发环境
 - 引入 aar 包
- speech_release.aar：腾讯云语音识别 SDK。
-- 该接口 SDK 支持本地构建。可以直接下载 Android SDK 及 Demo，然后集成对应的 so 文件和 aar 包（均在 sdk-source 目录下），最后将 okhttp3、okio、gson 和 slf4j 4个库也集成到 App 中。在 build.gradle 文件中添加：
+  speech_release.aar：腾讯云语音识别 SDK。
 ```
 implementation(name: 'speech_release', ext: 'aar')
 ```
 - 添加相关依赖
-okhttp3、okio、gson 和 slf4j 依赖添加，在 build.gradle 文件中添加：
+  okhttp3、okio、gson 和 slf4j 依赖添加，在 build.gradle 文件中添加：
 ```
-	implementation 'com.squareup.okhttp3:okhttp:4.2.2' 
-	implementation 'com.squareup.okio:okio:1.11.0'
-	implementation 'com.google.code.gson:gson:2.8.5'
-	implementation 'org.slf4j:slf4j-api:1.7.25'
+    implementation 'com.squareup.okhttp3:okhttp:4.2.2' 
+    implementation 'com.squareup.okio:okio:1.11.0'
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'org.slf4j:slf4j-api:1.7.25'
 ```
 - 在 AndroidManifest.xml 添加如下权限：
 ```
-	< uses-permission android:name="android.permission.RECORD_AUDIO"/>
-	< uses-permission android:name="android.permission.INTERNET"/>
-	< uses-permission android:name="android.permission.WRITE_SETTINGS" />
-	< uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-	< uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-	< uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
-	< uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    < uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    < uses-permission android:name="android.permission.INTERNET"/>
+    < uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 ```
 
 ## 快速接入
 [](id:documen)
-### 开发流程介绍
-**启动实时语音识别**
+### 启动实时语音识别
 ```
 int appid = XXX;
-int projectid = XXX;
+int projectid = 0; //此参数固定为0；
 String secretId = "XXX";
 
 // 为了方便用户测试，sdk提供了本地签名，但是为了secretKey的安全性，正式环境下请自行在第三方服务器上生成签名。
@@ -52,31 +46,44 @@ try {
     // 1、初始化AAIClient对象。
     aaiClient = new AAIClient(this, appid, projectid, secretId, credentialProvider);
 
-    // 2、初始化语音识别请求。
-    final AudioRecognizeRequest audioRecognizeRequest = new AudioRecognizeRequest.Builder()
-            .pcmAudioDataSource(new AudioRecordDataSource()) // 设置语音源为麦克风输入
-            .build();
+/**您也可以使用临时证书鉴权
+* * 1.通过sts 获取到临时证书,此步骤应在您的服务器端实现，见https://cloud.tencent.com/document/product/598/33416
+*   2.通过临时密钥调用接口
+* **/
+  // aaiClient = new AAIClient(MainActivity.this, appid, projectId,"临时secretId", "临时secretKey","对应的token" ,credentialProvider);
+
+     // 2、初始化语音识别请求。
+    final AudioRecognizeRequest audioRecognizeRequest = builder
+                .pcmAudioDataSource(new AudioRecordDataSource()) // 设置数据源
+                .template(new AudioRecognizeTemplate(
+                EngineModelType.EngineModelType16K.getType(),0)) 
+                // 设置自定义模板
+                .setFilterDirty(0)  // 0 ：默认状态 不过滤脏话 1：过滤脏话
+                .setFilterModal(0) // 0 ：默认状态 不过滤语气词  1：过滤部分语气词 2:严格过滤
+                .setFilterPunc(0) // 0 ：默认状态 不过滤句末的句号 1：滤句末的句号
+                .setNeedvad(1) //0：关闭 vad，1：默认状态 开启 vad。语音时长超过一分钟需要开启,如果对实时性要求较高,并且时间较短的识别,建议关闭,可以显著降低onSliceSuccess结果返回的时延以及stop后onSegmentSuccess和onSuccess返回的时延
+                .build();
 
     // 3、初始化语音识别结果监听器。
     final AudioRecognizeResultListener audioRecognizeResultListener = new AudioRecognizeResultListener() {
         @Override
         public void onSliceSuccess(AudioRecognizeRequest audioRecognizeRequest, AudioRecognizeResult audioRecognizeResult, int i) {
-			// 返回语音分片的识别结果
+            // 返回语音分片的识别结果
         }
 
         @Override
         public void onSegmentSuccess(AudioRecognizeRequest audioRecognizeRequest, AudioRecognizeResult audioRecognizeResult, int i) {
-			// 返回语音流的识别结果
+            // 返回语音流的识别结果
         }
 
         @Override
         public void onSuccess(AudioRecognizeRequest audioRecognizeRequest, String s) {
-			// 返回所有的识别结果
+            // 返回所有的识别结果
         }
 
         @Override
         public void onFailure(AudioRecognizeRequest audioRecognizeRequest, ClientException e, ServerException e1) {
-			// 识别失败
+            // 识别失败
         }
     };
 
@@ -94,7 +101,9 @@ try {
     e.printStackTrace();
 }
 ```
-**停止实时语音识别**
+
+### 停止实时语音识别
+
 ```
 // 1、获得请求的 ID
 final int requestId = audioRecognizeRequest.getRequestId();
@@ -103,13 +112,15 @@ new Thread(new Runnable() {
     @Override
     public void run() {
         if (aaiClient!=null){
-	    //停止语音识别，等待当前任务结束
+        //停止语音识别，等待当前任务结束
             aaiClient.stopAudioRecognize(requestId);
         }
     }
 }).start();
 ```
-**取消实时语音识别**
+
+### 取消实时语音识别
+
 ```
 // 1、获得请求的id
 final int requestId = audioRecognizeRequest.getRequestId();
@@ -118,16 +129,17 @@ new Thread(new Runnable() {
     @Override
     public void run() {
         if (aaiClient!=null){
-	    //取消语音识别，丢弃当前任务
+        //取消语音识别，丢弃当前任务
             aaiClient.cancelAudioRecognize(requestId);
         }
     }
 }).start();
 ```
 
-### 主要接口类和方法说明
-#### 计算签名
+## 主要接口类和方法说明
+### 计算签名
 调用者需要自己实现 AbsCredentialProvider 接口来计算签名，此方法为 SDK 内部调用，上层不用关心 source 来源。
+
 **计算签名函数如下：**
 ```
 /**
@@ -137,25 +149,25 @@ new Thread(new Runnable() {
 */
 String getAudioRecognizeSign(String source);
 ```
+
 **计算签名算法**   
 先以 SecretKey 对 source 进行 HMAC-SHA1 加密，然后对密文进行 Base64 编码，获得最终的签名串。即：sign=Base64Encode(HmacSha1(source，secretKey))。
 
 为方便用户测试，SDK 已提供一个实现类 **LocalCredentialProvider**，但为保证 SecretKey 的安全性，请仅在测试环境下使用，正式版本建议上层实现接口 **AbsCredentialProvider** 中的方法。
 
-#### 初始化 AAIClient
+### 初始化 AAIClient
 AAIClient 是语音服务的核心类，用户可以调用该类来开始、停止以及取消语音识别。
 ```
 public AAIClient(Context context, int appid, int projectId, String secreteId, AbsCredentialProvider credentialProvider) throws ClientException
 ```
 
-| 参数名称 | 类型 | 是否必填 | 参数描述 |
-|---------|---------|---------|---------|
-| context | Context | 是 | 上下文 |
-| appid | Int | 是 | 腾讯云注册的 AppID |
-| projectId | Int | 否 | 用户的 projectId |
-| secreteId | String | 是 | 用户的 SecreteId |
-| credentialProvider | AbsCredentialProvider | 是 | 鉴权类 |
-
+| 参数名称           | 类型                  | 是否必填 | 参数描述           |
+| ------------------ | --------------------- | -------- | ------------------ |
+| context            | Context               | 是       | 上下文             |
+| appid              | Int                   | 是       | 腾讯云注册的 AppID |
+| projectId          | Int                   | 否       | 此参数固定为0   |
+| secreteId          | String                | 是       | 用户的 SecreteId   |
+| credentialProvider | AbsCredentialProvider | 是       | 鉴权类             |
 
 **示例：**
 ```
@@ -170,16 +182,16 @@ try {
 aaiClient.release();
 ```
 
-####  配置全局参数
+###  配置全局参数
 用户调用 ClientConfiguration 类的静态方法来修改全局配置。
 
-| 方法 | 方法描述 | 默认值 | 有效范围 |
-|---------|---------|---------|---------|
-| setMaxAudioRecognizeConcurrentNumber | 语音识别最大并发请求数 | 2 | 1 - 5 |
-| setMaxRecognizeSliceConcurrentNumber | 语音识别分片最大并发数 | 5 | 1 - 5 |
-| setAudioRecognizeSliceTimeout | HTTP 读超时时间 | 5000ms | 500 - 10000ms |
-| setAudioRecognizeConnectTimeout | HTTP 连接超时时间 | 5000ms | 500 - 10000ms |
-| setAudioRecognizeWriteTimeout | HTTP 写超时时间 | 5000ms | 500 - 10000ms |
+| 方法                                 | 方法描述               | 默认值 | 有效范围      |
+| ------------------------------------ | ---------------------- | ------ | ------------- |
+| setMaxAudioRecognizeConcurrentNumber | 语音识别最大并发请求数 | 2      | 1 - 5         |
+| setMaxRecognizeSliceConcurrentNumber | 语音识别分片最大并发数 | 5      | 1 - 5         |
+| setAudioRecognizeSliceTimeout        | HTTP 读超时时间        | 5000ms | 500 - 10000ms |
+| setAudioRecognizeConnectTimeout      | HTTP 连接超时时间      | 5000ms | 500 - 10000ms |
+| setAudioRecognizeWriteTimeout        | HTTP 写超时时间        | 5000ms | 500 - 10000ms |
 
 **示例：**
 ```
@@ -190,7 +202,7 @@ ClientConfiguration.setAudioRecognizeConnectTimeout(2000)
 ClientConfiguration.setAudioRecognizeWriteTimeout(2000)
 ```
 
-#### 设置结果监听器
+### 设置结果监听器
 AudioRecognizeResultListener 可以用来监听语音识别的结果，共有如下四个接口：
 - 语音分片的语音识别结果回调接口
 ```
@@ -273,7 +285,7 @@ void onSuccess(AudioRecognizeRequest request, String result);
 </tbody></table>
 - 语音识别请求失败回调函数
 ```
-void onFailure(AudioRecognizeRequest request, ClientException clientException, ServerException serverException);
+void onFailure(AudioRecognizeRequest request, final ClientException clientException, final ServerException serverException,String response);
 ```
 <table>
 <thead>
@@ -298,30 +310,31 @@ void onFailure(AudioRecognizeRequest request, ClientException clientException, S
 <td>ServerException</td>
 <td>服务端异常</td>
 </tr>
+<tr>
+<td>response</td>
+<td>String</td>
+<td>    服务端返回的 json 字符串</td>
+</tr>
 </tbody></table>
 
 示例代码详见 [入门示例](#documen)。
 
-#### 设置语音识别参数
+### 设置语音识别参数
 通过构建 AudioRecognizeConfiguration 类，可以设置语音识别时的配置：
 
-| 参数名称 | 类型 | 是否必填 |参数描述 |默认值 |
-|---------|---------|---------|---------|---------|
-| setSilentDetectTimeOut | Boolean | 否 | 是否开启静音检测，开启后说话前的静音部分不进行识别 | true |
-| audioFlowSilenceTimeOut | Int | 否 | 开启检测说话启始超时，开启后超时会自动停止录音 | 5000ms |
-| minAudioFlowSilenceTime | Int | 否 | 两个语音流最短分割时间 | 2000ms |
-| minVolumeCallbackTime | Int | 否 | 音量回调时间 | 80ms |
-| sensitive | float | 否 | 语音识别敏感度，越小越敏感(范围1 - 5) | 3 |
+| 参数名称                | 类型    | 是否必填 | 参数描述                                           | 默认值 |
+| ----------------------- | ------- | -------- | -------------------------------------------------- | ------ |
+| setSilentDetectTimeOut  | Boolean | 否       | 是否开启静音检测，开启后说话前的静音部分不进行识别 | true   |
+| audioFlowSilenceTimeOut | Int     | 否       | 开启检测说话启始超时，开启后超时会自动停止录音     | 5000ms |
+| minVolumeCallbackTime   | Int     | 否       | 两个语音流最短分割时间                                       | 2000ms   |
 
 **示例：**
 ```
 AudioRecognizeConfiguration audioRecognizeConfiguration = new AudioRecognizeConfiguration.Builder()
-	.setSilentDetectTimeOut(true)// 是否使能静音检测，false 表示不检查静音部分
+    .setSilentDetectTimeOut(true)// 是否使能静音检测，false 表示不检查静音部分
         .audioFlowSilenceTimeOut(5000) // 静音检测超时停止录音
-        .minAudioFlowSilenceTime(2000) // 语音流识别时的间隔时间
-    	.minVolumeCallbackTime(80) // 音量回调时间
-	.sensitive(2.8) // 识别敏感度
-    	.build();
+        .minVolumeCallbackTime(80) // 音量回调时间
+        .build();
 
 // 启动语音识别
 new Thread(new Runnable() {
@@ -334,26 +347,27 @@ new Thread(new Runnable() {
 }).start();
 ```
 
-#### 设置状态监听器
+### 设置状态监听器
 AudioRecognizeStateListener 可以用来监听语音识别的状态，一共有如下八个接口：
 
-| 方法 | 方法描述 | 
-|---------|---------|
-| onStartRecord | 开始录音 | 
-| onStopRecord | 结束录音 | 
-| onVoiceFlowStart | 检测到语音流的起点 | 
-| onVoiceFlowStartRecognize | 语音流开始识别 | 
-| onVoiceFlowFinishRecognize | 语音流结束识别 | 
-| onVoiceVolume | 音量 | 
-|onNextAudioData			  | 返回音频流，用于返回宿主层做录音缓存业务。new AudioRecordDataSource(true) 传递 true 时生效  |
+| 方法                       | 方法描述                                                     |
+| -------------------------- | ------------------------------------------------------------ |
+| onStartRecord              | 开始录音                                                     |
+| onStopRecord               | 结束录音                                                     |
+| onVoiceFlowStart           | 检测到语音流的起点                                           |
+| onVoiceFlowStartRecognize  | 语音流开始识别                                               |
+| onVoiceFlowFinish | 检测到语音流的终点                                               |
+| onVoiceFlowFinishRecognize | 语音流结束识别                                               |
+| onVoiceVolume              | 音量                                                         |
+| onNextAudioData            | 返回音频流，用于返回宿主层做录音缓存业务。new AudioRecordDataSource(true) 传递 true 时生效 |
 
-#### 设置超时监听器
+### 设置超时监听器
 AudioRecognizeTimeoutListener 可以用来监听语音识别的超时，一共有如下两个接口：
 
-| 方法 | 方法描述 |
-|---------|---------|
+| 方法                    | 方法描述             |
+| ----------------------- | -------------------- |
 | onFirstVoiceFlowTimeout | 检测第一个语音流超时 |
-| onNextVoiceFlowTimeout | 检测下一个语音流超时 |
+| onNextVoiceFlowTimeout  | 检测下一个语音流超时 |
 
 **示例：**
 ```
@@ -399,79 +413,80 @@ AudioRecognizeStateListener audioRecognizeStateListener = new AudioRecognizeStat
     }
 ```
 
-#### 其他重要类说明
-**AudioRecognizeRequest**
+### 其他重要类说明
+#### **AudioRecognizeRequest**
 templateName 和 customTemplate 都设置时，优先使用 templateName 的设置。
 
-| 参数名称 | 类型 | 是否必填 | 参数描述 | 默认值 |
-|---------|---------|---------|---------|---------|
-| pcmAudioDataSource | PcmAudioDataSource | 是 | 音频数据源 | 无 |
-| templateName | String | 否 | 用户控制台设置的模板名称 | 无 |
-|customTemplate|AudioRecognizeTemplate|否|用户自定义的模板|(1, 0, 1)|
+| 参数名称           | 类型                   | 是否必填 | 参数描述                 | 默认值        |
+| ------------------ | ---------------------- | -------- | ------------------------ | ------------- |
+| pcmAudioDataSource | PcmAudioDataSource     | 是       | 音频数据源               | 无            |
+| templateName       | String                 | 否       | 用户控制台设置的模板名称 | 无            |
+| customTemplate     | AudioRecognizeTemplate | 否       | 用户自定义的模板         | ("16k_zh", 1) |
 
-**AudioRecognizeResult**
+#### **AudioRecognizeResult**
 语音识别结果对象，和 AudioRecognizeRequest 对象相对应，用于返回语音识别的结果。
 
-| 参数名称 | 类型 | 参数描述 |
-|---------|---------|---------|
-| code | Int | 识别状态码 |
-| message | String | 识别提示信息 |
-| text | String | 识别结果 |
-| seq | Int | 该语音分片的序号 |
-| voiceId | String | 该语音分片所在语音流的 ID |
-| cookie | String | cookie 值 |
+| 参数名称 | 类型   | 参数描述                  |
+| -------- | ------ | ------------------------- |
+| code     | Int    | 识别状态码                |
+| message  | String | 识别提示信息              |
+| text     | String | 识别结果                  |
+| seq      | Int    | 该语音分片的序号          |
+| voiceId  | String | 该语音分片所在语音流的 ID |
+| cookie   | String | cookie 值                 |
 
-**AudioRecognizeTemplate**
+#### **AudioRecognizeTemplate**
 自定义的语音模板，需要设置的参数包括：
 
-| 参数名称 | 类型 | 是否必填 | 参数描述 |
-|---------|---------|---------|---------|
-| engineModelType | Int | 是 |引擎模型类型 |
-| resultTextFormat | Int | 是 |识别文本结果的编码形式，可选值包括：UTF-8、GB2312、GBK、BIG5 |
-| resType | Int | 是 |结果返回方式 |
+| 参数名称        | 类型   | 是否必填 | 参数描述     |
+| --------------- | ------ | -------- | ------------ |
+| engineModelType | String | 是       | 引擎模型类型 |
+| resType         | Int    | 是       | 结果返回方式 |
 
 **示例：**
 ```
-AudioRecognizeTemplate audioRecognizeTemplate = new AudioRecognizeTemplate(1,0,1);
+AudioRecognizeTemplate audioRecognizeTemplate = new AudioRecognizeTemplate("16k_zh",1);
 ```
-**PcmAudioDataSource**
+
+#### **PcmAudioDataSource**
 用户可以实现这个接口来识别单通道、采样率16k的 PCM 音频数据。主要包括如下几个接口：
- - 向语音识别器添加数据，将长度为 length 的数据从下标0开始复制到 audioPcmData 数组中，并返回实际的复制的数据量的长度。
+- 向语音识别器添加数据，将长度为 length 的数据从下标0开始复制到 audioPcmData 数组中，并返回实际的复制的数据量的长度。
 ```
 int read(short[] audioPcmData, int length);
 ```
- - 启动识别时回调函数，用户可以在这里做些初始化的工作。
+- 启动识别时回调函数，用户可以在这里做些初始化的工作。
 ```
 void start() throws AudioRecognizerException;
 ```
- - 结束识别时回调函数，用户可以在这里进行一些清理工作。
+- 结束识别时回调函数，用户可以在这里进行一些清理工作。
 ```
 void stop();
 ```
- - 获取 sdk Pcm 格式录音源文件路径。
+- 获取 sdk Pcm 格式录音源文件路径。
 ```
 void savePcmFileCallBack(String filePath);
 ```
- - 获取 sdk wav 格式录音源文件路径。
+- 获取 sdk wav 格式录音源文件路径。
 ```
 void saveWaveFileCallBack(String filePath);
 ```
- - 设置语音识别器每次最大读取数据量。
+- 设置语音识别器每次最大读取数据量。
 ```
 int maxLengthOnceRead();
 ```
 
 
-**AudioRecordDataSource**
+#### **AudioRecordDataSource**
 PcmAudioDataSource 接口的实现类，可以直接读取麦克风输入的音频数据，用于实时识别。
 
-**AudioFileDataSource**
+#### **AudioFileDataSource**
 PcmAudioDataSource 接口的实现类，可以直接读取单通道、采样率16k的 PCM 音频数据的文件。
->!其他格式的数据无法正确识别。
->
 
-**AAILogger**
+>!其他格式的数据无法正确识别。
+
+#### **AAILogger**
 用户可以利用 AAILogger 来控制日志的输出，可以选择性的输出 debug、info、warn 以及 error 级别的日志信息。
+
 ```
 public static void disableDebug();
 public static void disableInfo();

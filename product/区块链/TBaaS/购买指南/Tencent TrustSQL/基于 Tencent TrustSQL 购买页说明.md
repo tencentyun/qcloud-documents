@@ -5,8 +5,8 @@
 已登录 [TBaaS 控制台](https://console.cloud.tencent.com/tbaas)。
 
 ## 操作步骤
-1. 在 [TBaaS 购买页](https://cloud.tencent.com/product/tbaas)，单击 Tencent TrustSQL 中的【立即购买】进入 “[区块链服务TBaaS-TrustSQL](https://buy.cloud.tencent.com/tbaas_blockchain?engine=2)” 购买页。
-2. 请按照页面提示填写基本信息及节点配置，单击【立即购买】即可成功创建一个区块链网络。如下图所示：
+1. 在 [TBaaS 购买页](https://cloud.tencent.com/product/tbaas)，单击 Tencent TrustSQL 中的**立即购买**进入 “[区块链服务TBaaS-TrustSQL](https://buy.cloud.tencent.com/tbaas_blockchain?engine=2)” 购买页。
+2. 请按照页面提示填写基本信息及节点配置，单击**立即购买**即可成功创建一个区块链网络。如下图所示：
 ![](https://main.qcloudimg.com/raw/156480f04bca69ebcc4ba0aadb0ff0f4.png)
 主要参数信息如下：
  - **联盟**：选择所属联盟。区块链网络购买成功后，所属联盟不能更换。
@@ -41,6 +41,6 @@
 	<td>50GB</td>
 	</tr>
 </table>
-4. 购买完成后，进入区块链网络页面单击【启动】即可正常启用区块链服务。
+4. 购买完成后，进入区块链网络页面单击**启动**即可正常启用区块链服务。
 
 

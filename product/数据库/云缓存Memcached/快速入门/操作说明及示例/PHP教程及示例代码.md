@@ -1,4 +1,3 @@
-
 ## 环境及依赖
 环境：在腾讯云 CVM 上安装对应的 [Apache](http://www.apache.org/dyn/closer.cgi)、[PHP](http://php.net/downloads.php)，建议使用较新版本 Apache2.0+、PHP Version 5.3+。
 

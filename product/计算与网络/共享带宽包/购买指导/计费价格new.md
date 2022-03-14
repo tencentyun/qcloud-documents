@@ -19,14 +19,22 @@
 </tr>
 </thead>
 <tbody><tr>
-<td align="left">所有地域
+<td align="left">除圣保罗以外的其他地域
 </td>
 <td align="left">108</td>
+</tr>
+<tr>
+<td align="left">圣保罗
+</td>
+<td align="left">138</td>
 </tr>
 </tbody></table>
 
 ## [精品 BGP 带宽包](id:cn2)
->?目前仅标准账户类型支持精品 BGP 带宽包，传统账户类型需升级后才能使用，升级详情请参见 [账户类型升级说明](https://cloud.tencent.com/document/product/1199/49090)。如需体验，请提交 [内测申请](https://cloud.tencent.com/apply/p/224jt7718s8)。
+>?
+>- 目前仅标准账户类型支持精品 BGP 带宽包，传统账户类型需升级后才能使用，升级详情请参见 [账户类型升级说明](https://cloud.tencent.com/document/product/1199/49090)。如需体验，请提交 [内测申请](https://cloud.tencent.com/apply/p/224jt7718s8)。
+>- 仅香港地域支持精品 BGP IP。
+>
 <table>
 <thead>
 <tr>
@@ -37,7 +45,7 @@
 <tbody><tr>
 <td align="left">香港
 </td>
-<td align="left">588</td>
+<td align="left">580</td>
 </tr>
 </tbody></table>
 
@@ -58,14 +66,16 @@
 </tbody></table>
 
 ## [移动/联通/电信带宽包](id:singleip)
->?目前仅广州、上海、南京、济南、杭州、福州、北京、石家庄、武汉、长沙、成都、重庆地域支持静态单线 IP 线路类型，其他地域支持情况请以控制台页面为准。该功能处于内测阶段，如需体验，请提交[ 内测申请](https://cloud.tencent.com/apply/p/6nzb3jwbsk)。
+>?
+>- 目前仅广州、上海、南京、济南、杭州、福州、北京、石家庄、武汉、长沙、成都、重庆地域支持静态单线 IP 线路类型，其他地域支持情况请以控制台页面为准。
+>- 该功能处于内测阶段，如需体验，请提交[ 内测申请](https://cloud.tencent.com/apply/p/6nzb3jwbsk)。广州、上海、南京、北京、成都、重庆地域暂未开放申请，如需使用，请联系您的商务经理。
 >
 <table>
 <tr>
 <th>地域</th><th>移动带宽包价格<br/>（单位：元/Mbps/月）</th><th>联通带宽包价格<br/>（单位：元/Mbps/月）</th><th>电信带宽包价格<br/>（单位：元/Mbps/月）</th>
 </tr>
 <tr>
-<td>上海</td><td>47</td><td>47</td><td>47</td>
+<td>广州、上海</td><td>47</td><td>47</td><td>47</td>
 </tr>
 <tr>
 <td>北京</td><td>44</td><td>44</td><td>44</td>
@@ -77,9 +87,6 @@
 <td>重庆</td><td>26</td><td>26</td><td>26</td>
 </tr>
 <tr>
-<tr>
-<td>广州</td><td>48</td><td>47</td><td>47</td>
-</tr>
 <td>南京</td><td>22</td><td>25</td><td>23</td>
 </tr>
 <tr>
