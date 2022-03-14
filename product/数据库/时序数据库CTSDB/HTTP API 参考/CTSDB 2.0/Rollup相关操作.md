@@ -120,7 +120,7 @@ curl -u root:le201909 -H 'Content-Type:application/json' -X POST 172.xx.xx.4:920
 ### 5. 返回内容
 需要通过 error 字段判断请求是否成功，若返回内容有 error 字段则请求失败，具体错误详情请参照 error 字段描述。
 
-#### 6. CURL 示例说明
+### 6. CURL 示例说明
 请求：
 `curl -u root:le201909 -H 'Content-Type:application/json' -X GET 172.xx.xx.4:9201/_rollups`
 
