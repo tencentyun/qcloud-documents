@@ -1,34 +1,26 @@
-## 类sql查询支持
 
-ctsdb 2.0 支持使用类 SQL 语句进行查询，仅为了方便初学者使用；如关注查询时效，仍推荐使用ctsdb原生查询语句。
+CTSDB 2.0 支持使用类 SQL 语句进行查询，仅为了方便初学者使用；如关注查询时效，仍推荐使用 CTSDB 原生查询语句。
 
-#### 请求地址
-
+## 请求地址
 地址为实例的 IP 和 PORT，可从控制台获取到，例如10.13.20.15:9200。
 
-#### 请求路径和方法
-
-路径：`_nlpcn/sql`。
+## 请求路径和方法
+路径：`_nlpcn/sql`
 方法：GET
 
-#### 请求参数
-
+## 请求参数
 可在查询时加入 pretty 参数值来获得整理格式后的返回响应，具体请参见示例。
 
-#### 请求内容
-
+## 请求内容
 查询主要有普通查询和聚合查询，具体请求内容请参照示例。
 
-#### 返回内容
-
+## 返回内容
 需要通过 error 字段判断请求是否成功，若返回内容有 error 字段则请求失败，具体错误详情请参照 error 字段描述。如参数名或表名的错误，需要自行检查更正。
 
-#### CURL 示例说明
-
+## CURL 示例说明
 具体查询请参考下列示例。
 
 所有示例使用的 metric 结构如下所示：
-
 ```
    {
        "ctsdb_test" : {
@@ -54,9 +46,8 @@ ctsdb 2.0 支持使用类 SQL 语句进行查询，仅为了方便初学者使�
 ```
 
 普通查询的 CURL 示例：
-
 ```
-curl -u root:le201909 -H 'Content-Type: application/json' -XGET 172.16.345.14:9201/_nlpcn/sql?pretty -d 'select docvalue(cpuUsage) from ctsdb_test limit 1'
+curl -u root:le201909 -H 'Content-Type: application/json' -XGET 172.xx.xx.4:9201/_nlpcn/sql?pretty -d 'select docvalue(cpuUsage) from ctsdb_test limit 1'
 ```
 
 普通查询的响应示例：
@@ -93,15 +84,11 @@ curl -u root:le201909 -H 'Content-Type: application/json' -XGET 172.16.345.14:92
 }
 ```
 
-> 说明：
->
-> 普通查询时，所查询字段，需要加docvalue使实例从其列存区拿取数据。
-
+>?普通查询时，所查询字段，需要加 docvalue 使实例从其列存区拿取数据。
 
 带搜索条件的普通查询的 CURL 示例：
-
 ```
-curl -u root:le201909 -H 'Content-Type: application/json' -XGET 172.16.345.14:9201/_nlpcn/sql?pretty -d 'select docvalue(cpuUsage) from ctsdb_test where region="shanghai" limit 1'
+curl -u root:le201909 -H 'Content-Type: application/json' -XGET 172.xx.xx.4:9201/_nlpcn/sql?pretty -d 'select docvalue(cpuUsage) from ctsdb_test where region="shanghai" limit 1'
 ```
 
 带搜索条件的普通查询的响应示例：
@@ -137,20 +124,14 @@ curl -u root:le201909 -H 'Content-Type: application/json' -XGET 172.16.345.14:92
   }
 }
 ```
+>?带搜索条件的普通查询时，用做查询条件的字段，不需要加docvalue。
 
-> 说明：
->
-> 带搜索条件的普通查询时，用做查询条件的字段，不需要加docvalue。
-
-
-
-按某tag字段分组聚合查询的 CURL 示例：
-
+按某  tag 字段分组聚合查询的 CURL 示例：
 ```
-curl -u root:le201909 -H 'Content-Type: application/json' -XGET 172.16.345.14:9201/_nlpcn/sql?pretty -d 'select max(cpuUsage) from ctsdb_test group by region'
+curl -u root:le201909 -H 'Content-Type: application/json' -XGET 172.xx.xx.14:9201/_nlpcn/sql?pretty -d 'select max(cpuUsage) from ctsdb_test group by region'
 ```
 
-按某tag字段分组聚合查询的响应示例：
+按某 tag 字段分组聚合查询的响应示例：
 ```
 {
   "took" : 33,
@@ -201,18 +182,14 @@ curl -u root:le201909 -H 'Content-Type: application/json' -XGET 172.16.345.14:92
 }
 ```
 
-> 说明：
->
-> 按某tag字段分组聚合查询时，用于分组的字段，不需要加docvalue。
+>?按某 tag 字段分组聚合查询时，用于分组的字段，不需要加 docvalue。
 
 按时间聚合分组查询的 CURL 示例：
-
 ```
-curl -u root:le201909 -H 'Content-Type: application/json' -XGET 172.16.345.14:9201/_nlpcn/sql?pretty -d 'select max(cpuUsage) from ctsdb_test GROUP BY date_histogram(field="timestamp","interval"="1d")'
+curl -u root:le201909 -H 'Content-Type: application/json' -XGET 172.xx.xx.4:9201/_nlpcn/sql?pretty -d 'select max(cpuUsage) from ctsdb_test GROUP BY date_histogram(field="timestamp","interval"="1d")'
 ```
 
 按时间聚合分组查询的响应示例：
-
 ```
 {
   "took" : 30,
@@ -247,5 +224,4 @@ curl -u root:le201909 -H 'Content-Type: application/json' -XGET 172.16.345.14:92
   }
 }
 ```
-
 
