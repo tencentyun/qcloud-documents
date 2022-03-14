@@ -444,7 +444,7 @@ current running txns on db xxx is xx, larger than limit xx
 ### catalog_try_lock_timeout_ms
 - 默认值：5000  （ms）。
 - 是否可以动态配置：true。
-- 元数据锁的 tryLock 超时配置。 通常它不需要改变，除非你需要测试一些东西。
+- 元数据锁的 tryLock 超时配置。 通常它不需要改变，除非您需要测试一些东西。
 
 ### max_query_retry_time
 - 默认值：2。
@@ -1031,7 +1031,7 @@ broker scanner 程序可以在一个 broker 加载作业中处理的最大字节
 
 ### thrift_backlog_num
 - 默认值：1024。
-- thrift 服务器的 backlog_num 当你扩大这个 backlog_num 时，你应该确保它的值大于 linux `/proc/sys/net/core/somaxconn` 配置。
+- thrift 服务器的 backlog_num 当您扩大这个 backlog_num 时，您应该确保它的值大于 linux `/proc/sys/net/core/somaxconn` 配置。
 
 ### thrift_client_timeout_ms
 - 默认值：0。
@@ -1039,11 +1039,11 @@ broker scanner 程序可以在一个 broker 加载作业中处理的最大字节
 
 ### mysql_nio_backlog_num
 - 默认值：1024。
-- mysql nio server 的 backlog_num 当你放大这个 backlog_num 时，你应该同时放大 linux `/proc/sys/net/core/somaxconn`文件中的值。
+- mysql nio server 的 backlog_num 当您放大这个 backlog_num 时，您应该同时放大 linux `/proc/sys/net/core/somaxconn`文件中的值。
 
 ### http_backlog_num
 - 默认值：1024。
-- netty http server 的 backlog_num 当你放大这个 backlog_num 时，你应该同时放大 linux `/proc/sys/net/core/somaxconn`文件中的值。
+- netty http server 的 backlog_num 当您放大这个 backlog_num 时，您应该同时放大 linux `/proc/sys/net/core/somaxconn`文件中的值。
 
 ### http_max_line_length
 - 默认值：4096。
@@ -1122,7 +1122,7 @@ broker scanner 程序可以在一个 broker 加载作业中处理的最大字节
 ### master_sync_policy
 - 默认值：SYNC。
 - 选项：SYNC, NO_SYNC, WRITE_NO_SYNC。
-- Master FE 的 bdbje 同步策略。 如果您只部署一个 Follower FE，请将其设置为“SYNC”。 如果你部署了超过 3 个 Follower FE，你可以将这个和下面的 `replica_sync_policy ` 设置为 WRITE_NO_SYNC。 更多信息，请参见 [官网资料](http://docs.oracle.com/cd/E17277_02/html/java/com/sleepycat/je/Durability.SyncPolicy.html)。
+- Master FE 的 bdbje 同步策略。 如果您只部署一个 Follower FE，请将其设置为“SYNC”。 如果您部署了超过 3 个 Follower FE，您可以将这个和下面的 `replica_sync_policy ` 设置为 WRITE_NO_SYNC。 更多信息，请参见 [官网资料](http://docs.oracle.com/cd/E17277_02/html/java/com/sleepycat/je/Durability.SyncPolicy.html)。
 
 ### meta_delay_toleration_second
 - 默认值：300 （5分钟）。
