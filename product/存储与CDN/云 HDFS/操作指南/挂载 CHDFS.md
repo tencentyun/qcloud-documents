@@ -69,5 +69,5 @@ CHDFS 客户端默认异步 flush，因为相比起本地磁盘，云端的访�
 |  fs.ofs.block.max.file.cache.mb   |  chdfs 插件使用的磁盘 buffer 的大小，单位为 MB。（对写有加速作用）  |    256    |    否    |
 |   fs.ofs.prev.read.block.count    | 读取时，预读的 chdfs block 数量（chdfs 的底层 block 大小一般为4MB）|     4     |    否    |
 |      fs.ofs.plugin.info.log       |          是否打印插件的调试日志，日志以 info 级别打印。可选值为 true、false |   false   |    否    |
-|      fs.ofs.bucket.region       |          文件系统或者元数据加速器bucket所在的地域，如ap-shanghai，ap-beijing，配置项适用于chdfs_hadoop_plugin_network版本V2.7及其以上|   false   |    否    |
+|      fs.ofs.bucket.region       |          文件系统或者元数据加速器 bucket 所在的地域，如 ap-shanghai，ap-beijing，配置项适用于 chdfs_hadoop_plugin_network 版本V2.7及其以上|   false   |    否    |
 
