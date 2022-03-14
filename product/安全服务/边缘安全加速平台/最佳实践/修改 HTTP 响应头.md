@@ -34,6 +34,11 @@
 | 端口匹配       | `https://cloud.tencent.com:8080`                             | 来源为 `https://cloud.tencent.com:8080`，命中列表，则响应添加头部： `Access-Control-Allow-Origin:https://cloud.tencent.com:8080` 来源为 `https://cloud.tencent.com`，未命中列表，响应无变化。 |
 
 >!若存在特殊端口，则需要在列表中填写相关信息，不支持任意端口匹配，必须指定。
+>
+3. 根据实际需求，单击**保存并发布**或**仅保存**。
+>?
+>- 保存当前编辑的规则，并发布至现网生效。
+>- 仅保存当前编辑的规则内容，不发布至现网。
 
 ## 注意事项
 
