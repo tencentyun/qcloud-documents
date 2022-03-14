@@ -113,8 +113,9 @@ pod 'TXAppBasic', :path => "TXAppBasic/"
 pod 'TUIVoiceRoom', :path => "./", :subspecs => ["TRTC"]
 ```
 
->!  `Source`、`Resources` 和 `TUIVoiceRoom.podspec` 文件必需在同一目录下。
-> TXAppBasic.podspec在TXAppBasic文件夹下
+>!
+>-   `Source`、`Resources` 和 `TUIVoiceRoom.podspec` 文件必需在同一目录下。
+>-  TXAppBasic.podspec在TXAppBasic文件夹下
 
 [](id:model.step3)
 ### 步骤3：创建并登录组件

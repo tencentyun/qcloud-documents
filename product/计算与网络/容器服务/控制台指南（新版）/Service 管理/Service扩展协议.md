@@ -34,6 +34,7 @@
 
 ### 扩展协议注解示例
 
+
 <dx-tabs>
 ::: TCP_SSL 示例
 <dx-codeblock>
@@ -72,7 +73,7 @@
 :::
 </dx-tabs>
 
-
+>! TCP_SSL 和 HTTPS 中的字段 `cert-secret`，表示使用该协议需要指定一个证书，证书是 Opaque 类型的 Secret，Secret 的 Key 为 cert-secret，Value 是证书 ID。详情见 [Ingress 证书配置](https://cloud.tencent.com/document/product/457/45738)。
 
 
 ### 扩展协议使用说明

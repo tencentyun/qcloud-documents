@@ -114,7 +114,7 @@
 1. 将工程目录下的 `Source`、`Resources`、`TXAppBasic` 文件夹、`TUIChatSalon.podspec` 文件拷贝到您的工程目录下。
 2. 在您的 `Podfile` 文件中添加以下依赖。之后执行 `pod install` 命令，完成导入。
 
-```swift
+```swift\
 # :path => "指向TXAppBasic.podspec所在目录的相对路径"
 pod 'TXAppBasic', :path => "TXAppBasic/"
 

@@ -104,7 +104,7 @@
 1. 将工程目录下的 `Source`、`Resources`、`TXAppBasic` 文件夹、`TUIChorus.podspec` 文件拷贝到您的工程目录下。
 2. 在您的 `Podfile` 文件中添加以下依赖。之后执行 `pod install` 命令，完成导入。
 
-```swift
+```swift\
 # :path => "指向TXAppBasic.podspec所在目录的相对路径"
 pod 'TXAppBasic', :path => "TXAppBasic/"
 
@@ -112,8 +112,9 @@ pod 'TXAppBasic', :path => "TXAppBasic/"
 pod 'TUIChorus', :path => "./", :subspecs => ["Professional"]
 ```
 
->!  `Source`、`Resources` 和 `TUIChorus.podspec` 文件必需在同一目录下。
-> TXAppBasic.podspec在TXAppBasic文件夹下
+>!  
+>- `Source`、`Resources` 和 `TUIChorus.podspec` 文件必需在同一目录下。
+>-  TXAppBasic.podspec在TXAppBasic文件夹下
 
 
 [](id:model.step3)
@@ -172,8 +173,7 @@ self.chorusRoom.login(sdkAppId: sdkAppID, userId: userId, userSig: userSig) { [w
 ![](https://main.qcloudimg.com/raw/4295ae0314924a8a93df8f6c19465c9c.png)
 
 示例代码：
-<dx-codeblock>
-::: swift
+```swift
 // 1.房主设置昵称和头像
 self.chorusRoom.setSelfProfile(userName: userName, avatarUrl: avatarURL) { (code, message) in
     // 结果回调           
@@ -216,9 +216,7 @@ func onSeatListChange(seatInfoList: [SeatInfo]) {
 func onAnchorEnterSeat(index: Int, user: UserInfo) {
   // 处理房主上麦事件
 }
-
-:::
-</dx-codeblock>
+```
 
 [](id:model.step5)
 ### 步骤5：听众端观看
