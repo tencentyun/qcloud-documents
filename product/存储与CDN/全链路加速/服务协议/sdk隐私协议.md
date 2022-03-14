@@ -70,7 +70,7 @@
 </tr>
 <tr>
 <td>android.permission.ACCESS_WIFI_STATE</td>
-<td>获取当前网络类型，判断当前网络环境是否适合发起Qos加速</td>
+<td>获取当前网络类型，判断当前网络环境是否适合发起 Qos 加速</td>
 </tr>
 </tbody></table>
 
