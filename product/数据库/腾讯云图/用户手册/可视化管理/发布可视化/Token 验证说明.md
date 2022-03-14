@@ -37,6 +37,25 @@ r, $token, true))); // 下面生成的 url 用于访问大屏
  $url = 'https://v.yuntus.com/tcv/' . $accessId . '?signature=' . $signRet . '&timestamp=' . $timestamp . '&nonce=' . $nonce);
 ```
 
+Python 生成签名示例：
+
+```python
+import time
+import random
+import hmac
+import base64
+from hashlib import sha256
+from urllib import parse
+
+accessId = '81a663dbaaab055xxxxxxxxxxxxx4a56'
+token = 'c6v9aw4gpRo1yn6DlIxxxxxxxxxxxxxK'
+timestamp = str(int(time.time()))
+nonce = str(random.randint(10000, 99999))
+signStr = accessId + "," + timestamp + "," + nonce
+signRet = parse.quote(base64.b64encode(hmac.new(token.encode('utf-8'), signStr.encode('utf-8'), digestmod=sha256).digest()))
+url = 'https://v.yuntus.com/tcv/' + accessId + '?signature=' + signRet + '&timestamp=' + timestamp + '&nonce=' + nonce
+```
+
 NodeJS 生成签名示例：
 
 ```JavaScript
@@ -84,4 +103,6 @@ public class TcvTokenSignClientDemo {
 
 ### 安全校验策略说明
 
-链接校验具备时效性，生成链接1分钟内校验有效，在此时间内校验通过，之后连续访问时间间隔超过12小时则会失效。
+链接校验具备时效性，生成链接 1 分钟内校验有效，在此时间内校验通过，之后连续访问时间间隔可通过验证有效期进行配置，如设置为 24 小时，则有效期在 24 小时之后会失效。
+
+![验证有效期](https://qcloudimg.tencent-cloud.cn/raw/37a1ed5be535727a8931cb765be69664.png)
