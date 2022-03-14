@@ -7,7 +7,7 @@
 >?开启后全部请求走 HTTPS，请确认提供服务的子域名的证书已部署到 EdgeOne。
 >
 
-### 回源 HTTPS
+### 回源 HTTPS[](id:HY)
 在回源 HTTPS 模块中，单击**编辑**，选择回源的加密模式，即回源采用的协议，单击**保存**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/fbe3dd3ea73804cf193618ed3f18f074.png)
 **参数说明：**
