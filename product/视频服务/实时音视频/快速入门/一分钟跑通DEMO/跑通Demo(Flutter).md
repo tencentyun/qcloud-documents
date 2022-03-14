@@ -1,6 +1,6 @@
 本文主要介绍如何快速运行腾讯云 TRTC Demo（Flutter）。
 
->! 目前 Windows/MacOs 端仅支持音频，视频接口暂不支持。Android/iOS 端支持视频通话。
+>! 目前 Windows/MacOs 端暂不支持屏幕分享及设备选择功能。
 
 ## 环境要求
 - Flutter 2.0 及以上版本。
