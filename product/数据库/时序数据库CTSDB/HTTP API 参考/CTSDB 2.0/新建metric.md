@@ -47,7 +47,7 @@
 | > 7天，≤ 20天   | 3天      |
 | > 20天，≤ 49天  | 7天      |
 | > 49天，≤ 3个月 | 15天     |
-| ＞3个月         | 30天     |
+| > 3个月         | 30天     |
 | 永不过期        | 30天     |
 
 ## 返回内容
@@ -56,7 +56,7 @@
 ## CURL 示例说明
 请求：
 ```
-curl -u root:le201909 -H 'Content-Type:application/json' -X PUT 172.16.345.14:9201/_metric/ctsdb_test -d'
+curl -u root:le201909 -H 'Content-Type:application/json' -X PUT 172.xx.xx.4:9201/_metric/ctsdb_test -d'
 {
     "tags":
     {
