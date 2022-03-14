@@ -32,7 +32,7 @@
 
 [](id:step2)
 ### 步骤2：下载 SDK 和 Demo 源码
-1. 根据实际业务需求下载 SDK 及配套的 [Demo 源码](https://github.com/tencentyun/TRTCFlutterScenesDemo)。
+1. 根据实际业务需求下载 SDK 及配套的 [Demo 源码](https://github.com/LiteAVSDK/TRTC_Flutter/tree/master/TRTC-Simple-Demo)。
 2. 下载完成后，单击**已下载，下一步**。
 ![](https://main.qcloudimg.com/raw/a4f5a2ac1f49d67b4c6968d8b22cdeb0.png)
 
