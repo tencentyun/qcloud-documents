@@ -9,7 +9,7 @@
 不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
 
 ## 效果展示
-您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 App 体验音视频通话的效果。
+您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 App 体验实时音视频通话的效果。
 <table>
 <tr>
    <th>主动呼叫</th>
@@ -108,7 +108,7 @@ Xcode（11.0及以上的版本）打开源码工程 `TUICalling/Example/TUICalli
 1. 将工程目录下的 `Source`、`Resources` 文件夹 和 `TUICalling.podspec` 文件拷贝到您的工程目录下。
 2. 在您的 `Podfile` 文件中添加以下依赖。之后执行 `pod install` 命令，完成导入。
 
-```swift
+```swift\
 # :path => "指向TUICalling.podspec所在目录的相对路径"
  pod 'TUICalling', :path => "../", :subspecs => ["TRTC"]
 ```
@@ -194,14 +194,15 @@ TUICalling 组件的 API 接口列表如下：
 
 ## 常见问题
 
-### 1、CocoaPods如何安装？
+### 1、CocoaPods 如何安装？
 
 在终端窗口中输入如下命令（需要提前在 Mac 中安装 Ruby 环境）：
 ```
 sudo gem install cocoapods
 ```
 
-### 2、TUICalling是否支持后台运行？
+### 2、TUICalling 是否支持后台运行？
 
 支持，如需要进入后台仍然运行相关功能，可选中当前工程项目，在 **Capabilities** 下的设置  **Background Modes** 打开为 **ON**，并勾选 **Audio，AirPlay and Picture in Picture** ，如下图所示：
 ![](https://main.qcloudimg.com/raw/d960dfec88388936abce2d4cb77ac766.jpg)
+
