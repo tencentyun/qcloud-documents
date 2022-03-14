@@ -293,7 +293,7 @@ callingImpl.call(userIDs, TUICalling.Type.VIDEO);
 
 IM SDK 支持离线推送，但是 Android 端各个手机厂商均有各自的离线推送服务，因此接入复杂度要高于 iOS 平台，您需要进行相应的设置才能达到可用标准。
 
-1. 申请对应厂商的推送渠道需要的证书等，并将其配置到即时通信 IM 控制台中，按照推送要求增加证书和 ID 等，详细的操作步骤请参见 [即时通信 IM > TPNS离线推送（Android）](https://cloud.tencent.com/document/product/269/68720)。
+1. 申请对应厂商的推送渠道需要的证书等，并将其配置到即时通信 IM 控制台中，按照推送要求增加证书和 ID 等，详细的操作步骤请参见 [即时通信 IM > TPNS离线推送（Android） ](https://cloud.tencent.com/document/product/269/68720)。
 2. 目前在 `TRTCCalling` 中已经集成了离线发送的函数，当配置好 App 的离线推送后，消息就可实现离线推送。
 
 [](id:api)
@@ -305,7 +305,6 @@ TUICalling 组件的 API 接口列表如下：
 | 接口函数        | 接口功能                                                  |
 | --------------- | --------------------------------------------------------- |
 | call            | C2C 邀请通话         |
-| queryOfflineCalling          | 查询离线消息(Android特有)                                      |
 | setCallingListener          | 设置监听器                                     |
 | setCallingBell          | 设置铃声(建议在30s以内)                                                 |
 | enableMuteMode | 开启静音模式    |
