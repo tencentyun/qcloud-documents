@@ -1,10 +1,6 @@
 qGPU 是腾讯云推出的 GPU 共享技术，支持在多个容器间共享 GPU 卡并提供容器间显存与算力强隔离的能力，从而在更小粒度使用 GPU 卡的基础上，保证业务安全，达到提高 GPU 使用率、降低用户成本的目的。
 qGPU 依托腾讯云容器服务 TKE 对外开源的 Nano GPU 框架，可实现对 GPU 算力与显存的细粒度调度，并支持多容器共享 GPU 与多容器跨 GPU 资源分配。同时依赖底层强大的 qGPU 隔离技术，可实现 GPU 显存和算力的强隔离，在通过共享使用 GPU 的同时，尽量保证业务性能与资源不受干扰。
 
-<dx-alert infotype="explain" title="">
- qGPU 目前正在内测中，如需使用请通过 [在线咨询](https://cloud.tencent.com/online-service?from=sales&source=PRESALE) 联系我们。
-</dx-alert>
-
 ## qGPU 功能及优势
 
 
