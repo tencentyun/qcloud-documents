@@ -73,7 +73,7 @@
 
 [](id:renew_formal)
 ### 更新正式版 License
-您可以登录 **[腾讯云视立方控制台](https://console.cloud.tencent.com/vcube)** 页面查看短视频正式版 License 的有效期，也可通过在 [消息订阅](https://console.cloud.tencent.com/message/subscription) 中订阅音视频终端引擎，配置**站内信**/**邮件**/**短信**/**微信**/**企微**等消息接收渠道，接收正式版 License 到期提醒。直播推流正式版 License 将在到期时间距离当前时间为30天、15天、7天、1天时各向您发送一次到期提醒，提示您及时续费以免影响正常业务运行。若您的短视频正式版 License 已到期，可进行如下操作进行续期：
+您可以登录 **[腾讯云视立方控制台](https://console.cloud.tencent.com/vcube)** 页面查看短视频正式版 License 的有效期，也可通过在 [消息订阅](https://console.cloud.tencent.com/message/subscription) 中订阅音视频终端 SDK，配置**站内信**/**邮件**/**短信**/**微信**/**企微**等消息接收渠道，接收正式版 License 到期提醒。直播推流正式版 License 将在到期时间距离当前时间为30天、15天、7天、1天时各向您发送一次到期提醒，提示您及时续费以免影响正常业务运行。若您的短视频正式版 License 已到期，可进行如下操作进行续期：
 1. 选择您需要更新有效期的短视频 License，单击对应视频模块中的 **更新有效期**。
 ![](https://main.qcloudimg.com/raw/a0e9a956644566f69a0b8d5293cdbf8e.png)
 2. 选择**未绑定**过的云点播流量资源包（如没有可更新有效期的资源包，可前往 [资源包购买页](https://buy.cloud.tencent.com/vcube) 购买），单击 **确定** 即可。

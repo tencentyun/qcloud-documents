@@ -34,7 +34,7 @@
 [](id:que5)
 ### 一个账号下能创建多个腾讯云视立方 License 吗？
 
-一个腾讯云视立方·音视频终端引擎项目整体视作一个 License 进行应用管理，一个腾讯云视立方 License 对应一个 Bundle ID 和 Package Name，管理此应用下的直播推流（RTMP 推流 + RTC 推流）和短视频（精简版/基础版）功能模块。
+一个音视频终端 SDK（腾讯云视立方）项目整体视作一个 License 进行应用管理，一个腾讯云视立方 License 对应一个 Bundle ID 和 Package Name，管理此应用下的直播推流（RTMP 推流 + RTC 推流）和短视频（精简版/基础版）功能模块。
 
 同一个账号下创建腾讯云视立方 License 的数量没有限制，可管理多个应用项目。为了方便用户管理，相同包名的腾讯云视立方 License 建议通过续期的方式延长有效时间。
 
@@ -92,14 +92,14 @@
 用户 A 以前购买了两个 10 TB 的直播流量资源包（有效期截止时间不同），获赠两个移动直播 License，并分两次绑定了同一组包名（实际上仅一个 License 有效）。在升级为腾讯云视立方 License 后，仅保留了有效期较长的 License 的绑定；另一个有效期较短的 License 被解除绑定关系，10TB 资源包被释放，用户 A 可以再次进行新的 License 绑定。
 
 [](id:que13)
-### 为什么子账户打开腾讯云视立方·音视频终端引擎控制台提示未授权？
+### 为什么子账户打开音视频终端 SDK（腾讯云视立方）控制台提示未授权？
 #### 问题截图：
 <img src="https://main.qcloudimg.com/raw/7423d2e7912de344052c7891629d528b.png" width=400px>
 
 #### 问题解析：
-音视频终端引擎控制台需要主账号为子账号独立进行授权策略后方可访问控制台页面。
-- 若您仅需要提供子账号访问音视频终端引擎控制台只读的权限，请授权 QcloudVCUBEReadOnlyAccess 策略。
-- 若您需要提供子账访问音视频终端引擎号所有操作权限，请授权 QcloudVCUBEFullAccess 策略。
+音视频终端 SDK 控制台需要主账号为子账号独立进行授权策略后方可访问控制台页面。
+- 若您仅需要提供子账号访问音视频终端 SDK 控制台只读的权限，请授权 QcloudVCUBEReadOnlyAccess 策略。
+- 若您需要提供子账号访问音视频终端 SDK 所有操作权限，请授权 QcloudVCUBEFullAccess 策略。
 为用户/用户组关联策略以授权相关操作权限的关联指引请参见 [策略授权管理](https://cloud.tencent.com/document/product/598/10602)。
 
 #### 相关问题：
@@ -107,5 +107,5 @@
 - [子账户为什么无法访问点播控制台 License 相关界面？](https://cloud.tencent.com/document/product/266/50296#que12)
 
 [](id:que14)
-### 为什么接收不到音视频终端引擎产品和 License 相关消息通知？
-您可以通过在 [消息订阅](https://console.cloud.tencent.com/message/subscription) 中订阅音视频终端引擎，配置**站内信**/**邮件**/**短信**/**微信**/**企微**等消息接收渠道，接收正式版 License 到期提醒。正式版 License 将在到期时间距离当前时间为30天、15天、7天、1天时各向您发送一次到期提醒，提示您及时续费以免影响正常业务运行。
+### 为什么接收不到音视频终端 SDK 产品和 License 相关消息通知？
+您可以通过在 [消息订阅](https://console.cloud.tencent.com/message/subscription) 中订阅音视频终端 SDK，配置**站内信**/**邮件**/**短信**/**微信**/**企微**等消息接收渠道，接收正式版 License 到期提醒。正式版 License 将在到期时间距离当前时间为30天、15天、7天、1天时各向您发送一次到期提醒，提示您及时续费以免影响正常业务运行。

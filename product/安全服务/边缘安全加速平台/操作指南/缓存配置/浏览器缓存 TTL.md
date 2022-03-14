@@ -16,5 +16,7 @@
  - 自定义时间：自定义资源缓存时长。
    
 
+附：整体缓存策略内容如下：
+![](https://qcloudimg.tencent-cloud.cn/raw/7003adde1ed2ea809815b3bb483ffc7a.png)
 
 
