@@ -90,6 +90,7 @@ Service Local 模式下仅绑定有 Pod 存在的节点。
 :::
 ::: service.kubernetes.io/service.extensiveParameters
 **说明：**
+该 Annotation 使用的是 CLB 创建时的参数，当前仅在创建时支持配置，创建后不支持修改，创建后修改本注解无效。
 参考 [创建负载均衡实例](https://cloud.tencent.com/document/product/214/30692) 为创建负载均衡追加自定义参数。
 **使用示例：**
 - 创建 NAT64 IPv6 实例：
@@ -106,6 +107,7 @@ Service Local 模式下仅绑定有 Pod 存在的节点。
 :::
 ::: kubernetes.io/service.internetChargeType
 **说明：**
+负载均衡的付费类型，当前仅在创建时支持配置，创建后不支持修改付费类型，创建后修改本注解无效。
 指定创建负载均衡时，负载均衡的付费类型。请配合 `kubernetes.io/service.internetMaxBandwidthOut` 注解一起使用。
 **可选值：**
 
@@ -116,7 +118,7 @@ BANDWIDTH_POSTPAID_BY_HOUR 按带宽按小时后计费。
 :::
 ::: kubernetes.io/service.internetMaxBandwidthOut
 **说明：**
-CLB 带宽设置，当前仅在创建时支持，创建后不支持修改带宽，创建后修改本注解无效。
+CLB 带宽设置，当前仅在创建时支持配置，创建后不支持修改带宽，创建后修改本注解无效。
 指定创建负载均衡时，负载均衡的最大出带宽，仅对公网属性的 LB 生效。需配合 `kubernetes.io/service.internetChargeType` 注解一起使用。
 
 **可选值：**
