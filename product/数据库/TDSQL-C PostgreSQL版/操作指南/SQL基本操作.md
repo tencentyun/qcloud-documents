@@ -1,9 +1,10 @@
 
 ## 查询版本
 ```
-postgres=# select cynosdb_version(); 
-————————
- CynosDB 1.0
+postgres=> select tdsqlc_version();
+    tdsqlc_version    
+----------------------
+ TDSQLCPG v10.17-r1.2
 (1 row)
 ```
 
@@ -80,4 +81,3 @@ CREATE INDEX
 postgres=# CREATE INDEX test2_expr ON test2 ((major + minor));
 CREATE INDEX
 ```
-
