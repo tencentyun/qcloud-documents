@@ -121,7 +121,7 @@ cd go2tencentcloud
   </tr>
 </table>
 <dx-alert infotype="explain" title="">
-- 源端主机检查可以使用工具命令自动检查，如 `sudo ./go2tencentcloud_x64 --check`。
+- 源端主机检查可以使用工具命令自动检查，如 `./go2tencentcloud_x64 --no-console --check`。
 - go2tencentcloud 迁移工具在开始运行时，默认自动检查。如果需要略过检查强制迁移，请将 client.json 文件中的 `Client.Extra.IgnoreCheck` 字段配置为 `true`。
 </dx-alert>
 
