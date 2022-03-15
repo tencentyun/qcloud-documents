@@ -81,5 +81,8 @@ HLS（全称 HTTP Live Streaming）是 Apple 的动态码率自适应技术，�
 ### 查看直播间
 1. 前往“服务器”页面，进入 SRS 实例详情页。
 2. 选择**应用管理**页签，单击“应用内软件信息”中的“访问地址”，进入 SRS 后台管理页面。
-3. 单击 **HTTP-FLV流**或 **HLS流**，即可查看直播画面。如下图所示：
+3. 单击 **HTTP-FLV流**或 **HLS流**，即可查看直播画面。
+ ![](https://qcloudimg.tencent-cloud.cn/raw/3def08ab0d4c3cadeed714783dced090.png)
+直播画面如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/cd18a87b3f37189236828103728ee872.png)
 
