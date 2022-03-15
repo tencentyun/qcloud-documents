@@ -35,7 +35,7 @@ Strict-Transport-Security: max-age=expireTime [; includeSubDomains] [; preload]
 >?
 >- 开启 HSTS 前，请确保域名证书已部署，HTTPS 请求可正常响应。
 >- 启用 HSTS 时建议您同步启用 [强制 HTTPS](#QZ)，否则当请求为 HTTP 时，浏览器将不执行 HSTS 配置。
->- max-age 可配置范围为1-31536000 秒。
+>- max-age 可配置范围为1-31536000秒。
 
 ### TLS 版本
 在 TLS 版本模块中，单击**编辑**，选择所需版本，单击**保存**。
