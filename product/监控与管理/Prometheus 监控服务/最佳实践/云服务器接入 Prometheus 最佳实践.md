@@ -1,6 +1,6 @@
 本文将详细为您介绍腾讯云云服务器（CVM）如何从0开始接入 Prometheus 监控服务。
 
-## 购买 Prometheus 实例
+## 购买 Prometheus
 >?购买的 Prometheus 实例需跟监控的云服务器同一个 vpc 下，能实现网络互通。
 
 1. 登录 [Prometheus 监控服务控制台](https://console.cloud.tencent.com/monitor/prometheus)，单击**新建**购买 Prometheus 实例 。 
