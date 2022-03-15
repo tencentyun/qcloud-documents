@@ -52,7 +52,7 @@ service grafana-server restart
 1. 在浏览器中访问地址  `http://${GrafanaIP地址}:3000` （默认端口为3000），登录 Grafana。
 2. 在左侧菜单栏中，选择设置图标，进入 **Plugins** 页面，选中 **Tencent Cloud Monitor** 插件，并在 **Config** 页面单击 **Enable** 进行插件启用。
 3. 在 **Data Sources** 页面，单击 **Add data source**。
-4. 选中 **Tencent Cloud Monitor**，按照页面内说明，填写数据源名称，腾讯云访问密钥，勾选日志服务，并单击**保存**。
+4. 选中 **Tencent Cloud Monitor**，按照页面内说明，填写数据源名称，腾讯云 [访问密钥](https://console.cloud.tencent.com/cam/capi)，勾选日志服务，并单击**保存**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/cc9c03e32dc963fbc42f7999f7098e62.png)
 
 ### 试用 CLB-DEMO 的预设仪表盘
