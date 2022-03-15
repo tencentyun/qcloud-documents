@@ -2,7 +2,7 @@
 
 ## 记录管理[](id:record)
 EdgeOne DNS 支持多种记录类型的智能解析服务，根据用户所在地理位置及运营商智能返回最佳解析线路。
-1. 登录 [边缘安全加速平台控制台](https://console.cloud.tencent.com/teo) ，在左侧菜单栏中，单击 **DNS 服务**。
+1. 登录 [边缘安全加速平台控制台](https://console.cloud.tencent.com/teo)，在左侧菜单栏中，单击 **DNS 服务**。
 2. 在 DNS 服务页面，选择所需站点，单击**记录管理** 。
 3. 在记录管理页面，选择所需记录，单击**编辑**，编辑相关参数，单击**保存**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/51099ccc2bed87d3919e781ad520a712.png)
@@ -151,7 +151,7 @@ EdgeOne DNS 支持多种记录类型的智能解析服务，根据用户所在�
 </thead>
 <tbody><tr>
 <td align="left">A/AAAA/CNAME</td>
-<td align="left">可选择<strong>仅DNS/代理加速/安全加速</strong>，默认为安全加速</td>
+<td align="left">可选择<strong>仅 DNS/代理加速/安全加速</strong>，默认为安全加速</td>
 </tr>
 <tr>
 <td align="left">MX/TXT/NS</td>
@@ -188,7 +188,7 @@ EdgeOne DNS 支持多种记录类型的智能解析服务，根据用户所在�
 DNSSEC (DNS Security Extension，DNS 安全扩展) 通过数字签名对 DNS 数据来源进行认证，有效保护解析结果的安全性与完整性，常用于应对 DNS 欺骗和 DNS 缓存污染。
 
 1. 登录 [边缘安全加速平台控制台](https://console.cloud.tencent.com/teo) ，在左侧菜单栏中，单击 **DNS 服务**。
-2. 在 DNS 服务页面，选择所需站点，单击**高级配置** 。
+2. 在 DNS 服务页面，选择所需站点，单击**高级配置**。
 3. 在高级配置页面，单击 DNSSEC 模块的![](https://qcloudimg.tencent-cloud.cn/raw/20efaa7f4ecc99b93da623f1c61784ac.png)，经过二次确认后，开启 DNSSEC 功能并生成 DS 信息。
 ![](https://qcloudimg.tencent-cloud.cn/raw/80d1829fa50c81075caa075677f95240.png)
 ![](https://qcloudimg.tencent-cloud.cn/raw/61663e5e8ba50eec690a4d46c34b04af.png)
@@ -206,14 +206,14 @@ DNSSEC (DNS Security Extension，DNS 安全扩展) 通过数字签名对 DNS 数
 >- 自定义 NS 需至少有 2 个，最多可添加 5 个。
 >- 首次开启需添加两个自定义 NS 域名，自定义名称不能和现有 DNS 记录冲突。
 
-1. 在 [DNS 服务页面](https://console.cloud.tencent.com/edgeone/dns?tab=config)，选择所需站点，单击**高级配置** 。
+1. 在 [DNS 服务页面](https://console.cloud.tencent.com/edgeone/dns?tab=config)，选择所需站点，单击**高级配置**。
 2. 在高级配置页面，单击自定义 NS 服务模块的![](https://qcloudimg.tencent-cloud.cn/raw/20efaa7f4ecc99b93da623f1c61784ac.png)，输入自定义 NS 域名，单击**添加**。
 3. 添加成功后，**需要在域名注册商添加该自定义 NS 的胶水记录，才能真正生效**。
 
 ### CNAME 加速[](id:up)
 开启后可有效提升解析速度，当域名在 EdgeOne DNS 设置多级 CNAME 记录时，系统将直接给出最终 IP 解析结果，减少解析次数。此功能默认开启。
 
-1. 在 [DNS 服务页面](https://console.cloud.tencent.com/edgeone/dns?tab=config)，选择所需站点，单击**高级配置** 。
+1. 在 [DNS 服务页面](https://console.cloud.tencent.com/edgeone/dns?tab=config)，选择所需站点，单击**高级配置**。
 2. 在高级配置页面，单击 CNAME 加速模块的“开关”，可关闭或开启 CNAME 加速功能。
 >?多级 CNAME 必须全部在 EdgeOne DNS，才能实现 IP 直出。
 
