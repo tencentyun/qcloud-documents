@@ -64,7 +64,7 @@
 1. 找到并打开 `LiteAVSDK_Professional_iOS_版本号/MLVB-API-Example-OC/Debug/GenerateTestUserSig.h` 文件。
 2. 根据上面  [服务开通](#step41) 设置  [GenerateTestUserSig.h](https://github.com/LiteAVSDK/Live_iOS/tree/main/MLVB-API-Example-OC/Debug/GenerateTestUserSig.h)  文件中的相关参数：
  - SDKAppID：默认为 0 ，请设置为实际的 SDKAppID。
- - SECRETKEY：默认为空 ，请设置为实际的密钥信息。
+ - SECRETKEY：默认为空 ，请设置为实际的秘钥信息。
  <img src="https://main.qcloudimg.com/raw/861170156910720be7ba980bcb625ceb.png" width=700px>
 
 [](id:pushurl)
