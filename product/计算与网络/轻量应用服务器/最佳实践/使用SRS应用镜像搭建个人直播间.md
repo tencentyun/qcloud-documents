@@ -70,8 +70,8 @@ HLS（全称 HTTP Live Streaming）是 Apple 的动态码率自适应技术，�
  - **服务器**：输入 [步骤5](#Step5) 中已获取的 OBS 推流地址。
  - **串流密钥**：输入 [步骤5](#Step5) 中已获取的串流密钥。
 5. 单击**确定**。
-6. 在主界面的“媒体源设置”中选择**媒体源**。如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/481b97eeff70659d9cce6111d6914ecb.png)
+6. 在主界面的“媒体源设置”中选择**媒体源**，并单击“直播设置”中的**开始推流**。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/415a1ca1d1e18fb1987c913d8cfe17fb.png)
 7. 在弹出的“创建或选择源”窗口中，按需创建或选择已有源，单击**确定**。
 8. 在弹出“属性 '媒体源'”窗口中，选择要推流（直播）的内容。本文以选择本地的视频资源为例，如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/1d8051c9e6382f850fd5eb52067e8c26.png)
