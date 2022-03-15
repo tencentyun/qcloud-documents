@@ -6,7 +6,7 @@
 - 路径：`/_metric/${metric_name}`，`${metric_name}` 为新建的 metric 的名称。
 - 方法：PUT
 
->?`metric` 命名限制请参见 [系统限制](https://cloud.tencent.com/document/product/652/13611)。
+>?`metric` 命名限制请参见 [系统限制](https://cloud.tencent.com/document/product/652/31936#.E5.91.BD.E5.90.8D.E8.A7.84.E5.88.99)。
 
 ## 请求参数 
 无
