@@ -132,7 +132,7 @@ cd go2tencentcloud
 执行以下命令，运行工具。
 本文以64位 Linux 源端主机为例，进入 go2tencentcloud_tool 文件目录，并以 root 权限执行以下命令运行工具。
 ```sh
-sudo ./go2tencentcloud_x64
+sudo ./go2tencentcloud_x64 --no-console
 ```
 
 ### 等待迁移结束
