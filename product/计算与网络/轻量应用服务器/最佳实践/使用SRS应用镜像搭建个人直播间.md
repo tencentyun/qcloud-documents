@@ -1,5 +1,5 @@
 ## 操作场景
-SRS 是开源且简单高效的实时音视频服务器，支持通过 RTMP、SRT、WebRTC、GB28181来推流，并以 RTMP、HTTP-FLV、HLS、SRT、WebRTC 来播放。SRS 还支持将接入的 RTMP 流进行各种变换，例如将 RTMP 流转码、流截图转发给其他服务器，转封装为 HTTP-FLV 流、HLS、DASH，或录制成 FLV 及 MP4。
+SRS 是一个简单高效的实时视频服务器，支持 RTMP、WebRTC、HLS、HTTP-FLV、SRT/GB28181。
 
 轻量应用服务器提供了 SRS 应用镜像，使您无需再关注繁杂的部署操作，即可通过该镜像在轻量应用服务器上一键搭建个人直播间。
 
