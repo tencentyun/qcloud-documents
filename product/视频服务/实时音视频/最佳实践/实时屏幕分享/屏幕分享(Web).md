@@ -29,12 +29,12 @@ const shareStream = TRTC.createStream({ camera: true, screenAudio: true });
 </dx-codeblock>
 
 >! 
->- audio 与 screenAudio 属性不能同时设为true，camera 与 screenAudio 属性不能同时设为true。关于 screenAudio 更多信息会在本文第五部分介绍。
->- camera 与 screen 属性不能同时设为true。
+>- audio 与 screenAudio 属性不能同时设为true，camera 与 screenAudio 属性不能同时设为 true。关于 screenAudio 更多信息会在本文第五部分介绍。
+>- camera 与 screen 属性不能同时设为 true。
 
 ### 步骤2：初始化屏幕分享流
 初始化时浏览器会向用户请求屏幕共享的内容和权限，如果用户拒绝授权或者系统未授予浏览器屏幕分享的权限，代码会捕获到 `NotReadableError` 或者 `NotAllowedError` 错误，这时需要引导用户进行浏览器设置或者系统设置开启屏幕共享权限，并且重新初始化屏幕分享流。
->! 由于 Safari 的限制，屏幕分享流的初始化操作，必须在点击事件的回调中完成，该问题详细介绍请参见本文 [常见问题](#常见问题)
+>! 由于 Safari 的限制，屏幕分享流的初始化操作，必须在点击事件的回调中完成，该问题详细介绍请参见本文 [常见问题](#que)。
 
 <dx-codeblock>
 :::javascript
@@ -271,14 +271,10 @@ await shareStream.initialize();
 
 ![](https://main.qcloudimg.com/raw/4e990a612028480c9c36419d96ea64b7.png)
 
-## 常见问题
+## 常见问题[](id:que)
 
-1. Safari 屏幕分享出现报错 `getDisplayMedia must be called from a user gesture handler`
-
-这是因为 Safari 限制了 `getDisplayMedia` 屏幕采集的接口，必须在用户点击事件的回调函数执行的 1 秒内才可以调用。
-
-参考：[webkit issue](https://bugs.webkit.org/show_bug.cgi?id=198040)。
-
+1. **Safari 屏幕分享出现报错 `getDisplayMedia must be called from a user gesture handler`**
+因为 Safari 限制了 `getDisplayMedia` 屏幕采集的接口，必须在用户点击事件的回调函数执行的 1 秒内才可以调用。请参见  [webkit issue](https://bugs.webkit.org/show_bug.cgi?id=198040)。
 ```javascript
 // good
 async function onClick() {
