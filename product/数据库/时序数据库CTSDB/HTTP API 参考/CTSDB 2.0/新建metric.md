@@ -5,7 +5,7 @@
 - 路径：`/_metric/${metric_name}`，`${metric_name}` 为新建的 metric 的名称。
 - 方法：PUT
 
->?`metric` 命名限制请参见 [系统限制](https://cloud.tencent.com/document/product/652/70937#xtxz)。
+>?`metric` 命名限制请参见 [系统限制](https://cloud.tencent.com/document/product/652/31936#.E5.91.BD.E5.90.8D.E8.A7.84.E5.88.99)。
 
 ## 请求参数
 无
@@ -47,7 +47,7 @@
 | > 7天，≤ 20天   | 3天      |
 | > 20天，≤ 49天  | 7天      |
 | > 49天，≤ 3个月 | 15天     |
-| ＞3个月         | 30天     |
+| > 3个月         | 30天     |
 | 永不过期        | 30天     |
 
 ## 返回内容
@@ -56,7 +56,7 @@
 ## CURL 示例说明
 请求：
 ```
-curl -u root:le201909 -H 'Content-Type:application/json' -X PUT 172.16.345.14:9201/_metric/ctsdb_test -d'
+curl -u root:le201909 -H 'Content-Type:application/json' -X PUT 172.xx.xx.4:9201/_metric/ctsdb_test -d'
 {
     "tags":
     {

@@ -18,7 +18,7 @@
 
 ### CURL 示例说明
 请求：
-`curl -u root:le201909 -H 'Content-Type:application/json' -X GET 172.16.345.14:9201/_metrics`
+`curl -u root:le201909 -H 'Content-Type:application/json' -X GET 172.xx.xx.4:9201/_metrics`
 
 返回：
 
@@ -55,7 +55,7 @@
 
 ### CURL 示例说明
 请求：
-`curl -u root:le201909 -H 'Content-Type:application/json' -X GET 172.16.345.14:9201/_metric/ctsdb_test`
+`curl -u root:le201909 -H 'Content-Type:application/json' -X GET 172.xx.xx.4:9201/_metric/ctsdb_test`
 
 返回：
 ```

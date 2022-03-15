@@ -139,7 +139,7 @@ MariaDB 迁移到 MySQL，由于不同的数据库类型之间功能有略微差
 <li>目标库 max_allowed_packet 参数设置数值至少为4M。</li></td></tr>
 <tr> 
 <td>其他要求</td>
-<td>环境变量 innodb_stats_on_metadataw 必须设置为 OFF。</td></tr>
+<td>环境变量 innodb_stats_on_metadata 必须设置为 OFF。</td></tr>
 </table>
 
 ## 操作步骤
