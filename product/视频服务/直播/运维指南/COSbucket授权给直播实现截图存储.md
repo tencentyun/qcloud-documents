@@ -20,7 +20,7 @@
 
 1.为腾讯云截图存储开通数据写入权限，授权的主账号 ID：`3508645126`。
 
-1. 在存储桶的 **[存储桶列表](https://console.cloud.tencent.com/cos5/bucket)** 选择授权的存储桶，单击右侧 **配置管理** 进入该存储桶配置管理界面，选择 **权限管理**> **[存储桶访问权限](https://console.cloud.tencent.com/cos5/bucket/setting?type=aclconfig&anchorType=accessPermission&bucketName=text-1258968577&projectId=&path=%2F®ion=ap-guangzhou)** 添加用户，用户类型选择根账号，**并输入主账号 ID：`3508645126`**。单击 **保存**。
+1. 在存储桶的 **[存储桶列表](https://console.cloud.tencent.com/cos5/bucket)** 选择授权的存储桶，单击右侧 **配置管理** 进入该存储桶配置管理界面，选择 **权限管理**> **[存储桶访问权限](https://console.cloud.tencent.com/cos5/bucket/setting?type=aclconfig&anchorType=accessPermission&bucketName=text-1258968577&projectId=&path=%2F®ion=ap-guangzhou)** 添加用户，用户类型选择主账号，**并输入主账号 ID：`3508645126`**。单击 **保存**。
 ![](https://main.qcloudimg.com/raw/9105686a61bb5b846741d7326c9b8d1b.png)
 ![](https://qcloudimg.tencent-cloud.cn/raw/d455559075434161c20d6776c521b3e1.png)
 或单击 **授权管理** 进入授权管理界面，勾选需授权的存储桶，打开 **公共权限** 和 **用户权限** 按钮添加用户。用户类型选择主账号，**并输入主账号 ID：`3508645126`**。单击 **保存** 并 **确定**。
