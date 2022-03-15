@@ -31,7 +31,7 @@ FE 启动后，可以通过以下命令动态设置配置项。该命令需要�
 更多该命令的帮助，可以通过 `HELP ADMIN SET CONFIG;` 命令查看。
 
 3. 通过 HTTP 协议动态配置。
-具体请参阅 [Set Config Action](http://doris.apache.org/master/zh-CN/administrator-guide/http-actions/fe/set-config-action.html)。该方式也可以持久化修改后的配置项。配置项将持久化在 `fe_custom.conf` 文件中，在 FE 重启后仍会生效。
+该方式也可以持久化修改后的配置项。配置项将持久化在 `fe_custom.conf` 文件中，在 FE 重启后仍会生效。
 
 ## 应用举例
 1. 修改 `async_pending_load_task_pool_size`。
