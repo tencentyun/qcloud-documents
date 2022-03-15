@@ -1,6 +1,6 @@
 在[ NS 接入方式](https://cloud.tencent.com/document/product/1552/70825#NS) 下，支持通过修改 NS 记录，将 DNS 解析权转移给 EdgeOne，实现稳定专业的解析服务的同时，一键开启 EdgeOne 安全/加速服务。
 
-## 记录管理
+## 记录管理[](id:record)
 EdgeOne DNS 支持多种记录类型的智能解析服务，根据用户所在地理位置及运营商智能返回最佳解析线路。
 1. 登录 [边缘安全加速平台控制台](https://console.cloud.tencent.com/teo) ，在左侧菜单栏中，单击 **DNS 服务**。
 2. 在 DNS 服务页面，选择所需站点，单击**记录管理** 。
@@ -171,7 +171,7 @@ EdgeOne DNS 支持多种记录类型的智能解析服务，根据用户所在�
 >- 实际情况一般 LDNS 缓存配置不一定遵循 TTL，导致解析记录更新生效时间经常远大于 TTL。
 
 
-## 切换 CNAME 接入
+## 切换 CNAME 接入[](id:change)
 在 NS 接入页面，单击列表右上角的**切换为 CNAME 接入**，可以切换至 CNAME 接入模式。首次切换需要进行 [站点验证](https://cloud.tencent.com/document/product/1552/70789)，如站点之前已经验证过，则会跳过验证，直接完成切换。切换之后：
 - 保留原有的 DNS 记录，A/AAAA/CNAME 记录可以编辑/删除，MX/NS/TXT 记录无法编辑只能删除。
 - 继承所有记录原有的代理模式，其中代理模式为“仅 DNS”的记录，切换后会变成“关闭代理”的状态。
@@ -184,7 +184,7 @@ EdgeOne DNS 支持多种记录类型的智能解析服务，根据用户所在�
 ## 高级配置
 支持 DNSSEC、自定义 NS 服务器、CNAME 加速等高级配置。
 
-### DNSSEC
+### DNSSEC[](id:dnsses)
 DNSSEC (DNS Security Extension，DNS 安全扩展) 通过数字签名对 DNS 数据来源进行认证，有效保护解析结果的安全性与完整性，常用于应对 DNS 欺骗和 DNS 缓存污染。
 
 1. 登录 [边缘安全加速平台控制台](https://console.cloud.tencent.com/teo) ，在左侧菜单栏中，单击 **DNS 服务**。
@@ -199,7 +199,7 @@ DNSSEC (DNS Security Extension，DNS 安全扩展) 通过数字签名对 DNS 数
  - [name.com](https://www.name.com/support/articles/205439058-Managing-DNSSEC)
  - [Public Domain Registry](http://manage.publicdomainregistry.com/kb/answer/1909)
 
-### 自定义 NS 服务器
+### 自定义 NS 服务器[](id:customize)
 自定义名称服务器允许您创建自己站点专属的名称服务器，以替代所分配默认名称服务器。创建后 EdgeOne 会自动为自定义 NS 分配对应的 IP 地址。
 >?自定义 NS 服务器有如下限制：
 >- 只能以当前站点 (example.com) 的子域名 (ns.example.com) 作为自定义 NS。
@@ -210,7 +210,7 @@ DNSSEC (DNS Security Extension，DNS 安全扩展) 通过数字签名对 DNS 数
 2. 在高级配置页面，单击自定义 NS 服务模块的![](https://qcloudimg.tencent-cloud.cn/raw/20efaa7f4ecc99b93da623f1c61784ac.png)，输入自定义 NS 域名，单击**添加**。
 3. 添加成功后，**需要在域名注册商添加该自定义 NS 的胶水记录，才能真正生效**。
 
-### CNAME 加速
+### CNAME 加速[](id:up)
 开启后可有效提升解析速度，当域名在 EdgeOne DNS 设置多级 CNAME 记录时，系统将直接给出最终 IP 解析结果，减少解析次数。此功能默认开启。
 
 1. 在 [DNS 服务页面](https://console.cloud.tencent.com/edgeone/dns?tab=config)，选择所需站点，单击**高级配置** 。

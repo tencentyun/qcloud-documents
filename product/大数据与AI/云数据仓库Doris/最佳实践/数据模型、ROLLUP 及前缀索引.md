@@ -449,7 +449,6 @@ Base 表结构如下：
 * 可以通过 `EXPLAIN your_sql;` 命令获得查询执行计划，在执行计划中，查看是否命中 ROLLUP。
 * 可以通过 `DESC tbl_name ALL;` 语句显示 Base 表和所有已创建完成的 ROLLUP。
 
-在这篇文档中可以查看 [查询如何命中 Rollup](hit-the-rollup)。
 
 ## 聚合模型的局限性
 
