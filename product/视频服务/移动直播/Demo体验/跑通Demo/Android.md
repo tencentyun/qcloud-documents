@@ -49,7 +49,7 @@
 
 1. 登录**云直播控制台**，选择 **连麦管理** > **[连麦应用](https://console.cloud.tencent.com/live/micro/appmanage)**。
 2. 单击  **新建连麦应用** ，输入应用名称，例如  `V2Demo` ，单击  **确定** 。
-3. 创建成功后，单击应用列表中 **应用名称** 为  `V2Demo`  这行右侧的 **管理** ，查看应用对应的 `SDKAppID` 和 `密钥` 信息。
+3. 创建成功后，单击应用列表中 **应用名称** 为  `V2Demo`  这行右侧的 **管理** ，查看应用对应的 `SDKAppID` 和 `秘钥` 信息。
 ![](https://qcloudimg.tencent-cloud.cn/raw/9c4fa13e11ac39c9c5b5092d49ea4713.png)
 4. 若您的播放端需要进行 CDN 播放，则需要在 **连麦管理** > **[连麦应用](https://console.cloud.tencent.com/live/micro/appmanage)** 中选择 `V2Demo` 行右侧的 **管理**，选择 **CDN 观看配置** 页，开启 **旁路推流** 功能。
 ![](https://qcloudimg.tencent-cloud.cn/raw/c1b6acb80cc162e9e8cdb4c79546eefb.png)
