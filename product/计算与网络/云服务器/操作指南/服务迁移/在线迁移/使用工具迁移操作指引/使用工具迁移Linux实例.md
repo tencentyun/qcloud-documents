@@ -29,13 +29,6 @@ unzip go2tencentcloud.zip
 ```sh
 cd go2tencentcloud
 ```
-    2. 依次执行以下命令，解压 go2tencentcloud_tool.zip 并进入目录。
-```sh
-unzip go2tencentcloud_tool.zip
-```
-```sh
-cd go2tencentcloud_tool
-```
 <dx-alert infotype="explain" title="">
 `go2tencentcloud` 目录下的文件将不会被迁移，请勿将需迁移的文件放置在该目录下。
 </dx-alert>
