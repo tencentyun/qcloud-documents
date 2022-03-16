@@ -28,8 +28,8 @@
 
 以下会为您介绍每个 API 的含义，基础方法是创建 TRTC 房间，使用 TRTC 服务的必用的 API，如果您需要主动改变推流的一些状态属性，您则需要调用 pusher 和 player 的属性变更的 API，如果您需要更多的功能，您也可以直接获取相关的实例，调用我们 SDK 开放的能力。
 
-### trtc-wx与\<live-pusher>/\<live-player>的关系
-trtc-wx sdk 意在帮助用户处理原生标签复杂的状态码以及各种属性状态变更。用户通过对<live-pusher>/<live-player>标签绑定回调，从而与trtx-wx.js建立联系，通过sdk内部处理，抛出[回调事件](#Event)。
+### trtc-wx 与&lt;live-pusher&gt;/&lt;live-player&gt;的关系
+trtc-wx SDK 意在帮助用户处理原生标签复杂的状态码以及各种属性状态变更。用户通过对&lt;live-pusher&gt;/&lt;live-player&gt;标签绑定回调，从而与 trtx-wx.js 建立联系，通过 SDK 内部处理，抛出 [回调事件](#Event)。
 <dx-codeblock>
 ::: javascript javascript
 
@@ -69,13 +69,14 @@ trtc-wx sdk 意在帮助用户处理原生标签复杂的状态码以及各种�
 :::
 </dx-codeblock>
 
-下载：[demo 代码](https://web.sdk.qcloud.com/trtc/miniapp/download/trtc-wx.zip)
+>? 单击下载 [Demo 代码](https://web.sdk.qcloud.com/trtc/miniapp/download/trtc-wx.zip)。
+
 ### 基础方法
 
 您可以通过这些方法完成事件监听，并创建 TRTC 房间，获取远端的拉流信息等操作。
 
 | API                                                          | 描述                                                    |
-| :----------------------------------------------------------- | :------------------------------------------------------ |
+| ---------------------------------------------------------- | :------------------------------------------------------ |
 | [on(EventCode, handler, context)](#on(eventcode.2C-handler.2C-context)) | 用于监听组件派发的事件，详细事件请参见 [事件表](#Event) |
 | [off(EventCode, handler)](#off(eventcode.2C-handler))        | 取消事件监听                                            |
 | [createPusher(pusherAttributes)](#createpusher(pusherattributes)) | 创建推流实例                                            |
@@ -209,7 +210,7 @@ this.TRTC.createPusher({'frontCamera': 'back'})
 | userSig  | String | -      | 必填，您服务器签发的 userSig                                 |
 | roomID   | Number | -      | 必填，您要进入的房间号，如该房间不存在，系统会为您自动创建   |
 | strRoomID   | String | -      | 选填，您要进入的字符串房间号，如填写该参数，将优先进入字符串房间   |
-| userDefineRecordId   | String | -      | 选填，设置云端录制完成后的回调消息中的 "userdefinerecordid" 字段内容，便于您更方便的识别录制回调。<li>**推荐取值：**限制长度为64字节，只允许包含大小写英文字母（a-zA-Z）、数字（0-9）及下划线和连词符。</li><li>**参考文档： **[云端录制](https://cloud.tencent.com/document/product/647/16823)。 </li>   |
+| userDefineRecordId   | String | -      | 选填，设置云端录制完成后的回调消息中的 "userdefinerecordid" 字段内容，便于您更方便的识别录制回调。<li>**推荐取值：**限制长度为64字节，只允许包含大小写英文字母（a-zA-Z）、数字（0-9）及下划线和连词符。</li><li>**参考文档：**[云端录制](https://cloud.tencent.com/document/product/647/16823)。 </li>   |
 | scene    | String | 'rtc'  | 选填，必填参数，使用场景：<li>rtc：实时通话，采用优质线路，同一房间中的人数不应超过300人。</li><li>live：直播模式，采用混合线路，支持单一房间十万人在线（同时上麦的人数应控制在50人以内）</li> |
 
 >! 
@@ -223,7 +224,7 @@ this.TRTC.createPusher({'frontCamera': 'back'})
 >  - 支持平滑上下麦，切换过程无需等待，主播延时小于300ms。
 >  - 适用场景：视频低延时直播、十万人互动课堂、视频相亲、在线教育、远程培训、超大型会议等。
 
->? 其他 [pusherAttributes](#pusherAttributes) 需要设置也可以在这里进行设置。
+其他 [pusherAttributes](#pusherAttributes) 需要设置也可以在这里进行设置。
 
 #### 返回值：
 pusherAttributes
@@ -336,7 +337,7 @@ this.setData({
 
 | 参数名 | 类型   | 默认值 | 说明                                                      |
 | :----- | :----- | :----- | :-------------------------------------------------------- |
-| id     | String | -      | 您需要改变状态的 player 的 id                             |
+| id     | String | -      | 您需要改变状态的 player 的 ID                             |
 | config | Object | -      | 您可以设置 [playerAttributes](#playerAttributes) 中的属性 |
 
 #### 返回值：
