@@ -9,13 +9,13 @@ QUIC（Quick UDP Internet Connections）是一个通用的网络协议，提供�
 ## 操作步骤
 1. 登录 [边缘安全加速平台控制台](https://console.cloud.tencent.com/teo)，在左侧菜单栏中，单击**站点加速** > **网络优化**。
 2. 在网络优化页面，选择所需站点，单击 HTTP/3 (QUIC) 模块的“开关”，开启或关闭 HTTP/3 (QUIC) 功能。
-![](https://qcloudimg.tencent-cloud.cn/raw/7a2e8bd1b9afd9eec56243e50a71fc4f.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/8091a9a754ea261a20135ed4cb202c5d.png)
 **参数说明：**
  - 关闭状态（默认）：不支持 QUIC 请求。
  - 开启状态：支持 HTTP/3 (QUIC)  请求，使用 QUIC 加速站点请求。
 >!
 >- 仅配置 HTTPS 证书后才生效，请先配置 HTTPS 证书。
->- 超出套餐内额度的 QUIC 请求数将单独按量后付费，具体收费请与腾讯云销售团队进行沟通。
+>- 超出套餐内额度的 QUIC 请求数将单独按量后付费。
 
 ## 注意事项
 1. 若同时开启 HTTP/2 和 HTTP/3 (QUIC) ，则根据实际客户端请求使用 HTTP/2 或 QUIC。
