@@ -8,33 +8,11 @@ TRTC Web SDK 屏幕分享支持度请查看 [浏览器支持情况](https://web.
 ## 创建和发布屏幕分享流
 >!请严格按照以下顺序执行创建和发布屏幕分享流的代码。
 
-### 步骤1：创建负责进行屏幕分享的客户端对象
-通常情况下，建议给 userId 加上前缀 `share_`，用来标识这是一个屏幕分享的客户端对象。
-
-<dx-codeblock>
-:::javascript
-const shareClient = TRTC.createClient({
-  mode: 'rtc',
-  sdkAppId,
-  userId, // 例如：‘share_teacher’
-  userSig
-});
-// 客户端对象进入房间
-try {
-  await shareClient.join({ roomId });
-  // ShareClient join room success
-} catch (error) {
-  // ShareClient join room failed
-}
-
-:::
-</dx-codeblock>
-
-### 步骤2：创建屏幕分享流
+### 步骤1：创建屏幕分享流
 屏幕分享流包含视频流和音频流。其中音频流分为麦克风音频或者系统音频。
 <dx-codeblock>
 :::javascript
-// Good 正确用法
+// good 正确用法
 // 仅采集屏幕视频流
 const shareStream = TRTC.createStream({ audio: false, screen: true, userId });
 // or 采集麦克风音频及屏幕视频流
@@ -42,7 +20,7 @@ const shareStream = TRTC.createStream({ audio: true, screen: true, userId });
 // or 采集系统音频及屏幕视频流
 const shareStream = TRTC.createStream({ screenAudio: true, screen: true, userId });
 
-// Bad 错误用法
+// bad 错误用法
 const shareStream = TRTC.createStream({ camera: true, screen: true });
 // or
 const shareStream = TRTC.createStream({ camera: true, screenAudio: true });
@@ -51,11 +29,13 @@ const shareStream = TRTC.createStream({ camera: true, screenAudio: true });
 </dx-codeblock>
 
 >! 
->- audio 与 screenAudio 属性不能同时设为true，camera 与 screenAudio 属性不能同时设为true。关于 screenAudio 更多信息会在本文第五部分介绍。
->- camera 与 screen 属性不能同时设为true。
+>- audio 与 screenAudio 属性不能同时设为true，camera 与 screenAudio 属性不能同时设为 true。关于 screenAudio 更多信息会在本文第五部分介绍。
+>- camera 与 screen 属性不能同时设为 true。
 
-### 步骤3：初始化屏幕分享流
-初始化时浏览器会向用户请求屏幕共享的内容和权限，如果用户拒绝授权或者系统未授予浏览器屏幕分享的权限，代码会捕获到 `NotReadableError` 或者 `NotAllowedError` 错误，这时需要引导用户进行浏览器设置或者系统设置开启屏幕共享权限。
+### 步骤2：初始化屏幕分享流
+初始化时浏览器会向用户请求屏幕共享的内容和权限，如果用户拒绝授权或者系统未授予浏览器屏幕分享的权限，代码会捕获到 `NotReadableError` 或者 `NotAllowedError` 错误，这时需要引导用户进行浏览器设置或者系统设置开启屏幕共享权限，并且重新初始化屏幕分享流。
+>! 由于 Safari 的限制，屏幕分享流的初始化操作，必须在点击事件的回调中完成，该问题详细介绍请参见本文 [常见问题](#que)。
+
 <dx-codeblock>
 :::javascript
 try {
@@ -81,19 +61,9 @@ try {
 :::
 </dx-codeblock>
 
-### 步骤4：发布屏幕分享流
-通过第一步创建的客户端对象进行发布。发布成功后，远端就能收到屏幕分享流。
-<dx-codeblock>
-:::javascript
-try {
-  await shareClient.publish(shareStream);
-} catch (error) {
-  // ShareClient failed to publish local stream
-}
-:::
-</dx-codeblock>
+### 步骤3：创建负责进行屏幕分享的客户端对象
+通常情况下，建议给 userId 加上前缀 `share_`，用来标识这是一个屏幕分享的客户端对象。
 
-### 完整代码
 <dx-codeblock>
 :::javascript
 const shareClient = TRTC.createClient({
@@ -109,6 +79,27 @@ try {
 } catch (error) {
   // ShareClient join room failed
 }
+
+:::
+</dx-codeblock>
+### 步骤4：发布屏幕分享流
+通过第一步创建的客户端对象进行发布。发布成功后，远端就能收到屏幕分享流。
+<dx-codeblock>
+:::javascript
+try {
+  await shareClient.publish(shareStream);
+} catch (error) {
+  // ShareClient failed to publish local stream
+}
+:::
+</dx-codeblock>
+
+### 完整代码
+<dx-codeblock>
+:::javascript
+// 通常情况下，建议给 userId 加上前缀 `share_`，用来标识这是用于屏幕分享的客户端对象。
+const userId = 'share_userId';
+const roomId = 'roomId';
 // 仅采集屏幕视频流
 const shareStream = TRTC.createStream({ audio: false, screen: true, userId });
 // or 采集麦克风音频及屏幕视频流
@@ -135,12 +126,24 @@ try {
       return;
   }
 }
+const shareClient = TRTC.createClient({
+  mode: 'rtc',
+  sdkAppId,
+  userId, // 例如：‘share_teacher’
+  userSig
+});
+// 客户端对象进入房间
+try {
+  await shareClient.join({ roomId });
+  // ShareClient join room success
+} catch (error) {
+  // ShareClient join room failed
+}
 try {
   await shareClient.publish(shareStream);
 } catch (error) {
   // ShareClient failed to publish local stream
-}
-:::
+}:::
 </dx-codeblock>
 
 ## 屏幕分享参数配置
@@ -267,3 +270,26 @@ await shareStream.initialize();
 在弹出的对话框中勾选`分享音频`，发布的 stream 将会带上系统声音。
 
 ![](https://main.qcloudimg.com/raw/4e990a612028480c9c36419d96ea64b7.png)
+
+## 常见问题[](id:que)
+
+1. **Safari 屏幕分享出现报错 `getDisplayMedia must be called from a user gesture handler`**
+因为 Safari 限制了 `getDisplayMedia` 屏幕采集的接口，必须在用户点击事件的回调函数执行的 1 秒内才可以调用。请参见  [webkit issue](https://bugs.webkit.org/show_bug.cgi?id=198040)。
+```javascript
+// good
+async function onClick() {
+  // 建议在 onClick 执行时，先执行采集逻辑
+  const screenStream = TRTC.createStream({ screen: true });
+  await screenStream.initialize();
+  await client.join({ roomId: 123123 });
+}
+
+// bad
+async function onClick() {
+  await client.join({ roomId: 123123 });
+  // 进房可能耗时超过 1s，可能会采集失败
+  const screenStream = TRTC.createStream({ screen: true });
+  await screenStream.initialize();
+}
+```
+2. [WebRTC 屏幕分享已知问题及规避方案](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/tutorial-02-info-webrtc-issues.html#h2-9)
