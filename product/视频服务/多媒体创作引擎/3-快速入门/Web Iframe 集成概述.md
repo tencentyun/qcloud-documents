@@ -39,6 +39,5 @@ Web Iframe 集成模式中，业务前端以 Iframe 方式集成剪辑界面，�
 <!-- 4. [高级功能](TODO)：在完成基础教程的前提下，针对具体业务需求，进行更高级的业务开发。 -->
 
 ## 更多参考
-1、相关 SDK 说明，请参见 [Web 在线编辑(Iframe集成)](https://cloud.tencent.com/document/product/1156/51217)。
-
-2、为方便业务集成参考，多媒体创作引擎团队提供了集成 Demo，具体使用，请参见 [在线编辑 Demo 使用说明](TODO)。
+- 相关 SDK 说明，请参见 [Web 在线编辑(Iframe集成)](https://cloud.tencent.com/document/product/1156/51217)。
+- 为方便业务集成参考，多媒体创作引擎团队提供了集成 Demo，具体使用，请参见 [在线编辑 Demo 使用说明](https://tcloud-doc.isd.com/document/product/1156/71276?!editLang=zh&!preview)。

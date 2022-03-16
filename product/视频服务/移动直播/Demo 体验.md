@@ -8,11 +8,11 @@
 
 <table>
 <tr>
-<th>平台</th><th>Demo体验</th><th>源码地址</th>
+<th>平台</th><th>Demo 体验</th><th>源码地址</th>
 </tr>
 <tr>
 <td>iOS</td>
-<td><a onclick="window.open('https://itunes.apple.com/cn/app/id1132521667?mt=8')"><div style="width:130px;height: 130px;background-image:url(https://main.qcloudimg.com/raw/423f07ad3f0958f61ff065c04e77afea.png);background-size: cover;margin:auto">
+<td><a onclick="window.open('https://itunes.apple.com/cn/app/id1132521667?mt=8')"><div style="width:130px;height: 130px;background-image:url(https://qcloudimg.tencent-cloud.cn/raw/2c8c06a66a7494a17b51e74d9d5533cc.png);background-size: cover;margin:auto">
 </div></a></td>
 <td><a href="https://github.com/tencentyun/XiaoZhiBo/tree/main/iOS">Github</a></td>
 </tr>
