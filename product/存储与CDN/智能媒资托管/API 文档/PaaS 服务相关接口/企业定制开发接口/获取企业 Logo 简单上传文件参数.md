@@ -16,10 +16,10 @@
 
 PUT /user/v1/file/organization-logo/`{OrganizationId}`?ext=`{FileExt}`&user_token=`{UserToken}`
 
-- 请求参数：
-  - OrganizationId：组织 ID，必选参数。
-  - UserToken：用户令牌，必选参数。
-  - FileExt：请求上传的文件后缀，仅支持 `png`/`jpg`/`jpeg`，必选参数。
+请求参数：
+- OrganizationId：组织 ID，必选参数。
+- UserToken：用户令牌，必选参数。
+- FileExt：请求上传的文件后缀，仅支持 `png`/`jpg`/`jpeg`，必选参数。
 
 #### 请求体
 
@@ -36,7 +36,6 @@ PUT /user/v1/file/organization-logo/`{OrganizationId}`?ext=`{FileExt}`&user_toke
 application/json
 
 - 响应体示例：
-
 ```json
   {
   "domain": "examplebucket-1250000000.cos.ap-beijing.myqcloud.com",
@@ -51,7 +50,6 @@ application/json
   }
 }
 ```
-
 - 响应体字段说明：
   - domain：字符串，实际上传文件时的域名。
   - path：字符串，实际文件上传时的 URL 路径。
