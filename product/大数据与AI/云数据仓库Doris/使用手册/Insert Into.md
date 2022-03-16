@@ -105,7 +105,7 @@ show load where label="xxx";
 ```
 show transaction where id=4005;
 ```
-返回结果中的 `TransactionStatus` 列如果为 `visible`，则表述数据可见。
+返回结果中的 `TransactionStatus` 列若为 `visible`，则表述数据可见。
 	2. Insert 执行失败
 执行失败表示没有任何数据被成功导入，并返回如下：
 ```

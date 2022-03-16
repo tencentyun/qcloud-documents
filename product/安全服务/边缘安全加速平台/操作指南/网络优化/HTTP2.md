@@ -10,8 +10,10 @@ HTTP/2（即 HTTP 2.0，超文本传输协议第2版），是 HTTP 协议的第�
 
 
 ## 操作步骤
-1. 登录 [边缘安全加速平台控制台](https://console.cloud.tencent.com/teo) ，在左侧菜单栏中，单击**站点加速** > **网络优化**。
-2. 在网络优化页面，选择所需站点，单击 HTTP/2 模块的![](https://qcloudimg.tencent-cloud.cn/raw/6bfbd5ffb275d58e46f69740ed95a63c.png)，开启 HTTP/2 功能。
+1. 登录 [边缘安全加速平台控制台](https://console.cloud.tencent.com/teo)，在左侧菜单栏中，单击**站点加速** > **网络优化**。
+2. 在网络优化页面，选择所需站点，单击 HTTP/2 模块的“开关”，开启或关闭 HTTP/2 功能。
+![](https://qcloudimg.tencent-cloud.cn/raw/243e5a84cb494e9b049ab3615d688055.png)
+**参数说明：**
  - 开启状态（默认）：使用 HTTP/2 加速站点。
 >! 仅配置 HTTPS 证书后才生效，请先配置 HTTPS 证书。
 >
@@ -19,4 +21,4 @@ HTTP/2（即 HTTP 2.0，超文本传输协议第2版），是 HTTP 协议的第�
 
 ## 注意事项
 1. 若客户端不支持 HTTP/2，则使用 HTTP 1.x。
-2. 此处仅支持请求访问，不支持 HTTP/2 回源。若需配置 HTTP/2 回源，请前往 [规则引擎]() 。
+2. 此处仅支持请求访问，不支持 HTTP/2 回源。若需配置 HTTP/2 回源，请前往 [规则引擎](https://cloud.tencent.com/document/product/1552/70901) 。
