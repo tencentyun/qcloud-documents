@@ -83,7 +83,7 @@
 
 
 ### 步骤5：部署 Demo 服务[](id:p4)
-1. 下载 [**项目源码**](https://vs-cdn.tencent-cloud.com/cme-node-demo-feature-iframe-2.0.zip)。
+1. 下载 [**项目源码**](https://vs-cdn.tencent-cloud.com/resources/cme-node-demo-feature-iframe-2.0.zip)。
 2. **配置文件**
 配置文件在 config.js 上，按如下方式进行配置：
 ```
