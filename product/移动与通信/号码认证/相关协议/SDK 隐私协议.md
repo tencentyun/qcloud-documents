@@ -1,7 +1,7 @@
 更新说明：
 我们对《号码认证 SDK 隐私保护指引》进行了更新，更新内容主要为:
 1. 名称修改为《号码认证 SDK 个人信息保护规则》。
-2. 整理和重述了 App 开发者使用SDK处理个人信息或使用 SDK 构建处理个人信息的 App 的规则。
+2. 整理和重述了 App 开发者使用 SDK 处理个人信息或使用 SDK 构建处理个人信息的 App 的规则。
 3. 对 SDK 使用第三方 SDK 及引入第三方服务提供商的披露要求和管理要求做出更新。
 4. 增加对 SDK 可能具有的推送功能的处理规则。
 5. 因不涉及未成年人信息处理，删除了处理未成人个人信息的规则。
@@ -57,7 +57,7 @@
 							<td style="color:#666666;text-align:left;">运营商信息</td>
             <td style="color:#666666;text-align:left;">采集用于判断运营商归属</td>
             <td style="color:#666666;text-align:left;">READ_PHONE_STATE</td>
-            <td style="color:#666666;text-align:left;">-</td>
+            <td style="color:#666666;text-align:left;">无</td>
         </tr>
         <tr>
             <td style="color:#666666;text-align:left;">idfv（仅 iOS）</td>
