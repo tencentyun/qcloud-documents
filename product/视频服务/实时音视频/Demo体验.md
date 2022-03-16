@@ -9,7 +9,7 @@
 <th>iOS</th><th>Android</th><th>Windows</th><th >Mac OS</th>
 </tr>
 <tr>
-<td><img style="width:150px;" src="https://qcloudimg.tencent-cloud.cn/raw/300db42a6cd024f576f43eb8a7ee9169.png" data-nonescope="true"></td>
+<td><img style="width:150px;" src="https://qcloudimg.tencent-cloud.cn/raw/630c3891bfa266a7d66b5fc892c63937.png" data-nonescope="true"></td>
 <td><a onclick="window.open('https://dldir1.qq.com/hudongzhibo/liteav/TRTCDemo.apk');reportEvent({name: 'demo-click-native', ext1: 'android'});"><button style="width:150px;height: 150px;border:none;background-image:url(https://main.qcloudimg.com/raw/8a603ced0a61983018c794df842f7029.png);background-size: cover;">
 </button></a></td>
 <td><a onclick="window.open('https://liteav.sdk.qcloud.com/app/install/TXLiteAVSDK_Win_Demo.exe');reportEvent({name: 'demo-click-native', ext1: 'windows'});"><button style="width:150px;height: 150px;border:none;background-image:url(https://main.qcloudimg.com/raw/e80b8f4462e2904b31dcdcaabe71c484.png);background-size: cover;">
