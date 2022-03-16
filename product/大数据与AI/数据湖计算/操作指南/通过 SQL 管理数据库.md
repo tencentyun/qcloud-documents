@@ -1,33 +1,26 @@
-DLC 的数据库是 DLC 数据表的逻辑分组。数据湖计算 DLC 目前支持用户通过查询分析中的 SQL 编辑器执行 DDL 语句对数据库进行创建、查看基本信息和删除操作。
-## 创建数据库
-1. 登录 [数据湖计算 DLC 控制台](https://console.cloud.tencent.com/dlc)，选择服务所在区域，登录用户需要有创建数据库的权限。
-2. 进入查询分析页，鼠标悬停菜单栏的![](https://main.qcloudimg.com/raw/426bfc0a281aef830bd68a64f698f9a2.png)图标，单击**新建数据库**，配置数据库信息。
-![](https://qcloudimg.tencent-cloud.cn/raw/d144cc61c3b9fccc0ee69c96feed00bf.png)
-3. 在新建数据库页面，输入数据库名称、数据库描述信息，单击**确定**，DLC 自动生成创建数据库的 SQL 语句。
-![](https://qcloudimg.tencent-cloud.cn/raw/7a34de46779a9255b494d624385b032b.png)
-- 数据库名称：全局唯一，支持英文大小写、数字、“_”，不允许数字开头，最多128个字符。
-- 描述信息：支持中英文，最多2048个字符。
-4. 选择计算引擎，单击**运行**按钮执行创建数据库的 SQL 语句，完成创建。
-![](https://qcloudimg.tencent-cloud.cn/raw/b5f4ed2c66014e91df3ecb53acd5ff10.png)
+>? 数据湖计算 DLC 的托管存储功能目前处于邀测阶段，如需免费体验可 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行申请。
 
-## 查询数据库基本信息
-1. 登录 [数据湖计算 DLC 控制台](https://console.cloud.tencent.com/dlc)，选择服务所在区域，登录用户需要有数据库的查看权限。
-2. 进入查询分析页，鼠标悬停到需要查看信息的**数据库行**，单击![img](https://main.qcloudimg.com/raw/b11192b7791016669333f5321cc6825e.png)图标，在下拉菜单中单击**基本信息**，可以查看对应数据库的基本信息。
-![](https://qcloudimg.tencent-cloud.cn/raw/6ebd9825600615b60d7d9eb7968f264c.png)
-![](https://qcloudimg.tencent-cloud.cn/raw/014cb67fd16a2262768ba56bdd713ff8.png)
+数据湖计算 DLC 的托管存储数据库可通过数据管理页、执行标准 SQL 语句及 API 进行管理。执行标准 SQL 管理方式可参见通过查询分析管理数据库，API 管理参见 API 文档。通过控制台数据管理页可新建、查询、删除托管存储的数据库。
+新建数据库
+1. 登录 [数据湖计算 DLC 控制台](https://console.cloud.tencent.com/dlc)，选择服务地域，登录的账户须有数据库新建权限。
+2. 进入**数据管理页**，单击**创建数据库**进入数据库创建可视化界面。
+![](https://qcloudimg.tencent-cloud.cn/raw/6c3727057c164ce7c949d72bf6adb71a.png)
+3. 填写数据库相关信息后保存，即可完成数据库新建。
+![](https://qcloudimg.tencent-cloud.cn/raw/226462bd1a8588e388d3e6090f69531f.png)
+	- 数据库名称：全局唯一，支持英文大小写、数字、“_”，不允许数字开头，最多128个字符。
+	- 描述信息：支持中英文，最多2048个字符。
+	- 一个主账号最多可创建100个数据库。
+
+## 查看数据库
+1. 登录 [数据湖计算 DLC 控制台](https://console.cloud.tencent.com/dlc)，选择服务地域，登录的账户须有数据库查询权限。
+2. 进入**数据管理页**，单击**数据库名称**可进入数据库详情，可对数据库的数据表进行管理，详情操作指南可参见 [数据表管理](https://cloud.tencent.com/document/product/1342/61870)。
+![](https://qcloudimg.tencent-cloud.cn/raw/e621ab2eccb0f3d43f45902a06bd9a96.png)
 
 ## 删除数据库
-1. 登录 [数据湖计算 DLC 控制台](https://console.cloud.tencent.com/dlc)，选择服务所在区域，登录用户需要有数据库的删除权限。
-2. 进入查询分析页，鼠标悬停到需要查看信息的**数据库行**，单击![img](https://main.qcloudimg.com/raw/b11192b7791016669333f5321cc6825e.png)图标，在下拉菜单中单击**删除数据库**，单击**确认**后即可对数据库进行删除。
-![](https://qcloudimg.tencent-cloud.cn/raw/327d63366232c1573a37f372e9949861.png)
+1. 登录 [数据湖计算 DLC 控制台](https://console.cloud.tencent.com/dlc)，选择服务地域，登录的账户须有数据库删除权限。
+2. 进入**数据管理页**，单击**删除**，二次确认后即可将数据库删除。
+![](https://qcloudimg.tencent-cloud.cn/raw/a4cfa79a75529651a1e394a0b519182a.png)
 
->! 
->- 删除 DLC 的托管存储下的数据库时，将无法恢复，请谨慎操作。
->- 删除非 DLC 托管存储的数据库，仅会删除 DLC 中存储的元数据信息，不会影响数据源文件。
+>! 删除后数据将无法恢复，请谨慎操作。
 
-## 系统约束
-- 一个主账户最多可以创建100个数据库。
-- 数据库名称在同一个主账号下必须全局唯一。
-- 数据库的名称不区分大小写，仅支持英文字符、数字和下划线“_”。
-- 数据库名称不可以数字开头。
 
