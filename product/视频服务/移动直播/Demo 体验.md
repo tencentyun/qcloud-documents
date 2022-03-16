@@ -8,7 +8,7 @@
 
 <table>
 <tr>
-<th>平台</th><th>Demo体验</th><th>源码地址</th>
+<th>平台</th><th>Demo 体验</th><th>源码地址</th>
 </tr>
 <tr>
 <td>iOS</td>
