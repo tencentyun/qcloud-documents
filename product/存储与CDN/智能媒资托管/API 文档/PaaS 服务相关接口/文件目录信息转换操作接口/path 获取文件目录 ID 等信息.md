@@ -17,16 +17,17 @@
 
 POST /api/v1/directory-info/`{LibraryId}`?access_token=`{AccessToken}`&user_id=`{UserId}`
 
-- 请求参数：
-    - LibraryId：媒体库 ID，必选参数。
-    - SpaceId：空间 ID，如果媒体库为单租户模式，则该参数固定为连字符(`-`)；如果媒体库为多租户模式，则必须指定该参数。
-    - AccessToken：访问令牌，对于公有读媒体库或租户空间，可不指定该参数，否则必须指定该参数。
-    - UserId：用户身份识别，当访问令牌对应的权限为管理员权限且申请访问令牌时的用户身份识别为空时用来临时指定用户身份，详情请参阅 [生成访问令牌接口](https://cloud.tencent.com/document/product/1339/71159)，可选参数。
+请求参数：
+- LibraryId：媒体库 ID，必选参数。
+- SpaceId：空间 ID，如果媒体库为单租户模式，则该参数固定为连字符(`-`)；如果媒体库为多租户模式，则必须指定该参数。
+- AccessToken：访问令牌，对于公有读媒体库或租户空间，可不指定该参数，否则必须指定该参数。
+- UserId：用户身份识别，当访问令牌对应的权限为管理员权限且申请访问令牌时的用户身份识别为空时用来临时指定用户身份，详情请参阅 [生成访问令牌接口](https://cloud.tencent.com/document/product/1339/71159)，可选参数。
 
 #### 请求体
 
 application/json
 
+- 请求体示例
 ```json
 {
   "directoryList": [
@@ -55,13 +56,13 @@ application/json
 
 - 请求体字段说明：
   - directoryList
-        - spaceId: 空间 ID，必填参数。
-        - directoryId: 文件目录 ID，选填参数。
-        - path: 文件目录路径数组，选填参数。当 directoryId 和 path 同时存在时，以 directoryId 为准。
+   - spaceId: 空间 ID，必填参数。
+   - directoryId: 文件目录 ID，选填参数。
+   - path: 文件目录路径数组，选填参数。当 directoryId 和 path 同时存在时，以 directoryId 为准。
   - permission（可选参数，不传则返回所有权限）
-        - admin: 具有 admin 权限的空间集合，如果指定的 spaceIds 为空数组，表示所有空间。
-        - acl: 使用 acl 检查权限的参数，spaceIds 为该用户所属的 spaceId 集合。
-        - userId: 用户 ID
+    - admin: 具有 admin 权限的空间集合，如果指定的 spaceIds 为空数组，表示所有空间。
+    - acl: 使用 acl 检查权限的参数，spaceIds 为该用户所属的 spaceId 集合。
+    - userId: 用户 ID。
 
 ## 响应
 
@@ -74,7 +75,6 @@ application/json
 application/json
 
 - 响应体示例：
-
 ```json
 [{
   "spaceId": "spacexxx",
@@ -107,7 +107,6 @@ application/json
   }
 }]
 ```
-
 - 响应体字段说明：
     - spaceId：空间 ID。
     - spaceTag：space 标签，字符串。
