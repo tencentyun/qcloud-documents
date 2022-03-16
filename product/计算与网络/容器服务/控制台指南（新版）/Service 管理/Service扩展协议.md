@@ -98,5 +98,37 @@ metadata:
 :::
 </dx-tabs>
 
+### 案例说明
+原生 Service 不支持协议混用，TKE 经过特殊改造后，在 [直连场景](https://cloud.tencent.com/document/product/457/41897) 中支持混合协议的使用。
 
+需注意的是，YAML 中仍使用相同的协议，但可以通过 Annotation 明确每个端口的协议类型。如下示例展示了 80 端口使用 TCP 协议，8080 端口使用 UDP 协议。
+
+
+```
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+      service.cloud.tencent.com/direct-access: "true"  #EKS 集群默认是直连模式，TKE 集群请务必先参照文档开启直连模式。
+      service.cloud.tencent.com/specify-protocol: '{"80":{"protocol":["TCP"]},"8080":{"protocol":["UDP"]}}'   # 指定 80 端口 TCP 协议，8080 端口 UDP 协议。
+  name: nginx
+spec:
+  externalTrafficPolicy: Cluster
+  ports:
+  - name: tcp-80-80
+    nodePort: 32150
+    port: 80
+    protocol: TCP 
+    targetPort: 80
+  - name: udp-8080-8080
+    nodePort: 31082
+    port: 8080
+    protocol: TCP # 注意，因为 Kubernetes Service Controller 限制，只能使用同类型协议。
+    targetPort: 8080 
+  selector:
+    k8s-app: nginx
+    qcloud-app: nginx
+  sessionAffinity: None
+  type: LoadBalancer
+```
 
