@@ -1,3 +1,4 @@
+
 ## 命名空间
 
 Namespace=QCE/TXMR_HDFS
@@ -10,146 +11,60 @@ Namespace=QCE/TXMR_HDFS
 >?维度对应参数，请单击 [各维度对应参数总览](#.E5.90.84.E7.BB.B4.E5.BA.A6.E5.AF.B9.E5.BA.94.E5.8F.82.E6.95.B0.E6.80.BB.E8.A7.88) 查看。
 
 ### HDFS-Overview
+aa
 
-| 指标英文名                                                   | 指标中文名                               | 单位 | 指标含义                                      | 维度                                    |
-| ------------------------------------------------------------ | ---------------------------------------- | ---- | --------------------------------------------- | --------------------------------------- |
-| EmrHdfsOverviewHdfsNn<br>CapacityCapacitytotal               | 集群存储容量_CapacityTotal               | GB   | 集群存储总容量                                | id4hdfsoverview |
-| EmrHdfsOverviewHdfsNn<br/>CapacityCapacityused               | 集群存储容量_CapacityUsed                | GB   | 集群储存已使用容量                            | id4hdfsoverview |
-| EmrHdfsOverviewHdfsNn<br/>CapacityCapacityremaining          | 集群存储容量_CapacityRemaining           | GB   | 集群存储剩余容量                              | id4hdfsoverview |
-| EmrHdfsOverviewHdfsNn<br/>CapacityCapacityusednondfs         | 集群存储容量_CapacityUsedNonDFS          | GB   | 集群非 HDFS 使用容量                          | id4hdfsoverview |
-| EmrHdfsOverview<br/>HdfsNnLoadTotalload                      | 集群负载_TotalLoad                       | 个   | 当前连接数                                    | id4hdfsoverview |
-| EmrHdfsOverview<br/>HdfsNnFilesTotalFilestotal               | 群文件总数量_FilesTotal                  | 个   | 总文件数量                                    | id4hdfsoverview |
-| EmrHdfsOverviewHdfsNn<br/>BlocksBlockstotal                  | BLOCKS 数量_BlocksTotal                  | 个   | 总 BLOCK 数量                                 | id4hdfsoverview |
-| EmrHdfsOverviewHdfsNn<br/>BlocksPending<br>replicationblocks     | BLOCKS 数量_PendingReplicationBlocks     | 个   | 等待被备份的块数量                            | id4hdfsoverview |
-| EmrHdfsOverviewHdfs<br/>NnBlocksUnderre<br>plicatedblocks        | BLOCKS 数量_UnderReplicatedBlocks        | 个   | 副本数不够的块数量                            | id4hdfsoverview |
-| EmrHdfsOverviewHdfsNn<br/>BlocksCorruptblocks                | BLOCKS 数量_CorruptBlocks                | 个   | 坏块数量                                      | id4hdfsoverview |
-| EmrHdfsOverviewHdfsNn<br/>BlocksScheduledreplicationblocks   | BLOCKS 数量_ScheduledReplicationBlocks   | 个   | 安排要备份的块数量                            | id4hdfsoverview |
-| EmrHdfsOverviewHdfsNn<br/>BlocksPendingdeletionblocks        | BLOCKS 数量_PendingDeletionBlocks        | 个   | 等待被删除的块数量                            | id4hdfsoverview |
-| EmrHdfsOverviewHdfs<br/>NnBlocksCorruptblocks                | BLOCKS 数量_CorruptBlocks                | 个   | 多于的块数量                                  | id4hdfsoverview |
-| EmrHdfsOverviewHdfs<br/>NnBlocksPostponedmisre<br/>plicatedblocks | BLOCKS 数量_PostponedMisreplicatedBlocks | 个   | 被推迟处理的异常块数量                        | id4hdfsoverview |
-| EmrHdfsOverviewHdfsNnBlock<br/>CapacityBlockcapacity         | BLOCK容量_BlockCapacity                  | 个   | BLOCK 容量                                    | id4hdfsoverview |
-| EmrHdfsOverviewHdfsNn<br/>DatanodesCountNum<br/>livedatanodes | 集群数据节点_NumLiveDataNodes            | 个   | 个活的数据节点数量                            | id4hdfsoverview |
-| EmrHdfsOverviewHdfsNn<br/>DatanodesCountNum<br/>deaddatanodes | 集群数据节点_NumDeadDataNodes            | 个   | 已经标记为 Dead 状态的数据节点数量            | id4hdfsoverview |
-| EmrHdfsOverviewHdfsNn<br/>DatanodesCountNumdecom<br/>livedatanodes | 集群数据节点_NumDecomLiveDataNodes       | 个   | 下线且 Live 的节点数量                        | id4hdfsoverview |
-| EmrHdfsOverviewHdfsNn<br/>DatanodesCountNumde<br/>comdeaddatanodes | 集群数据节点_NumDecomDeadDataNodes       | 个   | 下线且 Dead 的节点数量                        | id4hdfsoverview |
-| EmrHdfsOverviewHdfs<br/>NnDatanodesCountNumde<br/>commissioningdatanodes | 集群数据节点_NumDecommissioningDataNodes | 个   | 正在下线的节点数量                            | id4hdfsoverview |
-| EmrHdfsOverviewHdfs<br/>NnDatanodesCountNumstale<br/>datanodes | 集群数据节点_NumStaleDataNodes           | 个   | 由于心跳延迟而标记为过期的 DataNodes 当前数量 | id4hdfsoverview |
-| EmrHdfsOverviewHdfsNn<br/>SnapshotsSnapshots                 | SNAPSHOT 相关_Snapshots                  | 个   | Snapshots 数量                                | id4hdfsoverview |
-| EmrHdfsOverviewHdfs<br/>NnVolumeFailures<br/>Volumefailurestotal | 磁盘故障_VolumeFailuresTotal             | 次   | 所有 Datanodes 的全故障总数                   | id4hdfsoverview |
-|HdfsStatUsageRatio<br>Capacityusedrate | 	HDFS存储空间使用率         |%  | HDFS存储空间使用率              | id4hdfsoverview |
+| 指标英文名                                                   | 指标中文名                               | 指标单位 | 指标含义                                      | 维度            |
+| ------------------------------------------------------------ | ---------------------------------------- | -------- | --------------------------------------------- | --------------- |
+| EmrHdfsOverviewHdfs<br>NnBlocksBlockstotal                   | BLOCKS数量_BlocksTotal                   | 个       | 总 BLOCK 数量                                 | id4hdfsoverview |
+| EmrHdfsOverviewHdfsNn<br/>BlocksCorruptblocks                | BLOCKS数量_CorruptBlocks                 | 个       | 坏块数量                                      | id4hdfsoverview |
+| EmrHdfsOverviewHdfsNn<br/>VolumeFailuresVolumefailurestotal  | 磁盘故障_VolumeFailuresTotal             | 个       | 所有 Datanodes 的全故障总数                   | id4hdfsoverview |
+| EmrHdfsOverviewHdfsNn<br/>FilesTotalFilestotal               | 集群文件总数量_FilesTotal                | 个       | 集群文件总数量                                | id4hdfsoverview |
+| EmrHdfsOverviewHdfsNn<br/>BlocksScheduledreplicationblocks   | BLOCKS数量_ScheduledReplicationBlocks    | 个       | 安排要备份的块数量                            | id4hdfsoverview |
+| EmrHdfsOverviewHdfsNnBlocks<br/>Postponedmisreplicatedblocks | BLOCKS数量_PostponedMisreplicatedBlocks  | 个       | 被推迟处理的异常块数量                        | id4hdfsoverview |
+| EmrHdfsOverviewHdfsNnDatanodes<br/>CountNumdecommissioningdatanodes | 集群数据节点_NumDecommissioningDataNodes | 个       | 正在下线的节点数量                            | id4hdfsoverview |
+| EmrHdfsOverviewHdfsNnBlock<br/>CapacityBlockcapacity         | BLOCK容量_BlockCapacity                  | GB       | BLOCK 容量                                    | id4hdfsoverview |
+| EmrHdfsOverviewHdfsNnBlocks<br/>Underreplicatedblocks        | BLOCKS数量_UnderReplicatedBlocks         | 个       | 副本数不够的块数量                            | id4hdfsoverview |
+| EmrHdfsOverviewHdfsNn<br/>CapacityCapacityusednondfs         | 集群存储容量_CapacityUsedNonDFS          | GB       | 集群非 HDFS 使用容量                          | id4hdfsoverview |
+| EmrHdfsOverviewHdfsNnLoadTotalload                           | 集群负载_TotalLoad                       | 个       | 集群负载数                                    | id4hdfsoverview |
+| EmrHdfsOverviewHdfsNnDatanodes<br/>CountNumstaledatanodes    | 集群数据节点_NumStaleDataNodes           | 个       | 由于心跳延迟而标记为过期的 DataNodes 当前数量 | id4hdfsoverview |
+| EmrHdfsOverviewHdfsNnBlocks<br/>Pendingreplicationblocks     | BLOCKS数量_PendingReplicationBlocks      | 个       | 等待被备份的块数量                            | id4hdfsoverview |
+| EmrHdfsOverviewHdfsNnDatanodes<br/>CountNumdeaddatanodes     | 集群数据节点_NumDeadDataNodes            | 个       | 已经标记为 Dead 状态的数据节点数量            | id4hdfsoverview |
+| EmrHdfsOverviewHdfs<br/>NnSnapshotsSnapshots                 | SNAPSHOT相关_Snapshots                   | 个       | Snapshots 数量                                | id4hdfsoverview |
+| EmrHdfsOverviewHdfsNn<br/>BlocksPendingdeletionblocks        | BLOCKS数量_PendingDeletionBlocks         | 个       | 等待被删除的块数量                            | id4hdfsoverview |
+| EmrHdfsOverviewHdfsNn<br/>CapacityCapacityused               | 集群存储容量_CapacityUsed                | GB       | 集群储存已使用容量                            | id4hdfsoverview |
+| EmrHdfsOverviewHdfsNnDatanodes<br/>CountNumdecomlivedatanodes | 集群数据节点_NumDecomLiveDataNodes       | 个       | 下线且 Live 的节点数量                        | id4hdfsoverview |
+| EmrHdfsOverviewHdfsNn<br/>CapacityCapacitytotal              | 集群存储容量_CapacityTotal               | GB       | 集群存储总容量                                | id4hdfsoverview |
+| EmrHdfsOverviewHdfsNnDatanodes<br/>CountNumdecomdeaddatanodes | 集群数据节点_NumDecomDeadDataNodes       | 个       | 下线且 Dead 的节点数量                        | id4hdfsoverview |
+| EmrHdfsOverviewHdfsNn<br/>CapacityCapacityremaining          | 集群存储容量_CapacityRemaining           | GB       | 集群存储剩余容量                              | id4hdfsoverview |
+| EmrHdfsOverviewHdfsNn<br/>DatanodesCountNumlivedatanodes     | 集群数据节点_NumLiveDataNodes            | 个       | 个活的数据节点数量                            | id4hdfsoverview |
+| EmrHdfsOverviewHdfs<br/>NnBlocksExcessblocks                 | BLOCKS数量_ExcessBlocks                  | 个       | 多余的块数量                                  | id4hdfsoverview |
 
 ## HDFS-OverviewAggregation
-
-| 指标英文名                                                   | 指标中文名                               | 单位 | 指标含义                                      | 维度            |
-| ------------------------------------------------------------ | ---------------------------------------- | ---- | --------------------------------------------- | --------------- |
-| EmrHdfsOverview<br>Aggregation<br>HdfsNnBlockCapacityTotal   | 集群存储容量_CapacityTotal               | GB   | 集群存储总容量                                | id4hdfsoverview |
-| EmrHdfsOverview<br>Aggregation<br/>HdfsNnBlockCapacityUsed   | 集群存储容量_CapacityUsed                | GB   | 集群储存已使用容量                            | id4hdfsoverview |
-| EmrHdfsOverview<br>AggregationHdfsNn<br>BlockCapacityRemaining | 集群存储容量_CapacityRemaining           | GB   | 集群存储剩余容量                              | id4hdfsoverview |
-| EmrHdfsOverview<br>AggregationHdfsNn<br>BlockCapacity UsedNonDFS | 集群存储容量_CapacityUsedNonDFS          | GB   | 集群非 HDFS 使用容量                          | id4hdfsoverview |
-| EmrHdfsOverview<br>AggregationHdfsNn<br>BlockTotalLoad       | 集群负载_TotalLoad                       | 个   | 当前连接数                                    | id4hdfsoverview |
-| EmrHdfsOverview<br>AggregationHdfsNn<br>BlockFilesTotal      | 群文件总数量_FilesTotal                  | 个   | 总文件数量                                    | id4hdfsoverview |
-| EmrHdfsOverview<br>AggregationHdfsNn<br>BlockBlockstotal     | BLOCKS 数量_BlocksTotal                  | 个   | 总 BLOCK 数量                                 | id4hdfsoverview |
-| EmrHdfsOverview<br>AggregationHdfsNn<br>BlockPending ReplicationBlocks | BLOCKS 数量_PendingReplicationBlocks     | 个   | 等待被备份的块数量                            | id4hdfsoverview |
-| EmrHdfsOverview<br/>AggregationHdfsNn<br>BlockUnder ReplicatedBlocks | BLOCKS 数量_UnderReplicatedBlocks        | 个   | 副本数不够的块数量                            | id4hdfsoverview |
-| EmrHdfsOverview<br/>AggregationHdfsNn<br>BlockBlocksCorruptblocks | BLOCKS 数量_CorruptBlocks                | 个   | 坏块数量                                      | id4hdfsoverview |
-| EmrHdfsOverview<br/>AggregationHdfsNn<br/>BlockScheduled ReplicationBlocks | BLOCKS 数量_ScheduledReplicationBlocks   | 个   | 安排要备份的块数量                            | id4hdfsoverview |
-| EmrHdfsOverview<br/>AggregationHdfsNn<br/>BlockPending DeletionBlocks | BLOCKS 数量_PendingDeletionBlocks        | 个   | 等待被删除的块数量                            | id4hdfsoverview |
-| EmrHdfsOverview<br/>AggregationHdfsNn<br/>BlockCorruptblocks | BLOCKS 数量_CorruptBlocks                | 个   | 多于的块数量                                  | id4hdfsoverview |
-| EmrHdfsOverview<br/>AggregationHdfsNn<br/>BlockPostponed MisreplicatedBlocks | BLOCKS 数量_PostponedMisreplicatedBlocks | 个   | 被推迟处理的异常块数量                        | id4hdfsoverview |
-| EmrHdfsOverview<br/>AggregationHdfsNn<br/>BlockBlockCapacity | BLOCK容量_BlockCapacity                  | 个   | BLOCK 容量                                    | id4hdfsoverview |
-| EmrHdfsOverview<br/>AggregationHdfsNn<br/>BlockNumLiveDataNodes | 集群数据节点_NumLiveDataNodes            | 个   | 个活的数据节点数量                            | id4hdfsoverview |
-| EmrHdfsOverview<br/>AggregationHdfsNn<br/>BlockNumDeadDataNodes | 集群数据节点_NumDeadDataNodes            | 个   | 已经标记为 Dead 状态的数据节点数量            | id4hdfsoverview |
-| EmrHdfsOverview<br/>AggregationHdfsNn<br/>BlockNum DecomLiveDataNodes | 集群数据节点_NumDecomLiveDataNodes       | 个   | 下线且 Live 的节点数量                        | id4hdfsoverview |
-| EmrHdfsOverview<br/>AggregationHdfsNn<br/>BlockNum DecomDeadDataNodes | 集群数据节点_NumDecomDeadDataNodes       | 个   | 下线且 Dead 的节点数量                        | id4hdfsoverview |
-| EmrHdfsOverview<br/>AggregationHdfsNn<br/>BlockNum DecommissioningDataNodes | 集群数据节点_NumDecommissioningDataNodes | 个   | 正在下线的节点数量                            | id4hdfsoverview |
-| EmrHdfsOverview<br/>AggregationHdfsNn<br/>BlockNum StaleDataNodes | 集群数据节点_NumStaleDataNodes           | 个   | 由于心跳延迟而标记为过期的 DataNodes 当前数量 | id4hdfsoverview |
-| EmrHdfsOverview<br/>AggregationHdfsNn<br/>BlockSnapshots     | SNAPSHOT 相关_Snapshots                  | 个   | Snapshots 数量                                | id4hdfsoverview |
-| EmrHdfsOverview<br/>AggregationHdfsNn<br/>BlockVolumeFailuresTotal | 磁盘故障_VolumeFailuresTotal             | 次   | 所有 Datanodes 的全故障总数                   | id4hdfsoverview |
-
-### HDFS-NameNode
-
-| 指标英文名                                                   | 指标中文名                                                   | 指标单位 | 指标含义                                             | 维度                                    |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | -------- | ---------------------------------------------------- | --------------------------------------- |
-| HdfsNnPort4007RxtxReceivedbytes                              | 数据流量_ReceivedBytes                                       | Bytes/s  | 接收数据速率                                         | host4hdfsnamenode、<br>id4hdfsnamenode  |
-| HdfsNnPort4007RxtxSentbytes                                  | 数据流量_SentBytes                                           | Bytes/s  | 发送数据速率                                         | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnPort4007Qps<br>Rpcqueuetimenumops                      | QPS_RpcQueueTimeNumOps                                       | 次/s     | RPC 调用速率                                         | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnPort4007RtRpc<br>queuetimeavgtime                      | 请求处理延迟<br>_RpcQueueTimeAvgTime                         | ms       | RPC 平均延迟时间                                     | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnPort4007AuthRpc<br>authenticationfailures              | 验证和授权<br>_RpcAuthenticationFailure                      | 次       | RPC 验证失败次数                                     | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnPort4007AuthRpc<br>authenticationsuccesses             | 验证和授权<br>_RpcAuthenticationSuccesses                    | 次       | RPC 验证成功次数                                     | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnPort4007AuthRpc<br>authorizationfailures               | 验证和授权<br>_RpcAuthorizationFailures                      | 次       | RPC 授权失败次数                                     | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnPort4007AuthRpc<br>authorizationsuccesses              | 验证和授权<br>_RpcAuthorizationSuccesses                     | 次       | RPC 授权成功次数                                     | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnPort4007Connections<br>Numopenconnections              | 当前连接数<br>_NumOpenConnections                            | 个       | 当前链接数量                                         | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnPort4007Queue<br>LenCallqueuelength                    | RPC 处理队列长度<br>_CallQueueLength                         | 个       | 当前 RPC 处理队列长度                                | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnJvmMemMemnonheapusedm                                  | JVM 内存<br>_MemNonHeapUsedM                                 | MB       | JVM 当前已经使用的 NonHeapMemory 的大小              | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnJvmMemMemnon<br>heapcommittedm                         | JVM 内存<br>_MemNonHeapCommittedM                            | MB       | JVM 内存                                             | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnJvmMemMemheapusedm                                     | JVM 内存<br>_MemHeapUsedM                                    | MB       | JVM 当前已经使用的 HeapMemory 的大小                 | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnJvmMem<br>Memheapcommittedm                            | JVM 内存<br>_MemHeapCommittedM                               | MB       | JVM HeapMemory 提交大小                              | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnJvmMemMemheapmaxm                                      | JVM 内存_MemHeapMaxM                                         | MB       | JVM 配置的 HeapMemory 的大小                         | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnJvmMemMemmaxm                                          | JVM 内存_MemMaxM                                             | MB       | JVM 运行时的可以使用的最大的内存的大小               | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnBlockReportRt<br>Blockreportavgtime                    | 数据块汇报延迟<br>_BlockReportAvgTime                        | 次/s     | 每秒处理 DataNode Blcok 平均延迟                     | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnGcUtilGcCountFgc                                       | GC 次数_FGC                                                  | 次/s     | Full GC 次数                                         | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnGcUtilGcCountYgc                                       | C 次数_YGC                                                   | 2次/s    | Young GC 次数                                        | host4hdfsnamenode、<br>id4hdfsnamenode  |
-| HdfsNnGcUtilGcTimeYgct                                       | GC 时间_YGCT                                                 | ms       | Young GC 消耗时间                                    | host4hdfsnamenode、<br>id4hdfsnamenode  |
-| HdfsNnGcUtilGcTimeFgct                                       | GC 时间_FGCT                                                 | ms       | Full GC 消耗时间                                     | host4hdfsnamenode、<br>id4hdfsnamenode  |
-| HdfsNnGcUtilGcTimeGct                                        | GC 时间_GCT                                                  | ms       | 垃圾回收时间消耗                                     | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnJvmJavaThreadsThreadsnew                               | JVM 线程数量<br>_ThreadsNew                                  | 个       | 处于新建状态的线程数量                               | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnJvmJavaThreads<br>Threadsrunnable                      | JVM 线程数量<br>_ThreadsRunnable                             | 个       | 处于可运行状态的线程数量                             | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnJvmJavaThreads<br>Threadsblocked                       | JVM 线程数量<br>_ThreadsBlocked                              | 个       | 处于阻塞状态的线程数量                               | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnJvmJavaThreads<br>Threadswaiting                       | JVM 线程数量<br>_ThreadsWaiting                              | 个       | 处于 WAITING 状态的线程数量                          | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnJvmJavaThreads<br>Threadstimedwaiting                  | JVM 线程数量<br>_ThreadsTimedWaiting                         | 个       | 处于 TIMED WAITING 状态的线程数量                    | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnJvmJavaThreads<br>Threadsterminated                    | JVM 线程数量<br>_ThreadsTerminated                           | 个       | 处于 Terminated 状态的线程数量                       | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnJvmLogTotalLogfatal                                    | JVM 日志数量_LogFatal                                        | 个       | Fatal 日志数量                                       | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnJvmLogTotalLogerror                                    | JVM 日志数量_LogError                                        | 个       | Error 日志数量                                       | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnJvmLogTotalLogwarn                                     | JVM 日志数量_LogWarn                                         | 个       | Warn 日志数量                                        | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnJvmLogTotalLoginfo                                     | JVM 日志数量_LogInfo                                         | 个       | Info 日志数量                                        | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnGcUtilMemoryS0                                         | 内存区域占比_S0                                              | %        | Survivor 0区内存使用占比                             | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnGcUtilMemoryS1                                         | 内存区域占比_S1                                              | %        | Survivor 1区内存使用占比                             | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnGcUtilMemoryE                                          | 内存区域占比_E                                               | %        | Eden 区内存使用占比                                  | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnGcUtilMemoryO                                          | 内存区域占比_O                                               | %        | Old 区内存使用占比                                   | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnGcUtilMemoryM                                          | 内存区域占比_M                                               | %        | Metaspace 区内存使用占比                             | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnGcUtilMemoryCcs                                        | 内存区域占比_CCS                                             | %        | Compressed class space 区内存使用占比                | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnStaleStorages<br>CountNumstalestorages                 | 被标记为过期的存储的数量<br>_NumStaleStorages                | 个       | 由于心跳延迟而标记为过期的 DataNodes 当前数目        | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnPendingDatanodeMessage<br>CountPendingdatanode<br/>messagecount | 备 NN 上挂起的与 BLOCK 相关操作的消息数量<br>_PendingDataNode<br/>MessageCount | 个/s     | DATANODE 的请求被 QUEUE 在 standby namenode 中的个数 | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnBlocksMissingNum<br>berofmissingblocks                 | 缺失块统计<br>_NumberOfMissingBlocks                         | 个       | 缺失的数据块数量                                     | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnBlocksMissingNumberof<br>missingblockswithreplication<br/>factorOne | 缺失块统计_NumberOf<br>MissingBlocksWithReplication<br/>FactorOne | 个       | 缺失的数据库数量（rf = 1）                           | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnSnapshotOpsAllowsnapshotops                            | SNAPSHOT 操作<br>_AllowSnapshotOps                           | 次/s     | 每秒执行 AllowSnapshot 操作的次数                    | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnSnapshotOps<br>Disallowsnapshotops                     | SNAPSHOT 操作<br>_DisallowSnapshotOps                        | 次/s     | 每秒执行 DisallowSnapshot 操作的次数                 | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnSnapshotOps<br>Createsnapshotops                       | SNAPSHOT 操作<br>_CreateSnapshotOps                          | 次/s     | 每秒执行 CreateSnapshot 操作的次数                   | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnSnapshotOps<br>Deletesnapshotops                       | SNAPSHOT 操作<br>_DeleteSnapshotOps                          | 次/s     | 每秒执行 DeleteSnapshot 操作的次数                   | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnSnapshotOps<br>Listsnapshottabledirops                 | SNAPSHOT 操作_ListSnapshottableDirOps                        | 次/s     | 每秒执行 ListSnapshottableDir 操作次数               | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnSnapshotOps<br>Snapshotdiffreportops                   | SNAPSHOT 操作_SnapshotDiffReportOps                          | 次/s     | 每秒执行 SnapshotDiffReportOps 的次数                | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnSnapshotOps<br>Renamesnapshotops                       | SNAPSHOT 操作_RenameSnapshotOps                              | 次/s     | 每秒执行 RenameSnapshotOps 的次数                    | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnFilesOpsCreatefileops                                  | 文件操作_CreateFileOps                                       | 次/s     | 每秒执行 CreateFile 操作的次数                       | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnFilesOpsGetlistingops                                  | 文件操作_GetListingOps                                       | 次/s     | 每秒执行 GetListing 操作的次数                       | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnFilesOpsTotalfileops                                   | 文件操作_TotalFileOps                                        | 次/s     | 每秒执行 TotalFileOps 的次数                         | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnFilesOpsDeletefileops                                  | 文件操作_DeleteFileOps                                       | 次/s     | 每秒执行 DeleteFile 操作的次数                       | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnFilesOpsFileinfoops                                    | 文件操作_FileInfoOps                                         | 次/s     | 每秒执行 FileInfo 操作的次数                         | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnFilesOpsGetadditional<br>datanodeops                   | 文件操作<br>_GetAdditionalDatanodeOps                        | 次/s     | 每秒执行 GetAdditionalDatanode 操作的次数            | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnFilesOpsCreatesymlinkops                               | 文件操作_CreateSymlinkOps                                    | 次/s     | 每秒执行 CreateSymlink 操作的次数                    | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnFilesOpsGetlinktargetops                               | 文件操作_GetLinkTargetOps                                    | 次/s     | 每秒执行 GetLinkTarget 操作的次数                    | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnFilesOpsFilesingetlistingops                           | 文件操作<br>_FilesInGetListingOps                            | 次/s     | 每秒执行 FilesInGetListing 操作的次数                | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnTransactionOps<br>Transactionsnumops                   | 事务操作<br>_TransactionsNumOps                              | 次/s     | 每秒处理 Journal transaction 操作的次数              | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnTransactionOps<br>Transactionsbatchedinsync            | 事务操作<br>_TransactionsBatchedInSync                       | 次/s     | 每秒批量处理 Journal transaction 操作次数            | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnImageOpsGeteditnumops                                  | 镜像操作_GetEditNumOps                                       | 次/s     | 每秒执行 GetEditNumOps 的次数                        | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnImageOpsGetimagenumops                                 | 镜像操作_GetImageNumOps                                      | 次/s     | 每秒执行 GetImageNumOps 的次数                       | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnImageOpsPutimagenumops                                 | 镜像操作_PutImageNumOps                                      | 次/s     | 每秒执行 PutImageNumOps 的次数                       | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnSyncsOpsSyncsnumops                                    | SYNC 操作_SyncsNumOps                                        | 次/s     | 每秒处理 Journal syncs 操作的次数                    | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnBlocksOpsBlock<br>receivedanddeletedops                | 数据块操作<br/>_BlockOpsQueued                               | 次/s     | 每秒执行 BlockReceivedAndDeletedOps 的次数           | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnBlocksOpsBlockopsqueued                                | 数据块操作<br/>_BlockOpsQueued                               | 次/s     | 处理 DataNode Block 上报操作的延迟                   | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnCacheReportOps<br>Cachereportnumops                    | 缓存汇报<br/>_CacheReportNumOps                              | 次/s     | 每秒处理 CacheReport 操作的次数                      | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnBlockReportOps<br>Blockreportnumops                    | 数据块汇报<br/>_BlockReportNumOps                            | 次/s     | 每秒处理 DataNode Blcok 上报操作的次数               | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnSyncsRtSyncsavgtime                                    | SYNCS 操作延迟_SyncsAvgTime                                  | ms       | 处理 Journal syncs 操作的平均延迟                    | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnCacheReportRt<br>Cachereportavgtime                    | Cache 汇报延迟_CacheReportAvgTime                            | ms       | 缓存上报动作平均延迟                                 | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnImageRtGeteditavgtime                                  | 镜像操作延迟<br/>_GetEditAvgTime                             | ms       | 读取 Edit 文件操作平均延迟                           | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnImageRtGetimageavgtime                                 | 镜像操作延迟<br/>_GetImageAvgTime                            | ms       | 读取镜像文件平均延迟                                 | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnImageRtPutimageavgtime                                 | 镜像操作延迟<br/>_PutImageAvgTime                            | ms       | 写入镜像文件平均延迟                                 | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnTransactionRt<br>Transactionsavgtime                   | 事务操作延迟<br/>_TransactionsAvgTime                        | ms       | 处理 Journal transaction 操作的平均延迟              | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnStartTimeStarttime                                     | 启动时间_StartTime                                           | ms       | 进程启动时间                                         | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnStateState                                             | 主备情况_State                                               | -        | NN 状态                                              | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnThreadCountPeakthreadcount                             | 线程数量_PeakThreadCount                                     | 个       | 峰值线程数                                           | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnThreadCountThreadcount                                 | 线程数量_ThreadCount                                         | 个       | 线程数量                                             | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnThreadCount<br>Daemonthreadcount                       | 线程数量_DaemonThreadCount                                   | 个       | 后台线程数量                                         | host4hdfsnamenode、<br> id4hdfsnamenode |
-| HdfsNnPort4007Rt<br>Rpcprocessingtimeavgtime                     | 请求处理延迟_ RpcProcessingTimeAvgTime	                                  | ms       | 请求处理延迟                                  | host4hdfsnamenode、<br> id4hdfsnamenode |
+| 指标英文名                                                   | 指标中文名                               | 指标单位 | 指标含义                                      | 维度            |
+| ------------------------------------------------------------ | ---------------------------------------- | -------- | --------------------------------------------- | --------------- |
+| EmrHdfsOverviewAggregationHdfsNn<br>VolumeFailuresVolumefailurestotal | 磁盘故障_VolumeFailuresTotal             | 个       | 所有 Datanodes 的全故障总数                   | id4hdfsoverview |
+| EmrHdfsOverviewAggregationHdfsNn<br/>BlocksPendingreplicationblocks | BLOCKS数量_PendingReplicationBlocks      | 个       | 等待被备份的块数量                            | id4hdfsoverview |
+| EmrHdfsOverviewAggregationHdfsNn<br/>BlocksPendingdeletionblocks | BLOCKS数量_PendingDeletionBlocks         | 个       | 等待被删除的块数量                            | id4hdfsoverview |
+| EmrHdfsOverviewAggregationHdfs<br/>NnCapacityCapacityused    | 集群存储容量_CapacityUsed                | GB       | 集群储存已使用容量                            | id4hdfsoverview |
+| EmrHdfsOverviewAggregationHdfs<br/>NnBlocksExcessblocks      | BLOCKS数量_ExcessBlocks                  | 个       | 多余的块数量                                  | id4hdfsoverview |
+| EmrHdfsOverviewAggregationHdfs<br/>NnBlocksBlockstotal       | BLOCKS数量_BlocksTotal                   | 个       | 块总数量                                      | id4hdfsoverview |
+| EmrHdfsOverviewAggregationHdfsNn<br/>BlocksPostponedmisreplicatedblocks | BLOCKS数量_PostponedMisreplicatedBlocks  | 个       | 被推迟处理的异常块数量                        | id4hdfsoverview |
+| EmrHdfsOverviewAggregationHdfsNn<br/>BlockCapacityBlockcapacity | BLOCK容量_BlockCapacity                  | 个       | BLOCK 容量                                    | id4hdfsoverview |
+| EmrHdfsOverviewAggregationHdfsNn<br/>CapacityCapacitytotal   | 集群存储容量_CapacityTotal               | GB       | 集群存储总容量                                | id4hdfsoverview |
+| EmrHdfsOverviewAggregationHdfsNn<br/>DatanodesCountNumstaledatanodes | 集群数据节点_NumStaleDataNodes           | 个       | 由于心跳延迟而标记为过期的 DataNodes 当前数量 | id4hdfsoverview |
+| EmrHdfsOverviewAggregationHdfsNn<br/>BlocksCorruptblocks     | BLOCKS数量_CorruptBlocks                 | 个       | 坏块数量                                      | id4hdfsoverview |
+| EmrHdfsOverviewAggregationHdfsNn<br/>SnapshotsSnapshots      | SNAPSHOT相关_Snapshots                   | 个       | Snapshots 数量                                | id4hdfsoverview |
+| EmrHdfsOverviewAggregationHdfsNn<br/>DatanodesCountNumlivedatanodes | 集群数据节点_NumLiveDataNodes            | 个       | 个活的数据节点数量                            | id4hdfsoverview |
+| EmrHdfsOverviewAggregationHdfsNn<br/>DatanodesCountNumdeaddatanodes | 集群数据节点_NumDeadDataNodes            | 个       | 已经标记为 Dead 状态的数据节点数量            | id4hdfsoverview |
+| EmrHdfsOverviewAggregationHdfsNn<br/>BlocksScheduledreplicationblocks | BLOCKS数量_ScheduledReplicationBlocks    | 个       | 安排要备份的块数量                            | id4hdfsoverview |
+| EmrHdfsOverviewAggregationHdfsNn<br/>DatanodesCountNumdecomlivedatanodes | 集群数据节点_NumDecomLiveDataNodes       | 个       | 下线且 Live 的节点数量                        | id4hdfsoverview |
+| EmrHdfsOverviewAggregationHdfsNn<br/>DatanodesCountNumdecommissioningdatanodes | 集群数据节点_NumDecommissioningDataNodes | 个       | 正在下线的节点数量                            | id4hdfsoverview |
+| EmrHdfsOverviewAggregationHdfs<br/>NnFilesTotalFilestotal    | 集群文件总数量_FilesTotal                | 个       | 集群文件总数量_                               | id4hdfsoverview |
+| EmrHdfsOverviewAggregationHdfsNn<br/>CapacityCapacityremaining | 集群存储容量_CapacityRemaining           | GB       | 集群存储剩余容量                              | id4hdfsoverview |
+| EmrHdfsOverviewAggregation<br/>HdfsNnLoadTotalload           | 集群负载_TotalLoad                       | -        | 集群负载                                      | id4hdfsoverview |
+| EmrHdfsOverviewAggregationHdfs<br/>NnBlocksUnderreplicatedblocks | BLOCKS数量_UnderReplicatedBlocks         | 个       | 副本数不够的块数量                            | id4hdfsoverview |
+| EmrHdfsOverviewAggregationHdfs<br/>NnCapacityCapacityusednondfs | 集群存储容量_CapacityUsedNonDFS          | GB       | 集群非 HDFS 使用容量                          | id4hdfsoverview |
+| EmrHdfsOverviewAggregationHdfsNn<br/>DatanodesCountNumdecomdeaddatanodes | 集群数据节点_NumDecomDeadDataNodes       | 个       | 下线且 Dead 的节点数量                        | id4hdfsoverview |
 
 
 ### HDFS-DataNode
@@ -248,6 +163,140 @@ Namespace=QCE/TXMR_HDFS
 | HdfsDnRtRead                                                 | 读写延迟_Read                                                | 次/s     | 读操作 QPS                                 | id4hdfsdatanode、<br>host4hdfsdatanode |
 | HdfsDnDatapacketOps<br>Datapacketops                         | 包传输操作 QPS_DataPacketOps                                 | 次/s     | 包传输操作 QPS                             | id4hdfsdatanode、<br>host4hdfsdatanode |
 
+
+### HDFS-NameNode
+| 指标英文名                                                   | 指标中文名                                                   | 指标单位 | 指标含义                                       | 维度                                   |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | -------- | ---------------------------------------------- | -------------------------------------- |
+| HdfsNnTransactions<br>Sincelastcheckpoint                    | 总事务数_Sincelastcheckpoint                                 | 次数总和 | 总事务数                                       | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnTransaction<br/>RtTransactionsavgtime                  | 事务操作延迟_TransactionsAvgTime                             | ms       | 处理 Journal transaction 操作的平均延迟        | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnTransactionOps<br/>Transactionsnumops                  | 事务操作_TransactionsNumOps                                  | 次/秒    | 每秒处理  Journal transaction 操作的次数       | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnTransactionOps<br/>Transactionsbatchedinsync           | 事务操作_TransactionsBatchedInSync                           | 次/秒    | 每秒批量处理  Journal transaction 操作次数     | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnThreadCount<br/>Threadcount                            | 线程数量_ThreadCount                                         | 个       | 线程数量                                       | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnThreadCount<br/>Peakthreadcount                        | 线程数量_PeakThreadCount                                     | 个       | 峰值线程数                                     | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnThreadCount<br/>Daemonthreadcount                      | 线程数量_DaemonThreadCount                                   | 个       | 后台线程数量                                   | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnSyncsRtSyncsavgtime                                    | SYNCS操作延迟_SyncsAvgTime                                   | ms       | 处理  Journal syncs 操作的平均延迟             | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnSyncsOpsSyncsnumops                                    | SYNC操作_SyncsNumOps                                         | 次/秒    | 每秒处理  Journal syncs 操作的次数             | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnStateState                                             | 主备情况_State                                               | 个       | NN 状态                                        | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnStartTimeStarttime                                     | 启动时间_StartTime                                           | ms       | 进程启动时间                                   | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnStaleStorages<br/>CountNumstalestorages                | 被标记为过期的存储的数量_NumStaleStorages                    | 个       | 由于心跳延迟而标记为过期的  DataNodes 当前数目 | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnSnapshotOps<br/>Snapshotdiffreportops                  | SNAPSHOT操作_SnapshotDiffReportOps                           | 次/秒    | 每秒执行  AllowSnapshot 操作的次数             | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnSnapshotOps<br/>Renamesnapshotops                      | SNAPSHOT操作_RenameSnapshotOps                               | 次/秒    | 每秒执行  SnapshotDiffReportOps 的次数         | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnSnapshotOps<br/>Listsnapshottabledirops                | SNAPSHOT操作_ListSnapshottableDirOps                         | 次/秒    | 每秒执行  RenameSnapshotOps 的次数             | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnSnapshotOps<br/>Disallowsnapshotops                    | SNAPSHOT操作_DisallowSnapshotOps                             | 次/秒    | 每秒执行  ListSnapshottableDir 操作次数        | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnSnapshotOps<br/>Deletesnapshotops                      | SNAPSHOT操作_DeleteSnapshotOps                               | 次/秒    | 每秒执行  DisallowSnapshot 操作的次数          | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnSnapshotOps<br/>Createsnapshotops                      | SNAPSHOT操作_CreateSnapshotOps                               | 次/秒    | 每秒执行  DeleteSnapshot 操作的次数            | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnSnapshotOps<br/>Allowsnapshotops                       | SNAPSHOT操作_AllowSnapshotOps                                | 次/秒    | 每秒执行  CreateSnapshot 操作的次数            | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnPort4007Rxtx<br/>Sentbytes                             | 数据流量_SentBytes                                           | B/s      | 发送数据速率                                   | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnPort4007Rxtx<br/>Receivedbytes                         | 数据流量_ReceivedBytes                                       | B/s      | 接收数据速率                                   | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnPort4007RtRpc<br/>queuetimeavgtime                     | 请求处理延迟_RpcQueueTimeAvgTime                             | ms       | RPC  平均延迟时间                              | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnPort4007RtRpc<br/>processingtimeavgtime                | 请求处理延迟_ RpcProcessingTimeAvgTime                       | ms       | 请求处理延迟                                   | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnPort4007Queue<br/>LenCallqueuelength                   | RPC处理队列长度_CallQueueLength                              | 次/秒    | 当前  RPC 处理队列长度                         | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnPort4007QpsRpc<br/>queuetimenumops                     | QPS_RpcQueueTimeNumOps                                       | 次/秒    | RPC  调用速率                                  | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnPort4007Numops<br/>3Settimesnumops                     | 每秒调用次数_SetTimes                                        | 次/秒    | SetTimes 每秒调用时间                          | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnPort4007Numops<br/>3Setsafemodenumops                  | 每秒调用次数_SetSafeMode                                     | 次/秒    | SetSafeMode  每秒调用时间                      | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnPort4007Numops<br/>3Setpermissionnumops                | 每秒调用次数_SetPermission                                   | 次/秒    | SetPermission  每秒调用时间                    | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnPort4007Numops<br/>3Mkdirsnumops                       | 每秒调用次数_Mkdirs                                          | 次/秒    | Mkdirs 每秒调用时间                            | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnPort4007Numops<br/>3Listencryptionzonesnumops          | 每秒调用次数_ListEncryptionZones                             | 次/秒    | ListEncryptionZones  每秒调用时间              | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnPort4007Numops3<br/>Getserverdefaultsnumops            | 每秒调用次数_GetServerDefaults                               | 次/秒    | GetServerDefaults  每秒调用时间                | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnPort4007Numops3<br/>Getblocklocationsnumops            | 每秒调用次数_GetBlockLocations                               | 次/秒    | GetBlockLocations  每秒调用时间                | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnPort4007Numops2<br/>Versionrequestnumops               | 每秒调用次数_VersionRequest                                  | 次/秒    | VersionRequest  每秒调用时间                   | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnPort4007Numops2<br/>Renewleasenumops                   | 每秒调用次数_RenewLease                                      | 次/秒    | RenewLease  每秒调用时间                       | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnPort4007Numops2<br/>Registerdatanodenumops             | 每秒调用次数_RegisterDatanode                                | 次/秒    | RegisterDatanode  每秒调用时间                 | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnPort4007Numops2<br/>Fsyncnumops                        | 每秒调用次数_Fsync                                           | 次/秒    | Fsync 每秒调用时间                             | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnPort4007Numops2<br/>Deletenumops                       | 每秒调用次数_Delete                                          | 次/秒    | Delete 每秒调用时间                            | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnPort4007Numops2<br/>Blockreportnumops                  | 每秒调用次数_BlockReport                                     | 次/秒    | BlockReceivedAndDeleted  每秒调用时间          | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnPort4007Numops2<br/>Blockreceivedanddeletednumops      | 每秒调用次数_BlockReceivedAndDeleted                         | 次/秒    | SendHeartbeat  每秒调用时间                    | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnPort4007Numops1<br/>Sendheartbeatnumops                | 每秒调用次数_SendHeartbeat                                   | 次/秒    | Rename 每秒调用时间                            | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnPort4007Numops1<br/>Renamenumops                       | 每秒调用次数_Rename                                          | 次/秒    | Rename 每秒调用时间                            | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnPort4007Numops1<br/>Getlistingnumops                   | 每秒调用次数_GetListing                                      | 次/秒    | GetListing  每秒调用时间                       | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnPort4007Numops1<br/>Getfileinfonumops                  | 每秒调用次数_GetFileInfo                                     | 次/秒    | GetFileInfo  每秒调用时间                      | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnPort4007Numops1<br/>Createnumops                       | 每秒调用次数_Create                                          | 次/秒    | Create 每秒调用时间                            | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnPort4007Numops1<br/>Completenumops                     | 每秒调用次数_Complete                                        | 次/秒    | Complete 每秒调用时间                          | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnPort4007Numops1<br/>Addblocknumops                     | 每秒调用次数_AddBlock                                        | 次/秒    | AddBlock 每秒调用时间                          | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnPort4007Connections<br/>Numopenconnections             | 当前连接数_NumOpenConnections                                | 个       | 当前链接数量                                   | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnPort4007Avgtime<br/>3Settimesavgtime                   | 请求平均延迟时间_SetTimes                                    | 毫秒     | SetTimes 请求平均延时                          | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnPort4007Avgtime3<br/>Setsafemodeavgtime                | 请求平均延迟时间_SetSafeMode                                 | 毫秒     | SetSafeMode 请求平均延时                       | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnPort4007Avgtime3<br/>Setpermissionavgtime              | 请求平均延迟时间_SetPermission                               | 毫秒     | SetPermission 请求平均延时                     | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnPort4007Avgtime3<br/>Mkdirsavgtime                     | 请求平均延迟时间_Mkdirs                                      | 毫秒     | Mkdirs 请求平均延时                            | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnPort4007Avgtime3<br/>Listencryptionzonesavgtime        | 请求平均延迟时间_ListEncryptionZones                         | 毫秒     | ListEncryptionZones 请求平均延时               | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnPort4007Avgtime3<br/>Getserverdefaultsavgtime          | 请求平均延迟时间_GetServerDefaults                           | 毫秒     | GetServerDefaults 请求平均延时                 | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnPort4007Avgtime3<br/>Getblocklocationsavgtime          | 请求平均延迟时间_GetBlockLocations                           | 毫秒     | GetBlockLocations 请求平均延时                 | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnPort4007Avgtime2<br/>Versionrequestavgtime             | 请求平均延迟时间_VersionRequest                              | 毫秒     | VersionRequest 请求平均延时                    | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnPort4007Avgtime2<br/>Renewleaseavgtime                 | 请求平均延迟时间_RenewLease                                  | 毫秒     | RenewLease 请求平均延时                        | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnPort4007Avgtime2<br/>Registerdatanodeavgtime           | 请求平均延迟时间_RegisterDatanode                            | 毫秒     | RegisterDatanode 请求平均延时                  | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnPort4007Avgtime2<br/>Fsyncavgtime                      | 请求平均延迟时间_Fsync                                       | 毫秒     | Fsync 请求平均延时                             | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnPort4007Avgtime2<br/>Deleteavgtime                     | 请求平均延迟时间_Delete                                      | 毫秒     | Delete 请求平均延时                            | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnPort4007Avgtime2<br/>Blockreportavgtime                | 请求平均延迟时间_BlockReport                                 | 毫秒     | BlockReceivedAndDeleted 请求平均延时           | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnPort4007Avgtime2<br/>Blockreceivedanddeletedavgtime    | 请求平均延迟时间_BlockReceivedAndDeleted                     | 毫秒     | SendHeartbeat 请求平均延时                     | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnPort4007Avgtime1<br/>Sendheartbeatavgtime              | 请求平均延迟时间_SendHeartbeat                               | 毫秒     | Rename 请求平均延时                            | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnPort4007Avgtime1<br/>Renameavgtime                     | 请求平均延迟时间_Rename                                      | 毫秒     | Rename 请求平均延时                            | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnPort4007Avgtime1<br/>Getlistingavgtime                 | 请求平均延迟时间_GetListing                                  | 毫秒     | GetListing 请求平均延时                        | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnPort4007Avgtime1<br/>Getfileinfoavgtime                | 请求平均延迟时间_GetFileInfo                                 | 毫秒     | GetFileInfo 请求平均延时                       | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnPort4007Avgtime1<br/>Createavgtime                     | 请求平均延迟时间_Create                                      | 毫秒     | Create 请求平均延时                            | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnPort4007Avgtime1<br/>Completeavgtime                   | 请求平均延迟时间_Complete                                    | 毫秒     | Complete 请求平均延时                          | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnPort4007Avgtime1<br/>Addblockavgtime                   | 请求平均延迟时间_AddBlock                                    | 毫秒     | AddBlock 请求平均延时                          | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnPort4007Auth<br/>Rpcauthorizationsuccesses             | 验证和授权_RpcAuthorizationSuccesses                         | 次       | RPC 授权成功次数                               | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnPort4007Auth<br/>Rpcauthorizationfailures              | 验证和授权_RpcAuthorizationFailures                          | 次       | RPC  授权失败次数                              | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnPort4007Auth<br/>Rpcauthenticationsuccesses            | 验证和授权_RpcAuthenticationSuccesses                        | 次       | RPC  验证成功次数                              | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnPort4007Auth<br/>Rpcauthenticationfailures             | 验证和授权_RpcAuthenticationFailures                         | 次       | RPC  验证失败次数                              | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnPendingDatanodeMessage<br/>CountPendingdatanodemessagecou | 备NN上挂起的与BLOCK相关操作的消息数量_PendingDataNodeMessageCount | 个/秒    | 备NN上挂起的与BLOCK相关操作的消息数量          | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnLockqueueLock<br/>queuelength                          | 等待文件锁的队列长度                                         | 次数总和 | 等待文件锁的队列长度                           | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnJvmMem<br/>Memnonheapusedm                             | JVM内存_MemNonHeapUsedM                                      | MB       | JVM 当前已经使用的 NonHeapMemory 的大小        | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnJvmMemMemnon<br/>heapcommittedm                        | JVM内存_MemNonHeapCommittedM                                 | MB       | JVM  内存                                      | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnJvmMemMemmaxm                                          | JVM内存_MemMaxM                                              | MB       | JVM  运行时的可以使用的最大的内存的大小        | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnJvmMemMemheapusedm                                     | JVM内存_MemHeapUsedM                                         | MB       | JVM  当前已经使用的 HeapMemory 的大小          | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnJvmMemMemheapmaxm                                      | JVM内存_MemHeapMaxM                                          | MB       | JVM  配置的 HeapMemory 的大小                  | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnJvmMemMemheap<br/>committedm                           | JVM内存_MemHeapCommittedM                                    | MB       | JVM  HeapMemory 提交大小                       | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnJvmLogTotalLogwarn                                     | JVM日志数量_LogWarn                                          | 个       | Warn  日志数量                                 | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnJvmLogTotalLoginfo                                     | JVM日志数量_LogInfo                                          | 个       | Info  日志数量                                 | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnJvmLogTotalLogfatal                                    | JVM日志数量_LogFatal                                         | 个       | Fatal  日志数量                                | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnJvmLogTotalLogerror                                    | JVM日志数量_LogError                                         | 个       | Error  日志数量                                | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnJvmJavaThreads<br/>Threadswaiting                      | JVM线程数量_ThreadsWaiting                                   | 个       | 处于新建状态的线程数量                         | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnJvmJavaThreads<br/>Threadstimedwaiting                 | JVM线程数量_ThreadsTimedWaiting                              | 个       | 处于  WAITING 状态的线程数量                   | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnJvmJavaThreads<br/>Threadsterminated                   | JVM线程数量_ThreadsTerminated                                | 个       | 处于  TIMED WAITING 状态的线程数量             | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnJvmJavaThreads<br/>Threadsrunnable                     | JVM线程数量_ThreadsRunnable                                  | 个       | 处于  Terminated 状态的线程数量                | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnJvmJavaThreads<br/>Threadsnew                          | JVM线程数量_ThreadsNew                                       | 个       | 处于可运行状态的线程数量                       | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnJvmJavaThreads<br/>Threadsblocked                      | JVM线程数量_ThreadsBlocked                                   | 个       | 处于阻塞状态的线程数量                         | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnImageRt<br/>Putimageavgtime                            | 镜像操作延迟_PutImageAvgTime                                 | ms       | 写入镜像文件平均延迟                           | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnImageRt<br/>Getimageavgtime                            | 镜像操作延迟_GetImageAvgTime                                 | ms       | 读取镜像文件平均延迟                           | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnImageRt<br/>Geteditavgtime                             | 镜像操作延迟_GetEditAvgTime                                  | ms       | 读取  Edit 文件操作平均延迟                    | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnImageOps<br/>Putimagenumops                            | 镜像操作_PutImageNumOps                                      | Count/s  | 每秒执行  PutImageNumOps 的次数                | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnImageOps<br/>Getimagenumops                            | 镜像操作_GetImageNumOps                                      | Count/s  | 每秒执行  GetImageNumOps 的次数                | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnImageOps<br/>Geteditnumops                             | 镜像操作_GetEditNumOps                                       | Count/s  | 每秒执行  GetEditNumOps 的次数                 | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnGcUtilMemoryS1                                         | 内存区域占比_S1                                              | %        | Survivor  1区内存使用占比                      | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnGcUtilMemoryS0                                         | 内存区域占比_S0                                              | %        | Survivor  0区内存使用占比                      | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnGcUtilMemoryO                                          | 内存区域占比_O                                               | %        | Old  区内存使用占比                            | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnGcUtilMemoryM                                          | 内存区域占比_M                                               | %        | Metaspace  区内存使用占比                      | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnGcUtilMemoryE                                          | 内存区域占比_E                                               | %        | Eden  区内存使用占比                           | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnGcUtilMemoryCcs                                        | 内存区域占比_CCS                                             | %        | Compressed  class space 区内存使用占比         | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnGcUtilGcTimeYgct                                       | GC 时间_YGCT                                                 | s        | Young  GC 消耗时间                             | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnGcUtilGcTimeGct                                        | GC 时间_GCT                                                  | s        | 垃圾回收时间消耗                               | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnGcUtilGcTimeFgct                                       | GC 时间_FGCT                                                 | s        | Full  GC 消耗时间                              | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnGcUtilGcCountYgc                                       | GC 次数_YGC                                                  | Count    | Young  GC 次数                                 | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnGcUtilGcCountFgc                                       | GC 次数_FGC                                                  | Count    | Full  GC 次数                                  | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnFilesOpsTotalfileops                                   | 文件操作_TotalFileOps                                        | Count/s  | 每秒执行  TotalFileOps 的次数                  | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnFilesOpsGetlistingops                                  | 文件操作_GetListingOps                                       | Count/s  | 每秒执行  GetListing 操作的次数                | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnFilesOpsGetlinktargetops                               | 文件操作_GetLinkTargetOps                                    | Count/s  | 每秒执行  GetLinkTarget 操作的次数             | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnFilesOpsGetadditional<br/>datanodeops                  | 文件操作_GetAdditionalDatanodeOps                            | Count/s  | 每秒执行  GetAdditionalDatanode 操作的次数     | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnFilesOpsFilesingetlistingops                           | 文件操作_FilesInGetListingOps                                | Count/s  | 每秒执行  FilesInGetListing 操作的次数         | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnFilesOpsFileinfoops                                    | 文件操作_FileInfoOps                                         | Count/s  | 每秒执行  FileInfo 操作的次数                  | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnFilesOpsDeletefileops                                  | 文件操作_DeleteFileOps                                       | Count/s  | 每秒执行  DeleteFile 操作的次数                | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnFilesOpsCreatesymlinkops                               | 文件操作_CreateSymlinkOps                                    | Count/s  | 每秒执行  CreateSymlink 操作的次数             | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnFilesOpsCreatefileops                                  | 文件操作_CreateFileOps                                       | Count/s  | 每秒执行  CreateFile 操作的次数                | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnFilesFilesdeleted                                      | 文件数量_Filesdeleted                                        | 次数总和 | 删除文件数量                                   | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnFilesFilescreated                                      | 文件数量_Filescreated                                        | 次数总和 | 创建文件数量                                   | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnFilesFilesappended                                     | Appended文件数量                                             | 次数总和 | Appended 文件数量                              | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnCheckpointtime<br/>Lastcheckpoint                      | 上次Checkpoint以来的时间                                     | 秒(s)    | 上次 Checkpoint 以来的时间                     | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnCacheReportRt<br/>Cachereportavgtime                   | Cache汇报延迟_CacheReportAvgTime                             | ms       | 缓存上报动作平均延迟                           | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnCacheReportOps<br/>Cachereportnumops                   | 缓存汇报_CacheReportNumOps                                   | Count/s  | 每秒处理  CacheReport 操作的次数               | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnBlocksOpsBlock<br/>receivedanddeletedops               | 数据块操作_BlockReceivedAndDeletedOps                        | Count/s  | 处理  DataNode Block 上报操作的延迟            | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnBlocksOps<br/>Blockopsqueued                           | 数据块操作_BlockOpsQueued                                    | Count/s  | 每秒执行  BlockReceivedAndDeletedOps 的次数    | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnBlocksMissingNumberof<br/>missingblockswithreplicationfacto | 缺失块统计_NumberOfMissingBlocksWithReplicationFactorOne     | Count    | 缺失的数据库数量（rf  = 1）                    | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnBlocksMissingNumberof<br/>missingblocks                | 缺失块统计_NumberOfMissingBlocks                             | Count    | 缺失的数据块数量                               | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnBlockReportRt<br/>Blockreportavgtime                   | 数据块汇报延迟_BlockReportAvgTime                            | ms       | 每秒处理  DataNode Blcok 平均延迟              | host4hdfsnamenode、<br>id4hdfsnamenode |
+| HdfsNnBlockReportOps<br/>Blockreportnumops                   | 数据块汇报_BlockReportNumOps                                 | Count/s  | 每秒处理  DataNode Blcok 上报操作的次数        | host4hdfsnamenode、<br>id4hdfsnamenode |
+
+
 ### HDFS-Journal Node
 
 | 指标英文名                                       | 指标中文名                            | 指标单位 | 指标含义                                |                                               |
@@ -311,6 +360,8 @@ Namespace=QCE/TXMR_HDFS
 | HdfsDfzkGcUtilGcTimeYgct | GC时间_YGCT      | s        | Young GC 消耗时间                     | host4hdfszkfailovercontroller、<br>id4hdfszkfailovercontroller |
 | HdfsDfzkGcUtilGcTimeFgct | GC时间_FGCT      | s        | Full GC 消耗时间                      | host4hdfszkfailovercontroller、<br>id4hdfszkfailovercontroller |
 | HdfsDfzkGcUtilGcTimeGct  | GC时间_GCT       | s        | 垃圾回收时间消耗                      | host4hdfszkfailovercontroller、<br>id4hdfszkfailovercontroller |
+
+
 
 > ?每个指标的统计粒度（Period）可取值不一定相同，可通过 [DescribeBaseMetrics](https://cloud.tencent.com/document/product/248/30351) 接口获取每个指标支持的统计粒度。
 
@@ -382,8 +433,4 @@ Namespace=QCE/TXMR_HDFS
 &Instances.N.Dimensions.0.Value=EMR 实例具体 ID
 &Instances.N.Dimensions.1.Name=host4hdfszkfailovercontroller
 &Instances.N.Dimensions.1.Value=EMR 实例中具体节点 IP
-
-
-
-
 
