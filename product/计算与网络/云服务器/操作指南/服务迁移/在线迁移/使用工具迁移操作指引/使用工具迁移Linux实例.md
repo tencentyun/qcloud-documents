@@ -22,7 +22,6 @@
 ### 修改配置文件[](id:modifyConfiguration)
 
 1. 将迁移工具 go2tencentcloud.zip 下载或上传至源端主机，并执行以下命令进入对应目录。
-    1. 依次执行以下命令，解压 go2tencentcloud.zip 并进入目录。
 ```sh
 unzip go2tencentcloud.zip
 ```
