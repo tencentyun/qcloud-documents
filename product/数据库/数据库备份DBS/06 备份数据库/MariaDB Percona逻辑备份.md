@@ -4,19 +4,18 @@
 ## 前提条件
 - 源数源数据库符合备份功能和版本要求，请参见 [备份和恢复能力汇总](https://cloud.tencent.com/document/product/1513/64026) 进行核对。
 - 已完成 [准备工作](https://cloud.tencent.com/document/product/1513/64040)。
-- 备份帐号需要具备源数据库的相关权限，如下为全量和增量备份的授权，如果仅全量，无增量备份，则不需要 REPLICATION CLIENT、REPLICATION SLAVE 和 `__tencentdb__` 的授权。
+- 备份帐号需要具备源数据库的相关权限，如下为全量和增量备份的授权，如果仅全量，无增量备份，则不需要 REPLICATION CLIENT、REPLICATION SLAVE 授权。
   - “整个实例”备份：
 ```
 CREATE USER '帐号'@'%' IDENTIFIED BY '密码';  
-GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO '帐号'@'%';  
-GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '迁移帐号'@'%'; //如果源库为腾讯云数据库需要授予`__tencentdb__`权限；使用只读帐号对腾讯云 MariaDB 的从库进行备份时，只读帐号缺少`lock table`权限，需要提交工单https://console.cloud.tencent.com/workorder/category申请
+GRANT LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO '帐号'@'%';  
+使用只读帐号对腾讯云 MariaDB 的从库进行备份时，只读帐号缺少`lock table`权限，需要提交工单https://console.cloud.tencent.com/workorder/category申请
 GRANT SELECT ON *.* TO '帐号';
 ```
   - “指定对象”备份：
 ```
 CREATE USER '帐号'@'%' IDENTIFIED BY '密码';  
-GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO '帐号'@'%';  
-GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '迁移帐号'@'%'; //如果源端为腾讯云数据库需要授予`__tencentdb__`权限
+GRANT LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO '帐号'@'%';  
 GRANT SELECT ON `mysql`.* TO '帐号'@'%';
 GRANT SELECT ON 待备份的库.* TO '帐号';
 ```

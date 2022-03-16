@@ -23,7 +23,7 @@
 
 [](id:que3)
 ### 正式 License 能否更改 Android 的 PackageName 和 iOS 的 BundleID?
-当前版本，正式 License **不能**更改 PackageName 和 BundleID，后续版本会加以支持。
+正式版 License 不能更改 Package Name 和 Bundle ID。请您在添加正式版 License 先核对包名在应用商店里是否被占用，提交后不支持修改和替换。
 
 [](id:que4)
 ### License 可以同时支持多个 App 吗？
