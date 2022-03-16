@@ -11,7 +11,7 @@
 详细操作指南可参见 [查询其他数据源](https://cloud.tencent.com/document/product/1342/66039)。
 
 ### 数据库管理
-通过 SQL 编辑器，支持对数据库行进创建、删除、查看详情操作，详细操作指南可参见 通过[ SQL 管理数据库](https://cloud.tencent.com/document/product/1342/61666)。
+通过 SQL 编辑器，支持对数据库行进创建、删除、查看详情操作，详细操作指南可参见 [通过 SQL 管理数据库](https://cloud.tencent.com/document/product/1342/61666)。
 
 ### 数据表管理
 通过 SQL 编辑器，支持对数据表进行创建、查询、查看详情操作，详细操作指南可参见 [数据表管理](https://cloud.tencent.com/document/product/1342/61870)。
