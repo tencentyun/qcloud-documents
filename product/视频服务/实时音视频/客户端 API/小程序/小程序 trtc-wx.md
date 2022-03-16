@@ -1,6 +1,6 @@
-本文档包含 trtc-wx 模块 API 接口和所有事件说明，您通过查阅此文档能够获得更多 TRTC 的使用帮助。本文将在 API 概览部分中为您介绍 trtc-wx 提供的所有接口及其含义，在 API 使用指引的部分为您介绍，这些接口详细的使用方式，及注意事项。在更多高级特性中，会向您展示 trtc-wx 中是如何管理页面上的 live-pusher 和 live-player 实例的，最后，我们会为您介绍所有的事件通知，以及事件通知中的各种数据。
+小程序的实时音视频是基于微信原生组件标签 &lt;live-pusher&gt; 和 &lt;live-player&gt; 实现的，您可以通过 [live-pusher 文档](https://developers.weixin.qq.com/miniprogram/dev/component/live-pusher.html) 和 [live-player 文档](https://developers.weixin.qq.com/miniprogram/dev/component/live-player.html) 对这两个标签有一个简单认识。本篇介绍的 trtc-wx 包是一个专门为您管理 TRTC 状态的一个类，作为一个纯 js 模块，您可以根据业务场景，自主编写页面的元素布局。trtc-wx 可以帮助您管理所有与实时音视频相关的状态，以及调用挂载在 &lt;live-pusher&gt; 和 &lt;live-player&gt; 上的方法。整体的调用逻辑如下图所示，`trtc-room.wxml` 是您自主编写的 wxml 文件，其中包括 &lt;live-pusher&gt; 和 &lt;live-player&gt; 节点。`trtc-room.js` 是您的业务层代码，您需要在这个文件中引用我们的 `trtc-wx.js`。
 
-您可以根据业务场景，自主编写页面的元素布局，trtc-wx 则可以帮助您管理所有与实时音视频相关的状态，您也可以调用挂载在 **&lt;live-pusher&gt;** 和 **&lt;live-player&gt;** 上的方法，满足您业务场景所需。
+本文档包含 trtc-wx 模块 API 接口和所有事件说明，您通过查阅此文档能够获得更多 TRTC 的使用帮助。本文将在 API 概览部分中为您介绍 trtc-wx 提供的所有接口及其含义，在 API 使用指引的部分为您介绍，这些接口详细的使用方式，及注意事项。在更多高级特性中，会向您展示 trtc-wx 中是如何管理页面上的 live-pusher 和 live-player 实例的，最后，我们会为您介绍所有的事件通知，以及事件通知中的各种数据。
 
 ![](https://main.qcloudimg.com/raw/2d3c25e440561539fc1afb8668415ce2.png)
 
@@ -28,6 +28,48 @@
 
 以下会为您介绍每个 API 的含义，基础方法是创建 TRTC 房间，使用 TRTC 服务的必用的 API，如果您需要主动改变推流的一些状态属性，您则需要调用 pusher 和 player 的属性变更的 API，如果您需要更多的功能，您也可以直接获取相关的实例，调用我们 SDK 开放的能力。
 
+### trtc-wx与\<live-pusher>/\<live-player>的关系
+trtc-wx sdk 意在帮助用户处理原生标签复杂的状态码以及各种属性状态变更。用户通过对<live-pusher>/<live-player>标签绑定回调，从而与trtx-wx.js建立联系，通过sdk内部处理，抛出[回调事件](#Event)。
+<dx-codeblock>
+::: javascript javascript
+
+    <live-pusher
+        url="{{pusher.url}}"
+        bindstatechange="_pusherStateChangeHandler"
+        bindnetstatus="_pusherNetStatusHandler"
+        binderror="_pusherErrorHandler"
+        bindbgmstart="_pusherBGMStartHandler"
+        bindbgmprogress="_pusherBGMProgressHandler"
+        bindbgmcomplete="_pusherBGMCompleteHandler"
+        bindaudiovolumenotify="_pusherAudioVolumeNotify"
+    />
+
+    // 请保持跟 wxml 中绑定的事件名称一致
+    _pusherStateChangeHandler(event) {
+        this.TRTC.pusherEventHandler(event)
+    },
+    _pusherNetStatusHandler(event) {
+        this.TRTC.pusherNetStatusHandler(event)
+    },
+    _pusherErrorHandler(event) {
+        this.TRTC.pusherErrorHandler(event)
+    },
+    _pusherBGMStartHandler(event) {
+        this.TRTC.pusherBGMStartHandler(event)
+    },
+    _pusherBGMProgressHandler(event) {
+        this.TRTC.pusherBGMProgressHandler(event)
+    },
+    _pusherBGMCompleteHandler(event) {
+        this.TRTC.pusherBGMCompleteHandler(event)
+    },
+    _pusherAudioVolumeNotify(event) {
+        this.TRTC.pusherAudioVolumeNotify(event)
+    }
+:::
+</dx-codeblock>
+
+下载：[demo 代码](https://web.sdk.qcloud.com/trtc/miniapp/download/trtc-wx.zip)
 ### 基础方法
 
 您可以通过这些方法完成事件监听，并创建 TRTC 房间，获取远端的拉流信息等操作。
@@ -393,8 +435,8 @@ pusherInstance 是 trtc-wx 帮助您管理 &lt;live-pusher&gt; 的一个实例�
 | maxBitrate         | Number  | 900         | 最大码率，需要跟分辨率相匹配，请参见 [分辨率码率参照表](https://cloud.tencent.com/document/product/647/32236#.E5.88.86.E8.BE.A8.E7.8E.87.E7.A0.81.E7.8E.87.E5.8F.82.E7.85.A7.E8.A1.A8) |
 | frontCamera        | String  | front       | 前置或后置摄像头，可选值：front，back                        |
 | enableZoom         | Boolean | false       | 是否支持双手滑动调整摄像头焦距                               |
-| videoWidth         | Number  | 360         | 视频宽（若设置了视频宽高就会忽略 aspect）                    |
-| videoHeight        | Number  | 640         | 视频高（若设置了视频宽高就会忽略 aspect）                    |
+| videoWidth         | Number  | 360         | 上推的视频流的分辨率宽度（若设置了视频宽高就会忽略 aspect）                    |
+| videoHeight        | Number  | 640         | 上推的视频流的分辨率高度（若设置了视频宽高就会忽略 aspect）                    |
 | beautyLevel        | Number  | 0           | 美颜。取值范围 0-9 ，0 表示关闭                              |
 | whitenessLevel     | Number  | 0           | 美白。取值范围 0-9 ，0 表示关闭                              |
 | videoOrientation   | String  | vertical    | 推流方向。vertical：垂直方向，horizontal：水平方向           |
@@ -745,3 +787,14 @@ let onError = function(event){
 this.TRTC.on(EVENT.ERROR, onError)
 :::
 </dx-codeblock>
+
+[](id:QQ)
+## 技术咨询
+了解更多详情您可 QQ 咨询：<dx-tag-link link="#QQ" tag="技术交流群">941036374</dx-tag-link>
+
+## 参考文档
+- [快速集成(小程序)](https://cloud.tencent.com/document/product/647/32183)
+- [语音聊天室(小程序)](https://cloud.tencent.com/document/product/647/65386)
+- [多人音视频房间(小程序)](https://cloud.tencent.com/document/product/647/70845)
+- [视频通话(小程序)](https://cloud.tencent.com/document/product/647/49379)
+- [语音通话(小程序)](https://cloud.tencent.com/document/product/647/49363)
