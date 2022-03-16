@@ -18,14 +18,16 @@
 
 ### 授权给云直播截图存储
 
-1. 为腾讯云截图存储开通数据写入权限，授权的根账号 ID：`3508645126`。
-   1. 在存储桶的 **[存储桶列表](https://console.cloud.tencent.com/cos5/bucket)** 选择授权的存储桶，单击右侧 **配置管理** 进入该存储桶配置管理界面，选择 **权限管理**> **[存储桶访问权限](https://console.cloud.tencent.com/cos5/bucket/setting?type=aclconfig&anchorType=accessPermission&bucketName=text-1258968577&projectId=&path=%252F&region=ap-guangzhou)** 添加用户，用户类型选择根账号，**并输入根账号 ID：`3508645126`**。单击 **保存**。
+1.为腾讯云截图存储开通数据写入权限，授权的主账号 ID：`3508645126`。
+
+1. 在存储桶的 **[存储桶列表](https://console.cloud.tencent.com/cos5/bucket)** 选择授权的存储桶，单击右侧 **配置管理** 进入该存储桶配置管理界面，选择 **权限管理**> **[存储桶访问权限](https://console.cloud.tencent.com/cos5/bucket/setting?type=aclconfig&anchorType=accessPermission&bucketName=text-1258968577&projectId=&path=%2F®ion=ap-guangzhou)** 添加用户，用户类型选择主账号，**并输入主账号 ID：`3508645126`**。单击 **保存**。
 ![](https://main.qcloudimg.com/raw/9105686a61bb5b846741d7326c9b8d1b.png)
-![](https://main.qcloudimg.com/raw/2417cd97ea3ae2f3ebf57ff1f8834ba1.png)
-或单击 **授权管理** 进入授权管理界面，勾选需授权的存储桶，打开 **公共权限** 和 **用户权限** 按钮添加用户。用户类型选择根账号，**并输入根账号 ID：`3508645126`**。单击 **保存** 并 **确定**。
+![](https://qcloudimg.tencent-cloud.cn/raw/d455559075434161c20d6776c521b3e1.png)
+或单击 **授权管理** 进入授权管理界面，勾选需授权的存储桶，打开 **公共权限** 和 **用户权限** 按钮添加用户。用户类型选择主账号，**并输入主账号 ID：`3508645126`**。单击 **保存** 并 **确定**。
 ![](https://main.qcloudimg.com/raw/e7e90c31cccdda1f9b9ede3024346e0f.png)
-![](https://main.qcloudimg.com/raw/efe7fd88d60c7250718ba06add527d3d.png)
->! **账号 ID 需填入根账号（也就是主账号） ID：`3508645126` 进行授权。（根账号 ID：`3508645126` 即为云直播服务 APPID，直接输入 `3508645126` 即可）**。
+![](https://qcloudimg.tencent-cloud.cn/raw/666c7c269ad8a92392b590ebea811e5b.png)
+>!**账号 ID 需填入主账号 ID：`3508645126` 进行授权。（主账号 ID：`3508645126` 即为云直播服务 APPID，直接输入 `3508645126` 即可）**。
+>
    2. 存储桶访问权限设置 API 请参考 [PUT Bucket acl 文档](https://cloud.tencent.com/document/product/436/7737)。
 2. 获取已授权 COS Bucket 信息。
    1. 在存储桶的 **[概览](https://console.cloud.tencent.com/cos5/bucket/setting?type=bucketoverview&bucketName=text-1258968577&projectId=&path=%252F&region=ap-guangzhou)** 里即可查看到 COS 的所有信息。访问域名（源站域名）包含 bucket name、cos appid 和 bucket region。
