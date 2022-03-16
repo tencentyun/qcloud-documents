@@ -62,7 +62,7 @@ Container 类型 Request 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 是否必选 |
 | ------------------ | ------- | -------------------------------------------------------- | --------- | ---- |
-| Tag                | Request | 创建任务的Tag：DigitalWatermark | String    | 是   |
+| Tag                | Request | 创建任务的 Tag：DigitalWatermark | String    | 是   |
 | Input              | Request | 待操作的媒体信息                                         | Container | 是   |
 | Operation          | Request | 操作规则                                               | Container | 是   |
 | QueueId            | Request | 任务所在的队列 ID                                         | String    | 是   |
@@ -85,7 +85,7 @@ Container 类型 DigitalWatermark 的具体数据类型描述如下：
 
 | 节点名称（关键字） | 父节点            | 描述                                                         | 类型      | 是否必选 | 默认值 | 限制 |
 | ------------------ | ----------------- | ------------------------------------------------------------ | --------- | ---- | ---- | ---- |
-| Message               | Request.Operation.DigitalWatermark |  数字水印嵌入的字符串信息    | string | 是   | | 长度不超过64个字符，仅支持中文、英文、数字、_、-和* |
+| Message               | Request.Operation.DigitalWatermark |  数字水印嵌入的字符串信息    | string | 是   | | 长度不超过64个字符，仅支持中文、英文、数字、\_、-和\* |
 | Type               | Request.Operation.DigitalWatermark | 水印类型      | String | 是 | | Text |
 | Version            | Request.Operation.DigitalWatermark | 水印版本     | String | 是 | | V1 |
 
