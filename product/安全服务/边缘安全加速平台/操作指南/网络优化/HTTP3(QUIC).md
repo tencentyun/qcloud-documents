@@ -4,7 +4,7 @@
 #### 什么是 QUIC ？
 QUIC（Quick UDP Internet Connections）是一个通用的网络协议，提供几乎等同于 TCP 连接的可靠性，但大大减少传输和连接时的延时，避免网络拥塞，同时能够保障网络安全性。
 
-
+EdgeOne 当前支持的 QUIC 版本有：h3-29、h3-Q050、h3-Q046、h3-Q043、Q046、Q043。
 
 ## 操作步骤
 1. 登录 [边缘安全加速平台控制台](https://console.cloud.tencent.com/teo)，在左侧菜单栏中，单击**站点加速** > **网络优化**。
