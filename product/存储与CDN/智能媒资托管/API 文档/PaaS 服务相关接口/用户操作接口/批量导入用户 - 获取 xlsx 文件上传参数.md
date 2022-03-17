@@ -22,7 +22,7 @@ PUT /user/v1/file/allowlist/`{OrganizationId}`?ext=`{FileExt}`&user_token=`{User
 
 xlsx 文件模板如下：
 
-  | Name/姓名     | Phone/手机号       | Personal capacity /是否分配个人空间（单位为GB)| Enterprise Sector/部门（层级以"/"划分） |
+  | Name/姓名     | Phone/手机号       | Personal capacity /是否分配个人空间（单位为GB）| Enterprise Sector/部门（层级以"/"划分） |
       |----------|-------------|-------------------|-------------------|
   | 张三 | 18666666666 | 5                 | 1级             |
   |      李四    |    13100000000         |     0              |    1级/2级/3级               |
