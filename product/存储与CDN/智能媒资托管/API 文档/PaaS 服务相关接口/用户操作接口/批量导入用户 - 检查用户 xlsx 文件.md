@@ -13,7 +13,7 @@
 
 POST /user/v1/allowlist/`{OrganizationId}`/batch-import/`{FilePath}`?checkOnly?user_token=`{UserToken}`
 
-- 请求参数：
+请求参数：
   - OrganizationId：组织 ID，必选参数。
   - UserToken：用户令牌，必选参数。
   - FilePath：用户表格文件 path，即获取用户 xlsx 简单上传文件参数中的响应字段 path。
@@ -35,15 +35,12 @@ POST /user/v1/allowlist/`{OrganizationId}`/batch-import/`{FilePath}`?checkOnly?u
 application/json
 
 - 响应体示例：
-
 启用异步检查，返回异步任务 ID。
 ```json
 {
   "taskId": 28
 }
 ```
-
-
 同步检查完成，返回检查结果。
 - 格式检查正确响应体示例
 ```json
@@ -75,7 +72,6 @@ application/json
     }
 ]
 ```
-
 - 响应体字段说明：
     - taskId：整数，任务 ID。
     - status：整数，任务状态码。

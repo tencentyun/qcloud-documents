@@ -43,7 +43,6 @@ xlsx 文件模板如下：
 application/json
 
 - 响应体示例：
-
 ```json
   {
   "domain": "examplebucket-1250000000.cos.ap-beijing.myqcloud.com",
@@ -58,7 +57,6 @@ application/json
   }
 }
 ```
-
 - 响应体字段说明：
   - domain：字符串，实际上传文件时的域名。
   - path：字符串，实际文件上传时的 URL 路径。
