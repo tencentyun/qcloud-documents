@@ -1,6 +1,6 @@
 如需在云函数中访问 CloudBase 的各项服务，例如操作数据库、管理云文件等，可使用 CloudBase 服务端 SDK。
 
-例如，您可以在 Node.js 云函数中，使用 [CloudBase Node.js SDK](https://docs.cloudbase.net/api-reference/server/node-sdk/introduction.html) 调用 CloudBase 服务。
+例如，您可以在 Node.js 云函数中，使用 [CloudBase Node.js SDK](https://docs.cloudbase.net/api-reference/server/node-sdk/introduction) 调用 CloudBase 服务。
 
 ```js
 const cloudbase = require("@cloudbase/node-sdk");
@@ -18,28 +18,28 @@ exports.main = async (event, context) => {
 >? CloudBase 服务端 SDK 已经与云函数进行集成，无需手工填入密钥即可使用。
 
 ## 初始化 SDK
-
-```js
+<dx-codeblock>
+::: Node.js
 const cloudbase = require("@cloudbase/node-sdk");
 const app = cloudbase.init({
   env: cloudbase.SYMBOL_CURRENT_ENV
 });
-```
-
+:::
+</dx-codeblock>
 
 ## 调用云数据库
-
-```js
+<dx-codeblock>
+::: Node.js
 const db = app.database();
 exports.main = async (event, context) => {
   return db.collection("todos").get();
 };
-```
-
+:::
+</dx-codeblock>
 
 ## 调用云存储
-
-```js
+<dx-codeblock>
+::: Node.js
 exports.main = async (event, context) => {
   const fileStream = fs.createReadStream(path.join(__dirname, "demo.jpg"));
   return await app.uploadFile({
@@ -47,11 +47,12 @@ exports.main = async (event, context) => {
     fileContent: fileStream
   });
 };
-```
+:::
+</dx-codeblock>
 
 ## 调用其它云函数
-
-```js
+<dx-codeblock>
+::: Node.js
 exports.main = async (event, context) => {
   return await cloud.callFunction({
     name: "sum",
@@ -61,8 +62,8 @@ exports.main = async (event, context) => {
     }
   });
 };
-```
-
+:::
+</dx-codeblock>
 
 ## 获取用户信息
 
@@ -70,8 +71,8 @@ exports.main = async (event, context) => {
 
 <dx-tabs>
 ::: Node.js
-
-```js
+<dx-codeblock>
+::: Node.js
 //引用SDK
 const tcb = require("@cloudbase/node-sdk");
 //初始化SDK
@@ -84,7 +85,8 @@ const {
   uid, //用户唯一ID
   customUserId //开发者自定义的用户唯一id，非自定义登录则空
 } = userInfo;
-```
+:::
+</dx-codeblock>
 
 :::
 ::: 小程序·云开发
@@ -114,7 +116,7 @@ exports.main = async (event, context) => {
 
 ## 参考
 
-更多详细信息请参考：
+更多详细信息请参见：
 
-- [Node.js SDK 文档](https://docs.cloudbase.net/api-reference/server/node-sdk/introduction.html)
+- [Node.js SDK 文档](https://docs.cloudbase.net/api-reference/server/node-sdk/introduction)
 - [wx-server-sdk](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/reference-sdk-api/init/server.init.html)

@@ -40,62 +40,6 @@ kubectl delete vipc <podname> -n <namespace>
 ```
 修改后，ipamd 会自动重启并生效。生效后，增量 Workload 可实现级联删除固定 IP，存量 Workload 暂不能支持。
 
-## 相关特性
-
-### 共享网卡模式的 Pod IP 自动关联弹性公网 IP（EIP）
-
-目前共享网卡的固定 IP 模式默认支持 Pod IP 自动关联 EIP。
-如需关联 EIP，可参考以下 Yaml 示例：
-```yaml
-apiVersion: apps/v1
-kind: StatefulSet
-metadata:
-  labels:
-    k8s-app: busybox
-  name: busybox
-  namespace: default
-spec:
-  replicas: 3
-  selector:
-    matchLabels:
-      k8s-app: busybox
-      qcloud-app: busybox
-  serviceName: ""
-  template:
-    metadata:
-      annotations:
-        tke.cloud.tencent.com/networks: "tke-route-eni"
-        tke.cloud.tencent.com/vpc-ip-claim-delete-policy: Never
-        tke.cloud.tencent.com/eip-attributes: ""
-        tke.cloud.tencent.com/eip-claim-delete-policy: "Never"
-      creationTimestamp: null
-      labels:
-        k8s-app: busybox
-        qcloud-app: busybox
-    spec:
-      containers:
-      - args:
-        - "10000000000"
-        command:
-        - sleep
-        image: busybox
-        imagePullPolicy: Always
-        name: busybox
-        resources:
-          limits:
-            tke.cloud.tencent.com/eni-ip: "1"
-            tke.cloud.tencent.com/eip: "1"
-          requests:
-            tke.cloud.tencent.com/eni-ip: "1"
-            tke.cloud.tencent.com/eip: "1"
-```
-
-- **spec.template.annotations：tke.cloud.tencent.com/eip-attributes: ""** 表明该 Workload 的 Pod 需要关联 EIP。
-- **spec.template.annotations：tke.cloud.tencent.com/eip-claim-delete-policy: "Never"** 表明 Workload 的 Pod 的 EIP 也需要固定，Pod 销毁后不能变更。若不需要固定，则不添加该注解。
-- **spec.template.spec.containers.0.resources**：关联 EIP 的 Pod，您需要添加 requests 和 limits 限制，即 `tke.cloud.tencent.com/eip`，从而让调度器保证 Pod 调度到的节点仍有 EIP 资源可使用。
->! 各节点可绑定的 EIP 资源受到相关配额限制和云服务器的绑定数量限制，详情可参考 [EIP使用限制](https://cloud.tencent.com/document/product/1199/41648#eip-.E9.85.8D.E9.A2.9D.E9.99.90.E5.88.B6)。
-各节点可绑定的最大 EIP 数量为**云服务器绑定数量 - 1**。
-
 
 ## 相关问题
 

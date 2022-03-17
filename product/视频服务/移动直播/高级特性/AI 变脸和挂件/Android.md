@@ -1,5 +1,5 @@
 ## 功能说明
-腾讯云直播团队与优图实验室、天天 P 图团队进行深度合作，结合**AI 技术与美妆技术**，开发了**大眼、瘦脸、瘦鼻、动效贴纸、AI 抠背以及绿幕**等特效功能，并整合到 LiteAVSDK 的图像处理流程中，以实现更好的视频效果。
+腾讯云直播团队与优图实验室、天天 P 图团队进行深度合作，结合 **AI 技术与美妆技术**，开发了**大眼、瘦脸、瘦鼻、动效贴纸、AI 抠背以及绿幕**等特效功能，并整合到 LiteAVSDK 的图像处理流程中，以实现更好的视频效果。
 ![](https://main.qcloudimg.com/raw/82924e0c29ee2caee9749dca9fb62e9e.jpg)
 
 ## 接入准备
@@ -12,7 +12,7 @@
 
 ### 2. 下载企业版 SDK
 
-下载并解压 [企业版 SDK](https://github.com/tencentyun/TRTCSDK/blob/master/SDK%E4%B8%8B%E8%BD%BD.md#%E4%BC%81%E4%B8%9A%E7%89%88-sdk-%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80) ，解压时需要解压密码，解压密码在申请 License 成功后即可获取，解压后的目录结构如下：
+下载并解压 [企业版 SDK](https://cloud.tencent.com/document/product/454/7873#Enterprise) ，解压时需要解压密码，解压密码在申请 License 成功后即可获取，解压后的目录结构如下：
 
 | 文件名称                     | 文件内容                                      |
 | ---------------------------- | --------------------------------------------- |
@@ -46,7 +46,7 @@
         }
     }
 ```
-5. 单击【Sync Now】，完成 LiteAVSDK 的集成工作。
+5. 单击 **Sync Now**，完成 LiteAVSDK 的集成工作。
 :::
 ::: 方式二：jar集成方式
  若您不想集成 aar 库，也可以通过导入 jar 和 so 库的方式集成 LiteAVSDK：
@@ -56,8 +56,8 @@
 2. 将解压得到的 jar 文件和 armeabi 文件夹拷贝到 `app/libs` 目录下。
    ![](https://main.qcloudimg.com/raw/d9b6339cb52fb85afda42de6001be337.png)
 3. 将解压得到的特效资源文件拷贝到 `app/src/main/assets` 目录下。
-		- 6.6 之后的版本，assets 资源包被分包了，所以集成时不能简单的把 `assets-static`、`assets-dynamic` 里面的资源文件复制到工程的默认 assets 文件下，动效会无法识别资源。
-		- 正确的做法是把 aar 包改成 zip 后缀，然后解压，里面有一个完整的 assets 资源包，把里面文件全复制到工程 assets 文件夹下，就可以正常集成了。
+    - 6.6 之后的版本，assets 资源包被分包了，所以集成时不能简单的把 `assets-static`、`assets-dynamic` 里面的资源文件复制到工程的默认 assets 文件下，动效会无法识别资源。
+    - 正确的做法是把 aar 包改成 zip 后缀，然后解压，里面有一个完整的 assets 资源包，把里面文件全复制到工程 assets 文件夹下，就可以正常集成了。
 ![](https://main.qcloudimg.com/raw/65fc75c0001bbe4a5004f74e4d09e5d8.png)
 4. 在工程根目录下的 `build.gradle` 中，添加 flatDir，指定本地仓库路径。
 ![](https://main.qcloudimg.com/raw/726771558714a2b4fae8dc1a59c33ffc.png)  
@@ -73,7 +73,7 @@
         }
     }
 ``` 
- 7. 单击【Sync Now】，完成 LiteAVSDK 的集成工作。
+ 7. 单击 **Sync Now**，完成 LiteAVSDK 的集成工作。
 :::
 </dx-tabs>
 

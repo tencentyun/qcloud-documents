@@ -166,10 +166,10 @@ go run main.go config/config.yml
 ```
 
 成功运行可以查看到如下图输出：
-<img src="https://main.qcloudimg.com/raw/5d6be609d2c0173e85e80bc75bfb984e.png" />
+<img src="https://qcloudimg.tencent-cloud.cn/raw/2914b0552c23b473c488c12c6c5220c8.png" />
 
 
 
 ## 更多对接方式
 
-长安链提供了多种语言的 SDK，包括 Go SDK、Java SDK 等，方便开发者根据需求进行选用。更多详情请参见 [长安链 SDK 开发指南](https://docs.chainmaker.org.cn/dev/SDK.html)。
+长安链提供了多种语言的 SDK，包括 Go SDK、Java SDK 等，方便开发者根据需求进行选用。更多详情请参见 [长安链 SDK 开发指南](https://docs.chainmaker.org.cn/v1.2.0/html/dev/SDK.html#)。

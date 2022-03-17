@@ -1,3 +1,13 @@
+### Google Play 应用商店上架时提示“您的应用包含一个隐式 PendingIntent 漏洞”？
+1. TPNS SDK 在代码位置 TPushAlarmManager.set 处使用了一个隐式 PendingIntent，用于触发 SDK 内部心跳。
+您可以参见 Google [隐式 PendingIntent 处理帮助文档](https://support.google.com/faqs/answer/10437428) 提出的针对建议，TPNS SDK 已进行如下自查：
+a. 使用的 setAction 为 SDK 自声明的静态广播 action，无对外暴露风险；
+b. 涉及 PendingIntent 的打开目标为 SDK 内部静态广播，且已添加 SDK 内部自声明的广播权限，属于可信任组件。
+
+2. Google 文档提及 “Fixing this issue is recommended but not mandatory. The publication status of your app will be unaffected by the presence of this issue.”。
+
+综合考虑，TPNS 此处当前使用的 PendingIntent 为可信任安全 PendingIntent，且 Google 提示的此项内容不会影响您的应用上架。当前您可以忽视此项提示，继续上架您的应用。
+
 ### 如何设置自定义铃声？
 
 使用自定义铃声可以通过创建通知渠道实现：
@@ -60,7 +70,7 @@ android:value="true" />
 开发者在集成 vivo 厂商通道推送服务后，部分安全检测工具可能会提示 “APP 包含未使用的权限字符串”，详情如下： 
 问题来源：vivo 厂商通道推送 SDK 版本名 2.3.4。
 涉及类文件：com.vivo.push.util.z 涉及敏感权限字符串：android.permission.GET_ACCOUNTS。
->! 经检查发现最新的 vivo 厂商通道推送 SDK 版本名 3.0.0.0 中同样包含此问题。
+>! 经检查发现最新的 vivo 厂商通道推送 SDK 版本名 3.0.0.3 中同样包含此问题。
 
 问题代码来源为 vivo 厂商通道推送 SDK，TPNS 项目组无法变更其内容；此问题已向 vivo 推送服务相关人员反馈，表示相关静态字段为 SDK 遗留代码，并无实际使用，会尽快排期修复。 当前可参考的快速解决办法如下：
 - 方式一（推荐）： 在《APP隐私声明》里增加 [移动推送 TPNS 的隐私说明](https://cloud.tencent.com/document/product/548/36652#.E9.9A.90.E7.A7.81.E5.8D.8F.E8.AE.AE.E5.A3.B0.E6.98.8E.E5.BB.BA.E8.AE.AE)。 
@@ -182,7 +192,7 @@ android:value="true" />
 }
 ```
 
-适配后的具体效果如下，建议参考 Demo logo 图标进行作图。
+适配后的具体效果如下，[建议参考 Demo logo 图标进行作图](https://git.code.tencent.com/tpns/TPNS-Demo-Android/blob/master/app/src/main/res/drawable/notification_icon.png)。
 
 <img src="https://main.qcloudimg.com/raw/d9f92fb413aa98a01af64b2c17680bef.jpg" width="60%"></img>
 

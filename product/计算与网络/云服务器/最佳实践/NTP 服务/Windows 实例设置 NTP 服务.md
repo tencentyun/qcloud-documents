@@ -13,6 +13,8 @@ Windows 时间服务（Windows Time service，W32Time）用于本地系统与时
 5. 在操作系统界面的任务栏中，单击右下角的时间 > **更改日期和时间设置**。如下图所示：
 ![](https://main.qcloudimg.com/raw/ff260db81f9db83d0358629b319990d6.png)
 6. 在弹出的“日期和时间”窗口中，选择 **Internet 时间**页签，单击**更改设置**。如下图所示：
-![](https://main.qcloudimg.com/raw/0e70f38a5b2a43c3cbdc093b79d96f8a.png)
-7. 在弹出的 “Internet 时间设置” 窗口中，将“服务器”设置为目标时钟源服务器域名或者 IP 地址，单击**确定**，完成设置。如下图所示：
-![](https://main.qcloudimg.com/raw/d27d42f7bb62118896f675d137d9f100.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/4ac37c14d9b5954279a78879cf503f99.png)
+7. 在弹出的 “Internet 时间设置” 窗口中，将“服务器”设置为目标时钟源服务器域名或者 IP 地址。
+您可填写 `（可选 time1\time2\time3\time4\time5）.tencentyun.com`，例如 `time4.tencentyun.com`。
+8. 单击**确定**，完成设置。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/896c3601906eb6ddf1240bb717112c9d.png)

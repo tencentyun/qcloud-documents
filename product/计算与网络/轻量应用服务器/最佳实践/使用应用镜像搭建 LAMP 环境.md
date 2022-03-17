@@ -27,7 +27,7 @@ LAMP 应用镜像底层基于 CentOS 7.6 64位操作系统。
 1. 登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse)。
 2. 在服务器列表中，选择并进入使用 LAMP 应用镜像创建的实例详情页。
 3. 选择**应用管理**页签，进入应用管理详情页。
-![](https://main.qcloudimg.com/raw/b04bd90643e1c9b50bb500d1476b259c.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/1a5c38ecfcaf444af07c2d39034eee57.png)
 您可以在此页面查看 LAMP 应用的各项配置信息。例如：
  - Apache 的首页地址和网站根目录。
  - MariaDB 数据的管理员账号（root）和密码、数据库地址和数据库名称。

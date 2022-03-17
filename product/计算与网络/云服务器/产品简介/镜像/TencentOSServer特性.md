@@ -16,6 +16,9 @@
 ## 容器定制特性
 ### 容器资源展示隔离
 - 增加主机级开关：内核已实现了类似 LXCFS 特性。用户无需在节点部署 LXCFS 文件系统及修改 POD spec，仅需在节点开启全局开关（`sysctl -w kernel.stats_isolated=1`），`/proc/cpuinfo` 及 `/proc/meminfo` 等文件获取即可按容器隔离。
+<dx-alert infotype="notice" title="">
+仅 TencentOS Server 2.4 版本支持 `kernel.stats_isolated` 参数，TencentOS Server 2.4（TK4）及 3.1 后续更新版本不支持。
+</dx-alert>
 - 增加容器级开关：针对类似节点监控组件等特殊容器，增加了容器级开关 `kernel.container_stats_isolated`。在主机级开关开启时，仅需在容器启动脚本中关闭容器级开关（`sysctl -w kernel.container_stats_isolated=0`），即可在容器中读取 `/proc/cpuinfo` 及 `/proc/meminfo` 文件时获取到主机信息。
 
 ### 内核参数隔离

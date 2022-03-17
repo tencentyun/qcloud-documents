@@ -5,7 +5,7 @@ TensorFlowOnSpark 为 Apache Hadoop 和 Apache Spark 集群提供了可扩展的
 TensorFlowOnSpark 支持 TensorFlow 进程（计算节点和参数服务节点）之间的直接张量通信。过程到过程的直接通信机制使 TensorFlowOnSpark 程序能够在增加的机器上很轻松的进行扩展。TensorFlowOnSpark 不涉及张量通信中的 Spark 驱动程序，因此实现了与独立 TensorFlow 集群类似的可扩展性。
  
 ## 安装 TensorFlowOnSpark
-1. 进入 EMR [购买页](https://buy.cloud.tencent.com/emapreduce#/)，选择产品 EMR-2.3.0 版本及以上版本。
+1. 进入 EMR [购买页](https://buy.cloud.tencent.com/emr)，选择产品 EMR-2.3.0 版本及以上版本。
 2. 在【可选组件】列表中，勾选 tensorflowonspark 1.4.4 组件。
 3. tensorflowonspark 默认安装在 `/usr/local/service/tensorflowonspark` 目录下。
 >!tensorflowonspark 依赖的组件包含 hive 和 spark，在 tensorflowonspark 的同时也会安装 hive 和 spark 组件。

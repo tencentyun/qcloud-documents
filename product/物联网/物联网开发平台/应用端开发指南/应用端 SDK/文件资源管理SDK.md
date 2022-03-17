@@ -1,0 +1,88 @@
+## 使用指南
+
+### 基本参数
+
+| 属性名  | 类型     | 描述                                                         |
+| :------ | :------- | :----------------------------------------------------------- |
+| sdk     | object   | 依赖的sdk，h5依赖qcloud-iotexplorer-h5-panel-sdk，小程序依赖qcloud-iotexplorer-appdev-sdk |
+| request | Function | 调用应用端api                                                |
+
+### 获取实例
+
+**1.自主品牌小程序使用**
+
+```javascript
+const { FileSdkForMiniProgram } = require('qcloud-iotexplorer-fileresource-sdk');
+const fileSdk = new FileSdkForMiniProgram(appDevSdk);
+```
+
+**2.自定义H5使用**
+
+```javascript
+import { FileSdkForH5 } from 'qcloud-iotexplorer-fileresource-sdk';
+let fileSdk = new FileSdkForH5(window.h5PanelSdk);
+```
+
+
+
+### 上传文件资源
+
+**接口定义**
+
+```
+const ResourceName = fileSdk.handleUpload(file: File, productId: string) => Promise<string>
+```
+
+**参数说明**
+
+| 参数名    | 参数描述           | 类型   | 必填 |
+| :-------- | :----------------- | :----- | :--- |
+| file      | 需要上传的文件资源 | File   | 是   |
+| productId | 产品ID             | string | 是   |
+
+**返回值**
+
+返回一个Promise，输出参数如下。
+
+| 参数名       | 参数描述 | 类型   |
+| :----------- | :------- | :----- |
+| ResourceName | 资源名称 | string |
+
+### 下发资源到设备
+
+**接口定义**
+
+```
+fileSdk.controlDeviceResource(ResourceName: string, deviceId: string) => Promise<void>
+```
+
+**参数说明**
+
+| 参数名       | 参数描述 | 类型   | 必填 |
+| :----------- | :------- | :----- | :--- |
+| ResourceName | 资源名称 | string | 是   |
+| deviceId     | 设备ID   | string | 是   |
+
+**返回值**
+
+返回一个Promise
+
+### 获取指定资源信息
+
+**接口定义**
+
+```
+fileSdk.getDeviceResource(ResourceName: string, deviceId: string)=> Promise
+```
+
+**参数说明**
+
+| 参数名       | 参数描述 | 类型   | 必填 |
+| :----------- | :------- | :----- | :--- |
+| ResourceName | 资源名称 | string | 是   |
+| deviceId     | 设备ID   | string | 是   |
+
+**返回值**
+
+返回一个Promise，资源信息可通过 `promise.then()` 获取
+

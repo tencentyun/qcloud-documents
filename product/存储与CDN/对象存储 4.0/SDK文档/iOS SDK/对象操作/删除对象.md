@@ -24,7 +24,7 @@ SDK 所有接口的具体参数与方法说明，请参考 [SDK API](https://cos
 ```objective-c
 QCloudDeleteObjectRequest* deleteObjectRequest = [QCloudDeleteObjectRequest new];
 
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 deleteObjectRequest.bucket = @"examplebucket-1250000000";
 
 
@@ -47,7 +47,7 @@ deleteObjectRequest.object = @"exampleobject";
 ```swift
 let deleteObject = QCloudDeleteObjectRequest.init();
 
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 deleteObject.bucket = "examplebucket-1250000000";
 
 
@@ -73,7 +73,7 @@ QCloudCOSXMLService.defaultCOSXML().deleteObject(deleteObject);
 [//]: # (.cssg-snippet-delete-dir)
 ```objective-c
 QCloudGetBucketRequest* request = [QCloudGetBucketRequest new];
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 request.bucket = @"examplebucket-1250000000";
 // 单次返回的最大条目数量，默认1000
 request.maxKeys = 100;
@@ -119,7 +119,7 @@ request.prefix = @"prefix";
 ```swift
 let getBucketReq = QCloudGetBucketRequest.init();
         
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 getBucketReq.bucket = "examplebucket-1250000000";
         
 // 单次返回的最大条目数量，默认1000
@@ -140,7 +140,7 @@ getBucketReq.setFinish { (result, error) in
         let mutipleDel = QCloudDeleteMultipleObjectRequest.init();
         // 要删除的文件集合
         let deleteInfos = QCloudDeleteInfo.init();
-        // 存储桶名称，格式为 BucketName-APPID
+        // 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
         mutipleDel.bucket = "examplebucket-1250000000";
                 
         deleteInfos.objects = infos as! [QCloudDeleteObjectInfo];
@@ -225,7 +225,7 @@ delteRequest.deleteObjects = deleteInfo;
 ```swift
 let mutipleDel = QCloudDeleteMultipleObjectRequest.init();
 
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 mutipleDel.bucket = "examplebucket-1250000000";
 
 // 要删除的单个文件
@@ -270,7 +270,7 @@ QCloudCOSXMLService.defaultCOSXML().deleteMultipleObject(mutipleDel);
 [//]: # (.cssg-snippet-delete-dir)
 ```objective-c
 QCloudGetBucketRequest* request = [QCloudGetBucketRequest new];
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 request.bucket = @"examplebucket-1250000000";
 // 单次返回的最大条目数量，默认1000
 request.maxKeys = 100;
@@ -316,7 +316,7 @@ request.prefix = @"prefix";
 ```swift
 let getBucketReq = QCloudGetBucketRequest.init();
         
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 getBucketReq.bucket = "examplebucket-1250000000";
         
 // 单次返回的最大条目数量，默认1000
@@ -338,7 +338,7 @@ getBucketReq.setFinish { (result, error) in
         let mutipleDel = QCloudDeleteMultipleObjectRequest.init();
         // 要删除的文件集合
         let deleteInfos = QCloudDeleteInfo.init();
-        // 存储桶名称，格式为 BucketName-APPID
+        // 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
         mutipleDel.bucket = "examplebucket-1250000000";
                 
         deleteInfos.objects = infos as! [QCloudDeleteObjectInfo];

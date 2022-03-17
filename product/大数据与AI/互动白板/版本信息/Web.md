@@ -1,3 +1,105 @@
+### 2.6.9 @ 2021.12.27
+* 链接地址：https://res.qcloudtiw.com/board/2.6.9/TEduBoard.min.js
+- 新增接口
+    1. 支持 PPT 课件进行静音操作(soundMuteForPPT)
+
+- 功能优化
+    1.优化课件加载
+
+- Bug 修复
+    1. 截图功能在异常 dpr 中丢失几个像素的问题
+    2. 修复 vivo 5.x，6.x版本初始化失败的问题
+
+### 2.6.8 @2021.12.10
+* 链接地址：https://res.qcloudtiw.com/board/2.6.8/TEduBoard.min.js
+- 新增接口
+	1. 跳转到指定动画步数(gotoStep)
+	2. 获取白板滚动位置(getBoardScroll)
+	3. 设置分段擦除模式是否开启(setPiecewiseErasureEnable)
+	4. 获取分段擦除模式开启状态(isPiecewiseErasureEnable)
+	5. 设置橡皮擦大小(setEraserSize)
+	6. 获取橡皮擦大小(getEraserSize)
+	7. 设置全局背景图(setGlobalBackgroundPic)
+	8. 获取全局背景图(getGlobalBackgroundPic)
+
+- 调整接口
+	1. 添加白板元素(addElement) 支持添加文本元素（TEDU_BOARD_ELEMENT_TEXT）
+
+- 新增事件
+	1. 白板移动回调(TEB_BOARD_SCROLL_CHANGED)
+
+- 调整事件
+	1. 框选工具选中元素回调(TEB_SELECTED_ELEMENTS) 新增元素位置、宽高、包围盒大小等返回字段
+
+- 新增初始化参数
+	1. 全局背景图(globalBackgroundPic)
+
+- 功能优化
+	1. 优化图片资源加载逻辑
+	2. 添加图片元素在低版本上进行旋转校正
+	3. 添加图片元素支持自定义大小
+	4. 支持画线涂鸦分段擦除
+
+- Bug 修复
+	1. 在不同缩放比下添加白板元素大小显示不一致
+	2. 若干已知问题修复
+
+### 2.6.8 @2021.12.10
+* 链接地址：https://res.qcloudtiw.com/board/2.6.8/TEduBoard.min.js
+- 新增接口
+	1. 跳转到指定动画步数(gotoStep)
+	2. 获取白板滚动位置(getBoardScroll)
+	3. 设置分段擦除模式是否开启(setPiecewiseErasureEnable)
+	4. 获取分段擦除模式开启状态(isPiecewiseErasureEnable)
+	5. 设置橡皮擦大小(setEraserSize)
+	6. 获取橡皮擦大小(getEraserSize)
+	7. 设置全局背景图(setGlobalBackgroundPic)
+	8. 获取全局背景图(getGlobalBackgroundPic)
+
+- 调整接口
+	1. 添加白板元素(addElement) 支持添加文本元素（TEDU_BOARD_ELEMENT_TEXT）
+
+- 新增事件
+	1. 白板移动回调(TEB_BOARD_SCROLL_CHANGED)
+
+- 调整事件
+	1. 框选工具选中元素回调(TEB_SELECTED_ELEMENTS) 新增元素位置、宽高、包围盒大小等返回字段
+
+- 新增初始化参数
+	1. 全局背景图(globalBackgroundPic)
+
+- 功能优化
+	1. 优化图片资源加载逻辑
+	2. 添加图片元素在低版本上进行旋转校正
+	3. 添加图片元素支持自定义大小
+	4. 支持画线涂鸦分段擦除
+
+- Bug 修复
+	1. 在不同缩放比下添加白板元素大小显示不一致
+	2. 若干已知问题修复
+
+
+### 2.6.7 @ 2021.10.26
+* 链接地址：https://res.qcloudtiw.com/board/2.6.7/TEduBoard.min.js
+- 新增接口
+  1. 设置自定义字体(setTextFontFamily)
+  2. 添加自定义字体(addTextFontFamily)
+  3. 获取当前使用字体(getTextFontFamily)
+
+- 调整初始化参数
+  1. 画笔模式下远端画笔是否显示(remoteCursorVisible)
+
+- 调整接口
+  1. 设置远端画笔在本地是否可见(setRemoteCursorVisible)
+
+- 调整全局变量
+  1. 白板警告码(TEduBoardWarningCode)，新增静态ppt重复的告警码
+- 功能优化
+  1. 弱网环境下涂鸦同步
+  2. 优化涂鸦显示效果
+- Bug 修复
+  1. 若干已知问题修复
+
 ### 2.6.6 @ 2021.09.28
 * 链接地址：https://res.qcloudtiw.com/board/2.6.6/TEduBoard.min.js
 - 新增接口
@@ -37,20 +139,20 @@
 ### 2.6.4 @ 2021.08.16
 * 链接地址：https://res.qcloudtiw.com/board/2.6.4/TEduBoard.min.js
 - 新增分组模式
-    1. 添加白板到分组  addBoardToClassGroup
-    2. 添加用户到分组 addUserToClassGroup
-    3. 获取所有分组id getAllClassGroupIds
-    4. 获取分组模式状态 getClassGroupEnable
-    5. 获取用户所在的分组 getClassGroupIdByUserId
-    6. 获取分组信息 getClassGroupInfoByGroupId
-    7. 分组内跳转 gotoClassGroupBoard
-    8. 从分组中移除白板 removeBoardInClassGroup
-    9. 删除分组 removeClassGroup
-    10. 从分组中移除用户 removeUserInClassGroup
-    11. 重置所有分组 resetClassGroup
-    12. 设置分组 setClassGroup
-    13. 开启分组模式 setClassGroupEnable
-    14. 设置分组标题 setClassGroupTitle
+  1. 添加白板到分组  addBoardToClassGroup
+  2. 添加用户到分组 addUserToClassGroup
+  3. 获取所有分组id getAllClassGroupIds
+  4. 获取分组模式状态 getClassGroupEnable
+  5. 获取用户所在的分组 getClassGroupIdByUserId
+  6. 获取分组信息 getClassGroupInfoByGroupId
+  7. 分组内跳转 gotoClassGroupBoard
+  8. 从分组中移除白板 removeBoardInClassGroup
+  9. 删除分组 removeClassGroup
+  10. 从分组中移除用户 removeUserInClassGroup
+  11. 重置所有分组 resetClassGroup
+  12. 设置分组 setClassGroup
+  13. 开启分组模式 setClassGroupEnable
+  14. 设置分组标题 setClassGroupTitle
 
 ### 2.6.4 @ 2021.08.06
 * 链接地址：https://res.qcloudtiw.com/board/2.6.4/TEduBoard.min.js

@@ -1,10 +1,10 @@
 SSH 公钥在 CODING 中会因使用场景的差异而有不同的权限范围。本文为您介绍账户 SSH 公钥与项目令牌的区别。
 
-## 功能介绍[](#intro)
+## 功能介绍[](id:intro)
 
 SSH 公钥文件与 CODING 账户关联，便称为**账户 SSH 公钥**，配置后拥有账户下所有项目的读写权限；如果和某一个项目关联，则称为**项目令牌**，配置后默认拥有该项目的只读权限。
 
-## 生成公钥[](#generate)
+## 生成公钥[](id:generate)
 
 执行命令：
 <dx-codeblock>
@@ -30,7 +30,7 @@ Your identification has been saved in /Users/you/.ssh/id_rsa.
 </dx-codeblock>
 
 
-## 添加账户 SSH 公钥[](#account-ssh)
+## 添加账户 SSH 公钥[](id:account-ssh)
 
 1.  在终端输入 `open ~/.ssh`，用文本编辑器打开 `id_rsa.pub` 文件（此处是生成公钥的默认名称，如果生成公钥时采用了其他名称，打开相对应的文件即可），复制全部内容。
 2.  单击页面右上角个人头像，选择**个人账户设置**。进入**个人账户设置** > **个人设置** > **SSH 公钥**页面。
@@ -41,7 +41,7 @@ Your identification has been saved in /Users/you/.ssh/id_rsa.
 5.  单击**添加**，然后输入账户密码即可成功添加公钥。
 6.  完成后在命令行测试，首次建立链接会要求信任主机。命令 `ssh -T git@e.coding.net`。您也可以通过 [密钥指纹鉴权](/docs/repo/ssh/fingerprint.html) 验证是否与真正的 CODING 远程仓库所连接。
 
-## 添加部署公钥[](#project-ssh)
+## 添加部署公钥[](id:project-ssh)
 
 1.  在终端输入 `open ~/.ssh`，用文本编辑器打开 `id_deploy.pub` 文件（此处部署公钥名称为 `id_deploy.pub`，您在生成部署公钥的时候可以自定义名称），复制全部内容。
 2.  进入目标项目内的代码仓库 > **部署公钥**页面，单击**新建部署公钥**。

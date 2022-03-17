@@ -1,6 +1,6 @@
 ## 操作场景
 
-本文以 provider-demo 和 consumer-demo 两个工程为例为你介绍 TSF 应用配置 http2 的操作方法。
+本文以 provider-demo 和 consumer-demo 两个工程为例为您介绍 TSF 应用配置 http2 的操作方法。
 
 ## 前提条件
 

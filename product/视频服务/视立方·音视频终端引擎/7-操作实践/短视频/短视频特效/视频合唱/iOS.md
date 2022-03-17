@@ -18,7 +18,7 @@
 5. 预览合成好的视频。
 
 ## 界面搭建
-1. **开始工程的创建**：打开 Xcode，【File】>【New】>【Project】，然后起好工程名创建工程（后续称为 Demo）。因为要录像，所以需要相机和麦克风的权限，在 Info 中配置一下增加以下两项：
+1. **开始工程的创建**：打开 Xcode，**File** > **New** > **Project**，然后起好工程名创建工程（后续称为 Demo）。因为要录像，所以需要相机和麦克风的权限，在 Info 中配置一下增加以下两项：
 ```
 Privacy - Microphone Usage Description
 Privacy - Camera Usage Description
@@ -26,7 +26,7 @@ Privacy - Camera Usage Description
 > ? 该配置项可自定义，例如"录制视频"。
 2. **配置一个简单的录制界面**：打开 `Main.storyboard`，拖进去两个 UIView，配置宽度为 superview 的0.5倍，长宽比16:9。
    ![ ](https://main.qcloudimg.com/raw/757835bb36355f7e702a364d9740eb1e.png)
-3. **加上进度条**：在 `ViewController.m` 中设置 IBOutlet 绑定界面，并设置好按钮的 IBAction。因为录制好后还要跳转到预览界面，还需要一个导航。单击黄色 VC 图标，在菜单栏依次进入【Editor】>【Embeded In】，单击【Navigation Controller】给 ViewController 套一层 Navigation Controller。完成基本 UI 的搭建。
+3. **加上进度条**：在 `ViewController.m` 中设置 IBOutlet 绑定界面，并设置好按钮的 IBAction。因为录制好后还要跳转到预览界面，还需要一个导航。单击黄色 VC 图标，在菜单栏依次进入**Editor** > **Embeded In**，单击**Navigation Controller**给 ViewController 套一层 Navigation Controller。完成基本 UI 的搭建。
       ![ ](https://main.qcloudimg.com/raw/cbdc197ae0ac5856413efb956dd5893d.png)
 
 

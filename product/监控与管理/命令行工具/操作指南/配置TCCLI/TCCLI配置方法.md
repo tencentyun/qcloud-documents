@@ -7,8 +7,13 @@
 ## 操作步骤
 
 使用 TCCLI 前您需要进行一些初始化配置，使其完成使用云 API 的必要前提条件。
->?下文中 secretId、secretKey、地域等信息仅作为实例，请以实际情况为准。
->
+
+
+<dx-alert infotype="explain" title="">
+下文中 secretId、secretKey、地域等信息仅作为实例，请以实际情况为准。
+</dx-alert>
+
+
 - 进入交互模式，您可以通过执行 `tccli configure` 命令进入交互模式快速配置。
 ```bash
 $ tccli configure
@@ -53,7 +58,9 @@ output[json]:
 $ tccli configure set region ap-guangzhou  output json  --profile test
 $ tccli configure get secretKey      --profile test
 $ tccli configure list      --profile test
-在调用接口时指定账户（以 cvm DescribeZones 接口为例）
+# remove 子命令删除指定账户的配置文件。当 remove 子命令不指定账户名时，会删除 default 配置文件。
+$ tccli configure remove -profile test
+# 在调用接口时指定账户（以 cvm DescribeZones 接口为例）
 $ tccli cvm DescribeZones --profile test
 ```
 - TCCLI 支持配置云 API 密钥对到环境变量，让您的信息更安全。下文以 Linux 系统配置为例，您可以通过如下两种方式进行配置：
@@ -79,7 +86,7 @@ $ source /etc/profile
 ## 其他配置
 - TCCLI 支持通过 CAM 角色的方式进行认证，您可以参考 [角色概述](https://cloud.tencent.com/document/product/598/19420) 查看相关信息。
 ```bash
-# cam角色的配置不支持交互模式，您可以使用非交互模式的方式进行配置：
+# cam 角色的配置不支持交互模式，您可以使用非交互模式的方式进行配置：
 $ tccli configure set role-arn qcs::cam::uin/***********/**** role-session-name ****
 ```
 `role-arn` 和 `role-session-name` 字段支持 configure 的 get 和 list 操作，可以写入配置文件、直接在命令行指定，操作方式与 `secretId` 和 `secretKey` 的配置类似。如下所示：
@@ -95,12 +102,16 @@ role-session-name = ****
 # 将配置信息写入环境变量
 $ export TENCENTCLOUD_ROLE_ARN=qcs::cam::uin/***********/****
 $ export TENCENTCLOUD_ROLE_SESSION_NAME=****
-# 直接在命令行中指定role-arn和role-session-name信息，如调用DescriZones接口
+# 直接在命令行中指定 role-arn 和 role-session-name 信息，如调用 DescriZones 接口
 $ tccli cvm DescribeZones --role-arn qcs::cam::uin/***********/**** --role-session-name ****
 ```
 - 如果您的实例绑定了角色，您可以直接通过实例角色的方式进行认证，无需 secretId 和 secretKey 等信息。您可以使用 `--use-cvm-role` 来使用实例角色的方式调用。
 ```bash
-#  使用实例角色的方式调用DescribeZones的接口
+#  使用实例角色的方式调用 DescribeZones 的接口
 $ tccli cvm DescribeZones --use-cvm-role
 ```
->!该方式仅支持在已绑定角色的实例上使用，具体方式请参见 [管理实例角色](https://cloud.tencent.com/document/product/213/47668)。
+<dx-alert infotype="notice" title="">
+该方式仅支持在已绑定角色的实例上使用，具体方式请参见 [管理实例角色](https://cloud.tencent.com/document/product/213/47668)。
+</dx-alert>
+
+

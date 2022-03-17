@@ -1,7 +1,5 @@
-
-
 ## 现象描述
-使用 VPN 连接建立 VPC 与 IDC 的通信，完成配置后，发现 VPN 通道状态为【未联通】。
+使用 VPN 连接建立 VPC 与 IDC 的通信，完成配置后，发现 VPN 通道状态为**未联通**。
 ![](https://main.qcloudimg.com/raw/d37bb0a17e5b7ab17db816872ff5dfa5.png)
 
 ## 可能原因

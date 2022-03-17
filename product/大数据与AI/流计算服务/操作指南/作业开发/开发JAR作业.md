@@ -11,8 +11,7 @@
 开发 JAR 作业需要先在本地开发并编译好 JAR 包，以程序包的形式上传后方可在控制台配置 JAR 作业（JAR 包上传可参考 [依赖管理](https://cloud.tencent.com/document/product/849/48295)）。在**开发调试**页面中，选择主程序包及其版本，并输入主类和主类入参，单击**作业参数**并在侧边弹出的参数界面中设置参数值，然后单击**保存**，保存作业配置和参数信息。
 
 目前流计算 Oceanus 支持运行基于开源 Flink V1.11 开发的 JAR 包，业务代码开发指南请参见 Flink 社区官方文档：[Flink DataStream API 开发指南 ](https://ci.apache.org/projects/flink/flink-docs-release-1.11/zh/dev/datastream_api.html)和 [Flink Table API & SQL 开发指南](https://ci.apache.org/projects/flink/flink-docs-release-1.11/zh/dev/table/)。
-
-![](https://main.qcloudimg.com/raw/98f8206dc6b069d2c41ee6caf789ca53.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/c166f58a7681601d43bcb5d4b7c654d2.png)
 
 ## 作业参数
 作业参数可以在**开发调试**页面中单击**作业参数**，并在侧边弹出的参数界面中设置参数值，然后单击**确定**，保存作业参数信息。下文会有各参数的详细介绍说明，以帮助您更好地配置各作业参数。
@@ -29,13 +28,13 @@
 若用户程序需要使用外部依赖文件，可以自行在依赖管理中上传外部依赖后，在作业参数中添加外部依赖，并选择版本。
 外部依赖的上传和版本管理方式请参考 [依赖管理](https://cloud.tencent.com/document/product/849/48295)。
 
-作业参数中指定的外部依赖文件会被放置到 Flink 容器的指定目录下（当前默认路径为 `/var/flink-data/user-depenedncy/`），并且会同时被放置于 classpath 的根目录中。用户可以通过手动指定路径或读取 classpath 的方式获取到外部依赖文件。
+作业参数中指定的外部依赖文件会被放置到 Flink 容器的指定目录下（当前默认路径为 `/var/flink-data/user-dependency/`），并且会同时被放置于 classpath 的根目录中。用户可以通过手动指定路径或读取 classpath 的方式获取到外部依赖文件。
 
 下面以 properties 配置文件为例，介绍如何引用并获取配置内容。
 1. 手动指定配置文件路径，获取配置内容
 用户首先需要在作业参数中引用配置文件。
 ![](https://main.qcloudimg.com/raw/59a0a39520d1cb256c67994845277dff.jpg)
-随后在主类入参中指定依赖文件的绝对路径（当前默认路径为 `/var/flink-data/user-depenedncy/` + 依赖文件名）。
+随后在主类入参中指定依赖文件的绝对路径（当前默认路径为 `/var/flink-data/user-dependency/` + 依赖文件名）。
 ![](https://main.qcloudimg.com/raw/93fb1379c6566bd12b77df8f930c5179.jpg)
 之后就可以在 Flink 主类中使用如下的方式获取外部依赖中的配置内容。
 ```
@@ -76,4 +75,3 @@ pc.load("flink-config-1.properties");
 ### 算子默认并行度
 
 当没有在 JAR 包中通过代码显式定义算子并行度时，作业将采用用户指定的算子默认并行度。并行度与TaskManager 规格大小决定作业所占用的计算资源。1个并行度将占用1 个 TaskManager  规格大小的CU 计算资源（当 TaskManager 规格大小为1时，1个并行度将占用1 CU 计算资源。当 TaskManager 规格大小为0.5时，1个并行度将占用0.5 CU 计算资源）。
-

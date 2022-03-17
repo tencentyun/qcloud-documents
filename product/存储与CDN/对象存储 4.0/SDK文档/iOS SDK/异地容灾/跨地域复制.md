@@ -25,7 +25,7 @@ SDK 所有接口的具体参数与方法说明，请参考 [SDK API](https://cos
 ```objective-c
 QCloudPutBucketReplicationRequest* request = [[QCloudPutBucketReplicationRequest alloc] init];
 
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 request.bucket = @"examplebucket-1250000000";
 
 // 说明所有跨地域配置信息
@@ -74,7 +74,7 @@ request.configuation = replConfiguration;
 ```swift
 let putBucketReplication = QCloudPutBucketReplicationRequest.init();
 
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 putBucketReplication.bucket = "examplebucket-1250000000";
 
 // 说明所有跨地域配置信息
@@ -128,7 +128,7 @@ QCloudCOSXMLService.defaultCOSXML().putBucketRelication(putBucketReplication);
 ```objective-c
 QCloudGetBucketReplicationRequest* request = [[QCloudGetBucketReplicationRequest alloc] init];
 
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 request.bucket = @"examplebucket-1250000000";
 
 [request setFinishBlock:^(QCloudBucketReplicationConfiguation* result,
@@ -174,7 +174,7 @@ QCloudCOSXMLService.defaultCOSXML().getBucketReplication(getBucketReplication);
 QCloudDeleteBucketReplicationRequest* request =
                         [[QCloudDeleteBucketReplicationRequest alloc] init];
 
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 request.bucket = @"examplebucket-1250000000";
 
 [request setFinishBlock:^(id outputObject, NSError* error) {

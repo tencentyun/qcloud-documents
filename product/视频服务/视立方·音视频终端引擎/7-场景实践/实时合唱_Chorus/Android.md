@@ -28,7 +28,7 @@
 
 [](id:ui.step1)
 ### 步骤1：创建新的应用
-1. 登录实时音视频控制台，选择 **开发辅助**>**[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)**。
+1. 登录实时音视频控制台，选择 **开发辅助** > [**快速跑通Demo**](https://console.cloud.tencent.com/trtc/quickstart)。
 2. 输入应用名称，例如 `TestChorus`，单击 **创建**。
 3. 单击 **已下载，下一步**，跳过此步骤。
 
@@ -112,7 +112,7 @@ Chorus 组件 TRTCChorusRoom 依赖 TRTC SDK 和 IM SDK，您可以按照如下�
     }
 :::
 </dx-codeblock>
->?两个 SDK 的最新版本号，可以在 [TRTC](https://github.com/tencentyun/TRTCSDK) 和 [IM](https://github.com/tencentyun/TIMSDK) 的 GitHub 首页获取。
+
 2. 在 defaultConfig 中，指定 App 使用的 CPU 架构。
 <dx-codeblock>
 ::: java java
@@ -194,11 +194,11 @@ Source/src/main/java/com/tencent/liteav/tuichorus/model
 </tr>
 <tr>
 <td>userId</td>
-<td>当前用户的 ID，字符串类型，只允许包含英文字母（a-z、A-Z）、数字（0-9）、连词符（-）和下划线（_）。</td>
+<td>当前用户的 ID，字符串类型，只允许包含英文字母（a-z、A-Z）、数字（0-9）、连词符（-）和下划线（_）。建议结合业务实际账号体系自行设置。</td>
 </tr>
 <tr>
 <td>userSig</td>
-<td>腾讯云设计的一种安全保护签名，获取方式请参考 <a href="https://cloud.tencent.com/document/product/647/17275">如何计算 UserSig</a>。</td>
+<td>腾讯云设计的一种安全保护签名，获取方式请参考 <a href="https://cloud.tencent.com/document/product/647/17275">如何计算及使用 UserSig</a>。</td>
 </tr>
 <tr>
 <td>callback</td>

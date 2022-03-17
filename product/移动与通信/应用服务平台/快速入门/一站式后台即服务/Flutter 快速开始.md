@@ -1,7 +1,7 @@
 ## 准备工作
 
 1. 拥有腾讯云账号；
-2. [创建云开发环境](https://cloud.tencent.com/document/product/876/41391)，获得 **环境 ID**；
+2. [创建云开发环境](https://cloud.tencent.com/document/product/876/41391)，获得 **环境 ID**（目前仅支持上海地域环境）；
 3. 安装 [Flutter](https://flutter.cn/docs/get-started/install)。
 
 ## 步骤1：创建 Flutter 项目
@@ -87,8 +87,8 @@ void main() async {
 
 登录成功后，便可以访问和使用云开发的各类资源，详情请参见 Flutter SDK 文档。
 
-- [初始化](https://docs.cloudbase.net/api-reference/flutter/initialization.html)
-- [登录认证](https://docs.cloudbase.net/api-reference/flutter/authentication.html)
-- [云函数](https://docs.cloudbase.net/api-reference/flutter/functions.html)
-- [数据库](https://docs.cloudbase.net/api-reference/flutter/database.html)
-- [文件存储](https://docs.cloudbase.net/api-reference/flutter/storage.html)
+- [初始化](https://docs.cloudbase.net/api-reference/flutter/initialization)
+- [登录认证](https://docs.cloudbase.net/api-reference/flutter/authentication)
+- [云函数](https://docs.cloudbase.net/api-reference/flutter/functions)
+- [数据库](https://docs.cloudbase.net/api-reference/flutter/database)
+- [文件存储](https://docs.cloudbase.net/api-reference/flutter/storage)

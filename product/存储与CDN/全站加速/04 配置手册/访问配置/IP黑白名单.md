@@ -12,14 +12,14 @@
 
 ### 查看配置
 
-登录 [ECDN 控制台](https://console.cloud.tencent.com/ecdn)，在菜单栏里选择【域名管理】，单击域名右侧【管理】，即可进入域名配置页面，【访问配置】中可看到 IP 黑白名单配置：
+登录 [ECDN 控制台](https://console.cloud.tencent.com/ecdn)，在菜单栏里选择**域名管理**，单击域名右侧**管理**，即可进入域名配置页面，**访问配置**中可看到 IP 黑白名单配置：
 ![](https://main.qcloudimg.com/raw/232a95e0cfc751ef39e5ef426644b177.png)
 
 ### 修改配置
 
 #### 1. 修改配置
 
-单击【编辑】，选择黑名单/白名单，并填入 IP 或 IP 段列表并单击【确认】，即可启用 IP 黑/白名单配置：
+单击**编辑**，选择黑名单/白名单，并填入 IP 或 IP 段列表并单击**确认**，即可启用 IP 黑/白名单配置：
 ![](https://main.qcloudimg.com/raw/2ad85f101e207b9ef1adadeb4a487bd7.png)
 **IP 黑名单**
 用户端 IP 匹配黑名单中的 IP 或 IP 段时 ，访问 ECDN 节点时将直接返回403状态码。

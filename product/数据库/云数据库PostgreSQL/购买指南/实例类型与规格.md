@@ -28,7 +28,7 @@
 <th>支持系列</th><th>版本</th><th>规格族</th><th>CPU 和内存</th><th>支持磁盘容量</th></tr>
 <tr>
 <td rowspan="13" width="20%">双机高可用（一主一从）<br>只读实例</td>
-<td rowspan="13" width="12%">10、11、12</td>
+<td rowspan="13" width="12%">10、11、12、13</td>
 <td rowspan="13" width="22%">通用型 - 本地高性能 SSD 盘</td>
 <td>1core 2GiB</td>
 <td>10GB-2000GB</td></tr>

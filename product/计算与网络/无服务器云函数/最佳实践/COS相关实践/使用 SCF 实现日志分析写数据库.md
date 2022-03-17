@@ -71,7 +71,7 @@
 
 :::
 ::: 运行角色
-勾选“启用”，选择“配置并使用SCF模版运行角色”，将会自动创建并选择关联了 COS、CDB 全读写权限的 SCF 模版运行角色。或选择“使用已有角色”，在下拉列表中选择包含上述权限的已有角色。本文以“配置并使用SCF模版运行角色”为例。如下图所示：
+勾选“启用”，选择“配置并使用SCF模板运行角色”，将会自动创建并选择关联了 COS、CDB 全读写权限的 SCF 模板运行角色。或选择“使用已有角色”，在下拉列表中选择包含上述权限的已有角色。本文以“配置并使用SCF模板运行角色”为例。如下图所示：
 ![](https://main.qcloudimg.com/raw/fd6753328a44e78b2577c64595749ef1.png)
 <dx-alert infotype="notice" title="">
 您也可以直接在函数代码中替换为账户实际使用的 SecretId 及 SecretKey，可前往 [API密钥管理](https://console.cloud.tencent.com/cam/capi) 页面获取。

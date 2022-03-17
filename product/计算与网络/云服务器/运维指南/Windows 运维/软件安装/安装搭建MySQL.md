@@ -10,62 +10,55 @@
 
 ### 安装 MySQL 基础环境
 
-1. 双击打开 MySQL 安装包，并在 “Choosing a Setup Type” 安装界面，选择【Developer Default】，单击【Next】。如下图所示：
-![](https://main.qcloudimg.com/raw/4077db7bfe9f7b97e1d7ddd649efa966.png)
-2. 在 “Check Requirements” 安装界面，单击【Execute】，并根据界面提示配置 MySQL 的基础环境。如下图所示：
-![](https://main.qcloudimg.com/raw/16a5f7190d7720562681528072cf8129.png)
-3. 单击【Next】。
-4. 在 “Installation” 安装界面，单击【Execute】，安装 MySQL 所需的安装包。如下图所示：
-![](https://main.qcloudimg.com/raw/1b4a3e338bb816e7c47b4603a7a1dbb4.png)
-5. 待 MySQL 所需的安装包完成安装后，单击【Next】，进入 “Product Configuration” 配置界面。
+1. 双击打开 MySQL 安装包，并在 “Choosing a Setup Type” 安装界面，选择 **Developer Default**，单击 **Next**。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/46578b0e47c0a8283c72680070578916.png)
+2. 在 “Check Requirements” 安装界面，单击 **Execute**，并根据界面提示配置 MySQL 的基础环境。
+3. 单击 **Next**。
+4. 在 “Installation” 安装界面，单击 **Execute**，安装 MySQL 所需的安装包。
+5. 待 MySQL 所需的安装包完成安装后，单击 **Next**，进入 “Product Configuration” 配置界面。
 
 
 ###  配置 MySQL
 
 #### 配置 MySQL 服务
 
-1. 在 “Product Configuration” 配置界面，单击【Next】。
-2. 在 “Hight Availability” 界面，选择【Standalone MySQL Server / Classic MySQL Replication】，单击【Next】。如下图所示：
-![](https://main.qcloudimg.com/raw/5355f286598388f9e9846bf8122e6d98.png)
-3. 在 “Type and Networking” 配置界面，保持默认配置，单击【Next】。如下图所示：
->? 
-> - 默认启用 TCP/IP 网络。
-> - 默认使用 3306 端口。
-> 
-![](https://main.qcloudimg.com/raw/fbece2fafb34beb5825ae294a8e214fd.png)
-4. 在 “Authentication Method” 配置界面，保持默认配置，单击【Next】。如下图所示：
-![](https://main.qcloudimg.com/raw/402624aaf02dce01ca2912d3548c03de.png)
-5. 设置 root 密码，单击【Next】。如下图所示：
-![](https://main.qcloudimg.com/raw/a0472f0b93c590997e78c2f590a0f901.png)
-6. 在 “Windows Service” 配置界面，保持默认配置，单击【Next】。如下图所示：
-![](https://main.qcloudimg.com/raw/a85625c446218a275e743ff0ec599ece.png)
-7. 在 “Apply Configuration” 配置界面，单击【Execute】。
-![](https://main.qcloudimg.com/raw/2ee6000630d88774951ddf8aaea16fbb.png)
-8. 单击【Finish】，完成 MySQL 服务配置。
+1. 在 “Product Configuration” 配置界面，单击 **Next**。
+2. 在 “Hight Availability” 界面，选择 **Standalone MySQL Server / Classic MySQL Replication**，单击 **Next**。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/821c0ab18a477ffdf3458889ff698b08.png)
+3. 在 “Type and Networking” 配置界面，保持默认配置，单击 **Next**。
+<dx-alert infotype="explain" title="">
+- 默认启用 TCP/IP 网络。
+- 默认使用 3306 端口。
+</dx-alert>
+4. 在 “Authentication Method” 配置界面，选择 <b>Use Legacy Authentication Method(Retain MySQL 5.x Compatibility)</b>，并单击 **Next**。如下图所示：
+本文为搭建 WordPress 网站设置该选项，您可按需选择。
+![](https://qcloudimg.tencent-cloud.cn/raw/599dff879af20e25ce1d8e7fb5b1a33f.png)
+5. 设置 root 密码，单击 **Next**。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/a85f3a6affb6d71dda27a7a1fe5a5870.png)
+6. 在 “Windows Service” 配置界面，保持默认配置，单击 **Next**。如下图所示：
+7. 在 “Apply Configuration” 配置界面，单击 **Execute**。
+8. 单击 **Finish**，完成 MySQL 服务配置。
 
 #### 配置 MySQL 路由器
 
-1. 在 “Product Configuration” 配置界面，单击【Next】。
-2. 在 “MySQL Router Configuration” 界面，保持默认配置，单击【Finish】。如下图所示：
-![](https://main.qcloudimg.com/raw/adece1334b6e1579eb2ace782cf47c59.png)
+1. 在 “Product Configuration” 配置界面，单击 **Next**。
+2. 在 “MySQL Router Configuration” 界面，保持默认配置，单击 **Finish**。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/f13a5db6d40390a3b5c650e00720d587.png)
 
 #### 配置 MySQL 示例
 
-1. 在 “Product Configuration” 配置界面，单击【Next】。
-2. 在 “Connect To Server” 配置界面，输入 root 的密码，单击【Check】。如下图所示：
-![](https://main.qcloudimg.com/raw/ab8637391012a14ab2e5160c61675912.png)
-3. 待 root 的密码验证成功后，单击【Next】。如下图所示：
-![](https://main.qcloudimg.com/raw/bff0aece8da11d15a52f4db91b4d7e69.png)
-4. 在 “Apply Configuration” 配置界面，单击【Execute】。
-![](https://main.qcloudimg.com/raw/8fe1f90eed50860e064044b314719cf6.png)
-5. 单击【Finish】，完成 MySQL 示例配置。
-6. 在 “Product Configuration” 配置界面，单击【Next】。
-7. 在 “Installation Complete” 界面，根据实际需求，勾选需启动的 MySQL 环境，单击【Finish】。如下图所示：
-![](https://main.qcloudimg.com/raw/13f46296b85b00ce7e3bd08be13108c9.png)
- - 若成功打开如下图所示的 MySQL 工作台，即表示 MySQL 安装成功。
-![](https://main.qcloudimg.com/raw/288f4cfbf1a9671b73dff64a940e0dc1.png)
- - 若成功打开如下图所示的 MySQL Shell，即表示 MySQL 安装成功。
-![](https://main.qcloudimg.com/raw/90b788ffe3a8f92e0e5e70f35fb94356.png)
+1. 在 “Product Configuration” 配置界面，单击 **Next**。
+2. 在 “Connect To Server” 配置界面，输入 root 的密码，单击 **Check**。
+3. 待 root 的密码验证成功后，单击 **Next**。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/5e4157ae76b5ae7aa4f7e9d99f40bfe8.png)
+4. 在 “Apply Configuration” 配置界面，单击 **Execute**。
+5. 单击 **Finish**，完成 MySQL 示例配置。
+6. 在 “Product Configuration” 配置界面，单击 **Next**。
+7. 在 “Installation Complete” 界面，根据实际需求，勾选需启动的 MySQL 环境，单击 **Finish**。
+   - 若成功打开如下图所示的 MySQL 工作台，即表示 MySQL 安装成功。
+![](https://qcloudimg.tencent-cloud.cn/raw/7f960c3d6e8c26f9fb68ee9de5d5b96b.png)
+   - 若成功打开如下图所示的 MySQL Shell，即表示 MySQL 安装成功。
+![](https://qcloudimg.tencent-cloud.cn/raw/985d2e239aae0bcc1d84f51e3eecd296.png)
 
 
 ### 添加安全组规则

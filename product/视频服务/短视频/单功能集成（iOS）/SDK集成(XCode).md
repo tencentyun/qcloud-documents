@@ -87,27 +87,21 @@ SDK 支持 iOS 8.0 以上系统。
 - Xcode 10 及以上。
 - iOS 9.0 及以上。
 
+
 ### 步骤1：集成 UGCKit 
-1. **导入 UGCKit 与 BeautyPannel (BeautySettingKit)**
-	1. 将 `Demo/TXLiteAVDemo/UGC/UGCKit` 文件夹拷贝到工程目录中，并将 UGCKit 中的 `UGCKit.xcodeproj` 拖拽到工程中。
-	2. 将 `Demo/TXLiteAVDemo/BeautySettingKit` 文件夹拷贝到工程目录中，并将 BeautySettingKit 中的`TCBeautyPanel.xcodeproj` 拖拽到工程中。
-![](https://main.qcloudimg.com/raw/48fa8833ea243bba61eec09bbdb38d33.png)
-2. **配置依赖关系**   
-单击工程的 Target，选择 Build Phase 标签，在 Dependencies 中单击加号，选择 `UGCKit.framework`、 `UGCKitResources`、`TCBeautyPanel.framework` 和 `TCBeautyPanelResources`，单击【Add】。
-![](https://main.qcloudimg.com/raw/098808d270672bd4413fbca2d92b7e4a.png )
-3. **链接 UGCKit.framework, TCBeautyPannel.framework 和 SDK**
-  1. 单击工程的 Target，选择 Build Phase 标签，在 Link Binary With Libraries 中单击加号，选择 `UGCKit.framework`，`TCBeautyPannel.framework` 添加。
-![](https://main.qcloudimg.com/raw/ccbc89f8a0ff68ac4e9159c9388070b7.png)
-  2. 在 Finder 中打开 SDK 目录，将 SDK 拖动到 Link Binary With Libraries 中，或者通过下图示例在 xcode 中找到 SDK 对应的目录，通过 Add files 添加。
-![](https://main.qcloudimg.com/raw/8432ca1427b51e65ff40e10bb460bbf9.png)
-  3. 将 TXLiteAVDemo/App/Resource 目录下的 `FilterResource.bundle` 拖动到工程中并勾选 App Target。
-4. **导入资源**
-	1. 单击工程的 Target，选择 Build Phase 标签，展开 Copy Bundle Resources。
-	2. 在左侧目录中依次展开 UGCKit.xcodeproj、Products，拖动 `UGCKitResources.bundle` 到 Copy Bundle Resources 中，而后依次展开 `TCBeautyPannel.xcodeproj`，Products。
-	3. 拖动 `TCBeautyPanelResources.bundle` 到 Copy Bundle Resources中。
-![](https://main.qcloudimg.com/raw/6377d1c7b240e008f240d116e5363a8b.png)
-5. **导入商业版资源（仅用于商业版）**
-将商业版 SDK zip 包中 EnterprisePITU（在App/AppCommon目录下）文件夹拖动到工程中，选择“Create groups"并勾选您的 Target，单击【Finish】。
+1. **项目配置**：
+	1. 项目中使用 cocoapods，根据实际情况选择其中一种操作：
+		- 在项目根目录，执行 `pod init && pod install`，可得到 Podfile 文件。
+		- 把 **BeautySettingKit** 和 **UGCKit** 文件夹拷贝到项目根目录下（Podfile 同级目录）。
+	4. 打开 Podfile 文件，增加：
+```
+pod 'BeautySettingKit', :path => 'BeautySettingKit/BeautySettingKit.podspec'
+pod 'UGCKit', :path => 'UGCKit/UGCKit.podspec', :subspecs => ["UGC"]   #subspecs 根据SDK来选择
+```
+	5. 执行 **pod install**，并打开 `项目名.xcworkspace`，可以看到在 `Pods/Development Pods` 目录下已有 `UGCKit BeautySettingKit`。
+2. **导入商业版资源（仅用于商业版）**：
+将商业版 SDK ZIP 包中 EnterprisePITU（在 `App/AppCommon` 目录下）文件夹拖动到工程中，选择 **Create groups** 并勾选您的 Target，单击 **Finish**。
+
 
 ### 步骤2：使用 UGCKit
 

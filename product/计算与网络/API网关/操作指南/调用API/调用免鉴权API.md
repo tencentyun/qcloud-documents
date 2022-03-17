@@ -26,5 +26,5 @@
    访问路径：/api
    请求方法：GET
    按照“公网域名或内网 VPC 域名/已发布环境/访问路径”的规则，该 API 的默认访问地址为：http://service-p52nqnd0-1253970226.gz.apigw.tencentcs.com/release/api
-2. 在 Postman 工具中填写访问地址，选择请求方法为 GET，填写相应的请求参数后即可单击【Send】按钮发起调用。
+2. 在 Postman 工具中填写访问地址，选择请求方法为 GET，填写相应的请求参数后即可单击 **Send** 按钮发起调用。
    ![](https://main.qcloudimg.com/raw/ff9f2537a989ebaa646945f074a69a95.png)

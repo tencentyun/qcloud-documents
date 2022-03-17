@@ -15,7 +15,7 @@
 
 ### 获取上报地址和 Token
 
-进入 [应用性能观测控制台](https://console.cloud.tencent.com/apm) **应用监控** > **应用列表**页面，单击**添加应用**，在添加应用列 Java 语言与 自研探针的数据采集方式。
+进入 [应用性能观测控制台](https://console.cloud.tencent.com/apm) **应用监控** > **应用列表**页面，单击**接入应用**，在添加应用列 Java 语言与自研探针的数据采集方式。
 在应用接入步骤获取您的接入点和 Token，如下图所示：
 ![](https://main.qcloudimg.com/raw/d7d94913947d31edf70e85c6462c6bac.png)
 

@@ -8,26 +8,32 @@ Cloud-Init 是一个开源工具，运行在云服务器实例内部的一个非
 
 
 #### Cloud-Init 服务运行排查方案[](id:checkcloud-init)
-首先请登录实例，依次执行以下命令，观察是否报错。显示执行结果则服务正常运行，否则会提示错误原因，请根据提示进行问题排查。
+
+参考 [使用标准登录方式登录 Linux 实例（推荐）](https://cloud.tencent.com/document/product/213/5436) 登录实例，并依次执行以下命令。观察是否报错，若显示执行结果则服务正常运行，否则会提示错误原因，请根据提示进行问题排查。
+<dx-alert infotype="explain" title="">
+该步骤仅适用于使用 Linux 公共镜像创建的云服务器实例。若您自行安装了 Cloud-Init，请结合实际情况调整执行命令。
+</dx-alert>
+
+
 1. 删除 cloud-init 缓存目录。
 ```
 rm -rf /var/lib/cloud
 ```
 2. 执行完整的 cloud-init 初始化。
 ```
-cloud-init init --local
+/usr/bin/cloud-init init --local
 ```
 3. 根据配置的数据源拉取数据。
 ```
-cloud-init init
+/usr/bin/cloud-init init
 ```
 4. Cloud-Init 初始化分为多个 stage，为保证各个 stage 的依赖充分，cloud-init modules 指定运行 config stage。
 ```
-cloud-init modules --mode=config
+/usr/bin/cloud-init modules --mode=config
 ```
 5. cloud-init modules 指定运行 final stage。
 ```
-cloud-init modules --mode=final
+/usr/bin/cloud-init modules --mode=final
 ```
 
 ### Cloud-Init 执行了哪些实例初始化的操作？
@@ -35,67 +41,123 @@ cloud-init modules --mode=final
 腾讯云通过 Cloud-Init 实现了实例的所有初始化操作，使得整个实例内部的操作更加的透明。以下内容简单介绍了相关操作情况，更多详情可见 [Cloud-init 官方文档](http://cloudinit.readthedocs.io/en/latest/)。
 
 <table>
-<tr><th style="width: 25%;">初始化类型</th><th style="width: 25%;">默认行为</th><th style="width: 25%;">禁用方式</th><th style="width: 25%;">注意事项</th></tr>
 <tr>
+    <th style="width: 18%;">初始化类型</th>
+    <th style="width: 25%;">默认行为</th>
+    <th style="width: 27%;">禁用方式</th>
+    <th style="width: 30%;">注意事项</th>
+  </tr>
+  <tr>
 	<td>hostname 的初始化</td>
-	<td>实例<b>首次启动</b>时，Cloud-Init 会根据 <code>vendor_data.json</code> 中的 hostname 信息来设置实例的 hostname。</td>
-	<td>当您使用自定义镜像创建或重装实例时，您想保持自定义镜像内部自定义的 hostname 设置，可以在制作自定义镜像之前在 <code>/etc/cloud/cloud.cfg</code> 里面删除 <code>- scripts-user</code> 这行配置。</td>
-	<td>如果您禁用了 <code>- scripts-user</code> 这行配置，实例内部的 <code>/var/lib/cloud/instance/scripts/runcmd</code> 初始化脚本将不会被执行，并会同时影响其他子项的初始化（主要涉及：云监控、云安全的安装、软件源的设置）。 同时，在您创建子机时，自定义脚本也不会被执行。</td>
-</tr>
-
-<tr>
-	<td>/etc/hosts 的初始化</td>
-	<td>实例<b>首次启动</b>时，Cloud-Init 会默认将 <code>/etc/hosts</code> 初始化为 <code>127.0.0.1 $hostname</code>。</td>
-	<td>当您使用自定义镜像创建或重装实例时，您想保持自定义镜像内部自定义的 /etc/hosts 设置，可以在制作自定义镜像之前在 <code>/etc/cloud/cloud.cfg</code> 里面删除 <code>- scripts-user</code> 与 <code>- ['update_etc_hosts', 'once-per-instance']</code> 这两行配置。</td>
+	<td>实例
+	<b>首次启动</b>时，Cloud-Init 会根据 
+	<code>vendor_data.json</code> 中的 hostname 信息来设置实例的 hostname。</td>
 	<td>
-		<ul style="margin: 0px;">
-			<li>如果您禁用了 <code>- scripts-user</code> 这行配置，实例内部的 <code>/var/lib/cloud/instance/scripts/runcmd</code> 初始化脚本将不会被执行，并会同时影响其他子项的初始化（主要涉及：云监控、云安全的安装、软件源的设置）。同时，在您创建子机时，自定义脚本也不会被执行。</li>
-			<li>每当子机重启时，部分存量机器 <code>/etc/hosts</code> 的设置都会被覆盖。解决方案请参见 <a href="https://cloud.tencent.com/document/product/213/34698">如何有效的修改 Linux 实例的 etc hosts 配置</a>。</li>
-		</ul>
+	当您使用自定义镜像创建或重装实例时，如需保持自定义镜像内部自定义的 hostname
+	设置，则请在制作自定义镜像之前将 <code>/etc/cloud/cloud.cfg</code> 中的 <code>preserve_hostname</code> 设置为 <code>true</code>，并删除 <code>- scripts-user</code> 这行配置。
 	</td>
-</tr>
-
-<tr>
+	<td>若 <code>preserve_hostname</code> 为 
+	<code>true</code> 且 <code>- scripts-user</code> 配置被禁用，则实例内部的 
+	<code>/var/lib/cloud/instance/scripts/runcmd</code>
+	初始化脚本将不会被执行，并会同时影响其他子项的初始化（主要涉及：云监控、云安全的安装、软件源的设置）。
+	同时，在您创建子机时，自定义脚本也不会被执行。</td>
+  </tr>
+  <tr>
+	<td>/etc/hosts 的初始化</td>
+	<td>实例
+	<b>首次启动</b>时，Cloud-Init 会默认将 
+	<code>/etc/hosts</code> 初始化为 
+	<code>127.0.0.1 $hostname</code>。</td>
+	<td>当您使用自定义镜像创建或重装实例时，您想保持自定义镜像内部自定义的 /etc/hosts
+	设置，可以在制作自定义镜像之前在 
+	<code>/etc/cloud/cloud.cfg</code> 里面删除 
+	<code>- scripts-user</code> 与 
+	<code>- [&#39;update_etc_hosts&#39;, &#39;once-per-instance&#39;]</code> 这两行配置。</td>
+	<td>
+	  <ul style="margin: 0px;">
+		<li>如果您禁用了 
+		<code>- scripts-user</code> 这行配置，实例内部的 
+		<code>/var/lib/cloud/instance/scripts/runcmd</code>
+		初始化脚本将不会被执行，并会同时影响其他子项的初始化（主要涉及：云监控、云安全的安装、软件源的设置）。同时，在您创建子机时，自定义脚本也不会被执行。</li>
+		<li>每当子机重启时，部分存量机器 
+		<code>/etc/hosts</code> 的设置都会被覆盖。解决方案请参见 
+		<a href="https://cloud.tencent.com/document/product/213/34698">如何有效的修改 Linux 实例的 etc hosts
+		配置</a>。</li>
+	  </ul>
+	</td>
+  </tr>
+  <tr>
 	<td>DNS 的初始化（非 DHCP 场景）</td>
-	<td>实例<b>首次启动</b>时，Cloud-Init 会根据 <code>vendor_data.json</code> 中的 nameservers 信息来设置实例的 DNS。</td>
-	<td>当您使用自定义镜像创建或重装实例时，您想保持自定义镜像内部自定义的 DNS 设置，可以在制作自定义镜像之前在 <code>/etc/cloud/cloud.cfg</code> 里面删除 <code>- resolv_conf</code> 与 <code>unverified_modules: ['resolv_conf']</code> 两行配置。</td>
+	<td>实例
+	<b>首次启动</b>时，Cloud-Init 会根据 
+	<code>vendor_data.json</code> 中的 nameservers 信息来设置实例的 DNS。</td>
+	<td>当您使用自定义镜像创建或重装实例时，您想保持自定义镜像内部自定义的 DNS
+	设置，可以在制作自定义镜像之前在 
+	<code>/etc/cloud/cloud.cfg</code> 里面删除 
+	<code>- resolv_conf</code> 与 
+	<code>unverified_modules: [&#39;resolv_conf&#39;]</code> 两行配置。</td>
 	<td>无。</td>
-</tr>
-
-<tr>
+  </tr>
+  <tr>
 	<td>软件源的初始化</td>
-	<td>实例<b>首次启动</b>时，Cloud-Init 会根据 <code>vendor_data.json</code> 中的 write_files 信息来设置实例的软件源。</td><td>当您使用自定义镜像创建或重装实例时，您想保持自定义镜像内部自定义的软件源设置，可以在制作自定义镜像之前在 <code>/etc/cloud/cloud.cfg</code> 里面删除 <code>- write-files</code> 这行配置。</td>
+	<td>实例
+	<b>首次启动</b>时，Cloud-Init 会根据 
+	<code>vendor_data.json</code> 中的 write_files 信息来设置实例的软件源。</td>
+	<td>
+	当您使用自定义镜像创建或重装实例时，您想保持自定义镜像内部自定义的软件源设置，可以在制作自定义镜像之前在
+	<code>/etc/cloud/cloud.cfg</code> 里面删除 
+	<code>- write-files</code> 这行配置。</td>
 	<td>无。</td>
-</tr>
-
-<tr>
+  </tr>
+  <tr>
 	<td>NTP 的初始化</td>
-	<td>实例<b>首次启动</b>时，Cloud-Init 会根据 <code>vendor_data.json</code> 中的 NTP Server 信息来设置实例的 NTP 服务器配置，并拉起 NTP Service。</td>
-	<td>当您使用自定义镜像创建或重装实例时，您想保持自定义镜像内部自定义的 NTP 设置，可以在制作自定义镜像之前在 <code>/etc/cloud/cloud.cfg</code> 里面删除 <code>- ntp<code/> 这行配置。</td>
+	<td>实例
+	<b>首次启动</b>时，Cloud-Init 会根据 
+	<code>vendor_data.json</code> 中的 NTP Server 信息来设置实例的 NTP 服务器配置，并拉起 NTP
+	Service。</td>
+	<td>当您使用自定义镜像创建或重装实例时，您想保持自定义镜像内部自定义的 NTP
+	设置，可以在制作自定义镜像之前在 
+	<code>/etc/cloud/cloud.cfg</code> 里面删除 
+	<code>- ntp 这行配置。</code></td>
 	<td>无。</td>
-</tr>
-
-<tr>
+  </tr>
+  <tr>
 	<td>密码的初始化</td>
-	<td>实例<b>首次启动</b>时，Cloud-Init 会根据 <code>vendor_data.json</code> 中的 chpasswd 信息来设置实例的默认账号密码。</td>
-	<td>当您使用自定义镜像创建或重装实例时，您想保持自定义镜像内部自定义的默认账号密码，可以在制作自定义镜像之前在 <code>/etc/cloud/cloud.cfg</code> 里面删除 <code>- set-passwords</code> 这行配置。</td>
+	<td>实例
+	<b>首次启动</b>时，Cloud-Init 会根据 
+	<code>vendor_data.json</code> 中的 chpasswd 信息来设置实例的默认账号密码。</td>
+	<td>
+	当您使用自定义镜像创建或重装实例时，您想保持自定义镜像内部自定义的默认账号密码，可以在制作自定义镜像之前在	
+	<code>/etc/cloud/cloud.cfg</code> 里面删除 
+	<code>- set-passwords</code> 这行配置。</td>
 	<td>无。</td>
-</tr>
-
-<tr>
+  </tr>
+  <tr>
 	<td>密钥绑定</td>
-	<td> 实例<b>首次启动</b>时，Cloud-Init 会根据 <code>vendor_data.json</code> 中的 ssh_authorized_keys 信息来设置实例的默认账号密钥。</td>
-	<td>当您使用自定义镜像创建或重装实例时，您想保持自定义镜像内部自定义的密钥，可以在制作自定义镜像之前在 <code>/etc/cloud/cloud.cfg</code> 里面删除 <code>- users-groups</code> 这行配置。</td>
-	<td>如果您通过手工的方式在实例内部自行绑定密钥，在通过控制台下发密钥绑定的操作时，系统会将此密钥覆盖。</td>
-</tr>
-
-<tr>
+	<td>实例
+	<b>首次启动</b>时，Cloud-Init 会根据 
+	<code>vendor_data.json</code> 中的 ssh_authorized_keys 信息来设置实例的默认账号密钥。</td>
+	<td>
+	当您使用自定义镜像创建或重装实例时，您想保持自定义镜像内部自定义的密钥，可以在制作自定义镜像之前在	
+	<code>/etc/cloud/cloud.cfg</code> 里面删除 
+	<code>- users-groups</code> 这行配置。</td>
+	<td>
+	如果您通过手工的方式在实例内部自行绑定密钥，在通过控制台下发密钥绑定的操作时，系统会将此密钥覆盖。</td>
+  </tr>
+  <tr>
 	<td>网络初始化（非 DHCP 场景）</td>
-	<td>实例<b>首次启动</b>时，Cloud-Init 会根据 <code>network_data.json</code> 中的信息来设置实例的 IP、GATEWAY、MASK 等。</td>
-	<td> 当您使用自定义镜像创建或重装实例时，您想保持自定义镜像内部自定义的网络信息，可以在制作自定义镜像之前在 <code>/etc/cloud/cloud.cfg</code> 里面增加 <code>network: {config: disabled}</code> 这行配置。</td>
+	<td>实例
+	<b>首次启动</b>时，Cloud-Init 会根据 
+	<code>network_data.json</code> 中的信息来设置实例的 IP、GATEWAY、MASK 等。</td>
+	<td>
+	当您使用自定义镜像创建或重装实例时，您想保持自定义镜像内部自定义的网络信息，可以在制作自定义镜像之前在	
+	<code>/etc/cloud/cloud.cfg</code> 里面增加 
+	<code>network: {config: disabled}</code> 这行配置。</td>
 	<td>无。</td>
-</tr>
+  </tr>
 </table>
+
+
 
 ### 如何排查 Cloud-Init 常见问题？ 
 

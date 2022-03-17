@@ -197,7 +197,7 @@ Page({
 
 ### step1: 下载自定义组件源码
 
-**&lt;webrtc-room&gt;** 并非微信小程序原生提供的标签，而是一个自定义组件，所以您需要额外的代码来支持这个标签。单击 [小程序 Demo 源码](https://github.com/tencentyun/TRTCSDK/tree/master/WXMini) 下载源码包。
+**&lt;webrtc-room&gt;** 并非微信小程序原生提供的标签，而是一个自定义组件，所以您需要额外的代码来支持这个标签。单击 [小程序 Demo 源码](https://github.com/LiteAVSDK/Live_WXMini/tree/main) 下载源码包。
 
 ### step2: 在工程中引入组件
 - 在 page 目录下的 JSON 配置文件内引用组件，这一步是必须的，因为 &lt;webrtc-room&gt; 并非原生标签。

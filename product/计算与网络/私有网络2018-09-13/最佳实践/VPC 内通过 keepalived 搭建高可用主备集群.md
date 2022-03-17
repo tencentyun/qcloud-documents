@@ -14,6 +14,8 @@
 
 ## 注意事项
 + 推荐使用单播方式进行 VRRP 通信。
+>?本文演示配置为单播模式，如果使用组播方式进行 VRRP 通信，需提交 [组播内测申请](https://cloud.tencent.com/apply/p/rkx852nifjh)，待内测申请通过后参考 [开启或关闭组播功能](https://cloud.tencent.com/document/product/215/53428) 打开 VPC 组播开关；同时在 keepalived 配置文件中无需配置对端设备的 IP 地址，即**不配置** “unicast_peer” 参数。
+>
 + 推荐使用 Keepalived（**1.2.24版本及以上**）。
 + 确保已经配置以下 garp 相关参数。因为 keepalived 依赖 ARP 报文更新 IP 信息，如果缺少以下参数，会导致某些场景下，主设备不发送 ARP 导致通信异常。
 	```plaintext
@@ -38,9 +40,9 @@
 >
 ### 步骤1：申请 VIP[](id:step1)
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/)。
-2. 在左侧导航栏中，选择【IP 与网卡】>【高可用虚拟 IP】。 
-3. 在 HAVIP 管理页面，选择所在地域，单击【申请】。
-4. 在弹出的【申请高可用虚拟 IP】对话框中输入名称，选择 HAVIP 所在的私有网络和子网等信息，单击【确定】即可。
+2. 在左侧导航栏中，选择 **IP 与网卡**> **高可用虚拟 IP**。 
+3. 在 HAVIP 管理页面，选择所在地域，单击**申请**。
+4. 在弹出的**申请高可用虚拟 IP** 对话框中输入名称，选择 HAVIP 所在的私有网络和子网等信息，单击**确定**即可。
 >?HAVIP 的 IP 地址可以自动分配，也可以手动填写。如果您选择手动填写，请确认填写内网 IP 在所属子网网段内，且不属于系统保留 IP。例如，所属子网网段为：10.0.0.0/24，则可填的内网 IP 范围 为：10.0.0.2 - 10.0.0.254。
 >
 ![](https://main.qcloudimg.com/raw/c0dfa6657293a92774d21b48d436a6e0.png)
@@ -199,9 +201,9 @@ HAVIP-01 和 HAVIP-02 在本例中将被配置成“等权重节点”，即 sta
 
 
 ### 步骤4：**VIP 绑定弹性公网 IP（可选）**  
-1. 在 [高可用虚拟 IP](https://console.cloud.tencent.com/vpc/havip) 控制台，单击 [步骤一 ](#step1)中申请的 HAVIP 所在行的【绑定】。
+1. 在 [高可用虚拟 IP](https://console.cloud.tencent.com/vpc/havip) 控制台，单击 [步骤一 ](#step1)中申请的 HAVIP 所在行的**绑定**。
 ![](https://main.qcloudimg.com/raw/79e1e4c95b29f660997b987a8487bab4.png)
-2. 在弹出的【绑定弹性公网 IP 】对话框中选择待绑定的 EIP，并单击【确定】。如果没有可用的 EIP，请先在 [弹性公网 IP](https://console.cloud.tencent.com/cvm/eip?rid=46)控制台申请。
+2. 在弹出的**绑定弹性公网 IP** 对话框中选择待绑定的 EIP，并单击**确定**。如果没有可用的 EIP，请先在 [弹性公网 IP](https://console.cloud.tencent.com/cvm/eip?rid=46)控制台申请。
 ![](https://main.qcloudimg.com/raw/c679a9d21a4e039ae46db333e0e50dcf.png)
 
 ### 步骤5：使用 notify_action.sh 进行简单的日志记录（可选）

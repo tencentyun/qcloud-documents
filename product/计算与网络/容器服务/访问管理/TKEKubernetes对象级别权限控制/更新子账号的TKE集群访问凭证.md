@@ -13,3 +13,4 @@
 4. 在弹出的 “Kubeconfig权限管理” 窗口中，按需勾选认证账号并单击**更新**即可。如下图所示：
 ![](https://main.qcloudimg.com/raw/b8c2a30a36d96946cf2f134f49bc2114.png)
 
+

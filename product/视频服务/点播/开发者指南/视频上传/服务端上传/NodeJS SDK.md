@@ -233,3 +233,4 @@ client.upload("ap-guangzhou", req, function (err, data) {
 | InvalidParameterValue.VodSessionKey       | 参数值错误：点播会话。               |
 | ResourceNotFound       | 资源不存在。               |
 
+

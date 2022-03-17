@@ -17,7 +17,7 @@
 ![](https://main.qcloudimg.com/raw/b92ca7251fa1cf4d4a617c07db7d3104.png)
 
 ## 步骤5：配置 JAR 作业
-在**开发调试**中，在**主程序包**的下拉框中选择刚才新建的程序包名称，在**主类**输入 `com.tencent.cloud.oceanus.wordcount.WordCount`。还可在**作业参数**设置中可以调整作业的算子默认并行度。
+在**开发调试**中，在**主程序包**的下拉框中选择刚才新建的程序包名称，在**主类**输入 `com.tencent.cloud.oceanus.wordcount.WordCount`。您可以在**作业参数**设置中调整作业的算子默认并行度、添加外部依赖。
 ![](https://main.qcloudimg.com/raw/a5fa7e44b41613fab84eb88c4f01a89f.png)
 
 ## 步骤6：发布运行 JAR 作业

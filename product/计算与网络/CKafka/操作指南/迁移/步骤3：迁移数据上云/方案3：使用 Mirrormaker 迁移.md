@@ -36,7 +36,7 @@ MirrorMaker 可以使用一个 Consumer 从自建 Kafka 集群中消费消息，
    | ----------------------------- | ------------------------------------------------------------ |
    | bootstrap.servers             | 自建实例的 broker 接入点列表。                               |
    | group.id                      | 迁移数据时用到的消费者组 ID，请勿与自建实例已存在的消费者命名重复冲突。 |
-   | partition.assignment.strategy | 分区分配的策略，以partition.assignment.strategy=org.apache.kafka.clients.consumer.RoundRobinAssignorjj 为例。 |
+   | partition.assignment.strategy | 分区分配的策略，以partition.assignment.strategy=org.apache.kafka.clients.consumer.RoundRobinAssignor 为例。 |
 
 3. 配置 producer.properties 文件。
 

@@ -1,83 +1,64 @@
 ## 介绍
-Hive Connector 支持作为数据源表，包括流式和维表 source，也支持数据流的目的表，但只支持 append only，不支持 Upsert 数据流。数据格式支持包括 Text、SequenceFile、ORC 和 Parquet 等。
+Hive Connector 支持数据流的目的表，但只支持 append only，不支持 Upsert 数据流。数据格式支持包括 Text、SequenceFile、ORC 和 Parquet 等。
 
 ## 版本说明
 
 | Flink 版本 | 说明                                                         |
 | :-------- | :----------------------------------------------------------- |
-| 1.11      | <li>支持 hive 版本1.1.0、2.3.2、2.3.5、3.1.1</li><li>配置项 'connector.type' = 'hive'</li> |
-| 1.13      | <li>支持 hive 版本1.0.0 - 1.2.2、2.0.0 - 2.2.0、2.3.0 - 2.3.6、3.0.0 - 3.1.2</li><li>配置项 'connector' = 'hive'</li>|
+| 1.11      | <li>支持 hive 版本 1.1.0、2.3.2、2.3.5、3.1.1</li><li>配置项 'connector.type' = 'hive'</li> |
+| 1.13      | <li>支持 hive 版本 1.0.0 ~ 1.2.2、2.0.0 ~ 2.2.0、2.3.0 ~ 2.3.6、3.0.0 ~ 3.1.2</li><li>配置项 'connector' = 'hive'</li> |
+| 1.14      | 不支持 |
 
-## 示例
+## DDL 定义
+
 #### 用作数据目的（Sink）
-1. 需要在 Hive 数据库中建 Hive 表。
-```SQL
-# 在 Hive 的 testdb 数据库创建 test_sink 数据表
-# 具体语法可以参考 Hive 的相关文档，这里不再赘述
+
+```sql
+CREATE TABLE hive_table (
+  `id` INT,
+  `name` STRING,
+  `dt` STRING,
+  `hr` STRING
+) PARTITIONED BY (dt, hr)
+with (
+    'connector' = 'hive',  -- Flink 1.13 请使用 'connector' = 'hive'
+    'hive-version' = '3.1.1',
+    'hive-database' = 'testdb',
+    'partition.time-extractor.timestamp-pattern'='$dt $hr:00:00',
+    'sink.partition-commit.trigger'='partition-time',
+    'sink.partition-commit.delay'='1 h',
+    'sink.partition-commit.policy.kind'='metastore,success-file'
+);
+```
+
+
+## 作业配置
+在 Hive 数据库中建 Hive 表。
+```sql
+# 在 Hive 的 testdb 数据库创建 hive_table 数据表
 USE testdb;
-CREATE TABLE `test_sink` (
-	`name` string,
-	`age` int)
+CREATE TABLE `hive_table` (
+  `id` int,
+  `name` string)
 PARTITIONED BY (`dt` string, `hr` string)
 STORED AS ORC;
 ```
-2. 对 Hive 表的 HDFS 路径开启写权限。
- - 方式一：可登录 EMR Hive 集群节点（具体可参见 [Hive 基础操作](https://cloud.tencent.com/document/product/589/12317)），对目的库 testdb 库的 test_sink 表执行 chmod 操作。
+
+对 Hive 表的 HDFS 路径开启写权限。
+ - 方式一：可登录 EMR Hive 集群节点（具体可参见 [Hive 基础操作](https://cloud.tencent.com/document/product/589/12317)），对目的库 testdb 库的 hive_table 表执行 chmod 操作。
 ```
-hdfs dfs -chmod 777 /usr/hive/warehouse/testdb.db/test_sink
+hdfs dfs -chmod 777 /usr/hive/warehouse/testdb.db/hive_table
 ```
  - 方式二：在**作业管理 > 作业参数**中添加以下高级参数，可以 hadoop 用户角色获取 HDFS 路径权限。
 ```
 containerized.taskmanager.env.HADOOP_USER_NAME: hadoop
 containerized.master.env.HADOOP_USER_NAME: hadoop
 ```
-3. Flink SQL 使用，建表语法请参考 [CREATE TABLE](https://ci.apache.org/projects/flink/flink-docs-release-1.11/zh/dev/table/sql/create.html#create-table)。
-```SQL
-# Flink SQL 中使用 Hive 表 testdb.test_sink, 这里的 CREATE TABLE 的表名对应 Hive 库的表名，库名通过 hive-database 参数指定
-CREATE TABLE test_sink (
-	name STRING,
-	age INT,
-	dt STRING,
-	hr STRING
-) PARTITIONED BY (dt, hr)
-with (
-	'connector.type' = 'hive',  -- Flink 1.13 请使用 'connector' = 'hive'
-	'hive-version' = '3.1.1',
-	'hive-database' = 'testdb',
-	'partition.time-extractor.timestamp-pattern'='$dt $hr:00:00',
-	'sink.partition-commit.trigger'='partition-time',
-	'sink.partition-commit.delay'='1 h',
-	'sink.partition-commit.policy.kind'='metastore,success-file'
-);
-```
 
-#### 用作数据源（Source）或者 Hive 维表
-1. 需要在 Hive 数据库（default_database）创建 Hive 表
-```sql
-CREATE TABLE if not exists hive_source (
-  id int,
-  name string
-  )PARTITIONED BY (dt string,hr string) 
-  row format delimited fields terminated by ','
-```
-2. Flink SQL 建库建表（在默认的 HiveCatalog）
-```sql
-SET TABLE.sql-dialect = hive;
+>? Flink SQL 中使用 Hive 表 testdb.hive_table，这里 CREATE TABLE 的表名对应 Hive 库的表名，库名通过 hive-database 参数指定。
 
-CREATE database default_catalog.testdb; -- 新建注册数据库
 
-CREATE TABLE default_catalog.testdb.Hive表名 (id INT, name STRING, dt STRING, hr STRING) PARTITIONED BY (dt, hr) WITH (
-  'connector.type' = 'hive', -- Flink 1.13 请使用 'connector' = 'hive'
-  'hive-version' = '2.3.5',
-  'partition.time-extractor.timestamp-pattern' = '$dt $hr:00:00',
-  'streaming-source.enable' = 'true',
-  'streaming-source.monitor-interval' = '10s',
-  'streaming-source.consume-order' = 'partition-time',
-  'lookup.join.cache.ttl' = '10s'
-);
-```
-
-## 通用 WITH 参数
+## WITH 参数
 
 | 参数值                                     | 必填 | 默认值       | 描述                                                         |
 | ------------------------------------------ | ---- | ------------ | ------------------------------------------------------------ |
@@ -92,15 +73,44 @@ CREATE TABLE default_catalog.testdb.Hive表名 (id INT, name STRING, dt STRING, 
 | sink.partition-commit.policy.class         | 否   | 无           | 分区提交类，配合 sink.partition-commit.policy.kind = 'custom' 使用，类必须实现 PartitionCommitPolicy。 |
 | partition.time-extractor.kind              | 否   | default      | 分区时间抽取方式。这个配置仅当 sink.partition-commit.trigger 配置为 partition-time 时生效。如果用户有自定义的分区时间抽取方法，配置为 custom。 |
 | partition.time-extractor.class             | 否   | 无           | 分区时间抽取类，这个类必须实现 PartitionTimeExtractor 接口。 |
-| streaming-source.enable                    | 否   | false        | 是否开启流模式。                                             |
-| streaming-source.monitor-interval          | 否   | 1 m          | 监控新文件/分区产生的间隔。                                  |
-| streaming-source.consume-order             | 否   | create-time  | 可以选 create-time 或者 partition-time；create-time 指的不是分区创建时间，而是在 HDFS 中文件/文件夹的创建时间；partition-time 指的是分区的时间；对于非分区表，只能用 create-time。 |
-| streaming-source.consume-start-offset      | 否   | 1970-00-00   | 从哪个分区开始读。                                           |
-| lookup.join.cache.ttl                      | 否   | 60 min       | 表示缓存时间；这里值得注意的是，因为 Hive 维表会把维表所有数据缓存在 TM 的内存中，如果维表量很大，那么很容易就 OOM；如果 ttl 时间太短，那么会频繁的加载数据，性能会有很大影响。 |
+
+
+## 代码示例
+
+```sql
+CREATE TABLE datagen_source_table (
+  id INT,
+  name STRING,
+  log_ts TIMESTAMP(3),
+  WATERMARK FOR log_ts AS log_ts - INTERVAL '5' SECOND
+) WITH (
+  'connector' = 'datagen',
+  'rows-per-second' = '10'
+);
+
+CREATE TABLE hive_table (
+  `id` INT,
+  `name` STRING,
+  `dt` STRING,
+  `hr` STRING
+) PARTITIONED BY (dt, hr)
+with (
+    'connector' = 'hive',  -- Flink 1.13 请使用 'connector' = 'hive'
+    'hive-version' = '3.1.1',
+    'hive-database' = 'testdb',
+    'partition.time-extractor.timestamp-pattern'='$dt $hr:00:00',
+    'sink.partition-commit.trigger'='partition-time',
+    'sink.partition-commit.delay'='1 h',
+    'sink.partition-commit.policy.kind'='metastore,success-file'
+);
+
+-- streaming sql, insert into hive table
+INSERT INTO hive_table
+SELECT id, name, DATE_FORMAT(log_ts, 'yyyy-MM-dd'), DATE_FORMAT(log_ts, 'HH')
+FROM datagen_source_table;
+```
 
 ## Hive 配置
-[](id:id)
-
 ### 获取 Hive 连接配置 jar 包
 Flink SQL 任务写 Hive 时需要使用包含 Hive 及 HDFS 配置信息的 jar 包来连接到 Hive 集群。具体获取连接配置 jar 及其使用的步骤如下：
 1. ssh 登录到对应 Hive 集群节点。
@@ -144,9 +154,8 @@ hiveserver2-site.xml
 /usr/local/service/hadoop/etc/hadoop/hdfs-site.xml
 /usr/local/service/hive/conf/hive-site.xml
 ```
-2. 修改 hive-site.xml 文件
+2. 修改 hive-site.xml 文件。在 hive-site.xml 中增加如下配置，IP 的值取配置文件中 `hive.server2.thrift.bind.host` 的 value。
 ```
-在hive-site增加如下配置，ip的值取配置文件里 hive.server2.thrift.bind.host 的 value
 <property>
     <name>hive.metastore.uris</name>
     <value>thrift://ip:7004</value>
@@ -188,18 +197,13 @@ containerized.taskmanager.env.HADOOP_USER_NAME: hadoop
 containerized.master.env.HADOOP_USER_NAME: hadoop
 security.kerberos.login.principal: hadoop/172.28.28.51@EMR-OQPO48B9
 security.kerberos.login.keytab: emr.keytab
-security.kerberos.login.conf: krb5.conf
+security.kerberos.login.conf: krb5.conf.path
 ```
 
 >! 历史 Oceanus 集群可能不支持该功能，您可通过 [在线客服](https://cloud.tencent.com/act/event/Online_service?from=doc_849) 联系我们升级集群管控服务，以支持 Kerberos 访问。
 
 ## 注意事项
-
 1. 如果 Flink 作业正常运行，日志中没有报错，但是客户端查不到这个 Hive 表，可以使用如下命令对 Hive 表进行修复（需要将 `hive_table_xxx` 替换为要修复的表名）。
 ```
 msck repair table hive_table_xxx;
 ```
-2. 将 Hive 作为数据源并在配置中`io.compression.codec.lzo.class = com.hadoop.compression.lzo.LzoCodec`时需要上传 hadoop-lzo-版本号.jar 包到 oceanus。
-3. Hive Streaming Source 最大的不足是，无法读取已经读取过的分区下的新增的文件。
-4. 如若 Hive 版本是2.3.7版本，当 Hive 表作为源（Source）时，可以使用 oceanus 上的 flink-connector-hive 的版本为1.1.0、2.3.2、2.3.5版本。
-5. 如果需要查询其他库（默认库名 default_database）中的表，需要在默认的 Catalog（default_catalog）中注册数据库。

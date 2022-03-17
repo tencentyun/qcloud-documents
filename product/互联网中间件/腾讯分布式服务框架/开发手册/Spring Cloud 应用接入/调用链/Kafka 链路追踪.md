@@ -7,7 +7,7 @@ Kafka 的链路追踪能力通过 Spring Boot 的自动配置方式实现。
  **1.16.0-Edgware** 版使用的 spring-kafka 版本必须在**1.3.0**以上，因为从这个版本开始 kafka-client 中增加了请求头，这才能方便的实现链路追踪。
 
 ```xml
-<!--支持kafka使用调用链-->
+<!--支持 kafka 使用调用链-->
         <dependency>
             <groupId>org.springframework.kafka</groupId>
             <artifactId>spring-kafka</artifactId>
@@ -45,7 +45,7 @@ spring.kafka.consumer.key-deserializer=org.apache.kafka.common.serialization.Str
 spring.kafka.consumer.value-deserializer=org.apache.kafka.common.serialization.StringDeserializer
 ```
 
-其他更详细配置、使用方法详见 Demo 示例。
+其他更详细配置、使用方法详见 [Demo 示例](https://github.com/tencentyun/tsf-simple-demo)。
 
 ## 1.16.0-Finchley 版本说明
 
@@ -86,7 +86,7 @@ spring.kafka.consumer.value-deserializer=org.apache.kafka.common.serialization.S
         value-serializer: org.apache.kafka.common.serialization.StringSerializer
       #消费者的配置
       consumer:
-        #Kafka中没有初始偏移或如果当前偏移在服务器上不再存在时,默认区最新 ，有三个选项 【latest, earliest, none】
+        #Kafka中没有初始偏移或如果当前偏移在服务器上不再存在时,默认区最新 ，有三个选项 **latest, earliest, none**
         auto-offset-reset: latest
         #是否开启自动提交
         enable-auto-commit: true
@@ -105,4 +105,4 @@ spring.kafka.consumer.value-deserializer=org.apache.kafka.common.serialization.S
     file: /tsf-demo-logs/${spring.application.name}/root.log
 ```
 
-其他更详细配置、使用方法详见 Demo 示例。
+其他更详细配置、使用方法详见 [Demo 示例](https://github.com/tencentyun/tsf-simple-demo)。

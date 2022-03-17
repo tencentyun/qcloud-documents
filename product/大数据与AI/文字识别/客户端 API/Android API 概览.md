@@ -208,12 +208,18 @@ OcrModeType 是一个枚举类型，列举了卡片识别模式
 | int     | remindConfirmColor     | 设置提醒 dialog 中确认按钮（切换模式）的颜色（0xFFFFFF类型） |
 | int     | cardFrameColor         | 设置卡片预览框四角选中时的颜色（0xFFFFFF类型）               |
 | int     | successRemindTextColor | 设置自定捕捉或拍摄成功后，提示的文字颜色（0xFFFFFF类型）     |
+| Int     | statusBarColor         | 设置状态栏背景颜色（0xFFFFFF类型）                           |
 | int     | imageSelectResId       | 设置默认界面中图库中图片选择的图标资源 id                    |
 | int     | lightImageOnResId      | 设置默认界面打开闪光灯的图标资源 id                          |
 | int     | lightImageOffResId     | 设置默认界面关闭闪光灯的图标资源 id                          |
 | int     | takePicturesResId      | 设置默认界面主动拍照按钮的图标资源 id                        |
-| boolean | isRemoveAlbum          | 设置默认界面是否现实相册选取按钮，默认为显示                 |
+| int     | backActionIconResId    | 设置默认界面返回按钮的图标资源id                             |
+| boolean | isRemoveAlbum          | 设置默认界面是否显示相册选取按钮，默认为显示                 |
+| boolean | isRemoveFlash          | 设置默认界面是否显示闪光灯点击按钮，默认显示                 |
 | boolean | isLandscape            | 设置默认界面为横屏模式，默认false                            |
+| boolean | isShowTips             | 设置默认界面是否显示tips框，默认true                         |
+| String  | showTipsText           | 设置提醒tips的文字内容，默认“请避免识别内容折角、遮挡和反光” |
+| boolean | isShowStatusBar        | 设置默认界面是否显示状态栏，默认true                         |
 
 
 

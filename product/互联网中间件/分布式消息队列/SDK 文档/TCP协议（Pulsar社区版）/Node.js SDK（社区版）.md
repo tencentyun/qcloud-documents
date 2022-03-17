@@ -19,20 +19,19 @@ TDMQ Pulsar 版2.7.1及以上版本的集群已支持 Pulsar 社区版 Node.js S
    ```
 
 2. 在创建 Node.js Client 的代码中，配置准备好的接入地址和密钥。
-<dx-codeblock>
-:::  go
-   const Pulsar = require('pulsar-client');
-   
-   (async () => {
-     const client = new Pulsar.Client({
-       serviceUrl: 'http://*', //更换为接入地址（控制台集群管理页完整复制）
-       authentication:    Pulsar.NewAuthenticationToken("eyJh**"), //更换为密钥
-     });
-   
-     await client.close();
-   })();
-:::
-</dx-codeblock>
+```go
+const Pulsar = require("pulsar-client");
+
+(async () => {
+  const client = new Pulsar.Client({
+    serviceUrl: "http://*",   //更换为接入地址（控制台集群管理页完整复制）
+    authentication: new Pulsar.AuthenticationToken({
+      token: "eyJh**",       //更换为密钥
+    }),
+  });
+  await client.close();
+})();
+```
 
 
 关于 Pulsar 社区版 Node.js SDK 各种功能的使用方式，请参考 [Pulsar 官方文档](http://pulsar.apache.org/docs/zh-CN/client-libraries-node/)。

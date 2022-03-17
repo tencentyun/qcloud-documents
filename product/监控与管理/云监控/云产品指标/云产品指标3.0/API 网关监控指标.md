@@ -29,8 +29,8 @@ Namespace=QCE/APIGATEWAY
 | Instances.N.Dimensions.0.Value | serviceId       | 具体的 API 网关服务 ID         | 输入具体服务 ID，例如：service-12345jy    |
 | Instances.N.Dimensions.1.Name  | environmentName | 环境维度名称                  | 输入 String 类型维度名称：environmentName |
 | Instances.N.Dimensions.1.Value | environmentName | 具体环境名称                  | 输入环境名称，例如：release、test、repub |
-| Instances.N.Dimensions.2.Name  | apiid/key       | APIid 或者 SecretKey 的维度名称 | 输入 String 类型维度名称：apiid/key        |
-| Instances.N.Dimensions.2.Value | apiid/secretid  | 具体的 APIid 或者 SecretId      | 输入具体的 APIid 或者 SecretId          |
+| Instances.N.Dimensions.2.Name  | apiId/key       | apiId 或者 secretKey 的维度名称 | 输入 String 类型维度名称：apiId/key        |
+| Instances.N.Dimensions.2.Value | apiId/secretId  | 具体的 apiId 或者 secretId      | 输入具体的 apiId 或者 secretId          |
 
 [](id:weidu)
 
@@ -38,9 +38,9 @@ Namespace=QCE/APIGATEWAY
 
 </span>
 
- API网关提供了获取以下三种级别监控数据的组合 ：环境维度、API 维度、密钥对（SecretId 和 SecretKey）维度。
+ API 网关提供了获取以下三种级别监控数据的组合 ：环境维度、API 维度、密钥对（SecretId 和 SecretKey）维度。
 
-以下为API网关的三种维度组合的查询方式 ：
+以下为 API 网关的三种维度组合的查询方式 ：
 
 #### 1.  环境维度，入参取值
 
@@ -57,7 +57,7 @@ Namespace=QCE/APIGATEWAY
 &Instances.N.Dimensions.0.Value=serviceId 的值
 &Instances.N.Dimensions.1.Name=environmentName
 &Instances.N.Dimensions.1.Value=环境名
-&Instances.N.Dimensions.2.Name=apiid
+&Instances.N.Dimensions.2.Name=apiId
 &Instances.N.Dimensions.2.Value=API 的 ID
 
 #### 3. 密钥对维度，入参取值（需要开启白名单）

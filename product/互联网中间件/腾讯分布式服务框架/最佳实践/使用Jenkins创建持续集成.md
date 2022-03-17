@@ -10,20 +10,20 @@ TSF 应用可以使用 Jenkins 构建持续集成方案。
 ## 安装和配置 Jenkins
 1. 在 [Jenkins 官网](https://jenkins.io) 下载安装 Jenkins。  
 2. 安装 Maven 并配置 TSF 私服地址，详情请参见 [SDK 下载](https://cloud.tencent.com/document/product/649/20231)。  
-3. 在 Jenkins 控制台的菜单栏中，选择【系统管理】>【插件管理】，安装 Maven Integration plugin 插件（已安装请忽略）。
+3. 在 Jenkins 控制台的菜单栏中，选择**系统管理** > **插件管理**，安装 Maven Integration plugin 插件（已安装请忽略）。
 4. 创建 Jenkins 项目  
-   4.1 在 Jenkins 首页左侧导航栏中单击【新建】，创建 Jenkins 任务，并选择构建一个自由风格的软件项目。
+   4.1 在 Jenkins 首页左侧导航栏中单击**新建**，创建 Jenkins 任务，并选择构建一个自由风格的软件项目。
    ![create jenkins item](https://main.qcloudimg.com/raw/2458ba567a47968634de459fbdbed5a0/create-jenkins-item.png)
    4.2 在源码管理页面中选择 Git，并设置相关参数。
    Repository URL：您的项目的 Git 协议地址。
    Credentials：安全凭证，选择“无”（前提是运行 Jenkins 软件的用户的 SSH RSA 公匙已添加到该 Git 项目所在的 GitLab 或 GitHub 中，否则这里会报错）或者添加用户名密码。
    ![git info](https://main.qcloudimg.com/raw/a3d8d5ab5062a00fd47394e753f89eb1/add_git_url.png)
    ![add username](https://main.qcloudimg.com/raw/3b129735c76cdae1799c17625ed2324e/add_username.png)
-   4.3 单击【构建触发器】页签，勾选【Build when a change is pushed to GitLab】。 GitLab webhook URL 中的 IP 要确保能通过 GitLab 访问。
+   4.3 单击**构建触发器**页签，勾选 **Build when a change is pushed to GitLab**。 GitLab webhook URL 中的 IP 要确保能通过 GitLab 访问。
    ![GitLab hook](https://main.qcloudimg.com/raw/9d572d105e3180dea218047dc2e3246d/add_gitlib_hook.png)
-   4.4 单击【构建环境】页签，勾选【Add timestamps to the Console Output】，为控制台输出的信息添加时间戳。  
+   4.4 单击**构建环境**页签，勾选 **Add timestamps to the Console Output**，为控制台输出的信息添加时间戳。  
    ![add timestamps](https://main.qcloudimg.com/raw/dec56acb45abcd738117cbde1c7c895b/add_timestamps.png)
-   4.5 单击【构建】页签，然后单击【增加构建步骤】，选择【Invoke top-level Maven targets】。
+   4.5 单击**构建**页签，然后单击**增加构建步骤**，选择 **Invoke top-level Maven targets**。
    ![maven targets](https://main.qcloudimg.com/raw/ac6fb1792129776c6ee1da0c84cc611c/invoke%20maven.png)
    目标：填入 clean package （如有其它参数，请根据实际情况填入）
    ![mvn terminal](https://main.qcloudimg.com/raw/e36f220c63547f447a6f97f9e20d65cb/maven_clean.png)
@@ -50,9 +50,9 @@ TSF 应用可以使用 Jenkins 构建持续集成方案。
    ![cancel end point](https://main.qcloudimg.com/raw/aa898eedb091735372c530e795f01187/cancel_endpoint.png)
 
 5. 配置 GitLab 的 Web Hook，实现自动构建  
-   5.1 项目 > Settings > Integrations 进入添加webhook界面
+   5.1 项目 > Settings > Integrations 进入添加 webhook 界面
    ![gitlib add webhook](https://main.qcloudimg.com/raw/bfbe6dd37c4c7fe109ab8bb913279c4e/gitlib_add_webhook.png)
-   5.2 将 4.3 中Jenkins产生的GitLab webhook URL填入URL，其他选项使用默认设置，点击"Add webhook"。
+   5.2 将 4.3 中Jenkins产生的 GitLab webhook URL填入URL，其他选项使用默认设置，单击 "Add webhook"。
    ![gitlib add jenkens url](https://main.qcloudimg.com/raw/59c4bf4c29f8844a745fd531b2df7050/gitlib_add_jenkens_url.png)
    5.3 测试 WebHook
    ![test webhook](https://main.qcloudimg.com/raw/bef07b027653b2ee74af88b186a2cdab/test_webhook.png)
@@ -101,7 +101,7 @@ TSF 应用可以使用 Jenkins 构建持续集成方案。
     15:12:41 {"Response":{"RequestId":"86c93d7e-ee44-4c8d-8d34-537a0dbe6871","Result":{"TaskId":"task-76l2v6m7"}}}
     15:12:41 Finished: SUCCESS
     ```
-您可以在【[TSF 控制台](https://console.cloud.tencent.com/tsf?rid=1)】>【应用管理】中，单击目标应用的 ID，进入应用详情页的【变更记录】中，查看虚拟机部署变更记录。
+您可以在**[TSF 控制台](https://console.cloud.tencent.com/tsf?rid=1)** > **应用管理**中，单击目标应用的 ID，进入应用详情页的**变更记录**中，查看虚拟机部署变更记录。
  ![](https://main.qcloudimg.com/raw/78e281d72a81387fa51e990b0216c0a2.png)
 
 2. 容器部署成功日志信息
@@ -112,7 +112,7 @@ TSF 应用可以使用 Jenkins 构建持续集成方案。
     16:32:31 Finished: SUCCESS
     ```
 
-您可以在【[TSF 控制台](https://console.cloud.tencent.com/tsf?rid=1)】>【应用管理】中，单击目标应用的 ID，进入应用详情页的【变更记录】中，查看容器部署变更记录。
+您可以在**[TSF 控制台](https://console.cloud.tencent.com/tsf?rid=1)** > **应用管理**中，单击目标应用的 ID，进入应用详情页的**变更记录**中，查看容器部署变更记录。
 		![](https://main.qcloudimg.com/raw/94af219b1278ae8a104bd444d6c81fde.png)
 		
 3. 容器部署成功日志信息 如果部署失败，需要分析 Jenkins console 日志。
