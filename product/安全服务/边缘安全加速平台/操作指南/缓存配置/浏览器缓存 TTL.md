@@ -4,7 +4,7 @@
 
 
 ## 操作步骤
-1. 登录 [边缘安全加速平台控制台](https://console.cloud.tencent.com/teo)，在左侧菜单栏中，单击**站点加速** > **缓存配置**。
+1. 登录 [边缘安全加速平台控制台](https://console.cloud.tencent.com/edgeone)，在左侧菜单栏中，单击**站点加速** > **缓存配置**。
 2. 在缓存配置页面，选择所需站点，单击浏览器缓存 TTL 模块的**设置**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/f9c7bd71c7d644ca4b032ad72a827166.png)
 3. 在边缘节点缓存 TTL 弹窗中，选择所需模式，单击**保存**。
