@@ -5,9 +5,7 @@
 - MariaDB 到腾讯云数据库 TDSQL MySQL 的数据迁移
 - Percona 到腾讯云数据库 TDSQL MySQL 的数据迁移
 
-> ? 
-> 
-> 云数据库 MariaDB 支持三种内核 MariaDB、MySQL 和 Percona，用户在使用时不需要区分哪种内核，如果源数据库为腾讯云 MariaDB，不论源数据库的内核是 MariaDB、Percona 还是 MySQL，在设置源数据库的类型时，都选择 MariaDB。
+> ? 云数据库 MariaDB 支持三种内核 MariaDB、MySQL 和 Percona，用户在使用时不需要区分哪种内核，如果源数据库为腾讯云 MariaDB，不论源数据库的内核是 MariaDB、Percona 还是 MySQL，在设置源数据库的类型时，都选择 MariaDB。
 
 
 ## 注意事项
