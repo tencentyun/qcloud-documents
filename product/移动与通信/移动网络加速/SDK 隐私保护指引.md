@@ -76,7 +76,7 @@ MNA 移动网络加速是一款由腾讯云计算（北京）有限责任公司�
    </tr>
    <tr>
       <td>网络</td>
-      <td>ACCESS_NETWORK_STATE<br>android.permission.INTERNET<br><br>android.permission.ACCESS_NETWORK_STATE 
+      <td>android.permission.ACCESS_NETWORK_STATE<br>android.permission.INTERNET
 </td>
       <td>网络权限，SDK 需要拥有访问网络的能力来完成加速</td>
    </tr>
