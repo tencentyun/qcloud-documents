@@ -18,7 +18,7 @@ import com.mongodb.client.*;
 public class MongodbDemo {
 
     public static void main(String[] args) {
-        String mongoUri = "mongodb://mongouser:thepasswordA1@10.66.187.127:27017/admin";
+        String mongoUri = "mongodb://mongouser:thepasswordA1@10.66.187.127:27017/admin"; //  多 IP 实例 Uri 可参考：mongodb://mongouser:******@172.xx.xx.124:27017,172.xx.xx.27:27017,172.xx.xx.136:27017/test?authSource=admin&replicaSet=cmgo-fsstfgob_0
         MongoClientURI connStr = new MongoClientURI(mongoUri);
         MongoClient mongoClient = new MongoClient(connStr);
         try {

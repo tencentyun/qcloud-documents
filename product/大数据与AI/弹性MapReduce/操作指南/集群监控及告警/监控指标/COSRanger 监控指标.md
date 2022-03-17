@@ -1,4 +1,6 @@
-### COSRANGER-CosRangerServer
+>? 认证失败统计、鉴权未通过统计和鉴权通过统计等指标项暂无数据，功能正在上线中，敬请期待。
+
+### COSranger-CosRangerServer
 <table>
 <tr>
 <th width=30%>标题 </th>
@@ -101,7 +103,7 @@
 <td >ms </td>
 <td >CPU 累计使用时间</td>
 </tr><tr>	
-<td >进程运行时长 </td>
+<td >进程运行时间 </td>
 <td >Uptime </td>
 <td >s </td>
 <td >进程运行时长</td>
@@ -160,6 +162,72 @@
 <td >一分钟平均请求数</td>
 </tr><tr>
 
+<td rowspan=5>认证失败统计</td>
+<td >Qps</td>
+<td >count(次)</td>
+<td >每秒查询率</td>
+</tr><tr>
+<td >Total_5m</td>
+<td >count(次)</td>
+<td >五分钟请求总数</td>
+</tr><tr>
+<td >Total_1m</td>
+<td >count(次)</td>
+<td >一分钟请求总数</td>
+</tr><tr>
+<td >Qps_5m</td>
+<td >count(次)</td>
+<td >五分钟平均请求数</td>
+</tr><tr>
+<td >Qps_1m</td>
+<td >count(次)</td>
+<td >一分钟平均请求数</td>
+</tr><tr>
+
+<td rowspan=5>鉴权未通过统计</td>
+<td >Qps</td>
+<td >count(次)</td>
+<td >每秒查询率</td>
+</tr><tr>
+<td >Total_5m</td>
+<td >count(次)</td>
+<td >五分钟请求总数</td>
+</tr><tr>
+<td >Total_1m</td>
+<td >count(次)</td>
+<td >一分钟请求总数</td>
+</tr><tr>
+<td >Qps_5m</td>
+<td >count(次)</td>
+<td >五分钟平均请求数</td>
+</tr><tr>
+<td >Qps_1m</td>
+<td >count(次)</td>
+<td >一分钟平均请求数</td>
+</tr><tr>
+
+<td rowspan=5>鉴权通过统计</td>
+<td >Qps</td>
+<td >count(次)</td>
+<td >每秒查询率</td>
+</tr><tr>
+<td >Total_5m</td>
+<td >count(次)</td>
+<td >五分钟请求总数</td>
+</tr><tr>
+<td >Total_1m</td>
+<td >count(次)</td>
+<td >一分钟请求总数</td>
+</tr><tr>
+<td >Qps_5m</td>
+<td >count(次)</td>
+<td >五分钟平均请求数</td>
+</tr><tr>
+<td >Qps_1m</td>
+<td >count(次)</td>
+<td >一分钟平均请求数</td>
+</tr><tr>
+	
 <td rowspan=5>accessStat_DELETE 操作统计</td>
 <td >Qps</td>
 <td >count(次)</td>
@@ -378,28 +446,6 @@
 <td >Qps_1m</td>
 <td >count(次)</td>
 <td >一分钟平均请求数</td>
-</tr><tr>
-
-<td rowspan=5>cosRpc_getSTS 调用耗时</td>
-<td >Cost_Avg</td>
-<td >μs (微秒)</td>
-<td >当前一秒内平均耗时</td>
-</tr><tr>
-<td >Cost_Avg_1m</td>
-<td >μs(微秒)</td>
-<td >一分钟平均耗时</td>
-</tr><tr>
-<td >Cost_Avg_5m</td>
-<td >μs(微秒)</td>
-<td >五分钟平均耗时</td>
-</tr><tr>
-<td >Cost_Max</td>
-<td >μs(微秒)</td>
-<td >当前一秒内最大耗时</td>
-</tr><tr>
-<td >Cost_Max_1m</td>
-<td >μs(微秒)</td>
-<td >一分钟内最大耗时</td>
 </tr><tr>
 
 <td rowspan=9>cosRpc_getSTS 调用耗时</td>

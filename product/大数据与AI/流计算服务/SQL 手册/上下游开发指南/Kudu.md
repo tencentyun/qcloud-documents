@@ -7,6 +7,7 @@ Kudu Connector 提供了对 Kudu 的读写支持。
 | :-------- | :--- |
 | 1.11      | 支持 |
 | 1.13      | 支持 |
+| 1.14      | 不支持 |
 
 ## 使用范围
 Kudu Connector 支持用作数据源表（Source，仅限于普通和维表 JOIN 的右表），也可以作为 Tuple 数据流的目的表（Sink），还可以作为 Upsert 数据流的目的表（Sink，需要包含主键）。

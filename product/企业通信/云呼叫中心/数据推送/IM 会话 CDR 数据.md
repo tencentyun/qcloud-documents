@@ -5,21 +5,21 @@ REQUEST:
 
 | 参数                   | 类型      | 说明                                              |
 | -------------------- | ------- | ----------------------------------------------- |
-| SdkAppId             | 数值(长整型） | 呼叫中心实例ID                                        |
-| SessionId            | 字符串     | 会话ID                                            |
-| StartTimestamp       | 数值(长整型） | 整个会话开始时间戳（UNIX秒级时间戳）                            |
-| QueuedTimestamp      | 数值(长整型） | 会话进入排队时间戳（UNIX秒级时间戳）                            |
-| RingTimestamp        | 数值(长整型） | 会话首次振铃时间戳（UNIX秒级时间戳）                            |
-| AcceptTimestamp      | 数值(长整型） | 会话首次应答时间戳（UNIX秒级时间戳）                            |
-| EndedTimestamp       | 数值(长整型） | 会话整体结束时间戳（UNIX秒级时间戳）                            |
-| QueuedSkillGroupId   | 数值      | 会话进入排队技能组ID                                     |
+| SdkAppId             | 数值(长整型） | 呼叫中心实例 ID                                        |
+| SessionId            | 字符串     | 会话 ID                                            |
+| StartTimestamp       | 数值(长整型） | 整个会话开始时间戳（UNIX 秒级时间戳）                            |
+| QueuedTimestamp      | 数值(长整型） | 会话进入排队时间戳（UNIX 秒级时间戳）                            |
+| RingTimestamp        | 数值(长整型） | 会话首次振铃时间戳（UNIX 秒级时间戳）                            |
+| AcceptTimestamp      | 数值(长整型） | 会话首次应答时间戳（UNIX 秒级时间戳）                            |
+| EndedTimestamp       | 数值(长整型） | 会话整体结束时间戳（UNIX 秒级时间戳）                            |
+| QueuedSkillGroupId   | 数值      | 会话进入排队技能组 ID                                     |
 | QueuedSkillGroupName | 字符串     | 会话进入排队的技能组名称                                    |
 | Duration             | 数值      | 会话整体服务时间，单位秒 EndedTimestamp-AcceptTimestamp     |
 | IVRDuration          | 数值      | IVR 阶段持续时长，单位秒，QueuedTimestamp - StartTimestamp |
-| EndStatusString      | 字符串     | 结束状态，枚举值见下表。                                    |
+| EndStatusString      | 字符串     | 结束状态，枚举值见下表                                    |
 | UserId               | 字符串     | 用户 ID                                           |
 | UserNickName         | 字符串     | 用户昵称                                            |
-| IVRKeyPressed        | 字符串数组   | IVR按键信息 （e.g. \["1","2","3"\])                  |
+| IVRKeyPressed        | 字符串数组   | IVR 按键信息 （e.g. \["1","2","3"\])                  |
 | SeatUser             | 对象      | 客服信息，格式见下                                       |
 | UserRemark           | 字符串     | 用户备注                                            |
 | Satisfaction         | 对象      | 满意度信息{"id":"104","content":"满意"}                |
@@ -32,8 +32,8 @@ EndStatusString 枚举值
 | ok            | 正常结束       |
 | seatGiveUp    | 坐席未接       |
 | seatForward   | 坐席转接       |
-| ivrGiveUp     | IVR期间用户放弃  |
-| ivrEnd        | IVR后直接结束   |
+| ivrGiveUp     | IVR 期间用户放弃  |
+| ivrEnd        | IVR 后直接结束   |
 | autoFinished  | 用户回答超时自动结束 |
 | ringingGiveUp | 会话振铃期间用户放弃 |
 | noSeatOnline  | 无坐席在线      |
@@ -48,7 +48,7 @@ SeatUser 数据格式
 | Name               | 字符串   | 坐席名称      |
 | Nick               | 字符串   | 坐席昵称      |
 | Phone              | 字符串   | 坐席电话号码    |
-| UserId             | 字符串   | 用户ID      |
+| UserId             | 字符串   | 用户 ID      |
 | StaffNumber        | 字符串   | 坐席工号      |
 | SkillGroupNameList | 字符串数组 | 坐席所属技能组列表 |
 
@@ -62,7 +62,7 @@ RESPONSE：
 <dx-codeblock>
 :::  json
 {
-    "SdkAppId":1400264214,
+    "SdkAppId":1400xx214,
     "SessionId":"e97be0ab-1ef6-4ad2-a8c4-2b2bbfb18e55",
     "QueuedSkillGroupId":1072,
     "StartTimestamp":1608130636,

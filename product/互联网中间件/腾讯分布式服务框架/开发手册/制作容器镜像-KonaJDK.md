@@ -37,7 +37,7 @@ CMD ["sh", "-ec", "exec java ${JAVA_OPTS} -Xshare:off -jar ${jar}"]
 
 **2. 使用 JVM 监控功能**
 
-如果您希望使用 [JVM 监控](https://cloud.tencent.com/document/product/649/55599) 功能，则需要在 Dockerfile 中增加 JVM 监控组件  `TencentCloudJvmMonitor-1.2.0`（[下载地址](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91/jvm%E7%9B%91%E6%8E%A7/TencentCloudJvmMonitor-1.2.0-RELEASE.jar)），然后在 CMD 命令中启动该组件。
+如果您希望使用 [JVM 监控](https://cloud.tencent.com/document/product/649/55599) 功能，则需要在 Dockerfile 中增加 JVM 监控组件  `TencentCloudJvmMonitor-1.2.1`（[下载地址](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91/jvm%E7%9B%91%E6%8E%A7/TencentCloudJvmMonitor-1.2.1-RELEASE.jar)），然后在 CMD 命令中启动该组件。
 
 >!将 Spring Cloud 应用 JAR 包和 JVM 监控组件放在同级目录下，并在该目录下编写 Dockerfile。
 

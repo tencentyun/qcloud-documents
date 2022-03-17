@@ -5,8 +5,21 @@
 - TRTC SDK：使用 [TRTC SDK](https://cloud.tencent.com/document/product/647) 作为低延时音视频通话组件。
 - IM SDK：使用 [IM SDK](https://cloud.tencent.com/document/product/269) 发送和处理信令消息。
 
+## 下载 Demo
+  单击进入 [TUICalling](https://github.com/tencentyun/TUICalling)，根据实际业务需求下载 Demo 源码。
+
 ## 环境要求
 请使用最新版本的 Chrome 浏览器。目前桌面端 Chrome 浏览器支持 TRTC Web SDK 的相关特性比较完整，因此建议使用 Chrome 浏览器进行体验。具体请参见 [环境要求](https://cloud.tencent.com/document/product/647/49795#.E7.8E.AF.E5.A2.83.E8.A6.81.E6.B1.82)。
+
+## URL 域名协议限制
+| 应用场景     | 协议             | 接收（播放） | 发送（上麦） | 屏幕分享 | 备注 |
+| ------------ | :--------------- | :----------- | ------------ | -------- | ---- |
+| 生产环境     | HTTPS 协议        | 支持         | 支持         | 支持     | 推荐 |
+| 生产环境     | HTTP 协议         | 支持         | 不支持       | 不支持   |  -    |
+| 本地开发环境 | http://localhost | 支持         | 支持         | 支持     | 推荐 |
+| 本地开发环境 | http://127.0.0.1 | 支持         | 支持         | 支持     |  -    |
+| 本地开发环境 | http://[本机IP]  | 支持         | 不支持       | 不支持   |   -   |
+| 本地开发环境 | file:///         | 支持         | 支持         | 支持     |   -   |
 
 ## TRTCCalling API 
 
@@ -783,7 +796,7 @@ trtcCalling.on(TRTCCalling.EVENT.INVITED, handleNewInvitationReceived);
 | sponsor     | String  | 邀请者       |
 | userIDList  | Array   | 同时还被邀请的人   |
 | isFromGroup | Boolean | 是否 IM 群组邀请   |
-| inviteData  | Object  | <li/>针对新用户邀请： {version, callType, roomID} <li/> 针对最后一位用户挂断：{version, callType, callEnd} |
+| inviteData  | Object  | 针对新用户邀请： {version, callType, roomID} |
 | inviteID    | String  | 邀请 ID，标识一次邀请       |
 
 #### CALLING_CANCEL
@@ -845,7 +858,7 @@ trtcCalling.on(TRTCCalling.EVENT.ERROR, onError);
 - **升级 TRTCCalling 版本 >= 1.0.2**
 	- 注意：需升级 TSignaling 版本 >= 0.9.0
 	- 原因：[更新日志](https://web.sdk.qcloud.com/component/trtccalling/doc/web/zh-cn/tutorial-CHANGELOG.html#h2-3)
-- **升级  1.0.2 >= TRTCCalling 版本 >=1.0.0**
+- **升级  1.0.2 > TRTCCalling 版本 >=1.0.0**
 	- 注意：需升级 TSignaling 版本 >= 0.8.0
 	- 原因：[更新日志](https://web.sdk.qcloud.com/component/trtccalling/doc/web/zh-cn/tutorial-CHANGELOG.html#h2-5)
 
@@ -860,12 +873,12 @@ trtcCalling.on(TRTCCalling.EVENT.ERROR, onError);
 
 ## 技术咨询[](id:QQ)
 
-了解更多详情您可以 QQ 咨询：646165204 <dx-tag-link link="#QQ" tag="技术支持"></dx-tag-link>
+了解更多详情您可以 QQ 咨询：592465424 <dx-tag-link link="#QQ" tag="技术支持"></dx-tag-link>
 
 
 ## 参考文档
 - [TRTCCalling web 官网体验](https://web.sdk.qcloud.com/component/trtccalling/demo/web/latest/index.html#/login)
 - [TRTCCalling npm](https://www.npmjs.com/package/trtc-calling-js)
-- [TRTCCalling web demo 源码](https://github.com/tencentyun/TRTCSDK/tree/master/Web/TRTCScenesDemo/trtc-calling-web)
+- [TRTCCalling web demo 源码](https://github.com/tencentyun/TUICalling)
 - [TRTCCalling web API](https://web.sdk.qcloud.com/component/trtccalling/doc/web/zh-cn/TRTCCalling.html)
 - [TRTCCalling web 相关问题](https://cloud.tencent.com/document/product/647/62484)

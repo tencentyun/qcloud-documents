@@ -22,20 +22,15 @@
 ### 修改配置文件[](id:modifyConfiguration)
 
 1. 将迁移工具 go2tencentcloud.zip 下载或上传至源端主机，并执行以下命令进入对应目录。
-    1. 依次执行以下命令，解压 go2tencentcloud.zip 并进入目录。
 ```sh
 unzip go2tencentcloud.zip
 ```
 ```sh
 cd go2tencentcloud
 ```
-    2. 依次执行以下命令，解压 go2tencentcloud_tool.zip 并进入目录。
-```sh
-unzip go2tencentcloud_tool.zip
-```
-```sh
-cd go2tencentcloud_tool
-```
+<dx-alert infotype="explain" title="">
+`go2tencentcloud` 目录下的文件将不会被迁移，请勿将需迁移的文件放置在该目录下。
+</dx-alert>
 2. 在 `user.json` 文件中配置目标云服务器。
 请按照 [user.json 文件参数说明](https://cloud.tencent.com/document/product/213/65714#userJsonState) 配置必填项和所需项的值。请将对应参数值替换为您实际的配置参数，参考示例如下：
  - 示例1：将一台 Linux 源端主机迁移至腾讯云广州地域的一台云服务器中，`user.json` 文件配置为以下内容：
@@ -125,7 +120,7 @@ cd go2tencentcloud_tool
   </tr>
 </table>
 <dx-alert infotype="explain" title="">
-- 源端主机检查可以使用工具命令自动检查，如 `sudo ./go2tencentcloud_x64 --check`。
+- 源端主机检查可以使用工具命令自动检查，如 `./go2tencentcloud_x64 --no-console --check`。
 - go2tencentcloud 迁移工具在开始运行时，默认自动检查。如果需要略过检查强制迁移，请将 client.json 文件中的 `Client.Extra.IgnoreCheck` 字段配置为 `true`。
 </dx-alert>
 
@@ -136,7 +131,7 @@ cd go2tencentcloud_tool
 执行以下命令，运行工具。
 本文以64位 Linux 源端主机为例，进入 go2tencentcloud_tool 文件目录，并以 root 权限执行以下命令运行工具。
 ```sh
-sudo ./go2tencentcloud_x64
+sudo ./go2tencentcloud_x64 --no-console
 ```
 
 ### 等待迁移结束

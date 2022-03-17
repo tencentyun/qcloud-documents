@@ -1,5 +1,5 @@
 
-
+ 
 ## TKE Nginx-ingress 监控介绍
 
 Nginx Controller 现已提供组件运行状态相关的监控数据，您可以通过配置 Nginx-ingress 监控，开启 Nginx-ingress 监控能力。
@@ -41,3 +41,4 @@ TKE Nginx-ingress 自动配置以下采集指标：
 
 TKE Nginx-ingress 开启监控功能后将关联云原生监控 Prometheus，云原生监控 Prometheus 自带一个 Grafana，您可以在 Nginx-ingress 组件页面直接跳转到对应的 Grafana 面板，如下图所示：
 ![](https://main.qcloudimg.com/raw/fea3e7005e93a63b98e37243638ab2af.png)
+

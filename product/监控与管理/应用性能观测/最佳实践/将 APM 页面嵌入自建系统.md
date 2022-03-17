@@ -17,7 +17,7 @@ APM 满足不需要登录腾讯云控制台即可查询分析 APM 数据的诉�
 5. 为角色设置访问策略，例如只读策略权限 QcloudAPMReadOnlyFullAccess，单击**下一步**。
   ![](https://qcloudimg.tencent-cloud.cn/raw/ea9dfe93baefe0a8a45ca33b4972e74d.png)  
 6. 输入角色名，完成创建。
-![](https://qcloudimg.tencent-cloud.cn/raw/fda729280a84235a8dcbe2641220fb62.png)    
+![](https://qcloudimg.tencent-cloud.cn/raw/0505f9fadb3340eed6ac9e115f9d43e3.png)  
 
 ### 通过 API 创建 CAM 角色
 
@@ -26,7 +26,7 @@ APM 满足不需要登录腾讯云控制台即可查询分析 APM 数据的诉�
 3. 绑定 QcloudAPMReadOnlyFullAccess 的权限策略到角色，详情参见[ 绑定权限策略到角色](https://cloud.tencent.com/document/product/598/36226) 。
 
 
-## 获取用户身份访问秘钥
+## 获取用户身份访问密钥
 
 根据角色名访问腾讯云 STS 服务，调用 [AssumeRole](https://cloud.tencent.com/document/product/1312/48197) 接口，申请角色 CompanyOpsRole 的临时密钥。
 
@@ -35,26 +35,66 @@ APM 满足不需要登录腾讯云控制台即可查询分析 APM 数据的诉�
 ### 生成签名串
 
 1. 拼接参数。对要求签名的参数按照字母表或数字表递增顺序的排序，先考虑第一个字母，在相同的情况下考虑第二个字母，依此类推。
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>必选</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>action</td>
+<td>是</td>
+<td>String</td>
+<td>操作动作，固定为 roleLogin</td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td>是</td>
+<td>Int</td>
+<td>当前时间戳</td>
+</tr>
+<tr>
+<td>nonce</td>
+<td>是</td>
+<td>Int</td>
+<td>随机整数，取值10000-100000000</td>
+</tr>
+<tr>
+<td>secretId</td>
+<td>是</td>
+<td>String</td>
+<td>STS 返回的临时 AK</td>
+</tr>
+</tbody></table>
 
-| 参数名称  | 必选 | 类型   | 描述                          |
-| --------- | ---- | ------ | ----------------------------- |
-| action    | 是   | String | 操作动作，固定为 roleLogin    |
-| timestamp | 是   | Int    | 当前时间戳                    |
-| nonce     | 是   | Int    | 随机整数，取值10000-100000000 |
-| secretId  | 是   | String | STS 返回的临时 AK             |
-
-**拼凑参数示例：**
+ **拼凑参数示例：**
 `action=roleLogin&nonce=67439&secretId=AKI***PLE&timestamp=1484793352`
 
-
 2. 拼接签名串。按请求方法 + 请求主机 +请求路径 + ? + 请求字符串的规则拼接签名串。
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>必选</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>请求主机和路径</td>
+<td>是</td>
+<td>固定为 cloud.tencent.com/login/roleAccessCallback</td>
+</tr>
+<tr>
+<td>请求方法</td>
+<td>是</td>
+<td>支持 GET 或 POST</td>
+</tr>
+</tbody></table>
 
-| 参数           | 必选 | 描述                                             |
-| -------------- | ---- | ------------------------------------------------ |
-| 请求主机和路径 | 是   | 固定为 cloud.tencent.com/login/roleAccessCallback |
-| 请求方法       | 是   | 支持 GET 或 POST                                 |
-
-**拼接签名串示例：**
+ **拼接签名串示例：**
 `GETcloud.tencent.com/login/roleAccessCallback?action=roleLogin&nonce=67439&secretId=AKI***PLE&timestamp=1484793352`
 
 3. 生成签名串。使用 HMAC-SHA1 算法对字符串签名，目前支持 HMAC-SHA1 和 HMAC-SHA256，以Python 语言为例：
@@ -90,7 +130,6 @@ https://cloud.tencent.com/login/roleAccessCallback
 &s_url=<登录后目的 URL>
 ```
 3. 使用生成的最终链接，访问腾讯云 APM 控制台页面。
-
 ```
 https://cloud.tencent.com/login/roleAccessCallback?algorithm=sha1&secretId=AK***Lb&token=yXJYBcXqi***qPos_52PCpauvYykeiSpVZ7w5g2qOvV1Azs&nonce=67439&timestamp=1484793352&signature=AJ***3D&s_url=https%3A//console.cloud.tencent.com/apm%3FhideWidget%3Dtrue%26hideTopNav%3Dtrue
 ```

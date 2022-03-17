@@ -47,7 +47,7 @@ CFS 成本低廉，采用按量计费模式，以小时为计费周期，您只�
 您可执行以下函数代码，开始使用 CFS 文件系统。
 ```
 'use strict';
-var fs = requiret('fs');
+var fs = require('fs');
 exports.main_handler = async (event, context) => {
       await fs.promises.writeFile('/mnt/myfolder/filel.txt', JSON.stringify(event)); 
       return event;

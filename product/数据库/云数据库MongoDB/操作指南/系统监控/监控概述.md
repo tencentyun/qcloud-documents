@@ -56,7 +56,7 @@
 <tr>
 <td>oplog 时间差</td><td>小时</td><td>oplog 记录中最后一次操作和首次操作时间差</td></tr>
 <tr>
-<td>主从延迟</td><td>次</td><td>主从延迟时间</td></tr>
+<td>主从延迟</td><td>秒</td><td>主从延迟时间</td></tr>
 <tr>
 <td>oplog 保存时间</td><td>小时</td><td>oplog 保存的时长</td></tr>
 <tr>

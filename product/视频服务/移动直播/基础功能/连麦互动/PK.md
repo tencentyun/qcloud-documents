@@ -1,5 +1,5 @@
 ## 基于 RTC 协议的连麦方案
-目前，在 [**连麦互动 - RTMP方案**](https://cloud.tencent.com/document/product/454/14606) 中，腾讯云移动直播 SDK 提供连麦互动组件 `MLVBLiveRoom` 用来帮助开发者快速实现连麦需求，为了更好的满足开发者针对连麦功能的需求，腾讯云新增了基于 RTC 协议的连麦方案，同时提供了更加简单灵活的 V2 接口。
+目前，在 [**连麦互动 - RTMP方案**](https://cloud.tencent.com/document/product/454/52751) 中，腾讯云移动直播 SDK 提供连麦互动组件 `MLVBLiveRoom` 用来帮助开发者快速实现连麦需求，为了更好的满足开发者针对连麦功能的需求，腾讯云新增了基于 RTC 协议的连麦方案，同时提供了更加简单灵活的 V2 接口。
 
 移动直播 V2 接口同时支持通过 RTMP 协议及 RTC 协议进行推流/连麦，开发者可根据自身需求选择适合的方案，对比如下：
 
@@ -19,8 +19,8 @@
 
 | 平台    | 源码地址                                                     |  目标文件夹  |
 | -------| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Android | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/Android/MLVB-API-Example) | [LiveLink](https://github.com/tencentyun/MLVBSDK/tree/master/Android/MLVB-API-Example/Basic/LiveLink) |
-| iOS      | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/MLVB-API-Example)|[LiveLink](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/MLVB-API-Example/Basic/LiveLink) |
+| Android | [Github](https://github.com/LiteAVSDK/Live_Android/tree/main/MLVB-API-Example) | [LiveLink](https://github.com/LiteAVSDK/Live_Android/tree/main/MLVB-API-Example/Basic/LiveLink) |
+| iOS      | [Github](https://github.com/LiteAVSDK/Live_iOS/tree/main/MLVB-API-Example)|[LiveLink](https://github.com/LiteAVSDK/Live_iOS/tree/main/MLVB-API-Example/Basic/LiveLink) |
 
 ### 演示图示
 

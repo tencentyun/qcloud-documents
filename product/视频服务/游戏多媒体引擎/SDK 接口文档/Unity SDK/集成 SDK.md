@@ -57,7 +57,7 @@ Unity SDK 已同时集成 Windows、Mac、Android、iOS 平台架构。
 
 
 ## Unity 2021配置
-如果使用的 Unity Editor 是 Unity 2021 及以上版本，需要将 Plugins>Android>Opensdk.plugin 下的 lib 文件夹，剪切后放在工程中 Plugins 文件中的 Android 目录下，与 Opensdk.plugin 同一级。
+如果使用的 Unity Editor 是 Unity 2021 及以上版本，需要将 Plugins > Android > Opensdk.plugin 下的 lib 文件夹，剪切后放在工程中 Plugins 文件中的 Android 目录下，与 Opensdk.plugin 同一级。
 
 <img src="https://qcloudimg.tencent-cloud.cn/raw/bc7156db71faf994654c824787bfb1a9.png"  width="65%" /></img>
 

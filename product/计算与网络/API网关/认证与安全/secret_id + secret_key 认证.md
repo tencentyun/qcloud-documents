@@ -6,8 +6,8 @@
 API 创建完成后，您需要使用 “使用计划” 功能将密钥对与 API 或 API所在服务进行绑定。配置详情请参考 [使用计划](https://cloud.tencent.com/document/product/628/11815)。
 
 ## 密钥内容
-【secret_id】示例：`AKIDCg*****j548pN`  用于标识所使用的哪个密钥，并参与签名计算，传输过程中体现。
-【secret_key】示例：`ZxF2wh*****N2oPrC`  用于签名计算，传递过程中无体现。
+**secret_id** 示例：`AKIDCg*****j548pN`  用于标识所使用的哪个密钥，并参与签名计算，传输过程中体现。
+**secret_key** 示例：`ZxF2wh*****N2oPrC`  用于签名计算，传递过程中无体现。
 
 ## 计算方法
 ### 最终发送内容
@@ -22,11 +22,11 @@ Source header 代表签名水印值，可以填写任意值或不填写。
 Authorization header 的形如 `Authorization: hmac id="secret_id", algorithm="hmac-sha1", headers="date source", signature="Base64(HMAC-SHA1(signing_str, secret_key))"`。
 
 现对 Authorization 内的各部分分别解释：
-【hmac】固定内容，用于标识计算方法。
-【ID】其值为密钥内的 secret_id 的值。
-【algorithm】加密算法，当前支持的是 hmac-sha1。
-【headers】参与签名计算的 header，按实际计算时的顺序排列。
-【signature】计算签名后得到的签名，signing_str 是签名内容。
+**hmac** 固定内容，用于标识计算方法。
+**ID** 其值为密钥内的 secret_id 的值。
+**algorithm** 加密算法，当前支持的是 hmac-sha1。
+**headers** 参与签名计算的 header，按实际计算时的顺序排列。
+**signature** 计算签名后得到的签名，signing_str 是签名内容。
 
 ### 签名计算方法
 签名由两部分并根据指定加密算法进行计算，以 hmac-sha1 算法举例：

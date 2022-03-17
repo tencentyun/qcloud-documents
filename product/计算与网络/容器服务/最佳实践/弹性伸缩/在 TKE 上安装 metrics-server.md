@@ -1,8 +1,8 @@
 ## 操作场景
 
-metrics-server 可实现 Kubernetes 的 Resource Metrics API（metrics.k8s.io），通过此 API 可以查询 Pod 与 Node 的部分监控指标，Pod 的监控指标用于 [HPA](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)、[VPA](https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler) 与 `kubectl top pods` 命令，而 Node 指标目前只用于 `kubectl top nodes` 命令。容器服务 TKE 自带 Resource Metrics API 的实现，指向 hpa-metrics-server，且目前提供 Pod 的监控指标。
+metrics-server 可实现 Kubernetes 的 Resource Metrics API（metrics.k8s.io），通过此 API 可以查询 Pod 与 Node 的部分监控指标，Pod 的监控指标用于 [HPA](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)、[VPA](https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler) 与 `kubectl top pods` 命令，而 Node 指标目前只用于 `kubectl top nodes` 命令。容器服务 TKE 自带 Resource Metrics API 的实现，指向 hpa-metrics-server，且目前提供 Pod 的监控指标。 
 
-将 metrics-server 安装到集群后，可以通过 `kubectl top nodes` 获取节点的监控概览，以替换 Resource Metrics API 的实现。容器服务控制台创建的 HPA 不会用到 Resource Metrics，仅使用 Custom Metrics，因此安装 metrics-server 不会影响在 TKE 控制台创建的 HPA。本文将介绍如何在 TKE 上安装 metrics-server。
+将 metrics-server 安装到集群后，可以通过 `kubectl top nodes` 获取节点的监控概览，以替换 Resource Metrics API 的实现。容器服务控制台创建的 HPA 不会用到 Resource Metrics，仅使用 Custom Metrics，因此安装 metrics-server 不会影响在 TKE 控制台创建的 HPA。本文将介绍如何在 TKE 上安装 metrics-server。 
 
 
 
@@ -18,8 +18,8 @@ wget https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.5.0/
 
 ### 修改 metrics-server 启动参数
 
-metrics-server 会请求每台节点的 kubelet 接口来获取监控数据，接口通过 HTTPS 暴露，但 TKE 节点的 kubelet 使用的是自签证书，若 metrics-server 直接请求 kubelet 接口，将产生证书校验失败的错误，因此需要在 components.yaml 文件中加上 `--kubelet-insecure-tls` 启动参数。
-且由于 metrics-server 官方镜像仓库存储在 `k8s.gcr.io` ，国内可能无法直接拉取，您可以自行同步到 CCR 或使用已同步的镜像 `ccr.ccs.tencentyun.com/mirrors/metrics-server:v0.5.0`。
+metrics-server 会请求每台节点的 kubelet 接口来获取监控数据，接口通过 HTTPS 暴露，但 TKE 节点的 kubelet 使用的是自签证书，若 metrics-server 直接请求 kubelet 接口，将产生证书校验失败的错误，因此需要在 components.yaml 文件中加上 `--kubelet-insecure-tls` 启动参数。 
+且由于 metrics-server 官方镜像仓库存储在 `k8s.gcr.io` ，国内可能无法直接拉取，您可以自行同步到 CCR 或使用已同步的镜像 `ccr.ccs.tencentyun.com/mirrors/metrics-server:v0.5.0`。 
 
 components.yaml 文件修改示例如下：
 

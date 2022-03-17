@@ -24,8 +24,8 @@ pip install kafka-python
 ### 步骤2：生产消息
 
 1. 修改生产消息程序 producer.py 中配置参数。
-
-```python
+<dx-codeblock>
+:::  python
 #coding:utf8
 from kafka import KafkaProducer
 import json
@@ -36,15 +36,32 @@ producer = KafkaProducer(
 message = "Hello World! Hello Ckafka!"
 msg = json.dumps(message).encode()
 producer.send('topic_name',value = msg)
-print("produce message " + message + " success.");
+print("produce message " + message + " success.")
 producer.close()
-```
-
-| 参数              | 描述                                                         |
-| ----------------- | ------------------------------------------------------------ |
-| bootstrap_servers | 接入网络，在控制台的实例详情页面**接入方式**模块的网络列复制。<br/>![img](https://main.qcloudimg.com/raw/88b29cffdf22e3a0309916ea715057a1.png) |
-| topic_name        | Topic 名称，您可以在控制台上**topic管理**页面复制。<br/>![img](https://main.qcloudimg.com/raw/e7d353c89bbb204303501e8366f59d2c.png) |
-
+:::
+</dx-codeblock>
+<table>
+    <thead>
+    <tr>
+        <th>参数</th>
+        <th>描述</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>bootstrap_servers</td>
+        <td>接入网络，在控制台的实例详情页面<strong>接入方式</strong>模块的网络列复制。<br><img
+                src="https://main.qcloudimg.com/raw/88b29cffdf22e3a0309916ea715057a1.png" referrerpolicy="no-referrer"
+                alt="img"></td>
+    </tr>
+    <tr>
+        <td>topic_name</td>
+        <td>Topic 名称，您可以在控制台上<strong>topic管理</strong>页面复制。<br><img
+                src="https://main.qcloudimg.com/raw/e7d353c89bbb204303501e8366f59d2c.png" referrerpolicy="no-referrer"
+                alt="img"></td>
+    </tr>
+    </tbody>
+</table>
 2. 编译并运行 producer.py。
 3. 查看运行结果。
    ![](https://main.qcloudimg.com/raw/312d264676c655838e398ab9fa03b491.png) 
@@ -57,8 +74,8 @@ producer.close()
 ### 步骤3：消费消息
 
 1. 修改消费消息程序 consumer.py 中配置参数。
-
-```python
+<dx-codeblock>
+:::  python
 #coding:utf8
 from kafka import KafkaConsumer
 
@@ -71,18 +88,36 @@ consumer = KafkaConsumer(
 
 for message in consumer:
     print ("Topic:[%s] Partition:[%d] Offset:[%d] Value:[%s]" % (message.topic, message.partition, message.offset, message.value))
-```
-
-| 参数              | 描述                                                         |
-| ----------------- | ------------------------------------------------------------ |
-| bootstrap_servers | 接入网络，在控制台的实例详情页面**接入方式**模块的网络列复制。<br/>![img](https://main.qcloudimg.com/raw/88b29cffdf22e3a0309916ea715057a1.png) |
-| group_id          | 消费者的组 ID，根据业务需求自定义                            |
-| topic_name        | Topic名称，您可以在控制台上**topic管理**页面复制。<br/>![img](https://main.qcloudimg.com/raw/e7d353c89bbb204303501e8366f59d2c.png) |
-
+:::
+</dx-codeblock>
+<table>
+    <thead>
+    <tr>
+        <th>参数</th>
+        <th>描述</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>bootstrap_servers</td>
+        <td>接入网络，在控制台的实例详情页面<strong>接入方式</strong>模块的网络列复制。<br><img
+                src="https://main.qcloudimg.com/raw/88b29cffdf22e3a0309916ea715057a1.png" referrerpolicy="no-referrer"
+                alt="img"></td>
+    </tr>
+    <tr>
+        <td>group_id</td>
+        <td>消费者的组 ID，根据业务需求自定义</td>
+    </tr>
+    <tr>
+        <td>topic_name</td>
+        <td>Topic名称，您可以在控制台上<strong>topic管理</strong>页面复制。<br><img
+                src="https://main.qcloudimg.com/raw/e7d353c89bbb204303501e8366f59d2c.png" referrerpolicy="no-referrer"
+                alt="img"></td>
+    </tr>
+    </tbody>
+</table>
 2. 编译并运行 consumer.py。
-
 3. 查看运行结果。
    ![](https://main.qcloudimg.com/raw/479f3b14e67a5f50f9d49781ab4df39f.png)
-
 4. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的**Consumer Group**页面，选择对应的消费组名称，在主题名称输入 Topic 名称，单击**查询详情**，查看消费详情。
    ![](https://main.qcloudimg.com/raw/27775267907600f4ff759e6a197195ee.png)

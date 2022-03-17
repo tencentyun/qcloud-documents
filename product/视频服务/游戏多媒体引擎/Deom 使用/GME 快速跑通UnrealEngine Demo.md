@@ -18,7 +18,9 @@
 
 ### 2. 下载工程
 
- [点此下载 UnrealEngine Demo](https://dldir1.qq.com/hudongzhibo/QCloud_TGP/GME/GME2.8.4/Other/GME_Unreal_Audio_Demo_2.8.4.f0b7053c.zip)
+通过 [下载指引](https://cloud.tencent.com/document/product/607/18521) 下载 UnrealEngine Demo。
+
+![](https://qcloudimg.tencent-cloud.cn/raw/d31444d037de015a99b4bf3884aec906.png)
 
 
 ### 3. 配置工程

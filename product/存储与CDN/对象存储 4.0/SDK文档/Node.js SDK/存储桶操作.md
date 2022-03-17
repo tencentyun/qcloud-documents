@@ -149,9 +149,9 @@ function doesBucketExist() {
     }, function(err, data) {
         if (data) {
             console.log('存储桶存在');
-        } else if (err.code === 404) {
+        } else if (err.code == 404) {
             console.log('存储桶不存在');
-        } else if (err.code === 403) {
+        } else if (err.code == 403) {
             console.log('没有该存储桶读权限');
         }
     });

@@ -9,16 +9,17 @@
 > ?同一个地域仅支持购买一个实例。
 > ![](https://main.qcloudimg.com/raw/70581925a1e8283af17ade35fe004837.png)
 
+
 ### 步骤2：设置基本信息
 1. 实例初始化后，在 [实例列表](https://console.cloud.tencent.com/casb) 左侧操作栏，单击 ID/名称处的“实例名”，进入“基本信息”页面。
-![](https://qcloudimg.tencent-cloud.cn/raw/c0b207188e4859ebc9d02fc0c4fc359c.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/ccb974ea8b86b0f8b783c22740ff294b.png)
 4. 在“基本信息”页面中，可查看实例的基本信息并可进行相关操作。
-	![](https://main.qcloudimg.com/raw/b3e92c474ffb69d8959de567430e2d11.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/f79b90a62186172188172a0a99960d60.png)
 	字段说明：
 	- **实例 ID**：购买实例后，系统自动生成的唯一 ID。
 	- **实例名称**：系统默认的名称为 casb-default，您可以通过修改名称，给实例进行命名。
 	- **地域**：实例所在地域。
-	- **服务版本**：CASB 目前提供三个版本分别是：标准版、企业版、旗舰版。
+	- **服务版本**：CASB 目前仅提供基础版。
 	- **数据库实例数**：由版本提供实例数与扩展实例数组成。
 	- **自动续费**：用户可设置自动续费或关闭自动续费，关闭自动续费的实例到期后，将会被系统自动回收。
 	- **状态**：实例发货后，实例处于未初始化状态，单击账户设置**初始化**发起初始化操作，操作需要3分钟 - 10分钟，初始化完成后，实例处于正常服务状态。
@@ -27,7 +28,7 @@
 ### 步骤3：设置安全组
 1. 基本信息设置完成后，在 [实例列表](https://console.cloud.tencent.com/casb) 左侧操作栏，单击 ID/名称处的“实例名”，进入“基本信息”页面。
 2. 在基本信息页面右上角操作栏中，单击**安全组**，进入安全组页面。
-![](https://main.qcloudimg.com/raw/0115a337644a15dd919dec2b54fabc4c.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/e8ea75a5c1254df0cbd619d64cc38e68.png)
 3. 在安全组页面中，单击**编辑**，进入“绑定安全组”页面。
 ![](https://main.qcloudimg.com/raw/9f7d77b56fbb5c28e6602448befaac17.png)
 4. 在绑定安全组页面中，选择所需的安全组，单击**确定**即完成安全组配置。

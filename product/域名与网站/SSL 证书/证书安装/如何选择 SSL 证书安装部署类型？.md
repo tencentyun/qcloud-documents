@@ -1,8 +1,8 @@
 ## 手动安装证书
-证书安装目前有下列14种方式，您可以根据您购买的证书加密标准类型和搭建的服务器类型进行证书安装。
+证书安装目前有下列15种方式，您可以根据您购买的证书加密标准类型和搭建的服务器类型进行证书安装。
 >? 
 >- 使用一键 HTTPS 功能，您无需进行繁琐的 SSL 证书部署操作，即可帮助您实现从 HTTP 到 HTTPS 的能力升级。详情请参考 [一键 HTTPS](https://cloud.tencent.com/document/product/400/58062)。
->- 目前仅提供以下14种安装证书的方式。
+>- 目前仅提供以下15种安装证书的方式。
 >
 
 <table>
@@ -12,7 +12,7 @@
 <th>证书安装方式</th>
 </tr>
 <tr>
-<td rowspan="11">国际标准证书（RSA/ECC）</td>
+<td rowspan="12">国际标准证书（RSA/ECC）</td>
 <td rowspan="8">Linux 系统</td>
 <td> <a href="https://cloud.tencent.com/document/product/400/50874">宝塔面板 SSL 证书安装</a></td>
 </tr>
@@ -36,7 +36,7 @@
 <td><a href="https://cloud.tencent.com/document/product/400/44761">Jetty 服务器证书安装</a></td>
 </tr>
 <tr>
-<td rowspan="3">Windows 系统</td>
+<td rowspan="4">Windows 系统</td>
 <td><a href="https://cloud.tencent.com/document/product/400/35225">IIS 服务器证书安装</a></td>
 </tr>
 <tr>
@@ -44,6 +44,9 @@
 </tr>
 <tr>
 <td><a href="https://cloud.tencent.com/document/product/400/61400">Apache 服务器 SSL 证书安装部署（Windows）</a></td>
+</tr>
+<tr>
+<td><a href="https://cloud.tencent.com/document/product/400/67502">Tomcat 服务器 SSL 证书安装部署（JKS 格式）（Windows）</a></td>
 </tr>
 <tr>
 <td rowspan="3">国密标准证书（SM2）</td>
@@ -69,5 +72,6 @@
 - [安装部署 SSL 证书到 Web 应用防火墙（WAF）指引](https://cloud.tencent.com/document/product/400/51803)
 - [安装部署 SSL 证书到 DDoS 防护指引](https://cloud.tencent.com/document/product/400/56290)
 - [安装部署 SSL 证书到云直播（CSS）指引](https://cloud.tencent.com/document/product/400/56291)
+- [安装部署 SSL 证书到容器服务 Ingress](https://cloud.tencent.com/document/product/400/67651)
 - [腾讯云实现全站 HTTPS 方案](https://cloud.tencent.com/document/product/400/6813)
 

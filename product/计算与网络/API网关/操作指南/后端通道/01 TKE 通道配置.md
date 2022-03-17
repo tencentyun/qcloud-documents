@@ -38,7 +38,7 @@
 ### 步骤2：API 后端对接 TKE 通道
 1. 在 API 网关控制台的 [服务](https://console.cloud.tencent.com/apigateway/service)页面，单击目标服务的“ID”，进入管理 API 页面。
 2. 单击**新建**，创建通用 API。
-3. 输入前端配置，然后点击**下一步**。
+3. 输入前端配置，然后单击**下一步**。
 	 ![](https://qcloudimg.tencent-cloud.cn/raw/d0afa98fcc4c5a83bc1a8f1ddd5e464e.png)
 4. 选择后端类型为 **VPC内资源**，并且选择后端通道类型为 **TKE通道**，单击**下一步**。  
 	 ![](https://qcloudimg.tencent-cloud.cn/raw/d3365999710dea204a252c2619230616.png)

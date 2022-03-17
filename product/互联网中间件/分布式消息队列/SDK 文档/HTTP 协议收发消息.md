@@ -7,7 +7,6 @@ API Explorer 提供了在线调用、签名验证、SDK 代码生成和快速检
 ## 前提条件
 
 1. 参考 [资源创建与准备](https://cloud.tencent.com/document/product/1179/44814) 创建好集群，命名空间、Topic 等资源。
-
 2. 登录 [云 API 控制台](https://console.cloud.tencent.com/api/explorer)，选择 **API Explore** > **分布式消息队列** > **消息相关接口**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/74cc56148daae4971eedba902c8cf415.png)
 
@@ -25,12 +24,14 @@ API Explorer 提供了在线调用、签名验证、SDK 代码生成和快速检
 
 | 参数 | 说明 | 
 |---------|---------|
-| Topic | 消息要发送的 Topic 的名字, 这里尽量需要使用 Topic 的全路径，即：tenant/namespace/topic。如果不指定，默认使用的是：public/default。|
+| Topic | 消息要发送的 Topic 的名字, 这里尽量需要使用 Topic 的全路径，即：tenant/namespace/topic。如果不指定，默认使用的是：public/default。<br>**注意：**暂时不支持全局顺序类型的 Topic。|
 | Payload | 要发送的消息的内容。|
 | StringToken | Token 是用来做鉴权使用的，可以不填，系统会自动获取。|
 | SendTimeout | 设置消息发送的超时时间，默认为30s。|
 | MaxPendingMessages | 内存中缓存的最大的生产消息的数量，默认为1000条。|
 
+>!全局顺序 Topic 暂不支持通过 HTTP API 收发消息。
+>
 
 **在线调用：**
 
@@ -45,8 +46,8 @@ API Explorer 提供了在线调用、签名验证、SDK 代码生成和快速检
 验证完成后，在**代码生成**页签的代码框中选择自己需要的语言，即可生成对应的代码示例。
 
 以 Java 语言为例：
-
-```java
+<dx-codeblock>
+:::  java
 import com.tencentcloudapi.common.Credential;
 import com.tencentcloudapi.common.profile.ClientProfile;
 import com.tencentcloudapi.common.profile.HttpProfile;
@@ -82,8 +83,8 @@ public class SendMessages
         }
     }
 }
-```
-
+:::
+</dx-codeblock>
 
 
 :::
@@ -218,22 +219,22 @@ public class SendBatchMessages
 
 **生成代码示例**
 
-验证完成后，在**代码生成**页签的代码框中选择自己需要的语言，即可生成对应的代码示例。
-
-以 Java 语言为例，最终整理成完整的生产消费 Demo 如下：
+验证完成后，在**代码生成**页签的代码框中选择自己需要的语言，即可生成对应的代码示例。以 Java 语言为例，最终整理成完整的生产消费 Demo 如下：
 
 1. 首先参考 [Java SDK](https://cloud.tencent.com/document/sdk/Java) 添加依赖。
-```
+<dx-codeblock>
+:::  xml
 <dependency>
 	 <groupId>com.tencentcloudapi</groupId>
 	 <artifactId>tencentcloud-sdk-java-tdmq</artifactId>
 	 <!-- 请到https://search.maven.org/artifact/com.tencentcloudapi/tencentcloud-sdk-java-tdmq查询所有版本，最新版本如下 -->
 	 <version>3.1.399</version>
 </dependency>
-```
-
+:::
+</dx-codeblock>
 2. 参考如下 Demo，更换其中的`SecretId ` 和 `SecretKey` 以及地域参数，以及 `topic` 和 `subscription` （均可从控制台复制），运行观察。
-```java
+<dx-codeblock>
+:::  java
 import com.tencentcloudapi.common.Credential;
 import com.tencentcloudapi.common.profile.ClientProfile;
 import com.tencentcloudapi.common.profile.HttpProfile;
@@ -289,7 +290,9 @@ public class HttpMessageTest
         }
     }
 }
-```
+:::
+</dx-codeblock>
+
 
 
 
