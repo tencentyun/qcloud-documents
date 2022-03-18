@@ -4,6 +4,7 @@
 </style>
 
 ## Demo 体验
+### 腾讯特效 TE Demo[](id:TE_Demo)
 您可以直接下载我们的 Demo 进行功能体验，包括腾讯特效 TE Demo 工程以及集成了 TE 的 MLVB、UGSV、TRTC Demo 工程，您可以根据当前项目需要进行针对性的调试。
 
 >! 腾讯特效 TE iOS 平台 ZIP 包内囊括 **SDK** 和 **Demo 工程**，可前往下载 [iOS 端 ZIP 包](https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.4.1.16/demo.zip)。
@@ -47,6 +48,20 @@
 </tbody></table>
 
 
+### Web 美颜特效 Demo[](id:Web_Demo)
+音视频终端 SDK（腾讯云视立方）提供的 Web 美颜特效 SDK 支持 PC Web、H5、微信小程序等多种 Web 平台，这里分别提供线上 Demo 供您体验。
+<table>
+<tr><th width="15%">平台</th><th>PC</th><th>移动端</th></tr>
+<tr>
+<td>Web</td>
+<td><a href="https://demo.webar.qcloud.com">单击体验</a></td>
+<td><img src='https://qcloudimg.tencent-cloud.cn/raw/d187129937ba21f7856f4b69e9ce39a6.png' width=150px height=150px></td>
+</tr><tr>
+<td>微信小程序</td>
+<td>-</td>
+<td><img src='https://qcloudimg.tencent-cloud.cn/raw/3494d6ef08f375ad882b2398222be3d6.jpg' width=150px height=150px></td>
+</tr>
+</table>
 
 
 ## Demo 展示
@@ -110,4 +125,6 @@
 
 支持精准分割，实时抠像并叠加复杂的动效背景，9 款分割背景可供选择。
 ![](https://qcloudimg.tencent-cloud.cn/raw/8aad0245d99f4cb993d1e45e08240376.png)
+
+
 
