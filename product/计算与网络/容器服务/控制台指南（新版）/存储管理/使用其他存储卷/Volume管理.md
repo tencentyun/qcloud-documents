@@ -25,10 +25,6 @@
 	<td>使用已有 PersistentVolumeClaim 声明工作负载的存储，自动分配或新建 PersistentVolume 挂载到对应的 Pod 下。主要适用于 StatefulSet 创建的有状态应用。</td>
 	</tr>
 	<tr>
-	<td>使用腾讯云硬盘</td>
-	<td>腾讯云基于 CBS 扩展的 Kubernetes 的块存储插件。您可以指定一块腾讯云的 CBS 云硬盘挂载到容器的某一路径下，当容器迁移时，云硬盘会随之迁移。<b>使用云硬盘数据卷适用于数据的持久化保存，可用于 Mysql 等有状态服务。设置云硬盘数据卷的服务，实例数量最大为1。</b></td>
-	</tr>
-	<tr>
 	<td>使用 ConfigMap</td>
 	<td>ConfigMap 以文件系统的形式挂载到 Pod 上，支持自定义 ConfigMap 条目挂载到特定的路径。更多详情请参见 <a href="https://cloud.tencent.com/document/product/457/31717">ConfigMap 管理</a>。</td>
 	</tr>
