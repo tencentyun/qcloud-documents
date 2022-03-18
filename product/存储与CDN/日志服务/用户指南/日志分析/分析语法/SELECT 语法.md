@@ -22,7 +22,7 @@
 
 SELECT 后面也可以跟算术表达式，如从日志数据中查询下载速度：
 
-下载速度（`speed`）= 总发送字节数（`body_bytes_sent`）+ 请求时长（`request_time`）
+下载速度（`speed`）= 总发送字节数（`body_bytes_sent`）/ 请求时长（`request_time`）
 
 ```plaintext
 * | SELECT body_bytes_sent / request_time AS speed

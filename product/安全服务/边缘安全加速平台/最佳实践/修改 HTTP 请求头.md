@@ -1,10 +1,12 @@
 
 ## 功能简介
 支持自定义变更/增加/删除 HTTP 请求头（从节点向源站请求回源时的 HTTP 请求头）。
->?EdgeOne 默认支持携带 X-Forwarded-For（真实客户端 IP）和 X-Forwarded-Proto（真实客户端请求协议），您无需再配置。
+>?
+>- 目前边缘安全加速平台控制台仅对部分用户开放，如需访问控制台，请 [联系我们](https://cloud.tencent.com/online-service) 开通权限。
+>- EdgeOne 默认支持携带 X-Forwarded-For（真实客户端 IP）和 X-Forwarded-Proto（真实客户端请求协议），您无需再配置。
 
 ## 操作指南
-1. 登录 [边缘安全加速平台控制台](https://console.cloud.tencent.com/teo) ，在左侧菜单栏中，单击**规则引擎**。
+1. 登录 [边缘安全加速平台控制台](https://console.cloud.tencent.com/edgeone) ，在左侧菜单栏中，单击**规则引擎**。
 2. 在规则引擎页面，选择所需站点，单击![](https://qcloudimg.tencent-cloud.cn/raw/fe4d4900f8ad69d506adc49bdb70fa32.png)可按需修改 HTTP 请求头规则。
 >!目前仅支持匹配条件为 全部（任意请求） 或 Host 时配置修改 HTTP 请求头操作。
 >
@@ -30,10 +32,7 @@
 </tr>
 </tbody></table>
 
-3. 根据实际需求，单击**保存并发布**或**仅保存**。
->?
->- 保存当前编辑的规则，并发布至现网生效。
->- 仅保存当前编辑的规则内容，不发布至现网。
+
 
 
 ## 注意事项
