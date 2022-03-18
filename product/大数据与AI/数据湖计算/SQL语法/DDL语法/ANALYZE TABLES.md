@@ -1,4 +1,4 @@
-﻿支持对数据表进行统计。
+支持对数据表进行统计。
 ### 语法
 ```
 ANALYZE TABLES [ { FROM | IN } database_name ] COMPUTE STATISTICS [ NOSCAN ]
