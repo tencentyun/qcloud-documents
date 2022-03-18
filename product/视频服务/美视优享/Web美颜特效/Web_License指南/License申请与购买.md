@@ -20,7 +20,7 @@ Web License 是 **Web 美颜特效**功能的授权文件，一个 Web License �
 >! 推广阶段是通过申请免费获取，后期需要购买获得。
 
 1. 进入**音视频终端 SDK 控制台** > **License 管理** > **[Web License管理](https://console.cloud.tencent.com/vcube/web)**，单击**创建项目并绑定License**。
-![](https://qcloudimg.tencent-cloud.cn/raw/e42105117790b0e9666d4408a94fd1a9.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/12e13499417c6227a14d230a62c5fbd7.png)
 2. 在新建项目弹框中单击**提交申请**，进入 [视立方 · Web 美颜特效资源申请页](https://cloud.tencent.com/apply/p/9fuh8sv6fl) 填写相关信息并提交。审核通过后，您的账户下会有 Web License 资源包。
 ![](https://qcloudimg.tencent-cloud.cn/raw/633ca925a3c82b51af3b502ed8441775.png)
 
