@@ -9,10 +9,10 @@ COMPUTE STATISTICS [ NOSCAN | FOR COLUMNS col [ , ... ] | FOR ALL COLUMNS ]
 ```
 
 ### 参数
-- database_name：需要计算统计信息的表所在的数据库。
-- table_identifier：需要计算统计信息的表名。
-- partition_col_name：需要计算统计信息的分区列名。
-- partition_col_value：需要计算统计信息的分区列的值。
+- `database_name`：需要计算统计信息的表所在的数据库。
+- `table_identifier`：需要计算统计信息的表名。
+- `partition_col_name`：需要计算统计信息的分区列名。
+- `partition_col_value`：需要计算统计信息的分区列的值。
 
 ### 示例
 ```
