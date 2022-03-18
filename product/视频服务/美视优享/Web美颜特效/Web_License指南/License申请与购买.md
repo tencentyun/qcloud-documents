@@ -35,5 +35,5 @@ Web License 是 **Web 美颜特效**功能的授权文件，一个 Web License �
 5. 完成后您的项目下会多出一个正式版 Web License。此时您当前项目的 License Key 授权时长会自动增加至此 License 所展示的时长。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d7a4a0bdfe7f8484435718e490c5a6ec.png)
 
->! 目前暂不支持续期功能，然后在**License 管理**页续期的方式增加授权时长。
+>! 目前暂不支持续期功能。
 
