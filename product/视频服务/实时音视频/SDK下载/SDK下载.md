@@ -155,8 +155,8 @@
                 <p style="color:#586376;">包含 TRTC、直播播放（TXLivePlayer）和点播播放（TXVodPlayer）三项功能。</p>
                           <a href="https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_TRTC_Win_latest.zip">ZIP 下载</a>
                 <a style="margin-left: 10px;" href="https://github.com/LiteAVSDK/TRTC_Windows">GitHub</a>
-                                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/32178">集成指引</a>
-                                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/32397">运行 Demo</a>
+                                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/71410">集成指引</a>
+                                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/71413">运行 Demo</a>
             </div>
         </div>
         <div class="card-container">
@@ -167,7 +167,7 @@
                                 <a href="https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_TRTC_Win_CSharp_latest.zip">ZIP 下载</a>
                 <a style="margin-left: 10px;" href="https://github.com/LiteAVSDK/TRTC_Windows">GitHub</a>
                                 <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/32178">集成指引</a>
-                                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/32397">运行 Demo</a>
+                                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/71425">运行 Demo</a>
             </div>
         </div>
 </div>
