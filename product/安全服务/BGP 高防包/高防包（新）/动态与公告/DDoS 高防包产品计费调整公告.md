@@ -19,7 +19,7 @@
 
 
 #### 业务规模计费模式说明
-业务规模可选规格：50Mbps、100 Mbps、200Mbps、300 Mbps、500 Mbps、600Mbps、800 Mbps、1000 Mbps、2000 Mbp、3000 Mbp。 
+业务规模可选规格：50Mbps、100 Mbps、200Mbps、300 Mbps、500 Mbps、600Mbps、800 Mbps、1000 Mbps、2000 Mbps、3000 Mbps。 
 <table>
 <thead>
 <tr>
