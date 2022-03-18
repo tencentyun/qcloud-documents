@@ -19,7 +19,7 @@
 
 | API                                                          | 描述                                                         |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [AddSimpleMsgListener](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMManager.html#ad039bd93fe1a09cf45034697e1c1328f) | 设置基本消息（文本消息和自定义消息）的事件监听器， 请不要同 [AddAdvancedMsgListener](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMMessageManager.html#a498688ee0f672f114e28d830761dfbf8) 混用。 |
+| [AddSimpleMsgListener](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMManager.html#ad039bd93fe1a09cf45034697e1c1328f) | 设置基本消息（文本消息和自定义消息）的事件监听器， 请不要同 [AddAdvancedMsgListener](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMMessageManager.html#a498688ee0f672f114e28d830761dfbf8) 混用 |
 | [RemoveSimpleMsgListener](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMManager.html#ab4355384fafb97a099d518f40dbc7654) | 移除基本消息（文本消息和自定义消息）的事件监听器             |
 | [SendC2CTextMessage](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMManager.html#a55ff3770a4267e331cd31fcd9475a6e5) | 发送单聊（C2C）普通文本消息                                  |
 | [SendC2CCustomMessage](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMManager.html#a07d2bcf26547adb609f7aef752cd8189) | 发送单聊（C2C）自定义（信令）消息                            |
@@ -30,15 +30,15 @@
 
 | API                                                          | 描述                                                   |
 | ------------------------------------------------------------ | ------------------------------------------------------ |
-| [AddSignalingListener](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMSignalingManager.html#ad05971845c3daa32b5c3ceac33cd7440) | 添加信令监听。                                         |
+| [AddSignalingListener](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMSignalingManager.html#ad05971845c3daa32b5c3ceac33cd7440) | 添加信令监听                                         |
 | [RemoveSignalingListener](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMSignalingManager.html#aee990a20a262f205cfa6d5c8117a64c2) | 移除信令监听                                           |
-| [Invite](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMSignalingManager.html#a85e7fab6f656ff007fa1fae5400ff547) | 邀请某个人。                                           |
+| [Invite](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMSignalingManager.html#a85e7fab6f656ff007fa1fae5400ff547) | 邀请某个人                                           |
 | [InviteInGroup](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMSignalingManager.html#a4813ae9206eb27438293054a076e2441) | 邀请群内的某些人                                       |
-| [Cancel](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMSignalingManager.html#a2e57c098f73789bf1a6ac0c2b916e6e0) | 邀请方取消邀请。                                       |
+| [Cancel](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMSignalingManager.html#a2e57c098f73789bf1a6ac0c2b916e6e0) | 邀请方取消邀请                                       |
 | [Accept](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMSignalingManager.html#a714672da1a57c1006368650842fc5f29) | 接收方接收邀请                                         |
-| [Reject](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMSignalingManager.html#abd2c124577c39c0a992a34b54665cb9b) | 接收方拒绝邀请。                                       |
-| [GetSignalingInfo](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMSignalingManager.html#afc6d9c1e14e05f87e7ea108711095cb8) | 获取信令信息。                                         |
-| [AddInvitedSignaling](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMSignalingManager.html#adefac3df746100d0afaff911066bcd7f) | 添加邀请信令（可以用于群离线推送消息触发的邀请信令）。 |
+| [Reject](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMSignalingManager.html#abd2c124577c39c0a992a34b54665cb9b) | 接收方拒绝邀请                                       |
+| [GetSignalingInfo](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMSignalingManager.html#afc6d9c1e14e05f87e7ea108711095cb8) | 获取信令信息                                         |
+| [AddInvitedSignaling](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMSignalingManager.html#adefac3df746100d0afaff911066bcd7f) | 添加邀请信令（可以用于群离线推送消息触发的邀请信令） |
 
 ## 高级消息收发接口
 
@@ -46,7 +46,7 @@
 
 | API                                                          | 描述                                                         |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [AddAdvancedMsgListener](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMMessageManager.html#a498688ee0f672f114e28d830761dfbf8) | 设置高级消息的事件监听器， 请不要同 [AddSimpleMsgListener](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMManager.html#ad039bd93fe1a09cf45034697e1c1328f) 混用。 |
+| [AddAdvancedMsgListener](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMMessageManager.html#a498688ee0f672f114e28d830761dfbf8) | 设置高级消息的事件监听器， 请不要同 [AddSimpleMsgListener](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMManager.html#ad039bd93fe1a09cf45034697e1c1328f) 混用 |
 | [RemoveAdvancedMsgListener](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMMessageManager.html#a7e27cbe3f0cc26e09de0bdee8b192bea) | 移除高级消息的事件监听器                                     |
 | [CreateTextMessage](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMMessageManager.html#ab96fac17ae7cb4d1e367dff40aa0694c) | 创建文本消息                                                 |
 | [CreateTextAtMessage](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMMessageManager.html#afa39182f419c621fc929eb3929206107) | 创建 @ 文本消息                                              |
@@ -59,12 +59,12 @@
 | [CreateFaceMessage](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMMessageManager.html#a72c548e00aed06ef99aca1d55d5895c2) | 创建表情消息                                                 |
 | [CreateMergerMessage](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMMessageManager.html#afc00a2a85b3d29ccfc472ea6544eccf3) | 创建合并转发消息                                             |
 | [CreateForwardMessage](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMMessageManager.html#aaff05e59893cb1cfe5a806e700e1e270) | 创建单条转发消息                                             |
-| [SendMessage](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMMessageManager.html#a42db237e7ae52cd2aa7edebf4f435c61) | 发送消息，消息对象可以由 CreateXXXMessage 接口创建得来。     |
+| [SendMessage](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMMessageManager.html#a42db237e7ae52cd2aa7edebf4f435c61) | 发送消息，消息对象可以由 CreateXXXMessage 接口创建得来     |
 | [SetC2CReceiveMessageOpt](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMMessageManager.html#adf166f08b68a5df8de19d152bcf868b3) | 设置单聊消息免打扰                                           |
 | [GetC2CReceiveMessageOpt](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMMessageManager.html#a30a4979460e73c897b6130ba40356afa) | 获取单聊消息免打扰状态                                       |
 | [SetGroupReceiveMessageOpt](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMMessageManager.html#a866d06c28faf058f253f29be6f5b3fe2) | 设置群聊消息免打扰状态                                                                    |
 | [GetHistoryMessageList](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMMessageManager.html#a4bbdbdd063d5dad2d164059e1f5d7851) | 获取历史消息高级接口                                         |
-| [RevokeMessage](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMMessageManager.html#a3f271fcb935ada0ef05709367638a1a6) | 撤回消息，消息对象可以由 CreateXXXMessage 接口创建得来。     |
+| [RevokeMessage](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMMessageManager.html#a3f271fcb935ada0ef05709367638a1a6) | 撤回消息，消息对象可以由 CreateXXXMessage 接口创建得来     |
 | [MarkC2CMessageAsRead](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMMessageManager.html#a024f95bcf2b37a354f11f5b5a4d6920f) | 设置单聊（C2C）消息已读                                      |
 | [MarkGroupMessageAsRead](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMMessageManager.html#abdf09c92dccfb71b58b8a36f42494b8d) | 设置群组消息已读                                             |                                                
 | [DeleteMessages](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMMessageManager.html#ac340e09d426d983fb4b6cf48d9a7ebca) | 删除本地及云端的消息                                         |
