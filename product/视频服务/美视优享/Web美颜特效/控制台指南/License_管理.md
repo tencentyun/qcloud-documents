@@ -22,7 +22,7 @@ Web 美颜特效 SDK 支持 Web 端和微信小程序使用，创建项目时需
 > ! 若您是单击**创建测试项目**创建 Web License，则不需要绑定资源包，创建完成得到的即是测试版 Web License。
 ![](https://qcloudimg.tencent-cloud.cn/raw/5da5d13014fb540b478aab164d7d758a.png)
 
-### License 续期
+## License 续期
 测试版 Web License 初次申请默认有效期默认为**14天**，期满后您可续期1次（仅可续期一次，），单击测试版 License 右侧的 **续期**即可完成续期，增加**14天**有效期。
 ![](https://qcloudimg.tencent-cloud.cn/raw/378863a7fffcebac23c0edc4bbc90f17.png)
 
