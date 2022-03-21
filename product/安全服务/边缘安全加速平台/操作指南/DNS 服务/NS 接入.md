@@ -1,8 +1,9 @@
-在[ NS 接入方式](https://cloud.tencent.com/document/product/1552/70825#NS) 下，支持通过修改 NS 记录，将 DNS 解析权转移给 EdgeOne，实现稳定专业的解析服务的同时，一键开启 EdgeOne 安全/加速服务。
+在[ NS 接入方式](https://cloud.tencent.com/document/product/1552/70787#NS) 下，支持通过修改 NS 记录，将 DNS 解析权转移给 EdgeOne，实现稳定专业的解析服务的同时，一键开启 EdgeOne 安全/加速服务。
+>?目前边缘安全加速平台控制台仅对部分用户开放，如需访问控制台，请 [联系我们](https://cloud.tencent.com/online-service) 开通权限。
 
 ## 记录管理[](id:record)
 EdgeOne DNS 支持多种记录类型的智能解析服务，根据用户所在地理位置及运营商智能返回最佳解析线路。
-1. 登录 [边缘安全加速平台控制台](https://console.cloud.tencent.com/teo) ，在左侧菜单栏中，单击 **DNS 服务**。
+1. 登录 [边缘安全加速平台控制台](https://console.cloud.tencent.com/edgeone)，在左侧菜单栏中，单击 **DNS 服务**。
 2. 在 DNS 服务页面，选择所需站点，单击**记录管理** 。
 3. 在记录管理页面，选择所需记录，单击**编辑**，编辑相关参数，单击**保存**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/51099ccc2bed87d3919e781ad520a712.png)
@@ -151,7 +152,7 @@ EdgeOne DNS 支持多种记录类型的智能解析服务，根据用户所在�
 </thead>
 <tbody><tr>
 <td align="left">A/AAAA/CNAME</td>
-<td align="left">可选择<strong>仅DNS/代理加速/安全加速</strong>，默认为安全加速</td>
+<td align="left">可选择<strong>仅 DNS/代理加速/安全加速</strong>，默认为安全加速</td>
 </tr>
 <tr>
 <td align="left">MX/TXT/NS</td>
@@ -162,7 +163,7 @@ EdgeOne DNS 支持多种记录类型的智能解析服务，根据用户所在�
 >- 对于同一个主机记录（子域名），一旦开启代理加速/安全加速，其他未开启代理的记录类型将失效。
 >- 对于同一个主机记录（子域名），允许多个 A/AAAA 记录同时开启代理加速/安全加速；但如果是 CNAME 类型，不管处于任何代理模式，都仅允许一个记录存在。
  - TTL：指解析记录的缓存指导时间，一般来讲 TTL 越短，则解析记录缓存时间越短，记录值更新时生效也越快，但对解析速度略有影响。
-    - 当前可选择的 TTL 值为：自动/1分钟/2分钟/5分钟/10分钟/15分钟/30分钟/1小时/2小时/5小时/12小时/1天，选中自动时系统配置 TTL 为 300 秒。
+    - 当前可选择的 TTL 值为：自动/1分钟/2分钟/5分钟/10分钟/15分钟/30分钟/1小时/2小时/5小时/12小时/1天，选中自动时系统配置 TTL 为300秒。
     - TTL 配置原则为：
       - 记录值较少变动时，建议选择 1 小时及以上，有利于提升解析速度。
       - 记录值频繁变动，可选择较短 TTL 值如 1 分钟，但解析速度可能略受影响。
@@ -187,8 +188,8 @@ EdgeOne DNS 支持多种记录类型的智能解析服务，根据用户所在�
 ### DNSSEC[](id:dnsses)
 DNSSEC (DNS Security Extension，DNS 安全扩展) 通过数字签名对 DNS 数据来源进行认证，有效保护解析结果的安全性与完整性，常用于应对 DNS 欺骗和 DNS 缓存污染。
 
-1. 登录 [边缘安全加速平台控制台](https://console.cloud.tencent.com/teo) ，在左侧菜单栏中，单击 **DNS 服务**。
-2. 在 DNS 服务页面，选择所需站点，单击**高级配置** 。
+1. 登录 [边缘安全加速平台控制台](https://console.cloud.tencent.com/edgeone) ，在左侧菜单栏中，单击 **DNS 服务**。
+2. 在 DNS 服务页面，选择所需站点，单击**高级配置**。
 3. 在高级配置页面，单击 DNSSEC 模块的![](https://qcloudimg.tencent-cloud.cn/raw/20efaa7f4ecc99b93da623f1c61784ac.png)，经过二次确认后，开启 DNSSEC 功能并生成 DS 信息。
 ![](https://qcloudimg.tencent-cloud.cn/raw/80d1829fa50c81075caa075677f95240.png)
 ![](https://qcloudimg.tencent-cloud.cn/raw/61663e5e8ba50eec690a4d46c34b04af.png)
@@ -206,14 +207,14 @@ DNSSEC (DNS Security Extension，DNS 安全扩展) 通过数字签名对 DNS 数
 >- 自定义 NS 需至少有 2 个，最多可添加 5 个。
 >- 首次开启需添加两个自定义 NS 域名，自定义名称不能和现有 DNS 记录冲突。
 
-1. 在 [DNS 服务页面](https://console.cloud.tencent.com/edgeone/dns?tab=config)，选择所需站点，单击**高级配置** 。
+1. 在 [DNS 服务页面](https://console.cloud.tencent.com/edgeone/dns?tab=config)，选择所需站点，单击**高级配置**。
 2. 在高级配置页面，单击自定义 NS 服务模块的![](https://qcloudimg.tencent-cloud.cn/raw/20efaa7f4ecc99b93da623f1c61784ac.png)，输入自定义 NS 域名，单击**添加**。
 3. 添加成功后，**需要在域名注册商添加该自定义 NS 的胶水记录，才能真正生效**。
 
 ### CNAME 加速[](id:up)
 开启后可有效提升解析速度，当域名在 EdgeOne DNS 设置多级 CNAME 记录时，系统将直接给出最终 IP 解析结果，减少解析次数。此功能默认开启。
 
-1. 在 [DNS 服务页面](https://console.cloud.tencent.com/edgeone/dns?tab=config)，选择所需站点，单击**高级配置** 。
+1. 在 [DNS 服务页面](https://console.cloud.tencent.com/edgeone/dns?tab=config)，选择所需站点，单击**高级配置**。
 2. 在高级配置页面，单击 CNAME 加速模块的“开关”，可关闭或开启 CNAME 加速功能。
 >?多级 CNAME 必须全部在 EdgeOne DNS，才能实现 IP 直出。
 

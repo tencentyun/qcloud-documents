@@ -1,3 +1,13 @@
+### Google Play 应用商店上架时提示“您的应用包含一个隐式 PendingIntent 漏洞”？
+1. TPNS SDK 在代码位置 TPushAlarmManager.set 处使用了一个隐式 PendingIntent，用于触发 SDK 内部心跳。
+您可以参见 Google [隐式 PendingIntent 处理帮助文档](https://support.google.com/faqs/answer/10437428) 提出的针对建议，TPNS SDK 已进行如下自查：
+a. 使用的 setAction 为 SDK 自声明的静态广播 action，无对外暴露风险；
+b. 涉及 PendingIntent 的打开目标为 SDK 内部静态广播，且已添加 SDK 内部自声明的广播权限，属于可信任组件。
+
+2. Google 文档提及 “Fixing this issue is recommended but not mandatory. The publication status of your app will be unaffected by the presence of this issue.”。
+
+综合考虑，TPNS 此处当前使用的 PendingIntent 为可信任安全 PendingIntent，且 Google 提示的此项内容不会影响您的应用上架。当前您可以忽视此项提示，继续上架您的应用。
+
 ### 如何设置自定义铃声？
 
 使用自定义铃声可以通过创建通知渠道实现：

@@ -185,7 +185,7 @@ FLUSH PRIVILEGES;
 <li>云数据库：源数据库属于腾讯云数据库实例。</li>
 <li>云联网：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/877">云联网</a> 与腾讯云私有网络打通。</li><li>私有网络 VPC：源数据和目标数据库都部署在腾讯云上，且有 <a href="https://cloud.tencent.com/document/product/215">私有网络</a>。如果需要使用私用网络 VPC接入类型，请 <a href="https://console.cloud.tencent.com/workorder/category">提交工单</a> 申请。</li></ul></td></tr>
 <tr>
-<td>实例 ID</td><td>源实例 ID。</td></tr>
+<td>实例 ID</td><td>源实例 ID。可在 <a href="https://console.cloud.tencent.com/cdb">实例列表</a> 查看源实例信息。</td></tr>
 <tr>
 <td>帐号</td><td>源实例帐号，帐号权限需要满足要求。</td></tr>
 <tr>
