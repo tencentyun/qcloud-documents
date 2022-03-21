@@ -1,6 +1,6 @@
 
 ## 现象概述
-在 [域名注册控制台](https://console.cloud.tencent.com/domain/mydomain) 进行域名转入操作时，控制台提示 “**域名处于 `Clienthold` 锁定状态，无法进行转入，建议请联系您的原注册商，域名解除锁定后再进行转入**”。如下图所示：
+在 [域名注册控制台](https://console.cloud.tencent.com/domain/mydomain) 进行域名转入操作时，控制台提示 “**域名处于 `Clienthold` 锁定状态，无法进行转入，建议请联系您的原注册商，域名解除锁定后再进行转入**”。
 
 
 ## 可能原因

@@ -12,9 +12,7 @@
 
 - MySQL 到 MariaDB 的数据迁移
 
-> ?
-> - 腾讯云数据库 MariaDB 支持三种内核 MariaDB、Percona 和 MySQL，用户在使用时不需要区分哪种内核，如果源数据库为腾讯云 MariaDB，不论源数据库的内核是 MariaDB、Percona 还是 MySQL，在设置源数据库或目标数据库的类型时，都选择 MariaDB。
-> - 如果用户需要体验腾讯云数据库 MariaDB 三种内核相关链路功能，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 处理。
+> ?腾讯云数据库 MariaDB 支持三种内核 MariaDB、Percona 和 MySQL，用户在使用时不需要区分哪种内核，如果源数据库为腾讯云 MariaDB，不论源数据库的内核是 MariaDB、Percona 还是 MySQL，在设置源数据库或目标数据库的类型时，都选择 MariaDB。
 
 
 ## 注意事项 
@@ -78,6 +76,8 @@ MariaDB 迁移到 MySQL，由于不同的数据库类型之间功能有略微差
 - 源数据库为腾讯云 MariaDB 时，应用限制如下。
    - DTS 迁移任务要求源库、目标库的 `lower_case_tame_name` 参数（表名大小敏感）保持一致，如果源数据库为腾讯云数据库 MariaDB，由于云数据库 MariaDB 只能在创建实例时修改 `lower_case_tame_name` 参数，所以用户需要在创建源库实例时确定大小写敏感规则，并在参数校验不一致时，修改目标库的 `lower_case_tame_name` 参数。
    - 源数据库为腾讯云数据库 MariaDB 10.4 版本时，在迁移任务配置中，**接入类型**不支持选择**云数据库**，需要选择**公网**或者其他方式。
+
+- 当前不支持 geometry 相关的数据类型。
    
 
 ## 操作限制
@@ -139,7 +139,7 @@ MariaDB 迁移到 MySQL，由于不同的数据库类型之间功能有略微差
 <li>目标库 max_allowed_packet 参数设置数值至少为4M。</li></td></tr>
 <tr> 
 <td>其他要求</td>
-<td>环境变量 innodb_stats_on_metadataw 必须设置为 OFF。</td></tr>
+<td>环境变量 innodb_stats_on_metadata 必须设置为 OFF。</td></tr>
 </table>
 
 ## 操作步骤

@@ -25,6 +25,7 @@ FLUSH PRIVILEGES;
 - 相互关联的数据对象需要一起同步，否则会导致同步失败。常见的关联关系：视图引用表、视图引用视图、存储过程/函数/触发器引用视图/表、主外键关联表等。
 - 增量同步过程中，若源库存在分布式事务或者产生了类型为 `STATEMENT` 格式的 Binlog 语句，则会导致同步失败。
 - 源数据库为阿里云 MySQL，则阿里云 MySQL 5.6 版本待同步表不能存在无主键表，MySQL 5.7 及以后版本不限制。源数据库为 AWS MySQL，则 AWS MySQL 待同步表不能存在无主键表。
+- 当前不支持 geometry 相关的数据类型。
 
 ## 操作限制
 同步过程中请勿进行如下操作，否则会导致同步任务失败。
@@ -185,7 +186,7 @@ FLUSH PRIVILEGES;
 <li>云数据库：源数据库属于腾讯云数据库实例。</li>
 <li>云联网：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/877">云联网</a> 与腾讯云私有网络打通。</li><li>私有网络 VPC：源数据和目标数据库都部署在腾讯云上，且有 <a href="https://cloud.tencent.com/document/product/215">私有网络</a>。如果需要使用私用网络 VPC接入类型，请 <a href="https://console.cloud.tencent.com/workorder/category">提交工单</a> 申请。</li></ul></td></tr>
 <tr>
-<td>实例 ID</td><td>源实例 ID。</td></tr>
+<td>实例 ID</td><td>源实例 ID。可在 <a href="https://console.cloud.tencent.com/cdb">实例列表</a> 查看源实例信息。</td></tr>
 <tr>
 <td>帐号</td><td>源实例帐号，帐号权限需要满足要求。</td></tr>
 <tr>

@@ -5,9 +5,7 @@
 - MariaDB 到腾讯云数据库 TDSQL MySQL 的数据迁移
 - Percona 到腾讯云数据库 TDSQL MySQL 的数据迁移
 
-> ? 
-> - 云数据库 MariaDB 支持三种内核 MariaDB、MySQL 和 Percona，用户在使用时不需要区分哪种内核，如果源数据库为腾讯云 MariaDB，不论源数据库的内核是 MariaDB、Percona 还是 MySQL，在设置源数据库的类型时，都选择 MariaDB。
-> - 如果用户需要体验腾讯云数据库 MariaDB 三种内核相关链路功能，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 处理。
+> ? 云数据库 MariaDB 支持三种内核 MariaDB、MySQL 和 Percona，用户在使用时不需要区分哪种内核，如果源数据库为腾讯云 MariaDB，不论源数据库的内核是 MariaDB、Percona 还是 MySQL，在设置源数据库的类型时，都选择 MariaDB。
 
 
 ## 注意事项
@@ -46,6 +44,7 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 - 只支持迁移 InnoDB 数据库引擎，如果存在其他的数据引擎表则默认跳过不进行迁移。
 - 相互关联的数据对象需要同时迁移，否则会导致迁移失败。
 - 增量迁移过程中，若源库存在分布式事务或者产生了类型为 `STATEMENT` 格式的 Binlog 语句，则会导致迁移失败。
+- 当前不支持 geometry 相关的数据类型。
 
 ## 操作限制
 - 迁移过程中请勿进行如下操作，否则会导致迁移任务失败。

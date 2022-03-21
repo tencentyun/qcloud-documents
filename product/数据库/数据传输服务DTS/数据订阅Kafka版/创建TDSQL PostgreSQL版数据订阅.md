@@ -3,11 +3,7 @@
 ## 前提条件
 - 已准备好待订阅的 [TDSQL PostgreSQL 版](https://cloud.tencent.com/document/product/1129/39893)，并且各数据库版本符合要求，请参见 [数据订阅支持的数据库](https://cloud.tencent.com/document/product/571/59965)。
 - 已在源端实例中创建订阅帐号，需要帐号权限如下： LOGIN 和 REPLICATION 权限。
-  具体授权语句如下：
-```
-create user '迁移帐号' with password '帐号密码';
-alter user '迁移帐号'  LOGIN  REPLICATION;
-```
+  LOGIN 和 REPLICATION 授权请 [提交工单](https://console.cloud.tencent.com/workorder/category) 处理。
 - 订阅帐号必须拥有被订阅表的 select 权限，如果是整库订阅，那么订阅帐号要拥有该 schema 下所有表的 select 权限，具体授权语句如下：
 ```
 grant SELECT on all tables in schema "schema_name" to '迁移帐号' ;
@@ -48,9 +44,8 @@ alter table '迁移帐号' REPLICA IDENTITY FULL;
  - 数据库帐号：添加订阅实例的帐号和密码，帐号的 LOGIN 、REPLICATION 权限和全部对象、pg_catalog.pgxc_node 表的 SELECT 权限。
 5. 在订阅类型和对象选择页面，选择订阅类型，单击**保存配置**。
  - 订阅类型为数据更新（订阅选择对象的数据更新，包括数据 INSERT、UPDATE、DELETE 操作）。
- - Kafka 分区策略：选择按表名分区，按表名+主键分区。
- - 使用自定义分区策略：用户根据自己的需求自定义分区。
-![](https://qcloudimg.tencent-cloud.cn/raw/cd8aa4542efa854134751034cfb5a18f.png)
+ - Kafka 分区策略：支持按表名分区。
+![](https://qcloudimg.tencent-cloud.cn/raw/6db09899d50c54652bd178895e45dca8.png)
 6. 在预校验页面，预校验任务预计会运行2分钟 - 3分钟，预校验通过后，单击**启动**完成数据订阅任务配置。
 >?如果校验失败，请根据失败提示在待订阅实例中进行修正，并重新进行校验。
 >

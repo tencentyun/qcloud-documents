@@ -115,8 +115,8 @@ ssl_certificate /usr/local/nginx/conf/sm2/2_cloud.tencent.com_encrypt_bundle.crt
 ssl_certificate_key /usr/local/nginx/conf/sm2/3_cloud.tencent.com.key;
 #先配置签名证书，再配置加密证书，签名加密证书私钥key为同一个！
 ssl_session_timeout 5m;
-ssl_protocols TLSv1.2;
-ssl_ciphers SM2-WITH-SMS4SM3:ECDH:AESGCM:HIGH:MEDIUM:!RC4:!DH:!MD5:!aNULL:!eNULL;
+ssl_protocols TLSv1.1 TLSv1.2 TLSv1.3;
+ssl_ciphers ECC-SM4-SM3:ECDH:AESGCM:HIGH:MEDIUM:!RC4:!DH:!MD5:!aNULL:!eNULL;
 ssl_prefer_server_ciphers on;
 location / {
     root html;

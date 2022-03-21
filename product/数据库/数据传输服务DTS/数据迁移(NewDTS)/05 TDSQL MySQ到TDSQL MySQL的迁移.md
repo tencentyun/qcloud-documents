@@ -5,8 +5,6 @@
 - TDSQL MySQL 到腾讯云数据库 MariaDB 的数据迁移
 - TDSQL MySQL 到腾讯云数据库 MySQL 的数据迁移
 
->?如需体验本章节中 TDSQL MySQL 的迁移功能时，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行申请。
-
 ## 注意事项
 - DTS 在执行全量数据迁移时，会占用一定源端实例资源可能会导致源实例负载上升，增加数据库自身压力。如果您数据库配置过低，建议您在业务低峰期进行。
 - 默认采用无锁迁移来实现，迁移过程中对源库不加全局锁（FTWRL），仅对无主键的表加表锁，其他不加锁。
@@ -15,7 +13,7 @@
   - `__tencentdb__`系统库占用空间非常小，约为源库存储空间的千分之一到万分之一（例如源库为50G，则`__tencentdb__`系统库约为 5K-50K） ，并且采用单线程，等待连接机制，所以对源库的性能几乎无影响，也不会抢占资源。 
 
 ## 前提条件
-- 已 [创建分布式数据库 TDSQL MySQL版](https://cloud.tencent.com/document/product/557/10236)。
+- 已 [创建 TDSQL MySQL版](https://cloud.tencent.com/document/product/557/10236)。
 - 源数据库和目标数据库符合迁移功能和版本要求，请参见 [数据迁移支持的数据库](https://cloud.tencent.com/document/product/571/58686) 进行核对。
 - 已完成 [准备工作](https://cloud.tencent.com/document/product/571/59968)。
 - 需要您在源端 TDSQL MySQL 中提前创建好数据库：`__tencentdb__`。
@@ -40,16 +38,14 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 
 ## 应用限制
 - 只支持迁移基础表，不支持迁移视图、函数、触发器、存储过程等对象。
-
 - 不支持迁移系统库表和用户信息，包括 `information_schema`， `sysdb`，`test`，`sys`， `performance_schema`， `__tencentdb__`， `mysql`。迁移完成后，如果需要调用目标库的视图、存储过程或函数，则要对调用者授予读写权限。 
-
 - 只支持迁移 InnoDB 数据库引擎，如果存在其他的数据引擎表则默认跳过不进行迁移。
-
 - 相互关联的数据对象需要同时迁移，否则会导致迁移失败。
-
 - 增量迁移过程中，若源库存在分布式事务或者产生了类型为 `STATEMENT` 格式的 Binlog 语句，则会导致迁移失败。
-
-- 不支持迁移 [二级分区](https://cloud.tencent.com/document/product/557/58907) 表，如果迁移的库表中包含二级分区表，存量数据会跳过二级分区表的迁移；如果选择整库或全实例迁移，增量过程中遇到二级分区表任务报错暂停。
+- 不支持迁移 [二级分区](https://cloud.tencent.com/document/product/557/58907) 表。
+   - TDSQL MySQL 迁移到 MySQL/MariaDB，遇到二级分区表的迁移，任务报错。
+   - TDSQL MySQL 迁移到 TDSQL MySQL，如果迁移的库表中包含二级分区表，存量数据会跳过二级分区表的迁移；如果选择整库或全实例迁移，增量过程中遇到二级分区表任务报错暂停。
+- 当前不支持 geometry 相关的数据类型。
 
 ## 操作限制
 - 迁移过程中请勿进行如下操作，否则会导致迁移任务失败。

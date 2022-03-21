@@ -1,6 +1,7 @@
 ## 操作场景
 
 Datahub 提供数据流出能力，您可以将 CKafka 数据分发至 Elasticsearch Service（ES）便于海量数据存储搜索、实时日志分析等操作。
+>?只支持7.0以上版本的 Elasticsearch Service。
 
 ## 前提条件
 

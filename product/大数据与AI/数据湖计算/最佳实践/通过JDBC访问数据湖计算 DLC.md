@@ -28,7 +28,7 @@ jdbc:dlc:<dlc_endpoint>task_type=SQLTask&database_name=abc&datasource_connection
 <tr>
 <td >dlc_endpoint</td >
 <td >是</td >
-<td >dlc.tencentcloudapi.com， dlc 服务的 Endpoint，Endpoint 服务的详细说明请参见 Endpoint</td >
+<td >dlc.tencentcloudapi.com， dlc 服务的 Endpoint</td >
 </tr><tr>
 <td >datasource_connection_name</td >
 <td >是</td >

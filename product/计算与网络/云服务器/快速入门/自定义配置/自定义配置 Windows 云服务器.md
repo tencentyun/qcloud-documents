@@ -16,7 +16,7 @@
 </dx-alert>
 
 1. 根据页面提示，配置以下信息：
-![选择地域与机型](https://main.qcloudimg.com/raw/076bc1df02669264d96b440d254ba776.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/a1d7a7c57ee0919b895e618e571f628e.png)
 <table>
 <tr><th style="width: 20%">类别</th><th style="width: 12%">必选/可选</th><th>配置说明</th></tr>
 <tr><td><a href="https://cloud.tencent.com/document/product/213/2180">计费模式</a></td><td>必选</td><td>请根据实际需求进行选择：<ul><li><b>包年包月</b>：云服务器的预付费模式，适用于提前预估设备需求量的场景，价格相较于按量计费模式更低廉。</li><li><b>按量计费</b>：云服务器的弹性计费模式，适用于电商抢购等设备需求量会瞬间大幅波动的场景，单价比包年包月计费模式高3－4倍。</li><li><b>竞价实例</b>：一种新实例运作模式，适用于大数据计算、采用负载均衡的在线服务和网站服务等场景，一般价格区间为按量付费的10% - 20%。</li></ul></td></tr>

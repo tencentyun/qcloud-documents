@@ -33,6 +33,7 @@ GRANT SELECT ON `mysql`.* TO '迁移帐号'@'%';
 - 相互关联的数据对象需要同时迁移，否则会导致迁移失败。常见的关联关系：视图引用表、视图引用视图、存储过程/函数/触发器引用视图/表、主外键关联表等。
 - 增量迁移过程中，若源库存在分布式事务或者产生了类型为 `STATEMENT` 格式的 Binlog 语句，则会导致迁移失败。
 - 无锁迁移场景，迁移任务步骤为“源库导出”时，不支持 DDL 操作。
+- 当前不支持 geometry 相关的数据类型。
 
 ## 操作限制
 - 迁移过程中请勿进行如下操作，否则会导致迁移任务失败。
@@ -92,7 +93,7 @@ GRANT SELECT ON `mysql`.* TO '迁移帐号'@'%';
 <li>目标库 max_allowed_packet 参数设置数值至少为4M。</li></td></tr>
 <tr> 
 <td>其他要求</td>
-<td>环境变量 innodb_stats_on_metadataw 必须设置为 OFF。</td></tr>
+<td>环境变量 innodb_stats_on_metadata 必须设置为 OFF。</td></tr>
 </table>
 
 ## 操作步骤
