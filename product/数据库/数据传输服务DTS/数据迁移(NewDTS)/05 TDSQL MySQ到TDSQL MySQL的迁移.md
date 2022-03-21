@@ -45,6 +45,7 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 - 不支持迁移 [二级分区](https://cloud.tencent.com/document/product/557/58907) 表。
    - TDSQL MySQL 迁移到 MySQL/MariaDB，遇到二级分区表的迁移，任务报错。
    - TDSQL MySQL 迁移到 TDSQL MySQL，如果迁移的库表中包含二级分区表，存量数据会跳过二级分区表的迁移；如果选择整库或全实例迁移，增量过程中遇到二级分区表任务报错暂停。
+- 当前不支持 geometry 相关的数据类型。
 
 ## 操作限制
 - 迁移过程中请勿进行如下操作，否则会导致迁移任务失败。
