@@ -1,4 +1,4 @@
-﻿数据湖计算 DLC 支持将 COS 上的数据直接导入至 DLC 托管存储的数据表，目前支持导入 CSV、JSON、Parquet、Avro、ORC 文件。DLC 托管存储目前为内测中，如需免费体验可 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行申请。
+数据湖计算 DLC 支持将 COS 上的数据直接导入至 DLC 托管存储的数据表，目前支持导入 CSV、JSON、Parquet、Avro、ORC 文件。DLC 托管存储目前为内测中，如需免费体验可 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行申请。
 
 ## 通过控制台导入
 通过控制台，您可以通过导入 COS 创建数据表或选择已有数据表进行 COS 数据导入，操作步骤如下：
