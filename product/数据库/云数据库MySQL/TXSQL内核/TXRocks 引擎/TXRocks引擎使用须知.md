@@ -18,9 +18,9 @@ TXRocks 是腾讯 TXSQL 团队基于 RocksDB 的事务型存储引擎，得益�
 ```
 show variables like '%default_storage_engine%';
 ```
-![](https://qcloudimg.tencent-cloud.cn/raw/964d585dde9b545421d52cec2b3e63cd.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/3bb1550d5995cece7cec2712ad62c5d0.png)
 当默认引擎是 RocksDB 时，建表语句不许指定存储引擎。
-![](https://qcloudimg.tencent-cloud.cn/raw/61cca3c5dfdbba4455e2b4d356cbcdf8.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/f4cb2efa27e236fb26a78971a8725cbd.png)
 表创建成功后，后续的使用方法与 InnoDB一样，数据会存储在 RocksDB 引擎。
 
 ## 引擎功能限制
