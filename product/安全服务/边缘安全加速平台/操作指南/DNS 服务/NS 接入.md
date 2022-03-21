@@ -1,8 +1,9 @@
-在[ NS 接入方式](https://cloud.tencent.com/document/product/1552/70825#NS) 下，支持通过修改 NS 记录，将 DNS 解析权转移给 EdgeOne，实现稳定专业的解析服务的同时，一键开启 EdgeOne 安全/加速服务。
+在[ NS 接入方式](https://cloud.tencent.com/document/product/1552/70787#NS) 下，支持通过修改 NS 记录，将 DNS 解析权转移给 EdgeOne，实现稳定专业的解析服务的同时，一键开启 EdgeOne 安全/加速服务。
+>?目前边缘安全加速平台控制台仅对部分用户开放，如需访问控制台，请 [联系我们](https://cloud.tencent.com/online-service) 开通权限。
 
 ## 记录管理[](id:record)
 EdgeOne DNS 支持多种记录类型的智能解析服务，根据用户所在地理位置及运营商智能返回最佳解析线路。
-1. 登录 [边缘安全加速平台控制台](https://console.cloud.tencent.com/teo)，在左侧菜单栏中，单击 **DNS 服务**。
+1. 登录 [边缘安全加速平台控制台](https://console.cloud.tencent.com/edgeone)，在左侧菜单栏中，单击 **DNS 服务**。
 2. 在 DNS 服务页面，选择所需站点，单击**记录管理** 。
 3. 在记录管理页面，选择所需记录，单击**编辑**，编辑相关参数，单击**保存**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/51099ccc2bed87d3919e781ad520a712.png)
@@ -187,7 +188,7 @@ EdgeOne DNS 支持多种记录类型的智能解析服务，根据用户所在�
 ### DNSSEC[](id:dnsses)
 DNSSEC (DNS Security Extension，DNS 安全扩展) 通过数字签名对 DNS 数据来源进行认证，有效保护解析结果的安全性与完整性，常用于应对 DNS 欺骗和 DNS 缓存污染。
 
-1. 登录 [边缘安全加速平台控制台](https://console.cloud.tencent.com/teo) ，在左侧菜单栏中，单击 **DNS 服务**。
+1. 登录 [边缘安全加速平台控制台](https://console.cloud.tencent.com/edgeone) ，在左侧菜单栏中，单击 **DNS 服务**。
 2. 在 DNS 服务页面，选择所需站点，单击**高级配置**。
 3. 在高级配置页面，单击 DNSSEC 模块的![](https://qcloudimg.tencent-cloud.cn/raw/20efaa7f4ecc99b93da623f1c61784ac.png)，经过二次确认后，开启 DNSSEC 功能并生成 DS 信息。
 ![](https://qcloudimg.tencent-cloud.cn/raw/80d1829fa50c81075caa075677f95240.png)
