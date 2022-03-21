@@ -1,5 +1,5 @@
 DDoS 高防支持对于业务 IP，基于 IP+端口的维度进行流量访问限速。
->?Lighthouse 定制版不支持 DDoS 防护、CC 防护的自定义防护配置。
+>?轻量应用服务器（Lighthouse）定制版不支持 DDoS 防护、CC 防护的自定义防护配置。
 >
 ## 前提条件
 您需要成功 [购买 DDoS 高防包](https://cloud.tencent.com/document/product/1021/43894)  ，并设置防护对象。
