@@ -1,5 +1,5 @@
 ## TXRocks 概述
-RocksDB 是⼀个⾮常流⾏的⾼性能持久化 KV 存储，经过⼤量的适配⼯作，Facebook 的数据库⼯程师将 RocksDB 改造为 MySQL 的⼀个存储引擎 MyRocks。
+RocksDB 是⼀个⾮常流⾏的⾼性能持久化 KV（key-value）存储，经过⼤量的适配⼯作，Facebook 的数据库⼯程师将 RocksDB 改造为 MySQL 的⼀个存储引擎 MyRocks。
 TXRocks 是腾讯 TXSQL 团队基于 MyRocks 开发的事务型存储引擎。
 
 ## 为什么要使用 TXRocks 存储引擎
@@ -23,7 +23,7 @@ L0为了⽀持尽快将 Immutable MemTable 占⽤的内存空间释放出来，�
 TXRocks 的 SST ⽂件⼀般设置为 MB 量级或者更⼤，⽂件要4K对⻬产⽣的浪费⽐例很低，SST 内部虽然也划分为 Block，但 Block 是不需要对⻬的。
 另外，TXRocks 的 SST ⽂件采⽤前缀压缩，相同的前缀只会记录⼀份，同时 TXRocks 不同层的 SST 可以采⽤不同的压缩算法，进⼀步降低存储空间开销。 事务 overhead ⽅⾯，InnoDB 的记录上要包含 trx id，roll_ptr 等字段信息，TXRocks 最底层的 SST ⽂件（包含绝⼤部分⽐例的 数据）上，数据不需要存放其他事务开销，例如记录上的版本号在经过⾜够⻓的时间后就可以抹掉。
 
-#### 写放⼤更低
+#### 写放大更低
 InnoDB 采⽤ In-Place 的修改⽅式，即使仅修改⼀⾏记录也可能要刷盘⼀整个⻚⾯，导致⽐较⾼的写⼊放⼤和随机写。
 
 TXRocks 采⽤ Append-Only ⽅式，相⽐⽽⾔写⼊放⼤更低。因此 TXRocks 对于擦写次数有限的 SSD 等产品更友好。
