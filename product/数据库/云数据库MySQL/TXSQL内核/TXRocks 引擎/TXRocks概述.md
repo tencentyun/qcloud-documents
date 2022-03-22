@@ -8,8 +8,8 @@ TXRocks 事务型存储引擎得益于 RocksDB LSM Tree 存储结构，既减少
 ## RocksDB 的 LSM Tree 架构
 RocksDB 使⽤ LSM Tree 存储结构，数据组织为⼀组在内存中的 MemTable 和磁盘上若⼲层的 SST ⽂件。
 写⼊请求先将新版本记录写⼊ Active MemTable，同时写 WAL ⽇志持久化。写⼊请求写完 MemTable 和 WAL 就可以返回。
-当 Active MemTable 写满到⼀定程度，将 Active MemTable 切换为冻结的 Immutable MemTable。后台线程将 Immutable MemTable 刷到硬盘，⽣成对应的 SST ⽂件。SST 按照刷新的次序分层，通常分为L0层 ~ L6层，L1层 ~ L6层，每层内的 SST 中的记录都是有序的，SST ⽂件之间不会有记录范围的交叠。
-L0为了⽀持尽快将 Immutable MemTable 占⽤的内存空间释放出来，允许 Flush ⽣成的 L0层的 SST 出现记录范围交叠。 当读取⼀⾏记录时，按照新旧，依次从 Active MemTable、Immutable MemTable、L0、L1 ~ L6各个组件查找这⼀⾏，从任⼀组件找到，就表明找到了最新的版本，可以⽴刻返回。
+当 Active MemTable 写满到⼀定程度，将 Active MemTable 切换为冻结的 Immutable MemTable。后台线程将 Immutable MemTable 刷到硬盘，⽣成对应的 SST ⽂件。SST 按照刷新的次序分层，通常分为L0层 ~ L6层。L1层 ~ L6层，每层内的 SST 中的记录都是有序的，SST ⽂件之间不会有记录范围的交叠。L0为了⽀持尽快将 Immutable MemTable 占⽤的内存空间释放出来，允许 Flush ⽣成的 L0层的 SST 出现记录范围交叠。 
+当读取⼀⾏记录时，按照新旧，依次从 Active MemTable、Immutable MemTable、L0、L1 ~ L6各个组件查找这⼀⾏，从任⼀组件找到，就表明找到了最新的版本，可以⽴刻返回。
 当执⾏范围扫描时，对包含每层 MemTable 在内的各层数据，分别⽣成⼀个迭代器，这些迭代器归并查找下⼀条记录。从读的流程可以看到，如果 LSM Tree 层数太多，则读性能，尤其是范围扫描的性能会明显下降。所以，为了维持⼀个更好的 LSM Tree 形状，后台会不断地执⾏ compaction 操作，将低层数据合并到⾼层数据，减少层数。
 ![](https://qcloudimg.tencent-cloud.cn/raw/5f5e47996ea8af096ef4b79efecabe61.png)
 
@@ -18,7 +18,8 @@ L0为了⽀持尽快将 Immutable MemTable 占⽤的内存空间释放出来，�
 
 ## TXRocks 存储引擎的优势
 #### 更节省存储空间
-相⽐ InnoDB 使⽤的 B+Tree 索引结构，LSM Tree 可以节省相当⽐例的存储空间。InnoDB 的 B+Tree 分裂通常会导致⻚⾯半满，⻚⾯内空闲、空间浪费，⻚⾯有效利⽤率⽐较低。
+相⽐ InnoDB 使⽤的 B+Tree 索引结构，LSM Tree 可以节省相当⽐例的存储空间。
+InnoDB 的 B+Tree 分裂通常会导致⻚⾯半满，⻚⾯内空闲、空间浪费，⻚⾯有效利⽤率⽐较低。
 
 TXRocks 的 SST ⽂件⼀般设置为 MB 量级或者更⼤，⽂件要4K对⻬产⽣的浪费⽐例很低，SST 内部虽然也划分为 Block，但 Block 是不需要对⻬的。
 另外，TXRocks 的 SST ⽂件采⽤前缀压缩，相同的前缀只会记录⼀份，同时 TXRocks 不同层的 SST 可以采⽤不同的压缩算法，进⼀步降低存储空间开销。 事务 overhead ⽅⾯，InnoDB 的记录上要包含 trx id，roll_ptr 等字段信息，TXRocks 最底层的 SST ⽂件（包含绝⼤部分⽐例的 数据）上，数据不需要存放其他事务开销，例如记录上的版本号在经过⾜够⻓的时间后就可以抹掉。

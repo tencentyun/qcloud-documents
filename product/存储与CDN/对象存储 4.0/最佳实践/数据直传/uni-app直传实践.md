@@ -165,3 +165,8 @@
 ![uni-app 创建项目](https://qcloudimg.tencent-cloud.cn/raw/a11738411f47e1d1df51b1246ad92104.jpg)
  - 直传效果：
 ![uni-app 直传效果](https://qcloudimg.tencent-cloud.cn/raw/01fd87f664cff606f9dfbad7783a06f8.jpg)
+
+##  Demo 代码地址
+
+示例 Demo 下载地址：[upload-demo](https://github.com/tencentyun/cos-demo/tree/main/uni-app/upload-demo)
+
