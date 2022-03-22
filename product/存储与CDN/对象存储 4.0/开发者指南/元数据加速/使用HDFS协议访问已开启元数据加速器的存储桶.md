@@ -8,7 +8,7 @@
 
 ## 使用 HDFS 协议访问的优势
 
-以往基于对象存储 COS 的大数据访问主要使用 Hadoop-COS 工具来访问。Hadoop-COS 工具内部将 HCFS 接口适配为对象存储的 Restful 接口，从而对对象存储上的数据进行访问。由于对象存储和文件系统在元数据组织方式上的差异，导致元数据操作性能上存在性能差异，从而影响了大数据分析性能。开启元数据加速器的 Bucket，完全兼容 HCFS 协议，可以采用原生的 HDFS 接口直接访问，除了省去了 HDFS 协议到对象协议的转换开销外，更能提供原生 HDFS 的一些功能，例如目录原子高效 Rename、文件 Atime、Mtime 更新、高效目录 DU 统计，Posix ACL 权限支持等原生特性。
+以往基于对象存储 COS 的大数据访问主要使用 Hadoop-COS 工具来访问。Hadoop-COS 工具内部将 HCFS 接口适配为对象存储的 Restful 接口，从而对对象存储上的数据进行访问。由于对象存储和文件系统在元数据组织方式上的差异，导致元数据操作性能上存在性能差异，从而影响了大数据分析性能。开启元数据加速器的 Bucket，完全兼容 HCFS 协议，可以采用原生的 HDFS 接口直接访问，除了省去了 HDFS 协议到对象协议的转换开销外，更能提供原生 HDFS 的一些功能，例如目录原子高效 Rename、文件 Atime、Mtime 更新、高效目录 DU 统计、Posix ACL 权限支持等原生特性。
 
 
 ## 准备工作
@@ -35,7 +35,7 @@
 8. 所有环境配置完成后，可以在客户端使用`Hadoop`命令行来查看是否挂载成功，如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/90264cdfe35753b95d48db5ab6675629.png)
 9. 您也可以登录 [COS 控制台](https://console.cloud.tencent.com/cos)，查看存储桶文件列表，明确文件和目录是否一致，如下图所示：
-![查看文件列表](https://qcloudimg.tencent-cloud.cn/raw/3ffaef4f171c1d8f0f5b16f5e83ca788.png)
+![查看文件列表](https://qcloudimg.tencent-cloud.cn/raw/120bcf98091204f99e7aa868beadb217.png)
 
 ## 通过 HDFS 协议访问 COS
 
