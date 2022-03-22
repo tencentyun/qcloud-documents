@@ -8,29 +8,29 @@ DLC 的数据权限包括对数据目录、数据库和数据表的操作权限�
 
 | Action | CREATE | ALTER |	DROP	 |	SELECT	 |	INSERT |		DELETE	 |	Target |	
 |---------|---------|---------|---------|---------|---------|---------|---------|
-| CREATE DATABASE| 	Y| -| - | - | - | -|  	Cataglog| 
-| ALTER DATABASE| -| 	Y| -| -| -| -| 					Database| 
-| DROP DATABASE| 	-| 	-	| Y| -| 	-| -| 			Database| 
-| CREATE TABLE|  	Y| -| - | - | - | -|  	Database| 
-| CREATE TABLE AS SELECT| Y| -| - | Y | Y | -|  	Database/Table| 
-| DROP TABLE| -| 	-	| Y| -| 	-| -| 	Table|
-| ALTER TABLE LOCATION	|  -| 	Y| -| -| -| -| 				Table| 		
-| ALTER PARTITION LOCATION| 	 -| 	Y| -| -| -| -| 					Table| 		
-| ALTER TABLE ADD PARTITION| 	 -| 	Y| -| -| -| -| 					Table| 		
-| ALTER TABLE DROP PARTITION	| -| 	Y| -| -| -| -| 							Table| 		
-| ALTER TABLE| 	 -| 	Y| -| -| -| -| 						Table| 		
-| CREATE VIEW| Y| -| - | - | - | -|  				Database| 		
-| ALTER VIEW PROPERTIES	|  -| 	Y| -| -| -| -| 	View|
-| ALTER VIEW RENAME	|  -| 	Y| -| -| -| -| 			View|
-| DROP VIEW PROPERTIES| 	 -| 	Y| Y| -| -| -| 			View|  
-| DROP VIEW| 		 	-| 	-	| Y| -| 	-| -| 			View|  
-| SELECT TABLE| 		 	-| 	-	| -| Y| 	-| -| 	Table|  
-| INSERT	| 			 	-| 	-	| -| -| 	Y| -| 	Table|  
-| INSERT OVERWRITE	| 		 	-| 	-	| -| -| 	Y| Y| 	Table|  
-| CREATE FUNCTION| 		Y| -| - | - | - | -|  			Database|  
-| DROP FUNCTION| 	-| -| Y | - | - | -|  	Function|  
-| SELECT VIEW		| 		-| -| - | Y | - | -|  	View|  
-| SELECT FUNCTION		| 	-| -| - | Y | - | -|			Function|  
+| CREATE DATABASE| 	✓| -| - | - | - | -|  	Cataglog| 
+| ALTER DATABASE| -| 	✓| -| -| -| -| 					Database| 
+| DROP DATABASE| 	-| 	-	| ✓| -| 	-| -| 			Database| 
+| CREATE TABLE|  	✓| -| - | - | - | -|  	Database| 
+| CREATE TABLE AS SELECT| ✓| -| - | ✓ | ✓ | -|  	Database/Table| 
+| DROP TABLE| -| 	-	| ✓| -| 	-| -| 	Table|
+| ALTER TABLE LOCATION	|  -| 	✓| -| -| -| -| 				Table| 		
+| ALTER PARTITION LOCATION| 	 -| 	✓| -| -| -| -| 					Table| 		
+| ALTER TABLE ADD PARTITION| 	 -| 	✓| -| -| -| -| 					Table| 		
+| ALTER TABLE DROP PARTITION	| -| 	✓| -| -| -| -| 							Table| 		
+| ALTER TABLE| 	 -| 	✓| -| -| -| -| 						Table| 		
+| CREATE VIEW| ✓| -| - | - | - | -|  				Database| 		
+| ALTER VIEW PROPERTIES	|  -| 	✓| -| -| -| -| 	View|
+| ALTER VIEW RENAME	|  -| 	✓| -| -| -| -| 			View|
+| DROP VIEW PROPERTIES| 	 -| ✓| ✓| -| -| -| 			View|  
+| DROP VIEW| 		 	-| 	-	| ✓| -| 	-| -| 			View|  
+| SELECT TABLE| 		 	-| 	-	| -| ✓| 	-| -| 	Table|  
+| INSERT	| 			 	-| 	-	| -| -| 	✓| -| 	Table|  
+| INSERT OVERWRITE	| 		 	-| 	-	| -| -| 	✓| ✓| 	Table|  
+| CREATE FUNCTION| 		✓| -| - | - | - | -|  			Database|  
+| DROP FUNCTION| 	-| -| ✓ | - | - | -|  	Function|  
+| SELECT VIEW		| 		-| -| - | ✓ | - | -|  	View|  
+| SELECT FUNCTION		| 	-| -| - | ✓ | - | -|			Function|  
 
 ## 计算资源权限
 DLC 的计算资源操作权限包括对计算引擎的使用、修改、操作、监控、删除权限。具体权限如下：
