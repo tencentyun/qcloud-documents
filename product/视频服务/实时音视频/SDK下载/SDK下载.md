@@ -148,6 +148,16 @@
 ### Windows SDK
 
 <div style="position: relative; box-sizing: border-box;  padding-bottom: 10px; margin-bottom: 10px; overflow:hidden">
+               <div class="card-container">
+            <div class="card">
+                                <img src="https://main.qcloudimg.com/raw/104e3aadbd4515f61c3f2f5378948cfb.svg" data-nonescope="true">
+                                <p class="titlename">预览版（TRTC）SDK</p>
+                <p style="color:#586376;">采用全新架构，功能对齐稳定版，但体积更小，性能表现更出色。</p>
+                                <a href="https://liteav.sdk.qcloud.com/download/preview/TXLiteAVSDK_TRTC_Win_preview.zip">ZIP 下载</a>
+                                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/71410">集成指引</a>
+                                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/71413">运行 Demo</a>
+            </div>
+        </div>
         <div class="card-container">
             <div class="card">
                                 <img src="https://main.qcloudimg.com/raw/104e3aadbd4515f61c3f2f5378948cfb.svg" data-nonescope="true">
@@ -155,18 +165,7 @@
                 <p style="color:#586376;">包含 TRTC、直播播放（TXLivePlayer）和点播播放（TXVodPlayer）三项功能。</p>
                           <a href="https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_TRTC_Win_latest.zip">ZIP 下载</a>
                 <a style="margin-left: 10px;" href="https://github.com/LiteAVSDK/TRTC_Windows">GitHub</a>
-                                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/32178">集成指引</a>
-                                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/32397">运行 Demo</a>
-            </div>
-        </div>
-        <div class="card-container">
-            <div class="card">
-                                <img src="https://main.qcloudimg.com/raw/104e3aadbd4515f61c3f2f5378948cfb.svg" data-nonescope="true">
-                                <p class="titlename">TRTC C# SDK</p>
-                <p style="color:#586376;">基于 CLI 框架封装，让您基于 C# 语言快速构建 Windows 平台上的应用</p>
-                                <a href="https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_TRTC_Win_CSharp_latest.zip">ZIP 下载</a>
-                <a style="margin-left: 10px;" href="https://github.com/LiteAVSDK/TRTC_Windows">GitHub</a>
-                                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/32178">集成指引</a>
+                                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/71410">集成指引</a>
                                 <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/32397">运行 Demo</a>
             </div>
         </div>

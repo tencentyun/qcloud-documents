@@ -16,7 +16,7 @@
 
 ## 处理方法[](id:ProcessingSteps)
 
-### 解决硬盘空间已满问题
+### 解决硬盘空间已满问题[](id:diskSpaceFull)
 1. 登录云服务器，详情请参见 [使用标准登录方式登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)。
 2. [](id:Step2)执行以下命令，查看硬盘使用率。
 ```
@@ -36,7 +36,7 @@ du -x --max-depth=1 | sort -n
    - 目录容量较大，则请执行 [步骤2](#Step2) 定位到占用空间较大的文件，综合业务情况评估是否可删除。若无法删除，则请通过 [扩容云硬盘](https://cloud.tencent.com/document/product/213/34068) 扩大硬盘存储空间。
 
 
-### 解决文件系统 inode 满问题
+### 解决文件系统 inode 满问题[](id:inodeFull)
 1. 登录云服务器，详情请参见 [使用标准登录方式登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)。
 2. [](id:Step2)执行以下命令，查看硬盘使用率。
 ```

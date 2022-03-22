@@ -4,12 +4,12 @@ Web License 是 **Web 美颜特效**功能的授权文件，一个 Web License �
 
 [](id:test)
 ## 测试版 Web License
-## 创建测试版 Web License
+### 创建测试版 Web License
 1. 进入**音视频终端 SDK 控制台** > **License 管理** > **[Web License管理](https://console.cloud.tencent.com/vcube/web)**，单击**创建测试版项目**，可创建有效期为28天的试用 License（试用期为14天，可免费续期一次，合计28天）。
 2. 创建成功后自动生成了测试版 License 的 **License Key**， 此 License Key 是 **Web 美颜特效** SDK 授权凭证，集成时候需要用到此 License Key。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d08aeb6eb83b12969836e710ae58ba4d.png)
 
-## 续期测试版 License
+### 续期测试版 License
 测试版 License 初次申请默认有效期默认为14天，期满后您可续期**1次**。单击功能模块**Web 美颜特效功**右侧的**续期**，单击**确定续期**即可续期该功能模块14天。
 ![](https://qcloudimg.tencent-cloud.cn/raw/c98f868c00660e957c7a0e3fb240881c.png)
 >! 测试版 License 有效期共28天，**只能续期一次**。若您需继续使用，请购买 [正式版 License](#formal)。
@@ -20,9 +20,9 @@ Web License 是 **Web 美颜特效**功能的授权文件，一个 Web License �
 >! 推广阶段是通过申请免费获取，后期需要购买获得。
 
 1. 进入**音视频终端 SDK 控制台** > **License 管理** > **[Web License管理](https://console.cloud.tencent.com/vcube/web)**，单击**创建项目并绑定License**。
-![](https://qcloudimg.tencent-cloud.cn/raw/e42105117790b0e9666d4408a94fd1a9.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/1917b1a9b38e0a5cb9ec20cfa015bfed.png)
 2. 在新建项目弹框中单击**提交申请**，进入 [视立方 · Web 美颜特效资源申请页](https://cloud.tencent.com/apply/p/9fuh8sv6fl) 填写相关信息并提交。审核通过后，您的账户下会有 Web License 资源包。
-![](https://qcloudimg.tencent-cloud.cn/raw/633ca925a3c82b51af3b502ed8441775.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/edd58676192a2fbb8959551b15556ef3.png)
 
 ### 创建正式版 Web License
 已获取 Web License 资源或已购买资源包后，您可按照下述步骤创建正式版 Web License。
