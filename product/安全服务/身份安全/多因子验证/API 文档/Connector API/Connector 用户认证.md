@@ -1,6 +1,6 @@
 
-用户认证源为企业本地，通过 MFA SaaS 服务部署与企业本地的 MFA SaaS Connector 完成用户认证。
->?Connector API 仅对 MFA SaaS 服务开放，通过 MFA SaaS 外部用户源进行配置，由 MFA SaaS 服务调用 Connector。
+用户认证源为企业本地， MFAS 服务通过部署与企业本地的 MFAS Connector 完成用户认证。
+>?Connector API 仅对 MFAS 服务开放，通过 MFAS 外部用户源进行配置，由 MFAS 服务调用 Connector。
 
 ### API 详情
 - 请求路径：http://connector_hostname:connector_port/ldap/auth
