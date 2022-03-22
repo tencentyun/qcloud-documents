@@ -14,7 +14,7 @@
 
 ## 通过 API 导入
 ### 接口说明
-您可以通过数据湖计算 DLC 提供的 API 接口进行 COS 数据导入，导入接口名：CreateImportTask（**需增加 API 文档地址**），参数如下：
+您可以通过数据湖计算 DLC 提供的 API 接口进行 COS 数据导入，导入接口名：[CreateImportTask](https://cloud.tencent.com/document/api/1342/71476)，参数如下：
 
 | 参数名 | 类型 | 描述 |是否必须 |
 |---------|---------|---------|---------|

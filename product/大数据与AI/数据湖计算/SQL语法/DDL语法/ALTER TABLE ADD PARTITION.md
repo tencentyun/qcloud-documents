@@ -9,9 +9,9 @@ partition_spec:
   : partition_column = partition_col_value, partition_column = partition_col_value, ...
 ```
 ## 参数
-- table_name：需要的表名字。
-- partition_column: 分区名。
-- partition_col_value：分区值。
+- `table_name`：需要的表名字。
+- `partition_column`: 分区名。
+- `partition_col_value`：分区值。
 
 ## 示例
 ```

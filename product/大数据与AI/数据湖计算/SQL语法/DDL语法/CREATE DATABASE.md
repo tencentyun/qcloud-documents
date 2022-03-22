@@ -8,11 +8,11 @@ CREATE {DATABASE|SCHEMA} [IF NOT EXISTS] database_name
 
 ```
 ## 参数
-- DATABASE|SCHEMA：同一个意思，都可以使用。
-- database_name：数据库名称。
-- database_comment：数据库注释。
-- database_location：数据库路径 url。
-- [WITH DBPROPERTIES ('property_name' = 'property_value') [, ...]]：以 key-value 的形式配置数据库参数。
+- `DATABASE|SCHEMA`：同一个意思，都可以使用。
+- `database_name`：数据库名称。
+- `database_comment`：数据库注释。
+- `database_location`：数据库路径 url。
+- `[WITH DBPROPERTIES ('property_name' = 'property_value') [, ...]]`：以 `key-value` 的形式配置数据库参数。
 
 
 ## 示例
