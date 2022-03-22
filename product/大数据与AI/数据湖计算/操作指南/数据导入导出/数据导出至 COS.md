@@ -12,7 +12,7 @@
 
 ## 通过 API 导出
 ### 接口说明
-接口名：CreateExportTask（**需补充云 API 地址**），参数如下：
+接口名：[CreateExportTask](https://cloud.tencent.com/document/api/1342/71477)，参数如下：
 <table>
 <thead>
 <tr>
