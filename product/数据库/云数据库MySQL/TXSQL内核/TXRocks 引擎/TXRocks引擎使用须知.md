@@ -29,14 +29,13 @@ TXRocks 在引擎功能上有一些限制，具体如下表所示：
 <thead><tr><th>功能分类</th><th>功能项</th><th>TXRocks 限制</th></tr></thead>
 <tbody>
 <tr>
-<td>DDL</td><td>Online DDL</td><td>不⽀持，例如不⽀持 ALTER TABLE ... ALOGRITHM=INSTANT 功能，Partition 管理操作仅⽀持 COPY 算法</td></tr>
+<td>DDL</td><td>Online DDL</td><td>不支持，如 CREATE TABLE t1（c1 FLOAT DEFAULT(RAND())）ENGINE=ROCKSDB; 会失败，报错 'Specited storage engine' is not supported for default value expressions.</td></tr>
 <tr>
-<td rowspan="5">SQL 功能</td>
+<td rowspan="4">SQL 功能</td>
 <td>外键</td><td>不⽀持外键（Foreign Key）</td></tr>
 <td>分区表</td><td>不⽀持分区表 （Partition）</td></tr>
 <td>⽣成列</td><td>不⽀持⽣成列 （Generated Columns）</td></tr>
-<td>显式 Default 表达式</td><td></td></tr>
-<td>不⽀持加密表</td><td></td></tr>
+<td>显式 Default 表达式</td><td>不⽀持加密表</td></tr>
 <tr> 
 <td rowspan="3">索引</td>
 <td>空间索引</td><td>不⽀持空间索引（Spatial Index）、空间数据类型（如 GEOMETRY、POINT等）</td></tr>
