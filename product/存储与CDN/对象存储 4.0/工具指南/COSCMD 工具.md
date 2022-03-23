@@ -244,8 +244,8 @@ coscmd -b examplebucket-1250000000 -r ap-beijing upload D:/picture.jpg /
 用户若不指定配置文件的路径，则会使用默认的配置文件路径 `~/.cos.conf`。若不指定日志文件的路径，则会使用默认的日志文件路径 `~/.cos.log`。
 
 >?
-> - 通过`-c <conf_path>`参数指定配置文件路径，COSCMD 在运行时会从此路径读取配置信息。
-> - 通过`-l <log_conf>`参数指定日志路径，COSCMD 会将运行过程中产生的日志输出到此路径下的日志文件中。
+> - 通过 `-c <conf_path>` 参数指定配置文件路径，COSCMD 在运行时会从此路径读取配置信息。
+> - 通过 `-l <log_conf>` 参数指定日志路径，COSCMD 会将运行过程中产生的日志输出到此路径下的日志文件中。
 >
 
 - 命令格式
@@ -260,7 +260,7 @@ coscmd -c /data/home/cos_conf -l /data/home/cos_log -b examplebucket-1250000000 
 
 ### Debug 模式执行命令
 
-在各命令前加上`-d`或者`--debug`，在命令执行的过程中，会显示详细的操作信息 。示例如下：
+在各命令前加上 `-d` 或者 `--debug`，在命令执行的过程中，会显示详细的操作信息 。示例如下：
 
 - 命令格式
 ```plaintext
@@ -274,7 +274,7 @@ coscmd -d upload -rs D:/folder/ /
 
 ### Silence 模式执行命令
 
-在各命令前加上`-s`或者`--silence`，在命令执行的过程中，将不会再输出任何信息 。
+在各命令前加上 `-s` 或者 `--silence`，在命令执行的过程中，将不会再输出任何信息 。
 
 >?该命令需满足最低版本为1.8.6.24。
 
@@ -305,7 +305,7 @@ coscmd -b examplebucket-1250000000 -r ap-beijing createbucket
 
 ### 删除存储桶
 
->? `coscmd deletebucket`的用法仅对配置参数时的存储桶有效。建议配合`-b <BucketName-APPID>`指定 Bucket 和`-r <region>`指定 Region 使用。
+>? `coscmd deletebucket` 的用法仅对配置参数时的存储桶有效。建议配合 `-b <BucketName-APPID>` 指定 Bucket 和 `-r <region>` 指定 Region 使用。
 >
 
 - 命令格式
@@ -320,7 +320,7 @@ coscmd -b examplebucket-1250000000 -r ap-beijing deletebucket
 ```plaintext
 coscmd -b examplebucket-1250000000 -r ap-beijing deletebucket -f
 ```
->! 使用`-f`参数则会强制删除该存储桶，包括所有文件、开启版本控制之后历史文件夹、上传产生的碎片，请谨慎操作。
+>! 使用 `-f` 参数则会强制删除该存储桶，包括所有文件、开启版本控制之后历史文件夹、上传产生的碎片，请谨慎操作。
 >
 
 
@@ -390,7 +390,7 @@ coscmd upload -rs --delete D:/doc /
 ```plaintext
 coscmd upload -rs D:/doc / --ignore *.txt,*.doc
 ```
->! 在上传文件夹时，使用`--ignore`参数可以忽略某一类文件，使用`--include`参数可以过滤某一类文件，支持 shell 通配规则，支持多条规则，用逗号`,`分隔。当忽略一类后缀时，必须最后要输入`,` 或者加入`""`。
+>! 在上传文件夹时，使用 `--ignore` 参数可以忽略某一类文件，使用 `--include` 参数可以过滤某一类文件，支持 shell 通配规则，支持多条规则，用逗号`,`分隔。当忽略一类后缀时，必须最后要输入`,` 或者加入`""`。
 >
 - 操作示例 - D 盘 doc 文件夹中 .txt 和 .doc 的后缀文件上传
 ```plaintext
@@ -399,7 +399,7 @@ coscmd upload -rs D:/doc / --include *.txt,*.doc
 
 
 > !
-> - 当上传大于10MB的文件，COSCMD 即采用分块上传方式，命令用法和简单上传一致，即`coscmd upload <localpath> <cospath>`。
+> - 当上传大于10MB的文件，COSCMD 即采用分块上传方式，命令用法和简单上传一致，即 `coscmd upload <localpath> <cospath>`。
 > - COSCMD 支持大文件断点上传功能；当分块上传大文件失败时，重新上传该文件只会上传失败的分块，而不会从头开始（请保证重新上传的文件的目录以及内容和上传的目录保持一致）。
 > - COSCMD 分块上传时会对每一块进行 MD5 校验。
 > - COSCMD 上传默认会携带 `x-cos-meta-md5` 的头部，值为该文件的 md5 值，如果带上 --skipmd5 参数则不携带该头部。
@@ -430,10 +430,10 @@ coscmd list -v
 ```
 
 >?
-> - 请将"<>"中的参数替换为您需要查询文件列表的 COS 上文件的路径（cospath）。`<cospath>`为空默认查询当前存储桶根目录。
-> - 使用`-a`查询全部文件。
-> - 使用`-r`递归查询，并且会在末尾返回列出文件的数量和大小之和。
-> - 使用`-n num`设置查询数量的最大值。
+> - 请将"<>"中的参数替换为您需要查询文件列表的 COS 上文件的路径（cospath）。`<cospath>` 为空默认查询当前存储桶根目录。
+> - 使用 `-a` 查询全部文件。
+> - 使用 `-r` 递归查询，并且会在末尾返回列出文件的数量和大小之和。
+> - 使用 `-n num` 设置查询数量的最大值。
 > 
 
 
@@ -492,7 +492,7 @@ coscmd download -r / D:/ --ignore doc/*
 ```plaintext
 coscmd download -rf / D:/examplefolder/
 ```
->! 若本地存在同名文件，则会下载失败，需要使用`-f`参数覆盖本地文件。
+>! 若本地存在同名文件，则会下载失败，需要使用 `-f` 参数覆盖本地文件。
 >
 - 操作示例 - 同步下载当前 bucket 根目录下所有的文件，跳过 md5校验相同的同名文件
 ```plaintext
@@ -512,7 +512,7 @@ coscmd download -rs --delete / D:/examplefolder
 ```plaintext
 coscmd download -rs / D:/examplefolder --ignore *.txt,*.doc
 ```
->! 在下载文件夹时，使用`--ignore`参数可以忽略某一类文件，使用`--include`参数可以过滤某一类文件，支持 shell 通配规则，支持多条规则，用逗号`,`分隔。当忽略一类后缀时，必须最后要输入`,`或者使用双引号`""`。
+>! 在下载文件夹时，使用 `--ignore` 参数可以忽略某一类文件，使用 `--include` 参数可以过滤某一类文件，支持 shell 通配规则，支持多条规则，用逗号`,`分隔。当忽略一类后缀时，必须最后要输入`,`或者使用双引号`""`。
 >
 - 操作示例 - 过滤 .txt 和 .doc 的后缀文件
 ```plaintext
@@ -539,7 +539,7 @@ coscmd signurl doc/picture.jpg -t 100
 
 >?
 > - 请将 "<>" 中的参数替换为您需要获取下载 URL 的 COS 上文件的路径（cospath）。
-> - 使用`-t time`设置该 URL 中签名的有效时间（单位为秒）, 默认为10000s。
+> - 使用 `-t time` 设置该 URL 中签名的有效时间（单位为秒）, 默认为10000s。
 >
 
 
@@ -577,7 +577,7 @@ coscmd delete -r folder/doc
 coscmd delete -r doc/ --versions
 ```
 >?
->- 批量删除需要输入`y`确定，使用`-f`参数则可以跳过确认直接删除。
+>- 批量删除需要输入 `y` 确定，使用 `-f` 参数则可以跳过确认直接删除。
 >- 需注意，执行删除文件夹命令，将会删除当前文件夹及其文件。但删除版本控制的文件，需要指定版本 ID 进行删除。
 
 
@@ -643,7 +643,8 @@ coscmd -b examplebucket1-1250000000 -r ap-guangzhou copy -r examplebucket2-12500
 > 
 
 ### 移动文件或文件夹
-
+>! 移动命令的 `<sourcepath>` 和 `<cospath>` 不能相同，否则会导致文件被删除。原因在于 move 命令会先复制，再删除，`<sourcepath>` 路径下的文件最终会被删除。
+>
 #### 移动文件命令格式
 ```plaintext
 coscmd move <sourcepath> <cospath> 
@@ -742,8 +743,8 @@ coscmd restore -r -d 3 -t Expedited examplefolder/
 
 >?
 > - 请将 "<>" 中的参数替换为您需要查询文件列表的 COS 上文件的路径（cospath）。
-> - 使用`-d <day>`设置临时副本的过期时间，默认值：7。
-> - 使用`-t <tier>`指定恢复模式，枚举值：Expedited （极速模式），Standard （标准模式），Bulk（批量模式），默认值：Standard。
+> - 使用 `-d <day>` 设置临时副本的过期时间，默认值：7。
+> - 使用 `-t <tier>` 指定恢复模式，枚举值：Expedited （极速模式），Standard （标准模式），Bulk（批量模式），默认值：Standard。
 >
 
 ## 常见问题
