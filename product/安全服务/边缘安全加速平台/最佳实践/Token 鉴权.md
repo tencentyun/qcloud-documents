@@ -65,8 +65,8 @@ http://Hostname/Filename?sign=timestamp-rand-uid-md5hash
 | sign      | 您自定义设置的鉴权参数名称                                   |
 | timestamp | 访问 URL 中携带的时间戳<br/>格式：十进制（UNIX 时间戳）      |
 | rand      | 随机字符串，由 0 - 100位大小写字母与数字组成                 |
-| uid       | 用户ID，默认为0                                              |
-| md5hash   | 通过 MD5 算法计算出的字符串：MD5（/Filename-timestamp-rand-uid-自定义密钥）<br/>若请求未过期，则节点比较此字符串值与访问请求中携带的`md5hash`值：<br/>- 两值相同，鉴权通过，响应请求<br/>- 两值不同，鉴权失败，返回 403 |
+| uid       | 用户 ID，默认为0                                              |
+| md5hash   | 通过 MD5 算法计算出的字符串：MD5（/Filename-timestamp-rand-uid-自定义密钥）<br/>若请求未过期，则节点比较此字符串值与访问请求中携带的`md5hash`值：<li> 两值相同，鉴权通过，响应请求</li><li> 两值不同，鉴权失败，返回 403</li> |
 
 ### 方式 B
 
@@ -82,7 +82,7 @@ http://Hostname/timestamp/md5hash/Filename
 | Hostname  | 站点加速域名                                                 |
 | Filename  | 实际回源访问的 URL，需以`/`开头                              |
 | timestamp | 访问 URL 中携带的时间戳<br/>格式：YYYYMMDDHHMM               |
-| md5hash   | 通过 MD5 算法计算出的字符串<br/>算法：MD5（自定义密钥 + timestamp + /Filename）<br/><br/>若请求未过期，则节点比较此字符串值与访问请求中携带的`md5hash`值：<br/>- 两值相同，鉴权通过，响应请求<br/>- 两值不同，鉴权失败，返回 403 |
+| md5hash   | 通过 MD5 算法计算出的字符串<br/>算法：MD5（自定义密钥 + timestamp + /Filename）<br/><br/>若请求未过期，则节点比较此字符串值与访问请求中携带的`md5hash`值：<li>两值相同，鉴权通过，响应请求</li><li> 两值不同，鉴权失败，返回 403</li> |
 
 ### 方式 C
 
@@ -99,4 +99,4 @@ http://Hostname/md5hash/timestamp/Filename
 | Hostname  | 站点加速域名                                                 |
 | Filename  | 实际回源访问的 URL，需以`/`开头                              |
 | timestamp | 访问 URL 中携带的时间戳<br/>格式：十六进制（UNIX 时间戳）    |
-| md5hash   | 通过 MD5 算法计算出的字符串<br/>算法：MD5（自定义密钥+ /Filename + timestamp ）<br/><br/>若请求未过期，则节点比较此字符串值与访问请求中携带的`md5hash`值：<br/>- 两值相同，鉴权通过，响应请求<br/>- 两值不同，鉴权失败，返回 403 |
+| md5hash   | 通过 MD5 算法计算出的字符串<br/>算法：MD5（自定义密钥+ /Filename + timestamp ）<br/><br/>若请求未过期，则节点比较此字符串值与访问请求中携带的`md5hash`值：<li>两值相同，鉴权通过，响应请求</li><li> 两值不同，鉴权失败，返回 403</li> |
