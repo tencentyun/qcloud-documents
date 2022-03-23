@@ -5,13 +5,13 @@
 
 ## 开始使用
 [](id:step1)
-### 步骤1：AR SDK 引入
+### 步骤1：Web 美颜特效 SDK 引入
 **由于 TRTC 的 Web Demo 项目已经做的比较完善，我们在此基础上进行少量改造即可。**
 在页面（PC Web 端）中引入 js 脚本：
 ```html
-<script charset="utf-8" src="https://webar-static.tencent-cloud.com/ar-sdk/resources/0.0.1-beta.0/webar-sdk.umd.js"></script>
+<script charset="utf-8" src="https://webar-static.tencent-cloud.com/ar-sdk/resources/0.0.1/webar-sdk.umd.js"></script>
 ```
->! 这里是示例项目，为了方便使用 script 标签方式引入，您也可以参考 [接入指南内](https://tcloud-doc.isd.com/document/product/616/71364?!preview&!editLang=zh) 的方法，用 npm 包的方式引入。
+>! 这里是示例项目，为了方便使用 script 标签方式引入，您也可以参考 [接入指南](https://tcloud-doc.isd.com/document/product/616/71364?!preview&!editLang=zh) 中的方法，用 npm 包的方式引入。
 
 
 [](id:step2)
@@ -27,14 +27,14 @@ this.localStream_ = TRTC.createStream({
   mirror: true
 });
 ```
-调整初始化代码前，我们需要先 [初始化 AR SDK](#step3)。
+调整初始化代码前，我们需要先 [初始化 Web 美颜特效 SDK](#step3)。
 
 
 [](id:step3)
-### 步骤3：初始化AR SDK
+### 步骤3：初始化 Web 美颜特效 SDK
 示例代码如下：
 ```js
-const {EntryType, ArSdk, OUTPUT_TYPES} = window.AR
+const {ENTRY_TYPES, ArSdk, OUTPUT_TYPES} = window.AR
 
 /** ----- License 配置 ----- */
 /** ----- 请填写您自己的参数 ----- */
@@ -46,66 +46,66 @@ const LICENSE_KEY = '您的licenseKey';
 /**
  * 定义获取签名方法
  *
- * 注意：签名方法推荐在服务端实现，通过接口提供，前端调用拉取签名，此处为了帮助您快速跑通所以在前端计算签名
+ * 注意：此处方案仅适用于 DEMO 调试，正式环境中签名方法推荐在服务端实现，通过接口提供，前端调用拉取签名
  * 如：
  * async function () {
  *  return fetch('http://xxx.com/get-ar-sign').then(res => res.json());
  * };
  */
 const getSignature = function () {
-		const timestamp = Math.round(new Date().getTime() / 1000);
-		const signature = sha256(timestamp + token + APPID + timestamp).toUpperCase();
-		return { signature, timestamp };
+	const timestamp = Math.round(new Date().getTime() / 1000);
+	const signature = sha256(timestamp + token + APPID + timestamp).toUpperCase();
+	return { signature, timestamp };
 };
 
 let width = 640;
 let height = 360;
 
 const ar = new ArSdk(
-		EntryType.CAMERA,
-		{
-				width,
-				height,
-				mirror: true,
-				enableLoadingIcon: true,
-		},
-		LICENSE_KEY,
-		APPID,
-		async () => {
-				const { signature, timestamp } = await getSignature();
-				return {
-						signature,
-						timestamp,
-				};
-		},
+	ENTRY_TYPES.CAMERA,
+	{
+		width,
+		height,
+		mirror: true,
+		enableLoadingIcon: true,
+	},
+	LICENSE_KEY,
+	APPID,
+	async () => {
+		const { signature, timestamp } = await getSignature();
+		return {
+			signature,
+			timestamp,
+		};
+	},
 );
 
 ar.on('ready', (e) => {
 
-		// 记录AR SDK 初始化就绪状态
-		this.isARReady = true;
+	// 记录AR SDK 初始化就绪状态
+	this.isARReady = true;
 
-		// 设置美颜效果
-		ar.setBeautify({
-				whiten: 0.4, // 美白 0-1
-				dermabrasion: 0.5, // 磨皮 0-1
-				lift: 0.3, // 瘦脸 0-1
-				shave: 0, // 削脸 0-1
-				eye: 0, // 大眼 0-1
-				chin: 0, // 下巴 0-1
-		});
+	// 设置美颜效果
+	ar.setBeautify({
+		whiten: 0.4, // 美白 0-1
+		dermabrasion: 0.5, // 磨皮 0-1
+		lift: 0.3, // 瘦脸 0-1
+		shave: 0, // 削脸 0-1
+		eye: 0, // 大眼 0-1
+		chin: 0, // 下巴 0-1
+	});
 
 });
 
 ar.on('error', (e) => {
-		console.log(e);
+	console.log(e);
 });
 ```
 
 
 [](id:step4)
 ### 步骤4：修改 TRTC client 初始化过程
-**请确保 AR SDK 就绪后再执行这里的逻辑**。
+**请确保 Web 美颜特效 SDK 就绪后再执行这里的逻辑**。
 因此在 TRTC client 的代码片段里，我们要用一个变量记录一下 ready 状态，示例代码如下：
 ```js
 const {OUTPUT_TYPES} = window.AR;
@@ -114,12 +114,12 @@ const mystream = this.ar.getOutput(OUTPUT_TYPES.MEDIA_STREAM);
 
 let stream = null;
 try {
-		stream = await navigator.mediaDevices.getUserMedia({
-				audio: true
-		});
+	stream = await navigator.mediaDevices.getUserMedia({
+		audio: true
+	});
 } catch (error) {
-		console.error('failed to getUserMedia');
-		return;
+	console.error('failed to getUserMedia');
+	return;
 }
 
 // 分别获取视频和音频的track
@@ -128,8 +128,8 @@ const videoSource = mystream.getVideoTracks()[0];
 
 // 初始化TRTC流
 this.localStream_ = TRTC.createStream({
-		audioSource,
-		videoSource
+	audioSource,
+	videoSource
 });
 // todo
 ```
