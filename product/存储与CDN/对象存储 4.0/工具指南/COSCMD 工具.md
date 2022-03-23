@@ -643,7 +643,8 @@ coscmd -b examplebucket1-1250000000 -r ap-guangzhou copy -r examplebucket2-12500
 > 
 
 ### 移动文件或文件夹
-
+>! 移动命令的`<sourcepath>`和`<cospath>`不能相同，否则会导致文件被删除。原因在于move命令会先复制，再删除，`<sourcepath>`路径下的文件最终会被删除掉。
+>
 #### 移动文件命令格式
 ```plaintext
 coscmd move <sourcepath> <cospath> 
