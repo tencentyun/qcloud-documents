@@ -159,6 +159,7 @@ V2TXLivePusherListenerType.onStatisticsUpdate
 ```dart
 V2TXLivePusherListenerType.onSetMixTranscodingConfig
 ```
+
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | code | V2TXLiveCode | 0 表示成功，其余值表示失败。 |
