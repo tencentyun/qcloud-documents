@@ -10,7 +10,7 @@
 
 ## 准备工作
 
-1. 创建 COS 存储桶，并且开启元数据加速器。如图所示：
+1. 创建 COS 存储桶，并且开启元数据加速器。如下图所示：
 ![开启元数据加速能力](https://qcloudimg.tencent-cloud.cn/raw/148ce1336e35c53d3f7ef4cd95e2a35c.png)
 2. 当 Bucket 创建完成后，进入存储桶的**文件列表**页面，可在控制台进行文件上传和下载操作。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/bc79bd567aa0c59aa1c2ad9090470247.png)
@@ -25,10 +25,10 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/c73328e1b15dba214d75a07fe3cdbc36.png)
 >?您可以参见 [HDFSranger 鉴权](https://cloud.tencent.com/document/product/1105/53307) 文档，配置 Ranger 服务，通过Ranger 服务以 HDFS 协议访问 COS。
 >
-6. 创建环境后，需要在计算集群配置`core-site.xml`,具体参考文档配置 [HDFS协议配置](https://cloud.tencent.com/document/product/1105/36368)，如果您使用的是腾讯云  EMR，则可以直接使用 EMR 的默认配置，无需额外配置。
->!`fs.ofs.bucket.region` 必须配置，该参数用于指定存储桶所在的 COS 地域，例如`ap-shanghai`。
+6. 创建环境后，需要在计算集群配置 `core-site.xml`，具体参考文档配置 [HDFS协议配置](https://cloud.tencent.com/document/product/1105/36368)，如果您使用的是腾讯云  EMR，则可以直接使用 EMR 的默认配置，无需额外配置。
+>!`fs.ofs.bucket.region` 必须配置，该参数用于指定存储桶所在的 COS 地域，例如 `ap-shanghai`。
 >
-7. 下载 HDFS 协议访问的 [客户端安装包](https://github.com/tencentyun/chdfs-hadoop-plugin/tree/master/jar) ，请确保安装包的版本在 2.7及其以上。下载后，讲安装包放置到 Hadoop 集群中每台服务器正确的`classpath`路径下，例如`/usr/local/service/hadoop/share/hadoop/common/lib/`（根据实际情况防止，不同组件可能放置的位置也不一样），然后重启`Yarn`，`Hive`，`Presto`，`Impala`等一些常驻服务。
+7. 下载 HDFS 协议访问的 [客户端安装包](https://github.com/tencentyun/chdfs-hadoop-plugin/tree/master/jar)，请确保安装包的版本在 2.7及其以上。下载后，讲安装包放置到 Hadoop 集群中每台服务器正确的 `classpath` 路径下，例如 `/usr/local/service/hadoop/share/hadoop/common/lib/`（根据实际情况防止，不同组件可能放置的位置也不一样），然后重启 `Yarn`，`Hive`，`Presto`，`Impala` 等一些常驻服务。
 8. 所有环境配置完成后，可以在客户端使用 Hadoop 命令行来查看是否挂载成功，如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/90264cdfe35753b95d48db5ab6675629.png)
 9. 您也可以登录 [COS 控制台](https://console.cloud.tencent.com/cos)，查看存储桶文件列表，明确文件和目录是否一致，如下图所示：
@@ -38,8 +38,8 @@
 
 大数据场景下，您可以参考如下步骤以 HDFS 协议访问开启元数据加速能力的存储桶：
 
-1. 在`core-stie.xml`中配置 HDFS 协议相关挂载点信息，如准备工作中所示。
+1. 在 `core-stie.xml` 中配置 HDFS 协议相关挂载点信息，如准备工作中所示。
 2. 通过 Hive、MR、Spark 等组件访问存储桶，请参见 [在计算集群中挂载 COS 存储桶](https://cloud.tencent.com/document/product/436/71550)。
-3. 默认情况下，采用原生`POSIX ACL`方式进行鉴权，如果需要使用`Ranger1鉴权`，可以参考`Ranger`相关原理和实践访问，可参见 [在 CDH 集群上通过 HDFS 协议访问 COS](https://cloud.tencent.com/document/product/436/71551)。
+3. 默认情况下，采用原生 `POSIX ACL` 方式进行鉴权，如果需要使用 `Ranger1鉴权`，可以参考 `Ranger` 相关原理和实践访问，可参见 [在 CDH 集群上通过 HDFS 协议访问 COS](https://cloud.tencent.com/document/product/436/71551)。
 
 
