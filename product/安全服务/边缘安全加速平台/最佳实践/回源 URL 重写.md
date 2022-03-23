@@ -14,7 +14,7 @@
 <thead>
 <tr>
 <th>配置项</th>
-<th></th>
+<th>说明</th>
 </tr>
 </thead>
 <tbody><tr>
