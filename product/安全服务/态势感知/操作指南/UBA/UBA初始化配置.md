@@ -13,20 +13,20 @@ UBA 功能目前正在试用中，已 [开通安全运营中心高级版](https:
 	2. 在云审计控制台，左侧导航栏中，单击**跟踪集**，在跟踪集页面，单击**创建**，打开创建跟踪集页面。
 		![](https://main.qcloudimg.com/raw/98ab88c79330a5c33c54608ec4ae4c49.png)
 	3. 在创建跟踪集页面，填写跟踪集名称、管理事件（选择全部，包含只读和只写）及 cos 存储桶位置，填写完成后，单击**完成新建**即可。
-	>!请选择云审计支持的区域创建跟踪集存储桶。存储桶 ID 必须和 soc 侧的存储桶 ID 配置一致，否则不可用。
-	>
-	![](https://main.qcloudimg.com/raw/9ba869f1ec824f953369a9e39b2cd7fd.png)
+>!请选择云审计支持的区域创建跟踪集存储桶。存储桶 ID 必须和 soc 侧的存储桶 ID 配置一致，否则不可用。
+>
+	![](https://qcloudimg.tencent-cloud.cn/raw/6a001199c8a80674dcd0c80db95d5661.png)
 4. [查看跟踪集存储桶 ID](id:fuzhi)
 	1. 在查看跟踪集存储桶 ID 页面，单击**立即前往**，进入 [对象存储控制台](https://console.cloud.tencent.com/cos5/bucket)。
 		![](https://main.qcloudimg.com/raw/6cb155c15c49842a65b3b58522de747b.png)
 	2. 在对象存储控制台的左侧导航中，单击**存储桶列表**。
 	3. 在存储桶列表中，找到在创建跟踪集时填写的 cos 存储桶，并复制该存储桶名称。
-		![](https://main.qcloudimg.com/raw/20886eb9186bc026a41fc7a378e6e81a.png)
+		![](https://qcloudimg.tencent-cloud.cn/raw/80f797545d3d2db8273def844cb56bb0.png)
 5. 填写对象存储桶 ID。在填写对象存储桶 ID 页面，填写 [第四步](#fuzhi) 中复制的存储桶名称（即存储桶 ID），填写完成后，单击**完成**即可。
 >!请确保您填写的存储桶为公有读写权限。
 >
-![](https://main.qcloudimg.com/raw/75b314613318e730c9e13a9432cbb9d6.png)
-6. 修改存储桶 ID。初始化完成后，如您需要修改存储桶 ID，可登录 [安全运营中心控制台](https://console.cloud.tencent.com/ssav2/setting)，在左侧导航中单击**产品设置**，进入产品设置页面，选择**通用设置**>**UBA 初始化配置**，重新填写存储桶 ID。
+![](https://qcloudimg.tencent-cloud.cn/raw/b69566d17ef3df4e2c465b92d8c08d34.png)
+6. 修改存储桶 ID。初始化完成后，如您需要修改存储桶 ID，可登录 [安全运营中心控制台](https://console.cloud.tencent.com/ssav2/setting)，在左侧导航中单击**产品设置**，进入产品设置页面，选择**通用设置** > **UBA 初始化配置**，重新填写存储桶 ID。
 ![](https://main.qcloudimg.com/raw/9530ff52d8a44a015a4fb928aec11ec8.png)
 >!新存储桶 ID 保存成功后，新存储桶对应的 UBA 数据更新可能会延迟6小时，数据更新速度受数据量的影响。
 

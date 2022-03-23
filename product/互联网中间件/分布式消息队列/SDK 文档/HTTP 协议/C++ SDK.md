@@ -6,7 +6,7 @@
 
 - [完成资源创建与准备](https://cloud.tencent.com/document/product/1179/44814)
 - [安装 GCC](https://gcc.gnu.org/install/)
-- [下载 Demo](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-pulsar-demo/http/tdmq-pulsar-cpp-http-demo.zip)
+- [下载 Demo](https://tdmq-document-1306598660.cos.ap-nanjing.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91demo/pulsar/http/tdmq-pulsar-cpp-http-demo.zip)
 
 
 
@@ -147,7 +147,7 @@
     </tr>
     <tr>
         <td style='text-align:left;'>subName</td>
-        <td style='text-align:left;'>订阅名称，可在控制台<strong>集群管理 </strong>&gt; <strong>消费者</strong>tab页面复制。</td>
+        <td style='text-align:left;'>订阅名称，可在控制台<strong>集群管理 </strong>&gt; <strong>消费者</strong> tab 页面复制。</td>
     </tr>
     </tbody>
 </table>
@@ -191,11 +191,11 @@
     </tr>
     <tr>
         <td style='text-align:left;'>subName</td>
-        <td style='text-align:left;'>订阅名称，可在控制台<strong>集群管理 </strong>&gt; <strong>消费者</strong>tab页面复制。</td>
+        <td style='text-align:left;'>订阅名称，可在控制台<strong>集群管理 </strong>&gt; <strong>消费者</strong> tab 页面复制。</td>
     </tr>
     </tbody>
 </table>
 
 
-上述是对消息收发操作的简单介绍，完整实例可参考[ Demo](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-pulsar-demo/http/tdmq-pulsar-cpp-http-demo.zip) 或 [云 API Explorer](https://console.cloud.tencent.com/api/explorer?Product=tdmq&Version=2020-02-17&Action=ModifyCluster&SignVersion=)。
+>?上述是对消息收发操作的简单介绍，完整实例可参见[ Demo](https://tdmq-document-1306598660.cos.ap-nanjing.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91demo/pulsar/http/tdmq-pulsar-cpp-http-demo.zip) 或 [云 API Explorer](https://console.cloud.tencent.com/api/explorer?Product=tdmq&Version=2020-02-17&Action=ModifyCluster&SignVersion=)。
 

@@ -30,7 +30,7 @@
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/84be2a0af0c645d5b40c7d188d6a681a.png)
 ![](https://qcloudimg.tencent-cloud.cn/raw/7e73d3fda1e98a890506e7bfefb88a45.png)
-![](https://qcloudimg.tencent-cloud.cn/raw/d77f1a483a736120b3e08f780f80b6d9.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/fd90ac61f4f3b428e9ff51c2e243c76e.png)
 
 **置放群组**：放置群组是云服务器实例在底层硬件上分布放置的策略，可参考 置放群组。
 **Hive 元数据库**：如果选择了 Hive 组件，Hive 元数据库提供了两种存储方式：第一种集群默认，Hive 元数据存储于集群独立购买的MetaDB；第二种是关联外部 Hive 元数据库，可选择关联 EMR-MetaDB 或自建 MySQL 数据库，元数据将存储于关联的数据库中，不随集群销毁而销毁。

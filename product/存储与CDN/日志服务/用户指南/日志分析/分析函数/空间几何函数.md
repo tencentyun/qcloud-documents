@@ -89,7 +89,7 @@
 | ST_XMax(Geometry)                                   | double     | 返回几何体边框的 X 最大值。                                 |
 | ST_YMax(Geometry)                                   | double     | 返回几何体边框的 Y 最大值。                                 |
 | T_XMin(Geometry)                                    | double     | 返回几何体边框的 X 最小值。                                 |
-| ST_YMin(Geometry)                                   | double     | 返回结合体边框的 Y 最小值。                                 |
+| ST_YMin(Geometry)                                   | double     | 返回几何体边框的 Y 最小值。                                 |
 | ST_StartPoint(Geometry)                             | point      | 返回线段类型几何体的第一个点。                              |
 | ST_EndPoint(Geometry)                               | point      | 返回线段类型几何体的最后一个点。                            |
 | ST_X(Point)                                         | double     | 返回点类型的 X 轴。                                         |

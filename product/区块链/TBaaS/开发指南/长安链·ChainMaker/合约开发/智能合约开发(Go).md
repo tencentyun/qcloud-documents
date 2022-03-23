@@ -57,4 +57,4 @@ total 64
 -rw-rw-r-- 1 1000 1000  1992 Jul  2 12:44 paillier.go 			# 合约SDK基于paillier的半同态运算接口实现
 ```
 
-用户使用 Go 编写智能合约后，可以把源代码更新到 `main.go` 文件中并重新编译，可得到新的智能合约的字节码，并前往 [TBaaS 控制台](https://console.cloud.tencent.com/tbaas/overview) 上传并部署。更多关于使用 Go 开发长安链智能合约的详情，可参考长安链官网 [使用 Go（TinyGo）进行智能合约开发](https://docs.chainmaker.org.cn/dev/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6.html#go-tinygo)。
+用户使用 Go 编写智能合约后，可以把源代码更新到 `main.go` 文件中并重新编译，可得到新的智能合约的字节码，并前往 [TBaaS 控制台](https://console.cloud.tencent.com/tbaas/overview) 上传并部署。更多关于使用 Go 开发长安链智能合约的详情，可参考长安链官网 [使用 Go（TinyGo）进行智能合约开发](https://docs.chainmaker.org.cn/v1.2.0/html/dev/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6.html#go-tinygo)。

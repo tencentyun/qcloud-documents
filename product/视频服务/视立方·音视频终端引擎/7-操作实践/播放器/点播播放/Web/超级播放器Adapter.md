@@ -26,7 +26,7 @@ Web 超级播放器 Adapter 提供 **CDN 集成**和 **npm 集成**两种集成�
 
 ```javascript
 // npm install
-npm install --save tcadapter
+npm install tcadapter --save
 
 // import TcAdapter
 import TcAdapter from 'tcadapter';

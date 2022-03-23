@@ -1,5 +1,6 @@
 本文档介绍可能导致 Pod 一直处于 ImagePullBackOff 状态的几种情形，以及如何通过排查步骤定位异常原因。请按照以下步骤依次进行排查，定位问题后恢复正确配置即可。
 
+
 ## 可能原因
 - HTTP 类型 Registry 地址未加入 insecure-registry
 - HTTPS 自签发类型 Registry CA 证书未添加至节点

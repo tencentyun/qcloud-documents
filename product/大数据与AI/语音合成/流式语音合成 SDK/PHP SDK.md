@@ -3,7 +3,7 @@
 接口请求域名：`tts.cloud.tencent.com/stream`  
 
 ## 开发环境
-登录 [腾讯云控制台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2F)，鼠标悬停到右上角您的账号处，选择【访问管理】>【访问密钥】>【API 密钥管理】，查看 AppID、SecretId 和 SecretKey。
+登录 [腾讯云控制台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2F)，鼠标悬停到右上角您的账号处，选择**访问管理 > 访问密钥 > API 密钥管理**，查看 AppID、SecretId 和 SecretKey。
 
 >?此版本 SDK 适用于 PHP5.4.16 及以上版本。
 
@@ -15,7 +15,7 @@
 ## 获取用户信息
 ### 获取 AppID，SecretId 和 SecretKey
 - 进入 [API 密钥管理页面](https://console.cloud.tencent.com/cam/capi)，获取 AppID、SecretId 和 SecretKey。 
-- 登录您的 [腾讯云控制台](https://console.cloud.tencent.com/) 账号，鼠标悬停到右上角账号名称处，选择【访问管理】>【访问密钥】>【API 密钥管理】，即可查看 AppID、SecretId 和 SecretKey。
+- 登录您的 [腾讯云控制台](https://console.cloud.tencent.com/) 账号，鼠标悬停到右上角账号名称处，选择**访问管理 > 访问密钥 > API 密钥管理**，即可查看 AppID、SecretId 和 SecretKey。
 
 
 ### 更改用户信息配置文件

@@ -8,12 +8,12 @@
 
 <table>
 <tr>
-<th>平台</th><th>Demo体验</th><th>源码地址</th>
+<th>平台</th><th>Demo 体验</th><th>源码地址</th>
 </tr>
 <tr>
 <td>iOS</td>
-<td><a onclick="window.open('https://itunes.apple.com/cn/app/id1132521667?mt=8')"><div style="width:130px;height: 130px;background-image:url(https://main.qcloudimg.com/raw/423f07ad3f0958f61ff065c04e77afea.png);background-size: cover;margin:auto">
-</div></a></td>
+<td><div style="width:130px;height: 130px;background-image:url(https://qcloudimg.tencent-cloud.cn/raw/2c8c06a66a7494a17b51e74d9d5533cc.png);background-size: cover;margin:auto">
+</div></td>
 <td><a href="https://github.com/tencentyun/XiaoZhiBo/tree/main/iOS">Github</a></td>
 </tr>
 <tr>
@@ -21,7 +21,6 @@
 <td><a onclick="window.open('https://dldir1.qq.com/hudongzhibo/liteav/xiaozhibo.apk')"><div style="width:130px;height: 130px;background-image:url(https://main.qcloudimg.com/raw/8b235606b3c881da182b2af8d60d90af.png);background-size: cover;margin:auto">
 </div></a></td>
 <td><a href="https://github.com/tencentyun/XiaoZhiBo/tree/main/Android">Github</a></td>
-</tr>
 </tr>
 </table>
 
@@ -45,7 +44,7 @@
 </tr>
 <tr>
 <td>iOS</td>
-<td><a onclick="window.open('https://itunes.apple.com/cn/app/id1152295397?mt=8')"><div style="width:130px;height: 130px;background-image:url(https://main.qcloudimg.com/raw/12c7da97cc910eda673cb19b66fc7cb3.png);background-size: cover;margin:auto">
+<td><div style="width:130px;height: 130px;background-image:url(https://main.qcloudimg.com/raw/82f6b81a28f310c5edc5c3237e326e2f.png);background-size: cover;margin:auto">
 </div></a></td>
 <td><a href="https://github.com/tencentyun/LiteAVProfessional_iOS/tree/master/Demo">Github</a></td>
 </tr>
@@ -57,6 +56,8 @@
 </tr>
 </tr>
 </table>
+ 
+ 
  
 **腾讯云工具包 App 展示**
  
@@ -79,11 +80,10 @@
 </div></td>
 <td><a href="https://github.com/tencentyun/MLVBSDK/tree/master/WXMini">Github</a></td>
 </tr>
-<tr>
 </table>
  
 **腾讯云视频云小程序展示**
-<img width="900" src="https://main.qcloudimg.com/raw/f694497d19b92b71b649ad41da185e5a.png"/>
+<img width="900" src="https://qcloudimg.tencent-cloud.cn/raw/ecb05f6734c39a2c16cf1963f3b83fd5.png"/>
 
 [](id:MLVB_API-Example )
 ## MLVB API-Example 
@@ -91,7 +91,7 @@
 
 |平台 |源码地址 |跑通 Demo |
 |:--|--|--|
-|Android |[Github](https://github.com/tencentyun/MLVBSDK/tree/master/Android/MLVB-API-Example) |[跑通 Demo](https://cloud.tencent.com/document/product/454/60984)|
-|iOS |[Github](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/MLVB-API-Example-OC) |[跑通 Demo](https://cloud.tencent.com/document/product/454/60985)|
+|Android |[Github](https://github.com/LiteAVSDK/Live_Android/tree/main/MLVB-API-Example) |[跑通 Demo](https://cloud.tencent.com/document/product/454/60984)|
+|iOS |[Github](https://github.com/LiteAVSDK/Live_iOS/tree/main/MLVB-API-Example-OC) |[跑通 Demo](https://cloud.tencent.com/document/product/454/60985)|
 
 ![](https://main.qcloudimg.com/raw/ebcfbafa2bd9cb1ba5db40b5ba87c95f.png) 

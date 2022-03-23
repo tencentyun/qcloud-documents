@@ -6,6 +6,7 @@ Flink connector mongodb 目前支持通过 Flink 将数据批量写入到 mongod
 | :-------- | :--- |
 | 1.11      | 不支持 |
 | 1.13      | 支持 |
+| 1.14      | 不支持 |
 
 ## DDL定义
 ```sql
@@ -34,8 +35,8 @@ Flink connector mongodb 目前仅支持 mongodb sink。支持将腾讯云数据�
 | connector             | 结果表类型         | 是       | 固定值 `mongodb`          |
 | database              | 数据库名称         | 是       | -                         |
 | collection            | 数据集合           | 是       | -                         |
-| uri                   | MongoDB连接串      | 是       | -                         |
-| batchSize             | 每次批量写入的条数 | 否       | 默认 1024                 |
+| uri                   | MongoDB 连接串      | 是       | -                         |
+| batchSize             | 每次批量写入的条数 | 否       | 默认1024                 |
 | maxConnectionIdleTime | 连接超时时长       | 否       | 默认值为60000，单位为毫秒 |
 
 ## 代码示例
@@ -82,4 +83,4 @@ insert into mongodb select * from random_source;
 MongoDB sink 暂不支持 upsert。
 
 ### 用户权限
-MongoDB的User 必须拥有 database 的写权限。
+MongoDB 的 User 必须拥有 database 的写权限。

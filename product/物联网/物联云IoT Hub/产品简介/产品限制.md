@@ -1,12 +1,17 @@
+
+
 ### 设备接入
 
 <table>
 <thead>
 <tr>
-<th colspan="2">
-限制类别&描述	
+<th>
+限制类别
 </th>
 <th>
+描述	
+</th>
+<th style="width:100px">
 限制参数
 </th>
 <tr>
@@ -15,7 +20,7 @@
 <td>
 产品数量
 </td>
-<td>
+<td style="width:480px">
 一个账号下最多可以创建的产品数。
 </td>
 <td>
@@ -78,20 +83,20 @@
 远程配置文件，仅支持 JSON 格式。文件大小的上限。
 </td>
 <td>
-8KB
+128KB
 </td>
 </tr>
 <tr>
 </thead>
 <tr>
 <td>
-数据存储时间
+云日志
 </td>
 <td>
-产品运行时，产生的属性、事件、服务数据存储时间天数
+设备运行产生的云日志储存时间天数
 </td>
 <td>
-7
+7天
 </td>
 </tr>
 <tr>
@@ -121,15 +126,15 @@ OTA 升级
 一个升级包文件大小限制。
 </td>
 <td>
-1024
-</td>
+2048
+</td> 
 </tr>
 <tr>
 <td>
 单次批量升级最多可升级的设备数量。
 </td>
 <td>
-10000
+100000
 </td>
 </tr>
 </table>
@@ -139,10 +144,13 @@ OTA 升级
 <table>
 <thead>
 <tr>
-<th colspan="2">
-限制类别&描述	
+<th>
+限制类别	
 </th>
 <th>
+描述	
+</th>
+<th style="width:100px">
 限制参数
 </th>
 <tr>
@@ -151,7 +159,7 @@ OTA 升级
 <td>
 设备接入限制
 </td>
-<td>
+<td  style="width:480px">
 使用同一个设备证书信息，在同一时间，只能和平台服务器建立一个连接。
 </td>
 <td>
@@ -230,24 +238,13 @@ OTA 升级
 </tr>
 <tr>
 <td>
-缓存请求数
-</td>
-<td>
-物联网平台限制了每个客户端的最大未确认入站发布请求数。
-</td>
-<td>
-150
-</td>
-</tr>
-<tr>
-<td>
 消息存储时长
 </td>
 <td>
 QoS1 消息的最大存储时间。
 </td>
 <td>
-24h
+7天
 </td>
 </tr>
 <tr>
@@ -326,19 +323,22 @@ KeepAlive 时长取值范围
 <table>
 <thead>
 <tr>
-<th colspan="2">
-限制类别&描述	
+<th>
+限制类别	
 </th>
 <th>
+描述	
+</th>
+<th style="width:100px">
 限制参数
 </th>
 <tr>
 </thead>
 <tr>
-<td>
+<td >
 自定义 Topic 类数量
 </td>
-<td>
+<td  style="width:480px">
 一个产品最多定义 Topic 类数量。</td>
 <td>
 100
@@ -413,23 +413,26 @@ Topic 类目
 <table>
 <thead>
 <tr>
-<th colspan="2">
-限制类别&描述	
+<th>
+限制类别
 </th>
 <th>
+描述	
+</th>
+<th style="width:100px">
 限制参数
 </th>
 <tr>
 </thead>
 <tr>
-<td>
+<td >
 规则数量
 </td>
-<td>
+<td  style="width:480px">
 一个账号最多设置规则数。
 </td>
 <td>
-100
+1000
 </td>
 </tr>
 <tr>
@@ -494,10 +497,13 @@ Topic 类目
 <table>
 <thead>
 <tr>
-<th colspan="2">
-限制类别&描述	
+<th >
+限制类别
 </th>
-<th>
+<th style="width:480px">
+描述	
+</th>
+<th style="width:100px">
 限制参数
 </th>
 <tr>
@@ -521,7 +527,7 @@ JSON 层级
 设备影子 JSON 文档的最大限制。
 </td>
 <td>
-8KB
+16KB
 </td>
 </tr>
 <tr>

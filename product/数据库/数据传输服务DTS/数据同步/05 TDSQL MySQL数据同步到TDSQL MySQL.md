@@ -13,6 +13,9 @@
 ## 注意事项
 - DTS 在执行全量数据同步时，会占用一定源端实例资源，可能会导致源实例负载上升，增加数据库自身压力。如果您数据库配置过低，建议您在业务低峰期进行。
 - 为了避免数据重复，请确保需要同步的表具有主键或者非空唯一键。
+- 数据同步时，DTS 会使用执行同步任务的账号在源库中写入系统库`__tencentdb__`，用于记录同步任务过程中的数据对比信息。
+  - 为保证后续数据对比问题可定位，同步任务结束后不会删除源库中的`__tencentdb__`。
+  - `__tencentdb__`系统库占用空间非常小，约为源库存储空间的千分之一到万分之一（例如源库为50G，则`__tencentdb__`系统库约为 5K-50K） ，并且采用单线程，等待连接机制，所以对源库的性能几乎无影响，也不会抢占资源。 
 
 ## [前提条件](id:qttj)
 - 源数据库和目标数据库符合同步功能和版本要求，请参考 [数据同步支持的数据库](https://cloud.tencent.com/document/product/571/58672) 进行核对。
@@ -34,6 +37,7 @@ FLUSH PRIVILEGES;
 - TDSQL MySQL（MariaDB）作为源或者目标库时，不支持双向同步。
 - TDSQL 同步功能为了提高增量阶段的同步速度，采用了行级并发策略。因此在增量同步过程中，可能会在极短的时间内在目标库观察到事务的中间值，但最终源库和目标库数据会保持一致。 
 - 目前主键冲突处理策略只支持冲突覆盖，对于增量阶段的主键数据冲突，会直接进行冲突覆盖。但对于全量数据初始化阶段的冲突，任务会报错。
+- 当前不支持 geometry 相关的数据类型。
 
 ## 操作限制
 同步过程中请勿进行如下操作，否则会导致同步任务失败。
@@ -47,7 +51,7 @@ FLUSH PRIVILEGES;
 | 操作类型 | SQL 操作语句                                                 |
 | -------- | ------------------------------------------------------------ |
 | DML      | INSERT、UPDATE、DELETE                                       |
-| DDL      | CREATE DATABASE、DROP DATABASE、ALTER DATABASE、CREATE TABLE、ALTER TABLE、DROP TABLE、TRUNCATE TABLE、RENAEM TABLE、CREATE INDEX、DROP INDEX |
+| DDL      | CREATE DATABASE、DROP DATABASE、ALTER DATABASE、CREATE TABLE、ALTER TABLE、DROP TABLE、TRUNCATE TABLE、RENAEM TABLE、CREATE INDEX、DROP INDEX<br/><dx-alert infotype="explain" title="说明">不支持同步涉及分区（Partition）的 DDL。</dx-alert> |
 
 ## 环境要求
 <table>

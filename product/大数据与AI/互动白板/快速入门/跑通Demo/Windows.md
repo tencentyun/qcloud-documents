@@ -37,8 +37,8 @@ Demo 集成了实时音视频 TRTC SDK，为保证音视频功能的正常使用
 
 #### 3. 配置测试账号
 
-步骤一：登录 [即时通讯控制台](https://console.cloud.tencent.com/im)，单击 SDKAppID 对应的应用。
-步骤二：单击**开发辅助工具**>**UserSig 工具**，输入测试用户名，单击**生成签名（UserSig）**。
+步骤一：登录 [即时通信 IM 控制台](https://console.cloud.tencent.com/im)，单击 SDKAppID 对应的应用。
+步骤二：单击**辅助工具**>**UserSig 工具**，输入测试用户名，单击**生成签名（UserSig）**。
 ![](https://main.qcloudimg.com/raw/a2f24861652c760cbec05087dfe0d5df.jpg)
 步骤三：打开 Demo 项目下的配置文件 `config.json`，替换新的 SDKAppID 以及新创建的 UserId 和 UserSig（UserToken）即可。
 ![](https://main.qcloudimg.com/raw/27fe81a6aff6a85939a72929e02778da.png)

@@ -1,11 +1,18 @@
 
 ## 操作场景
-本场景介绍恢复 MySQL 逻辑备份到腾讯云 MySQL 数据库中。
+本场景介绍恢复逻辑备份到腾讯云 MySQL 数据库的操作指导，因为如下场景的操作和要求类似，本章节仅选取 MySQL 逻辑备份恢复到腾讯云 MySQL 作为示例。
+
+- MySQL 逻辑备份恢复到腾讯云 MySQL（示例）
+- MariaDB 逻辑备份恢复到腾讯云 MySQL
+- Percona 逻辑备份恢复到腾讯云 MySQL
 
 ## 前提条件
-- 恢复目标数据库符合备份功能和版本要求，请参见 [支持的备份能力](https://cloud.tencent.com/document/product/1513/64026) 进行核对。
+- 恢复目标数据库符合备份功能和版本要求，请参见 [备份和恢复能力汇总](https://cloud.tencent.com/document/product/1513/64026) 进行核对。
 - 恢复账号需要具备目标数据库的如下对应权限。
 ALTER, ALTER ROUTINE, CREATE, CREATE ROUTINE, CREATE TEMPORARY TABLES, CREATE USER, CREATE VIEW, DELETE, DROP, EVENT, EXECUTE, INDEX, INSERT, LOCK TABLES, PROCESS, REFERENCES, RELOAD, SELECT, SHOW DATABASES, SHOW VIEW, TRIGGER, UPDATE。 
+- 恢复任务过程中，DBS 会使用恢复任务的账号在目标库中写入系统库 `__tencentdb__`，用于记录恢复任务过程中的元数据信息，因此需要对目标数据库授权 `__tencentdb__` 的全部权限。
+  - 为保证后续问题可定位，恢复任务结束后不会删除目标库中的`__tencentdb__`。
+  - `__tencentdb__`系统库占用空间非常小，约为目标库恢复存储的千分之一到万分之一（例如恢复到目标库存储为50G，则`__tencentdb__`系统库约为 5K-50K） ，并且采用单线程，等待连接机制，所以对目标库的性能几乎无影响，也不会抢占资源。
 
 ## 操作步骤
 1. 登录 [DBS 控制台](https://console.cloud.tencent.com/dbs)，在左侧导航选择**备份计划**页，进入备份计划页。

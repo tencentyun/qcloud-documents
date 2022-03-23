@@ -4,7 +4,7 @@
 DTS 支持如下维度的 SQL 过滤：
 - DML：支持类型 Insert、Update、Delete。
 - DDL：支持选择具体的 DDL 操作，如 CREATE TABLE、CREATE VIEW、 DROP INDEX 等。
-- Where 条件过滤：支持对单个表设置自定义过滤条件。
+- Where 条件过滤：支持对单个表设置自定义过滤条件（仅 MySQL 相关的链路支持，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行申请）。
 
 ## 约束限制
 - 当前仅支持源库为 MySQL 数据库的同步场景中设置 DDL 过滤和 Where 条件过滤。

@@ -66,5 +66,5 @@
 
 ## 步骤3：提交完成
 1. 用户编辑完成 mrp submit 命令，单击回车即可提交实验。
-2. 实验提交后，用户可在控制台 [实验列表](https://console.cloud.tencent.com/mrp) 页中查看实验状态，单击“实验名称”可查看实验计算详情。
+2. 实验提交后，用户可在控制台 [实验列表](https://console.cloud.tencent.com/mrp/workbench) 页中查看实验状态，单击“实验名称”可查看实验计算详情。
 3. 实验计算完成后，用户可查看并处理实验计算数据。详情请参见 [数据处理](https://cloud.tencent.com/document/product/1526/66698)。

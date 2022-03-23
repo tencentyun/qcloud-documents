@@ -78,9 +78,9 @@
 <dx-alert infotype="notice" title="">
 带有签名的 COS 文件链接仅能被访问一次。
 </dx-alert>
-* 输入了其他地域的 COS 链接。
+* 在境外地域导入镜像时，使用了非同地域的 COS 链接。
 <dx-alert infotype="notice" title="">
-导入镜像服务通过内网访问本地域的 COS 服务器。
+目前境外地域导入镜像服务仅支持同地域 COS 服务器，即需用同地域 COS 链接导入。
 </dx-alert>
 * 用户的镜像文件已被删除。
 在收到 COS 链接无效的报错后，可根据上述原因排查问题。

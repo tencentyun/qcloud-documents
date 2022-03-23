@@ -24,7 +24,7 @@
 ![](https://main.qcloudimg.com/raw/b88a624c0bd67d5d58db331b3d64c51c.gif)
 
 ## 示例代码
-您可以登录 [Github](https://github.com/tencentyun/TRTCSDK/tree/master/Android/TRTC-API-Example) 获取本文档相关的示例代码。
+您可以登录 [Github](https://github.com/LiteAVSDK/TRTC_Android/blob/main/TRTC-API-Example) 获取本文档相关的示例代码。
 ![](https://main.qcloudimg.com/raw/cdef573133900a8dce22dcca5242fcfc.png)
 
 >?如果访问 Github 较慢，您也可以直接下载 [TXLiteAVSDK_TRTC_Android_latest.zip](https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_TRTC_Android_latest.zip)。
@@ -35,7 +35,7 @@
 您可以选择以下方式将**音视频通话 TRTC SDK** 集成到项目中。
 #### 方式一：自动加载（aar）
 音视频通话 TRTC SDK 已发布到 jcenter 库，您可以通过配置 gradle 自动下载更新。
-您只需用 Android Studio 打开待集成 SDK 的工程（[TRTC-API-Example](https://github.com/tencentyun/TRTCSDK/tree/master/Android/TRTC-API-Example) 已完成集成，示例代码可以供您参考），然后通过简单的步骤修改 `app/build.gradle` 文件，即可完成 SDK 集成：
+您只需用 Android Studio 打开待集成 SDK 的工程（[TRTC-API-Example](https://github.com/LiteAVSDK/TRTC_Android/blob/main/TRTC-API-Example) 已完成集成，示例代码可以供您参考），然后通过简单的步骤修改 `app/build.gradle` 文件，即可完成 SDK 集成：
 
 1. 在 dependencies 中添加 TRTCSDK 的依赖。
 ```
