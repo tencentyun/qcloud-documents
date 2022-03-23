@@ -22,7 +22,4 @@
 <td>希望重写的目标 URL，例如：<code>www.example.com/images/foo.jpg</code> 或 <code>www.example.com/foo/bar</code></td>
 </tr>
 </tbody></table>
-3. 根据实际需求，单击**保存并发布**或**仅保存**。
->?
->- 保存当前编辑的规则，并发布至现网生效。
->- 仅保存当前编辑的规则内容，不发布至现网。
+
