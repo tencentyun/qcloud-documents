@@ -8,8 +8,8 @@
 - 已 [创建云数据库 SQL Server](https://cloud.tencent.com/document/product/238/36822)。
 - 源数据库和目标数据库符合迁移功能和版本要求，请参见 [数据迁移支持的数据库](https://cloud.tencent.com/document/product/571/58686) 进行核对。
 - 已完成 [准备工作](https://cloud.tencent.com/document/product/571/59968)。
-- 当源实例非腾讯云 SQL Server 实例（公网/CVM 自建实例、其他云厂商实例）或腾讯云基础版 SQL Server 实例时，需使用具有 sysadmin 权限的帐号进行迁移，且需要能够运行 xp_cmdshell 存储过程，当源实例为腾讯云高可用版和集群版 SQL Server 时，无权限限制。
-- 迁移账号需要为 localsystem。
+- 当源实例非腾讯云 SQL Server 实例（公网/CVM 自建实例、其他云厂商实例）或腾讯云基础版 SQL Server 实例时，目标端需使用具有 sysadmin 权限的帐号进行迁移，且需要能够运行 xp_cmdshell 存储过程，当源实例为腾讯云高可用版和集群版 SQL Server 时，目标端帐号无权限限制。
+- 迁移源端的 SQL 服务启动需要改为 local，源端迁移的数据库账号无限制，但是需要有 sysadmin 权限。
 - 源数据库所在的服务要开放文件共享端口445。
 - 源数据库必须得设置为“完全恢复模式”，且在迁移前建议用户自己做下全量备份。
 - 源数据库所在本地磁盘空间需要足够大，剩余空闲空间能放下要迁移库的大小。 

@@ -6,11 +6,11 @@
 2. 进入**数据管理页**，单击**数据名称**进入数据库详情。
 3. 单击**创建数据表**或**导入数据**，即可选择 COS 为数据源进行数据导入。详细操作可参见 [数据表管理](https://cloud.tencent.com/document/product/1342/61870)。
 ![](https://qcloudimg.tencent-cloud.cn/raw/847f5239808dbe8e65358fb7964ea30f.png)
-	- CSV：支持可视化配置解析 CSV 规则，包括压缩格式、列分割符号、字段域符。支持自动推断数据文件的 Schema 和将首行解析为列名。
-	- Json：DLC 仅将 Json 的第一层级识别为列，支持自动推断 Json 文件的 Shema，系统会将 Json 第一层字段识别为列名。
-	- 支持 Parquet、ORC、AVRO 等常见大数据格式数据文件。
-	- 可手动添加和输入列名称和字段类型。
-	- 若选择了自动推断结构，DLC 会自动填充识别到的列、列名称、字段类型，若不正确请手动手动修改。
+    - CSV：支持可视化配置解析 CSV 规则，包括压缩格式、列分割符号、字段域符。支持自动推断数据文件的 Schema 和将首行解析为列名。
+    - JSON：DLC 仅将 JSON 的第一层级识别为列，支持自动推断 JSON 文件的 Shema，系统会将 JSON 第一层字段识别为列名。
+    - 支持 Parquet、ORC、AVRO 等常见大数据格式数据文件。
+    - 可手动添加和输入列名称和字段类型。
+    - 若选择了自动推断结构，DLC 会自动填充识别到的列、列名称、字段类型，若不正确请手动手动修改。
 
 ## 通过 API 导入
 ### 接口说明
@@ -18,26 +18,26 @@
 
 | 参数名 | 类型 | 描述 |是否必须 |
 |---------|---------|---------|---------|
-| InputConf	| []KVPair	| 输入配置：导入任务的输入配置参数，如fileType、paths、以及各种文件类型各自支持的参数，具体查看下文	| true| 
-| InputType	| string	| 输入类型：目前仅支持 cos	| true| 
-| OutputConf	| []KVPair	| 输出配置：导入任务的输出配置参数，如 databaseName、tableName，具体查看下文	| true| 
-| OutputType	| string	| 输出类型：目前仅支持 lakefsStorage	| true| 
+| InputConf | []KVPair  | 输入配置：导入任务的输入配置参数，如fileType、paths、以及各种文件类型各自支持的参数，具体查看下文   | true| 
+| InputType | string    | 输入类型：目前仅支持 cos    | true| 
+| OutputConf    | []KVPair  | 输出配置：导入任务的输出配置参数，如 databaseName、tableName，具体查看下文  | true| 
+| OutputType    | string    | 输出类型：目前仅支持 lakefsStorage  | true| 
 
 其中 InputConf 参数如下：
 
 | 参数名 | 类型 | 描述 |是否必须 |
 |---------|---------|---------|---------|
-| fileType	| string	| 文件类型，可选 csv、json、parquet、avro、orc	| true| 
-| paths	| string	| 文件(目录)路径，多个路径使用英文逗号分隔| true| 
-| ......	| string	| 查看下文获取具体文件类型所支持的参数	| false| 
+| fileType  | string    | 文件类型，可选 csv、JSON、parquet、avro、orc | true| 
+| paths | string    | 文件(目录)路径，多个路径使用英文逗号分隔| true| 
+| ......    | string    | 查看下文获取具体文件类型所支持的参数    | false| 
 
 其中 OutputConf 参数如下：
 
 | 参数名 | 类型 | 描述 |是否必须 |
 |---------|---------|---------|---------|
-| databaseName	| string	| 数据库名	| true| 
-| tableName	| string	| 表名	| true| 
-| mode	| string	| 导入模式，可选 append(默认)、overwrite	| false| 
+| databaseName  | string    | 数据库名  | true| 
+| tableName | string    | 表名    | true| 
+| mode  | string    | 导入模式，可选 append(默认)、overwrite  | false| 
 
 ### 导入 CSV 数据
 >! 默认会按照列的顺序导入到目标表，可通过参数设置 importByColumn 为 true 以按列名来导入；当importByColumn 为 true 时，数据来源对比目标表多列忽略，少列为 null。
@@ -57,7 +57,7 @@
 </tr>
 <tr>
 <td>encoding</td>
-<td>通过给定的编码类型进行解码	</td>
+<td>通过给定的编码类型进行解码   </td>
 <td>uft-8</td>
 </tr>
 <tr>
@@ -131,7 +131,7 @@
 <tbody>
 <tr>
 <td>encoding</td>
-<td>通过给定的编码类型进行解码	</td>
+<td>通过给定的编码类型进行解码   </td>
 <td>uft-8</td>
 </tr>
 <tr>
