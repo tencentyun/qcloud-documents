@@ -37,11 +37,6 @@
 <input type="button" value="1V1音视频通话" class="inbuttom" onclick="window.open('https://web.sdk.qcloud.com/component/trtccalling/demo/web/latest/index.html');reportEvent({name: 'demo-click-web', ext1: 'calling'});" />
 </td>
 <td>
-<a onclick="window.open('https://www.pgyer.com/TtEk');reportEvent({name: 'demo-click-flutter', ext1: 'ios'});" value="Flutter_ios_版">
-	<button style="width:150px;height: 83px;border:none;background-image:url(https://main.qcloudimg.com/raw/a3b7ef0199988c33850eeeb186c8d26f.png);background-size: cover;">
-</button>
-</a>
-<br>
 <a onclick="window.open('https://comm.qq.com/im_demo_download/trtc_flutter_demo.apk');reportEvent({name: 'demo-click-flutter', ext1: 'android'});" value="Flutter_android_版"> 
 	<button style="width:150px;height: 83px;border:none;background-image:url(https://main.qcloudimg.com/raw/f53741b9ad7567c475841e68cc65dbc3.png);background-size: cover;">
 </button>
