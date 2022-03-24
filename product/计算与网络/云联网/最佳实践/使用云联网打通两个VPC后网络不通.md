@@ -2,7 +2,7 @@
 通过云联网打通两个 VPC 网络后，发现网络 ping 不通。
 >? 
 >+ 测试网络连通性可使用如下方式之一：
->  + ping 命令： 用于测试源主机与目标主机网络是否连通，使用方式：ping  **对端 IP**
+>  + ping 命令： 用于测试源主机与目标主机网络是否连通，使用方式：ping  **对端 IP**。
 >   + telnet 命令： 用于测试指定目标主机的端口是否可达，使用方式：telnet **对端 IP地址** **对端端口号**。
 >+ 腾讯云数据库、CFS/ES 集群等默认禁 ping，建议使用 telnet 检测连通性。
 >+ 内网负载均衡的 [VIP](https://cloud.tencent.com/document/product/1121/36888#93) 仅支持来自本 VPC 的客户端 ping，因此使用云联网打通的网络，不能通过网络 ping 对端网络的内网负载均衡的 VIP 来测试网络连通性，可以使用 ping 对端 CVM，或 telnet CLB 后端服务端口。
@@ -25,7 +25,7 @@
   + 如不存在，请继续排查 [步骤二](#step2)。
  ![](https://qcloudimg.tencent-cloud.cn/raw/d539f8bd7364e7bd6edd0b0521be3a00.png)
 
-### 步骤二：判断两个VPC子网网段是否冲突导致路由失效[](id:step2)
+### 步骤二：判断两个 VPC 子网网段是否冲突导致路由失效[](id:step2)
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/ccn)，单击**云联网**，进入云联网控制台。
 2. 单击云联网实例 ID，进入详情页面。
 3. 单击**路由表**页签，查看是否有如下图所示的**失效**路由。
