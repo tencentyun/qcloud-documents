@@ -32,11 +32,11 @@
 
 #### 1.1 通过 pip 安装 
 
-执行`pip`命令进行安装：
+执行 `pip` 命令进行安装：
 ```plaintext
 pip install coscmd
 ```
-安装成功之后，用户可以通过`-v`或者`--version`命令查看当前的版本信息。
+安装成功之后，用户可以通过 `-v` 或者 `--version` 命令查看当前的版本信息。
 >! 使用 Windows 安装后，需要将 `C:\python_install_dir;` 和 `C:\python_install_dir\Scripts` 两个路径加入到环境变量中。 
 >
 
@@ -81,7 +81,7 @@ pip install coscmd --no-index -f coscmd-packages
 
 ### 查看 help 选项
 
-用户可通过`-h`或`--help`命令来查看工具的 help 信息和用法。
+用户可通过 `-h` 或 `--help` 命令来查看工具的 help 信息和用法。
 ```plaintext
 coscmd -h  
 ```
@@ -140,14 +140,14 @@ optional arguments:
                         specify log backup num
   -v, --version         show program's version number and exit
 ```
-除此之外，用户还可以在每个命令后（不加参数）输入`-h`查看该命令的具体用法，例如：
+除此之外，用户还可以在每个命令后（不加参数）输入 `-h` 查看该命令的具体用法，例如：
 ```plaintext
 coscmd upload -h  //查看 upload 命令使用方法
 ```
 
 ### 生成配置文件
 
-COSCMD 工具在运行前会首先从配置文件中读取运行时所需的必要信息，COSCMD 会默认从`~/.cos.conf`中读取配置项。
+COSCMD 工具在运行前会首先从配置文件中读取运行时所需的必要信息，COSCMD 会默认从 `~/.cos.conf` 中读取配置项。
 
 >? 配置前，您需要先在 COS 控制台创建一个用于配置参数的存储桶（例如 configure-bucket-1250000000），并创建密钥信息。
 >
@@ -169,14 +169,14 @@ anonymous = False
 ```
 
 >?
->- 配置文件中`schema`项，可选值为 http、https，默认为 https。
->- 配置文件中`anonymous`项，可选值为 True、False，表示是否使用匿名模式，即签名保持为空。
->- 更多配置参数说明，请使用命令`coscmd config -h`查看。
+>- 配置文件中 `schema` 项，可选值为 http、https，默认为 https。
+>- 配置文件中 `anonymous` 项，可选值为 True、False，表示是否使用匿名模式，即签名保持为空。
+>- 更多配置参数说明，请使用命令 `coscmd config -h` 查看。
 >
 
 ### 使用 config 命令生成配置文件
 
-config 命令可以在`~/.cos.conf`自动生成配置文件，命令具体格式如下：
+config 命令可以在 `~/.cos.conf` 自动生成配置文件，命令具体格式如下：
 ```plaintext
 coscmd config [OPTION]...<FILE>...
 			  [-h] --help
@@ -203,7 +203,7 @@ coscmd config [OPTION]...<FILE>...
 | -t               | 临时密钥  token，当使用临时密钥时需要配置，设置 x-cos-security-token 头部 | 字符串 | 否       |
 | -b               | 指定的存储桶名称，存储桶的命名格式为 BucketName-APPID，请参见 [命名规范](https://cloud.tencent.com/document/product/436/13312#.E5.AD.98.E5.82.A8.E6.A1.B6.E5.91.BD.E5.90.8D.E8.A7.84.E8.8C.83) 。初次配置使用时，您需要在 COS 控制台创建一个存储桶，用于配置工具 | 字符串 | 是       |
 | -r               | 存储桶所在地域，请参见 [地域和访问域名](https://cloud.tencent.com/doc/product/436/6224) | 字符串 | 是       |
-| -e               | 设置请求的  ENDPOINT，设置 ENDPOINT 参数后，REGION 参数会失效。当您使用的是默认域名，则此处配置格式为`cos.<region>.myqcloud.com`；当您使用全球加速域名，则配置为`cos.accelerate.myqcloud.com` | 字符串 | 否       |
+| -e               | 设置请求的  ENDPOINT，设置 ENDPOINT 参数后，REGION 参数会失效。当您使用的是默认域名，则此处配置格式为 `cos.<region>.myqcloud.com`；当您使用全球加速域名，则配置为 `cos.accelerate.myqcloud.com` | 字符串 | 否       |
 | -m               | 多线程操作的最大线程数（默认为5，范围为1  - 30）             | 数字   | 否       |
 | -p               | 分块操作的单块大小（单位MB，默认为1MB，范围为1  - 1000）     | 数字   | 否       |
 | --do-not-use-ssl | 使用 HTTP  协议，而不使用 HTTPS                              | 字符串 | 否       |
@@ -222,8 +222,8 @@ coscmd config -a AChT4ThiXAbpBDEFGhT4ThiXAbp**** -s WE54wreefvds3462refgwewe****
 用户若不指定存储桶名称和所属地域执行命令，则默认对配置参数时所填的存储桶有效。当需要对不同存储桶执行操作时，需要指定存储桶名称和所属地域。
 
 >?
-> - 通过`-b <BucketName-APPID>`参数指定存储桶名称，存储桶的命名格式为 BucketName-APPID，此处填写的存储桶名称必须为此格式。
-> - 通过`-r <region>`指定 Region， 可以指定存储桶的所属地域。 
+> - 通过 `-b <BucketName-APPID>` 参数指定存储桶名称，存储桶的命名格式为 BucketName-APPID，此处填写的存储桶名称必须为此格式。
+> - 通过 `-r <region>` 指定 Region， 可以指定存储桶的所属地域。 
 >
 
 - 命令格式
@@ -252,7 +252,7 @@ coscmd -b examplebucket-1250000000 -r ap-beijing upload D:/picture.jpg /
 ```plaintext
 coscmd -c <conf_path> -l <log_conf> <action> ...
 ```
-- 操作示例 - 指定配置文件路径为 /data/home/cos_conf , 日志输出路径为 /data/home/cos_log ,创建一个名称为 examplebucket 的存储桶，所属地域为北京的存储桶
+- 操作示例 - 指定配置文件路径为 /data/home/cos_conf，日志输出路径为 /data/home/cos_log，创建一个名称为 examplebucket 的存储桶，所属地域为北京的存储桶
 ```plaintext
 coscmd -c /data/home/cos_conf -l /data/home/cos_log -b examplebucket-1250000000 -r ap-beijing createbucket
 ```
@@ -291,7 +291,7 @@ coscmd -s upload D:/picture.jpg /
 
 ### 创建存储桶
 
->? 执行创建存储桶命令时，请携带参数`-b <BucketName-APPID>`指定存储桶名称和`-r <Region>`指定所属地域。若直接执行 coscmd createbucket，则会报错，原因是不指定存储桶名称和所属地域，则相当于对已存在的存储桶（即配置参数时所填的存储桶）进行创建。
+>? 执行创建存储桶命令时，请携带参数 `-b <BucketName-APPID>` 指定存储桶名称和 `-r <Region>` 指定所属地域。若直接执行 coscmd createbucket，则会报错，原因是不指定存储桶名称和所属地域，则相当于对已存在的存储桶（即配置参数时所填的存储桶）进行创建。
 >
 
 - 命令格式
