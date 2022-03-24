@@ -59,6 +59,6 @@
 ### 步骤五：请检查通信两端云服务器是否开启了防火墙[](id:step5)
 请自行确认云服务器是否开启防火墙，如开启请确保防火墙不会对通信流量进行拦截，否则需要放通防火墙的限制。
 >?
->- 清楚防火墙的操作方法请参见 [如何清除防火墙](https://cloud.tencent.com/document/product/213/17403#.E5.A6.82.E4.BD.95.E6.B8.85.E9.99.A4.E9.98.B2.E7.81.AB.E5.A2.99.EF.BC.9F)。
+>- 清除防火墙的操作方法请参见 [如何清除防火墙](https://cloud.tencent.com/document/product/213/17403#.E5.A6.82.E4.BD.95.E6.B8.85.E9.99.A4.E9.98.B2.E7.81.AB.E5.A2.99.EF.BC.9F)。
 >- 如已完成上述所有问题排查但问题依然存在，请做好问题记录，并联系 [售后在线支持](https://cloud.tencent.com/online-service)。
 >
