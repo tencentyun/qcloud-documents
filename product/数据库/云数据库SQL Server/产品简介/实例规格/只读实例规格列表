@@ -7,17 +7,18 @@
 <tbody>
 <td rowspan=13><br>2008 R2 Enterprise<br>2012 Enterprise<br>2014 Enterprise<br>2016 Enterprise<br>2017 Enterprise<br>2019 Enterprise</td>
 <td rowspan="13">高性能本地 SSD</td>
-<td>1核 2GB</td><td rowspan="7">10-3000GB</td>
+<td>1核 2GB</td><td rowspan="7">10GB - 3000GB</td>
 <tr><td>1核 4GB</td></tr>
 <tr><td>1核 8GB</td></tr>
 <tr><td>2核 16GB</td></tr>
 <tr><td>4核 32GB</td></tr>
 <tr><td>8核 64GB</td></tr>
 <tr><td>12核 96GB</td></tr>
-<td>16核 128GB</td><td rowspan="6">10-6000GB</td>
+<td>16核 128GB</td><td rowspan="6">10GB - 6000GB</td>
 <tr><td>24核 192GB</td></tr>
 <tr><td>32核 256GB</td></tr>
 <tr><td>48核 384GB</td></tr>
-<tr><td>64核 51GB</td></tr>
+<tr><td>64核 512GB</td></tr>
 <tr><td>90核 720GB</td></tr>
 </tbody></table>
+
