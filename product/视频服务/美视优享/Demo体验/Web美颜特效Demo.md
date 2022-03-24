@@ -4,7 +4,7 @@
 <tr><th width="15%" style="text-align:center">平台</th><th style="text-align:center">体验地址</th><th style="text-align:center">环境说明</th></tr>
 <tr>
 <td style="text-align:center">Web</td>
-<td style="width:120px; display: flex; flex-direction: column; align-items: center">
+<td style="width:120px;  flex-direction: column; align-items: center">
 <a href="https://demo.webar.qcloud.com" style="display: inline-block; text-align: center; line-height: 2rem; width: 6rem; height: 2rem; background: #00a4ff; color: white; text-decoration: none; margin-bottom: 10px">单击体验</a>
 <img src='https://qcloudimg.tencent-cloud.cn/raw/d187129937ba21f7856f4b69e9ce39a6.png' style="width: 6rem; height: 6rem">
 </td>
