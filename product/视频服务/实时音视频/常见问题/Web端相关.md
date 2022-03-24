@@ -149,3 +149,17 @@ Web 端4.3.8以上版本已支持自定义流 ID，可以更新 SDK 版本。小
 [](id:012)
 ### Web 端如何切换摄像头和麦克风？
 您可以先获取到系统的摄像头和麦克风设备后，调用 [switchDevice](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/LocalStream.html#switchDevice) 来进行切换，具体操作请参见 [切换摄像头和麦克风](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/tutorial-13-basic-switch-camera-mic.html)。
+
+[](id:013)
+### 在 iframe 使用 TRTC Web SDK 报错 Permission denied？
+
+在 iframe 中使用 WebRTC 需要给 iframe 标签增加属性来开启相关权限，具体参考如下。
+麦克风、摄像头、屏幕分享权限：
+```javascript
+<iframe allow="microphone; camera; display-capture;">
+```
+
+[](id:014)
+### 在微信 H5 无法采集摄像头和麦克风？
+出现这种情况，可能是您的微信清理了数据、或者是首次安装的微信，这种情况下微信使用安装时自带的浏览器内核是不支持设备采集的。
+微信会在 Wi-Fi 联网的情况下，自动下载安装支持设备采集的 XWeb 内核。您可以在 Wi-Fi 联网一段时间（例如半小时）后再次重试。

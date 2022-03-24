@@ -103,7 +103,7 @@ _filter:input("AVH61RXGPP",{"device01"},{"ProductID","DeviceName","Timestamp","2
 | ------ | ------ |
 |result | 处理结果，userdata 类型 |
 
-### 连续小于比较函数
+### 结果合并函数
 \_filter:merge(result1,result2)
 输入参数：
 

@@ -41,9 +41,10 @@
 ## 未提交事务内容审计
 
 开通审计日志功能后，可获知未提交事务内容及审计分析结果。
-在**异常诊断**页签，**诊断提示**中，如果有检测到未提交事物，会出现告警提示。点击**查看**，进入事件告警详情页。
+在**异常诊断**页签，**诊断提示**中，如果有检测到未提交事务，会出现告警提示。单击**查看**，进入事件告警详情页。
 ![](https://qcloudimg.tencent-cloud.cn/raw/8d8bf85706bcc706b52d0d6ceba803f5.png)
 在**事务详细信息**页签，可查看审计日志实时分析，DBbrain 将未提交事务的内容做分析聚合，展示给用户。
 ![](https://qcloudimg.tencent-cloud.cn/raw/3b0ae8c6575226933fa72808eb3e0e05.png)
-并且点击对应的 SQL 语句，可获知每一条 SQL 的审计结果项。
-![](https://qcloudimg.tencent-cloud.cn/raw/6e4ab7f27c184b72d1750e9e366779b7.png)
+并且单击对应的 SQL 语句，可获知每一条 SQL 的审计结果项。
+![](https://qcloudimg.tencent-cloud.cn/raw/d0c353131fb5a80436766fe9f808c4ef.png)
+
