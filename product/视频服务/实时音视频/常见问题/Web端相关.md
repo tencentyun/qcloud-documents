@@ -154,7 +154,7 @@ Web 端4.3.8以上版本已支持自定义流 ID，可以更新 SDK 版本。小
 ### 在 iframe 使用 TRTC Web SDK 报错 Permission denied？
 
 在 iframe 中使用 WebRTC 需要给 iframe 标签增加属性来开启相关权限，具体参考如下。
-摄像头、麦克风、屏幕分享权限：
+麦克风、摄像头、屏幕分享权限：
 ```javascript
 <iframe allow="microphone; camera; display-capture;">
 ```
