@@ -4,10 +4,10 @@
 >?购买的 Prometheus 实例需跟监控的云服务器同一个 vpc 下，能实现网络互通。
 
 1. 登录 [Prometheus 监控服务控制台](https://console.cloud.tencent.com/monitor/prometheus)，单击**新建**购买 Prometheus 实例 。 
-![](https://qcloudimg.tencent-cloud.cn/raw/171bded2131e298eee9b451feae638f1.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/c08d09fb5bfb6698ec36da720c0ca4bf.png)
 2. 在购买页中，选择合适的实例规格、网络。选择相同 vpc 网段，保证 Prometheus 能与需要采集的云服务器网段相同，才能采集到数据。实例规格，可根据自己的业务上报量进行选择。
-![](https://qcloudimg.tencent-cloud.cn/raw/b301c07d80d35298a686057c4bb38657.png)
-![](https://qcloudimg.tencent-cloud.cn/raw/8d6033d3913b85eda1201193169e5fe7.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/88a612d72ba7f86c3770485db6dcb982.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/086590642923b9661a5696ad0daa7b1d.png)
 3. 选择完后，单击立即购买并支付即可。
 >?如需了解 Prometheus 更多定价规则，请参考 [产品定价](https://cloud.tencent.com/document/product/1416/55777)。
 
@@ -22,7 +22,7 @@
 ```
 systemctl status prometheus
 ```
-![](https://qcloudimg.tencent-cloud.cn/raw/01b747a34022480af5960f13c56bc7f8.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/b7a1f373af49e06440ccb797b87977e3.png)
 ![](https://qcloudimg.tencent-cloud.cn/raw/377220fe469914502d68f78ffad4d0a9.jfif)
 
 
