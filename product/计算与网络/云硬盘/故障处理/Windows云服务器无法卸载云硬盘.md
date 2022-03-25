@@ -28,7 +28,7 @@ Windows 云服务器在执行磁盘脱机操作后，通过控制台 [卸载云�
 1. 在云服务器操作系统界面中，右键单击左下角的 <img src="https://main.qcloudimg.com/raw/3d815ac1c196b47b2eea7c3a516c3d88.png" style="margin:-3px 0px">。
 2. 在弹出菜单中，选择**事件查看器**。
 3. 在“事件查看器”窗口中，选择左侧目录 **Windows 日志** > **系统**。
-4. 在系统日志中，单击查看告警信息，可定位为 Taskmgr.exe。如下图所示：
+4. 在系统日志中，单击查看告警信息，可定位占用磁盘的进程为 Taskmgr.exe。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/2a1104135e1795a450fc81d9751d382e.png)
 5. 结束该进程，并再次尝试 [使用控制台卸载云硬盘](https://cloud.tencent.com/document/product/362/6740#useConsole)。
 若您无法手动结束问题进程（例如 svchost.exe 等系统进程），则请参考 [关机实例](https://cloud.tencent.com/document/product/213/4929) 将云服务器关机后，再次尝试 [使用控制台卸载云硬盘](https://cloud.tencent.com/document/product/362/6740#useConsole)。
