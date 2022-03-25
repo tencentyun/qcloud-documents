@@ -1,8 +1,8 @@
 ## 简介
 
-JWT（Json Web Toke）是一种用于在网络应用环境间传递声明而执行的一种基于 JSON 的开放标准（[RFC 7519](https://link.jianshu.com/?t=https://tools.ietf.org/html/rfc7519)）。JWT 被设计为紧凑且安全的，适用于分布式站点的单点登录（SSO）场景。Json Web Toke 的声明一般被用来在身份提供者和服务提供者间传递被认证的用户身份信息，以便于从资源服务器获取资源，也可用于增加一些额外的其它业务逻辑所必须的声明信息，Json Web Toke 也可直接被用于认证，也可被加密。
+JWT（Json Web Token）是一种用于在网络应用环境间传递声明而执行的一种基于 JSON 的开放标准（[RFC 7519](https://link.jianshu.com/?t=https://tools.ietf.org/html/rfc7519)）。JWT 被设计为紧凑且安全的，适用于分布式站点的单点登录（SSO）场景。Json Web Token 的声明一般被用来在身份提供者和服务提供者间传递被认证的用户身份信息，以便于从资源服务器获取资源，也可用于增加一些额外的其它业务逻辑所必须的声明信息，Json Web Token 也可直接被用于认证，也可被加密。
 
-JWT 连接器提供生成 Json Web Token 以及校验 Json Web Toke 的相关功能。
+JWT 连接器提供生成 Json Web Token 以及校验 Json Web Token 的相关功能。
 
 ## 配置
 
@@ -39,7 +39,7 @@ JWT 连接器提供生成 Json Web Token 以及校验 Json Web Toke 的相关功
 
 JWT 组件目前支持生成  JWT 和校验 JWT 操作。
 
-### 生成 Json Web Toke
+### 生成 Json Web Token
 
 #### 参数配置
 

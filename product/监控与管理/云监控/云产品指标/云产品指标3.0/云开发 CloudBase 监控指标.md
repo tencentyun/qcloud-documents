@@ -6,26 +6,26 @@ Namespace=QCE/TCB_DOCKER
 
 | 指标英文名               | 指标中文名                 | 单位 | 维度                                | 统计粒度                             |
 | ------------------------ | -------------------------- | ---- | ----------------------------------- | ------------------------------------ |
-| VersionCpuUsed           | 版本 cpu 使用量            | MB   | envid、<br>serviceid、<br>versionid | 60s、<br>300s、<br>3600s、<br>86400s |
+| VersionCpuUsed           | 版本 CPU 使用量            | MB   | envid、<br>serviceid、<br>versionid | 60s、<br>300s、<br>3600s、<br>86400s |
 | VersionMemUsed           | 版本内存使用量             | MB   | envid、<br>serviceid、<br>versionid | 60s、<br>300s、<br>3600s、<br>86400s |
 | VersionMemUsedNoCache    | 版本内存使用量(不含 Cache) | MB   | envid、<br>serviceid、<br>versionid | 60s、<br>300s、<br>3600s、<br>86400s |
 | VersionPodNum            | 版本 pod 个数              | 个   | envid、<br>serviceid、<br>versionid | 60s、<br>300s、<br>3600s、<br>86400s |
 | VersionPodUnavailableNum | 版本异常 pod 个数          | 个   | envid、<br>serviceid、<br>versionid | 60s、<br>300s、<br>3600s、<br>86400s |
-| VersionResourceCpu       | 版本 cpu 规格              | 核   | envid、<br>serviceid、<br>versionid | 60s、<br>300s、<br>3600s、<br>86400s |
+| VersionResourceCpu       | 版本 CPU 规格              | 核   | envid、<br>serviceid、<br>versionid | 60s、<br>300s、<br>3600s、<br>86400s |
 | VersionResourceMem       | 版本内存规格               | MB   | envid、<br>serviceid、<br>versionid | 60s、<br>300s、<br>3600s、<br>86400s |
-| ServiceCpuUsed           | 服务 cpu 使用量            | MB   | envid、<br>serviceid                | 60s、<br>300s、<br>3600s、<br>86400s |
+| ServiceCpuUsed           | 服务 CPU 使用量            | MB   | envid、<br>serviceid                | 60s、<br>300s、<br>3600s、<br>86400s |
 | ServiceMemUsed           | 服务内存使用量             | MB   | envid、<br>serviceid                | 60s、<br>300s、<br>3600s、<br>86400s |
 | ServiceMemUsedNoCache    | 服务不含 Cache 内存使用量  | MB   | envid、<br>serviceid                | 60s、<br>300s、<br>3600s、<br>86400s |
 | ServicePodNum            | 服务 pod 个数              | 个   | envid、<br>serviceid                | 60s、<br>300s、<br>3600s、<br>86400s |
 | ServicePodUnavailableNum | 服务异常 pod 个数          | 个   | envid、<br>serviceid                | 60s、<br>300s、<br>3600s、<br>86400s |
-| ServiceResourceCpu       | 服务 cpu 规格              | 核   | envid、<br>serviceid                | 60s、<br>300s、<br>3600s、<br>86400s |
+| ServiceResourceCpu       | 服务 CPU 规格              | 核   | envid、<br>serviceid                | 60s、<br>300s、<br>3600s、<br>86400s |
 | ServiceResourceMem       | 服务内存规格               | MB   | envid、<br>serviceid                | 60s、<br>300s、<br>3600s、<br>86400s |
-| EnvCpuUsed               | 环境 cpu 使用量            | MB   | envid                               | 60s、<br>300s、<br>3600s、<br>86400s |
+| EnvCpuUsed               | 环境 CPU 使用量            | MB   | envid                               | 60s、<br>300s、<br>3600s、<br>86400s |
 | EnvMemUsed               | 环境内存使用量             | MB   | envid                               | 60s、<br>300s、<br>3600s、<br>86400s |
 | EnvMemUsedNoCache        | 环境不含 Cache 内存使用量  | MB   | envid                               | 60s、<br>300s、<br>3600s、<br>86400s |
 | EnvPodNum                | 环境 pod 个数              | 个   | envid                               | 60s、<br>300s、<br>3600s、<br>86400s |
 | EnvPodUnavailableNum     | 环境异常 pod 个数          | 个   | envid                               | 60s、<br>300s、<br>3600s、<br>86400s |
-| EnvResourceCpu           | 环境 cpu 规格              | MB   | envid                               | 60s、<br>300s、<br>3600s、<br>86400s |
+| EnvResourceCpu           | 环境 CPU 规格              | MB   | envid                               | 60s、<br>300s、<br>3600s、<br>86400s |
 | EnvResourceMem           | 环境内存规格               | MB   | envid                               | 60s、<br>300s、<br>3600s、<br>86400s |
 
 
@@ -62,4 +62,4 @@ Namespace=QCE/TCB_DOCKER
 #### 查询云开发 CloudBase -环境数据，入参取值如下：
 &Namespace=QCE/TCB_DOCKER
 &Instances.N.Dimensions.0.Name=envid   
-&Instances.N.Dimensions.0.Value=具体环境 ID 
+&Instances.N.Dimensions.0.Value=具体环境 ID

@@ -104,7 +104,8 @@ npm install
 ```json
 {
 	"usingComponents": {
-	"tuicalling": "/wxcomponents/TUICalling/TUICalling"
+		"tuicalling": "/wxcomponents/TUICalling/TUICalling"
+	}
 }
 ```
 >!组件名称均是小写字母。

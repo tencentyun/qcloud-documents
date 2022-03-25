@@ -131,7 +131,7 @@ dependencies {
 	 compile 'com.tencent.imsdk:imsdk:latest.release'
 }
 ```
->?两个 SDK 的最新版本号，可以在 [TRTC](https://github.com/tencentyun/TRTCSDK) 和 [IM](https://github.com/tencentyun/TIMSDK) 的 Github 首页获取。
+
 	2. 在 defaultConfig 中，指定 App 使用的 CPU 架构。
 ```java
 defaultConfig {

@@ -2,7 +2,7 @@
 
 ## 前提条件[](id:before)
 
-- 打开 [SkyWalking](https://archive.apache.org/dist/skywalking/8.5.0/) 下载页面，下载 SkyWalking8.5.0 版本，并将解压后的 Agent 文件夹放至 Java 进程有访问权限的目录。
+- 打开 [SkyWalking](https://archive.apache.org/dist/skywalking/8.5.0/) 下载页面，下载 SkyWalking 8.5.0 以上的（包含8.5.0）版本，并将解压后的 Agent 文件夹放至 Java 进程有访问权限的目录。
 - 插件均放置在 /plugins 目录中。在启动阶段将新的插件放进该目录，即可令插件生效。将插件从该目录删除，即可令其失效。另外，日志文件默认输出到 /logs 目录中。
 
 ## 接入步骤

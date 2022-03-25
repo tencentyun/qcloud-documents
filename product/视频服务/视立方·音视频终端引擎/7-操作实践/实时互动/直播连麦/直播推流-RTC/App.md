@@ -30,8 +30,8 @@ RTC 连麦方案用来帮助客户实现更加灵活、更低延时、更多人�
 
 | 平台    | 源码地址                                                     |  目标文件夹  |
 | -------| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Android | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/Android/MLVB-API-Example) | [LiveLink](https://github.com/tencentyun/MLVBSDK/tree/master/Android/MLVB-API-Example/Basic/LiveLink) |
-| iOS      | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/MLVB-API-Example)|[LiveLink](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/MLVB-API-Example/Basic/LiveLink) |
+| Android | [Github](https://github.com/LiteAVSDK/Live_Android/tree/main/MLVB-API-Example) | [LiveLink](https://github.com/LiteAVSDK/Live_Android/tree/main/MLVB-API-Example/Basic/LiveLink) |
+| iOS      | [Github](https://github.com/LiteAVSDK/Live_iOS/blob/main/MLVB-API-Example-OC)|[LiveLink](https://github.com/LiteAVSDK/Live_iOS/blob/main/MLVB-API-Example-OC/Basic/LiveLink) |
 
 ### 演示图示
 <dx-tabs>

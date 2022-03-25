@@ -1,6 +1,6 @@
 [](id:step1)
 ## 步骤一：解压 Demo 工程
-1. 下载集成了腾讯特效 TE 的 [MLVB Demo](https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.0.108.vcube/MLVB-xmagic-demo.zip) 工程。
+1. 下载集成了腾讯特效 TE 的 [MLVB Demo](https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.1.115.vcube/MLVB-API-Example.zip) 工程。
 2. 将 Demo ⼯程中的 X - magic 模块引⼊到实际项⽬⼯程中。
 
 [](id:step2)
