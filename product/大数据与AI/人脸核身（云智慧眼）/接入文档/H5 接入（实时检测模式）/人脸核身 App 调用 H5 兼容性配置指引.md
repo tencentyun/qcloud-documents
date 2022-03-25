@@ -55,7 +55,8 @@ public void onPermissionRequest(PermissionRequest request) {
 	if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP) { 
 	// android sdk 21以上
                 if (request != null && request.getOrigin() != null) {
-                       if (request.getOrigin().toString().contains("https://miniprogram-kyc.tencentcloudapi.com")) {//根据腾讯域名授权，如果合作方对授权域名无限制的话，这个if条件判断可以去掉，直接进行授权即可。
+                       if (request.getOrigin().toString().contains("https://miniprogram-kyc.tencentcloudapi.com")) {
+						 //根据腾讯域名授权，如果合作方对授权域名无限制的话，这个if条件判断可以去掉，直接进行授权即可。
                         request.grant(request.getResources());
                         request.getOrigin();
                       }
