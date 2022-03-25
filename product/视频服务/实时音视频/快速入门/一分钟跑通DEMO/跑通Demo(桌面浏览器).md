@@ -113,7 +113,7 @@ Demo 运行界面如图所示：
 ```shell
 npm start
 ```
-默认浏览器会自动打开 [http://localhost:8080/](http://localhost:8080/) 地址。
+默认浏览器会自动打开` [http://localhost:8080/](http://localhost:8080/)` 地址。
 >!
 > - 端口号以本地运行 Demo 之后的实际端口号为准，默认为 8080。
 > - TRTC Web SDK 支持的浏览器请参考：[TRTC Web SDK 支持的平台](https://cloud.tencent.com/document/product/647/17249#.E6.94.AF.E6.8C.81.E7.9A.84.E5.B9.B3.E5.8F.B0)。
