@@ -19,12 +19,12 @@
 在 TRTC 的 Demo 项目里，查看 TRTC client 的初始化过程，如下：
 ```js
 this.localStream_ = TRTC.createStream({
-  audio: true,
-  video: true,
-  userId: this.userId_,
-  cameraId: getCameraId(),
-  microphoneId: getMicrophoneId(),
-  mirror: true
+	audio: true,
+	video: true,
+	userId: this.userId_,
+	cameraId: getCameraId(),
+	microphoneId: getMicrophoneId(),
+	mirror: true
 });
 ```
 调整初始化代码前，我们需要先 [初始化 Web 美颜特效 SDK](#step3)。
