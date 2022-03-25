@@ -47,7 +47,7 @@
   - PLAY_DOMAIN 中拉流地址请设置为您的播放域名的 `CNAME`。
   - LIVE_URL_KEY：非必需，用于生成 txSecret 等鉴权信息，具体计算请参见 [推拉流 URL](https://cloud.tencent.com/document/product/454/7915)。
 
-[](id:step4)
+[](id:step4)[](id:step41)
 ### 步骤四：配置连麦或 PK 能力/服务开通
 
 1. 登录**云直播控制台**，选择 **连麦管理** > **[连麦应用](https://console.cloud.tencent.com/live/micro/appmanage)**。
