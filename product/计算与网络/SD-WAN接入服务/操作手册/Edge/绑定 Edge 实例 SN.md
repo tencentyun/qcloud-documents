@@ -16,4 +16,4 @@
 3. 在 **Edge** 实例列表页面找到需要绑定设备 SN 的实例，并单击实例名称。
 4. 在实例详情页的左侧导航栏单击**设备概况**，并在该页面的基本信息区域找到 SN 所在行，然后单击**绑定**。
 5. 在弹出的**绑定 SN 号**页面中输入设备的 SN，并单击**确定**。
- ![](https://qcloudimg.tencent-cloud.cn/raw/2cda347eb2cb5ce350d0e1715977e83e.png)
+<img src="https://qcloudimg.tencent-cloud.cn/raw/80967b95938751115a99208419a90e11.png" width="70%">

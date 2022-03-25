@@ -82,7 +82,7 @@
 </dx-tabs>
 
 ## IM Unreal Engine API 文档
-更多接口介绍，请参见 [API 概览](https://comm.qq.com/imsdk/ue4/md_introduction_CPP%E6%A6%82%E8%A7%88.html)。
+更多接口介绍，请参见 [API 概览](https://im.sdk.qcloud.com/doc/zh-cn/md_introduction_CPP%E6%A6%82%E8%A7%88.html)。
 
 ## 常见问题
 

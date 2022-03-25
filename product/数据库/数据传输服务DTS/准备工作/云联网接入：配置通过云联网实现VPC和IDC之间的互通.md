@@ -11,7 +11,7 @@
 > ?云联网仅提供所有地域间 10Kbps 以下的免费带宽，使用 DTS 数据传输时需要更高带宽，所以链接中的配置带宽是必选操作。
 
 ## 后续步骤
-1. 用户在 [数据迁移任务](https://cloud.tencent.com/document/product/571/58688) 或 [数据同步任务](https://cloud.tencent.com/document/product/571/58672) 中需要配置相关参数，此处以 MySQL 的数据迁移为示例。在数据迁移任务的**设置源和目标数据库**步骤中，选择 **云联网**，关键参数配置说明如下：
+1. 用户在 [数据迁移任务](https://cloud.tencent.com/document/product/571/58688) 或 [数据同步任务](https://cloud.tencent.com/document/product/571/56516) 中需要配置相关参数，此处以 MySQL 的数据迁移为示例。在数据迁移任务的**设置源和目标数据库**步骤中，选择 **云联网**，关键参数配置说明如下：
 ![](https://main.qcloudimg.com/raw/9a918fdb3da73967a62cdeb95a6fa120.png)
 <table>
 <thead><tr><th><strong>参数</strong></th><th><strong>说明</strong></th><th><strong>参数示例</strong></th></tr></thead>

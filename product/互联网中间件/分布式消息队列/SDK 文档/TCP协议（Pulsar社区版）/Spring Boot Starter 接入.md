@@ -7,7 +7,7 @@
 - [完成资源创建与准备](https://cloud.tencent.com/document/product/1179/44814)
 - [安装1.8或以上版本 JDK](https://www.oracle.com/java/technologies/javase-downloads.html)
 - [安装2.5或以上版本 Maven](http://maven.apache.org/download.cgi#)
-- [下载 Demo](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-pulsar-demo/tdmq-pulsar-springboot-demo.zip)
+- [下载 Demo](https://tdmq-document-1306598660.cos.ap-nanjing.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91demo/pulsar/tcp/tdmq-pulsar-springboot-demo.zip)
 
 ## 操作步骤
 
@@ -43,7 +43,7 @@ pulsar:
   service-url: http://pulsar-xxx.tdmq.ap-gz.public.tencenttdmq.com:8080
   # 授权角色密钥
   token-auth-value: eyJrZXlJZC....
-  # 集群名称
+  # 集群 ID
   tenant: pulsar-xxx
 :::
 </dx-codeblock>
@@ -135,7 +135,7 @@ defaultProducer.send("topic2", ("Hello pulsar client, this is a order message" +
                 subscriptionName = "sub_topic1", // 订阅名称
                 clazz = String.class, // 消息类型，需要与生产者保持一致，绑定后不能修改类型
                 serialization = Serialization.JSON, // 序列化方式
-                subscriptionType = SubscriptionType.Shared, // 订阅模式，默认为共享模式
+                subscriptionType = SubscriptionType.Shared, // 订阅模式，默认为独占模式
                 consumerName = "firstTopicConsumer", // 消费者名称
                 maxRedeliverCount = 3, // 最大重试次数
                 deadLetterTopic = "sub_topic1-DLQ" // 死信topic名称
@@ -157,4 +157,4 @@ public void topicConsume(String msg) {
    消息轨迹如下：
 ![](https://qcloudimg.tencent-cloud.cn/raw/a5794d7dad969cc77b1d0b78d0a93dab.png)
 
->?以上是基于 Springboot Starter 方式对 Pulsar 简单使用的配置。详细使用可参见 [Demo](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-pulsar-demo/tdmq-pulsar-springboot-demo.zip) 或 [Starter 文档](https://github.com/majusko/pulsar-java-spring-boot-starter)。
+>?以上是基于 Springboot Starter 方式对 Pulsar 简单使用的配置。详细使用可参见 [Demo](https://tdmq-document-1306598660.cos.ap-nanjing.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91demo/pulsar/tcp/tdmq-pulsar-springboot-demo.zip) 或 [Starter 文档](https://github.com/majusko/pulsar-java-spring-boot-starter)。

@@ -1,12 +1,18 @@
 本文介绍混合云部署场景和 NAT64 CLB 场景下的 CLB 的四层（仅 TCP）服务如何通过 TOA 获取客户端真实源 IP。
 <dx-steps>
+-[控制台开启 TOA](#loadopentoa)
 -[加载 TOA 模块](#load-toa)
 -[适配后端服务](#adapt-rs)
 -[（可选）监控 TOA 模块状态](#monitor-toa)
 </dx-steps>
 
->?仅四层 TCP 可通过 TOA 获取客户端真实源 IP，UDP 和七层（HTTP/HTTPS）无法获取。
+>?
+>- 仅北京地域支持通过 TOA 获取客户端真实源 IP。
+>- 仅四层 TCP 支持通过 TOA 获取客户端真实源 IP，UDP 和七层（HTTP/HTTPS）不支持获取。
+>- 该功能目前处于内测中，如需使用，请提交 [工单申请](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=163&source=0&data_title=%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%20CLB&level3_id=1068&radio_title=%E9%85%8D%E9%A2%9D/%E7%99%BD%E5%90%8D%E5%8D%95&queue=96&scene_code=41669&step=2)。
 >
+
+
 ## 应用场景
 ### 混合云部署场景
 在 [混合云部署](https://cloud.tencent.com/document/product/214/48181) 中，IDC 的 IP 和云上 VPC 的 IP 可能会有地址重叠，因此需要配置 SNAT IP，进行 SNAT 转换源 IP。对于服务端而言，无法获得真实源 IP，因此需要通过 TOA 进行获取。
@@ -33,26 +39,34 @@
 :::
 </dx-accordion>
 
+## 控制台开启 TOA[](id:loadopentoa)
+1. 已创建 NAT64 版本的 CLB 实例，详情请参见 [创建 IPv6 NAT64 负载均衡实例](https://cloud.tencent.com/document/product/214/30440)。
+2. 登录 [负载均衡控制台](https://console.cloud.tencent.com/clb)，创建 TCP 监听器，详情请参见 [配置 TCP 监听器](https://cloud.tencent.com/document/product/214/36386)。
+3. 在“创建监听器”对话框中，开启 TOA 开关。
+![](https://qcloudimg.tencent-cloud.cn/raw/c92df2a900b94e104d261c5dbb475202.png)
+
+
 
 
 ## [加载 TOA 模块](id:load-toa)
 1. 根据腾讯云上 Linux 的版本，下载对应的 TOA 包解压。
 <dx-accordion>
 ::: centos
-[CentOS 8.0 64](https://clb-toa-1255486055.cos.ap-guangzhou.myqcloud.com/CentOS%208.0.1905.zip)
-[CentOS 7.6 64](https://clb-toa-1255486055.cos.ap-guangzhou.myqcloud.com/CentOS%207.6.1810.zip)
-[CentOS 7.2 64](https://clb-toa-1255486055.cos.ap-guangzhou.myqcloud.com/CentOS%207.2.1511.zip)
+[CentOS 8.0 64](https://clb-toa-1255852779.file.myqcloud.com/CentOS%208.0.1905.zip)
+[CentOS 7.6 64](https://clb-toa-1255852779.file.myqcloud.com/CentOS%207.6.1810.zip)
+[CentOS 7.2 64](https://clb-toa-1255852779.file.myqcloud.com/CentOS%207.2.1511.zip)
+
 :::
 ::: debian
-[Debian 9.0 64](https://clb-toa-1255486055.cos.ap-guangzhou.myqcloud.com/CentOS%208.0.1905.zip)
+[Debian 9.0 64](https://clb-toa-1255852779.file.myqcloud.com/Debian%209.zip)
 :::
 ::: suse linux
-[SUSE 12 64](https://clb-toa-1255486055.cos.ap-guangzhou.myqcloud.com/SUSE%2012.zip)
-[SUSE 11 64](https://clb-toa-1255486055.cos.ap-guangzhou.myqcloud.com/SUSE%2011.zip)
+[SUSE 12 64](https://clb-toa-1255852779.file.myqcloud.com/SUSE%2012.zip)
+[SUSE 11 64](https://clb-toa-1255852779.file.myqcloud.com/SUSE%2011.zip)
 :::
 ::: ubuntu
-[Ubuntu 18.04.4 LTS 64](https://clb-toa-1255486055.cos.ap-guangzhou.myqcloud.com/Ubuntu%2018.04.4%20LTS.zip)
-[Ubuntu 16.04.7 LTS 64](https://clb-toa-1255486055.cos.ap-guangzhou.myqcloud.com/Ubuntu%2016.04.7%20LTS.zip)
+[Ubuntu 18.04.4 LTS 64](https://clb-toa-1255852779.file.myqcloud.com/Ubuntu%2018.04.4%20LTS.zip)
+[Ubuntu 16.04.7 LTS 64](https://clb-toa-1255852779.file.myqcloud.com/Ubuntu%2016.04.7%20LTS.zip)
 :::
 </dx-accordion>
 
@@ -82,11 +96,11 @@ dmesg -T
 >
   - Linux
 ```
-wget "https://clb-toa-1255486055.cos.ap-guangzhou.myqcloud.com/tgw_toa_linux_ver.tar.gz"
+wget "https://clb-toa-1255852779.file.myqcloud.com/tgw_toa_linux_ver.tar.gz"
 ```
   - 腾讯 TLinux
 ```
-wget "https://clb-toa-1255486055.cos.ap-guangzhou.myqcloud.com/tgw_toa_tlinux_ver.tar.gz"
+wget "https://clb-toa-1255852779.file.myqcloud.com/tgw_toa_tlinux_ver.tar.gz"
 ```
 2. 编译 TOA 内核模块的 Linux 环境需先安装 GCC 编译器、Make 工具和内核模块开发包。
 <dx-accordion>

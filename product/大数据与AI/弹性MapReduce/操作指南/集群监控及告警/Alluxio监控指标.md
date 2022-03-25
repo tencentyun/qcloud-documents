@@ -236,6 +236,35 @@
 <td >M </td>
 <td >% </td>
 <td >Metaspace 区内存使用占比 </td>
+</tr><tr>
+<td rowspan=7>JVM 内存 </td>
+<td >MemNonHeapUsedM</td>
+<td >MB </td>
+<td >JVM 当前已经使用的 NonHeapMemory 的数量</td>
+</tr><tr>
+<td >MemNonHeapCommittedM </td>
+<td >MB </td>
+<td >JVM 当前已经提交的 NonHeapMemory 的数量 </td>
+</tr><tr>
+<td >MemHeapUsedM </td>
+<td >MB </td>
+<td >JVM 当前已经使用的 HeapMemory 的数量 </td>
+</tr><tr>
+<td >MemHeapCommittedM </td>
+<td >MB </td>
+<td >JVM 当前已经提交的 HeapMemory 的数量 </td>
+</tr><tr>
+<td >MemHeapMaxM </td>
+<td >MB </td>
+<td >JVM 配置的 HeapMemory 的数量</td>
+</tr><tr>
+<td >MemHeapInitM </td>
+<td >MB</td>
+<td >JVM 初始 HeapMem 的数量 </td>
+</tr><tr>
+<td >MemNonHeapInitM </td>
+<td >MB</td>
+<td >JVM 初始 NonHeapMem 的数量</td>
 </tr></table>
 
 ### ALLUXIO-Worker
@@ -360,5 +389,34 @@
 <td >M </td>
 <td >% </td>
 <td >Metaspace 区内存使用占比 </td>
+</tr><tr>
+<td rowspan=7>JVM 内存 </td>
+<td >MemNonHeapUsedM</td>
+<td >MB </td>
+<td >JVM 当前已经使用的 NonHeapMemory 的数量</td>
+</tr><tr>
+<td >MemNonHeapCommittedM </td>
+<td >MB </td>
+<td >JVM 当前已经提交的 NonHeapMemory 的数量 </td>
+</tr><tr>
+<td >MemHeapUsedM </td>
+<td >MB </td>
+<td >JVM 当前已经使用的 HeapMemory 的数量 </td>
+</tr><tr>
+<td >MemHeapCommittedM </td>
+<td >MB </td>
+<td >JVM 当前已经提交的 HeapMemory 的数量 </td>
+</tr><tr>
+<td >MemHeapMaxM </td>
+<td >MB </td>
+<td >JVM 配置的 HeapMemory 的数量</td>
+</tr><tr>
+<td >MemHeapInitM </td>
+<td >MB</td>
+<td >JVM 初始 HeapMem 的数量 </td>
+</tr><tr>
+<td >MemNonHeapInitM </td>
+<td >MB</td>
+<td >JVM 初始 NonHeapMem 的数量</td>
 </tr>
 </table>

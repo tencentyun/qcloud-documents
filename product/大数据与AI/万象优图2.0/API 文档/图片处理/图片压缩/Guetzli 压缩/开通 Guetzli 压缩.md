@@ -10,7 +10,9 @@ Host: <BucketName-APPID>.pic.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
 ```
->?Authorization: Auth String（详情参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节）。
+>?
+>- Authorization: Auth String（详情参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节）。
+>- Guetzli 压缩目前暂不支持通过 COS 域名使用，请参考示例使用 pic 域名。
 
 #### 请求行
 

@@ -1,5 +1,3 @@
-
-
 ## 适用场景
 
 OCR（optical character recognition）可以将图片中的文字内容智能识别成为可编辑的文本，当前该组件仅支持车牌号码识别，其他场景识别能力正在建设中。
@@ -14,7 +12,7 @@ OCR（optical character recognition）可以将图片中的文字内容智能识
 | 展现方式   | 包含编辑模式、只读模式、文本模式和继承父组件模式。用以页面在不同业务模式下的展示区分。 |                              -                                |
 | 显示条件   | 包含无条件和表达式输入两种情况                               |  -                                                            |
 | 数据属性   | 选择字段                                                     | 将该组件与当前上下文中的数据对象的字段进行绑定，绑定成功之后，组件标题自动进行更新 |
-| 场景       | 目前默认为车牌识别场景                                       |                                                              |
+| 场景       | 目前默认为车牌识别场景                                       |      -                                                        |
 | 校验规则   | 必填                                                         | 选中必填时，配置对应的提示项，当该项未填写数据时，显示错误提示信息![img](https://main.qcloudimg.com/raw/771cbe6f5b752d5ac1e498c0deac87c7.png) |
 | 自定义函数 | 选中自定义函数时，设置校验规则的名称，配置对应的表达式以及输入错误提示信息![img](https://main.qcloudimg.com/raw/44371f95972404f5415fc95a4c59961b.png) |  -                                                            |
 | 最小长度   | 设置绑定字段的最小长度![img](https://main.qcloudimg.com/raw/7f60460ead8b2d451b04b94d008dc54e.png) |  -                                                            |
@@ -36,4 +34,3 @@ OCR 组件是一个支持文本识别的组件，可以将图片中的文字内�
 ![img](https://main.qcloudimg.com/raw/5bc1456e496380030c00a3cbf3ff9be6.png)
 最终运行态组件展示如下图所示，点击上传图片按钮，上传要识别的图片。
 ![img](https://main.qcloudimg.com/raw/7d8d045a40b21b27a5d8154ba2e29450.png)
-

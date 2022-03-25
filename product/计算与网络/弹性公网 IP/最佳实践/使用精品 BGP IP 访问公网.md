@@ -4,6 +4,7 @@
 >- 仅香港地域支持精品 BGP IP，价格详情请参见 [精品 BGP 带宽包](https://cloud.tencent.com/document/product/684/15255#cn2)。
 >- 如需体验，请提交 [内测申请](https://cloud.tencent.com/apply/p/224jt7718s8)。
 
+
 ## 操作步骤
 ### 步骤一：创建精品 BGP 带宽包[](id:step1)
 创建精品 BGP IP 线路类型的 EIP 前，需先创建精品 BGP 带宽包。
@@ -39,7 +40,6 @@
 <tr>
 <td>共享带宽包</td>
 <td>请在下拉列表中选择 <a href="#step1">步骤一</a> 已创建的共享带宽包。
-</td>
 </tr>
 <tr>
 <td>带宽上限</td>
@@ -70,4 +70,3 @@
 >
 <img src="https://main.qcloudimg.com/raw/57d265084f2ee8d52bc1cdce6bf08e60.png" width="60%" />
 4. 在弹出的“确认绑定”对话框中，单击**确定**，即可完成与云资源的绑定。
-

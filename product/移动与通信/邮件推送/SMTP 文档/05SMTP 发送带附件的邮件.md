@@ -162,7 +162,7 @@
 可从上述名称，得知这些类型各自的含义和用处。它们之间的层次关系可归纳为下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/9f1aac60b3a7964ffbdda28b766b24c6.png)
 如果在邮件中要添加附件，必须定义 multipart/mixed 段；如果存在内嵌资源，至少要定义 multipart/related 段；如果纯文本与超文本共存，至少要定义 multipart/alternative 段。
->?附件个数不超过10个，单个附件大小不超过5M，总附件大小不超过10M,具体可参见 [数据结构](https://cloud.tencent.com/document/api/1288/51053#Attachment)。
+>?附件个数不超过10个，单个附件大小不超过4M，总附件大小不超过8M，具体可参见 [数据结构](https://cloud.tencent.com/document/api/1288/51053#Attachment)。
 
 ## 代码示例
 <dx-codeblock>

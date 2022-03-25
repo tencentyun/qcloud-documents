@@ -109,7 +109,7 @@ ENGINE = CollapsingMergeTree(Sign)
 ORDER BY id
 ```
 
- - 若您到任务中不需要 update，可以通过 [MergeTree](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/) 来实现。
+ - 若您的任务中不需要 update，可以通过 [MergeTree](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree/) 来实现。
 ```
 CREATE TABLE test.test ON CLUSTER default_cluster
 (

@@ -40,12 +40,12 @@
 ### 证书安装
 1. 前往 [SSL 证书管理控制台](https://console.cloud.tencent.com/ssl)，下载并解压缩 SSL 证书（名称以 `cloud.tencent.com` 为例）文件压缩包到本地目录。
 解压缩后，获得相关类型的证书文件。其中包含 Apache 文件夹和 CSR 文件：
- - **文件夹名称**：Apache
- - **文件夹内容**：
-    - `1_root_bundle.crt` 证书文件
-    - `2_cloud.tencent.com.crt` 证书文件
-    - `3_cloud.tencent.com.key` 私钥文件
- - **CSR 文件内容**：`cloud.tencent.com.csr` 文件
+   - **文件夹名称**：Apache
+   - **文件夹内容**：
+     - `1_root_bundle.crt` 证书文件
+     - `2_cloud.tencent.com.crt` 证书文件
+     - `3_cloud.tencent.com.key` 私钥文件
+   - **CSR 文件内容**：`cloud.tencent.com.csr` 文件
  <dx-alert infotype="explain" title="">
 CSR 文件是申请证书时由您上传或系统在线生成的，用于提供给 CA 机构。安装时可忽略该文件。
 </dx-alert>
@@ -57,7 +57,7 @@ cd /usr/local/lighthouse/softwares/apache
 ```
 sudo mkdir ssl
 ```
-4. 将已获取到的 `1_root_bundle.crt` 证书文件、`2_cloud.tencent.com.crt` 证书文件以及 `3_cloud.tencent.com.key` 私钥文件从本地目录拷贝到已创建的 `/usr/local/lighthouse/softwares/apache/ssl` 目录下。  
+4. 将已获取到的 `1_root_bundle.crt` 证书文件、`2_cloud.tencent.com.crt` 证书文件以及 `3_cloud.tencent.com.key` 私钥文件从本地目录拷贝到已创建的 `/usr/local/lighthouse/softwares/apache/ssl` 目录下。您可参考 [如何将本地文件拷贝到轻量应用服务器](https://cloud.tencent.com/document/product/1207/53135) 上传证书文件。
 5. 执行以下命令，编辑配置文件 httpd.conf。
 ```
 sudo vim /usr/local/lighthouse/softwares/apache/conf/httpd.conf

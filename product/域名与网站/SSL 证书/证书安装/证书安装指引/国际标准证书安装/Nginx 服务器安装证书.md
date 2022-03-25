@@ -43,13 +43,14 @@
 1. 请在 [SSL 证书管理控制台](https://console.cloud.tencent.com/ssl) 中选择您需要安装的证书并单击**下载**。
 2. 在弹出的 “证书下载” 窗口中，服务器类型选择 **Nginx**，单击**下载**并解压缩 `cloud.tencent.com` 证书文件包到本地目录。
 解压缩后，可获得相关类型的证书文件。其中包含 `cloud.tencent.com_nginx` 文件夹：
- - **文件夹名称**：`cloud.tencent.com_nginx`
- - **文件夹内容**：
+   - **文件夹名称**：`cloud.tencent.com_nginx`
+   - **文件夹内容**：
      - `cloud.tencent.com_bundle.crt` 证书文件
-     - `cloud.tencent.com_bundle.pem` 证书文件
+     - `cloud.tencent.com_bundle.pem` 证书文件（可忽略该文件）
      - `cloud.tencent.com.key` 私钥文件
      - `cloud.tencent.com.csr` CSR 文件
 >?CSR 文件是申请证书时由您上传或系统在线生成的，提供给 CA 机构。安装时可忽略该文件。
+>
 3. 使用 “WinSCP”（即本地与远程计算机间的复制文件工具）登录 Nginx 服务器。
 4. 将已获取到的 `cloud.tencent.com_bundle.crt` 证书文件和 `cloud.tencent.com.key` 私钥文件从本地目录拷贝到 Nginx 服务器的 `/usr/local/nginx/conf` 目录（此处为 Nginx 默认安装目录，请根据实际情况操作）下。
 5. 远程登录 Nginx 服务器。例如，使用 [“PuTTY” 工具](https://cloud.tencent.com/document/product/213/35699#.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4) 登录。
@@ -86,18 +87,18 @@ server {
 ```
 ./sbin/nginx -t
 ```
- - 若存在，请您重新配置或者根据提示修改存在问题。
- - 若不存在，请执行 [步骤7](#step7)。
-[](id:step7)
+   - 若存在，请您重新配置或者根据提示修改存在问题。
+   - 若不存在，请执行 [步骤8](#step8)。
+ [](id:step8)
 8. 重启 Nginx，即可使用 `https://cloud.tencent.com` 进行访问。
 
 ### HTTP 自动跳转 HTTPS 的安全配置（可选）
 如果您需要将 HTTP 请求自动重定向到 HTTPS。您可以通过以下操作设置：
 1. 根据实际需求，选择以下配置方式：
- - 在页面中添加 JS 脚本。
- - 在后端程序中添加重定向。
- - 通过 Web 服务器实现跳转。
- - Nginx 支持 rewrite 功能。若您在编译时没有去掉 pcre，您可在 HTTP 的 server 中增加 `return 301 https://$host$request_uri;`，即可将默认80端口的请求重定向为 HTTPS。修改如下内容：
+   - 在页面中添加 JS 脚本。
+   - 在后端程序中添加重定向。
+   - 通过 Web 服务器实现跳转。
+   - Nginx 支持 rewrite 功能。若您在编译时没有去掉 pcre，您可在 HTTP 的 server 中增加 `return 301 https://$host$request_uri;`，即可将默认80端口的请求重定向为 HTTPS。修改如下内容：
 >?
 >- 未添加注释的配置语句，您按照下述配置即可。
 >- 由于版本问题，配置文件可能存在不同的写法。例如：Nginx 版本为 `nginx/1.15.0` 以上请使用 `listen 443 ssl` 代替 `listen 443` 和 `ssl on`。

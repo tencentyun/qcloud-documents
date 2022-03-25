@@ -6,6 +6,7 @@ Flink connector mongodb 目前支持通过 Flink 将数据批量写入到 mongod
 | :-------- | :--- |
 | 1.11      | 不支持 |
 | 1.13      | 支持 |
+| 1.14      | 不支持 |
 
 ## DDL定义
 ```sql

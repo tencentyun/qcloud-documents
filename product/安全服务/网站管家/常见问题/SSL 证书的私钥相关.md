@@ -62,8 +62,8 @@ Web 应用防火墙（WAF）与云防火墙的区别如下：
 </tr>
 <tr>
 <th>核心防护能力</th>
-<td><ul><li>Web 漏洞和未知威胁防护，自助漏报和误报处理。 </li><li>CC 攻击防护。 </li><li>BOT 行为管理/爬虫防护。</li><li>API 安全和业务安全防护。 </li><li>防泄漏/防篡改。</li></td>
-<td><ul><li>Web 漏洞和未知威胁防护，自助漏报和误报处理。 </li><li>CC 攻击防护 。 </li><li>BOT 行为管理。 </li><li>API 安全和业务安全防护。 </li><li>网站 IPv6 防护。 </li></td>
+<td><ul><li>Web 漏洞和未知威胁防护，自助漏报和误报处理。 </li><li>CC 攻击防护。 </li><li>API 安全和业务安全防护。 </li><li>防泄漏/防篡改。</li></td>
+<td><ul><li>Web 漏洞和未知威胁防护，自助漏报和误报处理。 </li><li>CC 攻击防护 。  </li><li>API 安全和业务安全防护。 </li><li>网站 IPv6 防护。 </li></td>
 <td><ul><li>IPS 的虚拟补丁能力，无需 CVM 安装实体补丁，无需重启。含 OWASP TOP 10 Web 基础漏洞防护。</li><li>自动发现失陷主机，对 CVM 的恶意外联行为进行自动阻断。</li><li>支持基于域名的主动外联控制。</li></td>
 </tr>
 <tr>

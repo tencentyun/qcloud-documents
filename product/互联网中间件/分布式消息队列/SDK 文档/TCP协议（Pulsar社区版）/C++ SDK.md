@@ -6,7 +6,7 @@
 
 - [完成资源创建与准备](https://cloud.tencent.com/document/product/1179/44814)
 - [安装 GCC](https://gcc.gnu.org/install/)
-- [下载 Demo](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-rocketmq-demo/tdmq-rocketmq-cpp-sdk-demo.zip)
+- [下载 Demo](https://tdmq-document-1306598660.cos.ap-nanjing.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91demo/pulsar/tcp/tdmq-pulsar-cpp-sdk-demo.zip)
 
 ## 操作步骤
 
@@ -52,21 +52,22 @@
 3. 创建生产者。
 <dx-codeblock>
 :::  c++
-   // 生产者配置
-   ProducerConfiguration producerConf;
-   producerConf.setBlockIfQueueFull(true);
-   producerConf.setSendTimeout(5000);
-   // 生产者
-   Producer producer;
-   // 创建生产者
-   Result result = client.createProducer(
-       // topic完整路径，格式为persistent://集群（租户）ID/命名空间/Topic名称
-       "persistent://pulsar-xxx/sdk_cpp/topic1",
-       producer);
-   if (result != ResultOk) {
-       std::cout << "Error creating producer: " << result << std::endl;
-       return -1;
-   }
+// 生产者配置
+ProducerConfiguration producerConf;
+producerConf.setBlockIfQueueFull(true);
+producerConf.setSendTimeout(5000);
+// 生产者
+Producer producer;
+// 创建生产者
+Result result = client.createProducer(
+    // topic完整路径，格式为persistent://集群（租户）ID/命名空间/Topic名称
+    "persistent://pulsar-xxx/sdk_cpp/topic1",
+    producerConf,
+    producer);
+if (result != ResultOk) {
+    std::cout << "Error creating producer: " << result << std::endl;
+    return -1;
+}
 :::
 </dx-codeblock>
 <dx-alert infotype="explain" title="">
@@ -138,4 +139,4 @@ Topic 名称需要填入完整路径，即 `persistent://clusterid/namespace/Top
 7. 登录 [TDMQ Pulsar 版控制台](https://console.cloud.tencent.com/tdmq)，依次点击 **Topic 管理** > **Topic 名称**进入消费管理页面，点开订阅名下方右三角号，可查看生产消费记录。
    ![img](https://main.qcloudimg.com/raw/3bee532dab55b7cab1167416aac95f4d.png)
 
->?上述是对消息的发布和订阅方式的简单介绍。更多操作可参见 [Demo](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-rocketmq-demo/tdmq-rocketmq-cpp-sdk-demo.zip) 或 [Pulsar 官方文档](https://pulsar.apache.org/docs/en/client-libraries-cpp/)。
+>?上述是对消息的发布和订阅方式的简单介绍。更多操作可参见 [Demo](https://tdmq-document-1306598660.cos.ap-nanjing.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91demo/pulsar/tcp/tdmq-pulsar-cpp-sdk-demo.zip) 或 [Pulsar 官方文档](https://pulsar.apache.org/docs/en/client-libraries-cpp/)。

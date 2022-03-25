@@ -42,8 +42,10 @@ WebSocket 客户端通过使用 API 网关触发器提供的 WS 连接，发起 
 
 使用 WebSocket 时有如下限制：
 
-- 空闲超时时间设置：1 - 600秒
-- 单次数据包最大体积：1MB
+- 空闲超时时间设置：10~7200 秒，函数配置的执行超时时间需要大于等于空闲超时时间。
+- 单次请求或返回包最大体积：256KB，可 [联系我们](https://cloud.tencent.com/online-service?from=connect-us) 提升配额限制。
+- 单连接请求大小限制：128KB/s，可 [联系我们](https://cloud.tencent.com/online-service?from=connect-us) 提升配额限制。
+- 单连接请求 QPS 限制：10，可 [联系我们](https://cloud.tencent.com/online-service?from=connect-us) 提升配额限制。
 
 
 ## 操作步骤

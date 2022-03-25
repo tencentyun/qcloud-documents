@@ -155,6 +155,77 @@ Error: Electron failed to install correctly, please delete node_modules/electron
 	  });
 ```
 
+[](id:run_q8)
+### Mac 下，打包安装后，运行时白屏、奔溃问题
+在 Mac OS 10.4 及以后版本，运行安装包时，如果获取不到 摄像头、麦克风、屏幕录制 权限，程序会因为没有这些硬件的访问权限，在进入 TRTC 房间后直接白屏或者奔溃。解决方法如下：
+1. 添加 entitlements.mac.plist 文件，文件内容如下，相关配置的具体含义，请参见 [苹果开发者网站](https://developer.apple.com/documentation/bundleresources/entitlements)。
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>com.apple.security.cs.allow-unsigned-executable-memory</key>
+    <true></true>
+    <key>com.apple.security.cs.allow-jit</key>
+    <true></true>
+    <key>com.apple.security.cs.allow-dyld-environment-variables</key>
+    <true></true>
+    <key>com.apple.security.device.audio-input</key>
+    <true></true>
+    <key>com.apple.security.device.camera</key>
+    <true></true>
+  </dict>
+</plist>
+```
+2. 使用 electron-builder 打包时，需要将 entitlements.mac.plist 文件路径配置到 electron-builder 打包配置中。参考代码如下，注意 `"entitlements"` 和 `"entitlementsInherit"` 两个配置项，`"hardenedRuntime"` 需要配置为 true，配置项含义请参见 [electron-builder官网](https://www.electron.build/configuration/mac)。
+```json
+{
+  "build": {
+    "mac": {
+      "extraFiles": [
+        {
+          "from": "node_modules/trtc-electron-sdk/build/Release/trtc_electron_sdk.node",
+          "to": "./Resources"
+        }
+      ],
+      "type": "distribution",
+      "hardenedRuntime": true,
+      "entitlements": "assets/entitlements.mac.plist",
+      "entitlementsInherit": "assets/entitlements.mac.plist",
+      "gatekeeperAssess": false,
+      "target": [
+        "dmg"
+      ]
+    },
+  }
+}
+```
+
+3. Mac OS 12.1 下，仅使用以上配置，已不足以申请 麦克风、摄像头权限，需要借助 Electron API 的 [systemPreferences.askForMediaAccess()](https://www.electronjs.org/docs/latest/api/system-preferences) 接口，在主进程中，主动申请一次摄像头、麦克风权限。参考代码如下。systemPreferences.getMediaAccessStatus() 接口可以检测 麦克风、摄像头、屏幕录制权限，但 systemPreferences.askForMediaAccess() 接口只能申请 摄像头 和 麦克风权限。
+```JavaScript
+async checkAndApplyDeviceAccessPrivilege() {
+    const cameraPrivilege = systemPreferences.getMediaAccessStatus('camera');
+    console.log(
+      `checkAndApplyDeviceAccessPrivilege before apply cameraPrivilege: ${cameraPrivilege}`
+    );
+    if (cameraPrivilege !== 'granted') {
+      await systemPreferences.askForMediaAccess('camera');
+    }
+
+    const micPrivilege = systemPreferences.getMediaAccessStatus('microphone');
+    console.log(
+      `checkAndApplyDeviceAccessPrivilege before apply micPrivilege: ${micPrivilege}`
+    );
+    if (micPrivilege !== 'granted') {
+      await systemPreferences.askForMediaAccess('microphone');
+    }
+
+    const screenPrivilege = systemPreferences.getMediaAccessStatus('screen');
+    console.log(
+      `checkAndApplyDeviceAccessPrivilege before apply screenPrivilege: ${screenPrivilege}`
+    );
+  }
+```
 
 [](id:pack)
 ## 打包相关

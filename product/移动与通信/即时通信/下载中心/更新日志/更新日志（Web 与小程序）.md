@@ -1,3 +1,36 @@
+### 2.17.0 @2022.3.2
+
+**新增**
+
+- 支持 [社群](https://cloud.tencent.com/document/product/269/1502#.E7.BE.A4.E7.BB.84.E7.B3.BB.E7.BB.9F.E7.AE.80.E4.BB.8B)。
+- 最近联系人 `Conversation.lastMessage` 支持群提示消息。
+- `Message.payload.memberList` 支持获取加入群或者退出群的群成员的昵称、头像等信息。
+- 发送图片消息支持 webp 格式的图片。
+- 发视频消息支持视频封面 [snapshotUrl](https://web.sdk.qcloud.com/im/doc/zh-cn/Message.html#.VideoPayload)。
+- 优化消息传输效率，节流 [CONVERSATION_LIST_UPDATED](https://web.sdk.qcloud.com/im/doc/zh-cn/module-EVENT.html#.CONVERSATION_LIST_UPDATED) 等事件。
+
+**修复**
+
+- 发送了带自定义数据（cloudCustomData）的消息后，重新登录后 cloudCustomData 为空的问题。
+- [login](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#login) 失败后再次登录提示“请勿重复登录”的问题。
+- [getGroupProfile](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getGroupProfile) 后 `Conversation.groupProfile` 与最新群资料不一致的问题。
+
+### 2.16.3 @2022.2.11
+
+**修复**
+
+Windows 微信访问小程序和 uni-app 打包 Android app（部分设备）后遇到的无法登录的问题。
+
+### 2.16.2 @2022.2.10
+
+**新增**
+
+- 支持 uni-app 打包 native app 后发送文件消息。
+- 支持印度国际站。
+
+**修复**
+
+- 部分 emoji 表情渲染问题。
 
 ### 2.16.1 @2022.1.14
 

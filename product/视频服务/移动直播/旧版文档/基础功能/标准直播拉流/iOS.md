@@ -274,7 +274,6 @@ bizid 的获取需要进入 [域名管理](https://console.cloud.tencent.com/liv
 | PLAY_EVT_RCV_FIRST_I_FRAME|  2003    | 收到首帧数据，越快收到此消息说明链路质量越好  |
 | PLAY_EVT_PLAY_BEGIN    |  2004|  视频播放开始，如果您自己做 loading，会需要它 | 
 | PLAY_EVT_PLAY_PROGRESS    |  2005|  播放进度，如果您在直播中收到此消息，可以忽略 |
-| PLAY_EVT_PLAY_END    |  2006|  播放结束，HTTP-FLV 的直播流是不抛这个事件的 |
 | PLAY_EVT_PLAY_LOADING |  2007|  视频播放进入缓冲状态，缓冲结束之后会有 PLAY_BEGIN 事件|  
 | PLAY_EVT_START_VIDEO_DECODER  |  2008| 视频解码器开始启动（2.0 版本以后新增） |  
 | PLAY_EVT_CHANGE_RESOLUTION    |  2009|  视频分辨率发生变化（分辨率在 EVT_PARAM 参数中）|  
@@ -292,12 +291,10 @@ bizid 的获取需要进入 [域名管理](https://console.cloud.tencent.com/liv
 
 | 事件ID                 |    数值  |  含义说明                    |   
 | :-------------------  |:-------- |  :------------------------ | 
-|PLAY_EVT_PLAY_END      |  2006|  视频播放结束      | 
 |PLAY_ERR_NET_DISCONNECT |  -2301  |  网络断连，且经多次重连亦不能恢复，更多重试请自行重启播放 | 
 
  **如何判断直播已结束？**
 RTMP 协议中规定了直播结束事件，但是 HTTP-FLV 则没有，如果您在播放 FLV 的地址时直播结束了，可预期的 SDK 的表现是：SDK 会很快发现数据流拉取失败（WARNING_RECONNECT），然后开始重试，直至三次重试失败后抛出 `PLAY_ERR_NET_DISCONNECT` 事件。
-所以 2006 和  -2301 都要监听，用来作为直播结束的判定事件。
 
 
 ### 警告事件
