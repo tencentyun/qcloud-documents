@@ -7,7 +7,6 @@
 - 已创建 PolarisMesh 服务治理中心，请参见 [创建 PolarisMesh 治理中心](https://cloud.tencent.com/document/product/1364/65866)。
 - 下载 Github 的 [demo 源码](https://github.com/polarismesh/examples/tree/main/cloudwego-kitex) 到本地并解压。
 - 本地编译构建打包机器环境已安装了 golang 环境，并且能够访问 Github。
-- 当前仅支持 dubbo-go 的接口注册模型。
 - 根据您自身的业务，已准备好业务部署的资源，虚拟机部署和容器化部署选择其中一种方式即可。
   - **虚拟机部署**已创建 CVM 虚拟机，请参见 [创建 CVM 虚拟机](https://cloud.tencent.com/document/product/213/2936)。
   - **容器化部署**已创建 TKE 容器集群，请参见 [创建 TKE 集群](https://cloud.tencent.com/document/product/457/32189)。
