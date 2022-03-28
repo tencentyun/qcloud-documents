@@ -1,25 +1,32 @@
-
 ## 概述
-本文将给您介绍如何使用腾讯云 API 批量申请证书并下载证书。
+本文将指导您介绍如何使用腾讯云 API 批量申请证书并下载证书。
 
 ## 前提条件
-使用本代码请先进行子用户创建并授权云 API 与 SSL 证书全部权限。
+- 子用户创建并授权云 API 与 SSL 证书全部权限。
+- 已安装 Python 版本。
 
 >!
->- 为了保障您的账户以及云上资产的安全 请谨慎保管 SecretId 与 SecretKey 并定期更新，删除无用权限。
->- 前往创建子用户：https://console.cloud.tencent.com/cam
+>- 为了保障您的账户以及云上资产的安全，请谨慎保管 SecretId 与 SecretKey 并定期更新。
+>- 创建子账号请参考 [创建子账号并授权](https://cloud.tencent.com/document/product/598/54458)。
 
 ## 操作步骤
-1. SDK 下载，请确保 Python 版本为3.6+，查看 Python 版本如下：
+1. 打开命令提示符，查看 Python 版本如下：
+>?请确保 Python 版本为3.6+。
+>
 ```
  python3 -V
 ```
-2. 升级一下 pip，安装腾讯云 Python SDK。
+2. 升级 pip，并通过 pip 安装腾讯云 Python SDK。
 ```
 python -m pip install --upgrade pip
 pip install -i https://mirrors.tencent.com/pypi/simple/ --upgrade tencentcloud-sdk-python
 ```
-3. 执行代码如下。
+3. 前往 [Github 仓库](https://github.com/tencentcloud/tencentcloud-sdk-python) 或者 [Gitee 仓库](https://gitee.com/tencentcloud/tencentcloud-sdk-python) 下载最新代码，并进行解压。
+```
+cd tencentcloud-sdk-python
+python setup.py install
+```
+3. 进入 tencentcloud-sdk-python/tencentcloud/ssl/__init__.py 目录下，添加以下代码并执行。
 ```
 import json,base64
 from time import time,sleep
