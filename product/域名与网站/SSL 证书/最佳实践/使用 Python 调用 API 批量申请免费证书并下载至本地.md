@@ -14,7 +14,7 @@
 >?请确保 Python 版本为3.6+。
 >
 ```
- python3 -V
+Python3 -V
 ```
 2. 升级 pip，并通过 pip 安装腾讯云 Python SDK。
 ```
