@@ -109,30 +109,26 @@ Demo 运行界面如图所示：
 :::
 ::: Demo 3：quick-demo-vue2-js      
 1. 在下载的源码中找到并进入到 `TRTC_Web/quick-demo-vue2-js/` 目录下。
-2. 安装依赖
+2. 本地运行 Demo
 ```shell
-npm install
+npm start
 ```
-3. 本地运行 Demo
-```shell
-npm run serve
-```
-默认浏览器会自动打开 [http://localhost:8080/](http://localhost:8080/) 地址。
+默认浏览器会自动打开` [http://localhost:8080/](http://localhost:8080/)` 地址。
 >!
-> - 端口号以 npm run serve 运行之后的实际端口号为准，默认为 8080。
+> - 端口号以本地运行 Demo 之后的实际端口号为准，默认为 8080。
 > - TRTC Web SDK 支持的浏览器请参考：[TRTC Web SDK 支持的平台](https://cloud.tencent.com/document/product/647/17249#.E6.94.AF.E6.8C.81.E7.9A.84.E5.B9.B3.E5.8F.B0)。
 > - TRTC Web SDK 域名协议限制请参考：[TRTC Web SDK 域名协议限制](https://cloud.tencent.com/document/product/647/17249#url-.E5.9F.9F.E5.90.8D.E5.8D.8F.E8.AE.AE.E9.99.90.E5.88.B6)。
 > - TRTC Web SDK 域名及端口白名单配置请参考：[TRTC Web SDK 域名及端口白名单配置](https://cloud.tencent.com/document/product/647/34399#webrtc-.E9.9C.80.E8.A6.81.E9.85.8D.E7.BD.AE.E5.93.AA.E4.BA.9B.E7.AB.AF.E5.8F.A3.E6.88.96.E5.9F.9F.E5.90.8D.E4.B8.BA.E7.99.BD.E5.90.8D.E5.8D.95.EF.BC.9F)。
-4. 在浏览器打开的页面中填写 <a href="#step3">步骤三</a> 获取的 SDKAppId 和 SecretKey。
+3. 在浏览器打开的页面中填写 <a href="#step3">步骤三</a> 获取的 SDKAppId 和 SecretKey。
 <img src="https://qcloudimg.tencent-cloud.cn/raw/c467bb6c522c80061d7663bb2a5ba4c8.png" width="800px">
-5. 功能体验：
+4. 功能体验：
 	- 单击**进入房间**按钮进入房间
 	- 单击**发布流**按钮发布本地流
 	- 单击**取消发布流**按钮取消发布本地流
 	- 单击**离开房间**按钮离开房间
 	- 单击**开始共享屏幕**按钮布屏幕分享流
 	- 单击**停止共享屏幕**按钮取消发布屏幕分享流
-6. 加入房间后您可以通过分享邀请链接与被邀请人一起体验 TRTC Web 语音及视频互通功能。
+5. 加入房间后您可以通过分享邀请链接与被邀请人一起体验 TRTC Web 语音及视频互通功能。
 :::
 </dx-tabs>
 

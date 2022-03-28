@@ -1,5 +1,6 @@
 ## 介绍
 tdsql-sbuscribe connector 是针对腾讯云 TDSQL-MySQL 数据订阅的专有 connector，通过 [数据订阅](https://cloud.tencent.com/document/product/571/68060) 功能接入 TDSQL-MySQL 的增量 binlog 数据，使用前请确保数据订阅任务已经配置成功。
+目前 TDSQL 为 Beta 版本，使用 TDSQL 作为数据上游，您需要下载 [程序包](https://oceanus-public-1257058918.cos.ap-guangzhou.myqcloud.com/flink-connector-tdsql-kafka-1.13.2.jar)，在作业参数中引用该程序包。
 
 ## 版本说明
 
