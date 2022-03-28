@@ -107,7 +107,7 @@ systemctl restart network.service
 ```
 ip address 
 ```
- ![](https://main.qcloudimg.com/raw/40664f8d1eeae7d3ce3ae94a8e602310.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/31f491f2b18f19fc83b285f3135df4db.png)
 
 
 

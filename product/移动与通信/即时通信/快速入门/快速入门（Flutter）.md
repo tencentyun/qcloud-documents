@@ -28,9 +28,9 @@
 
 [](id:step2)
 ### 步骤2：下载 SDK 与源码
-1. 根据您的实际业务需求，下载 SDK 及配套的 [Demo 源码](https://github.com/tencentyun/TIMSDK/tree/master/Flutter/Demo/im_discuss)。
-2. 下载完成进入目录：TIMSDK/Flutter/Demo/im_discuss
-![](https://qcloudimg.tencent-cloud.cn/raw/8b865854e14e8848b4e8d31d8daf55ac.png)
+1. 根据您的实际业务需求，下载 SDK 及配套的 [Demo 源码](https://github.com/tencentyun/TIMSDK/tree/master/Flutter/Demo)。
+2. 下载完成进入目录：TIMSDK/Flutter/Demo/
+![](https://qcloudimg.tencent-cloud.cn/raw/4075bf990d2213bbdfef1fc6da6e4e00.png)
 3. Flutter pub get 安装依赖，启动 Demo 项目，在命令行中输入：
 <dx-codeblock>
 :::  plaintext

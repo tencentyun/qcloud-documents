@@ -60,6 +60,8 @@ INSERT 0 1
 ```
 
 ### 步骤2：创建 postgres_fdw 插件
+>?若创建插件时，提示插件不存在或权限不足，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 处理。
+>
 ```
 #创建
 postgres=> \c testdb1

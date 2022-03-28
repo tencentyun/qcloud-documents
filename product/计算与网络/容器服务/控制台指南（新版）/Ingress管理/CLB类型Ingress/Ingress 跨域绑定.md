@@ -7,7 +7,7 @@
 ## 应用场景
 
 - 需要支持 CLB 的跨地域接入或跨 VPC 接入，即 CLB 所在的 VPC 和当前集群所在的 VPC 不在同一 VPC 内。
-- 需要指定 CLB 的可用区已实现资源的统一管理。
+- 需要指定 CLB 的可用区以实现资源的统一管理。
 
 >?
 > 1. 如需使用非本集群所在 VPC 的 CLB，需先通过 [云联网](https://cloud.tencent.com/document/product/877/18752) 打通当前集群 VPC 和 CLB 所在的 VPC。

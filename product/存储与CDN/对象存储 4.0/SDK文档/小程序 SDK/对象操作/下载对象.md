@@ -65,7 +65,7 @@ cos.getObjectUrl({
     Key: '1.jpg',  /* 存储在桶里的对象键（例如1.jpg，a/b/test.txt），必须字段 */
     Sign: true
 }, function (err, data) {
-    if (!err) return console.log(err);
+    if (err) return console.log(err);
     wx.downloadFile({
         url: data.Url, // 需要加 url 的域名作为下载白名单
         success (res) {

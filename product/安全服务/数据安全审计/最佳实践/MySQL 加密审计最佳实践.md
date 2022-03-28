@@ -8,9 +8,7 @@
 
 本功能限制如下：
 - 仅支持自建的 MySQL、MariaDB，不支持云数据库，也不支持其他类型的数据库。
-- 支持的协议版本及加密算法如下，其他协议及加密算法暂不支持。下方提供对应检测方式。
-  - 支持的通信协议版本：TLS1.1、TLS1.2。
-  - 支持的加密算法：TLS_RSA_WITH_AES_128_CBC_SHA 、TLS_RSA_WITH_AES_256_CBC_SHA 、TLS_RSA_WITH_AES_128_CBC_SHA256、 TLS_RSA_WITH_AES_256_CBC_SHA256。
+- 支持的加密算法：TLS_RSA_WITH_AES_128_CBC_SHA 、TLS_RSA_WITH_AES_256_CBC_SHA 、TLS_RSA_WITH_AES_128_CBC_SHA256、 TLS_RSA_WITH_AES_256_CBC_SHA256。
 
 ## 检测方式[](id:JCFS)
 ### 步骤1：检测是否开启加密
@@ -36,22 +34,8 @@ dba:(none)> show global variables like '%ssl%';
 +---------------+-----------------+
 ```
 
-### 步骤2：检测通信协议版本
-1. 在数据库中，输入如下命令，检测通信协议版本。
-```
-show variables like "tls_version";
-```
-2. 若 tls_version 的值仅包含 TLSv1.1和 TLSv1.2，则表示是支持的，若包含其他值，如下所示则表示不支持，需要进行修改。
-```
-dba:(none)> show global variables like 'tls_version';
-+---------------+----------------------+
-| Variable_name | Value                |
-+---------------+----------------------+
-| tls_version   | TLSv1,TLSv1.1,TLSv1.2|   #包含TLSv1，是不支持的
-+---------------+----------------------+
-```
 
-### 步骤3：检测加密算法
+### 步骤2：检测加密算法
 1. 在数据库中，输入如下命令，检测加密算法。
 ```
 show global variables like 'ssl_cipher';
@@ -70,7 +54,7 @@ dba:(none)> show global variables like 'ssl_cipher';
 通过修改数据库的相关配置，使数据安全审计可以审计到数据库语句。可根据实际情况，任意选择如下一种修改方式。
 
 ### 关闭 SSL 加密
-MySQL 的 SSL 虽然提高了安全性，但也牺牲了部分性能。如果用户单位没有必须开启 SSL 加密的规定，可以考虑直接关闭 SSL 加密，一劳永逸。
+MySQL 的 SSL 虽然提高了安全性，但也牺牲了部分性能。如果用户单位没有必须开启 SSL 加密的规定，可以考虑直接关闭 SSL 加密。
 >!该方法需要重启数据库。
 
 1. 修改配置文件 my.cnf，在[mysqld]下增加如下内容：
@@ -101,15 +85,13 @@ dba:(none)> show global variables like '%ssl%';
 +---------------+-----------------+
 ```
 
-### 设置通信协议和加密算法
-在配置文件中，设置通信协议和加密算法，该方法可以对数据库的所有连接生效。
+### 设置加密算法
+在配置文件中，设置加密算法，该方法可以对数据库的所有连接生效。
 >!该方法需要重启数据库。
 
 1. 修改配置文件 my.cnf，在[mysqld]下增加如下内容：
 ```
 [mysqld]
-# 设置通信协议
-tls_version=TLSv1.2
 # 设置加密算法
 ssl_cipher="AES128-SHA:AES256-SHA:AES128-SHA256:AES256-SHA256"
 ```
@@ -118,14 +100,6 @@ ssl_cipher="AES128-SHA:AES256-SHA:AES128-SHA256:AES256-SHA256"
 service mysqld restart
 ```
 3. 使用上述 [检测方式](#JCFS)，验证是否修改成功。
-```
-dba:(none)> show global variables like 'tls_version';
-+---------------+----------------------+
-| Variable_name | Value                |
-+---------------+----------------------+
-| tls_version   | TLSv1.2|    #只包含TLSv1.2
-+---------------+----------------------+
-```
 ```
 dba:(none)> show global variables like 'ssl_cipher';
 +---------------+--------------------------------------------------+
@@ -139,7 +113,7 @@ dba:(none)> show global variables like 'ssl_cipher';
 ### 在客户端连接时指定参数
 若不想修改数据库配置，可以在客户端建立连接时，指定参数，如：
 ```
-mysql -u root  -pxxxx -h10.3.1.17 --ssl-cipher=AES128-SHA --tls-version=TLSv1.2
+mysql -u root  -pxxxx -h10.3.1.17 --ssl-cipher=AES128-SHA 
 ```
 >?该方法只针对本连接，不会影响其他连接。
 
