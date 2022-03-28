@@ -12,7 +12,7 @@
 ## 操作步骤
 1. 打开命令提示符，查看 Python 版本如下：
 ```
-Python3 -V
+python3 -V
 ```
 2. 升级 pip，并通过 pip 安装腾讯云 Python SDK。
 ```
