@@ -26,6 +26,14 @@ VPN 网关是 VPN 连接服务的功能实例，因此在使用 VPN 连接实现
 <td>展示 VPN 网关所在地域。</td>
 </tr>
 <tr>
+<td>可用区</td>
+<td>选择当前网关所在的可用区。</td>
+</tr>
+<tr>
+<td>协议类型</td>
+<td>支持 IPSec 和 SSL 两种协议类型。</td>
+</tr>
+<tr>
 <td>关联网络</td>
 <td>此处表示您将创建云联网类型 VPN 还是私有网络类型的 VPN，通常我们也称为 CCN 型 VPN 网关、VPC 型 VPN 网关。<ul><li>如果您需要通过 VPN 连接实现与多 VPC 网络，或其他专线网络的互通，您可以勾选<b>云联网</b>。
 <dx-alert infotype="notice" title="">
