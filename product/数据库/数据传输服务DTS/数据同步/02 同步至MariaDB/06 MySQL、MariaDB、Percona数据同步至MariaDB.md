@@ -1,11 +1,14 @@
 本文为您介绍使用数据传输服务 DTS 从 MySQL、MariaDB、Percona 数据库同步数据至 MariaDB 数据库的过程。
 
-如下场景的数据同步与 MySQL、MariaDB、Percona 数据库同步数据至 MariaDB 的操作要求一致，可参考本页面相关内容。
+源数据库支持的部署类型如下：
 
-- MariaDB 数据同步到 MySQL
-- Percona 数据同步到 MySQL
+- 自建 MySQL、第三方云厂商 MySQL、腾讯云数据库 MySQL。
+- 自建 MariaDB、腾讯云数据库 MariaDB。
+- 自建 Percona。
 
-> ?当前如果用户需要使用如上场景的同步链路功能，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行申请。
+因为 MySQL、MariaDB、Percona 同步至腾讯云数据库 MariaDB，三种场景的同步要求和操作步骤基本一致，本章节仅以 MariaDB 到 MariaDB 的数据同步为例进行介绍，其他场景请参考相关内容。
+
+> ?当前如果用户需要使用 MariaDB/Percona 同步到 MySQL 的链路功能，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行申请。
 
 ## 注意事项
 - DTS 在执行全量数据同步时，会占用一定源端实例资源，可能会导致源实例负载上升，增加数据库自身压力。如果您数据库配置过低，建议您在业务低峰期进行。
@@ -31,6 +34,7 @@ FLUSH PRIVILEGES;
 - 只支持同步 InnoDB、MyISAM、TokuDB 三种数据库引擎，如果存在这三种以外的数据引擎表则默认跳过不进行同步。
 - 相互关联的数据对象需要一起同步，否则会导致同步失败。常见的关联关系：视图引用表、视图引用视图、存储过程/函数/触发器引用视图/表、主外键关联表等。
 - 增量同步过程中，若源库存在分布式事务或者产生了类型为 `STATEMENT` 格式的 Binlog 语句，则会导致同步失败。
+- 源数据库为阿里云 MySQL，则阿里云 MySQL 5.6 版本待同步表不能存在无主键表，MySQL 5.7 及以后版本不限制。源数据库为 AWS MySQL，则 AWS MySQL 待同步表不能存在无主键表。
 - 当前不支持 geometry 相关的数据类型。
 
 ## 操作限制
