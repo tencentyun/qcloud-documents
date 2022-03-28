@@ -5,7 +5,7 @@
 >  + ping 命令： 用于测试源主机与目标主机网络是否连通，使用方式：ping  **对端 IP**。
 >   + telnet 命令： 用于测试指定目标主机的端口是否可达，使用方式：telnet **对端 IP地址** **对端端口号**。
 >+ 腾讯云数据库、CFS/ES 集群等默认禁 ping，建议使用 telnet 检测连通性。
->+ 内网负载均衡的 [VIP](https://cloud.tencent.com/document/product/1121/36888#93) 仅支持来自本 VPC 的客户端 ping，因此使用云联网打通的网络，不能通过网络 ping 对端网络的内网负载均衡的 VIP 来测试网络连通性，可以使用 ping 对端 CVM，或 telnet CLB 服务端口。
+>+ 内网负载均衡的 VIP（virtual IP）仅支持来自本 VPC 的客户端 ping，因此使用云联网打通的网络，不能通过网络 ping 对端网络的内网负载均衡的 VIP 来测试网络连通性，可以使用 ping 对端 CVM，或 telnet CLB 服务端口。
 
 
 ## 可能原因
@@ -57,6 +57,8 @@
 	 
 
 ### 步骤五：请检查通信两端云服务器是否开启了防火墙[](id:step5)
-请自行确认云服务器是否开启防火墙，如开启请确保防火墙不会对通信流量进行拦截，否则需要放通防火墙的限制，详情请参见 [如何清除防火墙](https://cloud.tencent.com/document/product/213/17403#.E5.A6.82.E4.BD.95.E6.B8.85.E9.99.A4.E9.98.B2.E7.81.AB.E5.A2.99.EF.BC.9F)。
->? 如已完成上述所有问题排查但问题依然存在，请做好问题记录，并联系 [售后在线支持](https://cloud.tencent.com/online-service)。
+请自行确认云服务器是否开启防火墙，如开启请确保防火墙不会对通信流量进行拦截，否则需要放通防火墙的限制。
+>?
+>- 清除防火墙的操作方法请参见 [如何清除防火墙](https://cloud.tencent.com/document/product/213/17403#.E5.A6.82.E4.BD.95.E6.B8.85.E9.99.A4.E9.98.B2.E7.81.AB.E5.A2.99.EF.BC.9F)。
+>- 如已完成上述所有问题排查但问题依然存在，请做好问题记录，并联系 [售后在线支持](https://cloud.tencent.com/online-service)。
 >

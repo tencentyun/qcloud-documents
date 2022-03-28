@@ -29,7 +29,7 @@ CREATE TABLE `rmq_sink_json_table` (
     'host' = 'xxxx',    											-- rabbitmq host
     'port' = 'xxxx',			 		      					-- rabbitmq 端口
     'vhost' = '/',				   									-- 虚拟主机
-    'user' = 'xxxx',         		 							-- 用户名
+    'username' = 'xxxx',         		 							-- 用户名
     'password' = 'xxxx',     									-- 用户密码
     'exchange' = 'exchange',             		 	-- 交换机名
   	'routing-key' = 'Key',										-- 绑定 Key
@@ -50,7 +50,7 @@ CREATE TABLE `rmq_sink_csv_table` (
     'host' = 'xxxx',    											-- rabbitmq host
     'port' = 'xxxx',			 		      					-- rabbitmq 端口
     'vhost' = '/',				   									-- 虚拟主机
-    'user' = 'xxxx',         		 							-- 用户名
+    'username' = 'xxxx',         		 							-- 用户名
     'password' = 'xxxx',     									-- 用户密码
     'exchange' = 'exchange',             		 	-- 交换机名
   	'routing-key' = 'Key',										-- 绑定 Key

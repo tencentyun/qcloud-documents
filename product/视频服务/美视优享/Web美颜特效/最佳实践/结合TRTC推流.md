@@ -19,12 +19,12 @@
 在 TRTC 的 Demo 项目里，查看 TRTC client 的初始化过程，如下：
 ```js
 this.localStream_ = TRTC.createStream({
-  audio: true,
-  video: true,
-  userId: this.userId_,
-  cameraId: getCameraId(),
-  microphoneId: getMicrophoneId(),
-  mirror: true
+	audio: true,
+	video: true,
+	userId: this.userId_,
+	cameraId: getCameraId(),
+	microphoneId: getMicrophoneId(),
+	mirror: true
 });
 ```
 调整初始化代码前，我们需要先 [初始化 Web 美颜特效 SDK](#step3)。
@@ -96,26 +96,26 @@ ar.on('ready', (e) => {
 	});
 
 
-    // 获取内置特效，支持分页
-    ar.getEffectList({
-        Type: 'Preset',
-        // PageSize: 10,
-        // PageNumber: 0,
-    }).then((res) => {
-        const list = res.map(item => ({
-            name: item.Name,
-            id: item.EffectId,
-            cover: item.CoverUrl,
-            url: item.Url,
-            label: item.Label,
-            type: item.PresetType,
-        }));
+	// 获取内置特效，支持分页
+	ar.getEffectList({
+		Type: 'Preset',
+		// PageSize: 10,
+		// PageNumber: 0,
+	}).then((res) => {
+		const list = res.map(item => ({
+			name: item.Name,
+			id: item.EffectId,
+			cover: item.CoverUrl,
+			url: item.Url,
+			label: item.Label,
+			type: item.PresetType,
+		}));
 
-        // todo 尝试设置一个特效
-        // ar.setEffect([{id: list[0].id, intensity:0.8}])
-    }).catch((e) => {
-        console.log(e);
-    });
+		// todo 尝试设置一个特效
+		// ar.setEffect([{id: list[0].id, intensity:0.8}])
+	}).catch((e) => {
+		console.log(e);
+	});
 
 });
 
@@ -159,10 +159,10 @@ this.localStream_ = TRTC.createStream({
 
 [](id:step5)
 ### 步骤5：查看效果
->! 示例项目需您自行启动本机 Web 服务，并保证通过 `8090` 端口可访问到 HTML 文件。
+>! 示例项目需您自行启动本机 Web 服务，并保证通过8090端口可访问到 HTML 文件。
 
 您在进入房间后可以很快查看实际的播放效果（运行示例代码中的 `index_AR.html`），成功后可以新开新的浏览器标签页来模拟其他人加入房间的效果。
 
 
 ## 示例代码
-您可以访问 [示例代码](https://webar-static.tencent-cloud.com/docs/best_practice.zip) 下载后查看，主要改动部分在 `index_AR.html` 和 `rtc-client-with-webar.js`。
+您可以访问 [示例代码](https://webar-static.tencent-cloud.com/docs/quick-demo/best_practice.zip) 下载后查看，主要改动部分在 `index_AR.html` 和 `rtc-client-with-webar.js`。
