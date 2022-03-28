@@ -25,7 +25,7 @@
 ## IM Flutter SDK 3.7.7 @2022.2.10
 - 修复 Swift 代码 warning
 - 重写 Swift 强解包代码
-- sendMessage 接口返回的 message 实例增加id字段
+- sendMessage 接口返回的 message 实例增加 id 字段
 
 
 ## IM Flutter SDK 3.7.5 @2022.01.23
