@@ -1,9 +1,6 @@
 本文介绍使用 DTS 数据迁移功能从 PostgreSQL 迁移数据至腾讯云云原生数据库 TDSQL-C PostgreSQL 的操作指导。
 
-如下场景的迁移要求与 PostgreSQL 迁移数据至腾讯云云原生数据库 TDSQL-C PostgreSQL 的要求一致，可参考本场景相关内容。
-
-- TDSQL-C PostgreSQL 到 PostgreSQL 的数据迁移
-- TDSQL-C PostgreSQL 到 TDSQL-C PostgreSQL 的数据迁移
+TDSQL-C PostgreSQL 迁移至 TDSQL-C PostgreSQL 场景的迁移要求，与本场景的要求一致，可参考本场景相关内容。
 
 ## 注意事项
 - DTS 在执行全量数据迁移时，会占用一定源端实例资源，可能会导致源实例负载上升，增加数据库自身压力。如果您的数据库配置过低，建议您在业务低峰期进行迁移。
