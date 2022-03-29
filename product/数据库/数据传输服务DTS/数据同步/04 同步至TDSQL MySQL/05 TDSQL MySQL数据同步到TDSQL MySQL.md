@@ -2,10 +2,8 @@
 
 如下场景的同步要求与 TDSQL MySQL 到 TDSQL MySQL 的同步要求一致，可参考本场景相关内容。
 - TDSQL MySQL 到腾讯云数据库 MariaDB 的数据同步
-- TDSQL MySQL 到腾讯云数据库 MariaDB（Percona）的数据同步
 - TDSQL MySQL 到腾讯云数据库 MySQL 的数据同步 
-- MariaDB 到 TDSQL MySQL（MariaDB）的数据同步
-- MariaDB（Percona）到 TDSQL MySQL（Percona）的数据同步
+- MariaDB 到 TDSQL MySQL的数据同步
 - MySQL 到 TDSQL MySQL 的数据同步
 >?如需体验本章节中 TDSQL MySQL 的同步功能，请先 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行申请。
 >

@@ -2,7 +2,7 @@
 Windows 云服务器在执行磁盘脱机操作后，通过控制台 [卸载云硬盘](https://cloud.tencent.com/document/product/362/6740) 时失败，云硬盘未成功卸载。
 
 ## 可能原因
-操作系统的进程（例如 Taskmgr.exe、svchost.exe 等）占用磁盘，导致无法成功卸载。
+操作系统的进程（例如 Taskmgr.exe、svchost.exe、System 等）占用磁盘，导致无法成功卸载。
 
 ## 解决思路
 1. 检查磁盘是否为“脱机”状态。
@@ -31,4 +31,4 @@ Windows 云服务器在执行磁盘脱机操作后，通过控制台 [卸载云�
 4. 在系统日志中，单击查看告警信息，可定位占用磁盘的进程为 Taskmgr.exe。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/2a1104135e1795a450fc81d9751d382e.png)
 5. 结束该进程，并再次尝试 [使用控制台卸载云硬盘](https://cloud.tencent.com/document/product/362/6740#useConsole)。
-若您无法手动结束问题进程（例如 svchost.exe 等系统进程），则请参考 [关机实例](https://cloud.tencent.com/document/product/213/4929) 将云服务器关机后，再次尝试 [使用控制台卸载云硬盘](https://cloud.tencent.com/document/product/362/6740#useConsole)。
+若您无法手动结束问题进程（例如 svchost.exe、System 等系统进程），则请参考 [关机实例](https://cloud.tencent.com/document/product/213/4929) 将云服务器关机后，再次尝试 [使用控制台卸载云硬盘](https://cloud.tencent.com/document/product/362/6740#useConsole)。

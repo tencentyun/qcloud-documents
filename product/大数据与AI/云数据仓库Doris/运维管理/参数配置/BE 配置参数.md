@@ -29,8 +29,8 @@ BE 启动后，通过下面命令动态设置配置项 `streaming_load_max_mb`:
 返回值如下，则说明设置成功。
 ```
 {
-	"status": "OK",
-	"msg": ""
+    "status": "OK",
+    "msg": ""
 }
 ```
 BE 重启后该配置将失效。如果想持久化修改结果，使用如下命令：
@@ -293,8 +293,8 @@ tablet_score = compaction_tablet_scan_frequency_factor * tablet_scan_frequency +
 ### `default_rowset_type`
 * 类型：string。
 * 描述：标识 BE 默认选择的存储格式，可配置的参数为："**ALPHA**", "**BETA**"。主要起以下两个作用：
-	1. 当建表的 storage_format 设置为 Default 时，通过该配置来选取 BE 的存储格式。
-	2. 进行 Compaction 时选择 BE 的存储格式。
+    1. 当建表的 storage_format 设置为 Default 时，通过该配置来选取 BE 的存储格式。
+    2. 进行 Compaction 时选择 BE 的存储格式。
 * 默认值：BETA。
 
 ### delete_worker_count
@@ -327,7 +327,7 @@ tablet_score = compaction_tablet_scan_frequency_factor * tablet_scan_frequency +
 
 ### doris_max_scan_key_num
 * 类型：int。
-* 描述：用于限制一个查询请求中，scan node 节点能拆分的最大 scan key 的个数。当一个带有条件的查询请求到达 scan node 节点时，scan node 会尝试将查询条件中 key 列相关的条件拆分成多个 scan key range。之后这些 scan key range 会被分配给多个 scanner 线程进行数据扫描。较大的数值通常意味着可以使用更多的 scanner 线程来提升扫描操作的并行度。但在高并发场景下，过多的线程可能会带来更大的调度开销和系统负载，反而会降低查询响应速度。一个经验数值为 50。该配置可以单独进行会话级别的配置，具体可参阅 [变量](../variables.md) 中 `max_scan_key_num` 的说明。
+* 描述：用于限制一个查询请求中，scan node 节点能拆分的最大 scan key 的个数。当一个带有条件的查询请求到达 scan node 节点时，scan node 会尝试将查询条件中 key 列相关的条件拆分成多个 scan key range。之后这些 scan key range 会被分配给多个 scanner 线程进行数据扫描。较大的数值通常意味着可以使用更多的 scanner 线程来提升扫描操作的并行度。但在高并发场景下，过多的线程可能会带来更大的调度开销和系统负载，反而会降低查询响应速度。一个经验数值为 50。该配置可以单独进行会话级别的配置，具体可参阅 [变量](https://cloud.tencent.com/document/product/1387/70771) 中 `max_scan_key_num` 的说明。
 * 默认值：1024。
 
 当在高并发场景下发下并发度无法提升时，可以尝试降低该数值并观察影响。
@@ -558,7 +558,7 @@ load tablets from header failed, failed tablets size: xxx, path=xxx
 
 ### max_garbage_sweep_interval
 - 默认值：3600。
-- 磁盘进行垃圾清理的最大间隔，默认一个小时。	
+- 磁盘进行垃圾清理的最大间隔，默认一个小时。 
 
 ### max_memory_sink_batch_count
 - 默认值：20。
@@ -846,9 +846,9 @@ load tablets from header failed, failed tablets size: xxx, path=xxx
 - 示例1：
 如果是 SSD 磁盘要在目录后面加上.SSD，HDD 磁盘在目录后面加 .HDD。
 storage_root_path=/home/disk1/doris.HDD,50;/home/disk2/doris.SSD,10;/home/disk2/doris
-	* /home/disk1/doris.HDD, 50，表示存储限制为50GB, HDD。
-	* /home/disk2/doris.SSD 10， 存储限制为10GB，SSD。
-	* /home/disk2/doris，存储限制为磁盘最大容量，默认为 HDD。
+    * /home/disk1/doris.HDD, 50，表示存储限制为50GB, HDD。
+    * /home/disk2/doris.SSD 10， 存储限制为10GB，SSD。
+    * /home/disk2/doris，存储限制为磁盘最大容量，默认为 HDD。
 
 - 示例2：
 storage_root_path=/home/disk1/doris,medium:hdd,capacity:50;/home/disk2/doris,medium:ssd,capacity:50
