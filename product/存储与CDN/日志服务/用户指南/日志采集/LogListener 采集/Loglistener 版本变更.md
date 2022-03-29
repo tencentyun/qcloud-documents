@@ -6,6 +6,7 @@
 > - 多行-完全正则采集模式，在 LogListener 2.4.5版本中开始支持。
 > - LogListener 自动升级功能，在 LogListener 2.5.0 版本中开始支持。
 > - 解析失败日志上传功能，在 LogListener 2.5.2版本中开始支持。
+> - 组合解析功能，在 LogListener 2.6.4版本中开始支持。
 > - 为了更好的使用体验，建议 [前往安装/升级至最新版本](https://cloud.tencent.com/document/product/614/17414)。
 > 
 
