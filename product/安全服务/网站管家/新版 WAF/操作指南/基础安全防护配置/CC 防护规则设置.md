@@ -94,7 +94,7 @@ CC 防护对网站特定的 URL 进行访问保护，CC 防护2.0全新改版，
 </thead>
 <tbody><tr>
 <td align="left">观察</td>
-<td align="left">符合匹配条件的会话请求将会被监控记录日志，观察结果可在 <a href="https://console.cloud.tencent.com/guanjia/attack">攻击日志</a> 中查看。</td>
+<td align="left">符合匹配条件的会话请求将会被监控记录日志，观察结果可在 <a href="https://console.cloud.tencent.com/guanjia/tea-attacklog">攻击日志</a> 中查看。</td>
 </tr>
 <tr>
 <td align="left">验证码</td>
@@ -102,11 +102,11 @@ CC 防护对网站特定的 URL 进行访问保护，CC 防护2.0全新改版，
 </tr>
 <tr>
 <td align="left">精准拦截</td>
-<td align="left">符合频率控制条件的请求将执行精准拦截，将会拦截该IP对防护 URL 的访问，区别于对整个域名的拦截，可设置惩罚时长，取值为：5分钟 - 10080分钟（7天），拦截结果可在 <a href="https://console.cloud.tencent.com/guanjia/log/attack">攻击日志</a> 中查看。</td>
+<td align="left">符合频率控制条件的请求将执行精准拦截，将会拦截该IP对防护 URL 的访问，区别于对整个域名的拦截，可设置惩罚时长，取值为：5分钟 - 10080分钟（7天），拦截结果可在 <a href="https://console.cloud.tencent.com/guanjia/tea-attacklog">攻击日志</a> 中查看。</td>
 </tr>
 <tr>
 <td align="left">拦截</td>
-<td align="left">符合频率控制条件的请求将执行拦截，将会拦截该IP对网站所有 URL 的访问，可设置惩罚时长，取值为：5分钟 - 10080分钟（7天），拦截结果可在 <a href="https://console.cloud.tencent.com/guanjia/log/attack">攻击日志</a> 中查看，拦截 IP 的实时信息可在 <a href="https://console.cloud.tencent.com/guanjia/tea-ipsearch">IP 查询</a> 中查看。</td>
+<td align="left">符合频率控制条件的请求将执行拦截，将会拦截该IP对网站所有 URL 的访问，可设置惩罚时长，取值为：5分钟 - 10080分钟（7天），拦截结果可在 <a href="https://console.cloud.tencent.com/guanjia/tea-attacklog">攻击日志</a> 中查看，拦截 IP 的实时信息可在 <a href="https://console.cloud.tencent.com/guanjia/tea-ipsearch">IP 查询</a> 中查看。</td>
 </tr>
 </tbody></table>
  - **惩罚时长**：默认为10分钟，最短为1分钟，最长为一周。
