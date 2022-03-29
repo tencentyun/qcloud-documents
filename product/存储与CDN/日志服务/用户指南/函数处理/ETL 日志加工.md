@@ -4,27 +4,25 @@
 数据流程如下：
 ![](https://main.qcloudimg.com/raw/5225188c50c85b874e8f96bee8ff1bdb.jpg)
 
+## 前提条件
+已登录 [日志服务控制台](https://console.cloud.tencent.com/cls)。
+
 ## 操作步骤
 
 <span id="step02"></span>
 
 ### 创建日志主题
 
-1. 单击**新增日志主题**，在新增日志主题窗口中，填写如下相关信息：
-   - 日志主题名称：例如：nginx。
-   - 主题分区（Partition）数量： 主题分区介绍请参见 [主题分区介绍](https://cloud.tencent.com/document/product/614/39259)，默认新建1个分区。
-   ![](https://main.qcloudimg.com/raw/8b2da321ec50fce2315395ac067a7605.jpg)
-2. 单击**确定**，新增日志主题。
-3. 日志主题新增成功，将进入日志主题管理页。
-   ![](https://main.qcloudimg.com/raw/08e9dc61f1cc8bfcb1923345c86bef45.jpg)
->? ETL 数据处理的源端和终端均为 CLS，故至少需创建两个 Topic。
+参看 [新增日志主题](https://cloud.tencent.com/document/product/614/41035#.E6.96.B0.E5.A2.9E.E6.97.A5.E5.BF.97.E4.B8.BB.E9.A2.98) 文档，创建两个日志主题。
+
+>? ETL 数据处理的源端和终端均为 CLS，故至少需创建两个主题。
 >
 
 <span id="step03"></span>
 
 ### 创建云函数 SCF
 
-1. 登录云函数控制台，选择左侧导航栏中的**[函数服务](https://console.cloud.tencent.com/scf/list)**。
+1. 登录云函数控制台，选择左侧导航栏中的 [函数服务](https://console.cloud.tencent.com/scf/list)。
 2. 在“函数服务”页面上方选择**北京**地域，并单击**新建**进入新建函数页面，配置以下参数：
 	- **函数名称**：命名为 “CLSdemo”。
 	- **运行环境**：选择 “Python 2.7”。
@@ -41,7 +39,7 @@
 
 ### 配置 CLS 触发器
 
-1. 登录 [日志服务控制台](https://console.cloud.tencent.com/cls)，在左侧导航栏中单击**日志集管理**。
+1. 在左侧导航栏中单击**日志集管理**。
 2. 找到已创建的日志集，在其右侧操作栏中，单击**查看**，进入日志集详情页面。
 3. 在日志主题详情页面，选择**函数处理**并单击**新建**。在弹出的“函数处理”窗口中添加已创完成的函数。如下图所示：
 ![](https://main.qcloudimg.com/raw/ee3aa3a2ca88355e80a415a402c2994f.jpg)
