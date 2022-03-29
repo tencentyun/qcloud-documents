@@ -9,7 +9,7 @@ SDK 3.0是云 API 3.0平台的配套工具，您可以通过 SDK 使用所有 [�
 
 ## 前提条件
 
-- 已开通短信服务，具体操作请参见 [国内短信快速入门](https://cloud.tencent.com/document/product/382/37745)。
+- 已开通短信服务，创建签名和模板并通过审核，具体操作请参见 [国内短信快速入门](https://cloud.tencent.com/document/product/382/37745)。
 - 如需发送国内短信，需要先 [购买国内短信套餐包](https://cloud.tencent.com/document/product/382/18060)。
 - 已在访问管理控制台 > [**API密钥管理**](https://console.cloud.tencent.com/cam/capi) 页面获取 SecretID 和 SecretKey。
   - SecretID 用于标识 API 调用者的身份。
@@ -78,30 +78,42 @@ int main()
     
     /* 帮助链接：
      * 短信控制台: https://console.cloud.tencent.com/smsv2
-     * sms helper: https://cloud.tencent.com/document/product/382/3773#.E6.8A.80.E6.9C.AF.E4.BA.A4.E6.B5.81 */
+     * 腾讯云短信小助手: https://cloud.tencent.com/document/product/382/3773#.E6.8A.80.E6.9C.AF.E4.BA.A4.E6.B5.81 */
     /* 短信应用 ID: 在 [短信控制台] 添加应用后生成的实际 SdkAppId，例如1400006666 */
+    // 应用 ID 可前往 [短信控制台](https://console.cloud.tencent.com/smsv2/app-manage) 查看
     req.SetSmsSdkAppId("1400787878");
-    /* 短信签名内容: 使用 UTF-8 编码，必须填写已审核通过的签名，签名信息可登录 [短信控制台] 查看 */
-    req.SetSignName("xxx");
-    /* 短信码号扩展号: 默认未开通，如需开通请联系 [sms helper] */
-    req.SetExtendCode("");
-    /* 国际/港澳台短信 senderid: 国内短信填空，默认未开通，如需开通请联系 [sms helper] */
-    req.SetSenderId("");
-    /* 用户的 session 内容: 可以携带用户侧 ID 等上下文信息，server 会原样返回 */
-    req.SetSessionContext("");
+
+    /* 短信签名内容: 使用 UTF-8 编码，必须填写已审核通过的签名 */
+    // 签名信息可前往 [国内短信](https://console.cloud.tencent.com/smsv2/csms-sign) 或 [国际/港澳台短信](https://console.cloud.tencent.com/smsv2/isms-sign) 的签名管理查看
+    req.SetSignName("腾讯云");
+
+    /* 模板 ID: 必须填写已审核通过的模板 ID */
+    // 模板 ID 可前往 [国内短信](https://console.cloud.tencent.com/smsv2/csms-template) 或 [国际/港澳台短信](https://console.cloud.tencent.com/smsv2/isms-template) 的正文模板管理查看
+    req.SetTemplateId("449739");
+
+    /* 模板参数: 模板参数的个数需要与 TemplateId 对应模板的变量个数保持一致，若无模板参数，则设置为空 */
+    req.SetTemplateParamSet(std::vector<std::string>{"1234"});
+
     /* 下发手机号码，采用 E.164 标准，+[国家或地区码][手机号]
      * 示例如：+8613711112222， 其中前面有一个+号 ，86为国家码，13711112222为手机号，最多不要超过200个手机号 */
     req.SetPhoneNumberSet(std::vector<std::string>{"+8613711112222"});
-    /* 模板 ID: 必须填写已审核通过的模板 ID。模板ID可登录 [短信控制台] 查看 */
-    req.SetTemplateId("449739");
-    /* 模板参数: 若无模板参数，则设置为空 */
-    req.SetTemplateParamSet(std::vector<std::string>{"666"});
 
+    /* 用户的 session 内容（无需要可忽略）: 可以携带用户侧 ID 等上下文信息，server 会原样返回 */
+    req.SetSessionContext("");
+
+    /* 短信码号扩展号（无需要可忽略）: 默认未开通，如需开通请联系 [腾讯云短信小助手] */
+    req.SetExtendCode("");
+
+    /* 国际/港澳台短信 senderid（无需要可忽略）: 国内短信填空，默认未开通，如需开通请联系 [腾讯云短信小助手] */
+    req.SetSenderId("");
+
+    /* 实例化要请求产品(以sms为例)的client对象
+     * 第二个参数是地域信息，可以直接填写字符串ap-guangzhou，支持的地域列表参考 https://cloud.tencent.com/document/api/382/52071#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8 */
     SmsClient sms_client = SmsClient(cred, "ap-guangzhou", clientProfile);
 
-    // set proxy
+    // 设置代理（无需要直接忽略）
     // NetworkProxy proxy = NetworkProxy(NetworkProxy::Type::HTTP, "localhost.proxy.com", 8080);
-    // cvm_client.SetNetworkProxy(proxy);
+    // sms_client.SetNetworkProxy(proxy);
 
     auto outcome = sms_client.SendSms(req);
     if (!outcome.IsSuccess())
@@ -115,6 +127,14 @@ int main()
     cout<<"SendSmsResponse="<<rsp.ToJsonString()<<endl;
     
     TencentCloud::ShutdownAPI();
+
+    /* 当出现以下错误码时，快速解决方案参考
+     * [FailedOperation.SignatureIncorrectOrUnapproved](https://cloud.tencent.com/document/product/382/9558#.E7.9F.AD.E4.BF.A1.E5.8F.91.E9.80.81.E6.8F.90.E7.A4.BA.EF.BC.9Afailedoperation.signatureincorrectorunapproved-.E5.A6.82.E4.BD.95.E5.A4.84.E7.90.86.EF.BC.9F)
+     * [FailedOperation.TemplateIncorrectOrUnapproved](https://cloud.tencent.com/document/product/382/9558#.E7.9F.AD.E4.BF.A1.E5.8F.91.E9.80.81.E6.8F.90.E7.A4.BA.EF.BC.9Afailedoperation.templateincorrectorunapproved-.E5.A6.82.E4.BD.95.E5.A4.84.E7.90.86.EF.BC.9F)
+     * [UnauthorizedOperation.SmsSdkAppIdVerifyFail](https://cloud.tencent.com/document/product/382/9558#.E7.9F.AD.E4.BF.A1.E5.8F.91.E9.80.81.E6.8F.90.E7.A4.BA.EF.BC.9Aunauthorizedoperation.smssdkappidverifyfail-.E5.A6.82.E4.BD.95.E5.A4.84.E7.90.86.EF.BC.9F)
+     * [UnsupportedOperation.ContainDomesticAndInternationalPhoneNumber](https://cloud.tencent.com/document/product/382/9558#.E7.9F.AD.E4.BF.A1.E5.8F.91.E9.80.81.E6.8F.90.E7.A4.BA.EF.BC.9Aunsupportedoperation.containdomesticandinternationalphonenumber-.E5.A6.82.E4.BD.95.E5.A4.84.E7.90.86.EF.BC.9F)
+     * 更多错误，可咨询[腾讯云助手](https://tccc.qcloud.com/web/im/index.html#/chat?webAppId=8fa15978f85cb41f7e2ea36920cb3ae1&title=Sms)
+     */
 
     return 0;
 }
@@ -167,7 +187,7 @@ int main()
     
     /* 帮助链接：
      * 短信控制台: https://console.cloud.tencent.com/smsv2
-     * sms helper: https://cloud.tencent.com/document/product/382/3773#.E6.8A.80.E6.9C.AF.E4.BA.A4.E6.B5.81 */
+     * 腾讯云短信小助手: https://cloud.tencent.com/document/product/382/3773#.E6.8A.80.E6.9C.AF.E4.BA.A4.E6.B5.81 */
     /* 短信应用 ID: 在 [短信控制台] 添加应用后生成的实际 SdkAppId，例如1400006666 */
     req.SetSmsSdkAppId("1400787878");
     // 设置拉取最大条数，最多100条
@@ -241,7 +261,7 @@ int main()
     
     /* 帮助链接：
      * 短信控制台: https://console.cloud.tencent.com/smsv2
-     * sms helper: https://cloud.tencent.com/document/product/382/3773#.E6.8A.80.E6.9C.AF.E4.BA.A4.E6.B5.81 */
+     * 腾讯云短信小助手: https://cloud.tencent.com/document/product/382/3773#.E6.8A.80.E6.9C.AF.E4.BA.A4.E6.B5.81 */
     /* 短信应用 ID: 在 [短信控制台] 添加应用后生成的实际 SdkAppId，例如1400006666 */
     req.SetSmsSdkAppId("1400787878");
     // 最大上限，目前固定设置为0
@@ -322,7 +342,7 @@ int main()
     
     /* 帮助链接：
      * 短信控制台: https://console.cloud.tencent.com/smsv2
-     * sms helper: https://cloud.tencent.com/document/product/382/3773#.E6.8A.80.E6.9C.AF.E4.BA.A4.E6.B5.81 */
+     * 腾讯云短信小助手: https://cloud.tencent.com/document/product/382/3773#.E6.8A.80.E6.9C.AF.E4.BA.A4.E6.B5.81 */
     /* 模板名称 */
     req.SetTemplateName("腾讯云");
     /* 模板内容 */

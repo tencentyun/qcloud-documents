@@ -80,7 +80,7 @@ cosfs#examplebucket-1250000000 /mnt/cosfs fuse _netdev,allow_other,url=http://co
 
 ### 如何设置挂载点下的文件以及目录的用户和用户组？
 
-有些场景（例如 nginx 服务器），需要设置挂载点下的文件和和目录的用户和用户组，例如 www 用户（uid=1002，gid=1002），则添加如下挂载参数：
+有些场景（例如 nginx 服务器），需要设置挂载点下的文件和目录的用户和用户组，例如 www 用户（uid=1002，gid=1002），则添加如下挂载参数：
 
 ```shell
 -ouid=1002 -ogid=1002

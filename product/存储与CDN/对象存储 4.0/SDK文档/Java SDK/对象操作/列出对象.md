@@ -315,7 +315,7 @@ do {
 
     // 这里保存列出来的子目录
     List<String> commonPrefixs = objectListing.getCommonPrefixes();
-    for (String commonPrefix : commonPrefixs) {
+    for (String commonPrefix : commonPrefixes) {
         System.out.println(commonPrefix);
     }
 
