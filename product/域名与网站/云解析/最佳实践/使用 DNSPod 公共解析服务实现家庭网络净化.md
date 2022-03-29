@@ -1,6 +1,5 @@
-
 ## 概述
-Public DNS 是 DNSPod 推出的公共域名解析服务，类似于其他公共 DNS （例如 Google 的 `8.8.8.8` 和 114 dns 的 `114.114.114.114`），可以为全网用户提供域名的公共递归解析服务。家里使用网络时，为避免访问到高风险网站以及各种广告等，您可使用 Public DNS 实现家庭网络净化。
+Public DNS 是 DNSPod 推出的公共域名解析服务，可以为全网用户提供域名的公共递归解析服务。家里使用网络时，为避免访问到高风险网站以及各种广告等，您可使用 Public DNS 实现家庭网络净化。
 
 ## 前提条件
 已注册 DNSPod 账号。如需注册，具体可参考 [注册 DNSPod](https://docs.dnspod.cn/account/register-dnspod/)。
@@ -27,6 +26,6 @@ Public DNS 是 DNSPod 推出的公共域名解析服务，类似于其他公共 
 ![](https://qcloudimg.tencent-cloud.cn/raw/385366e96959a66be07db82e5ce13e40.png)
  - 若为智能路由器，可在智能路由器加个计划任务，间隔30分钟重复执行这条命令。
 ```
-wget -qO- https://link.dns.pub/8a8f7527100019637281/6564a128e5
+wget -qO- https://link.dns.pub/8a8f7******7281/65******8e5
 ```
  - 若为普通支持 IPv4 的路由器，并且全家共享拦截策略，则需在每次重启路由器或者外网 IP 变化后，复制**自动绑定接口**并在浏览器中打开。
