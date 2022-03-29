@@ -1,11 +1,14 @@
-本文介绍使用 DTS 数据迁移功能，从 MySQL 迁移数据至腾讯云分布式数据库 TDSQL MySQL版 的操作指导。
+本文介绍使用 DTS 数据迁移功能，从 MySQL、MariaDB、Percona 迁移数据至腾讯云分布式数据库 TDSQL MySQL 版的操作指导。
 
-如下场景的迁移要求与 MySQL 到 TDSQL MySQL 的迁移要求一致，可参考本场景相关内容。
+支持的源数据库部署类型如下：
 
-- MariaDB 到腾讯云数据库 TDSQL MySQL 的数据迁移
-- Percona 到腾讯云数据库 TDSQL MySQL 的数据迁移
+- 自建 MySQL、第三方云厂商 MySQL、腾讯云数据库 MySQL。
+- 自建 MariaDB、腾讯云数据库 MariaDB。
+- 自建 Percona。
 
 > ? 云数据库 MariaDB 支持三种内核 MariaDB、MySQL 和 Percona，用户在使用时不需要区分哪种内核，如果源数据库为腾讯云 MariaDB，不论源数据库的内核是 MariaDB、Percona 还是 MySQL，在设置源数据库的类型时，都选择 MariaDB。
+
+因为 MySQL、MariaDB、Percona 迁移数据至腾讯云分布式数据库 TDSQL MySQL ，三种场景的迁移要求和操作步骤基本一致，本章节仅以 MySQL 到 TDSQL MySQL 的数据迁移为例进行介绍，其他场景请参考相关内容。
 
 
 ## 注意事项
