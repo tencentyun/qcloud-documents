@@ -52,10 +52,8 @@
 </dx-tabs>
 
 #### 4. 应用激活完成，等待超管完成激活及授权。
-企业激活成功后，系统会向 [2](#smallStep2)、[3](#smallStep3) 步中设置的超级管理员与法定代表人发送短信（若步骤3选择而通过授权书方式进行授权，则需等待人工审核）。
-超管激活及授权指引如下:
+企业激活成功后，系统会向 [2](#smallStep2)、[3](#smallStep3) 步中设置的超级管理员与法定代表人发送短信（若步骤3选择而通过授权书方式进行授权，则需等待人工审核）。超管激活及授权指引请参见 [授权书](https://doc.weixin.qq.com/doc/w3_AG8ApAZ1ACcrlFAiWcpQtu26XPThR?scode=AJEAIQdfAAoBfTJffUAG8ApAZ1ACc)。
 
-请在此处插入以下内容：https://doc.weixin.qq.com/doc/w3_AG8ApAZ1ACcrlFAiWcpQtu26XPThR?scode=AJEAIQdfAAoBfTJffUAG8ApAZ1ACc
 
 
 
