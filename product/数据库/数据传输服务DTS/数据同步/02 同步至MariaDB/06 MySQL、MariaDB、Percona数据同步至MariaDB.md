@@ -1,4 +1,4 @@
-本文为您介绍使用数据传输服务 DTS 从 MySQL、MariaDB、Percona 数据库同步数据至 MariaDB 数据库的过程。
+本文为您介绍使用数据传输服务 DTS 从 MySQL、MariaDB、Percona 数据库同步数据至腾讯云数据库 MariaDB 的过程。
 
 源数据库支持的部署类型如下：
 
