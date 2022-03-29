@@ -1,6 +1,6 @@
 本文档将为您介绍如何通过 API 安全功能，添加 API 接口或 API 规则文件，从而进一步保护 API 接口安全。
 ## 背景信息
-通过 API 安全功能，您可以添加 API 接口或 API 规则文件，WAF 将对 API 请求进行安全检查，只有符合定义规范的 API 才能被执行。同时 API 安全防护模块将和 [AI 引擎](https://console.cloud.tencent.com/guanjia/waf/ai) 及 [BOT 行为管理](https://console.cloud.tencent.com/guanjia/bot2/overview) 进行联动，进行 API 接口保护。
+通过 API 安全功能，您可以添加 API 接口或 API 规则文件，WAF 将对 API 请求进行安全检查，只有符合定义规范的 API 才能被执行。同时 API 安全防护模块将和 [AI 引擎](https://console.cloud.tencent.com/guanjia/tea-baseconfig) 及 [BOT 行为管理](https://console.cloud.tencent.com/guanjia/tea-botconfig) 进行联动，进行 API 接口保护。
 >! API 安全防护当前处于公测阶段，您可以免费使用，正式发布后，将按官网公布刊例价收取费用。
 
 ## 操作步骤
@@ -13,7 +13,7 @@
 
 [](id:import)
 ### 导入 API（推荐）
-1. 在 **[基础安全](https://console.cloud.tencent.com/guanjia/tea-botconfig)** > **API 安全**页面，单击**导入 API**，弹出导入API 接口弹窗。
+1. 在 **[基础安全](https://console.cloud.tencent.com/guanjia/tea-baseconfig)** > **API 安全**页面，单击**导入 API**，弹出导入API 接口弹窗。
 2. 在导入 API 接口弹窗中，选择上传文件类型，单击**点击上传**，传入 API 文件即可。
 >?目前 WAF 支持两种 swagger2.0 文件的解析，分别是： yml 文件和 json 文件。导入规则说明：
 >- 格式：导入 API 描述文件，文件后缀名必须为 .yml 或 .json，单次上传的 API 描述文件不超过100KB。
@@ -27,7 +27,7 @@
 
 [](id:add)
 ###  添加 API
-1. 在 **[基础安全](https://console.cloud.tencent.com/guanjia/tea-botconfig)** > **API 安全**页面，单击**添加规则**，弹出添加 API 接口弹窗。
+1. 在 **[基础安全](https://console.cloud.tencent.com/guanjia/tea-baseconfig)** > **API 安全**页面，单击**添加规则**，弹出添加 API 接口弹窗。
 2. 在添加 API 接口弹窗中，您可根据网站的 API 策略，添加对应的 API 安全规则，添加完成后，单击**添加**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/3346b92d13aaa35de6c6c1b8cbdd01f1.png)
  **字段说明：**
