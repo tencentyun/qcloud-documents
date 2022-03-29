@@ -4,7 +4,7 @@
 >! API 安全防护当前处于公测阶段，您可以免费使用，正式发布后，将按官网公布刊例价收取费用。
 
 ## 操作步骤
-1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/tea-baseconfig)，在左侧导航栏中，选择**配置中心** > **基础安全**，进入基础安全页面。
+1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/tea-overview)，在左侧导航栏中，选择**配置中心** > **基础安全**，进入基础安全页面。
 2. 在基础安全页面，左上角选择需要防护的域名，单击 **API 安全**，进入 API 安全页面。
 3. 在 API 安全页面，添加 API 防护规则，目前支持通过 [导入 API](#import) 和 [ 添加 API](#add) 两种方式进行增加 API 规则。 
 >?
@@ -13,7 +13,7 @@
 
 [](id:import)
 ### 导入 API（推荐）
-1. 在 **[基础安全](https://console.cloud.tencent.com/guanjia/tea-baseconfig)** > **API 安全**页面，单击**导入 API**，弹出导入API 接口弹窗。
+1. 在 **[基础安全](https://console.cloud.tencent.com/guanjia/tea-botconfig)** > **API 安全**页面，单击**导入 API**，弹出导入API 接口弹窗。
 2. 在导入 API 接口弹窗中，选择上传文件类型，单击**点击上传**，传入 API 文件即可。
 >?目前 WAF 支持两种 swagger2.0 文件的解析，分别是： yml 文件和 json 文件。导入规则说明：
 >- 格式：导入 API 描述文件，文件后缀名必须为 .yml 或 .json，单次上传的 API 描述文件不超过100KB。
@@ -27,7 +27,7 @@
 
 [](id:add)
 ###  添加 API
-1. 在 **[基础安全](https://console.cloud.tencent.com/guanjia/tea-baseconfig)** > **API 安全**页面，单击**添加规则**，弹出添加 API 接口弹窗。
+1. 在 **[基础安全](https://console.cloud.tencent.com/guanjia/tea-botconfig)** > **API 安全**页面，单击**添加规则**，弹出添加 API 接口弹窗。
 2. 在添加 API 接口弹窗中，您可根据网站的 API 策略，添加对应的 API 安全规则，添加完成后，单击**添加**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/3346b92d13aaa35de6c6c1b8cbdd01f1.png)
  **字段说明：**
