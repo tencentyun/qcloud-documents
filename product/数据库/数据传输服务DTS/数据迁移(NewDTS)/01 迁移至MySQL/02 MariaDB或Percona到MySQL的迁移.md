@@ -1,6 +1,6 @@
 本文介绍使用 DTS 数据迁移功能从 MariaDB 或者 Percona 迁移数据至腾讯云数据库 MySQL 的操作指导。
 
-支持的源数据库部署类型为如下：
+支持的源数据库部署类型如下：
 
 - 自建 MariaDB、腾讯云数据库 MariaDB。
 - 自建 Percone。
