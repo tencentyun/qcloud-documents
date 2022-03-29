@@ -1,4 +1,4 @@
-本文为您介绍使用数据传输服务 DTS 从 MySQL、MariaDB、Percona 数据库同步数据至 MySQL 数据库的过程。
+本文为您介绍使用数据传输服务 DTS 从 MySQL、MariaDB、Percona 数据库同步数据至腾讯云数据库 MySQL 的过程。
 
 源数据库支持的部署类型如下：
 
@@ -6,7 +6,7 @@
 - 自建 MariaDB、腾讯云数据库 MariaDB。
 - 自建 Percona。
 
-因为 MySQL、MariaDB、Percona 同步至腾讯云数据库 MariaDB，三种场景的同步要求和操作步骤基本一致，本章节仅以 MariaDB 到 MariaDB 的数据同步为例进行介绍，其他场景请参考相关内容。
+因为 MySQL、MariaDB、Percona 同步至腾讯云数据库 MySQL，三种场景的同步要求和操作步骤基本一致，本章节仅以 MySQL 到 MySQL 的数据同步为例进行介绍，其他场景请参考相关内容。
 
 ## 注意事项
 - DTS 在执行全量数据同步时，会占用一定源端实例资源，可能会导致源实例负载上升，增加数据库自身压力。如果您数据库配置过低，建议您在业务低峰期进行。
