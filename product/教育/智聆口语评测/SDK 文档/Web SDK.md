@@ -31,7 +31,8 @@ new TencentSOE
 | MediaUrl         | String   | 获取高清语音素材获取接口（微信端） | 是 | 0 |
 | success          | function | 创建成功回调 | 否 | 无 |
 | error            | function | 创建失败回调 | 否 | 无 |
-> 必须同时提供 getAuthorization 或者 SecretId 和 SecretKey 或者 TransInitUrl
+
+>!必须同时提供 getAuthorization 或者 SecretId 和 SecretKey 或者 TransInitUrl
 
 - 方式一（推荐）：提供获取 [临时密钥](https://cloud.tencent.com/document/api/598/13896) 回调函数
 ```js
@@ -215,7 +216,7 @@ recorder.reset({
 
 ### 示例 Demo
 您可以通过单击 [示例](https://tec.qq.com/ai/soe#demos)，体验在线使用智聆口语测评（英文版）的 Web 版本。
-sdk 调试可单击 [这里](https://test-v.campus.qq.com/aiedu/soe/demo/index.html)
+sdk 调试可单击 [这里](https://test-v.campus.qq.com/aiedu/soe/demo/index-client.html)
 
 
 ### 微信端说明
@@ -270,14 +271,13 @@ module.exports = async function(req, res, next) {
 ### 平台和兼容性
 | 操作系统平台	  | 浏览器/webview                  | 版本要求 | 备注|
 |  :---:      | :---                           | :---   | :--- |
-| iOS         | Safari ( 只支持 Safari )         | 11.1.2 | |
-| Android     | TBS （微信和手机 QQ 的默认 webview）  | 43600  | 微信和手机 QQ 默认内置的浏览器内核为 TBS。[TBS 介绍](https://x5.tencent.com/) |
-| Android     | Chrome                         | 60+    | |
-| Mac         | Chrome                         | 47+    | |
-| Mac         | Safari                         | 11+    | |
-| Windows(PC) | Chrome                         | 52+    | |
-| Windows(PC) | QQ 浏览器                        | 10.2   | |
-| 微信端       | 微信默认 webview                  | 无     | 需引入微信 JS-SDK|
+| iOS         | Safari ( 只支持 Safari )         | 11.1.2 | -|
+| Android     | TBS （微信和手机 QQ 的默认 webview）  | 43600  | 微信和手机 QQ 默认内置的浏览器内核为 [TBS](https://x5.tencent.com/)。|
+| Android     | Chrome                         | 60+    |- |
+| Mac         | Chrome                         | 47+    | -|
+| Mac         | Safari                         | 11+    |- |
+| Windows(PC) | Chrome                         | 52+    | -|
+| Windows(PC) | QQ 浏览器                        | 10.2   | -|
+| 微信端       | 微信默认 webview                  | 无     | 需引入微信 JS-SDK。|
 
-> Tip：
-非本地环境必须使用 HTTPS 协议
+>!非本地环境必须使用 HTTPS 协议。
