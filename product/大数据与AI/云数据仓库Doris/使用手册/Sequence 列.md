@@ -9,7 +9,7 @@ sequence 列目前只支持 Uniq 模型，Uniq 模型主要针对需要唯一主
 创建 Uniq 表时，将按照用户指定类型自动添加一个隐藏列`__DORIS_SEQUENCE_COL__`。
 
 ### 导入
-导入时，fe 在解析的过程中将隐藏列的值设置成 `order by` 表达式的值(broker load 和 routine load)，或者`function_column.sequence_col`表达式的值(stream load), value列将按照该值进行替换。隐藏列`__DORIS_SEQUENCE_COL__`的值既可以设置为数据源中一列，也可以是表结构中的一列。
+导入时，FE 在解析的过程中将隐藏列的值设置成 `order by` 表达式的值(broker load 和 routine load)，或者`function_column.sequence_col`表达式的值(stream load), value列将按照该值进行替换。隐藏列`__DORIS_SEQUENCE_COL__`的值既可以设置为数据源中一列，也可以是表结构中的一列。
 
 ### 读取
 
