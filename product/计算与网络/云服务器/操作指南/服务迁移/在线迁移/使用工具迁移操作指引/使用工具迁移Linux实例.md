@@ -80,7 +80,7 @@ cd go2tencentcloud
 }  
 ```
 2. （可选）在 `client.json` 文件中配置迁移模式和其他项。
-请按照 [client.json 文件参数说明](https://cloud.tencent.com/document/product/213/65714#clientJsonState) 进行配置。如果源端主机和目标云服务器任何一方不能直接访问公网，则可以选择先通过 [VPC 对等连接](https://cloud.tencent.com/document/product/553)、[VPN 连接](https://cloud.tencent.com/document/product/554)、[云联网](https://cloud.tencent.com/document/product/877) 或者 [专线接入](https://cloud.tencent.com/document/product/216) 等方式建立连接通道，再进行内网模式迁移，详情请参见 [内网迁移教程](https://cloud.tencent.com/document/product/213/65715)。
+请按照 [client.json 文件参数说明](https://cloud.tencent.com/document/product/213/65714#clientJsonState) 进行配置。如果源端主机和目标云服务器任何一方不能直接访问公网，则可以选择先通过 [VPC 对等连接](https://cloud.tencent.com/document/product/553)、[VPN 连接](https://cloud.tencent.com/document/product/554)、[云联网](https://cloud.tencent.com/document/product/877) 或者 [专线接入](https://cloud.tencent.com/document/product/216) 等方式建立连接通道，再进行内网模式迁移，详情请参见 [使用工具内网迁移教程](https://cloud.tencent.com/document/product/213/65715)。
 3. （可选）排除源端主机上不需迁移的文件或目录。
 若 Linux 源端主机中存在不需要迁移的文件或目录，可将文件或目录添加至 [rsync\_excludes\_linux.txt 文件](https://cloud.tencent.com/document/product/213/65714#_linuxTxtState)。
 
@@ -129,7 +129,7 @@ cd go2tencentcloud
 ### 发起迁移
 
 执行以下命令，运行工具。
-本文以64位 Linux 源端主机为例，进入 go2tencentcloud_tool 文件目录，并以 root 权限执行以下命令运行工具。
+本文以64位 Linux 源端主机为例，进入 go2tencentcloud 文件目录，并以 root 权限执行以下命令运行工具。
 ```sh
 sudo ./go2tencentcloud_x64 --no-console
 ```

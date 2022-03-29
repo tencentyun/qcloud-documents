@@ -75,21 +75,28 @@
    <tr>
       <td style="text-align:center">iOS</td>
       <td style="text-align:center"><a href="https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_Live_iOS_latest.zip">DOWNLOAD</a></td>
-      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/1449/56986">DOC</a></td>
+      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/454/56588">DOC</a></td>
       <td style="text-align:center">支持</td>
       <td style="text-align:center">so（arm64）：1.6M<br>so（armv7）：1.6M</td>
    </tr>
      <tr>
       <td style="text-align:center">Android</td>
       <td style="text-align:center"><a href="https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_Live_Android_latest.zip">DOWNLOAD</a></td>
-      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/1449/56987">DOC</a></td>
+      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/454/56589">DOC</a></td>
       <td style="text-align:center">支持</td>
       <td style="text-align:center">jar：0.8M <br> so(armeabi)：6.2M <br>so(armeabi-v7a)：6.2M <br>so(arm64-v8a)：7.4M</td>
    </tr>
    <tr>
       <td style="text-align:center">微信小程序 </td>
       <td style="text-align:center">N/A</td>
-      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/1449/56990">DOC</a></td>
+      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/454/12554">DOC</a></td>
+      <td style="text-align:center">N/A</td>
+      <td style="text-align:center">N/A</td>
+   </tr>
+      <tr>
+      <td style="text-align:center">Flutter </td>
+      <td style="text-align:center">N/A</td>
+      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/454/71666">DOC</a></td>
       <td style="text-align:center">N/A</td>
       <td style="text-align:center">N/A</td>
    </tr>

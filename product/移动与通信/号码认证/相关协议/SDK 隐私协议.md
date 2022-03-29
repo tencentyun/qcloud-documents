@@ -15,7 +15,7 @@
 腾讯严格遵守法律法规，按照业界成熟的安全与隐私标准，保护第三方开发者和其终端用户的个人信息。 
 **腾讯云号码认证是一款由腾讯云计算（北京）有限责任公司（以下简称“我们”）提供服务的产品，号码认证区别于传统的短信下发验证，集成了三大运营商特有的网关取号、验证能力，通过运营商底层数据网关和短信网关识别本机号码，从源头规避数据泄漏风险，安全、快速地验证用户身份，实现一键免密注册、登录、校验，提升用户使用体验。**我们的注册地为北京市海淀区知春路49号3层西部309。**腾讯云号码认证产品对接方式包括【SDK】**，由于目前相关法律法规、政策及标准中主要对 SDK 产品的应用提供相关指引，以下将统一以 SDK 视角描述相关内容，如果您是集成、调用API能力或H5页面的第三方开发者，本指引中的内容同样适用于您。
 	
-**《腾讯云号码认证 SDK 个人信息保护规则》**主要向第三方开发者和其终端用户说明我们如何处理个人信息（处理包括“收集、存储、使用、加工、传输、提供、公开等”）。**在注册、接入、使用腾讯云号码认证 SDK（以下简称“本 SDK”）产品和/或服务前，请第三方开发者和终端用户务必仔细阅读本声明。同时，请第三方开发者将本声明提供给第三方的终端用户，以便最终用户了解本声明相关内容并获得用户同意。如果第三方开发者或终端用户不同意本声明，应立即停止接入及使用本 SDK 产品和/或服务。**
+**《腾讯云号码认证 SDK 个人信息保护规则》**主要向第三方开发者和其终端用户说明我们如何处理个人信息（处理包括“收集、存储、使用、加工、传输、提供、公开等”）。**在注册、接入、使用腾讯云号码认证 SDK（以下简称“本 SDK”）产品和/或服务前，请第三方开发者和终端用户务必仔细阅读本声明。同时，请第三方开发者将本声明提供给第三方的终端用户，以便最终用户了解本声明相关内容并获得用户同意。如果第三方开发者或终端用户不同意本声明，应立即停止接入及使用本 SDK 产品和/或服务。在获得终端用户的同意前，除非法律法规另行允许，不应收集终端用户的任何个人信息，不应启用本 SDK 产品及/或相关服务**
 
 **我们对个人敏感信息采用“加黑”的书写方式进行特别提醒。**如对本声明内容有任何疑问、意见或建议，可随时通过本声明 [第八条](#contact) 提供的方式与我们联系。
 ## 一、如何收集和使用第三方开发者和/或终端用户的个人信息
@@ -39,12 +39,12 @@
             <td  width="90px" style="background-color:#f5f7fa;">敏感个人信息<br>处理的必要性说明</td>
         </tr>
         <tr>
-            <td colspan="1" rowspan="5" style="color:#666666;text-align:left;">一键登录能力</td>
+            <td colspan="1" rowspan="6" style="color:#666666;text-align:left;">一键登录能力</td>
             <td style="color:#666666;text-align:left;">网络类型</td>
-            <td colspan="1" rowspan="5" style="color:#666666;text-align:left;">实现电话号码一键认证注册、登录</td>
+            <td colspan="1" rowspan="6" style="color:#666666;text-align:left;">实现电话号码一键认证注册、登录</td>
             <td style="color:#666666;text-align:left;">采集用于判断当前网络是 Wi-Fi 还是数据，用于精确取号</td>
             <td style="color:#666666;text-align:left;">ACCESS_NETWORK_STATE</td>
-            <td colspan="1" rowspan="5" style="color:#666666;text-align:left;">SDK 接入</td>
+            <td colspan="1" rowspan="6" style="color:#666666;text-align:left;">SDK 接入</td>
             <td style="color:#666666;text-align:left;">无</td>
         </tr>
         <tr>
@@ -60,11 +60,23 @@
             <td style="color:#666666;text-align:left;">无</td>
         </tr>
         <tr>
-            <td style="color:#666666;text-align:left;">idfv（仅 iOS）</td>
-            <td style="color:#666666;text-align:left;">用于问题定位</td>
-            <td style="color:#666666;text-align:left;">无</td>
-            <td style="color:#666666;text-align:left;">无</td>
+            <td style="color:#666666;text-align:left;">imsi（仅 Android）</td>
+            <td style="color:#666666;text-align:left;">业务逻辑处理需要（识别双卡和换卡）</td>
+            <td style="color:#666666;text-align:left;">READ_PHONE_STATE，有权限时会加密上报</td>
+            <td style="color:#666666;text-align:left;">SDK 功能使用必需信息。用于识别双卡和换卡场景的登录逻辑处理，如果开发者或者个人不允许使用该信息，则会导致无法正常使用该功能</td>
         </tr>
+   <tr>
+      <td>IP 地址</td>
+      <td>调用 SDK 预取号接口、获取一键登录或验证 Token 接口时使用</td>
+      <td>无</td>
+			 <td>无</td>
+   </tr>
+   <tr>
+      <td>idfv（仅 iOS）</td>
+      <td>用于问题定位</td>
+      <td>无</td>
+			 <td>无</td>
+   </tr>
     </tbody>
 </table>
 本 SDK 除自身提供相关服务并需收集相关信息外，还会集成其他可供第三方开发者选择是否接入的第三方 SDK ，此部分第三方 SDK 所收集的个人信息请开发者和终端用户查看第三方 SDK 的隐私政策或类似文件。
@@ -81,14 +93,14 @@
       <th >第三方 SDK 信息保护规则</td>
    </tr>
    <tr>
-      <td rowspan='7'>移动认证</td>
-      <td rowspan='7'>中移互联网有限公司
+      <td rowspan='8'>移动认证</td>
+      <td rowspan='8'>中移互联网有限公司
 </td>
       <td>蜂窝网络权限</td>
       <td>性能分析，分2G、3G、4G三种情况；分析不同网络环境对取号成功率和时延的影响，进行针对性优化</td>
       <td>调用预取号接口</td>
       <td>使用 SDK 功能的必需信息</td>
-      <td rowspan='7'><a href="https://wap.cmpassport.com/resources/html/contract2.html">详见：中国移动认证隐私协议</a></td>
+      <td rowspan='8'><a href="https://wap.cmpassport.com/resources/html/contract2.html">详见：中国移动认证隐私协议</a></td>
    </tr>
    <tr>
       <td>IDFV</td>
@@ -123,8 +135,14 @@
    <tr>
       <td>网络通道切换</td>
       <td>切换网络通道</td>
-      <td>Wi-Fi 和蜂窝网络双开时需要切换到蜂窝网络通道。</td>
+      <td>Wi-Fi 和蜂窝网络双开时需要切换到蜂窝网络通道</td>
       <td>用于切换上网方式</td>
+   </tr>
+	    <tr>
+      <td>IP 地址</td>
+      <td>SDK 功能使用必需信息</td>
+      <td>调用 SDK 预取号接口、获取一键登录或验证 Token 接口时使用</td>
+      <td>使用 SDK 功能的必需信息</td>
    </tr>
 </table>
 
@@ -144,6 +162,7 @@
 | android.permission.ACCESS\_Wi-Fi\_STATE    | 检查 Wi-Fi 状态| 请求前判断 Wi-Fi 是否开启                         | 调用功能接口的前置检查           |
 | android.permission.ACCESS\_NETWORK\_STATE | 检查网络状态   | 请求前判断网络状态是否正常                          | 调用功能接口的前置检查           |
 | android.permission.CHANGE\_NETWORK\_STATE | 切换网络通道   | Wi-Fi 和蜂窝网络双开时需要切换到蜂窝网络通道               | Wi-Fi 和蜂窝网络双开且需要使用功能接口时|
+|android.permission.READ_PHONE_STATE|判断数据流量卡|在双卡情况下，获取 IMSI 用于判断双卡和换卡，更精准的获取数据流量卡的运营商类型|正常调用预取号接口时使用|
 
 **iOS 系统权限申请表**
 

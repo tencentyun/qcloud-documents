@@ -5,7 +5,7 @@
 ## 添加记录（子域名接入）[](id:add)
 在CNAME 接入方式下，通过添加记录来为该站点的子域名接入相应的服务。
 
-1. 登录 [边缘安全加速平台控制台](https://console.cloud.tencent.com/teo)，在左侧菜单栏中，单击 **DNS 服务**。
+1. 登录 [边缘安全加速平台控制台](https://console.cloud.tencent.com/edgeone)，在左侧菜单栏中，单击 **DNS 服务**。
 2. 在 DNS 服务页面，选择所需站点，单击**添加记录**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/b4d03b29540ebf6fed378c9f153cfa43.png)
 3. 填写相关参数，单击**保存**。
