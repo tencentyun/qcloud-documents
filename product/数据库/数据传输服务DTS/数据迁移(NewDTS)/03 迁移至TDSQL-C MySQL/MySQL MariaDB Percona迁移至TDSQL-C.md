@@ -1,4 +1,12 @@
-本文介绍使用 DTS 数据迁移功能，从 MySQL 迁移数据至腾讯云云原生数据库 TDSQL-C MySQL 的操作指导。
+本文介绍使用 DTS 数据迁移功能，从 MySQL、MariaDB、Percona 迁移数据至腾讯云云原生数据库 TDSQL-C MySQL 的操作指导。
+
+支持的源数据库部署类型如下：
+
+- 自建 MySQL、第三方云厂商 MySQL、腾讯云数据库 MySQL。
+- 自建 MariaDB、腾讯云数据库 MariaDB。
+- 自建 Percona。
+
+因为 MySQL、MariaDB、Percona 迁移数据至 TDSQL-C MySQL ，三种场景的迁移要求和操作步骤基本一致，本章节仅以 MySQL 到 TDSQL-C MySQL 的数据迁移为例进行介绍，其他场景请参考相关内容。
 
 ## 注意事项
 
@@ -9,7 +17,7 @@
   - `__tencentdb__`系统库占用空间非常小，约为源库存储空间的千分之一到万分之一（例如源库为50G，则`__tencentdb__`系统库约为 5K-50K） ，并且采用单线程，等待连接机制，所以对源库的性能几乎无影响，也不会抢占资源。 
 
 ## 前提条件
-- 已 [创建 TDSQL-C for MySQL](https://cloud.tencent.com/document/product/1003/30505)。
+- 已 [创建 TDSQL-C MySQL](https://cloud.tencent.com/document/product/1003/30505)。
 - 源数据库和目标数据库符合迁移功能和版本要求，请参见 [数据迁移支持的数据库](https://cloud.tencent.com/document/product/571/58686) 进行核对。
 - 已完成 [准备工作](https://cloud.tencent.com/document/product/571/59968)。
 - 需要您在源端自建 MySQL 中创建迁移帐号，需要的帐号权限如下：

@@ -1,16 +1,10 @@
 本文介绍使用 DTS 数据迁移功能从 MariaDB 或者 Percona 迁移数据至腾讯云数据库 MySQL 的操作指导。
 
- 如下场景的迁移要求与 MariaDB 或者 Percona 迁移到 MySQL 的要求基本一致，请参考本场景相关内容。
+支持的源数据库部署类型为如下：
 
-- MariaDB 到 MariaDB 的数据迁移
+- 自建 MariaDB、腾讯云数据库 MariaDB。
+- 自建 Percone。
 
-- MariaDB 到 TDSQL-C 的数据迁移
-
-- Percona 到 TDSQL-C 的数据迁移
-
-- Percona 到 MariaDB 的数据迁移
-
-- MySQL 到 MariaDB 的数据迁移
 
 > ?腾讯云数据库 MariaDB 支持三种内核 MariaDB、Percona 和 MySQL，用户在使用时不需要区分哪种内核，如果源数据库为腾讯云 MariaDB，不论源数据库的内核是 MariaDB、Percona 还是 MySQL，在设置源数据库或目标数据库的类型时，都选择 MariaDB。
 
@@ -78,7 +72,7 @@ MariaDB 迁移到 MySQL，由于不同的数据库类型之间功能有略微差
    - 源数据库为腾讯云数据库 MariaDB 10.4 版本时，在迁移任务配置中，**接入类型**不支持选择**云数据库**，需要选择**公网**或者其他方式。
 
 - 当前不支持 geometry 相关的数据类型。
-   
+  
 
 ## 操作限制
 - 迁移过程中请勿进行如下操作，否则会导致迁移任务失败。
