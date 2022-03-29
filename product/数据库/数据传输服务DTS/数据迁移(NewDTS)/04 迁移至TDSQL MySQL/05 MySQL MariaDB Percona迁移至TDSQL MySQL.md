@@ -1,4 +1,4 @@
-本文介绍使用 DTS 数据迁移功能，从 MySQL、MariaDB、Percona 迁移数据至腾讯云分布式数据库 TDSQL MySQL 版的操作指导。
+本文介绍使用 DTS 数据迁移功能，从 MySQL、MariaDB、Percona 迁移数据至腾讯云分布式数据库 TDSQL MySQL 的操作指导。
 
 支持的源数据库部署类型如下：
 
