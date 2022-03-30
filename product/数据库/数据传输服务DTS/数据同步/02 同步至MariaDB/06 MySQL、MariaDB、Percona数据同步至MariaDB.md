@@ -2,7 +2,7 @@
 
 源数据库支持的部署类型如下：
 
-- 自建 MySQL、第三方云厂商 MySQL、腾讯云数据库 MySQL。
+- 自建 MySQL、腾讯云数据库 MySQL。
 - 自建 MariaDB、腾讯云数据库 MariaDB。
 - 自建 Percona。
 
