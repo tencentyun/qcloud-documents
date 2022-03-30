@@ -66,7 +66,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/6de44da536ee3b827abdb327d6a2fc4e.png)
 	 
 
-### 步骤2：Datahub 数据简单处理
+### 步骤2：DataHub 数据简单处理
 
 #### 创建数据处理
 
@@ -82,12 +82,12 @@ DataHub 能够涵盖绝大部分的数据处理场景，由于数据处理方式
 
 1. 在消息处理概览页面进入任务界面，点击 **监控** 按钮，可以查询得到当前消息处理的速度。
 ![](https://qcloudimg.tencent-cloud.cn/raw/e2530ad10bec2328d6a8ac866df8bd7e.png)
-2. 在 [消息查询](https://console.cloud.tencent.com/ckafka/message) 界面，查询目标主题消息如下图所示。从图中可见，处理后的消息，从复杂的Metadata 中成功提取出了所需的关键部分。
+2. 在 [消息查询](https://console.cloud.tencent.com/ckafka/message) 界面，查询目标主题消息如下图所示。从图中可见，处理后的消息，从复杂的 Metadata 中成功提取出了所需的关键部分。
 ![](https://qcloudimg.tencent-cloud.cn/raw/a8b95db5481a33782f0417505f6c5d3b.png)
 
 
 
-### 步骤3：Datahub 数据投递
+### 步骤3：DataHub 数据投递
 
 1. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka/) 左侧导航栏选择 **数据流出**。
 2. 单击**新建任务**，目标类型选择 **Elasticsearch Service**，随后填写投递实例名称等信息。
