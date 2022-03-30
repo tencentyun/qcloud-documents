@@ -1,5 +1,5 @@
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。
-2. 在左侧目录中单击 **VPN 连接**> **VPN 网关**，进入管理页。
+2. 在左侧目录中单击 **VPN 连接** > **VPN 网关**，进入管理页。
 3. 选择地域，如示例中的**东京**，单击**+新建**。
 >? 若**+新建**显示灰色，且鼠标移至上方时显示“无可用私有网络”，请 [创建私有网络](https://cloud.tencent.com/document/product/215/36515#.E5.88.9B.E5.BB.BA-vpc.3Ca-id.3D.221.22.3E.3C.2Fa.3E) 后再进行新建 VPN 网关。 
 >
