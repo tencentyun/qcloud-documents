@@ -23,7 +23,7 @@
 ### 1. 集群访问授权
 
 ```shell
-[root@master01 run]# export KUBECONFIG=xxx/cls-xxx-config (从tke控制台页面，下载集群凭证到某个目录）
+[root@master01 run]# export KUBECONFIG=xxx/cls-xxx-config （从tke控制台页面，下载集群凭证到某个目录）
 ```
 
 >! 集群 API Server 需要开启外网访问权限。
