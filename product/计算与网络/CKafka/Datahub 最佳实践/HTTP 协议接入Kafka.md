@@ -20,7 +20,7 @@ HTTP 数据接入层开启后，公网的 HTTP 客户端可通过云 API 直接�
 
 ### 创建数据接入任务
 
-具体操作请参见 [Datahub 操作指南-HTTP 主动上报](https://cloud.tencent.com/document/product/597/66017)。
+具体操作请参见 [DataHub 操作指南-HTTP 主动上报](https://cloud.tencent.com/document/product/597/66017)。
 
 
 ### 使用 SDK 发送消息
