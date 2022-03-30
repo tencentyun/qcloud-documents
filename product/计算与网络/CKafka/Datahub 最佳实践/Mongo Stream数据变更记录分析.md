@@ -21,7 +21,7 @@ MongoDB 的数据流入配置项可参见官方 [MongoDB Kafka source connector]
 
 ## 操作步骤
 
-### 步骤1. 创建数据接入任务
+### 步骤1：创建数据接入任务
 
 1. 登录 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 。
 2. 在左侧导航栏单击**数据流入**，选择好地域后，单击**新建任务**。
@@ -34,7 +34,7 @@ MongoDB 的数据流入配置项可参见官方 [MongoDB Kafka source connector]
 6. 当 MongoDB 数据发生变更时，可以看到选中的 CKafka 实例的 Topic 有新增的消息。
 ![](https://qcloudimg.tencent-cloud.cn/raw/94494e70d68682da95a83a3c3f56d124.png)
 
-### 步骤2. 创建数据流出任务
+### 步骤2：创建数据流出任务
 
 1. 登录 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 。
 2. 在左侧导航栏单击**数据流出**，选择好地域后，单击**新建任务**。
@@ -50,7 +50,7 @@ MongoDB 的数据流入配置项可参见官方 [MongoDB Kafka source connector]
 
 
 
-### 步骤3. 查看流出数据
+### 步骤3：查看流出数据
 
 1. 登录 [日志服务](https://console.cloud.tencent.com/cls/overview?region=ap-guangzhou) 控制台。
 2. 在左侧导航栏选择**检索分析**，选择流出时填写的日志集与日志主题的“ID”，即可看到 MongoDB 的变更记录。
