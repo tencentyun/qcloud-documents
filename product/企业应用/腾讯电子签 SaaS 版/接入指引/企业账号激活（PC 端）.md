@@ -52,15 +52,38 @@
 </dx-tabs>
 
 #### 4. 应用激活完成，等待超管完成激活及授权。
-企业激活成功后，系统会向 [2](#smallStep2)、[3](#smallStep3) 步中设置的超级管理员与法定代表人发送短信（若步骤3选择而通过授权书方式进行授权，则需等待人工审核）。超管激活及授权指引请参见 [授权书](https://doc.weixin.qq.com/doc/w3_AG8ApAZ1ACcrlFAiWcpQtu26XPThR?scode=AJEAIQdfAAoBfTJffUAG8ApAZ1ACc)。
+企业激活成功后，系统会向 [2](#smallStep2)、[3](#smallStep3) 步中设置的超级管理员与法定代表人发送短信（若步骤3选择通过授权书方式进行授权，则需等待人工审核）。
+<dx-tabs>
+::: 超管激活流程
+步骤1：点击激活短信
+单击超级管理员手机中的**激活**短信，进入腾讯电子签小程序。
+![](https://qcloudimg.tencent-cloud.cn/raw/499a86c296f5f1cd95e6fcf28ea58c0c.png)
+步骤2：人脸核身
+1. 在小程序页面中，确认超级管理员实名信息正确后，单击**开始人脸核身**。 
+![](https://qcloudimg.tencent-cloud.cn/raw/6c8d96c1ebf771250347bd8878b1593c.png)
+2. 人脸核身通过后，即完成超级管理员激活操作。
+![](https://qcloudimg.tencent-cloud.cn/raw/47a103e4e5e7de6278e105414b4a7a69.png)
 
+步骤3：登录使用
+激活成功后，您可使用微信扫码登录 [腾讯电子签控制台](https://ess.tencent.cn/) 使用腾讯电子签服务。
 
+:::
+::: 企业法人授权流程
+步骤1：查看授权短信
+完成企业账号创建后，系统会给企业法人发送一条短信，法人需单击短信内**链接**进行授权。
+![](https://qcloudimg.tencent-cloud.cn/raw/cae001ebac9659188092938f7198737d.png)
+步骤2：人脸核身
+单击**链接**后打开电子签小程序，法人在页面中确认个人信息后即进入人脸核身环节。 
+![](https://qcloudimg.tencent-cloud.cn/raw/46b6330a63a289b372b4524970c91489.png)
+步骤3：阅读超级管理员授权书并确认授权
+人脸核身通过后，法人将进入超级管理员授权书阅读页，授权书内容阅读完成并确认超管信息无误后单击**确认**，法人即完成超级管理员的授权流程。 
+![](https://qcloudimg.tencent-cloud.cn/raw/f2c942bc43807c55eba1c02fac929313.png)
+:::
+</dx-tabs>
 
 
 ### 步骤4：使用腾讯电子签服务
 超级管理员通过短信完成激活并通过授权后，您即可体验腾讯电子签的所有功能，使用指引详参 [操作指南](https://cloud.tencent.com/document/product/1323/58490)。
-
-
 
 ## 联系我们
 如您按照文档进行操作的过程中遇到问题，您可通过 e-contract@tencent.com 联系我们，我们将竭诚为您服务！
