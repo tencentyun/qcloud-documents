@@ -2,7 +2,7 @@
 
 MongoDB 内有 Change Stream 作为其追踪变更的解决方案，但为了更好地对变更记录进行搜索，往往需要将变更记录同步到Elasticsearch、日志服务(CLS) 等。
 
-![](https://qcloudimg.tencent-cloud.cn/raw/cc7562f3306a56debf1748c8b433f88a.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/4689f690f7d5753e0fcdbe7142fca6ea.jpg)
 
 本文以 MongoDB 接入 CKafka 并从 CKafka 流出到 CLS 为例，讲解如何使用 Datahub 数据转储服务实现 Mongo Stream 数据变更记录分析。
 
