@@ -4,12 +4,12 @@
 
 ## 操作步骤
 ### 步骤1：创建腾讯云账号并完成企业实名
-如果您已有完成实名认证的腾讯云企业账号可跳过此步骤。
-若您已完成企业事情的腾讯云账号，您需要 [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 账号并完成 [企业实名认证](https://cloud.tencent.com/document/product/378/10496)。
+1. 如果您已有完成实名认证的腾讯云企业账号可跳过此步骤。
+2. 若您已完成企业事情的腾讯云账号，您需要 [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 账号并完成 [企业实名认证](https://cloud.tencent.com/document/product/378/10496)。
 
 ### 步骤2：使用腾讯云账号登录电子签
-访问 [腾讯电子签登录页](https://ess.tencent.cn/)，单击腾讯云企业控制台入口（如下图所示），即可进入腾讯云账号登录页面。
-您可使用主账号或已授权电子签策略的子账号进行登录。本文档以主账号登录为例，子账号登录指引请参见 [如何使用子用户账号登录电子签](https://cloud.tencent.com/document/product/1323/58484#Q13)。
+1. 访问 [腾讯电子签登录页](https://ess.tencent.cn/)，单击腾讯云企业控制台入口（如下图所示），即可进入腾讯云账号登录页面。
+2. 您可使用主账号或已授权电子签策略的子账号进行登录。本文档以主账号登录为例，子账号登录指引请参见 [如何使用子用户账号登录电子签](https://cloud.tencent.com/document/product/1323/58484#Q13)。
 ![](https://main.qcloudimg.com/raw/a07f2987c2078de9dc7117ed5bbcbfef.png)
 
 #### 登录腾讯云账号
@@ -21,8 +21,8 @@
 登录成功后将进入应用激活流程，您完成企业名称确认，超级管理员设置及授权后，方可启用腾讯电子签的完整服务。
 
 #### 1. 企业名称确认
-请您在页面中确认企业名称，若信息无误可单击确认无误进入超级管理员设置流程。
-若企业名称与实际不一致，需前往腾讯云官网进行企业更名操作，更名指引请参见 [变更企业认证信息](https://cloud.tencent.com/document/product/378/43087)。
+- 请您在页面中确认企业名称，若信息无误可单击确认无误进入超级管理员设置流程。
+- 若企业名称与实际不一致，需前往腾讯云官网进行企业更名操作，更名指引请参见 [变更企业认证信息](https://cloud.tencent.com/document/product/378/43087)。
 ![](https://qcloudimg.tencent-cloud.cn/raw/1acc6be5bfd24d266c4195fd2194d41a.png)
 
 #### 2. 超级管理员设置[](id:smallStep2)
