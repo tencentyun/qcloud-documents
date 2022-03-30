@@ -35,9 +35,9 @@
 
 #### 启用日志采集
 
-1. 登录 [TKE 控制台](https://console.cloud.tencent.com/tke2/cluster) 。
+1. 登录 [TKE 控制台](https://console.cloud.tencent.com/tke2/cluster)。
 2. 在左侧导航栏选择 **运维功能管理**，点击目标实例操作栏的**设置**按钮。
-3. 勾选 **开启日志采集**，启用日志采集功能后确认。具体操作步骤可参考[配置日志采集文档](https://cloud.tencent.com/document/product/457/36771) 。
+3. 勾选 **开启日志采集**，启用日志采集功能后确认。具体操作步骤可参考[配置日志采集文档](https://cloud.tencent.com/document/product/457/36771)。
    ![](https://qcloudimg.tencent-cloud.cn/raw/7e8c996db32b82e0f6f11a7c219b9049.png)
 > ?
 >
@@ -72,7 +72,7 @@
 
 DataHub 能够涵盖绝大部分的数据处理场景，由于数据处理方式取决于采集的源消息格式，因此此处仅使用简单的数据处理进行展示。
 
-1. 登录 [CKafka 控制台](https://console.cloud.tencent.com/ckafka/) 。
+1. 登录 [CKafka 控制台](https://console.cloud.tencent.com/ckafka/)。
 2. 在左侧导航栏选择 **数据处理**，单击 **新建任务**，在任务界面选择 **Json 解析模式**，将所需的嵌套 Metadata 信息转换为单层 Json 格式。
    ![](https://qcloudimg.tencent-cloud.cn/raw/26b40b081c3104d42d27c42e518e3a32.png)
 3. 创建后，当数据处理概览页面中显示当前任务为健康状态时，代表数据处理处理正常。
