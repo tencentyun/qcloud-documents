@@ -52,4 +52,3 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/dd1539696d3e128cde3961f48f4e8d26.png)
 2. 进入升级功能模块界面，选择未绑定的腾讯特效套餐包，单击**确定**即可升级创建同包名的正式应用，同时解锁腾讯特效模块的正式版 License，无需签发审核。若无可绑定的腾讯特效套餐包，可单击 [资源包购买页](https://buy.cloud.tencent.com/vcube?type=magic) 前往腾讯视立方资源包购买页购买。
 ![](https://qcloudimg.tencent-cloud.cn/raw/4bc67e88b7b4b7fc1e231c4d29550f53.png)
-
