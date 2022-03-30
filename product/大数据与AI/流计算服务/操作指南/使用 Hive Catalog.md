@@ -1,4 +1,4 @@
-﻿## 介绍
+## 介绍
 
 您可以在 Oceanus SQL 作业中配置 Hive Catalog、查看 Hive 元数据、使用 Hive Catalog。将元数据信息保存到 Hive Metastore 以后，在作业中无需再显式声明 DDL 语句，直接三段式引用元数据即可。
 
