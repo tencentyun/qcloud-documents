@@ -34,7 +34,8 @@ FLUSH PRIVILEGES;
 - TDSQL MySQL（MariaDB）作为源或者目标库时，不支持双向同步。
 - TDSQL 同步功能为了提高增量阶段的同步速度，采用了行级并发策略。因此在增量同步过程中，可能会在极短的时间内在目标库观察到事务的中间值，但最终源库和目标库数据会保持一致。 
 - 目前主键冲突处理策略只支持冲突覆盖，对于增量阶段的主键数据冲突，会直接进行冲突覆盖。但对于全量数据初始化阶段的冲突，任务会报错。
-- 当前不支持 geometry 相关的数据类型。
+- 不支持同时包含 DML 和 DDL 语句在一个事务的场景，遇到该情况任务会报错。
+- 不支持 Geometry 相关的数据类型，遇到该类型数据任务报错。
 
 ## 操作限制
 同步过程中请勿进行如下操作，否则会导致同步任务失败。
@@ -159,9 +160,9 @@ FLUSH PRIVILEGES;
 >- 如果用户在同步过程中确定会使用 gh-ost、pt-osc 等工具对某张表做 Online DDL，则**同步对象**需要选择这个表所在的整个库（或者整个实例），不能仅选择这个表，否则无法同步 Online DDL 变更产生的临时表数据到目标数据库。
 >- 如果用户在同步过程中确定会对某张表使用 rename 操作（例如将 table A rename 为 table B），则**同步对象**需要选择 table A 所在的整个库（或者整个实例），不能仅选择 table A，否则系统会报错。
 >
-![](https://qcloudimg.tencent-cloud.cn/raw/367d16f2af9fd6b08e9b81632a2951b8.png)
-<strong>库表映射</strong>：在已选对象中，鼠标放在右侧将出现编辑按钮，单击后可在弹窗中填写映射名。
-<img src="https://qcloudimg.tencent-cloud.cn/raw/7d8260ec27667ef8fadcf32ae9e41e3e.png" style="zoom:70%;" />
+>![](https://qcloudimg.tencent-cloud.cn/raw/367d16f2af9fd6b08e9b81632a2951b8.png)
+><strong>库表映射</strong>：在已选对象中，鼠标放在右侧将出现编辑按钮，单击后可在弹窗中填写映射名。
+><img src="https://qcloudimg.tencent-cloud.cn/raw/7d8260ec27667ef8fadcf32ae9e41e3e.png" style="zoom:70%;" />
 <table>
 <thead><tr><th>设置项</th><th>参数</th><th>描述</th></tr></thead>
 <tbody>
@@ -193,6 +194,6 @@ FLUSH PRIVILEGES;
 7. 返回数据同步任务列表，任务开始进入**运行中**状态。
 >?选择**操作**列的**更多** > **结束**可关闭同步任务，请您确保数据同步完成后再关闭任务。
 >
-![](https://qcloudimg.tencent-cloud.cn/raw/a14d84281ab739bfba84a61b2e09fa79.png)
+>![](https://qcloudimg.tencent-cloud.cn/raw/a14d84281ab739bfba84a61b2e09fa79.png)
 8. （可选）您可以单击任务 ID，进入任务详情页，查看任务初始化状态和监控数据。
 
