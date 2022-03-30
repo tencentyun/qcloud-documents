@@ -78,7 +78,8 @@
  - [角色管理操作指引（PC 版）](https://cloud.tencent.com/document/product/1323/61355)
 
 ### 印章管理
-- 首页单击**印章管理** > **添加企业印章**，系统即可自动生成“企业公章”电子印章。![img](https://wdoc-76491.picgzc.qpic.cn/MTY4ODg1NjgzNjI1ODQyMg_79824_jDLNy5O6uhHMszzF_1648543194?w=1255&h=823)
+- 首页单击**印章管理** > **添加企业印章**，系统即可自动生成“企业公章”电子印章。
+![](https://qcloudimg.tencent-cloud.cn/raw/ef66e7374b98ad9aa7f6030e017a1730.png)
 - 如需添加其他类型印章可登录pc端，可以通过微信扫码的方式登录 [腾讯电子签控制台](https://ess.tencent.com/) **进行印章管理**。
 [印章管理操作指引（PC 版）](https://cloud.tencent.com/document/product/1323/59451)
 
@@ -100,11 +101,12 @@
 由腾讯电子签官方发布的模板，涵盖人事劳动、采购、销售、租赁、授权委托、承诺和保证等模板。
 ##### 收藏官方模板
 单击模板卡片右下角的星号，收藏添加到企业自有模板库中，便可共享给员工使用。
+![](https://qcloudimg.tencent-cloud.cn/raw/fd5c00a01d35da5397edb39c4c0b85fe.png)
 <dx-alert infotype="notice" title="">
 若提示“请联系企业超管使用此官方模板发起合同”，说明您不是超级管理员，请联系管理员添加。
 </dx-alert>
 
-![](https://qcloudimg.tencent-cloud.cn/raw/fd5c00a01d35da5397edb39c4c0b85fe.png)
+
 
 
 ### 合同发起
@@ -112,11 +114,12 @@
 ##### 路径一：通过企业模板发起合同
 1. 选择模板
 在电子签企业账号首页，进入**企业模板库**，选择**企业自有模板**或者**官方模板**内的模板发起合同。自定义企业模板，请参见 [模板管理](https://cloud.tencent.com/document/product/1323/61357)。
+![](https://qcloudimg.tencent-cloud.cn/raw/a7616b6f33abd99e5ecc1b2dd28f3ef6.png)
 <dx-alert infotype="notice" title="">
 企业自有模板需提前在pc端配置，并选择适用于小程序端，配置成功后才能在小程序端选择企业模板发起合同。
 </dx-alert>
 
-![](https://qcloudimg.tencent-cloud.cn/raw/a7616b6f33abd99e5ecc1b2dd28f3ef6.png)
+
 
 2. 配置签署信息
 选定模板后进入预览页面，单击**使用此模板发起合同**，跳转至**设置签署信息**页面，单击**个人**一栏添加签署人信息，支持两种方式添加：
@@ -186,7 +189,7 @@
 >!如发起人为签署人，发起合同即可进入签署合同环节，如发起人不是签署人，则单击发起合同即成功发起。
 
 合同详情可在**首页** > **文件夹** > **我的合同**中查看，单击右上角可通过微信、企业微信发送给好友。
-![img](https://wdoc-76491.picgzc.qpic.cn/MTY4ODg1NjgzNjI1ODQyMg_392069_yjRQk4v7QESInP5h_1648522243?w=605&h=610)
+![](https://qcloudimg.tencent-cloud.cn/raw/c77bf99795211daeb08410a448c74718.png)
 
 ##### 路径二：通过微信文件快速发起合同
 1. 选取微信文件
