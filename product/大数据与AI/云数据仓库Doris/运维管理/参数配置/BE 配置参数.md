@@ -113,7 +113,7 @@ Metrics: {"filtered_rows":0,"input_row_num":3346807,"input_rowsets_count":42,"in
 
 ### brpc_num_threads
 
-该配置主要用来修改 brpc 中 bthreads 的数量. 该配置的默认值被设置为-1, 这意味着 bthreads 的数量将被设置为机器的 cpu 核数。
+该配置主要用来修改 brpc 中 bthreads 的数量. 该配置的默认值被设置为-1, 这意味着 bthreads 的数量将被设置为机器的 CPU 核数。
 用户可以将该配置的值调大来获取更好的QPS性能。更多的信息可以参考 [示例](https://github.com/apache/incubator-brpc/blob/master/docs/cn/benchmark.md)。
 
 ### brpc_port
@@ -616,7 +616,7 @@ load tablets from header failed, failed tablets size: xxx, path=xxx
 
 ### read_size
 - 默认值：8388608。
-- 读取大小是发送到 os 的读取大小。 在延迟和整个过程之间进行权衡，试图让磁盘保持忙碌但不引入寻道。 对于 8 MB 读取，随机 io 和顺序 io 的性能相似。
+- 读取大小是发送到 OS 的读取大小。 在延迟和整个过程之间进行权衡，试图让磁盘保持忙碌但不引入寻道。 对于 8 MB 读取，随机 io 和顺序 io 的性能相似。
 
 ### min_buffer_size
 
@@ -712,7 +712,7 @@ load tablets from header failed, failed tablets size: xxx, path=xxx
 
 ### priority_networks
 - 默认值：空。
-- 为那些有很多 ip 的服务器声明一个选择策略。 请注意，最多应该有一个 ip 与此列表匹配。 这是一个以分号分隔格式的列表，用 CIDR 表示法，例如 10.10.10.0/24 ， 如果没有匹配这条规则的 ip，会随机选择一个。
+- 为那些有很多 IP 的服务器声明一个选择策略。 请注意，最多应该有一个 IP 与此列表匹配。 这是一个以分号分隔格式的列表，用 CIDR 表示法，例如 10.10.10.0/24 ， 如果没有匹配这条规则的 IP，会随机选择一个。
 
 ### priority_queue_remaining_tasks_increased_frequency
 - 默认值：512。
@@ -943,7 +943,7 @@ Stream Load 一般适用于导入几个 GB 以内的数据，不适合导入过�
 ### tablet_rowset_stale_sweep_time_sec
 
 * 类型：int64。
-* 描述：用来表示清理合并版本的过期时间，当当前时间 now() 减去一个合并的版本路径中 rowset 最近创建创建时间大于 tablet_rowset_stale_sweep_time_sec 时，对当前路径进行清理，删除这些合并过的 rowset, 单位为s。
+* 描述：用来表示清理合并版本的过期时间，当前时间 now() 减去一个合并的版本路径中 rowset 最近创建创建时间大于 tablet_rowset_stale_sweep_time_sec 时，对当前路径进行清理，删除这些合并过的 rowset, 单位为s。
 * 默认值：1800。
 
 当写入过于频繁，磁盘空间不足时，可以配置较少这个时间。不过这个时间过短小于5分钟时，可能会引发 fe 查询不到已经合并过的版本，引发查询-230错误。
