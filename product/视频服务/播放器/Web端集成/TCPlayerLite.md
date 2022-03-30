@@ -261,47 +261,250 @@ https://web.sdk.qcloud.com/player/tcplayerlite/tcplayer-error.html
 ## 参数列表
 播放器支持的所有参数，如下所示：
 
-| 参数             | 类型     | 默认值   | 参数说明
-|-----------------|--------- |--------  |-------------------------------------------- |
-| webrtc | String | 无 | 原画 WebRTC 播放 URL。 <br> 示例： `webrtc://5664.liveplay.myqcloud.com/live/5664_harchar1` |
-| webrtc_hd | String | 无 | 高清 WebRTC 播放 URL。 <br> 示例： `webrtc://5664.liveplay.myqcloud.com/live/5664_harchar1_hd` |
-| webrtc_sd | String | 无 | 标清 WebRTC 播放 URL。 <br> 示例： `webrtc://5664.liveplay.myqcloud.com/live/5664_harchar1_sd` |
-| m3u8            | String   | 无       |  原画 M3U8 播放 URL。  <br> 示例：`http://2157.liveplay.myqcloud.com/2157_358535a.m3u8` |
-| m3u8_hd         | String   | 无       |  高清 M3U8 播放 URL。  <br> 示例：`http://2157.liveplay.myqcloud.com/2157_358535ahd.m3u8` |
-| m3u8_sd         | String   | 无       |  标清 M3U8 播放 URL。  <br> 示例：`http://2157.liveplay.myqcloud.com/2157_358535asd.m3u8`  |
-| flv             | String   | 无       |  原画 FLV 播放 URL。  <br> 示例：`http://2157.liveplay.myqcloud.com/2157_358535a.flv`  |
-| flv_hd          | String   | 无       |  高清 FLV 播放 URL。  <br> 示例：`http://2157.liveplay.myqcloud.com/2157_358535ahd.flv`  |
-| flv_sd          | String   | 无       |  标清 FLV 播放 URL。  <br> 示例：`http://2157.liveplay.myqcloud.com/2157_358535asd.flv` |
-| mp4             | String   | 无       |  原画 MP4 播放 URL。  <br> 示例：`http://200002949.vod.myqcloud.com/200002949_b6ffc.f0.mp4` |
-| mp4_hd          | String   | 无       |  高清 MP4 播放 URL。  <br> 示例：`http://200002949.vod.myqcloud.com/200002949_b6ffc.f40.mp4`|
-| mp4_sd          | String   | 无       |  标清 MP4 播放 URL。  <br> 示例：`http://200002949.vod.myqcloud.com/200002949_b6ffc.f20.mp4`|
-| rtmp            | String   | 无       |  原画 RTMP 播放 URL。  <br> 示例：`rtmp://2157.liveplay.myqcloud.com/live/2157_280d88`|
-| rtmp_hd         | String   | 无       |  高清 RTMP 播放 URL。  <br> 示例：`rtmp://2157.liveplay.myqcloud.com/live/2157_280d88hd`|
-| rtmp_sd         | String   | 无       |  标清 RTMP 播放 URL。   <br> 示例：`rtmp://2157.liveplay.myqcloud.com/live/2157_280d88sd`|
-| width           | Number   | 无       | **必选**，设置播放器宽度，单位为像素。   <br> 示例：640   |
-| height          | Number   | 无       | **必选**，设置播放器高度，单位为像素。   <br> 示例：480 |
-| volume          | Number   | 0.5      | 设置初始音量，范围：0到1 [v2.2.0+]。    <br> 示例：0.6   |
-| live            | Boolean  | false    | **必选**，设置视频是否为直播类型，将决定是否渲染时间轴等控件，以及区分点直播的处理逻辑。  <br> 示例：true  |
-| autoplay        | Boolean  | false    | 是否自动播放。<br>（**备注：该选项只对大部分 PC 平台生效**）  <br> 示例：true |
-| poster        | String / Object| 无 | 预览封面，可以传入一个图片地址或者一个包含图片地址 src 和显示样式 style 的对象。<br>style 可选属性：<br><li/>default 居中1：1显示。 <br><li/>stretch 拉伸铺满播放器区域，图片可能会变形。 <br><li/>cover 优先横向等比拉伸铺满播放器区域，图片某些部分可能无法显示在区域内。    <br> 示例： "`http://www.test.com/myimage.jpg`" 或者<br>{"style": "cover", "src": `http://www.test.com/myimage.jpg`}  [v2.3.0+]|
-| controls        | String   |"default" | default 显示默认控件，none 不显示控件，system 移动端显示系统控件。<br> （备注：如果需要在移动端使用系统全屏，就需要设置为 system。默认全屏方案是使用 Fullscreen API + 伪全屏的方式，[在线示例](https://web.sdk.qcloud.com/player/tcplayerlite/tcplayer-consoles.html) ）  <br> 示例："system"|
-| systemFullscreen| Boolean  |false     | 开启后，在不支持 Fullscreen API 的浏览器环境下，尝试使用浏览器提供的 webkitEnterFullScreen 方法进行全屏，如果支持，将进入系统全屏，控件为系统控件。  <br> 示例：true  |
-| flash           | Boolean  | true     | 是否优先使用 Flash 播放视频。<br>（**备注：该选项只对 PC 平台生效**[v2.2.0+]）  <br> 示例：true  |
-| flashUrl        | String   | 无       | 可以设置 flash swf url。 <br>（**备注：该选项只对 PC 平台生效** [v2.2.1+]）  |
-| h5_flv          | Boolean  | false    | 是否启用 flv.js 的播放 flv。启用时播放器将在支持 MSE 的浏览器下，采用 flv.js 播放 flv，然而并不是所有支持 MSE 的浏览器都可以使用 flv.js，所以播放器不会默认开启这个属性，[v2.2.0+]。   <br> 示例：true |
-| x5_player       | Boolean  | false    | 是否启用 TBS 的播放 flv 或 hls 。启用时播放器将在 TBS 模式下(例如 Android 的微信、QQ 浏览器），将 flv 或 hls 播放地址直接赋给 `<video>` 播放。[TBS 视频能力](https://x5.tencent.com/tbs/product/video.html) [v2.2.0+]。   <br> 示例： true   |
-| x5_type         | String   | 无       | 通过 video 属性 “x5-video-player-type” 声明启用同层 H5 播放器，支持的值：h5-page (该属性为 TBS 内核实验性属性，非 TBS 内核不支持)，[TBS H5 同层播放器接入规范](https://x5.tencent.com/docs/video.html)。   <br> 示例："h5-page"  |
-| x5_fullscreen   | String   | 无       | 通过 video 属性 “x5-video-player-fullscreen” 声明视频播放时是否进入到 TBS 的全屏模式，支持的值：true (该属性为 TBS 内核实验性属性，非 TBS 内核不支持) 。   <br> 示例："true"   |
-| x5_orientation  | Number   | 无       | 通过 video 属性 “x5-video-orientation” 声明 TBS 播放器支持的方向，可选值：0（landscape 横屏），1：（portraint竖屏），2：（landscape &verbar; portrait 跟随手机自动旋转）。 (该属性为 TBS 内核实验性属性，非 TBS 内核不支持) [v2.2.0+]。  <br> 示例：0   |
-| wording         | Object   | 无       | 自定义文案。   <br> 示例：{ 2032: '请求视频失败，请检查网络'}  |
-| clarity         | String   | 'od'     | 默认播放清晰度 [v2.2.1+]。 <br> 示例：clarity: 'od'  |
-| clarityLabel    | Object   | {od: '超清', hd: '高清', sd: '标清'} | 自定义清晰度文案 [v2.2.1+]。 <br> 示例：clarityLabel: {od: '蓝光', hd: '高清', sd: '标清'}。  |
-| listener        | Function | 无       | 事件监听回调函数，回调函数将传入一个 JSON 格式的对象。  <br> 示例：function(msg){<br>//进行事件处理 <br>}  |
-| pausePosterEnabled| Boolean | true    | 暂停时显示封面 [v2.3.0+]。|
-| preload           | String | 'auto'   | 配置 video 标签的 preload 属性，只有部分浏览器生效[v2.3.0+]。|
-| hlsConfig         | Object | 无       | hls.js 初始化配置项 [v2.3.0+]。|
-| flvConfig         | Object | 无       | flv.js 初始化配置项 [v2.3.1+]。|
-| webrtcConfig      | Object | 无       | webrtc 初始化配置项 [v2.4.1+]。<br>支持通过 streamType 指定拉流类型，默认拉取音视频，可选单独拉取视频或单独拉取音频，streamType 可选属性：<li/>auto：拉取视频流和音频流<li/> video：仅拉取视频流<li/> audio：仅拉取音频流<br> 示例：`webrtcConfig: { streamType: 'video' }`|
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>类型</th>
+<th>默认值</th>
+<th>参数说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>webrtc</td>
+<td>String</td>
+<td>无</td>
+<td>原画 WebRTC 播放 URL。 <br> 示例： <code>webrtc://5664.liveplay.myqcloud.com/live/5664_harchar1</code></td>
+</tr>
+<tr>
+<td>webrtc_hd</td>
+<td>String</td>
+<td>无</td>
+<td>高清 WebRTC 播放 URL。 <br> 示例： <code>webrtc://5664.liveplay.myqcloud.com/live/5664_harchar1_hd</code></td>
+</tr>
+<tr>
+<td>webrtc_sd</td>
+<td>String</td>
+<td>无</td>
+<td>标清 WebRTC 播放 URL。 <br> 示例： <code>webrtc://5664.liveplay.myqcloud.com/live/5664_harchar1_sd</code></td>
+</tr>
+<tr>
+<td>m3u8</td>
+<td>String</td>
+<td>无</td>
+<td>原画 M3U8 播放 URL。  <br> 示例：<code>http://2157.liveplay.myqcloud.com/2157_358535a.m3u8</code></td>
+</tr>
+<tr>
+<td>m3u8_hd</td>
+<td>String</td>
+<td>无</td>
+<td>高清 M3U8 播放 URL。  <br> 示例：<code>http://2157.liveplay.myqcloud.com/2157_358535ahd.m3u8</code></td>
+</tr>
+<tr>
+<td>m3u8_sd</td>
+<td>String</td>
+<td>无</td>
+<td>标清 M3U8 播放 URL。  <br> 示例：<code>http://2157.liveplay.myqcloud.com/2157_358535asd.m3u8</code></td>
+</tr>
+<tr>
+<td>flv</td>
+<td>String</td>
+<td>无</td>
+<td>原画 FLV 播放 URL。  <br> 示例：<code>http://2157.liveplay.myqcloud.com/2157_358535a.flv</code></td>
+</tr>
+<tr>
+<td>flv_hd</td>
+<td>String</td>
+<td>无</td>
+<td>高清 FLV 播放 URL。  <br> 示例：<code>http://2157.liveplay.myqcloud.com/2157_358535ahd.flv</code></td>
+</tr>
+<tr>
+<td>flv_sd</td>
+<td>String</td>
+<td>无</td>
+<td>标清 FLV 播放 URL。  <br> 示例：<code>http://2157.liveplay.myqcloud.com/2157_358535asd.flv</code></td>
+</tr>
+<tr>
+<td>mp4</td>
+<td>String</td>
+<td>无</td>
+<td>原画 MP4 播放 URL。  <br> 示例：<code>http://200002949.vod.myqcloud.com/200002949_b6ffc.f0.mp4</code></td>
+</tr>
+<tr>
+<td>mp4_hd</td>
+<td>String</td>
+<td>无</td>
+<td>高清 MP4 播放 URL。  <br> 示例：<code>http://200002949.vod.myqcloud.com/200002949_b6ffc.f40.mp4</code></td>
+</tr>
+<tr>
+<td>mp4_sd</td>
+<td>String</td>
+<td>无</td>
+<td>标清 MP4 播放 URL。  <br> 示例：<code>http://200002949.vod.myqcloud.com/200002949_b6ffc.f20.mp4</code></td>
+</tr>
+<tr>
+<td>rtmp</td>
+<td>String</td>
+<td>无</td>
+<td>原画 RTMP 播放 URL。  <br> 示例：<code>rtmp://2157.liveplay.myqcloud.com/live/2157_280d88</code></td>
+</tr>
+<tr>
+<td>rtmp_hd</td>
+<td>String</td>
+<td>无</td>
+<td>高清 RTMP 播放 URL。  <br> 示例：<code>rtmp://2157.liveplay.myqcloud.com/live/2157_280d88hd</code></td>
+</tr>
+<tr>
+<td>rtmp_sd</td>
+<td>String</td>
+<td>无</td>
+<td>标清 RTMP 播放 URL。   <br> 示例：<code>rtmp://2157.liveplay.myqcloud.com/live/2157_280d88sd</code></td>
+</tr>
+<tr>
+<td>width</td>
+<td>Number</td>
+<td>无</td>
+<td><strong>必选</strong>，设置播放器宽度，单位为像素。   <br> 示例：640</td>
+</tr>
+<tr>
+<td>height</td>
+<td>Number</td>
+<td>无</td>
+<td><strong>必选</strong>，设置播放器高度，单位为像素。   <br> 示例：480</td>
+</tr>
+<tr>
+<td>volume</td>
+<td>Number</td>
+<td>0.5</td>
+<td>设置初始音量，范围：0到1 [v2.2.0+]。    <br> 示例：0.6</td>
+</tr>
+<tr>
+<td>live</td>
+<td>Boolean</td>
+<td>false</td>
+<td><strong>必选</strong>，设置视频是否为直播类型，将决定是否渲染时间轴等控件，以及区分点直播的处理逻辑。  <br> 示例：true</td>
+</tr>
+<tr>
+<td>autoplay</td>
+<td>Boolean</td>
+<td>false</td>
+<td>是否自动播放。<br>（<strong>备注：该选项只对大部分 PC 平台生效</strong>）  <br> 示例：true</td>
+</tr>
+<tr>
+<td>poster</td>
+<td>String / Object</td>
+<td>无</td>
+<td>预览封面，可以传入一个图片地址或者一个包含图片地址 src 和显示样式 style 的对象。style 可选属性：<ul style="margin:0"><li>default 居中1：1显示。 <br></li><li>stretch 拉伸铺满播放器区域，图片可能会变形。</li><li>cover 优先横向等比拉伸铺满播放器区域，图片某些部分可能无法显示在区域内。</ul>示例： "<code>http://www.test.com/myimage.jpg</code>" 或者<br>{"style": "cover", "src": <code>http://www.test.com/myimage.jpg</code>}  [v2.3.0+]</li></td>
+</tr>
+<tr>
+<td>controls</td>
+<td>String</td>
+<td>"default"</td>
+<td>default 显示默认控件，none 不显示控件，system 移动端显示系统控件。<br> （备注：如果需要在移动端使用系统全屏，就需要设置为 system。默认全屏方案是使用 Fullscreen API + 伪全屏的方式，<a href="https://web.sdk.qcloud.com/player/tcplayerlite/tcplayer-consoles.html">在线示例</a> ）  <br> 示例："system"</td>
+</tr>
+<tr>
+<td>systemFullscreen</td>
+<td>Boolean</td>
+<td>false</td>
+<td>开启后，在不支持 Fullscreen API 的浏览器环境下，尝试使用浏览器提供的 webkitEnterFullScreen 方法进行全屏，如果支持，将进入系统全屏，控件为系统控件。  <br> 示例：true</td>
+</tr>
+<tr>
+<td>flash</td>
+<td>Boolean</td>
+<td>true</td>
+<td>是否优先使用 Flash 播放视频。<br>（<strong>备注：该选项只对 PC 平台生效</strong>[v2.2.0+]）  <br> 示例：true</td>
+</tr>
+<tr>
+<td>flashUrl</td>
+<td>String</td>
+<td>无</td>
+<td>可以设置 flash swf url。 <br>（<strong>备注：该选项只对 PC 平台生效</strong> [v2.2.1+]）</td>
+</tr>
+<tr>
+<td>h5_flv</td>
+<td>Boolean</td>
+<td>false</td>
+<td>是否启用 flv.js 的播放 flv。启用时播放器将在支持 MSE 的浏览器下，采用 flv.js 播放 flv，然而并不是所有支持 MSE 的浏览器都可以使用 flv.js，所以播放器不会默认开启这个属性，[v2.2.0+]。   <br> 示例：true</td>
+</tr>
+<tr>
+<td>x5_player</td>
+<td>Boolean</td>
+<td>false</td>
+<td>是否启用 TBS 的播放 flv 或 hls 。启用时播放器将在 TBS 模式下(例如 Android 的微信、QQ 浏览器），将 flv 或 hls 播放地址直接赋给 <code>&lt;video&gt;</code> 播放。<a href="https://x5.tencent.com/tbs/product/video.html">TBS 视频能力</a> [v2.2.0+]。   <br> 示例： true</td>
+</tr>
+<tr>
+<td>x5_type</td>
+<td>String</td>
+<td>无</td>
+<td>通过 video 属性 “x5-video-player-type” 声明启用同层 H5 播放器，支持的值：h5-page (该属性为 TBS 内核实验性属性，非 TBS 内核不支持)，<a href="https://x5.tencent.com/docs/video.html">TBS H5 同层播放器接入规范</a>。   <br> 示例："h5-page"</td>
+</tr>
+<tr>
+<td>x5_fullscreen</td>
+<td>String</td>
+<td>无</td>
+<td>通过 video 属性 “x5-video-player-fullscreen” 声明视频播放时是否进入到 TBS 的全屏模式，支持的值：true (该属性为 TBS 内核实验性属性，非 TBS 内核不支持) 。   <br> 示例："true"</td>
+</tr>
+<tr>
+<td>x5_orientation</td>
+<td>Number</td>
+<td>无</td>
+<td>通过 video 属性 “x5-video-orientation” 声明 TBS 播放器支持的方向，可选值：<ul style="margin:0"><li>0：landscape 横屏</li><li>1：<code>portraint</code> 竖屏</li><li>2：<code>landscape &amp;verbar; portrait</code> 跟随手机自动旋转。</li></ul> (备注：该属性为 TBS 内核实验性属性，非 TBS 内核不支持) [v2.2.0+]。  <br> 示例：0</td>
+</tr>
+<tr>
+<td>wording</td>
+<td>Object</td>
+<td>无</td>
+<td>自定义文案。   <br> 示例：{ 2032: '请求视频失败，请检查网络'}</td>
+</tr>
+<tr>
+<td>clarity</td>
+<td>String</td>
+<td>'od'</td>
+<td>默认播放清晰度 [v2.2.1+]。 <br> 示例：clarity: 'od'</td>
+</tr>
+<tr>
+<td>clarityLabel</td>
+<td>Object</td>
+<td>{od: '超清', hd: '高清', sd: '标清'}</td>
+<td>自定义清晰度文案 [v2.2.1+]。 <br> 示例：clarityLabel: {od: '蓝光', hd: '高清', sd: '标清'}。</td>
+</tr>
+<tr>
+<td>listener</td>
+<td>Function</td>
+<td>无</td>
+<td>事件监听回调函数，回调函数将传入一个 JSON 格式的对象。  <br> 示例：<br> function(msg){<br>//进行事件处理 <br>}</td>
+</tr>
+<tr>
+<td>pausePosterEnabled</td>
+<td>Boolean</td>
+<td>true</td>
+<td>暂停时显示封面 [v2.3.0+]。</td>
+</tr>
+<tr>
+<td>preload</td>
+<td>String</td>
+<td>'auto'</td>
+<td>配置 video 标签的 preload 属性，只有部分浏览器生效[v2.3.0+]。</td>
+</tr>
+<tr>
+<td>hlsConfig</td>
+<td>Object</td>
+<td>无</td>
+<td>hls.js 初始化配置项 [v2.3.0+]。</td>
+</tr>
+<tr>
+<td>flvConfig</td>
+<td>Object</td>
+<td>无</td>
+<td>flv.js 初始化配置项 [v2.3.1+]。</td>
+</tr>
+<tr>
+<td>webrtcConfig</td>
+<td>Object</td>
+<td>无</td>
+<td>webrtc 初始化配置项 [v2.4.1+]。<br>支持通过 streamType 指定拉流类型，默认拉取音视频，可选单独拉取视频或单独拉取音频，streamType 可选属性：<li>auto：拉取视频流和音频流</li><li> video：仅拉取视频流</li><li> audio：仅拉取音频流<br> 示例：<code>webrtcConfig: { streamType: 'video' }</code></li></td>
+</tr>
+</tbody></table>
 
 >! 
 >- WebRTC 快直播播放地址支持两种格式，除 `webrtc://domain/AppName/StreamName?txSecret=XXX&txTime=XXX` 以外，还支持 `http://domain/AppName/StreamName.sdp?txSecret=XXX&txTime=XXX` 格式的播放地址，但是需要配置播放域名 CNAME 到 `overseas-webrtc.liveplay.myqcloud.com` 。
