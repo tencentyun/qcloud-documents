@@ -51,4 +51,3 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/1960a514de5e8186353656ab41707f59.png)
 3. 查看更新后的有效期情况。
 > !**腾讯特效正式版 License 不支持信息修改**，若您需要修改 License 信息，购买资源包后请勿用于 License 有效期的更新，请单击**创建应用并绑定 License**重新创建应用新增 License 绑定新的包名信息。
-

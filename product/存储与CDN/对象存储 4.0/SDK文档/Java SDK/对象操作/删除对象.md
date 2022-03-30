@@ -341,7 +341,7 @@ do {
     ArrayList<KeyVersion> delObjects = new ArrayList<KeyVersion>();
 
     for (COSObjectSummary cosObjectSummary : cosObjectSummaries) {
-        delObjects.add(new KeyVersion(cosObjectsSummary.getKey()));
+        delObjects.add(new KeyVersion(cosObjectSummary.getKey()));
     }
 
     DeleteObjectsRequest deleteObjectsRequest = new DeleteObjectsRequest(bucketName);

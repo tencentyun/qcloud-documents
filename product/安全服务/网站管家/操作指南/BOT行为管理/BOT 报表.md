@@ -8,7 +8,7 @@ BOT 概览展示了网站业务的爬虫请求监控数据，以及防爬规则�
 >- 需开启 [BOT 防护设置](https://console.cloud.tencent.com/guanjia/bot2/config) 页面中对应域名的流量分析开关。
 
 ## 操作步骤
-1. 登录 [Web 应用防火墙（WAF）控制台](https://console.cloud.tencent.com/guanjia/waf/overview)，在左侧导航栏中，选择【BOT 行为管理】>【BOT 详情】>【BOT 概览】，进入 BOT 概览页面。
+1. 登录 [Web 应用防火墙（WAF）控制台](https://console.cloud.tencent.com/guanjia/tea-overview)，在左侧导航栏中，选择【BOT 行为管理】>【BOT 详情】>【BOT 概览】，进入 BOT 概览页面。
 2. 在 BOT 概览页面，单击左上角“全部域名”下拉框，选择要查看的域名，通过指定的时间范围，搜索某个域名在查询时间范围内的 BOT 防护效果数据。
 ![](https://main.qcloudimg.com/raw/60658e59e6a8a8b59ad079abdc15dacc.png)
 3. BOT 请求概览分布：可通过该页签快速发现域名的 BOT 相关关键指标。
