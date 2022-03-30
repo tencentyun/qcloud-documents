@@ -1,6 +1,5 @@
 在使用 License 的过程中，您可能会遇见以下问题，可以参考本文的解答。
-[](id:TE_License)
-## 腾讯特效 License 相关
+
 [](id:q1)
 ### 腾讯特效 License 与 腾讯特效 SDK 的关系？
 腾讯特效 License 可以理解是为获取腾讯特效 SDK 功能授权所需要的密钥和路径，而腾讯特效 SDK 是为了更好的使用整个服务所特定的软件包、软件框架、操作系统等建立应用软件时的开发工具集合。腾讯特效 SDK 的 License 信息是由一对 Key 和LicenseURL 组成，获取生效授权的 Key 和 LicenseURL 并填入到 SDK 中相应位置，便能启用腾讯特效功能。
