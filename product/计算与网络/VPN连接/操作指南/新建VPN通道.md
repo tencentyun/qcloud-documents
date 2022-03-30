@@ -2,7 +2,7 @@ VPN 通道是 VPN 连接中用来传输数据包的公网加密通道，腾讯�
 
 VPN 通道的建立包括以下配置信息：
 + [基本信息](#buzhou4)
-+ [SPD（Security Policy Database）策略](#buzhou6)
++ [通道模式](#buzhou6)
 + [IKE 配置（选填）](#buzhou7)
 + [IPsec 配置（选填）](#buzhou8)
 
