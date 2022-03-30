@@ -21,7 +21,7 @@ IIS Web 服务部署免费 SSL 证书时提示 “证书链中的一个或多个
 ![](https://qcloudimg.tencent-cloud.cn/raw/52d9ae19f6cfa14e745eb3dcfce4fee5.png)
 2. 在证书导入向导中存储位置选择**本地计算机**，并单击**下一页**。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/2e028bd291a12fc20177e5bb45b1a19c.png)
-3. 证书存储选择**将所有的证书都放入下列存储>中间证书颁发机构**，并单击**下一页**。如下图所示：
+3. 证书存储选择**将所有的证书都放入下列存储 > 中间证书颁发机构**，并单击**下一页**。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/a0dc7261f9381bfa3f42da7d16864b0e.png)
 4. 确认您安装的证书位置是否正确，并单击**完成**。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/50b4d523eafbd9007d700b5f949274d1.png)
