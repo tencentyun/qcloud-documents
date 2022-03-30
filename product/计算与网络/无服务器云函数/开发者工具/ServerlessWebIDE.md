@@ -84,59 +84,187 @@ Serverless Web IDE 提供手动部署和自动部署两种函数部署方式，�
 Serverless Web IDE 中常用命令、运行环境和预置的扩展版本如下所示：
 
 ### 常用命令
-
-|   命令   |                             版本                             |
-| :------: | :----------------------------------------------------------: |
-| python3  |   Python 3.7.12<br />python3 默认跟随最新的 Python 3 版本    |
-| python37 |                        Python 3.7.12                         |
-| python36 |                         Python 3.6.1                         |
-| python27 |                        Python 2.7.13                         |
-|  python  |                        Python 2.7.13                         |
-|   node   | Node.js 16.13.1<br />node 命令默认跟随最新 Node.js 版本，环境中还安装了 Node.js 14.18、Node.js 12.16、Node.js 10.15，可在终端执行 n 命令进行切换 |
-|  php80   |                          PHP 8.0.13                          |
-|  php74   |                          PHP 7.4.26                          |
-|  php72   |                          PHP 7.2.2                           |
-|  php56   |                          PHP 5.6.33                          |
-|   php    |        PHP 8.0.13<br />php 命令默认跟随最新 PHP 版本         |
-|   pip3   |                   pip 22.0.4 (python 3.7)                    |
-|  pip37   |                   pip 22.0.4 (python 3.7)                    |
-|  pip36   |                   pip 21.3.1 (python 3.6)                    |
-|   pip    |                   pip 20.3.4 (python 2.7)                    |
-|   npm    |                            8.1.2                             |
-| composer |                            2.2.9                             |
+<table>
+<thead>
+<tr>
+<th width="50%">命令</th>
+<th>版本</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>python3</td>
+<td>Python 3.7.12<br>python3 默认跟随最新的 Python 3 版本</td>
+</tr>
+<tr>
+<td>python37</td>
+<td>Python 3.7.12</td>
+</tr>
+<tr>
+<td>python36</td>
+<td>Python 3.6.1</td>
+</tr>
+<tr>
+<td>python27</td>
+<td>Python 2.7.13</td>
+</tr>
+<tr>
+<td>python</td>
+<td>Python 2.7.13</td>
+</tr>
+<tr>
+<td>node</td>
+<td>Node.js 16.13.1<br>node 命令默认跟随最新 Node.js 版本，环境中还安装了 Node.js 14.18、Node.js 12.16、Node.js 10.15，可在终端执行 n 命令进行切换</td>
+</tr>
+<tr>
+<td>php80</td>
+<td>PHP 8.0.13</td>
+</tr>
+<tr>
+<td>php74</td>
+<td>PHP 7.4.26</td>
+</tr>
+<tr>
+<td>php72</td>
+<td>PHP 7.2.2</td>
+</tr>
+<tr>
+<td>php56</td>
+<td>PHP 5.6.33</td>
+</tr>
+<tr>
+<td>php</td>
+<td>PHP 8.0.13<br>php 命令默认跟随最新 PHP 版本</td>
+</tr>
+<tr>
+<td>pip3</td>
+<td>pip 22.0.4 (python 3.7)</td>
+</tr>
+<tr>
+<td>pip37</td>
+<td>pip 22.0.4 (python 3.7)</td>
+</tr>
+<tr>
+<td>pip36</td>
+<td>pip 21.3.1 (python 3.6)</td>
+</tr>
+<tr>
+<td>pip</td>
+<td>pip 20.3.4 (python 2.7)</td>
+</tr>
+<tr>
+<td>npm</td>
+<td>8.1.2</td>
+</tr>
+<tr>
+<td>composer</td>
+<td>2.2.9</td>
+</tr>
+</tbody></table>
 
 ### 常用工具
 
-|                             工具                             |   版本   |
-| :----------------------------------------------------------: | :------: |
-|                             yarn                             | 1.22.18  |
-|                             wget                             |   1.14   |
-|                          zip、unzip                          |    6     |
-|                             Git                              |  2.24.1  |
-|                             zsh                              |  5.0.2   |
-|                             dash                             | 0.5.10.2 |
-|                             make                             |   3.82   |
-|                           jupyter                            |  4.6.3   |
-|                            pylint                            |  1.9.5   |
-| [Serverless Framework CLI](https://cloud.tencent.com/document/product/583/44751) |  3.2.1   |
+<table>
+<thead>
+<tr>
+<th width=50%>工具</th>
+<th>版本</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>yarn</td>
+<td>1.22.18</td>
+</tr>
+<tr>
+<td>wget</td>
+<td>1.14</td>
+</tr>
+<tr>
+<td>zip、unzip</td>
+<td>6</td>
+</tr>
+<tr>
+<td>Git</td>
+<td>2.24.1</td>
+</tr>
+<tr>
+<td>zsh</td>
+<td>5.0.2</td>
+</tr>
+<tr>
+<td>dash</td>
+<td>0.5.10.2</td>
+</tr>
+<tr>
+<td>make</td>
+<td>3.82</td>
+</tr>
+<tr>
+<td>jupyter</td>
+<td>4.6.3</td>
+</tr>
+<tr>
+<td>pylint</td>
+<td>1.9.5</td>
+</tr>
+<tr>
+<td><a href="https://cloud.tencent.com/document/product/583/44751">Serverless Framework CLI</a></td>
+<td>3.2.1</td>
+</tr>
+</tbody></table>
 
 ### 运行环境
-
-| 运行环境 |            版本            |
-| :------: | :------------------------: |
-| Node.js  | 16.13、14.18、12.16、10.15 |
-|  Python  |       3.7、3.6、2.7        |
-|   PHP    |     8.0、7.4、7.2、5.6     |
+<table>
+    <thead>
+    <tr>
+    <th width="50%">运行环境</th>
+    <th>版本</th>
+    </tr>
+    </thead>
+    <tbody><tr>
+    <td>Node.js</td>
+    <td>16.13、14.18、12.16、10.15</td>
+    </tr>
+    <tr>
+    <td>Python</td>
+    <td>3.7、3.6、2.7</td>
+    </tr>
+    <tr>
+    <td>PHP</td>
+    <td>8.0、7.4、7.2、5.6</td>
+    </tr>
+    </tbody></table>
 
 ### 扩展
+<table>
+    <thead>
+    <tr>
+        <th width="50%">扩展</th>
+        <th>版本</th>
+        </tr>
+        </thead>
+        <tbody><tr>
+        <td>Python</td>
+        <td>2020.11.371526539</td>
+        </tr>
+        <tr>
+        <td>Jupyter</td>
+        <td>2020.12.411183155</td>
+        </tr>
+        <tr>
+        <td>PHP-IntelliSense</td>
+        <td>2.3.14</td>
+        </tr>
+        <tr>
+        <td>ESLint</td>
+        <td>2.1.13</td>
+        </tr>
+        <tr>
+        <td>Prettier</td>
+        <td>5.8.0</td>
+        </tr>
+    </tbody></table>
 
-|       扩展       |       版本        |
-| :--------------: | :---------------: |
-|      Python      | 2020.11.371526539 |
-|     Jupyter      | 2020.12.411183155 |
-| PHP-IntelliSense |      2.3.14       |
-|      ESLint      |      2.1.13       |
-|     Prettier     |       5.8.0       |
+
 
 ## 配额限制
 
