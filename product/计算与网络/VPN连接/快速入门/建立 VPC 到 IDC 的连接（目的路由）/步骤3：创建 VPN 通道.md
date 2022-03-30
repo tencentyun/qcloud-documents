@@ -4,7 +4,7 @@
 4. 输入通道名称（如：tunnel1），选择 VPN 网关 VPN1 与对端网关 `UserGw1`，并输入预共享密钥（如：`123456`），然后单击**下一步**。
 >?可选择是否开启健康检查，如开启，请输入本端地址和对端地址，本端地址为 VPC 主 CIDR 之外的可用 IP，对端地址为 IDC 内可用 IP 地址。默认不开启。
 >
- ![](https://qcloudimg.tencent-cloud.cn/raw/a48ff8b12fe34a245a23d4676ea9c7da.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/9242378316b6df29091b9f87a2388fbe.png)
 5. 在 SPD 策略页面配置本端网段和对端网段为0.0.0.0/0，单击**下一步**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/804e96c7ba34afa79440eac918638ecb.png)
 6. （可选）配置 IKE 参数，如果不需要高级配置，可直接单击**下一步**。
