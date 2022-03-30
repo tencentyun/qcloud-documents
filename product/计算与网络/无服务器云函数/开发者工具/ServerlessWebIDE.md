@@ -87,183 +87,192 @@ Serverless Web IDE 中常用命令、运行环境和预置的扩展版本如下�
 <table>
 <thead>
 <tr>
-<th width="50%">命令</th>
-<th>版本</th>
+<th style="text-align:center">命令</th>
+<th style="text-align:center">版本</th>
 </tr>
 </thead>
-<tbody><tr>
-<td>python3</td>
-<td>Python 3.7.12<br>python3 默认跟随最新的 Python 3 版本</td>
+<tbody>
+<tr>
+<td style="text-align:center">python3</td>
+<td style="text-align:center">Python 3.7.12<br>python3 默认跟随最新的 Python 3 版本</td>
 </tr>
 <tr>
-<td>python37</td>
-<td>Python 3.7.12</td>
+<td style="text-align:center">python37</td>
+<td style="text-align:center">Python 3.7.12</td>
 </tr>
 <tr>
-<td>python36</td>
-<td>Python 3.6.1</td>
+<td style="text-align:center">python36</td>
+<td style="text-align:center">Python 3.6.1</td>
 </tr>
 <tr>
-<td>python27</td>
-<td>Python 2.7.13</td>
+<td style="text-align:center">python27</td>
+<td style="text-align:center">Python 2.7.13</td>
 </tr>
 <tr>
-<td>python</td>
-<td>Python 2.7.13</td>
+<td style="text-align:center">python</td>
+<td style="text-align:center">Python 2.7.13</td>
 </tr>
 <tr>
-<td>node</td>
-<td>Node.js 16.13.1<br>node 命令默认跟随最新 Node.js 版本，环境中还安装了 Node.js 14.18、Node.js 12.16、Node.js 10.15，可在终端执行 n 命令进行切换</td>
+<td style="text-align:center">node</td>
+<td style="text-align:center">Node.js 16.13.1<br>node 命令默认跟随最新 Node.js 版本，环境中还安装了 Node.js 14.18、Node.js 12.16、Node.js 10.15，可在终端执行 n 命令进行切换</td>
 </tr>
 <tr>
-<td>php80</td>
-<td>PHP 8.0.13</td>
+<td style="text-align:center">php80</td>
+<td style="text-align:center">PHP 8.0.13</td>
 </tr>
 <tr>
-<td>php74</td>
-<td>PHP 7.4.26</td>
+<td style="text-align:center">php74</td>
+<td style="text-align:center">PHP 7.4.26</td>
 </tr>
 <tr>
-<td>php72</td>
-<td>PHP 7.2.2</td>
+<td style="text-align:center">php72</td>
+<td style="text-align:center">PHP 7.2.2</td>
 </tr>
 <tr>
-<td>php56</td>
-<td>PHP 5.6.33</td>
+<td style="text-align:center">php56</td>
+<td style="text-align:center">PHP 5.6.33</td>
 </tr>
 <tr>
-<td>php</td>
-<td>PHP 8.0.13<br>php 命令默认跟随最新 PHP 版本</td>
+<td style="text-align:center">php</td>
+<td style="text-align:center">PHP 8.0.13<br>php 命令默认跟随最新 PHP 版本</td>
 </tr>
 <tr>
-<td>pip3</td>
-<td>pip 22.0.4 (python 3.7)</td>
+<td style="text-align:center">pip3</td>
+<td style="text-align:center">pip 22.0.4 (python 3.7)</td>
 </tr>
 <tr>
-<td>pip37</td>
-<td>pip 22.0.4 (python 3.7)</td>
+<td style="text-align:center">pip37</td>
+<td style="text-align:center">pip 22.0.4 (python 3.7)</td>
 </tr>
 <tr>
-<td>pip36</td>
-<td>pip 21.3.1 (python 3.6)</td>
+<td style="text-align:center">pip36</td>
+<td style="text-align:center">pip 21.3.1 (python 3.6)</td>
 </tr>
 <tr>
-<td>pip</td>
-<td>pip 20.3.4 (python 2.7)</td>
+<td style="text-align:center">pip</td>
+<td style="text-align:center">pip 20.3.4 (python 2.7)</td>
 </tr>
 <tr>
-<td>npm</td>
-<td>8.1.2</td>
+<td style="text-align:center">npm</td>
+<td style="text-align:center">8.1.2</td>
 </tr>
 <tr>
-<td>composer</td>
-<td>2.2.9</td>
+<td style="text-align:center">composer</td>
+<td style="text-align:center">2.2.9</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 
 ### 常用工具
+<table>
+<thead>
+<tr>
+<th width="50%" style="text-align:center">工具</th>
+<th style="text-align:center">版本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">yarn</td>
+<td style="text-align:center">1.22.18</td>
+</tr>
+<tr>
+<td style="text-align:center">wget</td>
+<td style="text-align:center">1.14</td>
+</tr>
+<tr>
+<td style="text-align:center">zip、unzip</td>
+<td style="text-align:center">6</td>
+</tr>
+<tr>
+<td style="text-align:center">Git</td>
+<td style="text-align:center">2.24.1</td>
+</tr>
+<tr>
+<td style="text-align:center">zsh</td>
+<td style="text-align:center">5.0.2</td>
+</tr>
+<tr>
+<td style="text-align:center">dash</td>
+<td style="text-align:center">0.5.10.2</td>
+</tr>
+<tr>
+<td style="text-align:center">make</td>
+<td style="text-align:center">3.82</td>
+</tr>
+<tr>
+<td style="text-align:center">jupyter</td>
+<td style="text-align:center">4.6.3</td>
+</tr>
+<tr>
+<td style="text-align:center">pylint</td>
+<td style="text-align:center">1.9.5</td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="https://cloud.tencent.com/document/product/583/44751">Serverless Framework CLI</a></td>
+<td style="text-align:center">3.2.1</td>
+</tr>
+</tbody>
+</table>
+
+
+### 运行环境
+<table>
+<thead>
+<tr>
+<th width="50%" style="text-align:center">运行环境</th>
+<th style="text-align:center">版本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Node.js</td>
+<td style="text-align:center">16.13、14.18、12.16、10.15</td>
+</tr>
+<tr>
+<td style="text-align:center">Python</td>
+<td style="text-align:center">3.7、3.6、2.7</td>
+</tr>
+<tr>
+<td style="text-align:center">PHP</td>
+<td style="text-align:center">8.0、7.4、7.2、5.6</td>
+</tr>
+</tbody>
+</table>
+
+
+### 扩展
 
 <table>
 <thead>
 <tr>
-<th width=50%>工具</th>
-<th>版本</th>
+<th width="50%" style="text-align:center">扩展</th>
+<th style="text-align:center">版本</th>
 </tr>
 </thead>
-<tbody><tr>
-<td>yarn</td>
-<td>1.22.18</td>
+<tbody>
+<tr>
+<td style="text-align:center">Python</td>
+<td style="text-align:center">2020.11.371526539</td>
 </tr>
 <tr>
-<td>wget</td>
-<td>1.14</td>
+<td style="text-align:center">Jupyter</td>
+<td style="text-align:center">2020.12.411183155</td>
 </tr>
 <tr>
-<td>zip、unzip</td>
-<td>6</td>
+<td style="text-align:center">PHP-IntelliSense</td>
+<td style="text-align:center">2.3.14</td>
 </tr>
 <tr>
-<td>Git</td>
-<td>2.24.1</td>
+<td style="text-align:center">ESLint</td>
+<td style="text-align:center">2.1.13</td>
 </tr>
 <tr>
-<td>zsh</td>
-<td>5.0.2</td>
+<td style="text-align:center">Prettier</td>
+<td style="text-align:center">5.8.0</td>
 </tr>
-<tr>
-<td>dash</td>
-<td>0.5.10.2</td>
-</tr>
-<tr>
-<td>make</td>
-<td>3.82</td>
-</tr>
-<tr>
-<td>jupyter</td>
-<td>4.6.3</td>
-</tr>
-<tr>
-<td>pylint</td>
-<td>1.9.5</td>
-</tr>
-<tr>
-<td><a href="https://cloud.tencent.com/document/product/583/44751">Serverless Framework CLI</a></td>
-<td>3.2.1</td>
-</tr>
-</tbody></table>
-
-### 运行环境
-<table>
-    <thead>
-    <tr>
-    <th width="50%">运行环境</th>
-    <th>版本</th>
-    </tr>
-    </thead>
-    <tbody><tr>
-    <td>Node.js</td>
-    <td>16.13、14.18、12.16、10.15</td>
-    </tr>
-    <tr>
-    <td>Python</td>
-    <td>3.7、3.6、2.7</td>
-    </tr>
-    <tr>
-    <td>PHP</td>
-    <td>8.0、7.4、7.2、5.6</td>
-    </tr>
-    </tbody></table>
-
-### 扩展
-<table>
-    <thead>
-    <tr>
-        <th width="50%">扩展</th>
-        <th>版本</th>
-        </tr>
-        </thead>
-        <tbody><tr>
-        <td>Python</td>
-        <td>2020.11.371526539</td>
-        </tr>
-        <tr>
-        <td>Jupyter</td>
-        <td>2020.12.411183155</td>
-        </tr>
-        <tr>
-        <td>PHP-IntelliSense</td>
-        <td>2.3.14</td>
-        </tr>
-        <tr>
-        <td>ESLint</td>
-        <td>2.1.13</td>
-        </tr>
-        <tr>
-        <td>Prettier</td>
-        <td>5.8.0</td>
-        </tr>
-    </tbody></table>
-
+</tbody>
+</table>
 
 
 ## 配额限制
