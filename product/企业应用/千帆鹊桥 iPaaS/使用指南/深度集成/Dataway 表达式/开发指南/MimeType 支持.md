@@ -5,9 +5,11 @@ Dataway 使用 Entity 类型可支持多种不同的数据类型，例如：json
 | mime_type                         | 数据格式                                   |
 | --------------------------------- | ------------------------------------------ |
 | application/json                  | [JSON 格式](#json-format)                   |
+| text/json                         | [JSON 格式](#json-format)                  |
 | application/x-www-form-urlencoded | [HTTP 表单格式](#urlencode-format)          |
 | text/plain                        | [文本格式](#textplain-format)              |
 | application/xml                   | [XML 格式](#xml-format)                     |
+| text/xml                          | [XML 格式](#xml-format)                     |
 | application/csv                   | [CSV 表单格式](#csv-format)                 |
 | multipart/form-data               | [HTTP FORM DATA 表单格式](#formdata-format) |
 | 其他mime_type                     | [其他格式](#other-format)                  |
@@ -15,7 +17,7 @@ Dataway 使用 Entity 类型可支持多种不同的数据类型，例如：json
 不同的数据格式有不同的编码规则、数据结构以及特定的 Entity 选择器语法。本节将对这些不同的数据格式分别进行说明。
 
 ## <span id='json-format'></span> JSON 格式
-JSON 格式的数据代表 mimeType 为 application/json 的 Entity 中数据序列化后得到的类型。
+JSON 格式的数据代表 mimeType 为 application/json或text/json的Entity中数据序列化后得到的类型。
 - 使用 Entity.from_bytes 方法，则 Dataway 对输入的 str/bytes 类型最终解析成一个 dict 类型。
 - 使用 Entity.from_value 构造方法，支持 list/dict/MultiMap 等多种输入类型，并最终解析成一个 dict 类型数据结构。
 
@@ -224,7 +226,7 @@ def dw_process(msg):
 DataWay 的脚本输出为一个 str 字符串, 结果为"This is a text plain message"。
 
 ## <span id='xml-format'></span> XML 格式
-XML 格式的数据代表 mimeType 为 application/xml 的 Entity 中数据序列化后得到的类型。
+XML 格式的数据代表 mimeType 为 application/xml或text/xml 的 Entity 中数据序列化后得到的类型。
 - 使用 Entity.from_bytes 方法，则 Dataway 对输入的 str/bytes 类型最终解析成一个 dict 数据类型。
 - 使用 Entity.from_value 构造方法，仅支持 dict 输入类型，并最终解析成一个 dict 数据结构。同时，输入的 dict 仅包含一个默认的 key "root"，value 则为内置的 MultiMap，在 MultiMap 中可以自由操作 msg 属性。
 
