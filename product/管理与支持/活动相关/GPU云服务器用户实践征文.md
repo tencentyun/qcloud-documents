@@ -1,4 +1,4 @@
-![](https://qcloudimg.tencent-cloud.cn/raw/a8de22e4bab226723425ab6cbc0d331d.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/b4f26c01ef5830073bb63a0b43c27072.png)
 
 ## 投稿说明
 
@@ -14,7 +14,7 @@
 2. 扫描下方二维码 或者 [单击链接](https://doc.weixin.qq.com/forms/AJEAIQdfAAoAHsAXwboACcIEXLqYm9Sof) 进行投稿
 ![](https://qcloudimg.tencent-cloud.cn/raw/8bc84ce62ef164dbdcea564d0b885cbd.png)
 [「腾讯云GPU云服务器“用户实践”有奖征文」 投稿登记表](https://doc.weixin.qq.com/forms/AJEAIQdfAAoAHsAXwboACcIEXLqYm9Sof)
-（如有疑问，可以通过文档反馈）
+如您对本活动有任何疑问，欢迎通过右侧“文档反馈”入口进行留言。
 
 ## 重要说明
 
@@ -29,7 +29,7 @@
 
 [文档活动中心](https://cloud.tencent.com/document/act)
 
-如您对本活动有任何疑问，欢迎留言反馈。
+
 
 **特别声明**：腾讯云有权根据自身运营安排，自主决定和调整本活动的具体规则，具体活动规则以活动页公布规则为准。相关规则一经公布即产生效力，您应当予以遵守。
 
