@@ -10,7 +10,7 @@
 
 
 <dx-alert infotype="notice" title="">
-如果您想使用已购买的云服务器部安装宝塔面板，您可通过 [重装系统](https://cloud.tencent.com/document/product/213/4933)，并选择奖项市场中对应的镜像完成环境部署。部分境外地域的云服务器暂不支持通过镜像市场重装系统，建议您使用其他地域云服务器进行搭建，或前往 [宝塔面板官网](https://www.bt.cn/)  获取更多安装信息。
+如果您想使用已购买的云服务器部安装宝塔面板，您可通过 [重装系统](https://cloud.tencent.com/document/product/213/4933)，并选择镜像市场中对应的镜像完成环境部署。部分境外地域的云服务器暂不支持通过镜像市场重装系统，建议您使用其他地域云服务器进行搭建，或前往 [宝塔面板官网](https://www.bt.cn/)  获取更多安装信息。
 </dx-alert>
 
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)，单击实例管理页面的**新建**。

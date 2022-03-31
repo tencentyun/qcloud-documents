@@ -1,3 +1,6 @@
+>!由于产品逻辑已无法满足游戏行业技术发展，游戏服务器伸缩 GSE 将于2022年6月1日下线，请您在2022年5月31日前完成服务迁移。
+
+
 1. 游戏进程和 GSE 通过 gRPC 通信，通信 proto 的协议见 GameServerGrpcSdkService.proto 和 GseGrpcSdkService.proto。
 ![](https://qcloudimg.tencent-cloud.cn/raw/b6753f157c5f43b01f4d5a716c8ef7a1.png)
 2. GameServerGrpcSdkService.proto 定义的三个服务接口，由游戏进程来实现，而 GSE 需要在合适的时机调用对应的接口。

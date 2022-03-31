@@ -6,7 +6,7 @@ SSL VPN 网关是 VPC 建立 SSL VPN 连接的出口网关 ，与 SSL 客户端�
 2. 在左侧目录中单击 **VPN 连接** > **VPN 网关**，进入管理页。
 3. 在 VPN 网关管理页面，单击**+新建**。
 4. 在弹出的**新建 VPN 网关**对话框中，配置如下网关参数。
-![](https://qcloudimg.tencent-cloud.cn/raw/7dc91a84f6b4864640c52fc50a1e96fe.png)
+<img src="https://qcloudimg.tencent-cloud.cn/raw/59376fa94e56086e1bb2eea386f68d0c.png" width="70%">
 <table>
 <tr>
 <th width="12%">参数名称</th>
