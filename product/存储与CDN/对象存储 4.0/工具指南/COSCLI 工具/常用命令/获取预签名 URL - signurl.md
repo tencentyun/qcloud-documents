@@ -6,15 +6,15 @@ signurl 命令用于获取某个对象的预签名 URL，可以通过此 URL 匿
 ./coscli signurl cos://<bucketAlias>/<key> [flag]
 ```
 
->? 有关 bucketAlias 的说明，请参见 [配置](https://cloud.tencent.com/document/product/436/63144#alias)。
+>? 
+>- 有关 bucketAlias 的说明，请参见 [下载与安装配置](https://cloud.tencent.com/document/product/436/63144#alias)。
+>- 关于此命令的其他通用选项（例如切换存储桶、切换用户账号等），请参见 [通用选项](https://cloud.tencent.com/document/product/436/71763) 文档。
 >
 
 signurl 命令包含以下可选 flag：
 
 | flag 简写 | flag 全称     | flag 用途                    |
 | --------- | ------------- | ---------------------------- |
-| -h        | --help        | 输出帮助信息                 |
-| -c        | --config-path | 指定要使用的配置文件路径     |
 | -t        | --time        | 设置 URL 过期时间（默认1000s） |
 
 ## 操作示例

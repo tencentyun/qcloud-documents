@@ -150,7 +150,7 @@ android:value="true" />
 
 ### 为什么关闭应用时，onNotifactionClickedResult、onNotificationShowedResult 获取的 title 和 content 为空？
 
-由于厂商通道推送的 title 和 content 是拼接在 intent 中下发的，因此，在使用 onNotifactionClickedResult、onNotificationShowedResult 方法时，无法获取 title 和 content。如需获取参数，请使用 intent 的方式，详情请参考 [通知点击跳转](https://cloud.tencent.com/document/product/548/48572)。
+如需在厂商离线推送场景下获取推送的 title 和 content，请通过在通知点击跳转的 intent uri 上拼接一份 title 和 content 内容参数，并在通知点击后获取。详情请参见 [通知点击跳转](https://cloud.tencent.com/document/product/548/48572)。
 
 
 ### 应用接入了厂商通道，但在调试过程中遇到 other push Token 为空的问题，如何解决？

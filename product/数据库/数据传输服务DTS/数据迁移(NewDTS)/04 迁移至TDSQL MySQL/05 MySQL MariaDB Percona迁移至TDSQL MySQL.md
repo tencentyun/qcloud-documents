@@ -1,8 +1,8 @@
-本文介绍使用 DTS 数据迁移功能，从 MySQL、MariaDB、Percona 迁移数据至腾讯云分布式数据库 TDSQL MySQL 版的操作指导。
+本文介绍使用 DTS 数据迁移功能，从 MySQL、MariaDB、Percona 迁移数据至腾讯云分布式数据库 TDSQL MySQL 的操作指导。
 
 支持的源数据库部署类型如下：
 
-- 自建 MySQL、第三方云厂商 MySQL、腾讯云数据库 MySQL。
+- 自建 MySQL、腾讯云数据库 MySQL。
 - 自建 MariaDB、腾讯云数据库 MariaDB。
 - 自建 Percona。
 
@@ -27,15 +27,21 @@
   - “整个实例”迁移，需要的帐号权限如下：
 ```
 CREATE USER '迁移帐号'@'%' IDENTIFIED BY '迁移密码';  
-GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO '迁移帐号'@'%';  //源端若为腾讯云 MariaDB 数据库，需要提交工单进行 RELOAD 授权，其他场景请用户参照代码授权 
-GRANT INSERT, UPDATE, DELETE, DROP, SELECT, INDEX, ALTER, CREATE ON `__tencentdb__`.* TO '迁移帐号'@'%'; //如果源端为腾讯云数据库需要授予`__tencentdb__`权限
+GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO '迁移帐号'@'%';  
+//源端若为腾讯云 MariaDB 数据库，需要提交工单进行 RELOAD 授权，其他场景请用户参照代码授权
+//源库为阿里云数据库时，不需要授权 SHOW DATABASES，其他场景则需要授权。阿里云数据库授权，请参考 https://help.aliyun.com/document_detail/96101.html
+GRANT INSERT, UPDATE, DELETE, DROP, SELECT, INDEX, ALTER, CREATE ON `__tencentdb__`.* TO '迁移帐号'@'%'; 
+//如果源端为腾讯云数据库需要授予`__tencentdb__`权限
 GRANT SELECT ON *.* TO '迁移帐号';
 ```
   - “指定对象”迁移，需要的帐号权限如下：
 ```
 CREATE USER '迁移帐号'@'%' IDENTIFIED BY '迁移密码';  
-GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO '迁移帐号'@'%';  //源端若为腾讯云 MariaDB 数据库，需要提交工单进行 RELOAD 授权，其他场景请用户参照代码授权 
-GRANT INSERT, UPDATE, DELETE, DROP, SELECT, INDEX, ALTER, CREATE ON `__tencentdb__`.* TO '迁移帐号'@'%'; //如果源端为腾讯云数据库需要授予`__tencentdb__`权限
+GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO '迁移帐号'@'%';  
+//源端若为腾讯云 MariaDB 数据库，需要提交工单进行 RELOAD 授权，其他场景请用户参照代码授权
+//源库为阿里云数据库时，不需要授权 SHOW DATABASES，其他场景则需要授权。阿里云数据库授权，请参考 https://help.aliyun.com/document_detail/96101.html
+GRANT INSERT, UPDATE, DELETE, DROP, SELECT, INDEX, ALTER, CREATE ON `__tencentdb__`.* TO '迁移帐号'@'%'; 
+//如果源端为腾讯云数据库需要授予`__tencentdb__`权限
 GRANT SELECT ON `mysql`.* TO '迁移帐号'@'%';
 GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 ```
@@ -47,7 +53,8 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 - 只支持迁移 InnoDB 数据库引擎，如果存在其他的数据引擎表则默认跳过不进行迁移。
 - 相互关联的数据对象需要同时迁移，否则会导致迁移失败。
 - 增量迁移过程中，若源库存在分布式事务或者产生了类型为 `STATEMENT` 格式的 Binlog 语句，则会导致迁移失败。
-- 当前不支持 geometry 相关的数据类型。
+- 不支持同时包含 DML 和 DDL 语句在一个事务的场景，遇到该情况任务会报错。
+- 不支持 Geometry 相关的数据类型，遇到该类型数据任务报错。
 
 ## 操作限制
 - 迁移过程中请勿进行如下操作，否则会导致迁移任务失败。
