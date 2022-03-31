@@ -10,7 +10,7 @@
 ## 参与方式
 
 1. 扫码进群 领取GPU30天免费使用时长
-![](https://qcloudimg.tencent-cloud.cn/raw/265de201dda709a759791d8ed84e5caa.jpg)
+<img src="https://qcloudimg.tencent-cloud.cn/raw/a20b3ebc0af7807526b002f54b902576.jpg" width="280px">
 2. 扫描下方二维码 或者 [单击链接](https://doc.weixin.qq.com/forms/AJEAIQdfAAoAHsAXwboACcIEXLqYm9Sof) 进行投稿
 ![](https://qcloudimg.tencent-cloud.cn/raw/8bc84ce62ef164dbdcea564d0b885cbd.png)
 [「腾讯云GPU云服务器“用户实践”有奖征文」 投稿登记表](https://doc.weixin.qq.com/forms/AJEAIQdfAAoAHsAXwboACcIEXLqYm9Sof)
