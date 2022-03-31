@@ -43,20 +43,20 @@ tag 字段说明：
 </thead>
 <tbody><tr>
 <td>issue</td>
-<td>CA 授权单个证书颁发机构发布的 任何类型域名证书。</td>
+<td>CA 授权单个证书颁发机构发布的<b>任何类型域名证书</b>。</td>
 </tr>
 <tr>
 <td>issuewild</td>
-<td>CA 授权单个证书颁发机构发布主机名的通配符证书。</td>
+<td>CA 授权单个证书颁发机构发布<b>主机名的通配符证书</b>。</td>
 </tr>
 <tr>
 <td>iodef</td>
 <td>CA 可以将违规的颁发记录 URL 发送给某个电子邮箱。</td>
 </tr>
 </tbody></table>
- - **权重**：不需要填写。
- - **MX 优先级**：不需要填写。
- - **TTL**：为缓存时间，数值越小，修改记录各地生效时间越快，默认为600秒。
+ - **权重**：不填写，可忽略。
+ - **MX 优先级**：不填写，可忽略。
+ - **TTL**：默认600秒是最常用的，不用修改。如需修改，可参考 [TTL 如何填写？](https://tcloud-doc.isd.com/document/product/302/3468?!preview&!editLang=zh#ttl-.E5.A6.82.E4.BD.95.E5.A1.AB.E5.86.99.EF.BC.9F)
 4. 单击【确定】，完成添加。
 
 
