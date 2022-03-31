@@ -1,4 +1,4 @@
-![](https://qcloudimg.tencent-cloud.cn/raw/b4f26c01ef5830073bb63a0b43c27072.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/939dff1e8568e6fc38eb526f7633ae1a.png)
 
 ## 投稿说明
 
@@ -20,14 +20,12 @@
 
 1. 审核通过被采纳的文章作者，将在下月初进行获奖名单公布和奖励发放，届时会有站内信和短信通知。
 2. 对于持续输出高质量内容的作者，每年度末还有年度贡献大礼包送上。
-3. 腾讯云积分发放对象为：已完成实名认证的腾讯云用户（协作者、子账号、国际账号除外），详情可查考 [积分商城详细规则、腾讯云文档积分规则](https://cloud.tencent.com/document/product/855/54543?from=10680)。
+3. 腾讯云积分发放对象为：已完成实名认证的腾讯云用户（协作者、子账号、国际账号除外），详情可查考 [积分商城详细规则](https://cloud.tencent.com/act/integralmall?from=10680)、[腾讯云文档积分规则](https://cloud.tencent.com/document/product/855/54543?from=10680)。
 4. 代金券发放对象为：已完成实名认证的腾讯云用户（协作者、子账号、国际账号除外）。
 5. 周边礼物发放对象为：已完成实名认证的腾讯云用户。
 
 
-[腾讯云文档中心](https://cloud.tencent.com/document/product)
-
-[文档活动中心](https://cloud.tencent.com/document/act)
+更多有奖活动，参见  [文档活动中心](https://cloud.tencent.com/document/act)。
 
 
 
