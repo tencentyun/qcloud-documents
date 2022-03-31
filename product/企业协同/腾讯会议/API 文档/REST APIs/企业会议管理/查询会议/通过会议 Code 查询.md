@@ -61,7 +61,7 @@ https://api.meeting.qq.com/v1/meetings?meeting_code={meetingCode}&userid={userid
 |enable_doc_upload_permission    | Boolean       | 是否允许成员上传文档，默认为允许。                                                     |
 |guests   | Guest 数组     | 会议嘉宾列表（会议创建人才有权限查询）。                                                     |
 |has_vote   | Boolean     | 是否有投票（会议创建人和主持人才有权限查询）。                                                     |
-|enable_host_key   | Boolean     | 是否开启主持人密钥（会议创建人才有权限查询）。<br>true：开启<br>false：关闭                                                    |
+|enable_host_key   | Boolean     | 是否开启主持人密钥。<br>true：开启<br>false：关闭                                                    |
 |host_key   | String     | 主持人密钥，仅支持6位数字（会议创建人才有权限查询）。<br>如开启主持人密钥后没有填写此项，将自动分配一个6位数字的密钥。                                                    |
 
 
