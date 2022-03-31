@@ -114,7 +114,7 @@
 </tr>
 <tr>
 <td>eks.tke.cloud.tencent.com/image-cache-disk-retain-minute</td>
-<td>镜像缓存使用的CBS数据盘是否延迟销毁，单位为min，可按需设置延迟销毁时长，默认为0，即销毁Pod时立即销毁，若设置为“10”，表示镜像缓存使用的数据盘，在销毁Pod后会默认保留10分钟。</a></td>
+<td>镜像缓存使用的 CBS 数据盘是否延迟销毁，单位为 min，可按需设置延迟销毁时长，默认为0，即销毁 Pod 时立即销毁，若设置为“10”，表示镜像缓存使用的数据盘，在销毁 Pod 后会默认保留10分钟。</a></td>
 <td>否 </td>
 </tr>
 </tbody></table>
