@@ -11,7 +11,7 @@ Anycast CLB 的 VIP 会发布在多个地域，客户端接入最近的 POP 接�
 ## 限制说明
 Anycast CLB 由内网负载均衡绑定 Anycast EIP 来提供 Anycast 能力，限制说明请参见 [内网 CLB 绑定 EIP 限制说明](https://cloud.tencent.com/document/product/214/65682#restriction)。
 
-### 前提条件
+## 前提条件
 本功能内测中，操作前请确保您的 [内测申请](https://cloud.tencent.com/apply/p/47mdddtoc56) 已通过。
 
 ## 操作指南
