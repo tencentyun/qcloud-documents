@@ -112,7 +112,7 @@ DnsConfig dnsConfigBuilder = DnsConfig.Builder()
     .token("xxx")
     //（可选）日志粒度，如开启Debug打印则传入"Log.VERBOSE"
     .logLevel(Log.VERBOSE)
-    //（可选）填写形式："baidu.com", "qq.com"，预解析域名, 建议不要设置太多预解析域名, 当前限制为最多 10 个域名
+    //（可选）预解析域名，填写形式："baidu.com", "qq.com"，建议不要设置太多预解析域名，当前限制为最多 10 个域名
     .preLookupDomains("baidu.com", "qq.com")
     //（可选）手动指定网络栈支持情况，仅进行 IPv4 解析传 1，仅进行 IPv6 解析传 2，进行 IPv4、IPv6 双栈解析传 3。默认为根据客户端本地网络栈支持情况发起对应的解析请求。
     .setCustomNetStack(3)
