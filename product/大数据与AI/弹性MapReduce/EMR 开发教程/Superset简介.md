@@ -1,16 +1,13 @@
-Apache Superset 是一个数据浏览和可视化 Web 应用程序。
+Apache Superset 是一个数据浏览和可视化 Web 应用程序。EMR 上的 Superset，原装了对 Mysql、Hive、Presto、Impala、Kylin、Druid、Clickhouse 的支持。
 
 ## Superset 特性
 - 支持几乎所有主流的数据库，包括 MySQL、PostgresSQL、Oracle、SQL Server、SQLite、SparkSQL 等，并深度支持 [Druid](http://druid.io/)。
 - 丰富的可视化展示，支持自定义创建 dashboard。
 - 数据的展示完全可控，可自定义展示字段、聚合数据、数据源等。
 
-EMR 上的 Superset，原装了对 Mysql、Hive、Presto、Impala、Kylin、Druid、Clickhouse 的支持。
-
 ## 前提条件
 1. 已创建弹性-MapReduce（简称EMR）的 Hadoop 或 Druid 集群，并选择了 Superset 服务，详情请参见 [创建 EMR 集群](https://cloud.tencent.com/document/product/589/10981)。
 2. Superset 默认安装在集群的 master 节点上，打开 master 节点的安全组策略，确保您的网络可以访问 master 节点的18088端口。
-3. 添加初始化操作。
 
 ## 登录
 在浏览器地址栏中输入`http://${master_ip}:18088`（或者通过 **[EMR 控制台](https://console.cloud.tencent.com/emr) > 集群服务**）, 打开 Supserset 登录界面，默认用户名为 admin，密码为您创建集群时的密码。
