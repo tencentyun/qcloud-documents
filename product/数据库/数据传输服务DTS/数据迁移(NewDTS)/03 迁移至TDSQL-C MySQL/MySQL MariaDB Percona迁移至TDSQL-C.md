@@ -28,7 +28,6 @@ DATABASES,SHOW VIEW,PROCESS ON *.* TO '迁移帐号'@'%';
 //源端若为腾讯云 MariaDB 数据库，需要提交工单进行 RELOAD 授权，其他场景请用户参照代码授权
 //源库为阿里云数据库时，不需要授权 SHOW DATABASES，其他场景则需要授权。阿里云数据库授权，请参考 https://help.aliyun.com/document_detail/96101.htmll
 GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '迁移帐号'@'%'; 
-//如果源端为腾讯云数据库需要授予`__tencentdb__`权限 
 GRANT SELECT ON `mysql`.* TO '迁移帐号'@'%';
 ```
 - 部分库表迁移：`GRANT SELECT ON 待迁移的库.* TO '迁移帐号';`
@@ -44,7 +43,7 @@ GRANT SELECT ON `mysql`.* TO '迁移帐号'@'%';
 - 相互关联的数据对象需要同时迁移，否则会导致迁移失败。常见的关联关系：视图引用表、视图引用视图、存储过程/函数/触发器引用视图/表、主外键关联表等。
 - 增量迁移过程中，若源库存在分布式事务或者产生了类型为 `STATEMENT` 格式的 Binlog 语句，则会导致迁移失败。
 - 无锁迁移场景，迁移任务步骤为“源库导出”时，不支持 DDL 操作。
-- 源数据库 Binlog 的 GTID 如果存在空洞，会影响迁移任务的性能并可能导致任务失败。
+- 源数据库 Binlog 的 GTID 如果存在空洞，可能会影响迁移任务的性能并导致任务失败。
 - 不支持同时包含 DML 和 DDL 语句在一个事务的场景，遇到该情况任务会报错。
 - 不支持 Geometry 相关的数据类型，遇到该类型数据任务报错。
 - 不支持 `ALTER VIEW` 语句，遇到该语句任务跳过不迁移。

@@ -2,15 +2,15 @@
 
 与任何客户端-服务器应用程序一样，Kafka 通过一组明确定义的 API 提供对其功能的访问，这些 API 通过 Kafka 协议公开，是一种仅限于 Kafka 的 TCP 二进制协议。与 Kafka API 交互的最佳方式是客户端通过使用 Kafka 协议，Apache Kafka 项目仅正式支持 Java 的客户端库，但除此之外，Confluent 还正式支持 C/C++，C#，Go 和 Python 的客户端库。
 
-一些编程语言缺乏官方支持的 Kafka 生产级客户端，而 HTTP 是一种广泛可用、普遍支持的协议，Datahub 数据接入通过 HTTP 协议公开消息发送 API，以便于简化客户端复杂的配置。
+一些编程语言缺乏官方支持的 Kafka 生产级客户端，而 HTTP 是一种广泛可用、普遍支持的协议，DataHub 数据接入通过 HTTP 协议公开消息发送 API，以便于简化客户端复杂的配置。
 
-本文介绍 Datahub 服务的 HTTP 数据接入功能中的发送消息结合实际应用场景提供建议。
+本文介绍 DataHub 服务的 HTTP 数据接入功能中的发送消息结合实际应用场景提供建议。
 
 ## 技术架构
 
-HTTP 数据接入层开启后，公网的 HTTP 客户端可通过云 API 直接向 Ckafka 所在的实例发送消息。示意图如下：
+HTTP 数据接入层开启后，公网的 HTTP 客户端可通过云 API 直接向 CKafka 所在的实例发送消息。示意图如下：
 
-![](https://cuksr-1300057998.cos.ap-guangzhou.myqcloud.com/http-archive.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/37a35f97e9ede93e35b3a3567cc50884.jpg)
 
 ### 前提条件
 
@@ -20,7 +20,7 @@ HTTP 数据接入层开启后，公网的 HTTP 客户端可通过云 API 直接�
 
 ### 创建数据接入任务
 
-具体操作请参见 [Datahub 操作指南-HTTP 主动上报](https://cloud.tencent.com/document/product/597/66017)。
+具体操作请参见 [DataHub 操作指南-HTTP 主动上报](https://cloud.tencent.com/document/product/597/66017)。
 
 
 ### 使用 SDK 发送消息

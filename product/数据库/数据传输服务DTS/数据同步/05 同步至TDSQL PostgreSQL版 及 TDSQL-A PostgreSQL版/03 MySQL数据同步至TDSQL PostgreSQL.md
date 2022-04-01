@@ -9,7 +9,7 @@
 GRANT RELOAD, LOCK TABLES, REPLICATION CLIENT, REPLICATION SLAVE, SELECT, SHOW VIEW, PROCESS 
 ON *.* TO '迁移帐号'@'%' 
 IDENTIFIED BY '迁移密码';
-GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '迁移帐号'@'%'; //如果源端为腾讯云数据库需要授予`__tencentdb__`权限
+GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '迁移帐号'@'%'; 
 FLUSH PRIVILEGES;
 ```
 - 需要在目标端 TDSQL PostgreSQL版 或 TDSQL-A PostgreSQL版 实例中创建迁移帐号，需要的帐号权限包括：`DELETE`、`TRUNCATE`、`INSERT`、`REFERENCES`、`SELECT`、`UPDATE`、`TRIGGER`，获取权限的方式如下：
@@ -92,7 +92,7 @@ ON ALL TABLES IN SCHEMA schema_name TO user_name（迁移账号）;
 ## 操作步骤
 本文介绍的同步功能相关事项既适应于 TDSQL PostgreSQL版，也适应于 TDSQL-A PostgreSQL版，现以 TDSQL-A PostgreSQL版 为例对操作步骤进行说明。
 
-1. 登录 [数据同步购买页](https://buy.cloud.tencent.com/dts)，选择相应配置，单击**立即购买**。
+1. 登录 [数据同步购买页](https://buy.cloud.tencent.com/replication)，选择相应配置，单击**立即购买**。
   - 计费模式：支持“包年包月”和“按量计费”模式，当前阶段免费，后续计费会通过邮件和站内信方式提前1个月通知用户。
   - 源实例类型：目前仅支持 MySQL。
   - 源实例地域：选择后不支持再次修改，请选择源实例所在的地域。

@@ -19,7 +19,7 @@
 - 需要具备源数据库的权限如下：
 ```sql
 GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SELECT ON *.* TO '迁移帐号'@'%' IDENTIFIED BY '迁移密码';
-GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '迁移帐号'@'%'; //如果源端为腾讯云数据库需要授予`__tencentdb__`权限
+GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '迁移帐号'@'%'; 
 FLUSH PRIVILEGES;
 ```
 - 需要具备目标数据库的权限：ALTER, ALTER ROUTINE, CREATE, CREATE ROUTINE, CREATE TEMPORARY TABLES, CREATE USER, CREATE VIEW, DELETE, DROP, EVENT, EXECUTE, INDEX, INSERT, LOCK TABLES, PROCESS, REFERENCES, RELOAD, SELECT, SHOW DATABASES, SHOW VIEW, TRIGGER, UPDATE。
@@ -93,7 +93,7 @@ FLUSH PRIVILEGES;
 </table>
 
 ## 操作步骤
-1. 登录 [数据同步购买页](https://buy.cloud.tencent.com/dts)，选择相应配置，单击**立即购买**。
+1. 登录 [数据同步购买页](https://buy.cloud.tencent.com/replication)，选择相应配置，单击**立即购买**。
 <table>
 <thead><tr><th>参数</th><th>描述</th></tr></thead>
 <tbody><tr>

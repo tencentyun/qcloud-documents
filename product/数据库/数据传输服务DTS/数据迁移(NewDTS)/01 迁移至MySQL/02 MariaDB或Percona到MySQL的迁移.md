@@ -24,15 +24,17 @@
   - “整个实例”迁移：
 ```
 CREATE USER '迁移帐号'@'%' IDENTIFIED BY '迁移密码';  
-GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO '迁移帐号'@'%';  //源端若为腾讯云 MariaDB 数据库，需要提交工单进行 RELOAD 授权，其他场景请用户参照代码授权
-GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '迁移帐号'@'%';  //如果源端为腾讯云数据库需要授予`__tencentdb__`权限
+GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO '迁移帐号'@'%';  
+//源端若为腾讯云 MariaDB 数据库，需要提交工单进行 RELOAD 授权，其他场景请用户参照代码授权
+GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '迁移帐号'@'%'; 
 GRANT SELECT ON *.* TO '迁移帐号';
 ```
   - “指定对象”迁移：
 ```
 CREATE USER '迁移帐号'@'%' IDENTIFIED BY '迁移密码';  
-GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW, RELOAD, PROCESS ON *.* TO '迁移帐号'@'%';  //源端若为腾讯云 MariaDB 数据库，需要提交工单进行 RELOAD 授权，其他场景请用户参照代码授权
-GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '迁移帐号'@'%';  //如果源端为腾讯云数据库需要授予`__tencentdb__`权限
+GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW, RELOAD, PROCESS ON *.* TO '迁移帐号'@'%';  
+//源端若为腾讯云 MariaDB 数据库，需要提交工单进行 RELOAD 授权，其他场景请用户参照代码授权
+GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '迁移帐号'@'%'; 
 GRANT SELECT ON `mysql`.* TO '迁移帐号'@'%';
 GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 ```
@@ -63,7 +65,7 @@ MariaDB 迁移到 MySQL，由于不同的数据库类型之间功能有略微差
 - 源数据库为腾讯云 MariaDB 时，应用限制如下。
    - DTS 迁移任务要求源库、目标库的 `lower_case_tame_name` 参数（表名大小敏感）保持一致，如果源数据库为腾讯云数据库 MariaDB，由于云数据库 MariaDB 只能在创建实例时修改 `lower_case_tame_name` 参数，所以用户需要在创建源库实例时确定大小写敏感规则，并在参数校验不一致时，修改目标库的 `lower_case_tame_name` 参数。
    - 源数据库为腾讯云数据库 MariaDB 10.4 版本时，在迁移任务配置中，**接入类型**不支持选择**云数据库**，需要选择**公网**或者其他方式。
-- 源数据库 Binlog 的 GTID 如果存在空洞，会影响迁移任务的性能并可能导致任务失败。
+- 源数据库 Binlog 的 GTID 如果存在空洞，可能会影响迁移任务的性能并导致任务失败。
   
 - 不支持同时包含 DML 和 DDL 语句在一个事务的场景，遇到该情况任务会报错。
 - 不支持 Geometry 相关的数据类型，遇到该类型数据任务报错。

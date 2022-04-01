@@ -1,10 +1,10 @@
-如果您需要打通 VPN 和 CCN，可以发布网段至 CCN。
+如果您需要打通 VPN 和云联网 CCN，可以发布网段至 CCN。
 >?如果 VPN 通道的通信模式为“目的路由”，那么不需要发布 IDC 网段至云联网。
 >
 
 ## 前提条件
-- 已创建 CCN 型 IPsec  VPN 网关且已绑定云联网实例。
-- 已在 VPN 通道配置 SPD 策略。
+- 已 [创建 CCN 型 IPsec VPN 网关 ](https://cloud.tencent.com/document/product/554/52861)且已 [绑定云联网实例](https://cloud.tencent.com/document/product/554/71642)。
+- 已在 [VPN 通道配置 SPD 策略](https://cloud.tencent.com/document/product/554/52864#buzhou6)。
 
 ## 操作步骤
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。

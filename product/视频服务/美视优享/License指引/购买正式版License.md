@@ -1,7 +1,7 @@
 腾讯特效 License 用于解锁腾讯特效 SDK 的使用权限，您可登录 [腾讯云视立方控制台](https://console.cloud.tencent.com/vcube) 购买绑定正式版 License。腾讯特效 SDK 提供测试版 License 进行功能体验，详情请参见 [申请测试版 License](https://cloud.tencent.com/document/product/616/65878)。
 
 ## 购买正式版 License[](id:create)
-您可根据具体需求场景，在 [腾讯云视立方·音视频终端引擎购买页](https://buy.cloud.tencent.com/vcube?type=magic) 选择并购买 SDK 套餐，获得相应的正式版 License 使用授权（有效期 1 年至到期次日00:00:00为止）。各版本 SDK 的功能差异请参见 [计费概述](https://cloud.tencent.com/document/product/616/36807)。
+您可根据具体需求场景，在 [音视频终端 SDK 购买页](https://buy.cloud.tencent.com/vcube?type=magic) 选择并购买 SDK 套餐，获得相应的正式版 License 使用授权（有效期 1 年至到期次日00:00:00为止）。各版本 SDK 的功能差异请参见 [计费概述](https://cloud.tencent.com/document/product/616/36807)。
 
 > !**腾讯特效功能模块需要通过审核后才能签发授权**，正式版授权到期时间从审核通过时间计算，1年后到期次日00:00:00止。
 > 例如，当创建 License、提交腾讯特效功能模块正式版审核信息后，进入**审核中状态**，审核时间通常 1-2 个工作日。提交审核信息时间为 `2022-01-01 16:16:23`，审核通过时间为 `2022-01-02 09:39:38`，则开始时间为 `2022-01-02 09:39:38`，1 年后到期时间为 `2023-01-03 00:00:00`。
@@ -25,7 +25,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/75889ec1a3a37c14c222d7f89df75622.png)
 2. 选择**腾讯特效功能模块** > **正式版**，单击**下一步**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/50b40a0491a024ee85957be34a3b9dc4.png)
-3. 进入选择资源项并绑定 License 界面，选择**未绑定**的腾讯特效套餐包（若无可绑定的腾讯特效套餐包，可单击 [资源包购买页](https://buy.cloud.tencent.com/vcube) 前往购买），并单击**确定**即可在应用下生成正式版腾讯特效功能模块。
+3. 进入选择资源项并绑定 License 界面，选择**未绑定**的腾讯特效套餐包（若无可绑定的腾讯特效套餐包，可单击 [资源包购买页](https://buy.cloud.tencent.com/vcube?type=magic) 前往购买），并单击**确定**即可在应用下生成正式版腾讯特效功能模块。
 ![](https://qcloudimg.tencent-cloud.cn/raw/1530d7979bf74add8ced5fbbfa583e0d.png)
 :::
 </dx-tabs>

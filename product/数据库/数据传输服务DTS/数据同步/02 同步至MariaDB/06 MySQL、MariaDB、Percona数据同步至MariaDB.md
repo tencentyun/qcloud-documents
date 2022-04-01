@@ -2,7 +2,7 @@
 
 源数据库支持的部署类型如下：
 
-- 自建 MySQL、第三方云厂商 MySQL、腾讯云数据库 MySQL。
+- 自建 MySQL、腾讯云数据库 MySQL。
 - 自建 MariaDB、腾讯云数据库 MariaDB。
 - 自建 Percona。
 
@@ -22,7 +22,7 @@
 - 需要具备源数据库的权限如下：
 ```sql
 GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW VIEW,PROCESS,SELECT ON *.* TO '帐号'@'%' IDENTIFIED BY '密码';
-GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '帐号'@'%'; //如果源端为腾讯云数据库需要授予`__tencentdb__`权限
+GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '帐号'@'%'; 
 FLUSH PRIVILEGES;
 ```
 - 需要具备目标数据库的权限：ALTER, ALTER ROUTINE, CREATE, CREATE ROUTINE, CREATE TEMPORARY TABLES, CREATE USER, CREATE VIEW, DELETE, DROP, EVENT, EXECUTE, INDEX, INSERT, LOCK TABLES, PROCESS, REFERENCES, RELOAD, SELECT, SHOW DATABASES, SHOW VIEW, TRIGGER, UPDATE。
@@ -35,7 +35,7 @@ FLUSH PRIVILEGES;
 - 相互关联的数据对象需要一起同步，否则会导致同步失败。常见的关联关系：视图引用表、视图引用视图、存储过程/函数/触发器引用视图/表、主外键关联表等。
 - 增量同步过程中，若源库存在分布式事务或者产生了类型为 `STATEMENT` 格式的 Binlog 语句，则会导致同步失败。
 - 源数据库为阿里云 MySQL，则阿里云 MySQL 5.6 版本待同步表不能存在无主键表，MySQL 5.7 及以后版本不限制。源数据库为 AWS MySQL，则 AWS MySQL 待同步表不能存在无主键表。
-- 源数据库 Binlog 的 GTID 如果存在空洞，会影响同步任务的性能并可能导致任务失败。
+- 源数据库 Binlog 的 GTID 如果存在空洞，可能会影响同步任务的性能并导致任务失败。
 - 不支持同时包含 DML 和 DDL 语句在一个事务的场景，遇到该情况任务会报错。
 - 不支持 Geometry 相关的数据类型，遇到该类型数据任务报错。
 - 不支持 `ALTER VIEW` 语句，遇到该语句任务跳过不同步。

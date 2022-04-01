@@ -95,9 +95,9 @@ VPN 通道的建立包括以下配置信息：
 </tr>
 </table>
 5. 单击**下一步**，进入**通信模式**配置界面。[](id:buzhou6)[](id:cfg_vpn_spd)
- - 目的路由模式
-  本通信通过路由策略指定 VPN 网关所属网络可以和 IDC 中哪些网段通信，创建通道完成后需在 VPN 网关的路由表中配置对应路由策略，详情请参见[配置 VPN 网关路由](https://cloud.tencent.com/document/product/554/52860) 。
- - 配置 SPD 策略。
+ - 目的路由
+本通信通过路由策略指定 VPN 网关所属网络可以和 IDC 中哪些网段通信，创建通道完成后需在 VPN 网关的路由表中配置对应路由策略，详情请参见[配置 VPN 网关路由](https://cloud.tencent.com/document/product/554/52860) 。
+ - SPD 策略。
 >?
 >+ SPD（Security Policy Database）策略由一系列 SPD 规则组成，用于指定 VPC 或云联网内哪些网段可以和 IDC 内哪些网段通信。每条 SPD 规则包括一个本端网段 CIDR，和至少一个对端网段 CIDR。一个本端网段 CIDR 和一个对端网段 CIDR 构成一组匹配关系。一个 SPD 规则下可以有多组匹配关系。
 >+ 同一 VPN 网关下所有通道内的规则，匹配关系不能重叠，即一组的匹配关系中，本端网段和对端网段不能同时重叠。

@@ -14,24 +14,11 @@
 - 已完成 [准备工作](https://cloud.tencent.com/document/product/571/59968)。
 - 需要您在源数据库中提前创建好数据库：`__tencentdb__`。
 - 需要具备源数据库的权限。
-  - “整个实例”迁移，需要的帐号权限如下：
 ```
 CREATE USER '迁移帐号'@'%' IDENTIFIED BY '迁移密码';  
-GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO '迁移帐号'@'%';  
+GRANT SELECT,RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO '迁移帐号'@'%';  
 //源端若为腾讯云 MariaDB 数据库，需要提交工单进行 RELOAD 授权，其他场景请用户参照代码授权
-GRANT INSERT, UPDATE, DELETE, DROP, SELECT, INDEX, ALTER, CREATE ON `__tencentdb__`.* TO '迁移帐号'@'%'; 
-//如果源端为腾讯云数据库需要授予`__tencentdb__`权限
-GRANT SELECT ON *.* TO '迁移帐号';
-```
-  - “指定对象”迁移，需要的帐号权限如下：
-```
-CREATE USER '迁移帐号'@'%' IDENTIFIED BY '迁移密码';  
-GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO '迁移帐号'@'%';  
-//源端若为腾讯云 MariaDB 数据库，需要提交工单进行 RELOAD 授权，其他场景请用户参照代码授权
-GRANT INSERT, UPDATE, DELETE, DROP, SELECT, INDEX, ALTER, CREATE ON `__tencentdb__`.* TO '迁移帐号'@'%'; 
-//如果源端为腾讯云数据库需要授予`__tencentdb__`权限
-GRANT SELECT ON `mysql`.* TO '迁移帐号'@'%';
-GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
+GRANT INSERT, UPDATE, DELETE, DROP, SELECT, INDEX, ALTER, CREATE ON `__tencentdb__`.* TO '迁移帐号'@'%';
 ```
 - 需要具备目标数据库的权限：ALTER, ALTER ROUTINE, CREATE, CREATE ROUTINE, CREATE TEMPORARY TABLES, CREATE USER, CREATE VIEW, DELETE, DROP, EVENT, EXECUTE, INDEX, INSERT, LOCK TABLES, PROCESS, REFERENCES, RELOAD, SELECT, SHOW DATABASES, SHOW VIEW, TRIGGER, UPDATE。
 
@@ -45,7 +32,8 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 - 不支持迁移 [二级分区](https://cloud.tencent.com/document/product/557/58907) 表。
    - TDSQL MySQL 迁移到 MySQL/MariaDB，遇到二级分区表的迁移，任务报错。
    - TDSQL MySQL 迁移到 TDSQL MySQL，如果迁移的库表中包含二级分区表，存量数据会跳过二级分区表的迁移；如果选择整库或全实例迁移，增量过程中遇到二级分区表任务报错暂停。
-- 不支持 geometry 相关的数据类型。
+- 不支持同时包含 DML 和 DDL 语句在一个事务的场景，遇到该情况任务会报错。
+- 不支持 Geometry 相关的数据类型，遇到该类型数据任务报错。
 - 不支持外键依赖数据，如果源库有外键数据任务校验会报错。
 - 增量迁移过程中，不支持源库新增分片、调整分片规格，否则迁移任务不会同步新增分片的数据或是任务报错暂停。
 

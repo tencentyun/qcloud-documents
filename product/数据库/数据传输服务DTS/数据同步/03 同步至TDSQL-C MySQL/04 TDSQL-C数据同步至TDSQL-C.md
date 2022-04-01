@@ -13,11 +13,11 @@
   - `__tencentdb__`系统库占用空间非常小，约为源库存储空间的千分之一到万分之一（例如源库为50G，则`__tencentdb__`系统库约为 5K-50K） ，并且采用单线程，等待连接机制，所以对源库的性能几乎无影响，也不会抢占资源。 
 
 ## 前提条件
-- 已 [创建云原生数据库 TDSQL-C](https://cloud.tencent.com/document/product/1003/30505)。
+- 已 [创建 TDSQL-C MySQL](https://cloud.tencent.com/document/product/1003/30505)。
 - 需要具备源数据库的权限如下：
 ```
 GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW VIEW,PROCESS,SELECT ON *.* TO '帐号'@'%' IDENTIFIED BY '密码';
-GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '迁移帐号'@'%'; //如果源端为腾讯云数据库需要授予`__tencentdb__`权限
+GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '迁移帐号'@'%'; 
 FLUSH PRIVILEGES;
 ```
 - 需要具备目标数据库的权限：ALTER, ALTER ROUTINE, CREATE, CREATE ROUTINE, CREATE TEMPORARY TABLES, CREATE USER, CREATE VIEW, DELETE, DROP, EVENT, EXECUTE, INDEX, INSERT, LOCK TABLES, PROCESS, REFERENCES, RELOAD, SELECT, SHOW DATABASES, SHOW VIEW, TRIGGER, UPDATE。
@@ -30,7 +30,7 @@ FLUSH PRIVILEGES;
 - 只支持同步 InnoDB、MyISAM、TokuDB 三种数据库引擎，如果存在这三种以外的数据引擎表则默认跳过不进行同步。
 - 增量同步过程中，若源库存在分布式事务或者产生了类型为 `STATEMENT` 格式的 Binlog 语句，则会导致同步失败。
 - 源数据库为阿里云 MySQL，则阿里云 MySQL 5.6 版本待同步表不能存在无主键表，MySQL 5.7 及以后版本不限制。源数据库为 AWS MySQL，则 AWS MySQL 待同步表不能存在无主键表。
-- 源数据库 Binlog 的 GTID 如果存在空洞，会影响同步任务的性能并可能导致任务失败。
+- 源数据库 Binlog 的 GTID 如果存在空洞，可能会影响同步任务的性能并导致任务失败。
 - 不支持同时包含 DML 和 DDL 语句在一个事务的场景，遇到该情况任务会报错。
 - 不支持 Geometry 相关的数据类型，遇到该类型数据任务报错。
 - 不支持 `ALTER VIEW` 语句，遇到该语句任务跳过不同步。
@@ -88,7 +88,7 @@ FLUSH PRIVILEGES;
 </table>
 
 ## 操作步骤
-1. 登录 [数据同步购买页](https://buy.cloud.tencent.com/dts)，选择相应配置，单击**立即购买**。
+1. 登录 [数据同步购买页](https://buy.cloud.tencent.com/replication)，选择相应配置，单击**立即购买**。
 <table>
 <thead><tr><th>参数</th><th>描述</th></tr></thead>
 <tbody><tr>
