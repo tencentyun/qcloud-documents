@@ -13,7 +13,7 @@
 2. 开启**默认 CDN 加速**
 **默认 CDN 加速**是由系统默认生成的，经由 CDN 加速节点的域名，用户可选择开启或关闭。
 (1) 在默认 CDN 加速模块下，单击【编辑】，手动开启当前状态，进入默认 CDN 加速的配置
-![](https://main.qcloudimg.com/raw/1259f6760e8794f23e3ded2856db95f0.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/b39e765bef5d1bf7bde99202d2769dc2.png)
 (2) 默认 CDN 加速的配置：
 ![](https://main.qcloudimg.com/raw/74642378de3e3f16c7d5b85703242362.png)
 **源站类型**：通常默认为**默认源站**，如果作为源站的存储桶开启了静态网站，并且希望为静态网站加速，则选择为**静态网站源站**。

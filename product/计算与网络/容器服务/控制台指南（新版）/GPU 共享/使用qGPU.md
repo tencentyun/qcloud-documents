@@ -1,15 +1,14 @@
 ## 使用须知
 
-- TKE 版本限制 ≥ v1.14.x
+- TKE 版本 ≥ v1.14.x
 - OS 限制：仅支持特定的 Tencent OS 3.1 镜像。
-- 机型限制：仅支持使用 V100 和 T4 卡的 CVM 机型（后续会规划支持黑石机器以及更多的 GPU 卡类型）。
-- 目前支持的 NVIDIA Tesla 驱动版本最新至450.102.04；CUDA 版本11.3。为保证兼容性，强烈建议用户使用 node 上自带的 UMD，无需在 POD 内部重复安装 UMD。
-- qGPU 粒度：一个 GPU 上最多分配的个 qGPU 个数 (Pod 个数) = GPU 显存数 / 4（例如 32G 显存，最多可以分配8个 qGPU），每个 qGPU 最小分配 1G 显存。
+- GPU 卡架构：支持 Volta（如 **V100**）、Turing（如 **T4** 等）、Ampere（如**A100、A10**)。
+- 目前支持的 NVIDIA Tesla 驱动版本最新至 450.102.04；CUDA 版本 11.3。为保证兼容性，强烈建议用户使用 node 上自带的 UMD，无需在 POD 内部重复安装 UMD。
+- qGPU 粒度：一个 GPU 上最多分配的个 qGPU 个数 (共享 Pod 个数） = GPU 显存数 / 4（例如 32G 显存，最多可以分配 8 个 qGPU），每个 qGPU 最小分配 1G 显存。
 - 开启了 qGPU 能力的节点无法当做常规的 GPU 节点使用，即不能使用整卡的资源。建议通过 TKE 的节点池能力来区分规划资源。
 - 如需升级 Kubernetes Master 版本，请注意：
   - 对于托管集群，无需重新设置本插件。
   - 对于独立集群，master 版本升级会重置 master 上所有组件的配置，从而影响到 qgpu-scheduler 插件作为 Scheduler Extender 的配置，因此 qGPU 插件需要卸载后再重新安装。
-
 
 ## 操作步骤
 
@@ -69,7 +68,11 @@
 </tbody></table>
 
 3. 为应用分配 GPU 资源。通过给容器设置 qGPU 对应资源可以允许 Pod 使用 qGPU，您可以通过控制台或者 YAML 方式来设置：
-   <dx-tabs>
+>?
+> - 如果应用需要使用整数卡资源，只需填写卡数，无需填写显存（自动使用分配的 GPU 卡上全部显存）。
+> - 如果应用需要使用小数卡资源（即和其他应用共享同一张卡），需要同时填写卡数和显存。
+>
+<dx-tabs>
    ::: 通过控制台设置
    在“新建 Workload 页面”，直接填写 GPU 相关资源，如下图所示：
    ![](https://main.qcloudimg.com/raw/fb79f151acdc1918fa9d5019073c6bb4.png)

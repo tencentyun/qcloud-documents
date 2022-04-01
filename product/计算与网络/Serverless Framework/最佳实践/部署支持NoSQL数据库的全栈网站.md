@@ -36,7 +36,7 @@ Components: 2.30.1
    
 ### 配置
    
-1. 通过 sls init 初始化模版：
+1. 通过 sls init 初始化模板：
 ```bash
 $ sls init fullstack-nosql
 ```

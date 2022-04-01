@@ -8,7 +8,7 @@ Elasticsearch Connector 提供了对 Elasticsearch  写入支持。目前 Oceanu
 | :-------- | :--- |
 | 1.11      | 支持 |
 | 1.13      | 支持 |
-
+| 1.14      | 支持 |
 
 ## 使用范围
 Elasticsearch 只支持写入，可以作为 Tuple 数据流的目的表（Sink），也可以作为 Upsert 数据流的目的表（Sink，自动以文档 `_id` 字段生成主键，并更新之前的文档版本）。

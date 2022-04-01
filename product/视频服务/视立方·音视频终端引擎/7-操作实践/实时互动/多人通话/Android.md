@@ -24,7 +24,7 @@
 ![](https://main.qcloudimg.com/raw/b88a624c0bd67d5d58db331b3d64c51c.gif)
 
 ## 示例代码
-您可以登录 [Github](https://github.com/tencentyun/TRTCSDK/tree/master/Android/TRTC-API-Example) 获取本文档相关的示例代码。
+您可以登录 [Github](https://github.com/LiteAVSDK/TRTC_Android/blob/main/TRTC-API-Example) 获取本文档相关的示例代码。
 ![](https://main.qcloudimg.com/raw/cdef573133900a8dce22dcca5242fcfc.png)
 
 >?如果访问 Github 较慢，您也可以直接下载 [TXLiteAVSDK_TRTC_Android_latest.zip](https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_TRTC_Android_latest.zip)。
@@ -35,7 +35,7 @@
 您可以选择以下方式将**音视频通话 TRTC SDK** 集成到项目中。
 #### 方式一：自动加载（aar）
 音视频通话 TRTC SDK 已发布到 jcenter 库，您可以通过配置 gradle 自动下载更新。
-您只需用 Android Studio 打开待集成 SDK 的工程（[TRTC-API-Example](https://github.com/tencentyun/TRTCSDK/tree/master/Android/TRTC-API-Example) 已完成集成，示例代码可以供您参考），然后通过简单的步骤修改 `app/build.gradle` 文件，即可完成 SDK 集成：
+您只需用 Android Studio 打开待集成 SDK 的工程（[TRTC-API-Example](https://github.com/LiteAVSDK/TRTC_Android/blob/main/TRTC-API-Example) 已完成集成，示例代码可以供您参考），然后通过简单的步骤修改 `app/build.gradle` 文件，即可完成 SDK 集成：
 
 1. 在 dependencies 中添加 TRTCSDK 的依赖。
 ```
@@ -115,7 +115,7 @@ public void onError(int errCode, String errMsg, Bundle extraInfo) {
 |---------|---------|---------|---------|
 | sdkAppId | 数字 | 应用 ID，您可以在 <a href="https://console.cloud.tencent.com/trtc/app">实时音视频控制台</a> 中查看 SDKAppID。|1400000123 |
 | userId | 字符串 | 只允许包含大小写英文字母（a-z、A-Z）、数字（0-9）及下划线和连词符。建议结合业务实际账号体系自行设置。 |test_user_001 |
-| userSig | 字符串 | 基于 userId 可以计算出 userSig，计算方法请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/1449/58939)。| eJyrVareCeYrSy1SslI... |
+| userSig | 字符串 | 基于 userId 可以计算出 userSig，计算方法请参见 [如何计算及使用 UserSig](https://cloud.tencent.com/document/product/1449/58939)。| eJyrVareCeYrSy1SslI... |
 | roomId | 数字 | 默认不支持字符串类型的房间号，字符串类型的房间号会影响进房速度。如果您确实需要支持字符串类型的房间号，可以 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们。 | 29834 |
 
 >!TRTC 同一时间不支持两个相同的 userId 进入房间，否则会相互干扰。

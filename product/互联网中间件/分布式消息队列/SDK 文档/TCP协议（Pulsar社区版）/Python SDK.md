@@ -7,12 +7,12 @@
 - [完成资源创建与准备](https://cloud.tencent.com/document/product/1179/44814)
 - [安装 Python](https://www.python.org/downloads/)
 - [安装 pip](https://pip-cn.readthedocs.io/en/latest/installing.html)
-- [下载 Demo](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-pulsar-demo/tdmq-pulsar-python-sdk-demo.zip)
+- [下载 Demo](https://tdmq-document-1306598660.cos.ap-nanjing.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91demo/pulsar/tcp/tdmq-pulsar-python-sdk-demo.zip)
 
 ## 操作步骤
 
 1. 准备环境。
-   在客户端环境安装 pulsar-client 库，可以使用 pip 进行安装，也可以使用其他方式，参考 [Pulsar Python client](https://pulsar.apache.org/docs/en/client-libraries-python/)。
+   在客户端环境安装 pulsar-client 库，可以使用 pip 进行安装，也可以使用其他方式，参见 [Pulsar Python client](https://pulsar.apache.org/docs/en/client-libraries-python/)。
 <dx-codeblock>
 :::  shell
    pip install pulsar-client==2.8.1
@@ -81,7 +81,7 @@ Topic 名称需要填入完整路径，即 `persistent://clusterid/namespace/Top
    )
 :::
 </dx-codeblock>
-   还可以使用异步方式发送消息
+   还可以使用异步方式发送消息。
 <dx-codeblock>
 :::  python
    # 异步发送回调
@@ -101,7 +101,7 @@ Topic 名称需要填入完整路径，即 `persistent://clusterid/namespace/Top
    )
 :::
 </dx-codeblock>
-5. 创建消费者
+5. 创建消费者。
 <dx-codeblock>
 :::  python
    # 订阅消息
@@ -134,6 +134,6 @@ Topic 名称需要填入完整路径，即 `persistent://clusterid/namespace/Top
 :::
 </dx-codeblock>
 7. 登录 [TDMQ Pulsar 版控制台](https://console.cloud.tencent.com/tdmq)，依次点击 **Topic 管理** > **Topic 名称**进入消费管理页面，点开订阅名下方右三角号，可查看生产消费记录。
-   ![img](https://main.qcloudimg.com/raw/da7ce2bc5ac606c91982efecdb3b53bb.png)
+   ![img](https://main.qcloudimg.com/raw/3bee532dab55b7cab1167416aac95f4d.png)
 
->?上述是对消息的发布和订阅方式的简单介绍。更多操作可参见 `Demo` 或 [Pulsar 官方文档](https://pulsar.apache.org/docs/en/client-libraries-python/) 。
+>?上述是对消息的发布和订阅方式的简单介绍。更多操作可参见 [Demo](https://tdmq-document-1306598660.cos.ap-nanjing.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91demo/pulsar/tcp/tdmq-pulsar-python-sdk-demo.zip) 或 [Pulsar 官方文档](https://pulsar.apache.org/docs/en/client-libraries-python/)。

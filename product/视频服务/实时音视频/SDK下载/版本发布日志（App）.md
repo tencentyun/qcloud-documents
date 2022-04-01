@@ -1,3 +1,66 @@
+### Version 9.6 @ 2022.03.24
+
+**重要更新：**
+
+- 全平台：完成三方库合规整改，符合国内、海外的合规要求。
+- 全平台：优化 TRTC SDK 体积，详细数据见下表：
+<table>
+<thead>
+<tr>
+<th>平台</th>
+<th><strong>优化前</strong></th>
+<th><strong>优化后</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Android</td>
+<td>armv7：6.95M<br>arm64：7.94M</td>
+<td>armv7：4.32M<br>arm64：4.85M</td>
+</tr>
+<tr>
+<td>iOS</td>
+<td>arm64：3.23M</td>
+<td>arm64：3.15M</td>
+</tr>
+<tr>
+<td>Windows</td>
+<td>Win32：21.3M<br>Win64：26.9M</td>
+<td>Win32：15.0M<br>Win64：17.2M</td>
+</tr>
+<tr>
+<td>Mac</td>
+<td>x86_64：18.1M</td>
+<td>x86_64：15.8M</td>
+</tr>
+</tbody></table>
+
+**故障修复：**
+
+全平台：修复已知问题，提升稳定性。
+
+**功能优化：**
+- iOS：修复在补光灯下偶现的曝光过度问题。
+- Mac：优化纹理上传，提升性能。
+- Android：优化美颜等预处理流程，修复低端机器下的采集卡顿问题。
+- Windows：Live V1 升级到 V2 接口，提供更稳定的 Live 组件。
+- Windows：提升了低端机上的显卡兼容性。
+
+>?更早期的版本更新历史请单击  [更多](https://cloud.tencent.com/document/product/647/46907)。
+
+## Version 9.5 @ 2022.01.11
+
+**故障修复：**
+- 全平台：提升 API 易用性，修复部分 API 特定调用时序导致自定义渲染播放黑屏的问题。
+- Windows：修复屏幕分享采集区域不完整的问题。
+- iOS：修复 [muteLocalVideo](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#ac3a158f935a99abd4965d308c0f88977) 调用后退房下次进房还是不推流状态的问题。
+- iOS：修复混流设置背景图无效的问题。
+
+**功能优化：**
+- 全平台：优化通话场景在弱网时的流畅度。
+- Windows：优化摄像头兼容性，解决部分设备采集帧率与设定值不符或开启失败的问题。
+- iOS：提升兼容性，降低和其他渲染组件如 cocos2D 共用时的冲突。
+- Android：修复上行关闭再开启摄像头，播放端先显示关闭前最后一帧再正常显示的问题。
+
 ## Version 9.4 @ 2021.12.08
 
 **功能新增：**

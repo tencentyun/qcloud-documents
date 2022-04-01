@@ -13,7 +13,7 @@
 
 
 
-此处以 helloworld 模版为例，创建空函数项目：
+此处以 helloworld 模板为例，创建空函数项目：
 ![](https://main.qcloudimg.com/raw/6332a17c6782b4774801ebefa4348b49.png)
 
 ### 步骤2：配置触发器

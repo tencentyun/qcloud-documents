@@ -1,3 +1,5 @@
+>!由于产品逻辑已无法满足游戏行业技术发展，游戏联机对战引擎 MGOBE 将于2022年6月1日下线，请您在2022年5月31日前完成服务迁移。
+
 
 ## 操作场景
 本文档指导您如何使用游戏联机对战引擎 C# SDK。
@@ -250,7 +252,6 @@ room.StopFrameSync (eve => {
 
 // 广播：停止帧同步
 room.OnStopFrameSync = eve => {
-	RecvFrameBst bst = (RecvFrameBst) eve.Data;
 	Debug.LogFormat ("停止帧同步: {0}", eve.Data);
 };
 ```

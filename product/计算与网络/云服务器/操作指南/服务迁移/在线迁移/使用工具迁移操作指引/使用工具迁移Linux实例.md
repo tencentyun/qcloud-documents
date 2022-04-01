@@ -22,20 +22,15 @@
 ### 修改配置文件[](id:modifyConfiguration)
 
 1. 将迁移工具 go2tencentcloud.zip 下载或上传至源端主机，并执行以下命令进入对应目录。
-    1. 依次执行以下命令，解压 go2tencentcloud.zip 并进入目录。
 ```sh
 unzip go2tencentcloud.zip
 ```
 ```sh
 cd go2tencentcloud
 ```
-    2. 依次执行以下命令，解压 go2tencentcloud_tool.zip 并进入目录。
-```sh
-unzip go2tencentcloud_tool.zip
-```
-```sh
-cd go2tencentcloud_tool
-```
+<dx-alert infotype="explain" title="">
+`go2tencentcloud` 目录下的文件将不会被迁移，请勿将需迁移的文件放置在该目录下。
+</dx-alert>
 2. 在 `user.json` 文件中配置目标云服务器。
 请按照 [user.json 文件参数说明](https://cloud.tencent.com/document/product/213/65714#userJsonState) 配置必填项和所需项的值。请将对应参数值替换为您实际的配置参数，参考示例如下：
  - 示例1：将一台 Linux 源端主机迁移至腾讯云广州地域的一台云服务器中，`user.json` 文件配置为以下内容：
@@ -85,7 +80,7 @@ cd go2tencentcloud_tool
 }  
 ```
 2. （可选）在 `client.json` 文件中配置迁移模式和其他项。
-请按照 [client.json 文件参数说明](https://cloud.tencent.com/document/product/213/65714#clientJsonState) 进行配置。如果源端主机和目标云服务器任何一方不能直接访问公网，则可以选择先通过 [VPC 对等连接](https://cloud.tencent.com/document/product/553)、[VPN 连接](https://cloud.tencent.com/document/product/554)、[云联网](https://cloud.tencent.com/document/product/877) 或者 [专线接入](https://cloud.tencent.com/document/product/216) 等方式建立连接通道，再进行内网模式迁移，详情请参见 [内网迁移教程](https://cloud.tencent.com/document/product/213/65715)。
+请按照 [client.json 文件参数说明](https://cloud.tencent.com/document/product/213/65714#clientJsonState) 进行配置。如果源端主机和目标云服务器任何一方不能直接访问公网，则可以选择先通过 [VPC 对等连接](https://cloud.tencent.com/document/product/553)、[VPN 连接](https://cloud.tencent.com/document/product/554)、[云联网](https://cloud.tencent.com/document/product/877) 或者 [专线接入](https://cloud.tencent.com/document/product/216) 等方式建立连接通道，再进行内网模式迁移，详情请参见 [使用工具内网迁移教程](https://cloud.tencent.com/document/product/213/65715)。
 3. （可选）排除源端主机上不需迁移的文件或目录。
 若 Linux 源端主机中存在不需要迁移的文件或目录，可将文件或目录添加至 [rsync\_excludes\_linux.txt 文件](https://cloud.tencent.com/document/product/213/65714#_linuxTxtState)。
 
@@ -125,7 +120,7 @@ cd go2tencentcloud_tool
   </tr>
 </table>
 <dx-alert infotype="explain" title="">
-- 源端主机检查可以使用工具命令自动检查，如 `sudo ./go2tencentcloud_x64 --check`。
+- 源端主机检查可以使用工具命令自动检查，如 `./go2tencentcloud_x64 --no-console --check`。
 - go2tencentcloud 迁移工具在开始运行时，默认自动检查。如果需要略过检查强制迁移，请将 client.json 文件中的 `Client.Extra.IgnoreCheck` 字段配置为 `true`。
 </dx-alert>
 
@@ -134,9 +129,9 @@ cd go2tencentcloud_tool
 ### 发起迁移
 
 执行以下命令，运行工具。
-本文以64位 Linux 源端主机为例，进入 go2tencentcloud_tool 文件目录，并以 root 权限执行以下命令运行工具。
+本文以64位 Linux 源端主机为例，进入 go2tencentcloud 文件目录，并以 root 权限执行以下命令运行工具。
 ```sh
-sudo ./go2tencentcloud_x64
+sudo ./go2tencentcloud_x64 --no-console
 ```
 
 ### 等待迁移结束

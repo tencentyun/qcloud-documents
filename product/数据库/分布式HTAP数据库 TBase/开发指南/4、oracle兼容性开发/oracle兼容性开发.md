@@ -1,5 +1,5 @@
 
-Oracle 兼容性开发针对的是 TDSQL  PostgreSQL版 v5.0 版本。
+Oracle 兼容语法说明针对的是 TDSQL PostgreSQL版（Oracle 兼容版）。
 
 ## Oracle GUC 参数配置
 #### session 中生效

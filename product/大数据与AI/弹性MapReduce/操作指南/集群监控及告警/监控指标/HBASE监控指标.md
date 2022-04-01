@@ -606,7 +606,7 @@
 <td >bytes/s</td>
 <td >接收数据量</td>
 </tr><tr>
-<td rowspan=10>读写请求量</td>
+<td rowspan=11>读写请求量</td>
 <td >Total</td>
 <td >个/s</td>
 <td >总请求量，当有Scan请求时，该值会小于读写请求之和</td>
@@ -638,7 +638,13 @@
 <td >Get_num_ops</td>
 <td >个/s</td>
 <td >Get 请求量</td>
-</tr><tr>
+</tr>
+<tr>
+<td >Put_num_ops</td>
+<td >个/s</td>
+<td >Put 请求量</td>
+</tr>
+<tr>
 <td >ScanTime_num_ops</td>
 <td >个/s</td>
 <td >Scan 请求量</td>
@@ -646,7 +652,8 @@
 <td >ScanSize_num_ops</td>
 <td >个/s</td>
 <td >Scan 请求量</td>
-</tr><tr>
+</tr>
+<tr>
 <td >mutation 个数</td>
 <td >mutationsWithoutWALCount</td>
 <td >个</td>
@@ -695,9 +702,9 @@
 <td >   Byte</td>
 <td >memstore大小</td>
 </tr><tr>
-<td >   storeFileSize</td>
-<td >   Byte</td>
-<td storeFile大小</td>
+<td >  storeFileSize</td>
+<td >  Byte</td>
+<td> storeFile大小</td>
 </tr><tr>
 <td rowspan=6>表级别请求延迟</td>      
 <td >getTime_99th_percentile</td>
@@ -741,5 +748,31 @@
 <td >99.9th_percentile</td>
 <td >ms</td>
 <td >99.9%请求排队时延</td>
-</tr>
+</tr><tr>
+<td rowspan=3>SCAN SIZE</td>
+<td >max</td>
+<td >bytes</td>
+<td >最大 ScanSize</td>
+</tr><tr>
+<td >mean</td>
+<td >bytes</td>
+<td >平均 ScanSize</td>
+</tr><tr>
+<td >min</td>
+<td >bytes</td>
+<td >最小 ScanSize</td>
+</tr><tr>
+<td rowspan=3>SCAN TIME</td>
+<td >max</td>
+<td >s</td>
+<td >最大 ScanTime</td>
+</tr><tr>
+<td >mean</td>
+<td >s</td>
+<td >平均 ScanTime</td>
+</tr><tr>
+<td >min</td>
+<td >s</td>
+<td >最小 ScanTime</td>
+</tr>	
 </table>

@@ -342,7 +342,7 @@ TRTC 专门针对在线直播场景推出了10万人低延时互动直播解决�
 
 [](id:que67)
 ### 音视频通话 TRTC 是什么？
-音视频通话 TRTC 是腾讯视立方·音视频终端引擎版本之一，包含**音视频通话**一个功能模块，与视频产品实时音视频使用相同的底层基础模块。 音视频通话 TRTC 主打全平台互通的多人音视频通话和低延时互动直播解决方案，致力于帮助开发者快速搭建低成本、低延时、高品质的音视频互动解决方案。
+音视频通话 TRTC 是音视频终端 SDK（腾讯视立方）版本之一，包含**音视频通话**一个功能模块，与视频产品实时音视频使用相同的底层基础模块。 音视频通话 TRTC 主打全平台互通的多人音视频通话和低延时互动直播解决方案，致力于帮助开发者快速搭建低成本、低延时、高品质的音视频互动解决方案。
 
 [](id:que68)
 ### 音视频通话 TRTC Demo 怎么体验？
@@ -368,13 +368,14 @@ TRTC 私有化部署暂未完全开放。若您需咨询或使用私有化服务
 ### TRTC SDK 是否支持断线重连?
 SDK 支持用户断线情况下的无限重连机制，连接过程中具体的连接状态和处理逻辑如下说明。
 下图展示了从用户 Userid1 加入频道，到连接中断，再到重新加入房间过程中，收到的监听回调事件：
-![](https://qcloudimg.tencent-cloud.cn/raw/6fa1c30fbdef1ba8d40dba183a5f6d74.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/ca8bd0a2e61477bb0468f1aa0ee30ec5.png)
 **具体说明**：
 - T1：用户侧发起调用 `enterRoom` 接口发起进房请求。
-- T2：收到 `onEnterRoom` 回调。
-- T3：客户端因网络问题断网，SDK 会尝试重新加入房间。
-- T4：如果联系8秒没有连接上服务端，收到 `onConnectionLost` 断连回调。
-- T5：接着隔3秒没有连接上服务端，收到 `onTryToReconnect` 重试回调。
-- T6：接着每隔24秒，收到 `onTryToReconnect` 重试回调。
-- T7：断连期间任意时刻重连成功，收到 `onConnectionRecovery` 恢复回调。
+- T2：用户 Userid1 收到 `onEnterRoom` 回调，Userid2 感知 Userid1 存在延迟，大约300ms后，Userid2 收到 `onRemoteUserEnterRoom` 回调。
+- T3：Userid1 客户端因网络问题断网，SDK 会尝试重新加入房间。
+- T4：Userid1 如果联系8秒没有连接上服务端，Userid1 收到 `onConnectionLost` 断连回调。
+- T5：Userid1 接着隔3秒没有连接上服务端，Userid1 收到 `onTryToReconnect` 重试回调。
+- T6：Userid1 接着每隔24秒，收到 onTryToReconnect 重试回调。
+- T7：Userid2 会在收到 Userid1 掉线通知90s后，SDK 判断远端用户 Userid1 掉线，Userid2 收到 `onRemoteUserLeaveRoom` 回调。
+- T8：如果Userid1断连期间任意时刻重连成功，Userid1 收到 `onConnectionRecovery` 恢复回调。
 

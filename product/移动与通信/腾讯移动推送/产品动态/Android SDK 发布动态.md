@@ -1,4 +1,55 @@
 
+## 2022年02月
+
+<table>
+	<tr>
+		<th width=20%>动态名称</th>
+    <th width=44%>动态描述</th>
+    <th width=16%>发布时间</th>
+    <th width=20%>相关文档</th>
+	</tr>
+	<tr>
+        <td>SDK 1.3.2.0 版本发布</td>
+	<td>
+		<li>优化：升级封装的小米、魅族、OPPO、vivo 厂商推送 SDK 版本</li>
+		<li>新增：提供接口方便在推送目标页面内获取随推送下发的自定义参数 customContent</li>
+		<li> 修复：其他已知问题</li>
+		</td>
+        <td>2022-02-23</td><td>
+		<li><a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</a></li>
+		<li>获取随推送下发的 custom_content 请参见 <a href="https://cloud.tencent.com/document/product/548/48572#.E5.AE.A2.E6.88.B7.E7.AB.AF.E8.8E.B7.E5.8F.96.E5.8F.82.E6.95.B0">通知点击跳转 > 客户端获取参数</a></li>
+		<li><a href="https://cloud.tencent.com/document/product/548/56364">Android SDK 升级指南</a></li>
+</td>
+    </tr>
+<tr>
+</table>
+
+## 2022年01月
+
+<table>
+	<tr>
+		<th width=20%>动态名称</th>
+    <th width=44%>动态描述</th>
+    <th width=16%>发布时间</th>
+    <th width=20%>相关文档</th>
+	</tr>
+	<tr>
+        <td>SDK 1.3.1.1 版本发布</td>
+	<td>
+		<li>新增：适配荣耀设备角标的新方式</li>
+		<li>新增：定期更新通知状态</li>
+		<li>优化：更新厂商通道策略</li>
+		<li>优化：注册和账号绑定流程</li>
+		<li>修复：移除部分可能引发应用自启动的广播事件</li>
+		<li>修复：避免 Android Service 组件自启动问题</li>
+		</td>
+        <td>2022-01-18</td><td>
+<a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</a>
+</td>
+    </tr>
+<tr>
+</table>
+
 ## 2021年09月
 
 <table>
@@ -11,7 +62,7 @@
 	<tr>
         <td>SDK 1.2.7.1 版本发布</td>
 	<td>修复：偶现的跨进程存储不一致问题</td>
-        <td>2021-09-1</td><td><li>使用新增的应用内消息能力时，请注意高版本安卓使用 WebView 的兼容性，参考 <a href="https://cloud.tencent.com/document/product/548/36659#.E5.BA.94.E7.94.A8.E5.86.85.E6.B6.88.E6.81.AF.E5.B1.95.E7.A4.BA">Android 接口文档</a></li>
+        <td>2021-09-1</td><td><li>使用新增的应用内消息能力时，请注意高版本 Android 使用 WebView 的兼容性，参考 <a href="https://cloud.tencent.com/document/product/548/36659#.E5.BA.94.E7.94.A8.E5.86.85.E6.B6.88.E6.81.AF.E5.B1.95.E7.A4.BA">Android 接口文档</a></li>
 <li><a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</a></li>
 <li><a href="https://cloud.tencent.com/document/product/548/56364">Android SDK 升级指南</a></li></td>
     </tr>
@@ -32,7 +83,7 @@
 		<li>  新增：新增应用内消息展示
 		<li>  优化：推送服务注册流程优化
 		<li>  修复：同意隐私协议前获取设备型号问题</td>
-        <td>2021-08-27</td><td><li>使用新增的应用内消息能力时，请注意高版本安卓使用 WebView 的兼容性，参考 <a href="https://cloud.tencent.com/document/product/548/36659#.E5.BA.94.E7.94.A8.E5.86.85.E6.B6.88.E6.81.AF.E5.B1.95.E7.A4.BA">Android 接口文档</a></li>
+        <td>2021-08-27</td><td><li>使用新增的应用内消息能力时，请注意高版本 Android 使用 WebView 的兼容性，参考 <a href="https://cloud.tencent.com/document/product/548/36659#.E5.BA.94.E7.94.A8.E5.86.85.E6.B6.88.E6.81.AF.E5.B1.95.E7.A4.BA">Android 接口文档</a></li>
 <li><a href="https://cloud.tencent.com/document/product/548/56364">Android SDK 升级指南</a></li></td>
     </tr>
 <tr>

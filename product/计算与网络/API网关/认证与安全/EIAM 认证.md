@@ -33,7 +33,7 @@ EIAM 和腾讯云 API 网关通过 OAuth2.0 协议深度整合，您可以便捷
    - 新建 EIAM 应用：新创建一个 EIAM 应用与当前 API 网关 API 建立绑定关系。
    - 选择已有 EIAM 应用：选择之前已经创建好的 EIAM 应用与当前 API 网关 API 建立绑定关系。
 
->?您可以点击以下页签，查看两种接入方式的配置项：
+>?您可以单击以下页签，查看两种接入方式的配置项：
 
 <dx-tabs>
 ::: 新建 EIAM 应用
@@ -73,14 +73,14 @@ EIAM 和腾讯云 API 网关通过 OAuth2.0 协议深度整合，您可以便捷
 
 ### 步骤2：在 EIAM 中创建用户池和用户[](id:step2)
 
-1. 登录 [EIAM 控制台](https://console.cloud.tencent.com/eiam) ，在左侧导航栏单击**用户管理**>**组织机构管理**。
+1. 登录 [EIAM 控制台](https://console.cloud.tencent.com/eiam) ，在左侧导航栏单击**用户管理** > **组织机构管理**。
 2. 选择合适的组织机构，单击**新建用户**。
 3. 填写表单，完成用户的创建。
    ![](https://main.qcloudimg.com/raw/2ad13ffffeacc1aa8b18ffce01fbdd82.png)
 
 ### 步骤3：在 EIAM 中授权[](id:step3)
 
-1. 登录 [EIAM 控制台](https://console.cloud.tencent.com/eiam) ，在左侧导航栏单击**授权管理**>**资源级授权**。
+1. 登录 [EIAM 控制台](https://console.cloud.tencent.com/eiam) ，在左侧导航栏单击**授权管理** > **资源级授权**。
 2. 在下拉列表中选择第一步中创建或绑定的EIAM应用，选择**用户授权**Tab 页，单击**新建授权**。
 3. 选择需要关联的网关资源（服务和API），选择在第二步中创建的用户，将 API网关资源对用户授权。
    ![](https://qcloudimg.tencent-cloud.cn/raw/c3f4d87c30371c516af46a85b785d1a8.png)
@@ -89,7 +89,7 @@ EIAM 和腾讯云 API 网关通过 OAuth2.0 协议深度整合，您可以便捷
 
 使用 [步骤2](#step2) 中创建的用户的账号和密码，对 API 网关 API 发起访问。
 
->?您可以点击以下页签，查看非 Web 客户端和 Web 客户端的调用方法。
+>?您可以单击以下页签，查看非 Web 客户端和 Web 客户端的调用方法。
 
 <dx-tabs>
 ::: 非 Web 客户端

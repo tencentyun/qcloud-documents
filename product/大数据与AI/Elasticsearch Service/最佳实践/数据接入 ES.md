@@ -34,9 +34,9 @@ docker run --rm -it -v ~/pipeline/:/usr/share/logstash/pipeline/ docker.elastic.
 
 #### 使用腾讯云容器服务
 腾讯云 Docker 集群运行于 CVM 实例上，所以需要先在容器服务控制台上创建 CVM 集群。
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke)，选择左侧菜单栏【集群】>【新建】创建集群。
+1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke)，选择左侧菜单栏**集群 > 新建**，创建集群。
 ![](https://main.qcloudimg.com/raw/b1b68327d77395cc47377ce14fc5a966.png)
-2. 选择左侧菜单栏【服务】，单击【新建】创建服务。
+2. 选择左侧菜单栏**服务**，单击**新建**创建服务。
 ![](https://main.qcloudimg.com/raw/38204d13bb2e9a1414cd03e9d3bc6b5d.png)
 3. 选取 logstash 镜像。
 本例中使用 TencentHub 镜像仓库提供的 logstash 镜像，用户也可以自行创建 logstash 镜像。

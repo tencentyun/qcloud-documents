@@ -1,4 +1,6 @@
 如果不再使用 HAVIP，可参考本文在控制台将其直接释放。
+>?目前 HAVIP 产品处于灰度优化中，如有需要，请提交 [内测申请](https://cloud.tencent.com/apply/p/azh0w1qoavk)。
+
 
 ## 前提条件
 仅**未绑定云服务器**的 HAVIP 支持释放。

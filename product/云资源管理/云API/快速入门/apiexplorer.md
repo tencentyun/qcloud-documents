@@ -48,6 +48,18 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/0811f91fe7cc77f690e373b8cc54efed.png)
 
 
+## 查看历史调用
+您可通过历史调用查看接口曾经的调用情况，查看发起调用的时间、调用的参数、本次调用的状态。您还可收藏历史调用，以便后续直接发起调用。
+
+进入 [API Explorer 工具]( https://console.cloud.tencent.com/api/explorer) 页面，单击“输入参数”下方的**调用历史**，即可查看接口历史调用信息。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/ff757712ea8b550f586e3c6a0a181d14.png)
+您可在“调用历史”中进行如下操作：
+- 单击**查看参数**：查看调用接口时输入的参数。
+- 单击**试调**：使用 API Explorer 进行接口在线调用。
+- 单击**代码**：展示 SDK 代码，且代码中包含接口输入的参数。
+- 单击**收藏**：收藏该接口调用，以便后续直接发起调用。
+- 单击**复制**：复制接口调用请求。
+
 
 ## 生成签名串
 
@@ -68,8 +80,7 @@
 ### 管理自定义 Mock
 
 您可根据实际需求创建自定义 Mock，步骤如下：
-1. 选择右侧功能区中的**数据模拟**，单击**创建Mock**。如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/a7cfcc6dbb341624c623af29c31ea8e0.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/749a611b2b7459154d3c9dd4f154c3a4.png)
 2. 在弹出的“创建Mock” 窗口中，按需输入 Mock 信息。
 <dx-alert infotype="notice" title="">
 请注意 Mock 中不要输入密码等敏感信息。
@@ -80,7 +91,42 @@
 tag 是在创建 Mock 时自动生成的唯一标识，请不要将 tag 分享给其他用户。
 </dx-alert>
 
+### 使用 Mock
+1. 找到需调用的 API 接口，并选择右侧功能区中的**数据模拟**后，找到需使用的 Mock。
+2. 在“使用 Mock” 中，单击**打开Mock地址**。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/50aee69efb6f89f39440a85100eb6f6e.png)
+即可在弹出窗口中获取 Mock 数据的 url 地址，类似如下格式：
+```
+https://cvm.mock.tencentcloudapi.com/?tag=default&action=DescribeZones&version=2017-03-12
+```
+3. 在代码中调用获取的 url 地址，即可使用 Mock。以 Python 语言为例，示例代码如下：
+```python
+import requests
+import json
 
+# cvm为对应的产品名
+url = "https://cvm.mock.tencentcloudapi.com"
+
+payload = { 
+    # 接口名
+    'action': 'DescribeZones',
+    # 版本号
+    'version': '2017-03-12',
+    # mock tag
+    'tag': 'default'
+}
+
+
+try:
+    r = requests.get(url, params = payload)
+    print r.headers
+    code = r.status_code
+    if(code == 200):
+        print r.text
+except Exception as ex:
+    print ex
+
+```
 
 
 

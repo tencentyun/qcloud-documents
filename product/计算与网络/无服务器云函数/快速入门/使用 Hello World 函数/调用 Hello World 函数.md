@@ -1,4 +1,4 @@
-您可以按照以下操作，使用控制台提供的测试模版调用 [新创建的 Hello World 函数](https://cloud.tencent.com/document/product/583/9204)。
+您可以按照以下操作，使用控制台提供的测试模板调用 [新创建的 Hello World 函数](https://cloud.tencent.com/document/product/583/9204)。
 1. 在新创建的 hello-world 函数详情页面中，选择**函数代码**页签。
 2. 在 “函数代码” 页签中，单击**测试**，运行代码并返回测试结果。如下图所示：
 ![](https://main.qcloudimg.com/raw/58cf73af5339844e9a6611412c3d4198.png)
@@ -10,7 +10,7 @@
 3. 切换至**监控信息**页签，查看监控信息。
 >! 监控统计的粒度最小为1分钟。您需要等待1分钟后，才可查看当次的监控记录。
 
-在本次测试过程中，云函数会在`main_handler`的`event`参数中，获取 “Hello World事件模版” 的数据结构。
+在本次测试过程中，云函数会在`main_handler`的`event`参数中，获取 “Hello World事件模板” 的数据结构。
 ```
 {
   "key1": "test value 1",

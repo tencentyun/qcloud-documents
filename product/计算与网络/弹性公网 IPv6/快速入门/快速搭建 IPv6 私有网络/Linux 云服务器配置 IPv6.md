@@ -118,7 +118,7 @@ chmod +x ./config_ipv6.sh  # 赋予执行权限
 # 示例 1：./config_ipv6.sh eth0
 # 示例 2：./config_ipv6.sh eth1
 ```
- ![](https://main.qcloudimg.com/raw/2763e0e1cc85ece1ca63afa62226f90c.png)
+ ![](https://qcloudimg.tencent-cloud.cn/raw/fca150f96713bf049e3083a80b77b7d7.png)
 3. 执行 `ifconfig` 查询 IPv6 地址的配置情况，出现如下所示报文表示配置成功。
   <img src="https://main.qcloudimg.com/raw/b6c466912558224a5543caaa72af668a.png" width="50%" />
 4. （此步骤仅适用于 CoreOS 操作系统）重启云服务器，使上述配置生效。

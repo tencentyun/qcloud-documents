@@ -3,7 +3,7 @@ iOS SDK 接入请观看视频：
 
 ##  接入准备
 ###  SDK 获取
-实时语音识别的 iOS SDK 以及 Demo 的下载地址：[iOS SDK](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/realtime/QCloudSDK_IOS_v2.6.4.zip)。
+实时语音识别的 iOS SDK 以及 Demo 的下载地址：[联系我们](https://cloud.tencent.com/act/event/connect-service#/)。
 
 ###  接入须知
 - 开发者在调用前请先查看实时语音识别的[ 接口说明](https://cloud.tencent.com/document/product/1093/37138)，了解接口的**使用要求**和**使用步骤**。   
@@ -61,7 +61,7 @@ iOS SDK 接入请观看视频：
  QCloudConfig *config = [[QCloudConfig alloc] initWithAppId:kQDAppId 
   						   secretId:kQDSecretId 
 					          secretKey:kQDSecretKey 
-					          projectId:kQDProjectId];
+					          projectId:0];
  config.sliceTime = 600;                        //语音分片时长600ms
  config.enableDetectVolume = YES;               //是否检测音量
  config.endRecognizeWhenDetectSilence = YES;    //是否检测到静音停止识别
@@ -94,7 +94,7 @@ recognizer.delegate = self;
  QCloudConfig *config = [[QCloudConfig alloc] initWithAppId:kQDAppId 
   						  secretId:kQDSecretId 
 					         secretKey:kQDSecretKey 
-					         projectId:kQDProjectId];
+					         projectId:0];
  config.sliceTime = 600;                        //语音分片时长600ms
  config.enableDetectVolume = YES;               //是否检测音量
  config.endRecognizeWhenDetectSilence = YES;    //是否检测到静音停止识别

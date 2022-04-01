@@ -1,10 +1,10 @@
 ## 注意事项
-[创建转码模板](https://cloud.tencent.com/document/product/267/20385) 并与**播放域名**进行 [绑定](https://cloud.tencent.com/document/product/267/20385#related) 后，转码配置后的直播流，需将播放地址的 StreamName 拼接为 `StreamName_转码模板名称`，更多详情请参见  [播放配置](https://cloud.tencent.com/document/product/267/32831#.E6.92.AD.E6.94.BE.E5.9C.B0.E5.9D.80)。
+[创建转码模板](https://cloud.tencent.com/document/product/267/20385) 并与**播放域名**进行 [绑定](https://cloud.tencent.com/document/product/267/20385#related) 后，转码配置后的直播流，需将播放地址的 StreamName 拼接为 `StreamName_转码模板名称`，更多详情请参见 [播放配置](https://cloud.tencent.com/document/product/267/32831#.E6.92.AD.E6.94.BE.E5.9C.B0.E5.9D.80)。
 
 ## 前提条件
 - 已注册腾讯云账号，并开通 [腾讯云直播服务](https://cloud.tencent.com/product/lvb)。
 - 已在 [域名注册](https://dnspod.cloud.tencent.com/?from=qcloudProductDns) 申请域名，并备案成功。
-- 已在 **云直播控制台**>**[域名管理](https://console.cloud.tencent.com/live/domainmanage)** 中添加推流/播放域名，并 CNAME 成功。详细操作请参见 [添加自有域名](https://cloud.tencent.com/document/product/267/20381)。
+- 已在 **云直播控制台** > **[域名管理](https://console.cloud.tencent.com/live/domainmanage)** 中添加推流/播放域名，并 CNAME 成功。详细操作请参见 [添加自有域名](https://cloud.tencent.com/document/product/267/20381)。
 
 [](id:push)
 ## 拼装推流 URL
@@ -72,6 +72,6 @@ http://domain/AppName/StreamName.m3u8?txSecret=Md5(key+StreamName+hex(time))&txT
 
 [](id:push_code)
 ## 查看推流示例代码
-进入 **云直播控制台**>[**域名管理** ](https://console.cloud.tencent.com/live/domainmanage)，选中事先配置的推流域名，**管理>推流配置** 页面下半部分有 **推流地址示例代码** （PHP 和 Java 两个版本）演示如何生成防盗链地址。更多详情操作请参见 [推流配置](https://cloud.tencent.com/document/product/267/32833#.E6.8E.A8.E6.B5.81.E5.9C.B0.E5.9D.80.E7.A4.BA.E4.BE.8B.E4.BB.A3.E7.A0.81)。
+进入 **云直播控制台** > [**域名管理**](https://console.cloud.tencent.com/live/domainmanage)，选中事先配置的推流域名，**管理>推流配置** 页面下半部分有 **推流地址示例代码** （PHP 和 Java 两个版本）演示如何生成防盗链地址。更多详情操作请参见 [推流配置](https://cloud.tencent.com/document/product/267/32833#.E6.8E.A8.E6.B5.81.E5.9C.B0.E5.9D.80.E7.A4.BA.E4.BE.8B.E4.BB.A3.E7.A0.81)。
 
 

@@ -14,13 +14,11 @@ NodeLocal DNSCache 通过在集群节点上作为 DaemonSet 运行 DNS 缓存代
 | node-local-dns     | Configmap      | -                       | kube-system    |
 
 ## 限制条件
-
 - 仅支持 1.14 版本以上的 kubernetes 版本。
 - VPC-CNI 同时支持 kube-proxy 的 iptables 和 ipvs 模式，GlobalRouter 仅支持 kube-proxy 的 iptables 模式，ipvs 模式下需要更改 kubelet 参数，详情请参见 [官方文档](https://kubernetes.io/docs/tasks/administer-cluster/nodelocaldns/)。
 - 集群创建后没有调整过 dns 服务对应工作负载的相关 name 和 label，检查集群 kube-system 命名空间中存在以下 dns 服务的相关工作负载：
   - service/kube-dns
   - deployment/kube-dns 或者 deployment/coredns，且存在 k8s-app: kube-dns 的 label
-- 由于 Ubuntu 20.04 LTS 主机默认启动 named 服务，该服务会与 NodeLocal DNSCache 冲突，因此暂不能添加该 OS 的节点。
 - IPVS 的独立集群，需要确保 add-pod-eni-ip-limit-webhook ClusterRole 具备以下权限：
 ```
 - apiGroups:
@@ -39,7 +37,7 @@ NodeLocal DNSCache 通过在集群节点上作为 DaemonSet 运行 DNS 缓存代
   - delete
   - patch
 ```
-- IPVS 的独立集群和托管集群，都需要确保 tke-eni-ip-webhook Namespace 下的 add-pod-eni-ip-limit-webhook Deployment 镜像版本大于等于 v0.0.5。
+- IPVS 的独立集群和托管集群，都需要确保 tke-eni-ip-webhook Namespace 下的 add-pod-eni-ip-limit-webhook Deployment 镜像版本大于等于 v0.0.6。
 
 ## 推荐配置
 当安装 NodeLocal DNSCache 后，推荐为 CoreDNS 增加如下配置：

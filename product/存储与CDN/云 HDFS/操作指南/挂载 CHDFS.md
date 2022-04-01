@@ -63,13 +63,11 @@ CHDFS 客户端默认异步 flush，因为相比起本地磁盘，云端的访�
 |        配置项      |                             说明                             |  默认值   | 是否必填 |
 | :------------------------------| :----------------------------------------------------| :-------| :------ |
 |       fs.ofs.tmp.cache.dir        |   存放临时数据    |    无     |    是    |
-|       fs.ofs.map.block.size       | CHDFS 文件系统的 block 大小，单位为字节。默认为128MB（只对 map 切分有影响，和 CHDFS 底层存储切块大小无关） | 134217728 |    否    |
-| fs.ofs.data.transfer.thread.count |               CHDFS 传输数据时的并行线程数                |    32     |    否    | 
-| fs.ofs.block.max.memory.cache.mb  | CHDFS 插件使用的内存 buffer 的大小，单位为 MB。（对读写都有加速作用） |    16     |    否    |
-|  fs.ofs.block.max.file.cache.mb   |  CHDFS 插件使用的磁盘 buffer 的大小，单位为 MB。（对写有加速作用）  |    256    |    否    |
-|   fs.ofs.prev.read.block.count    | 读取时，预读的 CHDFS block 数量（chdfs 的底层 block 大小一般为4MB），对于随机读场景，请减小该值如 false，对于顺序读场景，可适当增大该值以及内存 buffer 大小|     4     |    否    |
-|  fs.ofs.prev.read.block.release.enable| 是否释放已经读取的上一块 block 的 buffer，对于顺序读，建议打开。对于随机读，如果反复读取某部分数据较频繁，建议关闭。可选值为 true（打开）、false（关闭） | true | 否 |
-|      fs.ofs.plugin.info.log       |          是否打印插件的调试日志，日志以 info 级别打印。可选值为 true（打开）、false（关闭） |   false   |    否    |
-|      fs.ofs.upload.flush.flag     | 写数据，调用输出流 flush 接口时，是否同步刷数据，默认为异步输数据（false）。如需同步刷盘, 请设置为 true | false | 否 | 
-
+|       fs.ofs.map.block.size       | chdfs 文件系统的 block 大小，单位为字节。默认为128MB（只对 map 切分有影响，和 chdfs 底层存储切块大小无关） | 134217728 |    否    |
+| fs.ofs.data.transfer.thread.count |               chdfs 传输数据时的并行线程数                |    32     |    否    | 
+| fs.ofs.block.max.memory.cache.mb  | chdfs 插件使用的内存 buffer 的大小，单位为 MB。(对读写都有加速作用) |    16     |    否    |
+|  fs.ofs.block.max.file.cache.mb   |  chdfs 插件使用的磁盘 buffer 的大小，单位为 MB。（对写有加速作用）  |    256    |    否    |
+|   fs.ofs.prev.read.block.count    | 读取时，预读的 chdfs block 数量（chdfs 的底层 block 大小一般为4MB）|     4     |    否    |
+|      fs.ofs.plugin.info.log       |          是否打印插件的调试日志，日志以 info 级别打印。可选值为 true、false |   false   |    否    |
+|      fs.ofs.bucket.region       |          文件系统或者元数据加速器 bucket 所在的地域，如 ap-shanghai，ap-beijing，配置项适用于 chdfs_hadoop_plugin_network 版本V2.7及其以上|   false   |    否    |
 

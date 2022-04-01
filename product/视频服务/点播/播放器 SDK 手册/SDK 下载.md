@@ -25,7 +25,7 @@
    <tr>
       <td style="text-align:center" rowspan='2'>iOS 端</td>
       <td>超级播放器</td>
-      <td><a href="https://github.com/tencentyun/SuperPlayer_iOS">SDK + Demo</a></td>
+      <td><a href="https://github.com/LiteAVSDK/Player_iOS">SDK + Demo</a></td>
       <td><a><button style="width:120px;height: 120px;border:none;background-image:url(https://main.qcloudimg.com/raw/12c7da97cc910eda673cb19b66fc7cb3.png);background-size: cover;">
 </button></a></td>
       <td><a href="https://cloud.tencent.com/document/product/266/58774">iOS - 超级播放器</a></td>
@@ -39,7 +39,7 @@
    <tr>
       <td style="text-align:center" rowspan='2'>Android 端</td>
       <td>超级播放器</td>
-      <td><a href="https://github.com/tencentyun/SuperPlayer_Android">SDK + Demo</a></td>
+      <td><a href="https://github.com/LiteAVSDK/Player_Android">SDK + Demo</a></td>
       <td><a><button style="width:120px;height: 120px;border:none;background-image:url(https://main.qcloudimg.com/raw/6790ddaf4ffe4afd0ceb96b309a16496.png);background-size: cover;">
 </button></a></td>
       <td><a href="https://cloud.tencent.com/document/product/266/7938">Android - 超级播放器</a></td>
@@ -53,8 +53,8 @@
    <tr>
       <td  style="text-align:center">Flutter 端</td>
       <td>超级播放器</td>
-      <td><a href="https://github.com/tencentyun/SuperPlayer/tree/main/Flutter">SDK + Demo</a></td>
-	     <td><a href="https://github.com/tencentyun/SuperPlayer/tree/main/Flutter">Demo</a></td>
+      <td><a href="https://github.com/LiteAVSDK/Player_Flutter">SDK + Demo</a></td>
+	     <td><a href="https://github.com/LiteAVSDK/Player_Flutter">Demo</a></td>
 	     <td><a href="https://cloud.tencent.com/document/product/266/58778">Flutter - 超级播放器</a></td>
    </tr>
 </table>

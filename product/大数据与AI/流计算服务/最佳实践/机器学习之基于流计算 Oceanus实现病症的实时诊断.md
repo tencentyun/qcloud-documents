@@ -62,7 +62,7 @@ CREATE TABLE testdb.model_predict_result_1 on cluster default_cluster (res Strin
 
 进入 [腾讯云 TI 平台 TI-ONE 控制台](https://console.cloud.tencent.com/tione)，在弹出的页面上开通**角色授权**。
 1. 单击**前往访问管理**，页面将跳转至访问管理控制台。
-2. 单击**同意授权**，即可创建服务预设角色并授予智能钛机器学习平台相关权限。
+2. 单击**同意授权**，即可创建服务预设角色并授予腾讯云 TI 平台 TI-ONE 相关权限。
 
 角色授权开通后，返回 [腾讯云 TI 平台 TI-ONE 控制台](https://console.cloud.tencent.com/tione)，开通所需地区的后付费计费模式。 具体步骤可参考 [注册与开通服务](https://cloud.tencent.com/document/product/851/39086)。
 

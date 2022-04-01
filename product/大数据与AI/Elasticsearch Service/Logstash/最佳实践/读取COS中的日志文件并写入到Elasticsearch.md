@@ -1,10 +1,10 @@
 在某些场景中，业务服务端或云上组件的日志会归档存储到对象存储 COS 中，在需要进行查询时，需要从 COS 中获取并查询日志。此时，可借助 Logstash 自动地读取 COS 中指定 bucket 的日志文件，然后写入到 Elasticsearch 中，再使用 Kibana 可视化组件进行查询和分析。
 
 ## 创建管道
-1. 登录 [Elasticsearch Service 控制台](https://console.cloud.tencent.com/es)，选择需要操作的实例，单击实例【ID/名称】，进入实例基本信息页面。
-2. 在“实例基本信息”页，切换到“管道管理”页，单击【新建管道】，进入新建管道页面。
+1. 登录 [Elasticsearch Service 控制台](https://console.cloud.tencent.com/es)，选择需要操作的实例，单击实例 **ID/名称**，进入实例基本信息页面。
+2. 在“实例基本信息”页，切换到“管道管理”页，单击**新建管道**，进入新建管道页面。
 ![](https://main.qcloudimg.com/raw/4c13071ced72ce67a44092064e14b77f.png)
-3. 在“新建管道”页面，单击【引用模板】，同时引用“input-s3”和“output-elasticsearch”两个模板。
+3. 在“新建管道”页面，单击**引用模板**，同时引用“input-s3”和“output-elasticsearch”两个模板。
 ![](https://main.qcloudimg.com/raw/d9f18aae57a8d6c995633b5d9bda3df6.png)
 ![](https://main.qcloudimg.com/raw/1ef5faa2cf275499b3e674b40aac8d1d.png)
 
@@ -30,7 +30,7 @@
 
 查看更多参数，详情可参见 [output-elasticsearch](https://www.elastic.co/guide/en/logstash/7.10/plugins-outputs-elasticsearch.html)。
 
-在配置完管道后，单击【保存并部署】即可创建一个管道并自动部署。
+在配置完管道后，单击**保存并部署**即可创建一个管道并自动部署。
 ![](https://main.qcloudimg.com/raw/58b261bae58e77a378b00acb64b8eb08.png)
 
 ## 查看日志

@@ -12,7 +12,7 @@
 >?第一次使用时会提示用户授权访问 MySQL，您需单击**立即授权**才能继续创建。
 ![](https://main.qcloudimg.com/raw/610ffda13c4d723d1da5e89fd96593ab.png)
 4. 在弹出的“添加规则”窗口，选择“数据转发到云数据库（MySQL）选项”，授权成功后，需要配置 MySQL 实例信息和写入的字段信息，如下图所示。配置完成后单击**保存**即可。
-![](https://main.qcloudimg.com/raw/06f8ee3fc006896d15e443f828874bf3.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/c8d58d9fc2f67bdb6f2df55b7cd9d918.png)
 转发成功后,MySQL 中显示的信息如下图所示:
 ![](https://main.qcloudimg.com/raw/85fe76843afc299408448a10e6a78930.png)
 

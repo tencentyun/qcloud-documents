@@ -2,7 +2,7 @@
 UpdateTemplate 用于更新 AI 模板。
 
 ## 请求
-### 请求实例
+#### 请求实例
 
 ```shell
 PUT /template/<TemplateId> HTTP/1.1
@@ -16,15 +16,14 @@ Content-Type: application/xml
 ```
 
 >? Authorization: Auth String （详情请查阅 [请求签名](https://cloud.tencent.com/document/product/1344/50456) 文档）。
+>
 
 
-### 请求头
-#### 公共头部
-该请求操作的实现使用公共请求头，了解公共请求头详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/1344/50451) 文档。
-#### 非公共头部
-该请求操作无特殊的请求头部信息。
+#### 请求头
 
-### 请求体
+此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/460/42865) 文档。
+
+#### 请求体
 该请求操作的实现需要有如下请求体。
 
 ```shell
@@ -71,14 +70,12 @@ Container 类型 MovingObjectDetect 的具体数据描述如下：
 
 ## 响应
 
-### 响应头
+#### 响应头
 
-#### 公共响应头
-该响应包含公共响应头，了解公共响应头详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/1344/50452) 文档。
-#### 特有响应头
+此接口仅返回公共响应头部，详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/460/42866) 文档。
 该响应无特殊的响应头。
 
-### 响应体
+#### 响应体
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
 
 ```shell
@@ -111,21 +108,21 @@ Container 节点 Response 的内容：
 
 | 节点名称（关键字） | 父节点                | 描述                                                         | 类型      |
 | :----------------- | :-------------------- | :----------------------------------------------------------- | :-------- |
-| Tag                | Response | 模版类型，AI                                            | String    |
-| Name               | Response | 模版名字                                                     | String    |
-| Desc               | Response | 模版描述                                                     | String    |
-| TemplateId         | Response | 模版ID                                                      | String    |
+| Tag                | Response | 模板类型，AI                                            | String    |
+| Name               | Response | 模板名字                                                     | String    |
+| Desc               | Response | 模板描述                                                     | String    |
+| TemplateId         | Response | 模板 ID                                                      | String    |
 | UpdateTime         | Response | 更新时间                                                     | String    |
 | CreateTime         | Response | 创建时间                                                     | String    |
-| AI                 | Response | 其详细的模版参数，同上述请求体部分AI说明 | Container |
+| AI                 | Response | 其详细的模板参数，同上述请求体部分 AI 说明 | Container |
 
-### 错误码
+#### 错误码
 
 该请求无特有错误信息，常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/1344/50457) 文档。
 
 ## 实际案例
 
-### 请求
+#### 请求
 
 ```shell
 PUT /template/<TemplateId> HTTP/1.1
@@ -147,7 +144,7 @@ Content-Type: application/xml
 </Request>
 ```
 
-### 响应
+#### 响应
 
 ```shell
 HTTP/1.1 200 OK

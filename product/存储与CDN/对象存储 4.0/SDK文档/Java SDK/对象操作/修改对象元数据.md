@@ -129,10 +129,10 @@ String key = "exampleobject";
 // 获取当前的对象元数据
 ObjectMetadata objectMetadata = cosclient.getObjectMetadata(bucketName, key);
 // 修改对象元数据必须设置 replaced
-objectMetadata.addUserMetadata("metadata-directive", "Replaced");
+objectMetadata.addUserMetadata("x-cos-metadata-directive", "Replaced");
 
 // 设置新的对象元数据
-objectMetadata.addUserMetadata("storage-class", "STANDARD_IA");
+objectMetadata.addUserMetadata("x-cos-storage-class", "STANDARD_IA");
 objectMetadata.setContentType("text/plain");
 
 CopyObjectRequest copyObjectRequest = new CopyObjectRequest(region, bucketName, key, bucketName, key);
