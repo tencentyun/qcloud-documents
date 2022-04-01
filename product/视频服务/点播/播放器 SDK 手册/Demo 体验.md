@@ -22,7 +22,7 @@ Web 端播放器支持 PC 端和移动端的浏览器视频播放，丰富灵活
 <tr>
 <th style="text-align:center">平台</th><th style="text-align:center">Demo 体验</th><th style="text-align:center">源码地址</th></tr><tr>
 <td style="text-align:center">iOS</td>
-<td style="text-align:center"><img src="https://main.qcloudimg.com/raw/12c7da97cc910eda673cb19b66fc7cb3.png" width="150"></td>
+<td style="text-align:center"><img src="https://qcloudimg.tencent-cloud.cn/raw/eb68e71a5f8b32d75e630a7096b3a928.png" width="150"></td>
 <td style="text-align:center"><a href="https://github.com/LiteAVSDK/Player_iOS">Github</a></td>
 </tr>
 <tr >

@@ -7,7 +7,7 @@ QUIC（Quick UDP Internet Connections）是一个通用的网络协议，提供�
 EdgeOne 当前支持的 QUIC 版本有：h3-29、h3-Q050、h3-Q046、h3-Q043、Q046、Q043。
 
 ## 操作步骤
-1. 登录 [边缘安全加速平台控制台](https://console.cloud.tencent.com/teo)，在左侧菜单栏中，单击**站点加速** > **网络优化**。
+1. 登录 [边缘安全加速平台控制台](https://console.cloud.tencent.com/edgeone)，在左侧菜单栏中，单击**站点加速** > **网络优化**。
 >?目前边缘安全加速平台控制台仅对部分用户开放，如需访问控制台，请 [联系我们](https://cloud.tencent.com/online-service) 开通权限。
 >
 3. 在网络优化页面，选择所需站点，单击 HTTP/3 (QUIC) 模块的“开关”，开启或关闭 HTTP/3 (QUIC) 功能。

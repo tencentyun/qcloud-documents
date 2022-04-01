@@ -1,3 +1,52 @@
+### Version 9.6 @ 2022.03.24
+
+**重要更新：**
+
+- 全平台：完成三方库合规整改，符合国内、海外的合规要求。
+- 全平台：优化 TRTC SDK 体积，详细数据见下表：
+<table>
+<thead>
+<tr>
+<th>平台</th>
+<th><strong>优化前</strong></th>
+<th><strong>优化后</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Android</td>
+<td>armv7：6.95M<br>arm64：7.94M</td>
+<td>armv7：4.32M<br>arm64：4.85M</td>
+</tr>
+<tr>
+<td>iOS</td>
+<td>arm64：3.23M</td>
+<td>arm64：3.15M</td>
+</tr>
+<tr>
+<td>Windows</td>
+<td>Win32：21.3M<br>Win64：26.9M</td>
+<td>Win32：15.0M<br>Win64：17.2M</td>
+</tr>
+<tr>
+<td>Mac</td>
+<td>x86_64：18.1M</td>
+<td>x86_64：15.8M</td>
+</tr>
+</tbody></table>
+
+**故障修复：**
+
+全平台：修复已知问题，提升稳定性。
+
+**功能优化：**
+- iOS：修复在补光灯下偶现的曝光过度问题。
+- Mac：优化纹理上传，提升性能。
+- Android：优化美颜等预处理流程，修复低端机器下的采集卡顿问题。
+- Windows：Live V1 升级到 V2 接口，提供更稳定的 Live 组件。
+- Windows：提升了低端机上的显卡兼容性。
+
+>?更早期的版本更新历史请单击  [更多](https://cloud.tencent.com/document/product/647/46907)。
+
 ## Version 9.5 @ 2022.01.11
 
 **故障修复：**

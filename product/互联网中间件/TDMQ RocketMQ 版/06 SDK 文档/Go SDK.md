@@ -225,7 +225,7 @@
         </td>
     </tr>
 </table>
-2. 发送消息。
+2. 消费消息。
 <dx-codeblock>
 :::  go
    // topic名称

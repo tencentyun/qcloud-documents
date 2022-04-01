@@ -43,7 +43,7 @@ COS 提供了以下6种对象 HTTP 头部标识供配置。头部配置说明如
    <tr>
       <td>Content-Encoding</td>
       <td>文件的编码格式</td>
-      <td>UTF-8</td>
+      <td>gzip</td>
    </tr>
    <tr>
       <td>Expires</td>

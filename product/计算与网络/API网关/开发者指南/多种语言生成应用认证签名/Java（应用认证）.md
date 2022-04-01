@@ -129,7 +129,6 @@ public class AppAuthJavaDemo {
         String contentType = "application/json";
         String reqBody = "{\"current\":1,\"size\":10,\"businessType\":\"4\"}";
         String contentMD5 = base64Encode(getMD5(reqBody).getBytes());
-        reqBody = "";
 
         if (httpMethod.toUpperCase() == HTTP_METHOD_GET) {
             reqBody = "";
@@ -138,6 +137,7 @@ public class AppAuthJavaDemo {
         if (reqBody.length() == 0) {
             contentType = "";
             contentMD5 = "";
+            reqBody = "";
         }
 
         // Parse URL and assemble string to sign
@@ -309,8 +309,8 @@ public class AppAuthJavaFormDemo {
         // ContentType should be empty if request body is not present
         if (reqBody.length() == 0) {
             contentType = "";
-        }
-        reqBody = "";
+            reqBody = "";
+        }      
 
         // Parse URL and assemble string to sign
         URL parsedUrl = new URL(url);

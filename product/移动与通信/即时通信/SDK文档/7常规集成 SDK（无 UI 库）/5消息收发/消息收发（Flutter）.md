@@ -154,7 +154,7 @@
 
 ### 接收群 @ 消息
 1. 在加载和更新会话处，需要监听 [V2TIMConversation](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/models_v2_tim_conversation/V2TimConversation-class.html) 的 [OnConversationChangedCallback](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/enum_callbacks/OnConversationChangedCallback.html) 回调来获取会话的@列表，将来会提供方法`getGroupAtInfoList`手动获取 atInfoList。
-2. 通过列表中 [V2TIMGroupAtInfo](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/models_v2_tim_group_at_info/V2TimGroupAtInfo-class.html) 对象的 [atType](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/models_v2_tim_group_at_info/V2TimGroupAtInfo/atType.html) 接口获取 @ 数据类型，并更新到当前会话的 @ 信息。
+2. 在返回列表中找到 [V2TIMGroupAtInfo](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/models_v2_tim_group_at_info/V2TimGroupAtInfo-class.html) 对象，其中有一个 [atType](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/models_v2_tim_group_at_info/V2TimGroupAtInfo/atType.html) 字段来获取 @ 数据类型，并更新到当前会话的 @ 信息。
 
 ### 经典示例：收发群 @ 消息
 - **发送群 @ 消息**：

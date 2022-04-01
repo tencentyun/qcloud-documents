@@ -1,5 +1,5 @@
 
-1. 登录 [边缘安全加速平台控制台](https://console.cloud.tencent.com/teo)，在左侧菜单栏中，单击**证书管理** > **HTTPS 配置**。
+1. 登录 [边缘安全加速平台控制台](https://console.cloud.tencent.com/edgeone)，在左侧菜单栏中，单击**证书管理** > **HTTPS 配置**。
 >?目前边缘安全加速平台控制台仅对部分用户开放，如需访问控制台，请 [联系我们](https://cloud.tencent.com/online-service) 开通权限。
 >
 3. 在 HTTPS 配置页面，选择所需站点，可为站点加速提供如下一系列 HTTPS 配置选项：

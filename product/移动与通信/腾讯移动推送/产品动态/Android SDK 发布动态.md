@@ -11,10 +11,7 @@
 	<tr>
         <td>SDK 1.3.2.0 版本发布</td>
 	<td>
-		<li>优化：升级小米推送 SDK 4.9.1</li>
-		<li>优化：升级 vivo 推送 SDK 3.0.0.4</li>
-		<li>优化：升级魅族推送SDK 4.1.0</li>
-		<li>优化：升级 OPPO 推送 SDK 3.0.0</li>
+		<li>优化：升级封装的小米、魅族、OPPO、vivo 厂商推送 SDK 版本</li>
 		<li>新增：提供接口方便在推送目标页面内获取随推送下发的自定义参数 customContent</li>
 		<li> 修复：其他已知问题</li>
 		</td>
