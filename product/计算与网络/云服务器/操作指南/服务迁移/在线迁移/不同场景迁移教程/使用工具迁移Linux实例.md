@@ -1,4 +1,4 @@
-本文介绍如何使用 go2tencentcloud 迁移工具，进行Linux系统服务器在线迁移。
+本文介绍如何使用 go2tencentcloud 迁移工具，进行 Linux 系统服务器在线迁移。
 
 ## 准备事项
 
@@ -16,7 +16,6 @@
 ### 压缩包文件说明
 
 `go2tencentcloud.zip` 解压后，文件说明如下：
-
 <table>
 	<tr><th width="30%">文件名</th><th>说明</th></tr>
 	<tr><td>go2tencentcloud-linux.zip</td><td>Linux 系统的迁移压缩包。</td></tr>
@@ -25,7 +24,6 @@
 </table>
 
 `go2tencentcloud-linux.zip` 解压后，文件说明如下：
-
 <table>
 	<tr><th width="30%">文件名</th><th>说明</th></tr>
 	<tr><td>go2tencentcloud_x64</td><td>64位 Linux 系统的迁移工具可执行程序。</td></tr>
@@ -88,9 +86,7 @@ user.json 配置文件说明如下表：
 	<td>DataDisks.Index</td>
 	<td>Integer</td>
 	<td>否</td>
-	<td>数据盘序号，取值范围[1,20]，值为
-	<code>1</code>代表该块数据盘将迁移至目标云服务器挂载的第一块数据盘，值为
-	<code>2</code>代表迁移至目标云服务器挂载的第二块数据盘，以此类推。</td>
+	<td>数据盘序号，取值范围[1,20]，值为<code>1</code>代表该块数据盘将迁移至目标云服务器挂载的第一块数据盘，值为<code>2</code>代表迁移至目标云服务器挂载的第二块数据盘，以此类推。</td>
   </tr>
   <tr>
 	<td>DataDisks.Size</td>
@@ -108,9 +104,7 @@ user.json 配置文件说明如下表：
 </table>
 
 您可参考以下的示例，结合实际业务场景修改配置文件。
-
  - 示例1：将一台 Linux 源端主机迁移至腾讯云广州地域的一台云服务器中，`user.json` 文件配置为以下内容：
-
 ```json
 {  
 	"SecretId": "your secretId",
@@ -119,9 +113,7 @@ user.json 配置文件说明如下表：
 	"InstanceId": "your instance id"
 } 
 ```
-
  - 示例2：将一台 Linux 源端主机（包含一块数据盘，挂载点为 `/mnt/disk1`，大小为`10GB`）迁移至腾讯云广州地域的一台目标云服务器（至少挂载一块数据盘），`user.json` 文件配置为以下内容：
-
 ```json
 {  
 	"SecretId": "your secretId",
@@ -137,9 +129,7 @@ user.json 配置文件说明如下表：
 	]
 }
 ```
-
  - 示例3：将一台 Linux 源端主机（包含两块数据盘，盘1挂载点为 `/mnt/disk1`，大小为`10GB`，欲迁移至目标云服务器的第一块数据盘，盘2挂载点为 `/mnt/disk2`，大小为`20GB`，欲迁移至目标云服务器的第二块数据盘）迁移至腾讯云广州地域的一台目标云服务器（至少挂载两块数据盘），`user.json` 文件配置为以下内容：
-
 ```json
 {  
 	"SecretId": "your secretId",
@@ -163,7 +153,7 @@ user.json 配置文件说明如下表：
 
 ### client.json 文件参数说明[](id:clientJsonState)
 
-client.json 配置文件说明：
+client.json 配置文件说明如下表：
 
 <table>
   <tr>
@@ -176,27 +166,19 @@ client.json 配置文件说明：
 	<td>Client.ToolMode</td>
 	<td>bool</td>
 	<td>否</td>
-	<td>工具迁移模式标识参数，默认值为
-	<code>false</code>，若使用工具模式迁移，请修改为<code>true</code>或运行工具时添加<code>--no-console</code>参数。</td>
+	<td>工具迁移模式标识参数，默认值为 <code>false</code>。若使用工具模式迁移，请修改为 <code>true</code> 或运行工具时添加 <code>--no-console</code> 参数。</td>
   </tr>
   <tr>
 	<td>Client.Net.Mode</td>
 	<td>Integer</td>
 	<td>是</td>
-	<td>迁移模式参数，默认使用公网传输，值为
-	<code>0</code>，取值范围：<code>0</code>（
-	<a href="https://cloud.tencent.com/document/product/213/65714#publicMigration">公网迁移模式</a>）、<code>1</code>（
-	<a href="https://cloud.tencent.com/document/product/213/65714#Scenario1">内网迁移模式：场景1</a>）、<code>2</code>（
-	<a href="https://cloud.tencent.com/document/product/213/65714#Scenario2">内网迁移模式：场景2</a>）、<code>3</code>（
-	<a href="https://cloud.tencent.com/document/product/213/65714#Scenario3">内网迁移模式：场景3</a>）。</td>
+	<td>迁移模式参数，默认使用公网传输，值为<code>0</code>，取值范围：<code>0</code>（<a href="https://cloud.tencent.com/document/product/213/65714#publicMigration">公网迁移模式</a>）、<code>1</code>（<a href="https://cloud.tencent.com/document/product/213/65714#Scenario1">内网迁移模式：场景1</a>）、<code>2</code>（<a href="https://cloud.tencent.com/document/product/213/65714#Scenario2">内网迁移模式：场景2</a>）、<code>3</code>（<a href="https://cloud.tencent.com/document/product/213/65714#Scenario3">内网迁移模式：场景3</a>）。</td>
   </tr>
   <tr>
 	<td>Client.Extra.IgnoreCheck</td>
 	<td>Bool</td>
 	<td>否</td>
-	<td>默认值为 
-	<code>false</code>，迁移工具默认在工具开始运行时自动检查源端主机环境，如果需要略过检查，请设置为 
-	<code>true</code>。</td>
+	<td>默认值为 <code>false</code>，迁移工具默认在工具开始运行时自动检查源端主机环境，如需要跳过检查，请设置为 <code>true</code>。</td>
   </tr>
   <tr>
 	<td>Client.Rsync.BandwidthLimit</td>
@@ -208,10 +190,8 @@ client.json 配置文件说明：
 	<td>Client.Rsync.Checksum</td>
 	<td>Bool</td>
 	<td>否</td>
-	<td>传输校验项，设为 
-	<code>true</code> 后可加强传输一致性校验，但会提高源端主机 CPU
-	负载和减慢传输速度。默认值为 
-	<code>false</code>，即默认不校验。</td>
+	<td>传输校验项，设为 <code>true</code> 后可加强传输一致性校验，但会提高源端主机 CPU
+	负载和减慢传输速度。默认值为 <code>false</code>，即默认不校验。</td>
   </tr>
 </table>
 
@@ -220,8 +200,7 @@ client.json 配置文件说明：
 ###  rsync\_excludes\_linux.txt 文件说明[](id:_linuxTxtState)
 
 排除 Linux 源端主机中不需要迁移传输的文件，或指定目录下的配置文件。该文件中已经默认排除以下目录和文件，**请勿删改**。
-
-```sh
+```shellsession
 /dev/*
 /sys/*
 /proc/*
@@ -230,10 +209,8 @@ client.json 配置文件说明：
 /var/lib/lxcfs/*
 /var/lib/docker-storage.btrfs/root/.local/share/gvfs-metadata/*
 ```
-
 如果您需要排除其他目录和文件，请在该文件尾部追加内容。例如，排除挂载在 `/mnt/disk1` 的数据盘的所有内容。
-
-```sh
+```shellsession
 /dev/*
 /sys/*
 /proc/*
@@ -259,7 +236,7 @@ client.json 配置文件说明：
 </tr>
 <tr>
 <td><code>--no-console</code></td>
-<td>仅使用工具模式迁移(非控制台模式迁移)。</td>
+<td>仅使用工具模式迁移（非控制台模式迁移）。</td>
 </tr>
 <tr>
 <td><code>--check</code></td>
@@ -284,17 +261,16 @@ client.json 配置文件说明：
 </tbody>
 </table>
 
+
 ## 迁移步骤
 
 ### 备份数据
-
 - 源端主机：可以选择源服务器快照功能等方式备份数据。
 - 目标云服务器：可以选择 [创建快照](https://cloud.tencent.com/document/product/362/5755) 等方式备份数据。
 
+
 ### 迁移前的检查
-
 迁移前，需要分别检查源端主机和目标云服务器。检查内容如下表：
-
 <table>
   <tr>
 	<th style="width: 15%;">目标云服务器</th>
@@ -328,10 +304,10 @@ client.json 配置文件说明：
 </table>
 
 <dx-alert infotype="explain" title="">
-
 - 源端主机检查可以使用工具命令自动检查，如 `./go2tencentcloud_x64 --no-console --check`。
 - go2tencentcloud 迁移工具在开始运行时，默认自动检查。如果需要略过检查强制迁移，请将 client.json 文件中的 `Client.Extra.IgnoreCheck` 字段配置为 `true`。
-  </dx-alert>
+</dx-alert>
+
 
 ### 开始迁移
 
@@ -342,7 +318,6 @@ client.json 配置文件说明：
 - **阶段3**：目标云服务器退出迁移模式，迁移完成
 
 每个阶段均会产生一些子任务去执行相关操作，部分耗时的子任务还将具有默认的最大超时时间。由于传输数据耗时受源端数据大小，网络带宽等因素影响，请耐心等待迁移流程的完成。
-
 <dx-alert infotype="notice" title="">
 开始迁移后目标云服务器将进入迁移模式，请不要对目标云服务器进行重装系统、关机、销毁、重置密码等操作，直至迁移完成退出迁移模式。 
 </dx-alert>
@@ -352,317 +327,212 @@ client.json 配置文件说明：
 :::  公网迁移
 
 1. 将迁移工具 go2tencentcloud.zip 下载或上传至源端主机，并执行以下命令进入对应目录。
-
-   1. 依次执行以下命令，解压 go2tencentcloud.zip 并进入目录。
-
-   ```sh
-   unzip go2tencentcloud.zip
-   ```
-
-   ```sh
-   cd go2tencentcloud
-   ```
-
-   2. 依次执行以下命令，解压 go2tencentcloud-linux.zip 并进入目录。
-
-   ```
-   unzip go2tencentcloud-linux.zip
-   ```
-
-   ```
-   cd go2tencentcloud-linux
-   ```
-
-   <dx-alert infotype="explain" title="">
-   `go2tencentcloud` 目录下的文件将不会被迁移，请勿将需迁移的文件放置在该目录下。
-   </dx-alert>
-
+  1. 依次执行以下命令，解压 go2tencentcloud.zip 并进入目录。
+```shellsession
+unzip go2tencentcloud.zip
+```
+```shellsession
+cd go2tencentcloud
+```
+  2. 依次执行以下命令，解压 go2tencentcloud-linux.zip 并进入目录。
+```shellsession
+unzip go2tencentcloud-linux.zip
+```
+```shellsession
+cd go2tencentcloud-linux
+```
+<dx-alert infotype="explain" title="">
+`go2tencentcloud` 目录下的文件将不会被迁移，请勿将需迁移的文件放置在该目录下。
+</dx-alert>
 2. 在 `user.json` 文件配置目标云服务器。
-   请按照 [user.json 文件参数说明](#userJsonState) 配置必填项和所需项的值。
-
+请按照 [user.json 文件参数说明](#userJsonState) 配置必填项和所需项的值。
 3. 在 `client.json` 文件配置迁移模式和其他项。
-
-   将`client.json`文件里的`Client.ToolMode` 值设置为 `true`， 即标识工具模式迁移。
-
-   此外，如果还需要进行其他项设置，请按照 [client.json 文件参数说明](#clientJsonState) 进行配置。
-
-3. （可选）排除源端主机上不需迁移的文件或目录。
-   若 Linux 源端主机中存在不需要迁移的文件或目录，可将文件或目录添加至 [rsync_excludes_linux.txt 文件](#_linuxTxtState)。
-
-3. 运行工具。
-   例如，在64位 Linux 源端主机下，以 root 权限执行以下命令运行工具。
-
-   ```shell
-   sudo ./go2tencentcloud_x64 
-   ```
-
-   <dx-alert infotype="notice" title="">
-
-   若您未修改client.json中的 `Client.ToolMode` 为 `true` ，则运行工具时需要添加参数 `--no-console`， 如下：
-
-   ```shell
-   sudo ./go2tencentcloud_x64 --no-console
-   ```
-
-   </dx-alert>
-
-工具运行后，请耐心等待迁移流程的完成。
-
-一般公网迁移模式下，迁移成功的控制台输出如下：
+将 `client.json` 文件里的 `Client.ToolMode` 值设置为 `true`，即标识工具模式迁移。此外，如果还需要进行其他项设置，请按照 [client.json 文件参数说明](#clientJsonState) 进行配置。
+4. （可选）排除源端主机上不需迁移的文件或目录。
+若 Linux 源端主机中存在不需要迁移的文件或目录，可将文件或目录添加至 [rsync_excludes_linux.txt 文件](#_linuxTxtState)。
+5. 运行工具。
+例如，在64位 Linux 源端主机下，以 root 权限执行以下命令运行工具。
+```shellsession
+sudo ./go2tencentcloud_x64 
+```
+<dx-alert infotype="notice" title="">
+若您未修改 client.json 中的 `Client.ToolMode` 为 `true` ，则运行工具时需要添加参数 `--no-console`，如下：
+```shellsession
+sudo ./go2tencentcloud_x64 --no-console
+```
+</dx-alert>
+工具运行后，请耐心等待迁移流程的完成。一般公网迁移模式下，迁移成功的控制台输出如下图所示：
 ![](https://main.qcloudimg.com/raw/b056d6b1d5ac457ff43e48883848af01.png)
 
 :::
-
 :::  内网迁移
 
-</dx-tabs>
 
-::: 场景1
+#### 场景1
 
 1. 建立源端主机和目标云服务器的连接通道。
-   通过 [VPC 对等连接](https://cloud.tencent.com/document/product/553) / [VPN 连接](https://cloud.tencent.com/document/product/554) / [云联网](https://cloud.tencent.com/document/product/877) 等方式，建立源端主机和目标云服务器的连接通道。
-
-1. 将迁移工具 go2tencentcloud.zip 下载或上传至源端主机，并执行以下命令进入对应目录。
-
+通过 [VPC 对等连接](https://cloud.tencent.com/document/product/553) / [VPN 连接](https://cloud.tencent.com/document/product/554) / [云联网](https://cloud.tencent.com/document/product/877) 等方式，建立源端主机和目标云服务器的连接通道。
+2. 将迁移工具 go2tencentcloud.zip 下载或上传至源端主机，并执行以下命令进入对应目录。
    1. 依次执行以下命令，解压 go2tencentcloud.zip 并进入目录。
-
-   ```sh
-   unzip go2tencentcloud.zip
-   ```
-
-   ```sh
-   cd go2tencentcloud
-   ```
-
+```shellsession
+unzip go2tencentcloud.zip
+```
+```shellsession
+cd go2tencentcloud
+```
    2. 依次执行以下命令，解压 go2tencentcloud-linux.zip 并进入目录。
-
-   ```
-   unzip go2tencentcloud-linux.zip
-   ```
-
-   ```
-   cd go2tencentcloud-linux
-   ```
-
-   <dx-alert infotype="explain" title="">
-   `go2tencentcloud` 目录下的文件将不会被迁移，请勿将需迁移的文件放置在该目录下。
-   </dx-alert>
-
+```shellsession
+unzip go2tencentcloud-linux.zip
+```
+```shellsession
+cd go2tencentcloud-linux
+```
+<dx-alert infotype="explain" title="">
+`go2tencentcloud` 目录下的文件将不会被迁移，请勿将需迁移的文件放置在该目录下。
+</dx-alert>
 3. 在 `user.json` 文件配置目标云服务器。
-   请按照 [user.json 文件参数说明](#userJsonState) 配置必填项和所需项的值。
-
-3. 在 `client.json` 文件配置迁移模式和其他项。
-
+请按照 [user.json 文件参数说明](#userJsonState) 配置必填项和所需项的值。
+4. 在 `client.json` 文件配置迁移模式和其他项。
    - 将`client.json`文件里的`Client.ToolMode` 值设置为 `true`， 即标识工具模式迁移。
-
-   - 将 `client.json` 文件里的 `Client.Net.Mode` 项设置为`1`，即进行 [内网迁移模式：场景1](https://cloud.tencent.com/document/product/213/65714#Scenario1) 的迁移。
-
-     此外，如果还需要进行其他项设置，请按照 [client.json 文件参数说明](#clientJsonState) 进行配置。
-
-3. （可选）排除源端主机上不需迁移的文件或目录。
-   若 Linux 源端主机中存在不需要迁移的文件或目录，可将文件或目录添加至 [rsync_excludes_linux.txt 文件](#_linuxTxtState)。
-
-3. [](id:Scenario1_step06)在一台可以访问公网的主机（如网关）上运行工具。
-   例如，在一台可以访问公网的主机上执行以下命令运行工具，进行阶段1的迁移。
-
-   ```shell
-   sudo ./go2tencentcloud_x64 
-   ```
-
-   <dx-alert infotype="notice" title="">
-
-   若您未修改client.json中的 `Client.ToolMode` 为 `true` ，则运行工具时需要添加参数 `--no-console`， 如下：
-
-   ```shell
-   sudo ./go2tencentcloud_x64 --no-console
-   ```
-
-   </dx-alert>
-
-   若提示 `Stage 1 is finished and please run next stage at source machine.`，则说明阶段1已完成。如下图所示：
-   ![](https://main.qcloudimg.com/raw/f861b47c464f58ea184e5cc5a6a30e1c.png)
-
+   - 将 `client.json` 文件里的 `Client.Net.Mode` 项设置为`1`，即进行 [内网迁移模式：场景1](https://cloud.tencent.com/document/product/213/65714#Scenario1) 的迁移。此外，如果还需要进行其他项设置，请按照 [client.json 文件参数说明](#clientJsonState) 进行配置。
+5. （可选）排除源端主机上不需迁移的文件或目录。
+若 Linux 源端主机中存在不需要迁移的文件或目录，可将文件或目录添加至 [rsync_excludes_linux.txt 文件](#_linuxTxtState)。
+6. [](id:Scenario1_step06)在一台可以访问公网的主机（如网关）上运行工具。
+例如，在一台可以访问公网的主机上执行以下命令运行工具，进行阶段1的迁移。
+```shellsession
+sudo ./go2tencentcloud_x64 
+```
+<dx-alert infotype="notice" title="">
+若您未修改client.json中的 `Client.ToolMode` 为 `true` ，则运行工具时需要添加参数 `--no-console`， 如下：
+```shell
+sudo ./go2tencentcloud_x64 --no-console
+```
+</dx-alert>
+若提示 `Stage 1 is finished and please run next stage at source machine.`，则说明阶段1已完成。如下图所示：
+![](https://main.qcloudimg.com/raw/f861b47c464f58ea184e5cc5a6a30e1c.png)
 7. [](id:Scenario1_step07)在待迁移的源端主机上运行工具。
-   待 [步骤6](#Scenario1_step06)（即阶段1）完成后，需先将阶段1的整个工具目录拷贝至待迁移的源端主机，再运行工具进行阶段2的迁移。
-   例如，执行以下命令运行工具，进行阶段2的迁移。
-
-   ```shell
-   sudo ./go2tencentcloud_x64 
-   ```
-
-   <dx-alert infotype="notice" title="">
-
-   若您未修改client.json中的 `Client.ToolMode` 为 `true` ，则运行工具时需要添加参数 `--no-console`， 如下：
-
-   ```shell
-   sudo ./go2tencentcloud_x64 --no-console
-   ```
-
-   </dx-alert>
-
-   若提示 `Stage 2 is finished and please run next stage at gateway machine.`，则说明阶段2已完成。如下图所示：![](https://main.qcloudimg.com/raw/5684fc8aee6ebf8ba01e42deff3b4fc2.png)
-
+待 [步骤6](#Scenario1_step06)（即阶段1）完成后，需先将阶段1的整个工具目录拷贝至待迁移的源端主机，再运行工具进行阶段2的迁移。
+例如，执行以下命令运行工具，进行阶段2的迁移。
+```shellsession
+sudo ./go2tencentcloud_x64 
+```
+<dx-alert infotype="notice" title="">
+若您未修改 client.json 中的 `Client.ToolMode` 为 `true` ，则运行工具时需要添加参数 `--no-console`， 如下：
+```shellsession
+sudo ./go2tencentcloud_x64 --no-console
+```
+</dx-alert>
+若提示 `Stage 2 is finished and please run next stage at gateway machine.`，则说明阶段2已完成。如下图所示：
+![](https://main.qcloudimg.com/raw/5684fc8aee6ebf8ba01e42deff3b4fc2.png)
 8. 在一台可以访问公网的主机（如网关）上运行工具。
-   待 [步骤7](#Scenario1_step07)（即阶段2）完成后，需先将阶段2的整个工具目录拷贝至刚才阶段1的主机，再运行工具进行阶段3的迁移。
-   例如，执行以下命令运行工具，进行阶段3的迁移。
+待 [步骤7](#Scenario1_step07)（即阶段2）完成后，需先将阶段2的整个工具目录拷贝至刚才阶段1的主机，再运行工具进行阶段3的迁移。
+例如，执行以下命令运行工具，进行阶段3的迁移。
+```shellsession
+sudo ./go2tencentcloud_x64 
+```
+<dx-alert infotype="notice" title="">
+若您未修改 client.json 中的 `Client.ToolMode` 为 `true` ，则运行工具时需要添加参数 `--no-console`， 如下：
+```shellsession
+sudo ./go2tencentcloud_x64 --no-console
+```
+</dx-alert>
+若提示 `Migrate successfully.`，则说明整个迁移任务已完成。如下图所示：
+![](https://main.qcloudimg.com/raw/851e90fdc07fb601d3d158386d524985.png)
 
-   ```shell
-   sudo ./go2tencentcloud_x64 
-   ```
 
-   <dx-alert infotype="notice" title="">
 
-   若您未修改client.json中的 `Client.ToolMode` 为 `true` ，则运行工具时需要添加参数 `--no-console`， 如下：
 
-   ```shell
-   sudo ./go2tencentcloud_x64 --no-console
-   ```
-
-   </dx-alert>
-
-   若提示 `Migrate successfully.`，则说明整个迁移任务已完成。如下图所示：![](https://main.qcloudimg.com/raw/851e90fdc07fb601d3d158386d524985.png)
-
-:::
-::: 场景2
+#### 场景2
 
 1. 建立源端主机和目标云服务器的连接通道。
-   通过 [VPC 对等连接](https://cloud.tencent.com/document/product/553) / [VPN 连接](https://cloud.tencent.com/document/product/554) / [云联网](https://cloud.tencent.com/document/product/877) 等方式，建立源端主机和目标云服务器的连接通道。
-
-1. 将迁移工具 go2tencentcloud.zip 下载或上传至源端主机，并执行以下命令进入对应目录。
-
+通过 [VPC 对等连接](https://cloud.tencent.com/document/product/553) / [VPN 连接](https://cloud.tencent.com/document/product/554) / [云联网](https://cloud.tencent.com/document/product/877) 等方式，建立源端主机和目标云服务器的连接通道。
+2. 将迁移工具 go2tencentcloud.zip 下载或上传至源端主机，并执行以下命令进入对应目录。
    1. 依次执行以下命令，解压 go2tencentcloud.zip 并进入目录。
-
-   ```sh
-   unzip go2tencentcloud.zip
-   ```
-
-   ```sh
-   cd go2tencentcloud
-   ```
-
-   2. 依次执行以下命令，解压 go2tencentcloud-linux.zip 并进入目录。
-
-   ```
-   unzip go2tencentcloud-linux.zip
-   ```
-
-   ```
-   cd go2tencentcloud-linux
-   ```
-
-   <dx-alert infotype="explain" title="">
-   `go2tencentcloud` 目录下的文件将不会被迁移，请勿将需迁移的文件放置在该目录下。
-   </dx-alert>
-
+```shellsession
+unzip go2tencentcloud.zip
+```
+```shellsession
+cd go2tencentcloud
+```
+    2. 依次执行以下命令，解压 go2tencentcloud-linux.zip 并进入目录。
+```shellsession
+unzip go2tencentcloud-linux.zip
+```
+```shellsession
+cd go2tencentcloud-linux
+```
+<dx-alert infotype="explain" title="">
+`go2tencentcloud` 目录下的文件将不会被迁移，请勿将需迁移的文件放置在该目录下。
+</dx-alert>
 3. 在 `user.json` 文件配置目标云服务器。
-   请按照 [user.json 文件参数说明](#userJsonState) 配置必填项和所需项的值。
-
-3. 在 `client.json` 文件配置迁移模式和其他项。
-
-   - 将`client.json`文件里的`Client.ToolMode` 值设置为 `true`， 即标识工具模式迁移。
-
-   - 将 `client.json` 文件里的 `Client.Net.Mode` 项设置为`2`，即进行 [内网迁移模式：场景2](https://cloud.tencent.com/document/product/213/65714#Scenario2) 的迁移。
-
-     此外，如果还需要进行其他项设置，请按照 [client.json 文件参数说明](#clientJsonState) 进行配置。
-
-3. （可选）排除源端主机上不需迁移的文件或目录。
-   若 Linux 源端主机中存在不需要迁移的文件或目录，可将文件或目录添加至 [rsync_excludes_linux.txt 文件](#_linuxTxtState)。
-
+请按照 [user.json 文件参数说明](#userJsonState) 配置必填项和所需项的值。
+4. 在 `client.json` 文件配置迁移模式和其他项。
+    - 将 `client.json` 文件里的 `Client.ToolMode` 值设置为 `true`， 即标识工具模式迁移。
+    - 将 `client.json` 文件里的 `Client.Net.Mode` 项设置为`2`，即进行 [内网迁移模式：场景2](https://cloud.tencent.com/document/product/213/65714#Scenario2) 的迁移。此外，如果还需要进行其他项设置，请按照 [client.json 文件参数说明](#clientJsonState) 进行配置。
+5. （可选）排除源端主机上不需迁移的文件或目录。
+若 Linux 源端主机中存在不需要迁移的文件或目录，可将文件或目录添加至 [rsync_excludes_linux.txt 文件](#_linuxTxtState)。
 6. 运行工具。
-   例如，在64位 Linux 源端主机下，以 root 权限执行以下命令运行工具。
+例如，在64位 Linux 源端主机下，以 root 权限执行以下命令运行工具。
+```shellsession
+sudo ./go2tencentcloud_x64 
+```
+<dx-alert infotype="notice" title="">
+若您未修改 client.json 中的 `Client.ToolMode` 为 `true` ，则运行工具时需要添加参数 `--no-console`， 如下：
+```shellsession
+sudo ./go2tencentcloud_x64 --no-console
+```
+</dx-alert>
+工具运行后，请耐心等待迁移流程的完成。一般迁移成功的控制台输出信息如下图所示：![](https://main.qcloudimg.com/raw/d32b4be8287d4b06697f0cb03cc6cff8.png)
 
-   ```shell
-   sudo ./go2tencentcloud_x64 
-   ```
 
-   <dx-alert infotype="notice" title="">
 
-   若您未修改client.json中的 `Client.ToolMode` 为 `true` ，则运行工具时需要添加参数 `--no-console`， 如下：
 
-   ```shell
-   sudo ./go2tencentcloud_x64 --no-console
-   ```
-
-   </dx-alert>
-
-   工具运行后，请耐心等待迁移流程的完成。
-   一般迁移成功的控制台输出信息如下图所示：![](https://main.qcloudimg.com/raw/d32b4be8287d4b06697f0cb03cc6cff8.png)
-
-:::
-
-::: 场景3
-
+#### 场景3
 1. 建立源端主机和目标云服务器的连接通道。
-   通过 [VPC 对等连接](https://cloud.tencent.com/document/product/553) / [VPN 连接](https://cloud.tencent.com/document/product/554) / [云联网](https://cloud.tencent.com/document/product/877) 等方式，建立源端主机和目标云服务器的连接通道。
-
-1. 将迁移工具 go2tencentcloud.zip 下载或上传至源端主机，并执行以下命令进入对应目录。
-
-   1. 依次执行以下命令，解压 go2tencentcloud.zip 并进入目录。
-
-   ```sh
-   unzip go2tencentcloud.zip
-   ```
-
-   ```sh
-   cd go2tencentcloud
-   ```
-
-   2. 依次执行以下命令，解压 go2tencentcloud-linux.zip 并进入目录。
-
-   ```
-   unzip go2tencentcloud-linux.zip
-   ```
-
-   ```
-   cd go2tencentcloud-linux
-   ```
-
-   <dx-alert infotype="explain" title="">
-   `go2tencentcloud` 目录下的文件将不会被迁移，请勿将需迁移的文件放置在该目录下。
-   </dx-alert>
-
+通过 [VPC 对等连接](https://cloud.tencent.com/document/product/553) / [VPN 连接](https://cloud.tencent.com/document/product/554) / [云联网](https://cloud.tencent.com/document/product/877) 等方式，建立源端主机和目标云服务器的连接通道。
+2. 将迁移工具 go2tencentcloud.zip 下载或上传至源端主机，并执行以下命令进入对应目录。
+    1. 依次执行以下命令，解压 go2tencentcloud.zip 并进入目录。
+```shellsession
+unzip go2tencentcloud.zip
+```
+```shellsession
+cd go2tencentcloud
+```
+    2. 依次执行以下命令，解压 go2tencentcloud-linux.zip 并进入目录。
+```shellsession
+unzip go2tencentcloud-linux.zip
+```
+```shellsession
+cd go2tencentcloud-linux
+```
+<dx-alert infotype="explain" title="">
+`go2tencentcloud` 目录下的文件将不会被迁移，请勿将需迁移的文件放置在该目录下。
+</dx-alert>
 3. 在 `user.json` 文件配置目标云服务器。
-   请按照 [user.json 文件参数说明](#userJsonState) 配置必填项和所需项的值。
-
-3. 在 `client.json` 文件配置迁移模式和其他项。
-
-   - 将`client.json`文件里的`Client.ToolMode` 值设置为 `true`， 即标识工具模式迁移。
-
-   - 将 `client.json` 文件里的 `Client.Net.Mode` 项设置为`3`，即进行 [内网迁移模式：场景3](https://cloud.tencent.com/document/product/213/65714#Scenario3) 的迁移。
-
-     此外，如果还需要进行其他项设置，请按照 [client.json 文件参数说明](#clientJsonState) 进行配置。
-
-3. （可选）排除源端主机上不需迁移的文件或目录。
-   若 Linux 源端主机中存在不需要迁移的文件或目录，可将文件或目录添加至 [rsync_excludes_linux.txt 文件](#_linuxTxtState)。
-
+请按照 [user.json 文件参数说明](#userJsonState) 配置必填项和所需项的值。
+4. 在 `client.json` 文件配置迁移模式和其他项。
+    - 将 `client.json` 文件里的 `Client.ToolMode` 值设置为 `true`， 即标识工具模式迁移。
+    - 将 `client.json` 文件里的 `Client.Net.Mode` 项设置为`3`，即进行 [内网迁移模式：场景3](https://cloud.tencent.com/document/product/213/65714#Scenario3) 的迁移。此外，如果还需要进行其他项设置，请按照 [client.json 文件参数说明](#clientJsonState) 进行配置。
+5. （可选）排除源端主机上不需迁移的文件或目录。
+若 Linux 源端主机中存在不需要迁移的文件或目录，可将文件或目录添加至 [rsync_excludes_linux.txt 文件](#_linuxTxtState)。
 6. 运行工具。
-   例如，在64位 Linux 源端主机下，以 root 权限执行以下命令运行工具。
-
-   ```shell
-   sudo ./go2tencentcloud_x64 
-   ```
-
-   <dx-alert infotype="notice" title="">
-
-   若您未修改client.json中的 `Client.ToolMode` 为 `true` ，则运行工具时需要添加参数 `--no-console`， 如下：
-
-   ```shell
-   sudo ./go2tencentcloud_x64 --no-console
-   ```
-
-   </dx-alert>
-
-   工具运行后，请耐心等待迁移流程的完成。
-   一般迁移成功的控制台输出信息如下图所示：
-   ![](https://main.qcloudimg.com/raw/2195589176d3669f08fbb5745901040b.png)
+例如，在64位 Linux 源端主机下，以 root 权限执行以下命令运行工具。
+```shellsession
+sudo ./go2tencentcloud_x64 
+```
+<dx-alert infotype="notice" title="">
+若您未修改 client.json 中的 `Client.ToolMode` 为 `true` ，则运行工具时需要添加参数 `--no-console`， 如下：
+```shellsession
+sudo ./go2tencentcloud_x64 --no-console
+```
+</dx-alert>
+工具运行后，请耐心等待迁移流程的完成。一般迁移成功的控制台输出信息如下图所示：
+![](https://main.qcloudimg.com/raw/2195589176d3669f08fbb5745901040b.png)
 
 :::
 
 </dx-tabs>
 
-:::
-
-</dx-tabs>
 
 ### 迁移后的检查
 
