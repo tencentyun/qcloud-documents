@@ -10,7 +10,7 @@ Hue 是一个开源的 Apache Hadoop UI 系统，由 Cloudera Desktop 演化而�
 >! 由于 EMR 产品的组件启动帐号为 hadoop。请在首次以 root 帐号登录 Hue 控制台后，新建 hadoop 帐号。后续所有作业需通过 hadoop 帐号来提交。
 
 ## 用户权限管理
-首先使用管理员账号登陆 hue。
+首先使用管理员账号登录 hue。
 1. 添加用户。
 	1. 单击右方的** Add user**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/34bd048f7de580e9bff702b29948bbfc.png)
