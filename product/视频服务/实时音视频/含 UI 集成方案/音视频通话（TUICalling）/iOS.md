@@ -100,7 +100,7 @@ public func onCallEvent(event: TUICallingEvent, type: TUICallingType, role: TUIC
 
 >? 目前组件仅支持应用内悬浮窗（最小化退到上一层界面）。
 
-## 三. 常见问题
+## 常见问题
 ### TUICalling 组件支持自定义铃声吗？
 支持，调用 [TUICalling#setCallingBell](https://cloud.tencent.com/document/product/647/47748#setCallingBell) 即可。
 
