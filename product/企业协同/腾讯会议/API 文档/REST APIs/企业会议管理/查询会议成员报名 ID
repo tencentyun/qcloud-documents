@@ -11,13 +11,13 @@ https://api.meeting.qq.com/v1/meetings/{meeting_id}/enroll/ids
 |-----|-----|----|----|
 |meeting_id|	是|	String	|会议 ID。|
 |userid	|是	|String|	调用方用于标示用户的唯一 ID（企业内部请使用企业唯一用户标识；OAuth2.0 鉴权用户请使用 openId）。|
-|instanceid	|是|	integer|	用户的终端设备类型：<br>1：PC <br>2：Mac <br>3：Android <br>4：iOS <br>5：Web <br>6：iPad <br>7：Android Pad <br>8：小程序|
-|ms_open_id_list|	是|	string数组|	当场会议的用户临时 ID（适用于所有用户）数组，单次最多支持500条。|
+|instanceid	|是|	Integer|	用户的终端设备类型：<br>1：PC <br>2：Mac <br>3：Android <br>4：iOS <br>5：Web <br>6：iPad <br>7：Android Pad <br>8：小程序|
+|ms_open_id_list|	是|	String数组|	当场会议的用户临时 ID（适用于所有用户）数组，单次最多支持500条。|
 
 ## 输出参数
 |参数名称	|参数类型	|参数描述|
 |-----|-----|----|
-|meeting_id|	string|	会议 ID。|
+|meeting_id|	String|	会议 ID。|
 |enroll_id_list|	对象数组|	成员报名 ID 数组，仅返回已报名成员的报名 ID，若传入的用户无人报名，则无该字段。|
 
 
