@@ -1,11 +1,10 @@
-## TUIKit 概述
 TUIkit 是腾讯云音视频团队在5000+客户的服务积累中，结合业内主流的音视频场景，提炼出的开源解决方案，包含视频通话组件、直播组件、视频房间组件等多个客户端音视频组件，可以帮助开发者快速搭建诸如通话、客服、直播、语聊、教育等场景解决方案。
 
 ## TUIKit 全家福
 ![](https://qcloudimg.tencent-cloud.cn/raw/86cf5a688af5cee4d0b5f3a223348bde.png)
 
-如上图所示，TUIKit分为TUICompenont和TUIWidget两种，同时支持可选的基础后台服务。
-```
+如上图所示，TUIKit 分为 TUICompenont 和 TUIWidget 两种，同时支持可选的基础后台服务。
+```java
 ├── TUIComponent
 │   ├── TUICalling     // 通话组件（类微信通话），针对视频通话、客服、金融审核等音视频场景；
 │   ├── TUIRoom        // 多人视频房间组件，针对教育、会议、面试等音视频场景，具备禁言禁画等功能；
@@ -28,10 +27,7 @@ TUIkit 是腾讯云音视频团队在5000+客户的服务积累中，结合业�
 
 ## 交流&反馈
 当然，一样的环境，一样的步骤，可能也会有不一样的报错，这是工程师的逃不开的魔咒，您可以通过如下方式来尝试解决：
-
 - [TUIKit 常见问题](https://cloud.tencent.com/developer/article/1952880)
-- **TUIKit 技术交流QQ 群：592465424**
-
+- **TUIKit 技术交流 QQ 群：592465424**
  ![](https://qcloudimg.tencent-cloud.cn/raw/fa8a9ca2a400319a1e7362706e6ed69d.png)
- 
-- [更多联系...](https://cloud.tencent.com/document/product/647/19906)
+- [更多联系](https://cloud.tencent.com/document/product/647/19906)
