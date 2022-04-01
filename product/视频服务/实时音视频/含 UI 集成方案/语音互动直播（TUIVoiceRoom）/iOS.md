@@ -204,5 +204,5 @@ func onRecvRoomCustomMsg(cmd: String, message: String, userInfo: VoiceRoomUserIn
 ```
 
 
-## 三. 常见问题
+## 常见问题
 更多帮助信息，详情请参见 [TUI 场景化解决方案常见问题](https://cloud.tencent.com/developer/article/1952880)。欢迎加入 QQ 群：**592465424**，进行技术交流和反馈。
