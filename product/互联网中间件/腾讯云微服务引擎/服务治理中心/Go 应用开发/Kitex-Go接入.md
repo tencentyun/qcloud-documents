@@ -78,8 +78,7 @@
  1. 进入前面提到的微服务治理中心实例页面。
  - 选择**服务管理** > **服务列表**，查看一下服务的实例数量：
     - 若实例数量值不为0，则表示已经成功接入微服务引擎
-    - 若实例数量为0，或者找不到上述服务名，则表示`CloudWeGo/kitex`应用接入微服务引擎失败。
-![](https://qcloudimg.tencent-cloud.cn/raw/7cc1d0a8766e6a175ab10fc6e4dac517.png)
+    - 若实例数量为0，或者找不到上述服务名，则表示`EchoServerKitex`应用接入微服务引擎失败。![](https://qcloudimg.tencent-cloud.cn/raw/1071108a09ec1163e44678d06673b3e6.png)
  - 调用 consumer 的 HTTP 接口
     - 执行 http 调用，其中`${app.port}`替换为 consumer 的监听端口（默认为18080），`${add.address}`则替换为 consumer 暴露的地址。
 <dx-codeblock>
