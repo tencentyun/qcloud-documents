@@ -1,27 +1,21 @@
-本文介绍带 UI 的 Web 端直播互动组件 TUIPusher & TUIPlayer。TUIPusher & TUIPlayer 集成 [实时音视频 TRTC](https://cloud.tencent.com/product/trtc) 、 [即时通信 IM](https://cloud.tencent.com/product/im) 等基础 SDK，为企业直播、电商带货、行业培训、远程教学等多种直播场景提供快速上线 Web 端直播推拉流工具的解决方案。
+## 组件介绍
+
+TUIPusher & TUIPlayer 是 Web 端开源的含 UI 直播互动组件。TUIPusher & TUIPlayer 集成 [实时音视频 TRTC](https://cloud.tencent.com/product/trtc) 、 [即时通信 IM](https://cloud.tencent.com/product/im) 等基础 SDK，为企业直播、电商带货、行业培训、远程教学等多种直播场景提供快速上线 Web 端直播推拉流工具的解决方案。
 
 TUIPusher & TUIPlayer 的优势：
 + 贴合直播场景需求，提供了含 UI 的直播场景通用解决方案，覆盖了直播场景常见功能（如设备选择、美颜、直播推流、观众拉流、聊天等），助力业务快速上线；
 + 直接接入腾讯云实时音视频 TRTC、腾讯云即时通信 IM 以及腾讯云超级播放器 TCPlayer 等基础 SDK，方便客户灵活扩展业务功能；
 + Web 端易于用户使用，易于功能迭代的天然优势；
 
-## 快速体验
-
-TUIPusher 及 TUIPlayer 功能演示请看下图。同时，为了方便您快速体验 TUIPusher & TUIPlayer 的功能，我们结合用户管理系统和房间管理系统提供了 [TUIPusher 体验链接](https://web.sdk.qcloud.com/component/tuiliveroom/tuipusher/login.html) 及 [TUIPlayer 体验链接](https://web.sdk.qcloud.com/component/tuiliveroom/tuiplayer/login.html)。
->! 同时体验 TUIPusher 和 TUIPlayer 需要使用两个不同的账号登录。  
-
 ![TUIPusher演示](https://web.sdk.qcloud.com/component/tuiliveroom/assets/pusher.gif)
 ![TUIPlayer演示](https://web.sdk.qcloud.com/component/tuiliveroom/assets/player.gif)
 
-## 代码下载
+## 快速体验
 
-Web 端直播互动组件（TUIPusher & TUIPlayer）下载方式如下：
-+ [TUIPusher](https://github.com/tencentyun/TUILiveRoom/tree/main/Web/TUIPusher) 
-+ [TUIPlayer](https://github.com/tencentyun/TUILiveRoom/tree/main/Web/TUIPlayer)
+为了方便您快速体验 TUIPusher & TUIPlayer 的功能，我们结合用户管理系统和房间管理系统提供了 [TUIPusher 体验链接](https://web.sdk.qcloud.com/component/tuiliveroom/tuipusher/login.html) 及 [TUIPlayer 体验链接](https://web.sdk.qcloud.com/component/tuiliveroom/tuiplayer/login.html)。
+>! 同时体验 TUIPusher 和 TUIPlayer 需要使用两个不同的账号登录。 
 
-
-## 功能介绍
-### TUIPusher 推流组件
+### TUIPusher 推流组件功能介绍：
 - 支持采集摄像头和麦克风的流并推流
   - 可根据需求设置视频参数（帧率，分辨率，码率）
   - 支持开启美颜并设置视频美颜参数
@@ -30,7 +24,7 @@ Web 端直播互动组件（TUIPusher & TUIPlayer）下载方式如下：
 - 支持在线聊天室，和在线观众进行聊天互动
 - 支持获取观众列表，对在线观众进行禁言操作
 
-### TUIPlayer 拉流组件
+### TUIPlayer 拉流组件功能介绍：
 - 支持同时播放音视频流和屏幕分享流
 - 支持在线聊天室，和主播及其他观众进行聊天互动
 - 支持超低延时直播（300ms 延时）, 快直播（1000ms 以内延时）以及标准直播（支持超高并发观看）三种拉流线路
@@ -38,13 +32,17 @@ Web 端直播互动组件（TUIPusher & TUIPlayer）下载方式如下：
 
 > !部分浏览器不支持 WebRTC，只能使用标准直播线路观看，如需体验其他线路，请尝试更换浏览器。
 
-## 接入方式
-### 注意事项
-- TUIPusher & TUIPlayer 基于腾讯云实时音视频和即时通信服务进行开发。实时音视频 TRTC 应用与 即时通信 IM 应用的 SDKAppID 一致，才能复用账号与鉴权。
-- 即时通信 IM 应用针对文本消息，提供基础版本的 [安全打击](https://cloud.tencent.com/document/product/269/47170) 能力，如果希望使用自定义不雅词功能，可以单击 **升级** 或在 [购买页](https://buy.cloud.tencent.com/avc?position=1400399435) 购买 **安全打击-高级版** 服务。
-- 本地计算 UserSig 的方式仅用于本地开发调试，请勿直接发布到线上，一旦 SECRETKEY 泄露，攻击者就可以盗用您的腾讯云流量。正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/269/32688#GeneratingdynamicUserSig)。
+## 组件集成
 
 ### 步骤一：开通腾讯云服务
+
+> !
+>
+> - TUIPusher & TUIPlayer 基于腾讯云实时音视频和即时通信服务进行开发。实时音视频 TRTC 应用与 即时通信 IM 应用的 SDKAppID 一致，才能复用账号与鉴权。
+> - 即时通信 IM 应用针对文本消息，提供基础版本的 [安全打击](https://cloud.tencent.com/document/product/269/47170) 能力，如果希望使用自定义不雅词功能，可以单击 **升级** 或在 [购买页](https://buy.cloud.tencent.com/avc?position=1400399435) 购买 **安全打击-高级版** 服务。
+> - 本地计算 UserSig 的方式仅用于本地开发调试，请勿直接发布到线上，一旦 SECRETKEY 泄露，攻击者就可以盗用您的腾讯云流量。正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/269/32688#GeneratingdynamicUserSig)。
+
+
 <dx-tabs>
 ::: 方式1：基于实时音视频
 [](id:step1)
@@ -114,7 +112,8 @@ npm run serve
 
 TUIPusher & TUIPlayer 实现的快直播和标准直播依托于腾讯云 [云直播服务](https://cloud.tencent.com/document/product/267)，因此支持快直播和标准直播线路需要您开启旁路推流功能。
 
-1. 在 [**实时音视频控制台**](https://console.cloud.tencent.com/trtc) 中为您正在使用的应用开启旁路推流配置，可按需开启指定流旁路或全局自动旁路。 ![img](https://main.qcloudimg.com/raw/b9846f4a7f5ce1e39b3450963e872c90.png)
+1. 在 [**实时音视频控制台**](https://console.cloud.tencent.com/trtc) 中为您正在使用的应用开启旁路推流配置，可按需开启指定流旁路或全局自动旁路。  
+![img](https://main.qcloudimg.com/raw/b9846f4a7f5ce1e39b3450963e872c90.png)
 2. 请在 [**域名管理**](https://console.cloud.tencent.com/live/domainmanage) 页面添加自有播放域名，具体请参见 [添加自有域名](https://cloud.tencent.com/document/product/267/20381)。
 3. 在 `TUIPlayer/src/config/basic-info-config.js` 配置文件中配置播放域名。
 
