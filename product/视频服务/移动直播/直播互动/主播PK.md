@@ -102,26 +102,26 @@ NSString *pushURLB = @"trtc://cloud.tencent.com/push/streamid?sdkappid=140018888
 ::: java java
 // 主播A
 V2TXLivePlayer player = new V2TXLivePlayerImpl(mContext);
-playURLB = "trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&userId=B&usersig=xxx&appscene=live"
+playURLB = "trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&userId=A&usersig=xxx&appscene=live"
 player.startPlay(playURLB);
 ...
 
 // 主播B
 V2TXLivePlayer player = new V2TXLivePlayerImpl(mContext);
-playURLA= "trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&userId=A&usersig=xxx&appscene=live"
+playURLA= "trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&userId=B&usersig=xxx&appscene=live"
 player.startPlay(playURLA);
 :::
 ::: Objective-C ObjectiveC
 // 主播A
 V2TXLivePlayer *player = [[V2TXLivePlayer alloc] init];
-NSString *playURLB = "trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&userId=B&usersig=xxx&appscene=live"
+NSString *playURLB = "trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&userId=A&usersig=xxx&appscene=live"
 [player setRenderView:view];
 [player startPlay:playURLB];
 ...
 
 // 主播B
 V2TXLivePlayer *player = [[V2TXLivePlayer alloc] init];
- NSString *playURLA = "trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&userId=A&usersig=xxx&appscene=live"
+ NSString *playURLA = "trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&userId=B&usersig=xxx&appscene=live"
 [player setRenderView:view];
 [player startPlay:playURLA];
 :::

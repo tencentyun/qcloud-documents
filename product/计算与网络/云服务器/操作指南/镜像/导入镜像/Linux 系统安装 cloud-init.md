@@ -218,23 +218,23 @@ apt-get/yum install cloud-init
 </dx-alert>
 
 
-- 执行以下命令，检查 cloud-init 相关配置是否成功。
+1. 执行以下命令，检查 cloud-init 相关配置是否成功。
 ```shellsession
 cloud-init init --local
 ```
-返回类似如下信息，则说明已成功配置 cloud-init。
+返回类似如下信息，则说明已成功配置。cloud-init 
 ```shellsession
 Cloud-init v. 20.1 running 'init-local' at Fri, 01 Apr 2022 01:26:11 +0000. Up 38.70 seconds.
 ```
-- 执行以下命令，删除 cloudinit 的缓存记录。
+2. 执行以下命令，删除 cloudinit 的缓存记录。
 ```shellsession
 rm -rf /var/lib/cloud
 ```
-- 针对 Ubuntu 或 Debian 操作系统，需执行以下命令。
+3. 针对 Ubuntu 或 Debian 操作系统，需执行以下命令。
 ``` shellsession
 rm -rf /etc/network/interfaces.d/50-cloud-init.cfg
 ```
-- 针对 Ubuntu 或 Debian 操作系统，需将 `/etc/network/interfaces` 修改为以下内容：
+4. 针对 Ubuntu 或 Debian 操作系统，需将 `/etc/network/interfaces` 修改为以下内容：
 ```shellsession
 # This file describes the network interfaces available on your system
 # and how to activate them. For more information, see interfaces(5).

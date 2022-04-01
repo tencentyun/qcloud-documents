@@ -9,7 +9,7 @@
 GRANT RELOAD, LOCK TABLES, REPLICATION CLIENT, REPLICATION SLAVE, SELECT, SHOW VIEW, PROCESS 
 ON *.* TO '迁移帐号'@'%' 
 IDENTIFIED BY '迁移密码';
-GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '迁移帐号'@'%'; //如果源端为腾讯云数据库需要授予`__tencentdb__`权限
+GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '迁移帐号'@'%'; 
 FLUSH PRIVILEGES;
 ```
 - 需要在目标端 TDSQL PostgreSQL版 或 TDSQL-A PostgreSQL版 实例中创建迁移帐号，需要的帐号权限包括：`DELETE`、`TRUNCATE`、`INSERT`、`REFERENCES`、`SELECT`、`UPDATE`、`TRIGGER`，获取权限的方式如下：
