@@ -1,6 +1,6 @@
 本文主要介绍 Hue 的实践用法。
 ## Hive SQL 查询
-Hue 的 beeswax app 提供了友好方便的 Hive 查询功能，可以选择不同的 Hive 数据库、编写 HQL 语句、提交查询任务、查看结果。
+Hue 的 beeswax App 提供了友好方便的 Hive 查询功能，可以选择不同的 Hive 数据库、编写 HQL 语句、提交查询任务、查看结果。
 1. 在 Hue 控制台上方，选择 Query > Editor > Hive。
  ![](https://qcloudimg.tencent-cloud.cn/raw/48a2fbc6dacc28ea8e0f8e7d6e321d47.png)
 2. 在语句输入框中输入要执行语句，然后单击**执行**，执行语句。
