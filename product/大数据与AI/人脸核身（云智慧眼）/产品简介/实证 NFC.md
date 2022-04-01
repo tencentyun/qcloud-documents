@@ -9,8 +9,8 @@
 
 ## 支持的证件类型
 支持9种证件类型的 NFC 识读，包括二代身份证、港澳居住证、台湾居住证、外国人永居证、国际护照、港澳通行证、台湾通行证、台胞证、回乡证。（当前暂开放二代身份证的识读，如有其它证件识读需求，可联系我们沟通。）
-![](https://qcloudimg.tencent-cloud.cn/raw/f02ca5bc353894bc1eea95b2e7710b19.png)
-![](https://qcloudimg.tencent-cloud.cn/raw/a63c68d0aab98a2565bf2512638ce303.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/0befcd755da71e70081536ae58d3d819.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/dfdccf13f2f4e848ac52229c3c5fa1d2.png)
 
 ## 产品优势
 ### 读取快速准确 
