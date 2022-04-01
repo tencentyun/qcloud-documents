@@ -28,7 +28,6 @@ DATABASES,SHOW VIEW,PROCESS ON *.* TO '迁移帐号'@'%';
 //源端若为腾讯云 MariaDB 数据库，需要提交工单进行 RELOAD 授权，其他场景请用户参照代码授权
 //源库为阿里云数据库时，不需要授权 SHOW DATABASES，其他场景则需要授权。阿里云数据库授权，请参考 https://help.aliyun.com/document_detail/96101.htmll
 GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '迁移帐号'@'%'; 
-//如果源端为腾讯云数据库需要授予`__tencentdb__`权限 
 GRANT SELECT ON `mysql`.* TO '迁移帐号'@'%';
 ```
 - 部分库表迁移：`GRANT SELECT ON 待迁移的库.* TO '迁移帐号';`
