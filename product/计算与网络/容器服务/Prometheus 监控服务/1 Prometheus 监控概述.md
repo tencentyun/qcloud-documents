@@ -120,7 +120,6 @@ Prometheus 监控支持多集群监控、支持同一 VPC 网络中非集群内�
 
 ## 产品定价
 
-Prometheus 监控服务定价可[参考](https://cloud.tencent.com/document/product/1416/65379)。
-
-此外，目前使用 Prometheus 监控服务时将会在用户的账户下创建 [EKS 集群](https://cloud.tencent.com/document/product/457/39807)，以及内外网 [负载均衡 CLB](https://cloud.tencent.com/document/product/214) 资源，按用户实际使用的云资源收费。
+Prometheus 监控服务定价详情见 [按量计费](https://cloud.tencent.com/document/product/1416/65379)。
+此外，目前使用 Prometheus 监控服务时将会在用户的账户下创建 [EKS 集群](https://cloud.tencent.com/document/product/457/39807)，以及内外网 [负载均衡 CLB](https://cloud.tencent.com/document/product/214) 资源，按用户实际使用的云资源收费。具体创建的资源和参考价格可参考 [云原生监控资源使用情况](https://cloud.tencent.com/document/product/457/71905)。
 

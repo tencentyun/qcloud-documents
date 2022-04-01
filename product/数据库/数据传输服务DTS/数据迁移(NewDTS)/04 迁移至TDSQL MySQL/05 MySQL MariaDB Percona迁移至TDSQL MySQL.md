@@ -24,26 +24,11 @@
 - 已完成 [准备工作](https://cloud.tencent.com/document/product/571/59968)。
 - 需要您在源端 MySQL 中提前创建好数据库：`__tencentdb__`。
 - 需要具备源数据库的权限。
-  - “整个实例”迁移，需要的帐号权限如下：
 ```
 CREATE USER '迁移帐号'@'%' IDENTIFIED BY '迁移密码';  
-GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO '迁移帐号'@'%';  
+GRANT SELECT,RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO '迁移帐号'@'%';  
 //源端若为腾讯云 MariaDB 数据库，需要提交工单进行 RELOAD 授权，其他场景请用户参照代码授权
-//源库为阿里云数据库时，不需要授权 SHOW DATABASES，其他场景则需要授权。阿里云数据库授权，请参考 https://help.aliyun.com/document_detail/96101.html
-GRANT INSERT, UPDATE, DELETE, DROP, SELECT, INDEX, ALTER, CREATE ON `__tencentdb__`.* TO '迁移帐号'@'%'; 
-//如果源端为腾讯云数据库需要授予`__tencentdb__`权限
-GRANT SELECT ON *.* TO '迁移帐号';
-```
-  - “指定对象”迁移，需要的帐号权限如下：
-```
-CREATE USER '迁移帐号'@'%' IDENTIFIED BY '迁移密码';  
-GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO '迁移帐号'@'%';  
-//源端若为腾讯云 MariaDB 数据库，需要提交工单进行 RELOAD 授权，其他场景请用户参照代码授权
-//源库为阿里云数据库时，不需要授权 SHOW DATABASES，其他场景则需要授权。阿里云数据库授权，请参考 https://help.aliyun.com/document_detail/96101.html
-GRANT INSERT, UPDATE, DELETE, DROP, SELECT, INDEX, ALTER, CREATE ON `__tencentdb__`.* TO '迁移帐号'@'%'; 
-//如果源端为腾讯云数据库需要授予`__tencentdb__`权限
-GRANT SELECT ON `mysql`.* TO '迁移帐号'@'%';
-GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
+GRANT INSERT, UPDATE, DELETE, DROP, SELECT, INDEX, ALTER, CREATE ON `__tencentdb__`.* TO '迁移帐号'@'%';
 ```
 - 需要具备目标数据库的权限：ALTER, ALTER ROUTINE, CREATE, CREATE ROUTINE, CREATE TEMPORARY TABLES, CREATE USER, CREATE VIEW, DELETE, DROP, EVENT, EXECUTE, INDEX, INSERT, LOCK TABLES, PROCESS, REFERENCES, RELOAD, SELECT, SHOW DATABASES, SHOW VIEW, TRIGGER, UPDATE（如果目标库为腾讯云 MariaDB 数据库，需要 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行 RELOAD 授权）。
 

@@ -1,6 +1,6 @@
 
 ## 操作场景
-EKS 支持通过 configmap 进行全局配置。在 TKE 弹虚拟节点场景以及纯 EKS 集群场景下，如果用户需要批量对每个虚拟节点或每个 Pod 设置 annotation，如果在虚拟节点维度或 Pod 维度进行配置会相对繁琐，对业务 yaml 的侵入性也较大，因此 EKS 提供全局配置的能力，用户可以通过 configmap 进行全局配置来实现对集群内每个 Pod 注入 annotation 的能力。
+EKS 支持通过 configmap 进行全局配置。在 TKE 弹虚拟节点场景以及纯 EKS 集群场景下，如果用户需要批量对每个虚拟节点或每个 Pod 设置 annotation，此时在虚拟节点维度或 Pod 维度进行配置会相对繁琐，对业务 yaml 的侵入性也较大，因此 EKS 提供全局配置的能力，用户可以通过 configmap 进行全局配置来实现对集群内每个 Pod 注入 annotation 的能力。
 
 ## 操作步骤
 1. 在 kube-system 下新建一个 eks-config 的 configmap。
