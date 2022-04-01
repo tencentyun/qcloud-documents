@@ -1,4 +1,4 @@
-## 一. 组件介绍
+## 组件介绍
 
 TUIVoiceRoom 是一个开源的音视频 UI 组件，通过在项目中集成 TUIVoiceRoom 组件，您只需要编写几行代码就可以为您的 App 添加“多人语音聊天”等场景。TUIVoiceRoom 同时支持 [Android](https://cloud.tencent.com/document/product/647/45737)、[小程序](https://cloud.tencent.com/document/product/647/65386) 等平台，基本功能如下图所示：
 
