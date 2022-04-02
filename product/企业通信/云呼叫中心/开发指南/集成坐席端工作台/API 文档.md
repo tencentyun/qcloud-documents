@@ -1,6 +1,6 @@
 >! tccc 是加载 SDK 后的全局变量，可直接访问。
-### 通用结构
-#### CommonSDKResponse
+## 通用结构
+### CommonSDKResponse
 <table>
    <tr>
       <th width="0px" style="text-align:center" colspan="2">参数</td>
@@ -24,8 +24,8 @@
    </tr>
 </table>
 
-### Call（电话客服和音频客服相关接口函数）
-#### 电话呼出
+## Call（电话客服和音频客服相关接口函数）
+### 电话呼出
 **tccc.Call.startOutboundCall(options): Promise<CommonSDKResponse>**
 <table>
    <tr>
@@ -73,7 +73,7 @@
    </tr>
 </table>
 
-#### 接听会话
+### 接听会话
 **tccc.Call.accept(options): Promise<CommonSDKResponse>**
 <table>
    <tr>
@@ -91,7 +91,7 @@
    </tr>
 </table>
 
-#### 挂断会话
+### 挂断会话
 **tccc.Call.hungUp(options): Promise<CommonSDKResponse>**
 <table>
    <tr>
@@ -109,7 +109,7 @@
    </tr>
 </table>
 
-#### 删除会话
+### 删除会话
 **tccc.Call.deleteCall(options)**
 <table>
    <tr>
@@ -127,7 +127,7 @@
    </tr>
 </table>
 
-#### 静音
+### 静音
 **tccc.Call.muteMic(options): Promise<CommonSDKResponse>**
 <table>
    <tr>
@@ -145,7 +145,7 @@
    </tr>
 </table>
 
-#### 取消静音
+### 取消静音
 **tccc.Call.unmuteMic(options): Promise<CommonSDKResponse>**
 <table>
    <tr>
@@ -163,7 +163,7 @@
    </tr>
 </table>
 
-#### 当前是否静音
+### 当前是否静音
 **tccc.Call.isMicMuted(options): Promise<CommonSDKResponse>**
 <table>
    <tr>
@@ -181,7 +181,7 @@
    </tr>
 </table>
 
-#### 发起内部通话
+### 发起内部通话
 **tccc.Call.startInternalCall(): Promise<CommonSDKResponse>**
 <table>
    <tr>
@@ -205,8 +205,8 @@
    </tr>
 	 </table>
 
-#### 转接会话
-##### tccc.Call.transfer(): Promise<CommonSDKResponse>
+### 转接会话
+#### tccc.Call.transfer(): Promise<CommonSDKResponse>
 <table>
    <tr>
       <th width="0px" style="text-align:center" colspan="2">参数</td>
@@ -235,8 +235,8 @@
    </tr>
 </table>
 
-#### 呼叫保持
-##### tccc.Call.hold(): Promise<CommonSDKResponse>
+### 呼叫保持
+#### tccc.Call.hold(): Promise<CommonSDKResponse>
 <table>
    <tr>
       <th width="0px" style="text-align:center" colspan="2">参数</td>
@@ -253,8 +253,8 @@
    </tr>
 </table>
 
-#### 取消通话保持
-##### tccc.Call.unHold(): Promise<CommonSDKResponse>
+### 取消通话保持
+#### tccc.Call.unHold(): Promise<CommonSDKResponse>
 <table>
    <tr>
       <th width="0px" style="text-align:center" colspan="2">参数</td>
@@ -271,8 +271,8 @@
    </tr>
 </table>
 
-#### 发送分机号
-##### tccc.Call.sendDigits(): Promise<CommonSDKResponse>
+### 发送分机号
+#### tccc.Call.sendDigits(): Promise<CommonSDKResponse>
 <table>
    <tr>
       <th width="0px" style="text-align:center" colspan="2">参数</td>
@@ -295,9 +295,9 @@
    </tr>
 </table>
 
-### Chat（在线客服相关接口函数）
-#### 接听会话
-##### tccc.Chat.accept(options): Promise<CommonSDKResponse>
+## Chat（在线客服相关接口函数）
+### 接听会话
+#### tccc.Chat.accept(options): Promise<CommonSDKResponse>
 <table>
    <tr>
       <th width="0px" style="text-align:center" colspan="2">参数</td>
@@ -314,8 +314,8 @@
    </tr>
 </table>
 
-#### 结束会话
-##### tccc.Chat.end(options): Promise<CommonSDKResponse>
+### 结束会话
+#### tccc.Chat.end(options): Promise<CommonSDKResponse>
 <table>
    <tr>
       <th width="0px" style="text-align:center" colspan="2">参数</td>
@@ -332,8 +332,8 @@
    </tr>
 </table>
 
-#### 转接会话
-##### tccc.Chat.transfer(): Promise<CommonSDKResponse>
+### 转接会话
+#### tccc.Chat.transfer(): Promise<CommonSDKResponse>
 <table>
    <tr>
       <th width="0px" style="text-align:center" colspan="2">参数</td>
@@ -362,9 +362,9 @@
    </tr>
 </table>
 
-### Video（视频客服相关接口函数）
-#### 接听会话
-##### tccc.Video.accept(options): Promise<CommonSDKResponse>
+## Video（视频客服相关接口函数）
+### 接听会话
+#### tccc.Video.accept(options): Promise<CommonSDKResponse>
 <table>
    <tr>
       <th width="0px" style="text-align:center" colspan="2">参数</td>
@@ -381,8 +381,8 @@
    </tr>
 </table>
 
-#### 挂断会话
-##### tccc.Video.end(options): Promise<CommonSDKResponse>
+### 挂断会话
+#### tccc.Video.end(options): Promise<CommonSDKResponse>
 <table>
    <tr>
       <th width="0px" style="text-align:center" colspan="2">参数</td>
@@ -399,8 +399,8 @@
    </tr>
 </table>
 
-#### 静音
-##### tccc.Video.muteMic(options): Promise<CommonSDKResponse>
+### 静音
+#### tccc.Video.muteMic(options): Promise<CommonSDKResponse>
 <table>
    <tr>
       <th width="0px" style="text-align:center" colspan="2">参数</td>
@@ -417,8 +417,8 @@
    </tr>
 </table>
 
-#### 取消静音
-##### tccc.Video.unmuteMic(options): Promise<CommonSDKResponse>
+### 取消静音
+#### tccc.Video.unmuteMic(options): Promise<CommonSDKResponse>
 <table>
    <tr>
       <th width="0px" style="text-align:center" colspan="2">参数</td>
@@ -435,8 +435,8 @@
    </tr>
 </table>
 
-#### 关闭摄像头
-##### tccc.Video.muteVideo(options): Promise<CommonSDKResponse>
+### 关闭摄像头
+#### tccc.Video.muteVideo(options): Promise<CommonSDKResponse>
 <table>
    <tr>
       <th width="0px" style="text-align:center" colspan="2">参数</td>
@@ -453,8 +453,8 @@
    </tr>
 </table>
 
-#### 开启摄像头
-##### tccc.Video.unmuteVideo(options): Promise<CommonSDKResponse>
+### 开启摄像头
+#### tccc.Video.unmuteVideo(options): Promise<CommonSDKResponse>
 <table>
    <tr>
       <th width="0px" style="text-align:center" colspan="2">参数</td>
@@ -471,8 +471,8 @@
    </tr>
 </table>
 
-#### 转接会话
-##### tccc.Video.transfer(): Promise<CommonSDKResponse>
+### 转接会话
+#### tccc.Video.transfer(): Promise<CommonSDKResponse>
 <table>
    <tr>
       <th width="0px" style="text-align:center" colspan="2">参数</td>
@@ -501,15 +501,15 @@
    </tr>
 </table>
 
-### Agent（坐席状态相关接口函数）
-#### 上线
-##### tccc.Agent.online(): void 
+## Agent（坐席状态相关接口函数）
+### 上线
+#### tccc.Agent.online(): void 
 
-#### 下线
-##### tccc.Agent.offline(): void
+### 下线
+#### tccc.Agent.offline(): void
 
-#### 设置坐席状态
-##### tccc.Agent.setStatus(optoins): Promise<CommonSDKResponse>
+### 设置坐席状态
+#### tccc.Agent.setStatus(optoins): Promise<CommonSDKResponse>
 <table>
    <tr>
       <th width="0px" style="text-align:center" colspan="2">参数</td>
@@ -532,33 +532,33 @@
    </tr>
 </table>
 
-### Devices（设备相关接口函数）
-#### 检测当前浏览器是否支持
-##### tccc.Devices.isBrowserSupported(): boolean
+## Devices（设备相关接口函数）
+### 检测当前浏览器是否支持
+#### tccc.Devices.isBrowserSupported(): boolean
 >? TCCC Web SDK 支持 Chrome 56、Edge80以上的浏览器。
 
-#### 返回麦克风设备列表
-##### tccc.Devices.getMicrophones(): Promise<<a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaDeviceInfo">MediaDeviceInfo</a> []>
+### 返回麦克风设备列表
+#### tccc.Devices.getMicrophones(): Promise<<a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaDeviceInfo">MediaDeviceInfo</a> []>
 
 
-#### 返回扬声器设备列表
-##### tccc.Devices.getSpeakers(): Promise<<a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaDeviceInfo">MediaDeviceInfo</a> []>
+### 返回扬声器设备列表
+#### tccc.Devices.getSpeakers(): Promise<<a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaDeviceInfo">MediaDeviceInfo</a> []>
 
-### UI（用户界面相关接口函数）
-#### 隐藏SDK UI
-##### tccc.UI.hide(): void
+## UI（用户界面相关接口函数）
+### 隐藏SDK UI
+#### tccc.UI.hide(): void
 
-#### 显示SDK UI
-##### tccc.UI.show(): void
+### 显示SDK UI
+#### tccc.UI.show(): void
 
-### Events（事件）
-#### SDK 初始化完成
-##### tccc.events.ready
+## Events（事件）
+### SDK 初始化完成
+#### tccc.events.ready
 当 SDK 初始化完成时触发，此时可安全调用API
 
 
-#### 会话呼入
-##### tccc.events.callIn
+### 会话呼入
+#### tccc.events.callIn
 会话呼入类型包括
 - phone: 电话会话
 - im: 在线会话
@@ -566,7 +566,7 @@
 - video: 视频会话
 - internal: 内线会话
 
-#### 电话会话呼入
+### 电话会话呼入
 <table>
    <tr>
       <th width="0px" style="text-align:center" colspan="2">参数</td>
@@ -625,7 +625,7 @@
    </tr>
 </table> 
 
-#### 在线会话呼入
+### 在线会话呼入
 <table>
    <tr>
       <th width="0px" style="text-align:center" colspan="2">参数</td>
@@ -690,7 +690,7 @@
    </tr>
 </table> 
 
-#### 音频会话呼入
+### 音频会话呼入
 <table>
    <tr>
       <th width="0px" style="text-align:center" colspan="2">参数</td>
@@ -767,7 +767,7 @@
    </tr>
 </table> 
 
-#### 视频会话呼入
+### 视频会话呼入
 <table>
    <tr>
       <th width="0px" style="text-align:center" colspan="2">参数</td>
@@ -820,7 +820,7 @@
    </tr>
 </table> 
 
-#### 内部会话呼入
+### 内部会话呼入
 <table>
    <tr>
       <th width="0px" style="text-align:center" colspan="2">参数</td>
@@ -855,8 +855,8 @@
    </tr>
 </table> 
 
-#### 坐席接入会话
-##### tccc.evens.userAccessed
+### 坐席接入会话
+#### tccc.evens.userAccessed
 <table>
    <tr>
       <th width="0px" style="text-align:center" colspan="2">参数</td>
@@ -873,8 +873,8 @@
    </tr>
 </table>
 
-#### 会话超时转接事件
-##### tccc.events.autoTransfer
+### 会话超时转接事件
+#### tccc.events.autoTransfer
 <table>
    <tr>
       <th width="0px" style="text-align:center" colspan="2">参数</td>
@@ -891,8 +891,8 @@
    </tr>
 </table>
 
-#### 会话结束事件
-##### tccc.events.sessionEnded
+### 会话结束事件
+#### tccc.events.sessionEnded
 <table>
    <tr>
       <th width="0px" style="text-align:center" colspan="2">参数</td>
@@ -909,8 +909,8 @@
    </tr>
 </table>
 
-#### 外呼成功事件
-##### tccc.events.callOuted
+### 外呼成功事件
+#### tccc.events.callOuted
 <table>
    <tr>
       <th width="0px" style="text-align:center" colspan="2">参数</td>
@@ -927,8 +927,8 @@
    </tr>
 </table>
 
-#### 外呼对方接听事件
-##### tccc.events.calloutAccepted
+### 外呼对方接听事件
+#### tccc.events.calloutAccepted
 <table>
    <tr>
       <th width="0px" style="text-align:center" colspan="2">参数</td>
@@ -945,8 +945,8 @@
    </tr>
 </table>
 
-#### 会话话转接事件
-##### tccc.events.transfer
+### 会话话转接事件
+#### tccc.events.transfer
 <table>
    <tr>
       <th width="0px" style="text-align:center" colspan="2">参数</td>
