@@ -72,7 +72,7 @@ App targetSdkVersion >= 28(Android 9.0)情况下，系统默认不允许 HTTP �
 >- 若您已经接入了腾讯灯塔（beacon）组件的应用，请忽略此步骤。
 >- 灯塔（beacon）SDK 是由腾讯灯塔团队开发，用于移动应用统计分析，HTTPDNS SDK 使用灯塔（beacon）SDK 收集域名解析质量数据，辅助定位问题。
 
-### 接口调用
+#### 接口调用
 ```Java
 
 // 初始化灯塔：没使用灯塔可以忽略下面
@@ -94,9 +94,9 @@ MSDKDnsResolver.getInstance().WGSetDnsOpenId("10000");
 ```
  
 ### SDK 初始化
-
-i.初始化配置服务（4.0.0版本开始支持，`注意：可选项请根据功能需要进行开启`）
-
+- 初始化配置服务（4.0.0版本开始支持）
+>!可选项请根据功能需要进行开启。
+>
 在获取服务实例之前，我们可以通过初始化配置，设置服务的一些属性在SDK初始化时进行配置项传入。
 ```Java
 DnsConfig dnsConfigBuilder = DnsConfig.Builder()
@@ -126,12 +126,11 @@ DnsConfig dnsConfigBuilder = DnsConfig.Builder()
 MSDKDnsResolver.getInstance().init(this, dnsConfigBuilder);
 ```
 
-ii. 老版本初始化方法
-
-- HTTP 协议服务地址为 `119.29.29.98`，HTTPS 协议服务地址为 `119.29.29.99`（仅当采用自选加密方式并且 `channel` 为 `Https` 时使用 `99` 的 IP）。
-- 新版本 API 更新为使用 `119.29.29.99/98` 接入，同时原移动解析 HTTPDNS 服务地址 `119.29.29.29` 仅供开发调试使用，无 SLA 保障，不建议用于正式业务，请您尽快将正式业务迁移至 `119.29.29.99/98`。
-- 具体以 [API 说明](https://cloud.tencent.com/document/product/379/54976) 提供的 IP 为准。
-- 使用 SDK 方式接入 HTTPDNS，若 HTTPDNS 未查询到解析结果，则通过 LocalDNS 进行域名解析，返回 LocalDNS 的解析结果。
+- 老版本初始化方法
+  - HTTP 协议服务地址为 `119.29.29.98`，HTTPS 协议服务地址为 `119.29.29.99`（仅当采用自选加密方式并且 `channel` 为 `Https` 时使用 `99` 的 IP）。
+  - 新版本 API 更新为使用 `119.29.29.99/98` 接入，同时原移动解析 HTTPDNS 服务地址 `119.29.29.29` 仅供开发调试使用，无 SLA 保障，不建议用于正式业务，请您尽快将正式业务迁移至 `119.29.29.99/98`。
+  - 具体以 [API 说明](https://cloud.tencent.com/document/product/379/54976) 提供的 IP 为准。
+  - 使用 SDK 方式接入 HTTPDNS，若 HTTPDNS 未查询到解析结果，则通过 LocalDNS 进行域名解析，返回 LocalDNS 的解析结果。
 
 #### 默认使用 DES 加密
 ##### 默认不进行解析异常上报
