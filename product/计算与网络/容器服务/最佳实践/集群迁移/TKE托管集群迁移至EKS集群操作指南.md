@@ -17,7 +17,7 @@
 - EKS 不支持自定义 net 前缀的内核参数。
 - EKS 不支持部署 DaemonSet 类型的工作负载。
 - EKS 不支持部署 NodePort 类型的服务。
-- EKS pod 不支持监听 9100 端口及 62000 以上端口。
+- EKS Pod 不支持监听 9100 端口及 62000 以上端口。
 - 除以上限制外，务必阅读 <a href="https://cloud.tencent.com/document/product/457/39815#.E5.85.B6.E4.BB.96.E8.AF.B4.E6.98.8E"> EKS 集群其他说明</a>。
 
 ## 迁移步骤
@@ -58,7 +58,7 @@ velero install  --provider aws  \
 --use-volume-snapshots=false \
 --backup-location-config region=ap-guangzhou,s3ForcePathStyle="true",s3Url=https://cos.ap-guangzhou.myqcloud.com
 ```
->! eks 不支持部署 Daemonset，因此此文中都不支持使用 restic 插件。
+>! EKS 不支持部署 Daemonset，因此此文中都不支持使用 restic 插件。
 >
 	- 如不需要备份 PVC，安装示例如下：
 ```plaintext
@@ -154,10 +154,10 @@ spec:
 ![](https://qcloudimg.tencent-cloud.cn/raw/2d75a57b25205ca427e62f9ce50f42a8.png)
 
 ### 备份与还原
-1. 在集群 A 创建备份，请参见文档 [集群迁移](https://cloud.tencent.com/document/product/457/50550#.E5.9C.A8.E9.9B.86.E7.BE.A4-a-.E5.88.9B.E5.BB.BA.E5.A4.87.E4.BB.BD) 操作步骤中的**集群 A 创建备份**。
-2. 在集群 B 还原备份，请参见文档 [集群迁移](https://cloud.tencent.com/document/product/457/50550#.E5.9C.A8.E9.9B.86.E7.BE.A4-b-.E6.89.A7.E8.A1.8C.E8.BF.98.E5.8E.9F) 操作步骤中的**集群 B 执行还原**。
+1. 在集群 A 创建备份，请参见**集群迁移**操作步骤中的 [集群 A 创建备份](https://cloud.tencent.com/document/product/457/50550#.E5.9C.A8.E9.9B.86.E7.BE.A4-a-.E5.88.9B.E5.BB.BA.E5.A4.87.E4.BB.BD)。
+2. 在集群 B 还原备份，请参见**集群迁移**操作步骤中的 [集群 B 执行还原](https://cloud.tencent.com/document/product/457/50550#.E5.9C.A8.E9.9B.86.E7.BE.A4-b-.E6.89.A7.E8.A1.8C.E8.BF.98.E5.8E.9F)。
 3. 迁移结果核验：
-	- 如不需要备份 PVC，请参见文档 [集群迁移](https://cloud.tencent.com/document/product/457/50550#.E8.BF.81.E7.A7.BB.E7.BB.93.E6.9E.9C.E6.A0.B8.E9.AA.8C) 操作步骤的**迁移结果核验**。
+	- 如不需要备份 PVC，请参见**集群迁移**操作步骤中的 [迁移结果核验](https://cloud.tencent.com/document/product/457/50550#.E8.BF.81.E7.A7.BB.E7.BB.93.E6.9E.9C.E6.A0.B8.E9.AA.8C)。
 	- 如需要备份 PVC，参照以下步骤进行核验：
   1. 执行以下命令，校验集群 B 执行迁移操作后的集群资源，可以看到 Pods、PVC、Service 资源已按预期迁移成功。如下图所示：
   ![](https://qcloudimg.tencent-cloud.cn/raw/3bafcbd38e9a9c63ba7804a4773e9a9c.png)
@@ -173,16 +173,16 @@ spec:
 
 ## 使用 EKS 常见问题
 - 拉取镜像失败：请参见 [镜像仓库](https://cloud.tencent.com/document/product/457/54755)。
-- 域名解析失败：常见于 pod 镜像拉取失败、投递日志到自建 kafka 失败，请参见 [弹性集群自定义 DNS 服务](https://cloud.tencent.com/document/product/457/63735)。
+- 域名解析失败：常见于 Pod 镜像拉取失败、投递日志到自建 kafka 失败，请参见 [弹性集群自定义 DNS 服务](https://cloud.tencent.com/document/product/457/63735)。
 - 日志投递到 CLS 失败：首次使用 EKS 集群投递日志到 CLS，需要为服务授权，请参见 [首次授权](https://cloud.tencent.com/document/product/457/56751#.E9.A6.96.E6.AC.A1.E6.8E.88.E6.9D.83.3Ca-id.3D.22role.22.3E.3C.2Fa.3E)。
 - 每个集群默认仅可创建 100 个 Pod，若需要创建超过配额的资源，请参见 [默认配额](https://cloud.tencent.com/document/product/457/53030#.E9.BB.98.E8.AE.A4.E9.85.8D.E9.A2.9D)。
-- pod 频繁被销毁重建，报错 `Timeout to ensure pod sandbox`：eks pod 内的组件会与管控面通讯以保持健康检测，当 pod 创建完后，pod 持续 6 分钟网络不通，则会被管控面发起销毁重建。此时需检查 pod 关联的安全组是否放通了 169.254 路由的访问。
-- pod 端口访问不通 / not ready：
-  - 业务容器端口是否与 eks 管控面端口有冲突，请参见 [端口限制](https://cloud.tencent.com/document/product/457/39815#.E7.AB.AF.E5.8F.A3.E9.99.90.E5.88.B6)
-  - pod 可以 ping 成功，但是 telnet 失败，检查安全组。
+- Pod 频繁被销毁重建，报错 `Timeout to ensure pod sandbox`：EKS Pod 内的组件会与管控面通讯以保持健康检测，当 Pod 创建完后，Pod 持续 6 分钟网络不通，则会被管控面发起销毁重建。此时需检查 Pod 关联的安全组是否放通了 169.254 路由的访问。
+- Pod 端口访问不通 / not ready：
+  - 业务容器端口是否与 EKS 管控面端口有冲突，请参见 [端口限制](https://cloud.tencent.com/document/product/457/39815#.E7.AB.AF.E5.8F.A3.E9.99.90.E5.88.B6)
+  - Pod 可以 ping 成功，但是 telnet 失败，检查安全组。
 - 创建实例时，可以使用如下特性加快拉取镜像速度：请参见 [镜像缓存](https://cloud.tencent.com/document/product/457/65908) 与 [镜像复用](https://cloud.tencent.com/document/product/457/54980#FAQ8)。
 - 业务日志转存：EKS job 类型的业务在退出后，底层资源就被回收，此时 Kubectl logs 无法查看容器日志，对于需要 debug 的场景不友好。可通过延迟销毁或者设置 terminationMessage 字段将业务日志转存，请参见 [设置容器终止消息](https://cloud.tencent.com/document/product/457/54980#FAQ5)。
-- pod 频繁重启，报错 `ImageGCFailed`：eks pod 默认磁盘大小为 20Gi, 如果磁盘使用空间达到 80%，eks 管控面就会触发容器镜像的回收流程，尝试回收未使用的容器镜像来释放磁盘空间。如果未能释放任何空间，则会有一条事件提醒：`ImageGCFailed: failed to garbage collect required amount of images`，提醒用户磁盘空间不足。常见磁盘空间不足的原因有：
+- Pod 频繁重启，报错 `ImageGCFailed`：EKS Pod 默认磁盘大小为 20Gi, 如果磁盘使用空间达到 80%，EKS 管控面就会触发容器镜像的回收流程，尝试回收未使用的容器镜像来释放磁盘空间。如果未能释放任何空间，则会有一条事件提醒：`ImageGCFailed: failed to garbage collect required amount of images`，提醒用户磁盘空间不足。常见磁盘空间不足的原因有：
   - 业务有大量临时输出。
   - 业务持有已删除的文件描述符，导致磁盘空间未释放。
 
