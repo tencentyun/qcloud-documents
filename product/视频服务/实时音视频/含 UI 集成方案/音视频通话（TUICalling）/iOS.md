@@ -78,37 +78,28 @@ TUICalling.shareInstance()
 
 ### 步骤四：实现音视频通话
 
-- 实现1对1视频通话 [TUICalling#call](https://cloud.tencent.com/document/product/647/47748#call)。
-<dx-tabs>
-:::  Objective-C
-```
+- 实现1对1视频通话 [TUICalling#call](https://cloud.tencent.com/document/product/647/47748#call)
+<dx-codeblock>
+:::  Objective-C Objectivec
 // 发起1对1视频通话，假设userId为：1111
 [[TUICalling shareInstance] call:@[@"1111"] type:TUICallingTypeVideo];
-```
 :::
-::: Swift
-```
+::: Swift Swift
 // 发起1对1视频通话，假设userId为：1111
 TUICalling.shareInstance().call(userIDs: ["1111"], type: .video)
-```
 :::
-</dx-tabs>
-
-- 实现多人视频通话 [TUICalling#call](https://cloud.tencent.com/document/product/647/47748#call)。
-<dx-tabs>
-:::  Objective-C
-```
+</dx-codeblock>
+- 实现多人视频通话 [TUICalling#call](https://cloud.tencent.com/document/product/647/47748#call)
+<dx-codeblock>
+:::  Objective-C Objectivec
 // 发起多人视频通话，假设userId分别为：1111、2222、3333；
 [[TUICalling shareInstance] call:@[@"1111", @"2222", @"3333"] type:TUICallingTypeVideo];
-```
 :::
-::: Swift
-```
+::: Swift Swift
 // 发起多人视频通话，假设userId分别为：1111、2222、3333；
 TUICalling.shareInstance().call(userIDs: ["1111", "2222", "3333"], type: .video)
-```
 :::
-</dx-tabs>
+</dx-codeblock>
 
 >? 当接收方完成步骤三后，即登录成功后，再收到通话请求后，TUICalling组件会自动启动相应的接听界面。
 
@@ -118,10 +109,8 @@ TUICalling.shareInstance().call(userIDs: ["1111", "2222", "3333"], type: .video)
 ### 步骤六：状态监听（可选）
 
 如果您的业务需要 [监听通话的状态](https://cloud.tencent.com/document/product/647/47748#setCallingListener)，例如通话开始、结束等，可以监听以下事件：
-
-<dx-tabs>
-:::  Objective-C
-```
+<dx-codeblock>
+:::  Objective-C Objectivec
 [[TUICalling shareInstance] setCallingListener:self];
 
 - (BOOL)shouldShowOnCallView {
@@ -139,10 +128,8 @@ TUICalling.shareInstance().call(userIDs: ["1111", "2222", "3333"], type: .video)
 - (void)onCallEvent:(TUICallingEvent)event type:(TUICallingType)type role:(TUICallingRole)role message:(nonnull NSString *)message {
 
 }
-```
 :::
-::: Swift
-```
+::: Swift Swift
 TUICalling.shareInstance().setCallingListener(listener: self)
 
 public func shouldShowOnCallView() -> Bool {
@@ -160,9 +147,8 @@ public func callEnd(userIDs: [String], type: TUICallingType, role: TUICallingRol
 public func onCallEvent(event: TUICallingEvent, type: TUICallingType, role: TUICallingRole, message: String) {
 
 }
-```
 :::
-</dx-tabs>
+</dx-codeblock>
 
 ### 步骤七：悬浮窗功能（可选）
 
