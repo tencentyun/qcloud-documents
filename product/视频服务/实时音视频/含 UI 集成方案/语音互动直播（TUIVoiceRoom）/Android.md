@@ -1,6 +1,6 @@
-## 一. 组件介绍
+## 组件介绍
 
-TUIVoiceRoom 是一个开源的音视频 UI 组件，通过在项目中集成 TUIVoiceRoom 组件，您只需要编写几行代码就可以为您的 App 添加“多人语音聊天”等场景，TUIVoiceRoom同时支持[iOS](https://cloud.tencent.com/document/product/647/45753)、[小程序](https://cloud.tencent.com/document/product/647/)等平台，基本功能如下图所示：
+TUIVoiceRoom 是一个开源的音视频 UI 组件，通过在项目中集成 TUIVoiceRoom 组件，您只需要编写几行代码就可以为您的 App 添加“多人语音聊天”等场景，TUIVoiceRoom 同时支持 [iOS](https://cloud.tencent.com/document/product/647/45753)、[小程序](https://cloud.tencent.com/document/product/647/) 等平台，基本功能如下图所示：
 
 <table class="tablestyle">
 <tbody><tr>
@@ -10,23 +10,20 @@ TUIVoiceRoom 是一个开源的音视频 UI 组件，通过在项目中集成 TU
 </tr>
 </tbody></table>
 
-## 二. 组件集成
+## 组件集成
 
 ### 步骤一：下载并导入 TUIVoiceRoom 组件
-
-点击进入 [Github](https://github.com/tencentyun/TUIVoiceRoom) ，选择克隆/下载代码，然后拷贝 Android/Source 目录到您的工程中，并完成如下导入动作：
+单击进入 [Github](https://github.com/tencentyun/TUIVoiceRoom) ，选择克隆/下载代码，然后拷贝 Android/Source 目录到您的工程中，并完成如下导入动作：
 - 在 `setting.gradle` 中完成导入，参考如下：
 ```
 include ':Source'
 ```
-
 - 在 app 的 build.gradle 文件中添加对 Source 的依赖：
 ```
 api project(':Source')
 ```
 
 ### 步骤二：配置权限及混淆规则
-
 在 AndroidManifest.xml 中配置 App 的权限，SDK 需要以下权限（6.0以上的 Android 系统需要动态申请麦克风权限等）：
 
 ```
@@ -41,8 +38,7 @@ api project(':Source')
 -keep class com.tencent.** { *; }
 ```
 
-### 步骤三：初始化并登录 [TRTCVoiceRoom#login](https://cloud.tencent.com/document/product/647/45979#login)
-
+### 步骤三：初始化并登录
 ```java
     // 1.初始化，
     TRTCVoiceRoom mTRTCVoiceRoom = TRTCVoiceRoom.sharedInstance(this);
@@ -57,22 +53,17 @@ api project(':Source')
             }
         }
     });
- 
 ```
-#### 3.1 参数说明
-- **SDKAppID**：**TRTC 应用ID**，如果您未开通腾讯云 TRTC 服务，可以点击 [这里](https://console.cloud.tencent.com/trtc/app)，进入腾讯云实时音视频控制台，创建一个新的的TRTC应用后，点击应用信息，SDKAppID信息如下图所示；
- <img src="https://liteav.sdk.qcloud.com/app/doc/app_manager_sdk_secretkey.png" width="700">
-	
-- **Secretkey**：**TRTC 应用密钥**，和SDKAppId对应，进入 [TRTC 应用管理](https://console.cloud.tencent.com/trtc/app) 后，SecretKey信息如上图所示；
 
-- **userId**：当前用户的 ID，字符串类型，只允许包含英文字母（a-z 和 A-Z）、数字（0-9）、连词符（-）和下划线（_）。建议结合业务实际账号体系自行设置。
-
-- **userSig**：根据SDKAppId、userId，Secretkey等信息计算得到的安全保护签名，您可以点击 [这里](https://console.cloud.tencent.com/trtc/usersigtool) 直接在线生成一个调试的userSig，也可以参照我们的[示例工程](https://github.com/tencentyun/TUIVoiceRoom/blob/main/Android/Debug/src/main/java/com/tencent/liteav/debug/GenerateTestUserSig.java#L88)自行计算，更多信息见 [如何计算及使用 UserSig](https://cloud.tencent.com/document/product/647/17275)。
-
+**参数说明：**
+- **SDKAppID**：**TRTC 应用 ID**，如果您未开通腾讯云 TRTC 服务，可进入 [腾讯云实时音视频控制台](https://console.cloud.tencent.com/trtc/app)，创建一个新的的 TRTC 应用后，单击**应用信息**，SDKAppID 信息如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/cf6de5f10b77be75174d0ba359101f60.png)
+- **Secretkey**：**TRTC 应用密钥**和 SDKAppId 对应，进入 [TRTC 应用管理](https://console.cloud.tencent.com/trtc/app) 后，SecretKey 信息如上图所示。
+- **userId**：当前用户的 ID，字符串类型，只允许包含英文字母（a-z 和 A-Z）、数字（0-9）、连词符（-）和下划线（\_）。建议结合业务实际账号体系自行设置。
+- **userSig**：根据 SDKAppId、userId，Secretkey等信息计算得到的安全保护签名，您可以单击 [这里](https://console.cloud.tencent.com/trtc/usersigtool) 直接在线生成一个调试的userSig，也可以参照我们的 [示例工程](https://github.com/tencentyun/TUIRoom/blob/main/Android/Debug/src/main/java/com/tencent/liteav/debug/GenerateTestUserSig.java#L88) 自行计算，更多信息见 [如何计算及使用 UserSig](https://cloud.tencent.com/document/product/647/17275)。
 
 ### 步骤四：实现语音聊天房间
-
-#### 4.1. 实现房主创建语音聊天房间 [TRTCVoiceRoom#createRoom](https://cloud.tencent.com/document/product/647/45979#createroom)
+1. **实现房主创建语音聊天房间 [TRTCVoiceRoom#createRoom](https://cloud.tencent.com/document/product/647/45979#createroom)**
 ```java
 // 1.房主调用创建房间
 int roomId = 12345; //房间id
@@ -90,8 +81,7 @@ mTRTCVoiceRoom.createRoom(roomId, roomParam, new TRTCVoiceRoomCallback.ActionCal
     }
 });
 ```
-
-#### 4.2. 实现听众加入语音聊天房间 [TRTCVoiceRoom#enterRoom](https://cloud.tencent.com/document/product/647/45979#enterroom)
+2. **实现听众加入语音聊天房间 [TRTCVoiceRoom#enterRoom](https://cloud.tencent.com/document/product/647/45979#enterroom)**
 ```java
 // 1.听众调用加入房间
 mTRTCVoiceRoom.enterRoom(roomId, new TRTCVoiceRoomCallback.ActionCallback() {
@@ -103,8 +93,7 @@ mTRTCVoiceRoom.enterRoom(roomId, new TRTCVoiceRoomCallback.ActionCallback() {
         }
 });
 ```
-
-#### 4.3. 实现听众主动上麦 [TRTCVoiceRoom#enterSeat](https://cloud.tencent.com/document/product/647/45979#enterseat)
+3. **实现听众主动上麦 [TRTCVoiceRoom#enterSeat](https://cloud.tencent.com/document/product/647/45979#enterseat)**
 ```java
 // 1: 听众调用上麦
 int seatIndex = 2; //麦位的index
@@ -122,8 +111,7 @@ mTRTCVoiceRoom.enterSeat(seatIndex, new TRTCVoiceRoomCallback.ActionCallback() {
 public void onSeatListChange(final List<TRTCVoiceRoomDef.SeatInfo> seatInfoList) {
 }
 ```
-
-#### 4.4. 实现房主抱人上麦 [TRTCVoiceRoom#pickSeat](https://cloud.tencent.com/document/product/647/45979#pickseat)
+4. **实现房主抱人上麦 [TRTCVoiceRoom#pickSeat](https://cloud.tencent.com/document/product/647/45979#pickseat)**
 ```java
 // 1: 房主调用抱人麦位
 int seatIndex = 2; //麦位的index
@@ -141,10 +129,8 @@ mTRTCVoiceRoom.pickSeat(1, userId, new TRTCVoiceRoomCallback.ActionCallback() {
 @Override
 public void onSeatListChange(final List<TRTCVoiceRoomDef.SeatInfo> seatInfoList) {
 }
-
 ```
-
-#### 4.5. 实现听众申请上麦 [TRTCVoiceRoom#sendInvitation](https://cloud.tencent.com/document/product/647/45979#sendinvitation)
+5. **实现听众申请上麦 [TRTCVoiceRoom#sendInvitation](https://cloud.tencent.com/document/product/647/45979#sendinvitation)**
 ```java
 // 听众端视角
 // 1.听众调用申请上麦
@@ -170,8 +156,7 @@ public void onReceiveNewInvitation(final String id, String inviter, String cmd, 
     }
 }
 ```
-
-#### 4.6. 实现房主邀请上麦 [TRTCVoiceRoom#sendInvitation](https://cloud.tencent.com/document/product/647/45979#sendinvitation)
+6. **实现房主邀请上麦 [TRTCVoiceRoom#sendInvitation](https://cloud.tencent.com/document/product/647/45979#sendinvitation)**
 ```java
 // 房主端视角
 // 1.房主调用请求抱人上麦
@@ -197,8 +182,7 @@ public void onReceiveNewInvitation(final String id, String inviter, String cmd, 
     }
 }
 ```
-
-#### 4.7. 实现文字聊天 [TRTCVoiceRoom#sendRoomTextMsg](https://cloud.tencent.com/document/product/647/45979#sendroomtextmsg)
+7. **实现文字聊天 [TRTCVoiceRoom#sendRoomTextMsg](https://cloud.tencent.com/document/product/647/45979#sendroomtextmsg)**
 ```java
 // 发送端：发送文本消息
 mTRTCVoiceRoom.sendRoomTextMsg("Hello Word!", null);
@@ -210,8 +194,7 @@ mTRTCVoiceRoom.setDelegate(new TRTCVoiceRoomDelegate() {
   }
 });
 ```
-
-#### 4.8. 实现弹幕消息 [TRTCVoiceRoom#sendRoomCustomMsg](https://cloud.tencent.com/document/product/647/45979#sendroomcustommsg)
+8. **实现弹幕消息 [TRTCVoiceRoom#sendRoomCustomMsg](https://cloud.tencent.com/document/product/647/45979#sendroomcustommsg)**
 ```java
 // 发送端：您可以通过自定义 Cmd 来区分弹幕和点赞消息
 // eg:"CMD_DANMU"表示弹幕消息，"CMD_LIKE"表示点赞消息
@@ -232,6 +215,5 @@ mTRTCVoiceRoom.setDelegate(new TRTCVoiceRoomDelegate() {
 });
 ```
 
-## 三. 常见问题
-
->? 更多帮助信息，详见 [TUI 场景化解决方案常见问题](https://cloud.tencent.com/developer/article/1952880)，欢迎加入 QQ 群：592465424，进行技术交流和反馈~
+## 常见问题
+更多帮助信息，详情请参见 [TUI 场景化解决方案常见问题](https://cloud.tencent.com/developer/article/1952880)。欢迎加入 QQ 群：**592465424**，进行技术交流和反馈。
