@@ -4,10 +4,10 @@ TUIChorus 是一个开源的音视频 UI 组件，通过在项目中集成 TUICh
 
 <table>
      <tr>
-         <th>聊天</th>  
-         <th>点歌</th>  
-         <th>合唱</th>  
-         <th>发送礼物</th>  
+         <th  width=20%  style="text-align:center">聊天</th>  
+         <th  width=20%  style="text-align:center">点歌</th>  
+         <th  width=20%  style="text-align:center">合唱</th>  
+         <th width=20%  style="text-align:center">发送礼物</th>  
      </tr>
 <tr>
 <td><img src="https://qcloudimg.tencent-cloud.cn/raw/8378a5d92873ebd82b42732162162bca.png"/></td>
@@ -21,32 +21,26 @@ TUIChorus 是一个开源的音视频 UI 组件，通过在项目中集成 TUICh
 ## 二. 组件集成
 
 ### 步骤一：下载并导入 TUIChorus 组件
-
-点击进入 [Github](https://github.com/tencentyun/TUIChorus) ，选择克隆/下载代码，然后拷贝`iOS`目录下的`Resources`、`Source`、`TXAppBasic`文件夹及`TUIChorus.podspec`文件到您的工程中，并完成如下导入动作：
-
+单击进入 [Github](https://github.com/tencentyun/TUIChorus) ，选择克隆/下载代码，然后拷贝`iOS`目录下的`Resources`、`Source`、`TXAppBasic`文件夹及`TUIChorus.podspec`文件到您的工程中，并完成如下导入动作：
 - 在您的 `Podfile` 文件内添加导入命令，参考如下：
-
 ```
 pod 'TUIChorus', :path => "./", :subspecs => ["Professional"]
 pod 'TXAppBasic', :path => "TXAppBasic/"
 ```
-
 - 打开终端，进入`Podfile`文件所在目录下执行安装命令，参考如下：
-
 ```
 pod install
 ```
 
 ### 步骤二：配置权限
-
 在您的工程的 info.plist文件中配置 App 的权限，SDK 需要以下权限（iOS 系统需要动态申请麦克风）：
-
 ```
  <key>NSMicrophoneUsageDescription</key>
     <string>Chorus 需要访问您的麦克风权限</string>
 ```
 
-### 步骤三：初始化并登录 [TUIChorus](https://cloud.tencent.com/document/product/647/61860#sharedinstance)
+### 步骤三：初始化并登录 
+相关接口说明请参见 [TUIChorus](https://cloud.tencent.com/document/product/647/61860#sharedinstance)。
 
 ```swift
 // 1.初始化
@@ -60,24 +54,19 @@ if code == 0 {
 }
 }
 ```
-#### 3.1 参数说明
-- **SDKAppID**：**TRTC 应用ID**，如果您未开通腾讯云 TRTC 服务，可以点击 [这里](https://console.cloud.tencent.com/trtc/app)，进入腾讯云实时音视频控制台，创建一个新的的TRTC应用后，点击应用信息，SDKAppID信息如下图所示；
- <img src="https://liteav.sdk.qcloud.com/app/doc/app_manager_sdk_secretkey.png" width="700">
-	
-- **SecretKey**：**TRTC 应用密钥**，和SDKAppID对应，进入 [TRTC 应用管理](https://console.cloud.tencent.com/trtc/app) 后，SecretKey信息如上图所示；
+**参数说明**：
+- **SDKAppID**：**TRTC 应用ID**，如果您未开通腾讯云 TRTC 服务，可进入 [腾讯云实时音视频控制台](https://console.cloud.tencent.com/trtc/app)，创建一个新的 TRTC 应用后，单击**应用信息**，SDKAppID 信息如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/3d6ebfa2a1e4ae5d3af3ecd564fb1463.png)
+- **Secretkey**：**TRTC 应用密钥**，和 SDKAppId 对应，进入 [TRTC 应用管理](https://console.cloud.tencent.com/trtc/app) 后，SecretKey 信息如上图所示。
+- **userId**：当前用户的 ID，字符串类型，长度不超过32字节，不支持使用特殊字符，建议使用英文或数字，可结合业务实际账号体系自行设置。
+- **userSig**：根据 SDKAppId、userId，Secretkey 等信息计算得到的安全保护签名，您可以单击 [这里](https://console.cloud.tencent.com/trtc/usersigtool) 直接在线生成一个调试的 UserSig，也可以参照我们的 [TUICalling示例工程](https://github.com/tencentyun/TUICalling/blob/main/Android/App/src/main/java/com/tencent/liteav/demo/LoginActivity.java#L74)自行计算，更多信息见 [如何计算及使用 UserSig](https://cloud.tencent.com/document/product/647/17275)。
 
-- **UserID**：当前用户的 ID，字符串类型，只允许包含英文字母（a-z 和 A-Z）、数字（0-9）、连词符（-）和下划线（_）。建议结合业务实际账号体系自行设置。
-
-- **UserSig**：根据SDKAppID、UserID，SecretKey等信息计算得到的安全保护签名，您可以点击 [这里](https://console.cloud.tencent.com/trtc/usersigtool) 直接在线生成一个调试的UserSig，也可以参照我们的[TUIChorus示例工程](https://github.com/tencentyun/TUIChorus/blob/main/iOS/Debug/GenerateTestUserSig.swift#:~:text=public%20static%20String%20genTestUserSig(String%20userId)%20%7B)自行计算，更多信息见 [如何计算及使用 UserSig](https://cloud.tencent.com/document/product/647/17275)。
 
 ### 步骤四：开通推拉流服务
-
-体验TUIChorus 合唱场景您需要开通腾讯云推拉流服务，用于主播端推流，听众端拉流。
-请参照 [推拉流URL](https://cloud.tencent.com/document/product/454/7915) 文档，生成自己的推拉流地址并保存，可保存为`pushUrl`和`playerUrl`。
+体验 TUIChorus 合唱场景您需要开通腾讯云推拉流服务，用于主播端推流，听众端拉流。您可参考 [推拉流URL](https://cloud.tencent.com/document/product/454/7915)，生成自己的推拉流地址并保存，可保存为 `pushUrl` 和 `playerUrl`。
 
 ### 步骤五：实现实时合唱场景
-
-#### 5.1. 主播创建房间 [TUIChorus.createRoom](https://cloud.tencent.com/document/product/647/61860#createroom)
+1. **主播创建房间 [TUIChorus.createRoom](https://cloud.tencent.com/document/product/647/61860#createroom)**
 ```swift
 let roomId = "房间Id"
 let param = ChorusParam.init()
@@ -95,8 +84,7 @@ chorusRoom.createRoom(roomID: roomId, roomParam: param) { [weak self] (code, mes
 	}
 }
 ```
-
-#### 5.2. 听众进入房间 [TUIChorus.enterRoom](https://cloud.tencent.com/document/product/647/61860#enterroom)
+2. **听众进入房间 [TUIChorus.enterRoom](https://cloud.tencent.com/document/product/647/61860#enterroom)**
 ```swift
 chorusRoom.enterRoom(roomID: roomInfo.roomID) { [weak self] (code, message) in
 	guard let `self` = self else { return }
@@ -105,7 +93,7 @@ chorusRoom.enterRoom(roomID: roomInfo.roomID) { [weak self] (code, message) in
 	}
 }
 ```
-#### 5.3. 听众主动上麦成为副唱 [TUIChorus.enterSeat](https://cloud.tencent.com/document/product/647/61860#enterseat)
+3. **听众主动上麦成为副唱 [TUIChorus.enterSeat](https://cloud.tencent.com/document/product/647/61860#enterseat)**
 ```swift
 // 1.听众调用上麦
 int seatIndex = 1 
@@ -121,10 +109,8 @@ func onSeatListChange(seatInfoList seatInfolist: [ChorusSeatInfo]) {
 }
 ```
 >? 其他关于麦位管理的相关操作，您可参考 [TUIChorus接口文档](https://cloud.tencent.com/document/product/647/61860) 按需实现，或者可以参考我们的[TUIChorus示例工程](https://github.com/tencentyun/TUIChorus/)。
-
-#### 5.4 实现音乐播放并合唱
-您可以根据自己的业务获取音乐ID和URL链接，播放歌曲并合唱，[TUIChorus音乐播放接口](https://cloud.tencent.com/document/product/647/61860#.E9.9F.B3.E4.B9.90.E6.92.AD.E6.94.BE.E6.8E.A5.E5.8F.A32)
-
+4. **实现音乐播放并合唱**
+您可以根据自己的业务获取音乐 ID 和 URL 链接播放歌曲并合唱，相关接口说明请参见 [TUIChorus 音乐播放接口](https://cloud.tencent.com/document/product/647/61860#.E9.9F.B3.E4.B9.90.E6.92.AD.E6.94.BE.E6.8E.A5.E5.8F.A32)。
 ```swift
 //播放音乐
 chorusRoom.startPlayMusic(musicID: musicModel.musicID, url: musicModel.contentUrl)
@@ -136,7 +122,7 @@ chorusRoom.stopPlayMusic()
 
 ### 步骤六：文字聊天功能（可选）
 如果您需要实现主播、副唱以及听众之间聊天的功能，可以通过以下方法发送或接收聊天信息。
-[TRTCChorusRoom.sendRoomTextMsg](https://cloud.tencent.com/document/product/647/61860#sendroomtextmsg)
+相关接口说明请参见 [TRTCChorusRoom.sendRoomTextMsg](https://cloud.tencent.com/document/product/647/61860#sendroomtextmsg)。
 
 ```swift
 // 发送端：发送文本消息
@@ -176,9 +162,7 @@ func onRecvRoomCustomMsg(cmd: String, message: String, userInfo: ChorusUserInfo)
 
 
 ## 三. 常见问题
+### TUIChorus 组件支持变声、变调、混响等音效功能吗？
+支持，具体请参见 [TUIChorus 示例工程](https://github.com/tencentyun/TUIChorus/blob/main/iOS/Source/ui/TRTCChorusViewController/SubViews/TRTCChorusSoundEffectAlert.swift)。
 
-**Q: TUIChorus 组件支持变声、变调、混响等音效功能吗？**
-
-A: 支持，具体可查看[TUIChorus示例工程](https://github.com/tencentyun/TUIChorus/blob/main/iOS/Source/ui/TRTCChorusViewController/SubViews/TRTCChorusSoundEffectAlert.swift)
-
->? 更多帮助信息，详见 [TUI 场景化解决方案常见问题](https://cloud.tencent.com/developer/article/1952880)，欢迎加入 QQ 群：592465424，进行技术交流和反馈~
+>? 更多帮助信息，详情请参见 [TUI 场景化解决方案常见问题](https://cloud.tencent.com/developer/article/1952880)。欢迎加入 QQ 群：**592465424**，进行技术交流和反馈。
