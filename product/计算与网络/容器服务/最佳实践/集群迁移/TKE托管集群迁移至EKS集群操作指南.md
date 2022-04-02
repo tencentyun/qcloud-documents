@@ -181,7 +181,7 @@ spec:
   - 业务容器端口是否与 eks 管控面端口有冲突，请参见 [端口限制](https://cloud.tencent.com/document/product/457/39815#.E7.AB.AF.E5.8F.A3.E9.99.90.E5.88.B6)
   - pod 可以 ping 成功，但是 telnet 失败，检查安全组。
 - 创建实例时，可以使用如下特性加快拉取镜像速度：请参见 [镜像缓存](https://cloud.tencent.com/document/product/457/65908) 与 [镜像复用](https://cloud.tencent.com/document/product/457/54980#FAQ8)。
-- 业务日志转存：EKS job 类型的业务在退出后，底层资源就被回收，此时 Kubectl logs 无法查看容器日志，对于需要 debug 的场景不友好。可通过延迟销毁或者设置 terminationMessage 字段将业务日志转存，请参见 [设置容器终止消息](https://cloud.tencent.com/document/product/457/54980#FAQ5)，
+- 业务日志转存：EKS job 类型的业务在退出后，底层资源就被回收，此时 Kubectl logs 无法查看容器日志，对于需要 debug 的场景不友好。可通过延迟销毁或者设置 terminationMessage 字段将业务日志转存，请参见 [设置容器终止消息](https://cloud.tencent.com/document/product/457/54980#FAQ5)。
 - pod 频繁重启，报错 `ImageGCFailed`：eks pod 默认磁盘大小为 20Gi, 如果磁盘使用空间达到 80%，eks 管控面就会触发容器镜像的回收流程，尝试回收未使用的容器镜像来释放磁盘空间。如果未能释放任何空间，则会有一条事件提醒：`ImageGCFailed: failed to garbage collect required amount of images`，提醒用户磁盘空间不足。常见磁盘空间不足的原因有：
   - 业务有大量临时输出。
   - 业务持有已删除的文件描述符，导致磁盘空间未释放。
