@@ -38,10 +38,10 @@ v2.9.1 正式版本更新如下：
 <table >
 <thead>
 <tr>
-<th width="20%">动态名称</th>
-<th width="50%">动态描述</th>
- <th width="15%">发布时间</th>  
-<th width="15%">相关文档</th>
+<th width="18%">动态名称</th>
+<th width="45%">动态描述</th>
+ <th width="13%">发布时间</th>  
+<th width="24%">相关文档</th>
 </tr>
 </thead>
 <tbody><tr>
