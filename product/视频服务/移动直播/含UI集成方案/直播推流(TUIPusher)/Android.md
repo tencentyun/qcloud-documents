@@ -1,5 +1,5 @@
 ## TUIPusher简介
-`TUIPusher` 组件是一套开源的、完整的视频解决方案，它基于腾讯云 `MLVB SDK` 和` IM SDK`，可以实现直播推流，直播PK，直播连麦等功能，通过 `TUIPusher` 组件您可以轻松实现直播视频推流，而无需自己实现复杂的 UI 与逻辑功能
+`TUIPusher` 组件是一套开源的、完整的视频解决方案，它基于腾讯云 `MLVB SDK` 和` IM SDK`，可以实现直播推流，直播 PK，直播连麦等功能，通过 `TUIPusher` 组件您可以轻松实现直播视频推流，而无需自己实现复杂的 UI 与逻辑功能
 
 ## 效果展示
 <table>
@@ -209,7 +209,7 @@ public void onReceiveJoinAnchorRequest(TUIPusherView pushView, String userId, Re
 ```
 
 [](id:model.step7)
-### 步骤七：在 TUIPusher 中集成其他TUIKit组件（可选）
+### 步骤七：在 TUIPusher 中集成其他 TUIKit 组件（可选）
 我们在 [小直播](https://github.com/tencentyun/XiaoZhiBo) 工程中使用了该 TUIPusher 组件并集成了其他 `TUIKit` 组件，您可以以此为参考自行实现。
 
 ## 常见问题
