@@ -10,6 +10,7 @@ Apache Zeppelin 是一款基于 Web 的 Notebook 产品，能够交互式数据�
 2. 在 [EMR 控制台](https://console.cloud.tencent.com/emr) 左侧的导航栏，选择集群服务。
 3. 单击 Zeppelin 所在的的卡片，单击 **Web UI 地址**，访问 Web UI 页面。
 4. 在 EMR 3.1.0 版本后，设置了默认登录权限，用户名密码为 admin:admin。如需更改密码，可修改配置文件/usr/local/service/zeppelin-0.8.2/conf/shiro.ini 中的 users 和 roles 选项。更多配置说明，可参见 [文档](https://shiro.apache.org/configuration.html#Configuration-INISections)。
+5. 在 EMR 2.6.0和 EMR 3.3.0版本中，Zeppelin 登录已集成 Openldap 账户，只能用 Openldap 账户密码登录，新建集群后 Openldap 默认账户是 root 和 hadoop，默认密码是集群密码，且只有 root 账户拥有 zeppelin 管理员权限，有权访问解析器配置页面。
 
 ## 使用 spark 功能完成 wordcount
 1. 单击页面左侧 **Create new note**，在弹出页面中创建 notebook。
