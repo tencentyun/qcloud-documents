@@ -1,4 +1,4 @@
-﻿Apache Oozie 是一个开源的工作流引擎，被设计将 hadoop 生态组件的任务编排成 Workflow，然后对其进行调度、执行、监控。本文简单介绍如何在 EMR 上使用 Oozie，详细的使用文档请参考官网,另外这里建议用户通过 Hue 的图像化界面来使用 Oozie，使用文档请移步 Hue 开发文档。
+Apache Oozie 是一个开源的工作流引擎，被设计将 hadoop 生态组件的任务编排成 Workflow，然后对其进行调度、执行、监控。本文简单介绍如何在 EMR 上使用 Oozie，详细的使用文档请参考官网,另外这里建议用户通过 Hue 的图像化界面来使用 Oozie，使用文档请移步 Hue 开发文档。
 ## 前提条件
 已创建弹性 MapReduce（简称EMR）的 Hadoop 集群，并选择了 Oozie 服务，详情请参见 [创建 EMR 集群](https://cloud.tencent.com/document/product/589/10981)。
 
