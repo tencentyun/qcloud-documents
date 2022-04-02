@@ -5,7 +5,7 @@
 ## 前提条件
 
 - 准备一台 [云服务器 CVM](https://console.cloud.tencent.com/cvm/instance)（参见 [创建实例](https://cloud.tencent.com/document/product/213/44264)），部署在 VPC 内作为后端服务，以下简称为“后端 CVM”。
-- 已创建类型为云原生网关 Kong（参见 [创建云原生网关 Kong ](https://cloud.tencent.com/document/product/628/63034)），创建的云原生网关 Kong 必须和后端 CVM 处于同一地域和同一 VPC 下。
+- 已创建类型为云原生网关 Kong（参见 [创建云原生网关 Kong ](https://cloud.tencent.com/document/product/1364/72011)），创建的云原生网关 Kong 必须和后端 CVM 处于同一地域和同一 VPC 下。
 
 ## 操作步骤
 
@@ -21,7 +21,7 @@
 
 ### 步骤2：在云原生网关 Kong 的管理控制台上配置服务和路由
 
-1. 登录 [云原生网关 Kong ](https://console.cloud.tencent.com/apigateway/cnapigw) 控制台。
+1. 登录 [微服务引擎控制台](https://console.cloud.tencent.com/tse) ，在左侧导航栏单击**云原生网关** > **Kong**。
 2. 在云原生网关 Kong 列表中选择已创建的云原生网关 Kong ，单击网关 ID 即可进入网关详情页。
 3. 在网关详情页上方导航栏选择**配置管理**，找到 Kong 管理控制台的地址和管理员账号、密码，使用账号和密码登录 Kong 的管理控制台。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d1a9702d03898ca497d581d8f434d9d5.png)
@@ -40,7 +40,7 @@
 
 ### 步骤3：通过云原生网关 Kong 访问后端服务
 
-1. 登录 [云原生网关 Kong ](https://console.cloud.tencent.com/apigateway/cnapigw) 控制台。
+1. 登录 [微服务引擎控制台](https://console.cloud.tencent.com/tse) ，在左侧导航栏单击**云原生网关** > **Kong**。
 2. 在云原生网关 Kong 列表中选择已创建的云原生网关 Kong，单击网关 ID 即可进入网关详情页。
 3. 在网关详情页上方导航栏选择配置管理，找到 Kong 代理地址，其中公网代理地址用于从公网发起访问，内网代理地址用于从腾讯云 VPC 网络环境发起访问。
 4. 在浏览器中打开“公网代理地址+ [步骤2](#step2_7) 中 Route 的路径”即可访问到 CVM 中部署的服务。
