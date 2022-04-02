@@ -4,10 +4,10 @@ TUIKaraoke 是一个开源的音视频 UI 组件，通过在项目中集成 TUIK
 
 <table>
      <tr>
-         <th width=20%>聊天</th>  
-         <th width=20%>点歌播放</th>  
-         <th width=20%>音效管理</th>  
-         <th width=20%>发送礼物</th>  
+         <th width=20%  style="text-align:center">聊天</th>  
+         <th width=20%  style="text-align:center">点歌播放</th>  
+         <th width=20%  style="text-align:center">音效管理</th>  
+         <th width=20%  style="text-align:center">发送礼物</th>  
      </tr>
 <tr>
 <td><img src="https://qcloudimg.tencent-cloud.cn/raw/03ff7ceeebe570311fe631144546d36a.png"/></td>
