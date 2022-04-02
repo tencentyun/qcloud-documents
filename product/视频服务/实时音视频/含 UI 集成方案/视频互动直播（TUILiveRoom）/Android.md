@@ -26,7 +26,7 @@ include ':Debug'
 ```
 api project(":Source")
 ```
-- 在根目录的`build.gradle`文件中添加`TRTC SDK`和`IM SDK`的依赖：
+- 在根目录的 `build.gradle` 文件中添加 `TRTC SDK` 和 `IM SDK` 的依赖：
 ```
 ext {
     liteavSdk = "com.tencent.liteav:LiteAVSDK_TRTC:latest.release"
@@ -36,7 +36,7 @@ ext {
 
 [](id:model.step2)
 ### 步骤二：配置权限及混淆规则
-在 AndroidManifest.xml 中配置 App 的权限，SDK 需要以下权限（6.0以上的 Android 系统需要动态申请相机、读取存储权限）：
+1. 在 AndroidManifest.xml 中配置 App 的权限，SDK 需要以下权限（6.0以上的 Android 系统需要动态申请相机、读取存储权限）：
 <dx-codeblock>
 ::: java java
 <uses-permission android:name="android.permission.INTERNET" />
@@ -53,8 +53,7 @@ ext {
 <uses-feature android:name="android.hardware.camera.autofocus" />
 :::
 </dx-codeblock>
-
-在 proguard-rules.pro 文件，将 SDK 相关类加入不混淆名单：
+2. 在 proguard-rules.pro 文件，将 SDK 相关类加入不混淆名单：
 <dx-codeblock>
 ::: java java
 -keep class com.tencent.** { *; }
@@ -98,7 +97,6 @@ mLiveRoom.login(SDKAPPID, userId, userSig, config,
 [](id:model.step4)
 ### 步骤四：实现视频互动直播间
 1. **主播端开播 [TRTCLiveRoom#createRoom](https://cloud.tencent.com/document/product/647/43391#createroom)**
-
 <dx-codeblock>
 ::: java java
 // 1.主播设置昵称和头像
@@ -125,9 +123,7 @@ mLiveRoom.createRoom(123456789, param, new TRTCLiveRoomCallback.ActionCallback()
 });
 :::
 </dx-codeblock>
-
 2. **观众端观看 [TRTCLiveRoom#enterRoom](https://cloud.tencent.com/document/product/647/43391#enterroom)**
-
 ```java
 // 1.假定您从业务后台获取房间列表为 roomList
 List<Integer> roomList = GetRoomList();
@@ -157,7 +153,6 @@ mLiveRoom.setDelegate(new TRTCLiveRoomDelegate() {
 ```
 
 3. **观众与主播连麦 [TRTCLiveRoom#requestJoinAnchor](https://cloud.tencent.com/document/product/647/43391#requestjoinanchor)**
-
 <dx-codeblock>
 ::: java java
 // 1.观众端发起连麦请求
@@ -197,9 +192,7 @@ mLiveRoom.setDelegate(new TRTCLiveRoomDelegate() {
 });
 :::
 </dx-codeblock>
-
 4. **主播与主播 PK [TRTCLiveRoom#requestRoomPK](https://cloud.tencent.com/document/product/647/43391#requestroompk)**
-
 <dx-codeblock>
 ::: java java
 // 主播 A:
@@ -248,28 +241,25 @@ mLiveRoom.setDelegate(new TRTCLiveRoomDelegate() {
 });
 :::
 </dx-codeblock>
-
 5. **实现文字聊天  [TRTCLiveRoom#sendRoomTextMsg](https://cloud.tencent.com/document/product/647/43391#sendroomtextmsg)**
-
 <dx-codeblock>
-  ::: java java
-  // 发送端：发送文本消息
-  mLiveRoom.sendRoomTextMsg("Hello Word!", null);
-  // 接收端：监听文本消息
-  mLiveRoom.setDelegate(new TRTCLiveRoomDelegate() {
-    @Override
-    public void onRecvRoomTextMsg(String roomId, 
-        String message, TRTCLiveRoomDef.TRTCLiveUserInfo userInfo) {
-        Log.d(TAG, "收到来自" + userInfo.userName + "的消息:" + message);
-    }
-  });
-  :::
+::: java java
+// 发送端：发送文本消息
+mLiveRoom.sendRoomTextMsg("Hello Word!", null);
+// 接收端：监听文本消息
+mLiveRoom.setDelegate(new TRTCLiveRoomDelegate() {
+	@Override
+	public void onRecvRoomTextMsg(String roomId, 
+			String message, TRTCLiveRoomDef.TRTCLiveUserInfo userInfo) {
+			Log.d(TAG, "收到来自" + userInfo.userName + "的消息:" + message);
+	}
+});
+:::
 </dx-codeblock>
-
 6. **实现弹幕消息 [TRTCLiveRoom#sendRoomCustomMsg](https://cloud.tencent.com/document/product/647/43391#sendroomcustommsg)**
-
 <dx-codeblock>
-::: java java// 发送端：您可以通过自定义 Cmd 来区分弹幕和点赞消息
+::: java java
+// 发送端：您可以通过自定义 Cmd 来区分弹幕和点赞消息
 // eg:"CMD_DANMU"表示弹幕消息，"CMD_LIKE"表示点赞消息
 mLiveRoom.sendRoomCustomMsg("CMD_DANMU", "Hello world", null);
 mLiveRoom.sendRoomCustomMsg("CMD_LIKE", "", null);
