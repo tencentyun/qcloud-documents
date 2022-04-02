@@ -22,6 +22,13 @@ include ':Source'
 ```
 api project(':Source')
 ```
+- 在根目录的`build.gradle`文件中添加`TRTC SDK`和`IM SDK`的依赖：
+```
+ext {
+    liteavSdk = "com.tencent.liteav:LiteAVSDK_TRTC:latest.release"
+    imSdk = "com.tencent.imsdk:imsdk-plus:latest.release"
+}
+```
 
 ### 步骤二：配置权限及混淆规则
 在 AndroidManifest.xml 中配置 App 的权限，SDK 需要以下权限（6.0以上的 Android 系统需要动态申请麦克风权限等）：
