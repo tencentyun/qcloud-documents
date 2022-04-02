@@ -365,10 +365,7 @@ sudo ./go2tencentcloud_x64 --no-console
 ![](https://main.qcloudimg.com/raw/b056d6b1d5ac457ff43e48883848af01.png)
 
 :::
-:::  内网迁移
-
-
-#### 场景1
+:::  内网迁移场景1
 
 1. 建立源端主机和目标云服务器的连接通道。
 通过 [VPC 对等连接](https://cloud.tencent.com/document/product/553) / [VPN 连接](https://cloud.tencent.com/document/product/554) / [云联网](https://cloud.tencent.com/document/product/877) 等方式，建立源端主机和目标云服务器的连接通道。
@@ -393,7 +390,7 @@ cd go2tencentcloud-linux
 3. 在 `user.json` 文件配置目标云服务器。
 请按照 [user.json 文件参数说明](#userJsonState) 配置必填项和所需项的值。
 4. 在 `client.json` 文件配置迁移模式和其他项。
-   - 将`client.json`文件里的`Client.ToolMode` 值设置为 `true`， 即标识工具模式迁移。
+   - 将 `client.json` 文件里的 `Client.ToolMode` 值设置为 `true`， 即标识工具模式迁移。
    - 将 `client.json` 文件里的 `Client.Net.Mode` 项设置为`1`，即进行 [内网迁移模式：场景1](https://cloud.tencent.com/document/product/213/65714#Scenario1) 的迁移。此外，如果还需要进行其他项设置，请按照 [client.json 文件参数说明](#clientJsonState) 进行配置。
 5. （可选）排除源端主机上不需迁移的文件或目录。
 若 Linux 源端主机中存在不需要迁移的文件或目录，可将文件或目录添加至 [rsync_excludes_linux.txt 文件](#_linuxTxtState)。
@@ -442,7 +439,8 @@ sudo ./go2tencentcloud_x64 --no-console
 
 
 
-#### 场景2
+:::
+:::  内网迁移场景2
 
 1. 建立源端主机和目标云服务器的连接通道。
 通过 [VPC 对等连接](https://cloud.tencent.com/document/product/553) / [VPN 连接](https://cloud.tencent.com/document/product/554) / [云联网](https://cloud.tencent.com/document/product/877) 等方式，建立源端主机和目标云服务器的连接通道。
@@ -487,7 +485,8 @@ sudo ./go2tencentcloud_x64 --no-console
 
 
 
-#### 场景3
+:::
+:::  内网迁移场景3
 1. 建立源端主机和目标云服务器的连接通道。
 通过 [VPC 对等连接](https://cloud.tencent.com/document/product/553) / [VPN 连接](https://cloud.tencent.com/document/product/554) / [云联网](https://cloud.tencent.com/document/product/877) 等方式，建立源端主机和目标云服务器的连接通道。
 2. 将迁移工具 go2tencentcloud.zip 下载或上传至源端主机，并执行以下命令进入对应目录。
