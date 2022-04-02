@@ -62,8 +62,8 @@ Hue 的定时调度任务是 schedule，类似于 Linux 的 crontab，支持的�
 
 ## Notebook 查询对比分析
 notebook 可以快速的构建间的查询，将查询结果放到一起做对比分析，支持5种类型：hive，impala，spark，java，shell。
-1. 依次单击 "Editor"，"Notebook"，点击"+" 号添加需要的查询。
+1. 依次单击 **Editor**，**Notebook**，单击"+" 号添加需要的查询。
 ![](https://qcloudimg.tencent-cloud.cn/raw/09d6b44c6517d1a3204f6fdb517e075f.png)
-2. 依次单击保存可保存添加的notebook，点击执行可以执行整个notebook。
+2. 依次单击**保存**可保存添加的notebook，单击**执行**可以执行整个 notebook。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d6eaf0e36d46270a1fca867695683a0e.png)
 
