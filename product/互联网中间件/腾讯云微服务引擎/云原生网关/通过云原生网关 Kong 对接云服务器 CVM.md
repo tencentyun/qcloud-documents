@@ -5,7 +5,7 @@
 ## 前提条件
 
 - 准备一台 [云服务器 CVM](https://console.cloud.tencent.com/cvm/instance)（参见 [创建实例](https://cloud.tencent.com/document/product/213/44264)），部署在 VPC 内作为后端服务，以下简称为“后端 CVM”。
-- 已创建类型为云原生网关 Kong（参见 [创建云原生网关 kong ](https://cloud.tencent.com/document/product/628/63034)），创建的云原生网关 Kong 必须和后端 CVM 处于同一地域和同一 VPC 下。
+- 已创建类型为云原生网关 Kong（参见 [创建云原生网关 Kong ](https://cloud.tencent.com/document/product/628/63034)），创建的云原生网关 Kong 必须和后端 CVM 处于同一地域和同一 VPC 下。
 
 ## 操作步骤
 
@@ -36,7 +36,7 @@
 8. 单击 **ADD ROUTE**，在弹出的对话框中填写内容，创建一个 Route。
    Route的 Path 必填，其他字段可选填。Path 代表路径，必须以“/”开头，您可用代理地址+路径访问到后端服务。
    ![](https://qcloudimg.tencent-cloud.cn/raw/86e31438984ead06d74910cfc1f6c947.png)
->!由于 Konga 控制台的限制，创建 Route 时，输入 Path 后必须按回车键确认，才能创建成功。
+>!由于 Kong 控制台的限制，创建 Route 时，输入 Path 后必须按回车键确认，才能创建成功。
 
 ### 步骤3：通过云原生网关 Kong 访问后端服务
 
