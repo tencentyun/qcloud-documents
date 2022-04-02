@@ -39,8 +39,8 @@ v2.9.1 正式版本更新如下：
 <thead>
 <tr>
 <th width="18%">动态名称</th>
-<th width="45%">动态描述</th>
- <th width="13%">发布时间</th>  
+<th width="44%">动态描述</th>
+ <th width="14%">发布时间</th>  
 <th width="24%">相关文档</th>
 </tr>
 </thead>
