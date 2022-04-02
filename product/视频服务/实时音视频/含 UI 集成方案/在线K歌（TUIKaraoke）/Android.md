@@ -1,13 +1,12 @@
-## 一. 组件介绍
-
+## 组件介绍
 TUIKaraoke 是一个开源的音视频 UI 组件，通过在项目中集成 TUIKaraoke 组件，您只需要编写几行代码就可以为您的应用添加在线 K 歌场景，体验 K 歌、麦位管理、收发礼物、文字聊天等 TRTC 在 KTV 场景下的相关能力。TUIKaraoke 同时支持 iOS 平台的源代码，基本功能如下图所示：
 
 <table>
      <tr>
-         <th>聊天</th>
-         <th>点歌播放</th>
-         <th>音效管理</th>
-         <th>发送礼物</th>
+         <th width=20%>聊天</th>
+         <th width=20%>点歌播放</th>
+         <th width=20%>音效管理</th>
+         <th width=20%>发送礼物</th>
      </tr>
 <tr>
 <td><img src="https://qcloudimg.tencent-cloud.cn/raw/819e86970cecabcb10143a49a4759b32.png"/></td>
@@ -18,10 +17,10 @@ TUIKaraoke 是一个开源的音视频 UI 组件，通过在项目中集成 TUIK
 </table>
 
 
-## 二. 组件集成
+## 组件集成
 ### 步骤一：下载并导入 TUIKaraoke 组件
 
-点击进入 [Github](https://github.com/tencentyun/TUIKaraoke) ，选择克隆/下载代码，然后拷贝 Android目录下的 Source 和 Debug 目录到您的工程中，并完成如下导入动作：
+单击进入 [Github](https://github.com/tencentyun/TUIKaraoke) ，选择克隆/下载代码，然后拷贝 Android目录下的 Source 和 Debug 目录到您的工程中，并完成如下导入动作：
 - 在 `setting.gradle` 中完成导入，参考如下：
 ```
 include ':Source'
@@ -31,7 +30,7 @@ include ':Debug'
 ```
 api project(':Source')
 ```
-- 在根目录的`build.gradle`文件中添加`TRTC SDK`和`IM SDK`的依赖：
+- 在根目录的 `build.gradle` 文件中添加 `TRTC SDK` 和 `IM SDK` 的依赖：
 ```
 ext {
     liteavSdk = "com.tencent.liteav:LiteAVSDK_TRTCl:latest.release"
@@ -58,7 +57,8 @@ ext {
 -keep class com.tencent.** { *; }
 ```
 
-### 步骤三：初始化并登录 [TUIKaraoke](https://cloud.tencent.com/document/product/647/59404#sharedinstance)
+### 步骤三：初始化并登录 
+相关接口详情请参见 [TUIKaraoke](https://cloud.tencent.com/document/product/647/59404#sharedinstance)。
 
 ```java
   // 1.初始化
@@ -74,19 +74,15 @@ ext {
       }
   });
 ```
-#### 3.1 参数说明
-- **SDKAppID**：**TRTC 应用ID**，如果您未开通腾讯云 TRTC 服务，可以点击 [这里](https://console.cloud.tencent.com/trtc/app)，进入腾讯云实时音视频控制台，创建一个新的的TRTC应用后，点击应用信息，SDKAppID信息如下图所示；
- <img src="https://liteav.sdk.qcloud.com/app/doc/app_manager_sdk_secretkey.png" width="700">
-
-- **SecretKey**：**TRTC 应用密钥**，和 SDKAppID 对应，进入 [TRTC 应用管理](https://console.cloud.tencent.com/trtc/app) 后，SecretKey信息如上图所示；
-
-- **UserID**：当前用户的 ID，字符串类型，长度不超过32字节，不支持使用特殊字符，建议使用英文或数字，可结合业务实际账号体系自行设置。
-
-- **UserSig**：根据 SDKAppID、UserID，SecretKey等信息计算得到的安全保护签名，您可以点击 [这里](https://console.cloud.tencent.com/trtc/usersigtool) 直接在线生成一个调试的 UserSig，也可以参照我们的[TUIKaraoke示例工程](https://github.com/tencentyun/TUIKaraoke/blob/main/Android/Debug/src/main/java/com/tencent/liteav/debug/GenerateTestUserSig.java#:~:text=public%20static%20String%20genTestUserSig(String%20userId)%20%7B)自行计算，更多信息见 [如何计算及使用 UserSig](https://cloud.tencent.com/document/product/647/17275)。
+**参数说明**：
+- **SDKAppID**：**TRTC 应用ID**，如果您未开通腾讯云 TRTC 服务，可进入 [腾讯云实时音视频控制台](https://console.cloud.tencent.com/trtc/app)，创建一个新的 TRTC 应用后，单击**应用信息**，SDKAppID 信息如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/3d6ebfa2a1e4ae5d3af3ecd564fb1463.png)
+- **Secretkey**：**TRTC 应用密钥**，和 SDKAppId 对应，进入 [TRTC 应用管理](https://console.cloud.tencent.com/trtc/app) 后，SecretKey 信息如上图所示。
+- **userId**：当前用户的 ID，字符串类型，长度不超过32字节，不支持使用特殊字符，建议使用英文或数字，可结合业务实际账号体系自行设置。
+- **userSig**：根据 SDKAppId、userId，Secretkey 等信息计算得到的安全保护签名，您可以单击 [这里](https://console.cloud.tencent.com/trtc/usersigtool) 直接在线生成一个调试的 UserSig，也可以参照我们的 [TUICalling示例工程](https://github.com/tencentyun/TUICalling/blob/main/Android/App/src/main/java/com/tencent/liteav/demo/LoginActivity.java#L74)自行计算，更多信息见 [如何计算及使用 UserSig](https://cloud.tencent.com/document/product/647/17275)。
 
 ### 步骤四：实现在线KTV场景
-
-#### 4.1. 主播创建房间 [TUIKaraoke.createRoom](https://cloud.tencent.com/document/product/647/59404#createroom)
+1. **主播创建房间 [TUIKaraoke.createRoom](https://cloud.tencent.com/document/product/647/59404#createroom)**
 ```java
 int roomId = "房间ID";
 TRTCKaraokeRoomDef.RoomParam roomParam = new TRTCKaraokeRoomDef.RoomParam();
@@ -103,8 +99,7 @@ mTRTCKaraokeRoom.createRoom(roomId, roomParam, new TRTCKaraokeRoomCallback.Actio
     }
 });
 ```
-
-#### 4.2. 听众进入房间 [TUIKaraoke.enterRoom](https://cloud.tencent.com/document/product/647/59404#enterroom)
+2. **听众进入房间 [TUIKaraoke.enterRoom](https://cloud.tencent.com/document/product/647/59404#enterroom)**
 ```java
 mTRTCKaraokeRoom.enterRoom(roomId, new TRTCKaraokeRoomCallback.ActionCallback() {
     @Override
@@ -115,7 +110,7 @@ mTRTCKaraokeRoom.enterRoom(roomId, new TRTCKaraokeRoomCallback.ActionCallback() 
     }
 });
 ```
-#### 4.3. 听众主动上麦 [TUIKaraoke.enterSeat](https://cloud.tencent.com/document/product/647/59404#enterseat)
+3. **听众主动上麦 [TUIKaraoke.enterSeat](https://cloud.tencent.com/document/product/647/59404#enterseat)**
 ```java
 // 1.听众调用上麦
 int seatIndex = 1;
@@ -133,9 +128,8 @@ public void onSeatListChange(final List<TRTCKaraokeRoomDef.SeatInfo> seatInfoLis
 }
 ```
 >? 其他关于麦位管理的相关操作，您可参考 [TUIKaraoke接口文档](https://cloud.tencent.com/document/product/647/59404) 按需实现，或者可以参考我们的 [TUIKaraoke示例工程](https://github.com/tencentyun/TUIKaraoke/)。
-
-#### 4.4 实现音乐播放并体验KTV场景
-您可以根据自己的业务获取音乐ID和URL链接，播放歌曲，[TUIKaraoke音乐播放接口](https://cloud.tencent.com/document/product/647/59404#.E9.9F.B3.E4.B9.90.E6.92.AD.E6.94.BE.E6.8E.A5.E5.8F.A32)
+4. **实现音乐播放并体验 KTV 场景**
+您可以根据自己的业务获取音乐 ID 和 URL链接播放歌曲，接口详情请参见 [TUIKaraoke 音乐播放接口](https://cloud.tencent.com/document/product/647/59404#.E9.9F.B3.E4.B9.90.E6.92.AD.E6.94.BE.E6.8E.A5.E5.8F.A32)。
 ```java
 //播放音乐
 mTRTCKaraokeRoom.startPlayMusic(musicID,url);
@@ -147,7 +141,7 @@ mTRTCKaraokeRoom.stopPlayMusic();
 
 ### 步骤五：文字聊天功能（可选）
 如果您需要实现各主播或听众之间文字聊天的功能，可以通过以下方法发送或接收聊天信息。
-[TRTCKaraokeRoom.sendRoomTextMsg](https://cloud.tencent.com/document/product/647/59404#sendroomtextmsg)
+相关接口详情请参见 [TRTCKaraokeRoom.sendRoomTextMsg](https://cloud.tencent.com/document/product/647/59404#sendroomtextmsg)。
 ```java
 // 发送端：发送文本消息
 mTRTCKaraokeRoom.sendRoomTextMsg("Hello Word!", new TRTCKaraokeRoomCallback.ActionCallback() {
@@ -192,10 +186,8 @@ mTRTCKaraokeRoom.setDelegate(new TRTCKaraokeRoomDelegate() {
 });
 ```
 
-## 三. 常见问题
+## 常见问题
+### TUIKaraoke 组件支持变声、变调、混响等音效功能吗？
+支持，具体请参见 [TUIKaraoke 示例工程](https://github.com/tencentyun/TUIKaraoke/blob/main/Android/Source/src/main/java/com/tencent/liteav/tuikaraoke/ui/audio/AudioEffectPanel.java)。
 
-**Q: TUIKaraoke 组件支持变声、变调、混响等音效功能吗？**
-
-A: 支持，具体可查看[TUIKaraoke示例工程](https://github.com/tencentyun/TUIKaraoke/blob/main/Android/Source/src/main/java/com/tencent/liteav/tuikaraoke/ui/audio/AudioEffectPanel.java)
-
->? 更多帮助信息，详见 [TUI 场景化解决方案常见问题](https://cloud.tencent.com/developer/article/1952880)，欢迎加入 QQ 群：592465424，进行技术交流和反馈~
+>? 更多帮助信息，详情请参见 [TUI 场景化解决方案常见问题](https://cloud.tencent.com/developer/article/1952880)。欢迎加入 QQ 群：**592465424**，进行技术交流和反馈。
