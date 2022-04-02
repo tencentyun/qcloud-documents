@@ -12,7 +12,7 @@
 
 - 在 TKE 集群中启用固定 ip 特性的工作负载，在迁移到 EKS 集群后，ip 会发生改变。
 - EKS 集群使用 containerd v1.4.3 作为运行时，与 docker 不一致，不兼容 Docker registry v2.5 以下版本、harbor v1.10 以下的版本的镜像。
-- EKS 集群中，每个 Pod 默认分配 20GiＢ 的免费临时磁盘空间，用于镜像存储，该盘随 Pod 的生命周期创建和销毁。
+- EKS 集群中，每个 Pod 默认分配 20GiB 的免费临时磁盘空间，用于镜像存储，该盘随 Pod 的生命周期创建和销毁。
 - EKS 不支持 RDMA。
 - EKS 不支持自定义 net 前缀的内核参数。
 - EKS 不支持部署 DaemonSet 类型的工作负载。
@@ -182,7 +182,7 @@ spec:
   - Pod 可以 ping 成功，但是 telnet 失败，检查安全组。
 - 创建实例时，可以使用如下特性加快拉取镜像速度：请参见 [镜像缓存](https://cloud.tencent.com/document/product/457/65908) 与 [镜像复用](https://cloud.tencent.com/document/product/457/54980#FAQ8)。
 - 业务日志转存：EKS job 类型的业务在退出后，底层资源就被回收，此时 Kubectl logs 无法查看容器日志，对于需要 debug 的场景不友好。可通过延迟销毁或者设置 terminationMessage 字段将业务日志转存，请参见 [设置容器终止消息](https://cloud.tencent.com/document/product/457/54980#FAQ5)。
-- Pod 频繁重启，报错 `ImageGCFailed`：EKS Pod 默认磁盘大小为 20GiＢ, 如果磁盘使用空间达到 80%，EKS 管控面就会触发容器镜像的回收流程，尝试回收未使用的容器镜像来释放磁盘空间。如果未能释放任何空间，则会有一条事件提醒：`ImageGCFailed: failed to garbage collect required amount of images`，提醒用户磁盘空间不足。常见磁盘空间不足的原因有：
+- Pod 频繁重启，报错 `ImageGCFailed`：EKS Pod 默认磁盘大小为 20GiB, 如果磁盘使用空间达到 80%，EKS 管控面就会触发容器镜像的回收流程，尝试回收未使用的容器镜像来释放磁盘空间。如果未能释放任何空间，则会有一条事件提醒：`ImageGCFailed: failed to garbage collect required amount of images`，提醒用户磁盘空间不足。常见磁盘空间不足的原因有：
   - 业务有大量临时输出。
   - 业务持有已删除的文件描述符，导致磁盘空间未释放。
 
