@@ -50,9 +50,8 @@ vi /etc/fstab
 </dx-alert>
 2. 按照方式1中的 [步骤3](#Step3) - [步骤6](#Step6)，修复 `/etc/fstab` 文件。
 3. 参考 [退出救援模式](https://cloud.tencent.com/document/product/213/66678#.E9.80.80.E5.87.BA.E6.95.91.E6.8F.B4.E6.A8.A1.E5.BC.8F)，退出实例救援模式。
-4. 实例退出救援模式后，将处于关机状态，参考 [开机实例](https://cloud.tencent.com/document/product/213/47929) 开机即可。
-5. 启动后，验证系统是否可正常启动及登录。
-登录成功后，若您需设置磁盘自动挂载，则请参考 [配置 /etc/fstab 文件](https://cloud.tencent.com/document/product/362/53951#ConfigurationFile) 进行对应配置。
+4. 实例退出救援模式后将处于关机状态，请参考 [开机实例](https://cloud.tencent.com/document/product/213/47929) 开机，并在启动后验证系统是否可正常启动及登录。
+5. 登录成功后，若您需设置磁盘自动挂载，则请参考 [配置 /etc/fstab 文件](https://cloud.tencent.com/document/product/362/53951#ConfigurationFile) 进行对应配置。
 
 :::
 </dx-tabs>
