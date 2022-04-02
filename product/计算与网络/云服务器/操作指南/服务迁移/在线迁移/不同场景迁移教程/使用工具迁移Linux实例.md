@@ -511,7 +511,9 @@ cd go2tencentcloud-linux
 请按照 [user.json 文件参数说明](#userJsonState) 配置必填项和所需项的值。
 4. 在 `client.json` 文件配置迁移模式和其他项。
     - 将 `client.json` 文件里的 `Client.ToolMode` 值设置为 `true`， 即标识工具模式迁移。
-    - 将 `client.json` 文件里的 `Client.Net.Mode` 项设置为`3`，即进行 [内网迁移模式：场景3](https://cloud.tencent.com/document/product/213/65714#Scenario3) 的迁移。此外，如果还需要进行其他项设置，请按照 [client.json 文件参数说明](#clientJsonState) 进行配置。
+    - 将 `client.json` 文件里的 `Client.Net.Mode` 项设置为`3`，即进行 [内网迁移模式：场景3](https://cloud.tencent.com/document/product/213/65714#Scenario3) 的迁移。
+    - 将 `client.json` 文件里的 `Client.Net.Proxy.Ip` 和 `Client.Net.Proxy.Port` 项设置为网络代理的 IP 地址和端口。如您的网络代理还需认证，则请在 `Client.Net.Proxy.User` 和 `Client.Net.Proxy.Password` 项填写网络代理的用户名和密码。如不需要认证，则不填。 
+		此外，如果还需要进行其他项设置，请按照 [client.json 文件参数说明](#clientJsonState) 进行配置。
 5. （可选）排除源端主机上不需迁移的文件或目录。
 若 Linux 源端主机中存在不需要迁移的文件或目录，可将文件或目录添加至 [rsync_excludes_linux.txt 文件](#_linuxTxtState)。
 6. 运行工具。
