@@ -1,4 +1,4 @@
-﻿## Beeline 连接 kyuubi
+## Beeline 连接 kyuubi
 登录 EMR 集群的 Master 节点，切换到 Hadoop 用户并且进入 kyuubi 目录：
 ```
 [root@172 ~]# su hadoop
