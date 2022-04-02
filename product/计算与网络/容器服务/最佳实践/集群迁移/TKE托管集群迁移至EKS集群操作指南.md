@@ -4,7 +4,7 @@
 - 已有容器服务 TKE 托管集群（以下称作集群 A ），且集群版本需 >= 1.18 及以上。
 - 已创建迁移目标的弹性容器服务 EKS 集群（以下称作集群 B），集群版本需 >= 1.20 及以上，创建 EKS 集群请参见 [创建集群](https://cloud.tencent.com/document/product/457/39813)。
 - 集群 A 和 集群 B 需要共用同一个腾讯云 COS 存储桶作为 Velero 后端存储，配置 COS 存储桶请参见 [配置对象存储](https://cloud.tencent.com/document/product/457/50122#.E9.85.8D.E7.BD.AE.E5.AF.B9.E8.B1.A1.E5.AD.98.E5.82.A8)。
-- 集群 A 和 集群 B 建议在同一 VPC 下，（如果需要备份 PVC 中的数据，必须在同一 VPC 下）。
+- 集群 A 和 集群 B 建议在同一 VPC 下（如果需要备份 PVC 中的数据，必须在同一 VPC 下）。
 - 确保镜像资源在迁移后可以正常拉取，在 EKS 集群中配置镜像仓库请参见 [镜像仓库相关](https://cloud.tencent.com/document/product/457/54755#.E5.BC.B9.E6.80.A7.E9.9B.86.E7.BE.A4.E5.A6.82.E4.BD.95.E4.BD.BF.E7.94.A8.E8.87.AA.E5.BB.BA.E7.9A.84.E8.87.AA.E7.AD.BE.E5.90.8D.E9.95.9C.E5.83.8F.E4.BB.93.E5.BA.93.E6.88.96-http-.E5.8D.8F.E8.AE.AE.E9.95.9C.E5.83.8F.E4.BB.93.E5.BA.93.EF.BC.9F)。
 - 确保两个集群的 Kubernetes 版本的 API 兼容，建议使用相同版本。若集群 A 的集群版本较低，建议先升级集群 A 集群版本后，再进行迁移操作。
 
