@@ -28,7 +28,7 @@
 
 [](id:step2)
 ### 步骤2：下载 SDK 和 Demo 源码
-1. 根据实际业务需求下载 SDK 及配套的 [Demo 源码](https://github.com/c1avie/TRTCReactNativeDemo)。
+1. 根据实际业务需求下载 SDK 及配套的 [Demo 源码](https://github.com/LiteAVSDK/TRTC_ReactNative)。
 2. 下载完成后，单击 **已下载，下一步**。
 
 >! 控制台暂时无法下载 ReactNative Demo，**请直接通过上方链接下载 Demo 源码**。
