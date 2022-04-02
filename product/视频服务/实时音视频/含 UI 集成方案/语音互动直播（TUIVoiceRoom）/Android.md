@@ -1,6 +1,6 @@
 ## 组件介绍
 
-TUIVoiceRoom 是一个开源的音视频 UI 组件，通过在项目中集成 TUIVoiceRoom 组件，您只需要编写几行代码就可以为您的 App 添加“多人语音聊天”等场景，TUIVoiceRoom 同时支持 [iOS](https://cloud.tencent.com/document/product/647/45753)、[小程序](https://github.com/MinTate/qcloud-documents/commit/84b9868d8b1375196d6318208ff7d2bad4be6970) 等平台，基本功能如下图所示：
+TUIVoiceRoom 是一个开源的音视频 UI 组件，通过在项目中集成 TUIVoiceRoom 组件，您只需要编写几行代码就可以为您的 App 添加“多人语音聊天”等场景，TUIVoiceRoom 同时支持 [iOS](https://cloud.tencent.com/document/product/647/45753)、[小程序](https://cloud.tencent.com/document/product/647/65386) 等平台，基本功能如下图所示：
 
 <table class="tablestyle">
 <tbody><tr>
