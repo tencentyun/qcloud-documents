@@ -134,7 +134,7 @@ Serverless Web IDE 中常用命令、运行环境和预置的扩展版本如下�
 </tr>
 <tr>
 <td style="text-align:center">php</td>
-<td style="text-align:center">PHP 8.0.13<br>php 命令默认跟随最新 PHP 版本</td>
+<td style="text-align:center">PHP 7.2.2</td>
 </tr>
 <tr>
 <td style="text-align:center">pip3</td>
