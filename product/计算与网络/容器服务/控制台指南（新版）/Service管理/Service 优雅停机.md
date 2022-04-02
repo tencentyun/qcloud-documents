@@ -126,3 +126,7 @@ spec:
 ...
 :::
 </dx-codeblock>
+
+
+## 相关文档
+- 故障处理：[Nginx Ingress Controller 后端解绑不优雅的问题](https://cloud.tencent.com/document/product/457/71216)

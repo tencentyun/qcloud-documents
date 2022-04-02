@@ -88,7 +88,7 @@ RTMP 后台不支持传输 B 帧，用户可以通过如下设置调整推流端
 ![](https://qcloudimg.tencent-cloud.cn/raw/a4b27551f991d73539bb5d2f834a4d38.png)
 
 ### 步骤7：其他端观看[](id:step7)
-如前面 [设置推流参数](#step2) 所说，TRTC 其他端进房需要使用字符串房间号，Web 端观看 RTMP 流的效果如下所示：
+如前面 [设置推流参数](#step2) 所说，TRTC 其他端进房需要使用字符串房间号，[Web 端](https://cloud.tencent.com/document/product/647/17021#.E8.B7.A8.E5.B9.B3.E5.8F.B0-demo) 观看 RTMP 流的效果如下所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/ae71beea5458b056697433acdbf6844e.png)
 
 ## FFmpeg 设置[](id:FFmpeg)

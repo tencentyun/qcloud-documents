@@ -1,10 +1,10 @@
 ## 接口描述
-**描述**：用于会议 Code 查询会议详情。
-- 企业 secret 鉴权用户可查询到任何该用户创建的企业下的会议，OAuth2.0 鉴权用户只能查询到通过 OAuth2.0 鉴权创建的会议。
-- 本接口的邀请参会成员限制调整至300人。
-
-**调用方式**：GET
-**接口请求域名**：
+- **描述**：用于会议 Code 查询会议详情。
+ - 企业 secret 鉴权用户可查询到任何该用户创建的企业下的会议，OAuth2.0 鉴权用户只能查询到通过 OAuth2.0 鉴权创建的会议。
+ - 本接口的邀请参会成员限制调整至300人。
+ - 当会议为周期性会议时，主持人密钥每场会议固定，但单场会议只能获取一次。支持查询周期性会议的主持人密钥。
+- **调用方式**：GET
+- **接口请求域名**：
 ```plaintext
 https://api.meeting.qq.com/v1/meetings?meeting_code={meetingCode}&userid={userid}&instanceid={instanceid}
 ```
@@ -61,8 +61,9 @@ https://api.meeting.qq.com/v1/meetings?meeting_code={meetingCode}&userid={userid
 |enable_doc_upload_permission    | Boolean       | 是否允许成员上传文档，默认为允许。                                                     |
 |guests   | Guest 数组     | 会议嘉宾列表（会议创建人才有权限查询）。                                                     |
 |has_vote   | Boolean     | 是否有投票（会议创建人和主持人才有权限查询）。                                                     |
+|enable_host_key   | Boolean     | 是否开启主持人密钥。<br>true：开启<br>false：关闭                                                    |
+|host_key   | String     | 主持人密钥，仅支持6位数字（会议创建人才有权限查询）。<br>如开启主持人密钥后没有填写此项，将自动分配一个6位数字的密钥。                                                    |
 
-<span id="settings"></span>
 
 **用户对象**
 
@@ -192,7 +193,9 @@ GET https://api.meeting.qq.com/v1/meetings?meeting_code=806146667&userid=tester1
                 "phone_number":"xxxxxxxxx",
                 "guest_name":"xxxx"
             }
-        ] 
+        ],
+		"enable_host_key":true,
+        "host_key":"191810"
     }  
   ]
 }
@@ -274,7 +277,9 @@ GET https://api.meeting.qq.com/v1/meetings?meeting_code=806146667&userid=tester1
             "enable_live_im":true,
             "enable_live_replay":true,
             "live_addr":"https://meeting.tencent.com/l/xxxx"
-        }
+        },
+		"enable_host_key":true,
+        "host_key":"191810"
     }
   ]
 }

@@ -86,7 +86,7 @@
 1. 下载 [**项目源码**](https://vs-cdn.tencent-cloud.com/resources/cme-node-demo-feature-iframe-2.0.zip)。
 2. **配置文件**
 配置文件在 config.js 上，按如下方式进行配置：
-```
+```javascript
 const config = {
     port: 9090,  // demo 端口号，开发者可以替换为自己的端口号
     secretId: "You SecretId",  // 配置准备工作中 步骤3 获取到的 SecretId 

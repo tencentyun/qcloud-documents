@@ -87,10 +87,18 @@ Content-Type: application/json;charset=UTF-8
   "error" : "invalid_client"
 }
 ```
-
-- response_type 参数缺失或有误。
+- grant_type 参数有误。
 ```
 HTTP/1.1 401 Unauthorized
+```
+- code 参数有误。
+```
+HTTP/1.1 401 Unauthorized
+Content-Type: application/json;charset=UTF-8
+
+{
+  "error" : "invalid_client"
+}
 ```
 - code_verifier 参数有误。
 ```

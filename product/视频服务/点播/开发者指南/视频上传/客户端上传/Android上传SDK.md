@@ -10,9 +10,7 @@
 1. 拷贝上传源码目录`Demo/app/src/main/java/com/tencent/ugcupload/demo/videoupload`到您的工程目录中，需要手动修改一下 package 名。
 2. 参考`Demo/app/build.gradle`在您的工程中添加依赖：
     ```
-    implementation ('com.qcloud.cos:cos-android:5.8.3') {
-        exclude group: 'com.qcloud.cos', module: 'beacon-android-release'
-    }
+    implementation 'com.qcloud.cos:cos-android-nobeacon:5.8.3'
     implementation 'com.qcloud.cos:quic:1.5.37'
     ```
 >?您也可以参考 [手动集成](https://cloud.tencent.com/document/product/436/12159#.E6.96.B9.E5.BC.8F.E4.BA.8C.EF.BC.9A.E6.89.8B.E5.8A.A8.E9.9B.86.E6.88.90) 文档集成对应版本的依赖库。
