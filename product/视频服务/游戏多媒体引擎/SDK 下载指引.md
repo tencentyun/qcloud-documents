@@ -25,7 +25,7 @@
 - 如果无法解决，可以获取到日志后，通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系 GME 开发者。
 
 
-### Demo导出
+### Demo 导出
 
 导出 Demo 为可执行文件的过程中，如遇见问题详情请参见 [工程导出问题](https://cloud.tencent.com/document/product/607/51457) 进行解决。
 
@@ -47,19 +47,19 @@ v2.9.1 正式版本更新如下：
 <tbody><tr>
 <td>发布 SDK v2.9.1 正式版本</td>
 <td ><ul style="margin:0;">
-<li >伴奏功能新增对AME（正版曲库直通车 AME）的支持，可以使用AME版权音乐。</li>
-<li >新增文字转语音功能，可以在体验Demo中体验此功能。</li>
+<li >伴奏功能新增对 AME（正版曲库直通车 AME）的支持，可以使用 AME 版权音乐。</li>
+<li >新增文字转语音功能，可以在体验 Demo 中体验此功能。</li>
 <li >新增文本翻译功能。</li>
 <li >伴奏功能支持控制是否发送给房间内其他人。</li>
-<li >Android平台 SDK ndr 版本升级到r23。</li>
-<li >iOS 平台SDK Xcode 支持版本提升到 Xcode13.1。</li>
+<li >Android 平台 SDK ndr 版本升级到 r23。</li>
+<li >iOS 平台 SDK Xcode 支持版本提升到 Xcode13.1。</li>
 </ul ></td>
 <td>2022-03-16</td> 
 <td><li><a href="https://cloud.tencent.com/document/product/607/67303">版本升级指引</li>
-<li><a href="https://cloud.tencent.com/document/product/607/48323">Demo体验</li>
+<li><a href="https://cloud.tencent.com/document/product/607/48323">Demo 体验</li>
 <li><a href="https://cloud.tencent.com/developer/article/1957386">GME x 正版曲库AME，游戏音乐互动解决方案来了！</li>
-<li><a href="https://doc.weixin.qq.com/doc/w3_AJMAggaUAFUYvOmkGV9QuWknruvAC?scode=AJEAIQdfAAom30HqyjAJMAggaUAFU">GME x AME Android接入</li>
-<li><a href="https://doc.weixin.qq.com/doc/w3_ACkAcgaDACgkD4VrricQmq9AKFpc5?scode=AJEAIQdfAAoRWBc24VACkAcgaDACg">GME x AME iOS接入</li>
+<li><a href="https://doc.weixin.qq.com/doc/w3_AJMAggaUAFUYvOmkGV9QuWknruvAC?scode=AJEAIQdfAAom30HqyjAJMAggaUAFU">GME x AME Android 接入</li>
+<li><a href="https://doc.weixin.qq.com/doc/w3_ACkAcgaDACgkD4VrricQmq9AKFpc5?scode=AJEAIQdfAAoRWBc24VACkAcgaDACg">GME x AME iOS 接入</li>
 </tr>
 </tbody></table>
 
