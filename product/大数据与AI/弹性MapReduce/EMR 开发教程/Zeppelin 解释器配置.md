@@ -144,8 +144,7 @@ use default;
 show tables;
 ```
 
-3. Presto 解析器
-配置
+3. Presto 解析器配置
 ```
 default.url: jdbc:presto://ip:9000?user=hadoop
 
