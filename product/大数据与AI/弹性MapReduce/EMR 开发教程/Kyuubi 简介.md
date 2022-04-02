@@ -1,4 +1,4 @@
-﻿Apache Kyuubi （Incubating）是一个 Thrift JDBC/ODBC 服务，目前对接了 Apache Spark 计算框架（正在对接Apache Flink计算框架以及Trino），支持多租户和分布式等特性，可以满足企业内诸如 ETL、BI 报表等多种大数据场景的应用。
+Apache Kyuubi （Incubating）是一个 Thrift JDBC/ODBC 服务，目前对接了 Apache Spark 计算框架（正在对接Apache Flink计算框架以及Trino），支持多租户和分布式等特性，可以满足企业内诸如 ETL、BI 报表等多种大数据场景的应用。
 ![](https://qcloudimg.tencent-cloud.cn/raw/0699148d57a8e29010273822d1d90458.png)
 
 ## 使用场景
