@@ -5,8 +5,8 @@
 ## 前提条件
 
 - 已创建 PolarisMesh 服务治理中心，请参见 [创建 PolarisMesh 治理中心](https://cloud.tencent.com/document/product/1364/65866)。
-- 下载 Github 的 [demo 源码](https://github.com/polarismesh/examples/tree/main/cloudwego-kitex) 到本地并解压。
-- 本地编译构建打包机器环境已安装了 golang 环境，并且能够访问 Github。
+- 下载 GitHub 的 [demo 源码](https://github.com/polarismesh/examples/tree/main/cloudwego-kitex) 到本地并解压。
+- 本地编译构建打包机器环境已安装了 golang 环境，并且能够访问 GitHub。
 - 根据您自身的业务，已准备好业务部署的资源，虚拟机部署和容器化部署选择其中一种方式即可。
   - **虚拟机部署**已创建 CVM 虚拟机，请参见 [创建 CVM 虚拟机](https://cloud.tencent.com/document/product/213/2936)。
   - **容器化部署**已创建 TKE 容器集群，请参见 [创建 TKE 集群](https://cloud.tencent.com/document/product/457/32189)。
@@ -64,7 +64,7 @@
 :::
 </dx-codeblock>     
  2. **容器化部署**部署 provider 和 consumer 微服务应用。
-    - 编写dockerfile生成镜像，参考：
+    - 编写 dockerfile 生成镜像，参考：
 <dx-codeblock>
 :::  shell
     FROM golang:alpine
@@ -78,7 +78,7 @@
  1. 进入前面提到的微服务治理中心实例页面。
  - 选择**服务管理** > **服务列表**，查看一下服务的实例数量：
     - 若实例数量值不为0，则表示已经成功接入微服务引擎
-    - 若实例数量为0，或者找不到上述服务名，则表示`EchoServerKitex`应用接入微服务引擎失败。![](https://qcloudimg.tencent-cloud.cn/raw/1071108a09ec1163e44678d06673b3e6.png)
+    - 若实例数量为0，或者找不到上述服务名，则表示 `EchoServerKitex` 应用接入微服务引擎失败。![](https://qcloudimg.tencent-cloud.cn/raw/1071108a09ec1163e44678d06673b3e6.png)
  - 调用 consumer 的 HTTP 接口
     - 执行 http 调用，其中`${app.port}`替换为 consumer 的监听端口（默认为18080），`${add.address}`则替换为 consumer 暴露的地址。
 <dx-codeblock>
