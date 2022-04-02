@@ -20,10 +20,9 @@
 1. 在 Prometheus 实例列表中，单击新建的 **实例ID/名称** 。
 2. 进入 Prometheus 管理中心，在左侧列表中单击**集成容器服务**。
 3. 在集群监控页面进行下列操作。
-
--  关联集群：将集群和 Prometheus 实例关联，参考指引 [关联集群](https://cloud.tencent.com/document/product/457/71898)。
--  数据采集配置：支持通过控制台新增或 Yaml 文件配置两种方式，配置新的数据采集规则来监控您的业务数据，参考指引 [数据采集配置](https://cloud.tencent.com/document/product/457/71899)。
--  精简基础监控指标：选择需要上报的指标，避免不必要的费用支出。参考指引 [精简基础监控指标](https://cloud.tencent.com/document/product/457/71900) 。
+ - 关联集群：将集群和 Prometheus 实例关联，参考指引 [关联集群](https://cloud.tencent.com/document/product/457/71898)。
+ - 数据采集配置：支持通过控制台新增或 Yaml 文件配置两种方式，配置新的数据采集规则来监控您的业务数据，参考指引 [数据采集配置](https://cloud.tencent.com/document/product/457/71899)。
+ - 精简基础监控指标：选择需要上报的指标，避免不必要的费用支出。参考指引 [精简基础监控指标](https://cloud.tencent.com/document/product/457/71900) 。
 
 
 ### 步骤3：接入服务[](id:step3)
