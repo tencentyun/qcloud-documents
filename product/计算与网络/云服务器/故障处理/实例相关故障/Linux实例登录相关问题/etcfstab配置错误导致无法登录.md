@@ -1,12 +1,11 @@
-
 ## 现象描述
-云服务器无法正常启动，且使用 VNC 方式登录后，查看系统启动失败且提示信息 “Welcome to emergency mode”。如下图所示：
+无法成功登录云服务器，且使用 VNC 方式登录后，查看系统启动失败且提示信息 “Welcome to emergency mode”。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/dea541a48d2a01503c1dbbc85b0d396f.png)
 
 
 ## 可能原因
 可能由于 `/etc/fstab` 配置不当导致。
-例如，已在 `/etc/fstab` 中配置使用设备名称自动挂载，但云服务器重启时设备名称发生改变，导致系统无法正常启动。
+例如，已在 `/etc/fstab` 中配置使用设备名称自动挂载磁盘，但云服务器重启时设备名称发生改变，导致系统无法正常启动。
 
 
 ## 解决思路
