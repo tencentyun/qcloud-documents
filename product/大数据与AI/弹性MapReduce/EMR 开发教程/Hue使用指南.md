@@ -33,7 +33,7 @@ Hue 支持4种导入方式：本地文件、HDFS 上的文件、外部数据库�
 1. 本地文件导入。
 	1. 单击浏览选择 csv 文件，hue 会自动识别出分隔符并生成预览，单击 Next 导入到表。
 ![](https://qcloudimg.tencent-cloud.cn/raw/88e2cece5e749f9fcbf8e8f7edfd0af3.png)
-	2. 填写需要导入的的表信息等，单击保存。
+	2. 填写需要导入的表信息等，单击保存。
 ![](https://qcloudimg.tencent-cloud.cn/raw/a47b12e883dcd11d0d6b35ffb45e7bfd.png)
 2. HDFS 文件导入。
 	1. 选择 HDFS 上的 csv 文件。
