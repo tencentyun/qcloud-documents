@@ -1,6 +1,6 @@
 ## 组件介绍
 
-TUIVoiceRoom 是一个开源的音视频 UI 组件，通过在项目中集成 TUIVoiceRoom 组件，您只需要编写几行代码就可以为您的 App 添加“多人语音聊天”等场景，TUIVoiceRoom 同时支持 [iOS](https://cloud.tencent.com/document/product/647/45753)、[小程序](https://cloud.tencent.com/document/product/647/) 等平台，基本功能如下图所示：
+TUIVoiceRoom 是一个开源的音视频 UI 组件，通过在项目中集成 TUIVoiceRoom 组件，您只需要编写几行代码就可以为您的 App 添加“多人语音聊天”等场景，TUIVoiceRoom 同时支持 [iOS](https://cloud.tencent.com/document/product/647/45753)、[小程序](https://cloud.tencent.com/document/product/647/65386) 等平台，基本功能如下图所示：
 
 <table class="tablestyle">
 <tbody><tr>
@@ -21,6 +21,13 @@ include ':Source'
 - 在 app 的 build.gradle 文件中添加对 Source 的依赖：
 ```
 api project(':Source')
+```
+- 在根目录的`build.gradle`文件中添加`TRTC SDK`和`IM SDK`的依赖：
+```
+ext {
+    liteavSdk = "com.tencent.liteav:LiteAVSDK_TRTC:latest.release"
+    imSdk = "com.tencent.imsdk:imsdk-plus:latest.release"
+}
 ```
 
 ### 步骤二：配置权限及混淆规则
@@ -56,11 +63,11 @@ api project(':Source')
 ```
 
 **参数说明：**
-- **SDKAppID**：**TRTC 应用 ID**，如果您未开通腾讯云 TRTC 服务，可进入 [腾讯云实时音视频控制台](https://console.cloud.tencent.com/trtc/app)，创建一个新的的 TRTC 应用后，单击**应用信息**，SDKAppID 信息如下图所示：
+- **SDKAppID**：**TRTC 应用 ID**，如果您未开通腾讯云 TRTC 服务，可进入 [腾讯云实时音视频控制台](https://console.cloud.tencent.com/trtc/app)，创建一个新的 TRTC 应用后，单击**应用信息**，SDKAppID 信息如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/cf6de5f10b77be75174d0ba359101f60.png)
 - **Secretkey**：**TRTC 应用密钥**和 SDKAppId 对应，进入 [TRTC 应用管理](https://console.cloud.tencent.com/trtc/app) 后，SecretKey 信息如上图所示。
 - **userId**：当前用户的 ID，字符串类型，只允许包含英文字母（a-z 和 A-Z）、数字（0-9）、连词符（-）和下划线（\_）。建议结合业务实际账号体系自行设置。
-- **userSig**：根据 SDKAppId、userId，Secretkey等信息计算得到的安全保护签名，您可以单击 [这里](https://console.cloud.tencent.com/trtc/usersigtool) 直接在线生成一个调试的userSig，也可以参照我们的 [示例工程](https://github.com/tencentyun/TUIRoom/blob/main/Android/Debug/src/main/java/com/tencent/liteav/debug/GenerateTestUserSig.java#L88) 自行计算，更多信息见 [如何计算及使用 UserSig](https://cloud.tencent.com/document/product/647/17275)。
+- **userSig**：根据 SDKAppId、userId，Secretkey等信息计算得到的安全保护签名，您可以单击 [这里](https://console.cloud.tencent.com/trtc/usersigtool) 直接在线生成一个调试的userSig，也可以参照我们的 [示例工程](https://github.com/tencentyun/TUIVoiceRoom/blob/main/Android/Debug/src/main/java/com/tencent/liteav/debug/GenerateTestUserSig.java#L88) 自行计算，更多信息见 [如何计算及使用 UserSig](https://cloud.tencent.com/document/product/647/17275)。
 
 ### 步骤四：实现语音聊天房间
 1. **实现房主创建语音聊天房间 [TRTCVoiceRoom#createRoom](https://cloud.tencent.com/document/product/647/45979#createroom)**

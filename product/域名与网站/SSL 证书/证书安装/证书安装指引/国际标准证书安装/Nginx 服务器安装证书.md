@@ -56,6 +56,7 @@
 5. 远程登录 Nginx 服务器。例如，使用 [“PuTTY” 工具](https://cloud.tencent.com/document/product/213/35699#.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4) 登录。
 6. 编辑 Nginx 根目录下的 `conf/nginx.conf` 文件。修改内容如下：
 >?
+>- 如找不到以下内容，可以手动添加。
 >- 此操作可通过执行 `vim /usr/local/nginx/conf/nginx.conf` 命令行编辑该文件。
 >- 由于版本问题，配置文件可能存在不同的写法。例如：Nginx 版本为 `nginx/1.15.0` 以上请使用 `listen 443 ssl` 代替 `listen 443` 和 `ssl on`。
 >

@@ -15,7 +15,7 @@ TUIPusher & TUIPlayer 的优势：
 为了方便您快速体验 TUIPusher & TUIPlayer 的功能，我们结合用户管理系统和房间管理系统提供了 [TUIPusher 体验链接](https://web.sdk.qcloud.com/component/tuiliveroom/tuipusher/login.html) 及 [TUIPlayer 体验链接](https://web.sdk.qcloud.com/component/tuiliveroom/tuiplayer/login.html)。
 >! 同时体验 TUIPusher 和 TUIPlayer 需要使用两个不同的账号登录。 
 
-### TUIPusher 推流组件功能介绍：
+### TUIPusher 推流组件功能介绍
 - 支持采集摄像头和麦克风的流并推流
   - 可根据需求设置视频参数（帧率，分辨率，码率）
   - 支持开启美颜并设置视频美颜参数
@@ -24,7 +24,7 @@ TUIPusher & TUIPlayer 的优势：
 - 支持在线聊天室，和在线观众进行聊天互动
 - 支持获取观众列表，对在线观众进行禁言操作
 
-### TUIPlayer 拉流组件功能介绍：
+### TUIPlayer 拉流组件功能介绍
 - 支持同时播放音视频流和屏幕分享流
 - 支持在线聊天室，和主播及其他观众进行聊天互动
 - 支持超低延时直播（300ms 延时）, 快直播（1000ms 以内延时）以及标准直播（支持超高并发观看）三种拉流线路
@@ -59,7 +59,7 @@ TUIPusher & TUIPlayer 的优势：
 >- 首次创建实时音视频应用的腾讯云账号，可获赠一个10000分钟的音视频资源免费试用包。
 >- 创建实时音视频应用之后会自动创建一个 SDKAppID 相同的即时通信 IM 应用，可在 [即时通信控制台](https://console.cloud.tencent.com/im) 配置该应用的套餐信息。
 :::
-::: 方式2：基于即时通信\sIM
+::: 方式2：基于即时通信 IM
 #### 步骤1：创建即时通信 IM 应用
 1. 登录 [即时通信 IM 控制台](https://console.cloud.tencent.com/im)，单击 **创建新应用** 将弹出对话框。
 ![](https://main.qcloudimg.com/raw/c8d1dc415801404e30e49ddd4e0c0c13.png)

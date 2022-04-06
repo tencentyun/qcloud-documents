@@ -1,6 +1,6 @@
 ## 介绍
 tdsql-sbuscribe connector 是针对腾讯云 TDSQL-MySQL 数据订阅的专有 connector，通过 [数据订阅](https://cloud.tencent.com/document/product/571/68060) 功能接入 TDSQL-MySQL 的增量 binlog 数据，使用前请确保数据订阅任务已经配置成功。
-目前 TDSQL 为 Beta 版本，使用 TDSQL 作为数据上游，您需要下载 [程序包](https://oceanus-public-1257058918.cos.ap-guangzhou.myqcloud.com/flink-connector-tdsql-kafka-1.13.2.jar)，在作业参数中引用该程序包。
+>! 数据库 TDSQL Connector 目前处于 Beta 版本，如有需求请您 [工单](https://console.cloud.tencent.com/workorder/category) 联系我们。
 
 ## 版本说明
 
@@ -35,7 +35,6 @@ CREATE TABLE `DataInput` (
     'properties.bootstrap.servers' = 'guangzhou-kafka-2.cdb-dts.tencentcs.com.cn:3212',  -- 替换为您的订阅任务 Kafka 连接地址
     'properties.group.id' = 'consumer-grp-subs-xxx-kk', 
     'format' = 'protobuf', -- 只能是protobuf格式
-    'protobuf.class-name' = 'com.tencent.subscribe.SubscribeDataProto.Entries',
     'properties.security.protocol'='SASL_PLAINTEXT', -- 认证协议
     'properties.sasl.mechanism'='SCRAM-SHA-512', -- 认证方式
     'properties.sasl.jaas.config'='org.apache.kafka.common.security.scram.ScramLoginModule required username="account-subs-xxx-username" password="psw";' --用户名和密码

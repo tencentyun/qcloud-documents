@@ -29,8 +29,8 @@ CC 防护对网站特定的 URL 进行访问保护，CC 防护2.0全新改版，
 ![](https://qcloudimg.tencent-cloud.cn/raw/ca65fca899d0d0dc7ea8f822a1d1fe5f.png)
 **字段说明：**
  - **规则名称**：CC 防护规则名称，50个字符以内。
- - **识别模式**：支持 IP 和 SESSION 识别模式，默认为 IP，SESSION 模式需要提前设置 SESSION 位置信息。
- - **匹配条件**：CC 防护规则频率控制匹配条件，默认为 URL。支持设置多个匹配条件，同一规则的多个条件是“与”关系，同时满足才会执行动作，且最多配置10个，需要至少配置URL，详细字段说明如下：
+ - **识别方式**：支持 IP 和 SESSION 识别模式，默认为 IP，SESSION 模式需要提前设置 SESSION 位置信息。
+ - **匹配方式**：CC 防护规则频率控制匹配条件，默认为 URL。支持设置多个匹配条件，同一规则的多个条件是“与”关系，同时满足才会执行动作，且最多配置10个，需要至少配置URL，详细字段说明如下：
  <table>
 <thead>
 <tr>
@@ -151,3 +151,5 @@ CC 防护对网站特定的 URL 进行访问保护，CC 防护2.0全新改版，
 ![](https://qcloudimg.tencent-cloud.cn/raw/5ff38b1c16ded5f860145725c7f62bb5.png)
 7. 配置完成，基于 SESSION 的 CC 防护策略生效。
 >!使用基于 SESSION 的 CC 防护机制，无法在 IP 封堵状态中查看封堵信息。
+
+
