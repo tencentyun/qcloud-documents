@@ -10,17 +10,17 @@
 
 #### 创建 Oceanus 集群
 
-进入 [Oceanus 控制台](https://console.cloud.tencent.com/oceanus/overview)，单击左侧【集群管理】，单击左上方【创建集群】，具体可参见 [创建独享集群](https://cloud.tencent.com/document/product/849/48298) 文档。
+进入 [Oceanus 控制台](https://console.cloud.tencent.com/oceanus/overview)，单击左侧**集群管理**，单击左上方**创建集群**，具体可参见 [创建独享集群](https://cloud.tencent.com/document/product/849/48298) 文档。
 
 #### 创建 COS 存储桶
 
-进入 [COS 控制台](https://console.cloud.tencent.com/cos5)，单击左侧【存储桶列表】，单击【创建存储桶】，具体可参见 [创建存储桶](https://cloud.tencent.com/document/product/436/13309) 文档。
+进入 [COS 控制台](https://console.cloud.tencent.com/cos5)，单击左侧**存储桶列表**，单击**创建存储桶**，具体可参见 [创建存储桶](https://cloud.tencent.com/document/product/436/13309) 文档。
 
 > ?当写入 COS 时，Oceanus 作业所运行的地域必须和 COS 在同一个地域。
 
 ## 实践步骤
 
-进入 [Oceanus 控制台](https://console.cloud.tencent.com/oceanus/overview)，单击左侧【作业管理】，创建 SQL 作业，集群选择与 COS 在相同地域的集群。
+进入 [Oceanus 控制台](https://console.cloud.tencent.com/oceanus/overview)，单击左侧**作业管理**，创建 SQL 作业，集群选择与 COS 在相同地域的集群。
 
 #### 1. 创建 Source
 
@@ -76,7 +76,7 @@ SELECT * FROM `random_source`;
 
 #### 4. 作业参数设置
 
-在【内置 Connector】选择`flink-connector-cos`，在【高级参数】中对 COS 的地址进行如下配置：
+在**内置 Connector**选择`flink-connector-cos`，在**高级参数**中对 COS 的地址进行如下配置：
 
 ```shell
 fs.AbstractFileSystem.cosn.impl: org.apache.hadoop.fs.CosN
@@ -95,4 +95,4 @@ fs.cosn.userinfo.appid: <COS 所属用户的 appid>
 
 #### 5. 启动作业
 
-依次单击【保存】>【语法检查】>【发布草稿】，等待 sql 作业启动后，即可前往相应 COS 目录中查看写入数据。
+依次单击**保存 > 语法检查 > 发布草稿**，等待 sql 作业启动后，即可前往相应 COS 目录中查看写入数据。
