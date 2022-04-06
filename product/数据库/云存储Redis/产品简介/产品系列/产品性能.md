@@ -19,7 +19,7 @@
 <tr>
 <td>最大连接数</td><td>默认10000，最大可调整到40000</td><td>默认10000，最大可调整到40000</td><td>默认10000/分片，最大可调整到40000</td></tr>
 <tr>
-<td>流量限制</td><td>10MB/S - 64MB/S</td><td>10MB/S - 64MB/S</td><td>144MB/s - 6GB/s</td></tr>
+<td>流量限制</td><td>10MB/S - 64MB/S</td><td>528MB/s - 608MB/s</td><td>288MB/s - 72GB/s</td></tr>
 <tr>
 <td>多 DB</td><td>支持</td><td>支持</td><td>支持</td></tr>
 <tr>

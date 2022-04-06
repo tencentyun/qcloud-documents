@@ -10,17 +10,17 @@
 
 ## 调整详情
 ### 保底防护带宽规格调整
-| 调整前/后 | 保底防护规格（可选规格）                                 |
+| 调整前/后 | 保底防护规格（可选规格，单位：Gbps）                                 |
 | ------------- | ------------------------------------------------------------ |
-| 调整前        | 20G、50G、100G、300G、500G、800G、1T                         |
-| 调整后        | **30G**、**60G**、100G、300G、**400G**、500G、**600G**、800G、1T |
+| 调整前        | 20、50、100、300、500、800、1000                        |
+| 调整后        | 30、60、100、300、400、500、600、800、1000  |
 
 ### 保底防护价格策略调整
 <table>
 <thead>
 <tr>
-<th colspan=4>高防 IP-按月售卖（100M 带宽、60条规则）</th>
-<th colspan=4>高防 IP-按年售卖（100M 带宽、60条规则）</th>
+<th colspan=4>高防 IP-按月售卖（100Mbps 带宽、60条规则）</th>
+<th colspan=4>高防 IP-按年售卖（100Mbps 带宽、60条规则）</th>
 </tr>
 </thead>
 <tbody><tr>
@@ -30,88 +30,88 @@
 <th colspan=2>调整后</td>
 </tr>
 <tr>
-<th> 保底防护</th>
+<th> 保底防护（Gbps）</th>
 <th> 刊例价（元）</th>
-<th> 保底防护</th>
+<th> 保底防护（Gbps）</th>
 <th>刊例价（元）</th>
-<th> 保底防护</th>
+<th> 保底防护（Gbps）</th>
 <th> 刊例价（元）</th>
-<th> 保底防护</th>
+<th> 保底防护（Gbps）</th>
 <th>刊例价（元）</th>
 </tr>
 <tr>
-<td>20G</td>
+<td>20</td>
 <td>6,000</td>
-<td><strong>30G</strong></td>
+<td><strong>30</strong></td>
 <td><strong>19,800</strong></td>
-<td>20G</td>
+<td>20</td>
 <td>72,000</td>
-<td><strong>30G</strong></td>
+<td><strong>30</strong></td>
 <td><strong>237,600</strong></td>
 </tr>
 <tr>
-<td>50G</td>
+<td>50</td>
 <td>25,600</td>
-<td><strong>60G</strong></td>
+<td><strong>60</strong></td>
 <td><strong>42,800</strong></td>
-<td>50G</td>
+<td>50</td>
 <td>307,200</td>
-<td><strong>60G</strong></td>
+<td><strong>60</strong></td>
 <td><strong>298,000</strong></td>
 </tr>
 <tr>
-<td>100G</td>
+<td>100</td>
 <td>-</td>
-<td>100G</td>
+<td>100</td>
 <td>-</td>
-<td>100G</td>
+<td>100</td>
 <td>280,000</td>
-<td>100G</td>
+<td>100</td>
 <td><strong>308,000</strong></td>
 </tr>
 <tr>
-<td>300G</td>
+<td>300</td>
 <td>-</td>
-<td>300G</td>
+<td>300</td>
 <td>-</td>
-<td>300G</td>
+<td>300</td>
 <td>368,000</td>
-<td>300G</td>
+<td>300</td>
 <td><strong>508,000</strong></td>
 </tr>
 <tr>
-<td>500G</td>
+<td>500</td>
 <td>-</td>
-<td>500G</td>
+<td>500</td>
 <td>-</td>
-<td>500G</td>
+<td>500</td>
 <td>2,882,000</td>
-<td>500G</td>
+<td>500</td>
 <td><strong>3,680,000</strong></td>
 </tr>
 <tr>
-<td>800G</td>
+<td>800</td>
 <td>-</td>
-<td>800G</td>
+<td>800</td>
 <td>-</td>
-<td>800G</td>
+<td>800</td>
 <td>4,882,000</td>
-<td>800G</td>
+<td>800</td>
 <td><strong>4,982,000</strong></td>
 </tr>
 <tr>
-<td>1T</td>
+<td>1000</td>
 <td>-</td>
-<td>1T</td>
+<td>1000</td>
 <td>-</td>
-<td>1T</td>
+<td>1000</td>
 <td>5,882,000</td>
-<td>1T</td>
+<td>1000</td>
 <td><strong>5,982,000</strong></td>
 </tr>
 </tbody></table>
 
->?调整后 BGP 和三网高防 IP 刊例价一致，其中三网高防 IP 保底防护最高300G。
+>?调整后 BGP 和三网高防 IP 刊例价一致，其中三网高防 IP 保底防护最高300Gbps。
 >
 
 ### 弹性防护带宽计费模式调整
@@ -129,8 +129,8 @@
 
 | **调整前/后** | **计费模式**                                                 |
 | ------------- | ------------------------------------------------------------ |
-| 调整前        | 业务带宽单价：90元/M/月。                                    |
-| 调整后        | 业务带宽单价：**600M以内（含）100元/M/月，600M以上75元/M/月**。 |
+| 调整前        | 业务带宽单价：90元/Mbps/月。                                    |
+| 调整后        | 业务带宽单价：**600Mbps以内（含）100元/Mbps/月，600Mbps以上75元/Mbps/月**。 |
 
  
 

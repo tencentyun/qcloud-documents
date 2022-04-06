@@ -5,7 +5,7 @@
 ## 前提条件
 
 - 已创建 PolarisMesh 服务治理中心，请参见 [创建 PolarisMesh 治理中心](https://cloud.tencent.com/document/product/1364/65866)。
-- 下载 Github 的 [demo 源码](https://github.com/Tencent/spring-cloud-tencent/tree/main/spring-cloud-tencent-examples/polaris-quickstart-example) 到本地并解压。
+- 下载 Github 的 [demo 源码](https://github.com/Tencent/spring-cloud-tencent/tree/main/spring-cloud-tencent-examples/polaris-discovery-example) 到本地并解压。
 - 本地编译构建打包机器环境已安装了Java JDK、Maven，并且能够访问 Maven 中央库。
 - 根据您自身的业务，已准备好业务部署的资源，`虚拟机部署`、`容器化部署`和 `TEM 部署`选择其中一种方式即可。
   - **虚拟机部署**已创建 CVM 虚拟机，请参见 [创建 CVM 虚拟机](https://cloud.tencent.com/document/product/213/2936)。
@@ -20,7 +20,7 @@
 4. 查看访问地址，Spring Cloud 应用访问使用 gRPC 端口（8091）：
 ![](https://qcloudimg.tencent-cloud.cn/raw/e7dc5ac5f7c76a316ae68b667d8a365f.png)
 5. 修改 demo 中的注册中心地址。
-  1. 在下载到本地的 [demo 源码目录](https://github.com/Tencent/spring-cloud-tencent/tree/main/spring-cloud-tencent-examples/polaris-quickstart-example) 下，分别找到
+  1. 在下载到本地的 [demo 源码目录](https://github.com/Tencent/spring-cloud-tencent/tree/main/spring-cloud-tencent-examples/polaris-discovery-example) 下，分别找到
     `spring-cloud-tencent-examples\polaris-quickstart-example\quickstart-provider\src\main\resources\bootstrap.yml` 和 `spring-cloud-tencent-examples\polaris-quickstart-example\quickstart-consumer\src\main\resources\bootstrap.yml`两个文件。
   - 添加微服务引擎服务治理中心地址到项目配置文件中（以`\polaris-quickstart-example\quickstart-provider\src\main\resources\bootstrap.yml`为例）。
 <dx-codeblock>
