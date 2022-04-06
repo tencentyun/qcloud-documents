@@ -2,8 +2,8 @@
 `TUIPlayer` 组件是一套开源的、完整的视频解决方案，它基于腾讯云 `MLVB SDK` 和` IM SDK`，可以实现直播拉流，直播连麦等功能，通过 `TUIPlayer` 组件您可以轻松实现直播视频拉流，而无需自己实现复杂的 UI 与逻辑功能。
 <table>
 <tr>
-   <th>观看直播</th>
-   <th>发起连麦</th>
+   <th style="text-align:center">观看直播</th>
+   <th style="text-align:center">发起连麦</th>
  </tr>
 <tr>
 <td><img src="https://qcloudimg.tencent-cloud.cn/raw/9cbd0d20c12b86a87436fc72e0b4950d.jpg"/></td>
