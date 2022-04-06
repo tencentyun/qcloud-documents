@@ -96,5 +96,5 @@ mTUIPlayerView.stopPlay();
 ### 步骤五：在 TUIPlayer 中集成其他 TUIKit 组件（可选）
 我们在[小直播](https://github.com/tencentyun/XiaoZhiBo) 工程中使用了该 TUIPlayer 组件并集成了其他 TUIKit 组件，您可以以此为参考自行实现。
 
-## 三. 常见问题
+## 常见问题
 更多帮助信息，详情请参见 [TUI 场景化解决方案常见问题](https://cloud.tencent.com/developer/article/1952880)。欢迎加入 QQ 群：**592465424**，进行技术交流和反馈。
