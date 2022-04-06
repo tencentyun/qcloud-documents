@@ -151,3 +151,7 @@ CC 防护对网站特定的 URL 进行访问保护，CC 防护2.0全新改版，
 ![](https://qcloudimg.tencent-cloud.cn/raw/5ff38b1c16ded5f860145725c7f62bb5.png)
 7. 配置完成，基于 SESSION 的 CC 防护策略生效。
 >!使用基于 SESSION 的 CC 防护机制，无法在 IP 封堵状态中查看封堵信息。
+
+## 热点问题
+#### WAF 的策略生效优先级是怎么命中的？
+WAF 命中规则优先级为：精准白名单 > IP 白名单 > IP 黑名单、地域封禁、访问控制、CC 规则 > BOT 防护 > Web 防护（规则引擎）、AI 引擎、防篡改、防敏感。
