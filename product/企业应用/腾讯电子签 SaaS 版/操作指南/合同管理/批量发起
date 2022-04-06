@@ -1,17 +1,21 @@
+## 操作步骤
 ### 步骤1 ：配置合同模板
 1. 登录腾讯电子签控制台，进入到**模板管理**页面，单击**新增**，开始上传模板。
 ![](https://qcloudimg.tencent-cloud.cn/raw/62fb278630f850a1da6255e318b9c53f.png)
 2. 进入**配置签署信息**页面，填写合同名称，批量发起功能仅适用于电子签pc端，请选择模板适用渠道为**电子签pc网页端**，选择**顺序签署**或**无序签署**。
+![](https://qcloudimg.tencent-cloud.cn/raw/62b1543d2987dad0aeef07dda6a83871.png)
 <dx-alert infotype="notice" title="">
 如选择顺序签署，请注意添加的签署企业和签署个人的签署顺序。
 </dx-alert>
-<img src="https://qcloudimg.tencent-cloud.cn/raw/2fa04e563ef6f09235078ad81ba97589.png" />
+
 3. 添加一个企业与一个个人为签署对象，选择签署方式为自动签署（批量发起仅支持企业静默签盖章签署）。
+![](https://qcloudimg.tencent-cloud.cn/raw/67baaa599ed8a459e4b8f45b3b1f722b.png)
 <dx-alert infotype="notice" title="">
 批量发起合同仅支持企业（本企业）与个人签署、个人单独签署等合同的批量发起。
 </dx-alert>
-<img src="https://qcloudimg.tencent-cloud.cn/raw/3a64fa7e111e4e805fb9ced7cc0f66ad.png" />
+
 4. 在**指定签约区域**页面中，添加企业方的盖章控件、签署方的签名控件、以及发起方的填写控件。
+![](https://qcloudimg.tencent-cloud.cn/raw/604a848eae893d944816625d31ceb8f4.png)
 <dx-alert infotype="explain" title="">
 - 控件添加方式为拖拽，发起方拖拽的所有填写控件均需要定义名称。
 - 控件可根据字段长度进行拉长。
@@ -20,9 +24,9 @@
 - 批量发起合同默认企业静默签署方式，不支持添加企业经办人签名控件，只能添加企业印章控件，并需要上传印章。
 - 发起方控件为发起合同时，发起人需要填写的控件，发起人与经办人可以不是同一人。
 </dx-alert>
-<img src="https://qcloudimg.tencent-cloud.cn/raw/e5eda55b133fe24f53bc84858e97ef61.png" />
 
-5、完成后单击下一步，模板创建成功。
+
+5. 完成后单击下一步，模板创建成功。
 
 ### 步骤2：导入签署方
 1. 进入**合同管理**模块，单击**批量发起**。
