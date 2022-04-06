@@ -6,7 +6,7 @@
 ### 快速接入
 >!小程序插件 CaptchaAppId 仅限小程序插件接入方式使用，请勿使用在 Web 前端接入。
 
-以下代码为图形验证功能的前端接入示例代码，根据应用场景，以此作为参考完成 Web 前端的接入。
+ 以下代码为图形验证码直接绑定按钮的前端接入示例代码，如有其他接入要求（执行逻辑后调用验证码、配置验证码语言/弹出方式等），请参考[定制接入](#dzjr)章节。 
 ```
 <!DOCTYPE html>
 <html lang="en">
@@ -108,7 +108,7 @@ window.callback = function(res){
 ```
 
 
-### 定制接入
+### [定制接入](id:dzjr)
 1. 如果不使用默认 id，可以通过实例化 TencentCaptcha 类，自定义参数来创建验证码组件。
 >!绑定单击的元素不要使用`id="TencentCaptcha"`的元素，避免重复绑定单击。
 >
@@ -178,8 +178,8 @@ new TencentCaptcha(element, CaptchaAppId, callback, options);
 <td>更多配置参数, 请参见 <a href="#pzcs">配置参数</a></td>
 </tr>
 </tbody></table>
- 
- 
+
+
 - **示例代码**
 
 ```
