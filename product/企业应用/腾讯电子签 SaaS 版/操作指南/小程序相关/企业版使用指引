@@ -88,7 +88,7 @@
 ## 模板管理
 ### 1.企业自定义模板
 企业可以在 [腾讯电子签控制台](https://ess.tencent.com/) 进行模板管理，添加配置自定义的模板库。
-![](https://qcloudimg.tencent-cloud.cn/raw/91654da089f142f251c269bbf4894018.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/015caa51c3e75692271694da87678b84.png)
 <dx-alert infotype="notice" title="">
 此处在选择**适用渠道**时需选择**电子签小程序**渠道，进行模板创建。
 </dx-alert>
