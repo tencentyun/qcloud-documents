@@ -22,7 +22,7 @@
 
 ### 创建云函数 SCF
 
-参看 [通过模版创建函数](https://cloud.tencent.com/document/product/583/56125#.E9.80.9A.E8.BF.87.E6.A8.A1.E7.89.88.E5.88.9B.E5.BB.BA.E5.87.BD.E6.95.B0) 文档，创建函数。
+参看 [通过模板创建函数](https://cloud.tencent.com/document/product/583/56125#.E9.80.9A.E8.BF.87.E6.A8.A1.E7.89.88.E5.88.9B.E5.BB.BA.E5.87.BD.E6.95.B0) 文档，创建函数。
 主要配置参数如下：
  - 地域：选择**北京**地域。
  - **函数名称**：命名为 “CLSdemo”。
