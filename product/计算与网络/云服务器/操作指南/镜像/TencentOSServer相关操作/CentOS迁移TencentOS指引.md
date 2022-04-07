@@ -103,7 +103,7 @@ rpm -ivh migrate2tencentos-1.0-3.tl3.noarch.rpm
 7. 检查迁移结果。 
    1. 执行以下命令，检查 os-release。
 ```shell
-cat /etc/ os-releas
+cat /etc/ os-release
 ```
 返回如下图所示信息：
 ![](https://qcloudimg.tencent-cloud.cn/raw/eb7333c8badf5d7a4852a66084fcc190.png)
