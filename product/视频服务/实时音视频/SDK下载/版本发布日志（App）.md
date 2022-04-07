@@ -1,7 +1,7 @@
 ### Version 9.7 @ 2022.04.06
 
 **功能优化：** 
-- iOS & Android：优化 Music 音质的效果。
+- iOS&Android：优化 Music 音质的效果。
 <dx-alert infotype="explain" title="Tips：">
 全平台均可通过 API 接口 [TRTCCloud.startLocalAudio (TRTCAudioQualityMusic)](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a1dadf09b10a2d128e4cef11707934329) 开启 Music 音质，下同。
 </dx-alert>
