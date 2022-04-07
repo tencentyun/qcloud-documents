@@ -30,5 +30,5 @@ iOS、Android 上的应用可以通过集成腾讯云视立方·直播 SDK 来�
 腾讯云根据不同的场景，提供了3种接入小程序直播的方案，请按需选择接入方案：
 
 - [小程序·云直播插件](https://cloud.tencent.com/document/product/1078/42916)
-- [腾讯云视立方·直播 SDK + 直播标签](https://cloud.tencent.com/document/product/454/12554)
+- [标准直播 + 直播标签](https://cloud.tencent.com/document/product/454/12554)
 - [小程序·企业直播（腾讯云·欢句直播）](https://cloud.tencent.com/solution/mini-program-enterprise-live) 
