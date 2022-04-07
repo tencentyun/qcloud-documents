@@ -14,11 +14,3 @@
 
 ## 腾讯云图有没有专门的咨询渠道？
 可申请加入腾讯云图用户 QQ 群咨询或交流。群①：137385369 群②：720801798
-
-或使用以下途径咨询：
-
-- [售前在线咨询](https://cloud.tencent.com/online-service?from=salesconsole&source=PRESALE)
-
-- [售后在线咨询](https://cloud.tencent.com/online-service?from=console_bar_overview)
-
-- [提交工单](https://console.cloud.tencent.com/workorder/category)
