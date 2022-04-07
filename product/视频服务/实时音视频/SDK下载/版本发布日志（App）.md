@@ -1,3 +1,23 @@
+### Version 9.7 @ 2022.04.06
+
+**功能优化：** 
+- iOS & Android：优化 Music 音质的效果；
+  > Tips：全平台均可通过 API ： [TRTCCloud.startLocalAudio (TRTCAudioQualityMusic)](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a1dadf09b10a2d128e4cef11707934329) 开启Music 音质，下同）
+- Windows：优化 Music 音质下的采播效果，降低对音质的损伤；
+- Windows：提升部分专业声卡上的兼容性适配问题，有效提升音质；
+- Windows：第三方进程混音优化，让第三方进程混音功能可以适配更多的场景；
+
+**缺陷修复：**
+- 全平台：修复 CDN 播放偶现视频画面花屏的问题；
+- iOS & Android：修复直播播放听筒扬声器切换无效的问题；
+- iOS & Android：修复通过 API 设置 Music 音质时实际音质不符合预期的问题；
+- iOS：修复软编码过程中偶现的内存泄露问题；
+- iOS：修复本地视频画面渲染，偶现无首帧回调的问题；
+- Windows：修复屏幕分享模式下鼠标采集偶现的异常崩溃；
+- Windows：修复 Music 音质下，扬声器播放声音异常问题；
+- Windows：修复部分摄像头 startCameraDeviceTest 无法正常打开的问题；
+
+
 ### Version 9.6 @ 2022.03.24
 
 **重要更新：**
