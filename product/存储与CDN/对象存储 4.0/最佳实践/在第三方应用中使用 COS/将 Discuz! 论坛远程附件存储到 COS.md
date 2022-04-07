@@ -13,9 +13,9 @@ Discuz! 论坛可以通过配置远程附件功能将论坛的附件保存在腾
 	- 您可在 [Discuz! 官方发布](https://www.discuz.net/forum-10-1.html) 页面下载 Discuz! 论坛的最新版并查看安装说明。
 	- 您也可以在 [腾讯云市场](https://market.cloud.tencent.com/) 中搜索购买已经预装 Discuz! 论坛程序的 CVM 镜像。
 2. 创建一个**公有读私有写**的存储桶，存储桶的地域建议与运行 Discuz! 论坛的 CVM 的地域相同，创建详情请参见 [创建存储桶](https://cloud.tencent.com/document/product/436/13309) 文档。
-3. 在存储桶列表中找到刚刚创建的存储桶，并单击【配置管理】。
+3. 在存储桶列表中找到刚刚创建的存储桶，并单击**配置管理**。
 ![](https://main.qcloudimg.com/raw/6e011a00b4646f7d465056e9c88aa78c.png)
-4. 在左侧导航栏中，选择【概览】页签，查看**访问域名**并记录。
+4. 在左侧导航栏中，选择**概览**页签，查看**访问域名**并记录。
 ![](https://main.qcloudimg.com/raw/e84d246bb9c44ac9647d4d0abae565b6.png)
 5. 在运行 Discuz! 论坛的 CVM 上，部署 COS FTP Server 工具，部署步骤可参见 [FTP Server 工具](https://cloud.tencent.com/document/product/436/7214)。
 	- 在配置 FTP Server 时，FTP Server 配置中的 masquerade_address 设置为 127.0.0.1 以保证该 FTP 服务仅能被本机访问。
@@ -24,7 +24,7 @@ Discuz! 论坛可以通过配置远程附件功能将论坛的附件保存在腾
 ## 配置远程附件
 
 1. 使用管理员账号登录 Discuz! 论坛并进入**管理中心**页面。
-2. 依次进入【全局】 > 【上传设置】 > 【远程附件】。
+2. 依次进入**全局 > 上传设置 > 远程附件**。
 3. 设置远程附件选项，配置说明见下表。
 
 | 配置项             | 配置值                                                       |
@@ -42,7 +42,7 @@ Discuz! 论坛可以通过配置远程附件功能将论坛的附件保存在腾
 
 <img src="https://main.qcloudimg.com/raw/0c49e755be38e71393f71d51974e06be.jpg" width="90%"></img>
 <img src="https://main.qcloudimg.com/raw/e8deab38f87844e947a2cc8fd0a74986.jpg" width="90%"></img>
-4. 单击【测试远程附件】，如果提示“远程附件设置一切正常”，说明设置成功。
+4. 单击**测试远程附件**，如果提示“远程附件设置一切正常”，说明设置成功。
 <img src="https://main.qcloudimg.com/raw/38c8232f60577691da78d93925e9b0fa.png" width="90%"></img>
 5. 保存配置。
 6. 发帖测试。
