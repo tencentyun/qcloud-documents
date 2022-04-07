@@ -1,4 +1,4 @@
-### Version 9.7 @ 2022.04.06
+## Version 9.7 @ 2022.04.06
 
 **功能优化：** 
 - iOS & Android：优化 Music 音质的效果；
@@ -18,7 +18,7 @@
 - Windows：修复部分摄像头 startCameraDeviceTest 无法正常打开的问题；
 
 
-### Version 9.6 @ 2022.03.24
+## Version 9.6 @ 2022.03.24
 
 **重要更新：**
 
