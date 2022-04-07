@@ -42,10 +42,6 @@ CSIDrivers 可以使用 `fsGroupPolicy` 字段来控制是否支持在 mount 时
 
 ### 其他更新
 - 新增 cloud controller manager 组件。
-- 不再支持 basic auth 鉴权方式。
-- 不再支持在工作负载中直接使用腾讯云硬盘存储 (cbs inline) 挂载。
->? 1.18 升级 1.20 过程中无法保证对 [CSI 临时卷 (csi inline)](https://kubernetes.io/zh/docs/concepts/storage/ephemeral-volumes/#csi-ephemeral-volumes) 的成功挂载，如您的业务使用了 CSI 临时卷，建议转换为持久卷存储后再做升级。
->
 - 达到 GA 的特性：
   - [RuntimeClass](https://github.com/kubernetes/enhancements/issues/585)
  `node.k8s.io/v1beta1` 被废弃，请使用 `node.k8s.io/v1` 
@@ -123,8 +119,12 @@ securityContext:
 2. 已废弃的 `metrics/resource/v1alpha1`  endpoint 被移除，请使用 `metrics/resource`。
 
 #### 其他移除
--  `failure-domain.beta.kubernetes.io/zone`  及 `failure-domain.beta.kubernetes.io/region` 标签被废弃，请使用 `topology.kubernetes.io/zone` 及 `topology.kubernetes.io/region` 来代替。所有以 `failure-domain.beta...`  前缀的标签都需要使用对应的 `topology...` 开头的标签来代替。
--  PodPreset 被移除，可以使用 webhook 来实现该功能。
+- `failure-domain.beta.kubernetes.io/zone`  及 `failure-domain.beta.kubernetes.io/region` 标签被废弃，请使用 `topology.kubernetes.io/zone` 及 `topology.kubernetes.io/region` 来代替。所有以 `failure-domain.beta...`  前缀的标签都需要使用对应的 `topology...` 开头的标签来代替。
+- PodPreset 被移除，可以使用 webhook 来实现该功能。
+- 不再支持 basic auth 鉴权方式。
+- 不再支持在工作负载中直接使用腾讯云硬盘存储 (cbs inline) 挂载。
+>? 1.18 升级 1.20 过程中无法保证对 [CSI 临时卷 (csi inline)](https://kubernetes.io/zh/docs/concepts/storage/ephemeral-volumes/#csi-ephemeral-volumes) 的成功挂载，如您的业务使用了 CSI 临时卷，建议转换为持久卷存储后再做升级。
+>
 
 ### Changelogs
 [kubernetes 1.20 changelog](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.20.md#whats-new-major-themes)
