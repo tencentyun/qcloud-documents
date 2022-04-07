@@ -1,5 +1,5 @@
 ## 准备工作
-- 请阅读 Web 美颜特效 SDK [接入指南](https://tcloud-doc.isd.com/document/product/616/71364?!preview&!editLang=zh)，熟悉 SDK 基本用法。
+- 请阅读 Web 美颜特效 SDK [接入指南](https://cloud.tencent.com/document/product/616/71364)，熟悉 SDK 基本用法。
 - 请阅读 TRTC [快速集成(Web)](https://cloud.tencent.com/document/product/647/16863)，了解 TRTC Web SDK 基本用法，并完成基础设置。
 - 请阅读 TRTC [快速跑通 Web Demo](https://cloud.tencent.com/document/product/647/32398)，并先尝试在本地项目中运行 TRTC Web Demo。
 
@@ -9,38 +9,74 @@
 **由于 TRTC 的 Web Demo 项目已经做的比较完善，我们在此基础上进行少量改造即可。**
 在页面（PC Web 端）中引入 js 脚本：
 ```html
-<script charset="utf-8" src="https://webar-static.tencent-cloud.com/ar-sdk/resources/0.0.1/webar-sdk.umd.js"></script>
+<script charset="utf-8" src="https://webar-static.tencent-cloud.com/ar-sdk/resources/latest/webar-sdk.umd.js"></script>
 ```
->! 这里是示例项目，为了方便使用 script 标签方式引入，您也可以参考 [接入指南](https://tcloud-doc.isd.com/document/product/616/71364?!preview&!editLang=zh) 中的方法，用 npm 包的方式引入。
+>! 这里是示例项目，为了方便使用 script 标签方式引入，您也可以参考 [接入指南](https://cloud.tencent.com/document/product/616/71364) 中的方法，用 npm 包的方式引入。
 
 
 [](id:step2)
-### 步骤2：理解 TRTC client 流初始化逻辑
-在 TRTC 的 Demo 项目里，查看 TRTC client 的初始化过程，如下：
+### 步骤2：理解 TRTC 流初始化逻辑
+在 TRTC 的 Demo 项目里，查看 TRTC 本地流的初始化过程，TRTC 通过 createStream 方法创建流对象，
+可以指定使用 TRTC SDK 的默认采集方式, 如下
 ```js
-this.localStream_ = TRTC.createStream({
-	audio: true,
-	video: true,
-	userId: this.userId_,
-	cameraId: getCameraId(),
-	microphoneId: getMicrophoneId(),
-	mirror: true
+// 从麦克风和摄像头采集本地音视频流
+const localStream = TRTC.createStream({ userId, audio: true, video: true });
+localStream.initialize().then(() => {
+    console.log('initialize localStream success');
+    // 本地流初始化成功，可通过Client.publish(localStream)发布本地音视频流
+}).catch(error => {
+    console.error('failed initialize localStream ' + error);
 });
 ```
-调整初始化代码前，我们需要先 [初始化 Web 美颜特效 SDK](#step3)。
+以上为最基本的采集本地音视频流的初始化方式。
+为了便于开发者对音视频流进行预处理，TRTC.createStream 也支持从外部音视频源创建本地流，通过这种方式创建本地流，开发者可以实现自定义处理（例如对视频进行美颜处理），以下为示例代码：
+```js
+// 从指定的音视频源创建本地音视频流
+navigator.mediaDevices.getUserMedia({ audio: true, video: true }).then(stream => {
+    const audioTrack = stream.getAudioTracks()[0];
+    const videoTrack = stream.getVideoTracks()[0];
+    const localStream = TRTC.createStream({ userId, audioSource: audioTrack, videoSource: videoTrack });
+    localStream.initialize().then(() => {
+        console.log('initialize localStream success');
+        // 本地流初始化成功，可通过Client.publish(localStream)发布本地音视频流
+    }).catch(error => {
+        console.error('failed initialize localStream ' + error);
+    });
+});
 
+```
+createStream 方法的使用详情可见 [TRTC SDK 文档](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/TRTC.html#createStream)，为了获取经过美颜处理的流，我们需要先 [初始化 Web 美颜特效 SDK](#step3)。
 
 [](id:step3)
 ### 步骤3：初始化 Web 美颜特效 SDK
 示例代码如下：
 ```js
-const {ENTRY_TYPES, ArSdk, OUTPUT_TYPES} = window.AR
+const { ArSdk } = window.AR
 
-/** ----- License 配置 ----- */
-/** ----- 请填写您自己的参数 ----- */
-const APPID = '您的appid';
-const token = '您的token';
-const LICENSE_KEY = '您的licenseKey';
+/** ----- 鉴权配置 ----- */
+
+/**
+ * 腾讯云账号 APPID
+ * 
+ * 进入[腾讯云账号中心](https://console.cloud.tencent.com/developer) 即可查看 APPID
+ */
+const APPID = ''; // 此处请填写您自己的参数
+
+/**
+ * Web LicenseKey
+ * 
+ * 登录音视频终端 SDK 控制台的[Web License 管理](https://console.cloud.tencent.com/vcube/web)，创建项目即可获得 LicenseKey
+ */
+const LICENSE_KEY = ''; // 此处请填写您自己的参数
+
+/**
+ * 计算签名用的密钥 Token
+ * 
+ * 注意：此处仅用于 DEMO 调试，正式环境中请将 Token 保管在服务端，签名方法迁移到服务端实现，通过接口提供，前端调用拉取签名，参考
+ * [签名方法](https://https://cloud.tencent.com/document/product/616/71370#.E7.AD.BE.E5.90.8D.E6.96.B9.E6.B3.95)
+ */
+const token = ''; // 此处请填写您自己的参数
+
 /** ----------------------- */
 
 /**
@@ -53,116 +89,157 @@ const LICENSE_KEY = '您的licenseKey';
  * };
  */
 const getSignature = function () {
-	const timestamp = Math.round(new Date().getTime() / 1000);
-	const signature = sha256(timestamp + token + APPID + timestamp).toUpperCase();
-	return { signature, timestamp };
+    const timestamp = Math.round(new Date().getTime() / 1000);
+    const signature = sha256(timestamp + token + APPID + timestamp).toUpperCase();
+    return { signature, timestamp };
 };
 
-let width = 640;
-let height = 360;
+let w = 1280;
+let h = 720;
 
-const ar = new ArSdk(
-	ENTRY_TYPES.CAMERA,
-	{
-		width,
-		height,
-		mirror: true,
-		enableLoadingIcon: true,
-	},
-	LICENSE_KEY,
-	APPID,
-	async () => {
-		const { signature, timestamp } = await getSignature();
-		return {
-			signature,
-			timestamp,
-		};
-	},
-);
+// 获取设备输入流
+const stream = await navigator.mediaDevices.getUserMedia({
+    audio: true,
+    video: {width: w, height: h}
+})
+
+let effectList = [];
+let filterList = [];
+
+// ar sdk 基础配置参数
+const config = {
+    input: stream,
+    auth: {
+        licenseKey: LICENSE_KEY,
+        appId: APPID,
+        authFunc: async () => {
+            const {signature, timestamp} = await getSignature();
+            return {
+                signature,
+                timestamp,
+            };
+        }
+    },
+    // 初始美颜效果（可选参数）
+    beautify: {
+        whiten: 0.1, // 美白 0-1
+        dermabrasion: 0.3, // 磨皮 0-1
+        lift: 0, // 瘦脸 0-1
+        shave: 0, // 削脸 0-1
+        eye: 0.2, // 大眼 0-1
+        chin: 0, // 下巴 0-1
+    }
+}
+
+// config 传入ar sdk
+const ar = new ArSdk(config);
+
+// created 回调里可以开始获取内置特效与滤镜列表
+ar.on('created', () => {
+
+    // 获取内置特效，支持分页
+    ar.getEffectList({
+        Type: 'Preset',
+        PageSize: 20,
+        PageNumber: 1,
+    }).then((res) => {
+        const list = res.map(item => ({
+            name: item.Name,
+            id: item.EffectId,
+            cover: item.CoverUrl,
+            url: item.Url,
+            label: item.Label,
+            type: item.PresetType,
+        }));
+        effectList = list;
+    }).catch((e) => {
+        console.log(e);
+    });
+
+    // 内置滤镜
+    ar.getCommonFilter().then((res) => {
+        const list = res.map(item => ({
+            name: item.Name,
+            id: item.EffectId,
+            cover: item.CoverUrl,
+            url: item.Url,
+            label: item.Label,
+            type: item.PresetType,
+        }));
+        // 内置滤镜
+        filterList = list;
+    }).catch((e) => {
+        console.log(e);
+    });
+
+});
 
 ar.on('ready', (e) => {
+    
+    // 通过setBeautify设置美颜效果
+    ar.setBeautify({
+        whiten: 0.4, // 美白 0-1
+        dermabrasion: 0.5, // 磨皮 0-1
+        lift: 0.3, // 瘦脸 0-1
+        shave: 0, // 削脸 0-1
+        eye: 0, // 大眼 0-1
+        chin: 0, // 下巴 0-1
+    });
 
-	// 记录AR SDK 初始化就绪状态
-	this.isARReady = true;
+    // todo 可选：使用setEffect设置一个特效
+    ar.setEffect([{id: effectList[0].id, intensity: 1}]);
 
-	// 设置美颜效果
-	ar.setBeautify({
-		whiten: 0.4, // 美白 0-1
-		dermabrasion: 0.5, // 磨皮 0-1
-		lift: 0.3, // 瘦脸 0-1
-		shave: 0, // 削脸 0-1
-		eye: 0, // 大眼 0-1
-		chin: 0, // 下巴 0-1
-	});
-
-
-	// 获取内置特效，支持分页
-	ar.getEffectList({
-		Type: 'Preset',
-		// PageSize: 10,
-		// PageNumber: 0,
-	}).then((res) => {
-		const list = res.map(item => ({
-			name: item.Name,
-			id: item.EffectId,
-			cover: item.CoverUrl,
-			url: item.Url,
-			label: item.Label,
-			type: item.PresetType,
-		}));
-
-		// todo 尝试设置一个特效
-		// ar.setEffect([{id: list[0].id, intensity:0.8}])
-	}).catch((e) => {
-		console.log(e);
-	});
+    // todo 可选：使用setFilter设置一个滤镜，第二个参数1表示强度intensity为1（范围0-1）
+    ar.setFilter(filterList[0].id, 1);
 
 });
 
 ar.on('error', (e) => {
-	console.log(e);
+    console.log(e);
 });
 ```
+上述代码对 Web 美颜特效 SDK 进行了初始化配置，且在 ready 事件内进行了一些简单的美颜设置处理。
+您同时也可以考虑通过页面 UI 元素单击来进行特效或滤镜的切换，示例代码如下：
+```js
+$('#effect-btn').on('click', function () {
 
+      console.log('click effect btn')
+      let index = 0; // 根据自己的需要设置index
+      // 尝试设置一个特效
+      ar.setEffect([{id: this.effectList[index].id, intensity: 1}])
+      
+    })
+```
+更细致的 UI 控制用法您可以通过下载文末提供的代码包来进一步查看。
 
 [](id:step4)
-### 步骤4：修改 TRTC client 初始化过程
-**请确保 Web 美颜特效 SDK 就绪后再执行这里的逻辑**。
-因此在 TRTC client 的代码片段里，我们要用一个变量记录一下 ready 状态，示例代码如下：
+### 步骤4：修改 TRTC stream 初始化过程
+
+Web 美颜特效 SDK 初始化完成后就可以使用 `getOutput` 方法获取输出的流，再根据 [步骤2](#step2) 的介绍完成 TRTC 流初始化，示例代码如下：
 ```js
-const {OUTPUT_TYPES} = window.AR;
-// 获取AR的流
-const mystream = this.ar.getOutput(OUTPUT_TYPES.MEDIA_STREAM);
+// 获取 ar sdk 输出流
+const arStream = await this.ar.getOutput();
 
-let stream = null;
-try {
-	stream = await navigator.mediaDevices.getUserMedia({
-		audio: true
-	});
-} catch (error) {
-	console.error('failed to getUserMedia');
-	return;
-}
+const audioSource = arStream.getAudioTracks()[0];
+const videoSource = arStream.getVideoTracks()[0];
 
-// 分别获取视频和音频的track
-const audioSource = stream.getAudioTracks()[0];
-const videoSource = mystream.getVideoTracks()[0];
-
-// 初始化TRTC流
+// create a local stream with audio/video from custom source
 this.localStream_ = TRTC.createStream({
-	audioSource,
-	videoSource
+    audioSource,
+    videoSource
 });
-// todo
+
 ```
 
 
 [](id:step5)
 ### 步骤5：查看效果
->! 示例项目需您自行启动本机 Web 服务，并保证通过8090端口可访问到 HTML 文件。
+>! 示例项目需您自行启动本机 Web 服务，并保证通过指定端口号可访问到 HTML 文件。
 
-您在进入房间后可以很快查看实际的播放效果（运行示例代码中的 `index_AR.html`），成功后可以新开新的浏览器标签页来模拟其他人加入房间的效果。
+您在进入房间后可以很快查看实际的播放效果（运行示例代码中的 `index_AR.html`），成功后可以新开浏览器标签页进入刚才创建的房间模拟其他人加入房间的效果。
 
 
 ## 示例代码
-您可以访问 [示例代码](https://webar-static.tencent-cloud.com/docs/quick-demo/best_practice.zip) 下载后查看，主要改动部分在 `index_AR.html` 和 `rtc-client-with-webar.js`。
+您可以下载 [示例代码](https://webar-static.tencent-cloud.com/docs/quick-demo/best_practice.zip) 解压后查看，
+主要改动部分在 `index_AR.html` 和 `rtc-client-with-webar.js`，美颜特效的交互逻辑代码在`base-js/js/ar_interact.js`，
+您的 TRTC 密钥信息配置在 `base-js/js/debug/GenerateTestUserSig.js`。
