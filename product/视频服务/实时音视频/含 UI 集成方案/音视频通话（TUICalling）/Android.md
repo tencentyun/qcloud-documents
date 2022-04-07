@@ -84,11 +84,11 @@ TUILogin.login("您的userId", "您的userSig", new V2TIMCallback() {
 TUICalling callingImpl = TUICallingImpl.sharedInstance(context);
 ```
 **参数说明**：
-- **SDKAppID**：**TRTC 应用ID**，如果您未开通腾讯云 TRTC 服务，可进入 [腾讯云实时音视频控制台](https://console.cloud.tencent.com/trtc/app)，创建一个新的的 TRTC 应用后，单击**应用信息**，SDKAppID 信息如下图所示：
+- **SDKAppID**：**TRTC 应用ID**，如果您未开通腾讯云 TRTC 服务，可进入 [腾讯云实时音视频控制台](https://console.cloud.tencent.com/trtc/app)，创建一个新的 TRTC 应用后，单击**应用信息**，SDKAppID 信息如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/3d6ebfa2a1e4ae5d3af3ecd564fb1463.png)
 - **Secretkey**：**TRTC 应用密钥**，和 SDKAppId 对应，进入 [TRTC 应用管理](https://console.cloud.tencent.com/trtc/app) 后，SecretKey 信息如上图所示。
 - **userId**：当前用户的 ID，字符串类型，长度不超过32字节，不支持使用特殊字符，建议使用英文或数字，可结合业务实际账号体系自行设置。
-- **userSig**：根据 SDKAppId、userId，Secretkey 等信息计算得到的安全保护签名，您可以单击 [这里](https://console.cloud.tencent.com/trtc/usersigtool) 直接在线生成一个调试的 UserSig，也可以参照我们的 [TUICalling示例工程](https://github.com/tencentyun/TUICalling/blob/main/Android/App/src/main/java/com/tencent/liteav/demo/LoginActivity.java#L74)自行计算，更多信息见 [如何计算及使用 UserSig](https://cloud.tencent.com/document/product/647/17275)。
+- **userSig**：根据 SDKAppId、userId，Secretkey 等信息计算得到的安全保护签名，您可以单击 [这里](https://console.cloud.tencent.com/trtc/usersigtool) 直接在线生成一个调试的 UserSig，也可以参照我们的 [TUICalling示例工程](https://github.com/tencentyun/TUICalling/blob/main/Android/app/src/main/java/com/tencent/liteav/demo/LoginActivity.java#L74)自行计算，更多信息见 [如何计算及使用 UserSig](https://cloud.tencent.com/document/product/647/17275)。
 
 
 ### 步骤四：实现音视频通话
@@ -107,17 +107,17 @@ callingImpl.call(["1111", "2222", "3333"], TUICalling.Type.VIDEO);
 >- 当接收方完成步骤三后，即登录成功后，再收到通话请求后，TUICalling 组件会自动启动相应的接听界面。    
 >- 如果您想发起语音通话，更改类型为 `TUICalling.Type.AUDIO` 即可。
 
-### 步骤五：实现离线唤醒（可选）
+### 步骤五：离线推送（可选）
 
 完成以上四个步骤，就可以实现音视频通话的拨打和接通，但如果您的业务场景需要在 `App 的进程被杀死后`或者`APP 退到后台后`，还可以正常接收到音视频通话请求，就需要为 TUICalling 组件增加离线推送功能，详情见 [**Android离线推送接入指引.md**](https://github.com/tencentyun/TUICalling/blob/main/Android/Android%E7%A6%BB%E7%BA%BF%E6%8E%A8%E9%80%81%E6%8E%A5%E5%85%A5%E6%8C%87%E5%BC%95.md)。
 
-### 步骤六：监听通话状态（可选）
+### 步骤六：状态监听（可选）
 如果您的业务需要 [监听通话的状态](https://cloud.tencent.com/document/product/647/47712#setcallinglistener)，例如通话开始、结束等，可以监听以下事件：
 ```
 callingImpl.setCallingListener(new TUICalling.TUICallingListener() {
     @Override
     public boolean shouldShowOnCallView() {
-        return false;
+        return true;
     }
 
     @Override
@@ -137,8 +137,8 @@ callingImpl.setCallingListener(new TUICalling.TUICallingListener() {
   });
 ```
 
-### 步骤七：开启悬浮窗功能（可选）
-如果您的业务需要开启悬浮窗功能，您可以在 TUICalling 组件初始化时调用 `callingImpl.enableFloatWindow(true)` 开启该功能；
+### 步骤七：悬浮窗功能（可选）
+如果您的业务需要开启悬浮窗功能，您可以在TUICalling组件初始化时调用`callingImpl.enableFloatWindow(true)`开启该功能；
   
 目前组件支持以下两种情况悬浮窗：
 - 系统悬浮窗(单击 home 键退到后台)：需开启悬浮窗权限。
