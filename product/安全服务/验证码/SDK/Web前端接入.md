@@ -181,7 +181,6 @@ new TencentCaptcha(element, CaptchaAppId, callback, options);
 
 
 - **示例代码**
-
 ```
 //方法1: 直接生成一个验证码对象。
 try {
