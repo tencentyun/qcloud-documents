@@ -80,7 +80,7 @@ securityContext:
 - 进入 Beta 的特性：
 以下特性进入 Beta 阶段，并默认启用。
   - EndpointSliceProxying
-  kube-proxy 从 EndpointSlices 读取信息，而不再是 Endpoints，这可以很大程度上改善大集群的扩展性，并且为以后增加新特性提供了方便（比如拓扑感知路由）
+  kube-proxy 从 EndpointSlices 读取信息，而不再是 Endpoints，这可以很大程度上改善大集群的扩展性，并且为以后增加新特性提供了方便（例如拓扑感知路由）
   - KubeSchedulerConfiguration
   - HugePageStorageMediumSize
   - ImmutableEphemeralVolumes
