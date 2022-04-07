@@ -266,12 +266,12 @@
     <tr>
     <td rowspan='2' style="text-align:center">直播推流</td>
     <td style="text-align:center">摄像头推流</td>
-    <td style="text-align:center">-</td>
+    <td style="text-align:center">&#10003;</td>
     <td style="text-align:center">&#10003;</td>
   </tr>
    <tr>
     <td style="text-align:center">录屏推流</td>
-    <td style="text-align:center">-</td>
+    <td style="text-align:center">&#10003;</td>
     <td style="text-align:center">&#10003;</td>
   </tr>
   <tr>
