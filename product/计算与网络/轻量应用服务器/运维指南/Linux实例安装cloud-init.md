@@ -4,8 +4,6 @@ Cloud-init 主要提供实例首次初始化时自定义配置的能力。本文
 - 通过 [手工下载 cloud-init 源码包方式](#ManualDown) 
 - 通过 [使用软件源上的 cloud-init 包方式](#SoftSources)
 
-## 注意事项
-在导入 Linux 系统镜像前，请确保您的镜像内部已正确安装了 cloud-init 服务。
 
 ## 前提条件
 安装 cloud-init 的服务器可正常访问外网。
