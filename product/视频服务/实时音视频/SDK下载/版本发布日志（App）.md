@@ -1,4 +1,4 @@
-## Version 9.7 @ 2022.04.06
+### Version 9.7 @ 2022.04.06
 
 **功能优化：** 
 - iOS & Android：优化 Music 音质的效果。
@@ -20,7 +20,7 @@
 - Windows：修复部分摄像头 startCameraDeviceTest 无法正常打开的问题。
 
 
-## Version 9.6 @ 2022.03.24
+### Version 9.6 @ 2022.03.24
 
 **重要更新：**
 
@@ -69,7 +69,7 @@
 
 >?更早期的版本更新历史请单击  [更多](https://cloud.tencent.com/document/product/647/46907)。
 
-## Version 9.5 @ 2022.01.11
+### Version 9.5 @ 2022.01.11
 
 **故障修复：**
 - 全平台：提升 API 易用性，修复部分 API 特定调用时序导致自定义渲染播放黑屏的问题。
@@ -83,7 +83,7 @@
 - iOS：提升兼容性，降低和其他渲染组件如 cocos2D 共用时的冲突。
 - Android：修复上行关闭再开启摄像头，播放端先显示关闭前最后一帧再正常显示的问题。
 
-## Version 9.4 @ 2021.12.08
+### Version 9.4 @ 2021.12.08
 
 **功能新增：**
 - 全平台：新增语音追光功能，适用于大型语音连麦场景，即使在多人同时开麦的嘈杂的环境下，仍然能聚焦关键用户的声音。您可以通过 [setRemoteAudioParallelParams](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#a0e6e6434aaa03ce878280125a9c0fa4b) 接口进行设置。
@@ -103,7 +103,7 @@
 - Android：提升视频硬解兼容性，解决部分手机在播放视频分辨率发生变化时可能出现的黑屏问题。
 - Windows：优化音量增益算法，解决部分设备出现增益过大导致杂音比较明显的问题。
 
-## Version 9.3 @ 2021.11.03
+### Version 9.3 @ 2021.11.03
 
 **故障修复**
 - 全平台：修复 point2PointDelay 有时获取不到，数值为0的问题。
@@ -119,7 +119,7 @@
 - 全平台：优化测速功能，支持对当前网络带宽进行检测。
 - 全平台：优化对 TCP 传输协议的支持，更好地应对复杂的网络环境。
 
-## Version 9.2 @ 2021.09.23
+### Version 9.2 @ 2021.09.23
 
 **功能新增**
 - Android&iOS：支持 Socks5 代理。
@@ -139,7 +139,7 @@
 - Windows：优化 AGC 算法，降低出现声音过小和声音过大的问题的概率。
 - 全平台：优化弱网环境抗抖动算法，视频播放更流畅。
 
-## Version 9.1 @ 2021.09.04
+### Version 9.1 @ 2021.09.04
 
 **功能新增**
 - 全平台：C++ 接口支持音频帧回调格式设置。
@@ -162,7 +162,7 @@
 - Android：优化音频采集启动失败后的恢复逻辑，提升成功率。
 - Android：优化特定条件下视频画面过曝的问题。
 
-## Version 9.0 @ 2021.08.06
+### Version 9.0 @ 2021.08.06
 
 **功能新增**
 - iOS：支持设置系统采集音量，详情请参见 [setSystemAudioLoopbackVolume](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#afc45226807d84673bab78b21d1be54ae)。
@@ -181,7 +181,7 @@
 - Winodws：修复屏幕分享时采集帧率异常的问题。
 - Windows：修复屏幕分享切换目标时，播放端会先显示一帧旧画面的问题。
 
-## Version 8.9 @ 2021.07.15
+### Version 8.9 @ 2021.07.15
 
 **功能新增** 
 - Android：自定义渲染支持指定外部 GLContext，可以更灵活使用 OpenGL 环境。
@@ -204,7 +204,7 @@
 - iOS：修复只开启远端自定义渲染并指定使用 RGBA 格式数据时的内存泄漏问题。
 - 全平台：修复偶现进房失败问题。
 
-## Version 8.8 @ 2021.06.21
+### Version 8.8 @ 2021.06.21
 
 **功能新增**
 Android&Mac&iOS：支持外部接管音频播放，请参见 API [enableCustomAudioRendering](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#addb4c87719393cd4c4765d66a8cd9803)。
@@ -219,7 +219,7 @@ Android&Mac&iOS：支持外部接管音频播放，请参见 API [enableCustomAu
 - iOS：修复播放 AAC 格式本地音频文件总时长不准的问题。
 - Android：修复部分机型切换后台时播放声音卡顿的问题。
 
-## Version 8.7 @ 2021.5.25
+### Version 8.7 @ 2021.5.25
 **功能新增**
 - 全平台：增加外接音频设备的异常检测。注册 onStatistics 回调后， 您可以用 [TRTCLocalStatistics](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCTypeDef__cplusplus.html#structtrtc_1_1TRTCLocalStatistics) 中的 audioCaptureState 来实时检测长时间静音、破音、异常间断问题。
 - Windows：自定义采集支持输入 RGBA 格式的视频数据。
@@ -233,7 +233,7 @@ Android&Mac&iOS：支持外部接管音频播放，请参见 API [enableCustomAu
 - Android ：修复 setRemoteViewFillMode 部分机型偶现不生效的问题。
 - iOS/Mac：修复停止自定义美颜时的内存资源释放问题。
 
-## Version 8.6 @ 2021.05.08
+### Version 8.6 @ 2021.05.08
 - 全平台：优化网络流控算法，进一步提升音视频传输质量。
 - 全平台：优化切换角色上下麦时音频播放的流畅度。
 - iOS&Mac&Windows：优化音频处理模块，提升了 SPEECH 模式和 DEFAULT 模式的语音质量。
@@ -243,7 +243,7 @@ Android&Mac&iOS：支持外部接管音频播放，请参见 API [enableCustomAu
 - Windows：优化内存分配逻辑，提高稳定性。
 
 
-## Version 8.5 @ 2021.03.24
+### Version 8.5 @ 2021.03.24
 **功能新增**
 -  Mac：优化屏幕分享功能，您可以在分享目标窗口的同时指定其他窗口一起分享出去，请参见 API [addIncludedShareWindow](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a2e101f0ff00c8752eea1fa9a1a432233)。
 -  全平台：新增播片功能，您可以使用 [TXVodPlayer](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#classcom_1_1tencent_1_1rtmp_1_1TXVodPlayer) 与 TRTCCloud 绑定，把点播正在播放的内容通过 TRTC 的辅路推流分享出去。
@@ -261,7 +261,7 @@ Android&Mac&iOS：支持外部接管音频播放，请参见 API [enableCustomAu
 - iOS：优化屏幕画面静止时屏幕分享在播放无法播放的问题。
 
 
-## Version 8.4 @ 2021.02.08
+### Version 8.4 @ 2021.02.08
 **功能新增**
 - Mac：开始支持采集 Mac 操作系统的输出声音，也就是跟 Windows 端一样的 SystemLoopback 能力，该功能可以让 SDK 采集当前系统的声音，开启这个功能后，主播就可以很方便地向其他用户直播音乐或者电影文件。
 -  Mac：屏幕分享开始支持本地预览功能，您可以通过一个小窗口像用户展示屏幕分享的预览内容。
@@ -284,7 +284,7 @@ Android&Mac&iOS：支持外部接管音频播放，请参见 API [enableCustomAu
 -  iOS：修复点播与 TRTC 同时使用时，在停止点播播放时偶现 crash 的问题。
 -  Android：修复使用蓝牙耳机时被电话打断，拒绝接听电话后声音通过扬声器播放的问题。
 
-## Version 8.3 @ 2021.01.15
+### Version 8.3 @ 2021.01.15
 
 **功能新增**
 
@@ -309,7 +309,7 @@ Android&Mac&iOS：支持外部接管音频播放，请参见 API [enableCustomAu
 - Mac：修复渲染视图移动时会黑屏的问题。
 
 
-## Version 8.2 @ 2020.12.23
+### Version 8.2 @ 2020.12.23
 
 **功能新增**
 - iOS&Android：新增回调混合本地采集与所有播放的音频数据，本地音频录制更方便啦。
@@ -329,7 +329,7 @@ Android&Mac&iOS：支持外部接管音频播放，请参见 API [enableCustomAu
 - Windows：修复偶现的当前进程无法退出的问题。
 
 
-## Version 8.1 @ 2020.12.03
+### Version 8.1 @ 2020.12.03
 
 **功能新增**
 - 全平台：统计信息（onStatistics）中新增远端视频卡顿的相关统计指标。
@@ -347,7 +347,7 @@ Android&Mac&iOS：支持外部接管音频播放，请参见 API [enableCustomAu
 - Windows：修复高 DPI 下屏幕分享偶现的崩溃问题。
 
 
-## Version 8.0 @ 2020.11.13
+### Version 8.0 @ 2020.11.13
 
 **新增**
 - 全平台新增 C++ 统一 API，请参见 cpp_interface/[ITRTCCloud.h](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__ITRTCCloud__cplusplus.html)。
@@ -384,7 +384,7 @@ Android&Mac&iOS：支持外部接管音频播放，请参见 API [enableCustomAu
 
 
 
-## Version 7.9 @ 2020.10.27
+### Version 7.9 @ 2020.10.27
 **新增**
 - Mac：屏幕分享支持过滤选定的窗口，用户可以将自己不希望分享出去的窗口排除掉，从而更好地保护用户的隐私。
 - Windows：屏幕分享支持设置“正在分享”提示边框的描边颜色以及边框宽度。
@@ -413,7 +413,7 @@ Android&Mac&iOS：支持外部接管音频播放，请参见 API [enableCustomAu
 - Windows：修复个别场景下偶现的杂音问题。
 - 全平台：修复部分偶现的崩溃问题，提升 SDK 的稳定性。
 
-## Version 7.8 @ 2020.09.29
+### Version 7.8 @ 2020.09.29
 **新增**
 - Mac：新增系统音量变化回调，详见 [TRTCCloudDelegate.onAudioDevicePlayoutVolumeChanged](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDelegate__ios.html#af24c0f0258e83ab644e242ee0d01277f)。
 - Windows：新增支持跨屏指定区域进行屏幕分享。
@@ -452,7 +452,7 @@ Android&Mac&iOS：支持外部接管音频播放，请参见 API [enableCustomAu
 - Windows：修复部分系统使用 OpenGL 会 crash 的问题。
 
 
-## Version 7.7 @ 2020.09.08
+### Version 7.7 @ 2020.09.08
 
 **优化**
 
@@ -478,7 +478,7 @@ Android&Mac&iOS：支持外部接管音频播放，请参见 API [enableCustomAu
 - Windows：修复手动接收模式（即 [setDefaultStreamRecvMode(false，false)](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__ITRTCCloud__cplusplus.html#a7a0238314fc1e1f49803c0b22c1019d5)）下会重复收到 onUserVideoAvailable 事件回调的问题。
 
 
-## Version 7.6 @ 2020.08.21
+### Version 7.6 @ 2020.08.21
 **新增**
 
 - Windows：新增 [updateLocalView](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__ITRTCCloud__cplusplus.html#ae5211a2739df8d8ec6017559b3aa0299) 和 [updateRemoteView](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__ITRTCCloud__cplusplus.html#a8c8247cbc679ea144ffb393b6b940c9e) 接口，用于优化实时调整 HWND 类型的渲染窗口时的体验。
@@ -510,7 +510,7 @@ Android&Mac&iOS：支持外部接管音频播放，请参见 API [enableCustomAu
 - Android：修复偶现的录屏推流黑屏的问题。
 
 
-## Version 7.5 @ 2020.07.31
+### Version 7.5 @ 2020.07.31
 
 **新增**
 
@@ -535,7 +535,7 @@ Android&Mac&iOS：支持外部接管音频播放，请参见 API [enableCustomAu
 - 修复偶现退房之后还能收到 onEnterRoom 回调的问题。
 - 修复部分机型对超低分辨率编码失败无法恢复的问题。 
 
-##  Version 7.4 @ 2020.06.24 
+###  Version 7.4 @ 2020.06.24 
 
 **优化**
 
@@ -549,7 +549,7 @@ Android&Mac&iOS：支持外部接管音频播放，请参见 API [enableCustomAu
 
 
 
-##  Version 7.3 @ 2020.06.01
+###  Version 7.3 @ 2020.06.01
 
 **新增**
 
@@ -581,7 +581,7 @@ Android&Mac&iOS：支持外部接管音频播放，请参见 API [enableCustomAu
 
 
 
-##  Version 7.2 @ 2020.04.16 
+###  Version 7.2 @ 2020.04.16 
 
 **新增**
 
@@ -598,7 +598,7 @@ Android&Mac&iOS：支持外部接管音频播放，请参见 API [enableCustomAu
 
 
 
-##  Version 7.1 @ 2020.03.27 
+###  Version 7.1 @ 2020.03.27 
 
 **优化**
 
@@ -616,7 +616,7 @@ Android&Mac&iOS：支持外部接管音频播放，请参见 API [enableCustomAu
 
 
 
-##  Version 7.0 @ 2020.03.09 
+###  Version 7.0 @ 2020.03.09 
 
 - 优化 3A 开启策略。
 - 提升 mcu 混流易用性。
@@ -625,7 +625,7 @@ Android&Mac&iOS：支持外部接管音频播放，请参见 API [enableCustomAu
 
 
 
-##  Version 6.9 @ 2020.01.14 
+###  Version 6.9 @ 2020.01.14 
 
 **新增**
 
@@ -656,7 +656,7 @@ Android&Mac&iOS：支持外部接管音频播放，请参见 API [enableCustomAu
 
 
 
-##  Version 6.8 @ 2019.11.15 
+###  Version 6.8 @ 2019.11.15 
 
 **新增**
 
@@ -678,7 +678,7 @@ Android&Mac&iOS：支持外部接管音频播放，请参见 API [enableCustomAu
 
 
 
-##  Version 6.7 @ 2019.09.30 
+###  Version 6.7 @ 2019.09.30 
 
 **新增**
 
@@ -690,7 +690,7 @@ Android&Mac&iOS：支持外部接管音频播放，请参见 API [enableCustomAu
 - 转推耗时优化。
 - 支持单个用户播放音量独立调节能力。
 
-## Version 6.6 @ 2019.08.02 
+### Version 6.6 @ 2019.08.02 
 
 **新增**
 
@@ -718,7 +718,7 @@ Android&Mac&iOS：支持外部接管音频播放，请参见 API [enableCustomAu
 
 
 
-##  Version 6.5 @ 2019.06.12 
+###  Version 6.5 @ 2019.06.12 
 
 **新增**
 
@@ -750,7 +750,7 @@ Android&Mac&iOS：支持外部接管音频播放，请参见 API [enableCustomAu
 
 
 
-##  Version 6.4 @ 2019.04.25 
+###  Version 6.4 @ 2019.04.25 
 
 **新增**
 
@@ -777,7 +777,7 @@ Android&Mac&iOS：支持外部接管音频播放，请参见 API [enableCustomAu
 
 
 
-## Version 6.3 @ 2019.04.02 
+### Version 6.3 @ 2019.04.02 
 
 **新增**
 
@@ -794,7 +794,7 @@ Android&Mac&iOS：支持外部接管音频播放，请参见 API [enableCustomAu
 
 
 
-##  Version 6.2 @ 2019.03.08 
+###  Version 6.2 @ 2019.03.08 
 
 **新增**
 - 增加滤镜浓度设置接口 setFilterConcentration() 。
@@ -812,7 +812,7 @@ Android&Mac&iOS：支持外部接管音频播放，请参见 API [enableCustomAu
 
 
 
-##  Version 6.1 @ 2019.01.31 
+###  Version 6.1 @ 2019.01.31 
 
 **优化**
 
@@ -825,7 +825,7 @@ Android&Mac&iOS：支持外部接管音频播放，请参见 API [enableCustomAu
 
 
 
-##  Version 6.0 @ 2019.01.18 
+###  Version 6.0 @ 2019.01.18 
 
 **优化**
 
