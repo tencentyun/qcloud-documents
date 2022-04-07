@@ -5,7 +5,7 @@
 登录 [TCBI 控制台](https://yuntu.cloud.tencent.com/bi/home)。
 
 ## 第二步：连接数据源
-TCBI 产品为您提供免费测试用 MySQL 数据源，方便您操作联系 TCBI 的应用步骤。如您使用自己的数据源，需输入您的数据源地址及连接信息。
+TCBI 产品为您提供免费测试用 MySQL 数据源，方便您操作对应 TCBI 的应用步骤。如您使用自己的数据源，需输入您的数据源地址及连接信息。
 ![](https://qcloudimg.tencent-cloud.cn/raw/3edb435c0dbb5c45247d4a6f45317894.png)
 
 ## 第三步：创建数据集
