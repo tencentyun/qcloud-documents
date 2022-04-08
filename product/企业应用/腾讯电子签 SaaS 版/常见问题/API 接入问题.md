@@ -8,7 +8,7 @@
 
 ## 小程序相关
 ### 客户小程序如何跳转到电子签小程序完成签署？  
-请参见小程序 [官方文档](https://developers.weixin.qq.com/miniprogram/dev/api/navigate/wx.navigateToMiniProgram.html) 。小程序支持直接跳转到签署页面，完成签署后可返回客户小程序。可参考以下代码：  
+请参见小程序 [官方文档](https://developers.weixin.qq.com/miniprogram/dev/api/navigate/wx.navigateToMiniProgram.html) 。小程序支持直接跳转到签署页面，完成签署后可返回客户小程序。可参见以下代码：  
 ```
 wx.navigateToMiniProgram({  
 &nbsp;&nbsp;appId: 'wxa023b292fd19d41d', // 电子签小程序的appId  
@@ -27,12 +27,11 @@ path 里的参数（name，phone）均使用 `~${base64url(value)}` 统一编码
 3. 所需参数：
 电子签小程序 Appid：wxa023b292fd19d41d。
 电子签小程序原始 ID：gh_da88f6188665。
-电子签小程序合同详情页 `path：pages/guide?from=app&to=CONTRACT_DETAIL&id=${flowId}&name=&phone=`。
+电子签小程序合同详情页：`path：pages/guide?from=app&to=CONTRACT_DETAIL&id=${flowId}&name=&phone=`。
 
 ### 为什么客户在小程序中无法找到自己的合同？  
 请确认客户有使用和发起时相同的姓名、手机号进行小程序登录。且在**个人中心** > **切换身份**确认已切换为签署时要求的身份。
-<img style="width:250px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/831c6ac9adc9b06508fd2a91f00c9c47.png" />
-<img style="width:250px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/29eee192448b87bcf87825c786a56675.png" />
+<img style="width:500px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/7b732d9eb1777f687dfdb2d189fc9f3a.png" />
 
 
 
@@ -147,7 +146,7 @@ path 里的参数（name，phone）均使用 `~${base64url(value)}` 统一编码
 ![](https://qcloudimg.tencent-cloud.cn/raw/7ea2975a0c3ecc619247a40aea69e562.png)
 2. 单击**添加文本域**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/15a369537e611233f041055b565fcd27.png)
->!此处仅做定位使用
+>!此处仅做定位使用。
 3. 单击**文本域属性** > **位置**，单位选点。
 ![](https://qcloudimg.tencent-cloud.cn/raw/106da7e0516cfbb060659ff28b0da371.png)
 >!此时下方位置显示坐标值，注意此坐标值以页面左下角为原点。
