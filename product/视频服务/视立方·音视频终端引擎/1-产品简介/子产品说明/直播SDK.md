@@ -1,4 +1,4 @@
-直播 SDK 是音视频终端 SDK（腾讯云视立方）针对移动直播场景专属打造的一体化产品，支持直播推拉流、主播观众互动连麦、主播跨房 PK等能力，为用户提供高质量直播服务，快速满足手机直播的需求。更多关于直播 SDK 的文档详情请参见[直播 SDK ](https://cloud.tencent.com/document/product/454)。
+直播 SDK 是音视频终端 SDK（腾讯云视立方）针对移动直播场景专属打造的一体化产品，支持直播推拉流、主播观众互动连麦、主播跨房 PK等能力，为用户提供高质量直播服务，快速满足手机直播的需求。更多关于直播 SDK 的文档详情请参见 [直播 SDK](https://cloud.tencent.com/document/product/454)。
 
 音视频终端 SDK（腾讯云视立方）结构示意如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/4c2dc3d9ccc231b25975711676d78be5.jpg)
