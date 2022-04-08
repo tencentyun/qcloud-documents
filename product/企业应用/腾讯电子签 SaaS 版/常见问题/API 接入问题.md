@@ -3,7 +3,7 @@
 电子签集成版目前提供了 [PHP](https://github.com/TencentCloud/tencentcloud-sdk-php/tree/master/examples/ess) 、[Python](https://github.com/TencentCloud/tencentcloud-sdk-python/tree/master/examples/ess) 、[Java](https://github.com/TencentCloud/tencentcloud-sdk-java/tree/master/examples/ess) 、[Go](https://github.com/TencentCloud/tencentcloud-sdk-go/tree/master/examples/ess)  等语言的调用 Demo 供您在接入时参考，已上传至 GitHub 腾讯云官方 SDK 项目。
 
 #### 如何导入 SDK ？  
-目前官方提供了 PHP、Python、Java、Go、.NET、Node.js、C++、Ruby 等语言的 SDK 支持，请根据您的实际需要进行导入，请参见  [SDK导入指引](https://cloud.tencent.com/document/sdk) 。
+目前官方提供了 PHP、Python、Java、Go、.NET、Node.js、C++、Ruby 等语言的 SDK 支持，请根据您的实际需要进行导入，请参见  [SDK 导入指引](https://cloud.tencent.com/document/sdk) 。
 
 
 ### 小程序相关
@@ -19,11 +19,11 @@ wx.navigateToMiniProgram({
 &nbsp;&nbsp;}  
 })  
 ```
-path里的参数（name，phone）均使用 `~${base64url(value)}` 统一编码。
+path 里的参数（name，phone）均使用 `~${base64url(value)}` 统一编码。
 
 #### 客户 App 如何跳转到电子签小程序完成签署？  
-1. Android App 请参见 [官方文档](https://developers.weixin.qq.com/doc/oplatform/Mobile_App/Launching_a_Mini_Program/Android_Development_example.html)  
-2. iOS App 请参见 [官方文档](https://developers.weixin.qq.com/doc/oplatform/Mobile_App/Launching_a_Mini_Program/iOS_Development_example.html)  
+1. Android App 请参见 [官方文档](https://developers.weixin.qq.com/doc/oplatform/Mobile_App/Launching_a_Mini_Program/Android_Development_example.html) 。 
+2. iOS App 请参见 [官方文档](https://developers.weixin.qq.com/doc/oplatform/Mobile_App/Launching_a_Mini_Program/iOS_Development_example.html)  。
 3. 所需参数：
 电子签小程序 Appid：wxa023b292fd19d41d。
 电子签小程序原始 ID：gh_da88f6188665。
@@ -140,16 +140,16 @@ path里的参数（name，phone）均使用 `~${base64url(value)}` 统一编码�
 请登录 [腾讯电子签控制台](https://ess.tencent.cn/seal-mgr) ，访问**印章管理**单击**印章详情**确认已添加用户为印章持有人，只有持有人才拥有印章使用权限。
 
 
-### PDF相关
-#### 如何计算PDF签名位置？  
+### PDF 相关
+#### 如何计算 PDF 签名位置？  
 以Adobe阅读器为例：
 1. 单击**准备表单**。
-![](https://wdoc-76491.picgzc.qpic.cn/MTY4ODg1MDAxOTg2NzEwNA_365583_f0v4MdaMd8vCUWQJ_1648828924?w=1255&h=763)
+![](https://qcloudimg.tencent-cloud.cn/raw/7ea2975a0c3ecc619247a40aea69e562.png)
 2. 单击**添加文本域**。
-![](https://wdoc-76491.picgzc.qpic.cn/MTY4ODg1MDAxOTg2NzEwNA_988088_sIhafYIsj_67nsKk_1648828964?w=1280&h=730.1035196687371)
+![](https://qcloudimg.tencent-cloud.cn/raw/15a369537e611233f041055b565fcd27.png)
 >!此处仅做定位使用
 3. 单击**文本域属性** > **位置**，单位选点。
-![](https://wdoc-76491.picgzc.qpic.cn/MTY4ODg1MDAxOTg2NzEwNA_364509_SgaoHGGyz-wwk2uC_1648828994?w=1189&h=621)
+![](https://qcloudimg.tencent-cloud.cn/raw/106da7e0516cfbb060659ff28b0da371.png)
 >!此时下方位置显示坐标值，注意此坐标值以页面左下角为原点。
 4. 坐标计算  
 ComponentPosX = 左对齐坐标 - 82.06  
