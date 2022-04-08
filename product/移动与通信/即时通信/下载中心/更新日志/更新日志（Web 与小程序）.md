@@ -11,7 +11,7 @@
 **变更**
 
 - [Message.ID](https://web.sdk.qcloud.com/im/doc/zh-cn/Message.html) 拼接规则为 `${senderTinyID}-${clientTime}-${random}`，与 NativeIM 消息的 ID 拼接规则一致。
-- SDK not ready 时提示具体原因，方便接入侧排查。
+- SDK not ready 时提示具体原因，方便接入侧使用。
 
 **修复**
 
