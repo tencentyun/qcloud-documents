@@ -22,10 +22,10 @@
 // 从麦克风和摄像头采集本地音视频流
 const localStream = TRTC.createStream({ userId, audio: true, video: true });
 localStream.initialize().then(() => {
-    console.log('initialize localStream success');
-    // 本地流初始化成功，可通过Client.publish(localStream)发布本地音视频流
+  console.log('initialize localStream success');
+  // 本地流初始化成功，可通过Client.publish(localStream)发布本地音视频流
 }).catch(error => {
-    console.error('failed initialize localStream ' + error);
+  console.error('failed initialize localStream ' + error);
 });
 ```
 以上为最基本的采集本地音视频流的初始化方式。
@@ -33,15 +33,15 @@ localStream.initialize().then(() => {
 ```js
 // 从指定的音视频源创建本地音视频流
 navigator.mediaDevices.getUserMedia({ audio: true, video: true }).then(stream => {
-    const audioTrack = stream.getAudioTracks()[0];
-    const videoTrack = stream.getVideoTracks()[0];
-    const localStream = TRTC.createStream({ userId, audioSource: audioTrack, videoSource: videoTrack });
-    localStream.initialize().then(() => {
-        console.log('initialize localStream success');
-        // 本地流初始化成功，可通过Client.publish(localStream)发布本地音视频流
-    }).catch(error => {
-        console.error('failed initialize localStream ' + error);
-    });
+  const audioTrack = stream.getAudioTracks()[0];
+  const videoTrack = stream.getVideoTracks()[0];
+  const localStream = TRTC.createStream({ userId, audioSource: audioTrack, videoSource: videoTrack });
+  localStream.initialize().then(() => {
+    console.log('initialize localStream success');
+    // 本地流初始化成功，可通过Client.publish(localStream)发布本地音视频流
+  }).catch(error => {
+    console.error('failed initialize localStream ' + error);
+  });
 });
 
 ```
@@ -89,9 +89,9 @@ const token = ''; // 此处请填写您自己的参数
  * };
  */
 const getSignature = function () {
-    const timestamp = Math.round(new Date().getTime() / 1000);
-    const signature = sha256(timestamp + token + APPID + timestamp).toUpperCase();
-    return { signature, timestamp };
+  const timestamp = Math.round(new Date().getTime() / 1000);
+  const signature = sha256(timestamp + token + APPID + timestamp).toUpperCase();
+  return { signature, timestamp };
 };
 
 let w = 1280;
@@ -99,118 +99,109 @@ let h = 720;
 
 // 获取设备输入流
 const stream = await navigator.mediaDevices.getUserMedia({
-    audio: true,
-    video: {width: w, height: h}
+  audio: true,
+  video: { width: w, height: h }
 })
-
-let effectList = [];
-let filterList = [];
 
 // ar sdk 基础配置参数
 const config = {
-    input: stream,
-    auth: {
-        licenseKey: LICENSE_KEY,
-        appId: APPID,
-        authFunc: async () => {
-            const {signature, timestamp} = await getSignature();
-            return {
-                signature,
-                timestamp,
-            };
-        }
-    },
-    // 初始美颜效果（可选参数）
-    beautify: {
-        whiten: 0.1, // 美白 0-1
-        dermabrasion: 0.3, // 磨皮 0-1
-        lift: 0, // 瘦脸 0-1
-        shave: 0, // 削脸 0-1
-        eye: 0.2, // 大眼 0-1
-        chin: 0, // 下巴 0-1
+  input: stream,
+  auth: {
+    licenseKey: LICENSE_KEY,
+    appId: APPID,
+    authFunc: async () => {
+      const { signature, timestamp } = await getSignature();
+      return {
+        signature,
+        timestamp,
+      };
     }
+  },
+  // 初始美颜效果（可选参数）
+  beautify: {
+    whiten: 0.1, // 美白 0-1
+    dermabrasion: 0.5, // 磨皮 0-1
+    lift: 0.3, // 瘦脸 0-1
+    shave: 0, // 削脸 0-1
+    eye: 0, // 大眼 0-1
+    chin: 0, // 下巴 0-1
+  }
 }
 
-// config 传入ar sdk
+// config 传入 ar sdk
 const ar = new ArSdk(config);
 
-// created 回调里可以开始获取内置特效与滤镜列表
+// created回调里可以获取内置特效与滤镜列表进行界面展示
 ar.on('created', () => {
+  // 获取内置特效，支持分页
+  ar.getEffectList({
+    Type: 'Preset',
+    PageSize: 10,
+    PageNumber: 0,
+  }).then((res) => {
+    const list = res.map(item => ({
+      name: item.Name,
+      id: item.EffectId,
+      cover: item.CoverUrl,
+      url: item.Url,
+      label: item.Label,
+      type: item.PresetType,
+    }));
 
-    // 获取内置特效，支持分页
-    ar.getEffectList({
-        Type: 'Preset',
-        PageSize: 20,
-        PageNumber: 1,
-    }).then((res) => {
-        const list = res.map(item => ({
-            name: item.Name,
-            id: item.EffectId,
-            cover: item.CoverUrl,
-            url: item.Url,
-            label: item.Label,
-            type: item.PresetType,
-        }));
-        effectList = list;
-    }).catch((e) => {
-        console.log(e);
-    });
+    // 渲染美妆特效列表视图
+    renderEffectList(list);
 
-    // 内置滤镜
-    ar.getCommonFilter().then((res) => {
-        const list = res.map(item => ({
-            name: item.Name,
-            id: item.EffectId,
-            cover: item.CoverUrl,
-            url: item.Url,
-            label: item.Label,
-            type: item.PresetType,
-        }));
-        // 内置滤镜
-        filterList = list;
-    }).catch((e) => {
-        console.log(e);
-    });
+  }).catch((e) => {
+    console.log(e);
+  });
+  // 内置滤镜
+  ar.getCommonFilter().then((res) => {
+    const list = res.map(item => ({
+      name: item.Name,
+      id: item.EffectId,
+      cover: item.CoverUrl,
+      url: item.Url,
+      label: item.Label,
+      type: item.PresetType,
+    }));
 
+    // 渲染滤镜列表视图
+    renderFilterList(list);
+
+  }).catch((e) => {
+    console.log(e);
+  });
 });
 
 ar.on('ready', (e) => {
-    
-    // 通过setBeautify设置美颜效果
+
+  // 在 ready 回调里及该事件之后，可使用三种方法来设置美颜特效：setBeautify/setEffect/setFilter
+
+  //  例如使用range input（滑动控件）设置美颜效果，例如
+  $('#dermabrasion_range_input').change((e) => {
     ar.setBeautify({
-        whiten: 0.4, // 美白 0-1
-        dermabrasion: 0.5, // 磨皮 0-1
-        lift: 0.3, // 瘦脸 0-1
-        shave: 0, // 削脸 0-1
-        eye: 0, // 大眼 0-1
-        chin: 0, // 下巴 0-1
+      dermabrasion: e.target.value, // 磨皮 0-1
     });
+  });
 
-    // todo 可选：使用setEffect设置一个特效
-    ar.setEffect([{id: effectList[0].id, intensity: 1}]);
+  // 通过created回调中创建的美妆特效列表交互设置美妆效果(setEffect的输入参数支持三种格式，详见SDK接入指南)
+  $('#effect_list li').click(() => {
+    ar.setEffect([{id: effect.id, intensity: 1}]);
+  });
 
-    // todo 可选：使用setFilter设置一个滤镜，第二个参数1表示强度intensity为1（范围0-1）
-    ar.setFilter(filterList[0].id, 1);
-
+  // 通过created回调中创建的滤镜列表交互设置滤镜效果(setFilter第二个参数1表示强度，详见SDK接入指南）
+  ar.setFilter(filterList[0].id, 1);
+  $('#filter_list li').click(() => {
+    ar.setFilter(filter.id, 1);
+  });
 });
 
 ar.on('error', (e) => {
-    console.log(e);
+  console.log(e);
 });
 ```
-上述代码对 Web 美颜特效 SDK 进行了初始化配置，且在 ready 事件内进行了一些简单的美颜设置处理。
-您同时也可以考虑通过页面 UI 元素单击来进行特效或滤镜的切换，示例代码如下：
-```js
-$('#effect-btn').on('click', function () {
+上述代码对 Web 美颜特效 SDK 进行了初始化配置，且在 ready 事件内进行了一些简单的美颜设置交互处理，更细致的UI交互可以通过下载文末提供的代码包来进一步查看。
 
-      console.log('click effect btn')
-      let index = 0; // 根据自己的需要设置index
-      // 尝试设置一个特效
-      ar.setEffect([{id: this.effectList[index].id, intensity: 1}])
-      
-    })
-```
-更细致的 UI 控制用法您可以通过下载文末提供的代码包来进一步查看。
 
 [](id:step4)
 ### 步骤4：修改 TRTC stream 初始化过程
@@ -225,8 +216,8 @@ const videoSource = arStream.getVideoTracks()[0];
 
 // create a local stream with audio/video from custom source
 this.localStream_ = TRTC.createStream({
-    audioSource,
-    videoSource
+  audioSource,
+  videoSource
 });
 
 ```
@@ -241,5 +232,4 @@ this.localStream_ = TRTC.createStream({
 
 ## 示例代码
 您可以下载 [示例代码](https://webar-static.tencent-cloud.com/docs/quick-demo/best_practice.zip) 解压后查看，
-主要改动部分在 `index_AR.html` 和 `rtc-client-with-webar.js`，美颜特效的交互逻辑代码在`base-js/js/ar_interact.js`，
-您的 TRTC 密钥信息配置在 `base-js/js/debug/GenerateTestUserSig.js`。
+主要改动部分在 `index_AR.html` 和 `rtc-client-with-webar.js`，美颜特效的交互逻辑代码在`base-js/js/ar_interact.js`，您的 TRTC 密钥信息配置在 `base-js/js/debug/GenerateTestUserSig.js`。
