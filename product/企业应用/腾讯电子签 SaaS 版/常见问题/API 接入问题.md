@@ -1,13 +1,13 @@
-### SDK 相关 
-#### 如何获取 SDK 调用样例？  
+## SDK 相关 
+### 如何获取 SDK 调用样例？  
 电子签集成版目前提供了 [PHP](https://github.com/TencentCloud/tencentcloud-sdk-php/tree/master/examples/ess) 、[Python](https://github.com/TencentCloud/tencentcloud-sdk-python/tree/master/examples/ess) 、[Java](https://github.com/TencentCloud/tencentcloud-sdk-java/tree/master/examples/ess) 、[Go](https://github.com/TencentCloud/tencentcloud-sdk-go/tree/master/examples/ess)  等语言的调用 Demo 供您在接入时参考，已上传至 GitHub 腾讯云官方 SDK 项目。
 
-#### 如何导入 SDK ？  
+### 如何导入 SDK ？  
 目前官方提供了 PHP、Python、Java、Go、.NET、Node.js、C++、Ruby 等语言的 SDK 支持，请根据您的实际需要进行导入，请参见  [SDK 导入指引](https://cloud.tencent.com/document/sdk) 。
 
 
-### 小程序相关
-#### 客户小程序如何跳转到电子签小程序完成签署？  
+## 小程序相关
+### 客户小程序如何跳转到电子签小程序完成签署？  
 请参见小程序 [官方文档](https://developers.weixin.qq.com/miniprogram/dev/api/navigate/wx.navigateToMiniProgram.html) 。小程序支持直接跳转到签署页面，完成签署后可返回客户小程序。可参考以下代码：  
 ```
 wx.navigateToMiniProgram({  
@@ -21,7 +21,7 @@ wx.navigateToMiniProgram({
 ```
 path 里的参数（name，phone）均使用 `~${base64url(value)}` 统一编码。
 
-#### 客户 App 如何跳转到电子签小程序完成签署？  
+### 客户 App 如何跳转到电子签小程序完成签署？  
 1. Android App 请参见 [官方文档](https://developers.weixin.qq.com/doc/oplatform/Mobile_App/Launching_a_Mini_Program/Android_Development_example.html) 。 
 2. iOS App 请参见 [官方文档](https://developers.weixin.qq.com/doc/oplatform/Mobile_App/Launching_a_Mini_Program/iOS_Development_example.html)  。
 3. 所需参数：
@@ -29,45 +29,45 @@ path 里的参数（name，phone）均使用 `~${base64url(value)}` 统一编码
 电子签小程序原始 ID：gh_da88f6188665。
 电子签小程序合同详情页 `path：pages/guide?from=app&to=CONTRACT_DETAIL&id=${flowId}&name=&phone=`。
 
-#### 为什么客户在小程序中无法找到自己的合同？  
+### 为什么客户在小程序中无法找到自己的合同？  
 请确认客户有使用和发起时相同的姓名、手机号进行小程序登录。且在**个人中心** > **切换身份**确认已切换为签署时要求的身份。
-<img style="width:400px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/831c6ac9adc9b06508fd2a91f00c9c47.png" />
-<img style="width:400px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/29eee192448b87bcf87825c786a56675.png" />
+<img style="width:250px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/831c6ac9adc9b06508fd2a91f00c9c47.png" />
+<img style="width:250px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/29eee192448b87bcf87825c786a56675.png" />
 
 
 
-### 接口报错相关
-#### 接口调用报错如何处理？  
+## 接口报错相关
+### 接口调用报错如何处理？  
 您可以尝试按照接口返回的 message 的提示进行修改，或者记录下 requestId 并提供给对接人员进行处理。
 
-#### 接口调用返回签名错误？  
+### 接口调用返回签名错误？  
 请先检查 SecretId 和 SecretKey 是否正确。如果您未使用 SDK 进行接入，请参见腾讯云官方 [开发指南](https://cloud.tencent.com/document/product/1278/46637) 中的样例代码进行签名计算。
 
 
-### 静默签相关
-#### 如何发起静默签？  
+## 静默签相关
+### 如何发起静默签？  
 1. 使用文件创建合同接入  
 需要在 CreateFlowByFiles 接口传入 ApproverInfo 数组时，设置签署者的 ApproverType 为3。注意目前仅支持发起者（企业方）进行静默签署。  
 2. 使用模板创建合同接入  
 首先登录 [腾讯电子签控制台](https://ess.tencent.cn/template-mgr) ，进入**模板管理**，在编辑或者新增模板**配置模板信息**步骤中设置己方签署方式为“自动签署”，完成后保存模板并以此模板 ID 重新发起合同。  
 ![](https://qcloudimg.tencent-cloud.cn/raw/2fadd416c6b2bf438dde208769c65f23.png)
 
-#### 能够让非发起方企业进行静默签么？  
+### 能够让非发起方企业进行静默签么？  
 静默签署需要控制对应企业的印章，且签署具有法律效益，故业务上仅允许发起方企业控制己方进行静默签署。
 
 
-### 回调相关
-#### 回调地址如何配置？  
+## 回调相关
+### 回调地址如何配置？  
 如您需要开通此功能，需提供回调地址 CallbackUrl，由对接人在后台设置好回调地址后即可接收回调通知，并返回 CallbackUrlKey 给您用于解密，请确保 CallbackUrl 可公网访问并正常处理回调通知。电子签会在合同状态产生变化时向该地址发送通知。
 
-#### 回调数据如何解密？  
+### 回调数据如何解密？  
 腾讯电子签回调开发者回调接口传入的参数为加密的数据，开发者需要使用腾讯电子签提供的 CallbackUrlKey 来解密数据。
 解密步骤如下：  
 1. 对收到的数据进行 Base64 解码得到密文。  
 2. 对密文进行对称解密，密钥为腾讯电子签提供的 CallbackUrlKey，数据采用 PKCS#7 填充。  
 3. 解密得到的数据为输入参数的 Json 格式。
 
-#### 回调数据有哪些参数呢？  
+### 回调数据有哪些参数呢？  
 **回调数据对象 FlowInfo 结构：**
  
 |  参数名称   | 类型  | 描述  |
@@ -107,41 +107,41 @@ path 里的参数（name，phone）均使用 `~${base64url(value)}` 统一编码
 | VerifyChannel  | string | 签署意愿方式，WEIXINAPP：人脸识别。  |
 | ApproveTime  | int | 签约的时间。 |
 
-#### 回调地址是否支持同时配置多个？  
+### 回调地址是否支持同时配置多个？  
 支持，回调地址可以同时存在多个，您可以提供需要配置的回调地址给对接人员进行配置，根据您的需求不同的地址可以配置相同或者不同的 CallbackUrlKey。
 
-#### 回调地址是否支持更改或删除？  
+### 回调地址是否支持更改或删除？  
 支持，您可以提供需要删除的回调地址给对接人员进行对应操作。
 
-#### 回调地址配置后多长时间生效呢？  
+### 回调地址配置后多长时间生效呢？  
 配置完成后立即生效，以对接人员通知您配置完成的时间为准。
 
-#### 为什么客户收到 FlowCallbackStatus 为4（已签署）的回调通知后，又收到了 FlowCallbackStatus 为1（待签署）的通知？  
+### 为什么客户收到 FlowCallbackStatus 为4（已签署）的回调通知后，又收到了 FlowCallbackStatus 为1（待签署）的通知？  
 以单方签署的合同为例，FlowCallbackStatus 状态变化一般是由1变为4。少量回调可能因状态变化间隔比较短、重发、或者网络传输等原因，小几率出现到达顺序不一致，建议开发者从代码层面进行适当控制，例如状态更新为4后不能再更新为1。
 
 
-### 短信相关
-#### 为什么客户收不到短信通知？  
+## 短信相关
+### 为什么客户收不到短信通知？  
 根据签署类型，可以分为个人签署用户和企业签署用户。如果为个人签署用户，建议先引导客户查看手机拦截记录，检查短信是否被拦截；如果为企业签署用户，电子签目前默认对企业签署方不发送短信通知，如果您有此需求可以联系我们的对接人员进行配置。具体原因以对接人员的最终排查结果为准。
 
 
-### 印章相关
-#### 如何查看印章审核状态？  
+## 印章相关
+### 如何查看印章审核状态？  
 请登录 [腾讯电子签控制台](https://ess.tencent.cn/seal-mgr) ，访问**印章管理**单击**印章详情**对印章审核状态进行查看。
 
-#### 为什么印章审核通不过？  
+### 为什么印章审核通不过？  
 请确认印章为非绘制印章，且在图片中清晰完整。目前电子签提供以下生成印章的方式：  
 - 新建印章时，选择**模板印章**的创建方式，即可自动生成企业电子印章。  
 - 上传印章前在白纸上清晰盖章后拍照，确保印章在图片中清晰完整，在新建印章时，选择**本地上传**并上传图片。  
 
 请确保印章有按照以上方生成。具体失败原因以审核人提供的拒绝理由为准。
 
-#### 创建流程提示“无权限操作该印章”?  
+### 创建流程提示“无权限操作该印章”?  
 请登录 [腾讯电子签控制台](https://ess.tencent.cn/seal-mgr) ，访问**印章管理**单击**印章详情**确认已添加用户为印章持有人，只有持有人才拥有印章使用权限。
 
 
-### PDF 相关
-#### 如何计算 PDF 签名位置？  
+## PDF 相关
+### 如何计算 PDF 签名位置？  
 以 Adobe 阅读器为例：
 1. 单击**准备表单**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/7ea2975a0c3ecc619247a40aea69e562.png)
