@@ -1,9 +1,14 @@
-﻿现如今，随着业务的发展，业务的规模也逐渐扩大，业务迁移上云能更好的帮助企业稳定无顾发展，如何更好的实现对现有业务以及云资源存储进行分类和管理，成为业务是否能稳定有序进行的必要保障之一。数据库中的标签（Tag）指的是一种云资源管理工具，您可以从不同维度对具有相同特征的云资源进行分类、搜索和聚合，也可以通过标签来进行云资源的分类管理，通过预设标签来进行资源规划从而轻松管理云资源。
+现如今，随着业务的发展，业务的规模也逐渐扩大，业务迁移上云能更好的帮助企业稳定无顾发展，如何更好的实现对现有业务以及云资源存储进行分类和管理，成为业务是否能稳定有序进行的必要保障之一。
+
+数据库中的标签（Tag）指的是一种云资源管理工具，您可以从不同维度对具有相同特征的云资源进行分类、搜索和聚合，也可以通过标签来进行云资源的分类管理，通过预设标签来进行资源规划从而轻松管理云资源。
+
 我们对标签进行筛选查询可找到目标资源和文件，在数据量较大且标签值较多的场景下，数据容量会占用很多，性能也会较差，如何高效快速且不占用太多数据容量的情况下进行目标资源筛查，成为业务管理优化的不变话题。
 
 本文为您介绍基于 pg_roaringbitmap 插件可轻松实现超大规模标签的查找。
+
 ## pg_roaringbitmap 概述
 pg_roaringbitmap 是一个基于 roaringbitmap 而实现的压缩位图存储数据插件，支持 roaring bitmap 的存取、集合操作，聚合等运算。
+
 ## roaringbitmap 用途
 roaringbitmap 在业务中常用来存储用户的属性标签，可增删改查这些属性标签以及根据这些存储的用户的标签，通过并集、交集等方法来筛选出特定的用户，以达到超大规模属性数据的精准快速查找，既提升了性能，同时也能降低存储空间，是大数据分析场景下极佳的应用实践。
 如在传统模式下如有一张音乐类应用的用户标签表，如下表：
@@ -18,6 +23,7 @@ roaringbitmap 在业务中常用来存储用户的属性标签，可增删改查
 
 如想要找到喜欢纯音乐的所有用户，就需要根据兴趣标签列进行搜索，找到标签中包含纯音乐的行，然后将此数据返回给应用。
 一般最简单的做法是：首先按照上表的结构在数据库中建立一张用户兴趣表，然后执行数组查询语句，找到兴趣标签进行包含查找。但这么做会有一个问题，在数据量较大且标签值较多的场景下，不仅数据容量占用得更多，而且性能会极差。所以我们需要更换一种实现方案，将此表拆分为三张表，兴趣标签作为主键，包含此兴趣标签的用户作为 bitmap 存储。如下表所示：
+
 **用户表：**
 
 | 用户ID | 用户名 |
@@ -42,10 +48,11 @@ roaringbitmap 在业务中常用来存储用户的属性标签，可增删改查
 | 2 | [ 5,31] |
 | N | ... |
 
-当需要查找同时喜欢听古典和民歌的用户时，直接在用户标签表对用户ID做 bitmap 查询即可，能够极大的提升性能并且容量占用可大幅降低。
+当需要查找同时喜欢听古典和民歌的用户时，直接在用户标签表对用户 ID 做 bitmap 查询即可，能够极大的提升性能并且容量占用可大幅降低。
+
 ## 传统方法与使用 roaringbitmap 方法查询性能对比
-### 测试场景准备
-1. 创建一个随机字符的函数：
+### 准备测试场景
+1. 创建一个随机字符的函数。
 ```
 create or replace function random_string(length integer) returns text as
 $$
@@ -65,7 +72,7 @@ return result;
 end;
 $$ language plpgsql;
 ```
-2. 创建一个生成随机整形数组的函数：
+2. 创建一个生成随机整形数组的函数。
 ```
 create or replace function random_int_array(int, int)
 returns int[] language sql as
@@ -74,7 +81,7 @@ select array_agg(round(random()* $1)::int)
 from generate_series(1, $2)
 $$;
 ```
-3. 创建一个生成随机字符数组的函数：
+3. 创建一个生成随机字符数组的函数。
 ```
 create or replace function random_string_array(int, int)
 returns TEXT[] language sql as
@@ -84,8 +91,8 @@ $$;
 ```
 
 ### 方案1：传统方法
-一张表解决一切
-1. 创建一个表包含所有数据：
+一张表解决一切。
+1. 创建一个表包含所有数据。
 ```
 create table account(
 uin bigint primary KEY,
@@ -93,12 +100,12 @@ name varchar,
 tag TEXT []
 );
 ```
-2. 模拟插入1000W个账号数据（需要使用到场景准备工作中的函数）,并且创建 Gin 索引。
+2. 模拟插入1000W个账号数据（需要使用到场景准备工作中的函数），并且创建 Gin 索引。
 ```
 insert into account select generate_series(1,10000000), random_string(20),random_string_array(5,10);
 create index tag_inx on account USING GIN(tag);
 ```
-3. 执行查询，查找标签带 GN 和 o 的用户列表：
+3. 执行查询，查找标签带 GN 和 o 的用户列表。
 ```
 explain analyze select uin,name from account where tag @>ARRAY['GN','o'];
 
@@ -116,7 +123,7 @@ Index Cond: (tag @> '{GN,o}'::text[])
 Planning Time: 0.108 ms
 Execution Time: 4.528 ms
 ```
-4. 执行查询，查找标签 lvXe 和 Zt 的人有xx个（第一次查询会较慢）。
+4. 执行查询，查找标签 lvXe 和 Zt 的人有 xx 个（第一次查询会较慢）。
 ```
 explain analyze select count(uin) from account where tag && ARRAY['lvXe','Zt'];
 
@@ -136,14 +143,14 @@ Execution Time: 8.270 ms
 
 ### 方案2：优化方案
 为了降低查询中标签字段的类型导致的性能减低，所以将上面表中的真实 tag 修改为 tagid。
-1. 引入一个新的标签字典表：
+1. 引入一个新的标签字典表。
 ```
 create table tag_dict (  
 tagid int primary key,
 taginfo text
 );
 ```
-2. 假设一共有10W种字典类型：
+2. 假设一共有10W种字典类型。
 ```
 insert into tag_dict select generate_series(1,100000), md5(random()::text);
 ```
@@ -155,11 +162,11 @@ name varchar,
 tag INT []
 );
 ```
-4. 插入1000W个账号数据：
+4. 插入1000W个账号数据。
 ```
 insert into account1 select generate_series(1,10000000), random_string(20),random_int_array(100000,10);
 ```
-5. 查找同时有标签ID为100和5711的用户列表：
+5. 查找同时有标签 ID 为100和5711的用户列表。
 **索引前**：
 ```
 test=> explain analyze select uin,name from account1 where tag @> ARRAY[100,5711];
@@ -196,7 +203,7 @@ Planning Time: 0.410 ms
 Execution Time: 0.171 ms
 (6 rows)
 ```
-6. 查找同时有 标签ID为61568，97350的用户列表：
+6. 查找同时有标签 ID 为61568，97350的用户列表。
 ```
 test=> explain analyze select uin,name from account1 where tag @> ARRAY[61568,97350];
 QUERY PLAN
@@ -210,7 +217,7 @@ Planning Time: 0.071 ms
 Execution Time: 0.151 ms
 (7 rows)
 ```
-7. 查找与xx有共同爱好(标签100和5711)的人有xx个：
+7. 查找与 xx 有共同爱好（标签100和5711）的人有 xx 个。
 ```
 test=> explain analyze select count(uin) from account1 where tag && ARRAY[61568,97350];
 QUERY PLAN
@@ -235,7 +242,7 @@ Execution Time: 29.725 ms
 (14 rows)
 ```
 
-**方案3：roaringbitmap**
+### 方案3：roaringbitmap
 1. 首先需要创建插件，云数据库 PostgreSQL 天然集成了此插件，无需关注编译等操作，直接进入数据库中创建即可。
 ```
 create extension roaringbitmap;
@@ -261,7 +268,7 @@ from account1
 ) t
 group by tagid, uin_offset;
 ```
-4. 查询标签有 1，3，10，200的用户个数：
+4. 查询标签有1，3，10，200的用户个数。
 ```
 explain analyze select sum(ub) from
 (
@@ -293,7 +300,7 @@ Planning Time: 0.289 ms
 Execution Time: 1.083 ms
 (13 rows)
 ```
-5. 查看标签有1，3，10，200的用户列表：
+5. 查看标签有1，3，10，200的用户列表。
 ```
 explain analyze select uin_offset,rb_or_agg(uinbits) as ub
 from tag_uin_list
@@ -318,7 +325,7 @@ Execution Time: 0.310 ms
 (12 rows)
 ```
 
-### 查看索引以及表占用大小：
+### 查看索引以及表占用大小
 ```
 test=> select relname, pg_size_pretty(pg_relation_size(relid)) from pg_stat_user_tables where schemaname='public' order by pg_relation_size(relid) desc;
    relname    | pg_size_pretty 
@@ -348,8 +355,8 @@ test=> select indexrelname, pg_size_pretty(pg_relation_size(relid)) from pg_stat
 
 | 查询项 | 方案1 | 方案2 | roaringbitmap 方案 |
 |---------|---------|---------|---------|
-| 查询包含指定标签的用户列表 | 4.528ms | 0.151 ms | 0.310 ms |
-| 查询具备共同标签的用户个数 | 8.27ms | 29.725 ms | 1.083 ms |
+| 查询包含指定标签的用户列表 | 4.528ms | 0.151ms | 0.310ms |
+| 查询具备共同标签的用户个数 | 8.27ms | 29.725ms | 1.083ms |
 | 数据容量统计 | 4635MB | 3244.344MB | 1237.12MB |
 
 基于上述三种方案可以明显看到，优化后效果非常明显，无论是容量还是性能都强于传统方案，roaringbitmap 方案整体上来看，无论是查询耗时还是数据容量占用都有很好的性能和效果。
