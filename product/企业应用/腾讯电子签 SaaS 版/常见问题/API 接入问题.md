@@ -148,9 +148,9 @@ path 里的参数（name，phone）均使用 `~${base64url(value)}` 统一编码
 ![](https://qcloudimg.tencent-cloud.cn/raw/15a369537e611233f041055b565fcd27.png)
 >!此处仅做定位使用。
 3. 单击**文本域属性** > **位置**，单位选点。
-![](https://qcloudimg.tencent-cloud.cn/raw/106da7e0516cfbb060659ff28b0da371.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/32aaa5fbba148e5c1ffb3928c338bb34.png)
 >!此时下方位置显示坐标值，注意此坐标值以页面左下角为原点。
 4. 坐标计算  
-ComponentPosX = 左对齐坐标 - 82.06  
-ComponentPosY = 页面高度 - 上对齐坐标69.46  
+ComponentPosX = 左对齐坐标39.4847 
+ComponentPosY = 页面高度 - 上对齐坐标37.3135  
 页面高度获取：可先将控件移至页面顶部，此时上对齐坐标值即为页面高度。
