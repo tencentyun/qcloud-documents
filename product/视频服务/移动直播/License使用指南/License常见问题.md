@@ -87,6 +87,7 @@ iOS 可在工程配置中的 `General->Identity` 中获取，如下图所示：
 
 不支持，直播 SDK License 仅支持 iOS 和 Android 端的 App 在使用直播 SDK 直播功能时使用。小程序端接入直播功能需要先具备对应的服务类目，详情参见 [方案选择](https://cloud.tencent.com/document/product/1078/37707)。
 
+[](id:license)
 ### 为什么我的子账户已经授权了直播和点播所有权限，但是还是无法访问 License 控制台相关界面？
 
 #### 问题截图：
