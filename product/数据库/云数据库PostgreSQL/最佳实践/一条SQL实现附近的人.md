@@ -51,7 +51,7 @@ insert into t_user select generate_series(1,10000000), random_string(20),st_sets
 ```
 
 ## 步骤4：查询附近的人
-1. 首先在 [百度地图拾取坐标系统](http://api.map.baidu.com/lbsapi/getpoint/) 中随便找一个坐标。 此处用天安门广场的坐标作为示例：116.404177,39.909652。
+1. 首先在 [拾取坐标系统](http://api.map.baidu.com/lbsapi/getpoint/) 中随便找一个坐标。 此处用天安门广场的坐标作为示例：116.404177,39.909652。
 2. 确定好后，以此作为要查询的坐标，然后在数据库中找到距离这个坐标最近的5个对象，并输出这五个对象离此地的距离，此处单位是：百公里。
 >?WGS84 是目前最流行的地理坐标系统。在国际上，每个坐标系统都会被分配一个 EPSG 代码，EPSG:4326 就是 WGS84 的代码。GPS 是基于 WGS84 的，所以通常我们得到的坐标数据都是 WGS84 的。一般我们在存储数据时，仍然按 WGS84 存储。
 >
@@ -63,5 +63,3 @@ select uid, name, ST_AsText(location), ST_Distance(ST_GeomFromText('POINT(116.40
 ```
 select uid, name, ST_AsText(location),ST_Distance(ST_GeomFromText('POINT(116.404177 39.909652)',4326), location) from t_user where ST_DWithin(location::geography, ST_GeographyFromText('POINT(116.404177 39.909652)'), 1000.0);
 ```
->?国内使用的是火星坐标系，[单击此处](https://github.com/geocompass/pg-coordtransform/blob/master/geoc-pg-coordtransform.sql) 跳转链接中的内容可以在几种坐标系间互相转换。
-
