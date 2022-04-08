@@ -1,7 +1,7 @@
 音视频终端 SDK（腾讯云视立方）提供多种音视频场景下的终端 SDK，用户可结合自身场景需要选择相应的 SDK 进行下载。
 
 <style>
-.inbuttom{height: 40px;width: 400px;min-width: 24px;padding: 0 20px;background-color: #fff;color: #00a4ff;border: 1px solid #00a4ff;line-height: 30px;text-align: center;cursor: pointer;outline: 0 none;box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;display:block;margin:0  auto;border-radius:100px}
+.inbuttom{height: 40px;width: 400px;min-width: 24px;padding: 0 20px;background-color: #fff;color: #00a4ff;border: 1px solid #00a4ff;line-height: 30px;text-align: center;cursor: pointer;outline: 0 none;box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;display:block;margin:0  auto;border-radius:100px;font-size:14px}
 </style>
 
 ## 直播服务类场景
