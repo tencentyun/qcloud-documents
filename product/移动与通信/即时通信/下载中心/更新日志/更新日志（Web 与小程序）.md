@@ -5,7 +5,7 @@
 - [sendMessageReadReceipt](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#sendMessageReadReceipt) 发送群消息已读回执。
 - [getMessageReadReceiptList](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getMessageReadReceiptList) 拉取群消息已读回执列表。
 - [getGroupMessageReadMemberList](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getGroupMessageReadMemberList) 拉取群消息已读（或未读）群成员列表。
-- [findMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#findMessage) 根据 messageID 查询会话的本地消息的接口。
+- [findMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#findMessage) 根据 messageID 查询会话的本地消息。
 - 消息被撤回后，会话未读数的变更体验对齐 NativeIM。
 
 **变更**
