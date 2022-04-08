@@ -94,7 +94,7 @@ path 里的参数（name，phone）均使用 `~${base64url(value)}` 统一编码
 |  ----  | ----  |  ----  |
 | UserId  | string | 本环节需要操作人的 UserId。 |
 | RecipientId  | string | 签署区 ID。 |
-| ApproverType  | int | 参与者类型： <br>0：企业<br>1：个人 |
+| ApproverType  | int | 参与者类型： <br>0：企业<br>1：个人<br>3：企业静默签署 |
 | OrganizationName  | string | 企业或者个人的名字。 |
 | Required  | bool | 是否需要签名。 |
 | ApproverName  | string | 本环节需要操作人的名字。 |
