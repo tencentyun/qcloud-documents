@@ -1,4 +1,4 @@
-腾讯云视立方·腾讯特效 SDK（Tencent Effect）是音视频终端 SDK （腾讯云视立方）的子产品 SDK 之一，提供美颜特效功能。基于优图精准的 AI 能力和天天 P 图丰富的实时特效处理，为各类视频处理场景提供丰富的产品能力。腾讯特效 SDK 支持与直播 SDK 、短视频 SDK、音视频通话 SDK 等音视频终端产品集成，高效便捷，优势尤为明显。更多关于腾讯特效 SDK 的文档详情请参见[腾讯特效 SDK ](https://cloud.tencent.com/document/product/616)。
+腾讯云视立方·腾讯特效 SDK（Tencent Effect）是音视频终端 SDK （腾讯云视立方）的子产品 SDK 之一，提供美颜特效功能。基于优图精准的 AI 能力和天天 P 图丰富的实时特效处理，为各类视频处理场景提供丰富的产品能力。腾讯特效 SDK 支持与直播 SDK 、短视频 SDK、音视频通话 SDK 等音视频终端产品集成，高效便捷，优势尤为明显。更多关于腾讯特效 SDK 的文档详情请参见 [腾讯特效 SDK](https://cloud.tencent.com/document/product/616)。
 
 音视频终端 SDK（腾讯云视立方）版本结构示意如下图：
 
