@@ -2,12 +2,13 @@ COSCLI 工具提供 Windows、Mac、Linux 操作系统的二进制包，通过�
 
 ## 下载地址
 
-- [Windows](https://github.com/tencentyun/coscli/releases/download/v0.11.0-beta/coscli-windows.exe)
-- [Mac](https://github.com/tencentyun/coscli/releases/download/v0.11.0-beta/coscli-mac)
-- [Linux](https://github.com/tencentyun/coscli/releases/download/v0.11.0-beta/coscli-linux)
+| Github 地址                                                   | 国内站点                                                     |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| [Windows](https://github.com/tencentyun/coscli/releases/download/v0.11.0-beta/coscli-windows.exe) | [Windows](https://cosbrowser.cloud.tencent.com/software/coscli/coscli-windows.exe) |
+| [Mac](https://github.com/tencentyun/coscli/releases/download/v0.11.0-beta/coscli-mac) | [Linux](https://cosbrowser.cloud.tencent.com/software/coscli/coscli-linux) |
+| [Linux](https://github.com/tencentyun/coscli/releases/download/v0.11.0-beta/coscli-linux) | [Mac](https://cosbrowser.cloud.tencent.com/software/coscli/coscli-mac) |
 
-
->?当前版本号为v0.11.0-beta，如需获取工具的最新版本和更新日志，请前往 [release](https://github.com/tencentyun/coscli/releases) 进行下载。
+>?当前版本号为v0.11.0-beta，如需获取工具的最新版本、历史版本和更新日志，请前往 [release](https://github.com/tencentyun/coscli/releases) 进行查看。
 
 ## 安装
 

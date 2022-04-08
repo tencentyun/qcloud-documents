@@ -22,8 +22,8 @@
 <tr>
 <td>腾讯特效 TE</td>
 <td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.4.1.18/demo.zip">ZIP 包</a></td>
-<td align="center"><img src="https://qcloudimg.tencent-cloud.cn/raw/41f6769acdbe37d5f16af741d0e88a49.png" width=120><br><a href="https://dldir1.qq.com/hudongzhibo/xmagic/xmagic-demo-2.4.1.115_signed.apk">单击下载</a></td>
-<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.1.115/xmagic_S1-04_android_2.4.1.115.zip">ZIP 包</a></td>
+<td align="center"><img src="https://qcloudimg.tencent-cloud.cn/raw/c0a30f63204a3e9a878bd10b4b3b5c8d.png" width=120><br><a href="http://dldir1.qq.com/hudongzhibo/xmagic/xmagic-demo-2.4.1.119_signed.apk">单击下载</a></td>
+<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.1.119/xmagic_S1-04_android_2.4.1.119.zip">ZIP 包</a></td>
 <td><a href="https://cloud.tencent.com/document/product/616/65894">DOC</a></td></tr>
 <tr>
 <td>直播 MLVB</td>

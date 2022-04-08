@@ -1,5 +1,5 @@
 ## 工作负载 pod template annotation 说明
-您可以通过在 yaml 中定义 `spec.template.metadata.annotations` 的方式，实现为 Pod 绑定安全组、分配资源等能力。配置方法见下表：
+您可以通过在 yaml 中定义 `metadata.annotations` 的方式，实现为 Pod 绑定安全组、分配资源等能力。配置方法见下表：
 
 <dx-alert infotype="notice" title="">
 - 如果不指定安全组，则 Pod 会默认绑定同地域的 `default` 安全组。请确保 `default` 安全组的网络策略不影响该 Pod 正常工作。
