@@ -206,7 +206,7 @@ mPreviewMgr.onResume(this, 1280, 720);
 ```java
 mXmagicApi = new XmagicApi(this, XmagicResParser.getResPath(),new XmagicApi.OnXmagicPropertyErrorListener()); 
 ```
-- **参数**
+	- **参数**
  <table>
  <tr><th>参数</th><th>含义</th></tr><tr><td>Context context</td><td>上下文</td>
  </tr><tr>
@@ -214,7 +214,7 @@ mXmagicApi = new XmagicApi(this, XmagicResParser.getResPath(),new XmagicApi.OnXm
  </tr><tr>
  <td>OnXmagicPropertyErrorListener errorListener</td><td>回调函数实现类</td>
  </tr></table>
-- **返回**
+	- **返回**
  错误码含义对照表：
  <table>
  <tr><th>错误码</th><th>含义</th></tr><tr>
