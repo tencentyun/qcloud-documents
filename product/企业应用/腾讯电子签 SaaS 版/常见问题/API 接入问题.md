@@ -142,7 +142,7 @@ path 里的参数（name，phone）均使用 `~${base64url(value)}` 统一编码
 
 ### PDF 相关
 #### 如何计算 PDF 签名位置？  
-以Adobe阅读器为例：
+以 Adobe 阅读器为例：
 1. 单击**准备表单**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/7ea2975a0c3ecc619247a40aea69e562.png)
 2. 单击**添加文本域**。
