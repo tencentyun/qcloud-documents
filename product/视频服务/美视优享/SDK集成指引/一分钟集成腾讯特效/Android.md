@@ -16,7 +16,7 @@
 ### 资源
 
 - 添加上述文件准备的全部 `.aar` 文件到 app 工程 `libs` 目录下。
-- 将 SDK 包内的 assets/ 目录下的全部资源拷贝到 `../src/main/assets` 目录下。
+- 将 SDK 包内的 assets/ 目录下的全部资源拷贝到 `../src/main/assets` 目录下，如果 SDK 包中的 MotionRes 文件夹内有资源，将此文件夹也拷贝到 `../src/main/assets` 目录下 。
 - 将 jniLibs 文件夹拷贝到工程的 `../src/main/jniLibs` 目录下。
 
 ### 导入方法
@@ -206,7 +206,7 @@ mPreviewMgr.onResume(this, 1280, 720);
 ```java
 mXmagicApi = new XmagicApi(this, XmagicResParser.getResPath(),new XmagicApi.OnXmagicPropertyErrorListener()); 
 ```
-- **参数**
+	- **参数**
  <table>
  <tr><th>参数</th><th>含义</th></tr><tr><td>Context context</td><td>上下文</td>
  </tr><tr>
@@ -214,7 +214,7 @@ mXmagicApi = new XmagicApi(this, XmagicResParser.getResPath(),new XmagicApi.OnXm
  </tr><tr>
  <td>OnXmagicPropertyErrorListener errorListener</td><td>回调函数实现类</td>
  </tr></table>
-- **返回**
+	- **返回**
  错误码含义对照表：
  <table>
  <tr><th>错误码</th><th>含义</th></tr><tr>
