@@ -1,13 +1,13 @@
 [](id:w1)
 ### 测试版 License 和正式 License 有何区别？
 - **测试版 License** 是赠送给您用来短期开发体验的，有14天有效期，可以续期一次，合计28天。功能和正式版 License 并无区别，都可以授权对应 Domain 和 WeChatAppId 使用。
-- **正式版 License** 是您通过购买获得（推广期间可以 [申请内测资源](https://cloud.tencent.com/apply/p/9fuh8sv6fl)），有效期比较长，是您正式环境长期使用的 License。一个项目下的测试版 License 和正式版 License，只要其中一个在有效期内就可以使用。
+- **正式版 License** 是您通过购买获得（推广期间可以 [免费申请](https://cloud.tencent.com/apply/p/9fuh8sv6fl)），有效期比较长，是您正式环境长期使用的 License。一个项目下的测试版 License 和正式版 License，只要其中一个在有效期内就可以使用。
 
 >! 一个用户最多只能申请10次测试版 License。
 
 [](id:w2)
 ### 如何开通正式版 License？
-要开通正式版 License 需要购买 License 资源（推广期间可以免费申请 [视立方·Web 美颜特效](https://cloud.tencent.com/apply/p/9fuh8sv6fl)，申请通过后会获得正式版 License 资源），后续按照 [**License 申请与购买**](https://cloud.tencent.com/document/product/616/71368) 完成绑定后可以开通。
+要开通正式版 License 需要购买 License 资源（推广期间可以 [免费申请](https://cloud.tencent.com/apply/p/9fuh8sv6fl)），申请通过后会获得正式版 License 资源），后续按照 [**License 申请与购买**](https://cloud.tencent.com/document/product/616/71368) 完成绑定后可以开通。
 
 [](id:w3)
 ### 后续如何续期？

@@ -1,3 +1,22 @@
+### 2.18.0 @2022.4.8
+
+**新增**
+
+- [sendMessageReadReceipt](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#sendMessageReadReceipt) 发送群消息已读回执。
+- [getMessageReadReceiptList](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getMessageReadReceiptList) 拉取群消息已读回执列表。
+- [getGroupMessageReadMemberList](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getGroupMessageReadMemberList) 拉取群消息已读（或未读）群成员列表。
+- [findMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#findMessage) 根据 messageID 查询会话的本地消息。
+- 消息被撤回后，会话未读数的变更体验对齐 NativeIM。
+
+**变更**
+
+- [Message.ID](https://web.sdk.qcloud.com/im/doc/zh-cn/Message.html) 拼接规则为 `${senderTinyID}-${clientTime}-${random}`，与 NativeIM 消息的 ID 拼接规则一致。
+- SDK not ready 时提示具体原因，方便接入侧使用。
+
+**修复**
+
+踢出群成员后，其它群成员从 [CONVERSATION_LIST_UPDATED](https://web.sdk.qcloud.com/im/doc/zh-cn/module-EVENT.html#.CONVERSATION_LIST_UPDATED) 事件回调里面获取的 `Conversation.groupProfile.memberCount` 值未更新。
+
 ### 2.17.0 @2022.3.2
 
 **新增**

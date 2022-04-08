@@ -1,11 +1,11 @@
 [](id:step1)
 ## 步骤一：解压 Demo 工程
 
-1. 下载集成了腾讯特效 TE 的 [TRTC Demo](https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.1.115.vcube/TRTC-API-Example.zip) 工程。本Demo基于腾讯特效SDK S1-04套餐构建。
-2. 替换资源。由于本Demo工程使用的SDK套餐未必与你实际的套餐一致，因此要将本Demo中的相关SDK文件替换为你实际使用的套餐的SDK文件。具体操作如下：
-   - 删除xmagic模块中libs目录下的 `.aar`文件，将SDK中libs目录下的 `.aar` 文件拷贝进xmagic模块中libs目录下。
-   - 删除xmagic模块中assets目录下的所有文件，将 SDK 中的 assets/ 目录下的全部资源拷贝到 xmagic模块`../src/main/assets` 目录下，如果SDK包中的MotionRes文件夹内有资源，将此文件夹也拷贝到`../src/main/assets`目录下 。
-   - 删除xmagic模块中jniLibs目录下的所有.so文件，在 SDK 包内的 jniLibs 中找到对应的.so文件（由于SDK中jinLibs文件夹下的arm64-v8a和armeabi-v7a的.so文件在压缩包中，所以需要先解压），拷贝到 xmagic模块中的 `../src/main/jniLibs` 目录下。
+1. 下载集成了腾讯特效 TE 的 [TRTC Demo](https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.1.115.vcube/TRTC-API-Example.zip) 工程。本 Demo 基于腾讯特效 SDK S1-04 套餐构建。
+2. 替换资源。由于本 Demo 工程使用的 SDK 套餐未必与您实际的套餐一致，因此要将本 Demo 中的相关 SDK 文件替换为您实际使用的套餐的 SDK 文件。具体操作如下：
+   - 删除 xmagic 模块中 libs 目录下的 `.aar`文件，将 SDK 中 libs 目录下的 `.aar` 文件拷贝进 xmagic 模块中 libs 目录下。
+   - 删除 xmagic 模块中 assets 目录下的所有文件，将 SDK 中的 `assets/` 目录下的全部资源拷贝到 xmagic 模块`../src/main/assets` 目录下，如果 SDK 包中的 MotionRes 文件夹内有资源，将此文件夹也拷贝到 `../src/main/assets` 目录下 。
+   - 删除 xmagic 模块中 jniLibs 目录下的所有 .so 文件，在 SDK 包内的 jniLibs 中找到对应的 .so 文件（由于 SDK 中 jinLibs 文件夹下的 arm64-v8a 和 armeabi-v7a 的 .so 文件在压缩包中，所以需要先解压），拷贝到 xmagic 模块中的 `../src/main/jniLibs` 目录下。
 3. 将 Demo ⼯程中的 xmagic 模块引⼊到实际项⽬⼯程中。
 
 [](id:step2)
@@ -15,7 +15,7 @@
 2. 添加 gson 依赖设置。
 ```groovy
 configurations{
-	all*.exclude group:'com.google.code.gson'
+    all*.exclude group:'com.google.code.gson'
 }
 ```
 
@@ -68,7 +68,7 @@ mTRTCCloud.setLocalVideoProcessListener(TRTCCloudDef.TRTC_VIDEO_PIXEL_FORMAT_Tex
 dstFrame.texture.textureId = mXMagic.process(srcFrame.texture.textureId, srcFrame.width, srcFrame.height);
 ```
 5. **暂停/关闭 SDK：**
-onPause() 用于暂停美颜效果，可以在 Activity/Fragment 生命周期方法中执行， onDestroy 方法需要在 GL 线程调用（可以在 onTextureDestroyed 方法中调用 XMagicImpl 对象的 `onDestroy()`） ，更多使用请参考 Demo。
+onPause() 用于暂停美颜效果，可以在 Activity/Fragment 生命周期方法中执行，onDestroy 方法需要在 GL 线程调用（可以在 onTextureDestroyed 方法中调用 XMagicImpl 对象的 `onDestroy()`） ，更多使用请参考 Demo。
 ```java
 mXMagic.onPause();   //暂停，与Activity的onPause方法绑定
 mXMagic.onDestroy();  //销毁，需要在GL线程中调用
@@ -92,5 +92,5 @@ mXMagic.onDestroy();  //销毁，需要在GL线程中调用
       }
 ```
 
-​    具体操作请参见 Demo⼯程的 `ThirdBeautyActivity.initXMagic();`⽅法。
+具体操作请参见 Demo ⼯程的 `ThirdBeautyActivity.initXMagic();`⽅法。
 
