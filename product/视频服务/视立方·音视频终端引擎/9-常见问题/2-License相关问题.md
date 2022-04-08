@@ -5,8 +5,8 @@
 [](id:q2)
 ### 腾讯云视立方 License 有单独购买入口吗？
 - 解锁**直播推流**（主播开播和主播观众连麦/主播跨房 PK）和**短视频**（视频录制编辑/视频上传发布）功能模块需购买相应云服务的资源包免费获取 [直播推流 License](https://cloud.tencent.com/document/product/1449/56973#live) 或者 [短视频 License](https://cloud.tencent.com/document/product/1449/56973#video) 的1年有效期（购买日起算1年有效期）。
-- **终端极速高清**模块处于体验期，暂无正式版 License，无需购买，如有需求可使用 [测试版 License](https://tcloud-doc.isd.com/document/product/1449/56981?!preview&!editLang=zh#test)。
-- 解锁**腾讯特效**功能模块需购买腾讯特效 SDK 套餐包，获取套餐包相应的[腾讯特效 License](https://tcloud-doc.isd.com/document/product/1449/56982?!preview&!editLang=zh)  使用授权（有效期 1 年至到期次日00:00:00为止）。
+- **终端极速高清**模块处于体验期，暂无正式版 License，无需购买，如有需求可使用 [测试版 License](https://cloud.tencent.com/document/product/1449/56981#test)。
+- 解锁**腾讯特效**功能模块需购买腾讯特效 SDK 套餐包，获取套餐包相应的 [腾讯特效 License](https://cloud.tencent.com/document/product/1449/56982)  使用授权（有效期 1 年至到期次日00:00:00为止）。
 
 [](id:q3)
 ### 腾讯云视立方 License 和功能模块 License 有什么区别？
@@ -99,12 +99,12 @@
 ![image](https://main.qcloudimg.com/raw/7423d2e7912de344052c7891629d528b.png)
 - **问题解析**：
 腾讯云视立方控制台需要主账号为子账号独立进行授权策略后方可访问控制台页面。
-	- 若您仅需要提供子账号访问音视频终端 SDK 控制台只读的权限，请授权 QcloudVCUBEReadOnlyAccess 策略。
-	- 若您需要提供子账号访问音视频终端 SDK 所有操作权限，请授权 QcloudVCUBEFullAccess 策略。
+   - 若您仅需要提供子账号访问音视频终端 SDK 控制台只读的权限，请授权 QcloudVCUBEReadOnlyAccess 策略。
+   - 若您需要提供子账号访问音视频终端 SDK 所有操作权限，请授权 QcloudVCUBEFullAccess 策略。
 为用户/用户组关联策略以授权相关操作权限的关联指引请参见 [策略授权管理](https://cloud.tencent.com/document/product/598/10602)。
 - **相关问题**：
-	- [子账户为什么无法访问直播控制台 License 相关界面？](https://cloud.tencent.com/document/product/454/43500#que16)
-	- [子账户为什么无法访问点播控制台 License 相关界面？](https://cloud.tencent.com/document/product/266/50296#que12)
+   - [子账户为什么无法访问直播控制台 License 相关界面？](https://cloud.tencent.com/document/product/454/43500#que16)
+   - [子账户为什么无法访问点播控制台 License 相关界面？](https://cloud.tencent.com/document/product/266/50296#que12)
 
 [](id:q14)
 ### 为什么接收不到音视频终端 SDK 产品和 License 相关消息通知？
