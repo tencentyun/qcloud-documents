@@ -20,7 +20,7 @@ Datahub 支持接入各种数据源产生的不同类型的数据，统一管理
    - 任务名称：填写任务名称，只能包含字母、数字、下划线、"-"、"."。
    - CKafka 实例：选择目标 CKafka 实例。
    - 目标 CKafka Topic：选择数据投递的目标 CKafka Topic，若选择的 Topic 设置了ACL 策略，会影响功能正常使用。
-   - Schema：绑定的 Schema 后，将会按该 Schema 对数据进行格式校验。若无合适的 Schema 可以点击[新建 schema](https://console.cloud.tencent.com/ckafka/datahub-schema?rid=8&createStatus=true) 跳转至新建页面。
+   - Schema：绑定的 Schema 后，将会按该 Schema 对数据进行格式校验。若无合适的 Schema 可以单击 [新建 schema](https://console.cloud.tencent.com/ckafka/datahub-schema?rid=8&createStatus=true) 跳转至新建页面。
    - QPS 限制：填写 QPS 限制。
 5. 单击**提交**，任务创建成功后会生成接入点信息。
 6. 复制接入点信息到 SDK 中使用，用于写入数据。
@@ -52,15 +52,13 @@ Datahub 支持接入各种数据源产生的不同类型的数据，统一管理
 
 1. 登录 [CKafka 控制台](https://console.cloud.tencent.com/ckafka)。
 2. 在左侧导航栏单击**数据接入**，单击目标任务的 **ID**，进入任务基本信息页面，在基本信息模块可以绑定/解绑 Schema。
-
-![](https://qcloudimg.tencent-cloud.cn/raw/2a343972ff095fc48efef39f9ff893c2.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/3bce4941780945762c16e5020d28794a.png)
 
 ### 查看监控
 
 1. 登录 [CKafka 控制台](https://console.cloud.tencent.com/ckafka)。
 2. 在左侧导航栏单击**数据接入**，单击目标任务的 **ID**，进入任务基本信息页面。
 3. 选择**监控**页签，可查看目标 Topic 监控数据。
-
 <table>
     <tr>
         <th>图标</th>
@@ -83,11 +81,11 @@ Datahub 支持接入各种数据源产生的不同类型的数据，统一管理
         <td>勾选后可在图表上显示图例信息。</td>
     </tr>
 </table> 
-
 选择分区后，可以查看指定 Partition 的监控数据。
 	 <img src ="https://qcloudimg.tencent-cloud.cn/raw/6c3b44f409a7a42ea6c177ce583234cd.png"> 
    不选择时默认全部，展示现有的 Topic 级别的监控数据。
-	 ![](https://qcloudimg.tencent-cloud.cn/raw/0b6fe758da2781ca2c4b3ea35b79308c.png) 
+	 	 <img src ="https://qcloudimg.tencent-cloud.cn/raw/0b6fe758da2781ca2c4b3ea35b79308c.png"> 
+
 
 
 ### 暂停任务
