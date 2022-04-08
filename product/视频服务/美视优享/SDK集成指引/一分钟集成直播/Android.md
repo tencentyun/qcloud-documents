@@ -5,7 +5,7 @@
    - 删除 xmagic 模块中 libs 目录下的 `.aar`文件，将 SDK 中 libs 目录下的 `.aar` 文件拷贝进 xmagic 模块中 libs 目录下。
    - 删除 xmagic 模块中 assets 目录下的所有文件，将 SDK 中的 `assets/` 目录下的全部资源拷贝到 xmagic 模块`../src/main/assets` 目录下，如果 SDK 包中的 MotionRes 文件夹内有资源，将此文件夹也拷贝到 `../src/main/assets` 目录下 。
    - 删除 xmagic 模块中 jniLibs 目录下的所有 .so 文件，在 SDK 包内的 jniLibs 中找到对应的 .so 文件（由于 SDK 中 jinLibs 文件夹下的 arm64-v8a 和 armeabi-v7a 的 `.so` 文件在压缩包中，所以需要先解压），拷贝到 xmagic 模块中的 `../src/main/jniLibs` 目录下。
-3. 将 Demo ⼯程中的 X - magic 模块引⼊到实际项⽬⼯程中。
+3. 将 Demo ⼯程中的 xmagic  模块引⼊到实际项⽬⼯程中。
 
 [](id:step2)
 
