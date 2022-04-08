@@ -4,8 +4,8 @@
 
 ## 操作步骤
 ### 步骤1：创建腾讯云账号并完成企业实名
-1. 如果您已有完成实名认证的腾讯云企业账号可跳过此步骤。
-2. 若您没有完成企业实名认证的腾讯云账号，您需要 [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 账号并完成 [企业实名认证](https://cloud.tencent.com/document/product/378/10496)。
+- 如果您已有完成实名认证的腾讯云企业账号可跳过此步骤。
+- 若您没有完成企业实名认证的腾讯云账号，您需要 [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 账号并完成 [企业实名认证](https://cloud.tencent.com/document/product/378/10496)。
 
 ### 步骤2：使用腾讯云账号登录电子签
 1. 访问 [腾讯电子签登录页](https://ess.tencent.cn/)，单击腾讯云企业控制台入口（如下图所示），即可进入腾讯云账号登录页面。
@@ -13,8 +13,9 @@
 ![](https://main.qcloudimg.com/raw/a07f2987c2078de9dc7117ed5bbcbfef.png)
 
 #### 登录腾讯云账号
-请您通过微信扫码，邮箱、QQ等方式登录您的腾讯云账号。
-![](https://main.qcloudimg.com/raw/a5909ec0434eb06d6d1cf594a0a2ce8a.png)
+请您通过微信扫码，邮箱、QQ 等方式登录您的腾讯云账号。
+<img style="width:400px; max-width: inherit;" src="https://main.qcloudimg.com/raw/a5909ec0434eb06d6d1cf594a0a2ce8a.png" />
+
 
 
 ### 步骤3：完成应用激活
@@ -23,7 +24,8 @@
 #### 1. 企业名称确认
 - 请您在页面中确认企业名称，若信息无误可单击确认无误进入超级管理员设置流程。
 - 若企业名称与实际不一致，需前往腾讯云官网进行企业更名操作，更名指引请参见 [变更企业认证信息](https://cloud.tencent.com/document/product/378/43087)。
-![](https://qcloudimg.tencent-cloud.cn/raw/1acc6be5bfd24d266c4195fd2194d41a.png)
+<img style="width:700px; max-width: inherit;" src=https://qcloudimg.tencent-cloud.cn/raw/8ca130e4950874e4a6c2aa5e2a5a3ca5.png />
+
 
 #### 2. 超级管理员设置[](id:smallStep2)
 请您在页面中输入超级管理员的姓名、身份证号码以及手机号码，填写无误后单击下一步。
@@ -38,16 +40,16 @@
 ::: 授权方式1：通过上传授权书完成授权
 单击下载超级管理员授权书模板，按照模板要求填写相关信息签字并加盖企业公章后进行上传（请务必确保授权书信息的真实性与一致性。）
 当前支持上传 JPG / PNG / PDF 的授权书文件格式，且文件大小不超过8M。确认企业及超级管理员信息（需与授权证书信息一致），确认无误后单击下一步完成授权操作。
-![](https://qcloudimg.tencent-cloud.cn/raw/c1e99675ca7dfa1fc36fe0ab076b413d.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/b981eff45de24695ba3bbaa6ef4eb7d5.png)
 :::
 ::: 授权方式2：通过法定代表人授权
 请在页面中输入企业社会统一信用代码、法定代表人姓名、法定代表人身份证号码以及法定代表人手机号码。输入后确认无误单击下一步。
+![](https://qcloudimg.tencent-cloud.cn/raw/c23aaadd01a33d0886d7bc19f787e9a1.png)
 <dx-alert infotype="explain" title="说明：">
-1. 输入的法定代表人信息需与企业注册的法定代表人信息一致，如不一致则无法提交成功。
-2. 当前仅支持企业或个体工商户的主体通过此方式进行授权，其他类型主体客户请使用授权书方式进行授权。
+- 输入的法定代表人信息需与企业注册的法定代表人信息一致，如不一致则无法提交成功。
+- 当前仅支持企业或个体工商户的主体通过此方式进行授权，其他类型主体客户请使用授权书方式进行授权。
 </dx-alert>
 
-![](https://qcloudimg.tencent-cloud.cn/raw/50ace5dbf63b5d0b4900083c4f378831.png)
 :::
 </dx-tabs>
 
@@ -56,11 +58,11 @@
 <dx-tabs>
 ::: 超管激活流程
 1. 单击超级管理员手机中的**激活**短信，进入腾讯电子签小程序。
-![](https://qcloudimg.tencent-cloud.cn/raw/499a86c296f5f1cd95e6fcf28ea58c0c.png)
+<img style="width:300px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/499a86c296f5f1cd95e6fcf28ea58c0c.png" />
 2. 在小程序页面中，确认超级管理员实名信息正确后，单击**开始人脸核身**。 
 ![](https://qcloudimg.tencent-cloud.cn/raw/6c8d96c1ebf771250347bd8878b1593c.png)
 3. 人脸核身通过后，即完成超级管理员激活操作。
-![](https://qcloudimg.tencent-cloud.cn/raw/47a103e4e5e7de6278e105414b4a7a69.png)
+<img style="width:300px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/47a103e4e5e7de6278e105414b4a7a69.png" />
 4. 激活成功后，您可使用微信扫码登录 [腾讯电子签控制台](https://ess.tencent.cn/) 使用腾讯电子签服务。
 
 :::

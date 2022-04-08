@@ -151,3 +151,5 @@ CC 防护对网站特定的 URL 进行访问保护，CC 防护2.0全新改版，
 ![](https://qcloudimg.tencent-cloud.cn/raw/5ff38b1c16ded5f860145725c7f62bb5.png)
 7. 配置完成，基于 SESSION 的 CC 防护策略生效。
 >!使用基于 SESSION 的 CC 防护机制，无法在 IP 封堵状态中查看封堵信息。
+
+
