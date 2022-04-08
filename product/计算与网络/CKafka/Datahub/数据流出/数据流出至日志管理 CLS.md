@@ -16,7 +16,7 @@ Datahub 提供数据流出能力，您可以将 CKafka 数据分发至日志服�
 ![](https://qcloudimg.tencent-cloud.cn/raw/16a343d95ec1a9ff4906606fd4b995ac.png)
    - 任务名称：只能包含字母、数字、下划线、"-"、"."。
    - CKafka 实例：选择数据源 CKafka。
-   - 源 Topic：选择源 Topic。
+   - 源 Topic：选择源 Topic，一条数据流出任务最多支持选择5个源 Topic。
    - 起始位置：转储时历史消息的处理方式，topic offset 设置。
    - 日志集：选择日志集，日志集日志服务的项目管理单元，用于区分不同项目的日志。
    - 日志主题：自动创建日志主题或者选择已有日志主题。一个 [日志集](https://cloud.tencent.com/document/product/614/35676) 可以包含多个日志主题，一个日志主题对应一类应用或服务，建议将不同机器上的同类日志收集到同一个日志主题。
