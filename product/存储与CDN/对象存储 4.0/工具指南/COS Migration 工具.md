@@ -241,7 +241,7 @@ urllistPath=D:\\folder\\urllist.txt
      
 | 配置项 | 描述 |
 | ------| ------ |
-|urllistPath|URL列表文件的地址，注意该配置内容不是直接填写 URL，而是填写文本文件的**本地地址**，该文本文件内容是具体的 URL 链接，一行一条 URL 原始地址（例如http://aaa.bbb.com/yyy/zzz.dat，无需添加任何双引号或其他符号）。URL 列表的地址要求为绝对路径：<ul  style="margin: 0;"><li>Linux 下分隔符为单斜杠，例如`/a/b/c.txt` </li><li>Windows  下分隔符为两个反斜杠，例如`E:\\a\\b\\c.txt`</li><li>如果填写的是目录，则会将该目录下的所有文件视为 urllist 文件去扫描迁移</li></ul>|
+|urllistPath|URL 列表文件的地址。</br>注意：该配置内容不是直接填写 URL，而是填写文本文件的**本地地址**。该文本文件内容是具体的 URL，一行一条 URL 原始地址（例如`http://aaa.bbb.com/yyy/zzz.dat`，无需添加任何双引号或其他符号）。</br>URL 列表的地址要求为绝对路径：<ul  style="margin: 0;"><li>Linux 下分隔符为单斜杠，例如`/a/b/c.txt` </li><li>Windows  下分隔符为两个反斜杠，例如`E:\\a\\b\\c.txt`</li><li>如果填写的是目录，则会将该目录下的所有文件视为 urllist 文件去扫描迁移</li></ul>|
 
  
 **3.3.6 配置 Bucket 相互复制 migrateBucketCopy**
