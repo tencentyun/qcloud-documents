@@ -76,7 +76,7 @@
 >- iOS 和 Android 不需要重复申请 Licence，一个 License 可以同时授权一个 iOS 的 BundleID 和一个 Android 的 PackageName。
 
 
-**从4.9版本开始，SDK 支持二合一的 License，这种方式不再需要 YTFaceSDK.licence，在从商务同学处获取到 License 对应的 Key 和 URL 后，设置方式和标准版 License 设置方式相同。**
+**从9.4版本开始，SDK 支持二合一的 License，这种方式不再需要 YTFaceSDK.licence，在从商务同学处获取到 License 对应的 Key 和 URL 后，设置方式和标准版 License 设置方式相同。**
 
 ## 功能调用
 

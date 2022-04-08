@@ -8,7 +8,9 @@
 
 
 
-> ? 当前 GlobalRouter 和 VPC-CNI 容器网络模式均支持直连 Pod 模式，您可以在 [集群列表](https://console.cloud.tencent.com/tke2/cluster?rid=1) 中单击集群 ID 进入集群详情页面，在集群的“基本信息”页面中查看当前集群使用的网络插件。
+> ? 
+- 若您的集群是 EKS ，则默认为直连 Pod 模式，您无需任何操作。
+- 当前 GlobalRouter 和 VPC-CNI 容器网络模式均支持直连 Pod 模式，您可以在 [集群列表](https://console.cloud.tencent.com/tke2/cluster?rid=1) 中单击集群 ID 进入集群详情页面，在集群的“基本信息”页面中查看当前集群使用的网络插件。
 >
 
 
@@ -139,7 +141,9 @@ Kubernetes 集群提供了服务注册的机制，只需要将您的服务以 `M
 <dx-tabs>
 ::: 控制台操作指引
 **前置使用条件**
-在 `kube-system/tke-service-controller-config` ConfigMap 中新增 `GlobalRouteDirectAccess: "true"` 以开启 GlobalRoute 直连能力。
+<li>在 `kube-system/tke-service-controller-config` ConfigMap 中新增 `GlobalRouteDirectAccess: "true"` 以开启 GlobalRoute 直连能力。</li>
+<li>该功能需要开通 CLB SNAT Pro 的白名单，您可通过 <a href="https://cloud.tencent.com/online-service?from=doc_457">在线咨询</a> 进行申请。</li>
+<br>
 
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
 2. 参考 [控制台创建 Service](https://cloud.tencent.com/document/product/457/45489#.E5.88.9B.E5.BB.BA-service) 步骤，进入 “新建Service” 页面，根据实际需求设置 Service 参数。
@@ -154,7 +158,9 @@ Kubernetes 集群提供了服务注册的机制，只需要将您的服务以 `M
 直连 Pod 模式 Service 的 YAML 配置与普通 Service YAML 配置相同，示例中的 annotation 即代表是否开启直连 Pod 模式。
 
 **前置使用条件**
-在 `kube-system/tke-service-controller-config` ConfigMap 中新增 `GlobalRouteDirectAccess: "true"` 以开启 GlobalRoute 直连能力。
+<li>在 `kube-system/tke-service-controller-config` ConfigMap 中新增 `GlobalRouteDirectAccess: "true"` 以开启 GlobalRoute 直连能力。</li>
+<li>该功能需要开通 CLB SNAT Pro 的白名单，您可通过 <a href="https://cloud.tencent.com/online-service?from=doc_457">在线咨询</a> 进行申请。</li>
+<br>
 
 **在 Service YAML 里开启直连模式**
 

@@ -29,7 +29,7 @@ q-ak 参数输入错误。
 
 #### 解决方法
 
-1. 登录访问管理控制台，进入【[API 密钥管理](https://console.cloud.tencent.com/cam/capi)】页面，查看密钥信息。
+1. 登录访问管理控制台，进入 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 页面，查看密钥信息。
 2. 根据查看的密钥信息，确认 q-ak 参数是否输入错误。
  - 是，请将 q-ak 参数修改为正确的 SecretId。
  - 否，请 [联系我们](https://cloud.tencent.com/document/product/436/37708)。

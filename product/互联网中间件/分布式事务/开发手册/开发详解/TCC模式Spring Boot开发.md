@@ -25,8 +25,8 @@ TCC 事务，也可以理解为手动事务。需要用户提供 Try、Confirm�
 
 ```
 <dependency>
-<groupId>com.tencent.cloud</groupId>
-<artifactId>spring-boot-dtf-druid</artifactId>
+	<groupId>com.tencent.cloud</groupId>
+	<artifactId>spring-boot-dtf-druid</artifactId>
 </dependency>  
 ```
 
@@ -44,13 +44,13 @@ dtf:
     server: ${Server}
 ```
 
-| 配置项                    | 数据类型 | 必填 | 默认值                                     | 描述                                                         |
-| ------------------------- | -------- | ---- | ------------------------------------------ | ------------------------------------------------------------ |
-| dtf.env.groups.${GroupId} | String   | 是   | 共享集群 TC 列表，如果是独占集群则需要填写 | 用户的事务分组ID，单客户端使用多个事务分组时可以配置多项。   |
-| dtf.env.groups.secretId   | String   | 是   | 无                                         | 用户的腾讯云 SecretID。                                      |
-| dtf.env.groups.secretKey  | String   | 是   | 无                                         | 用户的腾讯云 SecretKey。                                     |
-| dtf.env.groups.server     | String   | 否   | ${spring.application.name}                 | 客户端服务标识，一个事务分组下，同一服务需要使用相同的标识。 |
-| dtf.env.fmt               | Boolean  | 否   | true                                       | 启动时会对 DB 进行大量初始化工作，若不需使用 fmt 建议禁用。  |
+| 配置项                    | 数据类型 | 必填 | 默认值                                   | 描述                                                         |
+| ------------------------- | -------- | ---- | ---------------------------------------- | ------------------------------------------------------------ |
+| dtf.env.groups.${GroupId} | String   | 是   | 共享集群 TC 列表，如果是独占集群则需要填写 | 用户的事务分组 ID，单客户端使用多个事务分组时可以配置多项     |
+| dtf.env.secretId   | String   | 是   | 无                                       | 用户的腾讯云 SecretID                                         |
+| dtf.env.secretKey  | String   | 是   | 无                                       | 用户的腾讯云 SecretKey                                        |
+| dtf.env.server     | String   | 否   | ${spring.application.name}               | 客户端服务标识，一个事务分组下，同一服务需要使用相同的标识 |
+| dtf.env.fmt  |  Boolean  | 否  | true  | 启动时会对 DB 进行大量初始化工作，若不需使用 fmt 建议禁用 |
 
 通常情况下，仅需要在 dtf.env.groups 下配置一个事务分组。例如：
 用户A，创建了一个事务分组`group-x3k9s0ns`，在 [分布式事务控制台](https://console.cloud.tencent.com/dtf/) 获取该分组的 TC 集群地址为`127.0.0.1:8080;127.0.0.1:8081;127.0.0.1:8082`。该用户访问密钥的 SecretId 为`SID`，SecretKey 为`SKEY`。需要在业务应用`app-test`上使用该事物时，配置样例为：
@@ -235,12 +235,12 @@ public interface IOrderService {
 
 在上面的例子中：
 
-- `try`：IOrderService.order(Long txId, Long branchId, Order order)
+- `name`：IOrderService.order(Long txId, Long branchId, Order order)
 - `confirmClass`：IOrderService
 - `confirmMethod`：confirmOrder(Long txId, Long branchId, Order order)
 - `cancelClass`：IOrderService
 - `cancelMethod`：cancelOrder(Long txId, Long branchId, Order order)
-- rollbackFor：默认为空。若想要在发生异常时回滚，可设置为 Exception
+- `rollbackFor`：默认为空。若想要在发生异常时回滚，可设置为 Exception
 
 ### 通过 API 管理分支事务（不推荐）
 

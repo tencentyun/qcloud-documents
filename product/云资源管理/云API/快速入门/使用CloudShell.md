@@ -1,8 +1,5 @@
 CloudShell 是网页版命令行工具，帮助您通过命令行管理腾讯云资源。您可以通过浏览器启动 CloudShell，启动时将会自动为您分配一台 Linux 管理机供您免费使用，该实例上已经预装 TCCLI 及 Terraform 等多种云管理工具和 SSH 及 VIM 等系统工具。
 
-<dx-alert infotype="explain" title="">
-使用 CloudShell 功能前需填写 [申请]( https://cloud.tencent.com/apply/p/pe2xeott9qc) 并提交，审核通过后即可开始使用。
-</dx-alert>
 
 
 
@@ -219,10 +216,15 @@ CloudShell 实例多种语言支持及预装工具如下：
 	<td>
 	长时间使用以及计算或网络密集型等恶意进程将不受支持，并可能会导致会话在没有任何警告的情况下被终止甚至禁用。</td>
   </tr>
-	  <tr>
+	<tr>
 	<td>机器销毁</td>
 	<td>
 当您30分钟无任何命令行会话操作即视为停止，停止30分钟后机器销毁。当您再次使用 CloudShell 时，会重新分配 Linux 机器。</td>
+  </tr>
+	<tr>
+	<td>访问限制</td>
+	<td>
+CloudShell 为用户的调试工具，仅支持通过公网域名访问，不支持通过内网访问除云 API 以外的其他业务。</td>
   </tr>
 </tbody>
 </table>

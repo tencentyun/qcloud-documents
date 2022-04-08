@@ -113,7 +113,7 @@ metadata:
    annotations:
      service.cloud.tencent.com/tke-service-config: jetty-service-config 
      # 指定已有的 tke-service-config
-     # service.cloud.tencent.com/tke-service-config-auto: true 
+     # service.cloud.tencent.com/tke-service-config-auto: "true" 
      # 自动创建 tke-service-config
    name: jetty-service
    namespace: default

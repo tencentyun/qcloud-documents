@@ -5,12 +5,10 @@
 >- 任务提交后系统将开始执行，因域名状态各异，可能存在部分域名修改失败。是否修改成功，请以执行结果为准。
 >- DNS 服务器地址修改成功后，因各地运营商 DNS 缓存机制不同，**解析在全球生效时间是0 - 72小时**，请您耐心等待。
 >
-## 前提条件
+
+## 操作步骤（方式1）
 1. 登录腾讯云 [域名注册控制台](https://console.cloud.tencent.com/domain/)。    
 2. 在左侧导航栏中，选择**批量操作 > DNS 修改**，进入 “DNS 修改” 管理页面。
-
-
-## 操作步骤
 
 ### 步骤1：输入域名
 请您先输入待修改 DNS 的域名，输入域名提供以下两种操作方式，如下图所示：
@@ -32,8 +30,9 @@
 > 
  - **选择自定义 DNS**：填写您需要为域名设置的 DNS 服务器地址。
 >?
->- 需要在腾讯云进行解析的域名，修改 DNS 服务器地址请参考 [修改 DNS 服务器](https://cloud.tencent.com/document/product/302/5518)。
 >- 自定义的 DNS 服务器域名不能是私建的 DNS 服务器域名，必须是解析商的权威 DNS 服务器域名。
+>- 需要在腾讯云进行解析的域名，修改 DNS 服务器地址请参考 [各个套餐对应的 DNS 服务器地址](https://cloud.tencent.com/document/product/302/9070)。
+>
 2. 单击**下一步**，进入信息确认页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/4b3008eaa0f625aa17f60447e3722fa6.png)
 3. 单击**确认提交**，即可修改 DNS 服务器地址。
@@ -44,3 +43,16 @@
 ![](https://main.qcloudimg.com/raw/6f542f26a7df2a5085b5780ebc2a96c0.png)
 
 
+## 操作步骤（方式2）
+1. 登录腾讯云 [域名注册控制台](https://console.cloud.tencent.com/domain/)。   
+2. 在 “我的域名” 管理页面中，勾选多个您需要修改 DNS 的域名，单击**更多操作 > 修改 DNS**。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/1cd2b1ae83f3928deb3d588b936b5991.png)
+3. 在弹出的 “身份验证” 的窗口中，使用微信扫一扫二维码验证您的身份，验证成功后即可继续进行操作。
+4. 在弹出的 “修改 DNS 服务器” 窗口中，选择您需要修改域名 DNS 服务器方式。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/371944c98729f59f98cdc4e5fbdad8e1.png)
+  - **使用 DNSPod**：自动为该域名匹配 DNSPod 服务器的 DNS 地址。
+  - **自定义 DNS**： 填写您需要设置的 DNS 服务器地址。
+>?
+>- 自定义的 DNS 服务器域名不能是私建的 DNS 服务器域名，必须是解析商的权威 DNS 服务器域名。
+>- 需要在腾讯云进行解析的域名，修改 DNS 服务器地址请参考 [各个套餐对应的 DNS 服务器地址](https://cloud.tencent.com/document/product/302/9070)。
+>

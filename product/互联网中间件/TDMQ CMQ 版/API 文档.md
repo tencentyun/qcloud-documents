@@ -1,4 +1,7 @@
-TDMQ CMQ 版相关接口如下表所示。
+TDMQ CMQ 版资源管控相关接口如下表所示。
+
+>? 以下 API 仅适用于对队列和主题的管理类操作，例如新增、查询、修改、删除等，如需查看和收发消息相关的 API 请参见[HTTP 数据流 SDK](https://cloud.tencent.com/document/product/1496/61039)。
+
 
 <style>
 table th:nth-of-type(1) {
@@ -6,14 +9,6 @@ width: 300px;
 }
 </style>
 
-## 消息相关接口
-
-| 接口名称                                                     | 接口功能                |
-| :----------------------------------------------------------- | :---------------------- |
-| [ClearCmqQueue](https://cloud.tencent.com/document/api/1179/55922) | 清空 TDMQ CMQ 版中的消息 |
-| [ClearCmqSubscriptionFilterTags](https://cloud.tencent.com/document/api/1179/55921) | 清空 TDMQ CMQ 版订阅者消息标签   |
-| [PublishCmqMsg](https://cloud.tencent.com/document/api/1179/55920) | 发送 TDMQ CMQ 版主题消息         |
-| [SendCmqMsg](https://cloud.tencent.com/document/api/1179/55919) | 发送 TDMQ CMQ 版消息             |
 
 ## 管理相关接口
 

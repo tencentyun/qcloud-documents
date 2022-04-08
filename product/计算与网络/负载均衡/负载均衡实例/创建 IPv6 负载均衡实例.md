@@ -1,6 +1,6 @@
 >?
 >- IPv6 负载均衡内测中，如需使用，请提 [工单申请](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=163&source=0&data_title=%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%20LB&step=1)。
->- 目前仅支持如下地域开通 IPv6 负载均衡：广州、深圳金融、上海、上海金融、南京、北京、成都、香港、新加坡、弗吉尼亚。其中，针对地域为**深圳金融**、**上海金融**的金融行业监管要求定制的合规专区，需提交 [工单申请](https://console.cloud.tencent.com/workorder/category) 使用专区。
+>- 目前仅支持如下地域开通 IPv6 负载均衡：广州、深圳金融、上海、上海金融、南京、北京、成都、重庆、中国香港、新加坡、弗吉尼亚。其中，针对地域为**深圳金融**、**上海金融**的金融行业监管要求定制的合规专区，需提交 [工单申请](https://console.cloud.tencent.com/workorder/category) 使用专区。
 >- IPv6 负载均衡不支持传统型负载均衡。
 >- IPv6 负载均衡支持获取客户端 IPv6 源地址。四层 IPv6 负载均衡支持直接获取客户端 IPv6 源地址，七层 IPv6 负载均衡支持通过 HTTP 的 X-Forwarded-For 头域获取客户端 IPv6 源地址。
 >- 当前 IPv6 负载均衡是纯公网负载均衡，相同 VPC 的客户端无法通过内网访问该 IPv6 负载均衡。

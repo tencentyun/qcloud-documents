@@ -10,14 +10,14 @@
 
 ## 前提条件
 
-您已 [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 账号，并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
+您已 [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 帐号，并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
 
 ## 操作步骤
 [](id:step1)
-## 步骤1：创建应用
+### 步骤1：创建应用
 1. 登录 [即时通信 IM 控制台](https://console.cloud.tencent.com/im)。
 >?如果您已有应用，请记录其 SDKAppID 并 [获取密钥信息](#step2)。
->同一个腾讯云账号，最多可创建100个即时通信 IM 应用。若已有100个应用，您可以先 [停用并删除](https://cloud.tencent.com/document/product/269/32578#.E5.81.9C.E7.94.A8.2F.E5.88.A0.E9.99.A4.E5.BA.94.E7.94.A8) 无需使用的应用后再创建新的应用。**应用删除后，该 SDKAppID 对应的所有数据和服务不可恢复，请谨慎操作。**
+>同一个腾讯云帐号，最多可创建300个即时通信 IM 应用。若已有300个应用，您可以先 [停用并删除](https://cloud.tencent.com/document/product/269/32578#.E5.81.9C.E7.94.A8.2F.E5.88.A0.E9.99.A4.E5.BA.94.E7.94.A8) 无需使用的应用后再创建新的应用。**应用删除后，该 SDKAppID 对应的所有数据和服务不可恢复，请谨慎操作。**
 >
 2. 单击**创建新应用**，在**创建应用**对话框中输入您的应用名称，单击**确定**。
 ![](https://main.qcloudimg.com/raw/78340e403359fcf4d753ade29ae9aace.png)
@@ -27,7 +27,7 @@
 ![](https://main.qcloudimg.com/raw/8315da2551bf35ec85ce10fd31fe2f52.png)
 
 [](id:step2)
-## 步骤2：下载 SDK 与源码
+### 步骤2：下载 SDK 与源码
 1. 根据您的实际业务需求，下载 SDK 及配套的 [Demo 源码](https://cloud.tencent.com/document/product/269/36887)。
 2. 下载完成后，双击打开 Package，默认全选并导入包资源到当前 Unity 项目。
 ![](https://main.qcloudimg.com/raw/c338ce838fff81841f85b06fd3dc5c6c.png)
@@ -36,8 +36,8 @@
 4. ExampleEntry.cs 注释动态获取 userSig 逻辑（由于动态获取的配置稍微复杂，后续需要可以单独配置）。
 ![](https://main.qcloudimg.com/raw/7a8ac734ac60a73caf6139fc0d1d250f.png)
 
-## 步骤3：打包运行
-### Android 平台
+### 步骤3：打包运行
+#### Android 平台
 1. 配置 Unity Editor，单击**File**>**Build Setting**，切换至 Android。
 ![](https://main.qcloudimg.com/raw/d913d32e36aa01ff93acf0316d4f103f.png)
 2. 启动一个 Android 的模拟器，单击 **Build And Run**，Demo 就能跑起来。
@@ -48,11 +48,11 @@
 ![](https://main.qcloudimg.com/raw/e6f3583d0b807af62a27ee753cfa3b53.png)
 3. 接口测试，需要先在第一行第二个输入框里添加 UserID，然后调用 initSDK 和 login，数据展示窗口显示调用成功，然后基本上接口都可以尝试调用。
 
-### iOS 平台
+#### iOS 平台
 1. 配置 Unity Editor，单击**File**>**Build Setting**，切换至 iOS。
 ![](https://main.qcloudimg.com/raw/3982b96c4f9e76107bb4aadac33a5de5.png)
 2. 连接 iPhone 真机，单击**Build And Run**，需要选择一个新的目录存放编译出来的 iOS 工程，等待编译完成，会有新窗口弹出 Xcode 工程。
-3. 打开 iOS 工程，设置主 Target 的 Signing & Capabilities（需要苹果开发者账号），让项目可以在 iPhone 真机上运行。
+3. 打开 iOS 工程，设置主 Target 的 Signing & Capabilities（需要苹果开发者帐号），让项目可以在 iPhone 真机上运行。
 4. 启动项目，在真机上进行 Demo 的调试。
 
 ## 常见问题

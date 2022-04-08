@@ -28,7 +28,7 @@
 ![](https://main.qcloudimg.com/raw/458221cb87a5b732a6f954851e39378e.png)
 4. 审核通过后将获得一天免费试用防护资源，进入[ 管理防护对象](https://cloud.tencent.com/document/product/1021/43906)，进行对需要解封的云资产进行防护绑定。云资产首次绑定高防包将自动解封。
 5. 回到**解封操作**时，状态如下：
-![](https://main.qcloudimg.com/raw/bc4964712925274ee733325aa935b323.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/31b242fc466b3bc737de50376240c304.png)
 
 ## 长期防护服务
 一天应急服务只用于暂时消除 DDoS 攻击带来的影响。长期防护 DDoS 攻击才是降低被攻击风险的最佳途径。建议您使用包年包月模式开通 DDoS 防护类服务，最大程度避免 DDoS 攻击给业务造成重大损失。

@@ -1,7 +1,7 @@
 ## 概述
 模板变量 [Variables](https://grafana.com/docs/reference/templating/) 是 Grafana 提供的一种 Dashboard 优化特性，用于创建高度可复用和交互式 Dashboard。模板变量的一般思想是允许 Grafana 从数据源获得不同的度量，并提供一种无需修改仪表板就可以动态更改它的方法。腾讯云监控应用目前提供了地域、云服务器实例、云数据库 MySQL 实例 等变量。
 
->!所有实例类 Query 支持自定义下拉框选项展示字段，通过 `display` 字段设置，如：`Namespace=QCE/REDIS&Action=DescribeInstances&Region=$region&display=${InstanceId}-${InstanceName}`。如果同时存在 `InstanceAlias` 和 `display` 字段，则仅会展示 `display` 的值。
+>!所有实例类 Query 支持自定义下拉框选项展示字段，通过 `display` 字段设置，如：`Namespace=QCE/CVM&Action=DescribeInstances&Region=$region&display=${InstanceId}-${InstanceName}`。如果同时存在 `InstanceAlias` 和 `display` 字段，则仅会展示 `display` 的值。
 
 >!2.1.0 版本起新增 `payload` 参数，支持在模板变量中过滤实例，如：
 `Namespace=QCE/CVM&Action=DescribeInstances&Region=ap-guangzhou&InstanceAlias=InstanceId&payload={"Filters":[{"Name":"zone","Values":["ap-guangzhou-1"]}]}` 可过滤可用区为 `广州一区` 的实例。注意 `payload` 参数为严格 JSON 字符串。

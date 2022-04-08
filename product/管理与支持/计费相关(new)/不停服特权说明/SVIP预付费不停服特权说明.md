@@ -1,6 +1,6 @@
 ## 特权说明
 
-- 除在[续费管理](https://console.cloud.tencent.com/account/renewal)中设置为【到期不续】**以外的**所有预付费资源，手动续费资源和自动续费资源系统会在资源到期当天为您自动续费，即您可以缺省设置自动续费，续费时长为1个月。
+- 除在 [续费管理](https://console.cloud.tencent.com/account/renewal) 中设置为“到期不续”**以外的**所有预付费资源，手动续费资源和自动续费资源系统会在资源到期当天为您自动续费，即您可以缺省设置自动续费，续费时长为1个月。
 
 - 可支持的预付费产品包括：云服务器，黑石物理服务器，云数据库 SQL Server，云数据库 MySQL，云数据库 PostgreSQL，云数据库 MongoDB 分片，云数据库 Redis，腾讯云数据仓库套件 Sparkling，云硬盘 CBS，BGP 高防服务包，BGP 高防 IP，DDoS 高防 IP，人脸核身，即时通信 IM。
 

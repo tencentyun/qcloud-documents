@@ -17,7 +17,7 @@
 其迁移步骤如下所示：![](https://main.qcloudimg.com/raw/a24b388a3259dfe609e94ed14037c862.png)
 
 1. 切换生产流，生产者将数据生产到 CKafka 实例。
-   修改 broker-list 中的 IP 为 CKafka 实例的接入网络，在控制台的实例详情页面【接入方式】模块的网络列复制；topicName 为 CKafka 实例中的 Topic 名称。
+   修改 broker-list 中的 IP 为 CKafka 实例的接入网络，在控制台的实例详情页面**接入方式**模块的网络列复制；topicName 为 CKafka 实例中的 Topic 名称。
 
 ```bash
  ./kafka-console-producer.sh --broker-list xxx.xxx.xxx.xxx:9092 --topic topicName

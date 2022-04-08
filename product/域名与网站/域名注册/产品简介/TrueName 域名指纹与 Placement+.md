@@ -5,7 +5,7 @@ TrueName （又名：域名指纹）是由 Donuts 注册局推出的一项品牌
 >? **同形异义词**：也叫易混淆字符，例如，使用拉丁文、希腊文和西里尔文脚本表中的字符替换字母或数字等，相关示例请参阅 [unicode 易混淆表](https://www.unicode.org/Public/security/8.0.0/confusables.txt )。 
 >
 ![]()
-例如，您成功注册带有域名指纹的<span ><img src="https://main.qcloudimg.com/raw/fec805395995285c271da8d5c079ca17.png" style="margin-bottom:-7px;"/></span>域名。现有他人试图注册 `tencent.com` 域名。该域名通过肉眼观察与您的域名在外形上基本一致，但该域名中的<span ><img src="https://main.qcloudimg.com/raw/96619d2b4eb6425dc7d29db15131636b.png" style="margin-bottom:-3px;"/></span>被判断为字母`e`的同形异议字，因此该域名将被 Donuts 注册局阻拦且无法注册。
+例如，您成功注册带有域名指纹的<span ><img src="https://main.qcloudimg.com/raw/fec805395995285c271da8d5c079ca17.png" style="margin-bottom:-7px;"/></span>域名。现有他人试图注册 `tencent.com` 域名。该域名通过肉眼观察与您的域名在外形上基本一致，但该域名中的<span ><img src="https://main.qcloudimg.com/raw/96619d2b4eb6425dc7d29db15131636b.png" style="margin-bottom:-3px;"/></span>被判断为字母`e`的同形异义字，因此该域名将被 Donuts 注册局阻拦且无法注册。
 
 ##  Placement+ 介绍
 

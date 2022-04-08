@@ -21,7 +21,7 @@
 <td>IE</td><td align="center">不支持</td>
 </tr></table>
 
-> ? 您可以 [单击此处](http://devcenter.qvb.qcloud.com/demo/h5/h5-test.html) 查看浏览器是否支持以上特性。
+
 
 ### 支持的流媒体格式
 - RTMP

@@ -36,7 +36,7 @@ V2TXLivePusherObserver 的 [onStatisticsUpdate](https://liteav.sdk.qcloud.com/do
 >?很多客户会遇到的一个问题： App 在线下测试时性能表现极佳，但在 App 外发上线后，前排房间里的互动消息的滚屏和刷新会产生极大的 CPU 消耗导致直播画面卡顿严重。
 
 ### 看懂腾讯云推流图表 
-在 【云直播控制台】>【[质量监控](https://console.cloud.tencent.com/live/livesdk)】 您可以看到您所属账户里的直播间情况，以及每个直播间的推流质量数据：
+在 **云直播控制台** > **[质量监控](https://console.cloud.tencent.com/live/livesdk)** 您可以看到您所属账户里的直播间情况，以及每个直播间的推流质量数据：
 
 - **主播端-应发速率-实发速率曲线图**
 蓝色曲线代表 BITRATE 的统计曲线，即 SDK 产生的音视频数据，绿色曲线代表实际网络发出去多少。两条线重合度越高表示推流质量越好。

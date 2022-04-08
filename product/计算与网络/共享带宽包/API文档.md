@@ -34,7 +34,7 @@
 <tr>
 <td>查询带宽包资源</td>
 <td><a href="https://cloud.tencent.com/document/product/215/19209">DescribeBandwidthPackages</a></td>
-<td>查询带宽包详细信息，包括带宽包唯一标识 ID，类型，计费模式，名称，资源信息等。</td>
+<td>查询带宽包详细信息，包括带宽包唯一标识 ID、类型、计费模式、名称、资源信息等。</td>
 </tr>
 <tr>
 <td>查询带宽包配额</td>

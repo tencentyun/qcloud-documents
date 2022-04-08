@@ -41,12 +41,13 @@ dtf:
     server: {客户端服务标识}
 ```
 
-| 配置项                   | 数据类型 | 必填 | 默认值                                   | 描述                                                         |
-| ------------------------ | -------- | ---- | ---------------------------------------- | ------------------------------------------------------------ |
-| dtf.env.groups.{groupId} | String   | 是   | 共享集群TC列表，如果是独占集群则需要填写 | 用户的事务分组 ID，单客户端使用多个事务分组时可以配置多项。     |
-| dtf.env.groups.secretId  | String   | 是   | 无                                       | 用户的腾讯云 SecretID。                                         |
-| dtf.env.groups.secretKey | String   | 是   | 无                                       | 用户的腾讯云 SecretKey。                                        |
-| dtf.env.groups.server    | String   | 是   | ${spring.application.name}               | 客户端服务标识，一个事务分组下，同一服务需要使用相同的标识。 |
+| 配置项                    | 数据类型 | 必填 | 默认值                                   | 描述                                                         |
+| ------------------------- | -------- | ---- | ---------------------------------------- | ------------------------------------------------------------ |
+| dtf.env.groups.${GroupId} | String   | 是   | 共享集群 TC 列表，如果是独占集群则需要填写 | 用户的事务分组 ID，单客户端使用多个事务分组时可以配置多项     |
+| dtf.env.secretId   | String   | 是   | 无                                       | 用户的腾讯云 SecretID                                         |
+| dtf.env.secretKey  | String   | 是   | 无                                       | 用户的腾讯云 SecretKey                                        |
+| dtf.env.server     | String   | 否   | ${spring.application.name}               | 客户端服务标识，一个事务分组下，同一服务需要使用相同的标识 |
+| dtf.env.fmt  |  Boolean  | 否  | true  | 启动时会对 DB 进行大量初始化工作，若不需使用 fmt 建议禁用 |
 
 >?通常情况下，仅需要在 dtf.env.groups 下配置一个事务分组。
 

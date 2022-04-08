@@ -26,7 +26,7 @@ Cloud-init 主要提供实例首次初始化时自定义配置的能力。如果
 
 
 执行以下命令，下载 cloud-init 源码包。
-```
+```shellsession
 wget https://launchpad.net/cloud-init/trunk/17.1/+download/cloud-init-17.1.tar.gz
 ```
 
@@ -35,20 +35,20 @@ wget https://launchpad.net/cloud-init/trunk/17.1/+download/cloud-init-17.1.tar.g
 <dx-alert infotype="explain" title="">
 如果您使用的操作系统为 Ubuntu，请切换至 root 帐号。
 </dx-alert>
-```
+```shellsession
 tar -zxvf cloud-init-17.1.tar.gz 
 ```
 2. 执行以下命令，进入已解压的 cloud-init 安装包目录（即进入 cloud-init-17.1 目录）。
-```
+```shellsession
 cd cloud-init-17.1
 ```
 3. 根据操作系统版本，安装 Python-pip。
   - CentOS 6/7系列，执行以下命令：
-```
+```shellsession
 yum install python-pip -y
 ```
   - Ubuntu 系列，执行以下命令：
-```
+```shellsession
 apt-get install python-pip -y
 ```
 若在安装时，出现无法安装或找不到安装包的错误，可参考 [解决无法安装 Python-pip 问题](#updateSoftware) 进行处理。
@@ -56,26 +56,28 @@ apt-get install python-pip -y
 <dx-alert infotype="notice" title="">
 Cloud-init 依赖组件 requests 2.20.0版本后，已弃用 Python2.6。如果镜像环境的 Python 解释器为 Python2.6及以下，在安装 cloud-init 依赖包之前，请执行 `pip install 'requests&lt;2.20.0'` 命令，安装 requests 2.20.0 版本以下的版本。
 </dx-alert>
-```
+```shellsession
 pip install -r requirements.txt
 ```
 5. 根据操作系统版本，安装 cloud-utils 组件。
   - CentOS 6系列，执行以下命令：
-```
+```shellsession
 yum install cloud-utils-growpart dracut-modules-growroot -y
 dracut -f
 ```
   - CentOS 7系列，执行以下命令：
-```
+```shellsession
 yum install cloud-utils-growpart -y
 ```
   - Ubuntu 系列，执行以下命令：
-```
+```shellsession
 apt-get install cloud-guest-utils -y
 ```
 6. 执行以下命令，安装 cloud-init。
-```
+```shellsession
 python setup.py build
+```
+```shellsession
 python setup.py install --init-system systemd
 ``` <dx-alert infotype="notice" title="">
 --init-system 的可选参数有：(systemd, sysvinit,  sysvinit_deb, sysvinit_freebsd, sysvinit_openrc, sysvinit_suse, upstart)  [default: None]。请根据当前操作系统使用的自启动服务管理方式，进行选择。若选择错误，cloud-init 服务会无法开机自启动。本文以 systemd 自启动服务管理为例。
@@ -92,7 +94,7 @@ python setup.py install --init-system systemd
 
 ### 添加 syslog 用户
 执行以下命令，添加 syslog 用户。
-```
+```shellsession
 useradd syslog
 ```
 
@@ -103,11 +105,11 @@ useradd syslog
 您可执行 `strings /sbin/init | grep "/lib/system"` 命令，若有返回信息，则操作系统是 systemd 自启动管理服务。
 </dx-alert>
  1. **针对 Ubuntu 或 Debian 操作系统，需执行以下命令。**
-```
+```shellsession
  ln -s /usr/local/bin/cloud-init /usr/bin/cloud-init 
 ```
  2. **所有操作系统都需执行以下命令。**
-```
+```shellsession
 systemctl enable cloud-init-local.service 
 systemctl start cloud-init-local.service
 systemctl enable cloud-init.service
@@ -123,7 +125,7 @@ systemctl status cloud-final.service
 ```
  3. **针对 CentOS 和 Redhat 操作系统，需执行以下命令。**
  将 /lib/systemd/system/cloud-init-local.service 文件替换为如下内容：
-```
+```shellsession
 [Unit]
 Description=Initial cloud-init job (pre-networking)
 Wants=network-pre.target
@@ -145,7 +147,7 @@ StandardOutput=journal+console
 WantedBy=cloud-init.target
 ```
 将 /lib/systemd/system/cloud-init.service 文件替换为以下内容：
-```
+```shellsession
 [Unit]
 Description=Initial cloud-init job (metadata service crawler)
 Wants=cloud-init-local.service
@@ -174,7 +176,7 @@ WantedBy=cloud-init.target
 <dx-alert infotype="explain" title="">
 您可执行 `strings /sbin/init | grep "sysvinit"` 命令，若有返回信息，则操作系统是 sysvinit 自启动管理服务。
 </dx-alert>
-```
+```shellsession
 chkconfig --add cloud-init-local
 chkconfig --add cloud-init
 chkconfig --add cloud-config
@@ -189,7 +191,7 @@ chkconfig cloud-final on
 ### 安装 cloud-init
 
 执行以下命令，安装 cloud-init。
-```
+```shellsession
 apt-get/yum install cloud-init
 ```
 <dx-alert infotype="explain" title="">
@@ -217,16 +219,23 @@ apt-get/yum install cloud-init
 
 
 1. 执行以下命令，检查 cloud-init 相关配置是否成功。
-```
+```shellsession
 cloud-init init --local
+```
+返回类似如下信息，则说明已成功配置 cloud-init。
+```shellsession
+Cloud-init v. 20.1 running 'init-local' at Fri, 01 Apr 2022 01:26:11 +0000. Up 38.70 seconds.
+```
+2. 执行以下命令，删除 cloudinit 的缓存记录。
+```shellsession
 rm -rf /var/lib/cloud
 ```
-2. 针对 Ubuntu 或 Debian 操作系统，需执行以下命令。
-```
+3. 针对 Ubuntu 或 Debian 操作系统，需执行以下命令。
+``` shellsession
 rm -rf /etc/network/interfaces.d/50-cloud-init.cfg
 ```
-3. 针对 Ubuntu 或 Debian 操作系统，需将 `/etc/network/interfaces` 修改为以下内容：
-```
+4. 针对 Ubuntu 或 Debian 操作系统，需将 `/etc/network/interfaces` 修改为以下内容：
+```shellsession
 # This file describes the network interfaces available on your system
 # and how to activate them. For more information, see interfaces(5).
 source /etc/network/interfaces.d/*
@@ -238,15 +247,15 @@ source /etc/network/interfaces.d/*
 若通过 [手工下载 cloud-init 源码包方式](#ManualDown) 安装不成功，可通过以下操作进行安装：
 1. [点此获取](https://image-tools-1251783334.cos.ap-guangzhou.myqcloud.com/greeninit-x64-beta.tgz) 绿色版 cloud-init 包。
 2. 执行以下命令，解压绿色版 cloud-init 包。
-```
+```shellsession
 tar xvf greeninit-x64-beta.tgz 
 ```
 3. 执行以下命令，进入已解压的绿色版 cloud-init 包目录（即进入 greeninit 目录）。
-```
+```shellsession
 cd greeninit
 ```
 4. 执行以下命令，安装 cloud-init。
-```
+```shellsession
 sh install.sh 
 ```
 
@@ -255,21 +264,21 @@ sh install.sh
 <dx-tabs>
 ::: CentOS\s6/7系列
   1. 执行以下命令，设置 EPEL 存储库。
-```
+```shellsession
 yum install epel-release -y
 ```
   2. 执行以下命令，安装 Python-pip。
-```
+```shellsession
 yum install python-pip -y
 ```
 :::
 ::: Ubuntu\s系列
   1. 执行以下命令，更新软件包列表。
-```
+```shellsession
 apt-get update -y
 ```
   2. 执行以下命令，安装 Python-pip。
-```
+```shellsession
 apt-get install python-pip -y
 ```
 :::

@@ -42,7 +42,9 @@ request.finishBlock = ^(QCloudDescribeMediaInfo * outputObject, NSError *error) 
 };
 [[QCloudCOSXMLService defaultCOSXML] CIGetDescribeMediaBuckets:request];
 ```
->?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/iOS/OC/Examples/cases/GetSnapshot.m) 查看。
+
+>?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/iOS/Objc/Examples/cases/GetSnapshot.m) 查看。
+
 
 **Swift**
 

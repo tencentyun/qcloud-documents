@@ -19,11 +19,11 @@ Linux、Mac OS 或 Windows（Windows 10 和 Windows Server 2019 版本）
 <dx-tabs>
 ::: 使用密码登录[](id:passwordLogin)
 1. 执行以下命令，连接 Linux 云服务器。
->? 
-> - 如果您的本地电脑为 Mac OS 系统，需先打开系统自带的终端（Terminal），再执行以下命令。
->- 如果您的本地电脑为 Linux 系统，可直接执行以下命令。
->- 如果您的本地电脑为 Windows 10 或 Windows Server 2019 系统，需先打开命令提示符（CMD），再执行以下命令。
->
+<dx-alert infotype="explain" title="">
+- 如果您的本地电脑为 Mac OS 系统，需先打开系统自带的终端（Terminal），再执行以下命令。
+- 如果您的本地电脑为 Linux 系统，可直接执行以下命令。
+- 如果您的本地电脑为 Windows 10 或 Windows Server 2019 系统，需先打开命令提示符（CMD），再执行以下命令。
+</dx-alert>
 ```
 ssh <username>@<hostname or IP address>
 ```

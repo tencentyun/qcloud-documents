@@ -577,4 +577,18 @@ virtual void onTEBGroupStatusChanged(bool enable, const char *classGroupId, TEdu
 | messgae | const char * | 操作信息  |
 
 
+### onTEBBoardScrollChanged
+``` C++
+virtual void onTEBBoardScrollChanged(const char * boardId, int trigger, double scrollLeft, double scrollTop, int scale)
+```
+
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| boardId | const char * | 白板id |
+| trigger | int | 事件触发来源 |
+| scrollLeft | double | 左侧滚动百分比距离 |
+| scrollTop | double | 顶部滚动百分比距离 |
+| scale | int | 白板缩放比 |
 

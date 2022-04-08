@@ -1,3 +1,57 @@
+### 2.6.9.92 @ 2021-12-10
+* [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/TEduBoard_2.6.9.92.zip)
+* [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/TEduBoard_Mac_2.6.9.92.zip)
+
+- 新增接口
+    1. 支持 PPT 课件进行静音操作(soundMuteForPPT)
+    2. 课件资源预加载，支持课前和课中加载，具体请参考 [课件预加载文档](https://cloud.tencent.com/document/product/1137/67344)
+- 功能优化
+    1. 优化课件加载
+    2. 截图功能在异常 dpr 中丢失几个像素的问题
+
+### 2.6.8.87 @ 2021-12-10
+* [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/TEduBoard_2.6.8.87.zip)
+* [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/TEduBoard_Mac_2.6.8.87.zip)
+
+- 新增接口
+    1.跳转到指定动画步数(gotoStep)
+    2.获取白板滚动位置(getBoardScroll) 
+    3.设置分段擦除模式是否开启(setPiecewiseErasureEnable)
+    4.获取分段擦除模式开启状态(isPiecewiseErasureEnable)
+    5.设置橡皮擦大小(setEraserSize)
+    6.获取橡皮擦大小(getEraserSize)
+    7.设置全局背景图(setGlobalBackgroundPic)
+    8.获取全局背景图(getGlobalBackgroundPic)
+  
+- 调整接口
+    1. 添加白板元素(addTextElement) 支持添加文本元素
+
+- 新增事件
+    1. 白板移动回调(onTEBBoardScrollChanged)
+
+- 调整事件
+    1. 框选工具选中元素回调(onTEBSelectedElements) 新增元素位置、宽高、包围盒大小等返回字段
+
+- 新增初始化参数
+    1. 全局背景图(globalBackgroundPic)
+
+- 功能优化
+    1. 优化图片资源加载逻辑
+    2. 添加图片元素在低版本上进行旋转校正
+    3. 添加图片元素支持自定义大小
+    4. 支持画线涂鸦分段擦除
+
+- Bug 修复
+    1. 在不同缩放比下添加白板元素大小显示不一致
+    2. 若干已知问题修复
+
+### 2.6.7.84 @ 2021-11-04
+* [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/TEduBoard_2.6.7.84.zip)
+* [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/TEduBoard_Mac_2.6.7.84.zip)
+
+- Bug 修复
+  1.Mac SDK 在低版本系统中加载白板自定义协议出现的询问弹窗
+
 ### 2.6.7.82 @ 2021-10-29
 * [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/TEduBoard_2.6.7.82.zip)
 * [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/TEduBoard_Mac_2.6.7.82.zip)
@@ -14,7 +68,7 @@
   1.设置远端画笔在本地是否可见(setRemoteCursorVisible)
     
 - 调整全局变量
-  1.白板警告码(TEduBoardWarningCode)，新增静态ppt重复的告警码
+  1.白板警告码(TEduBoardWarningCode)，新增静态 ppt 重复的告警码
     
 - 功能优化
   1.弱网环境下涂鸦同步
@@ -30,11 +84,11 @@
 - 新增接口  
   1. 设置白板滚动条是否可见(setScrollBarVisible)    
 - 接口调整  
-  1. addImagesFile(urls, title, needSwitch) 支持title,needSwitch
-  2. addH5File(url, title, needSwitch) 支持title,needSwitch
-  3. addVideoFile(url, title, needSwitch) 支持title,needSwitch
+  1. addImagesFile(urls, title, needSwitch) 支持 title，needSwitch
+  2. addH5File(url, title, needSwitch) 支持 title，needSwitch
+  3. addVideoFile(url, title, needSwitch) 支持 title，needSwitch
 - 实体类调整  
-  1. TEduBoardFileInfo，新增fileType字段
+  1. TEduBoardFileInfo，新增 fileType 字段
 
 ### 2.6.5.75 @ 2021-09-01
 * [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/TEduBoard_2.6.5.75.zip)
@@ -46,7 +100,7 @@
   1. 几何元素类型(TEduBoardMathGraphType)  
   2. 日志级别(TEduBoardLogLevel)  
 - 当前版本废弃的接口与事件
-  1. SDK接口：发起文件转码请求(applyFileTranscode)  
+  1. SDK 接口：发起文件转码请求(applyFileTranscode)  
   2. 回调事件：转码进度回调(TEB_TRANSCODEPROGRESS)  
   3. 全局常量：文件转码状态(TEduBoardTranscodeFileStatus)  
 - 功能优化  

@@ -18,8 +18,11 @@
 
 ### 检查实例是否配置公网 IP[](id:isConfigurePublicIP)
 
->? 实例必须具备公网 IP 才能与 Internet 上的其他计算机相互访问。若实例没有公网 IP，内网 IP 外部则无法直接 ping 通实例。
->
+<dx-alert infotype="explain" title="">
+实例必须具备公网 IP 才能与 Internet 上的其他计算机相互访问。若实例没有公网 IP，内网 IP 外部则无法直接 ping 通实例。
+</dx-alert>
+
+
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)。
 2. 在“实例列表”页面中，选择需要 ping 通的实例 ID/实例名，进入该实例的详情页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/4b5735b3ef4ecbe9a0d131927112d4ba.png)
@@ -49,11 +52,17 @@
 
 #### 检查 Linux 内核参数和防火墙设置[](id:CheckLinux)
 
->? Linux 系统是否允许 ping 由内核和防火墙设置两个共同决定，任何一个禁止，都会造成 ping 包 “Request timeout”。
+<dx-alert infotype="explain" title="">
+Linux 系统是否允许 ping 由内核和防火墙设置两个共同决定，任何一个禁止，都会造成 ping 包 “Request timeout”。
+</dx-alert>
+
+
 
 ##### 检查内核参数 icmp_echo_ignore_all
 
-1. 登录实例。
+1. 通过 VNC 登录实例，详见：
+ - [使用 VNC 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35701)
+ - [使用 VNC 登录 Windows 实例](https://cloud.tencent.com/document/product/213/35704)
 2. 执行以下命令，查看系统 icmp_echo_ignore_all 设置。
 ```
 cat /proc/sys/net/ipv4/icmp_echo_ignore_all
@@ -107,8 +116,10 @@ iptables -A OUTPUT -p icmp --icmp-type echo-reply -j ACCEPT
 
 ### 检查域名是否备案[](id:CheckDomainRegistration)
 
->? 如果您可以 ping 通公网 IP，而 ping 不通域名，可能是域名没有备案或者域名解析的问题导致。
->
+<dx-alert infotype="explain" title="">
+如果您可以 ping 通公网 IP，而 ping 不通域名，可能是域名没有备案或者域名解析的问题导致。
+</dx-alert>
+
 国家工信部规定，对未取得许可或者未履行备案手续的网站不得从事互联网信息服务，否则就属于违法行为。为不影响网站长久正常运行，如需开办网站，建议您先办理网站备案，待备案成功取得通信管理局下发的 ICP 备案号后，才开通访问。
 - 如果您的域名没有备案，请先进行 [域名备案](https://console.cloud.tencent.com/beian)。
 - 如果您使用的是腾讯云的域名服务，您可以登录 [域名服务控制台](https://console.cloud.tencent.com/domain) 查看相应的域名情况。
@@ -127,6 +138,5 @@ ping 不通域名的另外一个原因是由于域名解析没有正确地配置
 
 若上述步骤无法解决问题，请参考：
 - 域名 ping 不通，请检查您的网站配置。
-- 公网 IP ping 不通，请附上实例的相关信息和双向 MTR 数据（从本地到云服务器以及云服务器到本地），通过 [在线支持](https://cloud.tencent.com/online-service?from=doc_213
-) 联系工程师协助定位。
+- 公网 IP ping 不通，请附上实例的相关信息和双向 MTR 数据（从本地到云服务器以及云服务器到本地），通过 [在线支持](https://cloud.tencent.com/online-service?from=doc_213) 联系工程师协助定位。
 MTR 的使用方法请参考 [服务器网络延迟和丢包处理](https://cloud.tencent.com/document/product/213/14638)。

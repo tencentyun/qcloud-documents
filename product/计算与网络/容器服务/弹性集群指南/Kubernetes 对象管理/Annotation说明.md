@@ -1,5 +1,5 @@
 ## 工作负载 pod template annotation 说明
-您可以通过在 yaml 中定义 `spec.template.metadata.annotations` 的方式，实现为 Pod 绑定安全组、分配资源等能力。配置方法见下表：
+您可以通过在 yaml 中定义 `metadata.annotations` 的方式，实现为 Pod 绑定安全组、分配资源等能力。配置方法见下表：
 
 <dx-alert infotype="notice" title="">
 - 如果不指定安全组，则 Pod 会默认绑定同地域的 `default` 安全组。请确保 `default` 安全组的网络策略不影响该 Pod 正常工作。
@@ -83,11 +83,6 @@
 <td>否。如填写，请确保填写的 CAM 角色名存在。</td>
 </tr>
 <tr>
-<td>eks.tke.cloud.tencent.com/monitor-port</td>
-<td>为 Pod 设置监控数据暴露端口，以便被 Prometheus 等组件采集。</td>
-<td>否。不填写默认为 9100。</td>
-</tr>
-<tr>
 <td>eks.tke.cloud.tencent.com/custom-metrics-url</td>
 <td>为 Pod 设置自定义监控指标拉取地址，通过该地址暴露的监控数据会自动被监控组件读取并上报。</td>
 <td>否。如填写，请确保暴露的数据协议可被监控系统识别，如 Prometheus 协议、云监控数据协议。</td>
@@ -108,11 +103,6 @@
 <td>否 </td>
 </tr>
 <tr>
-<td>eks.tke.cloud.tencent.com/eip-injection</td>
-<td>值为 "true" 时，表明会在 Pod 内暴露 EIP 的 IP 信息。在 Pod 内使用 ip addr 命令可以查看到 EIP 的地址。注意，非带宽上移的账号无法使用。</td>
-<td>否 </td>
-</tr>
-<tr>
 <td>eks.tke.cloud.tencent.com/registry-insecure-skip-verify</td>
 <td>镜像仓库地址（多个用“,”隔开，或者填写 all）。在弹性集群使用自建 HTTPS 自签名镜像仓库的镜像创建工作负载时，可能会遇到 “ErrImagePull” 报错，拉取镜像失败，可添加该 Annotation 来解决。详情见 <a href="https://cloud.tencent.com/document/product/457/54755#.E5.BC.B9.E6.80.A7.E9.9B.86.E7.BE.A4.E5.A6.82.E4.BD.95.E4.BD.BF.E7.94.A8.E8.87.AA.E5.BB.BA.E7.9A.84.E8.87.AA.E7.AD.BE.E5.90.8D.E9.95.9C.E5.83.8F.E4.BB.93.E5.BA.93.E6.88.96-http-.E5.8D.8F.E8.AE.AE.E9.95.9C.E5.83.8F.E4.BB.93.E5.BA.93.EF.BC.9F">弹性集群如何使用自建的自签名镜像仓库或 HTTP 协议镜像仓库？</a></td>
 <td>否 </td>
@@ -120,6 +110,11 @@
 <tr>
 <td>eks.tke.cloud.tencent.com/registry-http-endpoint</td>
 <td>镜像仓库地址（多个用“,”隔开，或者填写 all）。在弹性集群使用自建 HTTP 协议镜像仓库的镜像创建工作负载时，可能会遇到 “ErrImagePull” 报错，拉取镜像失败，可添加该 Annotation 来解决。详情见 <a href="https://cloud.tencent.com/document/product/457/54755#.E5.BC.B9.E6.80.A7.E9.9B.86.E7.BE.A4.E5.A6.82.E4.BD.95.E4.BD.BF.E7.94.A8.E8.87.AA.E5.BB.BA.E7.9A.84.E8.87.AA.E7.AD.BE.E5.90.8D.E9.95.9C.E5.83.8F.E4.BB.93.E5.BA.93.E6.88.96-http-.E5.8D.8F.E8.AE.AE.E9.95.9C.E5.83.8F.E4.BB.93.E5.BA.93.EF.BC.9F">弹性集群如何使用自建的自签名镜像仓库或 HTTP 协议镜像仓库？</a></td>
+<td>否 </td>
+</tr>
+<tr>
+<td>eks.tke.cloud.tencent.com/image-cache-disk-retain-minute</td>
+<td>镜像缓存使用的 CBS 数据盘是否延迟销毁，单位为 min，可按需设置延迟销毁时长，默认为0，即销毁 Pod 时立即销毁，若设置为“10”，表示镜像缓存使用的数据盘，在销毁 Pod 后会默认保留10分钟。</a></td>
 <td>否 </td>
 </tr>
 </tbody></table>

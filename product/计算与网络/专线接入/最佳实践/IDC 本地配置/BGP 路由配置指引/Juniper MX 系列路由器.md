@@ -28,4 +28,7 @@ set protocols bgp group ebgp neighbor <bgp_peer_address> peer-as <bgp_peer_as_nu
 set protocols bgp group ebgp neighbor <bgp_peer_address> authentication-key <bgp_auth_key>
 set protocols bgp group ebgp neighbor <bgp_peer_address> description <bgp_peer_desc>
 commit
+
+# 设置 eBGP 的 BFD 配置
+set protocols bgp group ebgp neighbor <bgp_peer_address> bfd-liveness-detection minimum-interval <value>
 ```

@@ -160,15 +160,15 @@ Fabric Go 语言版本智能合约有丰富的 API 接口，代码实现详情�
 </thead>
 <tbody><tr>
 <td>GetArgs() [][]byte</td>
-<td>获取智能合约中调用参数</td>
+<td>以 byte 数组的形式获取智能合约中调用参数</td>
 </tr>
 <tr>
 <td>GetArgsSlice() ([]byte, error)</td>
-<td>获取智能合约中调用参数</td>
+<td>以 byte 切片的形式获取智能合约中调用参数</td>
 </tr>
 <tr>
 <td>GetStringArgs() []string</td>
-<td>获取智能合约中调用参数</td>
+<td>以字符串数组的形式获取智能合约中调用参数</td>
 </tr>
 <tr>
 <td>GetFunctionAndParameters() (function string, params []string)</td>

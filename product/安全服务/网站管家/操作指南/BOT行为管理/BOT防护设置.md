@@ -10,7 +10,7 @@ WAF 自定义会话策略提供协议特征、IP 情报特征和自定义会话�
 
 ## 使用说明
 ### BOT 功能开关
-登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/bot2/config)，在左侧导航栏中，选择【BOT 行为管理】>【BOT 防护设置】，进入 BOT 策略设置页面。
+登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/tea-overview)，在左侧导航栏中，选择【BOT 行为管理】>【BOT 防护设置】，进入 BOT 策略设置页面。
 ![](https://main.qcloudimg.com/raw/078750ac49ea99153f3f81461f8611b4.png)
 **字段说明：**
 - **域名：**同步【Web 应用防火墙】>【[防护配置](https://console.cloud.tencent.com/guanjia/waf/config)】添加到 WAF 的防护域名，且支持排序。
@@ -20,20 +20,20 @@ WAF 自定义会话策略提供协议特征、IP 情报特征和自定义会话�
 - **操作：**单击【防护设置】，设置 BOT 防护策略。
 
 ### 公开类型设置
-1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/bot2/config)，在左侧导航栏中，选择【BOT 行为管理】>【BOT 防护设置】，找到需要操作的域名，在右侧操作栏，单击【防护设置】。
+1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/tea-overview)，在左侧导航栏中，选择【BOT 行为管理】>【BOT 防护设置】，找到需要操作的域名，在右侧操作栏，单击【防护设置】。
 2. 进入防护设置页面，单击【公开类型】，进入相应列表页。
 ![](https://main.qcloudimg.com/raw/6edeebf8857429080854621877506d76.png)
 **参数说明：**
 	- **BOT 分类：**WAF 支持12个公开类别识别，如搜索引擎、测速工具、内容聚合、扫描和网页爬虫等。
 	- **BOT 种类数：**每个分类包含的 BOT 种类数量。
-	- **动作：**公开类型支持的动作类型，默认为监控，支持设置为放行或拦截，可通过右侧操作栏进行设置。拦截结果可在【[攻击日志](https://console.cloud.tencent.com/guanjia/log/attack)】中查看，拦截 IP 的实时信息可在【[IP 封堵状态](https://console.cloud.tencent.com/guanjia/ip/record)】中查看。
+	- **动作：**公开类型支持的动作类型，默认为监控，支持设置为放行或拦截，可通过右侧操作栏进行设置。拦截结果可在【[攻击日志](https://console.cloud.tencent.com/guanjia/tea-attacklog)】中查看，拦截 IP 的实时信息可在【[IP 封堵状态](https://console.cloud.tencent.com/guanjia/ip/record)】中查看。
 	- **操作：**进行公开类型的动作设置，详情请参见 [动作类型说明](#dzlx)。
 3. 在页面左上角，单击【复制】，可将当前域名的公开类型 BOT 设置信息复制到其他域名，其他域名的公开类型 BOT 设置信息将会被覆盖。
 ![](https://main.qcloudimg.com/raw/10b603c0a8050db3005feb8ead2a20ac.png)
 
 ### 自定义会话策略
 #### 协议特征
-1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/bot2/config)，在左侧导航栏中，选择【BOT 行为管理】>【BOT 防护设置】，找到需要操作的域名，在右侧操作栏，单击【防护设置】。
+1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/tea-overview)，在左侧导航栏中，选择【BOT 行为管理】>【BOT 防护设置】，找到需要操作的域名，在右侧操作栏，单击【防护设置】。
 2. 进入防护设置页面，选择【自定义会话策略】>【协议特征】，进入相应列表页。
 ![](https://main.qcloudimg.com/raw/d9779127d93f5c8b1640d68a436c72ad.png)
 	- **字段说明：**
@@ -41,7 +41,7 @@ WAF 自定义会话策略提供协议特征、IP 情报特征和自定义会话�
 		- **动作：**协议特征策略默认动作，默认为监控，可通过右侧操作栏进行设置。
 		- **策略开关：**默认为关闭。
 		- **修改时间：**策略最近一次被修改的时间。
-		- **操作：**单击【编辑】进行动作设置，动作支持放行、监控、验证和拦截，详情请参见 [动作类型说明](#dzlx)。动作设置后，拦截结果可在【[攻击日志](https://console.cloud.tencent.com/guanjia/log/attack)】中查看，拦截 IP 的实时信息可在【[IP 封堵状态](https://console.cloud.tencent.com/guanjia/ip/record)】中查看。
+		- **操作：**单击【编辑】进行动作设置，动作支持放行、监控、验证和拦截，详情请参见 [动作类型说明](#dzlx)。动作设置后，拦截结果可在【[攻击日志](https://console.cloud.tencent.com/guanjia/tea-attacklog)】中查看，拦截 IP 的实时信息可在【[IP 封堵状态](https://console.cloud.tencent.com/guanjia/ip/record)】中查看。
 	- **协议特征策略名称如下：**
 <table>
 <tr><th>协议特征类别</th><th>策略名称</th></tr>
@@ -65,7 +65,7 @@ WAF 自定义会话策略提供协议特征、IP 情报特征和自定义会话�
 </table>
 
 #### IP 情报特征
-1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/bot2/config)，在左侧导航栏中，选择【BOT行为管理】>【BOT防护设置】，找到需要操作的域名，在右侧操作栏，单击【防护设置】。
+1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/tea-overview)，在左侧导航栏中，选择【BOT行为管理】>【BOT防护设置】，找到需要操作的域名，在右侧操作栏，单击【防护设置】。
 2. 进入防护设置页面，选择【自定义会话策略】>【IP 情报特征】，进入相应列表页。
 ![](https://main.qcloudimg.com/raw/aca75a58890ae8efc4a7c79bf5a10dd4.png)
 	- **字段说明：**
@@ -93,7 +93,7 @@ WAF 自定义会话策略提供协议特征、IP 情报特征和自定义会话�
 </table>
 
 #### 自定义会话特征
-1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/bot2/config)，在左侧导航栏中，选择【BOT行为管理】>【BOT防护设置】，找到需要操作的域名，在右侧操作栏，单击【防护设置】。
+1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/tea-overview)，在左侧导航栏中，选择【BOT行为管理】>【BOT防护设置】，找到需要操作的域名，在右侧操作栏，单击【防护设置】。
 2. 进入防护设置页面，选择【自定义会话策略】>【自定义会话特征】，进入相应列表页。
 ![](https://main.qcloudimg.com/raw/1453fca7d60c9922a5eea34b4f93264a.png)
 	- **字段说明：**
@@ -121,7 +121,7 @@ WAF 自定义会话策略提供协议特征、IP 情报特征和自定义会话�
 <tr><td>监控</td><td>符合匹配条件的会话请求将会被监控记录日志，可在 BOT 详情的自定义类型中查看监控的会话信息。</td></tr>
 <tr><td>验证码</td><td>仅用于浏览器访问场景，符合匹配条件的会话请求将进行验证码挑战，若挑战失败，执行拦截动作。若挑战成功，惩罚时长内正常访问。</td></tr>
 <tr><td>重定向</td><td>符合匹配条件的会话请求执行重定向，并且指定惩罚时长，将请求重定向到指定 URL，但只支持重定向到当前域名下的 URL。</td></tr>
-<tr><td>拦截</td><td>符合匹配条件的会话请求将执行拦截，可设置惩罚时长，取值为：5分钟 - 10080分钟（7天），拦截结果可在【<a href = "https://console.cloud.tencent.com/guanjia/log/attack">攻击日志</a>】中查看，拦截 IP 的实时信息可在【<a href = "https://console.cloud.tencent.com/guanjia/ip/record">IP 封堵状态</a>】中查看。</td></tr>
+<tr><td>拦截</td><td>符合匹配条件的会话请求将执行拦截，可设置惩罚时长，取值为：5分钟 - 10080分钟（7天），拦截结果可在【<a href = "https://console.cloud.tencent.com/guanjia/tea-attacklog">攻击日志</a>】中查看，拦截 IP 的实时信息可在【<a href = "https://console.cloud.tencent.com/guanjia/ip/record">IP 封堵状态</a>】中查看。</td></tr>
 </table>
 	- **自定义会话特征匹配条件说明如下：**
 	<table>

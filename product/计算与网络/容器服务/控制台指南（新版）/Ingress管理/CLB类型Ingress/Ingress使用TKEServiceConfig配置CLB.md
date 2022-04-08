@@ -186,7 +186,7 @@ spec:
             healthNum: 2
             unHealthNum: 2
             httpCheckPath: "/checkHealth"
-            httpCheckDomain: "sample.tencent.com"
+            httpCheckDomain: "sample.tencent.com" #注意：健康检查必须使用固定域名进行探测，如果您在.spec.loadBalancer.l7Listeners.protocol.domains.domain 里填写的是泛域名，一定要使用 httpCheckDomain 字段明确具体需要健康检查的域名，否则泛域名不支持健康检查。
             httpCheckMethod: HEAD
           scheduler: WRR
 ```

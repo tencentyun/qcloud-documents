@@ -17,7 +17,7 @@ TSF 应用可以使用 CODING 构建持续集成方案。腾讯云 CODING 持续
 ## CODING 平台操作
 ### 步骤一：创建代码仓库并提交代码
 1. 登录 [CODING DevOps 控制台](https://console.cloud.tencent.com/coding)，进入示例项目。
-2. 单击左侧导航栏【代码仓库】> 【代码浏览】，单击顶部导航栏，创建代码仓库（如 `provider-demo`）。
+2. 单击左侧导航栏**代码仓库**> **代码浏览**，单击顶部导航栏，创建代码仓库（如 `provider-demo`）。
 ![](https://main.qcloudimg.com/raw/6080d4953c1c88265aed6021406e22c8.png)
 3. [下载](https://github.com/tencentyun/tsf-snippet) 演示工程源码，上传到 Coding 的 `provider-demo` 代码仓库中。
   ![](https://main.qcloudimg.com/raw/be8ddefc4dd61b61569d2317789937a2.png)
@@ -28,12 +28,12 @@ TSF 应用可以使用 CODING 构建持续集成方案。腾讯云 CODING 持续
 
 ### 步骤二：创建并配置构建任务
 #### 创建构建任务
-1. 单击 Coding 控制台左侧导航栏【构建与部署】>【构建】。
-2. 单击【新建】。
+1. 单击 Coding 控制台左侧导航栏**构建与部署** > **构建**。
+2. 单击**新建**。
 3. 填写新建信息，选择代码仓库 `provider-demo`，使用静态配置的 Jenkinsfile ，选择简易模板。
 
 #### 设置环境变量
-单击【变量与缓存】选项卡，输入环境变量：
+单击**变量与缓存**选项卡，输入环境变量：
 - PKG_VERSION：程序包/镜像版本号
 - TSF_GROUP_ID: TSF 平台的部署组 ID
 - TSF_APPLICATION_ID：TSF 平台的应用 ID （仅适用于虚拟机应用部署）
@@ -44,19 +44,19 @@ TSF 应用可以使用 CODING 构建持续集成方案。腾讯云 CODING 持续
 
 
 #### 流程配置-构建
-1. 在【流程配置】选项卡【图形化编辑器】中，选中【构建】阶段方块。
-2. 单击【执行 Shell 脚本】。
+1. 在**流程配置**选项卡**图形化编辑器**中，选中**构建**阶段方块。
+2. 单击**执行 Shell 脚本**。
 ![](https://main.qcloudimg.com/raw/ac1f0d9b8f197354e408d4d7cf433a48.png)
-3. 编辑【Shell 脚本】，填写 maven package 命令 ，并使用工程中包含 TSF 私服地址的settings.xml。单击【保存】。
+3. 编辑**Shell 脚本**，填写 maven package 命令 ，并使用工程中包含 TSF 私服地址的settings.xml。单击**保存**。
    ```shell
    mvn clean package -U --settings settings.xml -Dmaven.test.skip=true
    ```
    ![](https://main.qcloudimg.com/raw/98ec1c08723c5ccd12d2c9e345904896.png)
 
 #### 流程配置-部署
-1. 在【流程配置】选项卡【图形化编辑器】中，选中【部署】阶段方块。
-2. 单击【增加步骤】。
-3. 单击【执行 Shell 脚本】，输入 Shell 脚本，填写 Python 部署脚本执行命令。
+1. 在**流程配置**选项卡**图形化编辑器**中，选中**部署**阶段方块。
+2. 单击**增加步骤**。
+3. 单击**执行 Shell 脚本**，输入 Shell 脚本，填写 Python 部署脚本执行命令。
 
 ![](https://main.qcloudimg.com/raw/6fb189196aa2ed004d6e28fda67ac94c/coding_add_python_cmd.png)
    a. 虚拟机应用部署脚本命令：  
@@ -71,9 +71,9 @@ b. 容器应用部署脚本命令：
 
 ### 步骤三：执行构建任务
 构建任务可以通过代码提交等方式自动触发，也可以手动执行。
-1. 选中目标构建任务，单击【立即构建】。
+1. 选中目标构建任务，单击**立即构建**。
 ![](https://main.qcloudimg.com/raw/0a41295d27d259f199783b3d4e6e5193.png)
-2. 填写环境变量，将【值】替换为用户自己的参数，单击【立即构建】。
+2. 填写环境变量，将**值**替换为用户自己的参数，单击**立即构建**。
 ![](https://main.qcloudimg.com/raw/2a9433eb86bc6045d244d62e022fda00.png)
 
 ### 步骤四：验证构建结果

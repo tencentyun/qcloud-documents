@@ -3,7 +3,6 @@
 下载客户端 [Jedis](https://github.com/xetorthio/jedis/wiki/Getting-started)。
 
 **示例代码**：
-
 ```
 import redis.clients.jedis.Jedis;
 

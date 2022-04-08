@@ -7,7 +7,7 @@
 
 本篇文档为您介绍应用控制台的部署方案，您也可以通过命令行完成部署，具体操作请参考 [产品文档](https://cloud.tencent.com/document/product/583/58183)。
 
-### 模版部署 -- 部署 Laravel 示例代码
+### 模板部署 -- 部署 Laravel 示例代码
 1. 登录 [Serverless 应用控制台](https://console.cloud.tencent.com/sls)。
 2. 选择**Web 应用>Laravel 框架**，如下图所示：
 ![](https://main.qcloudimg.com/raw/4c005329ab121bcc71e8f436932adb74.png)
@@ -87,7 +87,7 @@ mkdir -p /tmp/storage/framework/views
 ![](https://main.qcloudimg.com/raw/089fb093fba05db7ebf41b6fc1cb7c86.png)
 
 
-本地配置完成后，执行启动文件，确保您的服务可以本地正常启动，接下来，登陆腾讯云云控制台，部署您的 Laravel 项目。
+本地配置完成后，执行启动文件，确保您的服务可以本地正常启动，接下来，登录腾讯云云控制台，部署您的 Laravel 项目。
 
 **2. 控制台上传**
 

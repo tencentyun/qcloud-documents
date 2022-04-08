@@ -17,6 +17,7 @@ CLB 开启 QUIC 后，客户端可以和 CLB 之间建立 QUIC 连接，当二�
 - 仅 IPv4、IPv6 NAT64 版本的负载均衡支持，IPv6 版本的暂不支持。
 - 仅公网负载均衡的七层 HTTPS 监听器支持 QUIC 协议。
 - QUIC 仅支持单可用区 CLB 实例，不支持多可用区。
+- 当前 CLB 支持的 QUIC 版本有：Q050、Q046、Q043、h3-29 和 h3-27。
 
 ## 操作步骤[](id:making)
 1. 根据需求创建负载均衡实例，详情请参见 [创建负载均衡实例](https://cloud.tencent.com/document/product/214/6149)。

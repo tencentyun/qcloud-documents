@@ -25,28 +25,41 @@ SDK对应接口可通过响应头部获取 CRC64 值，SDK 上传文件时默认
 
 #### 请求示例
 ```go
-// 将 examplebucket-1250000000 和 COS_REGION 修改为真实的信息
-u, _ := url.Parse("https://examplebucket-1250000000.cos.COS_REGION.myqcloud.com")
-b := &cos.BaseURL{BucketURL: u}
-client := cos.NewClient(b, &http.Client{
-    Transport: &cos.AuthorizationTransport{
-        SecretID:     "SECRETID",  // 替换为用户的 SecretId，请登录访问管理控制台进行查看和管理，https://console.cloud.tencent.com/cam/capi
-        SecretKey:    "SECRETKEY", // 替换为用户的 SecretKey，请登录访问管理控制台进行查看和管理，https://console.cloud.tencent.com/cam/capi
-    },
-})
-// 关闭 CRC64 校验, CRC64 默认开启，强烈不建议用户关闭
-// client.Conf.EnableCRC = false
+package main
 
-name := "exampleobject"
-// 通过字符串上传对象
-f := strings.NewReader("test")
-// SDK 会自动进行 CRC64 校验。
-resp, err := c.Object.Put(context.Background(), name, f, nil)
-if err != nil {
-	// ERROR
+import (
+    "context"
+    "fmt"
+    "github.com/tencentyun/cos-go-sdk-v5"
+    "net/http"
+    "net/url"
+    "strings"
+)
+
+func main() {
+    // 将 examplebucket-1250000000 和 COS_REGION 修改为真实的信息
+    u, _ := url.Parse("https://examplebucket-1250000000.cos.COS_REGION.myqcloud.com")
+    b := &cos.BaseURL{BucketURL: u}
+    client := cos.NewClient(b, &http.Client{
+        Transport: &cos.AuthorizationTransport{
+            SecretID:  "SECRETID",  // 替换为用户的 SecretId，请登录访问管理控制台进行查看和管理，https://console.cloud.tencent.com/cam/capi
+            SecretKey: "SECRETKEY", // 替换为用户的 SecretKey，请登录访问管理控制台进行查看和管理，https://console.cloud.tencent.com/cam/capi
+        },
+    })
+    // 关闭 CRC64 校验, CRC64 默认开启，强烈不建议用户关闭
+    // client.Conf.EnableCRC = false
+
+    name := "exampleobject"
+    // 通过字符串上传对象
+    f := strings.NewReader("test")
+    // SDK 会自动进行 CRC64 校验。
+    resp, err := client.Object.Put(context.Background(), name, f, nil)
+    if err != nil {
+        // ERROR
+    }
+    // 根据响应头部获取 CRC64
+    fmt.Printf("CRC64: %v\n", resp.Header.Get("x-cos-hash-crc64ecma"))
 }
-// 根据响应头部获取 CRC64
-fmt.Printf("CRC64: %v\n", resp.Header.Get("x-cos-hash-crc64ecma"))
 ```
 
 #### 返回结果说明

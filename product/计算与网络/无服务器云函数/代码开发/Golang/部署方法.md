@@ -1,0 +1,24 @@
+## 部署方法
+
+Golang 环境的云函数，仅支持 zip 包上传，您可以选择使用本地上传 zip 包或通过 COS 对象存储引用 zip 包。zip 包内包含的应该是编译后的可执行二进制文件。
+
+## 编译打包
+
+Golang 编译可以在任意平台上通过指定 OS 及 ARCH 完成跨平台的编译，因此在 Linux，Windows 或 MacOS 下都可以进行编译。
+
+- 在 Linux 或 MacOS 的终端通过如下方法完成编译及打包：
+```shell
+GOOS=linux GOARCH=amd64 go build -o main main.go
+zip main.zip main
+```
+
+- 在 Windows 下，请按照以下步骤进行编译打包：
+  1. 按 **Windows + R** 打开运行窗口，输入 **cmd** 后按 **Enter**。
+  2. 执行以下命令，进行编译。 
+```shell
+set GOOS=linux
+set GOARCH=amd64
+go build -o main main.go
+```
+ 3. 使用打包工具对输出的二进制文件进行打包，二进制文件需要在 zip 包根目录。
+

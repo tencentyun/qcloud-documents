@@ -225,6 +225,7 @@
 
 
 ### GPU
+>? 以下所有 GPU 相关的触发指标，当前仅支持在 EKS 集群中使用。 
 
 <table>
 <tr>
@@ -307,22 +308,22 @@
 apiVersion: autoscaling/v2beta1
 kind: HorizontalPodAutoscaler
 metadata:
-    name: example
-    namespace: default
-    labels:
-      qcloud-app: example
+  name: example
+  namespace: default
+  labels:
+    qcloud-app: example
 spec:
-    minReplicas: 1
-    maxReplicas: 2
-    metrics:
-    - type: Pods	# 支持使用 Resource
-      pods:
-        metricName: k8s_pod_cpu_core_used
-        targetAverageValue: "1"
-    scaleTargetRef:
-      apiVersion: apps/v1beta2
-      kind: Deployment
-      name: nginx
+  minReplicas: 1
+  maxReplicas: 2
+  metrics:
+  - type: Pods	# 支持使用 Resource
+    pods:
+      metricName: k8s_pod_cpu_core_used
+      targetAverageValue: "1"
+  scaleTargetRef:
+    apiVersion: apps/v1beta2
+    kind: Deployment
+    name: nginx
 ```
 
 

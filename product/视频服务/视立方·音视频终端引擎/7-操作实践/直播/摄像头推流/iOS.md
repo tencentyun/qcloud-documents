@@ -21,8 +21,8 @@
 |   iOS    | [Github](https://github.com/tencentyun/LiteAVProfessional_iOS/blob/master/Demo/TXLiteAVDemo/LivePusherDemo/CameraPushDemo/CameraPushViewController.m) | CameraPushViewController.m  |
 | Android  | [Github](https://github.com/tencentyun/LiteAVProfessional_Android/blob/master/Demo/livepusherdemo/src/main/java/com/tencent/liteav/demo/livepusher/camerapush/ui/CameraPushMainActivity.java) | CameraPushMainActivity.java |
 >?除上述示例外，针对开发者的接入反馈的高频问题，腾讯云提供有更加简洁的 API-Example 工程，方便开发者可以快速的了解相关 API 的使用，欢迎使用。
->- iOS：[MLVB-API-Example](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/MLVB-API-Example-OC)
->- Android：[MLVB-API-Example](https://github.com/tencentyun/MLVBSDK/tree/master/Android/MLVB-API-Example)
+>- iOS：[MLVB-API-Example](https://github.com/LiteAVSDK/Live_iOS/blob/main/MLVB-API-Example-OC)
+>- Android：[MLVB-API-Example](https://github.com/LiteAVSDK/Live_Android/tree/main/MLVB-API-Example)
 
 ## 功能对接
 [](id:step1)
@@ -97,9 +97,9 @@ NSString* url = @"rtmp://test.com/live/streamid?txSecret=xxxxx&txTime=xxxxxxxx";
 >! 如果已经启动了摄像头预览，请在结束推流时将其关闭。 
 
 -  **获取可用的推流 URL**
-开通直播服务后，可以使用【直播控制台】>【辅助工具】> [【地址生成器】](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator) 生成推流地址，详细信息请参见 [推拉流 URL](https://cloud.tencent.com/document/product/454/7915)。
+开通直播服务后，可以使用**直播控制台** > **辅助工具**> [**地址生成器**](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator) 生成推流地址，详细信息请参见 [推拉流 URL](https://cloud.tencent.com/document/product/454/7915)。
 ![](https://main.qcloudimg.com/raw/0ec9d83f340454c287d96f83eec3a3e4.png)
-- **返回 V2TXLIVE_ERROR_INVALID_LICENSE 的原因**    
+- **返回 V2TXLIVE_ERROR_INVALID_LICENSE 的原因**   
 如果 `startPush` 接口返回 `V2TXLIVE_ERROR_INVALID_LICENSE`，则代表您的 License 校验失败了，请检查 [第2步：给 SDK 配置   License 授权](#step2) 中的工作是否有问题。
 
 [](id:step6)

@@ -20,7 +20,7 @@ Demo 的测试账号为公共账号，多人同时登录会被强制退出，为
 步骤二：单击**创建应用**，进入创建新应用对话框。
 步骤三：您可以选择创建一个新应用或从已有的 IM 应用中导入，文档转码和实时录制资源存储桶配置请参考 [存储桶配置](https://cloud.tencent.com/document/product/1137/45256)，回调配置请参考 [回调配置](https://cloud.tencent.com/document/product/1137/45255)，如果您暂时不需要使用文档转码和实时录制功能，可以在创建应用对话框中关闭相应功能，您可以在**应用配置**里随时配置资源存储桶打开该文档转码或实时录制功能。
 
-![](https://main.qcloudimg.com/raw/ee28f8f7c5d0da78044e3a55b636a30b.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/35545f45d3f59ddc9aeb90bded34433d.png)
 
 
 #### 2. 开通音视频服务
@@ -37,7 +37,7 @@ Demo 集成了实时音视频 TRTC SDK，为保证音视频功能的正常使用
 
 #### 3. 配置测试账号
 
-步骤一：登录 [即时通讯控制台](https://console.cloud.tencent.com/im)，单击 SDKAppID 对应的应用。
+步骤一：登录 [即时通信 IM 控制台](https://console.cloud.tencent.com/im)，单击 SDKAppID 对应的应用。
 
 步骤二：单击**开发辅助工具**>**UserSig 工具**，输入测试用户名，单击**生成签名（UserSig）**。
 

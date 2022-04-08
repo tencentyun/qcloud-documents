@@ -1,17 +1,17 @@
 SDK 3.0是云 API 3.0平台的配套工具，您可以通过 SDK 使用所有 [短信 API](https://cloud.tencent.com/document/product/382/52077)。新版 SDK 实现了统一化，具有各个语言版本的 SDK 使用方法相同，接口调用方式相同，错误码相同以及返回包格式相同等优点。
 >!
 >- 发送短信相关接口
->一次群发请求最多支持200个号码，如对号码数量有特殊需求请联系 [腾讯云短信小助手](https://tccc.qcloud.com/web/im/index.html#/chat?webAppId=8fa15978f85cb41f7e2ea36920cb3ae1&title=Sms)。
+>一次群发请求最多支持200个号码。
 >- 签名、正文模板相关接口
 >个人认证用户不支持使用签名、正文模板相关接口，只能通过短信控制台 [管理短信签名](https://cloud.tencent.com/document/product/382/37794) 和 [管理短信正文模板](https://cloud.tencent.com/document/product/382/37795)。如需使用该类接口，请将 “个人认证” 变更为 “企业认证”，具体操作请参见 [实名认证变更指引](https://cloud.tencent.com/document/product/378/34075)。
 
 
 ## 前提条件
 
-- 已开通短信服务，具体操作请参见 [国内短信快速入门](https://cloud.tencent.com/document/product/382/37745)。
+- 已开通短信服务，创建签名和模板并通过审核，具体操作请参见 [国内短信快速入门](https://cloud.tencent.com/document/product/382/37745)。
 - 如需发送国内短信，需要先 [购买国内短信套餐包](https://cloud.tencent.com/document/product/382/18060)。
 - 已准备依赖环境：NODEJS 7.10.1 及以上版本。
-- 已在访问管理控制台 >**[API密钥管理](https://console.cloud.tencent.com/cam/capi)**页面获取 SecretID 和 SecretKey。
+- 已在访问管理控制台 >[**API密钥管理**](https://console.cloud.tencent.com/cam/capi) 页面获取 SecretID 和 SecretKey。
  - SecretID 用于标识 API 调用者的身份。
  - SecretKey 用于加密签名字符串和服务器端验证签名字符串的密钥，**SecretKey 需妥善保管，避免泄露**。
 - 短信的调用地址为`sms.tencentcloudapi.com`。
@@ -43,7 +43,7 @@ npm install tencentcloud-sdk-nodejs --save
 
 ### 发送短信
 
-```
+``` 
 const tencentcloud = require("tencentcloud-sdk-nodejs")
 
 // 导入对应产品模块的client models。
@@ -56,11 +56,11 @@ const client = new smsClient({
    * 这里采用的是从环境变量读取的方式，需要在环境变量中先设置这两个值。
    * 你也可以直接在代码中写死密钥对，但是小心不要将代码复制、上传或者分享给他人，
    * 以免泄露密钥对危及你的财产安全。
-   * CAM密匙查询: https://console.cloud.tencent.com/cam/capi */
+   * SecretId、SecretKey 查询: https://console.cloud.tencent.com/cam/capi */
     secretId: process.env.secretId,
     secretKey: process.env.secretKey,
   },
-  /* 必填：地域信息，可以直接填写字符串ap-guangzhou，或者引用预设的常量 */
+  /* 必填：地域信息，可以直接填写字符串ap-guangzhou，支持的地域列表参考 https://cloud.tencent.com/document/api/382/52071#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8 */
   region: "ap-guangzhou",
   /* 非必填:
    * 客户端配置对象，可以指定超时时间等配置 */
@@ -75,8 +75,7 @@ const client = new smsClient({
        * 如有需要请在代码中查阅以获取最新的默认值 */
       reqTimeout: 30,
       /**
-       * SDK会自动指定域名。通常是不需要特地指定域名的，但是如果你访问的是金融区的服务
-       * 则必须手动指定域名，例如sms的上海金融区域名： sms.ap-shanghai-fsi.tencentcloudapi.com
+       * 指定接入地域域名，默认就近地域接入域名为 sms.tencentcloudapi.com ，也支持指定地域域名访问，例如广州地域的域名为 sms.ap-guangzhou.tencentcloudapi.com
        */
       endpoint: "sms.tencentcloudapi.com"
     },
@@ -86,24 +85,31 @@ const client = new smsClient({
 /* 请求参数，根据调用的接口和实际情况，可以进一步设置请求参数
  * 属性可能是基本类型，也可能引用了另一个数据结构
  * 推荐使用IDE进行开发，可以方便的跳转查阅各个接口和数据结构的文档说明 */
+ 
+/* 帮助链接：
+ * 短信控制台: https://console.cloud.tencent.com/smsv2
+ * 腾讯云短信小助手: https://cloud.tencent.com/document/product/382/3773#.E6.8A.80.E6.9C.AF.E4.BA.A4.E6.B5.81 */
 const params = {
   /* 短信应用ID: 短信SmsSdkAppId在 [短信控制台] 添加应用后生成的实际SmsSdkAppId，示例如1400006666 */
+  // 应用 ID 可前往 [短信控制台](https://console.cloud.tencent.com/smsv2/app-manage) 查看
   SmsSdkAppId: "1400787878",
-  /* 短信签名内容: 使用 UTF-8 编码，必须填写已审核通过的签名，签名信息可登录 [短信控制台] 查看 */
-  SignName: "xxx",
-  /* 短信码号扩展号: 默认未开通，如需开通请联系 [sms helper] */
-  ExtendCode: "",
-  /* 国际/港澳台短信 senderid: 国内短信填空，默认未开通，如需开通请联系 [sms helper] */
-  SenderId: "",
-  /* 用户的 session 内容: 可以携带用户侧 ID 等上下文信息，server 会原样返回 */
-  SessionContext: "",
+  /* 短信签名内容: 使用 UTF-8 编码，必须填写已审核通过的签名 */
+  // 签名信息可前往 [国内短信](https://console.cloud.tencent.com/smsv2/csms-sign) 或 [国际/港澳台短信](https://console.cloud.tencent.com/smsv2/isms-sign) 的签名管理查看
+  SignName: "腾讯云",
+  /* 模板 ID: 必须填写已审核通过的模板 ID */
+  // 模板 ID 可前往 [国内短信](https://console.cloud.tencent.com/smsv2/csms-template) 或 [国际/港澳台短信](https://console.cloud.tencent.com/smsv2/isms-template) 的正文模板管理查看
+  TemplateId: "449739",
+  /* 模板参数: 模板参数的个数需要与 TemplateId 对应模板的变量个数保持一致，若无模板参数，则设置为空 */
+  TemplateParamSet: ["1234"],
   /* 下发手机号码，采用 e.164 标准，+[国家或地区码][手机号]
    * 示例如：+8613711112222， 其中前面有一个+号 ，86为国家码，13711112222为手机号，最多不要超过200个手机号*/
   PhoneNumberSet: ["+8613711112222"],
-  /* 模板 ID: 必须填写已审核通过的模板 ID。模板ID可登录 [短信控制台] 查看 */
-  TemplateId: "449739",
-  /* 模板参数: 若无模板参数，则设置为空*/
-  TemplateParamSet: ["666"],
+  /* 用户的 session 内容（无需要可忽略）: 可以携带用户侧 ID 等上下文信息，server 会原样返回 */
+  SessionContext: "",
+  /* 短信码号扩展号（无需要可忽略）: 默认未开通，如需开通请联系 [腾讯云短信小助手] */
+  ExtendCode: "",
+  /* 国际/港澳台短信 senderid（无需要可忽略）: 国内短信填空，默认未开通，如需开通请联系 [腾讯云短信小助手] */
+  SenderId: "",
 }
 // 通过client对象调用想要访问的接口，需要传入请求对象以及响应回调函数
 client.SendSms(params, function (err, response) {
@@ -115,11 +121,20 @@ client.SendSms(params, function (err, response) {
   // 请求正常返回，打印response对象
   console.log(response)
 })
+
+/* 当出现以下错误码时，快速解决方案参考
+ * [FailedOperation.SignatureIncorrectOrUnapproved](https://cloud.tencent.com/document/product/382/9558#.E7.9F.AD.E4.BF.A1.E5.8F.91.E9.80.81.E6.8F.90.E7.A4.BA.EF.BC.9Afailedoperation.signatureincorrectorunapproved-.E5.A6.82.E4.BD.95.E5.A4.84.E7.90.86.EF.BC.9F)
+ * [FailedOperation.TemplateIncorrectOrUnapproved](https://cloud.tencent.com/document/product/382/9558#.E7.9F.AD.E4.BF.A1.E5.8F.91.E9.80.81.E6.8F.90.E7.A4.BA.EF.BC.9Afailedoperation.templateincorrectorunapproved-.E5.A6.82.E4.BD.95.E5.A4.84.E7.90.86.EF.BC.9F)
+ * [UnauthorizedOperation.SmsSdkAppIdVerifyFail](https://cloud.tencent.com/document/product/382/9558#.E7.9F.AD.E4.BF.A1.E5.8F.91.E9.80.81.E6.8F.90.E7.A4.BA.EF.BC.9Aunauthorizedoperation.smssdkappidverifyfail-.E5.A6.82.E4.BD.95.E5.A4.84.E7.90.86.EF.BC.9F)
+ * [UnsupportedOperation.ContainDomesticAndInternationalPhoneNumber](https://cloud.tencent.com/document/product/382/9558#.E7.9F.AD.E4.BF.A1.E5.8F.91.E9.80.81.E6.8F.90.E7.A4.BA.EF.BC.9Aunsupportedoperation.containdomesticandinternationalphonenumber-.E5.A6.82.E4.BD.95.E5.A4.84.E7.90.86.EF.BC.9F)
+ * 更多错误，可咨询[腾讯云助手](https://tccc.qcloud.com/web/im/index.html#/chat?webAppId=8fa15978f85cb41f7e2ea36920cb3ae1&title=Sms)
+*/
+
 ```
 
 ### 拉取回执状态
 
-```
+``` JavaScript
 const tencentcloud = require("tencentcloud-sdk-nodejs")
 
 // 导入对应产品模块的client models。
@@ -132,11 +147,11 @@ const client = new smsClient({
    * 这里采用的是从环境变量读取的方式，需要在环境变量中先设置这两个值。
    * 你也可以直接在代码中写死密钥对，但是小心不要将代码复制、上传或者分享给他人，
    * 以免泄露密钥对危及你的财产安全。
-   * CAM密匙查询: https://console.cloud.tencent.com/cam/capi */
+   * SecretId、SecretKey 查询: https://console.cloud.tencent.com/cam/capi */
     secretId: process.env.secretId,
     secretKey: process.env.secretKey,
   },
-  /* 必填：地域信息，可以直接填写字符串ap-guangzhou，或者引用预设的常量 */
+  /* 必填：地域信息，可以直接填写字符串ap-guangzhou，支持的地域列表参考 https://cloud.tencent.com/document/api/382/52071#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8 */
   region: "ap-guangzhou",
   /* 非必填:
    * 客户端配置对象，可以指定超时时间等配置 */
@@ -151,8 +166,7 @@ const client = new smsClient({
        * 如有需要请在代码中查阅以获取最新的默认值 */
       reqTimeout: 30,
       /**
-       * SDK会自动指定域名。通常是不需要特地指定域名的，但是如果你访问的是金融区的服务
-        * 则必须手动指定域名，例如sms的上海金融区域名： sms.ap-shanghai-fsi.tencentcloudapi.com
+       * 指定接入地域域名，默认就近地域接入域名为 sms.tencentcloudapi.com ，也支持指定地域域名访问，例如广州地域的域名为 sms.ap-guangzhou.tencentcloudapi.com
        */
       endpoint: "sms.tencentcloudapi.com"
     },
@@ -182,7 +196,7 @@ client.PullSmsSendStatus(params, function (err, response) {
 
 ### 统计短信发送数据
 
-```
+``` JavaScript
 const tencentcloud = require("tencentcloud-sdk-nodejs")
 
 // 导入对应产品模块的client models。
@@ -195,11 +209,11 @@ const client = new smsClient({
    * 这里采用的是从环境变量读取的方式，需要在环境变量中先设置这两个值。
    * 你也可以直接在代码中写死密钥对，但是小心不要将代码复制、上传或者分享给他人，
    * 以免泄露密钥对危及你的财产安全。
-   * CAM密匙查询: https://console.cloud.tencent.com/cam/capi */
+   * SecretId、SecretKey 查询: https://console.cloud.tencent.com/cam/capi */
     secretId: process.env.secretId,
     secretKey: process.env.secretKey,
   },
-  /* 必填：地域信息，可以直接填写字符串ap-guangzhou，或者引用预设的常量 */
+  /* 必填：地域信息，可以直接填写字符串ap-guangzhou，支持的地域列表参考 https://cloud.tencent.com/document/api/382/52071#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8 */
   region: "ap-guangzhou",
   /* 非必填:
    * 客户端配置对象，可以指定超时时间等配置 */
@@ -214,8 +228,7 @@ const client = new smsClient({
        * 如有需要请在代码中查阅以获取最新的默认值 */
       reqTimeout: 30,
       /**
-       * SDK会自动指定域名。通常是不需要特地指定域名的，但是如果你访问的是金融区的服务
-        * 则必须手动指定域名，例如sms的上海金融区域名： sms.ap-shanghai-fsi.tencentcloudapi.com
+       * 指定接入地域域名，默认就近地域接入域名为 sms.tencentcloudapi.com ，也支持指定地域域名访问，例如广州地域的域名为 sms.ap-guangzhou.tencentcloudapi.com
        */
       endpoint: "sms.tencentcloudapi.com"
     },
@@ -251,7 +264,7 @@ client.SendStatusStatistics(params, function (err, response) {
 ```
 
 ### 申请短信模板
-```
+``` JavaScript
 const tencentcloud = require("tencentcloud-sdk-nodejs")
 
 // 导入对应产品模块的client models。
@@ -264,11 +277,11 @@ const client = new smsClient({
    * 这里采用的是从环境变量读取的方式，需要在环境变量中先设置这两个值。
    * 你也可以直接在代码中写死密钥对，但是小心不要将代码复制、上传或者分享给他人，
    * 以免泄露密钥对危及你的财产安全。
-   * CAM密匙查询: https://console.cloud.tencent.com/cam/capi */
+   * SecretId、SecretKey 查询: https://console.cloud.tencent.com/cam/capi */
     secretId: process.env.secretId,
     secretKey: process.env.secretKey,
   },
-  /* 必填：地域信息，可以直接填写字符串ap-guangzhou，或者引用预设的常量 */
+  /* 必填：地域信息，可以直接填写字符串ap-guangzhou，支持的地域列表参考 https://cloud.tencent.com/document/api/382/52071#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8 */
   region: "ap-guangzhou",
   /* 非必填:
    * 客户端配置对象，可以指定超时时间等配置 */
@@ -283,8 +296,7 @@ const client = new smsClient({
        * 如有需要请在代码中查阅以获取最新的默认值 */
       reqTimeout: 30,
       /**
-       * SDK会自动指定域名。通常是不需要特地指定域名的，但是如果你访问的是金融区的服务
-       * 则必须手动指定域名，例如sms的上海金融区域名： sms.ap-shanghai-fsi.tencentcloudapi.com
+       * 指定接入地域域名，默认就近地域接入域名为 sms.tencentcloudapi.com ，也支持指定地域域名访问，例如广州地域的域名为 sms.ap-guangzhou.tencentcloudapi.com
        */
       endpoint: "sms.tencentcloudapi.com"
     },
@@ -324,3 +336,4 @@ client.AddSmsTemplate(params, function (err, response) {
 如有代理的环境下，需要设置系统环境变量 `https_proxy` ，否则可能无法正常调用，抛出连接超时的异常现象。
 :::
 </dx-accordion>
+
