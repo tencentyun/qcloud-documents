@@ -1,4 +1,4 @@
-PostgreSQL 中通过继承，可支持表分区功能，比如按时间，每月创建一个表分区，数据记录到对应分区中。该功能是 PostgreSQL 在10版本具有的特性，在实际使用中，用户可提前创建分区或者按写入数据实时创建分区。
+PostgreSQL 中通过继承，可支持表分区功能，如按时间，每月创建一个表分区，数据记录到对应分区中。该功能是 PostgreSQL 在10版本具有的特性，在实际使用中，用户可提前创建分区或者按写入数据实时创建分区。
 
 本文为您介绍常见的几种 PostgreSQL 自动创建分区表的方案。
 
@@ -15,10 +15,12 @@ CREATE TABLE tab
 ) PARTITION BY LIST ((ts::date));
 CREATE TABLE tab_def PARTITION OF tab DEFAULT;
 ```
+
 **分区的创建一般分以下两种场景：**
 ### 一、定时提前创建分区
 定时提前创建分区只需一个定时任务调度工具即可实现，常见的定时任务调度工具和创建分区方法如下：
-#### 使用系统调度器，如 Crontab (Linux, Unix, etc.)和 Task Scheduler (Windows)
+
+#### 使用系统调度器，如 Crontab (Linux, Unix, etc.) 和 Task Scheduler (Windows)
 以 Linux 操作系统为例，每天下午14点创建次日的分区表：
 ```
 cat > /tmp/create_part.sh <<EOF
@@ -27,6 +29,7 @@ psql -c "CREATE TABLE tab_\$dateStr (LIKE tab INCLUDING INDEXES); ALTER TABLE ta
 EOF
 (crontab -l 2>/dev/null; echo "0 14 * * * bash /tmp/create_part.sh ") | crontab -
 ```
+
 #### 使用数据库内置调度器，如 pg_cron、pg_timetable
 以 pg_cron 为例，每天下午14点创建次日的分区表：
 ```
@@ -49,6 +52,7 @@ CREATE EXTENSION pg_cron;
 
 SELECT cron.schedule('0 14 * * *', $$SELECT create_tab_part();$$);
 ```
+
 #### 使用专门的分区管理插件，如 pg_partman
 以 pg_partman 为例，每天提前创建次日的分区表；
 ```
@@ -60,15 +64,17 @@ SELECT partman.create_parent(p_parent_table => 'public.tab',
                              p_interval=> 'daily',
                              p_premake => 1);
 ```
+
 ### 二、按需实时创建分区
 如需按数据插入的需要来创建分区，可根据分区是否存在来判断该时间区间内有无数据的存在，一般采用触发器来实现。
+
 **需注意此方法存在以下两个问题**：
-1. PostgreSQL 13及以上版本才提供了针对分区表的 BEFORE/FOR EACH ROW 触发器。
+- PostgreSQL 13及以上的版本才提供针对分区表的 BEFORE/FOR EACH ROW 触发器。
 ```
 ERROR:  "tab" is a partitioned table
 DETAIL:  Partitioned tables cannot have BEFORE / FOR EACH ROW triggers.
 ```
-2. 插入数据时，因为锁表的原因，无法修改分区表定义，即无法 ATTACH 子表， 因此必须有另一个连接来做 ATTACH 的操作，此处可以用 LISTEN/NOTIFY 机制来通知另一个连接进行分区定义的修改。
+- 插入数据时，因为锁表的原因，无法修改分区表定义，即无法 ATTACH 子表， 因此必须有另一个连接来做 ATTACH 的操作，此处可以用 LISTEN/NOTIFY 机制来通知另一个连接进行分区定义的修改。
 ```
 ERROR:  cannot CREATE TABLE .. PARTITION OF "tab"
         because it is being used by active queries in this session
@@ -77,7 +83,7 @@ ERROR:  cannot ALTER TABLE "tab"
         because it is being used by active queries in this session
 ```
 
-**触发器(实施子表创建和 NOTIFY)**
+**触发器（实施子表创建和 NOTIFY）**
 ```
 CREATE FUNCTION part_trig() RETURNS trigger
     LANGUAGE plpgsql AS
@@ -145,6 +151,7 @@ loop = asyncio.get_event_loop()
 loop.add_reader(conn, handle_notify)
 loop.run_forever()
 ```
+
 ## 总结
 本文向您介绍了两种自动创建分区的方案，以下为每种方案的总结分析：
 - **定时提前创建分区**场景下的几种解决方案简单易懂，但会依赖系统或插件的定时管理机制，在运维、迁移时具有额外管理成本。
@@ -155,4 +162,4 @@ loop.run_forever()
 | 场景 | 版本 | 实现难易度 | 是否需要系统调度器或插件工具 | 是否需要额外连接机制 | 成本 |
 |---------|---------|---------|---------|---------|---------|
 | 定时提前创建分区 | PostgreSQL 10 | 较简单 | 是 | 否 | 相对较高 |
-| 按需实时创建分区 | 大于等于PostgreSQL 13 | 较复杂 | 否 | 是 | 相对较低 |
+| 按需实时创建分区 | 大于等于 PostgreSQL 13 | 较复杂 | 否 | 是 | 相对较低 |
