@@ -143,9 +143,9 @@ path 里的参数（name，phone）均使用 `~${base64url(value)}` 统一编码
 ### 如何计算 PDF 签名位置？  
 以 Adobe 阅读器为例：
 1. 单击**准备表单**。
-![](https://qcloudimg.tencent-cloud.cn/raw/7ea2975a0c3ecc619247a40aea69e562.png)
+<img style="width:400px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/7ea2975a0c3ecc619247a40aea69e562.png" />
 2. 单击**添加文本域**。
-![](https://qcloudimg.tencent-cloud.cn/raw/15a369537e611233f041055b565fcd27.png)
+<img style="width:800px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/15a369537e611233f041055b565fcd27.png" />
 >!此处仅做定位使用。
 3. 单击**文本域属性** > **位置**，单位选点。
 ![](https://qcloudimg.tencent-cloud.cn/raw/32aaa5fbba148e5c1ffb3928c338bb34.png)
