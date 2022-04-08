@@ -11,13 +11,13 @@
 请参见小程序 [官方文档](https://developers.weixin.qq.com/miniprogram/dev/api/navigate/wx.navigateToMiniProgram.html) 。小程序支持直接跳转到签署页面，完成签署后可返回客户小程序。可参见以下代码：  
 ```
 wx.navigateToMiniProgram({  
-&nbsp;&nbsp;appId: 'wxa023b292fd19d41d', // 电子签小程序的appId  
-&nbsp;&nbsp;path:'pages/guide?from=SFY&to=CONTRACT_DETAIL&id=${flowId}&name=%E6%9D%A8%E5%B8%88&phone=MTc2MTI3Nzg1Mjk%3D', // ${flowId}为流程id，name、phone按需给  
-&nbsp;&nbsp;envVersion: 'release’,  
-&nbsp;&nbsp;success(res) {  
-&nbsp;&nbsp;&nbsp;&nbsp;// 打开成功  
-&nbsp;&nbsp;}  
-})  
+appId: 'wxa023b292fd19d41d', // 电子签小程序的appId  
+path:'pages/guide?from=SFY&to=CONTRACT_DETAIL&id=${flowId&name=%E6%9D%A8%E5%B8%88&phone=MTc2MTI3Nzg1Mjk%3D', // ${flowId}为流程id，name、phone按需给  
+envVersion: 'release’,  
+success(res) {  
+// 打开成功  
+}  
+})
 ```
 path 里的参数（name，phone）均使用 `~${base64url(value)}` 统一编码。
 
