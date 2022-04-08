@@ -1,5 +1,5 @@
 ## 前提条件
-准备接入 SDK  使用之前，需要确保您已创建 Web License，具体请参见[ License 申请与购买](https://tcloud-doc.isd.com/document/product/616/71368?!preview&!editLang=zh)。
+准备接入 SDK  使用之前，需要确保您已创建 Web License，具体请参见[ License 申请与购买](https://cloud.tencent.com/document/product/616/71368)。
 
 ## 获取前置信息
 ### 获取 License Key
@@ -100,7 +100,7 @@ async function getSignature() {
 :::
 </dx-tabs>
 
-后续流程，请参见 [SDK 接入指南](https://tcloud-doc.isd.com/document/product/616/71364?!preview&!editLang=zh)。
+后续流程，请参见 [SDK 接入指南](https://cloud.tencent.com/document/product/616/71364)。
 
 
 
