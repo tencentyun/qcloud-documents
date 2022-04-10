@@ -18,6 +18,29 @@
 ### 版本建议
 支持向后兼容，建议全量升级。
 
+## 1.29.11-Finchley-RELEASE（2022-04-11）
+### 优化
+- 修复网关使用log4j2 时提示 Log4J2TraceConverter 的问题
+- 优化服务发现对于零实例的判断
+- 优化网关预热、普通微服务预热
+- 优化实例熔断时的日志提示
+
+### Bug 修复
+- 修复 zuul 网关中zuul.retryable重试参数配置不生效的问题
+- 修复 zuul 网关调用链服务名异常的问题
+- 默认关闭 management.endpoint.gateway.enabled，以规避 scg 漏洞
+
+### 版本建议
+支持向后兼容，建议全量升级。
+
+## 1.29.10-Finchley-RELEASE（2022-03-25）
+
+### Bug 修复
+- 修复 feign url 调用时，调用链报错的问题
+
+### 版本建议
+支持向后兼容，建议全量升级。
+
 ## 1.29.9-Finchley-RELEASE（2022-03-11）
 ### 优化
 - zuul默认关闭掉hystrix熔断
@@ -36,7 +59,7 @@
 - 支持通过设置 tsf.feign.eager-load.enabled=true 打开应用feign预热
 
 ### 版本建议
-如果有使用 feign 服务治理功能，建议使用 1.29.9-Finchley-RELEASE 及之后的版本
+如果有使用 feign 服务治理功能，建议使用 1.29.10-Finchley-RELEASE 及之后的版本
 
 ## 1.29.7-Finchley-RELEASE（2022-02-23）
 ### Bug 修复
@@ -44,7 +67,7 @@
 - 修复调用链MongoDB异常时resultStatus为空的问题
 
 ### 版本建议
-如果有使用 feign 服务治理功能，建议使用 1.29.9-Finchley-RELEASE 及之后的版本
+如果有使用 feign 服务治理功能，建议使用 1.29.10-Finchley-RELEASE 及之后的版本
 
 ## 1.29.6-Finchley-RELEASE（2022-01-20）
 ### 优化
@@ -55,7 +78,7 @@
 - 调用链修复 scg invocation 丢失MSGW tags的问题
 
 ### 版本建议
-如果有使用 feign 服务治理功能，建议使用 1.29.9-Finchley-RELEASE 及之后的版本
+如果有使用 feign 服务治理功能，建议使用 1.29.10-Finchley-RELEASE 及之后的版本
 
 ## 1.29.5-Finchley-RELEASE（2022-01-07）
 ### 优化
