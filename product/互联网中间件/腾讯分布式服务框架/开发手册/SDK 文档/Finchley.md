@@ -20,7 +20,7 @@
 
 ## 1.29.11-Finchley-RELEASE（2022-04-11）
 ### 优化
-- 修复网关使用log4j2 时提示 Log4J2TraceConverter 的问题
+- 修复网关使用 log4j2 时提示 Log4J2TraceConverter 重复的问题
 - 优化服务发现对于零实例的判断
 - 优化网关预热、普通微服务预热
 - 优化实例熔断时的日志提示
