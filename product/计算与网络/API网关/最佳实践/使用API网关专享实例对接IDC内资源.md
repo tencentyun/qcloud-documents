@@ -6,7 +6,7 @@
 
 ## 方案优势
 
-![](https://main.qcloudimg.com/raw/fd994d665015f73bb701970106d765cf.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/1fb6b7af0ff930f417eb371d827976f6.jpg)
 
 - API 网关专享实例可将请求同时转发至部署在云上 VPC 内、云下 IDC 机房内、公网内的后端资源，无缝连接云上云下，助力企业平滑上云。
 - 可同时使用腾讯云 API 网关提供的丰富功能，如 IP 访问控制、流量控制、日志监控等。
