@@ -56,7 +56,7 @@ Container 类型 Request 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 是否必选 |
 | ------------------ | ------- | -------------------------------------------------------- | --------- | ---- |
-| Tag                | Request | 创建任务的 Tag：ExtractDigitalWatermark | String    | 是   |
+| Tag                | Request | 创建任务的Tag：ExtractDigitalWatermark | String    | 是   |
 | Input              | Request | 待操作的媒体信息                                         | Container | 是   |
 | Operation          | Request | 操作规则                                               | Container | 是   |
 | QueueId            | Request | 任务所在的队列 ID                                         | String    | 是   |
@@ -66,7 +66,7 @@ Container 类型 Input 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点        | 描述            | 类型   | 是否必选 |
 | ------------------ | ------------- | --------------- | ------ | ---- |
-| Object             | Request.Input | 媒体文件名 | String | 是   |
+| Object             | Request.Input | 媒体文件名，媒体对象名，对象名规范详见 [COS对象概述](https://cloud.tencent.com/document/product/436/13324) | String | 是   |
 
 Container 类型 Operation 的具体数据描述如下：
 
