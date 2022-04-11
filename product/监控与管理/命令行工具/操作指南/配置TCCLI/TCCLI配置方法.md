@@ -96,7 +96,10 @@ $ tccli cvm DescribeZones --profile test
 ```
  - 若用户在使用配置命令时指定了账户名，则会生成账户名对应的配置文件。例如，用户使用了 `tccli configure --profile test` 命令，则会生成 `test.configure` 和 `test.credential` 文件。
  - 若需修改配置文件内容，您可以直接编辑文件或者使用 `set` 子命令修改。例如 `tccli configure set cvm.version 2017-03-12`，将调用的 cvm 的版本指定为默认 2017-03-12 版本。
- - TCCLI 支持配置云 API 密钥对到环境变量，让您的信息更安全。下文以 Linux 系统配置为例，您可以通过如下两种方式进行配置：
+
+
+#### 配置环境变量
+TCCLI 支持配置云 API 密钥对到环境变量，让您的信息更安全。下文以 Linux 系统配置为例，您可以通过如下两种方式进行配置：
 <dx-tabs>
 ::: 使用 export 命令（临时性）
 ```bash
