@@ -1,4 +1,4 @@
-Web License 是 **Web 美颜特效**功能的授权文件，一个 Web License 可以授权一个域名和一个小程序使用。要使用 Web 美颜特效功能必须创建项目和 Web License，Web License 分为测试版 License 和 正式版 license，测试版 License 用于功能体验，授权时长有限。如果您的项目需要长期使用 **Web 美颜特效**需要购买正式版版 License。
+Web License 是 **Web 美颜特效**功能的授权文件，一个 Web License 可以授权一个域名和一个小程序使用。要使用 Web 美颜特效功能必须创建项目和 Web License，Web License 分为测试版 License 和 正式版 License，测试版 License 用于功能体验，授权时长有限。如果您的项目需要长期使用 **Web 美颜特效**需要购买正式版版 License。
 
 >! 测试版 License 可以免费申请28天时长，您所有项目总共可以创建10条测试版 License，**正式版 License 需要购买**，不限制数量（推广阶段可直接 [提单申请](https://cloud.tencent.com/apply/p/9fuh8sv6fl)）。
 
