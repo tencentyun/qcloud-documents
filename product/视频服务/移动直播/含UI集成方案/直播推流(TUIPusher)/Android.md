@@ -3,12 +3,12 @@
 `TUIPusher` 组件是一套开源的、完整的视频直播互动推流组件，它基于腾讯云 [直播 Live SDK](https://cloud.tencent.com/document/product/454/19074) 和 [即时通信 IM SDK](https://cloud.tencent.com/document/product/269/1498) ，实现有直播推流，直播 PK 等功能，同时支持弹幕、点赞、美颜等外挂插件，使用`TUIPusher` 组件您可以快速搭建诸如秀场直播、电商直播等场景化解决方案。
 <table>
 <tr>
-   <th style="text-align:center">开始直播</th>
-   <th style="text-align:center">直播 PK</th>
+   <th style="text-align:center" width="50%">开始直播</th>
+   <th style="text-align:center" width="50%">直播 PK</th>
  </tr>
 <tr>
-<td><img src="https://qcloudimg.tencent-cloud.cn/raw/3e424e1eac5f1ca02d42a19e01502e5c.jpg" width="450"/></td>
-<td><img src="https://qcloudimg.tencent-cloud.cn/raw/e8fcb12be7c08bd57030e78a5c53428b.jpg" width="450"/></td>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/3e424e1eac5f1ca02d42a19e01502e5c.jpg" /></td>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/e8fcb12be7c08bd57030e78a5c53428b.jpg" /></td>
 </tr>
 </table>
 
@@ -50,7 +50,7 @@ api project(':tuipusher')
 ### 步骤三：初始化&创建组件
 
 如果您未开通腾讯云直播相关服务，请先按照如下步骤开通相关服务：
--   [开通云直播服务](https://console.cloud.tencent.com/live/livestat)，并在 [域名管理](https://console.cloud.tencent.com/live/domainmanage) 页面中配置推流域名和拉流域名；
+-   [开通云直播服务](https://console.cloud.tencent.com/live/livestat)，并在 [域名管理](https://console.cloud.tencent.com/live/domainmanage) 页面中配置推流域名和拉流域名。
 -  [创建应用并绑定License](https://console.cloud.tencent.com/live/license) ，并记录下 `LICENSEURL`、`LICENSEURLKEY` 等关键信息。
 ```java
 // 1. 初始化直播服务
@@ -70,7 +70,7 @@ mTUIPusherView.setTUIPusherViewListener(new TUIPusherViewListener() {
 如果您的应用中无连麦或 `PK` 等互动场景，可以选择标准的 `RMTP` 协议进行推流，具体步骤如下：
 
 - **开始推流**
-基于 RTMP 推流 URL 的生成，可以参见我们的 [示例工程](https://github.com/LiteAV-TUIKit/TUIPusher/blob/main/Android/app/src/main/java/com/tencent/qcloud/tuikit/tuipusher/demo/URLUtils.java#L36) 中封装好的 Utils 方法，基本规则如下图，具体参数信息详见 [推拉流 URL](https://cloud.tencent.com/document/product/454/7915) 文档。
+基于 RTMP 推流 URL 的生成，可以参见我们的 [示例工程](https://github.com/LiteAV-TUIKit/TUIPusher/blob/main/Android/app/src/main/java/com/tencent/qcloud/tuikit/tuipusher/demo/URLUtils.java#L36) 中封装好的 Utils 方法，基本规则如下图，具体参数信息请参见 [推拉流 URL](https://cloud.tencent.com/document/product/454/7915) 文档。
 ```java
 mTUIPusherView.start(Strign url);
 ```
@@ -81,10 +81,10 @@ mTUIPusherView.stop();
 
 ### 步骤五：有互动直播推流
 1.  **服务开通**
-因为连麦& `PK` 时需要更低的延时需求，需要在腾讯云直播控制台控制台开通对应的连麦应用服务，如果您未开通，请登录**云直播管理控制台**选择 **[应用管理](https://console.cloud.tencent.com/live/micro/appmanage)** ，单击**新建连麦应用**输入应用名称（例如 `TUIPusher`），然后在该应用的对应操作栏中，选择**应用信息**进入应用管理页，查看并记录应用的 **SDKAppID** 和 **SECRETKEY(密钥)**。
+因为连麦& `PK` 时需要更低的延时需求，需要在腾讯云直播控制台控制台开通对应的连麦应用服务，如果您未开通，请登录**云直播管理控制台**选择 **[应用管理](https://console.cloud.tencent.com/live/micro/appmanage)** ，单击**新建连麦应用**输入应用名称（例如 `TUIPusher`），然后在该应用的对应操作栏中，选择**应用信息**进入应用管理页，查看并记录应用的 **SDKAppID** 和 **SECRETKEY（密钥）**。
 ![img](https://qcloudimg.tencent-cloud.cn/raw/cb2b2381b92994404dfece3cdaf77608.png)
 >! 因为在连麦/PK过程中，观众端还是需要正常观看CDN流，所以需要进入**CDN观看配置**页，开启旁路推流，推荐全局自动旁路。
-> ![](https://qcloudimg.tencent-cloud.cn/raw/b1a352ae28eb631a8d7b80b42b3aeba6.png)
+>![](https://qcloudimg.tencent-cloud.cn/raw/4273ee28f1416417d56402ae4d8cf7ed.png)
 2. **组件登录**
 因为 `PK` 服务，需要主播间相互通信，所以需要进行单独登录，登录流程如下：
 ```java
@@ -110,7 +110,7 @@ mTUIPusherView.stop();
 		- **SDKAppID**：即服务开通中记录到的 **SDKAppID** 信息。
 		- **SECRETKEY**： 即服务开通中记录到的 **SECRETKEY（密钥）**。
 		- **userId**：当前用户的 ID，字符串类型，长度不超过32字节，不支持使用特殊字符，建议使用英文或数字，可结合业务实际账号体系自行设置。
-		- **userSig**：根据 SDKAppId、userId，SECRETKEY 等信息计算得到的安全保护签名，您可以单击 [这里](https://console.cloud.tencent.com/trtc/usersigtool) 直接在线生成一个调试的 UserSig，也可以参照我们的 [示例工程](https://github.com/LiteAV-TUIKit/TUIPusher/blob/main/Android/app/src/main/java/com/tencent/qcloud/tuikit/tuipusher/demo/debug/GenerateTestUserSig.java#L125) 自行计算，更多信息见 [如何计算及使用 UserSig](https://cloud.tencent.com/document/product/454/14548)。
+		- **userSig**：根据 SDKAppId、userId，SECRETKEY 等信息计算得到的安全保护签名，您可以单击 [这里](https://console.cloud.tencent.com/trtc/usersigtool) 直接在线生成一个调试的 UserSig，也可以参照我们的 [示例工程](https://github.com/LiteAV-TUIKit/TUIPusher/blob/main/Android/app/src/main/java/com/tencent/qcloud/tuikit/tuipusher/demo/debug/GenerateTestUserSig.java#L125) 自行计算，更多信息请参见 [如何计算及使用 UserSig](https://cloud.tencent.com/document/product/454/14548)。
 3. **开始推流**
 ```java
 mTUIPusherView.start(Strign url);
