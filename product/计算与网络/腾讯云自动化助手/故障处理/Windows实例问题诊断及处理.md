@@ -10,9 +10,9 @@ Windows 实例通过自动化助手检查，检测结果中出现相关问题。
 <th>检测内容</th>
 </tr>
 <tr>
-<td rowspan=6>操作系统环境相关</td>
+<td rowspan=11>操作系统环境相关</td>
 <td>
-<a href="#OSStatusCheck">Windows 操作系统状态检查</a>
+<a href="#OSVersionCheck">Windows 操作系统版本检查</a>
 </td>
 </tr>
 <tr>
@@ -41,7 +41,32 @@ Windows 实例通过自动化助手检查，检测结果中出现相关问题。
 </td>
 </tr>
 <tr>
-<td rowspan=5>系统资源使用率相关</td>
+<td>
+<a href="#systemActivation">系统激活检查</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="#systemTime">系统时间检查</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="#systemRouting">系统路由表检查</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="#systemIE">系统 IE 代理检查</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="#CDROM">CD-ROM 状态检查</a>
+</td>
+</tr>
+<tr>
+<td rowspan=6>系统资源使用率相关</td>
 <td>
 <a href="#highMemoryUsage">内存使用率过高</a>
 </td>
@@ -63,6 +88,11 @@ Windows 实例通过自动化助手检查，检测结果中出现相关问题。
 </tr>
 <tr>
 <td>
+<a href="#diskNoSpace">磁盘可用空间不足</a>
+</td>
+</tr>
+<tr>
+<td>
 <a href="#ntfsFileUsageHigh">Ntfs 文件系统元文件磁盘占用高</a>
 </td>
 </tr>
@@ -79,7 +109,7 @@ Windows 实例通过自动化助手检查，检测结果中出现相关问题。
 </tr>
 <tr>
 <td>
-<a href="#RDPCconnectionCheck">RDP-Tcp 连接检查</a>
+<a href="#RDPCconnectionCheck">RDP 侦听器启用检查</a>
 </td>
 </tr>
 <tr>
@@ -141,16 +171,14 @@ Windows 实例通过自动化助手检查，检测结果中出现相关问题。
 
 <dx-accordion>
 ::: Windows 操作系统状态检查
-#### 现象描述[](id:OSStatusCheck)
-系统可能出现稳定性降级、预故障、无法正常启动、开关机等问题，且有意外重启、宕机等风险。    
+#### 现象描述[](id:OSVersionCheck)
+Windows Server 2008 R2及更早版本系统存在安全性、稳定性和兼容性方面均较差问题，且微软和腾讯云也已不再进行维护。
 
 
 #### 解决方法
 1. 通过快照等方式进行数据备份，确保数据安全。详情请参见 [创建快照](https://cloud.tencent.com/document/product/362/5755)。
-2. 通过控制台重启实例，详情请参见 [重启实例](https://cloud.tencent.com/document/product/213/4928)。
-3. 再次运行自动化助手进行检查，若问题仍存在，建议您进行以下操作：
-   - 通过控制台重装实例系统，详情请参见 [重装系统](https://cloud.tencent.com/document/product/213/4933)。
-   - 通过回滚快照进行实例快速恢复，详情请参见 [从快照回滚数据](https://cloud.tencent.com/document/product/362/5756)。快照相关问题可参见 [快照相关问题](https://cloud.tencent.com/document/product/362/17820)。
+2. 通过控制台重装高版本系统，详情请参见 [重装系统](https://cloud.tencent.com/document/product/213/4933)。
+
  
 :::
 ::: 内存限制检查
@@ -166,18 +194,18 @@ Windows 实例通过自动化助手检查，检测结果中出现相关问题。
 ![](https://qcloudimg.tencent-cloud.cn/raw/ae6886f97b1ea3fd1d1dfcf492d8ee1b.png)
    - 小于，则表示正常。
    - 大于，请参考以下步骤进行修复。
-   1. 在 powershell 窗口中输入 `msconfig` 并按 **Enter**，打开“系统配置”窗口。
-   2. 在“系统配置”窗口中，选择**引导**页签，并单击**高级选项**。如下图所示：
-   ![](https://qcloudimg.tencent-cloud.cn/raw/d29df9b834e14607e08f6df6ef20b720.png)
-	 3. 在弹出的“引导高级选项”窗口中，取消勾选“最大内存”。如下图所示：
-	 ![](https://qcloudimg.tencent-cloud.cn/raw/3b44522c23ea82e3c8ac2baa1b3cf9a5.png)
-	 4. 单击**确定**。
-	 5. 在操作系统桌面左下角右键单击 <img src="https://qcloudimg.tencent-cloud.cn/raw/0cfefcbe7474bf6b532a589c53314d5b.png" style="margin:-3px 0px">，选择**设置**。
-	 6. 在“设置”窗口中选择**更新与安全**，并在左侧单击**激活**。
-	 7. 检查系统是否已激活。
-	    - 是，则进行下一步。
-	    - 否，则请参考 [系统激活](https://cloud.tencent.com/document/product/213/2757) 进行激活。
-	 8. 通过控制台重启实例，使配置生效。详情请参见 [重启实例](https://cloud.tencent.com/document/product/213/4928)。
+5. 在 powershell 窗口中输入 `msconfig` 并按 **Enter**，打开“系统配置”窗口。
+6. 在“系统配置”窗口中，选择**引导**页签，并单击**高级选项**。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/d29df9b834e14607e08f6df6ef20b720.png)
+7. 在弹出的“引导高级选项”窗口中，取消勾选“最大内存”。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/3b44522c23ea82e3c8ac2baa1b3cf9a5.png)
+8. 单击**确定**。
+9. 在操作系统桌面左下角右键单击 <img src="https://qcloudimg.tencent-cloud.cn/raw/0cfefcbe7474bf6b532a589c53314d5b.png" style="margin:-3px 0px">，选择**设置**。
+10. 在“设置”窗口中选择**更新与安全**，并在左侧单击**激活**。
+11. 检查系统是否已激活。
+   - 是，则进行下一步。
+   - 否，则请参考 [系统激活](https://cloud.tencent.com/document/product/213/2757) 进行激活。
+12. 通过控制台重启实例，使配置生效。详情请参见 [重启实例](https://cloud.tencent.com/document/product/213/4928)。
 
 
 :::
@@ -195,7 +223,14 @@ Windows 操作系统无法最大化使用 CPU，可能存在 CPU 瓶颈导致不
 ![](https://qcloudimg.tencent-cloud.cn/raw/d29df9b834e14607e08f6df6ef20b720.png)
 5. 在弹出的“引导高级选项”中，取消勾选“处理器个数”。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/f0cfb11a9edc44dafb5bb132042e6f4b.png)
-6. 通过控制台重启实例，使配置生效。详情请参见 [重启实例](https://cloud.tencent.com/document/product/213/4928)。
+6. 在 powershell 窗口中，执行以下命令。
+```
+bcdedit |findstr detecthal
+```
+检查输出结果是否为空，或 detecthal 值是否为 YES。
+ - 是，则请进行下一步。
+ - 否，则请执行命令 `bcdedit /set detecthal yes` 将 detecthal 值改为 YES。
+7. 通过控制台重启实例，使配置生效。详情请参见 [重启实例](https://cloud.tencent.com/document/product/213/4928)。
 
 
 :::
@@ -244,13 +279,100 @@ Windows 操作系统无法最大化使用 CPU，可能存在 CPU 瓶颈导致不
 4. 在“系统属性”窗口中，选择**高级**页签，并单击**环境变量**。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/ddbbb55a834f3e3ab2c7acf714a323bf.png)
 5. 双击“系统变量”中的 `Path`，检查环境变量。
-请确保以下4个环境变量存在、顺序无误且位置处在最顶端。若您还有其他自定义环境变量，请尽量放至最底端。如下图所示：
+请确保以下4个环境变量存在、顺序无误且位置处在最顶端。若您还有其他自定义环境变量，请尽量放在最底端。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/0b6e2510590dc3f8c41b60c4b6cbdfb1.png)
 若您的环境变量出现问题，请进行修复：
 	- `%SystemRoot%\system32`
 	- `%SystemRoot%`
 	- `%SystemRoot%\System32\Wbem`
 	- `%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\`
+
+
+:::
+::: 系统激活检查
+
+#### 现象描述[](id:systemActivation)
+
+系统未激活会很小概率会引发 Windows 实例出现一些未知异常。例如，系统激活注册表可能被损坏，当机器在重启后出现内存被系统限制为微软设计的默认值2GB等。
+
+#### 解决方法
+请参考 [Windows Server 系统激活](https://cloud.tencent.com/document/product/213/70811) 及 [使用 slmgr 命令激活 Windows 系统](https://cloud.tencent.com/document/product/213/2757) 进行系统激活。
+
+:::
+::: 系统时间检查
+
+
+#### 现象描述[](id:systemTime)
+Windows 实例系统时间异常会导致依赖时间的业务出现异常，例如系统无法激活。
+
+
+#### 解决方法
+请参考 [Windows 实例：配置 NTP 服务](https://cloud.tencent.com/document/product/213/30394) 配置系统时间同步。
+
+
+:::
+::: 系统路由表检查
+
+#### 现象描述[](id:systemRouting)
+Windows 实例缺少系统默认路由会导致对应 IP 段路由不通，影响正常通信。
+
+
+#### 解决方法
+
+Windows 实例初始化会执行以下7条命令来调整路由，您可通过以下命令进行修复。其中 `$Gateway` 需替换为实例中实际的网卡网关地址。
+```sehllsession
+route delete 0.0.0.0 -p
+route delete 169.254.0.0 -p
+route add 0.0.0.0 mask 0.0.0.0 $Gateway -p
+route add 169.254.0.0 mask 255.255.128.0 $Gateway -p
+route change 10.0.0.0 mask 255.0.0.0 $Gateway -p
+route change 172.16.0.0 mask 255.240.0.0 $Gateway -p
+route change 192.168.0.0 mask 255.255.0.0 $Gateway -p
+```
+<dx-alert infotype="notice" title="">
+- 若 route change xxx 相关命令执行失败，请替换为 route add xxx。
+- 若为自研机器，请同事参考 [腾讯云单网卡机器如何恢复默认路由](https://cloud.tencent.com/developer/article/1879366) 进行操作。
+</dx-alert>
+
+
+
+:::
+::: 系统 IE 代理检查
+
+#### 现象描述[](id:systemIE)
+Window 实例内部若配置了 IE 代理，则可能影响网络访问和域名解析。
+
+
+#### 解决方法
+1. 登录实例，详情请参见 [使用标准方式登录 Windows 实例（推荐）](https://cloud.tencent.com/document/product/213/57778)。
+2. 在操作系统中打开 IE 浏览器，选择浏览器右上方的 <img src="https://qcloudimg.tencent-cloud.cn/raw/cc0bf7674af58f414c68a2b17e085243.png" style="margin:-3px 0px">，单击弹出菜单中的 **Internet 选项**。
+3. 在弹出的 “Internet 选项”窗口中，选择**连接**页签，并单击**局域网设置**。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/132dc618868cf91205b396e540365197.png)
+4. 在弹出的“局域网(LAN)窗口中”，取消勾选“使用自动配置脚本”及“为 LAN 使用代理服务器”。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/c1bd691a633c1236a1606aed66bf7b15.png)
+5. 单击**确定**。
+
+
+
+:::
+::: CD-ROM 状态检查
+
+#### 现象描述[](id:CDROM)
+开源组件 Cloudbase-init 需要借助 CD-ROM 来完成一些基本功能配置，若 CD-ROM 不可用，则会影响控制台密码重置等功能。
+
+
+#### 解决方法
+1. 登录实例，详情请参见 [使用标准方式登录 Windows 实例（推荐）](https://cloud.tencent.com/document/product/213/57778)。
+2. 在操作系统桌面左下角右键单击 <img src="https://qcloudimg.tencent-cloud.cn/raw/0cfefcbe7474bf6b532a589c53314d5b.png" style="margin:-3px 0px">，在弹出菜单中选择 <b>设备管理器</b>。
+3. 在弹出的“设备管理器”窗口中，展开 “DVD/CD-ROM驱动器”，并检查 “QEMU QEMU DVD-ROM  ATA  Device”。
+若 “QEMU QEMU DVD-ROM  ATA  Device” 设备如下图所示，则请右键单击设备，并在弹出菜单中选择**启用设备**。
+ ![](https://qcloudimg.tencent-cloud.cn/raw/902776f145852b248550815ec434ecac.png)
+4.  在操作系统桌面左下角右键单击 <img src="https://qcloudimg.tencent-cloud.cn/raw/0cfefcbe7474bf6b532a589c53314d5b.png" style="margin:-3px 0px">，在弹出菜单中选择 <b>磁盘管理</b>。
+5. 在弹出的“磁盘管理器”中，查看 CD-ROM 是否具备驱动器号。
+    1. 若 CD-ROM 如下图所示无驱动器号，则请右键单击 CD-ROM，选择**更改驱动器号和路径**。
+![](https://qcloudimg.tencent-cloud.cn/raw/6bf52845505198af7c72b21cceb3b2f0.png)
+    2. 在弹出的“更改 0 MB CDFS CD-ROM 0 的驱动器号和路径”窗口中，单击**添加**。
+    3. 在“添加驱动器号或路径”窗口中选择“分配以下驱动器号”，按需选择驱动器号后，单击**确定**。
 
 
 :::
@@ -284,19 +406,16 @@ Windows 操作系统无法最大化使用 CPU，可能存在 CPU 瓶颈导致不
 1. 登录实例，详情请参见 [使用标准方式登录 Windows 实例（推荐）](https://cloud.tencent.com/document/product/213/57778)。
 2. 在操作系统桌面左下角右键单击 <img src="https://qcloudimg.tencent-cloud.cn/raw/0cfefcbe7474bf6b532a589c53314d5b.png" style="margin:-3px 0px">，在弹出菜单中选择 <b>Windows PowerShell (管理员)</b>。
 3. 在 powershell 窗口中输入 `sysdm.cpl` 并按 **Enter**，打开“系统属性”窗口。
-4. 在弹出的“系统属性”窗口中，单击“性能”下的**设置**。如下图所示：
+4. 在弹出的“系统属性”窗口中，选择**高级**页签，并单击“性能”下的**设置**。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/a67f6e69660ef6c1463287eebb73482c.png)
 5. 在弹出的“性能选项”窗口中，选择**高级**页签，并单击**更改**。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/d08b1885d2617ec3d208093f9e23798a.png)
-6. 在弹出的“虚拟内存”窗口中，进行以下设置。如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/8fccb1307fae4c08f7d35b9b854a1f5b.png)
-    1. 取消勾选“自动管理所有驱动器的分页文件大小”。
-    2. 选择磁盘空间充足的盘符，即将分页文件设置在该磁盘。本文以选择 C 盘为例。
-    3. 选择“自定义大小”，并自定义分页文件大小。
-    4. 单击**设置**。
-    5. 单击**确定**。
+6. 在弹出的“虚拟内存”窗口中，勾选“自动管理所有驱动器的分页文件大小”，系统会自动选择磁盘空间充足的盘符进行虚拟页面文件存放。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/c70b116455ba9082725359c7f2817472.png)
+7. 单击**确定**。
 <dx-alert infotype="explain" title="">
-因虚拟内存受物理内存和磁盘可用空间的影响，同时建议您调整实例资源配置，增加物理内存。详情请参见 [调整实例配置](https://cloud.tencent.com/document/product/213/2178)。
+- 若您需自定义分页文件大小，则最大值务必不小于页面下方的“推荐值”。
+- 因虚拟内存受物理内存和磁盘可用空间的影响，同时建议您调整实例资源配置，增加物理内存。详情请参见 [调整实例配置](https://cloud.tencent.com/document/product/213/2178)。
 </dx-alert>
 
 
@@ -332,6 +451,19 @@ CPU 使用率过高，系统性能会降低，可用 CPU 资源不足系统可�
    - 正常，则请忽略。
    - 异常，若非特定设置则建议优化异常进程 CPU 使用，或请联系程序设计厂商进行优化适配。
 
+
+:::
+::: 磁盘可用空间不足
+
+
+#### 现象描述[](id:diskNoSpace)
+磁盘可用空间不足，会导致系统性能降低，磁盘写满可能会导致业务异常。
+
+
+#### 解决方法
+确认磁盘中哪些文件占用空间最多：
+ - 是否为日志文件，或可清理文件。
+ - 若为业务正常需求文件，则建议尽快扩容磁盘，详情请参见 [扩容场景介绍](https://cloud.tencent.com/document/product/362/32539)。
 
 :::
 ::: Ntfs 文件系统元文件磁盘占用高
@@ -429,9 +561,9 @@ netsh.exe winsock reset
 
 
 :::
-::: RDP-Tcp 连接检查
+::: RDP 侦听器启用检查
 #### 现象描述[](id:RDPCconnectionCheck)
-远程桌面服务端口未监听，无法远程登录，只能使用 VNC 登录。
+RDP 侦听器未启用，无法远程登录，建议使用 VNC 登录进行恢复。
 
 #### 解决方法
  1. [使用 VNC 登录 Windows 实例](https://cloud.tencent.com/document/product/213/35704)。
@@ -445,7 +577,7 @@ Set-ItemProperty 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStat
 :::
 ::: 允许远程桌面连接检查
 #### 现象描述[](id:allowRemoteDesktopConnection)
-无法远程登录，只能使用 VNC 登录。
+RDP 被禁用，无法远程登录，建议使用 VNC 登录进行恢复。
 
 #### 解决方法
  1. [使用 VNC 登录 Windows 实例](https://cloud.tencent.com/document/product/213/35704)。
@@ -459,7 +591,7 @@ Set-ItemProperty 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\' -Name
 :::
 ::: RDP 自签证书到期时间检查
 #### 现象描述[](id:signedCertificateExpiration)
-无法远程登录，只能使用 VNC 登录。
+RDP 自签证书过期，可能无法远程登录，建议使用 VNC 登录进行恢复。
 
 #### 解决方法
  1. [使用 VNC 登录 Windows 实例](https://cloud.tencent.com/document/product/213/35704)。
@@ -478,7 +610,7 @@ Restart-Service TermService -Force
 120天宽限期过后，还未导入 License 会导致无法远程登录，只能使用 VNC 登录。
 
 #### 解决方法
-通常情况下，微软系统默认允许最多2个账号同时登录。若非必须，则建议您卸载远程桌面服务角色以快速修复问题。若需使用多用户同时登录，则需请联系微软购买 RDS CALs，详情请参见 [设置允许多用户远程登录 Windows 云服务器](https://cloud.tencent.com/document/product/213/36267)。
+通常情况下，微软系统默认允许最多2个账号同时登录。若非必须，则建议您卸载远程桌面服务角色以快速修复问题。若需使用多用户同时登录，则请拨打微软市场部热线（拨通 400-820-3800 后转2再转4）进行咨询购买 RDS CALs，详情请参见 [设置允许多用户远程登录 Windows 云服务器](https://cloud.tencent.com/document/product/213/36267)。
 
 卸载及修复步骤步骤如下：
 
@@ -493,7 +625,7 @@ Remove-WindowsFeature Remote-Desktop-Services
 :::
 ::: 网络访问帐户检查
 #### 现象描述[](id:networkAccessAccountCheck)
-无法远程登录，只能使用 VNC 登录。
+网络访问帐户为仅来宾，无法远程登录，建议使用 VNC 登录进行恢复。
 
 
 
@@ -527,7 +659,7 @@ Windows 实例内部防火墙未放通远程桌面服务端口，无法远程登
 :::
 ::: 端口耗尽检查
 #### 现象描述[](id:portExhaustionCheck)
- 由于端口耗尽，导致机器网络不通。
+ 由于高位可用 TCP 或 UDP 端口耗尽，可能导致网络不通。
 
 
 
@@ -574,16 +706,21 @@ Set-ItemProperty HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\ -Name
 #### 解决方法
 1. [使用 VNC 登录 Windows 实例](https://cloud.tencent.com/document/product/213/35704)。
 2. 在操作系统桌面左下角右键单击 <img src="https://qcloudimg.tencent-cloud.cn/raw/0cfefcbe7474bf6b532a589c53314d5b.png" style="margin:-3px 0px">，在弹出菜单中选择 <b>Windows PowerShell (管理员)</b>。
-3. 在 powershell 窗口中，输入 `ncpa.cpl` 并按 **Enter**，打开“网络连接”窗口。
-4. 在“网络连接”窗口中，重启网卡：
+3. [](id:Step3)在 powershell 窗口中，执行以下命令，对现有 IP 信息进行备份输出。
+```
+ipconfig /all >>C:\ip.txt
+```
+4. 在 powershell 窗口中，输入 `ncpa.cpl` 并按 **Enter**，打开“网络连接”窗口。
+5. 在“网络连接”窗口中，重启网卡：
     - 右键单击网卡，在弹出的菜单中选择**禁用**。
     - 再次右键单击后，再选择**启用**，以尝试快速修复。
-5. 若仍未修复，请确认网卡是否为自动获取 IP 地址。若非此设置，建议调整为自动获取 IP 地址。步骤如下：
+6. 若仍未修复，请确认网卡是否为自动获取 IP 地址。若非此设置，建议调整为自动获取 IP 地址。步骤如下：
    1. 在“网络连接”窗口中，右键单击网卡，在弹出的菜单中选择**属性**。
    2. 在弹出的“以太网 属性”窗口中，选择 “Internet 协议版本 4（TCP/IPv4）”，并单击**属性**。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/2e59ccc6a9a06f925f333e469e3b0c74.png)
    3. 在弹出的 “Internet 协议版本 4（TCP/IPv4）”窗口中，选择“自动获得 IP 地址”。
    4. 单击**确定**，设置完成后再次检查网关状态。
+   若您无法通过此步骤修复，则可使用 [步骤3](#Step3) 中备份的 IP 信息进行还原。
 
 
 :::

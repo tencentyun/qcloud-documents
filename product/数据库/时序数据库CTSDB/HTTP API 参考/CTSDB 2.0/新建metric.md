@@ -28,11 +28,11 @@
 
   - number_of_shards：表分片数，取值范围为正整数，小表可以忽略，大表按照一个分片至多25G设置分片数，默认为3。
 
-  - number_of_replicas：副本数，取值范围为非负整数，例如一主一副为1，缺省为1。
+  - number_of_replicas：副本数，取值范围为正整数，例如一主一副为1，缺省为1。
 
   - [rolling_period](id:rolling)：子表时长（单位：天），取值范围为非零整数，CTSDB 存储数据时，为了方便做数据过期和提高查询效率，根据特定时间间隔划分**子表**，缺省情况下由数据过期时间决定，下面具体说明缺省子表时长和过期时间的关系。
 
-  - max_string_length：自定义字符串类型的值最大可支持的长度，取值范围为正整数，最大为2^31 - 1，默认为256。
+  - max_string_length：自定义字符串 string 类型的值最大可支持的长度，取值范围为正整数，最大为32765，默认为256。
 
   - default_date_format：自定义维度列和指标列 date类型的格式，默认为 strict_date_optional_time 或 epoch_millis。
 

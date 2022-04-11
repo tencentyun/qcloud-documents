@@ -38,4 +38,3 @@
 数据设置完成后，可单击画布右上角预览![预览图标](https://main.qcloudimg.com/raw/499a5511525d9022be702efc4c0549fd.png)图标预览大屏，预览确认无误后单击发布![发布图标](https://main.qcloudimg.com/raw/2b71701d514daab71614681a31e933bc.png)图标，弹出发布确认窗口，开启发布状态，即可生成访问链接。您可自定义设置访问密码、Token 验证、验证有效期、IP 白名单、刷新大屏、更新封面等发布配置。
 
 ![发布](https://qcloudimg.tencent-cloud.cn/raw/e117b5338730db0907750507ca82fff2.png)
-

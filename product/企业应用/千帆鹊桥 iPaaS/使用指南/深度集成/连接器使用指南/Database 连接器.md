@@ -22,7 +22,9 @@ iPaaS Database 连接器目前支持的数据库有：MySQL、Oracle、PostgreSQ
 
 ##  操作说明
 
-Database 连接器目前支持 MySQL、Oracle、PostgreSQL、SQL Server 数据库的查询、插入、更新、删除操作。同时支持 SQL Server 存储过程操作。
+
+Database 连接器目前支持查询、插入、更新、删除、存储过程（目前仅支持 Sql Server）操作。
+
 
 ### 查询操作
 <dx-tabs>
@@ -532,22 +534,36 @@ def dw_process(msg):
 #### 案例
 1. 添加 Database 连接器组件，选择批量插入操作。
 2. 新建连接器或选择已创建的连接器。
-3. 通过“RecordSet Encoder”生成 RecordSet 类型的数据，在“Encoder”组件中设置如下 Schema：
-   ![image-20210624201918451](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/img/Database/database45.png)
-4. 在“Encoder”组件选择“Set Payload”组件，按如下配置设置：
+3. 自动感知“RecordSet Encoder”输出的RecordSet数据结构，如在“Encoder”组件中设置如下：
+   ![image-20210624201918451](https://qcloudimg.tencent-cloud.cn/raw/8669c3f450749f725bf15a05128ff0c8.png)
+4. “Encoder”组件采用“Set Payload”组件构造数据源，按如下配置设置：
 ```python
 def dw_process(msg):
-    return [['xiaomi',66.66,'e'], ['xiaoming',66.66,'f'], ['xiaohua',66.66,'g']]
+    return[{
+        "book_id": "66",
+        "book_name": 'iPaaS企业集成宝典',
+        "book_price": 80,
+        "book_auth": 'tencent'
+    }, {
+        "book_id": "67",
+        "book_name": 'iPaaS企业集成大全',
+        "book_price": 90,
+        "book_auth": 'tencent'
+    }]
+    
 ```
- 测试组件如下：
-![image-20210624203014745](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/img/Database/database47.png)
+
 5. 构造好 RecordSet 数据后，输入数据集如下：
 ```python
 def dw_process(msg):
     return msg.payload	 
 ```
 6. Database 组件通过数据表字段和 RecordSet 数据字段的映射关系来构造插入的数据信息，配置如下：
-![image-20210701152327985](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/img/Database/database34.png)
+![image-20210701152327985](https://qcloudimg.tencent-cloud.cn/raw/0ffa565bbd19e3d7f5e69378db58d234.png)
+
+注：Database将自动感知前一节点输出的数据结构，并将来源字段与目标表字段根据同名映射自动进行映射。在字段映射后方有schema维护按钮，可点击查看、管理输入的schema.在schema维护面板中可进行手工维护schema的字段信息，当前一节点输出的schema发生了调整，可在schema手工刷新与前一节点输出的schema保持一致，同时将根据同步映射原则进行重新映射（将覆盖上次的映射）。
+![image-filter-1](https://qcloudimg.tencent-cloud.cn/raw/44767d7c28c22aef0e0a9bdc08da56e1.png)
+
 7. 批量插入成功后，message 的 error 信息为空。
 
 ### 批量合并操作
@@ -583,7 +599,7 @@ def dw_process(msg):
 #### 案例
 1. 新建连接器或选择已创建的连接器。
 2. 通过“RecordSet Encoder”组件生成 RecordSet 类型的数据。
-3. 构造好 RecordSet 数据后，添加 Database 组件的“批量合并”操作，数据表字段和 RecordSet 数据字段的关系构成了合并的过滤条件，数据表字段和 RecordSet 数据字段的映射构成了合并的字段映射；Database 组件配置如下：
+3. 构造好 RecordSet 数据后，添加 Database 组件的“批量合并”操作，数据表字段和 RecordSet 数据字段的关系构成了合并的过滤条件，数据表字段和 RecordSet 数据字段的映射构成了合并的字段映射（根据来源Schema与目标表结构根据同名映射原则自动映射）；Database 组件配置如下：
    ![image-20210701152525761](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/img/Database/database35.png)
 4. 批量插入成功后，message 的 error 信息为空。
 
@@ -595,7 +611,7 @@ def dw_process(msg):
 | 参数                 | 数据类型      | 描述                                         | **是否必填** | **默认值** |
 | -------------------- | ------------- | -------------------------------------------- | ------------ | ---------- |
 | 输入数据集           | Recordset 类型 | 输入数据集，若未填写，默认为 message 的 payload | 是           |  -          |
-| 输入数据集 Schema 校准 | list          | 对输入数据集进行字段校准                     | 否           |    -        |
+
 
 **删除逻辑配置**
 
@@ -603,6 +619,7 @@ def dw_process(msg):
 | -------- | -------- | ------------------ | ------------ | ---------- |
 | 表选择   | enum     | 待执行操作的数据表 | 否           |    -        |
 | 过滤条件 | list     | 批量删除的条件     | 是           |     -       |
+| 输入数据集Schema维护 | list          | 对输入字段的进行维护管理         | 否           |    -        |
 
 ####  输出
 组件输出的 message 信息如下：
@@ -618,7 +635,7 @@ def dw_process(msg):
 1. 新建连接器或选择已创建的连接器。
 2. 通过“RecordSet Encoder”组件生成 RecordSet 类型的数据。
 3. 构造好 RecordSet 数据后，添加 Database 组件的“批量删除”操作，数据表字段和 RecordSet 数据字段的关系构成了合并的过滤条件，Database 组件配置如下：
-   ![image-20210706154654745](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/img/Database/database46.png)
+   ![image-20210706154654745](https://qcloudimg.tencent-cloud.cn/raw/e3a4d3d5390d9db953155a2403e3a7d9.png)
  - 组件如下：
 ![image-20210624204634109](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/img/Database/database50.png)
 4. 批量插入成功后，message 的 error 信息为空。
