@@ -410,6 +410,7 @@ Window 实例内部若配置了 IE 代理，则可能影响网络访问和域名
 ![](https://qcloudimg.tencent-cloud.cn/raw/d08b1885d2617ec3d208093f9e23798a.png)
 6. 在弹出的“虚拟内存”窗口中，勾选“自动管理所有驱动器的分页文件大小”，系统会自动选择磁盘空间充足的盘符进行虚拟页面文件存放。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/c70b116455ba9082725359c7f2817472.png)
+7. 单击**确定**。
 <dx-alert infotype="explain" title="">
 - 若您需自定义分页文件大小，则最大值务必不小于页面下方的“推荐值”。
 - 因虚拟内存受物理内存和磁盘可用空间的影响，同时建议您调整实例资源配置，增加物理内存。详情请参见 [调整实例配置](https://cloud.tencent.com/document/product/213/2178)。
