@@ -109,7 +109,7 @@ Windows 实例通过自动化助手检查，检测结果中出现相关问题。
 </tr>
 <tr>
 <td>
-<a href="#RDPCconnectionCheck">RDP-Tcp 连接检查</a>
+<a href="#RDPCconnectionCheck">RDP 侦听器启用检查</a>
 </td>
 </tr>
 <tr>
@@ -563,7 +563,7 @@ netsh.exe winsock reset
 :::
 ::: RDP 侦听器启用检查
 #### 现象描述[](id:RDPCconnectionCheck)
-RDP侦听器未启用，无法远程登录，只能使用VNC登录。
+RDP 侦听器未启用，无法远程登录，只能使用VNC登录。
 
 #### 解决方法
  1. [使用 VNC 登录 Windows 实例](https://cloud.tencent.com/document/product/213/35704)。
@@ -610,7 +610,7 @@ Restart-Service TermService -Force
 120天宽限期过后，还未导入 License 会导致无法远程登录，只能使用 VNC 登录。
 
 #### 解决方法
-通常情况下，微软系统默认允许最多2个账号同时登录。若非必须，则建议您卸载远程桌面服务角色以快速修复问题。若需使用多用户同时登录，则需请拨打微软市场部热线（400-820-3800 后转2再转4）进行咨询购买 RDS CALs，详情请参见 [设置允许多用户远程登录 Windows 云服务器](https://cloud.tencent.com/document/product/213/36267)。
+通常情况下，微软系统默认允许最多2个账号同时登录。若非必须，则建议您卸载远程桌面服务角色以快速修复问题。若需使用多用户同时登录，则需请拨打微软市场部热线（拨通 400-820-3800 后转2再转4）进行咨询购买 RDS CALs，详情请参见 [设置允许多用户远程登录 Windows 云服务器](https://cloud.tencent.com/document/product/213/36267)。
 
 卸载及修复步骤步骤如下：
 
@@ -706,7 +706,7 @@ Set-ItemProperty HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\ -Name
 #### 解决方法
 1. [使用 VNC 登录 Windows 实例](https://cloud.tencent.com/document/product/213/35704)。
 2. 在操作系统桌面左下角右键单击 <img src="https://qcloudimg.tencent-cloud.cn/raw/0cfefcbe7474bf6b532a589c53314d5b.png" style="margin:-3px 0px">，在弹出菜单中选择 <b>Windows PowerShell (管理员)</b>。
-3. 在 powershell 窗口中，执行以下命令，对现有 IP 信息进行备份输出。
+3. [](id:Step3)在 powershell 窗口中，执行以下命令，对现有 IP 信息进行备份输出。
 ```
 ipconfig /all >>C:\ip.txt
 ```
@@ -720,6 +720,7 @@ ipconfig /all >>C:\ip.txt
 ![](https://qcloudimg.tencent-cloud.cn/raw/2e59ccc6a9a06f925f333e469e3b0c74.png)
    3. 在弹出的 “Internet 协议版本 4（TCP/IPv4）”窗口中，选择“自动获得 IP 地址”。
    4. 单击**确定**，设置完成后再次检查网关状态。
+   若您无法通过此步骤修复，则可使用 [步骤3](#Step3) 中备份的 IP 信息进行还原。
 
 
 :::
