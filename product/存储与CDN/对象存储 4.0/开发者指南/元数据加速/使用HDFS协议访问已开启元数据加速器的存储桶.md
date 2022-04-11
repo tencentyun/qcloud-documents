@@ -40,6 +40,6 @@
 
 1. 在 `core-stie.xml` 中配置 HDFS 协议相关挂载点信息，如准备工作中所示。
 2. 通过 Hive、MR、Spark 等组件访问存储桶，请参见 [在计算集群中挂载 COS 存储桶](https://cloud.tencent.com/document/product/436/71550)。
-3. 默认情况下，采用原生 `POSIX ACL` 方式进行鉴权，如果需要使用 `Ranger1鉴权`，可以参考 `Ranger` 相关原理和实践访问，可参见 [在 CDH 集群上通过 HDFS 协议访问 COS](https://cloud.tencent.com/document/product/436/71551)。
+3. 默认情况下，采用原生 `POSIX ACL` 方式进行鉴权，如果需要使用 `Ranger 鉴权`，可以参考 [Ranger 相关原理和实践访问](https://cloud.tencent.com/document/product/1105/53307)。
 
 
