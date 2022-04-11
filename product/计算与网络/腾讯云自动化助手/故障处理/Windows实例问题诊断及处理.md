@@ -10,9 +10,9 @@ Windows 实例通过自动化助手检查，检测结果中出现相关问题。
 <th>检测内容</th>
 </tr>
 <tr>
-<td rowspan=6>操作系统环境相关</td>
+<td rowspan=11>操作系统环境相关</td>
 <td>
-<a href="#OSStatusCheck">Windows 操作系统状态检查</a>
+<a href="#OSVersionCheck">Windows 操作系统版本检查</a>
 </td>
 </tr>
 <tr>
@@ -41,7 +41,32 @@ Windows 实例通过自动化助手检查，检测结果中出现相关问题。
 </td>
 </tr>
 <tr>
-<td rowspan=5>系统资源使用率相关</td>
+<td>
+<a href="#systemActivation">系统激活检查</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="#systemTime">系统时间检查</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="#systemRouting">系统路由表检查</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="#systemIE">系统 IE 代理检查</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="#CDROM">CD-ROM 状态检查</a>
+</td>
+</tr>
+<tr>
+<td rowspan=6>系统资源使用率相关</td>
 <td>
 <a href="#highMemoryUsage">内存使用率过高</a>
 </td>
@@ -59,6 +84,11 @@ Windows 实例通过自动化助手检查，检测结果中出现相关问题。
 <tr>
 <td>
 <a href="#CPUusagehigh">单 CPU 使用率过高</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="#diskNoSpace">磁盘可用空间不足</a>
 </td>
 </tr>
 <tr>
@@ -141,16 +171,14 @@ Windows 实例通过自动化助手检查，检测结果中出现相关问题。
 
 <dx-accordion>
 ::: Windows 操作系统状态检查
-#### 现象描述[](id:OSStatusCheck)
-系统可能出现稳定性降级、预故障、无法正常启动、开关机等问题，且有意外重启、宕机等风险。    
+#### 现象描述[](id:OSVersionCheck)
+Windows Server 2008 R2及更早版本系统存在安全性、稳定性和兼容性方面均较差问题，且微软和腾讯云也已不再进行维护。
 
 
 #### 解决方法
 1. 通过快照等方式进行数据备份，确保数据安全。详情请参见 [创建快照](https://cloud.tencent.com/document/product/362/5755)。
-2. 通过控制台重启实例，详情请参见 [重启实例](https://cloud.tencent.com/document/product/213/4928)。
-3. 再次运行自动化助手进行检查，若问题仍存在，建议您进行以下操作：
-   - 通过控制台重装实例系统，详情请参见 [重装系统](https://cloud.tencent.com/document/product/213/4933)。
-   - 通过回滚快照进行实例快速恢复，详情请参见 [从快照回滚数据](https://cloud.tencent.com/document/product/362/5756)。快照相关问题可参见 [快照相关问题](https://cloud.tencent.com/document/product/362/17820)。
+2. 通过控制台重装高版本系统，详情请参见 [重装系统](https://cloud.tencent.com/document/product/213/4933)。
+
  
 :::
 ::: 内存限制检查
@@ -195,7 +223,14 @@ Windows 操作系统无法最大化使用 CPU，可能存在 CPU 瓶颈导致不
 ![](https://qcloudimg.tencent-cloud.cn/raw/d29df9b834e14607e08f6df6ef20b720.png)
 5. 在弹出的“引导高级选项”中，取消勾选“处理器个数”。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/f0cfb11a9edc44dafb5bb132042e6f4b.png)
-6. 通过控制台重启实例，使配置生效。详情请参见 [重启实例](https://cloud.tencent.com/document/product/213/4928)。
+6. 在 powershell 窗口中，执行以下命令。
+```
+bcdedit |findstr detecthal
+```
+检查输出结果是否为空，或 detecthal 值是否为 YES。
+ - 是，则请进行下一步。
+ - 否，则请执行命令 `bcdedit /set detecthal yes` 将 detecthal 值改为 YES。
+7. 通过控制台重启实例，使配置生效。详情请参见 [重启实例](https://cloud.tencent.com/document/product/213/4928)。
 
 
 :::
@@ -254,6 +289,91 @@ Windows 操作系统无法最大化使用 CPU，可能存在 CPU 瓶颈导致不
 
 
 :::
+::: 系统激活检查
+
+#### 现象描述[](id:systemActivation)
+
+系统未激活会很小概率会引发 Windows 实例出现一些未知异常。例如，系统激活注册表可能被损坏，当机器在重启后出现内存被系统限制为微软设计的默认值2GB等。
+
+#### 解决方法
+请参考 [Windows Server 系统激活](https://cloud.tencent.com/document/product/213/70811) 进行系统激活。
+
+:::
+::: 系统时间检查
+
+
+#### 现象描述[](id:systemTime)
+Windows 实例系统时间异常会导致依赖时间的业务出现异常，例如系统无法激活。
+
+
+#### 解决方法
+请参考 [Windows 实例：配置 NTP 服务](https://cloud.tencent.com/document/product/213/30394) 配置系统时间同步。
+
+
+:::
+::: 系统路由表检查
+
+#### 现象描述[](id:systemRouting)
+Windows 实例缺少系统默认路由会导致对应 IP 段路由不通，影响正常通信。
+
+
+#### 解决方法
+
+Windows 实例初始化会执行以下7条命令来调整路由，您可通过以下命令进行修复。其中 `$Gateway` 需替换为实例中实际的网卡网关地址。
+```sehllsession
+route delete 0.0.0.0 -p
+route delete 169.254.0.0 -p
+route add 0.0.0.0 mask 0.0.0.0 $Gateway -p
+route add 169.254.0.0 mask 255.255.128.0 $Gateway -p
+route change 10.0.0.0 mask 255.0.0.0 $Gateway -p
+route change 172.16.0.0 mask 255.240.0.0 $Gateway -p
+route change 192.168.0.0 mask 255.255.0.0 $Gateway -p
+```
+<dx-alert infotype="notice" title="">
+若 route change xxx 相关命令执行失败，请替换为 route add xxx。
+</dx-alert>
+
+
+:::
+::: 系统 IE 代理检查
+
+#### 现象描述[](id:systemIE)
+Window 实例内部若配置了 IE 代理，则可能影响网络访问和域名解析。
+
+
+#### 解决方法
+1. 登录实例，详情请参见 [使用标准方式登录 Windows 实例（推荐）](https://cloud.tencent.com/document/product/213/57778)。
+2. 在操作系统中打开 IE 浏览器，选择浏览器右上方的 <img src="https://qcloudimg.tencent-cloud.cn/raw/cc0bf7674af58f414c68a2b17e085243.png" style="margin:-3px 0px">，单击弹出菜单中的 **Internet 选项**。
+3. 在弹出的 “Internet 选项”窗口中，选择**连接**页签，并单击**局域网设置**。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/132dc618868cf91205b396e540365197.png)
+4. 在弹出的“局域网(LAN)窗口中”，取消勾选“使用自动配置脚本”及“为 LAN 使用代理服务器”。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/c1bd691a633c1236a1606aed66bf7b15.png)
+5. 单击**确定**。
+
+
+
+:::
+::: CD-ROM 状态检查
+
+#### 现象描述[](id:CDROM)
+开源组件 Cloudbase-init 需要借助 CD-ROM 来完成一些基本功能配置，若 CD-ROM 不可用，则会影响控制台密码重置等功能。
+
+
+#### 解决方法
+1. 登录实例，详情请参见 [使用标准方式登录 Windows 实例（推荐）](https://cloud.tencent.com/document/product/213/57778)。
+2. 在操作系统桌面左下角右键单击 <img src="https://qcloudimg.tencent-cloud.cn/raw/0cfefcbe7474bf6b532a589c53314d5b.png" style="margin:-3px 0px">，在弹出菜单中选择 <b>设备管理器</b>。
+3. 在弹出的“设备管理器”窗口中，展开 “DVD/CD-ROM驱动器”，并检查 “QEMU QEMU DVD-ROM  ATA  Device”。
+若 “QEMU QEMU DVD-ROM  ATA  Device” 设备如下图所示，则请右键单击设备，并在弹出菜单中选择**启用设备**。
+ ![](https://qcloudimg.tencent-cloud.cn/raw/902776f145852b248550815ec434ecac.png)
+4.  在操作系统桌面左下角右键单击 <img src="https://qcloudimg.tencent-cloud.cn/raw/0cfefcbe7474bf6b532a589c53314d5b.png" style="margin:-3px 0px">，在弹出菜单中选择 <b>磁盘管理</b>。
+5. 在弹出的“磁盘管理器”中，查看 CD-ROM 是否具备驱动器号。
+    1. 若 CD-ROM 如下图所示无驱动器号，则请右键单击 CD-ROM，选择**更改驱动器号和路径**。
+![](https://qcloudimg.tencent-cloud.cn/raw/6bf52845505198af7c72b21cceb3b2f0.png)
+    2. 在弹出的“更改 0 MB CDFS CD-ROM 0 的驱动器号和路径”窗口中，单击**添加**。
+    3. 在“添加驱动器号或路径”窗口中选择“分配以下驱动器号”，按需选择驱动器号后，单击**确定**。
+
+
+:::
 ::: 内存使用率过高
 #### 现象描述[](id:highMemoryUsage)
 内存使用率过高，系统性能会降低，可用内存资源不足可能会导致系统变得卡顿。
@@ -284,19 +404,15 @@ Windows 操作系统无法最大化使用 CPU，可能存在 CPU 瓶颈导致不
 1. 登录实例，详情请参见 [使用标准方式登录 Windows 实例（推荐）](https://cloud.tencent.com/document/product/213/57778)。
 2. 在操作系统桌面左下角右键单击 <img src="https://qcloudimg.tencent-cloud.cn/raw/0cfefcbe7474bf6b532a589c53314d5b.png" style="margin:-3px 0px">，在弹出菜单中选择 <b>Windows PowerShell (管理员)</b>。
 3. 在 powershell 窗口中输入 `sysdm.cpl` 并按 **Enter**，打开“系统属性”窗口。
-4. 在弹出的“系统属性”窗口中，单击“性能”下的**设置**。如下图所示：
+4. 在弹出的“系统属性”窗口中，选择**高级**页签，并单击“性能”下的**设置**。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/a67f6e69660ef6c1463287eebb73482c.png)
 5. 在弹出的“性能选项”窗口中，选择**高级**页签，并单击**更改**。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/d08b1885d2617ec3d208093f9e23798a.png)
-6. 在弹出的“虚拟内存”窗口中，进行以下设置。如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/8fccb1307fae4c08f7d35b9b854a1f5b.png)
-    1. 取消勾选“自动管理所有驱动器的分页文件大小”。
-    2. 选择磁盘空间充足的盘符，即将分页文件设置在该磁盘。本文以选择 C 盘为例。
-    3. 选择“自定义大小”，并自定义分页文件大小。
-    4. 单击**设置**。
-    5. 单击**确定**。
+6. 在弹出的“虚拟内存”窗口中，勾选“自动管理所有驱动器的分页文件大小”，系统会自动选择磁盘空间充足的盘符进行虚拟页面文件存放。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/c70b116455ba9082725359c7f2817472.png)
 <dx-alert infotype="explain" title="">
-因虚拟内存受物理内存和磁盘可用空间的影响，同时建议您调整实例资源配置，增加物理内存。详情请参见 [调整实例配置](https://cloud.tencent.com/document/product/213/2178)。
+- 若您需自定义分页文件大小，则最大值务必不小于页面下方的“推荐值”。
+- 因虚拟内存受物理内存和磁盘可用空间的影响，同时建议您调整实例资源配置，增加物理内存。详情请参见 [调整实例配置](https://cloud.tencent.com/document/product/213/2178)。
 </dx-alert>
 
 
@@ -332,6 +448,19 @@ CPU 使用率过高，系统性能会降低，可用 CPU 资源不足系统可�
    - 正常，则请忽略。
    - 异常，若非特定设置则建议优化异常进程 CPU 使用，或请联系程序设计厂商进行优化适配。
 
+
+:::
+::: 磁盘可用空间不足
+
+
+#### 现象描述[](id:diskNoSpace)
+磁盘可用空间不足，会导致系统性能降低，磁盘写满可能会导致业务异常。
+
+
+#### 解决方法
+确认磁盘中哪些文件占用空间最多：
+ - 若为日志文件等可清理文件可进行清理。
+ - 若为业务正常需求文件，则建议尽快扩容磁盘，详情请参见 [扩容场景介绍](https://cloud.tencent.com/document/product/362/32539)。
 
 :::
 ::: Ntfs 文件系统元文件磁盘占用高
