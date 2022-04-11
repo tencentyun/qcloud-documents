@@ -563,7 +563,7 @@ netsh.exe winsock reset
 :::
 ::: RDP 侦听器启用检查
 #### 现象描述[](id:RDPCconnectionCheck)
-RDP 侦听器未启用，无法远程登录，只能使用VNC登录。
+RDP 侦听器未启用，无法远程登录，建议使用 VNC 登录进行恢复。
 
 #### 解决方法
  1. [使用 VNC 登录 Windows 实例](https://cloud.tencent.com/document/product/213/35704)。
