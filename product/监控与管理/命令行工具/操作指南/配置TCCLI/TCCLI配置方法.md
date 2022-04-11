@@ -63,6 +63,29 @@ $ tccli configure remove -profile test
 # 在调用接口时指定账户（以 cvm DescribeZones 接口为例）
 $ tccli cvm DescribeZones --profile test
 ```
+- 关于 TCCLI 配置文件
+ - 使用 `tccli configure` 命令之后，TCCLI会在 `~/.tccli` 目录下生成对应的 `default.configure` 和 `default.credential` 文件，这个两个文件记录的都是json格式的内容。`default.configure` 记录的是对应产品调用的版本（默认最新版）和 endpoint（默认为最近接入点），以及默认的输出格式和指定的地域；`default.credential` 则记录的是用户的密钥信息。
+```bash
+# default.configure文件格式，cvm产品默认调用版本 2017-03-12 的接口，默认的请求域名为 cvm.tencentcloudapi.com
+{
+	...
+	"cvm": {
+	"endpoint": "cvm.tencentcloudapi.com",
+	"version": "2017-03-12"
+	},
+	...
+	"output": "json",
+	"region": "ap-guanzhou",
+	...
+}
+# default.credential的文件格式
+{
+  "secretId": "AKIDz8krbsJ5yKBZQpn74WFkmLPx3*******",
+  "secretKey": "Gu5t9xGARNpq86cd98joQYCN3*******"
+}
+```
+ - 如果用户在使用配置命令时指定了账户名，则会生成账户名对应的配置文件，例如：用户使用了 `tccli configure --profile test` 命令，则会生成 `test.configure` 和 `test.credential` 文件。
+ - 如果需要修改配置文件的内容，您可以直接编辑文件或者使用 `set` 子命令修改，例如 `tccli configure set cvm.version 2017-03-12`，将调用的 cvm 的版本指定为默认 2017-03-12 版本。
 - TCCLI 支持配置云 API 密钥对到环境变量，让您的信息更安全。下文以 Linux 系统配置为例，您可以通过如下两种方式进行配置：
  - 使用 export 命令（临时性）：
 ```bash
@@ -82,6 +105,9 @@ export TENCENTCLOUD_REGION=ap-guangzhou
 # 写入后需执行如下命令使环境变量生效
 $ source /etc/profile
 ```
+
+>?
+>- 如果您在命令、配置文件和环境变量都指定了相同的内容，TCCLI 执行的优先级为：命令 > 配置文件 > 环境变量
 
 ## 其他配置
 - TCCLI 支持通过 CAM 角色的方式进行认证，您可以参考 [角色概述](https://cloud.tencent.com/document/product/598/19420) 查看相关信息。
