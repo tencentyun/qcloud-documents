@@ -38,36 +38,36 @@ usersig = hmacsha256(secretkey, (userid + sdkappid + currtime + expire +
 <thead><tr><th>适用平台</th><th>文件源码</th><th>文件相对路径</th></tr></thead>
 <tbody><tr>
 <td>iOS</td>
-<td><a href="https://github.com/tencentyun/TRTCSDK/blob/master/iOS/TRTC-API-Example-OC/Debug/GenerateTestUserSig.h">Github</a></td>
-<td>iOS/TRTC-API-Example-OC/Debug/GenerateTestUserSig.h</td>
+<td><a href="https://github.com/LiteAVSDK/TRTC_iOS/tree/main/TRTC-API-Example-OC/Debug/GenerateTestUserSig.h">Github</a></td>
+<td>TRTC-API-Example-OC/Debug/GenerateTestUserSig.h</td>
 </tr><tr>
 <td>Mac</td>
-<td><a href="https://github.com/tencentyun/TRTCSDK/blob/master/Mac/OCDemo/TRTCDemo/TRTC/GenerateTestUserSig.h">Github</a></td>
-<td>Mac/OCDemo/TRTCDemo/TRTC/GenerateTestUserSig.h</td>
+<td><a href="https://github.com/LiteAVSDK/TRTC_Mac/tree/main/OCDemo/TRTCDemo/TRTC/GenerateTestUserSig.h">Github</a></td>
+<td>OCDemo/TRTCDemo/TRTC/GenerateTestUserSig.h</td>
 </tr><tr>
 <td>Android</td>
-<td><a href="https://github.com/tencentyun/TRTCSDK/blob/master/Android/TRTC-API-Example/Debug/src/main/java/com/tencent/trtc/debug/GenerateTestUserSig.java">Github</a></td>
-<td>Android/TRTC-API-Example/Debug/src/main/java/com/tencent/trtc/debug/GenerateTestUserSig.java</td>
+<td><a href="https://github.com/LiteAVSDK/TRTC_Android/tree/main/TRTC-API-Example/Debug/src/main/java/com/tencent/trtc/debug/GenerateTestUserSig.java">Github</a></td>
+<td>TRTC-API-Example/Debug/src/main/java/com/tencent/trtc/debug/GenerateTestUserSig.java</td>
 </tr><tr>
 <td>Windows（C++）</td>
-<td><a href="https://github.com/tencentyun/TRTCSDK/tree/master/Windows/DuilibDemo/GenerateTestUserSig.h">Github</a></td>
-<td>Windows/DuilibDemo/GenerateTestUserSig.h</td>
+<td><a href="https://github.com/LiteAVSDK/TRTC_Windows/blob/main/TRTC-API-Example-C%2B%2B/TRTC-API-Example-Qt/src/Util/defs.h">Github</a></td>
+<td>TRTC-API-Example-C++/TRTC-API-Example-Qt/src/Util/defs.h</td>
 </tr><tr>
 <td>Windows（C#）</td>
-<td><a href="https://github.com/tencentyun/TRTCSDK/tree/master/Windows/CSharpDemo/GenerateTestUserSig.cs">Github</a></td>
-<td>Windows/CSharpDemo/GenerateTestUserSig.cs</td>
+<td><a href="https://github.com/LiteAVSDK/TRTC_Windows/blob/main/TRTC-API-Example-CSharp/TRTC-API-Example-CSharp/GenerateTestUserSig.cs">Github</a></td>
+<td>TRTC-API-Example-CSharp/TRTC-API-Example-CSharp/GenerateTestUserSig.cs</td>
 </tr><tr>
 <td>Web</td>
-<td><a href="https://github.com/tencentyun/TRTCSDK/blob/master/Web/base-js/js/debug/GenerateTestUserSig.js">Github</a></td>
-<td>Web/base-js/js/debug/GenerateTestUserSig.js</td>
+<td><a href="https://github.com/LiteAVSDK/TRTC_Web/blob/main/base-js/js/debug/GenerateTestUserSig.js">Github</a></td>
+<td>base-js/js/debug/GenerateTestUserSig.js</td>
 </tr><tr>
 <td>微信小程序</td>
-<td><a href="https://github.com/tencentyun/TRTCSDK/blob/master/WXMini/TRTCSimpleDemo/debug/GenerateTestUserSig.js">Github</a></td>
-<td>WXMini/TRTCSimpleDemo/debug/GenerateTestUserSig.js</td>
+<td><a href="https://github.com/LiteAVSDK/Live_WXMini/tree/main/TRTCSimpleDemo/debug/GenerateTestUserSig.js">Github</a></td>
+<td>TRTCSimpleDemo/debug/GenerateTestUserSig.js </td>
 </tr><tr>
 <td>Flutter</td>
-<td><a href="https://github.com/c1avie/trtc_demo/blob/master/lib/debug/GenerateTestUserSig.dart">Github</a></td>
-<td>/lib/debug/GenerateTestUserSig.dart</td>
+<td><a href="https://github.com/LiteAVSDK/TRTC_Flutter/blob/master/TRTC-API-Example/lib/Debug/GenerateTestUserSig.dart">Github</a></td>
+<td>TRTC-API-Example/lib/Debug/GenerateTestUserSig.dart</td>
 </tr>
 </tbody></table>
 
@@ -116,14 +116,14 @@ TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256�
 
 为了简化您的实现过程，我们提供了多个语言版本的 UserSig 计算源代码（当前版本签名算法）：
 
-| 语言版本 | 签名算法    | 关键函数 | 下载链接 |
-| -------- | ----------- | ----------- | ----------- |
-| Java     | HMAC-SHA256 | [genSig](https://github.com/tencentyun/tls-sig-api-v2-java/blob/master/src/main/java/com/tencentyun/TLSSigAPIv2.java) | [Github](https://github.com/tencentyun/tls-sig-api-v2-java)  |
-| GO       | HMAC-SHA256 | [GenSig](https://github.com/tencentyun/tls-sig-api-v2-golang/blob/master/tencentyun/TLSSigAPI.go) | [Github](https://github.com/tencentyun/tls-sig-api-v2-golang) |
-| PHP      | HMAC-SHA256 | [genSig](https://github.com/tencentyun/tls-sig-api-v2-php/blob/master/src/TLSSigAPIv2.php) |  [Github](https://github.com/tencentyun/tls-sig-api-v2-php)  |
-| Node.js  | HMAC-SHA256 | [genSig](https://github.com/tencentyun/tls-sig-api-v2-node/blob/master/TLSSigAPIv2.js) | [Github](https://github.com/tencentyun/tls-sig-api-v2-node)  |
-| Python   | HMAC-SHA256 | [genSig](https://github.com/tencentyun/tls-sig-api-v2-python/blob/master/TLSSigAPIv2.py) | [Github](https://github.com/tencentyun/tls-sig-api-v2-python) |
-| C#       | HMAC-SHA256 | [GenSig](https://github.com/tencentyun/tls-sig-api-v2-cs/blob/master/tls-sig-api-v2-cs/TLSSigAPIv2.cs) |  [Github](https://github.com/tencentyun/tls-sig-api-v2-cs)   |
+| 语言版本 | 签名算法    | 关键函数                                                                                                              | 下载链接                                                      |
+|----------|-------------|-----------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------|
+| Java     | HMAC-SHA256 | [genSig](https://github.com/tencentyun/tls-sig-api-v2-java/blob/master/src/main/java/com/tencentyun/TLSSigAPIv2.java) | [Github](https://github.com/tencentyun/tls-sig-api-v2-java)   |
+| GO       | HMAC-SHA256 | [GenSig](https://github.com/tencentyun/tls-sig-api-v2-golang/blob/master/tencentyun/TLSSigAPI.go)                     | [Github](https://github.com/tencentyun/tls-sig-api-v2-golang) |
+| PHP      | HMAC-SHA256 | [genSig](https://github.com/tencentyun/tls-sig-api-v2-php/blob/master/src/TLSSigAPIv2.php)                            | [Github](https://github.com/tencentyun/tls-sig-api-v2-php)    |
+| Node.js  | HMAC-SHA256 | [genSig](https://github.com/tencentyun/tls-sig-api-v2-node/blob/master/TLSSigAPIv2.js)                                | [Github](https://github.com/tencentyun/tls-sig-api-v2-node)   |
+| Python   | HMAC-SHA256 | [genSig](https://github.com/tencentyun/tls-sig-api-v2-python/blob/master/TLSSigAPIv2.py)                              | [Github](https://github.com/tencentyun/tls-sig-api-v2-python) |
+| C#       | HMAC-SHA256 | [GenSig](https://github.com/tencentyun/tls-sig-api-v2-cs/blob/master/tls-sig-api-v2-cs/TLSSigAPIv2.cs)                | [Github](https://github.com/tencentyun/tls-sig-api-v2-cs)     |
 
 [](id:Old)
 ### 老版本签名算法 UserSig 计算源代码
@@ -132,11 +132,11 @@ TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256�
 如果您的 SDKAppID 是 2019-07-19 之前创建的，可以继续使用老版本的签名算法，算法的源码下载链接如下：
 
 | 语言版本 |   签名算法   |                          下载链接                          |
-| :------: | :----------: | :--------------------------------------------------------: |
+|:--------:|:------------:|:----------------------------------------------------------:|
 |   Java   | ECDSA-SHA256 |  [Github](https://github.com/tencentyun/tls-sig-api-java)  |
 |   C++    | ECDSA-SHA256 |    [Github](https://github.com/tencentyun/tls-sig-api)     |
 |    GO    | ECDSA-SHA256 | [Github](https://github.com/tencentyun/tls-sig-api-golang) |
 |   PHP    | ECDSA-SHA256 |  [Github](https://github.com/tencentyun/tls-sig-api-php)   |
-|  Node.js  | ECDSA-SHA256 |  [Github](https://github.com/tencentyun/tls-sig-api-node)  |
+| Node.js  | ECDSA-SHA256 |  [Github](https://github.com/tencentyun/tls-sig-api-node)  |
 |    C#    | ECDSA-SHA256 |   [Github](https://github.com/tencentyun/tls-sig-api-cs)   |
 |  Python  | ECDSA-SHA256 | [Github](https://github.com/tencentyun/tls-sig-api-python) |

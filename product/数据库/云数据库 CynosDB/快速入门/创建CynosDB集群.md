@@ -1,29 +1,33 @@
-本文为您介绍通过云原生数据库 TDSQL-C 控制台创建集群的操作。
+本文为您介绍通过 TDSQL-C MySQL 版控制台创建集群的操作。
 
 ## 前提条件
 购买前需要实名认证，请参见 [实名认证指引](https://cloud.tencent.com/document/product/378/3629)。
 
 ## 操作步骤
-1. 登录 [TDSQL-C 购买页](https://buy.cloud.tencent.com/cynosdb?regionId=8)，完成**数据库配置**设置，单击**下一步**。
+1. 登录 [购买页](https://buy.cloud.tencent.com/cynosdb?regionId=8)，完成**数据库配置**设置，单击**下一步**。
    - **计算计费模式**：支持包年包月、按量计费、Serverless 模式。
    - **地域**：选择您的数据库部署地域。
-   - **可用区**：选择部署可用区，对应地域下的可用区分布您可以实际购买页为准。
-   - **备可用区**：默认关闭，您可选择开启，然后选择您的备可用区。
+   - **主可用区**：选择部署可用区，对应地域下的可用区分布您可以实际购买页为准。
+   - **多可用区部署**：选择是否启用多可用区部署，选择是，会出现备可用区选项。
+   - **备可用区**：默认关闭，多可用区部署开启后，可选择您的备可用区。
    - **网络**：出于性能安全考虑，目前仅支持私有网络（VPC），云服务器需要与 TDSQL-C 在同一 [VPC](https://cloud.tencent.com/document/product/215) 下方可通信。
-   - **兼容数据库**：支持 MySQL 5.7、8.0 和 PostgreSQL 10.17。
+   - **兼容数据库**：支持 MySQL 5.7、8.0。
    - **计算实例数**：实例数包含一个读写实例，其余均为只读实例。请至少选择两个实例保证集群高可用，集群创建后可通过增加只读实例扩展集群的读能力。
-   - **实例规格**：计算实例规格和存储量请参考[计费概述](https://cloud.tencent.com/document/product/1003/30493)。
+   - **实例规格**：计算实例规格和存储量请参考 [计费概述](https://cloud.tencent.com/document/product/1003/30493)。
+   ![](https://qcloudimg.tencent-cloud.cn/raw/4fdd7cbfe846228487633ea04b67429f.png)
+>?如所需实例规格售罄，可单击**需要该实例**，在弹窗里会为您推荐其他可用区的同规格实例，如均不满足需求，可 [提交工单](https://console.cloud.tencent.com/workorder/category)。
+>![](https://qcloudimg.tencent-cloud.cn/raw/16c3aa121af13f6c78e5786aebd13e2e.png)
+>
    - **存储计费模式**：
-     - 支持按量计费，即购买时无需指定存储，TDSQL-C 按每小时存储实际使用量计费。
+     - 支持按量计费，即购买时无需指定存储，TDSQL-C MySQL 版按每小时存储实际使用量计费。
      - 支持包年包月，即预购存储空间，未使用部分仍然计费。
->?仅 TDSQL-C MySQL版 支持选择预购存储空间，且仅在 TDSQL-C MySQL版 选择包年包月计费模式后，存储才能选择预购存储空间包年包月计费模式。
-![](https://qcloudimg.tencent-cloud.cn/raw/575e4e20dce78ebeb8e922c66c0026c3.png)
+>?仅在选择包年包月计费模式后，存储才能选择预购存储空间包年包月计费模式。
    - **自动续费**：账户余额足够时，设备到期后按月自动续费。
 2. 完成**基础信息**设置和**高级配置**设置，选择购买**时长**，确认费用后单击**立即购买**。
    - **基础信息**
      - **集群名**：可选择创建后命名或立即命名。支持长度小于60的中文、英文、数字、`-`、`_`、`.`。
      - **管理员用户名**：默认为root。
-     - **密码**：8 - 64个字符，包含大小写英文字母、数字和符号`~!@#$%^&*_-+=|\(){}[]:;'<>,.?/`中的任意三种。
+     - **密码**：8 - 64个字符，包含大小写英文字母、数字和符号 `~!@#$%^&*_-+=|\(){}[]:;'<>,.?/` 中的任意三种。
      - **默认字符集**：支持 UTF8、GBK、LATIN1、UTF8MB4。
      - **自定义端口**：默认为3306，您也可自定义输入。
    - **高级配置**
@@ -36,17 +40,15 @@
      - **协议条款**：阅读并勾选协议条款。
 ![](https://qcloudimg.tencent-cloud.cn/raw/cc12dd687f45b285f037b494bfe57d7f.png)
 >?
->- 当鼠标指向**计算费用**会出现计算费用相关明细。
->![](https://qcloudimg.tencent-cloud.cn/raw/186a878bc9d52bec6d414525d7d68b96.png)
->- 当鼠标指向存储费用时会出现存储相关费用明细。
->![](https://qcloudimg.tencent-cloud.cn/raw/d5cd00167c005ff025ddcb63a01b9f9a.png)
+>- 当鼠标指向**配置费用**会出现计算费用、存储费用等相关明细。
+>![](https://qcloudimg.tencent-cloud.cn/raw/2c3a0e3e554be7beb31d2c6ffd53edeb.png)
 >- 集群购买数量
->按量计费模式：在每个可用区，每个用户可购买的 TDSQL-C 集群总数量不超过10个，如需购买超过10个，请 [提交工单](https://console.cloud.tencent.com/workorder/category)。
+>按量计费模式：在每个可用区，每个用户可购买的 TDSQL-C MySQL 版集群总数量不超过10个，如需购买超过10个，请 [提交工单](https://console.cloud.tencent.com/workorder/category)。
 >包年包月计费模式：不限制集群购买数量。
 >- 当集群存储数据量超过最大存储空间时，集群仅能读取数据不能写入，用户可以选择删除冗余数据或者升级规格。
 >
 3. 购买成功后，返回集群列表，待集群状态显示为**运行中**，即可正常使用。
 
 ## 后续操作
-购买 TDSQL-C 集群后，可通过集群内外网地址或数据管理平台连接 TDSQL-C 集群，请参见 [连接 TDSQL-C 集群](https://cloud.tencent.com/document/product/1003/37907)。
+购买 TDSQL-C MySQL 版集群后，可通过集群内外网地址或数据管理平台连接 TDSQL-C MySQL 版集群，请参见 [连接集群](https://cloud.tencent.com/document/product/1003/37907)。
 

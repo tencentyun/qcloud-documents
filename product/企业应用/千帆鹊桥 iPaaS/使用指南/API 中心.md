@@ -59,14 +59,14 @@ API Endpoint 指一个 API 服务可以连接的后端服务信息，包括 API 
 1. 在 [API 管理](https://console.cloud.tencent.com/eis/apimanage) 页面，单击目标 API 服务名称，进入服务详情页。
 2. 单击**添加API Endpoint**，进行 API Endpoint 基本配置，完成后单击**下一步：策略信息**。
 	- 访问路径：访问路径必须要以“/”开头
-	- 后端服务：支持选择现成的集成流或者绑定第三方服务BASE URL
+	- 后端服务：支持选择现成的集成流或者绑定第三方服务 BASE URL
 	 - 当选择的后端服务为“集成流”模式时，集成流只可以选择已发布的，并且配置了拥有 HTTP 监听能力组件的流。
 	 - 当选择“第三方服务BASE URL”时，在资源路径处输入资源链接
 	- 描述：选填<br>
 	<img src="https://qcloudimg.tencent-cloud.cn/raw/2436999ee9cebd9feb56ba97b96ed9cc.png" width="70%">
 3. 在策略信息页面，配置以下信息，完成后单击**下一步：参数信息**。
 >?
->- 与API服务的策略信息配置方式类似，允许用户在此endpoint所归属的API服务的策略限制基础上，配置第二层策略限制。两层限制共同生效。
+>- 与 API 服务的策略信息配置方式类似，允许用户在此 Endpoint 所归属的 API 服务的策略限制基础上，配置第二层策略限制。两层限制共同生效。
 >- 配置鉴权策略：您可以单击“同步服务策略”，一键同步上层的API服务策略，或者手动填写新的管理策略。
 >此处可选择的鉴权策略范围为上层 API 服务的鉴权策略，即若上层 API 服务只允许 OAuth 2.0 的鉴权方式，则下层的 API Endpoint 只允许配置 OAuth 2.0，而不能配置 Basic Auth。
 >
@@ -86,11 +86,11 @@ API Endpoint 指一个 API 服务可以连接的后端服务信息，包括 API 
 2. 在运维页面，您可以查看此 API 在规定时间范围内的请求记录和状态汇总。
 ![](https://qcloudimg.tencent-cloud.cn/raw/651244e1f921534fbf49ef8d637c2a02.png)
 
-同时，为了方便用户对配置完成的API进行在线的调试，我们还提供了通过控制台实时发送测试请求并且获取模拟测试结果的机制。操作步骤如下：
+同时，为了方便用户对配置完成的 API 进行在线的调试，我们还提供了通过控制台实时发送测试请求并且获取模拟测试结果的机制。操作步骤如下：
 1. 在 [API 管理](https://console.cloud.tencent.com/eis/apimanage) 页面，单击目标 API 服务名称前面的![](https://qcloudimg.tencent-cloud.cn/raw/d04f6623eab2d6d840ecd8b54f986fe2.png)，显示访问路径。
 2. 在访问路径中，单击操作列的**调试**，进入 API调试页面。
 ![](https://qcloudimg.tencent-cloud.cn/raw/bf5175bc271b36caaeb2164802bc30ad.png)
-3. 在 API调试页面，您可以配置此 API Endpoint 的请求 Header 和 Body 内容，并单击**发送请求**。
+3. 在 API 调试页面，您可以配置此 API Endpoint 的请求 Header 和 Body 内容，并单击**发送请求**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/9b2f590152d6d03f7295c76a5d5e8792.png)
 随后即可获取到测试的结果。我们会将后端服务返回的 Response 状态码和结果返回给用户，方便进行进一步的调试工作。
 ![](https://qcloudimg.tencent-cloud.cn/raw/89ba06b81a08f9fed3f1822b78e9f2a1.png)
@@ -99,15 +99,15 @@ API Endpoint 指一个 API 服务可以连接的后端服务信息，包括 API 
 
 千帆鹊桥 iPaaS 会根据用户已经配置完成的 API 服务（包括其 Endpoint）生成用户可以调用的开放 API。在 API 用户中心中，我们将会帮助您更好的管理每个 API 服务的用户，以及分配用户对于 API 的使用权限。
 
-[API用户中心](https://console.cloud.tencent.com/eis/apiusercenter) 首页是以列表的形式展示当前可以配置的所有 API 服务信息，但是展示维度与“API管理”略有不同。
+[API 用户中心](https://console.cloud.tencent.com/eis/apiusercenter) 首页是以列表的形式展示当前可以配置的所有 API 服务信息，但是展示维度与“API管理”略有不同。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d407877d42b4639133effd9bef8696d8.png)
 
 
 ### 用户管理
 
-用户管理功能允许API的提供者帮助其用户添加及管理账号、分配权限，并获取请求API时所需要的所有必要信息。
+用户管理功能允许 API 的提供者帮助其用户添加及管理账号、分配权限，并获取请求 API 时所需要的所有必要信息。
 
-API 服务提供方可以将会以类似管理者的视角去统一管理用户，允许查看用户的OAuth信息并分享给用户以便用户调用，或者进行用户的封禁和启用。
+API 服务提供方可以将会以类似管理者的视角去统一管理用户，允许查看用户的 OAuth 信息并分享给用户以便用户调用，或者进行用户的封禁和启用。
 ![](https://qcloudimg.tencent-cloud.cn/raw/fa00eaf3f54208a7599bcca3e4680623.png)
 
 添加用户的时候需要提供以下用户信息，以便能够更好的记录和维护。同时，此处的用户名称和用户密码也将作为对应 API 服务的 Basic Auth 验证方式。

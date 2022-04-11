@@ -24,18 +24,57 @@
 - **及时扩容场景：**对带宽、连接数、磁盘使用率等监控项设置告警规则后，可以让您方便的了解云服务现状，在业务量变大后及时收到告警通知进行服务扩容。
 
 ## 监控内容
-监控实例性能基准，您应至少监控以下各项：
+监控实例性能基准，您应至少监控以下各项。您可前往 [云服务器控制台](https://console.cloud.tencent.com/cvm/instance)，在实例详情页面中获取相关监控信息。
 
-| 监控项 | 监控指标 |
-|---------|---------|
-| CPU 利用率 | cpu_usage |
-| 内存利用率	 | mem_usage|
-| 内网出带宽 | lan_outtraffic |
-| 内网入带宽	 | lan_intraffic|
-| 外网出带宽	 | wan_outtraffic|
-| 外网入带宽	 | wan_intraffic|
-|磁盘使用率	|disk_usage	|
-|磁盘 I/O 等待时间	|disk_io_await	|
+<table>
+<thead>
+<tr>
+<th width="20%">监控项</th>
+<th>监控指标</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>CPU 利用率</td>
+<td>cpu_usage</td>
+<td>CPU 使用比率，通过服务器内部监控组件采集上报，数据更加精准。</td>
+</tr>
+<tr>
+<td>内存利用率</td>
+<td>mem_usage</td>
+<td>用户实际使用的内存量与总内存量之比，不包括缓冲区与系统缓存占用的内存。</td>
+</tr>
+<tr>
+<td>内网出带宽</td>
+<td>lan_outtraffic</td>
+<td>内网网卡的平均每秒出流量。</td>
+</tr>
+<tr>
+<td>内网入带宽</td>
+<td>lan_intraffic</td>
+<td>内网网卡的平均每秒入流量。</td>
+</tr>
+<tr>
+<td>外网出带宽</td>
+<td>wan_outtraffic</td>
+<td>外网平均每秒出流量，最小粒度数据为10秒，由总流量/10秒计算得出。</td>
+</tr>
+<tr>
+<td>外网入带宽</td>
+<td>wan_intraffic</td>
+<td>外网平均每秒入流量。</td>
+</tr>
+<tr>
+<td>磁盘使用率</td>
+<td>disk_usage</td>
+<td>磁盘使用率。</td>
+</tr>
+<tr>
+<td>磁盘 I/O 等待时间</td>
+<td>disk_io_await</td>
+<td>硬盘 I/O 平均每次操作的等待时间。</td>
+</tr>
+</tbody></table>
 
 ## 监控数据
 - **监控间隔：**当前云监控提供1分钟、5分钟、1小时、1天多种监控数据统计粒度，云服务器能支持1分钟监控粒度，即每隔1分钟统计一次数据，默认情况间隔5分钟。

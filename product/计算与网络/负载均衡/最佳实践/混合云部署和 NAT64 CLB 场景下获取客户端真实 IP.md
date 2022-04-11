@@ -1,12 +1,18 @@
 本文介绍混合云部署场景和 NAT64 CLB 场景下的 CLB 的四层（仅 TCP）服务如何通过 TOA 获取客户端真实源 IP。
 <dx-steps>
+-[控制台开启 TOA](#loadopentoa)
 -[加载 TOA 模块](#load-toa)
 -[适配后端服务](#adapt-rs)
 -[（可选）监控 TOA 模块状态](#monitor-toa)
 </dx-steps>
 
->?仅四层 TCP 可通过 TOA 获取客户端真实源 IP，UDP 和七层（HTTP/HTTPS）无法获取。
+>?
+>- 仅北京地域支持通过 TOA 获取客户端真实源 IP。
+>- 仅四层 TCP 支持通过 TOA 获取客户端真实源 IP，UDP 和七层（HTTP/HTTPS）不支持获取。
+>- 该功能目前处于内测中，如需使用，请提交 [工单申请](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=163&source=0&data_title=%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%20CLB&level3_id=1068&radio_title=%E9%85%8D%E9%A2%9D/%E7%99%BD%E5%90%8D%E5%8D%95&queue=96&scene_code=41669&step=2)。
 >
+
+
 ## 应用场景
 ### 混合云部署场景
 在 [混合云部署](https://cloud.tencent.com/document/product/214/48181) 中，IDC 的 IP 和云上 VPC 的 IP 可能会有地址重叠，因此需要配置 SNAT IP，进行 SNAT 转换源 IP。对于服务端而言，无法获得真实源 IP，因此需要通过 TOA 进行获取。
@@ -32,6 +38,13 @@
  - 腾讯自研的 TencentOS 内嵌的 TOA 模块支持混合云部署场景下获取真实源 IP，因此若服务端的系统为 TencentOS 且为混合云部署时，可尝试直接执行 `modprobe toa` 命令进行加载使用。需要注意的是，TencentOS 与其他发行版 Linux 系统是两套 TOA，不支持混用。
 :::
 </dx-accordion>
+
+## 控制台开启 TOA[](id:loadopentoa)
+1. 已创建 NAT64 版本的 CLB 实例，详情请参见 [创建 IPv6 NAT64 负载均衡实例](https://cloud.tencent.com/document/product/214/30440)。
+2. 登录 [负载均衡控制台](https://console.cloud.tencent.com/clb)，创建 TCP 监听器，详情请参见 [配置 TCP 监听器](https://cloud.tencent.com/document/product/214/36386)。
+3. 在“创建监听器”对话框中，开启 TOA 开关。
+![](https://qcloudimg.tencent-cloud.cn/raw/c92df2a900b94e104d261c5dbb475202.png)
+
 
 
 

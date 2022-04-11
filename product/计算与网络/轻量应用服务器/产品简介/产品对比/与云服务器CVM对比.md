@@ -81,9 +81,7 @@
 
 <dx-alert infotype="explain" title="">
 - 轻量应用服务器相比云服务器 CVM 在功能层面的主要限制包括：
-  - 实例创建完成后，不支持更换公网 IP 地址。
-  - 实例支持以套餐为单位进行配置（计算、存储和网络）的整体升级，但不支持降级套餐。详情请参见 [升级实例套餐](https://cloud.tencent.com/document/product/1207/51730)。
-  - 目前不支持生成备案授权码。
+ 实例支持以套餐为单位进行配置（计算、存储和网络）的整体升级，但不支持降级套餐。详情请参见 [升级实例套餐](https://cloud.tencent.com/document/product/1207/51730)。
  轻量应用服务器具体使用限制说明，请参见 [使用限制](https://cloud.tencent.com/document/product/1207/44376)。
 - 轻量应用服务器在内网连通性上也存在一定限制，详情请参见 [地域与网络连通性](https://cloud.tencent.com/document/product/1207/50103)。
 - 轻量应用服务器的 [云硬盘](https://cloud.tencent.com/document/product/1207/63920) 和云服务器 CVM 的 [云硬盘](https://cloud.tencent.com/document/product/213/4953) 相互独立。轻量应用服务器的云硬盘仅支持挂载至轻量应用服务器实例，无法挂载至云服务器 CVM。

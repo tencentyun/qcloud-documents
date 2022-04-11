@@ -7,7 +7,7 @@
 
 <dx-alert infotype="notice" title="">
 - Python 版本必须为2.7及以上版本，更多内容请参考 [Python](https://www.python.org/) 和 [pip](https://pypi.org/project/pip/) 官网文档。
-- TCCLI 依赖于 TencentCloudApi Python SDK，如果 TencentCloudApi Python SDK 的版本号小于要安装 TCCLI 版本号，在安装 TCCLI 时会自动升级 TencentCloudApi Python SDK。
+- TCCLI 依赖于 TencentCloudApi Python SDK，如果 TencentCloudApi Python SDK 的版本号小于要安装 TCCLI 版本号，在安装 TCCLI 时会自动升级 TencentCloudApi Python SDK。如需查看 TCCLI 最新版本相关信息，请前往 [github 仓库](https://github.com/TencentCloud/tencentcloud-cli)。
 </dx-alert>
 
 

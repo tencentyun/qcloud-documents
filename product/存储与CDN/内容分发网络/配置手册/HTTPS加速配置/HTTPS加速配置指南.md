@@ -11,9 +11,9 @@
 也可前往左侧菜单栏**证书管理**页面，查看账号下所有配置了 HTTPS 加速的域名列表、证书列表。
 
 - 域名列表：展示已配置证书的域名列表。
-![](https://qcloudimg.tencent-cloud.cn/raw/37b50d1bdb9a4687434371c18804eb38.jpg)
+![](https://qcloudimg.tencent-cloud.cn/raw/fd49b84c8d85c1cd789a4bd023d96ab6.jpg)
 - 证书列表：展示已托管证书列表。
-![](https://qcloudimg.tencent-cloud.cn/raw/3435b54d5c7e0502928f60b7aa9040c4.jpg)
+![](https://qcloudimg.tencent-cloud.cn/raw/2a84c321de4e72f3be53b182068b28c6.jpg)
 
 ### 证书配置
 
@@ -33,7 +33,7 @@
 - 腾讯云 CDN 现已支持 ECC 证书部署。
 - 证书内容需要为 PEM 格式，非此格式证书请参考 [PEM 格式转换](https://cloud.tencent.com/document/product/228/41686#.E6.A0.BC.E5.BC.8F.E8.BD.AC.E6.8D.A2)。
 - 可选择腾讯云托管证书，直接进行一键部署。
-![](https://main.qcloudimg.com/raw/05bf07790a4cffc1ca98877c14767471.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/33e7ec5685282f7f0a17eb2d0edcdfa7.png)
 
 
 
@@ -53,7 +53,7 @@
 #### 2. 选择域名
 
 根据上传 / 选择的证书，CDN 会自动匹配出允许配置的域名列表，可按需进行勾选配置：
-![](https://main.qcloudimg.com/raw/89ad35a4fb3a5b30c0736c88bb06cf37.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/068cf040a9332c3139817e65905d5173.png)
 
 
 
@@ -62,7 +62,7 @@
 #### 证书修改
 
 单击证书右侧**编辑**，可指定域名进行证书更新，也可重新进行批量配置，覆盖原有证书配置。
-![](https://qcloudimg.tencent-cloud.cn/raw/26e782733bc0dbc7be373e57b3b49ec7.jpg)
+![](https://qcloudimg.tencent-cloud.cn/raw/73034c0dfa7867e3afdfd3235a105a5c.jpg)
 更新证书全网逐节点生效，无缝切换，不会影响现网 HTTPS 服务，也可单击**删除**，取消 HTTPS 加速服务。
 
 #### 证书过期

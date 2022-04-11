@@ -2,8 +2,8 @@
 ### UserSig 介绍
 UserSig 是腾讯云设计的一种安全保护签名，目的是为了阻止恶意攻击者盗用您的云服务使用权。
 
-目前，腾讯云的移动直播（MLVB）、实时音视频（TRTC）以及即时通信（IM）等服务都采用了该套安全保护机制。要使用这些服务，您都需要在相应 SDK 的初始化或登录函数中提供 SDKAppID、UserID 和 UserSig 三个关键信息。
- 
+目前，腾讯云视立方·直播 SDK、实时音视频（TRTC）以及即时通信（IM）等服务都采用了该套安全保护机制。要使用这些服务，您都需要在相应 SDK 的初始化或登录函数中提供 SDKAppID、UserID 和 UserSig 三个关键信息。
+
 其中 SDKAppID 用于标识您的应用，UserID 用于标识您的用户，而 UserSig 则是基于前两者计算出的安全签名，它由 **HMAC SHA256** 加密算法计算得出。只要攻击者不能伪造 UserSig，就无法盗用您的云服务流量。
 
 UserSig 的计算原理如下所示，其本质就是对 SDKAppID、UserID 和 ExpireTime 等关键信息进行了一次哈希加密：
@@ -31,7 +31,7 @@ usersig = hmacsha256(secretkey, (userid + sdkappid + currtime + expire +
 
 | 语言版本 |  适用平台 | 源码位置 |
 |:---------:|:---------:|:---------:|
-| Objective-C | iOS  | [Github](https://github.com/tencentyun/MLVBSDK/blob/master/iOS/MLVB-API-Example/Debug/GenerateTestUserSig.h)|
+| Objective-C | iOS  | [Github](https://github.com/LiteAVSDK/Live_iOS/blob/main/MLVB-API-Example-OC/Debug/GenerateTestUserSig.h)|
 | Java | Android  | [Github](https://github.com/tencentyun/MLVBSDK/blob/master/Android/Demo/debug/src/main/java/com/tencent/liteav/debug/GenerateTestUserSig.java) |
 | Javascript | 小程序 | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/WXMini/pages/mlvb-live-room-demo/debug/GenerateTestUserSig.js)|
 
@@ -43,6 +43,7 @@ usersig = hmacsha256(secretkey, (userid + sdkappid + currtime + expire +
 >正确的做法是将 UserSig 的计算代码放在您的业务服务器上，然后由您的 App 在需要的时候向您的服务器获取实时算出的 UserSig。
 
 [](id:Server)
+
 ### 服务端计算
 
 采用服务端计算 UserSig 的方案，可以最大限度地保障计算 UserSig 用的密钥不被泄露，因为攻破一台服务器的难度要高于逆向一款 App。具体的做法如下：

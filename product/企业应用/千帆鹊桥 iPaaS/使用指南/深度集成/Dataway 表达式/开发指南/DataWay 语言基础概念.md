@@ -1,9 +1,8 @@
-DataWay 语言是一门在千帆鹊桥 iPaaS 中用于对数据进行自定义转换与处理的表达式脚本语言。使用 DataWay 可以编写出强大和复杂的数据转换程序，在此之前需要先了解一下 DataWay 中的核心概念和功能。
+DataWay 语言是一门在千帆鹊桥 iPaaS 中用于对数据进行自定义转换与处理的表达式脚本语言。使用 DataWay 可以编写出强大和复杂的数据转换程序，在此之前需要先了解 DataWay 中的核心概念和功能。
 
 
 ## 脚本结构
 - 完整的 DataWay 脚本符合语法定义的 Python3 代码段，其中包含入口函数定义 def dw_process(msg) ，例如：
-
 ```python
 def dw_process(msg):  
     sq = func(3)
@@ -19,7 +18,6 @@ def func(x):
 - dw_process 入口函数仅接受一个参数 msg，该参数代表当前表达式需要处理的千帆鹊桥 iPaaS 消息，dw_process 的返回值即是表达式的返回值。
 - 内置的 Entity.from_value 函数用于为构造 Entity 类型的返回值，可以指定序列化参数，例如：mime_type、encoding 等。
 - 在 Set Payload 组件中输入上述表达式，假设该组件的输入消息为 json 结构的数据`{"realData": 123}`，经过 DataWay 表达式的计算，得到的输出结果如下：
-
 ```json
 {    
     "square": 9,
@@ -94,7 +92,6 @@ DataWay 支持常见的运算符：算数运算符、比较运算符、赋值运
 
 ### 条件及循环控制语句
 - DataWay 通过 if/elif/else 语句来进行条件控制。示例如下：通过判断 a 的值，返回不同的字符串：
- 
 ```python
 def dw_process(msg):  
     a = 100
@@ -107,7 +104,6 @@ def dw_process(msg):
 ```
 DataWay 表达式的运行结果为：`a is between 10 and 100`
 - DataWay 通过 for 循环进行循环控制。示例如下：通过 for 循环，得到 a 中元素的乘积：
- 
 ```python
 def dw_process(msg): 
     a = [1, 2, 3, 4]
@@ -177,13 +173,14 @@ Dataway Hello World!
 ```
 
 >!DataWay 提供语法检查功能，在编写代码时会进行实时语法检查，并给出错误提示。详细的 Python 语法说明可以参考 [Python 官方文档](https://docs.python.org/zh-cn/3.5/reference/index.html)。
+
 ## dw_process 入口函数
 - dw_process 是 DataWay 的主入口函数，其作用相当于 C/C++语言中的 main 函数。
 - dw_process 仅接受一个类型为 [Message](#message-explain) 的参数，而其返回值就是该 DataWay 表达式最终的输出值。
 - 作为 千帆鹊桥iPaaS 数据处理流程的一个环节，dw_process 函数的返回值目前支持的类型有：str/None/bool/float/int/list/dict/Entity/MultiMap/FormDataParts/Message 等。
 - 关于 DataWay 中数据类型及返回值的详细介绍，可参考 [DataWay 数据类型系统](#dataway-types)。
 
-## DataWay 数据类型系统
+## DataWay 数据类型系统[](id:dataway-types)
 
 | 类型名            | 说明                                                         | 是否 DataWay 特有类型       | 举例                                                         |
 | ----------------- | ------------------------------------------------------------ | ------------------------- | ------------------------------------------------------------ |
@@ -201,8 +198,10 @@ Dataway Hello World!
 |FormDataParts | 数组+列表的数据结构，类似于 Python 中的 orderDict 结构       | 是 | multipart/form-data 格式的数据解析后得到的对象               |
 | Message       | 即 千帆鹊桥iPaaS 中的消息，在 dataWay 中以 Message 进行访问            |是| dw_process 入口函数中的 msg 参数                             |
 
->!1. 上述类型可以在 DataWay 表达式中使用，但 **dw_process 函数的返回值的类型为其中的 str/None/ bool/float/int/list/ dict/Entity/MultiMap/FormDataParts/Message 之一**。
->2. 需要注意的是，如果 DataWay 表达式输出的值会作为集成流的最终返回结果，则支持的返回值类型还会受到相应连接器组件的限制。如在以 HTTP listener 组件作为第一个组件的流中，其最终的 payload 也需要是一个 Entity 类型。
+>!
+>- 上述类型可以在 DataWay 表达式中使用，但 **dw_process 函数的返回值的类型为其中的 str/None/ bool/float/int/list/ dict/Entity/MultiMap/FormDataParts/Message 之一**。
+>- 需要注意的是，如果 DataWay 表达式输出的值会作为集成流的最终返回结果，则支持的返回值类型还会受到相应连接器组件的限制。如在以 HTTP listener 组件作为第一个组件的流中，其最终的 payload 也需要是一个 Entity 类型。
+
 ## Message 类型及预定义属性
 
 Message 类型是 DataWay 用于表示一条 千帆鹊桥iPaaS 消息的数据类型，其中包含 payload、vars、attrs 等属性，称之为**预定义属性（Predefined Properties）**。这些属性是由系统根据当前运行信息及处理的消息生成的，用于在 DataWay 中通过程序化的方式获取上下文信息。

@@ -6,7 +6,7 @@
 ### 快速接入
 >!小程序插件 CaptchaAppId 仅限小程序插件接入方式使用，请勿使用在 Web 前端接入。
 
-以下代码为图形验证功能的前端接入示例代码，根据应用场景，以此作为参考完成 Web 前端的接入。
+ 以下代码为图形验证码直接绑定按钮的前端接入示例代码，如有其他接入要求（执行逻辑后调用验证码、配置验证码语言/弹出方式等），请参考[定制接入](#dzjr)章节。 
 ```
 <!DOCTYPE html>
 <html lang="en">
@@ -108,7 +108,7 @@ window.callback = function(res){
 ```
 
 
-### 定制接入
+### [定制接入](id:dzjr)
 1. 如果不使用默认 id，可以通过实例化 TencentCaptcha 类，自定义参数来创建验证码组件。
 >!绑定单击的元素不要使用`id="TencentCaptcha"`的元素，避免重复绑定单击。
 >
@@ -178,10 +178,9 @@ new TencentCaptcha(element, CaptchaAppId, callback, options);
 <td>更多配置参数, 请参见 <a href="#pzcs">配置参数</a></td>
 </tr>
 </tbody></table>
- 
- 
-- **示例代码**
 
+
+- **示例代码**
 ```
 //方法1: 直接生成一个验证码对象。
 try {
@@ -290,13 +289,13 @@ options 提供以下配置参数：
 | :------------- | :-------------- | :----------------------------------------------------------- |
 | bizState       | Any             | 自定义透传参数，业务可用该字段传递少量数据，该字段的内容会被带入 callback 回调的对象中。 |
 | enableDarkMode | Boolean,'force' | 开启自适应深夜模式, 'force'将强制深夜模式。                  |
-| sdkOpts        | Object          | 示例 {"width": 140, "height": 140}<br>仅支持移动端原生 webview 调用时传入，为设置的验证码元素 loading 弹框大小。 |
-| ready          | Function        | 验证码加载完成的回调，回调参数为验证码实际的宽高：<br>{"sdkView": {<br>"width": number,<br>"height": number<br>}}<br>请勿使用此参数直接设定宽高。 |
+| sdkOpts        | Object          | 示例 {"width": 140, "height": 140}<br>仅支持移动端原生 webview 调用时传入，用来设置验证码loading加载弹窗的大小（并非验证码弹窗大小）。 |
+| ready          | Function        | 验证码加载完成的回调，回调参数为验证码实际的宽高：<br>{"sdkView": {<br>"width": number,<br>"height": number<br>}}<br>该参数仅为查看验证码宽高使用，请勿使用此参数直接设定宽高。 |
 | needFeedBack   | Boolean         | 隐藏帮助按钮。 示例 { needFeedBack: false }                  |
-| userLanguage   | String          | 指定验证码提示文案的语言，优先级高于后台配置，暂时仅支持滑块拼图验证码。支持传入值同 navigator.language 用户首选语言，大小写不敏感。详情请参见 [userLaguage 配置参数](#userLanguage)。 |
+| userLanguage   | String          | 指定验证码提示文案的语言，优先级高于后台配置，暂时仅支持滑块拼图验证码。支持传入值同 navigator.language 用户首选语言，大小写不敏感。详情请参见 [userLanguage 配置参数](#userLanguage)。 |
 |type|String|定义验证码展示方式。<li>popup（默认）弹出式，以浮层形式展示验证码。</li><li>embed 嵌入式，以嵌入指定容器元素中的方式展示验证码。详情请参见 [热点问题-验证码以嵌入式方式进行展示如何配置?](#Q1)。</li>|
 
-**userLaguage 配置参数**[](id:userLanguage)
+**userLanguage 配置参数**[](id:userLanguage)
 
 | 参数名 | 说明                 |
 | :------- | :------------------- |

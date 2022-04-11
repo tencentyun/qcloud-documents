@@ -1,4 +1,4 @@
-快直播（LEB）是标准直播在超低延迟播放场景下的延伸，比传统直播协议延迟更低，为观众提供毫秒级的极致**直播观看**体验。
+快直播（LEB）是标准直播在超低延时播放场景下的延伸，比传统直播协议延迟更低，为观众提供毫秒级的极致**直播观看**体验。
 在您使用快直播服务前，建议您提前阅读 [快直播服务费用](https://cloud.tencent.com/document/product/267/39136)，清楚收费项目和价格，避免产生误解。
 
 > ! 由于快直播使用的是 WebRTC 协议的低延迟特性，默认不支持 B 帧且音频编解码方式为 opus 编解码。为了保证快直播流可播放，当推流时带 B 帧或音频编码非 opus 编码时，云直播后台会自动发起转码去B帧并转码为 opus 编码，从而产生 [标准转码费用](https://cloud.tencent.com/document/product/267/39889)。
@@ -6,15 +6,15 @@
 [](id:app)
 ## App 接入
 ### 接入说明
-iOS、Android 上的应用可以通过集成移动直播 SDK 来实现 App 端上的直播推流/播放功能。
+iOS、Android 上的应用可以通过集成腾讯云视立方·直播 SDK 来实现 App 端上的直播推流/播放功能。
 
 - **App 端直播推流**：支持采集摄像头画面或者采集手机界面，通过 RTMP 协议快速推流到云直播服务上，详情请参见 [摄像头推流](https://cloud.tencent.com/document/product/454/56591) 和 [录屏推流](https://cloud.tencent.com/document/product/454/56594)。
 - **App 端直播播放**：支持 WebRTC 播放协议，配合快直播服务快速打造低延迟直播体验，详情请参见 [快直播拉流](https://cloud.tencent.com/document/product/454/55880)。
 
->? 移动直播 SDK 借助云直播、即时通信 IM、TRTC 等服务实现了多人音视频低延迟互联互通，可以实现多人连麦的互动效果，不参与连麦的观众仍通过直播服务观看，详情请参见 [直播连麦互动](https://cloud.tencent.com/document/product/454/52751)。
+>?  腾讯云视立方·直播 SDK 借助云直播、即时通信 IM、TRTC 等服务实现了多人音视频低延迟互联互通，可以实现多人连麦的互动效果，不参与连麦的观众仍通过直播服务观看，详情请参见 [直播连麦互动](https://cloud.tencent.com/document/product/454/52751)。
 
 ### Demo 体验
-视频云工具包是腾讯云开源的一套完整的音视频服务解决方案，您可通过视频云工具包体验快直播毫秒级低延迟拉流能力。
+视频云工具包是腾讯云开源的一套完整的音视频服务解决方案，您可通过视频云工具包体验快直播毫秒级低延时拉流能力。
 <table>
   <tr>
     <th><div align="center">开发端</div></th>
@@ -38,7 +38,7 @@ iOS、Android 上的应用可以通过集成移动直播 SDK 来实现 App 端�
   </tr>
   <tr>
       <td >iOS</td>
-    <td style="text-align:center"><img src="https://main.qcloudimg.com/raw/12c7da97cc910eda673cb19b66fc7cb3.png" width="150"></td>
+    <td style="text-align:center"><img src="https://main.qcloudimg.com/raw/82f6b81a28f310c5edc5c3237e326e2f.png" width="150"></td>
   </tr>
 </table>
 
@@ -70,7 +70,7 @@ iOS、Android 上的应用可以通过集成移动直播 SDK 来实现 App 端�
 
 [](id:obs)
 ## OBS WebRTC 协议推流接入
-WebRTC 协议推流主要用于视频云的快直播（超低延迟直播）推流，负责将采集的音视频画面或者视频文件通过 WebRTC 协议推送到直播服务器。下述内容主要介绍如何使用 OBS 工具，实现 webRTC 协议推流功能。
+WebRTC 协议推流主要用于视频云的快直播（超低延时直播）推流，负责将采集的音视频画面或者视频文件通过 WebRTC 协议推送到直播服务器。下述内容主要介绍如何使用 OBS 工具，实现 webRTC 协议推流功能。
 
 ### 注意事项
 - 目前对 OBS 的版本要求在26版本或版本以上。
@@ -89,13 +89,13 @@ WebRTC 协议推流主要用于视频云的快直播（超低延迟直播）推�
 ### 配置推流链接
 [](id:push)
 1. **生成 WebRTC 推流地址**。
-	1. 登录腾讯云直播控制台，在 **直播工具箱** > **[地址生成器](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator)** 生成推流地址，具体操作请参见 [地址生成器](https://cloud.tencent.com/document/product/267/35257)。
-	2. 把生成的 `rtmp` 前缀修改成 `webrtc`，具体使用说明请参见 [自主拼装直播 URL](https://cloud.tencent.com/document/product/267/32720)。
-	![](https://main.qcloudimg.com/raw/34924378812d1a36f04cfe1a2180e7a0.png)    
+  1. 登录腾讯云直播控制台，在 **直播工具箱** > **[地址生成器](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator)** 生成推流地址，具体操作请参见 [地址生成器](https://cloud.tencent.com/document/product/267/35257)。
+  2. 把生成的 `rtmp` 前缀修改成 `webrtc`，具体使用说明请参见 [自主拼装直播 URL](https://cloud.tencent.com/document/product/267/32720)。
+  ![](https://main.qcloudimg.com/raw/34924378812d1a36f04cfe1a2180e7a0.png)    
 2. **配置 OBS 推流服务**。[](id:set_obs)
-	1. 打开 OBS，您可通过底部工具栏的 **控件** > **设置** 按钮进入设置界面。
-	2. 单击 **推流** 进入流设置页签，选择服务类型为 `Tenent webrtc`，服务器为 `Default`，串流密钥中输入之前生成的 [WebRTC 推流地址](#push)，并在后面拼接上 `&stopstream_api=https://webrtcpush.myqcloud.com/webrtc/v1/stopstream`。
-	**串流密钥示例：**
+  1. 打开 OBS，您可通过底部工具栏的 **控件** > **设置** 按钮进入设置界面。
+  2. 单击 **推流** 进入流设置页签，选择服务类型为 `Tenent webrtc`，服务器为 `Default`，串流密钥中输入之前生成的 [WebRTC 推流地址](#push)，并在后面拼接上 `&stopstream_api=https://webrtcpush.myqcloud.com/webrtc/v1/stopstream`。
+  **串流密钥示例：**
 ```
 webrtc://domain/AppName/StreamName?txSecret=xxx&txTime=xxx &stopstream_api=https://webrtcpush.myqcloud.com/webrtc/v1/stopstream 
 ```

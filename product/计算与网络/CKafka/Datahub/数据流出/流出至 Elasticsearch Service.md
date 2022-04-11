@@ -1,6 +1,7 @@
 ## 操作场景
 
 Datahub 提供数据流出能力，您可以将 CKafka 数据分发至 Elasticsearch Service（ES）便于海量数据存储搜索、实时日志分析等操作。
+>?只支持7.0以上版本的 Elasticsearch Service。
 
 ## 前提条件
 
@@ -13,15 +14,16 @@ Datahub 提供数据流出能力，您可以将 CKafka 数据分发至 Elasticse
 1. 登录 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 。
 2. 在左侧导航栏单击**数据流出**，选择好地域后，单击**新建任务**。
 3. 目标类型选择 **Elasticsearch Service**，单击**下一步**。
-![](https://qcloudimg.tencent-cloud.cn/raw/714f7fe3a3a9c50b929682943b2bffc7.png)
+   ![](https://qcloudimg.tencent-cloud.cn/raw/9be51dee0aa418113302d7ec42c800a9.png)
    - 任务名称：只能包含字母、数字、下划线、"-"、"."。
    - CKafka 实例：选择数据源 CKafka。
    - 源 Topic：选择源 Topic。
    - 源数据：支持拉取源数据。
+   - 起始位置：转储时历史消息的处理方式，topic offset 设置。
    - 实例集群：选取腾讯云 Elasticsearch Service 实例集群信息。
    - 实例用户名：输入 Elasticsearch 实例用户名，腾讯云 Elasticsearch 默认用户名为 elastic，且不可更改。
    - 实例密码：输入 Elasticsearch 实例密码。
-   - 起始位置：转储时历史消息的处理方式，topic offset 设置。
+   - 丢弃解析失败消息：消息解析失败原因一般是转储到 ES 的消息超过了32kb 或者消息与目标 index 的 schema 不一致。若不丢弃解析失败消息，则任务异常，转储不再继续。
 4. 单击**提交**，完成任务创建。
 
 ### 查看监控
@@ -51,12 +53,7 @@ Datahub 提供数据流出能力，您可以将 CKafka 数据分发至 Elasticse
         <td>勾选后可在图表上显示图例信息。</td>
     </tr>
 </table> 
-   选择分区后，可以查看指定 Partition 的监控数据。
-	 <img src ="https://qcloudimg.tencent-cloud.cn/raw/7dbbfca73fd617ea96e276c7ab55370a.png">  
-   不选择时默认全部，展示现有的 Topic 级别的监控数据。
-	 	 <img src ="https://qcloudimg.tencent-cloud.cn/raw/7ad8dd52abe75bda0e827c71c6d1da16.png"> 
-
-
+	 <img src ="https://qcloudimg.tencent-cloud.cn/raw/13c276a5ec2e173b6c0bf5a81c773ffe.png"> 
 
 
 

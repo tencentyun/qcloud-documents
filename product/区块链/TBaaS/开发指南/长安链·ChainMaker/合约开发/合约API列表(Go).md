@@ -1,4 +1,4 @@
-ChainMake Go 语言版本智能合约有丰富的 API 接口，供用户在撰写智能合约的时候与链进行交互，代码实现详情可参见 [API 接口代码实现](https://docs.chainmaker.org.cn/dev/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6.html#go-tinygo)。
+ChainMake Go 语言版本智能合约有丰富的 API 接口，供用户在撰写智能合约的时候与链进行交互，代码实现详情可参见 [API 接口代码实现](https://docs.chainmaker.org.cn/v1.2.0/html/dev/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6.html#go-tinygo)。
 
 从逻辑方面划分，可将 API 划分为以下类型：
 

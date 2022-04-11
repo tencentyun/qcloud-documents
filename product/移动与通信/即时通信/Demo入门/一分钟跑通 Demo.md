@@ -15,7 +15,7 @@
 3. 创建完成后，可在控制台总览页查看新建应用的状态、业务版本、SDKAppID、创建时间、标签以及到期时间。请记录 SDKAppID 信息。
 ![](https://qcloudimg.tencent-cloud.cn/raw/853d2c3c0d5887dadc254eb0e03a215e.png)
 
-  
+
 [](id:step2)
 ### 步骤2：获取密钥信息
 1. 单击目标应用卡片，进入应用的基础配置页面。
@@ -105,10 +105,12 @@ pod install
  如果安装失败，执行以下命令更新本地的 CocoaPods 仓库列表。
  ```bash
  pod repo update
-```
+ ```
 3. 编译运行：
  - iOS 进入 iOS/TUIKitDemo 文件夹，打开`TUIKitDemo.xcworkspace`编译运行。
  - Mac 进入Mac/TUIKitDemo 文件夹，打开`TUIKitDemo.xcworkspace`编译运行。
+
+> **注意：Demo 默认集成了音视频通话功能，由于该功能依赖的音视频 SDK 暂不支持模拟器，请使用真机调试或者运行 Demo。**
 
 
 ## 开启进阶功能

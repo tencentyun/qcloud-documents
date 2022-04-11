@@ -36,7 +36,7 @@ SDK 3.0是云 API 3.0平台的配套工具，您可以通过 SDK 使用所有 [�
 
 每个接口都有一个对应的 Request 结构和一个 Response 结构。本文仅列举几个常用功能的示例代码，如下所示。
 ### 申请短信模板
-```
+```go
 package main
 
 import (
@@ -73,8 +73,7 @@ func main() {
 	 * 如有需要请在代码中查阅以获取最新的默认值 */
 	//cpf.HttpProfile.ReqTimeout = 5
 
-	/* SDK 会自动指定域名，通常无需指定域名，但访问金融区的服务时必须手动指定域名
-     * 例如 SMS 的上海金融区域名为 sms.ap-shanghai-fsi.tencentcloudapi.com */
+	/* 指定接入地域域名，默认就近地域接入域名为 sms.tencentcloudapi.com ，也支持指定地域域名访问，例如广州地域的域名为 sms.ap-guangzhou.tencentcloudapi.com */
 	cpf.HttpProfile.Endpoint = "sms.tencentcloudapi.com"
 
 	/* SDK 默认用 TC3-HMAC-SHA256 进行签名，非必要请不要修改该字段 */
@@ -130,7 +129,7 @@ func main() {
 
 ### 发送短信
 
-```
+```go
 package main
 
 import (
@@ -168,8 +167,7 @@ func main() {
 	 * 如有需要请在代码中查阅以获取最新的默认值 */
 	//cpf.HttpProfile.ReqTimeout = 5
 
-	/* SDK 会自动指定域名，通常无需指定域名，但访问金融区的服务时必须手动指定域名
-     * 例如 SMS 的上海金融区域名为 sms.ap-shanghai-fsi.tencentcloudapi.com */
+	/* 指定接入地域域名，默认就近地域接入域名为 sms.tencentcloudapi.com ，也支持指定地域域名访问，例如广州地域的域名为 sms.ap-guangzhou.tencentcloudapi.com */
 	cpf.HttpProfile.Endpoint = "sms.tencentcloudapi.com"
 
 	/* SDK 默认用 TC3-HMAC-SHA256 进行签名，非必要请不要修改该字段 */
@@ -231,7 +229,7 @@ func main() {
 
 ### 拉取回执状态
 
-```
+```go
 package main
 
 import (
@@ -269,8 +267,7 @@ func main() {
 	 * 如有需要请在代码中查阅以获取最新的默认值 */
 	//cpf.HttpProfile.ReqTimeout = 5
 
-	/* SDK 会自动指定域名，通常无需指定域名，但访问金融区的服务时必须手动指定域名
-     * 例如 SMS 的上海金融区域名为 sms.ap-shanghai-fsi.tencentcloudapi.com */
+	/* 指定接入地域域名，默认就近地域接入域名为 sms.tencentcloudapi.com ，也支持指定地域域名访问，例如广州地域的域名为 sms.ap-guangzhou.tencentcloudapi.com */
 	cpf.HttpProfile.Endpoint = "sms.tencentcloudapi.com"
 
 	/* SDK 默认用 TC3-HMAC-SHA256 进行签名
@@ -319,7 +316,7 @@ func main() {
 
 ### 统计短信发送数据
 
-```
+```go
 package main
 
 import (
@@ -356,8 +353,7 @@ func main() {
 	 * 如有需要请在代码中查阅以获取最新的默认值 */
 	//cpf.HttpProfile.ReqTimeout = 5
 
-	/* SDK 会自动指定域名，通常无需指定域名，但访问金融区的服务时必须手动指定域名
-     * 例如 SMS 的上海金融区域名为 sms.ap-shanghai-fsi.tencentcloudapi.com */
+	/* 指定接入地域域名，默认就近地域接入域名为 sms.tencentcloudapi.com ，也支持指定地域域名访问，例如广州地域的域名为 sms.ap-guangzhou.tencentcloudapi.com */
 	cpf.HttpProfile.Endpoint = "sms.tencentcloudapi.com"
 
 	/* SDK 默认用 TC3-HMAC-SHA256 进行签名

@@ -3,10 +3,11 @@
 ## 操作步骤
 1. 修改探针配置文件 tapm.properties。
 ```
- #日志追溯相关 Plugin，开启后可以在应用的日志中，打印 APM 相关数据，如应用 ID、 TraceID 等。
+# 日志追溯相关 Plugin，开启后可以在应用的日志中，打印 APM 相关数据，如应用 ID、追踪 ID 等。
 class_transformer.tapm-log4j-plugin-2.0.0.enabled=true
 class_transformer.tapm-log4j-plugin-2.3.enabled=true
 class_transformer.tapm-log4j-plugin-1.2.enabled=true
+class_transformer.tapm-log4j-plugin-2.12.enabled=true
 class_transformer.tapm-logback-plugin-1.2.enabled=true
 ```
 

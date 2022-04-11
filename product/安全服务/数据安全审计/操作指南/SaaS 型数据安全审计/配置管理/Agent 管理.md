@@ -3,10 +3,10 @@
 2. 在 Agent 部署页面，根据数据资产添加位置，提供下载链接。配置步骤以及配置注意事项，详情请参见 [Agent 部署](https://cloud.tencent.com/document/product/856/66492)。
 3. 在 Agent 部署页面，分为腾讯云内网 Agent 和 腾讯云外 Agent。
  - 腾讯云内网 Agent
-以腾讯云内网 Agent 为例。数据资产为腾讯云内资产（关系型云数据库、NoSQL 云数据库、企业分布式云数据库、自建数据库），即可下载 Linux Agent 或下载 Windows Agent。
-![](https://qcloudimg.tencent-cloud.cn/raw/c65640511285a11d7eb9e64e529bcec3.png)
+数据资产为腾讯云内资产（关系型云数据库、NoSQL 云数据库、企业分布式云数据库、自建数据库），优先选择 Linux 在线部署，即可选择下载 Linux Agent 或下载 Windows Agent。
+![](https://qcloudimg.tencent-cloud.cn/raw/0eccb9ea011f86bca372bc67340c7645.png)
  - 腾讯云外 Agent
- 以腾讯云外Agent为例。数据资产为腾讯云外资产（腾讯云外数据库）。即可下载 Linux Agent 或下载 Windows Agent。
+数据资产为腾讯云外资产（腾讯云外数据库）。即可下载 Linux Agent 或下载 Windows Agent。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d2a196af563c93b1fd11bef5a08a5cbe.png)
 
 ## Agent 列表

@@ -60,6 +60,22 @@ output.kafka:
   password: "${SecurityId}#${SecurityKey}"
 ```
 
+<span id="logstash"></span>
+#### logstash 示例
+
+```logstash
+output {
+  kafka {
+    topic_id => "${topicID}"
+    bootstrap_servers => "${region}-producer.cls.tencentyun.com:${port}"
+    sasl_mechanism => "PLAIN"
+    security_protocol => "SASL_PLAINTEXT"
+    compression_type => "${compress}"
+    sasl_jaas_config => "org.apache.kafka.common.security.plain.PlainLoginModule required username='${logsetID}' password='${securityID}#${securityKEY};"
+  }
+}
+```
+
 <span id="SDKSample"></span>
 ### SDK 调用示例
 
@@ -195,5 +211,120 @@ public class ProducerDemo {
 }
 ```
 
+#### C SDK 调用示例
 
+```
+// https://github.com/edenhill/librdkafka - master
+#include <iostream>
+#include <librdkafka/rdkafka.h>
+#include <string>
+#include <unistd.h>
+
+#define BOOTSTRAP_SERVER "${region}-producer.cls.tencentyun.com:${port}"
+#define USERNAME "${logsetID}"
+#define PASSWORD "${SecurityId}#${SecurityKey}"
+#define TOPIC "${topicID}"
+#define ACKS "${acks}"
+#define COMPRESS_TYPE "${compress_type}"
+
+static void dr_msg_cb(rd_kafka_t *rk, const rd_kafka_message_t *rkmessage, void *opaque) {
+    if (rkmessage->err) {
+        fprintf(stdout, "%% Message delivery failed : %s\n", rd_kafka_err2str(rkmessage->err));
+    } else {
+        fprintf(stdout, "%% Message delivery successful %zu:%d\n", rkmessage->len, rkmessage->partition);
+    }
+}
+
+int main(int argc, char **argv) {
+    // 1. 初始化配置
+    rd_kafka_conf_t *conf = rd_kafka_conf_new();
+
+    rd_kafka_conf_set_dr_msg_cb(conf, dr_msg_cb);
+
+    char errstr[512];
+    if (rd_kafka_conf_set(conf, "bootstrap.servers", BOOTSTRAP_SERVER, errstr, sizeof(errstr)) != RD_KAFKA_CONF_OK) {
+        rd_kafka_conf_destroy(conf);
+        fprintf(stdout, "%s\n", errstr);
+        return -1;
+    }
+
+    if (rd_kafka_conf_set(conf, "acks", ACKS, errstr, sizeof(errstr)) != RD_KAFKA_CONF_OK) {
+        rd_kafka_conf_destroy(conf);
+        fprintf(stdout, "%s\n", errstr);
+        return -1;
+    }
+
+    if (rd_kafka_conf_set(conf, "compression.codec", COMPRESS_TYPE, errstr, sizeof(errstr)) != RD_KAFKA_CONF_OK) {
+        rd_kafka_conf_destroy(conf);
+        fprintf(stdout, "%s\n", errstr);
+        return -1;
+    }
+
+    // 设置认证方式
+    if (rd_kafka_conf_set(conf, "security.protocol", "sasl_plaintext", errstr, sizeof(errstr)) != RD_KAFKA_CONF_OK) {
+        rd_kafka_conf_destroy(conf);
+        fprintf(stdout, "%s\n", errstr);
+        return -1;
+    }
+    if (rd_kafka_conf_set(conf, "sasl.mechanisms", "PLAIN", errstr, sizeof(errstr)) != RD_KAFKA_CONF_OK) {
+        rd_kafka_conf_destroy(conf);
+        fprintf(stdout, "%s\n", errstr);
+        return -1;
+    }
+    if (rd_kafka_conf_set(conf, "sasl.username", USERNAME, errstr, sizeof(errstr)) != RD_KAFKA_CONF_OK) {
+        rd_kafka_conf_destroy(conf);
+        fprintf(stdout, "%s\n", errstr);
+        return -1;
+
+    }
+    if (rd_kafka_conf_set(conf, "sasl.password", PASSWORD, errstr, sizeof(errstr)) != RD_KAFKA_CONF_OK) {
+        rd_kafka_conf_destroy(conf);
+        fprintf(stdout, "%s\n", errstr);
+        return -1;
+    }
+
+    // 2. 创建 handler
+    rd_kafka_t *rk = rd_kafka_new(RD_KAFKA_PRODUCER, conf, errstr, sizeof(errstr));
+    if (!rk) {
+        rd_kafka_conf_destroy(conf);
+        fprintf(stdout, "create produce handler failed: %s\n", errstr);
+        return -1;
+    }
+
+    // 3. 发送数据
+    std::string value = "test lib kafka ---- ";
+    for (int i = 0; i < 100; ++i) {
+        retry:
+        rd_kafka_resp_err_t err = rd_kafka_producev(
+                rk, RD_KAFKA_V_TOPIC(TOPIC),
+                RD_KAFKA_V_MSGFLAGS(RD_KAFKA_MSG_F_COPY),
+                RD_KAFKA_V_VALUE((void *) value.c_str(), value.size()),
+                RD_KAFKA_V_OPAQUE(nullptr), RD_KAFKA_V_END);
+
+        if (err) {
+            fprintf(stdout, "Failed to produce to topic : %s, error : %s", TOPIC, rd_kafka_err2str(err));
+            if (err == RD_KAFKA_RESP_ERR__QUEUE_FULL) {
+                rd_kafka_poll(rk, 1000);
+                goto retry;
+            }
+        } else {
+            fprintf(stdout, "send message to topic successful : %s\n", TOPIC);
+        }
+
+        rd_kafka_poll(rk, 0);
+    }
+
+    std::cout << "message flush final" << std::endl;
+    rd_kafka_flush(rk, 10 * 1000);
+
+    if (rd_kafka_outq_len(rk) > 0) {
+        fprintf(stdout, "%d message were not deliverer\n", rd_kafka_outq_len(rk));
+    }
+
+    rd_kafka_destroy(rk);
+
+    return 0;
+}
+
+```
 

@@ -1,0 +1,38 @@
+## 事件描述
+**事件名：**meeting.mute-all
+**事件说明：**会议开启全体静音时触发该事件通知。
+
+## 示例
+```json
+{
+    "event":"meeting.mute-all",
+    "trace_id":"2ed1349d-91d6-4550-9fe0-290dae725907",
+    "payload":[
+        {
+            "operate_time":1645166461129,
+            "operator":{
+                "userid":"test",
+                "user_name":"test",
+                "instance_id":"1",
+                "ms_open_id":"YgC/Y/pPS2lSh09H3IVkAz8+g2bSk******VtEWm+H5oFYWZGhObfwOcIULVE4JhiTqjKFMsVyvv449ZQ=="
+            },
+            "meeting_info":{
+                "meeting_id":"1207060000097571232",
+                "meeting_code":"172000525",
+                "subject":"test预定的会议",
+                "creator":{
+                    "userid":"test",
+                    "user_name":"test",
+                    "instance_id":"1",
+                    "ms_open_id":"YgC/Y/pPS2lSh09H3IVkAz8+g2b******ckVtEWm+H5oFYWZGhObfwOcIULVE4JhiTqjKFMsVyvv449ZQ=="
+                },
+                "meeting_type":0,
+                "start_time":1645167600,
+                "end_time":1645169400,
+                "meeting_create_mode":0,
+                "allow_unmute_self":true //是否允许用户自主解除静音：true:允许；false: 不允许
+            }
+        }
+    ]
+}
+```

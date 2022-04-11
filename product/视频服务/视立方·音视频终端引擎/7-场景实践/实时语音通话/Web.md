@@ -12,7 +12,6 @@
 
 不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
 
-
 ## 环境要求
 请使用最新版本的 Chrome 浏览器。目前桌面端 Chrome 浏览器支持 TRTC Web SDK 的相关特性比较完整，因此建议使用 Chrome 浏览器进行体验。
 
@@ -186,6 +185,6 @@ trtcCalling.hangup()
 ## 参考文档
 - [TRTCCalling web 官网体验](https://web.sdk.qcloud.com/component/trtccalling/demo/web/latest/index.html#/login)
 - [TRTCCalling npm](https://www.npmjs.com/package/trtc-calling-js)
-- [TRTCCalling web demo 源码](https://github.com/tencentyun/TRTCSDK/tree/master/Web/TRTCScenesDemo/trtc-calling-web)
+- [TRTCCalling web demo 源码](https://github.com/tencentyun/TUICalling)
 - [TRTCCalling web API](https://web.sdk.qcloud.com/component/trtccalling/doc/web/zh-cn/TRTCCalling.html)
 - [TRTCCalling web 相关问题](https://cloud.tencent.com/document/product/647/62484)

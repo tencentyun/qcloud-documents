@@ -23,6 +23,7 @@ TSF 长期维护 LTS (Long Term Support) 版本，SDK 的第三位版本号会�
 |1.12.x|<li>支持服务限流</li><li>支持服务路由</li><li>支持服务鉴权</li><li>支持分布式配置</li><li>支持调用链</li>|
 
 ##  SDK 版本使用说明
+>?**所有 SDK 版本可支持在 JDK 8、JDK 11（包括 KNOA JDK8，KNOA JDK11 ）环境下运行。**
 
 ### 公有云 TSF
 

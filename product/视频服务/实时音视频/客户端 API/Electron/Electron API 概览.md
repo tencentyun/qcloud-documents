@@ -3,7 +3,7 @@
 腾讯云视频通话功能的主要接口类。
 
 - **主要文档地址**：[TRTC Electron SDK](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/index.html)
-- **示例代码地址**：[TRTC Electron Demo](https://github.com/tencentyun/TRTCSDK/tree/master/Electron)
+- **示例代码地址**：[TRTC Electron Demo](https://github.com/LiteAVSDK/TRTC_Electron)
 
 ### 创建 TRTC 对象
 ```js

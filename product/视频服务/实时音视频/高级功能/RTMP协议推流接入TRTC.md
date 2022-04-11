@@ -2,7 +2,7 @@
 ## 方案背景
 为降低客户接入门槛，TRTC 支持 RTMP 标准协议推流，您可根据实际情况选择安装 [OBS](https://obsproject.com/download) 或 FFmpeg 进行推流。OBS 是一款好用的第三方开源程序直播流媒体内容制作软件，为用户提供免费使用，它可支持 OS X、Windows、Linux 操作系统，适用多种直播场景，满足大部分直播行为的操作需求，您可以到 [OBS 官网](https://obsproject.com/download?spm=a2c4g.11186623.2.15.6aac1445JPlKR8) 下载最新版本软件，使用 OBS 推流时无需安装插件。
 
-本功能目前免费开放内测中（后续若收费会提前通知），但接入的 RTMP 流会作为房间中的虚拟用户产生正常的通话费用，详情参见 [计费概述](https://cloud.tencent.com/document/product/647/17157)。如果您有需要可以联系页面右下方对话框 [售前在线咨询](https://cloud.tencent.com/online-service?source=PRESALE&from=doc_647)，提交工单申请加入白名单进行使用（需提供 SdkAppId）。
+本功能目前免费开放内测中（后续若收费会提前通知），但接入的 RTMP 流会作为房间中的虚拟用户产生正常的通话费用，详情参见 [计费概述](https://cloud.tencent.com/document/product/647/17157)。如果您需要申请使用此功能，请单击 [立即申请](https://cloud.tencent.com/apply/p/4mycyipdsp8)。
 
 >! 不支持 RTMP 从 TRTC 拉流，如果需要旁路 CDN 直播观看，请参见 [实现 CDN 直播观看](https://cloud.tencent.com/document/product/647/16826)。
 
@@ -88,7 +88,7 @@ RTMP 后台不支持传输 B 帧，用户可以通过如下设置调整推流端
 ![](https://qcloudimg.tencent-cloud.cn/raw/a4b27551f991d73539bb5d2f834a4d38.png)
 
 ### 步骤7：其他端观看[](id:step7)
-如前面 [设置推流参数](#step2) 所说，TRTC 其他端进房需要使用字符串房间号，Web 端观看 RTMP 流的效果如下所示：
+如前面 [设置推流参数](#step2) 所说，TRTC 其他端进房需要使用字符串房间号，[Web 端](https://cloud.tencent.com/document/product/647/17021#.E8.B7.A8.E5.B9.B3.E5.8F.B0-demo) 观看 RTMP 流的效果如下所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/ae71beea5458b056697433acdbf6844e.png)
 
 ## FFmpeg 设置[](id:FFmpeg)

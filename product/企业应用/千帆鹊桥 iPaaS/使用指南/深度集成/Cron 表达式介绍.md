@@ -17,7 +17,7 @@ Cron 表达式是一个字符串，由6个必要的设置组成，同时支持�
 | 小时（Hours）      | 0 - 23的整数                      | `, - * /` 四个字符 | 是           |
 | 日期（DayofMonth） | 1 - 31的整数（需要考虑当月天数）  |` ,- * ? /` 五个字符  | 是           |
 | 月份（Month）      | 1 - 12的整数（JAN、FEB、MAR、APR、MAY、JUN、JUL、AUG、SEP、OCT、NOV、DEC）          | `, - * /` 四个字符 | 是           |
-| 星期（DayofWeek）  | 1 - 7的整数或者（SUN、MON、TUES、WED、THUR、FRI、SAT（1=SUN）) | `, - * ? / `五个字符 | 是           |
+| 星期（DayofWeek）  | 1 - 7的整数或者（SUN、MON、TUES、WED、THUR、FRI、SAT（1=SUN）） | `, - * ? / `五个字符 | 是           |
 | 年（Year）         | 1970 - 2099的整数                 | `, - * /`四个字符 | 否           |
 
 

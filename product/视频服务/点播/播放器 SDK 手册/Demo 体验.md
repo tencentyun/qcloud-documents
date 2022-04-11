@@ -22,17 +22,17 @@ Web 端播放器支持 PC 端和移动端的浏览器视频播放，丰富灵活
 <tr>
 <th style="text-align:center">平台</th><th style="text-align:center">Demo 体验</th><th style="text-align:center">源码地址</th></tr><tr>
 <td style="text-align:center">iOS</td>
-<td style="text-align:center"><img src="https://main.qcloudimg.com/raw/12c7da97cc910eda673cb19b66fc7cb3.png" width="150"></td>
-<td style="text-align:center"><a href="https://github.com/tencentyun/LiteAVProfessional_iOS/tree/master/Demo">Github</a></td>
+<td style="text-align:center"><img src="https://qcloudimg.tencent-cloud.cn/raw/5c383bc7826d4f4835c9a7232cf9b50e.png" width="150"></td>
+<td style="text-align:center"><a href="https://github.com/LiteAVSDK/Player_iOS">Github</a></td>
 </tr>
 <tr >
 <td style="text-align:center">Android</td>
 <td style="text-align:center"><img src="https://main.qcloudimg.com/raw/6790ddaf4ffe4afd0ceb96b309a16496.png" width="150"></td>
-<td style="text-align:center"><a href="https://github.com/tencentyun/LiteAVProfessional_Android/tree/master/Demo">Github</a></td>
+<td style="text-align:center"><a href="https://github.com/LiteAVSDK/Player_Android">Github</a></td>
 </tr>
 <tr>
 <td style="text-align:center">Flutter</td>
-<td style="text-align:center"><a href="https://github.com/tencentyun/SuperPlayer/tree/main/Flutter">Demo</a></td>
-<td style="text-align:center"><a href="https://github.com/tencentyun/SuperPlayer/tree/main/Flutter">Github</a></td>
+<td style="text-align:center"><a href="https://github.com/LiteAVSDK/Player_Flutter">Demo</a></td>
+<td style="text-align:center"><a href="https://github.com/LiteAVSDK/Player_Flutter">Github</a></td>
 </tr></table>
 

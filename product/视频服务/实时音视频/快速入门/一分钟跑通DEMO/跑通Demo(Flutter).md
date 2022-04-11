@@ -1,6 +1,6 @@
 本文主要介绍如何快速运行腾讯云 TRTC Demo（Flutter）。
 
->! 目前 Windows/MacOs 端仅支持音频，视频接口暂不支持。Android/iOS 端支持视频通话。
+>! 目前 Windows/MacOs 端暂不支持屏幕分享及设备选择功能。
 
 ## 环境要求
 - Flutter 2.0 及以上版本。
@@ -32,7 +32,7 @@
 
 [](id:step2)
 ### 步骤2：下载 SDK 和 Demo 源码
-1. 根据实际业务需求下载 SDK 及配套的 [Demo 源码](https://github.com/tencentyun/TRTCFlutterScenesDemo)。
+1. 根据实际业务需求下载 SDK 及配套的 [Demo 源码](https://github.com/LiteAVSDK/TRTC_Flutter/tree/master/TRTC-Simple-Demo)。
 2. 下载完成后，单击**已下载，下一步**。
 ![](https://main.qcloudimg.com/raw/a4f5a2ac1f49d67b4c6968d8b22cdeb0.png)
 
@@ -40,7 +40,7 @@
 [](id:step3)
 ### 步骤3：配置 Demo 工程文件
 1. 进入修改配置页，根据您下载的源码包，选择相应的开发环境。
-2. 找到并打开 `/example/lib/debug/GenerateTestUserSig.dart` 文件。
+2. 找到并打开 `TRTC-Simple-Demo/lib/debug/GenerateTestUserSig.dart` 文件。
 3. 设置 `GenerateTestUserSig.dart` 文件中的相关参数：
 <ul><li/>SDKAPPID：默认为 PLACEHOLDER ，请设置为实际的 SDKAppID。
 	<li/>SECRETKEY：默认为 PLACEHOLDER ，请设置为实际的密钥信息。</ul>
@@ -57,19 +57,21 @@
 1. 执行 `flutter pub get`。
 2. 编译运行调试：
 <dx-tabs>
-:::  Android\s端
+:::  Android 端
 1. 执行 `flutter run`。
 2. 使用 Android Studio（3.5及以上的版本）打开源码工程，单击**运行**即可。
 :::
-::: iOS\s端
-使用 XCode（11.0及以上的版本）打开源码目录下的 `/ios` 工程，编译并运行 Demo 工程即可。
+::: iOS 端
+1. 到 iOS 目录 `pod install`。
+2. 使用 XCode（11.0及以上的版本）打开源码目录下的 `/ios` 工程，编译并运行 Demo 工程即可。
 :::
-::: Windows\s端
+::: Windows 端
 1. 启用 Windows 支持：`flutter config --enable-windows-desktop`。
 2. `flutter run -d windows`。
 :::
-::: macOS\s端
+::: macOS 端
 1. 启用 macOS 支持：`flutter config --enable-macos-desktop`。
+2. 到macos目录 `pod install`。
 2. 执行 `flutter run -d macos`。
 :::
 </dx-tabs>
@@ -87,8 +89,9 @@ TRTC 的日志默认压缩加密，后缀为 `.xlog`。地址如下：
 
 ### Android Manifest merge failed 编译失败？
 请打开 `/example/android/app/src/main/AndroidManifest.xml` 文件。
-    1. 将 `xmlns:tools="http://schemas.android.com/tools"` 加入到 manifest 中。
-    2. 将 `tools:replace="android:label"` 加入到 application 中。
+    
+1. 将 `xmlns:tools="http://schemas.android.com/tools"` 加入到 manifest 中。
+2. 将 `tools:replace="android:label"` 加入到 application 中。
 ![图示](https://main.qcloudimg.com/raw/7a37917112831488423c1744f370c883.png)
 
 >? 更多常见问题，请参见 [Flutter 相关问题](https://cloud.tencent.com/document/product/647/51623)。

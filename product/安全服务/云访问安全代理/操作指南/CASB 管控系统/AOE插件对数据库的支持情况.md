@@ -116,7 +116,7 @@
 - 不支持包含自定义变量的语句。
 - 不支持视图相关语句。
 - 不支持 `SELECT INTO` 语句。
-- 不支持 `mysqldump`。
+- 不支持 `mysqldump` 中使用 CASB 不支持的特性和条件。
 - 不支持 `CREATE TABLE xx AS SELECT`、`CHECK TABLE`、`CHECKSUM TABLE` 语法。
 - 不支持 TDSQL 自定义的管理语法, 如 `help`, `repair` 等。
 - 不支持 **COM_QUERY 协议**的  `Prepare`、`Execute` 语句的加解密。

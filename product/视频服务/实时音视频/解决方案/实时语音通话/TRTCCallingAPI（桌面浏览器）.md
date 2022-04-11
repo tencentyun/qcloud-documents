@@ -796,7 +796,7 @@ trtcCalling.on(TRTCCalling.EVENT.INVITED, handleNewInvitationReceived);
 | sponsor     | String  | 邀请者       |
 | userIDList  | Array   | 同时还被邀请的人   |
 | isFromGroup | Boolean | 是否 IM 群组邀请   |
-| inviteData  | Object  | <li/>针对新用户邀请： {version, callType, roomID} <li/> 针对最后一位用户挂断：{version, callType, callEnd} |
+| inviteData  | Object  | 针对新用户邀请： {version, callType, roomID} |
 | inviteID    | String  | 邀请 ID，标识一次邀请       |
 
 #### CALLING_CANCEL
@@ -858,7 +858,7 @@ trtcCalling.on(TRTCCalling.EVENT.ERROR, onError);
 - **升级 TRTCCalling 版本 >= 1.0.2**
 	- 注意：需升级 TSignaling 版本 >= 0.9.0
 	- 原因：[更新日志](https://web.sdk.qcloud.com/component/trtccalling/doc/web/zh-cn/tutorial-CHANGELOG.html#h2-3)
-- **升级  1.0.2 >= TRTCCalling 版本 >=1.0.0**
+- **升级  1.0.2 > TRTCCalling 版本 >=1.0.0**
 	- 注意：需升级 TSignaling 版本 >= 0.8.0
 	- 原因：[更新日志](https://web.sdk.qcloud.com/component/trtccalling/doc/web/zh-cn/tutorial-CHANGELOG.html#h2-5)
 
@@ -879,6 +879,6 @@ trtcCalling.on(TRTCCalling.EVENT.ERROR, onError);
 ## 参考文档
 - [TRTCCalling web 官网体验](https://web.sdk.qcloud.com/component/trtccalling/demo/web/latest/index.html#/login)
 - [TRTCCalling npm](https://www.npmjs.com/package/trtc-calling-js)
-- [TRTCCalling web demo 源码](https://github.com/tencentyun/TRTCSDK/tree/master/Web/TRTCScenesDemo/trtc-calling-web)
+- [TRTCCalling web demo 源码](https://github.com/tencentyun/TUICalling)
 - [TRTCCalling web API](https://web.sdk.qcloud.com/component/trtccalling/doc/web/zh-cn/TRTCCalling.html)
 - [TRTCCalling web 相关问题](https://cloud.tencent.com/document/product/647/62484)

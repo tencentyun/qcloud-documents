@@ -14,12 +14,13 @@
 <div style="background-color:#00A4FF; width: 190px; height: 35px; line-height:35px; text-align:center;"><a href="https://buy.cloud.tencent.com/cvm?tab=lite" target="_blank"  style="color: white; font-size:16px;">点此进入快速购买页面</a></div>
 </br>
 
-![](https://qcloudimg.tencent-cloud.cn/raw/3335df509daae730d7d876e9d48dd433.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/bead6c3bbb92bc10a5abcd80a38c1714.png)
 
 - **地域**：选择与您最近的一个地区，例如我在 “深圳”，地域选择 “广州”。
-- **机型**：选择您需要的云服务器机型配置。这里我们选择 “入门设置（1核1GB）”。 
-- **操作系统**：选择您需要的云服务器操作系统。这里我们选择 “CentOS 7.2 64位”。
+- **机型**：选择您需要的云服务器机型配置。这里我们选择 “普及配置（2核4GB）”。 
+- **操作系统**：选择您需要的云服务器操作系统。这里我们选择 “CentOS 8.2 64位”。
 - **公网带宽**：勾选后会为您分配公网 IP，默认为 “1Mbps”，您可以根据需求调整。
+- **登录方式**：自动生成的密码将在服务器创建完成后通过 [站内信](https://console.cloud.tencent.com/message) 发送。
 - **购买数量**：默认为 “1台”。
 - **购买时长**：默认为 “1个月”。
 
@@ -39,7 +40,7 @@
 2. 在“标准登录 | Linux 实例”窗口中，输入云服务器的用户名和密码，并单击**登录**即可正常登录。如下图所示：
 ![](https://main.qcloudimg.com/raw/ddd85a45a55eac09c988c5c52be4f818.png)
 3. 登录成功后，界面如下图所示：
-![](https://main.qcloudimg.com/raw/7a9fbd597fa7542f87a87c67986a64b4.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/c6fad14fa151973fd433bd8681451ae8.png)
 
 
 ## 下一步操作：使用云服务器
@@ -50,8 +51,7 @@
 您可以根据需要，按照文档指引进行下一步操作。
 
 ## 出现问题？
-非常抱歉您在使用时出现问题，您可以第一时间通过 [在线支持](https://cloud.tencent.com/online-service?from=doc_213
-) 联系我们，也可以先参考相关文档进行问题定位和解决。
+非常抱歉您在使用时出现问题，您可以第一时间通过 [在线支持](https://cloud.tencent.com/online-service?from=doc_213) 联系我们，也可以先参考相关文档进行问题定位和解决。
 以下是用户在使用云服务器的时出现的常见问题，建议您先参考文档进行问题定位和解决。
 - 忘记云服务器登录密码？
 请参考 [重置实例密码](https://cloud.tencent.com/document/product/213/16566)。

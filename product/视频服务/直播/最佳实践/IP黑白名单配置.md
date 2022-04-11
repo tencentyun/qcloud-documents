@@ -14,7 +14,7 @@
 2. 在**访问控制** > **IP 黑名单配置**中，可选择开启或关闭 IP 黑白名单配置。
 ![](https://qcloudimg.tencent-cloud.cn/raw/ecac632e3c11e9ad97413d91e63eccc2.png)
 3. 单击![](https://qcloudimg.tencent-cloud.cn/raw/b64d8a4343b3a1e340db3adb9002db60.png)按钮，选择开启 IP 黑白名单，并进行如下配置：
-![](https://qcloudimg.tencent-cloud.cn/raw/f3e2c63fa37fad855d1c6d1962f87114.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/f8ea9371028385a75f6fad476738c181.png)
 <table>
 <thead><tr><th>配置项</th><th>说明</th></tr></thead>
 <tbody><tr>
@@ -27,11 +27,10 @@
 <td>IP 名单</td>
 <td>最多支持配置200条规则，请使用换行符分隔。<ul style="margin:0">
 <li>支持 IP 及网段格式（/8/16/24），不支持 IP ：端口格式。</li>
-<li>暂不支持 IP v6</li>
-<li>若规则内容为空时，则表示 IP 黑白名单均未配置</li></ul></td>
+<li>暂不支持 IP v6</li></ul></td>
 </tr>
 </tbody></table>
-4.单击**保存**即可保存配置，配置需要一定时间才可生效。
+4. 单击**保存**即可保存配置，配置需要一定时间才可生效。
 ![](https://qcloudimg.tencent-cloud.cn/raw/aa7e017cfb6f01e9c7596c4d404e636a.png)
 
 [](id:change)

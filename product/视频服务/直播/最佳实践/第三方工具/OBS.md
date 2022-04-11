@@ -151,9 +151,10 @@ Open Broadcaster Software（简称 OBS）是一款好用的第三方开源程序
 ## 拉流
 推流完成后，您可通过以下方式拉流播放来验证流是否推成功：
 - PC 端：支持使用 [VLC 播放器](https://cloud.tencent.com/document/product/267/32727) 进行拉流。
-- 移动端：支持通过集成 [移动直播 ](https://cloud.tencent.com/document/product/454/) SDK 来实现播放。
->?移动直播 SDK 是云直播服务（LVB）在移动场景的延伸。相比于主要面向云对接的直播（LVB） 服务，移动直播既提供了基于 RTMP SDK 的“快速集成方案”，也提供了集标准直播（LVB）、快直播（LEB）、云点播（VOD）、即时通信（IM） 和对象存储（COS） 等多云端服务的“一体化解决方案”。
-其中， [快直播](https://cloud.tencent.com/document/product/454/55880) （Live Event Broadcasting，LEB）（超低延迟直播）是标准直播在超低延迟播放场景下的延伸，比传统直播协议延迟更低，为观众提供毫秒级的直播观看体验。 能够满足一些对延迟性能要求更高的特定场景需求，例如在线教育、体育赛事直播、在线答题等。
+- 移动端：支持通过集成 [腾讯云视立方·直播 SDK](https://cloud.tencent.com/document/product/454/) 来实现播放。
+>? 腾讯云视立方·直播 SDK 是云直播服务（CSS）在移动场景的延伸。相比于主要面向云对接的直播（CSS） 服务，直播 SDK 既提供了基于 RTMP SDK 的“快速集成方案”，也提供了集标准直播（LVB）、快直播（LEB）、云点播（VOD）、即时通信（IM） 和对象存储（COS） 等多云端服务的“一体化解决方案”。
+其中， [快直播](https://cloud.tencent.com/document/product/454/55880) （Live Event Broadcasting，LEB）（超低延时直播）是标准直播在超低延时播放场景下的延伸，比传统直播协议延时更低，为观众提供毫秒级的直播观看体验。 能够满足一些对延迟性能要求更高的特定场景需求，例如在线教育、体育赛事直播、在线答题等。
+
 
 
 

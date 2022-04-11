@@ -1,20 +1,21 @@
 本文主要介绍如何快速运行腾讯云 TRTC Demo（Windows）。
 
 ## 环境要求
-### Windows（C++）开发环境
-- Microsoft Visual Studio 2015及以上版本，推荐使用 Microsoft Visual Studio 2015 
+### Windows（C++/QT）开发环境
+- Microsoft Visual Studio 2015 及以上版本，推荐使⽤ Microsoft Visual Studio 2015。
+- 下载并安装 [.vsix](https://download.qt.io/official_releases/vsaddin/) 插件⽂件，官⽹上找对应插件版本安装即可。
+- 打开 VS 并在⼯具栏找到 `QT VS Tools -> Qt Options -> Qt Versions`，add 添加我们⾃⼰的 Qt 编译器 msvc。
+- 需要将 `SDK/CPlusPlus/Win64/lib` 下的所有的 `.dll` ⽂件拷⻉到⼯程⽬录下的 `debug` / `release` ⽂件夹下。
+>! `debug/release` ⽂件夹均是在 VS 上的环境配置完后⾃动⽣成。如果是32位程序，则需要拷贝 `SDK/CPlusPlus/Win64/lib` 下的所有 `.dll`到 `debug` / `release` ⽂件夹下。
+
+### Windows（C++/Duilib）开发环境
+- Microsoft Visual Studio 2015及以上版本，推荐使用 Microsoft Visual Studio 2015
 - Windows SDK 8.0及以上版本，推荐使用 Windows SDK 8.1
 
 ### Windows（C#）开发环境
 - Microsoft Visual Studio 2015及以上版本，推荐使用 Microsoft Visual Studio 2017
 - .Net Framework 4.0及以上版本，推荐使用 .Net Framework 4.0
 
-### Windows（QT）开发环境
-- Microsoft Visual Studio 2015 及以上版本，推荐使⽤ Microsoft Visual Studio 2015。
-- 下载并安装 [.vsix](https://download.qt.io/official_releases/vsaddin/) 插件⽂件，官⽹上找对应插件版本安装即可。
-- 打开 VS 并在⼯具栏找到 `QT VS Tools -> Qt Options -> Qt Versions`，add 添加我们⾃⼰的 Qt 编译器 msvc。
-- 需要将 `SDK/CPlusPlus/Win32/lib` 下的所有的 `.dll` ⽂件拷⻉到⼯程⽬录下的 `debug` / `release` ⽂件夹下。
->! `debug/release` ⽂件夹均是在 VS 上的环境配置完后⾃动⽣成。
 
 ## 前提条件
 您已 [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 账号，并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
@@ -39,25 +40,30 @@
 [](id:step3)
 ### 步骤3：配置 Demo 工程文件
 1. 进入修改配置页，根据您下载的源码包，选择相应的开发环境。
-2. 找到并打开 `GenerateTestUserSig` 文件：
+2. 找到并打开定义 SDKAppID 和密钥信息的文件，如下：
  <table>
      <tr>
          <th nowrap="nowrap">适用平台</th>  
          <th nowrap="nowrap">文件相对路径</th>  
      </tr>
-   <tr>      
-         <td>Windows(C++)</td>   
-       <td>Windows/DuilibDemo/GenerateTestUserSig.h</td>   
-     </tr> 
-   <tr>
-       <td>Windows(C#)</td>   
-       <td>Windows/CSharpDemo/GenerateTestUserSig.cs</td>
-     </tr> 
+     <tr>      
+         <td>Windows(C++/QT)</td>   
+         <td>Windows/QTDemo/src/Util/defs.h</td>   
+     </tr>
+     <tr>      
+         <td>Windows(C++/Duilib)</td>   
+         <td>Windows/DuilibDemo/GenerateTestUserSig.h</td>   
+     </tr>
+     <tr>
+         <td>Windows(C#)</td>   
+         <td>Windows/CSharpDemo/GenerateTestUserSig.cs</td>
+     </tr>
  </table>
-3. 设置 `GenerateTestUserSig.js` 文件中的相关参数：
-  <ul><li>SDKAPPID：默认为0，请设置为实际的 SDKAppID。</li>
-  <li>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</li></ul> 
-  <img src="https://main.qcloudimg.com/raw/3e83f6ed266617afbe637edc51eb0543.png">
+3. 以 `C++/QT` 为例，设置 `defs.h` 文件中的相关参数：
+  <ul><li>SDKAppID：默认为0，请设置为实际的 SDKAppID。</li>
+  <li>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</li></ul>
+  <img src="https://qcloudimg.tencent-cloud.cn/raw/67bd07dbe21536e105455c11df9dd18a.png">
+>! C++ DuilibDemo 和 C# 分别修改 `Windows/DuilibDemo/GenerateTestUserSig.h` 和 `Windows/CSharpDemo/GenerateTestUserSig.cs` 文件中的 SDKAPPID 和 SECRETKEY 字段为实际的 SDKAppID 和 密钥信息。
 4. 粘贴完成后，单击**已复制粘贴，下一步**即创建成功。
 5. 编译完成后，单击**回到控制台概览**即可。
 
@@ -67,13 +73,13 @@
 
 [](id:step4)
 ### 步骤4：编译运行
-- **Windows（C++）：**
-使用 Visual Studio（建议 VS2015）打开源码目录下的`DuilibDemo\TRTCDuilibDemo.sln`工程文件，推荐选择 Release/X86 构建平台，编译并运行 Demo 工程即可。
+- **Windows（C++/QT）：**
+	- **方法一：**使⽤ QtCreator 打开源码⽬录下的 `QTDemo\QTDemo.pro` ⼯程⽂件，编译并运⾏ QTDemo ⼯程即可。
+	- **方法二：**启动安装了 QT 开发插件的 Visual Studio（建议 VS2015 或以上），在菜单中选择 `Qt VS Tools > Open Qt Project File(.pro)...` 打开源码⽬录下的 `QTDemo\QTDemo.pro` ⼯程⽂件，编译并运⾏ QTDemo ⼯程即可。
+- **Windows（C++/Duilib）：**
+使用 Visual Studio（建议 VS2015）打开源码目录下的 `DuilibDemo\TRTCDuilibDemo.sln` 工程文件，推荐选择 Release/X86 构建平台，编译并运行 Demo 工程即可。
 - **Windows（C#）：**
-使用 Visual Studio（建议 VS2017）打开源码目录下的`CSharpDemo\TRTCCSharpDemo.sln`工程文件，推荐选择 Release/X86 构建平台，编译并运行 Demo 工程即可。
-- **Windows（QT）：** 
-使⽤ Visual Studio（建议 VS2015 或以上）打开源码⽬录下的
-QTDemo\QTDemo.pro⼯程⽂件，编译并运⾏ QTDemo ⼯程即可。
+使用 Visual Studio（建议 VS2017）打开源码目录下的 `CSharpDemo\TRTCCSharpDemo.sln` 工程文件，推荐选择 Release/X86 构建平台，编译并运行 Demo 工程即可。
 
 ## 常见问题
 
