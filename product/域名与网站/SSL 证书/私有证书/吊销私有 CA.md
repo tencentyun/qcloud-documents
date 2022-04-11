@@ -8,12 +8,13 @@
 >?只有已启用的私有 CA 支持吊销操作。吊销私有 CA 不支持退款，吊销私有 CA 后，您将无法继续通过该 CA 申请和签发私有证书。
 >
 ## 操作步骤
-1. 登录 SSL 证书 [私有 CA 控制台](https://console.cloud.tencent.com/private-ca)，选择您需要吊销的私有 CA，单击操作列下的**更多＞吊销**。
->?根 CA 和子 CA 都可以吊销。建议您先吊销子 CA，然后再吊销根 CA。
+1. 登录 [SSL 证书私有 CA 控制台](https://console.cloud.tencent.com/private-ca)，进入私有 CA 列表。
+2. 选择您需要吊销的私有 CA，单击操作列下的**更多＞吊销**。
+>?根 CA 和子 CA 都可以吊销。建议您先吊销子 CA，再吊销根 CA。
 >
- - 根 CA 可以直接在操作列单击**吊销**。如下图所示：
+ - 根 CA 在操作列单击**更多＞吊销**。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/f5ac109c7583a71e44b84d43293b329c.png)
- - 子 CA 需要单击操作列下的**更多＞吊销**。如下图所示：
+ - 子 CA 在操作列单击**更多＞吊销**。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/2010819bed54bfa40e236e078d495214.png)
 3. 在弹出的确认对话框中，单击**确定**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/8257cd1a4cd595d5546875aa748b13c7.png)
