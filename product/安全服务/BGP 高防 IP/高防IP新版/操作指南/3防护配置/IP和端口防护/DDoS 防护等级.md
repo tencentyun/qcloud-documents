@@ -29,8 +29,8 @@ DDoS 高防 IP 服务提供防护策略调整功能，针对 DDoS 攻击提供�
 您需要成功 [购买 DDoS 高防 IP](https://cloud.tencent.com/document/product/1014/44082) ，并设置防护对象。
 
 ## 操作步骤
-1. 登录 [DDoS 高防 IP 控制台](https://console.cloud.tencent.com/ddos/antiddos-advanced/config/port) ，在左侧导航中，单击**防护配置** > **DDoS 防护**。
-2. 在 DDoS 防护页面的左侧，选中高防IP的 ID，如“bgpip-xxxxxx”。
+1. 登录 [DDoS 高防 IP 控制台](https://console.cloud.tencent.com/ddos/antiddos-advanced/config/port)，在左侧导航中，单击**防护配置** > **DDoS 防护**。
+2. 在 DDoS 防护页面的左侧，选中高防 IP 的 ID，如“bgpip-xxxxxx”。
 ![](https://qcloudimg.tencent-cloud.cn/raw/dc74678859a3da4f3dcbb27ffe07e367.png)
 3. 在 DDoS 防护等级卡片中，设置“防护等级”与“清洗阈值”。
 >?若明确该清洗阈值，可进行自定义设置。若无法明确该清洗阈值，DDoS 防护系统将根据 AI 算法自动学习并生成一套专属的默认阈值。
