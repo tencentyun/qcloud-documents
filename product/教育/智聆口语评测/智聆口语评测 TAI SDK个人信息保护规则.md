@@ -76,17 +76,45 @@
 
 
 
-| 操作系统                                  | 权限名称                                             | 使用目的                                           |
-| ----------------------------------------- | ---------------------------------------------------- | -------------------------------------------------- |
-| Android                                   | android.permission.CAMERA                            | 用于采集摄像头画面，与其他使用者进行交互、录制画面 |
-| android.permission.CAPTURE_AUDIO_OUTPUT   | 用于采集用户声音，与其他使用者进行交互、录制声音     |         -                                           |
-| android.permission.WRITE_EXTERNAL_STORAGE | 存储 SDK 配置文件和日志文件                          |             -                                       |
-| android.permission.READ_EXTERNAL_STORAGE  | 读取 SDK 配置文件和日志文件                          |        -                                            |
-| android.permission.BLUETOOTH              | 需要支持蓝牙耳机和耳麦的接入                         |                -                                    |
-| android.permission.READ_PHONE_STATE       | SDK 需要监听电话的打断，在电话呼入时，停止音频的采集 |                           -                         |
-| iOS                                       | NSCameraUsageDescription                             | 使用视频通话功能，需要开启摄像头                   |
-| NSMicrophoneUsageDescription              | 使用视频通话功能，需要开启麦克风                     |                               -                     |
-
+<table>
+<thead>
+<tr>
+<th>操作系统</th>
+<th>权限名称</th>
+<th>使用目的</th>
+</tr>
+</thead>
+<tbody><tr>
+<td rowspan=5>Android</td>
+<td>android.permission.CAMERA</td>
+<td>用于采集摄像头画面，与其他使用者进行交互</td>
+</tr>
+<tr>
+<td>android.permission.WRITE_EXTERNAL_STORAGE</td>
+<td>存储 SDK 配置文件和日志文件</td>
+</tr>
+<tr>
+<td>android.permission.READ_EXTERNAL_STORAGE</td>
+<td>读取 SDK 配置文件和日志文件</td>
+</tr>
+<tr>
+<td>android.permission.RECORD_AUDIO</td>
+<td>用于采集用户声音，与其他使用者进行交互</td>
+</tr>
+<tr>
+<td>android.permission.ACCESS_NETWORK_STATE</td>
+<td>获取当前网络用于优化数据包发送包策略，以便获得更好的音视频流畅体验</td>
+</tr>
+<tr>
+<td rowspan=2>iOS</td>
+<td>NSCameraUsageDescription</td>
+<td>用于采集摄像头画面，与其他使用者进行交互</td>
+</tr>
+<tr>
+<td>NSMicrophoneUsageDescription</td>
+<td>用于采集用户声音，与其他使用者进行交互</td>
+</tr>
+</tbody></table>                                       
 
 
 请注意，在不同设备和系统中, 权限显示方式及关闭方式会有所不同，需同时参考其使用的设备及操作系统开发方的说明或指引。当终端用户关闭权限即代表其取消了相应的授权，我们和开发者将不会继续收集和使用相关权限所对应的个人信息，也无法为终端用户提供需要终端用户开启权限才能提供的对应的功能。
