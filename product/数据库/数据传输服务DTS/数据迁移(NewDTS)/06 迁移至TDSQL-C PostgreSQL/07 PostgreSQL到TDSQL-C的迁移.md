@@ -70,4 +70,4 @@ grant pg_tencentdb_superuser to 迁移用户;
 </table>
 
 ## 操作步骤
-PostgreSQL 到 TDSQL-C PostgreSQL 的迁移，与 [PostgreSQL 到 PostgreSQL 的迁移](https://cloud.tencent.com/document/product/571/59975)步骤一致，请参考相关内容进行操作。
+PostgreSQL 到 TDSQL-C PostgreSQL 的迁移，与 [PostgreSQL 到 PostgreSQL 的迁移](https://cloud.tencent.com/document/product/571/59975) 步骤一致，请参考相关内容进行操作。
