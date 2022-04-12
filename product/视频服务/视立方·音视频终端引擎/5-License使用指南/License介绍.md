@@ -1,6 +1,6 @@
 ## 新旧 License 区别
 
-旧版 License 仅支持一组 License URL 和 Key 解锁对应一个 SDK 功能（移动直播或短视频），相比腾讯云视立方 License 维护和使用较为繁琐；升级后的新版视立方 License 后仅需维护一组 License URL 和 Key ，便可以管理所有腾讯云音视频的终端授权。
+旧版 License 仅支持一组 License URL 和 Key 解锁对应一个 SDK 功能（移动直播或短视频），相比腾讯云视立方 License 维护和使用较为繁琐；升级后的新版视立方 License 仅需维护一组 License URL 和 Key ，便可以管理所有腾讯云音视频的终端授权。
 
 原移动直播 License、短视频 License 可在音视频终端 SDK（腾讯云视立方）中继续使用，对应授权解锁音视频终端 SDK（腾讯云视立方）中的直播推流（主播开播、主播观众连麦/主播跨房 PK）与短视频（视频录制编辑/视频上传发布）模块，**若您使用包含上述功能模块的版本时，处于有效期内的 License 无需再次购买解锁授权**。新旧 License 对应详情如下：
 

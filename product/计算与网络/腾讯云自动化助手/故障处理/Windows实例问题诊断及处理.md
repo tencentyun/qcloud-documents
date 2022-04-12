@@ -109,7 +109,7 @@ Windows 实例通过自动化助手检查，检测结果中出现相关问题。
 </tr>
 <tr>
 <td>
-<a href="#RDPCconnectionCheck">RDP-Tcp 连接检查</a>
+<a href="#RDPCconnectionCheck">RDP 侦听器启用检查</a>
 </td>
 </tr>
 <tr>
@@ -194,18 +194,18 @@ Windows Server 2008 R2及更早版本系统存在安全性、稳定性和兼容�
 ![](https://qcloudimg.tencent-cloud.cn/raw/ae6886f97b1ea3fd1d1dfcf492d8ee1b.png)
    - 小于，则表示正常。
    - 大于，请参考以下步骤进行修复。
-   1. 在 powershell 窗口中输入 `msconfig` 并按 **Enter**，打开“系统配置”窗口。
-   2. 在“系统配置”窗口中，选择**引导**页签，并单击**高级选项**。如下图所示：
-   ![](https://qcloudimg.tencent-cloud.cn/raw/d29df9b834e14607e08f6df6ef20b720.png)
-	 3. 在弹出的“引导高级选项”窗口中，取消勾选“最大内存”。如下图所示：
-	 ![](https://qcloudimg.tencent-cloud.cn/raw/3b44522c23ea82e3c8ac2baa1b3cf9a5.png)
-	 4. 单击**确定**。
-	 5. 在操作系统桌面左下角右键单击 <img src="https://qcloudimg.tencent-cloud.cn/raw/0cfefcbe7474bf6b532a589c53314d5b.png" style="margin:-3px 0px">，选择**设置**。
-	 6. 在“设置”窗口中选择**更新与安全**，并在左侧单击**激活**。
-	 7. 检查系统是否已激活。
-	    - 是，则进行下一步。
-	    - 否，则请参考 [系统激活](https://cloud.tencent.com/document/product/213/2757) 进行激活。
-	 8. 通过控制台重启实例，使配置生效。详情请参见 [重启实例](https://cloud.tencent.com/document/product/213/4928)。
+5. 在 powershell 窗口中输入 `msconfig` 并按 **Enter**，打开“系统配置”窗口。
+6. 在“系统配置”窗口中，选择**引导**页签，并单击**高级选项**。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/d29df9b834e14607e08f6df6ef20b720.png)
+7. 在弹出的“引导高级选项”窗口中，取消勾选“最大内存”。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/3b44522c23ea82e3c8ac2baa1b3cf9a5.png)
+8. 单击**确定**。
+9. 在操作系统桌面左下角右键单击 <img src="https://qcloudimg.tencent-cloud.cn/raw/0cfefcbe7474bf6b532a589c53314d5b.png" style="margin:-3px 0px">，选择**设置**。
+10. 在“设置”窗口中选择**更新与安全**，并在左侧单击**激活**。
+11. 检查系统是否已激活。
+   - 是，则进行下一步。
+   - 否，则请参考 [系统激活](https://cloud.tencent.com/document/product/213/2757) 进行激活。
+12. 通过控制台重启实例，使配置生效。详情请参见 [重启实例](https://cloud.tencent.com/document/product/213/4928)。
 
 
 :::
@@ -279,7 +279,7 @@ bcdedit |findstr detecthal
 4. 在“系统属性”窗口中，选择**高级**页签，并单击**环境变量**。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/ddbbb55a834f3e3ab2c7acf714a323bf.png)
 5. 双击“系统变量”中的 `Path`，检查环境变量。
-请确保以下4个环境变量存在、顺序无误且位置处在最顶端。若您还有其他自定义环境变量，请尽量放至最底端。如下图所示：
+请确保以下4个环境变量存在、顺序无误且位置处在最顶端。若您还有其他自定义环境变量，请尽量放在最底端。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/0b6e2510590dc3f8c41b60c4b6cbdfb1.png)
 若您的环境变量出现问题，请进行修复：
 	- `%SystemRoot%\system32`
@@ -296,7 +296,7 @@ bcdedit |findstr detecthal
 系统未激活会很小概率会引发 Windows 实例出现一些未知异常。例如，系统激活注册表可能被损坏，当机器在重启后出现内存被系统限制为微软设计的默认值2GB等。
 
 #### 解决方法
-请参考 [Windows Server 系统激活](https://cloud.tencent.com/document/product/213/70811) 进行系统激活。
+请参考 [Windows Server 系统激活](https://cloud.tencent.com/document/product/213/70811) 及 [使用 slmgr 命令激活 Windows 系统](https://cloud.tencent.com/document/product/213/2757) 进行系统激活。
 
 :::
 ::: 系统时间检查
@@ -330,8 +330,10 @@ route change 172.16.0.0 mask 255.240.0.0 $Gateway -p
 route change 192.168.0.0 mask 255.255.0.0 $Gateway -p
 ```
 <dx-alert infotype="notice" title="">
-若 route change xxx 相关命令执行失败，请替换为 route add xxx。
+- 若 route change xxx 相关命令执行失败，请替换为 route add xxx。
+- 若为自研机器，请同事参考 [腾讯云单网卡机器如何恢复默认路由](https://cloud.tencent.com/developer/article/1879366) 进行操作。
 </dx-alert>
+
 
 
 :::
@@ -460,7 +462,7 @@ CPU 使用率过高，系统性能会降低，可用 CPU 资源不足系统可�
 
 #### 解决方法
 确认磁盘中哪些文件占用空间最多：
- - 若为日志文件等可清理文件可进行清理。
+ - 是否为日志文件，或可清理文件。
  - 若为业务正常需求文件，则建议尽快扩容磁盘，详情请参见 [扩容场景介绍](https://cloud.tencent.com/document/product/362/32539)。
 
 :::
@@ -559,9 +561,9 @@ netsh.exe winsock reset
 
 
 :::
-::: RDP-Tcp 连接检查
+::: RDP 侦听器启用检查
 #### 现象描述[](id:RDPCconnectionCheck)
-远程桌面服务端口未监听，无法远程登录，只能使用 VNC 登录。
+RDP 侦听器未启用，无法远程登录，建议使用 VNC 登录进行恢复。
 
 #### 解决方法
  1. [使用 VNC 登录 Windows 实例](https://cloud.tencent.com/document/product/213/35704)。
@@ -575,7 +577,7 @@ Set-ItemProperty 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStat
 :::
 ::: 允许远程桌面连接检查
 #### 现象描述[](id:allowRemoteDesktopConnection)
-无法远程登录，只能使用 VNC 登录。
+RDP 被禁用，无法远程登录，建议使用 VNC 登录进行恢复。
 
 #### 解决方法
  1. [使用 VNC 登录 Windows 实例](https://cloud.tencent.com/document/product/213/35704)。
@@ -589,7 +591,7 @@ Set-ItemProperty 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\' -Name
 :::
 ::: RDP 自签证书到期时间检查
 #### 现象描述[](id:signedCertificateExpiration)
-无法远程登录，只能使用 VNC 登录。
+RDP 自签证书过期，可能无法远程登录，建议使用 VNC 登录进行恢复。
 
 #### 解决方法
  1. [使用 VNC 登录 Windows 实例](https://cloud.tencent.com/document/product/213/35704)。
@@ -608,7 +610,7 @@ Restart-Service TermService -Force
 120天宽限期过后，还未导入 License 会导致无法远程登录，只能使用 VNC 登录。
 
 #### 解决方法
-通常情况下，微软系统默认允许最多2个账号同时登录。若非必须，则建议您卸载远程桌面服务角色以快速修复问题。若需使用多用户同时登录，则需请联系微软购买 RDS CALs，详情请参见 [设置允许多用户远程登录 Windows 云服务器](https://cloud.tencent.com/document/product/213/36267)。
+通常情况下，微软系统默认允许最多2个账号同时登录。若非必须，则建议您卸载远程桌面服务角色以快速修复问题。若需使用多用户同时登录，则请拨打微软市场部热线（拨通 400-820-3800 后转2再转4）进行咨询购买 RDS CALs，详情请参见 [设置允许多用户远程登录 Windows 云服务器](https://cloud.tencent.com/document/product/213/36267)。
 
 卸载及修复步骤步骤如下：
 
@@ -623,7 +625,7 @@ Remove-WindowsFeature Remote-Desktop-Services
 :::
 ::: 网络访问帐户检查
 #### 现象描述[](id:networkAccessAccountCheck)
-无法远程登录，只能使用 VNC 登录。
+网络访问帐户为仅来宾，无法远程登录，建议使用 VNC 登录进行恢复。
 
 
 
@@ -657,7 +659,7 @@ Windows 实例内部防火墙未放通远程桌面服务端口，无法远程登
 :::
 ::: 端口耗尽检查
 #### 现象描述[](id:portExhaustionCheck)
- 由于端口耗尽，导致机器网络不通。
+ 由于高位可用 TCP 或 UDP 端口耗尽，可能导致网络不通。
 
 
 
@@ -704,16 +706,21 @@ Set-ItemProperty HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\ -Name
 #### 解决方法
 1. [使用 VNC 登录 Windows 实例](https://cloud.tencent.com/document/product/213/35704)。
 2. 在操作系统桌面左下角右键单击 <img src="https://qcloudimg.tencent-cloud.cn/raw/0cfefcbe7474bf6b532a589c53314d5b.png" style="margin:-3px 0px">，在弹出菜单中选择 <b>Windows PowerShell (管理员)</b>。
-3. 在 powershell 窗口中，输入 `ncpa.cpl` 并按 **Enter**，打开“网络连接”窗口。
-4. 在“网络连接”窗口中，重启网卡：
+3. [](id:Step3)在 powershell 窗口中，执行以下命令，对现有 IP 信息进行备份输出。
+```
+ipconfig /all >>C:\ip.txt
+```
+4. 在 powershell 窗口中，输入 `ncpa.cpl` 并按 **Enter**，打开“网络连接”窗口。
+5. 在“网络连接”窗口中，重启网卡：
     - 右键单击网卡，在弹出的菜单中选择**禁用**。
     - 再次右键单击后，再选择**启用**，以尝试快速修复。
-5. 若仍未修复，请确认网卡是否为自动获取 IP 地址。若非此设置，建议调整为自动获取 IP 地址。步骤如下：
+6. 若仍未修复，请确认网卡是否为自动获取 IP 地址。若非此设置，建议调整为自动获取 IP 地址。步骤如下：
    1. 在“网络连接”窗口中，右键单击网卡，在弹出的菜单中选择**属性**。
    2. 在弹出的“以太网 属性”窗口中，选择 “Internet 协议版本 4（TCP/IPv4）”，并单击**属性**。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/2e59ccc6a9a06f925f333e469e3b0c74.png)
    3. 在弹出的 “Internet 协议版本 4（TCP/IPv4）”窗口中，选择“自动获得 IP 地址”。
    4. 单击**确定**，设置完成后再次检查网关状态。
+   若您无法通过此步骤修复，则可使用 [步骤3](#Step3) 中备份的 IP 信息进行还原。
 
 
 :::

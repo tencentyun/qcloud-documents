@@ -7,7 +7,9 @@ HTTP Request 连接器作为 HTTP 客户端，可以发起 HTTP 请求并将得�
 > !
 >- 在2021年9月2日前创建的应用，HTTP Request 连接器配置请参考 [方法一](#method1) 来进行配置，在新建连接配置页面进行基本配置和高级配置。
 >- 在2021年9月2日及之后创建的应用，HTTP Request 连接器配置请参考 [方法二](#method2) 来进行配置，直接在右侧弹出的配置界面中即可进行基本配置和高级配置。
->- 此项优化不影响原有和现有应用的配置和使用，只是在配置操作上进行了优化，更方便客户填写对应信息。
+>- 在2022年4月8日及之后创建的应用，HTTP Request连接器配置请参考[方法三](#method3)来进行配置,配置连接-->配置请求信息。
+>- 方案二优化内容：此项优化不影响原有和现有应用的配置和使用，只是在配置操作上进行了优化，更方便客户填写对应信息。
+>- 方案三优化内容：HTTP Request连接器支持连接配置的统一管理。
 
 ## 操作说明
 
@@ -226,3 +228,143 @@ HTTP Request 请求的响应返回后，会将响应结果生成对应的消息�
 
 - 同时，应用测试模式下可以看到 HTTP Request 对应的 attributes。
   ![](https://main.qcloudimg.com/raw/4a7099444248e9c65bb8abee04adeff5/image-20210426212733856.png)
+### 方法三（2022年4月8日后创建的应用）[](id:method3)
+#### 连接配置
+
+- HTTP Request 连接器连接配置中包括Base URL、证书验证、最大重定向次数及安全网关名称。
+	<img src="https://qcloudimg.tencent-cloud.cn/raw/2a474c304b6dc4a76602d1614e35b298.png" width="656px">
+- 上述连接器配置参数相关描述如下表所示：
+
+| 参数         | 数据类型 | 描述                                                         | **是否必填** | **默认值** |
+| ------------ | -------- | ------------------------------------------------------------ | ------------ | ---------- |
+| Base URL     | string   | 一般配置请求地址的公共部分                                   | 否           | 无         |
+| 证书验证     | string   | 开启后则请求HTTP服务时跳过证书验证                            | 是           | HTTPS      |
+| 最大重定向数 | int      | 重定向次数，最小值1，最大值10                                 | 否           | 1          |
+| 请求超时时间 | string   | 设置请求的超时时间，最大5分钟，最小1分钟                       | 否            |1          |
+| 安全网关名称 | string   | 直接请求内网域名/IP 时，需要绑定安全网关                       | 否           | 无         |
+
+#### 配置说明
+
+HTTP Request 操作配置包括基本配置、高级配置两项：
+
+![](https://qcloudimg.tencent-cloud.cn/raw/a29d95bb638966fc1bf1ce7e899f2616.png)
+#### 参数介绍
+
+- 基本配置：HTTP Request 连接器基本配置中包括请求URL、请求方法、URL参数、请求头、请求体，其中请求URL、请求方法为必填项。
+- 高级配置：HTTP Request 连接器高级配置中输出消息绑定自定义数据类型，可用于自定义输出消息数据类型。
+  ![](https://qcloudimg.tencent-cloud.cn/raw/cfe068b13cd0ca9fb8fd67681f7c7e37.png)
+
+<dx-tabs>
+::: 基础配置参数描述
+
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数类型</th>
+<th>描述</th>
+<th><strong>是否必填</strong></th>
+<th><strong>默认值</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>请求URL</td>
+<td>string/表达式</td>
+<td>如果在连接配置中配置了BaseUrl,请配置相对URL.否则配置完整的请求URL</td>
+<td>是</td>
+<td>/</td>
+</tr>
+<tr>
+<td>请求方法</td>
+<td>string</td>
+<td>下拉单选指定发送请求的方法，全集为：GET、POST、PUT、PATCH、DELETE、HEAD、OPTIONS</td>
+<td>是</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>URL参数</td>
+<td>表达式</td>
+<td>用于指定发送请求的URL参数，结构为：dict&lt;string,string&gt;</td>
+<td>否</td>
+<td>无</td>
+</tr>
+<tr>
+<td>请求头</td>
+<td>表达式</td>
+<td>用于指定发送请求的请求头，结构为：dict&lt;string,list<string>&gt;</string></td>
+<td>否</td>
+<td>无</td>
+</tr>
+<tr>
+<td>请求体</td>
+<td>string/表达式</td>
+<td>用于设置发送请求的消息体</td>
+<td>否</td>
+<td>无</td>
+</tr>
+</tbody></table>
+
+:::
+::: 高级配置参数描述
+
+| 参数         | 参数类型 | 描述                                                         | 是否必填 | 默认值     |
+| ------------ | -------- | ------------------------------------------------------------ | -------- | ---------- |
+| 消息属性     | string   | 下拉框选择输出消息绑定的属性，HTTP Request 只支持绑定 payload | 否       | payload    |
+| 类型选择     | string   | 下拉框选择输出消息 payload 绑定的数据类型，包括 message 内置数据类型和自定义数据类型 | 否       | 空         |
+| 数据消费模式 | string   | 下拉框选择是否对消息数据进行持久化处理：<br/>repeatable：默认处理方式，消息数据可在一次触发中持续重复使用<br/>non-repeatable：数据一次性消费，用于大文件数据的流式高效处理，暂时支持 JSON 数组类型，其超过5M时建议选择该模式 | 否       | repeatable |
+:::
+</dx-tabs>
+
+## 输出
+
+HTTP Request 请求的响应返回后，会将响应结果生成对应的消息传递给下一个组件。其中，响应的基本信息、Header、Query 参数、Path 参数会放到消息的 attributes 中，响应的 body 会放到消息的 payload 中。
+
+**HTTP Request 输出消息描述**
+
+<table>
+<thead>
+<tr>
+<th>消息属性</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>payload</td>
+<td>响应 body 保存在 payload 中，支持所有内置消息类型和自定义消息类型，其中 application/json、application/xml、application/yaml、application/x-www-form-urlencoded、multipart/form-data 等结构的 payload 支持在表达式中结构化访问</td>
+</tr>
+<tr>
+<td>error</td>
+<td>执行失败后，error 为 dict 类型，包含“Code”和“Description”字段：“Code”字段表示错误类型，“Description”字段表示错误具体信息</td>
+</tr>
+<tr>
+<td>attributes</td>
+<td>保存响应的属性值，具体包括：<br>statusCode：响应的状态码，例如：200<br>reasonPhrase：响应的文本描述，例如：OK<br>headers：响应的 header，结构为： dict&lt;string,list<string>&gt;<br>cookies：响应的 cookie，结构为： dict&lt;string,string&gt;，解析 Cookies 逻辑比较常见，可通过该数据直接读取</string></td>
+</tr>
+<tr>
+<td>variables</td>
+<td>默认为空</td>
+</tr>
+</tbody></table>
+
+## 案例
+
+1. 组件筛选 HTTP Request。
+   ![image-20210426211753938](https://main.qcloudimg.com/raw/8db8b3da512cc211fc8f0dda96f1b586/image-20210426211753938.png)
+2. 新建并配置 HTTP Request 连接器，BaseURL配置：`https://cloud.tencent.com`。
+	 ![](https://qcloudimg.tencent-cloud.cn/raw/2e326e775a2de19b629d2e06b4f64ead.png)
+
+配置界面如下：
+	 <img src="https://qcloudimg.tencent-cloud.cn/raw/7c363cdb6c44e00060699276017eaf75.png" width="460px">
+3. 使用操作配置。
+	 ![](https://qcloudimg.tencent-cloud.cn/raw/4a395af22ad35071350b84df7b49ea46.png)
+4. 发布并触发。浏览器访问触发对应流，可以直接跳转至腾讯云首页。
+   ![](https://qcloudimg.tencent-cloud.cn/raw/c08dc624a13544050ef932513d196b72.png)
+
+   集成流如下：
+![]( https://qcloudimg.tencent-cloud.cn/raw/217c65d6d1680e60f0cb59e7a2c9685a.png)
+  
+- 同时，应用测试模式下可以看到 HTTP Request 对应的payload、 attributes。
+
+  ![](https://qcloudimg.tencent-cloud.cn/raw/fb567e9854d91907538b4eac47349c0e.png)
+
+  ![](https://qcloudimg.tencent-cloud.cn/raw/28c4e6aee227333badd2602136fdb0da.png)
