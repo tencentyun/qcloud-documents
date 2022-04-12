@@ -28,7 +28,7 @@
 ![](https://main.qcloudimg.com/raw/bac9249de8649aded5e3071ff70ef9a1.png)
  - **名称**：自定义 NodeUnit 的名称。 
  - **节点**：向自定义 NodeUnit 中添加节点。 
- >! 一个 NodeGroup 下可以有多个 NodeUnit，通常同一个 NodeUnit 中的节点位于相同的内网，ServiceGrid 资源中的服务组会将流量限定在同一个 NodeUnit 所绑定的节点中。 
+>! 一个 NodeGroup 下可以有多个 NodeUnit，通常同一个 NodeUnit 中的节点位于相同的内网，ServiceGrid 资源中的服务组会将流量限定在同一个 NodeUnit 所绑定的节点中。 
 6. 单击**确定**，完成创建 NodeUnit。创建成功后，即可在 NodeUnit 列表页面进行查看。 
 
 
@@ -41,7 +41,7 @@
 主要参数信息如下：
  - **NodeGroup**：新建 ServiceGrid 对象将与选中的 NodeGroup 建立关联关系。 
  - **DeploymentGrid绑定（选填）**：新建 ServiceGrid 对象将与选中的 DeploymentGrid 绑定。推荐使用 “引用DeploymentGrid”。 
- >! 在弹出的“引用DeploymentGrid” 窗口中，需根据 NodeGroup 值进行人工筛选，以确保与绑定的 DeploymentGrid 关联相同的 NodeGroup。 
+>! 在弹出的“引用DeploymentGrid” 窗口中，需根据 NodeGroup 值进行人工筛选，以确保与绑定的 DeploymentGrid 关联相同的 NodeGroup。 
 5. 单击**创建ServiceGrid**，完成创建。 
   创建成功后，在 “ServiceGrid” 管理页面即可查看已新建的 ServiceGrid 对象，也可通过**编辑YAML**对 ServiceGrid 资源进行修改。 
 >!  目前只支持修改 ”GridUniqKey“ 字段和 ”Ports“ 字段。”GridUniqKey“ 即创建 ServiceGroup 时的 NodeGroup 值。 
