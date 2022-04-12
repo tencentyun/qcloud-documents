@@ -82,9 +82,7 @@ SDK 提供的信令接口（ [iOS](https://im.sdk.qcloud.com/doc/zh-cn/categoryV
 ### 4. 发送信令邀请时，对于信令邀请超时的处理逻辑是怎么样的？
 
 * 当邀请发送方和接收方都在线时，超时信令由接收方触发，且发送方和接收方都会收到 `onInvitationTimeout` 回调。
-
 * 当接收方不在线时，超时信令由发送发触发，发送方会收到 `onInvitationTimeout` 回调。
-
 * 超时信令均由 IM SDK 发出。
 
 ### 5. 离线再上线，会收到未超时的信令消息吗？
