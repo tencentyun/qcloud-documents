@@ -1,5 +1,7 @@
 
 
+
+
 ## 注意事项
 由于目前官方 webview 组件暂未上线，使用自定义组件实现的 webview 组件仅支持打开与当前小程序绑定的公众号页面，并且不支持个人小程序使用。自定义组件的基础开发说明可参见 [快速开始创建自定义组件](https://docs.cloudbase.net/lowcode/custom-components/quick-start/comps)。
 
@@ -10,7 +12,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/8e10b42c17d98e92dcf3e9888d105503.png)
 
 ### 步骤2：安装云开发 CLI 工具
-1. 若当前电脑未安装 node.js，需要先前往 node.js 官网进行安装。
+1. 若当前电脑未安装 node.js，需要先前往 [node.js 官网](https://nodejs.org/zh-cn/) 进行安装。
 2. node.js 安装完成后，调出 cmd 工具，输入 `npm install -g @cloudbase/cli` 命令进行 CLI 工具的安装。
 
 > !如果运行 `npm install -g @cloudbase/cli` 命令失败，您可能需要修改 npm 权限，或者以系统管理员身份运行：`sudo npm install -g @cloudbase/cli`。
