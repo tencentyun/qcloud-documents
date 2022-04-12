@@ -1,7 +1,7 @@
 TUIkit 是腾讯云音视频团队在5000+客户的服务积累中，结合业内主流的音视频场景，提炼出的开源解决方案，包含视频通话组件、直播组件、视频房间组件等多个客户端音视频组件，可以帮助开发者快速搭建诸如通话、客服、直播、语聊、教育等场景解决方案。
 
 ## TUIKit 全家桶
-![](https://liteav.sdk.qcloud.com/app/doc/trtc/tuikit/all_tuikit.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/16435f6a02d222b752dce7707fcc9ac0.png)
 
 如上图所示，TUIKit 分为 TUICompenont 和 TUIWidget 两种，同时支持可选的基础后台服务。
 ```java
