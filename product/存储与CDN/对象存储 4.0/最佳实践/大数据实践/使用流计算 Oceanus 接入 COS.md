@@ -10,7 +10,7 @@
 
 #### 创建 Oceanus 集群
 
-1. 登录 [Oceanus 控制台](https://console.cloud.tencent.com/oceanus/workspace)，创建一个 Oceanus 集群。具体可参见 [创建独享集群](https://cloud.tencent.com/document/product/849/48298) 文档。
+登录 [Oceanus 控制台](https://console.cloud.tencent.com/oceanus/workspace)，创建一个 Oceanus 集群。具体可参见 [创建独享集群](https://cloud.tencent.com/document/product/849/48298) 文档。
 
 #### 创建 COS 存储桶
 
