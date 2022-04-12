@@ -14,7 +14,7 @@
 - 企业的超管和法定代表人，可以在小程序端或控制台开启**和港澳台身份个人签署合同**的能力。
  - 企业超管/法定代表人在首页**企业管理** > **扩展服务**内单击**机构与港澳台居民*签署合同**的开关，之后阅读相关说明，并进行人脸识别验证后，就可以开启此能力。
 ![](https://qcloudimg.tencent-cloud.cn/raw/3a9abd00183fbecdc614428d92e18db2.png)
- <img style="width:720px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/3ab914fe455f83fc54ce8d9a799a8e4c.png" />
+ <img style="width:690px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/3ab914fe455f83fc54ce8d9a799a8e4c.png" />
 - 企业经办人也可以通过控制台打开此能力。操作步骤如下：
  1. 超管或法定代表人登录控制台，单击左侧菜单**企业中心**，在右侧的扩展服务中找到**机构与港澳台居民*签署合同**的开关。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d7a1d7715ed49d1defd89665c89f36b9.png)
