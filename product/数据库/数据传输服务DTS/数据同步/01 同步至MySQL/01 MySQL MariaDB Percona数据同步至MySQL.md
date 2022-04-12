@@ -96,18 +96,19 @@ FLUSH PRIVILEGES;
 <table>
 <thead><tr><th>参数</th><th>描述</th></tr></thead>
 <tbody><tr>
-<td>计费模式</td><td>支持包年包月和按量计费。目前免费，将来开始计费前1个月会通过邮件和站内信方式提前通知用户。</td></tr>
+<td>计费模式</td><td>支持包年包月和按量计费。</td></tr>
 <tr>
 <td>源实例类型</td><td>选择 MySQL，购买后不可修改。</td></tr>
 <tr>
 <td>源实例地域</td><td>选择源实例所在地域，购买后不可修改。</td></tr>
 <tr>
-<td>目的实例类型</td><td>选择 MySQL，购买后不可修改。</td></tr>
+<td>目标实例类型</td><td>选择 MySQL，购买后不可修改。</td></tr>
 <tr>
-<td>目的实例地域</td><td>选择目的实例所在地域，购买后不可修改。</td></tr>
+<td>目标实例地域</td><td>选择目的实例所在地域，购买后不可修改。</td></tr>
 <tr>
-<td>同步任务规格</td><td>目前只支持标准版。</td></tr>
+<td>规格</td><td>请根据业务诉求选择规格，规格越高，性能越好。详情请参考<a href="https://cloud.tencent.com/document/product/571/18736">计费概述</a>。</td></tr>
 </tbody></table>
+
 2. 购买完成后，返回 [数据同步列表](https://console.cloud.tencent.com/dts/replication)，可看到刚创建的数据同步任务，刚创建的同步任务需要进行配置后才可以使用。
 3. 在数据同步列表，单击**操作**列的**配置**，进入配置同步任务页面。
 ![](https://main.qcloudimg.com/raw/b21f1336854375bb1343c7ccb144900b.png)
@@ -271,10 +272,10 @@ FLUSH PRIVILEGES;
 >- 当**初始化类型**仅选择**全量数据初始化**，系统默认用户在目标库已经创建了表结构，不会进行表结构迁移，也不会校验源库和目标库是否有同名表，所以当用户同时在**已存在同名表**项选择**前置校验并报错**，则校验并报错功能不生效。
 >- 仅选择**全量数据初始化**的场景，用户需要提前在目标库创建好表结构。
 >- 如果用户在同步过程中确定会使用 gh-ost、pt-osc 等工具对某张表做 Online DDL，则**同步对象**需要选择这个表所在的整个库（或者整个实例），不能仅选择这个表，否则无法同步 Online DDL 变更产生的临时表数据到目标数据库。
->- 如果用户在同步过程中确定会对某张表使用 rename 操作（例如将 table A rename 为 table B），则**同步对象**需要选择 table A 所在的整个库（或者整个实例），不能仅选择 table A，否则系统会报错。
->
-![](https://qcloudimg.tencent-cloud.cn/raw/793b1914c8bb9eec917d3296d92000e9.png)
-<strong>库表重命名</strong>：如需要修改目标库中的对象名称，请在已选对象中，鼠标放在右侧将出现编辑按钮，单击后可在弹窗中填写新的名称。
+> - 如果用户在同步过程中确定会对某张表使用 rename 操作（例如将 table A rename 为 table B），则**同步对象**需要选择 table A 所在的整个库（或者整个实例），不能仅选择 table A，否则系统会报错。
+> 
+>![](https://qcloudimg.tencent-cloud.cn/raw/793b1914c8bb9eec917d3296d92000e9.png)
+><strong>库表重命名</strong>：如需要修改目标库中的对象名称，请在已选对象中，鼠标放在右侧将出现编辑按钮，单击后可在弹窗中填写新的名称。
 <table>
 <thead><tr><th>设置项</th><th>参数</th><th>描述</th></tr></thead>
 <tbody>
@@ -298,7 +299,7 @@ FLUSH PRIVILEGES;
 <td>已选对象</td><td>展示已选择的同步对象，支持库表映射。</td></tr>
 </tbody></table>
 6. 在校验任务页面，完成校验并全部校验项通过后，单击**启动任务**。
-    如果校验任务不通过，可以参考 [校验不通过处理方法](https://cloud.tencent.com/document/product/571/58685) 修复问题后重新发起校验任务。
+    如果校验任务不通过，可以参考 [校验不通过处理方法](https://cloud.tencent.com/document/product/571/61639) 修复问题后重新发起校验任务。
  - 失败：表示校验项检查未通过，任务阻断，需要修复问题后重新执行校验任务。
  - 警告：表示检验项检查不完全符合要求，可以继续任务，但对业务有一定的影响，用户需要根据提示自行评估是忽略警告项还是修复问题再继续。
 ![](https://main.qcloudimg.com/raw/9ec59e1cbcf8144d2f3bff7e1aeffa5c.png)
