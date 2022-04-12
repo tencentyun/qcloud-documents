@@ -1,8 +1,8 @@
 ## 个人能力开通
-目前电子签支持港澳台居民无门槛签署 C2C 合同；也支持大陆用户自主开启与港澳台居民签署能力。开通方式如下：
+目前电子签支持港澳台居民无门槛签署 C2C 合同，也支持大陆用户自主开启与港澳台居民签署能力。开通方式如下：
 1. 在首页进入**个人中心**，并单击**查看个人信息**。
 2. 进入**更多设置**，点选**同港澳台居民*签署合同**开关。
-![](https://qcloudimg.tencent-cloud.cn/raw/5f761cbf19a84a28d4b13e3c3b000c29.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/a81f8c2bd31ed41697308cfef829f0b3.png)
 >!若您使用港澳台身份注册，此处能力名称为：以港澳台居民身份*签署合同。
 3. 单击**开关**后，需要先阅读相关说明，再进行人脸识别验证，才可以打开此能力。
 ![](https://qcloudimg.tencent-cloud.cn/raw/f4c0bb797252c91d09ec261644bd5b65.png)
@@ -13,13 +13,13 @@
 
 - 企业的超管和法定代表人，可以在小程序端或控制台开启**和港澳台身份个人签署合同**的能力。
  - 企业超管/法定代表人在首页**企业管理** > **扩展服务**内单击**机构与港澳台居民*签署合同**的开关，之后阅读相关说明，并进行人脸识别验证后，就可以开启此能力。
-![](https://qcloudimg.tencent-cloud.cn/raw/4c6727c281f3a01d630f07b59beba15a.png)
- <img style="width:800px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/3ab914fe455f83fc54ce8d9a799a8e4c.png" />
+![](https://qcloudimg.tencent-cloud.cn/raw/3a9abd00183fbecdc614428d92e18db2.png)
+ <img style="width:720px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/3ab914fe455f83fc54ce8d9a799a8e4c.png" />
 - 企业经办人也可以通过控制台打开此能力。操作步骤如下：
  1. 超管或法定代表人登录控制台，单击左侧菜单**企业中心**，在右侧的扩展服务中找到**机构与港澳台居民*签署合同**的开关。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d7a1d7715ed49d1defd89665c89f36b9.png)
  2. 单击**开通**后，页面会出现弹窗，提示企业超管或法定代表人使用小程序开通能力，后续流程与小程序端能力开通流程一致。
-![](https://qcloudimg.tencent-cloud.cn/raw/252e15d4e291b197eb2698d9182655d3.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/4ec1b748c75349b5e5be4f6a2e652cb5.png)
 
 
 ## 发起及签署合同说明
