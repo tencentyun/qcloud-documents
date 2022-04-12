@@ -102,9 +102,8 @@ FLUSH PRIVILEGES;
 <tr>
 <td>目标实例地域</td><td>选择目的实例所在地域，购买后不可修改。</td></tr>
 <tr>
-<td>规格</td><td>请根据业务诉求选择规格，规格越高，性能越好。详情请参考<a href="https://cloud.tencent.com/document/product/571/18736">计费概述</a>。</td></tr>
+<td>规格</td><td>请根据业务诉求选择规格，规格越高，性能越好。详情请参考 <a href="https://cloud.tencent.com/document/product/571/18736">计费概述</a>。</td></tr>
 </tbody></table>
-
 2. 购买完成后，返回 [数据同步列表](https://console.cloud.tencent.com/dts/replication)，可看到刚创建的数据同步任务，刚创建的同步任务需要进行配置后才可以使用。
 3. 在数据同步列表，单击**操作**列的**配置**，进入配置同步任务页面。
 ![](https://main.qcloudimg.com/raw/2c5f68ff0bfc4b75998cfe3f92210ed6.png)
