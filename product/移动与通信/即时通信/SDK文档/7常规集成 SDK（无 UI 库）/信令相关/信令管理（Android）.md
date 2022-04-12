@@ -73,7 +73,7 @@ SDK 提供的信令接口（ [iOS](https://im.sdk.qcloud.com/doc/zh-cn/categoryV
 * 邀请操作，上层语义可以理解成**请求建连**。
 * 挂断操作，上层语义可以理解成**请求挂断**。
 
-可以使用 IM SDK 的**邀请**接口，结合自定义 data 来表示当前的邀请是**请求建连**还是**请求挂断**，由 IM 透传给对端处理。可以参考 TUICalling （ [iOS](https://github.com/TencentCloud/TIMSDK/blob/master/iOS/TUIKit/TUICalling/Source/Model/Impl/TRTCCalling%2BSignal.m) | [Android](https://github.com/TencentCloud/TIMSDK/blob/master/Android/TUIKit/TUICalling/tuicalling/src/main/java/com/tencent/liteav/trtccalling/model/TRTCCalling.java) ）组件的挂断逻辑。
+可以使用 IM SDK 的**邀请**接口，结合自定义 data 来表示当前的邀请是**请求建连**还是**请求挂断**，由 IM 透传给对端处理。可以参见 TUICalling （ [iOS](https://github.com/TencentCloud/TIMSDK/blob/master/iOS/TUIKit/TUICalling/Source/Model/Impl/TRTCCalling%2BSignal.m) | [Android](https://github.com/TencentCloud/TIMSDK/blob/master/Android/TUIKit/TUICalling/tuicalling/src/main/java/com/tencent/liteav/trtccalling/model/TRTCCalling.java) ）组件的挂断逻辑。
 
 ### 4. 发送信令邀请时，对于信令邀请超时的处理逻辑是怎么样的？
 * 当邀请发送方和接收方都在线时，超时信令由接收方触发，且发送方和接收方都会收到 `onInvitationTimeout` 回调。
