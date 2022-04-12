@@ -57,7 +57,7 @@ DTS 连接器接收处理后的事件格式如下：
 ### DDL 操作示例
 ```JSON
  {
-   "id":"38cecd93-a9c2-11ec-b952-043f72d8da53:16",
+   "id":"38cecd93-a9c2-11ec-b952-******d8da53:16",
    "type":"dts:MYSQL:INSERT",
    "specversion":"1.0",
    "source":"dts.cloud.tencent",
@@ -144,7 +144,7 @@ DTS 连接器接收处理后的事件格式如下：
          "serverId":109741,
          "fileName":"mysql-bin.000005",
          "position":2234587,
-         "gtid":"38cecd93-a9c2-11ec-b952-043f72d8da53:16",
+         "gtid":"38cecd93-a9c2-11ec-b952-******d8da53:16",
          "schemaName":"dts",
          "tableName":"dts_mysql",
          "seqId":16017,
