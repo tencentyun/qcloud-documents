@@ -3,7 +3,7 @@
 [](id:test)
 ## 测试版 License
 
-[](id:create_test)
+[](id:create_formal)
 ### 申请测试版 License
 
 您可以免费申请短视频**基础版**模块的测试版 License（免费测试有效期为14天，可续期1次，共28天）体验测试。
@@ -13,19 +13,19 @@
 >- 免费续期一次时，若在试用期14天内申请续期，则到期时间为  `2021-09-09 10:28:41` ；若在试用期14天结束后申请续期，申请续期的时间为  `2021-08-30 22:26:20` ，则续期的到期时间为  `2021-09-13 22:26:20` 。
 
 申请测试模块时，您可以选择**新建测试 License 并申请测试模块**或在**已创建的测试应用中申请测试模块**两种方式创建测试 License。
- <dx-tabs>
- ::: 方式一：新建测试 License 并申请测试模块
+<dx-tabs>
+::: 方式一：新建测试 License 并申请测试模块
 1. 登录 [**云点播控制台**](https://console.cloud.tencent.com/vod/overview)，在左侧菜单中选择 [ **License 管理**](https://console.cloud.tencent.com/live/license) > **[SDK License](https://console.cloud.tencent.com/vod/license/video)**，单击**创建测试 License**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/1defdf99f755e854f2ca636ad7a1bb7d.png)
-2. 根据实际需求填写 `App Name`、`Package Name` 和 `Bundle ID`，勾选功能模块 **直播推流（RTMP 推流 + RTC 推流）**，单击**确定**。
+2. 根据实际需求填写 `App Name`、`Package Name` 和 `Bundle ID`，勾选功能模块 **短视频（基础版）**，单击**确定**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/2502ce5a06fb95a86563295c4b5251a1.png)
-3. 测试版 License 成功创建后，页面会显示生成的 License 信息。**在 SDK 初始化配置时需要传入 Key 和 License URL 两个参数，请妥善保存以下信息。** ![](https://qcloudimg.tencent-cloud.cn/raw/519f9f3fb2015af411b956280c787f00.png)
+3.测试版 License 成功创建后，页面会显示生成的 License 信息。**在 SDK 初始化配置时需要传入 Key 和 License URL 两个参数，请妥善保存以下信息。** ![](https://qcloudimg.tencent-cloud.cn/raw/519f9f3fb2015af411b956280c787f00.png)
 :::
 ::: 方法二：已创建的测试应用中申请测试模块
 若您想在已创建的测试应用中申请短视频（基础版）功能测试模块，步骤如下：
 1. 选择您想测试的应用，单击**测试新功能模块**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/9b7703988c5a3aba2036f9af898f86b0.png)
-2. 勾选功能模块 **直播推流（RTMP 推流 + RTC 推流）**，单击**确定**。
+2. 勾选功能模块 **短视频（基础版）**，单击**确定**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/c63e0d7cb1d9daf033288a2b0292adc8.png)
 :::
 </dx-tabs>
@@ -34,19 +34,22 @@
 >- 测试版 License 有效期内可单击右侧的 **编辑**，进入修改 Bundle ID 和 Package Name 信息，单击 **确定** 即可保存。
 >- 若无 Package Name 或 Bundle Id，可填写“-”。
 
-[](id:renewal_test)
+[](id:renewal_formal)
 ### 续期测试版 License
+
 测试版 License 初次申请默认有效期默认为14天，期满后您可续期**1次**，单击功能模块 **短视频** 右侧的 **续期**，选择 **确定续期** 即可续期该功能模块14天。
 ![](https://qcloudimg.tencent-cloud.cn/raw/2e20f1e6c7436555f617794b8807351f.png)
+
 >? 测试版 License 有效期共28天，**只能续期一次**。若您需继续使用，请购买 [正式版 License](#formal)。
 
-[](id:upgrate_test)
+[](id:upgrate_formal)
 ### 测试版 License 升级
 若您需要将直播推流模块的测试版 License 升级成为正式版 License，获得一年的有效期使用期。具体操作如下：
 1. 单击测试版 License 直播推流模块中的 **升级**。
- ![](https://qcloudimg.tencent-cloud.cn/raw/42988885dbf0ab7a9d356e9629cdedc5.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/42988885dbf0ab7a9d356e9629cdedc5.png)
 2. 进入升级功能模块界面，选择需要绑定的云直播流量资源包，单击 **确定** 即可升级到直播推流模块的正式版 License。
- ![](https://main.qcloudimg.com/raw/50183054e3d1ff5a0f74a80b2bc279aa.png)
+![](https://main.qcloudimg.com/raw/50183054e3d1ff5a0f74a80b2bc279aa.png)
+
 >!
 >- 短视频测试版 License 升级为**短视频精简版**的正式版 License 仅支持选择 10TB 规格的云点播流量资源包。
 >- 短视频测试版 License 升级为**短视频基础版**的正式版 License 可选择 50TB、200TB、1PB 规格的云点播流量资源包。
@@ -77,7 +80,7 @@
 <dx-tabs>
 ::: 方式一：新建正式应用并绑定 License
 1. 登录 [云点播控制台](https://console.cloud.tencent.com/vod)，在左侧菜单中选择 [ **License 管理**](https://console.cloud.tencent.com/live/license) > **[SDK License](https://console.cloud.tencent.com/vod/license/video)**，单击**创建应用并绑定 License**。
-2. 填写正式应用的 `App Name`、`Package Name` 和 `Bundle ID` 信息，勾选功能模块**直播推流**，单击**下一步**。
+2. 填写正式应用的 `App Name`、`Package Name` 和 `Bundle ID` 信息，勾选功能模块**短视频**，选择**基础版**或**精简版**，单击**下一步**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/e84acce0a53e6f4f69cb2fcfb8a58630.png)
 3. 进入选择资源项并绑定 License 界面，选择**未绑定**的点播流量资源包（若没有可绑定的资源包，可前往 [资源包购买页](https://buy.cloud.tencent.com/vcube?sdk-version=3&function-module=SHORT_VIDEO) 购买），并单击**确定**即可创建应用并生成正式版 License。
 ![](https://main.qcloudimg.com/raw/6b0a059af1b106a1e876dc53edabd2b0.png)
@@ -100,12 +103,12 @@
 
 [](id:update_formal)
 ### 更新正式版 License 有效期
-
 您可以登录 **[云点播控制台](https://console.cloud.tencent.com/vod)**，在左侧菜单中选择 [ **License 管理**](https://console.cloud.tencent.com/live/license) > **[SDK License](https://console.cloud.tencent.com/vod/license/video)**，查看短视频正式版 License 的有效期，也可通过在 [消息订阅](https://console.cloud.tencent.com/message/subscription) 中订阅音视频终端 SDK，配置**站内信**/**邮件**/**短信**/**微信**/**企微**等消息接收渠道，接收正式版 License 到期提醒。短视频正式版 License 将在到期时间距离当前时间为30天、15天、7天、1天时各向您发送一次到期提醒，提示您及时续费以免影响正常业务运行。若您的短视频正式版 License 已到期，可进行如下操作进行续期：
+
 1. 选择您需要更新有效期的 License，单击短视频模块内的 **更新有效期**。
- ![image](https://main.qcloudimg.com/raw/a0e9a956644566f69a0b8d5293cdbf8e.png)
+![image](https://main.qcloudimg.com/raw/a0e9a956644566f69a0b8d5293cdbf8e.png)
 2. 选择**未绑定**过的短视频资源包（若没有可绑定的资源包，可前往 [资源包购买页](https://buy.cloud.tencent.com/vcube?sdk-version=3&function-module=SHORT_VIDEO) 购买），单击 **确定** 即可。
- ![image](https://main.qcloudimg.com/raw/627e142976b084212c8d9df060578b37.png)
+![image](https://main.qcloudimg.com/raw/627e142976b084212c8d9df060578b37.png)
 3. 查看更新后的有效期情况。
 
 >! **短视频正式版 License 不支持信息修改**，若您需要修改 License 信息，购买资源包后请勿用于 License 有效期的更新，请单击 **新增 License** 重新新增 License 绑定新的包名信息。
@@ -114,6 +117,7 @@
 [](id:upgrate_formal)
 ### 升级正式版 License
 若您已经具备短视频精简版的正式版 License，且需要变速录制、背景音乐、滤镜特效等更强大的能力，您可以通过以下方式升级为短视频基础版的正式版 License，解锁更多功能：
+
 1. 选择需要升级的正式版 License，单击短视频模块内的 **升级**。
 ![](https://main.qcloudimg.com/raw/7b9766f087097b02baf66d3e47385caa.png)
 2. 进入升级功能模块界面，选择需要绑定的云点播流量资源包（规格需可选择为 50TB / 200TB/1PB），单击 **确定** 即可升级到短视频基础版的正式版 License。
