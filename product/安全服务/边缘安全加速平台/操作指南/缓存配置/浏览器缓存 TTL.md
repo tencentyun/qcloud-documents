@@ -11,7 +11,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/d2528c20648a18c7a91341c980f3e845.png)
 参数说明：
  - 遵循源站（默认配置）：遵循源站的 Cache-Control 头部或 Last-Modified 头部。
-  - 不缓存：不在节点缓存资源。
+  - 不缓存：不在浏览器缓存资源。
  - 自定义时间：自定义资源缓存时长。
    
 
