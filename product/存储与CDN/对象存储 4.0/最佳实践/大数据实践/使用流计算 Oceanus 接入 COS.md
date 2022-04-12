@@ -16,7 +16,8 @@
 
 进入 [COS 控制台](https://console.cloud.tencent.com/cos5)，单击左侧**存储桶列表**，单击**创建存储桶**，具体可参见 [创建存储桶](https://cloud.tencent.com/document/product/436/13309) 文档。
 
-> ?当写入 COS 时，Oceanus 作业所运行的地域必须和 COS 在同一个地域。
+>? 当写入 COS 时，Oceanus 作业所运行的地域必须和 COS 在同一个地域。
+>
 
 ## 实践步骤
 
@@ -42,7 +43,8 @@ CREATE TABLE `random_source` (
 );
 ```
 
-> ?此处选用内置 connector `datagen`，请根据实际业务需求选择相应数据源，详情参见 [Oceanus 上下游开发指南](https://cloud.tencent.com/document/product/849/48310)。
+>? 此处选用内置 connector `datagen`，请根据实际业务需求选择相应数据源，详情参见 [Oceanus 上下游开发指南](https://cloud.tencent.com/document/product/849/48310)。
+>
 
 #### 2. 创建 Sink
 
@@ -63,7 +65,8 @@ CREATE TABLE `cos_sink` (
 );
 ```
 
-> ?更多 Sink 的 WITH 参数，请参见 [Filesystem (HDFS/COS)](https://cloud.tencent.com/document/product/849/53852) 文档。
+>? 更多 Sink 的 WITH 参数，请参见 [Filesystem (HDFS/COS)](https://cloud.tencent.com/document/product/849/53852) 文档。
+>
 
 #### 3. 业务逻辑
 
@@ -72,7 +75,8 @@ INSERT INTO `cos_sink`
 SELECT * FROM `random_source`;
 ```
 
-> !此处只做展示，无实际业务目的。
+>! 此处只做展示，无实际业务目的。
+>
 
 #### 4. 作业参数设置
 
@@ -91,7 +95,8 @@ fs.cosn.userinfo.appid: <COS 所属用户的 appid>
 - 请将`<COS 所在地域>`替换为您实际的 COS 地域，例如：ap-guangzhou。
 - 请将`<COS 所属用户的 appid>`替换为您实际的 APPID，具体请进入 [账号中心](https://console.cloud.tencent.com/developer) 查看。 
 
-> ?具体的作业参数设置请参见 [Filesystem (HDFS/COS)](https://cloud.tencent.com/document/product/849/53852) 文档。
+>? 具体的作业参数设置请参见 [Filesystem (HDFS/COS)](https://cloud.tencent.com/document/product/849/53852) 文档。
+>
 
 #### 5. 启动作业
 
