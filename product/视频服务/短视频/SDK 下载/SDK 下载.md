@@ -3,7 +3,7 @@
    <tbody><tr>
       <th width="40px" style="text-align:center">功能模块</th>
       <th width="85px" style="text-align:center">功能项</th>
-      <th width="150px">功能简介</th>
+      <th width="230px">功能简介</th>
       <th width="70px" style="text-align:center">精简版 License</th>
       <th width="70px" style="text-align:center">基础版 License</th>
    </tr>
