@@ -97,18 +97,19 @@ FLUSH PRIVILEGES;
 <table>
 <thead><tr><th>参数</th><th>描述</th></tr></thead>
 <tbody><tr>
-<td>计费模式</td><td>支持包年包月和按量计费。目前免费，将来开始计费前1个月会通过邮件和站内信方式提前通知用户。</td></tr>
+<td>计费模式</td><td>支持包年包月和按量计费。</td></tr>
 <tr>
-<td>源实例类型</td><td>选择 TDSQL MySQL。</td></tr>
+<td>源实例类型</td><td>选择 TDSQL MySQL，购买后不可修改。</td></tr>
 <tr>
-<td>源实例地域</td><td>选择源实例所在地域。</td></tr>
+<td>源实例地域</td><td>选择源实例所在地域，购买后不可修改。</td></tr>
 <tr>
-<td>目的实例类型</td><td>选择 TDSQL MySQL。</td></tr>
+<td>目标实例类型</td><td>选择 TDSQL MySQL，购买后不可修改。</td></tr>
 <tr>
-<td>目的实例地域</td><td>选择目的实例所在地域。</td></tr>
+<td>目标实例地域</td><td>选择目的实例所在地域，购买后不可修改。</td></tr>
 <tr>
-<td>同步任务规格</td><td>目前只支持标准版。</td></tr>
+<td>规格</td><td>目前只支持标准版。</td></tr>
 </tbody></table>
+
 2. 购买完成后，返回 [数据同步列表](https://console.cloud.tencent.com/dts/replication)，可看到刚创建的数据同步任务，刚创建的同步任务需要进行配置后才可以使用。
 3. 在数据同步列表，单击**操作**列的**配置**，进入配置同步任务页面。
 ![](https://qcloudimg.tencent-cloud.cn/raw/593ce1e644f0717809760c4ba84bb840.png)
@@ -187,7 +188,7 @@ FLUSH PRIVILEGES;
 <td>已选对象</td><td>展示已选择的同步对象，支持库表映射。</td></tr>
 </tbody></table>
 6. 在校验任务页面，完成校验并全部校验项通过后，单击**启动任务**。
-    如果校验任务不通过，可以参考 [校验不通过处理方法](https://cloud.tencent.com/document/product/571/58685) 修复问题后重新发起校验任务。
+    如果校验任务不通过，可以参考 [校验不通过处理方法](https://cloud.tencent.com/document/product/571/61639) 修复问题后重新发起校验任务。
  - 失败：表示校验项检查未通过，任务阻断，需要修复问题后重新执行校验任务。
  - 警告：表示检验项检查不完全符合要求，可以继续任务，但对业务有一定的影响，用户需要根据提示自行评估是忽略警告项还是修复问题再继续。
 ![](https://qcloudimg.tencent-cloud.cn/raw/99e53691dc68b1a987424a3a91ada555.png)
