@@ -54,7 +54,7 @@ Datahub 提供数据流出能力，您可以将 CKafka 数据分发至 Elasticse
         <td>勾选后可在图表上显示图例信息。</td>
     </tr>
 </table> 
- <img src ="https://qcloudimg.tencent-cloud.cn/raw/13c276a5ec2e173b6c0bf5a81c773ffe.png"> 
+ <img src ="https://qcloudimg.tencent-cloud.cn/raw/0f635fbb5da3215399e9bbb8535e1f4a.png"> 
 
 
 

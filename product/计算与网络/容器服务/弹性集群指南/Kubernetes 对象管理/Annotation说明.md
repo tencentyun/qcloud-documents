@@ -39,11 +39,10 @@
 </tr>
 <tr>
 <td>eks.tke.cloud.tencent.com/cpu-type</td>
-<td>Pod 所需的 CPU 资源类型及机型，格式如下：
+<td>Pod 所需的 CPU 资源类型，格式如下：
 <ul  class="params">
 <li>intel</li>
 <li>amd</li>
-<li>S5,S4</li>
 <li>支持优先级顺序写法，如 “amd,intel” 表示优先创建 amd 资源 Pod，如果所选地域可用区 amd 资源不足，则会创建 intel 资源 Pod。</li>
 </ul>
 各型号支持的具体配置请参考 <a href="https://cloud.tencent.com/document/product/457/39808" target="_blank">资源规格</a>。</td>

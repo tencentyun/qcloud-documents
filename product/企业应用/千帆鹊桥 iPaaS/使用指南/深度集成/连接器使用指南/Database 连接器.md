@@ -559,11 +559,10 @@ def dw_process(msg):
     return msg.payload	 
 ```
 6. Database 组件通过数据表字段和 RecordSet 数据字段的映射关系来构造插入的数据信息，配置如下：
-![image-20210701152327985](https://qcloudimg.tencent-cloud.cn/raw/0ffa565bbd19e3d7f5e69378db58d234.png)
-
-注：Database将自动感知前一节点输出的数据结构，并将来源字段与目标表字段根据同名映射自动进行映射。在字段映射后方有schema维护按钮，可点击查看、管理输入的schema.在schema维护面板中可进行手工维护schema的字段信息，当前一节点输出的schema发生了调整，可在schema手工刷新与前一节点输出的schema保持一致，同时将根据同步映射原则进行重新映射（将覆盖上次的映射）。
-![image-filter-1](https://qcloudimg.tencent-cloud.cn/raw/44767d7c28c22aef0e0a9bdc08da56e1.png)
-
+<img src="https://qcloudimg.tencent-cloud.cn/raw/0ffa565bbd19e3d7f5e69378db58d234.png" width="80%">
+>?Database 将自动感知前一节点输出的数据结构，并将来源字段与目标表字段根据同名映射自动进行映射。
+>在字段映射后方有 schema 维护按钮，可点击查看、管理输入的 schema 在 schema 维护面板中可进行手工维护 schema 的字段信息，当前一节点输出的 schema 发生了调整，可在 schema 手工刷新与前一节点输出的 schema 保持一致，同时将根据同步映射原则进行重新映射（将覆盖上次的映射）。
+<img src="https://qcloudimg.tencent-cloud.cn/raw/3bd7a7743d207ff5a3ada4064cdf1adc.png" width="80%">
 7. 批量插入成功后，message 的 error 信息为空。
 
 ### 批量合并操作
@@ -599,8 +598,8 @@ def dw_process(msg):
 #### 案例
 1. 新建连接器或选择已创建的连接器。
 2. 通过“RecordSet Encoder”组件生成 RecordSet 类型的数据。
-3. 构造好 RecordSet 数据后，添加 Database 组件的“批量合并”操作，数据表字段和 RecordSet 数据字段的关系构成了合并的过滤条件，数据表字段和 RecordSet 数据字段的映射构成了合并的字段映射（根据来源Schema与目标表结构根据同名映射原则自动映射）；Database 组件配置如下：
-   ![image-20210701152525761](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/img/Database/database35.png)
+3. 构造好 RecordSet 数据后，添加 Database 组件的“批量合并”操作，数据表字段和 RecordSet 数据字段的关系构成了合并的过滤条件，数据表字段和 RecordSet 数据字段的映射构成了合并的字段映射（根据来源 Schema 与目标表结构根据同名映射原则自动映射）；Database 组件配置如下：
+<img src="https://document-1259649581.cos.ap-guangzhou.myqcloud.com/img/Database/database35.png" width="80%">
 4. 批量插入成功后，message 的 error 信息为空。
 
 ### 批量删除操作
@@ -635,9 +634,7 @@ def dw_process(msg):
 1. 新建连接器或选择已创建的连接器。
 2. 通过“RecordSet Encoder”组件生成 RecordSet 类型的数据。
 3. 构造好 RecordSet 数据后，添加 Database 组件的“批量删除”操作，数据表字段和 RecordSet 数据字段的关系构成了合并的过滤条件，Database 组件配置如下：
-   ![image-20210706154654745](https://qcloudimg.tencent-cloud.cn/raw/e3a4d3d5390d9db953155a2403e3a7d9.png)
- - 组件如下：
-![image-20210624204634109](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/img/Database/database50.png)
+<img src="https://qcloudimg.tencent-cloud.cn/raw/e3a4d3d5390d9db953155a2403e3a7d9.png" width="80%"><br> 组件如下：<br><img src="https://document-1259649581.cos.ap-guangzhou.myqcloud.com/img/Database/database50.png" width="80%">
 4. 批量插入成功后，message 的 error 信息为空。
 
 ### 存储过程操作

@@ -1,5 +1,5 @@
 ## 组件介绍
-`TUIPusher` 组件是一套开源的、完整的视频直播互动推流组件，它基于腾讯云 [直播 Live SDK](https://cloud.tencent.com/document/product/454/19074) 和 [即时通信 IM SDK](https://cloud.tencent.com/document/product/269/1498) ，实现有直播推流，直播 PK 等功能，同时支持弹幕、点赞、美颜等外挂插件，使用`TUIPusher` 组件您可以快速搭建诸如秀场直播、电商直播等场景化解决方案。
+`TUIPusher` 组件是一套开源的、完整的视频直播互动推流组件，它基于腾讯云 [直播 Live SDK](https://cloud.tencent.com/document/product/454/19074) 和 [即时通信 IM SDK](https://cloud.tencent.com/document/product/269/1498) ，实现直播推流，直播 PK 等功能，同时支持弹幕、点赞、美颜等外挂插件，使用 `TUIPusher` 组件您可以快速搭建诸如秀场直播、电商直播等场景化解决方案。
 
 
 <table>
@@ -8,8 +8,8 @@
    <th style="text-align:center" width="50%">直播 PK</th>
  </tr>
 <tr>
-<td><img src="https://qcloudimg.tencent-cloud.cn/raw/3e424e1eac5f1ca02d42a19e01502e5c.jpg"/></td>
-<td><img src="https://qcloudimg.tencent-cloud.cn/raw/e8fcb12be7c08bd57030e78a5c53428b.jpg" /></td>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/c0d094cbc10f3e577f07f8ce5995230e.jpg" /></td>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/19eaacc2e8d384fb63eebb112ab6c09f.jpg" /></td>
 </tr>
 </table>
 
@@ -77,7 +77,7 @@ mTUIPusherView.stop();
 因为连麦& PK 时需要更低的延时需求，需要在腾讯云直播控制台控制台开通对应的连麦应用服务，如果您未开通，请登录**云直播管理控制台**选择 **[应用管理](https://console.cloud.tencent.com/live/micro/appmanage)**，单击**新建连麦应用**输入应用名称（例如 `TUIPusher`），然后在该应用的对应操作栏中，选择**应用信息**进入应用管理页，查看并记录应用的 **SDKAppID** 和 **SECRETKEY（密钥）**。
 ![img](https://qcloudimg.tencent-cloud.cn/raw/cb2b2381b92994404dfece3cdaf77608.png)
 
->! 因为在连麦/PK过程中，观众端还是需要正常观看 CDN 流，所以需要进入 **CDN 观看配置**页，开启旁路推流，推荐全局自动旁路。
+>! 因为在连麦/PK 过程中，观众端还是需要正常观看 CDN 流，所以需要进入 **CDN 观看配置**页，开启旁路推流，推荐全局自动旁路。
 >![](https://qcloudimg.tencent-cloud.cn/raw/62adb00b3445a0d88fcf92f357109e5c.png)
 >
 2.  **组件登录**
@@ -106,7 +106,7 @@ mTUIPusherView.start(url: "xxxx");
 mTUIPusherView.stop();
 ```
 5. **发起 PK 请求**
-调用 `mTUIPusherView.sendPKRequest()` 后会向接收方发起Pk请求，请求超时 `TUIPusherViewDelegate` 会收到 `onPKTimeout` 回调。
+调用 `mTUIPusherView.sendPKRequest()` 后会向接收方发起 Pk 请求，请求超时 `TUIPusherViewDelegate` 会收到 `onPKTimeout` 回调。
 ```
 mTUIPusherView.sendPKRequest(userID: "xxxx");
 ```

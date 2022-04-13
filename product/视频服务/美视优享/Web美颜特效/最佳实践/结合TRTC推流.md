@@ -108,13 +108,7 @@ const config = {
 	auth: {
 		licenseKey: LICENSE_KEY,
 		appId: APPID,
-		authFunc: async () => {
-			const { signature, timestamp } = await getSignature();
-			return {
-				signature,
-				timestamp,
-			};
-		}
+		authFunc: getSignature
 	},
 	// 初始美颜效果（可选参数）
 	beautify: {

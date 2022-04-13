@@ -39,7 +39,7 @@
 | ---------------- | ------------------------------------------------------------ |
 | 全部（任意请求） | 当前站点的全部请求<br>注：建议您使用此匹配条件创建全局规则，作为保底规则 |
 | Host             | 当前站点下的某个子域名。例如：www.example.com, foo.example.com, foo.bar.example.com |
-| URL path         | 当前站点下的请求 URL 路径。例如：/example/foo.jpg, /example/foo/bar |
+| URL Path         | 当前站点下的请求 URL 路径。例如：/example/foo.jpg, /example/foo/bar |
 
 ### 支持的操作
 **支持的操作类型受匹配条件限制**，例如：当匹配条件有 URL Path 时，某些操作不可选（这些操作不支持 URL 粒度）。

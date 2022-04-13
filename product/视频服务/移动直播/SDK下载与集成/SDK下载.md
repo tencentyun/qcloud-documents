@@ -101,7 +101,7 @@
                            <img src="https://main.qcloudimg.com/raw/613f2e15bed7c8297110676b52784b71.svg" data-nonescope="true">
                                 <p class="titlename">互动直播（Live）SDK 预览版</p>
                 <p style="color:#586376;">采用全新架构，功能对齐稳定版，内部优化，性能表现更出色。</p>
-                                <a href="https://sdk-liteav-1252463788.cos.ap-hongkong.myqcloud.com/download/preview/TXLiteAVSDK_Live_iOS_preview.zip">ZIP 下载</a>
+                                <a href="https://liteav.sdk.qcloud.com/download/preview/TXLiteAVSDK_Live_iOS_preview.zip">ZIP 下载</a>
 																                <a style="margin-left: 10px;" href="https://github.com/LiteAVSDK/Live_iOS">GitHub</a>
                                  <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/454/56588">集成指引</a>
                                 <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/454/60985">运行 Demo</a>
@@ -112,7 +112,7 @@
                             <img src="https://main.qcloudimg.com/raw/613f2e15bed7c8297110676b52784b71.svg" data-nonescope="true">
                                 <p class="titlename">基础直播（Smart）SDK 预览版</p>
                 <p style="color:#586376;">采用全新架构，功能对齐稳定版，内部优化，性能表现更出色。</p>
-                                <a href="https://sdk-liteav-1252463788.cos.ap-hongkong.myqcloud.com/download/preview/TXLiteAVSDK_Smart_iOS_preview.zip">ZIP 下载</a>
+                                <a href="https://liteav.sdk.qcloud.com/download/preview/TXLiteAVSDK_Smart_iOS_preview.zip">ZIP 下载</a>
                 <a style="margin-left: 10px;" href="https://github.com/LiteAVSDK/Live_iOS">GitHub</a>
                                  <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/454/56588">集成指引</a>
                                 <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/454/60985">运行 Demo</a>
@@ -125,7 +125,7 @@
                            <img src="https://main.qcloudimg.com/raw/613f2e15bed7c8297110676b52784b71.svg" data-nonescope="true">
                                 <p class="titlename">互动直播（Live）SDK 稳定版</p>
                 <p style="color:#586376;">全场景直播 SDK，支持推流、播放、连麦 PK，以及基础美颜（美白、磨皮等）功能。</p>
-                                <a href="https://liteav.sdk.qcloud.com/download/preview/TXLiteAVSDK_Smart_Live_iOS_latest.zip">ZIP 下载</a>
+                                <a href="https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_Live_iOS_latest.zip">ZIP 下载</a>
 																                <a style="margin-left: 10px;" href="https://github.com/LiteAVSDK/Live_iOS">GitHub</a>
                                 <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/454/56588">集成指引</a>
                                 <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/454/60985">运行 Demo</a>

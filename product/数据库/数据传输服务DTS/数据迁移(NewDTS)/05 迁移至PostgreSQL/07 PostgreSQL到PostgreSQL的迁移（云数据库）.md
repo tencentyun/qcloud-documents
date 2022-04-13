@@ -86,19 +86,28 @@ ldd --version | grep -i libc
 下载地址：  [x86_64 9.4](https://postgresql-1258344699.cos.ap-shanghai.myqcloud.com/tencent_decoding/9.4/tencent_decoding.so)、[x86_64 9.5](https://postgresql-1258344699.cos.ap-shanghai.myqcloud.com/tencent_decoding/9.5/tencent_decoding.so)、[x86_64 9.6](https://postgresql-1258344699.cos.ap-shanghai.myqcloud.com/tencent_decoding/9.6/tencent_decoding.so)、[aarch64 9.4](https://postgresql-1258344699.cos.ap-shanghai.myqcloud.com/tencent_decoding_aarch64/9.4/tencent_decoding.so)、[aarch64 9.5](https://postgresql-1258344699.cos.ap-shanghai.myqcloud.com/tencent_decoding_aarch64/9.5/tencent_decoding.so)、[aarch64 9.6](https://postgresql-1258344699.cos.ap-shanghai.myqcloud.com/tencent_decoding_aarch64/9.6/tencent_decoding.so)。    
  2. 将下载得到的 tencent_decoding.so 文件放置于 Postgres 进程目录的 lib 文件夹下，无需重启实例。 
 2. 登录 [DTS 控制台](https://console.cloud.tencent.com/dts/migration)，在左侧导航选择**数据迁移**页，单击**新建迁移任务**，进入新建迁移任务页面。
-3. 在新建迁移任务页面，
- 5. 选择迁移的源实例类型和所属地域，目标实例类型和所属地域，规格等，然后单击**立即购买**。
-| 配置项       | 说明                                                         |
-| ------------ | ------------------------------------------------------------ |
-| 源实例类型   | 请根据您的源数据库类型选择，购买后不可修改。本场景选择“PostgreSQL”。 |
-| 源实例地域   | 选择源数据库所属地域。如果源库为自建数据库，选择离自建数据库最近的一个地域即可。 |
-| 目标实例类型 | 请根据您的目标数据库类型选择，购买后不可修改。本场景选择“PostgreSQL”。 |
-| 目标实例地域 | 选择目标数据库所属地域。                                     |
-| 规格         | 根据业务情况选择迁移链路的规格，不同规格的性能和计费详情请参考[计费概述](https://cloud.tencent.com/document/product/571/18736)。 |
-
-3. 在设置源和目标数据库页面，完成任务设置、源库设置和目标库设置，测试源库和目标库连通性通过后，单击**新建**。
+3. 在新建迁移任务页面，选择迁移的源实例类型和所属地域，目标实例类型和所属地域，规格等，然后单击**立即购买**。
+<table>
+<thead><tr><th>配置项</th><th>说明</th></tr></thead>
+<tbody><tr>
+<td>源实例类型</td>
+<td>请根据您的源数据库类型选择，购买后不可修改。本场景选择“PostgreSQL”。</td></tr>
+<tr>
+<td>源实例地域</td>
+<td>选择源数据库所属地域。如果源库为自建数据库，选择离自建数据库最近的一个地域即可。</td></tr>
+<tr>
+<td>目标实例类型</td>
+<td>请根据您的目标数据库类型选择，购买后不可修改。本场景选择“PostgreSQL”。</td></tr>
+<tr>
+<td>目标实例地域</td>
+<td>选择目标数据库所属地域。</td></tr>
+<tr>
+<td>规格</td>
+<td>根据业务情况选择迁移链路的规格，不同规格的性能和计费详情请参考 <a href="https://cloud.tencent.com/document/product/571/18736">计费概述</a>。</td></tr>
+</tbody></table>
+4. 在设置源和目标数据库页面，完成任务设置、源库设置和目标库设置，测试源库和目标库连通性通过后，单击**新建**。
 >?如果连通性测试失败，请根据提示和 [修复指导](https://cloud.tencent.com/document/product/571/58685) 进行排查和解决，然后再次重试。
-
+>
 ![](https://qcloudimg.tencent-cloud.cn/raw/0986a8ab2848814a91e4d87f54a00739.png)
 <table>
 <thead><tr><th width="10%">设置类型</th><th width="15%">配置项</th><th width="75%">说明</th></tr></thead>
@@ -118,7 +127,7 @@ ldd --version | grep -i libc
 <td>源库类型</td><td>购买时选择的源库类型，不可修改。</td></tr>
 <tr>
 <td>所属地域</td><td>购买时选择的源库地域，不可修改。</td></tr>
-    <tr>
+<tr>
 <td>接入类型</td><td>请根据您的场景选择，本场景以“云数据库”为例，不同接入类型的准备工作请参考 <a href="https://cloud.tencent.com/document/product/571/59968">准备工作概述</a>。<br>为保障迁移效率，CVM 自建实例迁移不支持跨地域迁移。如需要跨地域迁移，请选择公网接入方式。
 <ul><li>公网：源数据库可以通过公网 IP 访问。</li>
 <li>云主机自建：源数据库部署在 <a href="https://cloud.tencent.com/document/product/213">腾讯云服务器 CVM</a> 上。</li>
@@ -137,7 +146,7 @@ ldd --version | grep -i libc
 <td>目标库类型</td><td>购买时选择的目标库类型，不可修改。</td></tr>
 <tr>
 <td>所属地域</td><td>购买时选择的目标库地域，不可修改。</td></tr>
-    <tr>
+<tr>
 <td>接入类型</td><td>根据您的场景选择，本场景默认选择“云数据库”。</td></tr>
 <tr>
 <td>数据库实例</td><td>选择目标库的实例 ID。</td></tr>
@@ -146,8 +155,7 @@ ldd --version | grep -i libc
 <tr>
 <td>密码</td><td>目标库的数据库帐号的密码。</td></tr>
 </tbody></table>
-
-4. 在设置迁移选项及选择迁移对象页面，设置迁移类型、对象，单击**保存**。
+5. 在设置迁移选项及选择迁移对象页面，设置迁移类型、对象，单击**保存**。
 <img src="https://main.qcloudimg.com/raw/aadd11ed6a095813fa767690e6857276.png"  style="zoom:60%;">
 <table>
 <thead><tr><th>配置项</th><th>说明</th></tr></thead>
@@ -162,17 +170,18 @@ ldd --version | grep -i libc
 <td>指定对象</td>
 <td>在源库对象中选择待迁移的对象，然后将其移到已选对象框中。</td></tr>
 </tbody></table>
-5. 在校验任务页面，进行校验，校验任务通过后，单击**启动任务**。
+6. 在校验任务页面，进行校验，校验任务通过后，单击**启动任务**。
     如果校验任务不通过，可以参考 [校验不通过处理方法](https://cloud.tencent.com/document/product/571/61639) 修复问题后重新发起校验任务。
   - 失败：表示校验项检查未通过，任务阻断，需要修复问题后重新执行校验任务。
   - 警告：表示检验项检查不完全符合要求，可以继续任务，但对业务有一定的影响，用户需要根据提示自行评估是忽略警告项还是修复问题再继续。
  ![](https://main.qcloudimg.com/raw/5ed72bfbcaefe3234e5c08114a2761f3.png)
-6. 返回数据迁移任务列表，任务进入准备运行状态，运行1分钟 - 2分钟后，数据迁移任务开始正式启动。
+7. 返回数据迁移任务列表，任务进入准备运行状态，运行1分钟 - 2分钟后，数据迁移任务开始正式启动。
    - 选择**结构迁移**或者**全量迁移**：任务完成后会自动结束，不需要手动结束。
    - 选择**全量 + 增量迁移**：全量迁移完成后会自动进入增量数据同步阶段，增量数据同步不会自动结束，需要您手动单击**完成**结束增量数据同步。单击完成后任务进入**完成中**的状态。请不要对源端和目标端进行任何修改，此时后端将自动的将部分对象与源端进行对齐。
       - 请选择合适时间手动完成增量数据同步，并完成业务切换。
       - 观察迁移阶段为增量同步，并显示无延迟状态，将源库停写几分钟。
       - 目标与源库数据差距为0MB及目标与源库时间延迟为0秒时，手动完成增量同步。
    ![](https://main.qcloudimg.com/raw/d3cbe3342e2fe2f7627b66dae31703e9.png)
-7. （可选）如果您需要进行查看任务、删除任务等操作，请单击对应的任务，在**操作**列进行操作，详情可参考 [任务管理](https://cloud.tencent.com/document/product/571/58674)。
-8. 当迁移任务状态变为**任务成功**时，即可对业务进行正式割接，更多详情可参考 [割接说明](https://cloud.tencent.com/document/product/571/58660)。
+8. （可选）如果您需要进行查看任务、删除任务等操作，请单击对应的任务，在**操作**列进行操作，详情可参考 [任务管理](https://cloud.tencent.com/document/product/571/58674)。
+9. 当迁移任务状态变为**任务成功**时，即可对业务进行正式割接，更多详情可参考 [割接说明](https://cloud.tencent.com/document/product/571/58660)。
+

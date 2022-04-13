@@ -109,7 +109,6 @@ FLUSH PRIVILEGES;
 <tr>
 <td>规格</td><td>目前只支持标准版。</td></tr>
 </tbody></table>
-
 2. 购买完成后，返回 [数据同步列表](https://console.cloud.tencent.com/dts/replication)，可看到刚创建的数据同步任务，刚创建的同步任务需要进行配置后才可以使用。
 3. 在数据同步列表，单击**操作**列的**配置**，进入配置同步任务页面。
 ![](https://qcloudimg.tencent-cloud.cn/raw/593ce1e644f0717809760c4ba84bb840.png)
@@ -161,9 +160,9 @@ FLUSH PRIVILEGES;
 >- 如果用户在同步过程中确定会使用 gh-ost、pt-osc 等工具对某张表做 Online DDL，则**同步对象**需要选择这个表所在的整个库（或者整个实例），不能仅选择这个表，否则无法同步 Online DDL 变更产生的临时表数据到目标数据库。
 >- 如果用户在同步过程中确定会对某张表使用 rename 操作（例如将 table A rename 为 table B），则**同步对象**需要选择 table A 所在的整个库（或者整个实例），不能仅选择 table A，否则系统会报错。
 >
->![](https://qcloudimg.tencent-cloud.cn/raw/367d16f2af9fd6b08e9b81632a2951b8.png)
-><strong>库表映射</strong>：在已选对象中，鼠标放在右侧将出现编辑按钮，单击后可在弹窗中填写映射名。
-><img src="https://qcloudimg.tencent-cloud.cn/raw/7d8260ec27667ef8fadcf32ae9e41e3e.png" style="zoom:70%;" />
+![](https://qcloudimg.tencent-cloud.cn/raw/367d16f2af9fd6b08e9b81632a2951b8.png)
+<strong>库表映射</strong>：在已选对象中，鼠标放在右侧将出现编辑按钮，单击后可在弹窗中填写映射名。
+<img src="https://qcloudimg.tencent-cloud.cn/raw/7d8260ec27667ef8fadcf32ae9e41e3e.png" style="zoom:70%;" />
 <table>
 <thead><tr><th>设置项</th><th>参数</th><th>描述</th></tr></thead>
 <tbody>
@@ -195,6 +194,6 @@ FLUSH PRIVILEGES;
 7. 返回数据同步任务列表，任务开始进入**运行中**状态。
 >?选择**操作**列的**更多** > **结束**可关闭同步任务，请您确保数据同步完成后再关闭任务。
 >
->![](https://qcloudimg.tencent-cloud.cn/raw/a14d84281ab739bfba84a61b2e09fa79.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/a14d84281ab739bfba84a61b2e09fa79.png)
 8. （可选）您可以单击任务 ID，进入任务详情页，查看任务初始化状态和监控数据。
 
