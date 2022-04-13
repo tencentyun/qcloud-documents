@@ -1,3 +1,28 @@
+### 2.7.2 @ 2022.04.01
+* 链接地址：[https://res.qcloudtiw.com/board/2.7.2/TEduBoard.min.js]()
+
+- 错误码调整
+  1. [错误码](https://doc.qcloudtiw.com/web/TEduBoard.html#.TEduBoardErrorCode) 新增 `TEDU_BOARD_MAX_BOARD_LIMITED` 错误码，在单个房间内白板页总数量达到上限后触发。
+
+- Bug 修复
+  1. 修复 Android 5.x 图片方向自动校正功能异常的问题。
+  2. 修复一些PPT转码成功，但白板加载失败的问题。
+### 2.7.1 @ 2022.02.28
+* 链接地址：[https://res.qcloudtiw.com/board/2.7.1/TEduBoard.min.js]()
+
+- 功能优化
+  1. 白板资源和课件资源备份域名优化。
+
+- Bug 修复
+  1. 优化历史数据加载耗时。
+
+### 2.7.0 @ 2022.01.31
+* 链接地址：[https://res.qcloudtiw.com/board/2.7.0/TEduBoard.min.js]()
+
+- Bug 修复
+  1. 修复偶现对线条进行点擦后，线条有抖动的问题。
+  2. 修复涂鸦只有两个点的数据，绘制样式错误的问题。
+  3. 修复涂鸦实时数据乱序导致，导致涂鸦绘制样式错误的问题。
 ### 2.6.9 @ 2021.12.27
 * 链接地址：https://res.qcloudtiw.com/board/2.6.9/TEduBoard.min.js
 - 新增接口
