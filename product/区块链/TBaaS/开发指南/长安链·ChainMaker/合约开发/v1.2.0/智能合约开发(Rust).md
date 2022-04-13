@@ -1,10 +1,10 @@
 ## 使用 Rust 进行智能合约开发
 
-读者对象：本章节主要描述使用 Rust 进行 ChainMaker 合约编写的方法，主要面向于使用 Rust 进行 ChainMaker 的合约开发的开发者。
+本章节主要描述使用 Rust 进行 ChainMaker 合约编写的方法，主要面向于使用 Rust 进行 ChainMaker 的合约开发的开发者。
 
 Rust 安装及教程请参考: [Rust 官网](https://www.rust-lang.org/)
 
-### 使用 Docker 镜像进行合约开发
+## 使用 Docker 镜像进行合约开发
 
 ChainMaker 官方已经将容器发布至 [docker hub](https://hub.docker.com/u/chainmakerofficial)
 
