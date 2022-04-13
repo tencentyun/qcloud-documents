@@ -38,10 +38,9 @@
 2. 根据目录，找到 Packages/manifest.json，并修改依赖如下：
 ```json
 {
-	"dependencies":{
-    "com.tencent.imsdk.unity":"1.6.4" // 指定到最新版本即可,所有版本：https://www.npmjs.com/package/com.tencent.imsdk.unity
-  },
-  "registry": "https://registry.npmjs.org"
+    "dependencies":{
+    "com.tencent.imsdk.unity":"https://github.com/TencentCloud/TIMSDK.git#unity" 
+  }
 }
 ```
 
