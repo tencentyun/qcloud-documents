@@ -6,7 +6,7 @@
 - **终端极速高清 License** 用于解锁终端极速高清模块的使用权限。
 > !目前终端极速高清功能模块处于体验期，仅提供测试版 License。
 
-音视频终端 SDK（腾讯云视立方）下的直播推流 License、短视频 License 和终端极速高清 License 新增和续期等操作一致，**本文档将以直播推流 License 为例**，对三种 License 测试版和正式版的新增与续期等操作进行说明指引。腾讯特效 License 测试版和正式版的新增与续期等操作涉及审核授权，流程有所区别，详细操作指引请参见 [腾讯特效 License 授权使用说明](https://cloud.tencent.com/document/product/1449/569822)。
+音视频终端 SDK（腾讯云视立方）下的直播推流 License、短视频 License 和终端极速高清 License 新增和续期等操作一致，**本文档将以直播推流 License 为例**，对三种 License 测试版和正式版的新增与续期等操作进行说明指引。腾讯特效 License 测试版和正式版的新增与续期等操作涉及审核授权，流程有所区别，详细操作指引请参见 [腾讯特效 License 授权使用说明](https://cloud.tencent.com/document/product/1449/56982)。
 
 [](id:test)
 ## 测试版 License
