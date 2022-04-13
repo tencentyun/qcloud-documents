@@ -1,4 +1,4 @@
-﻿假如有一份 csv 文件（DLC 还支持 log、orc、parquet、json、arvo 等多种格式）放到对象存储，在 DLC 上仅需一分钟即可完成分析。
+假如有一份 csv 文件（DLC 还支持 log、orc、parquet、json、arvo 等多种格式）放到对象存储，在 DLC 上仅需一分钟即可完成分析。
 ## 前置准备
 ### 设置必要 DLC 内部权限
 >? 如果用户已经有权限，或者为主账户管理员，可忽略此步骤。
