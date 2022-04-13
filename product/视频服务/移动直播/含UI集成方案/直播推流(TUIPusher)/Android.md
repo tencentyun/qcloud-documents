@@ -1,14 +1,14 @@
 ## 组件介绍
 
-`TUIPusher` 组件是一套开源的、完整的视频直播互动推流组件，它基于腾讯云 [直播 Live SDK](https://cloud.tencent.com/document/product/454/19074) 和 [即时通信 IM SDK](https://cloud.tencent.com/document/product/269/1498) ，实现有直播推流，直播 PK 等功能，同时支持弹幕、点赞、美颜等外挂插件，使用`TUIPusher` 组件您可以快速搭建诸如秀场直播、电商直播等场景化解决方案。
+`TUIPusher` 组件是一套开源的、完整的视频直播互动推流组件，它基于腾讯云 [直播 Live SDK](https://cloud.tencent.com/document/product/454/19074) 和 [即时通信 IM SDK](https://cloud.tencent.com/document/product/269/1498) ，实现直播推流，直播 PK 等功能，同时支持弹幕、点赞、美颜等外挂插件，使用 `TUIPusher` 组件您可以快速搭建诸如秀场直播、电商直播等场景化解决方案。
 <table>
 <tr>
    <th style="text-align:center" width="50%">开始直播</th>
    <th style="text-align:center" width="50%">直播 PK</th>
  </tr>
 <tr>
-<td><img src="https://qcloudimg.tencent-cloud.cn/raw/3e424e1eac5f1ca02d42a19e01502e5c.jpg" /></td>
-<td><img src="https://qcloudimg.tencent-cloud.cn/raw/e8fcb12be7c08bd57030e78a5c53428b.jpg" /></td>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/c0d094cbc10f3e577f07f8ce5995230e.jpg" /></td>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/19eaacc2e8d384fb63eebb112ab6c09f.jpg" /></td>
 </tr>
 </table>
 
@@ -62,7 +62,7 @@ TUIPusherView mTUIPusherView = new TUIPusherView(Context);
 // 3. 设置诸如推流开始、推流结束等事件监听
 mTUIPusherView.setTUIPusherViewListener(new TUIPusherViewListener() {
         ...
- }
+}
 ```
 
 ### 步骤四：无互动直播推流
@@ -123,11 +123,11 @@ mTUIPusherView.stop();
 5. **发起 PK 请求**
 调用 `mTUIPusherView.sendPKRequest()` 后会向接收方发起 Pk 请求，请求超时发送方设置的 `mTUIPusherView.setTUIPusherViewListener` 回调中， `onPKTimeout` 回调会收到超时通知。
 ```
- mTUIPusherView.sendPKRequest(String userId);
+mTUIPusherView.sendPKRequest(String userId);
  
- public void onPKTimeout(TUIPusherView pusherView) {
-        Toast.makeText(mContext, "PK request timed out", Toast.LENGTH_SHORT).show();
-	}
+public void onPKTimeout(TUIPusherView pusherView) {
+    Toast.makeText(mContext, "PK request timed out", Toast.LENGTH_SHORT).show();
+}
 ```
 6.  **接受 PK 请求**
 接收方设置的 `mTUIPusherView.setTUIPusherViewListener` 回调中，`onReceivePKRequest` 回调会通知接收方收到 PK 请求，可在此回调中处理 PK 请求。
@@ -137,26 +137,26 @@ public void onReceivePKRequest(TUIPusherView pushView, String userId, ResponseCa
 }
 
 private void showPKDialog(String userId, final TUIPusherViewListener.ResponseCallback callback) {
-        if (mPKDialog == null) {
-            final TextView textView = new TextView(this);
-            textView.setText(userId + “invited linkMic”));
-            mPKDialog = new AlertDialog.Builder(this, R.style.PKDialogTheme)
-                    .setView(textView)
-                    .setPositiveButton("confirm", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            callback.response(true);
-                        }
-                    })
-                    .setNegativeButton("cacel", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            callback.response(false);
-                        }
-                    }).create();
-        }
-        mPKDialog.show();
+    if (mPKDialog == null) {
+        final TextView textView = new TextView(this);
+        textView.setText(userId + “invited linkMic”));
+        mPKDialog = new AlertDialog.Builder(this, R.style.PKDialogTheme)
+                .setView(textView)
+                .setPositiveButton("confirm", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        callback.response(true);
+                    }
+                })
+                .setNegativeButton("cacel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        callback.response(false);
+                    }
+                }).create();
     }
+    mPKDialog.show();
+}
 ```
 
 ### 步骤六：集成弹幕、点赞等挂件功能（可选）
