@@ -81,7 +81,7 @@
 <td rowspan=6>源库设置</td>
 <td>源库类型</td><td>购买时选择的源库类型，不可修改。</td></tr>
 <tr>
-<td>所属地域</td><td>购买时选择的源库类型，不可修改。</td></tr>
+<td>所属地域</td><td>购买时选择的源库地域，不可修改。</td></tr>
 <td>接入类型</td><td>请根据您的场景选择，本场景以“云数据库”为例，不同接入类型的准备工作请参考 <a href="https://cloud.tencent.com/document/product/571/59968">准备工作概述</a>。
 <ul><li>公网：源数据库可以通过公网 IP 访问。</li>
 <li>云主机自建：源数据库部署在 <a href="https://cloud.tencent.com/document/product/213">腾讯云服务器 CVM</a> 上。</li>
