@@ -1,5 +1,5 @@
 ## 组件介绍
-`TUIPusher` 组件是一套开源的、完整的视频直播互动推流组件，它基于腾讯云 [直播 Live SDK](https://cloud.tencent.com/document/product/454/19074) 和 [即时通信 IM SDK](https://cloud.tencent.com/document/product/269/1498) ，实现有直播推流，直播 PK 等功能，同时支持弹幕、点赞、美颜等外挂插件，使用`TUIPusher` 组件您可以快速搭建诸如秀场直播、电商直播等场景化解决方案。
+`TUIPusher` 组件是一套开源的、完整的视频直播互动推流组件，它基于腾讯云 [直播 Live SDK](https://cloud.tencent.com/document/product/454/19074) 和 [即时通信 IM SDK](https://cloud.tencent.com/document/product/269/1498) ，实现直播推流，直播 PK 等功能，同时支持弹幕、点赞、美颜等外挂插件，使用 `TUIPusher` 组件您可以快速搭建诸如秀场直播、电商直播等场景化解决方案。
 
 
 <table>
@@ -8,8 +8,8 @@
    <th style="text-align:center" width="50%">直播 PK</th>
  </tr>
 <tr>
-<td><img src="https://qcloudimg.tencent-cloud.cn/raw/3e424e1eac5f1ca02d42a19e01502e5c.jpg"/></td>
-<td><img src="https://qcloudimg.tencent-cloud.cn/raw/e8fcb12be7c08bd57030e78a5c53428b.jpg" /></td>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/c0d094cbc10f3e577f07f8ce5995230e.jpg" /></td>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/19eaacc2e8d384fb63eebb112ab6c09f.jpg" /></td>
 </tr>
 </table>
 
