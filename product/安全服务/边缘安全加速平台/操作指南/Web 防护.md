@@ -10,7 +10,7 @@ Web 防护与 Bot 防护具有较多复杂的安全处置方式，可以依据�
 - 放行：该流量被放行，不会记录攻击日志。
 
 ## Web 基础防护设置
-主要用于提供腾讯云多年积累的托管规则，具有极低的漏报、误报率，和快速的0day响应机制。
+主要用于提供腾讯云多年积累的托管规则，具有极低的漏报、误报率，和快速的0day 响应机制。
 1. 登录 [边缘安全加速平台控制台](https://console.cloud.tencent.com/edgeone)，在左侧菜单栏中，单击**安全防护** > **Web 防护**。
 2. 在 Web 防护页面，选择所需站点，单击 Web 基础防护设置模块中的![](https://qcloudimg.tencent-cloud.cn/raw/7d363152eb0ea6c823ae278c4d118dc6.png)开关，可以快速的将本防护策略设置为”不可用“，此时该模块将不检测的放行全部流量。该开关不会删除”设置“中的配置。
 ![](https://qcloudimg.tencent-cloud.cn/raw/35ef7db5bc89d4f3dd99b2b148cd3401.png)
