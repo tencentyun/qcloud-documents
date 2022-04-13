@@ -2,20 +2,22 @@
 
 HTTP Request 连接器作为 HTTP 客户端，可以发起 HTTP 请求并将得到的响应作为消息传递给下一个组件。
 
-## 连接器配置
+## 配置说明
+根据您创建应用的时间不同，HTTP Request 连接器配置也不相同，具体如下：
 
-> !
->- 在2021年9月2日前创建的应用，HTTP Request 连接器配置请参考 [方法一](#method1) 来进行配置，在新建连接配置页面进行基本配置和高级配置。
->- 在2021年9月2日及之后创建的应用，HTTP Request 连接器配置请参考 [方法二](#method2) 来进行配置，直接在右侧弹出的配置界面中即可进行基本配置和高级配置。
->- 在2022年4月8日及之后创建的应用，HTTP Request连接器配置请参考[方法三](#method3)来进行配置,配置连接-->配置请求信息。
->- 方案二优化内容：此项优化不影响原有和现有应用的配置和使用，只是在配置操作上进行了优化，更方便客户填写对应信息。
->- 方案三优化内容：HTTP Request连接器支持连接配置的统一管理。
+| 配置方法 | 适用场景 | 配置入口 |
+|---------|---------|---------|
+| [方法一](#method1) | 在2021年9月2日前创建的应用 | 在新建连接配置页面进行基本配置和高级配置|
+| [方法二](#method2) | 在2021年9月2日及之后创建的应用 | 直接在右侧弹出的配置界面中即可进行基本配置和高级配置 |
+| [方法三](#method3) | 在2022年4月8日及之后创建的应用 | 配置连接 > 配置请求信息 |
 
-## 操作说明
+与方案一相比，方案二和方案三的优化内容如下：
+- 方法二优化内容：此项优化不影响原有和现有应用的配置和使用，只是在配置操作上进行了优化，更方便客户填写对应信息。
+- 方法三优化内容：HTTP Request 连接器支持连接配置的统一管理。
 
-### 方法一（2021年9月2日前创建的应用）[](id:method1)
+##  方法一（2021年9月2日前创建的应用）[](id:method1)
 
-#### 参数介绍
+### 参数介绍
 
 - 基本配置：HTTP Request 连接器基本配置中包括描述、请求域名、请求协议、请求端口、最大重定向次数以及公共请求路径，其中请求域名、请求协议、请求端口、最大重定向次数、公共请求路径为必填项。
 	<img src="https://qcloudimg.tencent-cloud.cn/raw/6ba85ca7403e9e9578c58a63e6effd90.png" width="656px">
@@ -32,7 +34,7 @@ HTTP Request 连接器作为 HTTP 客户端，可以发起 HTTP 请求并将得�
 | 公共请求路径 | string   | 请求的公共路径，多次请求的路径中相同的部分可配置为公共请求路径 | 是           | /          |
 | 安全网关名称 | string   | 直接请求内网域名/IP 时，需要绑定安全网关                     | 否           | 无         |
 
-#### 配置说明
+### 配置说明
 
 HTTP Request 操作配置包括基本配置、高级配置两项：
 ![](https://qcloudimg.tencent-cloud.cn/raw/99edf9cbf505ffb91e77a6b8b79344f2.png)
@@ -99,15 +101,16 @@ HTTP Request 操作配置包括基本配置、高级配置两项：
 :::
 </dx-tabs>
 
-### 方法二（2021年9月2日及之后创建的应用）[](id:method2)
 
-#### 参数介绍
+## 方法二（2021年9月2日及之后创建的应用）[](id:method2)
+
+### 参数介绍
 
 - 基本配置：HTTP Request 连接器基本配置中包括请求 URL、请求协议、请求方法、请求头、请求参数、最大重定向次数以及请求超时时间，其中请求URL、请求方法、最大重定向次数为必填项。
 - 高级配置：HTTP Request 连接器高级配置中输出消息绑定自定义数据类型，可用于自定义输出消息数据类型。绑定安全网关，用于内网域名/IP 请求。
   ![](https://qcloudimg.tencent-cloud.cn/raw/cfe068b13cd0ca9fb8fd67681f7c7e37.png)
 
-#### 配置说明
+### 配置说明
 
 HTTP Request 操作配置包括基本配置、高级配置两项：
 ![](https://qcloudimg.tencent-cloud.cn/raw/cfe068b13cd0ca9fb8fd67681f7c7e37.png)
@@ -182,7 +185,7 @@ HTTP Request 操作配置包括基本配置、高级配置两项：
 :::
 </dx-tabs>
 
-## 输出
+### 输出
 
 HTTP Request 请求的响应返回后，会将响应结果生成对应的消息传递给下一个组件。其中，响应的基本信息、Header、Query 参数、Path 参数会放到消息的 attributes 中，响应的 body 会放到消息的 payload 中。
 
@@ -213,7 +216,7 @@ HTTP Request 请求的响应返回后，会将响应结果生成对应的消息�
 </tr>
 </tbody></table>
 
-## 案例
+### 案例
 
 1. 组件筛选 HTTP Request。
    ![image-20210426211753938](https://main.qcloudimg.com/raw/8db8b3da512cc211fc8f0dda96f1b586/image-20210426211753938.png)
@@ -228,27 +231,67 @@ HTTP Request 请求的响应返回后，会将响应结果生成对应的消息�
 
 - 同时，应用测试模式下可以看到 HTTP Request 对应的 attributes。
   ![](https://main.qcloudimg.com/raw/4a7099444248e9c65bb8abee04adeff5/image-20210426212733856.png)
-### 方法三（2022年4月8日后创建的应用）[](id:method3)
-#### 连接配置
 
-- HTTP Request 连接器连接配置中包括Base URL、证书验证、最大重定向次数及安全网关名称。
-	<img src="https://qcloudimg.tencent-cloud.cn/raw/2a474c304b6dc4a76602d1614e35b298.png" width="656px">
+
+## 方法三（2022年4月8日后创建的应用）[](id:method3)
+### 连接配置
+
+- HTTP Request 连接器连接配置中包括 Base URL、证书验证、最大重定向次数及安全网关名称。
+	<img src="https://qcloudimg.tencent-cloud.cn/raw/9352c689297e924767abbc9d49bd8753.png" width="500px">
 - 上述连接器配置参数相关描述如下表所示：
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>数据类型</th>
+<th>描述</th>
+<th><strong>是否必填</strong></th>
+<th><strong>默认值</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Base URL</td>
+<td>string</td>
+<td>一般配置请求地址的公共部分</td>
+<td>否</td>
+<td>无</td>
+</tr>
+<tr>
+<td>证书验证</td>
+<td>string</td>
+<td>开启后则请求HTTP服务时跳过证书验证</td>
+<td>是</td>
+<td>HTTPS</td>
+</tr>
+<tr>
+<td>最大重定向数</td>
+<td>int</td>
+<td>重定向次数，最小值1，最大值10</td>
+<td>否</td>
+<td>1</td>
+</tr>
+<tr>
+<td>请求超时时间</td>
+<td>string</td>
+<td>设置请求的超时时间，最大5分钟，最小1分钟</td>
+<td>否</td>
+<td>1</td>
+</tr>
+<tr>
+<td>安全网关名称</td>
+<td>string</td>
+<td>直接请求内网域名/IP 时，需要绑定安全网关</td>
+<td>否</td>
+<td>无</td>
+</tr>
+</tbody></table>
 
-| 参数         | 数据类型 | 描述                                                         | **是否必填** | **默认值** |
-| ------------ | -------- | ------------------------------------------------------------ | ------------ | ---------- |
-| Base URL     | string   | 一般配置请求地址的公共部分                                   | 否           | 无         |
-| 证书验证     | string   | 开启后则请求HTTP服务时跳过证书验证                            | 是           | HTTPS      |
-| 最大重定向数 | int      | 重定向次数，最小值1，最大值10                                 | 否           | 1          |
-| 请求超时时间 | string   | 设置请求的超时时间，最大5分钟，最小1分钟                       | 否            |1          |
-| 安全网关名称 | string   | 直接请求内网域名/IP 时，需要绑定安全网关                       | 否           | 无         |
-
-#### 配置说明
+### 配置说明
 
 HTTP Request 操作配置包括基本配置、高级配置两项：
-
-![](https://qcloudimg.tencent-cloud.cn/raw/a29d95bb638966fc1bf1ce7e899f2616.png)
-#### 参数介绍
+	<img src="https://qcloudimg.tencent-cloud.cn/raw/a29d95bb638966fc1bf1ce7e899f2616.png" width="500px">
+![]()
+### 参数介绍
 
 - 基本配置：HTTP Request 连接器基本配置中包括请求URL、请求方法、URL参数、请求头、请求体，其中请求URL、请求方法为必填项。
 - 高级配置：HTTP Request 连接器高级配置中输出消息绑定自定义数据类型，可用于自定义输出消息数据类型。
@@ -315,7 +358,7 @@ HTTP Request 操作配置包括基本配置、高级配置两项：
 :::
 </dx-tabs>
 
-## 输出
+### 输出
 
 HTTP Request 请求的响应返回后，会将响应结果生成对应的消息传递给下一个组件。其中，响应的基本信息、Header、Query 参数、Path 参数会放到消息的 attributes 中，响应的 body 会放到消息的 payload 中。
 
@@ -346,25 +389,24 @@ HTTP Request 请求的响应返回后，会将响应结果生成对应的消息�
 </tr>
 </tbody></table>
 
-## 案例
+### 案例
 
-1. 组件筛选 HTTP Request。
+1. 新增组件时，筛选 HTTP Request。
    ![image-20210426211753938](https://main.qcloudimg.com/raw/8db8b3da512cc211fc8f0dda96f1b586/image-20210426211753938.png)
-2. 新建并配置 HTTP Request 连接器，BaseURL配置：`https://cloud.tencent.com`。
-	 ![](https://qcloudimg.tencent-cloud.cn/raw/2e326e775a2de19b629d2e06b4f64ead.png)
+2. 新建并配置 HTTP Request 连接器，BaseURL 配置为：`https://cloud.tencent.com`。
+<img src="https://qcloudimg.tencent-cloud.cn/raw/2e326e775a2de19b629d2e06b4f64ead.png" width="550px"><br>配置界面如下：
+	 <img src="https://qcloudimg.tencent-cloud.cn/raw/492be263a6ecd47a48f0ed78559731ae.png" width="550px">
 
-配置界面如下：
-	 <img src="https://qcloudimg.tencent-cloud.cn/raw/7c363cdb6c44e00060699276017eaf75.png" width="460px">
 3. 使用操作配置。
-	 ![](https://qcloudimg.tencent-cloud.cn/raw/4a395af22ad35071350b84df7b49ea46.png)
+	 <img src="https://qcloudimg.tencent-cloud.cn/raw/2c9b624b96807491ed3244ceee23fde4.png" width="550px">
+
 4. 发布并触发。浏览器访问触发对应流，可以直接跳转至腾讯云首页。
    ![](https://qcloudimg.tencent-cloud.cn/raw/c08dc624a13544050ef932513d196b72.png)
-
    集成流如下：
-![]( https://qcloudimg.tencent-cloud.cn/raw/217c65d6d1680e60f0cb59e7a2c9685a.png)
-  
-- 同时，应用测试模式下可以看到 HTTP Request 对应的payload、 attributes。
+![](https://qcloudimg.tencent-cloud.cn/raw/217c65d6d1680e60f0cb59e7a2c9685a.png)
+同时，应用测试模式下可以看到 HTTP Request 对应的 payload、 attributes。
+ - payload：<br>
+ 	 <img src="https://qcloudimg.tencent-cloud.cn/raw/fb567e9854d91907538b4eac47349c0e.png" width="550px">
 
-  ![](https://qcloudimg.tencent-cloud.cn/raw/fb567e9854d91907538b4eac47349c0e.png)
-
-  ![](https://qcloudimg.tencent-cloud.cn/raw/28c4e6aee227333badd2602136fdb0da.png)
+ - attributes：<br>
+  	 <img src="https://qcloudimg.tencent-cloud.cn/raw/28c4e6aee227333badd2602136fdb0da.png" width="550px">
