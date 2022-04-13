@@ -6,14 +6,11 @@
 
 ChainMaker 官方已经将容器发布至 [docker hub](https://hub.docker.com/u/chainmakerofficial)。
 
-1. 首先拉取镜像
-
+1. 拉取镜像
 ```
 docker pull chainmakerofficial/chainmaker-go-contract:2.1.0
 ```
-
 请指定你本机的工作目录 $WORK_DIR，例如 /data/workspace/contract，挂载到 docker 容器中以方便后续进行必要的一些文件拷贝。
-
 ```
 docker run -it --name chainmaker-go-contract -v $WORK_DIR:/home chainmakerofficial/chainmaker-go-contract:2.1.0 bash
 # 或者先后台启动
@@ -23,7 +20,6 @@ docker exec -it chainmaker-go-contract /bin/sh
 ```
 
 2. 编译合约
-
 ```
 cd /home/
 # 解压缩合约SDK源码
@@ -32,18 +28,14 @@ cd contract_tinygo
 # 编译main.go合约
 sh build.sh
 ```
-
-生成合约的字节码文件在
-
+生成合约的字节码文件位置如下：
 ```
 /home/contract_tinygo/main.wasm
 ```
-
 `main.wasm` 文件可在 [TBaaS 控制台](https://console.cloud.tencent.com/tbaas/overview) 上传并部署。
 
 3. 合约开发框架描述
    解压缩 contract_go_template.tar.gz 后，文件描述如下：
-
 ```
 /home/contract_tinygo# ls -l
 total 64
