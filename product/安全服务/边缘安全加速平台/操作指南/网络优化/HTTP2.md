@@ -23,4 +23,4 @@ HTTP/2（即 HTTP 2.0，超文本传输协议第2版），是 HTTP 协议的第�
 
 ## 注意事项
 1. 若客户端不支持 HTTP/2，则使用 HTTP 1.x。
-2. 此处仅支持请求访问，不支持 HTTP/2 回源。若需配置 HTTP/2 回源，请前往 [规则引擎](https://cloud.tencent.com/document/product/1552/70901) 。
+2. 此处仅支持访问请求，不支持 HTTP/2 回源。若需配置 HTTP/2 回源，请前往 [规则引擎](https://cloud.tencent.com/document/product/1552/70901) 。
