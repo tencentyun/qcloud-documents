@@ -5,7 +5,7 @@
 已登录 [证书管理控制台](https://console.cloud.tencent.com/certoverview)，且成功申请获取证书（参考 [如何免费申请域名型证书](https://cloud.tencent.com/document/product/400/6814)）。
 
 ## 操作步骤
->!操作之前，请确认您的 [Web 应用防火墙管理控制台](https://console.cloud.tencent.com/guanjia/waf/config) 是否有实例，若没有实例，请您先创建实例。
+>!操作之前，请确认您的 [Web 应用防火墙管理控制台](https://console.cloud.tencent.com/guanjia/) 是否有实例，若没有实例，请您先创建实例。
 >
 1. 单击**已签发**页签，选择您需要部署的证书，并单击**证书详情**。如下图所示：
 ![](https://main.qcloudimg.com/raw/2dce1ac04efd170c9b7f2b55b6a07ffd.png)

@@ -29,8 +29,8 @@ BE 启动后，通过下面命令动态设置配置项 `streaming_load_max_mb`:
 返回值如下，则说明设置成功。
 ```
 {
-	"status": "OK",
-	"msg": ""
+    "status": "OK",
+    "msg": ""
 }
 ```
 BE 重启后该配置将失效。如果想持久化修改结果，使用如下命令：
@@ -113,7 +113,7 @@ Metrics: {"filtered_rows":0,"input_row_num":3346807,"input_rowsets_count":42,"in
 
 ### brpc_num_threads
 
-该配置主要用来修改 brpc 中 bthreads 的数量. 该配置的默认值被设置为-1, 这意味着 bthreads 的数量将被设置为机器的 cpu 核数。
+该配置主要用来修改 brpc 中 bthreads 的数量. 该配置的默认值被设置为-1, 这意味着 bthreads 的数量将被设置为机器的 CPU 核数。
 用户可以将该配置的值调大来获取更好的QPS性能。更多的信息可以参考 [示例](https://github.com/apache/incubator-brpc/blob/master/docs/cn/benchmark.md)。
 
 ### brpc_port
@@ -293,8 +293,8 @@ tablet_score = compaction_tablet_scan_frequency_factor * tablet_scan_frequency +
 ### `default_rowset_type`
 * 类型：string。
 * 描述：标识 BE 默认选择的存储格式，可配置的参数为："**ALPHA**", "**BETA**"。主要起以下两个作用：
-	1. 当建表的 storage_format 设置为 Default 时，通过该配置来选取 BE 的存储格式。
-	2. 进行 Compaction 时选择 BE 的存储格式。
+    1. 当建表的 storage_format 设置为 Default 时，通过该配置来选取 BE 的存储格式。
+    2. 进行 Compaction 时选择 BE 的存储格式。
 * 默认值：BETA。
 
 ### delete_worker_count
@@ -327,7 +327,7 @@ tablet_score = compaction_tablet_scan_frequency_factor * tablet_scan_frequency +
 
 ### doris_max_scan_key_num
 * 类型：int。
-* 描述：用于限制一个查询请求中，scan node 节点能拆分的最大 scan key 的个数。当一个带有条件的查询请求到达 scan node 节点时，scan node 会尝试将查询条件中 key 列相关的条件拆分成多个 scan key range。之后这些 scan key range 会被分配给多个 scanner 线程进行数据扫描。较大的数值通常意味着可以使用更多的 scanner 线程来提升扫描操作的并行度。但在高并发场景下，过多的线程可能会带来更大的调度开销和系统负载，反而会降低查询响应速度。一个经验数值为 50。该配置可以单独进行会话级别的配置，具体可参阅 [变量](../variables.md) 中 `max_scan_key_num` 的说明。
+* 描述：用于限制一个查询请求中，scan node 节点能拆分的最大 scan key 的个数。当一个带有条件的查询请求到达 scan node 节点时，scan node 会尝试将查询条件中 key 列相关的条件拆分成多个 scan key range。之后这些 scan key range 会被分配给多个 scanner 线程进行数据扫描。较大的数值通常意味着可以使用更多的 scanner 线程来提升扫描操作的并行度。但在高并发场景下，过多的线程可能会带来更大的调度开销和系统负载，反而会降低查询响应速度。一个经验数值为 50。该配置可以单独进行会话级别的配置，具体可参阅 [变量](https://cloud.tencent.com/document/product/1387/70771) 中 `max_scan_key_num` 的说明。
 * 默认值：1024。
 
 当在高并发场景下发下并发度无法提升时，可以尝试降低该数值并观察影响。
@@ -558,7 +558,7 @@ load tablets from header failed, failed tablets size: xxx, path=xxx
 
 ### max_garbage_sweep_interval
 - 默认值：3600。
-- 磁盘进行垃圾清理的最大间隔，默认一个小时。	
+- 磁盘进行垃圾清理的最大间隔，默认一个小时。 
 
 ### max_memory_sink_batch_count
 - 默认值：20。
@@ -616,7 +616,7 @@ load tablets from header failed, failed tablets size: xxx, path=xxx
 
 ### read_size
 - 默认值：8388608。
-- 读取大小是发送到 os 的读取大小。 在延迟和整个过程之间进行权衡，试图让磁盘保持忙碌但不引入寻道。 对于 8 MB 读取，随机 io 和顺序 io 的性能相似。
+- 读取大小是发送到 OS 的读取大小。 在延迟和整个过程之间进行权衡，试图让磁盘保持忙碌但不引入寻道。 对于 8 MB 读取，随机 io 和顺序 io 的性能相似。
 
 ### min_buffer_size
 
@@ -712,7 +712,7 @@ load tablets from header failed, failed tablets size: xxx, path=xxx
 
 ### priority_networks
 - 默认值：空。
-- 为那些有很多 ip 的服务器声明一个选择策略。 请注意，最多应该有一个 ip 与此列表匹配。 这是一个以分号分隔格式的列表，用 CIDR 表示法，例如 10.10.10.0/24 ， 如果没有匹配这条规则的 ip，会随机选择一个。
+- 为那些有很多 IP 的服务器声明一个选择策略。 请注意，最多应该有一个 IP 与此列表匹配。 这是一个以分号分隔格式的列表，用 CIDR 表示法，例如 10.10.10.0/24 ， 如果没有匹配这条规则的 IP，会随机选择一个。
 
 ### priority_queue_remaining_tasks_increased_frequency
 - 默认值：512。
@@ -846,9 +846,9 @@ load tablets from header failed, failed tablets size: xxx, path=xxx
 - 示例1：
 如果是 SSD 磁盘要在目录后面加上.SSD，HDD 磁盘在目录后面加 .HDD。
 storage_root_path=/home/disk1/doris.HDD,50;/home/disk2/doris.SSD,10;/home/disk2/doris
-	* /home/disk1/doris.HDD, 50，表示存储限制为50GB, HDD。
-	* /home/disk2/doris.SSD 10， 存储限制为10GB，SSD。
-	* /home/disk2/doris，存储限制为磁盘最大容量，默认为 HDD。
+    * /home/disk1/doris.HDD, 50，表示存储限制为50GB, HDD。
+    * /home/disk2/doris.SSD 10， 存储限制为10GB，SSD。
+    * /home/disk2/doris，存储限制为磁盘最大容量，默认为 HDD。
 
 - 示例2：
 storage_root_path=/home/disk1/doris,medium:hdd,capacity:50;/home/disk2/doris,medium:ssd,capacity:50
@@ -943,7 +943,7 @@ Stream Load 一般适用于导入几个 GB 以内的数据，不适合导入过�
 ### tablet_rowset_stale_sweep_time_sec
 
 * 类型：int64。
-* 描述：用来表示清理合并版本的过期时间，当当前时间 now() 减去一个合并的版本路径中 rowset 最近创建创建时间大于 tablet_rowset_stale_sweep_time_sec 时，对当前路径进行清理，删除这些合并过的 rowset, 单位为s。
+* 描述：用来表示清理合并版本的过期时间，当前时间 now() 减去一个合并的版本路径中 rowset 最近创建创建时间大于 tablet_rowset_stale_sweep_time_sec 时，对当前路径进行清理，删除这些合并过的 rowset, 单位为s。
 * 默认值：1800。
 
 当写入过于频繁，磁盘空间不足时，可以配置较少这个时间。不过这个时间过短小于5分钟时，可能会引发 fe 查询不到已经合并过的版本，引发查询-230错误。

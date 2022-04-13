@@ -1,0 +1,67 @@
+## 接口描述
+- 描述： 支持查询网络研讨会中已报名成员的报名 ID，仅会议创建者可查询。
+ - 可通过会中成员的 ms_open_id 查询到对应的报名 ID，成员的 ms_open_id 可通过 [获取参会成员列表](https://cloud.tencent.com/document/product/1095/42701) 接口获取。
+ - 成员的报名 ID 在每场会议是唯一的，可以通过 [查询会议报名信息](https://cloud.tencent.com/document/product/1095/64011) 接口匹配其对应的报名信息。
+ - 如果传入的成员没有报名，则不会返回该成员的 ms_open_id 和报名 ID。
+ - 企业 secret 鉴权用户可查询任何该企业该用户创建的有效会议，OAuth2.0 鉴权用户只能查询通过 OAuth2.0 鉴权创建的有效会议。
+- 请求方式：POST
+- 接口请求域名： 
+```plaintext
+https://api.meeting.qq.com/v1/webinars/{meeting_id}/enroll/ids
+```
+
+## 输入参数
+|参数名称|	是否必须|	参数类型|	参数描述|
+|----|----|----|---|
+|meeting_id	|是	|String	|会议 ID。|
+|userid	|是	|String	|调用方用于标示用户的唯一 ID（企业内部请使用企业唯一用户标识；OAuth2.0 鉴权用户请使用 openId）。|
+|instanceid	|是	|Integer|	用户的终端设备类型：<br>1：PC <br>2：Mac <br>3：Android <br>4：iOS <br>5：Web <br>6：iPad <br>7：Android Pad <br>8：小程序|
+|ms_open_id_list	|是|	String数组|	当场会议的用户临时 ID（适用于所有用户）数组，单次最多支持500条。
+
+
+## 输出参数
+|参数名称|	参数类型	|参数描述|
+|----|----|----|
+|meeting_id|	String|	会议 ID。|
+|enroll_id_list	|对象数组	|成员报名 ID 数组，仅返回已报名成员的报名 ID，若传入的用户无人报名，则无该字段。|
+
+**成员报名id对象**
+
+|参数名称|	参数类型|	参数描述|
+|----|----|----|
+|ms_open_id	|String|	当场会议的用户临时 ID，适用于所有用户。|
+|enroll_id	|Integer|	报名 ID。|
+
+
+## 示例
+### 输入示例
+```plaintext
+POST 
+https://api.meeting.qq.com/v1/webinars/879648049490689475/enroll/ids
+{
+    "userid": "john117",
+    "instanceid": 2,
+    "ms_open_id_list": ["agaqwwgdkkddd","ahfsdugkjsdg","jhgsddgskjh"]
+}
+```
+
+### 输出示例
+```plaintext
+{
+        "meeting_id": "545613049490456875",
+        "enroll_id_list": [
+              {
+                  "ms_open_id": "agaqwwgdkkddd",
+                  "enroll_id": 1386442
+              }，
+			  {
+                  "ms_open_id": "ahfsdugkjsdg",
+                  "enroll_id": 9896426
+              }，
+              {
+                  "ms_open_id": "jhgsddgskjh",
+                  "enroll_id": 6983563
+             }
+         ]
+}
+```

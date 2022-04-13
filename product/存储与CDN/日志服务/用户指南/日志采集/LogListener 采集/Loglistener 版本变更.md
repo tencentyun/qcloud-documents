@@ -1,6 +1,7 @@
 本文档为您介绍日志服务 LogListener 的版本更新记录。
 
 >?
+> - 组合解析功能，在 LogListener 2.6.4版本中开始支持。
 > - 全量/增量采集策略功能，在 LogListener 2.6.2版本中开始支持。
 > - CVM 批量部署功能，在 LogListener 2.6.0版本中开始支持。
 > - 多行-完全正则采集模式，在 LogListener 2.4.5版本中开始支持。
@@ -11,6 +12,18 @@
 
 <table>
 	<tr><th style="width: 10%;">版本号</th><th style="width: 11%;">变更类型</th><th>描述</th></tr>
+	<tr><td><b>v2.7.2</b></td><td>体验优化</td><td>优化轮转文件在移除时无法清理掉对应的配置缓存，造成内存泄漏。</td></tr>
+	<tr><td><b>v2.7.1</b></td><td>体验优化</td><td>优化大量打印 processor 为空日志的问题。</td></tr>
+	<tr><td><b>v2.7.0</b></td><td>体验优化</td><td>优化空字符串在封装 PB 时，有可能引发异常，导致采集阻塞的问题。</td></tr>
+	<tr><td><b>v2.6.9</b></td><td>体验优化</td><td>优化多行解析失败场景下，无效日志超量打印的问题。</td></tr>
+	<tr><td><b>v2.6.8</b></td><td>体验优化</td><td><ul  style="margin: 0;"><li>优化增加 loglistenr 采集规格限制，超限启动保护机制。</li><li>修复 Ubuntu 开机启动不生效问题。</li><li>优化黑名单功能，节省内存使用。</li><li>优化组合解析模式，且 root processor 为正则解析插件时的处理异常。</li><li>优化部分日志打印。</li></ul></td></tr>
+	<tr><td><b>v2.6.7</b></td><td>新功能</td><td>支持单 agent 下多租户采集能力。</td></tr>
+	<tr><td><b>v2.6.6</b></td><td>体验优化</td><td>修复软链接场景下，对于写入量很小的文件，可能发生漏采/延迟采集的问题。</td></tr>
+	<tr><td rowspan=2><b>v2.6.5</b></td><td>新功能</td><td>日志时间支持时区信息解析。</td></tr>
+	<tr><td>体验优化</td><td><ul  style="margin: 0;"><li>修复高级数据处理空指针异常。</li><li>优化当多个文件同时轮转时异常问题。</li></ul></td></tr>
+	<tr><td rowspan=2><b>v2.6.4</b></td><td>新功能</td><td>支持用户通过插件自定义日志解析规则。</td></tr>
+	<tr><td>体验优化</td><td><ul  style="margin: 0;"><li>优化日志解析格式 pipeline。</li><li>修复对毫秒时间戳（%F）格式解析的问题。</li></ul></td></tr>
+	<tr><td><b>v2.6.3</b></td><td>体验优化</td><td><ul  style="margin: 0;"><li>优化 checkpoint 文件损坏时，loglistener 无法启动的问题。</li><li>特殊场景下，黑名单对新文件不生效的问题。</li></ul></td></tr>
 	<tr><td rowspan=2><b>v2.6.2</b></td><td>新功能</td><td>支持增量采集功能。</td></tr>
 	<tr><td>体验优化</td><td><ul  style="margin: 0;"><li>优化文件在从扫描到处理之间被移除场景下的采集忽略问题。</li><li>优化自动升级异常覆盖。</li></ul></td></tr>
 	<tr><td><b>v2.6.1</b></td><td>体验优化</td><td><ul  style="margin: 0;"><li>优化某些场景下，日志轮转时可能发生回溯采集的问题。</li><li>调整采集端上传日志超时时间，避免因为 timeout 导致数据重复。</li></ul></td></tr>

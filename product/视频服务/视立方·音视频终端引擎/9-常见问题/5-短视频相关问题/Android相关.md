@@ -1,7 +1,5 @@
 [](id:que1)
-
 ### 集成遇到异常怎么办？
-
 ![](https://main.qcloudimg.com/raw/b631f468aca6a2d1e83b868874631030.png)
 您可以使用 armeabi 和 armeabi-v7a 架构。
 ![](https://main.qcloudimg.com/raw/9d75515640b65d91ab8730991e4c2602.png)
@@ -10,16 +8,14 @@
 
 
 [](id:que2)
-
-### 功能模块升级后，短视频 UGSV 的功能不能使用？
+### 功能模块升级后，短视频 SDK 的功能不能使用？
 
 1. 如果使用的是 androidstudio，在替换新的 aar 后，请修改`app`的 build.gradle 中的 aar 引用，是否与您放入工程下 `/libs` 目录下的 aar **文件名称是否一致**。然后重新 clean 并且 build 一下您的工程。
-2. 确认功能模块类型，短视频 UGSV 功能模块分两种授权类型：基础版和精简版，包含的功能不同，区别在于特效的有无。
+2. 确认功能模块类型，短视频 SDK 功能模块分两种授权类型：基础版和精简版，包含的功能不同，区别在于特效的有无。
 
 [](id:que3)
-
-### 目前短视频 UGSV 录制生成的分辨率支持自定义吗？有哪些可定制化的输出？
-短视频 UGSV 录制可定制参数包括 FPS（每秒钟有多少帧画面），GOP（多少秒编出一个关键I帧）大小，视频码率（每秒钟编码器产生的音视频数据的多少），录制最大/最小时长，录制的分辨率以常量方式提供了四种分辨率供您选择：360×640、540×960、720×1280、1080 × 1920。。
+### 目前短视频 SDK 录制生成的分辨率支持自定义吗？有哪些可定制化的输出？
+短视频 SDK 录制可定制参数包括 FPS（每秒钟有多少帧画面），GOP（多少秒编出一个关键I帧）大小，视频码率（每秒钟编码器产生的音视频数据的多少），录制最大/最小时长，录制的分辨率以常量方式提供了四种分辨率供您选择：360×640、540×960、720×1280、1080 × 1920。
 
 录制为什么以常量方式而不是用户自定义大小，原因如下：
 - 以上四种是主流的录制分辨率。
@@ -103,7 +99,7 @@ int result = mTXCameraRecord.startRecord(customVideoPath, customPartFolder, cust
 [](id:que7)
 
 ### 录制是否有拍照功能？
-短视频 UGSV 功能模块有拍照功能，调用 TXUGCRecord 类的 snapshot 接口，以 TXRecordCommon.ITXSnapshotListener 回调异步返回拍照的图片，代码示例如下：
+短视频 SDK 功能模块有拍照功能，调用 TXUGCRecord 类的 snapshot 接口，以 TXRecordCommon.ITXSnapshotListener 回调异步返回拍照的图片，代码示例如下：
 
 ```
 private void snapshot() {
@@ -148,13 +144,13 @@ mTXCameraRecord.setRecordSpeed(TXRecordCommon.RECORD_SPEED_FAST);
 
 [](id:que11)
 
-### 目前短视频 UGSV 编辑支持哪种格式的背景音乐？
+### 目前短视频 SDK 编辑支持哪种格式的背景音乐？
 目前仅支持 MP3 和 M4A 类型。
 
 [](id:que12)
 
-### 目前短视频 UGSV 编辑有哪些可定制化的输出？
-短视频 UGSV 编辑可定制视频码率（SDK4.5及以上）、音频码率（SDK4.7及以上）、分辨率以常量方式提供了几种分辨率供您选择：360×640、480×640、540×960、720×1280、1080 × 1920。。
+### 目前短视频 SDK 编辑有哪些可定制化的输出？
+短视频 SDK 编辑可定制视频码率（SDK4.5及以上）、音频码率（SDK4.7及以上）、分辨率以常量方式提供了几种分辨率供您选择：360×640、480×640、540×960、720×1280、1080 × 1920。。
 
 分辨率| TXVideoEditConstants 中对应常量  
 ---|---  
@@ -173,8 +169,8 @@ mTXVideoEditer.generateVideo(TXVideoEditConstants.VIDEO_COMPRESSED_720P, mVideoO
 
 [](id:que13)
 
-### 通过短视频 UGSV 录制功能录制的视频，其中的音频是可以剥离出来的吗？ 
-目前短视频 UGSV 录制不支持同时录制 BGM 和人声，所以进入编辑后，重新设置 BGM，可以将原声音量设为0，达到替换 BGM 的目的，代码如下所示：
+### 通过短视频 SDK 录制功能录制的视频，其中的音频是可以剥离出来的吗？ 
+目前短视频 SDK 录制不支持同时录制 BGM 和人声，所以进入编辑后，重新设置 BGM，可以将原声音量设为0，达到替换 BGM 的目的，代码如下所示：
 
 ```
 // 设置视频原声音量大小（设为0，去掉录制的 BGM）
@@ -229,7 +225,7 @@ private void initPlayerLayout(boolean isFullScreen) {
 ```
 
 [](id:que15)
-### 短视频 UGSV 编辑时，如何把“剪辑”功能和“滤镜”分成两个页面？
+### 短视频 SDK 编辑时，如何把“剪辑”功能和“滤镜”分成两个页面？
 
 腾讯云视立方短视频 Demo 是把“剪辑”和“滤镜”等功能放在一个页面处理，要把“剪辑”功能和“滤镜”分成两个页面，可以先进行裁剪（setCutTimeFrom）+ 预处理（processVideo）同时执行，结果生成一个裁剪后的视频预处理完的视频，再进行各种编辑的操作，将裁剪设置成整个时长（setCutTimeFrom），最后调用 generateVideo 生成视频，防止压缩两次导致画质降低。
 

@@ -19,7 +19,7 @@ Datahub 提供数据流出能力，您可以将 CKafka 数据分发至数据仓�
    ![](https://qcloudimg.tencent-cloud.cn/raw/cabda8c7d4bbd379760babf320a17370.png)
    - 任务名称：只能包含字母、数字、下划线、"-"、"."。
    - CKafka 实例：选择数据源 CKafka。
-   - 源 Topic：选择源 Topic。
+   - 源 Topic：选择源 Topic，一条数据流出任务最多支持选择5个源 Topic，选中的 Topic 内的数据格式需要保持一致方可转储成功。
    - 源数据：拉取源数据，预览数据中的 "Integer" 和 "String" 类型可以修改 "Date" 或 "DateTime" 类型。
    - 起始位置：转储时历史消息的处理方式，topic offset 设置。
    - 数据仓库类型：

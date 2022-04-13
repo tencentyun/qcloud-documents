@@ -12,10 +12,11 @@ COSBrowser 是 COS 推出的可视化界面工具，提供 Windows、macOS、Lin
 
 ## 步骤1：下载安装 COSBrowser
 
-Windows 版 COSBrowser 的系统要求：Windows 7 32/64位以上、Windows Server 2008 R2 64位以上。其它系统版本 COSBrowser ，请前往  [COSBrowser 简介](https://cloud.tencent.com/document/product/436/11366) 下载。
-
-
 <div style="background-color:#00A4FF; width: 190px; height: 35px; line-height:35px; text-align:center;"><a href="https://cos5.cloud.tencent.com/cosbrowser/cosbrowser-setup-latest.exe" target="_blank"  style="color: white; font-size:16px;">点此下载 COSBrowser</a></div><br>
+
+
+Windows 版 COSBrowser 的系统要求：Windows 7 32/64位以上、Windows Server 2008 R2 64位以上。
+其他系统版本 COSBrowser，请前往  [COSBrowser 简介](https://cloud.tencent.com/document/product/436/11366) 下载。
 
 
 
@@ -43,8 +44,6 @@ Windows 版 COSBrowser 的系统要求：Windows 7 32/64位以上、Windows Serv
 
 
 ## 步骤5：下载对象
-
-
 
 #### 方式一
 
@@ -84,7 +83,7 @@ Windows 版 COSBrowser 的系统要求：Windows 7 32/64位以上、Windows Serv
 
 ## 更多功能
 
-除以上功能外，COSBrowser 还拥有其它更丰富的功能，例如修改存储桶访问权限，文件预览等，详情请参见 [桌面端功能列表](https://cloud.tencent.com/document/product/436/11366#.E6.A1.8C.E9.9D.A2.E7.AB.AF.E5.8A.9F.E8.83.BD.E5.88.97.E8.A1.A8) 文档。
+除以上功能外，COSBrowser 还拥有其他更丰富的功能，例如修改存储桶访问权限，文件预览等，详情请参见 [桌面端功能列表](https://cloud.tencent.com/document/product/436/11366#.E6.A1.8C.E9.9D.A2.E7.AB.AF.E5.8A.9F.E8.83.BD.E5.88.97.E8.A1.A8) 文档。
 
 ## 遇到问题？
 

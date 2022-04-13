@@ -5,16 +5,16 @@
 >
 
 ## 操作步骤
-1. 登录 [边缘安全加速平台控制台](https://console.cloud.tencent.com/edgeone) ，在左侧菜单栏中，单击**规则引擎**。
+1. 登录 [边缘安全加速平台控制台](https://console.cloud.tencent.com/edgeone)，在左侧菜单栏中，单击**规则引擎**。
 2. 在规则引擎页面，选择所需站点，单击![](https://qcloudimg.tencent-cloud.cn/raw/fe4d4900f8ad69d506adc49bdb70fa32.png)可按需配置回源 URL 重写规则。
->!目前仅支持匹配条件为 URL path 或 Host And URL path 时配置回源 URL 重写操作
+>!目前仅支持匹配条件为 URL path 或 Host And URL path 时配置回源 URL 重写操作。
 >
 参数说明：
 <table>
 <thead>
 <tr>
 <th>配置项</th>
-<th></th>
+<th>说明</th>
 </tr>
 </thead>
 <tbody><tr>

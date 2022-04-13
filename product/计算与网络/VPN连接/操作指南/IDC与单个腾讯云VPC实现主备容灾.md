@@ -62,7 +62,7 @@ VPN 网关和对端网关创建完成后，需要创建两条 VPN 网关与 IDC 
 1. 在左侧导航栏选择 **VPN 连接** > **VPN 通道**。
 2. 在 **VPN 通道**管理页面，选择地域，单击**+新建**。
 3. 在弹出的页面中填写 VPN 通道信息，具体参数配置请参考[ 新建 VPN 通道](https://cloud.tencent.com/document/product/554/52864)。SPD 策略配置时，“对端网段”配置为`0.0.0.0/0`。
- ![](https://qcloudimg.tencent-cloud.cn/raw/1da4bf1228e8892b09d94712866d398f.png)
+ ![](https://qcloudimg.tencent-cloud.cn/raw/13d64091087532c580003709e2863925.png)
 4. 单击**创建**。
 
 
@@ -113,7 +113,7 @@ VPN 网关路由配置完成后，为 VPN 通道健康检查（主备通道均�
 #### 主用通道 B 健康检查配置
 1. 在左侧导航栏选择 **VPN 连接** > **VPN 通道**，并在右侧 VPN 通道列表中找到创建好的 VPN 通道，然后单击 VPN 通道名称。 
 2. 在通道**基本信息**页签单击**编辑**。
-<img src="https://main.qcloudimg.com/raw/cb1d19f0102c832264a7531d52e54c9f.png" width="50%">
+<img src="https://qcloudimg.tencent-cloud.cn/raw/829e118702943254dab508a0bacde474.png" width="50%">
 3. 打开健康检查开关，输入**健康检查本端地址**和**健康检查对端地址**，并单击**保存**。
 <img src="https://main.qcloudimg.com/raw/d4973cf03855b2b2dd85e46b0c2fa451.png" width="50%">
 >?

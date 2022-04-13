@@ -77,6 +77,8 @@
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/7c41d941a559509f4f895e121434ea3d.png)
 
+### ImagePullBackOff
+
 #### 状态说明
 实例镜像拉取失败。
 

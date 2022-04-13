@@ -49,60 +49,92 @@
 2. 在“日志采集”页面上方选择地域和需要配置日志采集规则的集群，单击**新建**。如下图所示：
    ![](https://main.qcloudimg.com/raw/613b3a7d3be13dd04f4290dc4182b1c0.png)
 3. 在“新建日志采集规则”页面中，选择采集类型，并配置日志源。目前采集类型支持**容器标准输出**、**容器文件路径**和**节点文件路径**。
-
  - [](id:stout)**容器标准输出**：选择**容器标准输出**采集类型，并根据需求配置日志源。该类型日志源支持一次选择多个 Namespace 的工作负载。如下图所示：
    ![](https://main.qcloudimg.com/raw/be30d351e22a44945daabc6166480d3f.png)
-
  - [](id:insideDocker)**容器文件路径**：选择**容器文件路径**采集类型，并配置日志源。如下图所示：
    ![](https://main.qcloudimg.com/raw/887763942bdc76c78f220bdc98d0508d.png)
    采集文件路径支持文件路径和通配规则，例如当容器文件路径为 `/opt/logs/*.log`，可以指定采集路径为 `/opt/logs`，文件名为 `*.log`。
    <dx-alert infotype="notice" title="">
    如果选择采集类型为“容器文件路径”时，对应的“容器文件路径”<b>不能为软链接</b>，否则会导致软链接的实际路径在采集器的容器内不存在，采集日志失败。
    </dx-alert>
-
  - [](id:inside)**节点文件路径**：选择<b>节点文件路径</b>采集类型，如下图所示：
    <img src = "https://main.qcloudimg.com/raw/6cd447c70be92c95c614c9604cd90484.png" style="width: 100%"> 
    <dx-alert infotype="explain" title="">
-   路径支持文件路径和通配规则，例如当需要采集所有文件路径形式为 `/opt/logs/service1/*.log`，`/opt/logs/service2/*.log`，可以指定采集路径的文件夹为 `/opt/logs/service*`，文件名为 `*.log`。
+   - 路径支持文件路径和通配规则，例如当需要采集所有文件路径形式为 `/opt/logs/service1/*.log`，`/opt/logs/service2/*.log`，可以指定采集路径的文件夹为 `/opt/logs/service*`，文件名为 `*.log`。
+- 对于容器的标准输出及容器内文件（非 hostPath 挂载），除了原始的日志内容， 还会带上容器或 kubernetes 相关的元数据（例如：产生日志的容器 ID）一起上报到 CLS，方便用户查看日志时追溯来源或根据容器标识、特征（例如：容器名、labels）进行检索。
+容器或 kubernetes 相关的元数据请参考下方表格：
+<table>
+<thead>
+<tr>
+<th align="left">字段名</th>
+<th align="left">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">container_id</td>
+<td align="left">日志所属的容器 ID。</td>
+</tr>
+<tr>
+<td align="left">container_name</td>
+<td align="left">日志所属的容器名称。</td>
+</tr>
+<tr>
+<td align="left">image_name</td>
+<td align="left">日志所属容器的镜像名称 IP。</td>
+</tr>
+<tr>
+<td align="left">namespace</td>
+<td align="left">日志所属 pod 的 namespace。</td>
+</tr>
+<tr>
+<td align="left">pod_uid</td>
+<td align="left">日志所属 pod 的 UID。</td>
+</tr>
+<tr>
+<td align="left">pod_name</td>
+<td align="left">日志所属 pod 的名字。</td>
+</tr>
+<tr>
+<td align="left">pod_lable_{label name}</td>
+<td align="left">日志所属 pod 的 label（例如一个 pod 带有两个 label：app=nginx，env=prod，则在上传的日志会附带两个 metedata：pod_label_app:nginx，pod_label_env:prod）。</td>
+</tr>
+</tbody></table>
    </dx-alert>
-
-   > ?对于容器的标准输出及容器内文件（非 hostPath 挂载），除了原始的日志内容， 还会带上容器或 kubernetes 相关的元数据（例如：产生日志的容器 ID）一起上报到 CLS，方便用户查看日志时追溯来源或根据容器标识、特征（例如：容器名、labels）进行检索。
-   > 容器或 kubernetes 相关的元数据请参考下方表格：
-   >
-   > | 字段名                 | 含义                                                         |
-   > | :--------------------- | :----------------------------------------------------------- |
-   > | container_id           | 日志所属的容器 ID。                                          |
-   > | container_name         | 日志所属的容器名称。                                         |
-   > | image_name             | 日志所属容器的镜像名称 IP。                                  |
-   > | namespace              | 日志所属 pod 的 namespace。                                  |
-   > | pod_uid                | 日志所属 pod 的 UID。                                        |
-   > | pod_name               | 日志所属 pod 的名字。                                        |
-   > | pod_lable_{label name} | 日志所属 pod 的 label（例如一个 pod 带有两个 label：app=nginx，env=prod，则在上传的日志会附带两个 metedata：pod_label_app:nginx，pod_label_env:prod）。 |
-
-   
-
 4. 配置日志服务消费端。
    支持用户选择写入 CKafka 或用户自建 Kafka ，当选择 CKafka 时，需要填写实例 ID 和实例 Topic ；当选择自建 Kafka 时，需按要求填写 Broker 地址和 Topic。
    ![](https://qcloudimg.tencent-cloud.cn/raw/db8dca5860ed168e47fcaf63046a2a65.png)
    <dx-alert infotype="explain" title="">
-
 - 如果 Kafka 实例与节点不在同一个 VPC 下，会提示创建 Kafka 实例接入点后再进行日志投递。
 - 在集群的 daemonSet 资源中，选择 kube-system 命名空间，找到 tke-log-agent pod 下的 kafkalistener 容器，可以查询 kafka 采集器的日志。
   </dx-alert>
   支持在高级设置内通过指定 Key 值将日志投递到指定分区，该功能默认不开启，日志随机投放，当开启后，带有同样 Key 值的日志，将投递到相同的分区。支持输入 TimestampKey（默认@timestamp）和指定时间戳格式。如下图所示：
   <img src = "https://qcloudimg.tencent-cloud.cn/raw/4d2bb5f6d5b94f3741e39858a88346f8.png" style="width: 100%"> 
-
 5. 单击**下一步**，选择日志提取模式。
-
-   > ?
-   >
-   > 一个日志主题目前仅支持一个采集配置，请保证选用该日志主题的所有容器的日志都可以接受采用所选的日志解析方式。若在同一日志主题下新建了不同的采集配置，旧的采集配置会被覆盖。
-
-   | 解析模式 | 说明                                                         | 相关文档                                                     |
-   | -------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-   | 单行全文 | 一条日志仅包含一行的内容，以换行符 \n 作为一条日志的结束标记，每条日志将被解析为键值为 **CONTENT** 的一行完全字符串，开启索引后可通过全文检索搜索日志内容。日志时间以采集时间为准。 | [单行全文格式](https://cloud.tencent.com/document/product/614/17421) |
-   | 多行全文 | 指一条完整的日志跨占多行，采用首行正则的方式进行匹配，当某行日志匹配上预先设置的正则表达式，就认为是一条日志的开头，而下一个行首出现作为该条日志的结束标识符，也会设置一个默认的键值 **CONTENT**，日志时间以采集时间为准。支持自动生成正则表达式。 | [多行全文格式](https://cloud.tencent.com/document/product/614/17422) |
-   | JSON     | JSON 格式日志会自动提取首层的 key 作为对应字段名，首层的 value 作为对应的字段值，以该方式将整条日志进行结构化处理，每条完整的日志以换行符 \n 为结束标识符。 | [JSON 格式](https://cloud.tencent.com/document/product/614/17419) |
+<table>
+<thead>
+<tr>
+<th>解析模式</th>
+<th>说明</th>
+<th>相关文档</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>单行全文</td>
+<td>一条日志仅包含一行的内容，以换行符 \n 作为一条日志的结束标记，每条日志将被解析为键值为 <strong>CONTENT</strong> 的一行完全字符串，开启索引后可通过全文检索搜索日志内容。日志时间以采集时间为准。</td>
+<td><a href="https://cloud.tencent.com/document/product/614/17421">单行全文格式</a></td>
+</tr>
+<tr>
+<td>多行全文</td>
+<td>指一条完整的日志跨占多行，采用首行正则的方式进行匹配，当某行日志匹配上预先设置的正则表达式，就认为是一条日志的开头，而下一个行首出现作为该条日志的结束标识符，也会设置一个默认的键值 <strong>CONTENT</strong>，日志时间以采集时间为准。支持自动生成正则表达式。</td>
+<td><a href="https://cloud.tencent.com/document/product/614/17422">多行全文格式</a></td>
+</tr>
+<tr>
+<td>JSON</td>
+<td>JSON 格式日志会自动提取首层的 key 作为对应字段名，首层的 value 作为对应的字段值，以该方式将整条日志进行结构化处理，每条完整的日志以换行符 \n 为结束标识符。</td>
+<td><a href="https://cloud.tencent.com/document/product/614/17419">JSON 格式</a></td>
+</tr>
+</tbody></table>
+> ? 一个日志主题目前仅支持一个采集配置，请保证选用该日志主题的所有容器的日志都可以接受采用所选的日志解析方式。若在同一日志主题下新建了不同的采集配置，旧的采集配置会被覆盖。
 
    
 

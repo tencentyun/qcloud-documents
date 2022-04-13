@@ -18,9 +18,9 @@ TXRocks 是腾讯 TXSQL 团队基于 RocksDB 的事务型存储引擎，得益�
 ```
 show variables like '%default_storage_engine%';
 ```
-![](https://qcloudimg.tencent-cloud.cn/raw/964d585dde9b545421d52cec2b3e63cd.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/3bb1550d5995cece7cec2712ad62c5d0.png)
 当默认引擎是 RocksDB 时，建表语句不许指定存储引擎。
-![](https://qcloudimg.tencent-cloud.cn/raw/61cca3c5dfdbba4455e2b4d356cbcdf8.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/f4cb2efa27e236fb26a78971a8725cbd.png)
 表创建成功后，后续的使用方法与 InnoDB一样，数据会存储在 RocksDB 引擎。
 
 ## 引擎功能限制
@@ -35,8 +35,8 @@ TXRocks 在引擎功能上有一些限制，具体如下表所示：
 <td>外键</td><td>不⽀持外键（Foreign Key）</td></tr>
 <td>分区表</td><td>不⽀持分区表 （Partition）</td></tr>
 <td>⽣成列</td><td>不⽀持⽣成列 （Generated Columns）</td></tr>
-<td>显式 Default 表达式</td><td></td></tr>
-<td>不⽀持加密表</td><td></td></tr>
+<td>显式 Default 表达式</td><td>不支持，如 CREATE TABLE t1（c1 FLOAT DEFAULT(RAND())）ENGINE=ROCKSDB; 会失败，报错 'Specited storage engine' is not supported for default value expressions.</td></tr>
+<td>加密表</td><td>不⽀持加密表</td></tr>
 <tr> 
 <td rowspan="3">索引</td>
 <td>空间索引</td><td>不⽀持空间索引（Spatial Index）、空间数据类型（如 GEOMETRY、POINT等）</td></tr>

@@ -32,7 +32,6 @@ Datahub 提供数据流出能力，您可以将 CKafka 数据分发至日志管�
 1. 登录 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 。
 2. 在左侧导航栏单击**数据流出**，单击目标任务的**ID**，进入任务基本信息页面。
 3. 在任务详情页顶部，单击**监控**，选择要查看资源，设置好时间范围，可以查看对应的监控数据。
-
 <table>
     <tr>
         <th>图标</th>
@@ -55,8 +54,7 @@ Datahub 提供数据流出能力，您可以将 CKafka 数据分发至日志管�
         <td>勾选后可在图表上显示图例信息。</td>
     </tr>
 </table> 
-
-<img src ="https://qcloudimg.tencent-cloud.cn/raw/13c276a5ec2e173b6c0bf5a81c773ffe.png"> 
+<img src ="https://qcloudimg.tencent-cloud.cn/raw/2671dad9a312434312c95d051b46254d.png"> 
 
 
 

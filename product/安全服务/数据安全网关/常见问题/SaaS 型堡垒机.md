@@ -20,15 +20,15 @@ SaaS 型堡垒机必须使用双因子认证，目前阶段有两种选择：密
  
 ###  SaaS 型堡垒机是否可以阻止 Linux 执行相关命令？
 可以阻止 Linux 执行需要禁止的命令，具体操作如下：
-1. 在 [高危命令模板](https://console.cloud.tencent.com/bh/high-risk) 页面，单击【新建模板】，添加需要禁止的命令。
-2. 在 [访问权限配置 ](https://console.cloud.tencent.com/bh/ctrl-policy)页面，单击【编辑】，为相关权限添加该模板就可实现。
+1. 在 [高危命令模板](https://console.cloud.tencent.com/bh/high-risk) 页面，单击**新建模板**，添加需要禁止的命令。
+2. 在 [访问权限配置 ](https://console.cloud.tencent.com/bh/ctrl-policy)页面，单击**编辑**，为相关权限添加该模板就可实现。
 
 ### 当企业运维人员，登录运维页面后发现主机列表为空？
-使用管理员登录到堡垒机管理界面，在 [访问权限配置 ](https://console.cloud.tencent.com/bh/ctrl-policy) 页面单击【新建访问权限】或【编辑】，在第3步选择对应主机或主机组，可新建或修改访问权限。
+使用管理员登录到堡垒机管理界面，在 [访问权限配置 ](https://console.cloud.tencent.com/bh/ctrl-policy) 页面单击**新建访问权限**或**编辑**，在第3步选择对应主机或主机组，可新建或修改访问权限。
 ![](https://main.qcloudimg.com/raw/ab51f0ae8a44b842069baf05f0fc201c.png)
 
 ### SaaS 型堡垒机的日志可以存储多久？
 目前由于上线不久，用户可以免费存储180天的审计数据，后续可能会按照存储量收费。
 
 ###  WinSCP 创建相同文件名，提示被堡垒机阻断，管理端审计记录为下载操作被阻断，这个是什么原因？
-在WinSCP 中创建文件时，如果服务器上已有同名文件，那么 WinSCP 会默认将这个文件下载下来并进入编辑模式。而如果堡垒机限制了 SFTP 只能上传不能下载，那么就会出现上述情况。
+在 WinSCP 中创建文件时，如果服务器上已有同名文件，那么 WinSCP 会默认将这个文件下载下来并进入编辑模式。而如果堡垒机限制了 SFTP 只能上传不能下载，那么就会出现上述情况。

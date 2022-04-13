@@ -57,17 +57,17 @@
 							<td style="color:#666666;text-align:left;">运营商信息</td>
             <td style="color:#666666;text-align:left;">采集用于判断运营商归属</td>
             <td style="color:#666666;text-align:left;">READ_PHONE_STATE</td>
-            <td style="color:#666666;text-align:left;">SDK 功能使用必需信息。用于识别双卡和换卡场景的登录逻辑处理，如果开发者或者个人不允许使用该信息，则会导致无法正常使用该功能</td>
+            <td style="color:#666666;text-align:left;">无</td>
         </tr>
         <tr>
-            <td style="color:#666666;text-align:left;">imsi（仅 iOS）</td>
+            <td style="color:#666666;text-align:left;">imsi（仅 Android）</td>
             <td style="color:#666666;text-align:left;">业务逻辑处理需要（识别双卡和换卡）</td>
             <td style="color:#666666;text-align:left;">READ_PHONE_STATE，有权限时会加密上报</td>
-            <td style="color:#666666;text-align:left;">无</td>
+            <td style="color:#666666;text-align:left;">SDK 功能使用必需信息。用于识别双卡和换卡场景的登录逻辑处理，如果开发者或者个人不允许使用该信息，则会导致无法正常使用该功能</td>
         </tr>
    <tr>
       <td>IP 地址</td>
-      <td>调用 SDK 预取号接口、获取一键登录或验证 Token 接口时使用。</td>
+      <td>调用 SDK 预取号接口、获取一键登录或验证 Token 接口时使用</td>
       <td>无</td>
 			 <td>无</td>
    </tr>
