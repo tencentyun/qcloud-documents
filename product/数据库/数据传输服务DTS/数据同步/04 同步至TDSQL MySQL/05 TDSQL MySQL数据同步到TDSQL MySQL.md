@@ -97,17 +97,17 @@ FLUSH PRIVILEGES;
 <table>
 <thead><tr><th>参数</th><th>描述</th></tr></thead>
 <tbody><tr>
-<td>计费模式</td><td>支持包年包月和按量计费。目前免费，将来开始计费前1个月会通过邮件和站内信方式提前通知用户。</td></tr>
+<td>计费模式</td><td>支持包年包月和按量计费。</td></tr>
 <tr>
-<td>源实例类型</td><td>选择 TDSQL MySQL。</td></tr>
+<td>源实例类型</td><td>选择 TDSQL MySQL，购买后不可修改。</td></tr>
 <tr>
-<td>源实例地域</td><td>选择源实例所在地域。</td></tr>
+<td>源实例地域</td><td>选择源实例所在地域，购买后不可修改。</td></tr>
 <tr>
-<td>目的实例类型</td><td>选择 TDSQL MySQL。</td></tr>
+<td>目标实例类型</td><td>选择 TDSQL MySQL，购买后不可修改。</td></tr>
 <tr>
-<td>目的实例地域</td><td>选择目的实例所在地域。</td></tr>
+<td>目标实例地域</td><td>选择目的实例所在地域，购买后不可修改。</td></tr>
 <tr>
-<td>同步任务规格</td><td>目前只支持标准版。</td></tr>
+<td>规格</td><td>目前只支持标准版。</td></tr>
 </tbody></table>
 2. 购买完成后，返回 [数据同步列表](https://console.cloud.tencent.com/dts/replication)，可看到刚创建的数据同步任务，刚创建的同步任务需要进行配置后才可以使用。
 3. 在数据同步列表，单击**操作**列的**配置**，进入配置同步任务页面。
@@ -160,9 +160,9 @@ FLUSH PRIVILEGES;
 >- 如果用户在同步过程中确定会使用 gh-ost、pt-osc 等工具对某张表做 Online DDL，则**同步对象**需要选择这个表所在的整个库（或者整个实例），不能仅选择这个表，否则无法同步 Online DDL 变更产生的临时表数据到目标数据库。
 >- 如果用户在同步过程中确定会对某张表使用 rename 操作（例如将 table A rename 为 table B），则**同步对象**需要选择 table A 所在的整个库（或者整个实例），不能仅选择 table A，否则系统会报错。
 >
->![](https://qcloudimg.tencent-cloud.cn/raw/367d16f2af9fd6b08e9b81632a2951b8.png)
-><strong>库表映射</strong>：在已选对象中，鼠标放在右侧将出现编辑按钮，单击后可在弹窗中填写映射名。
-><img src="https://qcloudimg.tencent-cloud.cn/raw/7d8260ec27667ef8fadcf32ae9e41e3e.png" style="zoom:70%;" />
+![](https://qcloudimg.tencent-cloud.cn/raw/367d16f2af9fd6b08e9b81632a2951b8.png)
+<strong>库表映射</strong>：在已选对象中，鼠标放在右侧将出现编辑按钮，单击后可在弹窗中填写映射名。
+<img src="https://qcloudimg.tencent-cloud.cn/raw/7d8260ec27667ef8fadcf32ae9e41e3e.png" style="zoom:70%;" />
 <table>
 <thead><tr><th>设置项</th><th>参数</th><th>描述</th></tr></thead>
 <tbody>
@@ -187,13 +187,13 @@ FLUSH PRIVILEGES;
 <td>已选对象</td><td>展示已选择的同步对象，支持库表映射。</td></tr>
 </tbody></table>
 6. 在校验任务页面，完成校验并全部校验项通过后，单击**启动任务**。
-    如果校验任务不通过，可以参考 [校验不通过处理方法](https://cloud.tencent.com/document/product/571/58685) 修复问题后重新发起校验任务。
+    如果校验任务不通过，可以参考 [校验不通过处理方法](https://cloud.tencent.com/document/product/571/61639) 修复问题后重新发起校验任务。
  - 失败：表示校验项检查未通过，任务阻断，需要修复问题后重新执行校验任务。
  - 警告：表示检验项检查不完全符合要求，可以继续任务，但对业务有一定的影响，用户需要根据提示自行评估是忽略警告项还是修复问题再继续。
 ![](https://qcloudimg.tencent-cloud.cn/raw/99e53691dc68b1a987424a3a91ada555.png)
 7. 返回数据同步任务列表，任务开始进入**运行中**状态。
 >?选择**操作**列的**更多** > **结束**可关闭同步任务，请您确保数据同步完成后再关闭任务。
 >
->![](https://qcloudimg.tencent-cloud.cn/raw/a14d84281ab739bfba84a61b2e09fa79.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/a14d84281ab739bfba84a61b2e09fa79.png)
 8. （可选）您可以单击任务 ID，进入任务详情页，查看任务初始化状态和监控数据。
 

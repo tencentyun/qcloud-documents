@@ -1,6 +1,6 @@
 ## 新旧 License 区别
 
-旧版 License 仅支持一组 License URL 和 Key 解锁对应一个 SDK 功能（移动直播或短视频），相比腾讯云视立方 License 维护和使用较为繁琐；升级后的新版视立方 License 后仅需维护一组 License URL 和 Key ，便可以管理所有腾讯云音视频的终端授权。
+旧版 License 仅支持一组 License URL 和 Key 解锁对应一个 SDK 功能（移动直播或短视频），相比腾讯云视立方 License 维护和使用较为繁琐；升级后的新版视立方 License 仅需维护一组 License URL 和 Key ，便可以管理所有腾讯云音视频的终端授权。
 
 原移动直播 License、短视频 License 可在音视频终端 SDK（腾讯云视立方）中继续使用，对应授权解锁音视频终端 SDK（腾讯云视立方）中的直播推流（主播开播、主播观众连麦/主播跨房 PK）与短视频（视频录制编辑/视频上传发布）模块，**若您使用包含上述功能模块的版本时，处于有效期内的 License 无需再次购买解锁授权**。新旧 License 对应详情如下：
 
@@ -36,7 +36,7 @@
 >? 若您的应用正使用旧版 License 进行校验，可继续使用旧版 License 或改用新版 License（推荐）。未来新购买获赠的 License 进行绑定时将不再提供旧版 License 的 URL 和 Key 。
 
 ## License 概述
-音视频终端 SDK（腾讯云视立方）的腾讯云视立方 License 包括**直播推流 License**、**短视频 License**、**终端极速高清 License** 和**腾讯特效 License**，您可以在 [腾讯云视立方控制台](https://console.cloud.tencent.com/vcube) 对各 License 进行 [新增和续期](https://tcloud-doc.isd.com/document/product/1449/56981?!preview&!editLang=zh) 等操作。
+音视频终端 SDK（腾讯云视立方）的腾讯云视立方 License 包括**直播推流 License**、**短视频 License**、**终端极速高清 License** 和**腾讯特效 License**，您可以在 [腾讯云视立方控制台](https://console.cloud.tencent.com/vcube) 对各 License 进行 [新增和续期](https://cloud.tencent.com/document/product/1449/56981) 等操作。
 
 腾讯云视立方 License 通过一组 License URL 和 Key 来获取并校验一个应用下功能模块的授权。不同的功能模块具备不同的功能。若您下载的腾讯云视立方版本中，包含**直播推流（主播开播和主播观众连麦/主播跨房 PK）**、**短视频（视频录制编辑/视频上传发布）**、**终端极速高清**和**腾讯特效**功能模块，需通过购买对应的云服务的资源包免费获取 License，从而解锁对应功能模块的能力。功能模块解锁详情请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
 
@@ -89,12 +89,12 @@
 >- 试用期内申请测试续期，则续期到期时间以申请测试时刻为准；若试用期结束后申请测试续期，则续期到期时间以申请测试续期时刻为准。
 >- 当申请测试开始时间为2021-08-12 10:28:41，则14天后到期时间为2021-08-26 10：28:41；
 >- 免费续期一次时，若在试用期14天内申请续期，则到期时间为2021-09-09 10:28:41；若在试用期14天结束后申请续期，申请续期的时间为2021-08-30 22:26:20，则续期的到期时间为2021-09-13 22:26:20。
->- **腾讯特效功能模块在申请之后，需要审核通过才能签发授权**，审核时间通常 1-2 个工作日。腾讯特效测试版授权到期时间以审核通过时刻为准；若试用期结束后申请测试续期，则续期到期时间以申请测试续期时刻为准。详情请参见 [申请腾讯特效测试版 License](https://tcloud-doc.isd.com/document/product/1449/56982?!preview&!editLang=zh#create_test)。
+>- **腾讯特效功能模块在申请之后，需要审核通过才能签发授权**，审核时间通常 1-2 个工作日。腾讯特效测试版授权到期时间以审核通过时刻为准；若试用期结束后申请测试续期，则续期到期时间以申请测试续期时刻为准。详情请参见 [申请腾讯特效测试版 License](https://cloud.tencent.com/document/product/1449/56982#create_test)。
 
 
 ## 正式版 License
 
-您可通过 [价格总览](https://tcloud-doc.isd.com/document/product/1449/56972?!preview&!editLang=zh) 了解计费详情，以及如何选择套餐资源获取 License 授权以解锁功能模块。不同功能模块的正式 License 解锁方式和操作指引如下表：
+您可通过 [价格总览](https://cloud.tencent.com/document/product/1449/56972) 了解计费详情，以及如何选择套餐资源获取 License 授权以解锁功能模块。不同功能模块的正式 License 解锁方式和操作指引如下表：
 
 <table>
 <thead>
@@ -107,7 +107,7 @@
 <tbody><tr>
 <td>直播推流</td>
 <td>购买 10TB 、50TB 、200TB 、1PB 云直播流量资源包，可以解锁直播推流（主播开播和主播观众连麦/主播跨房 PK）模块，有效期一年。</td>
-<td rowspan=2><a href="https://tcloud-doc.isd.com/document/product/1449/56981?!preview&!editLang=zh#formal">新增与续期正式版 License</a></td>
+<td rowspan=2><a href="https://cloud.tencent.com/document/product/1449/56981#formal">新增与续期正式版 License</a></td>
 </tr>
 <tr>
 <td>短视频</td>
@@ -115,19 +115,19 @@
 </tr>
 <tr>
 <td>终端极速高清</td>
-<td>终端极速高清模块处于体验期，<strong>暂无正式版 License</strong>，如有需求可使用 <a href="https://tcloud-doc.isd.com/document/product/1449/56981?!preview&!editLang=zh#test">测试版 License</a>。</td>
+<td>终端极速高清模块处于体验期，<strong>暂无正式版 License</strong>，如有需求可使用 <a href="https://cloud.tencent.com/document/product/1449/56981#test">测试版 License</a>。</td>
 <td><strong>暂无正式版 License</strong></td>
 </tr>
 <tr>
 <td>腾讯特效</td>
 <td>购买 SDK 套餐，获得相应套餐的正式版 License 使用授权，有效期一年至到期次日00:00:00为止。</td>
-<td><a href="https://tcloud-doc.isd.com/document/product/1449/56981?!editLang=zh&!preview#formal">新增与续期正式版 License</a></td>
+<td><a href="https://cloud.tencent.com/document/product/1449/56981#formal">新增与续期正式版 License</a></td>
 </tr>
 </tbody></table>
 
 > ?
-> - 终端极速高清模块处于体验期，暂无正式版 License，如有需求可使用 [测试版 License](https://tcloud-doc.isd.com/document/product/1449/56981?!editLang=zh&!preview#test)。
-> - **腾讯特效功能模块在申请之后，需要审核通过才能签发授权**，审核时间通常 1个 - 2 个工作日。详情请参见 [申请腾讯特效正式版 License](https://tcloud-doc.isd.com/document/product/1449/56982?!editLang=zh&!preview#formal)。
+> - 终端极速高清模块处于体验期，暂无正式版 License，如有需求可使用 [测试版 License](https://cloud.tencent.com/document/product/1449/56981#test)。
+> - **腾讯特效功能模块在申请之后，需要审核通过才能签发授权**，审核时间通常 1个 - 2 个工作日。详情请参见 [申请腾讯特效正式版 License](https://cloud.tencent.com/document/product/1449/56982#formal)。
 
 #### 短视频 License 功能详情
 

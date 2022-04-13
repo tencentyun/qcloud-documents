@@ -11,13 +11,13 @@
 请参见小程序 [官方文档](https://developers.weixin.qq.com/miniprogram/dev/api/navigate/wx.navigateToMiniProgram.html) 。小程序支持直接跳转到签署页面，完成签署后可返回客户小程序。可参见以下代码：  
 ```
 wx.navigateToMiniProgram({  
-&nbsp;&nbsp;appId: 'wxa023b292fd19d41d', // 电子签小程序的appId  
-&nbsp;&nbsp;path:'pages/guide?from=SFY&to=CONTRACT_DETAIL&id=${flowId}&name=%E6%9D%A8%E5%B8%88&phone=MTc2MTI3Nzg1Mjk%3D', // ${flowId}为流程id，name、phone按需给  
-&nbsp;&nbsp;envVersion: 'release’,  
-&nbsp;&nbsp;success(res) {  
-&nbsp;&nbsp;&nbsp;&nbsp;// 打开成功  
-&nbsp;&nbsp;}  
-})  
+  appId:'wxa023b292fd19d41d', // 电子签小程序的appId  
+  path:'pages/guide?from=SFY&to=CONTRACT_DETAIL&id=${flowId}&name=%E6%9D%A8%E5%B8%88&phone=MTc2MTI3Nzg1Mjk%3D', //${flowId}为流程 id，name、phone 按需给  
+  envVersion:'release’,  
+  success(res){
+    // 打开成功 
+  } 
+})
 ```
 path 里的参数（name，phone）均使用 `~${base64url(value)}` 统一编码。
 
@@ -25,8 +25,8 @@ path 里的参数（name，phone）均使用 `~${base64url(value)}` 统一编码
 1. Android App 请参见 [官方文档](https://developers.weixin.qq.com/doc/oplatform/Mobile_App/Launching_a_Mini_Program/Android_Development_example.html) 。 
 2. iOS App 请参见 [官方文档](https://developers.weixin.qq.com/doc/oplatform/Mobile_App/Launching_a_Mini_Program/iOS_Development_example.html)  。
 3. 所需参数：
-电子签小程序 Appid：wxa023b292fd19d41d。
-电子签小程序原始 ID：gh_da88f6188665。
+电子签小程序 Appid：`wxa023b292fd19d41d`。
+电子签小程序原始 ID：`gh_da88f6188665`。
 电子签小程序合同详情页：`path：pages/guide?from=app&to=CONTRACT_DETAIL&id=${flowId}&name=&phone=`。
 
 ### 为什么客户在小程序中无法找到自己的合同？  
@@ -48,7 +48,7 @@ path 里的参数（name，phone）均使用 `~${base64url(value)}` 统一编码
 1. 使用文件创建合同接入  
 需要在 CreateFlowByFiles 接口传入 ApproverInfo 数组时，设置签署者的 ApproverType 为3。注意目前仅支持发起者（企业方）进行静默签署。  
 2. 使用模板创建合同接入  
-首先登录 [腾讯电子签控制台](https://ess.tencent.cn/template-mgr) ，进入**模板管理**，在编辑或者新增模板**配置模板信息**步骤中设置己方签署方式为“自动签署”，完成后保存模板并以此模板 ID 重新发起合同。  
+登录 [腾讯电子签控制台](https://ess.tencent.cn/template-mgr)，进入**模板管理**，在编辑或者新增模板**配置模板信息**步骤中设置己方签署方式为“自动签署”，完成后保存模板并以此模板 ID 重新发起合同。  
 ![](https://qcloudimg.tencent-cloud.cn/raw/2fadd416c6b2bf438dde208769c65f23.png)
 
 ### 能够让非发起方企业进行静默签么？  
@@ -67,44 +67,167 @@ path 里的参数（name，phone）均使用 `~${base64url(value)}` 统一编码
 3. 解密得到的数据为输入参数的 Json 格式。
 
 ### 回调数据有哪些参数呢？  
-**回调数据对象 FlowInfo 结构：**
- 
-|  参数名称   | 类型  | 描述  |
-|  ----  | ----  |  ----  |
-| FlowId  | string | 流程编号 | 
-| DocumentId  | string | 使用的文档 ID | 
-| CallbackType  | string | 回调的类型： <br>sign：签署回调 <br>review：审核回调 | 
-| FlowName  | string | 流程名称。 | 
-| FlowType  | string | 流程的类型。 | 
-| FlowDescription  | string | 流程的描述。 | 
-| Unordered  | bool | 流程类型顺序：<br> true：为无序<br> false：为有序  | 
-| CreateOn  | int | 流程的创建时间戳。 | 
-| UpdatedOn  | int | 流程的修改时间戳。 | 
-| DeadLine  | int | 流程的过期时间0为永远不过期。 | 
-| FlowCallbackStatus  | int | 流程现在的状态：<br>1：待签署 <br>2：部分签署 <br>3：已拒签 <br>4：已签署 <br>5：已过期 <br>6：已撤销 | 
-| UserId  | string | 本环节需要操作人 UserId。 | 
-| RecipientId  | string | 签署区 ID。 | 
-| Operate  | string | 动作：<br>start：发起 <br>sign：签署 <br>reject：拒签 <br>cancel：取消 <br>finish：结束 <br>deadline：过期 | 
-| UserData  | string | 创建的时候设置的透传字段。 | 
-| Approvers  | Approver数组 | 流程签约方列表。 |   
+- **回调数据对象 FlowInfo 结构**：
+<table>
+   <tr>
+      <th width="0px" >参数名称</td>
+      <th width="0px" >类型</td>
+      <th width="0px">描述</td>
+   </tr>
+   <tr>
+      <td>FlowId</td>
+      <td>string</td>
+      <td>流程编号。</td>
+   </tr>
+   <tr>
+      <td>DocumentId</td>
+      <td>string</td>
+      <td>使用的文档 ID。</td>
+   </tr>
+   <tr>
+      <td>CallbackType</td>
+      <td>string</td>
+      <td>回调的类型： <br>sign：签署回调 <br>review：审核回调</td>
+   </tr>
+   <tr>
+      <td>FlowName</td>
+      <td>string</td>
+      <td>流程名称。</td>
+   </tr>
+   <tr>
+      <td>FlowType</td>
+      <td>string</td>
+      <td>流程的类型。</td>
+   </tr>
+   <tr>
+      <td>FlowDescription</td>
+      <td>string</td>
+      <td>流程的描述。</td>
+   </tr>
+   <tr>
+      <td>Unordered</td>
+      <td>bool</td>
+      <td>流程类型顺序：<br> true：为无序<br> false：为有序</td>
+   </tr>
+   <tr>
+      <td>CreateOn</td>
+      <td>int</td>
+      <td>流程的创建时间戳。</td>
+   </tr>
+   <tr>
+      <td>UpdatedOn</td>
+      <td>int</td>
+      <td>流程的修改时间戳。</td>
+   </tr>
+   <tr>
+      <td>DeadLine</td>
+      <td>int</td>
+      <td>流程的过期时间0为永远不过期。</td>
+   </tr>
+   <tr>
+      <td>FlowCallbackStatus</td>
+      <td>int</td>
+      <td>流程现在的状态：<br>1：待签署 <br>2：部分签署 <br>3：已拒签 <br>4：已签署 <br>5：已过期 <br>6：已撤销</td>
+   </tr>
+   <tr>
+      <td>UserId</td>
+      <td>string</td>
+      <td>本环节需要操作人 UserId。</td>
+   </tr>
+   <tr>
+      <td>RecipientId</td>
+      <td>string</td>
+      <td>签署区 ID。</td>
+   </tr>
+   <tr>
+      <td>Operate</td>
+      <td>string</td>
+      <td>动作：<br>start：发起 <br>sign：签署 <br>reject：拒签 <br>cancel：取消 <br>finish：结束 <br>deadline：过期</td>
+   </tr>
+   <tr>
+      <td>UserData</td>
+      <td>string</td>
+      <td>创建的时候设置的透传字段。</td>
+   </tr>
+   <tr>
+      <td>Approvers</td>
+      <td>Approver 数组</td>
+      <td>流程签约方列表。</td>
+   </tr>
+</table>
   
-**FlowInfo 参数 Approver 结构**：
-
-|  参数名称   | 类型  | 描述  |
-|  ----  | ----  |  ----  |
-| UserId  | string | 本环节需要操作人的 UserId。 |
-| RecipientId  | string | 签署区 ID。 |
-| ApproverType  | int | 参与者类型： <br>0：企业<br>1：个人<br>3：企业静默签署 |
-| OrganizationName  | string | 企业或者个人的名字。 |
-| Required  | bool | 是否需要签名。 |
-| ApproverName  | string | 本环节需要操作人的名字。 |
-| ApproverMobile  | string | 本环节需要操作人的手机号。 |
-| ApproverIdCardType  | string | 签署人证件类型：<br>ID_CARD：身份证。 <br>HONGKONG_AND_MACAO：港澳居民来往内地通行证。<br> HONGKONG_MACAO_AND_TAIWAN：港澳台居民居住证(格式同居民身份证)。 |
-| ApproverIdCardNumber  | string | 签署人证件类型。 |
-| ApproveCallbackStatus  | int | 签署状态：<br>2：待签署 <br>3：已签署 <br>4：已拒签 <br>5：已过期 <br>6：已撤销 |
-| ApproveMessage  | string | 拒签的原因。 |
-| VerifyChannel  | string | 签署意愿方式，WEIXINAPP：人脸识别。  |
-| ApproveTime  | int | 签约的时间。 |
+- **FlowInfo 参数 Approver 结构**：
+<table>
+   <tr>
+      <th width="0px" >参数名称</td>
+      <th width="0px" >类型</td>
+      <th width="0px">描述</td>
+   </tr>
+   <tr>
+      <td>UserId</td>
+      <td>string</td>
+      <td>本环节需要操作人的 UserId。</td>
+   </tr>
+   <tr>
+      <td>RecipientId</td>
+      <td>string</td>
+      <td>签署区 ID。</td>
+   </tr>
+   <tr>
+      <td>ApproverType</td>
+      <td>int</td>
+      <td>参与者类型： <br>0：企业<br>1：个人<br>3：企业静默签署</td>
+   </tr>
+   <tr>
+      <td>OrganizationName</td>
+      <td>string</td>
+      <td>企业或者个人的名字。</td>
+   </tr>
+   <tr>
+      <td>Required</td>
+      <td>bool</td>
+      <td>是否需要签名。</td>
+   </tr>
+   <tr>
+      <td>ApproverName</td>
+      <td>string</td>
+      <td>本环节需要操作人的名字。</td>
+   </tr>
+   <tr>
+      <td>ApproverMobile</td>
+      <td>string</td>
+      <td>本环节需要操作人的手机号。</td>
+   </tr>
+   <tr>
+      <td>ApproverIdCardType</td>
+      <td>string</td>
+      <td>签署人证件类型：<br>ID_CARD：身份证。 <br>HONGKONG_AND_MACAO：港澳居民来往内地通行证。<br> HONGKONG_MACAO_AND_TAIWAN：港澳台居民居住证(格式同居民身份证)。</td>
+   </tr>
+   <tr>
+      <td>ApproverIdCardNumber</td>
+      <td>string</td>
+      <td>签署人证件类型。</td>
+   </tr>
+   <tr>
+      <td>ApproveCallbackStatus</td>
+      <td>int</td>
+      <td>签署状态：<br>2：待签署 <br>3：已签署 <br>4：已拒签 <br>5：已过期 <br>6：已撤销</td>
+   </tr>
+   <tr>
+      <td>ApproveMessage</td>
+      <td>string</td>
+      <td>拒签的原因。</td>
+   </tr>
+   <tr>
+      <td>VerifyChannel</td>
+      <td>string</td>
+      <td>签署意愿方式，WEIXINAPP：人脸识别。</td>
+   </tr>
+   <tr>
+      <td>ApproveTime</td>
+      <td>int</td>
+      <td>签约的时间。</td>
+</table>
 
 ### 回调地址是否支持同时配置多个？  
 支持，回调地址可以同时存在多个，您可以提供需要配置的回调地址给对接人员进行配置，根据您的需求不同的地址可以配置相同或者不同的 CallbackUrlKey。
@@ -143,9 +266,9 @@ path 里的参数（name，phone）均使用 `~${base64url(value)}` 统一编码
 ### 如何计算 PDF 签名位置？  
 以 Adobe 阅读器为例：
 1. 单击**准备表单**。
-![](https://qcloudimg.tencent-cloud.cn/raw/7ea2975a0c3ecc619247a40aea69e562.png)
+<img style="width:400px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/7ea2975a0c3ecc619247a40aea69e562.png" />
 2. 单击**添加文本域**。
-![](https://qcloudimg.tencent-cloud.cn/raw/15a369537e611233f041055b565fcd27.png)
+<img style="width:800px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/15a369537e611233f041055b565fcd27.png" />
 >!此处仅做定位使用。
 3. 单击**文本域属性** > **位置**，单位选点。
 ![](https://qcloudimg.tencent-cloud.cn/raw/32aaa5fbba148e5c1ffb3928c338bb34.png)

@@ -1,3 +1,4 @@
+
 libpq 是应用程序员使用 TDSQL-A PostgreSQL版 的 C 接口。libpq 是一个库函数的集合，它们允许客户端程序传递查询给TDSQL-A PostgreSQL版 后端服务器并且接收这些查询的结果。
 
 libpq 也是很多其他 TDSQL-A PostgreSQL版 应用接口的底层引擎，包括为 C++、Perl、Python、Tcl 和 ECPG 编写的接口。
