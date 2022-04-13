@@ -16,7 +16,7 @@ Datahub 提供数据流出能力，您可以将 CKafka 数据分发至数据仓�
 1. 登录 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 。
 2. 在左侧导航栏单击**数据流出**，选择好地域后，单击**新建任务**。
 3. 目标类型选择**数据仓库 Clickhouse**，单击**下一步**。
-   ![](https://qcloudimg.tencent-cloud.cn/raw/cabda8c7d4bbd379760babf320a17370.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/eaa372ca7cfbd7807e7997a507641a5f.png)
    - 任务名称：只能包含字母、数字、下划线、"-"、"."。
    - CKafka 实例：选择数据源 CKafka。
    - 源 Topic：选择源 Topic，一条数据流出任务最多支持选择5个源 Topic，选中的 Topic 内的数据格式需要保持一致方可转储成功。
@@ -64,9 +64,10 @@ Datahub 提供数据流出能力，您可以将 CKafka 数据分发至数据仓�
     </tr>
 </table> 
    选择分区后，可以查看指定 Partition 的监控数据。
-	 <img src ="https://qcloudimg.tencent-cloud.cn/raw/7dbbfca73fd617ea96e276c7ab55370a.png"> 
+	 <img src ="https://qcloudimg.tencent-cloud.cn/raw/a2b91db27a79cc6fcc801cfb996ce7a6.png"> 
    不选择时默认全部，展示现有的 Topic 级别的监控数据。
-	 <img src ="https://qcloudimg.tencent-cloud.cn/raw/7ad8dd52abe75bda0e827c71c6d1da16.png"> 
+	 <img src ="https://qcloudimg.tencent-cloud.cn/raw/f0ff1e5bd1e23e86b90700d6d3a6ad5b.png"> 
+
 
 
 
