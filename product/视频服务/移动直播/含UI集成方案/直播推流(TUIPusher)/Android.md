@@ -24,7 +24,6 @@
 ```
 include ':tuipusher'
 ```
-
 - 在 `app` 的 `build.gradle` 文件中添加对 `tuipusher` 的依赖：
 ```
 api project(':tuipusher')
