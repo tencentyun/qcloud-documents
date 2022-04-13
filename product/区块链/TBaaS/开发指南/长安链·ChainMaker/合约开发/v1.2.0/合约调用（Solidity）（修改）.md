@@ -1,9 +1,7 @@
 
-
-
 ## 长安链证书转换 EVM 地址
 
-ChainMake Solidity 语言版本智能合约完全兼容 EVM，更多长安链证书与 EVM 地址的转换详情可参见 [EVM地址说明](https://docs.chainmaker.org.cn/v2.2.0_alpha/html/operation/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6.html#evm)。
+ChainMake Solidity 语言版本智能合约完全兼容 EVM，更多长安链证书与 EVM 地址的转换详情可参见 [EVM 地址说明](https://docs.chainmaker.org.cn/v2.2.0_alpha/html/operation/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6.html#evm)。
 
 在“证书管理”界面申请证书后，可根据获得的用户证书文件 user_sign.crt 获取该用户的 EVM 地址，代码示例如下：
 
@@ -115,7 +113,7 @@ func testUserContractTokenEVMConstructor () {
 FuncParam map [data:00000000000000000000000089f4090e315621696d6936453661ec4b9795ad27]
 ```
 
-通过 TBaaS 控制台安装合约并填写对应初始化参数，key为data，value为00000000000000000000000089f4090e315621696d6936453661ec4b9795ad27
+通过 TBaaS 控制台安装合约并填写对应初始化参数，key 为 data，value 为 00000000000000000000000089f4090e315621696d6936453661ec4b9795ad27
    <img src="https://main.qcloudimg.com/raw/8a141576b1193db70183413d1d792ab3.png"/>
 
 ### 合约调用

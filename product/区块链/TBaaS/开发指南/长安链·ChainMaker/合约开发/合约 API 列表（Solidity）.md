@@ -1,5 +1,4 @@
 
-
 ChainMake Solidity 语言版本智能合约有丰富的 API 接口，供用户在撰写智能合约的时候与链进行交互，代码实现详情可以参考 [API 接口代码实现](https://docs.chainmaker.org.cn/v1.2.0/html/dev/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6.html#solidity)。
 
 从逻辑方面划分，可将 API 划分为以下类型：
@@ -29,10 +28,9 @@ ChainMake Solidity 语言版本智能合约有丰富的 API 接口，供用户�
 </tr>
 <tr>
 <td>tx.gasprice -> uint </td>
-<td>获取交易的gas价格</td>
+<td>获取交易的 gas 价格</td>
 </tr>
 </tbody></table>
-
 
 ### 账本交互
 
@@ -60,7 +58,6 @@ ChainMake Solidity 语言版本智能合约有丰富的 API 接口，供用户�
 <td>获取当前区块的时间戳</td>
 </tr>
 </tbody></table>
-
 
 ### 异常处理
 
@@ -93,7 +90,6 @@ ChainMake Solidity 语言版本智能合约有丰富的 API 接口，供用户�
 </tr>
 </tbody></table>
 
-
 ### 数学和密码函数类
 
 <table><thead>
@@ -105,11 +101,11 @@ ChainMake Solidity 语言版本智能合约有丰富的 API 接口，供用户�
 <tbody>
 <tr>
 <td>addmod(uint x, uint y, uint k) -> uint</td>
-<td>计算(x+y)%k</td>
+<td>计算 (x+y)%k</td>
 </tr>
 <tr>
 <td>mulmod(uint x, uint y, uint k) -> uint</td>
-<td>计算(x*y)%k</td>
+<td>计算 (x*y)%k</td>
 </tr>
 <tr>
 <td>keccak256(bytes memory) -> bytes32</td>
@@ -129,6 +125,4 @@ ChainMake Solidity 语言版本智能合约有丰富的 API 接口，供用户�
 </tr>
 </tbody></table>
 
-
 ChainMake Solidity 语言版本智能合约完全兼容 EVM，Solidity 的具体使用详情可参见 [Solidity 官方文档](https://docs.soliditylang.org/en/v0.5.6/units-and-global-variables.html)。
-
