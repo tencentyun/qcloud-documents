@@ -85,10 +85,13 @@
 </tr>
 </thead>
 <tbody><tr>
-<td rowspan=5>Android</td>
+<td rowspan=6>Android</td>
 <td>android.permission.CAMERA</td>
 <td>用于采集摄像头画面，与其他使用者进行交互</td>
 </tr>
+<tr>
+<td>android.permission.INTERNET</td>
+<td>与其他端互动交流，需要网络传输</td>
 <tr>
 <td>android.permission.WRITE_EXTERNAL_STORAGE</td>
 <td>存储 SDK 配置文件和日志文件</td>
