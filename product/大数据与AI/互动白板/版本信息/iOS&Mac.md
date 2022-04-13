@@ -26,6 +26,7 @@
 
 - 功能优化
     1. 优化iOS视频播放前后台切换的暂停/恢复
+
 ### 2.6.9.92 @ 2021-12-10
 * [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/TEduBoard_2.6.9.92.zip)
 * [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/TEduBoard_Mac_2.6.9.92.zip)
