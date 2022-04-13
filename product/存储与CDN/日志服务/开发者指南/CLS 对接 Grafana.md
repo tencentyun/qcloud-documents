@@ -31,10 +31,18 @@ service grafana-server restart
 
 ### 安装 CLS 对接 Grafana 插件
 
+#### 从官方插件库安装
+
+1. 进入 Grafana 页面。
+2. 在设置（configuration）> 插件（plugin）页面，搜索 Tencent cloud monitor，并选择该插件，单击安装。
+![](https://qcloudimg.tencent-cloud.cn/raw/0edf0fe478d2d3364a1c5cc5b9045824.png)
+
+
+#### 通过命令行安装
+
 1. 安装 [日志服务插件](https://grafana.com/grafana/plugins/tencentcloud-monitor-app/)。
 ```sh
 grafana-cli plugins install tencentcloud-monitor-app
-
 # 如果遇到安装后插件仍然无法找到，可能是由于插件目录配置不是默认值，可先进入插件安装目录，并执行以下命令
 # 如果您的云服务器非 CentOS 系统，请先确认 Grafana 的插件目录位置，再进入该插件目录进行安装。
 grafana-cli --pluginsDir ./  plugins install tencentcloud-monitor-app
@@ -46,6 +54,7 @@ grafana-cli --pluginUrl https://github.com/TencentCloud/tencentcloud-monitor-gra
 ```sh
 service grafana-server restart
 ```
+
 
 ### 配置日志数据源
 

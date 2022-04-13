@@ -51,7 +51,7 @@
 </style>
 
 ## 下载 SDK
-腾讯云视立方·移动直播（Mobile Live Video Broadcasting，MLVB）SDK 是音视频终端 SDK（腾讯云视立方）针对移动直播场景专属打造的一体化产品，集成了腾讯云直播的推 / 拉流能力，为您提供高质量直播服务，快速满足手机直播的需求。为了更加贴合用户实际场景，我们提供互动直播Live、基础直播Smart、全功能版本All 三个版本，您可以根据自己的业务灵活选择~
+腾讯云视立方·直播 SDK 是音视频终端 SDK（腾讯云视立方）针对移动直播场景专属打造的一体化产品，集成了腾讯云直播的推 / 拉流能力，为您提供高质量直播服务，快速满足手机直播的需求。为了更加贴合用户实际场景，我们提供互动直播 Live、基础直播 Smart、全功能版本 All 三个版本，您可以根据自己的业务灵活选择。
 
 
 >? 如果您当前网络访问 Github 速度不理想，可以 [单击这里](https://gitee.com/liteavsdk/) 访问 Gitee 中的镜像仓库。
@@ -64,7 +64,7 @@
             <div class="card">
                            <img src="https://main.qcloudimg.com/raw/b0211b0870806899009a17a4216ea65c.svg" data-nonescope="true">
                                 <p class="titlename">互动直播（Live）SDK</p>
-                <p style="color:#586376;">全场景直播SDK，支持推流、播放、连麦PK，以及基础美颜（美白、磨皮等）功能。</p>
+                <p style="color:#586376;">全场景直播 SDK，支持推流、播放、连麦 PK，以及基础美颜（美白、磨皮等）功能。</p>
                                 <a href="https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_Live_Android_latest.zip">ZIP 下载</a>
 																                <a style="margin-left: 10px;" href="https://github.com/LiteAVSDK/Live_Android">GitHub</a>
                                 <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/454/56589">集成指引</a>
@@ -101,7 +101,7 @@
                            <img src="https://main.qcloudimg.com/raw/613f2e15bed7c8297110676b52784b71.svg" data-nonescope="true">
                                 <p class="titlename">互动直播（Live）SDK 预览版</p>
                 <p style="color:#586376;">采用全新架构，功能对齐稳定版，内部优化，性能表现更出色。</p>
-                                <a href="https://sdk-liteav-1252463788.cos.ap-hongkong.myqcloud.com/download/preview/TXLiteAVSDK_Live_iOS_preview.zip">ZIP 下载</a>
+                                <a href="https://liteav.sdk.qcloud.com/download/preview/TXLiteAVSDK_Live_iOS_preview.zip">ZIP 下载</a>
 																                <a style="margin-left: 10px;" href="https://github.com/LiteAVSDK/Live_iOS">GitHub</a>
                                  <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/454/56588">集成指引</a>
                                 <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/454/60985">运行 Demo</a>
@@ -112,7 +112,7 @@
                             <img src="https://main.qcloudimg.com/raw/613f2e15bed7c8297110676b52784b71.svg" data-nonescope="true">
                                 <p class="titlename">基础直播（Smart）SDK 预览版</p>
                 <p style="color:#586376;">采用全新架构，功能对齐稳定版，内部优化，性能表现更出色。</p>
-                                <a href="https://sdk-liteav-1252463788.cos.ap-hongkong.myqcloud.com/download/preview/TXLiteAVSDK_Smart_iOS_preview.zip">ZIP 下载</a>
+                                <a href="https://liteav.sdk.qcloud.com/download/preview/TXLiteAVSDK_Smart_iOS_preview.zip">ZIP 下载</a>
                 <a style="margin-left: 10px;" href="https://github.com/LiteAVSDK/Live_iOS">GitHub</a>
                                  <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/454/56588">集成指引</a>
                                 <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/454/60985">运行 Demo</a>
@@ -124,8 +124,8 @@
             <div class="card">
                            <img src="https://main.qcloudimg.com/raw/613f2e15bed7c8297110676b52784b71.svg" data-nonescope="true">
                                 <p class="titlename">互动直播（Live）SDK 稳定版</p>
-                <p style="color:#586376;">全场景直播SDK，支持推流、播放、连麦PK，以及基础美颜（美白、磨皮等）功能。</p>
-                                <a href="https://liteav.sdk.qcloud.com/download/preview/TXLiteAVSDK_Smart_Live_iOS_latest.zip">ZIP 下载</a>
+                <p style="color:#586376;">全场景直播 SDK，支持推流、播放、连麦 PK，以及基础美颜（美白、磨皮等）功能。</p>
+                                <a href="https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_Live_iOS_latest.zip">ZIP 下载</a>
 																                <a style="margin-left: 10px;" href="https://github.com/LiteAVSDK/Live_iOS">GitHub</a>
                                 <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/454/56588">集成指引</a>
                                 <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/454/60985">运行 Demo</a>
