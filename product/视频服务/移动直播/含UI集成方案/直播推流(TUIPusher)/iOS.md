@@ -77,7 +77,7 @@ mTUIPusherView.stop();
 因为连麦& PK 时需要更低的延时需求，需要在腾讯云直播控制台控制台开通对应的连麦应用服务，如果您未开通，请登录**云直播管理控制台**选择 **[应用管理](https://console.cloud.tencent.com/live/micro/appmanage)**，单击**新建连麦应用**输入应用名称（例如 `TUIPusher`），然后在该应用的对应操作栏中，选择**应用信息**进入应用管理页，查看并记录应用的 **SDKAppID** 和 **SECRETKEY（密钥）**。
 ![img](https://qcloudimg.tencent-cloud.cn/raw/cb2b2381b92994404dfece3cdaf77608.png)
 
->! 因为在连麦/PK过程中，观众端还是需要正常观看 CDN 流，所以需要进入 **CDN 观看配置**页，开启旁路推流，推荐全局自动旁路。
+>! 因为在连麦/PK 过程中，观众端还是需要正常观看 CDN 流，所以需要进入 **CDN 观看配置**页，开启旁路推流，推荐全局自动旁路。
 >![](https://qcloudimg.tencent-cloud.cn/raw/62adb00b3445a0d88fcf92f357109e5c.png)
 >
 2.  **组件登录**
@@ -106,7 +106,7 @@ mTUIPusherView.start(url: "xxxx");
 mTUIPusherView.stop();
 ```
 5. **发起 PK 请求**
-调用 `mTUIPusherView.sendPKRequest()` 后会向接收方发起Pk请求，请求超时 `TUIPusherViewDelegate` 会收到 `onPKTimeout` 回调。
+调用 `mTUIPusherView.sendPKRequest()` 后会向接收方发起 Pk 请求，请求超时 `TUIPusherViewDelegate` 会收到 `onPKTimeout` 回调。
 ```
 mTUIPusherView.sendPKRequest(userID: "xxxx");
 ```
