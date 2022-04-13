@@ -147,6 +147,7 @@
 	5. Window端SDK升级CEF内核
 - Bug 修复
 	1. 若干已知问题修复
+
 ### 2.6.5 @ 2021.08.24
 * 链接地址：https://res.qcloudtiw.com/board/2.6.5/TEduBoard.min.js
 - 新增接口
@@ -162,6 +163,7 @@
 	1. 几何画板新增多种几何图形支持
 - Bug 修复
 	1. 若干已知问题修复
+
 
 ### 2.6.4 @ 2021.08.16
 * 链接地址：https://res.qcloudtiw.com/board/2.6.4/TEduBoard.min.js
