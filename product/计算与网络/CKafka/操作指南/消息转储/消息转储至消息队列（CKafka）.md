@@ -29,7 +29,7 @@
 
 在通用创建流程中，无法直接跨地域或对自建 Kafka 进行转储，需对函数进行相关网络或投递信息设置。跨地域转储操作流程如下：
 
-1. [新建 CKafka 转储模版](#1)，并跳转到云函数控制台，投递实例及 Topic 可任意填写。
+1. [新建 CKafka 转储模板](#1)，并跳转到云函数控制台，投递实例及 Topic 可任意填写。
 ![](https://qcloudimg.tencent-cloud.cn/raw/27fa2287352d8bcf329c3f0243b82b98.png)
 2. 在函数配置中修改**环境变量**及**所属网络**配置。
 ![](https://qcloudimg.tencent-cloud.cn/raw/628a78cace9f4bc988712665c9a8858a.png)
