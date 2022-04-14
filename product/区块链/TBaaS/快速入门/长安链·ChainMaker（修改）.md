@@ -46,7 +46,7 @@
 - 当前 TBaaS 控制台暂支持上传编译过后的 .wasm 或 .bin 合约文件。
 - 合约支持 Rust、Go、C++ 、Solidity 四种语言。
 - 合约编译方法可参考开发指南 [智能合约开发（Go）](https://cloud.tencent.com/document/product/663/72538) 或 [智能合约开发（Rust）](https://cloud.tencent.com/document/product/663/72540) 或 [智能合约开发（Solidity）](https://cloud.tencent.com/document/product/663/72542)。
-- 安装 Solidity 合约时，若选择使用初始化参数，需对合约初始化参数进行 ABI 编码，可参考[合约调用（Solidity）](https://cloud.tencent.com/document/product/663/72544)
+- 安装 Solidity 合约时，若选择使用初始化参数，需对合约初始化参数进行 ABI 编码，可参考 [合约调用（Solidity）](https://cloud.tencent.com/document/product/663/72544)。
 </dx-alert>
 
 
@@ -55,7 +55,7 @@
 
 ### 步骤4：申请并下载证书[](id:cert)
 
-TBaaS 平台支持通过长安链 SDK、云 API 两种方式进行对接上链，若使用云 API 方式上链，则本步骤可直接跳过。详细的对接流程请见“步骤5”
+TBaaS 平台支持通过长安链 SDK、云 API 两种方式进行对接上链，若使用云 API 方式上链，则本步骤可直接跳过。详细的对接流程请见 [步骤5](#app)。
 1. 在 TBaaS 控制台中，选择左侧导航中的**长安链** > **[区块链网络](https://console.cloud.tencent.com/tbaas/chainmaker/chain)**，单击对应的卡片进入网络详情页。
 2. 在网络详情页面中，单击顶部菜单栏的**证书管理**页签，进入对应页面后点击**申请证书**，在弹窗中填写证书标识并上传用户证书及 TLS 证书的 CSR 文件，确认后即生成证书，在证书列表中可下载证书。CSR 文件的生成方法请参考 [证书申请 CSR 生成指南](https://cloud.tencent.com/document/product/663/60114)。
 ![](https://main.qcloudimg.com/raw/4db7df54c5bfd5d13628baab50b88347.png)
