@@ -15,7 +15,7 @@ DROP TABLE 会将原数据库文件 (.ibd) 重命名为一个新的临时文件�
 
 ## 使用说明
 设置 innodb_async_truncate_work_enabled 为 ON，DROP TABLE 即会变成异步模式，默认值为 OFF。
-临时文件存放于 innodb_async_drop_tmp_dirr 指定的目录下，每次 truncate 的文件大小由 innodb_async_truncate_size 控制。
+每次 truncate 的文件大小由 innodb_async_truncate_size 控制。
 
 | 参数名                             | 动态 | 类型   | 默认 | 参数值范围                        | 说明                            |
 | ---------------------------------- | ---- | ------ | ---- | ------------------------- | ------------------------------ |
