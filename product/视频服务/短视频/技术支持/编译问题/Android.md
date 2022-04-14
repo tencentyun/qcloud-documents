@@ -46,4 +46,9 @@
 请先申请 License，SDK 有**精简版**和**基础版**两种版本 License：
 - 区别请参考[SDK 功能及对应的 License 版本](https://cloud.tencent.com/document/product/584/9368#sdk-.E5.8A.9F.E8.83.BD.E5.8F.8A.E5.AF.B9.E5.BA.94.E7.9A.84-license-.E7.89.88.E6.9C.AC)。
 - 详细价格请参见 [价格文档](https://cloud.tencent.com/document/product/584/9368)
-- 如需使用美颜特效等高级功能，请参见 [腾讯特效SDK](https://cloud.tencent.com/document/product/616/65890)。
+- 如需使用美颜特效等高级功能，请参见 [腾讯特效 SDK](https://cloud.tencent.com/document/product/616/65890)。
+
+[](id:que5)
+### Android 端短视频如何设置暂停和进度条？
+短视频播放是基于短视频的播放器进行实现的，因此进度条功能需要您**自行研发**，相关功能实现说明可参见 [播放器 SDK—进度展示](https://cloud.tencent.com/document/product/881/20216#14.E3.80.81.E8.BF.9B.E5.BA.A6.E5.B1.95.E7.A4.BA)。
+
