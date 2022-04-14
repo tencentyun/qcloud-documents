@@ -42,7 +42,7 @@ private String topic;
 
 //声明1个 Client 对象、producer 对象
 private PulsarClient pulsarClient;
-private Producer producer;
+private Producer<byte[]> producer;
 
 //在一段初始化程序中创建好客户端和生产者对象
 public void init() throws Exception {
@@ -62,7 +62,7 @@ public void init() throws Exception {
 <dx-codeblock>
 :::  java
 //在实际生产消息的业务逻辑中直接引用
-public void onProduce(Producer producer){
+public void onProduce(Producer<byte[]> producer){
     //添加业务逻辑
     String msg = "my-message";//模拟从业务逻辑拿到消息
     try {
@@ -77,7 +77,7 @@ public void onProduce(Producer producer){
     }
 }
 
-public void onProduceAsync(Producer producer){
+public void onProduceAsync(Producer<byte[]> producer){
     //添加业务逻辑
     
     msg = "my-asnyc-message";//模拟从业务逻辑拿到消息
@@ -157,7 +157,7 @@ public class ConsumerService implements Runnable {
 
     private volatile boolean start = false;
     private PulsarClient pulsarClient;
-    private Consumer consumer;
+    private Consumer<byte[]> consumer;
     private static final int corePoolSize = 10;
     private static final int maximumPoolSize = 10;
 
