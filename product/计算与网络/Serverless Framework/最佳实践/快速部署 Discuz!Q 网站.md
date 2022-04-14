@@ -60,7 +60,7 @@ name: discuz-qDemo
 └── .env # 环境变量文件
 :::
 </dx-codeblock>
-3. 在根目录下，执行 `sls deploy`，即可完成部署。示例如下：
+3. 在根目录下，执行 `sls deploy`，即可完成部署。示例如下： 
 <dx-codeblock>
 :::  sh
 $ sls deploy

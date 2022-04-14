@@ -58,7 +58,7 @@ $ sls deploy
 
 #### 4.1 开启外网访问
 
-如果需要数据库实例开启外网访问，只需添加 `enablePublicAccess` 配置为 `true`，如下：
+如果需要数据库实例开启外网访问，只需添加 `enablePublicAccess` 配置为 `true`，如下： 
 <dx-codeblock>
 :::  yml
 # serverless.yml
