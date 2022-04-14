@@ -181,19 +181,15 @@ chain_client:
 
 1. 进入 `chainmaker-sdk-go-demo/chainmaker-sdk-demo/wasm` 目录。
 2. 将 `main.go` 示例代码中的 `claimContractName` 修改为上述部署的合约的名字，示例如下：
-
 ```go
 var (
 	claimContractName = "fact"
 )
 ```
-
 3. 执行以下命令：
-
 ```sh
 go run main.go ../config/config.yml
 ```
-
 成功运行可以查看到如下图输出：
 <img src="https://qcloudimg.tencent-cloud.cn/raw/2914b0552c23b473c488c12c6c5220c8.png" />
 
@@ -208,7 +204,6 @@ var (
 ```
 3. 生成另一套证书 CSR 和相应私钥，并在“证书管理”界面上申请证书，将对应的证书文件`user_sign.crt`重命名为`user2_sign.crt`，并放置到 `chainmaker-sdk-go-demo/chainmaker-sdk-demo/config` 目录下。
 4. 运行`go run main.go ../config/config.yml`
-
 成功运行可以查看到如下图输出：
 <img src="https://qcloudimg.tencent-cloud.cn/raw/d7bfd0560834b126f79c0cd344a72168.png" />
 
