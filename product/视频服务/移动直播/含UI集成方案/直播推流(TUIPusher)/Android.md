@@ -7,7 +7,7 @@
 
 ### 步骤一：下载并导入 TUIPusher 组件
 
-1. 单击进入 [**Github**](https://github.com/tencentyun/XiaoZhiBo) ，选择克隆或者下载小直播工程代码；
+1. 单击进入 [**Github**](https://github.com/tencentyun/XiaoZhiBo) ，选择克隆或者下载小直播工程代码。
 2. 拷贝 Android/tuipusher 、Android/tuiaudioeffect、Android/tuibeauty、Android/tuibarrage、Android/tuigift 等文件夹到您的工程中。
 3. 在 `setting.gradle` 中完成导入，参考如下：
 ```
