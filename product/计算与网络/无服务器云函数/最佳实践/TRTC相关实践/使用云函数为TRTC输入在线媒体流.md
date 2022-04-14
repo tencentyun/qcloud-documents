@@ -24,17 +24,17 @@ API 网关调用涉及的参数如下：
 
 | 参数名称      | 类型    | 必选 | 描述                                                         |
 | ------------- | ------- | ---- | ------------------------------------------------------------ |
-| VideoSrc      | String  | 是   | 被推流的视频源，例如 `https://test-123456789.cos.ap-shanghai.myqcloud.com/video/1.mp4`。 |
-| SdkAppId      | Int     | 是   | 应用 ID，用于区分不同 TRTC 应用。                            |
-| RoomId        | Int     | 否   | 整型房间号 ID，用于在一个 TRTC 应用中唯一标识一个房间。       |
-| StrRoomId     | String  | 否   | 字符串房间号 ID，RoomId 与 StrRoomId 必须配置一项，如果 RoomId 与 StrRoomId 同时配置，则使用 RoomId。 |
-| Mode          | String  | 否   | <li>vod：点播模式，即推流为某个录制好的文件，默认模式。<br><li>live：直播模式，即推流为 rtmp 直播源。 |
-| UserId        | String  | 是   | 推流用户 ID，用于在一个 TRTC 应用中唯一标识一个用户。        |
-| UserSig       | String  | 是   | 推流用户签名，用于对一个用户进行登录鉴权认证。               |
-| Redis         | Boolean | 否   | 是否使用 Redis，默认为 false。                               |
-| RedisHost     | String  | 否   | Redis 为 true 时，redis 的 host 地址。                        |
-| RedisPort     | Integer | 否   | Redis 为 true 时，redis 的访问端口号。                       |
-| RedisPassword | String  | 否   | Redis 为 true 时，redis 的访问密码。                         |
+| VideoSrc      | String  | 是   | 被推流的视频源，例如 `https://test-123456789.cos.ap-shanghai.myqcloud.com/video/1.mp4`。  |
+| SdkAppId      | Int     | 是   | 应用 ID，用于区分不同 TRTC 应用。                             |
+| RoomId        | Int     | 否   | 整型房间号 ID，用于在一个 TRTC 应用中唯一标识一个房间。        |
+| StrRoomId     | String  | 否   | 字符串房间号 ID，RoomId 与 StrRoomId 必须配置一项，如果 RoomId 与 StrRoomId 同时配置，则使用 RoomId。  |
+| Mode          | String  | 否   | <li>vod：点播模式，即推流为某个录制好的文件，默认模式。<br><li>live：直播模式，即推流为 rtmp 直播源。  |
+| UserId        | String  | 是   | 推流用户 ID，用于在一个 TRTC 应用中唯一标识一个用户。         |
+| UserSig       | String  | 是   | 推流用户签名，用于对一个用户进行登录鉴权认证。                |
+| Redis         | Boolean | 否   | 是否使用 Redis，默认为 false。                                |
+| RedisHost     | String  | 否   | Redis 为 true 时，redis 的 host 地址。                         |
+| RedisPort     | Integer | 否   | Redis 为 true 时，redis 的访问端口号。                        |
+| RedisPassword | String  | 否   | Redis 为 true 时，redis 的访问密码。                          |
 
 >? 
 >- 如果 Redis 值为 false，从 VideoSrc 视频源拉流进行直播推流，直播流将从最新开始。

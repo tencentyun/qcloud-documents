@@ -30,7 +30,7 @@
 **密码：**Coding 帐户的私人令牌。
 
 #### 获取 Coding 私人令牌
-请参考 [Coding 私人令牌](https://open.coding.net/personal-access-token/#%E5%88%9B%E5%BB%BA%E4%B8%AA%E4%BA%BA%E8%AE%BF%E9%97%AE%E4%BB%A4%E7%89%8C) 文档获取。 
+请参考 [Coding 私人令牌](https://open.coding.net/personal-access-token/#%E5%88%9B%E5%BB%BA%E4%B8%AA%E4%BA%BA%E8%AE%BF%E9%97%AE%E4%BB%A4%E7%89%8C) 文档获取。  
 设置令牌时，请勾选 `project:depot` 获取仓库的读/写权限。如下图所示：
 ![](https://main.qcloudimg.com/raw/2a221caac37be9b91767c8ef1065371a.png)
 

@@ -21,10 +21,10 @@ SCF 默认的配置角色为 `SCF_QcsRole`，其角色详情如下：
 - 角色载体：`产品服务-scf.qcloud.com`
 - 角色描述：SCF 默认配置角色。该服务角色用于提供 SCF 配置对接其他云上资源的权限，包括但不限于代码文件访问、触发器配置。配置角色的预设策略可支持函数执行的基本操作。
 - 角色已关联策略：此角色所拥有 `QcloudAccessForScfRole` 策略，具备以下功能：
- - 配置 COS 对象存储触发器时向 Bucket 配置中写入触发配置信息。 
- - 读取 COS 对象存储 Bucket 中的触发器配置信息。 
- - 在使用 COS 对象存储更新代码时，从 Bucket 完成代码 zip 包的读取操作。 
- - 配置 API 网关触发器时，完成 API 网关的服务、API 创建，以及服务发布等操作。 
+ - 配置 COS 对象存储触发器时向 Bucket 配置中写入触发配置信息。  
+ - 读取 COS 对象存储 Bucket 中的触发器配置信息。  
+ - 在使用 COS 对象存储更新代码时，从 Bucket 完成代码 zip 包的读取操作。  
+ - 配置 API 网关触发器时，完成 API 网关的服务、API 创建，以及服务发布等操作。  
  - 配置和使用日志服务 CLS 的读写访问等操作。
  - 配置和使用消息队列 CMQ 的读写访问等操作。
  - 配置和使用消息队列 Ckafka 的创建、列表等操作。
@@ -58,7 +58,7 @@ SCF 默认的配置角色为 `SCF_QcsRole`，其角色详情如下：
 >? 本文以选择 `QcloudCOSFullAccess` 对象存储（COS）全读写访问权限为例，请根据实际需求进行选择。
 >
 ![](https://main.qcloudimg.com/raw/f4b2f40ca703f033e61f8a1911e7991e.png)
-7. 在“审阅”步骤中填写“角色名称”，并单击**完成**。本文以 `scf_cos_full_access` 角色名称为例。 
+7. 在“审阅”步骤中填写“角色名称”，并单击**完成**。本文以 `scf_cos_full_access` 角色名称为例。  
 8. 返回函数配置页，单击“运行角色”右侧的<img src="https://main.qcloudimg.com/raw/b32932fe6f9afabb88280c38bb287887.png" style="margin:-3px 0px">，即可在下拉列表中选择刚创建的运行角色。如下图所示：
 ![](https://main.qcloudimg.com/raw/f891ccabd030dfafd3119d10f28b42ea.png)
 >! 在为运行角色添加策略时，除了选择预置策略外，还可以通过自定义策略的方式做更细粒度的权限划分，SCF 的策略语法遵循 CAM 的 [语法结构](https://cloud.tencent.com/document/product/598/10604) 和 [资源描述方式](https://cloud.tencent.com/document/product/598/10606)，策略语法以 JSON 格式为基础，具体可参考 [SCF 策略语法](https://cloud.tencent.com/document/product/583/47934)。
