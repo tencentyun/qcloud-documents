@@ -113,8 +113,10 @@ func testUserContractTokenEVMConstructor () {
 FuncParam map [data:00000000000000000000000089f4090e315621696d6936453661ec4b9795ad27]
 ```
 
-通过 TBaaS 控制台安装合约并填写对应初始化参数，key 为 data，value 为 00000000000000000000000089f4090e315621696d6936453661ec4b9795ad27
-   <img src="https://main.qcloudimg.com/raw/8a141576b1193db70183413d1d792ab3.png"/>
+通过 TBaaS 控制台安装合约并填写对应初始化参数：
+- key 取值：data
+- value 取值：00000000000000000000000089f4090e315621696d6936453661ec4b9795ad27
+<img src="https://main.qcloudimg.com/raw/8a141576b1193db70183413d1d792ab3.png"/>
 
 ### 合约调用
 
