@@ -42,7 +42,7 @@ private String topic;
 
 //声明1个 Client 对象、producer 对象
 private PulsarClient pulsarClient;
-private Producer<String> producer;
+private Producer producer;
 
 //在一段初始化程序中创建好客户端和生产者对象
 public void init() throws Exception {
@@ -50,7 +50,7 @@ public void init() throws Exception {
             .serviceUrl(serviceUrl)
             .authentication(AuthenticationFactory.token(token))
             .build();
-    producer = pulsarClient.newProducer(Schema.STRING)
+    producer = pulsarClient.newProducer()
             .topic(topic)
             .create();
 }
@@ -61,12 +61,11 @@ public void init() throws Exception {
 在实际生产消息的业务逻辑中直接引用 `producer` 完成消息的发送。
 <dx-codeblock>
 :::  java
-//在实际生产消息的业务逻辑中直接引用，注意 Producer 通过范式声明的 Schema 类型要和传入对象匹配
-public void onProduce(Producer<String> producer){
+//在实际生产消息的业务逻辑中直接引用
+public void onProduce(Producer producer){
     //添加业务逻辑
     String msg = "my-message";//模拟从业务逻辑拿到消息
     try {
-        //TDMQ Pulsar 版默认开启 Schema 校验, 消息对象一定需要和 producer 声明的 Schema 类型匹配
         MessageId messageId = producer.newMessage()
               .key("msgKey")
           		.value(msg)
@@ -78,9 +77,10 @@ public void onProduce(Producer<String> producer){
     }
 }
 
-public void onProduceAsync(Producer<String> producer){
+public void onProduceAsync(Producer producer){
     //添加业务逻辑
-    String msg = "my-asnyc-message";//模拟从业务逻辑拿到消息
+    
+    msg = "my-asnyc-message";//模拟从业务逻辑拿到消息
     //异步发送消息，无线程阻塞，提升发送速率
     CompletableFuture<MessageId> messageIdFuture = producer.newMessage()
           .key("msgKey")
@@ -157,7 +157,7 @@ public class ConsumerService implements Runnable {
 
     private volatile boolean start = false;
     private PulsarClient pulsarClient;
-    private Consumer<String> consumer;
+    private Consumer consumer;
     private static final int corePoolSize = 10;
     private static final int maximumPoolSize = 10;
 
@@ -170,7 +170,7 @@ public class ConsumerService implements Runnable {
                 .serviceUrl(serviceUrl)
                 .authentication(AuthenticationFactory.token(token))
                 .build();
-        consumer = pulsarClient.newConsumer(Schema.STRING)
+        consumer = pulsarClient.newConsumer()
                 .topic(topic)
                 //.subscriptionType(SubscriptionType.Shared)
                 .subscriptionName(subscription)
@@ -201,7 +201,7 @@ public class ConsumerService implements Runnable {
             executor.submit(() -> {
                 while (start) {
                     try {
-                        Message<String> message = consumer.receive();
+                        Message message = consumer.receive();
                         if (message == null) {
                             continue;
                         }
@@ -222,7 +222,7 @@ public class ConsumerService implements Runnable {
      * @return return true: 消息ack  return false: 消息nack
      * @throws Exception 消息nack
      */
-    private void onConsumer(Message<String> message) {
+    private void onConsumer(Message message) {
         //业务逻辑,延时类操作
         try {
             System.out.println(Thread.currentThread().getName() + " - message receive: " + message.getValue());
