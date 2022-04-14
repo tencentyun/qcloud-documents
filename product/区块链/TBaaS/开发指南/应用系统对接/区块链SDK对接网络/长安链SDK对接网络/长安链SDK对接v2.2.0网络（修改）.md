@@ -113,7 +113,6 @@ chain_client:
 
 5. 将三个证书 `ca.crt`，`user_sign.crt`，`user_tls.crt` 和两个私钥 `user_ecc_sign.key` 和 `user_ecc_tls.key` 放置到 `chainmaker-sdk-go-demo/chainmaker-sdk-demo/config` 目录下。
 6. 根据下表，修改 SDK 配置文件 config.yml 的证书路径和 CA 路径：
-
 <table>
 <thead>
 <tr>
