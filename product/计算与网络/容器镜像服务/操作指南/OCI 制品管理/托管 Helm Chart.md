@@ -1,7 +1,7 @@
 ## 操作场景
 腾讯云容器镜像服务（Tencent Container Registry，TCR）支持托管 Helm Chart，满足用户对云原生应用托管分发的需要。用户可在同个命名空间内同时管理容器镜像及 Helm Chart，实现在业务项目内同时使用容器镜像和 Helm Chart 云原生交付物。
 
-目前仅企业版实例支持托管 Helm Chart，支持使用控制台或 Helm 客户端实现 Chart 的上传及下载。Helm Chart 仓库继承其所属的命名空间的公开及私有属性，无需额外配置。在权限管理上，Helm Chart 与容器镜像共用 **repository** 资源类型，即<b> qcs::tcr:$region:$account:repository/tcr-xxxxxx/project-a/*</b> 资源描述将包含命名空间 project-a 内全部镜像仓库及 Helm Chart，用户可在进行资源权限管理时灵活使用。 
+目前仅企业版实例支持托管 Helm Chart，支持使用控制台或 Helm 客户端实现 Chart 的上传及下载。Helm Chart 仓库继承其所属的命名空间的公开及私有属性，无需额外配置。在权限管理上，Helm Chart 与容器镜像共用 **repository** 资源类型，即<b> qcs::tcr:$region:$account:repository/tcr-xxxxxx/project-a/*</b> 资源描述将包含命名空间 project-a 内全部镜像仓库及 Helm Chart，用户可在进行资源权限管理时灵活使用。    
 
 
 ## 前提条件
@@ -47,7 +47,7 @@
 #### 安装 Helm 客户端
 >?
 >- 若您当前希望在容器服务 TKE 中使用 Helm，请选择 Helm v3.x.x 版本。可执行 `helm version -c` 命令查看已安装的客户端版本。
->- 本文以在 Linux  操作系统的节点上安装为例，如在其他平台安装请下载对应安装包。 
+>- 本文以在 Linux  操作系统的节点上安装为例，如在其他平台安装请下载对应安装包。    
 >
 依次执行以下命令，下载并安装 Helm 客户端。关于安装 Helm 的更多信息，请参见 [Installing Helm](https://helm.sh/docs/intro/install/)。
 ```

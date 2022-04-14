@@ -21,7 +21,7 @@
 ![](https://main.qcloudimg.com/raw/6422b8dda3b985825a93a74ecfcc06ce.png)
 本案例以 “上海” 地域为例，私有网络选择 [上一步](#createVPC) 中已创建的 VPC。
 2. 创建完成后，在“实例管理”页面中，找到目标负载均衡实例，为实例配置监听器。配置监听器详情可参见 监听器详情可参见 [配置 HTTP 监听器](https://cloud.tencent.com/document/product/214/36384)。
-本案例以监听器名称为`clb-scf-web`，监听协议端口为`81`为例。  
+本案例以监听器名称为`clb-scf-web`，监听协议端口为`81`为例。   
 
 
 

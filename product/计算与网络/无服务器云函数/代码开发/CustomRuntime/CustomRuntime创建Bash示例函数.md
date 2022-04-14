@@ -140,7 +140,7 @@ $ zip demo.zip index.sh bootstrap
                - path: /
                  method: GET
 ```
->? SCF 组件的详细配置，请参见 [全量配置文档](https://github.com/serverless-components/tencent-scf/blob/master/docs/configure.md)。  
+>? SCF 组件的详细配置，请参见 [全量配置文档](https://github.com/serverless-components/tencent-scf/blob/master/docs/configure.md)。   
 >
 3. 执行 `sls deploy` 命令创建云函数，创建成功则返回结果如下：
 ```
@@ -236,8 +236,8 @@ except TencentCloudSDKException as err:
 
 | 参数类型 | 说明 | 
 |---------|---------|
-| `"Runtime":"CustomRuntime"` | Custom Runtime 对应的 runtime 类型。  |
-| `"InitTimeout":3` | 初始化超时时间。Custom Runtime 针对初始化阶段新增超时控制配置，时间区间以 bootstrap 启动为始，以上报运行时 API 就绪状态为止。超出后将终止执行并返回初始化超时错误。  |
+| `"Runtime":"CustomRuntime"` | Custom Runtime 对应的 runtime 类型。   |
+| `"InitTimeout":3` | 初始化超时时间。Custom Runtime 针对初始化阶段新增超时控制配置，时间区间以 bootstrap 启动为始，以上报运行时 API 就绪状态为止。超出后将终止执行并返回初始化超时错误。   |
 | `"Timeout":3` | 调用超时时间。事件调用的超时控制配置，时间区间以事件下发为始，以函数处理完成推送结果至运行时 API 为止。超出后将终止执行并返回调用超时错误。|
 
 

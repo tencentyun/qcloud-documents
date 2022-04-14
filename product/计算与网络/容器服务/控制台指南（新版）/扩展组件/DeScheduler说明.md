@@ -1,7 +1,7 @@
 ## 简介
 ### 组件介绍
 
-DeScheduler 是容器服务 TKE 基于 Kubernetes 原生社区 [DeScheduler](https://github.com/kubernetes-sigs/descheduler)  实现的一个基于 Node 真实负载进行重调度的插件。在 TKE 集群中安装该插件后，该插件会和 Kube-scheduler 协同生效，实时监控集群中高负载节点并驱逐低优先级 Pod。建议您搭配 TKE [Dynamic Scheduler（动态调度器扩展组件）](https://cloud.tencent.com/document/product/457/50843)一起使用，多维度保障集群负载均衡。 
+DeScheduler 是容器服务 TKE 基于 Kubernetes 原生社区 [DeScheduler](https://github.com/kubernetes-sigs/descheduler)  实现的一个基于 Node 真实负载进行重调度的插件。在 TKE 集群中安装该插件后，该插件会和 Kube-scheduler 协同生效，实时监控集群中高负载节点并驱逐低优先级 Pod。建议您搭配 TKE [Dynamic Scheduler（动态调度器扩展组件）](https://cloud.tencent.com/document/product/457/50843)一起使用，多维度保障集群负载均衡。  
 该插件依赖 Prometheus 监控组件以及相关规则配置，建议您安装插件之前仔细阅读 [依赖部署](#DeScheduler)，以免插件无法正常工作。
 
 
@@ -29,7 +29,7 @@ DeScheduler 通过重调度来解决集群现有节点上不合理的运行方�
 ## 限制条件
 
 - Kubernetes 版本 ≥ v1.10.x
-- 在特定场景下，某些 Pod 会被重复调度到需要重调度的节点上，从而引发 Pod 被重复驱逐。此时可以根据实际场景改变 Pod 可调度的节点，或者将 Pod 标记为不可驱逐。 
+- 在特定场景下，某些 Pod 会被重复调度到需要重调度的节点上，从而引发 Pod 被重复驱逐。此时可以根据实际场景改变 Pod 可调度的节点，或者将 Pod 标记为不可驱逐。  
 - 该组件已对接容器服务 TKE 的监控告警体系。
 - 建议您为集群开启事件持久化，以便更好的监控组件异常以及故障定位。Descheduler 驱逐 Pod 时会产生对应事件，可根据 reason 为 “Descheduled” 类型的事件观察 Pod 是否被重复驱逐。
 - 为避免 DeScheduler 驱逐关键的 Pod，设计的算法默认不驱逐 Pod。对于可以驱逐的 Pod，用户需要显示给判断 Pod 所属 workload。例如，statefulset、deployment 等对象设置可驱逐 annotation。

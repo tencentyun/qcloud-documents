@@ -34,7 +34,7 @@
     更多详情请参见  [容器服务安全组设置](https://cloud.tencent.com/document/product/457/9084)。
  - **登录方式**：提供三种登录方式：
     - **立即关联密钥**：密钥对是通过算法生成的一对参数，是一种比常规密码更安全的登录云服务器的方式。详情请参见 [SSH 密钥](https://cloud.tencent.com/document/product/213/6092)。
-    - **自动生成密码**：自动生成的密码将通过 [站内信](https://console.cloud.tencent.com/message) 发送给您。 
+    - **自动生成密码**：自动生成的密码将通过 [站内信](https://console.cloud.tencent.com/message) 发送给您。  
     - **设置密码**：请根据提示设置对应密码。
 6. 确认配置信息，并单击**完成**，即可完成集群创建。
 7. 创建完成的集群将出现在集群列表中。如下图所示：

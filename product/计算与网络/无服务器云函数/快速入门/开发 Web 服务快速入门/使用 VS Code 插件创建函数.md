@@ -92,7 +92,7 @@ Tencent Serverless Toolkit for VS Code 是腾讯云 Serverless 产品的 VS Code
 1. 单击左侧导航栏顶部的<img src="https://main.qcloudimg.com/raw/f51801927eb766c828e721b193539e9e.png" style="margin:-3px 0;">，进入调试页面（或 `Ctrl+Shift+D`）。
 2. 选择**create a launch.json file**，新建调试配置文件。
 3. 选择 SCF Debugger For Python 调试模板（Node 项目请选择 SCF Debugger For Node）。如下图所示：
->!不同的 runtime 须选择对应的调试模板，可根据您当前的调试文件类型，区分选择 Python 和 Node.js。      
+>!不同的 runtime 须选择对应的调试模板，可根据您当前的调试文件类型，区分选择 Python 和 Node.js。       
 >
 ![](https://main.qcloudimg.com/raw/ab797f48bd2f835c24a99e18aa958b64.png) 
 
@@ -133,7 +133,7 @@ Tencent Serverless Toolkit for VS Code 是腾讯云 Serverless 产品的 VS Code
                              ServiceId:
                              HttpMethod: ANY
 ```
-更多模板文件规范请参见 [腾讯云无服务器应用模型](https://cloud.tencent.com/document/product/583/36198)。   
+更多模板文件规范请参见 [腾讯云无服务器应用模型](https://cloud.tencent.com/document/product/583/36198)。    
 2. 进入 Tencent Serverless 插件，单击本地函数列表目标函数右侧的<img src="https://main.qcloudimg.com/raw/940dfe3754caddd4613b5cdbff0fa558.png" style="margin:-3px 0;">。如下图所示：
 >!
 >- 如果您的函数有使用第三方依赖，则需要将依赖包放至函数目录下然后执行上传。Python 依赖安装方法可 [参考此处](<https://cloud.tencent.com/developer/article/1443081>)。
@@ -198,7 +198,7 @@ Resources:
 
 #### 下载函数
 
-如果您已经在 [云函数控制台](https://console.cloud.tencent.com/scf/list) 创建了函数，则可以在 VS Code 插件里直接将云端函数下载到本地。   
+如果您已经在 [云函数控制台](https://console.cloud.tencent.com/scf/list) 创建了函数，则可以在 VS Code 插件里直接将云端函数下载到本地。    
 1. 单击目标云端函数右侧的<img src="https://main.qcloudimg.com/raw/3c72bf2180157adcd5bc66072e1d063f.png" style="margin:-3px 0;">，将函数导入到本地。如下图所示：   
 ![](https://main.qcloudimg.com/raw/48225ecf3d903c41d67c6cdbf071d09b.png)
 2. 选择函数下载的目标目录，下载完成后您可以选择在本窗口打开函数或者新建窗口打开。
@@ -227,7 +227,7 @@ Resources:
 
 在已创建函数的详情页面，单击**前往新增告警**为云函数配置告警策略，对函数运行状态进行监控。如下图所示：  
 ![](https://main.qcloudimg.com/raw/6850e40bca71bfe7ca976004388294c8.png)
-更多关于配置告警请参见 [告警配置说明](https://cloud.tencent.com/document/product/583/30133)。   
+更多关于配置告警请参见 [告警配置说明](https://cloud.tencent.com/document/product/583/30133)。    
 
 #### 切换账号
 如果您有多个账号，可按照以下步骤在 SCF 插件页中添加新账号并切换使用：
@@ -238,7 +238,7 @@ Resources:
 
 ## 常见问题  
 
-安装或使用过程中有遇到问题，可参考 [SCF 工具类常见问题](https://cloud.tencent.com/document/product/583/33456) 解决，您也可以通过 [欢迎交流](#welcome) 与我们联系。     
+安装或使用过程中有遇到问题，可参考 [SCF 工具类常见问题](https://cloud.tencent.com/document/product/583/33456) 解决，您也可以通过 [欢迎交流](#welcome) 与我们联系。      
 
 ## 相关操作
 
@@ -265,5 +265,5 @@ Resources:
 
 
 ## 欢迎交流[](id:welcome)
-如果您对 Tencent Serverless 感兴趣，您可以加入QQ群（537539545）与我们交流。     
+如果您对 Tencent Serverless 感兴趣，您可以加入QQ群（537539545）与我们交流。      
 ![Alt text](https://main.qcloudimg.com/raw/bc881547d1cd2043ecf1b286c70f7319.png)

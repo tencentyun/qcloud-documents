@@ -37,27 +37,27 @@ API 网关调用涉及的参数如下：
 
 | 参数名称  | 类型      | 必选 | 描述                                                         |
 | --------- | --------- | ---- | ------------------------------------------------------------ |
-| SdkAppId  | Int       | 是   | 应用 ID，用于区分不同 TRTC 应用。                             |
-| RoomId    | Int       | 否   | 整型房间号 ID，用于在一个 TRTC 应用中唯一标识一个房间。        |
-| StrRoomId | String    | 否   | 字符串房间号 ID，RoomId 与 StrRoomId 必须配置一项，如果 RoomId 与 StrRoomId 同时配置，则使用 RoomId。  |
-| UserId    | String    | 是   | 录制用户 ID，用于在一个 TRTC 应用中唯一标识一个用户。         |
-| UserSig   | String    | 是   | 录制用户签名，用于对一个用户进行登录鉴权认证。                |
-| CosConfig | cosConfig | 是   | COS 存储配置。用于存储录制文件。                               |
-| Callback  | String    | 否   | 录制结束后的回调地址，并使用 POST 方式进行回调。              |
-| Mode      | String    | 否   | <li>00：单流音频，输出 MP3 格式。默认模式。<br><li>01：单流视频，输出 MP4 格式。<br><li>02：单流音视频，输出 MP4 格式。  |
+| SdkAppId  | Int       | 是   | 应用 ID，用于区分不同 TRTC 应用。                              |
+| RoomId    | Int       | 否   | 整型房间号 ID，用于在一个 TRTC 应用中唯一标识一个房间。         |
+| StrRoomId | String    | 否   | 字符串房间号 ID，RoomId 与 StrRoomId 必须配置一项，如果 RoomId 与 StrRoomId 同时配置，则使用 RoomId。   |
+| UserId    | String    | 是   | 录制用户 ID，用于在一个 TRTC 应用中唯一标识一个用户。          |
+| UserSig   | String    | 是   | 录制用户签名，用于对一个用户进行登录鉴权认证。                 |
+| CosConfig | cosConfig | 是   | COS 存储配置。用于存储录制文件。                                |
+| Callback  | String    | 否   | 录制结束后的回调地址，并使用 POST 方式进行回调。               |
+| Mode      | String    | 否   | <li>00：单流音频，输出 MP3 格式。默认模式。<br><li>01：单流视频，输出 MP4 格式。<br><li>02：单流音视频，输出 MP4 格式。   |
 
 CosConfig 涉及的参数如下：
 
 | 参数名称  | 类型   | 必选 | 描述                                                         |
 | --------- | ------ | ---- | ------------------------------------------------------------ |
-| SecretId  | String | 否   | 腾讯云账号的 SecretId。详情请参见 [访问管理](https://cloud.tencent.com/document/product/598/40488)。  |
-| SecretKey | String | 否   | 腾讯云账号的 SecretKey。详情请参见 [访问管理](https://cloud.tencent.com/document/product/598/40488)。  |
-| Region    | String | 是   | COS 所在区。例如 `ap-guangzhou`。                                     |
-| Bucket    | String | 是   | 桶名称。例如 `susu-123456789`。                                    |
-| Path      | String | 是   | 桶内路径。例如 `/test`，根目录为 `/`。                              |
+| SecretId  | String | 否   | 腾讯云账号的 SecretId。详情请参见 [访问管理](https://cloud.tencent.com/document/product/598/40488)。   |
+| SecretKey | String | 否   | 腾讯云账号的 SecretKey。详情请参见 [访问管理](https://cloud.tencent.com/document/product/598/40488)。   |
+| Region    | String | 是   | COS 所在区。例如 `ap-guangzhou`。                                      |
+| Bucket    | String | 是   | 桶名称。例如 `susu-123456789`。                                     |
+| Path      | String | 是   | 桶内路径。例如 `/test`，根目录为 `/`。                               |
 
 >? 
->-  UserId 为指定用户 ID， 多次请求 API 网关不保证幂等。  
+>-  UserId 为指定用户 ID， 多次请求 API 网关不保证幂等。   
 >- CosConfig 中如果不配置 SecretId 与 SecretKey，函数访问 COS 时将使用运行角色 SCF_ExecuteRole 权限去执行。
 
 停止录制的触发条件：
@@ -71,10 +71,10 @@ CosConfig 涉及的参数如下：
 
 | 参数名称  | 类型   | 必选 | 描述          |
 | :-------- | :----- | :--- | :------------ |
-| SdkAppId  | String | 是   | 应用 ID。        |
-| RoomId    | String | 是   | 整型房间 ID。     |
-| UserId    | String | 是   | 录制用户 ID。    |
-| StrRoomId | String | 是   | 字符串房间 ID。   |
+| SdkAppId  | String | 是   | 应用 ID。         |
+| RoomId    | String | 是   | 整型房间 ID。      |
+| UserId    | String | 是   | 录制用户 ID。     |
+| StrRoomId | String | 是   | 字符串房间 ID。    |
 | Files     | Array  | 是   | [{},{},{},{}] |
 
 > ? 如果配置了 Callback，停止结束后，云函数将以 POST 方式将返回数据传递给回调地址。
@@ -83,10 +83,10 @@ Files 数组中每一项为 JSON Object，如下：
 
 | 参数名称   | 类型   | 必选 | 描述                                                  |
 | :--------- | :----- | :--- | :---------------------------------------------------- |
-| UserId     | String | 是   | 被录制的用户 ID。                                         |
-| RecordFile | String | 是   | 录制文件最后上传到 COS 的 URL。                             |
-| Status     | Int    | 是   | <li>0：失败。<br><li>1：成功。                                         |
-| Message    | String | 是   | 录制任务的执行结果。例如，录制失败、转码失败、写入 COS 失败等。  |
+| UserId     | String | 是   | 被录制的用户 ID。                                          |
+| RecordFile | String | 是   | 录制文件最后上传到 COS 的 URL。                              |
+| Status     | Int    | 是   | <li>0：失败。<br><li>1：成功。                                          |
+| Message    | String | 是   | 录制任务的执行结果。例如，录制失败、转码失败、写入 COS 失败等。   |
 
 ## 操作步骤
 

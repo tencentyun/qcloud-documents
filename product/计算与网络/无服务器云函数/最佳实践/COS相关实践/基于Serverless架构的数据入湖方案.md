@@ -20,7 +20,7 @@ Serverless 架构的入湖方案是通过云函数触发器拉起数据调用后
 1. 登录 [对象存储控制台](https://console.cloud.tencent.com/cos5)。
 2. 选择左侧“应用集成”，在“数据迁移与备份”中选择“TDMQ消息备份”。如下图所示：
 ![](https://main.qcloudimg.com/raw/673f44c32c0870e1ca64e57ca87df9ef.png)
-3. 在 “TDMQ消息备份”页中，选择已创建的 COS Bucket 所在的地域，并单击**添加函数**。  
+3. 在 “TDMQ消息备份”页中，选择已创建的 COS Bucket 所在的地域，并单击**添加函数**。   
 4. 在“创建TDMQ消息备份函数”弹窗中，进行函数基础配置。输入函数名称，例如 `data-lake`，并关联已创建的 Bucket `scf-data-lake`，勾选**授权SCF服务**后单击**下一步**。
 5. 单击**下一步**，进行 TDMQ 配置，配置项说明如下：
    - **集群选择**：选择消息来源的 TDMQ 集群，仅支持同地域的 TDMQ 集群。

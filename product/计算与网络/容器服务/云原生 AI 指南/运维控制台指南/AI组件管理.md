@@ -8,10 +8,10 @@
 | 组件名称 | 业务场景 | 组件介绍 |
 |---------|---------|---------|
 | [TF Operator](https://cloud.tencent.com/document/product/457/62632) | 模型训练 | 安装后，用户可以运行 TF 单机 / 分布式训练任务。|
-| [PyTorch Operator](https://cloud.tencent.com/document/product/457/62633) | 模型训练 | 安装后，用户可以运行 PyTorch 单机 / 分布式训练任务。 |
-| [MPI Operator](https://cloud.tencent.com/document/product/457/62634) | 弹性训练 | 用户可以运行弹性训练任务，充分利用算力资源。 |
-| [Fluid](https://cloud.tencent.com/document/product/457/62631) | 缓存加速 | Fluid 通过使用分布式缓存引擎（GooseFS/Alluxio）为云上应用提供数据预热与加速，同时可以保障缓存数据的可观测性，可迁移性和自动化的水平扩展。 |
-| [Elastic Jupyter Operator](https://cloud.tencent.com/document/product/457/62635) | 算法调试 | 为用户按需提供弹性的 Jupyter Notebook 服务，按需分配计算资源。 |
+| [PyTorch Operator](https://cloud.tencent.com/document/product/457/62633) | 模型训练 | 安装后，用户可以运行 PyTorch 单机 / 分布式训练任务。  |
+| [MPI Operator](https://cloud.tencent.com/document/product/457/62634) | 弹性训练 | 用户可以运行弹性训练任务，充分利用算力资源。  |
+| [Fluid](https://cloud.tencent.com/document/product/457/62631) | 缓存加速 | Fluid 通过使用分布式缓存引擎（GooseFS/Alluxio）为云上应用提供数据预热与加速，同时可以保障缓存数据的可观测性，可迁移性和自动化的水平扩展。  |
+| [Elastic Jupyter Operator](https://cloud.tencent.com/document/product/457/62635) | 算法调试 | 为用户按需提供弹性的 Jupyter Notebook 服务，按需分配计算资源。  |
 
 ## AI 组件生命周期管理
 ### 创建 AI 组件

@@ -40,7 +40,7 @@ Web 函数目前已经支持 [开启请求多并发](#.E6.93.8D.E4.BD.9C.E6.AD.A
 其他计费项保持不变，详情见 [计费概述](https://cloud.tencent.com/document/product/583/17299)。
 
 ### 日志
-开启请求多并发后，由于多个并发请求同时处理，每个请求产生的日志在流式上报时，可能会出现日志和 RequestID 无法一一对应。此时，应该在代码中正确设置 logger，将 RequestID 打印到日志中，以解决该问题。RequestID 从 Web 函数中接收到的公共请求头里的 `X-Scf-Request-Id` 字段获取。  
+开启请求多并发后，由于多个并发请求同时处理，每个请求产生的日志在流式上报时，可能会出现日志和 RequestID 无法一一对应。此时，应该在代码中正确设置 logger，将 RequestID 打印到日志中，以解决该问题。RequestID 从 Web 函数中接收到的公共请求头里的 `X-Scf-Request-Id` 字段获取。   
 
 ### 超限错误
 #### 内存超限

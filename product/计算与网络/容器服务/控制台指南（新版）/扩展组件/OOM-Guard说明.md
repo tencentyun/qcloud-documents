@@ -32,7 +32,7 @@ threshold = limit - margin // 即 1000M - 20M = 980M
 
 | 策略 | 描述|
 |---------|---------|
-|process | 采用跟内核 cgroup OOM killer 相同的策略，在该 cgroup 内部，选择一个 oom_score 得分最高的进程杀掉。通过 oom-guard 发送 SIGKILL 来杀掉进程。 | 
+|process | 采用跟内核 cgroup OOM killer 相同的策略，在该 cgroup 内部，选择一个 oom_score 得分最高的进程杀掉。通过 oom-guard 发送 SIGKILL 来杀掉进程。  | 
 | container | 在该 cgroup 下选择一个 docker 容器，杀掉整个容器。| 
 | noop |  只记录日志，并不采取任何措施。| 
 
