@@ -1,9 +1,7 @@
 DDoS 防护基于腾讯社交、游戏、资讯、金融等领域累积的多年安全攻防和实战经验，提供了丰富且全面的安全解决方案，满足您不同业务场景应对的各类 DDoS 攻击安全防护需求。
 
 本文将介绍不同 DDoS 防护解决方案的基本信息和适用场景。
->?
->- 需要定制专属的安全解决方案，您可以通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行咨询。
->- DDoS 防护（包含 DDoS 基础防护、DDoS 高防包和 DDoS 高防 IP）不会对访问量小于50QPS的流量进行防护。
+>? 需要定制专属的安全解决方案，您可以通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行咨询。
 
 
 | 产品名称 | 适用用户 | 防护对象 |接入方式 | 计费方式 | 防护能力 |配置特点 |
