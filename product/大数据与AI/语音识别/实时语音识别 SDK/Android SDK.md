@@ -30,6 +30,15 @@ implementation(name: 'speech_release', ext: 'aar')
     < uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 ```
 
+### 混淆规则
+```
+-keepclasseswithmembernames class * { # 保持 native 方法不被混淆
+native <methods>;
+}
+-keep public class com.tencent.*
+-keep public class com.qq.wx.voice.*
+```
+
 ## 快速接入
 [](id:documen)
 ### 启动实时语音识别

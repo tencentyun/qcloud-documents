@@ -11,7 +11,7 @@ iOS SDK 接入请观看视频：
 
 ### 开发环境
 在工程` info.plist` 添加以下设置：
-+ **设置 NSAppTransportSecurity 策略，添加如下内容：**
+1.  **设置 NSAppTransportSecurity 策略，添加如下内容：**
 ```objective-c
   <key>NSAppTransportSecurity</key>
   <dict>
@@ -31,20 +31,22 @@ iOS SDK 接入请观看视频：
 	</dict>
     </dict>
 ```
-+ **申请系统麦克风权限，添加如下内容：**
+2. **申请系统麦克风权限，添加如下内容：**
 ```objective-c
    <key>NSMicrophoneUsageDescription</key>
    <string>需要使用您的麦克风采集音频</string>
 ```
-+ **在工程中添加依赖库，在建阶段链接二进制与库中添加以下库：**
+3. **在工程中添加依赖库，在建阶段链接二进制与库中添加以下库：**
   + AVFoundation.framework
   + AudioToolbox.framework
   + QCloudSDK.framework
   + CoreTelephony.framework
   + libWXVoiceSpeex.a
-
+  + libc++.tbd
 添加完如下图所示：
 ![](https://main.qcloudimg.com/raw/17ff6f4f4a27e0843de528eb070c2f32.png)
+
+4. **在 Build Settings 下的 other Linker Flags 中不能有 -all_load。**
 
 ## 快速接入
 ### 开发流程及接入示例

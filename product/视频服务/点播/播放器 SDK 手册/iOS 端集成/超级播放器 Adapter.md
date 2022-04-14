@@ -2,7 +2,7 @@
 
 腾讯云视立方 iOS 超级播放器 Adapter 为云点播提供给客户希望使用第三方播放器或自研播放器开放的对接云 PAAS 资源的播放器插件，常用于有自定义播放器功能需求的用户。
 
-## SDK下载[](id:sdkDownload)
+## SDK 下载[](id:sdkDownload)
 
 腾讯云视立方 iOS 超级播放器 Adapter SDK 和 Demo 项目下载地址是 [TXCPlayerAdapterSDK_iOS](https://mediacloud-76607.gzc.vod.tencent-cloud.com/TXCPlayerAdapter/Release/1.2.0/TXCPlayerAdapterSDK_1.2.0_iOS.zip)。 
 

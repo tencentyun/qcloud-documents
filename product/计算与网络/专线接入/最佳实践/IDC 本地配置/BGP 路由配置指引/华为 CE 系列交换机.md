@@ -3,6 +3,8 @@
 >
 
 ## 路由配置
+>?通过 BGP 连通的对接参数，Keepalive 及 holdtime 参数推荐使用缺省配置；推荐 Holdtime 时间60 * 3=180秒（此时 keepalive 报文周期60s）
+>
 ``` 
 # 设置物理接口
 interfaces <interface_number>
