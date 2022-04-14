@@ -70,10 +70,10 @@ APIGW 连接器实现方式为 **Push 模型**，APIGW 会监控请求并生成�
 
 | 参数        | 描述                                       |
 | ----------- | ------------------------------------------ |
-| path        | 记录实际请求的完整 Path 信息。             |
-| httpMethod  | 记录实际请求的 HTTP 方法。                 |
-| queryString | 记录实际请求的完整 Query 内容。            |
-| body        | 记录实际请求转换为 String 字符串后的内容。 |
-| headers     | 记录实际请求的完整 Header 内容。           |
+| path        | 记录实际请求的完整 Path 信息。              |
+| httpMethod  | 记录实际请求的 HTTP 方法。                  |
+| queryString | 记录实际请求的完整 Query 内容。             |
+| body        | 记录实际请求转换为 String 字符串后的内容。  |
+| headers     | 记录实际请求的完整 Header 内容。            |
 
 

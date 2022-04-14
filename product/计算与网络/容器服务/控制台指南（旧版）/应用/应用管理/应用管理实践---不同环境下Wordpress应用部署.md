@@ -126,7 +126,7 @@ spec:
 status:
   loadBalancer: {}
 ```
-这里自动提取了 `NAMESPACE` 和 `ReleaseCBS_mariadb_vol` 作为配置项。并填写 `NAMESPACE` 配置项的值为 `default`。`NAMESPACE` 用来表示服务部署到集群的哪个命名空间，更多关于命名空间的说明可以参数 [Namespace使用指引][12]。 `ReleaseCBS_XXXX` 为容器服务为使用 CBS 云盘定义的变量，更多关于 ReleaseCBS 自定义变量的说明可以参考 [自定义变量--ReleaseCBS][13]。
+这里自动提取了 `NAMESPACE` 和 `ReleaseCBS_mariadb_vol` 作为配置项。并填写 `NAMESPACE` 配置项的值为 `default`。`NAMESPACE` 用来表示服务部署到集群的哪个命名空间，更多关于命名空间的说明可以参数 [Namespace使用指引][12]。  `ReleaseCBS_XXXX` 为容器服务为使用 CBS 云盘定义的变量，更多关于 ReleaseCBS 自定义变量的说明可以参考 [自定义变量--ReleaseCBS][13]。
 ![应用管理wordpress-07.png-50.7kB][14]
 
 ### 导入 wordpress 服务

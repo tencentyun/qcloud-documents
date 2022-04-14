@@ -33,6 +33,14 @@ Android SDK 接入请观看视频：
 <!--<service android:name=".service.MyIntentService"/>-->
 <service android:name="com.tencent.cloud.qcloudasrsdk.recorder.service.QCloudAudioMp3RecoderService" />
 ```
+### 混淆规则
+```
+-keepclasseswithmembernames class * { # 保持 native 方法不被混淆
+native <methods>;
+}
+-keep public class com.tencent.*
+-keep public class com.qq.wx.voice.*
+```
 
 ## 快速接入
 

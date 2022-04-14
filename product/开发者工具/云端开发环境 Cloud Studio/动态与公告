@@ -1,0 +1,17 @@
+## 2022年04月
+<table >
+<thead>
+<tr>
+<th width="20%">动态名称</th>
+<th width="50%">动态描述</th>
+ <th width="15%">发布时间</th>  
+<th width="15%">相关文档</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>云端 IDE（Cloud Studio）</td>
+<td >提供了一个永不间断的云端工作站。其功能包含代码高亮、自动补全、Git 集成、终端等 IDE 的基础功能，同时支持实时调试、插件扩展等，可以帮助开发者快速完成各种应用的开发、编译与部署工作。</td>
+ <td>2022-04</td> 
+<td><a href="https://cloud.tencent.com/document/product/1039/72023">产品优势</a></td>
+</tr>
+</tbody></table>

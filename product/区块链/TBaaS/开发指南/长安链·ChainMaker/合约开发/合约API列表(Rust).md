@@ -1,6 +1,6 @@
 ChainMake Rust 语言版本智能合约有丰富的 API 接口，供用户在撰写智能合约的时候与链进行交互，代码实现详情可以参考 [API 接口代码实现](https://docs.chainmaker.org.cn/v1.2.0/html/dev/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6.html#rust)。
 
-从逻辑方面划分，可将API划分为以下类型：
+从逻辑方面划分，可将 API 划分为以下类型：
 
 [](id:informationExtraction)
 
@@ -14,7 +14,7 @@ ChainMake Rust 语言版本智能合约有丰富的 API 接口，供用户在撰
 </thead>
 <tbody><tr>
 <td>get_creator_org_id(&self) -> String </td>
-<td>获取合约创建者所属组织ID</td>
+<td>获取合约创建者所属组织 ID</td>
 </tr>
 <tr>
 <td>get_creator_role(&self) -> String </td>
@@ -26,7 +26,7 @@ ChainMake Rust 语言版本智能合约有丰富的 API 接口，供用户在撰
 </tr>
 <tr>
 <td>get_sender_org_id(&self) -> String </td>
-<td>获取交易发起者所属组织ID</td>
+<td>获取交易发起者所属组织 ID</td>
 </tr>
 <tr>
 <td>get_sender_role(&self) -> String </td>
@@ -34,7 +34,7 @@ ChainMake Rust 语言版本智能合约有丰富的 API 接口，供用户在撰
 </tr>
 <tr>
 <td>get_tx_id(&self) -> String</td>
-<td>获取交易ID</td>
+<td>获取交易 ID</td>
 </tr>
 <tr>
 <td>get_sender_pub_key(&self) -> String  </td>
@@ -45,7 +45,6 @@ ChainMake Rust 语言版本智能合约有丰富的 API 接口，供用户在撰
 <td>获取当前区块高度</td>
 </tr>
 </tbody></table>
-
 
 [](id:accountInteraction)
 
@@ -63,11 +62,11 @@ ChainMake Rust 语言版本智能合约有丰富的 API 接口，供用户在撰
 </tr>
 <tr>
 <td>get_state_from_key(&self, key: &str) -> Result<Vec<u8>, result_code></td>
-<td>获取合约账户信息。该接口可以从链上获取类别为key的状态信息</td>
+<td>获取合约账户信息。该接口可以从链上获取类别为 key 的状态信息</td>
 </tr>
 <tr>
 <td>put_state(&self, key: &str, field: &str, value: &[u8]) -> result_code</td>
-<td>写入合约账户信息。该接口可把类别 “key” 下属性名为 “filed” 的状态更新到链上。更新成功返回0，失败则返回1。</td>
+<td>写入合约账户信息。该接口可把类别 “key” 下属性名为 “filed” 的状态更新到链上。更新成功返回 0，失败则返回 1。</td>
 </tr>
 <tr>
 <td>put_state_from_key(&self, key: &str, value: &[u8]) -> result_code</td>
@@ -86,10 +85,7 @@ ChainMake Rust 语言版本智能合约有丰富的 API 接口，供用户在撰
 <td>跨合约调用。</td>
 </tr>
 
-
 </tbody></table>
-
-
 
 [](id:parametersProcess)
 
@@ -112,7 +108,6 @@ ChainMake Rust 语言版本智能合约有丰富的 API 接口，供用户在撰
 </tr>
 </tbody></table>
 
-
 [](id:otherClass)
 
 ### 其他辅助类
@@ -134,7 +129,7 @@ ChainMake Rust 语言版本智能合约有丰富的 API 接口，供用户在撰
 </tr>
 <tr>
 <td>log(&self, msg: &str)</td>
-<td>该接口可记录事件日志。查看方式为在链配置的log.yml中，开启vm:debug即可看到类似：gasm log>> + msg</td>
+<td>该接口可记录事件日志。查看方式为在链配置的 log.yml 中，开启 vm:debug 即可看到类似：gasm log>> + msg</td>
 </tr>
 <tr>
 <td>emit_event(&mut self, topic: &str, data: &Vec<String>) -> result_code</td>
@@ -142,19 +137,18 @@ ChainMake Rust 语言版本智能合约有丰富的 API 接口，供用户在撰
 </tr>
 <tr>
 <td>new_iterator(&self,start_key: &str,limit_key: &str) -> Result<Box<dyn ResultSet>, result_code></td>
-<td>新建key范围迭代器，key前闭后开，即：startKey <= dbkey < limitKey</td>
+<td>新建 key 范围迭代器，key 前闭后开，即：startKey <= dbkey < limitKey</td>
 </tr>
 <tr>
 <td>new_iterator_with_field(&self, key: &str, start_field: &str, limit_field: &str) -> Result<Box<dyn ResultSet>, result_code></td>
-<td>新建field范围迭代器，key需相同，field前闭后开，即：key = dbdbkey and startField <= dbfield < limitField</td>
+<td>新建 field 范围迭代器，key 需相同，field 前闭后开，即：key = dbdbkey and startField <= dbfield < limitField</td>
 </tr>
 <tr>
 <td>new_iterator_prefix_with_key(&self, key: &str) -> Result<Box<dyn ResultSet>, result_code></td>
-<td>新建指定key前缀匹配迭代器，key需前缀一致，即dbkey.startWith(key)</td>
+<td>新建指定 key 前缀匹配迭代器，key 需前缀一致，即 dbkey.startWith(key)</td>
 </tr>
 <tr>
 <td>new_iterator_prefix_with_key_field(&self, key: &str, field: &str) -> Result<Box<dyn ResultSet>, result_code></td>
-<td>新建指定field前缀匹配迭代器，key需相同，field前缀一致，即dbkey = key and dbfield.startWith(field)</td>
+<td>新建指定 field 前缀匹配迭代器，key 需相同，field 前缀一致，即 dbkey = key and dbfield.startWith(field)</td>
 </tr>
 </tbody></table>
-

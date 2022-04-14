@@ -1,32 +1,29 @@
 ## 组件介绍
 
 `TUIPusher` 组件是一套开源的、完整的视频直播互动推流组件，它基于腾讯云 [直播 Live SDK](https://cloud.tencent.com/document/product/454/19074) 和 [即时通信 IM SDK](https://cloud.tencent.com/document/product/269/1498) ，实现直播推流，直播 PK 等功能，同时支持弹幕、点赞、美颜等外挂插件，使用 `TUIPusher` 组件您可以快速搭建诸如秀场直播、电商直播等场景化解决方案。
-<table>
-<tr>
-   <th style="text-align:center" width="50%">开始直播</th>
-   <th style="text-align:center" width="50%">直播 PK</th>
- </tr>
-<tr>
-<td><img src="https://qcloudimg.tencent-cloud.cn/raw/c0d094cbc10f3e577f07f8ce5995230e.jpg" /></td>
-<td><img src="https://qcloudimg.tencent-cloud.cn/raw/19eaacc2e8d384fb63eebb112ab6c09f.jpg" /></td>
-</tr>
-</table>
-
-
+<img src="https://qcloudimg.tencent-cloud.cn/raw/56974460aea1eff23adb1ab6410c910d.png" width="900"/>
 
 ## 组件集成
 
 ### 步骤一：下载并导入 TUIPusher 组件
 
-单击进入 [Github](https://github.com/LiteAV-TUIKit/TUIPusher) ，选择克隆/下载代码，然后拷贝 `Android/tuipusher` 目录到您的工程中，并完成如下导入动作：
-
-- 在 `setting.gradle` 中完成导入，参考如下：
+1. 单击进入 [**Github**](https://github.com/tencentyun/XiaoZhiBo) ，选择克隆或者下载小直播工程代码。
+2. 拷贝 Android/tuipusher 、Android/tuiaudioeffect、Android/tuibeauty、Android/tuibarrage、Android/tuigift 等文件夹到您的工程中。
+3. 在 `setting.gradle` 中完成导入，参考如下：
 ```
 include ':tuipusher'
+include ':tuiaudioeffect'
+include ':tuibeauty'
+include ':tuibarrage' 
+include ':tuigift' 
 ```
-- 在 `app` 的 `build.gradle` 文件中添加对 `tuipusher` 的依赖：
+4. 在 `app` 的 `build.gradle` 文件中添加对 `tuipusher` 等 moudle 的依赖：
 ```
 api project(':tuipusher')
+api project(':tuiaudioeffect')
+api project(':tuibeauty')
+api project(':tuibarrage')
+api project(':tuigift')
 ```
 
 ### 步骤二：配置权限及混淆规则
@@ -64,21 +61,7 @@ mTUIPusherView.setTUIPusherViewListener(new TUIPusherViewListener() {
 }
 ```
 
-### 步骤四：无互动直播推流
-
-如果您的应用中无连麦或 `PK` 等互动场景，可以选择标准的 `RMTP` 协议进行推流，具体步骤如下：
-
-- **开始推流**
-基于 RTMP 推流 URL 的生成，可以参考 [示例工程](https://github.com/LiteAV-TUIKit/TUIPusher/blob/main/Android/app/src/main/java/com/tencent/qcloud/tuikit/tuipusher/demo/URLUtils.java#L36) 中封装好的 Utils 方法，基本规则如下图，具体参数信息请参见 [推拉流 URL](https://cloud.tencent.com/document/product/454/7915)。
-```java
-mTUIPusherView.start(Strign url);
-```
-- **停止推流**
-```java
-mTUIPusherView.stop();
-```
-
-### 步骤五：有互动直播推流
+### 步骤四：有互动直播推流
 1.  **服务开通**
 因为连麦& PK 时需要更低的延时需求，需要在腾讯云直播控制台控制台开通对应的连麦应用服务，如果您未开通，请登录**云直播管理控制台**选择 **[应用管理](https://console.cloud.tencent.com/live/micro/appmanage)** ，单击**新建连麦应用**输入应用名称（例如 `TUIPusher`），然后在该应用的对应操作栏中，选择**应用信息**进入应用管理页，查看并记录应用的 **SDKAppID** 和 **SECRETKEY（密钥）**。
 ![img](https://qcloudimg.tencent-cloud.cn/raw/cb2b2381b92994404dfece3cdaf77608.png)
@@ -105,15 +88,15 @@ mTUIPusherView.stop();
             }
   });
 ```
-	- **登录组件参数说明：**
-		- **SDKAppID**：即服务开通中记录到的 **SDKAppID** 信息。
-		- **SECRETKEY**： 即服务开通中记录到的 **SECRETKEY（密钥）**。
-		- **userId**：当前用户的 ID，字符串类型，长度不超过32字节，不支持使用特殊字符，建议使用英文或数字，可结合业务实际账号体系自行设置。
-		- **userSig**：根据 SDKAppId、userId，SECRETKEY 等信息计算得到的安全保护签名，您可以单击 [这里](https://console.cloud.tencent.com/trtc/usersigtool) 直接在线生成一个调试的 UserSig，也可以参照我们的 [示例工程](https://github.com/LiteAV-TUIKit/TUIPusher/blob/main/Android/app/src/main/java/com/tencent/qcloud/tuikit/tuipusher/demo/debug/GenerateTestUserSig.java#L125) 自行计算，更多信息请参见 [如何计算及使用 UserSig](https://cloud.tencent.com/document/product/454/14548)。
+**登录组件参数说明：**
+	- **SDKAppID**：即服务开通中记录到的 **SDKAppID** 信息。
+	-  **SECRETKEY**： 即服务开通中记录到的 **SECRETKEY（密钥）**。
+	-  **userId**：当前用户的 ID，字符串类型，长度不超过32字节，不支持使用特殊字符，建议使用英文或数字，可结合业务实际账号体系自行设置。
+	-  **userSig**：根据 SDKAppId、userId，SECRETKEY 等信息计算得到的安全保护签名，您可以单击 [这里](https://console.cloud.tencent.com/trtc/usersigtool) 直接在线生成一个调试的 UserSig，也可以参照我们的 [示例工程](https://github.com/tencentyun/XiaoZhiBo/blob/main/Android/debug/src/main/java/com/tencent/liteav/debug/GenerateGlobalConfig.java#L118) 自行计算，更多信息请参见 [如何计算及使用 UserSig](https://cloud.tencent.com/document/product/454/14548)。
 3. **开始推流**
-基于 `RTC` 协议的推流 `URL` 的生成，可以参考 [示例工程](https://github.com/LiteAV-TUIKit/TUIPusher/blob/main/Android/app/src/main/java/com/tencent/qcloud/tuikit/tuipusher/demo/URLUtils.java#L36) 中封装好的 Utils 方法，基本示例如下，具体参数信息请参见 [推拉流 URL](https://cloud.tencent.com/document/product/454/7915)。
+基于 `RTC` 协议的推流 `URL` 的生成，可以参考 [示例工程](https://github.com/tencentyun/XiaoZhiBo/blob/main/Android/app/src/main/java/com/tencent/liteav/demo/utils/URLUtils.java#L33) 中封装好的 Utils 方法，基本示例如下，具体参数信息请参见 [推拉流 URL](https://cloud.tencent.com/document/product/454/7915)。
 ```java
-mTUIPusherView.start(Strign url);
+mTUIPusherView.start(String url);
 ```
 4. **停止推流**
 ```java
@@ -121,7 +104,7 @@ mTUIPusherView.stop();
 ```
 5. **发起 PK 请求**
 调用 `mTUIPusherView.sendPKRequest()` 后会向接收方发起 Pk 请求，请求超时发送方设置的 `mTUIPusherView.setTUIPusherViewListener` 回调中， `onPKTimeout` 回调会收到超时通知。
-```
+```java
 mTUIPusherView.sendPKRequest(String userId);
  
 public void onPKTimeout(TUIPusherView pusherView) {
@@ -158,11 +141,20 @@ private void showPKDialog(String userId, final TUIPusherViewListener.ResponseCal
 }
 ```
 
-### 步骤六：集成弹幕、点赞等挂件功能（可选）
 
-我们在 [小直播](https://github.com/tencentyun/XiaoZhiBo) 工程中使用了该 TUIPusher 组件并集成了诸如弹幕、点赞、美颜等挂件，您可以以此为参考自行实现。
+### 步骤五：无互动直播推流
 
+如果您的应用中无连麦或 `PK` 等互动场景，可以选择标准的 `RMTP` 协议进行推流，具体步骤如下：
 
+- **开始推流**
+基于 RTMP 推流 URL 的生成，可以参考 [示例工程](https://github.com/tencentyun/XiaoZhiBo/blob/main/Android/app/src/main/java/com/tencent/liteav/demo/utils/URLUtils.java#L33) 中封装好的 Utils 方法，基本规则如下图，具体参数信息请参见 [推拉流 URL](https://cloud.tencent.com/document/product/454/7915)。
+```java
+mTUIPusherView.start(String url);
+```
+- **停止推流**
+```java
+mTUIPusherView.stop();
+```
 
 ## 交流&反馈
 

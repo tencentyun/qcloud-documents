@@ -1,5 +1,5 @@
 ### GlobalRouter 附加 VPC-CNI 模式说明
-VPC-CNI 模式是腾讯云容器服务支持的扩展网络模式，利用腾讯云的多弹性网卡能力，为集群内的 Pod 分配 VPC 内的 IP 地址。 由腾讯云 VPC 功能负责路由，可实现 Pod 和 Node 的控制面和数据面完全在同一网络层面，该模式下的 Pod 能够复用腾讯云 VPC 所有产品特性。
+VPC-CNI 模式是腾讯云容器服务支持的扩展网络模式，利用腾讯云的多弹性网卡能力，为集群内的 Pod 分配 VPC 内的 IP 地址。  由腾讯云 VPC 功能负责路由，可实现 Pod 和 Node 的控制面和数据面完全在同一网络层面，该模式下的 Pod 能够复用腾讯云 VPC 所有产品特性。
 VPC-CNI 模式存在使用限制，建议您提前考虑是否适配您的业务场景。
 
 ### VPC-CNI 模式应用场景
@@ -62,7 +62,7 @@ spec:
             tke.cloud.tencent.com/eni-ip: "1"
 ```
 其中：
-- spec.template.annotations：tke.cloud.tencent.com/networks: "tke-route-eni"  表明 Pod 使用 VPC-CNI 模式。 
+- spec.template.annotations：tke.cloud.tencent.com/networks: "tke-route-eni"  表明 Pod 使用 VPC-CNI 模式。  
 - spec.template.annotations：创建 VPC-CNI 模式的 Pod，您需要设置 annotations，即 `tke.cloud.tencent.com/vpc-ip-claim-delete-policy`，默认是 “Immediate”，Pod 销毁后，关联的 IP 同时被销毁，如需固定 IP，则需设置成 “Never”，Pod 销毁后 IP 将会保留，那么下一次同名的 Pod 拉起后，会使用之前的 IP。
 - spec.template.spec.containers.0.resources：创建 VPC-CNI 模式的 Pod，您需要添加 requests 和 limits 限制，即 `tke.cloud.tencent.com/eni-ip`。
 
