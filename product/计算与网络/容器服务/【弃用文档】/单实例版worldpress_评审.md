@@ -3,7 +3,7 @@ WordPress 是使用 PHP 语言开发的博客平台。用户可以在支持 PHP 
 本文档旨在介绍如何使用 `tutum/wordpress` 镜像来创建一个公开访问的 WordPress 网站。
 
 >**注意：**
->创建单实例版的 WordPress 仅供测试使用，该镜像中包含了 WordPress 所有的运行环境，直接拉取创建服务即可，但使用单实例版的 WordPress 不能保证数据的持久化存储，建议您使用自建的 MySQL 或使用腾讯云数据库 CDB 来保存您的数据。详情请参考 [使用 CDB 的 WordPress](/doc/product/457/7447)。 在创建 WordPress 服务之前，您必须拥有:
+>创建单实例版的 WordPress 仅供测试使用，该镜像中包含了 WordPress 所有的运行环境，直接拉取创建服务即可，但使用单实例版的 WordPress 不能保证数据的持久化存储，建议您使用自建的 MySQL 或使用腾讯云数据库 CDB 来保存您的数据。详情请参考 [使用 CDB 的 WordPress](/doc/product/457/7447)。  在创建 WordPress 服务之前，您必须拥有:
 1. 一个腾讯云帐户。有关如何创建腾讯云帐户，请在 [注册页面](https://cloud.tencent.com/register) 填写相关信息注册腾讯云帐户。
 2. 一个创建好的集群。有关如何创建集群的详细信息，参见 [新建集群](https://cloud.tencent.com/document/product/457/9091) 。
 
@@ -35,7 +35,7 @@ WordPress 是使用 PHP 语言开发的博客平台。用户可以在支持 PHP 
 
 ## 访问 WordPress 服务
 1) 提供三种方式访问 WordPress 服务。
- - 通过**负载均衡 IP**来访问 WordPress 服务。单击服务页面的**服务信息**查看负载均衡 IP和负载均衡ID。 
+ - 通过**负载均衡 IP**来访问 WordPress 服务。单击服务页面的**服务信息**查看负载均衡 IP和负载均衡ID。  
 ![](//mc.qcloudimg.com/static/img/f92f30a3360c46ac0e6e76d045f4484f/image.png) 
  - 通过 **域名** 来访问 WordPress 服务。在容器服务控制台左侧导航栏中，单击**负载均衡**，单击**TCP/UDP**，找到对应的负载均衡ID，复制域名访问服务。
  - 集群内的其他服务或容器可以直接通过服务名称访问。

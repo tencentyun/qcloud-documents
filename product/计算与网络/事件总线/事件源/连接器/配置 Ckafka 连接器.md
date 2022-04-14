@@ -61,11 +61,11 @@
 
 | 参数             | 描述                                                         |
 | ---------------- | ------------------------------------------------------------ |
-| topic            | Ckafka 投递 Topic。     |
-| Partition | 事件源所在分区，一个 Topic 可以包含一个或者多个 Partition，CKafka 以 Partition 作为分配单位。                                                   |
-| offset        | 消费分组，指定消费区域。                                      |
-| msgKey            | Ckafka 消息 Key。                                               |
-| msgBody          | Ckafka 消息体。                                                |
+| topic            | Ckafka 投递 Topic。      |
+| Partition | 事件源所在分区，一个 Topic 可以包含一个或者多个 Partition，CKafka 以 Partition 作为分配单位。                                                    |
+| offset        | 消费分组，指定消费区域。                                       |
+| msgKey            | Ckafka 消息 Key。                                                |
+| msgBody          | Ckafka 消息体。                                                 |
 
 
 

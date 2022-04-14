@@ -1,5 +1,5 @@
 ## kubectl 命令行介绍
-kubectl 是一个用于对 Kubernetes 集群操作命令行工具。 本文涵盖 kubectl 语法，常见命令操作，并提供常见示例。 有关每个命令（包括所有主命令和子命令）的详细信息，请参阅 [kubectl 参考文档](https://kubernetes.io/docs/reference/generated/kubectl/kubectl/) 或使用 kubectl help 命令查看详细帮助，有关安装说明，请参阅 [安装 kubectl](https://cloud.tencent.com/document/product/457/8438)。
+kubectl 是一个用于对 Kubernetes 集群操作命令行工具。  本文涵盖 kubectl 语法，常见命令操作，并提供常见示例。  有关每个命令（包括所有主命令和子命令）的详细信息，请参阅 [kubectl 参考文档](https://kubernetes.io/docs/reference/generated/kubectl/kubectl/) 或使用 kubectl help 命令查看详细帮助，有关安装说明，请参阅 [安装 kubectl](https://cloud.tencent.com/document/product/457/8438)。
 
 ## 通过 kubectl 创建 Nginx
 以下示例帮助您熟悉运行常用 kubectl 操作：

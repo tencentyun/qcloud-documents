@@ -114,7 +114,7 @@ parameters:
 <td>type</td> <td>包括 CLOUD_PREMIUM（高性能云硬盘）和 CLOUD_SSD（SSD 云硬盘）、CLOUD_HSSD（增强型 SSD 云硬盘）。</td>
 </tr>
 <tr>
-<td>zone</td> <td>用于指定可用区。如果指定，则云硬盘将创建到此可用区。如果不指定，则拉取所有 Node 的可用区信息，进行随机选取。 腾讯云各地域标识符请参见 <a href="https://cloud.tencent.com/document/product/213/6091">地域和可用区</a>。</td>
+<td>zone</td> <td>用于指定可用区。如果指定，则云硬盘将创建到此可用区。如果不指定，则拉取所有 Node 的可用区信息，进行随机选取。  腾讯云各地域标识符请参见 <a href="https://cloud.tencent.com/document/product/213/6091">地域和可用区</a>。</td>
 </tr>
 <tr>
 <td>paymode</td> <td>云硬盘的计费模式，默认设置为 <code>POSTPAID</code> 模式，即按量计费，支持 Retain 保留和 Delete 删除策略，Retain 仅在高于1.8的集群版本生效。还可设置为 <code>PREPAID</code> 模式，即包年包月，仅支持 Retain 保留策略。</td>

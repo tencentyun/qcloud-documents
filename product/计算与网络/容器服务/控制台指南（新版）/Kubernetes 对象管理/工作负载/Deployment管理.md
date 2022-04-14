@@ -31,7 +31,7 @@ Deployment 声明了 Pod 的模板和控制 Pod 的运行策略，适用于部�
  - **镜像访问凭证**：容器镜像默认私有，在创建工作负载时，需选择实例对应的镜像访问凭证。
  - **实例数量**：根据实际需求选择调节方式，设置实例数量。
      - **手动调节**：设定实例数量，可单击“+”或“-”控制实例数量。
-     - **自动调节**：满足任一设定条件，则自动调节实例（pod）数目。详情请参见 [自动伸缩](https://cloud.tencent.com/document/product/457/14209)。  
+     - **自动调节**：满足任一设定条件，则自动调节实例（pod）数目。详情请参见 [自动伸缩](https://cloud.tencent.com/document/product/457/14209)。   
 4. 单击**创建Workload**，完成创建。如下图所示：
 当运行数量=期望数量时，即表示 Deployment 下的所有 Pod 已创建完成。
 ![](https://main.qcloudimg.com/raw/1ea9f4fe6d49a1651f5d0f0d9594d709.png)

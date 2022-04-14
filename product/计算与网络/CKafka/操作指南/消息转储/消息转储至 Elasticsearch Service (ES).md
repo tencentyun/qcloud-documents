@@ -64,7 +64,7 @@ def cleanData(data):
 ### 日志查看与排障
 
 CKafka 转储能力基于 SCF 实现，可在 [SCF 控制台](https://console.cloud.tencent.com/scf) 的日志中查询到相关转储的信息及转储状态。
-![](https://main.qcloudimg.com/raw/70f36ef4d426b6aae1ca30301514bf56.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/fc8d3a8468a0ade9cea7454441294ff6.png)
 
 ## 产品限制和费用计算
 

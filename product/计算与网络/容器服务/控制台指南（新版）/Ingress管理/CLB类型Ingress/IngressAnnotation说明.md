@@ -20,7 +20,7 @@ metadata:
 
    
 **说明：**
-配置 Ingress 类型。当前组件管理未配置该注解，或注解内容为 qcloud 的 Ingress 资源。 		 
+配置 Ingress 类型。当前组件管理未配置该注解，或注解内容为 qcloud 的 Ingress 资源。  		 
 
 **使用示例：**
 `kubernetes.io/ingress.class: "qcloud"`
@@ -52,11 +52,11 @@ metadata:
    
 **说明：**
 负载均衡的付费类型，当前仅在创建时支持配置，创建后不支持修改付费类型，创建后修改本注解无效。
-指定创建负载均衡时，负载均衡的付费类型。请配合 `kubernetes.io/ingress.internetMaxBandwidthOut` 注解一起使用。    
+指定创建负载均衡时，负载均衡的付费类型。请配合 `kubernetes.io/ingress.internetMaxBandwidthOut` 注解一起使用。     
 
 **可选值：**
-- TRAFFIC_POSTPAID_BY_HOUR 按流量按小时后计费。 
-- BANDWIDTH_POSTPAID_BY_HOUR 按带宽按小时后计费。      
+- TRAFFIC_POSTPAID_BY_HOUR 按流量按小时后计费。  
+- BANDWIDTH_POSTPAID_BY_HOUR 按带宽按小时后计费。       
    
 **使用示例：**
 `kubernetes.io/ingress.internetChargeType: "TRAFFIC_POSTPAID_BY_HOUR"`
@@ -82,7 +82,7 @@ CLB 带宽设置，当前仅在创建时支持配置，创建后不支持修改�
    
 **说明：**
 该 Annotation 使用的是 CLB 创建时的参数，当前仅在创建时支持配置，创建后不支持修改，创建后修改本注解无效。
-参考 [创建负载均衡实例](https://cloud.tencent.com/document/product/214/30692#4.-.E7.A4.BA.E4.BE.8B) 为创建负载均衡追加自定义参数。 		 
+参考 [创建负载均衡实例](https://cloud.tencent.com/document/product/214/30692#4.-.E7.A4.BA.E4.BE.8B) 为创建负载均衡追加自定义参数。  		 
 
 **使用示例：**
 - 创建 NAT64 IPv6 实例：
@@ -98,7 +98,7 @@ CLB 带宽设置，当前仅在创建时支持配置，创建后不支持修改�
 ### kubernetes.io/ingress.subnetId
    
 **说明：**
-指定创建内网类型的负载均衡，并指定负载均衡所属子网。 		 
+指定创建内网类型的负载均衡，并指定负载均衡所属子网。  		 
 
 **使用示例：**
 `kubernetes.io/ingress.subnetId: "subnet-3swgntkk"`
@@ -122,7 +122,7 @@ CLB 带宽设置，当前仅在创建时支持配置，创建后不支持修改�
 ### kubernetes.io/ingress.https-rules:
    
 **说明：**
-支持配置混合协议，支持转发路径同时在 HTTP 和 HTTPS 上进行转发。支持手动配置重定向规则。 	
+支持配置混合协议，支持转发路径同时在 HTTP 和 HTTPS 上进行转发。支持手动配置重定向规则。  	
 
 **使用示例：**
 使用方式详情见 [Ingress 混合使用 HTTP 及 HTTPS 协议](https://cloud.tencent.com/document/product/457/45693)。
@@ -131,7 +131,7 @@ CLB 带宽设置，当前仅在创建时支持配置，创建后不支持修改�
 ### ingress.cloud.tencent.com/direct-access
    
 **说明：**
-支持七层直连用户负载均衡。需要注意在各种不同的网络下，直连接入的服务依赖。 		 
+支持七层直连用户负载均衡。需要注意在各种不同的网络下，直连接入的服务依赖。  		 
 
 **使用示例：**
 使用方式详情见 [使用 LoadBalancer 直连 Pod 模式 Service](https://cloud.tencent.com/document/product/457/41897)。
@@ -140,7 +140,7 @@ CLB 带宽设置，当前仅在创建时支持配置，创建后不支持修改�
 ### ingress.cloud.tencent.com/tke-service-config
    
 **说明：**
-通过 tke-service-config 配置负载均衡相关配置，包括监听器、转发规则等。 		 
+通过 tke-service-config 配置负载均衡相关配置，包括监听器、转发规则等。  		 
 
 **使用示例：**
 `ingress.cloud.tencent.com/tke-service-config: "nginx-config"`，详情可参见 [Ingress 使用 TkeServiceConfig 配置 CLB](https://cloud.tencent.com/document/product/457/45700)。
@@ -149,7 +149,7 @@ CLB 带宽设置，当前仅在创建时支持配置，创建后不支持修改�
 ### ingress.cloud.tencent.com/tke-service-config-auto
    
 **说明：**
-通过该注解可自动创建 TkeServiceConfig 资源，并提供配置的模板，用户可以按需进行配置。 		
+通过该注解可自动创建 TkeServiceConfig 资源，并提供配置的模板，用户可以按需进行配置。  		
 
 **使用示例：**
 `ingress.cloud.tencent.com/tke-service-config-auto: "true"`，详情可参见 [Ingress 使用 TkeServiceConfig 配置 CLB](https://cloud.tencent.com/document/product/457/45700)。
@@ -168,7 +168,7 @@ CLB 带宽设置，当前仅在创建时支持配置，创建后不支持修改�
 ### ingress.cloud.tencent.com/auto-rewrite
    
 **说明：**
-为 HTTP 端口提供自动重定向能力，所有在 HTTPS 端口声明的转发规则都会创建对应的重定向规则。需要配合 `ingress.cloud.tencent.com/rewrite-support` 注解开启重定向的管理能力。 		 
+为 HTTP 端口提供自动重定向能力，所有在 HTTPS 端口声明的转发规则都会创建对应的重定向规则。需要配合 `ingress.cloud.tencent.com/rewrite-support` 注解开启重定向的管理能力。  		 
 
 **使用示例：**
 `ingress.cloud.tencent.com/auto-rewrite: "true"`
@@ -177,7 +177,7 @@ CLB 带宽设置，当前仅在创建时支持配置，创建后不支持修改�
 ### ingress.cloud.tencent.com/cross-region-id
    
 **说明：**
-Ingress 跨域绑定功能，指定需要从哪个地域接入。需要和 `kubernetes.io/ingress.existLbId`或`ingress.cloud.tencent.com/cross-vpc-id` 配合使用。 		 
+Ingress 跨域绑定功能，指定需要从哪个地域接入。需要和 `kubernetes.io/ingress.existLbId`或`ingress.cloud.tencent.com/cross-vpc-id` 配合使用。  		 
 
 **使用示例：**
 - 创建异地接入的负载均衡：
@@ -205,7 +205,7 @@ Ingress 跨域绑定功能，指定需要接入的 VPC。可以和 `ingress.clou
 ### ingress.cloud.tencent.com/enable-grace-shutdown
    
 **说明：**
-支持 CLB 直连模式的优雅停机。 		 
+支持 CLB 直连模式的优雅停机。  		 
 
 **使用示例：**
 仅在直连模式下支持，需要配合使用 `ingress.cloud.tencent.com/direct-access`，使用方式详情见 [Ingress 优雅停机](https://cloud.tencent.com/document/product/457/60065)。
