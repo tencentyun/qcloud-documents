@@ -77,7 +77,7 @@ CosConfig 涉及的参数如下：
 
 > ? 如果配置了 Callback，停止结束后，云函数将以 POST 方式将返回数据传递给回调地址。
 
-Files 数组中每一项为 JSON Object，如下：
+Files 数组中每一项为 JSON Object，如下： 
 
 | 参数名称   | 类型   | 必选 | 描述                                                  |
 | :--------- | :----- | :--- | :---------------------------------------------------- |
@@ -91,22 +91,22 @@ Files 数组中每一项为 JSON Object，如下：
 ### 创建云函数[](id:step01)
 
 1. 登录云函数控制台，选择左侧导航栏中的 **[函数服务](https://console.cloud.tencent.com/scf/list)**。
-2. 在“函数服务”页面上方选择**广州**地域，并单击**新建**进入新建函数页面，根据页面相关信息提示进行配置。如下图所示：
+2. 在“函数服务”页面上方选择**广州**地域，并单击**新建**进入新建函数页面，根据页面相关信息提示进行配置。如下图所示： 
 ![](https://main.qcloudimg.com/raw/41ef23af4980d5cbabb3a4ebbc5a6844.png)
    - **创建方式**：选择**模板创建**。
    - **模糊搜索**：输入“TRTC”进行搜索，选择**混流音视频录制**。
      单击模板中的**查看详情**，即可在弹出的“模板详情”窗口中查看相关信息，支持下载操作。
-3. 单击**下一步**，根据页面相关信息提示进行配置。如下图所示：
+3. 单击**下一步**，根据页面相关信息提示进行配置。如下图所示： 
 ![](https://main.qcloudimg.com/raw/2a53656f693218b1365b744cb888b22e.png)
  - **函数名称**：默认填充。
  - **异步执行**：勾选以开启。开启后，函数将以异步执行模式响应事件，事件调用无需阻塞等待处理结果，事件将在被调用后进入异步执行状态。
  - **状态追踪**：勾选以开启。开启后，针对异步执行的事件，将开始记录响应事件的实时状态，并提供事件的统计、查询及终止服务，产生的事件状态数据将为您保留3天。
  - **执行超时时间**：可根据需要自行修改。
  - **运行角色**：默认使用 **SCF_ExecuteRole** 作为运行角色，并授予 **QcloudCOSFullAccess**、**QcloudCFSFullAccess** 访问权限。
-4. 配置 API 网关触发器，默认新建 API 服务，不开启集成响应。您也可以选择自定义创建，自定义创建时确保集成响应关闭。如下图所示：
+4. 配置 API 网关触发器，默认新建 API 服务，不开启集成响应。您也可以选择自定义创建，自定义创建时确保集成响应关闭。如下图所示： 
 ![img](https://main.qcloudimg.com/raw/3a198dac7c94d6712da1f250ef6b074c.png)
 5. 单击**完成**即可完成函数创建和 API 网关触发器创建。
-6. 如需使用 [CFS 挂载能力](https://cloud.tencent.com/document/product/583/46199)，由于 CFS 只能私有网络访问，因此必须将云函数的 VPC 配置在与 CFS 在同一个私有网络下。如下图所示：
+6. 如需使用 [CFS 挂载能力](https://cloud.tencent.com/document/product/583/46199)，由于 CFS 只能私有网络访问，因此必须将云函数的 VPC 配置在与 CFS 在同一个私有网络下。如下图所示： 
 ![](https://main.qcloudimg.com/raw/75ad7754e5b2ecb02186118d96c94ffc.png)
 > ?启用 CFS，需要将环境变量 CFS_PATH 设置为本地目录，例如 `/mnt/audio/`。
 
@@ -123,7 +123,7 @@ Files 数组中每一项为 JSON Object，如下：
 ### 测试函数功能[](id:step03)
 
 1. 参考 [跑通Demo(桌面浏览器)](https://cloud.tencent.com/document/product/647/32398)，用户user_00001与user_00002进入一个 TRTC 房间。
-2. 使用 Postman 构造 HTTP 请求。其中 roomId 为已创建 TRTC 应用的房间号，userId 为随机另一个用户 ID（必须唯一）。如下图所示：
+2. 使用 Postman 构造 HTTP 请求。其中 roomId 为已创建 TRTC 应用的房间号，userId 为随机另一个用户 ID（必须唯一）。如下图所示： 
 ```
 {
       "SdkAppId": 1400000000, 
@@ -140,14 +140,14 @@ Files 数组中每一项为 JSON Object，如下：
       "Callback":"https:xxxxxxxx.com/post/xxx"    	
 }
 ```
-如下图所示：    
+如下图所示：     
 ![](https://main.qcloudimg.com/raw/16eb02ddacdfd704364fad85a2edf7e0.png)
-3. 请求发送后会收到异步函数响应 “Async run task submitted”，此函数的 RequestId 会通过 HTTP 头部信息中的 x-scf-reqid 返回。如下图所示：
+3. 请求发送后会收到异步函数响应 “Async run task submitted”，此函数的 RequestId 会通过 HTTP 头部信息中的 x-scf-reqid 返回。如下图所示： 
 ![](https://main.qcloudimg.com/raw/2659951b64f7bd81fe29bdd700fa6590.png)
 4. 在云函数控制台 **[函数服务](https://console.cloud.tencent.com/scf/list)**页面中，单击上述 [创建云函数](#step01) 步骤中创建的云函数名称，进入“函数详情”页面。
-5. 在“函数详情”页面中选择**日志查询**页签，可以查看到打印出的录制日志信息。如下图所示：
+5. 在“函数详情”页面中选择**日志查询**页签，可以查看到打印出的录制日志信息。如下图所示： 
 ![](https://main.qcloudimg.com/raw/4cd729825588e0c245f884fc81ecc43c.png)
-6. 切换至 [实时音视频控制台](https://console.cloud.tencent.com/trtc/monitor)，在“监控仪表盘”页面单击房间 ID，查看所有在房间中的用户，其中一个观众即为录制观众。如下图所示：
+6. 切换至 [实时音视频控制台](https://console.cloud.tencent.com/trtc/monitor)，在“监控仪表盘”页面单击房间 ID，查看所有在房间中的用户，其中一个观众即为录制观众。如下图所示： 
 ![](https://main.qcloudimg.com/raw/6b1535b24bb97c8eb9517ccd868d467e.png)
 7. 如需在录制过程中停止录制，可以调用 [移除用户](https://cloud.tencent.com/document/api/647/40496) 或者 [移除用户（字符串房间号）](https://cloud.tencent.com/document/product/647/50426) 将用户提出房间。
 

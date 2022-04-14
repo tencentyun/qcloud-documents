@@ -60,5 +60,5 @@ $ scf deploy
 
 ### 领取代金券
 
-完成上述步骤后，即可前往 [SCF 控制台](https://console.cloud.tencent.com/scf/index?rid=16) 概览页顶部领取代金券。如下图所示：
+完成上述步骤后，即可前往 [SCF 控制台](https://console.cloud.tencent.com/scf/index?rid=16) 概览页顶部领取代金券。如下图所示： 
 ![](https://main.qcloudimg.com/raw/31d5f34e82a7c8ff743c134641c3a296.png)
