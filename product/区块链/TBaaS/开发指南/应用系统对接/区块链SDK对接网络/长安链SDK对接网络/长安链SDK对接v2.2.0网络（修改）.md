@@ -12,7 +12,7 @@
   - **wasm**、**evm**：目录，为 SDK 调用合约示例代码。
   - **rust-fact.wasm**：文件，Rust 存证合约示例代码编译后字节码，可根据 [智能合约开发（Rust）](https://cloud.tencent.com/document/product/663/72540) 指南编译得到，通过 TBaaS 控制台上传该文件可部署该合约。
   - **token.abi**：文件，Solidity 合约示例代码编译后字节码，可根据 [智能合约开发（Solidity）](https://cloud.tencent.com/document/product/663/72542) 指南编译得到，通过 TBaaS 控制台上传该文件可部署该合约。
-  - **token.bin**：文件，Solidity 合约示例代码编译后 abi 文件。。
+  - **token.bin**：文件，Solidity 合约示例代码编译后 abi 文件。
   - **token.sol**：文件，Solidity 合约示例代码。
 - **chainmaker-sdk-go**：目录，存放长安链 Go 版本 SDK 源代码。
 - **chainmaker-pb-go**：目录，存放长安链 pb-go 库源代码。
