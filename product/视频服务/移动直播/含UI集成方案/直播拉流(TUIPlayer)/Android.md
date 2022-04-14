@@ -5,17 +5,15 @@
 ## 组件集成
 [](id:model.step1)
 ### 步骤一：下载并导入 TUIPlayer 组件
-- 单击进入 [**Github**](https://github.com/tencentyun/XiaoZhiBo) ，选择克隆或者下载小直播工程代码；
-
-- 拷贝 Android/tuiplayer 、Android/tuibarrage、Android/tuigift 等文件夹到您的工程中；
-
-- 在 `setting.gradle` 中完成导入，参考如下：
+1. 单击进入 [**Github**](https://github.com/tencentyun/XiaoZhiBo) ，选择克隆或者下载小直播工程代码。
+2. 拷贝 Android/tuiplayer 、Android/tuibarrage、Android/tuigift 等文件夹到您的工程中。
+3. 在 `setting.gradle` 中完成导入，参考如下：
 ```
 include ':tuiplayer'
 include ':tuibarrage' 
 include ':tuigift' 
 ```
-- 在 `app` 的 `build.gradle` 文件中添加对 `tuiplayer` 等moudle的依赖：
+4. 在 `app` 的 `build.gradle` 文件中添加对 `tuiplayer` 等 moudle 的依赖：
 ```
 api project(':tuiplayer')
 api project(':tuibarrage')
@@ -65,7 +63,7 @@ mTUIPlayerView.stopPlay();
 	如果您未开通腾讯云直播相关服务，请先按照如下步骤开通相关服务并完成SDK鉴权：
 	-   [开通云直播服务](https://console.cloud.tencent.com/live/livestat) 
 	-   [创建应用并绑定 License](https://console.cloud.tencent.com/live/license) ，并记录下 `LICENSEURL`、`LICENSEURLKEY` 等关键信息。
-	- 按照如下方式，完成SDK 推流鉴权：
+	- 按照如下方式，完成 SDK 推流鉴权：
 ```java
 V2TXLivePremier.setLicence(this, "您的LICENSEURL", "您的LICENSEURLKEY");
 ```
@@ -98,9 +96,8 @@ TUILogin.login("您的userId", "您的userSig", new V2TIMCallback() {
 	- **SECRETKEY**： 即服务开通中记录到的 **SECRETKEY（密钥）**。
 	- **userId**：当前用户的 ID，字符串类型，长度不超过32字节，不支持使用特殊字符，建议使用英文或数字，可结合业务实际账号体系自行设置。
 	- **userSig**：根据 SDKAppId、userId，Secretkey 等信息计算得到的安全保护签名，您可以单击 [这里](https://console.cloud.tencent.com/trtc/usersigtool) 直接在线生成一个调试的 UserSig，也可以参照我们的 [示例工程](https://github.com/tencentyun/XiaoZhiBo/blob/main/Android/debug/src/main/java/com/tencent/liteav/debug/GenerateGlobalConfig.java#L118) 自行计算，更多信息见 [如何计算及使用 UserSig](https://cloud.tencent.com/document/product/454/14548) 。
-
 4. **开始&停止连麦**
-在TUIPlayer 组件内部已经封装好了连麦功能，完成上述步骤后，即可单击**连麦**按钮发起&停止连麦，如您需要修改连麦 icon 或显示位置，详情请参见 [连麦按钮](https://github.com/tencentyun/XiaoZhiBo/tree/main/Android/tuiplayer/src/main/res/layout/tuiplayer_container_view.xml#L42) 文件。
+在 TUIPlayer 组件内部已经封装好了连麦功能，完成上述步骤后，即可单击**连麦**按钮发起&停止连麦，如您需要修改连麦 icon 或显示位置，详情请参见 [连麦按钮](https://github.com/tencentyun/XiaoZhiBo/tree/main/Android/tuiplayer/src/main/res/layout/tuiplayer_container_view.xml#L42) 文件。
 
 
 
