@@ -11,7 +11,7 @@
 - Ingress Annotation 中的 `qcloud_cert_id` 是只读的，可快速了解当前 Ingress 对应的证书 ID。
 - Secret 证书资源必须和 Ingress 资源放置在同一个 Namespace 下。
 - 由于控制台默认会创建同名 Secret 证书资源，若 Secret 资源已存在，Ingress 将无法创建。
-- 默认情况下，容器服务中的 Ingress 不会复用 Secret 资源。但 Secret 证书资源被允许复用于 Ingress ，需注意更新 Secret 的同时，会使所有 Ingress 的证书得到更新。 
+- 默认情况下，容器服务中的 Ingress 不会复用 Secret 资源。但 Secret 证书资源被允许复用于 Ingress ，需注意更新 Secret 的同时，会使所有 Ingress 的证书得到更新。  
 
 ## 操作步骤
 

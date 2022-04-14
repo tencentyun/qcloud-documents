@@ -49,7 +49,7 @@
 <td>be</td>
 <td>Best Effort</td>
 <td>争抢模式</td>
-<td>默认值。各个 Pods 不限制算力，只要卡上有剩余算力就可使用。 如果一共启动 N 个 Pods，每个 Pod 负载都很重，则最终结果就是 1/N 的算力。</td>
+<td>默认值。各个 Pods 不限制算力，只要卡上有剩余算力就可使用。  如果一共启动 N 个 Pods，每个 Pod 负载都很重，则最终结果就是 1/N 的算力。</td>
 </tr>
 <tr>
 <td>fixed-share</td>

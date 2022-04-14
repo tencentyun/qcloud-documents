@@ -99,8 +99,8 @@ pod 'BeautySettingKit', :path => 'BeautySettingKit/BeautySettingKit.podspec'
 pod 'UGCKit', :path => 'UGCKit/UGCKit.podspec', :subspecs => ["UGC"]   #subspecs 根据SDK来选择
 ```
 	5. 执行 **pod install**，并打开 `项目名.xcworkspace`，可以看到在 `Pods/Development Pods` 目录下已有 `UGCKit BeautySettingKit`。
-2. **导入商业版资源（仅用于商业版）**：
-将商业版 SDK ZIP 包中 EnterprisePITU（在 `App/AppCommon` 目录下）文件夹拖动到工程中，选择 **Create groups** 并勾选您的 Target，单击 **Finish**。
+2. **导入企业版资源（仅用于企业版）**：
+将企业版 SDK ZIP 包中 EnterprisePITU（在 `App/AppCommon` 目录下）文件夹拖动到工程中，选择 **Create groups** 并勾选您的 Target，单击 **Finish**。
 
 
 ### 步骤2：使用 UGCKit

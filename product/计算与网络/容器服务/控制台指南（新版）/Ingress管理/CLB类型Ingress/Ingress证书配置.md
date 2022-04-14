@@ -18,7 +18,7 @@
 
 
 ## 示例
-TKE 支持通过 Ingress 中的 `spec.tls` 的字段，为 Ingress 创建的 CLB HTTPS 监听器配置证书。其中，secretName 为包含腾讯云证书 ID 的 Kubernetes Secret 资源。 示例如下：
+TKE 支持通过 Ingress 中的 `spec.tls` 的字段，为 Ingress 创建的 CLB HTTPS 监听器配置证书。其中，secretName 为包含腾讯云证书 ID 的 Kubernetes Secret 资源。  示例如下：
 #### Ingress
 ```yaml
 spec:
@@ -57,7 +57,7 @@ spec:
     tls:
     - secretName: secret-tls
 ```
-- 支持配置一级泛域名统配。 示例如下：
+- 支持配置一级泛域名统配。  示例如下：
 ```yaml
 spec:
     tls: 
@@ -65,7 +65,7 @@ spec:
       - '*.abc.com'
       secretName: secret-tls
 ```
--  若同时配置证书与泛域名证书，将优先选择一个证书。 示例如下，`www.abc.com` 将会使用 `secret-tls-2` 中描述的证书。
+-  若同时配置证书与泛域名证书，将优先选择一个证书。  示例如下，`www.abc.com` 将会使用 `secret-tls-2` 中描述的证书。
 ```yaml
 spec:
     tls: 

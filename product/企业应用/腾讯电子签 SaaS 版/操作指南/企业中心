@@ -1,0 +1,33 @@
+## 企业信息
+### 企业信息查看
+企业员工登录电子签控制台，进入**企业中心** > **企业信息**，可查看企业名称、超管信息、认证时间，电子签账号等信息。
+![](https://qcloudimg.tencent-cloud.cn/raw/0be27577cf392628df7ef49c0d5938a2.png)
+
+
+
+## 扩展服务
+### 企业静默签服务
+#### 步骤1：开通静默签
+1. 企业超级管理员和法定代表人登录电子签控制台，进入**企业中心** > **扩展服务**，单击**开通**即可进行静默签开通操作。
+![](https://qcloudimg.tencent-cloud.cn/raw/1a8c842fb13b0f0e9b5f0d3a5d68d041.png)
+2. 邀请超管完成扫码，完成后即可开通静默签 。
+![](https://qcloudimg.tencent-cloud.cn/raw/736ac9d56a37ba72d064221da8f2dcaf.png)
+
+#### 步骤2：权限分配给员工
+1. 进入**企业中心** > **扩展服务**，单击**权限管理**。
+![](https://qcloudimg.tencent-cloud.cn/raw/c22b5cf8596074b2f45a2755d2719861.png)
+2. 跳转至静默签权限的配置页面，单击**添加授权**。
+![](https://qcloudimg.tencent-cloud.cn/raw/da7bc924bce84a38ec79b1c6b82faf3d.png)
+3. 选择员工，单击**确认**添加，即可完成静默签的授权。
+![](https://qcloudimg.tencent-cloud.cn/raw/83d8cb63f59ab6a61c310e3c8b9928e8.jpg)
+
+### API密钥查询
+通过小程序注册的企业，单击**查询密钥**，即可查看对应企业的API密钥信息。
+![](https://qcloudimg.tencent-cloud.cn/raw/4fb53db5faceefdec8ece4d76d8ebb2d.png)
+<dx-alert infotype="notice" title="">
+- API 密钥是构建腾讯云 API 请求的重要凭证，请妥善保管；
+- 查询密钥过程中，可能需要通过短信验证码进行安全校验，如您不是该手机号所有人，请与企业超级管理员联系；
+- 此入口当前仅小程序注册的企业可见，电脑端注册企业的API密钥查看方式详参 [访问密钥](https://cloud.tencent.com/document/product/598/40487) 文档。
+</dx-alert>
+
+

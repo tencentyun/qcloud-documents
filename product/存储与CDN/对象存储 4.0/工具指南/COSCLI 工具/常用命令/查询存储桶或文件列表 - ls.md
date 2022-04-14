@@ -6,7 +6,9 @@ ls 命令用于查询所有存储桶列表、查询存储桶下的文件列表�
 ./coscli ls [cos://bucketAlias[/prefix/]] [flag]
 ```
 
->? 有关 bucketAlias 的说明，请参见 [配置](https://cloud.tencent.com/document/product/436/63144#alias)。
+>? 
+>- 有关 bucketAlias 的说明，请参见 [下载与安装配置](https://cloud.tencent.com/document/product/436/63144#alias)。
+>- 关于此命令的其他通用选项（例如切换存储桶、切换用户账号等），请参见 [通用选项](https://cloud.tencent.com/document/product/436/71763) 文档。
 >
 
 ls 命令包含以下可选参数：
@@ -20,7 +22,6 @@ ls 命令包含以下可选 flag：
 
 | flag 简写 | flag 全称   | flag 用途                            |
 | --------- | ----------- | ------------------------------------ |
-| -h        | --help      | 输出帮助信息                         |
 |     无      | --include   | 包含特定模式的文件                   |
 |     无       | --exclude   | 排除特定模式的文件                   |
 | -r        | --recursive | 是否递归地遍历文件夹，并列出所有文件 |

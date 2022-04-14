@@ -9,7 +9,7 @@
 GRANT RELOAD, LOCK TABLES, REPLICATION CLIENT, REPLICATION SLAVE, SELECT, SHOW VIEW, PROCESS 
 ON *.* TO '迁移帐号'@'%' 
 IDENTIFIED BY '迁移密码';
-GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '迁移帐号'@'%'; //如果源端为腾讯云数据库需要授予`__tencentdb__`权限
+GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '迁移帐号'@'%'; 
 FLUSH PRIVILEGES;
 ```
 - 需要在目标端 TDSQL PostgreSQL版 或 TDSQL-A PostgreSQL版 实例中创建迁移帐号，需要的帐号权限包括：`DELETE`、`TRUNCATE`、`INSERT`、`REFERENCES`、`SELECT`、`UPDATE`、`TRIGGER`，获取权限的方式如下：
@@ -92,13 +92,13 @@ ON ALL TABLES IN SCHEMA schema_name TO user_name（迁移账号）;
 ## 操作步骤
 本文介绍的同步功能相关事项既适应于 TDSQL PostgreSQL版，也适应于 TDSQL-A PostgreSQL版，现以 TDSQL-A PostgreSQL版 为例对操作步骤进行说明。
 
-1. 登录 [数据同步购买页](https://buy.cloud.tencent.com/dts)，选择相应配置，单击**立即购买**。
-  - 计费模式：支持“包年包月”和“按量计费”模式，当前阶段免费，后续计费会通过邮件和站内信方式提前1个月通知用户。
+1. 登录 [数据同步购买页](https://buy.cloud.tencent.com/replication)，选择相应配置，单击**立即购买**。
+  - 计费模式：支持“包年包月”和“按量计费”模式。
   - 源实例类型：目前仅支持 MySQL。
   - 源实例地域：选择后不支持再次修改，请选择源实例所在的地域。
   - 目标实例类型：支持 TDSQL PostgreSQL版、TDSQL-A PostgreSQL版。
   - 目标实例地域：选择后不支持再次修改，请选择目标实例所在的地域。
-  - 同步任务规格：目前只支持标准版。
+  - 规格：目前只支持标准版。
 2. 确认弹出对话框中的信息，确认无误后，单击**立即购买**，返回数据同步列表，可看到刚创建的数据同步任务，刚创建的同步任务需要进行配置后才可以使用。
 ![](https://main.qcloudimg.com/raw/a04a3a73d5c7f60db8322d4ab191943c.png)
 3. 在 [数据同步列表](https://console.cloud.tencent.com/dts/replication)，单击**操作**列的**配置**，进入配置同步任务页面。
@@ -134,7 +134,7 @@ ON ALL TABLES IN SCHEMA schema_name TO user_name（迁移账号）;
 >
 ![](https://main.qcloudimg.com/raw/f2f695b6642285d3310dca726ae92418.png)
 6. 在校验任务页面，完成校验并全部校验项通过后，单击**启动任务**。
-如果校验任务不通过，可以参考 [校验不通过处理方法](https://cloud.tencent.com/document/product/571/58685) 修复问题后重新发起校验任务。
+如果校验任务不通过，可以参考 [校验不通过处理方法](https://cloud.tencent.com/document/product/571/61639) 修复问题后重新发起校验任务。
  - 失败：表示校验项检查未通过，任务阻断，需要修复问题后重新执行校验任务。
  - 警告：表示检验项检查不完全符合要求，可以继续任务，但对业务有一定的影响，用户需要根据提示自行评估是忽略警告项还是修复问题再继续。
 ![](https://main.qcloudimg.com/raw/ab3e60e1bc90a11c9529458281615b6b.png)

@@ -8,7 +8,7 @@ DDoS 高防 IP （境外企业版）支持通过配置 IP 黑名单和白名单�
 
 
 ## 操作步骤
-1.	登录 [DDoS 高防 IP（境外企业版）](https://console.cloud.tencent.com/ddos/ddos-basic) 控制台 ，在左侧导航中，单击 **DDOS 高防 IP**>**防护配置** > **DDoS 防护**。
+1. 登录 [DDoS 高防 IP（境外企业版）](https://console.cloud.tencent.com/ddos/antiddos-advanced/config/port) 控制台 ，在左侧导航中，单击 **DDOS 高防 IP** > **防护配置** > **DDoS 防护**。
 2.	在左边的列表选中高防 IP 的 ID，如“xxx.xx.xx.xx bgpip-000003n2”。
 ![](https://qcloudimg.tencent-cloud.cn/raw/8522d4bfe3d8ebcc14c11a6403ab22d6.png)
 3. 在 IP 黑白名单卡片中，单击**设置**。

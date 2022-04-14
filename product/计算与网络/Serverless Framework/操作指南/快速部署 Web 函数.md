@@ -11,7 +11,7 @@ Serverless Framework SCF 组件现已支持 Web 类型函数部署，您可以�
 ```sh
 sls init http-demo
 ```
-2. 进入示例项目，查看目录结构。示例如下：
+2. 进入示例项目，查看目录结构。示例如下： 
 ```
 . http-demo
 ├── serverless.yml  # 配置文件
@@ -56,7 +56,7 @@ inputs:
               method: ANY
 :::
 </dx-codeblock>
-4. 在根目录下执行 `sls deploy` 命令，即可完成服务部署。示例如下：
+4. 在根目录下执行 `sls deploy` 命令，即可完成服务部署。示例如下： 
 ```shell
 $ sls deploy
 serverless ⚡components
@@ -99,7 +99,7 @@ triggers:
 
 ### 查看访问日志
 
-与事件型函数相同，可直接通过 `sls log` 命令查看部署完成的函数最近10条日志信息。示例如下：
+与事件型函数相同，可直接通过 `sls log` 命令查看部署完成的函数最近10条日志信息。示例如下： 
 ```sh
 $ sls log
 serverless ⚡components

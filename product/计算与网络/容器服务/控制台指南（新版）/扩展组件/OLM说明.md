@@ -11,11 +11,11 @@ OLM 由两个 Operator 构成：OLM Operator 和 Catalog Operator，其分别管
 
 | 资名称                | 简称   | 所属 Operator | 描述                                                         |
 | --------------------- | ------ | ------------- | ------------------------------------------------------------ |
-| ClusterServiceVersion | csv    | OLM           | 业务应用元数据，包括应用名称、版本、图标、依赖资源、安装方式等。 |
-| InstallPlan           | ip     | Catalog       | 计算自动安装或升级 CSV 过程中需要创建的资源集。              |
-| CatalogSource         | catsrc | Catalog       | 用于定义应用的 CSVs、CRDs、安装包的仓库。                    |
-| Subscription          | sub    | Catalog       | 通过跟踪安装包中的 channel 保证 CSVs 的版本更新。            |
-| OperatorGroup         | og     | OLM           | 用于 Operators 安装过程中的多租户配置，可以定义一组目标 namespaces 指定创建Operators 所需的 RBAC 等资源配置。 |
+| ClusterServiceVersion | csv    | OLM           | 业务应用元数据，包括应用名称、版本、图标、依赖资源、安装方式等。  |
+| InstallPlan           | ip     | Catalog       | 计算自动安装或升级 CSV 过程中需要创建的资源集。               |
+| CatalogSource         | catsrc | Catalog       | 用于定义应用的 CSVs、CRDs、安装包的仓库。                     |
+| Subscription          | sub    | Catalog       | 通过跟踪安装包中的 channel 保证 CSVs 的版本更新。             |
+| OperatorGroup         | og     | OLM           | 用于 Operators 安装过程中的多租户配置，可以定义一组目标 namespaces 指定创建Operators 所需的 RBAC 等资源配置。  |
 
 - 在 Operator 安装管理生命周期中的 Deployment、Serviceaccount、RBAC 相关的角色和角色绑定通过 OLM operator 创建。Catalog Operator 负责 CRDs 和 CSVs 等资源的创建。
 - OLM Operator 的工作基于 ClusterServiceVersion，一旦 CSV 中声明的依赖资源在目标集群中注册成功，OLM Operator 将负责安装这些资源对应的应用实例。

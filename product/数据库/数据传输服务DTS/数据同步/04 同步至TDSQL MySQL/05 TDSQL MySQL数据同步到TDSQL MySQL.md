@@ -3,8 +3,7 @@
 如下场景的同步要求与 TDSQL MySQL 到 TDSQL MySQL 的同步要求一致，可参考本场景相关内容。
 - TDSQL MySQL 到腾讯云数据库 MariaDB 的数据同步
 - TDSQL MySQL 到腾讯云数据库 MySQL 的数据同步 
-- MariaDB 到 TDSQL MySQL的数据同步
-- MySQL 到 TDSQL MySQL 的数据同步
+- MySQL/MariaDB/Percona 到 TDSQL MySQL 的数据同步（源数据库类型为自建或者腾讯云 MySQL、自建或者腾讯云 MariaDB、自建 Percona）
 >?如需体验本章节中 TDSQL MySQL 的同步功能，请先 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行申请。
 >
 
@@ -20,7 +19,7 @@
 - 需要具备源数据库的权限如下：
 ```sql
 GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SELECT ON *.* TO '迁移帐号'@'%' IDENTIFIED BY '迁移密码';
-GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '迁移帐号'@'%'; //如果源端为腾讯云数据库需要授予`__tencentdb__`权限
+GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '迁移帐号'@'%'; 
 FLUSH PRIVILEGES;
 ```
 - 需要具备目标数据库的权限：ALTER, ALTER ROUTINE, CREATE, CREATE ROUTINE, CREATE TEMPORARY TABLES, CREATE USER, CREATE VIEW, DELETE, DROP, EVENT, EXECUTE, INDEX, INSERT, LOCK TABLES, PROCESS, REFERENCES, RELOAD, SELECT, SHOW DATABASES, SHOW VIEW, TRIGGER, UPDATE。
@@ -32,10 +31,11 @@ FLUSH PRIVILEGES;
 - 相互关联的数据对象需要同时同步，否则会导致同步失败。
 - 增量同步过程中，若源库存在分布式事务或者产生了类型为 `STATEMENT` 格式的 Binlog 语句，则会导致同步失败。
 - 不支持同步 [二级分区](https://cloud.tencent.com/document/product/557/58907) 表，如果同步的库表中包含二级分区表，则任务会报错暂停。
- - TDSQL MySQL（MariaDB）作为源或者目标库时，不支持双向同步。
- - TDSQL 同步功能为了提高增量阶段的同步速度，采用了行级并发策略。因此在增量同步过程中，可能会在极短的时间内在目标库观察到事务的中间值，但最终源库和目标库数据会保持一致。 
+- TDSQL MySQL（MariaDB）作为源或者目标库时，不支持双向同步。
+- TDSQL 同步功能为了提高增量阶段的同步速度，采用了行级并发策略。因此在增量同步过程中，可能会在极短的时间内在目标库观察到事务的中间值，但最终源库和目标库数据会保持一致。 
 - 目前主键冲突处理策略只支持冲突覆盖，对于增量阶段的主键数据冲突，会直接进行冲突覆盖。但对于全量数据初始化阶段的冲突，任务会报错。
-- 当前不支持 geometry 相关的数据类型。
+- 不支持同时包含 DML 和 DDL 语句在一个事务的场景，遇到该情况任务会报错。
+- 不支持 Geometry 相关的数据类型，遇到该类型数据任务报错。
 
 ## 操作限制
 同步过程中请勿进行如下操作，否则会导致同步任务失败。
@@ -93,21 +93,21 @@ FLUSH PRIVILEGES;
 </table>
 
 ## 操作步骤
-1. 登录 [数据同步购买页](https://buy.cloud.tencent.com/dts)，选择相应配置，单击**立即购买**。
+1. 登录 [数据同步购买页](https://buy.cloud.tencent.com/replication)，选择相应配置，单击**立即购买**。
 <table>
 <thead><tr><th>参数</th><th>描述</th></tr></thead>
 <tbody><tr>
-<td>计费模式</td><td>支持包年包月和按量计费。目前免费，将来开始计费前1个月会通过邮件和站内信方式提前通知用户。</td></tr>
+<td>计费模式</td><td>支持包年包月和按量计费。</td></tr>
 <tr>
-<td>源实例类型</td><td>选择 TDSQL MySQL。</td></tr>
+<td>源实例类型</td><td>选择 TDSQL MySQL，购买后不可修改。</td></tr>
 <tr>
-<td>源实例地域</td><td>选择源实例所在地域。</td></tr>
+<td>源实例地域</td><td>选择源实例所在地域，购买后不可修改。</td></tr>
 <tr>
-<td>目的实例类型</td><td>选择 TDSQL MySQL。</td></tr>
+<td>目标实例类型</td><td>选择 TDSQL MySQL，购买后不可修改。</td></tr>
 <tr>
-<td>目的实例地域</td><td>选择目的实例所在地域。</td></tr>
+<td>目标实例地域</td><td>选择目的实例所在地域，购买后不可修改。</td></tr>
 <tr>
-<td>同步任务规格</td><td>目前只支持标准版。</td></tr>
+<td>规格</td><td>目前只支持标准版。</td></tr>
 </tbody></table>
 2. 购买完成后，返回 [数据同步列表](https://console.cloud.tencent.com/dts/replication)，可看到刚创建的数据同步任务，刚创建的同步任务需要进行配置后才可以使用。
 3. 在数据同步列表，单击**操作**列的**配置**，进入配置同步任务页面。
@@ -187,7 +187,7 @@ FLUSH PRIVILEGES;
 <td>已选对象</td><td>展示已选择的同步对象，支持库表映射。</td></tr>
 </tbody></table>
 6. 在校验任务页面，完成校验并全部校验项通过后，单击**启动任务**。
-    如果校验任务不通过，可以参考 [校验不通过处理方法](https://cloud.tencent.com/document/product/571/58685) 修复问题后重新发起校验任务。
+    如果校验任务不通过，可以参考 [校验不通过处理方法](https://cloud.tencent.com/document/product/571/61639) 修复问题后重新发起校验任务。
  - 失败：表示校验项检查未通过，任务阻断，需要修复问题后重新执行校验任务。
  - 警告：表示检验项检查不完全符合要求，可以继续任务，但对业务有一定的影响，用户需要根据提示自行评估是忽略警告项还是修复问题再继续。
 ![](https://qcloudimg.tencent-cloud.cn/raw/99e53691dc68b1a987424a3a91ada555.png)

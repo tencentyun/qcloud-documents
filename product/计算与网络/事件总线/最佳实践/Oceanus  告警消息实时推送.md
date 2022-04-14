@@ -15,7 +15,7 @@
 ## 操作步骤
 1. 登录 [事件总线控制台](https://console.cloud.tencent.com/eb)。
 2. 在**事件规则**中，单击**新建事件规则**。
-3. 在**新建事件规则** > **事件模式**页，配置告警规则。 
+3. 在**新建事件规则** > **事件模式**页，配置告警规则。  
 	本文以**流计算 Oceanus TaskManager CPU 负载过高**事件告警配置为例，如下图所示。您可以选择指定的事件告警类型，也可以选择全部告警事件。详细事件匹配规则请参见 [管理事件规则](https://cloud.tencent.com/document/product/1359/56084)。
 ![](https://qcloudimg.tencent-cloud.cn/raw/09bdc07ae0ff38fd4e3b0296aa049e7d.png)
 4. 在**新建事件规则** > **事件目标**页，配置推送目标。

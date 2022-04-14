@@ -18,20 +18,11 @@
 - 已完成 [准备工作](https://cloud.tencent.com/document/product/571/59968)。
 - 需要您在源端 TDSQL MySQL 中提前创建好数据库：`__tencentdb__`。
 - 需要具备源数据库的权限。
-  - “整个实例”迁移，需要的帐号权限如下：
 ```
 CREATE USER '迁移帐号'@'%' IDENTIFIED BY '迁移密码';  
-GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO '迁移帐号'@'%';  
-GRANT INSERT, UPDATE, DELETE, DROP, SELECT, INDEX, ALTER, CREATE ON `__tencentdb__`.* TO '迁移帐号'@'%'; //如果源端为腾讯云数据库需要授予`__tencentdb__`权限
-GRANT SELECT ON *.* TO '迁移帐号';
-```
-  - “指定对象”迁移，需要的帐号权限如下：
-```
-CREATE USER '迁移帐号'@'%' IDENTIFIED BY '迁移密码';  
-GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO '迁移帐号'@'%';  
-GRANT INSERT, UPDATE, DELETE, DROP, SELECT, INDEX, ALTER, CREATE ON `__tencentdb__`.* TO '迁移帐号'@'%'; //如果源端为腾讯云数据库需要授予`__tencentdb__`权限
-GRANT SELECT ON `mysql`.* TO '迁移帐号'@'%';
-GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
+GRANT SELECT,RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO '迁移帐号'@'%';  
+//源端若为腾讯云 MariaDB 数据库，需要提交工单进行 RELOAD 授权，其他场景请用户参照代码授权
+GRANT INSERT, UPDATE, DELETE, DROP, SELECT, INDEX, ALTER, CREATE ON `__tencentdb__`.* TO '迁移帐号'@'%';
 ```
 - 需要具备目标数据库的权限：ALTER, ALTER ROUTINE, CREATE, CREATE ROUTINE, CREATE TEMPORARY TABLES, CREATE USER, CREATE VIEW, DELETE, DROP, EVENT, EXECUTE, INDEX, INSERT, LOCK TABLES, PROCESS, REFERENCES, RELOAD, SELECT, SHOW DATABASES, SHOW VIEW, TRIGGER, UPDATE。
 
@@ -45,7 +36,8 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 - 不支持迁移 [二级分区](https://cloud.tencent.com/document/product/557/58907) 表。
    - TDSQL MySQL 迁移到 MySQL/MariaDB，遇到二级分区表的迁移，任务报错。
    - TDSQL MySQL 迁移到 TDSQL MySQL，如果迁移的库表中包含二级分区表，存量数据会跳过二级分区表的迁移；如果选择整库或全实例迁移，增量过程中遇到二级分区表任务报错暂停。
-- 当前不支持 geometry 相关的数据类型。
+- 不支持同时包含 DML 和 DDL 语句在一个事务的场景，遇到该情况任务会报错。
+- 不支持 Geometry 相关的数据类型，遇到该类型数据任务报错。
 
 ## 操作限制
 - 迁移过程中请勿进行如下操作，否则会导致迁移任务失败。
@@ -106,7 +98,25 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 
 ## 操作步骤
 1. 登录 [DTS 控制台](https://console.cloud.tencent.com/dts/migration)，在左侧导航选择**数据迁移**页，单击**新建迁移任务**，进入新建迁移任务页面。
-2. 在新建迁移任务页面，选择迁移的目标实例所属地域，单击**0元购买**，目前 DTS 数据迁移功能免费使用。
+2. 在新建迁移任务页面，选择迁移的源实例类型和所属地域，目标实例类型和所属地域，规格等，然后单击**立即购买**。
+<table>
+<thead><tr><th>配置项</th><th>说明</th></tr></thead>
+<tbody><tr>
+<td>源实例类型</td>
+<td>请根据您的源数据库类型选择，购买后不可修改。本场景选择“TDSQL MySQL”。</td></tr>
+<tr>
+<td>源实例地域</td>
+<td>选择源数据库所属地域。</td></tr>
+<tr>
+<td>目标实例类型</td>
+<td>请根据您的目标数据库类型选择，购买后不可修改。本场景选择“TDSQL MySQL”。</td></tr>
+<tr>
+<td>目标实例地域</td>
+<td>选择目标数据库所属地域。</td></tr>
+<tr>
+<td>规格</td>
+<td>根据业务情况选择迁移链路的规格，不同规格的性能和计费详情请参考 <a href="https://cloud.tencent.com/document/product/571/18736">计费概述</a>。</td></tr>
+</tbody></table>
 3. 在设置源和目标数据库页面，完成任务设置、源库设置和目标库设置，测试源库和目标库连通性通过后，单击**新建**。
 >?如果连通性测试失败，请根据提示和 [修复指导](https://cloud.tencent.com/document/product/571/58685) 进行排查和解决，然后再次重试。
 <table>
@@ -123,30 +133,30 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 <td>标签用于从不同维度对资源分类管理。如现有标签不符合您的要求，请前往控制台管理标签。</td></tr>
 <tr>
 <td rowspan=6>源库设置</td>
-<td>源库类型</td><td>选择“TDSQL MySQL 版”。</td></tr>
+<td>源库类型</td><td>购买时选择的源库类型，不可修改。</td></tr>
+<tr>
+<td>所属地域</td><td>购买时选择的源库地域，不可修改。</td></tr>
 <tr>
 <td>接入类型</td><td>选择“云数据库”。</td></tr>
-<tr>
-<td>所属地域</td><td>选择源库所属地域。</td></tr>
 <tr>
 <td>数据库实例</td><td>选择源数据库实例 ID。</td></tr>
 <tr>
-<td>帐号</td><td>源库 TDSQL MySQL 版的数据库帐号，帐号权限需要满足要求。</td></tr>
+<td>帐号</td><td>源库 TDSQL MySQL 的数据库帐号，帐号权限需要满足要求。</td></tr>
 <tr>
-<td>密码</td><td>源库 TDSQL MySQL 版的数据库帐号的密码。</td></tr>
+<td>密码</td><td>源库 TDSQL MySQL 的数据库帐号的密码。</td></tr>
 <tr>
 <td rowspan=6>目标库设置</td>
-<td>目标库类型</td><td>选择“TDSQL MySQL 版”。</td></tr>
+<td>目标库类型</td><td>购买时选择的目标库类型，不可修改。</td></tr>
+<tr>
+<td>所属地域</td><td>购买时选择的目标库地域，不可修改。</td></tr>
 <tr>
 <td>接入类型</td><td>选择“云数据库”。</td></tr>
 <tr>
-<td>所属地域</td><td>选择目标库所属地域。</td></tr>
+<td>数据库实例</td><td>选择目标端 TDSQL MySQL 实例 ID。</td></tr>
 <tr>
-<td>数据库实例</td><td>选择目标端 TDSQL MySQL 版实例 ID。</td></tr>
+<td>帐号</td><td>目标端 TDSQL MySQL 的数据库帐号，帐号权限需要满足要求。</td></tr>
 <tr>
-<td>帐号</td><td>目标端 TDSQL MySQL 版的数据库帐号，帐号权限需要满足要求。</td></tr>
-<tr>
-<td>密码</td><td>目标端 TDSQL MySQL 版的数据库帐号的密码。</td></tr>
+<td>密码</td><td>目标端 TDSQL MySQL 的数据库帐号的密码。</td></tr>
 </tbody></table>
 4. 在设置迁移选项及选择迁移对象页面，设置迁移类型、对象，单击**保存**。
 > ?

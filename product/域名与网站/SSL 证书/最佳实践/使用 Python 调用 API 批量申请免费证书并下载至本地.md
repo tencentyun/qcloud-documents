@@ -3,28 +3,30 @@
 
 ## 前提条件
 - 子用户创建并授权云 API 与 SSL 证书全部权限。
-- 已安装 Python 版本3.6+。
-
+- 已安装 Python 版本最新版本，如需安装，请前往 [Python 官网](https://www.python.org/downloads/) 进行下载。
+- 已安装 PyCharm 版本最新版本，如需安装，请前往 [PyCharm 官网](http://www.jetbrains.com/pycharm/download/#section=windows) 进行下载。
 >!
 >- 为了保障您的账户以及云上资产的安全，请谨慎保管 SecretId 与 SecretKey 并定期更新。
 >- 创建子账号请参考 [创建子账号并授权](https://cloud.tencent.com/document/product/598/54458)。
 
 ## 操作步骤
-1. 打开命令提示符，查看 Python 版本如下：
+1. 打开命令提示符，查看 Python 版本。命令行如下：
 ```
-python3 -V
+python -V
 ```
-2. 升级 pip，并通过 pip 安装腾讯云 Python SDK。
+2. 查看 Python 目前已经安装的第三方模块，命令行如下：
 ```
-python -m pip install --upgrade pip
+pip list
+```
+![](https://qcloudimg.tencent-cloud.cn/raw/a9e6874edf016baa7f88f52352222dcb.png)
+>!例如缺少 requests，可通过 `pip install requests` 安装该模块。
+>
+3. 通过 pip 安装腾讯云 Python SDK。命令行如下：
+```
 pip install -i https://mirrors.tencent.com/pypi/simple/ --upgrade tencentcloud-sdk-python
 ```
-3. 前往 [Github 仓库](https://github.com/tencentcloud/tencentcloud-sdk-python) 或者 [Gitee 仓库](https://gitee.com/tencentcloud/tencentcloud-sdk-python) 下载最新代码，并进行解压。
-```
-cd tencentcloud-sdk-python
-python setup.py install
-```
-3. 进入 tencentcloud-sdk-python/tencentcloud/ssl/__init__.py 目录下，添加以下代码并执行。
+3. 前往 [Github 仓库](https://github.com/tencentcloud/tencentcloud-sdk-python) 或者 [Gitee 仓库](https://gitee.com/tencentcloud/tencentcloud-sdk-python) 下载最新代码至本地，并进行解压。
+4. 打开 PyCharm，导入最新的代码文件，进入 `tencentcloud-sdk-python/tencentcloud/ssl` 目录下并创建新的 Python 文件，例如 `apply.py`。添加以下代码并执行。
 ```
 import json,base64
 from time import time,sleep
@@ -35,6 +37,7 @@ from tencentcloud.common.exception.tencent_cloud_sdk_exception import TencentClo
 from tencentcloud.ssl.v20191205 import ssl_client, models
 
 start = time()
+#SecretId 请填写您的 API 密钥ID，SecretKey 请填写您的 API 密钥KEY
 cred = credential.Credential("SecretId", "SecretKey")
 httpProfile = HttpProfile()
 httpProfile.endpoint = "ssl.tencentcloudapi.com"
@@ -42,7 +45,7 @@ clientProfile = ClientProfile()
 clientProfile.httpProfile = httpProfile
 domain_name = []
 while True:
-    domain = input('要申请证书的域名：')
+    domain = input('要申请证书的域名：')#输入您需要申请的证书绑定的域名，如不需要继续申请，请直接按回车键
     if domain == '':
         break
     else:
@@ -98,3 +101,9 @@ for i in range(len(domain_name)):
 end = time()
 print('本次代码执行共耗时：', round(end - start, 2), 's')
 ```
+
+## 结果展示
+1. 申请批量证书。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/2f22c8fa894171964bbcf0ea1310c716.png)
+2. 下载证书内容。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/6d9750da93dea520efef6d4eec90b51e.png)

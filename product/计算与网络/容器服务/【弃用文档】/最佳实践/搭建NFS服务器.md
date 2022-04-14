@@ -1,6 +1,6 @@
 本文档主要介绍利用容器搭建 NFS 服务来共享 [CBS 云硬盘](https://cloud.tencent.com/document/product/362/2345) 的方法。
 
-NFS 是 Network File System 的简写，即网络文件系统。 通过使用 NFS ，用户和程序可以像访问本地文件一样访问远端系统上的文件。
+NFS 是 Network File System 的简写，即网络文件系统。  通过使用 NFS ，用户和程序可以像访问本地文件一样访问远端系统上的文件。
 
 ### 前提条件
 如果您还未创建集群，您需要先创建集群。有关如何创建集群的详细信息，参见 [新建集群](https://cloud.tencent.com/document/product/457/9091)。

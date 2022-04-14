@@ -57,9 +57,10 @@ iOS SDK 接入请观看视频：
    + QCloudSDK.framework
    + CoreTelephony.framework
    + libWXVoiceSpeex.a
-
+   + libc++.tbd
 添加完如图所示。
 ![](https://main.qcloudimg.com/raw/17ff6f4f4a27e0843de528eb070c2f32.png)
+4. **在 Build Settings 下的 other Linker Flags 中不能有 -all_load。**
 
 ### 类说明
 

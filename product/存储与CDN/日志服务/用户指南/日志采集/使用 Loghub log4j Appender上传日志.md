@@ -88,7 +88,7 @@ log4j.appender.loghubAppender.retries=10
 #该参数越大能让您追溯更多的信息，但同时也会消耗更多的内存。
 log4j.appender.loghubAppender.maxReservedAttempts=11
 #首次重试的退避时间，默认为 100 毫秒。
-#Producer 采样指数退避算法，第 N 次重试的计划等待时间为 baseRetryBackoffMs * 2^(N-1)。
+#Producer 采用指数退避算法，第 N 次重试的计划等待时间为 baseRetryBackoffMs * 2^(N-1)。
 log4j.appender.loghubAppender.baseRetryBackoffMs=100
 #重试的最大退避时间，默认为 50 秒。
 log4j.appender.loghubAppender.maxRetryBackoffMs=50000
