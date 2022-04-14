@@ -7,11 +7,9 @@
 
 ### 步骤一：下载并导入 TUIPusher 组件
 
-- 单击进入 [**Github**](https://github.com/tencentyun/XiaoZhiBo) ，选择克隆或者下载小直播工程代码；
-
-- 拷贝 Android/tuipusher 、Android/tuiaudioeffect、Android/tuibeauty、Android/tuibarrage、Android/tuigift 等文件夹到您的工程中；
-
-- 在 `setting.gradle` 中完成导入，参考如下：
+1. 单击进入 [**Github**](https://github.com/tencentyun/XiaoZhiBo) ，选择克隆或者下载小直播工程代码。
+2. 拷贝 Android/tuipusher 、Android/tuiaudioeffect、Android/tuibeauty、Android/tuibarrage、Android/tuigift 等文件夹到您的工程中。
+3. 在 `setting.gradle` 中完成导入，参考如下：
 ```
 include ':tuipusher'
 include ':tuiaudioeffect'
@@ -19,7 +17,7 @@ include ':tuibeauty'
 include ':tuibarrage' 
 include ':tuigift' 
 ```
-- 在 `app` 的 `build.gradle` 文件中添加对 `tuipusher` 等moudle的依赖：
+4. 在 `app` 的 `build.gradle` 文件中添加对 `tuipusher` 等 moudle 的依赖：
 ```
 api project(':tuipusher')
 api project(':tuiaudioeffect')
@@ -95,7 +93,6 @@ mTUIPusherView.setTUIPusherViewListener(new TUIPusherViewListener() {
 	-  **SECRETKEY**： 即服务开通中记录到的 **SECRETKEY（密钥）**。
 	-  **userId**：当前用户的 ID，字符串类型，长度不超过32字节，不支持使用特殊字符，建议使用英文或数字，可结合业务实际账号体系自行设置。
 	-  **userSig**：根据 SDKAppId、userId，SECRETKEY 等信息计算得到的安全保护签名，您可以单击 [这里](https://console.cloud.tencent.com/trtc/usersigtool) 直接在线生成一个调试的 UserSig，也可以参照我们的 [示例工程](https://github.com/tencentyun/XiaoZhiBo/blob/main/Android/debug/src/main/java/com/tencent/liteav/debug/GenerateGlobalConfig.java#L118) 自行计算，更多信息请参见 [如何计算及使用 UserSig](https://cloud.tencent.com/document/product/454/14548)。
-
 3. **开始推流**
 基于 `RTC` 协议的推流 `URL` 的生成，可以参考 [示例工程](https://github.com/tencentyun/XiaoZhiBo/blob/main/Android/app/src/main/java/com/tencent/liteav/demo/utils/URLUtils.java#L33) 中封装好的 Utils 方法，基本示例如下，具体参数信息请参见 [推拉流 URL](https://cloud.tencent.com/document/product/454/7915)。
 ```java
