@@ -46,12 +46,12 @@ func main() { // sdk 代码中，有且仅有一个 main() 方法
 }
 ```
 
-### 对链暴露方法写法为
+### 对链暴露方法写法
 
 - //export method_name
 - func  method_name(): 不可带参数，无返回值
-- 例如：对链暴露 init_contract 函数
 
+例如：对链暴露 init_contract 函数。
 ```go
 //export init_contract
 func init_contract() {
@@ -59,8 +59,7 @@ func init_contract() {
 }
 ```
 
-### 其中 init_contract、upgrade 方法必须有且对外暴露
-
+其中 init_contract、upgrade 方法必须有且对外暴露。示例如下：
 - init_contract：创建合约会执行该方法
 - upgrade： 升级合约会执行该方法
 
@@ -77,78 +76,16 @@ func upgrade() {
 
 ## 智能合约示例
 
-### 存证合约示例，实现功能
+### 存证合约示例
 
-1、存储文件哈希、文件名称、时间和该交易的 ID。
+1. 存储文件哈希、文件名称、时间和该交易的 ID。
+2. 通过文件哈希查询该条记录。
+不同版本的长安链网络在合约 API 上略有差别，可以从区块链网络概览页右下角的**网络配置信息**中查看版本，并查看对应版本的合约示例。如下图所示：
+![](https://main.qcloudimg.com/raw/e4e4d83849297385f09a7846cab9ee81.png)
+ - 长安链 v1.2.0 版本网络的 GO 存证合约示例请参见 [长安链 v1.2.0 GO 存证合约示例](https://docs.chainmaker.org.cn/v1.2.0/html/dev/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6.html#id17)。
+ - 长安链 v2.2.0 版本网络的 GO 存证合约示例请参见 [长安链 v2.2.0 GO 存证合约示例](https://docs.chainmaker.org.cn/v2.2.0_alpha/html/operation/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6.html#id17)。
 
-2、通过文件哈希查询该条记录
 
-```go
-package main
-
-// 安装合约时会执行此方法，必须
-//export init_contract
-func init_contract() {
-    // 安装时的业务逻辑，可为空
-
-}
-// 升级合约时会执行此方法，必须
-//export upgrade
-func upgrade() {
-    // 升级时的业务逻辑，可为空
-
-}
-
-//export save
-func save() {
-	// 获取参数
-	txId, _ := GetTxId()
-	time, _ := Arg("time")
-	fileHash, _ := Arg("file_hash")
-	fileName, _ := Arg("file_name")
-
-	// 组装
-	stone := make(map[string]string,4)
-	stone["txId"]=txId
-	stone["time"]=time
-	stone["fileHash"]=fileHash
-	stone["fileName"]=fileName
-
-	// 序列化为 json bytes
-	bytes,err := Marshal(stone)
-	if err!=nil {
-		LogMessage("marshal fail")
-		ErrorResult("save fail. marshal fail")
-		return
-	}
-
-	// 存储数据
-	PutState("fact", fileHash, string(bytes))
-	// 返回结果
-	SuccessResult("ok")
-}
-
-//export find_by_file_hash
-func findByFileHash() {
-	// 获取参数
-	fileHash, _ := Arg("file_hash")
-	// 查询
-	if result, resultCode := GetState("fact", fileHash); resultCode != SUCCESS {
-		// 返回结果
-		ErrorResult("failed to call get_state.")
-	} else {
-		// 记录日志
-		LogMessage("get val:" + result)
-		// 返回结果
-		SuccessResult(result)
-	}
-}
-
-func main() {
-
-}
-
-```
 
 ### 存证合约代码说明
 
