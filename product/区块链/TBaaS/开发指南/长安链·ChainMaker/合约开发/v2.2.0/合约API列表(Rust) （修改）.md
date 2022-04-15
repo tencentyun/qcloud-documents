@@ -1,6 +1,6 @@
-ChainMake Rust 语言版本智能合约有丰富的 API 接口，供用户在撰写智能合约的时候与链进行交互，代码实现详情可以参考[API 接口代码实现](https://docs.chainmaker.org.cn/v2.2.0_alpha/html/operation/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6.html#rust)。
+ChainMake Rust 语言版本智能合约有丰富的 API 接口，供用户在撰写智能合约的时候与链进行交互，代码实现详情可以参考 [API 接口代码实现](https://docs.chainmaker.org.cn/v2.2.0_alpha/html/operation/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6.html#rust)。
 
-从逻辑方面划分，可将API划分为以下类型：
+从逻辑方面划分，可将 API 划分为以下类型：
 
 [](id:informationExtraction)
 
@@ -41,7 +41,7 @@ ChainMake Rust 语言版本智能合约有丰富的 API 接口，供用户在撰
 <td>获取交易发起者公钥</td>
 </tr>
 <tr>
-<td>get_block_height(&self) -> i32 </td>
+<td>get_block_height(&self) -> u64 </td>
 <td>获取当前区块高度</td>
 </tr>
 </tbody></table>
@@ -103,11 +103,11 @@ ChainMake Rust 语言版本智能合约有丰富的 API 接口，供用户在撰
 </tr>
 </thead>
 <tbody><tr>
-<td>arg(&self, key: &str) -> Result<String, String></td>
+<td>args(&self) -> &EasyCodec</td>
 <td>该接口调用 getArgsMap() 接口，把 json 格式的数据反序列化，并将解析出的数据返还给用户。</td>
 </tr>
 <tr>
-<td>arg_default_blank(&self, key: &str) -> String;</td>
+<td>arg(&self, key: &str) -> Result<Vec<u8>, String></td>
 <td>该接口可返回属性名为 “key” 的参数的属性值。</td>
 </tr>
 </tbody></table>
