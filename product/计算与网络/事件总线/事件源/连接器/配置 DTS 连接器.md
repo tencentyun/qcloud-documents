@@ -57,7 +57,7 @@ DTS 连接器接收处理后的事件格式如下：
 ### DDL 操作示例
 ```JSON
  {
-   "id":"38cecd93-a9c2-11ec-b952-043f72d8da53:16",
+   "id":"38cecd93-a9c2-11ec-b952-******d8da53:16",
    "type":"dts:MYSQL:INSERT",
    "specversion":"1.0",
    "source":"dts.cloud.tencent",
@@ -144,7 +144,7 @@ DTS 连接器接收处理后的事件格式如下：
          "serverId":109741,
          "fileName":"mysql-bin.000005",
          "position":2234587,
-         "gtid":"38cecd93-a9c2-11ec-b952-043f72d8da53:16",
+         "gtid":"38cecd93-a9c2-11ec-b952-******d8da53:16",
          "schemaName":"dts",
          "tableName":"dts_mysql",
          "seqId":16017,
@@ -159,7 +159,7 @@ DTS 连接器接收处理后的事件格式如下：
 ### DML 操作示例
 ```JSON
 {
-   "id":"38cecd93-a9c2-11ec-b952-043f72d8da53:19",
+   "id":"38cecd93-a9c2-11ec-b952-******8da53:19",
    "type":"dts:MYSQL:DDL",
    "specversion":"1.0",
    "source":"dts.cloud.tencent",
@@ -186,7 +186,7 @@ DTS 连接器接收处理后的事件格式如下：
          "serverId":109741,
          "fileName":"mysql-bin.000005",
          "position":2235430,
-         "gtid":"38cecd93-a9c2-11ec-b952-043f72d8da53:19",
+         "gtid":"38cecd93-a9c2-11ec-b952-******d8da53:19",
          "seqId":16087,
          "isLast":true
       },
@@ -200,11 +200,11 @@ DTS 连接器接收处理后的事件格式如下：
 
 | **参数**            | **描述**                                                         |
 | ---------------- | ------------------------------------------------------------ |
-| id            | 事件 ID，EB 自动生成，每条事件在 EB 内的唯一标识。     |
-| type | 事件类型，三段式形式，对 dts 连接器，格式为`dts:${数据库类型}:${操作类型}` 。               |
-| specversion   | Cloudevents 版本，默认 1.0，EB 自动生成。   |
-| source            | 事件来源，对 dts 连接器，统一为`dts.cloud.tencent`。          |
-| subject          | 事件产生具体实例，对 dts 连接器，为数据订阅绑定的数据库实例 ID。       |
+| id            | 事件 ID，EB 自动生成，每条事件在 EB 内的唯一标识。      |
+| type | 事件类型，三段式形式，对 dts 连接器，格式为`dts:${数据库类型}:${操作类型}` 。                |
+| specversion   | Cloudevents 版本，默认 1.0，EB 自动生成。    |
+| source            | 事件来源，对 dts 连接器，统一为`dts.cloud.tencent`。           |
+| subject          | 事件产生具体实例，对 dts 连接器，为数据订阅绑定的数据库实例 ID。        |
 |time|事件投递到 EB 的时间。|
 |region|事件产生地域。|
 |tags|资源标签。|

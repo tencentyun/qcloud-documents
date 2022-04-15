@@ -15,13 +15,13 @@
 
 1. 登录 [Serverless 控制台](https://console.cloud.tencent.com/scf/index?rid=1)，单击左侧导航栏的**函数服务**。
 2. 在主界面上方选择期望创建函数的地域，并单击**新建**，进入函数创建流程。
-3. 选择使用**模板创建**来新建函数，在搜索框里输入 `Django` 选择 **Django 框架模板**并单击**下一步**。如下图所示：
+3. 选择使用**模板创建**来新建函数，在搜索框里输入 `Django` 选择 **Django 框架模板**并单击**下一步**。如下图所示： 
 ![](https://main.qcloudimg.com/raw/d714890cf3c19a01aee574be4720678c.png)
 4. 在**新建**页面，您可以查看模板项目的具体配置信息并进行修改。
 5. 单击**完成**即可创建函数。函数创建完成后，您可在**函数管理**页面查看 Web 函数的基本信息。
-6. 您可以通过 API 网关生成的访问路径 URL，访问您部署的 Django 项目。单击左侧菜单栏中的**触发管理**，查看访问路径。如下图所示：
+6. 您可以通过 API 网关生成的访问路径 URL，访问您部署的 Django 项目。单击左侧菜单栏中的**触发管理**，查看访问路径。如下图所示： 
 ![](https://main.qcloudimg.com/raw/0f11b58bdcff56598230144bb6b7be1b.png)
-7. 单击访问路径 URL，即可访问服务 Django 项目。如下图所示：
+7. 单击访问路径 URL，即可访问服务 Django 项目。如下图所示： 
 ![](https://main.qcloudimg.com/raw/ed52f5307da4bc7c06a939edbc84ab54.png)
 
 
@@ -58,7 +58,7 @@ Starting development server at http://127.0.0.1:8000/
 Quit the server with CONTROL-C.
 :::
 </dx-codeblock>
-4. 打开浏览器访问 `http://127.0.0.1:8000`，即可在本地完成 Django 示例项目的访问。如下图所示：
+4. 打开浏览器访问 `http://127.0.0.1:8000`，即可在本地完成 Django 示例项目的访问。如下图所示： 
 ![](https://main.qcloudimg.com/raw/a09696d7d24c719ecb2f276c4bba93ce.png)
 
 
@@ -101,7 +101,7 @@ chmod 777 scf_bootstrap
 
 5. 登录 [Serverless 控制台](https://console.cloud.tencent.com/scf/index?rid=1)，单击左侧导航栏的**函数服务**。
 6. 在主界面上方选择期望创建函数的地域，并单击**新建**，进入函数创建流程。
-7. 选择**自定义创建**新建函数，根据页面提示配置相关选项。如下图所示：
+7. 选择**自定义创建**新建函数，根据页面提示配置相关选项。如下图所示： 
 ![](https://main.qcloudimg.com/raw/ab6e9b2544d07521e5010fcaee5c94dd.png)
 	- **函数类型**：选择 “Web 函数”。
 	- **函数名称**：填写您自己的函数名称。
@@ -112,5 +112,5 @@ chmod 777 scf_bootstrap
 
 
 #### 开发管理
-部署完成后，即可在 SCF 控制台快速访问并测试您的 Web 服务，并且体验云函数多项特色功能，例如层绑定、日志管理等，享受 Serverless 架构带来的低成本、弹性扩缩容等优势，如下图所示：
+部署完成后，即可在 SCF 控制台快速访问并测试您的 Web 服务，并且体验云函数多项特色功能，例如层绑定、日志管理等，享受 Serverless 架构带来的低成本、弹性扩缩容等优势，如下图所示： 
 ![](https://main.qcloudimg.com/raw/c87151ecbb2f7c7e7f2c6877a043eda6.png)

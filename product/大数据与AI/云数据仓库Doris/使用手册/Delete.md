@@ -31,7 +31,7 @@ Delete 语句的条件语句，所有删除语句都必须指定 WHERE 语句。
 >-  当选定的 `key` 列不存在某个 rollup 表内时，无法进行 delete。
 >-  条件语句中各个条件只能是 `and` 关系，如希望达成 `or` 可将条件分别写入两个 delete 语句中。
 >- 如果指定表为 RANGE 或者 LIST 分区表，则必须指定 `PARTITION`。如果是单分区表，可以不指定。
->- 不同于 Insert into 命令，delete 不能手动指定`label`。
+>- 不同于 Insert into 命令，delete 不能手动指定`label`，有关 label 的概念可以查看 [Insert Into文档](https://cloud.tencent.com/document/product/1387/70875)。
 ## 返回结果
 
 Delete 命令是一个 SQL 命令，返回结果是同步的，分为以下几种：

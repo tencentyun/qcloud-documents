@@ -25,7 +25,7 @@
 1. 下载 [博睿 Serverless 版探针](https://scf.bonree.com/download/last/bonree-serverless-agent.zip)。
 2. 登录云函数控制台，选择左侧菜单栏中的 **[层](https://console.cloud.tencent.com/scf/layer)**。
 3. 在“层”管理页面，单击**新建**。
-4. 在“新建层”页面，根据提示信息进行配置。如下图所示：
+4. 在“新建层”页面，根据提示信息进行配置。如下图所示： 
    ![](https://main.qcloudimg.com/raw/19b29b36a09d6adaf8ce55f7dfc9a599.jpg)
  - **层名称**：输入层名称。只能包含字母、数字、下划线、连字符，以字母开头，以数字或字母结尾，2 - 60个字符。
  - **提交方法**：选择**本地上传zip包**。
@@ -34,7 +34,7 @@
 5. 单击**确定**即可创建层。
 6. 选择左侧菜单栏中的**函数服务**，进入函数服务页面。
 7. 单击需要绑定层的函数名称，进入函数管理页面。
-8. 选择**层管理** > **绑定**，在绑定层窗口按照提示绑定上述步骤创建的层。如下图所示：
+8. 选择**层管理** > **绑定**，在绑定层窗口按照提示绑定上述步骤创建的层。如下图所示： 
    ![](https://main.qcloudimg.com/raw/635f496e58943f4cfa7fd5330d00b2bf.jpg)
 9. 单击**确定**即可完成探针的绑定。
 
@@ -66,7 +66,7 @@ except ImportError:
    pass
 :::
 </dx-codeblock>
-如下图所示：
+如下图所示： 
 ![](https://main.qcloudimg.com/raw/775d6e13f4112e166ba49c2ffa0862ad.png)
 :::
 </dx-tabs>
@@ -82,7 +82,7 @@ except ImportError:
 | BONREE_SMARTAGENT_SDK_PATH | /opt/bonree/apm/agent/c/serverless/lib/libagentsdk-x64-linux.so |
 | BONREE_APM_ACCOUNT_GUID    | 博睿账户 GUID                                                |
 
->?您可以在博睿 Server 产品的右上角找到 GUID 信息。如下图所示：
+>?您可以在博睿 Server 产品的右上角找到 GUID 信息。如下图所示： 
 >![](https://main.qcloudimg.com/raw/f54e2fcd2c4fec46c27f4814c11bb0f3.png)
 
 
@@ -166,11 +166,11 @@ sls deploy
 ### 使用博睿 Server 
 
 1. 登录 [博睿 Server 控制台](https://server.bonree.com/)，待数据上报至博睿。
-2. 在博睿 Server 控制台右上角中选择**<img src="https://main.qcloudimg.com/raw/3475d18df76f95b36d1cc5f3708494ac.jpg" width="2.5%">** > **部署状态**，进入部署状态页面查看已进行数据上报的函数。如下图所示：
+2. 在博睿 Server 控制台右上角中选择**<img src="https://main.qcloudimg.com/raw/3475d18df76f95b36d1cc5f3708494ac.jpg" width="2.5%">** > **部署状态**，进入部署状态页面查看已进行数据上报的函数。如下图所示： 
    ![](https://main.qcloudimg.com/raw/8ab20877d29235519da69df08861a95a.png)
-3. 将该函数关联一个应用，即可查看应用运行的情况。如下图所示：
+3. 将该函数关联一个应用，即可查看应用运行的情况。如下图所示： 
    ![](https://main.qcloudimg.com/raw/d4e13fba93cd83a752270817adfe18dc.png)
-4. 您可以将多个函数上报后关联至同一个应用，便可查看调用链路情况。如下图所示：
+4. 您可以将多个函数上报后关联至同一个应用，便可查看调用链路情况。如下图所示： 
    ![image-20210120212212888](https://main.qcloudimg.com/raw/af72b23295b1a9baed10e41f4f90fad1/image-20210120212212888.png)
 
 更多操作指导可以查看 [博睿 Server 产品文档](https://docs.qq.com/doc/DZkFPZURGU0xPR2VF)。

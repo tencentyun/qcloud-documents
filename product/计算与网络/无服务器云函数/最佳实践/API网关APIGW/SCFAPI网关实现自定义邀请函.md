@@ -7,7 +7,7 @@
 存储桶用于存储自定义生成的邀请函。具体步骤如下：
 1. 登录 [对象存储控制台](https://console.cloud.tencent.com/cos5/bucket)，选择左侧导航栏中的**存储桶列表**。
 2. 在“存储桶列表”页面中，单击**创建存储桶**。
-3. 在弹出的“创建存储桶”窗口中，参考以下信息进行创建。如下图所示：
+3. 在弹出的“创建存储桶”窗口中，参考以下信息进行创建。如下图所示： 
 ![](https://main.qcloudimg.com/raw/06122f00d2a36c15d4879c3f7b0de0f8.png)
 主要参数信息如下，其余参数请保持默认设置：
  - **名称**：自定义名称，本文以 test 为例。
@@ -15,7 +15,7 @@
  - **访问权限**：公有读私有写。
 4. 单击**确定**即可完成创建。
 5. 选择存储桶左侧的**安全管理**，在“跨域访问CORS设置”中单击**添加规则**。
-6. 在弹出的“跨域访问CORS添加规则”窗口中，参考以下信息添加规则。如下图所示：
+6. 在弹出的“跨域访问CORS添加规则”窗口中，参考以下信息添加规则。如下图所示： 
 ![](https://main.qcloudimg.com/raw/ab112ead265bc47682bdcab84689f7ed.png)
 主要参数信息如下，其余参数请保持默认设置：
  - **来源 Origin**：输入 <b>*</b>。
@@ -31,7 +31,7 @@
  - **模糊搜索**：输入“自定义邀请函”，并进行搜索。
 单击模板中的**查看详情**，即可在弹出的“模板详情”窗口中查看相关信息，支持下载操作。
 ![](https://main.qcloudimg.com/raw/4cbdd51f662632e5238d4ed0c93aeab7.png)
-4. 单击**下一步**，函数名称默认填充，可根据需要自行修改。按照引导在“基础配置”中填入该模板需要的环境变量对应的值，其他保持默认配置。如下图所示：
+4. 单击**下一步**，函数名称默认填充，可根据需要自行修改。按照引导在“基础配置”中填入该模板需要的环境变量对应的值，其他保持默认配置。如下图所示： 
 ![](https://main.qcloudimg.com/raw/6262658b1e578f0ba5a294441e1f70bd.png)
 环境变量填写可参考下表：
 ![](https://main.qcloudimg.com/raw/61022c3d9fcada70091530c25aedf7be.png)
@@ -58,7 +58,7 @@
 您可通过以下两种方式，进行邀请函生成：
 
 <dx-alert infotype="explain" title="">
-您可在**触发管理**页中获取 API 网关触发器访问路径，如下图所示：
+您可在**触发管理**页中获取 API 网关触发器访问路径，如下图所示： 
 ![](https://main.qcloudimg.com/raw/79db3e509fe3710d0da4ef7bd59b1418.png)
 </dx-alert>
 
@@ -75,7 +75,7 @@ https://testxxxx.com//邀请函-yun-ServerlessDays.jpg%
 ```
 
 #### 方式2
-1. 下载 [HTML 页面](https://github.com/tencentyun/scf-demo-repo/blob/master/Python2.7-Add_Text_To_Pictures/invitation.html)，并将链接修改为 API 网关触发器的链接。如下图所示：
+1. 下载 [HTML 页面](https://github.com/tencentyun/scf-demo-repo/blob/master/Python2.7-Add_Text_To_Pictures/invitation.html)，并将链接修改为 API 网关触发器的链接。如下图所示： 
 ![](https://main.qcloudimg.com/raw/9154ce1a3b16d2f9ee6cb8500d4eb3e4.png)
-2. 打开 HTML 页面，输入邀请嘉宾的名字，则可以生成海报，访问链接可直接下载海报。如下图所示：
+2. 打开 HTML 页面，输入邀请嘉宾的名字，则可以生成海报，访问链接可直接下载海报。如下图所示： 
 ![](https://main.qcloudimg.com/raw/8d9dcfffa6c095fb20f824eabfd23559.png)

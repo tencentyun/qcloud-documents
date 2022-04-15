@@ -140,7 +140,7 @@ $ zip demo.zip index.sh bootstrap
                - path: /
                  method: GET
 ```
->? SCF 组件的详细配置，请参见 [全量配置文档](https://github.com/serverless-components/tencent-scf/blob/master/docs/configure.md)。 
+>? SCF 组件的详细配置，请参见 [全量配置文档](https://github.com/serverless-components/tencent-scf/blob/master/docs/configure.md)。   
 >
 3. 执行 `sls deploy` 命令创建云函数，创建成功则返回结果如下：
 ```
@@ -236,8 +236,8 @@ except TencentCloudSDKException as err:
 
 | 参数类型 | 说明 | 
 |---------|---------|
-| `"Runtime":"CustomRuntime"` | Custom Runtime 对应的 runtime 类型。 |
-| `"InitTimeout":3` | 初始化超时时间。Custom Runtime 针对初始化阶段新增超时控制配置，时间区间以 bootstrap 启动为始，以上报运行时 API 就绪状态为止。超出后将终止执行并返回初始化超时错误。 |
+| `"Runtime":"CustomRuntime"` | Custom Runtime 对应的 runtime 类型。   |
+| `"InitTimeout":3` | 初始化超时时间。Custom Runtime 针对初始化阶段新增超时控制配置，时间区间以 bootstrap 启动为始，以上报运行时 API 就绪状态为止。超出后将终止执行并返回初始化超时错误。   |
 | `"Timeout":3` | 调用超时时间。事件调用的超时控制配置，时间区间以事件下发为始，以函数处理完成推送结果至运行时 API 为止。超出后将终止执行并返回调用超时错误。|
 
 
@@ -290,12 +290,12 @@ except TencentCloudSDKException as err:
 #### 创建函数
 1. 登录 [云函数控制台](https://console.cloud.tencent.com/scf)，单击左侧导航栏的**函数服务**。
 2. 在“函数服务”页面上方选择期望创建函数的地域，并单击**新建**，进入函数创建流程。
-3. 在“新建函数”页面填写函数基础信息，单击**下一步**。如下图所示：
+3. 在“新建函数”页面填写函数基础信息，单击**下一步**。如下图所示： 
 ![](https://main.qcloudimg.com/raw/963dcca09bc987d7ceaaa0a157e633f6.png)
     - **函数名称**：命名为 “CustomRuntime-Bash”。
     - **运行环境**：选择 “CustomRuntime”。
     - **创建方式**：选择 “空白函数”。
-4. 在“函数配置”页面中，对“提交方法”和“函数代码”进行配置。如下图所示：
+4. 在“函数配置”页面中，对“提交方法”和“函数代码”进行配置。如下图所示： 
 ![](https://main.qcloudimg.com/raw/d4d1a942bc082166872916d26605d988.png)
     - **提交方法**：选择“本地上传zip包”。
     - **函数代码**：选择打包好的 demo.zip。
@@ -305,10 +305,10 @@ except TencentCloudSDKException as err:
 #### 调用函数
 1. 登录 [云函数控制台](https://console.cloud.tencent.com/scf)，单击左侧导航栏的**函数服务**。
 2. 在“函数服务”页面上方选择期望调用函数的地域，并单击列表页中期望调用的函数，进入函数详情页面。
-3. 选择左侧**函数管理**，并在“函数管理”页面选择**函数代码**页签。如下图所示：
+3. 选择左侧**函数管理**，并在“函数管理”页面选择**函数代码**页签。如下图所示： 
 ![](https://main.qcloudimg.com/raw/7ba11b77d4198b2eddc98635114a7e48.png)
-4. 在“测试事件”的测试模板中选择“Hello World 事件模板”，并单击**测试**。如下图所示：
+4. 在“测试事件”的测试模板中选择“Hello World 事件模板”，并单击**测试**。如下图所示： 
 ![](https://main.qcloudimg.com/raw/1693c906f23e89e21716f6aed0da9f6e.png)
-    控制台右侧将展示出调用的执行结果及日志。如下图所示：
+    控制台右侧将展示出调用的执行结果及日志。如下图所示： 
 ![](https://main.qcloudimg.com/raw/6e8c639e89451a4ac302531659282d3f.png)
 

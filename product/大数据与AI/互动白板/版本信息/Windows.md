@@ -20,12 +20,14 @@
 - 功能优化
     1. 白板SDK升级
     2. 已知问题处理及优化
+
 ### 2.7.0.241 @ 2022-01-23
 * [单击下载 SDK](https://sdk.qcloudtiw.com/win32/sdk_bin_2.7.0.241.zip)
 
 - 功能优化
     1. 白板SDK升级
     2. 已知问题处理及优化
+
 ### 2.6.9.240 @ 2021-12-31
 * [单击下载 SDK](https://sdk.qcloudtiw.com/win32/sdk_bin_2.6.9.240.zip)
 
@@ -36,6 +38,7 @@
 - 功能优化
     1. 优化课件加载
     2. 截图功能在异常 dpr 中丢失几个像素的问题
+
 ### 2.6.8.236 @ 2021-12-13
 * [单击下载 SDK](https://sdk.qcloudtiw.com/win32/sdk_bin_2.6.8.236.zip)
 
@@ -97,6 +100,7 @@
 
 - Bug 修复
     若干已知问题修复
+
 ### 2.6.6.232 @ 2021-10-12
 * [单击下载 SDK](https://sdk.qcloudtiw.com/win32/sdk_bin_2.6.6.232.zip)
 

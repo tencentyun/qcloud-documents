@@ -7,7 +7,7 @@
 - 您可以根据企业组织架构，在已有的根 CA 下继续创建多个子 CA（例如，为企业内不同部门分别创建对应的子 CA）或者在私有子 CA 下购买证书，增加子 CA 可以签发的证书数量。
 
 ## 操作步骤
-1. 登录 SSL [证书私有 CA 管理控制台](https://console.cloud.tencent.com/private-ca)，选择您需要开启的私有子 CA，并单击**启用**。如下图所示：
+1. 登录 [SSL 证书私有 CA 管理控制台](https://console.cloud.tencent.com/private-ca)，选择您需要开启的私有子 CA，并单击**启用**。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/38532156e5cb79bb27907c32e960b5d7.png)
 2. 在创建根 CA 页面，配置根 CA 的信息。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/1b8053ae2c6d501f959f6c00407cd3d1.png)
@@ -57,7 +57,7 @@
 </table>
 3. 配置完成后，单击**确定**。
 4. 在弹出的提示框中，单击**确定**。如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/570e24d2f5d4c098a4fec7206b2e360d.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/4e67209eb962ccbbaf5c28039c9e8d63.png)
 
 ## 后续步骤
 您依次启用根 CA 和子 CA 后，可以通过已启用的子 CA 申请私有 SSL 证书。详情请参见 [申请私有证书](https://cloud.tencent.com/document/product/400/72334)。

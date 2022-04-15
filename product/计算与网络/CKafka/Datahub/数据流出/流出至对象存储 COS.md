@@ -58,7 +58,7 @@ Datahub 提供数据流出能力，您可以将 CKafka 数据分发至 COS 以�
 </table>
 
 
-   ![](https://qcloudimg.tencent-cloud.cn/raw/13c276a5ec2e173b6c0bf5a81c773ffe.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/45b306358b0341943a1e06738a4d85fb.png)
 
 
 ## 产品限制和费用计算

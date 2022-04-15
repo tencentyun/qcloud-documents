@@ -286,14 +286,14 @@ prepare to invoke a function!"Hello World form the function being invoked"
 
 | 参数名        | 是否必填 | 类型     | 描述                                                         |
 | ------------- | -------- | -------- | ------------------------------------------------------------ |
-| region        | 否       | `String` | 地域信息，默认与调用接口的函数所属地域相同，本地调用默认是广州。 |
-| secret_id     | 否       | `String` | 用户 SecretId， 默认是从云函数环境变量中获取，**本地调试必填**。 |
-| secret_key    | 否       | `String` | 用户 SecretKey， 默认是从云函数环境变量中获取，**本地调试必填**。 |
-| token         | 否       | `String` | 用户 token，默认从云函数环境变量中获取。                     |
-| function_name | 是       | `String` | 函数名称。                                                   |
-| qualifier     | 否       | `String` | 函数版本，默认为 $LATEST。                                   |
-| data          | 否       | `String` | 函数运行入参，必须可以被 json.dumps 的对象。                 |
-| namespace     | 否       | `String` | 命名空间，默认为 default。                                   |
+| region        | 否       | `String` | 地域信息，默认与调用接口的函数所属地域相同，本地调用默认是广州。   |
+| secret_id     | 否       | `String` | 用户 SecretId， 默认是从云函数环境变量中获取，**本地调试必填**。   |
+| secret_key    | 否       | `String` | 用户 SecretKey， 默认是从云函数环境变量中获取，**本地调试必填**。   |
+| token         | 否       | `String` | 用户 token，默认从云函数环境变量中获取。                       |
+| function_name | 是       | `String` | 函数名称。                                                     |
+| qualifier     | 否       | `String` | 函数版本，默认为 $LATEST。                                     |
+| data          | 否       | `String` | 函数运行入参，必须可以被 json.dumps 的对象。                   |
+| namespace     | 否       | `String` | 命名空间，默认为 default。                                     |
 
 [](id:TencentserverlessSDKException)
 

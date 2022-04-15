@@ -16,9 +16,9 @@ TkeServiceConfig 并不会帮您直接配置并修改协议和端口，您需要
   * `spec.loadBalancer.l4Listeners.port`：监听端口
 
 ## Service 与 TkeServiceConfig 关联行为
-1. 创建 Loadbalancer 模式 Service 时，设置注解 **service.cloud.tencent.com/tke-service-config-auto: "true"**，将自动创建 &lt;ServiceName&gt;-auto-service-config。 您也可以通过 **service.cloud.tencent.com/tke-service-config:&lt;config-name&gt;** 直接指定您自行创建的 TkeServiceConfig。两个注解不可同时使用。 
+1. 创建 Loadbalancer 模式 Service 时，设置注解 **service.cloud.tencent.com/tke-service-config-auto: "true"**，将自动创建 &lt;ServiceName&gt;-auto-service-config。  您也可以通过 **service.cloud.tencent.com/tke-service-config:&lt;config-name&gt;** 直接指定您自行创建的 TkeServiceConfig。两个注解不可同时使用。  
 2. 其中自动创建的 TkeServiceConfig 存在以下同步行为：
-  - 更新 Service 资源时，新增若干四层监听器时，如果该监听器或转发规则没有对应的 TkeServiceConfig 配置片段。 Service-Controller 将主动添加 TkeServiceConfig 对应片段。
+  - 更新 Service 资源时，新增若干四层监听器时，如果该监听器或转发规则没有对应的 TkeServiceConfig 配置片段。  Service-Controller 将主动添加 TkeServiceConfig 对应片段。
   - 删除若干四层监听器时，Service-controller 组件将主动删除 TkeServiceConfig 对应片段。
   - 删除 Service 资源时，联级删除该 TkeServiceConfig。
   - 用户修改 Service 默认的 TkeServiceConfig，TkeServiceConfig 内容同样会被应用到负载均衡。

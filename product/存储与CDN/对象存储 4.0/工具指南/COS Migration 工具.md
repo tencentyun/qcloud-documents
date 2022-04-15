@@ -324,7 +324,7 @@ COS 迁移工具是有状态的，已经迁移成功的会记录在 db 目录下
 
 1. 读取配置文件，根据迁移 type，读取相应的配置分节，并执行参数的检查。
 2. 根据指定的迁移类型，扫描对比 db 下对所要迁移文件的标识，判断是否允许上传。
-3. 迁移执行过程中会打印执行结果，其中 inprogress 表示迁移中，skip 表示跳过，fail 表示失败，ok 表示成功， condition_not_match 表示因为表示因不满足迁移条件而跳过的文件（如 lastmodifed 和 excludes）。失败的详细信息可以在 log 的 error 日志中查看。执行过程示意图如下图所示：
+3. 迁移执行过程中会打印执行结果，其中 inprogress 表示迁移中，skip 表示跳过，fail 表示失败，ok 表示成功， condition_not_match 表示因不满足迁移条件而跳过的文件（如 lastmodifed 和 excludes）。失败的详细信息可以在 log 的 error 日志中查看。执行过程示意图如下图所示：
  ![](https://main.qcloudimg.com/raw/7561d07ea315c9bacbb228b36d6ad6d6.png)
 4. 整个迁移结束后会打印统计信息，包括累积的迁移成功量，失败量，跳过量，耗时。对于失败的情况，请查看 error 日志，或重新运行，因为迁移工具会跳过已迁移成功的，对未成功的会重新迁移。运行完成结果示意图如下图所示：
 ![](https://main.qcloudimg.com/raw/2534fd390218db29bb03f301ed2620c8.png)
