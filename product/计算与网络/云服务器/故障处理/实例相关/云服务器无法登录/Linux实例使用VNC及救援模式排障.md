@@ -16,7 +16,7 @@
 
 
 #### 可能原因
-sshd 配置文件权限被修改，可能导致无法使用 SSH 登录。例如 `/var/empty/sshd` 及 `/etc/ssh/ssh_host_rsa_key` 配置文件权限被修改。
+kex_exchange_identification 阶段的 connection reset 报错，一般代表 ssh 相关进程已启动，但是配置可能存在异常，例如 sshd 配置文件权限被修改。
 
 
 #### 解决思路
