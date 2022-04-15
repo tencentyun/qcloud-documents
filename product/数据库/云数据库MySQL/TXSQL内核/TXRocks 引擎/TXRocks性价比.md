@@ -7,7 +7,7 @@ TXRocks 的性能与 InnoDB 接近，但由于 LSM Tree 存储结构，减少了
 ![](https://qcloudimg.tencent-cloud.cn/raw/d8ec22c0b4cd35ad50f031f70db29b24.png)
 **测试场景**：两种存储引擎均使用默认配置，使用 SysBench 的默认表结构，每张表包含80万条记录，表总数从4张逐渐增长到512张。
 上图为测试条件下分别使用 TXRocks 和 InnoDB 存储引擎时的空间占用情况，左侧为使用 InnoDB 和 TXRocks 存储引擎时的硬盘使用情况。
-实测数据显示，随着数据量的逐渐增长，TXRocks 引擎的硬盘占用的增长更慢，节省的空间越多，最多时仅为 InnoDB 的42.71% 。对于记录前缀重复率较高的 数据，TXRocks 具备更高的压缩率，具备更高的存储性价比。
+实测数据显示，随着数据量的逐渐增长，TXRocks 引擎的硬盘占用的增长更慢，节省的空间越多，最多时仅为 InnoDB 的42.71% 。对于记录前缀重复率较高的数据，TXRocks 具备更高的压缩率，具备更高的存储性价比。
 
 ## TXRocks 性能与 InnoDB 基本持平
 ![](https://qcloudimg.tencent-cloud.cn/raw/94a2e715d6549b1232306a49e31b5869.png)
