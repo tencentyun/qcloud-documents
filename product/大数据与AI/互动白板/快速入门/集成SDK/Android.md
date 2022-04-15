@@ -94,15 +94,15 @@ dependencies {
 在 app/build.gradle 中，添加引用 jar 包以及不带 TBS 模块的白板 SDK。
 
 ```grovy
-dependencies {
+1、dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation ('com.tencent.teduboard:TEduBoardSdk:latest.release'){
+    implementation ('com.tencent.edu:TEduBoardSdk:latest.release'){
         exclude group: 'com.tencent.tbs.tbssdk', module: 'sdk'
     }
     ...
 }
 ```
-![](https://main.qcloudimg.com/raw/233c90a563a5288e1654eb6e459f313a.png)
+>2、libs目录中添加tbs_sdk_noimpl_43799.jar;[下载地址](https://sdk-1259648581.cos.ap-nanjing.myqcloud.com/android/tbs/tbs_sdk_noimpl_43799.jar) 
 
 >!这种情况下不能依赖带 TBS 模块的白板 SDK，否则会导致依赖冲突，无法编译通过。
 
