@@ -24,7 +24,13 @@ kex_exchange_identification 阶段的 connection reset 报错，一般代表 ssh
 
 
 #### 处理步骤[](id:ProcessingSteps1)
-1. [使用 VNC 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35701)。
+1. [](id:ProcessingSteps1Step1)参考以下步骤，使用 VNC 登录 Linux 实例：
+   1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)，找到需要登录的 Linux 云服务器，单击右侧的**登录**。如下图所示：
+![](https://main.qcloudimg.com/raw/e82e7f4b606fc59d26990285d7bdbaa3.png)
+ 2. 在打开的“标准登录 | Linux 实例”窗口，单击 **VNC登录**。如下图所示：
+![](https://main.qcloudimg.com/raw/600264310b8e778ffadaa164a597faae.png)
+ 3. 在 “login” 后输入用户名，按 **Enter**，在 “Password” 后输入密码，按 **Enter**。如下图所示即为登录成功：
+ ![](https://main.qcloudimg.com/raw/69bd64692fdaffc0cbbbdd0b9d307722.png)
 2. 执行以下命令，查看 sshd 进程是否正常运行。
 ```shellsession
 ps -ef | grep sshd
@@ -71,7 +77,7 @@ chmod 711 /var/empty/sshd/
 
 
 #### 处理步骤[](id:ProcessingSteps2)
-1. [使用 VNC 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35701)。
+1. 参考 [处理步骤1](#ProcessingSteps1Step1)，使用 VNC 登录 Linux 实例。
 2. 进入 VNC 界面后，查看到如 [现象描述](#symptom) 中所示界面，请输入 root 帐户密码并按 **Enter** 登录服务器。输入的密码默认不显示，如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/7b9a8cdc6fe38ca6cb1e571790a54894.png)
 3. 进入系统后，执行以下命令，查看 fstab 文件中盘符信息是否正确。
