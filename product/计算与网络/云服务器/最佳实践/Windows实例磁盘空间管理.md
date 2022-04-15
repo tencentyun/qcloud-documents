@@ -6,19 +6,22 @@
 ### 释放磁盘空间
 您可通过 [删除容量较大文件](#deleteLargerFiles) 或 [删除不需要文件](#deleteObsoleteFiles) ，来解决磁盘空间不足的问题。若清理文件无法满足您的实际需求，则请选择扩容磁盘来扩展磁盘空间，详情请参见 [扩容场景介绍](https://cloud.tencent.com/document/product/362/32539)。
 
-#### 删除容量较大文件<span id="deleteLargerFiles"></span>
+#### 删除容量较大文件[](id:deleteLargerFiles)
 1. [使用 RDP 文件登录 Windows 实例（推荐）](https://cloud.tencent.com/document/product/213/5435)。您也可以根据实际操作习惯，[使用远程桌面连接登录 Windows 实例](https://cloud.tencent.com/document/product/213/35703)。
 2. 选择底部工具栏中的 <img src="https://main.qcloudimg.com/raw/dcdf8e1ebc35bd6db1edaceff6784db2.png" style="margin:-5px 0px">，打开“这台电脑”。
 3. 在“这台电脑”中，选择需要清理的磁盘，按 **Crtl + F** 打开搜索工具。
 4. 选择**搜索**> **大小**，根据系统定义的大小在菜单中按需筛选文件。如下图所示：
 ![](https://main.qcloudimg.com/raw/e6d8eb64b8df6859397bfd92916a318e.png)
->?您还可以在“这台电脑”右上角的搜索框中，自定义文件大小进行检索。例如：
->- 输入“大小：>500M”，则会检索该磁盘中大于500M的文件。
-> - 输入“大小：> 100M < 500M”，则会检索该磁盘中大于100M但小于500M的文件。
->
+<dx-alert infotype="explain" title="">
+您还可以在“这台电脑”右上角的搜索框中，自定义文件大小进行检索。例如：
+- 输入“大小：>500M”，则会检索该磁盘中大于500M的文件。
+- 输入“大小：> 100M < 500M”，则会检索该磁盘中大于100M但小于500M的文件。
+</dx-alert>
 
 
-#### 删除不需要文件<span id="deleteObsoleteFiles"></span>
+
+
+#### 删除不需要文件[](id:deleteObsoleteFiles)
 1. 选择 <img src="https://main.qcloudimg.com/raw/f779581f1ce3edfead8c725ce1504009.png" style="margin:-5px 0px">，打开服务器管理器。
 2. 单击**添加角色和功能**，弹出 “添加角色和功能向导” 窗口。
 3. 在 “添加角色和功能向导” 窗口中，单击**下一步**。

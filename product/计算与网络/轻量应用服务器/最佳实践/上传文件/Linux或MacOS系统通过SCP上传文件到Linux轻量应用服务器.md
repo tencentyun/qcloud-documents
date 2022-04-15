@@ -11,11 +11,11 @@
 
 ### 上传文件
 1. 执行以下命令，向 Linux 轻量应用服务器上传文件。
-```
+```shellsession
 scp 本地文件地址 轻量应用服务器帐号@轻量应用服务器实例公网 IP/域名:轻量应用服务器文件地址
 ```
 例如，您需要将本地文件 `/home/lnmp0.4.tar.gz` 上传至 IP 地址为 `129.20.0.2` 的轻量应用服务器对应目录下，则执行的命令如下：
-```
+```shellsession
 scp /home/Inmp0.4.tar.gz root@129.20.0.2:/home/Inmp0.4.tar.gz
 ```
 2. 输入 **yes** 后按 **Enter** 确认上传，并输入登录密码，即可完成上传。
@@ -23,11 +23,11 @@ scp /home/Inmp0.4.tar.gz root@129.20.0.2:/home/Inmp0.4.tar.gz
 
 ### 下载文件
 1. 执行以下命令，将 Linux 轻量应用服务器上的文件下载至本地。
-```
+```shellsession
 scp 轻量应用服务器帐号@轻量应用服务器实例公网 IP/域名:轻量应用服务器文件地址 本地文件地址 
 ```
 例如，您需要将 IP 地址为 `129.20.0.2` 的轻量应用服务器文件 `/home/lnmp0.4.tar.gz` 下载至本地对应目录下，则执行的命令如下：
-```
+```shellsession
 scp root@129.20.0.2:/home/Inmp0.4.tar.gz /home/Inmp0.4.tar.gz
 ```
 

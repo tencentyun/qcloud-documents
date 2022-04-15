@@ -5,7 +5,7 @@
 ## 功能介绍
 
 - 音视频拉流，兼具优异的低延迟性能和抗弱网能力
-- 视频支持H264、H265和 AV1，支持 B 帧，视频输出格式为视频帧裸数据（H264/H265为 AnnexB，AV1 为 OBU）
+- 视频支持H.264、H.265和 AV1，支持 B 帧，视频输出格式为视频帧裸数据（H.264/H.265为 AnnexB，AV1 为 OBU）
 - 音频支持AAC和OPUS，音频输出格式为音频帧裸数据
 - 支持 Android、iOS、Windows、Linux 和 Mac 平台
 
@@ -82,7 +82,7 @@ typedef struct LebCallback {
 以 ijkplayer 为例，以下内容演示卡顿统计的开发流程。
 
 1. **代码修改**
-	1. 在 VideoState、FFPlayer 结构体中添加卡顿统计需要用到的变量。
+  1. 在 VideoState、FFPlayer 结构体中添加卡顿统计需要用到的变量。
 ```diff
 diff --git a/ijkmedia/ijkplayer/ff_ffplay_def.h b/ijkmedia/ijkplayer/ff_ffplay_def.h
 index 00f19f3c..f38a790c 100755
@@ -134,7 +134,7 @@ index 00f19f3c..f38a790c 100755
      av_application_closep(&ffp->app_ctx);
      ijkio_manager_destroyp(&ffp->ijkio_manager_ctx);
 ```
-	2. **添加卡顿统计逻辑**
+  2. **添加卡顿统计逻辑**
 ```diff
 diff --git a/ijkmedia/ijkplayer/ff_ffplay.c b/ijkmedia/ijkplayer/ff_ffplay.c
 index 714a8c9d..c7368ff5 100755
@@ -169,10 +169,10 @@ index 714a8c9d..c7368ff5 100755
 >! 本示例中卡顿阈值 frozen_interval 初始化值为`200(ms)`，可根据业务需要进行调整。
 2. **卡顿参数统计测试**
 使用 QNET 模拟弱网环境进行测试，步骤如下：
-	1. 下载 [QNET 网络测试工具](https://wetest.qq.com/product/qnet/)。
-	2. 打开QNET，单击**新增** > **模版类型** > **自定义模版**，根据需要配置弱网模版和参数（下图配置为下行网络30%随机丢包）。
-	3. 在程序列表中选择测试程序。
-	4. 开启弱网进行测试。
+  1. 下载 [QNET 网络测试工具](https://wetest.qq.com/product/qnet/)。
+  2. 打开QNET，单击**新增** > **模版类型** > **自定义模版**，根据需要配置弱网模版和参数（下图配置为下行网络30%随机丢包）。
+  3. 在程序列表中选择测试程序。
+  4. 开启弱网进行测试。
 
 >! 为便于测试，可将上述卡顿参数的修改，通过 jni 将数据传递到 Java 层进行显示。
 
@@ -203,8 +203,8 @@ index 714a8c9d..c7368ff5 100755
 
 
 
-### 解决打开 MediaCodec 后，h265不使用 MediaCodec 解码问题
-快直播传输层的特色是支持 h265 格式的视频流，但是原生 ijkplayer 在 **Settings** 中勾选打开 `Using MediaCodec` 后，h265的视频流不会使用 MediaCodec 进行解码。可参考如下代码进行优化：
+### 解决打开 MediaCodec 后，H.265不使用 MediaCodec 解码问题
+快直播传输层的特色是支持 H.265 格式的视频流，但是原生 ijkplayer 在 **Settings** 中勾选打开 `Using MediaCodec` 后，H.265的视频流不会使用 MediaCodec 进行解码。可参考如下代码进行优化：
 ```diff
 diff --git a/ijkmedia/ijkplayer/ff_ffplay_options.h b/ijkmedia/ijkplayer/ff_ffplay_options.h
 index b021c26e..958b3bae 100644
@@ -214,7 +214,7 @@ index b021c26e..958b3bae 100644
          OPTION_OFFSET(vtb_handle_resolution_change),    OPTION_INT(0, 0, 1) },
  
      // Android only options
--    { "mediacodec",                             "MediaCodec: enable H264 (deprecated by 'mediacodec-avc')",
+-    { "mediacodec",                             "MediaCodec: enable H.264 (deprecated by 'mediacodec-avc')",
 -        OPTION_OFFSET(mediacodec_avc),          OPTION_INT(0, 0, 1) },
 +    { "mediacodec",                             "MediaCodec: enable all_videos (deprecated by 'mediacodec_all_videos')",
 +        OPTION_OFFSET(mediacodec_all_videos),   OPTION_INT(0, 0, 1) },

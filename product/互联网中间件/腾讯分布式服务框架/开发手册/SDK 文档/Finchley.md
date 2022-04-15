@@ -18,6 +18,68 @@
 ### 版本建议
 支持向后兼容，建议全量升级。
 
+## 1.29.11-Finchley-RELEASE（2022-04-11）
+### 优化
+- 修复网关使用 log4j2 时提示 Log4J2TraceConverter 重复的问题
+- 优化服务发现对于零实例的判断
+- 优化网关预热、普通微服务预热
+- 优化实例熔断时的日志提示
+
+### Bug 修复
+- 修复 zuul 网关中 zuul.retryable 重试参数配置不生效的问题
+- 修复 zuul 网关调用链服务名异常的问题
+- 默认关闭 management.endpoint.gateway.enabled，以规避 scg 漏洞
+
+### 版本建议
+支持向后兼容，建议全量升级。
+
+## 1.29.10-Finchley-RELEASE（2022-03-25）
+
+### Bug 修复
+- 修复 feign url 调用时，调用链报错的问题
+
+### 版本建议
+支持向后兼容，建议全量升级。
+
+## 1.29.9-Finchley-RELEASE（2022-03-11）
+### 优化
+- zuul 默认关闭掉 hystrix 熔断
+- 升级 dubbo 依赖版本至 2.6.12
+
+### Bug 修复
+- 修复 1.29.5-Finchley-RELEASE 优化 spring-cloud-openfeign-core 依赖而造成的 feign 服务名相关治理功能失效的问题
+- 修复实例熔断超过阈值时，对应实例的熔断事件依旧上报的问题
+- 修复熔断规则变化时，后续熔断事件没有上报的问题
+
+### 版本建议
+支持向后兼容，建议全量升级。
+
+## 1.29.8-Finchley-RELEASE（2022-02-28）
+### 优化
+- 支持通过设置 tsf.feign.eager-load.enabled=true 打开应用feign预热
+
+### 版本建议
+如果有使用 feign 服务治理功能，建议使用 1.29.10-Finchley-RELEASE 及之后的版本
+
+## 1.29.7-Finchley-RELEASE（2022-02-23）
+### Bug 修复
+- 修复默认日志输出时，logging.level 设置无效问题
+- 修复调用链 MongoDB 异常时 resultStatus 为空的问题
+
+### 版本建议
+如果有使用 feign 服务治理功能，建议使用 1.29.10-Finchley-RELEASE 及之后的版本
+
+## 1.29.6-Finchley-RELEASE（2022-01-20）
+### 优化
+- 管理 log4j2 依赖的版本，默认版本为 2.17.1
+  
+### Bug 修复
+- 修复 redis 连接异常时无法被线程池回收的问题
+- 调用链修复 scg invocation 丢失 MSGW tags 的问题
+
+### 版本建议
+如果有使用 feign 服务治理功能，建议使用 1.29.10-Finchley-RELEASE 及之后的版本
+
 ## 1.29.5-Finchley-RELEASE（2022-01-07）
 ### 优化
 - 优化 spring-cloud-openfeign-core、swagger 的依赖冲突。
@@ -76,6 +138,17 @@
 ### 版本建议
 支持向后兼容，建议全量升级。
 
+## 1.23.12-Finchley-RELEASE（2022-01-13）
+### Bug 修复
+- 修复泳道规则排序问题。
+
+### 优化
+- 修复零实例保护而导致的，服务发现时无本地缓存文件导致延迟
+- 支持关闭 consul 的启动，以支持单元测试场景
+
+
+### 版本建议
+支持向后兼容，建议全量升级。
 
 ## 1.23.11-Finchley-RELEASE（2021-09-28）
 ### Bug 修复
@@ -348,8 +421,12 @@ spring-cloud-tsf-gateway 网关兼容新插件类型。
    - 修复当绑定网关插件后造成 Query 参数未透传问题。
 
 ### 优化
-
 支持 swagger 自动扫描包多路径特性。
+
+## 1.18.8-Finchley-RELEASE（2022-03-08）
+### 优化
+- 支持零实例保护
+- 支持关闭 consul 的启动，以支持单元测试场景
 
 ## 1.18.7-Finchley-RELEASE（2022-01-10）
 ### Bug 修复

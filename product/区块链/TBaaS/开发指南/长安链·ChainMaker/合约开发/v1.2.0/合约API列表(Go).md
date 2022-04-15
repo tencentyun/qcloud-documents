@@ -13,35 +13,35 @@ ChainMake Go 语言版本智能合约有丰富的 API 接口，供用户在撰�
 </tr>
 </thead>
 <tbody><tr>
-<td>GetCreatorOrgId() string  </td>
+<td>GetCreatorOrgId() (string, ResultCode)  </td>
 <td>获取合约创建者所属组织 ID</td>
 </tr>
 <tr>
-<td>GetCreatorRole() string </td>
+<td>GetCreatorRole() (string, ResultCode) </td>
 <td>获取合约创建者角色</td>
 </tr>
 <tr>
-<td>GetCreatorPk() string </td>
+<td>GetCreatorPk() (string, ResultCode) </td>
 <td>获取合约创建者公钥</td>
 </tr>
 <tr>
-<td>GetSenderOrgId() string  </td>
+<td>GetSenderOrgId() (string, ResultCode)  </td>
 <td>获取交易发起者所属组织 ID</td>
 </tr>
 <tr>
-<td>GetSenderRole() string </td>
+<td>GetSenderRole() (string, ResultCode) </td>
 <td>获取交易发起者角色</td>
 </tr>
 <tr>
-<td>GetTxId() string </td>
+<td>GetTxId() (string, ResultCode) </td>
 <td>获取交易 ID</td>
 </tr>
 <tr>
-<td>GetSenderPk() string </td>
+<td>GetSenderPk() (string, ResultCode) </td>
 <td>获取交易发起者公钥</td>
 </tr>
 <tr>
-<td>GetBlockHeight() string </td>
+<td>GetBlockHeight() (string, ResultCode) </td>
 <td>获取当前区块高度</td>
 </tr>
 </tbody></table>
@@ -95,11 +95,11 @@ ChainMake Go 语言版本智能合约有丰富的 API 接口，供用户在撰�
 </tr>
 </thead>
 <tbody><tr>
-<td>Args() map[string]interface{}</td>
+<td>Args() []*EasyCodecItem{}</td>
 <td>该接口调用 getArgsMap() 接口，把 json 格式的数据反序列化，并将解析出的数据返还给用户。</td>
 </tr>
 <tr>
-<td>Arg(key string) interface{}</td>
+<td>Arg(key string) (string, ResultCode)</td>
 <td>该接口可返回属性名为 “key” 的参数的属性值。</td>
 </tr>
 </tbody></table>
@@ -128,7 +128,7 @@ ChainMake Go 语言版本智能合约有丰富的 API 接口，供用户在撰�
 <td>该接口可记录事件日志。查看方式为在链配置的 log.yml 中，开启 vm:debug 即可看到类似：gasm log>> + msg</td>
 </tr>
 <tr>
-<td>EmitEvent(topic string, data ...string)</td>
+<td>EmitEvent(topic string, data ...string) ResultCode</td>
 <td>发送合约事件</td>
 </tr>
 <tr>

@@ -1,14 +1,14 @@
-## 使用 Rust 进行智能合约开发
+
 
 本章节主要描述使用 Rust 进行 ChainMaker 合约编写的方法，主要面向于使用 Rust 进行 ChainMaker 的合约开发的开发者。
 
-Rust 安装及教程请参考: [Rust 官网](https://www.rust-lang.org/)
+Rust 安装及教程请参考 [Rust 官网](https://www.rust-lang.org/)。
 
 ## 使用 Docker 镜像进行合约开发
 
 ChainMaker 官方已经将容器发布至 [docker hub](https://hub.docker.com/u/chainmakerofficial)
 
-1. 首先拉取镜像
+1. 拉取镜像
 ```
 docker pull chainmakerofficial/chainmaker-rust-contract:1.2.0
 ```
@@ -28,7 +28,7 @@ tar xvf /data/contract_rust_template.tar.gz
 cd contract_rust
 wasm-pack build
 ```
-生成的合约字节码文件位于：
+生成的合约字节码文件位置如下：
 ```
 /home/contract_rust/target/wasm32-unknown-unknown/release/chainmaker_contract.wasm
 ```
