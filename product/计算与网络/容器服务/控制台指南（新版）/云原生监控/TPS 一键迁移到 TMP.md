@@ -1,8 +1,6 @@
-
-
 <dx-alert infotype="alarm" title="温馨提示">
 感谢您对腾讯云原生监控 TPS 的认可与信赖，为提供更优质的服务和更强大的产品能力，TPS 与原腾讯云 Prometheus 监控服务进行融合和升级，升级为 [TMP](https://cloud.tencent.com/document/product/457/71896)。支持跨地域跨 VPC 监控，支持统一 Grafana 面板对接多监控实例实现统一查看。TMP 计费详情见 [按量计费](https://cloud.tencent.com/document/product/1416/65379)，相关云资源使用详情见 [计费方式和资源使用](https://cloud.tencent.com/document/product/457/71905)。若您只使用基础监控的 [免费指标](https://cloud.tencent.com/document/product/457/72136)，TMP 不会收取任何指标费用。<br>
-TMP 已正式发布，欢迎 [了解试用](https://console.cloud.tencent.com/tke2/prometheus2)。TPS 已不支持创建新实例，我们提供一键 [迁移工具](https://cloud.tencent.com/document/product/457/72487)，帮您一键将 TPS 实例迁移到 TMP，迁移前请 [精简监控指标](https://cloud.tencent.com/document/product/457/72482) 或降低采集频率，否则可能产生较高费用，再次感谢您对 TPS 的支持和信任。
+TPS 即将下线。TMP 已正式发布，欢迎 [了解试用](https://console.cloud.tencent.com/tke2/prometheus2)。TPS 已不支持创建新实例，我们提供一键 [迁移工具](https://cloud.tencent.com/document/product/457/72487)，帮您一键将 TPS 实例迁移到 TMP，迁移前请 [精简监控指标](https://cloud.tencent.com/document/product/457/72482) 或降低采集频率，否则可能产生较高费用，再次感谢您对 TPS 的支持和信任。
 </dx-alert>
 
 TPS 支持一键迁移到 TMP。您可以迁移单独的实例，也可以批量迁移单地域下的实例。每个 TPS 实例的迁移时间一般在十分钟左右。**新的 TMP 实例将以 “旧实例名 (trans-from-prom-xxx)”命名，其中“旧实例名”为原 TPS 的实例名，“xxx” 为原 TPS 实例 ID。**迁移之后，您可以在新的 TMP 实例查看新的监控数据，也可以在旧的实例中查看以前的监控数据，需注意，旧实例将在服务停止时删除。
