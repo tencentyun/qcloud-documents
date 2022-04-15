@@ -137,7 +137,7 @@ ChainMake Go 语言版本智能合约有丰富的 API 接口，供用户在撰�
 <td>该接口可记录事件日志。查看方式为在链配置的log.yml中，开启vm:debug即可看到类似：gasm log>> + msg</td>
 </tr>
 <tr>
-<td>EmitEvent(topic string, data ...string)</td>
+<td>EmitEvent(topic string, data ...string) ResultCode</td>
 <td>发送合约事件</td>
 </tr>
 <tr>
