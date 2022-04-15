@@ -1,5 +1,6 @@
+## 使用 Rust 进行智能合约开发
 
- 本章节主要描述使用 Rust 进行 ChainMaker 合约编写的方法，主要面向于使用 Rust 进行 ChainMaker 的合约开发的开发者。
+本章节主要描述使用 Rust 进行 ChainMaker 合约编写的方法，主要面向于使用 Rust 进行 ChainMaker 的合约开发的开发者。
 
 Rust 安装及教程请参考 [Rust 官网](https://www.rust-lang.org/)。
 
