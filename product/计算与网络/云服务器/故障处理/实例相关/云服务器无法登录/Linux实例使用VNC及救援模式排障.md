@@ -38,6 +38,8 @@ sshd -t
 返回类似如下图所示信息 “/var/empty/sshd must be owned by root and not group or world-writable.
 ”，可定位错误原因为 `/var/empty/sshd/` 权限问题导致。
 ![](https://qcloudimg.tencent-cloud.cn/raw/19912fbd3406488556cf2e2937a6c2de.png)
+您还可通过查看 `/var/log/secure` 日志中的报错信息来辅助排查。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/a696b1ce175631aebcfb92037680b506.png)
 4. 执行以下命令，查看 `/var/empty/sshd` 目录权限。
 ```shellsession
 ll -d /var/empty/sshd/
