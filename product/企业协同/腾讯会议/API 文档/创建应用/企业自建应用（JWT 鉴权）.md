@@ -4,7 +4,6 @@
 
 开发人员使用 JSON Web Token 来获取账户级应用的数据权限，允许管理员管理自己的账户和用户信息。
 
-
 ## 创建企业自建应用
 - 企业自建应用需账户管理员管理使用，如果您是账户管理员，则可以通过腾讯会议官网 [开放平台](https://meeting.tencent.com/open-api.html) 中的“API” 创建或查看密钥，创建 JWT 验证密钥进行鉴权。
 ![](https://main.qcloudimg.com/raw/4e5eaacf58f144143b6af66c8dc4426b.png)
