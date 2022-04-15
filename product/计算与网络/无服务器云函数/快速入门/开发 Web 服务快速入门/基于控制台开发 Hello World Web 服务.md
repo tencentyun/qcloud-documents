@@ -122,5 +122,6 @@
 
 
 
-## 遇到问题？
-非常抱歉您在使用时出现问题，您可以通过 [在线咨询](https://cloud.tencent.com/act/event/Online_service) 来寻求帮助。
+## 遇到问题
+请参考[常见问题](https://cloud.tencent.com/document/product/583/9180)查看解决方案。
+如果仍不能解决，您可以通过 [在线咨询](https://cloud.tencent.com/act/event/Online_service) 来寻求帮助。
