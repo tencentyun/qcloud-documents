@@ -1,6 +1,6 @@
 本文为您介绍使用 TXRocks 的最佳实践 - 大量数据导入如何提升导入速度。
 
-## 大量数据导入如何提升导入速度
+## 背景
 - **场景**：将大量数据导入 TXRocks 引擎的数据库中，需对导入速度进行提升。
 - **影响**：导入海量数据时，有可能出现 `Rows inserted during bulk load must not overlap existing rows` 错误。
 
