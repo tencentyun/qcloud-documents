@@ -26,7 +26,7 @@
 - 优化实例熔断时的日志提示
 
 ### Bug 修复
-- 修复 zuul 网关中zuul.retryable重试参数配置不生效的问题
+- 修复 zuul 网关中 zuul.retryable 重试参数配置不生效的问题
 - 修复 zuul 网关调用链服务名异常的问题
 - 默认关闭 management.endpoint.gateway.enabled，以规避 scg 漏洞
 
@@ -43,7 +43,7 @@
 
 ## 1.29.9-Finchley-RELEASE（2022-03-11）
 ### 优化
-- zuul默认关闭掉hystrix熔断
+- zuul 默认关闭掉 hystrix 熔断
 - 升级 dubbo 依赖版本至 2.6.12
 
 ### Bug 修复
@@ -64,7 +64,7 @@
 ## 1.29.7-Finchley-RELEASE（2022-02-23）
 ### Bug 修复
 - 修复默认日志输出时，logging.level 设置无效问题
-- 修复调用链MongoDB异常时resultStatus为空的问题
+- 修复调用链 MongoDB 异常时 resultStatus 为空的问题
 
 ### 版本建议
 如果有使用 feign 服务治理功能，建议使用 1.29.10-Finchley-RELEASE 及之后的版本
@@ -74,8 +74,8 @@
 - 管理 log4j2 依赖的版本，默认版本为 2.17.1
   
 ### Bug 修复
-- 修复redis连接异常时无法被线程池回收的问题
-- 调用链修复 scg invocation 丢失MSGW tags的问题
+- 修复 redis 连接异常时无法被线程池回收的问题
+- 调用链修复 scg invocation 丢失 MSGW tags 的问题
 
 ### 版本建议
 如果有使用 feign 服务治理功能，建议使用 1.29.10-Finchley-RELEASE 及之后的版本
