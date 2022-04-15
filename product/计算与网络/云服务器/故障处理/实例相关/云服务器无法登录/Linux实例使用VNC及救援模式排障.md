@@ -29,7 +29,7 @@ sshd 配置文件权限被修改，可能导致无法使用 SSH 登录。例如 
 ```shellsession
 ps -ef | grep sshd
 ```
-返回结果如下图所示，出现报错信息，sshd 进程异常。
+返回结果如下图所示，sshd 进程正常。
 ![](https://qcloudimg.tencent-cloud.cn/raw/c1024ca17237af64df91503164854983.png)
 3. 执行以下命令，查看报错原因。
 ```shellsession
