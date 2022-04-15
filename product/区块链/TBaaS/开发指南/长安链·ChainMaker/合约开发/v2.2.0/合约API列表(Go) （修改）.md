@@ -1,4 +1,4 @@
-ChainMake Go 语言版本智能合约有丰富的 API 接口，供用户在撰写智能合约的时候与链进行交互，代码实现详情可以参考[API 接口代码实现](https://docs.chainmaker.org.cn/v2.2.0_alpha/html/operation/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6.html#go-tinygo)。
+ChainMake Go 语言版本智能合约有丰富的 API 接口，供用户在撰写智能合约的时候与链进行交互，代码实现详情可以参考[API 接口代码实现](https://docs.chainmaker.org.cn/v2.2.0_alpha/html/operation/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6.html#go-tinygo)
 
 从逻辑方面划分，可将 API 划分为以下类型：
 
@@ -104,7 +104,11 @@ ChainMake Go 语言版本智能合约有丰富的 API 接口，供用户在撰�
 </tr>
 <tr>
 <td>Arg(key string) ([]byte, ResultCode)</td>
-<td>该接口可返回属性名为 “key” 的参数的属性值。</td>
+<td>该接口可返回属性名为 “key” 的参数的属性值（输出格式为[]byte）。</td>
+</tr>
+<tr>
+<td>ArgString(key string) (string, ResultCode)</td>
+<td>该接口可返回属性名为 “key” 的参数的属性值（输出格式为String）。</td>
 </tr>
 </tbody></table>
 
