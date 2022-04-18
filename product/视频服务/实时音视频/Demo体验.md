@@ -48,8 +48,8 @@
 }
 .preview-demo-section .preview-demo-item .demo-item-download img {
     box-shadow: none;
-    width: 110px;
-    height: 110px;
+    width: 100px;
+    height: 100px;
 }
 .preview-demo-section .preview-demo-item .demo-item-download .demo-item-download-btn {
     background-color: #00a4ff;
@@ -84,7 +84,7 @@
             <div class="demo-item-platform">Android</div>
         </div>
         <div class="demo-item-desc">
-            音视频通话 多人会议 KTV 语音聊天室 互动直播等等
+            音视频通话、多人会议 KTV、语音聊天室、互动直播等等
         </div>
         <div class="demo-item-download">
             <img src="https://main.qcloudimg.com/raw/8a603ced0a61983018c794df842f7029.png" data-nonescope="true">
@@ -98,7 +98,7 @@
             <div class="demo-item-platform">iOS</div>
         </div>
         <div class="demo-item-desc">
-            音视频通话 多人会议 KTV 语音聊天室 互动直播等等
+            音视频通话、多人会议 KTV、语音聊天室、互动直播等等
         </div>
         <div class="demo-item-download">
             <img src="https://qcloudimg.tencent-cloud.cn/raw/630c3891bfa266a7d66b5fc892c63937.png" data-nonescope="true">
@@ -112,7 +112,7 @@
             <div class="demo-item-platform">Windows</div>
         </div>
         <div class="demo-item-desc">
-            音视频通话 多人会议 语音聊天室
+            音视频通话、多人会议、语音聊天室
         </div>
         <div class="demo-item-download">
             <div class="demo-item-download-btn" onclick="window.open('https://liteav.sdk.qcloud.com/app/install/TXLiteAVSDK_Win_Demo.exe');reportEvent({name: 'demo-click-native', ext1: 'windows'});">立即下载</div>
@@ -126,7 +126,7 @@
             <div class="demo-item-platform">Mac OS</div>
         </div>
         <div class="demo-item-desc">
-            音视频通话 多人会议 语音聊天室
+            音视频通话、多人会议、语音聊天室
         </div>
         <div class="demo-item-download">
             <div class="demo-item-download-btn" onclick="window.open('https://liteav.sdk.qcloud.com/app/install/TXLiteAVSDK_Mac_Demo.tar.bz2');reportEvent({name: 'demo-click-native', ext1: 'windows'});">立即下载</div>
@@ -140,7 +140,7 @@
             <div class="demo-item-platform">微信小程序</div>
         </div>
         <div class="demo-item-desc">
-            语音聊天室 音视频通话 多人会议
+            语音聊天室、音视频通话、多人会议
         </div>
         <div class="demo-item-download">
             <img src="https://main.qcloudimg.com/raw/4cfc59a1b60c02fc975c8b3e23169fc7.png" data-nonescope="true">
@@ -154,7 +154,7 @@
             <div class="demo-item-platform">Web</div>
         </div>
         <div class="demo-item-desc">
-            点击即可体验
+           单击即可体验
         </div>
         <div class="demo-item-download">
             <div class="demo-item-download-btn" onclick="window.open('https://web.sdk.qcloud.com/trtc/webrtc/demo/api-sample/basic-rtc.html');reportEvent({name: 'demo-click-web', ext1: 'api-example'});">视频通话</div>
@@ -171,7 +171,7 @@
             <div class="demo-item-platform">Flutter</div>
         </div>
         <div class="demo-item-desc">
-            音视频通话 多人会议等等
+            音视频通话、多人会议等等
         </div>
         <div class="demo-item-download">
             <div class="demo-item-download-btn" onclick="window.open('https://comm.qq.com/im_demo_download/trtc_flutter_demo.apk');reportEvent({name: 'demo-click-flutter', ext1: 'android'});">立即下载</div>
@@ -185,7 +185,7 @@
             <div class="demo-item-platform">Electron</div>
         </div>
         <div class="demo-item-desc">
-            音视频通话 多人会议 屏幕分享等等
+            音视频通话、多人会议、屏幕分享等等
         </div>
         <div class="demo-item-download">
             <div class="demo-item-download-btn" onclick="window.open('https://web.sdk.qcloud.com/trtc/electron/download/solution/education-v2/TRTCEducationElectron-windows-latest.zip');reportEvent({name: 'demo-click-electron', ext1: 'windows'});">下载 Windows 版</div>
