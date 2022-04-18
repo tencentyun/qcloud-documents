@@ -17,3 +17,4 @@
 1. 登录腾讯云 [证书管理控制台](https://console.cloud.tencent.com/ssl)，即可进入 “我的证书” 管理页面。
 2. 在 “我的证书” 页面中，选择您需要重新开启消息接收的证书，并单击**更多 > 重新关注**，即可接收该证书的消息。如下图所示：
 ![](https://main.qcloudimg.com/raw/2500df13406e2927bf23db1e4b67a31f.png)
+
