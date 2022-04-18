@@ -3,7 +3,7 @@
 MySQL 是常用的关系型数据库，MariaDB 作为 MySQL 的分支版本，兼容 MySQL 协议，也越来越流行。在 Kubernetes 环境中，可借助开源的 [mysqld-exporter](https://github.com/prometheus/mysqld_exporter) 来使用 Prometheus 监控 MySQL 与 MariaDB。您可通过本文了解 Prometheus 并开始使用。  
 
 
-## mysqld-exporter 简介
+## mysqld-exporter 简介 
 
 [mysqld-exporter](https://github.com/prometheus/mysqld_exporter) 通过读取 MySQL 或 MariaDB 中某些数据库状态的数据，将其转换为 Prometheus 的指标格式并暴露为 HTTP 接口被 Prometheus 采集，让原本不支持 Prometheus 指标的 MySQL 和 MariaDB 能够被 Prometheus 监控起来。如下图所示：
 <img style="width:80%" src="https://main.qcloudimg.com/raw/5b8918c8804589aa0b7cc947a6481d11.png" data-nonescope="true">
@@ -16,7 +16,7 @@ MySQL 是常用的关系型数据库，MariaDB 作为 MySQL 的分支版本，�
 
 #### 部署 MySQL[](id:MySQL)
 以从应用市场部署 MySQL 到集群为例。步骤如下：
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，在左侧导航栏选择**应用市场**。  
+1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)，在左侧导航栏选择**应用市场**。  
 2. 在“应用市场”页面，搜索并单击**MySQL**。  
 3. 在“应用详情”页面，单击**创建应用**。  
 4. 在“创建应用”页面，填写信息后单击**创建**即可。  

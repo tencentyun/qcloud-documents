@@ -4,7 +4,7 @@
 >! 本文仅适用于容器服务 TKE 集群。  
 
 ## 前提条件 
-已登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。  
+已登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)。  
 
 ## 操作步骤
 ### 开启 coredump

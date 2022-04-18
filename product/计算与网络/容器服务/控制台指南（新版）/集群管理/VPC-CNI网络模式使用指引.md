@@ -20,7 +20,7 @@ TKE 后续推出 VPC-CNI 网络模式，即为每个 Pod 插入一张弹性网�
 
 
 ## VPC-CNI 模式操作步骤
-登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
+登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)。
 ### 启用 VPC-CNI[](id:VPC-CNI">
 TKE 有两种方式启用 VPC-CNI：
 - 方式1：创建集群时选择 VPC-CNI 网络插件。如下图所示：

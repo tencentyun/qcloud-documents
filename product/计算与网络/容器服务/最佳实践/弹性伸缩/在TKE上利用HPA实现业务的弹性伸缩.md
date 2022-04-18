@@ -2,15 +2,15 @@
 
 
 
-## 概述
+## 概述 
 
 Kubernetes Pod 水平自动扩缩（Horizontal Pod Autoscaler，以下简称 HPA）可以基于 CPU 利用率、内存利用率和其他自定义的度量指标自动扩缩 Pod 的副本数量，以使得工作负载服务的整体度量水平与用户所设定的目标值匹配。本文将介绍和使用腾讯云容器服务 TKE 的 HPA 功能实现 Pod 自动水平扩缩容。  
 
-## 使用场景
+## 使用场景 
 
 HPA 自动伸缩特性使容器服务具有非常灵活的自适应能力，能够在用户设定内快速扩容多个 Pod 副本来应对业务负载的急剧飙升，也可以在业务负载变小的情况下根据实际情况适当缩容来节省计算资源给其他的服务，整个过程自动化无须人为干预，适合服务波动较大、服务数量多且需要频繁扩缩容的业务场景，例如：电商服务、线上教育、金融服务等。  
 
-## 原理概述
+## 原理概述 
 
 Pod 水平自动扩缩特性由 Kubernetes API 资源和控制器实现。资源利用指标决定控制器的行为，控制器会周期性的根据 Pod 资源利用情况调整服务 Pod 的副本数量，以使得工作负载的度量水平与用户所设定的目标值匹配。其扩缩容流程如下图所示：
 >! Pod 自动水平扩缩不适用于无法扩缩的对象，例如 DaemonSet 资源。  
@@ -26,19 +26,19 @@ Pod 水平自动扩缩特性由 Kubernetes API 资源和控制器实现。资源
 ## 前提条件
 
 - 已 [注册腾讯云账户](https://cloud.tencent.com/register)。  
-- 已登录 [腾讯云容器服务控制台](https://console.cloud.tencent.com/tke2)。  
+- 已登录 [腾讯云容器服务控制台 ](https://console.cloud.tencent.com/tke2)。  
 - 已创建 TKE 集群。关于创建集群，详情请参见 [创建集群](https://cloud.tencent.com/document/product/457/32189)。  
 
 ## 操作步骤
 ### 部署测试工作负载
 
-以 Deployment 资源类型的工作负载为例，创建一个单副本数，服务类型为  Web 服务的 “hpa-test” 工作负载。在容器服务控制台创建Deployment 类型工作负载方法请参见 [Deployment 管理](https://cloud.tencent.com/document/product/457/31705)。  
+以 Deployment 资源类型的工作负载为例，创建一个单副本数，服务类型为  Web 服务的 “hpa-test” 工作负载。在容器服务控制台 创建Deployment 类型工作负载方法请参见 [Deployment 管理](https://cloud.tencent.com/document/product/457/31705)。  
 本示例创建结果如下图所示： 
 ![image-20201105173748658](https://main.qcloudimg.com/raw/8f66b02ddfe9b5d5062c1f9e0e1e5333.png)
 
 ### 配置 HPA 
 
-在容器服务控制台为测试工作负载绑定一个 HPA 配置，关于如何绑定配置 HPA 请参见 [HPA 操作步骤](https://cloud.tencent.com/document/product/457/37384#.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4)，本文以配置当网络出带宽达到0.15Mbps（150Kbps）时触发扩容的策略为例。如下图所示：
+在容器服务控制台 为测试工作负载绑定一个 HPA 配置，关于如何绑定配置 HPA 请参见 [HPA 操作步骤](https://cloud.tencent.com/document/product/457/37384#.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4)，本文以配置当网络出带宽达到0.15Mbps（150Kbps）时触发扩容的策略为例。如下图所示：
 ![image-20201106155539282](https://main.qcloudimg.com/raw/c4f4e6e08382e71f087da5b49852a5fe.png)
 
 ### 功能验证

@@ -8,12 +8,12 @@ DTS 支持如下维度的 SQL 过滤：
 
 - Where 条件过滤：支持对单个表设置自定义过滤条件。
   
-   > ?当前支持在如下数据同步链路中进行 Where 条件过滤，如需使用该功能，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行申请。
-   >
-   > - MySQL -> MySQL/MariaDB/Percona/TDSQL-C MySQL
-   > - MariaDB -> MySQL/MariaDB/Percona
-   > - Percona -> MySQL/MariaDB/Percona
-   > - TDSQL-C MySQL -> MySQL/TDSQL-C MySQL
+> ?当前支持在如下数据同步链路中进行 Where 条件过滤，如需使用该功能，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行申请。
+>
+> - MySQL > MySQL/MariaDB/Percona/TDSQL-C MySQL
+> - MariaDB > MySQL/MariaDB/Percona
+> - Percona > MySQL/MariaDB/Percona
+> - TDSQL-C MySQL > MySQL/TDSQL-C MySQL
 
 ## 约束限制
 Where 条件过滤支持对单张表进行设置，需要对多张表进行过滤时，对每张表分别进行设置即可。

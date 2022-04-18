@@ -3,7 +3,7 @@
 容器的底层实现深度依赖于内核的众多特性。例如，overlay 文件系统、namespace 及 cgroup 等。因此内核的功能和稳定性，在很大程度上决定了整个容器 PaaS 平台的功能和稳定性。Tencent Linux 是腾讯官方运营的 Linux 版本，您可通过本文了解 Tencent Linux 并开始使用。  
 
 
-##  Tencent Linux 概述
+##  Tencent Linux 概述 
 Tencent Linux 由腾讯内核和虚拟化团队负责维护。Tencent Linux 2.4 基于 CentOS 7 版本，用户态软件包保持与最新版 CentOS 7 兼容，CentOS 7 版本软件包可以直接在 Tencent Linux 2.4 中使用。  
 
 ## Tencent Linux 内核版本
@@ -81,7 +81,7 @@ sysctl -w kernel.container_stats_isolated=0
 
 ## 相关操作
 ### 修改操作系统[](id:revise)
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2) ，单击左侧导航栏中的**集群**。  
+1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2) ，单击左侧导航栏中的**集群**。  
 2. 单击需修改操作系统的集群 ID，进入集群的“基本信息”页面。  
 3. 在集群“基本信息”页面的节点和网络信息模块，单击默认操作系统右侧的![](https://main.qcloudimg.com/raw/3b38ca6981068a10b031df5708bc4f41.png)。如下图所示：
 ![](https://main.qcloudimg.com/raw/3a20aa7a26bc0049451edcf5389ed720.png)

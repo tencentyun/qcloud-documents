@@ -51,7 +51,7 @@ Coding 是实现 CICD 流程的工具。Coding 提供整套的研发流程管理
 ### 开通 DevOps 服务
 > ! 该步骤以初次使用 DevOps 服务的主账号用户为例，如已开通服务则可跳过此步骤，进行 [创建项目并创建代码仓库](#createProduct)。  
 
-1. 登录容器服务控制台，选择左侧导航栏中的 **[DevOps](https://console.cloud.tencent.com/coding/container-devops)**。  
+1. 登录容器服务控制台 ，选择左侧导航栏中的 **[DevOps](https://console.cloud.tencent.com/coding/container-devops)**。  
 2. 进入“容器 DevOps”页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/6f1e13d45996ec30637a0c8d3db9348b.png)
 3. 选择**开通服务** > **前往访问管理**，进入“角色管理”页面。如下图所示：
@@ -61,7 +61,7 @@ Coding 是实现 CICD 流程的工具。Coding 提供整套的研发流程管理
 5. 完善团队信息后单击**确定**，即可开通 DevOps 服务。  
 
 ### 创建项目并创建代码仓库[](id:createProduct)
-1. 登录容器服务控制台，选择左侧导航栏中的 **[DevOps](https://console.cloud.tencent.com/coding/container-devops)**。  
+1. 登录容器服务控制台 ，选择左侧导航栏中的 **[DevOps](https://console.cloud.tencent.com/coding/container-devops)**。  
 2. 进入“容器 DevOps”页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/8c30f351eb48428dfaef9ef7afa3f252.png)
 3. 单击**立即使用**，跳转至**Coding DevOps**页面。  

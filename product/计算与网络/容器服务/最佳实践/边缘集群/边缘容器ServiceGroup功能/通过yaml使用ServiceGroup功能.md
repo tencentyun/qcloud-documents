@@ -14,7 +14,7 @@
 
 该步骤需要通过 TKE Edge 控制台或者 kubectl 对边缘节点打 Label。TKE Edge 控制台操作步骤如下：
 
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的**边缘集群**。  
+1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的**边缘集群**。  
 2. 选择需要编辑标签的节点所在的集群 ID，进入该集群管理页面。  
 3. 选择**节点管理** > **节点**，进入节点列表页，如下图所示：
    ![](https://main.qcloudimg.com/raw/712450952968557eefd23e4833deaa5f.png)

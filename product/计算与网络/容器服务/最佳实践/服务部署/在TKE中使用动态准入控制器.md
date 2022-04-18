@@ -123,7 +123,7 @@ kubectl get csr ${USERNAME} -o jsonpath={.status.certificate} > ${USERNAME}.crt
 cat ca.crt | base64 --wrap=0 
 ```
  - 若颁发证书使用方法2，集群的根证书即为 `caBundle` 字段内容。获取步骤如下：
-    1. 登录容器服务控制台，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster?rid=1)**。  
+    1. 登录容器服务控制台 ，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster?rid=1)**。  
     2. 在“集群管理”页面，选择集群 ID。  
     3. 在集群详情页面，选择左侧的**基本信息**。  
     4. 从“基本信息”页面的“集群APIServer信息”模块的 “Kubeconfig” 中的 `clusters.cluster[].certificate-authority-data` 字段进行获取，该字段已进行 `base64` 编码，无需再进行处理。  

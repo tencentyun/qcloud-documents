@@ -1,6 +1,7 @@
 本文主要介绍如何快速运行腾讯云 TRTC Demo（uni-app）。
 - [uni-app 插件](https://ext.dcloud.net.cn/plugin?id=7774)
 - [API 文档](https://web.sdk.qcloud.com/trtc/uniapp/doc/zh-cn/TrtcCloud.html#enterRoom)
+- [GitHub](https://github.com/LiteAVSDK/TRTC_UniApp)
 
 ## 环境要求
 - 建议使用最新的 [HBuilderX 编辑器 ](https://www.dcloud.io/hbuilderx.html)。
@@ -38,7 +39,7 @@ git clone https://github.com/LiteAVSDK/TRTC_UniApp.git
 3. 设置 GenerateTestUserSig.js 文件中的相关参数：
   1. SDKAPPID：默认为0，请设置为实际的 SDKAppID。
   2. SECRETKEY：默认为空字符串，请设置为实际的密钥信息。
-   ![](https://main.qcloudimg.com/raw/575902219de19b4f2d4595673fa755d4.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/f11a79f38f1479ba643752d8d9f3e3d4.png)
    
 > !本文提到的生成 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此该方法仅适合本地跑通 Demo 和功能调试。
 > !正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 服务端生成 UserSig。

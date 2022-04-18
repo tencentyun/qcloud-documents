@@ -24,12 +24,12 @@ TPS 支持一键迁移到 TMP。您可以迁移单独的实例，也可以批量
 如果您有相关的程序平台或系统依赖 TPS 的 **Prometheus 数据查询地址和 Grafana 地址**。迁移后请及时更换为 TMP 里面相应的地址。否则旧的 TPS 实例在服务停止删除后，您的 **Prometheus 数据查询地址和 Grafana 地址** 将失效。
 
 #### （旧）TPS Prometheus 数据查询地址和 Grafana 地址 
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的 **[云原生监控](https://console.cloud.tencent.com/tke2/prometheus)**。
+1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的 **[云原生监控](https://console.cloud.tencent.com/tke2/prometheus)**。
 2. 单击实例 ID ，进入实例的“基本信息”页，如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/655e7b02d998d06dcd4d70a5b1825ebb.png)
 
 #### （新）TMP Prometheus 数据查询地址和 Grafana 地址 
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的 **[Prometheus 监控](https://console.cloud.tencent.com/tke2/prometheus2)**。
+1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的 **[Prometheus 监控](https://console.cloud.tencent.com/tke2/prometheus2)**。
 2. 单击实例 ID ，进入实例的“基本信息”页，如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/232093b4dc10d32a4c838d16b7af3954.png)
 
@@ -39,7 +39,7 @@ TPS 支持一键迁移到 TMP。您可以迁移单独的实例，也可以批量
 
 ### 单实例迁移
 
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的 **[云原生监控](https://console.cloud.tencent.com/tke2/prometheus)**。
+1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的 **[云原生监控](https://console.cloud.tencent.com/tke2/prometheus)**。
 2. 在当前的云原生监控的实例列表页，在上方选择需要迁移的实例所在的地域。
 3. 单击实例右方的**一键迁移**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/55d719d979976cb357c74606a169c202.png)
@@ -57,7 +57,7 @@ TPS 支持一键迁移到 TMP。您可以迁移单独的实例，也可以批量
 
 ### 实例批量迁移
 
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的 **[云原生监控](https://console.cloud.tencent.com/tke2/prometheus)**。
+1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的 **[云原生监控](https://console.cloud.tencent.com/tke2/prometheus)**。
 2. 在当前的云原生监控的实例列表页，在上方选择需要迁移的实例所在的地域。
 3. 勾选状态为“未迁移”的实例，单击上方的“一键迁移”，如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/ec4c1977e5ff55a0f21b184f717f8492.png)
