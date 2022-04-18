@@ -92,9 +92,9 @@ dependencies {
 #### 3.  添加 SDK 依赖
 
 在 app/build.gradle 中，添加引用 jar 包以及不带 TBS 模块的白板 SDK。
-
+>1、示例代码如下:
 ```grovy
-1、dependencies {
+dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation ('com.tencent.edu:TEduBoardSdk:latest.release'){
         exclude group: 'com.tencent.tbs.tbssdk', module: 'sdk'
