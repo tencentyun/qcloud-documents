@@ -11,7 +11,7 @@
 2.支持 Rooms 控制 PPT 翻页。<br>
 3.支持 Rooms 会前白板加入会议。<br>
 4.优化了 Rooms 和 H.323/SIP(MRA) 会议室管理。	</td>	
-<td><center>2022-04-04</td>	
+<td><center>2022-04-07</td>	
 	</tr>
 <tr>
 <td><center>V2.12.100</td>	
@@ -77,7 +77,7 @@
 2.支持 Rooms 控制 PPT 翻页。<br>
 3.支持 Rooms 会前白板加入会议。<br>
 4.优化了 Rooms 和 H.323/SIP(MRA) 会议室管理。	</td>	
-<td><center>2022-04-04</td>	
+<td><center>2022-04-07</td>	
 	</tr>
 <tr>
 <td><center>V2.12.100</td>	</td>	
