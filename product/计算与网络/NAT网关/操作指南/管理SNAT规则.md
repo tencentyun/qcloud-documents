@@ -3,7 +3,7 @@
 例如，当 NAT 网关绑定了 EIP1、EIP2、EIP3、EIP4 等多个 EIP 时，则系统会在绑定的所有 EIP 中自动做负载均衡访问公网。如果将 EIP1、EIP2、EIP3 加入 SNAT 地址池，则系统使用 SNAT 地址池中的 EIP 访问公网，且自动在 SNAT 地址池中的 EIP 做负载均衡。
 >?
 >- 当 CVM 实例负载激增时，1个 EIP 可能无法支撑巨大的访问量，可选择配置多个 EIP 分担访问量。
->- NAT 网关支持将同一个 EIP 同时用于配置 SNAT 规则和端口转发规则，端口转发规则的详细信息请参考[管理端口转发规则](https://cloud.tencent.com/document/product/552/53621)。
+>- NAT 网关支持将同一个 EIP 同时用于配置 SNAT 规则和端口转发规则，端口转发规则的详细信息请参考[ 管理端口转发规则](https://cloud.tencent.com/document/product/552/53621)。
 >
 
 
