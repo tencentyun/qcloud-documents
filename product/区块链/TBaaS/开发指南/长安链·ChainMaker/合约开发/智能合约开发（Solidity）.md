@@ -11,7 +11,7 @@ ChainMaker 官方已经将容器发布至 [docker hub](https://hub.docker.com/u/
 docker pull chainmakerofficial/chainmaker-solidity-contract:1.2.0
 ```
 
-请指定你本机的工作目录 $WORK_DIR，例如 /data/workspace/contract，挂载到 docker 容器中以方便后续进行必要的一些文件拷贝。
+请指定您本机的工作目录 $WORK_DIR，例如 /data/workspace/contract，挂载到 docker 容器中以方便后续进行必要的一些文件拷贝。
 
 ```
 docker run -it --name chainmaker-solidity-contract -v $WORK_DIR:/home chainmakerofficial/chainmaker-solidity-contract bash
