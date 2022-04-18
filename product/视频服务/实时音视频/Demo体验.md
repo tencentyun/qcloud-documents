@@ -5,7 +5,9 @@
     display: inline-block;
     width: 200px;
     height: 300px;
-    box-shadow: 0 0 5px #ccc;
+    background: #fff;
+    box-shadow: 0 1px 8px 0 rgba(156,175,204,0.25);
+    border-radius: 1px;
     text-align: center;
     padding: 0 15px;
     margin: 10px 10px 10px 0;
@@ -66,10 +68,10 @@
     margin: 0 auto;
 }
 .preview-demo-section .preview-demo-item.style-web .demo-item-download .demo-item-download-btn {
-    background-color: #ffffff;
+    color: #fff;
+    background-color: #00a4ff;
     height: 25px;
     line-height: 25px;
-    color: #0174fb;
     border: 1px solid #dfe0df;
     margin-bottom: 10px;
 }
@@ -87,7 +89,7 @@
             <div class="demo-item-platform">Android</div>
         </div>
         <div class="demo-item-desc">
-            音视频通话、多人会议 KTV、语音聊天室、互动直播等等
+            音视频通话、多人会议、KTV、语音聊天室、互动直播等
         </div>
         <div class="demo-item-download">
             <img src="https://main.qcloudimg.com/raw/8a603ced0a61983018c794df842f7029.png" data-nonescope="true">
@@ -101,10 +103,10 @@
             <div class="demo-item-platform">iOS</div>
         </div>
         <div class="demo-item-desc">
-            音视频通话、多人会议 KTV、语音聊天室、互动直播等等
+            音视频通话、多人会议、KTV、语音聊天室、互动直播等
         </div>
         <div class="demo-item-download">
-            <img src="https://qcloudimg.tencent-cloud.cn/raw/630c3891bfa266a7d66b5fc892c63937.png" data-nonescope="true">
+            <img src="https://qcloudimg.tencent-cloud.cn/raw/033bd1e3f459d902dbf2c23479fec4da.png" data-nonescope="true">
         </div>
     </div>
     <div class="preview-demo-item style-single-download-btn">
@@ -174,7 +176,7 @@
             <div class="demo-item-platform">Flutter</div>
         </div>
         <div class="demo-item-desc">
-            音视频通话、多人会议等等
+            音视频通话、多人会议等
         </div>
         <div class="demo-item-download">
             <div class="demo-item-download-btn" onclick="window.open('https://comm.qq.com/im_demo_download/trtc_flutter_demo.apk');reportEvent({name: 'demo-click-flutter', ext1: 'android'});">立即下载</div>
@@ -188,7 +190,7 @@
             <div class="demo-item-platform">Electron</div>
         </div>
         <div class="demo-item-desc">
-            音视频通话、多人会议、<br>屏幕分享等等
+            音视频通话、多人会议、<br>屏幕分享等
         </div>
         <div class="demo-item-download">
             <div class="demo-item-download-btn" onclick="window.open('https://web.sdk.qcloud.com/trtc/electron/download/solution/education-v2/TRTCEducationElectron-windows-latest.zip');reportEvent({name: 'demo-click-electron', ext1: 'windows'});">下载 Windows 版</div>
