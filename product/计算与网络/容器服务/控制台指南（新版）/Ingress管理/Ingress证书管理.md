@@ -1,4 +1,4 @@
-## 简介
+## 简介 
 创建 Ingress 选用 HTTPS 监听协议时，选用合适的服务器证书能够确保访问安全。本文档介绍 Ingress 证书使用相关的内容，与证书相关的 Annotation 如下：
 
 - `kubernetes.io/ingress.http-rules`
@@ -23,11 +23,11 @@
 
 >?
 > -  当控制台创建的 Ingress 开启 HTTPS 服务，会先创建同名的 Secret 资源用于存放证书 ID，然后在 Ingress 中使用并监听该 Secret。
-> - 在容器服务控制台修改证书时，会修改对应当前 Ingress 的证书资源。需注意的是，如用户的多个 Ingress 配置使用同一个 Secret 资源，那么这些 Ingress 对应负载均衡的证书会一起变更。
+> - 在容器服务控制台 修改证书时，会修改对应当前 Ingress 的证书资源。需注意的是，如用户的多个 Ingress 配置使用同一个 Secret 资源，那么这些 Ingress 对应负载均衡的证书会一起变更。
 > - 当您直接在负载均衡控制台修改证书后，请务必参照[ 修改证书 ](#ModifySecret)步骤，及时修改使用该证书创建 Ingress 时控制台默认生成的同名 Secret 证书资源。否则 Ingress 配置的证书仍保持旧版本，将会导致您的证书更新失效。
 
 ### 更换证书
-1. 登录容器服务控制台，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
+1. 登录容器服务控制台 ，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
 2. 在“集群管理”页面，选择需更换证书集群 ID。
 3. 在集群详情页，选择左侧**服务与路由** > **Ingress**。如下图所示：
 ![](https://main.qcloudimg.com/raw/69e9c55ea644144ea5848c98b9d0462a.png)

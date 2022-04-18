@@ -1,8 +1,8 @@
-## 概述
+## 概述 
 
 Nginx Ingress 功能强大且性能极高，有多种部署方式。本文将介绍 Nginx Ingress 在腾讯云容器服务（Tencent Kubernetes Engine，TKE）上 [Deployment + LB](#step1)、[Daemonset + HostNetwork + LB](#step2) 和 [Deployment + LB 直通 Pod](#step3) 三种部署方案及其部署方法。  
 
-## Nginx Ingress 简介
+## Nginx Ingress 简介 
 
 Nginx Ingress 是 Kubernetes Ingress 的一种实现。它通过 watch Kubernetes 集群的 Ingress 资源，将 Ingress 规则转换成 Nginx 的配置，让 Nginx 进行7层的流量转发。如下图所示：
 <img style="width:450px" src="https://main.qcloudimg.com/raw/cc1260950a0cc812508cf25819e3c129.png" data-nonescope="true">
@@ -121,7 +121,7 @@ metadata:
 
 
 ### 如何创建 Ingress?[](id:ingress)
-当您在 TKE 上自行部署 Nginx Ingress，需使用 Nginx Ingress 管理 Ingress 时，在容器服务控制台上无法创建 Ingress 时，可通过 YAML 的方式来创建 Ingress 并且需要给每个 Ingress 都指定 Ingress Class 的 annotation。请参考以下代码：
+当您在 TKE 上自行部署 Nginx Ingress，需使用 Nginx Ingress 管理 Ingress 时，在容器服务控制台 上无法创建 Ingress 时，可通过 YAML 的方式来创建 Ingress 并且需要给每个 Ingress 都指定 Ingress Class 的 annotation。请参考以下代码：
 ```
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress

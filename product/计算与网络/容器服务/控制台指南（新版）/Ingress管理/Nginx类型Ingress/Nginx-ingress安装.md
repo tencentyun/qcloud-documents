@@ -10,7 +10,7 @@
 
 
 
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的**集群**。
+1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的**集群**。
 2. 在“集群管理”页面单击目标集群 ID，进入集群详情页。
 3. 选择左侧菜单栏中的**组件管理**，进入 “组件列表” 页面。
 4. 在“组件列表”页面中选择**新建**，并在“新建组件”页面中勾选 NginxIngress。
@@ -100,7 +100,7 @@ Nginx 作为关键的流量接入网关，不建议您将 Nginx 与其他业务�
 您可以在 Nginx-ingress 组件详情页，Ningx 参数 tab 中选择的 Nginx-ingress 实例进行 YAML 编辑。
 >! 默认情况下配置参数不会重启 Nginx，生效时间有细微延迟。
 
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的**集群**。
+1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的**集群**。
 2. 在“集群管理”页面单击目标集群 ID，进入集群详情页。
 3. 选择左侧菜单栏中的**组件管理**，进入 “组件列表” 页面。
 4. 单击需要设置参数的组件右侧的**更新Nginx配置**，进入“Nginx配置”页面。

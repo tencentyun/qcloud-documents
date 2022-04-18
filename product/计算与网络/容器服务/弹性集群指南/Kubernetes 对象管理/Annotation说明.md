@@ -1,7 +1,7 @@
 ## 工作负载 pod template annotation 说明
 您可以通过在 yaml 中定义 `metadata.annotations` 的方式，实现为 Pod 绑定安全组、分配资源等能力。配置方法见下表：
 
-<dx-alert infotype="notice" title="">
+<dx-alert infotype="notice" title=" ">
 - 如果不指定安全组，则 Pod 会默认绑定同地域的 `default` 安全组。请确保 `default` 安全组的网络策略不影响该 Pod 正常工作。
 - 如需通过 annotation 指定的方式分配 CPU 资源，则必须同时填写 `cpu` 和 `mem` 2个 annotation，且数值必须符合 [资源规格](https://cloud.tencent.com/document/product/457/39808) 中的 CPU 规格。另外，可以通过 `cpu-type` 指定分配 intel 或 amd CPU，其中 amd 具备更高的性价比，详情请参考 [产品定价](https://cloud.tencent.com/document/product/457/39806)。  
 - 如需通过 annotation 指定的方式分配 GPU 资源，则必须同时填写`gpu-type` 及 `gpu-count` 2个 annotation，且数值必须符合 [资源规格](https://cloud.tencent.com/document/product/457/39808) 中的 GPU 规格。

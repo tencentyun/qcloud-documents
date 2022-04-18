@@ -76,7 +76,7 @@ monitoring_servicemonitors.monitoring.coreos.com_node-exporter.yaml
 
 若自建 Prometheus 系统直接使用 Prometheus 原生配置文件，只需在 TKE 控制台进行简单的几步操作，即可将其转换为云原生监控的 RawJob，使其兼容 Prometheus 原生配置文件的 `scrape_configs` 配置项。  
 
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。  
+1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)。  
 2. 在左侧菜单栏中单击 **云原生监控**进入云原生监控页面。  
 3. 单击需要配置的云原生监控 ID/名称，进入基本信息页面。  
 4. 选择**关联集群**页签，在对应的集群右侧**操作**列项下单击**数据采集配置**。  
@@ -115,7 +115,7 @@ $ kubectl -n prom-fnc7bvu9 edit prometheus tke-cls-hha93bp9
 
 Prometheus 的聚合配置，无论是原始 [Recording rules](https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/) 静态配置或是 [PrometheusRule](https://github.com/prometheus-operator/prometheus-operator/blob/master/Documentation/api.md#prometheusrule) 动态配置，每条规则的格式都相同。  
 
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。  
+1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)。  
 2. 在左侧菜单栏中单击 **云原生监控**进入云原生监控页面。  
 3. 单击需要配置的云原生监控 ID/名称，进入基本信息页面。  
 4. 选择**聚合规则** > **新建聚合规则**，打开新建聚合规则窗口。使用 PrometheusRule 格式将每条规则粘贴到 groups 数组中。如下图所示：
@@ -140,7 +140,7 @@ Prometheus 的聚合配置，无论是原始 [Recording rules](https://prometheu
 :::
 </dx-codeblock>
 
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。  
+1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)。  
 2. 在左侧菜单栏中单击 **云原生监控**进入云原生监控页面。  
 3. 单击需要配置的云原生监控 ID/名称，进入基本信息页面。  
 4. 选择 **告警配置** > **新建告警策略**，配置告警策略：
@@ -259,7 +259,7 @@ grafana-backup restore _OUTPUT_/202012151049.tar.gz
 <dx-tabs>
 ::: 接入自建\sGrafana
 云原生监控提供 Prometheus 的 API，如需使用自建的 Grafana 来展示监控，可以将云原生监控的数据作为一个 Prometheus 数据源添加到自建 Grafana，Prometheus API 的地址可在 TKE 控制台云原生监控基本信息中查到。  
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。  
+1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)。  
 2. 在左侧菜单栏中单击 **云原生监控**进入云原生监控页面。  
 3. 单击需要配置的云原生监控 ID/名称，进入基本信息页面，获取 Prometheus API 地址。  
 ![](https://main.qcloudimg.com/raw/9bffcd1eff9b749f33d746e04adfb176.jpg)

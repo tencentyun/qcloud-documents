@@ -26,7 +26,7 @@ api-prod    gateway      1a******-****-****-a329-eec697a28b35
 
 ### 更新 Ingress
 
-1. 在 [容器服务控制台](https://console.cloud.tencent.com/tke2) 找到 [引用旧证书的 Ingress](#ingress) 中对应的 Ingress 资源，单击**更新转发配置**。如下图所示：
+1. 在 [容器服务控制台 ](https://console.cloud.tencent.com/tke2) 找到 [引用旧证书的 Ingress](#ingress) 中对应的 Ingress 资源，单击**更新转发配置**。如下图所示：
 ![](https://main.qcloudimg.com/raw/a7390fe77597b6df62e72d263841ecd4.png)
 2. 在“更新转发配置”页面，为新证书**新建密钥**。如下图所示：
 ![](https://main.qcloudimg.com/raw/ac0cf5b5261562306ccd058b9c73566e.png)

@@ -48,7 +48,7 @@
 
 ### 登录子账号验证
 
-登录 [腾讯云容器服务控制台](https://console.cloud.tencent.com/tke2)，验证可使用所授权策略对应功能，则表示子账号授权成功。
+登录 [腾讯云容器服务控制台 ](https://console.cloud.tencent.com/tke2)，验证可使用所授权策略对应功能，则表示子账号授权成功。
 
 
 

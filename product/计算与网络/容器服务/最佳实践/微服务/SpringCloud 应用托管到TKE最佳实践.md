@@ -13,7 +13,7 @@
 
 ## 最佳实践实例介绍
 
-### PiggyMetrics 概述
+### PiggyMetrics 概述 
 
 本文最佳实践通过 fork  GitHub 上的开源项目 [PiggyMetrics](https://github.com/sqshq/piggymetrics) ，对其进行修改以适应腾讯云产品，并以最终修改后的版本为例，详细介绍 SpringCloud 应用托管到 TKE 的整个过程。  
 
@@ -104,12 +104,12 @@ TSW 在架构上分为以下四大模块：
 使用开源探针或 SDK 用于采集数据。对于迁移上云的用户，可保留 Client 端的大部分配置，仅更改上报地址和鉴权信息即可。  
 :::
 ::: 数据处理（Server）
-  数据经由 Pulsar 消息队列上报到 Server，同时 Adapter 会将数据转换为统一的 Opentracing 兼容格式。根据数据的使用场景，分配给实时计算与离线计算：
+  数据经由 Pulsar 消息队列上报到 Server，同时 Adapter 会将数据转换为统一的 Opentracing 兼容格式。根据数据的使用场景 ，分配给实时计算与离线计算：
 	- 实时计算提供实时监控、统计数据展示，并对接告警平台快速响应。  
 	- 离线计算处理长时段大量数据的统计汇聚，利用大数据分析能力提供业务价值。  
 :::
 ::: 存储（Storage）
-存储层可满足不同数据类型的使用场景，适配 Server 层的写入与 Data Usage 层的查询与读取请求。  
+存储层可满足不同数据类型的使用场景 ，适配 Server 层的写入与 Data Usage 层的查询与读取请求。  
 :::
 ::: 数据使用（Data\sUsage）
 为控制台操作、数据展示、告警提供底层支持。  
@@ -140,7 +140,7 @@ cd mongodb-linux-x86_64-3.6.18/bin
 ./mongo -u mongouser -p --authenticationDatabase "admin" [mongodb的IP]/piggymetrics mongo-init.js
 :::
 </dx-codeblock>
- <dx-alert infotype="explain" title="">
+ <dx-alert infotype="explain" title=" ">
   mongodb 初始化脚本 **mongo-init.js** 中默认创建了一个 piggymetrics 库的用户 **guest**，可按您的需求进行修改。  
 </dx-alert>
 
@@ -271,7 +271,7 @@ docker images | grep piggymetrics
 PiggyMetrics 项目采用个人版镜像仓库（建议企业客户使用企业版镜像仓库）。  
 
 
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2) 。  
+1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2) 。  
 2. 选择**镜像仓库** > **个人版** > **命名空间**进入“命名空间”页面。  
 3. 单击**新建**，在弹出的新建命名窗口中新建命名空间 piggymetrics。PiggyMetrics 项目所有的镜像都存放于该命名空间下。如下图所示：
    ![](https://main.qcloudimg.com/raw/5162654ffab4033164b41e889b50d408.jpg)
@@ -287,7 +287,7 @@ PiggyMetrics 项目采用个人版镜像仓库（建议企业客户使用企业�
 ```sh
  docker login --username=[腾讯云账号 ID] ccr.ccs.tencentyun.com
 ```
- <dx-alert infotype="explain" title="">
+ <dx-alert infotype="explain" title=" ">
 
 - 腾讯云账号 ID 可在 [账号信息](https://console.cloud.tencent.com/developer) 页面获取。  
 - 若忘记**镜像仓库登录密码**，可前往容器服务镜像仓库个人版 [我的镜像](https://console.cloud.tencent.com/tke2/registry/user) 中进行重置。  
@@ -307,7 +307,7 @@ docker push ccr.ccs.tencentyun.com/[namespace]/[ImageName]:[镜像版本号]
 ![](https://main.qcloudimg.com/raw/466adcd0ebf9adf2c16421885a0c6567.png)
 3. 在 [我的镜像](https://console.cloud.tencent.com/tke2/registry/user/self?rid=1) 中可以查看上传的所有镜像，下图展示的是上传到腾讯云镜像仓库中 PiggyMetrics 的 9 个镜像。  
 ![](https://main.qcloudimg.com/raw/bbe50d859ab272ddeffdcd339d43213b.png)
-<dx-alert infotype="explain" title="">
+<dx-alert infotype="explain" title=" ">
 默认镜像类型为“私有”，如需提供镜像给他人使用，可在**镜像信息**中将镜像类型设置为公有。如下图所示：
 ![](https://main.qcloudimg.com/raw/88b73306c07a4ea281cef52a77d3246c.png)
 </dx-alert>
@@ -322,7 +322,7 @@ docker push ccr.ccs.tencentyun.com/[namespace]/[ImageName]:[镜像版本号]
 1. 实际部署前，需要新建一个 K8S 集群。有关集群的创建，请参见 [创建集群](https://cloud.tencent.com/document/product/457/54231) 文档。  
 >!在创建集群时，在“选择机型” 页面建议开启“置放群组功能”，该功能可将 CVM 打散到不同母机上，增加系统可靠性。如下图所示：
 ![](https://main.qcloudimg.com/raw/6aba7922f3b7247cda8cb8e5b8959578.jpg)
-2. 创建完成后，在容器服务控制台的 [集群管理](https://console.cloud.tencent.com/tke2/cluster) 页面可以看到新建的集群信息。本文新建的集群名称为 piggyMetrics。如下图所示：
+2. 创建完成后，在容器服务控制台 的 [集群管理](https://console.cloud.tencent.com/tke2/cluster) 页面可以看到新建的集群信息。本文新建的集群名称为 piggyMetrics。如下图所示：
 ![](https://main.qcloudimg.com/raw/1157a6c99171ef8080c860eae636881a.png)
 3. 单击集群 PiggyMetrics-k8s-demo 进入“基本信息”页面，可以查看整个集群的配置信息。  
 4. （可选）如需使用 kubectl 和 lens 等 K8S 管理工具，还需进行以下两步操作：
@@ -347,7 +347,7 @@ kubectl create namespace piggymetrics
 </dx-codeblock>
 :::
 ::: 方式2：使用控制台
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，单击集群 ID/名称进入集群详情页面。  
+1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)，单击集群 ID/名称进入集群详情页面。  
 2. 单击**命名空间** > **新建**，创建名称为 PiggyMetrics 的 Namespace。  
 :::
 ::: 方式3：使用\sYAML\s部署
@@ -400,7 +400,7 @@ data:
 </dx-codeblock>
 :::
 ::: 方式2：使用控制台
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，单击集群 ID/名称进入集群详情页面。  
+1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)，单击集群 ID/名称进入集群详情页面。  
 2. 单击**配置管理** > **ConfigMap** > **新建**，创建名称为 piggymetrics-env 的 ConfigMap 用于存放相关配置。其中命名空间 piggymetrics，如下图所示：
 ![](https://main.qcloudimg.com/raw/e2d17c01ca797b0b5f88c41634371917.jpg)
 :::
@@ -437,7 +437,7 @@ type: Opaque
 </dx-codeblock>
 :::
 ::: 方式2：使用控制台
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，单击集群 ID/名称进入集群详情页面。  
+1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)，单击集群 ID/名称进入集群详情页面。  
 2. 单击**配置管理** > **Secret** > **新建**，创建名称为 piggymetrics-keys  的 Secret，如下图所示：
 ![](https://main.qcloudimg.com/raw/dc936d7e77ea248b79605c7d11aec9f6.jpg)
 :::
@@ -646,7 +646,7 @@ spec:
 
 至此，您已完成 PiggyMetrics 在容器服务 TKE 上的部署，可通过以下步骤查看部署结果：
 
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2/)，单击集群 ID/名称进入集群详情页面。  
+1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2/)，单击集群 ID/名称进入集群详情页面。  
 2. 单击**服务与路由** > **Service**进入 “Service 页面”，可查看到创建的 Service。通过 gateway service 的 VIP 即可访问 PiggyMetrics 页面。  
 ![](https://main.qcloudimg.com/raw/0d1934460a8cf1d218eeb9abaad70a01.png)
 
@@ -659,7 +659,7 @@ spec:
 
 容器日志采集功能默认关闭，使用前需要开启，步骤如下：
 
-1. 登录容器服务控制台，选择左侧导航栏中的**集群运维** > **[功能管理](https://console.cloud.tencent.com/tke2/ops/list?rid=1)**。  
+1. 登录容器服务控制台 ，选择左侧导航栏中的**集群运维** > **[功能管理](https://console.cloud.tencent.com/tke2/ops/list?rid=1)**。  
 2. 在“功能管理”页面上方选择地域，单击需要开启日志采集的集群右侧的**设置**。  
 ![](https://main.qcloudimg.com/raw/3d55d97eb5b3fa9f0cfe1c9ea4266561.png)
 3. 在“设置功能”页面，单击日志采集**编辑**，开启日志采集后确认。如下图所示：
@@ -695,7 +695,7 @@ PiggyMetrics 部署在南京，在“日志主题”页面选择南京地域。�
 <dx-tabs>
 ::: 方式1：使用控制台
 日志规则指定了日志在容器内的位置：
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2/)，选择左侧导航栏中的**集群运维** > **日志规则**。  
+1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2/)，选择左侧导航栏中的**集群运维** > **日志规则**。  
 2. 在“日志规则”页面，单击**新建**新建日志规则：
 	- **日志源**：指定容器日志位置，PiggyMetrics 采用 SpringCloud 的默认配置，所有日志都打印到标准输出中，因而使用容器标准输出，并指定具体的 Pod Label。  
 	- **消费端**：选择之前创建的日志集和主题。  

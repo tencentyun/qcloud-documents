@@ -10,7 +10,7 @@
 
 ### 安装 Jenkins
 
-1. 登录容器服务控制台，选择左侧导航栏中的 **[应用市场](https://console.cloud.tencent.com/tke2/market)**。  
+1. 登录容器服务控制台 ，选择左侧导航栏中的 **[应用市场](https://console.cloud.tencent.com/tke2/market)**。  
 2. 在“应用市场”页面搜索 Jenkins，并进入 Jenkins 应用页面。  
 3. 单击**创建应用**，创建应用窗口中的“参数” values.yaml 部分，可以根据自身需求进行微调。  
 ![](https://main.qcloudimg.com/raw/566dfe260dddce05ba60b5b7c92e7de7.jpg)

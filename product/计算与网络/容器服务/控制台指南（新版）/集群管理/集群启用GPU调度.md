@@ -10,7 +10,7 @@
  - [通过应用或 Kubectl 命令创建](#appOrKubectlCreate)
 
 ## 前提条件
-已登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
+已登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)。
 
 ## 注意事项
 - 仅在集群 Kubernetes 版本大于**1.8.\***时，支持使用 GPU 调度。

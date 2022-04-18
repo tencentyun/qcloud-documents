@@ -1,4 +1,4 @@
-## 概述
+## 概述 
 
 Kubernetes 官方提供了 NodePort 类型的 Service，即给所有节点开通一个相同端口用于暴露该 Service。大多云上负载均衡 （Cloud Load Balancer，CLB） 类型 Service 的传统实现也都是基于 NodePort。即 CLB 后端绑定各节点的 NodePort，CLB 接收外界流量，转发到其中一个节点的 NodePort 上，再通过 Kubernetes 内部的负载均衡，使用 iptables 或 ipvs 转发到 Pod。示意图如下：
 <img style="width:80%" src="https://main.qcloudimg.com/raw/dd6fa146520ca178ab17bc94e7f0fb1f.png" data-nonescope="true">

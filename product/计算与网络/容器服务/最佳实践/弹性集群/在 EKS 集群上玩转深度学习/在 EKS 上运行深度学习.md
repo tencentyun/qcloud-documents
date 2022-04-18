@@ -125,7 +125,7 @@ spec:
 ```sh
 kubectl create -f [yaml_name]
 ```
-<dx-alert infotype="notice" title="">
+<dx-alert infotype="notice" title=" ">
 除了控制台操作指引中提到的 [注意事项](#precautions)，还需注意：
 - 在 YAML 文件中需使用 Annotations 声明资源分配，详情请参见 [Annotation 说明](https://cloud.tencent.com/document/product/457/44173)。同样需要注意的是不同 GPU 对应不同的 CPU、内存选项，建议按需填写。  
 - 此处数据卷使用的是 NFS 。若需使用其他数据卷进行持久化存储，请参见 [其他存储卷使用说明](https://cloud.tencent.com/document/product/457/31713)。  
@@ -146,7 +146,7 @@ kubectl create -f [yaml_name]
 <dx-tabs>
 ::: 控制台查看
 在创建 Job 之后，默认进入 Job 管理页面。您也可以通过以下步骤进入 Job 管理页面：
-1. 登录容器服务控制台，在左侧导航栏中单击**弹性容器** > **[弹性集群](https://console.cloud.tencent.com/tke2/ecluster)**。  
+1. 登录容器服务控制台 ，在左侧导航栏中单击**弹性容器** > **[弹性集群](https://console.cloud.tencent.com/tke2/ecluster)**。  
 2. 在弹性集群列表中，单击需要查看的事件集群 ID，进入集群管理页面。  
 3. 选择**工作负载** > **Job**，在 Job 列表中单击上述步骤创建的 Job。  
 	- 选择**事件**页签在查看事件，如下图所示：

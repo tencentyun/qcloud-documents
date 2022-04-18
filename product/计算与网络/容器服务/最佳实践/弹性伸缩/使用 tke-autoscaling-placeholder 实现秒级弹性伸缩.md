@@ -13,7 +13,7 @@
 ## 操作步骤
 
 ### 安装 tke-autoscaling-placeholder
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。  
+1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)。  
 2. 在左侧导航栏中，单击**应用市场**进入“应用市场”管理页面。  
 3. 在应用市场页面搜索框，输入 `tke-autoscaling-placeholder` 进行搜索，找到该应用。如下图所示：
 ![](https://main.qcloudimg.com/raw/b48a227c35dd1c52633a838c72e95b26.jpg)

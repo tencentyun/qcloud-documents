@@ -43,10 +43,11 @@
  - Standard storage class 表示标准存储（STANDARD）
  - Infrequent access storage mode 表示低频存储（Standard_IA）
  - Archive storage mode 表示归档存储（ARCHIVE）
- >?如需设置智能分层存储或者深度归档存储类型，请采用**修改配置文件**的方式，在配置文件中，将 storage_class 的值设置为 INTELLIGENT_TIERING 或 DEEP_ARCHIVE 即可。
+>?如需设置智能分层存储或者深度归档存储类型，请采用**修改配置文件**的方式，在配置文件中，将 storage_class 的值设置为 INTELLIGENT_TIERING 或 DEEP_ARCHIVE 即可。
+>
 15. 执行到 `Edit advanced config? (y/n)` 时，按 **Enter**。
 16. 确认信息无误后，按 **Enter**。
-17. 输入**q**，完成配置。
+17. 输入 **q**，完成配置。
 
 
 ### 修改配置文件
@@ -103,8 +104,8 @@ rclone mount myCOS:/ Y: --cache-dir E:\temp --vfs-cache-mode writes &
 ```plaintext
 CreateObject("WScript.Shell").Run "cmd /c E:\AutoRclone\startup_rclone.bat",0
 ```
- >! 请将代码中的路径修改为您实际的路径。
- >
+>! 请将代码中的路径修改为您实际的路径。
+>
 4. 将 startup_rclone.vbs 文件剪切到 %USERPROFILE%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup 文件夹下。
 5. 重启服务器。
 

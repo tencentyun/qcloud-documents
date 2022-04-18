@@ -1,17 +1,17 @@
-## 使用场景 
+## 使用场景  
 容器服务 TKE 的集群审计和事件存储为用户配置了丰富的可视化图表，以多个维度对审计日志和集群事件进行呈现，操作简单且涵盖绝大多数常见集群运维场景，易于发现和定位问题，提升运维效率，将审计和事件数据的价值最大化。  
-本文结合几个具体使用场景和示例，介绍如何利用审计和事件仪表盘快速定位集群问题。  
+本文结合几个具体使用场景 和示例，介绍如何利用审计和事件仪表盘快速定位集群问题。  
 
 ## 前提条件
 
-已登录 [容器服务控制台](https://console.cloud.tencent.com/tke2/cluster?rid=1)，并已开启 [集群审计](https://cloud.tencent.com/document/product/457/48346) 和 [事件存储](https://cloud.tencent.com/document/product/457/32091)。  
+已登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2/cluster?rid=1)，并已开启 [集群审计](https://cloud.tencent.com/document/product/457/48346) 和 [事件存储](https://cloud.tencent.com/document/product/457/32091)。  
 
 
 ## 使用示例
 
 ### 示例1：排查工作负载消失问题
 
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。  
+1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)。  
 2. 在左侧导航栏中选择**集群运维** > **审计检索**，进入“审计检索”页面。  
 3. 选择**K8S 对象操作概览**页签，在过滤项中指定需要排查的操作类型和资源对象，如下图所示：
 ![](https://main.qcloudimg.com/raw/4c4ba2c916cca86f0c4879670e48cd34.png)
@@ -23,7 +23,7 @@
 
 ### 示例2：排查节点被封锁问题
 
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。  
+1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)。  
 2. 在左侧导航栏中选择**集群运维** > **审计检索**，进入“审计检索”页面。  
 3. 选择**节点操作概览**页签，在过滤项中指定被封锁的节点名称，如下图所示：
 ![](https://main.qcloudimg.com/raw/7864ec7140664ced4a3c0189b862e64d.png)
@@ -33,7 +33,7 @@
 
 ### 示例3：排查 apiserver 响应变慢问题
 
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。  
+1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)。  
 2. 在左侧导航栏中选择**集群运维** > **审计检索**，进入“审计检索”页面。  
 3. 选择**聚合检索**页签，进入“聚合检索”页面。该页面提供了 [用户](#user)、[操作类型](#type)、[返回状态码](#statuscode) 等多个维度对于 apiserver 访问的趋势图。  如下图所示：
  - [](id:user)**操作用户分布趋势**：
@@ -50,7 +50,7 @@ E1130 06:19:37.368981       1 reflector.go:156] pkg/mod/k8s.io/client-go@v0.0.0-
 
 ### 示例4：排查节点异常问题
 
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。  
+1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)。  
 2. 在左侧导航栏中，选择**集群运维** > **事件检索**，进入“事件检索”页面。  
 3. 选择**事件总览**页签，在资源对象过滤项中输入异常节点 IP，如下图所示：
 ![](https://main.qcloudimg.com/raw/e37744f3ff3f237289bc34f4e40d0287.png)
@@ -67,7 +67,7 @@ E1130 06:19:37.368981       1 reflector.go:156] pkg/mod/k8s.io/client-go@v0.0.0-
 开启了节点池**弹性伸缩**的集群，CA（cluster-autoscler）组件会根据负载状况自动对集群中节点数量进行增减。如果集群中的节点发生了自动扩（缩）容，用户可通过事件检索对整个扩（缩）容过程进行回溯。  
 
 
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。  
+1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)。  
 2. 在左侧导航栏中，选择**集群运维** > **事件检索**，进入“事件检索”页面。  
 3. 选择**全局检索**页签，在检索分析栏中输入以下检索命令：
 ```

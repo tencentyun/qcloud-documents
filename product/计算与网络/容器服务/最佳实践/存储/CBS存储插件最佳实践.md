@@ -62,7 +62,7 @@ In-Tree插件只实现了使用CBS的能力，其主要特性有：
 
 
 
-#### 原理简介
+#### 原理简介 
 
 下面简单了解下In-Tree插件QcloudCbs的架构图，了解各相关组件分别完成何种工作。  
 
@@ -98,9 +98,9 @@ CSI是Kubernetes社区扩展卷的标准和推荐方式。TKE的CSI插件包含C
 | QcloudCbs（In-Tree） | √          | √          | √        | √                            | ×          | ×           |
 
 
-#### 原理简介
+#### 原理简介 
 
-##### CSI原理简介
+##### CSI原理简介 
 
 ![enter image description here](https://main.qcloudimg.com/raw/2a3963c19f312276fd9ae8d6e6c309b3.png)
 

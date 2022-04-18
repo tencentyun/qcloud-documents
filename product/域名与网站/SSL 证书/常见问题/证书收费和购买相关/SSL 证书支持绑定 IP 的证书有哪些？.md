@@ -62,12 +62,21 @@
     <td>-</td>
   </tr>
   <tr>
-    <td>DNSPod </td>
+    <td>DNSPod （国密）</td>
     <td><b>单域名/多域名支持</b><br>其余域名类型不支持</td>
     <td>-</td>
     <td>-</td>
     <td>-</td>
     <td><b>单域名/多域名支持</b><br>其余域名类型不支持</td>
+    <td>-</td>
+  </tr>
+	  <tr>
+    <td>DNSPod  （标准）</td>
+    <td><b>单域名/多域名支持</b><br>其余域名类型不支持</td>
+    <td>-</td>
+    <td><b>单域名/多域名支持</b><br>其余域名类型不支持</td>
+    <td>-</td>
+    <td><b>不支持</td>
     <td>-</td>
   </tr>
 </tbody>

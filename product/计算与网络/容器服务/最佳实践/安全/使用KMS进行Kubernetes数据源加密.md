@@ -41,7 +41,7 @@
 
 ### 创建 DaemonSet 并部署 tke-kms-plugin
 
-1. 登录[ 腾讯云容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中**集群**。  
+1. 登录[ 腾讯云容器服务控制台 ](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中**集群**。  
 2. 在“集群管理”页面中，选择符合条件的集群 ID，进入该集群详情页。  
 3. 选择该集群任意界面右上角**YAML创建资源**，进入 YAML 创建资源页，输入 `tke-kms-plugin.yaml` 内容。如下所示：
 > ? 请根据实际情况替换以下参数：

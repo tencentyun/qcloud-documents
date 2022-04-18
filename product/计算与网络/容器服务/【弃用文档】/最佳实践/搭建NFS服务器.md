@@ -6,7 +6,7 @@ NFS 是 Network File System 的简写，即网络文件系统。  通过使用 N
 如果您还未创建集群，您需要先创建集群。有关如何创建集群的详细信息，参见 [新建集群](https://cloud.tencent.com/document/product/457/9091)。
 ### 操作步骤
 **第一步** ：新建服务
-在 [容器服务控制台](https://console.cloud.tencent.com/ccs) 页面，单击 **服务**，在服务列表页单击**新建**。
+在 [容器服务控制台 ](https://console.cloud.tencent.com/ccs) 页面，单击 **服务**，在服务列表页单击**新建**。
 ![](//mc.qcloudimg.com/static/img/9770c91c39779859f75153b6709ff75b/image.gif)
 **第二步**：添加数据卷
 ![](//mc.qcloudimg.com/static/img/ae63d74d7b78d2b74ad2590606c24cd7/image.gif)

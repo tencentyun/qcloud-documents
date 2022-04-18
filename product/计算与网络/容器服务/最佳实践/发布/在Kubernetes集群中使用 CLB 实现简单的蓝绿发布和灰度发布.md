@@ -157,7 +157,7 @@ data:
         }
     }
 ```
-您可登录 [容器服务控制台](https://console.cloud.tencent.com/tke2/cluster)，在集群的工作负载详情页查看部署情况。如下图所示：
+您可登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2/cluster)，在集群的工作负载详情页查看部署情况。如下图所示：
 <img style="width:80%" src="https://main.qcloudimg.com/raw/4d3411bb5f9301d4ff8bee25066c64be.png">
 
 ### 实现蓝绿发布

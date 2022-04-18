@@ -1,5 +1,6 @@
+## 使用 Rust 进行智能合约开发
 
- 本章节主要描述使用 Rust 进行 ChainMaker 合约编写的方法，主要面向于使用 Rust 进行 ChainMaker 的合约开发的开发者。
+本章节主要描述使用 Rust 进行 ChainMaker 合约编写的方法，主要面向于使用 Rust 进行 ChainMaker 的合约开发的开发者。
 
 Rust 安装及教程请参考 [Rust 官网](https://www.rust-lang.org/)。
 
@@ -11,7 +12,7 @@ ChainMaker 官方已经将容器发布至 [docker hub](https://hub.docker.com/u/
 ```
 docker pull chainmakerofficial/chainmaker-rust-contract:2.1.0
 ```
-请指定你本机的工作目录 $WORK_DIR，例如 /data/workspace/contract，挂载到 docker 容器中以方便后续进行必要的一些文件拷贝。
+请指定您本机的工作目录 $WORK_DIR，例如 /data/workspace/contract，挂载到 docker 容器中以方便后续进行必要的一些文件拷贝。
 ```
 docker run -it --name chainmaker-rust-contract -v $WORK_DIR:/home chainmakerofficial/chainmaker-rust-contract:2.1.0 bash
 # 或者先后台启动
