@@ -1,6 +1,6 @@
 您可以通过 Kafka 协议消费，将采集到日志服务（Cloud Log Service,CLS）的数据，消费到下游的大数据组件或者数据仓库，例如自建 Kafka 集群，开源的 ClickHouse、Hive、Flink，以及腾讯云弹性 MapReduce（EMR）、流计算 Oceanus 等。
 
-## 内网消费和外网消费说明
+## 内外网消费说明
 
 - 内网和外网的定义：例如您在广州地域的日志主题，使用 Kafka 消费协议，消费到广州地域的 EMR-Hive，属于内网消费。
 如果消费到上海地域的EMR-Hive,那就属于外网消费。
