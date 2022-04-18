@@ -214,5 +214,5 @@ spec:
 ![](https://qcloudimg.tencent-cloud.cn/raw/9cf1709ac78fa73a9ff28c9b4feb72f8.png)
 
 
-当您在与集群所在同一个 VPC 内 ping 名为 nginx 的 Service 里 annotation 的声明时，会自动解析成 ClusterIP 和 Loadbalancer VIP。
+当您在与集群所在同一个 VPC 内节点上， ping 名为 nginx 的 Service 里 annotation 的域名声明时，会自动解析成 ClusterIP 和 Loadbalancer VIP，如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/dfaec4597cf7dd9c9702cef897031b51.png)
