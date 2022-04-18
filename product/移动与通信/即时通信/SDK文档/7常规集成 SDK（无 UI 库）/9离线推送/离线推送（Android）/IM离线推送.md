@@ -446,7 +446,7 @@ android {
 
 -  **华为和 Google FCM 适配**
 华为和 Google FCM 需要按照厂商方法，集成对应的 plugin 和 json 配置文件。
-1. 在项目级 build.gradle 文件中 buildscript -> dependencies 下添加以下配置：
+ 1. 在项目级 build.gradle 文件中 buildscript -> dependencies 下添加以下配置：
 ```
 classpath 'com.google.gms:google-services:4.2.0'
 classpath 'com.huawei.agconnect:agcp:1.4.1.300'
@@ -472,12 +472,12 @@ dependencies {
 }
 ```
 
-2. 在应用级 build.gradle 文件中添加下方配置。
+ 2. 在应用级 build.gradle 文件中添加下方配置。
 ```
 apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.huawei.agconnect'
 ```
-3. 单击项目右上角 **Sync Now** 同步项目。
+ 3. 单击项目右上角 **Sync Now** 同步项目。
 
 ### 步骤5：集成厂商推送 SDK
 
