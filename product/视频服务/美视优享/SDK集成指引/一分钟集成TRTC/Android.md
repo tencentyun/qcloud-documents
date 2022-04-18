@@ -1,7 +1,7 @@
 [](id:step1)
 ## 步骤一：解压 Demo 工程
 
-1. 下载集成了腾讯特效 TE 的 [TRTC Demo](https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.1.115.vcube/TRTC-API-Example.zip) 工程。本 Demo 基于腾讯特效 SDK S1-04 套餐构建。
+1. 下载集成了腾讯特效 TE 的 [TRTC Demo](https://cloud.tencent.com/document/product/616/65875) 工程。本 Demo 基于腾讯特效 SDK S1-04 套餐构建。
 2. 替换资源。由于本 Demo 工程使用的 SDK 套餐未必与您实际的套餐一致，因此要将本 Demo 中的相关 SDK 文件替换为您实际使用的套餐的 SDK 文件。具体操作如下：
    - 删除 xmagic 模块中 libs 目录下的 `.aar`文件，将 SDK 中 libs 目录下的 `.aar` 文件拷贝进 xmagic 模块中 libs 目录下。
    - 删除 xmagic 模块中 assets 目录下的所有文件，将 SDK 中的 `assets/` 目录下的全部资源拷贝到 xmagic 模块`../src/main/assets` 目录下，如果 SDK 包中的 MotionRes 文件夹内有资源，将此文件夹也拷贝到 `../src/main/assets` 目录下 。

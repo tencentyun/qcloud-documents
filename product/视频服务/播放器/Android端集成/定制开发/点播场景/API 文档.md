@@ -21,7 +21,7 @@
 | [setPlayerView](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#a64eefab5bdb76cef17f609560eec5830) | 设置播放器的视频渲染 TXCloudVideoView。                        |
 | [setPlayerView](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#aeb2f15f370d50b6261b7832f02a0f411) | 设置播放器的视频渲染 TextureView。                             |
 | [setSurface](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#ac06d94f1ed4ec1441c075e4ba556eb37) | 设置播放器的视频渲染 SurfaceView。                             |
-| setStringOption                                              | 设置播放器业务参数，参数格式为<String,Object>。                |
+| setStringOption                                              | 设置播放器业务参数，参数格式为`<String,Object>`。                |
 
 ### 播放基础接口  
 | API                                                          | 描述                        |
@@ -212,4 +212,4 @@
 | 2103  | PLAY_WARNING_RECONNECT            | 网络断连, 已启动自动重连 (重连超过三次就直接抛送 PLAY_ERR_NET_DISCONNECT)。 |
 | 2106  | PLAY_WARNING_HW_ACCELERATION_FAIL | 硬解启动失败，采用软解。                                     |
 | -2304 | PLAY_ERR_HEVC_DECODE_FAIL         | H265 解码失败。                                              |
-| -2303 | PLAY_ERR_FILE_NOT_FOUND           | 播放的文件不存在。                                           |
+| -2303 | PLAY_ERR_FILE_NOT_FOUND           | 播放的文件不存在。                                     |
