@@ -1,4 +1,4 @@
-## 简介
+## 简介 
 
 使用公网 CLB 型 Service 时，默认是在当前集群所在 VPC 内的随机可用区生成 CLB，现目前  TKE 的公网 CLB Service 已支持指定可用区、包括其他地域的可用区。本文将为您介绍如何通过控制台和 YAML 两种方式为 CLB Service 跨域绑定和指定可用区。
 
@@ -22,7 +22,7 @@
 
 <dx-tabs>
 ::: 控制台方式
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的**集群**。
+1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的**集群**。
 2. 在“集群管理”页面单击需要创建 Service 的集群 ID，进入待创建 Service 的集群管理页面。
 3. 选择**服务与路由** > **Service**，进入 “Service” 管理页面。如下图所示：
    ![](https://main.qcloudimg.com/raw/c7ac45e1efc03a0cdbd937a35ade9037.png)
@@ -34,7 +34,7 @@
      ![](https://main.qcloudimg.com/raw/a94769f097ec3385b492a7078f69cd5a.png)
 :::
 ::: YAML\s方式
-<dx-alert infotype="explain" title="">
+<dx-alert infotype="explain" title=" ">
 1. 如需使用非本集群所在 VPC 的 CLB，需先通过 [云联网](https://cloud.tencent.com/document/product/877/18752) 打通当前集群 VPC 和 CLB 所在的 VPC。
 2. 在确保 VPC 已经打通之后，请 [在线咨询](https://cloud.tencent.com/act/event/connect-service) 申请使用该功能。
 </dx-alert>
@@ -50,7 +50,7 @@ service.kubernetes.io/service.extensiveParameters: '{"ZoneId":"ap-guangzhou-1"}'
 service.cloud.tencent.com/cross-region-id: "ap-guangzhou" 
 service.cloud.tencent.com/cross-vpc-id: "vpc-646vhcjj"
 :::
-</dx-codeblock><dx-alert infotype="notice" title="">
+</dx-codeblock><dx-alert infotype="notice" title=" ">
 如果您还需要指定可用区，需要再添加示例1中的 annotation。
 </dx-alert>
 #### 示例3

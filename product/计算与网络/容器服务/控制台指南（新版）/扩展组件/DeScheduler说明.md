@@ -1,7 +1,7 @@
-## 简介
+## 简介 
 ### 组件介绍
 
-DeScheduler 是容器服务 TKE 基于 Kubernetes 原生社区 [DeScheduler](https://github.com/kubernetes-sigs/descheduler)  实现的一个基于 Node 真实负载进行重调度的插件。在 TKE 集群中安装该插件后，该插件会和 Kube-scheduler 协同生效，实时监控集群中高负载节点并驱逐低优先级 Pod。建议您搭配 TKE [Dynamic Scheduler（动态调度器扩展组件）](https://cloud.tencent.com/document/product/457/50843)一起使用，多维度保障集群负载均衡。 
+DeScheduler 是容器服务 TKE 基于 Kubernetes 原生社区 [DeScheduler](https://github.com/kubernetes-sigs/descheduler)  实现的一个基于 Node 真实负载进行重调度的插件。在 TKE 集群中安装该插件后，该插件会和 Kube-scheduler 协同生效，实时监控集群中高负载节点并驱逐低优先级 Pod。建议您搭配 TKE [Dynamic Scheduler（动态调度器扩展组件）](https://cloud.tencent.com/document/product/457/50843)一起使用，多维度保障集群负载均衡。  
 该插件依赖 Prometheus 监控组件以及相关规则配置，建议您安装插件之前仔细阅读 [依赖部署](#DeScheduler)，以免插件无法正常工作。
 
 
@@ -18,7 +18,7 @@ DeScheduler 是容器服务 TKE 基于 Kubernetes 原生社区 [DeScheduler](htt
 | probe-prometheus   | ConfigMap          |                      -                       | kube-system   |
 
 
-## 使用场景
+## 使用场景 
 
 DeScheduler 通过重调度来解决集群现有节点上不合理的运行方式。社区版本 DeScheduler 中提出的策略基于 APIServer 中的数据实现，并未基于节点真实负载。因此可以增加对于节点的监控，基于真实负载进行重调度调整。
 
@@ -29,7 +29,7 @@ DeScheduler 通过重调度来解决集群现有节点上不合理的运行方�
 ## 限制条件
 
 - Kubernetes 版本 ≥ v1.10.x
-- 在特定场景下，某些 Pod 会被重复调度到需要重调度的节点上，从而引发 Pod 被重复驱逐。此时可以根据实际场景改变 Pod 可调度的节点，或者将 Pod 标记为不可驱逐。 
+- 在特定场景下，某些 Pod 会被重复调度到需要重调度的节点上，从而引发 Pod 被重复驱逐。此时可以根据实际场景改变 Pod 可调度的节点，或者将 Pod 标记为不可驱逐。  
 - 该组件已对接容器服务 TKE 的监控告警体系。
 - 建议您为集群开启事件持久化，以便更好的监控组件异常以及故障定位。Descheduler 驱逐 Pod 时会产生对应事件，可根据 reason 为 “Descheduled” 类型的事件观察 Pod 是否被重复驱逐。
 - 为避免 DeScheduler 驱逐关键的 Pod，设计的算法默认不驱逐 Pod。对于可以驱逐的 Pod，用户需要显示给判断 Pod 所属 workload。例如，statefulset、deployment 等对象设置可驱逐 annotation。
@@ -154,7 +154,7 @@ rule_files:
 >?通常情况下，上述 Prometheus 配置文件和 rules 配置文件都是通过 configmap 存储，再挂载到 Prometheus server 容器，因此修改相应的 configmap 即可。
 :::
 ::: 云原生监控\sPrometheus
-1. 登录容器服务控制台，在左侧菜单栏中选择 **[云原生监控](https://console.cloud.tencent.com/tke2/prometheus)**，进入“云原生监控”页面。
+1. 登录容器服务控制台 ，在左侧菜单栏中选择 **[云原生监控](https://console.cloud.tencent.com/tke2/prometheus)**，进入“云原生监控”页面。
 2. 创建与 Cluster 处于同一 VPC 下的 [云原生监控 Prometheus 实例](https://cloud.tencent.com/document/product/457/49889#.E5.88.9B.E5.BB.BA.E7.9B.91.E6.8E.A7.E5.AE.9E.E4.BE.8B)，并 [关联用户集群](https://cloud.tencent.com/document/product/457/49890)。如下图所示：
    ![](https://main.qcloudimg.com/raw/bafb027663fbb3f2a5063531743c2e97.jpg)
 3. 与原生托管集群关联后，可以在用户集群查看到每个节点都已安装 node-exporter。如下图所示：
@@ -169,7 +169,7 @@ rule_files:
 
 ### 安装组件
 
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2/cluster)，选择左侧导航栏中的**集群**。
+1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2/cluster)，选择左侧导航栏中的**集群**。
 2. 在“集群管理”页面单击目标集群 ID，进入集群详情页。
 3. 选择左侧菜单栏中的**组件管理**，进入 “组件列表” 页面。
 4. 在“组件列表”页面中选择**新建**，并在“新建组件”页面中勾选 Decheduler（重调度器）。

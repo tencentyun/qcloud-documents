@@ -1,9 +1,9 @@
 ## 操作场景
 
-MySQL 是常用的关系型数据库，MariaDB 作为 MySQL 的分支版本，兼容 MySQL 协议，也越来越流行。在 Kubernetes 环境中，可借助开源的 [mysqld-exporter](https://github.com/prometheus/mysqld_exporter) 来使用 Prometheus 监控 MySQL 与 MariaDB。您可通过本文了解 Prometheus 并开始使用。 
+MySQL 是常用的关系型数据库，MariaDB 作为 MySQL 的分支版本，兼容 MySQL 协议，也越来越流行。在 Kubernetes 环境中，可借助开源的 [mysqld-exporter](https://github.com/prometheus/mysqld_exporter) 来使用 Prometheus 监控 MySQL 与 MariaDB。您可通过本文了解 Prometheus 并开始使用。  
 
 
-## mysqld-exporter 简介
+## mysqld-exporter 简介 
 
 [mysqld-exporter](https://github.com/prometheus/mysqld_exporter) 通过读取 MySQL 或 MariaDB 中某些数据库状态的数据，将其转换为 Prometheus 的指标格式并暴露为 HTTP 接口被 Prometheus 采集，让原本不支持 Prometheus 指标的 MySQL 和 MariaDB 能够被 Prometheus 监控起来。如下图所示：
 <img style="width:80%" src="https://main.qcloudimg.com/raw/5b8918c8804589aa0b7cc947a6481d11.png" data-nonescope="true">
@@ -12,14 +12,14 @@ MySQL 是常用的关系型数据库，MariaDB 作为 MySQL 的分支版本，�
 
 ### 部署 mysqld-exporter[](id:mysqld-exporter">
 
->! 在部署 mysqld-exporter 之前需确保已在集群内、集群外或使用已有的云服务中部署 MySQL 或 MariaDB。 
+>! 在部署 mysqld-exporter 之前需确保已在集群内、集群外或使用已有的云服务中部署 MySQL 或 MariaDB。  
 
 #### 部署 MySQL[](id:MySQL)
 以从应用市场部署 MySQL 到集群为例。步骤如下：
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，在左侧导航栏选择**应用市场**。 
-2. 在“应用市场”页面，搜索并单击**MySQL**。 
-3. 在“应用详情”页面，单击**创建应用**。 
-4. 在“创建应用”页面，填写信息后单击**创建**即可。 
+1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)，在左侧导航栏选择**应用市场**。  
+2. 在“应用市场”页面，搜索并单击**MySQL**。  
+3. 在“应用详情”页面，单击**创建应用**。  
+4. 在“创建应用”页面，填写信息后单击**创建**即可。  
 5. 执行以下命令，查看 MySQL 是否正常运行。示例如下：
 ``` bash
 $ kubectl get pods
@@ -49,7 +49,7 @@ GRANT PROCESS, REPLICATION CLIENT, REPLICATION SLAVE, SELECT ON *.* TO 'mysqld-e
 flush privileges;
 ```
 3. 使用 yaml 文件部署 mysqld-exporter。示例如下：
-> ! 需根据实际情况替换 DATA_SOURCE_NAME 中的账号密码，以及 MySQL 的连接地址。 
+> ! 需根据实际情况替换 DATA_SOURCE_NAME 中的账号密码，以及 MySQL 的连接地址。  
 > 
 ```
 apiVersion: apps/v1
@@ -125,7 +125,7 @@ spec:
 
 ### 添加监控采集配置
 
-[部署 mysqld-exporter](#mysqld-exporter) 后，添加监控采集配置，让 mysqld-exporter 暴露的数据可被采集。 
+[部署 mysqld-exporter](#mysqld-exporter) 后，添加监控采集配置，让 mysqld-exporter 暴露的数据可被采集。  
 ServiceMonitor 定义示例如下（需要集群中支持）：
 ```
 apiVersion: monitoring.coreos.com/v1
@@ -165,7 +165,7 @@ Prometheus 原生配置示例如下：
 
 ### 添加监控面板
 
-监控采集配置能正常采集数据之后，还需要为 Grafana 添加监控面板进行展示。 
+监控采集配置能正常采集数据之后，还需要为 Grafana 添加监控面板进行展示。  
 - 如果只需观察 MySQL 或 MariaDB 的概览情况，可导入面板 [grafana.com](https://grafana.com/grafana/dashboards/7362)。如下图所示：
 <img style="width:80%" src="https://main.qcloudimg.com/raw/0ddd9f644530e96c7d05bfe4acc3c2d7.png" data-nonescope="true">
-- 如果需要更丰富的面板，导入 [percona 开源面板](https://github.com/percona/grafana-dashboards/tree/master/dashboards) 中 `MySQL_` 开头的 json 文件中的内容即可。 
+- 如果需要更丰富的面板，导入 [percona 开源面板](https://github.com/percona/grafana-dashboards/tree/master/dashboards) 中 `MySQL_` 开头的 json 文件中的内容即可。  

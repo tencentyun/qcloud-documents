@@ -16,7 +16,7 @@ CKafka 提供了数据共用一个 Schema 的方法：将 Schema 中的内容注
 1. 登录 [CKafka 控制台](https://console.cloud.tencent.com/ckafka)。
 2. 在左侧导航栏选择**实例列表**，单击实例的“ID”，进入实例基本信息页面。
 3. 在实例的基本信息页面的**接入方式**模块，可获取实例的接入地址。
-   ![](https://main.qcloudimg.com/raw/a28b5599889166095c168510ce1f5e89.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/29f6e49286caaa04c902216ad15f64d0.png)
 4. 在**自动创建 Topic**模块开启自动创建 Topic。
 >?启动 oss 会创建 schemas 主题，所以实例中需要开启自动创建主题。
 
@@ -33,7 +33,7 @@ CKafka 提供了数据共用一个 Schema 的方法：将 Schema 中的内容注
 
 	<dx-alert infotype="explain" title="">
 	bootstrap.servers：接入网络，在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的实例详情页面**接入方式**模块的网络列复制。
-	![](https://main.qcloudimg.com/raw/9b07b993e6a6008ea1532cb01831fee9.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/4b99aaaac3c10e75c7edb541aba21908.png)
 	</dx-alert>
 
 
@@ -42,7 +42,7 @@ CKafka 提供了数据共用一个 Schema 的方法：将 Schema 中的内容注
    bin/schema-registry-start etc/schema-registry/schema-registry.properties
    ```
    运行结果如下：
-   ![](https://main.qcloudimg.com/raw/289772a734dcf0657e9f540555641598.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/5cbbc50415e43ab8ccf0d843d5833ec7.png)
 
 
 ### 步骤3：收发消息

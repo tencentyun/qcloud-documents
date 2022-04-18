@@ -17,13 +17,13 @@
 
 1. 登录 [Serverless 控制台](https://console.cloud.tencent.com/scf/index?rid=1)，单击左侧导航栏的**函数服务**。
 2. 在主界面上方选择期望创建函数的地域，并单击**新建**，进入函数创建流程。
-3. 选择使用**模板创建**来新建函数，在搜索框里输入 `nest` 筛选函数模板，选择**Nest框架模板**并单击**下一步**。如下图所示：
+3. 选择使用**模板创建**来新建函数，在搜索框里输入 `nest` 筛选函数模板，选择**Nest框架模板**并单击**下一步**。如下图所示： 
 ![](https://main.qcloudimg.com/raw/78fac7caa422b20739c552b210fe820e.png)
 4. 在**新建**页面，您可以查看模板项目的具体配置信息并进行修改。
 5. 单击**完成**即可创建函数。函数创建完成后，您可在**函数管理**页面查看 Web 函数的基本信息。
-6. 您可以通过 API 网关生成的访问路径 URL，访问您部署的 Nest.js 项目。单击左侧菜单栏中的**触发管理**，查看访问路径。如下图所示：
+6. 您可以通过 API 网关生成的访问路径 URL，访问您部署的 Nest.js 项目。单击左侧菜单栏中的**触发管理**，查看访问路径。如下图所示： 
 ![](https://main.qcloudimg.com/raw/e451680762dbdb5b427efd168fe2a2c4.png)
-7. 单击访问路径 URL，即可访问服务 Nest.js 项目。如下图所示：
+7. 单击访问路径 URL，即可访问服务 Nest.js 项目。如下图所示： 
 ![](https://main.qcloudimg.com/raw/c2d8e3d74650c1a06c23a386bae961b9.png)
 
 
@@ -45,7 +45,7 @@ nest new nest-app
 ```shell
 cd nest-app && npm run start
 ```
-3. 打开浏览器访问 `http://localhost:3000`，即可在本地完成 Nest.js 示例项目的访问。如下图所示：
+3. 打开浏览器访问 `http://localhost:3000`，即可在本地完成 Nest.js 示例项目的访问。如下图所示： 
 ![](https://main.qcloudimg.com/raw/a124e604e2770f73c8293c4bf09b4993.png)
 
 #### 部署上云
@@ -56,7 +56,7 @@ cd nest-app && npm run start
 - 修改监听地址与端口为 `0.0.0.0:9000`。
 
 具体步骤如下：
-1. 修改启动文件`./dist/main.js`，监听端口改为`9000`。如下图所示：
+1. 修改启动文件`./dist/main.js`，监听端口改为`9000`。如下图所示： 
 ![](https://main.qcloudimg.com/raw/4f32f01747c5868a89d513f7ff8e91f2.png)
 2. 在项目根目录下新建 `scf_bootstrap` 启动文件，在该文件添加如下内容（用于启动服务）：
 <dx-codeblock>
@@ -77,7 +77,7 @@ chmod 777 scf_bootstrap
 </dx-codeblock>
 4. 登录 [Serverless 控制台](https://console.cloud.tencent.com/scf/index?rid=1)，单击左侧导航栏的**函数服务**。
 5. 在主界面上方选择期望创建函数的地域，并单击**新建**，进入函数创建流程。
-6. 选择**自定义创建**新建函数，根据页面提示配置相关选项。如下图所示：
+6. 选择**自定义创建**新建函数，根据页面提示配置相关选项。如下图所示： 
 ![](https://main.qcloudimg.com/raw/5ea3c99b29d6a21d158635f314f760e3.png)
 	- **函数类型**：选择 “Web 函数”。
 	- **函数名称**：填写您自己的函数名称。

@@ -27,11 +27,11 @@
 操作步骤请参见 [创建存储桶](https://cloud.tencent.com/document/product/457/50122#.E9.85.8D.E7.BD.AE.E5.AF.B9.E8.B1.A1.E5.AD.98.E5.82.A8)。
 
 ### 下载 velero
-1. 下载 [Velero](https://github.com/vmware-tanzu/velero/releases) 最新版本安装包到集群环境中，本文以 v1.8.1 版本为例。 
+1. 下载 [Velero](https://github.com/vmware-tanzu/velero/releases) 最新版本安装包到集群环境中，本文以 v1.8.1 版本为例。  
 ```bash
 wget https://github.com/vmware-tanzu/velero/releases/download/v1.8.1/velero-v1.8.1-linux-amd64.tar.gz
 ```
-2. 执行以下命令解压安装包，安装包提供 Velero 命令行执行文件和一些示例文件。 
+2. 执行以下命令解压安装包，安装包提供 Velero 命令行执行文件和一些示例文件。  
 ```bash
 tar -xvf velero-v1.8.1-linux-amd64.tar.gz
 ```
