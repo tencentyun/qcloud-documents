@@ -1,7 +1,7 @@
 
 ## 计费方式
 
-调度到虚拟节点上的 Pod 支持预付费、后付费（按量计费、竞价）的两种计费模式，计费详情请参见 [弹性容器计费概述](https://cloud.tencent.com/document/product/457/39807)、[弹性容器产品定价](https://cloud.tencent.com/document/product/457/39806)、[弹性容器购买限制](https://cloud.tencent.com/document/product/457/39821)。
+调度到虚拟节点上的 Pod 支持预付费、后付费（按量计费、竞价）的两种计费模式，计费详情请参见 [弹性容器计费概述 ](https://cloud.tencent.com/document/product/457/39807)、[弹性容器产品定价](https://cloud.tencent.com/document/product/457/39806)、[弹性容器购买限制](https://cloud.tencent.com/document/product/457/39821)。
 
 
 ## Kubernetes 版本

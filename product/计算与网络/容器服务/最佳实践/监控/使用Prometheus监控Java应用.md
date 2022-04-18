@@ -1,7 +1,7 @@
 ## 操作场景
 Prometheus 社区开发了 JMX Exporter 用于导出 JVM 的监控指标，以便使用 Prometheus 来采集监控数据。当您的 Java 业务容器化至 Kubernetes 后，可通过本文了解如何使用 Prometheus 与 JMX Exporter 来监控 Java 应用。  
 
-##  JMX Exporter 简介
+##  JMX Exporter 简介 
 Java Management Extensions，JMX 是管理 Java 的一种扩展框架，JMX Exporter 基于此框架读取 JVM 的运行时状态。JMX Exporter 利用 Java 的 JMX 机制来读取 JVM 运行时的监控数据，然后将其转换为 Prometheus 可辨识的 metrics 格式，以便让 Prometheus 对其进行监控采集。  
 
 JMX Exporter 提供**启动独立进程**及 **JVM 进程内启动（in-process）**两种方式暴露 JVM 监控指标：

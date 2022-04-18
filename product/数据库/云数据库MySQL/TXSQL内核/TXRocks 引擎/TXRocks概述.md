@@ -1,6 +1,5 @@
 ## TXRocks 概述
-RocksDB 是⼀个⾮常流⾏的⾼性能持久化 KV（key-value）存储，经过⼤量的适配⼯作，Facebook 的数据库⼯程师将 RocksDB 改造为 MySQL 的⼀个存储引擎 MyRocks。
-TXRocks 是腾讯 TXSQL 团队基于 MyRocks 开发的事务型存储引擎。
+RocksDB 是⼀个⾮常流⾏的⾼性能持久化 KV（key-value）存储，TXRocks 是腾讯 TXSQL 团队基于此开发的事务型存储引擎。
 
 ## 为什么要使用 TXRocks 存储引擎
 TXRocks 事务型存储引擎得益于 RocksDB LSM Tree 存储结构，既减少了 InnoDB ⻚⾯半满和碎⽚浪费，⼜可以使⽤紧凑格式存储，因此 TXRocks 在保持与 InnoDB 接近的性能前提下，存储空间相⽐ InnoDB 可以节省⼀半甚⾄更多，更适合对事务读写性能有要求，且数据存储量⼤的业务。
@@ -8,8 +7,8 @@ TXRocks 事务型存储引擎得益于 RocksDB LSM Tree 存储结构，既减少
 ## RocksDB 的 LSM Tree 架构
 RocksDB 使⽤ LSM Tree 存储结构，数据组织为⼀组在内存中的 MemTable 和磁盘上若⼲层的 SST ⽂件。
 写⼊请求先将新版本记录写⼊ Active MemTable，同时写 WAL ⽇志持久化。写⼊请求写完 MemTable 和 WAL 就可以返回。
-当 Active MemTable 写满到⼀定程度，将 Active MemTable 切换为冻结的 Immutable MemTable。后台线程将 Immutable MemTable 刷到硬盘，⽣成对应的 SST ⽂件。SST 按照刷新的次序分层，通常分为L0层 ~ L6层。L1层 ~ L6层，每层内的 SST 中的记录都是有序的，SST ⽂件之间不会有记录范围的交叠。L0为了⽀持尽快将 Immutable MemTable 占⽤的内存空间释放出来，允许 Flush ⽣成的 L0层的 SST 出现记录范围交叠。 
-当读取⼀⾏记录时，按照新旧，依次从 Active MemTable、Immutable MemTable、L0、L1 ~ L6各个组件查找这⼀⾏，从任⼀组件找到，就表明找到了最新的版本，可以⽴刻返回。
+当 Active MemTable 写满到⼀定程度，将 Active MemTable 切换为冻结的 Immutable MemTable。后台线程将 Immutable MemTable 刷到硬盘，⽣成对应的 SST ⽂件。SST 按照刷新的次序分层，通常分为L0层 - L6层。L1层 - L6层，每层内的 SST 中的记录都是有序的，SST ⽂件之间不会有记录范围的交叠。L0为了⽀持尽快将 Immutable MemTable 占⽤的内存空间释放出来，允许 Flush ⽣成的 L0层的 SST 出现记录范围交叠。 
+当读取⼀⾏记录时，按照新旧，依次从 Active MemTable、Immutable MemTable、L0、L1 - L6各个组件查找这⼀⾏，从任⼀组件找到，就表明找到了最新的版本，可以⽴刻返回。
 当执⾏范围扫描时，对包含每层 MemTable 在内的各层数据，分别⽣成⼀个迭代器，这些迭代器归并查找下⼀条记录。从读的流程可以看到，如果 LSM Tree 层数太多，则读性能，尤其是范围扫描的性能会明显下降。所以，为了维持⼀个更好的 LSM Tree 形状，后台会不断地执⾏ compaction 操作，将低层数据合并到⾼层数据，减少层数。
 ![](https://qcloudimg.tencent-cloud.cn/raw/5f5e47996ea8af096ef4b79efecabe61.png)
 

@@ -125,6 +125,4 @@ php -d extension_dir=/opt/lib/php/modules/ sl_handler.php 1>&2
 函数目前只支持最大**6MB**的事件上传，超过该大小文件不支持上传。
 目前 API 网关 base 64转码会将用户本身代码大小扩大1.5倍左右，因此上传文件时，建议文件大小控制在**3.5MB**以内。<br/>
 
-#### 如何修改 WordPress 根目录文件？
-目前文件挂载在文件存储 CFS 上，无法直接修改，建议通过安装 File Manager 插件管理根目录文件。
 

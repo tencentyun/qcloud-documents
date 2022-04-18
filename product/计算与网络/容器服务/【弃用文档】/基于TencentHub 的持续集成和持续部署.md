@@ -9,8 +9,8 @@
 
 > #### 说明
 >- 源码构建和触发器设置均是独立模块，可以只使用其中任意环节。
->- 源码构建 Dockerfile 构建镜像可查看 [源码构建概述](https://cloud.tencent.com/document/product/457/10151)。
->- 触发器可支持多种触发动作，详情查看 [镜像触发器概述](https://cloud.tencent.com/document/product/457/10155)。
+>- 源码构建 Dockerfile 构建镜像可查看 [源码构建概述 ](https://cloud.tencent.com/document/product/457/10151)。
+>- 触发器可支持多种触发动作，详情查看 [镜像触发器概述 ](https://cloud.tencent.com/document/product/457/10155)。
 
 ## 操作步骤
 ### 一、设置源码持续构建镜像

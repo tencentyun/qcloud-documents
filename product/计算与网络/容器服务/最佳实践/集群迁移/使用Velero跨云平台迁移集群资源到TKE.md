@@ -246,7 +246,7 @@ NAME             STATUS      ERRORS   WARNINGS   CREATED                EXPIRES 
 migrate-backup   Completed   0        0          2020-12-29 19:24:28 +0800 CST   29d    default     <none>
 ```
 3. 备份完成后执行以下命令，将备份存储位置临时更新为只读模式。示例如下：
-<dx-alert infotype="explain" title="">
+<dx-alert infotype="explain" title=" ">
 非必须，可以防止在还原过程时， Velero 在备份存储位置中创建或删除备份对象。  
 </dx-alert>
 ```bash

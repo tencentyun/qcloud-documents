@@ -1,4 +1,4 @@
-## 简介
+## 简介 
 
 ### 组件介绍
 TCR Addon 是容器镜像服务 TCR 推出的容器镜像内网免密拉取的官方插件。在容器服务 TKE 集群中安装该插件后，集群节点可通过内网拉取企业版实例内容器镜像，且无需在集群资源 YAML 中显式配置 ImagePullSecret。可提高 TKE 集群内镜像拉取速度，简化镜像配置流程。
@@ -34,7 +34,7 @@ TCR Addon 是容器镜像服务 TCR 推出的容器镜像内网免密拉取的�
 | hosts-updater                    | CPU：100m memory：100Mi | 工作节点数 |
 
 
-## 使用场景
+## 使用场景 
 
 ### 免密拉取镜像
 
@@ -45,7 +45,7 @@ Kubernetes 集群拉取私有镜像需要创建访问凭证 Secret 资源，并�
 组件将自动创建 DaemonSet 工作负载 host-updater，用于更新集群节点的Host配置，解析当前关联实例域名至已建立的内网访问链路专用内网 IP 上。请注意，本配置仅用于测试场景配置，建议直接使用 TCR 提供的内网链路自动解析功能，或直接使用 PrivateDNS 产品进行私有域解析配置，也可使用自建 DNS 服务自行管理解析。
 
 ## 限制条件
-**针对免密拉取镜像使用场景**：
+**针对免密拉取镜像使用场景 **：
  - 用户需要具有指定的 TCR 企业版实例的获取访问凭证的权限，即 CreateInstanceToken 接口调用权限。建议具有 TCR 管理员权限的用户进行此插件的配置。
  - 安装插件并生效后，请避免在资源 YAML 中重复指定 ImagePullSecret，从而造成节点使用错误的镜像拉取访问凭证，引起拉取失败。
 
@@ -57,7 +57,7 @@ Kubernetes 集群拉取私有镜像需要创建访问凭证 Secret 资源，并�
 >! 删除插件将不会同时删除自动创建的专属访问凭证，可前往 TCR 控制台手动禁用或删除。
 
 ## 原理说明
-### 概述
+### 概述 
 TCR Assistant 用于帮助用户自动部署 k8s `imagePullSecret` 到任意 `Namespace`，并关联到该空间下的 `ServiceAccount`。在用户创建的工作负载当中**没有明确指定** `imagePullSecret` 和 `serviceAccount` 的情况下，k8s 会尝试从当前命名空间下名为 `default` 的 `ServiceAccount` 资源中查找、匹配合适的 `imagePullSecret`。
 
 ### 术语表

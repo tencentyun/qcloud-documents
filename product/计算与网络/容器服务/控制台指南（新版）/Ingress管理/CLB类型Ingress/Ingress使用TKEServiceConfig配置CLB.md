@@ -1,7 +1,7 @@
 ## TkeServiceConfig
 TkeServiceConfig 是腾讯云容器服务 TKE 提供的自定义资源 CRD，通过 TkeServiceConfig 能够帮助您更灵活的进行 Ingress 管理负载均衡的各种配置。
 
-### 使用场景
+### 使用场景 
 Ingress YAML 的语义无法定义的负载均衡参数和功能，可以通过 TkeServiceConfig 来配置。
 
 ### 配置说明

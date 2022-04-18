@@ -15,7 +15,7 @@
     - 若业务量有瞬间大幅波动场景，建议选择按量计费。
  - **地域**：选择您业务需要部署 MySQL 的地域。建议您选择与云服务器同一个地域，不同地域的云产品内网不通，购买后不能更换。
  - **数据库版本**：云数据库 MySQL 目前支持以下版本：MySQL 8.0、MySQL 5.7、MySQL 5.6、MySQL 5.5，各个版本相关特性，请参见 [官方文档](https://dev.mysql.com/doc/refman/5.7/en/)。
- - **引擎**：支持选择 InnoDB 或 RocksDB 引擎。
+ - **引擎**：支持选择 InnoDB 和 RocksDB 引擎。
     - InnoDB：最常用的 OLTP 存储引擎，拥有完整的事务支持与强大的读写高并发能力。
     - RocksDB：key-value 存储引擎，以高效写入能力与高压缩存储著称，选择 RocksDB 引擎后架构为双节点。
   - **架构**：提供双节点、三节点、单节点，各架构介绍请参见 [数据库架构](https://cloud.tencent.com/document/product/236/17136)。

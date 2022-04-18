@@ -1,7 +1,7 @@
-本文将介绍使用 Nginx Ingress 实现金丝雀发布的使用场景、用法详解及实践。  
+本文将介绍使用 Nginx Ingress 实现金丝雀发布的使用场景 、用法详解及实践。  
 >?使用 Nginx Ingress 实现金丝雀发布的集群，需部署 Nginx Ingress 作为 Ingress Controller，并且对外暴露统一的流量入口。详情请参见 [在 TKE 上部署 Nginx Ingress](https://cloud.tencent.com/document/product/457/47293)。  
 
-## 使用场景
+## 使用场景 
 使用 Nginx Ingress 实现金丝雀发布适用场景主要取决于业务流量切分的策略，目前 Nginx Ingress 支持基于 Header、Cookie 和服务权重3种流量切分的策略，基于这3种策略可实现以下两种发布场景：
 
 
@@ -215,7 +215,7 @@ spec:
     app: nginx
     version: v2
 ```
-您可登录 [容器服务控制台](https://console.cloud.tencent.com/tke2/cluster)，在集群的工作负载详情页查看部署情况。如下图所示：
+您可登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2/cluster)，在集群的工作负载详情页查看部署情况。如下图所示：
 <img src="https://main.qcloudimg.com/raw/4d3411bb5f9301d4ff8bee25066c64be.png">
 3. 创建 Ingress，对外暴露服务，指向 v1 版本的服务。YAML 示例如下：
 

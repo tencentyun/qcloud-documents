@@ -2,7 +2,7 @@
 
 metrics-server 可实现 Kubernetes 的 Resource Metrics API（metrics.k8s.io），通过此 API 可以查询 Pod 与 Node 的部分监控指标，Pod 的监控指标用于 [HPA](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)、[VPA](https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler) 与 `kubectl top pods` 命令，而 Node 指标目前只用于 `kubectl top nodes` 命令。容器服务 TKE 自带 Resource Metrics API 的实现，指向 hpa-metrics-server，且目前提供 Pod 的监控指标。  
 
-将 metrics-server 安装到集群后，可以通过 `kubectl top nodes` 获取节点的监控概览，以替换 Resource Metrics API 的实现。容器服务控制台创建的 HPA 不会用到 Resource Metrics，仅使用 Custom Metrics，因此安装 metrics-server 不会影响在 TKE 控制台创建的 HPA。本文将介绍如何在 TKE 上安装 metrics-server。  
+将 metrics-server 安装到集群后，可以通过 `kubectl top nodes` 获取节点的监控概览，以替换 Resource Metrics API 的实现。容器服务控制台 创建的 HPA 不会用到 Resource Metrics，仅使用 Custom Metrics，因此安装 metrics-server 不会影响在 TKE 控制台创建的 HPA。本文将介绍如何在 TKE 上安装 metrics-server。  
 
 
 

@@ -1,7 +1,7 @@
-## 概述
+## 概述 
 Kubernetes Pod 垂直自动扩缩（[Vertical Pod Autoscaler](https://github.com/kubernetes/autoscaler/tree/vpa-release-0.8/vertical-pod-autoscaler)，以下简称 VPA）可以自动调整 Pod 的 CPU 和内存预留，帮助提高集群资源利用率并释放 CPU 和内存供其它 Pod 使用。本文介绍如何在腾讯云容器服务 TKE 上使用社区版 VPA 功能实现 Pod 垂直扩缩容。  
 
-## 使用场景
+## 使用场景 
 
 VPA 自动伸缩特性使容器服务具有非常灵活的自适应能力。应对业务负载急剧飙升的情况，VPA 能够在用户设定范围内快速扩大容器的 Request。在业务负载变小的情况下，VPA 可根据实际情况适当缩小 Request 节省计算资源。整个过程自动化无须人为干预，适用于需要快速扩容、有状态应用扩容等场景。此外，VPA 可用于向用户推荐更合理的 Request，在保证容器有足够使用的资源的情况下，提升容器的资源利用率。  
 
@@ -16,7 +16,7 @@ VPA 自动伸缩特性使容器服务具有非常灵活的自适应能力。应�
 
 ## VPA 限制
 
-<dx-alert infotype="notice" title="">
+<dx-alert infotype="notice" title=" ">
 社区版 VPA 功能当前处于试验阶段，请谨慎使用。推荐您将 “updateMode” 设置为 “Off”，以确保 VPA 不会自动为您更换 Request 数值。您仍然可以在 VPA 对象中查看已绑定负载的 Request 推荐值。  
 </dx-alert>
 
@@ -122,7 +122,7 @@ EOF
 生成的 Deployment 对象如下图所示：
 ![](https://main.qcloudimg.com/raw/556334a46666d4f74c18432ed6083c55.png)
 
->! 上述操作创建 `tke-deployment` 时并没有设置 CPU 或内存的 Request，Pod 中的 [Qos](https://kubernetes.io/docs/tasks/configure-pod-container/quality-service-pod/) 为 BestEffort，此时 Pod 容易被驱逐。建议您在创建业务的 Deployment 时设置 Request 及 Limit。如果您通过容器服务控制台创建工作负载，控制台将自动为每个容器的 Request 和 Limits 设置默认值。  
+>! 上述操作创建 `tke-deployment` 时并没有设置 CPU 或内存的 Request，Pod 中的 [Qos](https://kubernetes.io/docs/tasks/configure-pod-container/quality-service-pod/) 为 BestEffort，此时 Pod 容易被驱逐。建议您在创建业务的 Deployment 时设置 Request 及 Limit。如果您通过容器服务控制台 创建工作负载，控制台将自动为每个容器的 Request 和 Limits 设置默认值。  
 ![](https://main.qcloudimg.com/raw/3adff8df7f72b5bdc65734e5d3c7ba98.png)
 >
 

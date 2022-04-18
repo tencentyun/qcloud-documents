@@ -1,6 +1,6 @@
 ## 操作场景
 
-原生 LoadBalancer 模式 Servcie 可自动创建负载均衡 CLB，并通过集群的 Nodeport 转发至集群内，再通过 iptable 或 ipvs 进行二次转发。该模式下的 Service 能满足大部分使用场景，但在以下场景中更推荐使用**直连 Pod 模式 Service**：
+原生 LoadBalancer 模式 Servcie 可自动创建负载均衡 CLB，并通过集群的 Nodeport 转发至集群内，再通过 iptable 或 ipvs 进行二次转发。该模式下的 Service 能满足大部分使用场景 ，但在以下场景中更推荐使用**直连 Pod 模式 Service**：
 
 - 有获取来源 IP 需求时（非直连模式必须另外开启 Local 转发）。
 - 要求具备更高转发性能时（非直连模式下 CLB 和 Service 本身存在两层 CLB，性能有一定损失）。
@@ -30,7 +30,7 @@
 
 <dx-tabs>
 ::: 控制台操作指引
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
+1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)。
 2. 参考 [控制台创建 Service](https://cloud.tencent.com/document/product/457/45489#.E5.88.9B.E5.BB.BA-service) 步骤，进入 “新建Service” 页面，根据实际需求设置 Service 参数。
     其中，部分关键参数信息需进行如下设置，如下图所示：
 ![](https://main.qcloudimg.com/raw/5190f97b699f9d0d856aeb0412a9428f.png)
@@ -145,7 +145,7 @@ Kubernetes 集群提供了服务注册的机制，只需要将您的服务以 `M
 <li>该功能需要开通 CLB SNAT Pro 的白名单，您可通过 <a href="https://cloud.tencent.com/online-service?from=doc_457">在线咨询</a> 进行申请。</li>
 <br>
 
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
+1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)。
 2. 参考 [控制台创建 Service](https://cloud.tencent.com/document/product/457/45489#.E5.88.9B.E5.BB.BA-service) 步骤，进入 “新建Service” 页面，根据实际需求设置 Service 参数。
     其中，部分关键参数信息需进行如下设置，如下图所示：
 ![](https://main.qcloudimg.com/raw/5190f97b699f9d0d856aeb0412a9428f.png)

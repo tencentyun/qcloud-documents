@@ -1,4 +1,4 @@
-## 概述
+## 概述 
 
 Nginx Ingress Controller 基于 Nginx 实现 Kubernetes Ingress API。Nginx 是一款高性能网关，在实际生产环境运行时，需要对参数进行调优，以保证其充分发挥高性能的优势。[在 TKE 上部署 Nginx Ingress](https://cloud.tencent.com/document/product/457/47293) 中的部署 YAML 已经包含 Nginx 部分性能方面的参数优化。  
 本文将介绍针对 Nginx Ingress 全局配置与内核参数调优的方法及其原理，让 Nginx Ingress 更好的适配高并发业务场景。  
