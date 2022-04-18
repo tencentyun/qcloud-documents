@@ -50,7 +50,7 @@ RocksDB 是⼀个⾮常流⾏的⾼性能持久化 KV（key-value）存储，TXR
 <td>请根据您的场景选择。<ul><li>结构迁移：迁移数据库中的库、表等结构化的数据。</li><li>全量迁移：迁移整个数据库，迁移数据仅针对任务发起时，源数据库已有的内容，不包括任务发起后源库实时新增的数据写入。</li><li>全量 + 增量迁移：迁移数据包括任务发起时源库的已有内容，也包括任务发起后源库实时新增的数据写入。如果迁移过程中源库有数据写入，需要不停机平滑迁移，请选择此场景。</li></ul></td></tr>
 <tr>
 <td>迁移对象</td>
-<td><ul><li>整个实例：迁移整个实例，但不包括系统库，如information_schema、mysql、performance_schema、sys。</li>
+<td><ul><li>整个实例：迁移整个实例，但不包括系统库，如 information_schema、mysql、performance_schema、sys。</li>
 <li>指定对象：迁移指定对象。</li></ul> </td></tr>
 <tr>
 <td>指定对象</td>
