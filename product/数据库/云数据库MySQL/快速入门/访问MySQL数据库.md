@@ -39,7 +39,7 @@
  - Username：默认为 root，外网连接时建议您单独 [创建帐号](https://cloud.tencent.com/document/product/236/35794) 便于连接控制管理。
  - Password：Username 对应的密码，如忘记密码可参见 [重置密码](https://cloud.tencent.com/document/product/236/10305) 进行修改。
 ![](https://main.qcloudimg.com/raw/946b50fb05de11d7c68c2262ac4fe933.png)
-6. 登录成功的页面如图 所示，在此页面上您可以看到 MySQL 数据库的各种模式和对象，您可以开始创建表，进行数据插入和查询等操作。
+6. 登录成功的页面如图所示，在此页面上您可以看到 MySQL 数据库的各种模式和对象，您可以开始创建表，进行数据插入和查询等操作。
 ![](https://main.qcloudimg.com/raw/33f081e99c384258bbc5ed3683ed4d7d.png)
 
 ## 从 Linux 云服务器连接
@@ -96,7 +96,7 @@ mysql -h hostname -P port -u username -p
 2. 在实例详情页下的**外网地址**处，单击**开启**。
 >?若有外网地址和外网端口信息，说明已开启外网地址。
 >
-![](https://main.qcloudimg.com/raw/9253a96d19c982a909e3e73e19f5d20c.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/3e53616ba958f931a84470745bd0a585.png)
 3. 在弹出的对话框，单击**确定**。
 >?
 >- 开启成功后，即可在基本信息中查看到外网地址。
