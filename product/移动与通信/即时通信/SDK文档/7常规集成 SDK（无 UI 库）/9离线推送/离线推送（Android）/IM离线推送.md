@@ -108,7 +108,7 @@ TUIKitDemo 已经按照如下步骤接入了离线推送功能，文档中已有
 
 <img src="https://qcloudimg.tencent-cloud.cn/raw/7e6b56b3bb60bc9ccf7d5d0179eb51ea.png" style="zoom:40%;" />
 
-- #### 控制台配置
+- **控制台配置**
 各个厂商的跳转界面配置方式有所不同，具体如下：
 <table> 
    <tr> 
@@ -152,8 +152,8 @@ TUIKitDemo 已经按照如下步骤接入了离线推送功能，文档中已有
    </tr>
 </table>
 
--  #### 清单文件配置
-在[清单文件 AndroidManifest.xml](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/app/src/main/AndroidManifest.xml)中完成跳转界面的相关配置，需要注意的是，该配置必须与您在 IM 控制台推送证书的单击后续动作配置保持一致。
+-  **清单文件配置**
+在 [清单文件 AndroidManifest.xml](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/app/src/main/AndroidManifest.xml) 中完成跳转界面的相关配置，需要注意的是，该配置必须与您在 IM 控制台推送证书的单击后续动作配置保持一致。
 ```
 <!-- TUIKitDemo 配置的跳转界面是 MainActivity，所以这里填 com.tencent.qcloud.tim.demo.main.MainActivity。集成到您的应用后，需要替换您的应用界面完整类名 -->
     <activity
@@ -175,7 +175,7 @@ TUIKitDemo 已经按照如下步骤接入了离线推送功能，文档中已有
 ```
 
 ### 步骤4：配置厂商推送规则
--  #### 应用离线参数配置
+-  **应用离线参数配置**
 步骤二推送证书添加成功之后，IM 控制台会为您分配一个证书 ID，请您填充到  [PrivateConstants](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/app/src/main/java/com/tencent/qcloud/tim/demo/utils/PrivateConstants.java)  的配置参数里，该证书配置给 IM 控制台的 ID 会在注册推送服务和上报 token 时使用, 以小米为例：
 **推送证书 ID 如下：**
 ![](https://qcloudimg.tencent-cloud.cn/raw/772536e8a3f474572f5b85bfb2597fe1.png)
@@ -192,7 +192,7 @@ TUIKitDemo 已经按照如下步骤接入了离线推送功能，文档中已有
    }
 ```
 
--  #### 清单文件配置厂商推送权限相关
+-  **清单文件配置厂商推送权限相关**
 清单文件中需要添加各个厂商的推送规则，可以参见 TUIKitDemo [清单文件](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/app/src/main/AndroidManifest.xml)相关配置，具体如下：
 <dx-tabs>
 ::: 小米
@@ -400,7 +400,7 @@ uses-permission android:name="xxxx.permission.MIPUSH_RECEIVE" />
 :::
 </dx-tabs>
 
-- #### vivo 适配
+-  **vivo 适配**
 根据 vivo 厂商接入指引，需要将 APPID 和 APPKEY 添加到清单文件中，否则会出现编译问题：
 <dx-tabs>
 ::: 方法1
@@ -444,7 +444,7 @@ android {
 :::
 </dx-tabs>
 
-#### 华为和 Google FCM 适配
+-  **华为和 Google FCM 适配**
 华为和 Google FCM 需要按照厂商方法，集成对应的 plugin 和 json 配置文件。
 1. 在项目级 build.gradle 文件中 buildscript -> dependencies 下添加以下配置：
 ```
@@ -481,7 +481,7 @@ apply plugin: 'com.huawei.agconnect'
 
 ### 步骤5：集成厂商推送 SDK
 
-- #### 集成 SDK
+- **集成 SDK**
 在 [gradle](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/app/build.gradle) 文件中添加厂商推送 SDK。
  ```
  dependencies {
@@ -506,11 +506,11 @@ apply plugin: 'com.huawei.agconnect'
 }
 ```
 
--  #### 添加推送类
+-  **添加推送类**
 引入厂商推送类，各个厂商推送方式有区别，可以参见拷贝 [TUIKitDemo 代码路径](https://github.com/tencentyun/TIMSDK/tree/master/Android/Demo/app/src/main/java/com/tencent/qcloud/tim/demo/thirdpush) 下如下文件：
 ![](https://main.qcloudimg.com/raw/e786a5bf942694baba680c92704ad7d3.png)
 
--  #### 推送服务注册
+-  **推送服务注册**
 应合规要求，在用户同意隐私协议登录成功后，分别初始化注册各个厂商推送服务，并在注册结果回调处保存注册成功后的 token，并调用 [setOfflinePushConfig](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushManager.html#a494d6cafe50ba25503979a4e0f14c28e) 接口上报推送 token 至后台。部分厂商在注册后，调用一些接口也会返回 token，可以再次同步更新下，具体参见以下代码。
 ```
 public void init() {
@@ -618,7 +618,7 @@ public class HUAWEIHmsMessageService extends HmsMessageService {
 }
 ```
 
-- #### 推送证书和 token 上报后台
+- **推送证书和 token 上报后台**
 调用 [setOfflinePushConfig](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushManager.html#a494d6cafe50ba25503979a4e0f14c28e) 接口上报推送 token。构造 V2TIMOfflinePushConfig 类，需设置 businessID 为对应厂商的证书 ID，isTPNSToken 为 false，上报注册厂商推送服务获取的 token。注意：如果使用 [TPNS](https://cloud.tencent.com/document/product/548/36645) 接入离线推送，请设置 isTPNSToken 为 true，上报注册 TPNS 推送服务获取的 token，推送会由 TPNS 提供服务。
 ```
 V2TIMOfflinePushConfig v2TIMOfflinePushConfig = null;
@@ -639,7 +639,7 @@ V2TIMManager.getOfflinePushManager().setOfflinePushConfig(v2TIMOfflinePushConfig
 
 ### 步骤6：前后台状态同步 [](id:step6)
 
- 如果您的应用退到后台，收到新消息时需要在手机通知栏进行展示，请您调用 IMSDK 的 [doBackground()](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushManager.html#a2b191294ac4d68a2d69e482eae1b638f) 接口，将应用的状态同步给 IM 后台；当应用回到前台时，请您调用 IMSDK 的 [doForeground()](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushManager.html#a4c2ff4eea609da1d0950648905fbf6aa) 接口，将应用的状态同步给 IM 后台。监听 APP 前后台切换的方案推荐您参见 [DemoApplication](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/app/src/main/java/com/tencent/qcloud/tim/demo/DemoApplication.java) 的 StatisticActivityLifecycleCallback 类相关逻辑。
+ 如果您的应用退到后台，收到新消息时需要在手机通知栏进行展示，请您调用 IMSDK 的 [doBackground()](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushManager.html#a2b191294ac4d68a2d69e482eae1b638f) 接口，将应用的状态同步给 IM 后台；当应用回到前台时，请您调用 IMSDK 的 [doForeground()](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushManager.html#a4c2ff4eea609da1d0950648905fbf6aa) 接口，将应用的状态同步给 IM 后台。监听 App 前后台切换的方案推荐您参见 [DemoApplication](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/app/src/main/java/com/tencent/qcloud/tim/demo/DemoApplication.java) 的 StatisticActivityLifecycleCallback 类相关逻辑。
 
 ```
 // 应用切到后台时
