@@ -10,7 +10,7 @@
 内核版本 MySQL 5.7 20210330 及以上
 
 ## 适用场景
-在目前 MySQL 5.7 20210330 及以上的内核版本中，分别支持：INSERT ... RETURNING、REPLACE ... RETURNING、DELETE ... RETURNING。该语法允许返回所有被 INSERT/REPLACE/DELETE 语句操作过的行（statment 为单位）。同时，RETURNING 也支持在 prepared statements，存储过程中使用。
+在目前 MySQL 5.7 20210330 及以上的内核版本中，分别支持：INSERT ... RETURNING、REPLACE ... RETURNING、DELETE ... RETURNING。该语法允许返回所有被 INSERT/REPLACE/DELETE 语句操作过的行（statement 为单位）。同时，RETURNING 也支持在 prepared statements，存储过程中使用。
 
 在使用该功能时，需要注意以下几点：
 1. 在使用 RETURNING 时，DELETE...RETURNING 语句返回前镜像数据，INSERT/REPLACE...RETURNING 返回后镜像数据。
