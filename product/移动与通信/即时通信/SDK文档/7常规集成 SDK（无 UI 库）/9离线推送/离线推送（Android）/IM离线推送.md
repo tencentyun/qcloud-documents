@@ -12,7 +12,7 @@ TUIKitDemo 已经按照如下步骤接入了离线推送功能，文档中已有
 
 ### 步骤1：注册应用到厂商推送平台
 
-离线推送功能依赖厂商原始通道，您需要将自己的应用注册到各个厂商的推送平台，得到 APPID 和 APPKEY 等参数。目前国内支持的手机厂商有：[小米]( https://dev.mi.com/console/doc/detail?pId=68)、[华为](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/service-introduction-0000001050040060)、[OPPO](https://open.oppomobile.com/wiki/doc#id=10195)、[VIVO](https://dev.vivo.com.cn/documentCenter/doc/281)、[魅族](http://open-wiki.flyme.cn/doc-wiki/index#id?129)，海外支持 [Google FCM](https://console.firebase.google.com/u/0/?hl=zh-cn)。
+离线推送功能依赖厂商原始通道，您需要将自己的应用注册到各个厂商的推送平台，得到 AppID 和 AppKey 等参数。目前国内支持的手机厂商有：[小米]( https://dev.mi.com/console/doc/detail?pId=68)、[华为](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/service-introduction-0000001050040060)、[OPPO](https://open.oppomobile.com/wiki/doc#id=10195)、[VIVO](https://dev.vivo.com.cn/documentCenter/doc/281)、[魅族](http://open-wiki.flyme.cn/doc-wiki/index#id?129)，海外支持 [Google FCM](https://console.firebase.google.com/u/0/?hl=zh-cn)。
 
 ### 步骤2：IM 控制台配置
 
@@ -166,8 +166,7 @@ TUIKitDemo 已经按照如下步骤接入了离线推送功能，文档中已有
 
         <!-- 离线推送打开应用内页面 -->
         <intent-filter>
-            <action android:name="android.intent.action.VIEW" />		
-		        <!-- Scheme协议开发者可以自定义，TUIKitDemo配置的是：pushscheme://com.tencent.qcloud/detail -->
+            <action android:name="android.intent.a和Google FCmo配置的是：pushscheme://com.tencent.qcloud/detail -->
                 <data
                     android:host="您配置的 hostname"
                     android:path="您配置的 path"
@@ -453,17 +452,16 @@ android {
 :::
 </dx-tabs>
 
-- 华为和Google FCM适配
-华为和Google FCM需要按照厂商方法，集成对应的 plugin 和 json 配置文件。
+- 华为和 Google FCM适配
+华为和 Google FCM 需要按照厂商方法，集成对应的 plugin 和 json 配置文件。
 
-1. 在项目级 build.gradle 文件中 buildscript -> dependencies 下添加以下配置
+1. 在项目级 build.gradle 文件中 buildscript -> dependencies 下添加以下配置：
 ```
 classpath 'com.google.gms:google-services:4.2.0'
 classpath 'com.huawei.agconnect:agcp:1.4.1.300'
 ```
 				
-在项目级 build.gradle 文件中 allprojects -> repositories 下添加以下配置
-
+在项目级 build.gradle 文件中 allprojects -> repositories 下添加以下配置：
 ```
 mavenCentral()
 // 配置HMS Core SDK的Maven仓地址。
@@ -471,7 +469,6 @@ maven {url 'https://developer.huawei.com/repo/'}
 ```
 
 添加后效果如下：
-
 ```
 repositories {
     ...
@@ -486,12 +483,12 @@ dependencies {
 }
 ```
 
-2. 在应用级 build.gradle 文件中添加下方配置
+2. 在应用级 build.gradle 文件中添加下方配置。
 ```
 apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.huawei.agconnect'
 ```
-3. 单击项目右上角 [Sync Now] 同步项目
+3. 单击项目右上角 **Sync Now** 同步项目。
 
 ### 步骤5：集成厂商推送 SDK
 
@@ -527,7 +524,6 @@ apply plugin: 'com.huawei.agconnect'
 
 - 推送服务注册
 应合规要求，在用户同意隐私协议登录成功后，分别初始化注册各个厂商推送服务，并在注册结果回调处保存注册成功后的 token，并调用 [setOfflinePushConfig](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushManager.html#a494d6cafe50ba25503979a4e0f14c28e) 接口上报推送 token 至后台。部分厂商在注册后，调用一些接口也会返回 token，可以再次同步更新下，具体参见以下代码。
-
 ```
 public void init() {
     ...
@@ -638,7 +634,6 @@ public class HUAWEIHmsMessageService extends HmsMessageService {
 
 - 推送证书和 token 上报后台
 调用 [setOfflinePushConfig](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushManager.html#a494d6cafe50ba25503979a4e0f14c28e) 接口上报推送 token。构造 V2TIMOfflinePushConfig 类，需设置 businessID 为对应厂商的证书 ID，isTPNSToken 为 false，上报注册厂商推送服务获取的 token。注意：如果使用 [TPNS](https://cloud.tencent.com/document/product/548/36645) 接入离线推送，请设置 isTPNSToken 为 true，上报注册 TPNS 推送服务获取的 token，推送会由 TPNS 提供服务。
-
 ```
 V2TIMOfflinePushConfig v2TIMOfflinePushConfig = null;
 // 需要设置 businessID 为对应厂商的证书 ID，isTPNSToken 为 false，上报注册厂商推送服务获取的 token。  
@@ -656,8 +651,8 @@ V2TIMManager.getOfflinePushManager().setOfflinePushConfig(v2TIMOfflinePushConfig
 });
 ```
 
-### 步骤6：前后台状态同步
- 
+### 步骤6：前后台状态同步 [](id:step6)
+
  如果您的应用退到后台，收到新消息时需要在手机通知栏进行展示，请您调用 IMSDK 的 [doBackground()](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushManager.html#a2b191294ac4d68a2d69e482eae1b638f) 接口，将应用的状态同步给 IM 后台；当应用回到前台时，请您调用 IMSDK 的 [doForeground()](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushManager.html#a4c2ff4eea609da1d0950648905fbf6aa) 接口，将应用的状态同步给 IM 后台。监听 APP 前后台切换的方案推荐您参见 [DemoApplication](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/app/src/main/java/com/tencent/qcloud/tim/demo/DemoApplication.java) 的 StatisticActivityLifecycleCallback 类相关逻辑。
 
 ```
@@ -732,7 +727,6 @@ String msgID = V2TIMManager.getMessageManager().sendMessage(v2TIMMessage, isGrou
 
 当手机收到离线推送消息时，会在系统通知栏里展示收到的推送消息。单击通知栏的消息时，会自动跳转到您在步骤四配置的界面，您可以在该界面通过调用 getIntent().getExtras() 获取您在步骤六中配置的离线推送参数。示例代码可以参见 TUIKitDemo 的 [handleOfflinePush()](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/app/src/main/java/com/tencent/qcloud/tim/demo/main/MainActivity.java) 方法。
 
-
 ```
 private void handleOfflinePush() {
     // 根据登录状态，判断是否需要重新登录 IM
@@ -768,7 +762,7 @@ private void handleOfflinePush() {
 ```
 
 >!
->- FCM 单击通知栏的消息会默认跳转至应用的默认 Launcher 界面，该界面可以通过调用 getIntent().getExtras() 获取您在步骤六中配置的离线推送参数，此处进行解析和自定义跳转。
+>- FCM 单击通知栏的消息会默认跳转至应用的默认 Launcher 界面，该界面可以通过调用 getIntent().getExtras() 获取您在 [步骤6](#step6) 中配置的离线推送参数，此处进行解析和自定义跳转。
  
 以上完成后，当您的应用退到后台或者进程被杀掉时，消息会进行离线推送通知栏展示，可单击通知栏跳转到设定的应用界面，完成实现离线推送功能。
 
