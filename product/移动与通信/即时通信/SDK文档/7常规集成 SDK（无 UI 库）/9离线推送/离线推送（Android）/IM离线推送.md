@@ -725,7 +725,7 @@ String msgID = V2TIMManager.getMessageManager().sendMessage(v2TIMMessage, isGrou
 
 ### 步骤8：解析离线推送消息
 
-当手机收到离线推送消息时，会在系统通知栏里展示收到的推送消息。单击通知栏的消息时，会自动跳转到您在步骤四配置的界面，您可以在该界面通过调用 getIntent().getExtras() 获取您在步骤六中配置的离线推送参数。示例代码可以参见 TUIKitDemo 的 [handleOfflinePush()](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/app/src/main/java/com/tencent/qcloud/tim/demo/main/MainActivity.java) 方法。
+当手机收到离线推送消息时，会在系统通知栏里展示收到的推送消息。单击通知栏的消息时，会自动跳转到您在步骤四配置的界面，您可以在该界面通过调用 getIntent().getExtras() 获取您在 [步骤6](#step6) 中配置的离线推送参数。示例代码可以参见 TUIKitDemo 的 [handleOfflinePush()](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/app/src/main/java/com/tencent/qcloud/tim/demo/main/MainActivity.java) 方法。
 
 ```
 private void handleOfflinePush() {
