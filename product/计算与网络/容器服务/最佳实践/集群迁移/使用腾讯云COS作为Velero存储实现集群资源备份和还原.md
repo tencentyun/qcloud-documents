@@ -32,7 +32,7 @@ Velero 工作原理图如下图所示（来源于 [Velero](https://velero.io/) �
 
 1. 在 [对象存储控制台](https://console.cloud.tencent.com/cos5) 为 Velero 创建一个对象存储桶用于存储备份，详情请参见 [创建存储桶](https://cloud.tencent.com/document/product/436/13309)。  
 2. 为存储桶 [设置访问权限](https://cloud.tencent.com/document/product/436/13315)。对象存储 COS 支持设置两种权限类型：
-	- **公共权限**：为了安全起见，推荐存储桶权限类别为私有读写，关于公共权限的说明，请参见存储桶概述中的 [权限类别](https://cloud.tencent.com/document/product/436/13312#.E6.9D.83.E9.99.90.E7.B1.BB.E5.88.AB)。  
+	- **公共权限**：为了安全起见，推荐存储桶权限类别为私有读写，关于公共权限的说明，请参见存储桶概述 中的 [权限类别](https://cloud.tencent.com/document/product/436/13312#.E6.9D.83.E9.99.90.E7.B1.BB.E5.88.AB)。  
 	- **用户权限**：主账号默认拥有存储桶所有权限（即完全控制）。另外 COS 支持添加子账号有数据读取、数据写入、权限读取、权限写入，甚至**完全控制**的最高权限。  
 	由于需要对存储桶进行读写操作，为示例子账号授予**数据读取、数据写入**权限，如下图所示：
 	![](https://main.qcloudimg.com/raw/3f23d6cfeca3c3b01bed6577bc173eb0.jpg)

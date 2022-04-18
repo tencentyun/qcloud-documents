@@ -2,7 +2,7 @@
 
 ## 步骤1：创建集群
 首先您需要创建集群。集群是指容器运行所需云资源的集合，包含了若干台云主机、负载均衡器等腾讯云资源。
-1. 登录 [腾讯云容器服务控制台](https://console.cloud.tencent.com/ccs) 。
+1. 登录 [腾讯云容器服务控制台 ](https://console.cloud.tencent.com/ccs) 。
 2. 单击左侧导航栏中的**集群**，单击集群列表页的**+ 新建**。
 ![](//mc.qcloudimg.com/static/img/3e20524b9aaa91e937bcfd02270d69c7/image.png)
 3. 设置集群的基本信息。
@@ -15,7 +15,7 @@
  - **集群描述**：创建集群的相关信息。该信息将显示在 **集群信息** 页面。
 ![Alt text](https://mc.qcloudimg.com/static/img/d52ff827c724c74c38a595d646cb0ca6/image.png)
 4. 选择机型 (支持系统盘为云盘的所有机型)。
- - **系列**：提供 **系列 1** 和 **系列 2** 。详细对比参看 [实例类型概述](/doc/product/213/7153#.E5.8F.AF.E7.94.A8.E5.AE.9E.E4.BE.8B.E7.B1.BB.E5.9E.8B2) 。
+ - **系列**：提供 **系列 1** 和 **系列 2** 。详细对比参看 [实例类型概述 ](/doc/product/213/7153#.E5.8F.AF.E7.94.A8.E5.AE.9E.E4.BE.8B.E7.B1.BB.E5.9E.8B2) 。
  - **机型**：机型选择方案参看 [确定云服务器配置方案](/doc/product/213/2764#.E7.A1.AE.E5.AE.9A.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8.E9.85.8D.E7.BD.AE.E6.96.B9.E6.A1.88)。
 ![Alt text](https://mc.qcloudimg.com/static/img/e13c49f3333a1c482bbc158ffaff9653/image.png) 
 5. 填写云主机配置并单击 **完成**。

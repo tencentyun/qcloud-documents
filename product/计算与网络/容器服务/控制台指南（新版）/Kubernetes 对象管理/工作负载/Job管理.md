@@ -7,7 +7,7 @@ Job 执行完成后，不再创建新的 Pod，也不会删除 Pod，您可在 �
 
 ### 创建 Job
 
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
+1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)。
 2. 在左侧导航栏中，单击**集群**，进入集群管理页面。
 3. 单击需要创建 Job 的集群 ID，进入待创建 Job 的集群管理页面。
 4. 选择 **工作负载** > **Job**，进入 Job 信息页面。如下图所示：
@@ -38,7 +38,7 @@ Job 执行完成后，不再创建新的 Pod，也不会删除 Pod，您可在 �
 
 ### 查看 Job 状态
 
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
+1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)。
 2. 在左侧导航栏中，单击**集群**，进入集群管理页面。
 3. 单击需要查看 Job 状态的集群 ID，进入待查看 Job 状态的集群管理页面。
 4. 选择 “工作负载” > “Job”，进入 Job 信息页面。如下图所示：

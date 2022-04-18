@@ -2,7 +2,7 @@
 
 
 
-## 概述
+## 概述 
 
 DevOps 理念被越来越多的企业采纳，DevOps 是 Development 和 Operations 的组合词，代表着重视“软件开发人员（Dev）”和 “IT 运维技术人员（Ops）”之间沟通合作的文化，旨在透过自动化“软件交付”和“架构变更”的流程，使得构建、测试、发布软件的过程能够更加地快捷、频繁和可靠。在云原生时代，使用 Devops 思维可实现敏捷开发，本文将介绍和实践专为云原生打造的 TKE 容器 DevOps 服务，实现从代码提交时触发镜像自动构建，镜像构建成功时触发自动部署流程将应用部署、更新到 TKE 集群中的一整套无缝衔接的 Devops 流水线。  
 
@@ -37,7 +37,7 @@ TKE 容器 Devops 功能提供了强大的云原生 Devops 服务，本文将介
 
 
 ### 访问容器 DevOps 
-登录容器服务控制台，选择左侧导航栏中的 **[DevOps](https://console.cloud.tencent.com/coding/container-devops)**，单击**立即使用**。如下图所示：
+登录容器服务控制台 ，选择左侧导航栏中的 **[DevOps](https://console.cloud.tencent.com/coding/container-devops)**，单击**立即使用**。如下图所示：
 ![](https://main.qcloudimg.com/raw/2ace8e2476fea433581b712463b73a22.png)
 
 

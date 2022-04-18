@@ -37,7 +37,7 @@ Client Version: version.Info{Major:"1", Minor:"5", GitVersion:"v1.5.2", GitCommi
 
 ### 第二步：获取集群账号密码以及证书信息
 
-1. 登录 [容器服务控制台 > 集群](https://console.cloud.tencent.com/ccs)，单击需要连接的集群 ID/名称，查看集群详情。
+1. 登录 [容器服务控制台  > 集群](https://console.cloud.tencent.com/ccs)，单击需要连接的集群 ID/名称，查看集群详情。
 
 2. 在集群信息页，单击**显示凭证**，查看用户名、密码和证书信息。
 

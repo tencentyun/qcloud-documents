@@ -32,7 +32,7 @@ Kubernetes 提供 Kubectl 命令行工具用于操作集群，Kubectl 使用 Kub
 
 #### TKE 集群获取集群访问凭证
 
-1. 登录容器服务控制台，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。  
+1. 登录容器服务控制台 ，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。  
 2. 单击需要获取集群访问凭证的集群 ID/名称，进入该集群的管理页面。  
 3. 在左侧菜单栏中选择**基本信息**，进入“基本信息”页面。  
 4. 在“基本信息”页面找到**集群APIServer信息**配置项，开启**外网访问**和**内网访问**。  
@@ -44,7 +44,7 @@ Kubernetes 提供 Kubectl 命令行工具用于操作集群，Kubectl 使用 Kub
 
 #### EKS 集群获取集群访问凭证
 
-1. 登录容器服务控制台，选择左侧导航栏中的 **[弹性集群](https://console.cloud.tencent.com/tke2/ecluster)**。  
+1. 登录容器服务控制台 ，选择左侧导航栏中的 **[弹性集群](https://console.cloud.tencent.com/tke2/ecluster)**。  
 2. 单击需要获取集群访问凭证的集群 ID/名称，进入该集群的管理页面。  
 3. 在左侧菜单栏中选择**基本信息**，进入“基本信息”页面。  
 4. 在“基本信息”页面找到**集群APIServer信息**配置项，开启**外网访问**和**内网访问**。  

@@ -27,7 +27,7 @@ error: You must be logged in to the server (Unauthorized)
 ```
 
 #### 处理措施
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
+1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)。
 2. 获取当前使用账号的凭证信息 Kubeconfig 文件，请参见 [获取凭证](https://cloud.tencent.com/document/product/457/46105#.E8.8E.B7.E5.8F.96.E5.87.AD.E8.AF.81)。
 3. 获取 Kubeconfig 文件后，可以选择开启内网访问，也可直接使用 Kubernetes 的 service IP。
  - 开启内网访问：在集群详情页面中，选择左侧的**基本信息**，在“集群APIServer信息”中开启内网访问，并根据提示信息进行操作。

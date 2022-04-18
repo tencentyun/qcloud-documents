@@ -8,7 +8,7 @@
 ## 操作步骤
 
 ### 创建 Nginx 服务
-1. 登录容器服务控制台，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
+1. 登录容器服务控制台 ，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
 2. 在“集群管理”页面，选择需创建服务的集群 ID，进入集群的工作负载 “Deployment” 页面。
 3. 在 “Deployment” 页面，单击**新建**。参数详情见 [创建 Deployment](https://cloud.tencent.com/document/product/457/31705#.E5.88.9B.E5.BB.BA-deployment)。
 4. 在“新建Workload” 页面，根据以下信息，设置工作负载基本信息。如下图所示：

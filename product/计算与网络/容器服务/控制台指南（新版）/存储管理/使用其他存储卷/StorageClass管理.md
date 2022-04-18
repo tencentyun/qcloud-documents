@@ -6,7 +6,7 @@ StorageClass 描述存储的类型，集群管理员可以为集群定义不同�
 
 ### 创建 StorageClass
 
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
+1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)。
 2. 在左侧导航栏中，单击**集群**，进入集群管理页面。
 3. 单击需要创建 StorageClass 的集群 ID，进入待创建 StorageClass 的集群管理页面。
 4. 选择 “存储” > “StorageClass”，进入 StorageClass 信息页面。如下图所示：

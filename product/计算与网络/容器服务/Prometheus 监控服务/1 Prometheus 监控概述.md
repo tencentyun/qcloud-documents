@@ -31,7 +31,7 @@ Prometheus 是一套开源的系统监控报警框架，其彻底颠覆了传统
 | 可用性            | 高                                                           | 低                                  |
 | 数据存储能力      | 无限制                                                       | 受限于本地磁盘                      |
 | 超大集群监控      | 支持                                                         | 不支持                              |
-| 数据可视化        | 基于 Grafana 提供优秀的可视化能力，且支持一个 Grafana 同时查看多个监控实例的数据，详情见 [Grafana 插件概述](https://cloud.tencent.com/document/product/1416/56017) | 原生的 Prometheus UI 可视化能力有限 |
+| 数据可视化        | 基于 Grafana 提供优秀的可视化能力，且支持一个 Grafana 同时查看多个监控实例的数据，详情见 [Grafana 插件概述 ](https://cloud.tencent.com/document/product/1416/56017) | 原生的 Prometheus UI 可视化能力有限 |
 | 开源生态          | 完全兼容                                                     | 原生支持                            |
 | 使用门槛          | 低                                                           | 高                                  |
 | 成本              | 低                                                           | 高                                  |

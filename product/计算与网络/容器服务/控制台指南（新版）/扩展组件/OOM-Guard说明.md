@@ -44,7 +44,7 @@ threshold = limit - margin // 即 1000M - 20M = 980M
 | system:oomguard     | ClusterRoleBinding |-                   | -            |
 | oom-guard           | DaemonSet          | 0.02核 CPU，120MB内存 | kube-system     |
 
-## 使用场景
+## 使用场景 
 应用于节点内存压力比较大，业务容器经常发生 OOM 导致节点故障的 Kubernetes 集群。
 
 ## 限制条件
@@ -55,7 +55,7 @@ threshold = limit - margin // 即 1000M - 20M = 980M
 
 ## 使用方法
 
-1. 登录[ 容器服务控制台 ](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的**集群**。
+1. 登录[ 容器服务控制台  ](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的**集群**。
 2. 在“集群管理”页面单击目标集群 ID，进入集群详情页。
 3. 选择左侧菜单栏中的**组件管理**，进入 “组件列表” 页面。
 4. 在“组件列表”页面中选择**新建**，并在“新建组件”页面中勾选 OOM-Guard。

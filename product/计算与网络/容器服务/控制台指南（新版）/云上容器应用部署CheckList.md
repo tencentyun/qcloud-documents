@@ -38,7 +38,7 @@
     </tr>
 	<tr>
         <td>创建集群时，根据业务场景选择合适的集群模式：独立集群、托管集群。</td><td>部署</td><td>托管集群的 Master 和 Etcd 不属于用户资源，由腾讯云技术团队集中管理和维护，用户无法修改 Master 和 Etcd 的部署规模和服务参数。如需修改，请选用独立部署模式集群。</td>
-				<td><li><a href="https://cloud.tencent.com/document/product/457/32187">集群概述</a></li><li><a href="https://cloud.tencent.com/document/product/457/31013">集群的托管模式说明</a></li></td>
+				<td><li><a href="https://cloud.tencent.com/document/product/457/32187">集群概述 </a></li><li><a href="https://cloud.tencent.com/document/product/457/31013">集群的托管模式说明</a></li></td>
     </tr>
     <tr>
         <td rowspan="4">工作<br>负载</td>

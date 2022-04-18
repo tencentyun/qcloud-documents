@@ -66,7 +66,7 @@ Service 定义访问后端 Pod 的访问方式，并提供固定的虚拟访问 
 
 ### 创建 Service
 
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
+1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)。
 2. 在左侧导航栏中，单击**集群**，进入集群管理页面。
 3. 单击需要创建 Service 的集群 ID，进入待创建 Service 的集群管理页面。
 4. 选择 “服务” > “Service”，进入 Service 信息页面。如下图所示：
@@ -83,7 +83,7 @@ Service 定义访问后端 Pod 的访问方式，并提供固定的虚拟访问 
 
 #### 更新 YAML
 
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
+1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)。
 2. 在左侧导航栏中，单击**集群**，进入集群管理页面。
 3. 单击需要更新 YAML 的集群 ID，进入待更新 YAML 的集群管理页面。
 4. 选择 “服务” > “Service”，进入 Service 信息页面。如下图所示：

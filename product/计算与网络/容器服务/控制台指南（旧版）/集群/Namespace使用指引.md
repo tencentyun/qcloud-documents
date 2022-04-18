@@ -13,7 +13,7 @@ Kubernetes 集群在启动时会默认创建 `default` 和 `kube-system` 这两�
 
 ## Namespace 操作指引
 ### 创建 Namespace
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/ccs) 。
+1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/ccs) 。
 2. 单击左侧导航栏中的 **集群** 。
 3. 在集群列表中单击集群的 **ID/名称**。
 ![](//mc.qcloudimg.com/static/img/61849c3dd8141879ca64e52a7348a065/image.png)
@@ -25,7 +25,7 @@ Kubernetes 集群在启动时会默认创建 `default` 和 `kube-system` 这两�
 ![](//mc.qcloudimg.com/static/img/2eff6302e4e127f7d4c01f1fa552f52a/image.png)
 
 ### 查看 Namespace 列表
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/ccs) 。
+1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/ccs) 。
 2. 单击左侧导航栏中的 **集群** 。
 3. 在集群列表中单击集群的 **ID/名称**。
 ![](//mc.qcloudimg.com/static/img/61849c3dd8141879ca64e52a7348a065/image.png)
@@ -40,7 +40,7 @@ Kubernetes 集群在启动时会默认创建 `default` 和 `kube-system` 这两�
 ![](//mc.qcloudimg.com/static/img/a2874127fc88b6deffe23710fe3b471b/image.png)
 
 ### 删除集群 Namespace
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/ccs) 。
+1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/ccs) 。
 2. 单击左侧导航栏中的 **集群** 。
 3. 在集群列表中单击集群的 **ID/名称**。
 ![](//mc.qcloudimg.com/static/img/61849c3dd8141879ca64e52a7348a065/image.png)

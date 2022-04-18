@@ -46,7 +46,7 @@ etcd 是一个分布式、高可靠的键值存储，可以容忍集群中部分
 
 ## 产品定价
 
-云原生 etcd 服务在内测期间本身不收取费用，etcd 在使用过程中将自动创建的云硬盘、对象存储等产品，相关计费详情请参见对应产品计费介绍 [云硬盘价格总览](https://cloud.tencent.com/document/product/213/2255)、[对象存储计费概述](https://cloud.tencent.com/document/product/436/16871)。
+云原生 etcd 服务在内测期间本身不收取费用，etcd 在使用过程中将自动创建的云硬盘、对象存储等产品，相关计费详情请参见对应产品计费介绍 [云硬盘价格总览](https://cloud.tencent.com/document/product/213/2255)、[对象存储计费概述 ](https://cloud.tencent.com/document/product/436/16871)。
 
 ## 相关服务
 

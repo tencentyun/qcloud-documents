@@ -25,7 +25,7 @@
 
 <dx-tabs>
 ::: 方法1：使用控制台部署
-1. 登录容器服务控制台，选择左侧导航栏中的 **[应用市场](https://console.cloud.tencent.com/tke2/market)**。  
+1. 登录容器服务控制台 ，选择左侧导航栏中的 **[应用市场](https://console.cloud.tencent.com/tke2/market)**。  
 2. 在“应用市场”页面搜索 Gitlab，并进入 Gitlab 应用页面。  
 3. 单击**创建应用**，在创建应用窗口中指定要安装的集群，并将 [values.yaml](https://raw.githubusercontent.com/TencentCloudContainerTeam/manifest/master/gitlab/values-gitlab-ce.yaml) 配置粘贴到参数中。如下图所示：
 ![](https://main.qcloudimg.com/raw/5508def786013ef4e6d5e21e2ade5803.jpg)
@@ -36,7 +36,7 @@
 1. 安装 [Helm](https://helm.sh/docs/intro/install/)。  
 2. 通过 Helm 命令安装 Jenkins ，详情请参见 [Jenkins 安装官方文档](https://www.jenkins.io/doc/book/installing/kubernetes/#install-jenkins-with-helm-v3)。  
 
-<dx-alert infotype="explain" title="">
+<dx-alert infotype="explain" title=" ">
 执行 helm install 命令时，需添加 `-f values-gitlab-ce.yaml` 替换部署配置。  
 </dx-alert>
 
@@ -49,7 +49,7 @@
 ### 获取访问入口与登录方式
 
 安装 Gitlab 后，默认会创建一个 CLB 并使用4层监听器作为 Gitlab 的访问入口，通过以下步骤可在控制台找到对应的 CLB 及其外网 IP：
-1. 登录容器服务控制台，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2)**。  
+1. 登录容器服务控制台 ，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2)**。  
 2. 在“集群管理”列表页面，选择目标集群 ID，进入该集群 “Deployment” 页面。  
 3. 选择左侧菜单栏中的**服务与路由** > **Service**，进入 “Service” 页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/6061996aaed6e36a19db885b9ba38b24.png)

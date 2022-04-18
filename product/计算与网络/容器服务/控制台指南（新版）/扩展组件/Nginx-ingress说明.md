@@ -24,7 +24,7 @@ Nginx 可以用作反向代理、负载平衡器和 HTTP 缓存。Nginx-ingress 
  
 
 ## 使用方法
-- [Nginx-ingress 概述](https://cloud.tencent.com/document/product/457/50502)
+- [Nginx-ingress 概述 ](https://cloud.tencent.com/document/product/457/50502)
 - [Nginx-ingress 安装](https://cloud.tencent.com/document/product/457/50503)
 - [使用 Nginx-ingress 对象接入集群外部流量 ](https://cloud.tencent.com/document/product/457/50504)
 - [Nginx-ingress 监控配置](https://cloud.tencent.com/document/product/457/50506)
