@@ -22,6 +22,7 @@
 | [token](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__ios.html#a946828345d302a28708d78fa1a931763) | 加密 HLS 的 token。设置此值后，播放器自动在 URL 中的文件名之前增加 `voddrm.token.TOKEN TextureView`。 |
 | [loop](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__ios.html#a1cdc15a39387295573f41caee9a05932) | 是否循环播放 SurfaceView。                                   |
 | [enableHWAcceleration](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__ios.html#aa3ea979a6be5feba0da24f2b18555395) | 视频渲染回调。（仅硬解支持）                                 |
+| setExtentOptionInfo                                          | 设置播放器业务参数，参数格式为<NSString *, id>               |
 
 ### 播放基础接口  
 | API                                                          | 描述                        |
@@ -110,6 +111,65 @@
 | [smoothSwitchBitrate](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayConfig__ios.html#aa1caeddde1f950ec7965dcc721109928) | 平滑切换多码率 HLS，默认 false。                             |
 | [progressInterval](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayConfig__ios.html#a943e212cbd5e3d89de0529ab7c6042fb) | 设置进度回调间隔，单位毫秒。                                 |
 | [maxBufferSize](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayConfig__ios.html#aa4934cef81784d3a195a5d95a43953f5) | 最大预加载大小，单位 MB。                                    |
+| maxPreloadSize                                               | 设置预加载最大缓冲大小，单位：MB。                           |
+| firstStartPlayBufferTime                                     | 设置首缓需要加载的数据时长，单位ms，默认值为100ms。          |
+| nextStartPlayBufferTime                                      | 缓冲时（缓冲数据不够引起的二次缓冲，或者seek引起的拖动缓冲）最少要缓存多长的数据才能结束缓冲，单位ms，默认值为250ms。 |
+| overlayKey                                                   | 设置 HLS 安全加固加解密 key。                                   |
+| overlayIv                                                    | 设置 HLS 安全加固加解密 Iv。                                    |
+| extInfoMap                                                   | 设置拓展信息。                                               |
+| preferredResolution                                          | 播放 HLS 有多条码流时，根据设定的 preferredResolution 选最优的码流进行起播 *，preferredResolution 是宽高的乘积（width * height）， 启播前设置才有效。 |
+| enableRenderProcess                                          | 是否允许加载后渲染后处理服务(如超分插件服务）,默认开启。     |
+
+## TXPlayerGlobalSetting
+
+点播播放器全局配置类
+
+| API                | 描述                                                         |
+| ------------------ | ------------------------------------------------------------ |
+| setCacheFolderPath | 设置播放引擎的cache目录。设置后，预下载，播放器等会优先从此目录读取和存储 |
+| setMaxCacheSize    | 设置播放引擎的最大缓存大小。设置后会根据设定值自动清理Cache目录的文件。单位MB。 |
+
+## TXVodPreloadManager
+
+点播播放器预下载接口类
+
+| API           | 描述                                                         |
+| ------------- | ------------------------------------------------------------ |
+| sharedManager | 获取 TXVodPreloadManager 实例对象，单例模式。                    |
+| startPreload  | 启动预下载前，请先设置好播放引擎的缓存目录TXPlayerGlobalSetting#setCacheFolderPath 和缓存大小TXPlayerGlobalSetting#setMaxCacheSize。 |
+| stopPreload   | 停止预下载                                                   |
+
+## TXVodDownloadManager
+
+点播播放器视频下载接口类
+
+| API                      | 描述                                                         |
+| ------------------------ | ------------------------------------------------------------ |
+| shareInstance            | 获取 TXVodDownloadManager 实例对象，单例模式。                   |
+| setDownloadPath          | 设置下载根目录。                                               |
+| setHeaders               | 设置下载 HTTP 头。                                               |
+| setListener              | 设置下载回调方法，下载前必须设好。                             |
+| startDownloadUrl         | 以 URL 方式开始下载。                                            |
+| startDownload            | 以 FileID 方式开始下载。                                         |
+| stopDownload             | 停止下载，ITXVodDownloadListener.onDownloadStop 回调时停止成功。 |
+| deleteDownloadFile       | 删除下载文件。                                                 |
+| deleteDownloadMediaInfo  | 删除下载信息。                                                 |
+| getDownloadMediaInfoList | 获取所有用户的下载列表信息。                                   |
+
+
+
+## ITXVodDownloadListener
+
+腾讯云视频下载回调通知。
+
+| API                | 描述                                         |
+| ------------------ | -------------------------------------------- |
+| onDownloadStart    | 下载开始。                                     |
+| onDownloadProgress | 下载进度更新。                                 |
+| onDownloadStop     | 下载停止。                                    |
+| onDownloadFinish   | 下载结束。                                     |
+| onDownloadError    | 下载过程中遇到错误。                           |
+| hlsKeyVerify       | 下载 HLS，遇到加密的文件，将解密 Key 给外部校验。 |
 
 
 
@@ -119,7 +179,7 @@
 
 | code | 事件定义                   | 含义说明                                                    |
 | ---- | -------------------------- | ----------------------------------------------------------- |
-| 2004 | PLAY_EVT_PLAY_BEGIN        | 视频播放开始（若有转菊花效果，此时将停止）。                |
+| 2004 | PLAY_EVT_PLAY_BEGIN        | 视频播放开始（若有转圈圈效果，此时将停止）。                |
 | 2005 | PLAY_EVT_PLAY_PROGRESS     | 视频播放进度，会通知当前播放进度、加载进度和总体时长。      |
 | 2007 | PLAY_EVT_PLAY_LOADING      | 视频播放 loading，如果能够恢复，之后会有 LOADING_END 事件。 |
 | 2014 | PLAY_EVT_VOD_LOADING_END   | 视频播放 loading 结束，视频继续播放。                       |
