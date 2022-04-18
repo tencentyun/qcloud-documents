@@ -1,4 +1,4 @@
-假如有一份 csv 文件（DLC 还支持 log、orc、parquet、json、arvo 等多种格式）放到对象存储，在 DLC 上仅需一分钟即可完成分析。
+使用数据湖 DLC，您仅需一分钟即可完成对象存储 COS 上的数据分析查询，目前支持 CSV、ORC、PARQUET、JSON、ARVO、文本文件等多个格式。
 ## 前置准备
 ### 设置必要 DLC 内部权限
 >? 如果用户已经有权限，或者为主账户管理员，可忽略此步骤。
@@ -7,24 +7,24 @@
 1. 库表权限：可授予对应的 catalog、database、table，view 等读写操作权限。
 2. 引擎权限：可授予计算引擎的使用、监控、修改等权限。
 
->? 系统会默认为每个用户开通基于 presto 内核的共享 public-engin，方便您可以快速试用，无需先购买独享集群。
+>? 系统会默认为每个用户开通基于 presto 内核的共享 public-engine，方便您可以快速试用，无需先购买独享集群。
 
 详细权限授予步骤参见：[子账号权限管理](https://cloud.tencent.com/document/product/1342/61976)。
 
 ## 分析步骤
 ### 步骤1：创建数据库
-如果用户对 SQL 语句熟悉，可直接在查询中编写 create database 语句，跳过创建向导。
+如果您对 SQL 语句熟悉，可直接在查询中编写 create database 语句，跳过创建向导。
 1. 登录 [数据湖计算 DLC 控制台](https://console.cloud.tencent.com/dlc)，选择**服务地域**。
 2. 左侧导航菜进入**数据探索**。
 3. 选择**库表**，单击“+”，选择**创建数据库**进行数据库新建。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/dd7c1a210e5a81a31dbd3cb54401efed.png)
 4. 右上角选择执行引擎后，执行生成的 create database 语句，完成建库。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d1254e5a6db8c587919ac7ed87d36988.png)
-详细操作步骤及配置方式可参见：数据库管理（待补充链接）。
+详细操作步骤及配置方式可参见：[数据库管理](https://cloud.tencent.com/document/product/1342/61666)。
 
 ### 步骤2：创建外表
-如果用户对 SQL 语句熟悉，可直接在查询中编写 create table 语句，跳过创建向导。
-1. 登录数据湖计算 DLC 控制台，选择服务地域。
+如果您对 SQL 语句熟悉，可直接在查询中编写 create table 语句，跳过创建向导。
+1. 登录[ 数据湖计算 DLC 控制台](https://console.cloud.tencent.com/dlc)，选择服务地域。
 2. 左侧导航菜进入**数据探索**。
 3. 选择库表，选中当前创建的表后，右键单击，选择**创建外表向导**。
 
