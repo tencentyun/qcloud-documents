@@ -1,7 +1,7 @@
 ## Ingress转发设置
 
 ### Ingress说明
-容器服务支持4层负载均衡器来转发流量到容器上，4层支持公网型和内网型负载均衡器，更多负载均衡器介绍可查看[负载均衡简介](https://cloud.tencent.com/document/product/214/524)。本文主要讲解容器服务如何使用Ingress实现7层的HTTP和HTTPS的转发。
+容器服务支持4层负载均衡器来转发流量到容器上，4层支持公网型和内网型负载均衡器，更多负载均衡器介绍可查看[负载均衡简介 ](https://cloud.tencent.com/document/product/214/524)。本文主要讲解容器服务如何使用Ingress实现7层的HTTP和HTTPS的转发。
 
 ### 使用Ingress前置条件
 创建服务提供以下4种访问方式选择：

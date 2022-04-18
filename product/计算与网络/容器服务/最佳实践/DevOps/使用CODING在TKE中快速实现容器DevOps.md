@@ -9,7 +9,7 @@ DevOps 理念被越来越多的企业采纳，DevOps 是 Development 和 Operati
 
 
 ## TKE 容器 DevOps 
-### 简介
+### 简介 
 
 TKE 容器 DevOps 是 [容器服务 TKE](https://cloud.tencent.com/document/product/457/)、[容器镜像服务 TCR](https://cloud.tencent.com/document/product/1141/39278) 和 [CODING DevOps](https://cloud.tencent.com/product/coding) 服务紧密结合，面向容器业务场景，具备自动化代码编译、容器镜像构建、镜像推送及应用部署等功能，为客户提供强大的一站式云原生 DevOps 服务。容器 DevOps 快速入门请参见 [TKE 和 Coding 协同业务实现快速迭代](https://cloud.tencent.com/document/product/457/47834)。  
 

@@ -1,4 +1,4 @@
-## 简介
+## 简介 
 创建 Ingress 选用 HTTPS 监听协议时，选用合适的服务器证书能够确保访问安全。本文档介绍 Ingress 证书使用相关的内容，与证书相关的 Annotation 如下：
 
 - `kubernetes.io/ingress.http-rules`
