@@ -9,14 +9,14 @@ TCPlayerLite 为旧版播放器，仅包含基础直播场景的播放功能，�
 - [TCPlayerLite](https://cloud.tencent.com/document/product/881/20207)
 
 ## 功能展示
-更直观的体验 TCPlayer，可以参见 [Web端播放器体验](https://tcplayer.vcube.tencent.com/)，可体验 TCPlayer 的各项功能并查看相关代码示例。
+更直观的体验 TCPlayer，可以参见 [Web 端播放器体验](https://tcplayer.vcube.tencent.com/)，可体验 TCPlayer 的各项功能并查看相关代码示例。
 
 
 ## 操作步骤
 
 ### 1. 替换 SDK 文件
 
-页面引用的样式和 js 文件如下，可以参见 [TCPlayer接入文档](https://cloud.tencent.com/document/product/881/30818)，引用最新版本的播放器 sdk 及依赖，或从文档中下载所需文件，自行部署使用。
+页面引用的样式和 js 文件如下，可以参见 [TCPlayer 接入文档](https://cloud.tencent.com/document/product/881/30818)，引用最新版本的播放器 sdk 及依赖，或从文档中下载所需文件，自行部署使用。
 
 ```
 <!-- 样式文件 -->
