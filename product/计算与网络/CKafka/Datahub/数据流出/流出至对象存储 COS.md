@@ -20,7 +20,7 @@ Datahub 提供数据流出能力，您可以将 CKafka 数据分发至 COS 以�
    - CKafka 实例：选择数据源 CKafka。
    - 源 Topic：选择源 Topic，一条数据流出任务最多支持选择5个源 Topic。
    - 起始位置：转储时历史消息的处理方式，topic offset 设置。
-   - 目标存储桶：对不同的 Topic，选取相应的 COS 中 Bucket，则请求消息会自动在 Bucket 下创建 `instance-id/topic-id/date/timestamp` 为名称的文件路径进行存储。相关路径如无法满足业务需要，请创建完成后在云函数 CkafkaToCosConsumer 下自行修改。
+   - 目标存储桶：对不同的 Topic，选取相应的 COS 中 Bucket，则请求消息会自动在 Bucket 下创建 `instance-id/topic-id/date/timestamp` 为名称的文件路径进行存储。
    - 聚合方式：请至少填写一种聚合方式，文件将根据指定方式聚合进入 COS 存储桶。如果指定了两种聚合方式，则会同时生效。例：指定每1h或1GB聚合一次，若在1h之前达到1GB，则文件会聚合，同时在1h时也会聚合一次。
 > ! 当单条消息大小大于设置的聚合文件大小时，消息可能会被截断。
    - 存储格式：支持 csv 和 json 格式。

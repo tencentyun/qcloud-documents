@@ -1,0 +1,58 @@
+## 功能简介
+[Web 应用防火墙](https://cloud.tencent.com/document/product/627) 日志投递功能用于将日志数据投递到 CKafka（消息队列）等其他云产品或者服务中，助力挖掘日志数据价值，满足用户日志运维诉求。日志投递支持当前 WAF 引擎采集到日志服务的全部访问日志字段数据，用户只需要在 WAF 控制台进行简单的配置，即可完成访问日志数据准实时投递服务。
+
+>?
+>- 日志投递功能当前处于灰度阶段，如使用中出现异常， 请 [联系我们](https://cloud.tencent.com/online-service) 进行处理。
+>- 使用日志投递服务和安全服务日志包不冲突，无论是否开启日志服务都可开启和使用日志投递功能（建议根据业务需要开启）。
+>- 日志投递当前仅支持访问日志（业务日志）的 [付费](https://cloud.tencent.com/document/product/627/11730) 投递，安全（攻击）日志的投递服务后续提供。
+
+
+
+## 前提条件
+- 已购买腾讯云 [消息队列 CKafka 实例](https://cloud.tencent.com/document/product/597/11745)，按照实际日志用量来配置 CKafka 实例的带宽规格。
+- 支撑环境接入 CKafka 时需 [提交工单](https://console.cloud.tencent.com/workorder/category)，转 CKafka 消息队列小助手加白名单才可以使用。
+
+## 操作步骤
+
+### 日志投递至 CKafka[](id:CKafka)
+
+1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/attack)，在左侧导航栏中，选择**访问日志** > **日志投递**。
+2. 在日志投递页面的投递至 Ckafka 模块中，单击**立即授权**。
+ 1.  在 CAM 中对 WAF 进行角色授权。
+![](https://qcloudimg.tencent-cloud.cn/raw/f754e86f36ad5099414c5183a2e548b3.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/dc077ef0361fc07ef6434614dd942242.png)
+ 2. 该角色将在已关联策略的权限范围内访问您的 CKafka 消息队列资源。
+![](https://qcloudimg.tencent-cloud.cn/raw/d3a5c108dcb25511edbcc206fb17260a.png)
+ 3. 单击**同意授权**后，可以返回日志投递页面进行投递。
+![](https://qcloudimg.tencent-cloud.cn/raw/cd46ef07158857f0e29c3041dd448828.png)
+3. 在 CKafka 投递配置弹窗中，配置相关参数，单击**确定**。
+ - 支持环境：**支撑环境接入指您在腾讯云已选购可以与 CKafka 结合使用的产品，并选择消息队列实例和 IP 端口。**
+   ![](https://qcloudimg.tencent-cloud.cn/raw/12227d988accf8bff2145e7cd0f5a0c7.png)
+   **参数说明：**
+    - 地域：CKafka 支持的地域，详情请参见 [CKafka-地域和可用区](https://cloud.tencent.com/document/product/597/44597)。
+    - 消息队列实例：前地域下运行中的 CKafka 实例。
+    - Topic ID/名称：对应的 Topic ID 信息。
+    - 支撑环境接入：支撑网络的路由。
+>!支撑环境接入 CKafka 时需 [提交工单](https://console.cloud.tencent.com/workorder/category)，转 Ckafka 消息队列小助手加白名单才可以使用。
+>
+
+
+
+ - 公网域名接入：**选择公网域名接入，选择消息队列实例和公网域名，并输入所选消息队列实例的用户名和密码。**
+   ![](https://qcloudimg.tencent-cloud.cn/raw/ca21b211a754cc7c2e273dae44aa4cb7.png)
+   **参数说明：**
+   - 地域：Ckafka 支持的地域，详情请参见 [Ckafka 地域和可用区](https://cloud.tencent.com/document/product/597/44597)。
+   - 消息队列实例：当前地域下运行中的 Ckafka 实例。
+   - Topic ID/名称：对应的 Topic ID 信息。
+   - 公网域名接入：支撑网络的路由。
+   - 用户名：SASL 用户名。
+   - 密码：SASL 密码。
+
+### 开启日志投递
+
+当完成 [日志投递至 Ckafka](#Ckafka) 后，可将所需域名开启日志投递功能。
+1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/attack)，在左侧导航栏中，选择**域名列表**。
+2. 在域名列表页面，选择所需域名，单击**更多** > **日志投递**。
+![](https://qcloudimg.tencent-cloud.cn/raw/2c6f0e6ce64e815e36c7c694057d61d4.png)
+3. 在高级设置窗口中，勾选需要投递的目标，单击**保存**，即可开启当前域名的日志投递。
+![](https://qcloudimg.tencent-cloud.cn/raw/82dab02cb1f82fbcbb06e7e5291df1a0.png)

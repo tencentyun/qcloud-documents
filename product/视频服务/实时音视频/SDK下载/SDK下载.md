@@ -340,7 +340,7 @@
   </tr>
 </table>
 
->! Windows SDK 和 Mac OS SDK 包含实时音视频（TRTC）、直播推流（TXLivePusher）、直播播放（TXLivePlayer）和点播播放（TXVodPlayer）等四项功能，暂不支持短视频相关功能，不区分精简版和全功能板。
+>! Windows SDK 和 Mac OS SDK 包含实时音视频（TRTC）、直播推流（TXLivePusher）、直播播放（TXLivePlayer）和点播播放（TXVodPlayer）等四项功能，暂不支持短视频相关功能，不区分精简版和全功能版。
 
 <script src="https://cdn-go.cn/aegis/aegis-sdk/latest/aegis.min.js"></script>
 <script>
