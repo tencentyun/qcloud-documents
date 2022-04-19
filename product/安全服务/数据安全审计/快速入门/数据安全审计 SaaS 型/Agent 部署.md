@@ -20,6 +20,7 @@
  
 ## 部署 Agent
 ### 在线部署
+1. 登录 [数据安全审计控制台](https://console.cloud.tencent.com/dsaudit)，在左侧导航栏中，单击**配置管理** > **Agent 管理** > **Agent 部署**，进入 Agent 部署页面。
 1. 在 Agent 部署页面，单击 **Linux 在线部署**。
 2. 在 Agent 在线部署页面，选择 CVM 所在的地域和 VPC ，在需要部署 Agent 的 CVM 后单击**部署**，即可自动部署 Agent 。已经部署的 Agent ，可执行卸载操作（即使 Agent 未连接，在此也可以在线卸载）。还可以选中多个 CVM ，进行批量部署。
 >!
