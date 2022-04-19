@@ -88,18 +88,16 @@ SDK 支持 iOS 8.0 以上系统。
 
 
 ### 步骤1：集成 UGCKit 
-1. **项目配置**：
-  1. 项目中使用 cocoapods，根据实际情况选择其中一种操作：
-    - 在项目根目录，执行 `pod init && pod install`，可得到 Podfile 文件。
-    - 把 **BeautySettingKit** 和 **UGCKit** 文件夹拷贝到项目根目录下（Podfile 同级目录）。
-  4. 打开 Podfile 文件，增加：
+
+1. 项目中使用 cocoapods，根据实际情况选择其中一种操作：
+  - 在项目根目录，执行 `pod init && pod install`，可得到 Podfile 文件。
+  - 把 **BeautySettingKit** 和 **UGCKit** 文件夹拷贝到项目根目录下（Podfile 同级目录）。
+2. 打开 Podfile 文件，增加：
 ```
 pod 'BeautySettingKit', :path => 'BeautySettingKit/BeautySettingKit.podspec'
 pod 'UGCKit', :path => 'UGCKit/UGCKit.podspec', :subspecs => ["UGC"]   #subspecs 根据SDK来选择
 ```
-  5. 执行 **pod install**，并打开 `项目名.xcworkspace`，可以看到在 `Pods/Development Pods` 目录下已有 `UGCKit BeautySettingKit`。
-2. **导入企业版资源（仅用于企业版）**：
-将企业版 SDK ZIP 包中 EnterprisePITU（在 `App/AppCommon` 目录下）文件夹拖动到工程中，选择 **Create groups** 并勾选您的 Target，单击 **Finish**。
+3. 执行 **pod install**，并打开 `项目名.xcworkspace`，可以看到在 `Pods/Development Pods` 目录下已有 `UGCKit BeautySettingKit`。
 
 
 ### 步骤2：使用 UGCKit
