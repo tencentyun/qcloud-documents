@@ -155,7 +155,7 @@ consumer.shutdown()
     </tr>
     <tr>
         <td>groupName</td>
-        <td>消费者组信息为命名空间全称拼接上 group 名称， 例如：<code>rocketmq-xxx|namespace_python%group11</code>。topic 名称和名称空间名称可在控制台中的命名空间和 Group 页签中获取。</td>
+        <td>消费者组信息为命名空间全称拼接上 group 名称， 例如：<code>rocketmq-xxx|namespace_python%group11</code>。命名空间名称和 Group 名称可在控制台中的命名空间和 Group 页签中获取。</td>
     </tr>
     <tr>
         <td>nameserver</td>
