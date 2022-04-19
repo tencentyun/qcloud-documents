@@ -58,7 +58,7 @@ ExternalDNS 将公开的 Kubernetes Service 和 Ingress 与 DNS 提供商同步�
 * 如果您想在腾讯云的环境中使用内网的 DNS 服务：
   * 配置下列 YAML 文件中参数：`--tencent-cloud-zone-type=private`   
   * 在 PrivateDNS 控制台创建 DNS 域名。DNS 域名记录中将会包含 DNS 记录。
-* 如果您想在腾讯云的环境中使用公网网的 DNS 服务：
+* 如果您想在腾讯云的环境中使用公网的 DNS 服务：
   * 配置下列 YAML 文件中参数：`--tencent-cloud-zone-type=public`   
   * 在 [DNSPod 控制台](https://console.dnspod.cn) 创建 DNS 域名。DNS 域名记录中将会包含 DNS 记录。
  
