@@ -53,9 +53,8 @@ SDK 支持 iOS 8.0 以上系统。
 ```
 
 >?
-- 对于使用**4.7版本 License 的用户**，如果您升级了 SDK 到4.9版本，您可以登录控制台，单击下图的【切换到新版License】生成对应的 key 和 url，切换后的 License 必须使用4.9及更高的版本，切换后按照上述操作集成即可。
+- 对于使用**4.7版本 License 的用户**，如果您升级了 SDK 到4.9版本，您可以登录控制台，单击下图的**切换到新版License**生成对应的 key 和 url，切换后的 License 必须使用4.9及更高的版本，切换后按照上述操作集成即可。
 ![](https://main.qcloudimg.com/raw/c877efe3f57e853615e68a35e20fd8b9.png)
-- 企业版请参考 [动效变脸](https://cloud.tencent.com/document/product/584/13509)。
 
 ### 步骤4：Log 配置
 在  TXLiveBase 中可以设置 log 是否在控制台打印以及 log 的级别，相关接口如下：
@@ -90,15 +89,15 @@ SDK 支持 iOS 8.0 以上系统。
 
 ### 步骤1：集成 UGCKit 
 1. **项目配置**：
-	1. 项目中使用 cocoapods，根据实际情况选择其中一种操作：
-		- 在项目根目录，执行 `pod init && pod install`，可得到 Podfile 文件。
-		- 把 **BeautySettingKit** 和 **UGCKit** 文件夹拷贝到项目根目录下（Podfile 同级目录）。
-	4. 打开 Podfile 文件，增加：
+  1. 项目中使用 cocoapods，根据实际情况选择其中一种操作：
+    - 在项目根目录，执行 `pod init && pod install`，可得到 Podfile 文件。
+    - 把 **BeautySettingKit** 和 **UGCKit** 文件夹拷贝到项目根目录下（Podfile 同级目录）。
+  4. 打开 Podfile 文件，增加：
 ```
 pod 'BeautySettingKit', :path => 'BeautySettingKit/BeautySettingKit.podspec'
 pod 'UGCKit', :path => 'UGCKit/UGCKit.podspec', :subspecs => ["UGC"]   #subspecs 根据SDK来选择
 ```
-	5. 执行 **pod install**，并打开 `项目名.xcworkspace`，可以看到在 `Pods/Development Pods` 目录下已有 `UGCKit BeautySettingKit`。
+  5. 执行 **pod install**，并打开 `项目名.xcworkspace`，可以看到在 `Pods/Development Pods` 目录下已有 `UGCKit BeautySettingKit`。
 2. **导入企业版资源（仅用于企业版）**：
 将企业版 SDK ZIP 包中 EnterprisePITU（在 `App/AppCommon` 目录下）文件夹拖动到工程中，选择 **Create groups** 并勾选您的 Target，单击 **Finish**。
 
@@ -108,7 +107,7 @@ pod 'UGCKit', :path => 'UGCKit/UGCKit.podspec', :subspecs => ["UGC"]   #subspecs
 1. **录制**
 `UGCKitRecordViewController`提供了完整的录制功能，您只需实例化这个控制器后展现在界面中即可。
 <dx-codeblock>
-::: XCode 
+::: objectivec 
 UGCKitRecordViewController *recordViewController = [[UGCKitRecordViewController alloc] initWithConfig:nil theme:nil];
 [self.navigationController pushViewController:recordViewController]
 ```
@@ -133,7 +132,7 @@ UGCKitRecordViewController *recordViewController = [[UGCKitRecordViewController 
 2. **编辑**
 `UGCKitEditViewController`提供了完整的图片转场和视频编辑功能，实例化时需要传入待编辑的媒体对象，以处理录制结果为例，示例如下：
 <dx-codeblock>
-::: XCode 
+::: objectivec 
    - (void)processRecordedVideo:(UGCKitMedia *)media {
        // 实例化编辑控制器
        UGCKitEditViewController *editViewController = [[UKEditViewController alloc] initWithMedia:media conifg:nil theme:nil];
@@ -161,7 +160,7 @@ UGCKitRecordViewController *recordViewController = [[UGCKitRecordViewController 
 3. **从相册中选择视频或图片**
 `UGCKitMediaPickerViewController`用来处理媒体的选择与合并，当选择多个视频时，将会返回拼接后的视频。示例如下：
 <dx-codeblock>
-::: XCode 
+::: objectivec 
    // 初始化配置
    UGCKitMediaPickerConfig *config = [[UGCKitMediaPickerConfig alloc] init];
    config.mediaType = UGCKitMediaTypeVideo;//选择视频
@@ -193,7 +192,7 @@ UGCKitRecordViewController *recordViewController = [[UGCKitRecordViewController 
 4. **裁剪**
 `UGCKitCutViewController`提供视频的裁剪功能，与编辑接口相同，在实例化时传入媒体对象，在 completion 中处理剪辑结果即可。示例如下：
 <dx-codeblock>
-::: XCode 
+::: objectivec 
    UGCKitMedia *media = [UGCKitMedia mediaWithVideoPath:@"<#视频路径#>"];
    UGCKitCutViewController *cutViewController = [[UGCKitCutViewController alloc] initWithMedia:media theme:nil];
    cutViewController.completion = ^(UGCKitResult *result) {
