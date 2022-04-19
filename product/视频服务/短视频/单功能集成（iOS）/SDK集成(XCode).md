@@ -215,4 +215,3 @@ UGCKitRecordViewController *recordViewController = [[UGCKitRecordViewController 
 - [视频拼接](https://cloud.tencent.com/document/product/584/9370)
 - [视频上传](https://cloud.tencent.com/document/product/584/15534)
 - [视频播放](https://cloud.tencent.com/document/product/584/9372)
-- [动效变脸（企业版）](https://cloud.tencent.com/document/product/584/13509)
