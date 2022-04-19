@@ -30,8 +30,7 @@
 小视频 App 的运行依赖两种后台服务：
 
 - **点播云服务（VOD）**
-点播（VOD）服务可以为小视频提供视频的存储和在线分发的能力，您在购买短视频的基础版或者企业版 License 时，会一并购买腾讯云的点播服务套餐包，因此包含一定量的流量可以使用。
-
+点播（VOD）服务可以为小视频提供视频的存储和在线分发的能力，您在购买短视频的基础版 License 时，会一并购买腾讯云的点播服务套餐包，因此包含一定量的流量可以使用。
 - **业务服务器（CVM）**
 小视频 App 需要一台简单的业务服务器，该服务器可以为 App 提供注册、登录、视频列表存储、视频上传签名等能力，您可以将其搭建在腾讯云 CVM 云服务器上，并可以自行修改里面的逻辑。
 
@@ -42,30 +41,31 @@
 ### step1. 开通点播服务（VOD）
 
 1. 登录 [云点播控制台](https://console.cloud.tencent.com/vod) 开通云点播服务，云点播服务可以为小视频提供视频存储和在线播放的能力。
-2. 在云点播控制台的[【回调设置】](https://console.cloud.tencent.com/vod/callback)中设置回调模式为可靠回调，【事件回调配置】中选择上传完成回调，该配置需要10分钟左右能生效。
+2. 在云点播控制台的[**回调设置**](https://console.cloud.tencent.com/vod/callback)中设置回调模式为可靠回调，**事件回调配置**中选择上传完成回调，该配置需要10分钟左右能生效。
 ![](https://main.qcloudimg.com/raw/03e7c65ee0a53a033115275f1cc8bb14.png)
 
 ### step2. 获取云 API 密钥
 
 小视频 App 在上传视频时，需要使用腾讯云密钥，即 SecretId 和 SecretKey，这两个 Key 要从腾讯云控制台中获取并配置到业务服务器上。
-1. 登录控制台，选择【云产品】>【访问管理】>[【API密钥管理】](https://console.cloud.tencent.com/cam/capi)，进入“API 密钥管理”页面。
-2. 获取云 API 密钥。如果您尚未创建密钥，则单击【新建密钥】即可创建一对 SecretId 和 SecretKey。[](id:step2_2)
+1. 登录控制台，选择**云产品** > **访问管理**> [**API密钥管理**](https://console.cloud.tencent.com/cam/capi)，进入“API 密钥管理”页面。
+2. 获取云 API 密钥。如果您尚未创建密钥，则单击**新建密钥**即可创建一对 SecretId 和 SecretKey。[](id:step2_2)
 ![](https://main.qcloudimg.com/raw/9b6ebb10bc83da80c1cdce084881d158.png)
 
 ### step3. 在云服务器上部署后台代码
 1. **[新建 CVM 云服务器](https://console.cloud.tencent.com/cvm)**。  
    ![](https://main.qcloudimg.com/raw/117061b25682cba1824d04beb3f9d8c5.png)
-2. **选择【自定义配置】，进入镜像市场选取镜像**。
+2. **选择**自定义配置**，进入镜像市场选取镜像**。
    ![](https://main.qcloudimg.com/raw/baa3c6b05d431393bb08f0431678e284.png)
    ![](https://main.qcloudimg.com/raw/e74f5eba3cb02f5838d27ea26090bd62.png)
 3. **配置硬盘和网络，以及云服务器访问密码，妥善保管好密码，然后设置安全组**。
    ![](https://main.qcloudimg.com/raw/81655f57778fd5a5ebe192f5db1200a4.png)
 4. **登录生成的云服务器**。[](id:step3_4)
-   单击实例操作栏的【登录】，可以通过腾讯云的网页 shell 进行访问，也可以用 **putty** 或 **SecretCRT** 采用 ssh 登录到云服务器。
+   单击实例操作栏的**登录**，可以通过腾讯云的网页 shell 进行访问，也可以用 **putty** 或 **SecretCRT** 采用 ssh 登录到云服务器。
    ![](https://main.qcloudimg.com/raw/4f8c3a12375bdebde7344fcb8c38ea22.png)
 5. **修改云服务器配置信息**。
    将如下脚本中的`appId`、`SecretId`和`SecretKey`配置 [步骤2](#step2_2) 中获取到的 APPID、SecretId 和 SecretKey。然后登录云服务器，直接在云服务器上执行修改后的脚本。
->! 请在本地修改以下配置并复制，然后登录云服务器在控制台粘贴回车执行。
+>! 
+>1. 请在本地修改以下配置并复制，然后登录云服务器在控制台粘贴回车执行。
 ```
   echo '{
       "dbconfig":{
@@ -92,17 +92,17 @@
       }
   }' > /home/ubuntu/vod-xiaoshipin-server/conf/localconfig.json
 ```
-在服务器输入启动服务命令直接启动服务，服务启动默认端口为：`8001`。
-启动服务：
+>2. 在服务器输入启动服务命令直接启动服务，服务启动默认端口为：`8001`。
+	- 启动服务：
 ```
   cd /home/ubuntu/vod-xiaoshipin-server/;pm2 start app.js --name 'litvideo';
 ```
-  如需关闭或者重启服务，可以使用以下命令：
-   重启服务：
+	- 如需关闭或者重启服务，可以使用以下命令：
+重启服务：
 ```
   pm2 restart litvideo;
 ```
-  关闭服务：
+关闭服务：
 ```
   pm2 delete litvideo;
 ```
