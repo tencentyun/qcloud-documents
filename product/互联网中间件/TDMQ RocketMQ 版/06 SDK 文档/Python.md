@@ -89,8 +89,8 @@ producer.shutdown()
     <tr>
         <td>topicName</td>
         <td>topicName 是<code>命名空间全称</code>+<code>%</code>+<code>topic 名称</code>。
-				<ul style = "margin-bottom: 0px;"><li>命名空间全称可在控制台集群管理 Topic 页签中复制，格式是<code>集群 ID</code> +<code>｜</code>+<code>命名空间</code>。
-            <img src = "https://qcloudimg.tencent-cloud.cn/raw/c483d23c09d2f728aaa08b195d9ddd40.png" style="width: 100%"></li><li>Topic 名称在控制台集群管理 Topic 页签中复制具体 Topic 名称。
+				<ul style = "margin-bottom: 0px;"><li>命名空间全称可在控制台集群管理命名空间页签中复制，格式是<code>集群 ID</code> +<code>｜</code>+<code>命名空间</code>。
+            <img src = "https://qcloudimg.tencent-cloud.cn/raw/c483d23c09d2f728aaa08b195d9ddd40.png" style="width: 100%"></li><li>Topic 名称在控制台集群管理命名空间页签中复制具体 Topic 名称。
             <img src = "https://qcloudimg.tencent-cloud.cn/raw/4b096254ae2fa8db0f45c1f864718915.png" style="width: 100%">
 						</li>
 						</ul>
