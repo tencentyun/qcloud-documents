@@ -5,7 +5,7 @@ EMR 容器版集群支持在控制台提交 Spark 作业，查看作业信息。
 >2. 不可重复提交同一份作业。
 
 ## 操作步骤
-1. 登录 [EMR 容器版控制台](https://console.cloud.tencent.com/emr/static/containerdeploy)，在集群列表中单击对应的集群** ID/名称**进入集群详情页。
+1. 登录 [EMR 容器版控制台](https://console.cloud.tencent.com/emr/static/containerdeploy)，在集群列表中单击对应的集群 **ID/名称**进入集群详情页。
 2. 在集群详情页中单击**作业管理**，即可进行相关作业查询。
 3. EMR 支持 CRD 方式提交作业。
 
@@ -101,13 +101,17 @@ spec:
 </configuration>
 ```
 
-如果需要将Spark作业信息存储到COS，以便在Spark Historyserver UI链接查看作业详情，需要在Spark作业文件中增加如下参数：
-sparkConf:
-    "spark.eventLog.enabled": "true"
-    "spark.eventLog.dir": "cosn://sparkhistorytest-1258469122"
+如果需要将 Spark 作业信息存储到 COS，以便在 Spark Historyserver UI 链接查看作业详情，需要在 Spark 作业文件中增加如下参数：
+
+```
+sparkConf：
+"spark.eventLog.enabled": "true"
+"spark.eventLog.dir": "cosn://sparkhistorytest-1258469122"
+```
+   
 
 5. 单击作业列表上方的**提交作业**，打开提交作业弹框。选择需要提交的作业文件，单击**确认**后，即可提交作业。
 ![](https://qcloudimg.tencent-cloud.cn/raw/a4c32b79d816ea7f65ac0e800b2c915c.png)
-6. 单击操作中的**详情**，可跳转 Spark Historyserver UI 链接查看作业详情。
+6. 单击作业列表中的**详情**，可跳转 Spark Historyserver UI 链接查看作业详情。
 
 
