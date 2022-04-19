@@ -1,12 +1,12 @@
 [](id:web)
 ## Web 端搭建示例（H5）
-1. 引入云游戏的 js 文件。
+1. 引入应用云渲染的 js 文件。
 <dx-codeblock>
 ::: html html
 <script type="text/javascript" src="https://cloud-gaming.myqcloud.com/cloud_gaming_static/tcgsdk.js"></script>
 :::
 </dx-codeblock>
-2. 在页面内定义一个云游戏显示用的锚点，如下所示：
+2. 在页面内定义一个应用云渲染显示用的锚点，如下所示：
 <dx-codeblock>
 ::: html html
 <div id="mount-point"></div>

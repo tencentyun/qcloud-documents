@@ -1,13 +1,13 @@
-云游戏提供了相关 Web 端搭建 Demo，详情请参见 [demo](https://github.com/tencentyun/cloudgame-js-sdk/tree/master/demo)。
+应用云渲染提供了相关 Web 端搭建 Demo，详情请参见 [demo](https://github.com/tencentyun/cloudgame-js-sdk/tree/master/demo)。
 
 [](id:web)
 ## Web 端搭建示例（H5）
 
-1. 引入云游戏的 js 文件（ts 声明文件已放在相同目录下）。
+1. 引入应用云渲染的 js 文件（ts 声明文件已放在相同目录下）。
 ```
 <script type="text/javascript" src="./tcg-sdk/index.js"></script>
 ```
-2. 在页面内定义一个云游戏显示用的锚点，如下所示。
+2. 在页面内定义一个应用云渲染显示用的锚点，如下所示。
 ```
 <div id="mount-point"></div>
 ```

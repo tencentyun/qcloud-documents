@@ -150,5 +150,5 @@ npm run
 ```
 
 [](id:step6)
-### 步骤6：启动云游戏
-网页端发送 `try_lock` 请求，锁定机器成功后，再调用 `get_signature`，返回值获得 ServerSession 字段，然后调用 [TCGSDK.start(ServerSession)](https://tcloud-doc.isd.com/document/product/1547/72694?!preview&!editLang=zh#tcgsdk.start(serversession)) 接口启动云游戏。
+### 步骤6：启动应用云渲染
+网页端发送 `try_lock` 请求，锁定机器成功后，再调用 `get_signature`，返回值获得 ServerSession 字段，然后调用 [TCGSDK.start(ServerSession)](https://tcloud-doc.isd.com/document/product/1547/72694?!preview&!editLang=zh#tcgsdk.start(serversession)) 接口启动应用云渲染。

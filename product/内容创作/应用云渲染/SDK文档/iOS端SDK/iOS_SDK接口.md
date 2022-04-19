@@ -4,8 +4,8 @@
 | 接口名称                                   | 接口描述                                                    |
 | ------------------------ | ----------------------------------------------------------- |
 | [initWithParams](#initWithParams)          | SDK 初始化                                                  |
-| [startGameWithRemoteSession](#startGameWithRemoteSession) | 启动云游戏                                                  |
-| [stopGame](#stopGame)                      | 停止云游戏                                                  |
+| [startGameWithRemoteSession](#startGameWithRemoteSession) | 启动应用云渲染                                                  |
+| [stopGame](#stopGame)                      | 停止应用云渲染                                                  |
 | [TCGGamePlayerDelegate](#TCGGamePlayerDelegate) | 生命周期回调                                                |
 
 
@@ -94,7 +94,7 @@ SDK 初始化。接口立即返回，异步执行初始化通过回调通知结�
 [](id:startGameWithRemoteSession)
 
 ### [TCGGamePlayer startGameWithRemoteSession:error:]
-启动云游戏。
+启动应用云渲染。
 
 | 参数          | 类型     | 描述                            |
 | ------------- | -------- | ------------------------------- |
@@ -102,7 +102,7 @@ SDK 初始化。接口立即返回，异步执行初始化通过回调通知结�
 
 [](id:stopGame)
 ### [TCGGamePlayer stopGame]
-停止云游戏。
+停止应用云渲染。
 
 [](id:TCGGamePlayerDelegate)
 ### TCGGamePlayerDelegate

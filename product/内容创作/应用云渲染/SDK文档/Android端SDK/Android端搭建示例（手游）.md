@@ -78,7 +78,7 @@ public class MobileSample extends BaseActivity {
   private final ITcgMobileListener mTcgLifeCycleImpl = new ITcgMobileListener() {
     @Override
     public void onConnectionTimeout() {
-      // 云游戏连接超时, 用户无法使用, 只能退出
+      // 应用云渲染连接超时, 用户无法使用, 只能退出
       Log.e(Constant.TAG, "onConnectionTimeout");
     }
 
@@ -96,13 +96,13 @@ public class MobileSample extends BaseActivity {
 
     @Override
     public void onConnectionFailure(int errorCode, String errorMsg) {
-      // 云游戏连接失败, 用户无法使用, 只能退出
+      // 应用云渲染连接失败, 用户无法使用, 只能退出
       Log.e(Constant.TAG, String.format(Locale.ENGLISH, "onConnectionFailure:%d %s", errorCode, errorMsg));
     }
 
     @Override
     public void onConnectionSuccess() {
-      // 云游戏连接成功
+      // 应用云渲染连接成功
       // 所有SDK的设置必须在这个回调之后进行(包括ITcgSdk.sendGamePadConnected及其他按键事件)
     }
 
@@ -124,7 +124,7 @@ public class MobileSample extends BaseActivity {
   };
 
   /**
-   * 启动云游戏, 云端实例启动成功后会回调onStartExperience
+   * 启动应用云渲染, 云端实例启动成功后会回调onStartExperience
    *
    * @param clientSession 用于云端初始化的client session
    * @see SimpleSample#onStartExperience(String)

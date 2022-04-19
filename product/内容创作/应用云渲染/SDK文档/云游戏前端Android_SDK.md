@@ -4,11 +4,11 @@
 
 | 接口名称                           | 接口描述                |
 | ------------------------------------------------------------ | -------------------------------------- |
-| [TcgSdk.TcgSdk(params)](#tcgsdk.tcgsdk(params)) | 云游戏前端初始化            |
+| [TcgSdk.TcgSdk(params)](#tcgsdk.tcgsdk(params)) | 应用云渲染前端初始化            |
 | [TCGWebView.loadUrl(url)](#tcgwebview.loadurl(url)) | 安卓加载云游页面            |
-| [TcgSdk.getLocalDescription()](#tcgsdk.getlocaldescription()) | 获取本地 session，用于请求云游戏服务端 |
-| [TcgSdk.start(session)](#tcgsdk.start(session)) | 启动云游戏               |
-| [TcgSdk.destroy(msg)](#tcgsdk.destroy()) | 立即停止云游戏             |
+| [TcgSdk.getLocalDescription()](#tcgsdk.getlocaldescription()) | 获取本地 session，用于请求应用云渲染服务端 |
+| [TcgSdk.start(session)](#tcgsdk.start(session)) | 启动应用云渲染               |
+| [TcgSdk.destroy(msg)](#tcgsdk.destroy()) | 立即停止应用云渲染             |
 
 ### 安卓前端实现接口
 
@@ -16,19 +16,19 @@
 | ------------------------------------------------------------ | ------------------------------------------------------- |
 | [TcgSdk.addEventObserver(EventObserver)](#tcgsdk.addeventobserver(eventobserver)) | 添加事件监听                      |
 | [TcgSdk.getTcgSdk()](#tcgsdk.gettcgsdk()) | 获取 webview 内置的 TCGSDK 对象，用于 native 层调用接口 |
-| [TCGWebView.tcgWebView(container, outsideCallback, nativeGamepad)](#tcgwebview.tcgwebview(container.2C-outsidecallback.2C-nativegamepad)) | 云游戏安卓容器初始化                  |
-| [RenderWebView.renderWebView(ctx)](#renderwebview.renderwebview(ctx)) | 云游戏 webview 初始化                  |
+| [TCGWebView.tcgWebView(container, outsideCallback, nativeGamepad)](#tcgwebview.tcgwebview(container.2C-outsidecallback.2C-nativegamepad)) | 应用云渲染安卓容器初始化                  |
+| [RenderWebView.renderWebView(ctx)](#renderwebview.renderwebview(ctx)) | 应用云渲染 webview 初始化                  |
 | [TCGWebView.setWebView(view)](#tcgwebview.setwebview(view)) | 设置网页渲染的 webview                 |
 | [TCGWebView.getWebView()](#tcgwebview.getwebview()) | 获取网页渲染的 webview                 |
 | [TCGWebView.eval(String jsStr)](#tcgwebview.eval(string-jsstr)) | 安卓 native 层执行 js 代码的接口            |
 | [TcgSdk.EventObserver](#tcgsdk.eventobserver)        | 接口用于监听前端事件                  |
 
 
-## 云游戏生命周期相关接口
+## 应用云渲染生命周期相关接口
 
 ### TcgSdk.TcgSdk(params)
 
-云游戏前端初始化。具体调用方式与 JS SDK 相同，请参见 [TCGSDK.init(params)](https://tcloud-doc.isd.com/document/product/1547/72694?!preview&!editLang=zh#tcgsdk.init(params)) 函数。
+应用云渲染前端初始化。具体调用方式与 JS SDK 相同，请参见 [TCGSDK.init(params)](https://tcloud-doc.isd.com/document/product/1547/72694?!preview&!editLang=zh#tcgsdk.init(params)) 函数。
 
 ### TCGWebView.loadUrl(url)
 
@@ -36,24 +36,24 @@
 
 | 参数 | 参数类型 | 说明    |
 | ---- | -------- | ---------- |
-| url | string  | 启动云游戏 |
+| url | string  | 启动应用云渲染 |
 
 
 ### TcgSdk.getLocalDescription()
 
-获取本地 session，用于请求云游戏服务端。
+获取本地 session，用于请求应用云渲染服务端。
 
 ### TcgSdk.start(session)
 
-请求云 API 返回的 serverSession 后调用该接口启动云游戏。
+请求云 API 返回的 serverSession 后调用该接口启动应用云渲染。
   
 
 ### TcgSdk.destroy()
 
-断开云游戏连接。
+断开应用云渲染连接。
 
 
-## 云游戏安卓前端实现接口
+## 应用云渲染安卓前端实现接口
 
 ### TcgSdk.addEventObserver(EventObserver)
 
@@ -66,7 +66,7 @@
 
 ### TCGWebView.tcgWebView(container, outsideCallback, nativeGamepad)
 
-云游戏安卓容器初始化。
+应用云渲染安卓容器初始化。
 
 | 参数      | 参数类型         | 说明                             |
 | --------------- | ------------------------- | ------------------------------------------------------------ |
@@ -77,7 +77,7 @@
 
 ### RenderWebView.renderWebView(ctx)
 
-云游戏 webview 初始化。
+应用云渲染 webview 初始化。
 
 | 参数 | 参数类型 | 说明   |
 | ---- | -------- | --------- |
