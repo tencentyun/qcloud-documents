@@ -53,7 +53,7 @@
 </tr>
 </thead>
 <tbody><tr>
-<td>android</td>
+<td>Android</td>
 <td>相机（android.permission.CAMER）</td>
 <td>用于拍摄包含码值的图片</td>
 <td>必选</td>
