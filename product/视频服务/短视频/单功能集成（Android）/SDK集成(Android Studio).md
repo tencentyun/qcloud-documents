@@ -324,16 +324,6 @@ android {
     }
 }
 
-    # 如果您使用的是商业版或商业版Pro，请加如下这段，基础版/精简版不需要
-    packagingOptions {
-        pickFirst '**/libc++_shared.so'
-        doNotStrip "*/armeabi/libYTCommon.so"
-        doNotStrip "*/armeabi-v7a/libYTCommon.so"
-        doNotStrip "*/x86/libYTCommon.so"
-        doNotStrip "*/arm64-v8a/libYTCommon.so"
-    }
-    # 如果您使用的是商业版或商业版Pro，请加如上这段，基础版/精简版不需要
-
 dependencies {
     # 拷贝开始
     compile fileTree(include: ['*.jar'], dir: 'libs')
