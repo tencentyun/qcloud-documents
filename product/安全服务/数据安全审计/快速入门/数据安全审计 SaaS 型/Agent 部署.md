@@ -1,4 +1,4 @@
-数据安全审计部署的核心目标是把 Agent 安装到数据库服务器或访问数据库的应用服务器中。Agent 部署流程如下图所示：
+数据安全审计部署的核心目标是把 Agent 安装到数据库服务器或访问数据库的应用服务器中。Agent 部署流程如下所示：
 <dx-steps>
 -配置数据资产实例，操作详情请参见 [管理自建数据库](https://cloud.tencent.com/document/product/856/66075#since)。
 -开启审计权限，操作详情请参见 [管理云数据库](https://cloud.tencent.com/document/product/856/66075#cloud)。
