@@ -75,6 +75,9 @@ typedef struct LebCallback {
 ### 接入示例
 本 [示例](https://mp.weixin.qq.com/s/f3ct29ydzAjdJ1fIdOmHmQ) 基于 Android 端使用广泛的具有代表性开源播放器 ijkplayer，介绍接入快直播传输层 SDK 的方法及流程，其他平台可参考进行集成。
 
+### 最新 SDK 下载
+快直播传输层 libLebConnection SDK 请参见 [SDK 下载](https://github.com/tencentyun/libLebConnectionSDK/tree/main/libs/v1.0.3.2)。
+
 ## 集成常见问题解答
 
 ### 开发卡顿统计功能
