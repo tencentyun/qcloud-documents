@@ -373,7 +373,7 @@ compile project(':ugckit')
 
 [](id:UGCKit_step3)
 #### 步骤3：申请 Licence
-在使用 UGCKit 之前要先设置 License，License 的获取方法请参见 [License申请](https://cloud.tencent.com/document/product/584/20333)。
+在使用 UGCKit 之前要先设置 License，License 的获取方法请参见 [License 申请](https://cloud.tencent.com/document/product/584/543333)。
 
 
 [](id:fun)
@@ -594,7 +594,6 @@ protected void onResume() {
 - [视频拼接](https://cloud.tencent.com/document/product/584/9503)
 - [视频上传](https://cloud.tencent.com/document/product/584/15535)
 - [视频播放](https://cloud.tencent.com/document/product/584/9373)
-- [动效变脸（企业版）](https://cloud.tencent.com/document/product/584/13510)
 
 
 [](id:que2)
