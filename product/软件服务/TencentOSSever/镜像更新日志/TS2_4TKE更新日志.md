@@ -6,6 +6,7 @@
 </dx-alert>
 
 
+## 2022年
 <table>
 <thead>
 <tr>
@@ -41,6 +42,20 @@
 </td>
 <td>2022-01-11</td>
 </tr>
+</tbody>
+</table>
+
+
+
+## 2021年
+<table>
+<thead>
+<tr>
+<th style="width:60%"><strong>更新特性</strong></th>
+<th><strong>更新日期</strong></th>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td>
 <ul class="params">
