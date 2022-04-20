@@ -12,7 +12,7 @@
 
 ## 操作步骤
 
-### 模版部署 -- 部署 Nuxt.js 示例代码
+### 模板部署 -- 部署 Nuxt.js 示例代码
 1. 登录 [Serverless 应用控制台](https://console.cloud.tencent.com/sls)。
 2. 选择**Web 应用>Nuxt.js 框架**，如下图所示：
 ![](https://main.qcloudimg.com/raw/fb2c3d23447e36dc0fb1190002edd780.png)
@@ -67,7 +67,7 @@ require("@nuxt/cli")
 2. 示例使用的是云函数标准 node 环境路径，本地调试时，注意修改成您的本地路径
 >
 
-新建完成后，还需执行以下命令修改文件可执行权限，默认需要 `777` 或 `755` 权限才可正常启动。示例如下：
+新建完成后，还需执行以下命令修改文件可执行权限，默认需要 `777` 或 `755` 权限才可正常启动。示例如下： 
 ```sh
 chmod 777 scf_bootstrap
 ```

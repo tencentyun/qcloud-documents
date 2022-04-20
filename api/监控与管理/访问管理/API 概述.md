@@ -2,7 +2,7 @@
 
 |  接口名 | Action ID  | 功能描述  |
 | ------------ | ------------ | ------------ |
-|  创建角色 | [CreateRole](/document/product/598/13886)  |  用于创建角色并指定允许扮演该角色的帐号 |
+|  创建角色 | [CreateRole](/document/product/598/13886)  |  用于创建角色并指定允许扮演该角色的账号 |
 |  获取角色信息 | [GetRole](/document/product/598/13888)  |  用于查看指定角色的详细信息 |
 |  获取角色列表 | [DescribeRoleList](/document/product/598/13887)  |  用于获取账户下拥有的角色列表 |
 |  绑定策略到角色 | [AttachRolePolicy](/document/product/598/13889)  |  用于向角色绑定策略 |

@@ -1,0 +1,47 @@
+## 接口描述
+**描述**：在指定会议中导入报名信息，支持手机号和同企业内 userid 两种方式。
+商业版单场会议导入上限1000条，企业版单场会议导入上限4000条。如需提升，请 [联系我们](https://cloud.tencent.com/document/product/1095/35658)。
+**请求方式**：POST
+**接口请求域名**：
+```plaintext
+https://api.meeting.qq.com/v1/meetings/{meeting_id}/enroll/import
+```
+
+## 输入参数
+| 名称             | 类型         | 是否必须 | 备注                                                         |
+| ---------------- | ------------ | -------- | ------------------------------------------------------------ |
+| operator_id      | String       | 必须     | 操作者 ID。会议创建者可以导入报名信息。<br />operator_id 必须与 operator_id_type 配合使用。根据 operator_id_type 的值，operator_id 代表不同类型。 |
+| operator_id_type | Integer      | 必须     | 操作者 ID 的类型： <br />1：企业内用户 userid。                |
+| instanceid       | Integer      | 必须     | 用户的终端设备类型：<br/> 1：PC。<br/> 2：Mac。 <br/>3：Android。 <br/>4：iOS。 <br/>5：Web。 <br/>6：iPad。 <br/>7：Android Pad。 <br/>8：小程序。 |
+| enroll_list      | 报名对象列表 | 必须     | 报名对象列表。                                                 |
+
+
+
+**报名对象**
+
+| 名称         | 类型   | 是否必须 | 备注                                                         |
+| ------------ | ------ | -------- | ------------------------------------------------------------ |
+| userid       | String | 非必须   | 企业内的用户的唯一 ID。<br />导入报名支持本企业内 userid 的形式或 phone_number 的形式，二者必填其一。 |
+| area         | String | 非必须   | 国家/地区代码。若使用 phone_number 的方式导入，该字段必填（例如：中国传86，不是+86）。 |
+| phone_number | String | 非必须   | 手机号。<br />导入报名支持本企业内 userid 的形式或 phone_number 的形式，二者必填其一。 |
+| nick_name    | String | 非必须   | 报名的昵称。此处的修改不会影响会中展示的昵称，仅展示在导出的报名信息。 |
+
+## 输出参数
+
+| 名称                | 类型      | 备注                                                         |
+| ------------------- | --------- | ------------------------------------------------------------ |
+| total_count         | Integer   | 成功导入的报名信息条数。                                       |
+| enroll_list         | Object 数组 | 报名对象列表。                                                 |
+| user_non_registered | String 数组 | 通过 userid 方式导入时，本企业内未注册用户。返回未注册的 userid 数组。|
+
+
+**报名对象**
+
+| 名称         | 类型    | 备注                                                         |
+| ------------ | ------- | ------------------------------------------------------------ |
+| enroll_id    | Integer | 报名 ID。                                                       |
+| userid       | String  | 企业内的用户的唯一 ID。<br />导入报名支持本企业内 userid 的形式或 phone_number 的形式，二者必填其一。 |
+| area         | String  | 国家/地区代码。若使用 phone_number 的方式导入，该字段必填（例如：中国传86，不是+86）。 |
+| phone_number | String  | 手机号。<br />导入报名支持本企业内 userid 的形式或 phone_number 的形式，二者必填其一。 |
+| nick_name    | String  | 报名的昵称。                                                 |
+

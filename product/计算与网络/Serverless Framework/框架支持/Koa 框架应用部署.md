@@ -15,7 +15,7 @@
 
 ## 操作步骤
 
-### 模版部署 -- 部署 Koa 示例代码
+### 模板部署 -- 部署 Koa 示例代码
 1. 登录 [Serverless 应用控制台](https://console.cloud.tencent.com/sls)。
 2. 选择**Web 应用>Koa 框架**，如下图所示：
 ![](https://main.qcloudimg.com/raw/fb2c3d23447e36dc0fb1190002edd780.png)
@@ -71,7 +71,7 @@ node app.js
 #!/bin/bash
 /var/lang/node12/bin/node app.js
 ```
-新建完成后，还需执行以下命令修改文件可执行权限，默认需要 `777` 或 `755` 权限才可正常启动。示例如下：
+新建完成后，还需执行以下命令修改文件可执行权限，默认需要 `777` 或 `755` 权限才可正常启动。示例如下： 
 ```sh
 chmod 777 scf_bootstrap
 ```

@@ -4,51 +4,79 @@
 
 WordPress 功能强大、扩展性强，这主要得益于其插件众多，易于扩充功能，基本上一个完整网站该有的功能，通过其第三方插件都能实现所有功能。
 
-这篇文章我们来介绍一下如何使用插件实现远程附件功能，将 WordPress 的媒体库附件存储在腾讯云 [对象存储 COS](https://cloud.tencent.com/product/cos) 上。
+这篇文章我们来介绍一下如何使用插件实现远程附件功能，将 WordPress 的媒体库附件存储在腾讯云 [对象存储（Cloud Object Storage，COS）](https://cloud.tencent.com/product/cos) 上。
 
-对象存储 COS 具有高扩展性、低成本、可靠和安全等特点，将媒体库附件保存在 COS 上有以下好处：
+COS 具有高扩展性、低成本、可靠和安全等特点，将媒体库附件保存在 COS 上有以下好处：
 
 - 附件将拥有更高的可靠性。
 - 您的服务器无需为附件准备额外的存储空间。
 - 用户查看图片附件时将直连 COS 服务器，不占用您服务器的下行带宽/流量，用户访问速度更快。
-- 可配合腾讯云 [内容分发网络 CDN](https://cloud.tencent.com/product/cdn) 进一步提升用户查看图片附件的速度，优化网站访问速度。
+- 可配合腾讯云 [内容分发网络（Content Delivery Network，CDN）](https://cloud.tencent.com/product/cdn) 进一步提升用户查看图片附件的速度，优化网站访问速度。
 
 ## 准备工作
 
 1. 搭建 WordPress 博客平台。
  - 您可以在 [WordPress 官方页面](https://cn.wordpress.org/download/) 下载 WordPress 的最新版并查看安装指南。
- - 您也可以在安装服务器系统时在 [镜像市场](https://market.cloud.tencent.com/) 中选择预装 WordPress 博客平台的 CVM 镜像。
+ - 您也可以在安装服务器系统时在 [镜像市场](https://market.cloud.tencent.com/) 中选择预装 WordPress 博客平台的云服务器（Cloud Virtual Machine，CVM）镜像。
 2. 创建一个**公有读私有写**的存储桶，存储桶的地域建议与运行 WordPress 博客平台的 CVM 的地域相同，创建详情请参见 [创建存储桶](https://cloud.tencent.com/document/product/436/13309) 文档。
-3. 在【存储桶列表】中找到刚才创建的存储桶，并单击其存储桶名称，进入存储桶页面。
+3. 在**存储桶列表**中找到刚才创建的存储桶，并单击其存储桶名称，进入存储桶页面。
 ![](https://main.qcloudimg.com/raw/879cce343c28376f41b6561d6c73a6df.png)
-4. 在左侧导航栏中，单击【概览】，查看访问域名并记录。
+4. 在左侧导航栏中，单击**概览**，查看访问域名并记录。
 ![](https://main.qcloudimg.com/raw/f70fd4d43e0db9faca94f5d5f4e2ac60.png)
 
 ## 安装并配置插件
 
 ### 安装插件
 
-在 WordPress 后台，单击【插件】>【安装插件】，开始安装插件。您可通过下面两种方式获取插件并安装：
+在 WordPress 后台，单击**插件 > 安装插件**，开始安装插件。您可通过下面两种方式获取插件并安装：
 
  - 后台直接搜索 **Sync QCloud COS** 进行安装（推荐使用）。
  - 您也可以从 [Github](https://github.com/sy-records/wordpress-qcloud-cos/releases/latest) 下载最新 releases 源码，通过 WordPress 后台上传安装，或者直接将源码上传到 WordPress 插件目录`wp-content/plugins`，然后在后台启用。
 
 ### 配置插件
 
-1. 单击 WordPress 左侧导航栏【设置】，然后在页面中配置 COS 的相关信息，配置说明见下表：
-
-| 配置项           | 配置值                                                       |
-| :--------------- | :----------------------------------------------------------- |
-| 存储桶名称       | 创建存储桶时自定义的名称                                     |
-| 存储桶地域       | 创建存储桶时所选择的地域                                     |
-| APPID           | APPID 是您在成功申请腾讯云账户后所得到的账号，由系统自动分配，具有固定性和唯一性，可在 [账号信息](https://console.cloud.tencent.com/developer) 中查看。                      |
-| SecretID、SecretKey         | 访问密钥信息，可前往 [云 API 密钥](https://console.cloud.tencent.com/capi) 中获取 |
-| 不上传缩略图     | 勾选后不会上传对应的缩略图文件，建议不勾选                   |
-| 不在本地保留备份 | 勾选后不会在本地保留源文件，建议不勾选                       |
-| 本地文件夹       | 本地保存路径，例如`wp-content/uploads`                      |
-| URL 前缀         | 格式为`<COS 访问域名>/<本地文件夹>`，例如`https://examplebucket-1250000000.cos.ap-shanghai.myqcloud.com/wp-content/uploads` |
-
-2. 配置完成后，单击【保存】即可。
+1. 单击 WordPress 左侧导航栏**设置**，然后在页面中配置 COS 的相关信息，配置说明见下表：
+<table>
+<thead>
+<tr>
+<th align="left">配置项</th>
+<th align="left">配置值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">存储桶名称</td>
+<td align="left">创建存储桶时自定义的名称</td>
+</tr>
+<tr>
+<td align="left">存储桶地域</td>
+<td align="left">创建存储桶时所选择的地域</td>
+</tr>
+<tr>
+<td align="left">APPID</td>
+<td align="left">APPID 是您在成功申请腾讯云账户后所得到的账号，由系统自动分配，具有固定性和唯一性，可在 <a href="https://console.cloud.tencent.com/developer">账号信息</a> 中查看</td>
+</tr>
+<tr>
+<td align="left">SecretID、SecretKey</td>
+<td align="left">访问密钥信息，可前往 <a href="https://console.cloud.tencent.com/capi">云 API 密钥</a> 中获取</td>
+</tr>
+<tr>
+<td align="left">不上传缩略图</td>
+<td align="left">勾选后不会上传对应的缩略图文件，建议不勾选</td>
+</tr>
+<tr>
+<td align="left">不在本地保留备份</td>
+<td align="left">勾选后不会在本地保留源文件，建议不勾选</td>
+</tr>
+<tr>
+<td align="left">本地文件夹</td>
+<td align="left">本地保存路径，例如<code>wp-content/uploads</code></td>
+</tr>
+<tr>
+<td align="left">URL 前缀</td>
+<td align="left">格式为<code>&lt;COS 访问域名&gt;/&lt;本地文件夹&gt;</code>，例如<code>https://examplebucket-1250000000.cos.ap-shanghai.myqcloud.com/wp-content/uploads</code></td>
+</tr>
+</tbody></table>
+2. 配置完成后，单击**保存**即可。
 3. 上传一个新文件进行测试，查看附件详情，查看附件图片的 URL，确认附件图片的 URL 指向腾讯云 COS。
 ![](https://main.qcloudimg.com/raw/eec09d6877cf0d573a6522146418eea2.png)
 

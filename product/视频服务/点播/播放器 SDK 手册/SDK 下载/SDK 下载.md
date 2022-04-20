@@ -12,49 +12,49 @@
    <tr>
       <td style="text-align:center" rowspan='2'>Web 端</td>
       <td>超级播放器</td>
-      <td><a href="https://cloud.tencent.com/document/product/266/58804#preparation">SDK</a></td>
-      <td><a href="https://imgcache.qq.com/open/qcloud/video/tcplayer/examples/vod/tcplayer-vod-base.html">Demo</a></td>
-      <td><a href="https://cloud.tencent.com/document/product/266/58804">Web - 超级播放器</a></td>
+      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/266/58804#preparation">SDK</a></td>
+      <td style="text-align:center"><a href="https://tcplayer.vcube.tencent.com/">Demo</a></td>
+      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/266/58804">Web - 超级播放器</a></td>
    </tr>
    <tr>
-      <td>超级播放器 Adapter</td>
-      <td><a href="https://cloud.tencent.com/document/product/266/58773#Integrated">SDK</a></td>
-      <td>-</td>
-      <td><a href="https://cloud.tencent.com/document/product/266/58773">Web - 超级播放器 Adapter</a></td>
+      <td style="text-align:center">超级播放器 Adapter</td>
+      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/266/58773#Integrated">SDK</a></td>
+      <td style="text-align:center">-</td>
+      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/266/58773">Web - 超级播放器 Adapter</a></td>
    </tr>
    <tr>
       <td style="text-align:center" rowspan='2'>iOS 端</td>
       <td>超级播放器</td>
-      <td><a href="https://github.com/tencentyun/SuperPlayer_iOS">SDK + Demo</a></td>
-      <td><a><button style="width:120px;height: 120px;border:none;background-image:url(https://main.qcloudimg.com/raw/12c7da97cc910eda673cb19b66fc7cb3.png);background-size: cover;">
+      <td style="text-align:center"><a href="https://github.com/LiteAVSDK/Player_iOS">SDK + Demo</a></td>
+      <td style="text-align:center"><a ><button style="width:120px;height: 120px;border:none;background-image:url(https://qcloudimg.tencent-cloud.cn/raw/5c383bc7826d4f4835c9a7232cf9b50e.png);background-size: cover;">
 </button></a></td>
-      <td><a href="https://cloud.tencent.com/document/product/266/58774">iOS - 超级播放器</a></td>
+      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/266/58774">iOS - 超级播放器</a></td>
    </tr>
    <tr>
       <td>超级播放器 Adapter</td>
-      <td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TXCPlayerAdapter/Release/1.0.0/TXCPlayerAdapterSDK_1.0.0_iOS.zip">SDK</a></td>
-      <td>-</td>
-      <td><a href="https://cloud.tencent.com/document/product/266/58775">iOS - 超级播放器 Adapter</a></td>
+      <td style="text-align:center"><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TXCPlayerAdapter/Release/1.0.0/TXCPlayerAdapterSDK_1.0.0_iOS.zip">SDK</a></td>
+      <td style="text-align:center">-</td>
+      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/266/58775">iOS - 超级播放器 Adapter</a></td>
    </tr>
    <tr>
       <td style="text-align:center" rowspan='2'>Android 端</td>
       <td>超级播放器</td>
-      <td><a href="https://github.com/tencentyun/SuperPlayer_Android">SDK + Demo</a></td>
-      <td><a><button style="width:120px;height: 120px;border:none;background-image:url(https://main.qcloudimg.com/raw/6790ddaf4ffe4afd0ceb96b309a16496.png);background-size: cover;">
+      <td style="text-align:center"><a href="https://github.com/LiteAVSDK/Player_Android">SDK + Demo</a></td>
+      <td style="text-align:center"><a><button style="width:120px;height: 120px;border:none;background-image:url(https://main.qcloudimg.com/raw/6790ddaf4ffe4afd0ceb96b309a16496.png);background-size: cover;">
 </button></a></td>
-      <td><a href="https://cloud.tencent.com/document/product/266/7938">Android - 超级播放器</a></td>
+      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/266/7938">Android - 超级播放器</a></td>
    </tr>
    <tr>
       <td>超级播放器 Adapter</td>
-      <td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TXCPlayerAdapter/Release/1.0.0/TXCPlayerAdapterSDK_1.0.0_Android.zip">SDK</a></td>
-      <td>-</td>
-      <td><a href="https://cloud.tencent.com/document/product/266/58777">Android- 超级播放器 Adapter</a></td>
+      <td style="text-align:center"><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TXCPlayerAdapter/Release/1.0.0/TXCPlayerAdapterSDK_1.0.0_Android.zip">SDK</a></td>
+      <td style="text-align:center">-</td>
+      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/266/58777">Android- 超级播放器 Adapter</a></td>
    </tr>
    <tr>
       <td  style="text-align:center">Flutter 端</td>
       <td>超级播放器</td>
-      <td><a href="https://github.com/tencentyun/SuperPlayer/tree/main/Flutter">SDK + Demo</a></td>
-	     <td><a href="https://github.com/tencentyun/SuperPlayer/tree/main/Flutter">Demo</a></td>
-	     <td><a href="https://cloud.tencent.com/document/product/266/58778">Flutter - 超级播放器</a></td>
+      <td style="text-align:center"><a href="https://github.com/LiteAVSDK/Player_Flutter">SDK + Demo</a></td>
+	     <td style="text-align:center"><a href="https://github.com/LiteAVSDK/Player_Flutter">Demo</a></td>
+	     <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/266/58778">Flutter - 超级播放器</a></td>
    </tr>
 </table>

@@ -125,9 +125,9 @@ RAK LoRa 环境监测套件接入到物联网开发平台，通过物联网开�
 
 1. 设备通过 USB 口连接到 PC，打开 com 工具设置设备三元组并启动 join：
 ```
-at+set_config=lora:dev_eui:60c5a8fffe75fefe
-at+set_config=lora:app_eui:800000000000001b
-at+set_config=lora:app_key:6fbdbb37b8c0dbd82af4e93f****4177
+at+set_config=lora:dev_eui:60c*************
+at+set_config=lora:app_eui:800*************
+at+set_config=lora:app_key:6fb**********************4177
 at+join
 ```
 ![](https://main.qcloudimg.com/raw/6a0663aa8a80c7f56d0c6296012f9db0.png)

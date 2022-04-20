@@ -1,4 +1,4 @@
-TXLivePusher 推流 SDK 主要用于视频云的快直播（超低延迟直播）推流，负责将浏览器采集的音视频画面通过 WebRTC 推送到直播服务器。目前支持摄像头推流、屏幕录制推流和本地媒体文件推流。
+TXLivePusher 直播 SDK 主要用于视频云的快直播（超低延时直播）推流，负责将浏览器采集的音视频画面通过 WebRTC 推送到直播服务器。目前支持摄像头推流、屏幕录制推流和本地媒体文件推流。
 >! 使用 WebRTC 协议推流，每个推流域名默认限制**100路并发**推流数，如您需要超过此推流限制，可通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 的方式联系我们进行申请。
 
 ## 基础知识
@@ -11,15 +11,15 @@ TXLivePusher 推流 SDK 主要用于视频云的快直播（超低延迟直播�
 
 ![](https://main.qcloudimg.com/raw/44bf2ab0ddae946b440faa4fc2f6d43a.png)
 
-其中鉴权 Key 部分非必需，如果需要防盗链，请开启推流鉴权，具体使用说明请参见  [自主拼装直播 URL](https://cloud.tencent.com/document/product/267/32720) 。
+其中鉴权 Key 部分非必需，如果需要防盗链，请开启推流鉴权，具体使用说明请参见 [自主拼装直播 URL](https://cloud.tencent.com/document/product/267/32720) 。
 
 ### 浏览器支持
 
 快直播推流基于 WebRTC 实现，依赖于操作系统和浏览器对于 WebRTC 的支持。
 
-除此以外，浏览器采集音视频画面的功能在移动端支持较差，例如移动端浏览器不支持屏幕录制，iOS 14.3及以上版本才支持获取用户摄像头设备。因此推流 SDK 主要适用于桌面端浏览器，目前最新版本的 chrome、Firefox 和 Safari 浏览器都是支持快直播推流的。
+除此以外，浏览器采集音视频画面的功能在移动端支持较差，例如移动端浏览器不支持屏幕录制，iOS 14.3及以上版本才支持获取用户摄像头设备。因此TXLivePusher 主要适用于桌面端浏览器，目前最新版本的 chrome、Firefox 和 Safari 浏览器都是支持快直播推流的。
 
-移动端建议使用 [移动直播 SDK](https://cloud.tencent.com/document/product/454/56591) 进行推流。
+移动端建议使用 [腾讯云视立方·直播 SDK](https://cloud.tencent.com/document/product/454/56591) 进行推流。
 
 ## 对接攻略
 
@@ -28,7 +28,7 @@ TXLivePusher 推流 SDK 主要用于视频云的快直播（超低延迟直播�
 在需要直播推流的页面（桌面端）中引入初始化脚本。
 
 ```html
-<script src="https://imgcache.qq.com/open/qcloud/live/webrtc/js/TXLivePusher-1.0.2.min.js" charset="utf-8"></script>
+<script src="https://video.sdk.qcloudecdn.com/web/TXLivePusher-2.0.0.min.js" charset="utf-8"></script>
 ```
 >? 需要在 HTML 的 body 部分引入脚本，如果在 head 部分引入会报错。
 
@@ -90,20 +90,20 @@ var hasVideo = false;
 var hasAudio = false;
 var isPush = false;
 livePusher.setObserver({
-		onCaptureFirstAudioFrame: function() {
-			hasAudio = true;
-			if (hasVideo && !isPush) {
-				isPush = true;
-				livePusher.startPush('webrtc://domain/AppName/StreamName?txSecret=xxx&txTime=xxx');
-			}
-		},
-		onCaptureFirstVideoFrame: function() {
-			hasVideo = true;
-			if (hasAudio && !isPush) {
-				isPush = true;
-				livePusher.startPush('webrtc://domain/AppName/StreamName?txSecret=xxx&txTime=xxx');
-			}
-		}
+    onCaptureFirstAudioFrame: function() {
+      hasAudio = true;
+      if (hasVideo && !isPush) {
+        isPush = true;
+        livePusher.startPush('webrtc://domain/AppName/StreamName?txSecret=xxx&txTime=xxx');
+      }
+    },
+    onCaptureFirstVideoFrame: function() {
+      hasVideo = true;
+      if (hasAudio && !isPush) {
+        isPush = true;
+        livePusher.startPush('webrtc://domain/AppName/StreamName?txSecret=xxx&txTime=xxx');
+      }
+    }
 });
 ```
 </dx-codeblock>
@@ -126,18 +126,18 @@ SDK 提供静态方法用于检测浏览器对于 WebRTC 的兼容性。
 <dx-codeblock>
 ::: javascript javascript
 TXLivePusher.checkSupport().then(function(data) {  
-	// 是否支持WebRTC  
-	if (data.isWebRTCSupported) {    
-		console.log('WebRTC Support');  
-	} else {    
-		console.log('WebRTC Not Support');  
-	}  
-	// 是否支持H264编码  
-	if (data.isH264EncodeSupported) {    
-		console.log('H264 Encode Support');  
-	} else {    
-		console.log('H264 Encode Not Support');  
-	}
+  // 是否支持WebRTC  
+  if (data.isWebRTCSupported) {    
+    console.log('WebRTC Support');  
+  } else {    
+    console.log('WebRTC Not Support');  
+  }  
+  // 是否支持H264编码  
+  if (data.isH264EncodeSupported) {    
+    console.log('H264 Encode Support');  
+  } else {    
+    console.log('H264 Encode Not Support');  
+  }
 });
 :::
 </dx-codeblock>
@@ -147,18 +147,18 @@ SDK 目前提供了回调事件通知，可以通过设置 Observer 来了解 SD
 <dx-codeblock>
 ::: javascript javascript
 livePusher.setObserver({
-	// 推流警告信息
-	onWarning: function(code, msg) {
-		console.log(code, msg);
-	},
-	// 推流连接状态
-	onPushStatusUpdate: function(status, msg) {
-		console.log(status, msg);
-	},
-	// 推流统计数据
-	onStatisticsUpdate: function(data) {
-		console.log('video fps is ' + data.video.framesPerSecond);
-	}
+  // 推流警告信息
+  onWarning: function(code, msg) {
+    console.log(code, msg);
+  },
+  // 推流连接状态
+  onPushStatusUpdate: function(status, msg) {
+    console.log(status, msg);
+  },
+  // 推流统计数据
+  onStatisticsUpdate: function(data) {
+    console.log('video fps is ' + data.video.framesPerSecond);
+  }
 });
 :::
 </dx-codeblock>
@@ -171,9 +171,9 @@ SDK 提供了设备管理实例帮助用户进行获取设备列表、切换设�
 var deviceManager = livePusher.getDeviceManager();
 // 获取设备列表
 deviceManager.getDevicesList().then(function(data) {
-	data.forEach(function(device) {
-			console.log(device.deviceId, device.deviceName);  
-	});
+  data.forEach(function(device) {
+      console.log(device.deviceId, device.deviceName);  
+  });
 });
 // 切换摄像头设备
 deviceManager.switchCamera('camera_device_id');

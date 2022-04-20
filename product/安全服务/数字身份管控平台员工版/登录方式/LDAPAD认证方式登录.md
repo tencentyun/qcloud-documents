@@ -1,7 +1,7 @@
 
 
 认证流程如下：
- ![](https://main.qcloudimg.com/raw/31fb5ea513ee05956b514ff2e68ad424.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/7ee55a48b04295112b5c5f811a936afc.png)
 
 ## 创建导入账户
 ### 在 LDAP（AD）创建账户

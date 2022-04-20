@@ -13,11 +13,11 @@
 
 | 所属平台 | 计算 CDN 观看地址 | 设置云端混流参数 |
 |---------|---------|---------|
-| iOS | 文件：[TRTCCloudManager.m](https://github.com/tencentyun/TRTCSDK/blob/master/iOS/TRTCDemo/TRTC/Settings/SDKManager/Feature/TRTCCloudManager.m) <br>函数：getCdnUrlOfUser() | 文件：[TRTCCloudManager.m](https://github.com/tencentyun/TRTCSDK/blob/master/iOS/TRTCDemo/TRTC/Settings/SDKManager/Feature/TRTCCloudManager.m)<br>函数：updateCloudMixtureParams() |
-| Android | 文件：[CdnPlayManager.java](https://github.com/tencentyun/TRTCSDK/blob/master/Android/TRTCDemo/trtc/src/main/java/com/tencent/liteav/demo/trtc/sdkadapter/cdn/CdnPlayManager.java)<br>函数：initPlayUrl() | 文件：[TRTCRemoteUserManager.java](https://github.com/tencentyun/TRTCSDK/blob/master/Android/TRTCDemo/trtc/src/main/java/com/tencent/liteav/demo/trtc/sdkadapter/remoteuser/TRTCRemoteUserManager.java)<br>函数：updateCloudMixtureParams() |
+| iOS | 文件：[TRTCCloudManager.m](https://github.com/LiteAVSDK/TRTC_iOS/tree/main/TRTCDemo/TRTC/Settings/SDKManager/Feature/TRTCCloudManager.m) <br>函数：getCdnUrlOfUser() | 文件：[TRTCCloudManager.m](https://github.com/LiteAVSDK/TRTC_iOS/tree/main/TRTCDemo/TRTC/Settings/SDKManager/Feature/TRTCCloudManager.m)<br>函数：updateCloudMixtureParams() |
+| Android | 文件：[CdnPlayManager.java](https://github.com/LiteAVSDK/TRTC_Android/tree/main/TRTCDemo/trtc/src/main/java/com/tencent/liteav/demo/trtc/sdkadapter/cdn/CdnPlayManager.java)<br>函数：initPlayUrl() | 文件：[TRTCRemoteUserManager.java](https://github.com/LiteAVSDK/TRTC_Android/tree/main/TRTCDemo/trtc/src/main/java/com/tencent/liteav/demo/trtc/sdkadapter/remoteuser/TRTCRemoteUserManager.java)<br>函数：updateCloudMixtureParams() |
 | Windows（C++） |  文件：[TRTCSettingViewController.cpp](https://github.com/tencentyun/TRTCSDK/blob/master/Windows/DuilibDemo/TRTCSettingViewController.cpp)<br>函数：NotifyOtherTab | 文件：[TRTCCloudCore.cpp](https://github.com/tencentyun/TRTCSDK/blob/master/Windows/DuilibDemo/sdkinterface/TRTCCloudCore.cpp)<br>函数：updateMixTranCodeInfo() |
 | Windows（C#） |  文件：[TRTCMainForm.cs](https://github.com/tencentyun/TRTCSDK/blob/master/Windows/CSharpDemo/TRTCMainForm.cs)<br>函数：OnShareUrlLabelClick| 文件：[TRTCMainForm.cs](https://github.com/tencentyun/TRTCSDK/blob/master/Windows/CSharpDemo/TRTCMainForm.cs)<br>函数：UpdateMixTranCodeInfo() |
-| Mac |  暂无 | 文件：[TRTCMainWindowController.m](https://github.com/tencentyun/TRTCSDK/blob/master/Mac/TRTCDemo/TRTC/TRTCMainWindowController.m)<br>函数：updateCloudMixtureParams() |
+| Mac |  暂无 | 文件：[TRTCMainWindowController.m](https://github.com/LiteAVSDK/TRTC_Mac/tree/main/TRTCDemo/TRTC/TRTCMainWindowController.m)<br>函数：updateCloudMixtureParams() |
 
 ## 应用场景
 基于旁路直播特性，我们可以实现主流直播平台常见的主播连麦和直播 PK 功能：

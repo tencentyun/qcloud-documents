@@ -1,4 +1,4 @@
-腾讯移动金融开发平台(Tencent Mobile FinTech Platform)整合了腾讯在移动产品 中开发、测试、发布和运营的技术能力，为银行、互联网金融、保险、证券客户提供一站式、 覆盖全生命周期的移动端金融技术平台。您可通过如下视频了解腾讯移动金融开发平台。
+腾讯移动金融开发平台(Tencent Mobile FinTech Platform，TMF)整合了腾讯在移动产品 中开发、测试、发布和运营的技术能力，为银行、互联网金融、保险、证券客户提供一站式、 覆盖全生命周期的移动端金融技术平台。您可通过如下视频了解腾讯移动金融开发平台。
 <div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/3518-61514"></iframe></div>
 
 ## 组件功能及描述
@@ -91,10 +91,9 @@
 </tr>
 <tr>
 <td  rowspan="2">小程序容器/开放</td>
-<td>小程序</td>
-<td>小程序生态。</td>
+<td>小程序容器</td>
+<td>在 App 内实现小程序编译和投放。</td>
 </tr>
-
 <tr>
 <td>小程序安全</td>
 <td>小程序安全诊断、加固和小程序安全扫描解决方案。</td>

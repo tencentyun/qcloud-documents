@@ -42,7 +42,7 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 - 不支持迁移系统库表和用户信息，包括 `information_schema`， `sys`， `performance_schema`，`__cdb_recycle_bin__`， `__recycle_bin__`， `__tencentdb__`， `mysql`。迁移完成后，如果需要调用目标库的视图、存储过程或函数，则要对调用者授予读写权限。 
 - 在导出视图结构时，DTS 会检查源库中 `DEFINER` 对应的 user1（ [DEFINER = user1]）和迁移目标的 user2 是否一致，如果不一致，则会修改 user1 在目标库中的 `SQL SECURITY` 属性，由 `DEFINER` 转换为 `INVOKER`（ [INVOKER = user1]），同时设置目标库中 `DEFINER` 为迁移目标的 user2（[DEFINER = 迁移目标 user2]）。
 - 源端如果是非 GTID 实例，DTS 不支持源端 HA 切换，一旦源端 MySQL 发生切换可能会导致 DTS 增量同步中断。
-- 只支持迁移 InnoDB、MySIAM、TokuDB 三种数据库引擎，如果存在这三种以外的数据引擎表则默认跳过不进行迁移。
+- 只支持迁移 InnoDB、MyISAM、TokuDB 三种数据库引擎，如果存在这三种以外的数据引擎表则默认跳过不进行迁移。
 - 相互关联的数据对象需要同时迁移，否则会导致迁移失败。常见的关联关系：视图引用表、视图引用视图、存储过程/函数/触发器引用视图/表、主外键关联表等。
 - 增量迁移过程中，若源库存在分布式事务或者产生了类型为 `STATEMENT` 格式的 Binlog 语句，则会导致迁移失败。
 - 无锁迁移场景（源库为阿里云 MySQL 5.6，阿里云 PolarDB MySQL 5.6，AWS MySQL，目标库为腾讯云 MySQL 数据库的场景），全量阶段不支持 DDL 操作。
@@ -108,20 +108,38 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 <li>目标库 max_allowed_packet 参数设置数值至少为4M。</li></td></tr>
 <tr> 
 <td>其他要求</td>
-<td>环境变量 innodb_stats_on_metadataw 必须设置为 OFF。</td></tr>
+<td>环境变量 innodb_stats_on_metadata 必须设置为 OFF。</td></tr>
 </table>
 
 ## 操作步骤
 
-#### 配置通过云联网建立不同网络之间的互通
+### 配置通过云联网建立不同网络之间的互通
 
 请参考 [通过云联网建立不同网络之间的互通](https://cloud.tencent.com/document/product/877/30804)。
 
 > ?云联网仅提供所有地域间 10Kbps 以下的免费带宽，使用 DTS 数据传输时需要更高带宽，所以链接中的配置带宽是必选操作。
 
-####  配置 DTS 迁移任务
+###  配置 DTS 迁移任务
 1. 登录 [DTS 控制台](https://console.cloud.tencent.com/dts/migration)，在左侧导航选择**数据迁移**页，单击**新建迁移任务**，进入新建迁移任务页面。
-2. 在新建迁移任务页面，选择迁移的目标实例所属地域，单击**0元购买**，目前 DTS 数据迁移功能免费使用。
+2. 在新建迁移任务页面，选择迁移的源实例类型和所属地域，目标实例类型和所属地域，规格等，然后单击**立即购买**。
+<table>
+<thead><tr><th>配置项</th><th>说明</th></tr></thead>
+<tbody><tr>
+<td>源实例类型</td>
+<td>请根据您的源数据库类型选择，购买后不可修改。此处选择“MySQL”。</td></tr>
+<tr>
+<td>源实例地域</td>
+<td>选择源数据库所属地域。如果源库为自建数据库，选择离自建数据库最近的一个地域即可。</td></tr>
+<tr>
+<td>目标实例类型</td>
+<td>请根据您的目标数据库类型选择，购买后不可修改。此处选择“MySQL”。</td></tr>
+<tr>
+<td>目标实例地域</td>
+<td>选择目标数据库所属地域。</td></tr>
+<tr>
+<td>规格</td>
+<td>根据业务情况选择迁移链路的规格，不同规格的性能和计费详情请参考 <a href="https://cloud.tencent.com/document/product/571/18736">计费概述</a>。</td></tr>
+</tbody></table>
 3. 在设置源和目标数据库页面，完成任务设置、源库设置和目标库设置，测试源库和目标库连通性通过后，单击**新建**。
 >?如果连通性测试失败，请根据提示和 [修复指导](https://cloud.tencent.com/document/product/571/58685) 进行排查和解决，然后再次重试。
 >
@@ -138,10 +156,12 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 <td>标签</td>
 <td>标签用于从不同维度对资源分类管理。如现有标签不符合您的要求，请前往控制台管理标签。</td></tr>
 <tr>
-<td rowspan=9>源库设置</td>
-<td>源库类型</td><td>选择“MySQL”。</td></tr>
+<td rowspan=10>源库设置</td>
+<td>源库类型</td><td>购买时选择的源库类型，不可修改。</td></tr>
 <tr>
 <td>服务提供商</td><td>选择“普通”。</td></tr>
+<tr>
+<td>所属地域</td><td>购买时选择的源库所属地域，不可修改。</td></tr>
 <tr>
 <td>接入类型</td><td>选择“云联网”。更多接入类型的详情介绍请参考 <a href="https://cloud.tencent.com/document/product/571/59968">准备工作概述</a>。</td></tr>
 <tr>
@@ -158,11 +178,11 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 <td>云联网关联 VPC</td><td>为确保网络的连通性，请务必核对以下重要事项：<br>选择的云联网关联 VPC 与源库实例主机地址不能在同一地域，如果源库是自建 IDC 的 MySQL 不用考虑。<br>选择的云联网关联 VPC 与源库实例主机地址不能在同一 VPC，如果源库是自建 IDC 的 MySQL，需要自建 IDC 关联的专线网关所在的 VPC 和选择的 VPC 不能是同一 VPC。</td></tr>
 <tr>
 <td rowspan=6>目标库设置</td>
-<td>目标库类型</td><td>选择“MySQL”。</td></tr>
+<td>目标库类型</td><td>购买时选择的目标库类型，不可修改。</td></tr>
+<tr>
+<td>所属地域</td><td>购买时选择的目标库所属地域，不可修改。</td></tr>
 <tr>
 <td>接入类型</td><td>选择“云数据库”。</td></tr>
-<tr>
-<td>所属地域</td><td>上一步中已选择的地域。</td></tr>
 <tr>
 <td>数据库实例</td><td>选择目标端云数据库实例 ID。</td></tr>
 <tr>

@@ -5,8 +5,12 @@
 
 
 ## 安装 NginxIngress 组件[](id:Nginx-ingress)
+>? 如果您需要安装 NginxIngress 组件，可通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 来联系我们。
+>
 
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的**集群**。
+
+
+1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的**集群**。
 2. 在“集群管理”页面单击目标集群 ID，进入集群详情页。
 3. 选择左侧菜单栏中的**组件管理**，进入 “组件列表” 页面。
 4. 在“组件列表”页面中选择**新建**，并在“新建组件”页面中勾选 NginxIngress。
@@ -71,7 +75,7 @@ Nginx 作为关键的流量接入网关，不建议您将 Nginx 与其他业务�
 
 #### Globalrouter 模式集群使用普通 Loadbalancer 模式的 Service
 
-如果您的集群不支持 VPC-CNI 模式网络，您也可以通过常规的 Loadbalancer 模式 Service 接入流量。 
+如果您的集群不支持 VPC-CNI 模式网络，您也可以通过常规的 Loadbalancer 模式 Service 接入流量。  
 当前 TKE 上 LoadBalancer 类型的 Service 默认实现是基于 NodePort，CLB 会绑定各节点的 NodePort 作为后端 RS，将流量转发到节点的 NodePort，然后节点上再通过 iptables 或 ipvs 将请求路由到 Service 对应的后端 Pod。这种方案是最简单的方案，但流量会经过一层 NodePort，会多一层转发。可能存在以下问题：
 - 转发路径较长，流量到了 NodePort 还会再经过 k8s 内部负载均衡，通过 iptables 或 ipvs 转发到 Nginx，会增加一点网络耗时。
 - 经过 NodePort 必然发生 SNAT，如果流量过于集中容易导致源端口耗尽或者 conntrack 插入冲突导致丢包，引发部分流量异常。
@@ -96,7 +100,7 @@ Nginx 作为关键的流量接入网关，不建议您将 Nginx 与其他业务�
 您可以在 Nginx-ingress 组件详情页，Ningx 参数 tab 中选择的 Nginx-ingress 实例进行 YAML 编辑。
 >! 默认情况下配置参数不会重启 Nginx，生效时间有细微延迟。
 
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的**集群**。
+1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的**集群**。
 2. 在“集群管理”页面单击目标集群 ID，进入集群详情页。
 3. 选择左侧菜单栏中的**组件管理**，进入 “组件列表” 页面。
 4. 单击需要设置参数的组件右侧的**更新Nginx配置**，进入“Nginx配置”页面。
@@ -110,15 +114,15 @@ Nginx 作为关键的流量接入网关，不建议您将 Nginx 与其他业务�
 apiVersion: v1
 kind: ConfigMap
 metadata:
-     name: alpha-ingress-nginx-controller
-     namespace: kube-system
+  name: alpha-ingress-nginx-controller
+  namespace: kube-system
 data:
-     access-log-path: /var/log/nginx/nginx_access.log
-     error-log-path: /var/log/nginx/nginx_error.log
-     log-format-upstream: $remote_addr - $remote_user [$time_iso8601] $msec "$request" $status $body_bytes_sent "$http_referer" "$http_user_agent" $request_length $request_time [$proxy_upstream_name] [$proxy_alternative_upstream_name] [$upstream_addr] [$upstream_response_length] [$upstream_response_time] [$upstream_status] $req_id
-     keep-alive-requests: "10000"
-     max-worker-connections: "65536"
-     upstream-keepalive-connections: "200"
+  access-log-path: /var/log/nginx/nginx_access.log
+  error-log-path: /var/log/nginx/nginx_error.log
+  log-format-upstream: $remote_addr - $remote_user [$time_iso8601] $msec "$request" $status $body_bytes_sent "$http_referer" "$http_user_agent" $request_length $request_time [$proxy_upstream_name] [$proxy_alternative_upstream_name] [$upstream_addr] [$upstream_response_length] [$upstream_response_time] [$upstream_status] $req_id
+  keep-alive-requests: "10000"
+  max-worker-connections: "65536"
+  upstream-keepalive-connections: "200"
 ```
 
 >!

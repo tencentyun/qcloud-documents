@@ -1,3 +1,76 @@
+### 2.7.2 @ 2022.04.01
+* 链接地址：[https://res.qcloudtiw.com/board/2.7.2/TEduBoard.min.js]()
+
+- 错误码调整
+  1. [错误码](https://doc.qcloudtiw.com/web/TEduBoard.html#.TEduBoardErrorCode) 新增 `TEDU_BOARD_MAX_BOARD_LIMITED` 错误码，在单个房间内白板页总数量达到上限后触发。
+
+- Bug 修复
+  1. 修复 Android 5.x 图片方向自动校正功能异常的问题。
+  2. 修复一些PPT转码成功，但白板加载失败的问题。
+
+
+### 2.7.1 @ 2022.02.28
+* 链接地址：[https://res.qcloudtiw.com/board/2.7.1/TEduBoard.min.js]()
+
+- 功能优化
+  1. 白板资源和课件资源备份域名优化。
+- Bug 修复
+  1. 优化历史数据加载耗时。
+
+### 2.7.0 @ 2022.01.31
+* 链接地址：[https://res.qcloudtiw.com/board/2.7.0/TEduBoard.min.js]()
+
+- Bug 修复
+  1. 修复偶现对线条进行点擦后，线条有抖动的问题。
+  2. 修复涂鸦只有两个点的数据，绘制样式错误的问题。
+  3. 修复涂鸦实时数据乱序导致，导致涂鸦绘制样式错误的问题。
+
+### 2.6.9 @ 2021.12.27
+* 链接地址：https://res.qcloudtiw.com/board/2.6.9/TEduBoard.min.js
+
+- 新增接口
+    1. 支持 PPT 课件进行静音操作(soundMuteForPPT)
+- 功能优化
+    1.优化课件加载
+
+- Bug 修复
+    1. 截图功能在异常 dpr 中丢失几个像素的问题
+    2. 修复 vivo 5.x，6.x版本初始化失败的问题
+
+### 2.6.8 @2021.12.10
+* 链接地址：https://res.qcloudtiw.com/board/2.6.8/TEduBoard.min.js
+- 新增接口
+	1. 跳转到指定动画步数(gotoStep)
+	2. 获取白板滚动位置(getBoardScroll)
+	3. 设置分段擦除模式是否开启(setPiecewiseErasureEnable)
+	4. 获取分段擦除模式开启状态(isPiecewiseErasureEnable)
+	5. 设置橡皮擦大小(setEraserSize)
+	6. 获取橡皮擦大小(getEraserSize)
+	7. 设置全局背景图(setGlobalBackgroundPic)
+	8. 获取全局背景图(getGlobalBackgroundPic)
+
+- 调整接口
+	1. 添加白板元素(addElement) 支持添加文本元素（TEDU_BOARD_ELEMENT_TEXT）
+
+- 新增事件
+	1. 白板移动回调(TEB_BOARD_SCROLL_CHANGED)
+
+- 调整事件
+	1. 框选工具选中元素回调(TEB_SELECTED_ELEMENTS) 新增元素位置、宽高、包围盒大小等返回字段
+
+- 新增初始化参数
+	1. 全局背景图(globalBackgroundPic)
+
+- 功能优化
+	1. 优化图片资源加载逻辑
+	2. 添加图片元素在低版本上进行旋转校正
+	3. 添加图片元素支持自定义大小
+	4. 支持画线涂鸦分段擦除
+
+- Bug 修复
+	1. 在不同缩放比下添加白板元素大小显示不一致
+	2. 若干已知问题修复
+
 ### 2.6.8 @2021.12.10
 * 链接地址：https://res.qcloudtiw.com/board/2.6.8/TEduBoard.min.js
 - 新增接口
@@ -74,6 +147,7 @@
 	5. Window端SDK升级CEF内核
 - Bug 修复
 	1. 若干已知问题修复
+
 ### 2.6.5 @ 2021.08.24
 * 链接地址：https://res.qcloudtiw.com/board/2.6.5/TEduBoard.min.js
 - 新增接口
@@ -89,6 +163,7 @@
 	1. 几何画板新增多种几何图形支持
 - Bug 修复
 	1. 若干已知问题修复
+
 
 ### 2.6.4 @ 2021.08.16
 * 链接地址：https://res.qcloudtiw.com/board/2.6.4/TEduBoard.min.js
@@ -253,7 +328,7 @@
     4. 激光笔功能性能优化
 - Bug 修复
     1. 图片旋转后缩放比例不对的问题
-    2. chrome 88版本纵向滚动条缺失
+    2. Chrome 88版本纵向滚动条缺失
     3. 滚动条触发异常滚动问题
     4. 添加自定义元素时点选框范围错误
     5. 文本工具相关问题

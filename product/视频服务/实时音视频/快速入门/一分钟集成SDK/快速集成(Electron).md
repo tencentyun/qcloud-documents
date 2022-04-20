@@ -254,6 +254,6 @@ $ npm run pack:win64
 
 - [SDK API 手册](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/index.html)
 - [SDK 更新日志](https://cloud.tencent.com/document/product/647/43117)
-- [Simple Demo 源码](https://github.com/tencentyun/TRTCSDK/tree/master/Electron/TRTCSimpleDemo)
-- [API Example 源码](https://github.com/tencentyun/TRTCSDK/tree/master/Electron/TRTC-API-Example)
+- [Simple Demo 源码](https://github.com/LiteAVSDK/TRTC_Electron/tree/main/TRTCSimpleDemo)
+- [API Example 源码](https://github.com/LiteAVSDK/TRTC_Electron/tree/main/TRTC-API-Example)
 - [Electron 常见问题](https://cloud.tencent.com/document/product/647/62562)

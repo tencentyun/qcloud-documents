@@ -1,4 +1,4 @@
->?此文档为原 容器服务控制台 Ingress 使用介绍，TKE 已于2019年6月17日起默认采用兼容原生 kubernetes 特性的新版控制台，请结合 [Ingress 管理](https://cloud.tencent.com/document/product/457/31711) 前往 [新版控制台](https://console.cloud.tencent.com/tke2) 进行使用。
+>?此文档为原 容器服务控制台  Ingress 使用介绍，TKE 已于2019年6月17日起默认采用兼容原生 kubernetes 特性的新版控制台，请结合 [Ingress 管理](https://cloud.tencent.com/document/product/457/31711) 前往 [新版控制台](https://console.cloud.tencent.com/tke2) 进行使用。
 
 ### 使用限制
 在集群中不启用访问方式的服务无法使用 Ingress，可使用 Ingress 的服务类型为：
@@ -24,7 +24,7 @@ Ingress 类型同时还支持负载均衡，负载均衡后端容器节点需打
 - bye 服务：监听80端口，入口文件位于 `/path_bye/index.html`。
 
 请按照以下步骤新建 Ingress 并进行配置：
-1. 登录容器服务控制台，选择左侧导航栏中的 [Ingress](https://console.cloud.tencent.com/tke/lb)。
+1. 登录容器服务控制台 ，选择左侧导航栏中的 [Ingress](https://console.cloud.tencent.com/tke/lb)。
 2. 在 “Ingress” 管理页面上方，选择地域及需配置 Ingress 的集群，并单击**新建**。如下图所示：
 ![](https://main.qcloudimg.com/raw/f99c3bf3c70ef6e7b7737e9572b7a9ae.png)
 3. [](id:step3)Ingress 创建成功后，请将自有域名解析到该 Ingress 负载均衡器的 VIP，详情请参见 [快速添加域名解析](https://cloud.tencent.com/document/product/302/3446)。

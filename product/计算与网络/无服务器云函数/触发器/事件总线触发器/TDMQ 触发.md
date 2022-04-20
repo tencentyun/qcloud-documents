@@ -13,7 +13,7 @@
 
 
 
-此处以 helloworld 模版为例，创建空函数项目：
+此处以 helloworld 模板为例，创建空函数项目：
 ![](https://main.qcloudimg.com/raw/6332a17c6782b4774801ebefa4348b49.png)
 
 ### 步骤2：配置触发器
@@ -59,10 +59,10 @@
 
 | 参数             | 描述                                                         |
 | ---------------- | ------------------------------------------------------------ |
-| topic            | Topic 完整路径 `persistent://appid/namespace/topic-1`。      |
-| subscriptionName | 订阅名称。                                                   |
-| timestamp        | 时间戳，精确到毫秒。                                         |
-| tags             | TDMQ 标签。                                                  |
-| msgId            | TDMQ 消息 ID。                                               |
-| msgBody          | TDMQ 消息体。                                                |
-| topictype        | topic 类型描述：<br><li>0：普通消息。<br><li>1：全局顺序消息。<br><li>2：局部顺序消息。<br><li>3：重试队列。<br><li>4：死信队列。 |
+| topic            | Topic 完整路径 `persistent://appid/namespace/topic-1`。        |
+| subscriptionName | 订阅名称。                                                     |
+| timestamp        | 时间戳，精确到毫秒。                                           |
+| tags             | TDMQ 标签。                                                    |
+| msgId            | TDMQ 消息 ID。                                                 |
+| msgBody          | TDMQ 消息体。                                                  |
+| topictype        | topic 类型描述：<br><li>0：普通消息。<br><li>1：全局顺序消息。<br><li>2：局部顺序消息。<br><li>3：重试队列。<br><li>4：死信队列。   |

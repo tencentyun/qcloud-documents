@@ -1,11 +1,11 @@
 ## 开发准备  
 ### SDK 获取
-录音文件识别的 iOS SDK 以及 Demo 的下载地址：[QCloud SDK](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/realtime/QCloudSDK_IOS_v2.6.4.zip)。
+录音文件识别的 iOS SDK 以及 Demo 的下载地址：[联系我们](https://cloud.tencent.com/act/event/connect-service#/)。
 
 ### 使用须知
 - QCloudSDK 支持 **iOS 9.0** 及以上版本。
 - 录音文件识别，需要手机能够连接网络（GPRS、3G 或 Wi-Fi 网络等）。
-- 运行 Demo 必须设置 AppID、SecretID、SecretKey、ProjectId，可在 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取。
+- 运行 Demo 必须设置 AppID、SecretID、SecretKey，可在 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取。
 
 ### SDK 导入
 下载并解压 iOS SDK 压缩包，压缩包中包含 Sample Code 和 QCloudSDK。
@@ -43,9 +43,10 @@
    + QCloudSDK.framework
    + CoreTelephony.framework
    + libWXVoiceSpeex.a
-
+   + libc++.tbd
 添加完如图所示。
 ![](https://main.qcloudimg.com/raw/17ff6f4f4a27e0843de528eb070c2f32.png)
+4. **在 Build Settings 下的 other Linker Flags 中不能有 -all_load。**
 
 ### 类说明
 #### QCloudFlashFileRecognizer 初始化说明

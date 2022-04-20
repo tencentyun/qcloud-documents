@@ -92,3 +92,4 @@
 4. 域名验证成功后，即可完成重颁发。域名验证方法请参考 [域名验证指引](https://cloud.tencent.com/document/product/400/4142)。
 :::
 </dx-tabs>
+

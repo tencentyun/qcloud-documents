@@ -1,5 +1,5 @@
 ### 如何调整 GetMonitorData 接口每秒频率上限？
-GetMonitorData 接口默认调用频率上限为 20次/秒，超过该频率会导致接口调用失败。若调用接口出现如下报错： “您当前每秒请求 `20+n` 次，超过了每秒频率上限 `20`次，请稍后重试”。可进入 [云监控接口调频申请页](https://cloud.tencent.com/apply/p/ndlajjkklws)  申请提高 GetMonitorData 接口频率上限。
+GetMonitorData 接口默认调用频率上限为 20次/秒，超过该频率会导致接口调用失败。若调用接口出现如下报错： “您当前每秒请求 `20+n` 次，超过了每秒频率上限 `20`次，请稍后重试”。可进入 [提交工单](https://console.cloud.tencent.com/workorder/category)  申请提高 GetMonitorData 接口频率上限。
 
 
 ###  如何解决 GetMonitorData 接口报错 ？

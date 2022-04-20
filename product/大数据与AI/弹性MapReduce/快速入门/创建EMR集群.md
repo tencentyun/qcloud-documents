@@ -6,7 +6,7 @@
 
 ### 1. 软件配置
 **地域**：地域（Region）是指物理的数据中心的地理区域，支持地域有：广州、上海、北京、新加坡、硅谷、成都、南京、孟买等；不同地域的云产品之间内网不互通。
-**集群类型**：EMR 目前支持五种集群部署方式，分别为 Hadoop 集群、ClickHouse 集群、Druid 集群、Doris 集群、Kafka 集群；需根据实际业务需要选择集群类型进行部署。
+**集群类型**：EMR 目前支持六种集群部署方式，分别为 Hadoop 集群、ClickHouse 集群、Druid 集群、Doris 集群、Kafka 集群、StarRocks 集群；需根据实际业务需要选择集群类型进行部署。
 **应用场景**：基于 Hadoop 集群类型支持五种应用场景，分别为：默认场景、zookeeper、HBase、Presto、Kudu；根据实际业务需要选择相应的应用场景进行部署。
 **产品版本和部署组件**：EMR 推荐了一些常用的 Hadoop 组件搭配，您也可以根据自身需求组合各组件。
 **Kerberos 安全集群**：是否开启集群的 Kerberos 认证功能，一般的个人用户集群无需该功能，默认关闭。
@@ -30,7 +30,7 @@
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/84be2a0af0c645d5b40c7d188d6a681a.png)
 ![](https://qcloudimg.tencent-cloud.cn/raw/7e73d3fda1e98a890506e7bfefb88a45.png)
-![](https://qcloudimg.tencent-cloud.cn/raw/d77f1a483a736120b3e08f780f80b6d9.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/fd90ac61f4f3b428e9ff51c2e243c76e.png)
 
 **置放群组**：放置群组是云服务器实例在底层硬件上分布放置的策略，可参考 置放群组。
 **Hive 元数据库**：如果选择了 Hive 组件，Hive 元数据库提供了两种存储方式：第一种集群默认，Hive 元数据存储于集群独立购买的MetaDB；第二种是关联外部 Hive 元数据库，可选择关联 EMR-MetaDB 或自建 MySQL 数据库，元数据将存储于关联的数据库中，不随集群销毁而销毁。

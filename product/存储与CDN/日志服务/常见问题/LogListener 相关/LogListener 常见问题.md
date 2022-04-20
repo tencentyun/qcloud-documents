@@ -80,7 +80,7 @@ LogListener 采集程序的策略是，单个文件，只能上传至一个 topi
 
 ### 如何使用非 root 权限启动 LogListener？
 
-建议用户使用 root 权限安装启动。如需在非 root 权限下使用 loglistene，可以参考 [设置非 root 权限启动 LogListener](https://cloud.tencent.com/document/product/614/59216)。
+建议用户使用 root 权限安装启动。如需在非 root 权限下使用 LogListener，可以参考 [设置非 root 权限启动 LogListener](https://cloud.tencent.com/document/product/614/59216)。
 
 
 ### 如何对 LogListener 的进程进行绑核？
@@ -132,4 +132,4 @@ sed -i '' "s/group_ip *=.*/group_ip = ${group_ip}/" etc/loglistener.conf
 ```shell
  /etc/init.d/loglistenerd restart
 ```
- c. 如果使用的是 IP 机器组，登录 [日志服务控制台](https://console.cloud.tencent.com/cls/overview?region=ap-guangzhou)，在左侧导航栏中，单击【机器组管理】，修改该服务器绑定的机器组配置，使用新 IP 替换原机器 IP 地址并确定。
+ c. 如果使用的是 IP 机器组，登录 [日志服务控制台](https://console.cloud.tencent.com/cls/overview?region=ap-guangzhou)，在左侧导航栏中，单击**机器组管理**，修改该服务器绑定的机器组配置，使用新 IP 替换原机器 IP 地址并确定。

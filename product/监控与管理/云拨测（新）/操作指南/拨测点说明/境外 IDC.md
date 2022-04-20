@@ -3,7 +3,7 @@
 
 <table>
 <tr>
-<th style = "width:10%">省级行政区</th>
+<th style = "width:10%">国家</th>
     <th style = "width:30%">城市</th>
     <th style = "width:30%">运营商</th>
     </tr>

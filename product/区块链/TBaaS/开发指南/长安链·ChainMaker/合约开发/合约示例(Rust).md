@@ -1,12 +1,12 @@
 ## 智能合约构成
 
-ChainMaker Rust语言的智能合约代码主要由以下接口构成：
+ChainMaker Rust 语言的智能合约代码主要由以下接口构成：
 
 ```rust
 /*
 Copyright (C) BABEC. All rights reserved.
 SPDX-License-Identifier: Apache-2.0
-一个ChainMaker的Rust版本智能合约主要包括以下函数：
+一个 ChainMaker 的 Rust 版本智能合约主要包括以下函数：
 */
 use crate::easycodec::*;
 use crate::sim_context;
@@ -28,7 +28,7 @@ pub extern "C" fn upgrade() {
     ctx.ok("upgrade success".as_bytes());
 }
 
-// 对SDK暴露的函数
+// 对 SDK 暴露的函数
 // 对外暴露 test1 方法，供用户由 SDK 调用
 #[no_mangle]
 pub extern "C" fn test1() {}
@@ -142,7 +142,7 @@ pub extern "C" fn save() {
     );
 }
 
-// find_by_file_hash 根据file_hash查询存证数据
+// find_by_file_hash 根据 file_hash 查询存证数据
 #[no_mangle]
 pub extern "C" fn find_by_file_hash() {
     // 获取上下文
@@ -179,16 +179,15 @@ pub extern "C" fn find_by_file_hash() {
 }
 ```
 
-
 ### 存证合约代码说明
 
 - init_contract: 合约的初始化函数，在合约部署时被调用，在本合约中打印了日志"init_contract"
 - upgrade：合约升级时调用的函数
-- save：save函数实现将文件哈希和文件名称记录到链上的功能
-  1. sava函数先通过`get_sim_context`和[**交易信息提取**]API接口`arg_default_blank`函数拿到时间，文件哈希和文件名字等信息
-  2. 再构造`Fact`结构体并进行序列化；且当序列化错误时调用[**其他辅助类**]API接口`log`函数和`error`函数记录相应日志
-  3. 再通过调用[**其他辅助类**]API接口`emit_event`函数发送标识为`topic_vx`的合约事件
-  4. 最后通过调用[**账本交互**]API接口`put_state`函数将文件等信息记录到链上
+- save：save 函数实现将文件哈希和文件名称记录到链上的功能
+  1. sava 函数先通过`get_sim_context`和 [**交易信息提取**]API 接口`arg_default_blank`函数拿到时间，文件哈希和文件名字等信息
+  2. 再构造`Fact`结构体并进行序列化；且当序列化错误时调用 [**其他辅助类**]API 接口`log`函数和`error`函数记录相应日志
+  3. 再通过调用 [**其他辅助类**]API 接口`emit_event`函数发送标识为`topic_vx`的合约事件
+  4. 最后通过调用 [**账本交互**]API 接口`put_state`函数将文件等信息记录到链上
 - find_by_file_hash：通过文件哈希查询该条记录
-  1. find_by_file_hash通过`get_sim_context`和[**参数处理**]API接口`arg_default_blank`函数拿到要查找的文件的文件哈希
-  2. 紧接着通过[**账本交互**]API接口`get_state`函数获取文件的信息；若失败则通过[**其他辅助类**]API接口`error`函数将操作结果记录到链上，否则，通过[**其他辅助类**]API接口`log`函数和`ok`函数记录相关日志并返回结果。
+  1. find_by_file_hash 通过`get_sim_context`和 [**参数处理**]API 接口`arg_default_blank`函数拿到要查找的文件的文件哈希
+  2. 紧接着通过 [**账本交互**]API 接口`get_state`函数获取文件的信息；若失败则通过 [**其他辅助类**]API 接口`error`函数将操作结果记录到链上，否则，通过 [**其他辅助类**]API 接口`log`函数和`ok`函数记录相关日志并返回结果。

@@ -209,7 +209,7 @@ req.addRequestParameter("param1", "value1");
 req.putCustomRequestHeader(Headers.HOST, cosClient.getClientConfig().getEndpointBuilder().buildGeneralApiEndpoint(bucketName));
 req.putCustomRequestHeader("header1", "value1");
 
-URL url = cosclient.generatePresignedUrl(req);
+URL url = cosClient.generatePresignedUrl(req);
 System.out.println(url.toString());
 
 // 确认本进程不再使用 cosClient 实例之后，关闭之
@@ -238,7 +238,7 @@ Request 成员说明：
 
 ### 生成签名
 
-构造 COS 请求的签名。推荐谁用临时密钥来生成签名。
+构造 COS 请求的签名。推荐使用临时密钥来生成签名。
 
 #### 使用临时密钥（推荐）
 
@@ -277,7 +277,7 @@ headers.put("header1", "value1");
 // 请求的 HTTP 方法，上传请求用 PUT，下载请求用 GET，删除请求用 DELETE
 HttpMethodName method = HttpMethodName.GET;
 
-String sign = signer.buildAuthorizationStr(method, key, headers, params, cred, expirationDate);
+String sign = signer.buildAuthorizationStr(method, key, headers, params, cred, expirationDate, true);
 ```
 
 ### 使用永久密钥
@@ -315,5 +315,5 @@ headers.put("header1", "value1");
 // 请求的 HTTP 方法，上传请求用 PUT，下载请求用 GET，删除请求用 DELETE
 HttpMethodName method = HttpMethodName.GET;
 
-String sign = signer.buildAuthorizationStr(method, key, headers, params, cred, expirationDate);
+String sign = signer.buildAuthorizationStr(method, key, headers, params, cred, expirationDate, true);
 ```

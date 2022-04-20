@@ -40,7 +40,7 @@ Client Version: version.Info{Major:"1", Minor:"5", GitVersion:"v1.5.2", GitCommi
 ```
 
 ### 获取集群账号密码以及证书信息
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/ccs) 并选择左侧导航栏中的**集群**。
+1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/ccs) 并选择左侧导航栏中的**集群**。
 2. 单击需要连接的**集群 ID/名称**，查看集群详情。
 3. 在集群信息页，单击**显示凭证**，进入集群凭证详情页，查看用户名、密码和证书信息。如下图所示：
 ![](https://main.qcloudimg.com/raw/ebd970e0be5609a01456296501804053.png)
@@ -49,7 +49,7 @@ Client Version: version.Info{Major:"1", Minor:"5", GitVersion:"v1.5.2", GitCommi
  - 获取外网访问入口：开启外网访问，并配置来源授权，单击**保存**，创建完成之后即可获取。开启后如下图所示：
 ![](https://main.qcloudimg.com/raw/d2c8e34cb9cce1af798034508bbe25de.png)
 开启外网访问地址后可参考 [通过证书信息使用 kubectl 操作集群](#step3) 直接使用。
- - 获取内网访问入口：开启内网访问，并设置集群所在子网。指定了客户端主机的 **hosts**，用于支持域名解析。 即：在`/etc/hosts`文件后追加内网返回的 **IP** 和域名。用户可以参考下图中的代码，也可以手动设置。开启后如下图所示：
+ - 获取内网访问入口：开启内网访问，并设置集群所在子网。指定了客户端主机的 **hosts**，用于支持域名解析。  即：在`/etc/hosts`文件后追加内网返回的 **IP** 和域名。用户可以参考下图中的代码，也可以手动设置。开启后如下图所示：
     ![](https://main.qcloudimg.com/raw/871fd4909fb3913b27c2e34a8e14074e.png)
 配置完成后，可参考 [通过证书信息使用 kubectl 操作集群](#step3) 使用内网访问地址域名来访问。
 >! 若集群无可用节点（包括节点异常,已封锁等状态），内网访问将在集群内有可用节点时生效。

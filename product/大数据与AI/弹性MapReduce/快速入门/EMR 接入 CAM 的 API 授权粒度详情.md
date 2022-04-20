@@ -634,7 +634,7 @@ EMR 支持资源级授权，您可以指定子账号拥有特定资源的接口�
 <td >创建 EMR 实例</td>
 </tr><tr>
 <td >GetMetricDataForMcController</td>
-<td >【控制台】详情页监控信息接口</td>
+<td >控制台详情页监控信息接口</td>
 </tr><tr>
 <td >DescribeVpcList</td>
 <td >查询 vpc 列表信息</td>
@@ -647,6 +647,33 @@ EMR 支持资源级授权，您可以指定子账号拥有特定资源的接口�
 </tr><tr>
 <td >DescribeCgwProjects</td>
 <td >获取 CGW 项目列表</td>
+</tr><tr>
+<td >DescribeServiceUpgradeVersion</td>
+<td >查看支持升级的服务小版本</td>
+</tr><tr>
+<td >ModifyServiceVersion</td>
+<td >服务小版本升级</td>
+</tr><tr>
+<td >DescribeServiceRoleInstanceConstraints</td>
+<td >获取服务移除角色实例约束信息</td>
+</tr><tr>
+<td >CheckSupportServiceRoleInstance</td>
+<td >检测服务是否支持添加角色实例</td>
+</tr><tr>
+<td >DescribeServiceRoleNames</td>
+<td >获取该服务的角色名称（或叫角色类型）下拉列表</td>
+</tr><tr>
+<td >DescribeServiceRoleInstanceDeployableNodes</td>
+<td >查询服务角色的部署节点列表</td>
+</tr><tr>
+<td >DescribeServiceDeletableRoleInstances</td>
+<td >查询服务可删除的角色实例列表</td>
+</tr><tr>
+<td >DeleteServiceRoleInstance</td>
+<td >移除角色实例</td>
+</tr><tr>
+<td >AddServiceRoleInstance</td>
+<td >添加角色实例</td>
 </tr>
 </tbody>
 </table>

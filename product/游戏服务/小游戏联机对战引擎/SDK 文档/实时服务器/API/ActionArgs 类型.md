@@ -1,3 +1,5 @@
+>!由于产品逻辑已无法满足游戏行业技术发展，游戏联机对战引擎 MGOBE 将于2022年6月1日下线，请您在2022年5月31日前完成服务迁移。
+
 ActionArgs 是一个模板类型，其 TypeScript 定义如下：
 ```
 export interface ActionArgs<T> {

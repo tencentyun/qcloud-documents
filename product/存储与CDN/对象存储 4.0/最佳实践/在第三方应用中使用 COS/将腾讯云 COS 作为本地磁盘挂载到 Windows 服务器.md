@@ -22,8 +22,8 @@
 
 ### 配置 Rclone
 
-1. 打开任意文件夹，并在左侧导航目录下找到【此电脑】，单击右键选择【属性】>【高级系统设置】>【环境变量】>【系统变量】>【Path】，单击【新建】。
-2. 在弹出的窗口中，填写 Rclone 解压后的路径（E:\AutoRclone），单击【确定】。
+1. 打开任意文件夹，并在左侧导航目录下找到**此电脑**，单击右键选择**属性 > 高级系统设置 > 环境变量 > 系统变量 > Path**，单击**新建**。
+2. 在弹出的窗口中，填写 Rclone 解压后的路径（E:\AutoRclone），单击**确定**。
 3. 打开 Windows Powershell，输入`rclone --version` 命令，按 **Enter**，查看 Rclone 是否成功安装。
 4. 确认 Rclone 安装成功后，在 Windows Powershell 中，输入 `rclone config` 命令，按 **Enter**。
 5. 在 Windows Powershell 中，输入 **n** ，按 **Enter**，新建一个 New remote。
@@ -43,10 +43,11 @@
  - Standard storage class 表示标准存储（STANDARD）
  - Infrequent access storage mode 表示低频存储（Standard_IA）
  - Archive storage mode 表示归档存储（ARCHIVE）
- >?如需设置智能分层存储或者深度归档存储类型，请采用**修改配置文件**的方式，在配置文件中，将 storage_class 的值设置为 INTELLIGENT_TIERING 或 DEEP_ARCHIVE 即可。
+>?如需设置智能分层存储或者深度归档存储类型，请采用**修改配置文件**的方式，在配置文件中，将 storage_class 的值设置为 INTELLIGENT_TIERING 或 DEEP_ARCHIVE 即可。
+>
 15. 执行到 `Edit advanced config? (y/n)` 时，按 **Enter**。
 16. 确认信息无误后，按 **Enter**。
-17. 输入**q**，完成配置。
+17. 输入 **q**，完成配置。
 
 
 ### 修改配置文件
@@ -76,7 +77,7 @@
 </ul>
 当出现提示 “The service rclone has been started” 则说明挂载成功。
 2. 输入 **exit**，退出终端。
-3. 在本地计算机的【我的电脑】中，即可找到一个名为 myCOS(Y:) 的磁盘。
+3. 在本地计算机的**我的电脑**中，即可找到一个名为 myCOS(Y:) 的磁盘。
 打开该磁盘，即可查看包含您整个广州地域的所有存储桶名称。此时，您可以进行上传、下载、新建和删除等本地磁盘的常用操作。
 >!
 > - 在操作当中如遇报错，请在 git bash 软件中查看详细报错信息。
@@ -103,8 +104,8 @@ rclone mount myCOS:/ Y: --cache-dir E:\temp --vfs-cache-mode writes &
 ```plaintext
 CreateObject("WScript.Shell").Run "cmd /c E:\AutoRclone\startup_rclone.bat",0
 ```
- >! 请将代码中的路径修改为您实际的路径。
- >
+>! 请将代码中的路径修改为您实际的路径。
+>
 4. 将 startup_rclone.vbs 文件剪切到 %USERPROFILE%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup 文件夹下。
 5. 重启服务器。
 
@@ -112,22 +113,22 @@ CreateObject("WScript.Shell").Run "cmd /c E:\AutoRclone\startup_rclone.bat",0
 
 您也可以通过使用第三方商业收费工具，将 COS 挂载到 Windows 服务器上映射为本地磁盘。如下操作以 TntDrive 工具为例。
 1. 下载和安装 TntDrive。
-2. 打开 TntDrive，单击【Account】>【Add New Account】，创建一个用户账号。
+2. 打开 TntDrive，单击 **Account > Add New Account**，创建一个用户账号。
 ![](https://main.qcloudimg.com/raw/90b4a262b11b6933f48b4922cad4fdc4.png)
 主要参数信息如下：
  - Account Name：自定义账号名称。
- - Account Type：由于 COS 兼容 S3，因此该处可选择【Amazon S3 Compatible Storage】。
+ - Account Type：由于 COS 兼容 S3，因此该处可选择 **Amazon S3 Compatible Storage**。
  - REST Endpoint：填写存储桶所在的地域，例如存储桶位于广州地域，则填 cos.ap-guangzhou.myqcloud.com。
  - Access Key ID：填写 SecretId。可在 [API 密钥管理](https://console.cloud.tencent.com/capi) 页面中创建和获取。
  - Secret Access Key：填写 SecretKey。
-3. 单击【Add new account】。
-4. 在 TntDrive 界面，单击【Add New Mapped Drives】，创建一个 Mapped Drives。
+3. 单击 **Add new account**。
+4. 在 TntDrive 界面，单击 **Add New Mapped Drives**，创建一个 Mapped Drives。
 ![](https://main.qcloudimg.com/raw/fa09500f96ba8e5c8144d39cd5471991.png)
 主要参数信息如下：
  - Amazon S3 Bucket：输入存储桶路径，或选择存储桶名称。可单击右侧按钮选择存储桶。该处展示的是步骤2设置的广州地域下的存储桶。（一个存储桶独立映射为一个磁盘）。
  - Mapped drives letter：设置磁盘的盘符名称，请不要与本地的 C、D、E 盘等重复。
-5. 确认以上信息单击【Add new drive】。
-6. 在本地计算机的【我的电脑】中，即可找到该磁盘。如果想把所有的存储桶都映射到 Windows 服务器中，请重复以上步骤。
+5. 确认以上信息单击 **Add new drive**。
+6. 在本地计算机的**我的电脑**中，即可找到该磁盘。如果想把所有的存储桶都映射到 Windows 服务器中，请重复以上步骤。
 
 
 

@@ -1,8 +1,8 @@
 
 
 ## 现象描述
-在证书监控 SSLPod 中添加站点后提示 “证书不匹配”。如下图所示：
-![](https://main.qcloudimg.com/raw/077156d7a1aa45694b83ef504697993a.png)
+在证书监控 SSLPod 中添加站点后提示 “证书域名不匹配”。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/1614379be011a0efba3f439ce0affe03.png)
 
 
 ## 可能原因

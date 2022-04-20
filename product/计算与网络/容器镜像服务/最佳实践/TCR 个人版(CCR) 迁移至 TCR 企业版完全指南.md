@@ -1,9 +1,9 @@
-## 操作场景
+## 操作场景 
 当前容器镜像服务 TCR 同时提供个人版服务和企业版服务。个人版服务面向个人开发者，仅提供容器镜像存储分发的基础功能。企业版服务可为企业客户提供安全、独享的高性能云原生应用制品托管分发服务。个人版与企业版服务区别可参见 [规格说明](https://cloud.tencent.com/document/product/1141/40540#.E8.A7.84.E6.A0.BC.E8.AF.B4.E6.98.8E)。
 
 本文主要介绍企业客户如何将容器镜像数据及业务配置从个人版迁移至企业版，实现业务的平滑迁移。
 
-## 前提条件
+## 前提条件 
 
 从个人版服务迁移至企业版，您需要确认并完成以下准备工作：
 - 已开通并使用个人版服务，且迁移操作账号具有拉取个人版镜像仓库内所有镜像的权限，请参考 [个人版授权方案示例](https://cloud.tencent.com/document/product/1141/41409) 提前为子账号授予个人版的全部管理权限。
@@ -73,13 +73,13 @@ docker run --network=host --rm ccr.ccs.tencentyun.com/tcrimages/image-transfer:c
 
 #### 访问地址切换
 
-进入集群或弹性集群的详情页，选择左侧的“工作负载”，并选择新建/更新工作负载，在“实例内容器”中选择/填写镜像地址，或直接修改 YAML 中 **image** 参数。如下图所示：
+进入集群或弹性集群的详情页，选择左侧的“工作负载”，并选择新建/更新工作负载，在“实例内容器”中选择/填写镜像地址，或直接修改 YAML 中 **image** 参数。如下图所示： 
 ![](https://main.qcloudimg.com/raw/d061990930dd2fa64ef22e32e523309e.png)
 - 个人版地址：默认为 `ccr.ccs.tencentyun.com/namespace/repo:tag`，默认地域服务覆盖除中国香港以外的其他国内可用地域，如北京、上海、广州等，中国香港前缀域名为 hkccr。不支持多级路径。
 - 企业版地址：可自定义实例名 `user-define`，例如 `user-define.tencentcloudcr.com/namespace/repo:tag`。支持自定义域名，例如 `xxx-company.com/namespace/repo:tag`。支持多级路径，镜像地址可为 `xxx-company.com/ns/sub01/sub02/repo:tag`。
 
 #### 访问凭证切换
-进入集群或弹性集群的详情页，选择左侧的“工作负载”，并选择新建/更新工作负载，在“镜像访问凭证“中切换访问凭证，或直接修改 YAML 中 **imagePullSecret** 参数。如下图所示：
+进入集群或弹性集群的详情页，选择左侧的“工作负载”，并选择新建/更新工作负载，在“镜像访问凭证“中切换访问凭证，或直接修改 YAML 中 **imagePullSecret** 参数。如下图所示： 
 ![](https://main.qcloudimg.com/raw/709e7c6eae63262e252dd74fce504ddf.png)
 - 个人版访问凭证：新建命名空间默认会下发个人版访问凭证，即 **qcloudregistrykey**，选择该凭证即可。
 - 企业版访问凭证：

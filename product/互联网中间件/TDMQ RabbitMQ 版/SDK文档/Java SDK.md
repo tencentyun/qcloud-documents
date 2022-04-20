@@ -7,7 +7,7 @@
 - [完成资源创建与准备](https://cloud.tencent.com/document/product/1495/61829)
 - [安装1.8或以上版本 JDK](https://www.oracle.com/java/technologies/javase-downloads.html)
 - [安装2.5或以上版本 Maven](http://maven.apache.org/download.cgi#)
-- [下载 Demo](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-rabbitmq-demo/tdmq-rabbitmq-java-sdk-demo.zip)
+- [下载 Demo](https://tdmq-document-1306598660.cos.ap-nanjing.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91demo/rabbitmq/tdmq-rabbitmq-java-sdk-demo.zip)
 
 ## 操作步骤
 
@@ -163,6 +163,6 @@ public class MessageConsumer1 {
 
 ![](https://main.qcloudimg.com/raw/a7d78cc58efadfb614b890cc33d08632.png)
 
-上述是基于 RabbitMQ 的发布订阅模型的一个简单示例。其他示例可参考 [Demo](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-rabbitmq-demo/tdmq-rabbitmq-java-sdk-demo.zip) 或 [RabbitMQ 官网](https://www.rabbitmq.com/getstarted.html) 实例。
+>?上述是基于 RabbitMQ 的发布订阅模型的一个简单示例。其他示例可参见 [Demo](https://tdmq-document-1306598660.cos.ap-nanjing.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91demo/rabbitmq/tdmq-rabbitmq-java-sdk-demo.zip) 或 [RabbitMQ 官网](https://www.rabbitmq.com/getstarted.html) 实例。
 
 

@@ -1,3 +1,6 @@
+早期 EMR 产品版本未提供 Tez-UI 集成必要的 Timelineserver 软件包和 Tomcat 软件包，需要根据本文进行操作。
+>! 由于 Tez 的 UI 启用需要运行 Timelineserver，Timelineserver 运行时有较高资源占用，需要评估对业务的影响，谨慎启用。
+
 本文主要介绍 Knox 集成 tez 的具体操作步骤，主要有安装 tomcat 和 tez-ui、新建 role、配置 timelineserver、配置 tez和启动服务。其中，`172.**.**.9` 为主节点内网 IP，`159.**.**.70` 为主节点外网 IP，tez 版本为0.9.2版本。
 
 ## 安装 Tomcat 和 tez-ui 
@@ -85,15 +88,15 @@ vim /usr/local/service/knox/conf/topologies/emr.xml
  
 
 ## 服务启动
-1. 启动 timelineserver
+1. 启动 timelineserver。
 ```
 /usr/local/service/hadoop/sbin/yarn-daemon.sh  start timelineserver  
 ```
-2. 启动 tomcat
+2. 启动 tomcat。
 ```
 /usr/local/service/tomcat/bin/startup.sh  
 ```
-3. 重启 tez 服务
+3. 重启 tez 服务。
 ```
 su hadoop
 rm -rf  /usr/local/service/knox/data/deployments/*
@@ -102,9 +105,23 @@ rm -rf  /usr/local/service/knox/data/deployments/*
 /usr/local/service/knox/bin/gateway.sh stop
 /usr/local/service/knox/bin/gateway.sh start
 ```
-4. tezui 访问地址
+4. tezui 访问地址。
 >?账号密码与服务器登录账号密码相同。
 >
 ```
 https://{集群公网ip}:30002/gateway/emr/tez/  
 ```
+
+## 服务停止
+如果运行一段时间后，发现 timelineserver 对业务影响较大，可参照如下操作停止相关服务。
+
+1. 停止 tomcat。
+```
+/usr/local/service/tomcat/bin/shutdown.sh
+```
+
+2. 停止 timelineserver。
+```
+/usr/local/service/hadoop/sbin/yarn-daemon.sh  stop  timelineserver
+```
+

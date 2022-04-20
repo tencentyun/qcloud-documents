@@ -4,11 +4,14 @@
 
 1. host 映射。如下示例，您可以使用 `kafka.example.com` 来访问 IP 为`172.17.0.2`的 CKafka 实例。
 ``` 
-172.17.0.2 kafka.example.com 172.17.0.3 mysql.example.com 
+172.17.0.2 kafka.example.com 
+172.17.0.3 mysql.example.com 
 ``` 
 2. DNS 域名解析。如下示例，假设您的 DNS 服务器地址为 `172.17.0.253` 和 `172.17.0.254`，您的作业中对任何 `*.example.com` 形式的域名访问，都会通过您的 DNS 服务器解析。您可以在 DNS 服务器中配置 `172.17.0.2 kafka.example.com` 的映射关系，那么 `kafka.example.com` 就能解析到地址 `172.17.0.2`。
 ```
-example.com { forward . 172.17.0.253 172.17.0.254 } 
+example.com { 
+	forward . 172.17.0.253 172.17.0.254 
+} 
 ```
 
 ## 如何自定义 DNS 
@@ -20,8 +23,5 @@ example.com { forward . 172.17.0.253 172.17.0.254 }
 1. 在 **[集群管理](https://console.cloud.tencent.com/oceanus/cluster) > 集群信息**中可设置自定义 DNS。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d10aa240b3bbaf44bea0a20e761c6d74.png)
 2. 在弹窗中设置 host 或域名，单击**确认**保存设置，保存后可以再次进行修改。
-![](https://qcloudimg.tencent-cloud.cn/raw/a541dd9a30150e22bea18548ee2d6b00.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/8f964ab7f19d3aa938a2f84e8d379938.png)
 
-
-
-   

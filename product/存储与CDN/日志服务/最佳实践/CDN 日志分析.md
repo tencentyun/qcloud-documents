@@ -85,7 +85,7 @@ CDN 日志字段说明：
 * | select *  from (select * from (select * from (select date_trunc('minute', __TIMESTAMP__) as time,count(*) as errct where http_code>=400 group by time order by time desc limit 2)) order by time asc limit 1)
 ```
 
-告警策略配置触发条件为【最近一分钟内的错误数量】-【上一分钟内的错误数量】 > 指定阈值
+告警策略配置触发条件为**最近一分钟内的错误数量**-**上一分钟内的错误数量** > 指定阈值
 ```
 $2.errct-$1.errct >100
 ```
@@ -175,7 +175,7 @@ http_code<400 | select round(sum(case when hit='hit' then 1.00 else 0.00 end) / 
 
 **客户端分布**
 ```sql
-鹅湖单xxxxxxxxxx *  | select ua as "客户端版本", count(*) as "错误次数"  where http_code > 400 group by ua order by "错误次数" desc limit 10sql
+* | select ua as "客户端版本", count(*) as "错误次数" where http_code > 400 group by ua order by "错误次数" desc limit 10
 ```
 
 ![](https://main.qcloudimg.com/raw/06582e8e14a4f5d44537e3317240312c.png)

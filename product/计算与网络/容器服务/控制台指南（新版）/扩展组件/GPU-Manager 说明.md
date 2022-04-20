@@ -1,5 +1,5 @@
 
-## 简介
+## 简介 
 
 ### 组件介绍
 
@@ -18,7 +18,7 @@ GPU Manager 提供一个 All-in-One 的 GPU 管理器，基于 Kubernetes Device
 | gpu-manager-daemonset | DaemonSet  | 每节点1核 CPU, 1Gi内存     | kube-system  |
 | gpu-quota-admission   | Deployment | 每节点1核 CPU, 1Gi内存      | kube-system  |
 
-## 使用场景
+## 使用场景 
 
 在 Kubernetes 集群中运行 GPU 应用时，可以解决 AI 训练等场景中申请独立卡造成资源浪费的情况，让计算资源得到充分利用。
 
@@ -32,7 +32,7 @@ GPU Manager 提供一个 All-in-One 的 GPU 管理器，基于 Kubernetes Device
 ## 使用方法
 
 ### 组件安装
-1. 登录 [容器服务控制台](https://console.qcloud.com/tke2)，在左侧导航栏中选择**集群**。
+1. 登录 [容器服务控制台 ](https://console.qcloud.com/tke2)，在左侧导航栏中选择**集群**。
 2. 在“集群管理”页面单击目标集群 ID，进入集群详情页。
 3. 选择左侧菜单栏中的**组件管理**，进入 “组件列表” 页面。
 4. 在“组件列表”页面中选择**新建**，并在“新建组件”页面中勾选 GpuManager。
@@ -44,7 +44,7 @@ GPU Manager 提供一个 All-in-One 的 GPU 管理器，基于 Kubernetes Device
 当 GpuManager 组件成功安装后，您可通过以下两种方式创建细粒度的 GPU 工作负载。
 
 #### 方式一：通过 TKE 控制台创建
-1. 登录容器服务控制台，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
+1. 登录容器服务控制台 ，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
 2. 选择需要创建 GPU 应用的集群，进入工作负载管理页，并单击**新建**。
 3. 在“新建Workload”页面根据实际需求进行配置，可在“GPU资源”配置细粒度的 GPU 工作负载。如下图所示：
 ![](https://main.qcloudimg.com/raw/044d6ab9a8c17611f761024c26b6dfde.png)

@@ -6,7 +6,7 @@
 
 - [完成资源创建与准备](https://cloud.tencent.com/document/product/1179/44814)
 - [安装 Go](https://golang.org/dl/)
-- [下载 Demo](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-pulsar-demo/tdmq-pulsar-go-sdk-demo.zip)
+- [下载 Demo](https://tdmq-document-1306598660.cos.ap-nanjing.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91demo/pulsar/tcp/tdmq-pulsar-go-sdk-demo.zip)
 
 ## 操作步骤
 
@@ -29,7 +29,7 @@
    // 创建pulsar客户端
    client, err := pulsar.NewClient(pulsar.ClientOptions{
        // 服务接入地址
-       URL: setviceUrl,
+       URL: serviceUrl,
        // 授权角色密钥
        Authentication:    pulsar.NewAuthenticationToken(authentication),
        OperationTimeout:  30 * time.Second,
@@ -52,7 +52,7 @@
     </thead>
     <tbody>
     <tr>
-        <td style='text-align:left;'>setviceUrl</td>
+        <td style='text-align:left;'>serviceUrl</td>
         <td style='text-align:left;'>集群接入地址，可以在控制台 <a
                 href='https://console.cloud.tencent.com/tdmq/cluster'><strong>集群管理</strong></a> 页面查看并复制。<br><img
                 src="https://qcloudimg.tencent-cloud.cn/raw/1221f6b1be8ad150a6544a3f9394a8eb.png"
@@ -139,6 +139,6 @@ Topic 名称需要填入完整路径，即 `persistent://clusterid/namespace/Top
 :::
 </dx-codeblock>
 7. 登录 [TDMQ Pulsar 版控制台](https://console.cloud.tencent.com/tdmq)，依次点击 **Topic 管理** > **Topic 名称**进入消费管理页面，点开订阅名下方右三角号，可查看生产消费记录。
-   ![img](https://main.qcloudimg.com/raw/da7ce2bc5ac606c91982efecdb3b53bb.png)
+   ![img](https://main.qcloudimg.com/raw/3bee532dab55b7cab1167416aac95f4d.png)
 
->?上述是对消息的发布和订阅方式的简单介绍。更多操作可参见 [Demo](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-pulsar-demo/tdmq-pulsar-go-sdk-demo.zip) 或 [Pulsar 官方文档](https://pulsar.apache.org/docs/en/client-libraries-go/)。
+>?上述是对消息的发布和订阅方式的简单介绍。更多操作可参见 [Demo](https://tdmq-document-1306598660.cos.ap-nanjing.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91demo/pulsar/tcp/tdmq-pulsar-go-sdk-demo.zip) 或 [Pulsar 官方文档](https://pulsar.apache.org/docs/en/client-libraries-go/)。

@@ -316,8 +316,8 @@
 ### 音频数据自定义回调
 | API | 描述 |
 |-----|-----|
-| [onCapturedRawAudioFrame](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudListener__android.html#abffd560f5b2b2322ea3980bc5a91d22e) | 本地麦克风采集到的原始音频数据回调 |
-| [onLocalProcessedAudioFrame](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudListener__android.html#a62c526c6c30a66671260bdf0c5c64e46) | 本地采集并经过音频模块前处理后的音频数据回调 |
+| [onCapturedRawAudioFrame](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudListener__android.html#abffd560f5b2b2322ea3980bc5a91d22e) | 本地采集并经过音频模块前处理后的音频数据回调 |
+| [onLocalProcessedAudioFrame](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudListener__android.html#a62c526c6c30a66671260bdf0c5c64e46) | 本地采集并经过音频模块前处理、音效处理和混 BGM 后的音频数据回调 |
 | [onRemoteUserAudioFrame](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudListener__android.html#a4af98a7d668c150ea8e99e3085505902) | 混音前的每一路远程用户的音频数据 |
 | [onMixedPlayAudioFrame](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudListener__android.html#a580e94224357c38adf6ed883ab3321f7) | 将各路待播放音频混合之后并在最终提交系统播放之前的数据回调 |
 | [onMixedAllAudioFrame](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudListener__android.html#a96923a9286a88b83d6890f607884ceb3) | SDK 所有音频混合后的音频数据（包括采集到的和待播放的） |

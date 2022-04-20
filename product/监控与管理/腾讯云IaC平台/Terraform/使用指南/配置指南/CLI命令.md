@@ -36,7 +36,7 @@ terraform -uninstall-autocomplete
 
 <dx-accordion>
 ::: terraform init
-`terraform init` 命令用于初始化一个包含 Terraform 配置文件的工作目录。在编写 Terraform 代码或是克隆了一个 Terraform 项目后应首先执行该命令。
+`terraform init` 命令用于初始化一个包含 Terraform 配置文件的工作目录。在编写 Terraform 代码或是克隆了 Terraform 项目后应首先执行该命令。
 
 - **用法**
 `terraform init [options]`
@@ -44,26 +44,26 @@ terraform -uninstall-autocomplete
 - **常用参数**
  - `-input=true`：是否在取不到输入变量值时提示用户输入。
  - `-lock=false`：是否在运行时锁定状态文件。
- - `-lock-timeout=\/`：尝试获取状态文件锁时的超时时间，默认为0，意为一旦发现锁已被其他进程获取立即报错。
+ - `-lock-timeout=\`：尝试获取状态文件锁时的超时时间，默认为0，意为一旦发现锁已被其他进程获取立即报错。
  - `-no-color`：禁止输出中包含颜色。
  - `-upgrade`：是否升级模块代码以及插件。
 - **拷贝源模块**
-默认情况下，`terraform init` 命令认为工作目录存在配置并尝试初始化。您也可以通过 `-from-module=MODULE-SOURCE` 选项在空白工作目录下运行 `terraform init`，会先将指定模块拷贝到当前目录再执行初始化操作，这种特殊的使用方式有两种场景：
- - 对于 source 对应的版本控制系统，可以用这种方法签出指定版本代码并为它初始化工作目录。
+默认情况下，`terraform init` 命令认为工作目录存在配置并尝试初始化。您也可以通过 `-from-module=MODULE-SOURCE` 选项在空白工作目录下运行 `terraform init`，则会先将指定模块拷贝到当前目录再执行初始化操作，这种特殊的使用方式适用于以下两种场景：
+ - 对于 source 对应的版本控制系统，可使用该方式签出指定版本代码并为它初始化工作目录。
  - 如果模块源指向的是一个样例项目，该方式可以把样例代码拷贝到本地目录以便后续基于样例编写新的代码。
 如果是常规运行操作建议用独立的步骤从版本控制系统中签出代码，使用版本控制系统所属的工具。
 - **Backend 初始化**
 在执行 init 时，会分析根模块代码以寻找 Backend 配置，并使用给定的配置设定初始化 Backend 存储。
 若在已经初始化 Backend 后重复执行 init 命令，会更新工作目录以使用新的 Backend 设置。init 可能会根据改变的内容提示用户是否确认进行状态迁移。您可按需使用以下参数：
- - 使用 `-force-copy` 参数，则可跳过提示直接确认迁移状态。
- - 使用 `-reconfigure` 参数，则使得 init 忽略任何现有配置，防止任何状态迁移。
- - 使用 `-backend=false` 参数可跳过 Backend 配置。
+ - `-force-copy`：可跳过提示直接确认迁移状态。
+ - `-reconfigure`：使 init 忽略任何现有配置，防止任何状态迁移。
+ - `-backend=false`：可跳过 Backend 配置。
  注意某些 init 步骤需要已经被初始化的 Backend，推荐只在已经初始化过 Backend 后使用该参数。
- - 使用 `-backend-config` 参数可以用来动态指定 Backend 配置。
+ - `-backend-config`：可以用来动态指定 Backend 配置。
 - **初始化子模块**
 init 会搜索 module 块，并通过 source 参数取回模块代码。您可按需使用以下参数：
- - 使用 `-upgrade` 参数将所有模块升级到最新版本的代码，而不是仅升级更新模模块。默认情况下，模块安装之后重新运行 init 命令会继续安装上次执行 init 后新增的模块，但不会修改已被安装的模块。
- - 使用 `-get=false` 参数，可跳过子模块安装步骤。
+ - `-upgrade`：将所有模块升级到最新版本的代码。默认情况下，模块安装之后重新运行 init 命令会继续安装上次执行 init 后新增的模块，但不会修改已被安装的模块。
+ - `-get=false`：可跳过子模块安装步骤。
  需注意其他 init 步骤需要模块树完整，建议只在成功安装过模块以后使用该参数。
 - **插件安装**
 参数说明如下：
@@ -123,31 +123,31 @@ init 会搜索 module 块，并通过 source 参数取回模块代码。您可�
 在设计自动化流水线时也可以显式分为创建执行计划、使用 apply 命令执行该执行计划两个独立步骤。如果没有显式指定变更计划文件，terraform apply 会自动创建一个新的变更计划，并提示用户是否批准执行。如果生成的计划不包含任何变更，terraform apply 会立即退出，不会提示用户输入。
 
 - **常用参数**
- - `-backup-path`：保存备份文件的路径。默认等于 `-state-out` 参数后加上` ".backup"` 后缀。设置为 "-" 可关闭。
+ - `-backup-path`：保存备份文件的路径。默认等于 `-state-out` 参数后加上` ".backup"` 后缀。设置为 "-" 可关闭备份（不推荐）。
  - `-compact-warnings`：如果 Terraform 仅生成了告警信息而无错误信息，则显示消息仅以总结的精简形式展示告警。
  - `-lock=true`：执行时是否先锁定状态文件。
  - `-lock-timeout=0s`：尝试重新获取状态锁的间隔。
- - `-input=true`：在无法获取输入变量的值是是否提示用户输入。
+ - `-input=true`：在无法获取输入变量的值时是否提示用户输入。
  - `-auto-approve`：跳过交互确认步骤，直接执行变更。
  - `-no-color`：禁用输出中的颜色。
  - `-parallelism=n`：限制 Terraform 遍历图时的最大并行度，默认值为10。
  - `-refresh=true`：指定变更计划及执行变更前是否先查询记录的基础设施对象现在的状态以刷新状态文件。如果命令行指定了要执行的变更计划文件，该参数设置无效。
  - `-state=path`：保存状态文件的路径，默认值 `"terraform.tfstate"`。如果使用了远程 Backend 则该参数设置无效。该参数不影响其他命令，例如执行 init 时会找不到它设置的状态文件。如果要使所有命令都可以使用同一个特定位置的状态文件，请使用 Local Backend。
-- `-state-out=path`：写入更新的状态文件的路径，默认情况使用 `-state` 的值。该参数在使用远程 Backend 时设置无效。
-- `-target=resource`：通过指定资源地址指定更新目标资源。
-- `-var 'foo=bar'`：设置一组输入变量的值。该参数可以反复设置以传入多个输入变量值。
-- `-var-file=foo`：指定一个输入变量文件。
+ - `-state-out=path`：写入更新的状态文件的路径，默认情况使用 `-state` 的值。该参数在使用远程 Backend 时设置无效。
+ - `-target=resource`：通过指定资源地址指定更新目标资源。
+ - `-var 'foo=bar'`：设置一组输入变量的值。该参数可以反复设置以传入多个输入变量值。
+ - `-var-file=foo`：指定一个输入变量文件。
 
 
 :::
 ::: terraform destroy
 `terraform destroy` 命令可以用来销毁并回收所有 Terraform 管理的基础设施资源。
 
-- **用法**
+#### **用法**
 `terraform destroy [options]`
 Terraform 管理的资源会被销毁，在执行销毁动作前会通过交互式界面征求用户的确认。该命令可以接收所有 apply 命令的参数，但不可以指定 plan 文件。
-- 若 `-auto-approve` 参数为 true，则不会征求用户确认直接销毁。
-- 若使用 `-target` 参数指定了某项资源，那么不但会销毁该资源，同时也会销毁一切依赖于该资源的资源。
+ - 若 `-auto-approve` 参数为 true，则不会征求用户确认直接销毁。
+ - 若使用 `-target` 参数指定了某项资源，那么不但会销毁该资源，同时也会销毁一切依赖于该资源的资源。
 
 <dx-alert infotype="explain" title="">
 `terraform destroy` 将执行的所有操作都可以随时通过执行 `terraform plan -destroy` 命令来预览。
@@ -162,7 +162,7 @@ Terraform 管理的资源会被销毁，在执行销毁动作前会通过交互�
 `terraform graph [options] [DIR]`
 该命令生成 DIR 路径下的代码锁描述的 Terraform 资源的可视化依赖图（如果 DIR 参数缺省则使用当前工作目录）。
 - **常用参数**
- - `-type` 参数：用来指定输出的图表的类型。Terraform 为不同的操作创建不同的图。代码文件默认类型为 `"plan"`，变更计划文件默认类型为 `"apply"`。
+ - `-type`：用来指定输出的图表的类型。Terraform 为不同的操作创建不同的图。代码文件默认类型为 `"plan"`，变更计划文件默认类型为 `"apply"`。
  - `-draw-cycles`：用彩色的边高亮图中的环，可以帮助分析代码中的环错误（Terraform 禁止环状依赖）。
  - `-type=plan`：生成图表的类型。包含 plan、plan-destroy、apply、validate、input、refresh。
 - **创建图片文件**

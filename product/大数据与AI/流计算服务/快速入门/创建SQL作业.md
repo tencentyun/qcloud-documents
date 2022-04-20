@@ -26,8 +26,8 @@ CREATE TABLE `Data_Input` ( --步骤 1 ：创建数据源表（Source） Data_In
     'rows-per-second'='100',          -- 每秒产生的数据条数
 
     'fields.age.kind'='random',       -- 无界的随机数
-    'fields.f_random.min'='1',           -- 随机数的最小值
-    'fields.f_random.max'='100',         -- 随机数的最大值
+    'fields.age.min'='1',           -- 随机数的最小值
+    'fields.age.max'='100',         -- 随机数的最大值
 
     'fields.score.kind'='random',        -- 无界的随机数
     'fields.score.min'='1',              -- 随机数的最小值

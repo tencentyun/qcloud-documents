@@ -18,7 +18,7 @@
 
 ## 示例代码
 
-您可以登录 [Github](https://github.com/tencentyun/TRTCSDK/tree/master/Electron) 获取本文档相关的示例代码。
+您可以登录 [Github](https://github.com/LiteAVSDK/TRTC_Electron) 获取本文档相关的示例代码。
 
 ## 操作步骤
 
@@ -69,7 +69,7 @@ trtcCloud.on('onError',onError);
 | :------- | :----- | :----------------------------------------------------------- | :--------------------- |
 | sdkAppId | 数字   | 应用 ID，您可以在 [控制台](https://console.cloud.tencent.com/trtc/app) >**应用管理** > **应用信息**中查找到。 | 1400000123  |
 | userId   | 字符串 | 只允许包含大小写英文字母（a-z、A-Z）、数字（0-9）及下划线和连词符。建议结合业务实际账号体系自行设置。 | test_user_001 |
-| userSig  | 字符串 | 基于 userId 可以计算出 userSig，计算方法请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/1449/58939) 。 | eJyrVareCeYrSy1SslI... |
+| userSig  | 字符串 | 基于 userId 可以计算出 userSig，计算方法请参见 [如何计算及使用 UserSig](https://cloud.tencent.com/document/product/1449/58939) 。 | eJyrVareCeYrSy1SslI... |
 | roomId   | 数字   | 默认不支持字符串类型的房间号，字符串类型的房间号会影响进房速度。如果您确实需要支持字符串类型的房间号，可以 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们。 | 29834 |
 
 <dx-codeblock>

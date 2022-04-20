@@ -7,14 +7,14 @@ WordPress 是使用 PHP 语言开发的博客平台。用户可以在支持 PHP 
 ## 前提条件
 >!
 >- `wordpress` 该镜像中包含了 WordPress 所有的运行环境，直接拉取创建服务即可。
->- 创建单实例版的 WordPress 仅供测试使用，不能保证数据的持久化存储。建议您使用自建的 MySQL 或使用腾讯云数据库 TencentDB 来保存您的数据，详情请见 [使用 TencentDB 的 WordPress](/doc/product/457/7447)。 
+>- 创建单实例版的 WordPress 仅供测试使用，不能保证数据的持久化存储。建议您使用自建的 MySQL 或使用腾讯云数据库 TencentDB 来保存您的数据，详情请见 [使用 TencentDB 的 WordPress](/doc/product/457/7447)。  
 >
 - 已 [注册腾讯云账户](https://cloud.tencent.com/register)。
 - 已创建集群。有关创建集群，详情请参见 [创建集群](https://cloud.tencent.com/document/product/457/32189)。
 
 ## 操作步骤
 ### 创建 WordPress 服务
-1. 登录容器服务控制台，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
+1. 登录容器服务控制台 ，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
 2. 在“集群管理”页面，选择需创建服务的集群 ID，进入集群的工作负载 “Deployment” 页面并单击**新建**。如下图所示：
 ![](https://main.qcloudimg.com/raw/19997a6644943a2c6ec1587404eb8ca0.png)
 3. 在“新建Workload” 页面，根据以下信息，设置工作负载基本信息。如下图所示：
