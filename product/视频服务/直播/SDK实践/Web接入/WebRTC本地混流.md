@@ -3,7 +3,7 @@
 SDK 提供了对视频流画面的处理功能，包括多路视频流的混合（画中画）、画面效果的处理（镜像、滤镜）和其他元素的添加（水印、文本）。基本步骤是为：SDK 首先采集多路流，然后对多路流进行本地混流处理，对画面进行合并，声音进行混合，最后再进行其他效果处理。这些都依赖于浏览器本身功能的支持，因此对浏览器的性能有一定要求。具体的接口协议可以参考 [TXVideoEffectManager](https://webrtc-demo.myqcloud.com/push-sdk/v2/docs/TXVideoEffectManager.html)，下面简单介绍本地混流的基础用法。
 
 ## 基础使用
-使用本地混流功能需要完成SDK的初始化并获取SDK实例 livePusher，初始化代码请参见 [对接攻略](https://cloud.tencent.com/document/product/267/56505#.E5.AF.B9.E6.8E.A5.E6.94.BB.E7.95.A5)。
+使用本地混流功能需要完成SDK的初始化并获取 SDK 实例 livePusher，初始化代码请参见 [对接攻略](https://cloud.tencent.com/document/product/267/56505#.E5.AF.B9.E6.8E.A5.E6.94.BB.E7.95.A5)。
 
 ### 步骤1：获取视频效果管理实例
 ```javascript
