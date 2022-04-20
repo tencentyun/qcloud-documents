@@ -21,7 +21,7 @@
 | [setVideoViewEnablePinch](#setVideoViewEnablePinch)     | 是否允许双指缩放/拖动应用图层                              |
 | [setVideoViewInsets](#setVideoViewInsets)               | 设置缩放时画面边框的偏移大小，这能让应用画面划出手机边框。 |
 | [onVideoSizeChanged](#onVideoSizeChanged)               | 视频图像宽高发生变化                                       |
-| [onVideoOrientationChanged](#onVideoOrientationChanged) | （手游）视频画面的朝向发生改变，进入应用前也会回调。       |
+| [onVideoOrientationChanged](#onVideoOrientationChanged) | 视频画面的朝向发生改变，进入应用前也会回调。       |
 
 
 
@@ -40,7 +40,7 @@
 | [initWithFrame](#initWithFrame)                   | 创建一个虚拟按键视图（继承 UIView），支持将手指单击事件转换为键盘/手柄按键事件 |
 | [showKeyGamepad](#showKeyGamepad)                 | 加载虚拟按键布局并生成按键，虚拟按键配置文件与 Android SDK、JS SDK 通用 |
 | [needConnected](#needConnected)                   | 查询当前的按键布局是否需要主动通知云端，返回 YES  表示时需调用 [enableVirtualGamepad](#enableVirtualGamepad) 通知云端启用虚拟手柄。 |
-| [initWithFrame](#initWithFrame)                   | （手游）创建云端触控视图（继承 UIView），支持将手指单击事件传递到云端手机上 |
+| [initWithFrame](#initWithFrame)                   | 创建云端触控视图（继承 UIView），支持将手指单击事件传递到云端手机上 |
 | [onCursorVisibleChanged](#onCursorVisibleChanged) | 设置云端鼠标是否可见                                         |
 | [onCursorImageUpdated](#onCursorImageUpdated)     | 设置云端鼠标图片                                             |
 | [clickKeyboard](#clickKeyboard)                   | 发送键盘事件，推荐使用 [TCGVKeyGamepad](#initWithFrame)      |
@@ -48,7 +48,7 @@
 | [turnJoyStickX](#turnJoyStickX)                   | 转动应用手柄的（左/右）摇杆，推荐使用 [TCGVKeyGamepad](#initWithFrame) |
 | [enableVirtualGamepad](#enableVirtualGamepad)     | 通知云端启用虚拟应用手柄                                     |
 | [resetRemoteKeycode](#resetRemoteKeycode)         | 清空云端的按键，用于处理键盘卡键的异常状态                   |
-| [remoteMobileBackClick](#remoteMobileBackClick)   | (手游) 触发云端的返回动作，触发云端系统的物理返回键          |
+| [remoteMobileBackClick](#remoteMobileBackClick)   | 触发云端的返回动作，触发云端系统的物理返回键          |
 
 
 
@@ -206,7 +206,7 @@ SDK 初始化成功回调。
 
 [](id:onVideoOrientationChanged)
 ### [TCGGamePlayerDelegate onVideoOrientationChanged:]
-（手游）视频画面的朝向发生改变，进入应用前也会回调。
+视频画面的朝向发生改变，进入应用前也会回调。
 > ! 这里的朝向指画面里的内容是竖屏或横屏内容（可理解为云端手机的朝向），而视频画面的宽高是不会发生改变的。
 
 | 参数        | 类型                   | 描述           |
@@ -308,7 +308,7 @@ SDK 初始化成功回调。
 
 [](id:initWithFrame)
 ### [TCGRemoteTouchScreen initWithFrame:controller:]
-（手游）创建云端触控视图（继承 UIView），支持将手指单击事件传递到云端手机上。
+创建云端触控视图（继承 UIView），支持将手指单击事件传递到云端手机上。
 
 > ! 视图为透明视图，使用时添加为 [videoView](#videoView) 的子视图，大小与 videoView 相同。
 
@@ -378,7 +378,7 @@ SDK 初始化成功回调。
 
 [](id:remoteMobileBackClick)
 ### [TCGGameController remoteMobileBackClick]
- (手游) 触发云端的返回动作，触发云端系统的物理返回键。
+ 触发云端的返回动作，触发云端系统的物理返回键。
 
 ## 数据通道交互接口
 [](id:openCustomTransChannel)
