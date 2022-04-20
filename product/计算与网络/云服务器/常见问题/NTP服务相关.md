@@ -42,6 +42,15 @@ ntp3.tencent.com
 ntp4.tencent.com
 ntp5.tencent.com
 ```
+以下为旧外网 NTP 服务器地址，旧地址仍可使用，但建议您配置使用新的外网 NTP 服务器地址。
+```plaintext
+time.cloud.tencent.com
+time1.cloud.tencent.com 
+time2.cloud.tencent.com 
+time3.cloud.tencent.com
+time4.cloud.tencent.com
+time5.cloud.tencent.com
+```
 
 ### 为什么使用自定义镜像创建的云服务器与正常时间不一致？
 请核实是否开启了 NTP 服务。若后续需使用 NTP 同步功能，请对应实例的操作系统参考以下文档进行 NTP 配置，完成配置后重新创建自定义镜像即可。
