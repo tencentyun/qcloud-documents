@@ -1,9 +1,10 @@
+# 查询会议实时信息状态
 ## 接口描述
 **描述：**查询当前会中成员列表，仅包括会中的成员。如果用户已离会，则不返回。企业超级管理员、会议创建者、会议主持人、会议联席主持人可以查询该数据。
 **调用方式：** GET
 **接口请求域名：** 
 ```josn
-https://api.meeting.qq.com//v1/meetings/{meeting_id}/real-time-participants
+https://api.meeting.qq.com/v1/meetings/{meeting_id}/real-time-participants
 ```
 
 ## 输入参数
@@ -53,7 +54,7 @@ https://api.meeting.qq.com//v1/meetings/{meeting_id}/real-time-participants
 ## 示例代码
 **输入示例**
 ```json
-https://api.meeting.qq.com//v1/meetings/17970399xxxxxxxx37836/real-time-participants?operator_id=test_restapi_user_496&page=1&page_size=20&operator_id_type=1
+https://api.meeting.qq.com/v1/meetings/17970399xxxxxxxx37836/real-time-participants?operator_id=test_restapi_user_496&page=1&page_size=20&operator_id_type=1
 ```
 **输出示例**
 ```json
