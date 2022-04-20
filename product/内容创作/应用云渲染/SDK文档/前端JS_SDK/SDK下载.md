@@ -1,4 +1,4 @@
-应用云渲染提供 JS-SDK 用于 Web 接入，支持端游和手游。SDK 提供了丰富的接口，满足大部分接入需求。接入方法请参见 [快速入门](https://tcloud-doc.isd.com/document/product/1547/72707?!editLang=zh&!preview) 及 [搭建示例](https://cloud.tencent.com/document/product/1162/56337)，并可通过 [SDK 接口](https://tcloud-doc.isd.com/document/product/1547/72694?!preview&!editLang=zh)，获取更多功能指引。
+应用云渲染提供 JS-SDK 用于 Web 接入。SDK 提供了丰富的接口，满足大部分接入需求。接入方法请参见 [快速入门](https://tcloud-doc.isd.com/document/product/1547/72707?!editLang=zh&!preview) 及 [搭建示例](https://cloud.tencent.com/document/product/1162/56337)，并可通过 [SDK 接口](https://tcloud-doc.isd.com/document/product/1547/72694?!preview&!editLang=zh)，获取更多功能指引。
 
 ## SDK 下载 
 | SDK  | 下载地址                           | SDK 说明文档                         |
