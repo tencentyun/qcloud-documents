@@ -9,19 +9,19 @@
 | 时序角色  | 对应         |
 | ---------- | -------------------- |
 | page    | 用户网页       |
-| tcgsdk.js | 当前使用的云游戏 SDK |
+| tcgsdk.js | 当前使用的云渲染 SDK |
 | app_server | 用户业务服务器    |
 | cloud_api | 腾讯云 API      |
 
 ## JS-SDK 概览
-### 云游戏生命周期相关接口
+### 云应用生命周期相关接口
 
 | 接口名称                          | 接口描述        |
 | ----------------------------------------------------------- | ---------------------- |
-| [TCGSDK.init(params)](#TCGSDK.init(params))         | 云游戏前端初始化    |
+| [TCGSDK.init(params)](#TCGSDK.init(params))         | 云应用前端初始化    |
 | [TCGSDK.getClientSession()](#TCGSDK.getClientSession())   | 获取 Client 端会话信息 |
-| [TCGSDK.start(serverSession)](#TCGSDK.start(serverSession)) | 启动云游戏       |
-| [TCGSDK.destroy(msg)](#TCGSDK.destroy(msg))         | 立即停止云游戏     |
+| [TCGSDK.start(serverSession)](#TCGSDK.start(serverSession)) | 启动云应用       |
+| [TCGSDK.destroy(msg)](#TCGSDK.destroy(msg))         | 立即停止云应用     |
 | [TCGSDK.reconnect()](#TCGSDK.reconnect())          | 重连接口        |
 
 
@@ -58,7 +58,7 @@
 | [TCGSDK.setRemoteCursorStyle(style)](#TCGSDK.setRemoteCursorStyle(style)) | 设置云端的系统鼠标样式     |
 | [TCGSDK.clearRemoteKeys()](#TCGSDK.clearRemoteKeys()) | 重置云端按键状态        |
 | [TCGSDK.resetRemoteCapsLock()](#TCGSDK.resetRemoteCapsLock() ) | 重置云端大小写状态       |
-| [TCGSDK.setDefaultCursorImage(url)](#TCGSDK.setDefaultCursorImage(url)) |设置云游戏页面中鼠标默认图片       |
+| [TCGSDK.setDefaultCursorImage(url)](#TCGSDK.setDefaultCursorImage(url)) |设置云应用页面中鼠标默认图片       |
 
 
 
@@ -78,7 +78,7 @@
 | [TCGSDK.getDisplayRect()](#TCGSDK.getDisplayRect()) | 获取显示区域的参数 |
 | [TCGSDK.getVideoVolume()](#TCGSDK.getVideoVolume()) | 获取 video 当前音量值（游戏声音）  |
 | [TCGSDK.setVideoVolume(val)](#TCGSDK.setVideoVolume(val) ) | 设置 video 播放音量值（游戏声音） |
-| [TCGSDK.setPageBackground(url)](#TCGSDK.setPageBackground(url)) | 设置云游戏页面的背景图   |
+| [TCGSDK.setPageBackground(url)](#TCGSDK.setPageBackground(url)) | 设置云应用页面的背景图   |
 | [TCGSDK.setVideoOrientation(deg,rotateContainer)](#TCGSDK.setVideoOrientation(deg,rotateContainer)) | 设置 video 的旋转角度 |
 
 
@@ -105,7 +105,7 @@ params对象有效字段描述：
 | keepLastFrame      | boolean | 可选   | 默认值为 false<br />断开的时候是否保留最后一帧画面，false 为不保留，true 保留。如果需要保留最后一帧画面并重连，不能再次调用 init 函数，而是先调用 `destroy()` 接口，再调用 `start()` 接口。 |
 | reconnect        | boolean | 可选   | 默认值为 false<br />true 为帧率掉0或者异常断开自动重连一次，true 为重连，false 为不重连 |
 | showLoading       | boolean | 可选   | 默认值为 true <br />是否显示“正在加载中”画面 |
-| loadingText       | string  | 可选   | 默认值为 `'正在启动云游戏' `<br />加载画面中的文字提示内容 |
+| loadingText       | string  | 可选   | 默认值为 `'正在启动云应用' `<br />加载画面中的文字提示内容 |
 | autoRotateContainer   | boolean | 可选   | 默认值为 false <br />移动端场景下，当横竖屏切换时，是否自动旋转适配 |
 | fullVideoToScreen    | boolean | 可选   | 默认值为 false <br />当 mount 挂载节点宽高大于云端推流分辨率时候，true 拉伸 video 尺寸并采用短边适配，false 不拉伸 video，保持原有云端分辨率 |
 | debugSetting      | object  | 可选   | <li/>showLog：boolean（可选）是否展示日志<li/> showStats：boolean（可选）是否展示 WebRTC 状态信息，也可使用 `CTRL+~` 快捷键显示 |
@@ -220,12 +220,12 @@ params对象有效字段描述：
 [](id:TCGSDK.start(serverSession))
 ### TCGSDK.start(serverSession)
 
- 业务 Server 调用 [CreateSession](https://cloud.tencent.com/document/product/1162/40740) 获取到 serversession 后调用该接口启动云游戏。
+ 业务 Server 调用 [CreateSession](https://cloud.tencent.com/document/product/1162/40740) 获取到 serversession 后调用该接口启动云应用。
 
 [](id:TCGSDK.destroy(msg))
 ### TCGSDK.destroy(msg)
 
-立即停止云游戏，销毁数据连接和显示画面。
+立即停止云应用，销毁数据连接和显示画面。
 
 | 参数 | 参数类型 | 说明                             |
 | ---- | -------- | ------------------------------------------------------------ |
@@ -563,7 +563,7 @@ function(res) {
 [](id:TCGSDK.setDefaultCursorImage(url))
 ### TCGSDK.setDefaultCursorImage(url)
 
-设置云游戏页面中鼠标默认图片。
+设置云应用页面中鼠标默认图片。
 
 | 参数 | 参数类型 | 说明       |
 | ---- | -------- | ---------------- |
@@ -634,7 +634,7 @@ function(res) {
 [](id:TCGSDK.setPageBackground(url))
 ### TCGSDK.setPageBackground(url)
 
-设置云游戏页面的背景图。
+设置云应用页面的背景图。
 
 | 参数 | 参数类型 | 说明     |
 | ---- | -------- | ------------ |

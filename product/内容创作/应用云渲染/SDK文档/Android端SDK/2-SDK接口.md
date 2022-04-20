@@ -9,8 +9,8 @@
 
 | 接口名称       | 接口描述       |
 | -------------------- | -------------------- |
-| [ITcgSdk.start(ServerSession)](#ITcgSdk.start(ServerSession)) | 启动云游戏     |
-| [ITcgSdk.stop()](#ITcgSdk.stop())         | 停止云游戏     |
+| [ITcgSdk.start(ServerSession)](#ITcgSdk.start(ServerSession)) | 启动云应用     |
+| [ITcgSdk.stop()](#ITcgSdk.stop())         | 停止云应用     |
 | [ITcgSdk.reconnect()](#ITcgSdk.reconnect())                  | 重新连接       |
 | [ITcgSdk.replace(pcSurfaceGameView)](#ITcgSdk.replace(pcSurfaceGameView))      | 替换 SDK 的游戏视图               |
 | [ITcgSdk.registerTcgListener(listener)](#ITcgSdk.registerTcgListener(listener)) | 设置生命周期回调监听              |
@@ -165,7 +165,7 @@
 [](id:ITcgSdk.start(ServerSession))
 ### ITcgSdk.start(ServerSession)
 
-启动云游戏。
+启动云应用。
 
 | 参数    | 类型          | 返回值 | 描述      |
 | ------- | ------------- | ------ | --------------- |
@@ -174,7 +174,7 @@
 [](id:ITcgSdk.stop())
 ### ITcgSdk.stop()
 
-停止云游戏。
+停止云应用。
 
 [](id:ITcgSdk.reconnect())
 ### ITcgSdk.reconnect()
