@@ -1,5 +1,4 @@
 ## IM Flutter SDK 3.9.3 @2022.4.20
-- 升级底层 SDK 版本为6.2.x
 - 修复群禁言群 tips boolValue 丢失问题
  - 目前群信息变更回调返回的数据为 key(string)-value(string) 形式，新增 key(string)-boolValue(bool) 形式
 - 修复会话实例少解析了 nameCard 字段问题
