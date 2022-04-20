@@ -12,7 +12,7 @@
 | [ITcgSdk.start(ServerSession)](#ITcgSdk.start(ServerSession)) | 启动云应用     |
 | [ITcgSdk.stop()](#ITcgSdk.stop())         | 停止云应用     |
 | [ITcgSdk.reconnect()](#ITcgSdk.reconnect())                  | 重新连接       |
-| [ITcgSdk.replace(pcSurfaceGameView)](#ITcgSdk.replace(pcSurfaceGameView))      | 替换 SDK 的游戏视图               |
+| [ITcgSdk.replace(pcSurfaceGameView)](#ITcgSdk.replace(pcSurfaceGameView))      | 替换 SDK 的应用视图               |
 | [ITcgSdk.registerTcgListener(listener)](#ITcgSdk.registerTcgListener(listener)) | 设置生命周期回调监听              |
 | [ITcgSdk.unRegisterTcgListener(listener)](#ITcgSdk.unRegisterTcgListener(listener)) | 注销生命周期回调监听              |
 | [ITcgListener](#ITcgListener)     | TcgSdk 生命周期回调，TcgSdk 在调用 start 接口之后进行初始化 |
@@ -59,29 +59,29 @@
 | [ITcgSdk.pause(callback)](#ITcgSdk.pause(callback))          | 暂停画面传输    |
 | [ITcgSdk.resume(callback)](#ITcgSdk.resume(callback))        | 恢复画面传输    |
 | [ITcgSdk.setStreamProfile(fps,minBitrate,maxBitrate,unit,callback)](#ITcgSdk.setStreamProfile(fps,minBitrate,maxBitrate,unit,callback)) | 设置建议的帧率和码率，云端会根据网络情况动态调整                   |
-| [ITcgSdk.setVolume(volume)](#ITcgSdk.setVolume(volume))      | 设置游戏音频 PCM 增益大小，默认1.0 |
-| [ITcgSdk.setVolume(userID,volume)](#ITcgSdk.setVolume(userID,volume)) | 设置游戏音频 PCM 增益大小，默认1.0 |
-| [ITcgSdk.setMicVolume(volume)](#ITcgSdk.setMicVolume(volume)) | 设置本地麦克风音量（多人云游场景） |
+| [ITcgSdk.setVolume(volume)](#ITcgSdk.setVolume(volume))      | 设置应用音频 PCM 增益大小，默认1.0 |
+| [ITcgSdk.setVolume(userID,volume)](#ITcgSdk.setVolume(userID,volume)) | 设置应用音频 PCM 增益大小，默认1.0 |
+| [ITcgSdk.setMicVolume(volume)](#ITcgSdk.setMicVolume(volume)) | 设置本地麦克风音量 |
 | [ITcgSdk.getVolume()](#ITcgSdk.getVolume())                  | 获取当前音频 PCM 增益              |
 | [ITcgSdk.registerResolutionChangeListener(listener)](#ITcgSdk.registerResolutionChangeListener(listener)) | 注册视频图像宽高变化监听           |
 | [ITcgSdk.unRegisterResolutionChangeListener(listener)](#ITcgSdk.unRegisterResolutionChangeListener(listener)) | 注销视频图像宽高变化监听           |
 | [IResolutionChangeListener.onResolutionChange()](#IResolutionChangeListener.onResolutionChange()) | 视频图像宽高发生变化               |
 
 
-### 游戏进程相关接口
+### 应用进程相关接口
 
 | 接口名称       | 接口描述     |
 | -------------------- | ------------------- |
 | [IRTCResult](#IRTCResult) | 远程调用结果 |
-| [ITcgSdk.gameRestart(callback)](#ITcgSdk.gameRestart(callback))  | 重启当前运行的游戏进程                  |
+| [ITcgSdk.gameRestart(callback)](#ITcgSdk.gameRestart(callback))  | 重启当前运行的应用进程                  |
 | [ITcgSdk.getLoginWindowStat(callback)](#ITcgSdk.getLoginWindowStat(callback)) | 查询当前窗口是否支持自动登录功能        |
 | [ITcgSdk.getInputMethodStat(callback)](#ITcgSdk.getInputMethodStat(callback)) | 查询云端输入法大小写状态                |
-| [ITcgSdk.loginHelper(account,password,callback)](#ITcgSdk.loginHelper(account,password,callback)) | 辅助登录,到远端游戏登录窗口输入账号密码 |
-| [ITcgSdk.registerGameProcessLaunchListener(listener)](#ITcgSdk.registerGameProcessLaunchListener(listener)) | 注册远端游戏进程启动回调监听            |
-| [ITcgSdk.registerGameStatusListener(listener)](#ITcgSdk.registerGameStatusListener(listener)) | 注册游戏启动状态回调                    |
-| [ITcgSdk.unRegisterGameStatusListener(listener)](#ITcgSdk.unRegisterGameStatusListener(listener)) | 注销游戏启动状态回调                    |
-| [ITcgSdk.registerGameStatusListener(listener)](#ITcgSdk.registerGameStatusListener(listener)) | 注册游戏启动状态回调                    |
-| [ITcgSdk.unRegisterGameProcessLaunchListener(listener)](#ITcgSdk.unRegisterGameProcessLaunchListener(listener)) | 注销远端游戏进程启动回调监听            |
+| [ITcgSdk.loginHelper(account,password,callback)](#ITcgSdk.loginHelper(account,password,callback)) | 辅助登录,到远端应用登录窗口输入账号密码 |
+| [ITcgSdk.registerGameProcessLaunchListener(listener)](#ITcgSdk.registerGameProcessLaunchListener(listener)) | 注册远端应用进程启动回调监听            |
+| [ITcgSdk.registerGameStatusListener(listener)](#ITcgSdk.registerGameStatusListener(listener)) | 注册应用启动状态回调                    |
+| [ITcgSdk.unRegisterGameStatusListener(listener)](#ITcgSdk.unRegisterGameStatusListener(listener)) | 注销应用启动状态回调                    |
+| [ITcgSdk.registerGameStatusListener(listener)](#ITcgSdk.registerGameStatusListener(listener)) | 注册应用启动状态回调                    |
+| [ITcgSdk.unRegisterGameProcessLaunchListener(listener)](#ITcgSdk.unRegisterGameProcessLaunchListener(listener)) | 注销远端应用进程启动回调监听            |
 | [ITcgSdk.registerRemoteLoginHelperListener(listener)](#ITcgSdk.registerRemoteLoginHelperListener(listener)) | 注册云 API 自动登录结果监听器           |
 | [ITcgSdk.unRegisterRemoteLoginHelperListener(listener)](#ITcgSdk.unRegisterRemoteLoginHelperListener(listener)) | 注销云 API 自动登录结果监听器           |
 | [ITcgSdk.registerGameArchiveListener(listener)](#ITcgSdk.registerGameArchiveListener(listener)) | 注册存档(加载及保存)监听器                    |
@@ -120,11 +120,11 @@
 | -------------------- | ------------------- |
 | [CursorType.TouchClickKey](#CursorType.TouchClickKey)        | 当鼠标类型为 TOUCH 和 RELATIVE_TOUCH 时，触发点击的按键类型 |
 | [GameView.setTouchClickKey(TouchClickKey)](#GameView.setTouchClickKey(TouchClickKey)) | 设置鼠标类型使用的按键           |
-| [GameView.enableScaling(enable)](#GameView.enableScaling(enable)) | 是否允许双指缩放游戏画面         |
-| [GameView.enableScaling(enable,min,max)](#GameView.enableScaling(enable,min,max)) | 是否允许双指缩放游戏画面         |
-| GameView.resetScaling()           | 重置游戏画面缩放大小             |
+| [GameView.enableScaling(enable)](#GameView.enableScaling(enable)) | 是否允许双指缩放应用画面         |
+| [GameView.enableScaling(enable,min,max)](#GameView.enableScaling(enable,min,max)) | 是否允许双指缩放应用画面         |
+| GameView.resetScaling()           | 重置应用画面缩放大小             |
 | [GameView.setPinchOffset(rect)](#GameView.setPinchOffset(rect)) | 设置缩放时画面边框的偏移大小     |
-| [GameView.handleMotion(enable)](#GameView.handleMotion(enable)) | 让游戏视图处理手势动作           |
+| [GameView.handleMotion(enable)](#GameView.handleMotion(enable)) | 让应用视图处理手势动作           |
 | [GameView.setMoveSensitivity(value)](#GameView.setMoveSensitivity(value)) | 设置鼠标灵敏度                   |
 | GameView.getMoveSensitivity()     | 返回已经设置的鼠标灵敏度         |
 | GameView.getCurrentCursorType()   | 当前设置的鼠标模式               |
@@ -133,16 +133,6 @@
 | [GameView.setOnPinchZoomListener(listener)](#GameView.setOnPinchZoomListener(listener)) | 监听双指缩放操作                 |
 
 
-### 多人云游接口
-
-| 接口名称       | 接口描述       |
-| -------------------- | -------------------- |
-| ITcgSdk.supportMultiPlayer()      | 返回多人云游操作实例              |
-| [IMultiPlayer.apply(userID,role,seatIndex,result)](#IMultiPlayer.apply(userID,role,seatIndex,result)) | 观察者申请切换角色和席位                |
-| [IMultiPlayer.change(userID,role,seatIndex,result)](#IMultiPlayer.change(userID,role,seatIndex,result)) | 房主切换观察者或玩家的角色和席位                |
-| [IMultiPlayer.syncSeatInfo()](#IMultiPlayer.syncSeatInfo())  | 获取所有席位信息（玩家及观察者），结果会通过 onSeatChanged 通知 |
-| [IMultiPlayer.registerSeatChangeListener(ISeatListener)](#IMultiPlayer.registerSeatChangeListener(ISeatListener)) | 注册席位信息监听器                |
-| [IMultiPlayer.unRegisterSeatChangeListener(ISeatListener)](#IMultiPlayer.unRegisterSeatChangeListener(ISeatListener)) | 注销席位信息监听器                |
 
 ### 数据通道交互接口
 
@@ -184,13 +174,13 @@
 [](id:ITcgSdk.replace(pcSurfaceGameView))
 ### ITcgSdk.replace(pcSurfaceGameView)
 
-替换游戏视图，调用后原游戏视图不会释放，若不再使用需手动释放。 
+替换应用视图，调用后原应用视图不会释放，若不再使用需手动释放。 
 
-> ! 如果传入的游戏视图已被释放, 该调用会抛 IllegalStateException 异常。
+> ! 如果传入的应用视图已被释放, 该调用会抛 IllegalStateException 异常。
 
 | 参数     | 类型           | 返回值 | 描述                    |
 | -------- | -------------- | ------ | ----------------------- |
-| pcSurfaceGameView | SimpleGameView | 无     | 游戏视图，可传 null |
+| pcSurfaceGameView | SimpleGameView | 无     | 应用视图，可传 null |
 
 [](id:ITcgSdk.registerTcgListener(listener))
 ### ITcgSdk.registerTcgListener(listener)  
@@ -391,7 +381,7 @@ SDK 初始化成功回调。
 
 发送文字到云端输入框。
 
-> ! 这个接口需要云端游戏或程序支持剪贴板输入功能。
+> ! 这个接口需要云端应用或程序支持剪贴板输入功能。
 
 | 参数     | 类型       | 描述    |
 | -------- | ---------- | -------- |
@@ -619,7 +609,7 @@ SDK 初始化成功回调。
 [](id:ITcgSdk.setVolume(volume))
 ### ITcgSdk.setVolume(volume)
 
-设置游戏音频 PCM 增益大小，默认1.0。
+设置应用音频 PCM 增益大小，默认1.0。
 
 | 参数   | 类型  | 描述                |
 | ------ | ----- | --------- |
@@ -628,7 +618,7 @@ SDK 初始化成功回调。
 [](id:ITcgSdk.setVolume(userID,volume))
 ### ITcgSdk.setVolume(userID,volume)
 
-针对特定用户（多人云游场景）设置音频 PCM 增益大小，默认1.0。
+针对特定用户设置音频 PCM 增益大小，默认1.0。
 
 | 参数   | 类型   | 描述                |
 | ------ | ------ | --------- |
@@ -638,7 +628,7 @@ SDK 初始化成功回调。
 [](id:ITcgSdk.setMicVolume(volume))
 ### ITcgSdk.setMicVolume(volume)
 
-设置本地麦克风音量（多人云游场景）。
+设置本地麦克风音量。
 
 | 参数   | 类型  | 描述                |
 | ------ | ----- | --------- |
@@ -675,7 +665,7 @@ SDK 初始化成功回调。
 | newWidth  | int  | 变化后的视频图像宽度                  |
 | newHeight | int  | 变化后的视频图像高度                  |
 
-## 游戏进程相关接口
+## 应用进程相关接口
 
 [](id:IRTCResult)
 ### IRTCResult
@@ -690,7 +680,7 @@ SDK 初始化成功回调。
 [](id:ITcgSdk.gameRestart(callback))
 ### ITcgSdk.gameRestart(callback)
 
-重启当前运行的游戏进程。
+重启当前运行的应用进程。
 
 | 参数     | 类型    | 描述             |
 | -------- | -------- | ---------------- |
@@ -737,9 +727,9 @@ SDK 初始化成功回调。
 [](id:ITcgSdk.loginHelper(account,password,callback))
 ### ITcgSdk.loginHelper(account,password,callback)
 
-辅助登录，到远端游戏登录窗口输入账号密码。
+辅助登录，到远端应用登录窗口输入账号密码。
 
-> ? 该接口依赖于云端配置，若回调不生效需要和云游团队确认配置是否开启。
+> ? 该接口依赖于云端配置，若回调不生效需要和云渲染团队确认配置是否开启。
 
 | 参数     | 类型       | 描述             |
 | -------- | ---------- | ---------------- |
@@ -750,32 +740,32 @@ SDK 初始化成功回调。
 [](id:ITcgSdk.registerGameProcessLaunchListener(listener))
 ### ITcgSdk.registerGameProcessLaunchListener(listener)  
 
-注册远端游戏进程启动回调监听。
+注册远端应用进程启动回调监听。
 
-> ? 该接口依赖于云端配置，若回调不生效需要和云游团队确认配置是否开启。
+> ? 该接口依赖于云端配置，若回调不生效需要和云渲染团队确认配置是否开启。
 
 | 参数     | 类型    | 返回值 | 描述             |
 | -------- | ------ | ------ | ---------------- |
-| listener | IGameProcessLaunchListener | 无     | 游戏进程启动监听 |
+| listener | IGameProcessLaunchListener | 无     | 应用进程启动监听 |
 
 [](id:ITcgSdk.unRegisterGameProcessLaunchListener(listener))
 ### ITcgSdk.unRegisterGameProcessLaunchListener(listener)
 
-注销远端游戏进程启动回调监听。
+注销远端应用进程启动回调监听。
 
 [](id:IGameProcessLaunchListener.onGameProcessLaunched(launchStart,launchFinished))
 #### IGameProcessLaunchListener.onGameProcessLaunched(launchStart,launchFinished)
 
 | 参数           | 类型 | 描述                |
 | -------------- | ---- | ------------------- |
-| launchStart    | long | 游戏开始启动时间 ms |
-| launchFinished | long | 游戏启动完成时间 ms |
+| launchStart    | long | 应用开始启动时间 ms |
+| launchFinished | long | 应用启动完成时间 ms |
 
 [](id:ITcgSdk.registerGameStatusListener(listener))
 
 ### ITcgSdk.registerGameStatusListener(listener)  
 
-注册游戏启动状态回调。
+注册应用启动状态回调。
 
 | 参数     | 类型                 | 返回值 | 描述                 |
 | -------- | -------------------- | ------ | -------------------- |
@@ -784,7 +774,7 @@ SDK 初始化成功回调。
 [](id:ITcgSdk.unRegisterGameStatusListener(listener))
 ### ITcgSdk.unRegisterGameStatusListener(listener)
 
-注销游戏启动状态回调。
+注销应用启动状态回调。
 
 
 #### IGameStatusListener2.onGameStatus(userID,gameID,requestID,status)
@@ -792,9 +782,9 @@ SDK 初始化成功回调。
 | 参数      | 类型   | 描述           |
 | --------- | ------ | -------------------- |
 | userID    | String | 调用云 API 的 userID              |
-| gameID    | String | 启动的当前游戏 ID                 |
+| gameID    | String | 启动的当前应用 ID                 |
 | requestID | String | 请求唯一标识    |
-| status    | String | <li/>0：启动游戏成功<li/>1：启动游戏失败<li/>2：游戏状态从未运行变成运行<li/>3：游戏状态从运行变成未运行 |
+| status    | String | <li/>0：启动应用成功<li/>1：启动应用失败<li/>2：应用状态从未运行变成运行<li/>3：应用状态从运行变成未运行 |
 
 [](id:ITcgSdk.registerRemoteLoginHelperListener(listener))
 ### ITcgSdk.registerRemoteLoginHelperListener(listener)  
@@ -815,13 +805,13 @@ SDK 初始化成功回调。
 | 参数   | 类型   | 描述      |
 | ------ | ------ | -------- |
 | userID | String | 执行自动登录的用户 ID        |
-| gameID | String | 游戏 ID  |
+| gameID | String | 应用 ID  |
 | result | int    | **0**表示登录成，**-1**表示登录失败 |
 
 [](id:ITcgSdk.registerGameArchiveListener(listener))
 ### ITcgSdk.registerGameArchiveListener(listener)
 
-注册加载游戏存档回调。
+注册加载应用存档回调。
 
 | 参数     | 类型       | 返回值 | 描述                 |
 | -------- | --------- | ------ | -------------------- |
@@ -830,7 +820,7 @@ SDK 初始化成功回调。
 [](id:ITcgSdk.unRegisterGameArchiveListener(listener))
 ### ITcgSdk.unRegisterGameArchiveListener(listener)  
 
-注销加载游戏存档回调。
+注销加载应用存档回调。
 
 #### IGameArchive.IArchiveListener.onLoadGameArchive(status,userID,gameID,name,url,saveType,categoryID,long archiveSize,long loadedSize)  
 
@@ -840,7 +830,7 @@ SDK 初始化成功回调。
 | ----------- | -------------- | ---------- |
 | status      | [GameArchiveLoadStatus](#GameArchiveLoadStatus) int | 存档加载状态                   |
 | userID      | String                   | 云 API 传入的 userID           |
-| gameID      | String                   | 游戏 ID     |
+| gameID      | String                   | 应用 ID     |
 | name        | String                   | 存档文件名                     |
 | url         | String                   | 存档下载地址                   |
 | saveType    | String                   | Auto 自动存档，Normal 手动存档 |
@@ -871,7 +861,7 @@ SDK 初始化成功回调。
 | ----------- | -------------- | ---------- |
 | status      | [GameArchiveSaveStatus](#GameArchiveSaveStatus) int | 存档保存状态                   |
 | userID      | String                   | 云 API 传入的 userID           |
-| gameID      | String                   | 游戏 ID     |
+| gameID      | String                   | 应用 ID     |
 | name        | String                   | 存档文件名                     |
 | url         | String                   | 存档下载地址                   |
 | saveType    | String                   | Auto 自动存档，Normal 手动存档 |
@@ -893,8 +883,8 @@ SDK 初始化成功回调。
 | UPLOADING             | 存档上传中        |
 | ARCHIVE_NOT_FOUND     | 没找到存档        |
 | OPERATION_IS_FREQUENT | 存档操作太频繁    |
-| PLAY_TIME_TOO_SHORT   | 玩游戏时间不够    |
-| ARCHIVE_DISABLE       | 当前游戏没有启用存档功能             |
+| PLAY_TIME_TOO_SHORT   | 玩应用时间不够    |
+| ARCHIVE_DISABLE       | 当前应用没有启用存档功能             |
 | INVALID_PARAM         | 参数错误，例如 gameId 或 userId 匹配 |
 | BUSY                  | 上一个请求正在处理中                 |
 | SKIP_ARCHIVE          | 切换存档时跳过存档                   |
@@ -927,10 +917,10 @@ SDK 初始化成功回调。
 
 | 参数                 | 类型    | 描述                     |
 | -------------------- | ------- | ------------------------ |
-| left        | int | 游戏画面在远程桌面的横坐标偏移       |
-| top        | int | 游戏画面在远程桌面的纵坐标偏移       |
-| width        | int | 游戏画面分辨率宽度       |
-| height        | int | 游戏画面分辨率高度       |
+| left        | int | 应用画面在远程桌面的横坐标偏移       |
+| top        | int | 应用画面在远程桌面的纵坐标偏移       |
+| width        | int | 应用画面分辨率宽度       |
+| height        | int | 应用画面分辨率高度       |
 | cursorShowing | boolean | 远端鼠标是否展示 |
 
 [](id:ITcgSdk.registerCursorVisibilityChangeListener(listener))
@@ -1046,7 +1036,7 @@ SDK 初始化成功回调。
 
 注册远端设备输入框回调监听。
 
-> ? 该接口依赖服务器针对游戏的配置。
+> ? 该接口依赖服务器针对应用的配置。
 
 | 参数     | 类型                 | 返回值 | 描述    |
 | -------- | -------------------- | ------ | ------ |
@@ -1067,7 +1057,7 @@ SDK 初始化成功回调。
 
 注册远端设备输入框回调监听。
 
->? 该接口依赖服务器针对游戏的配置。
+>? 该接口依赖服务器针对应用的配置。
 
 | 参数     | 类型                  | 返回值 | 描述               |
 | -------- | --------------------- | ------ | ------------------ |
@@ -1114,12 +1104,12 @@ SDK 初始化成功回调。
 [](id:GameView.enableScaling(enable))
 ### GameView.enableScaling(enable)
 
-是否允许双指缩放游戏画面。
+是否允许双指缩放应用画面。
 
 [](id:GameView.enableScaling(enable,min,max))
 ### GameView.enableScaling(enable,min,max)
 
-是否允许双指缩放游戏画面。
+是否允许双指缩放应用画面。
 
 | 参数   | 类型    | 描述        |
 | ------ | ------- | ------------------ |
@@ -1130,7 +1120,7 @@ SDK 初始化成功回调。
 [](id:GameView.setPinchOffset(rect))
 ### GameView.setPinchOffset(rect)
 
-设置缩放时画面边框的偏移大小，这能让游戏画面划出手机边框。
+设置缩放时画面边框的偏移大小，这能让应用画面划出手机边框。
 
 | 参数 | 类型 | 描述     |
 | ---- | ---- | --------------- |
@@ -1140,7 +1130,7 @@ SDK 初始化成功回调。
 [](id:GameView.handleMotion(enable))
 ### GameView.handleMotion(enable)
 
-让游戏视图处理手势动作。
+让应用视图处理手势动作。
 
 [](id:GameView.setMoveSensitivity(value))
 ### GameView.setMoveSensitivity(value)
@@ -1208,122 +1198,6 @@ SDK 初始化成功回调。
 | x    | float | 缩放横坐标 |
 | y    | float | 缩放纵坐标 |
 
-
-
-
-## 多人云游接口
-
-[](id:IMultiPlayer.apply(userID,role,seatIndex,result))
-### IMultiPlayer.apply(userID,role,seatIndex,result)
-
-观察者深切换角色和席位。
-
-| 参数      | 类型       | 描述             |
-| --------- | --------- | ---------------- |
-| userID    | String     | 用户 ID          |
-| role      | Role       | 目标角色         |
-| seatIndex | int        | 目标席位         |
-| result    | [IApplyResult](#IApplyResult) | 席位申请结果回调 |
-
-[](id:IApplyResult)
-#### IApplyResult
-
-席位申请结果回调。
-
-[](id:IApplyResult.status(code))
-##### IApplyResult.status(code)
-
-席位申请状态。
-
-| 类型         | 说明                 |
-| ----------- | -------------------- |
-| STATUS_SUCCESS                  | 申请提交成功         |
-| STATUS_INVALID_SEAT_INDEX       | 席位无效             |
-| STATUS_NO_AUTHORIZED            | 鉴权失败             |
-| STATUS_NO_SUCH_USER             | 用户不存在           |
-| STATUS_ASSIGN_SEAT_FAILED       | 席位分配失败         |
-| STATUS_SERVER_JSON_PARSE_FAILED | 服务端 JSON 解析失败 |
-| STATUS_TIMEOUT                  | 申请提交超时         |
-
-[](id:IMultiPlayer.change(userID,role,seatIndex,result))
-### IMultiPlayer.change(userID,role,seatIndex,result)
-
-房主切换观察者的角色和席位。
-
-| 参数      | 类型         | 描述             |
-| --------- | ----------- | ---------------- |
-| userID    | String       | 用户 ID          |
-| role      | Role         | 目标角色         |
-| seatIndex | int  | 目标席位         |
-| result    | [IChangeResult](#IChangeResult) | 席位修改结果回调 |
-
-[](id:IChangeResult)
-#### IChangeResult
-
-席位修改结果回调。
-
-[](id:IChangeResult.status(code))
-##### IChangeResult.status(code)
-
-席位申请状态。
-
-| 类型         | 说明                 |
-| ----------- | -------------------- |
-| STATUS_SUCCESS                  | 申请提交成功         |
-| STATUS_INVALID_SEAT_INDEX       | 席位无效             |
-| STATUS_NO_AUTHORIZED            | 鉴权失败             |
-| STATUS_NO_SUCH_USER             | 用户不存在           |
-| STATUS_ASSIGN_SEAT_FAILED       | 席位分配失败         |
-| STATUS_SERVER_JSON_PARSE_FAILED | 服务端 JSON 解析失败 |
-| STATUS_TIMEOUT                  | 申请提交超时         |
-
-[](id:IMultiPlayer.syncSeatInfo())
-### IMultiPlayer.syncSeatInfo()
-
-获取所有席位信息（玩家及观察者），结果会通过 onSeatChanged 通知。 
-
-> ? 具体请参见 [IMultiPlayer.registerSeatChangeListener(ISeatListener)](#IMultiPlayer.registerSeatChangeListener(ISeatListener)) 和 [ISeatListener.onSeatChanged(userId,viewers,players)](#ISeatListener.onSeatChanged)。
-
-[](id:IMultiPlayer.registerSeatChangeListener(ISeatListener))
-### IMultiPlayer.registerSeatChangeListener(ISeatListener)
-
-注册席位信息监听器。
-
-| 参数     | 类型          | 描述           |
-| -------- | ------------- | -------------------- |
-| listener | ISeatListener | 席位信息变更的回调接口。**该接口既可以接收 syncSeatInfo 触发的回调信息，也可以接收云端主动推送的席位变更信息** |
-
-[](id:ISeatListener)
-#### ISeatListener
-
-席位信息监听器。
-
-[](id:ISeatListener.onSeatChanged)
-##### ISeatListener.onSeatChanged(String userId,List&lt;String&gt; viewers,List&lt;String&gt;players)
-
-当席位信息出现变更时，所有的用户会收到该回调。该接口既可以接收 syncSeatInfo 触发的回调信息，也可以接收云端主动推送的席位变更信息。
-
-| 参数    | 类型         | 描述           |
-| ------- | ------------ | -------------------- |
-| userID  | String       | 该用户自己的用户 ID               |
-| viewers | List&lt;String&gt; | 观察者的用户 ID 列表，列表可能为空，列表中的元素代表用户 ID，也可能会空 |
-| players | List&lt;String&gt; | 玩家的用户 ID 列表，列表可能为空，列表中的元素代表用户 ID，也可能会空 |
-
-[](id:ISeatListener.onRoleApplied(userId,role,seatIndex))
-#### ISeatListener.onRoleApplied(userId,role,seatIndex)
-
-当有用户申请席位变更时，房主会收到该回调。
-
-| 参数      | 类型   | 描述                  |
-| --------- | ------ | --------------------- |
-| userID    | String | 申请变更席位的用户 ID |
-| role      | Role   | 申请者申请的角色      |
-| seatIndex | int    | 申请者申请的席位      |
-
-[](id:IMultiPlayer.unRegisterSeatChangeListener(ISeatListener))
-### IMultiPlayer.unRegisterSeatChangeListener(ISeatListener)
-
-注销席位信息监听器。
 
 ## 数据通道交互接口
 
@@ -1409,8 +1283,8 @@ return：**0**表示发送成功，**-1**表示发送数据长度超过限制，
 | INIT_ERROR_UNDER_RESOURCE         | 资源不足，请稍后重试    |
 | INIT_ERROR_TICKET_EXPIRED         | 票据失效                |
 | INIT_ERROR_INVALID_SPD            | SDP 信息错误            |
-| INIT_ERROR_LAUNCH_GAME_ERROR      | 游戏拉起失败            |
-| INIT_ERROR_GET_ARCHIVE_FAILED     | 下载用户游戏存档失败    |
+| INIT_ERROR_LAUNCH_GAME_ERROR      | 应用拉起失败            |
+| INIT_ERROR_GET_ARCHIVE_FAILED     | 下载用户应用存档失败    |
 | INIT_ERROR_TCG_SDK_STOPPED        | SDK 已终止，再使用需通过 Builder 重新创建          |
 | CONN_ERROR_SET_REMOTE_SDP_FAILED  | 设置远端 SDP 异常       |
 | CONN_ERROR_SET_LOCAL_SDP_FAILED   | 设置本地 SDP 异常       |

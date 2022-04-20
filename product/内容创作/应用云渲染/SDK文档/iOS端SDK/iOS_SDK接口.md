@@ -16,20 +16,20 @@
 | ------------------------------------------------------- | ---------------------------------------------------------- |
 | [pauseResumeGame](#pauseResumeGame)                     | 暂停/恢复画面传输                                          |
 | [setStreamBitrateMix](#setStreamBitrateMix)             | 设置建议的帧率码率                                         |
-| [setVolumeScale](#setVolumeScale)                       | 设置游戏音频 PCM 增益大小，默认1.0                         |
-| [videoView](#videoView)                                 | 获取游戏画面渲染的图层                                     |
-| [setVideoViewEnablePinch](#setVideoViewEnablePinch)     | 是否允许双指缩放/拖动游戏图层                              |
-| [setVideoViewInsets](#setVideoViewInsets)               | 设置缩放时画面边框的偏移大小，这能让游戏画面划出手机边框。 |
+| [setVolumeScale](#setVolumeScale)                       | 设置应用音频 PCM 增益大小，默认1.0                         |
+| [videoView](#videoView)                                 | 获取应用画面渲染的图层                                     |
+| [setVideoViewEnablePinch](#setVideoViewEnablePinch)     | 是否允许双指缩放/拖动应用图层                              |
+| [setVideoViewInsets](#setVideoViewInsets)               | 设置缩放时画面边框的偏移大小，这能让应用画面划出手机边框。 |
 | [onVideoSizeChanged](#onVideoSizeChanged)               | 视频图像宽高发生变化                                       |
-| [onVideoOrientationChanged](#onVideoOrientationChanged) | （手游）视频画面的朝向发生改变，进入游戏前也会回调。       |
+| [onVideoOrientationChanged](#onVideoOrientationChanged) | （手游）视频画面的朝向发生改变，进入应用前也会回调。       |
 
 
 
-### 游戏操控相关接口
+### 应用操控相关接口
 
 | 接口名称                                          | 接口描述                                                     |
 | ------------------------------------------------- | ------------------------------------------------------------ |
-| [gameController](#gameController)                 | 获取游戏操控辅助类                                           |
+| [gameController](#gameController)                 | 获取应用操控辅助类                                           |
 | [initWithFrame](#initWithFrame)                   | 创建鼠标视图（继承 UIView），支持将手指单击事件转换为 PC 上的鼠标操作 |
 | [setCursorTouchMode](#setCursorTouchMode)         | 设置鼠标的操控模式                                           |
 | [setCursorIsShow](#setCursorIsShow)               | 设置鼠标是否可见，配合 [onCursorVisibleChanged:](#onCursorVisibleChanged ) 回调一起使用 |
@@ -44,9 +44,9 @@
 | [onCursorVisibleChanged](#onCursorVisibleChanged) | 设置云端鼠标是否可见                                         |
 | [onCursorImageUpdated](#onCursorImageUpdated)     | 设置云端鼠标图片                                             |
 | [clickKeyboard](#clickKeyboard)                   | 发送键盘事件，推荐使用 [TCGVKeyGamepad](#initWithFrame)      |
-| [clickGamepadKey](#clickGamepadKey)               | 发送游戏手柄按键事件，推荐使用 [TCGVKeyGamepad](#initWithFrame) |
-| [turnJoyStickX](#turnJoyStickX)                   | 转动游戏手柄的（左/右）摇杆，推荐使用 [TCGVKeyGamepad](#initWithFrame) |
-| [enableVirtualGamepad](#enableVirtualGamepad)     | 通知云端启用虚拟游戏手柄                                     |
+| [clickGamepadKey](#clickGamepadKey)               | 发送应用手柄按键事件，推荐使用 [TCGVKeyGamepad](#initWithFrame) |
+| [turnJoyStickX](#turnJoyStickX)                   | 转动应用手柄的（左/右）摇杆，推荐使用 [TCGVKeyGamepad](#initWithFrame) |
+| [enableVirtualGamepad](#enableVirtualGamepad)     | 通知云端启用虚拟应用手柄                                     |
 | [resetRemoteKeycode](#resetRemoteKeycode)         | 清空云端的按键，用于处理键盘卡键的异常状态                   |
 | [remoteMobileBackClick](#remoteMobileBackClick)   | (手游) 触发云端的返回动作，触发云端系统的物理返回键          |
 
@@ -167,7 +167,7 @@ SDK 初始化成功回调。
 
 [](id:setVolumeScale)
 ### [TCGGamePlayer setVolumeScale:]
-设置游戏音频 PCM 增益大小，默认1.0。
+设置应用音频 PCM 增益大小，默认1.0。
 
 | 参数  | 类型  | 描述                                           |
 | ----- | ----- | ---------------------------------------------- |
@@ -176,12 +176,12 @@ SDK 初始化成功回调。
 [](id:videoView)
 
 ### [TCGGamePlayer videoView]
-获取游戏画面渲染的图层。
+获取应用画面渲染的图层。
 
 [](id:setVideoViewEnablePinch)
 
 ### [TCGGamePlayer setVideoViewEnablePinch:]
-是否允许双指缩放/拖动游戏图层。
+是否允许双指缩放/拖动应用图层。
 
 | 参数     | 类型 | 描述                                    |
 | -------- | ---- | --------------------------------------- |
@@ -190,7 +190,7 @@ SDK 初始化成功回调。
 [](id:setVideoViewInsets)
 
 ### [TCGGamePlayer setVideoViewInsets:]
-设置缩放时画面边框的偏移大小，这能让游戏画面划出手机边框。
+设置缩放时画面边框的偏移大小，这能让应用画面划出手机边框。
 
 | 参数   | 类型         | 描述                                 |
 | ------ | ------------ | ------------------------------------ |
@@ -206,7 +206,7 @@ SDK 初始化成功回调。
 
 [](id:onVideoOrientationChanged)
 ### [TCGGamePlayerDelegate onVideoOrientationChanged:]
-（手游）视频画面的朝向发生改变，进入游戏前也会回调。
+（手游）视频画面的朝向发生改变，进入应用前也会回调。
 > ! 这里的朝向指画面里的内容是竖屏或横屏内容（可理解为云端手机的朝向），而视频画面的宽高是不会发生改变的。
 
 | 参数        | 类型                   | 描述           |
@@ -214,13 +214,13 @@ SDK 初始化成功回调。
 | orientation | UIInterfaceOrientation | 视频画面的朝向 |
 
 [](id:TCGGamePlayer)
-## 游戏操控相关接口
+## 应用操控相关接口
 > ! 所有按键相关接口必须在 [[TCGGamePlayerDelegate onVideoShow]](#onVideoShow) 回调发生之后调用才生效。
 
 
 [](id:gameController)
 ### [TCGGamePlayer gameController]
-获取游戏操控辅助类。
+获取应用操控辅助类。
 
 [](id:initWithFrame)
 ### [TCGVirtualMouseCursor initWithFrame:controller:]
@@ -231,7 +231,7 @@ SDK 初始化成功回调。
 | 参数       | 类型                                 | 描述             |
 | ---------- | ------------------------------------ | ---------------- |
 | frame      | CGRect                               | 视图的大小与位置 |
-| controller | [TCGGameController](#gameController) | 游戏操控辅助类   |
+| controller | [TCGGameController](#gameController) | 应用操控辅助类   |
 
 [](id:setCursorTouchMode)
 ### [TCGVirtualMouseCursor setCursorTouchMode:]
@@ -292,7 +292,7 @@ SDK 初始化成功回调。
 | 参数       | 类型                                 | 描述             |
 | ---------- | ------------------------------------ | ---------------- |
 | frame      | CGRect                               | 视图的大小与位置 |
-| controller | [TCGGameController](#gameController) | 游戏操控辅助类   |
+| controller | [TCGGameController](#gameController) | 应用操控辅助类   |
 
 [](id:showKeyGamepad)
 ### [TCGVKeyGamepad showKeyGamepad:]
@@ -315,7 +315,7 @@ SDK 初始化成功回调。
 | 参数       | 类型                                 | 描述             |
 | ---------- | ------------------------------------ | ---------------- |
 | frame      | CGRect                               | 视图的大小与位置 |
-| controller | [TCGGameController](#gameController) | 游戏操控辅助类   |
+| controller | [TCGGameController](#gameController) | 应用操控辅助类   |
 
 
 [](id:onCursorVisibleChanged )
@@ -347,7 +347,7 @@ SDK 初始化成功回调。
 
 [](id:clickGamepadKey)
 ### [TCGGameController clickGamepadKey:isDown:]
-发送游戏手柄按键事件，推荐使用 [TCGVKeyGamepad](#initWithFrame)。
+发送应用手柄按键事件，推荐使用 [TCGVKeyGamepad](#initWithFrame)。
 
 | 参数    | 类型 | 描述                                      |
 | ------- | ---- | ----------------------------------------- |
@@ -356,7 +356,7 @@ SDK 初始化成功回调。
 
 [](id:turnJoyStickX)
 ### [TCGGameController turnJoyStickX:y:isLeft:]
-转动游戏手柄的（左/右）摇杆，推荐使用 [TCGVKeyGamepad](#initWithFrame)。
+转动应用手柄的（左/右）摇杆，推荐使用 [TCGVKeyGamepad](#initWithFrame)。
 
 | 参数   | 类型    | 描述                                  |
 | ------ | ------- | ------------------------------------- |
@@ -366,7 +366,7 @@ SDK 初始化成功回调。
 
 [](id:enableVirtualGamepad)
 ### [TCGGameController enableVirtualGamepad:]
-通知云端启用虚拟游戏手柄。
+通知云端启用虚拟应用手柄。
 
 | 参数   | 类型 | 描述                                          |
 | ------ | ---- | --------------------------------------------- |

@@ -25,13 +25,13 @@
 | [TCGSDK.reconnect()](#TCGSDK.reconnect())          | 重连接口        |
 
 
-### 游戏进程相关接口
+### 应用进程相关接口
 
 | 接口名称                           | 接口描述          |
 | ------------------------------------------------------------ | -------------------------- |
-| [TCGSDK.gameRestart(callback)](#TCGSDK.gameRestart(callback)) | 重启当前运行的游戏进程   |
-| [TCGSDK.gamePause(callback)](#TCGSDK.gamePause(callback)) | 暂停当前运行的游戏进程   |
-| [TCGSDK.gameResume(callback)](#TCGSDK.gameResume(callback)) | 恢复运行当前运行的游戏进程   |
+| [TCGSDK.gameRestart(callback)](#TCGSDK.gameRestart(callback)) | 重启当前运行的应用进程   |
+| [TCGSDK.gamePause(callback)](#TCGSDK.gamePause(callback)) | 暂停当前运行的应用进程   |
+| [TCGSDK.gameResume(callback)](#TCGSDK.gameResume(callback)) | 恢复运行当前运行的应用进程   |
 | [TCGSDK.loginHelper(params,callback)](#TCGSDK.loginHelper(params,callback) ) | 辅助登录          |
 | [TCGSDK.getLoginWindowStat(gameid,callback)](#TCGSDK.getLoginWindowStat(gameid,callback)) | 获取当前窗口是否为登录窗口 |
 | [TCGSDK.sendText(content)](#TCGSDK.sendText(content)) | 聚焦输入框时快速发送内容 |
@@ -76,8 +76,8 @@
 | ------------------------------------------------------------ | ------------------ |
 | [TCGSDK.setStreamProfile(profile,callback)](#TCGSDK.setStreamProfile(profile,callback)) | 设置码流参数    |
 | [TCGSDK.getDisplayRect()](#TCGSDK.getDisplayRect()) | 获取显示区域的参数 |
-| [TCGSDK.getVideoVolume()](#TCGSDK.getVideoVolume()) | 获取 video 当前音量值（游戏声音）  |
-| [TCGSDK.setVideoVolume(val)](#TCGSDK.setVideoVolume(val) ) | 设置 video 播放音量值（游戏声音） |
+| [TCGSDK.getVideoVolume()](#TCGSDK.getVideoVolume()) | 获取 video 当前音量值（应用声音）  |
+| [TCGSDK.setVideoVolume(val)](#TCGSDK.setVideoVolume(val) ) | 设置 video 播放音量值（应用声音） |
 | [TCGSDK.setPageBackground(url)](#TCGSDK.setPageBackground(url)) | 设置云应用页面的背景图   |
 | [TCGSDK.setVideoOrientation(deg,rotateContainer)](#TCGSDK.setVideoOrientation(deg,rotateContainer)) | 设置 video 的旋转角度 |
 
@@ -116,8 +116,8 @@ params对象有效字段描述：
 | onDisconnect      | function | 可选   | 断开/被踢触发此回调，调用 start 接口成功后才会触发 |
 | onNetworkChange     | function | 可选   | 网络状态变化 |
 | onTouchEvent      | function | 可选   | 移动端触摸事件回调，调用 start 接口成功后才会触发，返回一个object 具体参见 [onTouchEvent](#onTouchEvent)<br /> 云端游场景下，在移动端接入JS SDK时，SDK会把对应的点位坐标按照 `onTouchEventResponse[]` 的结构回调，需要业务测自己处理对应的消息发送逻辑。<br />例如：mouseMove，mouseleft 的 down/up 等操作。 |
-| onLoadGameArchive    | function | 可选   | 游戏存档加载回调，会不断回调size（需要进行云端配置）|
-| onSaveGameArchive    | function | 可选   | 游戏保存存档回调（需要进行云端配置） |
+| onLoadGameArchive    | function | 可选   | 应用存档加载回调，会不断回调size（需要进行云端配置）|
+| onSaveGameArchive    | function | 可选   | 应用保存存档回调（需要进行云端配置） |
 | onInputStatusChange   | function | 可选   | 云端输入状态改变，有点击事件的时候都会触发，需要判断新旧状态 |
 | onGamepadConnectChange | function | 可选   | 手柄连接/断开事件回调 |
 | onCursorShowStatChange | function | 可选   | 云端鼠标显示/隐藏，只在变化的时候回调 |
@@ -152,7 +152,7 @@ params对象有效字段描述：
 | 外网 IP 变化     | {"status": "ipchanged"}                   |
 | 连接 loading 时间过长 | {"status": "noflow"}                     |
 | 已连接但帧率掉0   | {"status": "noflowcenter"}                  |
-| 实时状态数据    | {"status": "stats","stats": {...}}，stats字段的结构请参见 [stats 字段描述](#stats) |
+| 实时状态数据    | {"status": "stats","stats": {...}}，stats 字段的结构请参见 [stats 字段描述](#stats) |
 
 
 [](id:stats)
@@ -176,7 +176,7 @@ params对象有效字段描述：
 
 | 错误码 | 说明            |
 | ------ | -------------------------- |
-| code=-1 | setRemoteDescription 失败，常见于浏览器不支持 WebRTC 或云游编码格式  |
+| code=-1 | setRemoteDescription 失败，常见于浏览器不支持 WebRTC 或云渲染编码格式  |
 | code=0 | 请求正常          |
 | code=1 | 系统繁忙          |
 | code=2 | 票据不合法         |
@@ -184,7 +184,7 @@ params对象有效字段描述：
 | code=4 | 资源不足，没有可用机器   |
 | code=5 | session 失效，需要重新登录 |
 | code=6 | 媒体描述信息错误      |
-| code=7 | 游戏拉起失败        |
+| code=7 | 应用拉起失败        |
 
 [](id:onDisconnect)
 #### onDisconnect 错误码汇总
@@ -238,12 +238,12 @@ params对象有效字段描述：
 
 
 
-## 游戏进程相关接口
+## 应用进程相关接口
 
 [](id:TCGSDK.gameRestart(callback))
 ### TCGSDK.gameRestart(callback)
 
-重启当前运行的游戏进程。
+重启当前运行的应用进程。
 
 | 参数   | 参数类型 | 说明   |
 | -------- | -------- | -------- |
@@ -252,7 +252,7 @@ params对象有效字段描述：
 [](id:TCGSDK.gamePause(callback))
 ### TCGSDK.gamePause(callback)
 
-暂停当前运行的游戏进程。
+暂停当前运行的应用进程。
 
 | 参数   | 参数类型 | 说明   |
 | -------- | -------- | -------- |
@@ -262,7 +262,7 @@ params对象有效字段描述：
 [](id:TCGSDK.gameResume(callback))
 ### TCGSDK.gameResume(callback)
 
-恢复运行当前运行的游戏进程。
+恢复运行当前运行的应用进程。
 
 | 参数   | 参数类型 | 说明   |
 | -------- | -------- | -------- |
@@ -276,7 +276,7 @@ params对象有效字段描述：
 
 | 参数   | 参数类型 | 说明                             |
 | -------- | -------- | ------------------------------------------------------------ |
-| params  | object  | 辅助登录的参数，主要参数如下：<li>gameid：游戏 ID</li><li>acc：帐号字符串</li><li>pwd：密码字符串</li> |
+| params  | object  | 辅助登录的参数，主要参数如下：<li>gameid：应用 ID</li><li>acc：帐号字符串</li><li>pwd：密码字符串</li> |
 | callback | function | 执行结果回调                         |
 
 **callback 的原型：**
@@ -304,7 +304,7 @@ function(res) {
 
 | 参数   | 参数类型 | 说明     |
 | -------- | -------- | ------------ |
-| gameid  | string  | 游戏 ID   |
+| gameid  | string  | 应用 ID   |
 | callback | function | 执行结果回调 |
 
 **callback 的原型如下：**
@@ -619,12 +619,12 @@ function(res) {
 [](id:TCGSDK.getVideoVolume())
 
 ### TCGSDK.getVideoVolume()
-获取 video 当前音量值（游戏声音）。
+获取 video 当前音量值（应用声音）。
 
 [](id:TCGSDK.setVideoVolume(val))
 
 ### TCGSDK.setVideoVolume(val)
-设置video播放音量（游戏声音）
+设置video播放音量（应用声音）
 
 | 参数 | 参数类型 | 说明            |
 | ---- | -------- | --------------------------- |
