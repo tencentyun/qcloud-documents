@@ -62,13 +62,13 @@ chain_client:
 ### 获取组织 ID
 
 1. 单击**组织与节点**页签，进入“组织与节点”页面。
-2. 找到当前组织 ID 信息，填写到配置文件的 `org_id` 字段。如下图所示：
+2. 找到当前组织 ID 信息，填写到配置文件的 `org_id` 字段。如下图所示： 
    ![](https://main.qcloudimg.com/raw/8f0ab0369019b96e64db29efd2e72ac4.png)
 
 ### 获取节点名称
 
 1. 在“组织与节点”页面单击**节点管理**，进入“节点管理”页面。
-2. 找到当前组织的节点列表，选择一个节点并复制节点名称，填写到配置文件的 `tls_host_name` 字段。如下图所示：
+2. 找到当前组织的节点列表，选择一个节点并复制节点名称，填写到配置文件的 `tls_host_name` 字段。如下图所示： 
    ![](https://main.qcloudimg.com/raw/930294344d259011819adfab7dc9db3f.png)
 
 ### 申请证书
@@ -81,7 +81,7 @@ chain_client:
  - **user_ecc_tls.key**：用户 tls 证书私钥。
  - **user_ecc_tls.csr**：用于在 [TBaaS 控制台](https://console.cloud.tencent.com/tbaas/overview) 申请用户 tls 证书。
 
-3. 在“证书管理”界面添加申请证书，填写证书标识，并上传 `user_ecc_sign.csr` 和 `user_ecc_tls.csr`。如下图所示：
+3. 在“证书管理”界面添加申请证书，填写证书标识，并上传 `user_ecc_sign.csr` 和 `user_ecc_tls.csr`。如下图所示： 
    ![](https://main.qcloudimg.com/raw/cc4ad0d188524a6a6bc6fcdc161d2dd6.png)
 4. 申请成功后可以单击**下载**下载对应证书，压缩包包含如下文件：
 
@@ -138,7 +138,7 @@ chain_client:
    - **执行环境**：选择 `Go`。
    - **初始化参数（选填）**：保存为空。
      <img src="https://main.qcloudimg.com/raw/2d6651004a61dcb4dcd03133bf2a12c0.png" style="zoom: 60%;" />
-3. 部署成功后，合约列表将会展示刚刚部署的合约。如下图所示：
+3. 部署成功后，合约列表将会展示刚刚部署的合约。如下图所示： 
    <img src="https://main.qcloudimg.com/raw/36139a20c5410526c643bc79c8e84092.png" style="zoom: 60%;" />
 
 #### 部署 solidity 合约
@@ -151,7 +151,7 @@ chain_client:
    - **执行环境**：选择 `Solidity`。
    - **初始化参数（选填）**：key 为 data，value 为 hex 格式的 ABI 编码。
      <img src="https://main.qcloudimg.com/raw/8a141576b1193db70183413d1d792ab3.png" style="zoom: 60%;" />
-4. 部署成功后，合约列表将会展示刚刚部署的合约。如下图所示：
+4. 部署成功后，合约列表将会展示刚刚部署的合约。如下图所示： 
    <img src="https://main.qcloudimg.com/raw/efbcd1f4a85bad362553b48975c2590c.png" style="zoom: 60%;" />
 
 ### 运行 Demo
