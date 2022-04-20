@@ -514,7 +514,7 @@ TKE 支持混合云节点。(kube-controller-manager)</td>
 <tr>
 	<td>2019-12-17</td>
 	<td>v1.12.4-tke.14</td>
-	<td><ul class="params"> <li>metadata 增加缓存和超时。</li> <li> Ubuntu16 下 lxcfs 升级造成 Pod 退出问题修复。 </li><li> kubelet 重启避免 readiness 的 pod not ready。 </li></ul></td>
+	<td><ul class="params"> <li>metadata 增加缓存和超时。</li> <li> Ubuntu16 下 lxcfs 升级造成 Pod 退出问题修复。  </li><li> kubelet 重启避免 readiness 的 pod not ready。  </li></ul></td>
 </tr>
 	<tr>
 	<td>2019-11-28</td>
@@ -601,7 +601,7 @@ TKE 支持混合云节点。(kube-controller-manager)</td>
 <tr>
     <td>2020-04-29</td>
 	<td>v1.10.5-tke.17</td>
-    <td>合并<a href="https://github.com/kubernetes/kubernetes/pull/75622"> pr75622</a>，解决在集群存在大量 sts（>2000）工作负载的情况下，sts 同步到 Pod 延迟大（~20s）的问题。 </td>
+    <td>合并<a href="https://github.com/kubernetes/kubernetes/pull/75622"> pr75622</a>，解决在集群存在大量 sts（>2000）工作负载的情况下，sts 同步到 Pod 延迟大（~20s）的问题。  </td>
     </tr>
 <tr>
     <td>2020-04-14</td>
@@ -637,7 +637,7 @@ TKE 支持混合云节点。(kube-controller-manager)</td>
 <tr>
 	<td>2019-10-23</td>
 	<td>v1.10.5-tke.10</td>
-	<td><ul class="params"><li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/79036" target="_blank">pr79036</a> 解决当开启 CPU Manager 时，如果 Pod 的 QoS 为 Guaranteed，则关闭 cpu quota。</li><li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/72868" target="_blank">pr72866</a> 为 kube-proxy 增加 <code>--metrics-port</code> 命令行参数，同时解决 <code>--metrics-bind-address</code> 不能包含 port 的 bug。 </li></ul></td>
+	<td><ul class="params"><li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/79036" target="_blank">pr79036</a> 解决当开启 CPU Manager 时，如果 Pod 的 QoS 为 Guaranteed，则关闭 cpu quota。</li><li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/72868" target="_blank">pr72866</a> 为 kube-proxy 增加 <code>--metrics-port</code> 命令行参数，同时解决 <code>--metrics-bind-address</code> 不能包含 port 的 bug。  </li></ul></td>
 </tr>
 <tr>
 	<td>2019-09-06</td>
@@ -740,7 +740,7 @@ TKE 支持混合云节点。(kube-controller-manager)</td>
 <tr>
 	<td>2019-12-17</td>
 	<td>v1.7.8-tke.4</td>
-	<td><ul class="params"><li>kubelet 检查 externalID 时不 delete node。</li> <li>metadata 增加缓存和超时。</li> <li> Ubuntu16 下 lxcfs 升级造成 Pod 退出问题修复。 </li><li> kubelet 重启避免 readiness 的 pod not ready。 </li></ul></td>
+	<td><ul class="params"><li>kubelet 检查 externalID 时不 delete node。</li> <li>metadata 增加缓存和超时。</li> <li> Ubuntu16 下 lxcfs 升级造成 Pod 退出问题修复。  </li><li> kubelet 重启避免 readiness 的 pod not ready。  </li></ul></td>
 </tr>
 <tr>
 	<td>2018-09-28</td>

@@ -116,9 +116,9 @@ VPN 通道的建立包括以下配置信息：
 这四组匹配关系相互不能重叠，即他们的本端网段和对端网段不能同时重叠。
  - 如果新增一个10.0.0.0/24-----192.168.1.0/24匹配关系，则会因为和已有匹配关系重叠，而无法添加 SPD 规则。
  - 如果新增一个10.0.1.0/24-----192.168.1.0/24匹配关系，和已有的3个匹配关系均不重叠，则可以加入 SPD 规则。
-![](https://main.qcloudimg.com/raw/641121e50364a1a40b4b3643a20703c1.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/e1a0f317ff3450bc5a04bafb11df6a95.png)
 6. [](id:buzhou7)单击**下一步**，进入**IKE 配置（选填）**界面，如不需要高级配置，可直接单击**下一步**。
- ![](https://main.qcloudimg.com/raw/cb7acde379a0aafb5d4b28dfe759c683.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/163a6fd49d27906ead4175c84262ac93.png)
 <table>
 <tr>
 <th width="20%">配置项</th>

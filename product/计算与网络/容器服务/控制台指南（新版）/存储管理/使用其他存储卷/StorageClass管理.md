@@ -1,4 +1,4 @@
-## 简介
+## 简介 
 
 StorageClass 描述存储的类型，集群管理员可以为集群定义不同的存储类别。腾讯云 TKE 服务默认提供块存储类型的 StorageClass，通过 StorageClass 配合 PersistentVolumeClaim 可以动态创建需要的存储资源。
 
@@ -6,7 +6,7 @@ StorageClass 描述存储的类型，集群管理员可以为集群定义不同�
 
 ### 创建 StorageClass
 
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
+1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)。
 2. 在左侧导航栏中，单击**集群**，进入集群管理页面。
 3. 单击需要创建 StorageClass 的集群 ID，进入待创建 StorageClass 的集群管理页面。
 4. 选择 “存储” > “StorageClass”，进入 StorageClass 信息页面。如下图所示：
@@ -56,7 +56,7 @@ parameters:
 ```
 支持参数有：
 - type：StorageClass 的类型，包括 CLOUD_BASIC、CLOUD_PREMIUM 和 CLOUD_SSD（注意全大写）。
-- zone：指定 zone。如果指定，则云盘将创建到此 zone；如果不指定，则拉取所有 node 的 zone 信息，随机选取一个 zone。 腾讯云各地域标识符请参见 [地域和可用区](https://cloud.tencent.com/document/product/213/6091)。
+- zone：指定 zone。如果指定，则云盘将创建到此 zone；如果不指定，则拉取所有 node 的 zone 信息，随机选取一个 zone。  腾讯云各地域标识符请参见 [地域和可用区](https://cloud.tencent.com/document/product/213/6091)。
 - paymode：云盘的计费模式，默认设置为 POSTPAID 模式（即按量计费，支持 Retain 保留和 Delete 删除策略，Retain 仅在高于1.8的集群版本生效）。还可设置为 PREPAID 模式（即包年包月，仅支持 Retain 保留的回收策略）。
 - aspid：指定快照 ID，创建云盘后自动绑定此快照策略，绑定失败不影响创建。
 

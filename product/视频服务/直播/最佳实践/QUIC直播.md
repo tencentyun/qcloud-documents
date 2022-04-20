@@ -17,15 +17,15 @@ QUIC（Quick UDP Internet Connection）是谷歌公司研发的基于 UDP 协议
 1. 直播推流支持 RTMP over QUIC 协议，需使用 UDP 1935 进行推流。推流地址同 RTMP over TCP 协议一致，可以在云直播控制台的 **[地址生成器](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator)**中 [生成推流地址](https://cloud.tencent.com/document/product/267/35257#push)。
 ![](https://qcloudimg.tencent-cloud.cn/raw/156bc4c6c55d7ccd101cd4df1c97e0ca.png)
 2. 推流接入方式有两种：
-	- **使用腾讯云 [移动直播 SDK](https://cloud.tencent.com/document/product/454/7873)**：使用方式同 RTMP over TCP 方式一样，SDK 会默认使用 QUIC 协议接入腾讯云。
+	- **使用腾讯云 [腾讯云视立方·直播 SDK](https://cloud.tencent.com/document/product/454/7873)**：使用方式同 RTMP over TCP 方式一样，SDK 会默认使用 QUIC 协议接入腾讯云。
 	- **使用自己的 QUIC 协议客户端**：可直接通过标准直播生成的推流地址，发起 QUIC 协议推流，RTMP over QUIC 的推流地址和 RTMP over TCP 的推流地址是一样的，QUIC 协议推流会直接接入腾讯云的 QUIC 接流服务器。
 
 ### 推流测试[](id:pushtest)
 
-您可以使用腾讯云 [移动直播小程序 DEMO](https://cloud.tencent.com/document/product/454/6555#.E5.B0.8F.E7.A8.8B.E5.BA.8F-demo)。
+您可以使用腾讯云 [腾讯云视立方·直播 SDK 小程序 Demo](https://cloud.tencent.com/document/product/454/6555#.E5.B0.8F.E7.A8.8B.E5.BA.8F-demo)。
 
 1. 打开手机微信搜索小程序 [腾讯视频云](https://cloud.tencent.com/document/product/454/6555#.E5.B0.8F.E7.A8.8B.E5.BA.8F-demo) 或扫描二维码，进入腾讯视频云微信小程序。
-2. 选择下方的 **通讯** 页签，并选择 **RTMP推流**，进入推流设置界面。
+2. 选择下方的 **通讯** 页签，并选择 **RTMP 推流**，进入推流设置界面。
 3. 手动输入或单击 **扫码读取** 扫码录入您已生成的 [推流地址](#push)。
 4. 单击 **开始** 会默认使用 RTMP over QUIC  进行推流。
 ![](https://main.qcloudimg.com/raw/a4adf24a47553c6ee6694c094b5fef07.png)

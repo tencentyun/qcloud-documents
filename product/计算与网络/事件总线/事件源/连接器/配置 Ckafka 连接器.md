@@ -1,16 +1,16 @@
-## 操作场景
+## 操作场景 
 
 
 您可以通过配置 Ckafka 连接器来消费 Ckafka 消息队列的内容。Ckafka 连接器实现方式为 **Pull 模型**，事件连接器会主动拉取 Ckafka 内容，并将相关事件通过事件规则路由到更多服务。本文为您介绍如何创建 Ckafka 连接器及 Ckafka 连接器生成的事件结构。
 
 
-## 前提条件
+## 前提条件 
 
 已 [创建事件集](https://cloud.tencent.com/document/product/1359/56080)。
 
 
 
-## 操作步骤
+## 操作步骤 
 
 
 1. 登录 [事件总线控制台](https://console.cloud.tencent.com/eb/)，选择左侧导航栏中的**事件集**。
@@ -57,15 +57,15 @@
 }
 ```
 
-参数说明如下：
+参数说明如下： 
 
 | 参数             | 描述                                                         |
 | ---------------- | ------------------------------------------------------------ |
-| topic            | Ckafka 投递 Topic。     |
-| Partition | 事件源所在分区，一个 Topic 可以包含一个或者多个 Partition，CKafka 以 Partition 作为分配单位。                                                   |
-| offset        | 消费分组，指定消费区域。                                      |
-| msgKey            | Ckafka 消息 Key。                                               |
-| msgBody          | Ckafka 消息体。                                                |
+| topic            | Ckafka 投递 Topic。      |
+| Partition | 事件源所在分区，一个 Topic 可以包含一个或者多个 Partition，CKafka 以 Partition 作为分配单位。                                                    |
+| offset        | 消费分组，指定消费区域。                                       |
+| msgKey            | Ckafka 消息 Key。                                                |
+| msgBody          | Ckafka 消息体。                                                 |
 
 
 

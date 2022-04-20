@@ -19,18 +19,18 @@ CAA（Certification Authority Authorization，证书颁发机构授权）是一�
 <tbody>
   <tr>
     <td>SecureSite</td>
-    <td>0 issue "securesite.com"	</td>
-    <td>0 issuewild "securesite.com"</td>
+    <td>0 issue "digicert.com"	</td>
+    <td>0 issuewild "digicert.com"</td>
   </tr>
   <tr>
     <td>GeoTrust</td>
-    <td>0 issue "geotrust.com"</td>
-    <td>0 issuewild "geotrust.com"</td>
+    <td>0 issue "digicert.com"</td>
+    <td>0 issuewild "digicert.com"</td>
   </tr>
   <tr>
     <td>TrustAsia</td>
-    <td>0 issue "sectigo.com"</td>
-    <td>0 issuewild "sectigo.com"</td>
+    <td>0 issue "trust-provider.com"</td>
+    <td>0 issuewild "trust-provider.com"</td>
   </tr>
   <tr>
     <td>GlobalSign</td>

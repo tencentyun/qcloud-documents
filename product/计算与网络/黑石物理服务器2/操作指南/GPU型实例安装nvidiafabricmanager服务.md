@@ -22,7 +22,7 @@ yum install -y nvidia-fabric-manager-${version}-1
 version=470.103.01
 main_version=$(echo $version | awk -F '.' '{print $1}')
 apt-get update
-apt-get -y install nvidia-fabricmanager-${main_version}=${driver_version}-*
+apt-get -y install nvidia-fabricmanager-${main_version}=${version}-*
 ```
 :::
 </dx-tabs>

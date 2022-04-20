@@ -6,6 +6,7 @@
 ## 前提条件
 - 已 [购买 Web 应用防火墙套餐](https://buy.cloud.tencent.com/buy/waf)。
 - 完成防护域名添加，域名处于正常防护状态。操作详情请参见 [快速入门](https://cloud.tencent.com/document/product/627/18635)。
+- 当前 IP 封禁支持域名级区分封禁，不同域名检测时长不同，封禁时间也单独计算。
 
 ## 操作步骤
 1.	登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/tea-baseconfig)，在左侧导航栏中，选择**配置中心** > **基础安全** > **WEB 安全**，进入 WEB 安全页面。

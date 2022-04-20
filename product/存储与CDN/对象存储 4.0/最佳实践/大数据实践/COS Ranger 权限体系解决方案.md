@@ -65,7 +65,7 @@ curl -v -u${adminUser}:${adminPasswd} -X DELETE -H "Accept:application/json" -H 
 </dx-codeblock>
 5. 创建服务成功后，可在 Ranger 控制台看到 COS 服务。如下所示：
 ![](https://main.qcloudimg.com/raw/d1a6e2722d11f7177636a5e2c54226e3.png)
-6. 在 COS 服务侧单击【+】，定义新服务实例，服务实例名可自定义，例如`cos`或者`cos_test`，服务的配置如下所示。
+6. 在 COS 服务侧单击**+**，定义新服务实例，服务实例名可自定义，例如`cos`或者`cos_test`，服务的配置如下所示。
 ![](https://main.qcloudimg.com/raw/2be86fb2b8232b16679b29e908f82d3a.png)
 其中 policy.grantrevoke.auth.users 需设置后续启动 COSRangerService 服务的用户名（即允许拉取权限策略的用户）。通常建议设置成 hadoop，后续 COSRangerService 可使用此用户名进行启动。
 7. 单击新生成的 COS 服务实例。

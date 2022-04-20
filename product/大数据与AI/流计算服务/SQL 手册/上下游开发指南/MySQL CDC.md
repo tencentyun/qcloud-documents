@@ -62,7 +62,7 @@ CREATE TABLE `mysql_cdc_source_table` (
 | debezium.\*                              | Debezium 属性参数                                            | 否       | 从更细粒度控制 Debezium 客户端的行为。例如`'debezium.snapshot.mode' = 'never'`，详情请参见 [配置属性](https://debezium.io/documentation/reference/1.2/connectors/mysql.html?spm=a2c4g.11186623.2.9.28af38b6Z3SJlk#mysql-connector-configuration-properties_debezium) |
 | scan.incremental.snapshot.enabled        | 增量快照                                                     | 否       | Flink1.13支持，默认为 true                                         |
 | scan.incremental.snapshot.chunk.size     | 当读取表的快照时，表快照捕获的表的块大小(行数)。             | 否       | Flink1.13支持，默认为8096                                         |
-| scan.incremental.snapshot.chunk.size     | 当读取表快照时，每次轮询的最大读取大小。                     | 否       | Flink1.13支持，默认为1024                                         |
+
 
 ## 可用元数据（仅 Flink1.13 及以上版本集群可使用）
 

@@ -129,3 +129,13 @@ peer <bgp_peer_address> bfd min-tx-interval
 1000 min-rx-interval 1000 detect-multiplier 3
 commit
 ```
+
+
+
+## 关于 Keepalive 及 holdtime 参数配置指南
+对等体间建立了 BGP 连接后，会定时向对端发送 Keepalive 消息，以维持 BGP 连接的有效性。如果路由器在设定的连接保持时间（Holdtime）内未收到对端的 Keepalive 消息或任何其它类型的报文，则认为此 BGP 连接已中断，从而中断此 BGP 连接。
+
+keepalive-time 值和 hold-time 值是通过双方协商来确定。其中，取双方 Open 报文中的 hold-time 较小值为最终的 hold-time 值；取**协商的 hold-time 值 ÷ 3**和本地配置的 keepalive-time 值中较小者作为最终 keepalive-time 值。
+接入时推荐配置的 Holdtime 时间60 x 3=180秒（大部分厂商的缺省值）。
+
+如果配置的保持时间小于30秒，链路正常情况下也可能会造成邻居会话的中断，需要进行链路抖动检测，建议通过使能 BFD 来提高收敛性能。

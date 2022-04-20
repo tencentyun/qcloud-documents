@@ -138,7 +138,7 @@ defaultConfig {
 
 [](id:step3)
 ### 步骤3：设置 License
-1. 参考 [License 申请](https://cloud.tencent.com/document/product/584/20333) 的指引申请 License 后，从 [云点播控制台](https://console.cloud.tencent.com/vod/license/video) 复制 License Key 和 License URL，如下图所示：
+1. 参考 [License 申请](https://cloud.tencent.com/document/product/584/54333) 的指引申请 License 后，从 [云点播控制台](https://console.cloud.tencent.com/vod/license/video) 复制 License Key 和 License URL，如下图所示：
 ![](https://main.qcloudimg.com/raw/0b50ff439f2c4aaf656e535f814c7ba2.png)
 2. 在您的应用中使用短视频功能之前，建议在 `- Application onCreate()`中进行如下设置：
 ```
@@ -221,7 +221,7 @@ defaultConfig {
 
 [](id:module)
 ## 快速接入短视频功能模块
-下述内容主要讲解如何在已有的项目中快速集成短视频 SDK，完成从录制，编辑，合成的完整过程。文中所需要的代码及资源文件均在 [资源下载](https://cloud.tencent.com/document/product/584/9366) 中 SDK 的压缩包中以及 [短视频 Demo ](https://github.com/tencentyun/UGSVSDK)提供。
+下述内容主要讲解如何在已有的项目中快速集成短视频 SDK，完成从录制，编辑，合成的完整过程。文中所需要的代码及资源文件均在 [资源下载](https://cloud.tencent.com/document/product/584/9366) 中 SDK 的压缩包中以及 [短视频 Demo ](https://github.com/tencentyun/UGSVSDK) 提供。
 
 [](id:integrated)
 ### 集成 UGCKit
@@ -324,16 +324,6 @@ android {
     }
 }
 
-    # 如果您使用的是商业版或商业版Pro，请加如下这段，基础版/精简版不需要
-    packagingOptions {
-        pickFirst '**/libc++_shared.so'
-        doNotStrip "*/armeabi/libYTCommon.so"
-        doNotStrip "*/armeabi-v7a/libYTCommon.so"
-        doNotStrip "*/x86/libYTCommon.so"
-        doNotStrip "*/arm64-v8a/libYTCommon.so"
-    }
-    # 如果您使用的是商业版或商业版Pro，请加如上这段，基础版/精简版不需要
-
 dependencies {
     # 拷贝开始
     compile fileTree(include: ['*.jar'], dir: 'libs')
@@ -373,7 +363,7 @@ compile project(':ugckit')
 
 [](id:UGCKit_step3)
 #### 步骤3：申请 Licence
-在使用 UGCKit 之前要先设置 License，License 的获取方法请参见 [License申请](https://cloud.tencent.com/document/product/584/20333)。
+在使用 UGCKit 之前要先设置 License，License 的获取方法请参见 [License 申请](https://cloud.tencent.com/document/product/584/54333)。
 
 
 [](id:fun)
@@ -594,7 +584,6 @@ protected void onResume() {
 - [视频拼接](https://cloud.tencent.com/document/product/584/9503)
 - [视频上传](https://cloud.tencent.com/document/product/584/15535)
 - [视频播放](https://cloud.tencent.com/document/product/584/9373)
-- [动效变脸（企业版）](https://cloud.tencent.com/document/product/584/13510)
 
 
 [](id:que2)

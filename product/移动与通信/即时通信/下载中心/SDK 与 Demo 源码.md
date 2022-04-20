@@ -59,7 +59,7 @@
   <div class="card-container">
       <div class="card">
         <img src="https://main.qcloudimg.com/raw/98394fa5d669de7fb7a187565d138cdb.svg" data-nonescope="true">
-        <p class="titlename">Web & H5 SDK</p>
+        <p class="titlename">Web & H5 & uni-app(Web/H5) SDK</p>
         <p style="color:#586376;">包含所有 IM 功能以及群直播连麦语聊能力</p>
         <div style="margin-top: 13px;" >
         <a  href="https://github.com/tencentyun/TIMSDK/tree/master/Web/IMSDK">Github 下载</a>
@@ -72,7 +72,7 @@
   <div class="card-container">
     <div class="card">
       <img src="https://qcloudimg.tencent-cloud.cn/raw/af07e321883032c9796848d189a80f5e.png" data-nonescope="true">
-      <p class="titlename">微信小程序 SDK</p>
+      <p class="titlename">微信小程序 & uni-app(App/小程序) SDK</p>
       <p style="color:#586376;">包含所有 IM 功能以及群直播连麦语聊能力</p>
       <div style="margin-top: 13px;" >
         <a  href="https://github.com/tencentyun/TIMSDK/tree/master/MiniProgram/IMSDK">Github 下载</a>

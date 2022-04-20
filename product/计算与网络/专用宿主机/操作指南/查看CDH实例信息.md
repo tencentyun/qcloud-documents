@@ -8,6 +8,7 @@
 3. 单击专用宿主机的 ID，进入专用宿主机详情页，可以查看专用宿主机的详细信息以及该宿主机上的实例信息。如下图所示：
 ![](https://main.qcloudimg.com/raw/eb6d57fea6d177971d28ab7b20e5d2ad.png)
 
+
 ### 使用 API 获取 CDH 实例信息
 请参考 [查看 CDH 实例列表](https://cloud.tencent.com/document/api/213/16474)。
 

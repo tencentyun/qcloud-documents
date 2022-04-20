@@ -18,7 +18,7 @@
 <dx-codeblock>
 :::  jar
 dependencies {
-	implementation 'com.tencent.liteav:LiteAVSDK_Professional:latest.release'
+  implementation 'com.tencent.liteav:LiteAVSDK_Professional:latest.release'
 }
 ::: 
 </dx-codeblock>
@@ -26,7 +26,7 @@ dependencies {
 <dx-codeblock>
 :::  jar
 dependencies {
-	implementation 'com.tencent.liteav:LiteAVSDK_Professional:latest.release@aar'
+  implementation 'com.tencent.liteav:LiteAVSDK_Professional:latest.release@aar'
 }
 ::: 
 </dx-codeblock>
@@ -34,9 +34,9 @@ dependencies {
 <dx-codeblock>
 :::  jar
 defaultConfig {
-	ndk {
-		abiFilters "armeabi", "armeabi-v7a", "arm64-v8a"
-	}
+  ndk {
+    abiFilters "armeabi", "armeabi-v7a", "arm64-v8a"
+  }
 }
 ::: 
 </dx-codeblock>
@@ -79,7 +79,7 @@ defaultConfig {
 <dx-codeblock>
 :::  jar
 dependencies{
-	implementation fileTree(dir:'libs',include:['*.jar'])
+  implementation fileTree(dir:'libs',include:['*.jar'])
 }
 :::
 </dx-codeblock>
@@ -135,7 +135,7 @@ defaultConfig {
 
 单击 [License 申请](https://console.cloud.tencent.com/live/license) 获取测试用 License，具体操作请参见 [测试版 License](https://cloud.tencent.com/document/product/454/34750#test)。您会获得两个字符串：一个字符串是 licenseURL，另一个字符串是解密 key。
 
-在您的 App 调用企业版 SDK 相关功能之前（建议在 Application类中）进行如下设置：
+在您的 App 调用全功能版 SDK 相关功能之前（建议在 Application类中）进行如下设置：
 
 
 <dx-codeblock>
@@ -166,7 +166,7 @@ public class MApplication extends Application {
 请您先检查下项目里面 targetSdkVersion 设置，如果设置的29那么运行 Android 10 设备使用录屏共享会触发闪退问题。原因是安卓隐私策略有更改，解决办法需要启动前台 service，并指定 type 为 mediaProjection 即可，不需要在 Service 里面调用 startScreenCapture。
 
 ### 2. 项目里面同时集成了移动直播/实时音视频/播放器等 LiteAVSDK 系列的多个 SDK 报符号冲突问题怎么解决？
-如果集成了2个或以上产品（直播、播放器、TRTC、短视频）的 LiteAVSDK 版本，编译时会出现库冲突问题，因为有些 SDK 底层库有相同符号文件，这里建议只集成一个专业版或企业版可以解决，直播、播放器、TRTC、短视频这些都包含在一个 SDK 里面。具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/454/7873)。
+如果集成了2个或以上产品（直播、播放器、TRTC、短视频）的 LiteAVSDK 版本，编译时会出现库冲突问题，因为有些 SDK 底层库有相同符号文件，这里建议只集成一个全功能版 SDK 可以解决，直播、播放器、TRTC、短视频这些都包含在一个 SDK 里面。具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/454/7873)。
 
 
 

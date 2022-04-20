@@ -1,6 +1,5 @@
-## 实时互动课堂 介绍
 TRTC 实时互动课堂是一款开源的在线课堂软件，支持一名教师给多名学生在线上课，一个课堂最多同时支持 300 人在线实时互动。如果开启旁路直播、CDN推流服务，可支持上万人在线观看。本软件基于[腾讯云实时音视频通信（Tencent Real-Time Communication, TRTC）](https://cloud.tencent.com/product/trtc)、[腾讯云即时通信（Tencent Instant Message, TIM）](https://cloud.tencent.com/product/im)、Electron、React 和 Webpack 等构建。
->注意：[腾讯云实时音视频通信（Tencent Real-Time Communication, TRTC）](https://cloud.tencent.com/product/trtc)、[腾讯云即时通信（Tencent Instant Message, TIM）](https://cloud.tencent.com/product/im) 是以 SDK 形式提供的 PaaS 服务，源代码不开源。TRTC 实时互动课堂开源代码只包括 UI 部分和基于 SDK 实现的互动课堂功能代码。
+>! [腾讯云实时音视频通信（Tencent Real-Time Communication, TRTC）](https://cloud.tencent.com/product/trtc)、[腾讯云即时通信（Tencent Instant Message, TIM）](https://cloud.tencent.com/product/im) 是以 SDK 形式提供的 PaaS 服务，源代码不开源。TRTC 实时互动课堂开源代码只包括 UI 部分和基于 SDK 实现的互动课堂功能代码。
 
 ## Demo 体验
 
@@ -19,8 +18,7 @@ TRTC 实时互动课堂是一款开源的在线课堂软件，支持一名教师
 </table>
 
 ## 跑通源码
-
-点击进入 [Github](https://github.com/TencentCloud/trtc-education-electron) ，参照说明文档，运行源码。可以根据您的业务需要，基于开源代码二次开发。
+单击进入 [Github](https://github.com/TencentCloud/trtc-education-electron)，参照说明文档运行源码。可以根据您的业务需要，基于开源代码二次开发。
 
 ## 多终端互联互通
 

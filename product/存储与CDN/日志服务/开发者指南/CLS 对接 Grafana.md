@@ -8,7 +8,7 @@
 
 ### 安装 Grafana
 
-1. 安装 Grafana 8.0 以上版本，具体操作请参见 [Grafana 官网文档](https://grafana.com/docs/grafana/latest/installation/)。
+1.  安装 Grafana 8.0 以上版本，具体操作请参见 [Grafana 官网文档](https://grafana.com/docs/grafana/latest/installation/)。
 若 Grafana 版本低于8.0，需进行配置备份和升级，详情请参考 [Grafana 升级指南](https://grafana.com/docs/grafana/latest/installation/upgrading/)。
 以 CentOS  安装 grafana 8.4.3 （[点此获取新版本地址](https://grafana.com/grafana/download?pg=get&plcmt=selfmanaged-box1-cta1&edition=oss)）为例：
 ```
@@ -19,6 +19,14 @@ sudo systemctl daemon-reload
 sudo systemctl start grafana-server
 sudo systemctl status grafana-server
 sudo systemctl enable grafana-server
+```
+2. 安装后，建议修改 grafana.ini 文件的 [dataproxy] 配置。
+grafana 默认超时时间为30s，在大数据量检索时，可能导致 timeout 问题，详见 [Grafana proxy queries timeout after 30s with dataproxy](https://github.com/grafana/grafana/issues/35505)。建议修改至60s，以最大限度发挥日志服务的能力。修改配置如下：
+```markdown
+[dataproxy]
+timeout = 60
+dialTimeout = 60
+keep_alive_seconds = 60
 ```
 如需安装更多可视化图表（例如饼图、趋势速览图等），请执行对应的命令安装 grafana panel 插件。
 例如，您需要安装饼图（pie panel），可执行如下命令：
@@ -31,10 +39,18 @@ service grafana-server restart
 
 ### 安装 CLS 对接 Grafana 插件
 
+#### 从官方插件库安装
+
+1. 进入 Grafana 页面。
+2. 在设置（configuration）> 插件（plugin）页面，搜索 Tencent cloud monitor，并选择该插件，单击安装。
+![](https://qcloudimg.tencent-cloud.cn/raw/0edf0fe478d2d3364a1c5cc5b9045824.png)
+
+
+#### 通过命令行安装
+
 1. 安装 [日志服务插件](https://grafana.com/grafana/plugins/tencentcloud-monitor-app/)。
 ```sh
 grafana-cli plugins install tencentcloud-monitor-app
-
 # 如果遇到安装后插件仍然无法找到，可能是由于插件目录配置不是默认值，可先进入插件安装目录，并执行以下命令
 # 如果您的云服务器非 CentOS 系统，请先确认 Grafana 的插件目录位置，再进入该插件目录进行安装。
 grafana-cli --pluginsDir ./  plugins install tencentcloud-monitor-app
@@ -46,6 +62,7 @@ grafana-cli --pluginUrl https://github.com/TencentCloud/tencentcloud-monitor-gra
 ```sh
 service grafana-server restart
 ```
+
 
 ### 配置日志数据源
 

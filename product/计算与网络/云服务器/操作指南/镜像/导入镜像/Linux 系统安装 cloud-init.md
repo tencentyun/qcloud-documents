@@ -222,7 +222,7 @@ apt-get/yum install cloud-init
 ```shellsession
 cloud-init init --local
 ```
-返回类似如下信息，则说明已成功配置。cloud-init 
+返回类似如下信息，则说明已成功配置 cloud-init。
 ```shellsession
 Cloud-init v. 20.1 running 'init-local' at Fri, 01 Apr 2022 01:26:11 +0000. Up 38.70 seconds.
 ```
