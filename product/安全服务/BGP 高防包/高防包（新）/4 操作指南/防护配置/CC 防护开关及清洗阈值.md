@@ -14,7 +14,7 @@ CC 防护根据访问特征和连接状态判定恶意行为， 阻断黑客的�
 3. 在 CC 防护开关及清洗阈值卡片中，单击![](https://qcloudimg.tencent-cloud.cn/raw/b56da8e70914bb5f6fce1900bcf81ef5.png)开启 CC 防护开关，当防护开启后必须进行清洗阈值设置否则无法使用 CC 防护。
 >?
 >- 清洗阈值是高防产品启动清洗动作的阈值，当指定域名收到的 HTTP 请求超过阈值时，将触发 CC 防护。
->- 当高防包的 IP 为“Web 应用防火墙” 的 IP 时，需要请先到 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/tea-baseconfig) 为此 IP 开启 CC 防护，详情请参见 [CC 防护规则设置](https://cloud.tencent.com/document/product/627/64336)。
+>- 当高防包的 IP 为“Web 应用防火墙” 的 IP 时，需要先到 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/tea-baseconfig) 为此 IP 开启 CC 防护，详情请参见 [CC 防护规则设置](https://cloud.tencent.com/document/product/627/64336)。
 >
 ![](https://qcloudimg.tencent-cloud.cn/raw/080d63287105c7b0f0a6fd750bbf6a33.png)
 4. 在 CC 防护开关和清洗阈值卡片中，单击**设置**，进入 CC 防护开关和清洗阈值规则列表。
