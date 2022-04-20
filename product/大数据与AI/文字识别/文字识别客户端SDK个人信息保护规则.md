@@ -134,7 +134,7 @@
 
 ## 第八条 联系我们
 我们设立了专门的个人信息保护团队和个人信息保护负责人, 如果开发者和/或终端用户对本规则或个人信息保护相关事宜有任何疑问或投诉、建议时, 可以通过以下方式与我们联系： 
-1. 通过 `https://kf.qq.com/` 或者 [腾讯云工单/客服](https://console.cloud.tencent.com/workorder/category) 与我们联系或 [在线咨询](https://console.cloud.tencent.com/workorder/category)；
+1. 通过 [https://kf.qq.com/](https://kf.qq.com) 或者 [腾讯云工单/客服](https://console.cloud.tencent.com/workorder/category) 与我们联系或 [在线咨询](https://console.cloud.tencent.com/workorder/category)；
 2. 将问题发送至Dataprivacy@tencent.com；
 3. 邮寄信件至: 中国广东省深圳市南山区海天二路33号腾讯滨海大厦 数据隐私保护部(收)邮编: 518054。
 
