@@ -89,7 +89,7 @@
 [](id:TCGSDK.init(params) )
 ### TCGSDK.init(params) 
 
-params对象有效字段描述：
+params 对象有效字段描述：
 
 | 参数          | 类型   | 是否可选   | 描述                             |
 | ----------------------- | -------- | --------- | ------------------------------------------------------------ |
@@ -98,7 +98,6 @@ params对象有效字段描述：
 | showLogo        | boolean | 可选   | 默认值为 true<br />true 为显示腾讯云 Logo，false不显示 |
 | mic           | boolean | 可选   | 默认值为 false<br />true 为开启本地麦克风，false不开启 |
 | tabletMode       | boolean | 可选   | 默认值为 false<br />true 为使用平板滑动鼠标模式，false 为绝对映射模式。该参数只针对移动端，PC 端忽略该参数。该 mode 下鼠标产生相对位移 |
-| mobileGame       | boolean | 可选   | 默认值为 false<br />true 为使用接入手游，false 为适用端游 |
 | cursorMode       | number  | 可选   | 默认值为 0 <br />鼠标模式，取值同 [TCGSDK.setRemoteCursor(mode)](#tcgsdk.setremotecursor(mode)) 设置鼠标样式 |
 | clickToFullscreen    | boolean | 可选   | 默认值为 false<br />是否启动点击全屏操作，true 为启用，false 为禁用 |
 | idleThreshold      | number  | 可选   | 默认值为 300s<br />用户操作空闲时间阈值，单位为秒，空闲超过这个时间将触发 `onNetworkChange` 事件，消息为 `{status: 'idle',times: 1}` |
@@ -115,7 +114,7 @@ params对象有效字段描述：
 | onWebrtcStatusChange  | function | 可选   | webrtc 状态回调，调用 start 接口成功后才会触发 |
 | onDisconnect      | function | 可选   | 断开/被踢触发此回调，调用 start 接口成功后才会触发 |
 | onNetworkChange     | function | 可选   | 网络状态变化 |
-| onTouchEvent      | function | 可选   | 移动端触摸事件回调，调用 start 接口成功后才会触发，返回一个object 具体参见 [onTouchEvent](#onTouchEvent)<br /> 云端游场景下，在移动端接入JS SDK时，SDK会把对应的点位坐标按照 `onTouchEventResponse[]` 的结构回调，需要业务测自己处理对应的消息发送逻辑。<br />例如：mouseMove，mouseleft 的 down/up 等操作。 |
+| onTouchEvent      | function | 可选   | 移动端触摸事件回调，调用 start 接口成功后才会触发，返回一个 object 具体参见 [onTouchEvent](#onTouchEvent)<br /> 云端游场景下，在移动端接入 JS SDK 时，SDK 会把对应的点位坐标按照 `onTouchEventResponse[]` 的结构回调，需要业务测自己处理对应的消息发送逻辑。<br />例如：mouseMove，mouseleft 的 down/up 等操作。 |
 | onLoadGameArchive    | function | 可选   | 应用存档加载回调，会不断回调size（需要进行云端配置）|
 | onSaveGameArchive    | function | 可选   | 应用保存存档回调（需要进行云端配置） |
 | onInputStatusChange   | function | 可选   | 云端输入状态改变，有点击事件的时候都会触发，需要判断新旧状态 |
