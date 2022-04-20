@@ -129,3 +129,4 @@ $ goosefs fs masterInfo
 current leader master: hbase-master-0:26000
 All masters: [hbase-master-0:26000, hbase-master-1:26000, hbase-master-2:26000]
 ```
+
