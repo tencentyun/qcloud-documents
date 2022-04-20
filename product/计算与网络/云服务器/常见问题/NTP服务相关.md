@@ -57,8 +57,7 @@ time5.cloud.tencent.com
  - [Linux 实例：配置 NTP 服务](https://cloud.tencent.com/document/product/213/30393)
  - [Windows 实例：配置 NTP 服务](https://cloud.tencent.com/document/product/213/30394)
 
-### 云服务器无法 ping 通 NTP 服务器，是否影响 NTP 同步？
-不影响。NTP 域名禁止 ping，仅需确保您的 NTP 服务正常访问即可。
+
 
 ### 为什么使用自定义镜像创建的云服务器 ntp.conf 内容被还原了？
 系统内 Cloud-Init 初始化导致，请您在制作自定义镜像前删除 `/etc/cloud/cloud.cfg` 中 NTP 相关配置。详情请参见 [Cloud-Init 和 Cloudbase-Init 问题](https://cloud.tencent.com/document/product/213/19670)。
