@@ -30,9 +30,7 @@
 | [sendC2CCustomMessage](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_manager/V2TIMManager/sendC2CCustomMessage.html) | 发送单聊（C2C）自定义（信令）消息 |
 | [sendGroupTextMessage](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_manager/V2TIMManager/sendGroupTextMessage.html) | 发送群聊普通文本消息 |
 | [sendGroupCustomMessage](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_manager/V2TIMManager/sendGroupCustomMessage.html) | 发送群聊自定义（信令）消息 |
-|[sendMessageReadReceptes](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/sendMessageReadReceipts.html)|发送群消息已读回执|
-|[getMessageReadReceptes](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/getMessageReadReceipts.html) |获取自己发送消息的已读回执|
-|[getgroupMessageReadMemeberList](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/getGroupMessageReadMemberList.html)|获取自己发送的群消息已读（未读）群成员列表|
+
 
 ## 信令接口
 | API | 描述 |
@@ -95,6 +93,9 @@
 | [sendReplyMessage](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/sendReplyMessage.html) | 发送回复消息 |
 | [searchLocalMessages](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/searchLocalMessages.html) | 搜索本地消息 |
 | [findMessages](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/findMessages.html) | 根据 messageID 查询指定会话中的本地消息 |
+|[sendMessageReadReceptes](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/sendMessageReadReceipts.html)|发送群消息已读回执|
+|[getMessageReadReceptes](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/getMessageReadReceipts.html) |获取自己发送消息的已读回执|
+|[getgroupMessageReadMemeberList](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/getGroupMessageReadMemberList.html)|获取自己发送的群消息已读（未读）群成员列表|
 | [~~sendCustomMessage~~](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/sendCustomMessage.html) | 发送自定义消息(已废弃) |
 | [~~sendImageMessage~~](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/sendImageMessage.html) | 发送图片消息(已废弃) |
 | [~~sendSoundMessage~~](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/sendSoundMessage.html) | 发送语音消息(已废弃) |
