@@ -131,10 +131,6 @@ func main() {
 ```
 
 
-
->?若需要上报服务端数据，则需要指明字段 span.kind = server 
-><img src="https://qcloudimg.tencent-cloud.cn/raw/83246ec0c0c55a492c49401105e2bd58.png" width=55%"">
-
 ### 步骤三：启动您的应用
 
 ### 查看应用数据
