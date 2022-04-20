@@ -19,7 +19,7 @@ TSF 支持 K8S 原生部署方案，当您通过 K8S 部署业务后，使用该
    - **新建类型：**选择**导入容器服务 TKE 集群**。
    - **所在可用区**：选择容器服务集群所在的可用区。
    - **选择集群：**选择要导入的容器集群服务。
-   - **标签**：用于分类管理资源，可不选。详情参考 [标签](https://cloud.tencent.com/document/product/649/53869)。
+   - **标签**：用于分类管理资源，可不选。详情参见 [标签](https://cloud.tencent.com/document/product/649/53869)。
    - **备注**：集群的描述，不超过200个字符。
    - **数据集**：将新建的集群添加到已有数据集中。非必填字段。数据集使用，请参见 [数据集管理](https://cloud.tencent.com/document/product/649/38326)。
      ![](https://qcloudimg.tencent-cloud.cn/raw/4e4faa5ccf3ead6b2acafb2e7e912e20.png)
