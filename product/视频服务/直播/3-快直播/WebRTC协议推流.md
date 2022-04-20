@@ -28,7 +28,7 @@ TXLivePusher 直播 SDK 主要用于视频云的快直播（超低延时直播�
 在需要直播推流的页面（桌面端）中引入初始化脚本。
 
 ```html
-<script src="https://imgcache.qq.com/open/qcloud/live/webrtc/js/TXLivePusher-1.0.2.min.js" charset="utf-8"></script>
+<script src="https://video.sdk.qcloudecdn.com/web/TXLivePusher-2.0.0.min.js" charset="utf-8"></script>
 ```
 >? 需要在 HTML 的 body 部分引入脚本，如果在 head 部分引入会报错。
 
