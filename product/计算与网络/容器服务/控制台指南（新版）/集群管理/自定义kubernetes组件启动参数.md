@@ -21,8 +21,6 @@
 
 
 ### 集群升级设置自定义 Kubernetes 组件参数
-1. 登录容器服务控制台 ，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
+1. 登录容器服务控制台，选择左侧导航栏中的**[集群](https://console.cloud.tencent.com/tke2/cluster)**。
 2. 在“集群管理”页面，选择需进行 Master Kubernetes 版本升级的集群 ID，进入集群详情页。
-3. 在集群详情页面，选择左侧**基本信息**。
-4. 在集群“基本信息”页面的集群信息模块，单击 Master 版本右侧的**升级**。同时设置 Kubernetes 组件启动参数。如下图所示：
-![](https://main.qcloudimg.com/raw/f9fa2c7e3b17e18e0b79e9859fa7695a.png)
+3. 在集群**基本信息**中，单击 Kubernetes 版本右侧的**升级**。同时设置 Kubernetes 组件启动参数。
