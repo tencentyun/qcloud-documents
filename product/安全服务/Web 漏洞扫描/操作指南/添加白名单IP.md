@@ -21,12 +21,13 @@
 129.211.167.166
 若您的网站需登录才可以访问，则需要先解除安全策略（即确保所有 IP 都能访问），待您的 cookie 有效性验证通过后再恢复限制。 
 
-## 前提条件
-- 本文适用于腾讯云 Web 应用防火墙，如果您使用的是其他 WAF 产品，请自行添加。
-- 已购买 [Web 应用防火墙](https://cloud.tencent.com/document/product/627/11730)。
-- 完成防护域名的添加及正常接入，当前域名处于正常防护，且开启 BOT 管理规则总开关，详情请参见 [快速入门](https://cloud.tencent.com/document/product/627/18635)。
 
 ## 操作步骤
+>?
+>- 适用于腾讯云 Web 应用防火墙，如果您使用的是其他 WAF 产品，请自行添加。
+>- 已购买 [Web 应用防火墙](https://cloud.tencent.com/document/product/627/11730)。
+>- 完成防护域名的添加及正常接入，当前域名处于正常防护，且开启 BOT 管理规则总开关，详情请参见 [快速入门](https://cloud.tencent.com/document/product/627/18635)。
+>
 ### 方式1：通过 IP 查询添加白名单
 1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/tea-iplist)，在左侧导航栏中，单击 **IP 查询**。
 2. 在 IP 查询页面，左上角选择需要防护的域名，输入需要查询的 IP，单击**查询**。
