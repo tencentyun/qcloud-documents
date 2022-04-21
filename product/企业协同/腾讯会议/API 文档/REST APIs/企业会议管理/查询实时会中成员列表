@@ -1,7 +1,7 @@
 ## 接口描述
-**描述：**查询当前会中成员列表，仅包括会中的成员。如果用户已离会，则不返回。企业超级管理员、会议创建者、会议主持人、会议联席主持人可以查询该数据。
-**调用方式：** GET
-**接口请求域名：** 
+- **描述：**查询当前会中成员列表，仅包括会中的成员。如果用户已离会，则不返回。企业超级管理员、会议创建者、会议主持人、会议联席主持人可以查询该数据。
+- **调用方式：** GET
+- **接口请求域名：** 
 ```josn
 https://api.meeting.qq.com/v1/meetings/{meeting_id}/real-time-participants
 ```
@@ -26,7 +26,7 @@ https://api.meeting.qq.com/v1/meetings/{meeting_id}/real-time-participants
 | subject                | string    | 否  | 会议主题。                                                   |             
 | schedule_start_time    | string    | 否      | 预定会议开始时间戳（单位秒）。                               |               
 | schedule_end_time      | string    | 否      | 预定会议结束时间戳（单位秒）。                               |             
-| status                 | string    | 否       | 当前会议状态： <br>1. MEETING_STATE_INVALID： 非法或未知的会议状态，错误状态。 <br>2. MEETING_STATE_INIT： 会议待开始。会议预定到预定结束时间前，会议尚无人进会。 <br>3. MEETING_STATE_CANCELLED： 会议已取消。主持人主动取消会议，待开始的会议才能取消，且取消的会议无法再进入。 <br>4. MEETING_STATE_STARTED： 会议已开始。会议中有人则表示会议进行中。 <br>5. MEETING_STATE_ENDED： 会议已删除。会议已过预定结束时间且尚无人进会时，主持人删除会议，已删除的会议无法再进入。<br> 6. MEETING_STATE_NULL： 会议无状态。会议已过预定结束时间，会议尚无人进会。 <br>7. MEETING_STATE_RECYCLED： 会议已回收。会议已过预定开始时间30天，则会议号将被后台回收，无法再进入。 |                  
+| status                 | string    | 否       | 当前会议状态： <li>MEETING_STATE_INVALID： 非法或未知的会议状态，错误状态。 <li>MEETING_STATE_INIT： 会议待开始。会议预定到预定结束时间前，会议尚无人进会。 <li> MEETING_STATE_CANCELLED： 会议已取消。主持人主动取消会议，待开始的会议才能取消，且取消的会议无法再进入。 <li>MEETING_STATE_STARTED： 会议已开始。会议中有人则表示会议进行中。 <li>MEETING_STATE_ENDED： 会议已删除。会议已过预定结束时间且尚无人进会时，主持人删除会议，已删除的会议无法再进入。<li>MEETING_STATE_NULL： 会议无状态。会议已过预定结束时间，会议尚无人进会。 <li> MEETING_STATE_RECYCLED： 会议已回收。会议已过预定开始时间30天，则会议号将被后台回收，无法再进入。 |                  
 | participants           | object [] | 否    | 参会人员对象数组。                                           | 
 | current_page           | number    | 否     | 当前页。                                                     |    
 | current_size           | number    | 否      | 当前页实际大小。                                             |          
