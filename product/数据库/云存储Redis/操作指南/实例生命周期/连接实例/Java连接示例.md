@@ -10,8 +10,8 @@ public class HelloRedis {
 
   public static void main(String[] args) {
         try {
-            /**以下参数，如果为内网，分别填写您的 Redis 实例内网 IP、端口号、实例 ID 和密码；
-						如果为外网，分别配置实例外网地址、端口号及其密码，无需设置实例 ID*/
+            /**以下参数，如果为内网访问，分别填写您的 Redis 实例内网 IP、端口号、实例 ID 和密码；
+						如果为外网访问，分别配置实例外网地址、端口号及其密码，无需设置实例 ID*/
             String host = "192.xx.xx.195";
             int port = 6379;
             String instanceid = "crs-09xxxqv";
