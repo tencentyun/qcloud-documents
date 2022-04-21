@@ -80,7 +80,7 @@ func upgrade() {
 
 1. 存储文件哈希、文件名称、时间和该交易的 ID。
 2. 通过文件哈希查询该条记录。
-不同版本的长安链网络在合约 API 上略有差别，可以从区块链网络概览页右下角的**网络配置信息**中查看版本，并查看对应版本的合约示例。如下图所示：
+不同版本的长安链网络在合约 API 上略有差别，可以从区块链网络概览页右下角的**网络配置信息**中查看版本，并查看对应版本的合约示例。如下图所示： 
 ![](https://main.qcloudimg.com/raw/e4e4d83849297385f09a7846cab9ee81.png)
  - 长安链 v1.2.0 版本网络的 GO 存证合约示例请参见 [长安链 v1.2.0 GO 存证合约示例](https://docs.chainmaker.org.cn/v1.2.0/html/dev/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6.html#id17)。
  - 长安链 v2.2.0 版本网络的 GO 存证合约示例请参见 [长安链 v2.2.0 GO 存证合约示例](https://docs.chainmaker.org.cn/v2.2.0_alpha/html/operation/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6.html#id17)。

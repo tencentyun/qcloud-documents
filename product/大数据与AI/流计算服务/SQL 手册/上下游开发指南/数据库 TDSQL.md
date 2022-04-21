@@ -1,5 +1,5 @@
 ## 介绍
-tdsql-sbuscribe connector 是针对腾讯云 TDSQL-MySQL 数据订阅的专有 connector，通过 [数据订阅](https://cloud.tencent.com/document/product/571/68060) 功能接入 TDSQL-MySQL 的增量 binlog 数据，使用前请确保数据订阅任务已经配置成功。
+tdsql-subscribe connector 是针对腾讯云 TDSQL-MySQL 数据订阅的专有 connector，通过 [数据订阅](https://cloud.tencent.com/document/product/571/68060) 功能接入 TDSQL-MySQL 的增量 binlog 数据，使用前请确保数据订阅任务已经配置成功。
 >! 数据库 TDSQL Connector 目前处于 Beta 版本，如有需求请您 [工单](https://console.cloud.tencent.com/workorder/category) 联系我们。
 
 ## 版本说明
@@ -12,12 +12,12 @@ tdsql-sbuscribe connector 是针对腾讯云 TDSQL-MySQL 数据订阅的专有 c
 
 ## 使用范围
 
-tdsql-sbuscribe connector 支持用作数据源表（Source），不可以作为数据流的目的表（Sink）。
+tdsql-subscribe connector 支持用作数据源表（Source），不可以作为数据流的目的表（Sink）。
 
 ## DDL 定义
 
-当 tdsql-sbuscribe connector 作为 source 时，with 参数大部分与 Kafka connector 参数类似，连接参数都可以在订阅任务中找到。
-值得注意的是，在使用 tdsql-sbuscribe connector 时，`format` 必须指定为 `protobuf`格式，因为数据订阅中，发送到 Kafka 的消息格式为 `protobuf`； 相较于通常使用的 Kafka connector，tdsql-sbuscribe connector 会多了一些认证信息，认证信息也是源于订阅任务。
+当 tdsql-subscribe connector 作为 source 时，with 参数大部分与 Kafka connector 参数类似，连接参数都可以在订阅任务中找到。
+值得注意的是，在使用 tdsql-subscribe connector 时，`format` 必须指定为 `protobuf`格式，因为数据订阅中，发送到 Kafka 的消息格式为 `protobuf`； 相较于通常使用的 Kafka connector，tdsql-subscribe connector 会多了一些认证信息，认证信息也是源于订阅任务。
 
 ### 用作数据源（Source）
 

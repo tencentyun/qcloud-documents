@@ -9,29 +9,29 @@
 | 时序角色  | 对应         |
 | ---------- | -------------------- |
 | page    | 用户网页       |
-| tcgsdk.js | 当前使用的云游戏 SDK |
+| tcgsdk.js | 当前使用的云渲染 SDK |
 | app_server | 用户业务服务器    |
 | cloud_api | 腾讯云 API      |
 
 ## JS-SDK 概览
-### 云游戏生命周期相关接口
+### 云应用生命周期相关接口
 
 | 接口名称                          | 接口描述        |
 | ----------------------------------------------------------- | ---------------------- |
-| [TCGSDK.init(params)](#TCGSDK.init(params))         | 云游戏前端初始化    |
+| [TCGSDK.init(params)](#TCGSDK.init(params))         | 云应用前端初始化    |
 | [TCGSDK.getClientSession()](#TCGSDK.getClientSession())   | 获取 Client 端会话信息 |
-| [TCGSDK.start(serverSession)](#TCGSDK.start(serverSession)) | 启动云游戏       |
-| [TCGSDK.destroy(msg)](#TCGSDK.destroy(msg))         | 立即停止云游戏     |
+| [TCGSDK.start(serverSession)](#TCGSDK.start(serverSession)) | 启动云应用       |
+| [TCGSDK.destroy(msg)](#TCGSDK.destroy(msg))         | 立即停止云应用     |
 | [TCGSDK.reconnect()](#TCGSDK.reconnect())          | 重连接口        |
 
 
-### 游戏进程相关接口
+### 应用进程相关接口
 
 | 接口名称                           | 接口描述          |
 | ------------------------------------------------------------ | -------------------------- |
-| [TCGSDK.gameRestart(callback)](#TCGSDK.gameRestart(callback)) | 重启当前运行的游戏进程   |
-| [TCGSDK.gamePause(callback)](#TCGSDK.gamePause(callback)) | 暂停当前运行的游戏进程   |
-| [TCGSDK.gameResume(callback)](#TCGSDK.gameResume(callback)) | 恢复运行当前运行的游戏进程   |
+| [TCGSDK.gameRestart(callback)](#TCGSDK.gameRestart(callback)) | 重启当前运行的应用进程   |
+| [TCGSDK.gamePause(callback)](#TCGSDK.gamePause(callback)) | 暂停当前运行的应用进程   |
+| [TCGSDK.gameResume(callback)](#TCGSDK.gameResume(callback)) | 恢复运行当前运行的应用进程   |
 | [TCGSDK.loginHelper(params,callback)](#TCGSDK.loginHelper(params,callback) ) | 辅助登录          |
 | [TCGSDK.getLoginWindowStat(gameid,callback)](#TCGSDK.getLoginWindowStat(gameid,callback)) | 获取当前窗口是否为登录窗口 |
 | [TCGSDK.sendText(content)](#TCGSDK.sendText(content)) | 聚焦输入框时快速发送内容 |
@@ -58,7 +58,7 @@
 | [TCGSDK.setRemoteCursorStyle(style)](#TCGSDK.setRemoteCursorStyle(style)) | 设置云端的系统鼠标样式     |
 | [TCGSDK.clearRemoteKeys()](#TCGSDK.clearRemoteKeys()) | 重置云端按键状态        |
 | [TCGSDK.resetRemoteCapsLock()](#TCGSDK.resetRemoteCapsLock() ) | 重置云端大小写状态       |
-| [TCGSDK.setDefaultCursorImage(url)](#TCGSDK.setDefaultCursorImage(url)) |设置云游戏页面中鼠标默认图片       |
+| [TCGSDK.setDefaultCursorImage(url)](#TCGSDK.setDefaultCursorImage(url)) |设置云应用页面中鼠标默认图片       |
 
 
 
@@ -76,9 +76,9 @@
 | ------------------------------------------------------------ | ------------------ |
 | [TCGSDK.setStreamProfile(profile,callback)](#TCGSDK.setStreamProfile(profile,callback)) | 设置码流参数    |
 | [TCGSDK.getDisplayRect()](#TCGSDK.getDisplayRect()) | 获取显示区域的参数 |
-| [TCGSDK.getVideoVolume()](#TCGSDK.getVideoVolume()) | 获取 video 当前音量值（游戏声音）  |
-| [TCGSDK.setVideoVolume(val)](#TCGSDK.setVideoVolume(val) ) | 设置 video 播放音量值（游戏声音） |
-| [TCGSDK.setPageBackground(url)](#TCGSDK.setPageBackground(url)) | 设置云游戏页面的背景图   |
+| [TCGSDK.getVideoVolume()](#TCGSDK.getVideoVolume()) | 获取 video 当前音量值（应用声音）  |
+| [TCGSDK.setVideoVolume(val)](#TCGSDK.setVideoVolume(val) ) | 设置 video 播放音量值（应用声音） |
+| [TCGSDK.setPageBackground(url)](#TCGSDK.setPageBackground(url)) | 设置云应用页面的背景图   |
 | [TCGSDK.setVideoOrientation(deg,rotateContainer)](#TCGSDK.setVideoOrientation(deg,rotateContainer)) | 设置 video 的旋转角度 |
 
 
@@ -89,7 +89,7 @@
 [](id:TCGSDK.init(params) )
 ### TCGSDK.init(params) 
 
-params对象有效字段描述：
+params 对象有效字段描述：
 
 | 参数          | 类型   | 是否可选   | 描述                             |
 | ----------------------- | -------- | --------- | ------------------------------------------------------------ |
@@ -98,14 +98,13 @@ params对象有效字段描述：
 | showLogo        | boolean | 可选   | 默认值为 true<br />true 为显示腾讯云 Logo，false不显示 |
 | mic           | boolean | 可选   | 默认值为 false<br />true 为开启本地麦克风，false不开启 |
 | tabletMode       | boolean | 可选   | 默认值为 false<br />true 为使用平板滑动鼠标模式，false 为绝对映射模式。该参数只针对移动端，PC 端忽略该参数。该 mode 下鼠标产生相对位移 |
-| mobileGame       | boolean | 可选   | 默认值为 false<br />true 为使用接入手游，false 为适用端游 |
 | cursorMode       | number  | 可选   | 默认值为 0 <br />鼠标模式，取值同 [TCGSDK.setRemoteCursor(mode)](#tcgsdk.setremotecursor(mode)) 设置鼠标样式 |
 | clickToFullscreen    | boolean | 可选   | 默认值为 false<br />是否启动点击全屏操作，true 为启用，false 为禁用 |
 | idleThreshold      | number  | 可选   | 默认值为 300s<br />用户操作空闲时间阈值，单位为秒，空闲超过这个时间将触发 `onNetworkChange` 事件，消息为 `{status: 'idle',times: 1}` |
 | keepLastFrame      | boolean | 可选   | 默认值为 false<br />断开的时候是否保留最后一帧画面，false 为不保留，true 保留。如果需要保留最后一帧画面并重连，不能再次调用 init 函数，而是先调用 `destroy()` 接口，再调用 `start()` 接口。 |
 | reconnect        | boolean | 可选   | 默认值为 false<br />true 为帧率掉0或者异常断开自动重连一次，true 为重连，false 为不重连 |
 | showLoading       | boolean | 可选   | 默认值为 true <br />是否显示“正在加载中”画面 |
-| loadingText       | string  | 可选   | 默认值为 `'正在启动云游戏' `<br />加载画面中的文字提示内容 |
+| loadingText       | string  | 可选   | 默认值为 `'正在启动云应用' `<br />加载画面中的文字提示内容 |
 | autoRotateContainer   | boolean | 可选   | 默认值为 false <br />移动端场景下，当横竖屏切换时，是否自动旋转适配 |
 | fullVideoToScreen    | boolean | 可选   | 默认值为 false <br />当 mount 挂载节点宽高大于云端推流分辨率时候，true 拉伸 video 尺寸并采用短边适配，false 不拉伸 video，保持原有云端分辨率 |
 | debugSetting      | object  | 可选   | <li/>showLog：boolean（可选）是否展示日志<li/> showStats：boolean（可选）是否展示 WebRTC 状态信息，也可使用 `CTRL+~` 快捷键显示 |
@@ -115,9 +114,9 @@ params对象有效字段描述：
 | onWebrtcStatusChange  | function | 可选   | webrtc 状态回调，调用 start 接口成功后才会触发 |
 | onDisconnect      | function | 可选   | 断开/被踢触发此回调，调用 start 接口成功后才会触发 |
 | onNetworkChange     | function | 可选   | 网络状态变化 |
-| onTouchEvent      | function | 可选   | 移动端触摸事件回调，调用 start 接口成功后才会触发，返回一个object 具体参见 [onTouchEvent](#onTouchEvent)<br /> 云端游场景下，在移动端接入JS SDK时，SDK会把对应的点位坐标按照 `onTouchEventResponse[]` 的结构回调，需要业务测自己处理对应的消息发送逻辑。<br />例如：mouseMove，mouseleft 的 down/up 等操作。 |
-| onLoadGameArchive    | function | 可选   | 游戏存档加载回调，会不断回调size（需要进行云端配置）|
-| onSaveGameArchive    | function | 可选   | 游戏保存存档回调（需要进行云端配置） |
+| onTouchEvent      | function | 可选   | 移动端触摸事件回调，调用 start 接口成功后才会触发，返回一个 object 具体参见 [onTouchEvent](#onTouchEvent)<br /> 云端游场景下，在移动端接入 JS SDK 时，SDK 会把对应的点位坐标按照 `onTouchEventResponse[]` 的结构回调，需要业务测自己处理对应的消息发送逻辑。<br />例如：mouseMove，mouseleft 的 down/up 等操作。 |
+| onLoadGameArchive    | function | 可选   | 应用存档加载回调，会不断回调size（需要进行云端配置）|
+| onSaveGameArchive    | function | 可选   | 应用保存存档回调（需要进行云端配置） |
 | onInputStatusChange   | function | 可选   | 云端输入状态改变，有点击事件的时候都会触发，需要判断新旧状态 |
 | onGamepadConnectChange | function | 可选   | 手柄连接/断开事件回调 |
 | onCursorShowStatChange | function | 可选   | 云端鼠标显示/隐藏，只在变化的时候回调 |
@@ -152,7 +151,7 @@ params对象有效字段描述：
 | 外网 IP 变化     | {"status": "ipchanged"}                   |
 | 连接 loading 时间过长 | {"status": "noflow"}                     |
 | 已连接但帧率掉0   | {"status": "noflowcenter"}                  |
-| 实时状态数据    | {"status": "stats","stats": {...}}，stats字段的结构请参见 [stats 字段描述](#stats) |
+| 实时状态数据    | {"status": "stats","stats": {...}}，stats 字段的结构请参见 [stats 字段描述](#stats) |
 
 
 [](id:stats)
@@ -176,7 +175,7 @@ params对象有效字段描述：
 
 | 错误码 | 说明            |
 | ------ | -------------------------- |
-| code=-1 | setRemoteDescription 失败，常见于浏览器不支持 WebRTC 或云游编码格式  |
+| code=-1 | setRemoteDescription 失败，常见于浏览器不支持 WebRTC 或云渲染编码格式  |
 | code=0 | 请求正常          |
 | code=1 | 系统繁忙          |
 | code=2 | 票据不合法         |
@@ -184,7 +183,7 @@ params对象有效字段描述：
 | code=4 | 资源不足，没有可用机器   |
 | code=5 | session 失效，需要重新登录 |
 | code=6 | 媒体描述信息错误      |
-| code=7 | 游戏拉起失败        |
+| code=7 | 应用拉起失败        |
 
 [](id:onDisconnect)
 #### onDisconnect 错误码汇总
@@ -220,12 +219,12 @@ params对象有效字段描述：
 [](id:TCGSDK.start(serverSession))
 ### TCGSDK.start(serverSession)
 
- 业务 Server 调用 [CreateSession](https://cloud.tencent.com/document/product/1162/40740) 获取到 serversession 后调用该接口启动云游戏。
+ 业务 Server 调用 [CreateSession](https://cloud.tencent.com/document/product/1162/40740) 获取到 serversession 后调用该接口启动云应用。
 
 [](id:TCGSDK.destroy(msg))
 ### TCGSDK.destroy(msg)
 
-立即停止云游戏，销毁数据连接和显示画面。
+立即停止云应用，销毁数据连接和显示画面。
 
 | 参数 | 参数类型 | 说明                             |
 | ---- | -------- | ------------------------------------------------------------ |
@@ -238,12 +237,12 @@ params对象有效字段描述：
 
 
 
-## 游戏进程相关接口
+## 应用进程相关接口
 
 [](id:TCGSDK.gameRestart(callback))
 ### TCGSDK.gameRestart(callback)
 
-重启当前运行的游戏进程。
+重启当前运行的应用进程。
 
 | 参数   | 参数类型 | 说明   |
 | -------- | -------- | -------- |
@@ -252,7 +251,7 @@ params对象有效字段描述：
 [](id:TCGSDK.gamePause(callback))
 ### TCGSDK.gamePause(callback)
 
-暂停当前运行的游戏进程。
+暂停当前运行的应用进程。
 
 | 参数   | 参数类型 | 说明   |
 | -------- | -------- | -------- |
@@ -262,7 +261,7 @@ params对象有效字段描述：
 [](id:TCGSDK.gameResume(callback))
 ### TCGSDK.gameResume(callback)
 
-恢复运行当前运行的游戏进程。
+恢复运行当前运行的应用进程。
 
 | 参数   | 参数类型 | 说明   |
 | -------- | -------- | -------- |
@@ -276,7 +275,7 @@ params对象有效字段描述：
 
 | 参数   | 参数类型 | 说明                             |
 | -------- | -------- | ------------------------------------------------------------ |
-| params  | object  | 辅助登录的参数，主要参数如下：<li>gameid：游戏 ID</li><li>acc：帐号字符串</li><li>pwd：密码字符串</li> |
+| params  | object  | 辅助登录的参数，主要参数如下：<li>gameid：应用 ID</li><li>acc：帐号字符串</li><li>pwd：密码字符串</li> |
 | callback | function | 执行结果回调                         |
 
 **callback 的原型：**
@@ -304,7 +303,7 @@ function(res) {
 
 | 参数   | 参数类型 | 说明     |
 | -------- | -------- | ------------ |
-| gameid  | string  | 游戏 ID   |
+| gameid  | string  | 应用 ID   |
 | callback | function | 执行结果回调 |
 
 **callback 的原型如下：**
@@ -563,7 +562,7 @@ function(res) {
 [](id:TCGSDK.setDefaultCursorImage(url))
 ### TCGSDK.setDefaultCursorImage(url)
 
-设置云游戏页面中鼠标默认图片。
+设置云应用页面中鼠标默认图片。
 
 | 参数 | 参数类型 | 说明       |
 | ---- | -------- | ---------------- |
@@ -619,12 +618,12 @@ function(res) {
 [](id:TCGSDK.getVideoVolume())
 
 ### TCGSDK.getVideoVolume()
-获取 video 当前音量值（游戏声音）。
+获取 video 当前音量值（应用声音）。
 
 [](id:TCGSDK.setVideoVolume(val))
 
 ### TCGSDK.setVideoVolume(val)
-设置video播放音量（游戏声音）
+设置video播放音量（应用声音）
 
 | 参数 | 参数类型 | 说明            |
 | ---- | -------- | --------------------------- |
@@ -634,7 +633,7 @@ function(res) {
 [](id:TCGSDK.setPageBackground(url))
 ### TCGSDK.setPageBackground(url)
 
-设置云游戏页面的背景图。
+设置云应用页面的背景图。
 
 | 参数 | 参数类型 | 说明     |
 | ---- | -------- | ------------ |
