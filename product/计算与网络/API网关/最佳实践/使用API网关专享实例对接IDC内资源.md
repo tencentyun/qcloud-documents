@@ -6,7 +6,7 @@
 
 ## 方案优势
 
-![](https://main.qcloudimg.com/raw/fd994d665015f73bb701970106d765cf.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/1fb6b7af0ff930f417eb371d827976f6.jpg)
 
 - API 网关专享实例可将请求同时转发至部署在云上 VPC 内、云下 IDC 机房内、公网内的后端资源，无缝连接云上云下，助力企业平滑上云。
 - 可同时使用腾讯云 API 网关提供的丰富功能，如 IP 访问控制、流量控制、日志监控等。
@@ -28,7 +28,7 @@
 1. 登录 [API 网关控制台](https://console.cloud.tencent.com/apigateway)，在左侧导航栏中选择**实例**。
 2. 单击**新建**，跳转到 API 网关专享实例购买页。
 3. 选择和填写实例配置。
->!享实例的 VPC 配置需要和 [步骤1](#步骤1) 中云联网实例所关联的腾讯云 VPC 实例保持一致。
+>!专享实例的 VPC 配置需要和 [步骤1](#步骤1) 中云联网实例所关联的腾讯云 VPC 实例保持一致。
 >
 	 ![](https://main.qcloudimg.com/raw/e9c6f89988b23af471f53f669e4b3b5e.png)
 4. 单击**立即购买**提交购买申请，支付后即可完成专享实例的购买。

@@ -195,7 +195,7 @@ WebSocket 协议是基于 TCP 的一种新的网络协议。它实现了浏览�
 
 |    字段    | 内容 |
 | ---------- | --- |
-| websocket | 数据传输的详细信息。 |
+| websocket | 数据传输的详细信息。   |
 |action | 本次请求的动作，支持内容为 “data send”、“closing” 两种：<ul><li>“data send”：为向客户端发送数据。</li><li>“closing”：为向客户端发起连接断开请求，可以不包含 "dataType" 和 "data" 内容。</li></ul> |
 |secConnectionID| 字符串，是标识 websocket 连接的 ID，原始长度为 128bit，是经过 base64 编码后的字符串，共32个字符。|
 |dataType | 传输数据的类型，一共两种：<ul><li>“binary”：表示二进制。</li> <li>“text”：表示文本。</li></ul> |
@@ -218,8 +218,8 @@ WebSocket 协议是基于 TCP 的一种新的网络协议。它实现了浏览�
 
 |    字段    | 内容 |
 | ---------- | --- |
-| errNo | 整数，响应错误码。如果为0表示成功。 |
-| errMsg | 字符串，错误原因。 |
+| errNo | 整数，响应错误码。如果为0表示成功。   |
+| errMsg | 字符串，错误原因。   |
 
 
 ### 连接清理
@@ -241,8 +241,8 @@ WebSocket 协议是基于 TCP 的一种新的网络协议。它实现了浏览�
 
 |    字段    | 内容 |
 | ---------- | --- |
-| websocket | 连接断开的详细信息。 |
-| action | 本次请求的动作，此处为 "closing"。 |
+| websocket | 连接断开的详细信息。   |
+| action | 本次请求的动作，此处为 "closing"。   |
 | secConnectionID | 字符串。</br>是标识 WebSocket 连接的 ID。原始长度为128Bit，是经过 base64 编码后的字符串，共32个字符。|
 >! 在清理函数中，您可以从 event 中获取 secConnectionID，并在永久存储（如数据库）中删除该 ID。
 

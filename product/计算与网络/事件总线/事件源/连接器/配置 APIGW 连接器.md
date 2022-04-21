@@ -1,4 +1,4 @@
-## 操作场景
+## 操作场景 
 
 您可以通过配置 APIGW 来处理 WebHook 的投递事件，通过第三方 WebHook 接收其他系统产生的事件，APIGW 连接器是 HTTP 场景下理想的跨端接收事件的连接器。
 
@@ -6,13 +6,13 @@ APIGW 连接器实现方式为 **Push 模型**，APIGW 会监控请求并生成�
 
 
 
-## 前提条件
+## 前提条件 
 
 已 [创建事件集](https://cloud.tencent.com/document/product/1359/56080)。
 
 
 
-## 操作步骤
+## 操作步骤 
 
 
 1. 登录 [事件总线控制台](https://console.cloud.tencent.com/eb/)，选择左侧导航栏中的**事件集**。
@@ -66,14 +66,14 @@ APIGW 连接器实现方式为 **Push 模型**，APIGW 会监控请求并生成�
 }
 ```
 
-参数说明如下：
+参数说明如下： 
 
 | 参数        | 描述                                       |
 | ----------- | ------------------------------------------ |
-| path        | 记录实际请求的完整 Path 信息。             |
-| httpMethod  | 记录实际请求的 HTTP 方法。                 |
-| queryString | 记录实际请求的完整 Query 内容。            |
-| body        | 记录实际请求转换为 String 字符串后的内容。 |
-| headers     | 记录实际请求的完整 Header 内容。           |
+| path        | 记录实际请求的完整 Path 信息。              |
+| httpMethod  | 记录实际请求的 HTTP 方法。                  |
+| queryString | 记录实际请求的完整 Query 内容。             |
+| body        | 记录实际请求转换为 String 字符串后的内容。  |
+| headers     | 记录实际请求的完整 Header 内容。            |
 
 

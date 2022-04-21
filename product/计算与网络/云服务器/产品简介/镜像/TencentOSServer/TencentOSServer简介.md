@@ -58,7 +58,7 @@ TencentOS Server 内核（简称 tkernel）与发行版解耦，当前主力内�
 ## 使用 TencentOS Server 
 
 ### 云上使用
-您可在创建实例，或重装已有实例操作系统时，选择公共镜像，并选择使用 OpenCloudOS 的相应版本。操作详情请参见 [创建实例](https://cloud.tencent.com/document/product/213/4855) 及 [重装系统](https://cloud.tencent.com/document/product/213/4933)。
+您可在创建实例，或重装已有实例操作系统时，选择公共镜像，并选择使用 TencentOS Server 的相应版本。操作详情请参见 [创建实例](https://cloud.tencent.com/document/product/213/4855) 及 [重装系统](https://cloud.tencent.com/document/product/213/4933)。
 
 ### 本地体验
 您可以通过下列方法在本地体验 TencentOS Server：

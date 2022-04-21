@@ -22,7 +22,7 @@
 <dx-alert infotype="explain" title="">
 腾讯云原生数据库 TDSQL-C（原 CynosDB）目前已支持 Serverless 版本 MySQL，实现按需付费。详情请参见 [Serverless 服务](https://cloud.tencent.com/document/product/1003/50853)。
 </dx-alert>
-3. 在 “[MySQL - 实例列表](https://console.cloud.tencent.com/cdb)” 页面，选择实例 ID 进入数据库详情页面，获取该数据库的**内网地址**、**所属网络**、**内网端口**信息。如下图所示：
+3. 在 “[MySQL - 实例列表](https://console.cloud.tencent.com/cdb)” 页面，选择实例 ID 进入数据库详情页面，获取该数据库的**内网地址**、**所属网络**、**内网端口**信息。如下图所示： 
 ![](https://main.qcloudimg.com/raw/b75a1d566c8e43f435e191777064f24e.png)
 
 ### 创建安全组（可选）
@@ -32,7 +32,7 @@
 ### 配置环境变量和私有网络
 1. 登录 [云函数控制台](https://console.cloud.tencent.com/scf)，单击左侧导航栏中的**函数服务**。
 2. 单击需连接数据库的函数名，进入该函数的“函数配置”页面，参考以下信息进行配置。
- - 新增**环境变量**，并参考以下表格填写。如下图所示：
+ - 新增**环境变量**，并参考以下表格填写。如下图所示： 
 ![](https://main.qcloudimg.com/raw/94a17932ae2a1968d6ab19be4aa3fb91.png)
 <table align=center>
 <tr>
@@ -60,7 +60,7 @@
 <td>数据库名</code></td>
 </tr>
 </table>
- - 开启私有网络，并选择和数据库相同的私有网络和子网。如下图所示：
+ - 开启私有网络，并选择和数据库相同的私有网络和子网。如下图所示： 
 ![](https://main.qcloudimg.com/raw/b605a903a25988de2a148d9baac65678.png)
 
 

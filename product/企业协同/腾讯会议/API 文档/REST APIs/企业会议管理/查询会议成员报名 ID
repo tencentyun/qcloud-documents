@@ -3,6 +3,7 @@
  - 可通过会中成员的 ms_open_id 查询到对应的报名 ID，成员的 ms_open_id 可通过 [获取参会成员列表](https://cloud.tencent.com/document/product/1095/42701) 接口获取。
  - 成员的报名 ID 每场会议是唯一的，可以通过 [查询会议报名信息](https://cloud.tencent.com/document/product/1095/64011) 接口匹配其对应的报名信息。
  - 如果传入的成员没有报名，则不会返回该成员的 ms_open_id 和报名 ID。
+ - 企业 secret 鉴权用户可查询任何该企业该用户创建的有效会议，OAuth2.0 鉴权用户只能查询通过 OAuth2.0 鉴权创建的有效会议。
 - 请求方式：POST
 - 接口请求域名：
 ```plaintext

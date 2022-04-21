@@ -54,7 +54,7 @@ Datahub 提供数据流出能力，您可以将 CKafka 数据分发至日志管�
         <td>勾选后可在图表上显示图例信息。</td>
     </tr>
 </table> 
-<img src ="https://qcloudimg.tencent-cloud.cn/raw/2671dad9a312434312c95d051b46254d.png"> 
+<img src ="https://qcloudimg.tencent-cloud.cn/raw/3c97129f6682c5ec742d0dc16b60c238.png"> 
 
 
 

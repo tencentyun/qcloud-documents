@@ -98,7 +98,25 @@ GRANT INSERT, UPDATE, DELETE, DROP, SELECT, INDEX, ALTER, CREATE ON `__tencentdb
 
 ## 操作步骤
 1. 登录 [DTS 控制台](https://console.cloud.tencent.com/dts/migration)，在左侧导航选择**数据迁移**页，单击**新建迁移任务**，进入新建迁移任务页面。
-2. 在新建迁移任务页面，选择迁移的目标实例所属地域，单击**0元购买**，目前 DTS 数据迁移功能免费使用。
+2. 在新建迁移任务页面，选择迁移的源实例类型和所属地域，目标实例类型和所属地域，规格等，然后单击**立即购买**。
+<table>
+<thead><tr><th>配置项</th><th>说明</th></tr></thead>
+<tbody><tr>
+<td>源实例类型</td>
+<td>请根据您的源数据库类型选择，购买后不可修改。本场景选择“MySQL”。</td></tr>
+<tr>
+<td>源实例地域</td>
+<td>选择源数据库所属地域。如果源库为自建数据库，选择离自建数据库最近的一个地域即可。</td></tr>
+<tr>
+<td>目标实例类型</td>
+<td>请根据您的目标数据库类型选择，购买后不可修改。本场景选择“TDSQL MySQL”。</td></tr>
+<tr>
+<td>目标实例地域</td>
+<td>选择目标数据库所属地域。</td></tr>
+<tr>
+<td>规格</td>
+<td>根据业务情况选择迁移链路的规格，不同规格的性能和计费详情请参考 <a href="https://cloud.tencent.com/document/product/571/18736">计费概述</a>。</td></tr>
+</tbody></table>
 3. 在设置源和目标数据库页面，完成任务设置、源库设置和目标库设置，测试源库和目标库连通性通过后，单击**新建**。
 >?如果连通性测试失败，请根据提示和 [修复指导](https://cloud.tencent.com/document/product/571/58685) 进行排查和解决，然后再次重试。
 <table>
@@ -115,9 +133,11 @@ GRANT INSERT, UPDATE, DELETE, DROP, SELECT, INDEX, ALTER, CREATE ON `__tencentdb
 <td>标签用于从不同维度对资源分类管理。如现有标签不符合您的要求，请前往控制台管理标签。</td></tr>
 <tr>
 <td rowspan=8>源库设置</td>
-<td>源库类型</td><td>选择“MySQL”。</td></tr>
+<td>源库类型</td><td>购买时选择的源库类型，不可修改。</td></tr>
 <tr>
 <td>服务提供商</td><td>自建数据库（包括云服务器上的自建）或者腾讯云数据库，请选择“普通”；第三方云厂商数据库，请选择对应的服务商。<br>本场景以本地自建数据库为例，此处选择“普通”。</td></tr>
+<tr>
+<td>所属地域</td><td>购买时选择的源库地域，不可修改。</td></tr>
 <tr>
 <td>接入类型</td><td>请根据您的场景选择，本场景选择“公网”，不同接入类型的准备工作请参考 <a href="https://cloud.tencent.com/document/product/571/59968">准备工作概述</a>。
 <ul><li>公网：源数据库可以通过公网 IP 访问。</li>
@@ -125,9 +145,7 @@ GRANT INSERT, UPDATE, DELETE, DROP, SELECT, INDEX, ALTER, CREATE ON `__tencentdb
 <li>专线接入：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/216">专线接入</a> 方式与腾讯云私有网络打通。</li>
 <li>VPN接入：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/554">VPN 连接</a> 方式与腾讯云私有网络打通。</li>
 <li>云数据库：源数据库属于腾讯云数据库实例。</li>
-    <li>云联网：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/877">云联网</a> 与腾讯云私有网络打通。</li></ul>对于第三方云厂商数据库，一般可以选择公网方式，也可以选择 VPN 接入，专线或者云联网的方式，需要根据实际的网络情况选择。</td></tr>
-<tr>
-<td>所属地域</td><td>选择源库所属地域。</td></tr>
+<li>云联网：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/877">云联网</a> 与腾讯云私有网络打通。</li></ul>对于第三方云厂商数据库，一般可以选择公网方式，也可以选择 VPN 接入，专线或者云联网的方式，需要根据实际的网络情况选择。</td></tr>
 <tr>
 <td>主机地址</td><td>源库 MySQL 访问 IP 地址或域名。</td></tr>
 <tr>
@@ -138,11 +156,11 @@ GRANT INSERT, UPDATE, DELETE, DROP, SELECT, INDEX, ALTER, CREATE ON `__tencentdb
 <td>密码</td><td>源库 MySQL 的数据库帐号的密码。</td></tr>
 <tr>
 <td rowspan=6>目标库设置</td>
-<td>目标库类型</td><td>选择“TDSQL MySQL 版”。</td></tr>
+<td>目标库类型</td><td>购买时选择的目标库类型，不可修改。</td></tr>
+<tr>
+<td>所属地域</td><td>购买时选择的目标库地域，不可修改。</td></tr>
 <tr>
 <td>接入类型</td><td>选择“云数据库”。</td></tr>
-<tr>
-<td>所属地域</td><td>选择目标库所属地域。</td></tr>
 <tr>
 <td>数据库实例</td><td>选择目标端 TDSQL MySQL 版实例 ID。</td></tr>
 <tr>

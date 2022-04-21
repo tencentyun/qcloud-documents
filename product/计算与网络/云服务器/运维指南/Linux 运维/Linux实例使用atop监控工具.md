@@ -9,15 +9,16 @@ atop 是一款用于监控 Linux 系统资源与进程的工具，以一定的�
 ### 安装 atop
 1. [使用标准方式登录 Linux 实例（推荐）](https://cloud.tencent.com/document/product/213/5436)。
 2. 执行以下命令，安装 atop。
-```
+```shellsession
 yum install atop -y
-``` 页面提示信息为 `Complete!` 时说明已成功安装。
+```
+页面提示信息为 `Complete!` 时说明已成功安装。
 
 ### 配置并启动 atop
 参考以下步骤，配置 atop 监控周期及日志保留时间。
 
 1. 执行以下命令，使用 VIM 编辑器打开 atop 配置文件。
-```
+```shellsession
 vim /etc/sysconfig/atop
 ```
 2. 按 **i** 进入编辑模式，修改以下配置：
@@ -27,13 +28,13 @@ vim /etc/sysconfig/atop
 ![](https://main.qcloudimg.com/raw/764fee905a0f1d89d1c48c6d2f6aa372.png) 
 3. 按 **Esc** 并输入 **:wq**，保存修改并退出编辑器。
 4. 在 CentOS 7 及以上版本可执行以下命令，启动 atop。
-```
+```shellsession
 systemctl restart atop
 ```
 
 ### 分析 atop
 atop 启动后，会将采集的数据记录在 `/var/log/atop` 目录的日志文件中。请获取实际的日志文件名，执行以下命令，查看日志文件并参考 [atop 常用命令](#commands) 及 [系统资源监控字段说明](#monitoringField) 进行分析。
-```
+```shellsession
 atop -r /var/log/atop/atop_2021xxxx
 ```
 
@@ -89,6 +90,6 @@ atop -r /var/log/atop/atop_2021xxxx
 
 ### 停止 atop
 不建议在业务环境下长期运行 atop，您可在问题排查完成后停止 atop。在 CentOS 7 及以上版本可执行以下命令，停止 atop。
-```
+```shellsession
 systemctl stop atop
 ```

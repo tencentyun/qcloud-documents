@@ -1,5 +1,5 @@
 ## 集成准备
-1. [下载 SDK](https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.1.119/xmagic_S1-04_android_2.4.1.119.zip)，并解压。
+1. [下载 SDK](https://cloud.tencent.com/document/product/616/65876)，并解压。
 2. **准备下列文件**：
 <table>
 <tbody><tr><th>文件类型</th><th>说明</th></tr>

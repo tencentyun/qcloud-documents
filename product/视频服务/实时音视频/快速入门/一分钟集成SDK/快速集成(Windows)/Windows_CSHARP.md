@@ -10,7 +10,7 @@
 
 [](id:step1)
 ### 步骤1：下载  Windows C# SDK
-[下载 SDK](https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_TRTC_Win_latest.zip)，解压并打开文件，包含以下部分：
+[下载 SDK](https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_TRTC_Win_CSharp_latest.zip)，解压并打开文件，包含以下部分：
 
 |  目录名        | 说明                                  |
 | -------------  | -------------------------------------|

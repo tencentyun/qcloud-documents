@@ -3,7 +3,7 @@
 ## 管理 Web License 
 目前我们提供两个版本的 Web License，分别为正式版 Web License 和测试版 Web License。一个项目对应一个字符串形式的 License Key，接入 SDK 使用时需要使用 License Key。
 - [测试版 Web License](https://cloud.tencent.com/document/product/616/71368#test) 可以直接创建，有效期 14 天，**仅可续期一次**，共28天。
-- [正式版 Web License](https://cloud.tencent.com/document/product/616/71368#formal) 需要绑定 Web License 资源，有效期时为一年。
+- [正式版 Web License](https://cloud.tencent.com/document/product/616/71368#formal) 需要绑定 Web License 资源，推广阶段有效期为半年。
 > ! 目前暂无计费购买的资源，创建并使用正式版 Web License，需先 [申请领取 License 资源](https://cloud.tencent.com/apply/p/9fuh8sv6fl)。
 
 ## 创建项目

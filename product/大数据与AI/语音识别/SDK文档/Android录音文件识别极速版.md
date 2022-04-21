@@ -23,6 +23,14 @@
 ```
 < uses-permission android:name="android.permission.INTERNET"/>
 ```
+### 混淆规则
+```
+-keepclasseswithmembernames class * { # 保持 native 方法不被混淆
+native <methods>;
+}
+-keep public class com.tencent.*
+-keep public class com.qq.wx.voice.*
+```
 
 ## 快速接入
 ### 开发流程及接入示例

@@ -249,37 +249,61 @@
 #### 设备维度风险标签 deviceInfotag 说明
 
 <table>
-     <tr>
-         <th>tag 标签</th>  
-         <th>说明</th>  
-     </tr>
-  <tr>      
-         <td>202、5001</td>   
-      <td>设备疑似被 root，该标签支持 Android 和 iOS 系统</td>   
-     </tr> 
-  <tr>
-      <td>203、5004</td>   
-      <td>设备疑似被注入，该标签支持 Android 和 iOS 系统</td>
-     </tr> 
-  <tr>      
-       <td>205 </td>
-      <td>设备疑似被 hook，该标签仅支持 Android</td>   
-     </tr> 
-        <tr>      
-     <td>206 </td>
-     <td>设备疑似处于虚拟运行环境，该标签仅支持 Android</td>   
-    </tr> 
-                <tr>      
-     <td>5007、1005 </td>
-     <td>该设备疑似摄像头被劫持，该标签支持 Android 和 iOS 系统 </td>   
-    </tr>
-                <tr>      
-     <td>8000 </td>
-     <td>设备存在异常篡改信息行为，该标签支持 Android 和 iOS 系统</td>   
-    </tr>
-     <tr>      
-     <td colspan=2>说明：8000的含义包括了如 IMEI 篡改、OAID 篡改、IMSI 篡改及频繁修改设备参数行为</td>
-    </tr>
+<tr>
+<th>tag 标签</th>  
+<th>说明</th>  
+</tr>
+<tr>      
+<td>202、5001</td>   
+<td>设备疑似被 root/越狱，该标签支持 Android 和 iOS 系统</td>   
+</tr> 
+<tr>
+<td>203、5004</td>   
+<td>设备疑似被注入，该标签支持 Android 和 iOS 系统</td>
+</tr> 
+<tr>      
+<td>205 </td>
+<td>设备疑似被 hook，该标签仅支持 Android</td>   
+</tr> 
+<tr>      
+<td>206 </td>
+<td>设备疑似处于虚拟运行环境，该标签仅支持 Android</td>   
+</tr> 
+<tr>      
+<td>5007、1005 </td>
+<td>该设备疑似摄像头被劫持/被 hook，该标签支持 Android 和 iOS 系统 </td>   
+</tr>
+<tr>      
+<td>8000 </td>
+<td>设备存在异常篡改信息行为，该标签支持 Android 和 iOS 系统</td>   
+</tr><tr>      
+<td>5010</td>   
+<td>设备疑似改机，该标签仅支持 iOS</td>   
+</tr> 
+
+<tr>
+<td>5012、3</td>   
+<td>疑似模拟器，该标签支持 Android 和 iOS 系统</td>
+</tr> 
+<tr>      
+<td>5016 </td>
+<td>疑似使用自动化脚本，该标签仅支持 iOS</td>   
+</tr> 
+<tr>      
+<td>212 </td>
+<td>疑似高危 ROM，该标签仅支持 Android</td>   
+</tr> 
+<tr>      
+<td>213</td>
+<td>疑似检测到系统劫持，该标签仅支持 Android</td>   
+</tr>
+<tr>      
+<td>1001 </td>
+<td>疑似设备参数篡改，该标签仅支持 Android</td>   
+</tr>
+<tr>      
+<td colspan=2>说明：8000的含义包括了如 IMEI 篡改、OAID 篡改、IMSI 篡改及频繁修改设备参数行为</td>
+</tr>
 </table>
 
 
@@ -289,9 +313,6 @@
 | --------- | ------------- |
 | 02、03、04、05、07、08、09<br>10、11、12、13、14、15、16、17、18 |攻击风险   |
 | 01、06、19、20                                  | 综合业务风险 |
-
-
-
 
 
 

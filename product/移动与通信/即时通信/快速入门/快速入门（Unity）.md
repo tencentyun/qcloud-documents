@@ -34,14 +34,13 @@
 [](id:step3)
 ### 步骤3：修改依赖文件
 1. 通过 IDE（如：Visual Studio Code）打开项目：
-![](https://qcloudimg.tencent-cloud.cn/raw/4ea52e320700dc37770a5405ac14d1a7.jpg)
+![](https://qcloudimg.tencent-cloud.cn/raw/1a21933037a72a6bd4c8ed14f08c6ca7.png)
 2. 根据目录，找到 Packages/manifest.json，并修改依赖如下：
 ```json
 {
-	"dependencies":{
-    "com.tencent.imsdk.unity":"1.6.4" // 指定到最新版本即可,所有版本：https://www.npmjs.com/package/com.tencent.imsdk.unity
-  },
-  "registry": "https://registry.npmjs.org"
+    "dependencies":{
+    "com.tencent.imsdk.unity":"https://github.com/TencentCloud/TIMSDK.git#unity" 
+  }
 }
 ```
 
@@ -52,7 +51,7 @@
 
 [](id:step5)
 ### 步骤5：测试脚本
-1. 您可 [下载测试脚本](https://imgcache.qq.com/operation/dianshi/other/Demo.1fdc6bd474aa3d12f0f3061155d4a5accdf30c7b.zip
+1. 您可 [下载测试脚本](https://github.com/TencentCloud/TIMSDK/blob/master/Unity/im_unity_sdk_plus/Assets/Demo/TestApi.cs
 )，将文件解压后，放入项目中，并绑定 TestApi.cs 到任意场景上。
 ![](https://qcloudimg.tencent-cloud.cn/raw/b4d770775523fdd76b75f1d80f07c925.jpg)
 2. 选中场景并运行，配置 [步骤1](#step1) 中的 SDKAppID，UserID，UserSig 开始测试。

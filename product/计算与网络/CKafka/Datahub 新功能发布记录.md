@@ -9,7 +9,7 @@
 <td>支持 Schema 管理功能</td>
 <td>Datahub 支持 Schema 管理功能，您可以将创建好的 Schema 绑定到具体的数据流入任务上，将会按该 Schema 对流入的数据进行格式校验。</td>
 <td>2022-04-08</td>
-<td><a href="">Schema 管理</a></td>
+<td><a href="https://cloud.tencent.com/document/product/597/72321">Schema 管理</a></td>
 </tr><tr>
 <td>HTTP 支持 Schema</td>
 <td>Datahub 支持在 HTTP 接收数据上报的时候，根据指定的 Schema，对上报数据进行格式校验。</td>
@@ -24,12 +24,12 @@
   <td>支持数据流出至对象存储 COS</td>
 <td>Datahub 支持数据流出至对象存储 COS，您可以将 CKafka 数据分发至 COS 以便于对数据进行分析与下载等操作。</td>
 <td>2022-04-08</td>
-<td><a href="">流出至对象存储 COS</a></td>
+<td><a href="https://cloud.tencent.com/document/product/597/72322">流出至对象存储 COS</a></td>
    </tr><tr>
   <td>数据源类型支持对象存储 COS</td>
 <td>Datahub 支持接入对象存储 COS 数据，统一管理，再分发给下游的离线/在线处理平台，构建清晰的数据通道。</td>
 <td>2022-04-08</td>
-<td><a href="">对象存储 COS</a></td>
+<td><a href="https://cloud.tencent.com/document/product/597/72323">对象存储 COS</a></td>
 </tr></table>
 
 

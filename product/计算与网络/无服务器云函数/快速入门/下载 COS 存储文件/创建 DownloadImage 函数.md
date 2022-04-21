@@ -6,7 +6,7 @@
  - 访问权限：选择 “私有读写”。
 4. 切换至 [云函数控制台](https://console.cloud.tencent.com/scf/list?rid=1)，进入**函数服务**页面。
 5. 选择**广州**地域，单击**新建**，进入新建函数页面。
-6. 填写以下参数信息，单击**下一步**。如下图所示：
+6. 填写以下参数信息，单击**下一步**。如下图所示： 
 ![](https://main.qcloudimg.com/raw/2fa61bd4c599d0798b48e1faee5e2e9e.png)
  - 创建方式：选择 “模板函数”。
  - 函数名称：命名为 “DownloadImage”。
@@ -24,7 +24,7 @@
     - region： 设置为 COS Bucket 所在地域，即 “ap-guangzhou”。
     >! 云函数和 COS Bucket 须选择同一个地域。
 10. 选择**触发方式**页签，单击**添加触发方式**。
-11. 在 “添加触发方式” 页面，填写以下信息，单击**保存**。如下图所示：
+11. 在 “添加触发方式” 页面，填写以下信息，单击**保存**。如下图所示： 
 ![](https://main.qcloudimg.com/raw/0a52a905922ee1c150c203d88df721d1.png)
  - 触发方式：选择 “COS触发”。
  - COS Bucket：选择创建好的 “test-scf” 。

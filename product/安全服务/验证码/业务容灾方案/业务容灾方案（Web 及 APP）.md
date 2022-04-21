@@ -32,7 +32,8 @@ function TCaptchaLoadError(){
 <!-- 如果script是在head中引入 onerror的函数需等domready再绑定元素事件 在body中加载无需等待 -->
 <script src="https://ssl.captcha.qq.com/TCaptcha.js" onerror="TCaptchaLoadError()"></script>
 ```
-基于以上步骤接入后，如果加载 TCaptcha.js 时出现异常，将会自动生成 `terror_1001`格式的容灾票据（防止无法生成票据导致后端票据校验流程阻塞）。
+
+基于以上步骤接入后，如果加载 TCaptcha.js 时出现异常，将会自动生成 `terror_1001` 格式的容灾票据（防止无法生成票据导致后端票据校验流程阻塞）。
 
 ## 交互验证请求容灾方案
 用户与验证码交互时，验证码会调用业务传入的回调函数， 并在第一个参数中传入回调结果。
@@ -46,7 +47,7 @@ function TCaptchaLoadError(){
 | CaptchaAppId | String | 验证码应用 ID。                                            |
 | bizState     | Any    | 自定义透传参数。                                           |
 | randstr      | String | 本次验证的随机串，请求后台接口时需带上。                   |
-| errorCode    | Number | 错误 code ，详情请参见 [回调函数 errorCode 说明](#errCode)。|
+| errorCode    | Number | 错误 code，详情请参见 [回调函数 errorCode 说明](#errCode)。|
 | errorMessage | String | 错误信息。                                                  |
 
 #### 回调函数 errorCode 说明[](id:errCode)
@@ -99,7 +100,7 @@ window.callback = function(res){
 
 ## 票据校验容灾方案
 当请求**验证码票据校验接口**发生异常时，客户服务端需做出相应的业务异常处理（例如跳过这次验证），保证不会因为接口返回结构异常，请求超时或服务未响应而阻碍业务流程。**如下为几种异常返回的情况，需要客户侧进行容灾。**
-- 请求超时或 服务未响应。
+- 请求超时或服务未响应。
 - 返回异常，Code为InternalError，接口返回举例如下：
 ```php
 {
@@ -126,3 +127,6 @@ window.callback = function(res){
     "retmsg": "ok"
 }
 ```
+
+## 更多信息
+您可以登录 [验证码控制台](https://console.cloud.tencent.com/captcha/graphical) ，在页面右上角单击**快速咨询**，了解更多详细信息。
