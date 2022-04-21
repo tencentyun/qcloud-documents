@@ -13,18 +13,22 @@
 </tr>
 </thead>
 <tbody><tr>
-<td>Put Event 接口限制（地域）</td>
-<td>1000QPS</td>
+<td>PutEvents 接口限制（地域） </td>
+<td>5000 TPS</td>
 </tr>
 <tr>
-<td rowspan="2">自定义事件集个数/地域</td>
+<td>自定义事件集个数/地域</td>
 <td>10<br></td>
 </tr>
 <tr>
 </tr>
 <tr>
-<td>单事件集可最多绑定规则个数</td>
+<td>单自定义事件集可最多绑定规则个数</td>
 <td>10</td>
+</tr>
+<tr>
+<td>单云服务事件集可最多绑定规则个数</td>
+<td>200</td>
 </tr>
 <tr>
 <td>单个事件规则可配置目标数</td>
