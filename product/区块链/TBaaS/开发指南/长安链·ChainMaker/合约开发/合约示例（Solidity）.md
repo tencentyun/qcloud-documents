@@ -1,7 +1,4 @@
 
-
-
-
 ### Token 合约代码示例
 Token 合约代码示例如下，实现功能 ERC20。
 ```solidity
@@ -98,9 +95,7 @@ contract Token {
 }
 ```
 
-
 ### Token 合约代码说明
-
 
 - constructor：合约构造函数，在合约部署时被调用，将 `_addressFounder` 的余额设置为 `valueFounder`。
 - transfer：转账函数，该函数具有两个入参，接收者地址 `_to` 和转账金额 `_value`，该函数将调用者 `msg.sender` 的余额减去 `_value`，将接收者的余额加上 `_value`。
@@ -110,4 +105,3 @@ contract Token {
 - start：启动函数，该函数执行后，`transfer`，`transferFrom` 和 `approve` 函数将可以再被执行。
 - setName：设置 token 名字函数，该函数具有一个入参 `_name`，将 token 的名字设置为 `_name`。
 - burn：销毁函数，该函数具有一个入参 `_value`，将调用者 `msg.sender` 的余额减去 `_value`。
-

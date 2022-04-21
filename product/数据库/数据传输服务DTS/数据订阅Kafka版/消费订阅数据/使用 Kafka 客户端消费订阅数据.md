@@ -19,10 +19,23 @@
 | Java        | [地址](https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/tdsql_subscribe_kafka_java_demo_1.0.3.zip)  |
 | Python   | [地址](https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/tdsql_subscribe_kafka_python_demo_1.0.3.zip) |
 
+## 消费 Demo 下载（TDSQL PostgreSQL版）
+
+参考下表下载数据订阅 Kafka 版客户端消费 Demo 代码：
+
+| Demo 语言 | 下载地址                                                     |
+| --------- | ------------------------------------------------------------ |
+| Go        | [地址](https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/tdsql_postgresql_subscribe_kafka_go_demo_1.0.0.zip) |
+| Java      | [地址](https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/tdsql_postgresql_subscribe_kafka_java_demo_1.0.0.zip) |
+| Python    | [地址](https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/tdsql_postgresql_subscribe_kafka_python_demo_1.0.0.zip) |
+
 ## Protobuf 协议文件下载
+
 | 协议文件 | 下载地址                                             |
 | ------------- | ------------------------------------------------------------ |
 | Protobuf      | [地址](https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/subscribe.proto) |
+>?请使用 Protobuf 3.X 版本进行代码生成，以便数据结构可以正确兼容。
+>
 
 ## 配置参数说明
 | 参数       | 说明                        |

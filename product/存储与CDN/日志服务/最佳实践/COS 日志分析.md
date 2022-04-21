@@ -87,7 +87,7 @@ json-log2019-05-09_00645d9a-1118-4d69-8411-cfd57ede9ea1_000
 ![image-20210824203857045](https://main.qcloudimg.com/raw/1940741d830d1740d153aa8dd5846680.png)
 - 统计当天某个 bucket 的访问趋势
 ```sql
-* | select date_trunc('minute', __TIMESTAMP__) AS time, count(*) as pv, reqMethod group by time, reqMethod order by time limit 200
+* | select time_series(__TIMESTAMP__, '1m', '%Y-%m-%dT%H:%i:%s+08:00', '0') AS time, count(*) as pv, reqMethod group by time, reqMethod order by time limit 200
 ```
 ![image-20210824204151584](https://main.qcloudimg.com/raw/25dd0853f46113b934339606950e7c9c.png)
 - 错误请求 Top10的访问者

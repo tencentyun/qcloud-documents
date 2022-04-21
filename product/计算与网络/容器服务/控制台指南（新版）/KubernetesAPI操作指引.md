@@ -139,7 +139,7 @@ curl --cert client-cert.pem --key client-key.pem -k $APISERVER/api/v1/namespaces
 若在执行 `curl` 命令时，出现如下所示错误，则说明需放通集群的 [访问权限](https://kubernetes.io/zh/docs/reference/access-authn-authz/rbac/)。
 ![](https://main.qcloudimg.com/raw/c50eca5e28b0cdbb4cf00a378a773205.png)
 您可通过以下两种方式进行授权操作：
-- 方式一（推荐）：参考文档 [使用预设身份授权](https://cloud.tencent.com/document/product/457/46105) 及 [自定义策略授权](https://cloud.tencent.com/document/product/457/46106) 通过容器服务控制台进行 RBAC 授权。
+- 方式一（推荐）：参考文档 [使用预设身份授权](https://cloud.tencent.com/document/product/457/46105) 及 [自定义策略授权](https://cloud.tencent.com/document/product/457/46106) 通过容器服务控制台 进行 RBAC 授权。
 - 方式二：执行以下命令进行授权，但在生产集群中，不建议盲目地将帐户提升为集群管理员权限 cluster-admin。
 ```
 kubectl create clusterrolebinding cluster-system-anonymous --clusterrole=cluster-admin --user=system:anonymous

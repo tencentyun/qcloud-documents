@@ -1,3 +1,5 @@
+>!由于产品逻辑已无法满足游戏行业技术发展，游戏联机对战引擎 MGOBE 将于2022年6月1日下线，请您在2022年5月31日前完成服务迁移。
+
 1. 将 SDK 文件中的 MGOBE.js 拷贝到项目的 js/libs 文件夹下。单击进入 [SDK 下载](https://cloud.tencent.com/document/product/1038/33406) 页面。
 2. 参考以下示例代码，将 MGOBE.js 导入至 game.js。
 ```

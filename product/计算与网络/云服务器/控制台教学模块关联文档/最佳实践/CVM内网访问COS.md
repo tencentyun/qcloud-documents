@@ -6,8 +6,11 @@
 - **同地域访问**：同地域范围内的访问将会自动被指向到内网地址，即自动使用内网连接，产生的内网流量不计费。因此选购腾讯云不同产品时，建议尽量选择相同地域，减少您的费用。
 - **跨地域访问**：暂不支持内网访问，默认将会解析到外网地址。
 
->!公有云地域和金融云地域内网不互通。
->
+<dx-alert infotype="notice" title="">
+公有云地域和金融云地域内网不互通。
+</dx-alert>
+
+
 
 
 
@@ -20,9 +23,10 @@
 nslookup examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com
 ```
 返回如下图所示结果，其中`10.148.214.13`和`10.148.214.14`这两个 IP 就代表了是通过内网访问 COS。
->?内网 IP 地址一般形如`10.*.*.*`、`100.*.*.*` ，VPC 网络一般为`169.254.*.*` 等，这两种形式的 IP 都属于内网。
->
-![](https://main.qcloudimg.com/raw/49a7d7429ec2a96d271f6a63926286ea.png)
+<dx-alert infotype="explain" title="">
+内网 IP 地址一般形如`10.*.*.*`、`100.*.*.*` ，VPC 网络一般为`169.254.*.*` 等，这两种形式的 IP 都属于内网。
+</dx-alert>
+<img src="https://main.qcloudimg.com/raw/49a7d7429ec2a96d271f6a63926286ea.png"/>
 
 ## 测试连通性
 提供外网访问 COS、同地域 CVM（基础网络）访问 COS 及同地域 CVM（VPC 网络）访问 COS 示例，详情请参见 [测试连通性](https://cloud.tencent.com/document/product/436/31315#.E6.B5.8B.E8.AF.95.E8.BF.9E.E9.80.9A.E6.80.A7)。

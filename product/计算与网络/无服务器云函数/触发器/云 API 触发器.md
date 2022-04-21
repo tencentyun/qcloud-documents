@@ -10,5 +10,5 @@
 2. [填写公共参数](https://cloud.tencent.com/document/product/583/17238)；
 3. 根据 [返回结果](https://cloud.tencent.com/document/product/583/17240) 解析返回结果。
 
-另外，为了避免自行构造请求内容及解析内容，用户也可以直接使用云 API SDK 触发云函数。 云 API SDK 提供了 Python，PHP，Java，GO，.NET，Node.js 语言的实现，各语言 SDK 的具体使用方式可见 [腾讯云 SDK 中心](https://cloud.tencent.com/document/sdk)。
+另外，为了避免自行构造请求内容及解析内容，用户也可以直接使用云 API SDK 触发云函数。   云 API SDK 提供了 Python，PHP，Java，GO，.NET，Node.js 语言的实现，各语言 SDK 的具体使用方式可见 [腾讯云 SDK 中心](https://cloud.tencent.com/document/sdk)。
 

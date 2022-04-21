@@ -9,15 +9,15 @@ Typecho 是开源的博客建站平台，具有轻量、高效、稳定等特点
 您可以在此页面查看 Typecho 应用的各项配置信息。
 4. 选择**应用管理**页签，进入应用管理详情页。
 5. [](id:Step5)在“应用内软件信息”栏中，单击 <img src="https://main.qcloudimg.com/raw/6603ab4f907562addb1c01596c6296cd.png" style="margin:-3px 0px">，复制获取 Typecho 管理员帐号及密码的命令。
-6. 在“应用内软件信息”栏中，单击**登录**。如下图所示：
+6. 在“应用内软件信息”栏中，单击**登录**，或页面右上角的**登录**。如下图所示：
 <dx-alert infotype="explain" title="">
 在应用管理详情页中，除了可以查看 Typecho 的配置信息，还可以查看其他配置信息。例如首页地址、 Nginx 主配置文件保存路径、 MariaDB 数据库管理员密码、实例中各个软件的安装路径等。
 </dx-alert>
-<img src="https://main.qcloudimg.com/raw/6a1e42a54eb6999ad2522d023f838761.png"/>
+<img src="https://qcloudimg.tencent-cloud.cn/raw/82aeb32c830dea2ed5adae48f8398df5.png"/>
 7. [](id:Step7)在弹出的登录窗口中，粘贴在 [步骤5](#Step5) 中获取的命令，并按 **Enter**。
 即可获取 Typecho 管理员帐号（admin ）和对应的密码。
 8. 在“应用内软件信息”栏中，单击 Typecho 的**管理员登录地址**。如下图所示：
-![](https://main.qcloudimg.com/raw/a6e715e38b41b628317b7ac5649325f0.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/e440df875da2724a11b0946813a2d4a3.png)
 9. 在新打开的浏览器窗口中，输入 [步骤7](#Step7) 记录的帐号和密码，单击**登录**。如下图所示：
 ![](https://main.qcloudimg.com/raw/b6b9a13700780ee4b4039a3166260795.png)
 成功登录后，您可根据实际需要对 Typecho 进行管理、自定义和配置。

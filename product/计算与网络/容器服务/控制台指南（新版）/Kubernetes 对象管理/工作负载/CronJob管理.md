@@ -1,4 +1,4 @@
-## 简介
+## 简介 
 
 一个 CronJob 对象类似于 crontab（cron table）文件中的一行，它根据指定的预定计划周期性地运行一个 Job。
 
@@ -7,7 +7,7 @@
 
 ### 创建 CronJob
 
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
+1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)。
 2. 在左侧导航栏中，单击**集群**，进入集群管理页面。
 3. 单击需要创建 CronJob 的集群 ID，进入待创建 CronJob 的集群管理页面。
 4. 选择**工作负载** > **CronJob**，进入 CronJob 信息页面。如下图所示：
@@ -46,7 +46,7 @@
 
 ### 查看 CronJob 状态
 
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
+1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)。
 2. 在左侧导航栏中，单击**集群**，进入集群管理页面。
 3. 单击需要查看 CronJob 状态的集群 ID，进入待查看 CronJob 状态的集群管理页面。
 4. 选择**工作负载** > **CronJob**，进入 CronJob 信息页面。

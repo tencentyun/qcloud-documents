@@ -41,14 +41,14 @@ LogListener 服务日志功能支持记录 LogListener 端运行状态和采集�
 ### 开通服务日志
 
 1. 登录 [日志服务控制台](https://console.cloud.tencent.com/cls)。
-2. 在左侧导航栏中单击【机器组管理】，进入机器组列表页。
+2. 在左侧导航栏中单击**机器组管理**，进入机器组列表页。
 3. 在机器组列表页，选择目标机器组，单击![](https://main.qcloudimg.com/raw/f49ecfc95ee483de28fb0928a4ada2dd.png)，即可开启 LogListener 服务日志。
 ![](https://main.qcloudimg.com/raw/5dea5c8e51a0aaf92d85be9652baf59c.png)
 
 ### 关闭服务日志
 
 1. [日志服务控制台](https://console.cloud.tencent.com/cls)。
-2. 在左侧导航栏中单击【机器组管理】，进入机器组列表页。
+2. 在左侧导航栏中单击**机器组管理**，进入机器组列表页。
 3.  在机器组列表页，选择目标机器组，单击![](https://main.qcloudimg.com/raw/b9a30517065edbe87527257fcc100184.png)，即可关闭 LogListener 服务日志。
 
 >? 关闭服务日志功能后，日志集 cls_service_logging 中保存的日志数据不会自动删除，如果您需要删除这部分日志数据，可以手动删除保存服务日志的日志集。

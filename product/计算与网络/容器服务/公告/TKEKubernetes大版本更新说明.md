@@ -1,4 +1,137 @@
 
+## 1.20 changes since 1.18
+### 重大更新
+#### 新版 CronJob 控制器
+1.20 引入了新版的 CronJob 控制器，使用 informer 机制来代替原来的轮询，优化了性能。可以在 `kube-controller -manager` 指定 `--feature-gates="CronJobControllerV2=true"` 来开启。在以后的版本中，会默认使用新版的控制器。
+
+#### 弃用 dockershim
+Dockershim 已经正式被弃用。kubernetes 对 Docker 的支持已弃用，将在将来的版本中删除。Docker 生成的遵循 OCI 规范的镜像可以继续在兼容 CRI 的运行时中运行。
+更多信息可以参考：[Don't Panic: Kubernetes and Docker](https://kubernetes.io/blog/2020/12/02/dont-panic-kubernetes-and-docker/) , [Dockershim Deprecation FAQ](https://blog.k8s.io/2020/12/02/dockershim-faq/)
+#### 结构化日志
+对日志消息和 k8s 对象引用的结构都进行了标准化，让日志解析，处理，存储，查询和分析变得更加简单。klog 增加了两个方法来支持结构化日志： `InfoS`  ,  `ErrorS` 。
+所有组件增加 `--logging-format` 参数，默认值是 `text` ，保持之前的格式。设置为 `json` 支持结构化日志，此时这些参数不再起作用：--add_dir_header, --alsologtostderr, --log_backtrace_at, --log_dir, --log_file, --log_file_max_size, --logtostderr, --skip_headers, --skip_log_headers, --stderrthreshold, --vmodule, --log-flush-frequency
+#### Exec 探测的超时处理
+有关 Exec 探测超时的一个长期存在的 bug 已修复，该 bug 可能会影响现有 pod 定义。在此修复之前，timeoutSeconds 字段指定的超时并未被遵从，相反，探测器将无限期地运行，甚至超过其配置的截止时间，直到返回结果。在本次更改之后，如果未指定值，则探针仅默认应用 1 秒。如果执行探针耗费的时间超过 1 秒，那么现有的 Pod 定义就可能需要修改，显示指定 timeoutSeconds 字段。本次修复还添加了名为 `ExecProbeTimeout` 的开关，允许保留之前的行为（在后续发行版中，此功能将被锁定及删除）。要保留之前的行为，需要把 `ExecProbeTimeout` 设置为 `false` 。
+更多信息，可以参考 [Configure Liveness, Readiness and Startup Probes - Configure Probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#configure-probes)
+#### 卷快照操作功能 GA
+此功能提供了一种触发卷快照操作的标准方法，并允许用户以可移植的方式在任何 Kubernetes 环境和支持的存储 provider 上进行合并快照的操作。
+此外，这些 Kubernetes 快照原语可以作为基础，解锁为 Kubernetes 开发高级企业级存储管理功能（包括应用程序或群集级备份解决方案）的能力。
+请注意，快照支持需要 Kubernetes 集群部署快照控制器、快照 CRD 和验证 Webhook，以及支持快照功能的 CSI 驱动。
+
+#### kubectl debug 进入 beta 阶段
+ `kubectl alpha debug` 命令进入 beta 阶段，并被替换为 `kubectl debug` 。该功能支持直接从 kubectl 进行常见的调试工作，包括：
+- 使用其他容器镜像或命令来创建 pod 的副本，对启动时崩溃的工作负载进行故障排除。
+- 通过在 pod 新副本中或临时容器中，添加包含调试工具的新容器的方式，对 distroless 等不包含调试工具的容器进行故障排除。（临时容器 `EphemeralContainers` 是 Alpha 功能，默认未启用）
+- 通过创建在主机命名空间中运行的容器并访问主机的文件系统，就可以在节点上排除故障。
+请注意，作为新的内置命令，kubectl debug 优先于任何名为 "debug" 的 kubectl 插件，必须重命名受影响的插件。
+ `kubectl alpha debug` 已弃用，并将在随后的版本中删除，需要替换为 `kubectl debug` 。更多信息，可以参考 [Debug Running Pods](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-running-pod/)
+ 
+#### API 优先级和公平性功能（API Priority and Fairness）进步 beta 阶段
+1.18 引入的 API Priority and Fairness 功能，将在 1.20 版本默认启用，允许 `kube-apiserver` 按优先级对传入的请求进行分类。
+#### PID 资源限制功能 GA
+ `SupportNodePidsLimit`  （节点到 pod 的 PID 隔离）和  `SupportPodPidsLimit`  （ 限制每个 Pod 的 PID 的能力）都已经到了 GA 阶段。
+ 
+#### alpha 功能：节点优雅关机
+用户和群集管理员都希望 pod 将遵循预期的 pod 生命周期，包括 pod 的终止。但是当节点关机时，pod 不遵循预期的 pod 终止生命周期，并且不会正常终止，这可能会导致工作负载的某些问题。1.20 增加了 alpha 的  `GracefulNodeShutdown`  功能，使得 kubelet 能 监听到节点的系统关机事件，从而在系统关闭期间优雅终止 pod。
+
+#### CSIVolumeFSGroupPolicy 进入 beta 阶段
+CSIDrivers 可以使用 `fsGroupPolicy` 字段来控制是否支持在 mount 时修改属主和权限。（ReadWriteOnceWithFSType，File，None）
+
+#### ConfigurableFSGroupPolicy 进入 beta 阶段
+支持非递归设置 fsgroup -  `PodFSGroupChangePolicy`  =  `OnRootMismatch`
+
+### 其他更新
+- 新增 cloud controller manager 组件。
+- 达到 GA 的特性：
+  - [RuntimeClass](https://github.com/kubernetes/enhancements/issues/585)
+ `node.k8s.io/v1beta1` 被废弃，请使用 `node.k8s.io/v1` 
+  - [内置 API 类型的默认值](https://github.com/kubernetes/enhancements/issues/1929)
+  - [StartupProbe](https://github.com/kubernetes/enhancements/issues/950)
+  - [Services 及 Endpoints 支持 AppProtocol 字段](https://github.com/kubernetes/enhancements/issues/1507)
+  - [TokenRequest 及 TokenRequestProjection](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#service-account-token-volume-projection)
+  - SCTPSupport
+  - Windows containerd 支持
+  - Ingress
+  废弃 `networking.k8s.io/v1beta1` （计划在 1.22 版本移除），由 `networking.k8s.io/v1` 代替。
+  - seccomp
+  seccomp 相关的注解  `seccomp.security.alpha.kubernetes.io/pod`  及  `container.seccomp.security.alpha.kubernetes.io/...` 被废弃（计划在 1.22 版本移除），可以直接在 pod 及 container spec 中指定如下字段：
+```
+securityContext:
+  seccompProfile:
+    type: RuntimeDefault|Localhost|Unconfined ## choose one of the three
+    localhostProfile: my-profiles/profile-allow.json ## only necessary if type == Localhost
+```
+  K8s 会自动转换注解和字段，不需要采取额外的操作来进行转换。
+  - [节点证书自动轮换](https://github.com/kubernetes/enhancements/issues/266)
+  - [限制节点 API 访问权限](https://github.com/kubernetes/enhancements/issues/279)
+  Node 认证模式相关的特性全部实现。
+  - [重构 Event API](https://github.com/kubernetes/enhancements/issues/383)
+  为了缓解 Event 对系统性能的影响，以及增加更多字段以提供更有用的信息，对 Event API 进行了重新设计。这项工作在 1.19 完成。
+  - [CertificateSigningRequest API](https://github.com/kubernetes/enhancements/issues/1513)
+  除了之前的 `certificates.k8s.io/v1beta1` ，为 CertificateSigningRequest 新增版本 `certificates.k8s.io/v1` 。在使用 `certificates.k8s.io/v1` 时，
+    - 必须指定 `spec.signerName` ，并且不可再使用 `kubernetes.io/legacy-unknown` 。
+    - 必须指定 `spec.usages` ，不能包含重复值，并且取值只能是已知 usage。
+    - 必须指定 `status.conditions[*].status` 。
+    -  `status.certificate` 必须是 PEM 编码，并且只包含 `CERTIFICATE` 块。
+- 进入 Beta 的特性：
+以下特性进入 Beta 阶段，并默认启用。
+  - EndpointSliceProxying
+  kube-proxy 从 EndpointSlices 读取信息，而不再是 Endpoints，这可以很大程度上改善大集群的扩展性，并且为以后增加新特性提供了方便（例如拓扑感知路由）
+  - KubeSchedulerConfiguration
+  - HugePageStorageMediumSize
+  - ImmutableEphemeralVolumes
+  Secret 和 ConfigMap 卷可以标记为 immutable，在有大量 Secret 和 ConfigMap 卷时，可以大大减少对 apiserver 的压力
+  - NodeDisruptionExclusion
+  - NonPreemptingPriority
+  - ServiceNodeExclusion
+  - [RootCAConfigMap](https://github.com/kubernetes/enhancements/blob/master/keps/sig-auth/1205-bound-service-account-tokens/README.md)
+  - [调度器中的 Pod 资源指标](https://kubernetes.io/docs/concepts/cluster-administration/system-metrics/#kube-scheduler-metrics)
+  - ServiceAccountIssuerDiscovery
+
+### 废弃和移除
+#### 废弃版本
+
+|废弃版本 |新版本 |
+|:--|--|
+|apiextensions.k8s.io/v1beta1 |apiextensions.k8s.io/v1 |
+|apiregistration.k8s.io/v1beta1 |apiregistration.k8s.io/v1 |
+|authentication.k8s.io/v1beta1 |authentication.k8s.io/v1 |
+|authorization.k8s.io/v1beta1 |authorization.k8s.io/v1 |
+|autoscaling/v2beta1 |autoscaling/v2beta2 |
+|coordination.k8s.io/v1beta1 |oordination.k8s.io/v1 |
+|storage.k8s.io/v1beta1 |storage.k8s.io/v1 |
+
+#### kube-apiserver
+1.  `componentstatus`  API 被废弃。这个 API 用来提供 etcd, kube-scheduler, 和 kube-controller-manager 的运行状态，但只在这些条件下才能工作：这些组件跟 apiserver 运行在一个节点，并且 kube-scheduler 和 kube-controller-manager 暴露了非安全的健康检查端口。
+废弃这个 API 后，etcd 的健康检查被包含在 kube-apiserver 的健康检查中，kube-scheduler/kube-controller-manager 可以检查各自的健康检查接口。
+2. apiserver 不再监听非安全端口。
+ `--address` 及  `--insecure-bind-address`  参数可以设置但无效果； `--port` 及 `--insecure-port` 参数只能设置为 0。这些参数将在 1.24 版本移除。
+3.  `TokenRequest`  及  `TokenRequestProjection` 进入 GA，kube-apiserver 需要设置以下参数：
+  -  `--service-account-issuer`  , 标识该集群 API Server 的固定的 URL。
+  -  `--service-account-key-file`  , 一个或者多个验证 token 的公钥。
+  -  `--service-account-signing-key-file`  , 签发 service account 的私钥，可以与 `kube-controller-manager` 的 `--service-account-private-key-file` 参数使用相同的文件。
+
+#### kubelet
+1. 以下参数被移除：
+	-  `-seccomp-profile-root` 
+	-  `--cloud-provider` ,  `--cloud-config` ，使用 config 来代替
+	-  `--really-crash-for-testing` ,  `--chaos-chance`
+2. 已废弃的 `metrics/resource/v1alpha1`  endpoint 被移除，请使用 `metrics/resource`。
+
+#### 其他移除
+- `failure-domain.beta.kubernetes.io/zone`  及 `failure-domain.beta.kubernetes.io/region` 标签被废弃，请使用 `topology.kubernetes.io/zone` 及 `topology.kubernetes.io/region` 来代替。所有以 `failure-domain.beta...`  前缀的标签都需要使用对应的 `topology...` 开头的标签来代替。
+- PodPreset 被移除，可以使用 webhook 来实现该功能。
+- 不再支持 basic auth 鉴权方式。
+- 不再支持在工作负载中直接使用腾讯云硬盘存储 (cbs inline) 挂载。
+>? 1.18 升级 1.20 过程中无法保证对 [CSI 临时卷 (csi inline)](https://kubernetes.io/zh/docs/concepts/storage/ephemeral-volumes/#csi-ephemeral-volumes) 的成功挂载，如您的业务使用了 CSI 临时卷，建议转换为持久卷存储后再做升级。
+>
+
+### Changelogs
+[kubernetes 1.20 changelog](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.20.md#whats-new-major-themes)
+[kubernetes 1.19 changelog](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.19.md#whats-new-major-themes)
+
+
+
 ## 1.18 changes since 1.16
 ### 重大更新
 #### cloud provider 标签功能达到稳定（GA）阶段
@@ -174,8 +307,8 @@ kubeadm 对 HA 的支持进入 beta 阶段，用户可以使用 `kubeadm init` �
 - **集群**
     - 以下标签不再在节点上设置：`beta.kubernetes.io/metadata-proxy-ready`、 `beta.kubernetes.io/metadata-proxy-ready` 及 `beta.kubernetes.io/kube-proxy-ds-ready`。
         * `ip-mask-agent` 使用 `node.kubernetes.io/masq-agent-ds-ready` 作为 node 选择器，不再使用 `beta.kubernetes.io/masq-agent-ds-ready`。
-        * `kube-proxy` 使用 `node.kubernetes.io/kube-proxy-ds-ready` 作为 node 选择器，不再使用 `beta.kubernetes.io/kube-proxy-ds-ready`。 
-        * `metadata-proxy` 使用 `cloud.google.com/metadata-proxy-ready` 作为 node 选择器，不再使用 `beta.kubernetes.io/metadata-proxy-ready`。 
+        * `kube-proxy` 使用 `node.kubernetes.io/kube-proxy-ds-ready` 作为 node 选择器，不再使用 `beta.kubernetes.io/kube-proxy-ds-ready`。  
+        * `metadata-proxy` 使用 `cloud.google.com/metadata-proxy-ready` 作为 node 选择器，不再使用 `beta.kubernetes.io/metadata-proxy-ready`。  
 - **API Machinery**
 k8s.io/kubernetes 和其他发布的组件，包括 k8s.io/client-go 和 k8s.io/api 等，现在包含 Go 模块文件，包括依赖库的版本信息。在以 Go 模块方式使用 k8s.io/client-go 时可以参考 [go-modules](http://git.k8s.io/client-go/INSTALL.md#go-modules) 以及 [pr74877](https://github.com/kubernetes/kubernetes/pull/74877)。
 - **Apps**
@@ -189,7 +322,7 @@ k8s.io/kubernetes 和其他发布的组件，包括 k8s.io/client-go 和 k8s.io/
     - 默认启用 `StorageObjectInUseProtection` admission [插件](https://github.com/kubernetes/kubernetes/pull/74610)。如果之前没有启用该插件，集群的行为可能会发生变化。
     - CSI driver 启用 PodInfoOnMount 后，在 volume 上下文会增加一个新的参数：`csi.storage.k8s.io/ephemeral`，允许 driver 在实现 NodePublishVolume 时，逐个判断当前 volume 是短暂存储还是持久的，详情请参见 [pr79983](https://github.com/kubernetes/kubernetes/pull/79983)。
     - VolumePVCDataSource（存储卷克隆功能） 进入 beta，详情请参见 [pr81792]( https://github.com/kubernetes/kubernetes/pull/81792)。
-    - 把内建以及 CSI volume 的 limit 合为一个调度器 preidicate，详情请参见 [pr77595]( https://github.com/kubernetes/kubernetes/pull/77595)。 
+    - 把内建以及 CSI volume 的 limit 合为一个调度器 preidicate，详情请参见 [pr77595]( https://github.com/kubernetes/kubernetes/pull/77595)。  
 - **kube-apiserver**
     - 废弃参数 `--enable-logs-handler`，计划在 v1.19移除。
     - 废弃 `--basic-auth-file` 及相应的认证模式，未来计划移除。
@@ -280,7 +413,7 @@ k8s.io/kubernetes 和其他发布的组件，包括 k8s.io/client-go 和 k8s.io/
 * <b> kube-scheduler</b>
  不再支持 `componentconfig/v1alpha1`。
 * **kubectl**
-不再支持命令 `run-container`。 
+不再支持命令 `run-container`。  
 * **taints**
 不再支持 `node.alpha.kubernetes.io/notReady` 和 `node.alpha.kubernetes.io/unreachable`，改为 `node.kubernetes.io/not-ready` 和 `node.kubernetes.io/unreachable`。
 

@@ -55,8 +55,8 @@
 ### 步骤五：访问服务
 
 1. 完成上述步骤后，单击**服务配置**进入服务配置页面，单击**公网访问地址**的跳转链接，即可访问 SaaS 的前端页面。
-<img src="https://main.qcloudimg.com/raw/9e3dabf221344c2c1d70f6d01f946871.jpg" alt="" style="" />
-<img src="https://main.qcloudimg.com/raw/797efd6eef08e688b713ba22ece6b52d.jpg" alt="" style="" />
+<img src="https://qcloudimg.tencent-cloud.cn/raw/b9dd4ad4f95abed7099c414c5e35656e.jpg" alt="" style="" />
+<img src="https://qcloudimg.tencent-cloud.cn/raw/ee9abaedf1b489a2182b13fef613f32d.jpg" alt="" style="" />
 2. 本阶段成功部署了一个简单的前端服务，当然 Demo 的功能不局限于此，接下来还可以通过阶段二结合物联网 SaaS 与规则引擎功能，实现设备状态的实时转发与展示。
 
 ## 阶段二：实现物联网设备数据转发

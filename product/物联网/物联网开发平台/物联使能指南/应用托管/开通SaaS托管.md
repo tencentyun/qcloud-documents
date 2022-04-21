@@ -16,8 +16,8 @@
 1. 登录 [物联网开发平台控制台](https://console.cloud.tencent.com/iotexplorer) ，选择**公共实例**或您购买的**标准企业实例**。
 2. 单击**项目 ID**进入项目详情页面，单击**物联使能** > **SaaS 服务**进入 SaaS 列表页面，选择对应的 SaaS 进入 SaaS 详情页，单击 **SaaS 托管**选项进入**自研节点**或 **MySQL 节点**详情页。
 3. 单击**立即创建**，在弹出的配置框中，填写相应信息。
-   <img src="https://main.qcloudimg.com/raw/cf20ae95e8a4572b89dca04301b5f5f2.jpg"  style="width: 70%" > 
+![](https://qcloudimg.tencent-cloud.cn/raw/ef8c0fd33bd7dfec88f9bb5649dbc121.jpg)
 4. 单击**保存**后当前环境状态为正在初始化中，请等待数秒。
-   <img src="https://main.qcloudimg.com/raw/1b8c3396681bd6632b21c51d7fdcd6c5.jpg"  style="width: 70%" > 
+![](https://qcloudimg.tencent-cloud.cn/raw/df0c09f13a5a206e0929bb5292032386.jpg)
 5. 环境初始化完成后，将显示如下界面。您可以单击**新建服务**开始新建您的第一个 SaaS 托管服务。
-   <img src="https://main.qcloudimg.com/raw/ac31af5c413461f61dcc433dcaa4253f.jpg"  style="width: 70%" > 
+![](https://qcloudimg.tencent-cloud.cn/raw/1abab2e4d3d28f6e61d1961582fdc2ae.jpg)

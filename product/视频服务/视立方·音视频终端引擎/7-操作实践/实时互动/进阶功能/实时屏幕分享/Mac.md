@@ -1,12 +1,4 @@
-## 版本支持
-本页文档所描述功能，在腾讯云视立方中支持情况如下：
 
-| 版本名称 | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 播放器 Player | 全功能 |
-| -------- | -------- | -------- | -------- | -------- | -------- | -------- |
-| 支持情况 | -  | -  | -  | &#10003;  | -  | &#10003;  |
-| SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=allPart) |
-
-不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
 
 ## 功能说明
 腾讯云视立方音视频通话 TRTC 支持屏幕分享功能，Mac 平台下的屏幕分享支持主路分享和辅路分享两种方案：
@@ -67,25 +59,25 @@ Mac OS 里的桌面屏幕也是一个可共享目标，普通的 Mac 窗口的 t
 
 ```Objective-C
  /**
- *  7.6 【屏幕共享】启动屏幕分享
+ *  7.6 **屏幕共享**启动屏幕分享
  *  @param view 渲染控件所在的父控件
  */
 - (void)startScreenCapture:(NSView *)view;
 
 /**
- *  7.7 【屏幕共享】停止屏幕采集
+ *  7.7 **屏幕共享**停止屏幕采集
  *  @return 0：成功 <0:失败
  */
 - (int)stopScreenCapture;
 
 /**
- *  7.8 【屏幕共享】暂停屏幕分享
+ *  7.8 **屏幕共享**暂停屏幕分享
  *  @return 0：成功 <0:失败
  */
 - (int)pauseScreenCapture;
 
 /**
- *  7.9 【屏幕共享】恢复屏幕分享
+ *  7.9 **屏幕共享**恢复屏幕分享
  *
  *  @return 0：成功 <0:失败
  */

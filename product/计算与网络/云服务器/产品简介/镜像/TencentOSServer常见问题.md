@@ -55,7 +55,7 @@ TencentOS Server 发行版可以通过 `yum` 命令管理软件包，也可以�
 TencentOS Server 全面开源。您可前往 [腾讯云软件源](http://mirrors.tencent.com/) 获取源码包，也可以在系统中使用 `yum downloader --source glibc` 命令获取。
 
 ### TencentOS Server 是否支持32位应用程序和库？
-暂不支持。TencentOS Server 2 仅支持通过 yum 安装部分32位软件包。
+当前仅 TencentOS Server 2 支持通过 yum 安装部分32位软件包。
 
 ### TencentOS Server 如何保证系统的安全？
 TencentOS Server 版本与 RHEL7 和 RHEL8 二进制兼容，遵从 RHEL 的安全规范。腾讯云从以下方面保证 TencentOS Server 系统的安全性：
@@ -63,3 +63,6 @@ TencentOS Server 版本与 RHEL7 和 RHEL8 二进制兼容，遵从 RHEL 的安�
 - 与腾讯安全团队合作，支持对 TencentOS Server 的安全扫描和安全加固。
 - 定期评估 RHEL 和社区的 CVE 补丁，定期更新用户态软件包，修补安全漏洞。
 - 通过腾讯云的主机安全功能，定期对系统进行安全体检，并发布用户安全警告和修复方案。
+
+
+

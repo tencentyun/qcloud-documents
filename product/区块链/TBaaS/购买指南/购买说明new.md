@@ -10,7 +10,7 @@
 
 
 **2. 选择区块链引擎**
-在 [TBaaS 购买页](https://cloud.tencent.com/product/tbaas)，您需选择使用的区块链引擎。如下图所示：
+在 [TBaaS 购买页](https://cloud.tencent.com/product/tbaas)，您需选择使用的区块链引擎。如下图所示： 
 ![](https://main.qcloudimg.com/raw/db92f0f65bf870c5c66f09756abc4053.png)
 您可通过以下入口，直接购买已选择的区块链引擎：
 
@@ -32,7 +32,7 @@
 
 [](id:think)
 ## 注意事项
-购买 CFCA 证书服务须先阅读并同意[《CFCA数字证书服务协议》](http://www.cfca.com.cn/20150811/101230094.html )和[《数字证书使用安全提示说明》](http://www.cfca.com.cn/20150811/101230100.html)。如下图所示：
+购买 CFCA 证书服务须先阅读并同意[《CFCA数字证书服务协议》](http://www.cfca.com.cn/20150811/101230094.html )和[《数字证书使用安全提示说明》](http://www.cfca.com.cn/20150811/101230100.html)。如下图所示： 
 ![](https://main.qcloudimg.com/raw/b138697e305e89e3a73a0be3a7becb78.png)
 
 

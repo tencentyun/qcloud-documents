@@ -1,6 +1,6 @@
 本文主要介绍如何快速地将腾讯云 TRTC SDK（Flutter）集成到您的项目中，只要按照如下步骤进行配置，就可以完成 SDK 的集成工作。
 
->! 目前 Windows/MacOs 端仅支持音频，视频接口暂不支持。Android/iOS 端支持视频通话。
+>! 目前 Windows/MacOs 端暂不支持屏幕分享及设备选择功能。
 
 ## 环境要求
 - Flutter 2.0 及以上版本。
@@ -55,17 +55,14 @@ dependencies:
 添加后如下图所示：
 ![](https://imgcache.qq.com/operation/dianshi/other/lib.7518607f9764321c99fbcf14348715b65563bca2.png)
 :::
-
 ::: Android\s端
 1. 打开 `/android/app/src/main/AndroidManifest.xml` 文件。
 2. 将 `xmlns:tools="http://schemas.android.com/tools"` 加入到 manifest 中。
 3. 将 `tools:replace="android:label"` 加入到 application 中。
 >? 若不执行此步，会出现 [Android Manifest merge failed 编译失败](https://cloud.tencent.com/document/product/647/51623#que6) 问题。
 
-
 ![图示](https://main.qcloudimg.com/raw/7a37917112831488423c1744f370c883.png)
 :::
-
 ::: Windows\s端
 1. 启用 Windows 支持：`flutter config --enable-windows-desktop`。
 2. `flutter run -d windows`。

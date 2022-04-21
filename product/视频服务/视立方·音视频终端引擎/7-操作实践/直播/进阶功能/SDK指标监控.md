@@ -1,12 +1,4 @@
-## 版本支持
-本页文档所描述功能，在腾讯云视立方中支持情况如下：
 
-| 版本名称 | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 播放器 Player | 全功能 |
-| -------- | -------- | -------- | -------- | -------- | -------- | -------- |
-| 支持情况 | &#10003;  | &#10003;                                                            | -  | -  | -  | &#10003;  |
-| SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=allPart) |
-
-不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
 
 ## 概述
 SDK 的各项监控指标可以从 [V2TXLivePusherObserver](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePusherObserver__ios.html) 和 [V2TXLivePlayerObserver](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePlayerObserver__ios.html) 的回调中获取。
@@ -36,7 +28,7 @@ V2TXLivePusherObserver 的 [onStatisticsUpdate](https://liteav.sdk.qcloud.com/do
 >?很多客户会遇到的一个问题： App 在线下测试时性能表现极佳，但在 App 外发上线后，前排房间里的互动消息的滚屏和刷新会产生极大的 CPU 消耗导致直播画面卡顿严重。
 
 ### 看懂腾讯云推流图表 
-在 【云直播控制台】>【[质量监控](https://console.cloud.tencent.com/live/livesdk)】 您可以看到您所属账户里的直播间情况，以及每个直播间的推流质量数据：
+在 **云直播控制台** > **[质量监控](https://console.cloud.tencent.com/live/livesdk)** 您可以看到您所属账户里的直播间情况，以及每个直播间的推流质量数据：
 
 - **主播端-应发速率-实发速率曲线图**
 蓝色曲线代表 BITRATE 的统计曲线，即 SDK 产生的音视频数据，绿色曲线代表实际网络发出去多少。两条线重合度越高表示推流质量越好。

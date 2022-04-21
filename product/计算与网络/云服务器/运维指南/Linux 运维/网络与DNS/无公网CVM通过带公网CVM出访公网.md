@@ -19,6 +19,7 @@ yum install -y pptpd
 vim /etc/pptpd.conf
 ```
 3. 按 **i** 切换至编辑模式，并在文件尾部添加以下内容。
+`localip` 及 `remoteip` 是 VPN 的网关地址和 VPN 拨号时获取的地址段，您可按需调整。
 ```
 localip 192.168.0.1
 remoteip 192.168.0.234-238,192.168.0.245

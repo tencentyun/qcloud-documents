@@ -23,13 +23,14 @@
 迁移操作步骤如下：
 
 1. 登录 [迁移服务平台 MSP](https://console.cloud.tencent.com/msp)。
-2. 在左导航栏中单击【对象存储迁移】，进入对象存储迁移页面。
-3. 单击【新建任务】，新建迁移任务并配置任务信息。
+2. 在左导航栏中单击**对象存储迁移**，进入对象存储迁移页面。
+3. 单击**新建任务**，新建迁移任务并配置任务信息。
 4. 启动任务。
 
 具体操作可参见以下迁移教程：
 
 - [阿里云 OSS 迁移](https://cloud.tencent.com/document/product/659/37855)
+- [华为云 OBS 迁移](https://cloud.tencent.com/document/product/659/65762)
 - [七牛云 KODO 迁移](https://cloud.tencent.com/document/product/659/38008)
 - [UCLOUD UFile 迁移](https://cloud.tencent.com/document/product/659/38003)
 - [金山云 KS3 迁移](https://cloud.tencent.com/document/product/659/38007)
@@ -39,9 +40,6 @@
 #### 操作技巧
 
 在进行数据迁移过程中，数据源的读取速度会因为不同的网络环境而有所不同，但客户根据实际状况在“新建文件迁移任务”时选择较高的 QPS 并发度，有助于提高迁移速度 。
-
-
-
 
 
 <span id=cos>

@@ -1,12 +1,4 @@
-## 版本支持
-本页文档所描述功能，在腾讯云视立方中支持情况如下：
 
-| 版本名称 | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 播放器 Player | 全功能 |
-| -------- | -------- | -------- | -------- | -------- | -------- | -------- |
-| 支持情况 | -  | -  | -  | &#10003;  | -  | &#10003;  |
-| SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=allPart) |
-
-不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
 
 ## 场景痛点及解决方案
 
@@ -40,7 +32,7 @@ end
 ::: 手动集成
 1. 下载 [TRTCPrivilegedTask](https://liteavsdk-1252463788.cos.ap-guangzhou.myqcloud.com/TRTCPrivilegedTask/TRTCPrivilegedTask.tar.bz2) 库。
 2. 打开您的 Xcode 工程项目，导入解压后的文件 libPrivilegedTask.a 到您的工程。
-3. 选择要运行的 target，选中 Build Phases 项，展开Link Binary with Libraries 项，单击底下的【+】，添加依赖库 `libPrivilegedTask.a`。  
+3. 选择要运行的 target，选中 Build Phases 项，展开Link Binary with Libraries 项，单击底下的**+**，添加依赖库 `libPrivilegedTask.a`。  
 ![libPrivilegedTask.a](https://main.qcloudimg.com/raw/cc5b3365e72cee80cda7f0db0a4e1b62.png)  
 :::
 </dx-tabs> 
@@ -71,7 +63,7 @@ TRTCCloud *trtcCloud = [TRTCCloud sharedInstance];
 
 >! 集成 TRTCPrivilegedTask 库和取消 App Sandbox 功能后，首次调用 startSystemAudioLoopback 会获取 root 权限。如下图：  
 >![权限请求框](https://main.qcloudimg.com/raw/c6507054c395f9372246bfc3498f5086.png)  
->在用户单击【好】后，开始自动安装虚拟声卡插件。
+>在用户单击**好**后，开始自动安装虚拟声卡插件。
 
 
 

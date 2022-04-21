@@ -29,5 +29,5 @@
 select @@VERSION
 ```
 运行查询，SQL Server Management Studio 会返回 SQL Server 版的腾讯云云数据库实例。
-![](//mc.qcloudimg.com/static/img/fbf64c03c7addda9c80fdd3dac7bbebb/image.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/620a6143d5687581e9f2892e3fb76130.png)
 

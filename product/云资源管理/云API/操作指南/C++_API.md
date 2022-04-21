@@ -9,7 +9,11 @@
 
 API 支持就近地域接入（例如：cvm 产品域名为 `cvm.tencentcloudapi.com`），也支持指定地域域名访问（例如：广州地域的域名为 `cvm.ap-guangzhou.tencentcloudapi.com`），各地域参数见下文公共参数中的地域列表，详情请参见各产品的“请求结构”文档说明判断是否支持该地域。
 
->!对时延敏感的业务，建议指定带地域的域名。
+<dx-alert infotype="notice" title="">
+对时延敏感的业务，建议指定带地域的域名。
+</dx-alert>
+
+
 
 ### 2. 通信协议
 
@@ -37,7 +41,11 @@ GET 请求的请求包大小不得超过32KB。POST 请求使用签名方法 v1�
 
 ## 公共参数
 
->?公共参数是用于标识用户和接口签名的参数，每次请求均需要携带这些参数，才能正常发起请求。 
+<dx-alert infotype="explain" title="">
+公共参数是用于标识用户和接口签名的参数，每次请求均需要携带这些参数，才能正常发起请求。 
+</dx-alert>
+
+
 
 ### 签名方法 V3公共参数
 
@@ -64,7 +72,13 @@ GET 请求的请求包大小不得超过32KB。POST 请求使用签名方法 v1�
 ## C++ API 调用方式
 
 腾讯云 API 会对每个请求进行身份验证，用户需要使用安全凭证，经过特定的步骤对请求进行签名（Signature），每个请求都需要在公共请求参数中指定该签名结果并以指定的方式和格式发送请求。
->!目前 C++ 暂不支持 API 3.0签名 V1版本。
+
+
+<dx-alert infotype="notice" title="">
+目前 C++ 暂不支持 API 3.0签名 V1版本。
+</dx-alert>
+
+
 
 假设用户的 SecretId 和 SecretKey 分别是：`AKIDz8krbsJ5**********mLPx3EXAMPLE` 和 `Gu5t9xGAR***********EXAMPLE`。用户想查看广州区云服务器名为 “未命名” 的主机状态，只返回一条数据。则请求可能为： 
 ```
@@ -86,15 +100,24 @@ curl -X POST https://cvm.tencentcloudapi.com \
 - SecretId：用于标识 API 调用者身份，可以简单类比为用户名。
 - SecretKey：用于验证 API 调用者的身份，可以简单类比为密码。
 
->! **用户必须严格保管安全凭证，避免泄露，否则将危及财产安全。如已泄漏，请立刻禁用该安全凭证。**
+<dx-alert infotype="notice" title="">
+**用户必须严格保管安全凭证，避免泄露，否则将危及财产安全。如已泄漏，请立刻禁用该安全凭证。**
+</dx-alert>
+
+
 
 前往 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 页面，即可进行获取。如下图所示：
 ![](https://main.qcloudimg.com/raw/665e5334b0d5db156ef48a19072ba8bd.png)
 
 ### 步骤2：获取 API 3.0 V3 版本签名
-签名方法 v3（TC3-HMAC-SHA256）功能上覆盖了以前的签名方法 v1，而且更安全，支持更大的请求，支持 json 格式，性能有一定提升，推荐使用该签名方法计算签名。如下图所示：
->?首次接触，建议使用 [API Explorer](https://console.cloud.tencent.com/api/explorer) 中的“签名串生成”功能，选择签名版本为 “API 3.0 签名 v3”，可以生成签名过程进行验证，也可直接生成 SDK 代码。推荐使用腾讯云 API 配套的7种常见的编程语言 SDK，已经封装了签名和请求过程，均已开源，支持 [Python](https://github.com/TencentCloud/tencentcloud-sdk-python)、[Java](https://github.com/TencentCloud/tencentcloud-sdk-java)、[PHP](https://github.com/TencentCloud/tencentcloud-sdk-php)、[Go](https://github.com/TencentCloud/tencentcloud-sdk-go)、[NodeJS](https://github.com/TencentCloud/tencentcloud-sdk-nodejs)、[.NET](https://github.com/TencentCloud/tencentcloud-sdk-dotnet)、[C++](https://github.com/TencentCloud/tencentcloud-sdk-cpp)。
->
+签名方法 v3（TC3-HMAC-SHA256）功能上覆盖了以前的签名方法 v1，而且更安全，支持更大的请求，支持 JSON 格式，性能有一定提升，推荐使用该签名方法计算签名。如下图所示：
+
+
+<dx-alert infotype="explain" title="">
+首次接触，建议使用 [API Explorer](https://console.cloud.tencent.com/api/explorer) 中的“签名串生成”功能，选择签名版本为 “API 3.0 签名 v3”，可以生成签名过程进行验证，也可直接生成 SDK 代码。推荐使用腾讯云 API 配套的7种常见的编程语言 SDK，已经封装了签名和请求过程，均已开源，支持 [Python](https://github.com/TencentCloud/tencentcloud-sdk-python)、[Java](https://github.com/TencentCloud/tencentcloud-sdk-java)、[PHP](https://github.com/TencentCloud/tencentcloud-sdk-php)、[Go](https://github.com/TencentCloud/tencentcloud-sdk-go)、[NodeJS](https://github.com/TencentCloud/tencentcloud-sdk-nodejs)、[.NET](https://github.com/TencentCloud/tencentcloud-sdk-dotnet)、[C++](https://github.com/TencentCloud/tencentcloud-sdk-cpp)。
+</dx-alert>
+
+
 ![](https://main.qcloudimg.com/raw/f35b61c6b76765f4aae33e9b99673984.png)
 
 
@@ -156,9 +179,14 @@ StringToSign =
 | CredentialScope        | 凭证范围，格式为 Date/service/tc3_request，包含日期、所请求的服务和终止字符串（tc3_request）。**Date 为 UTC 标准时间的日期，取值需要和公共参数 X-TC-Timestamp 换算的 UTC 标准时间日期一致**；service 为产品名，必须与调用的产品域名一致。此示例计算结果是2019-02-25/cvm/tc3_request。 |
 | HashedCanonicalRequest | 前述步骤拼接所得规范请求串的哈希值，计算伪代码为 Lowercase(HexEncode(Hash.SHA256(CanonicalRequest)))。此示例计算结果是`5ffe6a04c0664d6b969fab9a13bdab201d63ee709638e2749d62a09ca18d7031`。 |
 
->!
-> - Date 必须从时间戳 X-TC-Timestamp 计算得到，且时区为 UTC+0。如果加入系统本地时区信息，例如东八区，将导致白天和晚上调用成功，但是凌晨时调用必定失败。假设时间戳为1551113065，在东八区的时间是2019-02-26 00:44:25，但是计算得到的 Date 取 UTC+0 的日期应为2019-02-25，而不是2019-02-26。
-> - Timestamp 必须是当前系统时间，且需确保系统时间和标准时间是同步的，如果相差超过五分钟则必定失败。如果长时间不和标准时间同步，可能导致运行一段时间后，请求必定失败，返回签名过期错误。
+
+
+<dx-alert infotype="notice" title="">
+- Date 必须从时间戳 X-TC-Timestamp 计算得到，且时区为 UTC+0。如果加入系统本地时区信息，例如东八区，将导致白天和晚上调用成功，但是凌晨时调用必定失败。假设时间戳为1551113065，在东八区的时间是2019-02-26 00:44:25，但是计算得到的 Date 取 UTC+0 的日期应为2019-02-25，而不是2019-02-26。
+- Timestamp 必须是当前系统时间，且需确保系统时间和标准时间是同步的，如果相差超过五分钟则必定失败。如果长时间不和标准时间同步，可能导致运行一段时间后，请求必定失败，返回签名过期错误。
+</dx-alert>
+
+
 
  根据以上规则，示例中得到的待签名字符串如下： 
 
@@ -194,7 +222,11 @@ string Sign::Tc3Sign(const string &credDate, const string &serviceName, const st
 
 派生出的密钥 `SecretDate`、`SecretService` 和 `SecretSigning` 是二进制的数据，可能包含不可打印字符，此处不展示中间结果。
 
->! 不同的编程语言，HMAC 库函数中参数顺序可能不一样，此处的伪代码密钥参数在后，请以实际编程语言为准。通常标准库函数会提供二进制格式的计算值，也即此处使用的，也会提供打印友好的十六进制格式的计算值，将在下面计算签名结果时使用。
+<dx-alert infotype="notice" title="">
+不同的编程语言，HMAC 库函数中参数顺序可能不一样，此处的伪代码密钥参数在后，请以实际编程语言为准。通常标准库函数会提供二进制格式的计算值，也即此处使用的，也会提供打印十六进制格式的计算值，将在下面计算签名结果时使用。
+</dx-alert>
+
+
 
 | 字段名称    | 解释                                                         |
 | :---------- | :----------------------------------------------------------- |

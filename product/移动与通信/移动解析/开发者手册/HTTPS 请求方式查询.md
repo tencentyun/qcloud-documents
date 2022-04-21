@@ -112,7 +112,7 @@
 ```
 curl "https://119.29.29.99/d?dn=cloud.tencent.com&token=yyyy"
 ```
-- **返回格式：**
+- **解密后返回格式：**
 ```
 2.3.3.4;2.3.3.5;2.3.3.6
 ```
@@ -124,7 +124,7 @@ curl "https://119.29.29.99/d?dn=cloud.tencent.com&token=yyyy"
 ```
 curl "https://119.29.29.99/d?dn=cloud.tencent.com&token=yyyy&ttl=1"
 ```
-- **返回格式：**
+- **解密后返回格式：**
 ```
 2.3.3.4;2.3.3.5;2.3.3.6,120
 ```
@@ -136,7 +136,7 @@ curl "https://119.29.29.99/d?dn=cloud.tencent.com&token=yyyy&ttl=1"
 ```
 curl "https://119.29.29.99/d?dn=cloud.tencent.com&token=yyyy&clientip=1&ip=1.2.3.4&ttl=1"
 ```
-- **返回格式：**
+- **解密后返回格式：**
 ```
 12.3.3.4;2.3.3.5;2.3.3.6,120|1.2.3.4
 ```
@@ -147,7 +147,7 @@ curl "https://119.29.29.99/d?dn=cloud.tencent.com&token=yyyy&clientip=1&ip=1.2.3
 ```
 curl "https://119.29.29.99/d?dn=cloud.tencent.com&token=yyyy&clientip=1&ip=1.2.3.4&type=addrs&ttl=1"
 ```
-- **返回格式：**
+- **解密后返回格式：**
 ```
 2.3.3.4;2.3.3.5;2.3.3.6,120-2402:4e00:0123:4567:0::2345;2403:4e00:0123:4567:0::2346,120|1.2.3.4
 ```
@@ -159,7 +159,7 @@ curl "https://119.29.29.99/d?dn=cloud.tencent.com&token=yyyy&clientip=1&ip=1.2.3
 ```
 curl "https://119.29.29.99/d?dn=cloud.tencent.com&token=yyyy&clientip=1&ip=1.2.3.4&query=1&ttl=1"
 ```
-- **返回格式：**
+- **解密后返回格式：**
 ```
 cloud.tencent.com.:2.3.3.4;2.3.3.5;2.3.3.6,120|1.2.3.4
 ```
@@ -170,7 +170,7 @@ cloud.tencent.com.:2.3.3.4;2.3.3.5;2.3.3.6,120|1.2.3.4
 ```
 curl "https://119.29.29.99/d?dn=cloud.tencent.com,www.qq.com,www.dnspod.cn&token=yyyy&clientip=1&ip=1.2.3.4&ttl=1"
 ```
-- **返回格式：**
+- **解密后返回格式：**
 ```
 cloud.tencent.com.:2.3.3.4;2.3.3.5;2.3.3.6,120
 www.qq.com.:3.3.3.4;3.3.3.5;3.3.3.6,180
@@ -185,7 +185,7 @@ www.dnspod.cn.:4.3.3.4;4.3.3.5;4.3.3.6,60|1.2.3.4
 ```
 curl "https://119.29.29.99/d?dn=cloud.tencent.com&token=yyyy&id=xxx"
 ```
-- **返回格式：** 空。
+- **解密后返回格式：** 空。
 - **格式说明：** 没有记录，则返回空字符串。
 
 ### 返回结果中包含域名
@@ -193,7 +193,7 @@ curl "https://119.29.29.99/d?dn=cloud.tencent.com&token=yyyy&id=xxx"
 ```
 curl "https://119.29.29.99/d?dn=cloud.tencent.com&token=yyyy&type=addrs&query=1&ip=1.2.3.4"
 ```
-- **返回格式：**
+- **解密后返回格式：**
 ```
 cloud.tencent.com|1.2.3.4
 ```
@@ -206,7 +206,7 @@ cloud.tencent.com|1.2.3.4
 ```
 curl "https://119.29.29.99/d?dn=cloud.tencent.com&token=yyyy&type=addrs&query=1&ip=1.2.3.4"
 ```
-- **返回格式：**
+- **解密后返回格式：**
 ```
 cloud.tencent.com.:0-0|1.2.3.4
 ```
@@ -218,7 +218,7 @@ cloud.tencent.com.:0-0|1.2.3.4
 ```
 curl "https://119.29.29.99/d?dn=cloud.tencent.com,www.qq.com,www.dnspod.cn&token=yyyy&clientip=1&ip=1.2.3.4&ttl=1"
 ```
-- **返回格式**：
+- **解密后返回格式**：
 ```
 cloud.tencent.com.:0
 www.qq.com.:3.3.3.4;3.3.3.5;3.3.3.6,180

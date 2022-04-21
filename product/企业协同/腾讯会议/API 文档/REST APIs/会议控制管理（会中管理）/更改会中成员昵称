@@ -1,0 +1,67 @@
+## 接口描述
+- **描述：**
+ - 会中修改参会者昵称，支持主持人和联席主持人对会中成员进行改名。
+ - 此接口仅支持对云会议已入会成员和 Webinar 观众进行改名。
+ - 操作者必须为已在会中的主持人与联席主持人。
+ - 支持 MRA 设备作为被操作者时的改名操作。
+ - 企业 secret 鉴权用户可管理任何该企业该用户创建的有效会议，OAuth2.0 鉴权用户只能管理通过 OAuth2.0 鉴权创建的有效会议。
+<dx-alert infotype="explain" title="">
+1：操作者必须是会议的主持人或者联系主持人才可以设置。<br>2：调用该接口需要权限项 ： MANAGE_MEETING 查看和管理您的会议
+</dx-alert>
+- **调用方式**：PUT
+- **接口请求域名**：
+```Plaintext
+https://api.meeting.qq.com/v1/real-control/meetings/{meetingId}/names
+```
+
+## 输入参数
+**请求路径参数**
+
+|参数名称 |必选 |参数类型 |参数描述 |
+|----------|----- |--------- |--------- |
+|meetingId |是 |String |会议 ID，周期性会议传总会议 ID。 |
+
+**请求 body**
+
+|参数名称 |必选 |参数类型 |参数描述 |
+|----------|----- |--------- |--------- |
+| operator_id       | 是   | String   | 操作者 ID。<br>1：operator_id 必须与 operator_id_type 配合使用。根据 operator_id_type 的值，operator_id 代表不同类型。<br>2：如果 operator_id_type=2，operator_id 必须和公共参数的 openid 一致。                 |
+| operator_id_type     | 是   | Integer   | 操作者 ID 的类型：<br>2：openid  <br>4：ms_open_id                   |
+|instanceid |是 |Integer |用户的终端设备类型：<br>1：PC<br>2：Mac<br>3：Android<br>4：iOS<br>5：Web<br>6：iPad<br>7：Android Pad<br>8：小程序 |
+|users |是 |Array[UserObj] |被操作用户对象信息列表。 |
+
+**被操作用户对象 UserObj**
+
+|参数名称 |必选 |参数类型 |参数描述 |
+|----------|----- |--------- |--------- |
+|ms_open_id |是 |String |被操作者在当场会议的用户临时 ID，可用于会控操作，适用于所有用户。 |
+|instanceid |是 |Integer |用户的终端设备类型：<br>1：PC<br>2：Mac<br>3：Android<br>4：iOS<br>5：Web<br>6：iPad<br>7：Android Pad<br>8：小程序<br>说明：请与被操作者的设备类型保持一致，否则不生效。 |
+|nick_name |否 |String |用户昵称字符串，限制20个字符。|
+
+## 输出参数
+成功返回空消息体，失败返回 [错误码](https://cloud.tencent.com/document/product/1095/43704) 和 错误信息。
+<dx-alert infotype="notice" title="">
+若有部分成员不在会中、传入的 instanceid 与成员入会终端不符等成员信息不匹配情况，将会导致本次调用失败，本次改名均不生效。
+</dx-alert>
+
+##  示例
+#### 输入示例
+```Plaintext
+PUT https://api.meeting.qq.com/v1/real-control/meetings/1232132132131/names
+{
+    "operator_id" : "test1",
+	"operator_id_type" : 4,
+    "instanceid" : 1,
+    "user":[{
+        "ms_open_id" : "agaqwwgdkkddd",
+        "instanceid":2,
+		"nick_name": "tester1"
+    },
+    {
+        "ms_open_id" : "agaqwwgdkkddd",
+        "instanceid":2,
+		"nick_name": "tester2"
+    }
+    ]
+}
+```

@@ -193,7 +193,7 @@ SecretKey 属于安全敏感参数，线上版本一般由业务后台生成 [�
 | evalMode           | TAIOralEvaluationEvalMode    | 是             | 评测模式                                                     |
 | isFixOn            | Bool                         | 是             | 用于设置是否开启单词映射                                     |
 | fileType           | TAIOralEvaluationFileType    | 是             | 用于设置输入的语音文件类型                                   |
-| storageMode        | TAIOralEvaluationStorageMode | 是             | 是否存储音频文件，用于设置是否存储及如何存储评测音频文件     |
+| storageMode        | TAIOralEvaluationStorageMode | 否             | 音频存储模式，此参数已废弃，无需设置，设置与否都默认为0不存储；**注意：有存储需求的用户建议自行存储至 [腾讯云 COS 对象存储](https://cloud.tencent.com/document/product/436/11365) 使用**。     |
 | serverType         | TAIOralEvaluationServerType  | 是             | 评测语言类型，可选为中文或英文                               |
 | scoreCoeff         | Float                        | 是             | 评价苛刻指数，取值为[1.0 - 4.0]范围内的浮点数，用于平滑不同年龄段的分数 |
 | refText            | NSString                     | 是             | 被评估语音对应的文本                                         |

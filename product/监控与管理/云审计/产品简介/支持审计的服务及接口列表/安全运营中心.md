@@ -9,7 +9,7 @@
 | 设置泄露监测产品监测扫描规则策略    | ssa  | SaDivulgeScanRuleMutate       |
 | 删除泄露监测产品监测白名单       | ssa  | SaDivulgeScanWhiteDelete      |
 | 设置泄露监测产品白名单         | ssa  | SaDivulgeScanWhiteMutate      |
-| 安全情报\_一键漏扫\_SLA 协议确认 | ssa  | SaIntelligenceYdVulScanSlaSet |
+| 安全信息\_一键漏扫\_SLA 协议确认 | ssa  | SaIntelligenceYdVulScanSlaSet |
 | 开通云态势感知产品服务         | ssa  | SaSecProductOpen              |
 | 设置安全周报配置            | ssa  | SaSecWeeklySetConfig          |
 | 上报用户行为              | ssa  | SaUserBehaviorReport          |

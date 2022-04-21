@@ -41,11 +41,10 @@ cmake ..
  └── sdk_src
      └── internal_inc
 ```
- >?
- - include 目录：SDK 供用户使用的 API 及可变参数，其中 config.h 为根据编译选项生成的编译宏。
- - platform 目录：平台相关的代码，可根据设备的具体情况进行修改适配。
- - sdk_src ：SDK 的核心逻辑及协议相关代码，一般不需要修改，其中 internal_inc 为 SDK 内部使用的头文件。
-
+>?
+>- include 目录：SDK 供用户使用的 API 及可变参数，其中 config.h 为根据编译选项生成的编译宏。
+>- platform 目录：平台相关的代码，可根据设备的具体情况进行修改适配。
+>- sdk_src ：SDK 的核心逻辑及协议相关代码，一般不需要修改，其中 internal_inc 为 SDK 内部使用的头文件。
 3. 用户可将 qcloud_iot_c_sdk 拷贝到其目标平台的编译开发环境，并根据具体情况修改编译选项。
 
 ## HAL 层移植

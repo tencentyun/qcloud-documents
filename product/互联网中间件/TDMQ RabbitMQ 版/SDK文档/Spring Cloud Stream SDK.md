@@ -7,7 +7,7 @@
 - [完成资源创建与准备](https://cloud.tencent.com/document/product/1495/61829)
 - [安装1.8或以上版本 JDK](https://www.oracle.com/java/technologies/javase-downloads.html)
 - [安装2.5或以上版本 Maven](http://maven.apache.org/download.cgi#)
-- [下载 Demo](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-rabbitmq-demo/tdmq-rabbitmq-springcloud-stream-demo.zip)
+- [下载 Demo](https://tdmq-document-1306598660.cos.ap-nanjing.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91demo/rabbitmq/tdmq-rabbitmq-springcloud-stream-demo.zip)
 
 ## 操作步骤
 
@@ -75,7 +75,7 @@ spring:
                 host: 192.168.xxx.xxx #集群接入地址，在集群管理页面操作列的获取接入地址获取。
                 port: 5672
                 username: admin #角色名称
-                password: password #角色迷药
+                password: password #角色密钥
                 virtual-host: vhostnanme #Vhost名称
 ```
 
@@ -172,5 +172,5 @@ public class MessageConsumer {
 
 ![img](https://main.qcloudimg.com/raw/a7d78cc58efadfb614b890cc33d08632.png)
 
-上述是基于 RabbitMQ 的发布订阅模型的一个简单示例，可根据实际使用进行不同配置，具体可参考 [Demo 示例](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-rabbitmq-demo/tdmq-rabbitmq-springcloud-stream-demo.zip) 或 [Spring cloud stream官网](https://github.com/spring-cloud/spring-cloud-stream-binder-rabbit#rabbit-prod-props)。
+>?上述是基于 RabbitMQ 的发布订阅模型的一个简单示例，可根据实际使用进行不同配置，具体可参见 [Demo 示例](https://tdmq-document-1306598660.cos.ap-nanjing.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91demo/rabbitmq/tdmq-rabbitmq-springcloud-stream-demo.zip) 或 [Spring cloud stream 官网](https://github.com/spring-cloud/spring-cloud-stream-binder-rabbit#rabbit-prod-props)。
 

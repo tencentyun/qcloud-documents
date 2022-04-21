@@ -5,9 +5,9 @@
 
 | 模块 | 说明 | 
 |---------|---------|
-| 云函数 SCF | 负责 Serverless WordPress 的接入层实现，从而运行 WordPress。 |
-| API 网关| WordPress 的对外入口，实现了 RESTful API。 |
-| 文件储存 CFS  | WordPress 的 Serverless 存储仓库。 |
+| 云函数 SCF | 负责 Serverless WordPress 的接入层实现，从而运行 WordPress。  |
+| API 网关| WordPress 的对外入口，实现了 RESTful API。  |
+| 文件储存 CFS  | WordPress 的 Serverless 存储仓库。  |
 | <nobr>云原生数据库 TDSQL-C</nobr> <br>（可选）| 通过创建 TDSQL-C（原 CynosDB）的 MySQL 类型数据库，实现数据库按量计费，自动扩缩容。<br>您可以选择不使用默认数据库，连接自建的 MySQL 类型数据库。|
 | 私有网络 VPC <br>（默认 VPC）| 内网打通云函数 SCF、CFS、TDSQL-C Serverless 之间的网络，保障网络隔离。<br>您也可以选择不使用默认VPC，连接自己指定的VPC。|
 
@@ -33,7 +33,7 @@
 >!目前只支持北京、上海、广州三个地域。其中广州四区为默认区域。
 
 1. 登录[ Serverless 应用控制台](https://console.cloud.tencent.com/sls?from=wpdocs), 单击**新建应用**。
-2. 选择**应用模版** > **快速部署一个WordPress框架**，单击**下一步**。
+2. 选择**应用模板** > **快速部署一个WordPress框架**，单击**下一步**。
 ![](https://main.qcloudimg.com/raw/69c8613f66c793d53afb879e5e11e4ae.png)
 3. 输入应用名。您可以选择使用默认的或连接自建数据库和指定私有网络。
 <dx-tabs>
@@ -125,6 +125,4 @@ php -d extension_dir=/opt/lib/php/modules/ sl_handler.php 1>&2
 函数目前只支持最大**6MB**的事件上传，超过该大小文件不支持上传。
 目前 API 网关 base 64转码会将用户本身代码大小扩大1.5倍左右，因此上传文件时，建议文件大小控制在**3.5MB**以内。<br/>
 
-#### 如何修改 WordPress 根目录文件？
-目前文件挂载在文件存储 CFS 上，无法直接修改，建议通过安装 File Manager 插件管理根目录文件。
 

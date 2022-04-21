@@ -29,7 +29,7 @@ Linux、Mac OS 或 Windows（Windows 10 和 Windows Server 2019 版本）
 ssh <username>@<IP address or domain name>
 ```
  - `username` 即为 [前提条件](#Prerequisites) 中已获取的用户名，如`root`、`ubuntu` 等。
- - `IP address or domain name` 为您的 Linux 实例公网 IP 地址或自定义域名。
+ - `IP address or domain name` 为您的 Linux 实例公网 IP 地址或自定义域名。实例公网 IP 地址可前往 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse/instance/index) 查看。
 2. 输入已获取的密码，按 **Enter**，即可完成登录。
 
 
@@ -53,7 +53,7 @@ icacls <已下载的与实例关联的私钥文件的路径> /inheritancelevel:r
 ssh -i <已下载的与实例关联的私钥文件的路径> <username>@<IP address or domain name>
 ```
  - `username` 即为 [前提条件](#Prerequisites) 中已获取的用户名，如 `root`、`ubuntu` 等。
- - `IP address or domain name` 为您的 Linux 实例公网 IP 地址或自定义域名。
+ - `IP address or domain name` 为您的 Linux 实例公网 IP 地址或自定义域名。实例公网 IP 地址可前往 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse/instance/index) 查看。
  
   例如，在 MacOS 系统终端执行 `ssh -i /Users/macuser/Downloads/test_private_key root@35.222.45.145` 命令，远程登录 Linux 实例。
 

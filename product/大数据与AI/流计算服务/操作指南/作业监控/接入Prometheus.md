@@ -6,7 +6,7 @@
 流计算 Oceanus 建议用户使用腾讯云监控提供的 [Prometheus 服务](https://console.cloud.tencent.com/monitor/prometheus)，以免去部署、运维开销；同时它还支持腾讯云的 [通知模板](https://console.cloud.tencent.com/monitor/alarm2/notice)，可以通过短信、电话、邮件、企业微信机器人等方式，将告警信息轻松触达不同的接收方。
 
 ## Oceanus Grafana 面板导入方法
-1. 下载 Oceanus Grafana Dashboard 模板并解压到本地。[点此下载 Dashboard](https://oceanus-public-1257058918.cos.ap-guangzhou.myqcloud.com/Oceanus-Prometheus-Dashboard.zip)
+1. 下载 Oceanus Grafana Dashboard 模板并解压到本地。[点此下载 Dashboard](https://oceanus-public-1257058918.cos.ap-guangzhou.myqcloud.com/Oceanus-Prometheus-Dashboard.zip)。
 2. 在 Prometheus 的 Grafana 面板上，鼠标移动到左边栏，选择![](https://main.qcloudimg.com/raw/1747bb326e66317fc234c04530896607.png) **> Manage**。
 ![](https://main.qcloudimg.com/raw/4899b13ef9523d5f5dbb3491018dc6aa.png)
 3. 创建一个名为 Oceanus 新文件夹。

@@ -7,7 +7,7 @@
 - [完成资源创建与准备](https://cloud.tencent.com/document/product/1495/61829)
 - [安装 Python](https://www.python.org/downloads/)
 - [安装 pip](https://pip-cn.readthedocs.io/en/latest/installing.html)
-- [下载 Demo](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-rabbitmq-demo/tdmq-rabbitmq-python-sdk-demo.zip)
+- [下载 Demo](https://tdmq-document-1306598660.cos.ap-nanjing.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91demo/rabbitmq/tdmq-rabbitmq-python-sdk-demo.zip)
 
 
 
@@ -137,4 +137,4 @@ if __name__ == '__main__':
 
 ![img](https://main.qcloudimg.com/raw/a7d78cc58efadfb614b890cc33d08632.png)
 
-完整示例或其他使用可参考 [Demo](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-rabbitmq-demo/tdmq-rabbitmq-python-sdk-demo.zip) 或者 [RabbitMQ 官方使用文档](https://www.rabbitmq.com/getstarted.html)。
+>?完整示例或其他使用可参见 [Demo](https://tdmq-document-1306598660.cos.ap-nanjing.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91demo/rabbitmq/tdmq-rabbitmq-python-sdk-demo.zip) 或者 [RabbitMQ 官方使用文档](https://www.rabbitmq.com/getstarted.html)。

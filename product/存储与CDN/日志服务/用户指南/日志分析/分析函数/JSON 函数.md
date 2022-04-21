@@ -132,7 +132,7 @@ json_extract(x, json_path)
 | 参数      | 说明                                    |
 | --------- | --------------------------------------- |
 | x         | 参数值为 JSON 对象或 JSON 数组。            |
-| json_path | JSON 路径，格式为 $.store.book[0].title。 |
+| json_path | [JSONPath](https://goessner.net/articles/JsonPath/) 形式的 JSON 路径，例如 $.store.book[0].title。</br>注意：不支持需要遍历数组元素的 JSON 语法，例如  `$.store.book[*].author`、`$..book[(@.length-1)]`、`$..book[?(@.price<10)]` 等。 |
 
 ### 返回值类型
 
@@ -170,7 +170,7 @@ json_extract_scalar(x, json_path)
 | 参数      | 说明                                    |
 | --------- | --------------------------------------- |
 | x         | 参数值为 JSON 数组。                      |
-| json_path | JSON 路径，格式为 $.store.book[0].title。 |
+| json_path | [JSONPath](https://goessner.net/articles/JsonPath/) 形式的 JSON 路径，例如 $.store.book[0].title。</br>注意：不支持需要遍历数组元素的 JSON 语法，例如  `$.store.book[*].author`、`$..book[(@.length-1)]`、`$..book[?(@.price<10)]` 等。 |
 
 ### 返回值类型
 

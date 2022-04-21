@@ -7,7 +7,7 @@
 
 本篇文档为您介绍应用控制台的部署方案，您也可以通过命令行完成部署，具体操作请参考 [产品文档](https://cloud.tencent.com/document/product/583/58183)。
 
-## 模版部署 -- 部署 Django 示例代码
+## 模板部署 -- 部署 Django 示例代码
 1. 登录 [Serverless 应用控制台](https://console.cloud.tencent.com/sls)。
 2. 选择**Web 应用>Django 框架**，如下图所示：
 ![](https://main.qcloudimg.com/raw/3c03bbfe813cf5d094318593b1cc4ce8.png)
@@ -37,7 +37,7 @@ $ tree
 |   |-- urls.py   路由
 |   `-- wsgi.py   部署
 ```
-3. 在本地执行 `python manage.py runserver` 命令运行启动文件。示例如下：
+3. 在本地执行 `python manage.py runserver` 命令运行启动文件。示例如下： 
 ```
 $ python manage.py runserver
 July 27, 2021 - 11:52:20
@@ -75,7 +75,7 @@ pip install -r requirements.txt -t .
 #!/bin/bash
 /var/lang/python3/bin/python3 manage.py runserver 9000
 ```
-创建完成后，还需执行以下命令修改文件可执行权限，默认需要 `777` 或 `755` 权限才可以正常启动。示例如下：
+创建完成后，还需执行以下命令修改文件可执行权限，默认需要 `777` 或 `755` 权限才可以正常启动。示例如下： 
 ```shell
 chmod 777 scf_bootstrap
 ```

@@ -69,7 +69,7 @@
 3. 在公网 IP 列表中找到目标普通公网 IP 所在行的操作列，选择**更多 > 转换为弹性公网 IP**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/4cd1195003398ef725a11f56c4ddb9bc.png)
 4. 在弹出的**转换为弹性公网 IP**窗口中，单击**确定**。</br>
-<img src="https://qcloudimg.tencent-cloud.cn/raw/0fd87557e2e6daf45696e271976fd377.png" width="50%">
+<img src="https://qcloudimg.tencent-cloud.cn/raw/7e4d9c592082f338c8126a0098c8744d.png" width="50%">
 
 
 ### 方式二：在云服务器控制台调整

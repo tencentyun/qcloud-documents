@@ -4,7 +4,7 @@
 - 集群通过 Zookeeper 管理集群配置，进行 leader 选举，故障容错等。
 - 消费者 Consumer 被划分为若干个 Consumer Group。消费者通过 pull 模式从 Broker 中消费消息。
 
-消息队列 CKafka 相比于自建开源 Apache Kafka 所具备的优势请参考 [产品优势](https://cloud.tencent.com/document/product/597/37142)。
+消息队列 CKafka 相比于自建开源 Apache Kafka 所具备的优势请参见 [产品优势](https://cloud.tencent.com/document/product/597/37142)。
 
 ## 高吞吐
 消息队列 CKafka 中存在大量的网络数据持久化到磁盘和磁盘文件通过网络发送的过程。这一过程的性能直接影响 Kafka 的整体吞吐量，主要通过以下几点实现：

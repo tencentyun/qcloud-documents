@@ -1,6 +1,6 @@
 ## Oceanus 简介
 
-流计算 Oceanus 是位于云端的流式数据汇聚、计算服务。只需几分钟，您就可以轻松构建网站点击流分析、电商精准推荐、物联网 IoT 等应用。流计算基于 Apache Flink 构建，提供全托管的云上服务，您无须关注基础设施的运维，并能便捷对接云上数据源，获得完善的配套支持。
+流计算 Oceanus 是位于云端的流式数据汇聚、计算服务。只需几分钟，您就可以轻松构建网站单击流分析、电商精准推荐、物联网 IoT 等应用。流计算基于 Apache Flink 构建，提供全托管的云上服务，您无须关注基础设施的运维，并能便捷对接云上数据源，获得完善的配套支持。
 
 流计算 Oceanus 提供了便捷的控制台环境，方便用户编写 SQL 分析语句或者上传运行自定义 JAR 包，支持作业运维管理。基于 Flink 技术，流计算可以在 PB 级数据集上支持亚秒级的处理延时。
 
@@ -81,4 +81,4 @@ CKafka 实例与 Oceanus 集群不在同一子网时，您需要进行以下操�
    4. 单击**作业参数**，单击**内置Connector**，选择“flink-connector-kafka”，并单击**确认**保存。
 <img src="https://main.qcloudimg.com/raw/fcba1d5e7ce69def4deb7e0f4c1124aa.png" width="600px">
 
->?具体实现请参考 [流计算 Oceanus 文档](https://cloud.tencent.com/document/product/849/48310)。
+>?具体实现请参见 [流计算 Oceanus 文档](https://cloud.tencent.com/document/product/849/48310)。

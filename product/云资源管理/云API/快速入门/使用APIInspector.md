@@ -20,10 +20,10 @@ API Inspector 与 API Explorer 共同成为腾讯云 API 用户学习和调试 A
 ### 开启 API Inspector 功能
 请按照以下步骤，开启 API Inspector 功能：
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/instance/index?rid=1)。      
-2. 选择页面上方的<img src="https://main.qcloudimg.com/raw/4d7384619e988df262e740e376ed047c.png" style="margin:-4px 0px"> > 【API】，即可开启 API Inspector 功能。如下图所示：
+2. 选择页面上方的 <img src="https://main.qcloudimg.com/raw/4d7384619e988df262e740e376ed047c.png" style="margin:-4px 0px"> > **API**，即可开启 API Inspector 功能。如下图所示：
 ![](https://main.qcloudimg.com/raw/d64d1c72c6150f03763d55cf84e90ec6.png)      
 
-### 自动录制 API 调用<span id="AutomaticRecordingAPI"></span>
+### 自动录制 API 调用[](id:AutomaticRecordingAPI)
 本文以修改实例名称为例，介绍 API Inspector 的自动录制功能：
 1. 将某个实例名称修改为 API Inspector，具体操作请参见 [修改实例名称](https://cloud.tencent.com/document/product/213/16562)。
 2. 开启 API Inspector 功能，即可查看涉及改名操作的所有 API 调用。如下图所示：
@@ -32,13 +32,13 @@ API Inspector 与 API Explorer 共同成为腾讯云 API 用户学习和调试 A
 ![](https://main.qcloudimg.com/raw/13e7d5ea7d15920bc8b31f7bf834c160.png)
 
 
-### 一键生成 API 代码<span id="AutomaticGeneratedAPI"></span>
-当控制台操作涉及的 API 录制完成后，您可单击 API 名称，一键生成 Java、Python、Node.js、PHP、GO 及 .NET 语言的 API 代码片段及参数预填充。可选择<img src="https://main.qcloudimg.com/raw/c87d07f7c2d1f7519b9b80f19d158e62.png" style="margin:-3px 0px">复制对应格式的代码段，如下图所示：
+### 一键生成 API 代码[](id:AutomaticGeneratedAPI)
+当控制台操作涉及的 API 录制完成后，您可单击 API 名称，一键生成 Java、Python、Node.js、PHP、GO 及 .NET 语言的 API 代码片段及参数预填充。可选择 <img src="https://main.qcloudimg.com/raw/c87d07f7c2d1f7519b9b80f19d158e62.png" style="margin:-3px 0px"> 复制对应格式的代码段，如下图所示：
 ![](https://main.qcloudimg.com/raw/7b3ec4af4b4c58ff3370636624a388fd.png)
 
 
-### API Explorer 在线调试<span id="APIExplorer"></span>
-您可选择 <img src="https://main.qcloudimg.com/raw/753d4cb89c7dc582b11ed66811143716.png" style="margin:-3px 0px"> 或【前往API Explorer】，使用 API Explorer 工具直接调试对应的功能，也可选择 <img src="https://main.qcloudimg.com/raw/68a84eebfed1c31bf37294902156d986.png" style="margin:-3px 0px"> 查看对应接口文档。如下图所示：
+### API Explorer 在线调试[](id:APIExplorer)
+您可选择 <img src="https://main.qcloudimg.com/raw/753d4cb89c7dc582b11ed66811143716.png" style="margin:-3px 0px"> 或**前往API Explorer**，使用 API Explorer 工具直接调试对应的功能，也可选择 <img src="https://main.qcloudimg.com/raw/68a84eebfed1c31bf37294902156d986.png" style="margin:-3px 0px"> 查看对应接口文档。如下图所示：
 ![](https://main.qcloudimg.com/raw/b90455b43fdcaa11e8d5a91acd08f656.png)
 
 ### [查看响应结果](id:ResponseResult)
@@ -71,7 +71,7 @@ API Inspector 与 API Explorer 共同成为腾讯云 API 用户学习和调试 A
 </tr>
 <tr>
 <td>人工智能</td>
-<td>人脸识别、腾讯智能对话平台、智能钛弹性模型服务、人脸融合、图像分析、智能钛机器学习平台、人脸试妆、智能钛机器学习、人像变换、人体分析</td>
+<td>人脸识别、腾讯智能对话平台、腾讯云 TI 平台 TI-ONE、腾讯云 TI 平台 TI-EMS、人脸融合、图像分析、人脸试妆、人像变换、人体分析</td>
 </tr>
 <tr>
 <td>企业应用</td>

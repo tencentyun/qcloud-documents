@@ -1,12 +1,12 @@
-## 简介
+## 简介 
 
-StatefulSet 主要用于管理有状态的应用，创建的 Pod 拥有根据规范创建的持久型标识符。Pod 迁移或销毁重启后，标识符仍会保留。 在需要持久化存储时，您可以通过标识符对存储卷进行一一对应。如果应用程序不需要持久的标识符，建议您使用 Deployment 部署应用程序。
+StatefulSet 主要用于管理有状态的应用，创建的 Pod 拥有根据规范创建的持久型标识符。Pod 迁移或销毁重启后，标识符仍会保留。  在需要持久化存储时，您可以通过标识符对存储卷进行一一对应。如果应用程序不需要持久的标识符，建议您使用 Deployment 部署应用程序。
 
 ## StatefulSet 控制台操作指引
 
 
 ### 创建 StatefulSet[](id:createStatefulSet)
-1. 登录容器服务控制台，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
+1. 登录容器服务控制台 ，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
 2. 单击需要创建 StatefulSet 的集群 ID，进入待创建 StatefulSet 的集群管理页面。
 3. 选择**工作负载** > **StatefulSet**，进入 StatefulSet 管理页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/23db2d7cf222d19252f6a2fa88859e58.png)
@@ -38,7 +38,7 @@ StatefulSet 主要用于管理有状态的应用，创建的 Pod 拥有根据规
 ### 更新 StatefulSet
 
 #### 更新 YAML
-1. 登录容器服务控制台，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
+1. 登录容器服务控制台 ，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
 2. 单击需要更新 YAML 的集群 ID，进入待更新 YAML 的集群管理页面。
 3. 选择**工作负载** > **StatefulSet**，进入 StatefulSet 信息页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/f11e0c1f7cf788ec70a866b7b8201357.png)

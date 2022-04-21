@@ -1,12 +1,4 @@
-## 版本支持
-本页文档所描述功能，在腾讯云视立方中支持情况如下：
 
-| 版本名称 | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 播放器 Player | 全功能 |
-| -------- | -------- | -------- | -------- | -------- | -------- | -------- |
-| 支持情况 | -  | -  | -  | &#10003;  | -  | &#10003;  |
-| SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=allPart) |
-
-不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
 
 ## 功能说明
 腾讯云视立方音视频通话 TRTC 支持屏幕分享功能，Windows 平台下的屏幕分享支持主路分享和辅路分享两种方案：
@@ -82,23 +74,23 @@ sourceInfoList 中每一个 sourceInfo 可以分享的目标，它由如下字�
 
 ```C++
     /**
-    * \brief 7.5 【屏幕共享】启动屏幕分享
+    * \brief 7.5 **屏幕共享**启动屏幕分享
     * \param：rendHwnd - 承载预览画面的 HWND
     */
     void startScreenCapture(HWND rendHwnd);
 
     /**
-    * \brief 7.6 【屏幕共享】暂停屏幕分享
+    * \brief 7.6 **屏幕共享**暂停屏幕分享
     */
     void pauseScreenCapture();
 
     /**
-    * \brief 7.7 【屏幕共享】恢复屏幕分享
+    * \brief 7.7 **屏幕共享**恢复屏幕分享
     */
     void resumeScreenCapture();
 
     /**
-    * \brief 7.8 【屏幕共享】关闭屏幕分享
+    * \brief 7.8 **屏幕共享**关闭屏幕分享
     */
     void stopScreenCapture();
 ```

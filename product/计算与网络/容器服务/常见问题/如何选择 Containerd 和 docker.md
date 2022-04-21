@@ -2,7 +2,7 @@
 容器运行时（Container Runtime）是 Kubernetes（K8S） 最重要的组件之一，负责管理镜像和容器的生命周期。Kubelet 通过 `Container Runtime Interface (CRI)` 与容器运行时交互，以管理镜像和容器。
 
 TKE 支持用户选择 containerd 和 docker 作为运行时组件：
-- Containerd 调用链更短，组件更少，更稳定，占用节点资源更少。 建议选择 containerd。
+- Containerd 调用链更短，组件更少，更稳定，占用节点资源更少。  建议选择 containerd。
 - 当您遇到以下情况时，请选择 docker 作为运行时组件：
  - 如需使用 docker in docker。
  - 如需在 TKE 节点使用 docker build/push/save/load 等命令。
@@ -89,7 +89,7 @@ Kubelet 不会做 stream proxy，只会做重定向。即 Kubelet 会将 contain
 	如果 Docker 作为 K8S 容器运行时，容器日志的落盘将由 docker 来完成，保存在类似<code>/var/lib/docker/containers/$CONTAINERID</code> 目录下。Kubelet 会在 <code>/var/log/pods</code> 和 <code>/var/log/containers</code> 下面建立软链接，指向 <code>/var/lib/docker/containers/$CONTAINERID</code> 该目录下的容器日志文件。
 		</td>
 		<td>
-		如果 Containerd 作为 K8S 容器运行时， 容器日志的落盘由 Kubelet 来完成，保存至 <code>/var/log/pods/$CONTAINER_NAME</code> 目录下，同时在 <code>/var/log/containers</code> 目录下创建软链接，指向日志文件。            
+		如果 Containerd 作为 K8S 容器运行时， 容器日志的落盘由 Kubelet 来完成，保存至 <code>/var/log/pods/$CONTAINER_NAME</code> 目录下，同时在 <code>/var/log/containers</code> 目录下创建软链接，指向日志文件。             
 		</td>
 	</tr>
 	<tr>
@@ -112,7 +112,7 @@ Kubelet 不会做 stream proxy，只会做重定向。即 Kubelet 会将 contain
 	<tr>
 	<td>把容器日志保存到数据盘</td>
 	<td>把数据盘挂载到 “data-root”（缺省是 <code>/var/lib/docker</code>）即可。</td>
-	<td>创建一个软链接 <code>/var/log/pods</code> 指向数据盘挂载点下的某个目录。 <br>在 TKE 中选择“将容器和镜像存储在数据盘”，会自动创建软链接 <code>/var/log/pods</code>。
+	<td>创建一个软链接 <code>/var/log/pods</code> 指向数据盘挂载点下的某个目录。  <br>在 TKE 中选择“将容器和镜像存储在数据盘”，会自动创建软链接 <code>/var/log/pods</code>。
 	</td>
 	</tr>
 </table>

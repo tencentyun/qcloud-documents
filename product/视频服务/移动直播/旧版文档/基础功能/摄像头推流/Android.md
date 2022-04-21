@@ -44,6 +44,8 @@ public class MApplication extends Application {
     }
 }
 ```
+>! 企业版已不对外提供，美颜相关功能可参见 [腾讯特效 SDK（美颜 SDK）](https://cloud.tencent.com/product/x-magic)。
+
 
 ### 3. 初始化 TXLivePusher 组件
 

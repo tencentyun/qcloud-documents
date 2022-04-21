@@ -45,16 +45,12 @@ public void onWarning(V2TXLivePlayer player, int code, String msg, Bundle extraI
 
 ***
 
-## 视频相关回调
-### onVideoPlayStatusUpdate
+### onConnected
 
-直播播放器视频状态变化通知。
+已经成功连接到服务器通知。
+
 ```
-public void onVideoPlayStatusUpdate(
-        V2TXLivePlayer player,
-        V2TXLivePlayStatus status, 
-        V2TXLiveStatusChangeReason reason,
-        Bundle extraInfo)
+public void onConnected(V2TXLivePlayer player, Bundle extraInfo) 
 ```
 
 #### 参数
@@ -62,20 +58,49 @@ public void onVideoPlayStatusUpdate(
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | player | V2TXLivePlayer |  回调该通知的播放器对象。 |
-| status | [V2TXLivePlayStatus](#V2TXLivePlayStatus)  | 状态码。 |
-| reason | V2TXLiveStatusChangeReason |  状态对应的原因。 |
 | extraInfo | Bundle |  扩展信息。 |
 
-[](id:V2TXLivePlayStatus)
-#### V2TXLivePlayStatus 枚举值
+## 视频相关回调
+### onVideoResolutionChanged
 
-| 取值 | 含义 |
-|---------|---------|
-| V2TXLivePlayStatusStopped | 播放停止。 |
-| V2TXLivePlayStatusPlaying | 正在播放。 |
-| V2TXLivePlayStatusLoading | 正在缓冲（首次加载不会抛出 Loading 事件）。 |
+直播播放器分辨率变化通知
 
-***
+```
+public void onVideoResolutionChanged(V2TXLivePlayer player, int width, int height) 
+```
+#### 参数
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| player | V2TXLivePlayer |  回调该通知的播放器对象。 |
+| width | int |  视频宽。 |
+| height | int |  视频高。 |
+
+### onVideoLoading
+
+视频加载事件。
+
+```
+public void onVideoLoading(V2TXLivePlayer player, Bundle extraInfo)
+```
+#### 参数
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| player | V2TXLivePlayer |  回调该通知的播放器对象。 |
+| extraInfo | Bundle |  扩展信息。 |
+
+### onVideoPlaying
+
+视频播放事件。
+
+```
+public void onVideoPlaying(V2TXLivePlayer player, boolean firstPlay, Bundle extraInfo)
+```
+#### 参数
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| player | V2TXLivePlayer |  回调该通知的播放器对象。 |
+| firstPlay | boolean | 第一次播放标志 |
+| extraInfo | Bundle |  扩展信息。 |
 
 ### onSnapshotComplete
 
@@ -97,6 +122,7 @@ public void onSnapshotComplete(V2TXLivePlayer player, Bitmap image)
 
 自定义视频渲染回调。
 >? 调用 `[V2TXLivePlayer enableCustomRendering:pixelFormat:bufferType:]` 开启自定义渲染之后，会收到这个回调通知。
+
 ```
 public void onRenderVideoFrame(V2TXLivePlayer player, V2TXLiveVideoFrame videoFrame)
 ```
@@ -112,27 +138,32 @@ public void onRenderVideoFrame(V2TXLivePlayer player, V2TXLiveVideoFrame videoFr
 
 
 ## 音频相关回调
-### onAudioPlayStatusUpdate
+### onAudioLoading
 
-直播播放器音频状态变化通知。
-```
-public void onAudioPlayStatusUpdate(
-        V2TXLivePlayer player,
-        V2TXLivePlayStatus status,
-        V2TXLiveStatusChangeReason reason,
-        Bundle extraInfo)
-```
+音频加载事件。
 
+```
+public void onAudioLoading(V2TXLivePlayer player, Bundle extraInfo)
+```
 #### 参数
-
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | player | V2TXLivePlayer |  回调该通知的播放器对象。 |
-| status | [V2TXLivePlayStatus](#V2TXLivePlayStatus)  | 状态码。 |
-| reason | V2TXLiveStatusChangeReason |  状态对应的原因。 |
 | extraInfo | Bundle |  扩展信息。 |
 
-***
+### onAudioPlaying
+
+音频播放事件。
+
+```
+public void onAudioPlaying(V2TXLivePlayer player, boolean firstPlay, Bundle extraInfo)
+```
+#### 参数
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| player | V2TXLivePlayer |  回调该通知的播放器对象。 |
+| firstPlay | boolean | 第一次播放标志 |
+| extraInfo | Bundle |  扩展信息。 |
 
 ### onPlayoutVolumeUpdate
 

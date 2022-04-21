@@ -1,3 +1,4 @@
+
 ## 查看是否为分布键查询
 ```
 postgres=# explain select * from tbase_1 where f1=1;        

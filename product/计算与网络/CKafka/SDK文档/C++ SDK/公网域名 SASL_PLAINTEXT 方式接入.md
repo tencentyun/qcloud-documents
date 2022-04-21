@@ -10,11 +10,11 @@
 
 ## 操作步骤
 
-### 步骤一：安装 C/C++ 依赖库
+### 步骤1：安装 C/C++ 依赖库
 
 [安装 librdkafka](https://github.com/edenhill/librdkafka#installation)
 
-### 步骤二：安装 SSL/SASL 依赖
+### 步骤2：安装 SSL/SASL 依赖
 
 ```c++
 yum install openssl openssl-devel
@@ -22,7 +22,7 @@ yum install cyrus-sasl{,-plain}
 ```
 
 
-### 步骤三：发送消息
+### 步骤3：发送消息
 
 1. 创建 producer.c 文件。
 
@@ -343,20 +343,20 @@ gcc -lrdkafka ./producer.c -o producer
 
 | **参数** | **描述**                                                     |
 | :------- | ------------------------------------------------------------ |
-| broker   | 接入网络，在控制台的实例详情页面【接入方式】模块的网络列复制。<br/>![img](https://main.qcloudimg.com/raw/c5cf200a66f6dcf627d2ca6f1c747ecf.png) |
-| topic    | Topic 名称，您可以在控制台上【topic管理】页面复制。<br/>![img](https://main.qcloudimg.com/raw/e7d353c89bbb204303501e8366f59d2c.png) |
-| username | username 是`实例 ID` + `#` + `配置的用户名`，实例 ID 在 CKafka 控制台的实例详情页面的基本信息获取，用户名在控制台【用户管理】页面创建用户时设置 |
-| password | password 是配置的用户密码，在控制台【用户管理】页面创建用户时设置。 |
+| broker   | 接入网络，在控制台的实例详情页面**接入方式**模块的网络列复制。<br/>![img](https://main.qcloudimg.com/raw/c5cf200a66f6dcf627d2ca6f1c747ecf.png) |
+| topic    | Topic 名称，您可以在控制台上**topic管理**页面复制。<br/>![img](https://main.qcloudimg.com/raw/e7d353c89bbb204303501e8366f59d2c.png) |
+| username | username 是`实例 ID` + `#` + `配置的用户名`，实例 ID 在 CKafka 控制台的实例详情页面的基本信息获取，用户名在控制台**用户管理**页面创建用户时设置 |
+| password | password 是配置的用户密码，在控制台**用户管理**页面创建用户时设置。 |
 
 运行结果如下：
 <img src="https://main.qcloudimg.com/raw/610f4f54108504fc34888cdab0c3175f.jpg" width="600px">
 
-4. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka)【topic 管理】页面，选择对应的 Topic，单击【更多】>【消息查询】，查看刚刚发送的消息。
+4. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka)**topic 管理**页面，选择对应的 Topic，单击**更多** > **消息查询**，查看刚刚发送的消息。
 <img src="https://main.qcloudimg.com/raw/3224bd16d182ca02d3ce4e65e172b540.png" width="700px">
 
 
 
-### 步骤四：消费消息
+### 步骤4：消费消息
 
 1. 创建 consumer.c 文件。
 
@@ -670,14 +670,14 @@ gcc -lrdkafka ./consumer.c -o consumer
 
 | **参数**        | **描述**                                                     |
 | :-------------- | ------------------------------------------------------------ |
-| broker          | 接入网络，在控制台的实例详情页面【接入方式】模块的网络列复制。<br/>![img](https://main.qcloudimg.com/raw/c5cf200a66f6dcf627d2ca6f1c747ecf.png) |
-| group.id        | 消费分组名称，您可以自定义设置，Demo 运行成功后可以在【Consumer Group】页面看到该消费者。 |
-| username        | username 是`实例 ID` + `#` + `配置的用户名`，实例 ID 在 CKafka 控制台的实例详情页面的基本信息获取，用户名在控制台【用户管理】页面创建用户时设置 |
-| password        | password 是配置的用户密码，在控制台【用户管理】页面创建用户时设置。 |
-| topic1 topic2.. | Topic 名称，您可以在控制台上【topic管理】页面复制。<br/>![img](https://main.qcloudimg.com/raw/e7d353c89bbb204303501e8366f59d2c.png) |
+| broker          | 接入网络，在控制台的实例详情页面**接入方式**模块的网络列复制。<br/>![img](https://main.qcloudimg.com/raw/c5cf200a66f6dcf627d2ca6f1c747ecf.png) |
+| group.id        | 消费分组名称，您可以自定义设置，Demo 运行成功后可以在**Consumer Group**页面看到该消费者。 |
+| username        | username 是`实例 ID` + `#` + `配置的用户名`，实例 ID 在 CKafka 控制台的实例详情页面的基本信息获取，用户名在控制台**用户管理**页面创建用户时设置 |
+| password        | password 是配置的用户密码，在控制台**用户管理**页面创建用户时设置。 |
+| topic1 topic2.. | Topic 名称，您可以在控制台上**topic管理**页面复制。<br/>![img](https://main.qcloudimg.com/raw/e7d353c89bbb204303501e8366f59d2c.png) |
 
 运行结果如下：
 ![](https://main.qcloudimg.com/raw/4c2679cc3c9f2469760b087dbd469de7.jpg)
 
-4. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka)的【Consumer Group】页面，选择对应的消费者组名称，在主题名称输入 Topic ，单击【查询详情】查看消费详情。
+4. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka)的**Consumer Group**页面，选择对应的消费者组名称，在主题名称输入 Topic ，单击**查询详情**查看消费详情。
    ![](https://main.qcloudimg.com/raw/3020dcb5f8fd73e02949b20fef4f956f.png)

@@ -6,7 +6,7 @@
 
 - [完成资源创建与准备](https://cloud.tencent.com/document/product/1495/61829)
 - [安装 Go](https://golang.org/dl/)
-- [下载 Demo](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-rabbitmq-demo/tdmq-rabbitmq-go-sdk-demo.zip)
+- [下载 Demo](https://tdmq-document-1306598660.cos.ap-nanjing.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91demo/rabbitmq/tdmq-rabbitmq-go-sdk-demo.zip)
 
 ## 操作步骤
 
@@ -153,5 +153,5 @@ import (amqp "github.com/rabbitmq/amqp091-go")
    failOnError(err, "Failed to bind a queue")
    ```
 
-详细使用示例可参考 [Demo](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-rabbitmq-demo/tdmq-rabbitmq-go-sdk-demo.zip) 或 [RabbitMQ 官网](https://www.rabbitmq.com/getstarted.html)。
+>?详细使用示例可参见 [Demo](https://tdmq-document-1306598660.cos.ap-nanjing.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91demo/rabbitmq/tdmq-rabbitmq-go-sdk-demo.zip) 或 [RabbitMQ 官网](https://www.rabbitmq.com/getstarted.html)。
 

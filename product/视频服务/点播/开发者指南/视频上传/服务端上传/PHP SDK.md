@@ -12,12 +12,8 @@
 ```
 
 ### 通过源码包安装
-如果项目中没有使用 composer 工具进行依赖管理，可以直接下载源码，导入项目中使用：
-
-* [从 Github 访问](https://github.com/tencentyun/vod-php-sdk-v5)
-* [单击下载 PHP SDK](https://github.com/tencentyun/vod-php-sdk-v5/raw/master/packages/vod-sdk.zip)
-
-解压 vod-sdk.zip 文件到项目中，引入 autoload.php 文件即可使用。
+1. 如果项目中没有使用 composer 工具进行依赖管理，[从 Github 访问](https://github.com/tencentyun/vod-php-sdk-v5) 可以直接下载源码，导入项目中使用。
+2. 解压 vod-sdk.zip 文件到项目中，引入 autoload.php 文件即可使用。
 
 ##  简单视频上传
 ### 初始化上传对象
