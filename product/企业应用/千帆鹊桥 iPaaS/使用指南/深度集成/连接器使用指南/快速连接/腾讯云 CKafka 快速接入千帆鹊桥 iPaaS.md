@@ -37,7 +37,7 @@
 3. 勾选要设置 ACL 策略的 Topic，并在下方 ACL 策略栏中针对用户和 IP 配置读写策略。
 >?配置 IP 地址为“ * ” 表示允许全部 IP 访问。
 
-### 接入配置
+## 接入配置
 配置鹊桥 iPaaS Kafka 连接器连接属性步骤如下：
 1.  在[iPaaS平台](https://console.cloud.tencent.com/ipaas)上单击**新建应用**，选择**空白应用**进行创建。
 ![](https://qcloudimg.tencent-cloud.cn/raw/f0e3a02558a61e6168e4a6c993931820.png)
