@@ -14,7 +14,7 @@ TKE 支持用户选择 containerd 和 docker 作为运行时组件：
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2/cluster/startUp) ，选择左侧导航栏中的集群。
 2. 在“集群管理”列表页面，选择目标集群 ID，进入该集群基本信息页面。
 3. 在“集群基本信息”中修改运行时组件。如下图所示：
->? 修改运行时组件及版本，只对增量节点生效，不会影响存量节点。
+>? 修改运行时组件及版本，只对集群内无节点池归属的增量节点生效，不会影响存量节点。
 >
 ![](https://qcloudimg.tencent-cloud.cn/raw/bafb92c1dff0c5a51555745f85b9e13f.png)
 
