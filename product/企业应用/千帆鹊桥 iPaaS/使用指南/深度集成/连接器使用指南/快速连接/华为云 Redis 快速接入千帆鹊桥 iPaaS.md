@@ -55,7 +55,7 @@ sudo systemctl enable nginx.service
 如果出现下面页面，则表示安装成功。
 ![image-20220407131842236](https://qcloudimg.tencent-cloud.cn/raw/f38cfb0f54acdf9dc64e1eba72e7c812.png)
 
-#### 修改Ngnix配置文件
+#### 修改 Ngnix 配置文件
 1. 打开并修改配置文件[](id:method1)。
 >?proxy_pass 参数配置值为同一 VPC 下的 Redis 实例的 IP 地址，具体可从缓存实例详情页面的“连接信息”区域获取。
 >
@@ -80,6 +80,8 @@ stream {
 ### 设置安全组允许 iPaaS 访问
 
 在 [ECS 实例控制台](https://console.huaweicloud.com/ecm/?agencyId=344eb50173f9430489ff1be6c4769e54&region=cn-south-1&locale=zh-cn#/ecs/manager/vmList)，修改 ECS 安全组配置，配置允许 iPaaS 访问。
+>!若需配置指定的 iPaaS 出口 IP 访问，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们。
+>
 ![](https://qcloudimg.tencent-cloud.cn/raw/4e399b110eb0104d8d3705fa546d288f.png)
 
 ## 接入配置
