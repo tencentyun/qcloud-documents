@@ -12,23 +12,10 @@
 
 ## 操作步骤
 
-#### 步骤1：添加 Java 依赖库
+#### 步骤1：准备配置
 
-在 pom.xml 中添加以下依赖。
-<dx-codeblock>
-:::  xml
-<dependency>
-    <groupId>org.apache.kafka</groupId>
-    <artifactId>kafka-clients</artifactId>
-    <version>0.10.2.2</version>
-</dependency>
-:::
-</dx-codeblock>
-
-
-#### 步骤2：准备配置
-
-1. 创建 JAAS 配置文件 ckafka_client_jaas.conf。
+1. 将下载的 Demo 进行解压，进入 javakafkademo 下的 PUBLIC_SASL 目录。
+2. 修改 JAAS 配置文件 ckafka_client_jaas.conf。
 <dx-codeblock>
 :::  bash
 KafkaClient {
@@ -41,11 +28,11 @@ password="yourpassword";
 <dx-alert infotype="explain" title="">
 username 是`实例 ID` + `#` + `配置的用户名`，password 是配置的用户密码。
 </dx-alert>
-2. 创建消息队列 CKafka 配置文件 kafka.properties。
+2. 修改消息队列 CKafka 配置文件 kafka.properties。
 <dx-codeblock>
 :::  bash
 ## 配置接入网络，在控制台的实例详情页面接入方式模块的网络列复制。
-bootstrap.servers=xx.xx.xx.xx:xxxx
+bootstrap.servers=ckafka-xxxxxxx
 ## 配置Topic，在控制台上topic管理页面复制。
 topic=XXX
 ## 配置Consumer Group，您可以自定义设置
@@ -63,11 +50,11 @@ java.security.auth.login.config.plain=/xxxx/ckafka_client_jaas.conf
 </thead>
 <tbody><tr>
 <td>bootstrap.servers</td>
-<td>接入网络，在控制台的实例详情页面<strong>接入方式</strong>模块的网络列复制。<br><img src="https://qcloudimg.tencent-cloud.cn/raw/91cc0d8df4f242b09849a376bf68c94d.png" alt=""></td>
+<td>接入网络，在控制台的实例详情页面<strong>接入方式</strong>模块的网络列复制。<br><img src="https://qcloudimg.tencent-cloud.cn/raw/265f18deec301adabebc6493cc60d582.png" alt=""></td>
 </tr>
 <tr>
 <td>topic</td>
-<td>topic 名称，您可以在控制台上<strong>topic管理</strong>页面复制。<br><img src="https://qcloudimg.tencent-cloud.cn/raw/09f858145ea48fdcb68f510ff4ed6707.png" alt=""></td>
+<td>topic 名称，您可以在控制台上<strong>topic管理</strong>页面复制。<br><img src="https://qcloudimg.tencent-cloud.cn/raw/cc84df4a26a9ace1fa134216f49343a2.png" alt=""></td>
 </tr>
 <tr>
 <td>group.id</td>
@@ -78,44 +65,11 @@ java.security.auth.login.config.plain=/xxxx/ckafka_client_jaas.conf
 <td>填写 JAAS 配置文件 ckafka_client_jaas.conf 的路径。</td>
 </tr>
 </tbody></table>
-3. 创建配置文件加载程序 CKafkaConfigurer.java。
-<dx-codeblock>
-:::  java
-public class CKafkaConfigurer {
 
-    private static Properties properties;
 
-    public static void configureSaslPlain() {
-        //如果用-D或者其它方式设置过，这里不再设置。
-        if (null == System.getProperty("java.security.auth.login.config")) {
-            //请注意将XXX修改为自己的路径。
-            System.setProperty("java.security.auth.login.config",
-                    getCKafkaProperties().getProperty("java.security.auth.login.config.plain"));
-        }
-    }
+#### 步骤2：发送消息
 
-    public synchronized static Properties getCKafkaProperties() {
-        if (null != properties) {
-            return properties;
-        }
-        //获取配置文件kafka.properties的内容。
-        Properties kafkaProperties = new Properties();
-        try {
-            kafkaProperties.load(CKafkaProducerDemo.class.getClassLoader().getResourceAsStream("kafka.properties"));
-        } catch (Exception e) {
-            System.out.println("getCKafkaProperties error");
-        }
-        properties = kafkaProperties;
-        return kafkaProperties;
-    }
-}
-
-:::
-</dx-codeblock>
-
-#### 步骤3：发送消息
-
-1. 创建发送消息程序 KafkaSaslProducerDemo.java。
+1. 编译并运行发送消息程序 KafkaSaslProducerDemo.java。
 <dx-codeblock>
 :::  java
 public class KafkaSaslProducerDemo {
@@ -176,7 +130,6 @@ public class KafkaSaslProducerDemo {
 }
 :::
 </dx-codeblock>
-2. 编译并运行KafkaSaslProducerDemo.java发送消息。
 3. 运行结果（输出）。
 <dx-codeblock>
 :::  bash
@@ -184,12 +137,12 @@ Produce ok:ckafka-topic-demo-0@198
 Produce ok:ckafka-topic-demo-0@199
 :::
 </dx-codeblock>
-4. 在 CKafka 控制台**topic管理**页面，选择对应的 topic，单击**更多** > **消息查询**，查看刚刚发送的消息。
-![](https://qcloudimg.tencent-cloud.cn/raw/ae06ef15b2ba963b422ef23de0e9bfab.png)
+3. 在 CKafka 控制台**topic管理**页面，选择对应的 topic，单击**更多** > **消息查询**，查看刚刚发送的消息。
+![](https://main.qcloudimg.com/raw/cca4f62e86898eec49d8a9cde7ae9fa8.png)
 
-#### 步骤4：消费消息
+#### 步骤3：消费消息
 
-1. 创建 Consumer 订阅消息程序 KafkaSaslConsumerDemo.java。
+1. 编译并运行 Consumer 订阅消息程序 KafkaSaslConsumerDemo.java。
 <dx-codeblock>
 :::  java
 public class KafkaSaslConsumerDemo {
@@ -250,14 +203,13 @@ public class KafkaSaslConsumerDemo {
 }
 :::
 </dx-codeblock>
-2. 编译并运行 KafkaSaslConsumerDemo.java 消费消息。
-3. 运行结果。
+2. 运行结果。
 <dx-codeblock>
 :::  bash
 Consume partition:0 offset:298
 Consume partition:0 offset:299
 :::
 </dx-codeblock>
-4. 在 CKafka 控制台**Consumer Group**页面，选择对应的消费组名称，在主题名称输入 topic 名称，单击**查询详情**，查看消费详情。
-![](https://qcloudimg.tencent-cloud.cn/raw/4d6b1523278a78093399744c8002073b.png)
+3. 在 CKafka 控制台**Consumer Group**页面，选择对应的消费组名称，在主题名称输入 topic 名称，单击**查询详情**，查看消费详情。
+![](https://qcloudimg.tencent-cloud.cn/raw/bfc19f9d6fff0eec137f87d95b983f12.png)
 

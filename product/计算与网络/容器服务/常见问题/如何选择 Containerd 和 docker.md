@@ -8,7 +8,16 @@ TKE 支持用户选择 containerd 和 docker 作为运行时组件：
  - 如需在 TKE 节点使用 docker build/push/save/load 等命令。
  - 如需调用 docker API。
  - 如需 docker compose 或 docker swarm。
- 
+
+
+### 如何修改运行时组件？
+1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2/cluster/startUp) ，选择左侧导航栏中的集群。
+2. 在“集群管理”列表页面，选择目标集群 ID，进入该集群基本信息页面。
+3. 在“集群基本信息”中修改运行时组件。如下图所示：
+>? 修改运行时组件及版本，只对集群内无节点池归属的增量节点生效，不会影响存量节点。
+>
+![](https://qcloudimg.tencent-cloud.cn/raw/bafb92c1dff0c5a51555745f85b9e13f.png)
+
 
 ### Containerd 和 Docker 组件常用命令是什么？
 Containerd 不支持 docker API 和 docker CLI，但是可以通过 cri-tool 命令实现类似的功能。
