@@ -24,7 +24,7 @@ iPaaS Redis 连接器支持 Redis 单点模式、哨兵模式、Cluster 集群�
 
 1. 购买与华为云 Redis 处于同一可用区同一 VPC 下内网互通的有外网的云服务器[](id:method2)。
 可参考 [华为云 ECS 购买指引](https://support.huaweicloud.com/qs-ecs/zh-cn_topic_0163540195.html)。
-2. 登录服务器，部署 Ngnix。
+2. 登录服务器，部署 Nginx。
 
 #### 安装 Nginx
 >?本文以云服务器操作系统为Centos7.x为例进行安装，不同操作系统命令稍有不同。
@@ -55,7 +55,7 @@ sudo systemctl enable nginx.service
 如果出现下面页面，则表示安装成功。
 ![image-20220407131842236](https://qcloudimg.tencent-cloud.cn/raw/f38cfb0f54acdf9dc64e1eba72e7c812.png)
 
-#### 修改 Ngnix 配置文件
+#### 修改 Nginx 配置文件
 1. 打开并修改配置文件[](id:method1)。
 >?proxy_pass 参数配置值为同一 VPC 下的 Redis 实例的 IP 地址，具体可从缓存实例详情页面的“连接信息”区域获取。
 >
@@ -96,7 +96,7 @@ stream {
 4. 填写完连接器配置参数后，单击**测试连接**，测试连通性，测试成功后，会出现”连接配置正确“的提示，保存连接器配置即可，失败根据提示来重新填写对应信息。
  - Redis连接模式：此处选择 Noncluster 模式
  - 地址：填写 [配置外网访问中创建的ECS的外网IP](#method2)
- - 端口号：填写 [修改Ngnix配置文件](#method1) 中 proxy_pass 设置的 listen 端口
+ - 端口号：填写 [修改 Nginx 配置文件](#method1) 中 proxy_pass 设置的 listen 端口
  - 密码：填写购买数据库时的密码
 ![](https://qcloudimg.tencent-cloud.cn/raw/7b736e3781c8d4d65fb2f615a58bfab3.png)
 5. 其他相关配置可参考 [Redis 连接器使用指南](https://cloud.tencent.com/document/product/1270/55479)。
