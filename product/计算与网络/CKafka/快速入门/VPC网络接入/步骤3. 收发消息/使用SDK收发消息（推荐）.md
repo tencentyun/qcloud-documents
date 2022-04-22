@@ -35,11 +35,11 @@ group.id=XXX
 </thead>
 <tbody><tr>
 <td>bootstrap.servers</td>
-<td>接入网络，在控制台的实例详情页面<strong>接入方式</strong>模块的网络列复制。<br><img src="https://main.qcloudimg.com/raw/88b29cffdf22e3a0309916ea715057a1.png" alt=""></td>
+<td>接入网络，在控制台的实例详情页面<strong>接入方式</strong>模块的网络列复制。<br><img src="https://main.qcloudimg.com/raw/6d6a0aac948c718ec2f17f885c093292.png" alt=""></td>
 </tr>
 <tr>
 <td>topic</td>
-<td>topic名称，您可以在控制台上<strong>topic管理</strong>页面复制。<br><img src="https://main.qcloudimg.com/raw/e7d353c89bbb204303501e8366f59d2c.png" alt=""></td>
+<td>topic名称，您可以在控制台上<strong>topic管理</strong>页面复制。<br><img src="https://main.qcloudimg.com/raw/5a7399a4080538f65858b855c8f6ffb0.png" alt=""></td>
 </tr>
 <tr>
 <td>group.id</td>
@@ -183,4 +183,4 @@ Consume partition:0 offset:299
 :::
 </dx-codeblock>
 3. 在  [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的**Consumer Group**页面，选择对应的消费组名称，在主题名称输入 topic 名称，单击**查询详情**，查看消费详情。
-   ![](https://main.qcloudimg.com/raw/27775267907600f4ff759e6a197195ee.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/4ac3c7bc3dbf64c6a0fe14591b4f0988.png)
