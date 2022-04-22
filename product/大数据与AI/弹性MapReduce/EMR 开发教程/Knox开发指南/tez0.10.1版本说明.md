@@ -1,4 +1,4 @@
-1. 下载并编译 [tez0.10.0 源码包](https://downloads.apache.org/tez/0.10.0/) 
+1. 下载并编译 [tez0.10.0 源码包](https://dlcdn.apache.org/tez/0.10.1/) 
 ```
 tar -zxvf  apache-tez-0.10.0-src.tar.gz
 chmod -R 777 apache-tez-0.10.0-src
