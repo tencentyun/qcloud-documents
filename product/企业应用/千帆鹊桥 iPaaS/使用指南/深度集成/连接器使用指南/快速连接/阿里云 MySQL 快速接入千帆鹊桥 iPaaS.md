@@ -18,7 +18,7 @@ iPaaS Database 连接器支持 MySQL 数据库的连接及增删改查等数据�
 2. 进入 [实例列表管理](https://rdsnext.console.aliyun.com/rdsList/cn-hangzhou/basic) 界面，单击目标实例 ID，点击左侧数据库连接，申请外网地址。[](id:method1)
 ![](https://qcloudimg.tencent-cloud.cn/raw/6f626668c8c54b525e6eec628ec48e17.png)
 3. 在外网地址处，单击**设置白名单**，设置 iPaaS 出口 IP 白名单。设置为0.0.0.0/0即可。
->!若需配置指定的 iPaaS 出口IP访问，请提工单联系阿里云工程师。
+>!若需配置指定的iPaaS出口IP访问，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们。
 >
 ![](https://qcloudimg.tencent-cloud.cn/raw/3896ae123319994937f3daba2286aee6.png)
 4. 设置成功后，会显示外网地址。
