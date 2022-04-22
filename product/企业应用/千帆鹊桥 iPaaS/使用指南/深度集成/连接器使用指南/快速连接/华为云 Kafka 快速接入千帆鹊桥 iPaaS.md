@@ -2,7 +2,7 @@
 千帆鹊桥 iPaaS 中的Kafka连接器支持 PLAINTEXT、SASL_PLAINTEXT、SASL_SCRAM 三种认证方式接入Kafka集群，可使用任一被支持的认证方式接入到Kafka集群
 
 ## 前期准备
-### 前提矫健
+### 前提条件
 已配置好安全组规则和公网 IP，并开通 Kafka 服务。
 
 **华为云仅以下地域支持开通公网访问：**
