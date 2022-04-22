@@ -59,7 +59,7 @@ sudo systemctl enable nginx.service
 1. 打开并修改配置文件[](id:method1)。
 >?proxy_pass 参数配置值为同一 VPC 下的 Redis 实例的 IP 地址，具体可从缓存实例详情页面的“连接信息”区域获取。
 >
-执行 `vi /etc/nginxnginx.conf` 打开配置文件。
+执行 `vi /etc/nginx.conf ` 打开配置文件。
 配置示例如下，在 proxy_pass 中配置 Redis 实例连接地址。
 ```
 stream {
