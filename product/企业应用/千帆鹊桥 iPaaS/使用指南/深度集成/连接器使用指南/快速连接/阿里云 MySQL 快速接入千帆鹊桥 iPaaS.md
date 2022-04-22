@@ -26,7 +26,7 @@ iPaaS Database 连接器支持 MySQL 数据库的连接及增删改查等数据�
 
 
 ## 接入配置
-### 步骤1： 创建测试数据库[](id:method2)
+### 步骤1：创建测试数据库[](id:method2)
 
 1. 单击目标实例ID，单击**数据库管理**>**创建数据库**。输入数据库的登录账密后进入库管理页面再次单击创建数据库。
 ![](https://qcloudimg.tencent-cloud.cn/raw/b6eed314122be19545945e90e29fb856.png)
