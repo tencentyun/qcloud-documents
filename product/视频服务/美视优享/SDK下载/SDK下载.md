@@ -129,3 +129,4 @@ S 系列高级套餐提供高级美型功能，适用于对脸部美颜调整需
 </tr>
 </tbody></table>
 
+> ! 包体大小瘦身，请参见 [SDK包体瘦身（Android）](https://www.baidu.com)。
