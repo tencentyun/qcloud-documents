@@ -4,8 +4,8 @@
 ## 前期准备
 您需要先开通 CKafka 服务，并设置公网域名访问及对应 ACL 策略。
 
-### 购买腾讯云CKafka
-购买腾讯云CKafka请参考[创建公网域名接入的CKafka实例](https://cloud.tencent.com/document/product/597/54840)
+### 购买腾讯云 CKafka
+详细操请参考 [创建公网域名接入的 CKafka 实例](https://cloud.tencent.com/document/product/597/54840)。
 
 ### 设置 CKafka 接入方式
 1. 登录 [CKafka 控制台](https://console.cloud.tencent.com/ckafka/index?rid=1)，在实例列表中选中想要设置的实例。
@@ -52,7 +52,7 @@
  - SASL用户名：CKafka 此处的填写规则为 **CKafka实例ID#CKafka用户名**，假设CKafka实例ID为ckafka-instance1，[设置 CKafka  登录用户](#method1) 中设置的用户名为 kafkaUser，则此处用户名应填写：**ckafka-instance1#kafkaUser**
  - SASL密码：请填写 [设置 CKafka  登录用户](#method1) 中创建的用户密码
  - 使能TLS安全传输协议：选择false
-![](https://qcloudimg.tencent-cloud.cn/raw/caa1b951f0fba8d17c96d36996511bbc.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/a98033fee48fdf62ca44170db08af91b.png)
 5. 其他 Kafka 参数请按实际情况填写，也可参考 [Apache Kafka 连接器使用指南](https://cloud.tencent.com/document/product/1270/55465)。
 
 
