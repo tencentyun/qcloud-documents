@@ -78,5 +78,5 @@
  - 使能TLS安全传输协议：选择true
  - 消费者组：填写刚刚创建的 ipaas-consumer
  - 主题：填写刚刚创建的 ipaas-test
-![](https://qcloudimg.tencent-cloud.cn/raw/61c6de359c350aeaabdd5a8b2b02abbc.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/ae8a9835802014fe2bb75d7b8859a19c.png)
 5.  其他 Kafka 参数请按实际情况填写，也可参考 [Apache Kafka 连接器使用指南](https://cloud.tencent.com/document/product/1270/55465)。
