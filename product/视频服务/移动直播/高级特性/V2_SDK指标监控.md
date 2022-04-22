@@ -40,9 +40,8 @@ V2TXLivePusherObserver 的 [onStatisticsUpdate](https://liteav.sdk.qcloud.com/do
 - **云端-应收视频时长-实收视频时长曲线**
 这里是腾讯云服务端的统计图表，如果您不是使用腾讯云 SDK 推流，那么您将只能看到这个图表，前面两个（数据源来自 SDK）是看不到的。蓝绿两条线重合度越高，说明推流质量越好。
 ![](https://main.qcloudimg.com/raw/c24863a60618db266bb6eaaab6da1833.png)
-
+ 
 ## V2TXLivePlayerObserver
-
 ### 获取播放的状态数据
 V2TXLivePlayerObserver 的 [onStatisticsUpdate](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePlayerObserver__ios.html#a4cdfa0b36d4b9e910c1e0d1b5dc44cde) 回调，会每隔2秒会将 SDK 内部的状态指标同步出来，其中如下指标比较有意义：
 
