@@ -1,116 +1,38 @@
 ## 简介
-用户可在【作业参数】>【高级参数】中配置更多自定义 Flink 参数来实现作业行为的微调，例如设置作业的重启策略、调整 SQL 的 Mini-Batch 配置、关闭异步快照、设置快照最小间隔、调整 RocksDB StateBackend 的缓存大小等。
+SET 语句可以调整作业的关键运行参数。目前大多数参数都可以通过 [作业高级参数](https://cloud.tencent.com/document/product/849/53391) 功能来配置，只有极少数参数需要使用 SET 语句。
+> !
+> - SET 命令属于高级用法，请谨慎使用，避免参数配置不当而引起的运行时异常。
+> - SET 命令不支持注释，请不要在其后增加 `--` 注释信息。
+> - SET 语句行尾需加上分号。
 
-自定义高级参数需按照 YAML 语法，以 “key: value” 的形式进行配置，英文冒号与 value 之间需要加上空格。修改作业参数后需重新发布并启动作业才能生效。Flink 1.11的参数具体说明详见社区 [官方文档](https://ci.apache.org/projects/flink/flink-docs-release-1.11/ops/config.html)。
+## 语法
+SET 语句中字符串类型的参数值必须用半角单引号括起来，布尔值和数值型的可以不加单引号。
+```sql
+SET 配置项 = '参数值';
+```
 
 ## 示例
-### 设置作业的状态后端（State Backend）
-默认情况下，Oceanus 采用 RocksDB State Backend，这个状态后端允许超大的状态存取，但是吞吐量和性能方面比基于内存的 FileSystem State Backend 差很多。
-
-如果您的作业状态用量很小，且对延迟、吞吐量要求很高，可以使用下面的语句切换到基于内存的 FileSystem State Backend：
-```yaml
-state.backend: filesystem
-```
-
-### 配置作业重启策略和阈值
-默认情况下，Flink 作业崩溃后只有5次内部重启（JobManager 存活时的热重启，大概15s 左右）的机会。超过阈值后再次发生崩溃时，JobManager 会主动退出，导致作业需要经历一个较长时间（约3 - 5分钟）的冷恢复过程；对于未开启快照的作业，可能造成较多的状态和数据丢失。
-
-如果您希望调整作业内部允许的重启次数，可以配置下面的参数（该参数允许作业内部重启最多100次，请酌情调整）：
-
-```yaml
-restart-strategy: fixed-delay
-restart-strategy.fixed-delay.attempts: 100
-restart-strategy.fixed-delay.delay: 5 s
-```
-
-### 配置 SQL 作业状态保留时间 (Flink 1.13 及以上版本)
-
+### 配置 SQL 作业状态保留时间 (仅限 Flink 1.11)
 针对 GROUP BY 和 JOIN 等大状态的语句，Flink 提供了 [Idle State Retention Time 机制](https://cloud.tencent.com/developer/article/1452854)，用户可以通过设置状态的最短保留时间和最长保留时间，避免状态的无限制增长造成作业崩溃（OOM）。
 
-例如，下面的语句指定了状态的保留时间是5小时：
+例如，下面的语句指定了状态的最短保留时间是5小时，最长保留时间是6小时，Flink 会在这两个时间点之间自行选择状态的清理时机。
 
-```yaml
-table.exec.state.ttl: 5h
+> ! 
+> - 该 SET 语句仅限 Flink 1.11 使用。对于 Flink 1.13 等更高版本，请在作业 [高级参数](https://cloud.tencent.com/document/product/849/53391) 中设置 `table.exec.state.ttl` 来配置 SQL 作业状态保留时间。
+> - 状态的最短保留时间和最长保留时间之间的差值必须大于5分钟，否则 Flink 会报错并忽略该设置。
+> - 时间单位的写法遵循 Flink 配置的规范，例如可以写10min、也可以写3h、3hour、7day、7d等。数值和单位之间的空格为可选项。
+
+```sql
+SET execution.min-idle-state-retention = '5 h';
+SET execution.max-idle-state-retention = '6 h';
 ```
 
-> !
->
-> 对于 Flink 1.11 及更早的版本，请使用 [SET 语句](https://cloud.tencent.com/document/product/849/48245) 来配置 SQL 作业的状态保留时间。
+### 配置 SQL 作业快照超时时间
+对于 SQL 作业，默认情况下，快照超时时间最短为10分钟，最长为2倍的快照周期。例如，对于快照周期为60秒的作业，其快照超时时间是10分钟；而对于快照周期为10分钟的作业，其快照超时时间是20分钟。
 
-### 配置 JVM Overhead 比例
-
-默认情况下，Flink 给 JVM 堆外原生内存（Overhead）的比例是0.1（即10%）。当使用 RocksDB 状态后端时，对此区域内存需求较大，可能会出现超额使用而造成 JVM 被容器管控系统 KILL。为了减少这种情况出现，增加使用 RocksDB 状态后端作业的稳定性，可以适当调大该参数比例。
-> !调大该堆外参数会导致 JVM 堆内存可用比例下降，作业更容易出现堆内 OOM，请在必要时再做调整。
-
-```yaml
-taskmanager.memory.jvm-overhead.fraction: 0.3
+如果您需要自定义快照的超时时间，可以使用如下的 SET 语句。
+```sql
+SET CHECKPOINT_TIMEOUT = '300 s';
 ```
+> ! Flink 配置项（高级参数）`execution.checkpointing.timeout` 对 SQL 作业可能不生效，请使用本文中的 SET 语句设置 SQL 作业的快照超时时间。
 
-### 配置 At Least Once 快照策略
-默认情况下，流计算 Oceanus 使用 Exactly-Once 作为默认的快照策略，该策略可以确保作业崩溃恢复后，有最精确的状态一致性，但是少数情况下可能会造成较大延迟。
-
-如果允许作业崩溃恢复时，一部分重复数据再次参与计算（造成短期的结果不精确），可以通过调整 Flink 的快照策略为 At Least Once，这样会取得更好的快照性能，尤其是对于状态超大且多个流之间的速度不一致时效果明显。
-```yml
-execution.checkpointing.mode: AT_LEAST_ONCE
-```
-
-### 关闭 Operator Chaining 功能
-默认情况下，Flink 会将运行图中相同并行度的算子尽可能的绑在一起，避免数据上下游传输的序列化、反序列化额外开销。如果出于定位问题的角度，希望看到每个算子的数据流入流出情况，则可以关闭这个 Operator Chaining 功能。
-
->!关闭此功能后，作业的运行效率可能会大幅下降，请谨慎使用。
-
-```yml
-pipeline.operator-chaining: false
-```
-
-### 启用 Table 的 Mini-Batch 支持
-Flink SQL 对聚合提供了 Mini-Batch 支持，可以显著提升吞吐量。默认没有开启，因为会增加处理时延。如果希望使用 Mini-Batch，可以通过的下面的设置项启用此功能（批次大小和延迟参数可以自行设置，但不可省略）：
-
-```yml
-table.exec.mini-batch.enabled: true
-table.exec.mini-batch.size: 5000
-table.exec.mini-batch.allow-latency: 200 ms
-```
-
-### 设置作业高级参数
-
-#### 设置作业的快照超时时间
-
-默认情况下，Oceanus 快照超时时间为 20 分钟（1200s）。
-
-如果您的作业状态用量很大，可以使用以下参数配置较大的超时时间：
-
-    execution.checkpointing.timeout: 3000s
-
-或者减小快照超时时间：
-
-    execution.checkpointing.timeout: 1000s
-
-同时，需要在 SQL 作业的编辑页面中添加以下语句，语句的值设为与超时时间配置相同的值：
-
-    set CHECKPOINT_TIMEOUT= '1000 s'; 
-
-### 更多的配置参数
-Flink 提供了很多其他的配置参数，完整的列表可以参见 [Flink 官方文档](https://ci.apache.org/projects/flink/flink-docs-release-1.11/zh/ops/config.html)。
-
-> ! 不是所有参数都可以用在 Oceanus 平台，请仔细阅读下面的使用限制，并在充分了解问题和风险的情况下再做调整，避免调参失误造成的作业运行不稳定、无法启动等事故。
-
-
-## 使用限制
-
-以下参数由流计算 Oceanus 系统固定设置，禁止进行自定义修改，请勿在高级参数中传入。
-
-| 禁用参数                                                     |
-| ------------------------------------------------------------ |
-| kubernetes.container.image                                   |
-| kubernetes.jobmanager.cpu                                    |
-| taskmanager.cpu.cores                                        |
-| kubernetes.taskmanager.cpu                                   |
-| jobmanager.heap.size                                         |
-| jobmanager.heap.mb                                           |
-| jobmanager.memory.process.size                               |
-| taskmanager.heap.size                                        |
-| taskmanager.heap.mb                                          |
-| taskmanager.memory.process.size                              |
-| taskmanager.numberOfTaskSlots                                |
-| env.java.opts（但是允许用户配置 env.java.opts.taskmanager 和 env.java.opts.jobmanager 两个独立参数） |
