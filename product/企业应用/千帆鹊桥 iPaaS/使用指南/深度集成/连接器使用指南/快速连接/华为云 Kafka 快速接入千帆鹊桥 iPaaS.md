@@ -63,7 +63,7 @@
 
 ## 接入配置
 
-### 步骤1： 设置 Kafka 接入方式
+### 步骤1：设置 Kafka 接入方式
 
 1. 登录 [消息队列 Kafka 控制台](https://console.huaweicloud.com/dms/?engine=kafka&agencyId=344eb50173f9430489ff1be6c4769e54&region=cn-south-1&locale=zh-cn#/queue/manager/newKafkaList)，在实例列表中选择要设置的实例。
 ![](https://qcloudimg.tencent-cloud.cn/raw/ed4b9d76ae726394e4bd7d6fcd4bb5cc.png)
