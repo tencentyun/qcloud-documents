@@ -1,5 +1,5 @@
 ## 操作场景
-千帆鹊桥 iPaaS 中的Kafka连接器支持 PLAINTEXT、SASL_PLAINTEXT、SASL_SCRAM 三种认证方式接入Kafka集群，可使用任一被支持的认证方式接入到Kafka集群
+千帆鹊桥 iPaaS 中的 Kafka 连接器支持 PLAINTEXT、SASL_PLAINTEXT、SASL_SCRAM 三种认证方式接入 Kafka 集群，可使用任一被支持的认证方式接入到 Kafka 集群。
 
 ## 前期准备
 ### 前提条件
