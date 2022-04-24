@@ -1,4 +1,4 @@
-## 简介
+## 简介 
 ### 组件介绍
 
 DNSAutoscaler 是 DNS 自动水平伸缩组件，可通过一个 deployment 获取集群的节点数和核数，根据预设的伸缩策略，自动水平伸缩 DNS 的副本数。目前的伸缩模式分为两种，分别是 [Linear 线性模式](#Linear) 和 [Ladder 阶梯模式](#Ladder)。
@@ -66,7 +66,7 @@ data:
 - 集群中的 dns server 的工作负载为 deployment/coredns。
 
 ## 使用方法
-1. 登录 [容器服务控制台](https://console.qcloud.com/tke2)，在左侧导航栏中选择**集群**。
+1. 登录 [容器服务控制台 ](https://console.qcloud.com/tke2)，在左侧导航栏中选择**集群**。
 2. 在“集群管理”页面单击目标集群 ID，进入集群详情页。
 3. 选择左侧菜单栏中的**组件管理**，进入 “组件列表” 页面。
 4. 在“组件列表”页面中选择**新建**，并在“新建组件”页面中勾选 DNSAutoscaler。

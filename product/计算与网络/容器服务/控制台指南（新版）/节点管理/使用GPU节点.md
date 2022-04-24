@@ -24,7 +24,7 @@
 #### GPU驱动、CUDA版本、cuDNN版本[](id:newGPUService)
 设置机型后, 可以根据需求选择 GPU 驱动的版本、CUDA 版本、cuDNN 版本。如下图所示：
 ![](https://main.qcloudimg.com/raw/1869ca364f14446013570f9398bf1315.jpg)
-<dx-alert infotype="explain" title="">
+<dx-alert infotype="explain" title=" ">
 - 勾选“后台自动安装GPU驱动”，将在系统启动时进行自动安装，预计耗时15-25分钟。
 - 支持的驱动版本由 OS 以及 GPU 机型共同决定，详情可参见 [GPU 后装驱动版本列表](https://cloud.tencent.com/document/product/560/30211#gpu-.E9.A9.B1.E5.8A.A8.E9.A2.84.E8.A3.85.E4.BF.A1.E6.81.AF.3Cspan-id.3D.22preloadgpudrive.22.3E.3C.2Fspan.3E)。
 - 如果您未勾选“后台自动安装GPU驱动”，为了保证 GPU 机型的正常使用，针对某些低版本 OS，将会为您默认安装 GPU 驱动，完整的默认驱动版本信息可参考下表：
@@ -55,7 +55,7 @@
 
 #### MIG
 开启 MIG（Multi-Instance GPU）特性后，一颗 A100 GPU 将被划分为七个独立的 GPU 实例，帮助您在多个作业并行的场景下提高 GPU 利用率，详情可参见 [NVIDIA 官网指南](https://docs.nvidia.com/datacenter/tesla/mig-user-guide/index.html)。
-<dx-alert infotype="notice" title="">
+<dx-alert infotype="notice" title=" ">
 使用 MIG 功能，必须满足如下限制：
 <li>GPU 机型为 GT4。</li>
 <li>在控制台上勾选了 “后台自动安装GPU驱动” 并且配置了 GPU 版本，CUDA 版本和 cuDNN 版本。</li>

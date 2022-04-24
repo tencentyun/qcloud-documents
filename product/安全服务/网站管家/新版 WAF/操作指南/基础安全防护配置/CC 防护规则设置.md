@@ -97,7 +97,7 @@ CC 防护对网站特定的 URL 进行访问保护，CC 防护2.0全新改版，
 <td align="left">符合匹配条件的会话请求将会被监控记录日志，观察结果可在 <a href="https://console.cloud.tencent.com/guanjia/tea-attacklog">攻击日志</a> 中查看。</td>
 </tr>
 <tr>
-<td align="left">验证码</td>
+<td align="left">人机识别</td>
 <td align="left">仅用于浏览器访问场景，符合匹配条件的会话请求将进行验证码挑战，若挑战失败，执行拦截动作。若挑战成功，惩罚时长内正常访问。验证码记录日志为观察。</td>
 </tr>
 <tr>

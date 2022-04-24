@@ -35,7 +35,7 @@
 
 1. 在列表中选中刚刚创建好的插件，单击操作列的**绑定 API**。
 2. 在绑定 API 弹窗中选择服务和环境，并选择需要绑定插件的 API。
-   ![](https://main.qcloudimg.com/raw/d7fd3c3539d6f623f45ebfdf0674d97e.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/a3284acd96b13ebe52f16d019900dc8e.png)
 3. 单击**确定**，即可将插件绑定到 API，此时插件的配置已经对 API 生效。
 
 ## 注意事项

@@ -307,8 +307,8 @@ kubeadm 对 HA 的支持进入 beta 阶段，用户可以使用 `kubeadm init` �
 - **集群**
     - 以下标签不再在节点上设置：`beta.kubernetes.io/metadata-proxy-ready`、 `beta.kubernetes.io/metadata-proxy-ready` 及 `beta.kubernetes.io/kube-proxy-ds-ready`。
         * `ip-mask-agent` 使用 `node.kubernetes.io/masq-agent-ds-ready` 作为 node 选择器，不再使用 `beta.kubernetes.io/masq-agent-ds-ready`。
-        * `kube-proxy` 使用 `node.kubernetes.io/kube-proxy-ds-ready` 作为 node 选择器，不再使用 `beta.kubernetes.io/kube-proxy-ds-ready`。 
-        * `metadata-proxy` 使用 `cloud.google.com/metadata-proxy-ready` 作为 node 选择器，不再使用 `beta.kubernetes.io/metadata-proxy-ready`。 
+        * `kube-proxy` 使用 `node.kubernetes.io/kube-proxy-ds-ready` 作为 node 选择器，不再使用 `beta.kubernetes.io/kube-proxy-ds-ready`。  
+        * `metadata-proxy` 使用 `cloud.google.com/metadata-proxy-ready` 作为 node 选择器，不再使用 `beta.kubernetes.io/metadata-proxy-ready`。  
 - **API Machinery**
 k8s.io/kubernetes 和其他发布的组件，包括 k8s.io/client-go 和 k8s.io/api 等，现在包含 Go 模块文件，包括依赖库的版本信息。在以 Go 模块方式使用 k8s.io/client-go 时可以参考 [go-modules](http://git.k8s.io/client-go/INSTALL.md#go-modules) 以及 [pr74877](https://github.com/kubernetes/kubernetes/pull/74877)。
 - **Apps**
@@ -322,7 +322,7 @@ k8s.io/kubernetes 和其他发布的组件，包括 k8s.io/client-go 和 k8s.io/
     - 默认启用 `StorageObjectInUseProtection` admission [插件](https://github.com/kubernetes/kubernetes/pull/74610)。如果之前没有启用该插件，集群的行为可能会发生变化。
     - CSI driver 启用 PodInfoOnMount 后，在 volume 上下文会增加一个新的参数：`csi.storage.k8s.io/ephemeral`，允许 driver 在实现 NodePublishVolume 时，逐个判断当前 volume 是短暂存储还是持久的，详情请参见 [pr79983](https://github.com/kubernetes/kubernetes/pull/79983)。
     - VolumePVCDataSource（存储卷克隆功能） 进入 beta，详情请参见 [pr81792]( https://github.com/kubernetes/kubernetes/pull/81792)。
-    - 把内建以及 CSI volume 的 limit 合为一个调度器 preidicate，详情请参见 [pr77595]( https://github.com/kubernetes/kubernetes/pull/77595)。 
+    - 把内建以及 CSI volume 的 limit 合为一个调度器 preidicate，详情请参见 [pr77595]( https://github.com/kubernetes/kubernetes/pull/77595)。  
 - **kube-apiserver**
     - 废弃参数 `--enable-logs-handler`，计划在 v1.19移除。
     - 废弃 `--basic-auth-file` 及相应的认证模式，未来计划移除。
@@ -413,7 +413,7 @@ k8s.io/kubernetes 和其他发布的组件，包括 k8s.io/client-go 和 k8s.io/
 * <b> kube-scheduler</b>
  不再支持 `componentconfig/v1alpha1`。
 * **kubectl**
-不再支持命令 `run-container`。 
+不再支持命令 `run-container`。  
 * **taints**
 不再支持 `node.alpha.kubernetes.io/notReady` 和 `node.alpha.kubernetes.io/unreachable`，改为 `node.kubernetes.io/not-ready` 和 `node.kubernetes.io/unreachable`。
 

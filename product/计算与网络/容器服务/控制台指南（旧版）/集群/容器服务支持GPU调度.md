@@ -1,17 +1,17 @@
-## 简介
+## 简介 
 如果您的业务需要进行深度学习、高性能计算等场景，您可以使用腾讯云容器服务支持 GPU 功能，通过该功能可以帮助您快速使用 GPU 容器。
 
 ## 使用指南
 ### 一. 在集群中添加 GPU 节点
 添加 GPU 节点有以下两种方法：
 #### 方法 1：新建 GPU 云服务器
-1. 在 [容器服务控制台](https://console.cloud.tencent.com/ccs) 新建集群时选择新建 GPU 云服务器，选择 GPU 机型。
+1. 在 [容器服务控制台 ](https://console.cloud.tencent.com/ccs) 新建集群时选择新建 GPU 云服务器，选择 GPU 机型。
 ![][1]
 2. 选择 GPU 的操作系统，并完成创建。
 ![][2]
 
 #### 方法 2：添加已有 GPU 云服务器
-1. 在 [容器服务控制台](https://console.cloud.tencent.com/ccs) 新建集群时选择已有的 GPU 节点
+1. 在 [容器服务控制台 ](https://console.cloud.tencent.com/ccs) 新建集群时选择已有的 GPU 节点
 ![][3]
 2. 选择 GPU 的操作系统，并完成添加。
 ![][4]

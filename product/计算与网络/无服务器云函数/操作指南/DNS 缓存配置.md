@@ -18,7 +18,7 @@
 ### 代码部署的事件函数
 
 1. 登录 [云函数控制台](https://console.cloud.tencent.com/scf/list?rid=1&ns=default)，选择需要启用 DNS 缓存配置的函数，进入函数详情页。
-2. 在函数配置页面，单击右上角**编辑**，在编辑状态中勾选**启用 DNS 缓存**。如下图所示：
+2. 在函数配置页面，单击右上角**编辑**，在编辑状态中勾选**启用 DNS 缓存**。如下图所示： 
 ![](https://qcloudimg.tencent-cloud.cn/raw/4519731b49e5b363f6423d038c14b9b6.png)
 3. 单击**保存**完成函数配置更新。
 

@@ -1,6 +1,6 @@
 ## 操作场景
 
-该任务以 Java 客户端为例指导您使用VPC网络接入消息队列 CKafka 并收发消息。
+该任务以 Java 客户端为例指导您使用 VPC 网络接入消息队列 CKafka 并收发消息。
 
 其他语言客户端请参见 [SDK文档](https://cloud.tencent.com/document/product/597/54816)。
 
@@ -12,67 +12,46 @@
 
 ## 操作步骤
 
-### 步骤1：添加 Java 依赖库
+### 步骤1：准备配置
 
-在 pom.xml 中添加以下依赖。
-
-```xml
-<dependency>
-    <groupId>org.apache.kafka</groupId>
-    <artifactId>kafka-clients</artifactId>
-    <version>0.10.2.2</version>
-</dependency>
-```
-
-### 步骤2：准备配置
-
-1. 创建消息队列 CKafka配置文件 kafka.properties。
-
-```bash
+1. 将下载下来的 Demo 上传到同一个 VPC 下的Linux服务器，然后登录 linux 服务器，进入 javakafkademo 下的 VPC 目录。
+2. 修改消息队列 CKafka 配置文件 kafka.properties。
+<dx-codeblock>
+:::  bash
 ## 配置接入网络，在控制台的实例详情页面接入方式模块的网络列复制。
-bootstrap.servers=ckafka-xxxxxxxxxxxxxxxxx
+bootstrap.servers=xx.xx.xx.xx:xxxx
 ## 配置Topic，在控制台上topic管理页面复制。
 topic=XXX
 ## 配置Consumer Group，您可以自定义设置
 group.id=XXX
-```
+:::
+</dx-codeblock>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>bootstrap.servers</td>
+<td>接入网络，在控制台的实例详情页面<strong>接入方式</strong>模块的网络列复制。<br><img src="https://main.qcloudimg.com/raw/6d6a0aac948c718ec2f17f885c093292.png" alt=""></td>
+</tr>
+<tr>
+<td>topic</td>
+<td>topic名称，您可以在控制台上<strong>topic管理</strong>页面复制。<br><img src="https://main.qcloudimg.com/raw/5a7399a4080538f65858b855c8f6ffb0.png" alt=""></td>
+</tr>
+<tr>
+<td>group.id</td>
+<td>您可以自定义设置，demo运行成功后可以在<strong>Consumer Group</strong>页面看到该消费者组。</td>
+</tr>
+</tbody></table>
 
-| 参数              | 说明                                                         |
-| ----------------- | ------------------------------------------------------------ |
-| bootstrap.servers | 接入网络，在控制台的实例详情页面**接入方式**模块的网络列复制。<br/>![](https://main.qcloudimg.com/raw/88b29cffdf22e3a0309916ea715057a1.png) |
-| topic             | topic名称，您可以在控制台上**topic管理**页面复制。<br/>![](https://main.qcloudimg.com/raw/e7d353c89bbb204303501e8366f59d2c.png) |
-| group.id          | 您可以自定义设置，demo运行成功后可以在**Consumer Group**页面看到该消费者。 |
+### 步骤2：发送消息
 
-2. 创建配置文件加载程序 CKafkaConfigurer.java。 
-
-```
-public class CKafkaConfigurer {
-
-    private static Properties properties;
-
-    public synchronized static Properties getCKafkaProperties() {
-        if (null != properties) {
-            return properties;
-        }
-        //获取配置文件kafka.properties的内容。
-        Properties kafkaProperties = new Properties();
-        try {
-            kafkaProperties.load(CKafkaProducerDemo.class.getClassLoader().getResourceAsStream("kafka.properties"));
-        } catch (Exception e) {
-            System.out.println("getCKafkaProperties error");
-        }
-        properties = kafkaProperties;
-        return kafkaProperties;
-    }
-}
-
-```
-
-### 步骤3：发送消息
-
-1. 编写生产消息程序 CKafkaProducerDemo.java。
-
-```java
+1. 编译并运行生产消息程序 CKafkaProducerDemo.java。
+<dx-codeblock>
+:::  java
 public class CKafkaProducerDemo {
 
     public static void main(String args[]) {
@@ -124,25 +103,24 @@ public class CKafkaProducerDemo {
         }
     }
 }
-```
-
-2. 编译并运行 CKafkaProducerDemo.java 发送消息。
-3. 运行结果。
-
-```bash
+:::
+</dx-codeblock>
+2. 运行结果。
+<dx-codeblock>
+:::  bash
 Produce ok:ckafka-topic-demo-0@198
 Produce ok:ckafka-topic-demo-0@199
-```
+:::
+</dx-codeblock>
+3. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的**topic管理**页面，选择对应的 topic ，单击**更多** > **消息查询**，查看刚刚发送的消息。
+   ![](https://main.qcloudimg.com/raw/cca4f62e86898eec49d8a9cde7ae9fa8.png)
 
-4. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的**topic管理**页面，选择对应的 topic ，单击**更多** > **消息查询**，查看刚刚发送的消息。
-   ![](https://main.qcloudimg.com/raw/ec5fbf218cf50ff3d760be15f6331867.png)
 
+### 步骤3：消费消息
 
-### 步骤4：消费消息
-
-1. 创建 Consumer 订阅消息程序 CKafkaConsumerDemo.java。
-
-```java
+1. 编译并运行 Consumer 订阅消息程序 CKafkaConsumerDemo.java。
+<dx-codeblock>
+:::  java
 public class CKafkaConsumerDemo {
 
     public static void main(String args[]) {
@@ -195,15 +173,14 @@ public class CKafkaConsumerDemo {
         }
     }
 }
-```
-
-2. 编译并运行CKafkaConsumerDemo.java 消费消息。
-3. 运行结果。
-
-```bash
+:::
+</dx-codeblock>
+2. 运行结果。
+<dx-codeblock>
+:::  bash
 Consume partition:0 offset:298
 Consume partition:0 offset:299
-```
-
-4. 在  [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的**Consumer Group**页面，选择对应的消费组名称，在主题名称输入 topic 名称，单击**查询详情**，查看消费详情。
-   ![](https://main.qcloudimg.com/raw/27775267907600f4ff759e6a197195ee.png)
+:::
+</dx-codeblock>
+3. 在  [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的**Consumer Group**页面，选择对应的消费组名称，在主题名称输入 topic 名称，单击**查询详情**，查看消费详情。
+![](https://qcloudimg.tencent-cloud.cn/raw/4ac3c7bc3dbf64c6a0fe14591b4f0988.png)

@@ -13,6 +13,7 @@
 >
  - **架构**：云数据库 PostgreSQL 默认支持双机高可用（一主一从）的架构。
  - **数据库版本**：PostgreSQL 的不同数据库内核版本之间存在功能差异，详见：[10](https://www.postgresql.org/docs/10/static/index.html)、[11](https://www.postgresql.org/docs/11/index.html)、[12](https://www.postgresql.org/docs/12/release-12-4.html) 、[13](https://www.postgresql.org/docs/13/index.html) 的官网介绍。
+ - **数据库内核版本**：详细介绍请参见 [内核版本概述](https://cloud.tencent.com/document/product/409/67018)。
  - **实例规格**：实例规格代表不同的性能水平和价格基数。
  - **硬盘**：默认采用 SSD 盘（本地盘）。
  - **备份空间**：免费赠送购买实例容量的50%，超过免费容量部分，目前免费。

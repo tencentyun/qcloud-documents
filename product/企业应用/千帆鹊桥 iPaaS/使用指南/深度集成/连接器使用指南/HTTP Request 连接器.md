@@ -295,7 +295,7 @@ HTTP Request 操作配置包括基本配置、高级配置两项：
 
 - 基本配置：HTTP Request 连接器基本配置中包括请求URL、请求方法、URL参数、请求头、请求体，其中请求URL、请求方法为必填项。
 - 高级配置：HTTP Request 连接器高级配置中输出消息绑定自定义数据类型，可用于自定义输出消息数据类型。
-  ![](https://qcloudimg.tencent-cloud.cn/raw/cfe068b13cd0ca9fb8fd67681f7c7e37.png)
+	<img src="https://qcloudimg.tencent-cloud.cn/raw/7885e6ad39ec2a436eb3426abc4bc7a6.png" width="500px">
 
 <dx-tabs>
 ::: 基础配置参数描述

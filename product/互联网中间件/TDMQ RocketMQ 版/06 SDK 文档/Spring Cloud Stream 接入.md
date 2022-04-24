@@ -68,7 +68,7 @@ spring:
 				 access-key: eyJrZXlJZ...
 				 # namespace全称
 				 namespace: rocketmq-xxx|namespace1
-				 # 生成者group名称
+				 # 生产者group名称
 				 group: group1
 		 bindings:
 			 # channel名称
