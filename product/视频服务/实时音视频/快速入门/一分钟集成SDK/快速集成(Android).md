@@ -46,7 +46,7 @@ defaultConfig {
 3. 在工程根目录下的 build.gradle 中，添加 **flatDir**，指定本地仓库路径。
 ![](https://main.qcloudimg.com/raw/3b07d38f105167ae52ffdda9a1712cec.png)
 4. 在 app/build.gradle 中，添加引用 aar 包的代码。
-![](https://main.qcloudimg.com/raw/a5658a2b3c888513215093a04dd76a25.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/d91447b025674df61f1aec61d25a7d2d.png)
 5. 在 app/build.gradle的defaultConfig 中，指定 App 使用的 CPU 架构。
 ```
 defaultConfig {
@@ -67,7 +67,7 @@ defaultConfig {
 3. 将解压得到的 jar 文件和 armeabi-v7a， arm64-v8a 文件夹拷贝到 app/libs 目录下。
 ![](https://main.qcloudimg.com/raw/c7b498b40bff8c248cd72fcd01f07933.png)
 4. 在 app/build.gradle 中，添加引用 jar 库的代码。
-![](https://qcloudimg.tencent-cloud.cn/raw/d91447b025674df61f1aec61d25a7d2d.png)    
+![](https://main.qcloudimg.com/raw/5369b8c9bbb855622b22c7843a591e2e.png)   
 5. 在 app/build.gradle 中，添加引用 so 库的代码。
 ```
 sourceSets {
