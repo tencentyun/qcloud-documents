@@ -43,7 +43,6 @@ static inline int tcp_paws_check(const struct tcp_options_received *rx_opt,int p
 	return 1;
 	if(unlikely(get_seconds()>=rx_opt->ts_recent_stamp + TCP_PAWS_24DAYS))
 	return 1;
-	
 	return 0;
 }
 ```
