@@ -35,4 +35,4 @@ ii.	24天内收过包（时间戳字段是32位，Linux 默认1ms更新一次时
 ## 解决方案
 客户端 Timewait 过多问题，有如下解决方案：
 1. HTTP 使用短连接（Connection: close），这时由 CLB 主动关闭连接，客户端不会产生 timewait。
-2. 如果场景需要使用长连接，可以打开 socket 的 SO_LINGER 选项，使用 rst 关闭连接，避免进入 timewait 状态，达到快速回收端口的目的**。
+2. 如果场景需要使用长连接，可以打开 socket 的 SO_LINGER 选项，使用 rst 关闭连接，避免进入 timewait 状态，达到快速回收端口的目的。
