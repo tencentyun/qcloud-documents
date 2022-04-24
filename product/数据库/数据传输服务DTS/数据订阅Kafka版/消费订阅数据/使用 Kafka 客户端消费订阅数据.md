@@ -1,51 +1,21 @@
+数据订阅 Kafka 版中，您可以通过0.11版本及以上的 [Kafka 客户端](http://kafka.apache.org/downloads) 进行消费订阅数据，本文为您提供了 Java、Go、Python 语言的客户端消费 Demo 示例，方便您快速测试消费数据的流程，了解数据格式解析的方法。
 
-数据订阅 Kafka 版中，您可以直接通过0.11版本及以上的 [Kafka 客户端](http://kafka.apache.org/downloads) 进行消费订阅数据，本文为您提供了 Java、Go、Python 语言的客户端消费 Demo。
+需要注意 **Demo 并不包含消费数据的用法演示，仅对数据做了打印处理，您需要在此基础上自行编写数据处理逻辑**，您也可以使用其他语言的 Kafka 客户端消费并解析数据。
 
-## 消费 Demo 下载（云数据库 MySQL、MariaDB、TDSQL-C）
-参考下表下载数据订阅 Kafka 版客户端消费 Demo 代码：
+## 注意事项
 
-| Demo 语言 | 下载地址                                             |
-| ------------- | ------------------------------------------------------------ |
-| Go            | [地址](https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/subscribe_kafka_go_demo_1.1.1.zip) |
-| Java          | [地址](https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/subscribe_kafka_java_demo_1.1.2.zip) |
-| Python3       | [地址](https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/subscribe_kafka_python_demo_1.1.2.zip) |
+- 数据序列化协议目前采用了 [Protobuf 协议](https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/subscribe.proto)，请使用 Protobuf 3.X 版本进行代码生成，以便数据结构可以正确兼容。
 
-## 消费 Demo 下载（TDSQL MySQL版）
-参考下表下载数据订阅 Kafka 版客户端消费 Demo 代码：
+  本章节的消费 Demo 中已包含此协议文件，如您直接使用 Demo 代码，可以不用重复下载。关于 Protobuf 的原理和使用方法请参考 [Protobuf 官方文档]()。
 
-| Demo 语言 | 下载地址                                             |
-| ------------- | ------------------------------------------------------------ |
-| Go          | [地址](https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/tdsql_subscribe_kafka_go_demo_1.0.3.zip) |
-| Java        | [地址](https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/tdsql_subscribe_kafka_java_demo_1.0.3.zip)  |
-| Python   | [地址](https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/tdsql_subscribe_kafka_python_demo_1.0.3.zip) |
+- 目前不支持通过外网连接数据订阅的 Kafka 进行消费，只支持腾讯云内网的访问，并且订阅的数据库实例所属地域与数据消费的地域相同。
 
-## 消费 Demo 下载（TDSQL PostgreSQL版）
-
-参考下表下载数据订阅 Kafka 版客户端消费 Demo 代码：
-
-| Demo 语言 | 下载地址                                                     |
-| --------- | ------------------------------------------------------------ |
-| Go        | [地址](https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/tdsql_postgresql_subscribe_kafka_go_demo_1.0.0.zip) |
-| Java      | [地址](https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/tdsql_postgresql_subscribe_kafka_java_demo_1.0.0.zip) |
-| Python    | [地址](https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/tdsql_postgresql_subscribe_kafka_python_demo_1.0.0.zip) |
-
-## Protobuf 协议文件下载
-
-| 协议文件 | 下载地址                                             |
-| ------------- | ------------------------------------------------------------ |
-| Protobuf      | [地址](https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/subscribe.proto) |
->?请使用 Protobuf 3.X 版本进行代码生成，以便数据结构可以正确兼容。
->
-
-## 配置参数说明
-| 参数       | 说明                        |
-| ---------- | --------------------------- |
-| brokerlist | 数据订阅 Kafka 的内网访问地址 |
-| topic      | 数据订阅通道的订阅 topic     |
-| group      | 消费组名称                  |
-| user        | 消费组账号名                |
-| password   | 消费组密码                  |
-| trans2sql  | 是否转换为 SQL 语句    |
+## 消费 Demo 下载
+| Demo 语言 | 云数据库 MySQL、MariaDB、TDSQL-C MySQL           | TDSQL MySQL                                | TDSQL PostgreSQL                             |
+| ------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| Go            | [地址](https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/subscribe_kafka_go_demo_1.1.1.zip) | [地址](https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/tdsql_subscribe_kafka_go_demo_1.0.3.zip) | [地址](https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/tdsql_postgresql_subscribe_kafka_go_demo_1.0.0.zip) |
+| Java          | [地址](https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/subscribe_kafka_java_demo_1.1.2.zip) | [地址](https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/tdsql_subscribe_kafka_java_demo_1.0.3.zip) | [地址](https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/tdsql_postgresql_subscribe_kafka_java_demo_1.0.0.zip) |
+| Python3       | [地址](https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/subscribe_kafka_python_demo_1.1.2.zip) | [地址](https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/tdsql_subscribe_kafka_python_demo_1.0.3.zip) | [地址](https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/tdsql_postgresql_subscribe_kafka_python_demo_1.0.0.zip) |
 
 ## [Demo 关键逻辑讲解](id:dgxljjj)
 ### 生产逻辑
@@ -173,9 +143,12 @@ message Event {
   - 使用 Maven 进行打包：mvn clean package 。
   - 使用 Gradle 进行打包：gradle fatJar 打包并包含所有依赖，或者 gradle jar 进行打包。
 5. 运行：使用 Maven 打包后，进入目标文件夹 target ，运行 `java -jar sub_demo-1.0-SNAPSHOT-jar-with-dependencies.jar --brokers=xxx --topic=xxx --group=xxx--user=xxx --password=xxx --trans2sql`。
-使用 Gradle 打包后，进入文件夹 build/libs ，运行 `java -jar sub_demo-with-dependencies-1.0-SNAPSHOT.jar --brokers=xxx --topic=xxx --group=xxx--user=xxx --password=xxx --trans2sql`。
+  使用 Gradle 打包后，进入文件夹 build/libs ，运行 `java -jar sub_demo-with-dependencies-1.0-SNAPSHOT.jar --brokers=xxx --topic=xxx --group=xxx--user=xxx --password=xxx --trans2sql`。
+
+  其中，`broker`为数据订阅 Kafka 的内网访问地址，`topic`为数据订阅通道的订阅 topic，这两个可在[订阅详情](https://cloud.tencent.com/document/product/571/59966)页查看，`group`、`user`、`password`分别为消费组的名称、账号和密码，可在[消费管理](https://cloud.tencent.com/document/product/571/52378)页查看，`trans2sql`表示是否转换为 SQL 语句，java 代码中，携带该参数表示转换为 SQL 语句，不携带则不转换。
+
 6. 观察消费情况。
-![](https://main.qcloudimg.com/raw/fffa3de2a6e38b3752512183e1ffe785.png)
+  ![](https://main.qcloudimg.com/raw/fffa3de2a6e38b3752512183e1ffe785.png)
 
 用户也可以使用 IDE 进行编译打包，以 IntelliJ IDEA 软件为例：
 1. 打开 IntelliJ IDEA 软件，然后单击【Open】 。
@@ -194,12 +167,19 @@ message Event {
 运行环境：腾讯云服务器（需要与订阅实例相同地域，才能够访问到 Kafka 服务器的内网地址）。
 操作步骤：
 1. 创建新版数据订阅通道，详情请参见 [数据订阅 Kafka版](https://cloud.tencent.com/document/product/571/52412)。
+
 2. 创建一个或多个消费组，详情请参见 [新增消费组](https://cloud.tencent.com/document/product/571/52377)。
+
 3. 下载 Golang Demo，然后解压该文件。
+
 4. 进入解压后的目录，运行`go build -o subscribe ./main`，生成可执行文件 subscribe。
+
 5. 运行 `./subscribe --brokers=xxx --topic=xxx --group=xxx --user=xxx --password=xxx --trans2sql=true`。
+
+   其中，`broker`为数据订阅 Kafka 的内网访问地址，`topic`为数据订阅通道的订阅 topic，这两个可在[订阅详情](https://cloud.tencent.com/document/product/571/59966)页查看，`group`、`user`、`password`分别为消费组的名称、账号和密码，可在[消费管理](https://cloud.tencent.com/document/product/571/52378)页查看，`trans2sql`表示是否转换为 SQL 语句。
+
 6. 观察消费情况。
-![](https://main.qcloudimg.com/raw/c94d9cfe2a62e903a6593e22ce2c60bf.png)
+  ![](https://main.qcloudimg.com/raw/c94d9cfe2a62e903a6593e22ce2c60bf.png)
 
 ## Python3 Demo 使用说明
 编译运行环境：腾讯云服务器（需要与订阅实例相同地域，才能够访问到 Kafka 服务器的内网地址），安装 Python3，pip3（用于依赖包安装）。
@@ -211,14 +191,21 @@ pip install protobuf
 ```
 操作步骤：
 1. 创建新版数据订阅通道，详情请参见 [数据订阅 Kafka版](https://cloud.tencent.com/document/product/571/52412)。
-2. 创建一个或多个消费组，详情请参见 [新增消费组](https://cloud.tencent.com/document/product/571/52377)。
-3. 下载 Python3 Demo ，然后解压该文件。
-4. 运行`python main.py --brokers=xxx --topic=xxx --group=xxx --user=xxx --password=xxx --trans2sql=1`。
-5. 观察消费情况。
-![](https://main.qcloudimg.com/raw/6055041985904335b43d7df8f4e75561.png)
 
-## 字段映射和存储
-具体的 MySQL/TDSQL 字段值在 Protobuf 协议中用下图所示的 Data 结构来存储。
+2. 创建一个或多个消费组，详情请参见 [新增消费组](https://cloud.tencent.com/document/product/571/52377)。
+
+3. 下载 Python3 Demo ，然后解压该文件。
+
+4. 运行`python main.py --brokers=xxx --topic=xxx --group=xxx --user=xxx --password=xxx --trans2sql=1`。
+
+   其中，`broker`为数据订阅 Kafka 的内网访问地址，`topic`为数据订阅通道的订阅 topic，这两个可在[订阅详情](https://cloud.tencent.com/document/product/571/59966)页查看，`group`、`user`、`password`分别为消费组的名称、账号和密码，可在[消费管理](https://cloud.tencent.com/document/product/571/52378)页查看，`trans2sql`表示是否转换为 SQL 语句。
+
+5. 观察消费情况。
+  ![](https://main.qcloudimg.com/raw/6055041985904335b43d7df8f4e75561.png)
+
+## 数据库字段映射和存储
+
+源数据库 MySQL/TDSQL 字段值在 Protobuf 协议中用下图所示的 Data 结构来存储。
 ```
 message Data {
      DataType     dataType = 1;
