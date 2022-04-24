@@ -1,6 +1,6 @@
 ## 准备工作
 - 请阅读 Web 美颜特效 SDK [接入指南](https://cloud.tencent.com/document/product/616/71364)，熟悉 SDK 基本用法。
-- 请阅读云直播 [入门文档](https://cloud.tencent.com/document/product/267/41870) 以及快直播 [WebRTC 推流](https://cloud.tencent.com/document/product/267/56505)，了解快直播 Web 推流工具基本用法，并完成直播基础设置。
+- 请阅读云直播 [入门文档](https://cloud.tencent.com/document/product/267/41870) 以及 [WebRTC 推流](https://cloud.tencent.com/document/product/267/56505)，了解 WebRTC 推流工具基本用法，并完成直播基础设置。
 
 ## 开始使用
 ### 步骤1：Web 美颜特效 SDK 引入[](id:step1)
@@ -10,7 +10,7 @@
 ```
 >! 这里是示例项目，为了方便使用 script 标签方式引入，您也可以参考 [接入指南](https://cloud.tencent.com/document/product/616/71364) 中的方法，用 npm 包的方式引入。
 
-### 步骤2：快直播 Web 推流资源引入[](id:step2)
+### 步骤2：WebRTC 推流资源引入[](id:step2)
 在需要直播推流的页面（PC Web 端）中引入 js 脚本：
 ```html
 <script src="https://video.sdk.qcloudecdn.com/web/TXLivePusher-2.0.0.min.js" charset="utf-8"></script>
@@ -158,7 +158,7 @@ ar.on('ready', async (e) => {
 		ar.setFilter(filter.id, 1);
 	});
 
-	// 获取ar sdk 输出的流在下一步中进行快直播推流
+	// 获取ar sdk 输出的流在下一步中进行 WebRTC 推流
 	const arStream = await ar.getOutput();
 
 });
@@ -171,7 +171,7 @@ ar.on('error', (e) => {
 更细致的 UI 控制用法您可以通过下载文末提供的代码包来进一步查看。
 
 ### 步骤4：开始推流[](id:step4)
-完成上一步之后，在 SDK ready 回调中获取输出流即可进行快直播推流，示例代码如下：
+完成上一步之后，在 SDK ready 回调中获取输出流即可进行 WebRTC 推流，示例代码如下：
 ```javascript
 let livePusher = new TXLivePusher()
 // 设置直播推流基础参数 begin
