@@ -30,7 +30,4 @@
 1. 在 DNS 提供商中修改 CNAME 记录，将自定义域名指向 WAF 的 CNAME 域名。
 2. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/tea-overview)，选择**域名列表**，进入域名列表页面，即可看到正常防护的界面。
 ![](https://qcloudimg.tencent-cloud.cn/raw/04f0b5f1379ef012b8a709cc45a33af6.png)
-3. 在实例列表页面，选择需要添加域名的实例，在右侧单击所属实例的【域名接入】。
-![](https://main.qcloudimg.com/raw/26e509138e71dd1d3e1d6a6a88fb5a09.png)
-4. 在域名列表中，单击接入状态后面的刷新按钮，可以看到接入状态变为“正常防护”，至此接入配置完成。
-![](https://main.qcloudimg.com/raw/e26f4a5c7f9e21f6b2d57be2e6867480.png)
+
