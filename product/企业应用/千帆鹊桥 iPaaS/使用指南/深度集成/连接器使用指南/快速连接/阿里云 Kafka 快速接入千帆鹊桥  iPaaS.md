@@ -55,7 +55,7 @@
 
 ## 接入配置
 
-### 步骤1： 获取 iPaaS Kafka 连接器配置信息
+### 步骤1：获取 iPaaS Kafka 连接器配置信息
 
 1. 登录 [阿里云 Kafka 控制台](https://kafka.console.aliyun.com/region/cn-hangzhou/instances)，单击**目标实例ID**进入实例详情页，可以查询到接入点信息。[](id:method1)
 ![](https://qcloudimg.tencent-cloud.cn/raw/1ebf7c6f5bedfcf2c070d6fc1ac01925.png)

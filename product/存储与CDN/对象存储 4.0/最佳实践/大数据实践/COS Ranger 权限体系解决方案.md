@@ -218,6 +218,5 @@ Kerberos 满足认证的需求，如果所在的集群，用户都是可信的�
 可以是子账号，但是必须拥有被操作 bucket 的相应权限，才能生成临时密钥给到 COSN 插件，进行相应的操作。通常建议这里设置的密钥拥有对该 bucket 的所有权限。
 #### 临时密钥需如何更新，每次访问 COS 前都需要从 COS Ranger Service 侧获取?
 临时密钥是 cache 在 COSN 插件侧，并周期性进行异步更新。
-
-### 在 ranger 页面更改了 Policy 未生效怎么办？
+#### 在 ranger 页面更改了 Policy 未生效怎么办？
 请修改 ranger-cos-security.xml 文件的配置项：ranger.plugin.cos.policy.pollIntervalMs，调小该配置项（单位为毫秒），然后重启 cos-ranger-service 服务。Policy 相关测试结束后，建议修改回原来值（时间间隔太小导致轮训频率高，从而导致 CPU 利用率高企）。

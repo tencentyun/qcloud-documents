@@ -409,7 +409,7 @@ new XGPushConfig.Build(context).setLogLevel(Log.ERROR);
 ### 关闭联合保活
 
 如需关闭联合保活功能，请在应用初始化的时候，例如 Application 或 LauncherActivity 的 onCreate 中调用如下接口，并传递 false 值：
->! 仅 1.1.6.0 之后版本支持关闭联合保活功能，1.1.6.0之前版本TPNS 默认开启联合保活能力，且不可关闭。
+>! 仅 1.1.6.0 之后版本支持关闭联合保活功能，1.1.6.0之前版本TPNS 默认开启联合保活能力，且不可关闭。1.2.6.0 起默认关闭联合保活功能，可不再调用此接口。
 >
 
 ```java
