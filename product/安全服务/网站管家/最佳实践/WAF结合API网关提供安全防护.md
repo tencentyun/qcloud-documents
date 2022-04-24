@@ -19,7 +19,7 @@
 
 ### 步骤2：配置 WAF
 
-1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/tea-overview)，在左侧导航中，选择选择【实例管理】>【实例列表】，进入实例列表页面。
+1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/tea-overview)，在左侧导航中，选择【实例管理】>【实例列表】，进入实例列表页面。
 2. 在实例列表页面，选择需要添加域名的实例，在右侧单击所属实例的【域名接入】。
 ![](https://main.qcloudimg.com/raw/26e509138e71dd1d3e1d6a6a88fb5a09.png)
 3. 在域名接入页面 ，单击【添加域名】，进入添加域名页面。
