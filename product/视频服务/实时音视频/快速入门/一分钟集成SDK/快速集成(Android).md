@@ -30,11 +30,11 @@ dependencies {
 ```
 defaultConfig {
        ndk {
-           abiFilters "armeabi", "armeabi-v7a", "arm64-v8a"
+           abiFilters "armeabi-v7a", "arm64-v8a"
        }
 }
 ```
->?目前 TRTC SDK 支持 armeabi ， armeabi-v7a 和 arm64-v8a。
+>?目前 TRTC SDK 支持 armeabi-v7a 和 arm64-v8a。
 3. 单击![](https://main.qcloudimg.com/raw/d6b018054b535424bb23e42d33744d03.png)**Sync Now**，自动下载 SDK 并集成到工程里。
 
 
@@ -51,11 +51,11 @@ defaultConfig {
 ```
 defaultConfig {
        ndk {
-           abiFilters "armeabi", "armeabi-v7a", "arm64-v8a"
+           abiFilters "armeabi-v7a", "arm64-v8a"
        }
 }
 ```
->?目前 TRTC SDK 支持 armeabi ， armeabi-v7a 和 arm64-v8a。
+>?目前 TRTC SDK 支持 armeabi-v7a 和 arm64-v8a。
 6. 单击![](https://main.qcloudimg.com/raw/d6b018054b535424bb23e42d33744d03.png)**Sync Now**，完成 TRTC SDK 的集成工作。
 
 
@@ -64,7 +64,7 @@ defaultConfig {
 
 1. [下载](https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_TRTC_Android_latest.zip) 最新版本的 jar 压缩包，文件路径为`SDK/LiteAVSDK_TRTC_xxx.zip` （其中 xxx 为 TRTC SDK 的版本号）。
 2. 解压后得到 libs 目录，里面主要包含 jar 文件和 so 文件夹。
-3. 将解压得到的 jar 文件和 armeabi， armeabi-v7a， arm64-v8a 文件夹拷贝到 app/libs 目录下。
+3. 将解压得到的 jar 文件和 armeabi-v7a， arm64-v8a 文件夹拷贝到 app/libs 目录下。
 ![](https://main.qcloudimg.com/raw/c7b498b40bff8c248cd72fcd01f07933.png)
 4. 在 app/build.gradle 中，添加引用 jar 库的代码。
 ![](https://main.qcloudimg.com/raw/5369b8c9bbb855622b22c7843a591e2e.png)    
@@ -81,11 +81,11 @@ sourceSets {
 ```
 defaultConfig {
        ndk {
-           abiFilters "armeabi", "armeabi-v7a", "arm64-v8a"
+           abiFilters "armeabi-v7a", "arm64-v8a"
        }
 }
 ```
->?目前 TRTC SDK 支持 armeabi， armeabi-v7a 和 arm64-v8a。
+>?目前 TRTC SDK 支持 armeabi-v7a 和 arm64-v8a。
 7. 单击![](https://main.qcloudimg.com/raw/d6b018054b535424bb23e42d33744d03.png)**Sync Now**，完成 TRTC SDK 的集成工作。
 
 
@@ -120,7 +120,6 @@ defaultConfig {
 ```
 packagingOptions {
     pickFirst '**/libc++_shared.so'
-    doNotStrip "*/armeabi/libYTCommon.so"
     doNotStrip "*/armeabi-v7a/libYTCommon.so"
     doNotStrip "*/x86/libYTCommon.so"
     doNotStrip "*/arm64-v8a/libYTCommon.so"
