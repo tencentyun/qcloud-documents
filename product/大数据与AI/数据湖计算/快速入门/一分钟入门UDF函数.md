@@ -1,5 +1,5 @@
 ## UDF 说明
-用户可通过编写 UDF 函数，打包为 JAR 文件后，在数据湖计算定义为函数在查询分析中使用。目前数据湖计算 DLC 的 udf 为 hive 格式，继承 org.apache.hadoop.hive.ql.exec.UDF，实现 evaluate 方法。
+用户可通过编写 UDF 函数，打包为 JAR 文件后，在数据湖计算定义为函数在查询分析中使用。目前数据湖计算 DLC 的 UDF 为 HIVE 格式，继承 org.apache.hadoop.hive.ql.exec.UDF，实现 evaluate 方法。
 示例：简单数组 UDF 函数
 ```
 public class MyDiff extends UDF {   
@@ -38,6 +38,7 @@ pom 文件参考
 ![](https://qcloudimg.tencent-cloud.cn/raw/5446396913571924e3990c819225c511.png)
 UDF 的程序包支持本地上传或选择 COS 路径（需具备 COS 相关权限），示例为选择 cos 路径创建。
 函数类名包含“包信息”及“函数的执行类名”。
+
 ## 函数使用
 1. 登录 [数据湖计算控制台](https://console.cloud.tencent.com/dlc)，选择服务地域。
 2. 通过左侧导航菜单进入数据探索，选择计算引擎后即可使用 SQL 调用函数。
