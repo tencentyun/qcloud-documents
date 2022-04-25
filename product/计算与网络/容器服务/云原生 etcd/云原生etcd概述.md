@@ -1,8 +1,8 @@
 ## 产品简介 
 
-腾讯云云原生 etcd（Tencent Etcd Service，TES）是针对云原生服务场景进行优化的 etcd 托管解决方案，由腾讯云容器团队提供，全面支持开源的 etcd 分布式存储能力，为用户提供高稳定、可观测、免运维的云原生 etcd 服务。
+腾讯云云原生 etcd（Cloud etcd Service）是针对云原生服务场景进行优化的 etcd 托管解决方案，由腾讯云容器团队提供，全面支持开源的 etcd 分布式存储能力，为用户提供高稳定、可观测、免运维的云原生 etcd 服务。
 
->?云原生 etcd 服务目前正在内测中，内测阶段 etcd 服务将以白名单形式开放。若需要部署测试生产级业务，请通过腾讯云助手或 [在线咨询](https://cloud.tencent.com/online-service?from=doc_457) 申请开通 etcd 服务。
+>云原生 etcd 服务目前正在内测中，内测阶段 etcd 服务将以白名单形式开放。若需要部署测试生产级业务，请通过腾讯云助手或 [在线咨询](https://cloud.tencent.com/online-service?from=doc_457) 申请开通 etcd 服务。
 
 ### 应用场景
 
@@ -50,4 +50,4 @@ etcd 是一个分布式、高可靠的键值存储，可以容忍集群中部分
 
 ## 相关服务
 
-腾讯云 [云原生监控服务](https://cloud.tencent.com/document/product/457/54318)（Tencent Prometheus Service，TPS）是针对云原生服务场景进行优化的监控和报警解决方案，全面支持开源 Prometheus 监控能力，为用户提供轻量、稳定、高可用的云原生 Prometheus 监控服务。
+腾讯云 [Prometheus监控服务](https://cloud.tencent.com/document/product/457/71896)（Managed Service for Prometheus，TMP）是针对云原生服务场景进行优化的监控和报警解决方案，全面支持开源 Prometheus 监控能力，为用户提供轻量、稳定、高可用的云原生 Prometheus 监控服务。
