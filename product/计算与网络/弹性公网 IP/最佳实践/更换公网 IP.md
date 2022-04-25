@@ -36,7 +36,7 @@
 1. 待完成转换后，在对应云服务器所在行，单击**更多** > **IP/网卡** > **解绑弹性 IP**。如下图所示：
  ![](https://main.qcloudimg.com/raw/37523cff19b08fb8431881a3bf6aab4e.png)
 2. 在弹出的 “解绑弹性公网 IP” 窗口中，勾选**解绑后重新分配普通公网 IP**，单击**确定**。如下图所示：
-<img src="https://qcloudimg.tencent-cloud.cn/raw/49d88f4787fc500f0b89e966cb30fa92.png" width="70%">
+<img src="https://qcloudimg.tencent-cloud.cn/raw/6076fc8554bd068b22de74a9fdc62711.png" width="70%">
 3. 在弹出的提示框中，单击**确定**，即可完成更换。
 
 #### 步骤三：释放弹性公网 IP（可选）
