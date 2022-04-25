@@ -1,4 +1,4 @@
-﻿## UDF 说明
+## UDF 说明
 用户可通过编写 UDF 函数，打包为 JAR 文件后，在数据湖计算定义为函数在查询分析中使用。目前数据湖计算 DLC 的 udf 为 hive 格式，继承 org.apache.hadoop.hive.ql.exec.UDF，实现 evaluate 方法。
 示例：简单数组 UDF 函数
 ```
