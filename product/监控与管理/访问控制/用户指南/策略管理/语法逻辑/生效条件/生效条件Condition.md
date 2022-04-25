@@ -4,7 +4,7 @@
 
 ## 生效条件构成
 
-生效条件由一个或多个条件子句构成。一个条件子句由条件键、条件运算符和条件值组成，一个条件键可以指定一个或多个值。
+生效条件由一个或多个条件子句构成。一个条件子句由键(Key)、条件(Condition)和值(Value)组成，一个条件键可以指定一个或多个值。
 
 `"condition" : { "{condition-operator}" : { "{condition-key}" : "{condition-value}" }}`
 
