@@ -1,4 +1,4 @@
->!本文档是介绍的 HLS 普通加密，因无法防范部分浏览器插件和灰产工具的破解，**已不再推荐使用**。强烈建议您使用 [HLS 私有加密](https://cloud.tencent.com/document/product/266/73073)。
+>!**本文档是介绍的 HLS 普通加密，因无法防范部分浏览器插件和灰产工具的破解，已不再推荐使用。强烈建议您使用 [HLS 私有加密](https://cloud.tencent.com/document/product/266/73073)**。
 
 针对视频行业对于版权保护的需求，云点播提出了一套基础级别的 DRM（数字版权管理） 方案，使用 HLS 的普通 AES 加密技术对视频内容加密，保障您的内容安全。您可以通过 [点播文件加密 DEMO](http://demo.vod.qcloud.com/encryption/index.html) 了解该 DRM 方案，登录用户名：test，密码：111111。
 
