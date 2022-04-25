@@ -70,8 +70,7 @@ pod 命令执行完后，会生成集成了 SDK 的 .xcworkspace 后缀的工程
  ![](https://main.qcloudimg.com/raw/85509cc24bd958e7b9978e11937597c5.png)
 3. 单击 **Link Binary with Libraries** 项展开，单击底下的“+”号图标去添加依赖库。
  ![](https://main.qcloudimg.com/raw/54be71cc14ec79ce642216612544a8a4.png)
-4. 依次添加所下载的 TRTC SDK Framework 及其所需依赖库 **VideoToolBox.framework**、**MetalKit.framework**、**SystemConfiguration.framework**、**ReplayKit.framework**、**libc++.tbd**、**Accelerate.framework**、**
-CoreMedia.framework**、**CoreTelephoney.framework**。
+4. 依次添加所下载的 TRTC SDK Framework 及其所需依赖库 **VideoToolBox.framework**、**MetalKit.framework**、**SystemConfiguration.framework**、**ReplayKit.framework**、**libc++.tbd**、**Accelerate.framework**、**CoreMedia.framework**、**CoreTelephoney.framework**。
  ![](https://qcloudimg.tencent-cloud.cn/raw/c3a1b11bce036f654b747c7937edb709.png)
 5. **TRTC SDK  9.6 及以上版本** 需要添加动态库依赖。
 单击 **General**，选择 **Frameworks,Libraries,and Embedded Content**，单击底下的“+”号图标依次添加 TXLiteAVSDK_TRTC.framework 所需要动态库 **TXFFmpeg.xcframework**、**TXSoundTouch.xcframework**，选择 **Embed & Sign**。
