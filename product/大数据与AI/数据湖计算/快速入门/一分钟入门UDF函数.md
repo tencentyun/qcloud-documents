@@ -18,9 +18,9 @@ pom 文件参考
 <dependencies>          
     <dependency>        
         <groupId>org.slf4j</groupId>        
-        <artifactId>slf4j-log4j12</artifactId>       
-        <version>1.7.16</version>        
-        <scope>test</scope>    
+			<artifactId>slf4j-log4j12</artifactId>       
+			<version>1.7.16</version>        
+			<scope>test</scope>    
         </dependency>    
         <dependency>        
             <groupId>org.apache.hive</groupId>        
