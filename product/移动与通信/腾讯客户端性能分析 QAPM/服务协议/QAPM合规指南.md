@@ -15,7 +15,6 @@
 -  **SDK 处理目的：**监控和分析客户端的整体性能。
 -  **SDK 处理方式**：收集客户端性能信息并经过加密处理后发送到 QAPM 的后台，生成辅助用户度量应用性能的指标数据和辅助用户分析性能问题的个例数据，以供第三方开发者查看。涉及到存储、计算分析和前端展示。
 -  **SDK 个人信息类型**：
-
 <table>
 <thead>
 <tr>
@@ -110,11 +109,11 @@ QAPM Android SDK 不会采集 IMEI、MAC 等敏感数据，为了能够确定数
 ```java
 // 当用户同意隐私政策协议后，方可正常初始化QAPM
 if (isAgree) {    
-  // 需要传入设备的唯一标识    QAPM.setProperty(QAPM.PropertyKeyDeviceId, "设备的唯一标识");    
-  // 需要传入手机型号    
-  QAPM.setProperty(QAPM.PropertyKeyModel, "填写手机型号");    
-  // 正常初始化代码贴入，参考文档2.1部分
-  初始化代码
+	// 需要传入设备的唯一标识    QAPM.setProperty(QAPM.PropertyKeyDeviceId, "设备的唯一标识");    
+	// 需要传入手机型号    
+	QAPM.setProperty(QAPM.PropertyKeyModel, "填写手机型号");    
+	// 正常初始化代码贴入，参考文档2.1部分
+	初始化代码
 }
 ```
 >!
@@ -137,13 +136,13 @@ QAPM iOS SDK 不会采集 UUID、Open UUID 等敏感数据，为了能够确定�
 ```
 // 当用户授权后，方可正常初始化QAPM
 if (isAgree) {
-  [QAPMLaunchProfile setAppDidFinishLaunchBeginTimestamp];//启动耗时函数的第一个打点
-  // 需要传入设备的唯一标识
-  [QAPMConfig getInstance].deviceID = @"自定义deviceId";  
-  // 可以上传设备唯一标识
-  [QAPMConfig getInstance].userId = @"设置userId";  
-  //您自行生成的用户账号，此接口可以多次在代码位置使用
-  // 正常初始化代码贴入，参考文档2部分
+	[QAPMLaunchProfile setAppDidFinishLaunchBeginTimestamp];//启动耗时函数的第一个打点
+	// 需要传入设备的唯一标识
+	[QAPMConfig getInstance].deviceID = @"自定义deviceId";  
+	// 可以上传设备唯一标识
+	[QAPMConfig getInstance].userId = @"设置userId";  
+	//您自行生成的用户账号，此接口可以多次在代码位置使用
+	// 正常初始化代码贴入，参考文档2部分
 }
 ```
 >! 
