@@ -6,12 +6,12 @@ INSERT {INTO [<TABLE>]| TABLE} table_identifier [ partition_spec ] [ ( column_li
 ```
 
 ### 参数
-- table_identifier：指定表名，支持三段式，例如：catalog.database.table。
-- partition_spec：分区列和值。例如 dt='2021-06-01'。
-- column_list：列的所有。
-- query：一个通用 Select 查询语句。      
-	1. a SELECT statement     
-	1. a TABLE statement
+- `table_identifier`：指定表名，支持三段式，例如：`catalog.database.table`。
+- `partition_spec`：分区列和值。例如 dt='2021-06-01'。
+- `column_list`：列的所有。
+- `query`：一个通用 Select 查询语句。      
+	1. `a SELECT statement`     
+	2. `a TABLE statement`
 
 ### 示例
 ```
@@ -27,6 +27,6 @@ INSERT INTO students PARTITION (student_id = 11215017) (address, name) VALUES  (
 -- Insert Using a TABLE StatementINSERT 
 INTO students TABLE visiting_students;
 ```
-### 说明
-Presto 目前不支持 insert into xxx PARTITION 的语法，这个功能正在开发中。
+
+>! Presto 目前不支持 insert into xxx PARTITION 的语法。
 
