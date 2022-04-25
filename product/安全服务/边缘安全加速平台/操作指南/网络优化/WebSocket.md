@@ -17,7 +17,6 @@ WebSocket 协议是基于 TCP 的一种持久化协议，它实现了客户端�
  - 开启状态：支持 WebSocket 协议。
 3. 在 WebSocket 最大连接时长窗口中，调整最大时长，单击**保存**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/ca203aa89ce91c25294de32d2ec373de.png)
-
 > ?
 > - 最大连接时长：超时时间之内若没有数据收发，连接将被断开，该功能与回源超时配置互斥。 
 > - 不同套餐支持的最大连接时长如下所示：
