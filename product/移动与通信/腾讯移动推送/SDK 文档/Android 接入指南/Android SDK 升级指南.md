@@ -5,6 +5,12 @@
 implementation 'com.google.code.gson:gson:2.6.2'
 implementation 'commons-codec:commons-codec:1.15'
 ```
+### 对应各厂商推送依赖版本
+- 华为 : 6.3.0.302
+- 小米 : 4.9.1
+- 魅族 : 4.1.0
+- OPPO : 3.0.0
+- Vivo :  3.0.0.4
 
 ## TPNS Android SDK 1.2.7.0
 
