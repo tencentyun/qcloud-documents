@@ -73,7 +73,7 @@
 </tr>
 </thead>
 <tbody><tr>
-<td rowspan=9>Android</td>
+<td rowspan=8>Android</td>
 <td>android.permission.CAMERA</td>
 <td>用于采集摄像头画面，与其他使用者进行交互、录制画面</td>
 </tr>
@@ -105,11 +105,6 @@
 <td>android.permission.READ_PHONE_STATE</td>
 <td>SDK 需要监听电话的打断，在电话呼入时，停止音频的采集</td>
 </tr>
-<tr>
-<td>android.permission.BLUETOOTH  </td>
-<td>音频模块获取手机蓝牙状态</td>
-</tr>
-<tr>
 <tr>
 <td rowspan=2>iOS</td>
 <td>NSCameraUsageDescription</td>
