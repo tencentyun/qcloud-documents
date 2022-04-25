@@ -1,4 +1,4 @@
-﻿## TKE Kubernetes 版本维护机制
+
 
 腾讯云容器服务 TKE 基于原生的 Kubernetes 提供以容器为核心的解决方案。由于 Kubernetes 版本不断升级，容器服务 TKE 会定期发布支持的 Kubernetes 版本，本文将为您介绍 Kubernetes 版本的支持机制。
 
