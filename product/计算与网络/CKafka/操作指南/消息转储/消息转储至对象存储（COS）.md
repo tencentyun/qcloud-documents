@@ -14,7 +14,7 @@
 2. 在左侧导航栏单击**实例列表**，单击目标实例的“ID/名称”，进入实例详情页。
 3. 在实例详情页，单击**topic管理**标签页，单击操作列的**消息转储**。
 4. 单击**添加消息转储**，转储类型选择**对象存储 COS**。
-   ![](https://main.qcloudimg.com/raw/5dc536171f2f46dd513c464cf76e20b6.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/f7f69968c4e051c6d28bca44164741cd.png)
     - 转储类型：选择对象存储（COS）。
     - 时间粒度：根据消息量的大小，选取汇聚消息的时间间隔，时间间隔为5 - 60分钟不等。为保证转储性能，聚合文件数量与 Partition 数量，partition_max 设置数值有关，具体详见文档底部产品限制说明。
     - 存放 Bucket：对不同的 topic，选取相应的 COS 中 Bucket，则请求消息会自动在 Bucket 下创建 instance-id/topic-id/date/timestamp为名称的文件路径进行存储。相关路径如无法满足业务需要，请创建完成后在云函数 CkafkaToCosConsumer 下自行修改。
@@ -41,5 +41,5 @@
 - 使用COS消息转储，文件内容是 CKafka 消息里的 value 用 utf-8 String 序列化拼接而成，暂不支持二进制的数据格式。
 - 开启转 COS 的操作账号必须对目标 COS Bucket 具备写权限。
 - 使用 COS 消息转储必须至少拥有一个 VPC 网络环境，如在创建时选择基础网络请参见 [路由接入方式](https://cloud.tencent.com/document/product/597/36348)  绑定 VPC 网络。
-- 该功能基于云函数 SCF 服务提供。SCF为用户提供了一定 [免费额度](https://cloud.tencent.com/document/product/583/12282) ，超额部分产生的收费，请以 SCF 服务的 [计费规则](https://cloud.tencent.com/document/product/583/17299) 为准。
+- 该功能基于云函数 SCF 服务提供。SCF为用户提供了一定 [免费额度](https://cloud.tencent.com/document/product/583/12282)，超额部分产生的收费，请以 SCF 服务的 [计费规则](https://cloud.tencent.com/document/product/583/17299) 为准。
 - 转储方案价格与 CKafka Partition 数有关，当前 Partition 个数与函数并发个数保持一致。若需修改函数并发个数请检查 schedule 函数逻辑。

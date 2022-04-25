@@ -270,7 +270,6 @@ recorder.videoProcessDelegate = delegate;
 // typedef NS_ENUM(NSInteger, TXVideoBeautyStyle) {
 //    VIDOE_BEAUTY_STYLE_SMOOTH     = 0,    // 光滑
 //    VIDOE_BEAUTY_STYLE_NATURE     = 1,    // 自然
-//    VIDOE_BEAUTY_STYLE_PITU       = 2,    // pitu 美颜, 需要购买企业版
 // };
 // 级别的范围为0-9 0为关闭， 1-9值越大，效果越明显
 [recorder setBeautyStyle:beautyStyle beautyLevel:beautyLevel whitenessLevel:whitenessLevel ruddinessLevel:ruddinessLevel];

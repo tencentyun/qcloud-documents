@@ -5,9 +5,9 @@
 ## 通过控制台导出
 支持用户通过配置将查询结果自动保存至 COS 路径下，配置方式如下：
 1. 登录 [数据湖 DLC 控制台](https://console.cloud.tencent.com/dlc)，选择服务地域，登录的账号需具有 COS 相关的权限。
-2. 进入**查询分析页面**，单击**高级配置设置**对查询结果保存方式进行配置。
+2. 进入**数据探索页面**，单击**高级配置设置**对查询结果保存方式进行配置。
 3. 开启全量模式，配置 COS 存储路径。
-![](https://qcloudimg.tencent-cloud.cn/raw/a088d81e03c4888ae68390acb155f7bd.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/f0efd62c3066ed4dae130c7bb49b3fe9.png)
 更多导出方式可参见 [获取任务结果](https://cloud.tencent.com/document/product/1342/61872)。
 
 ## 通过 API 导出

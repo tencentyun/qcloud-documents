@@ -34,3 +34,4 @@ openssl req -new -nodes -sha256 -newkey rsa:2048 -keyout [$Key_File] -out [$Open
  - **Challenge Password**：可选择不输入。
 5. 按照命令提示输入相应内容后，即可在当前目录下获取密钥文件和 CSR 文件。
 
+

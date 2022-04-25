@@ -104,7 +104,7 @@
 ## 进房失败相关错误信息
 | 错误码 | 错误信息              |
 |:--|:-----------|
-| 10006  | 客户服务欠费, 请登录 [实时音视频控制台](https://console.cloud.tencent.com/trtc)，单击您已创建的应用，单击**帐号信息**，在帐号信息面板即可确认服务状态 |
+| 10006  | 客户服务欠费, 请登录 [实时音视频控制台](https://console.cloud.tencent.com/trtc)，单击您已创建的应用，单击**应用信息**，在应用信息面板即可确认服务状态 |
 | -10011 | 服务端未知错误，请重试        |
 | -10012 | 未传入 roomId 或者 roomId 不符合规范, 如需使用 string 类型的 roomId，请在调用 `TRTC.createClient` 时设置 useStringRoomId 为 true   |
 | -10013 | userSig 鉴权失败     |

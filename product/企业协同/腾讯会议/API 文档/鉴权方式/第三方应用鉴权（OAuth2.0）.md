@@ -153,7 +153,7 @@ https://meeting.tencent.com/wemeet-webapi/v2/oauth2/oauth/refresh_token
 | 参数名称      | 参数类型  | 参数描述                                            |
 | ------------- | --------- | --------------------------------------------------- |
 | access_token  | string    | 访问凭证（有效期6小时）。                           |
-| refresh_token | string    | 用户刷新 access_token 凭证（有效期30天）。          |
+| refresh_token | string    | 用户刷新 access_token 凭证（有效期30天），刷新 access_token 时将同时自动续期30天。          |
 | expires       | int       | access_token 过期时间，时间戳（单位秒）。           |
 | open_id       | string    | 用户唯一标识（同一 OAuth 应用，同一用户，值唯一）。 |
 | scopes        | string | 用户授权的权限作用域，字符串数组。                  |

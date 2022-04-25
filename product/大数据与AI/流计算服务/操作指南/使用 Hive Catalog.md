@@ -7,7 +7,7 @@
 | Flink 版本 | 说明                                             |
 | ---------- | ------------------------------------------------ |
 | 1.11       | 不支持                                           |
-| 1.13       | 支持 hive 版本 1.2.2、2.2.0、2.3.2、2.3.5、3.1.1 |
+| 1.13       | 支持 hive 版本2.2.0、2.3.2、2.3.5、3.1.1 |
 | 1.14       | 不支持                                           |
 
 ## 前提条件
@@ -23,13 +23,13 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/c131d8bae1429ff0549207c14f8ff957.png)
 
 ### 创建数据库
-在 SQL 代码中可以创建数据库。数据库的写法采用两段式：`catalog_name.database_name`。
+在 SQL 作业中可以创建数据库。数据库的写法采用两段式：`catalog_name.database_name`。
 ```sql
 CREATE DATABASE IF NOT EXISTS `hiveCatalogName`.`databaseName`;
 ```
 
 ### 创建数据表
-在 SQL 代码中可以创建数据表。数据表的写法采用三段式：`catalog_name.database_name.table_name`。
+在 SQL 作业中可以创建数据表。数据表的写法采用三段式：`catalog_name.database_name.table_name`。
 ```sql
 CREATE TABLE IF NOT EXISTS `hiveCatalogName`.`databaseName`.`tableName` (
   user_id INT,

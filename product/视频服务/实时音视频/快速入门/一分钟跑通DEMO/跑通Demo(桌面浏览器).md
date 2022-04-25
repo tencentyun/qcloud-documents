@@ -160,7 +160,7 @@ TRTC SDK 6.6（Web SDK 4.0）版本（2019年08月）开始启用新的签名算
 
 ### 4. 出现10006 error 该如何处理？
 如果出现"Join room failed result: 10006 error: service is suspended,if charge is overdue,renew it"，请确认您的实时音视频应用的服务状态是否为正常状态。
-登录 [实时音视频控制台](https://console.cloud.tencent.com/rav)，单击您创建的应用，单击 **帐号信息**，在帐号信息面板即可确认服务状态。
+登录 [实时音视频控制台](https://console.cloud.tencent.com/rav)，单击您创建的应用，单击 **应用信息**，在应用信息面板即可确认服务状态。
 ![](https://qcloudimg.tencent-cloud.cn/raw/e0ada374cd9f95fcc8401d5ceacf5358.png)
 
 >? 其他常见问题参见 [Web 端相关](https://cloud.tencent.com/document/product/647/45558)。

@@ -209,7 +209,7 @@ req.addRequestParameter("param1", "value1");
 req.putCustomRequestHeader(Headers.HOST, cosClient.getClientConfig().getEndpointBuilder().buildGeneralApiEndpoint(bucketName));
 req.putCustomRequestHeader("header1", "value1");
 
-URL url = cosclient.generatePresignedUrl(req);
+URL url = cosClient.generatePresignedUrl(req);
 System.out.println(url.toString());
 
 // 确认本进程不再使用 cosClient 实例之后，关闭之

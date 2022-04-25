@@ -1,5 +1,5 @@
 ## 集成准备
-1. [下载 SDK](https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.1.115/xmagic_S1-04_android_2.4.1.115.zip)，并解压。
+1. [下载 SDK](https://cloud.tencent.com/document/product/616/65876)，并解压。
 2. **准备下列文件**：
 <table>
 <tbody><tr><th>文件类型</th><th>说明</th></tr>
@@ -16,7 +16,7 @@
 ### 资源
 
 - 添加上述文件准备的全部 `.aar` 文件到 app 工程 `libs` 目录下。
-- 将 SDK 包内的 assets/ 目录下的全部资源拷贝到 `../src/main/assets` 目录下。
+- 将 SDK 包内的 assets/ 目录下的全部资源拷贝到 `../src/main/assets` 目录下，如果 SDK 包中的 MotionRes 文件夹内有资源，将此文件夹也拷贝到 `../src/main/assets` 目录下 。
 - 将 jniLibs 文件夹拷贝到工程的 `../src/main/jniLibs` 目录下。
 
 ### 导入方法
@@ -41,11 +41,11 @@ dependencies{
 ```
 
 [](id:download)
-## 动态下载 assets、so、动效资源指引
+## 包体大小瘦身：动态下载 assets、so、动效资源指引
 
 为了减少包大小，您可以将 SDK 所需的 assets 资源、so 库、以及动效资源 MotionRes（部分基础版 SDK 无动效资源）改为联网下载。在下载成功后，将上述文件的路径设置给 SDK。
 
-我们建议您复用 Demo 的下载逻辑，当然，也可以使用您已有的下载服务。动态下载的详细指引，请参见 [腾讯特效 SDK 资源动态下载说明（Android）](https://docs.qq.com/doc/DWHRlU0dlcHlGR3V4)。 
+我们建议您复用 Demo 的下载逻辑，当然，也可以使用您已有的下载服务。动态下载的详细指引，请参见 [SDK 包体瘦身（Android）](https://cloud.tencent.com/document/product/616/73016)。
 
 ## 整体流程
 
@@ -206,7 +206,7 @@ mPreviewMgr.onResume(this, 1280, 720);
 ```java
 mXmagicApi = new XmagicApi(this, XmagicResParser.getResPath(),new XmagicApi.OnXmagicPropertyErrorListener()); 
 ```
-- **参数**
+	- **参数**
  <table>
  <tr><th>参数</th><th>含义</th></tr><tr><td>Context context</td><td>上下文</td>
  </tr><tr>
@@ -214,7 +214,7 @@ mXmagicApi = new XmagicApi(this, XmagicResParser.getResPath(),new XmagicApi.OnXm
  </tr><tr>
  <td>OnXmagicPropertyErrorListener errorListener</td><td>回调函数实现类</td>
  </tr></table>
-- **返回**
+	- **返回**
  错误码含义对照表：
  <table>
  <tr><th>错误码</th><th>含义</th></tr><tr>

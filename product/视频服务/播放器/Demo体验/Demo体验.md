@@ -28,7 +28,7 @@ Web 端超级播放器 TCPlayer 提供了可对比查看视频播放功能效果
 <tr>
 <th style="text-align:center">平台</th><th style="text-align:center">Demo 体验</th><th style="text-align:center">源码地址</th></tr><tr>
 <td style="text-align:center">iOS</td>
-<td style="text-align:center"><img src="https://qcloudimg.tencent-cloud.cn/raw/a511a323f39ae2e1564d2e64bae9b00b.png" width="150"></td>
+<td style="text-align:center"><img src="https://qcloudimg.tencent-cloud.cn/raw/9b17527268bb6a67ede83673dd8be280.png" width="150"></td>
 <td style="text-align:center"><a href="https://github.com/LiteAVSDK/Player_iOS">Github</a></td>
 </tr>
 <tr >

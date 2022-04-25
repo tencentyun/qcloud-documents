@@ -1,21 +1,21 @@
 ## 操作场景
 
-开源工具 [Velero](https://velero.io/)（旧版本名称为 Heptio Ark）可以安全地备份和还原、执行灾难恢复以及迁移 Kubernetes 集群资源和持久卷。容器服务 TKE 支持使用 Velero 备份、还原和迁移集群资源，详情请参见 [使用对象存储 COS 作为 Velero 存储实现集群资源备份和还原](https://cloud.tencent.com/document/product/457/50122) 和 [在 TKE 中使用 Velero 迁移复制集群资源](https://cloud.tencent.com/document/product/457/50550)。本文将介绍如何使用 Velero 将自建或其他云平台 Kubernetes 集群无缝迁移到容器服务 TKE 平台。 
+开源工具 [Velero](https://velero.io/)（旧版本名称为 Heptio Ark）可以安全地备份和还原、执行灾难恢复以及迁移 Kubernetes 集群资源和持久卷。容器服务 TKE 支持使用 Velero 备份、还原和迁移集群资源，详情请参见 [使用对象存储 COS 作为 Velero 存储实现集群资源备份和还原](https://cloud.tencent.com/document/product/457/50122) 和 [在 TKE 中使用 Velero 迁移复制集群资源](https://cloud.tencent.com/document/product/457/50550)。本文将介绍如何使用 Velero 将自建或其他云平台 Kubernetes 集群无缝迁移到容器服务 TKE 平台。  
 
 ## 迁移原理
 
-使用 Velero 迁移自建或其他云平台集群架构的原理与 [使用 Velero 迁移复制集群资源 ](https://cloud.tencent.com/document/product/457/50550#.E8.BF.81.E7.A7.BB.E5.8E.9F.E7.90.86) 过程的原理类似，迁移集群和被迁移集群需要都安装 Velero 实例，且指定同一个腾讯云 [对象存储 COS](https://cloud.tencent.com/document/product/436) 存储桶，被迁移集群按需执行备份，目标集群按需还原集群资源实现资源迁移。 
-不同的是，自建或其他云平台的集群资源迁移到 TKE 时，需要考虑和解决因跨平台导致集群环境差异问题，为此需要通过 Velero 提供的众多实用备份和还原策略帮助解决问题。 
+使用 Velero 迁移自建或其他云平台集群架构的原理与 [使用 Velero 迁移复制集群资源 ](https://cloud.tencent.com/document/product/457/50550#.E8.BF.81.E7.A7.BB.E5.8E.9F.E7.90.86) 过程的原理类似，迁移集群和被迁移集群需要都安装 Velero 实例，且指定同一个腾讯云 [对象存储 COS](https://cloud.tencent.com/document/product/436) 存储桶，被迁移集群按需执行备份，目标集群按需还原集群资源实现资源迁移。  
+不同的是，自建或其他云平台的集群资源迁移到 TKE 时，需要考虑和解决因跨平台导致集群环境差异问题，为此需要通过 Velero 提供的众多实用备份和还原策略帮助解决问题。  
 
 
 
 ## 前提条件
 
-- 已有自建或其他云平台 Kubernetes 集群（以下称作集群 A ），且集群版本需1.10以上。 
-- 已创建迁移目标的容器服务 TKE 集群（以下称作集群 B ），创建 TKE 集群请参见 [创建集群](https://cloud.tencent.com/document/product/457/32189)。 
-- 集群 A 和 集群 B 都需要安装 Velero 实例（1.5版本以上），并且共用同一个腾讯云 COS 存储桶作为 Velero 后端存储，安装步骤请参见 [配置存储和安装 Velero](https://cloud.tencent.com/document/product/457/50122#.E9.85.8D.E7.BD.AE.E5.AF.B9.E8.B1.A1.E5.AD.98.E5.82.A8)。 
-- 确保镜像资源在迁移后可以正常拉取。 
-- 确保两个集群的 Kubernetes 版本的 API 兼容，建议使用相同版本。 
+- 已有自建或其他云平台 Kubernetes 集群（以下称作集群 A ），且集群版本需1.10以上。  
+- 已创建迁移目标的容器服务 TKE 集群（以下称作集群 B ），创建 TKE 集群请参见 [创建集群](https://cloud.tencent.com/document/product/457/32189)。  
+- 集群 A 和 集群 B 都需要安装 Velero 实例（1.5版本以上），并且共用同一个腾讯云 COS 存储桶作为 Velero 后端存储，安装步骤请参见 [配置存储和安装 Velero](https://cloud.tencent.com/document/product/457/50122#.E9.85.8D.E7.BD.AE.E5.AF.B9.E8.B1.A1.E5.AD.98.E5.82.A8)。  
+- 确保镜像资源在迁移后可以正常拉取。  
+- 确保两个集群的 Kubernetes 版本的 API 兼容，建议使用相同版本。  
 
 ## 迁移指导
 
@@ -24,20 +24,20 @@
 
 <dx-accordion>
 ::: 分析筛选哪些集群资源需要进行迁移
-根据实际情况筛选分类出需要迁移资源清单和不需要迁移的资源清单。 
+根据实际情况筛选分类出需要迁移资源清单和不需要迁移的资源清单。  
 :::
 ::: 根据业务场景考虑是否需要自定义\sHook\s操作
 <li>在备份集群资源时，考虑是否需要在备份期间执行 <a href="https://velero.io/docs/v1.5/backup-hooks/">备份 Hooks</a>。例如，需要将正在运行的应用的内存数据落盘场景。</li>
 <li>在还原（迁移）集群资源时，考虑是否需要在还原期间执行 <a href="https://velero.io/docs/v1.5/backup-hooks/">还原 Hooks</a>。例如，需要在还原前准备一些初始化工作。</li>
 :::
 ::: 按需编写备份和还原的命令或资源清单
-根据筛选归类的资源清单编写备份和还原策略，推荐在复杂场景下使用创建资源清单的方式来执行备份和还原，YAML 资源清单比较直观且方便维护，参数指定的方式可以在简单迁移场景或测试时使用。 
+根据筛选归类的资源清单编写备份和还原策略，推荐在复杂场景下使用创建资源清单的方式来执行备份和还原，YAML 资源清单比较直观且方便维护，参数指定的方式可以在简单迁移场景或测试时使用。  
 :::
 ::: 处理跨云平台资源的差异性
-由于是跨云平台迁移，动态创建 PVC 的存储类等关系可能不同，需要提前规划动态 PVC/PV 存储类关系是否需要重新映射。需在还原操作前，创建相关映射的 ConfigMap 配置。如需解决更加个性化的差异，可以手动修改备份后的资源清单。 
+由于是跨云平台迁移，动态创建 PVC 的存储类等关系可能不同，需要提前规划动态 PVC/PV 存储类关系是否需要重新映射。需在还原操作前，创建相关映射的 ConfigMap 配置。如需解决更加个性化的差异，可以手动修改备份后的资源清单。  
 :::
 ::: 操作完成后核查迁移资源
- 检查迁移的集群资源是否符合预期且数据完整可用。 
+ 检查迁移的集群资源是否符合预期且数据完整可用。  
 :::
 </dx-accordion>
 
@@ -46,16 +46,16 @@
 
 ## 操作步骤
 
-以下将介绍某云平台集群 A 中的资源迁移到 TKE 集群 B 中的详细操作步骤，其中涉及到 Velero  备份和还原基础知识，您可以查看本文 [Velero 备份/还原实用知识](#veleroknow) 章节深入了解。 
+以下将介绍某云平台集群 A 中的资源迁移到 TKE 集群 B 中的详细操作步骤，其中涉及到 Velero  备份和还原基础知识，您可以查看本文 [Velero 备份/还原实用知识](#veleroknow) 章节深入了解。  
 
 
 
 ### 创建集群 A 示例资源
 
-在某云平台集群 A 中部署 Velero 实例中含有 PVC 的 Nginx 工作负载，为方便起见可直接使用动态存储类来创建 PVC 和 PV。 
+在某云平台集群 A 中部署 Velero 实例中含有 PVC 的 Nginx 工作负载，为方便起见可直接使用动态存储类来创建 PVC 和 PV。  
 1. 执行以下命令，查看当前集群支持的动态存储类信息。示例如下：
 ```bash
-# 获取当前集群支持的存储类信息，其中 xxx-StorageClass 为存储类代名，xxx-Provider 为提供商代名，下同。 
+# 获取当前集群支持的存储类信息，其中 xxx-StorageClass 为存储类代名，xxx-Provider 为提供商代名，下同。  
 $ kubectl  get sc
 NAME                PROVISIONER    RECLAIMPOLICY   VOLUMEBINDINGMODE      ALLOWVOLUMEEXPANSION   AGE
 xxx-StorageClass    xxx-Provider   Delete          Immediate              true                   3d3h
@@ -119,7 +119,7 @@ $ head -n 2 /var/log/nginx/error.log
 
 ### 确认需要迁移的资源清单
 
-1. 执行以下命令，输出集群 A 中所有的资源清单列表。 
+1. 执行以下命令，输出集群 A 中所有的资源清单列表。  
 ```bash
 kubectl api-resources --verbs=list -o name  | xargs -n 1 kubectl get --show-kind --ignore-not-found --all-namespaces
 ```
@@ -203,14 +203,14 @@ d-j6ccrq4k1moziu1l6l5r   20Gi       RWO            Delete           Bound    ngi
 
 ### 开始迁移操作
 
-以下将根据实际情况编写备份和还原策略，开始迁移该云平台的 Nginx 工作负载相关资源。 
+以下将根据实际情况编写备份和还原策略，开始迁移该云平台的 Nginx 工作负载相关资源。  
 
 
 
 
 #### 在集群 A 执行备份
 
-1. 创建如下 YAML 文件，备份需要迁移的资源。 
+1. 创建如下 YAML 文件，备份需要迁移的资源。  
 <dx-codeblock>
 :::  yaml
 apiVersion: velero.io/v1
@@ -246,8 +246,8 @@ NAME             STATUS      ERRORS   WARNINGS   CREATED                EXPIRES 
 migrate-backup   Completed   0        0          2020-12-29 19:24:28 +0800 CST   29d    default     <none>
 ```
 3. 备份完成后执行以下命令，将备份存储位置临时更新为只读模式。示例如下：
-<dx-alert infotype="explain" title="">
-非必须，可以防止在还原过程时， Velero 在备份存储位置中创建或删除备份对象。 
+<dx-alert infotype="explain" title=" ">
+非必须，可以防止在还原过程时， Velero 在备份存储位置中创建或删除备份对象。  
 </dx-alert>
 ```bash
 kubectl patch backupstoragelocation default --namespace velero \
@@ -316,11 +316,11 @@ spec:
   
   includeClusterResources: null
   
-  # 还原时不包含的资源，这里额外排除 StorageClasses 资源类型。 
+  # 还原时不包含的资源，这里额外排除 StorageClasses 资源类型。  
   excludedResources: 
     - storageclasses.storage.k8s.io
  
-  # 使用 labelSelector 选择器选择具有特定 label 的资源，由于此示例中无须再使用 label 选择器筛选，这里先注释。 
+  # 使用 labelSelector 选择器选择具有特定 label 的资源，由于此示例中无须再使用 label 选择器筛选，这里先注释。  
   # labelSelector:
   #   matchLabels:
   #     app: nginx
@@ -361,8 +361,8 @@ deployment.apps/nginx-deployment   1/1     1            1           49s
 NAME                                          DESIRED   CURRENT   READY   AGE
 replicaset.apps/nginx-deployment-5ccc99bffb   1         1         1       49s
 ```
- 从命令执行结果可以查看出被迁移的资源的运行状态正常。 
-2. 核查设置的还原策略是否成功。 
+ 从命令执行结果可以查看出被迁移的资源的运行状态正常。  
+2. 核查设置的还原策略是否成功。  
  1. 执行以下命令，核查动态存储类名映射是否正确。示例如下：
  ```bash
  # 可以看到 PVC/PV 的存储类已经是 "cbs"，说明存储类映射成功
@@ -373,16 +373,16 @@ $ kubectl  get pv
  NAME                                       CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM                STORAGECLASS   REASON   AGE
  pvc-bcc17ccd-ec3e-4d27-bec6-b0c8f1c2fa9c   20Gi       RWO            Delete           Bound    default/nginx-logs   cbs                     57s
  ```
-		 若 PVC/PV 的存储类为 “cbs”，则说明存储类映射成功。从上述命令执行结果可以查看出存储类映射成功。 
+		 若 PVC/PV 的存储类为 “cbs”，则说明存储类映射成功。从上述命令执行结果可以查看出存储类映射成功。  
  2. 执行以下命令，查看还原前为 “deployment.apps/nginx-deployment” 自定义添加的 “jokey-test” 注解是否成功。示例如下：
 ```bash
-# 获取注解 “jokey-test” 成功，说明自定义修改资源成功。 
+# 获取注解 “jokey-test” 成功，说明自定义修改资源成功。  
 $ kubectl  get deployment.apps/nginx-deployment -o custom-columns=annotations:.metadata.annotations.jokey-test
 annotations
 jokey-test
 ```
-     若可以正常获取注解，则说明成功修改自定义资源。从上述命令执行结果可以查看出命名空间映射配置成功。 
-3. 执行以下命令，检查工作负载挂载的 PVC 数据是否成功迁移。 
+     若可以正常获取注解，则说明成功修改自定义资源。从上述命令执行结果可以查看出命名空间映射配置成功。  
+3. 执行以下命令，检查工作负载挂载的 PVC 数据是否成功迁移。  
 <dx-codeblock>
 :::  bash
 # 查看挂载的 PVC 数据目录中的数据大小，显示为88K，比迁移前多，原因是腾讯云 CLB 主动发起健康检查产生了一些日志   
@@ -403,14 +403,14 @@ $ head -n 2 /var/log/nginx/error.log
 2020/12/29 03:07:21 [error] 6#6: *1172 open() "/usr/share/nginx/html/0bef" failed (2: No such file or directory), client: 192.168.0.73, server: localhost, request: "GET /0bef HTTP/1.0"
 :::
 </dx-codeblock>
- 从上述命令结果可以查看出，工作负载挂载的 PVC 数据成功迁移。至此，本文示例成功迁移某云平台集群 A 的 Nginx （ nginx-example 命名空间）工作负载相关资源和数据到容器服务 TKE 集群 B （default 命名空间）中。 
+ 从上述命令结果可以查看出，工作负载挂载的 PVC 数据成功迁移。至此，本文示例成功迁移某云平台集群 A 的 Nginx （ nginx-example 命名空间）工作负载相关资源和数据到容器服务 TKE 集群 B （default 命名空间）中。  
 
 
 
 ## 总结
 
 
-本文主要介绍使用 Velero 迁移自建或其他云平台集群到 TKE 的思路和方法步骤，成功的将集群 A 中的集群资源无缝迁移到集群 B 中。若在实际迁移过程中遇到未覆盖到的场景，欢迎 [联系我们](https://cloud.tencent.com/act/event/connect-service) 咨询和讨论迁移解决方案。 
+本文主要介绍使用 Velero 迁移自建或其他云平台集群到 TKE 的思路和方法步骤，成功的将集群 A 中的集群资源无缝迁移到集群 B 中。若在实际迁移过程中遇到未覆盖到的场景，欢迎 [联系我们](https://cloud.tencent.com/act/event/connect-service) 咨询和讨论迁移解决方案。  
  
 
 
@@ -421,7 +421,7 @@ Velero 提供众多非常实用的备份和还原策略，详细介绍如下：
 
 ### 资源过滤相关
 
-当不使用任何筛选选项时，Velero 会将所有对象包括在备份或还原操作中，在**备份和还原**时可以指定参数按需过滤资源。详情请参见 [资源过滤]( https://velero.io/docs/v1.5/resource-filtering/)。 
+当不使用任何筛选选项时，Velero 会将所有对象包括在备份或还原操作中，在**备份和还原**时可以指定参数按需过滤资源。详情请参见 [资源过滤]( https://velero.io/docs/v1.5/resource-filtering/)。  
  - **包含关系的过滤参数：**
 <table>
 <thead>
@@ -475,15 +475,15 @@ Velero 提供众多非常实用的备份和还原策略，详细介绍如下：
 
 ### Hook 操作相关
 
-- 在**备份期间**执行 Hook 操作，例如，需要在备份前将内存数据落盘，详情请参见 [备份 Hooks](https://velero.io/docs/v1.5/backup-hooks/)。 
-- 在**还原期间**执行 Hook 操作，例如，在还原前判断组件依赖是否可用，详情请参见 [还原 Hooks](https://velero.io/docs/v1.5/restore-hooks/)。 
-- 在**还原时**配置 PVC/PV 卷相关映射关系配置可参考以下文档。如需了解更多请参见 [还原参考](https://velero.io/docs/v1.5/restore-reference/)。 
+- 在**备份期间**执行 Hook 操作，例如，需要在备份前将内存数据落盘，详情请参见 [备份 Hooks](https://velero.io/docs/v1.5/backup-hooks/)。  
+- 在**还原期间**执行 Hook 操作，例如，在还原前判断组件依赖是否可用，详情请参见 [还原 Hooks](https://velero.io/docs/v1.5/restore-hooks/)。  
+- 在**还原时**配置 PVC/PV 卷相关映射关系配置可参考以下文档。如需了解更多请参见 [还原参考](https://velero.io/docs/v1.5/restore-reference/)。  
   - [配置 PV/PVC 存储类映射](https://velero.io/docs/v1.5/restore-reference/#changing-pvpvc-storage-classes)
   - [配置 PVC 绑定节点映射](https://velero.io/docs/v1.5/restore-reference/#changing-pvc-selected-node)
 
 
 ### Restic 备份卷配置
-从 Velero 1.5版本开始，Velero 默认使用 Restic 备份所有 Pod 卷，而不必单独注释每个 Pod，**推荐使用 Velero 1.5以上版本**。 
+从 Velero 1.5版本开始，Velero 默认使用 Restic 备份所有 Pod 卷，而不必单独注释每个 Pod，**推荐使用 Velero 1.5以上版本**。  
  
 在 Velero 1.5版本之前，Velero 使用 Restic 在备份卷时，Restic 提供以下两种方式发现需要备份的 Pod 卷：
   - 使用的 Pod 卷备份选择包含注解（默认）：
@@ -506,6 +506,6 @@ Velero 提供众多非常实用的备份和还原策略，详细介绍如下：
 
 ### 其他操作
 
-- 除使用 Velero 命令执行备份操作，也可以通过**创建备份资源来触发（推荐）**，配置示例请参见 [备份示例](https://velero.io/docs/v1.5/api-types/backup/#definition) ，API 详细字段定义可参见 [备份 API 定义]( https://github.com/vmware-tanzu/velero/blob/main/pkg/apis/velero/v1/backup.go)。 
-- 除使用 Velero 命令执行还原操作，也可以通过**创建还原资源来触发（推荐）**，配置示例请参见 [还原示例](https://velero.io/docs/v1.5/api-types/restore/#definition)，API 详细字段定义可参见 [还原 API 定义](https://github.com/vmware-tanzu/velero/blob/main/pkg/apis/velero/v1/restore.go)。 
-- 如有 annonations 、label 等其他个性化资源配置差异，可以在还原前手动编辑备份的 JSON 资源清单文件。 
+- 除使用 Velero 命令执行备份操作，也可以通过**创建备份资源来触发（推荐）**，配置示例请参见 [备份示例](https://velero.io/docs/v1.5/api-types/backup/#definition) ，API 详细字段定义可参见 [备份 API 定义]( https://github.com/vmware-tanzu/velero/blob/main/pkg/apis/velero/v1/backup.go)。  
+- 除使用 Velero 命令执行还原操作，也可以通过**创建还原资源来触发（推荐）**，配置示例请参见 [还原示例](https://velero.io/docs/v1.5/api-types/restore/#definition)，API 详细字段定义可参见 [还原 API 定义](https://github.com/vmware-tanzu/velero/blob/main/pkg/apis/velero/v1/restore.go)。  
+- 如有 annonations 、label 等其他个性化资源配置差异，可以在还原前手动编辑备份的 JSON 资源清单文件。  

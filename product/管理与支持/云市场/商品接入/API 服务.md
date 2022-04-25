@@ -15,7 +15,7 @@
 1. 登录 [云市场服务商管理控制台](https://console.cloud.tencent.com/serviceprovider)，选择左侧菜单栏**商品管理 > 商品列表**。
 2. 进入商品列表页面，单击**新建商品**。
 3. 根据上传商品的特性，分别在商品大类、一级分类、二级分类中选择特定的分类，选择完毕后，单击**下一步**完成商品信息说明。
-![](https://main.qcloudimg.com/raw/2f64c2b4ca0bc0961d1bf874901810e7.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/7317e7fc78be0ce4d560963132c29209.png)
 4. 填写 API 商品的基础信息、交付信息、售卖信息和图文信息。  
  - **基础信息填写说明**：
     - 商品名称：必填，输入商品名称，80字内。   

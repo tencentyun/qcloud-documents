@@ -6,12 +6,12 @@
 
 
 ## 扩展服务
-### 1、企业静默签服务
+### 企业静默签服务
 #### 步骤1：开通静默签
 1. 企业超级管理员和法定代表人登录电子签控制台，进入**企业中心** > **扩展服务**，单击**开通**即可进行静默签开通操作。
 ![](https://qcloudimg.tencent-cloud.cn/raw/1a8c842fb13b0f0e9b5f0d3a5d68d041.png)
 2. 邀请超管完成扫码，完成后即可开通静默签 。
-![](https://qcloudimg.tencent-cloud.cn/raw/2ee28487c95f27d9d1d2f597686242ad.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/736ac9d56a37ba72d064221da8f2dcaf.png)
 
 #### 步骤2：权限分配给员工
 1. 进入**企业中心** > **扩展服务**，单击**权限管理**。
@@ -21,7 +21,7 @@
 3. 选择员工，单击**确认**添加，即可完成静默签的授权。
 ![](https://qcloudimg.tencent-cloud.cn/raw/83d8cb63f59ab6a61c310e3c8b9928e8.jpg)
 
-### 2、API密钥查询
+### API密钥查询
 通过小程序注册的企业，单击**查询密钥**，即可查看对应企业的API密钥信息。
 ![](https://qcloudimg.tencent-cloud.cn/raw/4fb53db5faceefdec8ece4d76d8ebb2d.png)
 <dx-alert infotype="notice" title="">

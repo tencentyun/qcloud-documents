@@ -7,7 +7,7 @@
 
 ## 操作步骤
 1. 在确认配置信息页面，单击**生成 API Explorer 最佳实践脚本**。如下图所示：
-![](https://main.qcloudimg.com/raw/cea4614cd032b5c5fbca0c7750b40521.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/0585d9a08ec9eac9ea521fa97a7dcf0c.png)
 2. 在弹出的“生成 API Explorer 最佳实践脚本”窗口中，您可查看以下信息。如下图所示：
 ![](https://main.qcloudimg.com/raw/a583939b7ea72e4f7cdd889be7905a6b.png)
  - **API工作流**：您可以查看创建实例接口 RunInstances 及所选配置对应该接口的实际参数。其中，使用 `*` 标记的参数为该接口的必填参数。 对于窗口显示不全的数据，您可将鼠标悬浮在数据上方查看对应内容。

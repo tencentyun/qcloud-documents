@@ -24,7 +24,7 @@ Normal  Killing  39s (x735 over 15h)  kubelet, 10.179.80.31  Killing container w
 ``` txt
        A file with the 'i' attribute cannot be modified: it cannot be deleted or renamed, no link can be created to this file and no data can be written to the file.  Only the superuser or a process possessing the CAP_LINUX_IMMUTABLE capability can set or clear this attribute.
 ```
->!如果容器镜像本身或者容器启动后写入的文件存在 “i” 文件属性，此文件将无法被修改或删除。 
+>!如果容器镜像本身或者容器启动后写入的文件存在 “i” 文件属性，此文件将无法被修改或删除。  
 >
 在进行 Pod 删除操作时，会清理容器目录，若该目录中存在不可删除的文件，会导致容器目录无法删除，Pod 状态也将一直保持 Terminating。此种情况下，kubelet 将会出现以下报错：
 ``` log

@@ -39,8 +39,8 @@
 <img src="https://qcloudimg.tencent-cloud.cn/raw/0a789d4495f4c35d55ed57749d48acbd.png" width=500px>
 5. 打开 `LiteAVSDK_Professional_Android版本号/MLVB-API-Example/Debug/src/main/java/com/tencent/mlvb/debug/GenerateTestUserSig.java` 文件。
 设置 `GenerateTestUserSig.java` 文件中的相关参数：
-  - **PUSH_DOMAIN**：请设置为您的推流域名的 `CNAME`。
-  - **PLAY_DOMAIN**：请设置为您的播放域名的 `CNAME`。
+  - **PUSH_DOMAIN**：请设置为您的推流域名。
+  - **PLAY_DOMAIN**：请设置为您的播放域名。
   - **LIVE_URL_KEY**：非必需，用于生成 txSecret 等鉴权信息，具体计算请参见 [推拉流 URL](https://cloud.tencent.com/document/product/454/7915).
 <img src="https://qcloudimg.tencent-cloud.cn/raw/bb4e9ea8e62489ec908c51bfa0a0132b.png" width=600px>
 

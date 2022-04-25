@@ -67,11 +67,11 @@
 </tr><tr>
 <td>鉴权 StreamnNme</td>
 </tr><tr>
-<td>txSecret：开启推流鉴权后生成的鉴权串</td>
+<td>txSecret：开启推流/播放鉴权后生成的鉴权串</td>
 </tr><tr>
-<td>txTime：推流地址设置的时间戳</td>
+<td>txTime：推流/播放地址设置的时间戳</td>
 </tr><tr>
-<td>URL实际过期时间</td>
+<td>URL 实际过期时间</td>
 </tr><tr>
 <td rowspan=4>访问带宽检测</td>
 <td rowspan=2>带宽封顶配置</td>

@@ -29,8 +29,8 @@ CC 防护对网站特定的 URL 进行访问保护，CC 防护2.0全新改版，
 ![](https://qcloudimg.tencent-cloud.cn/raw/ca65fca899d0d0dc7ea8f822a1d1fe5f.png)
 **字段说明：**
  - **规则名称**：CC 防护规则名称，50个字符以内。
- - **识别模式**：支持 IP 和 SESSION 识别模式，默认为 IP，SESSION 模式需要提前设置 SESSION 位置信息。
- - **匹配条件**：CC 防护规则频率控制匹配条件，默认为 URL。支持设置多个匹配条件，同一规则的多个条件是“与”关系，同时满足才会执行动作，且最多配置10个，需要至少配置URL，详细字段说明如下：
+ - **识别方式**：支持 IP 和 SESSION 识别模式，默认为 IP，SESSION 模式需要提前设置 SESSION 位置信息。
+ - **匹配方式**：CC 防护规则频率控制匹配条件，默认为 URL。支持设置多个匹配条件，同一规则的多个条件是“与”关系，同时满足才会执行动作，且最多配置10个，需要至少配置URL，详细字段说明如下：
  <table>
 <thead>
 <tr>
@@ -97,7 +97,7 @@ CC 防护对网站特定的 URL 进行访问保护，CC 防护2.0全新改版，
 <td align="left">符合匹配条件的会话请求将会被监控记录日志，观察结果可在 <a href="https://console.cloud.tencent.com/guanjia/tea-attacklog">攻击日志</a> 中查看。</td>
 </tr>
 <tr>
-<td align="left">验证码</td>
+<td align="left">人机识别</td>
 <td align="left">仅用于浏览器访问场景，符合匹配条件的会话请求将进行验证码挑战，若挑战失败，执行拦截动作。若挑战成功，惩罚时长内正常访问。验证码记录日志为观察。</td>
 </tr>
 <tr>
@@ -151,3 +151,5 @@ CC 防护对网站特定的 URL 进行访问保护，CC 防护2.0全新改版，
 ![](https://qcloudimg.tencent-cloud.cn/raw/5ff38b1c16ded5f860145725c7f62bb5.png)
 7. 配置完成，基于 SESSION 的 CC 防护策略生效。
 >!使用基于 SESSION 的 CC 防护机制，无法在 IP 封堵状态中查看封堵信息。
+
+

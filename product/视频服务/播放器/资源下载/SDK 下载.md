@@ -29,7 +29,7 @@
       <td rowspan='2'>iOS 端</td>
       <td>超级播放器</td>
       <td><a href="https://github.com/LiteAVSDK/Player_iOS">SDK + Demo</a></td>
-      <td><a><button style="width:120px;height: 120px;border:none;background-image:url(https://qcloudimg.tencent-cloud.cn/raw/eb68e71a5f8b32d75e630a7096b3a928.png);background-size: cover;">
+      <td><a><button style="width:120px;height: 120px;border:none;background-image:url(https://qcloudimg.tencent-cloud.cn/raw/728d7f5fb63e5790ea3555e5940ef446.png);background-size: cover;">
 </button></a></td>
       <td><a href="https://cloud.tencent.com/document/product/881/20208">iOS - 超级播放器</a></td>
    </tr>
