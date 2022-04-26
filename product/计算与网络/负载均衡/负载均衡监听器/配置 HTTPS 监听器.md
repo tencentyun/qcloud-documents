@@ -10,7 +10,7 @@
 2. 在 CLB 实例列表页面左上角选择地域，在实例列表右侧的操作列中单击**配置监听器**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/2c0b7f73cd81582c7ace11dbfe7d6c18.png)
 3. 在 HTTP/HTTPS 监听器下，单击**新建**，在弹出的“创建监听器”对话框中配置 HTTPS 监听器。
-**a. 创建监听器**
+**1. 创建监听器**
 <table>
 <thead>
 <tr>
@@ -52,7 +52,7 @@
 </tr>
 </tbody>
 </table>
- <b>b. 创建转发规则</b>
+ <b>2. 创建转发规则</b>
  <table>
 <tr>
 <th>转发规则基本配置</th>
@@ -100,9 +100,9 @@
 <td>已开启</td>
 </tr>
 </table>
- <b>c. 健康检查</b>
+ <b>3. 健康检查</b>
 健康检查详情请参见 <a href="https://cloud.tencent.com/document/product/214/50011#https">HTTPS 健康检查</a>。</br> 
- <b>b. 会话保持</b>
+ <b>4. 会话保持</b>
 <table>
 <tr>
 <th>会话保持配置</th>

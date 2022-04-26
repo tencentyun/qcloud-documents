@@ -10,7 +10,7 @@
 客户端timewait太多，是因为客户端主动断开连接，客户端每断开一个连接，该连接都会进入timewait状态，默认60s超时回收。一般情况下，遇到这种场景时，客户会选择打开 `tcp_tw_recycle` 和 `tcp_tw_reuse` 两个参数，便于回收timewait状态连接。
 然而当前 CLB 没有打开 `tcp_timestamps` 选项，导致客户端打开的 `tcp_tw_recycle` 和 `tcp_tw_reuse` 都不会生效，不能快速回收 timewait 状态连接。下面会解释几个 Linux 参数的含义和 CLB 不能开启 `tcp_timestamps` 的原因。
 1. tcp_tw_recycle 和 tcp_tw_reuse只有在 tcp_timestamps 打开时才会生效。
-2. tcp_timestamps和tcp_tw_recycle是不能同时打开的，因为公网客户端经过 NAT 网关访问服务器，会存在问题，原因如下：
+2. 在 FullNAT 场景下，tcp_timestamps和tcp_tw_recycle是不能同时打开的，因为公网客户端经过 NAT 网关访问服务器，会存在问题，原因如下：
 tcp_tw_recycle/tcp_timestamps 都开启的条件下，60s内同一源 IP 主机的 socket connect 请求中的 timestamp 必须是递增的。以2.6.32内核为例，具体实现如下：
 ```
 if(tmp_opt.saw_tstamp && tcp_death_row.sysctl_tw_recycle &&
