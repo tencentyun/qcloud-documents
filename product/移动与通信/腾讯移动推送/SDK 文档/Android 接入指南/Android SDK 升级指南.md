@@ -1,15 +1,21 @@
 ## TPNS Android SDK 1.3.2.0
 ### OPPO 推送 SDK 升级
-升级TPNS OPPO 推送 SDK 1.3.2.0 时，请注意一并加入以下依赖语句，否则可能导致 OPPO 推送注册失败
+升级 TPNS OPPO 推送 SDK 1.3.2.0 时，请注意一并加入以下依赖语句，否则可能导致 OPPO 推送注册失败：
 ```
 implementation 'com.google.code.gson:gson:2.6.2'
 implementation 'commons-codec:commons-codec:1.15'
 ```
+### 对应各厂商推送依赖版本
+- 华为 : 6.3.0.302
+- 小米 : 4.9.1
+- 魅族 : 4.1.0
+- OPPO : 3.0.0
+- vivo :  3.0.0.4
 
 ## TPNS Android SDK 1.2.7.0
 
 ###  新增应用内消息补推能力
-新增是否允许应用内消息展示接口，请注意高版本安卓使用 WebView 的兼容性详见 [Android 接口文档](https://cloud.tencent.com/document/product/548/36659#.E5.BA.94.E7.94.A8.E5.86.85.E6.B6.88.E6.81.AF.E5.B1.95.E7.A4.BA)。
+新增是否允许应用内消息展示接口，请注意高版本 Android 使用 WebView 的兼容性详见 [Android 接口文档](https://cloud.tencent.com/document/product/548/36659#.E5.BA.94.E7.94.A8.E5.86.85.E6.B6.88.E6.81.AF.E5.B1.95.E7.A4.BA)。
 
 ## TPNS Android SDK 1.2.5.0
 

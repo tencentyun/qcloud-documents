@@ -1,3 +1,14 @@
+### 2.18.2 @2022.4.22
+
+**变更**
+
+优化直播群使用体验。
+
+**修复**
+
+- 部分场景下统计不准确的问题。
+- 调用接口 [getGroupMessageReadMemberList](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getGroupMessageReadMemberList) 返回结果不准确的问题。
+
 ### 2.18.0 @2022.4.8
 
 **新增**

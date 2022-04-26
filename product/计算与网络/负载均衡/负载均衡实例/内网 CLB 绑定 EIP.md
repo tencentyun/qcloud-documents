@@ -65,6 +65,8 @@
 1. 登录 [负载均衡控制台](https://console.cloud.tencent.com/clb)，单击左侧导航栏的**实例管理**。
 2. 在“实例管理”页面左上角选择地域，在实例列表中选择目标内网 CLB 实例，在右侧“操作”列选择**更多** > **绑定弹性公网 IP**。
 3. 在弹出的“绑定弹性公网 IP”对话框中，选择需绑定的 EIP，单击**提交**即可为内网 CLB 绑定 EIP。
+>?加速 IP 和静态单线 IP 目前处于内测阶段，如需使用，请提交 [Anycast 公网加速 IP 内测申请](https://cloud.tencent.com/apply/p/47mdddtoc56) 和 [静态单线 IP 内测申请](https://cloud.tencent.com/apply/p/6nzb3jwbsk)。
+>
 <img src="https://qcloudimg.tencent-cloud.cn/raw/201e56b830bc8e165070b8963fe72cb3.png" width="60%">
 4. （可选）在实例列表中选择目标内网 CLB 实例，在右侧“操作”列选择**更多** > **解绑弹性公网 IP** 即可为内网 CLB 解绑 EIP。
 :::

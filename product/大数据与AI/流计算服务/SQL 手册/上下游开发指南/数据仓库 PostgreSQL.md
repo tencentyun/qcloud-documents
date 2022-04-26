@@ -12,6 +12,7 @@ JDBC-PG Connector 提供了对 CDW PostgreSQL 数据库写支持。
 ## 使用范围
 
 支持用作数据目的表（sink），用于 Tuple 数据流表和用于 Upsert 数据流表（需要指定主键）。
+>! 不能与 jdbc connector 共用。
 
 ## DDL 定义
 ### 用作数据目的（Tuple Sink）
