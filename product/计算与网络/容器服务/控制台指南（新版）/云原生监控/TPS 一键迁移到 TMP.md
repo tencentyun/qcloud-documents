@@ -29,6 +29,8 @@ TPS 支持一键迁移到 TMP。您可以迁移单独的实例，也可以批量
 ![](https://qcloudimg.tencent-cloud.cn/raw/655e7b02d998d06dcd4d70a5b1825ebb.png)
 
 #### （新）TMP Prometheus 数据查询地址和 Grafana 地址 
+>? TMP 对查询接口增加了鉴权，可参考 [监控数据查询](https://cloud.tencent.com/document/product/1416/56026)。
+>
 1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的 **[Prometheus 监控](https://console.cloud.tencent.com/tke2/prometheus2)**。
 2. 单击实例 ID ，进入实例的“基本信息”页，如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/232093b4dc10d32a4c838d16b7af3954.png)
