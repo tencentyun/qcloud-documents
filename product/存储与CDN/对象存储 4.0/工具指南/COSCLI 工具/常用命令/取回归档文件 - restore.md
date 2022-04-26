@@ -37,7 +37,7 @@ restore 命令包含以下可选 flag：
 ./coscli restore cos://bucket1/pictrue.jpg
 ```
 
-### 以极速取回模式取回 bucket1 桶内 pictrue 文件夹下的所有归档文件
+### 以快速取回模式取回 bucket1 桶内 pictrue 文件夹下的所有归档文件
 
 ```plaintext
 ./coscli restore cos://bucket1/pictrue/ -r --mode Expedited
