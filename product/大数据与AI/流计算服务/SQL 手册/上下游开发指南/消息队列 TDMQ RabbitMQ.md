@@ -29,7 +29,7 @@ CREATE TABLE `rmq_sink_json_table` (
     'host' = 'xxxx',    											-- rabbitmq host
     'port' = 'xxxx',			 		      					-- rabbitmq 端口
     'vhost' = '/',				   									-- 虚拟主机
-    'user' = 'xxxx',         		 							-- 用户名
+    'username' = 'xxxx',         		 							-- 用户名
     'password' = 'xxxx',     									-- 用户密码
     'exchange' = 'exchange',             		 	-- 交换机名
   	'routing-key' = 'Key',										-- 绑定 Key
@@ -50,7 +50,7 @@ CREATE TABLE `rmq_sink_csv_table` (
     'host' = 'xxxx',    											-- rabbitmq host
     'port' = 'xxxx',			 		      					-- rabbitmq 端口
     'vhost' = '/',				   									-- 虚拟主机
-    'user' = 'xxxx',         		 							-- 用户名
+    'username' = 'xxxx',         		 							-- 用户名
     'password' = 'xxxx',     									-- 用户密码
     'exchange' = 'exchange',             		 	-- 交换机名
   	'routing-key' = 'Key',										-- 绑定 Key
@@ -134,7 +134,4 @@ CREATE TABLE `rabbitmq_sink_json_table` (`id` INT, `name` STRING) WITH (
 insert into rabbitmq_sink_json_table select * from rabbitmq_source_json_table;
 ```
 
-## 注意事项
-
-RMQ 作为数据目的表（Sink）使用的时候，需要考虑如下几点：
-1. 往 RMQ 写入数据时有小概率会重复写入。
+>! RMQ 作为数据目的表（Sink）使用的时候，需要注意往 RMQ 写入数据时有小概率会重复写入。

@@ -1,12 +1,10 @@
-
-
 ## 操作场景
 
 Datahub 提供数据流出能力，您可以将 CKafka 数据分发至日志管理 CLS 便于解决业务问题定位，指标监控，安全审计等日问题。
 
 ## 前提条件
 
-该功能目前依赖 SCF、CLS 服务。使用时需提前开通云函数 SCF、CLS 等相关服务及功能。
+该功能目前依赖 CLS 服务。使用时需提前开通云函数 CLS 等相关服务及功能。
 
 ## 操作步骤
 
@@ -14,9 +12,11 @@ Datahub 提供数据流出能力，您可以将 CKafka 数据分发至日志管�
 2. 在左侧导航栏单击**数据流出**，选择好地域后，单击**新建任务**。
 3. 目标类型选择**事件总线（Event Bridge）**，单击**下一步**。
    ![](https://qcloudimg.tencent-cloud.cn/raw/da277c21f2e8f2e5aec7af561aecff86.png)
+
 > ?通过云函数和事件总线处理，需要确认同意[云函数使用说明](https://cloud.tencent.com/document/product/583)和[云函数计费说明](https://cloud.tencent.com/document/product/583/17299)。
+
 4. 在任务设置页面，填写任务详情。
-![](https://qcloudimg.tencent-cloud.cn/raw/dc3b49cd4c4c374f2dd534952a3f6517.png)
+   ![](https://qcloudimg.tencent-cloud.cn/raw/68b22087b3a176d1671b644462780718.png)
    - 任务名称：只能包含字母、数字、下划线、"-"、"."。
    - CKafka 实例：选择数据源 CKafka。
    - 源 Topic：选择源 Topic。
@@ -24,8 +24,7 @@ Datahub 提供数据流出能力，您可以将 CKafka 数据分发至日志管�
    - 起始位置：转储时历史消息的处理方式，topic offset 设置。
    - 日志集：选择日志集，日志集日志服务的项目管理单元，用于区分不同项目的日志。
    - 日志主题：自动创建日志主题或者选择已有日志主题。一个 [日志集](https://cloud.tencent.com/document/product/614/35676) 可以包含多个日志主题，一个日志主题对应一类应用或服务，建议将不同机器上的同类日志收集到同一个日志主题。
-   - 角色授权：使用SCF云函数和事件总监（EventBridge）产品功能，您需要授予一个第三方角色代替您执行访问相关产品权限。
-   - 云函数授权：知晓并同意开通云函数和事件总线，该函数创建后需用户前往云函数设置更多高级配置及查看监控信息。
+   - 角色授权：使用事件总线（EventBridge）产品功能，您需要授予一个第三方角色代替您执行访问相关产品权限。
 4. 单击**提交**，完成任务创建。
 
 ### 查看监控
@@ -55,7 +54,7 @@ Datahub 提供数据流出能力，您可以将 CKafka 数据分发至日志管�
         <td>勾选后可在图表上显示图例信息。</td>
     </tr>
 </table> 
-<img src ="https://qcloudimg.tencent-cloud.cn/raw/13c276a5ec2e173b6c0bf5a81c773ffe.png"> 
+<img src ="https://qcloudimg.tencent-cloud.cn/raw/3c97129f6682c5ec742d0dc16b60c238.png"> 
 
 
 

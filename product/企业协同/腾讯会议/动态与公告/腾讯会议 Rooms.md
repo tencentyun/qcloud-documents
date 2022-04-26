@@ -6,7 +6,15 @@
 	<th style="width: 25%;"><center>更新时间</center></th>
 	</tr>
 	<tr>
-<td><center>V2.12.100</td>	</td>	
+<td><center>V2.12.110</td>	
+<td>1.优化了 Rooms 云录制功能。<br>
+2.支持 Rooms 控制 PPT 翻页。<br>
+3.支持 Rooms 会前白板加入会议。<br>
+4.优化了 Rooms 和 H.323/SIP(MRA) 会议室管理。	</td>	
+<td><center>2022-04-07</td>	
+	</tr>
+<tr>
+<td><center>V2.12.100</td>	
 <td>1.支持会中视频小窗缩放。<br>
 2.Rooms 音频模式时可显示更多人。<br>
 3.优化了会议室管理页 UI 及视觉布局。	</td>	
@@ -64,6 +72,14 @@
 	<th style="width: 25%;"><center>更新时间</center></th>
 	</tr>
 	<tr>
+<td><center>V2.12.110</td>	
+<td>1.优化了 Rooms 云录制功能。<br>
+2.支持 Rooms 控制 PPT 翻页。<br>
+3.支持 Rooms 会前白板加入会议。<br>
+4.优化了 Rooms 和 H.323/SIP(MRA) 会议室管理。	</td>	
+<td><center>2022-04-07</td>	
+	</tr>
+<tr>
 <td><center>V2.12.100</td>	</td>	
 <td>1.支持会中视频小窗缩放。<br>
 2.Rooms 音频模式时可显示更多人。<br>

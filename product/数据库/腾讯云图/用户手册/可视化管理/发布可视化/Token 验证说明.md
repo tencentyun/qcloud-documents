@@ -23,6 +23,18 @@
 
 ### 加密
 
+#### 签名参数
+
+| 参数名称 | 中文 | 参数值 | 说明 |
+| --- | --- | --- | --- |
+|accessId|访问 ID|81a663dbaaab055xxxxxxxxxxxxx4a56| 大屏的访问 ID |
+|timestamp|当前时间戳|1647247729|返回当前时间的秒数|
+|nonce|随机正整数|12979| |
+|token|签名密钥|c6v9aw4gpRo1yn6DlIxxxxxxxxxxxxxK| |
+|signature|签名结果| |
+
+#### 签名示例
+
 PHP 生成签名示例：
 
 ```php
@@ -99,6 +111,10 @@ public class TcvTokenSignClientDemo {
     }
 }
 ```
+
+### 生成地址说明
+
+![访问地址](https://qcloudimg.tencent-cloud.cn/raw/345b4275c8b6596964c49c25acb82a33.png)
 
 ### 安全校验策略说明
 

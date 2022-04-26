@@ -382,3 +382,4 @@ ClickHouse 支持一种 [内置字典](https://clickhouse.tech/docs/en/query_lan
 
 ### 外置字典
 ClickHouse 可以从多个数据源添加 [外置字典](https://clickhouse.tech/docs/en/query_language/dicts/external_dicts/)，支持的数据源可参考 [Sources Of External Dictionaries](https://clickhouse.tech/docs/en/query_language/dicts/external_dicts_dict_sources/)。
+   

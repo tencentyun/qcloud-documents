@@ -1,12 +1,13 @@
 ## 概述
 
-COS Select 功能仅支持 SELECT SQL 查询指令，以便检索所需的部分数据，减少传输的数据量。这样可以减少成本，同时降低请求延时。以下是 SELECT 查询支持的标准子句：
+对象存储（Cloud Object Storage，COS）Select 功能仅支持 SELECT SQL 查询指令，以便检索所需的部分数据，减少传输的数据量。这样可以减少成本，同时降低请求延时。以下是 SELECT 查询支持的标准子句：
 
 - SELECT 语句
 - WHERE 子句
 - LIMIT 子句
 
-> !COS Select 当前暂不支持子句查询或者 joins。
+>! COS Select 当前暂不支持子句查询或者 joins。
+>
 
 ## SELECT 语句
 

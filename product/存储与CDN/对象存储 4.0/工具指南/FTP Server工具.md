@@ -154,7 +154,7 @@ ftp 192.xxx.xx.103 2121
 ### 使用 FileZilla 访问 COS FTP Server
 
 1. 下载 [FileZilla 客户端](https://filezilla-project.org/) 并安装。
-2. 在 FileZilla 客户端配置 COS FTP Server 的访问信息后，单击【快速连接】。
+2. 在 FileZilla 客户端配置 COS FTP Server 的访问信息后，单击**快速连接**。
  - **主机 (H)：**对应配置示例文件 conf/vsftpd.conf.example 中 **masquerade_address** 配置项。在本例中ip设置为192.xxx.xx.103。
 >!如果 COS FTP Server 处于某个网关或 NAT 后，可以通过该配置项将网关的 IP 地址或域名指定给 COS FTP Server 。
  - **用户名 (U)：**对应配置示例文件`conf/vsftpd.conf.example`中的 **ftp_login_user_name** 配置项 （需要进行配置）。

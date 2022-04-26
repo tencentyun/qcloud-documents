@@ -109,16 +109,16 @@
 <td>100 个 IP</td>
 </tr>
 <tr>
-<td><strong>50</strong></td>
-<td><strong>400,000</strong></td>
+<td>50</td>
+<td>400,000</td>
 <td>-</td>
 <td>-</td>
-<td><strong>640,000</strong></td>
+<td>640,000</td>
 <td>-</td>
 <td>-</td>
 </tr>
 <tr>
-<td><strong>100</strong></td>
+<td>100</td>
 <td>430,000</td>
 <td>-</td>
 <td>-</td>
@@ -135,7 +135,7 @@
 <td>-</td>
 </tr>
 <tr>
-<td><strong>300</strong></td>
+<td>300</td>
 <td>550,000</td>
 <td>800,000</td>
 <td>-</td>

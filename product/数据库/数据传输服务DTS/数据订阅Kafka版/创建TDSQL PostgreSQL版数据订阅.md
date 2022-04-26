@@ -15,7 +15,7 @@ grant SELECT on pg_catalog.pgxc_node to '迁移帐号';
 - DN 节点的 wal_level 必须是 logical。
 - 被订阅的表如果是全复制表（建表语句中有 distribute by replication 关键字），必须拥有主键；被订阅的表如果不是全复制表，必须拥有主键或 REPLICA IDENTITY 为 FULL；修改表的  REPLICA IDENTITY  为 FULL 的语句： 
 ```
-alter table '迁移帐号' REPLICA IDENTITY FULL;
+alter table '表名' REPLICA IDENTITY FULL;
 ```
 
 ## 约束限制

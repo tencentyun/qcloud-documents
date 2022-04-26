@@ -241,7 +241,7 @@ urllistPath=D:\\folder\\urllist.txt
      
 | 配置项 | 描述 |
 | ------| ------ |
-|urllistPath|URL 列表的地址，内容为 URL 文本，一行一条 URL 原始地址（例如`http://aaa.bbb.com/yyy/zzz.txt`，无需添加任何双引号或其他符号）。URL 列表的地址要求为绝对路径：<ul  style="margin: 0;"><li>Linux 下分隔符为单斜杠，例如`/a/b/c.txt` </li><li>Windows  下分隔符为两个反斜杠，例如`E:\\a\\b\\c.txt`<br>如果填写的是目录，则会将该目录下的所有文件视为 urllist 文件去扫描迁移</li></ul>|
+|urllistPath|URL 列表文件的地址。</br>注意：该配置内容不是直接填写 URL，而是填写文本文件的**本地地址**。该文本文件内容是具体的 URL，一行一条 URL 原始地址（例如`http://aaa.bbb.com/yyy/zzz.dat`，无需添加任何双引号或其他符号）。</br>URL 列表的地址要求为绝对路径：<ul  style="margin: 0;"><li>Linux 下分隔符为单斜杠，例如`/a/b/c.txt` </li><li>Windows  下分隔符为两个反斜杠，例如`E:\\a\\b\\c.txt`</li><li>如果填写的是目录，则会将该目录下的所有文件视为 urllist 文件去扫描迁移</li></ul>|
 
  
 **3.3.6 配置 Bucket 相互复制 migrateBucketCopy**
@@ -324,7 +324,7 @@ COS 迁移工具是有状态的，已经迁移成功的会记录在 db 目录下
 
 1. 读取配置文件，根据迁移 type，读取相应的配置分节，并执行参数的检查。
 2. 根据指定的迁移类型，扫描对比 db 下对所要迁移文件的标识，判断是否允许上传。
-3. 迁移执行过程中会打印执行结果，其中 inprogress 表示迁移中，skip 表示跳过，fail 表示失败，ok 表示成功， condition_not_match 表示因为表示因不满足迁移条件而跳过的文件（如 lastmodifed 和 excludes）。失败的详细信息可以在 log 的 error 日志中查看。执行过程示意图如下图所示：
+3. 迁移执行过程中会打印执行结果，其中 inprogress 表示迁移中，skip 表示跳过，fail 表示失败，ok 表示成功， condition_not_match 表示因不满足迁移条件而跳过的文件（如 lastmodifed 和 excludes）。失败的详细信息可以在 log 的 error 日志中查看。执行过程示意图如下图所示：
  ![](https://main.qcloudimg.com/raw/7561d07ea315c9bacbb228b36d6ad6d6.png)
 4. 整个迁移结束后会打印统计信息，包括累积的迁移成功量，失败量，跳过量，耗时。对于失败的情况，请查看 error 日志，或重新运行，因为迁移工具会跳过已迁移成功的，对未成功的会重新迁移。运行完成结果示意图如下图所示：
 ![](https://main.qcloudimg.com/raw/2534fd390218db29bb03f301ed2620c8.png)

@@ -7,96 +7,96 @@ Bottleneck Bandwidth and Round-trip propagation time（BBR），是 Google 在20
 
 ### 更新内核包
 1. 执行以下命令，查看当前 Kernel 版本。
-```
+```shellsession
 uname -r
 ```
 2. 执行以下命令，更新软件包。
-```
+```shellsession
 yum update -y
 ```
 3. 执行以下命令，导入 ELRepo 公钥。
-```
+```shellsession
 rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org
 ```
 4. 执行以下命令，安装 ELRepo 的 yum 源。
-```
+```shellsession
 yum install https://www.elrepo.org/elrepo-release-7.0-4.el7.elrepo.noarch.rpm
 ```
 
 
 ### 安装新内核
 1. 执行以下命令，查看 ELRepo 仓库下当前系统支持的内核包。
-```
+```shellsession
 yum --disablerepo="*" --enablerepo="elrepo-kernel" list available
 ```
 2. 执行以下命令，安装最新的主线稳定内核。
-```
+```shellsession
 yum --enablerepo=elrepo-kernel install kernel-ml
 ```
 
 ### 更改 grub 配置
 1. 执行以下命令，打开 `/etc/default/grub` 文件。
-```
+```shellsession
 vim /etc/default/grub
 ```
 2. 按 **i** 切换至编辑模式，将 `GRUB_DEFAULT=saved` 修改为 `GRUB_DEFAULT=0`。
 ![](https://main.qcloudimg.com/raw/484e7a6e818dc44c2d4debb9230e0b46.png)
 3. 按 **Esc**，输入 **:wq**，保存文件并返回。
 4. 执行以下命令，重新生成 Kernel 配置。
-```
+```shellsession
 grub2-mkconfig -o /boot/grub2/grub.cfg
 ```
 5. 执行以下命令，重启机器。
-```
+```shellsession
 reboot
 ```
 6. 执行以下命令，检查是否更改成功。
-```
+```shellsession
 uname -r
 ```
 
 ### 删除多余内核
 1. 执行以下命令，查看所有的 Kernel。
-```
+```shellsession
 rpm -qa | grep kernel
 ```
 2. 执行以下命令，删除旧版本的内核。
-```
+```shellsession
 yum remove kernel-old_kernel_version
 ```
 例如：
-```
+```shellsession
 yum remove kernel-3.10.0-957.el7.x86_64
 ```
 
 ### 开启 BBR
 1. 执行以下命令，编辑 `/etc/sysctl.conf` 文件。
-```
+```shellsession
 vim /etc/sysctl.conf
 ```
 2. 按 **i** 切换至编辑模式，添加如下内容。
-```
+```shellsession
 net.core.default_qdisc=fq
 net.ipv4.tcp_congestion_control=bbr
 ```
 3. 按 **Esc**，输入 **:wq**，保存文件并返回。
 4. 执行以下命令，从`/etc/sysctl.conf`配置文件中加载内核参数设置。
-```
+```shellsession
 sysctl -p
 ```
 5. 依次执行以下命令，验证是否成功开启了 BBR。
-```
+```shellsession
 sysctl net.ipv4.tcp_congestion_control
 # 显示如下内容即可：
 # net.ipv4.tcp_congestion_control = bbr
 ```
-```
+```shellsession
 sysctl net.ipv4.tcp_available_congestion_control
 # 显示如下内容即可：
 # net.ipv4.tcp_available_congestion_control = reno cubic bbr
 ```
 6. 执行以下命令，查看内核模块是否加载。
-```
+```shellsession
 lsmod | grep bbr
 ```
 返回如下信息，表示开启成功。

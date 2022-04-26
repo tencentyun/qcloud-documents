@@ -1,4 +1,4 @@
-## 简介
+## 简介 
 
 业务上云安全高效、稳定高可用是每一位涉云从业者的共同诉求。这一诉求实现的前提，离不开系统可用性、数据可靠性及运维稳定性三者的完美配合。本文将从评估项目、影响说明及评估参考三个角度为您阐述云上容器应用部署的各个检查项，以便帮助您扫除上云障碍、顺利高效地完成业务迁移至容器服务（TKE）。
 
@@ -38,7 +38,7 @@
     </tr>
 	<tr>
         <td>创建集群时，根据业务场景选择合适的集群模式：独立集群、托管集群。</td><td>部署</td><td>托管集群的 Master 和 Etcd 不属于用户资源，由腾讯云技术团队集中管理和维护，用户无法修改 Master 和 Etcd 的部署规模和服务参数。如需修改，请选用独立部署模式集群。</td>
-				<td><li><a href="https://cloud.tencent.com/document/product/457/32187">集群概述</a></li><li><a href="https://cloud.tencent.com/document/product/457/31013">集群的托管模式说明</a></li></td>
+				<td><li><a href="https://cloud.tencent.com/document/product/457/32187">集群概述 </a></li><li><a href="https://cloud.tencent.com/document/product/457/31013">集群的托管模式说明</a></li></td>
     </tr>
     <tr>
         <td rowspan="4">工作<br>负载</td>

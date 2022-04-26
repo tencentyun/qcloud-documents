@@ -66,7 +66,7 @@ CDN 会进行缓存和回源行为，即用户在访问某个 URL 的时候，�
 - HEAD Object：查询对象元数据
 - OPTIONS Object：预请求跨域配置
 
-在 [CDN 控制台](https://console.cloud.tencent.com/cdn) 和 [COS 控制台](https://console.cloud.tencent.com/cos5) 均提供了一键授权的功能，单击【添加 CDN 服务授权】即可完成。完成该操作后，需要开启「回源鉴权」选项，此时 CDN 边缘将会使用其服务身份访问 COS 中的数据。
+在 [CDN 控制台](https://console.cloud.tencent.com/cdn) 和 [COS 控制台](https://console.cloud.tencent.com/cos5) 均提供了一键授权的功能，单击**添加 CDN 服务授权**即可完成。完成该操作后，需要开启「回源鉴权」选项，此时 CDN 边缘将会使用其服务身份访问 COS 中的数据。
 
 >!
 > 1. 如果存储桶被设置为私有读，则必须添加授权并开启回源鉴权，否则 COS 将拒绝访问。

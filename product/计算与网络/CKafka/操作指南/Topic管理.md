@@ -60,7 +60,7 @@ Topic（主题）是某一种分类的名字，消息在 Topic 中可以被存�
     </tr>
     <tr>
         <td>末端 offset</td>
-        <td>消息最后写入的位置，若末端 offset 大于起始 offset，则代表有消息还没有被消费</td>
+        <td>消息最后写入的位置</td>
     </tr>
     <tr>
         <td>消息数</td>

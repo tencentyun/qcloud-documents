@@ -4,14 +4,13 @@ Web 函数是腾讯云云函数 SCF 新支持的函数能力，区别于事件�
 
 Serverless Framework SCF 组件现已支持 Web 类型函数部署，您可以通过 SCF 组件，快速创建与部署 Web 函数。
 
-
 ## 操作步骤
 
 1. 执行以下命令，初始化 Serverless Web 函数模板。
 ```sh
 sls init http-demo
 ```
-2. 进入示例项目，查看目录结构。示例如下：
+2. 进入示例项目，查看目录结构。示例如下： 
 ```
 . http-demo
 ├── serverless.yml  # 配置文件
@@ -27,7 +26,7 @@ sls init http-demo
 - 不填 `type` 参数时，默认为事件型函数。
 - 如果本地代码里无 `scf_bootstrap` 启动文件，您可以在 `yml` 里指定 `entryFile` 参数指定入口函数，组件会根据运行语言，为您生成默认 `scf_bootstrap` 启动文件完成部署。部署完成后，需根据您的实际项目情况，在 [云函数控制台](https://console.cloud.tencent.com/scf/index?rid=1) 修改 `scf_bootstrap` 文件内容。
 </dx-alert>
-示例 <code>yml</code> 如下:
+示例 <code>yml</code> 如下：
 <dx-codeblock>
 :::  yaml
 component: scf
@@ -56,7 +55,7 @@ inputs:
               method: ANY
 :::
 </dx-codeblock>
-4. 在根目录下执行 `sls deploy` 命令，即可完成服务部署。示例如下：
+4. 在根目录下执行 `sls deploy` 命令，即可完成服务部署。示例如下： 
 ```shell
 $ sls deploy
 serverless ⚡components
@@ -94,12 +93,11 @@ triggers:
 18s › http › 执行成功
 ```
 
-
 ## 相关命令
 
 ### 查看访问日志
 
-与事件型函数相同，可直接通过 `sls log` 命令查看部署完成的函数最近10条日志信息。示例如下：
+与事件型函数相同，可直接通过 `sls log` 命令查看部署完成的函数最近 10 条日志信息。示例如下： 
 ```sh
 $ sls log
 serverless ⚡components
@@ -112,7 +110,6 @@ Action: "log" - Stage: "dev" - App: "http" - Name: "http"
   duration:    0
   message: 
     """
-    """
 - 
   requestId: xxxxx
   retryNum:    0
@@ -121,18 +118,16 @@ Action: "log" - Stage: "dev" - App: "http" - Name: "http"
   duration:    0
   message: 
     """
-    """
 ```
 
 ### 测试服务
 
-- 方案1：在浏览器直接打开输出的路径 URL，如果可以正常访问，则说明函数创建成功。如下图所示：
+- 方案 1：在浏览器直接打开输出的路径 URL，如果可以正常访问，则说明函数创建成功。如下图所示：
 ![](https://main.qcloudimg.com/raw/5268439a29278030d6614d35d7b9933b.png)
-- 方案2：您可以使用其他 HTTP 测试工具，例如 CURL、POSTMAN 等工具测试您已创建成功的 Web 函数。如下示例为通过 CURL 工具测试：
+- 方案 2：您可以使用其他 HTTP 测试工具，例如 CURL、POSTMAN 等工具测试您已创建成功的 Web 函数。如下示例为通过 CURL 工具测试：
 ```sh
 curl https://service-xxx.cd.apigw.tencentcs.com/release/
 ```
-
 
 ### 删除服务
 
@@ -143,4 +138,3 @@ sls remove
 
 ### Web 框架迁移
 Serverless Framework Cli 还提供了专门针对 Web 框架部署的 HTTP 组件，快速实现 Web 框架部署、创建层、静态资源分离、CDN 加速等功能，使用方式请参考 [通过命令行完成框架部署](https://cloud.tencent.com/document/product/1154/59447)。
-

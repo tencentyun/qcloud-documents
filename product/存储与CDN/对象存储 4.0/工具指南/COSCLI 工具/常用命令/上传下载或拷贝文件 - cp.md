@@ -7,15 +7,15 @@ cp 命令用于上传、下载或拷贝文件。
 ./coscli cp <source_path> <destination_path> [flags]
 ```
 
->? 有关 bucketAlias 的说明，请参见 [配置](https://cloud.tencent.com/document/product/436/63144#alias)。
+>? 
+>- 有关 bucketAlias 的说明，请参见 [下载与安装配置](https://cloud.tencent.com/document/product/436/63144#alias)。
+>- 关于此命令的其他通用选项（例如切换存储桶、切换用户账号等），请参见 [通用选项](https://cloud.tencent.com/document/product/436/71763) 文档。
 >
 
 cp 命令包含以下可选 flag：
 
 | flag 简写 | flag 全称       | flag 用途                            |
 | --------- | --------------- | ------------------------------------ |
-| -h        | --help          | 输出帮助信息                         |
-| -c        | --config-path   | 指定要使用的配置文件路径             |
 |   无       | --include       | 包含特定模式的文件                   |
 |   无       | --exclude       | 排除特定模式的文件                   |
 | -r        | --recursive     | 是否递归遍历文件夹下所有文件       |

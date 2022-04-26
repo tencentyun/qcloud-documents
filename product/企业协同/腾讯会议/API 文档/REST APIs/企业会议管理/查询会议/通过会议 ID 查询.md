@@ -2,6 +2,7 @@
 - **描述**：通过会议 ID 查询会议详情。
  - 企业 secret 鉴权用户可查询到任何该用户创建的企业下的会议，OAuth2.0 鉴权用户只能查询到通过 OAuth2.0 鉴权创建的会议。
  - 本接口的邀请参会成员限制调整至300人。
+ - 当会议为周期性会议时，主持人密钥每场会议固定，但单场会议只能获取一次。支持查询周期性会议的主持人密钥。
 - **调用方式**：GET
 - **接口请求域名**：
 ```plaintext
@@ -18,6 +19,7 @@ https://api.meeting.qq.com/v1/meetings/{meetingId}?userid={userid}&instanceid={i
 | operator_id_type | 否   | Integer  | 操作者 ID 的类型：<br>3. rooms_id<br>**说明**：当前仅支持 rooms_id。如操作者为企业内 userid 或 openId，请使用 userid 字段。 |
 | userid |否 | String| 调用方用于标示用户的唯一 ID（企业内部请使用企业唯一用户标识；OAuth2.0 鉴权用户请使用 openId）。<br>企业唯一用户标识说明：<br>1. 企业对接 SSO 时使用的员工唯一标识 ID；<br>2. 企业调用创建用户接口时传递的 userid 参数。  |
 | instanceid | 是 | Integer|用户的终端设备类型： <br>1：PC <br>2：Mac<br>3：Android <br>4：iOS <br>5：Web <br>6：iPad <br>7：Android Pad <br>8：小程序 |
+
 
 ## 输出参数
 | 参数名称 |参数类型 | 参数描述 |
@@ -57,6 +59,8 @@ https://api.meeting.qq.com/v1/meetings/{meetingId}?userid={userid}&instanceid={i
 |guests   | Guest 数组     | 会议嘉宾列表（会议创建人才有权限查询）。                                                 |
 |has_vote   | Boolean     | 是否有投票（会议创建人和主持人才有权限查询）。                                                     |
 |enable_enroll   | Boolean     | 是否激活报名。                                                     |
+|enable_host_key   | Boolean     | 是否开启主持人密钥。<br>true：开启<br>false：关闭                                                     |
+|host_key   | Boolean     | 主持人密钥，仅支持6位数字（会议创建人才有权限查询）。<br>如开启主持人密钥后没有填写此项，将自动分配一个6位数字的密钥。                                                    |
 
 
 
@@ -194,7 +198,9 @@ GET https://api.meeting.qq.com/v1/meetings/7567173273889276131?userid=tester1&in
                 "phone_number":"xxxxxxxxx",
                 "guest_name":"xxxx"
             }
-        ]   
+        ],
+		"enable_host_key":true,
+        "host_key":"191810"
     }  
   ]
 }
@@ -274,7 +280,9 @@ GET https://api.meeting.qq.com/v1/meetings/7567173273889276131?userid=tester1&in
             "enable_live_im":true,
             "enable_live_replay":true,
             "live_addr":"https://meeting.tencent.com/l/xxxx"
-        }
+        },
+		"enable_host_key":true,
+        "host_key":"191810"
     }
   ]
 }

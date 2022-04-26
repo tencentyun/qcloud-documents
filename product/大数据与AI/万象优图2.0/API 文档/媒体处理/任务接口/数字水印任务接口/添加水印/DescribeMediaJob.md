@@ -99,21 +99,58 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzh****=
       <Object>test.mp4</Object>
     </Input>
     <Operation>
-      <Output>
-        <Region>ap-beijing</Region>
-        <Bucket>abc-1250000000</Bucket>
-        <Object>my-new.mp4</Object>
-      </Output>
       <DigitalWatermark>
-        <Type>Image</Type>
-        <Image>
-          <Region>ap-beijing</Region>
-          <Bucket>abc-1250000000</Bucket>
-          <Object>watermark.jpg</Object>
-        </Image>
-        <Level>1</Level>
-        <Version>1.0</Version>
-      </DigitalWatermark>    
+        <Type>Text</Type>
+        <Message>123456789ab</Message>
+        <Version>V1</Version>
+      </DigitalWatermark> 
+      <MediaInfo>
+        <Format>
+          <Bitrate>261.262000</Bitrate>
+          <Duration>107.000000</Duration>
+          <FormatLongName>QuickTime / MOV</FormatLongName>
+          <FormatName>mov,mp4,m4a,3gp,3g2,mj2</FormatName>
+          <NumProgram>0</NumProgram>
+          <NumStream>1</NumStream>
+          <Size>3494387</Size>
+          <StartTime>0.000000</StartTime>
+        </Format>
+        <Stream>
+          <Audio/>
+          <Subtitle/>
+          <Video>
+            <AvgFps>25.000000</AvgFps>
+            <Bitrate>258.825000</Bitrate>
+            <CodecLongName>H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10</CodecLongName>
+            <CodecName>h264</CodecName>
+            <CodecTag>0x31637661</CodecTag>
+            <CodecTagString>avc1</CodecTagString>
+            <CodecTimeBase>1/12800</CodecTimeBase>
+            <Dar>16:9</Dar>
+            <Duration>107.000000</Duration>
+            <Fps>25.000000</Fps>
+            <HasBFrame>2</HasBFrame>
+            <Height>360</Height>
+            <Index>0</Index>
+            <Language>und</Language>
+            <Level>30</Level>
+            <NumFrames>2675</NumFrames>
+            <PixFormat>yuv420p</PixFormat>
+            <Profile>High</Profile>
+            <RefFrames>1</RefFrames>
+            <Rotation>0.000000</Rotation>
+            <Sar>1:1</Sar>
+            <StartTime>0.000000</StartTime>
+            <Timebase>1/12800</Timebase>
+            <Width>640</Width>
+          </Video>
+        </Stream>
+      </MediaInfo>
+      <Output>
+        <Region>ap-bejing</Region>
+        <Bucket>bucket-1250000000</Bucket>
+        <Object>testout.mp4</Object>
+      </Output>
     </Operation>
   </JobsDetail>
 </Response>

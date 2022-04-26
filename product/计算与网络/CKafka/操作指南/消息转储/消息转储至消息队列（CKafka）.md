@@ -12,11 +12,11 @@
 
 转储消息队列 CKafka 的方案将使用 SCF 的 CKafka 触发器进行，通过 CKafka 触发器将消息同步至消息队列另一个集群内。
 
-1. 登录 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 。
+1. 登录 [CKafka 控制台](https://console.cloud.tencent.com/ckafka)。
 2. 在左侧导航栏单击**实例列表**，单击目标实例的“ID/名称”，进入实例详情页。
 3. 在实例详情页，单击**topic管理**标签页，单击操作列的**消息转储**。
 4. 单击**添加消息转储**，选择转储类型为**消息队列（CKafka）**。
-   ![](https://main.qcloudimg.com/raw/a0a0aa6c6fb77b0c248b4b51beabed95.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/154c886395bb5c09c302860cccc2b606.png)
     - 转储类型：选择消息队列（CKafka）
     - 转储实例：拉取当前地域的 CKafka 实例列表，如需转储至其他地域或自建 Kafka 请参见 [自定义转储设置](#2)。
     - 转储 Topic：拉取所选实例的 CKafka Topic 信息。
@@ -29,23 +29,19 @@
 
 在通用创建流程中，无法直接跨地域或对自建 Kafka 进行转储，需对函数进行相关网络或投递信息设置。跨地域转储操作流程如下：
 
-1. [新建 CKafka 转储模版](#1)，并跳转到云函数控制台，投递实例及 Topic 可任意填写。
-   ![](https://main.qcloudimg.com/raw/e14ce2d4cf4076455f6a986726ca46dd.png)
-
+1. [新建 CKafka 转储模板](#1)，并跳转到云函数控制台，投递实例及 Topic 可任意填写。
+![](https://qcloudimg.tencent-cloud.cn/raw/27fa2287352d8bcf329c3f0243b82b98.png)
 2. 在函数配置中修改**环境变量**及**所属网络**配置。
-   ![](https://main.qcloudimg.com/raw/b16778df86a40134bc4ca9e9f538e27f.png)
-
+![](https://qcloudimg.tencent-cloud.cn/raw/628a78cace9f4bc988712665c9a8858a.png)
    环境变量配置说明：
-   kafka_address ：Kafka IP 地址
-   kafka_topic_name： Kafka Topic 名称
-
-   > ?
-   > - 如 CKafka 跨地域转储，修改相关环境变量即可，VPC 网络需配置[**对等连接**](https://cloud.tencent.com/document/product/553/18836)。
-   > - 如 CVM 自建 Kafka，需修改为与自建 Kafka 相同的 VPC 及 Kafka Topic 信息。
-   > - 如其他自建 Kafka，需修改环境变量的 IP 及 Topic 信息为自建信息；如无专线需用云函数公网传输。
-
+   - kafka_address ：Kafka IP 地址
+   - kafka_topic_name： Kafka Topic 名称
+> ?
+> - 如 CKafka 跨地域转储，修改相关环境变量即可，VPC 网络需配置 [**对等连接**](https://cloud.tencent.com/document/product/553/18836)。
+> - 如 CVM 自建 Kafka，需修改为与自建 Kafka 相同的 VPC 及 Kafka Topic 信息。
+> - 如其他自建 Kafka，需修改环境变量的 IP 及 Topic 信息为自建信息；如无专线需用云函数公网传输。
 3. 保存相关配置，并开启转储功能可完成转储。
-   <img src="https://main.qcloudimg.com/raw/db05d6952c00395e8273401a146db8e8.png" width="60%" height="60%" />
+   <img src="https://main.qcloudimg.com/raw/2585bf0532b644732038dea0ccab56e6.png" width="60%" height="60%" />
 
 
 ## 更多配置说明
@@ -58,7 +54,6 @@
 ```
 kafka_to_kafka = KafkaToKafka(kafka_address)
 ```
-
 - `SASL_PLAINTEXT` 接入方式
  ```
  kafka_to_kafka= KafkaToKafka(    
@@ -71,12 +66,12 @@ kafka_to_kafka = KafkaToKafka(kafka_address)
   )    
  ```
 
- >?sasl_plain_username 包含**实例 ID** 和**用户名**，使用 **#** 拼接。
+>?sasl_plain_username 包含**实例 ID** 和**用户名**，使用 **#** 拼接。
 
 #### 转储日志查看及排障
 
 CKafka 转储能力基于 SCF 实现，可在 SCF 日志中查询到相关转储的信息及转储状态。
-![](https://main.qcloudimg.com/raw/72b610569e7300bfca6edc6bb1c3a119.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/7dc6a469ec4c48e46ca182d6d8de9b21.png)
 
 ## 产品限制和费用计算
 

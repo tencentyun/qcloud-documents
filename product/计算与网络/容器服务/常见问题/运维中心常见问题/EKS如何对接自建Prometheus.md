@@ -4,7 +4,7 @@
 
 ## EKS 如何对接腾讯云原生 Prometheus 监控？
 
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2/prometheus/list?rid=8)，选择左侧导航中的**云原生监控**。
+1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2/prometheus/list?rid=8)，选择左侧导航中的**云原生监控**。
 2. 创建监控实例，操作详情请参见 [监控实例管理](https://cloud.tencent.com/document/product/457/49889#.E5.88.9B.E5.BB.BA.E7.9B.91.E6.8E.A7.E5.AE.9E.E4.BE.8B)。
 3. 完成创建后，在“云原生监控”列表页中单击监控实例名称进入监控实例详情页。
 4. 在监控实例详情页，选择“关联集群”页签。

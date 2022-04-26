@@ -1,6 +1,5 @@
 在使用 License 的过程中，您可能会遇见以下问题，可以参考本文的解答。
-[](id:TE_License)
-## 腾讯特效 License 相关
+
 [](id:q1)
 ### 腾讯特效 License 与 腾讯特效 SDK 的关系？
 腾讯特效 License 可以理解是为获取腾讯特效 SDK 功能授权所需要的密钥和路径，而腾讯特效 SDK 是为了更好的使用整个服务所特定的软件包、软件框架、操作系统等建立应用软件时的开发工具集合。腾讯特效 SDK 的 License 信息是由一对 Key 和LicenseURL 组成，获取生效授权的 Key 和 LicenseURL 并填入到 SDK 中相应位置，便能启用腾讯特效功能。
@@ -32,27 +31,3 @@
 
 腾讯特效测试版 License 是统一签发的最高级版本 S1 - 04 的授权，您可以测试腾讯特效 SDK 的全功能。测试期结束前，您可以更换为与您使用场景匹配的正式版腾讯特效 SDK 和腾讯特效 License。
 
-
-[](id:Web_License)
-## 美颜特效 Web License 相关
-[](id:w1)
-### 测试版 Web License 和正式版 Web License 有何区别？
-
-- **测试版 Web License**：是赠送给您用来短期开发体验的，**有14天有效期，可以续期一次，合计有28天**。功能上和正式版 Web License 并无区别，都可以授权对应 Domain 和 WeChatAppId 使用。
-- **正式版 Web License**：是您通过购买获得（推广期间可以申请内测资源），有效期比较长，是您正式环境长期使用的 License。一个项目下的测试版 Web License 和正式版 Web License，其中只要有一个在有效期内就可以使用。
-
->! 一个用户最多只能申请10此测试 License。
-
-[](id:w2)
-### 如何开通正式版 Web License？
-
-需要购买 Web License 资源（推广期间可以免费申请 [视立方·Web 美颜特效](https://cloud.tencent.com/apply/p/9fuh8sv6fl)），申请通过够会获得正式版 Web License 资源，后续按照  [License 申请与购买](https://tcloud-doc.isd.com/document/product/616/71368?!preview&!editLang=zh#formal) 完成绑定后可以开通。
-
-[](id:w3)
-### SDK 接入后报错（referer 或者 WeChatAppId 不匹配）？
-请检查您控制台的 Domain 或者 WeChatAppId 配置是否与您实际使用的 Web 域名或 WeChatAppId 匹配，Web 域名如果有特殊端口（除80和443）需要加上端口号
-
-[](id:w3)
-### Token 和 LicenseKey 有何区别？
-- Token 是 SDK 调用腾讯服务接口的鉴权凭证，用来确定您的身份不会被伪造。
-- LicenseKey 是您在您的 **Web 网站**或者**微信小程序**上使用特效功能的授权。

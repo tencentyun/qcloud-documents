@@ -9,7 +9,7 @@
 
 ## 模板部署 -- 部署 Egg 示例代码
 1. 登录 [Serverless 应用控制台](https://console.cloud.tencent.com/sls)。
-2. 选择**Web 应用>Egg 框架**，如下图所示：
+2. 单击**新建应用**，选择**Web 应用>Egg 框架**，如下图所示：
 ![](https://main.qcloudimg.com/raw/379ce45910fccfa28f3e8c50de0fa00d.png)
 3. 单击“下一步”，完成基础配置选择。
 ![](https://main.qcloudimg.com/raw/9f22f8c1e5426b5d3d54631caabde012.png)
@@ -88,7 +88,7 @@ app.listen(9000, '0.0.0.0', () => {
 });
 ```
 
-新建完成后，还需执行以下命令修改文件可执行权限，默认需要 `777` 或 `755` 权限才可正常启动。示例如下：
+新建完成后，还需执行以下命令修改文件可执行权限，默认需要 `777` 或 `755` 权限才可正常启动。示例如下： 
 ```sh
 chmod 777 scf_bootstrap
 ```
