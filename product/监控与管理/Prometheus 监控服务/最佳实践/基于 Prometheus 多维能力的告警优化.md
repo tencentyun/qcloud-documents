@@ -54,14 +54,9 @@
 
 ### 步骤2：配置抓取任务
 
-
 1. 您新建 Prometheus 实例后，可以在实例详情页 > Agent 管理 > 抓取任务中，通过标签来抓取部署在  CVM 上服务暴露的指标。
-<img src="https://qcloudimg.tencent-cloud.cn/raw/40e7104ff022f7caa15af03dc9176e49.png" width="60%"></img>
-
-
+![](https://qcloudimg.tencent-cloud.cn/raw/fcaeca1f1a8c3e8077615a45319c8abc.png)
 >? 详细请参考 [cvm_sd_config 配置](https://cloud.tencent.com/document/product/1416/55995#cvm_sd_config-.E9.85.8D.E7.BD.AE)。
-
-
 2. 验证数据是否抓取成功。通过 Grafana 查询对应的指标和标签。
 ![](https://qcloudimg.tencent-cloud.cn/raw/cb249d289342c346da35f00c1984a239.png)
 
@@ -71,7 +66,7 @@
 
 
 1. 配置服务宏观层面的告警：当服务的成功率低于两个9(0.99)时告警。
-   ![](https://qcloudimg.tencent-cloud.cn/raw/c3742d764098aee2a8f6fc88e29e8949.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/c3742d764098aee2a8f6fc88e29e8949.png)
 效果如下图所示，当上报的三个服务(登录，查看产品详情页，下单)成功率低于0.99时，就会触发告警。
 ![](https://qcloudimg.tencent-cloud.cn/raw/4d2f84863e853adf9aec5b38e76127fd.png)
 2. 配置服务更细维度的告警：当服务某个区域的成功率低于0.99时，触发告警。
