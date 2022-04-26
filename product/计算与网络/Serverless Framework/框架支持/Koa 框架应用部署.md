@@ -17,7 +17,7 @@
 
 ### 模板部署 -- 部署 Koa 示例代码
 1. 登录 [Serverless 应用控制台](https://console.cloud.tencent.com/sls)。
-2. 选择**Web 应用>Koa 框架**，如下图所示：
+2. 单击**新建应用**，选择**Web 应用>Koa 框架**，如下图所示：
 ![](https://main.qcloudimg.com/raw/fb2c3d23447e36dc0fb1190002edd780.png)
 3. 单击“下一步”，完成基础配置选择。
 4. 上传方式，选择**示例代码**直接部署，单击**完成**，即可开始应用的部署。
