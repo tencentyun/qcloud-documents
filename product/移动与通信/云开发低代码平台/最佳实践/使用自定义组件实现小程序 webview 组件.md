@@ -104,6 +104,7 @@ export default {
 };
 :::
 </dx-codeblock>
+
 ### 步骤5：调试组件库
 1. 在 cmd 工具中输入 `cd mydemo` 命令后进入组件文件夹，之后输入 `tcb lowcode debug` 即可进行组件库的调试。
 2. 此时浏览器会自动打开组件调试页面，在左侧配置区中可以看到 webview 组件已正常展示，并且可以在右侧的组件配置区中进行 webview 组件链接的配置。
