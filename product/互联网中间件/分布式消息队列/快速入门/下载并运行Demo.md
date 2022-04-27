@@ -12,7 +12,7 @@
 
 ## 操作步骤
 
-1. 下载 Demo（[Demo下载地址](https://tdmq-document-1306598660.cos.ap-nanjing.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91demo/pulsar/tdmq-java-client.zip
+1. 下载 Demo（[Demo 下载地址](https://tdmq-document-1306598660.cos.ap-nanjing.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91demo/pulsar/tdmq-java-client.zip
 )），并配置相关参数。
    **关于 Maven 依赖**
 pom.xml 文件中的依赖是按照 Pulsar 的官方依赖进行配置的，详情可以参见 [其官方文档](https://pulsar.apache.org/docs/en/client-libraries-java/)。
@@ -106,7 +106,7 @@ Consumer<byte[]> consumer = client.newConsumer()
 :::
 </dx-codeblock>
 <dx-alert infotype="explain" title="">
-- Topic 名称需要填入完整路径，即“persistent://clusterid/namespace/Topic”，clusterid/namespace/topic 的部分可以从控制台上 **[Topic管理](https://console.cloud.tencent.com/tdmq/topic)** 页面直接复制。
+- Topic 名称需要填入完整路径，即“persistent://clusterid/namespace/Topic”，clusterid/namespace/topic 的部分可以从控制台上 **[Topic 管理](https://console.cloud.tencent.com/tdmq/topic)** 页面直接复制。
 ![](https://qcloudimg.tencent-cloud.cn/raw/e391fcde54f18545de2f53c8e74e85ff.png)
 - subscriptionName 需要写入订阅名，可在**消费管理**界面查看。
 </dx-alert>
@@ -121,7 +121,7 @@ Producer<byte[]> producer = client.newProducer()
 :::
 </dx-codeblock>
 <dx-alert infotype="explain" title="">
-Topic 名称需要填入完整路径，即“persistent://clusterid/namespace/Topic”，clusterid/namespace/topic 的部分可以从控制台上 **[Topic管理](https://console.cloud.tencent.com/tdmq/topic)** 页面直接复制。
+Topic 名称需要填入完整路径，即“persistent://clusterid/namespace/Topic”，clusterid/namespace/topic 的部分可以从控制台上 **[Topic 管理](https://console.cloud.tencent.com/tdmq/topic)** 页面直接复制。
 </dx-alert>
 <b>生产消息</b>
 <dx-codeblock>
