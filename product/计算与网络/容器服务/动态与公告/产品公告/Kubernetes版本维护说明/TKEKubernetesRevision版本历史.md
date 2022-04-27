@@ -443,7 +443,7 @@ TKE 支持混合云节点。(kube-controller-manager)</td>
 <tr><th width="13%">时间</th><th width="13%">版本</th><th width="74%">更新内容</th></tr>
 </thead>
 <tbody>
-	<tr><td>2022-04-13</td><td>v1.14.3-tke.27</td><td>合并<a rel="nofollow" href="https://github.com/kubernetes/kubernetes/pull/78428">PR78428</a>, 避免在导出 iptables 规则时写入警告信息，导致恢复时 kube-proxy panic。(kube-proxy)</td></tr>
+<tr><td>2022-04-13</td><td>v1.12.4-tke.31</td><td>合并<a rel="nofollow" href="https://github.com/kubernetes/kubernetes/pull/78428">PR78428</a>, 避免在导出 iptables 规则时写入警告信息，导致恢复时 kube-proxy panic。(kube-proxy)</td></tr>
 <tr><td>2022-01-20</td><td>v1.12.4-tke.30</td><td> 支持把 LB 地址绑定到 ipvs 网卡。(kube-proxy)</td></tr>
 <tr>
     <td>2021-05-06</td>	
