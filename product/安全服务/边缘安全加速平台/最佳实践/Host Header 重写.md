@@ -10,6 +10,5 @@
 3. 在规则引擎页面，匹配类型 **Host**，操作选择 **Host Header 重写**，并按需配置其他参数，单击**保存发布**或**仅保存**。
 >?目前支持的匹配类型为 Host。
 >
-![](https://qcloudimg.tencent-cloud.cn/raw/b254dd6229e9e0ec28931f030a8a16d3.png)
    
 
