@@ -728,7 +728,7 @@ coscmd getbucketversioning
 ```plaintext
 coscmd restore <cospath>
 ```
-- 操作示例 - 极速模式回热 picture.jpg ，有效期3天
+- 操作示例 - 快速取回模式回热 picture.jpg ，有效期3天
 ```plaintext
 coscmd restore -d 3 -t Expedited picture.jpg
 ```
@@ -736,7 +736,7 @@ coscmd restore -d 3 -t Expedited picture.jpg
 ```plaintext
 coscmd restore -r <cospath>
 ```
-- 操作示例 - 极速模式回热 examplefolder/ 目录，有效期3天
+- 操作示例 - 快速取回模式回热 examplefolder/ 目录，有效期3天
 ```plaintext
 coscmd restore -r -d 3 -t Expedited examplefolder/
 ```
@@ -744,7 +744,7 @@ coscmd restore -r -d 3 -t Expedited examplefolder/
 >?
 > - 请将 "<>" 中的参数替换为您需要查询文件列表的 COS 上文件的路径（cospath）。
 > - 使用 `-d <day>` 设置临时副本的过期时间，默认值：7。
-> - 使用 `-t <tier>` 指定恢复模式，枚举值：Expedited （极速模式），Standard （标准模式），Bulk（批量模式），默认值：Standard。
+> - 使用 `-t <tier>` 指定恢复模式，枚举值：Expedited （快速取回模式），Standard （标准取回模式），Bulk（批量取回模式），默认值：Standard。
 >
 
 ## 常见问题
