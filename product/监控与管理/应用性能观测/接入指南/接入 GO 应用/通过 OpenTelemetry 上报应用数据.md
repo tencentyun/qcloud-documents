@@ -17,40 +17,7 @@ OpenTelemetry 是工具、API 和 SDK 的集合。使用它来检测、生成、
 
 
 
-### 步骤二：下载 OpenTelemetry Collector
-
-
->?如果您的应用已使用了 OpenTelemetry SDK 和 OpenTelemetry Collector。将 Endpoint 配置为本地部署的 OpenTelemetry Collector 地址后，无需配置鉴权信息，只需在 OpenTelemetry Collector 配置 OTLP Exporter（包含 Endpoint 以及鉴权信息）向链路追踪服务端上报数据。
-
-根据您系统的版本下载 [OpenTelemetry Collector](https://github.com/open-telemetry/opentelemetry-collector-releases/releases/tag/v0.47.0)，下载完后解压文件到您的项目位置，得到执行文件"otelcol-contrib"。
-
-### 步骤三：创建 otel-config.yaml 配置文件
-
-参考 [OpenTelemetry官方示例](https://github.com/open-telemetry/opentelemetry-collector/blob/main/examples/local/otel-config.yaml?spm=a2c4g.11186623.0.0.30f47ad149ue1y&file=otel-config.yaml)创建 otel-config.yaml 配置文件，并按照下方代码修改  `exporters`  （接入点和 Token 需修改成步骤一获取的值）:
-
-```
-exporters:
-  otlp:
-    endpoint: <接入点>:8090 
-    tls:
-      insecure: true
-    headers:
-      Authentication: <Token>
-```
-
->?替换对应参数值时，“< >”符号需删去，仅保留文本。
-
-### 步骤四：启动 OpenTelemetry Collector
-
-执行以下命令启动OpenTelemetry Collector
-
-```
-./otelcol-contrib --config="./otel-config.yaml"
-```
-
-
-
-### 步骤五：上报 Go 应用数据
+### 步骤二：上报 Go 应用数据
 
 1.引入 opentelemtry-sdk 依赖，进行 sdk 埋点上报，首先对 trace 进行构造：
 
@@ -168,7 +135,7 @@ func main() {
 >?若需要上报服务端数据，则需要指明字段 span.kind = server 
 ><img src="https://qcloudimg.tencent-cloud.cn/raw/83246ec0c0c55a492c49401105e2bd58.png" width=55%"">
 
-### 步骤六：启动您的应用
+### 步骤三：启动您的应用
 
 ### 查看应用数据
 
