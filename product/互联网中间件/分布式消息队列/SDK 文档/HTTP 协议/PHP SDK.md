@@ -86,7 +86,7 @@ require '/path/to/vendor/autoload.php';
        // 已授权角色名称
        "ProducerName" => $userName,
        // 发送消息超时时间
-       "SendTimeout" => 3000A
+       "SendTimeout" => 3000
    );
    $req->fromJsonString(json_encode($params));
    

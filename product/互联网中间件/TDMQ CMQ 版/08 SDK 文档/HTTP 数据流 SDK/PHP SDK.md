@@ -41,7 +41,7 @@ require '/path/to/vendor/autoload.php';
    $params = array(
        "QueueName" => "queue_api",  // 消息队列名称
        // 以下是死信队列相关配置
-       "DeadLetterQueueName" => "dead_queue_api", // 死信队列名称
+       "DeadLetterQueueName" => "dead_queue_api", // 死信队列名称，该队列需要优先创建
        "Policy" => 0,  // 死信策略。0为消息被多次消费未删除，1为Time-To-Live过期
        "MaxReceiveCount" => 3  // 最大接收次数 1-1000
        // MaxTimeToLive  policy为1时必选。最大未消费过期时间。范围300-43200，单位秒，需要小于消息最大保留时间msgRetentionSeconds

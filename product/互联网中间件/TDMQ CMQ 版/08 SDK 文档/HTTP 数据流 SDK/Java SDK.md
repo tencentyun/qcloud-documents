@@ -14,12 +14,20 @@
 2. 引入 CMQ 客户端相关依赖。
 <dx-codeblock>
 :::  xml
-   <!-- cmq sdk -->
-   <dependency>
-       <groupId>com.qcloud</groupId>
-       <artifactId>cmq-http-client</artifactId>
-       <version>1.0.7</version>
-   </dependency>
+<!-- cmq sdk -->
+<dependency>
+    <groupId>com.qcloud</groupId>
+    <artifactId>cmq-http-client</artifactId>
+    <version>1.0.7</version>
+</dependency>
+
+<!-- 云API sdk -->
+<dependency>
+    <groupId>com.tencentcloudapi</groupId>
+    <artifactId>tencentcloud-sdk-java</artifactId>
+    <version>3.1.423</version>
+</dependency>
+
 :::
 </dx-codeblock>
 3. 发送消息。
@@ -95,12 +103,20 @@
 2. 引入 CMQ 客户端相关依赖。
 <dx-codeblock>
 :::  xml
-   <!-- cmq sdk -->
-   <dependency>
-       <groupId>com.qcloud</groupId>
-       <artifactId>cmq-http-client</artifactId>
-       <version>1.0.7</version>
-   </dependency>
+<!-- cmq sdk -->
+<dependency>
+    <groupId>com.qcloud</groupId>
+    <artifactId>cmq-http-client</artifactId>
+    <version>1.0.7</version>
+</dependency>
+
+<!-- 云API sdk -->
+<dependency>
+    <groupId>com.tencentcloudapi</groupId>
+    <artifactId>tencentcloud-sdk-java</artifactId>
+    <version>3.1.423</version>
+</dependency>
+
 :::
 </dx-codeblock>
 3. 创建 Topic 对象。
