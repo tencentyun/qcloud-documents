@@ -5,22 +5,19 @@ OpenTelemetry 是工具、API 和 SDK 的集合。使用它来检测、生成、
 
 ### 步骤一：获取接入点和 Token
 
-进入 [应用性能观测控制台](https://console.cloud.tencent.com/apm) **应用监控** > **应用列表**页面，单击**接入应用**，在接入应用时选择 Go语言与 OpenTelemetry 的数据采集方式。
+进入 [应用性能观测控制台](https://console.cloud.tencent.com/apm) **应用监控** > **应用列表**页面，单击**接入应用**，在接入应用时选择 Go 语言与 OpenTelemetry 的数据采集方式。
 在选择接入方式步骤获取您的接入点和 Token，如下图所示：
 ![](https://main.qcloudimg.com/raw/d7d94913947d31edf70e85c6462c6bac.png)
 
 <dx-alert infotype="explain" title="上报方式说明">
-
 - 内网上报：使用此上报方式，您的服务需运行在腾讯云 VPC 。通过 VPC 直接联通，在避免外网通信的安全风险同时，可以节省上报流量开销。
 - 外网上报：当您的服务部署在本地或非腾讯云 VPC 内，可以通过此方式上报数据。请注意外网通信存在安全风险，同时也会造成一定上报流量费用。
-  </dx-alert>
-
+</dx-alert>
 
 
 ### 步骤二：上报 Go 应用数据
 
-1.引入 opentelemtry-sdk 依赖，进行 sdk 埋点上报，首先对 trace 进行构造：
-
+1. 引入 opentelemtry-sdk 依赖，进行 sdk 埋点上报，首先对 trace 进行构造：
 ```
 import (
 	"context"
@@ -63,11 +60,7 @@ func Init(ctx context.Context) *sdktrace.TracerProvider {
 	return tp
 }
 ```
-
-
-
-2.以 grpc 为例，服务端代码中，首先进行 trace 的初始化，并在创建服务时设置拦截器，再根据自身的服务编写服务代码即可。
-
+2. 以 grpc 为例，服务端代码中，首先进行 trace 的初始化，并在创建服务时设置拦截器，再根据自身的服务编写服务代码即可。
 ```
 func main() {
 
@@ -96,14 +89,8 @@ func main() {
 		log.Fatalf("failed to serve: %v", err)
 	}
 }
-
-
 ```
-
-
-
-3.以 grpc 为例，客户端代码中，依然首先进行 trace 的初始化，并建立链接。
-
+3. 以 grpc 为例，客户端代码中，依然首先进行 trace 的初始化，并建立链接。
 ```
 func main() {
 	tp := trace.Init()    //初始化
@@ -130,14 +117,13 @@ func main() {
 	}
 ```
 
-
-
 >?若需要上报服务端数据，则需要指明字段 span.kind = server 
 ><img src="https://qcloudimg.tencent-cloud.cn/raw/83246ec0c0c55a492c49401105e2bd58.png" width=55%"">
 
 ### 步骤三：启动您的应用
 
-### 查看应用数据
 
+
+### 查看应用数据
 登录 [应用性能观测控制台](https://console.cloud.tencent.com/apm) ，在应用列表中即可查看性能数据。
 
