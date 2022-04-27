@@ -31,8 +31,9 @@ Namespace = QCE/CHDFS
 ## 入参说明
 
 **查询云 HDFS控数据，入参取值如下：**
- &Instances.N.Dimensions.0.Name = appid
- &Instances.N.Dimensions.0.Value = 主账号的 APPID
+
 &Namespace =QCE/CHDFS
-&Instances.N.Dimensions.0.Name =filesystemid
-&Instances.N.Dimensions.0.Value =具体文件系统 ID
+&Instances.N.Dimensions.0.Name = appid
+&Instances.N.Dimensions.0.Value = 主账号的 APPID
+&Instances.N.Dimensions.1.Name =filesystemid
+&Instances.N.Dimensions.1.Value =具体文件系统 ID
