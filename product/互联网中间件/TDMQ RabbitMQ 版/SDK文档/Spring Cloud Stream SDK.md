@@ -76,7 +76,7 @@ spring:
           environment:
             spring:
               rabbitmq:
-                host: 192.168.xxx.xxx #集群接入地址，在集群管理页面操作列的获取接入地址获取。
+                host: amqp-xxx.rabbitmq.xxx.tencenttdmq.com #集群接入地址，在集群管理页面操作列的获取接入地址获取。
                 port: 5672
                 username: admin #角色名称
                 password: password #角色密钥
@@ -125,7 +125,6 @@ spring:
 </tbody></table>
 2. 创建配置文件加载程序。
    - OutputMessageBinding.java
-
 <dx-codeblock>
 :::  java
 public interface OutputMessageBinding {
