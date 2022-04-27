@@ -17,7 +17,6 @@ NAT 防火墙 DNS 开关开启后，系统会修改所接入 VPC 的 DNS 解析�
 ## 步骤1：创建 NAT 防火墙[](id:step1)
 1. 登录 [云防火墙控制台](https://console.cloud.tencent.com/cfw/asset)，在左侧导航中，单击**防火墙开关** > **NAT 边界开关** > **网络拓扑**。
 2. 在网络拓扑页面，单击**创建实例**，选择所需地域。
-![](https://qcloudimg.tencent-cloud.cn/raw/52ddea2afea3ed5f3cc6efaeaf0b43d0.png)
 3. 在新建 NAT 边界防火墙弹窗中，配置相关参数，单击**下一步**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/c5b25f65243eb0f72e86f0ec1720ba0e.png)
 	**字段说明：**
@@ -43,7 +42,7 @@ NAT 防火墙 DNS 开关开启后，系统会修改所接入 VPC 的 DNS 解析�
 1. 在 [NAT 边界开关页面](https://console.cloud.tencent.com/cfw/switch/nat?tab=switch)，单击**防火墙实例** ，选择 [步骤1](#step1) 创建的防火墙实例，单击**实例配置**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/b64f6c312382ec1afe7b41e03a1b208d.png)
 2. 在接入 VPC 与公网 IP 页面，选择所需 ID，单击![](https://qcloudimg.tencent-cloud.cn/raw/c69a24ce06731d4a9ee567c815e80bd3.png)开启 DNS 流量。
-![](https://qcloudimg.tencent-cloud.cn/raw/2184523886f230aa78b0f9e5fb5c0e5a.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/2cf0d8ac880bb7a5477f74c8670c4f32.png)
 3. 通过 `ipconfig /release Ipconfig /renew` 刷新 DNS 获取地址。
 ![](https://qcloudimg.tencent-cloud.cn/raw/2614729ca469a64c5e23cff791d076aa.png)
 
