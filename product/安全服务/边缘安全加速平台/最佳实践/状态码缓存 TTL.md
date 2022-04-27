@@ -11,7 +11,6 @@
 >?目前边缘安全加速平台控制台仅对部分用户开放，如需访问控制台，请 [联系我们](https://cloud.tencent.com/online-service) 开通权限。
 >
 3. 在规则引擎页面，选择所需站点，单击![img](https://qcloudimg.tencent-cloud.cn/raw/fe4d4900f8ad69d506adc49bdb70fa32.png)可按需配置状态码缓存 TTL 规则。
-![](https://qcloudimg.tencent-cloud.cn/raw/3c0d875c88d9946773809511017c75fb.png)
 3. 在规则引擎页面，THEN 选择**状态码缓存 TTL**，并按需配置其他参数，单击**保存发布**或**仅保存**。
 >!目前支持的匹配类型为全部（任意请求），Host 或文件后缀。
 >
