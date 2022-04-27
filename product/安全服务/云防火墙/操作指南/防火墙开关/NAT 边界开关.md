@@ -182,7 +182,7 @@ NAT 边界防火墙开关支持基于内网资产进行流量管控与安全防�
 
 ### 同步资产
 在 [NAT 边界开关](https://console.cloud.tencent.com/cfw/switch/nat) 页面下，单击**同步资产**，可以主动调用后台接口重新读取并同步用户子网的资产信息，可避免发生因用户资产规模在后台轮询间隔内发生变化，但尚未被同步的情况。
-![](https://main.qcloudimg.com/raw/562aca3bf423d65b4f42fd7d5b469e67.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/291374cd2e00814e7a2414c9c328e29e.png)
 
 ### 对 VPC 及 NAT 进行其他操作
 #### **增加接入 VPC/NAT**
