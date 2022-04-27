@@ -17,7 +17,7 @@
 6. 将**当前状态**设置为打开状态，单击**确定**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/172bc37310b75d92d9e5eeb4b504b458.png)
 7. 根据 CLS 给出消费的 Topic 信息，构造消费者即可。
-![](https://qcloudimg.tencent-cloud.cn/raw/c9027ea06c3bdc04a7464d21908143c3.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/bbd3cc0ffe3e7bc24ac5da73d1b7ed6e.png)
 
 
 ## 操作示例

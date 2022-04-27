@@ -2,14 +2,9 @@
 
 您可以登录对象存储（Cloud Object Storage，COS）控制台，为存储桶开启CLS日志服务的实时日志功能。 CLS提供**存储桶对象操作**相关的各种请求日志的分钟粒度的上报、实时检索、可视化与告警的强大功能。 开启实时日志功能，可以帮助您更好的分析当前存储桶的访问情况，并且在访问异常时，快速定位问题。
 
-
-<dx-alert infotype="notice" title="前提条件">
-<li>目前 COS 的实时日志功能开启需要开启白名单， 请前往 <a href="https://cloud.tencent.com/online-service?from=connect-us">联系我们</a> 申请开启实时日志功能。</li>
-<li>为 COS 存储桶开启实时日志功能，需先 <a href="https://cloud.tencent.com/product/cls">开通 CLS 日志服务</a>。</li>
-</dx-alert>
-
-
-
+## 前提条件
+- 目前 COS 的实时日志功能开启需要开启白名单， 请前往 <a href="https://cloud.tencent.com/online-service?from=connect-us">联系我们</a> 申请开启实时日志功能。
+- 为 COS 存储桶开启实时日志功能，需先 <a href="https://cloud.tencent.com/product/cls">开通 CLS 日志服务</a>。
 
 
 ## 操作步骤

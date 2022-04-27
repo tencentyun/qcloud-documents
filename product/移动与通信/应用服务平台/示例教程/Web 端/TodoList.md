@@ -9,13 +9,13 @@
    如果您之前创建过环境，可以继续使用已创建的**按量计费环境**，或者再次**新建环境**。
    ![](https://main.qcloudimg.com/raw/68f9e9836035f548aa840ad1c2a17a77.png)
 3. <span id="step1.3"></span>开通成功之后，单击环境名称，进入 [环境总览](https://console.cloud.tencent.com/tcb/env/overview) 页面，如下所示：
-	 ![](https://main.qcloudimg.com/raw/d592affbb4342ab13ad3825fbc38a466.jpg)
+![](https://qcloudimg.tencent-cloud.cn/raw/a2860d0f52afff9800cb66d5a60d4d03.jpg)
 > !请记住您的环境 ID，这个 ID 在后续步骤将被使用。您可单击**环境Id**右侧的<img src="https://main.qcloudimg.com/raw/a06f957521023a64e977041f9181f251.jpg"  style="margin:0;">图标进行复制。
 
 ## 步骤1：开启匿名登录
 
 搭建 Todo List 应用，需开启**匿名登录**功能，请前往 [登录授权](https://console.cloud.tencent.com/tcb/env/login) 控制台，打开**匿名登录**开关，如下图所示：
-![](https://main.qcloudimg.com/raw/c73984317a7b0cbe584d0b4010538fe1.jpg)
+![](https://qcloudimg.tencent-cloud.cn/raw/f83fad336b179e9457e5b05d95e0a32c.jpg)
 
 ## 步骤2：建立本地 Todo List 文件
 
@@ -24,7 +24,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <script src="https://acc.cloudbase.vip/todo/src/todo.js" charset="utf-8"></script>
+  <script src="https://upload-dianshi-1255598498.file.myqcloud.com/todo-698d26c543e7f35729c121106f55ef1ffaeca67d.js" charset="utf-8"></script>
   <script src="https://imgcache.qq.com/qcloud/tcbjs/1.10.8/tcb.js"></script>
 </head>
 <body>
@@ -145,9 +145,9 @@
 
 1. 登录 [云开发控制台](https://console.cloud.tencent.com/tcb/env/index)，进入在 [准备工作](#.E5.87.86.E5.A4.87.E5.B7.A5.E4.BD.9C) 中已经创建好的**按量计费**环境。
 2. 进入云开发控制台的 [静态网站托管](https://console.cloud.tencent.com/tcb/hosting)，单击**上传文件**，上传 [步骤2](#.E6.AD.A5.E9.AA.A42.EF.BC.9A.E5.BB.BA.E7.AB.8B.E6.9C.AC.E5.9C.B0-todo-list-.E6.96.87.E4.BB.B6) 中的 `index.html` 文件。
-	 ![](https://main.qcloudimg.com/raw/0533ef25609e1c760f36f94f13f198d9.jpg)
+![](https://qcloudimg.tencent-cloud.cn/raw/444c00ee3f854be1092efb5bed1ad952.jpg)
 3. 上传完毕后，单击**配置信息**中的**默认域名**，在浏览器中打开该链接，即可在公网环境下访问 Todo List 网站。
-	 ![](https://main.qcloudimg.com/raw/b83ef726ab59ac8e060e656dec173162.jpg)
+![](https://qcloudimg.tencent-cloud.cn/raw/199ae73a33116fecad9b99452715e743.jpg)
 >?默认域名可供您快速验证业务，如您需要对外正式提供网站服务，请前往**基础配置**绑定您已备案的自定义域名。
 
 ## 步骤4：创建数据库
@@ -155,7 +155,7 @@
 该步骤中您将使用云开发的**数据库**功能，将 Todo List 应用内的数据存储在云数据库中。
 
 进入云开发控制台的 [数据库](https://console.cloud.tencent.com/tcb/db) 中，单击**新建集合**，新建一个名称为`todo`的集合，如下图所示：
-![](https://main.qcloudimg.com/raw/03ec8f9708f6e9d376851f1e6866dcc6.jpg)
+![](https://qcloudimg.tencent-cloud.cn/raw/f5a1b9452a70509da2b2dac442d1c3a0.jpg)
 
 之后 Todo List 内的数据便会存储在这个集合中。
 
@@ -165,16 +165,16 @@
 
 1. 进入云开发控制台的 [云函数](https://console.cloud.tencent.com/tcb/scf)，单击**新建云函数**，开始创建云函数
 	1. 在基础信息中，将函数名命名为`todo_getNumber`。
-![](https://main.qcloudimg.com/raw/2a60763ac74aa5e8f3c78ba90fd6c943.jpg)
+![](https://qcloudimg.tencent-cloud.cn/raw/c070c2fed288e9d6950c24bed6158e18.jpg)
 	2. 在函数配置中，均选择默认配置。
-	![](https://main.qcloudimg.com/raw/6525cfdf41baaee2040f1b231ca5042a.jpg)
+![](https://qcloudimg.tencent-cloud.cn/raw/46867882b9408154c9b3bbb3fbfbe1ce.jpg)
 	3. 单击**确定**，即可创建云函数。
 2. 上传云函数代码包。
- 1. [单击下载](https://gitee.com/TencentCloudBase/Cloudbase-Examples/raw/master/web/todo_getNumber.zip) 云函数代码 ZIP 包（需要注册 Gitee 才可进行下载）。
+ 1. [单击下载](https://upload-dianshi-1255598498.file.myqcloud.com/todo_getNumber-844b59708eb69a064741989333abcd8bc3a67ffa.zip) 云函数代码 ZIP 包（需要注册 Gitee 才可进行下载）。
  2. 进入创建好的 `todo_getNumber` 函数，单击**函数代码**页签，进入函数代码页面。
  3. 在**提交方法**选项中，选择**本地上传ZIP包**，并单击**上传**，将下载的云函数代码包 ZIP上传至云开发中。
  4. 单击**保存**，即可完成上传云函数代码包。
-![](https://main.qcloudimg.com/raw/f64fdea53e6db6a50ebbfba8119477cf.jpg)
+![](https://qcloudimg.tencent-cloud.cn/raw/f4507d292f8cd9abd9546663a7039037.jpg)
 
 ## 步骤6：开始使用
 

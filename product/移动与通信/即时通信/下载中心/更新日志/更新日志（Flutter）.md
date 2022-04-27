@@ -1,3 +1,13 @@
+## IM Flutter SDK 3.9.3 @2022.4.20
+- 修复群禁言群 tips boolValue 丢失问题
+ - 目前群信息变更回调返回的数据为 key(string)-value(string) 形式，新增 key(string)-boolValue(bool) 形式
+- 修复会话实例少解析了 nameCard 字段问题
+- 新增群已读回执相关接口
+ - [sendMessageReadReceptes](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/sendMessageReadReceipts.html) 发送群消息已读回执
+ - [getMessageReadReceptes](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/getMessageReadReceipts.html) 获取自己发送消息的已读回执
+ - [getgroupMessageReadMemeberList](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/getGroupMessageReadMemberList.html) 获取自己发送的群消息已读（未读）群成员列表
+- Flutter for Web 完善
+
 ## IM Flutter SDK 3.9.1 @2022.3.24
 - 升级底层库版本到6.1.2155
 
@@ -62,7 +72,7 @@
 - 修复 java 语法错误
 
 ## IM Flutter SDK 3.6.4  @2021.12.17
-- 修复安卓异步注册事件无返回 bug
+- 修复 Android 异步注册事件无返回 bug
 - 修复移除基础监听事件报错
 - 消息进度事件增加发送中的消息的 uuid
 

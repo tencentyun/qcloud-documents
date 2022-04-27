@@ -243,7 +243,7 @@ CloudShell 为用户的调试工具，仅支持通过公网域名访问，不支
 ::: 
 ::: 独立运行[](id:startMethodTwo)
 您可通过以下方式，独立运行 CloudShell：
- - 在浏览器中输入 `https://console.cloud.tencent.com/cloudshell`。
+ - 在浏览器中输入 `https://iaas.cloud.tencent.com/cloudshell`。
  - 进入 [API Explorer](https://console.cloud.tencent.com/api/explorer)，选择对应接口后单击**调试SDK示例代码**即可。如下图所示：
 ![](https://main.qcloudimg.com/raw/63f490b59e016ce0821a575d43f6398f.png)
  - 打开 API Inspector，单击 <img src="https://main.qcloudimg.com/raw/c355dd68f4d46b218bb1ca9dd8b268a3.png" style="margin:-3px 0px"> 即可。如下图所示：
