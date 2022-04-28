@@ -32,7 +32,7 @@ TPS 和 TMP 已上线“收费指标采集速率”的能力，您可以用该�
 ![](https://qcloudimg.tencent-cloud.cn/raw/0b4e14f6fc8433fd42aaf48f2f4e5a36.png)
 您也可以单击实例名称右侧的**一键迁移**，获取该 TPS 实例迁移到 TMP 之后的预估价格。或者在“关联集群”、“数据采集配置”、“指标详情”等多个页面查看到不同维度下的“收费指标采集速率”。
 
-#### （旧）TPS Prometheus 数据查询地址和 Grafana 地址 
+### （旧）TPS Prometheus 数据查询地址和 Grafana 地址 
 
 如果您有相关的程序平台或系统依赖 TPS 的 **Prometheus 数据查询地址和 Grafana 地址**。迁移后请及时更换为 TMP 里面相应的地址。否则旧的 TPS 实例在服务停止删除后，您的 **Prometheus 数据查询地址和 Grafana 地址** 将失效。
 
@@ -40,7 +40,7 @@ TPS 和 TMP 已上线“收费指标采集速率”的能力，您可以用该�
 2. 单击实例 ID ，进入实例的“基本信息”页，如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/e2ed79d929472bbc1da0fb1e9cbb3fef.png)
 
-#### （新）TMP Prometheus 数据查询地址和 Grafana 地址 
+### （新）TMP Prometheus 数据查询地址和 Grafana 地址 
 
 >? TMP 对查询接口增加了鉴权，例如您需要将 TMP 的监控实例对接到您自己的 Grafana 页面，TMP 实例的用户名为您腾讯云账号的 APPID，密码为下图中的 Token。具体可参考 [监控数据查询](https://cloud.tencent.com/document/product/1416/56026)。
 
