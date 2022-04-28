@@ -3,7 +3,7 @@
 该任务指导您在购买 TDMQ Pulsar 版服务和腾讯云服务器后，下载 Demo 并进行简单的测试，了解运行一个客户端的操作步骤。
 
 <dx-alert infotype="explain" title="">
-本示例以 Java 客户端为例说明，其他语言客户端请参见 [SDK 文档](https://cloud.tencent.com/document/product/1179/66699)。
+本示例以 Java 客户端为例说明，其他语言客户端请参见 [SDK 文档](https://cloud.tencent.com/document/product/1179/48533)。
 </dx-alert>
 
 ## 前提条件
