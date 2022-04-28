@@ -92,7 +92,7 @@ spring:
 </thead>
 <tbody><tr>
 <td align="left">bindingRoutingKey</td>
-<td align="left">消费者消息队列绑定的 routing key，消息的路由规则，在控制台绑定关系列表的<strong>绑定 Key</strong>列获取。<img src="https://main.qcloudimg.com/raw/66d31e7d7ec8519843a8fc67bff87265.png" alt="img"></td>
+<td align="left">消费者消息队列绑定的 routing key，消息的路由规则，在控制台绑定关系列表的<strong>绑定 Key</strong>列获取。<img src="https://main.qcloudimg.com/raw/da0fa06f2cd5d44645e617a165b5fd17.png" alt="img"></td>
 </tr>
 <tr>
 <td align="left">direct_log</td>
@@ -104,7 +104,7 @@ spring:
 </tr>
 <tr>
 <td align="left">host</td>
-<td align="left">集群接入地址，在<strong>集群管理</strong>页面操作列的<strong>获取接入地址</strong>获取。<img src="https://main.qcloudimg.com/raw/0238d2d64bd896704ebef400fc08a7f1.png" alt="img"></td>
+<td align="left">集群接入地址，在<strong>集群管理</strong>页面操作列的<strong>获取接入地址</strong>获取。<img src="https://main.qcloudimg.com/raw/fa643204f9da225cbee264b12154349d.png" alt="img"></td>
 </tr>
 <tr>
 <td align="left">port</td>
@@ -116,11 +116,11 @@ spring:
 </tr>
 <tr>
 <td align="left">password</td>
-<td align="left">角色密钥，在 <strong><a href="https://console.cloud.tencent.com/tdmq/role">角色管理</a></strong> 页面复制<strong>密钥</strong>列复制。<img src="https://main.qcloudimg.com/raw/52907691231cc11e6e4801298ba90a6c.png" alt="img"></td>
+<td align="left">角色密钥，在 <strong><a href="https://console.cloud.tencent.com/tdmq/role">角色管理</a></strong> 页面复制<strong>密钥</strong>列复制。<img src="https://main.qcloudimg.com/raw/65ef236aaaa1b664dfe7fd7bdcbd3576.png" alt="img"></td>
 </tr>
 <tr>
 <td align="left">virtual-host</td>
-<td align="left">Vhost 名称，在控制台 Vhost 页面复制，格式是<strong>“集群 ID + | + vhost 名称”</strong>。<img src="https://main.qcloudimg.com/raw/ae6ec1a5a94c9befea289ad7f5b46aed.png" alt="img"></td>
+<td align="left">Vhost 名称，在控制台 Vhost 页面复制，格式是<strong>“集群 ID + | + vhost 名称”</strong>。<img src="https://main.qcloudimg.com/raw/56d10e77bb2af1b70385d47ff29e5f44.png" alt="img"></td>
 </tr>
 </tbody></table>
 2. 创建配置文件加载程序。
@@ -212,8 +212,7 @@ public class MessageConsumer {
 ### 步骤5：查看消息
 
 如果您想确认消息是否成功发送至 TDMQ RabbitMQ 版，可以在控制台 **[集群管理](https://console.cloud.tencent.com/tdmq/rocket-cluster)** > **Queue** 页面查看接入的消费者情况。
-
-![img](https://main.qcloudimg.com/raw/a7d78cc58efadfb614b890cc33d08632.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/ccff5b8a7e6cad70927a5ddec94baf4a.png)
 
 >?上述是基于 RabbitMQ 的发布订阅模型的一个简单示例，可根据实际使用进行不同配置，具体可参见 [Demo 示例](https://tdmq-document-1306598660.cos.ap-nanjing.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91demo/rabbitmq/tdmq-rabbitmq-springcloud-stream-demo.zip) 或 [Spring cloud stream 官网](https://github.com/spring-cloud/spring-cloud-stream-binder-rabbit#rabbit-prod-props)。
 
