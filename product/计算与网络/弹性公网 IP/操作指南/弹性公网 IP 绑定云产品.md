@@ -78,7 +78,7 @@
 </tr>
 </tbody>
 </table>
-<img src="https://qcloudimg.tencent-cloud.cn/raw/1620976614b8fea957fa84327eb08a7f.png" width="90%"></br>
+<img src="https://qcloudimg.tencent-cloud.cn/raw/49e4da2a04866b60d857c6492cc855b5.png" width="90%"></br>
 4. 在弹出的“确认绑定”提示框中，单击<b>确定</b>，即可完成与云资源的绑定。
 
 ## 后续步骤
