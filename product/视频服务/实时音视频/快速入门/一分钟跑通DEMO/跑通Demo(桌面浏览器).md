@@ -141,7 +141,7 @@ npm start
 5. 加入房间后您可以通过分享邀请链接与被邀请人一起体验 TRTC Web 语音及视频互通功能。
 :::
 ::: Demo 4
-目录为 `TRTC_Web/quick-demo-vue3-ts/`。
+目录为 `TRTC_Web/quick-demo-vue3-ts`。
 1. 在下载的源码中找到并进入到 `TRTC_Web/quick-demo-vue3-ts/` 目录下。
 2. 本地运行 Demo。
 ```shell
