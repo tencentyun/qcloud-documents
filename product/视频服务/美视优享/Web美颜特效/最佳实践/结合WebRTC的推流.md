@@ -149,7 +149,10 @@ ar.on('ready', async (e) => {
 	});
 
 	// 通过created回调中创建的美妆、贴纸列表交互设置效果(setEffect的输入参数支持三种格式，详见SDK接入指南)
-	$('#effect_list li').click(() => {
+	$('#makeup_list li').click(() => {
+		ar.setEffect([{id: effect.id, intensity: 1}]);
+	});
+	$('#sticker_list li').click(() => {
 		ar.setEffect([{id: effect.id, intensity: 1}]);
 	});
 
