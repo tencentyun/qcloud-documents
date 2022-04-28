@@ -1,86 +1,148 @@
 ## 操作场景
 
-本文以调用 Spring Cloud Stream SDK 为例介绍通过开源 SDK 实现消息收发的操作过程，帮助您更好地理解消息收发的完整过程。
+本文以调用 Spring Cloud Stream 接入为例介绍实现消息收发的操作过程，帮助您更好地理解消息收发的完整过程。
 
 ## 前提条件
 
 - [完成资源创建与准备](https://cloud.tencent.com/document/product/1495/61829)
 - [安装1.8或以上版本 JDK](https://www.oracle.com/java/technologies/javase-downloads.html)
 - [安装2.5或以上版本 Maven](http://maven.apache.org/download.cgi#)
-- [下载 Demo](https://tdmq-document-1306598660.cos.ap-nanjing.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91demo/rabbitmq/tdmq-rabbitmq-springcloud-stream-demo.zip)
+- [下载 Demo](https://tdmq-document-1306598660.cos.ap-nanjing.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91demo/rocketmq/tdmq-rocketmq-springcloud-stream-demo.zip)
 
 ## 操作步骤
-
-### 步骤1：添加依赖
-
-在 pom.xml 中添加`Stream RabbitMQ`相关依赖。
+### 步骤1：引入依赖
+在 pom.xml 中引入 `stream-rocketmq` 相关依赖。
 <dx-codeblock>
 :::  xml
 <dependency>
-	<groupId>org.springframework.cloud</groupId>
-	<artifactId>spring-cloud-starter-stream-rabbit</artifactId>
+     <groupId>org.apache.rocketmq</groupId>
+     <artifactId>rocketmq-client</artifactId>
+     <version>4.7.1</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.rocketmq</groupId>
+    <artifactId>rocketmq-acl</artifactId>
+    <version>4.7.1</version>
+</dependency>
+
+<!--spring-cloud-starter-stream-rocketmq 里面的 RocketMQ 版本过旧,需要排除掉,然后单独引用新的版本-->
+<dependency>
+    <groupId>com.alibaba.cloud</groupId>
+    <artifactId>spring-cloud-starter-stream-rocketmq</artifactId>
+    <version>2.2.5-RocketMQ-RC1</version>
+    <exclusions>
+        <exclusion>
+            <groupId>org.apache.rocketmq</groupId>
+            <artifactId>rocketmq-client</artifactId>
+        </exclusion>
+        <exclusion>
+            <groupId>org.apache.rocketmq</groupId>
+            <artifactId>rocketmq-acl</artifactId>
+        </exclusion>
+    </exclusions>
 </dependency>
 :::
 </dx-codeblock>
 
 
-### 步骤2：准备配置
-
-1. 在配置文件中进行相应配置 （以 `direct` 交换机配置为例）。
+### 步骤2：添加配置
+在配置文件中增加 RocketMQ 相关配置。
 <dx-codeblock>
 :::  yaml
 spring:
-  application:
-    name: application-name
   cloud:
     stream:
-      rabbit:
+      rocketmq:
         bindings:
-          # 输出channel名称
-          output:
-            # 生产者配置信息
-            producer:
-              # 生产者使用的交换机类型   如果已存在交换机名称，该类型必须与交换机类型一致
-              exchangeType: direct
-              # 用于指定 routing key 表达式
-              routing-key-expression: headers["routeTo"] # 该值表示使用头信息的routeTo字段作为 routing key
-              queueNameGroupOnly: true
-          # 输入channel名称
-          input:
-            # 消费者配置信息
+          # channel名称, 与spring.cloud.stream.bindings下的channel名称对应
+          Topic-test1:
             consumer:
-              # 消费者使用的交换机类型   如果已存在交换机名称，该类型必须与交换机类型一致
-              exchangeType: direct
-              # 消费者消息队列绑定的 routing key
-              bindingRoutingKey: info,waring,error
-              # 改配置会对上面的 routing key 进行处理
-              bindingRoutingKeyDelimiter: ","  # 该配置表示：使用,切割上面配置的routing key
-              # 消息确认模式   具体查看AcknowledgeMode
-              acknowledge-mode: manual
-              queueNameGroupOnly: true
+              # 订阅的tag类型，根据消费者实际情况进行配置（默认是订阅所有消息）
+              subscription: TAG1
+          # channel名称
+          Topic-test2:
+            consumer:
+              subscription: TAG2
+        binder:
+          # 服务地址全称
+          name-server: rocketmq-xxx.rocketmq.ap-bj.public.tencenttdmq.com:9876
+          # 角色名称
+          secret-key: admin
+          # 角色密钥
+          access-key: eyJrZXlJZ...
+          # namespace全称
+          namespace: rocketmq-xxx|namespace1
+          # 生成者group名称
+          group: group1
       bindings:
-      	# 输出channel名称
-        output: #通道的名称
-          destination: direct_logs #要使用的exchange名称
+        # channel名称
+        Topic-send:
+          # 指定topic, 对应创建的topic名称
+          destination: topic1
           content-type: application/json
-          default-binder: dev-rabbit
-        # 输入channel名称
-        input: #通道的名称
-          destination: direct_logs #要使用的exchange名称
+          # 要使用group名称
+          group: group1
+        # channel名称
+        Topic-test1:
+          destination: topic1
           content-type: application/json
-          default-binder: dev-rabbit
-          group: route_queue1 # 要使用的消息队列名称
-      binders:
-        dev-rabbit:
-          type: rabbit
-          environment:
-            spring:
-              rabbitmq:
-                host: amqp-xxx.rabbitmq.xxx.tencenttdmq.com #集群接入地址，在集群管理页面操作列的获取接入地址获取。
-                port: 5672
-                username: admin #角色名称
-                password: password #角色密钥
-                virtual-host: vhostnanme #Vhost名称
+          group: group1
+        # channel名称
+        Topic-test2:
+          destination: topic1
+          content-type: application/json
+          group: group2
+:::
+</dx-codeblock>
+<dx-alert infotype="notice" title="">
+ 1. 目前只有 `2.2.5-RocketMQ-RC1`与 `2.2.5.RocketMQ.RC2` 支持 **namespace** 配置，如使用别的版本需要对 topic 和 group 名称进行拼接。
+    格式如下：
+			- 集群id|namespace名称%topic名称：rocketmq-pngrpmxxxxxx|stream%topic
+			- 集群id|namespace名称%group名称：rocketmq-pngrpmxxxxxx|stream%group
+ 2. 配置方面  `2.2.5-RocketMQ-RC1`与 `2.2.5.RocketMQ.RC2` 的订阅配置项为 `subscription` , 其他版本订阅配置项为 `tags`。
+</dx-alert>
+其他版本完整配置项参考如下
+<dx-codeblock>
+:::  yaml
+spring:
+  cloud:
+    stream:
+      rocketmq:
+        bindings:
+          # channel名称, 与spring.cloud.stream.bindings下的channel名称对应
+          Topic-test1:
+            consumer:
+              # 订阅的tag类型，根据消费者实际情况进行配置（默认是订阅所有消息）
+              tags: TAG1
+          # channel名称
+          Topic-test2:
+            consumer:
+              tags: TAG2
+        binder:
+          # 服务地址全称
+          name-server: rocketmq-xxx.rocketmq.ap-bj.public.tencenttdmq.com:9876
+          # 角色名称
+          secret-key: admin
+          # 角色密钥
+          access-key: eyJrZXlJZ...
+      bindings:
+        # channel名称
+        Topic-send:
+          # 指定topic, 对应创建的topic全称，格式为：集群id|namespace名称%topic名称
+          destination: rocketmq-xxx|stream%topic1
+          content-type: application/json
+          # 要使用group全称称，格式为：集群id|namespace名称%group名称
+          group: rocketmq-xxx|stream%group1
+        # channel名称
+        Topic-test1:
+          destination: rocketmq-xxx|stream%topic1
+          content-type: application/json
+          group: rocketmq-xxx|stream%group1
+        # channel名称
+        Topic-test2:
+          destination: rocketmq-xxx|stream%topic1
+          content-type: application/json
+          group: rocketmq-xxx|stream%group2
 :::
 </dx-codeblock>
 <table>
@@ -91,129 +153,130 @@ spring:
 </tr>
 </thead>
 <tbody><tr>
-<td align="left">bindingRoutingKey</td>
-<td align="left">消费者消息队列绑定的 routing key，消息的路由规则，在控制台绑定关系列表的<strong>绑定 Key</strong>列获取。<img src="https://main.qcloudimg.com/raw/66d31e7d7ec8519843a8fc67bff87265.png" alt="img"></td>
+<td align="left">name-server</td>
+<td align="left">集群接入地址，在控制台<strong>集群管理</strong>页面的集群列表操作栏的<strong>接入地址</strong>处获取。</td>
 </tr>
 <tr>
-<td align="left">direct_log</td>
-<td align="left">Exchange 名称，在控制台 Exchange 列表获取。</td>
-</tr>
-<tr>
-<td align="left">route_queue1</td>
-<td align="left">Queue名称，在控制台 Queue 列表获取。</td>
-</tr>
-<tr>
-<td align="left">host</td>
-<td align="left">集群接入地址，在<strong>集群管理</strong>页面操作列的<strong>获取接入地址</strong>获取。<img src="https://main.qcloudimg.com/raw/0238d2d64bd896704ebef400fc08a7f1.png" alt="img"></td>
-</tr>
-<tr>
-<td align="left">port</td>
-<td align="left">集群接入地址端口，在<strong>集群管理</strong>页面操作列的<strong>获取接入地址</strong>获取。</td>
-</tr>
-<tr>
-<td align="left">username</td>
+<td align="left">secret-key</td>
 <td align="left">角色名称，在 <strong><a href="https://console.cloud.tencent.com/tdmq/role">角色管理</a></strong> 页面复制。</td>
 </tr>
 <tr>
-<td align="left">password</td>
-<td align="left">角色密钥，在 <strong><a href="https://console.cloud.tencent.com/tdmq/role">角色管理</a></strong> 页面复制<strong>密钥</strong>列复制。<img src="https://main.qcloudimg.com/raw/52907691231cc11e6e4801298ba90a6c.png" alt="img"></td>
+<td align="left">access-key</td>
+<td align="left">角色密钥，在 <strong><a href="https://console.cloud.tencent.com/tdmq/role">角色管理</a></strong> 页面复制<strong>密钥</strong>列复制。<img src="https://main.qcloudimg.com/raw/444c6717b0b5ac74482cc56d30b2ce83.png" alt="img"></td>
 </tr>
 <tr>
-<td align="left">virtual-host</td>
-<td align="left">Vhost 名称，在控制台 Vhost 页面复制，格式是<strong>“集群 ID + | + vhost 名称”</strong>。<img src="https://main.qcloudimg.com/raw/ae6ec1a5a94c9befea289ad7f5b46aed.png" alt="img"></td>
+<td align="left">namespace</td>
+<td align="left">命名空间的名称，在控制台<strong>命名空间</strong>页面复制。</td>
+</tr>
+<tr>
+<td align="left">group</td>
+<td align="left">生产者 Group 的名称，在控制台 <strong>Group</strong> 页面复制。</td>
+</tr>
+<tr>
+<td align="left">destination</td>
+<td align="left">Topic 的名称，在控制台 <strong>topic</strong> 页面复制。</td>
+</tr>
+<tr>
+<td align="left">subExpression</td>
+<td align="left">用来设置消息的 TAG。</td>
 </tr>
 </tbody></table>
-2. 创建配置文件加载程序。
-   - OutputMessageBinding.java
+
+### 步骤3：配置 channel
+channel 分为输入和输出，可根据自己的业务进行单独配置。
 <dx-codeblock>
 :::  java
-public interface OutputMessageBinding {
-	 /**
-		* 要使用的通道名称(输出channel名称)
-		*/
-	 String OUTPUT = "output";
+import org.springframework.cloud.stream.annotation.Input;
+import org.springframework.cloud.stream.annotation.Output;
+import org.springframework.messaging.MessageChannel;
 
-	 @Output(OUTPUT)
-	 MessageChannel output();
-}
-:::
-</dx-codeblock>
-   - InputMessageBinding.java
-<dx-codeblock>
-:::  java
-public interface InputMessageBinding {
+/**
+ * 自定义通道 Binder
+ */
+public interface CustomChannelBinder {
 
-	 /**
-		* 要使用的通道名称
-		*/
-	 String INPUT = "input";
-
-	 @Input(INPUT)
-	 SubscribableChannel input();
-}
-:::
-</dx-codeblock>
+    /**
+     * 发送消息(消息生产者)
+     * 绑定配置中的channel名称
+     */
+    @Output("Topic-send")
+    MessageChannel sendChannel();
 
 
-### 步骤3：发送消息
+    /**
+     * 接收消息1(消费者1)
+     * 绑定配置中的channel名称
+     */
+    @Input("Topic-test1")
+    MessageChannel testInputChannel1();
 
-创建并编译消息发送程序 IMessageSendProvider.java。
-<dx-codeblock>
-:::  java
-// 引入配置类
-@EnableBinding(OutputMessageBinding.class)
-public class MessageSendProvider {
-
-    @Autowired
-    private OutputMessageBinding outputMessageBinding;
-
-    public String sendToDirect() {
-        outputMessageBinding.output().send(MessageBuilder.withPayload("[info] This is a new message.[" + System.currentTimeMillis() + "]").setHeader("routeTo", "info").build());
-        outputMessageBinding.output().send(MessageBuilder.withPayload("[waring] This is a new waring message.[" + System.currentTimeMillis() + "]").setHeader("routeTo", "waring").build());
-        outputMessageBinding.output().send(MessageBuilder.withPayload("[error] This is a new error message.[" + System.currentTimeMillis() + "]").setHeader("routeTo", "error").build());
-        return "success";
-    }
-
-    public String sendToFanout() {
-        for (int i = 0; i < 3; i++) {
-            outputMessageBinding.output().send(MessageBuilder.withPayload("This is a new message" + i).build());
-        }
-        return "success";
-    }
+    /**
+     * 接收消息2(消费者2)
+     * 绑定配置中的channel名称
+     */
+    @Input("Topic-test2")
+    MessageChannel testInputChannel2();
 }
 :::
 </dx-codeblock>
 
+### 步骤4：添加注解
+在配置类或启动类上添加相应注解，如果有多个 binder 配置，都要在此注解中进行指定。
+<dx-codeblock>
+:::  java
+@EnableBinding({CustomChannelBinder.class})
+:::
+</dx-codeblock>
 
-在要发送消息的类中注入`MessageSendProvider` 即可进行发送消息。
+### 步骤5：发送消息
 
-### 步骤4：消费消息
+1. 在要发送消息的类中，注入 `CustomChannelBinder`。
+<dx-codeblock>
+:::  java
+	@Autowired
+	private CustomChannelBinder channelBinder;
+:::
+</dx-codeblock>
+2. 发送消息，调用对应的输出流channel进行消息发送。
+<dx-codeblock>
+:::  java
+	Message<String> message = MessageBuilder.withPayload("This is a new message.").build();
+	channelBinder.sendChannel().send(message);
+:::
+</dx-codeblock>
 
-创建并编译消息消费程序 MessageConsumer.java。**可配置多个通道，可对不同消息队列的监听。**
+
+### 步骤6：消费消息
 <dx-codeblock>
 :::  java
 @Service
-@EnableBinding(InputMessageBinding.class)
-public class MessageConsumer {
+public class TestStreamConsumer {
+    private final Logger logger = LoggerFactory.getLogger(DemoApplication.class);
 
-    @StreamListener(InputMessageBinding.INPUT)
-    public void test(Message<String> message) throws IOException {
-        Channel channel = (com.rabbitmq.client.Channel) message.getHeaders().get(AmqpHeaders.CHANNEL);
-        Long deliveryTag = (Long) message.getHeaders().get(AmqpHeaders.DELIVERY_TAG);
-        channel.basicAck(deliveryTag, false);
-        String payload = message.getPayload();
-        System.out.println(payload);
+    /**
+     * 监听channel (配置中的channel名称)
+     *
+     * @param messageBody 消息内容
+     */
+    @StreamListener("Topic-test1")
+    public void receive(String messageBody) {
+        logger.info("Receive1: 通过stream收到消息，messageBody = {}", messageBody);
+    }
+
+    /**
+     * 监听channel (配置中的channel名称)
+     *
+     * @param messageBody 消息内容
+     */
+    @StreamListener("Topic-test2")
+    public void receive2(String messageBody) {
+        logger.info("Receive2: 通过stream收到消息，messageBody = {}", messageBody);
     }
 }
 :::
 </dx-codeblock>
+<dx-alert infotype="explain" title="">
+具体使用可参见 [Demo](https://tdmq-document-1306598660.cos.ap-nanjing.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91demo/rocketmq/tdmq-rocketmq-springcloud-stream-demo.zip) 或 [Spring cloud stream 官网](https://github.com/alibaba/spring-cloud-alibaba/wiki/RocketMQ-en)。
+</dx-alert>
 
-
-### 步骤5：查看消息
-
-如果您想确认消息是否成功发送至 TDMQ RabbitMQ 版，可以在控制台 **[集群管理](https://console.cloud.tencent.com/tdmq/rocket-cluster)** > **Queue** 页面查看接入的消费者情况。
-
-![img](https://main.qcloudimg.com/raw/a7d78cc58efadfb614b890cc33d08632.png)
-
->?上述是基于 RabbitMQ 的发布订阅模型的一个简单示例，可根据实际使用进行不同配置，具体可参见 [Demo 示例](https://tdmq-document-1306598660.cos.ap-nanjing.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91demo/rabbitmq/tdmq-rabbitmq-springcloud-stream-demo.zip) 或 [Spring cloud stream 官网](https://github.com/spring-cloud/spring-cloud-stream-binder-rabbit#rabbit-prod-props)。
 

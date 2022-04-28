@@ -106,7 +106,7 @@ public class MessageProducer {
 </tr>
 <tr>
 <td align="left">factory.setPassword</td>
-<td align="left">角色密钥，在 <strong><a href="https://console.cloud.tencent.com/tdmq/role">角色管理</a></strong> 页面复制<strong>密钥</strong>列复制。<img src="https://main.qcloudimg.com/raw/52907691231cc11e6e4801298ba90a6c.png" alt="img"></td>
+<td align="left">角色密钥，在 <strong><a href="https://console.cloud.tencent.com/tdmq/role">角色管理</a></strong> 页面复制<strong>密钥</strong>列复制。<img src="https://main.qcloudimg.com/raw/65ef236aaaa1b664dfe7fd7bdcbd3576.png" alt="img"></td>
 </tr>
 </tbody></table>
 
@@ -207,7 +207,7 @@ public class MessageConsumer1 {
 </tr>
 <tr>
 <td align="left">factory.setPassword</td>
-<td align="left">角色密钥，在 <strong><a href="https://console.cloud.tencent.com/tdmq/role">角色管理</a></strong> 页面复制<strong>密钥</strong>列复制。<img src="https://main.qcloudimg.com/raw/52907691231cc11e6e4801298ba90a6c.png" alt="img"></td>
+<td align="left">角色密钥，在 <strong><a href="https://console.cloud.tencent.com/tdmq/role">角色管理</a></strong> 页面复制<strong>密钥</strong>列复制。<img src="https://main.qcloudimg.com/raw/65ef236aaaa1b664dfe7fd7bdcbd3576.png" alt="img"></td>
 </tr>
 </tbody></table>
 
