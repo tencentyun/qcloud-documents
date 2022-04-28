@@ -129,8 +129,7 @@ ar.on('created', () => {
 	// 获取内置特效，支持分页
 	ar.getEffectList({
 		Type: 'Preset',
-		PageSize: 10,
-		PageNumber: 0,
+		Label: ['美妆']
 	}).then((res) => {
 		const list = res.map(item => ({
 			name: item.Name,
