@@ -23,16 +23,14 @@ TPS 支持一键迁移到 TMP。您可以迁移单独的实例，也可以批量
 
 ### 迁移后的预估费用
 
-TPS 和 TMP 都上线了“收费指标采集速率”的能力，您可以用该数值估算监控实例/集群/采集对象/指标等多个维度的预估费用：
+TPS 和 TMP 已上线“收费指标采集速率”的能力，您可以用该数值估算监控实例/集群/采集对象/指标等多个维度的预估费用：
 
-> ! 只有 TMP 实例才会真正产生费用，TPS 实例不会产生费用
+>! 仅 TMP 实例会产生费用，TPS 实例不会产生费用。
 
-1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的 **[云原生监控](https://console.cloud.tencent.com/tke2/prometheus)**，如下图所示：
-2. 有一列名为：“收费指标采集速率”。表示该迁移到 TMP之后的收费指标采集速率，根据用户的指标上报量和采集频率预估算出。该数值乘以 86400 则为一天的监控数据点数，根据[按量计费](https://cloud.tencent.com/document/product/1416/65379)可以计算预估的监控数据刊例价。您也可以点击下图右侧的“一键迁移”，获取该 TPS 实例迁移到 TMP 之后的预估价格。
-
-![](https://qcloudimg.tencent-cloud.cn/raw/c5b19199f659371377748ba4ae285c23.png)
-
-3. 除了上述页面，您也可以在“关联集群”、“数据采集配置”、“指标详情”等多个页面查看到不同维度下的“收费指标采集速率”。
+1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的 **[云原生监控](https://console.cloud.tencent.com/tke2/prometheus)**。
+2. 在云原生监控列表中，查看“收费指标采集速率”。该指标表示迁移到 TMP 实例的收费指标采集速率，根据用户的指标上报量和采集频率预估算出。该数值乘以 86400 则为一天的监控数据点数，根据 [按量计费](https://cloud.tencent.com/document/product/1416/65379) 可以计算预估的监控数据刊例价。
+![](https://qcloudimg.tencent-cloud.cn/raw/0b4e14f6fc8433fd42aaf48f2f4e5a36.png)
+您也可以单击实例名称右侧的**一键迁移**，获取该 TPS 实例迁移到 TMP 之后的预估价格。或者在“关联集群”、“数据采集配置”、“指标详情”等多个页面查看到不同维度下的“收费指标采集速率”。
 
 #### （旧）TPS Prometheus 数据查询地址和 Grafana 地址 
 
@@ -40,7 +38,7 @@ TPS 和 TMP 都上线了“收费指标采集速率”的能力，您可以用�
 
 1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的 **[云原生监控](https://console.cloud.tencent.com/tke2/prometheus)**。
 2. 单击实例 ID ，进入实例的“基本信息”页，如下图所示：
-   ![](https://qcloudimg.tencent-cloud.cn/raw/655e7b02d998d06dcd4d70a5b1825ebb.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/e2ed79d929472bbc1da0fb1e9cbb3fef.png)
 
 #### （新）TMP Prometheus 数据查询地址和 Grafana 地址 
 
@@ -48,9 +46,9 @@ TPS 和 TMP 都上线了“收费指标采集速率”的能力，您可以用�
 
 1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的 **[Prometheus 监控](https://console.cloud.tencent.com/tke2/prometheus2)**。
 2. 单击实例 ID ，进入实例的“基本信息”页，如下图所示：
-   ![](https://qcloudimg.tencent-cloud.cn/raw/232093b4dc10d32a4c838d16b7af3954.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/7fe17b8320f9bd8daab0b842b4606b86.png)
 
->? 迁移完成后，请勿在旧的 TPS 实例里面关联新的集群或采集规则，这部分新增的改变将不会自动同步到新的 TMP 实例中。
+>! 迁移完成后，请勿在旧的 TPS 实例里面关联新的集群或采集规则，这部分新增的改变将不会自动同步到新的 TMP 实例中。
 
 ## 操作步骤
 
@@ -59,36 +57,28 @@ TPS 和 TMP 都上线了“收费指标采集速率”的能力，您可以用�
 1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的 **[云原生监控](https://console.cloud.tencent.com/tke2/prometheus)**。
 2. 在当前的云原生监控的实例列表页，在上方选择需要迁移的实例所在的地域。
 3. 单击实例右方的**一键迁移**。
-   ![](https://qcloudimg.tencent-cloud.cn/raw/55d719d979976cb357c74606a169c202.png)
 4. 在弹窗中，选择新的 TMP 实例需要的**网络**和**数据存储时间**。
-   ![](https://qcloudimg.tencent-cloud.cn/raw/936f60580805b109e6215fc8c13b28c7.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/2952b6a8025ae06d8ed0de2abcf020d4.png)
    - **网络**：新的 TMP 实例的 VPC 和子网默认和原来的 TPS 实例一样。若您要选择其它 VPC，请注意该 VPC 首先需要和监控的集群所在的 VPC 网络已打通。
    - **数据存储时间**：默认15天，目前仅支持额外选择30天，45天。
    - **标签**：非必填字段，根据实际需要选择。
    - **预估费用**：如上图所示，迁移的时候会显示当前 TPS 实例，在迁移到 TMP 之后的的收费指标采集速率，以及预估的一天费用。
 
 >! 具体费用请查看 TMP 涉及 [计费方式](https://cloud.tencent.com/document/product/1416/65379) 和相关 [云资源使用情况](https://cloud.tencent.com/document/product/457/71905)。若费用过高，建议您 [精简监控指标](https://cloud.tencent.com/document/product/457/72482)。
-
 5. 单击**确定**。当 TPS 实例状态的括号中内容显示“已迁移”，表示迁移成功。
-   ![](https://qcloudimg.tencent-cloud.cn/raw/a5db6b6eab07242649a9208a36018510.png)
-6. TPS 迁移完成后，您可以在 **[Prometheus 监控](https://console.cloud.tencent.com/tke2/prometheus)** 控制台，在同样的地域里找到一个名为**“旧实例名 (trans-from-prom-xxx)” 的 TMP 新实例，其中“旧实例名”为原 TPS 的实例名，“xxx” 为原 TPS 实例 ID。**如下图所示： 
-   ![](https://qcloudimg.tencent-cloud.cn/raw/ec7c3f5fc3eef40a49dfb5c61b928540.png)
-
+6. TPS 迁移完成后，您可以在 **[Prometheus 监控控制台](https://console.cloud.tencent.com/tke2/prometheus)** 中选择地域，同地域下中有一个名为**“旧实例名 (trans-from-prom-xxx)” 的 TMP 新实例，其中“旧实例名”为原 TPS 的实例名，“xxx” 为原 TPS 实例 ID。**如下图所示： 
+![](https://qcloudimg.tencent-cloud.cn/raw/87e5de3e395a04015082bcdc56a6801c.png)
 >? 迁移完成后，请勿在旧的 TPS 实例里面关联新的集群或采集规则，这部分新增的改变将不会自动同步到新的 TMP 实例中。
 
 ### 实例批量迁移
 
 1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的 **[云原生监控](https://console.cloud.tencent.com/tke2/prometheus)**。
 2. 在当前的云原生监控的实例列表页，在上方选择需要迁移的实例所在的地域。
-3. 勾选状态为“未迁移”的实例，单击上方的“一键迁移”，如下图所示：
-   ![](https://qcloudimg.tencent-cloud.cn/raw/ec4c1977e5ff55a0f21b184f717f8492.png)
-
+3. 勾选状态为“未迁移”的实例后，单击上方的“一键迁移”。
 >! 
->
 >- 批量迁移不支持择新 TMP 实例的 VPC 和子网，如您有类似需求，请进行**单实例迁移**。
 >- 迁移前请查看 TMP 涉及 [计费方式](https://cloud.tencent.com/document/product/1416/65379) 和相关 [云资源使用情况](https://cloud.tencent.com/document/product/457/71905)。若费用过高，建议您 [精简监控指标](https://cloud.tencent.com/document/product/457/72482)。
-
 4. 单击**确定**。当 TPS 实例状态的括号中内容显示“已迁移”，表示迁移成功。
-5. TPS 迁移完成后，您可以在 **[Prometheus 监控](https://console.cloud.tencent.com/tke2/prometheus)** 的控制台，在同样的地域里找到一个名为**“旧实例名 (trans-from-prom-xxx)”的 TMP 新实例，其中“旧实例名”为原 TPS 的实例名，“xxx” 为原 TPS 实例 ID。**
+5. TPS 迁移完成后，您可以在 **[Prometheus 监控](https://console.cloud.tencent.com/tke2/prometheus)** 控制台，在同样的地域里找到一个名为**“旧实例名 (trans-from-prom-xxx)”的 TMP 新实例，其中“旧实例名”为原 TPS 的实例名，“xxx” 为原 TPS 实例 ID。**
 
 >? 迁移完成后，请勿在旧的 TPS 实例里面关联新的集群或采集规则，这部分新增的改变将不会自动同步到新的 TMP 实例中。
