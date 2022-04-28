@@ -2,7 +2,7 @@
 
 
 
-本文将为您介绍如何查看已收藏 Dashboard。
+本文将介绍如何查看已收藏 Dashboard。
 
 ## 操作步骤
 1. 登录 [云监控控制台](https://console.cloud.tencent.com/monitor)。
