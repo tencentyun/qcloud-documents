@@ -62,34 +62,21 @@ TRTC Web SDK 依赖以下端口及域名进行数据传输，请将其加入防�
 ### 步骤4：运行 Demo 
 
 为满足不同客户的需求，TRTC Web 目前提供以下几种基础 Demo：
-
-**Demo 1: base-js**
-
+- **Demo 1: base-js**
 开发框架：jQuery + 原生 JavaScript
-
 TRTC Web 基础 Demo (jQuery 版本) 集成了 TRTC Web SDK 的基础音视频通话、设备选择等功能，可直接在浏览器中运行。快速体验可访问 [base-js 在线体验地址](https://web.sdk.qcloud.com/trtc/webrtc/demo/latest/official-demo/index.html)。
-
-**Demo 2: quick-demo-js**
-
+- **Demo 2: quick-demo-js**
 开发框架：无框架，原生 JavaScript
-
 TRTC Web 快速运行 Demo (原生 JavaScript 版本) 集成了 TRTC Web SDK 的基础音视频通话、设备选择等功能，可直接在浏览器中运行。快速体验可访问 [quick-demo-js 在线体验地址](https://web.sdk.qcloud.com//trtc/webrtc/demo/quick-demo-js/index.html)。
-
-**Demo 3: quick-demo-vue2-js**
-
+- **Demo 3: quick-demo-vue2-js**
 开发框架：Vue 2 + JavaScript
-
 TRTC Web 快速运行 Demo (Vue2 版本) 集成了 TRTC Web SDK 的基础音视频通话、设备选择等功能，需要您安装 Node 环境。快速体验可访问  [quick-demo-vue2-js 在线体验地址](https://web.sdk.qcloud.com/trtc/webrtc/demo/quick-demo-vue2-js/index.html)。
-
-**Demo 4: quick-demo-vue3-ts**
-
+- **Demo 4: quick-demo-vue3-ts**
 开发框架：Vue 3 + TypeScript
-
 TRTC Web 快速运行 Demo (Vue3 版本) 集成了 TRTC Web SDK 的基础音视频通话、设备选择等功能，需要您安装 Node 环境。快速体验可访问  [quick-demo-vue3-ts 在线体验地址](https://web.sdk.qcloud.com/trtc/webrtc/demo/quick-demo-vue3-ts/index.html)。
 
 <dx-tabs>
 ::: Demo 1
-
 目录为 `TRTC_Web/base-js`。
 
 1. 在下载的源码中找到并打开 `TRTC_Web/base-js/js/debug/GenerateTestUserSig.js` 文件。
@@ -111,12 +98,9 @@ Demo 运行界面如图所示：
 	- 单击麦克风图标可以选择麦克风设备。
 >?WebRTC 需要使用摄像头和麦克风采集音视频，在体验过程中您可能会收到来自 Chrome 浏览器的相关提示，单击 **允许**。
 > ![](https://main.qcloudimg.com/raw/1a2c1e7036720b11f921f8ee1829762a.png)
-
 :::
 ::: Demo 2
-
 目录为 `TRTC_Web/quick-demo-js`。
-
 1. 在下载的源码中找到并使用浏览器打开 `TRTC_Web/quick-demo-js/index.html` 文件。
 >?
 >- TRTC Web SDK 支持的浏览器请参见 [TRTC Web SDK 支持的平台](https://cloud.tencent.com/document/product/647/17249#.E6.94.AF.E6.8C.81.E7.9A.84.E5.B9.B3.E5.8F.B0)。
@@ -133,11 +117,9 @@ Demo 运行界面如图所示：
 4. 加入房间后您可以通过分享邀请链接与被邀请人一起体验 TRTC Web 语音及视频互通功能。
 :::
 ::: Demo 3
-
 目录为 `TRTC_Web/quick-demo-vue2-js`。
-
-5. 在下载的源码中找到并进入到 `TRTC_Web/quick-demo-vue2-js/` 目录下。
-6. 本地运行 Demo。
+1. 在下载的源码中找到并进入到 `TRTC_Web/quick-demo-vue2-js/` 目录下。
+2. 本地运行 Demo。
 ```shell
 npm start
 ```
@@ -159,11 +141,9 @@ npm start
 5. 加入房间后您可以通过分享邀请链接与被邀请人一起体验 TRTC Web 语音及视频互通功能。
 :::
 ::: Demo 4
-
 目录为 `TRTC_Web/quick-demo-vue3-ts/`。
-
-6. 在下载的源码中找到并进入到 `TRTC_Web/quick-demo-vue3-ts/` 目录下。
-7. 本地运行 Demo。
+1. 在下载的源码中找到并进入到 `TRTC_Web/quick-demo-vue3-ts/` 目录下。
+2. 本地运行 Demo。
 ```shell
 npm start
 ```
