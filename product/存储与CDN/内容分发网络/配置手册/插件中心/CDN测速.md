@@ -26,8 +26,7 @@ CDN 资源更新后，通过主动拨测并比对资源 MD5 结果，确认各�
 ### 步骤一 开通 CDN 测速服务
 
 登录 [CDN 控制台](https://console.cloud.tencent.com/cdn/plugins)。找到 CDN 测速功能卡片，首次开通需要创建服务预设角色并授予内容分发网络相关权限，授权成功后单击 CDN 测速右侧的开启按钮。
-      
-【待补充截图】
+![](https://qcloudimg.tencent-cloud.cn/raw/a845f32a482895e447024bd1c7e8a9a9.png)
 
 ### 步骤二 创建监测任务
 
