@@ -1,4 +1,4 @@
-﻿## 开发准备
+## 开发准备
 CPU 平台设置
 目前 SDK 支持 armeabi，armeabi-v7a，arm64-v8a，x86,  x86_64平台，为了防止在其他 CPU 平台上 SDK Crash，我们建议在您的 App 的 build.gradle 里加上 abiFilter，如下所示：
 ```
