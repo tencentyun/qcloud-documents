@@ -12,7 +12,7 @@
 ## 适用场景
 
 #### 直播弹幕
- AVChatRoom 支持弹幕、 送礼和点赞等多消息类型，轻松打造良好的直播聊天互动体验；提供弹幕内容审核能力，保证您的直播免受不雅信息干扰。
+ AVChatRoom 支持弹幕、 送礼和点赞等多消息类型，轻松打造良好的直播聊天互动体验。
 ![](https://imgcache.qq.com/open_proj/proj_qcloud_v2/gateway/product/im-new/css/img/scenes/function2.gif)
 #### 网红带货
  AVChatRoom 与商业直播相结合，通过提供点赞、询价、购物券等特定消息类型，帮助直播客户实现流量变现。
@@ -300,7 +300,4 @@ promise.then(<span class="hljs-function"><span class="hljs-keyword">function</sp
 有的，且代码开源，详情请参考 [腾讯云 Web 直播互动组件](https://github.com/tencentyun/TWebLive)。
 您也可以直接扫码体验腾讯云 Web 直播互动组件：
 <img src="https://main.qcloudimg.com/raw/7ebc3e270add5ec6d62f6f8972c61249.png" width="150">
-
-
-
 

@@ -123,26 +123,26 @@ Namespace=QCE/TXMR_PRESTO
 
 弹性 MapReduce（PRESTO）支持以下四种维度组合的查询方式，四种入参取值如下： 
 
-**1.查询  PRESTO-Overview  的指标监控数据，入参取值如下：**
+**1. 查询  PRESTO-Overview  的指标监控数据，入参取值如下：**
 &Namespace=QCE/TXMR_PRESTO
 &Instances.N.Dimensions.0.Name=id4prestooverview
 &Instances.N.Dimensions.0.Value=EMR 实例 ID
 
-**2.查询  PRESTO-OverviewOriginal 的指标监控数据，入参取值如下：**
+**2. 查询  PRESTO-OverviewOriginal 的指标监控数据，入参取值如下：**
 &Namespace=QCE/TXMR_PRESTO
 &Instances.N.Dimensions.0.Name=id4prestooverview
 &Instances.N.Dimensions.0.Value=EMR 实例 ID
 &Instances.N.Dimensions.1.Name=host4prestooverview
 &Instances.N.Dimensions.1.Value=EMR 实例中具体节点 IP
 
-**3.查询  PRESTO-Worker  的指标监控数据，入参取值如下：**
+**3. 查询  PRESTO-Worker  的指标监控数据，入参取值如下：**
 &Namespace=QCE/TXMR_PRESTO
 &Instances.N.Dimensions.0.Name=id4prestoprestoworker
 &Instances.N.Dimensions.0.Value=EMR 实例 ID 
 &Instances.N.Dimensions.1.Name=host4prestoprestoworker
 &Instances.N.Dimensions.1.Value=EMR 实例中具体节点 IP
 
-**4.查询  PRESTO-Coordinator  的指标监控数据，入参取值如下：**
+**4. 查询  PRESTO-Coordinator  的指标监控数据，入参取值如下：**
 &Namespace=QCE/TXMR_PRESTO
 &Instances.N.Dimensions.0.Name=id27prestoprestocoordinator
 &Instances.N.Dimensions.0.Value=EMR 实例 ID
