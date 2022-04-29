@@ -78,7 +78,7 @@
 <td>用于采集摄像头画面，与其他使用者进行交互、录制画面</td>
 </tr>
 <tr>
-<td>android.permission.CAPTURE_AUDIO_OUTPUT</td>
+<td>android.permission.RECORD_AUDIO</td>
 <td>用于采集用户声音，与其他使用者进行交互、录制声音</td>
 </tr>
 <tr>

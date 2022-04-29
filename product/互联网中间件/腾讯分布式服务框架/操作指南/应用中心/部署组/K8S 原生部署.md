@@ -65,5 +65,12 @@ TSF 支持 K8S 原生部署方案，当您通过 K8S 部署业务后，使用该
      - limit 用于设置容器使用资源的最大上限，避免异常情况下节点资源消耗过多。
    ![](https://qcloudimg.tencent-cloud.cn/raw/e3fbc1ae8545ef74a29a1031a1ccce39.png)
 5. 单击**提交**，等待导入完成。
+<dx-alert infotype="explain" title="">
+- 导入完成后，会自动给用户创建好应用和部署组，重启应用后应用会注册到 TSF 注册中心。
+- 通过 K8S 原生部署导入 Deployment 后， 不支持在 TSF 自动创建的部署组页面进行增删改操作，建议继续在TKE 页面进行操作。
+- 对于在 TKE 页面创建的命名空间，开启 K8S 原生部署后，也不支持在该命名空间下新建部署组。
+</dx-alert>
+
+
 
    

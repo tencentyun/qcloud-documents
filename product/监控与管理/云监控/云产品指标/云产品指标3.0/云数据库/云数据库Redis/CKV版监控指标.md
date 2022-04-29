@@ -1,6 +1,6 @@
 ## 命名空间
 
-Namespace=QCE/REDIS
+Namespace = QCE/REDIS
 
 ## 监控指标
 

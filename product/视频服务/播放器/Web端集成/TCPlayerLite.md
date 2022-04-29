@@ -26,7 +26,7 @@ FLV|可用于点播|`http://xxx.vod.myqcloud.com/xxx.flv`|支持|不支持
 RTMP|只适用直播|`rtmp://xxx.liveplay.myqcloud.com/live/xxx`|支持|不支持
 MP4|只适用点播|`http://xxx.vod.myqcloud.com/xxx.mp4`|支持|支持
 
-
+ 
 >!
 > - 播放 RTMP 格式的视频必须启用 Flash，目前浏览器默认禁用 Flash，需用户手动开启。
 > - 在不支持 WebRTC 的浏览器环境，传入播放器的 WebRTC 地址会自动进行协议转换来更好的支持媒体播放，默认在移动端转换为 HLS，PC 端转换为 FLV。
@@ -49,7 +49,7 @@ MP4|只适用点播|`http://xxx.vod.myqcloud.com/xxx.mp4`|支持|支持
 <script src="https://web.sdk.qcloud.com/player/tcplayerlite/release/v2.4.1/TcPlayer-2.4.1.js" charset="utf-8"></script>;
 ```
 
-建议在使用播放器 SDK 的时候自行部署资源，[点击下载播放器资源](https://web.sdk.qcloud.com/player/tcplayerlite/release/v2.4.1/TcPlayer-2.4.1.zip)。
+建议在使用播放器 SDK 的时候自行部署资源，[单击下载播放器资源](https://web.sdk.qcloud.com/player/tcplayerlite/release/v2.4.1/TcPlayer-2.4.1.zip)。
 
 如果您部署的地址为 `aaa.xxx.ccc`，在合适的地方引入播放器脚本文件：
 ```
@@ -80,11 +80,11 @@ http://2157.liveplay.myqcloud.com/2157_358535a.m3u8      // m3u8 播放地址
 <dx-codeblock>
 ::: javascript javascript
 var player = new TcPlayer('id_test_video', {
-	"m3u8": "http://2157.liveplay.myqcloud.com/2157_358535a.m3u8", //请替换成实际可用的播放地址
-	"autoplay" : true,      //iOS 下 safari 浏览器，以及大部分移动端浏览器是不开放视频自动播放这个能力的
-	"poster" : "http://www.test.com/myimage.jpg",
-	"width" :  '480',//视频的显示宽度，请尽量使用视频分辨率宽度
-	"height" : '320'//视频的显示高度，请尽量使用视频分辨率高度
+     "m3u8": "http://2157.liveplay.myqcloud.com/2157_358535a.m3u8", //请替换成实际可用的播放地址
+     "autoplay" : true,      //iOS 下 safari 浏览器，以及大部分移动端浏览器是不开放视频自动播放这个能力的
+     "poster" : "http://www.test.com/myimage.jpg",
+     "width" :  '480',//视频的显示宽度，请尽量使用视频分辨率宽度
+     "height" : '320'//视频的显示高度，请尽量使用视频分辨率高度
 });
 :::
 </dx-codeblock>
@@ -96,12 +96,12 @@ PC 浏览器支持 Flash，其 Javascript 代码如下：
 <dx-codeblock>
 ::: javascript javascript
 var player =  new TcPlayer('id_test_video', {
-	"m3u8": "http://2157.liveplay.myqcloud.com/2157_358535a.m3u8",
-	"flv": "http://2157.liveplay.myqcloud.com/live/2157_358535a.flv", //增加了一个 flv 的播放地址，用于PC平台的播放 请替换成实际可用的播放地址
-	"autoplay" : true,      //iOS 下 safari 浏览器，以及大部分移动端浏览器是不开放视频自动播放这个能力的
-	"poster" : "http://www.test.com/myimage.jpg",
-	"width" :  '480',//视频的显示宽度，请尽量使用视频分辨率宽度
-	"height" : '320'//视频的显示高度，请尽量使用视频分辨率高度
+     "m3u8": "http://2157.liveplay.myqcloud.com/2157_358535a.m3u8",
+     "flv": "http://2157.liveplay.myqcloud.com/live/2157_358535a.flv", //增加了一个 flv 的播放地址，用于PC平台的播放 请替换成实际可用的播放地址
+     "autoplay" : true,      //iOS 下 safari 浏览器，以及大部分移动端浏览器是不开放视频自动播放这个能力的
+     "poster" : "http://www.test.com/myimage.jpg",
+     "width" :  '480',//视频的显示宽度，请尽量使用视频分辨率宽度
+     "height" : '320'//视频的显示高度，请尽量使用视频分辨率高度
 });
 :::
 </dx-codeblock>
@@ -152,7 +152,7 @@ style 支持的样式如下：
 ```
 #### 4.3 实现用例
 
-使用 cover 方式显示封面。线上示例如下，在 PC 浏览器中右键单击【查看页面源码】即可查看页面的代码实现：
+使用 cover 方式显示封面。线上示例如下，在 PC 浏览器中右键单击**查看页面源码**即可查看页面的代码实现：
 [视频封面](https://web.sdk.qcloud.com/player/tcplayerlite/tcplayer-poster.html)
 >!
 >- 在某些移动端设置封面会无效，具体说明请参见 [常见问题](https://cloud.tencent.com/document/product/881/20219)。
@@ -185,18 +185,18 @@ http://200002949.vod.myqcloud.com/200002949_b6ffc.f220.av.m3u8      // 标清
 <dx-codeblock>
 ::: javascript javascript
 var player = new TcPlayer('id_test_video', {
-	"m3u8"      : "http://200002949.vod.myqcloud.com/200002949_b6ffc.f240.m3u8",//请替换成实际可用的播放地址
-	"m3u8_hd"   : "http://200002949.vod.myqcloud.com/200002949_b6ffc.f230.av.m3u8",
-	"m3u8_sd"   : "http://200002949.vod.myqcloud.com/200002949_b6ffc.f220.av.m3u8",
-	"autoplay"  : true,      //iOS 下 safari 浏览器，以及大部分移动端浏览器是不开放视频自动播放这个能力的
-	"poster"  : "http://www.test.com/myimage.jpg",
+     "m3u8"      : "http://200002949.vod.myqcloud.com/200002949_b6ffc.f240.m3u8",//请替换成实际可用的播放地址
+     "m3u8_hd"   : "http://200002949.vod.myqcloud.com/200002949_b6ffc.f230.av.m3u8",
+     "m3u8_sd"   : "http://200002949.vod.myqcloud.com/200002949_b6ffc.f220.av.m3u8",
+     "autoplay"  : true,      //iOS 下 safari 浏览器，以及大部分移动端浏览器是不开放视频自动播放这个能力的
+     "poster"  : "http://www.test.com/myimage.jpg",
 });
 :::
 </dx-codeblock>
 
 
 #### 5.3 实现用例
-使用多种分辨率的设置及切换功能。线上示例如下，在 PC 浏览器中右键单击【查看页面源码】即可查看页面的代码实现：[分辨率切换](https://web.sdk.qcloud.com/player/tcplayerlite/tcplayer-clarity.html)
+使用多种分辨率的设置及切换功能。线上示例如下，在 PC 浏览器中右键单击**查看页面源码**即可查看页面的代码实现：[分辨率切换](https://web.sdk.qcloud.com/player/tcplayerlite/tcplayer-clarity.html)
 正常情况将看到如下效果：
 ![](https://main.qcloudimg.com/raw/99c05e75f0d417df33942d18dad2f509.jpg)
 >!
@@ -211,19 +211,19 @@ Web 播放器支持提示语定制。
 <dx-codeblock>
 ::: javascript javascript
 var player = new TcPlayer('id_test_video', {
-	"m3u8"   : "http://200002949.vod.myqcloud.com/200002949_b6ffc.f0.m3u8",//请替换成实际可用的播放地址
-	"autoplay" : true,      //iOS 下 safari 浏览器是不开放这个能力的
-	"poster" : "http://www.test.com/myimage.jpg",
-	"wording": {
-			2032: "请求视频失败，请检查网络",
-			2048: "请求m3u8文件失败，可能是网络错误或者跨域问题"
-	}
+     "m3u8"   : "http://200002949.vod.myqcloud.com/200002949_b6ffc.f0.m3u8",//请替换成实际可用的播放地址
+     "autoplay" : true,      //iOS 下 safari 浏览器是不开放这个能力的
+     "poster" : "http://www.test.com/myimage.jpg",
+     "wording": {
+               2032: "请求视频失败，请检查网络",
+               2048: "请求m3u8文件失败，可能是网络错误或者跨域问题"
+     }
 });
 :::
 </dx-codeblock>
 
 #### 6.2 实现用例
-视频播放失败，同时使用自定义提示文案的功能。线上示例如下，在 PC 浏览器中右键单击【查看页面源码】即可查看页面的代码实现：
+视频播放失败，同时使用自定义提示文案的功能。线上示例如下，在 PC 浏览器中右键单击**查看页面源码**即可查看页面的代码实现：
 
 ```
 https://web.sdk.qcloud.com/player/tcplayerlite/tcplayer-error.html
@@ -255,7 +255,7 @@ https://web.sdk.qcloud.com/player/tcplayerlite/tcplayer-error.html
 >- 由于 Flash 的黑盒特性以及 H5 视频播放标准的不确定性，错误提示语会不定期更新。
 
 ## 源码参考
-如下是一个线上示例代码，在 PC 浏览器中右键单击【查看页面源码】即可查看页面的代码实现：[播放示例](https://web.sdk.qcloud.com/player/tcplayerlite/tcplayer.html)
+如下是一个线上示例代码，在 PC 浏览器中右键单击**查看页面源码**即可查看页面的代码实现：[播放示例](https://web.sdk.qcloud.com/player/tcplayerlite/tcplayer.html)
 >!以上示例链接仅用于文档演示，请勿用于生产环境。
 
 ## 参数列表

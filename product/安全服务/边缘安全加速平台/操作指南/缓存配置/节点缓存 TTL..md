@@ -15,4 +15,5 @@
     - 自定义时间：自定义资源缓存时长。
 
 附：整体缓存策略内容如下：
-![](https://qcloudimg.tencent-cloud.cn/raw/2f43a331c94351f9f28b93a78a623625.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/132c955ae3a0d7564417a82e6a492fc1.png)
+>?强制缓存：自定义时间式，站点默认启用了“强制缓存”，节点缓存 TTL 按照此处配置的时间，即使源站的 `Cache-Control` 为 `no-cache/no-store/private`。若您需要关闭“强制缓存”，即当源站的 `Cache-Control` 为 `no-cache/no-store/private` 时，即使此处配置了自定义节点缓存 TTL，节点仍不缓存资源，遵循源站的不缓存头，可前往 [规则引擎](https://cloud.tencent.com/document/product/1552/70901) 自定义配置节点缓存 TTL 规则。

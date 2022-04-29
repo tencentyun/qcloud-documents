@@ -43,7 +43,7 @@
 </thead>
 <tbody><tr>
 <td align="left">host</td>
-<td align="left">集群接入地址，在<strong>集群管理</strong>页面操作列的<strong>获取接入地址</strong>获取。<img src="https://main.qcloudimg.com/raw/0238d2d64bd896704ebef400fc08a7f1.png" alt="img"></td>
+<td align="left">集群接入地址，在<strong>集群管理</strong>页面操作列的<strong>获取接入地址</strong>获取。<img src="https://main.qcloudimg.com/raw/e5b19ca7c6b2724fe3545d99874f4ce9.png" alt="img"></td>
 </tr>
 <tr>
 <td align="left">port</td>
@@ -117,7 +117,7 @@ channel.onError([&handler](const char *message) {
 </thead>
 <tbody><tr>
 <td align="left">host</td>
-<td align="left">集群接入地址，在<strong>集群管理</strong>页面操作列的<strong>获取接入地址</strong>获取。<img src="https://main.qcloudimg.com/raw/0238d2d64bd896704ebef400fc08a7f1.png" alt="img"></td>
+<td align="left">集群接入地址，在<strong>集群管理</strong>页面操作列的<strong>获取接入地址</strong>获取。<img src="https://main.qcloudimg.com/raw/a0417f57f7f1c8498eec9d56e05924b4.png" alt="img"></td>
 </tr>
 <tr>
 <td align="left">port</td>
