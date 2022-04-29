@@ -52,7 +52,7 @@
 ## 注意事项
 - 开启 Prometheus 插件对于 Kong 的数据流性能有影响，建议只为需要监控的特定的 API(Route) 开启 Prometheus 插件。
 - 在腾讯云上购买云监控 Prometheus 会产生费用，这部分费用需要您自行承担。
-- 为了简单起见，上面的操作都是用 Konga 演示。您也可以调用 kong admin api 来绑定 Prometheus 插件，具体可以参见 [Kong-Prometheus 插件文档](https://docs.konghq.com/hub/kong-inc/prometheus/)。关于如何开启 kong admin api ，请参见 [开启admin-api并配置安全认证]()。
+- 为了简单起见，上面的操作都是用 Konga 演示。您也可以调用 kong admin api 来绑定 Prometheus 插件，具体可以参见 [Kong-Prometheus 插件文档](https://docs.konghq.com/hub/kong-inc/prometheus/)。关于如何开启 kong admin api ，请参见 [开启admin-api并配置安全认证](https://cloud.tencent.com/document/product/1364/73237)。
 
 ## 参考
 更多相关说明请参见 [Kong Prometheus 插件官方文档](https://docs.konghq.com/hub/kong-inc/prometheus/)。
