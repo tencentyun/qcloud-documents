@@ -125,4 +125,4 @@ Summary:
 为了操作方便 **admin-api** 并未开启安全认证插件，强烈建议配置同步完成后为 **admin-api** 开启安全认证插件。
 
 ## 参考
-相关说明请参见 [decK 参考文档](https://docs.konghq.com/deck/)。
+更多相关说明请参见 [decK 参考文档](https://docs.konghq.com/deck/)。
