@@ -14,12 +14,20 @@
 2. 引入 CMQ 客户端相关依赖。
 <dx-codeblock>
 :::  xml
-   <!-- cmq sdk -->
-   <dependency>
-       <groupId>com.qcloud</groupId>
-       <artifactId>cmq-http-client</artifactId>
-       <version>1.0.7</version>
-   </dependency>
+<!-- cmq sdk -->
+<dependency>
+    <groupId>com.qcloud</groupId>
+    <artifactId>cmq-http-client</artifactId>
+    <version>1.0.7</version>
+</dependency>
+
+<!-- 云API sdk -->
+<dependency>
+    <groupId>com.tencentcloudapi</groupId>
+    <artifactId>tencentcloud-sdk-java</artifactId>
+    <version>3.1.423</version>
+</dependency>
+
 :::
 </dx-codeblock>
 3. 发送消息。
@@ -45,7 +53,7 @@
 <tr>
 <td>SECRET_ID、SECRET_KEY</td>
 <td>云 API 密钥，登录 <a href = "https://console.cloud.tencent.com/cam/overview">访问管理控制台</a>，在<b>访问密钥</b> > <b>API 密钥管理</b>页面复制。
-<img src = "https://qcloudimg.tencent-cloud.cn/raw/867837e2b1e6d347ecb04d7085938c08.png">
+<img src = "https://qcloudimg.tencent-cloud.cn/raw/6c5c88fb4347f14cae206a6cdbe1df15.png">
 </td>
 </tr>
 <tr>
@@ -77,7 +85,7 @@
 <tr>
 <td>SECRET_ID、SECRET_KEY</td>
 <td>云 API 密钥，登录 <a href = "https://console.cloud.tencent.com/cam/overview">访问管理控制台</a>，在<b>访问密钥</b> > <b>API 密钥管理</b>页面复制。
-<img src = "https://qcloudimg.tencent-cloud.cn/raw/867837e2b1e6d347ecb04d7085938c08.png">
+<img src = "https://qcloudimg.tencent-cloud.cn/raw/6c5c88fb4347f14cae206a6cdbe1df15.png">
 </td>
 </tr>
 <tr>
@@ -95,12 +103,20 @@
 2. 引入 CMQ 客户端相关依赖。
 <dx-codeblock>
 :::  xml
-   <!-- cmq sdk -->
-   <dependency>
-       <groupId>com.qcloud</groupId>
-       <artifactId>cmq-http-client</artifactId>
-       <version>1.0.7</version>
-   </dependency>
+<!-- cmq sdk -->
+<dependency>
+    <groupId>com.qcloud</groupId>
+    <artifactId>cmq-http-client</artifactId>
+    <version>1.0.7</version>
+</dependency>
+
+<!-- 云API sdk -->
+<dependency>
+    <groupId>com.tencentcloudapi</groupId>
+    <artifactId>tencentcloud-sdk-java</artifactId>
+    <version>3.1.423</version>
+</dependency>
+
 :::
 </dx-codeblock>
 3. 创建 Topic 对象。
@@ -124,7 +140,7 @@
 <tr>
 <td>SECRET_ID、SECRET_KEY</td>
 <td>云 API 密钥，登录 <a href = "https://console.cloud.tencent.com/cam/overview">访问管理控制台</a>，在<b>访问密钥</b> > <b>API 密钥管理</b>页面复制。
-<img src = "https://qcloudimg.tencent-cloud.cn/raw/867837e2b1e6d347ecb04d7085938c08.png">
+<img src = "https://qcloudimg.tencent-cloud.cn/raw/6c5c88fb4347f14cae206a6cdbe1df15.png">
 </td>
 </tr>
 <tr>

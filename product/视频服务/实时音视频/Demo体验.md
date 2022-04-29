@@ -38,7 +38,7 @@
     margin-top: 15px;
 }
 .preview-demo-section .preview-demo-item.style-web .demo-item-download {
-    margin-top: 15px;
+    margin-top: 25px;
 }
 .preview-demo-section .preview-demo-item.style-single-download-btn .demo-item-download {
     margin-top: 50px;
@@ -70,10 +70,9 @@
 .preview-demo-section .preview-demo-item.style-web .demo-item-download .demo-item-download-btn {
     color: #fff;
     background-color: #00a4ff;
-    height: 25px;
-    line-height: 25px;
-    border: 1px solid #dfe0df;
-    margin-bottom: 10px;
+    height: 24px;
+    line-height: 24px;
+    margin-bottom: 6px;
 }
 .preview-demo-section .preview-demo-item .demo-item-download .demo-item-download-btn:hover {
     cursor: pointer;
@@ -106,7 +105,7 @@
             音视频通话、多人会议、KTV、语音聊天室、互动直播等
         </div>
         <div class="demo-item-download">
-            <img src="https://qcloudimg.tencent-cloud.cn/raw/033bd1e3f459d902dbf2c23479fec4da.png" data-nonescope="true">
+            <img src="https://web.sdk.qcloud.com/document/assets/ios-download.png" data-nonescope="true">
         </div>
     </div>
     <div class="preview-demo-item style-single-download-btn">

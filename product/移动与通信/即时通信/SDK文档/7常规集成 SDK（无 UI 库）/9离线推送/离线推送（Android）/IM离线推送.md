@@ -446,7 +446,20 @@ android {
 
 -  **华为和 Google FCM 适配**
 华为和 Google FCM 需要按照厂商方法，集成对应的 plugin 和 json 配置文件。
- 1. 在项目级 build.gradle 文件中 buildscript -> dependencies 下添加以下配置：
+
+ 1. 下载配置文件添加到工程根目录。
+ <table> 
+   <tr> 
+     <th nowrap="nowrap">华为</th> 
+     <th nowrap="nowrap">Google FCM</th> 
+   </tr> 
+   <tr> 
+     <td><img src="https://qcloudimg.tencent-cloud.cn/raw/220264120cdadd154c581e8164c21515.png" style="zoom:100%;" /></td> 
+     <td><img src="https://qcloudimg.tencent-cloud.cn/raw/1bfbfc52fb60440c192d7bddd372f99d.png" style="zoom:100%;" /></td> 
+   </tr> 
+</table>
+
+ 2. 在项目级 build.gradle 文件中 buildscript -> dependencies 下添加以下配置：
 ```
 classpath 'com.google.gms:google-services:4.2.0'
 classpath 'com.huawei.agconnect:agcp:1.4.1.300'
@@ -472,12 +485,12 @@ dependencies {
 }
 ```
 
- 2. 在应用级 build.gradle 文件中添加下方配置。
+ 3. 在应用级 build.gradle 文件中添加下方配置。
 ```
 apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.huawei.agconnect'
 ```
- 3. 单击项目右上角 **Sync Now** 同步项目。
+ 4. 单击项目右上角 **Sync Now** 同步项目。
 
 ### 步骤5：集成厂商推送 SDK
 
@@ -499,7 +512,7 @@ apply plugin: 'com.huawei.agconnect'
     // OPPO
     implementation "com.tencent.tpns:oppo:1.3.1.1-release"
     // vivo
-    implementation "com.tencent.tpns:vivo:1.3.1.1-release"
+    implementation "com.tencent.tpns:vivo:1.3.2.0-release"
     // 华为
     implementation 'com.tencent.tpns:huawei:1.3.1.1-release'
     implementation 'com.huawei.hms:push:5.0.2.300'

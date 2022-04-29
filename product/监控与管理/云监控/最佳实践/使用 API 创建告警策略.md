@@ -167,7 +167,6 @@
 
 
 ### 绑定告警对象
-
 1. 登录 [API Explorer 在线调试控制台](https://console.cloud.tencent.com/api/explorer?Product=monitor&Version=2018-07-24&Action=BindingPolicyObject&SignVersion=)。
 2. 将 [准备好的个人密钥](#spreparationsteps) 对应复制到对应的 SecretId、SecretKey 文本框。
 3. 在**输入参数**配置项找到 Region，选择相关地域。

@@ -31,3 +31,4 @@ getApp().globalData.userInfo = userInfo
 请参考 [调试指引](https://developers.weixin.qq.com/miniprogram/dev/framework/usability/debug.html) 打开调试面板，查看报错 log。
 如无法定位并解决问题，可提供报错 log 截图等相关信息 提交工单 或联系我们（QQ：2982200247）协助处理。
 
+
