@@ -1,17 +1,3 @@
-### 2.19.0 @2022.4.29
-
-**新增**
-- 支持 [社群（Community）](https://cloud.tencent.com/document/product/269/1502#.E7.BE.A4.E7.BB.84.E7.B1.BB.E5.9E.8B.E4.BB.8B.E7.BB.8D)下创建话题（Topic），支持互动性更强的场景。
-- [getGroupListWithTopic](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getGroupListWithTopic) 获取支持话题的社群列表。
-- [createGroupTopic](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#createGroupTopic) 创建话题。
-- [deleteGroupTopic](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#deleteGroupTopic) 删除话题。
-- [setGroupTopicProfile](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#setGroupTopicProfile) 设置话题资料。
-- [getGroupTopicList](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getGroupTopicList) 获取话题列表。
-- [GroupTopic](https://web.sdk.qcloud.com/im/doc/zh-cn/GroupTopic.html) 社群话题对象，用于描述话题具有的属性，如名称、公告、简介、未读数等信息。
-- 事件 [TIM.EVENT.GROUP_TOPIC_CREATED](https://web.sdk.qcloud.com/im/doc/zh-cn/module-EVENT.html#.GROUP_TOPIC_CREATED) 创建话题时触发。
-- 事件 [TIM.EVENT.GROUP_TOPIC_DELETED](https://web.sdk.qcloud.com/im/doc/zh-cn/module-EVENT.html#.GROUP_TOPIC_DELETED) 删除话题时触发。
-- 事件 [TIM.EVENT.GROUP_TOPIC_UPDATED](https://web.sdk.qcloud.com/im/doc/zh-cn/module-EVENT.html#.GROUP_TOPIC_UPDATED) 话题资料更新时触发。
-
 ### 2.18.2 @2022.4.22
 
 **变更**
