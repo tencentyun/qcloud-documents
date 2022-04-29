@@ -40,5 +40,5 @@
 
 ## 参考
 
-更多说明请参见 [Kong API Lookback](https://docs.konghq.com/gateway-oss/2.5.x/secure-admin-api/)。
+更多相关说明请参见 [Kong API Lookback](https://docs.konghq.com/gateway-oss/2.5.x/secure-admin-api/)。
 
