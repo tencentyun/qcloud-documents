@@ -41,6 +41,4 @@
 ## 参考
 
 - [Kong API Lookback](https://docs.konghq.com/gateway-oss/2.5.x/secure-admin-api/)。
-- 有自建的 Kong 网关，并配置了 **services**、**routes**、**plugins**。
-- 终端机安装了 **decK** 工具，请前往 Kong 官方下载 [decK](https://docs.konghq.com/deck/latest/installation/) 并安装到您的终端。
 
