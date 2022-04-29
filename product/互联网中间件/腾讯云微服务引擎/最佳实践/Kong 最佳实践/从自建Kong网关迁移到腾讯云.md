@@ -4,7 +4,7 @@
 
 ## 前置条件
 
-- 已购买 Kong 网关实例，[操作文档](https://cloud.tencent.com/document/product/1364/72495)，并配置了 **admin-api**。
+- 已购买 Kong 网关实例，[操作文档](https://cloud.tencent.com/document/product/1364/72495)，并[配置 **admin-api**](https://cloud.tencent.com/document/product/1364/73237)。
 - 有自建的 Kong 网关，并配置了 **services**、**routes**、**plugins**。
 - 终端机安装了 **decK** 工具，请前往 Kong 官方下载 [decK](https://docs.konghq.com/deck/latest/installation/) 并安装到您的终端。
 
