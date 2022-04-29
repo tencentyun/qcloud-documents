@@ -8,8 +8,7 @@ Dubbo 应用使用 TSF Atom-SDK 框架接入，支持 TSF 全栈服务治理、�
 
 ## 前提条件
 
-- 已参见 [快速创建一个容器集群](https://cloud.tencent.com/document/product/649/55505) 创建好一个虚拟机集群并导入云主机。
-- 已下载并解压 [应用 Demo]() 。
+已参见 [快速创建一个容器集群](https://cloud.tencent.com/document/product/649/55505) 创建好一个虚拟机集群并导入云主机。
 
 
 
