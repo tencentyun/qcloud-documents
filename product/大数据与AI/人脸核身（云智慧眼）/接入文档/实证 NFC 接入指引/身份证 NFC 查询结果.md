@@ -79,13 +79,13 @@ nfcEnResult 响应参数结构内容：
 
 ```
 {
-    "code": "0",
-    "msg": "请求成功",
+    "code": "0"，
+    "msg": "请求成功"，
     "result": {
-"bizSeqNo": "1607280FD01141000000000000009003",
+"bizSeqNo": "1607280FD01141000000000000009003"，
 "nfcEnResult":SgoeKZt5nIHQmiLluNxxsdfasdfasdfasdfa1uOswIiebhOPe0SgoeKZt5nIHQmiLluN123123MdsdfKsmiLluN123123MdfsIHQmiLluN123123MdsdfKdf1uOswIiebhOPe0SgoeKZt5nIH"
-},
-    "bizSeqNo": "1607280FD01141000000000000009003",    
+}，
+    "bizSeqNo": "1607280FD01141000000000000009003"，    
     "transactionTime": "20160728075617"
 }
 ```
@@ -110,9 +110,9 @@ import java.util.Random;
  *  @author webank
  *     项目所依赖的类：
  *      List utils = [
- *      "commons-io:commons-io:2.7",
- *      "com.google.guava:guava:16.0.1",
- *      "org.bouncycastle:bcprov-jdk15to18:1.66",
+ *      "commons-io:commons-io:2.7"，
+ *      "com.google.guava:guava:16.0.1"，
+ *      "org.bouncycastle:bcprov-jdk15to18:1.66"，
  *      ]
  *
  * @date 2022-03-04-10:27
@@ -129,10 +129,10 @@ public class SM4 {
      * @return
      * @throws Exception
      */
-    protected static Cipher generateCipher(int mode, byte[] keyData) throws Exception {
-        Cipher cipher = Cipher.getInstance(ALGORITHM_NAME_ECB_PADDING, BouncyCastleProvider.PROVIDER_NAME);
-        Key sm4Key = new SecretKeySpec(keyData, ALGORITHM_NAME);
-        cipher.init(mode, sm4Key);
+    protected static Cipher generateCipher(int mode，byte[] keyData) throws Exception {
+        Cipher cipher = Cipher.getInstance(ALGORITHM_NAME_ECB_PADDING，BouncyCastleProvider.PROVIDER_NAME);
+        Key sm4Key = new SecretKeySpec(keyData，ALGORITHM_NAME);
+        cipher.init(mode，sm4Key);
         return cipher;
     }
     /**
@@ -143,8 +143,8 @@ public class SM4 {
      * @throws Exception
      * @explain
      */
-    public static byte[] encrypt(byte[] key, byte[] data) throws Exception {
-        Cipher cipher = generateCipher(Cipher.ENCRYPT_MODE, key);
+    public static byte[] encrypt(byte[] key，byte[] data) throws Exception {
+        Cipher cipher = generateCipher(Cipher.ENCRYPT_MODE，key);
         return cipher.doFinal(data);
     }
     /**
@@ -155,15 +155,15 @@ public class SM4 {
      * @throws Exception
      * @explain 解密模式：采用ECB
      */
-    public static String decrypt(String key, String cipherText) throws Exception {
+    public static String decrypt(String key，String cipherText) throws Exception {
         // 用于接收解密后的字符串
         String decryptStr = "";
         byte[] keyData = key.getBytes();
         byte[] cipherData = cipherText.getBytes();
         // 解密
-        byte[] srcData = decrypt(keyData, cipherData);
+        byte[] srcData = decrypt(keyData，cipherData);
         // byte[]-->String
-        decryptStr = new String(srcData, ENCODING);
+        decryptStr = new String(srcData，ENCODING);
         return decryptStr;
     }
     /**
@@ -174,8 +174,8 @@ public class SM4 {
      * @throws Exception
      * @explain
      */
-    public static byte[] decrypt(byte[] key, byte[] cipherText) throws Exception {
-        Cipher cipher = generateCipher(Cipher.DECRYPT_MODE, key);
+    public static byte[] decrypt(byte[] key，byte[] cipherText) throws Exception {
+        Cipher cipher = generateCipher(Cipher.DECRYPT_MODE，key);
         return cipher.doFinal(cipherText);
     }
     /**
@@ -204,17 +204,17 @@ public class SM4 {
         byte[] bytes;
         bytes = new byte[str.length() / 2];
         for (int i = 0; i < bytes.length; i++) {
-            bytes[i] = (byte) Integer.parseInt(str.substring(2 * i, 2 * i + 2), 16);
+            bytes[i] = (byte) Integer.parseInt(str.substring(2 * i，2 * i + 2)，16);
         }
         return bytes;
     }
     /**
-     * 接入方拿到key 先可以跑通下面的案例，并认真阅读 1,2,3,4
+     * 接入方拿到key 先可以跑通下面的案例，并认真阅读 1，2，3，4
      * 项目所依赖的类：
      * List utils = [
-     * "commons-io:commons-io:2.7",
-     * "com.google.guava:guava:16.0.1",
-     * "org.bouncycastle:bcprov-jdk15to18:1.66",
+     * "commons-io:commons-io:2.7"，
+     * "com.google.guava:guava:16.0.1"，
+     * "org.bouncycastle:bcprov-jdk15to18:1.66"，
      * ]
      * @param args
      * @throws Exception
@@ -222,16 +222,16 @@ public class SM4 {
     public static void main(String[] args) throws Exception {
         // 1. 系统初始话的时候，需要注入所使用的 provider
         Security.addProvider(new BouncyCastleProvider());
-        // 2.收到key后，先从hex转成byte[],加解密就是用byte[]输入
+        // 2.收到key后，先从hex转成byte[]，加解密就是用byte[]输入
         byte[] key = hexStringToBytes("7F26724F72D48EBA5AD3848B30B81122");
         // 3.测试的文本内容
-        String src = "168,FM973 全角半角测试，你好，大家好,你好，美丽人生Ｅｆｇｋｙｍｋ";
-        byte[] enSrc = encrypt(key, src.getBytes());
+        String src = "168，FM973 全角半角测试，你好，大家好，你好，美丽人生Ｅｆｇｋｙｍｋ";
+        byte[] enSrc = encrypt(key，src.getBytes());
         String base64EnStr = BaseEncoding.base64().encode(enSrc);
         System.out.println("base64 en:" + base64EnStr);
         // 4.解密，用户只需要执行解密即可(先base64 转成byte[] 然后执行解密)
-        byte[] decSrc = decrypt(key, BaseEncoding.base64().decode(base64EnStr));
-        System.out.println("===== base64 dec:" + new String(decSrc, ENCODING));
+        byte[] decSrc = decrypt(key，BaseEncoding.base64().decode(base64EnStr));
+        System.out.println("===== base64 dec:" + new String(decSrc，ENCODING));
     }
 }
 ```
