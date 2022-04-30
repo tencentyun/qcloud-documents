@@ -85,7 +85,7 @@
 #### AVSDK 1.8.5 (1/18/2017)
 * Optimized loading time when joining a room in LVB scenarios
 * Added VJ voice changing (Android/iOS)
-* In addition to IMSDK channel, a new set of channels have been implemented in AVSDK. Users can use HTTP channel and HTTPS channel implemented within AVSDK in Andriod and iOS, respectively (Android/iOS).
+* In addition to IMSDK channel, a new set of channels have been implemented in AVSDK. Users can use HTTP channel and HTTPS channel implemented within AVSDK in Android and iOS, respectively (Android/iOS).
 * Supported automatic request for screen sharing
 * Supported dynamic change of areas on the screen to which content is shared (Windows)
 

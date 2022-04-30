@@ -104,7 +104,7 @@ Authorization: Auth String
 
 #### 错误分析
 
-1. 如果对一个非 appendable 的文件进行 APPEND 操作，那么会返回409 Confilct，错误信息：
+1. 如果对一个非 appendable 的文件进行 APPEND 操作，那么会返回409 Conflict，错误信息：
 The operation is not valid for the current state of the object。
 2. 如果请求中未携带 position 参数，会返回400 Bad Request，错误信息：InvalidArgument。
 3. 如果请求中缺失 Content-Length 头部，会返回 411 Length Required，错误信息：

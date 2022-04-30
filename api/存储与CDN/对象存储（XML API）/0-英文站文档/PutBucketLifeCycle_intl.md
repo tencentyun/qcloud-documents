@@ -107,7 +107,7 @@ The specific content is described as follows:
 |And |LifecycleConfiguration.Rule.Filter |Use to combine Prefix with Tag |Container |No|
 |Prefix |LifecycleConfiguration.Rule.Filter<br> or LifecycleConfiguration.Rule.Filter.And |Specifies the prefix to which the rule applies. Objects that match the prefix are affected by this rule. Prefix can only have at most one |Container | No|
 |Tag |LifecycleConfiguration.Rule.Filter<br> or LifecycleConfiguration.Rule.Filter.And |Label, Tag can have zero or more |Container |No|
-|Key |LifecycleConfiguration.Rule.Filter.Tag<br> or LifecycleConfiguration.Rule.Filter.And.Tag |Tag Key, no more than 128 bytes. It cannot start with "cos:". It supports only letters, numbers, spaces, and symboles (+ - = . _ : /)|String |Yes|
+|Key |LifecycleConfiguration.Rule.Filter.Tag<br> or LifecycleConfiguration.Rule.Filter.And.Tag |Tag Key, no more than 128 bytes. It cannot start with "cos:". It supports only letters, numbers, spaces, and symbols (+ - = . _ : /)|String |Yes|
 |Value |LifecycleConfiguration.Rule.Filter.Tag<br> or LifecycleConfiguration.Rule.Filter.And.Tag |Tag Value, no more than 256 bytes in length, only supports letters, numbers, spaces, and +-=._:/ These symbols |String | is |
 |Expiration |LifecycleConfiguration.Rule |Rules Expired Properties |Container |No|
 |Transition |LifecycleConfiguration.Rule |Rules conversion properties, when objects are converted to Standard_IA or Archive |Container |No|

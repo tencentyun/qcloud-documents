@@ -11,7 +11,7 @@ GCloud目录列表：
 
 ![](https://mc.qcloudimg.com/static/img/477be8c6bd94c2682d4ca2a23182a84b/2.png)
  
-需要指出的是，GCloud作为一个独立的project放在Andriod目录下，建议你们将Plugins/Android目录下的文件按以下目录结构组织，否则可能出现找不到相关库文件的错误：
+需要指出的是，GCloud作为一个独立的project放在Android目录下，建议你们将Plugins/Android目录下的文件按以下目录结构组织，否则可能出现找不到相关库文件的错误：
 
 ![](https://mc.qcloudimg.com/static/img/deada46e7cbfbbf08ae5fda4591b0084/3.png)
 

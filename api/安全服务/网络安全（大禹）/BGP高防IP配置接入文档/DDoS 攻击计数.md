@@ -40,4 +40,4 @@ background: #efefef;
 |attacks| <font color=red> 1035 / 次 </font color=red> |Integer | DDoS 攻击次数 |
 | attackPeak |<font color=red> 35000 / Mbps </font color=red>| Integer | DDoS 攻击峰值 |
 | overload|<font color=red> 6 / 次 </font color=red>| Integer | 弹性防护开启次数 |
-|bandwitdh|<font color=red> 80000 / Mbps</font color=red>| Integer | 该 BGP 高防 IP 的防护带宽 |
+|bandwidth|<font color=red> 80000 / Mbps</font color=red>| Integer | 该 BGP 高防 IP 的防护带宽 |

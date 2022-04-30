@@ -203,7 +203,7 @@ public void onUnknowException(Exception e, Object state) {
 ```
 应用在调用 SDK 提供的接口时，将实现了对应回调接口的实例传入。当 SDK 的接口调用完成后，具体如登录、应用邀请和应用分享调用完成后，会回调传入的接口实例。
 >**注意：**
->应用调用 Andriod_SDK 接口时，如果要成功接收到回调，需要在调用接口的 Activity 的 onActivityResult 方法中增加如下代码：
+>应用调用 Android_SDK 接口时，如果要成功接收到回调，需要在调用接口的 Activity 的 onActivityResult 方法中增加如下代码：
 
 ```
 @Override

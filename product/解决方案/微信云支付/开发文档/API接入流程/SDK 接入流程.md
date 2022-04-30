@@ -60,7 +60,7 @@ SDK 支持 C/C++/C#/Java。SDK 说明请参见 [SDK](https://cloud.tencent.com/d
 商户需要按设备维度统计订单相关的信息时：
 - 统计某一个设备的订单信息，需要接入方知会商家在手机端管理系统，添加门店的设备 ID 和设备名称。
 - 统计某一个款设备型号的订单，需要在支付时，OrderClient 结构里填写 sub_terminal_type 字段。
-- 统计某一个平台的订单，例如 Windows 平台、Andriod 平台，需要在支付时，OrderClient 结构里填写 terminal_type 字段。
+- 统计某一个平台的订单，例如 Windows 平台、Android 平台，需要在支付时，OrderClient 结构里填写 terminal_type 字段。
 
 ## 常见问题
 ### 请求格式

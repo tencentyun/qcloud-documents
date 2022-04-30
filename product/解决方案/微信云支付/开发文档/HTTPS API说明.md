@@ -4143,7 +4143,7 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>terminal_type</td>
       <td>是</td>
       <td>Number(32)</td>
-      <td>终端类型，1：windows，2：andriod，3：iso，4：linux，100：其他</td>
+      <td>终端类型，1：windows，2：Android，3：iso，4：linux，100：其他</td>
    </tr>
    <tr>
       <td>sub_terminal_type</td>

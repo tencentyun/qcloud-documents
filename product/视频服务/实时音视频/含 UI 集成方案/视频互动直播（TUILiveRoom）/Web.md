@@ -201,7 +201,7 @@ TUIPusher & TUIPlayer 依赖以下端口进行数据传输，请将其加入防�
 - 域名：qcloud.rtc.qq.com
 
 ## 结语
-在后续的迭代中, TRTC Web 端推拉流组件会逐渐与 iOS、Andriod 等各端连通，并在 Web 端实现观众连麦、高级美颜、自定义布局、转推多平台、上传图片文字音乐等能力，欢迎大家多多使用、提出您的宝贵意见。
+在后续的迭代中, TRTC Web 端推拉流组件会逐渐与 iOS、Android 等各端连通，并在 Web 端实现观众连麦、高级美颜、自定义布局、转推多平台、上传图片文字音乐等能力，欢迎大家多多使用、提出您的宝贵意见。
 
 如果有任何需要或者反馈，可扫描下方二维码，或者单击 [反馈链接](https://cloud.tencent.com/apply/p/jpkje0im7a) 同步给我们。
 <img src="https://qcloudimg.tencent-cloud.cn/raw/d2e33e2d5bc6c584ddd5eb7830e92311.png" width="250px" height="200px">

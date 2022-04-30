@@ -42,12 +42,12 @@ header 按如下要求转换后按顺序排列：
 例如有两个 header 参与构建签名内容（仅为示例，请根据业务实际情况填写字段）：
 ```plaintext
 Date:Fri, 09 Oct 2015 00:00:00 GMT
-Source:AndriodApp
+Source:AndroidApp
 ```
 生成的签名内容为：
 ```plaintext
 date: Fri, 09 Oct 2015 00:00:00 GMT
-source: AndriodApp
+source: AndroidApp
 ```
 
 #### 计算签名

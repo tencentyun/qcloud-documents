@@ -222,7 +222,7 @@ TUIPusher & TUIPlayer 依赖以下端口进行数据传输，请将其加入防�
 
 ## 结语
 
-在后续的迭代中, 本文的 Web 端推拉流组件会逐渐与 iOS、Andriod 等各端连通，并在 Web 端利用实现观众连麦、高级美颜、自定义布局、转推多平台、上传图片文字音乐等能力，针对电商直播场景，计划利用 [即时通信IM](https://cloud.tencent.com/product/im) 实现商城上下架、口令抽奖、答题抽奖等多样性的玩法。欢迎大家多多使用、提出您的宝贵意见。
+在后续的迭代中, 本文的 Web 端推拉流组件会逐渐与 iOS、Android 等各端连通，并在 Web 端利用实现观众连麦、高级美颜、自定义布局、转推多平台、上传图片文字音乐等能力，针对电商直播场景，计划利用 [即时通信IM](https://cloud.tencent.com/product/im) 实现商城上下架、口令抽奖、答题抽奖等多样性的玩法。欢迎大家多多使用、提出您的宝贵意见。
 
 如果有任何需要或者反馈，可扫描下方二维码，或者单击 [反馈链接](https://cloud.tencent.com/apply/p/jpkje0im7a) 同步给我们。<br>
 <img src="https://qcloudimg.tencent-cloud.cn/raw/d2e33e2d5bc6c584ddd5eb7830e92311.png" width="200px" height="200px"><br>
