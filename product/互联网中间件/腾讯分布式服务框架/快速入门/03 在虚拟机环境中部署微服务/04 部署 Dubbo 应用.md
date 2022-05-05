@@ -2,7 +2,7 @@
 
 Dubbo 应用使用 TSF Atom-SDK 框架接入，支持 TSF 全栈服务治理、应用配置管理能力。如果您想了解如何实现微服务应用的相关功能，请参见 [Dubbo 应用开发](#building)。
 
-为了帮助您快速体验如何在 TSF 中部署微服务应用，TSF 提供了一对应用 Demo，包含一个 provider 应用和一个 consumer 应用。本文以一个示例介绍如何在虚拟机环境中部署 Dubbo 应用，并实现简单的服务调用。
+为了帮助您快速体验如何在 TSF 中部署微服务应用，TSF 提供了一对应用 Demo，包含一个 provider 应用和一个 consumer 应用。本文以一个示例介绍如何在虚拟机环境中部署 Dubbo 应用。
 
 
 
