@@ -1,11 +1,11 @@
 
 ## 操作场景
-鹊桥 iPaaS 中的 Kafka 连接器支持 PLAINTEXT、SASL_PLAINTEXT、SASL_SCRAM 三种认证方式接入 Kafka 集群，可使用任一被支持的认证方式接入到 Kafka 集群。
+腾讯云数据连接器中的 Kafka 连接器支持 PLAINTEXT、SASL_PLAINTEXT、SASL_SCRAM 三种认证方式接入 Kafka 集群，可使用任一被支持的认证方式接入到 Kafka 集群。
 
 
 ## 前期准备
 
->!在购买阿里云 Kafka 时，有 VPC 接入版和公网 + VPC 接入版可选，由于 iPaaS 位于阿里云的外网，因此创建实例时请选择**公网+VPC接入版**。
+>!在购买阿里云 Kafka 时，有 VPC 接入版和公网 + VPC 接入版可选，由于腾讯云数据连接器位于阿里云的外网，因此创建实例时请选择**公网+VPC接入版**。
 
 ###  步骤1：购买 Kafka 实例
 
@@ -55,15 +55,15 @@
 
 ## 接入配置
 
-### 步骤1：获取 iPaaS Kafka 连接器配置信息
+### 步骤1：获取腾讯云数据连接器 Kafka 连接器配置信息
 
 1. 登录 [阿里云 Kafka 控制台](https://kafka.console.aliyun.com/region/cn-hangzhou/instances)，单击**目标实例ID**进入实例详情页，可以查询到接入点信息。[](id:method1)
 ![](https://qcloudimg.tencent-cloud.cn/raw/1ebf7c6f5bedfcf2c070d6fc1ac01925.png)
 2. 登录 [阿里云 Kafka 控制台](https://kafka.console.aliyun.com/region/cn-hangzhou/instances)，单击**目标实例ID**进入实例详情页，下拉页面可以查询到配置信息[](id:method2)
 ![](https://qcloudimg.tencent-cloud.cn/raw/a63f40a78e8088c7175a6dfb42e3f5db.png)
 
-### 步骤2：配置鹊桥 iPaaS Kafka 连接器连接属性 
-1. 登录 [千帆鹊桥 iPaaS 控制台](https://console.cloud.tencent.com/ipaas)，单击**新建应用**，选择**空白应用**进行创建。
+### 步骤2：配置腾讯云数据连接器 Kafka 连接器连接属性 
+1. 登录 [腾讯云数据连接器控制台](https://console.cloud.tencent.com/ipaas)，单击**新建应用**，选择**空白应用**进行创建。
 ![](https://qcloudimg.tencent-cloud.cn/raw/2de14b55e78c95b5af12a36d53812f82.png)
 2. 单击左侧的**集成流**展开选择**NewFlow**在画布中单击**+**选择**Apache Kafka 连接器**相关操作。
 ![](https://qcloudimg.tencent-cloud.cn/raw/188f6b9dbdd2c8c618f417ea3d293ba6.png)
