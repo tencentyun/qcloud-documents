@@ -53,7 +53,7 @@
 <tr>
 <td>SECRET_ID、SECRET_KEY</td>
 <td>云 API 密钥，登录 <a href = "https://console.cloud.tencent.com/cam/overview">访问管理控制台</a>，在<b>访问密钥</b> > <b>API 密钥管理</b>页面复制。
-<img src = "https://qcloudimg.tencent-cloud.cn/raw/867837e2b1e6d347ecb04d7085938c08.png">
+<img src = "https://qcloudimg.tencent-cloud.cn/raw/6c5c88fb4347f14cae206a6cdbe1df15.png">
 </td>
 </tr>
 <tr>
@@ -85,7 +85,7 @@
 <tr>
 <td>SECRET_ID、SECRET_KEY</td>
 <td>云 API 密钥，登录 <a href = "https://console.cloud.tencent.com/cam/overview">访问管理控制台</a>，在<b>访问密钥</b> > <b>API 密钥管理</b>页面复制。
-<img src = "https://qcloudimg.tencent-cloud.cn/raw/867837e2b1e6d347ecb04d7085938c08.png">
+<img src = "https://qcloudimg.tencent-cloud.cn/raw/6c5c88fb4347f14cae206a6cdbe1df15.png">
 </td>
 </tr>
 <tr>
@@ -140,7 +140,7 @@
 <tr>
 <td>SECRET_ID、SECRET_KEY</td>
 <td>云 API 密钥，登录 <a href = "https://console.cloud.tencent.com/cam/overview">访问管理控制台</a>，在<b>访问密钥</b> > <b>API 密钥管理</b>页面复制。
-<img src = "https://qcloudimg.tencent-cloud.cn/raw/867837e2b1e6d347ecb04d7085938c08.png">
+<img src = "https://qcloudimg.tencent-cloud.cn/raw/6c5c88fb4347f14cae206a6cdbe1df15.png">
 </td>
 </tr>
 <tr>
