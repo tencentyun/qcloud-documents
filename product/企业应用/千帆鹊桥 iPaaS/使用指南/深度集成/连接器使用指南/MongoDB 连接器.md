@@ -3,10 +3,10 @@
 ## 简介
 
 MongoDB 是[面向文档](https://zh.wikipedia.org/wiki/面向文檔的數據庫) 的数据库管理系统，MongoDB 将数据存储为一个文档，数据结构由键值对（key/value）组成。MongoDB 文档类似于 JSON 对象，字段值可以包含其他文档，数组及文档数组。
-iPaaS MongoDB 连接器可连接第三方 MongoDB 数据库并执行操作。用户通过连接器配置来配置 MongoDB 的连接参数，配置成功后便可执行 MongoDB 操作。
+MongoDB 连接器可连接第三方 MongoDB 数据库并执行操作。用户通过连接器配置来配置 MongoDB 的连接参数，配置成功后便可执行 MongoDB 操作。
 
 ## 连接器配置
-iPaaS MongoDB 连接器支持两种连接形式：
+MongoDB 连接器支持两种连接形式：
 - 自定义配置方式，用户根据连接器参数进行参数配置。
 - URI字符串方式，用户输入 MongoDB 连接 URI，例如："mongodb://localhost:27017"。
 
