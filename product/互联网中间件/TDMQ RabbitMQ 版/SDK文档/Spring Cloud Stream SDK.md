@@ -30,9 +30,9 @@
 <dx-codeblock>
 :::  yaml
 spring:
-  application:
+    application:
     name: application-name
-  cloud:
+    cloud:
     stream:
       rabbit:
         bindings:
@@ -125,9 +125,9 @@ spring:
 </tbody></table>
 2. 创建配置文件加载程序。
    - OutputMessageBinding.java
-<dx-codeblock>
-:::  java
-public interface OutputMessageBinding {
+   <dx-codeblock>
+   :::  java
+   public interface OutputMessageBinding {
 	 /**
 		* 要使用的通道名称(输出channel名称)
 		*/
@@ -135,13 +135,13 @@ public interface OutputMessageBinding {
 
 	 @Output(OUTPUT)
 	 MessageChannel output();
-}
-:::
-</dx-codeblock>
+   }
+   :::
+   </dx-codeblock>
    - InputMessageBinding.java
-<dx-codeblock>
-:::  java
-public interface InputMessageBinding {
+   <dx-codeblock>
+   :::  java
+   public interface InputMessageBinding {
 
 	 /**
 		* 要使用的通道名称
@@ -150,9 +150,9 @@ public interface InputMessageBinding {
 
 	 @Input(INPUT)
 	 SubscribableChannel input();
-}
-:::
-</dx-codeblock>
+   }
+   :::
+   </dx-codeblock>
 
 
 ### 步骤3：发送消息
@@ -166,14 +166,14 @@ public class MessageSendProvider {
 
     @Autowired
     private OutputMessageBinding outputMessageBinding;
-
+    
     public String sendToDirect() {
         outputMessageBinding.output().send(MessageBuilder.withPayload("[info] This is a new message.[" + System.currentTimeMillis() + "]").setHeader("routeTo", "info").build());
         outputMessageBinding.output().send(MessageBuilder.withPayload("[waring] This is a new waring message.[" + System.currentTimeMillis() + "]").setHeader("routeTo", "waring").build());
         outputMessageBinding.output().send(MessageBuilder.withPayload("[error] This is a new error message.[" + System.currentTimeMillis() + "]").setHeader("routeTo", "error").build());
         return "success";
     }
-
+    
     public String sendToFanout() {
         for (int i = 0; i < 3; i++) {
             outputMessageBinding.output().send(MessageBuilder.withPayload("This is a new message" + i).build());

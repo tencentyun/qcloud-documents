@@ -1,6 +1,6 @@
 ## 命名空间
 
-Namespace=QCE/LB
+Namespace = QCE/LB
 
 ## 监控指标
 

@@ -1,6 +1,6 @@
 ## 命名空间
 
-Namespace=QCE/NAT_GATEWAY
+Namespace = QCE/NAT_GATEWAY
 
 ## 监控指标
 

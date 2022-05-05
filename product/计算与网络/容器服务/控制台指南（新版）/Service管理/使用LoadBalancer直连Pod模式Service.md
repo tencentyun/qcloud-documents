@@ -6,13 +6,12 @@
 - 要求具备更高转发性能时（非直连模式下 CLB 和 Service 本身存在两层 CLB，性能有一定损失）。
 - 需使用完整的健康检查和会话保持到 Pod 层级时（非直连模式下 CLB 和 Service 本身存在两层 CLB，健康检查及会话保持功能较难配置）。
 
-
-
-> ? 
+<dx-alert infotype="explain" title="">
 - 若您的集群是 EKS ，则默认为直连 Pod 模式，您无需任何操作。
 - 当前 GlobalRouter 和 VPC-CNI 容器网络模式均支持直连 Pod 模式，您可以在 [集群列表](https://console.cloud.tencent.com/tke2/cluster?rid=1) 中单击集群 ID 进入集群详情页面，在集群的“基本信息”页面中查看当前集群使用的网络插件。
->
+</dx-alert>
 
+ 
 
 ## 容器网络模式为 VPC-CNI
 
