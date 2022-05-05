@@ -2,7 +2,7 @@
 
 该任务以 Java 客户端为例指导您在 VPC 网络环境下，使用 SASL_SCRAM 方式接入消息队列 CKafka 并收发消息。
 
-> ? SASL_SCRAM 接入方式仅北京地域且2.4.1版本实例支持，其他地域和存量实例需要 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=876&level2_id=951&source=0&data_title=消息服务CKafKa&step=1) 申请）。
+> ? SASL_SCRAM 接入方式仅北京地域且2.4.1版本实例支持，其他地域和存量实例需要 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=876&level2_id=951&source=0&data_title=消息服务CKafKa&step=1) 申请。
 
 ## 前提条件
 
