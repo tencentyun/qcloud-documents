@@ -80,7 +80,7 @@ API Endpoint 指一个 API 服务可以连接的后端服务信息，包括 API 
 
 ## API 测试与运维 
 
-千帆鹊桥 iPaaS  API 管理平台同时还提供了完整的运维方案。查看步骤如下：
+腾讯云数据连接器 API 管理平台同时还提供了完整的运维方案。查看步骤如下：
 1. 在 [API 管理](https://console.cloud.tencent.com/eis/apimanage) 页面，找到目标 API 服务，单击操作列的数据统计图标，进入运维页面。
 ![](https://qcloudimg.tencent-cloud.cn/raw/4a5abe9aed6974a72b1aaa5e8bd27cf9.png)
 2. 在运维页面，您可以查看此 API 在规定时间范围内的请求记录和状态汇总。
@@ -97,7 +97,7 @@ API Endpoint 指一个 API 服务可以连接的后端服务信息，包括 API 
 
 ## API 用户中心
 
-千帆鹊桥 iPaaS 会根据用户已经配置完成的 API 服务（包括其 Endpoint）生成用户可以调用的开放 API。在 API 用户中心中，我们将会帮助您更好的管理每个 API 服务的用户，以及分配用户对于 API 的使用权限。
+腾讯云数据连接器会根据用户已经配置完成的 API 服务（包括其 Endpoint）生成用户可以调用的开放 API。在 API 用户中心中，我们将会帮助您更好的管理每个 API 服务的用户，以及分配用户对于 API 的使用权限。
 
 [API 用户中心](https://console.cloud.tencent.com/eis/apiusercenter) 首页是以列表的形式展示当前可以配置的所有 API 服务信息，但是展示维度与“API管理”略有不同。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d407877d42b4639133effd9bef8696d8.png)
