@@ -33,7 +33,7 @@ CDN 资源更新后，通过主动拨测并比对资源 MD5 结果，确认各�
 1. 进入任务列表页面，单击新建任务按钮。
 2. 可在拨测地址中选择需要模拟访问的 URL （最多支持同时监控5个拨测地址），选择期望模拟客户端发起请求的对应区域运营商的拨测点，模拟真实用户访问，开启拨测任务。
 
-![](https://qcloudimg.tencent-cloud.cn/raw/010842bb60c38c707935e0b4d2f78011.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/59898dda70a3cf56b4f227d6d7948eed.png)
 
 ### 步骤三 多维性能分析
 
