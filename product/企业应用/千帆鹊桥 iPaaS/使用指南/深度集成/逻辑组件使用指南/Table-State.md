@@ -1,5 +1,5 @@
 ## 简介
-Table 组件是由 iPaaS 提供存储的内置表结构组件，提供基于 Table 的增删改查等操作，仅用于操作 RecordSet。  
+Table 组件是一个由腾讯云数据连接器提供存储的内置表结构组件，提供基于Table的增删改查等操作，仅用于操作 RecordSet。  
 
 
 一般情况前一个节点为 RecordSet Encoder，将数据封装成 RecordSet，通过 Table 组件实现数据的查询、插入、合并、删除、比对等。使用 Table 组件时选择合适的操作 > 配置连接 > 配置操作。
