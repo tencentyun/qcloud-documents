@@ -1,5 +1,5 @@
 ## 操作场景
-iPaaS Redis 连接器支持 Redis 单点模式、哨兵模式、Cluster 集群模式的连接及常用操作。
+Redis 连接器支持 Redis 单点模式、哨兵模式、Cluster 集群模式的连接及常用操作。
 本文以 Redis 单点模式为例，介绍主流云厂商 Redis 产品的接入流程。
 
 
@@ -13,7 +13,7 @@ iPaaS Redis 连接器支持 Redis 单点模式、哨兵模式、Cluster 集群�
 
 
 ### 设置安全组
-设置允许 iPaaS 出口 IP 访问数据库的操作。详细操作可参考 [Redis配置安全组](https://cloud.tencent.com/document/product/239/30911)。
+设置允许腾讯云数据连接器出口 IP 访问数据库的操作。详细操作可参考 [Redis配置安全组](https://cloud.tencent.com/document/product/239/30911)。
 <dx-tabs>
 :::新建安全组
   
@@ -32,7 +32,7 @@ iPaaS Redis 连接器支持 Redis 单点模式、哨兵模式、Cluster 集群�
 | :------------- | ---- | ---- | --------- | ------------------------------------- |
 | 入方向 | TCP  | ALL（若数据库自定义端口填写自定义端口号） | 0.0.0.0/0 | 开启通过公网访问 redis|
 
->! 若需配置指定的 iPaaS 出口 IP 访问，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们。
+>! 若需配置指定的腾讯云数据连接器出口 IP 访问，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们。
 :::
 ::: 选择已有安全组后修改
 
@@ -47,7 +47,7 @@ iPaaS Redis 连接器支持 Redis 单点模式、哨兵模式、Cluster 集群�
  | :-------------  | ---- | ---- | --------- | ------------------------------------- |
  | 入方向 | TCP  |ALL（若数据库自定义端口填写自定义端口号） | 0.0.0.0/0 | 开启通过公网访问 redis|
  
->! 若需配置指定的iPaaS出口IP访问，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们。
+>! 若需配置指定的腾讯云数据连接器出口IP访问，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们。
 :::
 
 </dx-tabs>
@@ -55,14 +55,14 @@ iPaaS Redis 连接器支持 Redis 单点模式、哨兵模式、Cluster 集群�
 ### 开启外网地址访问
 1. 登录 [云数据库 Redis 实例控制台](https://console.cloud.tencent.com/redis?regionId=1#/)，在实例列表中选中想要设置的实例，进入实例管理页面，开启外网地址访问。
 ![](https://qcloudimg.tencent-cloud.cn/raw/f643beffd77e018b02ac1cf5273d7eff.png)
-2. 配置成功后，控制台会显示外网地址。后续iPaaS连接器配置需填写对应字段[](id:method1)。
+2. 配置成功后，控制台会显示外网地址。后续腾讯云数据连接器连接器配置需填写对应字段[](id:method1)。
 ![](https://qcloudimg.tencent-cloud.cn/raw/8229e31eb684db52d616b9523790800b.png)
 
 
 ## 接入配置
-配置鹊桥 iPaaS Database 连接器连接属性步骤如下：
+配置腾讯云数据连接器 Database 连接器连接属性步骤如下：
 
-1. 在[iPaaS平台](https://console.cloud.tencent.com/ipaas)上单击**新建应用**，选择**空白应用**进行创建。
+1. 在[腾讯云数据连接器控制台](https://console.cloud.tencent.com/ipaas)上单击**新建应用**，选择**空白应用**进行创建。
 ![](https://qcloudimg.tencent-cloud.cn/raw/f0e3a02558a61e6168e4a6c993931820.png)
 2. 单击左侧的**集成流**展开选择**NewFlow**在画布中单击**+**选择**Redis连接器**相关操作。
 ![](https://qcloudimg.tencent-cloud.cn/raw/865f5d010b10fd5084f3c02d121e9d48.png)
