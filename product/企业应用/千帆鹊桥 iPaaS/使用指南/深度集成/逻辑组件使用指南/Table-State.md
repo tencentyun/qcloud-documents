@@ -1,17 +1,18 @@
 ## 简介
-Table 组件是一个由iPaaS提供存储的内置表结构组件，提供基于Table的增删改查等操作，仅用于操作 RecordSet。  
+Table 组件是由 iPaaS 提供存储的内置表结构组件，提供基于 Table 的增删改查等操作，仅用于操作 RecordSet。  
 
-**使用说明**
 
-一般情况前一个节点为RecordSet Encoder,将数据封装成RecordSet,通过Table组件实现数据的查询、插入、合并、删除、比对等。使用Table组件时选择合适的操作-->配置连接-->配置操作。
+一般情况前一个节点为 RecordSet Encoder，将数据封装成 RecordSet，通过 Table 组件实现数据的查询、插入、合并、删除、比对等。使用 Table 组件时选择合适的操作 > 配置连接 > 配置操作。
+
 ## 连接配置
 选择通用存储中创建的表名，此表为操作的目标表。
 
 | 参数   | 数据类型 | 描述             | 是否必填 | 默认值 |
 | :----- | :------- | :--------------- | :------- | ------ |
 | 表名   | string   | 表名             | 是       |    -    |
-##操作
-Table组件一共包含插入、查询、合并、删除、比对操作。
+
+## 操作说明
+Table 组件包含插入、查询、合并、删除、比对操作。
 <dx-tabs>
 ::: 查询
 #### 参数配置
@@ -23,7 +24,9 @@ Table组件一共包含插入、查询、合并、删除、比对操作。
 | 分区数   | int      | 分数数量                | 是           |      -      |
 | 开启缓存 | bool     | 对输出 RecordSet 是否缓存 | 是           |     -       |
 
-![](https://qcloudimg.tencent-cloud.cn/raw/29a1f0ac902ba3240d697ce0c974c8ff.png)
+查询界面如下：
+<img src="https://qcloudimg.tencent-cloud.cn/raw/29a1f0ac902ba3240d697ce0c974c8ff.png" width="560px">
+
 
 ####  输出
 组件输出的 message 信息如下：
@@ -38,10 +41,9 @@ Table组件一共包含插入、查询、合并、删除、比对操作。
 #### 案例
 1. 新建连接器或选择已创建的连接器。
 2. 配置过滤条件、输出字段等信息。
-![](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/img/Table/560003461dca9005705c38ec76416a1b.png)
+<img src="https://document-1259649581.cos.ap-guangzhou.myqcloud.com/img/Table/560003461dca9005705c38ec76416a1b.png" width="560px">
 3. 执行操作，输出结果如下：
-
-![](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/img/Table/287892d787c93fe939c3bbdabb243a43.png)
+<img src="https://document-1259649581.cos.ap-guangzhou.myqcloud.com/img/Table/287892d787c93fe939c3bbdabb243a43.png" width="560px">
 
 :::
 ::: 插入
@@ -55,11 +57,14 @@ Table组件一共包含插入、查询、合并、删除、比对操作。
 | 字段映射   | enum          | 字段映射，数据表字段和 RecordSet 类型数据字段的映射，插入数据表字段的值为 RecordSet 类型数据字段的值 | 是           |         -   |
 
 默认插入界面如下：
+<img src="https://qcloudimg.tencent-cloud.cn/raw/b41835519946c3ac1debd43db2c826a4.png" width="560px">
 
-![image-filter-1](https://qcloudimg.tencent-cloud.cn/raw/4cf386e2c8d436e7f54242ba837ca29d.png)
+>?
+>- 如果前一个节点输出 RecordSet，Table 将自动感知数据结构，并将来源字段与目标表字段根据同名映射自动进行映射。
+>- 在字段映射后方有 schema 维护按钮，可点击查看、管理输入的 schema 在 schema 维护面板中可进行手工维护 schema 的字段信息，当前一节点输出的 schema 发生了调整，可在 schema 手工刷新与前一节点输出的 schema 保持一致，同时将根据同步映射原则进行重新映射（将覆盖上次的映射）。
+><img src="https://qcloudimg.tencent-cloud.cn/raw/5883606eea0257c6158ebdeba1df4fe6.png" width="560px">
+![]()
 
-注：如果前一个节点输出RecordSet,Table将自动感知数据结构，并将来源字段与目标表字段根据同名映射自动进行映射。在字段映射后方有schema维护按钮，可点击查看、管理输入的schema.在schema维护面板中可进行手工维护schema的字段信息，当前一节点输出的schema发生了调整，可在schema手工刷新与前一节点输出的schema保持一致，同时将根据同步映射原则进行重新映射（将覆盖上次的映射）。
-![image-filter-1](https://qcloudimg.tencent-cloud.cn/raw/44767d7c28c22aef0e0a9bdc08da56e1.png)
 
 ####  输出
 组件输出的 message 信息如下：
@@ -74,8 +79,7 @@ Table组件一共包含插入、查询、合并、删除、比对操作。
 #### 案例
 1. 新建连接器或选择已创建的连接器。
 2. 配置字段映射等信息。
-
-![](https://qcloudimg.tencent-cloud.cn/raw/4cf386e2c8d436e7f54242ba837ca29d.png)
+<img src="https://qcloudimg.tencent-cloud.cn/raw/04d779ca0c74beda6031a3e82929f86f.png" width="560px">
 3. 执行操作，如果成功，则输出 payload 为上一个组件的 payload。
 
 :::
@@ -171,6 +175,6 @@ Table组件一共包含插入、查询、合并、删除、比对操作。
 2. 配置输入模式、主键配置、比对字段等信息。
 ![](https://qcloudimg.tencent-cloud.cn/raw/4ce73c521209cb22260ffddd8130a66a.png)
 3. 执行操作，输出如下：
-![](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/img/Table/4506e9bfda8b178748d5a2c9abcc5873.png)
+<img src="https://document-1259649581.cos.ap-guangzhou.myqcloud.com/img/Table/4506e9bfda8b178748d5a2c9abcc5873.png" width="560px">
 :::
 </dx-tabs>

@@ -107,7 +107,7 @@ scanView.setScanCallBack(new QBarSdkCallback() {
 });
 scanView.onCreate(); // 构建ScanCodeDetectView
 ```
-ScanCodeDetectView 的声明周期如下，请在对应的生命周期阶段进行调用。
+ScanCodeDetectView 的生命周期如下，请在对应的生命周期阶段进行调用。
 ```java
 //scanView Life cycle
 scanView.onCreate();

@@ -9,7 +9,7 @@
 
 ## 模板部署 -- 部署 Django 示例代码
 1. 登录 [Serverless 应用控制台](https://console.cloud.tencent.com/sls)。
-2. 选择**Web 应用>Django 框架**，如下图所示：
+2. 单击**新建应用**，选择**Web 应用>Django 框架**，如下图所示：
 ![](https://main.qcloudimg.com/raw/3c03bbfe813cf5d094318593b1cc4ce8.png)
 3. 单击“下一步”，完成基础配置选择。
 ![](https://main.qcloudimg.com/raw/9f22f8c1e5426b5d3d54631caabde012.png)
@@ -37,7 +37,7 @@ $ tree
 |   |-- urls.py   路由
 |   `-- wsgi.py   部署
 ```
-3. 在本地执行 `python manage.py runserver` 命令运行启动文件。示例如下：
+3. 在本地执行 `python manage.py runserver` 命令运行启动文件。示例如下： 
 ```
 $ python manage.py runserver
 July 27, 2021 - 11:52:20
@@ -75,7 +75,7 @@ pip install -r requirements.txt -t .
 #!/bin/bash
 /var/lang/python3/bin/python3 manage.py runserver 9000
 ```
-创建完成后，还需执行以下命令修改文件可执行权限，默认需要 `777` 或 `755` 权限才可以正常启动。示例如下：
+创建完成后，还需执行以下命令修改文件可执行权限，默认需要 `777` 或 `755` 权限才可以正常启动。示例如下： 
 ```shell
 chmod 777 scf_bootstrap
 ```

@@ -67,9 +67,9 @@ Datahub 支持接入各种数据源产生的不同类型的数据，统一管理
     </tr>
 </table>
    选择分区后，可以查看指定 Partition 的监控数据。
-<img src = "https://qcloudimg.tencent-cloud.cn/raw/6c3b44f409a7a42ea6c177ce583234cd.png">
+<img src = "https://qcloudimg.tencent-cloud.cn/raw/54e5f0979b22338b6464c5d2f46728da.png">
    不选择时默认全部，展示现有的 Topic 级别的监控数据。
-<img src = "https://qcloudimg.tencent-cloud.cn/raw/dd3de44dbc13bf4e40bf58690ee2c220.png">
+<img src = "https://qcloudimg.tencent-cloud.cn/raw/e08a07441501932cf32d5859a2f2cd39.png">
 
 
 ### 暂停任务

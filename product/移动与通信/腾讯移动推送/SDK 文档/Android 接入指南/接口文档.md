@@ -1096,6 +1096,8 @@ TPNS默认开启联合保活能力，若需要关闭联合保活能力，请在�
 XGPushConfig.enablePullUpOtherApp(Context context, boolean pullUp);
 
 ```
+>? 1.2.6.0 起默认关闭联合保活功能，可不再调用此接口。
+>
 
 #### 参数说明
 

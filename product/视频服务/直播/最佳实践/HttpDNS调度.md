@@ -5,7 +5,7 @@
 腾讯云 HttpDNS 具有全球领先的 DNS 集群技术，可支持多运营商和自定义线路，进行优化调度。详细请参见 [移动解析 HttpDNS](https://cloud.tencent.com/document/product/379/3519)。
 
 
->?本文采用免费的 HttpDNS，为您阐述如何将 HttpDNS 调度方案用于腾讯云海外直播。免费版本 HttpDNS 接口请参见 [文档](https://cloud.tencent.com/document/product/379/3524)。 
+>?本文采用免费的 HttpDNS，为您阐述如何将 HttpDNS 调度方案用于腾讯云海外直播。免费版本 HttpDNS 接口请参见 [移动解析 HTTPDNS](https://cloud.tencent.com/document/product/379/3524)。 
 
 ## 上行推流使用 HttpDNS 进行调度
 

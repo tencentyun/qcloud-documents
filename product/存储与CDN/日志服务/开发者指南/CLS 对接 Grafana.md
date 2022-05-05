@@ -8,7 +8,7 @@
 
 ### 安装 Grafana
 
-1. 安装 Grafana 8.0 以上版本，具体操作请参见 [Grafana 官网文档](https://grafana.com/docs/grafana/latest/installation/)。
+1.  安装 Grafana 8.0 以上版本，具体操作请参见 [Grafana 官网文档](https://grafana.com/docs/grafana/latest/installation/)。
 若 Grafana 版本低于8.0，需进行配置备份和升级，详情请参考 [Grafana 升级指南](https://grafana.com/docs/grafana/latest/installation/upgrading/)。
 以 CentOS  安装 grafana 8.4.3 （[点此获取新版本地址](https://grafana.com/grafana/download?pg=get&plcmt=selfmanaged-box1-cta1&edition=oss)）为例：
 ```
@@ -19,6 +19,14 @@ sudo systemctl daemon-reload
 sudo systemctl start grafana-server
 sudo systemctl status grafana-server
 sudo systemctl enable grafana-server
+```
+2. 安装后，建议修改 grafana.ini 文件的 [dataproxy] 配置。
+grafana 默认超时时间为30s，在大数据量检索时，可能导致 timeout 问题，详见 [Grafana proxy queries timeout after 30s with dataproxy](https://github.com/grafana/grafana/issues/35505)。建议修改至60s，以最大限度发挥日志服务的能力。修改配置如下：
+```markdown
+[dataproxy]
+timeout = 60
+dialTimeout = 60
+keep_alive_seconds = 60
 ```
 如需安装更多可视化图表（例如饼图、趋势速览图等），请执行对应的命令安装 grafana panel 插件。
 例如，您需要安装饼图（pie panel），可执行如下命令：

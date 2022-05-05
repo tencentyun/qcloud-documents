@@ -87,12 +87,12 @@ SDK 提供的信令接口（ [iOS](https://im.sdk.qcloud.com/doc/zh-cn/categoryV
 
 ### 5. 离线再上线，会收到未超时的信令消息吗？
 
-APP 冷启动（杀进程后再次单击 APP 图标启动）时，根据聊天类型，有两种情况：
+App 冷启动（杀进程后再次单击 App 图标启动）时，根据聊天类型，有两种情况：
 
 * 如果是单聊，IM SDK 会自动同步所有信令消息。如果信令未超时，则会回调 `onReceiveNewInvitation`。
 * 如果是群聊，IM SDK 会自动同步最近 30 秒的消息，如果包含了未超时的信令消息，则会回调 `onReceiveNewInvitation`。
 
-APP 热启动（APP 在后台，单击 APP 图标启动）时，不管是单聊还是群聊，都会同步所有的未超时信令消息，并回调 `onReceiveNewInvitation`。
+App 热启动（App 在后台，单击 App 图标启动）时，不管是单聊还是群聊，都会同步所有的未超时信令消息，并回调 `onReceiveNewInvitation`。
 
 ### 6. 信令回调中 inviteID 是不是唯一的？
 

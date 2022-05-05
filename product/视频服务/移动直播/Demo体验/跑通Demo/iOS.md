@@ -43,8 +43,8 @@
 " width=500px>
 5. 打开 `LiteAVSDK_Professional_iOS_版本号/MLVB-API-Example-OC/Debug/GenerateTestUserSig.h` 文件。
 设置 `GenerateTestUserSig.h` 文件中的相关参数：
-  - PUSH_DOMAIN 中推流地址请设置为您的推流域名的 `CNAME`。
-  - PLAY_DOMAIN 中拉流地址请设置为您的播放域名的 `CNAME`。
+  - PUSH_DOMAIN 中推流地址请设置为您的推流域名。
+  - PLAY_DOMAIN 中拉流地址请设置为您的播放域名。
   - LIVE_URL_KEY：非必需，用于生成 txSecret 等鉴权信息，具体计算请参见 [推拉流 URL](https://cloud.tencent.com/document/product/454/7915)。
 
 [](id:step4)[](id:step41)

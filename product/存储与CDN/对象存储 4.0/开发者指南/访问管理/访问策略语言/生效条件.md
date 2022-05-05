@@ -215,7 +215,7 @@ COS 的条件键支持以下条件操作符，适用于字符串（String）、�
 
 deny + string_equal_if_exist 条件操作符在请求中缺失这一条件键时，默认按照 true 处理。因此，当您发起 PutObject、PutBucket 等请求时会命中这个 deny statement，请求被拒绝。
 
-allow + string_equal 在请求种缺失这一条件键时，默认按照 false 处理。因此，当您发起 PutObject、PutBucket 等请求时无法命中 allow statement 时，请求不被允许。
+allow + string_equal 在请求中缺失这一条件键时，默认按照 false 处理。因此，当您发起 PutObject、PutBucket 等请求时无法命中 allow statement 时，请求不被允许。
 
 ```
 {
@@ -267,7 +267,7 @@ allow + string_equal 在请求种缺失这一条件键时，默认按照 false �
 
 deny + string_equal 条件操作符在请求中缺失这一条件键时，默认按照 false 处理。因此，当您发起 PutObject、PutBucket 等请求时不会命中这个 deny statement，请求不被拒绝。
 
-allow + string_equal_if_exist 在请求种缺失这一条件键时，默认按照 true 处理。因此，当您发起 PutObject、PutBucket 等请求时可以命中 allow statement，请求获得授权。
+allow + string_equal_if_exist 在请求中缺失这一条件键时，默认按照 true 处理。因此，当您发起 PutObject、PutBucket 等请求时可以命中 allow statement，请求获得授权。
 
 但这样使用条件操作符号，您将无法对 GetObject 是否携带 response-content-type 进行限制。当 GetObject 不携带 response-content-type 请求参数时，它和其他请求一样，将被默认允许通过。只有当 GetObject 携带了 response-content-type 请求参数时，您才可以按照自己规定的条件，检查请求参数的内容是否与您预期的一致，从而实现有条件的授权。
 

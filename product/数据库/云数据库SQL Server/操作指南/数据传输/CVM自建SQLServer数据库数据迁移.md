@@ -32,7 +32,7 @@
  1. 下载安装 [freeSSHd](http://www.freesshd.com/freeSSHd.exe)，默认安装即可，同意启动 freeSSHd 服务。
  2.  双击 freeSSHd 桌面图标，右键任务栏 freeSSHd 图标打开 setting 设置页面，进行配置。
  3.  选择 **SSH** 选项，配置端口为49001（此处端口默认为22，需要改为49001）。
- ![](https://main.qcloudimg.com/raw/72d8780b85afa18524dc2fb81bcd6baf.png)
+ ![](https://qcloudimg.tencent-cloud.cn/raw/4f0927c4d8042ff8fd4838a40bd26cf1.png)
  4.  选择 **Server status** 选项，启动 ssh server。
  5.  选择 **Authentication** 选项，选择 **Allowed** 允许密码授权。
  6.  选择 **Users** 选项，添加用户 tencent_vpc_migrate（该用户名不可更改），密码 tencent_vpc_migrate（该密码不可更改），配置如下图所示：

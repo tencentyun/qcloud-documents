@@ -2,7 +2,7 @@
 腾讯云容器服务支持通过创建 PV/PVC，并在创建工作负载添加数据卷时使用已有 PVC，实现通过 PV 和 PVC 管理云硬盘。本文介绍如何通过控制台、Kubectl 两种方式实现 PV 和 PVC 管理云硬盘。
 >!
 >-  云硬盘不支持跨可用区挂载。若挂载云硬盘类型 PV 的 Pod 迁移至其他可用区，将会导致挂载失败。
->- 容器服务控制台不支持云硬盘扩容，可前往 [云硬盘控制台](https://console.cloud.tencent.com/cvm/cbs/index) 进行扩容操作。详情请参见 [扩容云硬盘](https://cloud.tencent.com/document/product/362/5747)。
+>- 容器服务控制台 不支持云硬盘扩容，可前往 [云硬盘控制台](https://console.cloud.tencent.com/cvm/cbs/index) 进行扩容操作。详情请参见 [扩容云硬盘](https://cloud.tencent.com/document/product/362/5747)。
 >
 
 
@@ -21,7 +21,7 @@
 #### 静态创建 PV[](id:pv)
 >? 静态创建 PV 适用于已有存量云盘，并在集群内使用的场景。
 >
-1. 登录容器服务控制台，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
+1. 登录容器服务控制台 ，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
 2. 选择需创建 PV 的集群 ID，进入该集群详情页面。
 3. 选择左侧菜单栏中的**存储** > **PersistentVolume**，进入 “PersistentVolume” 页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/f643eb293a3cbb42073218e478ebc6cf.png)

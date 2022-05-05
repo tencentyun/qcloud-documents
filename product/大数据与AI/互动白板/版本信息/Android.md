@@ -11,6 +11,7 @@
   1. loadCustomResource 加载自定义资源  
 - 接口调整  
   1. setSyncVideoStatusEnable 新增参数isAppActiveChange:只有在移动端在app切换前后台的时候需要调用。 
+
 ### 2.6.9.145 @ 2021-12-31
 * [单击下载 SDK](https://sdk.qcloudtiw.com/android/TEduBoardSdk_2.6.9.145.zip)  
 
@@ -20,6 +21,7 @@
 - 功能优化
     1. 优化课件加载
     2. 截图功能在异常 dpr 中丢失几个像素的问题
+
 ### 2.6.8.144 @ 2021.12.10
 * [单击下载 SDK](https://sdk.qcloudtiw.com/android/TEduBoardSdk_2.6.8.144.zip)  
 - 新增接口  

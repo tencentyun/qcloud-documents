@@ -103,6 +103,7 @@ b. 指向函数 B 的默认流量，并发布到 API 服务的 dev stage 中。
 假设版本2在上线时有故障，需回滚至之前版本，则修改云函数 B 的 release 别名流量全部指向版本1即可。
 
 
+
 ### Serverless Framework 的使用示例
 在使用 Serverless Framework 时，可以通过 stage 区分测试环境、预发布环境和发布环境。在发布环境灰度时，可使用以下命令实现逐步过渡。详细操作步骤请参见 [使用 tencent-express 组件部署 express 网站](https://github.com/June1991/serverless-express/blob/master/README.md)。
 ```console

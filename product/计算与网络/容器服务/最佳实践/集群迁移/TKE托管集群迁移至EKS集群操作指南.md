@@ -27,11 +27,11 @@
 操作步骤请参见 [创建存储桶](https://cloud.tencent.com/document/product/457/50122#.E9.85.8D.E7.BD.AE.E5.AF.B9.E8.B1.A1.E5.AD.98.E5.82.A8)。
 
 ### 下载 velero
-1. 下载 [Velero](https://github.com/vmware-tanzu/velero/releases) 最新版本安装包到集群环境中，本文以 v1.8.1 版本为例。 
+1. 下载 [Velero](https://github.com/vmware-tanzu/velero/releases) 最新版本安装包到集群环境中，本文以 v1.8.1 版本为例。  
 ```bash
 wget https://github.com/vmware-tanzu/velero/releases/download/v1.8.1/velero-v1.8.1-linux-amd64.tar.gz
 ```
-2. 执行以下命令解压安装包，安装包提供 Velero 命令行执行文件和一些示例文件。 
+2. 执行以下命令解压安装包，安装包提供 Velero 命令行执行文件和一些示例文件。  
 ```bash
 tar -xvf velero-v1.8.1-linux-amd64.tar.gz
 ```
@@ -58,7 +58,7 @@ velero install  --provider aws  \
 --use-volume-snapshots=false \
 --backup-location-config region=ap-guangzhou,s3ForcePathStyle="true",s3Url=https://cos.ap-guangzhou.myqcloud.com
 ```
->! EKS 不支持部署 Daemonset，因此此文中都不支持使用 restic 插件。
+>! EKS 不支持部署 Daemonset，因此本文示例都不支持使用 restic 插件。
 >
 	- 如不需要备份 PVC，安装示例如下：
 ```plaintext
@@ -84,7 +84,7 @@ velero install  --provider aws  \
 </tr>
 <tr>
 <td>--use-restic</td>
-<td>Velero 支持使用免费开源备份工具 <a href="https://github.com/restic/restic">Restic</a> 备份和还原 Kubernetes 存储卷数据 （不支持 <code>hostPath</code> 卷，详情请参见 <a href="https://velero.io/docs/v1.5/restic/#limitations">Restic 限制</a>），该集成是 Velero 备份功能的补充，建议开启。</td>
+<td>Velero 支持使用免费开源备份工具 <a href="https://github.com/restic/restic">Restic</a> 备份和还原 Kubernetes 存储卷数据 （不支持 <code>hostPath</code> 卷，详情请参见 <a href="https://velero.io/docs/v1.5/restic/#limitations">Restic 限制</a>），该集成是 Velero 备份功能的补充，在迁移 EKS 集群的场景下，开启该参数会导致备份失败。</td>
 </tr>
 <tr>
 <td>--use-volume-snapshots=false</td>

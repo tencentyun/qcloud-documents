@@ -16,7 +16,7 @@
 
 ### 模板部署 -- 部署 Nest.js 示例代码
 1. 登录 [Serverless 应用控制台](https://console.cloud.tencent.com/sls)。
-2. 选择**Web 应用>Nest.js 框架**，如下图所示：
+2. 单击**新建应用**，选择**Web 应用>Nest.js 框架**，如下图所示：
 ![](https://main.qcloudimg.com/raw/2ad8857337c06a56df2f5bfd733b40b3.png)
 3. 单击“下一步”，完成基础配置选择
 ![](https://main.qcloudimg.com/raw/9f22f8c1e5426b5d3d54631caabde012.png)
@@ -69,7 +69,7 @@ SERVERLESS=1 /var/lang/node12/bin/node ./dist/main.js
 2. 示例使用的是云函数标准 node 环境路径，本地调试时，注意修改成您的本地路径。
 >
 
-新建完成后，还需执行以下命令修改文件可执行权限，默认需要 `777` 或 `755` 权限才可正常启动。示例如下：
+新建完成后，还需执行以下命令修改文件可执行权限，默认需要 `777` 或 `755` 权限才可正常启动。示例如下： 
 ```sh
 chmod 777 scf_bootstrap
 ```
