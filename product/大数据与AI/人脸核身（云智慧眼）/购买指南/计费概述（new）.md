@@ -40,7 +40,7 @@
 			 <td><a href="https://cloud.tencent.com/document/product/1007/56804#.E5.A2.9E.E5.BC.BA.E7.89.88.E4.BA.BA.E8.84.B8.E6.A0.B8.E8.BA.AB.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E">价格说明</a></td> 
 			  </tr>
 			   <tr>
-                   <td rowspan =2><a href="https://cloud.tencent.com/document/product/1007/57617">增强版 App SDK</a>
+                   <td rowspan =2><a href="https://cloud.tencent.com/document/product/1007/57617">增强版 SDK（APP）</a>
 				</td>
 				<td>跟权威库比对</td>
 				<td>增强版人脸核身（权威库）-App</td>
@@ -65,7 +65,7 @@
     </tr>
     <tr>
         <td rowspan =2>
-				<li><a href="https://cloud.tencent.com/document/product/1007/42656">微信普通 H5</a></li><li><a href="https://cloud.tencent.com/document/product/1007/35883">独立 H5</a></li><li><a href="https://cloud.tencent.com/document/product/1007/35893">PC H5</a></li><li><a href="https://cloud.tencent.com/document/product/1007/35866">基础版App SDK</a></li>
+				<li><a href="https://cloud.tencent.com/document/product/1007/42656">微信普通 H5</a></li><li><a href="https://cloud.tencent.com/document/product/1007/35883">独立 H5</a></li><li><a href="https://cloud.tencent.com/document/product/1007/35893">PC H5</a></li><li><a href="https://cloud.tencent.com/document/product/1007/35866">基础版 SDK（APP）</a></li>
 				</td>
 				<td>跟权威库比对</td>
 			 <td>基础版人脸核身（权威库）</td>
@@ -115,16 +115,13 @@
     </tr>	 
 				 <tr>
 			 <td><a href="https://cloud.tencent.com/document/product/1007/33188">身份信息认证</a></td>
-			 <td rowspan =3>身份证信息核验</td>
-			 			 	<td rowspan =3><a href="https://cloud.tencent.com/document/product/1007/56804#.E5.AE.9E.E5.90.8D.E4.BF.A1.E6.81.AF.E6.A0.B8.E9.AA.8C.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E">价格说明</a></td>
+			 <td rowspan =2>身份证信息核验</td>
+			 			 	<td rowspan =2><a href="https://cloud.tencent.com/document/product/1007/56804#.E5.AE.9E.E5.90.8D.E4.BF.A1.E6.81.AF.E6.A0.B8.E9.AA.8C.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E">价格说明</a></td>
 			  </tr>
 				<tr>
 			 <td><a href="https://cloud.tencent.com/document/product/1007/37980">身份证识别及信息核验</a></td>
 			  </tr>
-		<tr>
-		<td><a href="https://cloud.tencent.com/document/product/1007/51441">微信实名认证授权</a></td>
-			  </tr>	
-								 <tr>
+					 <tr>
 			 <td><a href="https://cloud.tencent.com/document/product/1007/35776">银行卡二要素</a></td>
 			 <td rowspan =3>银行卡信息核验</td>
 <td rowspan =3><a href="https://cloud.tencent.com/document/product/1007/56804#.E5.AE.9E.E5.90.8D.E4.BF.A1.E6.81.AF.E6.A0.B8.E9.AA.8C.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E">价格说明</a></td>

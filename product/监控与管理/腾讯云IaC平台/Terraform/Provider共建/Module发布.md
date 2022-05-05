@@ -31,4 +31,4 @@ Module 可以使用个人 GitHub 仓库发布。若仓库名称符合 `terraform
 </dx-alert>
 3. 勾选 “ I agree to the Terms of Use.”后，单击 **PUBLISH MODULE**。
 4. 该仓库将会在几分钟后，自动同步到 terraform registry 中。如下图所示：
-<img src="https://qcloudimg.tencent-cloud.cn/raw/e5e707b20faade78c25833dd9597097f.png" style="width:60%"/>
+<img src="https://qcloudimg.tencent-cloud.cn/raw/ee190688dfae59967dd84f22450eee4c.png" style="width:60%"/>

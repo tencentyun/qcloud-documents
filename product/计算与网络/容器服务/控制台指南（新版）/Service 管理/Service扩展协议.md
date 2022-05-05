@@ -3,7 +3,7 @@
  Service 是 Kubernetes 暴露应用程序到集群外的一种机制与抽象，您可以通过 Serivce 访问集群内的应用程序。
 
 
-<dx-alert infotype="notice" title="">
+<dx-alert infotype="notice" title=" ">
 - 在 [直连场景](https://cloud.tencent.com/document/product/457/41897) 下接入，使用扩展协议时没有任何限制，支持 TCP 和 UDP 协议混用。
 - 非直连场景下，ClusterIP 和 NodePort 模式支持混用。但社区对 LoadBalance 类型的 Service 有限制，目前仅能使用同类型协议。
 - 当 LoadBalance 声明为 TCP 时，端口可以使用扩展协议的能力，将负载均衡的协议变更为 TCP_SSL、HTTP、HTTPS。
@@ -33,6 +33,7 @@
 `service.cloud.tencent.com/specify-protocol`
 
 ### 扩展协议注解示例
+
 
 <dx-tabs>
 ::: TCP_SSL 示例
@@ -72,7 +73,7 @@
 :::
 </dx-tabs>
 
-
+>! TCP_SSL 和 HTTPS 中的字段 `cert-secret`，表示使用该协议需要指定一个证书，证书是 Opaque 类型的 Secret，Secret 的 Key 为 qcloud_cert_id，Value 是证书 ID。详情见 [Ingress 证书配置](https://cloud.tencent.com/document/product/457/45738)。
 
 
 ### 扩展协议使用说明
@@ -97,5 +98,37 @@ metadata:
 :::
 </dx-tabs>
 
+### 案例说明
+原生 Service 不支持协议混用，TKE 经过特殊改造后，在 [直连场景](https://cloud.tencent.com/document/product/457/41897) 中支持混合协议的使用。
 
+需注意的是，YAML 中仍使用相同的协议，但可以通过 Annotation 明确每个端口的协议类型。如下示例展示了 80 端口使用 TCP 协议，8080 端口使用 UDP 协议。
+
+
+```
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+      service.cloud.tencent.com/direct-access: "true"  #EKS 集群默认是直连模式，TKE 集群请务必先参照文档开启直连模式。
+      service.cloud.tencent.com/specify-protocol: '{"80":{"protocol":["TCP"]},"8080":{"protocol":["UDP"]}}'   # 指定 80 端口 TCP 协议，8080 端口 UDP 协议。
+  name: nginx
+spec:
+  externalTrafficPolicy: Cluster
+  ports:
+  - name: tcp-80-80
+    nodePort: 32150
+    port: 80
+    protocol: TCP 
+    targetPort: 80
+  - name: udp-8080-8080
+    nodePort: 31082
+    port: 8080
+    protocol: TCP # 注意，因为 Kubernetes Service Controller 限制，只能使用同类型协议。
+    targetPort: 8080 
+  selector:
+    k8s-app: nginx
+    qcloud-app: nginx
+  sessionAffinity: None
+  type: LoadBalancer
+```
 

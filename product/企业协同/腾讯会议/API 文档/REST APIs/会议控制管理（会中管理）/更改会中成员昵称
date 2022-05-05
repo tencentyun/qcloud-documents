@@ -3,8 +3,11 @@
  - 会中修改参会者昵称，支持主持人和联席主持人对会中成员进行改名。
  - 此接口仅支持对云会议已入会成员和 Webinar 观众进行改名。
  - 操作者必须为已在会中的主持人与联席主持人。
- - 暂不支持 MRA 设备作为被操作者时的改名操作。
- - 目前暂不支持 OAuth 2.0鉴权访问。
+ - 支持 MRA 设备作为被操作者时的改名操作。
+ - 企业 secret 鉴权用户可管理任何该企业该用户创建的有效会议，OAuth2.0 鉴权用户只能管理通过 OAuth2.0 鉴权创建的有效会议。
+<dx-alert infotype="explain" title="">
+1：操作者必须是会议的主持人或者联系主持人才可以设置。<br>2：调用该接口需要权限项 ： MANAGE_MEETING 查看和管理您的会议
+</dx-alert>
 - **调用方式**：PUT
 - **接口请求域名**：
 ```Plaintext
@@ -22,8 +25,8 @@ https://api.meeting.qq.com/v1/real-control/meetings/{meetingId}/names
 
 |参数名称 |必选 |参数类型 |参数描述 |
 |----------|----- |--------- |--------- |
-|operator_id |是 |String |操作者 ID，根据  operator_id_type  的值，使用不同的类型。 |
-|operator_id_type |是 |Integer |操作者 ID 的类型： <br>4：ms_open_id。 <br>仅支持主持人与联席主持人在会中进行调用操作。|
+| operator_id       | 是   | String   | 操作者 ID。<br>1：operator_id 必须与 operator_id_type 配合使用。根据 operator_id_type 的值，operator_id 代表不同类型。<br>2：如果 operator_id_type=2，operator_id 必须和公共参数的 openid 一致。                 |
+| operator_id_type     | 是   | Integer   | 操作者 ID 的类型：<br>2：openid  <br>4：ms_open_id                   |
 |instanceid |是 |Integer |用户的终端设备类型：<br>1：PC<br>2：Mac<br>3：Android<br>4：iOS<br>5：Web<br>6：iPad<br>7：Android Pad<br>8：小程序 |
 |users |是 |Array[UserObj] |被操作用户对象信息列表。 |
 

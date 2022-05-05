@@ -1,4 +1,26 @@
 
+## 2022年04月
+
+<table>
+	<tr>
+		<th width=20%>动态名称</th>
+    <th width=44%>动态描述</th>
+    <th width=16%>发布时间</th>
+    <th width=20%>相关文档</th>
+	</tr>
+	<tr>
+        <td>SDK 1.3.3.3 版本发布</td>
+	<td>
+		<li>优化：支持搭载 EMUI 系统的设备使用华为推送通道</li>
+		<li>修复：偶现长连接重试时间间隔不准确的问题</li>
+		</td>
+        <td>2022-04-25</td><td>
+		<a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</a>
+</td>
+    </tr>
+<tr>
+</table>
+
 ## 2022年02月
 
 <table>
@@ -11,10 +33,7 @@
 	<tr>
         <td>SDK 1.3.2.0 版本发布</td>
 	<td>
-		<li>优化：升级小米推送 SDK 4.9.1</li>
-		<li>优化：升级 vivo 推送 SDK 3.0.0.4</li>
-		<li>优化：升级魅族推送SDK 4.1.0</li>
-		<li>优化：升级 OPPO 推送 SDK 3.0.0</li>
+		<li>优化：升级封装的小米、魅族、OPPO、vivo 厂商推送 SDK 版本</li>
 		<li>新增：提供接口方便在推送目标页面内获取随推送下发的自定义参数 customContent</li>
 		<li> 修复：其他已知问题</li>
 		</td>

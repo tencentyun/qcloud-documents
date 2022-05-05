@@ -1,5 +1,5 @@
 ## 操作场景
-本文主要介绍消息队列 CMQ 版控制流接口列表和 SDK 使用方式。
+本文主要介绍消息队列 CMQ 版控制流接口列表和 SDK 使用方式。数据流（收发消息相关）接口请参见 [HTTP 数据流 API 概述](https://cloud.tencent.com/document/product/1496/61039)。
 
 消息队列 CMQ 版控制流接口列表如下：
 

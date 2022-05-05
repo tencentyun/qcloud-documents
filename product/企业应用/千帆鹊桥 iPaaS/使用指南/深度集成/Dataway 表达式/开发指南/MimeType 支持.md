@@ -5,17 +5,19 @@ Dataway 使用 Entity 类型可支持多种不同的数据类型，例如：json
 | mime_type                         | 数据格式                                   |
 | --------------------------------- | ------------------------------------------ |
 | application/json                  | [JSON 格式](#json-format)                   |
+| text/json                         | [JSON 格式](#json-format)                  |
 | application/x-www-form-urlencoded | [HTTP 表单格式](#urlencode-format)          |
 | text/plain                        | [文本格式](#textplain-format)              |
 | application/xml                   | [XML 格式](#xml-format)                     |
+| text/xml                          | [XML 格式](#xml-format)                     |
 | application/csv                   | [CSV 表单格式](#csv-format)                 |
 | multipart/form-data               | [HTTP FORM DATA 表单格式](#formdata-format) |
-| 其他mime_type                     | [其他格式](#other-format)                  |
+| 其他 mime_type                     | [其他格式](#other-format)                  |
 
 不同的数据格式有不同的编码规则、数据结构以及特定的 Entity 选择器语法。本节将对这些不同的数据格式分别进行说明。
 
-## <span id='json-format'></span> JSON 格式
-JSON 格式的数据代表 mimeType 为 application/json 的 Entity 中数据序列化后得到的类型。
+##  JSON 格式[](id:json-format)
+JSON 格式的数据代表 mimeType 为 application/json或text/json的Entity中数据序列化后得到的类型。
 - 使用 Entity.from_bytes 方法，则 Dataway 对输入的 str/bytes 类型最终解析成一个 dict 类型。
 - 使用 Entity.from_value 构造方法，支持 list/dict/MultiMap 等多种输入类型，并最终解析成一个 dict 类型数据结构。
 
@@ -74,7 +76,7 @@ Dataway 的运行环境依赖于组件的运行，假定在 Set-Payload 组件�
 {
     'mime_type': 'application/json',
     'encoding': 'utf-8',
-    'blob': b'{"name":"zhangsan","age":10,"male":true,"brothers":["lisi","zhaowu"]'
+    'blob': b'{"name":"zhangsan","age":10,"male":true,"brothers":["lisi","zhaowu"]}'
 }
 ```
 
@@ -147,7 +149,7 @@ DataWay 脚本的输出结果为一个 Entity 类型对象，为方便说明，�
 
 >!关于 DataWay 中使用的第三方模块函数，可以参考 [函数参考](https://cloud.tencent.com/document/product/1270/55568)。
 
-## <span id='urlencode-format'></span> HTTP 表单格式
+##  HTTP 表单格式[](id:urlencode-format)
 HTTP 表单格式的数据代表 mimeType 为 application/x-www-form-urlencoded 的 Entity 中数据序列化后得到的类型。
 - 使用 Entity.from_bytes 方法，则 Dataway 对输入的 str/bytes 类型最终解析成一个 dict 类型数据结构。
 - 使用 Entity.from_value 构造方法，支持 dict/MultiMap 两种输入类型，并最终解析成一个 MultiMap 类型数据结构。
@@ -204,7 +206,7 @@ Dataway 的脚本输出为一个 dict , 结果如下：
 }
 ```
 
-## <span id='textplain-format'></span> 文本格式
+## 文本格式[](id:textplain-format)
 文本格式的数据代表 mimeType 为 text/plain 的 Entity 中数据序列化后得到的类型。无论是 Entity.from_value 还是 Entity.from_bytes 函数，输入均为 str/bytes 类型，输出为 str 数据类型。
 以下将通过示例来说明如何使用文本格式数据：
 ### 构造文本格式的 Entity
@@ -223,8 +225,8 @@ def dw_process(msg):
 #### 输出
 DataWay 的脚本输出为一个 str 字符串, 结果为"This is a text plain message"。
 
-## <span id='xml-format'></span> XML 格式
-XML 格式的数据代表 mimeType 为 application/xml 的 Entity 中数据序列化后得到的类型。
+## XML 格式[](id:xml-format)
+XML 格式的数据代表 mimeType 为 application/xml 或 text/xml 的 Entity 中数据序列化后得到的类型。
 - 使用 Entity.from_bytes 方法，则 Dataway 对输入的 str/bytes 类型最终解析成一个 dict 数据类型。
 - 使用 Entity.from_value 构造方法，仅支持 dict 输入类型，并最终解析成一个 dict 数据结构。同时，输入的 dict 仅包含一个默认的 key "root"，value 则为内置的 MultiMap，在 MultiMap 中可以自由操作 msg 属性。
 
@@ -335,8 +337,9 @@ DataWay 脚本的输出结果为一个 dict 类型数据，如下所示：
 ```
 
 >!在 XML 格式数据中，root 节点为默认节点，其属性使用`@id=123`的方式指定，文本使用`#text`的方式指定。value为一个 MultiMap 类型，其中 key 为每一个子节点名称，value 为不同的值。
->
-## <span id='csv-format'></span> CSV 格式
+
+
+## CSV 格式[](id:csv-format) 
 CSV 格式的数据代表 mimeType 为 application/csv 的 Entity 中数据序列化后得到的类型。
 - 使用 Entity.from_bytes 方法，则 Dataway 对输入的 str/bytes 类型最终解析成一个 list 类型数据结构，其中每一项元素均为一个 dict。
 - 使用 Entity.from_value 构造方法，支持 list 输入类型，并最终解析成一个 list 类型数据结构，其中每一项元素均为一个 dict。
@@ -388,7 +391,9 @@ DataWay 脚本的输出结果为一个 dict 类型数据，如下所示：
 ```
 
 >!对于 CSV 数据格式，接收的 list 每一项元素均为 dict 类型。每一项元素中的 keys 需保持相同，作为 CSV 文本的标题行；每一项元素中的 values 则代表该行的数据值，用逗号分隔。
-## <span id='formdata-format'></span> HTTP Form-Data 表单
+
+
+## HTTP Form-Data 表单[](id:formdata-format)
 HTTP Form-Data表单格式的数据代表 mime-type 为 multipart/form-data 的 Entity 中数据序列化后得到的类型。
 ### 浏览器中的 multipart/form-data
 在浏览器发送 Content-Type 为 multipart/form-data 的请求时，实际传输的 byte 数组转换成字符串如下所示：
@@ -563,7 +568,7 @@ Content-Type: text/plain
 }
 ```
 
-## <span id='other-format'></span> 其他类型
+## 其他类型[](id:other-format)
 对其他类型的 mime_type，Dataway 不支持直接用 Entity.from_value 函数构造，但支持从上游读取数据，以及使用 Entity.from_bytes 函数构造一个封装的 Entity。
 下面将通过一个示例来说明，假设输入数据为一个二进制 byte 流，我们通过 Set Payload 组件中使用 Dataway 表达式将该二进制 byte 流封装到 msg.payload 中，然后在下游可以使用 [Entity 选择器](https://cloud.tencent.com/document/product/1270/55573) 语法进行操作。
 **Dataway 表达式**

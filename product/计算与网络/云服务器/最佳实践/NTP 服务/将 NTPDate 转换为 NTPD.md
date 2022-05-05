@@ -12,15 +12,15 @@ NTP 服务的通信端口为 UDP 123，转换为 NTP 服务之前，请确保您
 ### 手动将 ntpdate 转换为 ntpd[](id:manual)
 #### 关闭 ntpdate
 1. 执行以下命令，导出 crontab 配置，并过滤 ntpdate。
-```
+```shellsession
 crontab -l |grep -v ntpupdate > /tmp/cronfile
 ```
 2. 执行以下命令，更新 ntpdate 配置。
-```
+```shellsession
 crontab /tmp/cronfile
 ```
 3. 执行以下命令，修改 `rc.local` 文件。
-```
+```shellsession
 vim /etc/rc.local
 ```
 4. 按 “**i**” 切换至编辑模式，删除 ntpupdate 配置行。
@@ -28,7 +28,7 @@ vim /etc/rc.local
 
 #### 配置 ntpd
 1. 执行以下命令，打开 NTP 服务配置文件。
-```
+```shellsession
 vi /etc/ntp.conf
 ```
 2. 按 **i** 切换至编辑模式，找到 server 相关配置，将 server 修改为您需要设置的目标 NTP 时钟源服务器（例如 `time1.tencentyun.com`），并删除暂时不需要的 NTP 时钟源服务器。如下图所示：
@@ -38,11 +38,11 @@ vi /etc/ntp.conf
 
 ### 自动将 ntpdate 转换为 ntpd[](id:automatic)
 1. 下载 `ntpd_enable.sh` 脚本。
-```
+```shellsession
 wget https://image-10023284.cos.ap-shanghai.myqcloud.com/ntpd_enable.sh
 ```
 2. 执行以下命令，使用 `ntpd_enable.sh` 脚本将 ntpdate 转换为 ntpd。
-```
+```shellsession
 sh ntpd_enable.sh
 ```
 
@@ -50,20 +50,20 @@ sh ntpd_enable.sh
 ### 检查 ntpd 状态
 请根据实际需求，执行对应命令，以检查 ntpd 的状态。
 - 执行以下命令，查看 NTP 服务端口 UDP 123 端口是否被正常监听。
-```
+```shellsession
 netstat -nupl
 ```
 返回类似如下结果，表示监听正常。
 ![netstat -nupl](https://main.qcloudimg.com/raw/d7da764d05135959154920b81fa9f1e4.png)
 - 执行以下命令，查看 ntpd 状态是否正常。
-```
+```shellsession
 service ntpd status
 ```
 返回类似如下结果，表示 ntpd 状态正常。
 ![ntpd status](https://main.qcloudimg.com/raw/321e56d0f7797f382d9f6903c0315f96.png)
 
 - 执行以下命令，获取更详细的 NTP 服务信息。
-```
+```shellsession
 ntpq -p
 ```
 返回类似如下结果：

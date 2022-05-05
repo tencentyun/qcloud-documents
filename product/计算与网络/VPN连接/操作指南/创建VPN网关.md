@@ -8,10 +8,12 @@ VPN 网关是 VPN 连接服务的功能实例，因此在使用 VPN 连接实现
 2. 在左侧目录中单击 **VPN 连接** > **VPN 网关**，进入管理页。
 3. 在 VPN 网关管理页面，单击 **+新建**。
 4. 在弹出的**新建 VPN 网关**对话框中，配置如下网关参数。
-<dx-alert infotype="explain" title="">
-<ul><li>200Mbps、500Mbps和1000Mbps带宽目前仅华北地区（北京）、华东地区（上海）、华南地区（广州）、西南地区（成都）、港澳台地区（香港）、华东地区（南京）和华北地区（北京金融）等可用区开放，如需请 <a href="https://console.cloud.tencent.com/workorder/category">提交工单</a>。</li><li>200Mbps、500Mbps和1000Mbps带宽仅支持新建网关，存量网关暂不支持。</li><li>如果 VPN 网关使用200Mbps、500Mbps和1000Mbps规格的带宽，VPN 通道加密协议建议使用 AES128+MD5。</li></ul>
-</dx-alert>
-<img src="https://qcloudimg.tencent-cloud.cn/raw/c0c62cf364b6a93b382adaccc95ea556.png" width="50%" />
+>?
+>- 200Mbps、500Mbps和1000Mbps带宽目前仅华北地区（北京）、华东地区（上海）、华南地区（广州）、西南地区（成都）、港澳台地区（香港）、华东地区（南京）和华北地区（北京金融）等可用区开放，如需请 <a href="https://console.cloud.tencent.com/workorder/category">提交工单</a>。
+>- 200Mbps、500Mbps和1000Mbps带宽仅支持新建网关，存量网关暂不支持。
+>- 如果 VPN 网关使用200Mbps、500Mbps和1000Mbps规格的带宽，VPN 通道加密协议建议使用 AES128+MD5。
+>
+![](https://qcloudimg.tencent-cloud.cn/raw/5930468229109601b94a48aea14018cf.png)
 <table>
 <tr>
 <th>参数名称</th>
@@ -24,6 +26,14 @@ VPN 网关是 VPN 连接服务的功能实例，因此在使用 VPN 连接实现
 <tr>
 <td>所在地域</td>
 <td>展示 VPN 网关所在地域。</td>
+</tr>
+<tr>
+<td>可用区</td>
+<td>选择当前网关所在的可用区。</td>
+</tr>
+<tr>
+<td>协议类型</td>
+<td>支持 IPSec 和 SSL 两种协议类型。</td>
 </tr>
 <tr>
 <td>关联网络</td>

@@ -191,7 +191,7 @@ strict mode 模式的意思是：对于导入过程中的列类型转换进行�
 >! 10 虽然是一个超过范围的值，但是因为其类型符合 decimal 的要求，所以 strict mode 对其不产生影响。10 最后会在其他 ETL 处理流程中被过滤。但不会被 strict mode 过滤。
 
 #### Broker 参数
-Broker Load 需要借助 Broker 进程访问远端存储，不同的 Broker 需要提供不同的参数，具体请参阅  [Broker 文档](../broker.md)。
+Broker Load 需要借助 Broker 进程访问远端存储，不同的 Broker 需要提供不同的参数。
 
 ### 查看导入
 
@@ -369,7 +369,7 @@ Broker load 导入由于没有 ETL 阶段，所以其 EtlStartTime, EtlFinishTim
 请参照文档中最佳实践部分，修改 FE 配置项 `max_bytes_per_broker_scanner` 和 `max_broker_concurrency`。
 
 - 导入报错：`failed to send batch` 或 `TabletWriter add batch with unknown id`。
-请参照 [导入手册](./load-manual.md) 中 **通用系统配置** 中 **BE 配置**，适当修改 `query_timeout` 和 `streaming_load_rpc_max_alive_time_sec`。
+请参照导入手册中 **通用系统配置** 中 **BE 配置**，适当修改 `query_timeout` 和 `streaming_load_rpc_max_alive_time_sec`。
     
 - 导入报错：`LOAD_RUN_FAIL; msg:Invalid Column Name:xxx` 。
 如果是PARQUET或者ORC格式的数据,需要再文件头的列名与doris表中的列名一致，如 :  

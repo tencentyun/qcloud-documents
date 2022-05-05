@@ -18,7 +18,7 @@ AMQP 连接器遵从 AMQP 0.9.1 协议。AMQP 协议基本概念如下：
 <dx-tabs>
 ::: 连接配置参数
 
-<table><thead><tr><th>参数</th><th>数据类型</th><th>描述</th><th>是否必填</th><th>默认值</th></tr></thead><tbody><tr><td>集群地址</td><td>string</td><td>rabbitMQ 集群地址</td><td>是</td><td></td></tr><tr><td>集群端口</td><td>int</td><td>rabbitMQ 集群端口号</td><td>是</td><td></td></tr><tr><td>虚拟集群地址</td><td>string</td><td>虚拟集群地址</td><td>否</td><td>/</td></tr><tr><td>用户名</td><td>string</td><td>rabbitMQ 集群用户名</td><td>否</td><td></td></tr><tr><td>密码</td><td>string</td><td>rabbitMQ 集群密码</td><td>否</td><td></td></tr><tr><td>使能 TLS 安全传输协议</td><td>bool</td><td>是否使用 TLS 加密和 rabbitMQ 集群间的连接</td><td>否</td><td>false</td></tr><tr><td>TLS 客户端证书</td><td>file</td><td>可选，使用提供的证书对连接进行加密，仅当使 TLS 安全传输协议设置为 True 才可配置</td><td>否</td><td></td></tr><tr><td>TLS 客户端 Key</td><td>file</td><td>可选，使用提供的证书对连接进行加密，需和客户端证书同时提供，仅当使 TLS 安全传输协议设置为 True 才可配置</td><td>否</td><td></td></tr><tr><td>TLS 服务端证书</td><td>file</td><td>可选，使用提供的证书对连接进行加密，仅当使 TLS 安全传输协议设置为 True 才可配置</td><td>否</td><td></td></tr></tbody></table>
+<table><thead><tr><th>参数</th><th>数据类型</th><th>描述</th><th>是否必填</th><th>默认值</th></tr></thead><tbody><tr><td>集群地址</td><td>string</td><td>rabbitMQ 集群地址</td><td>是</td><td>-</td></tr><tr><td>集群端口</td><td>int</td><td>rabbitMQ 集群端口号</td><td>是</td><td>-</td></tr><tr><td>虚拟集群地址</td><td>string</td><td>虚拟集群地址</td><td>否</td><td>/</td></tr><tr><td>用户名</td><td>string</td><td>rabbitMQ 集群用户名</td><td>否</td><td>-</td></tr><tr><td>密码</td><td>string</td><td>rabbitMQ 集群密码</td><td>否</td><td>-</td></tr><tr><td>使能 TLS 安全传输协议</td><td>bool</td><td>是否使用 TLS 加密和 rabbitMQ 集群间的连接</td><td>否</td><td>false</td></tr><tr><td>TLS 客户端证书</td><td>file</td><td>可选，使用提供的证书对连接进行加密，仅当使 TLS 安全传输协议设置为 True 才可配置</td><td>否</td><td>-</td></tr><tr><td>TLS 客户端 Key</td><td>file</td><td>可选，使用提供的证书对连接进行加密，需和客户端证书同时提供，仅当使 TLS 安全传输协议设置为 True 才可配置</td><td>否</td><td>-</td></tr><tr><td>TLS 服务端证书</td><td>file</td><td>可选，使用提供的证书对连接进行加密，仅当使 TLS 安全传输协议设置为 True 才可配置</td><td>否</td><td>-</td></tr></tbody></table>
 
 
 ![](https://main.qcloudimg.com/raw/737b00c725c981459c964456f09d9d42/image-20210426162650164.png)	
@@ -216,5 +216,4 @@ Publish 操作执行失败后，错误信息会保存在 message 消息体的 er
 ![image-20210426160829456](https://main.qcloudimg.com/raw/52ee09fa46761f26bad6bf87afc84916/image-20210426160829456.png)
 ![image-20210426160947755](https://main.qcloudimg.com/raw/7368579eb40d73bae40653831ee16e45/image-20210426160947755.png)
 4. 发布流，触发流后，若连接参数及消息参数配置正确，消息将成功投递到所配置的 rabbitMQ 集群的对应队列中。
-:::
-</dx-tabs>
+

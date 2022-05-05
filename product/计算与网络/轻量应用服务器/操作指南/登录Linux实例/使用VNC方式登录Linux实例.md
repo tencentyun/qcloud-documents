@@ -18,7 +18,7 @@ VNC 登录是腾讯云为用户提供的一种通过 Web 浏览器远程连接�
 1. 登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse/instance/index)。
 2. 在服务器列表中找到需登录的实例，进入实例详情页。
 3. 选择**远程登录**，单击 “VNC登录”栏中的**登录**。如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/af00892795de45de998bf993a1ba8c7a.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/603622e9dcdf60f5fc77eec80015a9c6.png)
 4. 在弹出的对话框中，在 “login” 后输入用户名，按 **Enter**。
 5. 在 “Password” 后输入密码，按 **Enter**。
 输入的密码默认不显示，如下图所示：

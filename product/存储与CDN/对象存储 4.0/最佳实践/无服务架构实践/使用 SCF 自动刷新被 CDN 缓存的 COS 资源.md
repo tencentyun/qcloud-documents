@@ -1,7 +1,8 @@
 ## 简介
-本实践将引导您在使用腾讯云对象存储 COS 上传对象时，借助云函数 SCF 实现自动刷新在 CDN 上指定的缓存文件，让其自动获取到更新后的资源。
+本实践将引导您在使用腾讯云对象存储（Cloud Object Storage，COS）上传对象时，借助云函数（Serverless Cloud Function，SCF）实现自动刷新在内容分发网络（Content Delivery Network，CDN）上指定的缓存文件，让其自动获取到更新后的资源。
 
->!使用此功能将遵循 CDN 相关 API 调用次数的限制，详情请参见 [缓存刷新](https://cloud.tencent.com/document/product/228/6299) 文档。
+>! 使用此功能将遵循 CDN 相关 API 调用次数的限制，详情请参见 [缓存刷新](https://cloud.tencent.com/document/product/228/6299) 文档。
+>
 
 ## 实践背景
 
@@ -13,10 +14,11 @@
 
 ## 前提条件
 
-1. 腾讯云账户，需具备 COS、CDN、SCF 等产品的访问权限。
-2. [创建存储桶](https://cloud.tencent.com/document/product/436/13309)，并在该存储桶上绑定了 CDN 加速域名。
-3. 确保 COS 的存储桶的所属地域支持 SCF 产品功能，暂不支持跨地域调用。
-4. 准备好可调用 CDN 刷新接口的云 API 密钥，以及下载 [SCF 刷新 CDN 示例代码](https://main.qcloudimg.com/raw/42b7d13a7a3d51d249b2a1b6a3c4f228/scf_about_cdn_refresh.zip)。
+- 腾讯云账户，需具备 COS、CDN、SCF 等产品的访问权限。
+- [创建存储桶](https://cloud.tencent.com/document/product/436/13309)，并在该存储桶上绑定了 CDN 加速域名。
+- 确保 COS 的存储桶的所属地域支持 SCF 产品功能，暂不支持跨地域调用。
+- 准备好可调用 CDN 刷新接口的云 API 密钥，以及下载 [SCF 刷新 CDN 示例代码](https://main.qcloudimg.com/raw/42b7d13a7a3d51d249b2a1b6a3c4f228/scf_about_cdn_refresh.zip)。
+- 下载并解压缩  [SCF 刷新 CDN 示例代码](https://main.qcloudimg.com/raw/42b7d13a7a3d51d249b2a1b6a3c4f228/scf_about_cdn_refresh.zip)。
 
 ## 实践步骤
 
@@ -25,49 +27,46 @@
 
 <span id="step1"></span>
 ### 创建 SCF 函数
->!您创建的函数所属地域需与 COS 存储桶的地域保持一致。
+>! 您创建的函数所属地域需与 COS 存储桶的地域保持一致。
+>
 
-1. 登录 [SCF 控制台](https://console.cloud.tencent.com/scf/)，在左侧导航菜单中，单击【函数服务】。
-2. 选择与静态内容相同的地域，单击【新建】创建函数。
-3. 在 “新建函数” 页面，选择 “空白函数”，输入函数名称（如 refresh_cdn），设置运行环境（示例代码使用 Node.js 语言，因此运行环境设置为 Nodejs 6.10），如下图所示：
-![](https://main.qcloudimg.com/raw/7ae6cbd10b3b0f595158f9fb569f7789.jpg)
-4. 确认配置无误后，选择【下一步】>【完成】，即可创建 SCF 函数。
+1. 登录 [云函数控制台](https://console.cloud.tencent.com/scf/list?rid=8&ns=default)，进入**函数服务**页面。
+2. 选择与静态内容相同的地域，单击**新建**创建函数。
+3. 选择**从头开始**，配置如下信息。
+ - **基础配置**：输入函数名称（如 refresh_cdn），设置运行环境（示例代码使用 Node.js 语言，因此运行环境设置为 Nodejs 16.13），如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/c113716cf02c8ac16e46f69ad02f1946.png)
+ - **函数代码**：
+    1. 在解压缩的**SCF 刷新 CDN 示例代码**中，找到 index.js 文件并打开。
+    2. 在  index.js 文件代码中，修改替换成您的具备调用 CDN 刷新接口权限的 SecretId、SecretKey 和需要刷新的域名。
+![](https://main.qcloudimg.com/raw/e7de25a2d410e7733d9cc3a9e5dfb79a.png)
+	 3. 如需调用刷新绑定在腾讯云海外 CDN 上的域名，请将代码中的`RefreshCdnUrl`修改为`RefreshCdnOverSeaUrl`。
+	 4. 将修改好的代码和其他文件重新压缩打包为 zip 格式。
+	 5. 在**函数代码**页面，选择**本地上传zip包**提交方法，单击**上传**，选择重新压缩打包的 zip 格式文件。
+![](https://qcloudimg.tencent-cloud.cn/raw/e86acd35da293cd6d6a12f9a6275bae8.png)
+ - **触发器配置**：
+ ![](https://qcloudimg.tencent-cloud.cn/raw/097db597f66546d15569b471a4fd6dd3.png)
+    - **创建触发器**：选择**自定义创建**。
+    - **触发方式**：选择 **COS触发**，更多详情请参见 [COS 触发器](https://cloud.tencent.com/document/product/583/9707) 文档。 
+    - **COS Bucket**：选择用作事件源的 COS 存储桶，该存储桶必须位于函数所在地域。
+    - **事件类型**：选择 COS Bucket 在哪种条件下触发函数。对于每个 COS Bucket，一种事件类型只能设置一次。
+      - 如果您仅需要自动刷新 CDN 访问覆盖上传到 COS 的对象，则需将 "事件类型" 设置为上传操作，如 PUT 方法创建、POST 方法创建等。
+      - 如果您同时需要对删除行为也进行自动刷新，则需再添加一种触发方式，并将 "事件类型" 设置为 "删除文件"。
+    - **前缀过滤**：前缀过滤通常用于过滤指定目录下的文件事件，例如前缀过滤为`test/`，则仅`test/`目录下的文件事件才可以触发函数，`hello/`目录下的文件事件不应该触发函数。
+    - **后缀过滤**：后缀过滤通常用于过滤指定类型或后缀的文件事件，例如后缀过滤为`.jpg`，则仅`.jpg`结尾的文件的事件才可以触发函数，`.png`结尾的文件不应该触发函数。
+    - **立即启用**：勾选**启用**。
+4. 确认配置无误后，选择**完成**，即可创建 SCF 函数。
+
 
 <span id="step2"></span>
-### 配置函数
+### 测试函数功能
 
-空白函数创建完成后，需添加对应的函数代码，并设定触发方式，使函数可以正常工作。
-
-1. 配置函数代码
- 1. 下载  [SCF 刷新 CDN 示例代码](https://main.qcloudimg.com/raw/42b7d13a7a3d51d249b2a1b6a3c4f228/scf_about_cdn_refresh.zip)。
- 2. 解压所有文件，找到其中的 index.js 文件并打开。
- 3. 在代码里修改替换成您的具备调用 CDN 刷新接口权限的 SecretId、SecretKey 和需要刷新的域名。如下图所示：
-![](https://main.qcloudimg.com/raw/e7de25a2d410e7733d9cc3a9e5dfb79a.png)
- 4. 如需调用刷新绑定在腾讯云海外 CDN 上的域名，请将代码中的`RefreshCdnUrl`修改为`RefreshCdnOverSeaUrl`。
-2. 上传函数代码
-	1. 将修改好的代码和其他文件重新压缩打包为 zip 格式。
-	2. 在 [SCF 控制台](https://console.cloud.tencent.com/scf/) 中，选择 【函数代码】 页签，将 "提交方法" 设置为 "本地上传 zip 包"，单击【上传】，选择此压缩的 zip 格式文件。如下图所示：
-![](https://main.qcloudimg.com/raw/21a892d12ba0ae7df8047c2a0fb7d245.jpg)
-3. 添加触发方式
- 1. 在 [SCF 控制台](https://console.cloud.tencent.com/scf/) 中，选择【触发方式】，单击【添加触发方式】。
- 2. 将 “触发方式” 设置为  "COS 触发"，并选择需刷新 COS 资源的存储桶，配置项说明如下，了解更多详情请参见 [COS 触发器](https://cloud.tencent.com/document/product/583/9707) 文档。 
-**COS Bucket**：选择用作事件源的 COS 存储桶，该存储桶必须位于函数所在地域。
-**事件类型**：选择 COS Bucket 在哪种条件下触发函数。对于每个 COS Bucket，一种事件类型只能设置一次。
-如果您仅需要自动刷新 CDN 访问覆盖上传到 COS 的对象，则需将 "事件类型" 设置为上传操作，如 PUT 方法创建、POST 方法创建等。
-如果您同时需要对删除行为也进行自动刷新，则需再添加一种触发方式，并将 "事件类型" 设置为 "删除文件"。
-**前缀过滤**：前缀过滤通常用于过滤指定目录下的文件事件，例如前缀过滤为`test/`，则仅`test/`目录下的文件事件才可以触发函数，`hello/`目录下的文件事件不应该触发函数。
-**后缀过滤**：后缀过滤通常用于过滤指定类型或后缀的文件事件，例如后缀过滤为`.jpg`，则仅`.jpg`结尾的文件的事件才可以触发函数，`.png`结尾的文件不应该触发函数。
-![](https://main.qcloudimg.com/raw/bbc4a0a908fb54684c9c413ca5d4ca86.jpg)
- 3. 勾选立即启用。
- 4. 确认配置信息无误后，单击【保存】。
-
-
-<span id="step3"></span>
-### 测试
->!由于 CDN 是异步操作，查询操作时，请稍等片刻。
+>! 由于 CDN 是异步操作，查询操作时，请稍等片刻。
+>
 
 完成配置后，可在对应存储桶中上传一个相同对象键的新文件进行验证。
 1. 登录 [COS 控制台](https://console.cloud.tencent.com/cos5)，上传一个相同对象键的新文件，具体操作请参见 [上传对象](https://cloud.tencent.com/document/product/436/13321) 文档。
-2. 完成上传后，登录 [SCF 控制台](https://console.cloud.tencent.com/scf/)，选择【函数服务】>【函数名称】> 【运行日志】，可查询到调用成功的日志。
-3. 登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，选择【缓存刷新】>【操作记录】，可查询到自动调用刷新的记录。
-4. 以上测试通过后，即可访问 CDN 加速后的 URL 获取到最新的资源。
+2. 切换至 [云函数控制台](https://console.cloud.tencent.com/scf/list?rid=8&ns=default)，进入**函数服务**页面。
+3. 找到刚创建的函数，单击其函数名称，进入该函数管理页面。
+4. 选择**日志查询**，即可看到打印出的日志信息。
+5. 切换至 [CDN 控制台](https://console.cloud.tencent.com/cdn)，选择**刷新预热 > 操作记录**，可查询到自动调用刷新的记录。
+以上测试通过后，即可访问 CDN 加速后的 URL 获取到最新的资源。

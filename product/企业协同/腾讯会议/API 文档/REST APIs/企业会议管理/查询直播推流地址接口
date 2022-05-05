@@ -1,0 +1,59 @@
+## 接口描述
+- **描述**：可根据会议 ID 在会前，会中和会后查询直播推流地址，支持会议创建者，主持人与联席主持人查询直播推流地址。暂不支持 OAuth2.0 鉴权访问。
+- **调用方式**：GET
+- **接口请求域名**：
+```plaintext
+https://api.meeting.qq.com/v1/meetings/{meetingId}/live-play/push-stream-info
+```
+
+## 输入参数
+HTTP 请求头公共参数参考签名验证章节里的 [公共参数说明](https://cloud.tencent.com/document/product/1095/42413#.E5.85.AC.E5.85.B1.E5.8F.82.E6.95.B0)。
+
+|参数名称 |必选 |参数类型 |参数描述 |
+|--|--|--|--|
+|operator_id |是 |String |操作者 ID，根据 operator_id_type 的值，使用不同的类型 |
+|operator_id_type |是 |Integer |操作者 ID 的类型：<br>1：userid |
+|instanceid |是 |Integer |用户的终端设备类型：<br>1：PC<br>2：Mac<br>3：Android<br>4：iOS<br>5：Web<br>6：iPad<br>7：Android Pad<br>8：小程序创建会议时 userid 对应的设备类型，不影响入会时使用的设备类型，缺省可填1。 |
+
+## 输出参数
+**直播推流信息**
+
+|参数名称 |参数类型 |参数描述 |
+|--|--|--|
+|platform_type |Integer |推流平台类型：<br>1：微信视频号平台<br>2：第三方推流平台 |
+|enable_push_addres |Boolean |是否启用该推流地址，默认值为 false。<br>true：开启<br>false：不开启 |
+|push_address |String |推流地址。 |
+|push_password |String |推流密钥。 |
+
+## 示例
+#### 输入示例
+```
+GET
+https://api.meeting.qq.com/v1/meetings/7424270435941489244/live-play/push-stream-info?operator_id=afagsagwags&operator_id_type=1&instanceid=1
+{
+   "operator_id": "afagsagwags",    
+   "operator_id_type": 1,    
+   "instanceid": 1
+}
+```
+#### 输出示例
+```
+{
+    "push_stream_info":[
+        {
+            "platform_name":"dGVzdDEyMw==",
+            "platform_type":1,
+            "push_password":"123123123123123",
+            "enable_push_addres":true, 
+			"push_address":"rtmp://123123.123live.123.com/trtc_1451297868/"
+        },
+        {
+            "platform_name":"MTIzdGVzdA==",
+            "platform_type":2,
+            "push_password":"123123123123321",
+            "enable_push_addres":true,
+            "push_address":"rtmp://321.321.fs.tv/123live/"
+        }
+    ]
+}
+```

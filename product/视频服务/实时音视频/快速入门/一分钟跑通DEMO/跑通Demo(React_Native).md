@@ -28,7 +28,7 @@
 
 [](id:step2)
 ### 步骤2：下载 SDK 和 Demo 源码
-1. 根据实际业务需求下载 SDK 及配套的 [Demo 源码](https://github.com/c1avie/TRTCReactNativeDemo)。
+1. 根据实际业务需求下载 SDK 及配套的 [Demo 源码](https://github.com/LiteAVSDK/TRTC_ReactNative)。
 2. 下载完成后，单击 **已下载，下一步**。
 
 >! 控制台暂时无法下载 ReactNative Demo，**请直接通过上方链接下载 Demo 源码**。
@@ -101,12 +101,12 @@ npx react-native run-android
 ```
 :::
 ::: iOS 端
-1. 在 iOS 目录里执行 `pod install` 安装依赖。
-2. 在 iOS 目录下打开 `.xcworkspace` ，启动 iOS 工程，在 iOS 工程目录里新建一个空的 swift 文件。
-![](https://qcloudimg.tencent-cloud.cn/raw/1b243c324d9e1e93d113d2431922c4de.jpeg)
-3. 随后会弹出一个弹窗询问是否新建桥接文件，单击 **Create Bridging Header** 确认。
-![](https://qcloudimg.tencent-cloud.cn/raw/8329b913890721ceef19be314462905d.png)
-2. 新开窗口，启动开发调试。
+1. 在 Demo iOS 目录里执行 `pod install` 安装依赖。
+2. 在 Demo 目录下启动 Metros。
+```
+npx react-native start
+```
+3. 在 Demo 目录下新开窗口，启动开发调试（如果报错请打开 xcode 编译调试）。
 ```
 npx react-native run-ios
 ```

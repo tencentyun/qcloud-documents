@@ -15,7 +15,7 @@ Apollo（阿波罗）是携程框架部门研发的配置管理平台，能够�
 | 提供开放平台 API | <li>Apollo 自身提供了比较完善的统一配置管理界面，支持多环境、多数据中心配置管理、权限、流程治理等特性。</li><li>不过 Apollo 出于通用性考虑，对配置的修改不会做过多限制，只要符合基本的格式就能够保存。</li><li>在我们的调研中发现，对于有些使用方，它们的配置可能会有比较复杂的格式，如 xml、json，需要对格式做校验。</li><li>还有一些使用方如 DAL，不仅有特定的格式，而且对输入的值也需要进行校验后方可保存，如检查数据库、用户名和密码是否匹配。</li><li>对于这类应用，Apollo 支持应用方通过开放接口在 Apollo 进行配置的修改和发布，并且具备完善的授权和权限控制。</li>|
 
 ## Apollo 界面
-![](https://main.qcloudimg.com/raw/deae93ec044fe9c7f56ac5bd1feb9202.jpg)
+![](https://qcloudimg.tencent-cloud.cn/raw/ce3d0bca134577f680fb37fa210a4a07.jpg)
 
 
 >?以上内容引用自 [Apollo 中文社区](https://www.apolloconfig.com/#/zh/README)。

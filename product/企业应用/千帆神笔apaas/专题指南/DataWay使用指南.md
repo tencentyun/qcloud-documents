@@ -200,7 +200,7 @@ DataWay 单行注释以`#`开头，多行注释则可以用多个`#` 号，或�
 | 函数名 | 函数功能 | 
 |---------|---------|
 | abs()  |  求数值绝对值
-|  all()  |  判断序列（集合、列表、元组、dict) 中所有元素是否满足给定条件
+|  all()  |  判断序列（集合、列表、元组、dict）中所有元素是否满足给定条件
 | any()  |  判断集合中是否存在元素满足给定条件
 | bool()  |  构造布尔值
 | bytearray()  |  构造字节数组
@@ -294,7 +294,7 @@ cloud.staff()
 #staff.name
 ```
 ![img](https://qcloudimg.tencent-cloud.cn/raw/b849facf6356c344ee1b4f2c1c5b468f.png)
-4. 添加“更新变量节点，并设置赋值，选择上一节点表达式输出变量，更新员工邮箱信息。
+4. 添加更新变量节点，并设置赋值，选择上一节点表达式输出变量，更新员工邮箱信息。
 ![img](https://qcloudimg.tencent-cloud.cn/raw/129f6a63285d9d9ecf3ef094bbef5eab.png)
 设置赋值：
 ![img](https://qcloudimg.tencent-cloud.cn/raw/c33feb631bb648dcfc9db95cd9f07006.png)
@@ -312,3 +312,4 @@ aPaaS设计态应用中，点击“对象建模”，勾选定位对象，设置
 ![img](https://qcloudimg.tencent-cloud.cn/raw/089f583ba30d59179996d6f46dcede8e.png)
 3. 员工信息列表页即可测试查看到表达式设置的个人邮箱信息。
 ![img](https://qcloudimg.tencent-cloud.cn/raw/089b02014cdf6adf45f0b11aaf3b95e3.png)
+

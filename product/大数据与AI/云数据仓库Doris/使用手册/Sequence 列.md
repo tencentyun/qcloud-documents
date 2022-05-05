@@ -1,4 +1,4 @@
-sequence 列目前只支持 Uniq 模型，Uniq 模型主要针对需要唯一主键的场景，可以保证主键唯一性约束，但是由于使用 REPLACE 聚合方式，在同一批次中导入的数据，替换顺序不做保证，详细介绍可以参考 [这里](../../getting-started/data-model-rollup.md)。替换顺序无法保证则无法确定最终导入到表中的具体数据，存在了不确定性。
+sequence 列目前只支持 Uniq 模型，Uniq 模型主要针对需要唯一主键的场景，可以保证主键唯一性约束，但是由于使用 REPLACE 聚合方式，在同一批次中导入的数据，替换顺序不做保证。替换顺序无法保证则无法确定最终导入到表中的具体数据，存在了不确定性。
 
 为了解决这个问题，Doris 支持了 sequence 列，通过用户在导入时指定 sequence 列，相同 key 列下，REPLACE 聚合类型的列将按照 sequence 列的值进行替换，较大值可以替换较小值，反之则无法替换。该方法将顺序的确定交给了用户，由用户控制替换顺序。
 
@@ -9,7 +9,7 @@ sequence 列目前只支持 Uniq 模型，Uniq 模型主要针对需要唯一主
 创建 Uniq 表时，将按照用户指定类型自动添加一个隐藏列`__DORIS_SEQUENCE_COL__`。
 
 ### 导入
-导入时，fe 在解析的过程中将隐藏列的值设置成 `order by` 表达式的值(broker load 和 routine load)，或者`function_column.sequence_col`表达式的值(stream load), value列将按照该值进行替换。隐藏列`__DORIS_SEQUENCE_COL__`的值既可以设置为数据源中一列，也可以是表结构中的一列。
+导入时，FE 在解析的过程中将隐藏列的值设置成 `order by` 表达式的值(broker load 和 routine load)，或者`function_column.sequence_col`表达式的值(stream load), value列将按照该值进行替换。隐藏列`__DORIS_SEQUENCE_COL__`的值既可以设置为数据源中一列，也可以是表结构中的一列。
 
 ### 读取
 

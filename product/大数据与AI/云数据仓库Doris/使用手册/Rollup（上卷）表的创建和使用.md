@@ -1,4 +1,4 @@
-用户可以通过创建上卷表（Rollup）加速查询。关于 Rollup 的概念和使用方式可以参阅 [数据模型、ROLLUP 及前缀索引](../../getting-started/data-model-rollup.md) 和 [Rollup 与查询](../../getting-started/hit-the-rollup.md) 两篇文档。
+用户可以通过创建上卷表（Rollup）加速查询。关于 Rollup 的概念和使用方式可以参阅 [数据模型、ROLLUP 及前缀索引](https://cloud.tencent.com/document/product/1387/70912) 和 [Rollup 与查询](https://cloud.tencent.com/document/product/1387/70923) 两篇文档。
 
 本文档主要介绍如何创建 Rollup 作业，以及创建 Rollup 的一些注意事项和常见问题。
 

@@ -341,7 +341,7 @@ function(res) {
 
 | 参数   | 参数类型 | 说明                  |
 | --------- | -------- | -------------------------------------- |
-| destPort | number  | 目标端口好               |
+| destPort | number  | 目标端口               |
 | onMessage | function | onMessage 回调，透传 server 返回的数据 |
 
 | 返回值 | 返回值类型 | 说明     |

@@ -1,0 +1,50 @@
+## 操作步骤
+### 步骤1 ：配置合同模板
+1. 登录 [腾讯电子签控制台](https://ess.tencent.cn/login?redirect_url=https%3A%2F%2Fess.tencent.cn%2F)，进入到**模板管理**页面，单击**新增**，开始上传模板。
+![](https://qcloudimg.tencent-cloud.cn/raw/62fb278630f850a1da6255e318b9c53f.png)
+2. 进入**配置签署信息**页面，填写合同名称，批量发起功能仅适用于电子签pc端，请选择模板适用渠道为**电子签 PC 网页端**，选择**顺序签署**或**无序签署**。
+![](https://qcloudimg.tencent-cloud.cn/raw/62b1543d2987dad0aeef07dda6a83871.png)
+<dx-alert infotype="notice" title="">
+如选择顺序签署，请注意添加的签署企业和签署个人的签署顺序。
+</dx-alert>
+
+3. 添加一个企业与一个个人为签署对象，选择签署方式为自动签署（批量发起仅支持企业静默签盖章签署）。
+![](https://qcloudimg.tencent-cloud.cn/raw/67baaa599ed8a459e4b8f45b3b1f722b.png)
+<dx-alert infotype="notice" title="">
+批量发起合同仅支持企业（本企业）与个人签署、个人单独签署等合同的批量发起。
+</dx-alert>
+
+4. 在**指定签约区域**页面中，添加企业方的盖章控件、签署方的签名控件、以及发起方的填写控件。
+![](https://qcloudimg.tencent-cloud.cn/raw/604a848eae893d944816625d31ceb8f4.png)
+<dx-alert infotype="explain" title="">
+- 控件添加方式为拖拽，发起方拖拽的所有填写控件均需要定义名称。
+- 控件可根据字段长度进行拉长。
+- 批量发起合同模板，不支持企业签署方和个人签署方的文本控件填写。
+- 模板中发起方填写控件数不超过20个。
+- 批量发起合同默认企业静默签署方式，不支持添加企业经办人签名控件，只能添加企业印章控件，并需要上传印章。
+- 发起方控件为发起合同时，发起人需要填写的控件，发起人与经办人可以不是同一人。
+</dx-alert>
+
+
+5. 完成后单击下一步，模板创建成功。
+
+### 步骤2：导入签署方
+1. 进入**合同管理**模块，单击**批量发起**。
+![](https://qcloudimg.tencent-cloud.cn/raw/e10c4f67ee47f3a85c9190aae37614b6.png)
+2. 进入**批量合同发起**页面，添加合同模板，填写合同名称以及选择合同类型、截止时间、企业印章。
+![](https://qcloudimg.tencent-cloud.cn/raw/29d3905feef3c623ef29130c1770bbcd.png)
+<dx-alert infotype="explain" title="说明">
+- 仅支持企业（本企业）与个人签署、个人单独签署等合同的批量发起。
+- 批量发起合同模板，不支持企业签署方和个人签署方的文本控件填写。
+- 批量发起合同，仅支持企业静默盖章签署。
+- 模板中发起方填写控件数不超过20个，发起方填写控件需要定义名称。
+- 单次批量发起量不超过100个签方。
+</dx-alert>
+3. 完成配置后，进入**导入签署方**页面，单击**下载表格**，根据表中的字段进行信息填写，填写前请阅读表内注意事项。
+4. 随后将表格上传或拖拽到指定区域，单击**批量发起**。
+![](https://qcloudimg.tencent-cloud.cn/raw/5c227e82031a0e54552dd79d1a30aeef.png)
+
+### 步骤3：批量发起结果
+成功发起后，可查看当前发起结果。
+![](https://qcloudimg.tencent-cloud.cn/raw/f96ddc73845f8aa2fda606079179be0b.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/54fcd74d4e94e20271a639e30ad775f3.png)

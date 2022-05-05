@@ -1,13 +1,13 @@
 ## 环境依赖
 
-- [HADOOP-COS](https://github.com/tencentyun/hadoop-cos) 与 Hadoop-COS-Java-SDK（包含在 HADOOP-COS 的 dep 目录下）。
+- [HADOOP-COS](https://github.com/tencentyun/hadoop-cos/releases) 与对应版本的 [cos_api-bundle](https://github.com/tencentyun/hadoop-cos/releases)。
 - DataX 版本：DataX-3.0。
 
 ## 下载与安装
 
-#### 获取 HADOOP-COS 
+#### 获取 HADOOP-COS
 
-在官方 Github 上下载 [HADOOP-COS](https://github.com/tencentyun/hadoop-cos)。
+在官方 Github 上下载 [HADOOP-COS](https://github.com/tencentyun/hadoop-cos/releases) 与对应版本的 [cos_api-bundle](https://github.com/tencentyun/hadoop-cos/releases)。
 
 #### 获取 DataX 软件包
 
@@ -15,7 +15,7 @@
 
 #### 安装 HADOOP-COS
 
-下载 HADOOP-COS 后，将 dep 目录下的`hadoop-cos-2.x.x-shaded.jar`拷贝到 Datax 解压路径`plugin/reader/hdfsreader/libs/`以及`plugin/writer/hdfswriter/libs/`下。
+下载 HADOOP-COS 后，将 `hadoop-cos-2.x.x-${version}.jar` 和 `cos_api-bundle-${version}.jar` 拷贝到 Datax 解压路径`plugin/reader/hdfsreader/libs/`以及`plugin/writer/hdfswriter/libs/`下。
 
 ## 使用方法
 
@@ -141,4 +141,3 @@ bin/datax.py job/hdfs_job.json
 读出记录总数                    :                   2
 读写失败总数                    :                   0
 ```
-

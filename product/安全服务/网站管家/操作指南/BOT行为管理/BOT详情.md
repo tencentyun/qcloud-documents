@@ -16,7 +16,7 @@
 	- **BOT 来源分布：**统计不同 BOT 类型来源（基于 IP）的中国省份和国家统计。
 
 ### 类型详情
-1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/bot2/record/overview)，在左侧导航栏中，选择**BOT 行为管理** > **BOT 详情**，进入 BOT 详情概览页。可选择查看**未知类型**、**自定义类型**和**公开类型**，进行类型查看。在左上角单击域名筛选框，进行域名选择或搜索。
+1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/tea-overview)，在左侧导航栏中，选择**BOT 行为管理** > **BOT 详情**，进入 BOT 详情概览页。可选择查看**未知类型**、**自定义类型**和**公开类型**，进行类型查看。在左上角单击域名筛选框，进行域名选择或搜索。
 ![](https://main.qcloudimg.com/raw/a304769ac2e6c55afa27e65b5375a485.png)
 2. 未知类型 BOT 说明。未知类型 BOT 是 WAF 通过追溯目标会话，并结合会话行为特征模型和 AI 检测模型检测出的 BOT 行为。
 ![](https://main.qcloudimg.com/raw/022a899a20ae12a52301324e4da77adc.png)

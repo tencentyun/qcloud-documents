@@ -42,7 +42,7 @@ Active Directory Federation Services（ADFS）是 Microsoft's 推出的 Windows 
 ![](https://main.qcloudimg.com/raw/ab888353e868ee66f7a3918c9adbfa09.png)
 
 5. 在自定义请求页面，选择以下信息，如下图所示：
- - 模板：（无模板）就密钥
+ - 模板：（无模板）旧密钥
  - 请求格式：PKCS#10
 ![](https://main.qcloudimg.com/raw/df77e6971de87168df55694ab293807d.png)
 6. 单击**详细信息**>**证书属性**，在常规栏补充友好名称、描述信息。如下图所示：

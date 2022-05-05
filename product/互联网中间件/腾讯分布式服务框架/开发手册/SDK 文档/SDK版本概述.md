@@ -23,6 +23,7 @@ TSF 长期维护 LTS (Long Term Support) 版本，SDK 的第三位版本号会�
 |1.12.x|<li>支持服务限流</li><li>支持服务路由</li><li>支持服务鉴权</li><li>支持分布式配置</li><li>支持调用链</li>|
 
 ##  SDK 版本使用说明
+>?**所有 SDK 版本可支持在 JDK 8、JDK 11（包括 KNOA JDK8，KNOA JDK11 ）环境下运行。**
 
 ### 公有云 TSF
 
@@ -34,9 +35,9 @@ TSF 长期维护 LTS (Long Term Support) 版本，SDK 的第三位版本号会�
 
 |TSF 私有化平台版本| Edgware|Finchley|Greenwich| Hoxton |
 |----|------|----|------|------|
-|1.29.x|-|1.29.5-Finchley-RELEASE|1.29.0-Greenwich-RELEASE|1.29.3-Hoxton-Higher-RELEASE|
-|1.23.x|-|1.23.11-Finchley-RELEASE|1.23.16-Greenwich-RELEASE|-|
+|1.29.x|-|1.29.11-Finchley-RELEASE|1.29.0-Greenwich-RELEASE|1.29.3-Hoxton-Higher-RELEASE|
+|1.23.x|-|1.23.12-Finchley-RELEASE|1.23.16-Greenwich-RELEASE|-|
 |1.21.x|-|1.21.12-Finchley-RELEASE|1.21.4-Greenwich-RELEASE|-|
-|1.18.x|-|1.18.7-Finchley-RELEASE|1.18.1-Greenwich-RELEASE|-|
+|1.18.x|-|1.18.8-Finchley-RELEASE|1.18.1-Greenwich-RELEASE|-|
 |1.12.x|1.12.5-Edgware-RELEASE|1.12.5-Finchley-RELEASE|-|-|
 

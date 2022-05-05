@@ -10,13 +10,13 @@
 
 ## AI 样本管理相关接口
 
-- [创建人物样本](https://cloud.tencent.com/document/product/862/39445)
+- [创建素材样本](https://cloud.tencent.com/document/product/862/39445)
 - [创建关键词样本](https://cloud.tencent.com/document/product/862/39444)
-- [删除人物样本](https://cloud.tencent.com/document/product/862/39443)
+- [删除素材样本](https://cloud.tencent.com/document/product/862/39443)
 - [删除关键词样本](https://cloud.tencent.com/document/product/862/39442)
-- [获取人物样本列表](https://cloud.tencent.com/document/product/862/39441)
+- [获取素材样本列表](https://cloud.tencent.com/document/product/862/39441)
 - [获取关键词样本列表](https://cloud.tencent.com/document/product/862/39440)
-- [修改人物样本](https://cloud.tencent.com/document/product/862/39439)
+- [修改素材样本](https://cloud.tencent.com/document/product/862/39439)
 - [修改关键词样本](https://cloud.tencent.com/document/product/862/39438)
 
 

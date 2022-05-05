@@ -10,7 +10,7 @@
 ### 步骤一：创建迁移任务
 1. 登录 [SQL Server 控制台](https://console.cloud.tencent.com/sqlserver)，在左侧栏选择**数据迁移旧版**。
 2. 单击**创建任务**，填写任务名称、源库信息、目标库信息，源实例类型选择**云服务器自建SQL Server数据库**。
-![](https://main.qcloudimg.com/raw/da77fa7fe6ed5dc4c493861d1850ee3d.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/6d556d79ddb00df4eecf2eddcb81fff1.png)
 3. 单击**下一步**后，需先对 [源 SQL Server 实例进行相关配置](#step2) 再继续 [配置迁移任务](#step3)。
 >?若出现报错信息为 “源实例信息校验不通过！” ，请检查以下几项进行排查：
 >- 源 SQL Server 实例 sa 账号是否存在。
@@ -20,9 +20,9 @@
 ### [步骤二：配置源 SQL Server 实例](id:step2)
 1. 源 SQL Server 实例开启 sa 账户。
 2. 在**连接**里选择**允许远程连接到此服务器**，并设置合理的远程查询超时值。
-![](https://main.qcloudimg.com/raw/5f0cec5032756cbf39c3260447746781.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/ce64ff12270f6f62ec0b5c0a7ec35246.png)
 3. 在**安全性**里选择 **SQL Server 和 Windows 身份验证模式**。
-![](https://main.qcloudimg.com/raw/8665101c74549911a0e6ee8e90850151.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/f4b6c23b1213c9205334b679e1003075.png)
 4. 开启网络协议 TCP/IP。
 ![](https://main.qcloudimg.com/raw/21b80c7353bf17fc2d867cc70b2a6f8c.png)
 5. 启动内置帐户选择 **localsystem**。
@@ -32,7 +32,7 @@
  1. 下载安装 [freeSSHd](http://www.freesshd.com/freeSSHd.exe)，默认安装即可，同意启动 freeSSHd 服务。
  2.  双击 freeSSHd 桌面图标，右键任务栏 freeSSHd 图标打开 setting 设置页面，进行配置。
  3.  选择 **SSH** 选项，配置端口为49001（此处端口默认为22，需要改为49001）。
- ![](https://main.qcloudimg.com/raw/72d8780b85afa18524dc2fb81bcd6baf.png)
+ ![](https://qcloudimg.tencent-cloud.cn/raw/4f0927c4d8042ff8fd4838a40bd26cf1.png)
  4.  选择 **Server status** 选项，启动 ssh server。
  5.  选择 **Authentication** 选项，选择 **Allowed** 允许密码授权。
  6.  选择 **Users** 选项，添加用户 tencent_vpc_migrate（该用户名不可更改），密码 tencent_vpc_migrate（该密码不可更改），配置如下图所示：

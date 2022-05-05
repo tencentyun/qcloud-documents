@@ -13,8 +13,7 @@
 
 ## 前提条件
 
-- 目前 AVIF 压缩属于内测功能，仅支持北京、上海、广州地域的存储桶，使用前请先 [申请开通 AVIF 功能内测](https://cloud.tencent.com/apply/p/igpvms3gjcn)。
-- 使用 AVIF 压缩，需要先开通存储桶的图片高级压缩功能，您需要在相应的存储桶配置页中通过开关按钮开启功能，详情请参见 [设置图片高级压缩](https://cloud.tencent.com/document/product/436/48981)。
+使用 AVIF 压缩，需要先开通存储桶的图片高级压缩功能，您需要在相应的存储桶配置页中通过开关按钮开启功能，详情请参见 [设置图片高级压缩](https://cloud.tencent.com/document/product/436/48981)。
 
 ## 使用方式
 

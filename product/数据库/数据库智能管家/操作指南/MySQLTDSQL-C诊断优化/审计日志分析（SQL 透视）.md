@@ -8,14 +8,14 @@
 登录 [DBbrain 控制台](https://console.cloud.tencent.com/dbbrain/performance/sql-audit/log-audit)，在左侧导航选择**诊断优化**，在上方选择**审计日志分析**页，可以查看所选数据库实例的 QPS 、慢查询次数、CPU 使用率。鼠标拖动下面的灰色滚动条，可拉伸该时间段的诊断视图，查看更细粒度的视图详情。
 ![](https://main.qcloudimg.com/raw/a39bc634546d7c10a85a3b7c96391bef.png)
 
-## 创建任务
+## 创建分析任务
 1. 在 [审计日志分析页](https://console.cloud.tencent.com/dbbrain/performance/sql-audit/log-audit)，单击**创建分析任务**。
 ![](https://main.qcloudimg.com/raw/07b4b0f99ed3c559b0a4584b57759feb.png)
 2. 在弹出的对话框，选择任务开始时间和时间范围，单击**确定**。
 3. 创建完成后，可在任务列表查看分析结果和删除任务，单击**查看 SQL 分析**，进入 SQL 分析页。
 ![](https://main.qcloudimg.com/raw/23f355a856867c09e4fc7a68ba1a17b9.png)
 
-## SQL 分析
+## 查看 SQL 分析
 1. 在 SQL 分析页，可选择 SQL Type、Host、User、SQL Code、Time 维度的视图，并可选择时间段拉伸视图来查看具体时间点的数据。下面表格中会展示该时间段内 SQL 的聚合详情以及执行信息。
    - 若对图中时间进行部分拉伸选中，表格中的 SQL 数据会随之变化，只显示图中时间范围内的 SQL 分析结果，拉伸后，单击右上角的**重置**，可以恢复原视图。
    - 图中“SQL Type”和“图例”均可进行单击筛选，表格中的 SQL 数据会随之变化，例如，只想查看 Select 请求，可将其余类型的图例点暗。
@@ -24,7 +24,7 @@
 2. 单击某行 SQL 模板，在右侧会弹出 SQL 语句的详情。
    - 在分析页，可查看和复制具体 SQL 语句，根据给出的优化建议或说明来优化 SQL 语句。
  ![](https://main.qcloudimg.com/raw/15701507c5a29080aa9b5c1d4d11f55f.png)
- 在**分析**弹窗中，单击右上角的**优化对比**，可以查看 SQL 执行计划、索引建议、表结构以及 SQL 优化前后代价对比，SQL 代价通过可视化图表清晰反映了优化前后开销的变化。
+在**分析**弹窗中，单击右上角的**优化对比**，可以查看 SQL 执行计划、索引建议、表结构以及 SQL 优化前后代价对比，SQL 代价通过可视化图表清晰反映了优化前后开销的变化。
  SQL 代价通过分析 SQL 相关库表的统计信息、OPTIMIZER_SWITCH 配置、及索引字段区分度进行估算，对优化后的 SQL 语句代价进行整体估计，使用可视化图表直观呈现 SQL 优化后降低的效果，您也可通过优化前后的执行计划比对进一步验证优化的效果。
  ![](https://main.qcloudimg.com/raw/51a9d788e0083a5802c3e286d74ef9ed.png)
    - 在统计页，可查看该类 SQL 在 Host、User、SQL Code 维度的统计分析和执行时间轨迹。
@@ -37,3 +37,14 @@
 >! 该功能适用于 TDSQL-C 2.0.12 及以上版本，如果您的数据库不符合版本要求，需要对数据库进行升级。
 >
 基于全量实时审计日志的分析能力，为用户提供针对SQL访问延迟的高阶分析能力。
+
+## 未提交事务内容审计
+
+开通审计日志功能后，可获知未提交事务内容及审计分析结果。
+在**异常诊断**页签，**诊断提示**中，如果有检测到未提交事务，会出现告警提示。单击**查看**，进入事件告警详情页。
+![](https://qcloudimg.tencent-cloud.cn/raw/8d8bf85706bcc706b52d0d6ceba803f5.png)
+在**事务详细信息**页签，可查看审计日志实时分析，DBbrain 将未提交事务的内容做分析聚合，展示给用户。
+![](https://qcloudimg.tencent-cloud.cn/raw/3b0ae8c6575226933fa72808eb3e0e05.png)
+并且单击对应的 SQL 语句，可获知每一条 SQL 的审计结果项。
+![](https://qcloudimg.tencent-cloud.cn/raw/d0c353131fb5a80436766fe9f808c4ef.png)
+

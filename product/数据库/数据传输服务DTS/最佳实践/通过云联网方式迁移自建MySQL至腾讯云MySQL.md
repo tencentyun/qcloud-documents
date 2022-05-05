@@ -108,20 +108,38 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 <li>目标库 max_allowed_packet 参数设置数值至少为4M。</li></td></tr>
 <tr> 
 <td>其他要求</td>
-<td>环境变量 innodb_stats_on_metadataw 必须设置为 OFF。</td></tr>
+<td>环境变量 innodb_stats_on_metadata 必须设置为 OFF。</td></tr>
 </table>
 
 ## 操作步骤
 
-#### 配置通过云联网建立不同网络之间的互通
+### 配置通过云联网建立不同网络之间的互通
 
 请参考 [通过云联网建立不同网络之间的互通](https://cloud.tencent.com/document/product/877/30804)。
 
 > ?云联网仅提供所有地域间 10Kbps 以下的免费带宽，使用 DTS 数据传输时需要更高带宽，所以链接中的配置带宽是必选操作。
 
-####  配置 DTS 迁移任务
+###  配置 DTS 迁移任务
 1. 登录 [DTS 控制台](https://console.cloud.tencent.com/dts/migration)，在左侧导航选择**数据迁移**页，单击**新建迁移任务**，进入新建迁移任务页面。
-2. 在新建迁移任务页面，选择迁移的目标实例所属地域，单击**0元购买**，目前 DTS 数据迁移功能免费使用。
+2. 在新建迁移任务页面，选择迁移的源实例类型和所属地域，目标实例类型和所属地域，规格等，然后单击**立即购买**。
+<table>
+<thead><tr><th>配置项</th><th>说明</th></tr></thead>
+<tbody><tr>
+<td>源实例类型</td>
+<td>请根据您的源数据库类型选择，购买后不可修改。此处选择“MySQL”。</td></tr>
+<tr>
+<td>源实例地域</td>
+<td>选择源数据库所属地域。如果源库为自建数据库，选择离自建数据库最近的一个地域即可。</td></tr>
+<tr>
+<td>目标实例类型</td>
+<td>请根据您的目标数据库类型选择，购买后不可修改。此处选择“MySQL”。</td></tr>
+<tr>
+<td>目标实例地域</td>
+<td>选择目标数据库所属地域。</td></tr>
+<tr>
+<td>规格</td>
+<td>根据业务情况选择迁移链路的规格，不同规格的性能和计费详情请参考 <a href="https://cloud.tencent.com/document/product/571/18736">计费概述</a>。</td></tr>
+</tbody></table>
 3. 在设置源和目标数据库页面，完成任务设置、源库设置和目标库设置，测试源库和目标库连通性通过后，单击**新建**。
 >?如果连通性测试失败，请根据提示和 [修复指导](https://cloud.tencent.com/document/product/571/58685) 进行排查和解决，然后再次重试。
 >
@@ -138,10 +156,12 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 <td>标签</td>
 <td>标签用于从不同维度对资源分类管理。如现有标签不符合您的要求，请前往控制台管理标签。</td></tr>
 <tr>
-<td rowspan=9>源库设置</td>
-<td>源库类型</td><td>选择“MySQL”。</td></tr>
+<td rowspan=10>源库设置</td>
+<td>源库类型</td><td>购买时选择的源库类型，不可修改。</td></tr>
 <tr>
 <td>服务提供商</td><td>选择“普通”。</td></tr>
+<tr>
+<td>所属地域</td><td>购买时选择的源库所属地域，不可修改。</td></tr>
 <tr>
 <td>接入类型</td><td>选择“云联网”。更多接入类型的详情介绍请参考 <a href="https://cloud.tencent.com/document/product/571/59968">准备工作概述</a>。</td></tr>
 <tr>
@@ -158,11 +178,11 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 <td>云联网关联 VPC</td><td>为确保网络的连通性，请务必核对以下重要事项：<br>选择的云联网关联 VPC 与源库实例主机地址不能在同一地域，如果源库是自建 IDC 的 MySQL 不用考虑。<br>选择的云联网关联 VPC 与源库实例主机地址不能在同一 VPC，如果源库是自建 IDC 的 MySQL，需要自建 IDC 关联的专线网关所在的 VPC 和选择的 VPC 不能是同一 VPC。</td></tr>
 <tr>
 <td rowspan=6>目标库设置</td>
-<td>目标库类型</td><td>选择“MySQL”。</td></tr>
+<td>目标库类型</td><td>购买时选择的目标库类型，不可修改。</td></tr>
+<tr>
+<td>所属地域</td><td>购买时选择的目标库所属地域，不可修改。</td></tr>
 <tr>
 <td>接入类型</td><td>选择“云数据库”。</td></tr>
-<tr>
-<td>所属地域</td><td>选择目标库所属地域。</td></tr>
 <tr>
 <td>数据库实例</td><td>选择目标端云数据库实例 ID。</td></tr>
 <tr>

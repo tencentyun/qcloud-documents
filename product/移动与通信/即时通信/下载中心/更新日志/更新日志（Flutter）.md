@@ -1,3 +1,43 @@
+## IM Flutter SDK 3.9.3 @2022.4.20
+- 修复群禁言群 tips boolValue 丢失问题
+ - 目前群信息变更回调返回的数据为 key(string)-value(string) 形式，新增 key(string)-boolValue(bool) 形式
+- 修复会话实例少解析了 nameCard 字段问题
+- 新增群已读回执相关接口
+ - [sendMessageReadReceptes](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/sendMessageReadReceipts.html) 发送群消息已读回执
+ - [getMessageReadReceptes](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/getMessageReadReceipts.html) 获取自己发送消息的已读回执
+ - [getgroupMessageReadMemeberList](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/getGroupMessageReadMemberList.html) 获取自己发送的群消息已读（未读）群成员列表
+- Flutter for Web 完善
+
+## IM Flutter SDK 3.9.1 @2022.3.24
+- 升级底层库版本到6.1.2155
+
+## IM Flutter SDK 3.9.0 @2022.3.22
+- 修改 grouplistener
+
+## IM Flutter SDK 3.8.9 @2022.3.18
+- 监听注册问题修复
+
+## IM Flutter SDK 3.8.4 @2022.3.14
+- 更新 interface
+
+## IM Flutter SDK 3.8.3 @2022.3.1
+- 根据环境切换 token 编码
+
+## IM Flutter SDK 3.8.2 @2022.2.21
+- 更新群成员参数约束
+
+## IM Flutter SDK 3.8.0 @2022.2.17
+- 升级底层 interface 依赖
+
+## IM Flutter SDK 3.7.8 @2022.2.15
+- 修复强解包带来的异常
+
+## IM Flutter SDK 3.7.7 @2022.2.10
+- 修复 Swift 代码 warning
+- 重写 Swift 强解包代码
+- sendMessage 接口返回的 message 实例增加 id 字段
+
+
 ## IM Flutter SDK 3.7.5 @2022.01.23
 - 升级底层库到6.0.1975
 - 离线推送配置支持 TPNS TOKEN
@@ -32,7 +72,7 @@
 - 修复 java 语法错误
 
 ## IM Flutter SDK 3.6.4  @2021.12.17
-- 修复安卓异步注册事件无返回 bug
+- 修复 Android 异步注册事件无返回 bug
 - 修复移除基础监听事件报错
 - 消息进度事件增加发送中的消息的 uuid
 

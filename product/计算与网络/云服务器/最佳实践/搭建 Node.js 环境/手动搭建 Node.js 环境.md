@@ -26,29 +26,29 @@
 
 ### 步骤2：安装 Node.js
 1. 执行以下命令，下载 Node.js Linux 64位二进制安装包。
-```
+```shell
 wget https://nodejs.org/dist/v10.16.3/node-v10.16.3-linux-x64.tar.xz
 ```
 <dx-alert infotype="explain" title="">
 该步骤以下载 Node.js 64位二进制安装包为例，不适用于 [标准型 SR1](https://cloud.tencent.com/document/product/213/11518#SR1) 实例，请对应您的实例规格，前往 [Node.js 官网](https://nodejs.org/zh-cn/download/) 获取更多安装信息。
 </dx-alert>
 2. 执行以下命令，解压安装包。
-```
+```shell
 tar xvf node-v10.16.3-linux-x64.tar.xz
 ```
 3. 依次执行以下命令，创建软链接。
-```
+```shell
 ln -s /root/node-v10.16.3-linux-x64/bin/node /usr/local/bin/node
 ```
-```
+```shell
 ln -s /root/node-v10.16.3-linux-x64/bin/npm /usr/local/bin/npm
 ```
 成功创建软链接后，即可在云服务器任意目录下使用 node 及 npm 命令。
 4. 依次执行以下命令，查看 Node.js 及 npm 版本信息。
-```
+```shell
 node -v
 ```
-```
+```shell
 npm -v
 ```
 
@@ -61,40 +61,40 @@ npm -v
 
 
 1. 执行以下命令，安装 git。
-```
+```shell
 yum install -y git
 ```
 2. 执行以下命令，下载 NVM 源码并检查最新版本。
-```
-git clone git://github.com/cnpm/nvm.git ~/.nvm && cd ~/.nvm && git checkout `git describe --abbrev=0 --tags`
+```shell
+git clone https://github.com/cnpm/nvm.git ~/.nvm && cd ~/.nvm && git checkout `git describe --abbrev=0 --tags`
 ```
 3. 执行以下命令，配置 NVM 环境变量。
-```
+```shell
 echo ". ~/.nvm/nvm.sh" >> /etc/profile
 ```
 4. 执行以下命令，读取环境变量。
-```
+```shell
 source /etc/profile
 ```
-4. 执行以下命令，查看 Node.js 所有版本。
-```
+5. 执行以下命令，查看 Node.js 所有版本。
+```shell
 nvm list-remote
 ```
-5. 依次执行以下命令，安装多个版本的 Node.js。
-```
+6. 依次执行以下命令，安装多个版本的 Node.js。
+```shell
 nvm install v6.9.5
 ```
-```
+```shell
 nvm install v10.16.3
 ```
-6. 执行以下命令，查看已安装的 Node.js 版本。
-```
+7. 执行以下命令，查看已安装的 Node.js 版本。
+```shell
 nvm ls
 ```
 返回结果如下所示，则表示安装成功，当前使用版本为 Node.js 10.16.3。
 ![](https://main.qcloudimg.com/raw/a315fe51314357fb44ec725f20c101ed.png)
-7. 执行以下命令，切换 Node.js 使用版本。
-```
+8. 执行以下命令，切换 Node.js 使用版本。
+```shell
 nvm use v6.9.5
 ```
 返回结果如下图所示：
@@ -102,14 +102,14 @@ nvm use v6.9.5
 
 ### 步骤4：创建 Node.js 项目
 1. 依次执行以下命令，在根目录创建项目文件 `index.js`。
-```
+```shell
 cd ~
 ```
-```
+```shell
 vim index.js
 ```
 2. 按 **i** 切换至编辑模式，并将以下内容输入 `index.js` 文件中。
-```
+```javascript
 const http = require('http');
 const hostname = '0.0.0.0';
 const port = 7500;
@@ -127,11 +127,11 @@ server.listen(port, hostname, () => {
 </dx-alert>
 3. 按 **Esc**，输入 **:wq** 并按 **Enter**，保存文件并返回。
 4. 执行以下命令，运行 Node.js 项目。
-```
+```shell
 node index.js
 ```
 5. 在本地浏览器中访问以下地址，查看项目是否正常运行。
-```
+```shell
 http://云服务器实例的公网 IP:已配置的端口号
 ```
 显示结果如下，则说明 Node.js 环境搭建成功。

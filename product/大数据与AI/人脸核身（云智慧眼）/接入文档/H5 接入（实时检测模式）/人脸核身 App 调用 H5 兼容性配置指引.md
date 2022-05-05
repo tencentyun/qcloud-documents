@@ -39,7 +39,7 @@ config.allowsInlineMediaPlayback = YES;
 WBH5FaceVerifySDK.getInstance().setWebViewSettings(mWebView,getApplicationContext());
 ```
 4. 重写 WebChromeClient
- 调用 WebView.loadUrl(String url) 前，WebView 必须调用 setWebChormeClient(WebChromeClient webChormeClient)，并重写 WebChromeClient 的如下三个函数：
+ 调用 WebView.loadUrl(String url) 前，WebView 必须调用 setWebChromeClient(WebChromeClient webChromeClient)，并重写 WebChromeClient 的如下三个函数：
 >!
 >- 如果第三方已重写以下函数，只要将如下所示的函数体内容添加至第三方的对应函数体首行即可。
 >- 如果第三方没有重写以下函数，则直接按以下代码示重写。
@@ -52,15 +52,16 @@ WBH5FaceVerifySDK.getInstance().setWebViewSettings(mWebView,getApplicationContex
  */
 @Override
 public void onPermissionRequest(PermissionRequest request) {
-	if (Build.VERSION.SDK_INT>Build.VERSION_CODES.LOLLIPOP){ // Android sdk 21以上
-	   if ("https://miniprogram-kyc.tencentcloudapi.com/".equals(request.getOrigin().toString()
-	   )
-	   )
-	   { 
-	   //根据腾讯域名授权，如果合作方对授权域名无限制的话，这个if条件判断可以去掉，直接进行授权即可。
-		request.grant(request.getResources());
-		request.getOrigin();
-	}
+	if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP) { 
+	// android sdk 21以上
+         if (request != null && request.getOrigin() != null) {
+                if (request.getOrigin().toString().contains("https://miniprogram-kyc.tencentcloudapi.com")) {
+				//根据腾讯域名授权，如果合作方对授权域名无限制的话，这个if条件判断可以去掉，直接进行授权即可。
+                        request.grant(request.getResources());
+                        request.getOrigin();
+                }
+        }
+   }
 }
 /**
 * android端接收H5端发来的请求

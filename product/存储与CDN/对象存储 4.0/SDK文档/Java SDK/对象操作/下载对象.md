@@ -31,13 +31,6 @@ TransferManager createTransferManager() {
     // 传入一个 threadpool, 若不传入线程池，默认 TransferManager 中会生成一个单线程的线程池。
     TransferManager transferManager = new TransferManager(cosClient, threadPool);
 
-    // 设置高级接口的配置项
-    // 分块上传阈值和分块大小分别为 5MB 和 1MB
-    TransferManagerConfiguration transferManagerConfiguration = new TransferManagerConfiguration();
-    transferManagerConfiguration.setMultipartUploadThreshold(5*1024*1024);
-    transferManagerConfiguration.setMinimumUploadPartSize(1*1024*1024);
-    transferManager.setConfiguration(transferManagerConfiguration);
-
     return transferManager;
 }
 ```
@@ -138,6 +131,9 @@ Request 成员说明：
 
 ```java
 public Download download(final GetObjectRequest getObjectRequest, final File file,
+        boolean resumableDownload);
+
+public Download download(final GetObjectRequest getObjectRequest, final File file,
         boolean resumableDownload, String resumableTaskFile,
         int multiThreadThreshold, int partSize);
 ```
@@ -157,10 +153,10 @@ String key = "exampleobject";
 String localFilePath = "/path/to/localFile";
 File downloadFile = new File(localFilePath);
 
-GetObjectRequest getObjectRequest = new GetObjectRequest(bucketName, key, true);
+GetObjectRequest getObjectRequest = new GetObjectRequest(bucketName, key);
 try {
     // 返回一个异步结果 Donload, 可同步的调用 waitForCompletion 等待下载结束, 成功返回 void, 失败抛出异常
-    Download download = transferManager.download(getObjectRequest, downloadFile);
+    Download download = transferManager.download(getObjectRequest, downloadFile, true);
     download.waitForCompletion();
 } catch (CosServiceException e) {
     e.printStackTrace();

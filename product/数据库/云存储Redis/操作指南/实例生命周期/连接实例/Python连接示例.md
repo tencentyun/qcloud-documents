@@ -16,7 +16,7 @@ port = 6379
 user='username' 
 pwd='password' 
 
-#连接时通过 password 参数指定 AUTH 信息，由 user,pwd 通过"@"拼接而成 
+#连接时通过 password 参数指定 AUTH 信息，如果通过默认帐号连接，password 为 pwd， 如果自定义帐号连接，需将 user, pwd 通过@拼接
 r = redis.StrictRedis(host=host, port=port, password=user+'@'+pwd) 
 
 #连接建立后就可以进行数据库操作，请参见 https://github.com/andymccurdy/redis-py 

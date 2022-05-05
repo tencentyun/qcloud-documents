@@ -2,6 +2,12 @@
 NAT 网关新春特惠，企业新客可领299元，新客可领99元，速来抢购。
 本活动为长期活动，下线时间请以官网通知为准。活动详情请参见 [NAT 代金券](https://cloud.tencent.com/act/pro/network_spring_2022#coupon)。
 
+
+<dx-alert infotype="notice" title="">
+代金券仅限发放账号使用，不可折现，不可转让，一经使用不可退换。
+</dx-alert>
+
+
 ## 活动对象
 活动参与对象需实名才可以参与和购买。仅限主账号参与，子账号和协作者不可参与。
 

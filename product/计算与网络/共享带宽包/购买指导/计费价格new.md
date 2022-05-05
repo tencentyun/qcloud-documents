@@ -33,7 +33,7 @@
 ## [精品 BGP 带宽包](id:cn2)
 >?
 >- 目前仅标准账户类型支持精品 BGP 带宽包，传统账户类型需升级后才能使用，升级详情请参见 [账户类型升级说明](https://cloud.tencent.com/document/product/1199/49090)。如需体验，请提交 [内测申请](https://cloud.tencent.com/apply/p/224jt7718s8)。
->- 仅香港地域支持精品 BGP IP。
+>- 仅中国香港地域支持精品 BGP IP。
 >
 <table>
 <thead>
@@ -43,7 +43,7 @@
 </tr>
 </thead>
 <tbody><tr>
-<td align="left">香港
+<td align="left">中国香港
 </td>
 <td align="left">580</td>
 </tr>

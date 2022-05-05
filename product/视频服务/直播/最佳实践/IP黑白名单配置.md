@@ -30,7 +30,7 @@
 <li>暂不支持 IP v6</li></ul></td>
 </tr>
 </tbody></table>
-4.单击**保存**即可保存配置，配置需要一定时间才可生效。
+4. 单击**保存**即可保存配置，配置需要一定时间才可生效。
 ![](https://qcloudimg.tencent-cloud.cn/raw/aa7e017cfb6f01e9c7596c4d404e636a.png)
 
 [](id:change)

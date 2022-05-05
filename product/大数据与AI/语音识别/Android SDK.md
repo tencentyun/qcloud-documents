@@ -3,7 +3,7 @@ Android SDK 接入请观看视频：
 
 ## 接入准备
 ### SDK 获取
-一句话识别 Android SDK 及 Demo 下载地址：[Android SDK](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/realtime/QCloudSDK_Android_v2.6.7.zip)。
+一句话识别 Android SDK 及 Demo 下载地址：[联系我们](https://cloud.tencent.com/act/event/connect-service#/)。
 
 ### 接入须知
 - 开发者在调用前请先查看一句话识别的 [接口说明](https://cloud.tencent.com/document/product/1093/37308)，了解接口的使用要求和使用步骤。  
@@ -32,6 +32,14 @@ Android SDK 接入请观看视频：
 ```
 <!--<service android:name=".service.MyIntentService"/>-->
 <service android:name="com.tencent.cloud.qcloudasrsdk.recorder.service.QCloudAudioMp3RecoderService" />
+```
+### 混淆规则
+```
+-keepclasseswithmembernames class * { # 保持 native 方法不被混淆
+native <methods>;
+}
+-keep public class com.tencent.*
+-keep public class com.qq.wx.voice.*
 ```
 
 ## 快速接入

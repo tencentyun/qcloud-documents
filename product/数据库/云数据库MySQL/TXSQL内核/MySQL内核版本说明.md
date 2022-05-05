@@ -1,6 +1,41 @@
 本文为您介绍 MySQL 内核版本更新动态，如需升级，请参见 [升级内核小版本](https://cloud.tencent.com/document/product/236/45522)。
 
 ## MySQL 8.0
+### 20211202
+#### 新特性：
+- 支持快速修改列功能。
+- 支持直方图历史版本能力。
+- 支持 SQL2003 TABLESAMPLE （单表）采样控制语法，用于获取物理表的随机样本。
+- 新增非保留关键字:TABLESAMPLE BERNOULLI。
+- 新增 HISTOGRAM() 函数，对于给定输入字段构建直方图。
+- 支持 compressed 直方图。
+- 支持 SQL 限流功能（DBbrian 计划2022年4月支持）。
+- 支持 MySQL 集群角色设置功能，默认为角色为 CDB_ROLE_UNKNOWN。
+- show replicas 命令展示结果新增Role列，用于展示角色。
+- 支持 proxy。
+
+#### 性能优化：
+- 优化了由 insert on duplicate key update 引发热点的更新问题。
+- 通过聚合 event 多个相同的 binlog event 来提升 hash scan 的应用速度。
+- 在 plan cache 打开的情况下，线程池模式下，prepare 语句在点查的内存大量减小。
+
+#### Bug 修复：
+- 修复热点更新优化开启后性能不稳定的问题。
+- 修复 `select count(*)` 并行扫描在极端情况下会全表扫描的问题。
+- 修复多种情况下统计信息读零而导致的执行计划改变导致的性能问题。
+- 修复 query 长时间处于 query end 状态的 bug。
+- 修复长记录下，统计信息被严重低估的 bug。
+- 修复使用 Temptable 引擎时，选择列中的聚合函数超过255个时报错的 bug。
+- 修复 json_table 函数列名称大小写敏感的问题。
+- 修复窗口函数因为表达式在 return true 时提前返回导致正确性问题的 bug。
+- 修复 derived condition pushdown 在含有 user variables 的时候依然下压导致的正确性问题。
+- 修复 SQL filter 在 Rule 规则没加 namespace 下容易导致 crash 的问题。
+- 修复高并发高冲突情况下开启线程池的 QPS 抖动。
+- 修复主从 bp 同步在极端情况下（宿主机文件系统损坏的情况）泄漏文件句柄的问题。
+- 修复 index mapping 问题。
+- 修复统计信息缓存同步问题。
+- 修复移植执行 update 语句或存储过程未清理信息导致的 crash 问题。
+
 ### 20210830
 #### 新特性：
 - 支持预加载行数限制功能。
@@ -307,6 +342,19 @@ FLUSH TABLES WITH READ LOCK 的上锁备份方式导致整个数据库不可提�
 - 修复在异步模式下速度限制插件不可用的问题。
 
 ## MySQL 5.6
+### 20220301
+#### 新特性：
+- 支持动态配置自旋周期，通过动态参数 innodb_spin_wait_pause_multiplier 可以动态调整自旋周期(0~100)。
+该参数用于临时调整，不支持通过控制台进行固化修改。
+- 支持打印死锁环路信息的功能。
+通过参数 innodb_print_dead_lock_loop_info 开启，开启后发生死锁时，使用 show engine innodb status 可以查看死锁环路信息。
+
+#### Bug 修复：
+- 修复 slave 重启后 memory 表产生匿名 GTID 事务的问题。
+- 修复 root@localhost 权限缺失，导致升级失败的问题。
+- 修复 innodb_row_lock_current_waits 等监控变量值存在异常情况的问题。
+- 修复审计插件 sql type 映射错误的问题。
+
 ### 20211030
 #### 新特性：
 - 支持大事务复制优化。

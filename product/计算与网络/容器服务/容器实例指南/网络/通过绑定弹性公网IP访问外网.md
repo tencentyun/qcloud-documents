@@ -4,17 +4,17 @@
 当您的容器实例 EKSCI 需要连接公网时，例如部署 Nginx 服务、拉取私有镜像等，则需要为容器实例绑定弹性公网 IP 或者配置 NAT 网关，并需要支付额外的网络费用。两种使用方式介绍如下：
 
 
-| 方式 | 说明及使用场景 | 费用 |
+| 方式 | 说明及使用场景  | 费用 |
 |---------|---------|---------|
-| <nobr>绑定弹性公网 IP</nobr> | 弹性公网 IP （Elastic IP，简称 EIP），可以独立购买和持有、某个地域下固定不变的公网 IP 地址。<br>使用场景：单个或少量实例需要实现公网互通，例如 Nginx 服务。 | EIP 未绑定云资源时仅收取 IP 资源费用。EIP 绑定云资源后仅收取公网网络费用，详情请参见 [弹性公网 IP 计费](https://cloud.tencent.com/document/product/213/17156)。|
-| 绑定 NAT 网关 | NAT 网关（NAT Gateway）是一种支持 IP 地址转换服务，可为私有网络（VPC）内的资源提供安全、高性能的 Internet 访问服务。<br>使用场景：某个 VPC 下的多个实例需要与公网通信，例如多个实例需要拉取第三方镜像仓库镜像。 | NAT 网关服务费用包含两部分：网关费用（按小时计费）和网络费用（按流量计费），详情请参见 [NAT 网关计费](https://cloud.tencent.com/document/product/552/18172)。|
+| <nobr>绑定弹性公网 IP</nobr> | 弹性公网 IP （Elastic IP，简称 EIP），可以独立购买和持有、某个地域下固定不变的公网 IP 地址。<br>使用场景 ：单个或少量实例需要实现公网互通，例如 Nginx 服务。  | EIP 未绑定云资源时仅收取 IP 资源费用。EIP 绑定云资源后仅收取公网网络费用，详情请参见 [弹性公网 IP 计费](https://cloud.tencent.com/document/product/213/17156)。|
+| 绑定 NAT 网关 | NAT 网关（NAT Gateway）是一种支持 IP 地址转换服务，可为私有网络（VPC）内的资源提供安全、高性能的 Internet 访问服务。<br>使用场景 ：某个 VPC 下的多个实例需要与公网通信，例如多个实例需要拉取第三方镜像仓库镜像。  | NAT 网关服务费用包含两部分：网关费用（按小时计费）和网络费用（按流量计费），详情请参见 [NAT 网关计费](https://cloud.tencent.com/document/product/552/18172)。|
 
 本文主要介绍如何为容器实例绑定弹性公网 IP，以实现容器实例与公网互通。详细操作步骤如下：
 
 
 ## 操作步骤
 
-<dx-alert infotype="explain" title="">
+<dx-alert infotype="explain" title=" ">
 绑定弹性公网 IP 需要在创建容器实例时进行。
 </dx-alert>
 

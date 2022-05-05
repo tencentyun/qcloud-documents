@@ -10,11 +10,11 @@
 
 ## 安装步骤
 
-1. 在 [TKE 应用市场](https://console.cloud.tencent.com/tke2/market) 找到 fluid 应用。
-![](https://main.qcloudimg.com/raw/879a2413fee05c39cc3ff8d2fd41f80b.png)
-2. 安装 Fluid Controller。
-![](https://main.qcloudimg.com/raw/ffbc185e04789cb5a679b8e32ec92d59.jpg)
-3. 检查 controller 组件。在左侧**集群**中找到对应集群，如果看到了两个 controller，则说明 fluid 组件安装成功。
+1. 在 [TKE 应用市场](https://console.cloud.tencent.com/tke2/market) 找到	goosefs-on-tke 应用。
+![](https://qcloudimg.tencent-cloud.cn/raw/4c0a032357c5c3b434f6e24ed2a23754.png)
+2. 安装 goosefs-on-tke Controller。
+![](https://qcloudimg.tencent-cloud.cn/raw/38748fd02ff9a853b4ebdcb2d5daa8d0.png)
+3. 检查 controller 组件。在左侧**集群**中找到对应集群，如果看到了两个 controller，则说明 goosefs-on-tke 组件安装成功。
 ![](https://main.qcloudimg.com/raw/27f12c25ac4da44eace986eddf356691.png)
 
 
@@ -23,7 +23,7 @@
 ### 1. 集群访问授权
 
 ```shell
-[root@master01 run]# export KUBECONFIG=xxx/cls-xxx-config (从tke控制台页面，下载集群凭证到某个目录）
+[root@master01 run]# export KUBECONFIG=xxx/cls-xxx-config （从tke控制台页面，下载集群凭证到某个目录）
 ```
 
 >! 集群 API Server 需要开启外网访问权限。

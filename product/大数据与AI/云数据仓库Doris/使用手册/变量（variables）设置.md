@@ -99,16 +99,16 @@ SELECT /*+ SET_VAR(query_timeout = 1, enable_partition_cache=true) */ sleep(3);
 但注意，自动应用到所有分区可能到导致 delete 命令耗时触发大量子任务导致耗时较长。如无必要，不建议开启。
     
 - `disable_colocate_join`
-控制是否启用 [Colocation Join](./colocation-join.md) 功能。默认为 false，表示启用该功能。true 表示禁用该功能。当该功能被禁用后，查询规划将不会尝试执行 Colocation Join。
+控制是否启用  Colocation Join 功能。默认为 false，表示启用该功能。true 表示禁用该功能。当该功能被禁用后，查询规划将不会尝试执行 Colocation Join。
 
 - `enable_bucket_shuffle_join`
-控制是否启用 [Bucket Shuffle Join](./bucket-shuffle-join.md) 功能。默认为 true，表示启用该功能。false 表示禁用该功能。当该功能被禁用后，查询规划将不会尝试执行 Bucket Shuffle Join。
+控制是否启用 Bucket Shuffle Join 功能。默认为 true，表示启用该功能。false 表示禁用该功能。当该功能被禁用后，查询规划将不会尝试执行 Bucket Shuffle Join。
     
 - `disable_streaming_preaggregations`
 控制是否开启流式预聚合。默认为 false，即开启。当前不可设置，且默认开启。
     
 - `enable_insert_strict`
-用于设置通过 INSERT 语句进行数据导入时，是否开启 `strict` 模式。默认为 false，即不开启 `strict` 模式。关于该模式的介绍，可以参阅 [这里](./load-data/insert-into-manual.md)。
+用于设置通过 INSERT 语句进行数据导入时，是否开启 `strict` 模式。默认为 false，即不开启 `strict` 模式。
 
 - `enable_spilling`
 用于设置是否开启大数据量落盘排序。默认为 false，即关闭该功能。当用户未指定 ORDER BY 子句的 LIMIT 条件，同时设置 `enable_spilling` 为 true 时，才会开启落盘排序。该功能启用后，会使用 BE 数据目录下 `doris-scratch/` 目录存放临时的落盘数据，并在查询结束后，清空临时数据。
@@ -189,10 +189,10 @@ information_schema 中的系统视图表名不区分大小写，当`lower_case_t
 用于兼容 JDBC 连接池 C3P0。 无实际作用。
     
 - `max_pushdown_conditions_per_column`
-该变量的具体含义请参阅 [BE 配置项](./config/be_config.md) 中 `max_pushdown_conditions_per_column` 的说明。该变量默认置为 -1，表示使用 `be.conf` 中的配置值。如果设置大于 0，则当前会话中的查询会使用该变量值，而忽略 `be.conf` 中的配置值。
+该变量默认置为 -1，表示使用 `be.conf` 中的配置值。如果设置大于 0，则当前会话中的查询会使用该变量值，而忽略 `be.conf` 中的配置值。
 
 - `max_scan_key_num`
-该变量的具体含义请参阅 [BE 配置项](./config/be_config.md) 中 `doris_max_scan_key_num` 的说明。该变量默认置为 -1，表示使用 `be.conf` 中的配置值。如果设置大于 0，则当前会话中的查询会使用该变量值，而忽略 `be.conf` 中的配置值。
+该变量默认置为 -1，表示使用 `be.conf` 中的配置值。如果设置大于 0，则当前会话中的查询会使用该变量值，而忽略 `be.conf` 中的配置值。
     
 - `net_buffer_length`
 用于兼容 MySQL 客户端。无实际作用。
@@ -228,7 +228,7 @@ information_schema 中的系统视图表名不区分大小写，当`lower_case_t
 用于设置执行 InsertStmt 操作时发送批处理数据的默认并行度，如果并行度的值超过 BE 配置中的 `max_send_batch_parallelism_per_job`，那么作为协调点的 BE 将使用 `max_send_batch_parallelism_per_job` 的值。 
                                                                                                  
 - `sql_mode`
-用于指定 SQL 模式，以适应某些 SQL 方言。关于 SQL 模式，可参阅 [这里](./sql-mode.md)。
+用于指定 SQL 模式，以适应某些 SQL 方言。
     
 - `sql_safe_updates`
 用于兼容 MySQL 客户端。无实际作用。
@@ -240,7 +240,7 @@ information_schema 中的系统视图表名不区分大小写，当`lower_case_t
 显示当前系统时区。不可更改。
     
 - `time_zone`
-用于设置当前会话的时区。时区会对某些时间函数的结果产生影响。关于时区，可以参阅 [这里](./time-zone.md)。
+用于设置当前会话的时区。时区会对某些时间函数的结果产生影响。
     
 - `tx_isolation`
 用于兼容 MySQL 客户端。无实际作用。

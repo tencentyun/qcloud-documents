@@ -41,7 +41,7 @@ require '/path/to/vendor/autoload.php';
    $params = array(
        "QueueName" => "queue_api",  // 消息队列名称
        // 以下是死信队列相关配置
-       "DeadLetterQueueName" => "dead_queue_api", // 死信队列名称
+       "DeadLetterQueueName" => "dead_queue_api", // 死信队列名称，该队列需要优先创建
        "Policy" => 0,  // 死信策略。0为消息被多次消费未删除，1为Time-To-Live过期
        "MaxReceiveCount" => 3  // 最大接收次数 1-1000
        // MaxTimeToLive  policy为1时必选。最大未消费过期时间。范围300-43200，单位秒，需要小于消息最大保留时间msgRetentionSeconds
@@ -68,7 +68,7 @@ require '/path/to/vendor/autoload.php';
     <tr>
         <td>$secretId、$secretKey</td>
         <td>云 API 密钥，登录 <a href='https://console.cloud.tencent.com/cam/overview'>访问管理控制台</a>，在<strong>访问密钥</strong> &gt;
-            <strong>API 密钥管理</strong>页面复制。<img src="https://main.qcloudimg.com/raw/867837e2b1e6d347ecb04d7085938c08.png"
+            <strong>API 密钥管理</strong>页面复制。<img src="https://main.qcloudimg.com/raw/6c5c88fb4347f14cae206a6cdbe1df15.png"
                                               referrerpolicy="no-referrer" alt="img"></td>
     </tr>
     </tbody>
@@ -107,7 +107,7 @@ try {
 <table>
 <thead>
 <tr><th >参数</th><th >说明</th></tr></thead>
-<tbody><tr><td >endpoint</td><td >API 调用地址，在 <a href='https://console.cloud.tencent.com/tdmq'>TDMQ CMQ 版控制台</a> 的<strong>队列服务</strong> &gt; <strong>API 请求地址</strong>处复制。<img src="https://main.qcloudimg.com/raw/397c634ac38494666e878caf69cf55e7.png" referrerpolicy="no-referrer" alt="img"></td></tr><tr><td >secretId、secretKey</td><td >云 API 密钥，登录 <a href='https://console.cloud.tencent.com/cam/overview'>访问管理控制台</a>，在<strong>访问密钥</strong> &gt; <strong>API 密钥管理</strong>页面复制。<img src="https://main.qcloudimg.com/raw/867837e2b1e6d347ecb04d7085938c08.png" referrerpolicy="no-referrer" alt="img"></td></tr><tr><td style='text-align:left;' >$queue_name</td><td style='text-align:left;' >队列名称，在 <a href='https://console.cloud.tencent.com/tdmq'>TDMQ CMQ 版控制台</a> 的<strong>队列服务</strong>列表页面获取。</td></tr></tbody>
+<tbody><tr><td >endpoint</td><td >API 调用地址，在 <a href='https://console.cloud.tencent.com/tdmq'>TDMQ CMQ 版控制台</a> 的<strong>队列服务</strong> &gt; <strong>API 请求地址</strong>处复制。<img src="https://main.qcloudimg.com/raw/397c634ac38494666e878caf69cf55e7.png" referrerpolicy="no-referrer" alt="img"></td></tr><tr><td >secretId、secretKey</td><td >云 API 密钥，登录 <a href='https://console.cloud.tencent.com/cam/overview'>访问管理控制台</a>，在<strong>访问密钥</strong> &gt; <strong>API 密钥管理</strong>页面复制。<img src="https://main.qcloudimg.com/raw/6c5c88fb4347f14cae206a6cdbe1df15.png" referrerpolicy="no-referrer" alt="img"></td></tr><tr><td style='text-align:left;' >$queue_name</td><td style='text-align:left;' >队列名称，在 <a href='https://console.cloud.tencent.com/tdmq'>TDMQ CMQ 版控制台</a> 的<strong>队列服务</strong>列表页面获取。</td></tr></tbody>
 </table>
 7. 消费消息。
 <dx-codeblock>
@@ -141,7 +141,7 @@ try {
 <table>
 <thead>
 <tr><th >参数</th><th >说明</th></tr></thead>
-<tbody><tr><td >endpoint</td><td >API 调用地址，在 <a href='https://console.cloud.tencent.com/tdmq'>TDMQ CMQ 版控制台</a> 的<strong>队列服务</strong> &gt; <strong>API 请求地址</strong>处复制。<img src="https://main.qcloudimg.com/raw/397c634ac38494666e878caf69cf55e7.png" referrerpolicy="no-referrer" alt="img"></td></tr><tr><td >secretId、secretKey</td><td >云 API 密钥，登录 <a href='https://console.cloud.tencent.com/cam/overview'>访问管理控制台</a>，在<strong>访问密钥</strong> &gt; <strong>API 密钥管理</strong>页面复制。<img src="https://main.qcloudimg.com/raw/867837e2b1e6d347ecb04d7085938c08.png" referrerpolicy="no-referrer" alt="img"></td></tr><tr><td >$queue_name</td><td >队列名称，在 <a href='https://console.cloud.tencent.com/tdmq'>TDMQ CMQ 版控制台</a> 的<strong>队列服务</strong>列表页面获取。</td></tr></tbody>
+<tbody><tr><td >endpoint</td><td >API 调用地址，在 <a href='https://console.cloud.tencent.com/tdmq'>TDMQ CMQ 版控制台</a> 的<strong>队列服务</strong> &gt; <strong>API 请求地址</strong>处复制。<img src="https://main.qcloudimg.com/raw/397c634ac38494666e878caf69cf55e7.png" referrerpolicy="no-referrer" alt="img"></td></tr><tr><td >secretId、secretKey</td><td >云 API 密钥，登录 <a href='https://console.cloud.tencent.com/cam/overview'>访问管理控制台</a>，在<strong>访问密钥</strong> &gt; <strong>API 密钥管理</strong>页面复制。<img src="https://main.qcloudimg.com/raw/6c5c88fb4347f14cae206a6cdbe1df15.png" referrerpolicy="no-referrer" alt="img"></td></tr><tr><td >$queue_name</td><td >队列名称，在 <a href='https://console.cloud.tencent.com/tdmq'>TDMQ CMQ 版控制台</a> 的<strong>队列服务</strong>列表页面获取。</td></tr></tbody>
 </table>
 
 ## 主题模型
@@ -174,7 +174,7 @@ try {
 <table>
 <thead>
 <tr><th >参数</th><th >说明</th></tr></thead>
-<tbody><tr><td >$endPoint</td><td >API 调用地址，在 <a href='https://console.cloud.tencent.com/tdmq'>TDMQ CMQ 版控制台</a> 的<strong>队列服务</strong> &gt; <strong>API 请求地址</strong>处复制。<img src="https://main.qcloudimg.com/raw/397c634ac38494666e878caf69cf55e7.png" referrerpolicy="no-referrer" alt="img"></td></tr><tr><td >$secretId、$secretKey</td><td >云 API 密钥，登录 <a href='https://console.cloud.tencent.com/cam/overview'>访问管理控制台</a>，在<strong>访问密钥</strong> &gt; <strong>API 密钥管理</strong>页面复制。<img src="https://main.qcloudimg.com/raw/867837e2b1e6d347ecb04d7085938c08.png" referrerpolicy="no-referrer" alt="img"></td></tr></tbody>
+<tbody><tr><td >$endPoint</td><td >API 调用地址，在 <a href='https://console.cloud.tencent.com/tdmq'>TDMQ CMQ 版控制台</a> 的<strong>队列服务</strong> &gt; <strong>API 请求地址</strong>处复制。<img src="https://main.qcloudimg.com/raw/397c634ac38494666e878caf69cf55e7.png" referrerpolicy="no-referrer" alt="img"></td></tr><tr><td >$secretId、$secretKey</td><td >云 API 密钥，登录 <a href='https://console.cloud.tencent.com/cam/overview'>访问管理控制台</a>，在<strong>访问密钥</strong> &gt; <strong>API 密钥管理</strong>页面复制。<img src="https://main.qcloudimg.com/raw/6c5c88fb4347f14cae206a6cdbe1df15.png" referrerpolicy="no-referrer" alt="img"></td></tr></tbody>
 </table>
    2. 创建订阅者，创建订阅者可通过控制台，或云 API 进行创建，使用云 API 需要安装相关 SDK，SDK 安装可参见 [PHP SDK 3.0安装使用](https://cloud.tencent.com/document/sdk/PHP)。
 <dx-codeblock>
@@ -219,7 +219,7 @@ BindingKey 与 FilterTag 要根据所订阅 Topic 类型进行设置，否则无
 <table>
 <thead>
 <tr><th >参数</th><th >说明</th></tr></thead>
-<tbody><tr><td >$endPoint</td><td >API 调用地址，在 <a href='https://console.cloud.tencent.com/tdmq'>TDMQ CMQ 版控制台</a> 的<strong>队列服务</strong> &gt; <strong>API 请求地址</strong>处复制。<img src="https://main.qcloudimg.com/raw/397c634ac38494666e878caf69cf55e7.png" referrerpolicy="no-referrer" alt="img"></td></tr><tr><td >$secretId、$secretKey</td><td >云 API 密钥，登录 <a href='https://console.cloud.tencent.com/cam/overview'>访问管理控制台</a>，在<strong>访问密钥</strong> &gt; <strong>API 密钥管理</strong>页面复制。<img src="https://main.qcloudimg.com/raw/867837e2b1e6d347ecb04d7085938c08.png" referrerpolicy="no-referrer" alt="img"></td></tr></tbody>
+<tbody><tr><td >$endPoint</td><td >API 调用地址，在 <a href='https://console.cloud.tencent.com/tdmq'>TDMQ CMQ 版控制台</a> 的<strong>队列服务</strong> &gt; <strong>API 请求地址</strong>处复制。<img src="https://main.qcloudimg.com/raw/397c634ac38494666e878caf69cf55e7.png" referrerpolicy="no-referrer" alt="img"></td></tr><tr><td >$secretId、$secretKey</td><td >云 API 密钥，登录 <a href='https://console.cloud.tencent.com/cam/overview'>访问管理控制台</a>，在<strong>访问密钥</strong> &gt; <strong>API 密钥管理</strong>页面复制。<img src="https://main.qcloudimg.com/raw/6c5c88fb4347f14cae206a6cdbe1df15.png" referrerpolicy="no-referrer" alt="img"></td></tr></tbody>
 </table>
 2. 在项目中引入 [CMQ 文件](https://github.com/tencentyun/cmq-php-sdk)。
 3. 创建 my_topic，用来发布消息。
@@ -235,7 +235,7 @@ BindingKey 与 FilterTag 要根据所订阅 Topic 类型进行设置，否则无
 <table>
 <thead>
 <tr><th >参数</th><th >说明</th></tr></thead>
-<tbody><tr><td >endpoint</td><td >API 调用地址，在 <a href='https://console.cloud.tencent.com/tdmq'>TDMQ CMQ 版控制台</a> 的<strong>队列服务</strong> &gt; <strong>API 请求地址</strong>处复制。<img src="https://main.qcloudimg.com/raw/397c634ac38494666e878caf69cf55e7.png" referrerpolicy="no-referrer" alt="img"></td></tr><tr><td >secretId、secretKey</td><td >云 API 密钥，登录 <a href='https://console.cloud.tencent.com/cam/overview'>访问管理控制台</a>，在<strong>访问密钥</strong> &gt; <strong>API 密钥管理</strong>页面复制。<img src="https://main.qcloudimg.com/raw/867837e2b1e6d347ecb04d7085938c08.png" referrerpolicy="no-referrer" alt="img"></td></tr><tr><td >$topic_name</td><td >主题订阅名称，在 <a href='https://console.cloud.tencent.com/tdmq'>TDMQ CMQ 版控制台</a> 的<strong>主题订阅</strong>列表页面获取。</td></tr></tbody>
+<tbody><tr><td >endpoint</td><td >API 调用地址，在 <a href='https://console.cloud.tencent.com/tdmq'>TDMQ CMQ 版控制台</a> 的<strong>队列服务</strong> &gt; <strong>API 请求地址</strong>处复制。<img src="https://main.qcloudimg.com/raw/397c634ac38494666e878caf69cf55e7.png" referrerpolicy="no-referrer" alt="img"></td></tr><tr><td >secretId、secretKey</td><td >云 API 密钥，登录 <a href='https://console.cloud.tencent.com/cam/overview'>访问管理控制台</a>，在<strong>访问密钥</strong> &gt; <strong>API 密钥管理</strong>页面复制。<img src="https://main.qcloudimg.com/raw/6c5c88fb4347f14cae206a6cdbe1df15.png" referrerpolicy="no-referrer" alt="img"></td></tr><tr><td >$topic_name</td><td >主题订阅名称，在 <a href='https://console.cloud.tencent.com/tdmq'>TDMQ CMQ 版控制台</a> 的<strong>主题订阅</strong>列表页面获取。</td></tr></tbody>
 </table>
 4. 发送 TAG 类型消息。
 <dx-codeblock>

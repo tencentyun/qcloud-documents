@@ -1,9 +1,9 @@
 ## 工作负载 pod template annotation 说明
-您可以通过在 yaml 中定义 `spec.template.metadata.annotations` 的方式，实现为 Pod 绑定安全组、分配资源等能力。配置方法见下表：
+您可以通过在 yaml 中定义 `metadata.annotations` 的方式，实现为 Pod 绑定安全组、分配资源等能力。配置方法见下表：
 
-<dx-alert infotype="notice" title="">
+<dx-alert infotype="notice" title=" ">
 - 如果不指定安全组，则 Pod 会默认绑定同地域的 `default` 安全组。请确保 `default` 安全组的网络策略不影响该 Pod 正常工作。
-- 如需通过 annotation 指定的方式分配 CPU 资源，则必须同时填写 `cpu` 和 `mem` 2个 annotation，且数值必须符合 [资源规格](https://cloud.tencent.com/document/product/457/39808) 中的 CPU 规格。另外，可以通过 `cpu-type` 指定分配 intel 或 amd CPU，其中 amd 具备更高的性价比，详情请参考 [产品定价](https://cloud.tencent.com/document/product/457/39806)。 
+- 如需通过 annotation 指定的方式分配 CPU 资源，则必须同时填写 `cpu` 和 `mem` 2个 annotation，且数值必须符合 [资源规格](https://cloud.tencent.com/document/product/457/39808) 中的 CPU 规格。另外，可以通过 `cpu-type` 指定分配 intel 或 amd CPU，其中 amd 具备更高的性价比，详情请参考 [产品定价](https://cloud.tencent.com/document/product/457/39806)。  
 - 如需通过 annotation 指定的方式分配 GPU 资源，则必须同时填写`gpu-type` 及 `gpu-count` 2个 annotation，且数值必须符合 [资源规格](https://cloud.tencent.com/document/product/457/39808) 中的 GPU 规格。
 </dx-alert>
 
@@ -39,11 +39,10 @@
 </tr>
 <tr>
 <td>eks.tke.cloud.tencent.com/cpu-type</td>
-<td>Pod 所需的 CPU 资源类型及机型，格式如下：
+<td>Pod 所需的 CPU 资源类型，格式如下：
 <ul  class="params">
 <li>intel</li>
 <li>amd</li>
-<li>S5,S4</li>
 <li>支持优先级顺序写法，如 “amd,intel” 表示优先创建 amd 资源 Pod，如果所选地域可用区 amd 资源不足，则会创建 intel 资源 Pod。</li>
 </ul>
 各型号支持的具体配置请参考 <a href="https://cloud.tencent.com/document/product/457/39808" target="_blank">资源规格</a>。</td>
@@ -110,6 +109,11 @@
 <tr>
 <td>eks.tke.cloud.tencent.com/registry-http-endpoint</td>
 <td>镜像仓库地址（多个用“,”隔开，或者填写 all）。在弹性集群使用自建 HTTP 协议镜像仓库的镜像创建工作负载时，可能会遇到 “ErrImagePull” 报错，拉取镜像失败，可添加该 Annotation 来解决。详情见 <a href="https://cloud.tencent.com/document/product/457/54755#.E5.BC.B9.E6.80.A7.E9.9B.86.E7.BE.A4.E5.A6.82.E4.BD.95.E4.BD.BF.E7.94.A8.E8.87.AA.E5.BB.BA.E7.9A.84.E8.87.AA.E7.AD.BE.E5.90.8D.E9.95.9C.E5.83.8F.E4.BB.93.E5.BA.93.E6.88.96-http-.E5.8D.8F.E8.AE.AE.E9.95.9C.E5.83.8F.E4.BB.93.E5.BA.93.EF.BC.9F">弹性集群如何使用自建的自签名镜像仓库或 HTTP 协议镜像仓库？</a></td>
+<td>否 </td>
+</tr>
+<tr>
+<td>eks.tke.cloud.tencent.com/image-cache-disk-retain-minute</td>
+<td>镜像缓存使用的 CBS 数据盘是否延迟销毁，单位为 min，可按需设置延迟销毁时长，默认为0，即销毁 Pod 时立即销毁，若设置为“10”，表示镜像缓存使用的数据盘，在销毁 Pod 后会默认保留10分钟。</a></td>
 <td>否 </td>
 </tr>
 </tbody></table>

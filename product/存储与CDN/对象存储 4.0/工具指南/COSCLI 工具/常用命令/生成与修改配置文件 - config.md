@@ -7,7 +7,9 @@
 ./coscli config [command] [flag]
 ```
 
->? 正确填写各配置项后，您可以使用`./coscli config show`来查看配置信息。
+>? 
+>- 正确填写各配置项后，您可以使用`./coscli config show`来查看配置信息。
+>- 关于此命令的其他通用选项（例如切换存储桶、切换用户账号等），请参见 [通用选项](https://cloud.tencent.com/document/product/436/71763) 文档。
 >
 
 <span id="config"></span>
@@ -26,7 +28,6 @@ config 及其子命令包含以下可选 flag：
 
 | flag 简写 | flag 全称     | flag 用途                  |
 | --------- | ------------- | -------------------------- |
-| -h        | --help        | 输出帮助信息。             |
 | -c        | --config-path | 指定要使用的配置文件路径。 |
 
 config add 子命令包含以下可选 flag：

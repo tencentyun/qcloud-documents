@@ -32,20 +32,20 @@ Typecho 是开源的博客建站平台，具有轻量、高效、稳定等特点
 4. [](id:Step4)在弹出的登录窗口中，执行在 [步骤2](#Step2) 中获取的命令。获取并记录 MariaDB 管理员密码。
 5. 选择以下方式，登录 MariaDB 数据库。
  - 方式1（推荐）：直接执行以下命令，登录 MariaDB 数据库。
- ```
+```shellsession
 mysql -u root -h 127.0.0.1 -p
 ```
  - 方式2：关闭 Systemd 安全 Tmp 功能，步骤如下：
     1. 将 `/usr/lib/systemd/system/mariadb.service` 中的 `PrivateTmp` 值修改为 `false`。
     2. 依次执行以下命令，使配置生效。
-   ```
-	 systemctl daemon-reload
+   ```shellsession
+	 sudo systemctl daemon-reload
 	 ```
-	 ```
-	 systemctl restart mariadb
+	 ```shellsession
+	 sudo systemctl restart mariadb
 	 ```
 	 3. 执行以下命令，登录 MariaDB 数据库。
-   ```
+   ```shellsession
 	 mysql -u root -p
 	 ```
 6. 在弹出的登录窗口中，粘贴在 [步骤4](#Step4) 中获取的 MariaDB 管理员密码（密码默认不显示），并按 **Enter**。
