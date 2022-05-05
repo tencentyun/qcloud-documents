@@ -79,8 +79,8 @@ stream {
 
 ### 设置安全组允许腾讯云数据连接器访问
 
-在 [ECS 实例控制台](https://console.huaweicloud.com/ecm/?agencyId=344eb50173f9430489ff1be6c4769e54&region=cn-south-1&locale=zh-cn#/ecs/manager/vmList)，修改 ECS 安全组配置，配置允许 iPaaS 访问。
->!若需配置指定的 iPaaS 出口 IP 访问，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们。
+在 [ECS 实例控制台](https://console.huaweicloud.com/ecm/?agencyId=344eb50173f9430489ff1be6c4769e54&region=cn-south-1&locale=zh-cn#/ecs/manager/vmList)，修改 ECS 安全组配置，配置允许腾讯云数据连接器访问。
+>!若需配置指定的腾讯云数据连接器出口 IP 访问，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们。
 >
 ![](https://qcloudimg.tencent-cloud.cn/raw/4e399b110eb0104d8d3705fa546d288f.png)
 
