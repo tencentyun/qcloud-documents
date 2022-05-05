@@ -22,7 +22,7 @@ Elasticsearch 数据目的表支持将数据写入到 Elasticsearch 中。
 ## 常见数据类型映射
 关于 Elasticsearch 支持的数据类型定义及其使用，可参考 [Elasticsearch data-types](https://www.elastic.co/guide/en/elasticsearch/reference/7.x/mapping-types.html#_core_datatypes)，这里列举了常用的数据类型，及其与 Flink 类型的对应关系。
 
-| Flink 数据类型     | ClickHouse 对应数据类型 |
+| Flink 数据类型     | Elasticsearch 对应数据类型 |
 | :----------------- | :---------------------- |
 | text               | STRING                  |
 | match_only_text    | STRING                  |
