@@ -769,8 +769,7 @@ private void handleOfflinePush() {
 ## 交流与反馈
 
 欢迎加入 QQ 群进行技术交流和反馈问题，QQ 群：**468195767**。
-
-![](https://im.sdk.cloud.tencent.cn/tools/resource/qrcode.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/c924037cc916ab6b3092b4ea7ba977a0.png)
 
 
 ## 常见问题
