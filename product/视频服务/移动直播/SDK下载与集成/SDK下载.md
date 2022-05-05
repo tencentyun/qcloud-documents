@@ -99,7 +99,7 @@
         <div class="card-container">
             <div class="card">
                            <img src="https://main.qcloudimg.com/raw/613f2e15bed7c8297110676b52784b71.svg" data-nonescope="true">
-                                <p class="titlename">直播 SDK 稳定版</p>
+                                <p class="titlename">直播 SDK</p>
                 <p style="color:#586376;">全场景直播 SDK，支持推流、播放、连麦 PK，以及基础美颜（美白、磨皮等）功能。</p>
                                 <a href="https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_Live_iOS_latest.zip">ZIP 下载</a>
 																                <a style="margin-left: 10px;" href="https://github.com/LiteAVSDK/Live_iOS">GitHub</a>
@@ -110,7 +110,7 @@
         <div class="card-container">
             <div class="card">
                             <img src="https://main.qcloudimg.com/raw/613f2e15bed7c8297110676b52784b71.svg" data-nonescope="true">
-                                <p class="titlename">直播 SDK（基础版）稳定版</p>
+                                <p class="titlename">直播 SDK（基础版）</p>
                 <p style="color:#586376;">小巧稳定，支持直播推流、直播播放和基础美颜（美白、磨皮等）功能。</p>
                                 <a href="https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_Smart_iOS_latest.zip">ZIP 下载</a>
                 <a style="margin-left: 10px;" href="https://github.com/LiteAVSDK/Live_iOS">GitHub</a>
