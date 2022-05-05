@@ -26,7 +26,7 @@
 ### 设置 CKafka  登录用户[](id:method1)
 1. 在 CKafka 实例详情页面中，单击**用户管理**，进入用户管理页面。
 ![](https://qcloudimg.tencent-cloud.cn/raw/8c6c49b32c25a5d2d0e061bc4958c745.png)
-2. 点击**新建**，依次输入**用户名**、**密码**、**确认密码**。后续iPaaS连接器配置需填写对应字段。
+2. 点击**新建**，依次输入**用户名**、**密码**、**确认密码**。后续腾讯云数据连接器的连接器配置需填写对应字段。
 ![kafka-new-user](https://qcloudimg.tencent-cloud.cn/raw/3df7602f1fd199372794ea183125506f/kafka-new-user.png)
 
 ###  设置 ACL 策略（可选）
