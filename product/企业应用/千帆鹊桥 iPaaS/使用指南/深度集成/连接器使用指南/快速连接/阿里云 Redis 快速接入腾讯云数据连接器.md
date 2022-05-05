@@ -1,6 +1,6 @@
 
 ## 操作场景
-iPaaS Redis 连接器支持 Redis 单点模式、哨兵模式、Cluster 集群模式的连接及常用操作。
+Redis 连接器支持 Redis 单点模式、哨兵模式、Cluster 集群模式的连接及常用操作。
 本文以 Redis 单点模式为例，为您介绍主流云厂商 Redis 产品的接入流程。
 
 
@@ -29,9 +29,9 @@ iPaaS Redis 连接器支持 Redis 单点模式、哨兵模式、Cluster 集群�
 ![](https://qcloudimg.tencent-cloud.cn/raw/f9a3226b46a053a32a6925fbe98918ff.png)
 
 ## 接入配置
-配置鹊桥 iPaaS Database 连接器连接属性步骤如下：
+配置腾讯云数据连接器 Database 连接器连接属性步骤如下：
 
-1. 在 [千帆鹊桥 iPaaS 控制台](https://console.cloud.tencent.com/ipaas)，单击**新建应用**，选择**空白应用**进行创建。
+1. 在 [腾讯云数据连接器控制台](https://console.cloud.tencent.com/ipaas)，单击**新建应用**，选择**空白应用**进行创建。
 ![](https://qcloudimg.tencent-cloud.cn/raw/f0e3a02558a61e6168e4a6c993931820.png)
 2. 单击左侧的**集成流**展开选择**NewFlow**在画布中单击**+**选择**Redis连接器**相关操作。
 ![](https://qcloudimg.tencent-cloud.cn/raw/865f5d010b10fd5084f3c02d121e9d48.png)
