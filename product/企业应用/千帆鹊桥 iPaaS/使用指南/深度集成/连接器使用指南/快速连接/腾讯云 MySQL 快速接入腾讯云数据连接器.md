@@ -1,5 +1,5 @@
 ## 操作场景
-iPaaS Database 连接器支持 MySQL 数据库的连接及增删改查等数据库常用操作。
+Database 连接器支持 MySQL 数据库的连接及增删改查等数据库常用操作。
 
 
 ## 前期准备
@@ -11,7 +11,7 @@ iPaaS Database 连接器支持 MySQL 数据库的连接及增删改查等数据�
 
 
 ### 设置安全组
-设置允许 iPaaS 出口 IP 访问数据库的操作。详细操作可参考 [MySQL安全组配置](https://cloud.tencent.com/document/product/236/9537)。
+设置允许腾讯云数据连接器出口 IP 访问数据库的操作。详细操作可参考 [MySQL安全组配置](https://cloud.tencent.com/document/product/236/9537)。
 <dx-tabs>
 :::新建安全组
   
@@ -28,7 +28,7 @@ iPaaS Database 连接器支持 MySQL 数据库的连接及增删改查等数据�
 | :------------- | ---- | ---- | --------- | ------------------------------------- |
 | 入方向 | TCP  | 3306（若数据库自定义端口填写自定义端口号） | 0.0.0.0/0 | 开启通过公网访问 MySQL|
 
->! 若需配置指定的iPaaS出口IP访问，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们。 
+>! 若需配置指定的腾讯云数据连接器出口IP访问，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们。 
 :::
 ::: 修改已有安全组
 
@@ -63,9 +63,9 @@ iPaaS Database 连接器支持 MySQL 数据库的连接及增删改查等数据�
 2. 输入数据库的登录账密后进入库管理页面单击**新建数据库**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d9c7046fd6878685efd942fb509e2dc1.png)
 
-### 步骤2：配置鹊桥 iPaaS Database连接器连接属性
+### 步骤2：配置腾讯云数据连接器 Database连接器连接属性
 
-1. 在 [千帆鹊桥 iPaaS 控制台](https://console.cloud.tencent.com/ipaas)，单击**新建应用**，选择**空白应用**进行创建。
+1. 在 [腾讯云数据连接器控制台](https://console.cloud.tencent.com/ipaas)，单击**新建应用**，选择**空白应用**进行创建。
 ![](https://qcloudimg.tencent-cloud.cn/raw/f0e3a02558a61e6168e4a6c993931820.png)
 2. 单击左侧的**集成流**展开选择 **NewFlow** 在画布中单击**+**选择 Database 连接器相关操作。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d9c19f62caa7e148b330f90c69ee6a5f.png)
