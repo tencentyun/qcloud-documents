@@ -12,7 +12,7 @@ Web 应用防火墙提供域名 IPV6 接入配置和防护能力，在开启 IPV
 ![](https://qcloudimg.tencent-cloud.cn/raw/246b09ddb9b62b638fc37a7325904adb.png)
 3. 单击**确认**，即可开启 IPV6功能。
 ![](https://qcloudimg.tencent-cloud.cn/raw/b5b8c1db4b8b877679afa34538d92710.png)
-4. 验证 IPV6 是否开启。Dig 域名 AAAA记录后即可查看 waf 是否开启 IPV6，出现 IPV6 地址后即为开启成功。
+4. 验证 IPV6 是否开启。Dig 域名 AAAA 记录后即可查看 waf 是否开启 IPV6，出现 IPV6 地址后即为开启成功。
 ![](https://qcloudimg.tencent-cloud.cn/raw/76c1a8076691df60d42411fcb0594ddc.png)
 
 
