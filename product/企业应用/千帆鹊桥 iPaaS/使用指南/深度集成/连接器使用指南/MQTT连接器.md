@@ -2,7 +2,7 @@
 ## 简介
 MQTT（Message Queuing Telemetry Transport，消息队列遥测传输协议），是一种基于发布/订阅（publish/subscribe）模式的"轻量级"通讯协议，该协议构建于 TCP/IP 协议上。MQTT 最大优点在于，可以以极少的代码和有限的带宽，为连接远程设备提供实时可靠的消息服务。作为一种低开销、低带宽占用的即时通讯协议，使其在物联网、小型设备、移动应用等方面有较广泛的应用。
 
-MQTT 目前主流使用的协议版本是 MQTT V3.1.1版本，iPaaS MQTT 连接器基于该协议实现，可使用 MQTT Consumer 操作从 MQTT Broker 中消费消息，或通过 MQTT Producer 操作，将各类 SaaS 应用产生的消息发布到指定的 Broker 上。
+MQTT 目前主流使用的协议版本是 MQTT V3.1.1版本，MQTT 连接器基于该协议实现，可使用 MQTT Consumer 操作从 MQTT Broker 中消费消息，或通过 MQTT Producer 操作，将各类 SaaS 应用产生的消息发布到指定的 Broker 上。
 
 ## 连接器配置
 ### 通用配置标签页
