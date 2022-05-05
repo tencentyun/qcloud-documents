@@ -99,8 +99,11 @@ TUIKitDemo 已经按照如下步骤接入了离线推送功能，文档中已有
 :::
 </dx-tabs>
 
->!
->- 对于小米厂商，如果在厂商开发者官网配置了 ChannelID，需要在 [即时通信 IM 控制台](https://console.qcloud.com/avc) 配置同样的 ChannelID,否则可能推送不成功。
+<dx-alert infotype="notice" title="">
+对于小米厂商，如果在厂商开发者官网配置了 ChannelID，需要在 [即时通信 IM 控制台](https://console.qcloud.com/avc) 配置同样的 ChannelID,否则可能推送不成功。
+</dx-alert>
+
+
 
 ### 步骤3：配置离线推送跳转界面
 
