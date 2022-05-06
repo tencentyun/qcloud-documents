@@ -1021,6 +1021,6 @@
 | ------------------------------ | ---------- | ---------------------- | ------------------------------------------------------------ | --------------------------- |
 | Instances.N.Dimensions.0.Name  | instanceid | 实例 ID 维度名称       | 输入 String 类型维度名称：instanceid                         | 分钟和秒级保持一致          |
 | Instances.N.Dimensions.0.Value | instanceid | 实例具体 ID            | 输入实例的具体 Redis 实例 ID，例如：tdsql-123456 也可以是实例串号，例如：crs-ifmymj41，可通过 [查询 Redis 实例列表接口](https://cloud.tencent.com/document/api/239/20018) 查询 | 分钟和秒级保持一致          |
-| nstances.N.Dimensions.1.Name   | rnodeid    | redis 节点 ID 维度名称 | 输入 String 类型维度名称：rnodeid                            | 对应分钟维度名称：clusterid |
-| nstances.N.Dimensions.1.Value  | rnodeid    | redis 具体节点 ID      | 输入 Redis 具体节点 ID，可以通过 [查询实例节点信息](https://cloud.tencent.com/document/api/239/48603) 接口获取 | 对应分钟维度名称：clusterid |
+| Instances.N.Dimensions.1.Name   | rnodeid    | redis 节点 ID 维度名称 | 输入 String 类型维度名称：rnodeid                            | 对应分钟维度名称：clusterid |
+| Instances.N.Dimensions.1.Value  | rnodeid    | redis 具体节点 ID      | 输入 Redis 具体节点 ID，可以通过 [查询实例节点信息](https://cloud.tencent.com/document/api/239/48603) 接口获取 | 对应分钟维度名称：clusterid |
 
