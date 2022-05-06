@@ -211,7 +211,7 @@ public class SM4 {
         return bytes;
     }
     /**
-     * 接入方拿到key 先可以跑通下面的案例，并认真阅读 1，2，3，4
+     * 接入方拿到key（即控制台申请的 NFC 秘钥） 先可以跑通下面的案例，并认真阅读 1，2，3，4
      * 项目所依赖的类：
      * List utils = [
      * "commons-io:commons-io:2.7"，
