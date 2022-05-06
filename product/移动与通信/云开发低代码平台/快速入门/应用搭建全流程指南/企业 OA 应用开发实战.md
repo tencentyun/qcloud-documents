@@ -117,9 +117,9 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/94ec82e75169da79e472d0791a8945f2.png)
 6. 配置完成后单击**发布**，发布版本。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d8047d119bd577b69fdfed0958989cbd.png)
-正式发布前可先勾选**体验版**，查看预览情况。
+正式发布前可先勾选**体验版**，可通过预览查看页面情况。
 ![](https://qcloudimg.tencent-cloud.cn/raw/e8b1b7d940149c879d9464e33fd035e1.png)
-7. 超级管理员可以单击左侧菜单栏的系统设置，对企业工作台的品牌名称和 LOGO 进行配置。
+7. 超级管理员可以单击左侧菜单栏的**系统设置**，对企业工作台的品牌名称和 LOGO 进行配置。
 ![](https://qcloudimg.tencent-cloud.cn/raw/f0abd1bdbd860a9ae2d8b096e6b263f6.png)
 8. 可以在框架配置菜单里进行品牌名称、LOGO 的替换。除了配置品牌名称和 LOGO 外还可以自己定义企业工作台需要显示的菜单名称，单击菜单配置进行修改即可。
 ![](https://qcloudimg.tencent-cloud.cn/raw/fce7c2b2916e2a1289798c152395c861.png)
