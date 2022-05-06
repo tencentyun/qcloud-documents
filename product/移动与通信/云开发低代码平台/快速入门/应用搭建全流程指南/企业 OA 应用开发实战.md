@@ -133,7 +133,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/34d98587f5698bdbfc6a99fb1d21649d.png)
 设置该角色的**角色名称**和**角色标识**单击**确定**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/c6707bfe25dc9455748eb01133276721.png)
-3. 单击**新建好的角色名称**，进入**角色权限**配置页面，为用户分配对应的角色权限。
+3. 单击**新建好的角色名称**，进入**角色权限**配置页面，为该角色分配对应的角色权限。
 ![](https://qcloudimg.tencent-cloud.cn/raw/3160f15c6e57d128c1bc000fd1d2b7cd.png)
 
 ## 日常使用
