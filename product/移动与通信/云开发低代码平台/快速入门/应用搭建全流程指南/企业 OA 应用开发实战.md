@@ -115,7 +115,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/0c8ab286483e130089739d9b7ed89fbe.png)
 5. 按照同样的方法对详情页的字段进行调整。
 ![](https://qcloudimg.tencent-cloud.cn/raw/94ec82e75169da79e472d0791a8945f2.png)
-6. 配置完成后单击发布，发布版本。
+6. 配置完成后单击**发布**，发布版本。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d8047d119bd577b69fdfed0958989cbd.png)
 正式发布前可先勾选**体验版**，查看预览情况。
 ![](https://qcloudimg.tencent-cloud.cn/raw/e8b1b7d940149c879d9464e33fd035e1.png)
