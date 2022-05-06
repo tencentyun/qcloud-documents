@@ -23,7 +23,9 @@
 
 ## 身份证 NFC 识别结果查询接口
 ### 请求
-请求 URL：https://miniprogram-kyc.tencentcloudapi.com/api/v2/nfcpaas/getIdcardNfcResult
+请求 URL：`https://miniprogram-kyc.tencentcloudapi.com/api/v2/nfcpaas/getIdcardNfcResult?orderNo=xxx`
+>! 为方便查询耗时，该请求 url 后面请拼接 orderNo 订单号参数。
+>
 请求方法：POST。
 请求参数：
 
