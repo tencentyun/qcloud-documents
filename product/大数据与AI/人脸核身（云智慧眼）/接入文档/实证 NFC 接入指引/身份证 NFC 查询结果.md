@@ -27,6 +27,7 @@
 >! 为方便查询耗时，该请求 url 后面请拼接 orderNo 订单号参数。
 >
 请求方法：POST。
+报文格式：`Content-Type: application/json`。
 请求参数：
 
 | 参数 | 说明 | 类型 |	长度（字节） | 是否必填 |
@@ -38,7 +39,7 @@
 | sign| 签名值，使用本页第一步生成的签名| 字符串| 40| 是| 
 | reqId| 本次身份证NFC读取唯一标识| 字符串| 40| 是| 
 
-请求示例：`https://miniprogram-kyc.tencentcloudapi.com/api/v2/nfcpaas/getIdcardNfcResult`
+请求示例：`https://miniprogram-kyc.tencentcloudapi.com/api/v2/nfcpaas/getIdcardNfcResult?orderNo=xxx`
 
 
 ### 响应
