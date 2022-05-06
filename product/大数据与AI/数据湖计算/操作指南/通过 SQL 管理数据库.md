@@ -1,7 +1,7 @@
 DLC 的数据库是 DLC 数据表的逻辑分组。数据湖计算 DLC 目前支持用户通过数据探索中的 SQL 编辑器执行 DDL 语句对数据库进行创建、查看基本信息和删除操作。
 ## 创建数据库
 1. 登录 [数据湖计算 DLC 控制台](https://console.cloud.tencent.com/dlc)，选择服务所在区域，登录用户需要有创建数据库的权限。
-2. 进入数据探索页，鼠标悬停菜单栏的![](https://main.qcloudimg.com/raw/426bfc0a281aef830bd68a64f698f9a2.png)图标，单击**新建数据库**，配置数据库信息。
+2. 进入**数据探索**页，鼠标悬停菜单栏的![](https://main.qcloudimg.com/raw/426bfc0a281aef830bd68a64f698f9a2.png)图标，单击**新建数据库**，配置数据库信息。
 ![](https://qcloudimg.tencent-cloud.cn/raw/238040a0a456b029cf52abe79ce2f52a.png)
 3. 在新建数据库页面，输入数据库名称、数据库描述信息，单击**确定**，DLC 自动生成创建数据库的 SQL 语句。
 ![](https://qcloudimg.tencent-cloud.cn/raw/7a34de46779a9255b494d624385b032b.png)
@@ -12,13 +12,13 @@ DLC 的数据库是 DLC 数据表的逻辑分组。数据湖计算 DLC 目前支
 
 ## 查询数据库基本信息
 1. 登录 [数据湖计算 DLC 控制台](https://console.cloud.tencent.com/dlc)，选择服务所在区域，登录用户需要有数据库的查看权限。
-2. 进入数据探索页，鼠标悬停到需要查看信息的**数据库行**，单击![img](https://main.qcloudimg.com/raw/b11192b7791016669333f5321cc6825e.png)图标，在下拉菜单中单击**基本信息**，可以查看对应数据库的基本信息。
+2. 进入**数据探索**页，鼠标悬停到需要查看信息的**数据库行**，单击![img](https://main.qcloudimg.com/raw/b11192b7791016669333f5321cc6825e.png)图标，在下拉菜单中单击**基本信息**，可以查看对应数据库的基本信息。
 ![](https://qcloudimg.tencent-cloud.cn/raw/9ba9de02bfc1ca88d948526b9a738ea1.png)
 ![](https://qcloudimg.tencent-cloud.cn/raw/ecaca85f419e84babb2546b07f6437d9.png)
 
 ## 删除数据库
 1. 登录 [数据湖计算 DLC 控制台](https://console.cloud.tencent.com/dlc)，选择服务所在区域，登录用户需要有数据库的删除权限。
-2. 进入数据探索页，鼠标悬停到需要查看信息的**数据库行**，单击![img](https://main.qcloudimg.com/raw/b11192b7791016669333f5321cc6825e.png)图标，在下拉菜单中单击**删除数据库**，单击**确认**后即可对数据库进行删除。
+2. 进入**数据探索**页，鼠标悬停到需要查看信息的**数据库行**，单击![img](https://main.qcloudimg.com/raw/b11192b7791016669333f5321cc6825e.png)图标，在下拉菜单中单击**删除数据库**，单击**确认**后即可对数据库进行删除。
 ![](https://qcloudimg.tencent-cloud.cn/raw/f8d239459b9c414b178f112dbbdc6231.png)
 
 >!
