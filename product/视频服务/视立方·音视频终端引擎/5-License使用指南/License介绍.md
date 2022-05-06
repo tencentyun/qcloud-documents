@@ -33,7 +33,11 @@
 </tr>
 </tbody></table>
 
->? 若您的应用正使用旧版 License 进行校验，可继续使用旧版 License 或改用新版 License（推荐）。未来新购买获赠的 License 进行绑定时将不再提供旧版 License 的 URL 和 Key 。
+<dx-alert infotype="explain" title="">
+若您的应用正使用旧版 License 进行校验，可继续使用旧版 License 或改用新版 License（推荐）。未来新购买获赠的 License 进行绑定时将不再提供旧版 License 的 URL 和 Key 。
+</dx-alert>
+
+
 
 ## License 概述
 音视频终端 SDK（腾讯云视立方）的腾讯云视立方 License 包括**直播推流 License**、**短视频 License**、**终端极速高清 License** 和**腾讯特效 License**，您可以在 [腾讯云视立方控制台](https://console.cloud.tencent.com/vcube) 对各 License 进行 [新增和续期](https://cloud.tencent.com/document/product/1449/56981) 等操作。
