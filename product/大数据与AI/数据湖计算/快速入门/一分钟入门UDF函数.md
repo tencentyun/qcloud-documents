@@ -31,6 +31,8 @@ pom 文件参考
 ```
 ## 创建函数
 若您了解 SQL 语法，可通过**数据探索**执行 [CREATE FUNCTION](https://cloud.tencent.com/document/product/1342/61808) 语法完成函数创建，或通过可视化界面创建，流程如下：
+>? 数据湖计算 DLC 的数据管理页目前处于邀测阶段，如需免费体验可 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行申请。
+
 1. 登录 [数据湖计算控制台](https://console.cloud.tencent.com/dlc) ，选择服务地域。
 2. 通过左侧导航菜单进入**数据管理**，选择需要创建的函数的数据库，如果需要创建新的数据库，可参见 [数据库管理](https://cloud.tencent.com/document/product/1342/71246)。
 3. 单击**函数**进入函数管理页面。
