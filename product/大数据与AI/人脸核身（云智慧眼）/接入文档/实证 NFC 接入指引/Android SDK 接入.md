@@ -5,7 +5,7 @@ CPU 平台设置
 defaultConfig {
     ndk {
           //设置支持的so库框架
-          abiFilters 'armeabi-v7a'，'armeabi'，'arm64-v8a'，’ x86’，’ x86_64’
+          abiFilters 'armeabi-v7a'，'armeabi'，'arm64-v8a'，'x86'，'x86_64'
      }
 }
 ```
