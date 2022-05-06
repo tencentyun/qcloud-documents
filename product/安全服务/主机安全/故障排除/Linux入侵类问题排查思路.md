@@ -17,7 +17,7 @@
     * 解决方法： 使用命令`usermod -L 用户名`禁用用户或者使用命令`userdel -r 用户名`删除用户。
     * 风险性：高。
 4. 检查系统是否采用 **默认管理端口**：
-    * 检查系统所用的管理端口（SSH、FTP、MySQL、Redis 等）是否为默认端口，这些默认端口往往被容易自动化的工具进行爆破成功。
+    * 检查系统所用的管理端口（SSH、FTP、MySQL、Redis 等）是否为默认端口，这些默认端口往往被容易自动化的工具进行暴破成功。
     * 解决方法：
         1. 在服务器内编辑`/etc/ssh/sshd_config`文件中的 Port 22，将22修改为非默认端口，修改之后需要重启 ssh 服务。
 >!当对端口进行修改时，需同时在 [云服务器控制台](https://console.cloud.tencent.com/cvm/instance/index?rid=1) 上修改对应主机的安全组配置，在其入站规则中，放行对应端口，详情请参见 [添加安全组规则](https://cloud.tencent.com/document/product/215/39790)。

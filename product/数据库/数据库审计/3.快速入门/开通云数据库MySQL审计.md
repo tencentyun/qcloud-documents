@@ -27,7 +27,7 @@
 ## 创建审计策略
 1. 登录 [MySQL 控制台](https://console.cloud.tencent.com/dls/mysql)，在左侧导航选择**数据库审计**页，在上方选择地域后，选择**审计策略**页。
 2. 在**审计策略**页，单击**新建策略**。
-![](https://main.qcloudimg.com/raw/a0abbbeb325272b06d343009abb81bb3.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/a932cb376cf747a2111d65b95eba4f16.png)
 3. 在弹出的对话框，设置策略名称，选择已创建的 [审计规则](https://cloud.tencent.com/document/product/672/66136)，单击**确定**。
 
 ## 查看审计日志

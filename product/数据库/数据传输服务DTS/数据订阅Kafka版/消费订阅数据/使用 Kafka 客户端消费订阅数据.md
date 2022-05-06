@@ -4,7 +4,7 @@
 
 ## 注意事项
 
-- 数据序列化协议目前采用了 Protobuf 协议，请下载 [Protobuf 协议文件](https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/subscribe.proto)，并使用 Protobuf 3.X 版本进行代码生成，以便数据结构可以正确兼容。
+- 数据序列化协议目前采用了 Protobuf 协议，请下载 [Protobuf 协议文件]( https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/subscribe.proto)，并使用 Protobuf 3.X 版本进行代码生成，以便数据结构可以正确兼容。
   本章节的消费 Demo 中已包含此协议文件，如您直接使用 Demo 代码，可以不用重复下载。
 
 - 目前不支持通过外网连接数据订阅的 Kafka 进行消费，只支持腾讯云内网的访问，并且订阅的数据库实例所属地域与数据消费的地域相同。

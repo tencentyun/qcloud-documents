@@ -75,8 +75,7 @@
 <td><center>V2.12.110</td>	
 <td>1.优化了 Rooms 云录制功能。<br>
 2.支持 Rooms 控制 PPT 翻页。<br>
-3.支持 Rooms 会前白板加入会议。<br>
-4.优化了 Rooms 和 H.323/SIP(MRA) 会议室管理。	</td>	
+3.优化了 Rooms 和 H.323/SIP(MRA) 会议室管理。	</td>	
 <td><center>2022-04-07</td>	
 	</tr>
 <tr>
@@ -89,9 +88,8 @@
 	<tr>
 <td><center>V2.12.90</td>	
 <td>1.管理后台支持批量添加会议室。<br>
-2.支持 Rooms 白板手势缩放。<br>
-3.支持 Rooms 直接返回系统桌面。<br>
-4.Rooms 关联账号后显示个人头像。	</td>
+2.支持 Rooms 直接返回系统桌面。<br>
+3.Rooms 关联账号后显示个人头像。	</td>
 <td><center>2022-01-21</td>	
 	</tr>
 <tr>

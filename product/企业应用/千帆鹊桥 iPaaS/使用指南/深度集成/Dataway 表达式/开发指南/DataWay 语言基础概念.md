@@ -1,4 +1,4 @@
-DataWay 语言是一门在千帆鹊桥 iPaaS 中用于对数据进行自定义转换与处理的表达式脚本语言。使用 DataWay 可以编写出强大和复杂的数据转换程序，在此之前需要先了解 DataWay 中的核心概念和功能。
+DataWay 语言是一门在腾讯云数据连接器中用于对数据进行自定义转换与处理的表达式脚本语言。使用 DataWay 可以编写出强大和复杂的数据转换程序，在此之前需要先了解 DataWay 中的核心概念和功能。
 
 
 ## 脚本结构
@@ -15,7 +15,7 @@ def func(x):
     return x*x
 ```
 
-- dw_process 入口函数仅接受一个参数 msg，该参数代表当前表达式需要处理的千帆鹊桥 iPaaS 消息，dw_process 的返回值即是表达式的返回值。
+- dw_process 入口函数仅接受一个参数 msg，该参数代表当前表达式需要处理的腾讯云数据连接器消息，dw_process 的返回值即是表达式的返回值。
 - 内置的 Entity.from_value 函数用于为构造 Entity 类型的返回值，可以指定序列化参数，例如：mime_type、encoding 等。
 - 在 Set Payload 组件中输入上述表达式，假设该组件的输入消息为 json 结构的数据`{"realData": 123}`，经过 DataWay 表达式的计算，得到的输出结果如下：
 ```json

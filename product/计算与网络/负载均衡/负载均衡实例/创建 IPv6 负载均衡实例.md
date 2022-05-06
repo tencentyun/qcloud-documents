@@ -1,6 +1,6 @@
 >?
 >- IPv6 负载均衡内测中，如需使用，请提 [工单申请](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=163&source=0&data_title=%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%20LB&step=1)。
->- 目前仅支持如下地域开通 IPv6 负载均衡：广州、深圳金融、上海、上海金融、南京、北京、成都、重庆、中国香港、新加坡、弗吉尼亚。其中，针对地域为**深圳金融**、**上海金融**的金融行业监管要求定制的合规专区，需提交 [工单申请](https://console.cloud.tencent.com/workorder/category) 使用专区。
+>- 目前仅支持如下地域开通 IPv6 负载均衡：广州、深圳金融、上海、上海金融、南京、北京、北京金融、成都、重庆、香港、新加坡、弗吉尼亚。其中，针对地域为**深圳金融**、**上海金融**的金融行业监管要求定制的合规专区，需提交 [工单申请](https://console.cloud.tencent.com/workorder/category) 使用专区。
 >- IPv6 负载均衡不支持传统型负载均衡。
 >- IPv6 负载均衡支持获取客户端 IPv6 源地址。四层 IPv6 负载均衡支持直接获取客户端 IPv6 源地址，七层 IPv6 负载均衡支持通过 HTTP 的 X-Forwarded-For 头域获取客户端 IPv6 源地址。
 >- 当前 IPv6 负载均衡是纯公网负载均衡，相同 VPC 的客户端无法通过内网访问该 IPv6 负载均衡。
@@ -32,9 +32,18 @@ IPv6 负载均衡的架构如下图所示：
 2. 请正确选择如下参数：
  - 计费模式：仅支持按量计费。
  - 地域：选择目标地域。
+ - 实例类型：选择负载均衡（原“应用型负载均衡”）
+ - 网络类型：公网
+ - 弹性公网 IP：不选择
  - IP 版本：IPv6。
+ - 所属网络：选择所属网络，请选择已获取的私有网络和子网。若现有的网络不合适，可 [新建私有网络](https://cloud.tencent.com/document/product/215/36515) 或 [新建子网](https://cloud.tencent.com/document/product/215/36517)。
  - 运营商类型：BGP。
- - 网络：请务必选择已获取 IPv6 CIDR 的私有网络和子网。
+ - 实例规格：支持共享型实例和性能容量型实例。
+ - 网络计费模式：支持按使用流量和共享贷款包两种模式
+ - 带宽上线：1-1024Mbps
+ - 所属项目：选择所属项目
+ - 标签：选择标签键和标签值，也可选择新建标签，详情请参见 [创建标签](https://cloud.tencent.com/document/product/651/56731)
+ - 实例名：可输入60个字符，允许英文字母、数字、中文字符、“-”、“_”、“.”。不填写时默认自动生成
 3. 在购买页选择各项配置后，单击**立即购买**，返回至 [负载均衡实例列表页](https://console.cloud.tencent.com/loadbalance/index?rid=1&forward=1)，即可查看已购的 IPv6 负载均衡。
 
 

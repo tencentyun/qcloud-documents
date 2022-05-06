@@ -3,7 +3,6 @@
 COS Migration 是一个集成了 COS 数据迁移功能的一体化工具。通过简单的配置操作，用户可以将源地址数据快速迁移至 COS 中，它具有以下特点：
 - 丰富的数据源：
    - 本地数据：将本地存储的数据迁移到 COS。
-   - 其他云存储：目前支持 AWS S3，阿里云 OSS，七牛存储迁移至 COS，后续会不断扩展。
    - URL 列表：根据指定的 URL 下载列表进行下载迁移到 COS。
    - Bucket 相互复制：COS 的 Bucket 数据相互复制，支持跨账号跨地域的数据复制。
 - 断点续传：工具支持上传时断点续传。对于一些大文件，如果中途退出或者因为服务故障，可重新运行工具，会对未上传完成的文件进行续传。
@@ -14,6 +13,8 @@ COS Migration 是一个集成了 COS 数据迁移功能的一体化工具。通�
 >!
 >- COS Migration 的编码格式只支持 UTF-8 格式。
 >- 使用该工具上传同名文件，默认会覆盖较旧的同名文件，需要额外设置以跳过同名文件。
+>- 如果需要从其他云存储迁移至 COS，请使用 [迁移服务平台](https://cloud.tencent.com/document/product/659/13908)。
+>
 
 ## 使用环境
 #### 系统环境
@@ -77,15 +78,10 @@ type=migrateLocal
 | migrateType | 描述 |
 | ------| ------ |
 | migrateLocal| 从本地迁移至 COS |
-| migrateAws| 从 AWS S3 迁移至 COS |
-| migrateAli| 从阿里  OSS  迁移至 COS |
-| migrateQiniu| 从七牛迁移至 COS |
 | migrateUrl| 下载 URL 迁移到 COS |
 | migrateBucketCopy| 从源 Bucket 复制到目标 Bucket|
-|migrateUpyun  | 从又拍云迁移到 COS |
 
->? 如果想从上述未提及的源站进行迁移，若源站兼容 AWS S3 的API，即可使用 AWS 的配置进行迁移。
->
+
 
 #### 3.2 配置迁移任务
 用户根据实际的迁移需求进行相关配置，主要包括迁移至目标 COS 信息配置及迁移任务相关配置。
@@ -153,84 +149,7 @@ ignoreModifiedTimeLessThanSeconds=
 |excludes| 要排除的目录或者文件的绝对路径，表示将 localPath 下面某些目录或者文件不进行迁移，多个绝对路径之前用分号分割，不填表示 localPath 下面的全部迁移|
 |ignoreModifiedTimeLessThanSeconds| 排除更新时间与当前时间相差不足一定时间段的文件，单位为秒，默认不设置，表示不根据 lastmodified 时间进行筛选，适用于客户在更新文件的同时又在运行迁移工具，并要求不把正在更新的文件迁移上传到 COS，例如设置为300，表示只上传更新了5分钟以上的文件|
 
-**3.3.2 配置阿里 OSS 数据源 migrateAli**
-
-若从阿里云 OSS 迁移至 COS，则进行该部分配置，具体配置项及说明如下：
-```plaintext
-# 从阿里 OSS 迁移到 COS 配置分节
-[migrateAli]
-bucket=bucket-aliyun
-accessKeyId=yourAccessKeyId
-accessKeySecret=yourAccessKeySecret
-endPoint= oss-cn-hangzhou.aliyuncs.com
-prefix=
-proxyHost=
-proxyPort=
-```
-
-| 配置项 | 描述 |
-| ------| ------ |
-|bucket|阿里云 OSS  Bucket 名称|
-|accessKeyId|将 yourAccessKeyId 替换为用户的密钥 |
-|accessKeySecret| 将 yourAccessKeySecret 替换为用户的密钥|
-|endPoint|阿里云 endpoint 地址|
-|prefix|要迁移的路径的前缀，如果是迁移 Bucket 下所有的数据, 则 prefix 为空|
-|proxyHost|如果要使用代理进行访问，则填写代理 IP 地址|
-|proxyPort|代理的端口|
-
-**3.3.3 配置 AWS 数据源 migrateAws**
-
-若从 AWS 迁移至 COS，则进行该部分配置，具体配置项及说明如下：
-```plaintext
-# 从 AWS 迁移到 COS 配置分节
-[migrateAws]
-bucket=bucket-aws
-accessKeyId=AccessKeyId
-accessKeySecret=SecretAccessKey
-endPoint=s3.us-east-1.amazonaws.com
-prefix=
-proxyHost=
-proxyPort=
-```
-
-| 配置项 | 描述 |
-| ------| ------ |
-|bucket| AWS 对象存储 Bucket 名称|
-|accessKeyId|将 AccessKeyId 替换为用户的密钥|
-|accessKeySecret| 将 SecretAccessKey 替换为用户的密钥|
-|endPoint|AWS 的 endpoint 地址，必须使用域名，不能使用 region|
-|prefix|要迁移的路径的前缀，如果是迁移 Bucket 下所有的数据，则 prefix 为空|
-|proxyHost|如果要使用代理进行访问，则填写代理 IP 地址|
-|proxyPort|代理的端口|
-
- 
-**3.3.4 配置七牛数据源 migrateQiniu**
-
-若从七牛迁移至 COS，则进行该部分配置，具体配置项及说明如下：
-```plaintext
-# 从七牛迁移到COS配置分节
-[migrateQiniu]
-bucket=bucket-qiniu
-accessKeyId=AccessKey
-accessKeySecret=SecretKey
-endPoint=www.bkt.clouddn.com
-prefix=
-proxyHost=
-proxyPort=
-```
-
-| 配置项 | 描述 |
-| ------| ------ |
-|bucket|七牛对象存储 Bucket 名称|
-|accessKeyId|将 AccessKey 替换为用户的密钥 |
-|accessKeySecret| 将 SecretKey 替换为用户的密钥|
-|endPoint|七牛下载地址，对应 downloadDomain|
-|prefix|要迁移的路径的前缀，如果是迁移 Bucket 下所有的数据，则 prefix 为空|
-|proxyHost|如果要使用代理进行访问，则填写代理 IP 地址|
-|proxyPort|代理的端口|
-
- 
-**3.3.5 配置 URL 列表数据源 migrateUrl**
+**3.3.2 配置 URL 列表数据源 migrateUrl**
 
 若从指定 URL 列表迁移至 COS，则进行该部分配置，具体配置项及说明如下：
 ```plaintext
@@ -266,33 +185,6 @@ srcCosPath=/
 |srcSecretId|源 Bucket 隶属的用户的密钥 SecretId，可在 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 查看。如果是同一用户的数据，则 srcSecretId 和 common 中的 SecretId 相同，否则是跨账号 Bucket 拷贝|
 |srcSecretKey|源 Bucket 隶属的用户的密钥 secret_key，可在 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 查看。如果是同一用户的数据，则 srcSecretKey 和 common 中的 secretKey 相同，否则是跨账号 Bucket 拷贝|
 |srcCosPath|要迁移的 COS 路径，表示该路径下的文件要迁移至目标 Bucket|
-
-**3.3.7 配置又拍云数据源 migrateUpyun**
-若从又拍云迁移至 COS，则进行该部分配置，具体配置项及说明如下：
-
-```plaintext
-[migrateUpyun]
-# 从又拍迁移
-bucket=xxx
-#又拍云操作员的 ID
-accessKeyId=xxx
-#又拍云操作员的密码     
-accessKeySecret=xxx       
-prefix=
-
-#又拍云 sdk 限制，这个 proxy 会被设置成全局的 proxy
-proxyHost=
-proxyPort=
-```
-
-| 配置项 | 描述 |
-| ------| ------ |
-|bucket|又拍云 USS Bucket 名称|
-|accessKeyId|替换为又拍云操作员的 ID|
-|accessKeySecret| 替换为又拍云操作员的密码|
-|prefix|要迁移的路径的前缀，如果是迁移 Bucket 下所有的数据，则 prefix 为空|
-|proxyHost|如果要使用代理进行访问，则填写代理 IP 地址|
-|proxyPort|代理的端口|
 
 ### 4. 运行迁移工具
 #### Windows

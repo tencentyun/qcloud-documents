@@ -168,8 +168,8 @@ Namespace=QCE/TXMR_YARN
 | YarnJhsGcUtilMemoryS1                        | 内存区域占比_S1                      | %        | 内存区域占比     | host4yarnjobhistoryserver、<br/>id4yarnjobhistoryserver |
 | YarnJhsGcUtilMemoryO                         | 内存区域占比_O                       | %        | 内存区域占比     | host4yarnjobhistoryserver、<br/>id4yarnjobhistoryserver |
 | YarnJhsGcUtilMemoryM                         | 内存区域占比_M                       | %        | 内存区域占比     | host4yarnjobhistoryserver、<br/>id4yarnjobhistoryserver |
-| YarnJhOsCpuLoad<br>Processcpuload            | CPU利用率_ProcessCpuLoad             | %        | CPU 利用率       | host4yarnjobhistoryserver、<br/>id4yarnjobhistoryserver |
-| YarnJhOsCpuTime<br>Processcputime            | CPU累计使用时间_ProcessCpuTime       | ms       | CPU 累计使用时间 | host4yarnjobhistoryserver、<br/>id4yarnjobhistoryserver |
+| YarnJhOsCpuLoad<br>Processcpuload            | CPU 利用率_ProcessCpuLoad             | %        | CPU 利用率       | host4yarnjobhistoryserver、<br/>id4yarnjobhistoryserver |
+| YarnJhOsCpuTime<br>Processcputime            | CPU 累计使用时间_ProcessCpuTime       | ms       | CPU 累计使用时间 | host4yarnjobhistoryserver、<br/>id4yarnjobhistoryserver |
 | YarnJhOsFdCountMax<br>filedescriptorcount    | 文件描述符数_MaxFileDescriptorCount  | 个       | 文件描述符数     | host4yarnjobhistoryserver、<br/>id4yarnjobhistoryserver |
 | YarnJhOsFdCountOpen<br>filedescriptorcount   | 文件描述符数_OpenFileDescriptorCount | 个       | 文件描述符数     | host4yarnjobhistoryserver、<br/>id4yarnjobhistoryserver |
 | YarnJhRtUptimeUptime                         | 进程运行时长_Uptime                  | s        | 进程运行时长     | host4yarnjobhistoryserver、<br/>id4yarnjobhistoryserver |

@@ -8,20 +8,20 @@
 
 ### 操作步骤
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc)。
-2. 在左侧目录中单击【子网】，在子网列表上方，选择【地域】和【私有网络】，将会展示所属地域和私有网络下的所有子网信息。
-3. 选择一个子网，单击操作列的【更多】>【获取 IPv6 CIDR】。 
+2. 在左侧目录中单击**子网**，在子网列表上方，选择**地域**和**私有网络**，将会展示所属地域和私有网络下的所有子网信息。
+3. 选择一个子网，单击操作列的**更多** > **获取 IPv6 CIDR**。 
 ![](https://main.qcloudimg.com/raw/2284268112758fe68b367cf13bf11e14.png)
-4. 填写如下 IP 段，范围为0～255，请确认不能与其他子网的 IPv6 CIDR 网段重叠，单击【确认】系统将为该子网分配1个`/64`的 IPv6 CIDR。
-    ![](https://main.qcloudimg.com/raw/c6702e17f4ad4cd172af2ef95dad93cd.png)
+4. 填写如下 IP 段，范围为0～255，请确认不能与其他子网的 IPv6 CIDR 网段重叠，单击**确认**系统将为该子网分配1个`/64`的 IPv6 CIDR。
+![](https://main.qcloudimg.com/raw/c6702e17f4ad4cd172af2ef95dad93cd.png)
 
 ### 相关文档
 [搭建 IPv6 私有网络](https://cloud.tencent.com/document/product/215/47557)
 
 ## 释放IPv6 CIDR
 1.  登录 [私有网络控制台](https://console.cloud.tencent.com/vpc)。
-2.  在左侧目录中单击【子网】，在子网列表上方，选择【地域】和【私有网络】，将会展示所属地域和私有网络下的所有子网信息。
-3. 选择一个已获取到 IPv6 CIDR 的子网，【更多】>【释放 IPv6 CIDR】。
+2.  在左侧目录中单击**子网**，在子网列表上方，选择**地域**和**私有网络**，将会展示所属地域和私有网络下的所有子网信息。
+3. 选择一个已获取到 IPv6 CIDR 的子网，**更多** > **释放 IPv6 CIDR**。
 ![](https://main.qcloudimg.com/raw/b1bcc6be3cda4c578053fd31cbc6d74a.png)
-4. 在弹出的确认框中，单击【确定】，系统将回收该子网的 IPv6 CIDR。
+4. 在弹出的确认框中，单击**确定**，系统将回收该子网的 IPv6 CIDR。
 ![](https://main.qcloudimg.com/raw/99dd050f1e03d4a2bad75a9d14980aab.png)
 
