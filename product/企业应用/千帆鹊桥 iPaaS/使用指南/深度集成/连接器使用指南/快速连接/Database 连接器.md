@@ -1,8 +1,8 @@
 ## 简介
 
-iPaaS Database 连接器可连接第三方关系型数据库系统并执行 SQL 操作。用户通过连接器配置来配置数据库的连接参数，配置成功后便可执行对应的数据库操作。
+Database 连接器可连接第三方关系型数据库系统并执行 SQL 操作。用户通过连接器配置来配置数据库的连接参数，配置成功后便可执行对应的数据库操作。
 
-iPaaS Database 连接器目前支持的数据库有：MySQL、Oracle、PostgreSQL、SQL Server。
+Database 连接器目前支持的数据库有：MySQL、Oracle、PostgreSQL、SQL Server。
 
 ## 连接器配置
 

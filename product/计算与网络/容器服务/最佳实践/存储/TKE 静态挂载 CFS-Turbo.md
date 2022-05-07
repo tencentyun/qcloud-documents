@@ -6,9 +6,7 @@
 
 ## 前提条件
 
-- 已创建 TKE 集群或已在腾讯云自建 Kubernetes 集群，集群版本 >=1.14。  
-- kube-apiserver 和 kubelet 开启特权，即 `--allow-privileged = true`。  
-- 设置组件 `feature gates` 为 `CSINodeInfo = true, CSIDriverRegistry = true`。  
+已创建 TKE 集群或已在腾讯云自建 Kubernetes 集群，集群版本 >=1.14。  
 
 ## 操作步骤
 
@@ -131,7 +129,7 @@ spec:
             capabilities:
               add: ["SYS_ADMIN"]
             allowPrivilegeEscalation: true
-          image: ccr.ccs.tencentyun.com/tkeimages/csi-tencentcloud-cfsturbo:v1.2.1
+          image: ccr.ccs.tencentyun.com/tkeimages/csi-tencentcloud-cfsturbo:v1.2.2
           args :
             - "--nodeID=$(NODE_ID)"
             - "--endpoint=$(CSI_ENDPOINT)"
@@ -195,6 +193,8 @@ spec:
       host: 10.0.0.116
       # cfs turbo fsid (not cfs id)
       fsid: xxxxxxxx
+      # cfs turbo rootdir
+      rootdir: /cfs
       # cfs turbo subPath
       path: /
       proto: lustre
@@ -205,7 +205,8 @@ spec:
   - **spec.csi.volumeHandle**: 与 PV 名称保持一致。   
   - **spec.csi.volumeAttributes.host**: 文件系统 ip 地址，可在文件系统挂载点信息中查看。   
   - **spec.csi.volumeAttributes.fsid**: 文件系统 fsid（非文件系统 id），可在文件系统挂载点信息中查看（挂载命令中 “tcp0:/” 之后 “/cfs” 之前的那一段字符串，如下图）。
-  - **spec.csi.volumeAttributes.path**: 文件系统子目录，不填写默认为 “/”（为提高挂载性能，插件后端将 “/”目录实际定位到 “/cfs目录下”）。如需指定子目录挂载，须确保该子目录在文件系统 “/cfs”中存在，挂载后 workload 将无法访问到该子目录的上层目录。例如：path: /test，需在文件系统中保证 /cfs/test 目录存在。  
+  - **spec.csi.volumeAttributes.rootdir**: 文件系统根目录，不填写默认为 “/cfs”（挂载到 “/cfs” 目录可相对提高整体挂载性能）。如需指定根目录挂载，须确保该根目录在文件系统中存在。
+  - **spec.csi.volumeAttributes.path**: 文件系统子目录，不填写默认为 “/”。如需指定子目录挂载，须确保该子目录在文件系统 rootdir 中存在。容器最终访问到的是文件系统中 rootdir+path 目录（默认为 “/cfs/” 目录）。
   - **spec.csi.volumeAttributes.proto**：文件系统默认挂载协议。  
 ![](https://qcloudimg.tencent-cloud.cn/raw/357dd592683ac766f8e6b4c653a27951.png)
 >! 使用 `lustre` 协议挂载 CFS Turbo 卷需预先在集群节点内根据操作系统内核版本安装对应客户端，详情请参考 [在 Linux 客户端上使用 CFS Turbo 文件系统](https://cloud.tencent.com/document/product/582/54765)；

@@ -21,7 +21,9 @@
  </dependency>
 :::
 </dx-codeblock>
->? 建议使用 2.7.2 及以上版本。
+>? 
+>- 建议使用 2.7.2 及以上版本。
+>- 如果在客户端中使用批量收发消息功能（BatchReceive），则使用 2.7.4 及以上版本的 SDK。
 2. 创建 Pulsar 客户端。
 <dx-codeblock>
 :::  java

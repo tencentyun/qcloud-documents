@@ -15,7 +15,7 @@
 ### 步骤1：准备配置
 
 1. 将下载下来的 Demo 上传到同一个 VPC 下的Linux服务器，然后登录 linux 服务器，进入 javakafkademo 下的 VPC 目录。
-2. 修改消息队列 CKafka 配置文件 kafka.properties。
+2. 修改 VPC 工程下的 resources 目录中的 kafka.properties。
 <dx-codeblock>
 :::  bash
 ## 配置接入网络，在控制台的实例详情页面接入方式模块的网络列复制。

@@ -1,11 +1,11 @@
 各大企业每天都有大量的 API 增长，同时越来越多公司开始公开 Web API，API 的使用场景正在累积。现在，每日 API 调用量在不断飙升，如何能够安全有效将这些 API 管理起来对于企业而言并不容易。
 
-千帆鹊桥 iPaaS 提供 API 发布功能，可以一键将已发布的应用打包生成 API，方便用户进行管理和调用；同时提供了 API 管理能力，可以针对 API 进行访问权限管控和流量调度。
+腾讯云数据连接器提供 API 发布功能，可以一键将已发布的应用打包生成 API，方便用户进行管理和调用；同时提供了 API 管理能力，可以针对 API 进行访问权限管控和流量调度。
 
 
 ## API 管理主页
 
-登录 [千帆鹊桥 iPaaS 控制台](https://console.cloud.tencent.com/ipaas)，在左侧导航栏单击 **API中心** > **API管理**，即可进入 API 管理的主页。
+登录 [腾讯云数据连接器控制台](https://console.cloud.tencent.com/ipaas)，在左侧导航栏单击 **API中心** > **API管理**，即可进入 API 管理的主页。
 
 在 API 管理主页，您可以创建或查看 API，API 列表中展示有 API 服务名称、API 服务状态、API 服务域名、API 更新时间、API服务的数据统计、endpoint 统计、API 服务的鉴权方式以及操作等内容。同时，每个API服务均可展开，查看下属的endpoint的信息和状态。
 ![](https://qcloudimg.tencent-cloud.cn/raw/75687966673ac207cb3f43516dd69cc7.png)
@@ -80,7 +80,7 @@ API Endpoint 指一个 API 服务可以连接的后端服务信息，包括 API 
 
 ## API 测试与运维 
 
-千帆鹊桥 iPaaS  API 管理平台同时还提供了完整的运维方案。查看步骤如下：
+腾讯云数据连接器 API 管理平台同时还提供了完整的运维方案。查看步骤如下：
 1. 在 [API 管理](https://console.cloud.tencent.com/eis/apimanage) 页面，找到目标 API 服务，单击操作列的数据统计图标，进入运维页面。
 ![](https://qcloudimg.tencent-cloud.cn/raw/4a5abe9aed6974a72b1aaa5e8bd27cf9.png)
 2. 在运维页面，您可以查看此 API 在规定时间范围内的请求记录和状态汇总。
@@ -97,7 +97,7 @@ API Endpoint 指一个 API 服务可以连接的后端服务信息，包括 API 
 
 ## API 用户中心
 
-千帆鹊桥 iPaaS 会根据用户已经配置完成的 API 服务（包括其 Endpoint）生成用户可以调用的开放 API。在 API 用户中心中，我们将会帮助您更好的管理每个 API 服务的用户，以及分配用户对于 API 的使用权限。
+腾讯云数据连接器会根据用户已经配置完成的 API 服务（包括其 Endpoint）生成用户可以调用的开放 API。在 API 用户中心中，我们将会帮助您更好的管理每个 API 服务的用户，以及分配用户对于 API 的使用权限。
 
 [API 用户中心](https://console.cloud.tencent.com/eis/apiusercenter) 首页是以列表的形式展示当前可以配置的所有 API 服务信息，但是展示维度与“API管理”略有不同。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d407877d42b4639133effd9bef8696d8.png)

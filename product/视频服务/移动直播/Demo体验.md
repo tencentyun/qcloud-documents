@@ -12,8 +12,7 @@
 </tr>
 <tr>
 <td>iOS</td>
-<td><div style="width:130px;height: 130px;background-image:url(https://qcloudimg.tencent-cloud.cn/raw/2c8c06a66a7494a17b51e74d9d5533cc.png);background-size: cover;margin:auto">
-</div></td>
+<td>升级维护中</td>
 <td><a href="https://github.com/tencentyun/XiaoZhiBo/tree/main/iOS">Github</a></td>
 </tr>
 <tr>
