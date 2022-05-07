@@ -42,17 +42,17 @@ helm install servicemesh-tcm/wasmer --generate-name
 
 ```shell
 # 将准备好的 exaple.wasm 文件 push 到 OCI 标准的镜像仓库，支持二进制或镜像格式
-wasmc push ccr.ccs.tencentyun.com/xxx/wasm-add-header:v0.3 -f ./example.wasm
+wasmc push ccr.ccs.tencentyun.com/{$repoName}/wasm-add-header:v0.3 -f ./example.wasm
 
-Pushed ccr.ccs.tencentyun.com/xxx/wasm-add-header:v0.3
-Digest: sha256:xxxx
+Pushed ccr.ccs.tencentyun.com/***/wasm-add-header:v0.3
+Digest: sha256:***
 
 # 从仓库将文件 pull 到本地
-wasmc pull ccr.ccs.tencentyun.com/xxx/wasm-add-header-wadecai:v0.3
+wasmc pull ccr.ccs.tencentyun.com/{$repoName}/wasm-add-header-wadecai:v0.3
 
-Pulled ccr.ccs.tencentyun.com/xxx/wasm-add-header-wadecai:v0.3
-Sha256: xxx
-Location: xxx/filter.wasm
+Pulled ccr.ccs.tencentyun.com/***/wasm-add-header-wadecai:v0.3
+Sha256: ***
+Location: ***/filter.wasm
 ```
 
 
@@ -75,7 +75,7 @@ spec:
     rootID: test
     source:
       registry:
-        image: ccr.ccs.tencentyun.com/xxx/wasm-add-header:v0.3
+        image: ccr.ccs.tencentyun.com/{您的镜像仓库}/wasm-add-header:v0.3
     vmID: test
   secret: test # 镜像仓库 secret
   selector:
