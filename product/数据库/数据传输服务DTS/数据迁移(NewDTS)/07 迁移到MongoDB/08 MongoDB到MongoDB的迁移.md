@@ -75,12 +75,10 @@ db.createUser({
 </tbody></table>
 3. 在设置源和目标数据库页面，完成任务设置、源库设置和目标库设置。  
 >?请在源实例创建一个只读帐号供迁移使用，否则迁移前校验步骤将不通过。
-
+>
 **因源数据库部署形态和接入类型的交叉场景较多，各场景迁移步骤类似，如下仅提供典型场景的配置示例，其他场景请用户参考配置。**
-**示例一**：将本地自建 MongoDB（分片集群）通过专线/VPN方式迁移至腾讯云数据库
-
+**示例一**：将本地自建 MongoDB（分片集群）通过专线/VPN 方式迁移至腾讯云数据库。
 ![](https://qcloudimg.tencent-cloud.cn/raw/54cdb9105e4965d23df1aaf746a59082.png)
-
 <table>
 <thead><tr><th width="10%">设置类型</th><th width="15%">配置项</th><th width="75%">说明</th></tr></thead>
 <tbody>
@@ -107,19 +105,19 @@ db.createUser({
 <tr>
 <td>架构</td><td>选择源库的架构形态，本场景以“集群迁移”为例进行介绍。</td></tr>
 <tr>
-<td>节点 - mongod</td><td>请输入mongod 节点IP和端口，多个节点请换行。示例：186.3.55.77:6379</td></tr>
+<td>节点 - mongod</td><td>请输入mongod 节点 IP 和端口，多个节点请换行。示例：186.3.55.77:6379</td></tr>
 <tr>
-<td>节点 - mongos</td><td>请输入mongos 节点IP和端口。</td></tr>
+<td>节点 - mongos</td><td>请输入mongos 节点 IP 和端口。</td></tr>
 <tr>
-<td>节点 - Config Server</td><td>请输入 Config Server 节点的IP和端口。</td></tr>
+<td>节点 - Config Server</td><td>请输入 Config Server 节点的 IP 和端口。</td></tr>
 <tr>
 <td>是否需要认证</td><td>是否需要对源库中用户名和密码的安全性进行认证。</td></tr>
 <tr>
 <td>认证库</td><td>需要认证的库名，即执行迁移任务账号所属的数据库名称，例如 admin。</td></tr>
 <tr>
-<td>认证机制</td><td>当前支持SCRAM-SHA-1。</td></tr>
+<td>认证机制</td><td>当前支持 SCRAM-SHA-1。</td></tr>
 <tr>
-<td>账号及密码选择</td><td>源库三个节点mongod、mongos、Config Server的账号密码相同时选择“相同账号及密码”，否则选择“不同的账号及密码”，然后填写节点对应的账号和密码。</td></tr>
+<td>账号及密码选择</td><td>源库三个节点 mongod、mongos、Config Server 的账号密码相同时选择“相同账号及密码”，否则选择“不同的账号及密码”，然后填写节点对应的账号和密码。</td></tr>
 <tr>
 <td rowspan=6>目标库设置</td>
 <td>目标库类型</td><td>购买时选择的目标库类型，不可修改。</td></tr>
@@ -134,11 +132,8 @@ db.createUser({
 <tr>
 <td>密码</td><td>目标库的数据库帐号的密码。</td></tr>
 </tbody></table>
-
-**示例二**：将腾讯云数据库迁移至腾讯云数据库
-
-![](https://qcloudimg.tencent-cloud.cn/raw/ec050f3bc45cc7975219b5d3581d4ce7.png) 
-
+<b>示例二</b>：将腾讯云数据库迁移至腾讯云数据库。
+<img src="https://qcloudimg.tencent-cloud.cn/raw/ec050f3bc45cc7975219b5d3581d4ce7.png" >
 <table>
 <thead><tr><th width="10%">设置类型</th><th width="15%">配置项</th><th width="75%">说明</th></tr></thead>
 <tbody>
@@ -187,9 +182,7 @@ db.createUser({
 <tr>
 <td>密码</td><td>目标库的数据库帐号的密码。</td></tr>
 </tbody></table>
-
-**示例三**： 将阿里云 MongoDB （分片集群）通过公网方式迁移至腾讯云数据库 
-
+<b>示例三</b>： 将阿里云 MongoDB （分片集群）通过公网方式迁移至腾讯云数据库。
 <table>
 <thead><tr><th width="10%">设置类型</th><th width="15%">配置项</th><th width="75%">说明</th></tr></thead>
 <tbody>
@@ -220,13 +213,13 @@ db.createUser({
 <tr>
 <td>节点 - mongos</td><td>请输入 mongos 节点 IP 和端口。</td></tr>
 <tr>
-<td>节点 - Config Server</td><td>请输入 Config Server 节点的IP和端口。</td></tr>
+<td>节点 - Config Server</td><td>请输入 Config Server 节点的 IP 和端口。</td></tr>
 <tr>
 <td>是否需要认证</td><td>是否需要对源库中用户名和密码的安全性进行认证。</td></tr>
 <tr>
 <td>认证库</td><td>需要认证的库名，即执行迁移任务账号所属的数据库名称，例如 admin。</td></tr>
 <tr>
-<td>认证机制</td><td>当前支持SCRAM-SHA-1。</td></tr>
+<td>认证机制</td><td>当前支持 SCRAM-SHA-1。</td></tr>
 <tr>
 <td>账号及密码选择</td><td>源库三个节点 mongod、mongos、Config Server 的账号密码相同时选择“相同账号及密码”，否则选择“不同的账号及密码”，然后填写节点对应的账号和密码。</td></tr>
 <tr>
@@ -243,12 +236,11 @@ db.createUser({
 <tr>
 <td>密码</td><td>目标库的数据库帐号的密码。</td></tr>
 </tbody></table>
-
 4. 测试源实例和目标实例的连通性。
 如果连通性测试未通过，请参考 [连通性测试不通过](https://cloud.tencent.com/document/product/571/62989) 进行处理。
 ![](https://main.qcloudimg.com/raw/43d1d1717e76331a9d2048428515cf75.png)
-6. 在设置迁移选项及选择迁移对象页面，设置迁移选项和迁移对象（可选择部分库表）。
-    <img src="https://main.qcloudimg.com/raw/0392c50e0aa030d890c20f119e714579.png"  style="zoom:80%;">
+5. 在设置迁移选项及选择迁移对象页面，设置迁移选项和迁移对象（可选择部分库表）。
+<img src="https://main.qcloudimg.com/raw/0392c50e0aa030d890c20f119e714579.png"  style="zoom:80%;">
 <table>
 <thead><tr><th>配置项</th><th>说明</th></tr></thead>
 <tbody><tr>
