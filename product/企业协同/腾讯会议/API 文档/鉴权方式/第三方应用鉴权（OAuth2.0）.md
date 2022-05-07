@@ -31,7 +31,7 @@
 ```Plaintext
 https://meeting.tencent.com/authorize.html?corp_id={corpId}&sdk_id={sdkId}&redirect_uri={redirect_uri}&state={state}
 ```
-**公共参数：**不需要。
+**Header 参数：**不需要。
 
 #### 输入参数 
 
@@ -80,7 +80,7 @@ https://meeting.tencent.com/wemeet-webapi/v2/oauth2/oauth/access_token
 
 >!由于授权的 secret 和获取到的 access_token 安全级别都非常高，必须只保存在服务器，不允许传给客户端。后续刷新 access_token、通过 access_token 获取用户信息等步骤时，也必须从服务器发起。
 
-**公共参数：**统一放到 HTTP Header 请求头部中。
+**Header 参数：**统一放到 HTTP Header 请求头部中。
 
 | 参数名称| 类型 | 必选 |描述 |
 |---------|---------|---------|---------|
@@ -146,7 +146,7 @@ https://meeting.tencent.com/wemeet-webapi/v2/oauth2/oauth/access_token
 ```Plaintext
 https://meeting.tencent.com/wemeet-webapi/v2/oauth2/oauth/refresh_token
 ```
-**公共参数：**统一放到 HTTP Header 请求头部中。
+**Header 参数：**统一放到 HTTP Header 请求头部中。
 
 | 参数名称| 类型 | 必选 |描述 |
 |---------|---------|---------|---------|
@@ -214,7 +214,7 @@ https://meeting.tencent.com/wemeet-webapi/v2/oauth2/oauth/refresh_token
 ```Plaintext
 https://meeting.tencent.com/wemeet-webapi/v2/oauth2/oauth/user_info
 ```
-**公共参数：**统一放到 HTTP Header 请求头部中。
+**Header 参数：**统一放到 HTTP Header 请求头部中。
 
 | 参数名称| 类型 | 必选 |描述 |
 |---------|---------|---------|---------|
