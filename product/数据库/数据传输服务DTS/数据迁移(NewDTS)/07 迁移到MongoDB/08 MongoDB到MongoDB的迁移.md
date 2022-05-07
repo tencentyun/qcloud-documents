@@ -78,7 +78,7 @@ db.createUser({
 >
 **因源数据库部署形态和接入类型的交叉场景较多，各场景迁移步骤类似，如下仅提供典型场景的配置示例，其他场景请用户参考配置。**
 **示例一**：将本地自建 MongoDB（分片集群）通过专线接入方式迁移至腾讯云数据库。
-![](https://qcloudimg.tencent-cloud.cn/raw/81551d2f8a507b8ed6048a669a5ac68a.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/0fcfb59e920ad50f6cbca9885811fa99.png)
 <table>
 <thead><tr><th width="10%">设置类型</th><th width="15%">配置项</th><th width="75%">说明</th></tr></thead>
 <tbody>
