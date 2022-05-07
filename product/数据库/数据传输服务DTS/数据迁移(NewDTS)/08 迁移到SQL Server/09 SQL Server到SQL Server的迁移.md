@@ -13,7 +13,7 @@
 - 源数据库所在本地磁盘空间需要足够大，剩余空闲空间能放下要迁移库的大小。 
 - 当源实例非腾讯云 SQL Server 实例（公网/CVM 自建实例、其他云厂商实例）或腾讯云基础版 SQL Server 实例时，目标端需使用具有 sysadmin 权限的帐号进行迁移，且需要能够运行 xp_cmdshell 存储过程，当源实例为腾讯云高可用版和集群版 SQL Server 时，目标端帐号无权限限制。
 - 迁移源端的 SQL 服务启动需要改为 local，源端迁移的数据库账号无限制，但是需要有 sysadmin 权限。
-![](https://qcloudimg.tencent-cloud.cn/raw/cd77176b6539dd796191b342386e9c91.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/18ff77c99574d27715acad229bc87acf.png)
 如图所示，迁移源端的 SQL 服务启动，启动配置中的登录身份内置账户需要修改为 Local System。
 
 ## 应用限制
