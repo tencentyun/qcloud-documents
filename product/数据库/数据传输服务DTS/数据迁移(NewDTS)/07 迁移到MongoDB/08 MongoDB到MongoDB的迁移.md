@@ -75,10 +75,10 @@ db.createUser({
 </tbody></table>
 3. 在设置源和目标数据库页面，完成任务设置、源库设置和目标库设置。  
 >?请在源实例创建一个只读帐号供迁移使用，否则迁移前校验步骤将不通过。
->
+
 **因源数据库部署形态和接入类型的交叉场景较多，各场景迁移步骤类似，如下仅提供典型场景的配置示例，其他场景请用户参考配置。**
-**示例一**：将本地自建 MongoDB（分片集群）通过专线/VPN 方式迁移至腾讯云数据库。
-![](https://qcloudimg.tencent-cloud.cn/raw/54cdb9105e4965d23df1aaf746a59082.png)
+**示例一**：将本地自建 MongoDB（分片集群）通过专线接入方式迁移至腾讯云数据库。
+![](https://qcloudimg.tencent-cloud.cn/raw/81551d2f8a507b8ed6048a669a5ac68a.png)
 <table>
 <thead><tr><th width="10%">设置类型</th><th width="15%">配置项</th><th width="75%">说明</th></tr></thead>
 <tbody>
@@ -90,12 +90,12 @@ db.createUser({
 <td>运行模式</td>
 <td><ul><li>立即执行：完成任务校验通过后立即启动任务。</li><li>定时执行：需要配置一个任务执行时间，到时间后启动任务。</li></ul></td></tr>
 <tr>
-<td rowspan=11>源库设置</td>
+<td rowspan=13>源库设置</td>
 <td>源库类型</td><td>购买时选择的源库类型，不可修改。</td></tr>
 <tr>
 <td>所属地域</td><td>购买时选择的源库地域，不可修改。</td></tr>
 <tr>
-<td>接入类型</td><td>请根据您的场景选择，本场景以“公网”为例，不同接入类型的准备工作请参考 <a href="https://cloud.tencent.com/document/product/571/59968">准备工作概述</a>。
+<td>接入类型</td><td>请根据您的场景选择，本场景以“专线接入”为例，不同接入类型的准备工作请参考 <a href="https://cloud.tencent.com/document/product/571/59968">准备工作概述</a>。
 <ul><li>公网：源数据库可以通过公网 IP 访问。</li>
 <li>云主机自建：源数据库部署在 <a href="https://cloud.tencent.com/document/product/213">腾讯云服务器 CVM</a> 上。</li>
 <li>专线接入：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/216">专线接入</a> 方式与腾讯云私有网络打通。</li>
@@ -104,6 +104,10 @@ db.createUser({
 <li>云联网：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/877">云联网</a> 与腾讯云私有网络打通。</li><li>私有网络 VPC：源数据库和目标数据库都部署在腾讯云上，且有 <a hrref="https://cloud.tencent.com/document/product/215">私有网络</a>。</li></ul></td></tr>
 <tr>
 <td>架构</td><td>选择源库的架构形态，本场景以“集群迁移”为例进行介绍。</td></tr>
+<tr>
+<td>私有网络专线网关</td><td>专线接入时只支持私有网络专线网关，请确认网关关联网络类型。</tr>
+<tr>
+<td>私有网络</td><td>选择私有网络专线网关的私有网络和子网。</td></tr>
 <tr>
 <td>节点 - mongod</td><td>请输入mongod 节点 IP 和端口，多个节点请换行。示例：186.3.55.77:6379</td></tr>
 <tr>
@@ -132,8 +136,10 @@ db.createUser({
 <tr>
 <td>密码</td><td>目标库的数据库帐号的密码。</td></tr>
 </tbody></table>
+
 <b>示例二</b>：将腾讯云数据库迁移至腾讯云数据库。
 <img src="https://qcloudimg.tencent-cloud.cn/raw/ec050f3bc45cc7975219b5d3581d4ce7.png" >
+
 <table>
 <thead><tr><th width="10%">设置类型</th><th width="15%">配置项</th><th width="75%">说明</th></tr></thead>
 <tbody>
