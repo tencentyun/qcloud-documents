@@ -4,6 +4,8 @@
 ## 操作步骤
 1. 登录 SSL 证书 [私有 CA 控制台](https://console.cloud.tencent.com/private-ca)，进入 “私有 CA” 管理页面。
 2. 选择需要续费的私有 CA，依次单击操作列下的**更多＞续费**。如下图所示：
+>? 购买根CA附赠的中间CA不可单独续费，续费根CA时，附赠中间CA的服务时长会一并增加。
+> 
 ![](https://qcloudimg.tencent-cloud.cn/raw/af6df78b2e033576f77f6490a000449f.png)
 3. 在“续费”页面，选择续费时长，勾选服务条款，并单击**确定**。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/c8b733a416131e9b26060e3d1123e1ec.png)
