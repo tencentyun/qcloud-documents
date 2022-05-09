@@ -79,9 +79,9 @@ Container 类型 Operation 的具体数据描述如下：
 | ------------------ | ----------------- | ------------------------------------------------------------ | --------- | ---- |
 | SDRtoHDR             | Request.Operation | 指定 SDRtoHDR 参数                                             | Container | 是   |
 | Transcode           | Request.Operation | 指定转码模板参数，不能与 Transcode 同时为空              | Container | 否   |
-| TranscodeTemplateId | Request.Operation | 指定的转码模版 ID，优先使用模板 Id，不能与 TranscodeTemplateId 同时为空   | String    | 否 |
+| TranscodeTemplateId | Request.Operation | 指定的转码模板 ID，优先使用模板 Id，不能与 TranscodeTemplateId 同时为空   | String    | 否 |
 | Watermark           | Request.Operation | 指定水印模板参数，同创建水印模板 CreateMediaTemplate 接口的 Request.Watermark, 最多传3个 | Container | 否 |
-| WatermarkTemplateId | Request.Operation | 指定的水印模版 ID，可以传多个水印模板 ID，最多传3个，优先使用模板 id          | String    | 否 |无|
+| WatermarkTemplateId | Request.Operation | 指定的水印模板 ID，可以传多个水印模板 ID，最多传3个，优先使用模板 id          | String    | 否 |无|
 | Output              | Request.Operation | 结果输出地址                                                            | Container | 是   |
 
 Container 类型 SDRtoHDR 的具体数据描述如下：
