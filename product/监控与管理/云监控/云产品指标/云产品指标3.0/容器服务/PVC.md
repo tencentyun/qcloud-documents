@@ -4,7 +4,7 @@
 
 ## 命名空间
 
-Namespace = QCE/TKE
+Namespace = QCE/TKE2
 
 ## 监控指标
 
