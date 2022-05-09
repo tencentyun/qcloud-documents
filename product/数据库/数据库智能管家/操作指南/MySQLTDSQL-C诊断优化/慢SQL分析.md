@@ -18,7 +18,7 @@
    - 在统计页，您可根据统计报表的总锁等待时间占比、总扫描行数占比、总返回行数占比，横向分析该条慢 SQL 产生的具体原因，以及进行对应优化，同时您还可以查看该类型的 SQL（聚合后汇总的）运行的时间分布区间，以及来源 IP 的访问占比。
    ![](https://qcloudimg.tencent-cloud.cn/raw/1989b9658c6b93340d1834d466ed661e.png)
    - 在明细页，可查看详细的 SQL 执行明细信息。
-   ![](https://qcloudimg.tencent-cloud.cn/raw/8e61ef17a8087798fdba0429d8c8f4f4.png)
+	 ![](https://qcloudimg.tencent-cloud.cn/raw/5d29cb7dfcbe2d80e29d857d59393761.png) 
 4. 导出慢 SQL 数据。
    在 SQL 列表的右侧，单击**导出**，可将慢 SQL 分析数据以 CSV 格式导出到本地，方便用户查看。
    ![](https://qcloudimg.tencent-cloud.cn/raw/64173f50194bd8746b9209af34fe45e0.png)
