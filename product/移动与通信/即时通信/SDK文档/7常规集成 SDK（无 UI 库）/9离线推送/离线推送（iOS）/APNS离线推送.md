@@ -1,13 +1,10 @@
 ## 概述
 
 即时通信 IM 的终端用户需要随时都能够得知最新的消息，而由于移动端设备的性能与电量有限，当 App 处于后台时，为了避免维持长连接而导致的过多资源消耗，即时通信 IM 推荐您使用 Apple 提供的系统级推送通道（APNs）来进行消息通知，APNs 相比第三方推送拥有更稳定的系统级长连接，可以做到随时接受推送消息，且资源消耗大幅降低。
-
-> 注意：
->
-> - 在没有主动退出登录的情况下，应用退后台、手机锁屏、或者应用进程被用户主动杀掉三种场景下，如果想继续接收到 IM 消息提醒，可以接入即时通信 IM 离线推送。
-> - 如果应用主动调用 logout 退出登录，或者多端登录被踢下线，即使接入了 IM 离线推送，也收不到离线推送消息。
-
-
+<dx-alert infotype="notice" title="">
+- 在没有主动退出登录的情况下，应用退后台、手机锁屏、或者应用进程被用户主动杀掉三种场景下，如果想继续接收到 IM 消息提醒，可以接入即时通信 IM 离线推送。
+- 如果应用主动调用 logout 退出登录，或者多端登录被踢下线，即使接入了 IM 离线推送，也收不到离线推送消息。
+</dx-alert>
 
  [](id:配置推送)
 
@@ -20,77 +17,74 @@
 3. 在 App 每次登录时，向苹果获取 [deviceToken](#DeviceToken)。
 4. 调用 [setAPNS](https://im.sdk.qcloud.com/doc/zh-cn/categoryV2TIMManager_07APNS_08.html#a73bf19c0c019e5e27ec441bc753daa9e) 接口将其上报到 IM 后台。
 
-
-
 [](id:ApplyForCertificate)
-
 ### 步骤1：申请 APNs 证书
 
 ####  开启 APP 远程推送
 
-1. 登录 [苹果开发者中心](https://developer.apple.com/account/) 网站，单击【Certificates,Identifiers & Profiles】或者侧栏的【Certificates, IDS & Profiles】，进入 Certificates, IDS & Profiles 页面。
-   <img src="https://main.qcloudimg.com/raw/71c3b2db72e1bdcb55c0a68bae15e546.jpg" style="zoom:50%;" />
+1. 登录 [苹果开发者中心](https://developer.apple.com/account/) 网站，单击**Certificates,Identifiers & Profiles**或者侧栏的**Certificates, IDS & Profiles**，进入 Certificates, IDS & Profiles 页面。
+   <img src="https://qcloudimg.tencent-cloud.cn/raw/5888bba294f17848ab8343d507ee427d.jpg" style="zoom:50%;" />
 
-2. 单击 Identifiers 右侧的【+】。
-   <img src="https://main.qcloudimg.com/raw/185cbd57e0a1a206d1e97e9f59c9cec5.jpg" style="zoom:50%;" />
+2. 单击 Identifiers 右侧的**+**。
+   <img src="https://qcloudimg.tencent-cloud.cn/raw/ba3222cc6bda236f5080e897351c36a2.png" style="zoom:50%;" />
 
 3. 您可以参考如下步骤新建一个 AppID，或者在您原有的 AppID 上增加 `Push Notification` 的 `Service`。
 
-   > ? 需要注意的是，您 App 的 `Bundle ID` 不能使用通配符 `*`，否则将无法使用远程推送服务。
+   > ? 您 App 的 `Bundle ID` 不能使用通配符 `*`，否则将无法使用远程推送服务。
 
-4. 勾选【App IDs】，单击【Continue】进行下一步。
+4. 勾选**App IDs**，单击**Continue**进行下一步。
    <img src="https://main.qcloudimg.com/raw/1e047d154a30d4dc95e3d9fa52779a37.jpg" style="zoom:50%;" />
 
-5. 选择【App】，单击【Continue】进行下一步。
-   <img src="https://main.qcloudimg.com/raw/584b1b697c21832d864a75c541da7fde.jpg" style="zoom:50%;" />
+5. 选择**App**，单击**Continue**进行下一步。
+   <img src="https://qcloudimg.tencent-cloud.cn/raw/d8c81677b1c06cad5d2b4017a17eb5ae.jpg" style="zoom:50%;" />
 
-6. 配置 `Bundle ID` 等其他信息，单击【Continue】进行下一步。
+6. 配置 `Bundle ID` 等其他信息，单击**Continue**进行下一步。
    <img src="https://qcloudimg.tencent-cloud.cn/raw/bc8105688bc097e5028585f4a1a57088.png" style="zoom:50%;" />
 
-7. 勾选【Push Notifications】，开启远程推送服务。
-   <img src="https://main.qcloudimg.com/raw/4720490316ac5180de0742ca1ed50c8f.jpg" style="zoom:50%;" />
+7. 勾选**Push Notifications**，开启远程推送服务。
+   <img src="https://qcloudimg.tencent-cloud.cn/raw/bcdc52d8bae2c8bfabdbe2364d1b1180.jpg" style="zoom:50%;" />
 
 #### 生成证书
 
-1. 选中您的 AppID，选择【Configure】。
-   <img src="https://main.qcloudimg.com/raw/ef9be51df8bb1c5d56febd10d8deb2a2.jpg" style="zoom:50%;" />
+1. 选中您的 AppID，选择**Configure**。
+   <img src="https://qcloudimg.tencent-cloud.cn/raw/7f1a06b0d5e7ae4ea74106218e3169c9.jpg" style="zoom:50%;" />
 
-2. 可以看到在【Apple Push Notification service SSL Certificates】窗口中有两个 `SSL  Certificate` ，分别用于开发环境（`Development`）和生产环境（`Production`）的远程推送证书，如下图所示：
+2. 可以看到在**Apple Push Notification service SSL Certificates**窗口中有两个 `SSL  Certificate` ，分别用于开发环境（Development）和生产环境（Production）的远程推送证书，如下图所示：
    <img src="https://main.qcloudimg.com/raw/bd55cffb96e80b505e70db33c73e27dd.jpg" style="zoom:50%;" />
 
-3. <span id="step3"></span>我们先选择开发环境（`Development`）的【Create Certificate】，系统将提示我们需要一个 `Certificate Signing Request（CSR）`。
+3. <span id="step3"></span>我们先选择开发环境（Development）的**Create Certificate**，系统将提示我们需要一个 Certificate Signing Request（CSR）。
    <img src="https://main.qcloudimg.com/raw/637ce37ec54ca5a4bf3006b527572da5.jpg" style="zoom:50%;" />
 
-4. 在 Mac 上打开**钥匙串访问工具（Keychain Access）**，在菜单中选择【钥匙串访问】>【证书助理】>【从证书颁发机构请求证书】（`Keychain Access - Certificate Assistant - Request a Certificate From a Certificate Authority`）。
+4. 在 Mac 上打开**钥匙串访问工具（Keychain Access）**，在菜单中选择**钥匙串访问**>**证书助理**>**从证书颁发机构请求证书**（`Keychain Access - Certificate Assistant - Request a Certificate From a Certificate Authority`）。
    <img src="https://main.qcloudimg.com/raw/6492b4df769ec5bccf90994d30e5e520.jpg" style="zoom:50%;" />
 
-5. 输入用户电子邮件地址（您的邮箱）、常用名称（您的名称或公司名），选择【存储到磁盘】，单击继续，系统将生成一个 `*.certSigningRequest` 文件。
+5. 输入用户电子邮件地址（您的邮箱）、常用名称（您的名称或公司名），选择**存储到磁盘**，单击继续，系统将生成一个 `*.certSigningRequest` 文件。
    <img src="https://qcloudimg.tencent-cloud.cn/raw/258d11e7a7d79ab51a8f89560400eac6.png" style="zoom:50%;" />
 
-6. 返回上述 [第3步骤](#step3) 中 `Apple Developer` 网站刚才的页面，单击【Choose File】上传生成的`*.certSigningRequest`文件。
-   <img src="https://main.qcloudimg.com/raw/59dfdb08864d6469199684c50c53b7e6.jpg" style="zoom:50%;" />
+6. 返回上述 [第3步骤](#step3) 中 Apple Developer 网站刚才的页面，单击**Choose File**上传生成的`*.certSigningRequest`文件。
+   <img src="https://qcloudimg.tencent-cloud.cn/raw/ac9f49f0d8afbcdfa42f13511334f00b.png" style="zoom:50%;" />
 
-7. 单击【Continue】，即可生成推送证书。
-   <img src="https://main.qcloudimg.com/raw/c337d5282ac10f6bec7c5ef5864b94cb.jpg" style="zoom:50%;" />
+7. 单击**Continue**，即可生成推送证书。
+   <img src="https://qcloudimg.tencent-cloud.cn/raw/c19c9bbdbdd8fdfe6b4f95af08d9035c.jpg" style="zoom:50%;" />
 
-8. 单击【Download】下载开发环境的 `Development SSL Certificate` 到本地。
+8. 单击**Download**下载开发环境的 `Development SSL Certificate` 到本地。
    ![](https://main.qcloudimg.com/raw/9dece7f318c93e97732fe7ea7806f961.jpg)
 
 9. 再次按照上述步骤1 - 8，将生产环境的 `Production SSL Certificate` 下载到本地。
 
-   > ? 生产环境的证书实际是开发(`Sandbox`)+生产(`Production`)的合并证书，可以同时作为开发环境和生产环境的证书使用。
+   > ? 生产环境的证书实际是开发（Sandbox）+生产（Production）的合并证书，可以同时作为开发环境和生产环境的证书使用。
 
    []()
 
-   <img src="https://main.qcloudimg.com/raw/eaa08da45f36435155a4a37938ddc84e.jpg" style="zoom:50%;" />
+   <img src="https://qcloudimg.tencent-cloud.cn/raw/4720f74f609c9225f43ab977215ff53f.jpg" style="zoom:50%;" />
 
-   <img src="https://main.qcloudimg.com/raw/bf80c3a06f74080bf81fd857f15a2b86.jpg" style="zoom:50%;" />
+   <img src="https://qcloudimg.tencent-cloud.cn/raw/62f6ff03e36340507d66e519796258dc.jpg" style="zoom:50%;" />
 
    
 
 10. 双击打开下载的开发环境和生产环境的 `SSL Certificate`，系统会将其导入钥匙串中。
 
-11. 打开钥匙串应用，在【登录】>【我的证书】，右键分别导出刚创建的开发环境（`Apple Development IOS Push Service`）和生产环境（`Apple Push Services`）的 `P12` 文件。
+11. 打开钥匙串应用，在**登录**>**我的证书**，右键分别导出刚创建的开发环境（`Apple Development IOS Push Service`）和生产环境（`Apple Push Services`）的 `P12` 文件。
     <img src="https://qcloudimg.tencent-cloud.cn/raw/3ab45a54c9cf39beffb1fc2adf12a0e5.jpg" style="zoom:50%;" />
 
     > ! 保存`P12`文件时，请务必要为其设置密码。
@@ -100,26 +94,19 @@
 [](id:UploadCertificate)
 
 ### 步骤2：上传证书到控制台
-
 1. 登录 [即时通信 IM 控制台](https://console.cloud.tencent.com/im)。
-
 2. 单击目标应用卡片，进入应用的基础配置页面。
-
    <img src="https://qcloudimg.tencent-cloud.cn/raw/74c3e635896cf575de7bd9bfafa135e8.jpg" style="zoom:50%;" />
-
-3. 单击【iOS 原生离线推送设置】右侧的【添加证书】。
-
-4. 选择证书类型，上传 iOS 证书（p.12），设置证书密码，单击【确认】。
-
+3. 单击**iOS 原生离线推送设置**右侧的**添加证书**。
+4. 选择证书类型，上传 iOS 证书（p.12），设置证书密码，单击**确认**。
    <img src="https://qcloudimg.tencent-cloud.cn/raw/c2843be158d3a7c0beaa91dda62dea88.jpg" style="zoom:50%;" />
-
-   []()
 
 >!
 >- 上传证书名最好使用全英文（尤其不能使用括号等特殊字符）。
 >- 上传证书需要设置密码，无密码收不到推送。
 >- 发布 App Store 的证书需要设置为生产环境，否则无法收到推送。
 >- 上传的 p12 证书必须是自己申请的真实有效的证书。
+
 [](id:businessid)
 
 5. 待推送证书信息生成后，记录证书的 ID。
@@ -132,7 +119,7 @@
 
 您可以在您的 App 中添加如下代码，用来向苹果的后台服务器获取 deviceToken：
 
-> ? 考虑到合规，建议您在用户同意隐私协议之后再向苹果请求 deviceToken
+> ? 考虑到合规，建议您在用户同意隐私协议之后再向苹果请求 deviceToken。
 
 ```
 // 向苹果后台请求 DeviceToken
