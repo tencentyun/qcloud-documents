@@ -199,7 +199,7 @@
 </div> 
 
 ## 产品能力
-![](https://qcloudimg.tencent-cloud.cn/raw/edfd7a42661fe0e42952ed4fea7ef8e8.png)
+<img src="https://qcloudimg.tencent-cloud.cn/raw/edfd7a42661fe0e42952ed4fea7ef8e8.png" width=760>
 
 
 ## 视频通话场景
