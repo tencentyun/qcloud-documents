@@ -5,129 +5,50 @@ Namespace = QCE/POSTGRES
 ## 监控指标
 
 
-<table>
-<thead>
-<tr>
-<th>指标英文名</th>
-<th>指标中文名</th>
-<th>指标含义</th>
-<th>单位</th>
-<th>维度</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Connections</td>
-<td>连接数</td>
-<td>实例的活跃连接历史变化趋势</td>
-<td>个</td>
-<td>resourceId</td>
-</tr>
-<tr>
-<td>Cpu</td>
-<td>CPU 利用率</td>
-<td>实例 CPU 使用率，由于在闲时采用灵活的 CPU 限制策略，CPU 利用率可能大于100%</td>
-<td>%</td>
-<td>resourceId</td>
-</tr>
-<tr>
-<td>HitPercent</td>
-<td>缓冲区缓存命中率</td>
-<td>数据缓存命中率</td>
-<td>%</td>
-<td>resourceId</td>
-</tr>
-<tr>
-<td>OtherCalls</td>
-<td>其他请求数</td>
-<td>除了读和写以外的请求总数（例如 Drop），按分钟累加</td>
-<td nowrap="nowrap">次/分钟</td>
-<td>resourceId</td>
-</tr>
-<tr>
-<td>Qps</td>
-<td>每秒查询数</td>
-<td>每秒查询次数</td>
-<td>次/秒</td>
-<td>resourceId</td>
-</tr>
-<tr>
-<td>WriteCalls</td>
-<td>写请求数</td>
-<td>写请求每分钟总数</td>
-<td>次/分钟</td>
-<td>resourceId</td>
-</tr>
-<tr>
-<td>ReadCalls</td>
-<td>读请求数</td>
-<td>读请求每分钟总数</td>
-<td>次/分钟</td>
-<td>resourceId</td>
-</tr>
-<tr>
-<td>ReadWriteCalls</td>
-<td>读写请求数</td>
-<td>读写（增删改查）请求每分钟总数</td>
-<td>次/分钟</td>
-<td>resourceId</td>
-</tr>
-<tr>
-<td>RemainXid</td>
-<td>剩余XID数量</td>
-<td>剩余的 Transaction Id 数量，Transaction Id 最大有2^32个，小于1000000建议手工执行 vacuum full</td>
-<td>个</td>
-<td>resourceId</td>
-</tr>
-<tr>
-<td>SqlRuntimeAvg</td>
-<td>平均执行时延</td>
-<td>所有 SQL 请求的平均执行时间，不包含事务里面的 SQL</td>
-<td>Ms</td>
-<td>resourceId</td>
-</tr>
-<tr>
-<td>SqlRuntimeMax</td>
-<td>最长TOP10执行时延</td>
-<td>执行时间最长的 TOP10 的 SQL 的平均值</td>
-<td>Ms</td>
-<td>resourceId</td>
-</tr>
-<tr>
-<td>SqlRuntimeMin</td>
-<td>最短TOP10执行时延</td>
-<td>执行时间最短的 TOP10 的 SQL 的平均值</td>
-<td>Ms</td>
-<td>resourceId</td>
-</tr>
-<tr>
-<td>Storage</td>
-<td>已用存储空间</td>
-<td>实例使用储存容量</td>
-<td>GB</td>
-<td>resourceId</td>
-</tr>
-<tr>
-<td>XlogDiff</td>
-<td>主备 XLOG 同步差异</td>
-<td>每分钟采样，主备 XLOG 的同步的大小差异，代表着同步的延迟，越小越好</td>
-<td>Byte</td>
-<td>resourceId</td>
-</tr>
-<tr>
-<td>SlowQueryCnt</td>
-<td>慢查询数量</td>
-<td>查询时间超过规定时间内（默认为1s）的查询的个数</td>
-<td>次</td>
-<td>resourceId</td>
-</tr>
-<tr>
-<td>StorageRate</td>
-<td>存储空间使用率</td>
-<td>实例储存空间使用率</td>
-<td>%</td>
-<td>resourceId</td>
-</tr>
-</tbody></table>
+| 指标英文名      | 指标中文名                 | 指标说明                                                     | 单位  | 维度       | 统计粒度                     |
+| --------------- | -------------------------- | ------------------------------------------------------------ | ----- | ---------- | ---------------------------- |
+| SqlRuntimeMin   | 最短 TOP10 执行时延        | 一次统计周期内最短 TOP10 的 SQL 平均执行时延                 | ms    | resourceId | 5s、60s、300s、3600s、86400s |
+| SqlRuntimeMax   | 最长 TOP10 执行时延        | 一次统计周期内最长 TOP10 的 SQL 平均执行时延                 | ms    | resourceId | 5s、60s、300s、3600s、86400s |
+| SlaveApplyDelay | 主备数据同步延迟           | 主备数据同步延迟,对于主实例而言，此指标可以体现出故障切换的RTO。反映到只读实例在多少时间后能够查询到在主库进行写入的数据. 只读实例指标名为：与主实例数据同步延迟 | s     | resourceId | 5s、60s、300s、3600s         |
+| LongXact        | 执行时长超过1秒的事务数目  | 一个采集周期内，执行时间超过1秒的事务数量                    | 个    | resourceId | 5s、60s、300s、3600s         |
+| LongQuery       | 执行时长超过1秒的 SQL 数   | 对数据库发起采集时，查询出来 执行时间超过1s的 SQL 数量       | 个    | resourceId | 5s、60s、300s、3600s         |
+| Storage         | 已用存储空间               | 整实例空间占用大小                                           | GB    | resourceId | 5s、60s、300s、3600s、86400s |
+| WriteCalls      | 写请求数                   | 一个统计周期内的写请求数                                     | 次    | resourceId | 5s、60s、300s、3600s、86400s |
+| Deadlocks       | 死锁数                     | 在一个采集周期内的所有死锁数                                 | 个    | resourceId | 5s、60s、300s、3600s         |
+| DataFileSize    | 数据文件大小               | 数据文件占用空间大小                                         | GB    | resourceId | 5s、60s、300s、3600s         |
+| XactCommit      | 事务提交数                 | 平均每秒提交的事务数                                         | 次/秒 | resourceId | 5s、60s、300s、3600s         |
+| XactRollback    | 事务回滚数                 | 平均每秒回滚的事务数                                         | 次/秒 | resourceId | 5s、60s、300s、3600s         |
+| RemainXid       | 剩余 XID 数量              | 对数据库发起采集时，显示当前剩余 xid 最少的库的剩余 xid 数量。只读实例无此指标 | 个    | resourceId | 5s、60s、300s、3600s、86400s |
+| LogFileSize     | 日志文件大小               | wal 日志文件占用空间大小                                     | GB    | resourceId | 5s、60s、300s、3600s         |
+| ReadWriteCalls  | 请求数                     | 一个统计周期内的总请求数                                     | 次    | resourceId | 5s、60s、300s、3600s、86400s |
+| OtherCalls      | 其他请求数                 | 一个统计周期内的其他请求数（begin、create、非 DML、DDL、DQL 操作） | 次    | resourceId | 5s、60s、300s、3600s、86400s |
+| SqlRuntimeAvg   | 平均执行时延               | 一次统计周期内所有 SQL 语句的平均执行时延                    | ms    | resourceId | 5s、60s、300s、3600s、86400s |
+| TupFetched      | 每秒索引扫描回表记录数     | 平均每秒通过索引扫描的 tupe 数量                             | 个    | resourceId | 5s、60s、300s、3600s         |
+| Tps             | 每秒事务数                 | 平均每秒执行成功的事务数（包括回滚和提交）                   | 次/秒 | resourceId | 5s、60s、300s、3600s         |
+| TupDeleted      | 每秒删除记录数             | 平均每秒删除的 tupe 数量。只读实例无此指标                   | 个    | resourceId | 5s、60s、300s、3600s         |
+| TupReturned     | 每秒全表扫描记录数         | 平均每秒全表扫描的 tupe 数量                                 | 个    | resourceId | 5s、60s、300s、3600s         |
+| TupUpdated      | 每秒更新记录数             | 平均每秒更新的 tupe 数量。只读实例无此指标                   | 个    | resourceId | 5s、60s、300s、3600s         |
+| Qps             | 每秒查询数                 | 平均每秒执行的 SQL 语句数量                                  | 次/秒 | resourceId | 5s、60s、300s、3600s         |
+| TupInserted     | 每秒插入记录数             | 平均每秒插入的 tupe 数量。只读实例无此指标                   | 个    | resourceId | 5s、60s、300s、3600s         |
+| SlowQueryCnt    | 慢查询数量                 | 一个采集周期内，出现的慢查询个数                             | 个    | resourceId | 5s、60s、300s、3600s         |
+| TempFileSize    | 临时文件大小               | 临时文件的大小                                               | MB    | resourceId | 5s、60s、300s、3600s         |
+| Connections     | 连接数                     | 对数据库发起采集时，数据库当前总连接数                       | 个    | resourceId | 5s、60s、300s、3600s、86400s |
+| IdleInXact      | 空闲事务数                 | 对数据库发起采集时，数据库正在处于 idle 状态的事务数量       | 个    | resourceId | 5s、60s、300s、3600s         |
+| IdleConns       | 空闲连接数                 | 对数据库发起采集时，查询出来的数据库瞬时空闲连接（idle 连接） | 个    | resourceId | 5s、60s、300s、3600s         |
+| ActiveConns     | 活跃连接数                 | 对数据库发起采集时，数据库瞬时活跃连接（非 idle 连接）       | 个    | resourceId | 5s、60s、300s、3600s         |
+| HitPercent      | 缓冲区缓存命中率           | 一个请求周期内的所有 SQL 语句执行的命中率                    | %     | resourceId | 5s、60s、300s、3600s、86400s |
+| ReadCalls       | 读请求数                   | 一个统计周期内的读请求数                                     | 次    | resourceId | 5s、60s、300s、3600s、86400s |
+| Waiting         | 等待会话数                 | 对数据库发起采集时，数据库正在等待的会话数量（状态为 waiting） | 个    | resourceId | 5s、60s、300s、3600s         |
+| LongWaiting     | 等待超过5秒的会话数        | 一个采集周期内，数据库等待超过5秒的会话数量（状态为 waiting，且等待状态维持了5秒） | 个    | resourceId | 5s、60s、300s、3600s         |
+| StorageRate     | 存储空间使用率             | 总的存储空间使用率，包括临时文件、数据文件、日志文件以及其他类型的数据库文件 | %     | resourceId | 5s、60s、300s、3600s、86400s |
+| Cpu             | CPU 利用率                 | CPU 实际利用率                                               | %     | resourceId | 5s、60s、300s、3600s、86400s |
+| Long2pc         | 超过5s未提交的2PC事务数    | 对数据库发起采集时，当前执行时间超过5s的 2PC 事务数量        | 个    | resourceId | 5s、60s、300s、3600s         |
+| LongIdleInXact  | 超过5秒的空闲事务数        | 一个采集周期内，空闲时间超过5秒的事务数量                    | 个    | resourceId | 5s、60s、300s、3600s         |
+| XlogDiffTime    | 备库日志落盘时间延迟       | 日志从主库发送至备库与备库接收到日志并落盘之间的时间差异。只读实例无此指标，且实例版本在10.x以上版本才有此指标 | byte  | resourceId | 5s、60s、300s、3600s、86400s |
+| XlogDiff        | 备库日志发送与回放位置差异 | 日志从主库发送至备库与备库回放完成之间的大小差异，主要反映了备库日志应用的速度，主要能够通过此指标查看出备库的性能、网络传输的速度。只读实例无此指标 | byte  | resourceId | 5s、60s、300s、3600s、86400s |
+| NewConnIn5s     | 5秒内新建连接数            | 对数据库发起采集时，查询出关于最近5秒内建立的所有连接数      | 次    | resourceId | 5s、60s、300s、3600s         |
+| 2pc             | 2pc事务数                  | 对数据库发起采集时，当前的2pc事务数量                        | 个    | resourceId | 5s、60s、300s、3600s         |
+
 
 
 
