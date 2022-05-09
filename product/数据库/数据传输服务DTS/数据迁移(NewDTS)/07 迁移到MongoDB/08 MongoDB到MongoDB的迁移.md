@@ -75,10 +75,10 @@ db.createUser({
 </tbody></table>
 3. 在设置源和目标数据库页面，完成任务设置、源库设置和目标库设置。  
 >?请在源实例创建一个只读帐号供迁移使用，否则迁移前校验步骤将不通过。
-
+>
 **因源数据库部署形态和接入类型的交叉场景较多，各场景迁移步骤类似，如下仅提供典型场景的配置示例，其他场景请用户参考配置。**
 **示例一**：将本地自建 MongoDB（分片集群）通过专线接入方式迁移至腾讯云数据库。
-![](https://qcloudimg.tencent-cloud.cn/raw/81551d2f8a507b8ed6048a669a5ac68a.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/0fcfb59e920ad50f6cbca9885811fa99.png)
 <table>
 <thead><tr><th width="10%">设置类型</th><th width="15%">配置项</th><th width="75%">说明</th></tr></thead>
 <tbody>
@@ -136,10 +136,8 @@ db.createUser({
 <tr>
 <td>密码</td><td>目标库的数据库帐号的密码。</td></tr>
 </tbody></table>
-
 <b>示例二</b>：将腾讯云数据库迁移至腾讯云数据库。
 <img src="https://qcloudimg.tencent-cloud.cn/raw/ec050f3bc45cc7975219b5d3581d4ce7.png" >
-
 <table>
 <thead><tr><th width="10%">设置类型</th><th width="15%">配置项</th><th width="75%">说明</th></tr></thead>
 <tbody>

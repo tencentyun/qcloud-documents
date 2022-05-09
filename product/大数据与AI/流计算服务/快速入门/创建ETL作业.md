@@ -33,7 +33,7 @@
 
 ## 步骤4：配置数据目的
 从左侧拖入数据目的，并与数据源相连。
-![image-20220420202324655](/Users/chenshaolong/Library/Application Support/typora-user-images/image-20220420202324655.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/679b42c132438835dc0ce7c80c65af5a.png)
 单击数据目的对象，配置好数据库实例与库表选择
 ![](https://qcloudimg.tencent-cloud.cn/raw/f74808edc0937e8dd12c7265348015a9.png)
 单击下一步进行字段映射配置

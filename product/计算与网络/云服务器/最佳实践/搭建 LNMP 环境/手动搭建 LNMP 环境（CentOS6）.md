@@ -3,7 +3,12 @@ LNMP 环境是指在 Linux 系统下，由 Nginx + MySQL/MariaDB + PHP 组成的
 
 进行手动搭建 LNMP 环境，您需要熟悉 Linux 命令，例如 [CentOS 环境下通过 YUM 安装软件](https://cloud.tencent.com/document/product/213/2046) 等常用命令，并对所安装软件的使用及版本兼容性比较了解。
 
->!腾讯云建议您可以通过云市场的镜像环境部署 LNMP 环境，手动搭建 LNMP 环境可能需要较长的时间。具体步骤可参考 [镜像部署 LNMP 环境](https://cloud.tencent.com/document/product/213/38053)。
+
+<dx-alert infotype="notice" title="">
+腾讯云建议您可以通过云市场的镜像环境部署 LNMP 环境，手动搭建 LNMP 环境可能需要较长的时间。具体步骤可参考 [镜像部署 LNMP 环境](https://cloud.tencent.com/document/product/213/38053)。
+</dx-alert>
+
+
 
 
 ## 示例软件版本
@@ -26,11 +31,11 @@ PHP：脚本语言，本文以 PHP 7.1.32 为例。
 
 ### 步骤2：安装 Nginx
 1. 执行以下命令，在 `/etc/yum.repos.d/` 下创建 `nginx.repo` 文件。
-```
+```shell
 vi /etc/yum.repos.d/nginx.repo
 ```
 2. 按 **i** 切换至编辑模式，写入以下内容。
-```
+```shell
 [nginx]
 name=nginx repo
 baseurl=https://nginx.org/packages/mainline/centos/6/$basearch/
@@ -39,11 +44,11 @@ enabled=1
 ```
 3. 按 **Esc**，输入 **:wq**，保存文件并返回。
 4. 执行以下命令，安装 Nginx。
-```
+```shell
 yum install -y nginx
 ```
 5. 执行以下命令，打开 `default.conf` 文件。
-```
+```shell
 vim /etc/nginx/conf.d/default.conf
 ```
 6. 按 **i** 切换至编辑模式，编辑 `default.conf` 文件。
@@ -78,18 +83,18 @@ server {
 ```
 8. 按 **Esc**，输入 **:wq**，保存文件并返回。
 9. 执行以下命令，启动 Nginx。
-```
+```shell
 service nginx start
 ```
 10. 依次执行以下命令，设置 Nginx 为开机自启动。
-```bash
+```shell
 chkconfig --add nginx
 ```
-```
+```shell
 chkconfig  nginx on
 ```
 11. 在本地浏览器中访问以下地址，查看 Nginx 服务是否正常运行。
-```
+```shell
 http://云服务器实例的公网 IP
 ```
 显示结果如下，则说明 Nginx 安装配置成功。
@@ -98,78 +103,78 @@ http://云服务器实例的公网 IP
 
 ### 步骤3：安装数据库
 1. 执行以下命令，查看系统中是否已安装 MySQL。
-```
+```shell
 rpm -qa | grep -i mysql
 ```
  - 返回结果如下所示，则表示已存在 MySQL。
 ![](https://main.qcloudimg.com/raw/74e544638637d39209cc1e474083d11d.png)
 为避免安装版本不同造成冲突，请执行下面命令移除已安装的 MySQL。
-```
+```shell
 yum remove -y 包名
 ``` 
  - 若返回结果为空，则说明未预先安装，则执行下一步。
 2.  执行以下命令，安装 MySQL。
-```
+```shell
 yum install -y mysql-devel.x86_64 mysql-server.x86_64 mysql-libs.x86_64
 ```
 3. 执行以下命令，启动 MySQL。
-```
+```shell
 service mysqld start 
 ```
 4. 依次执行以下命令，设置 MySQL 为开机自启动。
-```bash
+```shell
 chkconfig --add mysqld
 ```
-```
+```shell
 chkconfig mysqld  on 
 ```
 5. 执行以下命令，验证 MySQL 是否安装成功。
-```
+```shell
 mysql
 ```
 显示结果如下，则成功安装。
 ![](https://main.qcloudimg.com/raw/9c9347ad0264ddad5e98c8dd48adcc6a.png)
 6. 执行以下命令，退出 MySQL。
-```
+```shell
 \q
 ```
 
 ### 步骤4：安装配置 PHP
 1. 依次执行以下命令，更新 yum 中 PHP 的软件源。
-```
+```shell
 rpm -Uvh https://mirrors.cloud.tencent.com/epel/epel-release-latest-6.noarch.rpm
 ```
-```
+```shell
 rpm -Uvh https://mirror.webtatic.com/yum/el6/latest.rpm
 ```
 2. 执行以下命令，安装 PHP 7.1.32 所需要的包。
-```
+```shell
 yum -y install mod_php71w.x86_64 php71w-cli.x86_64 php71w-common.x86_64 php71w-mysqlnd php71w-fpm.x86_64
 ```
 3. 执行以下命令，启动 PHP-FPM 服务。
-```
+```shell
 service php-fpm start
 ```
 3. 依次执行以下命令，设置 PHP-FPM 为开机自启动。
-```bash
+```shell
 chkconfig --add php-fpm  
 ```
-```
+```shell
 chkconfig php-fpm on
 ```
 
 
 ## 验证环境配置
 1. 执行以下命令，创建测试文件。
-```
+```shell
 echo "<?php phpinfo(); ?>" >> /usr/share/nginx/html/index.php
 ```
 2. 执行以下命令，重启 Nginx。
-```
+```shell
 service nginx restart
 ```
 3. 在本地浏览器中访问如下地址，查看环境配置是否成功。
-```
+```shell
 http://云服务器实例的公网 IP
 ```
 显示结果如下， 则说明环境配置成功。
