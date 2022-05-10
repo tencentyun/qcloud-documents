@@ -11,12 +11,12 @@
       <td rowspan="2">SDK 下载</td>
       <td>Android</td>
     <td>短视频 SDK（LiteAVSDK）+ 基础功能 Demo 源代码</td>
-      <td colspan="2" style="text-align:center"> <a onclick="MtaH5.clickStat(&quot;ugc_sdk_download_android_basic&quot;)" href="https://liteavsdk-1252463788.cosgz.myqcloud.com/5.4/LiteAVSDK_UGC_Android_5.4.6097.zip">基础版 SDK DOWNLOAD</a> </td>
+      <td colspan="2" style="text-align:center"> <a onclick="MtaH5.clickStat(&quot;ugc_sdk_download_android_basic&quot;)" href="https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_UGC_Android_latest.zip">基础版 SDK DOWNLOAD</a> </td>
    </tr>
    <tr>
       <td>iOS</td>
       <td>短视频 SDK（LiteAVSDK）+ 基础功能 Demo 源代码</td>
-      <td colspan="2" style="text-align:center"> <a onclick="MtaH5.clickStat(&quot;ugc_sdk_download_ios_basic&quot;)" href="https://liteavsdk-1252463788.cosgz.myqcloud.com/5.4/TXLiteAVSDK_UGC_iOS_5.4.6097.zip">基础版 SDK DOWNLOAD</a> </td>
+      <td colspan="2" style="text-align:center"> <a onclick="MtaH5.clickStat(&quot;ugc_sdk_download_ios_basic&quot;)" href="https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_UGC_iOS_latest.zip">基础版 SDK DOWNLOAD</a> </td>
    </tr><tr>
       <td rowspan="2">License</td>
       <td>License 申请</td>

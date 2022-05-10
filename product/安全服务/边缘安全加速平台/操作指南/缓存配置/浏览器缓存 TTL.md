@@ -16,7 +16,6 @@
    
 
 附：整体缓存策略内容如下：
-![](https://qcloudimg.tencent-cloud.cn/raw/538a648dc6741de406180c19f5000727.png)
-
+![](https://qcloudimg.tencent-cloud.cn/raw/0082dc53a7827647e011f5e8ff037407.png)
 
 

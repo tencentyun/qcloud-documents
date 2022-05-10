@@ -38,7 +38,7 @@
     margin-top: 15px;
 }
 .preview-demo-section .preview-demo-item.style-web .demo-item-download {
-    margin-top: 15px;
+    margin-top: 25px;
 }
 .preview-demo-section .preview-demo-item.style-single-download-btn .demo-item-download {
     margin-top: 50px;
@@ -70,10 +70,9 @@
 .preview-demo-section .preview-demo-item.style-web .demo-item-download .demo-item-download-btn {
     color: #fff;
     background-color: #00a4ff;
-    height: 25px;
-    line-height: 25px;
-    border: 1px solid #dfe0df;
-    margin-bottom: 10px;
+    height: 24px;
+    line-height: 24px;
+    margin-bottom: 6px;
 }
 .preview-demo-section .preview-demo-item .demo-item-download .demo-item-download-btn:hover {
     cursor: pointer;
@@ -106,7 +105,7 @@
             音视频通话、多人会议、KTV、语音聊天室、互动直播等
         </div>
         <div class="demo-item-download">
-            <img src="https://qcloudimg.tencent-cloud.cn/raw/033bd1e3f459d902dbf2c23479fec4da.png" data-nonescope="true">
+            <img src="https://web.sdk.qcloud.com/document/assets/ios-download.png" data-nonescope="true">
         </div>
     </div>
     <div class="preview-demo-item style-single-download-btn">
@@ -198,6 +197,10 @@
         </div>
     </div>
 </div> 
+
+## 产品能力
+<img src="https://qcloudimg.tencent-cloud.cn/raw/edfd7a42661fe0e42952ed4fea7ef8e8.png" width=760>
+
 
 ## 视频通话场景
 视频通话场景即两人或多人视频通话，支持 720P、1080P 高清画质；单个房间最多支持300人同时在线，最多支持50人同时开启摄像头。常见应用场景有1对1视频通话、300人视频会议、在线问诊、视频聊天、视频客服、视频面审、视频双录、在线理赔、视频狼人杀等。

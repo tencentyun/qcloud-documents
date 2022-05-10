@@ -1,6 +1,6 @@
 ## 操作场景
 
-该任务以 Java 客户端为例指导您使用VPC网络接入消息队列 CKafka 并收发消息。
+该任务以 Java 客户端为例指导您使用 VPC 网络接入消息队列 CKafka 并收发消息。
 
 其他语言客户端请参见 [SDK文档](https://cloud.tencent.com/document/product/597/54816)。
 
@@ -12,23 +12,10 @@
 
 ## 操作步骤
 
-### 步骤1：添加 Java 依赖库
+### 步骤1：准备配置
 
-在 pom.xml 中添加以下依赖。
-<dx-codeblock>
-:::  xml
-<dependency>
-    <groupId>org.apache.kafka</groupId>
-    <artifactId>kafka-clients</artifactId>
-    <version>0.10.2.2</version>
-</dependency>
-:::
-</dx-codeblock>
-
-
-### 步骤2：准备配置
-
-1. 创建消息队列 CKafka配置文件 kafka.properties。
+1. 将下载下来的 Demo 上传到同一个 VPC 下的Linux服务器，然后登录 linux 服务器，进入 javakafkademo 下的 VPC 目录。
+2. 修改 VPC 工程下的 resources 目录中的 kafka.properties。
 <dx-codeblock>
 :::  bash
 ## 配置接入网络，在控制台的实例详情页面接入方式模块的网络列复制。
@@ -48,47 +35,21 @@ group.id=XXX
 </thead>
 <tbody><tr>
 <td>bootstrap.servers</td>
-<td>接入网络，在控制台的实例详情页面<strong>接入方式</strong>模块的网络列复制。<br><img src="https://qcloudimg.tencent-cloud.cn/raw/92c4bc358a76dad482d1f9f349f064cd.png" alt=""></td>
+<td>接入网络，在控制台的实例详情页面<strong>接入方式</strong>模块的网络列复制。<br><img src="https://main.qcloudimg.com/raw/6d6a0aac948c718ec2f17f885c093292.png" alt=""></td>
 </tr>
 <tr>
 <td>topic</td>
-<td>topic名称，您可以在控制台上<strong>topic管理</strong>页面复制。<br><img src="https://qcloudimg.tencent-cloud.cn/raw/76d29a5331656d60ae97f28c63174d7b.png" alt=""></td>
+<td>topic名称，您可以在控制台上<strong>topic管理</strong>页面复制。<br><img src="https://main.qcloudimg.com/raw/5a7399a4080538f65858b855c8f6ffb0.png" alt=""></td>
 </tr>
 <tr>
 <td>group.id</td>
 <td>您可以自定义设置，demo运行成功后可以在<strong>Consumer Group</strong>页面看到该消费者组。</td>
 </tr>
 </tbody></table>
-2. 创建配置文件加载程序 CKafkaConfigurer.java。 
-<dx-codeblock>
-:::  JAVA
-public class CKafkaConfigurer {
 
-    private static Properties properties;
+### 步骤2：发送消息
 
-    public synchronized static Properties getCKafkaProperties() {
-        if (null != properties) {
-            return properties;
-        }
-        //获取配置文件kafka.properties的内容。
-        Properties kafkaProperties = new Properties();
-        try {
-            kafkaProperties.load(CKafkaProducerDemo.class.getClassLoader().getResourceAsStream("kafka.properties"));
-        } catch (Exception e) {
-            System.out.println("getCKafkaProperties error");
-        }
-        properties = kafkaProperties;
-        return kafkaProperties;
-    }
-}
-
-:::
-</dx-codeblock>
-
-
-### 步骤3：发送消息
-
-1. 编写生产消息程序 CKafkaProducerDemo.java。
+1. 编译并运行生产消息程序 CKafkaProducerDemo.java。
 <dx-codeblock>
 :::  java
 public class CKafkaProducerDemo {
@@ -144,21 +105,20 @@ public class CKafkaProducerDemo {
 }
 :::
 </dx-codeblock>
-2. 编译并运行 CKafkaProducerDemo.java 发送消息。
-3. 运行结果。
+2. 运行结果。
 <dx-codeblock>
 :::  bash
 Produce ok:ckafka-topic-demo-0@198
 Produce ok:ckafka-topic-demo-0@199
 :::
 </dx-codeblock>
-4. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的**topic管理**页面，选择对应的 topic ，单击**更多** > **消息查询**，查看刚刚发送的消息。
-![](https://qcloudimg.tencent-cloud.cn/raw/04560860c8f0625669dd0886c8c745db.png)
+3. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的**topic管理**页面，选择对应的 topic ，单击**更多** > **消息查询**，查看刚刚发送的消息。
+   ![](https://main.qcloudimg.com/raw/cca4f62e86898eec49d8a9cde7ae9fa8.png)
 
 
-### 步骤4：消费消息
+### 步骤3：消费消息
 
-1. 创建 Consumer 订阅消息程序 CKafkaConsumerDemo.java。
+1. 编译并运行 Consumer 订阅消息程序 CKafkaConsumerDemo.java。
 <dx-codeblock>
 :::  java
 public class CKafkaConsumerDemo {
@@ -215,13 +175,12 @@ public class CKafkaConsumerDemo {
 }
 :::
 </dx-codeblock>
-2. 编译并运行CKafkaConsumerDemo.java 消费消息。
-3. 运行结果。
+2. 运行结果。
 <dx-codeblock>
 :::  bash
 Consume partition:0 offset:298
 Consume partition:0 offset:299
 :::
 </dx-codeblock>
-4. 在  [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的**Consumer Group**页面，选择对应的消费组名称，在主题名称输入 topic 名称，单击**查询详情**，查看消费详情。
-![](https://qcloudimg.tencent-cloud.cn/raw/42e2a5fda9f9a494a9dc313877e87474.png)
+3. 在  [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的**Consumer Group**页面，选择对应的消费组名称，在主题名称输入 topic 名称，单击**查询详情**，查看消费详情。
+![](https://qcloudimg.tencent-cloud.cn/raw/4ac3c7bc3dbf64c6a0fe14591b4f0988.png)

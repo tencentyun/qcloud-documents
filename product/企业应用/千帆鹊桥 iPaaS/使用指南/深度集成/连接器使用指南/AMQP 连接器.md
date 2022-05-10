@@ -1,6 +1,6 @@
 ## 简介
 
-AMQP 连接器用于连接 RabbitMQ 集群和 iPaaS 集群，可消费 RAbbitMQ 集群的消息并作为集成流的 trigger，也可将集成流的消息生产发布到 RabbitMQ 集群中。
+AMQP 连接器用于连接 RabbitMQ 集群和腾讯云数据连接器集群，可消费 RAbbitMQ 集群的消息并作为集成流的 trigger，也可将集成流的消息生产发布到 RabbitMQ 集群中。
 
 AMQP 连接器遵从 AMQP 0.9.1 协议。AMQP 协议基本概念如下：
 

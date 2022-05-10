@@ -3,7 +3,7 @@
 
 Neo4j 设计 CQL（Cypher Query Language）查询语言，Neo4j 通过 CQL 可以进行 Neo4j 数据库的增删改查等相关操作，[CQL](https://neo4j.com/docs/cypher-manual/current/introduction/quering-updating-administering/) 的语法类似于 SQL，简单易读。
 
-iPaaS Neo4j 连接器可连接第三方 Neo4j 数据库系统并执行节点的增删改查和 CQL 操作。用户通过连接器配置来配置数据库的连接参数，配置成功后便可执行对应的数据库操作。
+Neo4j 连接器可连接第三方 Neo4j 数据库系统并执行节点的增删改查和 CQL 操作。用户通过连接器配置来配置数据库的连接参数，配置成功后便可执行对应的数据库操作。
 
 ## 连接器配置
 ### 配置参数

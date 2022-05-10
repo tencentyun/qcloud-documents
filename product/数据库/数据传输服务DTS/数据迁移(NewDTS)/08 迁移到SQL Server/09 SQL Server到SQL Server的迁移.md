@@ -8,11 +8,13 @@
 - 已 [创建云数据库 SQL Server](https://cloud.tencent.com/document/product/238/36822)。
 - 源数据库和目标数据库符合迁移功能和版本要求，请参见 [数据迁移支持的数据库](https://cloud.tencent.com/document/product/571/58686) 进行核对。
 - 已完成 [准备工作](https://cloud.tencent.com/document/product/571/59968)。
-- 当源实例非腾讯云 SQL Server 实例（公网/CVM 自建实例、其他云厂商实例）或腾讯云基础版 SQL Server 实例时，目标端需使用具有 sysadmin 权限的帐号进行迁移，且需要能够运行 xp_cmdshell 存储过程，当源实例为腾讯云高可用版和集群版 SQL Server 时，目标端帐号无权限限制。
-- 迁移源端的 SQL 服务启动需要改为 local，源端迁移的数据库账号无限制，但是需要有 sysadmin 权限。
 - 源数据库所在的服务要开放文件共享端口445。
 - 源数据库必须得设置为“完全恢复模式”，且在迁移前建议用户自己做下全量备份。
 - 源数据库所在本地磁盘空间需要足够大，剩余空闲空间能放下要迁移库的大小。 
+- 当源实例非腾讯云 SQL Server 实例（公网/CVM 自建实例、其他云厂商实例）或腾讯云基础版 SQL Server 实例时，目标端需使用具有 sysadmin 权限的帐号进行迁移，且需要能够运行 xp_cmdshell 存储过程，当源实例为腾讯云高可用版和集群版 SQL Server 时，目标端帐号无权限限制。
+- 迁移源端的 SQL 服务启动需要改为 local，源端迁移的数据库账号无限制，但是需要有 sysadmin 权限。
+![](https://qcloudimg.tencent-cloud.cn/raw/20d71b4aecb2e260cbc544f47ea3c533.png)
+如图所示，迁移源端的 SQL 服务启动，启动配置中的登录身份内置账户需要修改为 Local System。
 
 ## 应用限制
 - 同一源实例同一时间只能发起一个迁移任务。
@@ -86,8 +88,9 @@
 <ul><li>公网：源数据库可以通过公网 IP 访问。</li>
 <li>云主机自建：源数据库部署在 <a href="https://cloud.tencent.com/document/product/213">腾讯云服务器 CVM</a> 上。</li>
 <li>专线接入：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/216">专线接入</a> 方式与腾讯云私有网络打通。</li>
-<li>VPN接入：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/554">VPN 连接</a> 方式与腾讯云私有网络打通。</li>
+<li>VPN 接入：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/554">VPN 连接</a> 方式与腾讯云私有网络打通。</li>
 <li>云数据库：源数据库属于腾讯云数据库实例。</li>
+<li>云联网：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/877">云联网</a> 与腾讯云私有网络打通。</li>
 </ul>对于第三方云厂商数据库，一般可以选择公网方式，也可以选择 VPN 接入，专线或者云联网的方式，需要根据实际的网络情况选择。</td></tr>
 <tr>
 <td>数据库实例</td><td>选择源库的实例 ID。</td></tr>
@@ -133,3 +136,4 @@
       - 目标与源库数据差距为0MB及目标与源库时间延迟为0秒时，手动完成增量同步。
 7. （可选）如果您需要进行查看任务、删除任务等操作，请单击对应的任务，在**操作**列进行操作，详情可参考 [任务管理](https://cloud.tencent.com/document/product/571/58674)。
 8. 当迁移任务状态变为**任务成功**时，即可对业务进行正式割接，更多详情可参考 [割接说明](https://cloud.tencent.com/document/product/571/58660)。
+

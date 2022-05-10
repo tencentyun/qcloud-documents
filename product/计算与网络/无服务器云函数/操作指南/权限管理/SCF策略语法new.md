@@ -40,8 +40,8 @@ qcs::scf:region:uin/uin—id:namespace/namespace-name/function/function-name
             ],
             "resource": 
             [
-                "qcs::scf:gz:uin/******:namespace/default/function/Test1",
-                "qcs::scf:gz:uin/******:namespace/default/function/Test2"
+                "qcs::scf:ap-guangzhou:uin/******:namespace/default/function/Test1",
+                "qcs::scf:ap-guangzhou:uin/******:namespace/default/function/Test2"
             ]
          }
       ] 

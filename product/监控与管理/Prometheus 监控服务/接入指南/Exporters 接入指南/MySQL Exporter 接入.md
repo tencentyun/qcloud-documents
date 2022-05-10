@@ -93,7 +93,7 @@ spec:
             secretKeyRef:
               name: mysql-secret-test
               key: datasource
-        image: ccr.ccs.tencentyun.com/k8s-comm/mysqld-exporter:0.12.1
+        image: ccr.ccs.tencentyun.com/rig-agent/mysqld-exporter:v0.12.1
         imagePullPolicy: IfNotPresent
         name: mysql-exporter
         ports:

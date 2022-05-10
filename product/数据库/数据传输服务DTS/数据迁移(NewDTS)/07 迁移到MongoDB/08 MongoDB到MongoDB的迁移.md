@@ -76,7 +76,68 @@ db.createUser({
 3. 在设置源和目标数据库页面，完成任务设置、源库设置和目标库设置。  
 >?请在源实例创建一个只读帐号供迁移使用，否则迁移前校验步骤将不通过。
 >
-![](https://qcloudimg.tencent-cloud.cn/raw/ec050f3bc45cc7975219b5d3581d4ce7.png)
+**因源数据库部署形态和接入类型的交叉场景较多，各场景迁移步骤类似，如下仅提供典型场景的配置示例，其他场景请用户参考配置。**
+**示例一**：将本地自建 MongoDB（分片集群）通过专线接入方式迁移至腾讯云数据库。
+![](https://qcloudimg.tencent-cloud.cn/raw/0fcfb59e920ad50f6cbca9885811fa99.png)
+<table>
+<thead><tr><th width="10%">设置类型</th><th width="15%">配置项</th><th width="75%">说明</th></tr></thead>
+<tbody>
+<tr>
+<td rowspan=2>任务设置</td>
+<td>任务名称</td>
+<td>设置一个具有业务意义的名称，便于任务识别。</td></tr>
+<tr>
+<td>运行模式</td>
+<td><ul><li>立即执行：完成任务校验通过后立即启动任务。</li><li>定时执行：需要配置一个任务执行时间，到时间后启动任务。</li></ul></td></tr>
+<tr>
+<td rowspan=13>源库设置</td>
+<td>源库类型</td><td>购买时选择的源库类型，不可修改。</td></tr>
+<tr>
+<td>所属地域</td><td>购买时选择的源库地域，不可修改。</td></tr>
+<tr>
+<td>接入类型</td><td>请根据您的场景选择，本场景以“专线接入”为例，不同接入类型的准备工作请参考 <a href="https://cloud.tencent.com/document/product/571/59968">准备工作概述</a>。
+<ul><li>公网：源数据库可以通过公网 IP 访问。</li>
+<li>云主机自建：源数据库部署在 <a href="https://cloud.tencent.com/document/product/213">腾讯云服务器 CVM</a> 上。</li>
+<li>专线接入：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/216">专线接入</a> 方式与腾讯云私有网络打通。</li>
+<li>VPN接入：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/554">VPN 连接</a> 方式与腾讯云私有网络打通。</li>
+<li>云数据库：源数据库属于腾讯云数据库实例。</li>
+<li>云联网：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/877">云联网</a> 与腾讯云私有网络打通。</li><li>私有网络 VPC：源数据库和目标数据库都部署在腾讯云上，且有 <a hrref="https://cloud.tencent.com/document/product/215">私有网络</a>。</li></ul></td></tr>
+<tr>
+<td>架构</td><td>选择源库的架构形态，本场景以“集群迁移”为例进行介绍。</td></tr>
+<tr>
+<td>私有网络专线网关</td><td>专线接入时只支持私有网络专线网关，请确认网关关联网络类型。</tr>
+<tr>
+<td>私有网络</td><td>选择私有网络专线网关的私有网络和子网。</td></tr>
+<tr>
+<td>节点 - mongod</td><td>请输入mongod 节点 IP 和端口，多个节点请换行。示例：186.3.55.77:6379</td></tr>
+<tr>
+<td>节点 - mongos</td><td>请输入mongos 节点 IP 和端口。</td></tr>
+<tr>
+<td>节点 - Config Server</td><td>请输入 Config Server 节点的 IP 和端口。</td></tr>
+<tr>
+<td>是否需要认证</td><td>是否需要对源库中用户名和密码的安全性进行认证。</td></tr>
+<tr>
+<td>认证库</td><td>需要认证的库名，即执行迁移任务账号所属的数据库名称，例如 admin。</td></tr>
+<tr>
+<td>认证机制</td><td>当前支持 SCRAM-SHA-1。</td></tr>
+<tr>
+<td>账号及密码选择</td><td>源库三个节点 mongod、mongos、Config Server 的账号密码相同时选择“相同账号及密码”，否则选择“不同的账号及密码”，然后填写节点对应的账号和密码。</td></tr>
+<tr>
+<td rowspan=6>目标库设置</td>
+<td>目标库类型</td><td>购买时选择的目标库类型，不可修改。</td></tr>
+<tr>
+<td>所属地域</td><td>购买时选择的目标库地域，不可修改。</td></tr>
+<tr>
+<td>接入类型</td><td>本场景选择“云数据库”。</td></tr>
+<tr>
+<td>数据库实例</td><td>选择目标库的实例 ID。</td></tr>
+<tr>
+<td>帐号</td><td>目标库的数据库帐号，帐号权限需要满足要求。</td></tr>
+<tr>
+<td>密码</td><td>目标库的数据库帐号的密码。</td></tr>
+</tbody></table>
+<b>示例二</b>：将腾讯云数据库迁移至腾讯云数据库。
+<img src="https://qcloudimg.tencent-cloud.cn/raw/ec050f3bc45cc7975219b5d3581d4ce7.png" >
 <table>
 <thead><tr><th width="10%">设置类型</th><th width="15%">配置项</th><th width="75%">说明</th></tr></thead>
 <tbody>
@@ -96,13 +157,13 @@ db.createUser({
 <tr>
 <td>所属地域</td><td>购买时选择的源库地域，不可修改。</td></tr>
 <tr>
-<td>接入类型</td><td>请根据您的场景选择，本场景以“云数据库”为例，不同接入类型的准备工作请参考 <a href="https://cloud.tencent.com/document/product/571/59968">准备工作概述</a>。
+<td>接入类型</td><td>源数据库为腾讯云数据库实例时，选择“云数据库”。不同接入类型的准备工作请参考 <a href="https://cloud.tencent.com/document/product/571/59968">准备工作概述</a>。
 <ul><li>公网：源数据库可以通过公网 IP 访问。</li>
 <li>云主机自建：源数据库部署在 <a href="https://cloud.tencent.com/document/product/213">腾讯云服务器 CVM</a> 上。</li>
 <li>专线接入：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/216">专线接入</a> 方式与腾讯云私有网络打通。</li>
 <li>VPN接入：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/554">VPN 连接</a> 方式与腾讯云私有网络打通。</li>
 <li>云数据库：源数据库属于腾讯云数据库实例。</li>
-<li>云联网：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/877">云联网</a> 与腾讯云私有网络打通。</li></ul>对于第三方云厂商数据库，一般可以选择公网方式，也可以选择 VPN 接入，专线或者云联网的方式，需要根据实际的网络情况选择。</td></tr>
+<li>云联网：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/877">云联网</a> 与腾讯云私有网络打通。</li><li>私有网络 VPC：源数据库和目标数据库都部署在腾讯云上，且有 <a hrref="https://cloud.tencent.com/document/product/215">私有网络</a>。</li></ul></td></tr>
 <tr>
 <td>是否跨账号</td><td>接入类型选择“云数据库”时需要配置。<ul><li>本账号：源数据库实例和目标数据库实例所属的主账号为同一个腾讯云主账号。</li><li>跨账号：源数据库实例和目标数据库实例所属的主账号为不同的腾讯云主账号。跨账号操作指导请参见 <a href="https://cloud.tencent.com/document/product/571/54117">云数据库跨账号实例间迁移</a>。</li></ul></td></tr>
 <tr>
@@ -125,7 +186,62 @@ db.createUser({
 <tr>
 <td>密码</td><td>目标库的数据库帐号的密码。</td></tr>
 </tbody></table>
+<b>示例三</b>： 将阿里云 MongoDB （分片集群）通过公网方式迁移至腾讯云数据库。
+<table>
+<thead><tr><th width="10%">设置类型</th><th width="15%">配置项</th><th width="75%">说明</th></tr></thead>
+<tbody>
+<tr>
+<td rowspan=2>任务设置</td>
+<td>任务名称</td>
+<td>设置一个具有业务意义的名称，便于任务识别。</td></tr>
+<tr>
+<td>运行模式</td>
+<td><ul><li>立即执行：完成任务校验通过后立即启动任务。</li><li>定时执行：需要配置一个任务执行时间，到时间后启动任务。</li></ul></td></tr>
+<tr>
+<td rowspan=11>源库设置</td>
+<td>源库类型</td><td>购买时选择的源库类型，不可修改。</td></tr>
+<tr>
+<td>所属地域</td><td>购买时选择的源库地域，不可修改。</td></tr>
+<tr>
+<td>接入类型</td><td>对于第三方云厂商数据库，一般可以选择公网方式，也可以选择 VPN 接入，专线或者云联网的方式，需要根据实际的网络情况选择，本场景以“公网”为例。不同接入类型的准备工作请参考 <a href="https://cloud.tencent.com/document/product/571/59968">准备工作概述</a>。
+<ul><li>公网：源数据库可以通过公网 IP 访问。</li>
+<li>云主机自建：源数据库部署在 <a href="https://cloud.tencent.com/document/product/213">腾讯云服务器 CVM</a> 上。</li>
+<li>专线接入：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/216">专线接入</a> 方式与腾讯云私有网络打通。</li>
+<li>VPN接入：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/554">VPN 连接</a> 方式与腾讯云私有网络打通。</li>
+<li>云数据库：源数据库属于腾讯云数据库实例。</li>
+<li>云联网：源数据库可以通过 <a href="https://cloud.tencent.com/document/product/877">云联网</a> 与腾讯云私有网络打通。</li><li>私有网络 VPC：源数据库和目标数据库都部署在腾讯云上，且有 <a hrref="https://cloud.tencent.com/document/product/215">私有网络</a>。</li></ul></td></tr>
+<tr>
+<td>架构</td><td>选择源库的架构形态，本场景以“集群迁移”为例进行介绍。</td></tr>
+<tr>
+<td>节点 - mongod</td><td>请输入 mongod 节点 IP 和端口，多个节点请换行。示例：186.3.55.77:6379</td></tr>
+<tr>
+<td>节点 - mongos</td><td>请输入 mongos 节点 IP 和端口。</td></tr>
+<tr>
+<td>节点 - Config Server</td><td>请输入 Config Server 节点的 IP 和端口。</td></tr>
+<tr>
+<td>是否需要认证</td><td>是否需要对源库中用户名和密码的安全性进行认证。</td></tr>
+<tr>
+<td>认证库</td><td>需要认证的库名，即执行迁移任务账号所属的数据库名称，例如 admin。</td></tr>
+<tr>
+<td>认证机制</td><td>当前支持 SCRAM-SHA-1。</td></tr>
+<tr>
+<td>账号及密码选择</td><td>源库三个节点 mongod、mongos、Config Server 的账号密码相同时选择“相同账号及密码”，否则选择“不同的账号及密码”，然后填写节点对应的账号和密码。</td></tr>
+<tr>
+<td rowspan=6>目标库设置</td>
+<td>目标库类型</td><td>购买时选择的目标库类型，不可修改。</td></tr>
+<tr>
+<td>所属地域</td><td>购买时选择的目标库地域，不可修改。</td></tr>
+<tr>
+<td>接入类型</td><td>本场景选择“云数据库”。</td></tr>
+<tr>
+<td>数据库实例</td><td>选择目标库的实例 ID。</td></tr>
+<tr>
+<td>帐号</td><td>目标库的数据库帐号，帐号权限需要满足要求。</td></tr>
+<tr>
+<td>密码</td><td>目标库的数据库帐号的密码。</td></tr>
+</tbody></table>
 4. 测试源实例和目标实例的连通性。
+如果连通性测试未通过，请参考 [连通性测试不通过](https://cloud.tencent.com/document/product/571/62989) 进行处理。
 ![](https://main.qcloudimg.com/raw/43d1d1717e76331a9d2048428515cf75.png)
 5. 在设置迁移选项及选择迁移对象页面，设置迁移选项和迁移对象（可选择部分库表）。
 <img src="https://main.qcloudimg.com/raw/0392c50e0aa030d890c20f119e714579.png"  style="zoom:80%;">
