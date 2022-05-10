@@ -4,14 +4,13 @@
 
 ## 操作步骤
 
-### 查看 Topic 详情
+### 步骤1：查看 Topic 详情
 
 1. 登录 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 。
 2. 在左侧导航栏单击**实例列表**，单击目标实例的“ID/名称”，进入实例详情页。
 3. 在实例详情页，单击 **topic 管理**标签页，查看 Topic 信息，进入 Topic 列表页。
 4. 在 Topic 列表页，单击 Topic 名称左侧右三角符号，查看 Topic 详情。
-   ![](https://qcloudimg.tencent-cloud.cn/raw/8d51f634471a481d04d0557e87659dcf.png)
-
+![](https://qcloudimg.tencent-cloud.cn/raw/bda6f0af5afdae2b51bbaa5ecf8d0faa.png)
 <table>
     <thead>
     <tr>
@@ -58,7 +57,7 @@
 
 
 
-### 查看生产端连接关系
+### 步骤2：查看生产端连接关系
 
 1. 在实例列表页，单击目标实例的“ID/名称”，进入实例详情页。
 2. 在实例详情页，单击 **topic 管理**标签页，在操作栏单击**生产端连接关系**，查看与 Topic 连接的生产者列表信息。
