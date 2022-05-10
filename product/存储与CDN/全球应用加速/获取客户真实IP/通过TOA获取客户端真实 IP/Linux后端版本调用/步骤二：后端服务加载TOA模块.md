@@ -57,32 +57,42 @@ dmesg -T
 ### 方法二：自行编码并加载模块
 
 若上述下载文件中没有您的操作系统版本对应的安装包，请下载 Linux 通用版的源码包，进行编译后获取（以CentOS 环境为例）。
-1.	安装编译环境。
+
+1. 获取源码包
+   - centos7.0 及以上源码包
+```
+wget "http://thunder-pro-mainland-1258348367.cos.ap-guangzhou.myqcloud.com/gaap-toa%E6%BA%90%E7%A0%81(centos7%E4%BB%A5%E4%B8%8A).zip"
+```
+   - centos7.0 以下源码包
+```
+wget "http://thunder-pro-mainland-1258348367.cos.ap-guangzhou.myqcloud.com/gaap-toa%E6%BA%90%E7%A0%81(centos7%E4%BB%A5%E4%B8%8B).zip"
+```
+2.	安装编译环境。
 ```
 yum install gcc 
 yum install make
 yum install kernel-headers kernel-devel –y
 ```
-2.	解压源码包。
+3.	解压源码包。
 ```
 tar zxf toa_kernel_*.tar.gz
 ```
-3.	进入 TOA 目录。
+4.	进入 TOA 目录。
 ```
 cd toa
 ```
-4.	编译 make。
+5.	编译 make。
 ```
 make
 ```
-5.	移动并加载模块。
+6.	移动并加载模块。
 ```
 mv toa.ko /lib/modules/`uname -r`/kernel/net/netfilter/ipvs/toa.ko
 
 insmod /lib/modules/`uname 
 ¬-r`/kernel/net/netfilter/ipvs/toa.ko
 ```
-6.	查看是否加载成功。
+7.	查看是否加载成功。
 ```
 lsmod | grep toa
 ```
