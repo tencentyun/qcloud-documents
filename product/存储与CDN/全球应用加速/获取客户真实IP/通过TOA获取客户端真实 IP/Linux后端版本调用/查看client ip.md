@@ -1,4 +1,4 @@
-参考方法一：直接在nginx 日志中查看（日志路径：/var/log/nginx/access.log）
+参考方法一：直接在 nginx 日志中查看（日志路径：/var/log/nginx/access.log）
 
 参考方法二：使用 wireshark 查看 tcpdump 抓包获取为。
 
