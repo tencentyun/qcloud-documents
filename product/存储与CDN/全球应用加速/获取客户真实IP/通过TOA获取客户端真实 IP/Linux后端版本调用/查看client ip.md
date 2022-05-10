@@ -16,6 +16,6 @@ sudo tcpdump -i eth0 -w dump.pcap
 ```
 sz dump.pcap
 ```
-4.	wireshark 打开下载的dump.pcap文件，从TCP Option 中查看客户端真实IP。
+4.	wireshark 打开下载的 dump.pcap 文件，从 TCP Option 中查看客户端真实 IP。
 此字段后4个字节（十六进制）即为客户端真实 IP
 ![](https://qcloudimg.tencent-cloud.cn/raw/e6a057e69df76b553cc307001b75f2a6.png)
