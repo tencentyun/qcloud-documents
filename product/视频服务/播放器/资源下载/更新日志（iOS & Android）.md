@@ -3,7 +3,6 @@
 - Android&iOS：新增视频预下载功能。
 - Android&iOS：支持 onPrepared 事件之前播放器暂停（Pause）能力。
 - Android&iOS：支持 Pause 状态下切码流继续保持 Pause 状态。
-- Android：修复 SurfaceView 重复 Add 和 Remove 导致黑屏问题。
 - Android&iOS：优化播放性能。
 
 ### 播放器 SDK 9.5.29016 @ 2022.03.30
