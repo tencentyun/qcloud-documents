@@ -82,7 +82,7 @@ if (mXMagic != null) {
 	 mXMagic.onPause();
 }
 ```
-4. 在onDestroy 方法中添加如下代码：
+4. 在 onDestroy 方法中添加如下代码：
 ```java
 isPause = 3;
 XmagicPanelDataManager.getInstance().clearData();
