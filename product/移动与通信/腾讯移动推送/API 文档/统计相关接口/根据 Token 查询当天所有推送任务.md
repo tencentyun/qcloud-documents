@@ -30,7 +30,7 @@
 | -------- | ------ | -------------- |
 | pushId     | Integer |  推送任务 id       |
 | pushTime   | Integer    | 推送时间戳     |
-| pushTargetType    | String    | 推送类型   |
+| pushTargetType    | Array    | 推送类型   |
 
 
 ## 示例说明
