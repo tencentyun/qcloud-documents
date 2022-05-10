@@ -155,7 +155,6 @@
 <td>告警触发条件列表。可参考在线调用 AlarmPolicyRule 参数说明进行配置<ul><li> <strong>MetricName</strong>：填写 <a href="#preparationsteps">准备指标列表</a> 步骤返回中的 MetricName（Metrics.N.MetricName）</li><li><strong>Period</strong>：填写 <a href="#preparationsteps">准备指标列表</a> 步骤返回中的 Period（Metrics.N.MetricConfig.Period）</li><li><strong>Operator</strong>：填写 <a href="#preparationsteps">准备指标列表</a> 步骤返回中的 Operator（Metrics.N.MetricConfig.Operator）</li><li><strong>Value</strong>：填写阈值，不需要填写单位，例如80</li><li><strong>ContinuePeriod</strong>：填写 <a href="#preparationsteps">准备指标列表</a> 步骤返回中的 ContinuePeriod（Metrics.N.MetricConfig.ContinuePeriod）</li><li><strong>NoticeFrequency</strong>：告警频率（按秒计算）。参数说明：告警间隔，0=不重复 ；300=每5分钟告警一次； 600=每10分钟告警一次 ；900=每15分钟告警一次 1800=每30分钟告警一次；3600=每1小时告警一次； 7200=每2小时告警一次 ；10800=每3小时告警一次； 21600=每6小时告警一次； 43200=每12小时告警一次 ；86400=每1天告警一次</li><li><strong>IsPowerNotice</strong>：告警频率是否指数增长，0=否，1=是</li><li>其他参数无需填写</li></ul></td>
 </tr>
 </tbody></table>
-
 8. 在 NoticeIds.N 填写告警通知模板 Id ，例如 notice-qvq836vc。可通过 <dx-tag-link link="https://cloud.tencent.com/document/product/248/51280" tag="API">查询通知模板列表</dx-tag-link> 获得。
 9. 填写完以上参数后，单击**在线调用** > **发送请求**，如下图为成功创建云服务器—基础监控告警策略。
 ![](https://main.qcloudimg.com/raw/c671b947114a3058b57918b7b1a44d01.png)
