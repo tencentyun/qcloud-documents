@@ -22,15 +22,15 @@
 | ------------------------- | --------- | --------------------------------------------------- |
 | retCode                   | Integer       | 返回状态码                                         |
 | errMsg                    | String    | 错误信息                                            |
-| pushTaskList | string  | 推送参数 |
+| pushTaskList | pushTask  | 推送参数 |
 
-#### pushTaskList
+#### pushTask
 
 | 参数名称 | 类型   | 说明           |
 | -------- | ------ | -------------- |
 | pushId     | Integer |  推送任务 id       |
 | pushTime   | Integer    | 推送时间戳     |
-| pushTargetType    | string    | 推送类型   |
+| pushTargetType    | String    | 推送类型   |
 
 
 ## 示例说明
@@ -77,6 +77,6 @@
             "pushTime": 1651750200,
             "pushTargetType": "TAG_PUSH"
         }
-	]
+        ]
 }
 ```
