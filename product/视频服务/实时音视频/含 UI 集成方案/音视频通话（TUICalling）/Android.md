@@ -1,6 +1,6 @@
 ## 组件介绍
 
-TUICalling 是一个开源的音视频 UI 组件，通过在项目中集成 TUICalling 组件，您只需要编写几行代码就可以为您的 App 添加“一对一音视频通话”，“多人音视频通话”等场景，并且支持离线唤起能力。TUICalling  同时支持 iOS、Web、小程序、Flutter、UniApp 等平台，基本功能如下图所示：
+TUICalling 是一个开源的音视频 UI 组件，通过在项目中集成 TUICalling 组件，您只需要编写几行代码就可以为您的 App 添加“一对一音视频通话”场景，并且支持离线唤起能力。TUICalling  同时支持 iOS、Web、小程序、Flutter、UniApp 等平台，基本功能如下图所示：
 
 <table class="tablestyle">
 <tbody><tr>
@@ -92,16 +92,12 @@ TUICalling callingImpl = TUICallingImpl.sharedInstance(context);
 
 
 ### 步骤四：实现音视频通话
-- **实现1对1视频通话/音频通话 [TUICalling#call](https://cloud.tencent.com/document/product/647/47712#call)**
+**实现1对1视频通话/音频通话 [TUICalling#call](https://cloud.tencent.com/document/product/647/47712#call)**：
 ```java
 // 发起1对1视频通话，假设userId为：1111；
 callingImpl.call(["1111"], TUICalling.Type.VIDEO);
 ```
-- **实现多人视频通话**：
-```java
-// 发起多人视频通话，假设userId分别为：1111、2222、3333；
-callingImpl.call(["1111", "2222", "3333"], TUICalling.Type.VIDEO);
-```
+
 
 >? 
 >- 当接收方完成步骤三后，即登录成功后，再收到通话请求后，TUICalling 组件会自动启动相应的接听界面。    
