@@ -52,7 +52,7 @@ Token 鉴权为一种访问控制策略，通过配置鉴权规则进行访问�
 ### 方式 A
 
 #### 鉴权 URL 格式
-```
+```js.
 http://Hostname/Filename?sign=timestamp-rand-uid-md5hash
 ```
 
@@ -71,7 +71,7 @@ http://Hostname/Filename?sign=timestamp-rand-uid-md5hash
 ### 方式 B
 
 #### 鉴权 URL 格式
-```
+```js.
 http://Hostname/timestamp/md5hash/Filename
 ```
 
