@@ -88,7 +88,7 @@ http://Hostname/timestamp/md5hash/Filename
 
 **鉴权 URL 格式**
 
-```
+```js.
 http://Hostname/md5hash/timestamp/Filename
 ```
 
