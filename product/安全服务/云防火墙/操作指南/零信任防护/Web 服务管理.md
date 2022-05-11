@@ -26,7 +26,7 @@ Web 服务接入云防火墙的载体是 NAT 边界防火墙，基于反代的�
 
 ## Web 服务实例添加
 通过资产中心的同步资产手动进行同步或者手动添加的方式，及时将 Web 服务资产同步到资产中心，以便执行接入防护的操作。
-1. 登录 [云防火墙控制台](https://console.cloud.tencent.com/cfw/identityauth)，在左侧导航栏中，选择**零信任接入** > **Web 服务管理**。
+1. 登录 [云防火墙控制台](https://console.cloud.tencent.com/cfw/identityauth)，在左侧导航栏中，选择**零信任防护** > **Web 服务管理**。
 2. 在 Web 服务管理页面，单击**手动添加**，添加未被资产中心识别到的 Web 资产。
 ![](https://qcloudimg.tencent-cloud.cn/raw/8f508e4d703db55b9b1e73e8f40ba0fb.png)
 3. 在手动添加弹窗中，配置相关参数，单击**确定**。
