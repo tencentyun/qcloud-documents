@@ -14,11 +14,11 @@
 3. 单击 SQL 模板列下，对应的某条聚合的 SQL 模板行，如上图的红框显示，右侧边会弹出 SQL 的具体分析和统计数据。
    - 在分析页，您可查看完整的 SQL 模板、SQL 样例以及优化建议和说明，您可根据 DBbrain 给出的专家建议优化 SQL，提升 SQL 质量，降低延迟。
    其中，在**分析 > 执行计划**页签，提供可视化的分析结果，可视化图可以放大，缩写，全屏显示，单击可视化图上的数字和图标，也可查看进一步详情。
-   ![](https://qcloudimg.tencent-cloud.cn/raw/c86fd5ec207ec83ee273a225ba7c25d9.png)
+	 ![](https://qcloudimg.tencent-cloud.cn/raw/49815b230ebd02c008e7eb327ca6d1f4.png)
    - 在统计页，您可根据统计报表的总锁等待时间占比、总扫描行数占比、总返回行数占比，横向分析该条慢 SQL 产生的具体原因，以及进行对应优化，同时您还可以查看该类型的 SQL（聚合后汇总的）运行的时间分布区间，以及来源 IP 的访问占比。
    ![](https://qcloudimg.tencent-cloud.cn/raw/1989b9658c6b93340d1834d466ed661e.png)
    - 在明细页，可查看详细的 SQL 执行明细信息。
-   ![](https://qcloudimg.tencent-cloud.cn/raw/8e61ef17a8087798fdba0429d8c8f4f4.png)
+	 ![](https://qcloudimg.tencent-cloud.cn/raw/5d29cb7dfcbe2d80e29d857d59393761.png) 
 4. 导出慢 SQL 数据。
    在 SQL 列表的右侧，单击**导出**，可将慢 SQL 分析数据以 CSV 格式导出到本地，方便用户查看。
    ![](https://qcloudimg.tencent-cloud.cn/raw/64173f50194bd8746b9209af34fe45e0.png)

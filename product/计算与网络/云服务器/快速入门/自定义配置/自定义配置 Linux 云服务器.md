@@ -38,7 +38,7 @@
  
 ## 设置主机
 1. 根据页面提示，配置以下信息：
-![](https://qcloudimg.tencent-cloud.cn/raw/63c55445cf85a5106c448e4c28a0abc1.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/4390479658ad993f283ddca8ace755e4.png)
 <table>
   <tr>
 	<th style="width: 20%">类别</th>
@@ -83,6 +83,11 @@
 	  <li>
 	  <b>自动生成密码</b>：自动生成的密码将会以 <a href="https://console.cloud.tencent.com/message">站内信</a> 方式发送。</li>
 	</ul></td>
+  </tr>
+	<tr>
+	<td>实例销毁保护</td>
+	<td>可选</td>
+	<td>默认不开启。可根据实际需求勾选，开启实例销毁保护后将无法通过控制台或 API 销毁实例。更多关于实例销毁保护介绍，请参见 <a href="https://cloud.tencent.com/document/product/213/73582">开启实例销毁保护</a>。</td>
   </tr>
   <tr>
 	<td>安全加固</td>

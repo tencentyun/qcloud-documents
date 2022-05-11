@@ -21,7 +21,8 @@ SQL 优化不仅能够为用户提供的专家级别的 SQL 优化建议，同�
    ![](https://qcloudimg.tencent-cloud.cn/raw/0e20a75bd43b10b589e9bb091eab4d82.png)
  - 单击**执行**，可以执行输入的 SQL 语句，也可以查看执行结果和执行历史，同时支持清除执行结果的记录。
 >?未登录状态只能查看 SQL 执行计划，如需要进行 SQL 优化等操作，请先登录需要执行操作的数据库。
-   ![](https://qcloudimg.tencent-cloud.cn/raw/9bd8cb08c809f56f46c039acbae4783e.png)
+>
+![](https://qcloudimg.tencent-cloud.cn/raw/9bd8cb08c809f56f46c039acbae4783e.png)
  - 单击**执行历史**，可以查看 SQL 的执行历史，也可以切换查看当前会话历史和所有会话历史。
    ![](https://qcloudimg.tencent-cloud.cn/raw/e66b88f2a92c37ce058861412ad7100a.png)
  - 单击**执行计划**，可以查看 SQL 的执行计划详情和优化建议，具体请参考 [可视化执行计划](#kshjhxq)。

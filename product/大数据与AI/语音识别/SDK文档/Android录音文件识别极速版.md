@@ -96,9 +96,9 @@ public QCloudFlashRecognizer(String appId, String secretId, String secretKey);
  */
 public long recognize(QCloudFlashRecognitionParams params) throws Exception;
 ```
-**QCloudFlasheRecognizerListener**：识别结果回调
+**QCloudFlashRecognizerListener**：识别结果回调
 ```
-public interface QCloudFileRecognizerListener {
+public interface QCloudFlashRecognizerListener {
     /**
      * 识别结果回调
      * @param recognizer 录音文件识别实例
