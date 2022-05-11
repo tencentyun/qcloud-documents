@@ -33,17 +33,25 @@ Filetruck 为一次性迁移工具，如在迁移过程中修改源文件，可�
 
 ## 准备工作
 
-在迁移工作开始前，用户需要先下载并安装filetruck迁移工具。
-### 1. 下载cfs-filetruck工具
+在迁移工作开始前，用户需要先下载并安装 Filetruck 迁移工具。
+1. 执行如下命令，下载 cfs-filetruck 工具。
+```
 wget https://cfsturbo-client-1251013638.cos.ap-guangzhou.myqcloud.com/tools/cfs-filetruck.tar.gz
-### 2. 解压工具
+```
+2. 执行如下命令，解压工具。
+```
 tar -xzvf cfs-filetruck.tar.gz
-### 3. 校验MD5值
+```
+3. 执行如下命令，校验 MD5 值。
+```
 cd ./cfs-filetruck/ && md5sum *
 cat ./md5sum.txt
-### 4. 安装cfs-filetruck
+```
+4. 执行如下命令，安装 cfs-filetruck。
+```
 sudo mv ./filetruck_client /usr/local/bin
 sudo mv ./server_filetruck /usr/local/bin
+```
 
 
 ## 操作步骤
