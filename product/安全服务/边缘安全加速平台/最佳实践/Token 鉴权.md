@@ -100,3 +100,23 @@ http://Hostname/md5hash/timestamp/Filename
 | Filename  | 实际回源访问的 URL，需以`/`开头                              |
 | timestamp | 访问 URL 中携带的时间戳<br/>格式：十六进制（UNIX 时间戳）    |
 | md5hash   | 通过 MD5 算法计算出的字符串<br/>算法：MD5（自定义密钥+ /Filename + timestamp ）<br/><br/>若请求未过期，则节点比较此字符串值与访问请求中携带的 `md5hash` 值：<li>两值相同，鉴权通过，响应请求</li><li> 两值不同，鉴权失败，返回403</li> |
+
+
+### 方式 D
+
+#### 鉴权 URL 格式
+
+```js.
+http://Hostname/Filename?sign=md5hash&t=timestamp
+```
+
+#### 参数说明
+
+| 字段      | 说明                                                         |
+| :-------- | :----------------------------------------------------------- |
+| Hostname  | 站点加速域名                                                 |
+| Filename  | 实际回源访问的 URL，需以`/`开头                              |
+| sign      | 您自定义设置的鉴权参数名称                                   |
+| t         | 您自定义设置的时间戳参数名称                                 |
+| timestamp | 访问 URL 中携带的时间戳<br>格式：十进制（UNIX 时间戳）；十六进制（UNIX 时间戳） |
+| md5hash   | 通过 MD5 算法计算出的字符串：MD5（自定义密钥 + /Filename + timestamp） <br/>若请求未过期，则节点比较此字符串值与访问请求中携带的 `md5hash` 值：<br/>- 两值相同，鉴权通过，响应请求<br/>- 两值不同，鉴权失败，返回403 |
