@@ -6,7 +6,7 @@
 
 腾讯云官网已注册且完成 [实名认证](https://cloud.tencent.com/document/product/378/3629) 的国内站用户（包括协作者与子用户账号）。
 
-## 活动入口，
+## 活动入口
 [购买数据迁移任务](https://buy.cloud.tencent.com/migration)、[购买数据同步任务](https://buy.cloud.tencent.com/replication)。
 
 ## 活动规则
