@@ -88,7 +88,7 @@ S 系列高级套餐提供高级美型功能，适用于对脸部美颜调整需
 </tr>
 </thead>
 <tbody><tr>
-<td >高级版 S1 - 01</td>
+<td >高级版 S1 - 00</td>
 <td ><a href="">DOWNLOAD</a></td>
 <td ><a href="">DOWNLOAD</a></td>
 <td rowspan=5>

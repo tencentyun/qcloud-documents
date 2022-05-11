@@ -1,6 +1,6 @@
 ## 操作场景
 
-腾讯云云服务器 Windows Server 2012 R2、Windows Server 2016和 Windows Server 2019通过安装 Virtio 网卡驱动程序来优化虚拟化硬件的网络性能。腾讯云会持续改进网卡驱动，用于提升性能和解决故障。本文档将指导您如何更新 Virtio 网卡驱动，以及查看驱动版本。
+腾讯云云服务器 Windows Server 2008 R2、Windows Server 2012 R2、Windows Server 2016和 Windows Server 2019通过安装 Virtio 网卡驱动程序来优化虚拟化硬件的网络性能。腾讯云会持续改进网卡驱动，用于提升性能和解决故障。本文档将指导您如何更新 Virtio 网卡驱动，以及查看驱动版本。
 
 ## 前提条件
 

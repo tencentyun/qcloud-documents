@@ -1,11 +1,10 @@
 
 
 ## 获取方式
-### 方式一：使用 API 获取小程序 openid
 
 我们可以通过微搭提供的 API 接口进行小程序 openid 的获取，API 使用说明请参见 [获取小程序信息](https://cloud.tencent.com/document/product/1301/56702#.E8.8E.B7.E5.8F.96.E5.B0.8F.E7.A8.8B.E5.BA.8F.E4.BF.A1.E6.81.AF)。
 
-### 方式二：通过事件触发获取 openid
+### 场景一：通过事件触发获取 openid
 
 1. 我们可以在编辑器中通过低码编辑器调用API来实现获取小程序 openid 的方法，代码示例如下：
 ![](https://qcloudimg.tencent-cloud.cn/raw/631027d3585a6a246ce59f0cc4106906.png)
@@ -29,7 +28,7 @@ console.log(a.OPENID);
 
 
 
-### 方式三：在生命周期中获取 openid
+### 场景二：在生命周期中获取 openid
 
 1. 我们同样可以通过在生命周期中实现当页面加载时获取 openid 的效果，代码示例如下：
 ![](https://qcloudimg.tencent-cloud.cn/raw/9764b4fd2393d5ab8698c0532681c473.png)
