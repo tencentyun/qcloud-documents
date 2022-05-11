@@ -68,7 +68,7 @@ Web 服务接入防护之后，在 [Web 服务管理页面](https://console.clou
 - 取消接入：对已生成防护的 Web 实例，取消对 Web 服务的防护。勾选接入方法一栏的取消接入，单击**确定**。
  ![](https://qcloudimg.tencent-cloud.cn/raw/c058afb2eeb320759e05491a094e53c4.png)
 - 修改防护方式：将防护模式切换为基础防护或者是高级防护。
->!如果选择高级防护，则需要勾选启用https，选择基础防护可不勾选。
+>!如果选择高级防护，则需要勾选启用 https，选择基础防护可不勾选。
 >
 ![](https://qcloudimg.tencent-cloud.cn/raw/7b1ef6c686b7fc4d6b0edba06f78f7f1.png)
 - 修改访问端口：访问端口支持自定义修改。
