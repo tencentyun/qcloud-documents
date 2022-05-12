@@ -5,8 +5,8 @@ TMIO SDK 当前已对流媒体协议 SRT 进行了封装优化，将会持续增
 ### 能力优势
 - 多平台支持，包括 Android、iOS、Linux、Mac 和 windows。
 - 灵活的选择接入方式。
-- 零代码入侵的代理模式， 请参见 [接入简介](#代理模式)。
-- 依托简单的 API 设计，可实现快速接入替换原有传输协议，请参见 [接入简介](#内部集成)。
+- 零代码入侵的代理模式， 请参见 [接入简介](#choose)。
+- 依托简单的 API 设计，可实现快速接入替换原有传输协议，请参见 [接入简介](#internal)。
 - API 接口设计简单，兼容性灵活性强。
 - 提供简单易用的接口设计。
 - 可根据业务需求场景选择合适的模式和策略。
@@ -39,6 +39,7 @@ TMIO SDK 当前已对流媒体协议 SRT 进行了封装优化，将会持续增
 ## 接入方法
 以 RTMP over SRT 协议为例：
 
+[](id:choose)
 ### 选择代理模式
 #### Tmio Proxy 模式接入方式：
 ![](https://qcloudimg.tencent-cloud.cn/raw/137c7bccf3021ea66f3275ef3a058acc.jpeg)
@@ -147,6 +148,7 @@ void stop();
 proxy_.stop();
 ```
 
+[](id:internal)
 ### 内部集成
 #### Tmio SDK 内部集成接入方式
 ![](https://qcloudimg.tencent-cloud.cn/raw/ffad74f4bebbc9cea6eb780a937dc0b9.jpeg)
