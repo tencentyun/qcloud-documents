@@ -43,7 +43,7 @@ Web Demo 是基于 IM TUIKit 实现，TUIKit 中包含会话、聊天、群组�
 
 ```shell
 # 命令行执行
-git clone https://github.com/tencentyun/TIMSDK.git
+git clone https://github.com/TencentCloud/TIMSDK.git
 
 # 进入 Web 项目
 
@@ -77,4 +77,4 @@ yarn serve
 
 - [SDK API 手册](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html)
 - [SDK 更新日志](https://cloud.tencent.com/document/product/269/38492)
-- [Demo 源码](https://github.com/tencentyun/TIMSDK/tree/master/Web/Demo)
+- [Demo 源码](https://github.com/TencentCloud/TIMSDK/tree/master/Web/Demo)

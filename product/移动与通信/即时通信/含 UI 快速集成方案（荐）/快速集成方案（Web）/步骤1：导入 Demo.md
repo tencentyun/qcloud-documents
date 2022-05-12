@@ -35,13 +35,13 @@ TUIKit 是基于 IM SDK 实现的一套 UI 组件，其包含会话、聊天、�
 
 ### 步骤二：下载 TUIKit
 
-从 [GitHub 下载](https://github.com/tencentyun/TIMSDK/tree/master/Android) TUIKit 源码。复制 TUIKit 文件夹放置到自己到工程文件中，例如：
+从 [GitHub 下载](https://github.com/TencentCloud/TIMSDK/tree/master/Web) TUIKit 源码。复制 TUIKit 文件夹放置到自己到工程文件中，例如：
 
 ![](https://web.sdk.qcloud.com/im/demo/TUIkit/document-image/integrate.png)
 
 ### 步骤三：生成 usesig
 
-1. 从 [GitHub 下载](https://github.com/tencentyun/TIMSDK/tree/master/Web/Demo) GenerateTestUserSig 工具包。并复制到项目中，例如：
+1. 从 [GitHub 下载](https://github.com/TencentCloud/TIMSDK/tree/master/Web/Demo) GenerateTestUserSig 工具包。并复制到项目中，例如：
 
 ![](https://web.sdk.qcloud.com/im/demo/TUIkit/document-image/userSig-catalogue.png)
 
