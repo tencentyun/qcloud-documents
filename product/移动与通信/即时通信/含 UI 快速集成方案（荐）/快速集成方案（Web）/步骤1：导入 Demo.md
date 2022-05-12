@@ -28,17 +28,15 @@ TUIKit 是基于 IM SDK 实现的一套 UI 组件，其包含会话、聊天、�
 > 
 > ```shell
 > cd projectName  // 进入您的项目
-> yarn add sass sass-loader@10.1.1
-> ```
+> yarn add sass sass-loader@10.1.1```
 
 ### 步骤2：下载 TUIKit 组件
 从 [GitHub 下载](https://github.com/TencentCloud/TIMSDK/tree/master/Web) TUIKit 源码。复制 TUIKit 文件夹放置到自己到工程文件中，例如：
-![](https://qcloudimg.tencent-cloud.cn/raw/439be8d9fa36d879a8e8f29218bf7702.png)
-
+<img style="width:400px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/439be8d9fa36d879a8e8f29218bf7702.png" />
 ### 步骤3：生成 UserSig
 
 1. 从 [GitHub 下载](https://github.com/TencentCloud/TIMSDK/tree/master/Web/Demo) GenerateTestUserSig 工具包，并复制到项目中，例如：
-![](https://qcloudimg.tencent-cloud.cn/raw/0ff01d6c199f0735ec1788ab79a10026.png)
+<img style="width:400px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/0ff01d6c199f0735ec1788ab79a10026.png" />
 
 2. 设置`GenerateTestUserSig`文件中的相关参数，其中 SDKAppID 和密钥等信息，可通过 [即时通信 IM 控制台](https://console.cloud.tencent.com/im) 获取，单击目标应用卡片，进入应用的基础配置页面。  
   [![](https://qcloudimg.tencent-cloud.cn/raw/e435332cda8d9ec7fea21bd95f7a0cba.png)](https://camo.githubusercontent.com/20575292024f27b76db87d6688e57f16d38b579b249054466668b596975dd30e/68747470733a2f2f71636c6f7564696d672e74656e63656e742d636c6f75642e636e2f7261772f65343335333332636461386439656337666561323162643935663761306362612e706e67)
