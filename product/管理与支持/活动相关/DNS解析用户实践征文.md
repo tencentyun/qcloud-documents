@@ -12,8 +12,11 @@
 （6） 投稿内容一经采用，将会被纳入官方产品文档，腾讯云拥有使用权。
 
 ## 参与方式
-扫描下方二维码 或者 [单击此处](https://doc.weixin.qq.com/forms/AJEAIQdfAAoAHsAXwboACcKlWsT7azRuf)  进行投稿。
-![](https://qcloudimg.tencent-cloud.cn/raw/ade68565bb1b64f61234191321d4b5d2.png)
+
+1. 扫码加入活动交流群
+![](https://qcloudimg.tencent-cloud.cn/raw/aeddd4c52df7b69f32cd1341f228ccd1.png)
+2. 扫描下方二维码 或者 [单击此处](https://doc.weixin.qq.com/forms/AJEAIQdfAAoAHsAXwboACcKlWsT7azRuf)  进行投稿。
+![](https://qcloudimg.tencent-cloud.cn/raw/6ae9bfb2324dc1a83f6b9157064b417b.png)
 
 （移动端如果无法长按扫码，建议先保存本地再扫描）
 [「腾讯云 DNS 解析“用户实践”有奖征文」 投稿登记表](https://doc.weixin.qq.com/forms/AJEAIQdfAAoAHsAXwboACcKlWsT7azRuf)
