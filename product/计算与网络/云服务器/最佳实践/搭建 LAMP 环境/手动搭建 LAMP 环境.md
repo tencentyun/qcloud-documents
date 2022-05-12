@@ -130,7 +130,7 @@ ServerName localhost:80
 AddType application/x-httpd-php .php
 AddType application/x-httpd-php-source .phps
 ```
-5. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
+5. 按 **Esc**，输入 **:wq**，保存文件并返回。
 6. 执行以下命令，重启 Apache 服务。
 ```shellsession
 systemctl restart httpd
