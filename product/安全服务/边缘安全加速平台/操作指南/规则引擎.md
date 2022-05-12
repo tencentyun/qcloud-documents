@@ -105,7 +105,7 @@
 
 希望对当前站点 example.com 创建更细粒度规则，针对两个子域名 `www.example.com` 和 `blog.example.com` 自定义缓存策略，并增加 HTTP 请求头表明是从 EdgeOne 节点请求回源：
 #### www.example.com 规则
-```
+```js.
 IF 
 Host 等于 www.example.com
 
@@ -116,7 +116,7 @@ THEN
 ```
 
 #### blog.example.com 规则
-```
+```js.
 IF
 Host 等于 blog.example.com
 
