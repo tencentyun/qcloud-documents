@@ -23,8 +23,11 @@
 
 ## 身份证 NFC 识别结果查询接口
 ### 请求
-请求 URL：https://miniprogram-kyc.tencentcloudapi.com/api/v2/nfcpaas/getIdcardNfcResult
+请求 URL：`https://miniprogram-kyc.tencentcloudapi.com/api/v2/nfcpaas/getIdcardNfcResult?orderNo=xxx`
+>! 为方便查询耗时，该请求 url 后面请拼接 orderNo 订单号参数。
+>
 请求方法：POST。
+报文格式：`Content-Type: application/json`。
 请求参数：
 
 | 参数 | 说明 | 类型 |	长度（字节） | 是否必填 |
@@ -36,7 +39,7 @@
 | sign| 签名值，使用本页第一步生成的签名| 字符串| 40| 是| 
 | reqId| 本次身份证NFC读取唯一标识| 字符串| 40| 是| 
 
-请求示例：`https://miniprogram-kyc.tencentcloudapi.com/api/v2/nfcpaas/getIdcardNfcResult`
+请求示例：`https://miniprogram-kyc.tencentcloudapi.com/api/v2/nfcpaas/getIdcardNfcResult?orderNo=xxx`
 
 
 ### 响应
@@ -209,7 +212,7 @@ public class SM4 {
         return bytes;
     }
     /**
-     * 接入方拿到key 先可以跑通下面的案例，并认真阅读 1，2，3，4
+     * 接入方拿到key（即控制台申请的 NFC 秘钥） 先可以跑通下面的案例，并认真阅读 1，2，3，4
      * 项目所依赖的类：
      * List utils = [
      * "commons-io:commons-io:2.7"，

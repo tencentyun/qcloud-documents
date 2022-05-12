@@ -24,7 +24,7 @@
 #### 1. 下载时处理
 
 ```plaintext
-download_url?imageMogr2/thumbnail/imageMogr2/strip
+download_url?imageMogr2/strip
 ```
 
 #### 2. 上传时处理

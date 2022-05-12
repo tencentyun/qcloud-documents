@@ -18,7 +18,9 @@ TRTCCloud.enterRoom() 在进房失败时会触发此类错误码，您可以通�
 |ERR_USER_ID_INVALID|-3319|进房参数 userID 不正确|
 |ERR_USER_SIG_INVALID|-3320|进房参数 userSig 不正确|
 |ERR_ROOM_REQUEST_ENTER_ROOM_TIMEOUT|-3308|请求进房超时，请检查网络|
+| ERR_SERVER_INFO_PRIVILEGE_FLAG_ERROR | -100006 | 权限位校验失败，请检查 privateMapKey 是否正确 |
 |ERR_SERVER_INFO_SERVICE_SUSPENDED|-100013|服务不可用。请检查：套餐包剩余分钟数是否大于0，腾讯云账号是否欠费|
+| ERR_SERVER_INFO_ECDH_GET_TINYID      | -100018 | userSig 校验失败，请检查 userSig 是否正确 |
 
 
 ### 退房相关错误码
