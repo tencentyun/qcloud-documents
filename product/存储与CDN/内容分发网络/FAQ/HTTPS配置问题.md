@@ -43,7 +43,7 @@ HTTPS，是指超文本传输安全协议（Hypertext Transfer Protocol Secure�
 >- 不可关闭全部版本。如需配置可参考文档 [配置指南](https://cloud.tencent.com/document/product/228/44868)。
 
 ###  CDN 如何开启 QUIC？
-CDN 支持 QUIC，详情请参见  [QUIC](https://cloud.tencent.com/document/product/228/51800)。
+CDN 支持 QUIC，如何开启请参考  [QUIC](https://cloud.tencent.com/document/product/228/51800)。
 
 
 ###  CDN 是否支持证书证书自动续签？
@@ -55,10 +55,10 @@ CDN 支持 QUIC，详情请参见  [QUIC](https://cloud.tencent.com/document/pro
 ###  如何批量配置 CDN 证书？
 若您拥有多域名证书或泛域名证书，可适用于多个 CDN 加速域名，您可以通过批量配置，一次性为多个域名添加配置。
 
-请参考证书管理中的 批量配置证书 。
+请参考证书管理中的 [批量配置证书](https://cloud.tencent.com/document/product/228/41687#.E6.89.B9.E9.87.8F.E9.85.8D.E7.BD.AE) 。
 
 ### 如何查看 HTTPS 请求数的使用情况
-您可在控制台通过实时监控-访问监控，在协议
+您可在控制台通过**实时监控** > **访问监控** ，在 HTTP 协议选择 HTTPS 单击**查询**即可获取到 HTTPS 使用数据。
 ![](https://qcloudimg.tencent-cloud.cn/raw/60b0948bc41374cafd93fe74c6a8e32c.png)
 
 ###  CDN 上的 HTTPS 证书和源站服务器的证书冲突了怎么办？
