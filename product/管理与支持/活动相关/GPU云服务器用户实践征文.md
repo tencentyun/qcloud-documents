@@ -1,8 +1,8 @@
 产品使用攻略、上云技术实践，有奖征集，价值4000元大礼包等您带回家～
 
-![](https://qcloudimg.tencent-cloud.cn/raw/8a0731a94e2adb2ef860397d4c38d30a.png)
-![](https://qcloudimg.tencent-cloud.cn/raw/1bd973e85d4b0138a983223f64e6ae6a.png)
-![](https://qcloudimg.tencent-cloud.cn/raw/d5a2eefdc2dbcad29469e2717cd0b4df.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/70fc602c9cfa73ddb756b576386de487.jpg)
+![](https://qcloudimg.tencent-cloud.cn/raw/3e5f7b45a25567aff4d7a2679a1db5fc.jpg)
+![](https://qcloudimg.tencent-cloud.cn/raw/52bf7d2463dddbfdee4ee8ba43ebc4bd.jpg)
 
 ## 投稿说明
 
