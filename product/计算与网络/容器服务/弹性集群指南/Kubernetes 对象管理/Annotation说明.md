@@ -1,9 +1,9 @@
 ## 工作负载 pod template annotation 说明
-您可以通过在 yaml 中定义 `spec.template.metadata.annotations` 的方式，实现为 Pod 绑定安全组、分配资源等能力。配置方法见下表：
+您可以通过在 yaml 中定义 `metadata.annotations` 的方式，实现为 Pod 绑定安全组、分配资源等能力。配置方法见下表：
 
-<dx-alert infotype="notice" title="">
+<dx-alert infotype="notice" title=" ">
 - 如果不指定安全组，则 Pod 会默认绑定同地域的 `default` 安全组。请确保 `default` 安全组的网络策略不影响该 Pod 正常工作。
-- 如需通过 annotation 指定的方式分配 CPU 资源，则必须同时填写 `cpu` 和 `mem` 2个 annotation，且数值必须符合 [资源规格](https://cloud.tencent.com/document/product/457/39808) 中的 CPU 规格。另外，可以通过 `cpu-type` 指定分配 intel 或 amd CPU，其中 amd 具备更高的性价比，详情请参考 [产品定价](https://cloud.tencent.com/document/product/457/39806)。 
+- 如需通过 annotation 指定的方式分配 CPU 资源，则必须同时填写 `cpu` 和 `mem` 2个 annotation，且数值必须符合 [资源规格](https://cloud.tencent.com/document/product/457/39808) 中的 CPU 规格。另外，可以通过 `cpu-type` 指定分配 intel 或 amd CPU，其中 amd 具备更高的性价比，详情请参考 [产品定价](https://cloud.tencent.com/document/product/457/39806)。  
 - 如需通过 annotation 指定的方式分配 GPU 资源，则必须同时填写`gpu-type` 及 `gpu-count` 2个 annotation，且数值必须符合 [资源规格](https://cloud.tencent.com/document/product/457/39808) 中的 GPU 规格。
 </dx-alert>
 
@@ -39,11 +39,10 @@
 </tr>
 <tr>
 <td>eks.tke.cloud.tencent.com/cpu-type</td>
-<td>Pod 所需的 CPU 资源类型及机型，格式如下：
+<td>Pod 所需的 CPU 资源类型，格式如下：
 <ul  class="params">
 <li>intel</li>
 <li>amd</li>
-<li>S5,S4</li>
 <li>支持优先级顺序写法，如 “amd,intel” 表示优先创建 amd 资源 Pod，如果所选地域可用区 amd 资源不足，则会创建 intel 资源 Pod。</li>
 </ul>
 各型号支持的具体配置请参考 <a href="https://cloud.tencent.com/document/product/457/39808" target="_blank">资源规格</a>。</td>
@@ -83,28 +82,23 @@
 <td>否。如填写，请确保填写的 CAM 角色名存在。</td>
 </tr>
 <tr>
-<td>eks.tke.cloud.tencent.com/monitor-port</td>
-<td>为 Pod 设置监控数据暴露端口，以便被 Prometheus 等组件采集。</td>
-<td>否。不填写默认为 9100。</td>
-</tr>
-<tr>
 <td>eks.tke.cloud.tencent.com/custom-metrics-url</td>
 <td>为 Pod 设置自定义监控指标拉取地址，通过该地址暴露的监控数据会自动被监控组件读取并上报。</td>
 <td>否。如填写，请确保暴露的数据协议可被监控系统识别，如 Prometheus 协议、云监控数据协议。</td>
 </tr>
 <tr>
 <td>eks.tke.cloud.tencent.com/eip-attributes</td>
-<td>表明该 Workload 的 Pod 需要关联 EIP，值为 "" 时表明采用 EIP 默认配置创建。"" 内可填写 EIP 云 API 参数 json，实现自定义配置。例如 annotation 的值为 '{"InternetMaxBandwidthOut":2}' 即为使用2M的带宽。</td>
+<td>表明该 Workload 的 Pod 需要关联 EIP，值为 "" 时表明采用 EIP 默认配置创建。"" 内可填写 EIP 云 API 参数 json，实现自定义配置。例如 annotation 的值为 '{"InternetMaxBandwidthOut":2}' 即为使用2M的带宽。注意，非带宽上移的账号无法使用。</td>
 <td>否 </td>
 </tr>
 <tr>
 <td>eks.tke.cloud.tencent.com/eip-claim-delete-policy</td>
-<td> Pod 删除后，EIP 是否自动回收，“Never” 不回收，默认回收。</td>
+<td> Pod 删除后，EIP 是否自动回收，“Never” 不回收，默认回收。该参数只有在指定 eks.tke.cloud.tencent.com/eip-attributes 时才生效。注意，非带宽上移的账号无法使用。</td>
 <td>否 </td>
 </tr>
 <tr>
-<td>eks.tke.cloud.tencent.com/eip-injection</td>
-<td>值为 "true" 时，表明会在 Pod 内暴露 EIP 的 IP 信息。在 Pod 内使用 ip addr 命令可以查看到 EIP 的地址。</td>
+<td>eks.tke.cloud.tencent.com/eip-id-list</td>
+<td>如果工作负载为 StatefulSet，也可以使用指定已有 EIP 的方式，可指定多个，如 "eip-xx1,eip-xx2"。请注意，StatefulSet pod 的数量必须小于等于此 annotation 中指定 EIP Id 的数量，否则分配不到 EIP 的 Pod 会处于 Pending 状态。注意，非带宽上移的账号无法使用。</td>
 <td>否 </td>
 </tr>
 <tr>
@@ -115,6 +109,11 @@
 <tr>
 <td>eks.tke.cloud.tencent.com/registry-http-endpoint</td>
 <td>镜像仓库地址（多个用“,”隔开，或者填写 all）。在弹性集群使用自建 HTTP 协议镜像仓库的镜像创建工作负载时，可能会遇到 “ErrImagePull” 报错，拉取镜像失败，可添加该 Annotation 来解决。详情见 <a href="https://cloud.tencent.com/document/product/457/54755#.E5.BC.B9.E6.80.A7.E9.9B.86.E7.BE.A4.E5.A6.82.E4.BD.95.E4.BD.BF.E7.94.A8.E8.87.AA.E5.BB.BA.E7.9A.84.E8.87.AA.E7.AD.BE.E5.90.8D.E9.95.9C.E5.83.8F.E4.BB.93.E5.BA.93.E6.88.96-http-.E5.8D.8F.E8.AE.AE.E9.95.9C.E5.83.8F.E4.BB.93.E5.BA.93.EF.BC.9F">弹性集群如何使用自建的自签名镜像仓库或 HTTP 协议镜像仓库？</a></td>
+<td>否 </td>
+</tr>
+<tr>
+<td>eks.tke.cloud.tencent.com/image-cache-disk-retain-minute</td>
+<td>镜像缓存使用的 CBS 数据盘是否延迟销毁，单位为 min，可按需设置延迟销毁时长，默认为0，即销毁 Pod 时立即销毁，若设置为“10”，表示镜像缓存使用的数据盘，在销毁 Pod 后会默认保留10分钟。</a></td>
 <td>否 </td>
 </tr>
 </tbody></table>

@@ -1,5 +1,5 @@
 ## 概述
-移动解析 HTTPDNS 的主要功能是为了有效避免由于运营商传统 LocalDns 解析导致的无法访问最佳接入点的方案。原理为使用 HTTP 加密协议替代传统的 DNS 协议，整个过程不使用域名，大大减少劫持的可能性。
+移动解析 HTTPDNS 的主要功能是为了有效避免由于运营商传统 LocalDNS 解析导致的无法访问最佳接入点的方案。原理为使用 HTTP 加密协议替代传统的 DNS 协议，整个过程不使用域名，大大减少劫持的可能性。
 
 ## 前期准备
 1. 首先需要开通移动解析 HTTPDNS 服务，请前往 [移动解析 HTTPDNS 控制台](https://console.cloud.tencent.com/httpdns) 开通。具体操作请参见 [开通移动解析 HTTPDNS](https://cloud.tencent.com/document/product/379/54577)。
@@ -83,7 +83,6 @@
 #### 类型定义
 
 ```c++
-
 /**
 	加密方式
 **/
@@ -94,20 +93,35 @@ typedef enum {
 } HttpDnsEncryptType;
 
 /**
+ 	IP地址类型
+**/
+typedef enum {
+    HttpDnsAddressTypeAuto = 0, // sdk自动检测
+    HttpDnsAddressTypeIPv4 = 1, // 只支持ipv4
+    HttpDnsAddressTypeIPv6 = 2, // 只支持ipv6
+    HttpDnsAddressTypeDual = 3, // 支持双协议栈
+} HttpDnsAddressType;
+
+/**
 	配置结构体
 	以下鉴权信息可在腾讯云控制台（https://console.cloud.tencent.com/httpdns/configure）开通服务后获取
 **/
-struct DnsConfig {
-    NSString* appId; // 应用ID，腾讯云控制台申请获得，用于上报
-    int dnsId; // 授权ID，用于域名解析鉴权
-    NSString* dnsKey; // 加密密钥，加密方式为 AES、DES 时必传
-    NSString* token; // 加密方式为 HTTPS 时必传
-    NSString* dnsIp; // HTTPDNS 服务器 IP
+typedef struct DnsConfigStruct {
+    NSString* appId; // 可选，应用ID，腾讯云控制台申请获得，用于灯塔数据上报（未集成灯塔时该参数无效）
+    int dnsId; // 授权ID，腾讯云控制台申请后可直接在控制台查看
+    NSString* dnsKey; // 加密密钥，加密方式为 AES、DES 时必传。腾讯云控制台申请后可直接在控制台查看，用于域名解析鉴权
+    NSString* token; // 加密 token，加密方式为 HTTPS 时必传
+    NSString* dnsIp; // HTTPDNS 服务器 IP。HTTP 协议服务地址为 `119.29.29.98`，HTTPS 协议服务地址为 `119.29.29.99`
     BOOL debug; // 是否开启Debug日志，YES：开启，NO：关闭。建议联调阶段开启，正式上线前关闭
-    int timeout; // 超时时间，单位ms，如设置0，则设置为默认值2000ms
+    int timeout; // 可选，超时时间，单位ms，如设置0，则使用默认值2000ms
     HttpDnsEncryptType encryptType; // 控制加密方式
-    NSString* routeIp; // 查询线路 IP 地址
-};
+	HttpDnsAddressType addressType; // 指定返回的ip地址类型，默认为 HttpDnsAddressTypeAuto sdk自动检测
+    NSString* routeIp; // 可选，DNS 请求的 ECS（EDNS-Client-Subnet）值，默认情况下 HTTPDNS 服务器会查询客户端出口 IP 为 DNS 线路查询 IP，可以指定线路 IP 地址。支持 IPv4/IPv6 地址传入
+    BOOL httpOnly;// 可选，是否仅返回 httpDns 解析结果。默认 false，即当 httpDns 解析失败时会返回 LocalDNS 解析结果，设置为 true 时，仅返回 httpDns 的解析结果
+    NSUInteger retryTimesBeforeSwitchServer; // 可选，切换ip之前重试次数, 默认3次
+    NSUInteger minutesBeforeSwitchToMain; // 可选，设置切回主ip间隔时长，默认10分钟
+    BOOL enableReport; // 是否开启解析异常上报，默认NO，不上报
+} DnsConfig;
 ```
 
 #### 接口声明
@@ -134,7 +148,7 @@ struct DnsConfig {
 接口调用示例：
 - 在 Objective-C 项目中。
 ```objc
-	DNSConfig *config = new DnsConfig();
+	DnsConfig *config = new DnsConfig();
 	config->dnsIp = @"HTTPDNS 服务器IP";
 	config->dnsId = @"dns授权id";
 	config->dnsKey = @"加密密钥";
@@ -155,15 +169,18 @@ msdkDns?.initConfig(with: [
 		"encryptType": 0, // 0 -> des，1 -> aes，2 -> https
 ]);
 ```
+
 ### 域名解析接口
 
 **获取 IP 共有以下四个接口，**引入头文件，调用相应接口即可。
 - 同步接口 
 	-	单个查询 **WGGetHostByName:**；
-	- 批量查询 **WGGetHostsByNames:**；
+	- 批量查询（返回单个 IP）**WGGetHostsByNames:**；
+	- 批量查询（返回所有 IP）**WGGetAllHostsByNames:**；
 - 异步接口 
 	- 单个查询 **WGGetHostByNameAsync:returnIps:**；
-	- 批量查询 **WGGetHostsByNamesAsync:returnIps:**；
+	- 批量查询 (返回单个 IP）**WGGetHostsByNamesAsync:returnIps:**；
+	- 批量查询（返回所有 IP）**WGGetAllHostsByNamesAsync:returnIps:**；
 
 **返回的地址格式如下：**
 - **单个查询**：单个查询接口返回 NSArray，固定长度为2，其中第一个值为 IPv4 地址，第二个值为 IPv6 地址。以下为返回格式的详细说明：
@@ -171,11 +188,13 @@ msdkDns?.initConfig(with: [
  - IPv6 下，仅返回 IPv6 地址，即返回格式为：[0, ipv6]。
  - 双栈网络下，返回解析到 IPv4&IPv6（如果存在）地址，即返回格式为：[ipv4, ipv6]。
  - 解析失败，返回[0, 0]，业务重新调用 WGGetHostByName 接口即可。
-- **批量查询**：批量查询接口返回 NSDictionary，key 为查询的域名，value 为 NSArray，固定长度为2，其他第一个值为 IPv4 地址，第二个值为 IPv6 地址。以下为返回格式的详细说明：
+- **批量查询（返回单个 IP）**：批量查询接口返回 NSDictionary，key 为查询的域名，value 为 NSArray，固定长度为2，其他第一个值为 IPv4 地址，第二个值为 IPv6 地址。以下为返回格式的详细说明：
  - IPv4 下，仅返回 IPv4 地址，即返回格式为：{"queryDomain" : [ipv4, 0]}。
  - IPv6 下，仅返回 IPv6 地址，即返回格式为：{"queryDomain" : [0, ipv6]}。
  - 双栈网络下，返回解析到 IPv4&IPv6（如果存在）地址，即返回格式为：{"queryDomain" : [ipv4, ipv6]}。
  - 解析失败，返回{"queryDomain" : [0, 0]}，业务重新调用 WGGetHostByNames 接口即可。
+- **批量查询（返回所有 IP）**：批量查询接口返回 NSDictionary，key 为查询的域名，value 为 NSDictionary，包含两个 key（ipv4、ipv6），对应的 value 为 NSArray 对象，表示所有的ipv4/ipv6 解析结果 IP。以下为返回格式的详细说明：
+ 返回格式为：{"queryDomain" : { "ipv4": [], "ipv6": []}}。
 
 >!
 >- 使用 IPv6 地址进行 URL 请求时，需添加方框号[ ]进行处理，例如：`http://[64:ff9b::b6fe:7475]/`。
@@ -317,7 +336,13 @@ if (result) {
 }
 ```
 
-
+## 接入验证
+### 日志验证
+开启 SDK 调试日志（设置 DnsConfig 中 debug 为 YES），找到打印的 `ReportingEvent, name:HDNSGetHostByName, events: { ... }` 日志，并检查 LocalDns（日志上为 ldns_ip）和 HTTPDNS（日志上为 hdns_ip）相关日志，可以确认接入是否成功。
+- key 为 ldns_ip 的是 LocalDNS 的解析结果。
+- key 为 hdns_ip 的是 HTTPDNS A 记录的解析结果。
+- key 为 hdns_4a_ips 的是 HTTPDNS AAAA 记录的解析结果。
+- 如果 hdns_ip 或 hdns_4a_ips 不为空，则说明接入成功。
 
 
 ## 注意事项

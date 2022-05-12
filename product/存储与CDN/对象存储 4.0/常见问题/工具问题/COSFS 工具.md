@@ -63,10 +63,27 @@ source ~/.bashrc
 
 ### 如何设定 COSFS 开机自动挂载？
 
+需要先安装 fuse 包：
+```shell
+#CentOS系统
+#sudo yum install -y fuse
+
+#Ubuntu系统
+#sudo apt-get install fuse
+```
+
 在 /etc/fstab 文件中添加如下的内容，其中，_netdev 选项使得网络准备好后再执行当前命令：
 
 ```shell
 cosfs#examplebucket-1250000000 /mnt/cosfs fuse _netdev,allow_other,url=http://cos.ap-guangzhou.myqcloud.com,dbglevel=info
+```
+
+### 如何设置挂载点下的文件以及目录的用户和用户组？
+
+有些场景（例如 nginx 服务器），需要设置挂载点下的文件和目录的用户和用户组，例如 www 用户（uid=1002，gid=1002），则添加如下挂载参数：
+
+```shell
+-ouid=1002 -ogid=1002
 ```
 
 ### 如何挂载多个存储桶？

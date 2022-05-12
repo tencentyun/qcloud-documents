@@ -1,12 +1,4 @@
-## 版本支持
-本页文档所描述功能，在腾讯云视立方中支持情况如下：
 
-| 版本名称 | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 播放器 Player | 全功能 |
-| -------- | -------- | -------- | -------- | -------- | -------- | -------- |
-| 支持情况 | - | - | &#10003; | - | - | &#10003; |
-| SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=allPart) |
-
-不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
 
 [](id:structure)
 
@@ -70,7 +62,7 @@
 #### 模块简介
 
 - 主界面主要负责短视频列表、短视频拍摄/编辑和个人资料三个一级功能的切换。
-- 登录成功后，默认展示列表界面。单击【+】按钮后，将弹出对话框让您选择录制小视频或编辑本地小视频；单击个人资料按钮，将跳转到个人资料页面。
+- 登录成功后，默认展示列表界面。单击**+**按钮后，将弹出对话框让您选择录制小视频或编辑本地小视频；单击个人资料按钮，将跳转到个人资料页面。
 - 列表管理包含列表的拉取和展示。
 
 #### 相关代码

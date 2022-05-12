@@ -593,14 +593,18 @@
                 "cls:ModifyAlarmNotice",
                 "cls:DeleteAlarmNotice",
                 "cam:ListGroups",
-                "cam:DescribeSubAccountContacts"
+                "cam:DescribeSubAccountContacts",
+                "cls:GetAlarmLog",
+                "cls:DescribeAlertRecordHistory",
+                "cls:CheckAlarmRule",
+                "cls:CheckAlarmChannel"
             ],
             "resource": "*"
         }
     ]
 }
 ```
-- 具备指定标签的日志主题监控告警管理权限。
+- 具备指定标签的日志主题监控告警管理权限（监控告警暂未完整支持按标签管理权限）。
 ```
 {
     "version": "2.0",
@@ -617,7 +621,7 @@
             "condition": {
                 "for_any_value:string_equal": {
                     "qcs:resource_tag": [
-                        "key&value"
+                        "testCAM&test1"
                     ]
                 }
             }
@@ -634,7 +638,11 @@
                 "cls:ModifyAlarmNotice",
                 "cls:DeleteAlarmNotice",
                 "cam:ListGroups",
-                "cam:DescribeSubAccountContacts"
+                "cam:DescribeSubAccountContacts",
+                "cls:GetAlarmLog",
+                "cls:DescribeAlertRecordHistory",
+                "cls:CheckAlarmRule",
+                "cls:CheckAlarmChannel"
             ],
             "resource": "*"
         }
@@ -664,16 +672,17 @@
             "action": [
                 "cls:DescribeAlarms",
                 "cls:DescribeAlarmNotices",
-                "cls:GetAlarmLog"
+                "cls:GetAlarmLog",
+                "cls:DescribeAlertRecordHistory",
+                "cam:ListGroups",
+                "cam:DescribeSubAccountContacts"
             ],
-            "resource": [
-                "*"
-            ]
+            "resource": "*"
         }
     ]
 }
 ```
-- 具备指定标签的日志主题监控告警的只读权限。
+- 具备指定标签的日志主题监控告警的只读权限（监控告警暂未完整支持按标签管理权限）。
 ```
 {
     "version": "2.0",
@@ -690,7 +699,7 @@
             "condition": {
                 "for_any_value:string_equal": {
                     "qcs:resource_tag": [
-                        "key&value"
+                        "testCAM&test1"
                     ]
                 }
             }
@@ -700,11 +709,12 @@
             "action": [
                 "cls:DescribeAlarms",
                 "cls:DescribeAlarmNotices",
-                "cls:GetAlarmLog"
+                "cls:GetAlarmLog",
+                "cls:DescribeAlertRecordHistory",
+                "cam:ListGroups",
+                "cam:DescribeSubAccountContacts"
             ],
-            "resource": [
-                "*"
-            ]
+            "resource": "*"
         }
     ]
 }

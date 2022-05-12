@@ -43,17 +43,17 @@
 
 ## 操作步骤
 1. 在迁移的服务应用的 pom.xml 文件中引入 TSF 依赖：
-```java
+```xml
 <parent>
-        <groupId>com.tencent.tsf</groupId>
-        <artifactId>spring-cloud-tsf-dependencies</artifactId>
-        <version><!-- 调整为 SDK 最新版本号 --></version>
+	<groupId>com.tencent.tsf</groupId>
+	<artifactId>spring-cloud-tsf-dependencies</artifactId>
+	<version><!-- 调整为 SDK 最新版本号 --></version>
 </parent>
 ```
 >!应用该功能 SDK 版本必须在1.24.0-Finchley-RELEASE、1.24.0-Greenwich-RELEASE 以上。
 2. 在 `application.properties` 中添加双注册发现配置。
 exclude 字段代表不将服务注册到哪些服务注册中心引擎；subscribes 字段代表从哪些服务注册引擎发现服务信息。
-```java
+```
    tsf:
      migration:
        registry:
@@ -67,7 +67,7 @@ exclude 字段代表不将服务注册到哪些服务注册中心引擎；subscr
 3. 将应用打包。
 登录 [TSF 控制台](https://console.cloud.tencent.com/tsf/index?rid=4)，参照 [应用管理](https://cloud.tencent.com/document/product/649/16931) 完成应用发布。
 4. 验证结果。
-通过原有集群服务调用可发现服务是否正常，此外在【应用中心】>【服务治理】查看应用发布地域及命名空间查看是否存在服务信息，如果服务注册正常则具有该微服务名称、状态、运行实例、请求量等信息。
+通过原有集群服务调用可发现服务是否正常，此外在**应用中心** > **服务治理**查看应用发布地域及命名空间查看是否存在服务信息，如果服务注册正常则具有该微服务名称、状态、运行实例、请求量等信息。
 5. 在以上应用验证成功后，可逐步其他应用。
 6. 清理迁移配置。
 迁移完成后，登录 [TSF 控制台](https://console.cloud.tencent.com/tsf/index?rid=4)，参照 [配置管理](https://cloud.tencent.com/document/product/649/17956) 动态变更服务注册发现方式，将原有集群的注册中心配置移除。

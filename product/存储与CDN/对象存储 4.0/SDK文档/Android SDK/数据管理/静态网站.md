@@ -22,7 +22,8 @@ PUT Bucket website 用于为存储桶配置静态网站。
 
 [//]: # (.cssg-snippet-put-bucket-website)
 ```java
-String bucket = "examplebucket-1250000000"; //格式：BucketName-APPID
+// 存储桶名称，由bucketname-appid 组成，appid必须填入，可以在COS控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
+String bucket = "examplebucket-1250000000";
 PutBucketWebsiteRequest putBucketWebsiteRequest =
         new PutBucketWebsiteRequest(bucket);
 // 设置 index 文档
@@ -36,10 +37,12 @@ cosXmlService.putBucketWebsiteAsync(putBucketWebsiteRequest,
                 (PutBucketWebsiteResult) result;
     }
 
+    // 如果您使用 kotlin 语言来调用，请注意回调方法中的异常是可空的，否则不会回调 onFail 方法，即：
+    // clientException 的类型为 CosXmlClientException?，serviceException 的类型为 CosXmlServiceException?
     @Override
     public void onFail(CosXmlRequest cosXmlRequest,
-                       CosXmlClientException clientException,
-                       CosXmlServiceException serviceException) {
+                       @Nullable CosXmlClientException clientException,
+                       @Nullable CosXmlServiceException serviceException) {
         if (clientException != null) {
             clientException.printStackTrace();
         } else {
@@ -61,7 +64,8 @@ GET Bucket website 用于查询与存储桶关联的静态网站配置信息。
 
 [//]: # (.cssg-snippet-get-bucket-website)
 ```java
-String bucket = "examplebucket-1250000000"; //格式：BucketName-APPID
+// 存储桶名称，由bucketname-appid 组成，appid必须填入，可以在COS控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
+String bucket = "examplebucket-1250000000";
 GetBucketWebsiteRequest getBucketWebsiteRequest =
         new GetBucketWebsiteRequest(bucket);
 cosXmlService.getBucketWebsiteAsync(getBucketWebsiteRequest,
@@ -72,10 +76,12 @@ cosXmlService.getBucketWebsiteAsync(getBucketWebsiteRequest,
                 (GetBucketWebsiteResult) result;
     }
 
+    // 如果您使用 kotlin 语言来调用，请注意回调方法中的异常是可空的，否则不会回调 onFail 方法，即：
+    // clientException 的类型为 CosXmlClientException?，serviceException 的类型为 CosXmlServiceException?
     @Override
     public void onFail(CosXmlRequest cosXmlRequest,
-                       CosXmlClientException clientException,
-                       CosXmlServiceException serviceException) {
+                       @Nullable CosXmlClientException clientException,
+                       @Nullable CosXmlServiceException serviceException) {
         if (clientException != null) {
             clientException.printStackTrace();
         } else {
@@ -97,7 +103,8 @@ DELETE Bucket website 用于删除存储桶中的静态网站配置。
 
 [//]: # (.cssg-snippet-delete-bucket-website)
 ```java
-String bucket = "examplebucket-1250000000"; //格式：BucketName-APPID
+// 存储桶名称，由bucketname-appid 组成，appid必须填入，可以在COS控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
+String bucket = "examplebucket-1250000000";
 DeleteBucketWebsiteRequest deleteBucketWebsiteRequest =
         new DeleteBucketWebsiteRequest(bucket);
 
@@ -109,10 +116,12 @@ cosXmlService.deleteBucketWebsiteAsync(deleteBucketWebsiteRequest,
                 (DeleteBucketWebsiteResult) result;
     }
 
+    // 如果您使用 kotlin 语言来调用，请注意回调方法中的异常是可空的，否则不会回调 onFail 方法，即：
+    // clientException 的类型为 CosXmlClientException?，serviceException 的类型为 CosXmlServiceException?
     @Override
     public void onFail(CosXmlRequest cosXmlRequest,
-                       CosXmlClientException clientException,
-                       CosXmlServiceException serviceException) {
+                       @Nullable CosXmlClientException clientException,
+                       @Nullable CosXmlServiceException serviceException) {
         if (clientException != null) {
             clientException.printStackTrace();
         } else {

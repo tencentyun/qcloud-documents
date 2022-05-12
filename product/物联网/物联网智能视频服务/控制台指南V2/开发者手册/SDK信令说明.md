@@ -81,7 +81,7 @@ channel 固定为0
 ##### 获取 ipc 设备状态
 
 判断是否可以请求视频流(type 区分直播(live)和对讲(voice)):`action=inner_define&channel=0&cmd=get_device_st&type=(voice/live)&quality=standard`
-参数说明：app_connect_num 表示：已连接到设备的 APP 数量。    
+参数说明：appConnectNum 表示：已连接到设备的 APP 数量。    
 	
 返回的 json 结构：
 ```

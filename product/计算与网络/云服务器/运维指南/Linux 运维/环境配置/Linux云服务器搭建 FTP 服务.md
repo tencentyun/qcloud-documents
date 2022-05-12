@@ -65,6 +65,7 @@ i. 修改以下配置参数，设置匿名用户和本地用户的登录权限�
 ```
 anonymous_enable=NO
 local_enable=YES
+write_enable=YES
 chroot_local_user=YES
 chroot_list_enable=YES
 chroot_list_file=/etc/vsftpd/chroot_list

@@ -2,18 +2,18 @@ EIP 直通功能适用于云服务器内需要查看公网 IP 的场景，例如
 >!EIP 直通过程会导致网络中断，请确认您的业务允许短暂的中断。
 >
 ## 操作场景
-用户通过 EIP 访问外网时，可选 NAT 模式或 EIP 直通模式，当前默认 NAT 模式。
+用户通过 EIP 访问外网时，可选 NAT 模式或 公网 IP 直通模式，当前默认 NAT 模式。
 - NAT 模式下，EIP 在本地不可见，配置时须每次手动加入 EIP 地址。
-- EIP 直通后，EIP 在本地可见，配置时无须每次手动加入 EIP 地址，可降低开发成本。
+- 直通后，EIP 在本地可见，配置时无须每次手动加入 EIP 地址，可降低开发成本。
 
 ## 使用限制
-- EIP 直通为内测功能，目前仅支持私有网络，如有需要请提 [工单申请](https://console.cloud.tencent.com/workorder/category)。
+- 直通为内测功能，目前仅支持私有网络，如有需要请提 [工单申请](https://console.cloud.tencent.com/workorder/category)。
 - 配置 EIP 直通的云服务器如果切换了私有网络，则需重新配置直通。
 - 云服务器的 EIP 直通不能与 NAT 网关同时使用。如果您的云服务器所在子网的路由表配置了通过 NAT 网关访问公网的路由策略，则云服务器上的 EIP 将无法实现直通功能；您可以通过 [调整 NAT 网关和 EIP 的优先级](https://cloud.tencent.com/document/product/552/30012)，使云服务器先通过本身的 EIP，而不是 NAT 网关来访问公网，此时可以实现 EIP 直通功能。
 
 
 ## 操作步骤
->!您将 EIP 直通脚本下载到云服务器以后，需要先在 EIP 控制台开启直通功能，然后再运行 EIP 直通脚本，否则可能会导致 EIP 直通失败或出现故障。
+>!您将 EIP 直通脚本下载到云服务器以后，需要先在公网 IP 控制台开启直通功能，然后再运行 EIP 直通脚本，否则可能会导致 EIP 直通失败或出现故障。
 >
 腾讯云提供了配置 IP 的 EIP 直通脚本，让内网流量走内网 IP，外网流量走公网 IP。如有其他业务场景，请根据具体业务场景配置路由。
 <dx-tabs>
@@ -35,8 +35,6 @@ wget https://eip-direct-1254277469.cos.ap-guangzhou.myqcloud.com/eip_direct.sh
 ```
 
 ### 步骤二：在控制台配置 EIP 直通
->?如果主网卡绑定的公网 IP 不是 EIP，则需要转换为 EIP，详情请参见 [普通公网 IP 转 EIP]( https://cloud.tencent.com/document/product/1199/41706)。
->
 
 1. 登录 [公网 IP 控制台](https://console.cloud.tencent.com/cvm/eip?rid=1)。
 2. 选择云服务器主网卡绑定的 EIP 的地域，并在对应 EIP 的右侧操作栏中，选择**更多** > **直通**即可。
@@ -89,8 +87,7 @@ https://eip-public-read-1255852779.cos.ap-guangzhou.myqcloud.com/eip_windows_dir
 ![](https://main.qcloudimg.com/raw/f82b4a03d6b6034a414de5010e9ca0c2.png)
 
 ### 步骤三：配置主网卡 EIP 直通[](id:step3)
->?如果主网卡绑定的公网 IP 不是 EIP，则需转换为 EIP，详情请参见 [普通公网 IP 转 EIP]( https://cloud.tencent.com/document/product/1199/41706)。
->
+
 完成辅助网卡的配置后，在 EIP 控制台中为主网卡配置 EIP 直通。
 1. 登录 [公网 IP 控制台](https://console.cloud.tencent.com/cvm/eip?rid=1)。
 2. 选择云服务器主网卡绑定的 EIP 的地域，并在对应 EIP 的右侧操作栏中，选择**更多** > **直通**即可。
@@ -113,4 +110,3 @@ https://eip-public-read-1255852779.cos.ap-guangzhou.myqcloud.com/eip_windows_dir
 ![](https://main.qcloudimg.com/raw/8260d92c5b99aa53cb774ec367a784e8.png)
 :::
 </dx-tabs>
-

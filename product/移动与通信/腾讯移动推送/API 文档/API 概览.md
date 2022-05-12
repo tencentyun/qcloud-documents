@@ -6,7 +6,7 @@
 | 接口名称       |    接口功能       |                     
 | ------------- | -------------    |
 | v3/push/app         |          [推送通知与应用内消息接口](https://cloud.tencent.com/document/product/548/39064) |
-| v3/push/package/upload         |     <li> [号码包上传接口](https://cloud.tencent.com/document/product/548/39065) <li>[token包上传接口](https://cloud.tencent.com/document/product/548/50301) |
+| v3/push/package/upload         |     <li> [号码包上传接口](https://cloud.tencent.com/document/product/548/39065) <li>[token 包上传接口](https://cloud.tencent.com/document/product/548/50301) |
 | v3/push/plan/add_plan_push      | [创建推送计划接口](https://cloud.tencent.com/document/product/548/50879) |
   
 

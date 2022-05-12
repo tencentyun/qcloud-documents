@@ -79,6 +79,6 @@ DataX 是一个开源的命令行工具，支持将 TencentDB 中全量或增量
 **参数说明：**
 1. writer 需选择 gpdbwriter。使用 postgresqlwriter 也可写入云数据仓库 PostgreSQL，但插入效率会很低。
 2. 参数具体含义和调优可以参考 [DataX](https://github.com/HashDataInc/DataX)。
-3. `mysqlreader`的 jdbc url 建议加上`serverTimezone=Asia/Shanghai`参数，避免时区问题导致的数据不一致。
+3. `mysqlreader` 的 jdbc url 建议加上 `serverTimezone=Asia/Shanghai` 参数，避免时区问题导致的数据不一致。
 
 

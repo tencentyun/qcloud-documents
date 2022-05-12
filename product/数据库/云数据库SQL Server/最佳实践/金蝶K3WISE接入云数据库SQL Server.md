@@ -27,7 +27,7 @@
 ### 设置云服务器
 #### 设置安全组
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/instance)，选择实例所在地域，单击实例 ID，进入管理页面。
-2. 选择【安全组】页，编辑规则，设置如下规则：
+2. 选择**安全组**页，编辑规则，设置如下规则：
  - “来源”的 IP 信息，可通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 获取。
  - 入站规则和出站规则的“协议端口”，须开通1433、135、1024-65535端口。
 
@@ -40,9 +40,9 @@
 5. 选择组件服务 > 计算机 > 我的电脑 > Distributed Transaction Coordinator。
 6. 在右侧本地 DTC 上单击鼠标右键，选择属性。
 ![](https://main.qcloudimg.com/raw/a0787d9eea99d0508cab32d60d375d7e.png)
-7. 选择安全页签，参照下图进行设置，单击【确定】。
+7. 选择安全页签，参照下图进行设置，单击**确定**。
 ![](https://main.qcloudimg.com/raw/a2e26a22d28ddd345a65090e025de205.png)
-8. 在弹出的 MSDTC 服务对话框中，单击【是】，等待 MSDTC 服务重新启动完成。
+8. 在弹出的 MSDTC 服务对话框中，单击**是**，等待 MSDTC 服务重新启动完成。
  
 ## 步骤三：初始化账套管理
 1. 下载对应的账套管理工具：金蝶K/3 WISE 15.1、金蝶K/3 WISE 15.0。
@@ -53,11 +53,11 @@
 >?数据服务器填写云数据库 SQL Server 实例的内网地址，内网地址可至 [控制台](https://console.cloud.tencent.com/sqlserver) 查看。
 >
 ![](https://main.qcloudimg.com/raw/11f12e1aeda96505216e4a711779f43d.png)
-5. 在“系统”的下拉菜单里单击【预设连接】，设置预设连接，方便使用。
+5. 在“系统”的下拉菜单里单击**预设连接**，设置预设连接，方便使用。
 ![](https://main.qcloudimg.com/raw/6957a6f1a29e725dedb05bf4741e7877.png)
-6. 在数据库的下拉菜单里单击【注册账套】。
+6. 在数据库的下拉菜单里单击**注册账套**。
 ![](https://main.qcloudimg.com/raw/988b635f06180e22b2fd826812c2f391.png)
-7. 选择对应的数据库，并单击【所有】。
+7. 选择对应的数据库，并单击**所有**。
 ![](https://main.qcloudimg.com/raw/fdce092177841854b886823e51c1f68a.png)
  
 ## 步骤四：登录使用金蝶K/3 WISE

@@ -13,7 +13,7 @@
 可以，实时音视频支持全平台互通。
 
 [](id:que4)
-###  TRTC 移动端怎么实现录屏（屏幕分享）？	
+###  TRTC 移动端怎么实现录屏（屏幕分享）？  
 - **Android 端**：Version 7.2 及以上版本支持手机录屏，具体实践方法请参见 [实时屏幕分享（Android）](https://cloud.tencent.com/document/product/647/45751)。
 - **iOS 端**：Version 7.2 及以上版本支持 App 内录屏；Version 7.6 及以上版本支持手机录屏和 App 内录屏。具体实践方法请参见 [实时屏幕分享（iOS）](https://cloud.tencent.com/document/product/647/45750)。
 
@@ -60,7 +60,7 @@ TRTC 6.3 版本开始已提供 arm64-v8a 架构 ABI 支持。
 双方都可以主动发起，观众和主播发起逻辑一致，具体操作请参见  [跑通直播模式(Android)](https://cloud.tencent.com/document/product/647/35428) 。
 
 [](id:que14)
-### 多人视频会议中，移动端和 Web 端是否可以进入同一房间？
+### 多人音视频房间中，移动端和 Web 端是否可以进入同一房间？
 可以。需保证 [SDKAppID](https://console.cloud.tencent.com/trtc/app) 和房间号一致，且用户 ID 不一致。
 
 [](id:que15)

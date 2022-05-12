@@ -3,7 +3,7 @@ iOS SDK 接入请观看视频：
 
 ##  接入准备
 ###  SDK 获取
-实时语音识别的 iOS SDK 以及 Demo 的下载地址：[iOS SDK](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/realtime/QCloudSDK_IOS_v2.6.2.zip)。
+实时语音识别的 iOS SDK 以及 Demo 的下载地址：[联系我们](https://cloud.tencent.com/act/event/connect-service#/)。
 
 ###  接入须知
 - 开发者在调用前请先查看实时语音识别的[ 接口说明](https://cloud.tencent.com/document/product/1093/37138)，了解接口的**使用要求**和**使用步骤**。   
@@ -11,7 +11,7 @@ iOS SDK 接入请观看视频：
 
 ###  开发环境
 在工程` info.plist`添加以下设置：
-+ **设置 NSAppTransportSecurity 策略，添加如下内容：**
+1. **设置 NSAppTransportSecurity 策略，添加如下内容：**
 ```objective-c
   <key>NSAppTransportSecurity</key>
   <dict>
@@ -31,20 +31,21 @@ iOS SDK 接入请观看视频：
 	</dict>
     </dict>
 ```
-+ **申请系统麦克风权限，添加如下内容：**
+2. **申请系统麦克风权限，添加如下内容：**
 ```objective-c
    <key>NSMicrophoneUsageDescription</key>
    <string>需要使用您的麦克风采集音频</string>
 ```
-+ **在工程中添加依赖库，在 build Phases Link Binary With Libraries 中添加以下库：**
+3. **在工程中添加依赖库，在 build Phases Link Binary With Libraries 中添加以下库：**
   + AVFoundation.framework
   + AudioToolbox.framework
   + QCloudSDK.framework
   + CoreTelephony.framework
   + libWXVoiceSpeex.a
-
+  + libc++.tbd
 添加完后如下图所示：
 ![](https://main.qcloudimg.com/raw/17ff6f4f4a27e0843de528eb070c2f32.png)
+4. **在 Build Settings 下的 other Linker Flags 中不能有 -all_load。**
 
 ##  快速接入
 ### 开发流程及接入示例
@@ -61,7 +62,7 @@ iOS SDK 接入请观看视频：
  QCloudConfig *config = [[QCloudConfig alloc] initWithAppId:kQDAppId 
   						   secretId:kQDSecretId 
 					          secretKey:kQDSecretKey 
-					          projectId:kQDProjectId];
+					          projectId:0];
  config.sliceTime = 600;                        //语音分片时长600ms
  config.enableDetectVolume = YES;               //是否检测音量
  config.endRecognizeWhenDetectSilence = YES;    //是否检测到静音停止识别
@@ -94,7 +95,7 @@ recognizer.delegate = self;
  QCloudConfig *config = [[QCloudConfig alloc] initWithAppId:kQDAppId 
   						  secretId:kQDSecretId 
 					         secretKey:kQDSecretKey 
-					         projectId:kQDProjectId];
+					         projectId:0];
  config.sliceTime = 600;                        //语音分片时长600ms
  config.enableDetectVolume = YES;               //是否检测音量
  config.endRecognizeWhenDetectSilence = YES;    //是否检测到静音停止识别
@@ -192,9 +193,10 @@ QCloudRealTimeRecognizer 是实时语音识别类，提供两种初始化方法�
  * 一次识别失败回调
  * @param recognizer 实时语音识别实例
  * @param error 错误信息
+ * @param voiceId  如果错误是后端返回的，附带voiceId
  */
-- (void)realTimeRecognizerDidError:(QCloudRealTimeRecognizer *)recognizer error:(NSError *)error;
 
+- (void)realTimeRecognizerDidError:(QCloudRealTimeRecognizer *)recognizer error:(NSError *)error  voiceId:(NSString * _Nullable) voiceId;
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /**

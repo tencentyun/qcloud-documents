@@ -8,7 +8,7 @@ Python 2.7 或者 3.6 版本
 
 ### 通过 pip 安装（推荐）
 
-您可以通过 pip 安装方式将腾讯云 API Python SDK 安装到您的项目中，如果您的项目环境尚未安装 pip，请详细参见 [pip 官网](https://pip.pypa.io/en/stable/installing/?spm=a3c0i.o32026zh.a3.6.74134958lLSo6o) 安装。 通过 pip 方式安装请在命令行中执行以下命令：
+您可以通过 pip 安装方式将腾讯云 API Python SDK 安装到您的项目中，如果您的项目环境尚未安装 pip，请详细参见 [pip 官网](https://pip.pypa.io/en/stable/installing/?spm=a3c0i.o32026zh.a3.6.74134958lLSo6o) 安装。   通过 pip 方式安装请在命令行中执行以下命令：
 ```
 pip install tencentcloud-sdk-python
 ```

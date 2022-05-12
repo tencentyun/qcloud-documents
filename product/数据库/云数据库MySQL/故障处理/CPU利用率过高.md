@@ -4,6 +4,8 @@
 
 云数据库 MySQL CPU 使用情况，可在 [MySQL 控制台](https://console.cloud.tencent.com/cdb) 的实例监控页面或数据库智能管家 [DBbrain 控制台](https://console.cloud.tencent.com/dbbrain/event?product=mysql) 查看。
 
+>?CPU 利用率过高时，建议优先进行 [配置调整](https://cloud.tencent.com/document/product/236/19707)，提升 CPU 规格以确保业务正常运行，后续可参考本文进行排查和优化。
+
 ## 故障风险
 若 MySQL CPU 的利用率长时间处于过高状态，会严重影响数据库的整体性能，极端情况下可能会出现实例 HANG 住的情况。
 

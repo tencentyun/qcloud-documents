@@ -3,9 +3,7 @@
 
 即时通信 IM 的直播群（AVChatRoom）有以下特点：
 - **无人数限制，可实现千万级的互动直播场景**。
-- **支持针对涉黄、涉政以及不雅词的安全打击，满足安全监管需求**。
 - 支持向全体在线用户推送消息（群系统通知）。
-- Web 和微信小程序端支持以游客身份（即不登录）接收消息。
 - 申请加群后，无需管理员审批，直接加入。
 
 >?本文以 Web 和微信小程序端 SDK 为例，其他端 SDK 实现流程相同，操作略有差异。
@@ -13,7 +11,7 @@
 ## 适用场景
 
 #### 直播弹幕
- AVChatRoom 支持弹幕、 送礼和点赞等多消息类型，轻松打造良好的直播聊天互动体验；提供弹幕内容审核能力，保证您的直播免受不雅信息干扰。
+ AVChatRoom 支持弹幕、 送礼和点赞等多消息类型，轻松打造良好的直播聊天互动体验。
 ![](https://imgcache.qq.com/open_proj/proj_qcloud_v2/gateway/product/im-new/css/img/scenes/function2.gif)
 #### 网红带货
  AVChatRoom 与商业直播相结合，通过提供点赞、询价、购物券等特定消息类型，帮助直播客户实现流量变现。
@@ -26,6 +24,7 @@
 - 不支持 [撤回消息](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#revokeMessage)。
 - 群主不可以退群，群主退群只能通过解散群组的方式。
 - 不支持移除群成员。
+- 不支持历史消息存储。
 
 
 ## 相关文档
@@ -45,7 +44,7 @@
 
 1. 登录 [即时通信 IM 控制台](https://console.cloud.tencent.com/im)。
 >?如果您已有应用，请记录其 SDKAppID，并执行 [步骤2](#Step2)。
->同一个腾讯云账号，最多可创建100个即时通信 IM 应用。若已有100个应用，您可以先 [停用并删除](https://cloud.tencent.com/document/product/269/32578#.E5.81.9C.E7.94.A8.2F.E5.88.A0.E9.99.A4.E5.BA.94.E7.94.A8) 无需使用的应用后再创建新的应用。**应用删除后，该 SDKAppID 对应的所有数据和服务不可恢复，请谨慎操作。**
+>同一个腾讯云帐号，最多可创建300个即时通信 IM 应用。若已有300个应用，您可以先 [停用并删除](https://cloud.tencent.com/document/product/269/32578#.E5.81.9C.E7.94.A8.2F.E5.88.A0.E9.99.A4.E5.BA.94.E7.94.A8) 无需使用的应用后再创建新的应用。**应用删除后，该 SDKAppID 对应的所有数据和服务不可恢复，请谨慎操作。**
 >
 2. 单击**+添加新应用**。
 3. 在**创建应用**对话框中输入您的应用名称，单击**确定**。创建完成后，可在控制台总览页查看新建应用的状态、业务版本、SDKAppID、创建时间以及到期时间。
@@ -300,7 +299,4 @@ promise.then(<span class="hljs-function"><span class="hljs-keyword">function</sp
 有的，且代码开源，详情请参考 [腾讯云 Web 直播互动组件](https://github.com/tencentyun/TWebLive)。
 您也可以直接扫码体验腾讯云 Web 直播互动组件：
 <img src="https://main.qcloudimg.com/raw/7ebc3e270add5ec6d62f6f8972c61249.png" width="150">
-
-
-
 

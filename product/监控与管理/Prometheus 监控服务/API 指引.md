@@ -11,4 +11,4 @@
 | [UpdateAlertRule](https://cloud.tencent.com/document/api/248/55632) | 更新报警规则     |
 | [UpdateAlertRuleState](https://cloud.tencent.com/document/api/248/55631) | 更新报警策略状态 |
 | [UpdateServiceDiscovery](https://cloud.tencent.com/document/api/248/49782) | 更新服务发现     |
-
+|[DescribePrometheusInstances](https://cloud.tencent.com/document/api/248/66097)|查看 Prometheus 实例列表|

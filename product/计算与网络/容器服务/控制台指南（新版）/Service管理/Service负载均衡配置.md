@@ -2,7 +2,7 @@
 ## TkeServiceConfig
 TkeServiceConfig 是腾讯云容器服务提供的自定义资源 CRD， 通过 TkeServiceConfig 能够帮助您更灵活的配置 LoadBalancer 类型的 Service ，及管理其中负载均衡的各种配置。
 
-### 使用场景
+### 使用场景 
 Service YAML 的语义无法定义的负载均衡的参数和功能，可以通过 TkeServiceConfig 进行配置。
 
 
@@ -16,9 +16,9 @@ TkeServiceConfig 并不会帮您直接配置并修改协议和端口，您需要
   * `spec.loadBalancer.l4Listeners.port`：监听端口
 
 ## Service 与 TkeServiceConfig 关联行为
-1. 创建 Loadbalancer 模式 Service 时，设置注解 **service.cloud.tencent.com/tke-service-config-auto: "true"**，将自动创建 &lt;ServiceName&gt;-auto-service-config。 您也可以通过 **service.cloud.tencent.com/tke-service-config:&lt;config-name&gt;** 直接指定您自行创建的 TkeServiceConfig。两个注解不可同时使用。 
+1. 创建 Loadbalancer 模式 Service 时，设置注解 **service.cloud.tencent.com/tke-service-config-auto: "true"**，将自动创建 &lt;ServiceName&gt;-auto-service-config。  您也可以通过 **service.cloud.tencent.com/tke-service-config:&lt;config-name&gt;** 直接指定您自行创建的 TkeServiceConfig。两个注解不可同时使用。  
 2. 其中自动创建的 TkeServiceConfig 存在以下同步行为：
-  - 更新 Service 资源时，新增若干四层监听器时，如果该监听器或转发规则没有对应的 TkeServiceConfig 配置片段。 Service-Controller 将主动添加 TkeServiceConfig 对应片段。
+  - 更新 Service 资源时，新增若干四层监听器时，如果该监听器或转发规则没有对应的 TkeServiceConfig 配置片段。  Service-Controller 将主动添加 TkeServiceConfig 对应片段。
   - 删除若干四层监听器时，Service-controller 组件将主动删除 TkeServiceConfig 对应片段。
   - 删除 Service 资源时，联级删除该 TkeServiceConfig。
   - 用户修改 Service 默认的 TkeServiceConfig，TkeServiceConfig 内容同样会被应用到负载均衡。
@@ -113,7 +113,7 @@ metadata:
    annotations:
      service.cloud.tencent.com/tke-service-config: jetty-service-config 
      # 指定已有的 tke-service-config
-     # service.cloud.tencent.com/tke-service-config-auto: true 
+     # service.cloud.tencent.com/tke-service-config-auto: "true" 
      # 自动创建 tke-service-config
    name: jetty-service
    namespace: default
@@ -160,7 +160,7 @@ spec:
          healthNum: 2
          unHealthNum: 2
          timeout: 5
-       scheduler: LEAST_CONN
+       scheduler: WRR
 ```
 该示例中包含以下配置：
 名称为 `jetty-service-config`。且在四层监听器配置中，声明了以下两段配置：
@@ -169,7 +169,7 @@ spec:
  2. 443端口的 TCP 监听器将会被配置。
   - 打开健康检查，健康检查间隔调整为10s，健康阈值2次，不健康阈值2次，超时5s。
   - 打开会话保持功能，会话保持的超时时间设置为3600s。
-  - 转发策略配置为最小连接数。
+  - 转发策略配置为：按权重轮询。
 
 ### kubectl 配置命令
 ```

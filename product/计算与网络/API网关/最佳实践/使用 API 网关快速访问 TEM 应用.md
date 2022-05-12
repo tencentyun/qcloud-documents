@@ -27,9 +27,9 @@
 1. 登录 [API 网关控制台](https://console.cloud.tencent.com/apigateway/service)，在左侧导航栏，单击**服务**，进入服务列表页。
 2. 选择与部署 TEM 应用相同的地域，单击页面左上角的**新建**，新建一个服务。
    新建服务时，前端类型可选择 HTTP、HTTPS、HTTP 与 HTTPS 任一种，访问模式选择可以选择 VPC 内网和公网，实例类型选择共享性、专享型。
->?关于实例类型的选择，请参考 [实例选择指南](https://cloud.tencent.com/document/product/628/55510)。
+>?关于实例类型的选择，请参见 [实例选择指南](https://cloud.tencent.com/document/product/628/55510)。
 >
-	 <img src="https://main.qcloudimg.com/raw/5e90d7876eeea6b257821507615b16be.png" width="500px">
+<img src="https://main.qcloudimg.com/raw/e4c9ebe17cb9ac1fd802db51b54b5a93.png" style = "width:80%">
 3. 单击 API 网关服务 ID 进入 API 管理页面。单击**新建 API**。
 4. 在前端配置中填写 API 名称，前端类型选择 HTTP&HTTPS，路径为“/”，请求方法选择 ANY 以包含所有请求，鉴权类型选择“免认证”，单击**下一步**。
    ![](https://main.qcloudimg.com/raw/6496aacc6e308c1a3bb599570415bfa1.png)
@@ -43,9 +43,9 @@
 ### 步骤3：通过 API 网关访问 TEM 应用
 
 访问 [步骤2](#step2) 中创建的 API 网关 API，即可通过 API 网关访问到 TEM 应用。
-   ![](https://main.qcloudimg.com/raw/70ca90f3a189c79f09f0c8e334507b22.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/ace08d2d34747387dc0029a1b71143a0.png)
 
 ## 注意事项
 
 - 为保证应用无侵入的接入 API 网关，我们建议一个 API 网关服务只绑定一个 TEM 应用，前端地址和后端地址保持一致，同为“/”可以拦截所有 API，您也可以在服务中为您应用的某些 API 进行单独的配置。
-- 您可以参考 [API 网关插件使用文档](https://cloud.tencent.com/document/product/628/53379)，为后端对接 TEM 的 API 网关 API 绑定插件，以享受 API 网关提供的高级功能。
+- 您可以参见 [API 网关插件使用文档](https://cloud.tencent.com/document/product/628/53379)，为后端对接 TEM 的 API 网关 API 绑定插件，以享受 API 网关提供的高级功能。

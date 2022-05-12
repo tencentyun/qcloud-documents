@@ -15,7 +15,7 @@ LLAP 节点执行“查询片段”，例如过滤器、投影、数据变换、
 守护进程缓存输入 files 的元数据以及数据。即使对于当前未缓存的数据，也可以缓存元数据和索引信息。
 
 ## 安装 hive-llap
-1. 进入 EMR [购买页](https://buy.cloud.tencent.com/emapreduce#/)。
+1. 进入 EMR [购买页](https://buy.cloud.tencent.com/emr)。
 2. 选择产品版本：EMR-V2.3.0。
 3. 在【可选组件】列表中，选择【TEZ 0.9.2】后就会默认安装 hive-llap，安装目录位于 `/usr/local/service/slider`。
  

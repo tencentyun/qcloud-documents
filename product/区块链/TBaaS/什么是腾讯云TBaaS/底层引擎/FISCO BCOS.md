@@ -19,7 +19,7 @@ FISCO BCOS 平台基于价值联盟、安全可信、业务可行、自主可控
 - 在监管方面：FISCO BCOS 支持监管和审计机构作为观察节点加入联盟链，获取实时数据进行监管审计。
 
 ## 技术架构
-FISCO BCOS 分层架构设计如下图所示：
+FISCO BCOS 分层架构设计如下图所示： 
 ![](https://main.qcloudimg.com/raw/422d42ef308f78261af6fce4d891290c.jpg)
 - 基础层提供基础工具和算法库。
 - 核心层实现区块链内核逻辑以及网络共识算法等关键模块，包括链核心层与互联核心层。
@@ -30,8 +30,8 @@ FISCO BCOS 分层架构设计如下图所示：
 
 ## 开源社区
 - FISCO BCOS 开源社区：`https://github.com/fisco-bcos`
-- FISCO BCOS 文档地址：`https://fisco-bcos-documentation.readthedocs.io/zh_CN/release-2.0/docs/introduction.html`
+- FISCO BCOS 文档地址：`https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/index.html`
 
 ## 常见问题
 
-FISCO BCOS FAQ 文档：`https://fisco-bcos-documentation.readthedocs.io/zh_CN/release-2.0/docs/faq.html`
+FISCO BCOS FAQ 文档：`https://fisco-bcos-documentation.readthedocs.io/zh_CN/latest/docs/faq/index.html`

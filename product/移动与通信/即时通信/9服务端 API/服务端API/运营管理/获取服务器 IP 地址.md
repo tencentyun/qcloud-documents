@@ -19,7 +19,7 @@ https://console.tim.qq.com/v4/ConfigSvc/GetIPList?sdkappid=88888888&identifier=a
 | identifier         | 必须为 App 管理员帐号，更多详情请参见 [App 管理员](https://cloud.tencent.com/document/product/269/31999#app-.E7.AE.A1.E7.90.86.E5.91.98)                |
 | usersig            | App 管理员帐号生成的签名，具体操作请参见 [生成 UserSig](https://cloud.tencent.com/document/product/269/32688)    |
 | random             | 请输入随机的32位无符号整数，取值范围0 - 4294967295                 |
-
+|contenttype|请求格式固定值为`json`|
 
 ### 最高调用频率
 200次/秒。
@@ -57,5 +57,4 @@ https://console.tim.qq.com/v4/ConfigSvc/GetIPList?sdkappid=88888888&identifier=a
 ## 接口调试工具
 
 通过 [REST API 在线调试工具](https://29294-22989-29805-29810.cdn-go.cn/api-test.html#v4/ConfigSvc/GetIPList)调试本接口。
-
 

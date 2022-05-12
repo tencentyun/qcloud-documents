@@ -36,7 +36,11 @@
 ### 创建实例
 创建云服务器实例，详情请参见 [通过购买页创建实例](https://cloud.tencent.com/document/product/213/4855)。其中，实例规格需根据 [选型推荐](#RecommendedSelection) 及实际业务场景进行选择。如下图所示：
 ![](https://main.qcloudimg.com/raw/787c6b14601fbed2b93970c39b71175f.png)
->?更多实例规格参数介绍，请参见 [实例规格](https://cloud.tencent.com/document/product/213/11518)。
+<dx-alert infotype="explain" title="">
+更多实例规格参数介绍，请参见 [实例规格](https://cloud.tencent.com/document/product/213/11518)。
+</dx-alert>
+
+
 
 ### 登录实例
 登录云服务器实例，详情请参见 [使用标准方式登录 Linux 实例（推荐）](https://cloud.tencent.com/document/product/213/5436)。
@@ -55,7 +59,8 @@ TensorFlow\* 是用于大规模机器学习及深度学习的热门框架之一�
 2. 执行以下命令，安装 Intel<sup>®</sup> 优化的 TensorFlow\* 版本 intel-tensorflow。
 <dx-alert infotype="explain" title="">
 建议使用**2.4.0及以上版本**，以获得最新的功能与优化。
-</dx-alert> ```
+</dx-alert> 
+```shellsession
 pip install intel-tensorflow
 ```
 
@@ -66,12 +71,12 @@ pip install intel-tensorflow
 
 操作步骤如下：
 1. 执行以下命令，获取系统的物理核个数。
-```
+```shellsession
 lscpu | grep "Core(s) per socket" | cut -d':' -f2 | xargs
 ```
 2. 设置优化参数，可选择以下任一方式：
  - 设置环境运行参数。在环境变量文件中，添加以下配置：
-``` 
+``` shellsession
  export OMP_NUM_THREADS= # <physicalcores>
  export KMP_AFFINITY="granularity=fine,verbose,compact,1,0"
  export KMP_BLOCKTIME=1
@@ -81,7 +86,7 @@ lscpu | grep "Core(s) per socket" | cut -d':' -f2 | xargs
  export TF_ENABLE_MKL_NATIVE_FORMAT=0
 ```
  - 在代码中增加环境变量设置。在运行的 Python 代码中，加入以下环境变量配置：
-```
+```shellsession
 import os
 os.environ["KMP_BLOCKTIME"] = "1"
 os.environ["KMP_SETTINGS"] = "1"
@@ -126,19 +131,19 @@ tf.Session(config=config)
 操作步骤如下：
 
 1. 执行以下命令，获取系统的物理核个数。
-```
+```shellsession
 lscpu | grep "Core(s) per socket" | cut -d':' -f2 | xargs
 ```
 2. 设置优化参数，可选择以下任一方式：
  - 设置环境运行参数，使用 GNU OpenMP* Libraries。在环境变量文件中，添加以下配置：
-``` 
+``` shellsession
 export OMP_NUM_THREADS=physicalcores
 export GOMP_CPU_AFFINITY="0-<physicalcores-1>"
 export OMP_SCHEDULE=STATIC
 export OMP_PROC_BIND=CLOSE
 ```
  - 设置环境运行参数，使用 Intel OpenMP* Libraries。在环境变量文件中，添加以下配置：
-``` 
+``` shellsession
 export OMP_NUM_THREADS=physicalcores
 export LD_PRELOAD=<path_to_libiomp5.so>
 export KMP_AFFINITY="granularity=fine,verbose,compact,1,0"
@@ -150,7 +155,7 @@ export KMP_SETTINGS=1
 #### 运行 PyTorch* 深度学习模型的推理及训练优化建议
 
 - 运行模型推理时，可使用 Intel<sup>®</sup> Extension for PyTorch 来获取性能提升。示例代码如下：
-```
+```shellsession
 import intel_pytorch_extension
 ...
 net = net.to('xpu')       # Move model to IPEX format
@@ -456,17 +461,17 @@ Intel<sup>®</sup> 低精度优化工具工作流程示意图如下：
 #### Intel<sup>®</sup>低精度优化工具安装与使用示例 
 
 1. 依次执行以下命令，使用 anaconda 建立名为 lpot 的 python3.x 虚拟环境。本文以 python 3.7 为例。
-```plaintext
+```shellsession
 conda create -n lpot python=3.7
 conda activate lpot
 ```
 2. 安装 lpot，可通过以下两种方式：
     - 执行以下命令，从二进制文件安装。
-``` plaintext
+``` shellsession
 pip install lpot
 ```
     - 执行以下命令，从源码安装。
-```plaintext
+```shellsession
  git clone https://github.com/intel/lpot.git
  cd lpot
  pip install –r requirements.txt
@@ -475,41 +480,41 @@ pip install lpot
 3. 量化 TensorFlow ResNet50 v1.0。本文以 ResNet50 v1.0 为例，介绍如何使用本工具进行量化：
     1. 准备数据集。
 执行以下命令，下载并解压 ImageNet validation 数据集。
-```plaintext
+```shellsession
 mkdir –p img_raw/val && cd img_raw
 wget http://www.image-net.org/challenges/LSVRC/2012/dd31405981
 ef5f776aa17412e1f0c112/ILSVRC2012_img_val.tar
 tar –xvf ILSVRC2012_img_val.tar -C val
 ``` 执行以下命令，将 image 文件移入按 label 分类的子目录。
-```plaintext
+```shellsession
 cd val
 wget -qO -https://raw.githubusercontent.com/soumith/
 imagenetloader.torch/master/valprep.sh | bash
 ``` 执行以下命令，使用脚本 [prepare_dataset.sh](https://github.com/intel/lpot/blob/master/examples/tensorflow/image_recognition/prepare_dataset.sh) 将原始数据转换为 TFrecord 格式。
-```plaintext
+```shellsession
 cd examples/tensorflow/image_recognition
 bash prepare_dataset.sh --output_dir=./data --raw_dir=/PATH/TO/img_raw/val/ 
 --subset=validation
 ``` 更多数据集相关信息，请参见 [Prepare Dataset](https://github.com/intel/lpot/tree/master/examples/tensorflow/image_recognition#2-prepare-dataset)。
     2. 执行以下命令，准备模型。
- ```plaintext
+ ```shellsession
 wget https://storage.googleapis.com/intel-optimized-tensorflow/
  models/v1_6/resnet50_fp32_pretrained_model.pb
 ```
     3. 执行以下命令，运行 Tuning。
 修改文件 `examples/tensorflow/image_recognition/resnet50_v1.yaml`，使 `quantization\calibration`、`evaluation\accuracy`、`evaluation\performance` 三部分的数据集路径指向用户本地实际路径，即数据集准备阶段生成的 TFrecord 数据所在位置。详情请参见 [ResNet50 V1.0](https://github.com/intel/lpot/tree/master/examples/tensorflow/image_recognition#1-resnet50-v10)。
-```plaintext
+```shellsession
 cd examples/tensorflow/image_recognition
 bash run_tuning.sh --config=resnet50_v1.yaml \
 --input_model=/PATH/TO/resnet50_fp32_pretrained_model.pb \
 --output_model=./lpot_resnet50_v1.pb
 ```
     4. 执行以下命令，运行 Benchmark。
-```plaintext
+```shellsession
 bash run_benchmark.sh --input_model=./lpot_resnet50_v1.pb
 --config=resnet50_v1.yaml
 ``` 输出结果如下，其中性能数据仅供参考：
-```shell
+```shellsession
  accuracy mode benchmarkresult:
  Accuracy is 0.739
  Batch size = 32

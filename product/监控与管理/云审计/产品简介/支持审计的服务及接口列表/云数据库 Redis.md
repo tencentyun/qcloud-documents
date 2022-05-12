@@ -28,3 +28,5 @@
 | 修改实例参数                  | redis | ModifyInstanceParams          |
 | 修改实例网络                  | redis | ModifyNetworkConfig           |
 | 回收站开启实例                 | redis | StartupInstance               |
+
+

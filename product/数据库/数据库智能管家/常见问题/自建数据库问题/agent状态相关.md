@@ -1,6 +1,6 @@
 
 ### 如何查看 agent 状态？
-登录 [DBbrain 控制台](https://console.cloud.tencent.com/dbbrain/instance?product=mysql)，在左侧导航选择【实例管理】页，在上方选择对应数据库，在列表可查看 agent 状态。
+登录 [DBbrain 控制台](https://console.cloud.tencent.com/dbbrain/instance?product=mysql)，在左侧导航选择**实例管理**页，在上方选择对应数据库，在列表可查看 agent 状态。
 ![](https://main.qcloudimg.com/raw/8c72cb85a2f27e2d769672de8fcb2f04.png)
 
 ### agent 状态异常，如何解决？

@@ -25,7 +25,7 @@ Storm 可以把 CKafka 作为`spout`，消费数据进行处理；也可以作�
 ## 前提条件
 
 - 下载并安装 JDK 8。具体操作，请参见 [Download JDK 8](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html)。
-- 下载并安装 Storm，参考 [Apache Storm downloads](http://storm.apache.org/downloads.html)。
+- 下载并安装 Storm，参见 [Apache Storm downloads](http://storm.apache.org/downloads.html)。
 - 已 [创建 CKafka 实例](https://cloud.tencent.com/document/product/597/53207)。
 
 ## 操作步骤
@@ -33,14 +33,14 @@ Storm 可以把 CKafka 作为`spout`，消费数据进行处理；也可以作�
 ### 步骤1：获取 CKafka 实例接入地址
 
 1. 登录 [CKafka 控制台](https://console.cloud.tencent.com/ckafka)。
-2. 在左侧导航栏选择【实例列表】，单击实例的“ID”，进入实例基本信息页面。
-3. 在实例的基本信息页面的【接入方式】模块，可获取实例的接入地址。
+2. 在左侧导航栏选择**实例列表**，单击实例的“ID”，进入实例基本信息页面。
+3. 在实例的基本信息页面的**接入方式**模块，可获取实例的接入地址。
    ![](https://main.qcloudimg.com/raw/a28b5599889166095c168510ce1f5e89.png)
 
 ### 步骤2：创建 Topic
 
-1. 在实例基本信息页面，选择顶部【Topic管理】页签。
-2. 在 Topic 管理页面，单击【新建】，创建一个 Topic。
+1. 在实例基本信息页面，选择顶部**Topic管理**页签。
+2. 在 Topic 管理页面，单击**新建**，创建一个 Topic。
    ![](https://main.qcloudimg.com/raw/f3ea93d866767a3a26dd80b0a8d5ad8f.png)
 
 ### 步骤3：添加 Maven 依赖
@@ -153,8 +153,8 @@ public class TopologyKafkaProducerSpout {
     private final static String TOPIC = "storm_test";
     public static void main(String[] args) throws Exception {
         //设置producer属性
-        //函数参考：https://kafka.apache.org/0100/javadoc/index.html?org/apache/kafka/clients/consumer/KafkaConsumer.html
-        //属性参考：http://kafka.apache.org/0102/documentation.html
+        //函数参见：https://kafka.apache.org/0100/javadoc/index.html?org/apache/kafka/clients/consumer/KafkaConsumer.html
+        //属性参见：http://kafka.apache.org/0102/documentation.html
         Properties properties = new Properties();
         properties.put("bootstrap.servers", BOOTSTRAP_SERVERS);
         properties.put("acks", "1");
@@ -297,8 +297,8 @@ public class TopologyKafkaProducerTrident {
     private final static String TOPIC = "storm_test";
     public static void main(String[] args) throws Exception {
         //设置producer属性
-        //函数参考：https://kafka.apache.org/0100/javadoc/index.html?org/apache/kafka/clients/consumer/KafkaConsumer.html
-        //属性参考：http://kafka.apache.org/0102/documentation.html
+        //函数参见：https://kafka.apache.org/0100/javadoc/index.html?org/apache/kafka/clients/consumer/KafkaConsumer.html
+        //属性参见：http://kafka.apache.org/0102/documentation.html
         Properties properties = new Properties();
         properties.put("bootstrap.servers", BOOTSTRAP_SERVERS);
         properties.put("acks", "1");
@@ -456,8 +456,8 @@ public class TopologyKafkaConsumerSpout {
                 (r) -> new Values(r.topic(), r.partition(), r.offset(), r.key(), r.value()),
                 new Fields("topic", "partition", "offset", "key", "value"));
         //设置consumer参数
-        //函数参考http://storm.apache.org/releases/1.1.0/javadocs/org/apache/storm/kafka/spout/KafkaSpoutConfig.Builder.html
-        //参数参考http://kafka.apache.org/0102/documentation.html
+        //函数参见http://storm.apache.org/releases/1.1.0/javadocs/org/apache/storm/kafka/spout/KafkaSpoutConfig.Builder.html
+        //参数参见http://kafka.apache.org/0102/documentation.html
         KafkaSpoutConfig spoutConfig = KafkaSpoutConfig.builder(BOOTSTRAP_SERVERS, TOPIC)
                 .setProp(new HashMap<String, Object>(){{
                     put(ConsumerConfig.GROUP_ID_CONFIG, "test-group1"); //设置group
@@ -547,8 +547,8 @@ public class TopologyKafkaConsumerTrident {
                 (r) -> new Values(r.topic(), r.partition(), r.offset(), r.key(), r.value()),
                 new Fields("topic", "partition", "offset", "key", "value"));
         //设置consumer参数
-        //函数参考http://storm.apache.org/releases/1.1.0/javadocs/org/apache/storm/kafka/spout/KafkaSpoutConfig.Builder.html
-        //参数参考http://kafka.apache.org/0102/documentation.html
+        //函数参见http://storm.apache.org/releases/1.1.0/javadocs/org/apache/storm/kafka/spout/KafkaSpoutConfig.Builder.html
+        //参数参见http://kafka.apache.org/0102/documentation.html
         KafkaTridentSpoutConfig spoutConfig = KafkaTridentSpoutConfig.builder(BOOTSTRAP_SERVERS, TOPIC)
                 .setProp(new HashMap<String, Object>(){{
                     put(ConsumerConfig.GROUP_ID_CONFIG, "test-group1"); //设置group

@@ -1,3 +1,4 @@
+
 以下视频将帮助您快速了解 Web 和小程序端 SDK API：
 <div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2298-33477?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
 
@@ -27,12 +28,32 @@ TIM 是 IM Web SDK 的命名空间，提供了创建 SDK 实例的静态方法 [
 | 群系统通知消息 | 当有用户申请加群等事件发生时，管理员会收到申请加群等系统消息。管理员同意或拒绝加群申请，IM SDK 会通过群系统通知消息将申请加群等相应消息发送给接入侧，由接入侧展示给用户。<br/>群系统通知消息有多种类型，详细描述请参见 [Message.GroupSystemNoticePayload](https://web.sdk.qcloud.com/im/doc/zh-cn/Message.html#.GroupSystemNoticePayload)。  |
 | 消息上屏 | 用户单击发送后，事先输入的文字或选择的图片等信息显示在用户电脑屏幕或手机屏幕上的过程。 |
 
+### 事件相关
+| API | 描述 |
+| --- | --- |
+| [on](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#on) | 监听事件。 |
+| [off](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#off) | 取消监听事件。 |
+
+### 注册插件
+| API | 描述 |
+| --- | --- |
+| [registerPlugin](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#registerPlugin) | 注册插件。 |
+
+### 设置日志级别
+| API | 描述 |
+| --- | --- |
+| [setLogLevel](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#setLogLevel) | 设置日志级别。 |
+
+### 销毁 SDK 实例
+| API | 描述 |
+| --- | --- |
+| [destroy](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#destroy)  | 销毁 SDK 实例。 |
+
 ### 登录相关
 | API | 描述 |
 | --- | --- |
 | [login](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#login) | 登录。 |
 | [logout](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#logout) | 登出。 |
-
 
 ### 消息
 | API | 描述 |
@@ -62,6 +83,8 @@ TIM 是 IM Web SDK 的命名空间，提供了创建 SDK 实例的静态方法 [
 | [getConversationProfile](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getConversationProfile) | 获取会话资料。 |
 | [deleteConversation](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#deleteConversation) | 删除会话。 |
 | [pinConversation](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#pinConversation) | 置顶或取消置顶会话。 |
+| [setAllMessageRead](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#setAllMessageRead) | 将所有会话的未读消息设置为已读。 |
+| [setMessageRemindType](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#setMessageRemindType) | 设置会话消息提醒类型，您可以使用此接口实现“消息免打扰”，“拒收消息”的功能。 |
 
 ### 资料
 | API | 描述 |
@@ -124,15 +147,3 @@ TIM 是 IM Web SDK 的命名空间，提供了创建 SDK 实例的静态方法 [
 | [setGroupMemberRole](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#setGroupMemberRole) | 修改群成员角色。 |
 | [setGroupMemberNameCard](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#setGroupMemberNameCard) | 设置群成员名片。 |
 | [setGroupMemberCustomField](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#setGroupMemberCustomField) | 设置群成员自定义字段。 |
-| [setMessageRemindType](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#setMessageRemindType) | 设置群消息提示类型。 |
-
-### 其他
-| API | 描述 |
-| --- | --- |
-| [on](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#on) | 监听事件。 |
-| [off](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#off) | 取消监听事件。 |
-| [registerPlugin](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#registerPlugin) | 注册插件。 |
-| [setLogLevel](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#setLogLevel) | 设置日志级别。 |
-| [destroy](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#destroy)  | 销毁 SDK 实例。 |
-
-

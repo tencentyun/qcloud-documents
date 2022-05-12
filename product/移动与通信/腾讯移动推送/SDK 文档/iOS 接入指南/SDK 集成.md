@@ -12,9 +12,9 @@
 ### 接入前准备
 1. 接入 SDK 之前，请前往移动推送 TPNS  [控制台](https://console.cloud.tencent.com/tpns) 创建产品和 iOS 应用，详细操作可参考 [创建产品和应用](https://cloud.tencent.com/document/product/548/37241)。
    ![](https://main.qcloudimg.com/raw/47d9802945ecc9d4c84a2c1f3d45d40b.png)
-2. 单击【配置管理】，进入管理页面。
+2. 单击**配置管理**，进入管理页面。
    ![](https://main.qcloudimg.com/raw/30da757263936244ba3967f280202ab9.png)
-3. 单击【上传证书】，完成上传操作。推送证书获取详情请参考 [证书获取指引](https://cloud.tencent.com/document/product/548/36664)。
+3. 单击**上传证书**，完成上传操作。推送证书获取详情请参考 [证书获取指引](https://cloud.tencent.com/document/product/548/36664)。
    ![](https://main.qcloudimg.com/raw/c4eaeb3f2d9c3fbb42dbb75f2c5c12dc.png)
 4. 证书上传成功后，在应用信息栏中，获取应用 Access ID 和 Access KEY。
 
@@ -25,7 +25,7 @@
 pod 'TPNS-iOS', '~> 版本'  // 如果不指定版本则默认为本地 pod TPNS-iOS 最新版本
 ```
 >?
-> - 首次下载需要登录 [仓库地址](https://git.code.tencent.com/users/sign_in)，并在【账户】菜单栏中 [设置用户名和密码](https://code.tencent.com/help/productionDoc/profile#password)。设置成功后，在 Terminal 输入对应的用户名和密码，后续即可正常使用，当前 PC 不需要再次登录。
+> - 首次下载需要登录 [仓库地址](https://git.code.tencent.com/users/sign_in)，并在**账户**菜单栏中 [设置用户名和密码](https://code.tencent.com/help/productionDoc/profile#password)。设置成功后，在 Terminal 输入对应的用户名和密码，后续即可正常使用，当前 PC 不需要再次登录。
 > - 由于仓库地址变更，如果 pod 提示 `Unable to find a specification for 'TPNS-iOS'`，那么需要执行以下命令，并更新仓库确认版本：
 >	``` 
 	pod repo update
@@ -34,9 +34,9 @@ pod 'TPNS-iOS', '~> 版本'  // 如果不指定版本则默认为本地 pod TPNS
 ``` 
 
 #### 方式二：手动导入
-1. 进入腾讯移动推送 [控制台](https://console.cloud.tencent.com/tpns)，单击左侧菜单栏【[SDK 下载](https://console.cloud.tencent.com/tpns/sdkdownload)】，进入下载页面，选择需要下载的 SDK 版本，单击操作栏中【下载】即可。
+1. 进入腾讯移动推送 [控制台](https://console.cloud.tencent.com/tpns)，单击左侧菜单栏**[SDK 下载](https://console.cloud.tencent.com/tpns/sdkdownload)**，进入下载页面，选择需要下载的 SDK 版本，单击操作栏中**下载**即可。
 2. 打开 demo 目录下的 SDK 文件夹，将 XGPush.h 及 libXG-SDK-Cloud.a 添加到工程，打开 XGPushStatistics 文件夹，获取 XGMTACloud.framework。
-3. 将 InAppMessage 文件夹导入到工程并在【Build Setting】>【Framework Search Paths】 添加查找路径（若您 SDK 版本低于1.2.8.0，则可以忽略此步骤）。
+3. 将 InAppMessage 文件夹导入到工程并在**Build Setting**>**Framework Search Paths** 添加查找路径（若您 SDK 版本低于1.2.8.0，则可以忽略此步骤）。
 4. 在 Build Phases 下，添加以下 Framework：
  ```
  * XGInAppMessage.framework
@@ -57,6 +57,8 @@ pod 'TPNS-iOS', '~> 版本'  // 如果不指定版本则默认为本地 pod TPNS
 ### 工程配置
 1. 在工程配置和后台模式中打开推送，如下图所示：
 ![](https://main.qcloudimg.com/raw/549acb8c1cf61c1d2f41de4762baf47b.png)
+1.1 如需使用 iOS15 新增的"时效性通知功能"，请在`Capabilities`中开启`Time Sensitive Notifications`
+![](https://qcloudimg.tencent-cloud.cn/raw/f07a8d6912cc85830a99358dcf66d28a.png)
 2. 添加编译参数 `-ObjC` 。
 ![](https://main.qcloudimg.com/raw/b0b74cec883f69fb0287fedc7bad4140.png)
 如 checkTargetOtherLinkFlagForObjc 报错，是因为 build setting 中，Other link flags 未添加 -ObjC。
@@ -190,6 +192,12 @@ TPNS 及 APNs 通道统一接收消息回调，当应用在前台收到通知消
 - (void)xgPushDidReceiveRemoteNotification:(nonnull id)notification withCompletionHandler:(nullable void (^)(NSUInteger))completionHandler;
 ```
 >?
+- 当您前台收到通知时默认是不弹横幅的，如需展示请参考如下代码：
+```
+if ([notification isKindOfClass:[UNNotification class]]) {
+   completionHandler(UNNotificationPresentationOptionBadge | UNNotificationPresentationOptionSound | UNNotificationPresentationOptionAlert);
+}
+```
 - 当应用在前台收到通知消息以及所有状态下收到静默消息时，会触发统一接收消息回调 xgPushDidReceiveRemoteNotification。
 区分前台收到通知消息和静默消息示例代码如下：
 ```
@@ -223,32 +231,10 @@ if (msgType.integerValue == 1) {
 
 
 ## 高级配置（可选）
-<span id="zhuxiao"></span>
-### 注销信鸽平台推送服务
-如果 App 的推送服务是从 [信鸽平台](https://xg.qq.com) 迁移到腾讯移动推送平台， 需要调用 `TPNS SDK(1.2.5.3+)` 的接口将设备信息在信鸽平台中进行反注册。
-
-#### 接口
-
-```objective-c
-// 信鸽平台的 accessId(支持信鸽 SDK V2、V3版本)
-@property uint32_t freeAccessId;
-```
-
-#### 用法
-
-- 引入头文件：`XGForFreeVersion.h` 。
-- 在`startXGWithAccessID:accessKey:delegate:`之前调用此接口，参考示例：
-
-```objective-c
-[XGForFreeVersion defaultForFreeVersion].freeAccessId = 2200262432;
-[[XGPush defaultManager] startXGWithAccessID: <#your tpns access ID#>appKey:<#your tpns access key#> delegate:<#your delegate#>];
-```
->!如果未做以上配置，在信鸽和腾讯移动推送两个平台上同时推送时，可能会出现重复消息。
-
 
 <span id="QHToken"></span>
 ### 获取 TPNS Token 交互建议
-建议您完成 SDK 集成后，在 App 的【关于】、【意见反馈】等比较不常用的 UI 中，通过手势或者其他方式显示 TPNS Token，控制台和 Restful API 推送需要根据 TPNS Token 进行 Token 推送，后续问题排查也需要根据 TPNS Token 进行定位。
+建议您完成 SDK 集成后，在 App 的**关于**、**意见反馈**等比较不常用的 UI 中，通过手势或者其他方式显示 TPNS Token，控制台和 Restful API 推送需要根据 TPNS Token 进行 Token 推送，后续问题排查也需要根据 TPNS Token 进行定位。
 
 #### 示例代码
 ```objective-c
@@ -258,7 +244,7 @@ if (msgType.integerValue == 1) {
 ![](https://main.qcloudimg.com/raw/f6ff84d3a50630bb4e8a0ab6fd090798.png)
 
 ### 获取 "TPNS运行日志" 交互建议
-建议您完成 SDK 集成后，在 App 的【关于】、【意见反馈】等比较不常用的 UI 中，通过手势或者其他方式显示"TPNS运行日志"，方便后续问题排查。
+建议您完成 SDK 集成后，在 App 的**关于**、**意见反馈**等比较不常用的 UI 中，通过手势或者其他方式显示"TPNS运行日志"，方便后续问题排查。
 
 效果如下图所示：
 ![](https://main.qcloudimg.com/raw/8eaaba4bedf0a541ed7f077d2e374ca3.png)![](https://main.qcloudimg.com/raw/5c28586161aefb3c47c5cdb7e23ed57b.png)

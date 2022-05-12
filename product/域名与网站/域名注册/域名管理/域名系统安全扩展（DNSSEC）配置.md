@@ -3,14 +3,35 @@
 本文为您介绍如何在腾讯云域名注册控制台添加及同步 DNSSEC 记录。
 
 ## 前提条件
-已登录 [腾讯云域名注册控制台](https://console.cloud.tencent.com/domain)，并进入 “我的域名” 管理页面。
+- 已登录 [腾讯云域名注册控制台](https://console.cloud.tencent.com/domain)，并进入 “我的域名” 管理页面。
+- 域名需为支持 DNSSEC 的域名后缀。
+<table>
+<thead>
+  <tr>
+    <td>支持 DNSSEC 域名后缀</td>
+    <td>cn、 .com、 .net、 .xyz、.wang、.ac.cn、.com.cn、.net.cn、
+		<br> .中国、 .网址、 .在线、.top、.club、.vip、.beer、.work、.fashion、
+		<br>.luxe、.yoga、 .love、 .online、 .mobi、 .中文网、.ltd、 .chat、
+		<br> .group、.pub、 .run、 .city、 .live、 .info、 .pro、 .red、 .网店、
+    <br> .kim、.blue、 .pet、.移动、.space、.tech、.host、.site、.fun、
+		<br>.store、.ski、.pink、.design、.ink、.wiki、.email、.video、.company、
+		<br>.plus、.center、.cool、.fund、.gold、.guru、.life、.show、.team、
+		<br>.today、.world、.zone、.social、.bio、.black、.green、.lotto、.organic、
+		<br>.poker、.promo、.vote、.archi、.voto、.网站、.商店、.企业、.娱乐、.游戏、
+		<br>.fit、.website、.press、.icu、.art、.asia、.org.cn、.biz、.集团、.我爱你、
+		<br>.games、 .fan、 .sale、.media、.studio、 .band、 .fyi、 .cab、 .market、
+		<br> .news、 .vin、 .tax、 .shopping、 .mba、.cash、 .cafe、 .technology、 .ren、
+		<br> .fans、 .co、 .cloud、 .shop、 .law、 .link，.信息</td>
+  </tr>
+</thead>
+</table>
 >!以 .中国、.cn、.ac.cn、.com.cn、.net.com 为后缀的中文域名不支持添加 DNSSEC 记录，例如 `腾讯云.com.cn`。
 
 ## 操作指南
 1. 在 “我的域名” 管理页面，选择您需要配置的域名，并单击**管理**。如下图所示：
-![](https://main.qcloudimg.com/raw/d19438c7800e49ec15bfa09a61337b86.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/20b6c5c1c68a74a864acb914c13edcbe.png)
 2. 进入 “域名信息” 管理页面，选择**域名安全**页签，并单击 **DNSSEC 设置 > 管理**。如下图所示：
-![](https://main.qcloudimg.com/raw/805d5bf566ca4476acaf6306e2db1cf0.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/0fbda5392a4764afa332a8bffd7ccccd.png)
 3. 请单击**我已了解**，并进入 “DNSSEC 设置” 管理页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/0f1804270c99e98ba11d3704575d8a21.png)
 4. 在 “DNSSEC 设置” 管理页面，您可以通过以下两种方式添加 DNSSEC 记录。如下图所示：

@@ -3,7 +3,7 @@
 该任务指导您在使用消息队列 CKafka 时，通过控制台配置 SASL 鉴权和 ACL 规则，增强对公网/内网传输中的用户访问控制，增加对 Topic 等资源的生产消费权限控制。
 
 >?
->- Kafka 提供了多种安全认证机制，主要分为 SSL 和 SASL2 大类，其中 SASL/PLAIN 是基于账号密码的认证方式，比较常用。CKafka 支持 SASL_PLAINTEXT 认证（参考  [添加路由策略-公网域名接入](https://cloud.tencent.com/document/product/597/36348#public)）。
+>- Kafka 提供了多种安全认证机制，主要分为 SSL 和 SASL2 大类，其中 SASL/PLAIN 是基于账号密码的认证方式，比较常用。CKafka 支持 SASL_PLAINTEXT 认证（参见  [添加路由策略-公网域名接入](https://cloud.tencent.com/document/product/597/36348#public)）。
 >- ACL 访问控制列表（Access Control List），帮助用户定义一组权限规则，允许/拒绝用户 user 通过 IP 读/写 Topic 资源。
 
 
@@ -15,7 +15,7 @@
 2. 在顶部菜单栏，选择地域后，单击目标实例“ID/名称”。
 3. 在实例详情页面，单击顶部**用户管理**页签。
 4. 在用户管理页面，单击**新建**，填写用户名和密码信息，创建用户。
-5. 单击顶部 **ACL策略管理**。
+5. 单击顶部 **ACL 策略管理**。
 6. 在 ACL 策略详情页面，单击**批量配置**，为用户授予权限。
 >?
 >- 若只设置允许规则，则除允许的规则外的其他 IP 都无法连接实例。
@@ -24,14 +24,14 @@
 <dx-tabs>
 ::: 2.4.1版本及以上实例
 支持**批量勾选**，**按前缀模糊匹配**和**预设规则**三种方式为用户授予权限。
-> ?配置ACL策略时支持输入多个IP或网段，用 `;` 隔开，若IP为空，则默认为**全部用户**添加权限。
+> ?配置 ACL 策略时支持输入多个 IP 或网段，用 `;` 隔开，若 IP 为空，则默认为**全部 IP** 添加权限。
 
 - **批量勾选：**选择多个需要配置相同 ACL 策略的 Topic。
 - **按前缀模糊：**按 Topic 名称前缀模糊匹配需要配置相同 ACL 策略的 Topic，需要指定模糊匹配规则名称。设置后，新增按指定前缀命名的 Topic 时，系统自动配置指定 ACL 策略。
 <dx-alert infotype="explain" title="">
 模糊匹配规则最多支持设置五条。  
 </dx-alert>
- ![](https://main.qcloudimg.com/raw/302ef1adfcd93b5fcae7ebaed583c7f9.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/c73974edee27f881ef7976140940125a.png)
 - **预设规则：**预设一套策略，后续创建 Topic 的时候可以自动应用这套规则。
 <dx-alert infotype="explain" title="">
 预设规则最多支持设置五条。  
@@ -41,7 +41,7 @@
 ::: 其他版本实例
 支持**批量勾选**和**预设规则**两种方式为用户授予权限。
 
-> ?支持输入多个IP或网段，用 `;` 隔开；若IP为空，则默认为**全部用户**添加权限。
+> ?支持输入多个 IP 或网段，用 `;` 隔开；若 IP 为空，则默认为**全部 IP** 添加权限。
 
 
 
@@ -54,7 +54,7 @@
 ![](https://main.qcloudimg.com/raw/44a93270d0fd9ac4ef1a287eabac5d95.png)
 :::
 </dx-tabs>
-后续处理：完成授权后，用户可以通过 SASL 接入点接入消息队列 CKafka 并使用 PLAIN 机制消费消息（参考 <a href="https://cloud.tencent.com/document/product/597/54816">SDK 文档</a>）。
+后续处理：完成授权后，用户可以通过 SASL 接入点接入消息队列 CKafka 并使用 PLAIN 机制消费消息（参见 <a href="https://cloud.tencent.com/document/product/597/54816">SDK 文档</a>）。
 
 
 

@@ -1,5 +1,3 @@
- 
-
 ## 接口描述
 **描述**：通过 uuid 更新企业用户，目前暂不支持 OAuth2.0 鉴权访问。
 **调用方式**：PUT
@@ -21,7 +19,7 @@ https://api.meeting.qq.com/v1/users?uuid={uuid}
 | phone      | 否   | String   | 手机号码。                                                     |
 | avatar_url | 否   | String   | 头像地址。                                                     |
 | staff_id        | 否   | String     | 员工工号。                                                     |
-| job_title       | 否   | String     | 员工职位，长度范围[1,32]。                                     |
+| job_title       | 否   | String     | 员工职位，长度范围为[0,96]个字符。                                    |
 | entry_time      | 否   | Integer    | 入职时间。                                                     |
 | department_list | 否   | String 数组 | 员工部门，暂只支持为用户分配1个部门。  |    
 

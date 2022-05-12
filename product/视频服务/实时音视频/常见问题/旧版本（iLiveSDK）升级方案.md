@@ -4,7 +4,7 @@
 | 差异项 | 旧版本 V1 |  新版本 V2 |
 |:-------:|:-------:|:-------:|
 | 内核架构 | iLiveSDK | LiteAVSDK |
-| IM SDK   |  内嵌        |  不内嵌       |
+| IM SDK   |  内嵌        |  不内嵌       | 
 | API 接口 |  V1 |  V2 |
 | CDN 推流 | 使用 REST API 开启 |  支持客户端开启 | 
 | 云端线路  |  V1 线路 |   V2 线路  |
@@ -47,7 +47,7 @@ TRTC V1 版本中，使用了 BeautySDK 来实现美颜及动效等功能，TRTC
 | 版本                                   | 处理办法                                                     |
 | -------------------------------------- | ------------------------------------------------------------ |
 | BeautySDK 基本版（不带 P 图版本） | 您仅需在 Xcode 工程配置 BeautySDK 的头文件搜索路径，并取消链接 BeautySDK。 |
-| BeautySDK 高级版（带 P 图版本）    | 您需要使用 LiteAVSDK 企业版，并在 Xcode 工程配置 BeautySDK 的头文件搜索路径，同时取消链接 BeautySDK（LiteAVSDK 企业版中带有 P 图组件，可以直接使用您之前购买的 P 图 licence，您无须再次付费）。 |
+| BeautySDK 高级版（带 P 图版本）    | 您需要使用 LiteAVSDK 全功能版，并在 Xcode 工程配置 BeautySDK 的头文件搜索路径，同时取消链接 BeautySDK（LiteAVSDK 全功能版中带有 P 图组件，可以直接使用您之前购买的 P 图 licence，您无须再次付费）。 |
 
 ### Windows 端 LiteAVSDK 和 iLiveSDK 如何同时兼容集成？
 

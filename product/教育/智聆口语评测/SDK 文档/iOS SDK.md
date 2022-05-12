@@ -2,7 +2,6 @@
 腾讯云智聆口语评测（Smart Oral Evaluation，SOE）是腾讯云推出的语音评测产品，是基于口语类教育培训场景和腾讯云的语音处理技术，应用特征提取、声学模型和语音识别算法，为儿童和成人提供高准确度的口语发音评测。支持单词、句子和段落模式的评测，多维度反馈口语表现，可广泛应用于中文及英语口语类教学中。    
 TAISDK 是一款封装了腾讯云教育 AI 能力的 SDK，通过集成 SDK，用户可以快速接入相关产品功能，如数学作业批改、智聆口语评测等。本文档介绍智聆口语评测 iOS SDK 相关说明，如需其他产品的调用说明，可在对应产品的产品文档查看。
 详细的网络 API 说明请参见 [API 文档](https://cloud.tencent.com/document/product/884/19309)。
-单击 [示例链接](https://tec.qq.com/ai/soe#demos) 在线体验智聆口语评测 demo。
 
 ## 总体流程
 ### 1. 流程图
@@ -193,7 +192,7 @@ SecretKey 属于安全敏感参数，线上版本一般由业务后台生成 [�
 | evalMode           | TAIOralEvaluationEvalMode    | 是             | 评测模式                                                     |
 | isFixOn            | Bool                         | 是             | 用于设置是否开启单词映射                                     |
 | fileType           | TAIOralEvaluationFileType    | 是             | 用于设置输入的语音文件类型                                   |
-| storageMode        | TAIOralEvaluationStorageMode | 是             | 是否存储音频文件，用于设置是否存储及如何存储评测音频文件     |
+| storageMode        | TAIOralEvaluationStorageMode | 否             | 音频存储模式，此参数已废弃，无需设置，设置与否都默认为0不存储；**注意：有存储需求的用户建议自行存储至 [腾讯云 COS 对象存储](https://cloud.tencent.com/document/product/436/11365) 使用**。     |
 | serverType         | TAIOralEvaluationServerType  | 是             | 评测语言类型，可选为中文或英文                               |
 | scoreCoeff         | Float                        | 是             | 评价苛刻指数，取值为[1.0 - 4.0]范围内的浮点数，用于平滑不同年龄段的分数 |
 | refText            | NSString                     | 是             | 被评估语音对应的文本                                         |

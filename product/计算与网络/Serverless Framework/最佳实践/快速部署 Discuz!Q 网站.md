@@ -5,9 +5,9 @@
 
 | 模块 | 说明 | 
 |---------|---------|
-| 云函数 SCF | 负责 Serverless Discuz！Q 的接入层实现，从而运行 Discuz！Q。 |
-| API 网关| Discuz！Q 的对外入口，实现了 RESTful API。 |
-| 文件储存 CFS  | Discuz！Q 代码的挂载和存储仓库。 |
+| 云函数 SCF | 负责 Serverless Discuz！Q 的接入层实现，从而运行 Discuz！Q。  |
+| API 网关| Discuz！Q 的对外入口，实现了 RESTful API。  |
+| 文件储存 CFS  | Discuz！Q 代码的挂载和存储仓库。  |
 | 私有网络 VPC | 内网打通云函数 SCF、CFS 之间的网络，保障网络隔离。|
 
 
@@ -60,7 +60,7 @@ name: discuz-qDemo
 └── .env # 环境变量文件
 :::
 </dx-codeblock>
-3. 在根目录下，执行 `sls deploy`，即可完成部署。示例如下：
+3. 在根目录下，执行 `sls deploy`，即可完成部署。示例如下： 
 <dx-codeblock>
 :::  sh
 $ sls deploy

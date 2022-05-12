@@ -1,7 +1,7 @@
 ## TkeServiceConfig
 TkeServiceConfig 是腾讯云容器服务 TKE 提供的自定义资源 CRD，通过 TkeServiceConfig 能够帮助您更灵活的进行 Ingress 管理负载均衡的各种配置。
 
-### 使用场景
+### 使用场景 
 Ingress YAML 的语义无法定义的负载均衡参数和功能，可以通过 TkeServiceConfig 来配置。
 
 ### 配置说明
@@ -19,12 +19,14 @@ TkeServiceConfig 不会帮您配置并修改协议、端口、域名以及转发
  - `spec.loadBalancer.l7Listeners.port`：监听端口
  - `spec.loadBalancer.l7Listeners.domains[].domain`：域名
  - `spec.loadBalancer.l7Listeners.domains[].rules[].url`：转发路径
+ - `spec.loadBalancer.l7listeners.protocol.domain.rules.url.forwardType`: 指定后端协议
+    - 后端协议是指 CLB 与后端服务之间的协议：后端协议选择 HTTP 时，后端服务需部署 HTTP 服务。后端协议选中 HTTPS 时，后端服务需部署 HTTPS 服务，HTTPS 服务的加解密会让后端服务消耗更多资源。更多请查看 [CLB 配置 HTTPS 监听器](https://cloud.tencent.com/document/product/214/36385)
 
 >?当您的域名配置为默认值，即公网或内网 VIP 时，可以通过 domain 填空值的方式进行配置。
 
 
 ## Ingress 与 TkeServiceConfig 关联行为
-1. 创建 Ingress 时，设置 **ingress.cloud.tencent.com/tke-service-config-auto:&lt;true&gt;** ，将自动创建 &lt;IngressName>-auto-ingress-config。 您也可以通过 **ingress.cloud.tencent.com/tke-service-config:&lt;config-name&gt;** 直接指定您自行创建的 TkeServiceConfig。两个注解不可同时使用。 
+1. 创建 Ingress 时，设置 **ingress.cloud.tencent.com/tke-service-config-auto:&lt;true&gt;** ，将自动创建 &lt;IngressName>-auto-ingress-config。  您也可以通过 **ingress.cloud.tencent.com/tke-service-config:&lt;config-name&gt;** 直接指定您自行创建的 TkeServiceConfig。两个注解不可同时使用。  
 2. 您为 Service\Ingress 使用的自定义配置，名称不能以 `-auto-service-config` 与 `-auto-ingress-config` 为后缀。
 3. 其中自动创建的 TkeServiceConfig 存在以下同步行为：
   - 更新 Ingress 资源时，新增若干7层转发规则，如果该转发规则没有对应的 TkeServiceConfig 配置片段。Ingress-Controller 将主动添加 TkeServiceConfig 对应片段。
@@ -165,6 +167,7 @@ spec:
       - domain: ""     # domain为空表示使用VIP作为域名
         rules:
         - url: "/health"
+          forwardType: HTTP # 指定后端协议为 HTTP
           healthCheck:
             enable: false
     - protocol: HTTPS
@@ -173,6 +176,7 @@ spec:
       - domain: "sample.tencent.com"
         rules:
         - url: "/"
+          forwardType: HTTPS # 指定后端协议为 HTTPS
           session:
             enable: true
             sessionExpireTime: 3600
@@ -182,7 +186,7 @@ spec:
             healthNum: 2
             unHealthNum: 2
             httpCheckPath: "/checkHealth"
-            httpCheckDomain: "sample.tencent.com"
+            httpCheckDomain: "sample.tencent.com" #注意：健康检查必须使用固定域名进行探测，如果您在.spec.loadBalancer.l7Listeners.protocol.domains.domain 里填写的是泛域名，一定要使用 httpCheckDomain 字段明确具体需要健康检查的域名，否则泛域名不支持健康检查。
             httpCheckMethod: HEAD
           scheduler: WRR
 ```

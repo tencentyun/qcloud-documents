@@ -13,7 +13,7 @@
 <tbody><tr>
 <td>传统账户类型</td>
 <td align="center">-</td>
-<td>EIP 本身不收取任何费用，仅在 CVM 上收取 <a href="https://cloud.tencent.com/document/product/1199/51693" target="_blank">公网网络费用</a>。</td>
+<td>EIP 本身不收取任何费用，在绑定的云资源上收取 <a href="https://cloud.tencent.com/document/product/1199/51693" target="_blank">公网网络费用</a>。</td>
 </tr>
 <tr>
 <td rowspan="4">标准账户类型</td>
@@ -78,7 +78,7 @@
 </tr>
 </tbody>
 </table>
-<img src="https://main.qcloudimg.com/raw/a68a2aa1e681dd3bed4c054942aba27a.png" /></br>
+<img src="https://qcloudimg.tencent-cloud.cn/raw/49e4da2a04866b60d857c6492cc855b5.png" width="90%"></br>
 4. 在弹出的“确认绑定”提示框中，单击<b>确定</b>，即可完成与云资源的绑定。
 
 ## 后续步骤

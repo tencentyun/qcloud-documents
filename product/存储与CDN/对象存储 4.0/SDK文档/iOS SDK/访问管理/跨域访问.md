@@ -48,7 +48,7 @@ rule.allowedOrigin = @"http://cloud.tencent.com";
 cors.rules = @[rule];
 putCORS.corsConfiguration = cors;
 
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 putCORS.bucket = @"examplebucket-1250000000";
 
 [putCORS setFinishBlock:^(id outputObject, NSError *error) {
@@ -90,7 +90,7 @@ rule.allowedOrigin = "*";
 corsConfig.rules = [rule];
 putBucketCorsReq.corsConfiguration = corsConfig;
 
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 putBucketCorsReq.bucket = "examplebucket-1250000000";
 putBucketCorsReq.finishBlock = {(result,error) in
     if let result = result {
@@ -117,7 +117,7 @@ QCloudCOSXMLService.defaultCOSXML().putBucketCORS(putBucketCorsReq);
 ```objective-c
 QCloudGetBucketCORSRequest* corsReqeust = [QCloudGetBucketCORSRequest new];
 
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 corsReqeust.bucket = @"examplebucket-1250000000";
 
 [corsReqeust setFinishBlock:^(QCloudCORSConfiguration * _Nonnull result,
@@ -138,7 +138,7 @@ corsReqeust.bucket = @"examplebucket-1250000000";
 ```swift
 let  getBucketCorsRes = QCloudGetBucketCORSRequest.init();
 
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 getBucketCorsRes.bucket = "examplebucket-1250000000";
 getBucketCorsRes.setFinish { (corsConfig, error) in
     if let corsConfig = corsConfig {
@@ -166,7 +166,7 @@ QCloudCOSXMLService.defaultCOSXML().getBucketCORS(getBucketCorsRes);
 ```objective-c
 QCloudDeleteBucketCORSRequest* deleteCORS = [QCloudDeleteBucketCORSRequest new];
 
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 deleteCORS.bucket = @"examplebucket-1250000000";
 
 [deleteCORS setFinishBlock:^(id outputObject, NSError *error) {
@@ -185,7 +185,7 @@ deleteCORS.bucket = @"examplebucket-1250000000";
 ```swift
 let deleteBucketCorsRequest = QCloudDeleteBucketCORSRequest.init();
 
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 deleteBucketCorsRequest.bucket = "examplebucket-1250000000";
 
 deleteBucketCorsRequest.finishBlock = {(result,error) in

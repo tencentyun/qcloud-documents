@@ -2,16 +2,6 @@
 
 PostgreSQL 数据目的表支持将数据写入到 PostgreSQL 数据库中。
 
-## 示例
-
-创建 ETL 作业后，进入**开发调试**页面。在数据目的表处单击**添加**。
-![](https://main.qcloudimg.com/raw/78286815cc3b3113b6bba5a164eac2ec.png)
-
-根据示例正确填写 PostgreSQL 目的表相应信息。
-![](https://main.qcloudimg.com/raw/efe7122fc74e08496977eb52103b10fa.png)
-如信息填写无误，ETL 作业会自动获取数据目的表中所有字段的名称和类型（前提为数据源表已正确录入）。
-![](https://main.qcloudimg.com/raw/23de48ec5209af05292b0889213ed40f.png)
-
 ## 注意事项
 
 #### 主键说明

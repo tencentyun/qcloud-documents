@@ -7,7 +7,7 @@
 
 详细步骤说明：
 1. 登录腾讯云 [消息队列 CKafka 控制台](https://console.cloud.tencent.com/ckafka)，创建 CKafka 实例，并创建对应 Topic。
-详细操作请参考 [创建实例](https://cloud.tencent.com/document/product/597/30931) 和 [创建 Topic](https://cloud.tencent.com/document/product/597/40415)。
+详细操作请参见 [创建实例](https://cloud.tencent.com/document/product/597/30931) 和 [创建 Topic](https://cloud.tencent.com/document/product/597/40415)。
 ![](https://main.qcloudimg.com/raw/563c999da725582f4e8c53215c215096.jpg)
 2. 切换生产流，生产者将数据生产到 CKafka 实例。
  修改 broker-list 中的 IP 为 CKafka 实例的 vip，topicName 为 CKafka 实例中的 topic 名称：
@@ -30,7 +30,7 @@
 
 详细步骤说明：
 1. 登录腾讯云 [消息队列 CKafka 控制台](https://console.cloud.tencent.com/ckafka)，创建 CKafka 实例，并创建对应 Topic。
-详细操作请参考 [创建实例](https://cloud.tencent.com/document/product/597/30931) 和 [创建 Topic](https://cloud.tencent.com/document/product/597/40415)。
+详细操作请参见 [创建实例](https://cloud.tencent.com/document/product/597/30931) 和 [创建 Topic](https://cloud.tencent.com/document/product/597/40415)。
 ![](https://main.qcloudimg.com/raw/89412360bcc33a49a75011f9bcf05056.jpg)
 2. 切换生产流，生产者将数据生产到 CKafka 实例。
  修改 broker-list 中的 IP 为 CKafka 实例的 vip，topicName 为 CKafka 实例中的 Topic 名称：

@@ -102,7 +102,7 @@ function TEB_IMAGE_STATUS_CHANGED(TEduBoardImageStatus status, Object data)
 | data | Object | 当前图片相关信息 |
 
 #### 介绍
-data参数格式如下： 
+data 参数格式如下： 
 ``` 
 {
      currentBoardId: "xxx",          //当前的白板 ID
@@ -165,8 +165,8 @@ function TEB_ADDBOARD(Array boardList, String fileId)
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| boardList | Array | 增加的白板页ID列表（使用后不需要自行调用 Release 方法释放，SDK 内部自动释放）  |
-| fileId | String | 增加的白板页所属的文件ID（目前版本只可能为::DEFAULT）  |
+| boardList | Array | 增加的白板页 ID 列表（使用后不需要自行调用 Release 方法释放，SDK 内部自动释放）  |
+| fileId | String | 增加的白板页所属的文件 ID（目前版本只可能为::DEFAULT）  |
 
 
 ### TEB_DELETEBOARD
@@ -178,8 +178,8 @@ function TEB_DELETEBOARD(Array boardList, String fileId)
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| boardList | Array | 删除的白板页ID（使用后不需要自行调用 Release 方法释放，SDK 内部自动释放）  |
-| fileId | String | 删除的白板页所属的文件ID（目前版本只可能为::DEFAULT）  |
+| boardList | Array | 删除的白板页 ID（使用后不需要自行调用 Release 方法释放，SDK 内部自动释放）  |
+| fileId | String | 删除的白板页所属的文件 ID（目前版本只可能为::DEFAULT）  |
 
 
 ### TEB_GOTOBOARD
@@ -191,8 +191,8 @@ function TEB_GOTOBOARD(String boardId, String fileId)
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| boardId | String | 跳转到的白板页ID  |
-| fileId | String | 跳转到的白板页所属的文件ID  |
+| boardId | String | 跳转到的白板页 ID  |
+| fileId | String | 跳转到的白板页所属的文件 ID  |
 
 
 ### TEB_GOTOSTEP
@@ -232,7 +232,7 @@ function TEB_ADDTRANSCODEFILE(String fileId)
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| fileId | String | 增加的文件ID |
+| fileId | String | 增加的文件 ID |
 
 #### 介绍
 文件加载完成后才会触发该回调 
@@ -247,7 +247,7 @@ function TEB_DELETEFILE(String fileId)
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| fileId | String | 删除的文件ID  |
+| fileId | String | 删除的文件 ID  |
 
 
 ### TEB_SWITCHFILE
@@ -259,7 +259,7 @@ function TEB_SWITCHFILE(String fileId)
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| fileId | String | 切换到的文件ID  |
+| fileId | String | 切换到的文件 ID  |
 
 
 ### TEB_FILEUPLOADPROGRESS
@@ -281,8 +281,8 @@ data参数格式如下：
      total: 100,     //整个文件的大小，以字节（bytes）为单位
      speed: 10,      //文件的上传速度，以字节/秒（bytes/s）为单位
      percent: 0.5,   //文件的上传百分比，以小数形式呈现，例如：下载50%即为0.5
-     userData: "xx", //透传上传接口的userData
-     fid: "xxx"      //文件ID
+     userData: "xx", //透传上传接口的 userData
+     fid: "xxx"      //文件 ID
 }
 ```
  
@@ -298,7 +298,7 @@ function TEB_FILEUPLOADSTATUS(TEduBoardUploadStatus status, Object data)
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
 | status | TEduBoardUploadStatus | 文件上传状态  |
-| data | Object | 正在上传的文件ID |
+| data | Object | 正在上传的文件 ID |
 
 #### 介绍
 data参数格式如下： 
@@ -306,11 +306,11 @@ data参数格式如下：
 {
      code: 0,                    //错误码，0：成功
      errorMsg: "xx",             //错误描述信息
-     fid: "xxx"                  //文件ID
+     fid: "xxx"                  //文件 ID
      fileName: "xx",             //文件名
      fileUrl: "http://xxx",      //文件的下载地址
      picUrls: ["xx", "xx"],      //文件的转码后每一页预览地址
-     userData: "xx",             //透传上传接口的userData
+     userData: "xx",             //透传上传接口的 userData
 }
 ```
  

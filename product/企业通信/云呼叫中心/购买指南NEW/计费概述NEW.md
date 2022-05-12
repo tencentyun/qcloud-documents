@@ -1,10 +1,3 @@
-## 计费方式
-腾讯云呼叫中心目前支持预付费的方式。
-
-| 计费项 | 服务说明 | 计费说明 |
-|---------|---------|---------|
-| 融合通信客服 | 云呼叫中心融合通信客服包含以下功能：</br><li>电话客服：电话呼入、呼出。</br><li>在线客服：图文会话（微信公众号、网站等渠道接入）</br><li>全媒体客服：小程序音频、视频通话。 | <li>使用云呼叫中心服务会产生客服功能包月费用。</br><li>自购买日起顺延30天为1个月。 |
-
 ## 费用说明
 腾讯云呼叫中心收取费用包括以下部分：
 
@@ -18,9 +11,9 @@
 具体说明如下：
 <table>
    <tr>
-      <th width="0px" style="text-align:center">收费项目</td>
-      <th width="0px" style="text-align:center">计费项</td>
-      <th width="0px"  style="text-align:center">服务说明</td>
+      <th width="120px" style="text-align:center">收费项目</td>
+      <th width="120px" style="text-align:center">计费项</td>
+      <th width="300px"  style="text-align:center">服务说明</td>
       <th width="0px"  style="text-align:center">计费说明</td>
    </tr>
    <tr>

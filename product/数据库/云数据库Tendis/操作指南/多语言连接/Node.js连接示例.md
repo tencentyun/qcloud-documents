@@ -4,7 +4,6 @@
 `npm install hiredis redis`
 
 **示例代码**：
-
 ```
 var redis = require("redis");
 

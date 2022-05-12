@@ -29,7 +29,7 @@
    新建服务时，前端类型可选择 HTTP、HTTPS、HTTP 与 HTTPS 任一种，访问模式选择可以选择 VPC 内网和公网，实例类型选择共享性、专享型。
 >?关于实例类型的选择，请参考 [实例选择指南](https://cloud.tencent.com/document/product/628/55510)。
 >
-	 <img src="https://main.qcloudimg.com/raw/5e90d7876eeea6b257821507615b16be.png" width="500px">
+<img src="https://qcloudimg.tencent-cloud.cn/raw/fca8945fa14fc483cd8fa70d33c4eb4e.png" width="500px">
 3. 单击 API 网关服务 ID 进入 API 管理页面。单击**新建 API**。
 4. 在前端配置中填写 API 名称，前端类型选择 HTTP&HTTPS，路径为“/”，请求方法选择 ANY 以包含所有请求，鉴权类型选择“免认证”，单击**下一步**。
    ![](https://main.qcloudimg.com/raw/6496aacc6e308c1a3bb599570415bfa1.png)

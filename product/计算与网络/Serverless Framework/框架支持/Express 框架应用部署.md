@@ -8,9 +8,9 @@
 
 本篇文档为您介绍应用控制台的部署方案，您也可以通过命令行完成部署，具体操作请参考 [产品文档](https://cloud.tencent.com/document/product/583/58183)。
 
-## 模版部署 -- 部署 Express 示例代码
+## 模板部署 -- 部署 Express 示例代码
 1. 登录 [Serverless 应用控制台](https://console.cloud.tencent.com/sls)。
-2. 选择**Web 应用>Express 框架**，如下图所示：
+2. 单击**新建应用**，选择**Web 应用>Express 框架**，如下图所示：
 ![](https://main.qcloudimg.com/raw/0f10503bf4936081ceddaa46cfa78333.png)
 3. 单击“下一步”，完成基础配置选择。
 ![](https://main.qcloudimg.com/raw/9f22f8c1e5426b5d3d54631caabde012.png)

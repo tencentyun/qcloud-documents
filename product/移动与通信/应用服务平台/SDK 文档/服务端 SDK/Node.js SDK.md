@@ -2,7 +2,7 @@ Cloudbase Server Node.js SDK 让您可以在服务端（例如腾讯云云函数
 
 需要 Node.js v8.9 及以上版本。
 
->? 当您计划在项目中使用 @cloudbase/node-sdk 替代 [tcb-admin-node](https://docs.cloudbase.net/api-reference/server/node/introduction.html#an-zhuang) 时，请务必阅读 [迁移文档](https://docs.cloudbase.net/api-reference/server/node-sdk/packageUpgrade.html)。
+>? 当您计划在项目中使用 @cloudbase/node-sdk 替代 [tcb-admin-node](https://docs.cloudbase.net/api-reference/server/node/introduction) 时，请务必阅读 [迁移文档](https://docs.cloudbase.net/api-reference/server/node-sdk/packageUpgrade)。
 
 ## 安装
 
@@ -15,15 +15,15 @@ npm install --save @cloudbase/node-sdk
 
 ## API 文档
 
-* [介绍](https://docs.cloudbase.net/api-reference/server/node-sdk/introduction.html)
+* [介绍](https://docs.cloudbase.net/api-reference/server/node-sdk/introduction)
 
-* [初始化](https://docs.cloudbase.net/api-reference/server/node-sdk/initialization.html)
+* [初始化](https://docs.cloudbase.net/api-reference/server/node-sdk/initialization)
 
-* [登录认证](https://docs.cloudbase.net/api-reference/server/node-sdk/auth.html)
+* [登录认证](https://docs.cloudbase.net/api-reference/server/node-sdk/auth)
 
-* [云函数](https://docs.cloudbase.net/api-reference/server/node-sdk/functions.html)
+* [云函数](https://docs.cloudbase.net/api-reference/server/node-sdk/functions)
 
-* [数据库](https://docs.cloudbase.net/api-reference/server/node-sdk/database/database.html)
+* [数据库](https://docs.cloudbase.net/api-reference/server/node-sdk/database/database)
 
-* [文件存储](https://docs.cloudbase.net/api-reference/server/node-sdk/storage.html)
+* [文件存储](https://docs.cloudbase.net/api-reference/server/node-sdk/storage)
 

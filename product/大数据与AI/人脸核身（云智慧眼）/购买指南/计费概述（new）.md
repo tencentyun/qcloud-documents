@@ -40,7 +40,7 @@
 			 <td><a href="https://cloud.tencent.com/document/product/1007/56804#.E5.A2.9E.E5.BC.BA.E7.89.88.E4.BA.BA.E8.84.B8.E6.A0.B8.E8.BA.AB.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E">价格说明</a></td> 
 			  </tr>
 			   <tr>
-                   <td rowspan =2><a href="https://cloud.tencent.com/document/product/1007/57617">增强版 App SDK</a>
+                   <td rowspan =2><a href="https://cloud.tencent.com/document/product/1007/57617">增强版 SDK（APP）</a>
 				</td>
 				<td>跟权威库比对</td>
 				<td>增强版人脸核身（权威库）-App</td>
@@ -65,7 +65,7 @@
     </tr>
     <tr>
         <td rowspan =2>
-				<li><a href="https://cloud.tencent.com/document/product/1007/42656">微信普通 H5</a></li><li><a href="https://cloud.tencent.com/document/product/1007/35883">独立 H5</a></li><li><a href="https://cloud.tencent.com/document/product/1007/35893">PC H5</a></li><li><a href="https://cloud.tencent.com/document/product/1007/35866">基础版App SDK</a></li>
+				<li><a href="https://cloud.tencent.com/document/product/1007/42656">微信普通 H5</a></li><li><a href="https://cloud.tencent.com/document/product/1007/35883">独立 H5</a></li><li><a href="https://cloud.tencent.com/document/product/1007/35893">PC H5</a></li><li><a href="https://cloud.tencent.com/document/product/1007/35866">基础版 SDK（APP）</a></li>
 				</td>
 				<td>跟权威库比对</td>
 			 <td>基础版人脸核身（权威库）</td>
@@ -115,16 +115,13 @@
     </tr>	 
 				 <tr>
 			 <td><a href="https://cloud.tencent.com/document/product/1007/33188">身份信息认证</a></td>
-			 <td rowspan =3>身份证信息核验</td>
-			 			 	<td rowspan =3><a href="https://cloud.tencent.com/document/product/1007/56804#.E5.AE.9E.E5.90.8D.E4.BF.A1.E6.81.AF.E6.A0.B8.E9.AA.8C.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E">价格说明</a></td>
+			 <td rowspan =2>身份证信息核验</td>
+			 			 	<td rowspan =2><a href="https://cloud.tencent.com/document/product/1007/56804#.E5.AE.9E.E5.90.8D.E4.BF.A1.E6.81.AF.E6.A0.B8.E9.AA.8C.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E">价格说明</a></td>
 			  </tr>
 				<tr>
 			 <td><a href="https://cloud.tencent.com/document/product/1007/37980">身份证识别及信息核验</a></td>
 			  </tr>
-		<tr>
-		<td><a href="https://cloud.tencent.com/document/product/1007/51441">微信实名认证授权</a></td>
-			  </tr>	
-								 <tr>
+					 <tr>
 			 <td><a href="https://cloud.tencent.com/document/product/1007/35776">银行卡二要素</a></td>
 			 <td rowspan =3>银行卡信息核验</td>
 <td rowspan =3><a href="https://cloud.tencent.com/document/product/1007/56804#.E5.AE.9E.E5.90.8D.E4.BF.A1.E6.81.AF.E6.A0.B8.E9.AA.8C.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E">价格说明</a></td>
@@ -134,14 +131,6 @@
 			  </tr>
 				<tr>
 			 <td><a href="https://cloud.tencent.com/document/product/1007/35775">银行卡四要素</a></td>
-			  </tr>
-				<tr>
-				 <td><a href="https://cloud.tencent.com/document/product/1007/39765">手机号三要素核验</a></td>
-			 <td rowspan =2>手机号信息核验</td>
-<td rowspan =2><a href="https://cloud.tencent.com/document/product/1007/56804#.E5.AE.9E.E5.90.8D.E4.BF.A1.E6.81.AF.E6.A0.B8.E9.AA.8C.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E">价格说明</a></td>
-			  </tr>
-			 <tr>
-			 <td><a href="https://cloud.tencent.com/document/product/1007/50364">手机号二要素核验</a></td>
 			  </tr>
 				<tr>
 			 <td><a href="https://cloud.tencent.com/document/product/1007/40546">手机号在网时长核验</a></td>
@@ -161,6 +150,16 @@
 			 <td>身份信息及有效期核验</td>
 <td><a href="https://cloud.tencent.com/document/product/1007/56804#.E5.AE.9E.E5.90.8D.E4.BF.A1.E6.81.AF.E6.A0.B8.E9.AA.8C.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E">价格说明</a></td>
 			  </tr>
+	<tr>
+			 <td><a href="https://cloud.tencent.com/document/product/1007/50364">手机号二要素核验</a></td>
+			 <td>手机号信息核验（二要素）</td>
+<td><a href="https://cloud.tencent.com/document/product/1007/56804#.E5.AE.9E.E5.90.8D.E4.BF.A1.E6.81.AF.E6.A0.B8.E9.AA.8C.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E">价格说明</a></td>
+			  </tr>
+				<tr>
+			 <td><a href="https://cloud.tencent.com/document/product/1007/39765">手机号三要素核验</a></td>
+			 <td> 手机号信息核验（三要素）</td>
+<td><a href="https://cloud.tencent.com/document/product/1007/56804#.E5.AE.9E.E5.90.8D.E4.BF.A1.E6.81.AF.E6.A0.B8.E9.AA.8C.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E">价格说明</a></td>
+			  </tr>			
 </table>
 
 
@@ -180,8 +179,53 @@ E证通服务与计费标签对应关系说明如下：
 				</td>
 				<td>跟权威库比对</td>
 				<td>E证通（权威库）</td>
-<td><a href="https://cloud.tencent.com/document/product/1007/56804#.E5.AE.9E.E5.90.8D.E4.BF.A1.E6.81.AF.E6.A0.B8.E9.AA.8C.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E">价格说明</a></td>
+<td><a href="https://cloud.tencent.com/document/product/1007/56804#e.E8.AF.81.E9.80.9A.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E">价格说明</a></td>
     </tr>
 </table>
 
+### 意愿核身
 
+意愿核身服务与计费标签对应关系说明如下：
+
+<table>
+    <tr>
+        <th>接入渠道</th>
+				<th>比对库源</th>
+        <th>计费标签</th>
+			<th>定价</th>
+    </tr>
+			   <tr>
+                   <td>意愿核身（权威库）</a>
+				</td>
+				<td>跟权威库比对</td>
+				<td>意愿核身（权威库）</td>
+<td><a href="https://cloud.tencent.com/document/product/1007/56804#.E6.84.8F.E6.84.BF.E6.A0.B8.E8.BA.AB.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E">价格说明</a></td>
+    </tr>
+		 <tr>
+                   <td>意愿核身（自传照片）</a>
+				</td>
+				<td>跟上传照片比对</td>
+				<td>意愿核身（自传照片）</td>
+<td><a href="https://cloud.tencent.com/document/product/1007/56804#.E6.84.8F.E6.84.BF.E6.A0.B8.E8.BA.AB.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E">价格说明</a></td>
+    </tr>
+</table>
+
+### 实证 NFC
+
+实证 NFC 服务与计费标签对应关系说明如下：
+
+<table>
+    <tr>
+        <th>接入渠道</th>
+				<th>比对库源</th>
+        <th>计费标签</th>
+			<th>定价</th>
+    </tr>
+			   <tr>
+                   <td>实证 NFC</a>
+				</td>
+				<td>跟权威库比对</td>
+				<td>证件 NFC 识别</td>
+<td><a href="https://cloud.tencent.com/document/product/1007/56804#.E5.AE.9E.E8.AF.81-nfc-.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E">价格说明</a></td>
+    </tr>
+</table>

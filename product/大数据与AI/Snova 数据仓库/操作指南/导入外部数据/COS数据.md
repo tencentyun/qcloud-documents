@@ -26,29 +26,29 @@ DROP EXTENSION IF EXISTS cos_ext;
 2. 定义 COS 外表，语法参考 [语法说明](#codeintro)。
 3. 操作 COS 外表数据。
 
-
-### <a id="codeintro"></a>语法说明
+[](id:codeintro)
+### 语法说明
 - 只读输入表定义
 ```
    CREATE [READABLE] EXTERNAL TABLE tablename
    ( columnname datatype [, ...] | LIKE othertable )
    LOCATION (cos_ext_params)
    FORMAT 'TEXT'
-               [( [HEADER]
-                  [DELIMITER [AS] 'delimiter' | 'OFF']
-                  [NULL [AS] 'null string']
-                  [ESCAPE [AS] 'escape' | 'OFF']
-                  [NEWLINE [ AS ] 'LF' | 'CR' | 'CRLF']
-                  [FILL MISSING FIELDS] )]
-              | 'CSV'
-               [( [HEADER]
-                  [QUOTE [AS] 'quote']
-                  [DELIMITER [AS] 'delimiter']
-                  [NULL [AS] 'null string']
-                  [FORCE NOT NULL column [, ...]]
-                  [ESCAPE [AS] 'escape']
-                  [NEWLINE [ AS ] 'LF' | 'CR' | 'CRLF']
-                  [FILL MISSING FIELDS] )]
+		 [( [HEADER]
+				[DELIMITER [AS] 'delimiter' | 'OFF']
+				[NULL [AS] 'null string']
+				[ESCAPE [AS] 'escape' | 'OFF']
+				[NEWLINE [ AS ] 'LF' | 'CR' | 'CRLF']
+				[FILL MISSING FIELDS] )]
+		| 'CSV'
+		 [( [HEADER]
+				[QUOTE [AS] 'quote']
+				[DELIMITER [AS] 'delimiter']
+				[NULL [AS] 'null string']
+				[FORCE NOT NULL column [, ...]]
+				[ESCAPE [AS] 'escape']
+				[NEWLINE [ AS ] 'LF' | 'CR' | 'CRLF']
+				[FILL MISSING FIELDS] )]
    [ ENCODING 'encoding' ]
    [ [LOG ERRORS [INTO error_table]] SEGMENT REJECT LIMIT count
           [ROWS | PERCENT] ]
@@ -59,15 +59,15 @@ DROP EXTENSION IF EXISTS cos_ext;
    ( column_name data_type [, ...] | LIKE other_table )
    LOCATION (cos_ext_params)
    FORMAT 'TEXT'
-                  [( [DELIMITER [AS] 'delimiter']
-                  [NULL [AS] 'null string']
-                  [ESCAPE [AS] 'escape' | 'OFF'] )]
-             | 'CSV'
-                  [([QUOTE [AS] 'quote']
-                  [DELIMITER [AS] 'delimiter']
-                  [NULL [AS] 'null string']
-                  [FORCE QUOTE column [, ...] ]
-                  [ESCAPE [AS] 'escape'] )]
+			[( [DELIMITER [AS] 'delimiter']
+			[NULL [AS] 'null string']
+			[ESCAPE [AS] 'escape' | 'OFF'] )]
+		| 'CSV'
+			[([QUOTE [AS] 'quote']
+			[DELIMITER [AS] 'delimiter']
+			[NULL [AS] 'null string']
+			[FORCE QUOTE column [, ...] ]
+			[ESCAPE [AS] 'escape'] )]
    [ ENCODING 'encoding' ]
    [ DISTRIBUTED BY (column, [ ... ] ) | DISTRIBUTED RANDOMLY ]
 ```
@@ -79,18 +79,16 @@ cos://cos_endpoint/bucket/prefix secretId=id secretKey=key compressType=[none|gz
 
 ### 参数说明
 
-
 | 参数         | 格式              | 必填 | 说明                            |
 | ------------ | ------------------------------------ | ---- | --------------------------------------- |
-| URL          | <li>COS V4：`cos://cos.{REGION}.myqcloud.com/{BUCKET}/{PREFIX}`<li>COS V5：`cos:// {BUCKET}-{APPID}.cos.{REGION}.myqcloud.com/{PREFIX}`  | 是   | 参见 [URL 参数说明](#url)                |
+| URL          | <li/>COS V4：`cos://cos.{REGION}.myqcloud.com/{BUCKET}/{PREFIX}`<li/>COS V5：`cos:// {BUCKET}-{APPID}.cos.{REGION}.myqcloud.com/{PREFIX}`  | 是   | 参见 [URL 参数说明](#url)                |
 | secretId     | 无         | 是   | 访问 API 使用的密钥 ID，参见 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) |
 | secretKey    | 无     | 是   | 访问 API 使用的密钥 ID，参见 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) |
 | HTTPS        | true &Iota; false       | 否   | 是否使用 HTTPS 访问 COS，默认为 true        |
 | compressType | gzip            | 否   | COS 文件是否压缩，默认为空，不压缩            |
 
-
-#### URL 参数说明<a id="url"></a>
-
+[](id:url)
+#### URL 参数说明
 - REGION：COS 支持的地域，需要和实例在相同地域，可选值参见 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224)。
 - BUCKET：COS 存储桶名称。可参见 [存储桶列表](https://console.cloud.tencent.com/cos5/bucket)，**此处名称为不包含 APPID 的名称**，如您在存储桶列表中看到存储桶名称为“test-123123123”，此处填写“test”即可。
 - PREFIX：COS 对象名称前缀。prefix 可以为空，可以包括多个斜杠。
@@ -106,12 +104,12 @@ prefix 为空时，读取 bucket 下所有文件；prefix 以斜杠(/) 结尾时
     read-bucket/simple/b.csv
     read-bucket/simple/dir/c.csv
  - 在只写表场景下，prefix 指定输出文件前缀。
-不指定 prefix 时，文件写入到 bucket 下；prefix 以斜杠（/）结尾时，文件写入到 prefix 指定的目录下，否则以给定的 prefix 作为文件前缀。例如：需要创建的文件包括：a.csv、b.csv、c.csv。
+不指定 prefix 时，文件写入到 bucket 下；prefix 以斜杠（/）结尾时，文件写入到 prefix 指定的目录下，否则以给定的 prefix 作为文件前缀。例如，需要创建的文件包括：a.csv、b.csv、c.csv。
    - 指定 prefix 为 simple/ 则生成的对象为：
     read-bucket/simple/a.csv
     read-bucket/simple/b.csv
     read-bucket/simple/b.csv
-   - 指定 prefix 为 simple_，则生成的对象为：
+   - 指定 prefix 为 simple\_，则生成的对象为：
     read-bucket/simple_a.csv
     read-bucket/simple_b.csv
     read-bucket/simple_b.csv

@@ -57,7 +57,7 @@ log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
 #### uv
 
 ```plaintext
-* | select HISTOGRAM(CAST(msec*1000 AS TIMESTAMP), INTERVAL 1 MINUTE) AS dt, count(distinct(remote_addr)) as uv group by dt order by dt limit 50
+* | select HISTOGRAM(CAST(msec*1000 AS TIMESTAMP), INTERVAL 1 MINUTE) AS dt, approx_distinct(remote_addr) as uv group by dt order by dt limit 50
 ```
 
 ![image-20200911112029388](https://main.qcloudimg.com/raw/c0bc1b75b9221487b162cd3aa4c04a27.png)

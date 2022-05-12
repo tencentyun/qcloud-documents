@@ -9,9 +9,9 @@
 
 ## 使用步骤
 ###  步骤一：创建函数
-在 [云函数控制台](https://console.cloud.tencent.com/scf/index?rid=4) 中选择【函数服务】>【新建】，在“新建函数”页面中选择【运行环境】为“Python3.6”，【模糊搜索】中搜索关键词“ckafka”，选择模板函数“CKafka 数据加载到 CDW”，设置完成后单击【下一步】。
+在 [云函数控制台](https://console.cloud.tencent.com/scf/index?rid=4) 中选择**函数服务 > 新建**，在“新建函数”页面中选择**运行环境**为“Python3.6”，**模糊搜索**中搜索关键词“ckafka”，选择模板函数“CKafka 数据加载到 CDW”，设置完成后单击**下一步**。
 ![](https://main.qcloudimg.com/raw/6115e15c0f228d08caeea72f59961262.png)
-进入“函数配置”页面后，在“高级配置”中进行【环境配置】和【网络配置】，配置如下：
+进入“函数配置”页面后，在“高级配置”中进行**环境配置**和**网络配置**，配置如下：
 - **环境配置**
  - 内存：根据实际运行情况来设置，默认为128MB。当导入过程中出现内存不足的问题时，需调大内存。
  - 环境变量：
@@ -115,7 +115,7 @@
 
 ### 步骤二：配置触发器
 
-在 [云函数控制台](https://console.cloud.tencent.com/scf/index?rid=4) 的【函数服务】列表中，单击函数列表新建的函数名，进入函数详情页面。选择页面左侧【触发管理】>【创建触发器】创建新触发器。其中【触发方式】需设置为“Ckafka 触发”，如下图所示：
+在 [云函数控制台](https://console.cloud.tencent.com/scf/index?rid=4) 的**函数服务**列表中，单击函数列表新建的函数名，进入函数详情页面。选择页面左侧**触发管理 > 创建触发器**创建新触发器。其中**触发方式**需设置为“Ckafka 触发”，如下图所示：
 ![](https://main.qcloudimg.com/raw/3ad13178a24acf0e9a5cee2d630b3457.png)
 
 关于触发器参数配置可以参考 [CKafka 触发器](https://cloud.tencent.com/document/product/583/17530)。

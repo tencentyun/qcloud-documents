@@ -1,13 +1,13 @@
-QUIC 协议能帮您大幅提升 App 访问速度，在弱网络、Wi-Fi 和4G频繁切换等场景下，无需重连即可实现多路复用。本文档将为您介绍，如何在负载均衡控制台中，配置 QUIC 协议。
+[QUIC](https://www.chromium.org/quic) 协议能帮您大幅提升 App 访问速度，在弱网络、Wi-Fi 和4G频繁切换等场景下，无需重连即可实现多路复用。本文档将为您介绍，如何在负载均衡控制台中，配置 QUIC 协议。
 ## QUIC 概述
-[QUIC](https://www.chromium.org/quic)（Quick UDP Internet Connection），又称为快速 UDP 互联网连接，是由 Google 提出的使用 UDP 进行多路并发传输的协议，QUIC 相比现在广泛应用的 TCP+TLS+HTTP2 协议有如下优势：
+QUIC（Quick UDP Internet Connection），又称为快速 UDP 互联网连接，是由 Google 提出的使用 UDP 进行多路并发传输的协议，QUIC 相比现在广泛应用的 TCP+TLS+HTTP2 协议有如下优势：
 - 减少连接建立时间。
 - 改善拥塞控制。
 - 避免队头阻塞的多路复用。
 - 连接迁移。
 
 CLB 开启 QUIC 后，客户端可以和 CLB 之间建立 QUIC 连接，当二者协商无法建立 QUIC 连接时自动降级到 HTTPS 或 HTTP/2，但 CLB 和后端服务器之间仍然使用 HTTP1.x 协议。
->?当前 CLB 支持的 QUIC 版本是 Q044 及以下版本。
+
 
 ## 使用限制
 - 目前 CLB 中的 QUIC 协议正在内测中，如有需要，请提交 [内测申请](https://cloud.tencent.com/apply/p/9e084vdqdw) 进行使用。
@@ -17,6 +17,7 @@ CLB 开启 QUIC 后，客户端可以和 CLB 之间建立 QUIC 连接，当二�
 - 仅 IPv4、IPv6 NAT64 版本的负载均衡支持，IPv6 版本的暂不支持。
 - 仅公网负载均衡的七层 HTTPS 监听器支持 QUIC 协议。
 - QUIC 仅支持单可用区 CLB 实例，不支持多可用区。
+- 当前 CLB 支持的 QUIC 版本有：Q050、Q046、Q043、h3-29 和 h3-27。
 
 ## 操作步骤[](id:making)
 1. 根据需求创建负载均衡实例，详情请参见 [创建负载均衡实例](https://cloud.tencent.com/document/product/214/6149)。

@@ -21,9 +21,10 @@ LAMP 环境是指在 Linux 系统下，由 Apache Web 服务器软件 + MySql �
 
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)，单击实例管理页面的**新建**。
 2. 根据页面提示选择机型，并在“镜像”中选择**镜像市场** > **从镜像市场选择**。如下图所示：
->! 部分境外地域暂不支持通过镜像市场创建云服务器，若您选择的地域下没有**镜像市场**，请选择其他支持镜像市场的地域。
->
-![](https://main.qcloudimg.com/raw/079615fcf41610885b6462a478cab823.png)
+<dx-alert infotype="notice" title="">
+部分境外地域暂不支持通过镜像市场创建云服务器，若您选择的地域下没有**镜像市场**，请选择其他支持镜像市场的地域。
+</dx-alert>
+<img src="https://main.qcloudimg.com/raw/079615fcf41610885b6462a478cab823.png"/>
 3. 在“镜像市场”窗口的搜索框中，输入 LAMP 并单击 <img src="https://main.qcloudimg.com/raw/70c20e0ff30f88eef20d6b540d6ef804.png" style="margin:-3px 0px">。如下图所示：
 <dx-alert infotype="explain" title="">
 - 本文以下图所示 LAMP 环境系统镜像为例，您可根据实际需求进行选择。
@@ -42,7 +43,7 @@ LAMP 环境是指在 Linux 系统下，由 Apache Web 服务器软件 + MySql �
 </dx-alert>
 
 1. 在本地浏览器中访问以下地址，进入 phpMyAdmin 管理平台。
-```
+```shellsession
 http://云服务器实例的公网 IP/phpmyadmin
 ```
 2. 输入数据库账户名及密码，并单击**执行**。如下图所示：
@@ -69,11 +70,11 @@ http://云服务器实例的公网 IP/phpmyadmin
 ![](https://main.qcloudimg.com/raw/90210eaf3fd2214134101d9a425a3e98.png)
 2. 登录 Linux 云服务器，具体操作请参考 [使用标准方式登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)。
 3. 执行以下命令，创建测试文件。
-```
+```shellsession
 echo "<?php phpinfo(); ?>" >> /data/wwwroot/default/index.php
 ```
 4. 在本地浏览器中访问以下地址，查看 Apache 及 PHP 是否配置成功。
-```
+```shellsession
 http://云服务器实例的公网 IP/index.php
 ```
 显示结果如下，则说明配置成功：

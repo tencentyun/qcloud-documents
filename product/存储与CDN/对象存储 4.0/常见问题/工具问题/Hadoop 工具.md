@@ -7,8 +7,8 @@ Hadoop-COS 为 Apache Hadoop、Spark 以及 Tez 等大数据计算框架集成�
 
 更改 Hadoop-COS pom 文件保持版本与 Hadoop 版本相同进行编译，然后将 Hadoop-COS jar 包和 COS JAVA SDK jar 包放到 hadoop/share/hadoop/common/lib 目录下。具体配置可参考 [Hadoop 工具](https://cloud.tencent.com/document/product/436/6884) 文档。
 
-
 ### Hadoop-COS 工具中是否存在回收站机制？
+
 HDFS 的回收站功能并不适用于 COS，使用 Hadoop-COS，通过`hdfs fs`命令删除 COS 数据，数据会被移动到 cosn://user/${user.name}/.Trash 目录下，并不会发生实际的删除行为，数据仍然会保留在 COS 上。另外您也可以使用`-skipTrash`参数来跳过回收站功能，直接删除数据。如需实现类似 HDFS 回收站定期删除数据的目的，请为对象前缀为`/user/${user.name}/.Trash/`的对象配置生命周期规则，配置指引请参见 [配置生命周期规则](https://cloud.tencent.com/document/product/436/14605)。
 
 
@@ -65,7 +65,7 @@ Hadoop-COS 内部通过分块并发上传来处理大文件，通过配置 fs.co
 
 ### 为什么在上传较大文件时查看 COS 上的文件可能会有延迟，不会实时地显示出来？
 
-Hadoop-COS 对于大文件，即超过一个 blockSize（fs.cosn.upload.part.size) 的文件都采用分块上传，只有所有分块上传到 COS 完成后文件才可见。COS 暂时不支持 Append 操作。
+Hadoop-COS 对于大文件，即超过一个 blockSize（fs.cosn.upload.part.size) 的文件都采用分块上传，只有所有分块上传到 COS 完成后文件才可见。Hadoop-COS 暂时不支持 Append 操作。
 
 ## Buffer 问题
 

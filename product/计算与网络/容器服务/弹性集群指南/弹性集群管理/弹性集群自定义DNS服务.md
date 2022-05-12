@@ -43,8 +43,8 @@ data:
 
 其中各个配置项均采用原生 Kubernetes 的配置，详情见 [CoreDNS](https://kubernetes.io/zh/docs/tasks/administer-cluster/dns-custom-nameservers/#coredns)。需注意：
 
-- `forward`：83.60.83.19，183.60.82.98 为腾讯云默认 DNS 地址。
+- `forward`：183.60.83.19，183.60.82.98 为腾讯云默认 DNS 地址。
 
 
 ### 自定义配置 Corefile
-您可以通过修改 CoreDNS Corefile 的 ConfigMap，以更改服务发现的相关配置。其用法与原生 kubernates 使用方式保持一致，详情见 [自定义 DNS 服务](https://kubernetes.io/docs/tasks/administer-cluster/dns-custom-nameservers/)。
+您可以通过修改 CoreDNS Corefile 的 ConfigMap，以更改服务发现的相关配置。其用法与原生 Kubernetes 使用方式保持一致，详情见 [自定义 DNS 服务](https://kubernetes.io/docs/tasks/administer-cluster/dns-custom-nameservers/)。

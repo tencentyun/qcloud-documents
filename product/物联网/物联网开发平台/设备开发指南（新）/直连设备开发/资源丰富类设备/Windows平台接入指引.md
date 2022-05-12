@@ -1,6 +1,6 @@
 
 
-C SDK 已提供 Windows 下基于 MSVC 的适配， 开发人员可以通过安装 Visio Studio 环境根据指引快速接入腾讯云物联网开发平台。
+C SDK 已提供 Windows 下基于 MSVC 的适配， 开发人员可以通过安装 Visual Studio 环境根据指引快速接入腾讯云物联网开发平台。
 
 ## SDK 获取
 
@@ -12,7 +12,7 @@ Windows 平台接入腾讯云物联网开发平台可以分为以下3个步骤�
 
 ### 开发环境安装
 
-获取和安装 Visio Studio 2019开发环境，详情请参见 [编译环境说明](https://cloud.tencent.com/document/product/1081/48372#windows-.E7.BC.96.E8.AF.91.E7.8E.AF.E5.A2.83)。
+获取和安装 Visual Studio 2019开发环境，详情请参见 [编译环境说明](https://cloud.tencent.com/document/product/1081/48372#windows-.E7.BC.96.E8.AF.91.E7.8E.AF.E5.A2.83)。
 
 ### 应用开发
 

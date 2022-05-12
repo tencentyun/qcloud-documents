@@ -22,7 +22,7 @@ QCloudGetPresignedURLRequest* getPresignedURLRequest = [[QCloudGetPresignedURLRe
 // 生成的链接不携带签名
 getPresignedURLRequest.isUseSignature = false:
 
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 getPresignedURLRequest.bucket = @"examplebucket-1250000000";
 
 // 对象键，是对象在 COS 上的完整路径，如果带目录的话，格式为 "video/xxx/movie.mp4"
@@ -49,7 +49,7 @@ let getPresign  = QCloudGetPresignedURLRequest.init();
 
 // 生成的链接不携带签名
 getPresign.isUseSignature = false;
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 getPresign.bucket = "examplebucket-1250000000" ;
 
 // 对象键，是对象在 COS 上的完整路径，如果带目录的话，格式为 "video/xxx/movie.mp4"
