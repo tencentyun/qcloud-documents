@@ -1,12 +1,9 @@
 ## 什么是 TUIKit？
 
 TUIKit 是基于 IM SDK 实现的一套 UI 组件，其包含会话、聊天、群组、个人资料等功能，基于 TUIKit 组件您可以像搭积木一样快速搭建起自己的业务逻辑。
-
-![](https://web.sdk.qcloud.com/im/demo/TUIkit/document-image/component1.png)
-
-![](https://web.sdk.qcloud.com/im/demo/TUIkit/document-image/component2.png)
-
-![](https://web.sdk.qcloud.com/im/demo/TUIkit/document-image/component3.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/317953b68d9f8c7da1d2f0d23fde44e4.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/7e886b8bcb3b6fca00deeaa2aafa51ec.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/c21986cbfbd54bda35bc13f686defaec.png)
 
 ## 如何集成 TUIKit
 
@@ -20,54 +17,47 @@ TUIKit 是基于 IM SDK 实现的一套 UI 组件，其包含会话、聊天、�
 
 常用的聊天软件都是由会话列表、聊天窗口、群组管理、个人资料等几个基本的界面组成，参考下面步骤，您仅需几行代码即可在项目中快速搭建这些 UI 界面。
 
-### 步骤一：使用 vue-cli 创建项目。 vue3 + TypeScript + sass
+## 操作步骤
+### 步骤1：使用 vue-cli 创建项目。 vue3 + TypeScript + sass
+![](https://qcloudimg.tencent-cloud.cn/raw/35c1e030c96e5cea376ee1570291eff1.png)
 
-![](https://web.sdk.qcloud.com/im/demo/TUIkit/document-image/createProject.png)
-
-> 注意：
+>!
 > 
-> 若创建项目时未安装 sass/scss，则可以在下载完项目后，安装 sass + sass-loader
+> 若创建项目时未安装 sass/scss，则可以在下载完项目后，安装 sass + sass-loader：
 > 
 > ```shell
 > cd projectName  // 进入您的项目
 > yarn add sass sass-loader@10.1.1
 > ```
 
-### 步骤二：下载 TUIKit
-
+### 步骤2：下载 TUIKit
 从 [GitHub 下载](https://github.com/TencentCloud/TIMSDK/tree/master/Web) TUIKit 源码。复制 TUIKit 文件夹放置到自己到工程文件中，例如：
+![](https://qcloudimg.tencent-cloud.cn/raw/439be8d9fa36d879a8e8f29218bf7702.png)
 
-![](https://web.sdk.qcloud.com/im/demo/TUIkit/document-image/integrate.png)
+### 步骤3：生成 usesig
 
-### 步骤三：生成 usesig
-
-1. 从 [GitHub 下载](https://github.com/TencentCloud/TIMSDK/tree/master/Web/Demo) GenerateTestUserSig 工具包。并复制到项目中，例如：
-
-![](https://web.sdk.qcloud.com/im/demo/TUIkit/document-image/userSig-catalogue.png)
+1. 从 [GitHub 下载](https://github.com/TencentCloud/TIMSDK/tree/master/Web/Demo) GenerateTestUserSig 工具包，并复制到项目中，例如：
+![](https://qcloudimg.tencent-cloud.cn/raw/0ff01d6c199f0735ec1788ab79a10026.png)
 
 2. 设置`GenerateTestUserSig`文件中的相关参数，其中 SDKAppID 和密钥等信息，可通过 [即时通信 IM 控制台](https://console.cloud.tencent.com/im) 获取，单击目标应用卡片，进入应用的基础配置页面。  
   [![](https://qcloudimg.tencent-cloud.cn/raw/e435332cda8d9ec7fea21bd95f7a0cba.png)](https://camo.githubusercontent.com/20575292024f27b76db87d6688e57f16d38b579b249054466668b596975dd30e/68747470733a2f2f71636c6f7564696d672e74656e63656e742d636c6f75642e636e2f7261772f65343335333332636461386439656337666561323162643935663761306362612e706e67)
   
-3. 设置`GenerateTestUserSig`文件中的相关参数，其中 SDKAppID 和密钥等信息，可通过 [即时通信 IM 控制台](https://console.cloud.tencent.com/im) 获取，单击目标应用卡片，进入应用的基础配置页面。
-  [![](https://qcloudimg.tencent-cloud.cn/raw/e435332cda8d9ec7fea21bd95f7a0cba.png)](https://camo.githubusercontent.com/20575292024f27b76db87d6688e57f16d38b579b249054466668b596975dd30e/68747470733a2f2f71636c6f7564696d672e74656e63656e742d636c6f75642e636e2f7261772f65343335333332636461386439656337666561323162643935663761306362612e706e67)
-  
-4. 在**基本信息**区域，单击**显示密钥**，复制并保存密钥信息至 `GenerateTestUserSig` 文件。 
+3. 在**基本信息**区域，单击**显示密钥**，复制并保存密钥信息至 `GenerateTestUserSig` 文件。 
   [![](https://main.qcloudimg.com/raw/e7f6270bcbc68c51595371bd48c40af7.png)](https://camo.githubusercontent.com/d3e2ecc55db7a3c14ba0ba84c7cb92e18618028006c6f7fa304ba5ef01f0b6be/68747470733a2f2f6d61696e2e71636c6f7564696d672e636f6d2f7261772f65376636323730626362633638633531353935333731626434386334306166372e706e67)
   
 
-> 注意：
+>!
 > 
 > 本文提到的获取 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通功能调试**。 正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/269/32688#GeneratingdynamicUserSig)。
 
-### 步骤四：下载 TUIKit 组件所需依赖
+### 步骤4：下载 TUIKit 组件所需依赖
 
 ```shell
 cd src/TUIKit
 yarn install
 ```
 
-### 步骤五：在 main.ts 中，引入 TUIKit，并注册到 vue 项目实例中。
-
+### 步骤5：在 main.ts 中，引入 TUIKit，并注册到 vue 项目实例中
 ```typescript
 import { TUICore, TUIComponents } from "./TUIKit";
 import { genTestUserSig } from "../GenerateTestUserSig";
@@ -93,13 +83,12 @@ TUIKit.login(userInfo);
 createApp(App).use(TUIKit).mount("#app");
 ```
 
-> 注意：
+>!
 > 
-> SDKAppID 需与GenerateTestUserSig文件中 SDKAppID 一致。
+> SDKAppID 需与 GenerateTestUserSig 文件中 SDKAppID 一致。
 
-### 步骤六：在需要展示的页面，调用TUIKit的组件即可使用。
-
-### 例如：在Home.vue页面中，使用 TUIConversation、TUIChat搭建聊天界面。
+### 步骤6：在需要展示的页面，调用 TUIKit 的组件即可使用
+例如：在 Home.vue页 面中，使用 TUIConversation、TUIChat 搭建聊天界面。
 
 ```html
 <template>
@@ -138,8 +127,7 @@ export default class Home extends Vue {}
 </style>
 ```
 
-### 步骤七：启动项目
-
+### 步骤7：启动项目
 ```shell
 yarn serve
 ```
@@ -152,10 +140,8 @@ UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并
 
 ### 2. Module not found: Error: Can't resolve 'sass-loader'
 
-IM TUIKit web 样式依赖 sass，需在项目全局安装 sass 和 sass-loader
-
-其中 sass-loader 的版本<=10.1.1
-
+- IM TUIKit web 样式依赖 sass，需在项目全局安装 sass 和 sass-loader。
+- 其中 sass-loader 的版本<=10.1.1
 ```shell
 yarn add sass sass-loader@10.1.1
 ```
