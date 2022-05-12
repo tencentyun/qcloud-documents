@@ -31,11 +31,11 @@ TUIKit 是基于 IM SDK 实现的一套 UI 组件，其包含会话、聊天、�
 > yarn add sass sass-loader@10.1.1
 > ```
 
-### 步骤2：下载 TUIKit
+### 步骤2：下载 TUIKit 组件
 从 [GitHub 下载](https://github.com/TencentCloud/TIMSDK/tree/master/Web) TUIKit 源码。复制 TUIKit 文件夹放置到自己到工程文件中，例如：
 ![](https://qcloudimg.tencent-cloud.cn/raw/439be8d9fa36d879a8e8f29218bf7702.png)
 
-### 步骤3：生成 usesig
+### 步骤3：生成 UserSig
 
 1. 从 [GitHub 下载](https://github.com/TencentCloud/TIMSDK/tree/master/Web/Demo) GenerateTestUserSig 工具包，并复制到项目中，例如：
 ![](https://qcloudimg.tencent-cloud.cn/raw/0ff01d6c199f0735ec1788ab79a10026.png)
@@ -57,7 +57,7 @@ cd src/TUIKit
 yarn install
 ```
 
-### 步骤5：引入 TUIKit
+### 步骤5：引入 TUIKit 组件
 在 main.ts 中，引入 TUIKit，并注册到 vue 项目实例中：
 ```typescript
 import { TUICore, TUIComponents } from "./TUIKit";
