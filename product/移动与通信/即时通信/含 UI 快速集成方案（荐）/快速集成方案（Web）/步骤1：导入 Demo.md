@@ -28,7 +28,10 @@ TUIKit 是基于 IM SDK 实现的一套 UI 组件，其包含会话、聊天、�
 > 
 > ```shell
 > cd projectName  // 进入您的项目
-> yarn add sass sass-loader@10.1.1```
+> npm install sass sass-loader@10.1.1 --save-dev
+> ```
+
+### 步骤二：下载 TUIKit
 
 ### 步骤2：下载 TUIKit 组件
 从 [GitHub 下载](https://github.com/TencentCloud/TIMSDK/tree/master/Web) TUIKit 源码。复制 TUIKit 文件夹放置到自己到工程文件中，例如：
@@ -52,7 +55,7 @@ TUIKit 是基于 IM SDK 实现的一套 UI 组件，其包含会话、聊天、�
 ### 步骤4：下载 TUIKit 组件依赖
 ```shell
 cd src/TUIKit
-yarn install
+npm install
 ```
 
 ### 步骤5：引入 TUIKit 组件
@@ -129,7 +132,7 @@ export default class Home extends Vue {}
 
 ### 步骤7：启动项目
 ```shell
-yarn serve
+npm run serve
 ```
 
 ## 常见问题
@@ -143,5 +146,5 @@ UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并
 - IM TUIKit web 样式依赖 sass，需在项目全局安装 sass 和 sass-loader。
 - 其中 sass-loader 的版本<=10.1.1
 ```shell
-yarn add sass sass-loader@10.1.1
+npm install sass sass-loader@10.1.1 --save-dev
 ```
