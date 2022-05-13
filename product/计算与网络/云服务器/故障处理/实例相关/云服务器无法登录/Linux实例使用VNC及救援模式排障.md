@@ -63,7 +63,7 @@ chmod 711 /var/empty/sshd/
 ::: VNC 方式排查 Linux 系统启动失败问题[](id:OSStartupFailed)
 
 #### 现象描述[](id:symptom)
-无法成功登录云服务器，且使用 VNC 方式登录后，查看系统启动失败且提示信息 “Welcome to emergency mode”。如下图所示：
+无法正常 SSH 远程登录 Linux 云服务器，但使用 VNC 方式登录后，查看系统启动失败且提示信息 “Welcome to emergency mode”。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/dea541a48d2a01503c1dbbc85b0d396f.png)
 
 
