@@ -28,10 +28,7 @@ TUIKit 是基于 IM SDK 实现的一套 UI 组件，其包含会话、聊天、�
 > 
 > ```shell
 > cd projectName  // 进入您的项目
-> npm install sass sass-loader@10.1.1 --save-dev
-> ```
-
-### 步骤二：下载 TUIKit
+> npm install sass sass-loader@10.1.1 --save-dev```
 
 ### 步骤2：下载 TUIKit 组件
 从 [GitHub 下载](https://github.com/TencentCloud/TIMSDK/tree/master/Web) TUIKit 源码。复制 TUIKit 文件夹放置到自己到工程文件中，例如：
