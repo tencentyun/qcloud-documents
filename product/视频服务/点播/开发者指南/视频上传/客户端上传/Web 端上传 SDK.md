@@ -1,5 +1,5 @@
 对于浏览器上传音视频的场景，云点播提供了 Web 上传 SDK。如果您需要 SDK 源码，可访问 [SDK 源码](https://github.com/tencentyun/vod-js-sdk-v6)。
-
+ 
 ## 简单视频上传
 
 ### 引入 SDK
