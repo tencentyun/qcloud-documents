@@ -4,7 +4,7 @@ pg_cron 是一个简单的基于 cron 的 PostgreSQL（10或更高版本）任�
 本文为您介绍 PostgreSQL pg_cron 插件的使用方法。
 
 ## 启用 pg_cron 扩展
-1. 若需使用 pg_cron，请先 [提交工单](https://console.cloud.tencent.com/workorder/category)，将 pg_cron添加至数据库 shared_preload_libraries 参数中。修改此参数，需要重启实例，请选择一个业务空闲期去进行操作。
+1. 若需使用 pg_cron，请先 [提交工单](https://console.cloud.tencent.com/workorder/category)，将 pg_cron 添加至数据库 shared_preload_libraries 参数中。修改此参数，需要重启实例，请选择一个业务空闲期去进行操作。
 
 2. 完成参数修改后，请进入 postgres 库中执行，使用管理员账户运行以下命令：
 ```
@@ -79,7 +79,7 @@ postgres=> SELECT cron.schedule ('0 15 * * *', 'VACUUM pgbench_accounts');
       146
 (1 row)
 ```
-schedule 使用标准的 cron 语法，其中 * 表示“每个该时间运行”，特定数字表示“仅在这个数字时运行”
+schedule 使用标准的 cron 语法，其中 * 表示“每个该时间运行”，特定数字表示“仅在这个数字时运行”。
 ```
 # 格式是：分 时 日 月 星期
 # week (0 - 6) = sun,mon,tue,wed,thu,fri,sat
@@ -147,7 +147,7 @@ SELECT cron.schedule('manual vacuum', '0 22 * * *', 'VACUUM FREEZE pgbench_accou
 
 
 ## 查看 pg_cron 定时任务
-- 在设置了定时任务后，可通过 cron.job 表查看已经配置了的定时任务，如执行以下语句。
+在设置了定时任务后，可通过 cron.job 表查看已经配置了的定时任务，如执行以下语句。
 ```
 SELECT * FROM cron.job;
 
