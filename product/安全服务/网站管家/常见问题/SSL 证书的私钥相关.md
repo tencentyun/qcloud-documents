@@ -13,7 +13,7 @@ WAF 全面支持 HTTPS 业务。用户只需根据提示将 SSL 证书及私钥�
 WAF 的 QPS 限制规格是针对整个实例。若配置防护三个域名，则这三个域名累加的 QPS 不能超过规定上限。如果超过已购买的实例的 QPS 限制，将触发限速，导致丢包。
 
 ### WAF 可以直接使用 DDoS 高防包么？
-可以，在 DDoS 高防包控制台配置页面直接选择 WAF 实例的 IP 即可让网站管家具备高防能力。详情请参见 [DDoS 高防包接入实践](https://cloud.tencent.com/document/product/1021/31496)。
+可以，在 DDoS 高防包控制台配置页面直接选择 WAF 实例的 IP 即可让 Web 应用防火墙具备高防能力。详情请参见 [DDoS 高防包接入实践](https://cloud.tencent.com/document/product/1021/31496)。
 
 
 ### 上传 SSL 证书私钥是否有风险？

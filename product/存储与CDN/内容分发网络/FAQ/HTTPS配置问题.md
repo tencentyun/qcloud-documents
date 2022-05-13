@@ -32,4 +32,36 @@ HTTPS，是指超文本传输安全协议（Hypertext Transfer Protocol Secure�
 证书配置成功后即可开启 HTTPS 访问。
 
 
+### CDN 支持哪些 TLS 版本
+您好，腾讯云 CDN 默认开启TLS 1.0/1.1/1.2 ，关闭 TLS 1.3，您可按需关闭/开启指定 TLS 版本。
+
+>!
+>- 配置前需确保已成功配置 HTTPS 证书。
+>- TLS 版本配置暂不支持中国境外。若域名的加速区域为全球，则配置变更后仅生效中国境内。
+>- 部分平台正在升级中，暂未开放此配置功能。
+>- 只可开启连续或单个版本号。例如，不可仅开启1.0和1.2而关闭1.1。
+>- 不可关闭全部版本。如需配置可参考文档 [配置指南](https://cloud.tencent.com/document/product/228/44868)。
+
+###  CDN 如何开启 QUIC？
+CDN 支持 QUIC，如何开启请参考  [QUIC](https://cloud.tencent.com/document/product/228/51800)。
+
+
+###  CDN 是否支持证书证书自动续签？
+ 自定义上传证书和您于 SSL 控制台申请的免费证书暂不支持自动续签新的证书，若您于 SSL 控制台购买了多年期证书可实现自动签发第二张证书，详情见 [多年期证书方案说明](https://cloud.tencent.com/document/product/400/72804)。
+
+###  CDN 支持 HTTP 2.0吗？
+客户端到 CDN 节点已支持 HTTP 2.0，开启 HTTP 2.0 前请先配置 HTTPS 证书，CDN 节点回源到源站不支持 HTTP2.0。
+
+###  如何批量配置 CDN 证书？
+若您拥有多域名证书或泛域名证书，可适用于多个 CDN 加速域名，您可以通过批量配置，一次性为多个域名添加配置。
+
+请参考证书管理中的 [批量配置证书](https://cloud.tencent.com/document/product/228/41687#.E6.89.B9.E9.87.8F.E9.85.8D.E7.BD.AE) 。
+
+### 如何查看 HTTPS 请求数的使用情况
+您可在控制台通过**实时监控** > **访问监控** ，在 HTTP 协议选择 HTTPS 单击**查询**即可获取到 HTTPS 使用数据。
+![](https://qcloudimg.tencent-cloud.cn/raw/60b0948bc41374cafd93fe74c6a8e32c.png)
+
+###  CDN 上的 HTTPS 证书和源站服务器的证书冲突了怎么办？
+CDN 上的 HTTPS 证书和源站服务器上的 HTTPS 证书两者是独立存在的，不会影响。
+
 

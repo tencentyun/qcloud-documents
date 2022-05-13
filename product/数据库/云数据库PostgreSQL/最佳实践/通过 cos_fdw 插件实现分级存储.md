@@ -1,20 +1,21 @@
 ## 背景
 数据库作为数据存放、处理、加⼯的核⼼组件，随着业务的发展，其数据量会越来越⼤；由于时间或业务设计逻辑的原因，会存在部分历史数据、归档数据。而业务对此类数据的访问并不频繁，但又不能删除，因为在某些场景下会使⽤到这些数据。为了提升数据库的处理性能，需要将此类数据进⾏落冷处理。
 
-对于数据库而言，如何最⼤化的存储数据以及更好的提供统⼀数据处理接⼝尤为重要，腾讯云 PostgreSQL 针对此类用户需求，提供数据分级存储方案。其核心原理是⽀持多种成本的存储介质，供⽤户选择使⽤。如，可使冷数据存放于性能略低，但成本较低的存储中，将热数据存放于成本较⾼，但性能更强的高性能 SSD 中。更好的服务⽤户，保证业务的正常运行，并且兼顾⽤户成本，是⼀种极具性价⽐的存储⽅案。
+对于数据库而言，如何最⼤化地存储数据以及更好的提供统⼀数据处理接⼝尤为重要，腾讯云数据库 PostgreSQL 针对此类用户需求，提供数据分级存储方案。其核心原理是⽀持多种成本的存储介质，供⽤户选择使⽤。如，可使冷数据存放于性能略低，但成本低的存储中，将热数据存放于成本较⾼，但性能更强的高性能 SSD 中。更好的服务⽤户，保证业务的正常运行，并且兼顾⽤户成本，是⼀种极具性价⽐的存储⽅案。
 
 ## 方案简介
-腾讯云 COS 是腾讯云提供的对象存储服务。分级存储当前实现的能力主要是基于 cos_fdw 插件连接和解析 COS 上的⽂件数据。通过 cos_fdw 插件可以将 COS 中的数据加载到 PostgreSQL 数据库表中，像访问普通表⼀样访问 COS 中的数据，实现冷热存储分离。⽤户无需关心不同存储介质的访问形式，仅需要将 COS 存储中的数据文件配置到 PostgreSQL 数据库中即可。
+腾讯云 COS 是腾讯云提供的对象存储服务。分级存储当前实现的能力主要是基于 cos_fdw 插件连接和解析 COS 上的⽂件数据。
+通过 cos_fdw 插件可以将 COS 中的数据加载到 PostgreSQL 数据库表中，像访问普通表⼀样访问 COS 中的数据，实现冷热存储分离。⽤户无需关心不同存储介质的访问形式，仅需要将 COS 存储中的数据文件配置到 PostgreSQL 数据库中即可。
 
 ## 方案优势
 - **统⼀引擎**：多种存储介质，⽆需业务层改动代码，直接使用 PostgreSQL 数据协议均可实现统⼀访问。
 - **成本更低**：相对⾼性能 SSD 存储，整体成本降低 86.25%。
-- **使用简单**：用户仅需要将源端数据导出 CSV 格式存放于 COS 中，在腾讯云 PostgreSQL 基于插件进⾏外表创建，即可像原表⼀样直接使用。
+- **使用简单**：用户仅需要将源端数据导出 CSV 格式存放于 COS 中，在云数据库 PostgreSQL 基于插件进⾏外表创建，即可像原表⼀样直接使用。
 - **无限存储**：COS 存储容量不设上限，⽤户可以根据实际情况进行动态存储，不再担心容量问题。
 - **⽀持联合查询表**：多种存储的表⽀持联合查询，跨区 join 等，这在其他混合引擎上是⽆法直接实现的，均需要⼀个统一的数据融合节点才能⽀持。
 
 ## 支持版本
-目前分级存储⽀持以下版本的腾讯云 PostgreSQL：
+目前分级存储⽀持以下版本的云数据库 PostgreSQL：
 - PostgreSQL 10
 - PostgreSQL 11
 - PostgreSQL 12
@@ -32,53 +33,44 @@
 
 ## 初始化环境
 ⾸先申请⼀个在数据库与 COS 同地域，同可⽤区的规格较小的中转服务器如 CVM。
-操作系统建议为：centos 7。
-安装 PostgreSQL 客户端，可参考 [PostgreSQL 官网下载安装方案](https://www.postgresql.org/download/linux/redhat/) 进行。
+操作系统建议为：Centos 7。
+1. 安装 PostgreSQL 客户端，可参考 [PostgreSQL 官网下载安装方案](https://www.postgresql.org/download/linux/redhat/)。
 ```
 sudo yum install -y 
 https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-
 x86_64/pgdg-redhat-repo-latest.noarch.rpm
 sudo yum install -y postgresql13
 ```
-
-安装完成后，可尝试使⽤ psql 命令访问⼀下数据库，查看是否安装完成，命令如下：
+2. 安装完成后，可使⽤ psql 命令访问⼀下数据库，查看是否安装完成，命令如下：
 ```
-psql -Uroot -p 5432 -h 10.0.1.8 -d postgres
+psql -Uroot -p 5432 -h 10.x.x.8 -d postgres
 Password for user root: 
 psql (13.6, server 13.3)
 Type "help" for help.
 
 postgres=>
 ```
-
-PostgerSQL 客户端⼯具安装完成后。进⾏ COS 挂载。这里我们通过 COSFS 挂载到服务器
-上的形式来进行，可避免需要更⼤容量的 CVM 进⾏转储上传。请参见 [通过 COSFS 挂载的方法](https://cloud.tencent.com/document/product/436/6883)。
-
-针对当前环境，可执⾏以下命令安装依赖包。
+3. PostgerSQL 客户端⼯具安装完成后，进⾏ COS 挂载。这里我们通过 COSFS 挂载到服务器上的形式来进行，可避免需要更⼤容量的 CVM 进⾏转储上传。请参见 [通过 COSFS 挂载](https://cloud.tencent.com/document/product/436/6883)。
+4. 针对当前环境，可执⾏以下命令安装依赖包。
 ```
 sudo yum install libxml2-devel libcurl-devel -y
 ```
-访问 COSFS 的 github 下载地址，下载 cosfs 的安装包。
-https://github.com/tencentyun/cosfs/releases/download/v1.0.19/cosfs-1.0.19-centos7.0.x86_64.rpm
-
-下载完成后将此安装包上传⾄此服务器中。再执⾏下列命令将 cosfs 安装成功。
+5. 访问 COSFS 的 [github 下载地址](https://github.com/tencentyun/cosfs/releases/download/v1.0.19/cosfs-1.0.19-centos7.0.x86_64.rpm)，下载 cosfs 的安装包。
+6. 下载完成后将此安装包上传⾄此服务器中。再执⾏下列命令将 cosfs 安装成功。
 ```
 rpm -ivh cosfs-1.0.19-centos7.0.x86_64.rpm
 ```
-
->!如确定依赖包安装完成，但是依然⽆法安装成功 COSFS 的，可以在上⾯命令中加⼊--force 参数强制安装。
-
-安装完成 COSFS 后，执⾏以下命令，将 COS 桶挂载到中转服务器中。
+>!如确定依赖包安装完成，但是依然⽆法安装成功 COSFS 的，可以在上⾯命令中加⼊ --force 参数强制安装。
+7. 安装完成 COSFS 后，执⾏以下命令，将 COS 桶挂载到中转服务器中。
 ```
 echo <BucketName-APPID>:<SecretId>:<SecretKey> > /etc/passwd-cosfs
 chmod 640 /etc/passwd-cosfs
 cosfs <BucketName-APPID> <MountPoint> -ourl=http://cos.<Region>.myqcloud.c
 om -odbglevel=info -oallow_other
 ```
-- BucketName-APPID 为存储桶名称格式
-- SecretId 和 SecretKey 为密钥信息
-
-挂载完成后，可进入到挂载目录中，拷贝⼀个⽂件进⾏测试。查看是否挂载成功。亦可执行 df -h 查看挂载情况：
+ - BucketName-APPID 为存储桶名称格式。
+ - SecretId 和 SecretKey 为密钥信息。
+8. 挂载完成后，可进入到挂载目录中，拷贝⼀个⽂件进⾏测试。查看是否挂载成功。亦可执行 df -h 查看挂载情况：
 ```
 [root@VM-4-17-centos ~]# df -h
 Filesystem Size Used Avail Use% Mounted on
@@ -126,7 +118,6 @@ csv;
 psql -U root -p 5432 -h 10.0.4.8 -d hehe -c '\COPY (select * from sensor_log 
 where location='18c-1401') TO '/mnt/pgstorage/sensor_log.csv' WITH csv;'
 ```
-
 上面的语句执⾏完成后，就可以在 COS 桶对应⽬录中找到导出的⽂件。
 导入到 COS 的 csv 文件不需要带列名。
 
@@ -136,6 +127,7 @@ cos_fdw 插件会对 COS 的 secret id 和 secret key 进⾏加密处理，加�
 CREATE EXTENSION pgcrypto;
 CREATE EXTENSION cos_fdw;
 ```
+
 ## 创建 Foreign Server
 ```
 CREATE SERVER cos_server FOREIGN DATA WRAPPER cos_fdw OPTIONS(
@@ -211,6 +203,7 @@ NULL | | |
 NULL | | |
 ABC | abc | | (5 rows)
 ```
+
 ### 将外部表数据导入本地表
 可以使⽤ `insert into ... select * from ...;` 类似的语句将外部表的数据导入本地表中。
 ```
@@ -285,6 +278,7 @@ tableoid | a | b
 p2 | 2 | xyzzy
 (1 row)
 ```
+
 ## 删除插件
 ```
 DROP EXTENSION cos_fdw;
@@ -317,7 +311,7 @@ DROP EXTENSION cos_fdw;
 ## 错误处理
 当使用 cos_fdw 向 COS 请求数据超时，会显示以下内容：
 - code：出错请求的 HTTP 状态码。
-- 错误请求的 HTTP header：显示错误的信息。其格式参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729)。其中 `x-cos-request-id` 可以⽤于寻求 COS 侧人工排查问题。如果该项为空，表示未成功向 COS 发送请求。
+- 错误请求的 HTTP header：显示错误的信息。其格式参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729)。其中 `x-cos-request-id` 可以⽤于寻求 [在线支持](https://cloud.tencent.com/online-service) 排查问题。如果该项为空，表示未成功向 COS 发送请求。
 
 ```
 • postgres=# SELECT * FROM test_csv; • ERROR: COS api return error. • DETAIL: COS api http status:403
@@ -330,3 +324,4 @@ DROP EXTENSION cos_fdw;
 • x-cos-trace-id:
 OGVmYzZiMmQzYjA2OWNhODk0NTRkMTBiOWVmMDAxODc0OWRkZjk0ZDM1NmI1M2E2MTRlY2MzZDhmNmI5MWI1OTBjYzE2MjAxN2M1MzJiOTdkZjMxMDVlYTZjN2FiMmI0MWMyZGYxMDAyZmVmMjNkZDQ5NGViMDhiZWJkOTE2YzI=
 ```
+
