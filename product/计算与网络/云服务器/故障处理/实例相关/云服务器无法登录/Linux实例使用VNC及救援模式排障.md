@@ -98,7 +98,7 @@ vi /etc/fstab
 ![](https://qcloudimg.tencent-cloud.cn/raw/a2d9e675d6586341e6b5e3a221ee7906.png)
 7. 按 **Esc** 输入 **:wq** 后，按 **Enter** 保存设置并退出编辑器。
 8. 通过控制台重启实例，详情请参见 [重启实例](https://cloud.tencent.com/document/product/213/4928)。
-9. 在启动后验证是否可正常启动及登录
+9. 验证是否能正常启动及登录。
 
 
 :::
