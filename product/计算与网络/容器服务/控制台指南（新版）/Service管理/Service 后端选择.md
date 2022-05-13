@@ -8,6 +8,8 @@
 - Master 节点（不允许 Master 节点参与网络接入层的负载）。
 - 节点状态为 NotReady （节点不健康）。
 
+注意：`TKE Service Controller` 可以绑定状态为 Unschedulable 的节点。Unschedulable 的节点也可以作为一个流量的入口，因为流量进入到节点之后，都会再做一层容器网络里的流量转发，如上图所示。
+
 
 ## 指定接入层后端
 对于一些规模很大的集群，Service 管理的负载均衡会挂载几乎所有集群节点的 NodePort 作为后端。此场景存在以下问题：
