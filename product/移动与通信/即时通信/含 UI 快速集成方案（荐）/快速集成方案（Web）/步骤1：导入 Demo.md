@@ -134,7 +134,7 @@ yarn serve
 
 ## 常见问题
 
-### 1. 如何生成 useSig ？
+### 1. 如何生成 UserSig？
 
 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向项目的接口，在需要 UserSig 时由您的项目向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/269/32688#GeneratingdynamicUserSig)。
 
