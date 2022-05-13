@@ -1,4 +1,7 @@
 ## 播放器 SDK
+### 播放器 SDK 9.5.29040 @ 2022.05.13
+- Android&iOS：修复播放带封面 mp3 失败的问题。
+
 ### 播放器 SDK 9.5.29036 @ 2022.05.06
 - Android：修复 SurfaceView 重复 Add 和 Remove 导致黑屏问题。
 
