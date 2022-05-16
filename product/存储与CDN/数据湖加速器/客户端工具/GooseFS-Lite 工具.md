@@ -29,7 +29,23 @@ GooseFS-Lite 工具支持将对象存储（Cloud Object Storage，COS）存储�
 yum install -y fuse-devel java-11-openjdk-devel
 ```
 
-### 步骤2：配置密钥文件
+### 步骤2：下载 GooseFS-Lite
+
+1. 执行如下命令，获取 GooseFS-Lite 安装包：
+```
+curl -LO https://cos-data-lake-release-1253960454.cos.ap-guangzhou.myqcloud.com/goosefs-lite/goosefs-lite-1.0.0.tar.gz
+```
+2. 执行如下命令，获取 GooseFS-Lite 的 Md5 文件：
+```
+curl -LO https://cos-data-lake-release-1253960454.cos.ap-guangzhou.myqcloud.com/goosefs-lite/goosefs-lite-1.0.0-md5.txt
+```
+3. 执行如下命令，验证文件的完整性。
+```
+md5sum goosefs-lite-1.0.0.tar.gz
+```
+
+
+### 步骤3：配置密钥文件
 
 修改配置文件 conf/core-site.xml 中的配置项：
 - 将 fs.cosn.userinfo.secretKey 配置为腾讯云密钥 ID。
@@ -113,7 +129,7 @@ groupadd supergroup
 </configuration>
 ```
 
-### 步骤3：运行工具
+### 步骤4：运行工具
 
 执行如下命令，将密钥文件中配置的存储桶挂载到指定目录：
 ```shell
@@ -137,7 +153,7 @@ pid     mount_point     cos_path
 13815   /mnt/goosefs-lite-mnt/  cosn://examplebucket-1250000000/
 ```
 
-### 步骤4：卸载存储桶
+### 步骤5：卸载存储桶
 
 卸载存储桶示例：
 ```shell
@@ -145,7 +161,7 @@ $./bin/goosefs-lite umount /mnt/goosefs-lite-mnt
 Unmount fuse at /mnt/goosefs-lite-mnt/ (PID: 17206).
 ```
 
-### 步骤5：参数调优
+### 步骤6：参数调优
 
 GooseFS-Lite 包含两个配置文件，分别为 conf/core-site.xml 及 conf/goosefs-lite.properties。
 您可以通过修改 conf/core-site.xml 调优上传下载带宽。常用参数如下，更多参数可参考 [Hadoop-COS](https://cloud.tencent.com/document/product/436/6884) 文档。

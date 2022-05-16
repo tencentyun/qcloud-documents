@@ -1,15 +1,15 @@
 ## 概述
-腾讯云事件总线（EventBridge）与腾讯千帆鹊桥 iPaaS 携手，将安全、稳定、高效的无服务器事件管理平台和腾讯千帆鹊桥 iPaaS 的多种连接器集成，帮助您轻松实现无服务器事件驱动架构。
-当账号下云服务 ping 不可达，或异常重启时，可配置 EB 收集告警通过腾讯千帆鹊桥 iPaaS 配置企业微信机器人、钉钉机器人和飞书机器人。触达到对应企业群中，让异常告警第一时间触达到运维人员，可作出相应措施。
+腾讯云事件总线（EventBridge）与腾讯云数据连接器携手，将安全、稳定、高效的无服务器事件管理平台和腾讯云数据连接器的多种连接器集成，帮助您轻松实现无服务器事件驱动架构。
+当账号下云服务 ping 不可达，或异常重启时，可配置 EB 收集告警通过腾讯云数据连接器配置企业微信机器人、钉钉机器人和飞书机器人。触达到对应企业群中，让异常告警第一时间触达到运维人员，可作出相应措施。
 
 ## 操作场景 
 假设您的企业正在使用企业微信、钉钉或飞书作为司内协同办公软件，您同时有使用大量的腾讯云云上资源：云服务器、云存储、负载均衡等。作为该企业的 IT 负责人，您希望腾讯云云上资源出现异常时，能有告警信息直接触达到工作群，方便 IT 部同事能第一时间处理。您可以参考如下流程配置一个简单的告警推送流。
 
-![](https://qcloudimg.tencent-cloud.cn/raw/fda6e7d8541e5fe817157853cdea0745.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/70a4c8fadf302d64713fb42b2b5deec5.png)
 
 您可参考以下步骤进行配置：
 
-## 腾讯千帆鹊桥 iPaaS 端配置指引
+## 腾讯云数据连接器端配置指引
 **腾讯云事件总线**到**企业微信机器人**集成流配置操作指引：
 
 ### 前期准备
@@ -44,7 +44,7 @@
 
 1. 登录 [企业集成服务控制台](https://console.cloud.tencent.com/eis)。
 2. 单击**深度集成 > 选择对应项目 > 添加应用**，选择空白应用，并命名为 “EB - 企业微信机器人（应用名称可自行定义）”。
-![](https://qcloudimg.tencent-cloud.cn/raw/29fa12309ec3063d66a7dae258f6c0eb.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/7299f0386b3e27b28410d53ca1d7d8b5.png)
 3. 单击**确定**，进入默认对应应用名称（此处为 “EB - 企业微信机器人”）的应用编辑页。选中 NewFlow 进入集成流编辑页面。
 ![](https://qcloudimg.tencent-cloud.cn/raw/bb90265829e2d06a62320d571571d036.png)
 
@@ -53,7 +53,7 @@
 配置腾讯云事件总线连接器，作为集成流的触发器，具体步骤如下： 
 
 1. 单击应用编辑页 “Trigger 框”中的未配置。在弹框提示选择 “Trigger 组件”，此处请选择**腾讯云事件总线**作为触发器。选择**EventBridge**。
-![](https://qcloudimg.tencent-cloud.cn/raw/3063e67483355f2d5a6e3498c6e7a286.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/7009c2096b943a3abcf4c35072df47b8.png)
 2. 单击**新建**腾讯云事件总线连接器配置。
 ![](https://qcloudimg.tencent-cloud.cn/raw/1b182c7f0aff22b30808caecaf9b0988.png)
 3. 填写连接器配置名称为 “腾讯云事件总线 #0（可自定义名称）”，并单击**下一步**。
@@ -141,7 +141,7 @@ Logger 组件用来在控制台输出日志，并不会改变 message 中的内�
 ![](https://qcloudimg.tencent-cloud.cn/raw/19b24858628f0788256005172b247a6d.png)
 
 ## 腾讯云事件总线端配置指引
-完成腾讯千帆鹊桥 iPaaS 端的集成流配置后，还需要在腾讯云事件总线端配置相应事件集规则，才可完成按照所配置的规则触发集成流。
+完成腾讯云数据连接器的集成流配置后，还需要在腾讯云事件总线端配置相应事件集规则，才可完成按照所配置的规则触发集成流。
 
 腾讯云事件总线控制台，自带一个默认的云服务事件集，包含了常见了云上事件连接器：负载均衡、云服务器、文件存储等，都配有不同的事件告警，用户可以根据需要创建对应事件规则使用。
 
@@ -165,9 +165,9 @@ Logger 组件用来在控制台输出日志，并不会改变 message 中的内�
 - 云服务类型：包含多个事件源，例如：云服务器。
 - 事件类型：可选择单个事件或全部事件，例如：全部事件。
 - 事件模式预览：系统根据用户的选择自动生成。
-- 触发方式：选择云函数（腾讯千帆鹊桥 iPaaS 场景下）。
-- 函数类型：选择模板函数（腾讯千帆鹊桥 iPaaS 场景下）。
-- 函数模板：选择 SaaS 连接器（EIS 提供支持）（千帆 i 腾讯千帆鹊桥 iPaaS 场景下）。
+- 触发方式：选择云函数（腾讯云数据连接器场景下）。
+- 函数类型：选择模板函数（腾讯云数据连接器场景下）。
+- 函数模板：选择 SaaS 连接器（EIS 提供支持）（腾讯云数据连接器场景下）。
 - 命名空间：default。
 - 函数名称：用户自定义，列 ebqw1。
 - 集成项目：选择上述配置集成流所在的项目。
@@ -195,11 +195,11 @@ Logger 组件用来在控制台输出日志，并不会改变 message 中的内�
 - 企业微信机器人：
 ![](https://qcloudimg.tencent-cloud.cn/raw/01a220198336b6d2fdb2b184c59a4f30.png)
 企微微信群推送消息：
-![](https://qcloudimg.tencent-cloud.cn/raw/8e7190cedef1105cc0881035ff284088.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/4d54fd054dc25e457b15da71dd56ee27.png)
 
 - 钉钉内部群推送消息：
-![](https://qcloudimg.tencent-cloud.cn/raw/3c9ce678ea42210e53fdcb379b089311.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/ae2632413fa5b0866cc4b151b28146ac.png)
 - 飞书内部群推送消息：
-![](https://qcloudimg.tencent-cloud.cn/raw/efde0393c39545707c39706d9c26b8c1.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/02355c241fcdbd501ed3f588b972fabf.png)
 
 
