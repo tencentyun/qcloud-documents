@@ -70,7 +70,7 @@ sudo yum install -y gcc kernel-devel
 </dx-alert>
 11. 执行以下命令，运行驱动安装程序，并按提示进行后续操作。
 ```shellsession
-sudo sh NVIDIA-Linux-x86_64-418.126.02.run  --disablenouveau 
+sudo sh NVIDIA-Linux-x86_64-418.126.02.run  --disable-nouveau
 ```
 12. 安装完成后，执行以下命令进行验证。
 ```shellsession
