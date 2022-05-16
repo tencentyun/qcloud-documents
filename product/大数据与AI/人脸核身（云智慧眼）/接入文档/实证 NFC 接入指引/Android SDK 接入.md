@@ -5,7 +5,7 @@ CPU 平台设置
 defaultConfig {
     ndk {
           //设置支持的so库框架
-          abiFilters 'armeabi-v7a'，'armeabi'，'arm64-v8a'，’ x86’，’ x86_64’
+          abiFilters 'armeabi-v7a'，'armeabi'，'arm64-v8a'，'x86'，'x86_64'
      }
 }
 ```
@@ -189,8 +189,9 @@ WbCloudOcrSdk.init() 里 Bundle data，除了必须要传的 InputData 对象（
         WbCloudNfcSDK.getInstance().init(MainActivity.this，data，new WbCloudNfcSDK.NfcLoginListener() {
             @Override
             public voidonLoginSuccess() {  
-     //2.登录成功，拉起 SDK页面。请在主线程中调用此接口。                           WbCloudNfcSDK.getInstance().startActivityForNfc(MainActivity.this，
-      new  WbCloudNfcSDK.WBNfcResultListener() {  //返退出 SDK 回调接口
+			 //2.登录成功，拉起 SDK页面。请在主线程中调用此接口。
+		WbCloudNfcSDK.getInstance().startActivityForNfc(MainActivity.this，
+			new  WbCloudNfcSDK.WBNfcResultListener() {  //返退出 SDK 回调接口
                     @Override
                     public voidonFinish(WBNfcResult wbNfcResult) {
            // resultCode为0，则NFC识别成功；否则识别失败
