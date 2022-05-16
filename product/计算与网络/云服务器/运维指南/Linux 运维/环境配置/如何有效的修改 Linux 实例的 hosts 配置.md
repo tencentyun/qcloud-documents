@@ -28,25 +28,25 @@ touch /var/lib/cloud/instance/sem/config_update_etc_hosts
 </dx-alert>
 
 
-#### 获取 hosts 模版文件路径
+#### 获取 hosts 模板文件路径
 1. 登录 Linux 服务器。
-2. 执行以下命令，查看系统 hosts 模版文件。
+2. 执行以下命令，查看系统 hosts 模板文件。
 ```shellsession
 cat /etc/hosts
 ```
-hosts 模版文件如下图所示：
+hosts 模板文件如下图所示：
 ![](https://main.qcloudimg.com/raw/f51f9c53004574f72d32f5ed790c8563.png)
 
 
-#### 修改 hosts 模版文件
+#### 修改 hosts 模板文件
 
 
 <dx-alert infotype="explain" title="">
-以添加 127.0.0.1 test test 为例，您可按需修改 hosts 模版文件与 /etc/hosts 文件。
+以添加 127.0.0.1 test test 为例，您可按需修改 hosts 模板文件与 /etc/hosts 文件。
 </dx-alert>
 
 
-1. 执行以下命令，修改 hosts 模版文件。
+1. 执行以下命令，修改 hosts 模板文件。
 ```shellsession
 vim /etc/cloud/templates/hosts.redhat.tmpl
 ```
