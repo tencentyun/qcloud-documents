@@ -6,7 +6,7 @@
 
 ### 配置须知
 
-配置过程中，若您需要了解证书和秘钥的格式要求以及如何补齐证书链，请参考  [HTTPS 配置须知](https://cloud.tencent.com/document/product/228/41686)  的相关内容。
+配置过程中，若您需要了解证书和密钥的格式要求以及如何补齐证书链，请参考  [HTTPS 配置须知](https://cloud.tencent.com/document/product/228/41686)  的相关内容。
 
 ### 查看配置
 
