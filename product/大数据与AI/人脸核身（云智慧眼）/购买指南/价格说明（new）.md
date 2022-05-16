@@ -74,120 +74,172 @@ width: 25%;
 增强版人脸核身服务详细定价如下，如需购买资源包，请单击 [购买资源包](https://buy.cloud.tencent.com/iai_faceid)。
 
 <table>
-    <tr>
-        <th rowspan=2>计费标签</th>
-        <th>后付费</th>
-        <th colspan=2><center>预付费</center></th>
-    </tr>
-    <tr>
-        <th>单价</th>
-        <th>资源包规格</th>
-        <th>资源包价格</th>
-    </tr>
-    <tr>
-        <td rowspan=6>增强版人脸核身（权威库）-微信</td>
-        <td rowspan=6>1.2元/次</td>
-        <td>1千次</td>
-        <td>1,150元</td>
-    </tr>
-    <tr>
-        <td>1万次</td>
-        <td>11,000元</td>
-    </tr>
-    <tr>
-        <td>10万次</td>
-        <td>100,000元</td>
-    </tr>
-    <tr>
-        <td>20万次</td>
-        <td>180,000元</td>
-    </tr>
-    <tr>
-        <td>50万次</td>
-        <td>400,000元</td>
-    </tr>
-    <tr>
-        <td>100万次</td>
-        <td>800,000元</td>
-    </tr>
-    <tr>
-        <td rowspan=6>增强版人脸核身（自传照片）-微信</td>
-        <td rowspan=6>0.3元/次</td>
-        <td>1千次</td>
-        <td>280元</td>
-    </tr>
-    <tr>
-        <td>1万次</td>
-        <td>2,700元</td>
-    </tr>
-    <tr>
-        <td>10万次</td>
-        <td>26,000元</td>
-    </tr>
-    <tr>
-        <td>20万次</td>
-        <td>50,000元</td>
-    </tr>
-    <tr>
-        <td>50万次</td>
-        <td>115,000元</td>
-    </tr>
-    <tr>
-        <td>100万次</td>
-        <td>230,000元</td>
-    </tr>
-    <tr>
-        <td rowspan=6>增强版人脸核身（权威库）-APP</td>
-        <td rowspan=6>1.2元/次</td>
-        <td>1千次</td>
-        <td>1,150元</td>
-    </tr>
-    <tr>
-        <td>1万次</td>
-        <td>11,000元</td>
-    </tr>
-    <tr>
-        <td>10万次</td>
-        <td>100,000元</td>
-    </tr>
-    <tr>
-        <td>20万次</td>
-        <td>180,000元</td>
-    </tr>
-    <tr>
-        <td>50万次</td>
-        <td>400,000元</td>
-    </tr>
-    <tr>
-        <td>100万次</td>
-        <td>800,000元</td>
-    </tr>
-    <tr>
-        <td rowspan=6>增强版人脸核身（自传照片）-APP</td>
-        <td rowspan=6>0.3元/次</td>
-        <td>1千次</td>
-        <td>280元</td>
-    </tr>
-    <tr>
-        <td>1万次</td>
-        <td>2,700元</td>
-    </tr>
-    <tr>
-        <td>10万次</td>
-        <td>26,000元</td>
-    </tr>
-    <tr>
-        <td>20万次</td>
-        <td>50,000元</td>
-    </tr>
-    <tr>
-        <td>50万次</td>
-        <td>115,000元</td>
-    </tr>
-    <tr>
-        <td>100万次</td>
-        <td>230,000元</td>
-    </tr>
+<tr>
+<th rowspan=2>计费标签</th>
+<th>后付费</th>
+<th colspan=2><center>预付费</center></th>
+</tr>
+<tr>
+<th>单价</th>
+<th>资源包规格</th>
+<th>资源包价格</th>
+</tr>
+<tr>
+<td rowspan=6>增强版人脸核身（权威库）-微信</td>
+<td rowspan=6>1.2元/次</td>
+<td>1千次</td>
+<td>1,150元</td>
+</tr>
+<tr>
+<td>1万次</td>
+<td>11,000元</td>
+</tr>
+<tr>
+<td>10万次</td>
+<td>100,000元</td>
+</tr>
+<tr>
+<td>20万次</td>
+<td>180,000元</td>
+</tr>
+<tr>
+<td>50万次</td>
+<td>400,000元</td>
+</tr>
+<tr>
+<td>100万次</td>
+<td>800,000元</td>
+</tr>
+<tr>
+<td rowspan=6>增强版人脸核身（自传照片）-微信</td>
+<td rowspan=6>0.3元/次</td>
+<td>1千次</td>
+<td>280元</td>
+</tr>
+<tr>
+<td>1万次</td>
+<td>2,700元</td>
+</tr>
+<tr>
+<td>10万次</td>
+<td>26,000元</td>
+</tr>
+<tr>
+<td>20万次</td>
+<td>50,000元</td>
+</tr>
+<tr>
+<td>50万次</td>
+<td>115,000元</td>
+</tr>
+<tr>
+<td>100万次</td>
+<td>230,000元</td>
+</tr>
+<tr>
+<td rowspan=6>增强版人脸核身（权威库）-APP</td>
+<td rowspan=6>1.2元/次</td>
+<td>1千次</td>
+<td>1,150元</td>
+</tr>
+<tr>
+<td>1万次</td>
+<td>11,000元</td>
+</tr>
+<tr>
+<td>10万次</td>
+<td>100,000元</td>
+</tr>
+<tr>
+<td>20万次</td>
+<td>180,000元</td>
+</tr>
+<tr>
+<td>50万次</td>
+<td>400,000元</td>
+</tr>
+<tr>
+<td>100万次</td>
+<td>800,000元</td>
+</tr>
+<tr>
+<td rowspan=6>增强版人脸核身（自传照片）-APP</td>
+<td rowspan=6>0.3元/次</td>
+<td>1千次</td>
+<td>280元</td>
+</tr>
+<tr>
+<td>1万次</td>
+<td>2,700元</td>
+</tr>
+<tr>
+<td>10万次</td>
+<td>26,000元</td>
+</tr>
+<tr>
+<td>20万次</td>
+<td>50,000元</td>
+</tr>
+<tr>
+<td>50万次</td>
+<td>115,000元</td>
+</tr>
+<tr>
+<td>100万次</td>
+<td>230,000元</td>
+</tr>
+<tr>
+<td rowspan=6>增强版人脸核身（权威库）-浮层 H5</td>
+<td rowspan=6>1.2元/次</td>
+<td>1千次</td>
+<td>1,150元</td>
+</tr>
+<tr>
+<td>1万次</td>
+<td>11,000元</td>
+</tr>
+<tr>
+<td>10万次</td>
+<td>100,000元</td>
+</tr>
+<tr>
+<td>20万次</td>
+<td>180,000元</td>
+</tr>
+<tr>
+<td>50万次</td>
+<td>400,000元</td>
+</tr>
+<tr>
+<td>100万次</td>
+<td>800,000元</td>				
+</tr>
+<tr>
+<td rowspan=6>增强版人脸核身（自传照片）-浮层 H5</td>
+<td rowspan=6>0.3元/次</td>
+<td>1千次</td>
+<td>280元</td>
+</tr>
+<tr>
+<td>1万次</td>
+<td>2,700元</td>
+</tr>
+<tr>
+<td>10万次</td>
+<td>26,000元</td>
+</tr>
+<tr>
+<td>20万次</td>
+<td>50,000元</td>
+</tr>
+<tr>
+<td>50万次</td>
+<td>115,000元</td>
+</tr>
+<tr>
+<td>100万次</td>
+<td>230,000元</td>					
+</tr>
 </table>
 
 
