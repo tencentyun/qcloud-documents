@@ -12,7 +12,7 @@
 
 ## 自定义 UI 样式
 1. 隐藏 SDK UI，详情参考 [SDK API UI（用户界面相关接口函数）](https://cloud.tencent.com/document/product/679/72044#ui.EF.BC.88.E7.94.A8.E6.88.B7.E7.95.8C.E9.9D.A2.E7.9B.B8.E5.85.B3.E6.8E.A5.E5.8F.A3.E5.87.BD.E6.95.B0.EF.BC.89) 。
-步骤2：根据业务需要调用相应的 SDK API（如：挂断、静音、通话保持等）完成通话工具条样式开发，详情参考 [SDK API](https://cloud.tencent.com/document/product/679/72044)。
+2. 根据业务需要调用相应的 SDK API（如：挂断、静音、通话保持等）完成通话工具条样式开发，详情参考 [SDK API](https://cloud.tencent.com/document/product/679/72044)。
 
 ## 事件通知
 SDK 提供了外呼事件、外呼接听事件，企业可通过事件监听及时获取电话呼出事件信息，便于在业务系统弹屏展示对应客户信息。详情参考 [SDK API Events（事件）](https://cloud.tencent.com/document/product/679/72044#events.EF.BC.88.E4.BA.8B.E4.BB.B6.EF.BC.89)。
