@@ -185,7 +185,7 @@ TXCopyrightedMedia *copyrightedMedia = [TXCopyrightedMedia instance];
 </tr><tr>
 <td>bitrateDefinition</td>
 <td>NSString</td>
-<td>码率描述（audio/mi：64，audio/lo：128，audio/hi：320）</td>
+<td>码率描述，从服务器歌曲详情获取（ audio/mi: 代表64kbps码率 audio/lo:代表128kbps码率 audio/hi: 代表320kbps码率）</td>
 </tr><tr>
 <td>playToken</td>
 <td>NSString</td>
@@ -196,6 +196,7 @@ TXCopyrightedMedia *copyrightedMedia = [TXCopyrightedMedia instance];
 <td>回调代理</td>
 </tr>
 </tbody></table>
+
 ```java
 @protocol ITXMusicPreloadCallback <NSObject>
 
@@ -275,9 +276,10 @@ errorCode返回错误码定义如下：
 </tr><tr>
 <td>bitrateDefinition</td>
 <td>NSString</td>
-<td>码率描述（audio/mi：64，audio/lo：128，audio/hi：320）</td>
+<td>码率描述，从服务器歌曲详情获取（ audio/mi: 代表64kbps码率 audio/lo:代表128kbps码率 audio/hi: 代表320kbps码率）</td>
 </tr>
 </tbody></table>
+
 - **检测是否已预加载 Music 数据**
 ```java
 BOOL isPreloaded = [copyrightedMedia isMusicPreloaded:musicId bitrateDefinition:bitrateDefinition];
@@ -292,9 +294,10 @@ BOOL isPreloaded = [copyrightedMedia isMusicPreloaded:musicId bitrateDefinition:
 </tr><tr>
 <td>bitrateDefinition</td>
 <td>NSString</td>
-<td>码率描述（audio/mi：64，audio/lo：128，audio/hi：320）</td>
+<td>码率描述，从服务器歌曲详情获取（ audio/mi: 代表64kbps码率 audio/lo:代表128kbps码率 audio/hi: 代表320kbps码率）</td>
 </tr>
 </tbody></table>
+
 - **生成 Music URI**
 App 客户端在 preloadMusic 成功之后调用，原唱&伴奏传给 TRTC 进行播放。
 ```java
@@ -314,9 +317,10 @@ NSString *musicUri = [copyrightedMedia genMusicURI:musicId bgmType:musicType bit
 </tr><tr>
 <td>bitrateDefinition</td>
 <td>NSString</td>
-<td>码率描述（audio/mi：64，audio/lo：128，audio/hi：320）</td>
+<td>码率描述，从服务器歌曲详情获取（ audio/mi: 代表64kbps码率 audio/lo:代表128kbps码率 audio/hi: 代表320kbps码率）</td>
 </tr>
 </tbody></table>
+
 返回说明：
 <table>
 <thead><tr><th>返回值</th><th>类型</th><th>描述</th></tr></thead>
