@@ -9,7 +9,7 @@
 
 您可参考以下步骤进行配置：
 
-##腾讯云数据连接器端配置指引
+## 腾讯云数据连接器端配置指引
 **腾讯云事件总线**到**企业微信机器人**集成流配置操作指引：
 
 ### 前期准备
@@ -44,7 +44,7 @@
 
 1. 登录 [企业集成服务控制台](https://console.cloud.tencent.com/eis)。
 2. 单击**深度集成 > 选择对应项目 > 添加应用**，选择空白应用，并命名为 “EB - 企业微信机器人（应用名称可自行定义）”。
-![](https://qcloudimg.tencent-cloud.cn/raw/29fa12309ec3063d66a7dae258f6c0eb.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/7299f0386b3e27b28410d53ca1d7d8b5.png)
 3. 单击**确定**，进入默认对应应用名称（此处为 “EB - 企业微信机器人”）的应用编辑页。选中 NewFlow 进入集成流编辑页面。
 ![](https://qcloudimg.tencent-cloud.cn/raw/bb90265829e2d06a62320d571571d036.png)
 
@@ -141,7 +141,7 @@ Logger 组件用来在控制台输出日志，并不会改变 message 中的内�
 ![](https://qcloudimg.tencent-cloud.cn/raw/19b24858628f0788256005172b247a6d.png)
 
 ## 腾讯云事件总线端配置指引
-完成腾讯千帆鹊桥 iPaaS 端的集成流配置后，还需要在腾讯云事件总线端配置相应事件集规则，才可完成按照所配置的规则触发集成流。
+完成腾讯云数据连接器的集成流配置后，还需要在腾讯云事件总线端配置相应事件集规则，才可完成按照所配置的规则触发集成流。
 
 腾讯云事件总线控制台，自带一个默认的云服务事件集，包含了常见了云上事件连接器：负载均衡、云服务器、文件存储等，都配有不同的事件告警，用户可以根据需要创建对应事件规则使用。
 
@@ -195,11 +195,11 @@ Logger 组件用来在控制台输出日志，并不会改变 message 中的内�
 - 企业微信机器人：
 ![](https://qcloudimg.tencent-cloud.cn/raw/01a220198336b6d2fdb2b184c59a4f30.png)
 企微微信群推送消息：
-![](https://qcloudimg.tencent-cloud.cn/raw/8e7190cedef1105cc0881035ff284088.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/4d54fd054dc25e457b15da71dd56ee27.png)
 
 - 钉钉内部群推送消息：
-![](https://qcloudimg.tencent-cloud.cn/raw/3c9ce678ea42210e53fdcb379b089311.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/ae2632413fa5b0866cc4b151b28146ac.png)
 - 飞书内部群推送消息：
-![](https://qcloudimg.tencent-cloud.cn/raw/efde0393c39545707c39706d9c26b8c1.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/02355c241fcdbd501ed3f588b972fabf.png)
 
 
