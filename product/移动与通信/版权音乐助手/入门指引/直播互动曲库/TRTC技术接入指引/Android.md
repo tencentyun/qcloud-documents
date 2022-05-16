@@ -182,7 +182,7 @@ copyrightedMedia.preloadMusic(String musicId, String bitrateDefinition, String p
 </tr><tr>
 <td>bitrateDefinition</td>
 <td>String</td>
-<td>码率描述，从服务器歌曲详情获取（ audio/mi: 代表64kbps码率 audio/lo:代表128kbps码率 audio/hi: 代表320kbps码率）</td>
+<td>码率描述，从服务器歌曲详情获取（audio/mi：代表64kbps码率，audio/lo：代表128kbps码率，audio/hi：代表320kbps码率）</td>
 </tr><tr>
 <td>playToken</td>
 <td>String</td>
@@ -262,7 +262,7 @@ copyrightedMedia.cancelPreloadMusic(String musicId, String bitrateDefinition);
 </tr><tr>
 <td>bitrateDefinition</td>
 <td>String</td>
-<td>码率描述，从服务器歌曲详情获取（ audio/mi: 代表64kbps码率 audio/lo:代表128kbps码率 audio/hi: 代表320kbps码率）</td>
+<td>码率描述，从服务器歌曲详情获取（audio/mi：代表64kbps码率，audio/lo：代表128kbps码率，audio/hi：代表320kbps码率）</td>
 </tr>
 </tbody></table>
 
@@ -280,7 +280,7 @@ boolean isPreloaded = copyrightedMedia.isMusicPreloaded(String musicId, String b
 </tr><tr>
 <td>bitrateDefinition</td>
 <td>String</td>
-<td>码率描述，从服务器歌曲详情获取（ audio/mi: 代表64kbps码率 audio/lo:代表128kbps码率 audio/hi: 代表320kbps码率）</td>
+<td>码率描述，从服务器歌曲详情获取（audio/mi：代表64kbps码率，audio/lo：代表128kbps码率，audio/hi：代表320kbps码率）</td>
 </tr>
 </tbody></table>
 
@@ -303,7 +303,7 @@ String MusicUri = TXCopyrightedMedia.genMusicURI(String musicId，int musicType,
 </tr><tr>
 <td>bitrateDefinition</td>
 <td>String</td>
-<td>码率描述，从服务器歌曲详情获取（ audio/mi: 代表64kbps码率 audio/lo:代表128kbps码率 audio/hi: 代表320kbps码率）</td>
+<td>码率描述，从服务器歌曲详情获取（audio/mi：代表64kbps码率，audio/lo：代表128kbps码率，audio/hi：代表320kbps码率）</td>
 </tr>
 </tbody></table>
 
