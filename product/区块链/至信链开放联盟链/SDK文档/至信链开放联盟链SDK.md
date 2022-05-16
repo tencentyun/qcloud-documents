@@ -11,19 +11,19 @@ GenerateApiSign(secretId, secretKey string)(signData*SignData, nonce int, error)
 
 #### 输入参数
 |字段名|描述|
-|--|--|
+|:--|:--|
 |secretId |注册用户时生成的 secretId（方案二该参数传""）|
 |secretKey|注册用户时生成的 secretKey（方案二该参数传""）|
 
 #### 返回参数
 |字段名|描述|
-|--|--|
+|:--|:--|
 |signData|生成各项签名数据|
 
 signData 结构如下：
 
 |字段名|描述|
-|--|--|
+|:--|:--|
 |signature|签名后的数据|
 |signatureTime|时间戳|
 |nonce|随机数|
@@ -32,14 +32,14 @@ signData 结构如下：
 需要准备：
 
 |字段名|类型|
-|--|--|
+|:--|:--|
 |secretId|string|
 |secretKey|string|
 
 调用 GenerateApiSign 方法生成签名，将相关字段放到 Header 中：
 
 |字段名|类型|
-|--|--|
+|:--|:--|
 |Secret-Id|string|
 |signature-Time|string|
 |signature|string|
@@ -49,7 +49,7 @@ signData 结构如下：
 直接调用 GenerateApiSign 方法生成签名，将相关字段放到 Header 中：
 
 |字段名|类型|
-|--|--|
+|:--|:--|
 |signature-Time|string|
 |signature|string|
 |nonce|int|
@@ -63,7 +63,7 @@ createMnemonic() (mnemonic string, err)
 #### 返回参数
 
 |字段名|描述|
-|--|--|
+|:--|:--|
 |mnemonic|12 个英文词组，utf8，空格分割 |
 
 ### sdk-派生生成子公私钥对
@@ -71,13 +71,13 @@ DeriveKeyPair(mnemonic string, index int) (|priKey, pubKey string,err)
 
 #### 输入参数
 |字段名|描述|
-|--|--|
+|:--|:--|
 |mnemonic|12 个英文单词，空格分割|
-|index|	  从 0 开始递增的序号，相同的 index 生成的子公私钥相同|
+|index|   从 0 开始递增的序号，相同的 index 生成的子公私钥相同|
 
 #### 响应参数
 |字段名|描述|
-|--|--|
+|:--|:--|
 |priKey|私钥|
 |pubKey|公钥|
 
@@ -86,25 +86,25 @@ PriKey2PubKey(pri string) (pub string,err)
 
 #### 输入参数
 |字段名|描述|
-|--|--|
- |pri|私钥 
+|:--|:--|
+ |pri|私钥 |
 
 #### 响应参数
 |字段名|描述|
-|--|--|
- |pub|公钥
+|:--|:--|
+ |pub|公钥|
 
 ### sdk-公钥生成对应地址
 PubKey2Address(pubKey string) (address string,err)
 
 #### 输入参数
 |字段名|描述|
-|--|--|
-|pubKey|公钥 
+|:--|:--|
+|pubKey|公钥 |
 
 #### 响应参数
 |字段名|描述|
-|--|--|
+|:--|:--|
 |address|地址 |
 
 ### sdk-私钥生成对应地址
@@ -112,12 +112,12 @@ PubKey2Address(pubKey string) (address string,err)
 
 #### 输入参数
 |字段名|描述|
-|--|--|
+|:--|:--|
 |priKey|私钥 | 
 
 #### 响应参数
 |字段名|描述|
-|--|--|
+|:--|:--|
  |address|地址 |
 
 ### sdk-签名
@@ -125,13 +125,13 @@ SignBy|priKey(|priKey string, data string) (signedData string,err)
 
 #### 输入参数
 |字段名|描述|
-|--|--|
-|priKey|私钥 
+|:--|:--|
+|priKey|私钥 |
  |data|签名前的数据|
 
 #### 响应参数
 |字段名|描述|
-|--|--|
+|:--|:--|
  |signedData|签名后的数据|
 
 ### sdk-验签
@@ -139,27 +139,27 @@ VerifyByPubKey(pubKey, signedData, data string) (isValid bool,err)
 
 #### 输入参数
 |字段名|描述|
-|--|--|
+|:--|:--|
  |pubKey|公钥 |
  |signedData|签名 |
  |data|签名前的数据|
 
 #### 响应参数
 |字段名|描述|
-|--|--|
- |isValid|签名是否合法
+|:--|:--|
+ |isValid|签名是否合法|
 
 ### sdk-SM3 哈希
 SM3Hash(data []byte) (digest []byte, error)
 
 #### 输入参数
 |字段名|描述|
-|--|--|
+|:--|:--|
  |data|原文 |
  
 #### 返回参数
 |字段名|描述|
-|--|--|
+|:--|:--|
  |digest|data 的 SM3 哈希值 |
 
 ### sdk-上传 cos
@@ -167,7 +167,7 @@ uploadToCos(cosPath, tempSecretId, tempSecretKey,sessionToken, filePath string) 
 
 #### 输入参数
 |字段名|描述|
-|--|--|
+|:--|:--|
  |cosPath|上传到 cos 的 url |
  |tempSecretId|cos 临时密钥 id |
  |tempSecretKey|cos 临时密钥 key |
@@ -176,5 +176,5 @@ uploadToCos(cosPath, tempSecretId, tempSecretKey,sessionToken, filePath string) 
 
 #### 返回参数
 |字段名|描述|
-|--|--|
+|:--|:--|
  |err|nil 为成功，其他为失败 |

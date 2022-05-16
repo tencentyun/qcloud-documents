@@ -1,9 +1,14 @@
 ## 播放器 SDK
+### 播放器 SDK 9.5.29040 @ 2022.05.13
+- Android&iOS：修复播放带封面 mp3 失败的问题。
+
+### 播放器 SDK 9.5.29036 @ 2022.05.06
+- Android：修复 SurfaceView 重复 Add 和 Remove 导致黑屏问题。
+
 ### 播放器 SDK Android 9.5.29035, iOS 9.5.29036 @ 2022.04.28
 - Android&iOS：新增视频预下载功能。
 - Android&iOS：支持 onPrepared 事件之前播放器暂停（Pause）能力。
 - Android&iOS：支持 Pause 状态下切码流继续保持 Pause 状态。
-- Android：修复 SurfaceView 重复 Add 和 Remove 导致黑屏问题。
 - Android&iOS：优化播放性能。
 
 ### 播放器 SDK 9.5.29016 @ 2022.03.30

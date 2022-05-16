@@ -18,6 +18,17 @@
 <tr>
 <td>
 <ul class="params">
+<li>更新 rdma 驱动至5.4-3.1.0.0LTS</li>
+<li>升级内核至5.4.119-19.0009.3</li>
+<li>更新用户态软件</li>
+<li>升级博通网卡驱动至1.10.2-218.1.182.18</li>
+</ul>
+</td>
+<td>2022-05-12</td>
+</tr>
+<tr>
+<td>
+<ul class="params">
 <li>安装 java-8-konajdk-8.0.8-1.1.312.x86_64</li>
 <li>更新 polkit 至0.112-26.tl.1</li>
 </ul>

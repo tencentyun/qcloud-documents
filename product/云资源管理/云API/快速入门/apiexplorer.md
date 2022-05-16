@@ -5,7 +5,7 @@
 ## API Explorer 工具详细介绍
 
 本文将以 API Explorer 工具整体页面从左至右顺序依次详细介绍。如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/38f11da49e524d696033e5818dfa52a7.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/6a2f2abfd9d03b7b9511225bc627b6c5.png)
 1. **产品区域**：目前已支持的所有产品。
 2. **产品接口区域**：当前产品下已支持的所有功能接口。
 3. **接口名**：所选择的接口名。
@@ -45,7 +45,7 @@
 
 1. 填写所需参数，可选择右侧功能区中的**参数说明**查看接口具体参数信息。
 2. 选择右侧功能区中的**在线调用** > **发送请求**，即可在响应区查看请求结果。如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/0811f91fe7cc77f690e373b8cc54efed.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/090cedbdf058383d1f8f09165bdb89f8.png)
 
 
 ## 查看历史调用
@@ -141,7 +141,7 @@ except Exception as ex:
 ```
 
 1. 将参数填写在 API Explorer 工具中，Timestamp 等可变参数请与所需验证的签名（API 错误签名）使用的参数保持一致，并选择功能区的**签名串生成** > **生成签名**。如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/602800ec5f0c3112573c0061cfa7a933.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/a720a53ddde44056b15f3ae52f56d083.png)
 2. 在响应区获得签名步骤及结果后，即可进行前后数据对比。
 
 
