@@ -33,11 +33,11 @@ yum install -y fuse-devel java-11-openjdk-devel
 
 1. 执行如下命令，获取 GooseFS-Lite 安装包：
 ```
-curl -LO https://cos-data-lake-release-1250000000.cos.ap-guangzhou.myqcloud.com/goosefs-lite/goosefs-lite-1.0.0.tar.gz
+curl -LO https://cos-data-lake-release-1253960454.cos.ap-guangzhou.myqcloud.com/goosefs-lite/goosefs-lite-1.0.0.tar.gz
 ```
 2. 执行如下命令，获取 GooseFS-Lite 的 Md5 文件：
 ```
-curl -LO https://cos-data-lake-release-1250000000.cos.ap-guangzhou.myqcloud.com/goosefs-lite/goosefs-lite-1.0.0-md5.txt
+curl -LO https://cos-data-lake-release-1253960454.cos.ap-guangzhou.myqcloud.com/goosefs-lite/goosefs-lite-1.0.0-md5.txt
 ```
 3. 执行如下命令，验证文件的完整性。
 ```
@@ -85,7 +85,7 @@ md5sum --check goosefs-lite-1.0.0-md5.txt
 </configuration>
 ```
 
-如果您挂载的是元数据加速存储桶，则需要您先对元数据加速存储桶进行如下配置：
+如果您挂载的是 [元数据加速](https://cloud.tencent.com/document/product/436/56971) 存储桶，则需要您先对元数据加速存储桶进行如下配置：
 1. 性能配置 > HDFS 权限配置 > HDFS 用户配置，添加超级用户，例如 root。
 2. 性能配置 > HDFS 权限配置 > HDFS 权限配置，添加访问 COS 存储桶的 VPC 和 IP 地址信息。
 3. 在本机执行如下命令，添加 hadoop 用户和 supergroup 组。
