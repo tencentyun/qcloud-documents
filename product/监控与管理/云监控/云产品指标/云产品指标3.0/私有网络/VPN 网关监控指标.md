@@ -1,6 +1,6 @@
 ## 命名空间
 
-Namespace=QCE/VPNGW
+Namespace = QCE/VPNGW
 
 
 ## 监控指标

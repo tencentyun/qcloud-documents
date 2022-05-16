@@ -33,8 +33,8 @@
 >!目前只支持北京、上海、广州三个地域。其中广州四区为默认区域。
 
 1. 登录[ Serverless 应用控制台](https://console.cloud.tencent.com/sls?from=wpdocs), 单击**新建应用**。
-2. 选择**应用模板** > **快速部署一个WordPress框架**，单击**下一步**。
-![](https://main.qcloudimg.com/raw/69c8613f66c793d53afb879e5e11e4ae.png)
+2. 单击**新建应用**，选择**应用模板** > **快速部署一个WordPress框架**，单击**下一步**。
+![](https://qcloudimg.tencent-cloud.cn/raw/b53a4169ed75189b61e06612b6de40e4.png)
 3. 输入应用名。您可以选择使用默认的或连接自建数据库和指定私有网络。
 <dx-tabs>
 ::: 选择使用默认的数据库和私有网络
@@ -55,8 +55,7 @@
    Serverless Wordpress 应用的旧版部署架构中，存在访问速度慢的问题。为此 Serverless 应用开发团队针对此问题进行了 Serverless Wordpress 应用的优化工作，改进了部署架构，大幅提升了站点的访问速度。本指引仅适用于 Serverless Wordpress 应用旧版本的部署升级。
 >? 您可通过如下方法确认您的应用是否需要升级：如您的站点可正常访问并且 Wordpress 云函数代码中仅包含一个 'scf_bootstrap' 文件，则可进行升级。
 >
-![](https://qcloudimg.tencent-cloud.cn/raw/e8900e455a4b37af87e0d4762933a7f2.png)
-   
+![](https://qcloudimg.tencent-cloud.cn/raw/c8412afff57ea15d2b576a6b10928bfc.png)
    
 #### 前期准备 
    您已经部署了 Serverless Wordpress 应用，站点所对应的云函数前缀为 wp-server-*。
@@ -65,23 +64,22 @@
 >! 请严格按照如下步骤升级您的站点，并使用本指引中提供的 Wordpress 源码包进行代码更新。
 
 1. 发布函数版本和流量切换
-  为了确保升级操作期间您的站点的正常访问，请首先为 wp-server-* 发布一个版本。
-  ![](https://qcloudimg.tencent-cloud.cn/raw/d6e6e9427c239136198148addbe98f0b.png)
+  为了确保升级操作期间您的站点的正常访问，请首先为 wp-server-* 发布一个版本。操作详情见 [发布版本](https://cloud.tencent.com/document/product/583/15371)。
+ ![](https://qcloudimg.tencent-cloud.cn/raw/11387b1104c86545562d38cda2ee1571.png)
   发布版本后，将函数的默认流量配置到新版本。
-  ![](https://qcloudimg.tencent-cloud.cn/raw/6e9382de942e9f68849ad2e11b6fe9cb.png)
+ ![](https://qcloudimg.tencent-cloud.cn/raw/258b95d11b81d88942d8e3f447af84d2.png)
 
 2. 更新 $LATEST 版本的函数代码
   下载 wordpress 源码包（[source.zip](https://docs.qq.com/scenario/link.html?url=https%3A%2F%2Fserverless-template-1300862921.cos.ap-guangzhou.myqcloud.com%2Fwp-deploy-update%2Fsource.zip&pid=300000000$cSeVtSLsJmVv&cid=159036837884)），并上传更新函数代码。
 >! 切勿轻易修改代码中的 handler.php 和 wp-config.php 文件，否则将导致您的站点访问异常。
-
-![](https://qcloudimg.tencent-cloud.cn/raw/f906cb0252baea977d6461fe4a69c88c.png)
+>
+![](https://qcloudimg.tencent-cloud.cn/raw/20cdb3b7791b2d7ccd8eb57028ceb77c.png)
 
 3. 更新 Php 版本（可选）
-    
-   此步骤为可选，Serverless Wordpress 应用站点的 Php 依赖位于函数的挂载 Layer 中，您可以选择是否升级站点的 Php Runtime 环境，升级后的 Php Runtime 版本为 php 7.4.25。在此版本中，使用了 Php Opcache 功能，在函数实例预置场景下，可进一步提高您的站点访问速度。下载 Php Runtime 源码包（php74.zip），并上传更新函数的 Layer。更新完成后，直接解绑老版本的 Layer 即可。
-
-![](https://qcloudimg.tencent-cloud.cn/raw/475cfd1618350d3f164b5d77bdc5473a.png)
-![](https://qcloudimg.tencent-cloud.cn/raw/e5e1d9a200510be895849d804eadb603.png)
+此步骤为可选，Serverless Wordpress 应用站点的 Php 依赖位于函数的挂载 Layer 中，您可以选择是否升级站点的 Php Runtime 环境，升级后的 Php Runtime 版本为 php 7.4.25。在此版本中，使用了 Php Opcache 功能，在函数实例预置场景下，可进一步提高您的站点访问速度。下载 Php Runtime 源码包（[php74.zip](https://www.php.net/downloads.php)），并上传更新函数的 Layer。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/ff375fac8066160af34e91230e3c18af.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/ab0d5c59d98430b7855b3942ad3d18df.png)
+更新完成后，直接解绑老版本的 Layer 即可。
 
 
 4. 流量切换

@@ -67,6 +67,8 @@ mysql> SELECT DB_LOCATION_URI from DBS;
 替换ip：sed -i 's/oldcluster-ip:4007/newcluster-ip:4007/g' hivemetastore-src.sql  
 替换defaultFS：sed -i 's/old-defaultFS/new-defaultFS/g' hivemetastore-src.sql  
 ```
+>? 如果使用了 Kudu、Hbase 等部分组件，用 Metastore 作为元数据服务，也需更改目标 Hive 元数据中对应 location 字段。 
+
 4. 停止目标 Hive 服务 MetaStore、HiveServer2、WebHcataLog。
 5. 备份目标 Hive 元数据库。
 ```

@@ -41,7 +41,7 @@ cos.restoreObject({
 | RestoreRequest     | 用于恢复数据的容器                                           | Object | 是   |
 | - Days             | 设置临时副本的过期时间                                       | Number | 是   |
 | - CASJobParameters | 归档存储工作参数的容器                                       | Object | 是   |
-| - - Tier           | 恢复归档存储类型的数据时，Tier 可以指定为 COS 支持的三种恢复模式，分别为：<ul><li> Standard（标准模式，恢复任务在3 - 5小时内完成）</li><li>Expedited（极速模式，恢复任务在15分钟内可完成）</li><li> Bulk（批量模式，恢复任务在5 - 12小时内完成）</li></ul>对于恢复深度归档存储类型的数据，有两种恢复模式，分别为：<ul><li> Standard（标准模式，恢复时间为12 - 24小时）</li><li>Bulk（批量模式，恢复时间为24 - 48小时）</li></ul> | String | 是   |
+| - - Tier           | 恢复归档存储类型的数据时，Tier 可以指定为 COS 支持的三种恢复模式，分别为：<ul><li> Standard（标准取回模式，恢复任务在3 - 5小时内完成）</li><li>Expedited（快速取回模式，恢复任务在15分钟内可完成）</li><li> Bulk（批量取回模式，恢复任务在5 - 12小时内完成）</li></ul>对于恢复深度归档存储类型的数据，有两种恢复模式，分别为：<ul><li> Standard（标准取回模式，恢复时间为12 - 24小时）</li><li>Bulk（批量取回模式，恢复时间为24 - 48小时）</li></ul> | String | 是   |
 
 #### 回调函数说明
 

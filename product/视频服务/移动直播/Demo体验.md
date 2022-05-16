@@ -12,8 +12,7 @@
 </tr>
 <tr>
 <td>iOS</td>
-<td><div style="width:130px;height: 130px;background-image:url(https://qcloudimg.tencent-cloud.cn/raw/2c8c06a66a7494a17b51e74d9d5533cc.png);background-size: cover;margin:auto">
-</div></td>
+<td>升级维护中</td>
 <td><a href="https://github.com/tencentyun/XiaoZhiBo/tree/main/iOS">Github</a></td>
 </tr>
 <tr>
@@ -34,7 +33,7 @@
 
 [](id:MLVB_API-Example )
 ## 面向开发调试的 API 示例
-为了帮助开发者可以更好的理解移动直播 SDK 的 API，从而快速实现一些移动直播场景的基本功能，我们提供了 MLVB API-Example Demo，您可以参考下面的链接快速跑通此 Demo。
+为了帮助开发者可以更好的理解直播 SDK 的 API，从而快速实现一些直播场景的基本功能，我们提供了 MLVB API-Example Demo，您可以参考下面的链接快速跑通此 Demo。
 
 |平台 |源码地址 |跑通 Demo |
 |:--|--|--|
@@ -76,8 +75,7 @@
 </tr>
 <tr>
 <td>iOS</td>
-<td><div style="width:130px;height: 130px;background-image:url(https://main.qcloudimg.com/raw/82f6b81a28f310c5edc5c3237e326e2f.png);background-size: cover;margin:auto">
-</div></a></td>
+<td>升级维护中</td>
 <td><a href="https://github.com/tencentyun/LiteAVProfessional_iOS/tree/master/Demo">Github</a></td>
 </tr>
 <tr>

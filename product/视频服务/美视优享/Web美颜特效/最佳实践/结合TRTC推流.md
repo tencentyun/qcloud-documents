@@ -126,11 +126,9 @@ const ar = new ArSdk(config);
 
 // created回调里可以获取内置特效与滤镜列表进行界面展示
 ar.on('created', () => {
-	// 获取内置特效，支持分页
+	// 获取内置美妆、贴纸
 	ar.getEffectList({
-		Type: 'Preset',
-		PageSize: 10,
-		PageNumber: 0,
+		Type: 'Preset'
 	}).then((res) => {
 		const list = res.map(item => ({
 			name: item.Name,
@@ -140,9 +138,11 @@ ar.on('created', () => {
 			label: item.Label,
 			type: item.PresetType,
 		}));
-
-		// 渲染美妆特效列表视图
-		renderEffectList(list);
+		const makeupList = list.filter(item=>item.label.indexOf('美妆')>=0)
+        const stickerList = list.filter(item=>item.label.indexOf('贴纸')>=0)
+		// 渲染美妆、贴纸列表视图
+		renderMakeupList(makeupList);
+		renderStickerList(stickerList);
 
 	}).catch((e) => {
 		console.log(e);
@@ -177,8 +177,11 @@ ar.on('ready', (e) => {
 		});
 	});
 
-	// 通过created回调中创建的美妆特效列表交互设置美妆效果(setEffect的输入参数支持三种格式，详见SDK接入指南)
-	$('#effect_list li').click(() => {
+	// 通过created回调中创建的美妆、贴纸列表交互设置效果(setEffect的输入参数支持三种格式，详见SDK接入指南)
+	$('#makeup_list li').click(() => {
+		ar.setEffect([{id: effect.id, intensity: 1}]);
+	});
+	$('#sticker_list li').click(() => {
 		ar.setEffect([{id: effect.id, intensity: 1}]);
 	});
 

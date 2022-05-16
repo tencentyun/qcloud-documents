@@ -5,7 +5,7 @@
 
 
 ##  使用示例
-若您购买了2个有效期为1个月的非标 TLD 增值服务。则您可以在 [私有域解析 Private DNS 控制台](https://console.cloud.tencent.com/privatedns) 创建2个非标 TLD 后缀的域名，如分别创建  `.tencent`、`.qq` 两个非标，则允许其创建多个非标 TLD 域名，例如，创建 qq.tencent、dnspod.tencent；dnspod.qq、tencent.qq、qq.qq 等多个以 `.tencent`、`.qq` 结尾的域名，累计数量1个主账号不可超过500个。
+若您购买了2个有效期为1个月的非标 TLD 增值服务。则您可以在 [私有域解析 Private DNS 控制台](https://console.cloud.tencent.com/privatedns/domains) 创建2个非标 TLD 后缀的域名，如分别创建  `.tencent`、`.qq` 两个非标，则允许其创建多个非标 TLD 域名，例如，创建 qq.tencent、dnspod.tencent；dnspod.qq、tencent.qq、qq.qq 等多个以 `.tencent`、`.qq` 结尾的域名，累计数量1个主账号不可超过500个。
 
 若您删除所有 `.tencent`、`.qq` 非标 TLD 域名，则可以重新创建新的非标 TLD。
 

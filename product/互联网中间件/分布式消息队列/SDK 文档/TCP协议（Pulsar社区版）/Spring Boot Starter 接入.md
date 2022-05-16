@@ -117,7 +117,7 @@ myMessage.setSendDate(new Date());
 customProducer.send("topic4", myMessage);
 
 // 发送byte[]类型消息
-defaultProducer.send("topic2", ("Hello pulsar client, this is a order message" + i + ".").getBytes(StandardCharsets.UTF_8));
+defaultProducer.send("topic2", ("Hello pulsar client, this is a order message").getBytes(StandardCharsets.UTF_8));
 :::
 </dx-codeblock>
 > !

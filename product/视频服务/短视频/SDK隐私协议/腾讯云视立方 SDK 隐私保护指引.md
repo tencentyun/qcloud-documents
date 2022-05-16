@@ -73,12 +73,12 @@
 </tr>
 </thead>
 <tbody><tr>
-<td rowspan=5>Android</td>
+<td rowspan=6>Android</td>
 <td>android.permission.CAMERA</td>
 <td>用于采集摄像头画面，录像成视频</td>
 </tr>
 <tr>
-<td>android.permission.CAPTURE_AUDIO_OUTPUT</td>
+<td>android.permission.RECORD_AUDIO</td>
 <td>用于采集声音数据，录像成视频</td>
 </tr>
 <tr>
@@ -92,6 +92,10 @@
 <tr>
 <td>android.permission.READ_EXTERNAL_STORAGE</td>
 <td>允许保存编辑后的视频文件</td>
+</tr>
+<tr>
+<td>android.permission.BLUETOOTH  </td>
+<td>音频模块获取手机蓝牙状态</td>
 </tr>
 <tr>
 <td rowspan=3>iOS</td>

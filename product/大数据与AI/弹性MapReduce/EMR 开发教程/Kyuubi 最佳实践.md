@@ -135,7 +135,7 @@ simple
 </plugins>
 </build>
 ```
-在 src>mai>Java 下右键新建一个 Java Class，输入您的 Class 名，这里使用 KyuubiJDBCTest.java，在 Class 添加样例代码：
+在 src>main>Java 下右键新建一个 Java Class，输入您的 Class 名，这里使用 KyuubiJDBCTest.java，在 Class 添加样例代码：
 ```
 import java.sql.*;
 

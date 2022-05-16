@@ -25,6 +25,7 @@ download_file(Bucket, Key, DestFilePath, PartSize=20, MAXThread=5, EnableCRC=Fal
 # -*- coding=utf-8
 from qcloud_cos import CosConfig
 from qcloud_cos import CosS3Client
+from qcloud_cos.cos_exception import CosClientError, CosServiceError
 import sys
 import logging
 
@@ -42,11 +43,23 @@ scheme = 'https'           # 指定使用 http/https 协议来访问 COS，默�
 config = CosConfig(Region=region, SecretId=secret_id, SecretKey=secret_key, Token=token, Scheme=scheme)
 client = CosS3Client(config)
 
+# 使用高级接口下载一次，不重试，此时没有使用断点续传的功能
 response = client.download_file(
     Bucket='examplebucket-1250000000',
     Key='exampleobject',
     DestFilePath='local.txt'
 )
+
+# 使用高级接口断点续传，失败重试时不会下载已成功的分块(这里重试10次)
+for i in range(0, 10):
+    try:
+        response = client.download_file(
+            Bucket='examplebucket-1250000000',
+            Key='exampleobject',
+            DestFilePath='local.txt')
+        break
+    except CosClientError or CosServiceError as e:
+        print(e)
 ```
 
 #### 全部参数请求示例

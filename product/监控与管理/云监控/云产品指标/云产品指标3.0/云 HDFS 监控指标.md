@@ -8,21 +8,23 @@ Namespace = QCE/CHDFS
 
 | 指标英文名             | 指标中文名         | 单位 | 维度         | 统计粒度                  |
 | ---------------------- | ------------------ | ---- | ------------ | ------------------------- |
-| ApiReadRequestCount    | 文件系统读请求数   | 个   | filesystemid | 60s、300s、 3600s、86400s |
-| ApiWriteRequestCount   | 文件系统写请求数   | 个   | filesystemid | 60s、300s、 3600s、86400s |
-| ApiReadBandwidth       | 文件系统读带宽     | MB/s | filesystemid | 60s、300s、 3600s、86400s |
-| ApiFileInodeCount      | 文件系统文件数量   | 个   | filesystemid | 60s、300s、 3600s、86400s |
-| ApiDirInodeCount       | 文件系统目录数量   | 个   | filesystemid | 60s、300s、 3600s、86400s |
-| ApiCapacityAvailable   | 文件系统空间剩余量 | GB   | filesystemid | 60s、300s、 3600s、86400s |
-| ApiCapacityUsed        | 文件系统空间使用量 | GB   | filesystemid | 60s、300s、 3600s、86400s |
-| ApiCapacityPercentUsed | 文件系统空间使用率 | %    | filesystemid | 60s、300s、 3600s、86400s |
+| ApiReadRequestCount    | 文件系统读请求数   | 个   | appid、filesystemid | 60s、300s、 3600s、86400s |
+| ApiWriteRequestCount   | 文件系统写请求数   | 个   | appid、filesystemid | 60s、300s、 3600s、86400s |
+| ApiReadBandwidth       | 文件系统读带宽     | MB/s | appid、filesystemid | 60s、300s、 3600s、86400s |
+| ApiFileInodeCount      | 文件系统文件数量   | 个   | appid、filesystemid | 60s、300s、 3600s、86400s |
+| ApiDirInodeCount       | 文件系统目录数量   | 个   | appid、filesystemid | 60s、300s、 3600s、86400s |
+| ApiCapacityAvailable   | 文件系统空间剩余量 | GB   | appid、filesystemid | 60s、300s、 3600s、86400s |
+| ApiCapacityUsed        | 文件系统空间使用量 | GB   | appid、filesystemid | 60s、300s、 3600s、86400s |
+| ApiCapacityPercentUsed | 文件系统空间使用率 | %    | appid、filesystemid | 60s、300s、 3600s、86400s |
 
 ## 各维度对应参数总览
 
 | 参数名称                       | 维度名称     | 维度解释               | 格式                                   |
 | :----------------------------- | :----------- | :--------------------- | :------------------------------------- |
-| Instances.N.Dimensions.0.Name  | filesystemid | 文件系统 ID 的维度名称 | 输入 String 类型维度名称：filesystemid |
-| Instances.N.Dimensions.0.Value | filesystemid | 具体文件系统 ID        | 输入具体文件系统 ID，例如：f4mnvilzmdd |
+| Instances.N.Dimensions.0.Name  | appid    | 主账号 appid  | 输入 String 类型维度名称：appid           |
+| Instances.N.Dimensions.0.Value | appid    | 主账号  appid | 输入具体 APPID，例如：10001234567         |
+| Instances.N.Dimensions.1.Name  | filesystemid | 文件系统 ID 的维度名称 | 输入 String 类型维度名称：filesystemid |
+| Instances.N.Dimensions.1.Value | filesystemid | 具体文件系统 ID        | 输入具体文件系统 ID，例如：f4mnvilzmdd |
 
 
 
@@ -31,5 +33,7 @@ Namespace = QCE/CHDFS
 **查询云 HDFS控数据，入参取值如下：**
 
 &Namespace =QCE/CHDFS
-&Instances.N.Dimensions.0.Name =filesystemid
-&Instances.N.Dimensions.0.Value =具体文件系统 ID
+&Instances.N.Dimensions.0.Name = appid
+&Instances.N.Dimensions.0.Value = 主账号的 APPID
+&Instances.N.Dimensions.1.Name =filesystemid
+&Instances.N.Dimensions.1.Value =具体文件系统 ID

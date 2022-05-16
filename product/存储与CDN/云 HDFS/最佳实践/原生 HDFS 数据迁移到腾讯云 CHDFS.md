@@ -1,7 +1,7 @@
 ## 准备工作
 
 1. 在腾讯云官网创建 CHDFS 文件系统和 CHDFS 挂载点，配置好权限信息。
-2. 通过腾讯云 VPC 环境的 CVM 机器访问创建好的 CHDFS，详情请参见 [创建 CHDFS](https://cloud.tencent.com/document/product/1105/37234)。
+2. 通过腾讯云 VPC 环境的 CVM 访问创建好的 CHDFS，详情请参见 [创建 CHDFS](https://cloud.tencent.com/document/product/1105/37234)。
 3. 当挂载成功后，打开 hadoop 命令行工具，执行以下命令，验证 CHDFS 功能是否正常。
 ```bash
 hadoop fs -ls ofs://f4xxxxxxxxxxxxxxx.chdfs.ap-beijing.myqcloud.com/
@@ -38,18 +38,19 @@ hadoop jar cos-distcp-1.6-2.8.5.jar -Dmapred.job.queue.name=root.users.presto --
 #### 注意事项
 
 1. 在 hadoop distcp 工具中，提供了一些 CHDFS 不兼容的参数。如果指定如下表格中的一些参数，则不生效。
-
-| 参数| 描述                                        | 状态 |
-| -------- | ----------------------------------------------- | -------- |
-| -p[rbax] | r：replication，b：block-size，a：ACL，x：XATTR | 不生效   |
-
-2. 由于 Hadoop 2.x 中的 HDFS 系统的 CRC 计算方式和对象存储文件的 CRC 计算方式不一致，导致在迁移过程中无法利用 crccheck 来对数据进行在线迁移校验。
-所以在迁移过程中，一般都需要加上-skipcrccheck选项。
-  
+<table>
+<thead>
+<tr><th>参数</th><th>描述</th><th>状态</th></tr>
+</thead>
+<tbody><tr>
+<td>-p[rbax]</td>
+<td>r：replication，b：block-size，a：ACL，x：XATTR</td>
+<td>不生效</td>
+</tr>
+</tbody></table>
+2. 由于 Hadoop 2.x 中的 HDFS 系统的 CRC 计算方式和对象存储文件的 CRC 计算方式不一致，导致在迁移过程中无法利用 crccheck 来对数据进行在线迁移校验。因此，在迁移过程中，一般都需要加上-skipcrccheck 选项。
 如果需要校验迁移后的数据是否完整，需要借助 COS 研发的 [COS 离线校验工具](https://cloud.tencent.com/document/product/436/41459) 进行离线校验。
-  
 Hadoop 3.1.1版本及以上，可以采用 COMPOSITE_CRC 算法进行在线校验，示例如下：
-
 ```bash
 hadoop distcp  -Ddfs.checksum.combine.mode=COMPOSITE_CRC -checksum  hdfs://10.0.1.11:4007/testcp ofs://f4xxxxxxxx-xxxx.chdfs.ap-beijing.myqcloud.com/
 ```

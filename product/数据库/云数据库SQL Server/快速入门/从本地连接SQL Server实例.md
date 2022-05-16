@@ -8,7 +8,7 @@
 1. 登录 [SQL Server 控制台](https://console.cloud.tencent.com/sqlserver)，在实例详情页查看实例内网 IP 及端口号。该内网 IP 及端口号会在配置端口映射时使用。
 ![](https://main.qcloudimg.com/raw/5482cc658c605ea56a5502097b862e92.png)
 2. 准备一台具有外网 IP的 Linux 云服务器，请参见 [快速入门 Linux 云服务器](/doc/product/213/2936)。
-3. 在本地使用 SSH 工具（如 SecureCRT 或 PuTTY 等，本文以 SecureCRT 为例）登录 Linux 云服务器，请参见 [登录 Linux 实例](/doc/product/213/5436)。
+3. 在本地使用 SSH 工具（如 SecureCRT 等，本文以 SecureCRT 为例）登录 Linux 云服务器，请参见 [登录 Linux 实例](/doc/product/213/5436)。
 4. 在 SecureCRT 菜单栏选择 **Options** > **Session Options**，进入会话属性设置。
 ![](https://main.qcloudimg.com/raw/acbb1ad0a808ac59a0053063b75aab8b.png)
 5. 在会话属性设置页，选择 **Connection** > **Port Forwarding** > **Add**，进入配置端口映射页。

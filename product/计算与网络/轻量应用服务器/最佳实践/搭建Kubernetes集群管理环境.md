@@ -69,9 +69,9 @@ k3s-add-node {node-ip}
 Please ensure firewall rule(TCP:6443) of master node has been allowed!
 root@10.0.5.158's password:
 ```
-4. 输入待加入节点的 `root` 账户密码，并按 **Enter**。待节点初始化结束后，将会加入集群。
+4. 输入待加入节点的 `root` 用户密码，并按 **Enter**。待节点初始化结束后，将会加入集群。
 <dx-alert infotype="explain" title="">
-若您未设置或忘记 `root` 账户密码，可参考 [重置密码](https://cloud.tencent.com/document/product/1207/44575) 进行设置。
+若您未设置或忘记 `root` 用户密码，可参考 [重置密码](https://cloud.tencent.com/document/product/1207/44575) 进行设置。
 </dx-alert>
 
 
@@ -91,7 +91,7 @@ ExecStart=/usr/local/bin/k3s server --write-kubeconfig-mode=644 --service-node-p
 修改完成后，如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/f2942d70f5499b99eb1b93f26a2a2f3f.png)
 5. 按 **Esc** 输入 **:wq** 保存修改并退出编辑模式。
-6. 执行以下命令，并输入 `root` 账户密码重启 K3s 服务，使配置生效。
+6. 执行以下命令，并输入 `root` 用户密码重启 K3s 服务，使配置生效。
 ```shell
 systemctl daemon-reload && systemctl restart k3s
 ```

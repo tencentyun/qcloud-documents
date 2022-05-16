@@ -12,5 +12,3 @@
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1) ，在列表中找到需要解关联的 VPC，单击其 ID 进入详情页。 
 2. 在“加入云联网”模块中，单击**解关联**，并确认操作即可。 
 ![](https://main.qcloudimg.com/raw/085b268826cedcb1e2abb6246c89dec9.png)
-
-

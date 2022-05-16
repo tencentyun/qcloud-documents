@@ -11,7 +11,7 @@
 ### 方法一：自动加载（aar）
 TRTC SDK 已经发布到 mavenCentral 库，您可以通过配置 gradle 自动下载更新。
 只需要用 Android Studio 打开需要集成 SDK 的工程（本文以 [TRTCScenesDemo](https://github.com/tencentyun/LiteAVClassic/tree/master/Android/TRTCScenesDemo) 为例），然后通过简单的三个步骤修改 app/build.gradle 文件，就可以完成 SDK 集成：
-![](https://main.qcloudimg.com/raw/763847f3b613649d7f2354ceb8c47d38.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/5e1c91530b1f0adf5f4756efb1fe53f9.png)
 
 1. 在 dependencies 中添加 TRTCSDK 的依赖。
     - 若使用3.x版本的 com.android.tools.build:gradle 工具，请执行以下命令：
@@ -46,7 +46,7 @@ defaultConfig {
 3. 在工程根目录下的 build.gradle 中，添加 **flatDir**，指定本地仓库路径。
 ![](https://main.qcloudimg.com/raw/3b07d38f105167ae52ffdda9a1712cec.png)
 4. 在 app/build.gradle 中，添加引用 aar 包的代码。
-![](https://main.qcloudimg.com/raw/a5658a2b3c888513215093a04dd76a25.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/d91447b025674df61f1aec61d25a7d2d.png)
 5. 在 app/build.gradle的defaultConfig 中，指定 App 使用的 CPU 架构。
 ```
 defaultConfig {
@@ -67,7 +67,7 @@ defaultConfig {
 3. 将解压得到的 jar 文件和 armeabi-v7a， arm64-v8a 文件夹拷贝到 app/libs 目录下。
 ![](https://main.qcloudimg.com/raw/c7b498b40bff8c248cd72fcd01f07933.png)
 4. 在 app/build.gradle 中，添加引用 jar 库的代码。
-![](https://main.qcloudimg.com/raw/5369b8c9bbb855622b22c7843a591e2e.png)    
+![](https://main.qcloudimg.com/raw/5369b8c9bbb855622b22c7843a591e2e.png)   
 5. 在 app/build.gradle 中，添加引用 so 库的代码。
 ```
 sourceSets {
@@ -119,13 +119,12 @@ defaultConfig {
 
 ```
 packagingOptions {
-    pickFirst '**/libc++_shared.so'
     doNotStrip "*/armeabi-v7a/libYTCommon.so"
     doNotStrip "*/x86/libYTCommon.so"
     doNotStrip "*/arm64-v8a/libYTCommon.so"
 }
 ```
-![](https://main.qcloudimg.com/raw/b847d95fc05d2b97f85ffdb0b89438cc.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/609bad375a898e9d1e066187fb20176d.png)
 
 
 [](id:using_cpp)

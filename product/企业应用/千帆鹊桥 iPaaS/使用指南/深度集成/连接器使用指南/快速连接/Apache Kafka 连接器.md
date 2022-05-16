@@ -1,6 +1,6 @@
 
 ## 简介
-- Apache Kafka 连接器用于连接 Kafka 集群和 iPaaS 集群，可消费 Kafka 集群的消息并作为集成流的 trigger，也可将集成流的消息生产发布到 Kafka 集群中。
+- Apache Kafka 连接器用于连接 Kafka 集群和腾讯云数据连接器集群，可消费 Kafka 集群的消息并作为集成流的 trigger，也可将集成流的消息生产发布到 Kafka 集群中。
 - Apache Kafka 是一个分布式发布-订阅消息传递系统，kafka 有以下一些基本概念：
  - **Producer**：消息生产者，即向 kafka broker 发布消息的客户端。
  - **Consumer**：消息消费者，负责消费 Kafka 服务器上的消息。

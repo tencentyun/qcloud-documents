@@ -99,8 +99,11 @@ TUIKitDemo 已经按照如下步骤接入了离线推送功能，文档中已有
 :::
 </dx-tabs>
 
->!
->- 对于小米厂商，如果在厂商开发者官网配置了 ChannelID，需要在 [即时通信 IM 控制台](https://console.qcloud.com/avc) 配置同样的 ChannelID,否则可能推送不成功。
+<dx-alert infotype="notice" title="">
+对于小米厂商，如果在厂商开发者官网配置了 ChannelID，需要在 [即时通信 IM 控制台](https://console.qcloud.com/avc) 配置同样的 ChannelID,否则可能推送不成功。
+</dx-alert>
+
+
 
 ### 步骤3：配置离线推送跳转界面
 
@@ -119,29 +122,29 @@ TUIKitDemo 已经按照如下步骤接入了离线推送功能，文档中已有
    <tr> 
      <td>小米</td> 
      <td>打开应用内指定页面</td> 
-     <td>intent://`您配置的 hostname`/`您配置的 path`#Intent;scheme=`您配置的协议，也就是你定义的 scheme`;launchFlags=0x4000000;component=`您应用跳转界面的完整类名`;end<br>(TUIKitDemo 配置的是：intent://com.tencent.qcloud/detail#Intent;scheme=pushscheme;launchFlags=0x4000000;component=com.tencent.qcloud.tim.tuikit/com.tencent.qcloud.tim.demo.main.MainActivity;end)
+     <td>intent://`您配置的 hostname`/`您配置的 path`#Intent;scheme=`您配置的协议，也就是你定义的 scheme`;launchFlags=0x4000000;component=`您应用跳转界面的完整类名`;end<br><br>TUIKitDemo 配置的是：intent://com.tencent.qcloud/detail#Intent;scheme=pushscheme;launchFlags=0x4000000;component=com.tencent.qcloud.tim.tuikit/com.tencent.qcloud.tim.demo.main.MainActivity;end
 </td> 
    </tr> 
    <tr> 
      <td>华为</td> 
-     <td>打开应用内指定页面</td>  <td>intent://`您配置的 hostname`/`您配置的 path`#Intent;scheme=`您配置的协议，也就是你定义的 scheme`;launchFlags=0x4000000;component=`您应用跳转界面的完整类名`;end<br>(TUIKitDemo 配置的是：intent://com.tencent.qcloud/detail#Intent;scheme=pushscheme;launchFlags=0x4000000;component=com.tencent.qcloud.tim.tuikit/com.tencent.qcloud.tim.demo.main.MainActivity;end)
+     <td>打开应用内指定页面</td>  <td>intent://`您配置的 hostname`/`您配置的 path`#Intent;scheme=`您配置的协议，也就是你定义的 scheme`;launchFlags=0x4000000;component=`您应用跳转界面的完整类名`;end<br><br>TUIKitDemo 配置的是：intent://com.tencent.qcloud/detail#Intent;scheme=pushscheme;launchFlags=0x4000000;component=com.tencent.qcloud.tim.tuikit/com.tencent.qcloud.tim.demo.main.MainActivity;end
 </td> 
    </tr> 
    <tr> 
      <td>魅族</td> 
      <td>打开应用内指定页面</td> 
-     <td>您应用跳转界面的完整类名<br>(TUIKitDemo 配置的是：com.tencent.qcloud.tim.demo.main.MainActivity)
+     <td>您应用跳转界面的完整类名<br><br>TUIKitDemo 配置的是：com.tencent.qcloud.tim.demo.main.MainActivity
 </td> 
    </tr> 
    <tr> 
      <td nowrap="nowrap">OPPO</td> 
      <td>打开应用内指定页面</td> 
-     <td>您应用跳转界面的完整类名<br>(TUIKitDemo 配置的是：activity：com.tencent.qcloud.tim.demo.main.MainActivity)
+     <td>您应用跳转界面的完整类名<br><br>TUIKitDemo 配置的是：activity：com.tencent.qcloud.tim.demo.main.MainActivity
 </td> 
    </tr>  
    <tr> 
      <td nowrap="nowrap">vivo</td> 
-     <td nowrap="nowrap">打开应用内指定页面</td>   <td>intent://`您配置的 hostname`/`您配置的 path`#Intent;scheme=`您配置的协议，也就是你定义的 scheme`;launchFlags=0x4000000;component=`您应用跳转界面的完整类名`;end<br>(TUIKitDemo 配置的是：intent://com.tencent.qcloud/detail#Intent;scheme=pushscheme;launchFlags=0x4000000;component=com.tencent.qcloud.tim.tuikit/com.tencent.qcloud.tim.demo.main.MainActivity;end)
+     <td nowrap="nowrap">打开应用内指定页面</td>   <td>intent://`您配置的 hostname`/`您配置的 path`#Intent;scheme=`您配置的协议，也就是你定义的 scheme`;launchFlags=0x4000000;component=`您应用跳转界面的完整类名`;end<br><br>TUIKitDemo 配置的是：intent://com.tencent.qcloud/detail#Intent;scheme=pushscheme;launchFlags=0x4000000;component=com.tencent.qcloud.tim.tuikit/com.tencent.qcloud.tim.demo.main.MainActivity;end
 </td> 
    </tr>
 	 </tr>  
@@ -153,7 +156,7 @@ TUIKitDemo 已经按照如下步骤接入了离线推送功能，文档中已有
 </table>
 
 -  **清单文件配置**
-在 [清单文件 AndroidManifest.xml](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/app/src/main/AndroidManifest.xml) 中完成跳转界面的相关配置，需要注意的是，该配置必须与您在 IM 控制台推送证书的单击后续动作配置保持一致。
+在 [清单文件 AndroidManifest.xml](https://github.com/TencentCloud/TIMSDK/blob/master/Android/Demo/app/src/main/AndroidManifest.xml) 中完成跳转界面的相关配置，需要注意的是，该配置必须与您在 IM 控制台推送证书的单击后续动作配置保持一致。
 ```
 <!-- TUIKitDemo 配置的跳转界面是 MainActivity，所以这里填 com.tencent.qcloud.tim.demo.main.MainActivity。集成到您的应用后，需要替换您的应用界面完整类名 -->
     <activity
@@ -176,7 +179,7 @@ TUIKitDemo 已经按照如下步骤接入了离线推送功能，文档中已有
 
 ### 步骤4：配置厂商推送规则
 -  **应用离线参数配置**
-步骤二推送证书添加成功之后，IM 控制台会为您分配一个证书 ID，请您填充到  [PrivateConstants](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/app/src/main/java/com/tencent/qcloud/tim/demo/utils/PrivateConstants.java)  的配置参数里，该证书配置给 IM 控制台的 ID 会在注册推送服务和上报 token 时使用, 以小米为例：
+步骤二推送证书添加成功之后，IM 控制台会为您分配一个证书 ID，请您填充到  [PrivateConstants](https://github.com/TencentCloud/TIMSDK/blob/master/Android/TUIKit/TUIOfflinePush/tuiofflinepush/src/main/java/com/tencent/qcloud/tim/tuiofflinepush/PrivateConstants.java)  的配置参数里，该证书配置给 IM 控制台的 ID 会在注册推送服务和上报 token 时使用, 以小米为例：
 **推送证书 ID 如下：**
 ![](https://qcloudimg.tencent-cloud.cn/raw/772536e8a3f474572f5b85bfb2597fe1.png)
 **填充的参数如下：**
@@ -193,7 +196,7 @@ TUIKitDemo 已经按照如下步骤接入了离线推送功能，文档中已有
 ```
 
 -  **清单文件配置厂商推送权限相关**
-清单文件中需要添加各个厂商的推送规则，可以参见 TUIKitDemo [清单文件](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/app/src/main/AndroidManifest.xml)相关配置，具体如下：
+清单文件中需要添加各个厂商的推送规则，可以参见 TUIKitDemo [清单文件](https://github.com/TencentCloud/TIMSDK/blob/master/Android/Demo/app/src/main/AndroidManifest.xml)相关配置，具体如下：
 <dx-tabs>
 ::: 小米
 <table> 
@@ -426,10 +429,10 @@ android {
 <tr> 
 ```
 <receiver android:name="com.tencent.qcloud.tim.demo.thirdpush.VIVOPushMessageReceiverImpl">
-        <intent-filter>
-            <!-- 接收push消息 -->
-            <action android:name="com.vivo.pushclient.action.RECEIVE" />
-        </intent-filter>
+    <intent-filter>
+        <!-- 接收push消息 -->
+        <action android:name="com.vivo.pushclient.action.RECEIVE" />
+    </intent-filter>
 </receiver>
 
 <meta-data tools:replace="android:value"
@@ -446,7 +449,20 @@ android {
 
 -  **华为和 Google FCM 适配**
 华为和 Google FCM 需要按照厂商方法，集成对应的 plugin 和 json 配置文件。
- 1. 在项目级 build.gradle 文件中 buildscript -> dependencies 下添加以下配置：
+
+ 1. 下载配置文件添加到工程根目录。
+ <table> 
+   <tr> 
+     <th nowrap="nowrap">华为</th> 
+     <th nowrap="nowrap">Google FCM</th> 
+   </tr> 
+   <tr> 
+     <td><img src="https://qcloudimg.tencent-cloud.cn/raw/220264120cdadd154c581e8164c21515.png" style="zoom:100%;" /></td> 
+     <td><img src="https://qcloudimg.tencent-cloud.cn/raw/1bfbfc52fb60440c192d7bddd372f99d.png" style="zoom:100%;" /></td> 
+   </tr> 
+</table>
+
+ 2. 在项目级 build.gradle 文件中 buildscript -> dependencies 下添加以下配置：
 ```
 classpath 'com.google.gms:google-services:4.2.0'
 classpath 'com.huawei.agconnect:agcp:1.4.1.300'
@@ -472,12 +488,12 @@ dependencies {
 }
 ```
 
- 2. 在应用级 build.gradle 文件中添加下方配置。
+ 3. 在应用级 build.gradle 文件中添加下方配置。
 ```
 apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.huawei.agconnect'
 ```
- 3. 单击项目右上角 **Sync Now** 同步项目。
+ 4. 单击项目右上角 **Sync Now** 同步项目。
 
 ### 步骤5：集成厂商推送 SDK
 
@@ -499,7 +515,7 @@ apply plugin: 'com.huawei.agconnect'
     // OPPO
     implementation "com.tencent.tpns:oppo:1.3.1.1-release"
     // vivo
-    implementation "com.tencent.tpns:vivo:1.3.1.1-release"
+    implementation "com.tencent.tpns:vivo:1.3.2.0-release"
     // 华为
     implementation 'com.tencent.tpns:huawei:1.3.1.1-release'
     implementation 'com.huawei.hms:push:5.0.2.300'
@@ -507,8 +523,8 @@ apply plugin: 'com.huawei.agconnect'
 ```
 
 -  **添加推送类**
-引入厂商推送类，各个厂商推送方式有区别，可以参见拷贝 [TUIKitDemo 代码路径](https://github.com/tencentyun/TIMSDK/tree/master/Android/Demo/app/src/main/java/com/tencent/qcloud/tim/demo/thirdpush) 下如下文件：
-![](https://main.qcloudimg.com/raw/e786a5bf942694baba680c92704ad7d3.png)
+引入厂商推送类，各个厂商推送方式有区别，可以参见拷贝 [TUIOfflinePush 代码路径](https://github.com/TencentCloud/TIMSDK/tree/master/Android/TUIKit/TUIOfflinePush/tuiofflinepush/src/main/java/com/tencent/qcloud/tim/tuiofflinepush/OEMPush) 下如下文件：
+![](https://qcloudimg.tencent-cloud.cn/raw/e25a0e1de5649df68eed39545b4390af.png)
 
 -  **推送服务注册**
 应合规要求，在用户同意隐私协议登录成功后，分别初始化注册各个厂商推送服务，并在注册结果回调处保存注册成功后的 token，并调用 [setOfflinePushConfig](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushManager.html#a494d6cafe50ba25503979a4e0f14c28e) 接口上报推送 token 至后台。部分厂商在注册后，调用一些接口也会返回 token，可以再次同步更新下，具体参见以下代码。
@@ -639,7 +655,7 @@ V2TIMManager.getOfflinePushManager().setOfflinePushConfig(v2TIMOfflinePushConfig
 
 ### 步骤6：前后台状态同步 [](id:step6)
 
- 如果您的应用退到后台，收到新消息时需要在手机通知栏进行展示，请您调用 IMSDK 的 [doBackground()](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushManager.html#a2b191294ac4d68a2d69e482eae1b638f) 接口，将应用的状态同步给 IM 后台；当应用回到前台时，请您调用 IMSDK 的 [doForeground()](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushManager.html#a4c2ff4eea609da1d0950648905fbf6aa) 接口，将应用的状态同步给 IM 后台。监听 App 前后台切换的方案推荐您参见 [DemoApplication](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/app/src/main/java/com/tencent/qcloud/tim/demo/DemoApplication.java) 的 StatisticActivityLifecycleCallback 类相关逻辑。
+ 如果您的应用退到后台，收到新消息时需要在手机通知栏进行展示，请您调用 IMSDK 的 [doBackground()](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushManager.html#a2b191294ac4d68a2d69e482eae1b638f) 接口，将应用的状态同步给 IM 后台；当应用回到前台时，请您调用 IMSDK 的 [doForeground()](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushManager.html#a4c2ff4eea609da1d0950648905fbf6aa) 接口，将应用的状态同步给 IM 后台。监听 App 前后台切换的方案推荐您参见 [TUIOfflinePushService](https://github.com/TencentCloud/TIMSDK/blob/master/Android/TUIKit/TUIOfflinePush/tuiofflinepush/src/main/java/com/tencent/qcloud/tim/tuiofflinepush/TUIOfflinePushService.java) 的 initActivityLifecycle() 相关逻辑。
 
 ```
 // 应用切到后台时
@@ -711,7 +727,7 @@ String msgID = V2TIMManager.getMessageManager().sendMessage(v2TIMMessage, isGrou
 
 ### 步骤8：解析离线推送消息
 
-当手机收到离线推送消息时，会在系统通知栏里展示收到的推送消息。单击通知栏的消息时，会自动跳转到您在步骤四配置的界面，您可以在该界面通过调用 getIntent().getExtras() 获取您在 [步骤6](#step6) 中配置的离线推送参数。示例代码可以参见 TUIKitDemo 的 [handleOfflinePush()](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/app/src/main/java/com/tencent/qcloud/tim/demo/main/MainActivity.java) 方法。
+当手机收到离线推送消息时，会在系统通知栏里展示收到的推送消息。单击通知栏的消息时，会自动跳转到您在步骤四配置的界面，您可以在该界面通过调用 getIntent().getExtras() 获取您在 [步骤6](#step6) 中配置的离线推送参数。示例代码可以参见 TUIKitDemo 的 [handleOfflinePush()](https://github.com/TencentCloud/TIMSDK/blob/master/Android/Demo/app/src/main/java/com/tencent/qcloud/tim/demo/main/MainActivity.java) 方法。
 
 ```
 private void handleOfflinePush() {
@@ -752,6 +768,11 @@ private void handleOfflinePush() {
  
 以上完成后，当您的应用退到后台或者进程被杀掉时，消息会进行离线推送通知栏展示，可单击通知栏跳转到设定的应用界面，完成实现离线推送功能。
 
+
+## 交流与反馈
+
+欢迎加入 QQ 群进行技术交流和反馈问题，QQ 群：**468195767**。
+![](https://qcloudimg.tencent-cloud.cn/raw/c924037cc916ab6b3092b4ea7ba977a0.png)
 
 
 ## 常见问题

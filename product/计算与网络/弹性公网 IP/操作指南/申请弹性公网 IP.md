@@ -30,10 +30,6 @@
 </td>
 </tr>
 <tr>
-<td><span>可用区</span></td>
-<td>选择所属地域下的可用区。</td>
-</tr>
-<tr>
 <td>计费模式</td>
 <td>
 <ul>
@@ -90,10 +86,6 @@
 <li>静态单线 IP：通过单个网络运营商访问公网，成本低且便于自主调度。如需体验，请联系商务经理申请。该功能的地域支持情况请参见 <a href="https://cloud.tencent.com/document/product/1199/41648#.E4.BD.BF.E7.94.A8.E8.A7.84.E5.88.99">使用限制</a>。</li>
 </ul>
 </td>
-</tr>
-<tr>
-<td><span>可用区</span></td>
-<td>选择所属地域下的可用区。</td>
 </tr>
 <tr>
 <td>数量</td>

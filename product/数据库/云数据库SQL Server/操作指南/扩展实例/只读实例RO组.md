@@ -2,7 +2,7 @@
 云数据库 SQL Server 支持用户创建一个或多个只读实例组成只读实例 RO 组，适用于读写分离和一主多从应用场景，可显著提高用户数据库的读负载能力。
 
 ## 前提条件
-创建只读实例之前需要先创建云数据库主实例，请参见 [购买指引](https://cloud.tencent.com/document/product/238/36822)。
+创建只读实例之前需要先创建云数据库主实例，请参见 [创建 SQL Server 实例](https://cloud.tencent.com/document/product/238/36822)。
 
 ## 操作步骤
 ### 创建只读实例 RO 组

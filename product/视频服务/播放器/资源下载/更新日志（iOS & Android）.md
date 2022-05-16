@@ -1,5 +1,17 @@
 ## 播放器 SDK
-### 超级播放器 9.5.29016 @ 2022.03.30
+### 播放器 SDK 9.5.29040 @ 2022.05.13
+- Android&iOS：修复播放带封面 mp3 失败的问题。
+
+### 播放器 SDK 9.5.29036 @ 2022.05.06
+- Android：修复 SurfaceView 重复 Add 和 Remove 导致黑屏问题。
+
+### 播放器 SDK Android 9.5.29035, iOS 9.5.29036 @ 2022.04.28
+- Android&iOS：新增视频预下载功能。
+- Android&iOS：支持 onPrepared 事件之前播放器暂停（Pause）能力。
+- Android&iOS：支持 Pause 状态下切码流继续保持 Pause 状态。
+- Android&iOS：优化播放性能。
+
+### 播放器 SDK 9.5.29016 @ 2022.03.30
 - Android&iOS： 支持缓存流量精细化控制，预加载 buffer 和启播 buffer 可以分开控制。
 - Android&iOS： 支持启播前指定偏好分辨率播放，找最适合的分辨率启播。
 

@@ -1,7 +1,7 @@
 
 ## 命名空间
 
-Namespace=QCE/VPNX
+Namespace = QCE/VPNX
 
 ## 监控指标
 

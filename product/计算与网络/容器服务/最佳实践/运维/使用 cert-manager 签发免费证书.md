@@ -43,13 +43,7 @@ DNS-01 的校验原理是利用 DNS 提供商的 API Key 拿到用户 DNS 控制
 ### 安装 cert-manager
 
 通常使用 yaml 方式一键安装 cert-manager 到集群，可参考官网文档 [Installing with regular manifests](https://cert-manager.io/docs/installation/kubernetes/#installing-with-regular-manifests)。  
-cert-manager 官方使用的镜像在 `quay.io` 进行拉取。也可以执行以下命令，使用同步到国内 CCR 的镜像一键安装：
->! 使用这种方式要求集群版本不得低于1.16。  
->
-```
-kubectl apply --validate=false -f https://raw.githubusercontent.com/TencentCloudContainerTeam/manifest/master/cert-manager/cert-manager.yaml
-```
-
+cert-manager 官方使用的镜像在 `quay.io` 进行拉取，在国内拉取镜像时您可以参考 [境外镜像拉取加速](https://cloud.tencent.com/document/product/457/51237)。
 
 
 ### 配置 DNS

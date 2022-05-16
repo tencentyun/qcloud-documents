@@ -9,7 +9,7 @@
 <td>支持 Schema 管理功能</td>
 <td>Datahub 支持 Schema 管理功能，您可以将创建好的 Schema 绑定到具体的数据流入任务上，将会按该 Schema 对流入的数据进行格式校验。</td>
 <td>2022-04-08</td>
-<td><a href="https://cloud.tencent.com/document/product/597/72321">Schema 管理</a></td>
+<td><a href="https://cloud.tencent.com/document/product/597/71916">Schema 管理</a></td>
 </tr><tr>
 <td>HTTP 支持 Schema</td>
 <td>Datahub 支持在 HTTP 接收数据上报的时候，根据指定的 Schema，对上报数据进行格式校验。</td>

@@ -1,4 +1,4 @@
-当需要为已创建 TDSQL-H LibraDB 实例的 LibraSQL 分析引擎各节点分配 VIP 时，可通过**分析引擎**页签打开**开启节点IP**开关。
+当需要为已创建 TDSQL-H LibraDB 实例的 LibraSQL 分析引擎各节点分配 VIP（Virtual IP Address）时，可通过**分析引擎**页签打开**开启节点IP**开关。
 
 ## 背景信息
 

@@ -15,12 +15,15 @@
 - 前往 [Git 官网](https://gitforwindows.org/) 或者 [Github](https://github.com/git-for-windows/git/releases/) 下载 Git 工具。
 本实践下载的版本为 Git-2.31.1-64-bit.exe，下载完成后，按步骤默认安装即可。
 - 前往 [Rclone 官网](https://rclone.org/downloads/) 或者 [Github](https://github.com/rclone/rclone/releases) 下载 Rclone 工具。
-本实践下载的版本是 rclone-v1.55.0-windows-amd64.zip，该软件无需安装，下载后，只需解压到任一一个英文目录下即可（如果解压到的路径含有中文将有可能会报错）。本实践案例路径举例为 E:\AutoRclone。
+本实践下载的版本是 rclone-v1.55.0-windows-amd64.zip，该软件无需安装，下载后，只需解压到任意一个英文目录下即可（如果解压到的路径含有中文将有可能会报错）。本实践案例路径举例为 E:\AutoRclone。
 
 >? Github 下载速度可能比较慢甚至打不开，可自行在其他官方渠道进行下载。
 >
 
 ### 配置 Rclone
+
+>!以下配置步骤以 Rclone v1.55.0版本为例，其他版本的配置过程可能存在一定差异，请注意相应调整。
+
 
 1. 打开任意文件夹，并在左侧导航目录下找到**此电脑**，单击右键选择**属性 > 高级系统设置 > 环境变量 > 系统变量 > Path**，单击**新建**。
 2. 在弹出的窗口中，填写 Rclone 解压后的路径（E:\AutoRclone），单击**确定**。
@@ -57,14 +60,14 @@
 
 ### 挂载 COS 为本地磁盘
 
-1. 打开已安装的 Git CMD，并根据实际需求，执行如下命令：
+1. 打开已安装的 Git CMD，并在命令行工具中输入执行命令。此处提供了两种使用场景（二选一），您可根据实际需求选择其中一种。
 <ul>
-<li>映射为局域网共享驱动器（推荐）：
+<li>如果映射为局域网共享驱动器（推荐），则执行命令如下：
 <pre>
 <code class="language-plaintext">rclone mount myCOS:/ Y: --fuse-flag --VolumePrefix=\server\share --cache-dir E:\temp --vfs-cache-mode writes &amp;</code>
 </pre>
 </li>
-<li>映射为本地磁盘：
+<li>如果映射为本地磁盘，则执行命令如下：
 <pre>
 <code class="language-plaintext">rclone mount myCOS:/ Y: --cache-dir E:\temp --vfs-cache-mode writes &</code>
 </pre>
@@ -72,7 +75,7 @@
 		<li>myCOS：替换为用户自定义的磁盘名称。</li>
 		<li>Y：替换为您想要挂载后，硬盘的盘符名称即可，请不要与本地的 C、D、E 盘等重复。</li>
 		<li>E:\temp 为本地缓存目录，可自行设置。</li>
-	 </ul>
+	</ul>
 </li>
 </ul>
 当出现提示 “The service rclone has been started” 则说明挂载成功。
