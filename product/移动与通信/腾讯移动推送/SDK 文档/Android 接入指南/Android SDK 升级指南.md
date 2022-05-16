@@ -12,6 +12,39 @@ implementation 'commons-codec:commons-codec:1.15'
 - OPPO : 3.0.0
 - vivo :  3.0.0.4
 
+## TPNS Android SDK 1.3.1.1
+###  AndroidManifest 新增节点
+如您通过手动引入 jar 文件，即参考 SDK 集成文档 [Android Studio 手动集成](https://cloud.tencent.com/document/product/548/36652#android-studio-.E6.89.8B.E5.8A.A8.E9.9B.86.E6.88.90) 部分接入 TPNS SDK 的，请注意在应用的 AndroidManifest 文件 application 标签内添加以下节点，或直接参考上述链接重新引入 AndroidManifest 配置。否则可能引起应用在线时收到的推送无法响应通知点击事件。
+
+>! 此项变更仅需要通过手动引入 jar 文件的应用开发者注意。如您通过拉取远程依赖接入 TPNS SDK，可忽略此项配置。
+
+```xml
+    <activity
+        android:name="com.tencent.android.tpush.InnerTpnsActivity"
+        android:exported="false"
+        android:launchMode="singleInstance"
+        android:theme="@android:style/Theme.Translucent.NoTitleBar">
+        <intent-filter>
+            <action android:name="${applicationId}.OPEN_TPNS_ACTIVITY_V2" />
+
+            <category android:name="android.intent.category.DEFAULT" />
+        </intent-filter>
+        <intent-filter>
+            <data
+                android:host="${applicationId}"
+                android:scheme="stpns" />
+
+            <action android:name="android.intent.action.VIEW" />
+
+            <category android:name="android.intent.category.BROWSABLE" />
+            <category android:name="android.intent.category.DEFAULT" />
+        </intent-filter>
+        <intent-filter>
+            <action android:name="android.intent.action" />
+        </intent-filter>
+    </activity>
+```
+
 ## TPNS Android SDK 1.2.7.0
 
 ###  新增应用内消息补推能力
