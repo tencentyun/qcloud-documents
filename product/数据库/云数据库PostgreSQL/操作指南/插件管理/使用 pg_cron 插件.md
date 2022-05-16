@@ -216,6 +216,7 @@ postgres=> select * from cron.job;
  1 | 59 23 * * * | vacuum freeze pgbench_accounts | localhost | 8192 | postgres | adminuser | t | manual vacuum
 (2 rows)
 ```
+
 ## [pg_cron 参数](id:pgcs)
 以下是用于控制 pg_cron 扩展行为的参数列表。
 
