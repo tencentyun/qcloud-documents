@@ -39,7 +39,7 @@ curl -LO https://cos-data-lake-release-1253960454.cos.ap-guangzhou.myqcloud.com/
 ```
 curl -LO https://cos-data-lake-release-1253960454.cos.ap-guangzhou.myqcloud.com/goosefs-lite/goosefs-lite-1.0.0-md5.txt
 ```
-3.执行如下命令，验证文件的完整性。
+3. 执行如下命令，验证文件的完整性。
 ```
 md5sum goosefs-lite-1.0.0.tar.gz
 ```
