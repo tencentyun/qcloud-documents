@@ -20,7 +20,7 @@ Apache Flink 擅长处理无界和有界数据集。Flink runtime 能够通过�
 
 1. 在实例基本信息页面，选择顶部**Topic管理**页签。
 2. 在 Topic 管理页面，单击**新建**，创建一个名为 test 的 Topic，接下来将以该 Topic 为例介绍如何消费。
-![](https://qcloudimg.tencent-cloud.cn/raw/1007635c4c9de0c918985e6bb4a1b1c1.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/0214d01b423117bd1ce6c00a8e8052bb.png)
 
 ### 步骤3：添加 Maven 依赖
 
