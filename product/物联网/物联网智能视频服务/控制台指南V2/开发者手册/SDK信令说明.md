@@ -162,7 +162,7 @@ action=inner_define&channel=xxx&cmd=playback_seek&progress=ms
 
 ## 外部信令
 
-### 云台控制信令格式：
+### 云台控制信令格式
 ```
 action=user_define&channel=xxx&cmd=ptz_left
 
