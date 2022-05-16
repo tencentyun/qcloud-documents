@@ -51,13 +51,13 @@ md5sum --check goosefs-lite-1.0.0-md5.txt
 tar -xvf goosefs-lite-1.0.0.tar.gz
 ```
 当看到如下图所示，则表示解压成功，并生成了一个 goosefs-lite-1.0.0的目录。
-![](https://qcloudimg.tencent-cloud.cn/raw/d9fb1f5c09e49799a31fd63446cd95d8.png)
+<img src="https://qcloudimg.tencent-cloud.cn/raw/d9fb1f5c09e49799a31fd63446cd95d8.png" style="width: 70%" />
 
 
 ### 步骤4：配置密钥文件
 
 进入./conf 目录下，修改配置文件 conf/core-site.xml 中的配置项，如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/e08ad0e443d783172a759ffb9764b456.png)
+<img src="https://qcloudimg.tencent-cloud.cn/raw/e08ad0e443d783172a759ffb9764b456.png" style="width: 70%" />
 
 - 将 fs.cosn.userinfo.secretKey 配置为腾讯云密钥 ID。
 - 将 fs.cosn.userinfo.secretId 配置为腾讯云密钥 Key。
