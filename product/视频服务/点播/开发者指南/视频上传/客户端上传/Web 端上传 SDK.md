@@ -1,131 +1,200 @@
-小程序端上传视频的 SDK。上传流程请参见 [客户端上传指引](/document/product/266/9219)。
+对于浏览器上传音视频的场景，云点播提供了 Web 上传 SDK。如果您需要 SDK 源码，可访问 [SDK 源码](https://github.com/tencentyun/vod-js-sdk-v6)。
 
-- 如果您需要 SDK 源码，可访问 [SDK 源码](https://github.com/tencentyun/vod-wx-sdk-v2/)。
-- 如果您需要 Demo 源码，可访问 [Demo 源码](https://github.com/tencentyun/vod-wx-sdk-v2/tree/master/demo)。
+## 简单视频上传
 
-## 上传视频步骤
+### 引入 SDK
 
-**1. 引入 SDK**
-
-- 直接引入文件
-```js
-const VodUploader = require('../../lib/vod-wx-sdk-v2.js');
+#### script 引入方式
+未使用 webpack 的情况下，可通过 script 标签方式引入，该方式会暴露全局的`TcVod`变量。script 引入有下面两种方式：
+- **下载到本地**
+	下载 [SDK 源码](https://github.com/tencentyun/vod-js-sdk-v6) 到本地，然后按以下方式引入：
+```html
+<script src="./vod-js-sdk-v6.js"></script>
 ```
-- npm 安装
-```bash
-npm i vod-wx-sdk-v2
+>?引入路径请自行调整为您本地保存的路径。
+- **使用 CDN 资源**
+	使用 CDN 资源，可直接按以下方式引入：
+```html
+<script src="https://cdn-go.cn/cdn/vod-js-sdk-v6/latest/vod-js-sdk-v6.js"></script>
 ```
 
-**2. 定义获取上传签名的函数**
+请 [单击此处](https://tencentyun.github.io/vod-js-sdk-v6/) 查看 script 方式引入的 Demo，请 [单击此处](https://github.com/tencentyun/vod-js-sdk-v6/blob/master/docs/index.html) 查看 Demo 源码。
+
+#### npm 引入方式
+使用 webpack 的情况下（如使用 Vue 或者 React），可通过 npm 引入：
+```js
+// npm install vod-js-sdk-v6 之后，在页面中直接 import 引入
+import TcVod from 'vod-js-sdk-v6'
+```
+
+请 [单击此处](https://github.com/tencentyun/vod-js-sdk-v6/tree/master/docs/import-demo) 查看 npm 方式引入的 Demo 源码。
+
+>!SDK 依赖 Promise，请在低版本浏览器中自行引入。
+
+
+###  定义获取上传签名的函数
 
 ```js
-getSignature: function(callback) {
-    wx.request({
-        /**
-        * 此处省略部分代码
-        */
-        url: url,
-        success: function(res) {
-            callback(signature)
-        }
-    });
-}
+function getSignature() {
+  return axios.post(url).then(function (response) {
+    return response.data.signature;
+  })
+};
+```
+
+>? `url`是您派发签名服务的 URL，更多相关信息请参见 [客户端上传指引](https://cloud.tencent.com/document/product/266/9219#.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4)。
+> `signature`计算规则请参见 [客户端上传签名](/document/product/266/9221)。
+
+###  上传视频示例
+
+
+
+```js
+// 通过 import 引入的话，new TcVod(opts) 即可
+// new TcVod.default(opts) 是 script 引入 的用法
+const tcVod = new TcVod.default({
+  getSignature: getSignature // 前文中所述的获取上传签名的函数
+})
+
+const uploader = tcVod.upload({
+  mediaFile: mediaFile, // 媒体文件（视频或音频或图片），类型为 File
+})
+uploader.on('media_progress', function(info) {
+  console.log(info.percent) // 进度
+})
+
+// 回调结果说明
+// type doneResult = {
+//   fileId: string,
+//   video: {
+//     url: string
+//   },
+//   cover: {
+//     url: string
+//   }
+// }
+uploader.done().then(function (doneResult) {
+  // deal with doneResult
+}).catch(function (err) {
+  // deal with error
+})
+
+
 ```
 
 >?
->- `url` 是您派发签名服务的 URL，参见 [客户端上传指引](https://cloud.tencent.com/document/product/266/9219)。
->- `signature` 计算规则可参考 [客户端上传签名](https://cloud.tencent.com/document/product/266/9221)。
+>- `new TcVod(opts)`中的 opts 指该接口的相关参数，详细请参见 [TcVod 接口描述](#.E6.8E.A5.E5.8F.A3.E6.8F.8F.E8.BF.B0)。
+>- 上传方法根据用户文件的长度，自动选择普通上传以及分片上传，用户不用关心分片上传的每个步骤，即可实现分片上传。
+>- 如需上传至指定子应用下，请参见 [子应用体系 - 客户端上传](https://cloud.tencent.com/document/product/266/14574#.E5.AE.A2.E6.88.B7.E7.AB.AF.E4.B8.8A.E4.BC.A0)。
 
-**3. 上传视频**
-上传视频是通过调用`VodUploader.start`来实现的，选择视频则通过微信小程序 API 中的`wx.chooseVideo`方法实现。示例如下：
+## 高级功能
+
+### 同时上传视频和封面
 
 ```js
- const uploader = VodUploader.start({
-    // 必填，把 wx.chooseVideo 回调的参数(file)传进来
-    mediaFile: videoFile, 
-    // 必填，获取签名的函数
-    getSignature: getSignature, 
-    // 选填，视频名称，强烈推荐填写(如果不填，则默认为“来自小程序”)
-    mediaName: fileName, 
-    // 选填，视频封面，把 wx.chooseImage 回调的参数(file)传进来
-    coverFile: coverFile, 
-    // 上传中回调，获取上传进度等信息
-    progress: function(result) {
-        console.log('progress');
-        console.log(result);
-    },
-    // 上传完成回调，获取上传后的视频 URL 等信息
-    finish: function(result) {
-        console.log('finish');
-        console.log(result);
-        wx.showModal({
-            title: '上传成功',
-            content: 'fileId:' + result.fileId + '\nvideoName:' + result.videoName,
-            showCancel: false
-        });
-    },
-    // 上传错误回调，处理异常
-    error: function(result) {
-        console.log('error');
-        console.log(result);
-        wx.showModal({
-            title: '上传失败',
-            content: JSON.stringify(result),
-            showCancel: false
-        });
-    },
-});
+const uploader = tcVod.upload({
+  mediaFile: mediaFile,
+  coverFile: coverFile,
+})
+
+uploader.done().then(function (doneResult) {
+  // deal with doneResult
+})
 ```
->?如需上传至指定子应用下，请参见 [子应用体系 - 客户端上传](https://cloud.tencent.com/document/product/266/14574#.E5.AE.A2.E6.88.B7.E7.AB.AF.E4.B8.8A.E4.BC.A0)。
+
+### 获取上传进度
+
+SDK 支持以回调的形式展示当前的上传进度：
+
+```js
+const uploader = tcVod.upload({
+  mediaFile: mediaFile,
+  coverFile: coverFile,
+})
+// 视频上传完成时
+uploader.on('media_upload', function(info) {
+  uploaderInfo.isVideoUploadSuccess = true;
+})
+// 视频上传进度
+uploader.on('media_progress', function(info) {
+  uploaderInfo.progress = info.percent;
+})
+// 封面上传完成时
+uploader.on('cover_upload', function(info) {
+  uploaderInfo.isCoverUploadSuccess = true;
+})
+// 封面上传进度
+uploader.on('cover_progress', function(info) {
+  uploaderInfo.coverProgress = info.percent;
+})
+
+uploader.done().then(function (doneResult) {
+  // deal with doneResult
+})
+```
+
+`xxx_upload`与`xxx_progress`的回调值请参见 [分块上传/复制任务操作]( https://cloud.tencent.com/document/product/436/35649#.E4.B8.8A.E4.BC.A0.E5.88.86.E5.9D.97)。
+
+### 取消上传
+
+SDK 支持取消正在上传的视频或封面：
+
+```js
+const uploader = tcVod.upload({
+  mediaFile: mediaFile,
+  coverFile: coverFile,
+})
+
+uploader.cancel()
+```
+
+### 断点续传
+
+SDK 支持自动断点续传功能，无需做额外操作。当上传意外终止时（如浏览器关闭、网络中断等），您再次上传该文件，可以从中断处继续上传，减少重复上传时间。
 
 ## 接口描述
 
-### VodUploader.start
+### TcVod
 
 | 参数名称         | 必填   | 类型       | 参数描述      |
 | ------------ | ---- | -------- | --------- |
-| getSignature    | 是    | Function     | 获取上传签名的函数  |
-| mediaFile | 是 | file | wx.chooseVideo 回调返回的文件对象
-| reportId    | 否    | number     | 填入后，会携带上报至点播后台  |
-| mediaName | 否 | string | 视频名称，推荐填写（如果不填，则默认为“来自小程序”）
-| coverFile | 否 | file | 视频封面，wx.chooseImage 回调返回的文件对象
+| getSignature    | 是    | Function     | 获取上传签名的函数。  |
+| appId    | 否    | number     | 填入后，内置的统计上报会自动带上。  |
+| reportId    | 否    | number     | 填入后，内置的统计上报会自动带上。  |
+
+### TcVod.upload
+
+| 参数名称         | 必填   | 类型       | 参数描述      |
+| ------------ | ---- | -------- | --------- |
+| mediaFile    | 否    | File     | 媒体文件（视频或音频或图片）。  |
+| coverFile    | 否    | File     | 封面文件。  |
+| mediaName    | 否    | string     | 覆盖媒体文件元信息中的文件名。  |
+| fileId    | 否    | string     | 当修改封面时传入。  |
+| reportId    | 否    | number     | 填入后，内置的统计上报会自动带上。会覆盖构造函数中的设置。  |
 | fileParallelLimit    | 否    | number     | 同一个实例下上传的文件并发数，默认值3  |
 | chunkParallelLimit    | 否    | number     | 同一个上传文件的分块并发数，默认值6  |
 | chunkRetryTimes    | 否    | number     | 分块上传时，出错重试次数，默认值2（加第一次，请求共3次）  |
 | chunkSize    | 否    | number     | 分块上传时，每片的字节数大小，默认值8388608（8MB）  |
 | progressInterval    | 否    | number     | 上传进度的回调方法 onProgress 的回调频率，单位 ms ，默认值1000  |
-| [progress](#y1) | 是 | Function | 上传 progress 事件回调，返回上传进度等信息
-| [finish](#y2) | 是 | Function | 上传结束回调，返回 fileId 等信息
-| [error](#y3) | 是 | Function | 错误处理回调
 
-### progress 回调[](id:y1)
+### 事件
 
-| 字段名 | 类型 | 字段描述 |
-| ------- | ------- | ------- |
-| loaded | number | 已上传大小 |
-| percent | number | 已上传大小百分比 |
-| speed | number | 上传速度 |
-| total | number | 总大小 |
+| 事件名称         | 必填   |  事件描述      |
+| ------------ | ---- |  --------- |
+| media_upload    | 否    |  媒体文件上传成功时。  |
+| cover_upload    | 否    |  封面上传成功时。  |
+| media_progress    | 否    |  媒体文件上传进度。  |
+| cover_progress    | 否    |  封面文件上传进度。  |
 
-### finish 回调[](id:y2)
+## 常见问题
 
-| 字段名 | 类型 | 字段描述 |
-| ------- | ------- | ------- |
-| coverUrl | string | 封面图 URL，如未上传封面则此处为 undefined |
-| fileId | string | 视频 fileId |
-| videoName | string | 视频名称 |
-| videoUrl | string | 视频链接 |
-
-### error 回调[](id:y3)
-
-| 字段名 | 类型 | 字段描述 |
-| ------- | ------- | ------- |
-| code | number | 错误码 |
-| message | string | 错误信息 |
-
-## 其他说明
-
-1. 由于小程序没有获取真实文件名的 API，所以需要在上传视频时指定视频名称。如不传入`mediaName`，SDK 会设置视频名称为“来自小程序”。
-2. 默认支持断点续传和分片上传。
-3. 小程序域名信息中，`request`和`uploadFile`为合法域名，只需加上`vod2.qcloud.com`即可。
-4.  小程序端默认判断当前页面的域名是 http: 时，使用 http: 域名上传。若判断域名非 http: 时，则使用 https: 域名上传。 
+1. **File 对象怎么获取？**
+使用`input`标签，`type`为`file`类型，即可拿到`File`对象。
+2. **上传的文件是否有大小限制?**
+最大支持60GB。
+3. **SDK 支持的浏览器版本有哪些？**
+Chrome、Firefox 等支持 HTML5 的主流浏览器，IE 方面支持的最低版本是 IE10。
+4. **如何实现类似暂停上传或恢复上传的功能？**
+SDK 底层已经自动实现了断点续传的功能，因此暂停的本质即是调用`uploader.cancel()`这个方法。同理，暂停后的恢复上传也是调用初始的`tcVod.upload`方法，区别在于恢复上传时调用该方法的参数，应该是之前缓存起来的参数（例如可以在启动上传时全局变量存储一份参数，上传完成后再清掉）。
+5.  <b>Web 端上传 SDK是否支持使用 https: 域名上传？ </b>
+可以支持。Web 端默认判断当前页面的域名是 http: 时，使用 http: 域名上传。若判断域名非 http: 时，则使       用 https: 域名上传。 
