@@ -6,7 +6,7 @@
 
 ### 步骤1：查看 Topic 详情
 
-1. 登录 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 。
+1. 登录 [CKafka 控制台](https://console.cloud.tencent.com/ckafka)。
 2. 在左侧导航栏单击**实例列表**，单击目标实例的“ID/名称”，进入实例详情页。
 3. 在实例详情页，单击 **topic 管理**标签页，查看 Topic 信息，进入 Topic 列表页。
 4. 在 Topic 列表页，单击 Topic 名称左侧右三角符号，查看 Topic 详情。
