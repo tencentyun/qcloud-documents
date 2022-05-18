@@ -23,15 +23,12 @@
 
 ## 步骤6：发布运行 JAR 作业
 单击**发布草稿**，将进行作业运行检查，检查通过后将进入发布确认。发布将生成新的作业版本，版本号由系统自动生成。
-
 ![](https://qcloudimg.tencent-cloud.cn/raw/37cc96ea15503f883c38360f3316ef6d.png)
 
 发布草稿后，单击**版本管理**，可以查看并切换当前作业的不同版本。
-
-![](https://qcloudimg.tencent-cloud.cn/raw/933e5e33ea81d5fd7cd0758bc5a5161e.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/99b466413be4baf9941e9cfb5afce0fb.png)
 
 切换到期望运行的作业版本后，单击**运行版本**，再单击**确认**即可启动作业。
-
 ![](https://qcloudimg.tencent-cloud.cn/raw/7a99852bfb2f1fd0e389aaec9be2f12f.png)
 
 ## 步骤7：查看作业运行情况
