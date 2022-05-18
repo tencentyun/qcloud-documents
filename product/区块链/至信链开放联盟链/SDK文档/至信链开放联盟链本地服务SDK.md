@@ -6,8 +6,8 @@
 
 - mac 环境至信链基础能力 SDK 本地服务：[2022-02-15/nft_wallet_service_mac](https://zhixinliantest-1302317679.cos.ap-guangzhou.myqcloud.com//nft/nft_wallet_service/mac/2022-02-15/nft_wallet_servicenft_wallet_service_mac)
 操作步骤如下：
-  - step1：`chmod a+x nft_wallet_service_mac`
-  - step2：`./nft_wallet_service_mac`
+step1：`chmod a+x nft_wallet_service_mac`
+step2：`./nft_wallet_service_mac`
 
 ## 场景描述
 
