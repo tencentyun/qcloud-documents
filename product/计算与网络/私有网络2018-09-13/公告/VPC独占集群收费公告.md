@@ -76,13 +76,4 @@
 <td >后付费</td>
 <td>480</td>
 </tr>
-<tr >
-<td >圣保罗</td>
-<td >独占费用</td>
-<td >DS4-100G</td>
-<td >刊例价</td>
-<td >日</td>
-<td >后付费</td>
-<td >580</td>
-</tr>
 </table>
