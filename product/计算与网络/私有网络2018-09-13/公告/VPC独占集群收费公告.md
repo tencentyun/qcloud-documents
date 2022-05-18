@@ -45,7 +45,7 @@
 <td >450</td>
 </tr>
 <tr >
-<td  rowspan="3">海外</td>
+<td  rowspan="3">境外</td>
 <td >独占费用</td>
 <td >DS3-40G</td>
 <td >刊例价</td>
