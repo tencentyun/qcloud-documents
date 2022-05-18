@@ -1,3 +1,17 @@
+## Version 10.0 @ 2022.05.17
+
+**功能优化:** 
+
+- 全平台：优化主播进退房通知回调（[onRemoteUserEnterRoom](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDelegate__ios.html#a390831928a4d2a7977c4c1572da8be58) / [onRemoteUserLeaveRoom](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDelegate__ios.html#afa7d16e1e4c66d938fc2bc69f3e34c28)）的速度；
+- Windows：优化屏幕分享的性能，在未设置过滤窗口时，性能提升一倍；
+
+**缺陷修复:** 
+
+- iOS&Mac：修复开始播放 BGM 时，偶现的 [onComplete](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXAudioEffectManager__ios.html#a08ab9a6d9100f133420e44ae5eb99ee6)回调错误的问题；
+- Android：修复一例网络模块导致的崩溃问题；
+- 全平台：修复 SEI 发送异常的问题
+
+
 ## Version 9.9 @ 2022.05.06
 
 **功能优化:** 
