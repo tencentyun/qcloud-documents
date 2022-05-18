@@ -20,7 +20,7 @@
 <td >单价（单位：元/台）</td>
 </tr>
 <tr >
-<td  rowspan="3" >国内</td>
+<td  rowspan="3" >境内</td>
 <td >独占费用</td>
 <td >DS3-40G</td>
 <td >刊例价</td>
@@ -59,7 +59,14 @@
 <td >刊例价</td>
 <td >日</td>
 <td >后付费</td>
-<td >480</td>
+<td >480
+
+<dx-alert infotype="explain" title="">
+圣保罗地域为580
+</dx-alert>
+
+
+</td>
 </tr>
 <tr >
 <td >独占费用</td>
