@@ -62,7 +62,7 @@
 <td >480
 
 <dx-alert infotype="explain" title="">
-圣保罗地域为580
+圣保罗地域为580。
 </dx-alert>
 
 
