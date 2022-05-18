@@ -8,7 +8,7 @@
 
 ### 创建 Consumer Group
 
-1. 登录 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 。
+1. 登录 [CKafka 控制台](https://console.cloud.tencent.com/ckafka)。
 2. 在左侧导航栏单击**实例列表**，单击目标实例的“ID/名称”，进入实例详情页。
 3. 在实例详情页，选择 **Consumer Group** 标签页，单击**新建**。
    ![](https://qcloudimg.tencent-cloud.cn/raw/ef4f61dd7ece6194858d084326e746d5.png)

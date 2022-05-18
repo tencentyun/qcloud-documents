@@ -45,12 +45,12 @@ git clone https://github.com/TencentCloud/TIMSDK.git
 cd TIMSDK/Web/Demo
 
 # 安装 demo 依赖
-yarn install
+npm install
 
 cd TIMSDK/Web/Demo/src/TUIKit
 
 # 安装 TUIKit 依赖
-yarn install
+npm install
 ```
 
 ### 步骤2：初始化
@@ -65,7 +65,7 @@ yarn install
 
 ```shell
 # 启动项目
-yarn serve
+npm run serve
 ```
 
 - [SDK API 手册](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html)

@@ -29,16 +29,15 @@ Ghost 是使用 Node.js 语言编写的开源博客平台，您可使用 Ghost �
 ### 步骤2：创建新用户
 1. 当您登录 Ubuntu 操作系统的云服务器后，请参考 [Ubuntu 系统使用 root 用户登录](https://cloud.tencent.com/document/product/213/17278#ubuntu-.E7.B3.BB.E7.BB.9F.E5.A6.82.E4.BD.95.E4.BD.BF.E7.94.A8-root-.E7.94.A8.E6.88.B7.E7.99.BB.E5.BD.95.E5.AE.9E.E4.BE.8B.EF.BC.9F) 切换为 root 用户。
 2. 执行以下命令，创建新用户。本文以 `user` 为例。
-<dx-alert infotype="notice" title="">
-请勿使用 `ghost` 作为用户名，会导致与 Ghost-CLI 发生冲突。 
-</dx-alert>
+>!请勿使用 `ghost` 作为用户名，会导致与 Ghost-CLI 发生冲突。 
+>
 ```shellsession
 adduser user
 ```
- 1. 请按照提示输入并确认用户密码，密码默认不显示，输入完成后按 <b>Enter</b> 进入下一步。
- 2. 根据您的实际情况填写用户相关信息，可默认不填写，按 <b>Enter</b> 进行下一步。
- 3. 输入 <b>Y</b> 确认信息，并按 <b>Enter</b> 完成设置。如下图所示：<br>
-<img src="https://main.qcloudimg.com/raw/66ca399607b89f2653668eb4b0cb71f5.png"/>
+    1. 请按照提示输入并确认用户密码，密码默认不显示，输入完成后按 <b>Enter</b> 进入下一步。
+    2. 根据您的实际情况填写用户相关信息，可默认不填写，按 <b>Enter</b> 进行下一步。
+    3. 输入 <b>Y</b> 确认信息，并按 <b>Enter</b> 完成设置。如下图所示：
+![](https://main.qcloudimg.com/raw/66ca399607b89f2653668eb4b0cb71f5.png)
 3. 执行以下命令，增加用户权限。
 ```shellsession
 usermod -aG sudo user
@@ -50,9 +49,8 @@ su - user
 
 ### 步骤3：更新安装包
 依次执行以下命令，更新安装包。
-<dx-alert infotype="explain" title="">
-请按照界面上的提示输入 `user` 的密码，并按 **Enter** 开始更新。
-</dx-alert>
+>?请按照界面上的提示输入 `user` 的密码，并按 **Enter** 开始更新。
+>
 ```shellsession
 sudo apt-get update
 ```
@@ -91,9 +89,8 @@ ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '输入ro
 
 #### 安装配置 Node.js
 1. 执行以下命令，添加 Node.js 支持的安装版本。
-<dx-alert infotype="explain" title="">
-Ghost 不同版本对于 Node.js 有不同的版本需求，请参考 [Supported Node versions](https://ghost.org/docs/faq/node-versions/) 及以下命令，执行对应命令。
-</dx-alert>
+>?Ghost 不同版本对于 Node.js 有不同的版本需求，请参考 [Supported Node versions](https://ghost.org/docs/faq/node-versions/) 及以下命令，执行对应命令。
+>
 ```shellsession
 curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash
 ```
@@ -137,9 +134,8 @@ ghost install
  6. **Do you wish to set up SSL?**：如需开启 HTTPS 访问，请输入 **Y** 后按 **Enter**。
  其余配置请结合实际情况及页面提示完成。完成设置后，界面下方会输出 Ghost 的管理员访问地址。
 4. 使用本地浏览器访问 Ghost 的管理员访问地址，开始个人博客配置。如下图所示：
-<dx-alert infotype="explain" title="">
-若您已开启 HTTPS 访问，则可使用 `https://` 进行访问或博客配置等操作。
-</dx-alert>
+>?若您已开启 HTTPS 访问，则可使用 `https://` 进行访问或博客配置等操作。
+>
 单击 <b>Create your account</b> 开始创建管理员账户。
 <img src="https://main.qcloudimg.com/raw/e2eeacd71eec4c27660eeb4797f83f2a.png"/>
 5. 输入相关信息，并单击 **Last step**。如下图所示：

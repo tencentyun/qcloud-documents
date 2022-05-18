@@ -4,7 +4,7 @@
 
 ## 操作步骤
 
-1. 登录 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 。
+1. 登录 [CKafka 控制台](https://console.cloud.tencent.com/ckafka)。
 2. 在左侧导航栏选择**实例列表**，单击目标实例的“ID/名称”，进入实例详情页。
 3. 在实例详情页，单击 **topic 管理**标签页，在操作栏单击**删除**。
 4. 在弹出窗口单击**确认**，Topic 将被删除。

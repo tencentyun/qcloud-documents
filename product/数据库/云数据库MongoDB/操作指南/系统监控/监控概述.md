@@ -77,7 +77,7 @@
 <tr>
 <td>TTL 删除数据条数</td><td>条</td><td>TTL 删除数据的数量</td></tr>
 <tr>
-<td>TTL 运转轮数</td><td>条</td><td>当前节点 TTL 运转的轮数</td></tr>
+<td>TTL 运转轮数</td><td>次</td><td>后台进程从 TTL 删除文档的次数</td></tr>
 <tr>
 <td>qr</td><td>个</td><td>等待读操作的客户端队列长度</td></tr>
 <tr>
