@@ -214,7 +214,58 @@ roleRef:
 2. 从下图验证结果可以得出，应用了权限绑定的 YAML 后，role_user 拥有集群范围的 test-clusterrole 权限。  
 ![image-20201020141737129](https://main.qcloudimg.com/raw/5f3415f45bac5b622264fd4929e104a5.png)
 
+### 方式4：自定义权限，例如给一个用户预设的只读权限额外添加登陆容器的权限
 
+1. 授权：参考[使用预设身份授权](https://cloud.tencent.com/document/product/457/46105)给指定用户赋予只读的权限
+2. 查看用户 RBAC 里的 User 信息：查看只读用户的 ClusterRoleBinding 的绑定的用户信息，作为新建 ClusterRoleBinding 的需要绑定的用户信息。如下图，先找到指定用户的 ClusterRoleBinding 对象，点击进去查看详细信息。
+![](https://qcloudimg.tencent-cloud.cn/raw/1e7911555b5be8e0cc23780be3d6ae11.png)
+
+```yaml
+subjects:
+- apiGroup: rbac.authorization.k8s.io
+  kind: User
+  name: 700000xxxxxx-1650879262  # RBAC 里指定用户的用户名，需要拿到您指定用户的该信息
+```
+
+3. 创建 ClusterRole：通过 YAML 创建有登陆容器权限的只读用户的 ClusterRole：
+
+```yaml
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRole
+metadata:
+  name: "700000xxxxxx-ClusterRole-ro"  # ClusterRole 的名字
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - pods
+  - pods/attach
+  - pods/exec  # Pod 的登陆权限
+  - pods/portforward
+  - pods/proxy
+  verbs:
+  - create
+  - get
+  - list
+  - watch
+```  
+  
+4. 创建 ClusterRoleBinding：创建指定用户 ClusterRoleBinding 的 YAML 文件
+
+```yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: "700000xxxxxx-ClusterRoleBinding-ro"
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: "700000xxxxxx-ClusterRole-ro"  # 使用步骤 3 中的 ClusterRole 的名字
+subjects:
+- apiGroup: rbac.authorization.k8s.io
+  kind: User
+  name: "700000xxxxxx-1650879262"  # 使用步骤 2 中的用户信息
+```
 
 ## 总结
 
