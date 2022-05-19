@@ -3,7 +3,6 @@
 
 结合 TRTC 低延时、高质量、高稳定的视频通信能力和美颜、美妆、美体、AR特效、虚拟背景等美颜特效能力可以触达秀场直播、视频相亲、互动课堂、视频会议、互动游戏等业务场景，快速构建具备美颜特效能力的实时音视频应用。
 
->? 若您想要购买或试用**“TRTC + 美颜特效”**解决方案，请发送邮件至 ` tengxunrtc@tencent.com `。
 
 ## 原理解析
 从 TRTC 8.1 版本开始，TRTC SDK 提供了新的接口 [setLocalVideoProcessListener](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a0b565dc8c77df7fb826f0c45d8ad2d85)，TRTC SDK 会在编码和渲染之前，将 TRTC SDK 采集到的图像通过该接口回调出来。您可以使用该接口，对回调出来的图像进行二次处理（例如：使用第三方美颜 SDK 进行美颜处理），并将处理后的图像通过参数传递给 TRTC SDK，TRTC SDK 后续渲染和编码都将使用二次处理后的图像。
