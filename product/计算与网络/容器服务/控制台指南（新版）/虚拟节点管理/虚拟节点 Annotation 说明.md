@@ -1,6 +1,6 @@
 
 
-您可通过在 yaml 中定义 annotation 的方式，实现虚拟节点的自定义 DNS 等能力，具体如下：
+您可通过在 yaml 中定义 annotation 的方式，实现超级节点的自定义 DNS 等能力，具体如下：
 
 <table>
 <thead>
@@ -15,14 +15,14 @@
 <td>eks.tke.cloud.tencent.com/resolv-conf</td>
 <td> 容器解析域名时查询 DNS 服务器的 IP 地址列表。例如 <code>nameserver 8.8.8.8</code>。
 <br> 可通过 <code>kubectl edit node eklet-subnet-xxxx</code> 添加该 annotation。
-<br> 修改后调度到该虚拟节点的 Pod 默认全部采用该 DNS 配置。</td>
+<br> 修改后调度到该超级节点的 Pod 默认全部采用该 DNS 配置。</td>
 <td>否</td>
 </tr>
 </tr>
 </tbody></table>
 
 #### 示例
-以下为虚拟节点自定义 DNS 配置的示例：
+以下为超级节点自定义 DNS 配置的示例：
 
 ```
 apiVersion: v1
