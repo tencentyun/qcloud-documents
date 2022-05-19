@@ -212,10 +212,10 @@ roleRef:
 ![image-20201020141737129](https://main.qcloudimg.com/raw/5f3415f45bac5b622264fd4929e104a5.png)
 
 ## 方式4：自定义权限[](id:way4)
-本文以给一个用户预设的只读权限额外添加登录容器的权限为例。
+本文以集群管理员给一个用户自定义权限为例：权限包括预设的只读权限额外添加登录容器的权限。
 
 #### 1. 授权
-参考[使用预设身份授权](https://cloud.tencent.com/document/product/457/46105)给指定用户赋予只读的权限
+首先集群管理员参考 [使用预设身份授权](https://cloud.tencent.com/document/product/457/46105) 给指定用户赋予只读的权限。
 
 #### 2. 查看用户 RBAC 里的 User 信息
 查看只读用户的 ClusterRoleBinding 的绑定的用户信息，作为新建 ClusterRoleBinding 的需要绑定的用户信息。如下图所示，需要在指定用户的 ClusterRoleBinding 对象中，查看详细信息。
