@@ -26,7 +26,7 @@
 由于 SDK 和大部分特效产品内部都使用 OpenGL 来处理图像，因此使用 TEXTURE_2D 作为两个 SDK 对接格式，性能会最好。
 以相芯为例：可以在初始化 `FURenderer` 时指定输入格式：
 <dx-codeblock>
-::: iOS  Objective-C 
+::: iOS  ObjectiveC 
 // 初始化并对 SDK 进行授权
 [[FURenderer shareRenderer] setupWithData:bundleData
                                  dataSize:bundleDataSize
@@ -47,7 +47,7 @@ FURenderer mFURenderer = new FURenderer.Builder(this)
 ### 步骤4：设置自定义预处理回调
 通过调用 `TRTCCloud` 中的 [setLocalVideoProcessDelegate ](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a2f73c33b1010a63bd3a06e639b3cf348) 或 [setLocalVideoProcessListener](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a0b565dc8c77df7fb826f0c45d8ad2d85) 来设置自定义美颜的回调，并指定回调的格式为 TEXTURE_2D：
 <dx-codeblock>
-::: iOS  Objective-C 
+::: iOS  ObjectiveC 
 [[TRTCCloud sharedInstance] setLocalVideoProcessDelegete:self
                                              pixelFormat:TRTCVideoPixelFormat_NV12
                                               bufferType:TRTCVideoBufferType_PixelBuffer];
@@ -62,7 +62,7 @@ mTRTCCloud.setLocalVideoProcessListener(TRTCCloudDef.TRTC_VIDEO_PIXEL_FORMAT_Tex
 ### 步骤5：调用美颜特效 SDK 接口
 自定义预处理回调接口的定义如下：
 <dx-codeblock>
-::: iOS  Objective-C 
+::: iOS  ObjectiveC 
 @protocol TRTCVideoFrameDelegate <NSObject>
 @optional
 
@@ -90,7 +90,7 @@ mTRTCCloud.setLocalVideoProcessListener(TRTCCloudDef.TRTC_VIDEO_PIXEL_FORMAT_Tex
 #### 相芯接入示例
 为了帮助您更好地理解和运用自定义预处理来对接第三方美颜特效 SDK，我们以相芯为例向您展示接入示例代码：
 <dx-codeblock>
-::: iOS  Objective-C 
+::: iOS  ObjectiveC 
 
 - (uint32_t)onProcessVideoFrame:(TRTCVideoFrame * _Nonnull)srcFrame
       dstFrame:(TRTCVideoFrame * _Nonnull)dstFrame {
