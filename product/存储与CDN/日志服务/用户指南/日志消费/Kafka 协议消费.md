@@ -40,7 +40,7 @@ sasl_mechanism = 'PLAIN',
 sasl_plain_username = "ca5cXXXX-dd2e-4ac0-af12-92d4b677d2c6",
 //SASL信息，#填入用户的secretid#secrectkey组合的字符串，注意不要丢失#
 sasl_plain_password = "AKIDWrwkHYYHjvqhz1mHVS8YhXXXX#XXXXuXtymIXT0Lac",
-api_version = (1,10,1)
+api_version = (1,1,1)
 )
 print('begin')
 for message in consumer:
