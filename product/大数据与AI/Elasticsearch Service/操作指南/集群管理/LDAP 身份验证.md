@@ -41,7 +41,7 @@ LDAP 身份验证是 Elasticsearch 官方商业特性 [X-pack](https://cloud.ten
    }
 ```
 
-## 关闭LDAP身份验证
+## 关闭 LDAP 身份验证
 1. 登录腾讯云[ Elasticsearch 控制台](https://console.cloud.tencent.com/es)，单击**集群名称**访问目标集群，跳转至**基础配置**页面。
 2. 在**访问控制**模块，单击**身份验证**中的**关闭**按钮，在弹出的对话框中，阅读注意事项，确认后，LDAP 关闭操作开始，集群将会重启，可以在集群变更记录中查看变更进度。
 
