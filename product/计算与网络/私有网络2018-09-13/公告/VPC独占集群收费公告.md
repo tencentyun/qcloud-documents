@@ -20,7 +20,7 @@
 <td >单价（单位：元/台）</td>
 </tr>
 <tr >
-<td  rowspan="3" >境内</td>
+<td  rowspan="3" >中国大陆（不包含港澳台地区）</td>
 <td >独占费用</td>
 <td >DS3-40G</td>
 <td >刊例价</td>
