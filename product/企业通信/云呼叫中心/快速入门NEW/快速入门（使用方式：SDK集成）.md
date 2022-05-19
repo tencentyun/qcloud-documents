@@ -11,7 +11,7 @@
 ### SDK 集成-电话呼入/呼出
 ![](https://qcloudimg.tencent-cloud.cn/raw/738bfa69ff4264b7180b68cea8f6d43b.png)
 ### SDK 集成-在线会话
-![](https://qcloudimg.tencent-cloud.cn/raw/60696e37aa393da04619fc6df753e0fd.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/25d1c4749070f24ef6b56977e4be499b.png)
 ### SDK 集成-音频通话
 ![](https://qcloudimg.tencent-cloud.cn/raw/2e747474050b9a957bcd0ad686ebd33d.png)
 ### SDK 集成-视频通话
