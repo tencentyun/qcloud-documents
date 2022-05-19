@@ -88,7 +88,7 @@
 15. 保持默认配置，单击**下一步**直至安装完成。
 
 
-### 步骤5：安装 SharePoint 2016
+### 步骤6：安装 SharePoint 2016
 
 1. 在云服务器中打开浏览器，并访问 Microsoft SharePoint 2016 官网下载 Microsoft SharePoint 2016 安装包。
 2. 打开 Microsoft SharePoint 2016 镜像文件，双击准备工具的可执行文件 `prerequisiteinstaller.exe`，安装 Microsoft SharePoint 2016 准备工具。如下图所示：
@@ -107,7 +107,7 @@
 10. 待安装完成后，勾选“立即运行 SharePoint 产品配置向导”，单击**关闭**。如下图所示：
 ![](https://main.qcloudimg.com/raw/3fa47faa1f8bed1a8ec478260ee64481.png)
 
-### 步骤6：配置 SharePoint 2016
+### 步骤7：配置 SharePoint 2016
 
 1. 在运行的 SharePoint 产品配置向导中，单击**下一步**。如下图所示：
 ![](https://main.qcloudimg.com/raw/3e8d015ab34ab8de8172838dd21d31ac.png)
