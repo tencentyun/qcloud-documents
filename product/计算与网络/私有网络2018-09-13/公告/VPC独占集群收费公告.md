@@ -14,68 +14,51 @@
 <td >地域</td>
 <td >产品形态</td>
 <td>设备型号</td>
-<td >计费项</td>
-<td >计费周期</td>
 <td >计费模式</td>
-<td >单价（单位：元/台）</td>
+<td >单价（单位：元/台/日）</td>
 </tr>
 <tr >
-<td  rowspan="3" >国内</td>
+<td  rowspan="3" >中国大陆（不含港澳台地区）</td>
 <td >独占费用</td>
 <td >DS3-40G</td>
-<td >刊例价</td>
-<td >日</td>
-<td >后付费</td>
+<td >按天后付费</td>
 <td >450</td>
 </tr>
 <tr >
 <td >独占费用</td>
 <td >DS4-100G</td>
-<td >刊例价</td>
-<td >日</td>
-<td >后付费</td>
+<td >按天后付费</td>
 <td >450</td>
 </tr>
 <tr >
 <td >独占费用</td>
 <td >DS4A-100G</td>
-<td >刊例价</td>
-<td >日</td>
-<td >后付费</td>
+<td >按天后付费</td>
 <td >450</td>
 </tr>
 <tr >
-<td  rowspan="3">海外</td>
+<td  rowspan="3">境外</td>
 <td >独占费用</td>
 <td >DS3-40G</td>
-<td >刊例价</td>
-<td >日</td>
-<td >后付费</td>
+<td >按天后付费</td>
 <td >480</td>
 </tr>
 <tr >
 <td >独占费用</td>
 <td >DS4-100G</td>
-<td >刊例价</td>
-<td >日</td>
-<td >后付费</td>
-<td >480</td>
+<td >按天后付费</td>
+<td >480
+
+<dx-alert infotype="explain" title="说明">
+圣保罗地域为580。
+</dx-alert>
+
+</td>
 </tr>
 <tr >
 <td >独占费用</td>
 <td >DS4A-100G</td>
-<td >刊例价</td>
-<td >日</td>
-<td >后付费</td>
+<td >按天后付费</td>
 <td>480</td>
-</tr>
-<tr >
-<td >圣保罗</td>
-<td >独占费用</td>
-<td >DS4-100G</td>
-<td >刊例价</td>
-<td >日</td>
-<td >后付费</td>
-<td >580</td>
 </tr>
 </table>
