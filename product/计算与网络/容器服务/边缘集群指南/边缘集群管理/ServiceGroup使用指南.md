@@ -1028,6 +1028,6 @@ status:
       replicas: 3
 ```
 
-## Refs
+## 相关文档
 
 * [SEP: ServiceGroup StatefulSetGrid Design Specification](https://github.com/superedge/superedge/issues/26)
