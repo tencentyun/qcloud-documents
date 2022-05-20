@@ -37,7 +37,7 @@ python3 setup.py install
 ### 开始使用
 
 1. 准备好secret_id，secret_key 信息
-  登陆腾讯云，在页面上获取，如下：
+  登录腾讯云，在页面上获取，如下：
 ![](https://qcloudimg.tencent-cloud.cn/raw/bc5f93b3272c44b18361ead95afc9cbc.png)
 ![](https://qcloudimg.tencent-cloud.cn/raw/c20c9a7f320252989e270e9fbc9ef22b.png)
 2. 初始化，调用函数
