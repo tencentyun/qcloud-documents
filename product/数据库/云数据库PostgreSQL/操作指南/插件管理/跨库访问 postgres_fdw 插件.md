@@ -14,10 +14,8 @@ FDW（FOREIGN DATA WRAPPER，外部数据包装器）是 PostgreSQL 提供用于
    跨实例访问时候为必须项。目标实例的 port。
  - **instanceid**
    实例 ID
-	 a. 在云数据库 PostgreSQL 间跨实例访问时使用，当跨实例访问时为必选项。格式类似 postgres-xxxxxx、pgro-xxxxxx，可在 [控制台](https://console.cloud.tencent.com/postgres) 查看，如 PostgreSQL 为：
-![](https://qcloudimg.tencent-cloud.cn/raw/a5659bc6941fa163907e1315e4db43cc.png)
+	 a. 在云数据库 PostgreSQL 间跨实例访问时使用，当跨实例访问时为必选项。格式类似 postgres-xxxxxx、pgro-xxxxxx，可在 [控制台](https://console.cloud.tencent.com/postgres) 查看。
   b. 如果目标实例在腾讯云 CVM 上，则为 CVM 机器的实例 ID，格式类似 ins-xxxxx。
-![](https://main.qcloudimg.com/raw/6b6c41e427d19722c64d9adeac6c110e.png)
  - **dbname** 
  database 名，填写需要访问的远端 PostgreSQL 服务的 database 名字。若不跨实例访问，仅在同实例中进行跨库访问，则只需要配置此参数即可，其他参数都可为空。
  - **access_type**
@@ -88,6 +86,8 @@ testdb1=> \dx
 ```
 
 ### 步骤3：创建 SERVER
+>!仅 v10.17_r1.2、v11.12_r1.2、v12.7_r1.2、v13.3_r1.2、v14.2_r1.0 及之后的内核版本支持跨实例访问。
+>
 - 跨实例访问。
 ```
 #从本实例的 testdb1 访问目标实例 testdb2 的数据
