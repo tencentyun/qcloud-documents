@@ -3,8 +3,7 @@
 慢日志分析对实例中慢日志的记录和执行信息（来源信息、次数、执行时间、返回集合、扫描集合等）进行统计、聚合。
 
 ## 整体概览
-
-![](https://qcloudimg.tencent-cloud.cn/raw/04ef33ac6c575b180b519e0685425d1e.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/b9d9abd64dc63d0f13c457e0827a9882.png)
 
 ## 查看慢 SQL 分析
 1. 登录 [DBbrain 控制台](https://console.cloud.tencent.com/dbbrain/slow-sql)，在左侧导航选择**诊断优化**，在上方选择对应数据库，然后选择**慢 SQL 分析**页签。
