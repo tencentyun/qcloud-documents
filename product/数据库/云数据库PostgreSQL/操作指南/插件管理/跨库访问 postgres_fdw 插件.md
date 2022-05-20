@@ -20,7 +20,7 @@ FDW（FOREIGN DATA WRAPPER，外部数据包装器）是 PostgreSQL 提供用于
 ![](https://main.qcloudimg.com/raw/6b6c41e427d19722c64d9adeac6c110e.png)
  - **dbname** 
  database 名，填写需要访问的远端 PostgreSQL 服务的 database 名字。若不跨实例访问，仅在同实例中进行跨库访问，则只需要配置此参数即可，其他参数都可为空。
- - access_type
+ - **access_type**
     非必须项。目标实例所属类型：
     1：目标实例为 TencentDB 实例，包括云数据库 PostgreSQL、云数据库 MySQL 等，如果不显示指定，则默认该项。
     2：目标实例在腾讯云 CVM 机器上。
@@ -134,6 +134,7 @@ create server srv_test1 foreign data wrapper postgres_fdw options (dbname 'testd
 
 ### 步骤4：创建用户映射 
 >? 同实例的跨 database 访问则可跳过此步骤。
+>
 ```
 testdb1=> create user mapping for user1 server srv_test1 options (user 'user2',password 'password2');
 CREATE USER MAPPING
@@ -167,3 +168,4 @@ testdb1=> select * from foreign_table1;
 [12 版本 SERVER 创建](https://www.postgresql.org/docs/12/sql-createserver.html)
 [13 版本 SERVER 创建](https://www.postgresql.org/docs/13/sql-createserver.html)
 [14 版本 SERVER 创建](https://www.postgresql.org/docs/14/sql-createserver.html)
+
