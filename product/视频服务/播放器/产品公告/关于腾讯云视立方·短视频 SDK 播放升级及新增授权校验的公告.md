@@ -68,17 +68,17 @@
 <tbody>
 <tr>
 <td>直播 License</td>
-<td>√</td>
+<td>&#10003;</td>
 <td>-</td>
-<td>√</td>
+<td>&#10003;</td>
 <td><li>购买 10TB、50TB、200TB、1PB 云直播流量资源包赠送直播 License 一年使用授权</li>
     <li>购买独立直播 License 一年使用授权</li></td>
 </tr>
 <tr>
 <td>短视频 License</td>
 <td>-</td>
-<td>√</td>
-<td>√</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
 <td><li>购买 10TB、50TB、200TB、1PB 云点播流量资源包赠送短视频精简版/基础版 License 一年使用授权</li>
     <li>购买独立短视频 License 一年使用授权</li></td>
 </tr>
@@ -86,7 +86,7 @@
 <td>视频播放 License</td>
 <td>-</td>
 <td>-</td>
-<td>√</td>
+<td>&#10003;</td>
 <td><li>购买 100GB、500GB、1TB、5TB 直播/点播流量资源包赠送视频播放 License 一年使用授权</li>
     <li>购买独立视频播放 License 一年使用授权</li></td>
 </tr>
