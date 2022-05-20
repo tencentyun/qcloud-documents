@@ -34,16 +34,20 @@ Top 命令的输出信息主要分为两部分，上半部分显示 CPU 和内�
 
 根据实际需求，选择不同的登录方式登录云服务器。
 - 通过第三方软件远程登录 Linux 云服务器。
->!  Linux 云服务器处于 CPU 高负荷状态时，可能出现无法登录状态。
->
+<dx-alert infotype="notice" title="">
+ Linux 云服务器处于 CPU 高负荷状态时，可能出现无法登录状态。
+</dx-alert>
 - [使用 VNC 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35701)。
->! Linux 云服务器处于 CPU 高负荷状态时，控制台可以正常登录。
->
+<dx-alert infotype="notice" title="">
+ Linux 云服务器处于 CPU 高负荷状态时，控制台可以正常登录。
+</dx-alert>
+
+
 
 ### 查看进程占用情况
 
 执行以下命令，查看系统负载，并根据 `%CPU` 列与 `%MEM` 列，确定占用较多资源的进程。
-```
+```shellsession
 top
 ```
 
@@ -51,8 +55,7 @@ top
 根据任务管理器中的进程，分析与排查问题，以采取对应解决方案。
 - 如果是业务进程占用了大量 CPU 或内存资源，建议分析业务程序是否有优化空间，进行优化或者 [升级服务器配置](https://cloud.tencent.com/document/product/213/2178)。
 - 如果是异常进程占用了大量 CPU 或内存资源，则实例可能中毒，您可以自行终止进程或者使用安全软件进行查杀，必要时考虑备份数据，重装系统。
-- 如果是腾讯云组件进程占用了大量 CPU 或内存资源，请通过 [在线支持](https://cloud.tencent.com/online-service?from=doc_213
-) 联系我们进行进一步定位处理。
+- 如果是腾讯云组件进程占用了大量 CPU 或内存资源，请通过 [在线支持](https://cloud.tencent.com/online-service?from=doc_213) 联系我们进行进一步定位处理。
 常见的腾讯云组件有：
  - sap00x：安全组件进程
  - Barad_agent：监控组件进程
@@ -66,8 +69,9 @@ top
 3. 输入需要终止进程的 PID ，按 **Enter**。如下图所示：
 此处以终止 PID 为23的进程为例。
 ![](https://main.qcloudimg.com/raw/38a98b3fc36b09c4e3f99765d3cf5691.png)
->! 若按 **Enter** 后出现 `kill PID 23 with signal [15]:`，则继续按 **Enter** 保持默认设定即可。
->
+<dx-alert infotype="notice" title="">
+若按 **Enter** 后出现 `kill PID 23 with signal [15]:`，则继续按 **Enter** 保持默认设定即可。
+</dx-alert>
 4. 操作成功后，界面会出现` Send pid 23 signal [15/sigterm] ` 的提示信息，按 **Enter** 确认即可。
 
 ## 其它相关故障
@@ -100,12 +104,12 @@ Linux 系统通过分页机制管理内存的同时，将磁盘的一部分划�
 #### 处理办法
 
 1. 执行以下命令，找到 kswapd0 进程。
-```
+```shellsession
 top
 ```
 2. 观察 kswapd0 进程状态。
 若持续处于非睡眠状态，且运行时间较长并持续占用较高 CPU 资源，请执行 [步骤3](#kswapd0_step3)，查看内存的占用情况。
-3. <span id="kswapd0_step3">执行 `vmstat` ，`free`，`ps` 等指令，查询系统内进程的内存占用情况。</span>
+3. [](id:kswapd0_step3)执行 `vmstat` ，`free`，`ps` 等指令，查询系统内进程的内存占用情况。
 根据内存占用情况，重启系统或终止不需要且安全的进程。如果 si，so 的值也比较高，则表示系统存在频繁的换页操作，当前系统的物理内存已经不能满足您的需要，请考虑升级系统内存。
 
 
