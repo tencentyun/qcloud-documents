@@ -89,7 +89,7 @@
 <td>5.6</td>
 </tr>
 <tr>
-<td>H.264</td>
+<td rowspan=3>H.264</td>
 <td>标清（SD）</td>
 <td>不高于640 × 480（含）</td>
 <td>16.00</td>
@@ -98,13 +98,11 @@
 <td>高清（HD）</td>
 <td>640 × 480 - 1280 × 720（含）</td>
 <td>32.5</td>
-<td></td>
 </tr>
 <tr>
 <td>超高清（Full HD）</td>
 <td>1280 × 720 - 1920 × 1440（含）</td>
 <td>63</td>
-<td></td>
 </tr>
 </tbody></table>
 
