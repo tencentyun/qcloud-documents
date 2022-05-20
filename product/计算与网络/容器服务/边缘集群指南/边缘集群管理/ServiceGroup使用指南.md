@@ -1,60 +1,57 @@
-# 边缘应用管理利器: ServiceGroup
 
-# 功能背景
 
-## 边缘特点
+##  功能特点
 
 - 边缘计算场景中，往往会在同一个集群中管理多个边缘站点，每个边缘站点内有一个或多个计算节点。
-- 同时希望在每个站点中都运行一组有业务逻辑联系的服务，每个站点内的服务是一套完整的功能，可以为用户提供服务
-- 由于受到网络限制，有业务联系的服务之间不希望或者不能跨站点访问
+- 同时希望在每个站点中都运行一组有业务逻辑联系的服务，每个站点内的服务是一套完整的功能，可以为用户提供服务。
+- 由于受到网络限制，有业务联系的服务之间不希望或者不能跨站点访问。
 
-# 操作场景
 
-serviceGroup可以便捷地在共属同一个集群的不同机房或区域中各自部署一组服务，并且使得各个服务间的请求在本机房或本地域内部即可完成，避免服务跨地域访问。
+## 操作场景
 
-原生 k8s 无法控制deployment的pod创建的具体节点位置，需要通过统筹规划节点的亲和性来间接完成，当边缘站点数量以及需要部署的服务数量过多时，管理和部署方面的极为复杂，乃至仅存在理论上的可能性；
+ServiceGroup 可以便捷地在共属同一个集群的不同机房或区域中各自部署一组服务，并且使得各个服务间的请求在本机房或本地域内部即可完成，避免服务跨地域访问。
 
-与此同时，为了将服务间的相互调用限制在一定范围，业务方需要为各个deployment分别创建专属的service，管理方面的工作量巨大且极容易出错并引起线上业务异常。
+原生 Kubernetes 无法控制 deployment(工作负载）的 pod 创建的具体节点位置，需要通过统筹规划节点的亲和性来间接完成，当边缘站点数量以及需要部署的服务数量过多时，管理和部署方面的极为复杂，乃至仅存在理论上的可能性；与此同时，为了将服务间的相互调用限制在一定范围，业务方需要为各个 deployment 分别创建专属的 service，管理方面的工作量巨大且极容易出错并引起线上业务异常。
 
-serviceGroup就是为这种场景设计的，客户只需要使用ServiceGroup提供的DeploymentGrid，StatefulSetGrid以及ServiceGrid三种SuperEdge自研的kubernetes 资源，即可方便地将服务分别部署到这些节点组中，并进行服务流量管控，另外，还能保证各区域服务数量及容灾。
+ServiceGroup 就是为这种场景设计的，客户只需要使用 ServiceGroup 提供的 DeploymentGrid，StatefulSetGrid 以及 ServiceGrid 三种 SuperEdge 自研的 kubernetes 资源，即可方便地将服务分别部署到这些节点组中，并进行服务流量管控，另外，还能保证各区域服务数量及容灾。
 
 本文以详细的案例结合具体的实现原理，来详细说明 ServiceGroup 的使用场景以及需要关注的细节问题
 
-# 关键概念
+## 关键概念
 
-## 整体架构
+### 整体架构
 
 <div align="left">
   <img src="https://qcloudimg.tencent-cloud.cn/raw/6f7a13796a04fed2ae418d5f7b822aae.png" width=70% title="service-group">
 </div>
 
-## 基本概念介绍
+### 基本概念
 
 > 关于 NodeUnit 和 NodeGroup 最新版设计可以参考链接：[边缘节点池和边缘节点池分类设计文档](https://github.com/superedge/superedge/blob/main/docs/components/site-manager_CN.md)
 
-### NodeUnit（边缘节点池）
+#### NodeUnit（边缘节点池）
 
-- NodeUnit通常是位于同一边缘站点内的一个或多个计算资源实例，需要保证同一NodeUnit中的节点内网是通的
-- ServiceGroup组中的服务运行在一个NodeUnit之内
-- ServiceGroup 允许用户设置服务在一个 NodeUnit中运行的pod数量
+- NodeUnit 通常是位于同一边缘站点内的一个或多个计算资源实例，需要保证同一 NodeUnit 中的节点内网是通的
+- ServiceGroup 组中的服务运行在一个 NodeUnit 之内
+- ServiceGroup 允许用户设置服务在一个 NodeUnit 中运行的 pod 数量
 - ServiceGroup 能够把服务之间的调用限制在本 NodeUnit 内
 
-### NodeGroup（边缘节点池分类）
+#### NodeGroup（边缘节点池分类）
 
 - NodeGroup 包含一个或者多个 NodeUnit
-- 保证在集合中每个 NodeUnit上均部署ServiceGroup中的服务
+- 保证在集合中每个 NodeUnit 上均部署 ServiceGroup 中的服务
 - 集群中增加 NodeUnit 时自动将 ServiceGroup 中的服务部署到新增 NodeUnit
 
-### ServiceGroup
+#### ServiceGroup
 
-- ServiceGroup 包含一个或者多个业务服务:适用场景：1）业务需要打包部署；2）或者，需要在每一个 NodeUnit 中均运行起来并且保证pod数量；3）或者，需要将服务之间的调用控制在同一个 NodeUnit 中，不能将流量转发到其他 NodeUnit。
-- 注意：ServiceGroup是一种抽象资源，一个集群中可以创建多个ServiceGroup
+- ServiceGroup 包含一个或者多个业务服务：适用场景：1）业务需要打包部署；2）或者，需要在每一个 NodeUnit 中均运行起来并且保证 pod 数量；3）或者，需要将服务之间的调用控制在同一个 NodeUnit 中，不能将流量转发到其他 NodeUnit。
+- 注意：ServiceGroup 是一种抽象资源，一个集群中可以创建多个 ServiceGroup
 
 **ServiceGroup 涉及的资源类型包括如下三类：**
 
 ####  DeploymentGrid
 
-DeploymentGrid的格式与Deployment类似，<deployment-template>字段就是原先deployment的template字段，比较特殊的是gridUniqKey字段，该字段指明了节点分组的label的key值：
+DeploymentGrid 的格式与 Deployment 类似，<deployment-template>字段就是原先 deployment 的 template 字段，比较特殊的是 gridUniqKey 字段，该字段指明了节点分组的 label 的 key 值：
 
 ```yaml
 apiVersion: superedge.io/v1
@@ -69,7 +66,7 @@ spec:
 
 #### StatefulSetGrid
 
-StatefulSetGrid的格式与StatefulSet类似，<statefulset-template>字段就是原先statefulset的template字段，比较特殊的是gridUniqKey字段，该字段指明了节点分组的label的key值：
+StatefulSetGrid 的格式与 StatefulSet 类似，<statefulset-template>字段就是原先 statefulset 的 template 字段，比较特殊的是 gridUniqKey 字段，该字段指明了节点分组的 label 的 key 值：
 
 ```yaml
 apiVersion: superedge.io/v1
@@ -84,7 +81,7 @@ spec:
 
 #### ServiceGrid
 
-ServiceGrid的格式与Service类似，<service-template>字段就是原先service的template字段，比较特殊的是gridUniqKey字段，该字段指明了节点分组的label的key值：
+ServiceGrid 的格式与 Service 类似，<service-template>字段就是原先 service 的 template 字段，比较特殊的是 gridUniqKey 字段，该字段指明了节点分组的 label 的 key 值：
 
 ```yaml
 apiVersion: superedge.io/v1
@@ -99,15 +96,15 @@ spec:
 
 # 操作步骤
 
-以在边缘部署echo-service为例，我们希望在多个节点组内分别部署echo-service服务，需要做如下事情：
+以在边缘部署 echo-service 为例，我们希望在多个节点组内分别部署 echo-service 服务，需要做如下事情：
 
-## 确定ServiceGroup唯一标识
+## 确定 ServiceGroup 唯一标识
 
-这一步是逻辑规划，不需要做任何实际操作。我们将目前要创建的serviceGroup逻辑标记使用的UniqKey为：`location`
+这一步是逻辑规划，不需要做任何实际操作。我们将目前要创建的 ServiceGroup 逻辑标记使用的 UniqKey 为：`location`
 
 ## 将边缘节点分组
 
-如下图，我们以一个边缘集群为例，将集群中的节点添加到`边缘节点池`以及`边缘节点池分类`中。为了简单起见，这个示例用公有云界面来操作，SuperEdge开源用户可以参考[边缘节点池和边缘节点池分类设计文档](https://github.com/superedge/superedge/blob/main/docs/components/site-manager_CN.md) 来使用 CRD 进行操作完成下面的步骤
+如下图，我们以一个边缘集群为例，将集群中的节点添加到`边缘节点池`以及`边缘节点池分类`中。为了简单起见，这个示例用公有云界面来操作，SuperEdge 开源用户可以参考 [边缘节点池和边缘节点池分类设计文档](https://github.com/superedge/superedge/blob/main/docs/components/site-manager_CN.md) 来使用 CRD 进行操作完成下面的步骤
 
 此集群包含 6 个边缘节点，分别位于北京/广州 2 个地域，节点名为`bj-1` `bj-2` `bj-3`  `gz-1` `gz-2`  `gz-3`
 
@@ -115,7 +112,7 @@ spec:
   <img src="https://qcloudimg.tencent-cloud.cn/raw/3c4b3bf3cf84a0abace4a95172c7df17.png" width=100% title="node-list">
 </div>
 
-然后我们分别创建 2 个NodeUnit（边缘节点池）：`beijing`  `guangzhou` ，分别将相应的节点加入对应的 NodeUnit（边缘节点池）中，如下图
+然后我们分别创建 2 个 NodeUnit（边缘节点池）：`beijing`  `guangzhou` ，分别将相应的节点加入对应的 NodeUnit（边缘节点池）中，如下图
 
 <div align="left">
   <img src="https://qcloudimg.tencent-cloud.cn/raw/2a8e7dba8888727561c9d282d2f800b6.png" width=100% title="service-group">
@@ -133,13 +130,13 @@ spec:
   <img src="https://qcloudimg.tencent-cloud.cn/raw/66a28a98c5c92b70dc23dce6b070b922.jpg" width=50% title="service-group">
 </div>
 
-注意：上一步中，label的key 就是 NodeGroup 的名字，同时与ServiceGroup的UniqKey一致，value是NodeUnit的唯一key，value相同的节点表示属于同一个NodeUnit
+注意：上一步中，label 的 key 就是 NodeGroup 的名字，同时与 ServiceGroup 的 UniqKey 一致，value 是 NodeUnit 的唯一 key，value 相同的节点表示属于同一个 NodeUnit
 
-如果同一个集群中有多个NodeGroup 请为每一个NodeGroup 分配不同的UniqKey，部署ServiceGroup 相关资源的时候会通过 UniqKey 来绑定指定的 NodeGroup 进行部署
+如果同一个集群中有多个 NodeGroup 请为每一个 NodeGroup 分配不同的 UniqKey，部署 ServiceGroup 相关资源的时候会通过 UniqKey 来绑定指定的 NodeGroup 进行部署
 
-## 无状态ServiceGroup
+## 无状态 ServiceGroup
 
-### 部署DeploymentGrid
+### 部署 DeploymentGrid
 
 ```yaml
 apiVersion: superedge.io/v1
@@ -187,7 +184,7 @@ spec:
           resources: {}
 ```
 
-### 部署ServiceGrid
+### 部署 ServiceGrid
 
 ```yaml
 apiVersion: superedge.io/v1
@@ -206,7 +203,7 @@ spec:
       targetPort: 8080
 ```
 
-gridUniqKey字段设置为了location，所以我们在将节点分组时采用label的key为location；这时，`bejing` 和 `guangzhou` 的 NodeUnit内都有了echo-service的deployment和对应的pod，在节点内访问统一的service-name也只会将请求发向本组的节点
+gridUniqKey 字段设置为了 location，所以我们在将节点分组时采用 label 的 key 为 location；这时，`bejing` 和 `guangzhou` 的 NodeUnit 内都有了 echo-service 的 deployment 和对应的 pod，在节点内访问统一的 service-name 也只会将请求发向本组的节点
 
 ```shell
 [~]# kubectl get dg
@@ -256,15 +253,15 @@ Events:            <none>
 [~]# curl 172.16.33.231|grep "node name"
         node name:      gz-2
 ...
-# 这里会随机返回 gz-2 或者 gz-3 的 node 名称，并不会跨 NodeUnit 访问到 bj-1或者 bj-3
+# 这里会随机返回 gz-2 或者 gz-3 的 node 名称，并不会跨 NodeUnit 访问到 bj-1 或者 bj-3
 
 # 在 guangzhou 地域的 pod 执行下面的命令
 [~]# curl 172.16.33.231|grep "node name"
         node name:      bj-3
-# 这里会随机返回 bj-1或者 bj-3 的 node 名称，并不会跨 NodeUnit 访问到 gz-2 或者 gz-3
+# 这里会随机返回 bj-1 或者 bj-3 的 node 名称，并不会跨 NodeUnit 访问到 gz-2 或者 gz-3
 ```
 
-另外，对于部署了DeploymentGrid和ServiceGrid后才添加进集群的节点组，该功能会在新的节点组内自动创建指定的deployment
+另外，对于部署了 DeploymentGrid 和 ServiceGrid 后才添加进集群的节点组，该功能会在新的节点组内自动创建指定的 deployment
 
 ### 原理解析
 
@@ -275,11 +272,10 @@ Events:            <none>
 </div>
 简单的原理剖析：
 
-- 当创建一个 DeploymentGrid 的时候，通过云端的 application-grid-controller 服务，会分别在每个NodeUnit 上生成一个单独的标准 Deployment（例如 deploymentgrid-demo-beijing-XXXXX）
+- 当创建一个 DeploymentGrid 的时候，通过云端的 application-grid-controller 服务，会分别在每个 NodeUnit 上生成一个单独的标准 Deployment（例如 deploymentgrid-demo-beijing-XXXXX）
 - 当创建相应的 ServiceGrid 的时候，会在集群中创建一个标准的 Service，如上图`servicegrid-demo-svc`
 - 这个时候其实都是标准的 Deployment 和标准 Service，这两个行为其实都没有办法根据 NodeUnit 实现流量闭环。这个时候其实就需要`application-grid-wrapper` 这个组件来参与了
-- 从上图可以看到`application-grid-wrapper` 组件部署在每一个边缘 node 上，同时边缘侧`kube-proxy` 会通过`application-grid-wrapper`和 apiserver 通信，获取相应资源信息；这里`application-grid-wrapper`会监听 ServiceGrid的CRD 信息，同时在获取到对应的 Service 的 Endpoint 信息后，就会根据所在 NodeUnit 的节点信息进行筛选，将不在同一 NodeUnit 的 Node 上的 Endpoint 剔除，传递给`kube-proxy`更新 iptables 规则。下面就是左侧`bj-3` 北京地域节点上的 iptables 规则：
-
+- 从上图可以看到`application-grid-wrapper` 组件部署在每一个边缘 node 上，同时边缘侧`kube-proxy` 会通过`application-grid-wrapper`和 apiserver 通信，获取相应资源信息；这里`application-grid-wrapper`会监听 ServiceGrid 的 CRD 信息，同时在获取到对应的 Service 的 Endpoint 信息后，就会根据所在 NodeUnit 的节点信息进行筛选，将不在同一 NodeUnit 的 Node 上的 Endpoint 剔除，传递给`kube-proxy`更新 iptables 规则。下面就是左侧`bj-3` 北京地域节点上的 iptables 规则：
 
 ```shell
 -A KUBE-SERVICES -d 172.16.33.231/32 -p tcp -m comment --comment "default/servicegrid-demo-svc: cluster IP" -m tcp --dport 80 -j KUBE-SVC-MLDT4NC26VJPGLP7
@@ -295,7 +291,7 @@ Events:            <none>
 
 - 从上面规则分析可以看到，`beijing`地域中，172.16.33.231 的 ClusterIP 只会分流到`10.0.1.72`和`10.0.0.70`两个后端 Endpooint 上，对应两个 pod：`deploymentgrid-demo-beijing-65d669b7d-v9zdr`和`deploymentgrid-demo-beijing-65d669b7d-wrx7r`，而且不会添加上`guangzhou`地域的两个 IP 10.0.0.139 和 10.0.1.8，按照这样的逻辑，就可以在不同的 NodeUnit 中实现流量闭环能力了
 
-> **需要注意以下2个场景：**
+> **需要注意以下 2 个场景：**
 >
 > - DeploymentGrid + 标准 Service 能否实现流量闭环？
 >
@@ -366,11 +362,9 @@ Events:            <none>
 >
 > - 通过上述的分析，其实可以理解：如果访问 Service 的行为会通过 `kube-proxy`的 iptables 规则去进行转发，同时 Service 是 SerivceGrid 类型，会被`application-grid-wrapper`监听的话，就可以实现区域流量闭环；如果是通过 DNS 获取的实际 Endpoint IP 地址，这样就无法实现流量闭环
 
+## 有状态 ServiceGroup
 
-
-## 有状态ServiceGroup
-
-### 部署StatefulSetGrid
+### 部署 StatefulSetGrid
 
 ```yaml
 apiVersion: superedge.io/v1
@@ -418,9 +412,9 @@ spec:
           resources: {}
 ```
 
-**注意：template中的serviceName设置成即将创建的service名称**
+**注意：template 中的 serviceName 设置成即将创建的 service 名称**
 
-### 部署ServiceGrid
+### 部署 ServiceGrid
 
 ```yaml
 apiVersion: superedge.io/v1
@@ -439,7 +433,7 @@ spec:
       targetPort: 8080
 ```
 
-gridUniqKey字段设置为了location，因此这个 NodeGroup 依然包含`beijing`和`guangzhou`两个 NodeUnit，每个 NodeUnit 内都有了echo-service的statefulset和对应的pod，在节点内访问统一的service-name也只会将请求发向本组的节点
+gridUniqKey 字段设置为了 location，因此这个 NodeGroup 依然包含`beijing`和`guangzhou`两个 NodeUnit，每个 NodeUnit 内都有了 echo-service 的 statefulset 和对应的 pod，在节点内访问统一的 service-name 也只会将请求发向本组的节点
 
 ```shell
 [~]# kubectl get ssg
@@ -512,11 +506,11 @@ Events:            <none>
 
 通过 iptables 规则很明显的可以看到对 `servicegrid-demo-svc`的访问分别 redirect 到了 `10.0.0.136` `10.0.0.138` `10.0.1.7`这 3 个地址，分别对应的就是 guangzhou 地域的 3 个 pod 的 IP 地址
 
-可以看到，如果是StatefulsetGrid + 标准 ServiceGrid 访问方式的话，其原理和上面的 DeploymentGrid 原理一致，都是通过`application-grid-wrapper`配合`kube-proxy`修改 iptables 规则来实现的，没有任何区别
+可以看到，如果是 StatefulsetGrid + 标准 ServiceGrid 访问方式的话，其原理和上面的 DeploymentGrid 原理一致，都是通过`application-grid-wrapper`配合`kube-proxy`修改 iptables 规则来实现的，没有任何区别
 
 ### StatefusetGrid + Headless Service 支持
 
-StatefulSetGrid目前支持使用Headless service**配合Pod FQDN**的方式进行闭环访问，如下所示：
+StatefulSetGrid 目前支持使用 Headless service **配合 Pod FQDN **的方式进行闭环访问，如下所示：
 
 <div align="left">
   <img src="https://qcloudimg.tencent-cloud.cn/raw/d4e2d4b058d8bf99046e7c252721b6d3.jpg" width=100% title="stsgrid">
@@ -565,7 +559,7 @@ Session Affinity:  None
 Events:            <none>
 ```
 
-这里可以看到 Service 的 ClusterIP 为空，Endpoint 仍然包含 6 个 pod 的IP 地址，同时，如果通过域名查询 `servicegrid-demo-svc.default.svc.cluster.local`会得到下面的信息：
+这里可以看到 Service 的 ClusterIP 为空，Endpoint 仍然包含 6 个 pod 的 IP 地址，同时，如果通过域名查询 `servicegrid-demo-svc.default.svc.cluster.local`会得到下面的信息：
 
 ```shell
 [~]# nslookup servicegrid-demo-svc.default.svc.cluster.local
@@ -590,7 +584,7 @@ Address: 10.0.0.67
 
 #### 如何在一个 NodeUnit 内支持 Statefulset 标准访问方式
 
-在一个标准的 K8s 环境中，按照 Statefulset 的标准使用方式，我们会使用一种逻辑来访问 Statefulset 中的 Pod ，类似`Statefulset-0.SVC.NS.svc.cluster.local` 这样的格式，例如我们想要使用`statefulsetgrid-demo-0.servicegrid-demo-svc.default.svc.cluster.local`来访问这个 Statefulset 中的 Pod-0，SuperEdge 针对这个场景进行了多NodeUnit 的能力适配。
+在一个标准的 K8s 环境中，按照 Statefulset 的标准使用方式，我们会使用一种逻辑来访问 Statefulset 中的 Pod ，类似`Statefulset-0.SVC.NS.svc.cluster.local` 这样的格式，例如我们想要使用`statefulsetgrid-demo-0.servicegrid-demo-svc.default.svc.cluster.local`来访问这个 Statefulset 中的 Pod-0，SuperEdge 针对这个场景进行了多 NodeUnit 的能力适配。
 
 由于 Statefulset 的 Pod 都有独立的 DNS 域名，可以通过 FQDN 方式来访问单独的 pod，例如可以查询`statefulsetgrid-demo-beijing-0`域名：
 
@@ -609,7 +603,7 @@ Address: 10.0.0.67
 >
 > 在`guangzhou`地域访问的就是`statefulsetgrid-demo-guangzhou-0.servicegrid-demo-svc.default.svc.cluster.local` 这个 Pod 的 IP
 
-上图中使用 CoreDNS 两条记录指向相同的 Pod IP ，这个能力就可以实现上述的标准访问需求。因此 **SuperEdge 在产品层面提供了相应的能力**，在公有云产品上需要在控制台手动开启，如下图（如果是SuperEdge 开源用户，需要独立部署下面的Daemonset服务）：
+上图中使用 CoreDNS 两条记录指向相同的 Pod IP ，这个能力就可以实现上述的标准访问需求。因此 **SuperEdge 在产品层面提供了相应的能力**，在公有云产品上需要在控制台手动开启，如下图（如果是 SuperEdge 开源用户，需要独立部署下面的 Daemonset 服务）：
 
 <div align="left">
   <img src="https://qcloudimg.tencent-cloud.cn/raw/bfac0ebb940f7539860e23fcb71be650.png" width=100% title="deploymentgrid">
@@ -626,19 +620,19 @@ edge-system   statefulset-grid-daemon-v9llj      1/1     Running   0          7h
 edge-system   statefulset-grid-daemon-w7lpt      1/1     Running   0          7h42m   192.168.10.7    bj-2   <none>           <none>
 ```
 
-现在，在某个 NodeUnit 内使用统一headless service访问形式，例如访问如下DNS 获取的 IP 地址：
+现在，在某个 NodeUnit 内使用统一 headless service 访问形式，例如访问如下 DNS 获取的 IP 地址：
 
 ```
 {StatefulSet}-{0..N-1}.SVC.default.svc.cluster.local
 ```
 
-实际就会访问这个 NodeUnit 下具体pod的 FQDN 地址获取的是同一 Pod IP：
+实际就会访问这个 NodeUnit 下具体 pod 的 FQDN 地址获取的是同一 Pod IP：
 
 ```
 {StatefulSet}-{NodeUnit}-{0..N-1}.SVC.default.svc.cluster.local
 ```
 
-例如，在`beijing`地域访问 `statefulsetgrid-demo-0.servicegrid-demo-svc.default.svc.cluster.local`DNS的 IP 地址和 `statefulsetgrid-demo-beijing-0.servicegrid-demo-svc.default.svc.cluster.local`域名返回的 IP 地址是一样的，如下图
+例如，在`beijing`地域访问 `statefulsetgrid-demo-0.servicegrid-demo-svc.default.svc.cluster.local`DNS 的 IP 地址和 `statefulsetgrid-demo-beijing-0.servicegrid-demo-svc.default.svc.cluster.local`域名返回的 IP 地址是一样的，如下图
 
 ```shell
 # 在 guangzhou 地域执行 nslookup 指令
@@ -672,7 +666,7 @@ Name:   statefulsetgrid-demo-beijing-0.servicegrid-demo-svc.default.svc.cluster.
 Address: 10.0.0.67
 ```
 
-每个NodeUnit通过相同的headless service只会访问本 NodeUnit 内的pod
+每个 NodeUnit 通过相同的 headless service 只会访问本 NodeUnit 内的 pod
 
 ```bash
 # 在 guangzhou 区域执行下面的命令
@@ -698,33 +692,31 @@ Address: 10.0.0.67
   <img src="https://qcloudimg.tencent-cloud.cn/raw/1994c43bbce0886f9946dea017b9a960.jpg" width=100% title="statefulsetgrid">
 </div>
 
-上图描述了 StatefulsetGrid+Headless Service 的实现原理，主要就是在边缘节点侧部署了`statefulset-grid-daemon`的组件，会监听`StatefulsetGrid`的资源信息；同时刷新边缘侧 CoreDNS 的相关记录，根据所在 NodeUnit 地域，添加`{StatefulSet}-{0..N-1}.SVC.default.svc.cluster.local`域名记录，和标准的 Pod FQDN记录 `{StatefulSet}-{NodeUnit}-{0..N-1}.SVC.default.svc.cluster.local`指向同一 Pod 的 IP 地址。具体如何实现 CoreDNS 域名更新可以参考源代码实现。
+上图描述了 StatefulsetGrid+Headless Service 的实现原理，主要就是在边缘节点侧部署了`statefulset-grid-daemon`的组件，会监听`StatefulsetGrid`的资源信息；同时刷新边缘侧 CoreDNS 的相关记录，根据所在 NodeUnit 地域，添加`{StatefulSet}-{0..N-1}.SVC.default.svc.cluster.local`域名记录，和标准的 Pod FQDN 记录 `{StatefulSet}-{NodeUnit}-{0..N-1}.SVC.default.svc.cluster.local`指向同一 Pod 的 IP 地址。具体如何实现 CoreDNS 域名更新可以参考源代码实现。
 
-> **根据上面的描述，读者应该可以清晰分析清楚DeploymentGrid/StatefulsetGrid 配合 ServiceGrid/Headless Service，在各种搭配使用的场景下具体细节的能力了。**
+> **根据上面的描述，读者应该可以清晰分析清楚 DeploymentGrid/StatefulsetGrid 配合 ServiceGrid/Headless Service，在各种搭配使用的场景下具体细节的能力了。**
 
+## 按 NodeUnit 灰度
 
-
-## 按NodeUnit灰度
-
-DeploymentGrid和StatefulSetGrid均支持按照NodeUnit进行灰度
+DeploymentGrid 和 StatefulSetGrid 均支持按照 NodeUnit 进行灰度
 
 ### 重要字段
 和灰度功能相关的字段有这些：
 
 autoDeleteUnusedTemplate，templatePool，templates，defaultTemplateName
 
-templatePool：用于灰度的template集合
+templatePool：用于灰度的 template 集合
 
-templates：NodeUnit和其使用的templatePool中的template的映射关系，如果没有指定，NodeUnit使用defaultTemplateName指定的template
+templates：NodeUnit 和其使用的 templatePool 中的 template 的映射关系，如果没有指定，NodeUnit 使用 defaultTemplateName 指定的 template
 
-defaultTemplateName：默认使用的template，如果不填写或者使用"default"就采用spec.template
+defaultTemplateName：默认使用的 template，如果不填写或者使用"default"就采用 spec.template
 
-autoDeleteUnusedTemplate：默认为false，如果设置为true，会自动删除templatePool中既不在templates中也不在spec.template中的template模板
+autoDeleteUnusedTemplate：默认为 false，如果设置为 true，会自动删除 templatePool 中既不在 templates 中也不在 spec.template 中的 template 模板
 
-### 使用相同的template创建workload
-和上面的DeploymentGrid和StatefulsetGrid例子完全一致，如果不需要使用灰度功能，则无需添加额外字段
+### 使用相同的 template 创建 workload
+和上面的 DeploymentGrid 和 StatefulsetGrid 例子完全一致，如果不需要使用灰度功能，则无需添加额外字段
 
-### 使用不同的template创建workload
+### 使用不同的 template 创建 workload
 ```yaml
 apiVersion: superedge.io/v1
 kind: DeploymentGrid
@@ -847,31 +839,31 @@ spec:
     zone1: test1
     zone2: test2
 ```
-这个例子中，NodeUnit zone1将会使用test1 template，NodeUnit zone2将会使用test2 template，其余NodeUnit将会使用defaultTemplateName中指定的template，这里
-会使用test1
+这个例子中，NodeUnit zone1 将会使用 test1 template，NodeUnit zone2 将会使用 test2 template，其余 NodeUnit 将会使用 defaultTemplateName 中指定的 template，这里
+会使用 test1
 
 ## 多集群分发
-支持DeploymentGrid和ServiceGrid的多集群分发，分发的同时也支持多地域灰度，当前基于的多集群管理方案为[clusternet](https://github.com/clusternet/clusternet)
+支持 DeploymentGrid 和 ServiceGrid 的多集群分发，分发的同时也支持多地域灰度，当前基于的多集群管理方案为 [clusternet](https://github.com/clusternet/clusternet)
 
 ### 特点
-- 支持多集群的按NodeUnit灰度
+- 支持多集群的按 NodeUnit 灰度
 - 保证控制集群和被纳管集群应用的强一致和同步更新/删除，做到一次操作，多集群部署
 - 在控制集群可以看到聚合的各分发实例的状态
-- 支持节点地域信息更新情况下应用的补充分发：如原先不属于某个NodeGroup的集群，更新节点信息后加入了NodeGroup，控制集群中的应用会及时向该集群补充下发
+- 支持节点地域信息更新情况下应用的补充分发：如原先不属于某个 NodeGroup 的集群，更新节点信息后加入了 NodeGroup，控制集群中的应用会及时向该集群补充下发
 
 ### 前置条件
-- 集群部署了SuperEdge中的组件，如果没有Kubernetes集群，可以通过edgeadm进行创建，如果已有Kubernetes集群，可以通过edageadm的addon部署SuperEdge相关组件，将集群转换为一个SuperEdge边缘集群
-- 通过clusternet进行集群的注册和纳管
+- 集群部署了 SuperEdge 中的组件，如果没有 Kubernetes 集群，可以通过 edgeadm 进行创建，如果已有 Kubernetes 集群，可以通过 edageadm 的 addon 部署 SuperEdge 相关组件，将集群转换为一个 SuperEdge 边缘集群
+- 通过 clusternet 进行集群的注册和纳管
 
 ### 重要字段
-如果要指定某个DeploymentGrid或ServiceGrid需要进行多集群的分发，则在其label中添加`superedge.io/fed`，并置为"yes"
+如果要指定某个 DeploymentGrid 或 ServiceGrid 需要进行多集群的分发，则在其 label 中添加`superedge.io/fed`，并置为"yes"
 
 ### 使用示例
-创建3个集群，分别为一个管控集群和2个被纳管的边缘集群A,B，通过clusternet进行注册和纳管
+创建 3 个集群，分别为一个管控集群和 2 个被纳管的边缘集群 A,B，通过 clusternet 进行注册和纳管
 
-其中A集群中一个节点添加zone: zone1的label，加入NodeUnit zone1；集群B不加入NodeGroup
+其中 A 集群中一个节点添加 zone: zone1 的 label，加入 NodeUnit zone1；集群 B 不加入 NodeGroup
 
-在管控集群中创建DeploymentGrid，其中labels中添加了superedge.io/fed: "yes"，表示该DeploymentGrid需要进行集群的分发，同时灰度指定分发出去的应用在zone1和zone2中使用不同的副本个数
+在管控集群中创建 DeploymentGrid，其中 labels 中添加了 superedge.io/fed: "yes"，表示该 DeploymentGrid 需要进行集群的分发，同时灰度指定分发出去的应用在 zone1 和 zone2 中使用不同的副本个数
 ```yaml
 apiVersion: superedge.io/v1
 kind: DeploymentGrid
@@ -997,22 +989,22 @@ spec:
     zone2: test2
 ```
 
-创建完成后，可以看到在纳管的A集群中，创建了对应的Deployment，而且依照其NodeUnit信息，有两个实例。
+创建完成后，可以看到在纳管的 A 集群中，创建了对应的 Deployment，而且依照其 NodeUnit 信息，有两个实例。
 ```bash
 [root@VM-0-174-centos ~]# kubectl get deploy
 NAME                        READY   UP-TO-DATE   AVAILABLE   AGE
 deploymentgrid-demo-zone1   2/2     2            2           99s
 ```
-如果在纳管的A集群中手动更改了deployment的相应字段，会以管控集群的为模板更新回来
+如果在纳管的 A 集群中手动更改了 deployment 的相应字段，会以管控集群的为模板更新回来
 
-B集群中的一个节点添加zone: zone2的label，将其加入NodeUnit zone2;管控集群会及时向该集群补充下发zone2对应的应用
+B 集群中的一个节点添加 zone: zone2 的 label，将其加入 NodeUnit zone2; 管控集群会及时向该集群补充下发 zone2 对应的应用
 ```bash
 [root@VM-0-42-centos ~]# kubectl get deploy
 NAME                        READY   UP-TO-DATE   AVAILABLE   AGE
 deploymentgrid-demo-zone2   3/3     3            3           6s
 ```
 
-在管控集群查看deploymentgrid-demo的状态，可以看到被聚合在一起的各个被纳管集群的应用状态，便于查看
+在管控集群查看 deploymentgrid-demo 的状态，可以看到被聚合在一起的各个被纳管集群的应用状态，便于查看
 ```yaml
 status:
   states:
