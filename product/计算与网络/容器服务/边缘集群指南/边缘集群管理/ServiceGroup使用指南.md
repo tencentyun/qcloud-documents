@@ -1010,7 +1010,7 @@ spec:
 NAME                        READY   UP-TO-DATE   AVAILABLE   AGE
 deploymentgrid-demo-zone1   2/2     2            2           99s
 ```
-如果在纳管的 A 集群中手动更改了 deployment 的相应字段，会以管控集群的为模板更新回来。
+如果在纳管的 A 集群中手动更改了 deployment 的相应字段，会以管控集群为模板更新回来。
 
 B 集群中的一个节点添加 zone: zone2 的 label，将其加入 NodeUnit zone2，管控集群会及时向该集群补充下发 zone2 对应的应用。
 ```bash
