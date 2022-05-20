@@ -1,4 +1,4 @@
-﻿对 Iceberg 表的分区字段信息进行删除操作。
+对 Iceberg 表的分区字段信息进行删除操作。
 ## 语法
 ```
 ALTER TABLE table_name ADD PARTITION partition_column | hidden_partition_spec
