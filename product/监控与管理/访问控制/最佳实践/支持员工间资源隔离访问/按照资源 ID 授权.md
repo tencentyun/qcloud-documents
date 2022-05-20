@@ -38,7 +38,7 @@
 
 ### 步骤1：创建策略并授权
 1. 使用管理员账号登录访问管理控制台，在 [策略](https://console.cloud.tencent.com/cam/policy/createV3) 页面，按照策略生成器创建自定义策略（参考 [创建自定义策略 - 按策略生成器创建](https://cloud.tencent.com/document/product/598/37739#.E6.8C.89.E7.AD.96.E7.95.A5.E7.94.9F.E6.88.90.E5.99.A8.E5.88.9B.E5.BB.BA)）。
-<img src="https://qcloudimg.tencent-cloud.cn/raw/f6723fd6132e0d4068a0a3f1aa0ad01f.png">  
+![](https://qcloudimg.tencent-cloud.cn/raw/c97abb4b536c87191a2471411309681b.png)
 	- 效果：允许
 	- 服务：云服务器cvm
 	- 操作：全部操作
