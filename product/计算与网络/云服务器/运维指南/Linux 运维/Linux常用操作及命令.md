@@ -1,48 +1,48 @@
-## 1. 什么是 Linux 服务器 Load Average？
+### 什么是 Linux 服务器 Load Average？
 
 Load 是用来度量服务器工作量的大小，即计算机 CPU 任务执行队列的长度，值越大，表明包括正在运行和待运行的进程数越多。
 
-## 2. 如何查看 Linux 服务器负载？
+### 如何查看 Linux 服务器负载？
 
 您可以通过执行 `w`，`top`，`uptime`，`procinfo` 命令，或者访问 `/proc/loadavg` 文件进行查看。
 procinfo 工具安装请参考 Linux 环境下安装软件的相关文档。 
 
-## 3. 服务器负载高怎么办？
+### 服务器负载高怎么办？
 
 服务器负载（Load/Load Average）是根据进程队列的长度来显示的。当服务器出现负载高的现象时（建议以15分钟平均值为参考），可能由于 CPU 资源不足，I/O 读写瓶颈，内存资源不足，CPU 正在进行密集型计算等原因造成。建议使用 `vmstat`，`iostat`，`top` 命令判断负载过高的原因，并找到具体占用大量资源的进程进行优化处理。 
 
-## 4. 如何查看服务器内存使用率？
+### 如何查看服务器内存使用率？
 
 您可以通过执行 `free`，`top`（执行后可通过 `shift+m` 对内存排序），`vmstat`，`procinfo` 命令，或者访问 `/proc/meminfo` 文件进行查看。 
 
-## 5. 如何查看单个进程占用的内存大小？
+### 如何查看单个进程占用的内存大小？
 
 您可以通过执行 `top -p PID`，`pmap -x PID`，`ps aux|grep PID` 命令，或者访问 `/proc/$process_id（进程的 PID）/status` 文件进行查看，例如 /proc/7159/status 文件。 
 
-## 6. 如何查看正在使用的服务和端口？
+### 如何查看正在使用的服务和端口？
 
 您可以通过执行 `netstat -tunlp`，`netstat -antup`，`lsof -i:PORT` 命令进行查看。 
 
-## 7. 如何查看服务器进程信息？
+### 如何查看服务器进程信息？
 
 您可以通过执行 `ps auxww|grep PID`，`ps -ef`，`lsof -p PID`，`top -p PID` 命令进行查看。 
 
-## 8. 如何停止进程？
+### 如何停止进程？
 
 您可以通过执行 `kill -9 PID`（PID 表示进程号），`killall 程序名`（例如 killall cron）来停止进程。
 如果需要停止僵尸进程，则需要杀掉进程的父进程，执行的命令为： `kill -9 ppid`（ppid 为父进程 ID 号，可以通过 `ps -o ppid PID` 命令进行查找，例如 ps -o ppid 32535）。 
 
-## 9. 如何查找僵尸进程？
+### 如何查找僵尸进程？
 
 您可以通过执行 `top` 命令查看僵尸进程（zombie）的总数，通过执行 `ps -ef | grep defunct | grep -v grep` 查找具体僵尸进程的信息。 
 
-## 10. 为什么启动不了服务器端口？
+### 为什么启动不了服务器端口？
 
 服务器端口的启动监听，需要从操作系统本身以及应用程序查看。
 Linux 操作系统1024以下的端口只能由 root 用户启动，即需要先运行 `sudo su –` 获取 root 权限后再启用服务端口。
 应用程序问题，建议通过应用程序启动日志来排查失败原因，例如端口冲突（腾讯服务器系统使用端口36000不能占用），配置问题等。 
 
-## 11. 常用的 Linux 服务器性能查看命令有哪些？
+### 常用的 Linux 服务器性能查看命令有哪些？
 <table class="t">
 <tbody><tr>
 <th width="100"><b>命令名称</b>
@@ -98,7 +98,7 @@ ps -A -o comm |sort -k1 |uniq -c|sort -k1 -rn|head，列出运行实例最多的
 
 其他常用的命令和文件：`free -m`，`du`，`uptime`，`w`，`/proc/stat`，`/proc/cpuinfo`，`/proc/meminfo`。 
 
-## 12. Cron 不生效怎么办？
+### Cron 不生效怎么办？
 排查步骤如下：
 1. 确认 crontab 是否正常运行。
  1. 执行 `crontab -e` 命令，添加如下测试条目。
@@ -112,7 +112,7 @@ ps -A -o comm |sort -k1 |uniq -c|sort -k1 -rn|head，列出运行实例最多的
 4. 检查脚本的执行权限，脚本目录以及日志的文件权限。
 5. 建议通过后台方式运行脚本，在脚本条目后添加 “&”。例如 `\*/1 \* \* \* \* /bin/date >> /tmp/crontest 2>&1 &` 。
 
-## 13. 如何设置云服务器开机任务？
+### 如何设置云服务器开机任务？
 
 Linux 内核启动顺序为：
 1. 启动 `/sbin/init` 进程。
@@ -120,9 +120,13 @@ Linux 内核启动顺序为：
 3. 运行级别脚本 `/etc/rc.d/rc\*.d`，\*号值等于运行模式。您可以在 `/etc/inittab` 中查看。
 4. 执行 `/etc/rc.d/rc.local`。
 
->? 如果需要配置开机任务，您可以在 `/etc/rc.d/rc\*.d` 中的 `S\*\*rclocal` 文件配置，也可以在 `/etc/rc.d/rc.local` 中配置。 
+<dx-alert infotype="explain" title="">
+如果需要配置开机任务，您可以在 `/etc/rc.d/rc\*.d` 中的 `S\*\*rclocal` 文件配置，也可以在 `/etc/rc.d/rc.local` 中配置。 
+</dx-alert>
 
-## 14. 为什么服务器硬盘只读？
+
+
+### 为什么服务器硬盘只读？
 
 硬盘只读的常见原因如下：
 - 磁盘空间满
@@ -131,15 +135,14 @@ Linux 内核启动顺序为：
 您可以通过执行 `df -i` 命令进行查看和确认相关的进程。 
 -  硬件故障。
 
-如果 hosting 应用通过上述方式仍无法确认原因，请拨打咨询热线4009100100或通过 [在线支持](https://cloud.tencent.com/online-service?from=doc_213
-) 协助定位。 
+如果 hosting 应用通过上述方式仍无法确认原因，请拨打咨询热线4009100100或通过 [在线支持](https://cloud.tencent.com/online-service?from=doc_213) 协助定位。 
 
-## 15. 如何查看 Linux 系统日志？
+### 如何查看 Linux 系统日志？
 
 - 系统级别的日志文件存放路径为 `/var/log`。
 - 常用的系统日志为 `/var/log/messages`。
 
-## 16. 如何查找文件系统大文件？
+### 如何查找文件系统大文件？
 
 您可以通过执行以下步骤进行查找：
 1. 执行 `df` 命令，查看磁盘分区使用情况，例如 df -m。
@@ -147,26 +150,26 @@ Linux 内核启动顺序为：
 3. 执行 `ls` 命令，列出文件和文件大小，例如 ls -lSh。
 您也可以通过 `find` 命令直接查看特定目录下的文件大小，例如 find / -type f -size +10M -exec ls -lrt {} \。
 
-## 17. 如何查看服务器操作系统版本？
+### 如何查看服务器操作系统版本？
 
 您可以通过执行以下命令查看系统版本：
 - uname -a
 - cat /proc/version
 - cat /etc/issue 
 
-## 18. 为什么 Linux 终端显示中文会出现乱码？
+### 为什么 Linux 终端显示中文会出现乱码？
 
-服务器本身不对显示语言进行限制，如果终端软件影响中文的显示，您可以尝试调整【选项】>【会话选项】>【外观】（secureCRT 设置，其他版本软件请查找相关设置）。
+服务器本身不对显示语言进行限制，如果终端软件影响中文的显示，您可以尝试调整**选项** > **会话选项** > **外观**（secureCRT 设置，其他版本软件请查找相关设置）。
 如果是纯 Linux shell 出现乱码，请使用 export 命令查看用户环境变量，LANG，LC_CTYPE 等环境变量设置。
 
-## 19. 如何设置通过 SecureCRT 连接云服务器的超时时间？
+### 如何设置通过 SecureCRT 连接云服务器的超时时间？
 
 当 SecureCRT 连接云服务器时，您可以通过以下设置不断开连接：
-1. 打开【SecureCRT 选项（Options）】。
-2. 选择【会话选项（Session Opetions）】，单击【终端（Terminal）】。
-3. 在右侧反空闲（Anti-idle）的框中，勾选【发送协议 NO-OP（Send protocol NO-OP）】，并将时间设置为每120秒(every 120 seconds)。 
+1. 打开 **SecureCRT 选项（Options）**。
+2. 选择**会话选项（Session Opetions）**，单击**终端（Terminal）**。
+3. 在右侧反空闲（Anti-idle）的框中，勾选“发送协议 NO-OP（Send protocol NO-OP）”，并将时间设置为每120秒(every 120 seconds)。 
 
-## 20. 为什么删除 Linux 服务器上的文件，硬盘空间不释放？
+### 为什么删除 Linux 服务器上的文件，硬盘空间不释放？
 
 **原因：**
 
@@ -178,7 +181,7 @@ Linux 内核启动顺序为：
 2. 通过命令 `kill -9 PID` 杀掉对应的进程即可。 
 
 
-## 21. 如何删除 Linux 服务器上的文件？
+### 如何删除 Linux 服务器上的文件？
 您可通过 `rm` 命令进行文件删除，但通过此命令删除的文件无法恢复，请谨慎使用。
 `rm` 命令格式为 `rm （选项）（参数）`。
 - 选项：
