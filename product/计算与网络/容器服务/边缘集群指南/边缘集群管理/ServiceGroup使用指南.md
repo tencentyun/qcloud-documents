@@ -282,7 +282,7 @@ Events:            <none>
 - 当创建一个 DeploymentGrid 的时候，通过云端的 application-grid-controller 服务，会分别在每个 NodeUnit 上生成一个单独的标准 Deployment。（例如 deploymentgrid-demo-beijing-XXXXX）
 - 当创建相应的 ServiceGrid 的时候，会在集群中创建一个标准的 Service，如上图`servicegrid-demo-svc`。
 - 此时为标准的 Deployment 和标准 Service，这两个行为无法根据 NodeUnit 实现流量闭环。此时需要添加`application-grid-wrapper` 组件。
-- 从上图可以看到`application-grid-wrapper` 组件部署在每一个边缘 node 上，同时边缘侧`kube-proxy` 会通过`application-grid-wrapper`和 apiserver 通信，获取相应资源信息；这里`application-grid-wrapper`会监听 ServiceGrid 的 CRD 信息，同时在获取到对应的 Service 的 Endpoint 信息后，就会根据所在 NodeUnit 的节点信息进行筛选，将不在同一 NodeUnit 的 Node 上的 Endpoint 剔除，传递给`kube-proxy`更新 iptables 规则。下面就是左侧`bj-3` 北京地域节点上的 iptables 规则：
+- 从上图可以看到`application-grid-wrapper` 组件部署在每一个边缘 node 上，同时边缘侧`kube-proxy` 会通过`application-grid-wrapper`和 apiserver 通信，获取相应资源信息；这里`application-grid-wrapper`会监听 ServiceGrid 的 CRD 信息，同时在获取到对应的 Service 的 Endpoint 信息后，就会根据所在 NodeUnit 的节点信息进行筛选，将不在同一 NodeUnit 的 Node 上的 Endpoint 剔除，传递给`kube-proxy`更新 iptables 规则。下述示例为`bj-3`北京地域节点上的 iptables 规则：
 ```shell
 -A KUBE-SERVICES -d 172.16.33.231/32 -p tcp -m comment --comment "default/servicegrid-demo-svc: cluster IP" -m tcp --dport 80 -j KUBE-SVC-MLDT4NC26VJPGLP7
 
@@ -294,10 +294,10 @@ Events:            <none>
 
 -A KUBE-SEP-VB3QR2E2PUKDLHCW -p tcp -m comment --comment "default/servicegrid-demo-svc:" -m tcp -j DNAT --to-destination 10.0.0.70:8080
 ```
-- 从上面规则分析可以看到，`beijing`地域中，172.16.33.231 的 ClusterIP 只会分流到`10.0.1.72`和`10.0.0.70`两个后端 Endpooint 上，对应两个 pod：`deploymentgrid-demo-beijing-65d669b7d-v9zdr`和`deploymentgrid-demo-beijing-65d669b7d-wrx7r`，而且不会添加上`guangzhou`地域的两个 IP 10.0.0.139 和 10.0.1.8，按照这样的逻辑，就可以在不同的 NodeUnit 中实现流量闭环能力了。
+- 从上面规则分析可以看到，`beijing`地域中，172.16.33.231 的 ClusterIP 只会分流到`10.0.1.72`和`10.0.0.70`两个后端 Endpooint 上，对应两个 pod：`deploymentgrid-demo-beijing-65d669b7d-v9zdr`和`deploymentgrid-demo-beijing-65d669b7d-wrx7r`，而且不会添加上`guangzhou`地域的两个 IP 10.0.0.139 和 10.0.1.8，按照此逻辑，可以在不同的 NodeUnit 中实现流量闭环能力。
 <dx-alert infotype="notice" title="需注意以下2个场景">
  - **DeploymentGrid + 标准 Service 能否实现流量闭环？**
- 当然不可以，通过上述的分析，如果是标准的 Service，这个 Service:Endpoint 列表并不会被`application-grid-wrapper` 来监听处理，因此这里会获取全量的 Endpoint 列表，`kube-proxy`更新 iptables 规则的时候就会添加相应规则，将流量导出到其他 NodeUnit 中。
+ 不可以。通过上述的分析，如果是标准的 Service，这个 Service:Endpoint 列表并不会被`application-grid-wrapper` 来监听处理，因此这里会获取全量的 Endpoint 列表，`kube-proxy`更新 iptables 规则的时候就会添加相应规则，将流量导出到其他 NodeUnit 中。
 <br>
  - **DeploymentGrid + Headless Service 是否可以实现流量闭环？**
  可以根据下面的 Yaml 文件部署一个 Headless Service，同样使用 ServiceGrid 的模板来创建：
@@ -360,7 +360,7 @@ Events:            <none>
 **同时，由于 Deployment 后端 pod 无状态，会随时重启更新，Pod 名称会随机变化，同时 Deployment 的 Pod 不会自动创建 DNS 地址，因此一般我们不会建议 Deployment + Headless Service 这样配合使用；而是推荐大家使用 StatefulsetGrid + Headless Service 的方式**。
 
 <br>
-通过上述的分析，其实可以理解：如果访问 Service 的行为会通过 `kube-proxy`的 iptables 规则去进行转发，同时 Service 是 SerivceGrid 类型，会被`application-grid-wrapper`监听的话，就可以实现区域流量闭环；如果是通过 DNS 获取的实际 Endpoint IP 地址，这样就无法实现流量闭环。
+通过上述的分析可得：如果访问 Service 的行为会通过 `kube-proxy`的 iptables 规则去进行转发，同时 Service 是 SerivceGrid 类型，会被`application-grid-wrapper`监听的话，就可以实现区域流量闭环；如果是通过 DNS 获取的实际 Endpoint IP 地址，就无法实现流量闭环。
 </dx-alert>
 
 
@@ -517,7 +517,8 @@ StatefulSetGrid 目前支持使用 Headless service **配合 Pod FQDN**的方式
   <img src="https://qcloudimg.tencent-cloud.cn/raw/d4e2d4b058d8bf99046e7c252721b6d3.jpg" width=100% title="stsgrid">
 </div>
 
-上图中 CoreDNS 里面的两条记录可以暂时不用理解。
+
+
 
 #### 部署 Headless Service
 
@@ -862,14 +863,14 @@ spec:
 支持 DeploymentGrid 和 ServiceGrid 的多集群分发，分发的同时也支持多地域灰度，当前基于的多集群管理方案为 [clusternet](https://github.com/clusternet/clusternet)。
 
 #### 特点
-- 支持多集群的按 NodeUnit 灰度
-- 保证控制集群和被纳管集群应用的强一致和同步更新/删除，做到一次操作，多集群部署
-- 在控制集群可以看到聚合的各分发实例的状态
-- 支持节点地域信息更新情况下应用的补充分发：如原先不属于某个 NodeGroup 的集群，更新节点信息后加入了 NodeGroup，控制集群中的应用会及时向该集群补充下发
+- 支持多集群的按 NodeUnit 灰度。
+- 保证控制集群和被纳管集群应用的强一致和同步更新/删除，做到一次操作，多集群部署。
+- 在控制集群可以看到聚合的各分发实例的状态。
+- 支持节点地域信息更新情况下应用的补充分发：如原先不属于某个 NodeGroup 的集群，更新节点信息后加入了 NodeGroup，控制集群中的应用会及时向该集群补充下发。
 
 #### 前置条件
-- 集群部署了 SuperEdge 中的组件，如果没有 Kubernetes 集群，可以通过 edgeadm 进行创建，如果已有 Kubernetes 集群，可以通过 edageadm 的 addon 部署 SuperEdge 相关组件，将集群转换为一个 SuperEdge 边缘集群
-- 通过 clusternet 进行集群的注册和纳管
+- 集群部署了 SuperEdge 中的组件，如果没有 Kubernetes 集群，可以通过 edgeadm 进行创建，如果已有 Kubernetes 集群，可以通过 edageadm 的 addon 部署 SuperEdge 相关组件，将集群转换为一个 SuperEdge 边缘集群。
+- 通过 clusternet 进行集群的注册和纳管。
 
 #### 重要字段
 如果要指定某个 DeploymentGrid 或 ServiceGrid 需要进行多集群的分发，则在其 label 中添加`superedge.io/fed`，并置为"yes"。
