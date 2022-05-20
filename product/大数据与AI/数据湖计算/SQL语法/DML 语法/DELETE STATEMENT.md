@@ -1,4 +1,4 @@
-﻿>? 该语法仅支持通过 spark 引擎在 Iceberg 表上执行。
+>? 该语法仅支持通过 spark 引擎在 Iceberg 表上执行。
 ## 语法
 ```
 DELETE FROM table_name [ [ AS ] alias ]
