@@ -109,9 +109,6 @@ docker 镜像中的文件 `/mnt/tensorflow_synthetic_benchmark.py` 来自 [horov
 
 :::
 ::: 多机多卡
-请在此输入 多机多卡 的正文
-:::
-</dx-accordion>
 
 1. 参考 [购买实例](#Step1) - [启动 docker 镜像](#Step5) 步骤，购买和配置多台训练机器。
 2. 配置多台服务器 docker 间可以相互免密访问，详情请参见 [配置容器 SSH 免密访问](https://cloud.tencent.com/document/product/1573/74100)。
@@ -186,6 +183,12 @@ LightCC 的环境变量说明如下表：
 <dx-alert infotype="notice" title="">
 测试完如需恢复 HARP 加速能力，只需要把所有机器上的 `bak.libnccl-net.so` 重新命名为 `libncc-net.so` 即可。
 </dx-alert>
+
+
+:::
+</dx-accordion>
+
+
 
 ## 总结
 本文测试数据如下：
