@@ -21,6 +21,7 @@
 ### 配置 Rooms
 1. 登录 [官网用户中心](https://meeting.tencent.com/user-center/personal-information)。
 2. 单击左侧菜单栏**企业管理 > 会议室管理 > 会议 > 添加会议室**，即可配置 Rooms。
+![](https://qcloudimg.tencent-cloud.cn/raw/e8d10643221a5b059782c9df118f9bb9.png)
 3. 添加 Rooms 基础信息，包括名称、城市、建筑、楼层、人数、会议室设备、描述和管理员密码，完成后单击**提交**。
 4. Rooms 提交成功后，列表页信息将展示全部可支持预定的会议 Rooms，左侧显示已设置的 Rooms 位置节点（城市、建筑、楼层），支持根据位置节点筛选 Rooms 查看，同时也支持单独编辑位置节点，即新建/修改城市、建筑、楼层。当节点下无 Rooms 时，该节点支持删除。
 

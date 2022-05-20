@@ -80,7 +80,7 @@ spec:
                 key: esURI
           - name: ES_ALL
             value: "true"
-        image: bitnami/elasticsearch-exporter:latest
+        image: ccr.ccs.tencentyun.com/rig-agent/es-exporter:1.1.0
         imagePullPolicy: IfNotPresent
         name: es-exporter
         ports:

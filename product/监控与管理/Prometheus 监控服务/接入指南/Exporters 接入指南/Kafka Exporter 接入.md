@@ -44,7 +44,7 @@ spec:
       containers:
       - args:
         - --kafka.server=x.x.x.x:9092 # 对应 Kafka 实例的地址信息
-        image: danielqsj/kafka-exporter:latest
+        image: ccr.ccs.tencentyun.com/rig-agent/kafka-exporter:v1.3.0
         imagePullPolicy: IfNotPresent
         name: kafka-exporter
         ports:

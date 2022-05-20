@@ -2,9 +2,6 @@
 - 第一部分：介绍如何开通服务并跑通我们提供的演示 Demo。
 - 第二部分：介绍如何使用 TRTCCalling 组件快速搭建自己的视频通话功能。
 
-本文介绍如何实现一套可以在浏览器上运行的视频通话解决方案，文章分成两个部分：
-- 第一部分：介绍如何开通服务并跑通我们提供的演示 Demo。
-- 第二部分：介绍如何使用 TRTCCalling 组件快速搭建自己的视频通话功能。
 
 ## 环境要求
 请使用最新版本的 Chrome 浏览器。目前桌面端 Chrome 浏览器支持 TRTC Web SDK 的相关特性比较完整，因此建议使用 Chrome 浏览器进行体验。
@@ -47,20 +44,19 @@ TRTCCalling 依赖以下端口进行数据传输，请将其加入防火墙白�
 [](id:step1)
 ### 步骤1：创建新的应用
 1. [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 账号，并完成实名认证。
-2. 登录实时音视频控制台，选择 **开发辅助>[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)**。
+2. 登录实时音视频控制台，选择 **开发辅助** > [**快速跑通Demo**](https://console.cloud.tencent.com/trtc/quickstart)。
 3. 输入应用名称，例如 TestTRTC ，单击 **创建**。
 
-
 [](id:step2)
-### 步骤2：下载 SDK 和 Demo 源码
-1. 根据实际业务需求下载 SDK 及配套的 Demo 源码。
+### 步骤2：下载 Demo
+1. 根据实际业务需求下载 Demo 源码或单击进入 [TUICalling](https://github.com/tencentyun/TUICalling)下载 Demo 源码。
 2. 下载完成后，单击 **已下载，下一步**。
 ![](https://main.qcloudimg.com/raw/a4f5a2ac1f49d67b4c6968d8b22cdeb0.png)
 
 [](id:step3)
 ### 步骤3：配置 Demo 工程文件
 1. 进入修改配置页，根据您下载的源码包，选择相应的开发环境。
-2. 找到并打开 `Web/js/debug/GenerateTestUserSig.js` 文件。
+2. 找到并打开 `Web/public/debug/GenerateTestUserSig.js` 文件。
 3. 设置 `GenerateTestUserSig.js` 文件中的相关参数：
   <ul><li>SDKAPPID：默认为0，请设置为实际的 SDKAppID。</li>
   <li>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</li></ul> 
@@ -195,13 +191,13 @@ trtcCalling.hangup()
 更多常见问题，请参见 [TRTCCalling Web 相关问题](https://cloud.tencent.com/document/product/647/62484)。
 
 ## 技术咨询[](id:QQ)
-了解更多详情您可以 QQ 咨询：646165204 <dx-tag-link link="#QQ" tag="技术支持"></dx-tag-link>
+了解更多详情您可以 QQ 咨询：592465424 <dx-tag-link link="#QQ" tag="技术支持"></dx-tag-link>
 
 
 
 ## 参考文档
 - [TRTCCalling web 官网体验](https://web.sdk.qcloud.com/component/trtccalling/demo/web/latest/index.html#/login)
 - [TRTCCalling npm](https://www.npmjs.com/package/trtc-calling-js)
-- [TRTCCalling web demo 源码](https://github.com/tencentyun/TRTCSDK/tree/master/Web/TRTCScenesDemo/trtc-calling-web)
+- [TRTCCalling web demo 源码](https://github.com/tencentyun/TUICalling)
 - [TRTCCalling web API](https://web.sdk.qcloud.com/component/trtccalling/doc/web/zh-cn/TRTCCalling.html)
 - [TRTCCalling web 相关问题](https://cloud.tencent.com/document/product/647/62484)

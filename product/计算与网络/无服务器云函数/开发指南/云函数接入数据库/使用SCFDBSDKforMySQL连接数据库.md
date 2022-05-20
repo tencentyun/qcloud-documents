@@ -29,7 +29,7 @@ SCF DB SDK for MySQL 具备以下特点：
 <dx-alert infotype="explain" title="">
 腾讯云原生数据库 TDSQL-C（原 CynosDB）目前已支持 Serverless 版本 MySQL，实现按需付费。详情请参见 [Serverless 服务](https://cloud.tencent.com/document/product/1003/50853)。
 </dx-alert>
-3. 在 “[MySQL - 实例列表](https://console.cloud.tencent.com/cdb)” 页面，选择实例 ID 进入数据库详情页面，获取该数据库的**内网地址**、**所属网络**、**内网端口**信息。如下图所示：
+3. 在 “[MySQL - 实例列表](https://console.cloud.tencent.com/cdb)” 页面，选择实例 ID 进入数据库详情页面，获取该数据库的**内网地址**、**所属网络**、**内网端口**信息。如下图所示： 
 ![](https://main.qcloudimg.com/raw/6fd6650feb37f558bfc100c7c01936c6.png)
 
 ### 创建安全组（可选）
@@ -40,7 +40,7 @@ SCF DB SDK for MySQL 具备以下特点：
 ### 配置环境变量和私有网络
 1. 登录 [云函数控制台](https://console.cloud.tencent.com/scf)，单击左侧导航栏中的**函数服务**。
 2. 单击需连接数据库的函数 ID，进入该函数的“函数配置”页面，参考以下信息进行配置。
- - 新增**环境变量**，请参考以下表格填写，如下图所示：
+ - 新增**环境变量**，请参考以下表格填写，如下图所示： 
 ![](https://main.qcloudimg.com/raw/46c8b2aab4d4463dd16e1e063b318e36.png)
 >!
 >- 环境变量 key 格式为 `DB_{引用}_XXX`，您可通过 `mysql.database(引用).connection()` 获得已初始化的数据库连接（引用为此数据库的标识）。
@@ -84,7 +84,7 @@ SCF DB SDK for MySQL 具备以下特点：
 <td>是</td>
 </tr>
 </table>
- - 开启私有网络，并选择和数据库相同的私有网络和子网。如下图所示：
+ - 开启私有网络，并选择和数据库相同的私有网络和子网。如下图所示： 
 ![](https://main.qcloudimg.com/raw/b605a903a25988de2a148d9baac65678.png)
 
 

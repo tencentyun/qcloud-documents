@@ -492,6 +492,63 @@
 <td >Percentile_99_9</td>
 <td >微秒</td>
 <td >处理时间的99.9分位数</td>
+</tr><tr>
+<td >队列过载拒写数</td>
+<td >QueueOverloadRejections</td>
+<td >count</td>
+<td >因队列过载被拒绝写请求数</td>
+</tr><tr>
+<td rowspan=2>scanner 速率</td>
+<td >ScannedFromDiskRate</td>
+<td >bytes/s</td>
+<td >每秒 scanner 数据量</td>
+</tr><tr>
+<td >ScannerReturnedRate</td>
+<td >bytes/s</td>
+<td >每秒 scanner 数据量</td>
+</tr><tr>			
+<td rowspan=2>scanner 总量</td>
+<td >ScannedFromDisk</td>
+<td >bytes</td>
+<td >从硬盘 scanner 数据总量</td>
+</tr><tr>
+<td >ScannerReturned</td>
+<td >bytes</td>
+<td >scanner 返回数据总量</td>
+</tr><tr>			
+<td rowspan=4>行操作总量</td>
+<td >RowsInserted</td>
+<td >count</td>
+<td >节点插入 Row 的数量</td>
+</tr><tr>
+<td >RowsDeleted</td>
+<td >count</td>
+<td >节点删除 Row 的数量</td>
+</tr><tr>	
+<td >RowsUpserted</td>
+<td >count</td>
+<td >节点 Upserted Row 的数量</td>
+</tr><tr>
+<td >RowsUpdated</td>
+<td >count</td>
+<td >节点更新 Row 的数量</td>
+</tr><tr>	
+<td rowspan=4>行操作速率</td>
+<td >RowsInsertedRate</td>
+<td >count/s</td>
+<td >节点每秒插入 Row 的数量</td>
+</tr><tr>
+<td >RowsDeletedRate</td>
+<td >count/s</td>
+<td >节点每秒删除 Row 的数量</td>
+</tr><tr>	
+<td >RowsUpsertedRate</td>
+<td >count/s</td>
+<td >节点每秒 Upserted Row 的数量</td>
+</tr><tr>
+<td >RowsUpdatedRate</td>
+<td >count/s</td>
+<td >节点每秒更新 Row 的数量</td>	
 </tr>
 </table>
 

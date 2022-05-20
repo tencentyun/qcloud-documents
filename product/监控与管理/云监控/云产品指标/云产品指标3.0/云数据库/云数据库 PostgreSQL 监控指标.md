@@ -1,6 +1,6 @@
 ## 命名空间
 
-Namespace=QCE/POSTGRES
+Namespace = QCE/POSTGRES
 
 ## 监控指标
 

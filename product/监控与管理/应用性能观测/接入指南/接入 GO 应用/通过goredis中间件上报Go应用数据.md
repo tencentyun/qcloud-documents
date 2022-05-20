@@ -14,7 +14,7 @@
 2. 执行下列命令启动 Agent 。
 <dx-codeblock>
 :::  shell
- shell nohup ./jaeger-agent --reporter.grpc.host-port={{collectorRPCHostPort}} --agent.tags=token={{token}}
+nohup ./jaeger-agent --reporter.grpc.host-port={{collectorRPCHostPort}} --agent.tags=token={{token}}
 :::
 </dx-codeblock>
 
@@ -31,17 +31,20 @@
 :::  GO
 cfg := &jaegerConfig.Configuration{
   ServiceName: clientServerName, //对其发起请求的的调用链，叫什么服务
-  Sampler: &jaegerConfig.SamplerConfig{ //采样策略的配置
+  Sampler: &jaegerConfig.SamplerConfig{ //采样策略的配置，详情见4.1.1
     Type:  "const",
     Param: 1,
   },
   Reporter: &jaegerConfig.ReporterConfig{ //配置客户端如何上报trace信息，所有字段都是可选的
     LogSpans:          true,
-    CollectorEndpoint: httpEndPoint,
+		LocalAgentHostPort: endPoint,
+  },
+  //Token配置
+  Tags:        []opentracing.Tag{ //设置tag，token等信息可存于此
+    opentracing.Tag{Key: "token", Value: token}, //设置token
   },
 }
 tracer, closer, err := cfg.NewTracer(jaegerConfig.Logger(jaeger.StdLogger)) //根据配置得到tracer
-opentracing.SetGlobalTracer(tracer)  //这一步很重要，后续Redis操作时会取GlobalTracer得到tracer
 :::
 </dx-codeblock>
 3. 初始化 Redis 连接，示例如下：
@@ -92,20 +95,24 @@ const (
 	redisPassword    = ""
 	clientServerName = "redis-client-demo"
 	testKey          = "redis-demo-key"
-	httpEndPoint     = "http://localhost:14268/api/traces" // HTTP 直接上报地址
-
+	endPoint         = "xxxxx:6831" // HTTP 直接上报地址
+	token            = "abc"
 )
 
 func main() {
 	cfg := &jaegerConfig.Configuration{
 		ServiceName: clientServerName, //对其发起请求的的调用链，叫什么服务
-		Sampler: &jaegerConfig.SamplerConfig{ //采样策略的配置
+		Sampler: &jaegerConfig.SamplerConfig{ //采样策略的配置，详情见4.1.1
 			Type:  "const",
 			Param: 1,
 		},
 		Reporter: &jaegerConfig.ReporterConfig{ //配置客户端如何上报trace信息，所有字段都是可选的
-			LogSpans:          true,
-			CollectorEndpoint: httpEndPoint,
+			LogSpans:           true,
+			LocalAgentHostPort: endPoint,
+		},
+		//Token配置
+		Tags: []opentracing.Tag{ //设置tag，token等信息可存于此
+			opentracing.Tag{Key: "token", Value: token}, //设置token
 		},
 	}
 	tracer, closer, err := cfg.NewTracer(jaegerConfig.Logger(jaeger.StdLogger)) //根据配置得到tracer

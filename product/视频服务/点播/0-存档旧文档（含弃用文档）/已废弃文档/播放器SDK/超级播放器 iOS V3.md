@@ -9,7 +9,7 @@ iOS 超级播放器 SDK 是一款用于播放云点播视频的播放器组件�
 
 ## SDK 下载
 
-云点播 iOS 超级播放器的下载地址是 [SuperPlayer_iOS](https://github.com/tencentyun/SuperPlayer_iOS)。
+云点播 iOS 超级播放器的下载地址是 [SuperPlayer_iOS](https://github.com/LiteAVSDK/Player_iOS)。
 
 ## 快速集成
 

@@ -145,7 +145,7 @@ private ConcurrentLinkedDeque<Short> getDataList() {
 void onCapturedRawAudioFrame(TRTCCloudDef.TRTCAudioFrame trtcAudioFrame) {
 dataSource.writeByte(bytesToShort(trtcAudioFrame.data));; 
 } 
-//以下方法为把 btyes 数组转成 short 数组
+//以下方法为把 bytes 数组转成 short 数组
 public static short[] bytesToShort(byte[] bytes) {
     if (bytes == null) {
         return null;

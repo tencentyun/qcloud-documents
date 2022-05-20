@@ -2,8 +2,6 @@
 
 LAMP（Linux+Apache+MySQL+PHP）是目前国际流行的 Web 应用框架，包括了 Linux 操作系统、Apache Web 服务器、MySQL/MariaDB 数据库和 PHP 编程语言环境以及相关组件支持。
 
-
-
 <dx-alert infotype="explain" title="">
 LAMP 应用镜像底层基于 CentOS 7.6 64位操作系统。
 </dx-alert>
@@ -13,9 +11,10 @@ LAMP 应用镜像底层基于 CentOS 7.6 64位操作系统。
 ## 操作步骤
 
 1. 登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse)。
-![](https://main.qcloudimg.com/raw/b7f0f2d6423cce18e14e309a3d52c2e3.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/060c647b52ef5f8b9bd40f4f6da1c513.png)
  - **地域**：建议选择靠近目标客户的地域，降低网络延迟、提高您的客户的访问速度。例如目标客户在 “深圳”，地域选择 “广州”。
- - **镜像**：选择 “LAMP 7.3.15” 应用镜像。
+ - **可用区**：默认勾选“随机分配”，也可自行选择可用区。
+ - **镜像**：选择 “LAMP 7.4.16” 应用镜像。
  - **实例套餐**：按照所需的服务器配置（CPU、内存、系统盘、峰值带宽、每月流量），选择一种实例套餐。
  - **实例名称**：自定义实例名称，若不填则默认使用所选镜像名称。批量创建实例时，连续命名后缀数字自动升序。例如，填入名称为 LH，数量选择3，则创建的3个实例名称为 LH1、LH2、LH3。
  - **购买时长**：默认1个月。
@@ -27,7 +26,7 @@ LAMP 应用镜像底层基于 CentOS 7.6 64位操作系统。
 1. 登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse)。
 2. 在服务器列表中，选择并进入使用 LAMP 应用镜像创建的实例详情页。
 3. 选择**应用管理**页签，进入应用管理详情页。
-![](https://main.qcloudimg.com/raw/b04bd90643e1c9b50bb500d1476b259c.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/1a5c38ecfcaf444af07c2d39034eee57.png)
 您可以在此页面查看 LAMP 应用的各项配置信息。例如：
  - Apache 的首页地址和网站根目录。
  - MariaDB 数据的管理员账号（root）和密码、数据库地址和数据库名称。

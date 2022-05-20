@@ -1,12 +1,13 @@
 ## 介绍
-Hive Connector 支持作为数据源表，包括流式和维表 source，也支持数据流的目的表，但只支持 append only，不支持 Upsert 数据流。数据格式支持包括 Text、SequenceFile、ORC 和 Parquet 等。
+Hive Connector 支持数据流的目的表，但只支持 append only，不支持 Upsert 数据流。数据格式支持包括 Text、SequenceFile、ORC 和 Parquet 等。
 
 ## 版本说明
 
 | Flink 版本 | 说明                                                         |
 | :-------- | :----------------------------------------------------------- |
-| 1.11      | <ul><li>支持 hive 版本 1.1.0、2.3.2、2.3.5、3.1.1</li><li>配置项 'connector.type' = 'hive'</li></ul> |
-| 1.13      | <ul><li>支持 hive 版本 1.0.0 ~ 1.2.2、2.0.0 ~ 2.2.0、2.3.0 ~ 2.3.6、3.0.0 ~ 3.1.2</li><li>配置项 'connector' = 'hive'</li></ul> |
+| 1.11      | <li>支持 hive 版本 1.1.0、2.3.2、2.3.5、3.1.1</li><li>配置项 'connector.type' = 'hive'</li> |
+| 1.13      | <li>支持 hive 版本 1.0.0 ~ 1.2.2、2.0.0 ~ 2.2.0、2.3.0 ~ 2.3.6、3.0.0 ~ 3.1.2</li><li>配置项 'connector' = 'hive'</li> |
+| 1.14      | 不支持 |
 
 ## DDL 定义
 
@@ -30,26 +31,6 @@ with (
 );
 ```
 
-#### 用作数据源（Source）或者 Hive 维表
-
-```sql
-CREATE database default_catalog.testdb; -- 新建注册数据库
-
-CREATE TABLE default_catalog.testdb.hive_table (
-  id INT, 
-  name STRING, 
-  dt STRING, 
-  hr STRING
-) PARTITIONED BY (dt, hr) WITH (
-  'connector' = 'hive', -- Flink 1.13 请使用 'connector' = 'hive'
-  'hive-version' = '2.3.5',
-  'partition.time-extractor.timestamp-pattern' = '$dt $hr:00:00',
-  'streaming-source.enable' = 'true',
-  'streaming-source.monitor-interval' = '10s',
-  'streaming-source.consume-order' = 'partition-time',
-  'lookup.join.cache.ttl' = '10s'
-);
-```
 
 ## 作业配置
 在 Hive 数据库中建 Hive 表。
@@ -92,11 +73,7 @@ containerized.master.env.HADOOP_USER_NAME: hadoop
 | sink.partition-commit.policy.class         | 否   | 无           | 分区提交类，配合 sink.partition-commit.policy.kind = 'custom' 使用，类必须实现 PartitionCommitPolicy。 |
 | partition.time-extractor.kind              | 否   | default      | 分区时间抽取方式。这个配置仅当 sink.partition-commit.trigger 配置为 partition-time 时生效。如果用户有自定义的分区时间抽取方法，配置为 custom。 |
 | partition.time-extractor.class             | 否   | 无           | 分区时间抽取类，这个类必须实现 PartitionTimeExtractor 接口。 |
-| streaming-source.enable                    | 否   | false        | 是否开启流模式。                                             |
-| streaming-source.monitor-interval          | 否   | 1 m          | 监控新文件/分区产生的间隔。                                  |
-| streaming-source.consume-order             | 否   | create-time  | 可以选 create-time 或者 partition-time。对于非分区表，只能用 create-time。<li/>create-time 指的不是分区创建时间，而是在 HDFS 中文件/文件夹的创建时间。<li/>partition-time 指的是分区的时间。 |
-| streaming-source.consume-start-offset      | 否   | 1970-00-00   | 从哪个分区开始读。                                           |
-| lookup.join.cache.ttl                      | 否   | 60 min       | 表示缓存时间；这里值得注意的是，因为 Hive 维表会把维表所有数据缓存在 TM 的内存中，如果维表量很大，那么很容易就 OOM；如果 ttl 时间太短，那么会频繁的加载数据，性能会有很大影响。 |
+
 
 ## 代码示例
 
@@ -134,8 +111,6 @@ FROM datagen_source_table;
 ```
 
 ## Hive 配置
-[](id:id)
-
 ### 获取 Hive 连接配置 jar 包
 Flink SQL 任务写 Hive 时需要使用包含 Hive 及 HDFS 配置信息的 jar 包来连接到 Hive 集群。具体获取连接配置 jar 及其使用的步骤如下：
 1. ssh 登录到对应 Hive 集群节点。
@@ -169,7 +144,6 @@ hiveserver2-site.xml
 
 ### 在任务中使用配置 jar
 引用程序包中选择 Hive 连接配置 jar 包（该 jar 包为在 [获取 Hive 连接配置 jar 包](#id) 中得到的 hive-xxx.jar，必须在依赖管理上传后才使用）。
-
 
 ## Kerberos 认证授权
 1. 登录集群 Master 节点，获取 krb5.conf、emr.keytab、core-site.xml、hdfs-site.xml、hive-site.xml 文件，路径如下。
@@ -233,7 +207,3 @@ security.kerberos.login.conf: krb5.conf.path
 ```
 msck repair table hive_table_xxx;
 ```
-2. 将 Hive 作为数据源并在配置中`io.compression.codec.lzo.class = com.hadoop.compression.lzo.LzoCodec`时需要上传 hadoop-lzo-版本号.jar 包到 oceanus。
-3. Hive Streaming Source 最大的不足是，无法读取已经读取过的分区下的新增的文件。
-4. 如若 Hive 版本是2.3.7版本，当 Hive 表作为源（Source）时，可以使用 oceanus 上的 flink-connector-hive 的版本为1.1.0、2.3.2、2.3.5版本。
-5. 如果需要查询其他库（默认库名 default_database）中的表，需要在默认的 Catalog（default_catalog）中注册数据库。

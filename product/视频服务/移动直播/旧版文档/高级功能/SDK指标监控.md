@@ -22,6 +22,7 @@ TXLivePushListener 的 [onNetStatus](https://cloud.tencent.com/document/product/
 |    NET_STATUS_VIDEO_DROP  |视频全局丢帧次数，为了避免延迟持续恶性堆积，SDK 在数据积压超过警戒线以后会主动丢帧，丢帧次数越多，说明网络问题越严重。|
 |    NET_STATUS_AUDIO_DROP  |音频全局丢包次数，为了避免延迟持续恶性堆积，SDK 在数据积压超过警戒线以后会主动丢包，丢包次数越多，说明网络问题越严重。|
 | NET_STATUS_SERVER_IP     | 连接的推流服务器的 IP。 |
+| NET_STATUS_VIDEO_GOP |  当前视频 GOP，也就是每两个关键帧(I帧)间隔时长，单位 s。|
 
 ### 2. 哪些状态指标有参考价值？
 

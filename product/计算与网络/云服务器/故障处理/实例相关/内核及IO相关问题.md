@@ -26,8 +26,7 @@ soft lockup 指 CPU 被内核代码占据以至于无法执行其他进程。检
 - 触发了内核 bug。
 
 ### 处理步骤
-内核相关问题排查及处理步骤较复杂，建议通过 [在线支持](https://cloud.tencent.com/online-service?from=doc_213
-) 进一步定位及处理。
+内核相关问题排查及处理步骤较复杂，建议通过 [在线支持](https://cloud.tencent.com/online-service?from=doc_213) 进一步定位及处理。
 
 
 ## 硬盘问题定位及处理
@@ -54,20 +53,20 @@ soft lockup 指 CPU 被内核代码占据以至于无法执行其他进程。检
 ::: 
 ::: 数据盘
 1. 执行以下命令，查看只读盘对应的文件系统类型。
-```
+```shellsession
 lsblk -f
 ``` 
 2. 执行以下命令，卸载数据盘。
-```
+```shellsession
 umount <对应盘挂载路径>
 ```
 3. 对应文件系统类型，执行以下命令进行修复：
  - **ext3/ext4** 文件系统，执行以下命令：
-```
+```shellsession
 fsck -y /dev/对应盘
 ```
  - **xfs** 文件系统，执行以下命令：
-```
+```shellsession
 xfs_repair /dev/对应盘
 ```
 :::

@@ -87,7 +87,7 @@ HMACSHA256(
 </dependency>
 ```
 
-2. 编写生成令牌的 Java 代码。
+2. 编写生成令牌的 Java 代码（以下以 RSA 为例）。
 ```java
 // 下面省略了无关代码
 import org.jose4j.json.JsonUtil;

@@ -1,3 +1,32 @@
+### 2.7.2.106 @ 2022-04-06
+* [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/2.7.2.106/TEduBoard_2.7.2.106.zip)
+* [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/2.7.2.106/TEduBoard_Mac_2.7.2.106.zip)
+
+- 调整全局变量
+    1. 白板错误码 增加TEDU_BOARD_ERROR_MAX_BOARD_LIMITED 单课堂内白板页数已经到达上限
+    
+- 功能优化
+     1. 白板SDK升级
+     2. 已知问题处理及优化
+
+### 2.7.1.101 @ 2022-03-15
+* [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/2.7.1.101/TEduBoard_2.7.1.101.zip)
+* [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/2.7.1.101/TEduBoard_Mac_2.7.1.101.zip)
+
+- 新增类  
+  1. TEduBoardResourceController 支持资源预加载，loadResource:缓存课件资源包 ; preloadFile:缓存单个文件  
+- 新增接口  
+  1. loadCustomResource 加载自定义资源  
+- 接口调整  
+  1. setSyncVideoStatusEnable 新增参数isAppActiveChange:只有在移动端在app切换前后台的时候需要调用。
+
+### 2.7.0.105 @ 2022-04-06
+* [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/2.7.0.105/TEduBoard_2.7.0.105.zip)
+* [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/2.7.0.105/TEduBoard_Mac_2.7.0.105.zip)
+
+- 功能优化
+    1. 优化iOS视频播放前后台切换的暂停/恢复
+
 ### 2.6.9.92 @ 2021-12-10
 * [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/TEduBoard_2.6.9.92.zip)
 * [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/TEduBoard_Mac_2.6.9.92.zip)

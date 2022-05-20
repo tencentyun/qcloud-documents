@@ -31,7 +31,7 @@ exports.main_handler = async (event, context, callback) => {
 $ docker run -it --network=host -v /path/to/your-project:/tmp/your-project node:8.9 /bin/bash -c 'cd /tmp/your-project && npm install nodejieba --save'
 ```
 
-其中，`/path/to/your-project`是项目路径，对应于 Docker 容器里的`/tmp/your-project`目录。因此需要在容器里的`/tmp/your-project`目录下安装 nodejieba，即在项目路径下安装 nodejieba。   
+其中，`/path/to/your-project`是项目路径，对应于 Docker 容器里的`/tmp/your-project`目录。因此需要在容器里的`/tmp/your-project`目录下安装 nodejieba，即在项目路径下安装 nodejieba。     
 依赖安装完成后，将代码重新部署到 SCF 上即可正常运行函数。
 
 

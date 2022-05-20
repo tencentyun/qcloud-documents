@@ -1,0 +1,86 @@
+## 接口描述
+- **描述：**查询当前会中成员列表，仅包括会中的成员。如果用户已离会，则不返回。企业超级管理员、会议创建者、会议主持人和同企业的会议联席主持人可以查询该数据。
+- **调用方式：** GET
+- **接口请求域名：** 
+```josn
+https://api.meeting.qq.com/v1/meetings/{meeting_id}/real-time-participants
+```
+
+## 输入参数
+
+| 参数名称         | 是否必须   | 备注                                                         |
+| ---------------- | -------- | ------------------------------------------------------------ |
+| meeting_id |     是 |  会议的唯一 ID。     |
+| sub_meeting_id   | 否             | String 周期性会议子会议 ID。**说明：可通过查询用户的会议列表、查询会议接口获取返回的子会议 ID，即 current_sub_meeting_id；如果是周期性会议，此参数必传。** |
+| operator_id      | 是            | 操作者 ID。operator_id 必须与 operator_id_type 配合使用。根据 operator_id_type 的值，operator_id 代表不同类型。 |
+| operator_id_type | 是             | Integer 操作者 ID 的类型：<br>1：企业内用户 userid <br>2：open_id <br>3：rooms_id |
+| page             | 是            | 当前页，页码起始值为1。                                      |
+| page_size        | 是           | 分页大小，最大50条。                                         |
+
+## 输出参数
+
+| 名称                   | 类型      | 是否必须  | 备注                                                         | 
+| ---------------------- | --------- | -------- | ------------------------------------------------------------ | 
+| meeting_id             | string    | 否   | 会议的唯一 ID。                                              |                  
+| meeting_code           | string    | 否   | 会议号码。                                                   |            
+| subject                | string    | 否  | 会议主题（base64）。                                                 |             
+| schedule_start_time    | string    | 否      | 预定会议开始时间戳（单位秒）。                               |               
+| schedule_end_time      | string    | 否      | 预定会议结束时间戳（单位秒）。                               |             
+| status                 | string    | 否       | 当前会议状态： <br>1：MEETING_STATE_INVALID： 非法或未知的会议状态，错误状态。 <br>2：MEETING_STATE_INIT： 会议待开始。会议预定到预定结束时间前，会议尚无人进会。 <br>3：MEETING_STATE_CANCELLED： 会议已取消。主持人主动取消会议，待开始的会议才能取消，且取消的会议无法再进入。 <br>4：MEETING_STATE_STARTED： 会议已开始。会议中有人则表示会议进行中。<br> 5：MEETING_STATE_ENDED： 会议已删除。会议已过预定结束时间且尚无人进会时，主持人删除会议，已删除的会议无法再进入。<br> 6：MEETING_STATE_NULL： 会议无状态。会议已过预定结束时间，会议尚无人进会。 <br> 7：MEETING_STATE_RECYCLED： 会议已回收。会议已过预定开始时间30天，则会议号将被后台回收，无法再进入。 |                  
+| participants           | object [] | 否    | 参会人员对象数组。                                           | 
+| current_page           | number    | 否     | 当前页。                                                     |    
+| current_size           | number    | 否      | 当前页实际大小。                                             |          
+| total_count            | number    | 否    | 根据条件筛选后的总人数。                                     |             
+| total_page             | number    | 否 | 根据条件筛选后的总分页数                                     |        
+
+**参会人员对象参数**
+
+| 名称                   | 类型      | 是否必须                                                        | 其他信息          |
+| ---------------------- | --------- | -------- | ------------------------------------------------------------ |
+|  userid              | string    | 否         | 同企业内部为企业唯一用户标识，其他企业、个人、小程序入会不会返回。 |                   
+| open_id             | string    | 否         | OAuth2.0 鉴权用户请使用 open_id。                              |                   
+| ms_open_id          | string    | 否        | 当场会议的用户临时 ID，可用于会控操作，适用于所有用户。      |                   
+| user_name           | string    | 否       | 入会用户名（base64）。                                       |                   
+|  join_time           | string    | 否           | 参会者加入会议时间戳（单位秒）。                             |                   
+| instanceid          | string    | 否           | 用户的终端设备类型：<br> 0：pstn 或 mra <br>1：PC <br>2：Mac <br>3：Android <br>4：iOS <br>5：Web <br>6：iPad <br>7：Android Pad <br>8：小程序 |                   |
+|  user_role           | string    | 否           | 用户角色： <br>0：普通成员角色 <br>1：创建者角色 <br>2：主持人 <br>3：创建者+主持人 <br>4：游客 <br>5：游客+主持人 <br>6：联席主持人 <br>7：创建者+联席主持人 |                   
+|  join_type           | string    | 否        | 入会方式： <br>0：PSTN 普通用户，标准的手机或固话类型 <br>1：普通 VOIP 用户 <br>2：附属投屏 VOIP <br>3：linux sdk for VOIP <br>4：附属语音 PSTN <br>5：附属视频 PSTN <br>6：linux sdk for PSTN |                   
+|  app_version         | string    | 否        | 用户的客户端版本。当用户在会中时才能返回。                   |                   
+| audio_state         | boolean   | 否        | 麦克风状态： <br>true：开启 <br>false：关闭                          |                   
+|  video_state         | boolean   | 否         | 摄像头状态：<br> true：开启<br> false：关闭                          |                   
+| screen_shared_state | boolean   | 否         | 屏幕共享状态： <br>true：开启 <br>false：关闭                        |          
+
+## 示例代码
+**输入示例**
+```json
+https://api.meeting.qq.com/v1/meetings/17970399xxxxxxxx37836/real-time-participants?operator_id=test_restapi_user_496&page=1&page_size=20&operator_id_type=1
+```
+**输出示例**
+```json
+{
+	"meeting_id": "179xxxxxxxxxxxx37836",
+	"meeting_code": "xxxxxxxx",
+	"subject": "Z2V0XxxxxxxxxxxxxxxxxxxxWNpcGFudHNfOTg5",
+	"schedule_start_time": "16xxxxxxx10",
+	"schedule_end_time": "16xxxxxxx10",
+	"status": "4",
+	"participants": [{
+		"userid": "test_restapi_user_497",
+		"open_id": "",
+		"ms_open_id": "68+lhnxxxxxxxxxxxxxxxxhqQC7o4kFb3xxxxxxxxxxxxh+tJ3+j2xkYT1",
+		"user_name": "dGVzxxxxxxxxxxxxxxJfNDk3",
+		"join_time": "16xxxxxxx11",
+		"instanceid": 2,
+		"user_role": 0,
+		"join_type": 1,
+		"app_version": "x.x.x.x",
+		"audio_state": true,
+		"video_state": true,
+		"screen_shared_state": true
+	}],
+	"current_page": 1,
+	"current_size": 1,
+	"total_count": 1,
+	"total_page": 1
+}
+```

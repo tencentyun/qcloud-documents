@@ -1,7 +1,7 @@
 ## 操作场景
 全栈组件（React.js+Express.js）用于通过多个 Serverless Components 部署 Serverless 全栈应用程序。可以帮助开发者更方便快捷的部署 Serverless 应用，例如利用后端 API 与前端 React.js 结合等场景。
 
-此项目完全基于腾讯云 Serverless 服务器，可很大程度的缩减使用成本。 如果您正在寻找一个低开销的便捷轻量的 Serverless 服务管理框架，这里将是很好的选择。
+此项目完全基于腾讯云 Serverless 服务器，可很大程度的缩减使用成本。  如果您正在寻找一个低开销的便捷轻量的 Serverless 服务管理框架，这里将是很好的选择。
 
 该示例包括：
 - **serverless REST API**：由腾讯云 Servelress Cloud Function（无服务云函数 SCF） 和腾讯云 API Gateway 提供相关能力，帮助开发者架构自己的项目和路由。

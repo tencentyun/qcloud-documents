@@ -8,7 +8,7 @@ SSL VPN 网关是 VPC 建立 SSL VPN 连接的出口网关 ，主要用于腾讯
 2. 在左侧目录中单击 **VPN 连接** > **VPN 网关**，进入管理页。
 3. 在 VPN 网关管理页面，单击**+新建**。
 4. 在弹出的**新建 VPN 网关**对话框中，配置如下网关参数。
-![](https://qcloudimg.tencent-cloud.cn/raw/23e8ef37978e91f527c3d90815859ba0.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/f2c4450db2fc497f891999ed1c20c41c.png)
 <table>
 <tr>
 <th width="12%">参数名称</th>
@@ -23,8 +23,12 @@ SSL VPN 网关是 VPC 建立 SSL VPN 连接的出口网关 ，主要用于腾讯
 <td>展示 VPN 网关所在地域。</td>
 </tr>
 <tr>
+<td>可用区</td>
+<td>选择当前网关所在的可用区。</td>
+</tr>
+<tr>
 <td>协议类型</td>
-<td>选择 SSL。</td>
+<td>支持 IPSec 和 SSL 两种协议类型。</td>
 </tr>
 <tr>
 <td>SSL 连接数</td>

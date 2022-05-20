@@ -3,7 +3,7 @@
 
 ## 前提条件
 
-- 已登录 [容器服务控制台](https://console.cloud.tencent.com/tke2/cluster?rid=1)。
+- 已登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2/cluster?rid=1)。
 - 集群内已 [部署 NginxIngress 组件](https://cloud.tencent.com/document/product/457/50503#Nginx-ingress)。
 - 已安装并创建业务需要的 Nginx-ingress 实例。
 
@@ -13,7 +13,7 @@
 
 ### Nginx-ingress 控制台操作指引
 
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
+1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)。
 2. 在左侧导航栏中，单击**集群**，进入集群管理页面。
 3. 单击已安装 Nginx-ingress 组件的集群 ID，进入集群管理页面。
 4. 选择**服务与路由** > **Ingress**，进入 Ingress 信息页面。

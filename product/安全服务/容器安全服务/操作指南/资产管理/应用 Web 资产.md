@@ -6,11 +6,11 @@
 1. 登录 [容器安全服务控制台](https://console.cloud.tencent.com/tcss)，在左侧导航中，单击**资产管理**，进入资产管理页面。
 2. 在资产管理页面，单击“Web 服务总数”进入Web 服务列表页面，可查看全部进程资产列表。
 ![](https://main.qcloudimg.com/raw/7918f2b0988e78068a5603b026ff3ec9.png)
-3. 在 Web 服务列表页面，可按服务类型对 Web 服务资产进行筛选，或搜索框通过“容器名称、主机IP、启动用户”等关键字对 Web 服务进行查找。
+3. 在 Web 服务列表页面，可按服务类型对 Web 服务资产进行筛选，或搜索框通过“容器名称、主机名、启动用户”等关键字对 Web 服务进行查找。
  - 单击左上角的服务类型下拉框，按服务类型对 Web 服务资产进行筛选。 
 ![](https://main.qcloudimg.com/raw/695887c918452848e9a1a3a43abdfccd.png)
- - 单击搜索框，可通过“容器名称、主机IP、启动用户”等关键字对 Web 服务进行查找。
-![](https://main.qcloudimg.com/raw/6f3141161aa6390e6c9a22d37ff18083.png)
+ - 单击搜索框，可通过“容器名称、主机名、启动用户”等关键字对 Web 服务进行查找。
+![](https://qcloudimg.tencent-cloud.cn/raw/ad3078bb39154c68984899fa3db66edd.png)
 
 ### 查看 Web 服务列表
 1. 登录 [容器安全服务控制台](https://console.cloud.tencent.com/tcss)，在左侧导航中，单击**资产管理**，进入资产管理页面。

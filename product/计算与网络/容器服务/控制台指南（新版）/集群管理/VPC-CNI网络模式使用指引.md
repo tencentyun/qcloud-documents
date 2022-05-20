@@ -9,9 +9,9 @@ TKE 后续推出 VPC-CNI 网络模式，即为每个 Pod 插入一张弹性网�
 
 |                         优势                                           |                       适用场景                                       | 
 |----------------------------------------------------------------|----------------------------------------------------------------|
-| 少了一层网桥，网络转发性能更高，大约提升10%    | 对网络时延要求较高的场景。                                 | 
-| 支持 Pod 固定 IP    | 依赖容器固定 IP 的场景。例如，传统架构迁移到容器平台及针对 IP 做安全策略限制。  |
-| 支持 LB 直通 Pod   |          希望使用 LB 直通 Pod。                                                                           | 
+| 少了一层网桥，网络转发性能更高，大约提升10%    | 对网络时延要求较高的场景。                                  | 
+| 支持 Pod 固定 IP    | 依赖容器固定 IP 的场景。例如，传统架构迁移到容器平台及针对 IP 做安全策略限制。   |
+| 支持 LB 直通 Pod   |          希望使用 LB 直通 Pod。                                                                            | 
 
 ## VPC-CNI 模式使用限制
 - 需要为容器专门规划子网，并且子网不能与其他云上资源共用（如云服务器、负载均衡等）。
@@ -20,7 +20,7 @@ TKE 后续推出 VPC-CNI 网络模式，即为每个 Pod 插入一张弹性网�
 
 
 ## VPC-CNI 模式操作步骤
-登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
+登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)。
 ### 启用 VPC-CNI[](id:VPC-CNI">
 TKE 有两种方式启用 VPC-CNI：
 - 方式1：创建集群时选择 VPC-CNI 网络插件。如下图所示：
@@ -43,7 +43,7 @@ sysctl -w net.ipv4.conf.default.rp_filter=0
 ```
 `tke-cni-agent` 组件自动设置节点的内核参数。若您自己有维护内核参数且打开 rp_filter，会导致网络不通。
 >
-- 若使用 [方式1](#VPC-CNI) 启用 VPC-CNI，通过控制台或通过 yaml 创建工作负载，Pod 均默认使用弹性网卡。   
+- 若使用 [方式1](#VPC-CNI) 启用 VPC-CNI，通过控制台或通过 yaml 创建工作负载，Pod 均默认使用弹性网卡。    
 - 若使用 [方式2](#VPC-CNI) 启用 VPC-CNI（Global Router 与 VPC-CNI 两种模式混用），Pod 默认不使用弹性网卡，需注意以下事项：
   - 通过控制台创建工作负载，VPC-CNI 只支持 StatefulSet 类型，展开高级设置并勾选 `使用VPC-CNI模式`。如下图所示：
     <img style="width:450px" src="https://main.qcloudimg.com/raw/390152f469ac6199eeb25c1b81507e40.png" data-nonescope="true">

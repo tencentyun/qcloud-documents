@@ -10,7 +10,7 @@
 
 ## 模板部署 -- 部署 Flask 示例代码
 1. 登录 [Serverless 应用控制台](https://console.cloud.tencent.com/sls)。
-2. 选择**Web 应用>Flask 框架**，如下图所示：
+2. 单击**新建应用**，选择**Web 应用>Flask 框架**，如下图所示：
 ![](https://main.qcloudimg.com/raw/5085acaefb589659b38d6ad796ce80f0.png)
 3. 单击“下一步”，完成基础配置选择。
 ![](https://main.qcloudimg.com/raw/9f22f8c1e5426b5d3d54631caabde012.png)

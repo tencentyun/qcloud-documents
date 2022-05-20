@@ -54,14 +54,14 @@ App({
 ```
 2. 在页面的 wxml 文件中应用上述组件：
 ```
-<export
+<my-export
   showloading="{{false}}" // 导出时会自动显示loading，如不需要传false隐藏
   watermark="https://cdn-weijian-1258344699.file.myqcloud.com/images/watermark.png" //水印地址
   bindexportsuccess="handleExportSuccess" //返回导出的文件临时路径，供调用者使用
   bindprogress="handleProgress" // 导出进度更新，返回值0-100
   bindthumbready="handleThumbReady"> //导出页面预览图绘制完成回调
     	<button class="customContent">导出</button> // 自定义UI，由slot实现
-</export>
+</my-export>
 ```
 
 

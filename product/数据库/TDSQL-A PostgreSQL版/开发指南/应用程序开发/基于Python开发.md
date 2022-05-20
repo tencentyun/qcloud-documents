@@ -1,3 +1,4 @@
+
 [Psycopg](https://psycopg.org/) 是常用于 [Python](https://www.python.org/) 编程语言的 [PostgreSQL](https://www.postgresql.org/) 数据库适配器，同样也可以用来连接TDSQL-A PostgreSQL版 进行数据库操作。
 
 Psycopg2 需要提前进行部署，可使用 `pip install psycopg2` 命令进行部署。

@@ -25,6 +25,9 @@ Namespace=QCE/WAF
 | RatioAttack | Web 攻击占比    |  %    | domain、edition |
 | RatioBot    | BOT 攻击占比    |  %    | domain、edition |
 | RatioCc     | CC 攻击占比     |   %   | domain、edition |
+| InBandwidth   | 入带宽    |  MB   | domain、edition |
+| OutBandwidth     | 出带宽    |  MB | domain、edition |
+|MetricnameCustomSecurity|自定义策略攻击数|个|domain、edition |
 
 ## 各维度对应参数总览
 

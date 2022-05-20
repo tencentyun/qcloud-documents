@@ -9,18 +9,18 @@
 您可以选择使用 Gradle 自动加载的方式，或者手动下载 aar 再将其导入到您当前的工程项目中。
 
 ### 方法一：自动加载（aar）
-TRTC SDK 已经发布到 jcenter 库，您可以通过配置 gradle 自动下载更新。
+TRTC SDK 已经发布到 mavenCentral 库，您可以通过配置 gradle 自动下载更新。
 只需要用 Android Studio 打开需要集成 SDK 的工程（本文以 [TRTCScenesDemo](https://github.com/tencentyun/LiteAVClassic/tree/master/Android/TRTCScenesDemo) 为例），然后通过简单的三个步骤修改 app/build.gradle 文件，就可以完成 SDK 集成：
-![](https://main.qcloudimg.com/raw/763847f3b613649d7f2354ceb8c47d38.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/5e1c91530b1f0adf5f4756efb1fe53f9.png)
 
 1. 在 dependencies 中添加 TRTCSDK 的依赖。
- - 若使用3.x版本的 com.android.tools.build:gradle 工具，请执行以下命令：
+    - 若使用3.x版本的 com.android.tools.build:gradle 工具，请执行以下命令：
 ```
 dependencies {
          implementation 'com.tencent.liteav:LiteAVSDK_TRTC:latest.release'
 }
 ```
- - 若使用2.x版本的 com.android.tools.build:gradle 工具，请执行以下命令：
+    - 若使用2.x版本的 com.android.tools.build:gradle 工具，请执行以下命令：
 ```
 dependencies {
          compile 'com.tencent.liteav:LiteAVSDK_TRTC:latest.release'
@@ -30,33 +30,33 @@ dependencies {
 ```
 defaultConfig {
        ndk {
-           abiFilters "armeabi", "armeabi-v7a", "arm64-v8a"
+           abiFilters "armeabi-v7a", "arm64-v8a"
        }
 }
 ```
->?目前 TRTC SDK 支持 armeabi ， armeabi-v7a 和 arm64-v8a。
-3. 单击【Sync Now】，自动下载 SDK 并集成到工程里。
+>?目前 TRTC SDK 支持 armeabi-v7a 和 arm64-v8a。
+3. 单击![](https://main.qcloudimg.com/raw/d6b018054b535424bb23e42d33744d03.png)**Sync Now**，自动下载 SDK 并集成到工程里。
 
 
 ### 方法二：手动下载（aar）
-如果您的网络连接 jcenter 有问题，您也可以手动下载 SDK 集成到工程里：
+如果您的网络连接 mavenCentral 有问题，您也可以手动下载 SDK 集成到工程里：
 
 1. 下载最新版本 [TRTC SDK](https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_TRTC_Android_latest.zip)。
 2. 将下载到的 aar 文件拷贝到工程的 **app/libs** 目录下。
 3. 在工程根目录下的 build.gradle 中，添加 **flatDir**，指定本地仓库路径。
 ![](https://main.qcloudimg.com/raw/3b07d38f105167ae52ffdda9a1712cec.png)
 4. 在 app/build.gradle 中，添加引用 aar 包的代码。
-![](https://main.qcloudimg.com/raw/a5658a2b3c888513215093a04dd76a25.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/d91447b025674df61f1aec61d25a7d2d.png)
 5. 在 app/build.gradle的defaultConfig 中，指定 App 使用的 CPU 架构。
 ```
 defaultConfig {
        ndk {
-           abiFilters "armeabi", "armeabi-v7a", "arm64-v8a"
+           abiFilters "armeabi-v7a", "arm64-v8a"
        }
 }
 ```
->?目前 TRTC SDK 支持 armeabi ， armeabi-v7a 和 arm64-v8a。
-6. 单击【Sync Now】，完成 TRTC SDK 的集成工作。
+>?目前 TRTC SDK 支持 armeabi-v7a 和 arm64-v8a。
+6. 单击![](https://main.qcloudimg.com/raw/d6b018054b535424bb23e42d33744d03.png)**Sync Now**，完成 TRTC SDK 的集成工作。
 
 
 ## 集成 SDK（jar）
@@ -64,10 +64,10 @@ defaultConfig {
 
 1. [下载](https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_TRTC_Android_latest.zip) 最新版本的 jar 压缩包，文件路径为`SDK/LiteAVSDK_TRTC_xxx.zip` （其中 xxx 为 TRTC SDK 的版本号）。
 2. 解压后得到 libs 目录，里面主要包含 jar 文件和 so 文件夹。
-3. 将解压得到的 jar 文件和 armeabi， armeabi-v7a， arm64-v8a 文件夹拷贝到 app/libs 目录下。
+3. 将解压得到的 jar 文件和 armeabi-v7a， arm64-v8a 文件夹拷贝到 app/libs 目录下。
 ![](https://main.qcloudimg.com/raw/c7b498b40bff8c248cd72fcd01f07933.png)
 4. 在 app/build.gradle 中，添加引用 jar 库的代码。
-![](https://main.qcloudimg.com/raw/5369b8c9bbb855622b22c7843a591e2e.png)	
+![](https://main.qcloudimg.com/raw/5369b8c9bbb855622b22c7843a591e2e.png)   
 5. 在 app/build.gradle 中，添加引用 so 库的代码。
 ```
 sourceSets {
@@ -81,13 +81,12 @@ sourceSets {
 ```
 defaultConfig {
        ndk {
-           abiFilters "armeabi", "armeabi-v7a", "arm64-v8a"
+           abiFilters "armeabi-v7a", "arm64-v8a"
        }
 }
 ```
->?目前 TRTC SDK 支持 armeabi， armeabi-v7a 和 arm64-v8a。
->
-7. 单击【Sync Now】，完成 TRTC SDK 的集成工作。
+>?目前 TRTC SDK 支持 armeabi-v7a 和 arm64-v8a。
+7. 单击![](https://main.qcloudimg.com/raw/d6b018054b535424bb23e42d33744d03.png)**Sync Now**，完成 TRTC SDK 的集成工作。
 
 
 ## 配置 App 权限
@@ -104,7 +103,6 @@ defaultConfig {
 <uses-permission android:name="android.permission.BLUETOOTH" />
 <uses-permission android:name="android.permission.CAMERA" />
 <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-<uses-feature android:name="android.hardware.camera" />
 <uses-feature android:name="android.hardware.camera.autofocus" />
 ```
 
@@ -121,14 +119,12 @@ defaultConfig {
 
 ```
 packagingOptions {
-	pickFirst '**/libc++_shared.so'
-	doNotStrip "*/armeabi/libYTCommon.so"
-	doNotStrip "*/armeabi-v7a/libYTCommon.so"
-	doNotStrip "*/x86/libYTCommon.so"
-	doNotStrip "*/arm64-v8a/libYTCommon.so"
+    doNotStrip "*/armeabi-v7a/libYTCommon.so"
+    doNotStrip "*/x86/libYTCommon.so"
+    doNotStrip "*/arm64-v8a/libYTCommon.so"
 }
 ```
-![](https://main.qcloudimg.com/raw/b847d95fc05d2b97f85ffdb0b89438cc.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/609bad375a898e9d1e066187fb20176d.png)
 
 
 [](id:using_cpp)

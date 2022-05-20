@@ -4,7 +4,7 @@
 
 ### 内网 NTP 服务器
 
-```
+```ruby
 time1.tencentyun.com
 time2.tencentyun.com
 time3.tencentyun.com
@@ -13,8 +13,17 @@ time5.tencentyun.com
 ```
 
 ### 外网 NTP 服务器
-
+```ruby
+ntp.tencent.com
+ntp1.tencent.com
+ntp2.tencent.com
+ntp3.tencent.com
+ntp4.tencent.com
+ntp5.tencent.com
 ```
+以下为旧外网 NTP 服务器地址，旧地址仍可使用，但建议您配置使用新的外网 NTP 服务器地址。
+```ruby
+time.cloud.tencent.com
 time1.cloud.tencent.com 
 time2.cloud.tencent.com 
 time3.cloud.tencent.com

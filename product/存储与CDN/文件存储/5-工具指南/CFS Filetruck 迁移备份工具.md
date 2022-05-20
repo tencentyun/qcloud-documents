@@ -2,6 +2,7 @@
 
 - Filetruck 的主要功能如下：
   - 数据迁移任务
+  - 支持增量迁移，自动完成 MD5 一致性校验 （迁移时建议使用 sync 方式挂载，进一步保障一致性）
   - 根据任务 ID 查询任务执行情况
   - 列出所有历史任务
 - Filetruck 支持的源和目的地址如下：
@@ -32,11 +33,26 @@ Filetruck 为一次性迁移工具，如在迁移过程中修改源文件，可�
 
 ## 准备工作
 
-在迁移工作开始前，用户可以到腾讯云镜像市场找到 [CFS 迁移工具 Filetruck](https://market.cloud.tencent.com/products/24827) 的镜像。
+在迁移工作开始前，用户需要先下载并安装 Filetruck 迁移工具。
+1. 执行如下命令，下载 cfs-filetruck 工具。
+```
+wget https://cfsturbo-client-1251013638.cos.ap-guangzhou.myqcloud.com/tools/cfs-filetruck.tar.gz
+```
+2. 执行如下命令，解压工具。
+```
+tar -xzvf cfs-filetruck.tar.gz
+```
+3. 执行如下命令，校验 MD5 值。
+```
+cd ./cfs-filetruck/ && md5sum *
+cat ./md5sum.txt
+```
+4. 执行如下命令，安装 cfs-filetruck。
+```
+sudo mv ./filetruck_client /usr/local/bin
+sudo mv ./server_filetruck /usr/local/bin
+```
 
-1. 使用 CFS Filetruck 镜像创建一个 CVM 云服务器（推荐最低配置 ：2核4G1.5Gbps）。主机成功创建后，迁移工具及相关环境配置已经就绪；
-2. 将需要迁移/备份的文件所在的源地址及目的地址挂载到该主机上，详情请参见 [ CFS 文件系统挂载指引](https://cloud.tencent.com/document/product/582/11523)；
-3. 创建一个迁移任务并执行。
 
 ## 操作步骤
 ### 创建数据迁移任务

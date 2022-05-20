@@ -2,9 +2,6 @@
 **事件名：**webinar.participant-role-changed
 **事件说明：**网络研讨会（Webinar）用户角色变更时触发该事件通知。
 
-
-
-
 ## 示例
 ```json
 {
@@ -15,17 +12,18 @@
              "operate_time":1609313201465,//毫秒级别事件操作时间戳
              "operator":{ //事件操作者
                  "userid":"tester",//事件操作者id（同企业用户才返回用户id，OAuth用户返回openId,rooms返回roomsId）
+                  "open_id":"KM4Ss******gUw1JiK",
                  "ms_open_id":"WMfgHRYj6m36mcDGtK",//用户会中身份ID
                  "user_name":"tester_name",//事件操作者名称
                  "instance_id":"2"//用户的终端设备类型
-				 "ms_open_id":"tester_id"//会议中的临时id
              }, 
              "to_operator":{//被操作者，即角色变更的用户
                  "userid":"tester-2",//被操作者id（OAuth用户返回openId）
+                  "open_id":"KM4Ss******gUw1JiK",
                  "ms_open_id":"WMfgHRYj6m36mcDGtK",//用户会中身份ID
                  "user_name":"tester-2_name",//被操作者名称
                  "instance_id":"2",//用户的终端设备类型
-                 "role":1//被操作者变更后的角色
+                 "user_role":1//被操作者变更后的角色
                  // 0: 普通成员角色 1: 是创建者权限 2: 主持人权限 3: 创建者权限+主持人权限 4: 游客 5: 游客+主持人权限 6: 联席主持人 7: 创建者+联席主持人 8: restApi接口指派的主持人 30：研讨会内部嘉宾 31: 研讨会外部嘉宾 32：研讨会邀请链接入会嘉宾 33：研讨会观众 34：有音视频权限的研讨会观众
              },         
              "meeting_info":{//会议信息
@@ -34,6 +32,7 @@
                  "subject":"tester-2的快速会议",// 会议主题
                  "creator":{
                      "userid":"tester-2",//创建人id（OAuth用户返回openId）
+                      "open_id":"KM4Ss******gUw1JiK",
                      "ms_open_id":"WMfgHRYj6m36mcDGtK",//用户会中身份ID
                      "user_name":"tester-2_name",//创建人名称
                      "instance_id":"2",//用户的终端设备类型
@@ -46,6 +45,4 @@
         }
     ]
 }
-
 ```
-

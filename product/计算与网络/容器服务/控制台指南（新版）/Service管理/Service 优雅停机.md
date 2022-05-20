@@ -1,5 +1,5 @@
 
-## 简介
+## 简介 
 
 基于接入层直连 Pod 的场景，当后端进行滚动更新或后端 Pod 被删除时，如果直接将 Pod 从 LB 的后端摘除，则无法处理 Pod 已接收但还未处理的请求。
 特别是长链接的场景，例如会议业务，如果直接更新或删除工作负载的 Pod，此时会议会直接中断。
@@ -126,3 +126,7 @@ spec:
 ...
 :::
 </dx-codeblock>
+
+
+## 相关文档
+- 故障处理：[Nginx Ingress Controller 后端解绑不优雅的问题](https://cloud.tencent.com/document/product/457/71216)

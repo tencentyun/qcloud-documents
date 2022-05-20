@@ -30,7 +30,7 @@
 1. 在 pom.xml 中添加以下依赖。
 <dx-codeblock>
 :::  xml
-<dependency>
+<dependencies>
    <dependency>
       <groupId>org.apache.kafka</groupId>
       <artifactId>kafka-clients</artifactId>
@@ -46,7 +46,7 @@
       <artifactId>slf4j-simple</artifactId>
       <version>1.6.4</version>
    </dependency>
-</dependency>
+</dependencies>
 :::
 </dx-codeblock>
 2. 创建 JAAS 配置文件 `ckafka_client_jaas.conf`，使用**用户管理**界面创建的用户进行修改。
@@ -66,7 +66,7 @@ username 是`实例 ID` + `#` + `配置的用户名`，password 是配置的用�
 <dx-codeblock>
 :::  properties
 ## 配置接入网络，在控制台的实例详情页面接入方式模块的网络列复制。
-bootstrap.servers=xx.xx.xx.xx:xxxx
+bootstrap.servers=ckafka-xxxxxxx
 ## 配置 Topic，在控制台上 topic 管理页面复制。
 topic=XXX
 ## 配置 consumer group，您可以自定义设置

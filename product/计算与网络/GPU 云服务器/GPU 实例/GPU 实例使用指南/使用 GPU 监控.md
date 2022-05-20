@@ -1,4 +1,5 @@
 NVIDIA GPU 系列实例提供了监控 GPU 使用率，显存使用量，功耗以及温度等参数的能力。
+
 ## GPU 监控工作条件
 
 GPU 监控是通过在 GPU 云服务上部署安装相关 [GPU 驱动](https://cloud.tencent.com/document/product/560/8048) 和 [云服务器监控组件](https://cloud.tencent.com/document/product/248/6211) 来实现的，使用不同的镜像需要不同的处理方式：
@@ -7,7 +8,7 @@ GPU 监控是通过在 GPU 云服务上部署安装相关 [GPU 驱动](https://c
 - 使用导入镜像：需手动安装云服务器监控组件和 GPU 驱动。
 
 ## 查看 GPU 工作参数
-单击 GPU 列表中的 “<img style="margin:0;" src="https://main.qcloudimg.com/raw/99d10268805b09f693477afd664e05fb.png"/>” 监控图标， 访问 [控制台](https://console.cloud.tencent.com/cvm) GPU 实例的监控页面，查看 GPU 监控，移动鼠标到指标曲线上将显示对应 GPU 设备的 BDF 和监控数据。如下图所示：
+单击 GPU 列表中的 “<img style="margin:-3px 0px;" src="https://main.qcloudimg.com/raw/99d10268805b09f693477afd664e05fb.png"/>” 监控图标， 访问 [控制台](https://console.cloud.tencent.com/cvm) GPU 实例的监控页面，查看 GPU 监控，移动鼠标到指标曲线上将显示对应 GPU 设备的 BDF 和监控数据。如下图所示：
 ![](https://main.qcloudimg.com/raw/13ae6f53519093601fbeba86971ec7a0.jpg)
 参数说明：
 <table>

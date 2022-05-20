@@ -11,7 +11,7 @@
 
 ## 重置 ES 集群访问密码
 用户需要调整 ES 集群访问密码时，可以通过集群详情页的密码重置功能对 ES 集群 elastic 账号的密码进行重置，操作页面如下：
-![密码重置](https://main.qcloudimg.com/raw/ddc3819595b60656c21c8f93349f31f0.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/842994a391b83292fd003ae8b268211c.png)
 
 ## 设置 Kibana 公网访问 IP 黑白名单
 由于 Kibana 页面是默认通过公网访问，在进行密码校验的基础上，ES 还为 Kibana 访问提供了 IP 黑白名单功能，进一步保障用户集群的访问安全性。

@@ -1,6 +1,5 @@
 
 ## Request 智能推荐
->? Request 智能推荐功能目前处于内部邀请使用阶段，如需使用可 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请。
 
 
 ### 介绍
@@ -65,7 +64,7 @@ X86，不支持 ARM 机型
 
 ### 开启/关闭 Request 智能推荐
 
-1. 登录 [容器服务控制台](https://console.qcloud.com/tke2)。
+1. 登录 [容器服务控制台 ](https://console.qcloud.com/tke2)。
 2. 进入到某一集群后，在左侧导航栏中，单击**基本信息**，进入集群基本信息页面。
 3. 找到 **Request智能推荐**，单击打开右侧的开关。
 ![](https://main.qcloudimg.com/raw/d793072559e2f8f4f6ce60b93c58930e.png)

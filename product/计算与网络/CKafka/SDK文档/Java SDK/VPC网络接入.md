@@ -28,7 +28,7 @@
 <dx-codeblock>
 :::  bash
       ## 配置接入网络，在控制台的实例详情页面接入方式模块的网络列复制。
-      bootstrap.servers=ckafka-xxxxxxxxxxxxxxxxx
+      bootstrap.servers=xx.xx.xx.xx:xxxx
       ## 配置Topic，在控制台上topic管理页面复制。
       topic=XXX
       ## 配置Consumer Group，您可以自定义设置

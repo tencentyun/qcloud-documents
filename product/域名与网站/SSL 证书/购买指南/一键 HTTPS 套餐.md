@@ -1,9 +1,9 @@
 ## 概述
 一键 HTTPS 是 SSL 证书结合腾讯云 Web 应用防火墙（WAF）服务开发的快速部署 HTTPS 功能，帮助用户网站的 HTTPS 访问升级。使用该功能，您无需进行繁琐的 SSL 证书部署操作，仅需配置一个 CNAME 解析，即可实现从 HTTP 到 HTTPS 的能力升级。
 使用一键 HTTPS 功能时，需购买一键 HTTS 套餐才可正常使用。
->? 
->- 一键 HTTPS 功能操作步骤请参考 [一键 HTTPS](https://cloud.tencent.com/document/product/400/58062)。
->- 一键 HTTPS 套餐将于**2022年01月07日**开放购买。
+>? 一键 HTTPS 功能操作步骤请参考 [一键 HTTPS](https://cloud.tencent.com/document/product/400/58062)。
+>
+
 
 
 

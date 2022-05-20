@@ -8,7 +8,7 @@ BOT 详情展示了不同类型的 BOT 详细数据、各个特征项的统计�
 >- 需开启 [BOT 防护设置](https://console.cloud.tencent.com/guanjia/bot2/config) 页面中对应域名的流量分析开关。
 
 ## 操作步骤
-1. 登录 [Web 应用防火墙（WAF）控制台](https://console.cloud.tencent.com/guanjia/waf/overview)，在左侧导航栏中，选择【BOT 行为管理】>【BOT 详情】>【BOT 详情】，进入 BOT 详情页面。
+1. 登录 [Web 应用防火墙（WAF）控制台](https://console.cloud.tencent.com/guanjia/tea-overview)，在左侧导航栏中，选择【BOT 行为管理】>【BOT 详情】>【BOT 详情】，进入 BOT 详情页面。
 2. 在BOT详情页面，单击左上角“全部域名”下拉框，选择要查看的域名，通过指定的时间范围，搜索某个域名在查询时间范围内的 BOT 防护效果数据。
 ![](https://main.qcloudimg.com/raw/f795b89cf53cc7f0616954b0167d2b30.png)
 3. 在BOT详情页面，单击筛选器搜索框，选择所需条件，并输入文本内容。

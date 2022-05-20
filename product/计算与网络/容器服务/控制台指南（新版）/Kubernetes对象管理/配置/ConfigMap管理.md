@@ -1,4 +1,4 @@
-## 简介
+## 简介 
 
 通过 ConfigMap 您可以将配置和运行的镜像进行解耦，使得应用程序有更强的移植性。ConfigMap 是有 key-value 类型的键值对，您可以通过控制台的 Kubectl 工具创建对应的 ConfigMap 对象，也可以通过挂载数据卷、环境变量或在容器的运行命令中使用 ConfigMap。
 
@@ -6,7 +6,7 @@
 ## ConfigMap 控制台操作指引
 
 ### 创建 ConfigMap
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
+1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)。
 2. 在左侧导航栏中，单击**集群**，进入集群列表页。
 3. 单击需要创建 ConfigMap 的集群 ID，进入集群管理页面。
 4. 选择 **配置管理** > **ConfigMap**，进入 ConfigMap 信息页面。
@@ -19,7 +19,7 @@
 ### 使用 ConfigMap
 
 #### 方式一：数据卷使用 ConfigMap 类型
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
+1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)。
 2. 在左侧导航栏中单击**集群**，进入集群列表页。
 3. 单击需要部署 Workload 的集群 ID，进入集群管理页面。
 4. 在 “工作负载” 下，任意选择 Workload 类型，进入对应的信息页面。例如，选择**工作负载** > **DaemonSet**，进入 DaemonSet 信息页面。如下图所示：
@@ -38,7 +38,7 @@
 
 #### 方式二： 环境变量中使用 ConfigMap 类型
 
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
+1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)。
 2. 在左侧导航栏中，单击**集群**，进入集群列表页。
 3. 单击需要部署 Workload 的集群 ID，进入待部署 Workload 的集群管理页面。
 4. 在 “工作负载” 下，任意选择 Workload 类型，进入对应的信息页面。例如，选择**工作负载** > **DaemonSet**，进入 DaemonSet 信息页面。如下图所示：
@@ -51,7 +51,7 @@
 
 ### 更新 ConfigMap
 
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
+1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)。
 2. 在左侧导航栏中，单击**集群**，进入集群列表页。
 3. 单击需要更新 ConfigMap 的集群 ID，进入集群管理页面。
 4. 选择 **配置管理** > **ConfigMap**，进入 ConfigMap 信息页面。

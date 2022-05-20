@@ -6,11 +6,11 @@ Open Broadcaster Software（简称 OBS）是一款好用的第三方开源程序
 ## 准备工作
 - 安装 [OBS](https://obsproject.com/download?spm=a2c4g.11186623.2.15.6aac1445JPlKR8) 工具。
 - 已 [开通云直播服务](https://console.cloud.tencent.com/live)，并准备已备案的域名，[添加为播放域名](https://cloud.tencent.com/document/product/267/20381)（系统提供默认的推流域名可以使用，也可以添加自定义域名推流）
->? 新用户立享 [9.9元 100GB 直播流量包](https://cloud.tencent.com/act/pro/xinyonghu)，更多规格资源包 [立即前往选购](https://buy.cloud.tencent.com/live )。
+>? [9.9元可享100GB直播流量包](https://cloud.tencent.com/act/pro/cssall)，入门级小额体验包，低成本快速体验音视频直播服务，更多规格资源包 [立即前往选购](https://buy.cloud.tencent.com/live)。
 
 [](id:step0)
 ## 获取推流地址
-1. 登录云直播控制台，进入[ **地址生成器** ](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator)，进行如下配置：
+1. 登录云直播控制台，进入 [**地址生成器**](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator)，进行如下配置：
    1. 选择生成类型为**推流域名**或**播放域名**。
    2. 选择您已添加到域名管理里对应的域名。
    3. AppName 为区分同一个域名下多个 App 的地址路径，默认为 live。
@@ -83,7 +83,7 @@ Open Broadcaster Software（简称 OBS）是一款好用的第三方开源程序
 
 >? 
 >- 底部出现![](https://main.qcloudimg.com/raw/a10bafc9eb0895dc4c6b542b61217253.png)绿灯，表示推流成功。
->- 若需停止推流，单击 **停止推流>停止推流** 即可。
+>- 若需停止推流，单击 **停止推流 > 停止推流** 即可。
 
 ## 其他推流相关配置
 ### 影响直播延迟相关设置
@@ -151,9 +151,10 @@ Open Broadcaster Software（简称 OBS）是一款好用的第三方开源程序
 ## 拉流
 推流完成后，您可通过以下方式拉流播放来验证流是否推成功：
 - PC 端：支持使用 [VLC 播放器](https://cloud.tencent.com/document/product/267/32727) 进行拉流。
-- 移动端：支持通过集成 [移动直播 ](https://cloud.tencent.com/document/product/454/) SDK 来实现播放。
->?移动直播 SDK 是云直播服务（LVB）在移动场景的延伸。相比于主要面向云对接的直播（LVB） 服务，移动直播既提供了基于 RTMP SDK 的“快速集成方案”，也提供了集标准直播（LVB）、快直播（LEB）、云点播（VOD）、即时通信（IM） 和对象存储（COS） 等多云端服务的“一体化解决方案”。
-其中， [快直播](https://cloud.tencent.com/document/product/454/55880) （Live Event Broadcasting，LEB）（超低延迟直播）是标准直播在超低延迟播放场景下的延伸，比传统直播协议延迟更低，为观众提供毫秒级的直播观看体验。 能够满足一些对延迟性能要求更高的特定场景需求，例如在线教育、体育赛事直播、在线答题等。
+- 移动端：支持通过集成 [腾讯云视立方·直播 SDK](https://cloud.tencent.com/document/product/454/) 来实现播放。
+>? 腾讯云视立方·直播 SDK 是云直播服务（CSS）在移动场景的延伸。相比于主要面向云对接的直播（CSS） 服务，直播 SDK 既提供了基于 RTMP SDK 的“快速集成方案”，也提供了集标准直播（LVB）、快直播（LEB）、云点播（VOD）、即时通信（IM） 和对象存储（COS） 等多云端服务的“一体化解决方案”。
+其中， [快直播](https://cloud.tencent.com/document/product/454/55880) （Live Event Broadcasting，LEB）（超低延时直播）是标准直播在超低延时播放场景下的延伸，比传统直播协议延时更低，为观众提供毫秒级的直播观看体验。 能够满足一些对延迟性能要求更高的特定场景需求，例如在线教育、体育赛事直播、在线答题等。
+
 
 
 

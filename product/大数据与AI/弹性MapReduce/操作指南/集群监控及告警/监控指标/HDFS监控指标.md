@@ -374,7 +374,23 @@
 <td >FilesInGetListingOps </td>
 <td >次/s </td>
 <td >每秒执行 FilesInGetListing 操作的次数 </td>
+</tr>
+<tr>
+<td rowspan=3>文件统计 </td>
+<td >FilesDeleted </td>
+<td >count</td>
+<td >文件和文件夹被删除或重命名的数量 </td>
 </tr><tr>
+<td >FilesCreated </td>
+<td >count </td>
+<td >文件和文件夹创建数量 </td>
+</tr>
+<tr>
+<td >FilesAppended </td>
+<td >count </td>
+<td >	Appended 文件数量 </td>
+</tr> 		
+<tr>
 <td rowspan=2>事务操作 </td>
 <td >TransactionsNumOps </td>
 <td >次/s </td>
@@ -477,6 +493,240 @@
 <td >个 </td>
 <td >后台线程数量 </td>
 </tr>
+<tr>
+<td >上次 Checkpoint 以来事务总数 </td>
+<td >SinceLastCheckpoint </td>
+<td >count </td>
+<td >自上次检查点以来的总事务数 </td>
+</tr>
+<tr>
+<td >Checkpoint 时间  </td>
+<td >LastCheckpoint </td>
+<td >time </td>
+<td >上次 Checkpoint 以来的时间 </td>
+</tr>
+<tr>
+<td > 等待文件锁的队列长度  </td>
+<td >LockQueueLength </td>
+<td >count </td>
+<td >	LockQueueLength	等待文件锁的队列长度</td>
+</tr>
+<tr>
+<td rowspan=7> RPC 平均时间（1） </td>
+<td >CompleteAvgTime </td>
+<td >ms </td>
+<td >	Complete 请求平均延迟时间</td>
+</tr>			
+<tr>
+<td >CreateAvgTime </td>
+<td >ms </td>
+<td >	Create 请求平均延迟时间</td>
+</tr>		
+<tr>
+<td >RenameAvgTime </td>
+<td >ms </td>
+<td >	Rename 请求平均延迟时间</td>
+</tr>	
+<tr>
+<td >AddBlockAvgTime </td>
+<td >ms </td>
+<td >	AddBlock 请求平均延迟时间</td>
+</tr>	
+<tr>
+<td >GetListingAvgTime </td>
+<td >ms </td>
+<td >	GetListing 请求平均延迟时间</td>
+</tr>	
+<tr>
+<td >GetFileInfoAvgTime </td>
+<td >ms </td>
+<td >	GetFileInfo 请求平均延迟时间</td>
+</tr>	
+<tr>
+<td >SendHeartbeatAvgTime </td>
+<td >ms </td>
+<td >	SendHeartbeat 请求平均延迟时间</td>
+</tr>	
+<tr>
+<td rowspan=7> RPC 平均时间（2） </td>
+<td >RegisterDatanodeAvgTime </td>
+<td >ms </td>
+<td >	RegisterDatanode 请求平均延迟时间</td>
+</tr>			
+<tr>
+<td >BlockReportAvgTime </td>
+<td >ms </td>
+<td >	BlockReport 请求平均延迟时间</td>
+</tr>		
+<tr>
+<td >DeleteAvgTime </td>
+<td >ms </td>
+<td >	Delete 请求平均延迟时间</td>
+</tr>	
+<tr>
+<td >RenewLeaseAvgTime </td>
+<td >ms </td>
+<td >	RenewLease 请求平均延迟时间</td>
+</tr>	
+<tr>
+<td >BlockReceivedAndDeletedAvgTime </td>
+<td >ms </td>
+<td >	BlockReceivedAndDeleted 请求平均延迟时间</td>
+</tr>	
+<tr>
+<td >FsyncAvgTime </td>
+<td >ms </td>
+<td >	Fsync 请求平均延迟时间</td>
+</tr>	
+<tr>
+<td >VersionRequestAvgTime </td>
+<td >ms </td>
+<td >	VersionRequest 请求平均延迟时间</td>
+</tr>
+<tr>
+<td rowspan=7> RPC 平均时间（3） </td>
+<td >ListEncryptionZonesAvgTime </td>
+<td >ms </td>
+<td >	ListEncryptionZones 请求平均延迟时间</td>
+</tr>			
+<tr>
+<td >SetPermissionAvgTime </td>
+<td >ms </td>
+<td >	SetPermission 请求平均延迟时间</td>
+</tr>		
+<tr>
+<td >SetTimesAvgTime </td>
+<td >ms </td>
+<td >	SetTimes 请求平均延迟时间</td>
+</tr>	
+<tr>
+<td >SetSafeModeAvgTime </td>
+<td >ms </td>
+<td >	SetSafeMode 请求平均延迟时间</td>
+</tr>	
+<tr>
+<td >MkdirsAvgTime </td>
+<td >ms </td>
+<td >	Mkdirs 请求平均延迟时间</td>
+</tr>	
+<tr>
+<td >GetServerDefaultsAvgTime </td>
+<td >ms </td>
+<td >	GetServerDefaults 请求平均延迟时间</td>
+</tr>	
+<tr>
+<td >GetBlockLocationsAvgTime </td>
+<td >ms </td>
+<td >	GetBlockLocations 请求平均延迟时间</td>
+</tr>	
+<tr>
+<td rowspan=7> RPC 统计（1） </td>
+<td >CompleteNumOps </td>
+<td >次/s </td>
+<td >	每秒调用 Complete 的次数</td>
+</tr>			
+<tr>
+<td >CreateNumOps </td>
+<td >次/s </td>
+<td >	每秒调用 Create 的次数</td>
+</tr>		
+<tr>
+<td >RenameNumOps </td>
+<td >次/s </td>
+<td >	每秒调用 Rename 的次数</td>
+</tr>	
+<tr>
+<td >AddBlockNumOps </td>
+<td >次/s </td>
+<td >	每秒调用 AddBlock 的次数</td>
+</tr>	
+<tr>
+<td >GetListingNumOps </td>
+<td >次/s </td>
+<td >	每秒调用 GetListing 的次数</td>
+</tr>	
+<tr>
+<td >GetFileInfoNumOps </td>
+<td >次/s </td>
+<td >每秒调用 GetFileInfo 的次数</td>
+</tr>	
+<tr>
+<td >SendHeartbeatNumOps </td>
+<td >次/s </td>
+<td >	每秒调用 SendHeartbeat 的次数</td>
+</tr>	
+<tr>
+<td rowspan=7> RPC 统计（2） </td>
+<td >RegisterDatanodeNumOps </td>
+<td >次/s </td>
+<td >	每秒调用 RegisterDatanode 的次数</td>
+</tr>			
+<tr>
+<td >BlockReportNumOps </td>
+<td >次/s </td>
+<td >	每秒调用 BlockReport 的次数</td>
+</tr>		
+<tr>
+<td >DeleteNumOps </td>
+<td >次/s </td>
+<td >	每秒调用 Delete 的次数</td>
+</tr>	
+<tr>
+<td >RenewLeaseNumOps </td>
+<td >次/s </td>
+<td >	每秒调用 RenewLease 的次数</td>
+</tr>	
+<tr>
+<td >BlockReceivedAndDeletedNumOps </td>
+<td >次/s </td>
+<td >	每秒调用 BlockReceivedAndDeleted 的次数</td>
+</tr>	
+<tr>
+<td >FsyncNumOps </td>
+<td >次/s </td>
+<td >	每秒调用 Fsync 的次数</td>
+</tr>	
+<tr>
+<td >VersionRequestNumOps </td>
+<td >次/s </td>
+<td >每秒调用 VersionRequest 的次数</td>
+</tr>	
+<tr>
+<td rowspan=7> RPC 统计（3） </td>
+<td >ListEncryptionZonesNumOps </td>
+<td >次/s </td>
+<td >	每秒调用 ListEncryptionZones 的次数</td>
+</tr>			
+<tr>
+<td >SetPermissionNumOps </td>
+<td >次/s </td>
+<td >	每秒调用 SetPermission 的次数</td>
+</tr>		
+<tr>
+<td >SetTimesNumOps </td>
+<td >次/s </td>
+<td >	每秒调用 SetTimes 的次数</td>
+</tr>	
+<tr>
+<td >SetSafeModeNumOps </td>
+<td >次/s </td>
+<td >	每秒调用 SetSafeMode 的次数</td>
+</tr>	
+<tr>
+<td >MkdirsNumOps </td>
+<td >次/s </td>
+<td >	每秒调用 Mkdirs 的次数</td>
+</tr>	
+<tr>
+<td >GetServerDefaultsNumOps </td>
+<td >次/s </td>
+<td >	每秒调用 GetServerDefaults 的次数</td>
+</tr>	
+<tr>
+<td >GetBlockLocationsNumOps </td>
+<td >次/s </td>
+<td >每秒调用 GetBlockLocations 的次数</td>
+</tr>	
 </table>
 
 ### HDFS-DataNode
@@ -889,8 +1139,29 @@
 <td >次/s </td>
 <td >包传输操作 QPS </td>
 </tr>
+<tr>
+<td >Block 数量</td>
+<td >跟盘信息相关例如：/data/qcloud/data/hdfs</td>
+<td >个</td>
+<td >Block 数量</td>
+</tr><tr>
+<td >使用磁盘容量</td>
+<td >跟盘信息相关例如：/data/qcloud/data/hdfs</td>
+<td >GB</td>
+<td >使用磁盘容量</td>
+</tr><tr>
+<td >空闲磁盘容量</td>
+<td >跟盘信息相关例如：/data/qcloud/data/hdfs</td>
+<td >GB</td>
+<td >空闲磁盘容量</td>
+</tr><tr>
+<td >预留磁盘容量</td>
+<td >跟盘信息相关例如：/data/qcloud/data/hdfs</td>
+<td >GB</td>
+<td >预留磁盘容量</td>
+</tr>			
 </table>
-
+			
 ### HDFS-JournalNode
 <table>
 <tr>

@@ -90,7 +90,7 @@ $ nginx-prometheus-exporter -nginx.scrape-uri http://<nginx>:8080/nginx_status
 2. 通常情况下 ，Exporter 和 Nginx 并非共同运行，所以数据上报的 `instance` 并不能真实描述是哪个实例，为了方便数据的检索和观察，我们可以修改 `instance` 标签，使用真实的 IP 进行替换以便更加直观。示例如下：
 ```bash
 ...
-  - job_name: 'mysqld_exporter'
+  - job_name: 'nginx_exporter'
     static_configs:
     - targets: ['your_exporter:port']
     relabel_configs:

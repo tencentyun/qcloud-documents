@@ -5,9 +5,8 @@
 ## 部署示例
 
 在下面的例子中，我们将部署一套基于 Spring Cloud 的微服务，包含：
-
-- 1 个服务提供者（**hello-service**），使用 CloudBase 云托管部署；
-- 1 个服务调用者（**hello-client**），使用 CloudBase 云托管部署；
+- 1 个服务提供者（**hello-service**），使用 CloudBase 云托管部署
+- 1 个服务调用者（**hello-client**），使用 CloudBase 云托管部署
 - 注册中心（**eureka-server**）和配置中心（**config-server**），使用腾讯云 CVM 部署
 
 ![](https://main.qcloudimg.com/raw/c0e1f659d2521c29863bfcb6a74efa44.png)
@@ -50,7 +49,7 @@ java -jar app.jar &
 1. 首先需要您准备一个腾讯云 CVM 实例，如果您没有实例，可以前往腾讯云 CVM 购买。
 >? 为了更接近真实的服务场景，我们建议您使用与上文的注册中心不同的 CVM 示例。
 2. 进入示例项目的 `config-server/src/main/resources` 目录，修改 `application.yml`，将 Eureka 的地址改为上文的 **注册中心（eureka-server）** 的地址，如下图：
-![](https://main.qcloudimg.com/raw/95ad69f5382dc93fb796cddeb92f5abf.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/14ebaee198c40787f92686418a508d85.png)
 3. 进入 `config-server` 目录，执行：
 <dx-codeblock>
 :::  sh
@@ -74,7 +73,7 @@ java -jar app.jar &
 
 ### 步骤3：部署服务提供方（hello-service）
 
-1. 首先 [开通云托管](https://cloud.tencent.com/document/product/1243/47080)，选择与上文 CVM 同样的 VPC，以及对应的子网:
+1. 首先 [开通云托管](https://cloud.tencent.com/document/product/1243/47080)，选择与上文 CVM 同样的 VPC，以及对应的子网：
 ![](https://main.qcloudimg.com/raw/1c806169425abc409786af835a33af03.png)
 2. 新建服务 `hello-service`：
 <img src = "https://main.qcloudimg.com/raw/13d4ce31e4eb7562ac3cf54424751720.png" style="width: 80%"> 
@@ -92,7 +91,7 @@ java -jar app.jar &
 1. 新建服务 `hello-client`，单击**提交**。
 <img src = "https://main.qcloudimg.com/raw/975d6625c4539fa668658a2387db5210.png" style="width: 80%"> 
 2. 进入示例项目 `hello-client/src/main/resources` 目录，修改 `application.yml`，将 Eureka 的地址改为对应地址，如下图：
-![](https://main.qcloudimg.com/raw/0831b976cb9a2eb3fc6e8feadf7c8270.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/53faafc25cb0ba74333700aa33b6b9f4.png)
 3. 然后登录 CloudBase 云托管控制台，选择新建版本，将示例项目的 `/hello-client` 目录上传，同时版本配置参考如下：
 <img src = "https://main.qcloudimg.com/raw/0cf33eb86864e78a264b4e5d888e3e72.png" style="width: 80%"> 
 4. 部署成功后，会在云开发控制台看到版本状态为**正常**：

@@ -8,7 +8,7 @@
 ### 控制台操作指引
 
 #### 创建 StorageClass[](id:create)
-1. 登录[ 容器服务控制台 ](https://console.cloud.tencent.com/tke2)，选择左侧栏中的**集群**。
+1. 登录[ 容器服务控制台  ](https://console.cloud.tencent.com/tke2)，选择左侧栏中的**集群**。
 2. 在“集群管理”页中，单击需创建 StorageClass 的集群 ID，进入集群详情页。
 3. 选择左侧菜单栏中的**存储** > **StorageClass**。如下图所示：
 ![](https://main.qcloudimg.com/raw/18a3d5587e381e73328839b9186e071b.png)
@@ -22,7 +22,7 @@
 	- **计费模式**：提供**按量计费**和**包年包月**两种计费模式，不同计费模式所支持的回收策略不同，请参考以下信息进行选择：  
 		- **按量计费**：一种弹性计费模式，支持随时开通/销毁实例，按实例的实际使用量付费。支持删除和保留的回收策略。
 		- **包年包月**：一种预付费模式，提前一次性支付一个月的存储费用，支持按月自动续费。仅支持保留的回收策略。
-<dx-alert infotype="explain" title="">
+<dx-alert infotype="explain" title=" ">
 - 如需购买包年包月云硬盘，则需前往 [角色](https://console.cloud.tencent.com/cam/role) 页面，为 `TKE_QCSRole` 角色添加策略  `QcloudCVMFinanceAccess` 配置支付权限，否则可能会因支付权限问题导致创建基于包年包月 StorageClass 的 PVC 失败。
 - 仅计费模式为包年包月的云硬盘可执行续费操作，自动续费功能默认按月续费。用户可前往所创建的PVC详情页，打开/关闭自动续费功能。更多计费信息参见  [云硬盘计费问题](https://cloud.tencent.com/document/product/213/17281)。
 </dx-alert>
@@ -31,7 +31,7 @@
 	- **卷绑定模式**：提供**立即绑定**和**等待调度**两种卷绑定模式，不同模式所支持的卷绑定策略不同，请参考以下信息进行选择：
 		- **立即绑定**：通过该 storageclass 创建的 PVC 将直接进行 PV 的绑定和分配。
 		- **等待调度**：通过该 storageclass 创建的 PVC 将延迟与 PV 的绑定和分配，直到使用该 PVC 的 Pod 被创建。
-	- **定期备份**：设置定期备份可有效保护数据安全，备份数据将产生额外费用，详情请见 [快照概述](https://cloud.tencent.com/document/product/362/5754)。
+	- **定期备份**：设置定期备份可有效保护数据安全，备份数据将产生额外费用，详情请见 [快照概述 ](https://cloud.tencent.com/document/product/362/5754)。
 >? 容器服务默认提供的 default-policy 备份策略的配置包括：执行备份的日期、执行备份的时间点和备份保留的时长。
 >
 5. 单击**新建StorageClass**即可完成创建。
@@ -114,7 +114,7 @@ parameters:
 <td>type</td> <td>包括 CLOUD_PREMIUM（高性能云硬盘）和 CLOUD_SSD（SSD 云硬盘）、CLOUD_HSSD（增强型 SSD 云硬盘）。</td>
 </tr>
 <tr>
-<td>zone</td> <td>用于指定可用区。如果指定，则云硬盘将创建到此可用区。如果不指定，则拉取所有 Node 的可用区信息，进行随机选取。 腾讯云各地域标识符请参见 <a href="https://cloud.tencent.com/document/product/213/6091">地域和可用区</a>。</td>
+<td>zone</td> <td>用于指定可用区。如果指定，则云硬盘将创建到此可用区。如果不指定，则拉取所有 Node 的可用区信息，进行随机选取。  腾讯云各地域标识符请参见 <a href="https://cloud.tencent.com/document/product/213/6091">地域和可用区</a>。</td>
 </tr>
 <tr>
 <td>paymode</td> <td>云硬盘的计费模式，默认设置为 <code>POSTPAID</code> 模式，即按量计费，支持 Retain 保留和 Delete 删除策略，Retain 仅在高于1.8的集群版本生效。还可设置为 <code>PREPAID</code> 模式，即包年包月，仅支持 Retain 保留策略。</td>
@@ -131,7 +131,7 @@ parameters:
 #### 创建多实例 StatefulSet
 
 使用云硬盘创建多实例 StatefulSet，YAML 文件示例如下：
-<dx-alert infotype="explain" title="">
+<dx-alert infotype="explain" title=" ">
 资源对象的 apiVersion 可能因为您集群的 Kubernetes 版本不同而不同，您可通过 `kubectl api-versions` 命令查看当前资源对象的 apiVersion。
 </dx-alert>
 ```yaml

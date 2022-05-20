@@ -24,7 +24,7 @@ https://api.meeting.qq.com/v1/users?uuid={uuid}
 | update_time | String   | 更新时间，格式：yyyy-MM-dd HH:mm:ss。                 |
 | status      | String   | 用户状态：<br>1：正常<br>2：注销<br>3：未激活<br>4：禁用 |
 | email       | String   | 邮箱地址。                   |
-| phone       | String   | 手机号码。                   |
+| phone       | String   | 企业员工手机号码。                   |
 | userid     | String   | 	调用方用于标示用户的唯一 ID（例如企业用户可以为企业账户英文名、个人用户可以为手机号等）。         |
 | uuid| 	String| 	用户身份 ID（腾讯会议颁发的用于开放平台的唯一用户 ID）。| 
 | area        | String   | 地区编码（国内默认86）。     |

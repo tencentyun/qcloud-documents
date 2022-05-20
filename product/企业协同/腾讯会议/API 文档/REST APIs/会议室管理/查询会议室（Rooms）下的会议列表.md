@@ -25,30 +25,30 @@ HTTP 请求头公共参数请参见签名验证章节的 [公共参数说明](ht
    <tr>
       <td>operator_id_type</td>
       <td>是</td>
-      <td>操作者 ID 的类型： 
-			<li>rooms 设备 rooms_id。 </li>
-			<li>会议室ID meeting_room_id。</li></td>
+      <td>操作者 ID 的类型： <br>
+			3：rooms 设备 rooms_id。<br>
+			5：会议室ID meeting_room_id。</td>
    </tr>
    <tr>
       <td>instanceid</td>
       <td>是</td>
-      <td>用户的终端设备类型： 
-			<li>PC。 </li>
-			<li>Mac。 </li>
-			<li>Android。</li>
-			<li>iOS。 </li>
-			<li>Web。 </li>
-			<li>iPad。 </li>
-			<li>Android Pad。 </li>
-			<li>小程序。 </li>
-			<li>voip、sip 设备。 </li>
-			<li>Linux。 </li>
-			<li>Rooms for Touch Windows。 </li>
-			<li>Rooms for Touch Mac。 </li>
-			<li>Rooms for Touch Android。 </li>
-			<li>Controller for Touch Windows。 </li>
-			<li>Controller for Touch Android。 </li>
-			<li>Controller for Touch iPhone。</li>
+      <td>用户的终端设备类型： <br>
+			1：PC。 <br>
+			2：Mac。 <br>
+			3：Android。<br>
+			4：iOS。 <br>
+			5：Web。 <br>
+			6：iPad。 <br>
+			7：Android Pad。 <br>
+			8：小程序。 <br>
+			9：voip、sip 设备。 <br>
+			10：Linux。 <br>
+			20：Rooms for Touch Windows。 <br>
+			21：Rooms for Touch Mac。 <br>
+			22：Rooms for Touch Android。 <br>
+			30：Controller for Touch Windows。 <br>
+			32：Controller for Touch Android。 <br>
+			33：Controller for Touch iPhone。<br>
 			</td>
    </tr>
    <tr>
@@ -79,20 +79,21 @@ HTTP 请求头公共参数请参见签名验证章节的 [公共参数说明](ht
 
 | 名称              | 类型         | 备注             |
 | :---------------- | :----------- | :--------------- |
-| current_page      | integer      | 当前页。         |
-| current_size      | integer      | 当前实际页大小。 |
-| total_count       | integer      | 数据总条数。     |
-| total_page        | integer      | 数据总页数。     |
+| current_page      | Integer      | 当前页。         |
+| current_size      | Integer      | 当前实际页大小。 |
+| total_count       | Integer      | 数据总条数。     |
+| total_page        | Integer      | 数据总页数。     |
 | meeting_info_list | 会议对象列表 | 会议对象列表。   |
 
 **会议对象**
 
 | 名称         | 类型    | 备注                                                         |
 | ------------ | ------- | ------------------------------------------------------------ |
-| meeting_id   | string  | 会议 ID。                                                    |
-| meeting_code | string  | 有效会议 Code。                                              |
-| subject      | string  | 会议主题。                                                   |
-| status       | string  | 会议状态。                                                   |
-| meeting_type | integer | 会议类型：<br />(0-一次性会议，1-周期性会议，2-微信专属会议，4-rooms投屏会议，5-个人会议号会议，6-网络研讨会（Webinar）) |
-| start_time   | integer | 会议预订开始时间（Unix 秒）。                                |
-| end_time     | integer | 会议预订结束时间（Unix 秒）。                                |
+| meeting_id   | String  | 会议 ID。                                                    |
+| meeting_code | String  | 有效会议 Code。                                              |
+| subject      | String  | 会议主题。                                                   |
+| status       | String  | 会议状态。                                                   |
+| meeting_type | Integer | 会议类型：<br>0：一次性会议。<br>1：周期性会议。<br>2：微信专属会议。<br>4：rooms 投屏会议。<br>5：个人会议号会议。<br>6：络研讨会（Webinar）。|
+| start_time   | Integer | 会议预订开始时间（Unix 秒）。                                |
+| end_time     | Integer | 会议预订结束时间（Unix 秒）。                                |
+

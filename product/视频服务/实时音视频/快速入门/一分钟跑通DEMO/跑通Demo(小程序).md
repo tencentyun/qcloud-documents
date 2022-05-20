@@ -1,4 +1,4 @@
- 本文主要介绍如何快速跑通微信小程序版本的 TRTC Demo，您可以从 [Github](https://github.com/tencentyun/TRTCSDK) 上的 WXMini 目录下获取相关代码。Demo 中前三个功能项演示了三个不同的应用场景：
+ 本文主要介绍如何快速跑通微信小程序版本的 TRTC Demo，您可以从 [Github](https://github.com/LiteAVSDK/Live_WXMini) 上的 WXMini 目录下获取相关代码。Demo 中前三个功能项演示了三个不同的应用场景：
  
  - **语音聊天室**：纯语音交互，支持多人互动语音聊天，以及混音、混响等声音特效功能。适合在线狼人杀、在线语音直播等社交类场景。
  - **双人通话**：1v1视频通话，配合 [Web IM SDK](https://cloud.tencent.com/document/product/269/37411) 可以实现在线问诊，在线客服等需要面对面交流的沟通场景。
@@ -58,8 +58,8 @@
 ### 步骤4：编译运行
 1. 打开微信开发者工具，选择**小程序**，单击新建图标，选择**导入项目**。
 2. 填写您微信小程序的 AppID，单击**导入**。
- >!此处应输入您微信小程序的 AppID，而非 SDKAppID。
- >
+>!此处应输入您微信小程序的 AppID，而非 SDKAppID。
+>
 ![](https://main.qcloudimg.com/raw/a06f3651a1399eabaa802a607b9a9cf8.png) 
 3. 单击**预览**，生成二维码，通过手机微信扫码二维码即可进入小程序。
 
@@ -103,3 +103,6 @@ TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256�
 ### 2. 防火墙有什么限制？
 
 由于 SDK 使用 UDP 协议进行音视频传输，所以对 UDP 有拦截的办公网络下无法使用，如遇到类似问题，请参见 [应对公司防火墙限制](https://cloud.tencent.com/document/product/647/34399)。
+
+## 技术咨询
+了解更多详情您可 QQ 咨询：<dx-tag-link link="#QQ" tag="技术交流群">941036374</dx-tag-link>

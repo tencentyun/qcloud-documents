@@ -6,7 +6,7 @@
 
 - [完成资源创建与准备](https://cloud.tencent.com/document/product/1179/44814)
 - [安装 Go](https://golang.org/dl/)
-- [下载 Demo](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-pulsar-demo/http/tdmq-pulsar-go-http-demo.zip)
+- [下载 Demo](https://tdmq-document-1306598660.cos.ap-nanjing.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91demo/pulsar/http/tdmq-pulsar-go-http-demo.zip)
 
 ## 操作步骤
 
@@ -126,7 +126,7 @@ go get -v -u github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/tdmq
     </tr>
     <tr>
         <td style='text-align:left;'>topicName</td>
-        <td style='text-align:left;'>Topic 名称，格式为: 集群（租户）ID/命名空间/Topic 名称，示例：pulsar-xxx/sdk_http/topic1。可以从控制台上
+        <td style='text-align:left;'>Topic 名称，格式为：集群（租户）ID/命名空间/Topic 名称，示例：pulsar-xxx/sdk_http/topic1。可以从控制台上
             <strong><a href='https://console.cloud.tencent.com/tdmq/topic'>Topic 管理</a></strong> 页面直接复制。
         </td>
     </tr>
@@ -165,7 +165,7 @@ go get -v -u github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/tdmq
     <tbody>
     <tr>
         <td style='text-align:left;'>topicName</td>
-        <td style='text-align:left;'>Topic 名称，格式为: 集群（租户）ID/命名空间/Topic名称，示例：pulsar-xxx/sdk_http/topic1。可以从控制台上 <strong><a
+        <td style='text-align:left;'>Topic 名称，格式为：集群（租户）ID/命名空间/Topic名称，示例：pulsar-xxx/sdk_http/topic1。可以从控制台上 <strong><a
                 href='https://console.cloud.tencent.com/tdmq/topic'>Topic 管理</a></strong> 页面直接复制。
         </td>
     </tr>
@@ -210,7 +210,7 @@ go get -v -u github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/tdmq
     </tr>
     <tr>
         <td style='text-align:left;'>topicName</td>
-        <td style='text-align:left;'>Topic名称，格式为: 集群（租户）ID/命名空间/Topic名称，示例：pulsar-xxx/sdk_http/topic1。可以从控制台上 <strong><a
+        <td style='text-align:left;'>Topic名称，格式为：集群（租户）ID/命名空间/Topic名称，示例：pulsar-xxx/sdk_http/topic1。可以从控制台上 <strong><a
                 href='https://console.cloud.tencent.com/tdmq/topic'>Topic 管理</a></strong> 页面直接复制。
         </td>
     </tr>
@@ -222,4 +222,4 @@ go get -v -u github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/tdmq
 </table>
 
 
-上述是对消息收发操作的简单介绍，完整实例可参考 [下载 Demo](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-pulsar-demo/http/tdmq-pulsar-go-http-demo.zip) 或 [云API Explorer](https://console.cloud.tencent.com/api/explorer?Product=tdmq&Version=2020-02-17&Action=ModifyCluster&SignVersion=)。
+>?上述是对消息收发操作的简单介绍，完整实例可参见 [下载 Demo](https://tdmq-document-1306598660.cos.ap-nanjing.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91demo/pulsar/http/tdmq-pulsar-go-http-demo.zip) 或 [云API Explorer](https://console.cloud.tencent.com/api/explorer?Product=tdmq&Version=2020-02-17&Action=ModifyCluster&SignVersion=)。

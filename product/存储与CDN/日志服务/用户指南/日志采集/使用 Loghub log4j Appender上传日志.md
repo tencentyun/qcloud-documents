@@ -57,7 +57,7 @@ Log4j 由三个重要的组件构成：
 
 ```
 #loghubAppender
-log4j.appender.loghubAppender=com.tencentcloud.cls.LoghubAppender
+log4j.appender.loghubAppender=com.tencentcloudapi.cls.LoghubAppender
 #日志服务的 http 地址，必选参数
 log4j.appender.loghubAppender.endpoint=ap-guangzhou.cls.tencentcs.com
 #用户身份标识，必选参数
@@ -66,7 +66,7 @@ log4j.appender.loghubAppender.accessKeySecret=
 #设置log字段的格式，必选参数
 log4j.appender.loghubAppender.layout=org.apache.log4j.PatternLayout
 log4j.appender.loghubAppender.layout.ConversionPattern=%-4r [%t] %-5p %c %x - %m%n
-#指定日志主题，可选参数
+#指定日志主题，必选参数
 log4j.appender.loghubAppender.topicID =
 #指定日志来源，可选参数
 log4j.appender.loghubAppender.source =
@@ -88,7 +88,7 @@ log4j.appender.loghubAppender.retries=10
 #该参数越大能让您追溯更多的信息，但同时也会消耗更多的内存。
 log4j.appender.loghubAppender.maxReservedAttempts=11
 #首次重试的退避时间，默认为 100 毫秒。
-#Producer 采样指数退避算法，第 N 次重试的计划等待时间为 baseRetryBackoffMs * 2^(N-1)。
+#Producer 采用指数退避算法，第 N 次重试的计划等待时间为 baseRetryBackoffMs * 2^(N-1)。
 log4j.appender.loghubAppender.baseRetryBackoffMs=100
 #重试的最大退避时间，默认为 50 秒。
 log4j.appender.loghubAppender.maxRetryBackoffMs=50000

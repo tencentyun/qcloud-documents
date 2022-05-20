@@ -12,7 +12,7 @@
 服务器关机、硬件故障、CPU/内存/带宽使用率过高都可能造成网站无法访问，因此建议您依次排查服务器的运行状态、CPU/内存/带宽的使用情况。若您使用腾讯云服务器，您可参考以下步骤进行排查：
 
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)，并在实例的管理页面查看实例的运行情况是否正常。如下图所示：
-![](https://main.qcloudimg.com/raw/b6cc9727cb9364ee16246d956dadd4b6.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/277ed7d0289ba453471ab9b07c252e67.png)
  - 是，请执行 [步骤2](#Server_step02)。
  - 否，请重启云服务器实例。
 2. [](id:Server_step02)单击实例的 ID/实例名，进入该实例的详情页面。
@@ -70,6 +70,7 @@ ping 目的服务器的公网 IP
  - 如果已解决网站无法访问的问题，则任务完成。
  - 如果仍无法解决网站无法访问的问题，请通过 [在线支持](https://cloud.tencent.com/online-service?from=doc_213
 ) 反馈。
+
 
 
 

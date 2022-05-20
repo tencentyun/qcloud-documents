@@ -16,34 +16,45 @@ Windows、Linux 和 Mac OS 都可以使用远程桌面登录轻量应用服务�
 
 <dx-tabs>
 ::: Windows 系统
->? 以下操作步骤以 Windows 7 操作系统为例。
->
+
+<dx-alert infotype="explain" title="">
+以下操作步骤以 Windows 7 操作系统为例。
+</dx-alert>
+
+
 1. 在本地 Windows 计算机上，单击  <img src="https://main.qcloudimg.com/raw/370daffec54024ee262d1e5dbcd4bde2.png" style="margin: 0;width: 35px;">，在**搜索程序和文件**中，输入 **mstsc**，按 **Enter**，打开远程桌面连接对话框。如下图所示：
 ![](https://main.qcloudimg.com/raw/38e9d9ac0485bf8ad3a209092a1284ba.png)
 2. 在“计算机”后面，输入 Windows 实例的公网 IP，单击**连接**。
+Windows 实例公网 IP 可前往 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse/instance/index) 获取。
 3. 在弹出的 “Windows 安全” 窗口中，输入实例的管理员帐号和密码，如下图所示：
->? 若弹出 “是否信任此远程连接？” 对话框，可勾选 “不再询问我是否连接到此计算机”，单击**连接**。
->
-![](https://main.qcloudimg.com/raw/3a9aa79200ace4a6ebd68a6e511a341d.png)
+<dx-alert infotype="explain" title="">
+若弹出 “是否信任此远程连接？” 对话框，可勾选 “不再询问我是否连接到此计算机”，单击**连接**。
+</dx-alert>
+<img src="https://main.qcloudimg.com/raw/3a9aa79200ace4a6ebd68a6e511a341d.png"/>
 4. 单击**确定**，即可登录到 Windows 实例。
 
 :::
 ::: Linux 系统
->?您需要安装相应的远程桌面连接程序，推荐使用 rdesktop 进行连接。更多详情请参考 [rdesktop 官方说明](http://www.rdesktop.org/)。
->
-1. 执行以下命令，检查系统是否已安装 rdesktop。
-```
+
+
+<dx-alert infotype="explain" title="">
+您需要安装相应的远程桌面连接程序，推荐使用 rdesktop 进行连接。更多详情请参考 [rdesktop 官方说明](http://www.rdesktop.org/)。
+</dx-alert>
+
+
+1. 在终端执行以下命令，检查系统是否已安装 rdesktop。
+```shellsession
 rdesktop
 ```
- - 若已安装 rdesktop，请执行 [步骤4](#step04)。
- - 若提示 command not found，则表示未安装 rdesktop，请执行 [步骤2](#step02)。
+   - 若已安装 rdesktop，请执行 [步骤4](#step04)。
+   - 若提示 command not found，则表示未安装 rdesktop，请执行 [步骤2](#step02)。
 2. [](id:step02)在终端执行以下命令，下载 rdesktop 安装包，此步骤以 rdesktop 1.8.3 版本为例。
-```
+```shellsession
 wget https://github.com/rdesktop/rdesktop/releases/download/v1.8.3/rdesktop-1.8.3.tar.gz
 ```
 如果您需要最新的安装包，可以前往 [GitHub rdesktop页面](https://github.com/rdesktop/rdesktop/releases) 查找最新安装包，并在命令行中替换为最新安装路径。
 3. 在待安装 rdesktop 的目录下，依次执行以下命令，解压和安装 rdesktop。
-```
+```shellsession
 tar xvzf rdesktop-<x.x.x>.tar.gz ##替换x.x.x为下载的版本号 
 cd rdesktop-1.8.3
 ./configure 
@@ -51,21 +62,27 @@ make
 make install
 ```
 4. [](id:step04)执行以下命令，连接远程 Windows 实例。
->? 请将示例中的参数修改为您自己的参数。
->
-```
+<dx-alert infotype="explain" title="">
+请将示例中的参数修改为您自己的参数。
+</dx-alert>
+```shellsession
 rdesktop -u Administrator -p <your-password> <hostname or IP address>
 ```
- - `Administrator` 即为前提条件中获得的管理员帐号。
- - `<your-password>` 即为您设置的登录密码。
+   - `Administrator` 即为前提条件中获得的管理员帐号。
+   - `<your-password>` 即为您设置的登录密码。
   如果您忘记密码，请 [重置密码](https://cloud.tencent.com/document/product/1207/44575)。
- - `<hostname or IP address>` 即为您的 Windows 实例公网 IP 或自定义域名。
+   - `<hostname or IP address>` 即为您的 Windows 实例公网 IP 或自定义域名。
+
+
 :::
 ::: MacOS 系统
->?
->- 以下操作以 Microsoft Remote Desktop for Mac 为例。微软官方已于2017年停止提供 Remote Desktop 客户端的下载链接，转由其子公司 HockeyApp 进行 Beta 版本的发布。您可前往 [Microsoft Remote Desktop Beta](https://install.appcenter.ms/orgs/rdmacios-k2vy/apps/microsoft-remote-desktop-for-mac/distribution_groups/all-users-of-microsoft-remote-desktop-for-mac) 下载 Beta 版本。
->- 以下操作以连接 Windows Server 2012 R2 操作系统的轻量应用服务器为例。
->
+
+<dx-alert infotype="explain" title="">
+- 以下操作以 Microsoft Remote Desktop for Mac 为例。微软官方已于2017年停止提供 Remote Desktop 客户端的下载链接，转由其子公司 HockeyApp 进行 Beta 版本的发布。您可前往 [Microsoft Remote Desktop Beta](https://install.appcenter.ms/orgs/rdmacios-k2vy/apps/microsoft-remote-desktop-for-mac/distribution_groups/all-users-of-microsoft-remote-desktop-for-mac) 下载 Beta 版本。
+- 以下操作以连接 Windows Server 2012 R2 操作系统的轻量应用服务器为例。
+</dx-alert>
+
+
 1. 下载 Microsoft Remote Desktop for Mac 并在本地进行安装。
 2. 启动 MRD，并单击 **Add Desktop**。如下图所示：
 ![](https://main.qcloudimg.com/raw/e69528d10e9a17dfa26119a090766c49.png)

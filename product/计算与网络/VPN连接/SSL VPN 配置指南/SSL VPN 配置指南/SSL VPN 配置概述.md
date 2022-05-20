@@ -1,5 +1,4 @@
->?SSL VPN 内测中，如需体验，请提交 [工单申请](https://console.cloud.tencent.com/workorder/category)。
->
+
 
 ## 前提条件
 - 本地设备和腾讯云侧 VPC 内私有网段不能相同，避免出现 IP 冲突。 

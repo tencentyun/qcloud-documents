@@ -7,7 +7,7 @@
 - [完成资源创建与准备](https://cloud.tencent.com/document/product/1495/61829)
 - [安装 Python](https://www.python.org/downloads/)
 - [安装 pip](https://pip-cn.readthedocs.io/en/latest/installing.html)
-- [下载 Demo](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-rocketmq-demo/tdmq-rocketmq-python-sdk-demo.zip)
+- [下载 Demo](https://tdmq-document-1306598660.cos.ap-nanjing.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91demo/rocketmq/tdmq-rocketmq-python-sdk-demo.zip)
 
 ## 操作步骤
 
@@ -89,8 +89,8 @@ producer.shutdown()
     <tr>
         <td>topicName</td>
         <td>topicName 是<code>命名空间全称</code>+<code>%</code>+<code>topic 名称</code>。
-				<ul style = "margin-bottom: 0px;"><li>命名空间全称可在控制台集群管理 Topic 页签中复制，格式是<code>集群 ID</code> +<code>｜</code>+<code>命名空间</code>。
-            <img src = "https://qcloudimg.tencent-cloud.cn/raw/c483d23c09d2f728aaa08b195d9ddd40.png" style="width: 100%"></li><li>Topic 名称在控制台集群管理 Topic 页签中复制具体 Topic 名称。
+				<ul style = "margin-bottom: 0px;"><li>命名空间全称可在控制台集群管理命名空间页签中复制，格式是<code>集群 ID</code> +<code>｜</code>+<code>命名空间</code>。
+            <img src = "https://qcloudimg.tencent-cloud.cn/raw/c483d23c09d2f728aaa08b195d9ddd40.png" style="width: 100%"></li><li>Topic 名称在控制台集群管理命名空间页签中复制具体 Topic 名称。
             <img src = "https://qcloudimg.tencent-cloud.cn/raw/4b096254ae2fa8db0f45c1f864718915.png" style="width: 100%">
 						</li>
 						</ul>
@@ -155,7 +155,7 @@ consumer.shutdown()
     </tr>
     <tr>
         <td>groupName</td>
-        <td>消费者组信息为命名空间全称拼接上 group 名称， 例如：<code>rocketmq-xxx|namespace_python%group11</code>。topic 名称和名称空间名称可在控制台中的命名空间和 Group 页签中获取。</td>
+        <td>消费者组信息为命名空间全称拼接上 group 名称， 例如：<code>rocketmq-xxx|namespace_python%group11</code>。命名空间名称和 Group 名称可在控制台中的命名空间和 Group 页签中获取。</td>
     </tr>
     <tr>
         <td>nameserver</td>
@@ -196,5 +196,5 @@ consumer.shutdown()
 登录 [TDMQ 控制台](https://console.cloud.tencent.com/tdmq)，在**集群管理** > **Group** 页面，可查看与 Group 连接的客户端列表，单击操作列的**查看详情**，可查看消费者详情。
 ![](https://qcloudimg.tencent-cloud.cn/raw/924898b7a5568be778449bf51034396d.png)
 
->?上述是对消息的发布和订阅方式的简单介绍。更多操作可参见 [Demo](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-rocketmq-demo/tdmq-rocketmq-python-sdk-demo.zip) 或 [RocketMQ-Client-Python 示例](https://github.com/apache/rocketmq-client-python/tree/master/samples) 。
+>?上述是对消息的发布和订阅方式的简单介绍。更多操作可参见 [Demo](https://tdmq-document-1306598660.cos.ap-nanjing.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91demo/rocketmq/tdmq-rocketmq-python-sdk-demo.zip) 或 [RocketMQ-Client-Python 示例](https://github.com/apache/rocketmq-client-python/tree/master/samples) 。
 

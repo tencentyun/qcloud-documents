@@ -24,7 +24,7 @@ Components: 2.30.1
 
 
 ### 配置身份信息
-1. 在本地建立目录，用于存放代码及依赖模块。本文以 `test-postgreSQL` 为例。 
+1. 在本地建立目录，用于存放代码及依赖模块。本文以 `test-postgreSQL` 为例。   
 2. 在 `test-postgreSQL` 下创建 `.env` 文件，并按照以下格式在文件中配置对应的腾讯云 SecretId、SecretKey、地域和可用区信息。
 ```text
  # .env
@@ -36,7 +36,7 @@ Components: 2.30.1
 ```
 >?
 > - 如果没有腾讯云账号，请 [注册新账号](https://cloud.tencent.com/register)。
-> - 如果已有腾讯云账号，请确保您的账号已经授权了 `AdministratorAccess` 权限。 同时，您可在 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取 SecretId 和 SecretKey。
+> - 如果已有腾讯云账号，请确保您的账号已经授权了 `AdministratorAccess` 权限。   同时，您可在 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取 SecretId 和 SecretKey。
 >
 
 ### 配置私有网络
@@ -219,7 +219,7 @@ TENCENT_SECRET_KEY=xxx // 您账号的 SecretKey
 ```
 >?
 > - 如果没有腾讯云账号，请 [注册新账号](https://cloud.tencent.com/register)。
-> - 如果已有腾讯云账号，请确保您的账号已经授权了 `AdministratorAccess` 权限。 同时，您可在 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取 SecretId 和 SecretKey。
+> - 如果已有腾讯云账号，请确保您的账号已经授权了 `AdministratorAccess` 权限。   同时，您可在 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取 SecretId 和 SecretKey。
 >
 
 
@@ -267,7 +267,7 @@ exports.main = async (event, context) => {
 }
 ```
 5. 完成业务代码编写后，创建 `serverless.yml` 文件，并在环境变量中填写您的 **SecretId** 和 **SecretKey**。
->!使用如下配置会创建免费云开发环境，如您已具备免费云开发环境，请将云开发环境 ID 填入 `MongoId` 中。 
+>!使用如下配置会创建免费云开发环境，如您已具备免费云开发环境，请将云开发环境 ID 填入 `MongoId` 中。   
 >
 ```
 component: scf

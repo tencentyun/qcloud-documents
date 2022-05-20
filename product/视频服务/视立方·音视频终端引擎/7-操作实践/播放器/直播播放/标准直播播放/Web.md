@@ -1,4 +1,6 @@
-本文档将介绍适用于直播播放的 Web 超级播放器（TCPlayerLite）。
+>?
+>- TCPlayerLite 为旧版播放器，后续将持续维护，但不再主动做功能迭代，后续 Web 端播放器功能迭代将在 [超级播放器 TCPlayer](https://cloud.tencent.com/document/product/881/30818) 内进行。
+>- 当前 [超级播放器 TCPlayer](https://cloud.tencent.com/document/product/881/30818) 已包含旧版播放器 TCPlayerLite 的全部能力，同时具备更多丰富功能。若您首次使用腾讯云 Web 播放器，建议您直接使用超级播放器 TCPlayer。若您当前仍在使用 TCPlayerLite，建议您尽早升级为超级播放器 TCPlayer，以享受更多更全面的功能及服务。TCPlayerLite 升级为 TCPlayer 方式可参见 [TCPlayerLite 升级指引](https://cloud.tencent.com/document/product/881/72744)。
 
 ## 功能介绍
 腾讯云 Web 超级播放器 TCPlayerLite 是为了解决在手机浏览器和 PC 浏览器上播放音视频流的问题，它使您的视频内容可以不依赖用户安装 App，就能在朋友圈和微博等社交平台进行传播。本文档适合有一定 Javascript 语言基础的开发人员阅读。

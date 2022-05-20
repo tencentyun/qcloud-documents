@@ -1,13 +1,3 @@
-## 版本支持
-本页文档所描述功能，在腾讯云视立方中支持情况如下：
-
-| 版本名称 | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 播放器 Player | 全功能 |
-| -------- | -------- | -------- | -------- | -------- | -------- | -------- |
-| 支持情况 | -  | -  | -  | &#10003;  | -  | &#10003;  |
-| SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=allPart) |
-
-不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
-
 ## 效果展示
 您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 App 体验实时音视频通话的效果。
 <table>
@@ -26,7 +16,7 @@
 
 [](id:ui)
 
-## 运行并体验App
+## 运行并体验 App
 
 [](id:ui.step1)
 
@@ -86,68 +76,39 @@ Xcode（11.0及以上的版本）打开源码工程 `TUICalling/Example/TUICalli
 [](id:model)
 ## 具体接入流程
 
-[源码](https://github.com/tencentyun/TUICalling/tree/master/Android/Source/src/main/java/com/tencent/liteav/trtccalling) 文件夹 `Source` 中包含三个子文件夹 ui、model 和 Service，其中 Service 文件夹中包含了我们对外暴露的开源组件 TUICallingManager，您可以在  `TUICallingManager.h`  文件中看到该组件提供的接口函数。
+[源码](https://github.com/tencentyun/TUICalling/tree/main/iOS/Source) 文件夹 `Source` 中包含了我们对外暴露的开源组件 TUICalling，您可以在  `TUICalling.h`  文件中看到该组件提供的接口函数。
 ![](https://main.qcloudimg.com/raw/18e2e6fd62ade4a8bac560d45f4fbab4.png)
 
 
-您直接使用开源组件 TUICalling 的TUICallingManager即可轻松实现音视频通话功能，而无需再自己实现复杂的通话UI界面和逻辑。
+您可以直接使用开源组件 TUICalling 轻松实现音视频通话功能，而无需再自己实现复杂的通话UI界面和逻辑。
 
 [](id:model.step1)
-### 步骤1：集成 SDK
+### 步骤1：配置权限
 
-通话组件 TRTCCalling 依赖 TRTC SDK 和 IM SDK，您可以按照如下步骤将两个 SDK 集成到项目中。
+使用音视频功能，需要授权麦克风和摄像头的使用权限。在 App 的 Info.plist 中添加以下两项，分别对应麦克风和摄像头在系统弹出授权对话框时的提示信息。
+- **Privacy - Microphone Usage Description**，并填入麦克风使用目的提示语。
+- **Privacy - Camera Usage Description**，并填入摄像头使用目的提示语。
 
-- **方法一：通过 cocoapods 仓库依赖**
-<dx-codeblock>
-::: swift
- pod 'TXIMSDK_iOS'
- pod 'TXLiteAVSDK_TRTC' 
-:::
-</dx-codeblock>
->?两个 SDK 产品的最新版本号，可以在 [实时音视频](https://github.com/tencentyun/TRTCSDK) 和 [即时通信 IM](https://github.com/tencentyun/TIMSDK) 的 Github 首页获取。
-- **方法二：通过本地依赖**
-如果您的开发环境访问 cocoapods 仓库较慢，可以直接下载 ZIP 包，并按照集成文档手动集成到您的工程中。
-<table>
-<tr>
-<th>SDK</th>
-<th>下载页面</th>
-<th>集成指引</th>
-</tr>
-<tr>
-<td>TRTC SDK</td>
-<td><a href="https://cloud.tencent.com/document/product/647/32689">DOWNLOAD</a></td>
-<td><a href="https://cloud.tencent.com/document/product/647/32173">集成文档</a></td>
-</tr>
-<tr>
-<td>IM SDK</td>
-<td><a href="https://cloud.tencent.com/document/product/269/36887">DOWNLOAD</a></td>
-<td><a href="https://cloud.tencent.com/document/product/269/32679">集成文档</a></td>
-</tr>
-</table>
+![](https://main.qcloudimg.com/raw/54cc6989a8225700ff57494cba819c7b.jpg)
 
 [](id:model.step2)
-### 步骤2：配置权限
+### 步骤2：导入 TUICalling 组件
 
-在 info.plist 文件中需要添加 `Privacy - Camera Usage Description`， `Privacy - Microphone Usage Description` 申请摄像头和麦克风权限。
+**通过 cocoapods 导入组件**，具体步骤如下：
+1. 将工程目录下的 `Source`、`Resources` 文件夹 和 `TUICalling.podspec` 文件拷贝到您的工程目录下。
+2. 在您的 `Podfile` 文件中添加以下依赖。之后执行 `pod install` 命令，完成导入。
+
+```swift\
+# :path => "指向TUICalling.podspec所在目录的相对路径"
+ pod 'TUICalling', :path => "../", :subspecs => ["TRTC"]
+```
+
+>!  `Source`、`Resources` 文件夹 和`TUICalling.podspec`文件必需在同一目录下。
 
 [](id:model.step3)
-### 步骤3：导入 TUICalling 组件
-**通过 cocoapods 导入组件**，具体步骤如下：
-1. 将工程目录下的 `Source`、`Resources`、`TXAppBasic` 文件夹，`TUICalling.podspec` 文件拷贝到您的工程目录下。
-2. 在您的 `Podfile` 文件中添加以下依赖。之后执行 `pod install` 命令，完成导入。
-<dx-codeblock>
-::: swift
- pod 'TXAppBasic', :path => "../TXAppBasic/"
- pod 'TXLiteAVSDK_TRTC'
- pod 'TUICalling', :path => "../", :subspecs => ["TRTC"] 
-:::
-</dx-codeblock>
+### 步骤3：初始化并登录组件
 
-[](id:model.step4)
-
-### 步骤4：初始化并登录组件
-
-1. 调用 `TUICallingManager.sharedInstance()` 进行组件初始化。
+1. 调用 `TUICalling.sharedInstance()` 进行组件初始化。
 2. 调用 `TUILogin.initWithSdkAppID(SDKAPPID)` 进行登录初始化。
 3. 调用 `TUILogin.login(userId, userSig)` 完成组件的登录，其中几个关键参数的填写请参考下表：
 <table>
@@ -157,7 +118,7 @@ Xcode（11.0及以上的版本）打开源码工程 `TUICalling/Example/TUICalli
 <td>您可以在 <a href="https://console.cloud.tencent.com/trtc/app">实时音视频控制台</a> 中查看 SDKAppID。</td>
 </tr><tr>
 <td>userId</td>
-<td>	当前用户的 ID，字符串类型，只允许包含英文字母（a-z 和 A-Z）、数字（0-9）、连词符（-）和下划线（_）。建议结合业务实际账号体系自行设置。 </td>
+<td>当前用户的 ID，字符串类型，只允许包含英文字母（a-z 和 A-Z）、数字（0-9）、连词符（-）和下划线（_）。建议结合业务实际账号体系自行设置。 </td>
 </tr><tr>
 <td>userSig</td>
 <td>腾讯云设计的一种安全保护签名，计算方式请参考 <a href="https://cloud.tencent.com/document/product/647/17275">如何计算及使用 UserSig</a>。</td>
@@ -166,85 +127,45 @@ Xcode（11.0及以上的版本）打开源码工程 `TUICalling/Example/TUICalli
 <dx-codeblock>
 ::: swift
 // 组件初始化
-TUICallingManager.sharedInstance();
+TUICalling.sharedInstance();
 // 登录
 TUILogin.initWithSdkAppID(SDKAPPID)
 TUILogin.login(userId, userSig) {
-	print("login success")
+   print("login success")
 } fail: { code, errorDes in
-	print("login failed, code:\(code), error: \(errorDes ?? "nil")")
+   print("login failed, code:\(code), error: \(errorDes ?? "nil")")
 }
 :::
 </dx-codeblock>
 
-[](id:model.step5)
+[](id:model.step4)
 
-### 步骤5：实现音视频通话
+### 步骤4：实现音视频通话
 
-1. 发起方：调用 TUICallingManager 的 `call();` 方法发起通话的请求, 并传入用户 ID数组（userIDs）和通话类型（type），通话类型参数传入`.audio`（音频通话）或者`.video`（视频通话）。如果用户 ID 数组（userIDs）只有1个 userID 时视为单人通话，如果用户 ID 数组（userIDs）有多个 userID 时（>=2）视为多人通话。
+1. 发起方：调用 TUICalling 的 `call();` 方法发起通话的请求, 并传入用户 ID数组（userIDs）和通话类型（type），通话类型参数传入`.audio`（音频通话）或者`.video`（视频通话）。如果用户 ID数组（userIDs）只有1个 userID 时视为单人通话，如果用户 ID 数组（userIDs）有多个 userID 时（>=2）视为多人通话。
 2. 接收方：当接收方处于已登录状态时，会自动启动相应的界面。如果希望接收方在不处于登录状态时也能收到通话请求，请参见 [离线接听](#model.offline)。
 
+**主动发起通话**，示例代码如下：
 <dx-codeblock>
 ::: swift
-// 1. 注册监听器
-TUICallingManager.shareInstance().setCallingListener(listener: TUICallingListerner())
-
-// 2. 设置是否自定义页面（默认关）
-TUICallingManager.shareInstance().enableCustomViewRoute(enable: true)
-
-// 3. 实现监听器回调方法
-public func shouldShowOnCallView() -> Bool {
-    return true;
-}
-
-public func callStart(userIDs: [String], type: TUICallingType, role: TUICallingRole, viewController: UIViewController?) {         if let vc = viewController {
-        callingVC = vc;
-        vc.modalPresentationStyle = .fullScreen
-            
-        if var topController = UIApplication.shared.keyWindow?.rootViewController {
-            while let presentedViewController = topController.presentedViewController {
-                topController = presentedViewController
-            }
-                
-            if let navigationVC = topController as? UINavigationController {
-                if navigationVC.viewControllers.contains(self) {
-                    present(vc, animated: false, completion: nil)
-                } else {
-                    navigationVC.popToRootViewController(animated: false)
-                    navigationVC.pushViewController(self, animated: false)
-                    navigationVC.present(vc, animated: false, completion: nil)
-                }
-            } else {
-                topController.present(vc, animated: false, completion: nil)
-            }
-        }
-    }
-}
-
-public func callEnd(userIDs: [String], type: TUICallingType, role: TUICallingRole, totalTime: Float) {
-    callingVC.dismiss(animated: true, completion: nil)
-}
-    
-public func onCallEvent(event: TUICallingEvent, type: TUICallingType, role: TUICallingRole, message: String) {
-       	
-}
-// 4.拨打电话
-TUICallingManager.shareInstance().call(userIDs, .video)
+TUICalling.shareInstance().call(userIDs, .video)
 :::
 </dx-codeblock>
+
+
 
 [](id:model.offline)
 
 
-### 步骤6：实现离线接听
+### 步骤5：实现离线接听
 
->?如果您的业务定位是在线客服等不需要离线接听功能的场景，那么完成上述 [步骤1](#model.step1) - [步骤5](#model.step5) 的对接即可。但如果您的业务定位是社交场景，建议实现离线接听。
+>?如果您的业务定位是在线客服等不需要离线接听功能的场景，那么完成上述 [步骤1](#model.step1) - [步骤4](#model.step5) 的对接即可。但如果您的业务定位是社交场景，建议实现离线接听。
 
 IM SDK 支持离线推送，您需要进行相应的设置才能达到可用标准。
 
 1. 申请 Apple 推送证书，具体操作请参见 [Apple 推送证书申请](https://cloud.tencent.com/document/product/269/3898)。
 2. 在后台及客户端配置离线推送，具体操作请参见 [离线推送（iOS）](https://cloud.tencent.com/document/product/269/44517)。
-3. 目前在 TRTCCallingImpl 的 sendModel 信令发送函数中已经集成了离线发送的函数，当配置好 App 的离线推送后，消息就可实现离线推送。
+3. 目前在信令发送中已经集成了离线发送的函数，当配置好 App 的离线推送后，消息就可实现离线推送。
 
 [](id:api)
 
@@ -252,13 +173,26 @@ IM SDK 支持离线推送，您需要进行相应的设置才能达到可用标�
 
 TUICalling 组件的 API 接口列表如下：
 
-| 接口函数        | 接口功能                                                  |
-| --------------- | --------------------------------------------------------- |
-| call            | C2C 邀请通话         |
-| receiveAPNSCalled          | 作为被邀请方接听来电                                      |
-| setCallingListener          | 设置监听器                                     |
-| setCallingBell          | 设置铃声（建议在30s以内）                                                 |
-| enableMuteMode | 开启静音模式    |
-| enableCustomViewRoute      | 开启自定义视图， 开启后，会在呼叫/被叫开始回调中，接收到 CallingView 的实例，由开发者自行决定展示方式。注意：必须全屏或者与屏幕等比例展示，否则会有展示异常            |
+| 接口函数                | 接口功能                                                  |
+| --------------------  | ------------------------------------ ---------- |
+| call                       | C2C 邀请通话                                           |
+| setCallingListener  | 设置监听器                                               |
+| setCallingBell        | 设置铃声(建议在30s以内)                            |
+| enableMuteMode   | 开启静音模式                                            |
+| enableFloatWindow | 开启悬浮窗功能（默认关），如果用户自定义视图（enableCustomViewRoute）则不支持悬浮窗    | 
+| enableCustomViewRoute      | 开启自定义视图， 开启后，会在呼叫/被叫开始回调中，接收到CallingView的实例，由开发者自行决定展示方式。注意：必须全屏或者与屏幕等比例展示，否则会有展示异常            |
 
+## 常见问题
+
+### 1、CocoaPods 如何安装？
+
+在终端窗口中输入如下命令（需要提前在 Mac 中安装 Ruby 环境）：
+```
+sudo gem install cocoapods
+```
+
+### 2、TUICalling 是否支持后台运行？
+
+支持，如需要进入后台仍然运行相关功能，可选中当前工程项目，在 **Capabilities** 下的设置  **Background Modes** 打开为 **ON**，并勾选 **Audio，AirPlay and Picture in Picture** ，如下图所示：
+![](https://main.qcloudimg.com/raw/d960dfec88388936abce2d4cb77ac766.jpg)
 

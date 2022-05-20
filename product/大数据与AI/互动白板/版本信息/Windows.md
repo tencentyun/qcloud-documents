@@ -1,3 +1,33 @@
+### 2.7.2.243 @ 2022-04-02
+* [单击下载 SDK](https://sdk.qcloudtiw.com/win32/sdk_bin_2.7.2.243.zip)
+
+- 调整全局变量
+    1. 白板错误码 增加TEDU_BOARD_ERROR_MAX_BOARD_LIMITED 单课堂内白板页数已经到达上限
+    
+- 功能优化
+     1. 白板SDK升级
+     2. 已知问题处理及优化
+
+### 2.7.1.242 @ 2022-02-25
+* [单击下载 SDK](https://sdk.qcloudtiw.com/win32/sdk_bin_2.7.1.242.zip)
+
+- 新增接口
+    1. LoadCustomResource自定义资源预加载，支持课前和课中加载
+    
+- 修改接口
+    1. LoadTeduBoardResource增加课件资源保留时间
+
+- 功能优化
+    1. 白板SDK升级
+    2. 已知问题处理及优化
+
+### 2.7.0.241 @ 2022-01-23
+* [单击下载 SDK](https://sdk.qcloudtiw.com/win32/sdk_bin_2.7.0.241.zip)
+
+- 功能优化
+    1. 白板SDK升级
+    2. 已知问题处理及优化
+
 ### 2.6.9.240 @ 2021-12-31
 * [单击下载 SDK](https://sdk.qcloudtiw.com/win32/sdk_bin_2.6.9.240.zip)
 
@@ -8,6 +38,7 @@
 - 功能优化
     1. 优化课件加载
     2. 截图功能在异常 dpr 中丢失几个像素的问题
+
 ### 2.6.8.236 @ 2021-12-13
 * [单击下载 SDK](https://sdk.qcloudtiw.com/win32/sdk_bin_2.6.8.236.zip)
 
@@ -69,6 +100,7 @@
 
 - Bug 修复
     若干已知问题修复
+
 ### 2.6.6.232 @ 2021-10-12
 * [单击下载 SDK](https://sdk.qcloudtiw.com/win32/sdk_bin_2.6.6.232.zip)
 

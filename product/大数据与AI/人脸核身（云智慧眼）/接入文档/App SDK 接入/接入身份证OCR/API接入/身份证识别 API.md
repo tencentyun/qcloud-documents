@@ -16,7 +16,6 @@
 |sign | 签名：使用 [生成的签名](https://cloud.tencent.com/document/product/1007/35920) | String | 40 | 是|
 |orderNo | 订单号，字母/数字组成的字符串，由合作方上送，每次调用唯一 | String | 32 | 是|
 |userId | 用户的唯一标识（不要带有特殊字符） | String | 32 | 否|
-|cardType | 身份证正反面标识<br>0：人像面<br>1：国徽面 | String | 1 | 是|  
 |idcardStr | 身份证人像面或者国徽面图片的 Base64，大小不超过20MB | String | 20971520 | 是|
 
 - **响应参数：**
@@ -36,7 +35,7 @@
 |address	| String	| 身份证识别结果：地址<br>如果用户没有正确上传人像面，则没有该字段|
 |authority	| String	| 身份证识别结果：签发机关<br>如果用户没有正确上传国徽面，则没有该字段|
 |validDate	| String	| 身份证识别结果：有效日期<br>如果用户没有正确上传国徽面，则没有该字段|
-|multiWarning	| String	| 多重告警码，详情请参见 [身份证 OCR 错误码](https://cloud.tencent.com/document/product/1007/47902)|
+|multiWarning	| String	| 多重告警码，详情请参见 [身份证识别 API 错误码](https://cloud.tencent.com/document/product/1007/70934)|
 |clarity	| String	| 图片清晰度|
 
 #### 响应示例：

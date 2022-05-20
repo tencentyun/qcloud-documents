@@ -120,7 +120,15 @@
 <tr><td>tcpinfo_rtt</td><td> TCP 连接的 RTT。 </td><td>long</td></tr>
 <tr><td>connection</td><td> 连接 ID。 </td><td>long</td></tr>
 <tr><td>connection_requests</td><td> 连接上的请求个数。 </td><td>long</td></tr>
-<tr><td>ssl_handshake_time</td><td> SSL 握手所花费时间。 </td><td>double</td></tr>
+<tr><td>ssl_handshake_time</td><td>记录 SSL 握手各阶段耗时，格式：x:x:x:x:x:x:x。其中
+<ul><li>第1个字段表示是否 SSL 会话复用。</li>
+<li>第2个字段表示完整的握手时间。</li>
+<li>3~7表示 SSL 各阶段耗时。</li>
+<li>第3个字段表示 CLB 从收到 client hello  到发送 server hell done 的时间。</li>
+<li>第4个字段表示 CLB 从发送 server 证书开始到发送 server 证书完成的时间。</li>
+<li>第5个字段表示 CLB 从计算签名到发送 server key exchange 完成的时间。</li>
+<li>第6个字段表示 CLB 从收到 client key exchange 开始到收完 client key exchange 的时间。</li>
+<li>第7个字段表示 CLB 从收到 client key exchange 到发送 server finished 的时间。</li></ul></td><td>text</td></tr>
 <tr><td>ssl_cipher</td><td> SSL 加密套件。</td><td>text</td></tr>
 <tr><td>ssl_protocol</td><td> SSL 协议版本。</td><td>text</td></tr>
 <tr><td>vip_vpcid</td><td>负载均衡 VIP 的所属私有网络 ID，公网 CLB 的 vip_vpcid 为-1。</td><td>long</td></tr>

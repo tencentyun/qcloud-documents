@@ -7,7 +7,8 @@
 - [完成资源创建与准备](https://cloud.tencent.com/document/product/1495/61829)
 - [安装1.8或以上版本 JDK](https://www.oracle.com/java/technologies/javase-downloads.html)
 - [安装2.5或以上版本 Maven](http://maven.apache.org/download.cgi#)
-- [下载 Demo](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-rabbitmq-demo/tdmq-rabbitmq-springboot-amqp-demo.zip)
+- [下载 Demo](https://tdmq-document-1306598660.cos.ap-nanjing.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91demo/rabbitmq/tdmq-rabbitmq-springboot-amqp-demo.zip)
+
 
 ## 操作步骤
 
@@ -47,9 +48,9 @@
    | username     | 角色名称，在 **[角色管理](https://console.cloud.tencent.com/tdmq/role)** 页面复制。 |
    | password     | 角色密钥，在 **[角色管理](https://console.cloud.tencent.com/tdmq/role)** 页面复制**密钥**列复制。![img](https://main.qcloudimg.com/raw/52907691231cc11e6e4801298ba90a6c.png) |
    | virtual-host | Vhost 名称，在控制台 Vhost 页面复制，格式是**“集群 ID + \| + vhost 名称”**。![img](https://main.qcloudimg.com/raw/ae6ec1a5a94c9befea289ad7f5b46aed.png) |
-
-2. 创建配置文件加载程序（以`Fanout交换机`为例。）
->?其他类型的交换机配置可参考具体 Demo 示例。
+	 
+2. 创建配置文件加载程序（以`Fanout交换机`为例）。
+>?其他类型的交换机配置可参见具体 [Demo 示例](https://tdmq-document-1306598660.cos.ap-nanjing.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91demo/rabbitmq/tdmq-rabbitmq-springboot-amqp-demo.zip)。
 
    ```java
    /**
@@ -153,4 +154,4 @@ public class FanoutReceiver {
 
 
 
-其他使用示例请参考 [Spring AMQP 官网](https://docs.spring.io/spring-amqp/reference/html/)。
+>?其他使用示例请参见 [Spring AMQP 官网](https://docs.spring.io/spring-amqp/reference/html/)。

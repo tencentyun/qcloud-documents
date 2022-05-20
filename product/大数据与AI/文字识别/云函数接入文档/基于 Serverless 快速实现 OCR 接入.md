@@ -60,7 +60,7 @@ Components: 2.30.1
 1.新建一个本地文件夹，使用`create --template-url`命令，下载相关 template。
 
 ```console
-$ serverless create --template-url https://github.com/serverless-tencent/serverless-demos/serverless-ocr
+$ serverless create --template-url https://github.com/serverless-tencent/serverless-demos/tree/master/serverless-ocr
 ```
 
 2.创建 `.env` 文件，在里面输入您的账户、密钥信息和指定存储桶(此存储桶用于存放上传的图像)。

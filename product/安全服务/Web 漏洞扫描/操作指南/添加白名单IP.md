@@ -19,38 +19,51 @@
 129.211.166.163
 129.211.167.128
 129.211.167.166
-若您的网站需登录才可以访问，则需要先解除安全策略（即确保所有 IP 都能访问），待您的 cookie 有效性验证通过后再恢复限制。  
+若您的网站需登录才可以访问，则需要先解除安全策略（即确保所有 IP 都能访问），待您的 cookie 有效性验证通过后再恢复限制。 
+
 
 ## 操作步骤
-
+>?
+>- 适用于腾讯云 Web 应用防火墙，如果您使用的是其他 WAF 产品，请自行添加。
+>- 已购买 [Web 应用防火墙](https://cloud.tencent.com/document/product/627/11730)。
+>- 完成防护域名的添加及正常接入，当前域名处于正常防护，且开启 BOT 管理规则总开关，详情请参见 [快速入门](https://cloud.tencent.com/document/product/627/18635)。
+>
 ### 方式1：通过 IP 查询添加白名单
-
-1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/ip/query)，在左侧导航中，选择**IP 管理** > **IP 查询**，进入 IP 查询页面。
-2. 在 IP 查询页面，输入需要查询的 IP 地址，单击**查询**，将展示查询结果。
-![](https://main.qcloudimg.com/raw/c2679f4a5009dc7ba837df1308c7fd14.png)
-3. 单击**加入黑白名单**，进入“添加黑白 IP” 页面，可手动添加白名单。类别选择“白名单”，IP 地址填写需要添加到白名单的地址，选择白名单有效期的截止时间，设置完成后，单击**添加**，即完成白名单添加。
-![](https://main.qcloudimg.com/raw/a1438e6e8acd1f32cc23e388e3809e53.png)
+1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/tea-iplist)，在左侧导航栏中，单击 **IP 查询**。
+2. 在 IP 查询页面，左上角选择需要防护的域名，输入需要查询的 IP，单击**查询**。
+![](https://qcloudimg.tencent-cloud.cn/raw/08fee40f005d3e93f370fa1c8d6d854e.png)
+3. 在查询结果中，可查看具体的 IP 详情，单击**加入黑白名单**，可手动添加黑白名单。
+![](https://qcloudimg.tencent-cloud.cn/raw/904cc5c26d24ed222afc7cfc4175fbd7.png)
+3. 在添加黑白 IP 页面，可手动添加白名单。配置相关参数，单击**添加**，即完成白名单添加。
+![](https://qcloudimg.tencent-cloud.cn/raw/4d5fdd09056c48ba856701fc12718920.png)
+参数说明：
+ - 类别：选择**白名单**。
+ - IP 地址：填写需要添加到白名单的地址。
+ - 截止时间：填写白名单有效期的截止时间。
+ - 备注：自定义描述。
 
 ### 方式2：直接添加 IP 白名单
-登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/ip/list)，在左侧导航中，选择**IP 管理**>**IP 黑白名单**，进入 IP 黑白名单页面。
-- **方式1**：手动添加白名单。
- 1. 在 IP 黑白名单页面，单击**添加黑白名单**，将弹出“添加黑白IP”窗口。
- 2. 在“添加黑白 IP”窗口中，类别“白名单”类别，将漏洞扫描服务扫描节点 IP 复制到 IP 地址的输入框内，选择白名单有效期的截止时间，设置完成后，单击**添加**，即完成白名单添加。
->?最多支持输入100个 IP 地址，多个 IP 地址以换行分隔。
->
-![](https://main.qcloudimg.com/raw/e2607fd01aee22e84a6f3bdef994ae66.png)
-- **方式2**：批量导入白名单。
-	1. 在 IP 黑白名单页面，单击**导入数据**，将弹出“导入 IP 名单”窗口。
-	2. 在“导入 IP 名单”窗口中，单击**导入**，选择导入白名单文件，上传完成后，单击**确认导入**即可。
+登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/tea-iplist)，在左侧导航栏中，单击**配置中心** > **黑白名单**，左上角选择需要防护的域名，单击 **IP 白名单**，进入 IP 白名单页面
+
+#### **方式1**：手动添加白名单。
+ 1. 在 IP 白名单页面，单击**添加地址**，进入添加白名单页面。
+![](https://qcloudimg.tencent-cloud.cn/raw/1f4ab13d3401856d3101cf848ef39921.png)
+ 2. 在添加白名单页面，配置相关参数，单击**确定**。
+![](https://qcloudimg.tencent-cloud.cn/raw/d2161ecae375988075b58d90a563a14c.png)
+**字段说明**
+   - **IP 地址：**支持任意 IP 地址，例如10.0.0.10或 FF05::B5；支持 CIDR 格式地址，例如10.0.0.0/16或 FF05:B5::/60，使用换行符进行分隔，一次最多添加20个。
 >?
->- 导入文件格式：仅支持.xlsx、.xls。
->- 数量：目前只支持单个文件上传。
->- 内容：必须包含类别，IP 地址，截止时间三列，具体可参考导出数据 excel 格式。
->- 截止时间，必须在2033/12/30 23:59:59之前，格式 YYYY/MM/DD HH:MM:SS。
->
-	![](https://main.qcloudimg.com/raw/4e49d6eaf18ee86ae033f8aab2f6e7d2.png)
+>- 选择域名为 ALL 时，添加的 IP 地址或 IP 段为全局的白名单。
+>- 各个版本每个域名规格限制为：高级版1000条/域名、企业版5000条/域名、旗舰版:20000条/域名，每个 IP 地址或者 IP 段占用一条额度。
+   - **截止时间：**永久生效或限定日期。
+   - **备注：**自定义，50个字符以内。
+
+#### **方式2**：批量导入白名单
+1. 在 IP 白名单页面，单击**导入数据**，将弹出“导入 IP 名单”窗口。
+2. 在“导入 IP 名单”窗口中，单击**导入**，选择导入白名单文件，上传完成后，单击**确认导入**即可。
+![](https://qcloudimg.tencent-cloud.cn/raw/f2fa4099469589ca9b54a0e0201dce82.png)
 	
 ### 方式3：将已封堵 IP 添加白名单
-1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/ip/record)，在左侧导航中，选择**IP 管理** > **IP 封堵状态**，进入 IP 封堵状态。
+1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/tea-overview)，在左侧导航中，选择 **IP 查询** > **IP 封堵状态**，进入 IP 封堵状态。
 2. 在 IP 封堵状态页面，输入相关信息，单击**查询**，可以查询漏洞扫描服务的相关 IP 信息，即可对已封堵 IP 进行加白操作。
-![](https://main.qcloudimg.com/raw/e53da351484d70107246eb1e8c6f641a.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/d859f1a537cd70bfeec61d216ab9c4e4.png)

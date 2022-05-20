@@ -1,5 +1,5 @@
 
-企业帐号 CompanyExample（ownerUin 为 12345678）下有一个子账号 Developer，该子账号需要拥有对企业帐号 CompanyExample 的 VPC 服务的读写 VPC 及其相关资源的权限，但是不允许对路由表进行相关操作。
+企业账号 CompanyExample（ownerUin 为 12345678）下有一个子账号 Developer，该子账号需要拥有对企业账号 CompanyExample 的 VPC 服务的读写 VPC 及其相关资源的权限，但是不允许对路由表进行相关操作。
 
 步骤1：通过策略语法方式创建以下策略。
 ```json

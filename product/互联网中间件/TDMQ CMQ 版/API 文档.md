@@ -1,4 +1,7 @@
-TDMQ CMQ 版相关接口如下表所示。
+TDMQ CMQ 版资源管控相关接口如下表所示。
+
+>? 以下 API 仅适用于对队列和主题的管理类操作，例如新增、查询、修改、删除等，如需查看和收发消息相关的 API 请参见[HTTP 数据流 SDK](https://cloud.tencent.com/document/product/1496/61039)。
+
 
 <style>
 table th:nth-of-type(1) {

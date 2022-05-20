@@ -8,10 +8,10 @@ HTTPS 协议是由 SSL + HTTP 协议构建的可进行加密传输和身份认�
 
 ## 操作步骤 
 ### 步骤1：编辑 HTTPS 配置
-1. 进入[【域名管理】](https://console.cloud.tencent.com/live/domainmanage)，单击需配置的**播放域名**或右侧的【管理】进入域名详情页。
-2. 选择【高级配置】，查看【HTTPS 配置】标签。
-3. 单击【编辑】进入 HTTPS 配置页，单击![](https://main.qcloudimg.com/raw/897761946b06e8f904bfa6301d282817.png)按钮选择开启 HTTPS 服务。
-4. 选择证书来源，选择配置的证书来源，并填写相关信息，单击【保存】即可。
+1. 进入 [**域名管理**](https://console.cloud.tencent.com/live/domainmanage)，单击需配置的**播放域名**或右侧的**管理**进入域名详情页。
+2. 选择**高级配置**，查看**HTTPS 配置**标签。
+3. 单击**编辑**进入 HTTPS 配置页，单击![](https://main.qcloudimg.com/raw/897761946b06e8f904bfa6301d282817.png)按钮选择开启 HTTPS 服务。
+4. 选择证书来源，选择配置的证书来源，并填写相关信息，单击**保存**即可。
 <table>
 <tr><th>当选择证书来源类型为</th><th>需要填写</th></tr>
 <tr>
@@ -28,7 +28,7 @@ HTTPS 协议是由 SSL + HTTP 协议构建的可进行加密传输和身份认�
 
 #### 证书说明：
 [CA](https://cloud.tencent.com/document/product/400/18504#354) 提供的证书包括 Apache、IIS、Nginx 以及 Tomcat。**云直播的加密服务使用 Nginx，故配置需选择 Nginx 文件中的内容**。 
-进入【SSL 证书控制台】>【[证书管理](https://console.cloud.tencent.com/ssl)】，选择您需要查看的证书，单击操作栏的【下载】，并进行解压后即可获得以下文件：
+进入**SSL 证书控制台** > **[证书管理](https://console.cloud.tencent.com/ssl)**，选择您需要查看的证书，单击操作栏的**下载**，并进行解压后即可获得以下文件：
   ![](https://main.qcloudimg.com/raw/f67e31bfa2c233cf8dc0c4a1e58cb6fc.png)
 - <b id="content">证书内容</b>：选择 Nginx 中的 `.crt` 文件，输入框填写包含 `-----BEGIN CERTIFICATE-----` 和 `-----END CERTIFICATE-----` 的所有内容。
 **内容示例：**

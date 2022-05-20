@@ -12,7 +12,7 @@
 
 ## 后续步骤
 1. 在 [DBS 配置备份计划页面](https://console.cloud.tencent.com/dbs) 选择**云联网**，关键参数配置说明如下：
-![](https://qcloudimg.tencent-cloud.cn/raw/698a750e0af1ef9688bab596634d7cb8.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/348b4f47de8f0861dad6b120a3971906.png)
 <table>
 <thead><tr><th><strong>参数</strong></th><th><strong>说明</strong></th><th><strong>参数示例</strong></th></tr></thead>
 <tbody><tr>

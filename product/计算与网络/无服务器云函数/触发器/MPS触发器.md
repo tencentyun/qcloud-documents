@@ -280,16 +280,16 @@ WorkflowTask 数据结构及字段内容详细说明：
 
 | 名称 | 类型 | 描述 |
 |:----|:----|:----|
-| TaskId | String | 视频处理任务 ID。 |
-| Status | String | 任务流状态，取值如下：<br><li>PROCESSING：处理中。<br><li>FINISH：已完成。 |
-| ErrCode | Integer | 已弃用，请使用各个具体任务的 ErrCode。 |
-| Message | String | 已弃用，请使用各个具体任务的 Message。 |
-| InputInfo | [MediaInputInfo](https://cloud.tencent.com/document/api/862/37615#MediaInputInfo) | 视频处理的目标文件信息。注意：此字段可能返回 null，表示取不到有效值。 |
-| MetaData | [MediaMetaData](https://cloud.tencent.com/document/api/862/37615#MediaMetaData) | 原始视频的元信息。注意：此字段可能返回 null，表示取不到有效值。 |
-| MediaProcessResultSet | Array of [MediaProcessTaskResult](https://cloud.tencent.com/document/api/862/37615#MediaProcessTaskResult) | 视频处理任务的执行状态与结果。 |
-| AiContentReviewResultSet | Array of [AiContentReviewResult](https://cloud.tencent.com/document/api/862/37615#AiContentReviewResult) | 视频内容审核任务的执行状态与结果。 |
-| AiAnalysisResultSet | Array of [AiAnalysisResult](https://cloud.tencent.com/document/api/862/37615#AiAnalysisResult) | 视频内容分析任务的执行状态与结果。 |
-| AiRecognitionResultSet | Array of [AiRecognitionResult](https://cloud.tencent.com/document/api/862/37615#AiRecognitionResult) | 视频内容识别任务的执行状态与结果。 |
+| TaskId | String | 视频处理任务 ID。   |
+| Status | String | 任务流状态，取值如下：<br><li>PROCESSING：处理中。<br><li>FINISH：已完成。   |
+| ErrCode | Integer | 已弃用，请使用各个具体任务的 ErrCode。   |
+| Message | String | 已弃用，请使用各个具体任务的 Message。   |
+| InputInfo | [MediaInputInfo](https://cloud.tencent.com/document/api/862/37615#MediaInputInfo) | 视频处理的目标文件信息。注意：此字段可能返回 null，表示取不到有效值。   |
+| MetaData | [MediaMetaData](https://cloud.tencent.com/document/api/862/37615#MediaMetaData) | 原始视频的元信息。注意：此字段可能返回 null，表示取不到有效值。   |
+| MediaProcessResultSet | Array of [MediaProcessTaskResult](https://cloud.tencent.com/document/api/862/37615#MediaProcessTaskResult) | 视频处理任务的执行状态与结果。   |
+| AiContentReviewResultSet | Array of [AiContentReviewResult](https://cloud.tencent.com/document/api/862/37615#AiContentReviewResult) | 视频内容审核任务的执行状态与结果。   |
+| AiAnalysisResultSet | Array of [AiAnalysisResult](https://cloud.tencent.com/document/api/862/37615#AiAnalysisResult) | 视频内容分析任务的执行状态与结果。   |
+| AiRecognitionResultSet | Array of [AiRecognitionResult](https://cloud.tencent.com/document/api/862/37615#AiRecognitionResult) | 视频内容识别任务的执行状态与结果。   |
 
 
 ### EditMediaTask 事件

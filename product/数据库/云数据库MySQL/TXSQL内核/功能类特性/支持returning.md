@@ -1,6 +1,6 @@
 ## 功能介绍
 在某些使用场景下，需要在 DML 操作后返回刚操作的数据行。实现这个需求一般有两种办法：
-- 一是在开启事务的后在 DML 语句后紧跟一条 SELECT 语句。
+- 一是在开启事务后在 DML 语句后紧跟一条 SELECT 语句。
 - 二是使用触发器等较为复杂的操作实现。
 
 前者主要会增加一条 SELECT 语句的开销，后者则会令 SQL 的实现变得更加复杂并且不够灵活（需要创建触发器）。
@@ -10,7 +10,7 @@
 内核版本 MySQL 5.7 20210330 及以上
 
 ## 适用场景
-在目前 MySQL 5.7 20210330 及以上的内核版本中，分别支持：INSERT ... RETURNING、REPLACE ... RETURNING、DELETE ... RETURNING。该语法允许返回所有被 INSERT/REPLACE/DELETE 语句操作过的行（statment 为单位）。同时，RETURNING 也支持在 prepared statements，存储过程中使用。
+在目前 MySQL 5.7 20210330 及以上的内核版本中，分别支持：INSERT ... RETURNING、REPLACE ... RETURNING、DELETE ... RETURNING。该语法允许返回所有被 INSERT/REPLACE/DELETE 语句操作过的行（statement 为单位）。同时，RETURNING 也支持在 prepared statements，存储过程中使用。
 
 在使用该功能时，需要注意以下几点：
 1. 在使用 RETURNING 时，DELETE...RETURNING 语句返回前镜像数据，INSERT/REPLACE...RETURNING 返回后镜像数据。

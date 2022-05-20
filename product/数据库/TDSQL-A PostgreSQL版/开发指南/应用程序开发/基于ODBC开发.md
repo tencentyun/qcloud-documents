@@ -1,4 +1,3 @@
-
 使用 ODBC 连接 TDSQL-A PostgreSQL版 进行数据库操作需要提前部署 ODBC 的驱动包，驱动包可前往 [官网](https://odbc.postgresql.org/) 获取，或者向软件提供商获取。
 
 ## Linux 下进行 ODBC 开发

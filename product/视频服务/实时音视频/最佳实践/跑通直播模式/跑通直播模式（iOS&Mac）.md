@@ -15,7 +15,7 @@ TRTC 云服务由两种不同类型的服务器节点组成，分别是“接口
 ![](https://main.qcloudimg.com/raw/b88a624c0bd67d5d58db331b3d64c51c.gif)
 
 ## 示例代码
-您可以登录 [Github](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/TRTC-API-Example-OC) 获取本文档相关的示例代码。
+您可以登录 [Github](https://github.com/LiteAVSDK/TRTC_iOS/tree/main/TRTC-API-Example-OC) 获取本文档相关的示例代码。
 ![](https://main.qcloudimg.com/raw/91ba84ef5cee887717ba69e97d939fcd.png)
 
 >?如果访问 Github 较慢，您也可以直接下载 [TXLiteAVSDK_TRTC_iOS_latest.zip](https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_TRTC_iOS_latest.zip)。
@@ -125,7 +125,7 @@ encParams.videoFps = 15;
 2. 主播端调用 [setBeautyStyle()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXBeautyManager__ios.html#a8f2378a87c2e79fa3b978078e534ef4a) 可以设置美颜风格：
  - Smooth：光滑，效果比较明显，类似网红风格。
  - Nature：自然，磨皮算法更多地保留了面部细节，主观感受上会更加自然。
- - Pitu ：仅 [企业版](https://cloud.tencent.com/document/product/647/32689#Enterprise) 才支持。
+ - Pitu ：仅 [全功能版](https://cloud.tencent.com/document/product/647/32689#Enterprise) 才支持。
 3. 主播端调用 [setBeautyLevel()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXBeautyManager__ios.html#af864d9466d5161e1926e47bae0e3f027) 可以设置磨皮的级别，一般设置为5即可。
 4. 主播端调用 [setWhitenessLevel()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXBeautyManager__ios.html#a199b265f6013e0cca0ff99f731d60ff4) 可以设置美白级别，一般设置为5即可。
 5. 由于 iPhone 的摄像头调色默认偏黄，建议调用 [setFilter()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a1b0c2a9e82a408881281c7468a74f2c0) 为主播增加美白特效，美白特效所对应的滤镜文件的下载地址：[滤镜文件](https://liteav.sdk.qcloud.com/doc/res/trtc/filter/filterPNG.zip)。

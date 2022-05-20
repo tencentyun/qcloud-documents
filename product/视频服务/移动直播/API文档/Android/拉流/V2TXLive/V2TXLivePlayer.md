@@ -248,12 +248,12 @@ public abstract int snapshot();
 
 ***
 
-### enableCustomRendering
+### enableObserveVideoFrame
 
 设置视频自定义渲染回调。通过该方法，可以获取解码后的每一帧视频画面，进行自定义渲染处理，添加自定义显示效果。
 >? 开启成功后可在 `V2TXLivePlayerObserver.onRenderVideoFrame` 回调中获取视频帧数据。
 ```
-public abstract int enableCustomRendering(
+public abstract int enableObserveVideoFrame(
         boolean enable,
         V2TXLivePixelFormat pixelFormat, 
         V2TXLiveBufferType bufferType);

@@ -1,3 +1,4 @@
+
 国密 Encryption SDK 集成了 [**KMS**](https://cloud.tencent.com/document/product/573)，帮助用户解决密钥的生命周期管理问题，用户只需设置相关参数，调用加解密接口，便可实现本地、高效、稳定的国密加解密。
 
 为了提供更好的服务，国密 Encryption SDK 支持基于 KMS 的密钥保护和原生加密的两种加密方式。

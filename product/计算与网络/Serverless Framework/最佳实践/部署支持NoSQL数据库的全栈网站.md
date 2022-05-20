@@ -86,7 +86,7 @@ mongoDBDemoWebsite: 
 78s › tcbdemo › Success
 
 ```
- 访问命令行输出的 website url，即可查看您的 Serverless 站点。  
+ 访问命令行输出的 website url，即可查看您的 Serverless 站点。   
 >!
 >- 由于 sls 运行角色限制，需要用户登录 [访问管理角色页面](https://console.cloud.tencent.com/cam/role)，手动为**SLS_QcsRole**添加**TCBFullAccess**的策略，否则无法正常运行。
 >- 当前`deploy --all`指令只支持2.30.1及以上版本 Serverless Framework Component，请确定您的组件已更新至最新版本。

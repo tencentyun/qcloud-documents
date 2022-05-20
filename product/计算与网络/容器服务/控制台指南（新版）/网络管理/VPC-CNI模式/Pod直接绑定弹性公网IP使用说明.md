@@ -70,7 +70,7 @@ spec:
 - 各节点可绑定的 EIP 资源受到相关配额限制和云服务器的绑定数量限制，详情可参考 [EIP使用限制](https://cloud.tencent.com/document/product/1199/41648#eip-.E9.85.8D.E9.A2.9D.E9.99.90.E5.88.B6)。
 各节点可绑定的最大 EIP 数量为**云服务器绑定数量 - 1**。
 - **tke.cloud.tencent.com/eip-attributes: '{"Bandwidth":"100","ISP":"BGP"}'**：当前只支持配置带宽和线路类型两个参数。`ISP`参数可配置为 `BGP`、`CMCC`、`CTCC`、`CUCC`，分别对应普通线路 BGP IP、静态单线 IP（网络运营商中国移动、中国电信、中国联通）。若不填写，则默认值为 100 Mbps 和 BGP。
-- 当前自动申请的 EIP 绑定后不收取 IP 资源费用，访问公网网络默认计费方式为`流量按小时后付费`，详情见 [EIP 计费概述](https://cloud.tencent.com/document/product/1199/41692)。
+- 当前自动申请的 EIP 绑定后不收取 IP 资源费用，访问公网网络默认计费方式为`流量按小时后付费`，详情见 [EIP 计费概述 ](https://cloud.tencent.com/document/product/1199/41692)。
 
 ## EIP 的保留和回收
 

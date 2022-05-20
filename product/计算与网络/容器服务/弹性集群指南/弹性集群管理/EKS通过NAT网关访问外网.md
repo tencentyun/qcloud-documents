@@ -25,7 +25,7 @@
 完成配置路由后，需选择子网关联到该路由表，被选择子网内的访问 Internet 的流量将指向 NAT 网关。步骤如下：
 1. 在“路由表”页面中，选择 [创建指向 NAT 网关的路由表](#createRouting) 步骤中已创建路由表所在行右侧的**关联子网**。
 2. 在弹出的“关联子网”窗口中，勾选需关联子网并单击**确定**即可。
-<dx-alert infotype="explain" title="">
+<dx-alert infotype="explain" title=" ">
 此子网为容器网络，并非 Service CIDR。
 </dx-alert>
 完成路由表关联子网后，同 VPC 的资源即可以通过 NAT 网关的外网 IP 访问 Internet。

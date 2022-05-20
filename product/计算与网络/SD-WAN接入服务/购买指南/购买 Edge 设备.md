@@ -1,11 +1,11 @@
-SD-WAN 接入服务有 Edeg-100、Edeg-100-5G、Edeg-1000三种硬件设备，您需要通过线下进行购买。
->?Edge-1000 目前 POC 测试中，如需体验，请提交[ 工单申请](https://console.cloud.tencent.com/workorder/category)。
+购买 SD-WAN Edge 设备 SD-WAN 接入服务有 Edge-100、Edge-100-5G、Edge-1000 三种硬件设备，您需要通过线下进行购买。
+>?Edge-1000 目前 POC 测试中，如需体验，请联系[ 在线支持](https://cloud.tencent.com/online-service?from=sales&source=PRESALE)。
 >
 
 
 ## 购买方式
-- 方式一：联系与您对接的腾讯商务经理进行购买。
-- 方式二：请提交 [工单申请](https://console.cloud.tencent.com/workorder/category) 进行购买。
+- 方式一：联系与您对接的腾讯商务经理进行购买。从控制台 - 渠道管理 - 公司信息 - 基本资料 - 专属渠道经理中可以查看到联系人、企业微信、邮箱。
+- 方式二：请联系 [在线支持](https://cloud.tencent.com/online-service?from=sales&source=PRESALE) 进行购买，同时，您也可以直接致电销售人员，咨询热线：4009100100转1（工作日9：00 - 18：00）。
 
 ## 售后服务
 

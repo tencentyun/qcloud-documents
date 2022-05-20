@@ -93,7 +93,7 @@ exports.main = async (event, context) => {
 }
 ```
 5. 完成业务代码编写后，创建 `serverless.yml` 文件，并在环境变量中填写您的 **SecretId** 和 **SecretKey**。
->!若使用如下配置，则会创建免费云开发环境。如您已具备免费云开发环境，请将云开发环境 ID 填入 `MongoId` 中，否则会出现报错。 
+>!若使用如下配置，则会创建免费云开发环境。如您已具备免费云开发环境，请将云开发环境 ID 填入 `MongoId` 中，否则会出现报错。   
 >
 ```
 component: scf

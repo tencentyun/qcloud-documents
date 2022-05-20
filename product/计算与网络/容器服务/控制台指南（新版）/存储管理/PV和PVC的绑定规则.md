@@ -1,4 +1,5 @@
 ## PV 状态介绍
+
 <table>
 	<tr>
 	<th>PV 状态</th>	<th>描述</th>
@@ -13,7 +14,7 @@
 	</tr>
 	<tr>
 	<td>Released</td>
-	<td>一个回收策略为 Retain 的 PV，当其绑定的 PVC 被删除，该 PV 会由 Bound 状态转变为 Released 状态。<br><b>注意：</b>Released 状态的 PV 需要手动删除 YAML 配置文件中的 claimRef 字段才能与 PVC 成功绑定。 </td>
+	<td>一个回收策略为 Retain 的 PV，当其绑定的 PVC 被删除，该 PV 会由 Bound 状态转变为 Released 状态。<br><b>注意：</b>Released 状态的 PV 需要手动删除 YAML 配置文件中的 claimRef 字段才能与 PVC 成功绑定。  </td>
 	</tr>
 </table>
 
@@ -49,11 +50,11 @@
 	</tr>
 	<tr>
 	<td>AccessMode</td>
-	<td>主要定义 volume 的访问模式，PV 与 PVC 的 AccessMode 必须相同。 </td>
+	<td>主要定义 volume 的访问模式，PV 与 PVC 的 AccessMode 必须相同。  </td>
 	</tr>
 	<tr>
 	<td>Size</td>
-	<td>主要定义 volume 的存储容量，PVC 中声明的容量必须小于等于 PV，如果存在多个满足条件的 PV，则选择最小的 PV 与 PVC 绑定。 </td>
+	<td>主要定义 volume 的存储容量，PVC 中声明的容量必须小于等于 PV，如果存在多个满足条件的 PV，则选择最小的 PV 与 PVC 绑定。  </td>
 	</tr>
 </table>
 

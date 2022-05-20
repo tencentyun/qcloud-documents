@@ -1,12 +1,4 @@
-## 版本支持
-本页文档所描述功能，在腾讯云视立方中支持情况如下：
 
-| 版本名称 | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 播放器 Player | 全功能 |
-| -------- | -------- | -------- | -------- | -------- | -------- | -------- |
-| 支持情况 | -  | -  | -  | &#10003;  | -  | &#10003;  |
-| SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=allPart) |
-
-不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
 
 ## 功能说明
 腾讯云视立方音视频通话 TRTC 在 iOS 平台下支持两种不同的屏幕分享方案：
@@ -43,7 +35,7 @@
 ## 跨应用分享
 
 ### 示例代码
-我们在 [Github](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/TRTC-API-Example-OC) 中的 **ScreenShare** 目录下放置了一份跨应用分享的示例代码，其包含如下一些文件：
+我们在 [Github](https://github.com/LiteAVSDK/TRTC_iOS/blob/main/TRTC-API-Example-OC) 中的 **ScreenShare** 目录下放置了一份跨应用分享的示例代码，其包含如下一些文件：
 
 ```
 ├─ TRTC-API-Example-OC              // TRTC API Example 
@@ -66,7 +58,7 @@
 |  |  |  │   └── SampleHandler.m                // 用于接收来自系统的录屏数据
 ```
 
-您可以通过 [README](https://github.com/tencentyun/TRTCSDK/blob/master/iOS/TRTC-API-Example-OC/README.md) 中的指引跑通该示例 Demo。
+您可以通过 [README](https://github.com/LiteAVSDK/TRTC_iOS/blob/main/TRTC-API-Example-OC/README.md) 中的指引跑通该示例 Demo。
 
 
 ### 对接步骤
@@ -217,7 +209,7 @@ iOS 系统上的跨应用屏幕分享，需要增加 Extension 录屏进程以�
 截止到 [步骤3](#receive)，我们的屏幕分享还必须要用户从控制中心中长按录屏按钮来手动启动。您可通过下述方法实现类似腾讯会议的单击按钮即可触发的效果：
 ![](https://main.qcloudimg.com/raw/4a759043c613a558400cce8b539fd7d9.png)
 
-1. 在 [Demo](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/TRTC-API-Example-OC/Basic/ScreenShare) 中寻找 `TRTCBroadcastExtensionLauncher` 这个类，并将其加入到您的工程中。
+1. 在 [Demo](https://github.com/LiteAVSDK/TRTC_iOS/blob/main/TRTC-API-Example-OC/Basic/ScreenShare) 中寻找 `TRTCBroadcastExtensionLauncher` 这个类，并将其加入到您的工程中。
 2. 在您的界面上放置一个按钮，并在按钮的响应函数中调用 `TRTCBroadcastExtensionLauncher` 中的 `launch` 函数，就可以唤起屏幕分享功能了。
 <dx-codeblock>
 ::: code 

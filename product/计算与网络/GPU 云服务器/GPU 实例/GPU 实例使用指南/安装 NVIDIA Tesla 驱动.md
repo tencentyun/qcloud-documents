@@ -22,13 +22,13 @@ Linux 驱动安装采用 Shell 脚本安装方式，适用于任何 Linux 发行
 NVIDIA Telsa GPU 的 Linux 驱动在安装过程中需要编译 kernel module，系统需提前安装 gcc 和编译 Linux Kernel Module 所依赖的包，例如 `kernel-devel-$(uname -r)` 等。
 
 1. 执行以下命令，检查当前系统中是否已安装 dkms。
-```
+```shellsession
 rpm -qa | grep -i dkms
 ```
 返回结果如下图，则表示已安装 dkms。
 ![](https://main.qcloudimg.com/raw/ada786e81334e5a88f8c95e54ff42f18.png)
 如未安装 dkms，则执行以下命令进行安装。
-```
+```shellsession
 sudo yum install -y dkms
 ```
 2. 登录 [NVIDIA 驱动下载](http://www.nvidia.com/Download/Find.aspx) 或访问 `http://www.nvidia.com/Download/Find.aspx`。
@@ -49,31 +49,31 @@ sudo yum install -y dkms
 ![](https://main.qcloudimg.com/raw/cbbb80409d43052061ba638d7ae622e5.png)
 或者您可在本地系统下载 NVIDIA 安装包，再上传到 GPU 实例的服务器。
 9. 执行以下命令，对安装包添加执行权限。 例如，对文件名为 `NVIDIA-Linux-x86_64-418.126.02.run` 添加执行权限。
-```
+```shellsession
 chmod +x NVIDIA-Linux-x86_64-418.126.02.run
 ```
 10. 依次执行以下命令，检查当前系统中是否已安装 gcc 和 kernel-devel 包。
-```
+```shellsession
 rpm -qa | grep kernel-devel
 ```
-```
+```shellsession
 rpm -qa | grep gcc
 ```
 返回结果如下，则表示已安装 gcc 和 kernel-devel。
 ![](https://main.qcloudimg.com/raw/0a9d385944669528d49544eb0bd6b8eb.png)
 如未安装，则请执行以下命令进行安装。
-```
+```shellsession
 sudo yum install -y gcc kernel-devel
 ```
 <dx-alert infotype="notice" title="">
 如升级了 kernel 版本，则需要将 kernel-devel 升级至与 kernel 相同的版本。
 </dx-alert>
 11. 执行以下命令，运行驱动安装程序，并按提示进行后续操作。
-```
-sudo sh NVIDIA-Linux-x86_64-418.126.02.run
+```shellsession
+sudo sh NVIDIA-Linux-x86_64-418.126.02.run  --disable-nouveau
 ```
 12. 安装完成后，执行以下命令进行验证。
-```
+```shellsession
 nvidia-smi
 ```
 如返回信息类似下图中的 GPU 信息，则说明驱动安装成功。
