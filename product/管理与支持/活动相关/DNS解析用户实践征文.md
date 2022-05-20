@@ -10,7 +10,7 @@
 （4） 投稿内容字数不少于400字，要求文字顺通、图片清晰、代码规范。
 （5） 投稿要求发布在腾讯云 云+社区。
 （6） 投稿内容一经采用，将会被纳入官方产品文档，腾讯云拥有使用权。
-（7）  友情附上：[最佳实践写作指南](https://doc.weixin.qq.com/doc/w3_AHsAXwboACcuEbVIZiXTZqGYm0Kh0?scode=AJEAIQdfAAoJPRp1wFAHsAXwboACc)，供参考～
+（7） 友情附上：[最佳实践写作指南](https://doc.weixin.qq.com/doc/w3_AHsAXwboACcuEbVIZiXTZqGYm0Kh0?scode=AJEAIQdfAAoJPRp1wFAHsAXwboACc)，供参考～
 
 ## 参与方式
 
