@@ -105,10 +105,10 @@ spec:
 
 以在边缘部署 echo-service 为例，我们希望在多个节点组内分别部署 echo-service 服务，需要如下操作：
 
-### 1. 确定 ServiceGroup 唯一标识
+### 确定 ServiceGroup 唯一标识
 此步骤为逻辑规划，不需要做任何实际操作。我们将目前要创建的 ServiceGroup 逻辑标记使用的 UniqKey 为 `location`。
 
-###  2. 将边缘节点分组
+### 将边缘节点分组
 
 如下图，我们以一个边缘集群为例，将集群中的节点添加到**边缘节点池**以及**边缘节点池分类**中。本文示例以公有云界面来操作，SuperEdge 开源用户可以参考 [边缘节点池和边缘节点池分类设计文档](https://github.com/superedge/superedge/blob/main/docs/components/site-manager_CN.md) 使用 CRD 进行操作完成下面的步骤。
 
