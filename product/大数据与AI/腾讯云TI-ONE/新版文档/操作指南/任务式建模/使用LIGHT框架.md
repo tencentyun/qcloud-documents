@@ -229,7 +229,7 @@ dataset = CustomDataset(filename, transform)
 dataloader = Dataloader(dataset, batch_size)
 
 ```
-B. 如果你的代码使用了torchvision的 ImageFolder 来进行数据读取，可以通过如下方式来使用light cache
+B. 如果您的代码使用了torchvision的 ImageFolder 来进行数据读取，可以通过如下方式来使用light cache
 ```
 # 导入light ImageFolder
 from light.pytorch.datasets.folder import ImageFolder
@@ -874,7 +874,7 @@ LightCC 是 Horovod 的优化版本，已经默认安装于 Light 标准镜像�
   DistributedOptimizer，用于进行分布式训练用的 optimizer	
 
 ### Light 分布式场景使用 Pytorch DDP 通信模式（支持 Pytorch 框架）
-  为用户更方便使用 Light，Light 支持了 Pytorch DDP 的任务，不需要登陆到多台机器上执行多机多卡命令，Light 对易用性做了优化。只需要少量修改即可使用 Light-ddp 模型多机多卡训练，具体修改分3步。
+  为用户更方便使用 Light，Light 支持了 Pytorch DDP 的任务，不需要登录到多台机器上执行多机多卡命令，Light 对易用性做了优化。只需要少量修改即可使用 Light-ddp 模型多机多卡训练，具体修改分3步。
   首先是代码修改，训练代码保持不变，只需要加上 light_init的装饰器，Light 后端已经初始化了通信环境，因此训练代码里不需要再去调用`dist.init_process_group`（Light默认使用 NCCL）。
 ```
   from light import light_init                              # 修改点1：导入light初始化
