@@ -54,7 +54,7 @@
 
 > !
 > - 若您当前已有直播 License 或短视频 License，可直接用于解锁 10.1 版本 SDK 中的视频播放功能模块，无需重新购买 License。
-> - 10.1 版本将在2022年05月底正式发布，届时将同步上线相关 License 的申请、购买页面及相关文档，本次升级涉及的移动端（iOS & Android & Flutter）SDK 包含：[直播 SDK](https://tcloud-doc.isd.com/document/product/454/74194?!preview&!editLang=zh)、[播放器 SDK](https://tcloud-doc.isd.com/document/product/881/74199?!editLang=zh&!preview)、[短视频 SDK](https://tcloud-doc.isd.com/document/product/584/74197?!preview&!editLang=zh)、[实时音视频（TRTC）SDK](https://tcloud-doc.isd.com/document/product/647/74201?!preview&!editLang=zh)、[全功能版 SDK](https://tcloud-doc.isd.com/document/product/1449/74203?!preview&!editLang=zh)，您可持续关注对应 SDK 官网通知以了解最新动态。
+> - 10.1 版本将在2022年05月底正式发布，届时将同步上线相关 License 的申请、购买页面及相关文档，本次升级涉及的移动端（iOS & Android & Flutter）SDK 包含：[直播 SDK](https://tcloud-doc.isd.com/document/product/454/74194?!preview&!editLang=zh)、[播放器 SDK](https://tcloud-doc.isd.com/document/product/881/74199?!editLang=zh&!preview)、[短视频 SDK](https://tcloud-doc.isd.com/document/product/584/74197?!preview&!editLang=zh)、[实时音视频（TRTC）SDK](https://tcloud-doc.isd.com/document/product/647/74201?!preview&!editLang=zh)、[全功能版 SDK](https://tcloud-doc.isd.com/document/product/1449/74203?!preview&!editLang=zh)，您可持续关注官网通知以了解最新动态。
 
 <table>
 <thead>
