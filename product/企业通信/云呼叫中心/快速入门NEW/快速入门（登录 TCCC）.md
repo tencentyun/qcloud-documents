@@ -2,7 +2,7 @@
 已完成 [快速入门（使用方式：SDK 集成）](https://cloud.tencent.com/document/product/679/73495)或 [快速入门（使用方式：直接访问）](https://cloud.tencent.com/document/product/679/73496)。
 ## 首次登录账号与密码
 1. **登录账号/邮箱：**
-1. 登录 [腾讯云呼叫中心 TCCC 管理工作台](https://console.cloud.tencent.com/ccc)。，选择需要登录的应用查看管理员账号/邮箱。
+1. 登录 [腾讯云呼叫中心 TCCC 管理工作台](https://console.cloud.tencent.com/ccc)，选择需要登录的应用查看管理员账号/邮箱。
 ![](https://qcloudimg.tencent-cloud.cn/raw/15963a9cf79fda0137182b70fb3c8f55.png)
 2. **登录密码：**
  - 若账号为非邮箱格式，您可前往腾讯云站内信查收密码，站内信主题为：呼叫中心实例创建成功。
