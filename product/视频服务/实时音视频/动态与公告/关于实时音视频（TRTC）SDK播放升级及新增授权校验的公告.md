@@ -47,7 +47,7 @@
 
 **授权校验：即若您的 Android 或 IOS SDK 版本升级到10.1版本后，需要 License 授权才可使用 [直播视频播放](https://cloud.tencent.com/document/product/647/16826) 或 [点播视频播放](https://cloud.tencent.com/document/product/647/16823#.E5.9B.9E.E6.94.BE.E5.BD.95.E5.88.B6.E6.96.87.E4.BB.B6) 功能，若您不升级至 10.1 版本，或者在升级至 10.1 以及之后版本仅使用 TRTC 常规播放功能（房间内众观看功能），将不受此次变更影响，仍可正常使用历史版本中的视频播放器。**
 
-10.1 版本后，直播 License（原直播推流 License）、短视频 License 和视频播放 License 均可解锁升级版音视频终端 SDK的视频播放功能模块，您可以登录 [腾讯云视立方控制台](https://console.cloud.tencent.com/vcube) 查看您当前的 License 信息。
+10.1 版本后，直播 License（原直播推流 License）、短视频 License 和视频播放 License 均可解锁升级版的实时音视频（TRTC）SDK 的视频播放功能模块，您可以登录 [腾讯云视立方控制台](https://console.cloud.tencent.com/vcube) 查看您当前的 License 信息。
 
 - 购买获得直播 License 授权解锁直播推流 + 视频播放功能模块，相关计费详情请参见 [直播 SDK 价格总览](https://cloud.tencent.com/document/product/454/8008)。
 - 购买获得短视频 License 授权解锁短视频制作 + 视频播放功能模块，相关计费详情请参见 [短视频 SDK 价格总览](https://cloud.tencent.com/document/product/584/9368)。
