@@ -139,7 +139,7 @@ spec:
 >! 上一步中，label 的 key 就是 NodeGroup 的名字，同时与 ServiceGroup 的 UniqKey 一致，value 是 NodeUnit 的唯一 key，value 相同的节点表示属于同一个 NodeUnit。
 >如果同一个集群中有多个 NodeGroup 请为每一个 NodeGroup 分配不同的 UniqKey，部署 ServiceGroup 相关资源的时候会通过 UniqKey 来绑定指定的 NodeGroup 进行部署。
 
-### 3. 无状态 ServiceGroup
+### 无状态 ServiceGroup
 
 #### 部署 DeploymentGrid
 
