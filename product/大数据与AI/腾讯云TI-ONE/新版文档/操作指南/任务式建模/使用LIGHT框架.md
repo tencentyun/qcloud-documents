@@ -53,10 +53,11 @@ Light目前支持 Tensorflow 和 Pytorch 框架下，使用 Light 数据 IO 能�
 #### light.io.get_iterator（支持 Tensorflow 框架）
 
 - API：
+```
   light.io.get_iterator(
   dataset, prefetch_to_gpu=True
   )	
-
+```
 - 功能：优化版本的tf.data.Dataset，为dataset初始化创建迭代器，若prefetch_to_gpu为True，先将数据dataset预取到GPU	
 
 - 参数：	
@@ -71,12 +72,14 @@ Light目前支持 Tensorflow 和 Pytorch 框架下，使用 Light 数据 IO 能�
 ####  light.io.get_data_loader（支持Pytorch框架）
 
 - API：
-  ``light.io.get_data_loader(`
-  `dataset, num_replicas, rank, batch_size=1, shuffle=False,`
-  `sampler=None, batch_sampler=None, num_workers=0,`
-  `collate_fn=None, pin_memory=True, drop_last=False, timeout=0,`
-  `worker_init_fn=None, multiprocessing_context=None, generator=None`
-  )`	
+ ```
+	light.io.get_data_loader(
+  dataset, num_replicas, rank, batch_size=1, shuffle=False,
+  sampler=None, batch_sampler=None, num_workers=0,`
+  collate_fn=None, pin_memory=True, drop_last=False, timeout=0,
+  worker_init_fn=None, multiprocessing_context=None, generator=None
+  )
+```	
   
 - 功能：
 
@@ -109,9 +112,11 @@ Light目前支持 Tensorflow 和 Pytorch 框架下，使用 Light 数据 IO 能�
 #### Light 数据分片（支持 Tensorflow 框架）
   目前Light支持Tensorflow框架下数据分片的方法。
 - API：
-  ``light.io.files_shard(`
+ ```
+	light.io.files_shard(
   `data_files_list, size, rank, drop_last=False`
-  )`	
+  )
+```	
   
 - 功能：
 
@@ -265,9 +270,11 @@ Light 目前支持 Tensorflow 和 Pytorch 框架下，使用 Light 计算能力�
 
 #### light.calc.get_mixed_precision_optimizer（支持 Tensorflow 框架）
 - API：
-  ``light.calc.get_mixed_precision_optimizer(`
-        `opt`
-  )`	
+  ```
+	light.calc.get_mixed_precision_optimizer(
+       opt
+  )
+```
 - 功能：
 优化版本的tf.train.experimental.enable_mixed_precision_graph_rewrite，将优化器扩展成混合精度	
 - 参数:	
@@ -386,9 +393,11 @@ for epoch in epochs:
 ### Light XLA 优化（支持 Tensorflow 框架）
 
 - API：
-``light.calc.set_xla_optimization(`
-      `level=2`
-)`	
+```
+light.calc.set_xla_optimization(
+      level=2
+)
+```
 - 功能：
 为 tensorflow 模型启用 xla 优化	
 - 参数：	
@@ -403,7 +412,9 @@ for epoch in epochs:
 ###  Light Cudnn 优化（支持 Pytorch 框架）
 
 - API：
-`light.calc.set_cudnn_autotune( )`	
+```
+light.calc.set_cudnn_autotune( )
+```
 - 功能：
 该接口会在前几个迭代步尝试变换卷积、矩阵乘法等运算的cudnn算法，从而在后续训练中得到速度最快的选择。
 注意，该功能可能会使前几个迭代步的训练速度降低。	
@@ -447,7 +458,9 @@ LightCC 是 Horovod 的优化版本，已经默认安装于 Light 标准镜像�
 ####  light.cc.size（支持 Tensorflow、Pytorch 框架）
 
 - API：
-  `light.cc.size()`
+```
+  light.cc.size()
+```
 
 - 功能：
   获取分布式训练程序中Light进程数量
@@ -460,7 +473,9 @@ LightCC 是 Horovod 的优化版本，已经默认安装于 Light 标准镜像�
 ####  light.cc.local_size（支持 Tensorflow、Pytorch 框架）
 
 - API：
-  `light.cc.local_size()`
+```
+  light.cc.local_size()
+```
 - 功能：
   获取一个机器节点上的Light进程数量，调用该函数的进程运行在此机器节点上
 - 参数: 无
@@ -470,12 +485,15 @@ LightCC 是 Horovod 的优化版本，已经默认安装于 Light 标准镜像�
 ####  light.cc.rank（支持 Tensorflow、Pytorch 框架）
 
 - API：
-  `light.cc.rank()`
+```
+  light.cc.rank()
+```
 - 功能：
   获取当前Light进程在分布式训练中的rank
 - 参数: 无
 - 返回值: 
   int：Light进程rank值
+
 ####  light.cc.local_rank（支持Tensorflow、Pytorch框架）
 - API：
   `light.cc.local_rank()`
@@ -484,27 +502,36 @@ LightCC 是 Horovod 的优化版本，已经默认安装于 Light 标准镜像�
 - 参数: 无
 - 返回值: 
   int：Light进程rank值
+
 #### light.cc.Compression（支持 Tensorflow、Pytorch 框架）
 - API：
-  `light.cc.Compression`
+```
+  light.cc.Compression
+```
 - 功能：
   梯度压缩算法：none 或者 fp16
   用法：light.cc.Compression.none / light.cc.Compression.fp16
+
 #### light.cc.reduction_op_values（支持 Tensorflow、Pytorch 框架）
 - API：
-  `light.cc.Average / light.cc.Sum / light.cc.Adasum`
+```
+ light.cc.Average / light.cc.Sum / light.cc.Adasum
+```
 - 功能：
   梯度规约op
+
 ####  light.cc.get_distributed_optimizer（支持 Tensorflow 框架）
 - API：
-  ```light.cc.get_distributed_optimizer(`
-        `optimizer, name=None, use_locking=False, device_dense='',`
-        `device_sparse='', compression=light.cc.Compression.none,`
-        `sparse_as_dense=False, backward_passes_per_step=1,`
-        `op=light.cc.Average, allreduce_type='fusion',`
-        `fusion_type='auto_fusion', auto_fusion_threshold=67108864,`
-        `piecewise_fusion_schedule='0', scopewise_fusion_schedule=''`
-  )``	
+  ```
+	light.cc.get_distributed_optimizer(
+        optimizer, name=None, use_locking=False, device_dense='',
+        device_sparse='', compression=light.cc.Compression.none,
+        sparse_as_dense=False, backward_passes_per_step=1,
+        op=light.cc.Average, allreduce_type='fusion',
+        fusion_type='auto_fusion', auto_fusion_threshold=67108864,
+        piecewise_fusion_schedule='0', scopewise_fusion_schedule=''
+  )
+```	
 - 功能：
   将 Tensorflow 单进程优化器 optimizer 扩展成分布式优化器，并自动加入了梯度规约的功能。并支持了不同的通信方式。	
 - 参数:	
@@ -539,11 +566,14 @@ LightCC 是 Horovod 的优化版本，已经默认安装于 Light 标准镜像�
 
 #### light.cc.get_distributed_gradient_tape（支持 Tensorflow 框架）
 - API：
+```
   light.cc.get_distributed_gradient_tape(
         gradtape, device_dense='', device_sparse='',
         compression=light.cc.Compression.none, sparse_as_dense=False,
         op=light.cc.Average
   )	
+```
+
 - 功能：
   将 gradtape 扩展具有分布式能力	
 - 参数:	
@@ -552,10 +582,12 @@ LightCC 是 Horovod 的优化版本，已经默认安装于 Light 标准镜像�
   具有分布式能力的 gradtape	
 ####  light.cc.allreduce（支持 Tensorflow 框架）
 - API：
-  ``light.cc.allreduce(`
-        `tensor, average=None, device_dense='', device_sparse='',`
-        `compression=light.cc.Compression.none, op=None`
-  `)``	
+ ```
+	light.cc.allreduce(
+        tensor, average=None, device_dense='', device_sparse='',
+        compression=light.cc.Compression.none, op=None`
+  )
+```	
 - 功能：
   对指定 Tensor 进行 allreduce 操作：
   对输入张量执行 ring-allreduce 的带宽规约操作。如果输入的 tensor 类型为tf.IndexedSlices，该函数将对值和索引执行 allgather 操作，从而对其表示的张量有效的执行 allreduce 规约操作。	
@@ -578,13 +610,15 @@ LightCC 是 Horovod 的优化版本，已经默认安装于 Light 标准镜像�
 
 #### light.cc.fusion_allreduce（支持 Tensorflow 框架）
 - API：
-  ```light.cc.fusion_allreduce(`
-        `grads_and_vars, average=None, device_dense='', device_sparse='',`
-        `compression=light.cc.Compression.none, op=None,`
-        `fusion_type="auto_fusion", auto_fusion_threshold=67108864,`
-        `piecewise_fusion_schedule="0",`
-        `scopewise_fusion_schedule="scope0;scope1"`
-  )``	
+ ```
+	light.cc.fusion_allreduce(
+        grads_and_vars, average=None, device_dense='', device_sparse='',
+        compression=light.cc.Compression.none, op=None,`
+        fusion_type="auto_fusion", auto_fusion_threshold=67108864,
+        piecewise_fusion_schedule="0",`
+        scopewise_fusion_schedule="scope0;scope1"
+  )
+```	
 - 功能：
   对需要通信的梯度进行融合通信，可支持"piecewise_fusion"、"scopewise_fusion"、"xlascope_fusion"和"auto_fusion"四种模式;
   如果，不进行梯度融合通信，则对列表中的每个梯度进行allreduce规约操作。	
@@ -616,9 +650,11 @@ LightCC 是 Horovod 的优化版本，已经默认安装于 Light 标准镜像�
 
 ####  light.cc.allgather（支持 Tensorflow 框架）
 - API：
-  ```light.cc.allgather(`
-        `tensor, name=None`
-  )``	
+  ```
+	light.cc.allgather(
+        tensor, name=None
+  )
+```	
 - 功能：
   将所有 Light 程序上输入的 tensor 拼接在一起。
   拼接是在 tensor 的第一个维度上完成的，因此除第一个维度允许不同之外，不同进程上的输入 tensor 必须具有相同的 rank 和 shape	
@@ -634,9 +670,12 @@ LightCC 是 Horovod 的优化版本，已经默认安装于 Light 标准镜像�
 
 ####  light.cc.broadcast（支持 Tensorflow框 架）
 - API：
-  `light.cc.broadcast(`
-        `inp_tensor, root_rank=0, name=None`
-  `)`	
+```
+ light.cc.broadcast(
+        inp_tensor, root_rank=0, name=None
+ )
+```	
+	
 - 功能：
   将输入的张量从 root_rank 进程上广播到所有 Light 进程，保证各进程一致。	
 - 参数:	
@@ -652,9 +691,11 @@ LightCC 是 Horovod 的优化版本，已经默认安装于 Light 标准镜像�
 
 #### light.cc.broadcast_variables（支持 Tensorflow 框架）
 - API：
-  ``light.cc.broadcast_variables(`
-        `variables, root_rank=0`
-  `)``	
+```
+	light.cc.broadcast_variables(
+        variables, root_rank=0
+ )
+```	
 - 功能：
   将输入的变量从 root_rank 进程上广播到所有 Light 进程，保证各进程一致。	
 - 参数:	
@@ -668,9 +709,11 @@ LightCC 是 Horovod 的优化版本，已经默认安装于 Light 标准镜像�
 
 #### light.cc.broadcast_global_variables（支持 Tensorflow 框架）
 - API：
-  ``light.cc.broadcast_global_variables(`
-        `root_rank=0`
-  `)``	
+ ```
+	light.cc.broadcast_global_variables(
+        root_rank=0
+  )
+```	
 - 功能：
   将全局变量从 root_rank 进程上广播到所有 Light 进程，保证各进程一致。	
 - 参数:	
@@ -679,44 +722,55 @@ LightCC 是 Horovod 的优化版本，已经默认安装于 Light 标准镜像�
   无	
 #### light.cc.get_broadcast_variable_hook（支持 Tensorflow 框架）
 - API：
-  ``light.cc.get_broadcast_variable_hook(`
+ ```
+	light.cc.get_broadcast_variable_hook(`
         `root_rank=0`
-  `)``	
+  )
+```	
 - 功能：
   SessionRunHook 在初始化期间,将全局变量从 root_rank 进程上广播到所有 Light 进程，保证各进程一致。	
 - 参数:	
   root_rank	int:执行广播操作的 Light 进程 id
 - 返回值: 
   无	
+
 ####  light.cc.get_broadcast_variable_callback（支持 Tensorflow 框架）
 - API：
-  ``light.cc.get_broadcast_variable_callback(`
+ ```
+	light.cc.get_broadcast_variable_callback(`
         `root_rank=0`
-  `)``	
+  )
+```	
 - 功能：
   keras callback 在初始化期间,将全局变量从 root_rank 进程上广播到所有 Light 进程，保证各进程一致。	
 - 参数:	
   root_rank	int:执行广播操作的 Light 进程id
 - 返回值: 
   无	
+
 ####  light.cc.get_metric_average_callback（支持 Tensorflow 框架）
 - API：
-  ``light.cc.get_metric_average_callback(`
-        `device=''`
-  `)``	
+```
+	light.cc.get_metric_average_callback(
+        device=''
+  )
+```	
 - 功能：
   keras callback 会在每个 epoch 的最后,对所有的 Light 进程执行 average metric 操作。	
 - 参数:	
   device	string:用于allreduce操作的设备。 如果 Light 使用 HOROVOD_GPU_ALLREDUCE 构建，则默认情况下使用 GPU。
 - 返回值: 
   无	
+
 #### light.cc.get_lr_schedule_callback（支持 Tensorflow 框架）
 - API：
-  ``light.cc.get_lr_schedule_callback(`
-        `multiplier, start_epoch=0, end_epoch=None,`
-        `staircase=True, momentum_correction=True,`
-        `steps_per_epoch=None`
-  `)``	
+ ```
+	light.cc.get_lr_schedule_callback(
+        multiplier, start_epoch=0, end_epoch=None,
+       staircase=True, momentum_correction=True,
+        steps_per_epoch=None
+  )
+```	
 - 功能：
   keras callback 将学习率从 start_epoch 时的 initial_lr 变为 end_epoch 时的 initial_lr*multiplier。
   如果 multiplier 是函数乘子，且 staircase=True ：调整学习率将在每个 epoch 的开始时进行，并且每个 epoch 传递给函数乘子的是一个整数；
@@ -738,10 +792,12 @@ LightCC 是 Horovod 的优化版本，已经默认安装于 Light 标准镜像�
 
 ####  light.cc.get_lr_warmup_callback（支持 Tensorflow 框架）
 - API：
-  ```light.cc.get_lr_warmup_callback(`
-        `warmup_epoch=5, momentum_correction=True,`
-        `steps_per_epoch=None, verbose=0`
-  )``	
+ ```
+	light.cc.get_lr_warmup_callback(
+        warmup_epoch=5, momentum_correction=True,
+        steps_per_epoch=None, verbose=0
+  )
+```	
 - 功能：
   学习率预热(warmup)
   `lr = initial_lr / light.cc.size()` ---> `lr = initial_lr`
@@ -760,9 +816,11 @@ LightCC 是 Horovod 的优化版本，已经默认安装于 Light 标准镜像�
 
 ####  light.cc.allgather_object（支持 Tensorflow 框架）
 - API：
-  ``light.cc.allgather_object(`
-        `obj, session=None, name=None`
-  `)``	
+```
+	light.cc.allgather_object(
+        obj, session=None, name=None
+  )
+```	
 - 功能：
   收集所有进程的可序列化 obj	
 - 参数:	
@@ -778,9 +836,11 @@ LightCC 是 Horovod 的优化版本，已经默认安装于 Light 标准镜像�
 
 #### light.cc.broadcast_object（支持 Tensorflow 框架）
 - API：
-  ``light.cc.broadcast_object(`
-        `obj, root_rank=0, session=None, name=None`
-  `)``	
+ ```
+	light.cc.broadcast_object(
+        obj, root_rank=0, session=None, name=None
+  )
+```	
 - 功能：
   广播可序列化obj	
 - 参数:	
@@ -797,9 +857,11 @@ LightCC 是 Horovod 的优化版本，已经默认安装于 Light 标准镜像�
 
 #### light.cc.broadcast_variable（支持 Pytorch 框架）
 - API：
-  ``light.cc.broadcast_variable(`
-        `inp, root_rank=0, name=None`
-  `)``	
+ ```
+	light.cc.broadcast_variable(
+        inp, root_rank=0, name=None
+  )
+```	
 - 功能：
   在分布式训练前广播参数，从而保证各个进程的初始参数一致	
 - 参数:	
@@ -815,10 +877,12 @@ LightCC 是 Horovod 的优化版本，已经默认安装于 Light 标准镜像�
 
 ####  light.cc.allreduce（支持 Pytorch 框架）
 - API：
-  ``light.cc.allreduce(`
-        `tensor, average=None, name=None,`
-        `compression=light.cc.Compression.none, op=None`
-  `)``	
+  ```
+	light.cc.allreduce(
+        tensor, average=None, name=None,
+        compression=light.cc.Compression.none, op=None
+  )
+```	
 - 功能：
   对指定 Tensor 进行all reduce操作	
 - 参数:	
@@ -836,9 +900,11 @@ LightCC 是 Horovod 的优化版本，已经默认安装于 Light 标准镜像�
 
 ####  light.cc.allgather（支持 Pytorch 框架）
 - API：
-  ```light.cc.allgather(`
-        `tensor, name=None`
-  )``	
+ ```
+	light.cc.allgather(
+        tensor, name=None
+  )
+```	
 - 功能：
   对指定 Tensor 进行allgather操作	
 - 参数:	
@@ -853,11 +919,13 @@ LightCC 是 Horovod 的优化版本，已经默认安装于 Light 标准镜像�
 
 ####  light.cc.get_distributed_optimizer（支持 Pytorch 框架）
 - API：
-  ``light.cc.get_distributed_optimizer(`
-        `optimizer, named_parameters=None,`
-        `compression=light.cc.Compression.none,`
-        `backward_passes_per_step=1, op=light.cc.Average`
-  `)``	
+ ```
+	light.cc.get_distributed_optimizer(
+        optimizer, named_parameters=None,
+        compression=light.cc.Compression.none,
+        backward_passes_per_step=1, op=light.cc.Average
+  )
+```	
 - 功能：
   将单进程优化器 optimizer 扩展成分布式优化器，并自动加入了梯度规约的功能。	
 - 参数:	
@@ -874,8 +942,8 @@ LightCC 是 Horovod 的优化版本，已经默认安装于 Light 标准镜像�
   DistributedOptimizer，用于进行分布式训练用的 optimizer	
 
 ### Light 分布式场景使用 Pytorch DDP 通信模式（支持 Pytorch 框架）
-  为用户更方便使用 Light，Light 支持了 Pytorch DDP 的任务，不需要登录到多台机器上执行多机多卡命令，Light 对易用性做了优化。只需要少量修改即可使用 Light-ddp 模型多机多卡训练，具体修改分3步。
-  首先是代码修改，训练代码保持不变，只需要加上 light_init的装饰器，Light 后端已经初始化了通信环境，因此训练代码里不需要再去调用`dist.init_process_group`（Light默认使用 NCCL）。
+ 为用户更方便使用 Light，Light 支持了 Pytorch DDP 的任务，不需要登录到多台机器上执行多机多卡命令，Light 对易用性做了优化。只需要少量修改即可使用 Light-ddp 模型多机多卡训练，具体修改分3步。
+ 首先是代码修改，训练代码保持不变，只需要加上 light_init的装饰器，Light 后端已经初始化了通信环境，因此训练代码里不需要再去调用`dist.init_process_group`（Light默认使用 NCCL）。
 ```
   from light import light_init                              # 修改点1：导入light初始化
   @light_init(params={"training_framework": "pytorch_ddp"}) # 修改点2：训练框架选择“pytorch_ddp”模式
