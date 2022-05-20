@@ -4,10 +4,10 @@
 | 修改点           | 修改内容                                                     |
 | ---------------- | ------------------------------------------------------------ |
 | 导入light包      | 在模块引入部分加入`from light import light, light_init`      |
-| 填写加速信息字段 | 在字典中填写训练框架、是否启用加速及训练场景等信息     params = {     "training_framework": "pytorch_ddp", # 【必填】     "enable_optimizations": True, # 【选填】默认值：True     "application_scenario": "Torch-NLP" # 【选填】默认值："default"     }     参数：      "training_framework"：训练框架类型，可选填"tensorflow"、"tensorflow_keras"、"pytorch"、"pytorch_ddp"     "enable_optimizations"：是否启用加速，可选填True、False     "application_scenario"：应用细分领域，可选填"TF-CV"、"TF-NLP"、"Torch-CV"、"Torch-NLP"、"TF-GAN"、"Torch-GAN"、"default" |
+| 填写加速信息字段 | 在字典中填写训练框架、是否启用加速及训练场景等信息     </br>params = {     "training_framework": "pytorch_ddp", # 【必填】     </br>"enable_optimizations": True, # 【选填】</br>默认值：True     "application_scenario": "Torch-NLP" # 【选填】</br>默认值："default"     }    </br> 参数：      "training_framework"：训练框架类型，可选填"tensorflow"、"tensorflow_keras"、"pytorch"、"pytorch_ddp"    </br> "enable_optimizations"：是否启用加速，可选填True、False;     </br>"application_scenario"：应用细分领域，可选填"TF-CV"、"TF-NLP"、"Torch-CV"、"Torch-NLP"、"TF-GAN"、"Torch-GAN"、"default";|
 | 主函数加装饰器   | 在主函数或训练运行函数加上装饰器`@light_init(params=params)` |
 
-下面通过例子展示将程序修改为light加速任务的具体方法：
+下面通过例子展示将程序修改为 light 加速任务的具体方法：
 
 
 
