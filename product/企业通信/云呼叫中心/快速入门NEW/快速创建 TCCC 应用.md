@@ -2,7 +2,7 @@
 ## 前提条件
 已 [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 帐号并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
 ## 首次开通应用
-1. 登录 [腾讯云呼叫中心 TCCC 控制台](https://console.cloud.tencent.com/ccc)。
+1. 登录 [腾讯云呼叫中心 TCCC 管理工作台](https://console.cloud.tencent.com/ccc)。
 2. 单击**立即开通**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/8ab1d501998085489bd8087c38aecaf4.png)
 3. 在**创建应用**对话框中输入您的应用名称，单击**立即创建**。
