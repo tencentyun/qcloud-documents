@@ -30,14 +30,14 @@
 ```
 wx.navigateToMiniProgram({  
   appId:'wxa023b292fd19d41d', // 电子签小程序的appId  
-  path:'pages/guide?from=SFY&to=CONTRACT_DETAIL&id=${flowId}&name=%E6%9D%A8%E5%B8%88&phone=MTc2MTI3Nzg1Mjk%3D', //${flowId}为流程 id，name、phone 按需给  
-  envVersion:'release’,  
+  path:`pages/guide?from=SFY&to=CONTRACT_DETAIL&id=${flowId}&name=${encodeURIComponent('邓小明')}&phone=MTc2MTI3Nzg1Mjk%3D`, //${flowId}为流程 id，name、phone 按需给  
+  envVersion:'release',  
   success(res){
     // 打开成功 
   } 
 })
 ```
-path 里的参数（name，phone）均使用 `~${base64url(value)}` 统一编码。
+path 里的参数 name需进行url编码、phone需进行 `~${base64url(value)}` 编码。
 
 ### 客户 App 如何跳转到电子签小程序完成签署？  
 1. Android App 请参见 [官方文档](https://developers.weixin.qq.com/doc/oplatform/Mobile_App/Launching_a_Mini_Program/Android_Development_example.html) 。 
