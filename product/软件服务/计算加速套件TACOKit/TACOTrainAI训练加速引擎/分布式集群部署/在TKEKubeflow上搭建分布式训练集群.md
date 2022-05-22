@@ -153,7 +153,7 @@ for i in `kubectl get pods | grep worker | awk '{print $1}'`; do kubectl exec $i
 <td>257</td>
 </tr>
 </tbody></table>
-可发现，随着网络模型
+可发现，随着网络模型参数量的增加，TACO 相比 Horovod 的提升效果愈加明显，Transformer-XL 上甚至有高达两倍多的性能提升。
 - 下图展示无论是 ResNet50 还是Transformer-XL，在双机16卡 A100的训练环境下，CVM 实例（GT4.41XLARGE948 + 50G VPC）通过 HARP 加速后，能够提供接近裸金属云服务器100G RDMA 产品（HCCPNV4h ）的性能。
 ![](https://qcloudimg.tencent-cloud.cn/raw/963414f3122f18f61fb15655b46adf62.png)
 ![](https://qcloudimg.tencent-cloud.cn/raw/6440479d100566a1dd1f9935099f561c.png)
