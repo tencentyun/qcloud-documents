@@ -15,7 +15,7 @@
 ## 参与方式
 
 1. 扫码加入活动交流群
-![](https://qcloudimg.tencent-cloud.cn/raw/5bd475279aa680aff5d9ce6eac033a8e.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/401212810f9af523f347e7afa7064b0a.png)
 2. 扫描下方二维码 或者 [单击此处](https://doc.weixin.qq.com/forms/AJEAIQdfAAoAHsAXwboACcKlWsT7azRuf)  进行投稿。
 ![](https://qcloudimg.tencent-cloud.cn/raw/6ae9bfb2324dc1a83f6b9157064b417b.png)
 
