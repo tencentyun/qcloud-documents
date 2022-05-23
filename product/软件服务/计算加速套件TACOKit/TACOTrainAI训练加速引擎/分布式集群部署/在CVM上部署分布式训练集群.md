@@ -13,9 +13,16 @@
  - 操作系统请使用 CentOS 8.0/CentOS 7.8/Ubuntu 20.04/Ubuntu 18.04/TecentOS 3.1/TencentOS 2.4。
  - 若您选择**公共镜像**，则请勾选“后台自动安装GPU驱动”，实例将在系统启动后预装对应版本驱动。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/fe4f7bb63002e98787e307bf61756641.png)
+<dx-alert infotype="explain" title="">
+选择**公共镜像**并自动安装 GPU 驱动的实例，创建成功后，请登录实例等待约20分钟后重启实例，使配置生效。
+</dx-alert>
+
+
 
 
 ### 配置实例环境[](id:Step2)
+
+#### 验证 GPU 驱动
 1. 参考 [使用标准登录方式登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)，登录实例。
 2. 执行以下命令，验证 GPU 驱动是否安装成功。
 ```shellsession
@@ -24,8 +31,11 @@ nvidia-smi
 查看输出结果是否为 GPU 状态：
  - 是，代表 GPU 驱动安装成功。
  - 否，请参考 [NVIDIA Driver Installation Quickstart Guide](https://docs.nvidia.com/datacenter/tesla/tesla-installation-notes/index.html) 进行安装。
-2. 参考 [配置 HARP 分布式训练环境](https://cloud.tencent.com/document/product/1573/74099)，配置所需环境。
-配置完成后，执行以下命令进行验证，若配置文件存在，则表示已配置成功。
+
+
+#### 配置 HARP 分布式训练环境
+1. 参考 [配置 HARP 分布式训练环境](https://cloud.tencent.com/document/product/1573/74099)，配置所需环境。
+2. 配置完成后，执行以下命令进行验证，若配置文件存在，则表示已配置成功。
 ```shellsession
 ls /usr/local/tfabric/tools/config/ztcp*.conf
 ```
@@ -36,16 +46,16 @@ ls /usr/local/tfabric/tools/config/ztcp*.conf
 ```shellsession
 curl -s -L http://mirrors.tencent.com/install/GPU/taco/get-docker.sh | sudo bash
 ```
-若您无法通过该命令安装，请多尝试几次，或参考 Docker 官方文档 [Install Docker Engine](https://docs.docker.com/engine/install/) 进行安装。
+若您无法通过该命令安装，请尝试多次执行命令，或参考 Docker 官方文档 [Install Docker Engine](https://docs.docker.com/engine/install/) 进行安装。
 本文以 CentOS 为例，安装成功后，返回结果如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/c0946f8407130ac764829bf22f72d584.png)
+<img src="https://qcloudimg.tencent-cloud.cn/raw/c0946f8407130ac764829bf22f72d584.png" width="918px"/>
 2. 执行以下命令，安装 nvidia-docker2。
 ```shellsession
 curl -s -L http://mirrors.tencent.com/install/GPU/taco/get-nvidia-docker2.sh | sudo bash
 ```
-若您无法通过该命令安装，请多尝试几次，或参考 NVIDIA 官方文档 [Installation Guide & mdash](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html) 进行安装。
+若您无法通过该命令安装，请尝试多次执行命令，或参考 NVIDIA 官方文档 [Installation Guide & mdash](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html) 进行安装。
 本文以 CentOS 为例，安装成功后，返回结果如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/efd41192c5062e8806632ab9aa23a136.png)
+<img src="https://qcloudimg.tencent-cloud.cn/raw/efd41192c5062e8806632ab9aa23a136.png" width="918px"/>
 
 
 ### 下载 docker 镜像[](id:Step4)
@@ -65,8 +75,8 @@ docker pull ccr.ccs.tencentyun.com/qcloud/taco-train:ttf115-cu112-cvm-0.4.1
 
 其中：
 - LightCC 是腾讯云提供的基于 Horovod 深度定制优化的通信组件，完全兼容 Horovod API，不需要任何业务适配。
-- HARP 是腾讯云提供的用户态协议栈，致力于提高 VPC 网络下的分布式训练的通信效率。以动态库的形式提供，官方 NCCL初始化过程中会自动加载，不需要任何业务适配。
-- ttensorflow 是腾讯云基于开源 tensorflow 1.15.5添加了 CUDA 11的支持，同时集成了 [TFRA](https://github.com/tensorflow/recommenders-addons)，用来支持动态 embedding 的特性。如需了解更多信息，请参见 [产品概述](https://cloud.tencent.com/document/product/1573/74078)。
+- HARP 是腾讯云提供的用户态协议栈，致力于提高 VPC 网络下的分布式训练的通信效率。以动态库的形式提供，官方 NCCL 初始化过程中会自动加载，不需要任何业务适配。
+- ttensorflow 是腾讯云基于开源 tensorflow 1.15.5添加了 CUDA 11的支持，同时集成了 [TFRA](https://github.com/tensorflow/recommenders-addons)，用来支持动态 embedding 的特性。如需了解更多信息，请参见 [TTensorflow 使用说明](https://cloud.tencent.com/document/product/1573/74098)。
 
 
 ### 启动 docker 镜像[](id:Step5)
@@ -111,7 +121,7 @@ docker 镜像中的文件 `/mnt/tensorflow_synthetic_benchmark.py` 来自 [horov
 ::: 多机多卡
 
 1. 参考 [购买实例](#Step1) - [启动 docker 镜像](#Step5) 步骤，购买和配置多台训练机器。
-2. 配置多台服务器 docker 间可以相互免密访问，详情请参见 [配置容器 SSH 免密访问](https://cloud.tencent.com/document/product/1573/74100)。
+2. 配置多台服务器 docker 间相互免密访问，详情请参见 [配置容器 SSH 免密访问](https://cloud.tencent.com/document/product/1573/74100)。
 3. 执行以下命令，使用 TACO Train 进行多机训练加速。
 ```shellsession
 /usr/local/openmpi/bin/mpirun -np 16 -H gpu1:8,gpu2:8 --allow-run-as-root -bind-to none -map-by slot -x NCCL_ALGO=RING -x NCCL_DEBUG=INFO -x HOROVOD_MPI_THREADS_DISABLE=1 -x HOROVOD_FUSION_THRESHOLD=0  -x HOROVOD_CYCLE_TIME=0 -x LIGHT_INTRA_SIZE=8 -x LIGHT_2D_ALLREDUCE=1 -x LIGHT_TOPK_ALLREDUCE=1 -x LIGHT_TOPK_THRESHOLD=2097152 -x LD_LIBRARY_PATH -x PATH -mca btl_tcp_if_include eth0 python3 /mnt/tensorflow_synthetic_benchmark.py --model=ResNet50 --batch-size=256
@@ -237,7 +247,7 @@ Batch：256<br>
 <td>98.21%</td>
 </tr>
 <tr>
-<td>6</td>
+<td>16</td>
 <td>5504</td>
 <td>44.27%</td>
 <td>7857</td>
