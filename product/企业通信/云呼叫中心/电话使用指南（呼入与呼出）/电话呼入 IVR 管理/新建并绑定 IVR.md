@@ -1,5 +1,5 @@
 ## 前提条件
-1. 登录 [腾讯云呼叫中心 TCCC 管理工作台](https://console.cloud.tencent.com/ccc)。
+1. 登录 [腾讯云呼叫中心 TCCC 管理工作台](https://cloud.tencent.com/document/product/679/73497#logintccc)。
 2. 完成 [电话号码购买](https://cloud.tencent.com/document/product/679/73526) 或 [自携电话号码对接](https://cloud.tencent.com/document/product/679/73527)。
 
 ## 添加技能组
