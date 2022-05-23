@@ -1,6 +1,6 @@
 <style>.markdown-text-box table td, .markdown-text-box table th {text-align: center;}</style>
 
-腾讯云视立方·短视频 SDK 移动端（Android & iOS）视频播放能力全新升级，新版本 SDK 采用“腾讯视频”同款播放内核打造，视频播放能力获得全面优化升级，详见 [升级特性](#up)。
+腾讯云视立方·短视频 SDK 移动端（Android & iOS）全新升级，新版本 SDK 采用“腾讯视频”同款播放内核打造，视频播放能力获得全面优化升级，详见 [升级特性](#up)。
 
 同时从该版本开始将增加对**视频播放**功能模块的授权校验，**如果您的 App 已经拥有直播 License （原直播推流 License）或短视频 License 授权，当您升级至 10.1 版本后仍可继续正常使用**，不受到此次变更影响。您可以登录 [腾讯云视立方控制台](https://console.cloud.tencent.com/vcube) 查看您当前的 License 信息。
 
