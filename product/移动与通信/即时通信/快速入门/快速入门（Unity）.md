@@ -51,8 +51,7 @@
 
 [](id:step5)
 ### 步骤5：测试脚本
-1. 您可 [下载测试脚本](https://github.com/TencentCloud/TIMSDK/blob/master/Unity/im_unity_sdk_plus/Assets/Demo/TestApi.cs)
-)，将文件解压后，放入项目中，并绑定 TestApi.cs 到任意场景上。
+1. 您可 [下载测试脚本](https://github.com/TencentCloud/TIMSDK/blob/master/Unity/im_unity_sdk_plus/Assets/Demo/TestApi.cs)，将文件解压后，放入项目中，并绑定 TestApi.cs 到任意场景上。
 ![](https://qcloudimg.tencent-cloud.cn/raw/b4d770775523fdd76b75f1d80f07c925.jpg)
 2. [下载配置文件](https://github.com/TencentCloud/TIMSDK/blob/master/Unity/im_unity_sdk_plus/Assets/Demo/Config.cs) Config.cs。
 3. 在配置文件 Config.cs中 配置 [步骤1](#step1) 中得到自己的 SDKAppID，UserID，UserSig 后，选中场景并运行测试。
