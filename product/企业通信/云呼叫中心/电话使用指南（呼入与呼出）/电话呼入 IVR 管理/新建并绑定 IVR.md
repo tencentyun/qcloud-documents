@@ -2,7 +2,7 @@
 1. 登录 [腾讯云呼叫中心 TCCC 管理工作台](https://cloud.tencent.com/document/product/679/73497#logintccc)。
 2. 完成 [电话号码购买](https://cloud.tencent.com/document/product/679/73526) 或 [自携电话号码对接](https://cloud.tencent.com/document/product/679/73527)。
 
-## 添加技能组
+## 新建并绑定 IVR
 1. 左侧导航栏单击**电话客服-IVR 管理**进入 IVR 管理页面，单击**呼入 IVR**，在页面左上角单击**新建**。
 2. 在 IVR 画布左上角输入 IVR 名称，如：电话呼入流程测试。
 ![](https://qcloudimg.tencent-cloud.cn/raw/443a674077276d36dc0eafc27a55d1cf.png)
