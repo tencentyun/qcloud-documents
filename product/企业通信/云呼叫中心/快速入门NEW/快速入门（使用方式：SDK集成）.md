@@ -14,8 +14,8 @@
 ### SDK 集成-在线会话
 ![](https://qcloudimg.tencent-cloud.cn/raw/738bfa69ff4264b7180b68cea8f6d43b.png)
 ### SDK 集成-音频通话
-![](https://qcloudimg.tencent-cloud.cn/raw/25d1c4749070f24ef6b56977e4be499b.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/0674643f942d88c7323419281850e917.png)
 ### SDK 集成-视频通话
-![](https://qcloudimg.tencent-cloud.cn/raw/2e747474050b9a957bcd0ad686ebd33d.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/31b9ef260bbbf0ce4bc64b786f16f040.png)
 ### SDK 集成-管理工作台
 ![](https://qcloudimg.tencent-cloud.cn/raw/f3f2d15360533420648a69dfbd944662.png)
