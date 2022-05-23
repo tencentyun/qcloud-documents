@@ -198,7 +198,7 @@ cos:// {BUCKET}-{APPID}.cos.{REGION}.myqcloud.com/{PREFIX}
 - CREATE EXTERNAL TABLE 命令的 LOCATION 子句中只支持一个 URL。
 - 如果在 CREATE EXTERNAL TABLE 命令中未指定 NEWLINE 参数，则在特定前缀的所有数据文件中，换行符必须相同。如果某些具有相同前缀的数据文件中的换行字符不同，则对文件的读取操作可能会失败。
 - 对于可写入的 COS 外部表，只支持 INSERT 操作。不支持 UPDATE、DELETE 和 TRUNCATE 操作。
-- 利用数据库执行的并行处理 Segment 实例中，只读 COS 表的 COS 位置中的文件的大小应类似，文件数量与 Segment 数量一致。例如，如果数据库系统由16个 Segment 组成，网络带宽足够，在 COS 位置创建16个文件允许每个 Segment 从一个文件下载 COS 位置。相比之下，如果位置只包含1或2个文件，则只有1或2个 Segment 下载数据。
+- 利用数据库执行的并行处理 Segment 实例中，只读 COS 表的 COS 位置中的文件的大小应类似，文件数量与 Segment 数量一致。
 
 ## 关于 COS 协议 URL
 对于 COS 协议，用户可以在 CREATE EXTERNAL TABLE 命令的 LOCATION 子句中指定文件的位置和可选的配置文件位置。语法如下：
