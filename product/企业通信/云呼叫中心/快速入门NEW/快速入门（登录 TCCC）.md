@@ -1,6 +1,6 @@
 ## 前提条件       
 已完成 [快速入门（使用方式：SDK 集成）](https://cloud.tencent.com/document/product/679/73495)或 [快速入门（使用方式：直接访问）](https://cloud.tencent.com/document/product/679/73496)。
-## 首次登录账号与密码
+## 首次登录账号与密码[](id:firstlogin)
 1. **登录账号/邮箱：**
 1. 登录 [腾讯云呼叫中心 TCCC 控制台](https://console.cloud.tencent.com/ccc)，选择需要登录的应用查看管理员账号/邮箱。
 ![](https://qcloudimg.tencent-cloud.cn/raw/15963a9cf79fda0137182b70fb3c8f55.png)
@@ -14,7 +14,7 @@
 若您使用直接访问方式，首次登录需要填写手机号并获取验证码，单击**确认信息**即可登录。绑定手机号用于验证码登录、密码找回等功能，仅系统内使用，不会展示于外部客户。
 ![](https://qcloudimg.tencent-cloud.cn/raw/2fbd7d21d0fccf463c9130a9cb823a1b.png)
 
-## 登录管理工作台
+## 登录管理工作台[](id:logintccc)
 SDK集 成与直接访问方式均提供管理工作台入口，管理工作台无需开发。您也可通过网页链接登录管理工作台。
 管理工作台网页链接为：`https://tccc.qcloud.com/manage/1400xxx946`（其中`1400xxx946`为创建呼叫中心应用时的 SDKAppID）。
 ### SDK 集成-管理工作台入口
