@@ -3,7 +3,7 @@
 
 ## 操作步骤
 1. 从腾讯云获取 SAML 服务提供商元数据 URL。
-	1. 腾讯云账号登录 [CAM 控制台](https://console.cloud.tencent.com/cam/overview)。
+	1. 腾讯云账号登录 [访问管理控制台](https://console.cloud.tencent.com/cam/overview)。
 	2. 在左侧导航栏中，单击**身份提供商** > **用户 SSO**。
 	3. 在用户 SSO 管理页面可查看或复制当前用户的 SAML 服务提供商元数据 URL。
 	![](https://main.qcloudimg.com/raw/2815a55ac558184ed8a088930544ac7d.jpg)
