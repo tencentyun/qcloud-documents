@@ -64,7 +64,7 @@
 ### 步骤3：使用管理员账号调整策略内容
 
 1. 使用主账号在 [VPC 支持 CAM 的接口](https://cloud.tencent.com/document/product/598/70069) 清单中，找到 DescribeVpcEx 确定接口为操作级的接口。
-![](https://qcloudimg.tencent-cloud.cn/raw/614fe94ae8f8ba22814df5ef29834ac0.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/3046262623e98f99335be9432b5974cf.png)
 2. 在访问管理控制台的 [策略](https://console.cloud.tencent.com/cam/policy) 页面，找到策略 cvm-test01，单击策略名进入策略详情。[](id:3)
 3. 在策略语法中单击**编辑**，按照操作级接口的授权书写形式在策略详情中添加接口授权。
 <img src="https://qcloudimg.tencent-cloud.cn/raw/06b3da3075c13938a5ec9f589e4b73c1.png" >  
