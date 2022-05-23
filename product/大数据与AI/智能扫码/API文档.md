@@ -14,8 +14,6 @@
 
 ##  智能扫码相关接口 
 
-
-### 直播转码相关接口
 - [条码信息查询](https://cloud.tencent.com/document/product/866/45513)
 - [二维码和条形码识别](https://cloud.tencent.com/document/product/866/38292)
 
