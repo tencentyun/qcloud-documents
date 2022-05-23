@@ -12,7 +12,7 @@
 </tr>
 <tr>
 <td width="15%">操作系统</td>
-<td>TACO Infer 针对 CentOS 7.9进行了全面的测试，建议您优先选用 CentOS 7.9进行 TACO Infer 的使用和部署。目前仅支持 Linux 操作系统，如使用其他版本 Linux 操作系统遇到问题，欢迎 <a href="">联系我们</a> 获取支持。</td>
+<td>TACO Infer 针对 CentOS 7.9进行了全面的测试，建议您优先选用 CentOS 7.9进行 TACO Infer 的使用和部署。目前仅支持 Linux 操作系统，如使用其他版本 Linux 操作系统遇到问题，欢迎 <a href="https://cloud.tencent.com/document/product/1573/74094">联系我们</a> 获取支持。</td>
 </tr>
 <tr>
 <td>计算设备</td>
