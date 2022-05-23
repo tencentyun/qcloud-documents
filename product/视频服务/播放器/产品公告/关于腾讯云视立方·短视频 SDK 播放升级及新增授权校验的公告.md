@@ -1,15 +1,69 @@
-腾讯云视立方·播放器 SDK 移动端（Android & iOS & Flutter）即将发布 10.1 版本，新版本 SDK 中的视频播放能力获得全面优化升级。该版本采用“腾讯视频”同款播放内核打造，提供“臻彩视听”、精准 Seek 等多种同款能力的同时，还支持商业 DRM、终端极速高清、全链路数据质量监控等全新特性。
+腾讯云视立方·播放器 SDK 移动端（Android & iOS & Flutter）全新升级，新版本 SDK 采用“腾讯视频”同款播放内核打造，视频播放能力获得全面优化升级，详见[升级特性]()。
 
-同时从该版本开始将增加对视频播放功能模块的授权校验，**若您需要使用上述全面升级后的卓越视频播放器，需升级 SDK （10.1版本后）并获得指定 License 授权**，**无 License 授权将无法正常使用 SDK 10.1及其之后版本中的视频播放相关功能**。授权解锁及计费说明详情请参见 [授权说明](#authorize)。
+同时从该版本开始将增加对**视频播放**功能模块的授权校验，**如果您的 App 已经拥有直播 License （原直播推流 License）或短视频 License 授权，当您升级至 10.1 版本后仍可继续正常使用**，不受到此次变更影响。您可以登录 [腾讯云视立方控制台](https://console.cloud.tencent.com/vcube) 查看您当前的 License 信息。
 
-**若您不升级至 10.1 版本，将不受此次变更影响，仍可正常使用历史版本中的视频播放器。**
+如果您此前未获得过直播 License （原直播推流 License）或短视频 License 授权，**且需使用新版本 SDK 中的直播播放或点播播放功能，则需购买指定 License 获得授权**，详情参见 [授权说明](#authorize)；若您无需使用相关功能或未升级至最新版本 SDK，将不受到此次变更的影响。
 
 > !10.1 版本将在2022年05月底正式发布，届时将同步上线相关 License 的申请、购买页面及相关文档，您可持续关注官网通知以了解最新动态。
+
+[](id:authorize)
+
+## 授权说明
+
+10.1 版本后，直播 License（原直播推流 License）、短视频 License 和视频播放 License **均可**授权解锁新版本 SDK 的**视频播放**功能模块，您只需购买其中的**任意一种** License，即可正常使用新版 SDK 中的直播和点播播放功能，相关 License 的购买及计费信息如下：
+
+- 购买直播 License 授权解锁**直播推流 + 视频播放**功能模块，相关计费详情请参见 [直播 SDK 价格总览](https://cloud.tencent.com/document/product/454/8008)。
+- 购买获得短视频 License 授权解锁**短视频制作 + 视频播放**功能模块，相关计费详情请参见 [短视频 SDK 价格总览](https://cloud.tencent.com/document/product/584/9368)。
+- 购买获得视频播放 License 授权解锁**视频播放**功能模块，相关计费详情请参见 [视频播放 License 计费说明](#price)。
+
+<table>
+<thead>
+<tr>
+<th rowspan="2" width=20%>License 类型</th>
+<th colspan="3">解锁的功能模块授权</th>
+<th rowspan="2">License 获取方式</th>
+</tr><tr>
+<th>直播推流</th>
+<th>短视频制作</th>
+<th>视频播放</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>直播 License</td>
+<td>&#10003; </td>
+<td>-</td>
+<td>&#10003; </td>
+<td style="text-align: left;"><ul style="margin:0">
+    <li>购买 10TB、50TB、200TB、1PB 云直播流量资源包赠送直播 License 一年使用授权</li>
+    <li>购买独立直播 License 一年使用授权</li></ul></td>
+</tr>
+<tr>
+<td>短视频 License</td>
+<td>-</td>
+<td>&#10003; </td>
+<td>&#10003; </td>
+<td style="text-align: left;"><ul style="margin:0">
+    <li>购买 10TB、50TB、200TB、1PB 云点播流量资源包赠送短视频精简版/基础版 License 一年使用授权</li>
+    <li>购买独立短视频 License 一年使用授权</li></ul></td>
+</tr>
+<tr>
+<td>视频播放 License</td>
+<td>-</td>
+<td>-</td>
+<td>&#10003; </td>
+<td style="text-align: left;"><ul style="margin:0">
+    <li>购买 100GB、500GB、1TB、5TB 直播/点播流量资源包赠送视频播放 License 一年使用授权</li>
+    <li>购买独立视频播放 License 一年使用授权</li></ul></td>
+</tr>
+</tbody></table>
+
+
+## 
 
 ## 升级特性
 
 升级后的腾讯云视立方·播放器 SDK 视频播放内核由腾讯内部完全自研，且经过长期优化和海量服务验证，对比业内广泛使用的开源播放器，性能提升 30% ~ 50%。 同时针对控制带宽成本、辅助运营增长、降低接入门槛等方面为企业用户进行了专门的优化升级，新增终端极速高清、版权保护、全链路数据洞察和场景化低代码等多种方案，打造业界独家、行业领先的企业级视频播放解决方案，全面满足企业级需求。  
-
 
 <table>
 <thead>
@@ -23,7 +77,7 @@
 <td style="text-align: left;">首次将“腾讯视频”播放能力以 SDK 的形式开放给广大开发者，在具备“臻彩视听”、精准 Seek、清晰度切换、小窗播放、离线缓存等多项“腾讯视频”同款播放功能的同时，具备同等水平的视频播放稳定性和机型适配性。</td>
 </tr><tr>
 <td style="text-align: left;">新增格式支持</td>
-<td style="text-align: left;">新增支持 AV1、H.266 等格式，相比 H.264/H.26 5节省带宽 20%～55%，满足多样化的业务场景同时降低客户成本。</td>
+<td style="text-align: left;">新增支持 AV1、H.266 等格式，相比 H.264/H.265节省带宽 20%～55%，满足多样化的业务场景同时降低客户成本。</td>
 </tr><tr>
 <td style="text-align: left;">版权保护升级</td>
 <td style="text-align: left;">在支持私有协议加密、本地加密、防盗链等方案前提下，新增支持商业 DRM 加密方案，具备完整视频安全方案矩阵，全方位保护视频版权。</td>
@@ -39,63 +93,6 @@
 </tr>
 </tbody></table>
 
-
-[](id:authorize)
-## 授权说明
-
-腾讯云视立方·播放器 SDK 将在移动端（Android & iOS & Flutter）即将发布 10.1 版本，从该版本开始将增加对视频播放功能模块的授权校验，**若您需要使用上述全面升级后的卓越视频播放器，需升级 SDK 并获得指定License 授权**，**无 License 授权将无法正常使用 SDK 10.1 及其之后版本中的视频播放相关功能**。
-
-**若您不升级至 10.1 版本，将不受此次变更影响，仍可正常使用历史版本中的视频播放器。**
-
-10.1 版本后，直播 License（原直播推流 License）、短视频 License 和视频播放 License 均可解锁升级版播放器 SDK 的视频播放功能模块，您可以登录 [腾讯云视立方控制台](https://console.cloud.tencent.com/vcube) 查看您当前的 License 信息。
-
-- 购买获得直播 License 授权解锁直播推流 + 视频播放功能模块，相关计费详情请参见 [直播 SDK 价格总览](https://cloud.tencent.com/document/product/454/8008)。
-- 购买获得短视频 License 授权解锁短视频制作 + 视频播放功能模块，相关计费详情请参见 [短视频 SDK 价格总览](https://cloud.tencent.com/document/product/584/9368)。
-- 购买获得视频播放 License 授权解锁视频播放功能模块，相关计费详情请参见 [视频播放 License 计费说明](#price)。
-
-> !
->
-> - 若您当前已有直播 License 或短视频 License，可直接用于解锁 10.1 版本 SDK 中的视频播放功能模块，无需重新购买 License。
-> - 10.1 版本将在2022年05月底正式发布，届时将同步上线相关 License 的申请、购买页面及相关文档，您可持续关注官网通知以了解最新动态。
-
-<table>
-<thead>
-<tr>
-<th rowspan="2">License 类型</th>
-<th colspan="3">解锁的功能模块授权</th>
-<th rowspan="2">License 获取方式</th>
-</tr><tr>
-<th>直播推流</th>
-<th>短视频制作</th>
-<th>视频播放</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>直播 License</td>
-<td>&#10003;</td>
-<td>-</td>
-<td>&#10003;</td>
-<td><li>购买 10TB、50TB、200TB、1PB 云直播流量资源包赠送直播 License 一年使用授权</li>
-    <li>购买独立直播 License 一年使用授权</li></td>
-</tr>
-<tr>
-<td>短视频 License</td>
-<td>-</td>
-<td>&#10003;</td>
-<td>&#10003;</td>
-<td><li>购买 10TB、50TB、200TB、1PB 云点播流量资源包赠送短视频精简版/基础版 License 一年使用授权</li>
-    <li>购买独立短视频 License 一年使用授权</li></td>
-</tr>
-<tr>
-<td>视频播放 License</td>
-<td>-</td>
-<td>-</td>
-<td>&#10003;</td>
-<td><li>购买 100GB、500GB、1TB、5TB 直播/点播流量资源包赠送视频播放 License 一年使用授权</li>
-    <li>购买独立视频播放 License 一年使用授权</li></td>
-</tr>
-</tbody></table>
 
 
 
