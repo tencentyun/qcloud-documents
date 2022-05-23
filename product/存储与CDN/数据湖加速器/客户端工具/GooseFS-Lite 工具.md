@@ -125,7 +125,7 @@ groupadd supergroup
     <name>fs.cosn.trsf.fs.ofs.bucket.region</name>
     <value>ap-guangzhou</value>
   </property>
-     <property>
+  <property>
     <name>fs.cosn.trsf.fs.ofs.plugin.info.log</name>
     <value>true</value>
   </property>
