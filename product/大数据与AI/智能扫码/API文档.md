@@ -3,7 +3,7 @@
 >? 新手入门帮助您更快速上手使用。具体请参见 [操作指引](https://cloud.tencent.com/document/product/1214/48720)、[接入指引](https://cloud.tencent.com/document/product/1214/48721)。
  
 ## 调用方式
-云直播、云点播和视频处理的 API 调用方式相同，其相关说明如下所示：
+文字识别、智能扫描的 API 调用方式相同，其相关说明如下所示：
 
 - [请求结构](https://cloud.tencent.com/document/product/866/33517)
 - [公共参数](https://cloud.tencent.com/document/product/866/33518)
