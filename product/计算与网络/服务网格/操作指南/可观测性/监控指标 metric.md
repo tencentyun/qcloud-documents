@@ -1,5 +1,5 @@
 当前腾讯云服务网格可选择使用 [Prometheus 监控 TMP](https://cloud.tencent.com/document/product/457/71896) 为您提供服务流量 metric 数据的收集、存储与展示。
->!  服务网格将于近期支持使用第三方 Prometheus 服务作为监控后端服务。
+>? 服务网格将于近期支持使用第三方 Prometheus 服务作为监控后端服务。
 
 服务网格控制台的监控图表将基于存储在 TMP 中的监控指标来展示，如果您有自定义监控的诉求，可以通过 TMP 中的 Grafana 面板设置自定义的监控面板。
 
