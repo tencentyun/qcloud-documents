@@ -48,7 +48,7 @@
  
 
 
-## 依赖安装
+### 依赖安装
 
 Taco Infer 依赖 libcurl、openssl、libuuid。您可以通过以下命令检查是否已经安装这些组件：
 ```bash
@@ -68,7 +68,7 @@ yum install openssl-devel
 yum install libuuid-devel
 ```
 
-## 安装 Wheel 包
+### 安装 Wheel 包
 
 1. 从腾讯云官网 TACO Infer 下载页下载 Python 安装包。
 2. 通过 pip 命令，即可安装 Taco python 包：
@@ -76,7 +76,7 @@ yum install libuuid-devel
 pip install ${path/to/wheel_package}
 ```
 
-## 获取 SDK 包
+### 获取 SDK 包
 
 1. 从腾讯云官网 TACO Infer 下载页下载 SDK 安装包。
 2. 建议将解压后的库文件拷贝到 `/usr/local/lib` 下，以便 ld 程序能够找到 Taco 动态链接库进行链接。
