@@ -1,45 +1,52 @@
-当前腾讯云服务网格可选择使用 [Prometheus监控 TMP](https://cloud.tencent.com/document/product/457/71896)为您提供服务流量 metric 数据的收集、存储与展示。
-> 服务网格将于近期支持使用第三方Prometheus服务作为监控后端服务
+当前腾讯云服务网格可选择使用 [Prometheus 监控 TMP](https://cloud.tencent.com/document/product/457/71896) 为您提供服务流量 metric 数据的收集、存储与展示。
+>!  服务网格将于近期支持使用第三方 Prometheus 服务作为监控后端服务。
 
 服务网格控制台的监控图表将基于存储在 TMP 中的监控指标来展示，如果您有自定义监控的诉求，可以通过 TMP 中的 Grafana 面板设置自定义的监控面板。
 
-## 服务网格控制台基础监控
+## 操作步骤
 
 服务网格控制台基于 Sidecar 上报到 TMP 的 Metric 数据，提供网格拓扑、服务拓扑、服务监控（请求数、请求状态码分布、请求耗时、请求大小）图表的展示分析。
 
 ### 开启 TMP 监控
-在***创建网格***或***网格基本信息页***，可观测性配置——监控指标中，勾选***腾讯云Prometheus监控 TMP ***，按需选择自动创建或者关联已有 TMP 实例即可。开启后，Sidecar 将会将metric数据上报到对应的实例，您也可以在 TMP 控制台查看该实例。
+在 [**创建网格**](https://cloud.tencent.com/document/product/1261/62958) 或**网格基本信息页**中的可观测性配置 >  监控指标中，勾选**腾讯云 Prometheus 监控 TMP**，按需选择自动创建或者关联已有 TMP 实例即可。开启后，Sidecar 将会将 metric 数据上报到对应的实例，您也可以在 TMP 控制台查看该实例。
 ![](https://qcloudimg.tencent-cloud.cn/raw/064b68e13ee610b9f1b491e41dbdfbc2.png)
 
-### 监控相关图表
-
-1. ***网格拓扑***，记录服务网格所有服务的调用结构，查看网络拓扑须确保相关服务已注入 sidecar，且存在请求流量。
-
-查看指定网格的网络拓扑流程：
-
-a. 登录 [服务网格控制台](https://console.cloud.tencent.com/tke2/mesh)，在列表页面单击指定网格 ID，进入网格详情页面。
-b. 单击左侧**网格拓扑**页签，即可查看当前服务网格拓扑图。如下图所示：
+### 查看监控相关图表
+#### 网格拓扑
+记录服务网格所有服务的调用结构，查看网络拓扑须确保相关服务已注入 sidecar，且存在请求流量。查看指定网格的网络拓扑流程如下：
+1. 登录 [服务网格控制台](https://console.cloud.tencent.com/tke2/mesh)，在列表页面单击指定网格 ID，进入网格详情页面。
+2. 单击左侧**网格拓扑**页签，即可查看当前服务网格拓扑图。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/1eaf3b71d5d36af87c91bc07f78a167e.png)
-c. 点击节点可展示该节点相关的监控详情。如下图所示：
-![](https://main.qcloudimg.com/raw/7672985c2203a42074b37f35dfc7fd2a.png)
-d. 界面上方可以选择数据过滤条件，包括 namespace 与时间跨度；支持切换节点的粒度，当前支持 service 粒度和 workload 粒度。如下图所示：
+3. 单击节点可展示该节点相关的监控详情。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/3afd6e9a651775192e59a68166dd88ff.png)
+4. 界面上方可以选择数据过滤条件，包括 namespace 与时间跨度；支持切换节点的粒度，当前支持 service 粒度和 workload 粒度。如下图所示：
 ![](https://main.qcloudimg.com/raw/3f091e8c0ca0c98f23b59d5ba6fc81d3.png)
 
+#### 服务拓扑
+记录某个服务的前后调用依赖关系，查看指定服务的服务拓扑流程如下：
 
-2. ***服务拓扑***,记录某个服务的前后调用依赖关系，查看指定服务的服务拓扑流程是：
-
-a. 在指定网格的详情页面，点击左侧**服务**进入服务列表页，点击想要查看的服务，进入服务详情页。
-![](https://main.qcloudimg.com/raw/8b01e1ca0aed5c1d78a9803effb272a0.png)
-b. 在服务详情页面的基本信息 Tab，第二个卡片即可查看该服务的服务拓扑。
+1. 在指定网格的详情页面，单击左侧**服务**进入服务列表页。
+2. 单击想要查看的服务，进入服务详情页。
+![](https://qcloudimg.tencent-cloud.cn/raw/786e24f78b11fc23a9d3dc8849260662.png)
+3. 在服务详情页面的“基本信息”中，即可查看该服务的服务拓扑。如下图所示：
 ![](https://main.qcloudimg.com/raw/031055264e7fba1cfffc0b4942c25bf4.png)
 
-3. ***服务监控***,您可以在服务列表页面对比多个服务的监控数据（请求数、请求耗时、请求大小等），或在服务详情页面查看指定服务的监控详情。
+#### 服务监控
+您可以在服务列表页面对比多个服务的监控数据（请求数、请求耗时、请求大小等），或在服务详情页面查看指定服务的监控详情。
 
 - 在服务列表页查看多个服务的监控数据：
-![](https://main.qcloudimg.com/raw/ee2db2675ae941d28eec98c850ba8d20.png)
-- 在服务详情页面查看指定服务的监控数据详情图表：在服务详情页面的监控 Tab 即可查看。
+	1. 登录 [服务网格控制台](https://console.cloud.tencent.com/tke2/mesh)，在列表页面单击指定网格 ID，进入网格详情页面。
+	2. 选择**服务 > 监控**，单击需查看监控数据的服务并在右侧查看服务监控数据。如下图所示：
+  ![](https://qcloudimg.tencent-cloud.cn/raw/cfbfd88bb869170077255591245b6afe.png)
+
+
+  
+- 在服务详情页面查看指定服务的监控数据详情图表：
+ 1. 在指定网格的详情页面，单击左侧**服务**进入服务列表页。
+ 2. 单击想要查看的服务，进入服务详情页。
+ 3. 在服务详情页面的“监控”中即可查看。
 ![](https://main.qcloudimg.com/raw/e77e2471a8e82231327c6ac37b1b9778.png)
 
 ### 关闭监控
 
-您可以在***网格基本信息页***选择编辑可观测性配置，取消勾选***腾讯云Prometheus监控 TMP***，取消勾选后，服务网格侧并不会删除TMP实例，如有需要，请在[TMP控制台](https://console.cloud.tencent.com/tke2/prometheus2/list?rid=4)进一步删除该TMP实例。
+您可以在**网格基本信息页**选择编辑可观测性配置，取消勾选**腾讯云 Prometheus 监控 TMP**，取消勾选后，服务网格侧并不会删除 TMP 实例，如有需要，请在 [TMP 控制台](https://console.cloud.tencent.com/tke2/prometheus2/list?rid=4) 进一步删除该 TMP 实例。
