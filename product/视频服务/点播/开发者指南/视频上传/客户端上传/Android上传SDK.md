@@ -165,6 +165,13 @@ mVideoPublish.canclePublish();
 `signature`计算规则请参见 [客户端上传签名](/document/product/266/9221)。
 
 
+#### 开启https上传
+
+```java
+TXUGCPublishTypeDef.TXPublishParam param = new TXUGCPublishTypeDef.TXPublishParam();
+param.enableHttps = true;
+```
+
 ## 视频上传接口描述
 
 初始化上传对象：`TXUGCPublish`
