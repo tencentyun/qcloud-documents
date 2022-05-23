@@ -14,8 +14,8 @@
                 "cvm:*"
             ],
             "resource": [
-                "qcs::cvm::uin/100015591986:instance/ins-duglsqg0",
-                "qcs::cvm::uin/100015591986:image/img-eb30mz89"
+                "qcs::cvm::uin/10987654321:instance/ins-duglsqg0",
+                "qcs::cvm::uin/10987654321:image/img-eb30mz89"
             ]
         },
         {
