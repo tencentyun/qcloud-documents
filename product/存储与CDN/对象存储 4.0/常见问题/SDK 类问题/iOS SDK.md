@@ -3,12 +3,12 @@
 原因：matchesRegularExpression 是 NSString 的分类提供的方法。Objective-C 链接器不会为每个方法建立符号表，只是为类建立了符号表。sdk 是静态库，如果静态库中定义了一份已经存在的类的分类，系统就会认为这个类已经存在，则不会将类和类的分类的代码整合起来，在最后的可执行代码中，就会缺少分类中的方法。
 
 解决办法：
-1. 在 target->Build Settings->All->Other Linker Flags 中添加-Objc 和-all_load 两个参数。
+1. 在 target > Build Settings > All > Other Linker Flags 中添加-Objc 和-all_load 两个参数。
 2. -ObjC 会将静态库中的类和分类都加载到最后的可执行文件中，但是如果库中只有分类没有类的话，这个参数就会失效，就需要-all_load，该参数会把所有找到的目标文件都加到可执行文件中。
 
 ### 集成 SDK 发送请求之后抛出异常“您没有配置默认的 OCR 服务配置，请配置之后再调用该方法或者您没有配置 Key 为 'xxx' 的 OCR 服务配置，请配置之后再调用该方法”，该如何处理？
 
-原因：sdk 所有的请求都依赖于一个 QCloudCOSXMLServeice 和 QCloudCOSTransferMangerService(上传的高级接口依赖于该实例)，如果在发送请求之前没有注册对应的 service 会抛出该异常。
+原因：SKD 所有的请求都依赖于一个 QCloudCOSXMLServeice 和 QCloudCOSTransferMangerService（上传的高级接口依赖于该实例），如果在发送请求之前没有注册对应的 service 会抛出该异常。
 
 解决办法：通过以下代码注册请求所需要的 service 实例，并确保该实例在请求发出前已存在。
 
