@@ -1,23 +1,24 @@
-# Dataway 语言基础概念
-Dataway 是腾讯云数据连接器服务中用于对数据进行自定义转换与处理的脚本引擎，使用 Dataway 可以编写和执行强大而复杂的数据转换脚本，在此之前需要先了解一下 Dataway 的核心概念和功能。
+# Dataway 基础概念
+Dataway 是腾讯云数据连接器中用于对数据进行自定义转换与处理的脚本引擎，使用 Dataway 可以编写和执行强大而复杂的数据转换脚本，以下简要介绍 Dataway 的核心概念和功能。
 
-##  Dataway 工具箱
-Dataway 提供文本模式、表达式模式和代码模式三套脚本工具集，支持各具特色的语义和语法，以应对不同的使用场景和数据需求。Dataway 编辑文本框可同时提供至多三套工具集用于数据输入（具体情况视所在组件功能设计而定），用户可根据应用需求和自身喜好，自由选用其中一套工具集。
+## Dataway 工具箱
+Dataway 提供文本模式、表达式模式和代码模式三套脚本工具集，支持各具特色的语义和语法，以应对不同的使用场景和数据需求。Dataway 编辑文本框同时支持三套工具集（部分组件因功能设计禁用了特定工具集），用户可根据应用需求和自身喜好，自由选用其中一套工具集输入脚本。
 
-- **文本模式**：用于数据流转，提供数据创建和传递功能。用户可以跟随可视化交互界面的指引生成所需数据或引用集成流上下文数据。
-- **表达式模式**：用于简单数据转换和处理，提供轻量脚本执行功能。用户可以通过填写表达式获取所需数据。
-- **代码模式**：用于复杂数据转换和处理，提供复杂脚本执行、格式化和调试等功能。用户可以通过编写脚本获取所需数据。目前支持 python3 脚本和 Java JDK8 脚本。
+- **文本模式**：用于数据流转，提供数据创建和传递功能。用户跟随可视化交互界面的指引生成所需数据或引用集成流上下文数据。
+- **表达式模式**：用于简单数据转换和处理，提供轻量脚本执行功能。用户通过填写表达式获取所需数据。
+- **代码模式**：用于复杂数据转换和处理，提供复杂脚本执行、格式化和调试等功能。用户通过编写完整脚本获取所需数据。目前支持 python3 脚本和 Java JDK8 脚本。
 
-**集成流数据面板**同时嵌入三种模式，提供集成流上下文数据引用功能。用户均可通过可视化点选的方式，快速引用前置组件的数据。
+**集成流数据面板**同时嵌入三种模式，提供集成流上下文数据引用功能。用户通过可视化点选的方式，快速引用前置组件的数据。
 
 ## <span id="core-types"></span> Dataway 类型系统
 
- Dataway 核心类型如下，可作为 Dataway 脚本的输出结果：
+ Dataway 核心类型如下，可作为 Dataway 脚本的输出结果在组件间传递：
 
 | 类型名 | 中文名 | 描述 | 是否 Dataway 特有类型 |举例 |
 | ----- | ---- | --------------- | --- | --------------------------------- | 
 | None |  空值 | 空值类型 | 否 | <font color=red>Python</font>: None / <font color=red>Java</font>: null |
 | string | 字符串 | 字符串类型 | 否 | "abc" |
+| bytes | 字节数组 | 字节数组类型 | 否 | <font color=red>Python</font>: b"abc" / <font color=red>Java</font>: "abc".getBytes() |
 | bool | 布尔值 | 布尔类型 | 否 | <font color=red>Python</font>: True/False / <font color=red>Java</font>: true/false |
 | float | 浮点数 | 浮点类型 | 否 | 123.456 |
 | int/Long | 整数 | 整型 | 否 | <font color=red>Python</font>: 123 / <font color=red>Java</font>: 123L | 
@@ -27,23 +28,23 @@ Dataway 提供文本模式、表达式模式和代码模式三套脚本工具集
 | datetime | 时刻 | 时刻，包括日期和时钟 | 否 | <font color=red>Python</font>: datetime.datetime.now() / <font color=red>Java</font>: java.time.OffsetDateTime.now() |
 | date | 日期 | 日期 | 否 | <font color=red>Python</font>: datetime.date.today() / <font color=red>Java</font>: java.time.LocalDate.now() |
 | time | 时间 | 时间 | 否 | <font color=red>Python</font>: datetime.datetime.now().time() / <font color=red>Java</font>: java.time.OffsetTime.now() |
-| [**Entity**](#entity-explain) | 二进制实体 |数据连接器中的实体数据，用于代表一个二进制对象，包括 blob、mime_type、encoding 等信息 | <font color=red>是</font> | http-listener 构造消息中的 payload |
+| [**Entity**](#entity-explain) | 二进制实体 | 数据连接器中的实体数据，用于代表一个二进制对象，包括 blob、mime_type、encoding 等信息 | <font color=red>是</font> | http-listener 构造消息中的 payload |
 | **MultiMap** | 多值字典 | 类似于 xml 而与 dict 不同，该类型可以支持重复的 key | <font color=red>是</font> | application/www-form-urlencoded 格式的数据解析之后得到的对象 |
 | **FormDataParts** | 表单数据 | 数组+列表的数据结构，类似于 Python 中的 orderDict 结构 | <font color=red>是</font> | multipart/form-data 格式的数据解析后得到的对象|
-| [**Message**](#message-explain)  | 消息 |数据连接器中的消息，承载了集成流数据，包括 payload、variables、attributes 等信息 | <font color=red>是</font> | 代码模式 python 脚本 dw_process 入口函数中的 msg 参数 |
-| **DataSet** | 数据集 | 数据集成中数据集，通过数据集成组件操作 |  <font color=red>是</font> | Builder 组件的输出 |
-| **Record** | 单条数据 | 数据集成中的单条数据，附有 Schema | <font color=red>是</font> | 可通过 Foreach 组件遍历 DataSet 获取 |
+| [**Message**](#message-explain)  | 消息 | 数据连接器中的消息，承载了集成流数据，包括 payload、variables、attributes 等信息 | <font color=red>是</font> | 代码模式 python 脚本 dw_process 入口函数中的 msg 参数 |
+| **DataSet** | 数据集 | 数据连接器数据集成中数据集，通过数据集成组件操作 |  <font color=red>是</font> | Builder 组件的输出 |
+| **Record** | 单条数据 | 数据连接器数据集成中的单条数据，附有 Schema | <font color=red>是</font> | 可通过 Foreach 组件遍历 DataSet 获取 |
 
-> Dataway 核心类型在不同模式或不同语言脚本工具集中均存在对应实现，且同一类型的不同实现间可以自动映射。
-> 用户可以在集成流的不同组件不同 Dataway 编辑文本框中使用不同的 Dataway 脚本工具集，不会影响核心类型的数据处理过程的连贯和精确。
+> Dataway 核心类型在三种脚本工具集中是通用的，均存在对应数据结构。虽然，在三种脚本工具集中同一类型的不同数据结构操作方法存在差异，但是，保证同一类型的不同数据结构核心特性一致，可以相互间无损转换。
+> 当集成流的上下游使用不同的脚本工具集时，同一类型的不同数据结构之间自动无感映射。用户可以在各个 Dataway 编辑文本框中使用不同的 Dataway 脚本工具集，不会影响核心类型的数据处理过程的连贯性和精确性。
 
-> 需要注意的是，如果 Dataway 脚本的输出结果作为集成流的最终返回结果，则支持的返回值类型还会受到相应集成流组件的限制。如在以 http listener 组件作为触发器的集成流中，其最终返回结果必须是一个 Entity 类型。
+> 需要注意的是，如果 Dataway 脚本的输出结果作为集成流的最终返回结果，则返回值支持类型还会受到相应集成流组件的限制。如在以 http listener 组件作为触发器的集成流中，其最终返回结果必须为 Entity 类型。
 
-除了核心类型外，不同模式或不同语言的脚本工具集额外支持部分特异类型，以贴合使用场景并提高可用性，但<font color=red>特异类型的数据无法作为 Dataway 脚本的输出结果</font>，详情请查阅文本模式、表达式模式、代码模式 Python、代码模式 Java。
+除了核心类型外，各脚本工具集额外支持部分特有类型，以贴合脚本工具集使用场景以提高可用性，但<font color=red>特有类型的数据无法作为 Dataway 脚本的输出结果</font>，导致错误发生，详情请查阅文本模式、表达式模式、代码模式 Python、代码模式 Java。
 
-##  <span id="message-explain"></span>Message 类型
+## <span id="message-explain"></span>Message 类型
 
-在 Dataway 中，Message 类型承载了腾讯云数据连接器消息，而消息伴随集成流的执行过程传递和更新。Message 类型包含**载荷（payload）**、**变量（vars）**、**属性（attrs）**等属性，称之为**预定义属性(Predefined Properties)**，这些属性是由系统根据当前运行信息及处理的数据生成的，用于在 Dataway 脚本中获取集成流的当前上下文信息。
+在 Dataway 中，Message 类型承载了腾讯云数据连接器消息，而数据连接器消息伴随集成流的执行过程传递和更新。Message 类型包含**载荷（payload）**、**变量（vars）**、**属性（attrs）**等属性，称之为**预定义属性(Predefined Properties)**，这些属性是由系统根据当前运行信息及处理的数据生成的，用于在 Dataway 脚本中获取集成流的当前上下文信息。
 
 > Dataway 脚本以 msg 变量作为输入，该变量即 Message 类型，承载了集成流执行至当前组件节点前夕的上下文信息。
 
@@ -51,16 +52,16 @@ Message 类型中包含的属性及其说明如下：
 
 | 属性名 | 获取方法（以代码模式 Python 为例） | 描述 | 属性类型 | 属性说明 |
 | ----- | --- | ------- | -------- | ----- |
-| 变量集 | msg.vars | 当前消息上下文中的变量集合 | 字典类型：键为字符串类型，代表变量名；值为任意[核心类型](#core-types)，代表变量值 | 已设置变量在集成流的所有后置组件节点共享，因此可用于在不同的组件节点之间进行数据整合 |
-| 载荷 | msg.payload | 当前消息的载荷数据 | 任意[核心类型](#core-types) | 载荷是腾讯云数据连接器消息的负载数据，反映了组件节点的执行结果，由组件节点执行后更新，也可以通过特定组件（如"配置 payload"等）进行配置。 比如，http listener 组件会根据接收到的网络请求来构造载荷的内容，因此 listener 组件处理之后，载荷为 Entity 类型 |
+| 变量集 | msg.vars | 当前消息上下文中的变量集合 | 字典类型：键为字符串类型，代表变量名；值为任意[核心类型](#core-types)，代表变量值 | 已设置变量在集成流的所有后置组件节点共享，因此可用于在不同的组件节点之间的数据整合 |
+| 载荷 | msg.payload | 当前消息的载荷数据 | 任意[核心类型](#core-types) | 载荷是数据连接器消息的负载数据，反映了组件节点的执行结果，由组件节点执行后更新，也可以通过特定组件（如"配置 payload"等）进行配置。 比如，http listener 组件会根据接收到的网络请求来构造载荷的内容，因此 listener 组件处理之后，载荷为 Entity 类型 |
 | 属性集 | msg.attrs | 当前消息的属性数据集合，如消息来源、消息的头部信息等 | 字典类型：键为字符串类型，代表属性名；值为任意[核心类型](#core-types)，代表属性值 | 如果集成流触发器为 http listener，则网络请求的 headers 将会存储在 msg.attrs |
 | 唯一标志 | msg.id | 当前消息的唯一标识 id | 字符串类型 | 经过一个逻辑组件，唯一标志可能会变化 |
 | 序列号 | msg.seq_id | 当前消息的序列号 | 字符串类型 | 消息在集成流中流转时，序列号保持不变 |
 | 错误信息 | msg.error | 当前处理上下文中的错误信息 | 字典类型：键为字符串类型，代表错误属性名；值为字符串类型，代表属性值 | 包含的内容有：'code': 错误类型；'desc'：错误描述字符串 |
 
-##   <span id="entity-explain"></span>Entity 类型
+##  <span id="entity-explain"></span>Entity 类型
 
-###  Entity 类型简介
+### Entity 类型简介
 
 在 Dataway 中，Entity 类型承载了腾讯云数据连接器实体数据，是二进制数据的封装对象，其主要组成部分包括**原始数据（blob）**、**MIME 类型（mime_type）** 以及**编码类型 encoding**。
 
@@ -158,7 +159,7 @@ def dw_process(msg):
 ```
 
 
-###  Entity 类型对象构造（以代码模式 Python 为例）
+### Entity 类型对象构造（以代码模式 Python 为例）
 
 1. <span id="from-value"></span> **值构造方法（Entity.from_value）**：将数据 data 封装为 Entity 类型并返回。如下所示：
 ```python
@@ -196,7 +197,7 @@ Dataway 使用 Entity 类型可支持多种不同的数据类型，如 json、cs
 
 不同的数据格式有不同的编码规则、数据结构以及特定的 Entity 选择器语法。本节将对这些不同的数据格式分别进行说明
 
-###  <span id='json-format'></span> JSON格式
+### <span id='json-format'></span> JSON格式
 
 JSON 格式的数据代表 MIME 类型为 application/json 的 Entity 中数据序列化后得到的类型。
 - 使用[原始数据构造方法](#from-bytes)，则 Dataway 对输入的 str/bytes 类型最终解析成一个字典类型数据。
@@ -396,7 +397,7 @@ def dw_process(msg):
 }
 ```
 
-###  <span id='textplain-format'></span> 文本格式
+### <span id='textplain-format'></span> 文本格式
 
 文本格式的数据代表 MIME 类型为 text/plain 的 Entity 中数据解析后得到的类型。无论是[值构造方法](#from-bytes)还是[原始数据构造方法](#from-bytes)，data 参数均为字符串或 bytes 类型，entity 内容均为字符串数据类型。
 
@@ -424,7 +425,7 @@ def dw_process(msg):
 
 　Dataway 的脚本输出为一个字符串, 结果为"This is a text plain message"。
 
-###  <span id='xml-format'></span> XML 格式
+### <span id='xml-format'></span> XML 格式
 
 XML 格式的数据代表 MIME 类型为 application/xml 的 Entity 中数据序列化后得到的类型。
 - 使用[原始数据构造方法](#from-bytes)方法，则 Dataway 对输入的字符串或 bytes 类型最终解析成一个字典数据类型。
@@ -549,7 +550,7 @@ def dw_process(msg):
 > 在 XML 格式数据中，root 节点为默认节点，其属性使用 `@id=123` 的方式指定，文本使用 `#text` 的方式指定。root 节点值为一个 MultiMap 类型，其中键为每一个子节点名称, 值为相应子节点的值。
 
 
-###  <span id='csv-format'></span> CSV 格式
+### <span id='csv-format'></span> CSV 格式
 
 CSV 格式的数据代表 MIME 类型为 application/csv 的 Entity 中数据序列化后得到的类型。
 - 使用[原始数据构造方法](#from-bytes)，则 Dataway 对输入的字符串或 bytes 类型最终解析成一个列表类型数据结构，其中每一项元素均为一个字典。
@@ -610,7 +611,7 @@ def dw_process(msg):
 
 > 对于 CSV 数据格式，接收的列表每一项元素均为字典类型。每一项元素中的键需保持相同，作为 CSV 文本的标题行；每一项元素中的值则代表该行的数据值，用逗号分隔。
 
-###  <span id='formdata-format'></span> HTTP Form-Data表单
+### <span id='formdata-format'></span> HTTP Form-Data表单
 
 HTTP Form-Data表单格式的数据代表 mime-type 为 multipart/form-data 的 Entity 中数据序列化后得到的类型。
 
@@ -823,7 +824,7 @@ def dw_process(msg):
 
 　然后在下游可以使用 [Entity 选择器](#selectors) 语法进行操作。
 
-###  六. <span id='dataref'></span>集成流数据面板
+## <span id='dataref'></span>集成流数据面板
 
 Dataway 支持可视化数据引用，在**"集成流数据面板"**点击数据标签即可引用集成流上下文中的相应数据（包括变量、前置组件输出等），打通组件间的数据高速路，提升用户体验。当前 Dataway 所有模式均支持可视化数据引用功能，包括[文本](../Dataway文档/文本模式.md)模式、[表达式](../Dataway文档/表达式模式.md)模式、[代码模式 Python ](../Dataway文档/代码模式Python.md)和[代码模式 Java ](../Dataway文档/代码模式Java.md)。
 
