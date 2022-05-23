@@ -16,8 +16,8 @@ hidden_partition_spec:
 ```
 
 ## 参数说明
-table_name：需要的表名字。
-partition_column：分区列。
+- `table_name`：需要的表名字。
+- `partition_column`：分区列。
 
 ## 示例
 ```
