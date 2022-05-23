@@ -20,7 +20,7 @@
 curl -s -L http://mirrors.tencent.com/install/GPU/taco/taco_setup.sh | sudo bash
 ```
 返回结果如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/21cef08fafc066813c250c84ef6fa1f9.png)
+<img src="https://qcloudimg.tencent-cloud.cn/raw/21cef08fafc066813c250c84ef6fa1f9.png" width="918px"/>
 3. 执行以下命令，重启实例。
 ```plaintext
 sudo reboot
