@@ -32,12 +32,6 @@ TXLivePusher 直播 SDK 主要用于视频云的快直播（超低延时直播�
 ```
 >? 需要在 HTML 的 body 部分引入脚本，如果在 head 部分引入会报错。
 
-如果在域名限制区域，可以引入以下链接：
-
-```html
-<script src="https://cloudcache.tencent-cloud.com/open/qcloud/live/webrtc/js/TXLivePusher-1.0.2.min.js" charset="utf-8"></script>
-```
-
 ### 步骤2：在 HTML 中放置容器
 
 在需要展示本地音视频画面的页面位置加入播放器容器，即放一个 div 并命名，例如 id_local_video，本地视频画面都会在容器里渲染。对于容器的大小控制，您可以使用 div 的 css 样式进行控制，示例代码如下：
