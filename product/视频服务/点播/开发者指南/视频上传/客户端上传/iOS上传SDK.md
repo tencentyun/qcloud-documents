@@ -94,6 +94,15 @@ publishParam.videoPath  = @"视频文件路径";
 
 上传参数中的`enableResume`为断点续传开关，默认是开启的。
 
+#### 开启https上传
+
+将上传参数中TXPublishParam中的enableHTTPS置为true即可，默认false
+
+```objectivec
+TXPublishParam *publishParam = [[TXPublishParam alloc] init];
+publishParam.enableHTTPS  = true;
+```
+
 
 ## 图片和媒体上传
 
