@@ -177,7 +177,7 @@ deviceManager.switchCamera('camera_device_id');
 
 ### WebRTC 推流相关接口
 
-WebRTC 推流相关接口说明，请参见 [API 概览](https://cloud.tencent.com/document/product/454/56498)。
+WebRTC 推流相关接口说明，请参见 [API 概览](https://webrtc-demo.myqcloud.com/push-sdk/v2/docs/TXLivePusher.html)。
 
 
 
