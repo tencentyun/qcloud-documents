@@ -10,11 +10,12 @@
 （4） 投稿内容字数不少于400字，要求文字顺通、图片清晰、代码规范。
 （5） 投稿要求发布在腾讯云 云+社区。
 （6） 投稿内容一经采用，将会被纳入官方产品文档，腾讯云拥有使用权。
+（7） 友情附上：[最佳实践写作指南](https://doc.weixin.qq.com/doc/w3_AHsAXwboACcuEbVIZiXTZqGYm0Kh0?scode=AJEAIQdfAAoJPRp1wFAHsAXwboACc)，供参考～
 
 ## 参与方式
 
 1. 扫码加入活动交流群
-![](https://qcloudimg.tencent-cloud.cn/raw/aeddd4c52df7b69f32cd1341f228ccd1.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/401212810f9af523f347e7afa7064b0a.png)
 2. 扫描下方二维码 或者 [单击此处](https://doc.weixin.qq.com/forms/AJEAIQdfAAoAHsAXwboACcKlWsT7azRuf)  进行投稿。
 ![](https://qcloudimg.tencent-cloud.cn/raw/6ae9bfb2324dc1a83f6b9157064b417b.png)
 
