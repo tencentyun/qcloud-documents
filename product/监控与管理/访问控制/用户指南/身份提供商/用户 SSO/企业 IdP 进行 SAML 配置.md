@@ -1,5 +1,5 @@
 ##  操作场景
-企业原有的身份系统作为身份提供商（IdP），需进行腾讯云SP的SAML 配置，以建立企业 IdP对腾讯云的信任，实现企业IdP用户通过用户SSO的方式登录腾讯云。
+企业原有的身份系统作为身份提供商（IdP），需进行腾讯云 SP 的 SAML 配置，以建立企业 IdP 对腾讯云的信任，实现企业 IdP 用户通过用户 SSO 的方式登录腾讯云。
 
 ## 操作步骤
 1. 从腾讯云获取 SAML 服务提供商元数据 URL。
@@ -15,7 +15,7 @@
 	
 | 参数 | 是否必选 |说明 | 
 |---------|---------|---------|
-| Entity ID | 必选 |下载的元数据 XML中，EntityDescriptor 元素的 entityID 属性值。
+| Entity ID | 必选 |下载的元数据 XML 中，EntityDescriptor 元素的 entityID 属性值。
 | ACS URL | 必选 |下载的元数据 XML 中，AssertionConsumerService 元素 Location 属性值。
 
 
