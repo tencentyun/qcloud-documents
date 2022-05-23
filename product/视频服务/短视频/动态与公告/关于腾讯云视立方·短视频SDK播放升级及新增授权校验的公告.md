@@ -15,8 +15,8 @@
 10.1 版本后，直播 License（原直播推流 License）、短视频 License 和视频播放 License **均可**授权解锁新版本 SDK 的**视频播放**功能模块，您只需购买其中的**任意一种** License，即可正常使用新版 SDK 中的直播和点播播放功能，相关 License 的购买及计费信息如下：
 
 - 购买直播 License 授权解锁**直播推流 + 视频播放**功能模块，相关计费详情请参见 [直播 SDK 价格总览](https://cloud.tencent.com/document/product/454/8008)。
-- 购买获得短视频 License 授权解锁**短视频制作 + 视频播放**功能模块，相关计费详情请参见 [短视频 SDK 价格总览](https://cloud.tencent.com/document/product/584/9368)。
-- 购买获得视频播放 License 授权解锁**视频播放**功能模块，相关计费详情请参见 [视频播放 License 计费说明](#play_price)。
+- 购买短视频 License 授权解锁**短视频制作 + 视频播放**功能模块，相关计费详情请参见 [短视频 SDK 价格总览](https://cloud.tencent.com/document/product/584/9368)。
+- 购买视频播放 License 授权解锁**视频播放**功能模块，相关计费详情请参见 [视频播放 License 计费说明](#play_price)。
 
 <table>
 <thead>
