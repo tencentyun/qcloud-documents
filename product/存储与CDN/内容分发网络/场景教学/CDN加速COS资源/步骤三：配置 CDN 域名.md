@@ -34,5 +34,5 @@
 5. 用量封顶配置
 希望将访问带宽控制在5000Mbps，配置如下：
 ![](https://qcloudimg.tencent-cloud.cn/raw/e754e3766a8f85325d45ddccb329fd9b.png)
-6. 单击**确认提交**，在弹出的页面中点击返回域名管理即可在域名列表中看到您添加的域名。
+6. 单击**确认提交**，在弹出的页面中单击**返回域名管理**即可在域名列表中看到您添加的域名。
 ![](https://qcloudimg.tencent-cloud.cn/raw/ff47244b3c32375334887f6e33977ac0.png)
