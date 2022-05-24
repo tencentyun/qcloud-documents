@@ -16,7 +16,7 @@
 请参见 [基于 Merge 表引擎数据合并](https://cloud.tencent.com/document/product/1488/74330) 中的使用限制。
 
 ## 注意事项
-添加CDC任务通用注意事项请参见 [添加 CDC](https://cloud.tencent.com/document/product/1488/63678)。
+添加 CDC 任务通用注意事项请参见 [添加 CDC](https://cloud.tencent.com/document/product/1488/63678)。
 
 ## 场景一
 ### 场景示例
