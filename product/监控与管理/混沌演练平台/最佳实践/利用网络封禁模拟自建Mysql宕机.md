@@ -22,7 +22,7 @@
 3. 填写标题内容。
 ![](https://qcloudimg.tencent-cloud.cn/raw/e2e1ca0dc2a58efd9bd49ca30c564a19.png)
 4. 进行故障编排与注入实例范围选择，配置故障参数。因为本次实验的目标端口为3306,内网网卡为eth0。为了精确的封堵指定端口，就需要配置指定参数。
-![](https://qcloudimg.tencent-cloud.cn/raw/4c27234afe2ecd76a223d98681e60ee9.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/0b4c23a5d41cd3d16f84116b6a400c2f.png)
 ![](https://qcloudimg.tencent-cloud.cn/raw/c4a7b750271f1755fbfbedd0ca6dc311.png)
 ![](https://qcloudimg.tencent-cloud.cn/raw/14a7510846dfea8dcf68ec1f829061a6.png)
 5. 配置监控指标（可选）：此处可以配置一些基础的 CVM 指标，方便进行指标的选择。
