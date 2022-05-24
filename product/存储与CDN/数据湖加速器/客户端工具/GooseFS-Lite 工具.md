@@ -253,29 +253,47 @@ ln -s /usr/lib64/libfuse.so.2.9.7 /usr/lib64/libfuse.so.2
 ```
 
 #### 2. 如何配置开机挂载？
-步骤1：
-创建开机挂载脚本 /root/goosefs-lite-1.0.0/mount_goosefs_lite.sh，并写入如下内容，你可以将 examplebucket-1250000000 替换为您需要挂载的存储桶：
+步骤一:
+编辑文件 /usr/lib/systemd/system/goosefs-lite.service，追加如下内容，您可以将 examplebucket-1250000000 换为您的存储桶：
 ```
-#!/bin/bash
-/root/goosefs-lite-1.0.0/bin/goosefs-lite mount /mnt/goosefs-mnt cosn://examplebucket-1250000000/
-```
-授予挂载脚本执行权限:
-```
-chmod +x /root/goosefs-lite-1.0.0/mount_goosefs_lite.sh
-```
+[Unit]
+Description=The Tencent Cloud GooseFS Lite for COS
+Requires=network-online.target
+After=network-online.target
 
-步骤2：
-编辑 /etc/rc.d/rc.local，追加如下内容：
-```
-bash /root/goosefs-lite-1.0.0/mount_goosefs_lite.sh
-```
-授予 /etc/rc.d/rc.local 执行权限：
-```
-chmod +x /etc/rc.d/rc.local
-```
+[Service]
+Type=forking
+User=root
+ExecStart=/usr/local/goosefs-lite-1.0.0/bin/goosefs-lite mount /mnt/goosefs-mnt cosn://examplebucket-1250000000/
+ExeStop=/usr/local/goosefs-lite-1.0.0/bin/goosefs-lite umount /mnt/goosfs-mnt
 
-步骤3：
-重启操作系统，查看是否挂载成功。
+[Install]
+WantedBy=multi-user.target
 ```
-/root/goosefs-lite-1.0.0/bin/goosefs-lite stat
+步骤二：
+执行如下命令，执行挂载命令和查看后台 Daemon 进程状态：
+```
+# 让 goosefs-lite 的 systemd 配置生效
+systemctl daemon-reload
+# 启动后台 Fuse 进程
+systemctl start goosefs-lite
+# 查看 daemon 进程状态
+systemctl status goosefs-lite
+
+```
+设置为开机启动时尝试挂载：
+```
+systemctl enable goosefs-lite
+```
+执行卸载，注意：请勿在数据写入的时卸载，否则会导致数据不完整。
+```
+systemctl stop goosefs-lite
+```
+步骤三：
+重启机器，并执行如下命令查看 Fuse 进程状态：
+```
+# 查看后台 Daemon 进程状态
+systemctl status goosefs-lite
+# 查看挂载点列表
+/usr/local/goosefs-lite-1.0.0/bin/goosefs-lite stat
 ```
