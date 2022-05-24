@@ -2,7 +2,7 @@
 
 在日志服务（Cloud Log Service，CLS）使用场景里，从其他日志工具迁移到 CLS 是非常常见的情况。其中，存在用户使用 Grafana 做可视化监控工具，例如 ES + Grafana 的组合。当数据源迁移到 CLS 后，用户依托 Grafana 制作的各种仪表盘资源，搭建的运维工具和平台就都失去了作用。为了避免重建这套体系，需要 CLS 对接 Grafana，替换 ES 数据源。
 
-![](https://qcloudimg.tencent-cloud.cn/raw/709128814a033554142761b67e0fb5cb.png)
+<img src="https://qcloudimg.tencent-cloud.cn/raw/63698c622e1a382f685777d67334e3c6.png" style="width: 35%"/>
 
 ## 安装 CLS-Grafana 插件
 
