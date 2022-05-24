@@ -57,7 +57,7 @@
   - 增量导入追上前请勿在源库上执行清除 Binlog 的操作。
   - 在同步增量阶段，请勿删除系统库表 `__tencentdb__`。
 
-## DDL支持
+## DDL 支持
 <table>
 <thead><tr><th>对象</th><th>DDL</th><th>备注</th></tr></thead>
 <tbody>
