@@ -58,7 +58,7 @@
 2. 创建 CDC 任务二。
 参考创建 CDC 任务一的步骤。
 **示例：**源端为 OLTP 2，在**源库对象**中选择库表 database2：tableC 和 tableD，合并到目标端的指定库表命名为 databaseA：tableC_log 和 tableD_log。
-**任务启动后，源端已指定的表会同步并至目标端的指定库表中。**
+**任务启动后，源端已指定的表会同步至目标端的指定库表中。**
 **示例：**database2：tableC 和 tableD 数据会分别同步至 databaseA：tableC_log 和 tableD_log 中。
 	 
 3. 利用 Merge 表能力，匹配具有相同命名模式和表结构的数据表，构造虚拟表，完成表数据查询合并。
