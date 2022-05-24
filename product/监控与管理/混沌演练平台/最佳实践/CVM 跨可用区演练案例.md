@@ -9,7 +9,7 @@
 
 ### 目标2
 验证服务恢复时间和恢复效果是否满足业务需求。
-![](https://qcloudimg.tencent-cloud.cn/raw/1b79bd288d22053ca57f7068a4324b9f.png)
+<img src="https://qcloudimg.tencent-cloud.cn/raw/1b79bd288d22053ca57f7068a4324b9f.png" width="65%">
 
 ## 演练实施
 ### 步骤1：前期准备
@@ -19,20 +19,20 @@
 - 统计日常业务的访问量，编写脚本模拟用户请求。
 
 **实例一稳态信息**
-![](https://qcloudimg.tencent-cloud.cn/raw/8bd4d8344181c4ae786f33f00f7924f4.png)
+<img src="https://qcloudimg.tencent-cloud.cn/raw/8bd4d8344181c4ae786f33f00f7924f4.png" width="65%">
 
 **实例二稳态信息**
-![](https://qcloudimg.tencent-cloud.cn/raw/18e3ef2d0f152fe558fca43e89931e66.png)
+<img src="https://qcloudimg.tencent-cloud.cn/raw/18e3ef2d0f152fe558fca43e89931e66.png" width="65%">
 
 
 ### 步骤2：实验设计
 1. 单击**新建演练**，填写演练信息。
-![](https://qcloudimg.tencent-cloud.cn/raw/d62dc803bf79456e023c654d1058e25e.png)
+<img src="https://qcloudimg.tencent-cloud.cn/raw/d62dc803bf79456e023c654d1058e25e.png" width="65%">
 2. 选择已准备好的测试实例对象，对处于同一可用区的实例通过配置实例关机动作，以实现实例宕机故障模拟。
 故障动作添加后会自动添加“开机”的恢复动作，此处实验额外增加 shell 脚本自定义动作“模拟开机自启”，用于启动实例原有服务，方便观察实例恢复情况。
-![](https://qcloudimg.tencent-cloud.cn/raw/9b367c7750963227599484246b163082.png)
-3. 可配置云监控指标或护栏策略，观察 CVM 实例的运行状态。
-![](https://qcloudimg.tencent-cloud.cn/raw/e0092a4c5a056689027a212c4f172754.png)
+<img src="https://qcloudimg.tencent-cloud.cn/raw/9b367c7750963227599484246b163082.png" width="65%">
+3. 可配置云监控指标或护栏策略，观察 CVM 实例的运行状态。<br>
+<img src="https://qcloudimg.tencent-cloud.cn/raw/e0092a4c5a056689027a212c4f172754.png" width="65%">
 
 ### 步骤3：演练实施
 1. 进入演练详情，单击右上角**执行**。
@@ -46,8 +46,8 @@
 ### 使用平台工具进行指标监控
 下图一为故障实例，于实施时间注入故障实现宕机，负载均衡监听探测到该实例不可访问，流量转发到下图二另一可用区的 CVM 实例，导致在该时间点流量骤增。
 当故障实例修复后，即完成开机并重启服务后，负载均衡监听到实例端口健康，恢复稳态。
-![](https://qcloudimg.tencent-cloud.cn/raw/44641df7d68ae9217e3974635be3e4bf.png)
-![](https://qcloudimg.tencent-cloud.cn/raw/0b7f7a2a3e3aab767fb8b44485c9023c.png)
+<img src="https://qcloudimg.tencent-cloud.cn/raw/44641df7d68ae9217e3974635be3e4bf.png" width="65%">
+<img src="https://qcloudimg.tencent-cloud.cn/raw/0b7f7a2a3e3aab767fb8b44485c9023c.png" width="65%">
 
 **目标达成情况：**
 - 当某一可用区宕机时，负载均衡自动将流量转发到另一可用区，整体表现为可用。
@@ -59,7 +59,8 @@
 
 ### 理论分析方向
 - **定性分析**：比较注入故障时系统的指标和稳态指标的差异。
-![](https://qcloudimg.tencent-cloud.cn/raw/cfac0ccc1fd547e83c7cb523d93801a2.png)
+	- **系统性能指标** = 实验中性能指标 / 稳态时性能指标
+	- **系统恢复率** = 实验完成执行恢复动作后性能指标 / 稳态时性能指标
 - **定量分析**
 - **系统缺陷原因分析**
  - 对系统弱点进行分析
