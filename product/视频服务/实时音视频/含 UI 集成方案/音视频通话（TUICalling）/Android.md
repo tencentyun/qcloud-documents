@@ -138,7 +138,7 @@ callingImpl.setCallingListener(new TUICalling.TUICallingListener() {
     public void onCallEvent(TUICalling.Event event, TUICalling.Type type, TUICalling.Role role, String message) {
         Log.d(TAG, "onCallEvent: event = " + event + " ,message = " + message);
     }
-  });
+});
 ```
 
 ### 步骤七：悬浮窗功能（可选）
@@ -151,7 +151,7 @@ callingImpl.setCallingListener(new TUICalling.TUICallingListener() {
 
 设置要返回的上一层界面，在`AndroidManifest.xml`为您需要跳转的界面配置跳转动作 `com.tencent.trtc.tuicalling`，例如：
 ```
- <activity
+<activity
     android:name="{packageName}.MainActivity"
     android:launchMode="singleTop">
     <intent-filter>
