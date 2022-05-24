@@ -88,7 +88,7 @@ select * from table_all;
  <tr>
  <td>任务一</td>
  <td>源端 OLTP 3<br /><ul><li>A_1：d_1 和 d_2<li>A_2：c_1 和 c_2</td>
- <td><ul><li>A_1：d_1_log 和 d_1_log<li>A_2：c_1_log 和 c_2_log</td></tr>
+ <td><ul><li>A_1：d_1_log 和 d_2_log<li>A_2：c_1_log 和 c_2_log</td></tr>
  </tbody></table>
 
 任务一启动后，源端 OLTP 3中指定的库表会分别实时同步至目标端指定的库表，再通过 Merge 表引擎，实现数据读取时合并。
@@ -107,10 +107,10 @@ select * from table_all;
    6. 在**已选对象**右侧单击**批量改名**，在弹出的**批量添加已选对象表名后缀**对话框中输入后缀，单击**确定**。
       **示例：**`_log`
       已选对象中将显示修改后的库表名称。
-      **示例：**A_1：d_1_log 和 d_1_log，A_2：c_1_log 和 c_2_log
+      **示例：**A_1：d_1_log 和 d_2_log，A_2：c_1_log 和 c_2_log
    7. 单击**下一步**，进入 [添加 CDC 任务](https://cloud.tencent.com/document/product/1488/63678) 的高级设置步骤，继续执行其他步骤，启动 CDC 任务后，该配置生效。
       **任务启动后，源端已指定的表会合并至目标端的指定库表中。**      
-      **示例：**A_1：d_1 和 d_2、A_2：c_1 和 c_2数据会分别同步至 A_1：d_1_log 和 d_1_log、A_2：c_1_log 和 c_2_log 中。
+      **示例：**A_1：d_1 和 d_2、A_2：c_1 和 c_2数据会分别同步至 A_1：d_1_log 和 d_2_log、A_2：c_1_log 和 c_2_log 中。
 
 2. 使用 Merge 表引擎，匹配具有相同命名模式的库，且库中有相同命名模式和表结构的数据表，构造虚拟表，完成表数据查询合并。
 ```sql
