@@ -54,5 +54,5 @@ select * from table_all;
 ```
  
 ## 相关操作
-最佳实践请参见 [基于 Merge 表引擎数据合并](https://cloud.tencent.com/document/product/1488/74333)。
+最佳实践请参见 [基于 Merge 表引擎数据合并最佳实践](https://cloud.tencent.com/document/product/1488/74333)。
 
