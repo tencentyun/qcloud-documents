@@ -8,11 +8,15 @@
 2. 复制分配的 CNAME 域名，获取 CDN 节点 IP
 CNAME地址：`www.qcdntest.cn.cdn.dnsv1.com.cn`
 打开终端命令窗口，在命令行中执行命令：`ping www.qcdntest.cn.cdn.dnsv1.com.cn`，返回的 IP 即为 CDN 加速节点。
-![](https://qcloudimg.tencent-cloud.cn/raw/811c8e9ca1f21e89c55734c935cad9b2.png)
+<br>
+<img src="https://qcloudimg.tencent-cloud.cn/raw/811c8e9ca1f21e89c55734c935cad9b2.png" width="70%">
+<br>
 3. 设置本地 hosts 文件
 将步骤2获取的节点 IP（110.185.117.235）和加速域名（`www.qcdntest.cn`）绑定到电脑本地 hosts 文件中，填写方法为 IP 域名，其中IP地址在前，加速域名在后，中间用空格分隔。
 Windows系统：hosts 文件路径位置为C:\Windows\System32\drivers\etc\hosts，按照下图所示进行绑定。
-![](https://qcloudimg.tencent-cloud.cn/raw/2d63afd6bb4abec0e064efd795eec39b.png)
+<br>
+<img src="https://qcloudimg.tencent-cloud.cn/raw/2d63afd6bb4abec0e064efd795eec39b.png" width="70%">
+<br>
 Mac系统：进入终端（命令窗口）里，输入 sudo vi/etc/hosts ，回车后再输入密码，再回车就可以打开 hosts 文件。进入后，输入 i 就可以编辑了。填写方法参照上述 Windows 的即可。
 4. 进行模拟访问测试
 打开本地浏览器，访问加速域名对应的测试 URL，建议通过浏览器自带的开发者工具查看请求/响应头。示例如下：
