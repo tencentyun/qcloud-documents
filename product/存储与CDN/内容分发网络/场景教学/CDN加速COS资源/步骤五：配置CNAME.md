@@ -6,3 +6,4 @@
 配置完成后您可通过 nslookup 或 dig 命令验证是否生效。若生效，会显示“加速服务正常运行中”。
 测试命令：`nslookup www.qcdntest.cn或dig www.qcdntest.cn`，若有返回 CNAME 域名，说明域名解析已指向腾讯云。
 ![](https://qcloudimg.tencent-cloud.cn/raw/571aa232a859749b302ce204fa527cd9.png)
+<img src="https://qcloudimg.tencent-cloud.cn/raw/8e65d17fd785696b21cad2b091da6c1c.png" width="70%">
