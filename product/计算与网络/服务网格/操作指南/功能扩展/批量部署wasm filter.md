@@ -85,12 +85,15 @@ spec:
 
 
 说明：
-spec.filter.applyPorts：需要生效的端口（该字段选填，默认所有端口）。
-spec.filter.rootID：唯一 ID 用于共享 wasm 的 RootContext and Contexts（选填）。
-spec.filter.vmID：wasm 虚机 ID（选填，不填会自动生成）。
-spec.filter.sourc：wasm 文件来源，支持 registry 和 object，代表镜像仓库和对象存储。
-spec.selector.matchLabels：用于匹配需要生效的 Pod。
-spec.secret：镜像仓库密码，公开镜像可以不填写 secret。
+
+| 参数 	|描述	|
+|---	|-	|
+| spec.filter.applyPorts|需要生效的端口（该字段选填，默认所有端口）。 	|
+| spec.filter.rootID|唯一 ID 用于共享 wasm 的 RootContext and Contexts（选填）。 	|
+| spec.filter.vmID|wasm 虚机 ID（选填，不填会自动生成）。 	|
+| spec.filter.sourc|wasm 文件来源，支持 registry 和 object，代表镜像仓库和对象存储。 	|
+| spec.selector.matchLabels|用于匹配需要生效的 Pod。 	|
+| spec.secret|镜像仓库密码，公开镜像可以不填写 secret。 	|
 
 其中，source.registry 部分表示从镜像仓库获取 wasm 扩展。
 

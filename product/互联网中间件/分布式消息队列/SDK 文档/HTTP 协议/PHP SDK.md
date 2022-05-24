@@ -193,7 +193,7 @@ require '/path/to/vendor/autoload.php';
     <tbody>
     <tr>
         <td style='text-align:left;'>$messageId</td>
-        <td style='text-align:left;'>消费消息获取导的消息 ID。</td>
+        <td style='text-align:left;'>消费消息获取到的消息 ID。</td>
     </tr>
     <tr>
         <td style='text-align:left;'>$fullTopicName</td>

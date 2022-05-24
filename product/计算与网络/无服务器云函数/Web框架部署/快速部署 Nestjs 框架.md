@@ -77,7 +77,7 @@ chmod 777 scf_bootstrap
 </dx-codeblock>
 4. 登录 [Serverless 控制台](https://console.cloud.tencent.com/scf/index?rid=1)，单击左侧导航栏的**函数服务**。
 5. 在主界面上方选择期望创建函数的地域，并单击**新建**，进入函数创建流程。
-6. 选择**自定义创建**新建函数，根据页面提示配置相关选项。如下图所示： 
+6. 选择**从头开始**新建函数，根据页面提示配置相关选项。如下图所示： 
 ![](https://main.qcloudimg.com/raw/5ea3c99b29d6a21d158635f314f760e3.png)
 	- **函数类型**：选择 “Web 函数”。
 	- **函数名称**：填写您自己的函数名称。

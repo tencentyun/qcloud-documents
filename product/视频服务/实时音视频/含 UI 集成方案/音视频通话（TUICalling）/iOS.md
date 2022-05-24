@@ -39,7 +39,7 @@ pod 'TUICalling', :path => "TUICalling/TUICalling.podspec", :subspecs => ["TRTC"
 
 ### 步骤三：创建并初始化组件
 
-<dx-tabs>
+<dx-codeblock>
 :::  Objective-C
 ```
 // 1.组件登录
@@ -68,7 +68,7 @@ TUILogin.login("您的UserID", userSig: "您的UserSig") {
 TUICalling.shareInstance()
 ```
 :::
-</dx-tabs>
+</dx-codeblock>
 
 **参数说明**：
 - **SDKAppID**：**TRTC 应用ID**，如果您未开通腾讯云 TRTC 服务，可进入 [腾讯云实时音视频控制台](https://console.cloud.tencent.com/trtc/app)，创建一个新的 TRTC 应用后，单击**应用信息**，SDKAppID 信息如下图所示：

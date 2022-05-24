@@ -33,15 +33,12 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 
 
 ## 应用限制
-- 支持迁移基础表、视图、函数、触发器、存储过程和事件。不支持迁移系统库表，包括 `information_schema`， `sys`， `performance_schema`，`__cdb_recycle_bin__`， `__recycle_bin__`， `__tencentdb__`， `mysql`。
+- 只支持迁移基础表和视图，不支持迁移函数、触发器、存储过程等对象。
+- 不支持迁移系统库表，包括 `information_schema`， `sys`， `performance_schema`，`__cdb_recycle_bin__`， `__recycle_bin__`， `__tencentdb__`， `mysql`。
 - 在迁移视图时，DTS 会检查源库中 `DEFINER` 对应的 user1（ [DEFINER = user1]）和迁移账号 user2 是否一致，如果不一致，迁移后 DTS 会修改 user1 在目标库中的 `SQL SECURITY` 属性，由 `DEFINER` 转换为 `INVOKER`（ [INVOKER = user1]），同时设置目标库中 `DEFINER` 为迁移账号 user2（[DEFINER = 迁移账号 user2]）。如果源库中视图定义过于复杂，可能会导致任务失败。
-- 对于高级对象（函数、触发器、存储过程和事件）的迁移约束如下：
-   - 高级对象的迁移是一次性动作，仅支持迁移在任务启动前源库中已有的高级对象内容，在任务启动后，源库新增的高级对象内容不会同步到目标库中。
-   - 高级对象不支持重命名操作。
-   - 在迁移存储过程和函数时，DTS 会检查源库中 `DEFINER` 对应的 user1（ [DEFINER = user1]）和迁移账号 user2 是否一致，如果不一致，迁移后 DTS 会修改 user1 在目标库中的 `SQL SECURITY` 属性，由 `DEFINER` 转换为 `INVOKER`（ [INVOKER = user1]），同时设置目标库中 `DEFINER` 为迁移账号 user2（[DEFINER = 迁移账号 user2]）。
 - 源端如果是非 GTID 实例，DTS 不支持源端 HA 切换，一旦源端 MySQL 发生切换可能会导致 DTS 增量同步中断。
 - 只支持迁移 InnoDB、MyISAM、TokuDB 三种数据库引擎，如果存在这三种以外的数据引擎表则默认跳过不进行迁移。
-- 相互关联的数据对象需要同时迁移，否则会导致迁移失败。常见的关联关系：视图引用表、视图引用视图、存储过程/函数/触发器引用视图/表、主外键关联表等。
+- 相互关联的数据对象需要同时迁移，否则会导致迁移失败。常见的关联关系：视图引用表、视图引用视图、主外键关联表等。
 - 增量迁移过程中，若源库存在分布式事务或者产生了类型为 `STATEMENT` 格式的 Binlog 语句，则会导致迁移失败。
 - 无锁迁移场景，迁移任务步骤为“源库导出”时，不支持 DDL 操作。
 - 源数据库 Binlog 的 GTID 如果存在空洞，可能会影响迁移任务的性能并导致任务失败。
@@ -299,7 +296,6 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 >- 如果用户在迁移过程中确定会使用 gh-ost、pt-osc 等工具对某张表做 Online DDL，则**迁移对象**需要选择这个表所在的整个库（或者整个实例），不能仅选择这个表，否则无法迁移 Online DDL 变更产生的临时表数据到目标数据库。
 >- 如果用户在迁移过程中确定会对某张表使用 rename 操作（例如将 table A rename 为 table B），则**迁移对象**需要选择 table A 所在的整个库（或者整个实例），不能仅选择 table A，否则系统会报错。 
 >
-![](https://qcloudimg.tencent-cloud.cn/raw/cf9d81c2ed31890ea6a7446cf86a01e9.png)
 <table>
 <thead><tr><th>配置项</th><th>说明</th></tr></thead>
 <tbody><tr>
@@ -317,14 +313,10 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 <td>指定对象</td>
 <td>在源库对象中选择待迁移的对象，然后将其移到已选对象框中。</td></tr>
 <tr>
-<td>高级迁移对象</td>
-<td>支持迁移存储过程（Procedure）、函数（Function）、触发器（Trigger）、事件（Event）。
-<ul><li>高级对象的迁移是一次性动作，仅支持迁移在任务启动前源库中已有的高级对象内容，在任务启动后，新增的高级对象内容不会同步到目标库中。</li><li>存储过程和函数，在“源库导出”阶段进行迁移；触发器和事件，有增量任务，在用户单击<b>完成</b>操作后开始迁移，没有增量任务，在任务结束时进行迁移。选择高级对象后整体的迁移时间会略微增加。
-</li><li>高级对象不支持重命名操作。</li><ul></td></tr>
-<tr>
 <td>是否迁移账号</td>
 <td>如果需要迁移源库的账号信息，则勾选此功能。</td></tr>
 </tbody></table>
+
 5. 在校验任务页面，进行校验，校验任务通过后，单击**启动任务**。
  - 如果校验任务不通过，可以参考 [校验不通过处理方法](https://cloud.tencent.com/document/product/571/61639) 修复问题后重新发起校验任务。部分检查支持跳过，可在校验失败后进行屏蔽，屏蔽后需要重新进行校验才可以继续任务。
     - 失败：表示校验项检查未通过，任务阻断，需要修复问题后重新执行校验任务。  

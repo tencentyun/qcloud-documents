@@ -22,3 +22,5 @@
 | BGP 通道路由条目超限告警 | DirectConnectTunnel<br>RouteTableOverload | 异常事件 | 专用通道维度 | 无               | 专用通道 BGP 会话通道路由条目超过80% | 检查专用通道 BGP 会话发布路由条目是否达到限制条目的80%（默认限制100条，详情请参见专线接入 [使用限制](https://cloud.tencent.com/document/product/216/546)）。 |
 | 专用通道 BFD 检测 Down   | DirectConnectTunnel<br>BFDDown            | 异常事件 | 专用通道维度 | 有               | 专用通道 BFD 检测中断                | 1. 检查专用通道是否正常。<br>2. 检查物理线路是否正常。       |
 
+
+

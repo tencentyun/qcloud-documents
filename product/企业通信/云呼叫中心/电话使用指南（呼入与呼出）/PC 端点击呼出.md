@@ -1,6 +1,6 @@
 ## 前提条件
-1. 已完成 快速入门（使用方式：SDK 集成）。
-2. 已完成电话号码购买或自携电话号码对接。
+1. 已完成 [快速入门（使用方式：SDK 集成）](https://cloud.tencent.com/document/product/679/73495)。
+2. 已完成 [电话号码购买](https://cloud.tencent.com/document/product/679/73526) 或 [自携电话号码对接](https://cloud.tencent.com/document/product/679/73527)。
 
 ## 集成效果
 腾讯云呼叫中心已经提供默认通话工具条 UI 样式，集成后坐席可直接使用。企业也可隐藏默认样式并调用相关接口自定义 UI 开发。
