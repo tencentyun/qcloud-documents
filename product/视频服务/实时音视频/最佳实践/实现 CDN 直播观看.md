@@ -113,8 +113,58 @@ userSig 的计算方法请参见 [如何计算及使用 UserSig](https://cloud.t
 
 >! `setMixTranscodingConfig` 并不是在终端进行混流，而是将混流配置发送到云端，并在云端服务器进行混流和转码。由于混流和转码都需要对原来的音视频数据进行解码和二次编码，所以需要更长的处理时间。因此，混合画面的实际观看时延要比独立画面的多出1s - 2s。
 
+
 [](id:step5)
-### 步骤5：获取播放地址并对接播放
+### 步骤5：给 SDK 配置 License 授权
+若您已获得相关License授权，需在 [云直播控制台](https://console.cloud.tencent.com/live/license) 获取License URL和License Key；
+
+<img width="1317" alt="image" src="https://user-images.githubusercontent.com/88317062/169646279-929248e3-8ded-4b9e-8b04-2b6e462054a0.png">
+
+若您暂未获得License授权，需先参考 [新增与续期License](https://cloud.tencent.com/document/product/454/34750) 进行申请。
+
+在您的 App 调用 SDK 相关功能之前（建议在 `Application` / `- [AppDelegate application:didFinishLaunchingWithOptions:]`中）进行如下设置：
+<dx-codeblock>
+::: Android
+public class MApplication extends Application {
+
+@Override
+public void onCreate() {
+    super.onCreate();
+    String licenceURL = ""; // 获取到的 licence url
+    String licenceKey = ""; // 获取到的 licence key
+    V2TXLivePremier.setLicence(this, licenceURL, licenceKey);
+    V2TXLivePremier.setObserver(new V2TXLivePremierObserver() {
+            @Override
+            public void onLicenceLoaded(int result, String reason) {
+                Log.i(TAG, "onLicenceLoaded: result:" + result + ", reason:" + reason);
+            }
+        });
+}
+:::
+::: iOS
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    NSString * const licenceURL = @"<获取到的licenseUrl>";
+    NSString * const licenceKey = @"<获取到的key>";
+        
+    // V2TXLivePremier 位于 "V2TXLivePremier.h" 头文件中
+    [V2TXLivePremier setLicence:licenceURL key:licenceKey];
+    [V2TXLivePremier setObserver:self];
+    NSLog(@"SDK Version = %@", [V2TXLivePremier getSDKVersionStr]);
+    return YES;
+}
+
+#pragma mark - V2TXLivePremierObserver
+- (void)onLicenceLoaded:(int)result Reason:(NSString *)reason {
+    NSLog(@"onLicenceLoaded: result:%d reason:%@", result, reason);
+}
+@end
+:::
+</dx-codeblock>
+
+>! **License 中配置的 packageName/BundleId 必须和应用本身一致，否则会播放失败**
+
+[](id:step6)
+### 步骤6：获取播放地址并对接播放
 当您通过 [步骤2](#step2) 配置完播放域名和 [步骤3](#step3) 完成 streamId 的映射后，即可得到直播的播放地址。播放地址的标准格式为：
 ```
 http://播放域名/live/[streamId].flv
@@ -139,8 +189,8 @@ http://播放域名/live/[streamId].flv
 |微信小程序| [接入指引](https://cloud.tencent.com/document/product/454/34931) | [&lt;live-player&gt; 标签](https://developers.weixin.qq.com/miniprogram/dev/component/live-player.html)| 推荐 FLV |
 
 
-[](id:step6)
-### 步骤6：优化播放延时
+[](id:step7)
+### 步骤7：优化播放延时
 
 开启旁路直播后的 http - flv 地址，由于经过了直播 CDN 的扩散和分发，观看时延肯定要比直接在 TRTC 直播间里的通话时延要高。
 按照目前腾讯云的直播 CDN 技术，如果配合 V2TXLivePlayer 播放器，可以达到下表中的延时标准：
