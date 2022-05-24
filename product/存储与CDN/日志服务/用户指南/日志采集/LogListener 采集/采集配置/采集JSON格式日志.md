@@ -137,13 +137,13 @@ xff: -
 
 1. 单击**下一步**，进入“索引配置”页面。
 2. 在“索引配置”页面，设置如下信息。
-![](https://qcloudimg.tencent-cloud.cn/raw/1b60952273de7cb03d7985604da83209.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/fb5437644d34296f07fcc9c6bef8f30c.png)
  - 索引状态：确认是否开启。
 >! 检索必须开启索引配置，否则无法检索。
 >
  - 全文索引：确认是否需要设置大小写敏感。
- - 全文分词符：默认为“@&()='",;:<>[]{}/ \n\t\r”，确认是否需要修改。
- - 键值索引：默认开启，您可根据 key 名按需进行字段类型、分词符以及是否开启统计分析的配置。若您需要关闭键值索引，可将 <img src="https://main.qcloudimg.com/raw/d7ba8412e263386b627369741b457f2e.png" /> 设置为 <img src="https://main.qcloudimg.com/raw/bd22396a4acfbf6d96def87060207a46.png" />。
+ - 全文分词符：默认关闭，确认是否需要开启。
+ - 键值索引：默认开启，您可按需进行字段类型、分词符以及是否开启统计分析的配置。若您需要关闭键值索引，可将 <img src="https://main.qcloudimg.com/raw/d7ba8412e263386b627369741b457f2e.png" /> 设置为 <img src="https://main.qcloudimg.com/raw/bd22396a4acfbf6d96def87060207a46.png" />。
 3. 单击**提交**，完成采集配置。
 
 ## 相关操作
