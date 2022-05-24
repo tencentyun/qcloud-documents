@@ -139,6 +139,5 @@ that: >
 
 ## 参见
 
-- [YAML 语言教程 - 阮一峰](http://www.ruanyifeng.com/blog/2016/07/yaml.html)
 - [Yaml Cookbook](http://yaml.org/YAML_for_ruby.html)：提供了很多典型的 YAML 用例
 - [YAML Syntax - Ansible](http://docs.ansible.com/ansible/latest/reference_appendices/YAMLSyntax.html)：写了一些 YAML 的常见陷阱
