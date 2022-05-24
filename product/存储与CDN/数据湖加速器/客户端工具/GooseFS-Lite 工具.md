@@ -196,21 +196,19 @@ GooseFS-Lite 包含两个配置文件，分别为 conf/core-site.xml 及 conf/go
 | goosefs.fuse.list.entries.cache.enabled | 是否开启客户端 List 缓存 | true | 否     |
 | goosefs.fuse.list.entries.cache.max.size            | 客户端 List 最大缓存的条目数，单位：条 | 100000 | 否   |
 | goosefs.fuse.list.entries.cache.max.expiration.time | 客户端 List 缓存的有效时间，单位：ms | 15000 | 否   |
-| goosefs.fuse.append.file.enabled                    | 是否允许对文件进行追加操作 | true | 否   |
-| goosefs.fuse.append.file.max.size                   | 限制被追加文件的大小，单位：字节 | 10485760      | 否   |
 | goosefs.fuse.async.release.wait_time.max.ms         | open 和 rename 操作的文件正在被写入时，等待写入操作完成的时间，单位：ms | 5000 | 否   |
 | goosefs.fuse.umount.timeout                         | 卸载文件系统时，等待未完成操作的时间，单位：ms | 120000        | 否   |
 
-当您的读取并发度较大时，您可以通过如下方式，调整 GooseFS-Lite 最大 JVM 运行内存，避免 FullGC。默认值为`-Xms4G -Xmx4G -XX:+UseG1GC`。
+当您的读取并发度较大时，您可以通过如下方式，调整 GooseFS-Lite 最大 JVM 运行内存，避免 FullGC。默认值为`-Xms4G -Xmx4G -XX:MaxDirectMemorySize=4G -XX:+UseG1GC`。
 ```
-export JAVA_OPTS=" -Xms4G -Xmx4G -XX:+UseG1GC"
+export JAVA_OPTS=" -Xms4G -Xmx4G  -XX:MaxDirectMemorySize=8G -XX:+UseG1GC"
 ./bin/goosefs-lite mount /mnt/goosefs-lite-mnt/ cosn://examplebucket-1250000000/
 ps -ef|grep goosefs-lite|grep -v grep
 ```
 
 ### 常见问题
 
-#### 缺少 libfuse 库文件，该如何处理？
+#### 1. 缺少 libfuse 库文件，该如何处理？
 
 需要安装 libfuse:
 ![img](https://qcloudimg.tencent-cloud.cn/raw/7a535eed0fac0da06f530fb04ca9702b.png)
@@ -254,5 +252,30 @@ ln -s /usr/lib64/libfuse.so.2.9.7 /usr/lib64/libfuse.so
 ln -s /usr/lib64/libfuse.so.2.9.7 /usr/lib64/libfuse.so.2
 ```
 
+#### 2. 如何配置开机挂载？
+步骤1：
+创建开机挂载脚本 /root/goosefs-lite-1.0.0/mount_goosefs_lite.sh，并写入如下内容，你可以将 examplebucket-1250000000 替换为您需要挂载的存储桶：
+```
+#!/bin/bash
+/root/goosefs-lite-1.0.0/bin/goosefs-lite mount /mnt/goosefs-mnt cosn://examplebucket-1250000000/
+```
+授予挂载脚本执行权限:
+```
+chmod +x /root/goosefs-lite-1.0.0/mount_goosefs_lite.sh
+```
 
+步骤2：
+编辑 /etc/rc.d/rc.local，追加如下内容：
+```
+bash /root/goosefs-lite-1.0.0/mount_goosefs_lite.sh
+```
+授予 /etc/rc.d/rc.local 执行权限：
+```
+chmod +x /etc/rc.d/rc.local
+```
 
+步骤3：
+重启操作系统，查看是否挂载成功。
+```
+/root/goosefs-lite-1.0.0/bin/goosefs-lite stat
+```
