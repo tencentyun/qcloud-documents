@@ -1,8 +1,6 @@
 
 容器服务 TKE 产品自从对外提供服务以来，服务了众多用户，随产品能力日益丰富，为进一步提高用户体验，容器服务 TKE 计划于 2022 年 6 月 15 日正式将 TKE 云 API 2.0 相关接口下线。全新的 API 3.0 接口文档更加规范和全面，统一的参数风格和公共错误码，统一的 SDK/CLI 版本与 API 文档严格一致，给您带来简单快捷的使用体验。本次接口下线不涉及数据迁移，接口下线后可能会对您的集群管理造成影响，为避免影响您的业务，建议尽快将服务升级至 TKE API 3.0 接口。
 
-如果遇到产品类问题，您可以通过 [在线咨询](https://cloud.tencent.com/online-service?from=connect-us) 来寻求帮助。
-
 
 
 ### TKE API 2.0 切换 TKE API 3.0 接口对照表
@@ -48,4 +46,10 @@
 | MosifyIngress 	| 修改 Ingress 	| 原 API 2.0 接口已下线，建议通过 [kubernetes api](https://github.com/kubernetes/client-go) 直接调用 	|
 | RedeployClusterService 	| 服务重新部署 	| 原 API 2.0 接口已下线，建议通过 [kubernetes api](https://github.com/kubernetes/client-go) 直接调用 	|
 | RollBackClusterService 	| 回滚服务到上一个版本 	| 原 API 2.0 接口已下线，建议通过 [kubernetes api](https://github.com/kubernetes/client-go) 直接调用 	|
+
+
+如您有任何问题，可以咨询 [在线客服](https://cloud.tencent.com/act/event/Online_service) 或 [提交工单](https://console.cloud.tencent.com/workorder/category) 与我们联系。另外，您也可以拨打 4009100100 联系我们的客服人员。
+
+
+
 
