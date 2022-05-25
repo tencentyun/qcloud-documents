@@ -55,25 +55,28 @@ COS 用于图床场景的优势有：
 #### 步骤1：下载代码仓库
 
 登录原图床网站页面，下载仓库代码的 ZIP 包，解压到本地。或者直接 git clone 到本地目录。
-![图片](https://mmbiz.qpic.cn/mmbiz_jpg/oScxhp2eiagl92bxGsdPpib7LR3DB16qGlxuCxwXNmZr8CABWnaHm8libYdu4LqN0byEOKpgLcs2K0RgicHj6vIrCw/640?wx_fmt=jpeg&wxfrom=5&wx_lazy=1&wx_co=1)
+![](https://qcloudimg.tencent-cloud.cn/raw/e8d8ee13bce5bb546c7f0fb94a654887.jpg)
 
 #### 步骤2：创建 COS 存储桶并设置防盗链
 
 1. 注册腾讯云账号，创建一个访问权限为**公有读私有写**的存储桶，操作指引请参见 [创建存储桶](https://cloud.tencent.com/document/product/436/13309)。
-2. 创建存储桶后，在存储桶里打开防盗链设置，操作指引请参见 [设置防盗链](https://cloud.tencent.com/document/product/436/13319)。
+2. 创建存储桶后，在存储桶里打开防盗链设置，避免图片被盗刷，操作指引请参见 [设置防盗链](https://cloud.tencent.com/document/product/436/13319)。
 
 #### 步骤3：上传文件夹到存储桶
 
-在刚创建好的存储桶里，单击上传文件夹，将刚才准备好的图片文件夹，上传到 COS 存储桶。
-如果图片数量较大，可以用 [COSBrowser 客户端](https://cloud.tencent.com/document/product/436/11366) 加快上传速度。
+在刚才已创建的存储桶里，单击上传文件夹，将刚才准备好的图片文件夹，上传到 COS 存储桶。
+>?如果图片数量较多，还可以使用 [COSBrowser 客户端](https://cloud.tencent.com/document/product/436/11366) 快速上传图片。
+>
 ![](https://qcloudimg.tencent-cloud.cn/raw/9255b169bf3bc8a41197c091133ce162.png)
 
 
 #### 步骤4：全局替换链接域名
 
-在 COS 控制台存储桶概览页，复制存储桶域名（也可以绑定自定义加速域名）。使用常用代码编辑器，对项目全局搜索替换失效链接前缀为 COS 存储桶域名。
+在 COS 控制台存储桶概览页，复制存储桶默认域名（也可以绑定自定义 CDN 加速域名）。使用常用代码编辑器，对项目全局搜索替换失效链接前缀为 COS 存储桶默认域名。
+>?关于默认域名的说明，请参见 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224)。
 
-vscode 搜索替换示例：
-![图片](https://mmbiz.qpic.cn/mmbiz_png/oScxhp2eiagl92bxGsdPpib7LR3DB16qGlQe7cWFzAblpLu0RReicLLa3ml8IfTh3uTFIwjDDsjib0EBNRx4rFdjeQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
-sublime text 搜索替换示例：
-![图片](https://mmbiz.qpic.cn/mmbiz_png/oScxhp2eiagl92bxGsdPpib7LR3DB16qGlcdobqDFL8lZGGicnxFUamuoOIuXB2ibHia4d3smEI9dWoO8B4PG26Reibw/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
+- vscode 搜索替换示例：
+![](https://qcloudimg.tencent-cloud.cn/raw/3311b14556e9f794631a890f2a96056e.png)
+
+- sublime text 搜索替换示例：
+![](https://qcloudimg.tencent-cloud.cn/raw/d0d096590d44ed8e05c967fb0cbd41c1.png)
