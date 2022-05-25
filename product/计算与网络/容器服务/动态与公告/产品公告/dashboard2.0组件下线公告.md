@@ -15,23 +15,23 @@
 | CreateClusterNamespace 	| 创建集群命名空间 	| 原 API 2.0 接口已下线，建议通过 [kubernetes api](https://github.com/kubernetes/client-go) 直接调用 	|
 | CreateClusterRoute 	| 创建集群路由 	| [CreateClusterRoute](https://cloud.tencent.com/document/product/457/37186) 	|
 | CreateClusterService 	| 创建服务 	| 原 API 2.0 接口已下线，建议通过 [kubernetes api](https://github.com/kubernetes/client-go) 直接调用 	|
-| CreateEmptyCluster 	| 创建空集群 	| [下线](下线) 	|
+| CreateEmptyCluster 	| 创建空集群 	| 下线 	|
 | CreateLogCollector 	| 创建集群日志收集规则 	| 原 API 2.0 接口已下线，建议通过 [kubernetes api](https://github.com/kubernetes/client-go) 直接调用 	|
 | DeleteCluster 	| 删除集群 	| [DeleteCluster](https://cloud.tencent.com/document/product/457/36704) 	|
 | DeleteClusterInstances 	| 删除集群节点 	| [DeleteClusterInstances](https://cloud.tencent.com/document/product/457/31864) 	|
 | DeleteClusterRoute 	| 删除集群路由 	| [DeleteClusterRoute](https://cloud.tencent.com/document/product/457/37184) 	|
-| DeleteClusterRouteTable 	| 删除集群路由表 	| [DeleteClusterRouteTables](不可见) 	|
+| DeleteClusterRouteTable 	| 删除集群路由表 	|  DeleteClusterRouteTables 	|
 | DeleteInstances 	| 删除实例 	| 原 API 2.0 接口已下线，建议通过 [kubernetes api](https://github.com/kubernetes/client-go) 直接调用 	|
 | DescribeClusterApiServerEndpoint 	| 获取集群访问地址 	| [DescribeClusterSecurity](https://cloud.tencent.com/document/product/457/36703) 	|
 | DescribeClusterAsg 	| 查询集群伸缩组 	| [DescribeClusterAsGroups](https://cloud.tencent.com/document/product/457/40471) 	|
 | DescribeClusterContainer 	| 获取集群容器列表 	| 原 API 2.0 接口已下线，建议通过 [kubernetes api](https://github.com/kubernetes/client-go) 直接调用 	|
 | DescribeClusterInstances 	| 获取集群节点列表 	| [DescribeClusterInstances](https://cloud.tencent.com/document/product/457/31863) 	|
 | DescribeClusterNameSpaces 	| 查询集群的命名空间 	| 原 API 2.0 接口已下线，建议通过 [kubernetes api](https://github.com/kubernetes/client-go) 直接调用 	|
-| DescribeClusterRequestLimitInfo 	| 查询集群Request和Limit信息 	| [下线](切换控制台推荐功能) 	|
+| DescribeClusterRequestLimitInfo 	| 查询集群 Request 和 Limit 信息 	|  下线  	|
 | DescribeClusterRoute 	| 查询集群路由 	| [DescribeClusterRoutes](https://cloud.tencent.com/document/product/457/37181) 	|
 | DescribeClusterRouteTable 	| 查询集群路由表 	| [DescribeClusterRouteTables](https://cloud.tencent.com/document/product/457/37182) 	|
 | DescribeClusterSecurityInfo 	| 获取集群外网访问凭据 	| [DescribeClusterSecurity](https://cloud.tencent.com/document/product/457/36703) 	|
-| DescribeClusterService 	| 获取服务列表 	| [DescribeClusterServices](后期下线) 	|
+| DescribeClusterService 	| 获取服务列表 	| DescribeClusterServices（后期下线） 	|
 | DescribeClusterServiceInfo 	| 获取服务详情 	| 原 API 2.0 接口已下线，建议通过 [kubernetes api](https://github.com/kubernetes/client-go) 直接调用 	|
 | DescribeIngress 	| 查询ingress列表 	| 原 API 2.0 接口已下线，建议通过 [kubernetes api](https://github.com/kubernetes/client-go) 直接调用 	|
 | DescribeInstanceLog 	| 获取容器日志 	| 原 API 2.0 接口已下线，建议通过 [kubernetes api](https://github.com/kubernetes/client-go) 直接调用 	|
