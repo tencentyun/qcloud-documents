@@ -199,9 +199,9 @@ GooseFS-Lite 包含两个配置文件，分别为 conf/core-site.xml 及 conf/go
 | goosefs.fuse.async.release.wait_time.max.ms         | open 和 rename 操作的文件正在被写入时，等待写入操作完成的时间，单位：ms | 5000 | 否   |
 | goosefs.fuse.umount.timeout                         | 卸载文件系统时，等待未完成操作的时间，单位：ms | 120000        | 否   |
 
-当您的读取并发度较大时，您可以通过如下方式，调整 GooseFS-Lite 最大 JVM 运行内存，避免 FullGC。默认值为`-Xms4G -Xmx4G -XX:MaxDirectMemorySize=4G -XX:+UseG1GC`。
+当您的读取和写入并发度较大，您可以通过如下方式，调整 GooseFS-Lite 最大 JVM 运行内存，避免 FullGC 和 OutOfMemoryError。JVM 默认值为`-Xms2G -Xmx2G -XX:MaxDirectMemorySize=4G -XX:+UseG1GC`，调整方式如下：
 ```
-export JAVA_OPTS=" -Xms4G -Xmx4G  -XX:MaxDirectMemorySize=8G -XX:+UseG1GC"
+export JAVA_OPTS=" -Xms16G -Xmx16G  -XX:MaxDirectMemorySize=16G -XX:+UseG1GC"
 ./bin/goosefs-lite mount /mnt/goosefs-lite-mnt/ cosn://examplebucket-1250000000/
 ps -ef|grep goosefs-lite|grep -v grep
 ```
@@ -292,9 +292,9 @@ systemctl enable goosefs-lite
 步骤三：
 卸载挂载点，重启机器，并查看 Fuse 进程状态：
 ```
-# 执行挂载点卸载，注意：请勿在数据写入的时卸载，否则会导致数据不完整。
+# 执行卸载，注意：请勿在数据写入的时卸载，否则会导致数据不完整
 systemctl stop goosefs-lite
-# 重启机器，请谨慎操作
+# 重启操作系统，请谨慎操作，不要影响业务
 reboot -h now
 # 查看后台 Daemon 进程状态
 systemctl status goosefs-lite
