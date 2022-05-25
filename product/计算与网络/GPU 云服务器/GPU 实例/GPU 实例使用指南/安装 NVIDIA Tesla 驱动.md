@@ -22,7 +22,7 @@ Linux 驱动安装采用 Shell 脚本安装方式，适用于任何 Linux 发行
 NVIDIA Telsa GPU 的 Linux 驱动在安装过程中需要编译 kernel module，系统需提前安装 gcc 和编译 Linux Kernel Module 所依赖的包，例如 `kernel-devel-$(uname -r)` 等。本文提供 CentOS 及 Ubuntu 系统操作步骤，请您按需选择：
 
 <dx-tabs>
-::: CentOS
+::: RHEL系
 
 1. 执行以下命令，检查当前系统中是否已安装 dkms。
 ```shellsession
@@ -86,7 +86,7 @@ nvidia-smi
 
 
 :::
-::: Ubuntu
+::: Ubuntu/Debian
 
 <dx-alert infotype="explain" title="">
 以下步骤适用于直通卡型（GPU 卡数 ≥ 1）Ubuntu 系统 Tesla 驱动和 GRID 驱动安装，若您使用 GRID 驱动，请参考文档申请和配置 GRID license，详情请参见 [安装 NVIDIA GRID 驱动](https://cloud.tencent.com/document/product/560/30060)。
