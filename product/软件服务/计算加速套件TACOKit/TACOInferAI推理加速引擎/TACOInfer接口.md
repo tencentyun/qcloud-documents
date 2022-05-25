@@ -14,7 +14,9 @@ def optimize_cpu(
 ) -> Dict:
 ```
 
+
 ### 输入参数说明
+
 <table>
 <tr>
 <th>参数</th>
@@ -35,7 +37,7 @@ def optimize_cpu(
 <td>test_data</td>
 <td>必选</td>
 <td>优化过程中需要使用到的模型输入的测试数据。TACO Infer 在优化模型的过程中需要使用测试数据对模型的性能，精度等指标进行评估，以指导模型优化过程。对于 TF 模型，该参数为 session run 所需的  feed_dict。<b>需注意，test_data 只接受 numpy array 数据格式。</b><br>构建 test_data 的方式示例如下：
-<pre style="color:white">
+```
 import numpy as np
 
 def gen_test_data(batch_size = 1):
@@ -43,7 +45,7 @@ def gen_test_data(batch_size = 1):
     image_size = 299
     input_data = np.random.rand(batch_size, image_size, image_size, 3)
     return {INPUT_NAME: input_data}
-</pre>
+```
 </td>
 </tr>
 <tr>
@@ -62,8 +64,8 @@ def gen_test_data(batch_size = 1):
 <td>模型配置。例如，对于存在1个以上 signature 的 TF SavedModel，您可以通过配置 <code>model_config</code> 知会 TACO Infer 哪一个需要被优化：
 <ul style="margin-bottom:0px">
 <li>通过 <code>print(model_config)</code>可以查看默认（或修改后的）配置。</li>
-<li>通过 <code>print(model_cfg.help())</code> 了解有哪些可配置项及如何配置。示例如下：
-<pre style="color:white">
+<li>通过 <code>print(model_cfg.help())</code> 了解有哪些可配置项及如何配置。示例如下：</li>
+```
 print(model_cfg.help())
 
 How-to-assign-a-"model_config":
@@ -82,14 +84,19 @@ Tell TACO Inf which signature to use if more than 1 signature.
 
 Example of updating a config:
 model_config.parse({"tensorflow.inputs": ['Placeholder:0']})
-<pre>
-</li>
+```
 </ul>
 </td>
 </tr>
 </table>
 
-### 输出参数说明[](id:Optimization)
+
+
+
+
+
+### 输出参数说明 [](id:Optimization)
+
 优化模型后会产生一个 JSON 格式的优化报告，该报告包含了优化模型的硬件，软件以及一些总结信息。输出参数如下所示：
 ```json
 {
