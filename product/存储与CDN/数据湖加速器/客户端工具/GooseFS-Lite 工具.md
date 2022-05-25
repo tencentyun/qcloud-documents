@@ -288,13 +288,14 @@ systemctl status goosefs-lite
 ```
 systemctl enable goosefs-lite
 ```
-执行卸载，注意：请勿在数据写入的时卸载，否则会导致数据不完整。
-```
-systemctl stop goosefs-lite
-```
+
 步骤三：
-重启机器，并执行如下命令查看 Fuse 进程状态：
+卸载挂载点，重启机器，并查看 Fuse 进程状态：
 ```
+# 执行挂载点卸载，注意：请勿在数据写入的时卸载，否则会导致数据不完整。
+systemctl stop goosefs-lite
+# 重启机器，请谨慎操作
+reboot -h now
 # 查看后台 Daemon 进程状态
 systemctl status goosefs-lite
 # 查看挂载点列表
