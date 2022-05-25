@@ -70,17 +70,18 @@ yum install libuuid-devel
 ```
 
 
+### 获取 Wheel 包及 SDK 包
+填写 [TACO Infer 调查问卷](https://wj.qq.com/s2/10076022/0280/)，即可获得 TACO Infer Python Wheel 包和 SDK 安装包。目前支持计算环境和框架请参见 [使用环境要求](#requirements)，若有其他版本需要可以 [联系我们](https://cloud.tencent.com/document/product/1573/74094)。
+
+
 ### 安装 Wheel 包
-1. 填写 [TACO Infer 调查问卷](https://wj.qq.com/s2/10076022/0280/)，即可获得 TACO Infer Python Wheel 包和 SDK 安装包。目前支持计算环境和框架请参见 [使用环境要求](#requirements)，若有其他版本需要可以 [联系我们](https://cloud.tencent.com/document/product/1573/74094)。
-2. 通过 pip 命令，即可安装 Taco python 包：
+通过 pip 命令，即可安装 Taco python 包：
 ```bash
 pip install ${path/to/wheel_package}
 ```
 
 ### 获取 SDK 包
-
-1. 填写 [TACO Infer 调查问卷](https://wj.qq.com/s2/10076022/0280/)，即可获得 TACO Infer Python Wheel 包和 SDK 安装包。目前支持计算环境和框架请参见 [使用环境要求](#requirements)，若有其他版本需要可以 [联系我们](https://cloud.tencent.com/document/product/1573/74094)。
-2. 建议将解压后的库文件拷贝到 `/usr/local/lib` 下，以便 ld 程序能够找到 Taco 动态链接库进行链接。
+ 建议将解压后的库文件拷贝到 `/usr/local/lib` 下，以便 ld 程序能够找到 Taco 动态链接库进行链接。
 
 SDK 包中存在三个动态链接库和一个可执行文件：
 - libtaco_tf.so
