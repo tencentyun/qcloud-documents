@@ -9,7 +9,7 @@
 
 腾讯连连 APP SDK(以下简称“SDK产品”)由深圳市腾讯计算机系统有限公司(以下简称“我们”)开发, 公司注册地为深圳市南山区粤海街道麻岭社区科技中一路腾讯大厦 35 层。
 
-《腾讯连连 App SDK个人信息保护规则》(以下简称“本规则”)主要向开发者及其终端用户(“终端用户”)告知,为了实现SDK产品的相关功能,SDK产品需收集、使用和处理终端用户个人信息的情况。
+《腾讯连连 APP SDK个人信息保护规则》(以下简称“本规则”)主要向开发者及其终端用户(“终端用户”)告知,为了实现SDK产品的相关功能,SDK产品需收集、使用和处理终端用户个人信息的情况。
 
 请开发者及终端用户认真阅读本规则。如您是开发者，请您确认充分了解并同意本规则后再集成SDK产品，如果您不同意本规则及按照本规则履行对应的用户个人信息保护义务，应立即停止接入及使用SDK产品；同时，您应仅在征得终端用户的同意后集成SDK产品并处理终端用户的个人信息。
 
@@ -31,9 +31,9 @@
 
 | 个人信息类型 | 处理目的                                   | 处理方式                                                     | 操作系统     |
 | ------------ | ------------------------------------------ | ------------------------------------------------------------ | ------------ |
-| WiFi状态     | 检查网络状态                               | 调用系统API 获取WIFI状态                                     | Android      |
-| WiFi参数     | 设备配网流程                               | 调用系统API 获取WIFI有关参数，明文传输                       | Android、iOS |
-| WiFi列表     | 设备配网，选择热点WiFi                     | 系统API调用 获取WIFI列表                                     | Android      |
+| Wi-Fi状态     | 检查网络状态                               | 调用系统API 获取WIFI状态                                     | Android      |
+| Wi-Fi参数     | 设备配网流程                               | 调用系统API 获取WIFI有关参数，明文传输                       | Android、iOS |
+| Wi-Fi列表     | 设备配网，选择热点Wi-Fi                     | 系统API调用 获取WIFI列表                                     | Android      |
 | 系统设置     | 本地保存音视频、日志文件                   | 调用系统API 按要求的生成格式保存                             | Android、iOS |
 | 系统属性     | 上报日志、接口参数中区别中英文和平台       | 调用系统API 获取系统属性信息                                 | Android、iOS |
 | IP地址       | soft方式配网以及涉及的socket连接           | 调用系统API 获取当前被分配的IP地址，明文传输                 | Android、iOS |
@@ -51,7 +51,7 @@
 | :----------------------- | :--------------------------------- | ------------------ | ------------------------------------------- | ------------------------------------------------------------ |
 | Fastjson（开源）         | 阿里巴巴集团控股有限公司           | 无                 | 无                                          | 无                                                           |
 | ZXing Core（开源）       | google（谷歌）                     | 相机               | 解析二维码内容                              | [单击跳转](https://github.com/zxing/zxing/blob/99e9b34f5afc21fdaeead283d5ed0bc1314cbec1/android/assets/html-it/license.html) |
-| esptouch                 | 乐鑫信息科技（上海）股份有限公司） | WIFI列表           | 获取WiFi列表中的 名称和ssid，对设备进行配网 | [单击跳转](https://www.espressif.com/zh-hans/content/privacy)          |
+| esptouch                 | 乐鑫信息科技（上海）股份有限公司） | WIFI列表           | 获取 Wi-Fi 列表中的 名称和 ssid，对设备进行配网 | [单击跳转](https://www.espressif.com/zh-hans/content/privacy)          |
 | java-websocket（开源）   | Nathan Rajlich                     | 无                 | 无                                          | 无                                                           |
 | SLF4J API Module（开源） | Apache软件基金会                   | 个人日志           | 记录个人日志                                | [单击跳转](https://www.slf4j.org/license.html)                         |
 
@@ -61,7 +61,7 @@
 
 | 操作系统 | 权限名称                                                     | 使用目的                                                     | 是否可选 |
 | -------- | ------------------------------------------------------------ | ------------------------------------------------------------ | -------- |
-| Android  | android.permission.ACCESS_FINE_LOCATION android.permission.ACCESS_COARSE_LOCATION | 允许获取当前定位，显示当地天气和城市信息，获取WiFi参数、列表、IP | 必选     |
+| Android  | android.permission.ACCESS_FINE_LOCATION android.permission.ACCESS_COARSE_LOCATION | 允许获取当前定位，显示当地天气和城市信息，获取 Wi-Fi 参数、列表、IP | 必选     |
 | Android  | android.permission.CAMERA                                    | 允许拍摄上传图片和音视频通话，扫码绑定设备                   | 必选     |
 | Android  | android.permission.RECORD_AUDIO                              | 允许语音通话                                                 | 可选     |
 | Android  | android.permission.WRITE_EXTERNAL_STORAGE android.permission.READ_EXTERNAL_STORAGE | 允许从相册上传图片                                           | 必选     |
@@ -70,7 +70,7 @@
 
 | 操作系统 | 权限名称                                                     | 使用目的                                                     | 是否可选 |
 | -------- | ------------------------------------------------------------ | ------------------------------------------------------------ | -------- |
-| iOS      | Privacy -Privacy - Location When In Use Usage Description    | 允许获取当前定位，显示当地天气和城市信息，获取WiFi参数、列表、IP | 必选     |
+| iOS      | Privacy -Privacy - Location When In Use Usage Description    | 允许获取当前定位，显示当地天气和城市信息，获取 Wi-Fi 参数、列表、IP | 必选     |
 | iOS      | Privacy - Camera Usage Description                           | 允许拍摄上传图片和音视频通话，扫码绑定设备                   | 必选     |
 | iOS      | Privacy - Microphone Usage Description                       | 允许语音通话                                                 | 可选     |
 | iOS      | Privacy - Photo Library Usage Description  Privacy - Photo Library Additions Usage Description | 允许从相册上传图片                                           | 必选     |
