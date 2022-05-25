@@ -264,6 +264,7 @@ After=network-online.target
 [Service]
 Type=forking
 User=root
+Environment="JAVA_OPTS=-Xms16G -Xmx16G -XX:MaxDirectMemorySize=16G -XX:+UseG1GC"
 ExecStart=/usr/local/goosefs-lite-1.0.0/bin/goosefs-lite mount /mnt/goosefs-mnt cosn://examplebucket-1250000000/
 ExecStop=/usr/local/goosefs-lite-1.0.0/bin/goosefs-lite umount /mnt/goosfs-mnt
 
