@@ -18,17 +18,7 @@ COS 用于图床场景的优势有：
 - PicGo：一款支持多种云存储配置、快捷生成图片链接的工具。
 - Typora：一款轻量级 Markdown 编辑器，支持多种输出格式，支持将本地图片一键上传至图床。
 
-具体的操作请参见 [使用 COS 搭建图床服务](#UseCOSBuildImg)。
-
-### 场景2：将原图床仓库图片快速迁移到腾讯云 COS
-
-以某图床服务举例，您可以找到本地图床文件夹，或从线上下载完整文件夹，并将文件夹中所有图片转存到 COS 存储桶。最后再统一替换链接域名即可恢复网站。
-具体的操作请参见 [将图床仓库图片迁移到 COS](#MovingImgToCOS)。
-
-## 操作步骤
-
-<span id="UseCOSBuildImg"></span>
-### 使用 COS 搭建图床服务
+### 操作步骤
 
 1. 安装 PicGo 并设置腾讯云 COS 服务相关参数。
 >?本次实践使用的是 PicGo 2.3.0版本，其他版本的配置过程可能存在一定差异，请注意相应调整。
@@ -55,8 +45,13 @@ COS 用于图床场景的优势有：
  3. 进入 typora 编辑器区域，直接拖放或粘贴图片，即可上传图片并自动替换为 COS 文件链接。（如果粘贴后没有自动替换为 COS 链接，可以检查 PicGo 中的 server 设置是否已打开）。
 ![](https://qcloudimg.tencent-cloud.cn/raw/607852baa13b0e9b201857668059a8e3.png)
 
-<span id="MovingImgToCOS"></span>
-### 将图床仓库图片迁移到腾讯云 COS
+
+### 场景2：将原图床仓库图片快速迁移到腾讯云 COS
+
+以某图床服务举例，您可以找到本地图床文件夹，或从线上下载完整文件夹，并将文件夹中所有图片转存到 COS 存储桶。最后再统一替换链接域名即可恢复网站。
+具体的操作请参见 [将图床仓库图片迁移到 COS](#MovingImgToCOS)。
+
+### 操作步骤
 
 #### 步骤1：下载代码仓库
 
@@ -83,7 +78,3 @@ vscode 搜索替换示例：
 ![图片](https://mmbiz.qpic.cn/mmbiz_png/oScxhp2eiagl92bxGsdPpib7LR3DB16qGlQe7cWFzAblpLu0RReicLLa3ml8IfTh3uTFIwjDDsjib0EBNRx4rFdjeQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
 sublime text 搜索替换示例：
 ![图片](https://mmbiz.qpic.cn/mmbiz_png/oScxhp2eiagl92bxGsdPpib7LR3DB16qGlcdobqDFL8lZGGicnxFUamuoOIuXB2ibHia4d3smEI9dWoO8B4PG26Reibw/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1)
-
-:::
-</dx-tabs>
-
