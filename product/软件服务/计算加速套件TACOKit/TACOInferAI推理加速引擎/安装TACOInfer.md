@@ -70,7 +70,7 @@ yum install libuuid-devel
 ```
 
 
-### 获取 Wheel 包及 SDK 包
+### 获取 Wheel 包及 SDK 包[](id:getWheelSDK)
 填写 [TACO Infer 调查问卷](https://wj.qq.com/s2/10076022/0280/)，即可获得 TACO Infer Python Wheel 包和 SDK 安装包。目前支持计算环境和框架请参见 [使用环境要求](#requirements)，若有其他版本需要可以 [联系我们](https://cloud.tencent.com/document/product/1573/74094)。
 
 
