@@ -5,9 +5,9 @@
 
 
 
-### dashboard2.0 切换 dashboard3.0 接口对照表[](id:dashboard)
+### TKE API 2.0 切换 TKE API 3.0 接口对照表
 
-| 2.0调用接口 	| 2.0调用接口名称 	| 3.0调用接口 	|
+| 2.0 调用接口 	| 2.0 调用接口名称 	| 3.0 调用接口 	|
 |---	|---	|---	|
 | AddClusterInstances 	| 扩展集群节点 	| [CreateClusterInstances](https://cloud.tencent.com/document/product/457/36707) 	|
 | CheckClusterRouteTableCidrConflict 	| 检查集群路由表 CIDR 冲突 	| [DescribeRouteTableConflicts](https://cloud.tencent.com/document/product/457/37180) 	|
