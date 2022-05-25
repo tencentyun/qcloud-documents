@@ -71,7 +71,7 @@ Database 连接器支持 MySQL 数据库的连接及增删改查等数据库常�
 3. 购买弹性公网IP后，在 [实例管理](https://console.huaweicloud.com/rds/?agencyId=0d6513274680f2a11fe9c008e8660bbb&region=cn-east-3&locale=zh-cn#/rds/management/list)页面，选择目标实例，单击**实例名称**，进入实例的**基本信息**页面。在左侧导航栏，单击**连接管理**，在**连接信息**>**公网地址**处，单击**绑定**。
  ![](https://qcloudimg.tencent-cloud.cn/raw/bd7ac1f5974a70d800815f40c09835c7.png)
  4. 绑定成功后，界面显示公网地址：[](id:method1)
-![](https://qcloudimg.tencent-cloud.cn/raw/37a938431fa4adb8e28532b30fd2d652.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/edab7019fe21ff19742301ce4179f06f.png)
 :::
 ::: 已有弹性公网 IP 绑定到 MySQL
 
