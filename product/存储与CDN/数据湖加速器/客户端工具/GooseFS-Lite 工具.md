@@ -277,8 +277,10 @@ WantedBy=multi-user.target
 systemctl daemon-reload
 # 启动后台 Fuse 进程
 systemctl start goosefs-lite
-# 查看 daemon 进程状态
+# 查看后台 Daemon 进程状态
 systemctl status goosefs-lite
+# 查看挂载点列表
+/usr/local/goosefs-lite-1.0.0/bin/goosefs-lite stat
 
 ```
 设置为开机启动时尝试挂载：
