@@ -265,7 +265,7 @@ After=network-online.target
 Type=forking
 User=root
 ExecStart=/usr/local/goosefs-lite-1.0.0/bin/goosefs-lite mount /mnt/goosefs-mnt cosn://examplebucket-1250000000/
-ExeStop=/usr/local/goosefs-lite-1.0.0/bin/goosefs-lite umount /mnt/goosfs-mnt
+ExecStop=/usr/local/goosefs-lite-1.0.0/bin/goosefs-lite umount /mnt/goosfs-mnt
 
 [Install]
 WantedBy=multi-user.target
