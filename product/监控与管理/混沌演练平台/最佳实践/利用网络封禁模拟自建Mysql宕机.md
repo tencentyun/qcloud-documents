@@ -12,7 +12,7 @@
 ## 构建实验
 ### 步骤1：确认故障注入目标
 根据架构选择注入目标为 Master，验证当 Master 出现网络封堵时，是否能够正常切换到 Slave，并且实现业务无感知。
-![](https://qcloudimg.tencent-cloud.cn/raw/c91b3360d8a2de3cf85bffae045bb732.png" width="65%">
+<img src="https://qcloudimg.tencent-cloud.cn/raw/c91b3360d8a2de3cf85bffae045bb732.png" width="65%">
 
 
 ### 步骤2：进行实验构建
