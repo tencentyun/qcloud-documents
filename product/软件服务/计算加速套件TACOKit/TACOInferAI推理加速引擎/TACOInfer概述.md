@@ -21,7 +21,7 @@ TACO Infer AI 推理加速引擎是一款计算加速推理套件，帮助您简
 
 
 ### 软硬件兼容
-- 支持多种框架模型，TenSorflow 已开放支持，pytorch，onnx 等框架已在筹备中。
+- 支持多种框架模型，TenSorflow 已开放支持，PyTorch，ONNX 等框架已在筹备中。
 - 兼容 CPU、GPU、NPU 等多种加速硬件。
 - 可运行在虚拟机、物理机、容器等各种环境。
 
@@ -31,3 +31,13 @@ TACO Infer AI 推理加速引擎是一款计算加速推理套件，帮助您简
 - 编译优化。
 - 图优化和算子优化。
 
+
+## 使用说明
+TACO Infer 支持虚拟机、物理机、容器等各种环境，目前已支持 TensorFlow 模型的 CPU 优化部署。TACO Infer 的推理优化部署有以下几个步骤：
+
+**1. 硬件选型和环境配置**
+关于计算环境的选型和配置推荐请参见 [TACO Infer 使用环境说明]()，软件安装请参见 [TACO Infer 环境配置]()。
+**2. 使用 TACO Infer 生成优化模型**
+您需要使用 Python Wheel 包生成优化的模型，具体操作请参见 [TensorFlow 模型优化](https://cloud.tencent.com/document/product/1573/74092)，优化模型将会存放于您指定的路径，与输入模型保持同一格式，加速效果您可通过 [调用优化接口]() 查看。
+**3. 部署 TACO Infer 优化模型**
+在完成模型的优化后，您需要将模型部署在生产环境，TACO Infer 提供 SDK 包部署，部署流程请参见 [TensorFlow 模型推理部署](https://cloud.tencent.com/document/product/1573/74468)。按照流程部署编译完成后，运行即可加载优化后的模型进行推理计算。
