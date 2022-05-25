@@ -39,7 +39,7 @@
 
 ## 接入配置
 配置腾讯云数据连接器 Kafka 连接器连接属性步骤如下：
-1.  在 [腾讯云数据连接器控制台](https://console.cloud.tencent.com/ipaas) 上单击**新建应用**，选择**空白应用**进行创建。
+1.  在 [腾讯云数据连接器控制台](https://console.cloud.tencent.com/ipaas) 上单击**添加应用**，选择**空白应用**进行创建。
 ![](https://qcloudimg.tencent-cloud.cn/raw/f0e3a02558a61e6168e4a6c993931820.png)
 2. 单击左侧的**集成流**展开选择**NewFlow**在画布中单击**+**选择**Apache Kafka 连接器**相关操作。
 ![](https://qcloudimg.tencent-cloud.cn/raw/188f6b9dbdd2c8c618f417ea3d293ba6.png)
