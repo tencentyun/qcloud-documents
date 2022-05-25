@@ -11,7 +11,7 @@ GooseFS-Lite 工具支持将对象存储（Cloud Object Storage，COS）存储�
 - 不支持读取和 rename 当前挂载点正在写入的文件。
 - 元数据操作。例如 list directory，性能较差，因为需要远程访问 COS 服务器。
 - 不支持 soft/hard link。
-- 追加写性能较差，且存在大小限制，需要将被追加文件下载到本地。
+- 追加写性能较差，涉及服务端数据拷贝和下载被追加文件。
 >! 外网挂载和非低频存储的追加写操作，会产生下载流量费用。
 >
 
@@ -264,6 +264,7 @@ After=network-online.target
 [Service]
 Type=forking
 User=root
+Environment="JAVA_OPTS=-Xms16G -Xmx16G -XX:MaxDirectMemorySize=16G -XX:+UseG1GC"
 ExecStart=/usr/local/goosefs-lite-1.0.0/bin/goosefs-lite mount /mnt/goosefs-mnt cosn://examplebucket-1250000000/
 ExecStop=/usr/local/goosefs-lite-1.0.0/bin/goosefs-lite umount /mnt/goosfs-mnt
 
