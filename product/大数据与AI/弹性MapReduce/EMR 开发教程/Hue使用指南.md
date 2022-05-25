@@ -12,9 +12,7 @@ Hue 是一个开源的 Apache Hadoop UI 系统，由 Cloudera Desktop 演化而�
 ## 用户权限管理
 首先使用管理员账号登录 Hue。
 
->! 
->- 以下文档为 Hue 未使用 OpenLDAP 作为用户管理场景下的操作说明。
->EMR-V2.6.0及以后版本、EMR-V3.3.0及以后版本 Hue 默认使用 OpenLDAP 用户， Hue 用户直接通过 [用户管理](https://cloud.tencent.com/document/product/589/62751) 进行管理。
+>! 以下文档为 Hue 未使用 OpenLDAP 作为用户管理场景下的操作说明。EMR-V2.6.0及以后版本、EMR-V3.3.0及以后版本 Hue 默认使用 OpenLDAP 用户， Hue 用户直接通过 [用户管理](https://cloud.tencent.com/document/product/589/62751) 进行管理。
 
 1. 添加用户。
 	1. 单击右方的** Add user**。
