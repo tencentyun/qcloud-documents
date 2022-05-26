@@ -75,7 +75,35 @@
 :::
 </dx-codeblock>
 
-8. 确认部署结果
+8. 修改 polaris-sidecar 的地址插件并重启 polaris-sidecar
+ 1. **配置文件路径信息**：polaris-sidecar-install/polaris-sidecar-release_${VERSION}/polaris.yaml
+<dx-codeblock>
+:::  yaml
+   global:
+     serverConnector:
+       addresses:
+         - 10.0.4.6:8091
+     location:
+       # 设置 polaris-go 进程地理信息的提供插件为 腾讯云 插件
+       # 如果当前进程在CVM或者TKE中，则能够自动获取当前进程所在的位置信息
+       #
+       # 如果自动获取失败，则可以设置插件为 env，然后在 linux 中注入以下环境变量
+       # POLARIS_INSTANCE_ZONE: 设置 zone 信息, 例如 ap-guangzhou
+       # POLARIS_INSTANCE_CAMPUS: 设置 IDC 信息, 例如 ap-guangzhou-3
+       provider: qcloud
+:::
+</dx-codeblock> 
+ 
+ 2. **重启** polaris-sidecar
+ - 进入 **polaris-sidecar-install/polaris-sidecar-release_${VERSION}**
+ - 执行 shell 命令
+<dx-codeblock>
+:::  shell
+    bash tool/stop.sh; bash tool/start.sh
+:::
+</dx-codeblock>
+
+9.  确认部署结果
  1. 进入前面提到的微服务治理中心实例页面。
  - 选择**服务管理** > **服务列表**，查看微服务 RouteNearbyEchoServer 的实例数量
     - 若实例数量值不为0，则表示已经成功接入微服务引擎
@@ -84,11 +112,14 @@
  - 开启 RouteNearbyEchoServer 的就近路由
 ![](https://qcloudimg.tencent-cloud.cn/raw/7f46cd9aabfbfba93ac3e8bc7bbfbe4b.png)
 
-9. 调用 provider 的 HTTP 接口
+10. 为 RouteNearbyEchoServer 创建服务别名 routenearby.echoserver
+![](https://qcloudimg.tencent-cloud.cn/raw/3d542768f5d3e89396c6ac679604dc5f.png)
+
+11. 调用 provider 的 HTTP 接口
     - 执行 http 调用，其中`${app.port}`替换为 provider 的监听端口（默认为28080），`${add.address}`则替换为 provider 的域名信息。
 <dx-codeblock>
 :::  shell
-   curl -L -X GET 'http://route.nearby.echoserver:28080/echo'
+   curl -L -X GET 'http://routenearby.echoserver.default:28080/echo'
    预期返回值：Hello, I'm RouteNearbyEchoServer Provider, MyLocInfo's : xxx, host : xxx:xxx
 :::
 </dx-codeblock>  

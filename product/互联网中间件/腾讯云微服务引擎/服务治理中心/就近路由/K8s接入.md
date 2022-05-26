@@ -28,8 +28,9 @@ kubectl label namespace default polaris-sidecar-mode=dns
 </dx-codeblock>
 
 7. 修改 demo 中的注册中心地址
- 1. 在下载到本地的 [demo 源码](https://github.com/polarismesh/polaris-go/tree/main/examples/route/nearby/k8s) 目录下，分别找到`configmap-consumer.yaml`以及`configmap-provider.yaml`文件
- - 添加微服务引擎服务治理中心地址到项目配置文件中（这里已`configmap-consumer.yaml`为例）。
+ 1. 在下载到本地的 [demo 源码](https://github.com/polarismesh/polaris-go/tree/main/examples/route/nearby/k8s) 目录下，找到`configmap-provider.yaml`文件
+ - 添加微服务引擎服务治理中心地址到项目配置文件中（这里已`configmap-provider.yaml`为例）。
+ - 修改位置信息获取插件名称到项目配置文件中（这里已`configmap-provider.yaml`为例）。
 <dx-codeblock>
 :::  yaml
 apiVersion: v1
@@ -41,20 +42,9 @@ data:
           - 10.0.4.6:8091
       location:
         # 设置 polaris-go 进程地理信息的提供插件
-        # 设置为 env 时，可以在 linux 中注入以下环境变量
-        # POLARIS_INSTANCE_REGION: 设置 region 信息, 例如 china
-        # POLARIS_INSTANCE_ZONE: 设置 zone 信息, 例如 ap-guangzhou
-        # POLARIS_INSTANCE_CAMPUS: 设置 IDC 信息, 例如 ap-guangzhou-3
-        provider: env
+        provider: qcloud
     consumer:
       serviceRouter:
-        # 服务路由链
-        chain:
-          # 基于主调和被调服务规则的路由策略(默认的路由策略)
-          - ruleBasedRouter
-          # 就近路由策略
-          - nearbyBasedRouter
-        #描述：服务路由插件的配置
         plugin:
           nearbyBasedRouter:
             #描述:就近路由的最小匹配级别
@@ -83,13 +73,15 @@ kubectl apply -f ./
  - 开启 RouteNearbyEchoServer 的就近路由
 ![](https://qcloudimg.tencent-cloud.cn/raw/8ea070e3fc6c9bf34befc4d7e68d84a8.png)
 
-10. 通过 ServiceIP 调用 consumer 的 HTTP 接口
-    - 执行 http 调用，其中`${app.port}`替换为 consumer 的监听端口（默认为18080），`${add.address}`则替换为 consumer 暴露的地址。
+10. 为 RouteNearbyEchoServer 创建服务别名 routenearby.echoserver
+![](https://qcloudimg.tencent-cloud.cn/raw/3d542768f5d3e89396c6ac679604dc5f.png)
+
+11. 调用 provider 的 HTTP 接口
+    - 执行 http 调用，其中`${app.port}`替换为 provider 的监听端口（默认为28080），`${add.address}`则替换为 provider 的域名信息。
 <dx-codeblock>
 :::  shell
-   curl -L -X GET 'http://${kubernetes.service.ip}:${app.port}/echo'
-   预期返回值：
-   RouteNearbyEchoServer Consumer, MyLocInfo's : xxx, host : xxx:xxx => Hello, I'm RouteNearbyEchoServer Provider, MyLocInfo's : xxx, host : xxx:xxx
+   curl -L -X GET 'http://routenearby.echoserver.default.svc.polaris:28080/echo'
+   预期返回值：Hello, I'm RouteNearbyEchoServer Provider, MyLocInfo's : xxx, host : xxx:xxx
 :::
 </dx-codeblock>  
 
