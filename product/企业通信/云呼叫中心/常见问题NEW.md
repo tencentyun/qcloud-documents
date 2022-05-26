@@ -13,8 +13,8 @@
 
 ### Chrome 无来电铃声的问题
 - 首先检查音频设备是否有问题，音量是否设置为0。
-- 如果上面检查都没有问题，就是浏览器为了防止网页自动播放音视频对用户造成干扰，对音视频的自动播放功能做了限制。这种情况需要执行下面步骤
-  - 下载 [chrome_policy.reg.zip](https://upload-dianshi-1255598498.file.myqcloud.com/chrome_policy-2fad0f85195e7bf4101fb90f92ce1fa5234b41d2.reg.zip)，并且解压。
+- 如果上面检查都没有问题，则为浏览器防止网页自动播放音视频对用户造成干扰，对音视频的自动播放功能做了限制。这种情况需要执行下面步骤：
+  1. 下载 [chrome_policy.reg.zip](https://upload-dianshi-1255598498.file.myqcloud.com/chrome_policy-2fad0f85195e7bf4101fb90f92ce1fa5234b41d2.reg.zip)，并且解压。
   - 双击执行刚刚解压的文件，选择**是**。
     ![](https://qcloudimg.tencent-cloud.cn/raw/ac3b10a90e72b42b6e0b0ccfbc1bd217.png)
   - 关闭 Chrome 浏览器，重新打开浏览器，在地址栏输入 `chrome://media-engagement/`
