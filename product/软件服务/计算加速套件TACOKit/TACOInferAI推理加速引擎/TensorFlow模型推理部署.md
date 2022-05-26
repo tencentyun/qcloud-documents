@@ -8,7 +8,7 @@
 
 ### 环境准备
 
-- 服务器：参考 [安装 TACO Infer](https://cloud.tencent.com/document/product/1573/74091)，选购 CPU 机型。
+- 服务器：参考 [TACO Infer 安装](https://cloud.tencent.com/document/product/1573/74091)，选购 CPU 机型。
 - ABI 版本：TACO Infer 支持 CXX11 ABI。如有其他版本需求请通过 [联系我们](https://cloud.tencent.com/document/product/1573/74094) 获取支持。
 - SDK 包安装：在开发部署模型之前，请确保您已经安装了 TACO Infer SDK 安装包，详情请参见 [获取 Wheel 包及 SDK 包](https://cloud.tencent.com/document/product/1573/74091#getWheelSDK)。解压后可查看安装包中包含三个动态链接库和一个可执行文件：
 ```bash
