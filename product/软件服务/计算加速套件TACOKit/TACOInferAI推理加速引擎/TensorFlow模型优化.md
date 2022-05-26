@@ -43,7 +43,7 @@ from taco import optimize_cpu, OptimizeConfig, ModelConfig
 ```
 
 
-### 调用优化接口
+### 调用优化接口[](id:callInterface)
 1. 配置输入模型、输出模型目录、测试数据、优化配置、模型配置后，调用 optimize_cpu 即可对模型进行优化。关于优化接口参数的详细信息，请参见 [接口文档](https://cloud.tencent.com/document/product/1573/74093)。优化接口代码如下：
 ```python
 report = optimize_cpu(
