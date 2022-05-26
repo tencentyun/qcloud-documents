@@ -30,7 +30,8 @@ android.permission.WRITE_EXTERNAL_STORAGE
 ```
 
 ### 2. 获取密钥
-SecretId 和 SecretKey 是使用 SDK 的安全凭证，您可以在**[访问管理](https://console.cloud.tencent.com/cam/overview)**>**访问密钥**>**[API 密钥管理](https://console.cloud.tencent.com/cam/capi)**中获取该凭证。
+SecretId 和 SecretKey 是使用 SDK 的安全凭证，您可以在**[访问管理](https://console.cloud.tencent.com/cam/overview)** > **访问密钥** > **[API 密钥管理](https://console.cloud.tencent.com/cam/capi)**中获取该凭证。秘钥属于敏感信息，正式秘钥仅可在调试使用，线上环境情况下，为了防止他人盗取，应使用“临时签名”，具体请参考 [签名](https://cloud.tencent.com/document/product/884/31870#5.-.E7.AD.BE.E5.90.8D) 相关内容。
+
 ![](https://main.qcloudimg.com/raw/273b67bc4d38af6cb9999e9f4663d268.png)
 
 
@@ -185,7 +186,7 @@ catch (Exception e){
 
 
 ### 5. 签名
-SecretKey 属于安全敏感参数，线上版本一般由业务后台生成 [临时 SecretKey](https://cloud.tencent.com/document/api/598/13896) 或者 SDK 外部签名返回到客户端。
+SecretKey 属于安全敏感参数，线上版本一般由业务后台生成 [临时 SecretKey](https://cloud.tencent.com/document/product/1312/48195) 或者 SDK 外部签名返回到客户端。
 临时签名 policy 示例如下：
 ```json
 {
