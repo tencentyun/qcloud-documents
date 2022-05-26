@@ -273,7 +273,7 @@ yum install epel-release -y
 ```
   2. 执行以下命令，安装 Python-pip。
 ```shellsession
-yum install python-pip -y
+yum install python3-pip -y
 ```
 :::
 ::: Ubuntu\s系列
@@ -283,7 +283,7 @@ apt-get update -y
 ```
   2. 执行以下命令，安装 Python-pip。
 ```shellsession
-apt-get install python-pip -y
+apt-get -y install python3-pip
 ```
 :::
 </dx-tabs>
