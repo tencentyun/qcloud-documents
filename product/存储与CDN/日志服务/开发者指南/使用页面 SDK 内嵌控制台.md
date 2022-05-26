@@ -32,7 +32,7 @@
 本项目是基于 `sdk-modules` 文件夹，实现的**独立运行环境**快速体验样例。允许业务方将 CLS 控制台集成到自身页面，使用检索分析页面和仪表盘能力。
 
 
-### 步骤2：页面 SDK 部署
+### 步骤2：部署页面 SDK
 
 1. 在源代码下创建`./capi-forward/.env` 文件，填写 [密钥信息](https://console.cloud.tencent.com/cam/capi) 和环境密码。
 ```
@@ -78,7 +78,7 @@ npm run serve
 :::
 </dx-tabs>
 
-### 步骤3：页面 SDK 使用
+### 步骤3：使用页面 SDK
 
 <dx-tabs>
 ::: 通过浏览器访问
