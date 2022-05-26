@@ -227,37 +227,3 @@ Output tensor: [
 0.659645
 ]
 ```
-
-
-
-### 优化报告[](id:Optimization)
-
-Taco 优化模型后会产生一个 json 格式的优化报告，该报告包含了优化模型的硬件，软件以及一些总结信息。如下所示：
-```json
-{
-    "hardware": {
-        "cpu": "AMD EPYC 7K62 48-Core Processor, family '23', model '49'",
-        "target device": "AMD EPYC 7K62 48-Core Processor, family '23', model '49'",
-        "reference": "https://en.wikichip.org/wiki/intel/cpuid"
-    },
-    "software": {
-        "framework": "tensorflow",
-        "framework version": "1.15.0"
-    },
-    "summary": {
-        "working_directory": "/root/taco_test/fast_transformer_encoder",
-        "input_model": "./model/fast-transformer-encoder.pb",
-        "output_model_dir": "./optimized_model",
-        "optimization time": "3min 46s 398ms",
-        "model format": "tensorflow frozen pb",
-        "status": "satisfactory",
-        "baseline latency": "49ms 517us",
-        "accelerated latency": "27ms 12us",
-        "speedup": "1.83"
-    }
-}
-```
-优化报告字段说明如下：
-- **hardware**：硬件环境信息，包括设备类型、规格等。
-- **software**：软件环境信息，包括框架以及框架版本。
-- **summary**：模型优化的综合性信息，包括当前工作目录、输入模型路径、输出模型目录、优化时间、模型格式、运行状态、模型优化效果等。
