@@ -135,8 +135,7 @@ Kubernetes 集群提供了服务注册的机制，只需要将您的服务以 `M
  - **您可通过 [在线咨询](https://cloud.tencent.com/online-service?from=doc_457) 进行申请。**此方式缺少云联网的 IP 校验功能，不推荐使用。
 
 
-### 操作步骤
-#### YAML s操作指引
+### YAML 操作指引
 直连 Pod 模式 Service 的 YAML 配置与普通 Service YAML 配置相同，示例中的 annotation 即代表是否开启直连 Pod 模式。
 
 **前置使用条件**
