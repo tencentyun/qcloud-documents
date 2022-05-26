@@ -59,14 +59,10 @@ dmesg -T
 若上述下载文件中没有您的操作系统版本对应的安装包，请下载 Linux 通用版的源码包，进行编译后获取（以CentOS 环境为例）。
 
 1. 获取源码包
-   - centos7.0 及以上源码包
 ```
-wget "http://thunder-pro-mainland-1258348367.cos.ap-guangzhou.myqcloud.com/gaap-toa%E6%BA%90%E7%A0%81(centos7%E4%BB%A5%E4%B8%8A).zip"
+wget "https://thunder-pro-mainland-1258348367.cos.ap-guangzhou.myqcloud.com/gaap-toa.rar"
 ```
-   - centos7.0 以下源码包
-```
-wget "http://thunder-pro-mainland-1258348367.cos.ap-guangzhou.myqcloud.com/gaap-toa%E6%BA%90%E7%A0%81(centos7%E4%BB%A5%E4%B8%8B).zip"
-```
+
 2.	安装编译环境。
 ```
 yum install gcc 
@@ -75,7 +71,7 @@ yum install kernel-headers kernel-devel –y
 ```
 3.	解压源码包。
 ```
-tar zxf toa_kernel_*.tar.gz
+tar zxf gaap-toa.rar
 ```
 4.	进入 TOA 目录。
 ```

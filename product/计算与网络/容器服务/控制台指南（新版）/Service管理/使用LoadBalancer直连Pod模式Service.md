@@ -135,25 +135,7 @@ Kubernetes 集群提供了服务注册的机制，只需要将您的服务以 `M
  - **您可通过 [在线咨询](https://cloud.tencent.com/online-service?from=doc_457) 进行申请。**此方式缺少云联网的 IP 校验功能，不推荐使用。
 
 
-### 操作步骤
-
-<dx-tabs>
-::: 控制台操作指引
-**前置使用条件**
-<li>在 `kube-system/tke-service-controller-config` ConfigMap 中新增 `GlobalRouteDirectAccess: "true"` 以开启 GlobalRoute 直连能力。</li>
-<li>该功能需要开通 CLB SNAT Pro 的白名单，您可通过 <a href="https://cloud.tencent.com/online-service?from=doc_457">在线咨询</a> 进行申请。</li>
-<br>
-
-1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)。
-2. 参考 [控制台创建 Service](https://cloud.tencent.com/document/product/457/45489#.E5.88.9B.E5.BB.BA-service) 步骤，进入 “新建Service” 页面，根据实际需求设置 Service 参数。
-    其中，部分关键参数信息需进行如下设置，如下图所示：
-![](https://main.qcloudimg.com/raw/5190f97b699f9d0d856aeb0412a9428f.png)
- - **服务访问方式**：选择为**公网LB访问**或**内网LB访问**。
- - **网络模式**：勾选**采用负载均衡直连Pod模式**。
- - **Workload绑定**：选择**引用Workload**。
-3. 单击**创建服务**，完成创建。  
-:::
-::: YAML\s操作指引
+### YAML 操作指引
 直连 Pod 模式 Service 的 YAML 配置与普通 Service YAML 配置相同，示例中的 annotation 即代表是否开启直连 Pod 模式。
 
 **前置使用条件**
@@ -187,10 +169,6 @@ spec:
 ```
 service.cloud.tencent.com/tke-service-config: [tke-service-configName]
 ```
-
-
-
-:::
-</dx-tabs>
+ 
 
 

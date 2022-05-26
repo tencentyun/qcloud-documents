@@ -3,6 +3,10 @@
 ## 操作场景
 本文以自然语言处理领域经典模型 Transformer Encoder 为例，展示 TACO Infer 优化部署 TensorFlow 模型的完整流程。
 
+<dx-alert infotype="explain" title="">
+请确保您已经完成 [安装 TACO Infer](https://cloud.tencent.com/document/product/1573/74091)，若您有更多场景需求欢迎 [联系我们](https://cloud.tencent.com/document/product/1573/74094)。
+</dx-alert>
+
 
 ## 操作步骤
 

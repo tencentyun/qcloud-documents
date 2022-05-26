@@ -3,7 +3,7 @@
 本文介绍如何在服务器上安装 TACO Infer。TACO Infer 的安装包包括 Python Wheel 包和推理 SDK 包两个部分。Python Wheel 包用于在具有目标加速芯片的机器环境中对模型进行优化，SDK 则用于 C++开发模型推理部署。
 
 
-## 使用环境要求
+## 使用环境要求[](id:requirements)
 
 <table>
 <tr>
@@ -38,7 +38,8 @@
 </tr>
 </table>
 
-## 操作步骤
+
+## 操作步骤[](id:steps)
 
 
 
@@ -68,18 +69,19 @@ yum install openssl-devel
 yum install libuuid-devel
 ```
 
-### 安装 Wheel 包
 
-1. 从腾讯云官网 TACO Infer 下载页下载 Python 安装包。
-2. 通过 pip 命令，即可安装 Taco python 包：
+### 获取 Wheel 包及 SDK 包[](id:getWheelSDK)
+填写 [TACO Infer 调查问卷](https://wj.qq.com/s2/10076022/0280/)，即可获得 TACO Infer Python Wheel 包和 SDK 安装包。目前支持计算环境和框架请参见 [使用环境要求](https://cloud.tencent.com/document/product/1573/74091#requirements)，若有其他版本需要可以 [联系我们](https://cloud.tencent.com/document/product/1573/74094)。
+
+
+### 安装 Wheel 包
+通过 pip 命令，即可安装 Taco python 包：
 ```bash
 pip install ${path/to/wheel_package}
 ```
 
 ### 获取 SDK 包
-
-1. 从腾讯云官网 TACO Infer 下载页下载 SDK 安装包。
-2. 建议将解压后的库文件拷贝到 `/usr/local/lib` 下，以便 ld 程序能够找到 Taco 动态链接库进行链接。
+ 建议将解压后的库文件拷贝到 `/usr/local/lib` 下，以便 ld 程序能够找到 Taco 动态链接库进行链接。
 
 SDK 包中存在三个动态链接库和一个可执行文件：
 - libtaco_tf.so
