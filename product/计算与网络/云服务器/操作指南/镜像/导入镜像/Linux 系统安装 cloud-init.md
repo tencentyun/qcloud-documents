@@ -45,7 +45,7 @@ cd cloud-init-17.1
 3. 根据操作系统版本，安装 Python-pip。
   - CentOS 6/7系列，执行以下命令：
 ```shellsession
-yum install python-pip -y
+yum install python3-pip -y
 ```
   - Ubuntu 系列，执行以下命令：
 ```shellsession
