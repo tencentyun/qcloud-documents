@@ -11,7 +11,7 @@
 
 ## 操作步骤
 
-### 模型准备
+### 准备模型
 
 TACO Infer 支持 TensorFlow frozen pb 和 saved model 两种主要的模型格式。在模型优化前，需在磁盘上导出模型文件。您可以自行训练导出支持格式的模型或下载公开的网络模型。导出模型示例代码如下：
 
@@ -43,7 +43,7 @@ from taco import optimize_cpu, OptimizeConfig, ModelConfig
 ```
 
 
-### 调用优化接口
+### 调用优化接口[](id:callInterface)
 1. 配置输入模型、输出模型目录、测试数据、优化配置、模型配置后，调用 optimize_cpu 即可对模型进行优化。关于优化接口参数的详细信息，请参见 [接口文档](https://cloud.tencent.com/document/product/1573/74093)。优化接口代码如下：
 ```python
 report = optimize_cpu(
@@ -69,7 +69,7 @@ report = optimize_cpu(
 2022-03-31 16:55:37,246 [INFO] [optimize_model.py:27] Matched 0 [conv2_d_fused_batch_norm_relu_pattern] in the graph.
 2022-03-31 16:55:41,781 [INFO] [optimize_model.py:27] Matched 0 [conv2_d_fused_batch_norm_pattern] in the graph.
 ```
-3. 模型优化结束后，会产出一个保存在您指定的目录中的优化后的模型，以及一个包括硬件信息，软件信息及优化过程相关指标的优化报告。关于优化报告的详细字段说明，请参考 [优化报告](https://cloud.tencent.com/document/product/1573/74093#Optimization)。优化报告的详细信息如以下样例所示：
+3. 模型优化结束后，会产出一个保存在您指定的目录中的优化后的模型，以及一个包括硬件信息，软件信息及优化过程相关指标的优化报告。关于优化报告的详细字段说明，请参考 [输出参数说明](https://cloud.tencent.com/document/product/1573/74093#Optimization)。优化报告的详细信息如以下样例所示：
 ```json
 {
     "hardware": {
