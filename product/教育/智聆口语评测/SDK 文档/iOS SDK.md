@@ -9,8 +9,9 @@ TAISDK 是一款封装了腾讯云教育 AI 能力的 SDK，通过集成 SDK，�
 
 ### 2. 集成 demo 示例
 [下载 SDK](https://github.com/TencentCloud/tencentcloud-sdk-ios-soe) 地址。
-获取密钥（ 密钥获取⽅式⻅下⽂） 后到 TAIDemo/TAIDemo/PrivateInfo.m 根据需要填写 appId、secretId、secretKey、soeAppId 和hcmAppId（token 无需填写）。
-![](https://main.qcloudimg.com/raw/c9d27bfaa226bc2e513666c635b21d94.png)
+获取密钥（ 密钥获取⽅式⻅下⽂） 后到 `TAIDemo/TAIDemo/PrivateInfo.m`。
+根据需要填写参数，参数描述请查看 [TAIOralEvaluationParam 参数说明](https://cloud.tencent.com/document/product/884/31888#:~:text=TAIOralEvaluationParam%20%E5%8F%82%E6%95%B0%E8%AF%B4%E6%98%8E%EF%BC%9A)
+![](https://qcloudimg.tencent-cloud.cn/raw/1e878727bec51f40532d7e6b8c613808.png)
 
 ## SDK 集成准备
 ###  1. 添加第三方库依赖
@@ -90,6 +91,8 @@ param.fileType = TAIOralEvaluationFileType_Mp3;
 param.refText = @""; 
 param.secretId = @""; 
 param.secretKey = @"";
+param.token = @"";
+
 ```
 
 **4.1.2 开始录制**
@@ -122,7 +125,8 @@ param.scoreCoeff = 1.0;
 param.fileType = TAIOralEvaluationFileType_Mp3; 
 param.refText = @"hello guagua"; 
 param.secretId = @""; 
-param.secretKey = @"";  
+param.secretKey = @""; 
+param.token = @"";
 
 
 NSString *mp3Path = [[NSBundlemainBundle] pathForResource:@"hello_guagua"ofType:@"mp3"]; 
@@ -184,8 +188,9 @@ SecretKey 属于安全敏感参数，线上版本一般由业务后台生成 [�
 | :----------------- | :--------------------------- | :------------- | :----------------------------------------------------------- |
 | appid              | NSString                     | 是             | 账号应用 ID                                                   |
 | timeout            | NSInteger                    | 否             | 超时时间，默认30秒                                           |
-| secretId           | NSString                     | 是             | 您在控制台获取的密钥 ID                                       |
-| secretKey          | NSString                     | 内部签名：必填 | 您在控制台获取的密钥 Key，在使用内部签名时必须设置此参数      |
+| secretId           | NSString                     | 是             | 您在控制台获取的密钥 ID，临时密钥的 TmpSecretId                                       |
+| secretKey          | NSString                     | 内部签名：必填 | 您在控制台获取的密钥 Key，临时密钥的 TmpSecretKey      |
+| token	| NSString| 	临时签名：必填	| 临时秘钥的Token，仅在使用临时签名时需要设置此参数，详细获取方式请查看上述5.签名| 
 | signature          | NSString                     | 外部签名：必填 | 仅在使用外部签名时需要设置此参数，详细获取方式请查看上述5.签名 |
 | timestamp          | NSInteger                    | 外部签名：必填 | 秒级时间戳                                                   |
 | soeAppId           | NSString                     | 否             | 业务应用 ID                                                   |
