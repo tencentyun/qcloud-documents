@@ -45,7 +45,7 @@ FURenderer mFURenderer = new FURenderer.Builder(this)
 
 [](id:step4)
 ### 步骤4：设置自定义预处理回调
-通过调用 `TRTCCloud` 中的 [setLocalVideoProcessDelegate](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a2f73c33b1010a63bd3a06e639b3cf348) 或 [setLocalVideoProcessListener](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a0b565dc8c77df7fb826f0c45d8ad2d85) 来设置自定义美颜的回调，并指定回调的格式为 TEXTURE_2D：
+通过调用 `TRTCCloud` 中的 [setLocalVideoProcessListener](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a0b565dc8c77df7fb826f0c45d8ad2d85) 来设置自定义美颜的回调，并指定回调的格式为 TEXTURE_2D：
 <dx-codeblock>
 ::: iOS  ObjectiveC 
 [[TRTCCloud sharedInstance] setLocalVideoProcessDelegete:self
