@@ -190,8 +190,8 @@ SecretKey 属于安全敏感参数，线上版本一般由业务后台生成 [�
 | timeout            | NSInteger                    | 否             | 超时时间，默认30秒                                           |
 | secretId           | NSString                     | 是             | 您在控制台获取的密钥 ID，临时密钥的 TmpSecretId                                       |
 | secretKey          | NSString                     | 内部签名：必填 | 您在控制台获取的密钥 Key，临时密钥的 TmpSecretKey      |
-| token	| NSString| 	临时签名：必填	| 临时秘钥的Token，仅在使用临时签名时需要设置此参数，详细获取方式请查看上述5.签名| 
-| signature          | NSString                     | 外部签名：必填 | 仅在使用外部签名时需要设置此参数，详细获取方式请查看上述5.签名 |
+| token	| NSString| 	临时签名：必填	| 临时密钥的 Token，仅在使用临时签名时需要设置此参数，详细获取方式请查看 [签名](https://cloud.tencent.com/document/product/884/31888#5.-.E7.AD.BE.E5.90.8D)| 
+| signature          | NSString                     | 外部签名：必填 | 仅在使用外部签名时需要设置此参数，详细获取方式请查看 [签名](https://cloud.tencent.com/document/product/884/31888#5.-.E7.AD.BE.E5.90.8D)| 
 | timestamp          | NSInteger                    | 外部签名：必填 | 秒级时间戳                                                   |
 | soeAppId           | NSString                     | 否             | 业务应用 ID                                                   |
 | sessionId          | NSString                     | 是             | 一次评测唯一标识                                             |
