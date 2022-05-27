@@ -42,10 +42,13 @@
 ## 操作步骤[](id:steps)
 
 
+### 安装 TensorFlow
+使用 TACO Infer 时，需要您的 Python 运行环境中已安装 TensorFlow。TACO Infer 目前可支持 TensorFlow 1.14 和 1.15，如果您在使用其他版本的过程中遇到问题，可以 [联系我们](https://cloud.tencent.com/document/product/1573/74094) 获取支持。
 
-<dx-alert infotype="notice" title="">
-使用 TACO Infer 时，请确保您的 Python 运行环境中已安装 TensorFlow。TACO Infer会自动适配您所选择的 TF 版本。
-</dx-alert>
+TensorFlow 1.14 安装命令如下：
+```bash
+pip install tensorflow==1.14
+```
  
 
 
