@@ -234,8 +234,8 @@ public String getStringToSign(long timestamp);
 | timeout            | Int                          | 否             | 超时时间，默认30秒                                           |
 | secretId           | String                       | 是             | 您在控制台获取的密钥 ID，临时密钥的 TmpSecretId                                    |
 | secretKey          | String                       | 内部签名：必填 | 您在控制台获取的密钥 Key，临时密钥的 TmpSecretKey      |
-| token     | 	String	| 临时签名：必填	| 临时密钥的 Token，仅在使用临时签名时需要设置此参数，详细获取方式请查看上述5.签名| 
-| signature          | String                       | 外部签名：必填 | 仅在使用外部签名时需要设置此参数，详细获取方式请查看上述5.签名 |
+| token     | 	String	| 临时签名：必填	| 临时密钥的 Token，仅在使用临时签名时需要设置此参数，详细获取方式请查看 [签名](https://cloud.tencent.com/document/product/884/31870#5.-.E7.AD.BE.E5.90.8D)| 
+| signature          | String                       | 外部签名：必填 | 仅在使用外部签名时需要设置此参数，详细获取方式请查看 [签名](https://cloud.tencent.com/document/product/884/31870#5.-.E7.AD.BE.E5.90.8D) |
 | timestamp          | Long                         | 外部签名：必填 | 秒级时间戳                                                   |
 | soeAppId           | String                       | 否             | 业务应用 ID，与账号应用 AppID 无关，是用来方便客户管理服务的参数 |
 | sessionId          | String                       | 是             | 一次评测唯一标识                                             |
