@@ -1,4 +1,4 @@
-本文主要介绍如何快速运行腾讯云 TRTC Demo（Windows C#版本）。
+本文主要介绍如何快速运行腾讯云 TRTC Demo（Windows C#）。
 
 ## 环境要求
 ### Windows（C#）开发环境
