@@ -90,12 +90,12 @@ let tuiRoom = TUIRoom.sharedInstance
 :::  Objective-C ObjectiveC
 @import TUIRoom;
 
-[tuiRoom createRoomWithRoomId:@"您的RoomId" speechMode:TUIRoomFreeSpeech isOpenCamera:YES isOpenMicrophone:YES];
+[tuiRoom createRoomWithRoomId:12345 speechMode:TUIRoomFreeSpeech isOpenCamera:YES isOpenMicrophone:YES];
 :::
 ::: Swift Swift
 import TUIRoom
 
-tuiRoom.createRoom(roomId: "您的RoomId", speechMode: .freeSpeech, isOpenCamera: true, isOpenMicrophone: true)
+tuiRoom.createRoom(roomId: 12345, speechMode: .freeSpeech, isOpenCamera: true, isOpenMicrophone: true)
 ```
 :::
 </dx-codeblock>
@@ -104,12 +104,12 @@ tuiRoom.createRoom(roomId: "您的RoomId", speechMode: .freeSpeech, isOpenCamera
 :::  Objective-C ObjectiveC
 @import TUIRoom;
 
-[tuiRoom enterRoomWithRoomId:@"对方的RoomId" isOpenCamera:YES isOpenMicrophone:YES]
+[tuiRoom enterRoomWithRoomId:12345 isOpenCamera:YES isOpenMicrophone:YES]
 :::
 ::: Swift Swift
 import TUIRoom
 
-tuiRoom.enterRoom(roomId: "对方的RoomId", isOpenCamera: true, isOpenMicrophone: true)
+tuiRoom.enterRoom(roomId: 12345, isOpenCamera: true, isOpenMicrophone: true)
 ```
 :::
 </dx-codeblock>
