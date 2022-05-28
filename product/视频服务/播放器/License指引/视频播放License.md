@@ -1,4 +1,4 @@
-播放器 SDK 提供直播播放和点播播放能力，购买指定直播/点播流量资源包即赠送视频播放 License 1年使用权限，或购买独立视频播放 License 获得授权。计费购买详情请参见 [价格总览]()。
+播放器 SDK 提供直播播放和点播播放能力，购买指定直播/点播流量资源包即赠送视频播放 License 1年使用权限，或购买独立视频播放 License 获得授权。计费购买详情请参见 [价格总览](https://cloud.tencent.com/document/product/881/20193)。
 
 购买后可在 [腾讯云视立方控制台](https://console.cloud.tencent.com/vcube) 对各 License 进行新增和续期等操作。本文档将对视频播放 License 测试版和正式版的新增与续期等操作进行说明指引。
 
