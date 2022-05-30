@@ -32,12 +32,6 @@ TXLivePusher 直播 SDK 主要用于视频云的快直播（超低延时直播�
 ```
 >? 需要在 HTML 的 body 部分引入脚本，如果在 head 部分引入会报错。
 
-如果在域名限制区域，可以引入以下链接：
-
-```html
-<script src="https://cloudcache.tencent-cloud.com/open/qcloud/live/webrtc/js/TXLivePusher-1.0.2.min.js" charset="utf-8"></script>
-```
-
 ### 步骤2：在 HTML 中放置容器
 
 在需要展示本地音视频画面的页面位置加入播放器容器，即放一个 div 并命名，例如 id_local_video，本地视频画面都会在容器里渲染。对于容器的大小控制，您可以使用 div 的 css 样式进行控制，示例代码如下：
@@ -84,26 +78,21 @@ livePusher.startMicrophone();
 ```javascript
 livePusher.startPush('webrtc://domain/AppName/StreamName?txSecret=xxx&txTime=xxx');
 ```
->?推流之前要保证已经采集到了音视频流，否则推流接口会调用失败，如果要实现采集到音视频流之后自动推流，可以通过回调事件通知，当收到采集首帧成功的通知后，再进行推流。如果同时采集了视频流和音频流，需要在视频首帧和音频首帧的采集成功回调通知都收到后再发起推流。
+>?推流之前要保证已经采集到了音视频流，否则推流接口会调用失败。如果要实现采集到音视频流之后自动推流，可以等待视频流和音频流采集成功之后，再进行推流。
 ```javascript
-var hasVideo = false;
-var hasAudio = false;
-var isPush = false;
-livePusher.setObserver({
-    onCaptureFirstAudioFrame: function() {
-      hasAudio = true;
-      if (hasVideo && !isPush) {
-        isPush = true;
-        livePusher.startPush('webrtc://domain/AppName/StreamName?txSecret=xxx&txTime=xxx');
-      }
-    },
-    onCaptureFirstVideoFrame: function() {
-      hasVideo = true;
-      if (hasAudio && !isPush) {
-        isPush = true;
-        livePusher.startPush('webrtc://domain/AppName/StreamName?txSecret=xxx&txTime=xxx');
-      }
-    }
+// 采集完摄像头画面后自动推流
+livePusher.startCamera()
+.then(function () {
+	livePusher.startPush('webrtc://domain/AppName/StreamName?txSecret=xxx&txTime=xxx');
+})
+.catch(function (error) {
+	console.log('打开摄像头失败: '+ error.toString());
+});
+
+// 采集完摄像头和麦克风之后自动推流
+Promise.all([livePusher.startCamera(), livePusher.startMicrophone()])
+.then(function() {
+	livePusher.startPush('webrtc://domain/AppName/StreamName?txSecret=xxx&txTime=xxx');
 });
 ```
 </dx-codeblock>
@@ -183,7 +172,7 @@ deviceManager.switchCamera('camera_device_id');
 
 ### WebRTC 推流相关接口
 
-WebRTC 推流相关接口说明，请参见 [API 概览](https://cloud.tencent.com/document/product/454/56498)。
+WebRTC 推流相关接口说明，请参见 [API 概览](https://webrtc-demo.myqcloud.com/push-sdk/v2/docs/TXLivePusher.html)。
 
 
 

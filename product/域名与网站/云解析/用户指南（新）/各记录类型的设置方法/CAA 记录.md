@@ -22,7 +22,7 @@ CAA 记录的格式为：[flag] [tag] [value]，是由一个标志字节的 [fla
 </thead>
 <tbody><tr>
 <td>flag</td>
-<td>0-255之间的无符号整数，用于标志认证机构。默认情况下填写0，表示如果颁发证书机构无法识别本条信息，进行忽略。</td>
+<td>可填写0或128，用于标志认证机构。默认情况下填写0，表示如果颁发证书机构无法识别本条信息，进行忽略。</td>
 </tr>
 <tr>
 <td>tag</td>
@@ -56,7 +56,7 @@ tag 字段说明：
 </tbody></table>
  - **权重**：不填写，可忽略。
  - **MX 优先级**：不填写，可忽略。
- - **TTL**：默认600秒是最常用的，不用修改。如需修改，可参考 [TTL 如何填写？](https://tcloud-doc.isd.com/document/product/302/3468?!preview&!editLang=zh#ttl-.E5.A6.82.E4.BD.95.E5.A1.AB.E5.86.99.EF.BC.9F)
+ - **TTL**：默认600秒是最常用的，不用修改。如需修改，可参考 [TTL 如何填写？](https://cloud.tencent.com/document/product/302/3468#ttl-.E5.A6.82.E4.BD.95.E5.A1.AB.E5.86.99.EF.BC.9F)
 4. 单击【确定】，完成添加。
 
 

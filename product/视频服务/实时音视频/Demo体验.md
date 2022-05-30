@@ -279,7 +279,16 @@
 </table>
 :::
 ::: Web
-![](https://webim-1252463788.cos.ap-shanghai.myqcloud.com/tweblivedemo/doc-assets/demo-official-website.gif)
+<table>
+     <tr>
+         <th>主播端</th>  
+         <th>观众端</th>  
+     </tr>
+<tr>
+<td><img src="https://web.sdk.qcloud.com/component/tuiliveroom/assets/pusher.gif"/></td>
+<td><img src="https://web.sdk.qcloud.com/component/tuiliveroom/assets/player.gif"/></td>
+</tr>
+</table>
 :::
 </dx-tabs>
 

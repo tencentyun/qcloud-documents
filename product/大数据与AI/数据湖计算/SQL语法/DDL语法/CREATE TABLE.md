@@ -1,53 +1,46 @@
 创建一个表同时带一些属性。
 ## 语法
 ```
-CREATE [ EXTERNAL ] TABLE [ IF NOT EXISTS ] table_identifier
-    [ ( col_name1[:] col_type1 [ COMMENT col_comment1 ], ... ) ]
-    [ COMMENT table_comment ]
-    [ PARTITIONED BY ( col_name2[:] col_type2 [ COMMENT col_comment2 ], ... ) 
-        | ( col_name1, col_name2, ... ) ]
-    [ CLUSTERED BY ( col_name1, col_name2, ...) 
-        [ SORTED BY ( col_name1 [ ASC | DESC ], col_name2 [ ASC | DESC ], ... ) ] 
+CREATE TABLE [ IF NOT EXISTS ] table_identifier
+    [ ( col_name1 col_type1 [ COMMENT col_comment1 ], ... ) ]
+    USING data_source
+    [ OPTIONS ( key1=val1, key2=val2, ... ) ]
+    [ PARTITIONED BY ( col_name1, col_name2, ... ) ]
+    [ CLUSTERED BY ( col_name3, col_name4, ... ) 
+        [ SORTED BY ( col_name [ ASC | DESC ], ... ) ] 
         INTO num_buckets BUCKETS ]
-    [ ROW FORMAT row_format ]
-    [ STORED AS file_format ]
     [ LOCATION path ]
+    [ COMMENT table_comment ]
     [ TBLPROPERTIES ( key1=val1, key2=val2, ... ) ]
 ```
-## 参数
-- `[IF NOT EXISTS]`：如果存在执行将不报错。
-- `[COMMENT database_comment]`：数据表指定注释。
-- `[LOCATION 'cosn://bucket_name/[folder]/']`：指定数据表的存储位置。例如指定腾讯云 COS：cosn://bucket_id。
-- `[WITH DBPROPERTIES ('property_name' = 'property_value') [, ...] ]`：允许针对数据表的属性元数据信息进行指定。
-
-#### 限制
-- OpenCSVSerde 限制
-如果使用该 OpenCSVSerde 作为 row format 时，创建表的时候如果指定了该格式的时候，那么创建列的所有类型是 String 类型，这里可能会和实际创建表产生歧义，尽量如果都是 String 类型的时候使用，如果有特殊类型的时候不推荐使用。
-- JSONSerde 限制
-使用 JSONSerde 创建表时，不支持增加、修改、删除列。如果要使用 JSONSerde 创建表，需元数据不会发生改变或者创建时，可以预留出字段。
+## 参数说明
+- `USING data_source`：建表时，数据的输入类型，目前有：CSV, ORC, PARQUET, ICEBERG 等。
+- `table_identifier`：指定表名，支持三段式，例如：catalog.database.table。      
+- ` PARTITIONED BY`：基于指定的列创建分区。        
+- `EXTERNAL`： 是否为外表，存在即为外表。
+- `row_format`：与表存储格式，对应每行数据的输入输出格式。
+- `STORED AS`：表存储的文件格式，例如：parquet、orc 等。
+- `COMMENT`：表的描述信息。
+- `TBLPROPERTIES`：一组 k-v 值，用于指定表的参数。
 
 ## 示例
-创建表：
 ```
-CREATE DATABASE db 
-COMMENT 'db1_name' 
-LOCATION 'cosn://path/to/db1' 
-WITH DBPROPERTIES('k1' = 'v1','k2' = 'v2');
-```
-复杂创建方式： 
-```
-CREATE TABLE t1 (
-       ID  INTEGER
-       NAME  STRING,
-       HOBBY  ARRAY< STRING >,
-       ADD  MAP< STRING, STRING >
-)
-ROW FORMAT DELIMITED
-FIELDS TERMINATED BY ','
-COLLECTION ITEMS TERMINATED BY '-'
-MAP KEYS TERMINATED BY ':'
-COMMENT 'db1_name' 
-LOCATION 'cosn://path/to/db1' 
-WITH DBPROPERTIES('k1' = 'v1','k2' = 'v2');
-```
+CREATE TABLE `TEST` (
+  `col1` string, 
+  `col2` string)
+using  ICEBERG
+LOCATION
+  'cosn://dlc-test-1305424723/allen_test1'
 
+
+CREATE TABLE TEST (id INT, name STRING, age INT)
+
+
+CREATE TABLE TEST (id INT, name STRING, age INT)
+    USING PARQUET
+    PARTITIONED BY (age)
+    CLUSTERED BY (Id) INTO 4 buckets
+    LOCATION
+  'cosn://dlc-test-1305424723/allen_test1'
+```
+支持使用 CREATE TABLE AS 语法，详情可参见：[CREATE TABLE AS](https://cloud.tencent.com/document/product/1342/61794)。

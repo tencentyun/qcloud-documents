@@ -14,8 +14,8 @@ TUILiveRoom 是一个开源的音视频 UI 组件，通过在项目中集成 TUI
 ## 组件集成
 
 ### 步骤一：下载并导入 TUILiveRoom 组件
-在您的 xcode 工程 `Podfile` 文件同一级目录下创建 `TUILiveRoom` 文件夹，将 [Github仓库 iOS 目录](https://github.com/One-time/TUILiveRoom/tree/main/iOS) 下的 [TXAppBasic](https://github.com/One-time/TUILiveRoom/tree/main/iOS/TXAppBasic)、[TCBeautyKit](https://github.com/One-time/TUILiveRoom/tree/main/iOS/TCBeautyKit)、[Resources](https://github.com/One-time/TUILiveRoom/tree/main/iOS/Resources)、[Source](https://github.com/One-time/TUILiveRoom/tree/main/iOS/Source)、[TUIVoiceRoom.podspec](https://github.com/One-time/TUILiveRoom/blob/main/iOS/TUILiveRoom.podspec) 等文件拷贝至您在自己工程创建的 `TUILiveRoom` 目录下。并完成如下导入动作：
-- 打开工程的 Podfile 文件，引入TUILiveRoom.podspec，参考如下：
+在您的 xcode 工程 `Podfile` 文件同一级目录下创建 `TUILiveRoom` 文件夹，将 [Github 仓库 iOS 目录](https://github.com/One-time/TUILiveRoom/tree/main/iOS) 下的 [TXAppBasic](https://github.com/One-time/TUILiveRoom/tree/main/iOS/TXAppBasic)、[TCBeautyKit](https://github.com/One-time/TUILiveRoom/tree/main/iOS/TCBeautyKit)、[Resources](https://github.com/One-time/TUILiveRoom/tree/main/iOS/Resources)、[Source](https://github.com/One-time/TUILiveRoom/tree/main/iOS/Source)、[TUILiveRoom.podspec](https://github.com/One-time/TUILiveRoom/blob/main/iOS/TUILiveRoom.podspec) 等文件拷贝至您在自己工程创建的 `TUILiveRoom` 目录下。并完成如下导入动作：
+- 打开工程的 Podfile 文件，引入 TUILiveRoom.podspec，参考如下：
 ```
 # :path => "指向TXAppBasic.podspec所在目录的相对路径"
 pod 'TXAppBasic', :path => "TUILiveRoom/TXAppBasic/"
