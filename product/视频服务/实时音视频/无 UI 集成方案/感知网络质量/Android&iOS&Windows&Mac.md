@@ -5,7 +5,6 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/22766930827983b14cf0875776233eeb.jpg)
 
 ## 调用指引
-
 TRTC 提供了一个叫做 **onNetworkQuality** 的回调事件，它会每隔两秒钟一次向您汇报当前的网络质量，其参数包括 localQuality 和 remoteQuality 两个部分：
 - **localQuality** ：代表您当前的网络质量，分为 6 个等级，分别是 Excellent、Good、Poor、Bad、VeryBad 和 Down。
 - **remoteQuality**：代表远端用户的网络质量，这是一个素组，素组中的每个元素代表一个远端用户的网络质量。

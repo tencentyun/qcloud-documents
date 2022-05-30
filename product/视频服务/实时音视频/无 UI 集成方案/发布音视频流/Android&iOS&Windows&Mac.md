@@ -3,10 +3,12 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/b887b390411aef1396bd593ccdd9eb0e.png)
 ## 调用指引
 
+[](id:step1)
 ### 步骤1：完成前序步骤
 
-请参考文档 [导入SDK到项目中](https://cloud.tencent.com/document/product/647/32173) 完成 SDK 的导入和 App 权限的配置。
+请参考文档 [导入 SDK 到项目中](https://cloud.tencent.com/document/product/647/32173) 完成 SDK 的导入和 App 权限的配置。
 
+[](id:step2)
 ### 步骤2：打开摄像头预览
 您可以调用 **startLocalPreview** 接口打开摄像头预览，此时 SDK 会向系统申请摄像头的使用权限，需要用户授权通过后才会开启摄像头的采集流程。
 
@@ -14,7 +16,7 @@
 
 如果您希望控制摄像头的各种控制参数，可以用过调用 **TXDeviceManager** 接口来完成“切换前后摄像头”、“设置对焦模式“、“打开、关闭闪光灯”等一系列操作。
 
-如果您希望调节美颜效果和画面质量，我们会分别在 [开启美颜磨皮](to-do) 和 [设定画面质量](to-do) 中进行详细介绍。
+如果您希望调节美颜效果和画面质量，我们会分别在 [开启美颜磨皮]() 和 [设定画面质量]() 中进行详细介绍。
 
 <dx-codeblock>
 ::: Android  java
@@ -78,16 +80,15 @@ trtc_cloud_->startLocalPreview(local_view);
 </dx-codeblock>
 
 
+[](id:step3)
 ### 步骤3：打开麦克风采集
 您可以调用 **startLocalAudio** 来开启麦克风采集，该接口需要您通过 `quality` 参数确定采集模式。虽然这个参数的名字叫做 quality，但并不是说质量越高越高，不同的业务场景有最适合的参数选择（这个参数更准确的含义是 scene）。
 
-**SPEECH**
+- **SPEECH**
 该模式下的 SDK 音频模块会专注于提炼语音信号，尽最大限度的过滤周围的环境噪音，同时该模式下的音频数据也会获得最好的差质量网络的抵抗能力，因此该模式特别适合于“视频通话”和“在线会议”等侧重于语音沟通的场景。
-
-**MUSIC**
+- **MUSIC**
 该模式下的 SDK 会采用很高的音频处理带宽以及立体式模式，在最大限度地提升采集质量的同时也会将音频的 DSP 处理模块调节到最弱的级别，从而最大限度地保证音质。因此该模式适合“音乐直播”场景，尤其适合主播采用专业的声卡进行音乐直播的场景。
-
-**DEFAULT**
+- **DEFAULT**
 该模式下的 SDK 会启用智能识别算法来识别当前环境，并针对性地选择最佳的处理模式。不过再好的识别算法也总是有不准确的时候，如果您非常清楚自己的产品定位，更推荐您在专注语音通信的 SPEECH 和专注音乐音质的 MUSIC 之间二选一。
 
 <dx-codeblock>
@@ -115,9 +116,10 @@ trtc_cloud_->startLocalAudio(TRTCAudioQualityMusic);
 :::
 </dx-codeblock>
 
+[](id:step4)
 ### 步骤4：进入 TRTC 房间
 
-参考文档 [进入房间](to-do) 让当前用户进入 TRTC 房间。一旦进入房间后，SDK 便会开始向房间中的其他用户发布自己的音频流。
+参考文档 [进入房间](https://tcloud-doc.isd.com/document/product/647/74634?!preview) 让当前用户进入 TRTC 房间。一旦进入房间后，SDK 便会开始向房间中的其他用户发布自己的音频流。
 
 >! 当然，您可以在进入房间（enterRoom）后再启动摄像头预览和麦克风采集，不过在直播场景下，我们需要先给主播一个测试麦克风和调整美颜的时间，所以更常见的做法是先启动摄像头和麦克风再进入房间。
 
@@ -177,12 +179,12 @@ trtc_cloud_->enterRoom(params, liteav::TRTCAppSceneLIVE);
 </dx-codeblock>
 
 
+[](id:step5)
 ### 步骤5：角色和角色的切换
 
 **TRTC 中的“角色”**
-在“视频通话”（TRTC_APP_SCENE_VIDEOCALL ） 和 “语音通话”（TRTC_APP_SCENE_AUDIOCALL）这两个场景中，您无需要在进入房间时设置角色，因为在这两个模式下每个用户默认都是主播（Anchor）。
-
-在“视频直播”（TRTC_APP_SCENE_LIVE） 和 “语音直播”（TRTC_APP_SCENE_VOICE_CHATROOM）这两个场景中，每个用户在进入房间时都需要指定自己的“角色”，要么是“主播（Anchor）”，要么是“观众（Audience）”。
+- 在“视频通话”（TRTC_APP_SCENE_VIDEOCALL ） 和 “语音通话”（TRTC_APP_SCENE_AUDIOCALL）这两个场景中，您无需要在进入房间时设置角色，因为在这两个模式下每个用户默认都是主播（Anchor）。
+- 在“视频直播”（TRTC_APP_SCENE_LIVE） 和 “语音直播”（TRTC_APP_SCENE_VOICE_CHATROOM）这两个场景中，每个用户在进入房间时都需要指定自己的“角色”，要么是“主播（Anchor）”，要么是“观众（Audience）”。
 
 **角色的切换”**
 在 TRTC 中，只有“主播（Anchor）”才有权限发布音视频流，“观众（Audience）”是不能发布音视频流的。
@@ -256,10 +258,11 @@ void onSwitchRoom(TXLiteAVError errCode, const char* errMsg) {
 
 **注意：** 如果房间中已有的主播已经太多，会导致 switchRole 角色切换失败，并通过 TRTC 的 onSwitchRole 将错误码回调通知您。所以，当您不再需要发布音视频流（也就是俗称的“下麦”）时，就需要您再次调用 switchRole 并切换为“观众（Audience）”。
 
->? 您可以能有一个疑问，既然只要主播才能发布音视频流，那我是不是可以让每一个用户都用主播的角色进入房间呢？答案肯定是不行的，原因需要看进阶指引：**一个房间中同时最多可以有多少路音频和视频？**
+>? 您可以能有一个疑问，既然只要主播才能发布音视频流，那我是不是可以让每一个用户都用主播的角色进入房间呢？答案肯定是不行的，原因需要看进阶指引 [一个房间中同时最多可以有多少路音频和视频？](#speed1)
 
 ## 进阶指引
 
+[](id:speed1)
 ### 1. 一个房间中同时最多可以有多少路音频和视频？
 一个 TRTC 房间中最多允许同时有 **50** 路音视频流，超出的音视频流会按照“先到先得”的原则被放弃掉。
 在绝大多数场景下，小到两个人之间的视频通话，大到几万人同时观看的在线直播，50 路的音视频流都能满足应用场景的需求，但前提是您要做好**角色管理**。

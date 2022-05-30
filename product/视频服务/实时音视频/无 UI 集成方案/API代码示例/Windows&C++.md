@@ -85,8 +85,7 @@ TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256�
 
 ### 2. 两台设备同时运行 Demo，为什么看不到彼此的画面？
 请确保两台设备在运行 Demo 时使用的是不同的 UserID，TRTC 不支持同一个 UserID （除非 SDKAppID 不同）在两个设备同时使用。
-![](https://qcloudimg.tencent-cloud.cn/raw/bc0b53eccbd5b46a538592458161ceeb.png)
-
+![](https://qcloudimg.tencent-cloud.cn/raw/244481931cb0838a1304fff75597ce37.png)
 ![](https://main.qcloudimg.com/raw/75fdf7f6b27066620bffb08c5322c979.png)
 
 ### 3. 防火墙有什么限制？

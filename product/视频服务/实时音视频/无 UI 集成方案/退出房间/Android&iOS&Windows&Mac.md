@@ -3,11 +3,13 @@
 
 ## 调用指引
 
+
+[](id:step1)
 ### 步骤1：完成前序步骤
+请参考文档 [导入 SDK 到项目中](https://tcloud-doc.isd.com/document/product/647/32173?!preview) 完成 SDK 的导入和 App 权限的配置。
+请参考文档 [进入房间](https://tcloud-doc.isd.com/document/product/647/74634?!preview) 完成进房流程。
 
-请参考文档 [导入SDK到项目中](https://cloud.tencent.com/document/product/647/32173) 完成 SDK 的导入和 App 权限的配置。
-请参考文档 [进入房间](https://cloud.tencent.com/document/product/647/32173) 完成进房流程。
-
+[](id:step2)
 ### 步骤2：主动退出当前房间
 调用 exitRoom 接口即可退出当前的房间，SDK 会在退房结束后通过 onExitRoom(int reason) 回调事件通知您。
 <dx-codeblock>
@@ -15,7 +17,7 @@
 // 退出当前房间
 mCloud.exitRoom();
 :::
-::: iOS&Mac  ObjC
+::: iOS&Mac  swift
 self.trtcCloud = [TRTCCloud sharedInstance];
 // 退出当前房间
 [self.trtcCloud exitRoom];
@@ -36,6 +38,7 @@ trtc_cloud_->exitRoom();
 因此，如果您希望释放 TRTCCloud 实例，建议等收到 onExitRoom 回调之后再释放。
 
 
+[](id:step3)
 ### 步骤3：被迫退出当前房间
 除了用户主动退出房间，还有两种情况下您也会收到 onExitRoom(int reason) 回调：
 - **情况一：被踢出当前房间**

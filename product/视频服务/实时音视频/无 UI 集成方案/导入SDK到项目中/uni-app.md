@@ -1,15 +1,15 @@
-本文主要介绍如何快速地将腾讯云 TRTC Web SDK 集成到您的项目中。
+本文主要介绍如何快速地将腾讯云 TRTC uni-app SDK 集成到您的项目中。
 ## 准备工作
-集成 TRTC Web SDK 之前需要了解的事项。
+集成 TRTC uni-app SDK 之前需要了解的事项。
 
 ## 开发环境要求
 - 建议使用最新的 HBuilderX 编辑器 。
 - iOS 9.0 或以上版本且支持音视频的 iOS 设备，暂不支持模拟器。
-- Android 版本不低于 4.1 且支持音视频的 Android 设备，暂不支持模拟器。如果为真机，请开启“允许调试”选项。
+- Android 版本不低于 4.1 且支持音视频的 Android 设备，暂不支持模拟器。如果为真机，请开启**允许调试**选项。
 - iOS/Android 设备已经连接到 Internet。
 
-## 导入SDK
-uni-app 音视频 SDK 已发布到 [GitHub](https://github.com/LiteAVSDK/TRTC_UniApp)，可以到 [GitHub](https://github.com/LiteAVSDK/TRTC_UniApp) 下载或 [直接下载](https://web.sdk.qcloud.com/trtc/uniapp/download/TrtcCloud.zip) SDK。对应的插件 [【官方】腾讯云实时音视频SDK](https://ext.dcloud.net.cn/plugin?id=7774) 已发布到插件市场。
+## 导入 SDK
+uni-app 音视频 SDK 已发布到 [GitHub](https://github.com/LiteAVSDK/TRTC_UniApp)，可以到 [GitHub](https://github.com/LiteAVSDK/TRTC_UniApp) 下载或 [直接下载](https://web.sdk.qcloud.com/trtc/uniapp/download/TrtcCloud.zip) SDK。对应的插件 [**官方**腾讯云实时音视频SDK](https://ext.dcloud.net.cn/plugin?id=7774) 已发布到插件市场。
 
 1. [直接下载](https://web.sdk.qcloud.com/trtc/uniapp/download/Api-Example.zip) SDK，获取 TrtcCloud，并引入工程。
    ```javascript

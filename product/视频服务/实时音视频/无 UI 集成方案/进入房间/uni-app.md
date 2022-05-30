@@ -1,10 +1,11 @@
 本文档主要介绍如何进入 TRTC 房间中，只有在进入音视频房间后，用户才能订阅房间中其他用户的音视频流，或者向房间中的其他用户发布自己的音视频流。
 
 ## 调用指引
-
+[](id:step1)
 ### 步骤1：导入 SDK 并设置 App 权限
-请参考文档 [导入SDK到项目中]() 完成 SDK 的导入工作。
+请参考文档 [导入 SDK 到项目中](https://cloud.tencent.com/document/product/647/73371?!editLang=zh&!preview) 完成 SDK 的导入工作。
 
+[](id:step2)
 ### 步骤2：创建 SDK 实例并设置事件监听器
 创建 TRTC 的对象实例。
 ```javascript
@@ -12,6 +13,7 @@ import TrtcCloud from "@/TrtcCloud/lib/index";
 this.trtcCloud = TrtcCloud.createInstance();
 ```
 
+[](id:step3)
 ### 步骤3：监听 SDK 的事件
 ```javascript
 this.trtcCloud.on('onWarning', (res) => {
@@ -22,6 +24,7 @@ this.trtcCloud.on('onError', (res) => {
 });
 ```
 
+[](id:step4)
 ### 步骤4：准备进房参数 TRTCParams
 在调用 enterRoom 接口时需要填写两个关键参数，即 `TRTCParams` 和 `TRTCAppScene`，接下来进行详细介绍：
 
@@ -50,8 +53,9 @@ TRTCParams 由很多的字段构成，但通常您只需要关心如下几个字
 >- 每个端在应用场景 appScene 上必须要进行统一，否则会出现一些不可预料的问题。
 
 
-### 步骤5：进入房间(enterRoom)
-在准备好步骤4中两个参数（TRTCAppScene 和 TRTCParams）后，就可以调用 enterRoom 接口函数进入房间了。
+[](id:step5)
+### 步骤5：进入房间（enterRoom）
+在准备好 [步骤4](#step4) 中两个参数（TRTCAppScene 和 TRTCParams）后，就可以调用 enterRoom 接口函数进入房间了。
 
 ```javascript
 import TrtcCloud from '@/TrtcCloud/lib/index';
@@ -75,7 +79,7 @@ this.trtcCloud.enterRoom(params, TRTCAppScene.TRTCAppSceneVideoCall);
 ```
 
 **事件回调**
-如果进入房间成功，SDK 会回调 onEnterRoom(result) 事件，其中 result 会是一个大于 0 的数值，代表加入房间所消耗的时间，单位为毫秒（ms）；
+如果进入房间成功，SDK 会回调 onEnterRoom(result) 事件，其中 result 会是一个大于 0 的数值，代表加入房间所消耗的时间，单位为毫秒（ms）。
 如果进入房间失败，SDK 同样会回调 onEnterRoom(result) 事件，但参数 `result` 会是一个负数，其数值为进房失败的错误码。
 ```javascript
 // 监听 SDK 的 onEnterRoom 事件并获知是否成功进入房间

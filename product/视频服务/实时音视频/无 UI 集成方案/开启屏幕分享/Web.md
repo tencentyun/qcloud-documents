@@ -7,6 +7,7 @@ TRTC Web SDK 屏幕分享支持度请查看 [浏览器支持情况](https://web.
 
 ## 创建和发布屏幕分享流
 
+[](id:step1)
 ### 步骤1：创建屏幕分享流
 屏幕分享流包含视频流和音频流。其中音频流分为麦克风音频或者系统音频。
 ```javascript
@@ -33,6 +34,7 @@ const shareStream = TRTC.createStream({ camera: true, screenAudio: true });
 >- audio 与 screenAudio 属性不能同时设为true，camera 与 screenAudio 属性不能同时设为true。关于 screenAudio 更多信息会在本文第五部分介绍。
 >- camera 与 screen 属性不能同时设为true。
 
+[](id:step2)
 ### 步骤2：初始化屏幕分享流
 初始化时浏览器会向用户请求屏幕共享的内容和权限，如果用户拒绝授权或者系统未授予浏览器屏幕分享的权限，代码会捕获到 `NotReadableError` 或者 `NotAllowedError` 错误，这时需要引导用户进行浏览器设置或者系统设置开启屏幕共享权限，并且重新初始化屏幕分享流。
 >! 由于 Safari 的限制，屏幕分享流的初始化操作，必须在点击事件的回调中完成，该问题详细介绍请参见本文 [常见问题](#常见问题)
@@ -60,6 +62,7 @@ try {
 }
 ```
 
+[](id:step3)
 ### 步骤3：创建负责进行屏幕分享的客户端对象
 通常情况下，建议给 userId 加上前缀 `share_`，用来标识这是用于屏幕分享的客户端对象。
 
@@ -79,6 +82,7 @@ try {
 }
 
 ```
+[](id:step4)
 ### 步骤4：发布屏幕分享流
 通过第一步创建的客户端对象进行发布。发布成功后，远端就能收到屏幕分享流。
 ```javascript
@@ -254,44 +258,41 @@ await shareStream.initialize();
 ![](https://main.qcloudimg.com/raw/4e990a612028480c9c36419d96ea64b7.png)
 
 ## 常见问题
+1. **Safari 屏幕分享出现报错 `getDisplayMedia must be called from a user gesture handler`？**
+这是因为 Safari 限制了 `getDisplayMedia` 屏幕采集的接口，必须在用户点击事件的回调函数执行的 1 秒内才可以调用。，详情请参见 [webkit issue](https://bugs.webkit.org/show_bug.cgi?id=198040)。
+```javascript
+// good
+async function onClick() {
+  // 建议在 onClick 执行时，先执行采集逻辑
+  const screenStream = TRTC.createStream({ screen: true });
+  await screenStream.initialize();
+  await client.join({ roomId: 123123 });
+}
 
-1. Safari 屏幕分享出现报错 `getDisplayMedia must be called from a user gesture handler`
+// bad
+async function onClick() {
+  await client.join({ roomId: 123123 });
+  // 进房可能耗时超过 1s，可能会采集失败
+  const screenStream = TRTC.createStream({ screen: true });
+  await screenStream.initialize();
+}
+```
 
-    这是因为 Safari 限制了 `getDisplayMedia` 屏幕采集的接口，必须在用户点击事件的回调函数执行的 1 秒内才可以调用。
+2. **Mac Chrome 在已授权屏幕录制的情况下屏幕分享失败，出现 "NotAllowedError: Permission denied by system" 或者 "NotReadableError: Could not start video source" 错误信息，[Chrome bug](https://bugs.chromium.org/p/chromium/issues/detail?id=1306876)？**
+解决方案：打开**设置**> 单击**安全性与隐私**> 单击**隐私**> 单击**屏幕录制** > 关闭 Chrome 屏幕录制授权 > 重新打开 Chrome 屏幕录制授权 > 关闭 Chrome 浏览器 > 重新打开 Chrome 浏览器。
 
-    参考：[webkit issue](https://bugs.webkit.org/show_bug.cgi?id=198040)。
+3. **[WebRTC 屏幕分享已知问题及规避方案](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/tutorial-02-info-webrtc-issues.html#h2-9)**
 
-    ```javascript
-    // good
-    async function onClick() {
-      // 建议在 onClick 执行时，先执行采集逻辑
-      const screenStream = TRTC.createStream({ screen: true });
-      await screenStream.initialize();
-      await client.join({ roomId: 123123 });
-    }
+4. **[Electron 使用 TRTC Web SDK 屏幕分享](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/tutorial-33-advanced-electron-screen-share.html)**
 
-    // bad
-    async function onClick() {
-      await client.join({ roomId: 123123 });
-      // 进房可能耗时超过 1s，可能会采集失败
-      const screenStream = TRTC.createStream({ screen: true });
-      await screenStream.initialize();
-    }
-    ```
+5. **判断用户选择的屏幕分享类型：整个屏幕、窗口、Chrome 标签页。**
+```javascript
+// 在屏幕分享采集成功后
+const shareStream = TRTC.createStream({ screenAudio: true, screen: true, userId });
+await shareStream.initialize();
 
-2. Mac Chrome 在已授权屏幕录制的情况下屏幕分享失败，出现 "NotAllowedError: Permission denied by system" 或者 "NotReadableError: Could not start video source" 错误信息，[Chrome bug](https://bugs.chromium.org/p/chromium/issues/detail?id=1306876)。解决方案：打开【设置】> 点击【安全性与隐私】> 点击【隐私】> 点击【屏幕录制】> 关闭 Chrome 屏幕录制授权 > 重新打开 Chrome 屏幕录制授权 > 关闭 Chrome 浏览器 > 重新打开 Chrome 浏览器。
-3. [WebRTC 屏幕分享已知问题及规避方案](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/tutorial-02-info-webrtc-issues.html#h2-9)
-4. [Electron 使用 TRTC Web SDK 屏幕分享](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/tutorial-33-advanced-electron-screen-share.html)
-5. 判断用户选择的屏幕分享类型：整个屏幕、窗口、Chrome 标签页。
-
-    ```javascript
-    // 在屏幕分享采集成功后
-    const shareStream = TRTC.createStream({ screenAudio: true, screen: true, userId });
-    await shareStream.initialize();
-
-    // 根据 displaySurface 来判断采集的类型。
-    const { displaySurface } = shareStream.getVideoTrack().getSettings();
-    // 例如：monitor 为整个屏幕、window 为某个应用窗口、browser 为 Chrome 某个标签页
-    ```
-
-    参考：[displaySurface](https://developer.mozilla.org/en-US/docs/Web/API/MediaTrackSettings/displaySurface)。
+// 根据 displaySurface 来判断采集的类型。
+const { displaySurface } = shareStream.getVideoTrack().getSettings();
+// 例如：monitor 为整个屏幕、window 为某个应用窗口、browser 为 Chrome 某个标签页
+```
+详情请参见 [displaySurface](https://developer.mozilla.org/en-US/docs/Web/API/MediaTrackSettings/displaySurface)。

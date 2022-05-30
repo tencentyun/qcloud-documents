@@ -28,7 +28,7 @@ https://github.com/LiteAVSDK/TRTC_iOS/tree/main/TRTC-API-Example-OC/Advanced/Set
 对应视频通话场景，即绝大多数时间都是两人或两人以上视频通话的场景，内部编码器和网络协议优化侧重流畅性，降低通话延迟和卡顿率。
 
 - **LIVE** 
-对应直播场景，即绝大多数时间都是一人直播，偶尔有多人视频互动的场景，内部编码器和网络协议优化侧重性能和兼容性，性能和清晰度表现更佳。	
+对应直播场景，即绝大多数时间都是一人直播，偶尔有多人视频互动的场景，内部编码器和网络协议优化侧重性能和兼容性，性能和清晰度表现更佳。  
 
 
 ## TRTCVideoEncParam
@@ -56,7 +56,7 @@ https://github.com/LiteAVSDK/TRTC_iOS/tree/main/TRTC-API-Example-OC/Advanced/Set
 
 - **(int) videoFps**
   帧率（FPS），也就是每秒钟要编码多少帧画面。推荐设置为 15 FPS，这样既能保证画面足够流畅，又不会因为每秒帧数太多而拉低单幅画面的清晰度。
-	
+  
  如果您对流畅度要求比较高，可以设置为 20 FPS 或 25 FPS。但请不要设置 25 FPS 以上的数值，因为电影的常规帧率也只有 24 FPS。
 
 - **(int) videoBitrate**

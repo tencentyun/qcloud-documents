@@ -3,10 +3,9 @@
 
 ## 实现方式
 
-通过本地音视频流 Stream 对象的 {@link LocalStream#setVideoProfile setVideoProfile()} 方法设置视频属性：
+通过本地音视频流 Stream 对象的 `{@link LocalStream#setVideoProfile setVideoProfile()}` 方法设置视频属性：
 
 - 指定一个预定义的 Profile，每个 Profile 对应着一套推荐的分辨率、帧率和码率。
-
 ```
 const localStream = TRTC.createStream({ userId, audio: true, video: true });
 // 设置视频属性 Profile 为 ‘480p’
@@ -19,7 +18,6 @@ localStream.initialize().then(() => {
 ```
 
 - 指定自定义分辨率、帧率和码率
-
 ```
 const localStream = TRTC.createStream({ userId, audio: true, video: true });
 // 自定义视频分辨率、帧率和码率
@@ -32,21 +30,21 @@ localStream.initialize().then(() => {
 ```
 
 > !
-> - v4.8.4 及其之后版本，{@link LocalStream#setVideoProfile setVideoProfile()} 方法支持动态调用，详细信息请查看 {@link LocalStream#setVideoProfile setVideoProfile()} 接口描述。
-> - v4.8.4 之前版本，{@link LocalStream#setVideoProfile setVideoProfile()} 需要在本地流调用 {@link LocalStream#initialize initialize()} 初始化之前调用，不支持在通话过程中动态调整视频属性。
+> - v4.8.4 及其之后版本，`{@link LocalStream#setVideoProfile setVideoProfile()}` 方法支持动态调用，详细信息请查看 `{@link LocalStream#setVideoProfile setVideoProfile()}` 接口描述。
+> - v4.8.4 之前版本，`{@link LocalStream#setVideoProfile setVideoProfile()}` 需要在本地流调用 `{@link LocalStream#initialize initialize()}` 初始化之前调用，不支持在通话过程中动态调整视频属性。
 
 ## 视频属性 Profile 列表
 
-| 视频 Profile | 分辨率（宽 x 高） | 帧率（fps） | 码率（kbps） |
+| 视频 Profile | 分辨率（宽 × 高） | 帧率（fps） | 码率（kbps） |
 | :----------- | :---------------- | :---------- | :----------- |
-| 120p         | 160 x 120         | 15          | 200          |
-| 180p         | 320 x 180         | 15          | 350          |
-| 240p         | 320 x 240         | 15          | 400          |
-| 360p         | 640 x 360         | 15          | 800          |
-| 480p         | 640 x 480         | 15          | 900          |
-| 720p         | 1280 x 720        | 15          | 1500         |
-| 1080p        | 1920 x 1080       | 15          | 2000         |
-| 1440p        | 2560 x 1440       | 30          | 4860         |
-| 4K           | 3840 x 2160       | 30          | 9000         |
+| 120p         | 160 × 120         | 15          | 200          |
+| 180p         | 320 × 180         | 15          | 350          |
+| 240p         | 320 × 240         | 15          | 400          |
+| 360p         | 640 × 360         | 15          | 800          |
+| 480p         | 640 × 480         | 15          | 900          |
+| 720p         | 1280 × 720        | 15          | 1500         |
+| 1080p        | 1920 × 1080       | 15          | 2000         |
+| 1440p        | 2560 × 1440       | 30          | 4860         |
+| 4K           | 3840 × 2160       | 30          | 9000         |
 
-- 由于设备和浏览器的限制，视频分辨率不一定能够完全匹配，在这种情况下，浏览器会自动调整分辨率使其接近 Profile 对应的分辨率
+由于设备和浏览器的限制，视频分辨率不一定能够完全匹配，在这种情况下，浏览器会自动调整分辨率使其接近 Profile 对应的分辨率

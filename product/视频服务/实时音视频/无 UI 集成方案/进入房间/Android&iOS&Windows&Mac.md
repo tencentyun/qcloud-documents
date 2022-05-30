@@ -3,9 +3,11 @@
 
 ## 调用指引
 
+[](id:step1)
 ### 步骤1：导入 SDK 并设置 App 权限
-请参考文档 [导入SDK到项目中](https://cloud.tencent.com/document/product/647/32173) 完成 SDK 的导入工作。
+请参考文档 [导入 SDK 到项目中](https://tcloud-doc.isd.com/document/product/647/32173?!editLang=zh&!preview) 完成 SDK 的导入工作。
 
+[](id:step2)
 ### 步骤2：创建 SDK 实例并设置事件监听器
 调用各平台的初始化接口创建 TRTC 的对象实例。
 <dx-codeblock>
@@ -29,6 +31,7 @@ trtc_cloud_->addCallback(this);
 :::
 </dx-codeblock>
 
+[](id:step3)
 ### 步骤3：监听 SDK 的事件
 通过设置事件回调接口，您可以监听 SDK 在运行期间所发生的错误信息、警告信息、流量统计信息、网络质量信息以及各种音视频事件。
 <dx-codeblock>
@@ -85,6 +88,7 @@ void onError(TXLiteAVError errCode, const char* errMsg, void* extraInfo) {
 :::
 </dx-codeblock>
 
+[](id:step4)
 ### 步骤4：准备进房参数 TRTCParams
 在调用 enterRoom 接口时需要填写两个关键参数，即 `TRTCParams` 和 `TRTCAppScene`，接下来进行详细介绍：
 
@@ -113,11 +117,12 @@ TRTCParams 由很多的字段构成，但通常您只需要关心如下几个字
 >- 每个端在应用场景 appScene 上必须要进行统一，否则会出现一些不可预料的问题。
 
 
-### 步骤5：进入房间(enterRoom)
+[](id:step5)
+### 步骤5：进入房间（enterRoom）
 在准备好步骤4中两个参数（TRTCAppScene 和 TRTCParams）后，就可以调用 enterRoom 接口函数进入房间了。
 
 <dx-codeblock>
-::: Android  Java TRTCParams
+::: Android  Java
 mCloud = TRTCCloud.sharedInstance(getApplicationContext());
 mCloud.setListener(mTRTCCloudListener);
 
@@ -135,7 +140,7 @@ params.role = TRTCCloudDef.TRTCRoleAnchor;
 mCloud.enterRoom(param, TRTCCloudDef.TRTC_APP_SCENE_LIVE);        
 :::
 
-::: iOS&Mac  ObjC
+::: iOS&Mac  objectivec
 self.trtcCloud = [TRTCCloud sharedInstance];
 self.trtcCloud.delegate = self;
 
@@ -153,7 +158,7 @@ params.role = TRTCRoleAnchor;
 [self.trtcCloud enterRoom:params appScene:TRTCAppSceneLIVE];
 :::
 
-::: Windows  C++ TRTCParams
+::: Windows  C++
 trtc_cloud_ = getTRTCShareInstance();
 trtc_cloud_->addCallback(this);
 
@@ -173,7 +178,7 @@ trtc_cloud_->enterRoom(params, liteav::TRTCAppSceneLIVE);
 </dx-codeblock>
 
 **事件回调**
-如果进入房间成功，SDK 会回调 onEnterRoom(result) 事件，其中 result 会是一个大于 0 的数值，代表加入房间所消耗的时间，单位为毫秒（ms）；
+如果进入房间成功，SDK 会回调 onEnterRoom(result) 事件，其中 result 会是一个大于 0 的数值，代表加入房间所消耗的时间，单位为毫秒（ms）。
 如果进入房间失败，SDK 同样会回调 onEnterRoom(result) 事件，但参数 `result` 会是一个负数，其数值为进房失败的错误码。
 <dx-codeblock>
 ::: Android Java

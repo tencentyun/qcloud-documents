@@ -18,9 +18,9 @@
 如果要实现类似微信视频通话的体验模式，需要做两项工作：
 
 [](id:step1)
-### 1.  配置 App 的 UI 界面为竖屏
+### 1. 配置 App 的 UI 界面为竖屏
 <dx-tabs>
-::: iOS平台
+::: iOS 平台
 可以直接在 XCode 的 **General** > **Deployment Info** > **Device Orientation** 中进行设置：
 ![](https://main.qcloudimg.com/raw/f7d62ed0954fd44f80d3983a0e6fb52d.png)
 
@@ -39,7 +39,7 @@
 </dx-codeblock>
 >?CSDN 上有一篇文章 [iOS横竖屏旋转及其基本适配方法](https://blog.csdn.net/DreamcoffeeZS/article/details/79037207)，详细介绍了 iOS 平台中关于屏幕方向的一些开发经验。
 :::
-::: Android平台
+::: Android 平台
 通过指定 activity 的 `screenOrientation` 属性为 portrait，即可指定该界面为竖屏模式：
 <dx-codeblock>
 ::: xml 
@@ -55,7 +55,7 @@
 在使用 TRTCCloud 的 setVideoEncoderParam 接口设置视频编码参数时，将 resMode 指定为 `TRTCVideoResolutionModePortrait` 即可。
 示例代码如下：[](id:example_code)
 <dx-codeblock>
-::: iOS平台 ObjectiveC
+::: iOS swift
 TRTCVideoEncParam* encParam = [TRTCVideoEncParam new];
 encParam.videoResolution = TRTCVideoResolution_640_360;
 encParam.videoBitrate = 600;
@@ -64,7 +64,7 @@ encParam.resMode = TRTCVideoResolutionModePortrait; //设置分辨率模式为�
 
 [trtc setVideoEncoderParam: encParam];
 :::
-::: Android平台 java
+::: Android java
 TRTCCloudDef.TRTCVideoEncParam encParam = new TRTCCloudDef.TRTCVideoEncParam();
 encParam.videoResolution = TRTCCloudDef.TRTC_VIDEO_RESOLUTION_640_360;
 encParam.videoBitrate = 600;

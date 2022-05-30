@@ -1,10 +1,13 @@
 本文档主要介绍如何主动退出当前 TRTC 房间，同时还会介绍在什么情况下会被迫退出房间：
 ![](https://qcloudimg.tencent-cloud.cn/raw/b155aaff08a5baaaecaaa14a4f2229cc.png)
 
+[](id:step1)
 ## 步骤1：完成前序步骤
-先参考文档[导入SDK到项目中](to-do)并[进入房间](to-do)。
-## 步骤2：主动退出当前房间
+先参考文档 [导入 SDK 到项目中](https://tcloud-doc.isd.com/document/product/647/32183?!preview) 并 [进入房间](https://tcloud-doc.isd.com/document/product/647/74637?!preview)。
 
+
+[](id:step2)
+## 步骤2：主动退出当前房间
 通话结束时调用 [exitRoom](https://cloud.tencent.com/document/product/647/17018#exitroom()) 方法退出音视频通话房间，整个音视频通话会话结束。
 
 ```javascript
@@ -18,6 +21,7 @@ exitRoom() {
 },
 ```
 
+[](id:step3)
 ## 步骤3：被动退出当前房间
 除了用户主动退出房间，在以下情况下，用户会收到 [`KICKED_OUT`](https://cloud.tencent.com/document/product/647/17018#kicked_out) 事件，表示当前用户被动退出房间：
 

@@ -1,9 +1,9 @@
 本文档主要介绍如何使用屏幕分享，目前一个 TRTC 音视频房间只能有一路屏幕分享。
 
 ## 调用指引
-
 ### 开启屏幕分享
 
+[](id:step1)
 #### 步骤1：添加 Activity
 在 manifest 文件中粘贴如下 activity（若项目代码中存在则不需要添加）。
 ```xml
@@ -12,6 +12,7 @@
     android:theme="@android:style/Theme.Translucent"/>
 ```
 
+[](id:step2)
 #### 步骤2： 启动屏幕分享
 要开启 Android 端的屏幕分享，只需调用 `TRTCCloud` 中的  [startScreenCapture()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#aa6671fc587513dad7df580556e43be58) 接口即可。
 
@@ -28,6 +29,7 @@
 - 如果您要分享的屏幕内容包含大量文字，可以适当提高分辨率和码率设置。
 - 最高码率（videoBitrate）是指画面在剧烈变化时的最高输出码率，如果屏幕内容变化较少，实际编码码率会比较低。
 
+[](id:step3)
 #### 步骤3：弹出悬浮窗防止应用被强杀（可选）
 从 Android 7.0 系统开始，切入到后台运行的普通 App 进程，但凡有 CPU 活动，都很容易会被系统强杀掉。 所以当 App 在切入到后台默默进行屏幕分享时，通过弹出悬浮窗的方案，可以避免被系统强杀掉。 同时，在手机屏幕上显示悬浮窗也有利于告知用户当前正在做屏幕分享，避免用户泄漏个人隐私。
 
@@ -36,7 +38,7 @@
 public void showView(View view, int width, int height) {
         mWindowManager = (WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE);
         int type = WindowManager.LayoutParams.TYPE_TOAST;
-	    //TYPE_TOAST仅适用于4.4+系统，假如要支持更低版本使用TYPE_SYSTEM_ALERT(需要在manifest中声明权限)
+        //TYPE_TOAST仅适用于4.4+系统，假如要支持更低版本使用TYPE_SYSTEM_ALERT(需要在manifest中声明权限)
         //7.1（包含）及以上系统对TYPE_TOAST做了限制
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
@@ -59,5 +61,5 @@ public void showView(View view, int width, int height) {
 
 - **观看 Android / iOS 屏幕分享**
   若用户通过 Android / iOS 进行屏幕分享，会通过主流进行分享。房间里的其他用户会通过 TRTCCloudListener 中的 [onUserVideoAvailable](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudListener__android.html#ac1a0222f5b3e56176151eefe851deb05) 事件获得这个通知。
-	
+    
 观看屏幕分享的用户可以通过 [startRemoteView](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a57541db91ce032ada911ea6ea2be3b2c) 接口来启动渲染远端用户主流画面。

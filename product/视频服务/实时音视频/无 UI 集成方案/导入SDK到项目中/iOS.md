@@ -9,21 +9,19 @@
 您可以选择使用 CocoaPods 方案，或者先将 SDK 下载到本地，再将其手动导入到您当前的项目中。
 
 ### 方案一：使用 CocoaPods
-#### 1. 安装 CocoaPods
+1. **安装 CocoaPods**
 在终端窗口中输入如下命令（需要提前在 Mac 中安装 Ruby 环境）：
 ```
 sudo gem install cocoapods
 ```
-
-#### 2. 创建 Podfile 文件
+2. **创建 Podfile 文件**
 进入项目所在路径，输入以下命令行之后项目路径下会出现一个 Podfile 文件。
 ```
 pod init
 ```
-
-#### 3. 编辑 Podfile 文件
+3. **编辑 Podfile 文件**
 根据您的项目需要选择合适的版本，并编辑 Podfile 文件：
-- **选项一：TRTC 精简版**
+    - **选项一：TRTC 精简版**
 安装包体积增量最小，但仅支持实时音视频（TRTC）和 直播播放器（TXLivePlayer）两项功能。如选择此版本，请按如下方式编辑 Podfile 文件：
 ```
  platform :ios, '8.0'
@@ -32,8 +30,7 @@ pod init
   pod 'TXLiteAVSDK_TRTC', :podspec => 'https://liteav.sdk.qcloud.com/pod/liteavsdkspec/TXLiteAVSDK_TRTC.podspec'
   end
 ```
-
-- **选项二：Professional 专业版**
+    - **选项二：Professional 专业版**
 包含实时音视频（TRTC）、直播播放器（TXLivePlayer）、RTMP 推流（TXLivePusher）、点播播放器（TXVodPlayer）和短视频录制和编辑（UGSV）等众多功能。如选择此版本，请按如下方式编辑 Podfile 文件：
 ```
  platform :ios, '8.0'
@@ -42,17 +39,15 @@ pod init
   pod 'TXLiteAVSDK_Professional', :podspec => 'https://liteav.sdk.qcloud.com/pod/liteavsdkspec/TXLiteAVSDK_Professional.podspec'
   end
 ```
-
-#### 4. 更新并安装 SDK
-在终端窗口中输入如下命令以更新本地库文件，并安装 SDK：
+4. **更新并安装 SDK**
+    - 在终端窗口中输入如下命令以更新本地库文件，并安装 SDK：
 ```
 pod install
 ```
-或使用以下命令更新本地库版本：
+    - 或使用以下命令更新本地库版本：
 ```
 pod update
 ```
-
 pod 命令执行完后，会生成集成了 SDK 的 .xcworkspace 后缀的工程文件，双击打开即可。
 
 ### 方案二：下载 SDK 并手动导入

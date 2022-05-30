@@ -6,7 +6,7 @@
 - Stream 对象，代表一个音视频流对象，包括本地音视频流对象 [LocalStream](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/LocalStream.html) 和远端音视频流对象 [RemoteStream](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/RemoteStream.html)。Stream 类的方法主要提供音视频流对象的行为，包括音频和视频的播放控制。
 
 ## 步骤1：创建 Client 对象
-可以参考文档 [进入房间](to-do) `步骤1` 创建client。
+可以参考文档 [进入房间-步骤1](https://tcloud-doc.isd.com/document/product/647/74636?!preview#step1) 创建 client。
 
 需要特别注意的是，创建 Client 时可选择设置订阅模式，TRTC 提供了两种订阅模式：
  - 自动订阅，当收到 stream-added 事件时，SDK 会立刻接收并解码该远端流所包含的音视频数据，这也是 SDK 的默认行为。
@@ -18,6 +18,7 @@ const client = TRTC.createClient({
   autoSubscribe: false // 默认为 true 即自动订阅
 });
 ```
+
 ## 步骤2：监听远端流加入事件并订阅远端流
 订阅远端流首先需要知道有哪些远端流可以订阅，可以通过监听事件 [Client.on('stream-added')](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/module-Event.html#.STREAM_ADDED) 获取房间内的远端流，收到该事件说明这个远端流可以进行订阅，在事件回调通过 [Client.subscribe()](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/Client.html#subscribe) 订阅远端音视频流。
 
@@ -29,9 +30,10 @@ client.on('stream-added', event => {
   client.subscribe(remoteStream);
 });
 ```
->！
+>!
 >- 在进房之前监听 [Client.on('stream-added')](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/module-Event.html#.STREAM_ADDED) 事件，以确保您不会错过已在房间内的用户的远端流通知。
 >- 远端流离开等其他事件可以在 [API 详细文档](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/module-Event.html) 中查看。
+
 
 ## 步骤3：监听订阅成功事件并播放远端流
 在远端流订阅成功事件回调中，通过调用 [Stream.play()](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/Stream.html#play) 方法在网页中播放音视频。`play` 方法接受一个 div 元素 ID 或者一个 HTMLDivElement 对象作为参数，SDK 会在该 div 元素下自动创建相应的音视频标签并播放音视频。
@@ -66,8 +68,9 @@ client.on('stream-subscribed', event => {
   remoteStream.play('remote-stream-' + remoteStream.getId());
 });
 ```
+
 ## 步骤4：进入音视频通话房间
-监听事件后，即可调用 Client.join() 进入音视频通话房间。可以参考文档 [进入房间](to-do) `步骤2`。
+监听事件后，即可调用 Client.join() 进入音视频通话房间。可以参考文档 [进入房间-步骤2](https://cloud.tencent.com/document/product/647/74636?!editLang=zh&!preview?!editLang=zh&!preview#step2)。
 
 ## 完整代码
 

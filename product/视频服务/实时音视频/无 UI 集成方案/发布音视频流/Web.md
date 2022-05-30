@@ -6,17 +6,20 @@
 - Client 对象，代表一个本地客户端。[Client](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/Client.html) 类的方法提供了加入通话房间、发布本地流、订阅远端流等功能。
 - Stream 对象，代表一个音视频流对象，包括本地音视频流对象 [LocalStream](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/LocalStream.html) 和远端音视频流对象 [RemoteStream](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/RemoteStream.html)。Stream 类的方法主要提供音视频流对象的行为，包括音频和视频的播放控制。
 
+[](id:step1)
 ## 步骤1：完成前序步骤
-可以参考文档 [进入房间](to-do)，创建 Client 并进入房间，为接下来发布音视频流做准备。
+可以参考文档 [进入房间](https://tcloud-doc.isd.com/document/product/647/74636?!preview)，创建 Client 并进入房间，为接下来发布音视频流做准备。
 
+
+[](id:step2)
 ## 步骤2：创建本地流
-使用 [TRTC.createStream()](https://web.sdk.qcloud.com/trtc/webrtc/doc/en/TRTC.html#createStream) 方法创建本地音视频流。
-参数设置如下：
+使用 [TRTC.createStream()](https://web.sdk.qcloud.com/trtc/webrtc/doc/en/TRTC.html#createStream) 方法创建本地音视频流，参数设置如下：
+
 | 参数名称 | 字段含义 | 补充说明 | 数据类型 |填写示例 | 默认值 | 
 |---------|---------|---------|---------|---------|---------|
-| userId | 用户 ID | 即用户名，与创建的 Client 的 userId 保持一致 | string | “denny” 或者 “123321”| 无【必填】 |
-| audio | 是否采集音频 | 选择是否通过麦克风采集音频 | boolean | true |  无【必填】 |
-| video | 是否采集视频 | 选择是否通过摄像头采集视频 | boolean | true |  无【必填】 |
+| userId | 用户 ID | 即用户名，与创建的 Client 的 userId 保持一致 | string | “denny” 或者 “123321”| 无**必填** |
+| audio | 是否采集音频 | 选择是否通过麦克风采集音频 | boolean | true |  无**必填** |
+| video | 是否采集视频 | 选择是否通过摄像头采集视频 | boolean | true |  无**必填** |
 
 更详细的参数说明参见 [TRTC.createStream()](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/TRTC.html#createStream)。 
 
@@ -54,6 +57,8 @@ try {
 }
 ```
 
+
+[](id:step3)
 ## 步骤3：发布本地流
 在本地流初始化成功后，调用 [Client.publish()](https://web.sdk.qcloud.com/trtc/webrtc/doc/en/Client.html#publish) 方法发布本地流。
 ```javascript
@@ -77,9 +82,7 @@ try {
 ```
 
 ## 完整代码
-
 ```javascript
-
 const client = TRTC.createClient({
   mode: 'rtc',
   sdkAppId,

@@ -2,10 +2,12 @@
 
 ## 调用指引
 
+[](id:step1)
 ### 步骤1：完成前序步骤
 
-请参考文档 [导入SDK到项目中]() 完成 SDK 的导入和 App 权限的配置。
+请参考文档 [导入 SDK 到项目中](https://tcloud-doc.isd.com/document/product/647/73371?!preview) 完成 SDK 的导入和 App 权限的配置。
 
+[](id:step2)
 ### 步骤2：打开摄像头预览
 您可以调用 **startLocalPreview** 接口打开摄像头预览。
 
@@ -20,6 +22,8 @@ const viewId = 'viewId';    // view id
 this.trtcCloud.startLocalPreview(isFrontCamera, viewId);
 ```
 
+
+[](id:step3)
 ### 步骤3：打开麦克风采集
 您可以调用 **startLocalAudio** 来开启麦克风采集，该接口需要您通过 `quality` 参数确定采集模式。虽然这个参数的名字叫做 quality，但并不是说质量越高越高，不同的业务场景有最适合的参数选择（这个参数更准确的含义是 scene）。
 
@@ -31,9 +35,11 @@ this.trtcCloud = TrtcCloud.createInstance();
 this.trtcCloud.startLocalAudio(TRTCAudioQuality.TRTCAudioQualityDefault);
 ```
 
+
+[](id:step4)
 ### 步骤4：进入 TRTC 房间
 
-参考文档 [进入房间](to-do) 让当前用户进入 TRTC 房间。一旦进入房间后，SDK 便会开始向房间中的其他用户发布自己的音频流。
+参考文档 [进入房间](https://tcloud-doc.isd.com/document/product/647/74638?!preview) 让当前用户进入 TRTC 房间。一旦进入房间后，SDK 便会开始向房间中的其他用户发布自己的音频流。
 
 >! 当然，您可以在进入房间（enterRoom）后再启动摄像头预览和麦克风采集，不过在直播场景下，我们需要先给主播一个测试麦克风和调整美颜的时间，所以更常见的做法是先启动摄像头和麦克风再进入房间。
 

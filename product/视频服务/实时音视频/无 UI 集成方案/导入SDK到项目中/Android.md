@@ -12,15 +12,15 @@ TRTC SDK 已经发布到 mavenCentral 库，您可以通过配置 gradle 自动�
 1. 在 dependencies 中添加 TRTCSDK 的依赖。
 ```
 dependencies {
-         implementation 'com.tencent.liteav:LiteAVSDK_TRTC:latest.release'
+        implementation 'com.tencent.liteav:LiteAVSDK_TRTC:latest.release'
 }
 ```
 2. 在 defaultConfig 中，指定 App 使用的 CPU 架构。
 ```
 defaultConfig {
-       ndk {
-           abiFilters "armeabi", "armeabi-v7a", "arm64-v8a"
-       }
+        ndk {
+                abiFilters "armeabi", "armeabi-v7a", "arm64-v8a"
+        }
 }
 ```
 >?目前 TRTC SDK 支持 armeabi ， armeabi-v7a 和 arm64-v8a。
@@ -28,7 +28,7 @@ defaultConfig {
 
 
 ### 方案二：下载 SDK 并手动导入
-1. 下载 [SDK]并解压到本地。(https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_TRTC_Android_latest.zip)。
+1. 下载 [SDK](https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_TRTC_Android_latest.zip) 并解压到本地。
 2. 将解压的 aar 文件拷贝到工程的 **app/libs** 目录下。
 3. 在工程根目录下的 build.gradle 中，添加 **flatDir**，指定本地仓库路径。
 ![](https://main.qcloudimg.com/raw/3b07d38f105167ae52ffdda9a1712cec.png)
@@ -37,9 +37,9 @@ defaultConfig {
 5. 在 app/build.gradle的defaultConfig 中，指定 App 使用的 CPU 架构。
 ```
 defaultConfig {
-       ndk {
-           abiFilters "armeabi", "armeabi-v7a", "arm64-v8a"
-       }
+        ndk {
+                abiFilters "armeabi", "armeabi-v7a", "arm64-v8a"
+        }
 }
 ```
 >?目前 TRTC SDK 支持 armeabi ， armeabi-v7a 和 arm64-v8a。
@@ -47,8 +47,7 @@ defaultConfig {
 
 ## 第二步：配置 App 权限
 在 AndroidManifest.xml 中配置 App 的权限，TRTC SDK 需要以下权限：
-
-```
+```java
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -63,8 +62,7 @@ defaultConfig {
 
 ## 第三步：设置混淆规则
 在 proguard-rules.pro 文件，将 TRTC SDK 相关类加入不混淆名单：
-
-```
+```java
 -keep class com.tencent.** { *; }
 ```
 
@@ -73,7 +71,7 @@ defaultConfig {
 如果您更倾向于使用 C++ 接口，而不是 Java 进行开发，可以执行此步骤；如果您仅使用 Java 语言来调用 TRTC SDK，请忽略此步。
 1. 首先需要根据上文的指引，通过导入 jar 和 so 库的方式集成 TRTC SDK。
 2. 拷贝头文件：将 SDK 中的 C++ 头文件拷贝到项目中（路径为：`SDK/LiteAVSDK_TRTC_xxx/libs/include`），并在 CMakeLists.txt 中配置 include 文件夹路径及 so 库的动态链接。
-```
+```java
 cmake_minimum_required(VERSION 3.6)
 
 # 配置 C++ 接口头文件路径

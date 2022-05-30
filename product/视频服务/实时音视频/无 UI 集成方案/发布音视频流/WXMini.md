@@ -3,11 +3,14 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/b887b390411aef1396bd593ccdd9eb0e.png)
 
 
+[](id:step1)
 ## 步骤1：完成前序步骤
-先参考文档[导入SDK到项目中](to-do)，再[进入房间](to-do)。
+先参考文档 [导入 SDK 到项目中](https://tcloud-doc.isd.com/document/product/647/32183?!preview)，再 [进入房间](https://tcloud-doc.isd.com/document/product/647/74637?!preview)。
 
+
+[](id:step2)
 ## 步骤2：本地推流
-在进入房间后，调用[getPusherInstance().start()](https://cloud.tencent.com/document/product/647/17018#enterroom(params))或者开启自动推流模式即可开始推流。
+在进入房间后，调用 [getPusherInstance().start()](https://cloud.tencent.com/document/product/647/17018#enterroom(params)) 或者开启自动推流模式即可开始推流。
 ```javascript
  enterRoom(options) {
     this.setData({

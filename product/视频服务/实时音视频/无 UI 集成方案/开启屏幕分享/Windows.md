@@ -61,9 +61,9 @@ void CTRTCCloudSDK::onUserSubStreamAvailable(const char * userId, bool available
 ```
 
 ## 常见问题
- **一个房间里可以同时有多路屏幕分享吗？**
+####  1. 一个房间里可以同时有多路屏幕分享吗？
 目前一个 TRTC 音视频房间只能有一路屏幕分享。
 
- **指定窗口分享（SourceTypeWindow），当窗口大小变化时，视频流的分辨率会不会也跟着变化？**
+####  2. 指定窗口分享（SourceTypeWindow），当窗口大小变化时，视频流的分辨率会不会也跟着变化？
 默认情况下，SDK 内部会自动根据分享的窗口大小进行编码参数的调整。
 如需固定分辨率，需调用 setSubStreamEncoderParam 接口设置屏幕分享的编码参数，或在调用 startScreenCapture 时指定对应的编码参数。

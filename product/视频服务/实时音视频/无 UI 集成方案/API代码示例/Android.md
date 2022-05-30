@@ -33,9 +33,9 @@
 1. 进入修改配置页，根据您下载的源码包，选择相应的开发环境。
 2. 找到并打开 `LiteAVSDK_TRTC_Android版本号/TRTC-API-Example/Debug/src/main/java/com/tencent/trtc/debug/GenerateTestUserSig.java` 文件。
 3. 设置 `GenerateTestUserSig.java` 文件中的相关参数：
-	<ul><li/>SDKAPPID：默认为 PLACEHOLDER ，请设置为实际的 SDKAppID。
-	<li/>SECRETKEY：默认为 PLACEHOLDER ，请设置为实际的密钥信息。</ul>
-	<img src="https://main.qcloudimg.com/raw/f9b23b8632058a75b78d1f6fdcdca7da.png">
+  <ul><li/>SDKAPPID：默认为 PLACEHOLDER ，请设置为实际的 SDKAppID。
+  <li/>SECRETKEY：默认为 PLACEHOLDER ，请设置为实际的密钥信息。</ul>
+  <img src="https://main.qcloudimg.com/raw/f9b23b8632058a75b78d1f6fdcdca7da.png">
 4. 粘贴完成后，单击**已复制粘贴，下一步**即创建成功。
 5. 编译完成后，单击**回到控制台概览**即可。
 

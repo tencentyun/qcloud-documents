@@ -1,28 +1,29 @@
 本文档主要介绍如何进入 TRTC 房间中，只有在进入音视频房间后，用户才能订阅房间中其他用户的音视频流，或者向房间中的其他用户发布自己的音视频流。
 ![](https://qcloudimg.tencent-cloud.cn/raw/861153473c6e4679affdb2d24a71f775.png)
 
-
+[](id:step1)
 ## 步骤1：初始化 TRTC 实例
 参见 [初始化 TRTC 实例](https://cloud.tencent.com/document/product/647/17018#.E5.88.9D.E5.A7.8B.E5.8C.96-trtc-.E5.AE.9E.E4.BE.8B)。 
 
 ```javascript
-  // 生命周期函数--监听页面加载
-  onLoad(options) {
-    this.TRTC = new TRTC(this)
-  },
+// 生命周期函数--监听页面加载
+onLoad(options) {
+  this.TRTC = new TRTC(this)
+},
 ```
 
+[](id:step2)
 ## 步骤2：绑定事件回调
 参见 [事件表](https://cloud.tencent.com/document/product/647/17018#Event)。 
 ```html
 <live-pusher
-	bindstatechange="_pusherStateChangeHandler"
-	bindnetstatus="_pusherNetStatusHandler"
-	binderror="_pusherErrorHandler"
-	bindbgmstart="_pusherBGMStartHandler"
-	bindbgmprogress="_pusherBGMProgressHandler"
-	bindbgmcomplete="_pusherBGMCompleteHandler"
-	bindaudiovolumenotify="_pusherAudioVolumeNotify"
+  bindstatechange="_pusherStateChangeHandler"
+  bindnetstatus="_pusherNetStatusHandler"
+  binderror="_pusherErrorHandler"
+  bindbgmstart="_pusherBGMStartHandler"
+  bindbgmprogress="_pusherBGMProgressHandler"
+  bindbgmcomplete="_pusherBGMCompleteHandler"
+  bindaudiovolumenotify="_pusherAudioVolumeNotify"
 />
 ```
 
@@ -113,14 +114,16 @@
     },
   },
 ```
+
+[](id:step3)
 ## 步骤3：进入音视频通话房间
-需要先调用 [enterroom](https://cloud.tencent.com/document/product/647/17018#enterroom(params))获取pusher相关参数，再通过setData赋值给[live-pusher](https://developers.weixin.qq.com/miniprogram/dev/component/live-pusher.html)标签。 
+需要先调用 [enterroom](https://cloud.tencent.com/document/product/647/17018#enterroom(params)) 获取 pusher 相关参数，再通过 setData 赋值给 [live-pusher](https://developers.weixin.qq.com/miniprogram/dev/component/live-pusher.html) 标签。 
 ```javascript
- enterRoom(options) {
-    this.setData({
-      pusher: this.TRTC.enterRoom(options),
-    })
-  },
+enterRoom(options) {
+  this.setData({
+    pusher: this.TRTC.enterRoom(options),
+  })
+},
 ```
 ```xml
  <live-pusher

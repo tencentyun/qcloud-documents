@@ -10,8 +10,7 @@
 4. 使用 downlinkClient 进行拉流，监听 [NETWORK_QUALITY](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/module-ClientEvent.html#.NETWORK_QUALITY) 事件来检测下行网络质量。
 5. 整个过程可持续 15s 左右，最后取平均网络质量，从而大致判断出上下行网络情况。
 
-> !
-> - 检测过程将产生少量的[基础服务费用](https://cloud.tencent.com/document/product/647/17157#.E5.9F.BA.E7.A1.80.E6.9C.8D.E5.8A.A1)。如果未指定推流分辨率，则默认以 640*480 的分辨率推流。
+> ! 检测过程将产生少量的[基础服务费用](https://cloud.tencent.com/document/product/647/17157#.E5.9F.BA.E7.A1.80.E6.9C.8D.E5.8A.A1)。如果未指定推流分辨率，则默认以 640*480 的分辨率推流。
 
 ## 代码示例
 
@@ -65,7 +64,7 @@ async function testDownlinkNetworkQuality() {
 
   downlinkClient.on('stream-added', async event => {
     await downlinkClient.subscribe(event.stream, { audio: true, video: true });
-		// 订阅成功后开始监听网络质量事件
+    // 订阅成功后开始监听网络质量事件
     downlinkClient.on('network-quality', event => {
       const { downlinkNetworkQuality } = event;
       testResult.downlinkNetworkQualities.push(downlinkNetworkQuality);
@@ -114,9 +113,14 @@ setTimeout(() => {
 | 3    | 网络状况一般                                                 |
 | 4    | 网络状况差                                                   |
 | 5    | 网络状况极差                                                 |
-| 6    | 网络连接已断开 注意：若下行网络质量为此值，则表示所有下行连接都断开了 |
+| 6    | 网络连接已断开。**注意：若下行网络质量为此值，则表示所有下行连接都断开了**
 
-> 建议：当网络质量大于3时，应引导用户检查网络并尝试更换网络环境，否则难以保证正常的音视频通话。<br>也可通过下述策略来降低带宽消耗：
-> - 若上行网络质量大于3，则可通过 [LocalStream.setVideoProfile()](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/LocalStream.html#setVideoProfile) 接口降低码率 或 [LocalStream.muteVideo()](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/LocalStream.html#muteVideo) 方式关闭视频，以降低上行带宽消耗。
-> - 若下行网络质量大于3，则可通过订阅小流（参考：[开启大小流传输](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/tutorial-27-advanced-small-stream.html)）或者只订阅音频的方式，以降低下行带宽消耗。
+<dx-alert infotype="notice" title="建议：">
+当网络质量大于3时，应引导用户检查网络并尝试更换网络环境，否则难以保证正常的音视频通话。<br>也可通过下述策略来降低带宽消耗：
+ - 若上行网络质量大于3，则可通过 [LocalStream.setVideoProfile()](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/LocalStream.html#setVideoProfile) 接口降低码率 或 [LocalStream.muteVideo()](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/LocalStream.html#muteVideo) 方式关闭视频，以降低上行带宽消耗。
+ - 若下行网络质量大于3，则可通过订阅小流（参考：[开启大小流传输](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/tutorial-27-advanced-small-stream.html)）或者只订阅音频的方式，以降低下行带宽消耗。
+</dx-alert>
+
+
+
 

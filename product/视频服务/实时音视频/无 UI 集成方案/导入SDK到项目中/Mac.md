@@ -10,48 +10,41 @@
 您可以选择使用 CocoaPods 自动加载的方式，或者手动先下载 SDK 再将其导入到您当前的工程项目中。
 
 ### 方案一：CocoaPods
-#### 1. 安装 CocoaPods
+1. **安装 CocoaPods**
 在终端窗口中输入如下命令（需要提前在 Mac 中安装 Ruby 环境）：
 ```
 sudo gem install cocoapods
 ```
-
-#### 2. 创建 Podfile 文件
+2. **创建 Podfile 文件**
 进入项目所在路径，输入以下命令行之后项目路径下会出现一个 Podfile 文件。
 ```
 pod init
 ```
-
-#### 3. 编辑 Podfile 文件
+3. **编辑 Podfile 文件**
 编辑 Podfile 文件，有如下有两种设置方式：
-- 方式一：使用腾讯云 LiteAV SDK 的 pod 路径。
-<dx-codeblock>
-::: pod路径
-    platform :osx, '10.10'
-    
-    target 'Your Target' do
-    pod 'TXLiteAVSDK_TRTC_Mac', :podspec => 'https://liteav.sdk.qcloud.com/pod/liteavsdkspec/TXLiteAVSDK_TRTC_Mac.podspec'
-    end
-:::
-</dx-codeblock>
-- 方式二：使用 CocoaPod 官方源，支持选择版本号。
-<dx-codeblock>
-::: pod路径
-    platform :osx, '10.10'
-    source 'https://github.com/CocoaPods/Specs.git'
-    
-    target 'Your Target' do
-    pod 'TXLiteAVSDK_TRTC_Mac'
-    end
-:::
-</dx-codeblock>
+    - **方式一：**使用腾讯云 LiteAV SDK 的 pod 路径。
+```
+platform :osx, '10.10'
 
-#### 4. 安装与更新 SDK
-在终端窗口中输入如下命令执行安装 TRTC SDK：
+target 'Your Target' do
+pod 'TXLiteAVSDK_TRTC_Mac', :podspec => 'https://liteav.sdk.qcloud.com/pod/liteavsdkspec/TXLiteAVSDK_TRTC_Mac.podspec'
+end
+```
+    - **方式二：**使用 CocoaPod 官方源，支持选择版本号。
+```
+platform :osx, '10.10'
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'Your Target' do
+pod 'TXLiteAVSDK_TRTC_Mac'
+end
+```
+4. **安装与更新 SDK**
+    - 在终端窗口中输入如下命令执行安装 TRTC SDK：
 ```
 pod install
 ```
-或使用以下命令更新本地库版本：
+    - 或使用以下命令更新本地库版本：
 ```
 pod update
 ```
