@@ -24,7 +24,11 @@
 
 [](id:step2)
 ### 2. 给 SDK 配置 License 授权
-单击 [License 申请](https://console.cloud.tencent.com/live/license) 获取测试用的 License，您会获得两个字符串：一个字符串是 licenseURL，另一个字符串是解密 key。
+若您已获得相关License授权，需在 [云直播控制台](https://console.cloud.tencent.com/live/license) 获取License URL和License Key；
+
+<img width="1317" alt="image" src="https://user-images.githubusercontent.com/88317062/169646279-929248e3-8ded-4b9e-8b04-2b6e462054a0.png">
+
+若您暂未获得License授权，需先参考 [新增与续期License](https://cloud.tencent.com/document/product/454/34750) 进行申请。
 
 在您的 App 调用 LiteAVSDK 的相关功能之前（建议在 `- [AppDelegate application:didFinishLaunchingWithOptions:]` 中）进行如下设置：
 
@@ -41,6 +45,8 @@
 }
 @end
 ```
+
+>! **License 中配置的 BundleId 必须和应用本身一致，否则会推流失败**
 
 ### 3. 初始化 TXLivePush 组件
 首先创建一个`TXLivePushConfig`对象。该对象可以指定一些高级配置参数，但一般情况下我们不建议您操作该对象，因为我们已经在其内部配置好了所有需要校调的参数。之后再创建一个`TXLivePush`对象，该对象负责完成推流的主要工作。

@@ -28,7 +28,11 @@
 
 ### 2. 给 SDK 配置 License 授权
 
-单击 [License 申请](https://console.cloud.tencent.com/live/license) 获取测试用 License，您会获得两个字符串：其中一个字符串是 licenseURL，另一个字符串是解密 key。
+若您已获得相关License授权，需在 [云直播控制台](https://console.cloud.tencent.com/live/license) 获取License URL和License Key；
+
+<img width="1317" alt="image" src="https://user-images.githubusercontent.com/88317062/169646279-929248e3-8ded-4b9e-8b04-2b6e462054a0.png">
+
+若您暂未获得License授权，需先参考 [新增与续期License](https://cloud.tencent.com/document/product/454/34750) 进行申请。
 
 在您的 App 调用企业版 SDK 相关功能之前（建议在 Application类中）进行如下设置：
 
@@ -41,10 +45,17 @@ public class MApplication extends Application {
         String licenceURL = ""; // 获取到的 licence url
         String licenceKey = ""; // 获取到的 licence key
         TXLiveBase.getInstance().setLicence(this, licenceURL, licenceKey);
+        TXLiveBase.setListener(new TXLiveBaseListener() {
+            @Override
+            public void onLicenceLoaded(int result, String reason) {
+                Log.i(TAG, "onLicenceLoaded: result:" + result + ", reason:" + reason);
+            }
+        });
     }
 }
 ```
->! 企业版已不对外提供，美颜相关功能可参见 [腾讯特效 SDK（美颜 SDK）](https://cloud.tencent.com/product/x-magic)。
+>! 1. 企业版已不对外提供，美颜相关功能可参见 [腾讯特效 SDK（美颜 SDK）](https://cloud.tencent.com/product/x-magic)；
+>2. License 中配置的 packageName 必须和应用本身一致，否则会推流失败。
 
 
 ### 3. 初始化 TXLivePusher 组件
