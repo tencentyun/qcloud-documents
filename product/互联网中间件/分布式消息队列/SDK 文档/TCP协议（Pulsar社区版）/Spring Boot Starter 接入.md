@@ -46,6 +46,7 @@ pulsar:
   # 集群名称
   tenant: pulsar-xxx
 :::
+    
 </dx-codeblock>
 <table>
 <tr>
@@ -89,12 +90,14 @@ public class ProducerConfiguration {
 }
 :::
 </dx-codeblock>
+
 2. 注入生产者。
 <dx-codeblock>
 :::  java
 @Autowired
 private PulsarTemplate<byte[]> defaultProducer;
 </dx-codeblock>
+    
 3. 发送消息。
 <dx-codeblock>
 :::  java
