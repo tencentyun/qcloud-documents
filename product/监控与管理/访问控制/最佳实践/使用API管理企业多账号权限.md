@@ -9,18 +9,17 @@
 
 
 
-## 操作步骤
-
+## 流程说明
 通过 CAM 子用户 a 的密钥来完成整个主账号创建以及子账号申请和授权的流程。
 
-步骤1：为新游戏申请主账号
+流程1：为新游戏申请主账号
 ![](https://qcloudimg.tencent-cloud.cn/raw/f6b21aa24a0e3b12634c0dbe299c14b8.png)
 
-步骤2：为开发员工小李创建 CAM 子账号并授权
+流程2：为开发员工小李创建 CAM 子账号并授权
 ![](https://qcloudimg.tencent-cloud.cn/raw/a82ec6172be6bea8e538d792f685551a.png)       
 
 
-
+## 操作步骤
 ### 使用管理子用户 a 为新业务创建账号
 
 1. 调用集团账号管理产品的 [CreateOrganizationMember ](https://cloud.tencent.com/document/product/850/63310) API，创建新的主账号。
