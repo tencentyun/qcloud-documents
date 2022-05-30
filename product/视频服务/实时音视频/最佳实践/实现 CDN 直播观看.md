@@ -235,12 +235,13 @@ CDN 直播观看需要使用**云直播**的资源进行直播分发。云直播
 - **增值服务费用：**
 如果您使用了云直播的转码、录制、云导播等功能，会产生对应额外的增值服务费用。增值服务可按需使用进行付费。
 
-- **SDK 播放授权：**
+### SDK 播放授权
 音视频通话（TRTC）SDK 提供了功能全面性能强大的直播播放能力，可轻松配合云直播实现 CDN 直播观看功能。移动端 SDK 在10.1及以上的版本可通过获取指定 License 以解锁直播播放能力。
 >! TRTC 的播放能力无需 License 授权。
 >
-您可直接 [购买播放 License](https://cloud.tencent.com/document/product/881/74588)，或通过 [购买指定的云直播流量包](https://buy.cloud.tencent.com/live)，可免费获赠视频播放 License 或 直播 License，两种 License 均可用于解锁 SDK 的直播播放功能。并且直播流量包可以按比例抵扣云直播的播放产生的日结流量，详细说明请参见 [云直播预付费资源包](https://cloud.tencent.com/document/product/267/34174)。
-License 终端授权的管理和续期请参见 [文档说明](https://cloud.tencent.com/document/product/1449/56981)。
+您可直接 [购买视频播放 License](https://cloud.tencent.com/document/product/881/74588)，或通过 [购买的云点播流量包](https://buy.cloud.tencent.com/vod) 免费获赠视频播放 License 或 短视频 License，两种 License 均可用于解锁 SDK 的视频播放功能。并且点播资源包可以抵扣云点播的播放产生的日结流量，详细说明请参见 [云点播预付费资源包](https://cloud.tencent.com/document/product/266/14667)。
+ License 计费说明参见 [腾讯云视立方License](https://cloud.tencent.com/document/product/1449/56972#.E8.85.BE.E8.AE.AF.E4.BA.91.E8.A7.86.E7.AB.8B.E6.96.B9-license)，License 购买完成后可参考[License操作指引](https://cloud.tencent.com/document/product/1449/56981)进行新增和续期等操作。
+
 
 ## 常见问题
 **为什么房间里只有一个人时画面又卡又模糊?**
