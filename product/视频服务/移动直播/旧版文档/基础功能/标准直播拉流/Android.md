@@ -32,13 +32,11 @@ SDK 早期版本只有 TXLivePlayer 一个 Class 承载直播和点播功能，�
 
 [](id:step_2)
 ### step 2：给 SDK 配置 License 授权
-若您已获得相关License授权，需在 [云直播控制台](https://console.cloud.tencent.com/live/license) 获取License URL和License Key；
-
-<img width="1317" alt="image" src="https://user-images.githubusercontent.com/88317062/169646279-929248e3-8ded-4b9e-8b04-2b6e462054a0.png">
-
-若您暂未获得License授权，需先参考[视频播放License]()获取相关授权。
-
-在您的 App 调用 SDK 相关功能之前（建议在 Application类中）进行如下设置：
+1. 获取 License 授权：
+	- 若您已获得相关 License 授权，需在 [云直播控制台](https://console.cloud.tencent.com/live/license) 获取 License URL 和 License Key。
+	![](https://qcloudimg.tencent-cloud.cn/raw/7053ac66fd06b9f178bf416d9d52ea21.png)
+	- 若您暂未获得 License 授权，需先参考 [视频播放 License](https://cloud.tencent.com/document/product/881/74588) 获取相关授权。
+2. 在您的 App 调用 SDK 相关功能之前（建议在 Application 类中）进行如下设置：
 ```java
 public class MApplication extends Application {
 
@@ -106,7 +104,6 @@ mLivePlayer.startPlay(flvUrl, TXLivePlayer.PLAY_TYPE_LIVE_FLV); //推荐 FLV
 
 - **view：大小和位置**
 如需修改画面的大小及位置，直接调整 [step3](#step_3) 中添加的`video_view`控件的大小和位置即可。
-
 - **setRenderMode：铺满or适应**
 <table>
 <thead><tr><th>可选值</th><th>含义</th></tr></thead>
@@ -117,7 +114,6 @@ mLivePlayer.startPlay(flvUrl, TXLivePlayer.PLAY_TYPE_LIVE_FLV); //推荐 FLV
 <td>RENDER_MODE_ADJUST_RESOLUTION</td>
 <td>将图像等比例缩放，适配最长边，缩放后的宽和高都不会超过显示区域，居中显示，画面可能会留有黑边。</td></tr>
 </tbody></table>
-
 - **setRenderRotation：画面旋转**
 <table>
 <thead><tr><th>可选值</th><th>含义</th></tr>
@@ -236,7 +232,7 @@ mLivePlayer.stopRecord();
 
 - 录制的进度以时间为单位，由 ITXVideoRecordListener 的 `onRecordProgress` 通知出来。
 - 录制好的文件以 MP4 文件的形式，由 ITXVideoRecordListener 的 `onRecordComplete` 通知出来。
-- 视频的上传和发布由 TXUGCPublish 负责，具体使用方法可以参考 [视频上传（Android）](https://cloud.tencent.com/document/product/584/15535)。
+- 视频的上传和发布由 TXUGCPublish 负责，具体使用方法请参见 [视频上传（Android）](https://cloud.tencent.com/document/product/584/15535)。
 
 [](id:step_12)
 ### step 12：清晰度无缝切换
@@ -330,7 +326,7 @@ mLivePlayer.setConfig(mPlayConfig);
 //设置完成之后再启动播放
 ```
 
->? 更多关于卡顿和延迟优化的技术知识，可以阅读 [如何优化视频卡顿？](https://cloud.tencent.com/document/product/454/7946)
+>? 更多关于卡顿和延迟优化的技术知识，可以阅读 [如何优化视频卡顿](https://cloud.tencent.com/document/product/454/7946)。
 
 [](id:RealTimePlay)
 ## 超低延时播放
@@ -352,7 +348,7 @@ bizid 的获取需要进入 [域名管理](https://console.cloud.tencent.com/liv
 - **Obs 的延时是不达标的**
 推流端如果是 [TXLivePusher](https://cloud.tencent.com/document/product/454/7885)，请使用 [setVideoQuality](https://cloud.tencent.com/document/product/454/7885#7.-.E8.AE.BE.E5.AE.9A.E7.94.BB.E9.9D.A2.E6.B8.85.E6.99.B0.E5.BA.A6) 将 `quality`  设置为 MAIN_PUBLISHER 或者 VIDEO_CHAT。
 - **该功能按播放时长收费**
-本功能按照播放时长收费，费用跟拉流的路数有关系，跟音视频流的码率无关，具体价格请参考 [价格总览](https://cloud.tencent.com/document/product/454/8008#ACC)。
+本功能按照播放时长收费，费用跟拉流的路数有关系，跟音视频流的码率无关，具体价格请参见 [价格总览](https://cloud.tencent.com/document/product/454/8008#ACC)。
 
 
 
@@ -375,7 +371,7 @@ bizid 的获取需要进入 [域名管理](https://console.cloud.tencent.com/liv
 | PLAY_EVT_GET_MESSAGE  |  2012|  获取夹在视频流中的自定义 SEI 消息，消息的发送需使用 TXLivePusher |  
 | PLAY_EVT_VOD_PLAY_PREPARED    |  2013|  如果您在直播中收到此消息，说明错用成了 TXVodPlayer|  
 | PLAY_EVT_VOD_LOADING_END  |  2014|  如果您在直播中收到此消息，说明错用成了 TXVodPlayer|  
-| PLAY_EVT_STREAM_SWITCH_SUCC   |  2015|  直播流切换完成，请参考 [清晰度无缝切换](#step_12) |  
+| PLAY_EVT_STREAM_SWITCH_SUCC   |  2015|  直播流切换完成，请参见 [清晰度无缝切换](#step_12) |  
 
 **不要在收到 PLAY_LOADING 后隐藏播放画面**
 因为 `PLAY_LOADING -> PLAY_BEGIN` 的等待时间长短是不确定的，可能是5s也可能是5ms，有些客户考虑在 LOADING 时隐藏画面， BEGIN 时显示画面，会造成严重的画面闪烁（尤其是直播场景下）。推荐的做法是在视频播放画面上叠加一个背景透明的 loading 动画。
