@@ -1,4 +1,4 @@
-本文主要介绍如何快速运行腾讯云 TRTC Demo（Windows C++/QT）。
+本文主要介绍如何快速运行腾讯云 TRTC Demo（Windows C++）。
 
 ## 环境要求
 - Microsoft Visual Studio 2017 及以上版本，推荐使⽤ Microsoft Visual Studio 2019。
@@ -42,8 +42,12 @@
          <td>Windows(C++/QT)</td>   
          <td>Windows/QTDemo/src/Util/defs.h</td>   
      </tr>
+     <tr>      
+         <td>Windows(C++/Duilib)</td>   
+         <td>Windows/DuilibDemo/GenerateTestUserSig.h</td>   
+     </tr>
  </table>
-3. 设置 `defs.h` 文件中的相关参数：
+3. 设置 `defs.h` 或 `GenerateTestUserSig.h` 文件中的相关参数：
   <ul><li>SDKAppID：默认为0，请设置为实际的 SDKAppID。</li>
   <li>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</li></ul>
   <img src="https://qcloudimg.tencent-cloud.cn/raw/67bd07dbe21536e105455c11df9dd18a.png">
@@ -56,8 +60,12 @@
 
 [](id:step4)
 ### 步骤4：编译运行
+#### QtDemo
 - **方法一：**使⽤ QtCreator 打开源码⽬录下的 `QTDemo\QTDemo.pro` ⼯程⽂件，编译并运⾏ QTDemo ⼯程即可。
 - **方法二：**启动安装了 QT 开发插件的 Visual Studio（建议 VS2015 或以上），在菜单中选择 `Qt VS Tools > Open Qt Project File(.pro)...` 打开源码⽬录下的 `QTDemo\QTDemo.pro` ⼯程⽂件，编译并运⾏ QTDemo ⼯程即可。
+
+#### DuilibDemo
+- 使用 Visual Studio（建议 VS2015）打开源码目录下的 `DuilibDemo\TRTCDuilibDemo.sln` 工程文件，推荐选择 Release/X86 构建平台，编译并运行 Demo 工程即可。
 
 ## 常见问题
 
@@ -77,7 +85,8 @@ TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256�
 
 ### 2. 两台设备同时运行 Demo，为什么看不到彼此的画面？
 请确保两台设备在运行 Demo 时使用的是不同的 UserID，TRTC 不支持同一个 UserID （除非 SDKAppID 不同）在两个设备同时使用。
-![](https://qcloudimg.tencent-cloud.cn/raw/bc0b53eccbd5b46a538592458161ceeb.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/244481931cb0838a1304fff75597ce37.png)
+![](https://main.qcloudimg.com/raw/75fdf7f6b27066620bffb08c5322c979.png)
 
 ### 3. 防火墙有什么限制？
 由于 SDK 使用 UDP 协议进行音视频传输，所以对 UDP 有拦截的办公网络下无法使用，如遇到类似问题，请参见 [应对公司防火墙限制](https://cloud.tencent.com/document/product/647/34399)。
