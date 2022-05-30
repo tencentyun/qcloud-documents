@@ -6,7 +6,7 @@ Namespace = QCE/TKE2
 ## 监控指标
 | 指标英文名                          | 指标中文名                           | 指标单位 | 维度                                                         | 统计粒度                                  |
 | ----------------------------------- | ------------------------------------ | -------- | ------------------------------------------------------------ | ----------------------------------------- |
-| K8sPodCpu<br/>CoreUsed              | CPU使用量                            | MB       | 必填维度：tke_cluster_instance_id、<br>选填维度（必选其中任一维度）：workload_name、un_instance_id、node<br>非必选：node_role、workload_kind、namespace、pod_name | 60s、<br/>300s、<br/>3600s、<br/>86400s、 |
+| K8sPodCpu<br/>CoreUsed              | CPU使用量                            |核    | 必填维度：tke_cluster_instance_id、<br>选填维度（必选其中任一维度）：workload_name、un_instance_id、node<br>非必选：node_role、workload_kind、namespace、pod_name | 60s、<br/>300s、<br/>3600s、<br/>86400s、 |
 | K8sPodMem<br/>NoCacheBytes          | 内存使用量（不包含cache）            | MB       | 必填维度：tke_cluster_instance_id、<br>选填维度（必选其中任一维度）：workload_name、un_instance_id、node<br>非必选：node_role、workload_kind、namespace、pod_name | 60s、<br/>300s、<br/>3600s、<br/>86400s   |
 | K8sPodNetwork<br/>ReceivePackets    | 网络入包量                           | 个/秒    | 必填维度：tke_cluster_instance_id、<br>选填维度（必选其中任一维度）：workload_name、un_instance_id、node<br>非必选：node_role、workload_kind、namespace、pod_name | 60s、<br/>300s、<br/>3600s、<br/>86400s   |
 | K8sPodRateCpu<br/>CoreUsedLimit     | CPU利用率（占limit）                 | %        | 必填维度：tke_cluster_instance_id、<br>选填维度（必选其中任一维度）：workload_name、un_instance_id、node<br>非必选：node_role、workload_kind、namespace、pod_name | 60s、<br/>300s、<br/>3600s、<br/>86400s   |
