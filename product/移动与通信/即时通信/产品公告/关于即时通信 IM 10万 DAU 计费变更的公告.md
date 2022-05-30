@@ -197,10 +197,18 @@
   <td height=19 style='height:14.25pt'>存储180天：1500元/月</td>
   <td>存储180天：1000元/月</td>
  </tr>
+ 
  <tr height=19 style='height:14.25pt'>
   <td height=19 style='height:14.25pt'>存储360天：2500元/月</td>
   <td>存储360天：2000元/月</td>
  </tr>
+   <tr>
+      <td>群消息已读回执</td>
+      <td>不支持</td>
+      <td>不支持</td>
+      <td>不支持</td>
+      <td>支持</td>
+   </tr>
  <![if supportMisalignedColumns]>
  <tr height=0 style='display:none'>
   <td width=111 style='width:83pt'></td>
@@ -210,5 +218,5 @@
   <td width=177 style='width:133pt'></td>
   <td width=141 style='width:106pt'></td>
  </tr>
- <![endif]>
+ 
 </table>
