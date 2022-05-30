@@ -26,13 +26,13 @@ CKafka 实例与 Oceanus 集群不在同一子网时，您需要进行以下操�
 4. **路由类型**选择 VPC 网络，**网络**选择 Oceanus 对应集群的网络。
 <img src="https://main.qcloudimg.com/raw/bc0a5a5c981b723886a0ef37070fa430.png" width="600px">
 
-### 步骤2: 创建 Topic
+### 步骤2：创建 Topic
 
 1. 在实例基本信息页面，选择顶部**Topic管理**页签。
 2. 在 **Topic 管理**页面，单击**新建**，创建名为 oceanus_test1、oceanus_test2 的两个 Topic。
 	 ![](https://main.qcloudimg.com/raw/9a8cb5c4a9679c4c2c8348409a3fa915.png)
 
-### 步骤3: 接入 CKafka
+### 步骤3：接入 CKafka
 
 1. 登录 [流计算 Oceanus 控制台](https://console.cloud.tencent.com/oceanus/job)。
 2. 在**作业管理**页面单击左上角**新建**，创建作业（本文使用 SQL 作业，客户可自行选择作业类型）。
