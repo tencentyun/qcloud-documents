@@ -124,7 +124,7 @@ userSig 的计算方法请参见 [如何计算及使用 UserSig](https://cloud.t
 
 在您的 App 调用 SDK 相关功能之前（建议在 `Application` / `- [AppDelegate application:didFinishLaunchingWithOptions:]`中）进行如下设置：
 <dx-codeblock>
-::: Android
+::: Android java
 public class MApplication extends Application {
 
 @Override
@@ -141,7 +141,7 @@ public void onCreate() {
         });
 }
 :::
-::: iOS
+::: iOS objectivec
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     NSString * const licenceURL = @"<获取到的licenseUrl>";
     NSString * const licenceKey = @"<获取到的key>";
@@ -223,31 +223,26 @@ http://播放域名/live/[streamId].flv
 
 [](id:expense)
 ## 相关费用
-使用 CDN 直播观看时，会产生云直播的播放消耗。同时您也可以获取指定的腾讯云视立方 License 来解锁 SDK 的直播播放能力，在 App 端实现直播播放的效果。
+使用 CDN 直播观看需要云直播服务资源和终端 SDK 直播播放能力的配合，可能会产生以下费用。
 
-### 云资源消耗
+### 云服务消耗
 
-使用 CDN 进行直播播放需要用到云直播的能力，云直播的费用主要包括**基础服务费用和增值服务费用**：
-- 基础服务主要是直播推流/播放产生的消耗。
-- 增值服务是直播过程中，使用增值服务产生的消耗。
+CDN 直播观看需要使用**云直播**的资源进行直播分发。云直播的费用主要包括**基础服务费用和增值服务费用**：基础服务主要是直播推流/播放产生的消耗；增值服务是直播过程中，使用增值服务产生的消耗。
 
-> ! 本文中的价格为示例，仅供参考。最终价格与计费策略请以 [云直播](https://cloud.tencent.com/document/product/267/2818) 的计费说明为准。
+>! 本文中的价格为示例，仅供参考。最终价格与计费策略请以 [云直播](https://cloud.tencent.com/document/product/267/2818) 的计费说明为准。
 
-#### 基础服务费用：
-
+- **基础服务费用：**
 将 TRTC 的内容旁路到并云直播 CDN 观看时，**云直播**会收取观众观看产生的下行流量/带宽费用，可以根据实际需要选择适合自己的计费方式，默认采用流量计费，详情请参见 [云直播 > 标准直播 > 流量带宽](https://cloud.tencent.com/document/product/267/34175#.E6.B5.81.E9.87.8F.E5.B8.A6.E5.AE.BD) 计费说明。
 
-#### 增值服务费用：
-
+- **增值服务费用：**
 如果您使用了云直播的转码、录制、云导播等功能，会产生对应额外的增值服务费用。增值服务可按需使用进行付费。
 
-### 终端授权
-
-腾讯云视立方提供了能力丰富性能强大的直播播放器功能，在10.1版本及以上可以通过获取指定的腾讯云视立方 License 解锁 SDK 的直播播放能力。
-
-> ! 腾讯云视立方 License 不会影响 TRTC 的播放能力。
-
-通过 [购买云直播的流量包](https://buy.cloud.tencent.com/live)，您可免费获取对应版本的 License 来解锁播放能力，并且流量包可以按比例抵扣云直播的播放产生的日结流量，详细说明请参见 [云直播预付费资源包](https://cloud.tencent.com/document/product/267/34174)。
+- **SDK 播放授权：**
+音视频通话（TRTC）SDK 提供了功能全面性能强大的直播播放能力，可轻松配合云直播实现 CDN 直播观看功能。移动端 SDK 在10.1及以上的版本可通过获取指定 License 以解锁直播播放能力。
+>! TRTC 的播放能力无需 License 授权。
+>
+您可直接 [购买播放 License](https://cloud.tencent.com/document/product/881/74588)，或通过 [购买指定的云直播流量包](https://buy.cloud.tencent.com/live)，可免费获赠视频播放 License 或 直播 License，两种 License 均可用于解锁 SDK 的直播播放功能。并且直播流量包可以按比例抵扣云直播的播放产生的日结流量，详细说明请参见 [云直播预付费资源包](https://cloud.tencent.com/document/product/267/34174)。
+License 终端授权的管理和续期请参见 [文档说明](https://cloud.tencent.com/document/product/1449/56981)。
 
 ## 常见问题
 **为什么房间里只有一个人时画面又卡又模糊?**
