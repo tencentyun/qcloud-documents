@@ -31,12 +31,11 @@ SDK 早期版本只有 TXLivePlayer 一个 Class 承载直播和点播功能，�
 
 [](id:step_2)
 ### step 2：给 SDK 配置 License 授权
-若您已获得相关License授权，需在 [云直播控制台](https://console.cloud.tencent.com/live/license) 获取License URL和License Key；
-
-<img width="1317" alt="image" src="https://user-images.githubusercontent.com/88317062/169646279-929248e3-8ded-4b9e-8b04-2b6e462054a0.png">
-
-若您暂未获得License授权，需先参考[视频播放License]()获取相关授权。
-在您的 App 调用 SDK 的相关功能之前（建议在 `- [AppDelegate application:didFinishLaunchingWithOptions:]` 中）进行如下设置：
+1. 获取 License 授权：
+	- 若您已获得相关 License 授权，需在 [云直播控制台](https://console.cloud.tencent.com/live/license) 获取 License URL 和 License Key。
+	![](https://qcloudimg.tencent-cloud.cn/raw/7053ac66fd06b9f178bf416d9d52ea21.png)
+	- 若您暂未获得 License 授权，需先参考 [视频播放 License](https://cloud.tencent.com/document/product/881/74588) 获取相关授权。
+2. 在您的 App 调用 SDK 的相关功能之前（建议在 `- [AppDelegate application:didFinishLaunchingWithOptions:]` 中）进行如下设置：
 ```objc
 @import TXLiteAVSDK_Professional;
 @implementation AppDelegate
@@ -50,7 +49,7 @@ SDK 早期版本只有 TXLivePlayer 一个 Class 承载直播和点播功能，�
 }
 @end
 ```
->! **License 中配置的 BundleId 必须和应用本身一致，否则会播放失败**
+>! **License 中配置的 BundleId 必须和应用本身一致，否则会播放失败。**
 
 
 [](id:step_3)
@@ -104,20 +103,40 @@ NSString* flvUrl = @"http://2157.liveplay.myqcloud.com/live/2157_xxxx.flv";
 
 - **view：大小和位置**
 如需修改画面的大小及位置，直接调整 setupVideoWidget 的参数 view 的大小和位置，SDK 会让视频画面跟着您的 view 的大小和位置进行实时的调整。
-
 - **setRenderMode：铺满 or 适应**
-
-| 可选值 | 含义  |
-|---------|---------|
-| RENDER_MODE_FILL_SCREEN | 将图像等比例铺满整个屏幕，多余部分裁剪掉，此模式下画面不会留黑边，但可能因为部分区域被裁剪而显示不全。 | 
-| RENDER_MODE_FILL_EDGE | 将图像等比例缩放，适配最长边，缩放后的宽和高都不会超过显示区域，居中显示，画面可能会留有黑边。 | 
-
+<table>
+<thead>
+<tr>
+<th>可选值</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>RENDER_MODE_FILL_SCREEN</td>
+<td>将图像等比例铺满整个屏幕，多余部分裁剪掉，此模式下画面不会留黑边，但可能因为部分区域被裁剪而显示不全。</td>
+</tr>
+<tr>
+<td>RENDER_MODE_FILL_EDGE</td>
+<td>将图像等比例缩放，适配最长边，缩放后的宽和高都不会超过显示区域，居中显示，画面可能会留有黑边。</td>
+</tr>
+</tbody></table>
 - **setRenderRotation：画面旋转**
-
-| 可选值 | 含义  |
-|---------|---------|
-| RENDER_ROTATION_PORTRAIT | 正常播放（Home 键在画面正下方） | 
-| RENDER_ROTATION_LANDSCAPE | 画面顺时针旋转270度（Home 键在画面正左方） | 
+<table>
+<thead>
+<tr>
+<th>可选值</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>RENDER_ROTATION_PORTRAIT</td>
+<td>正常播放（Home 键在画面正下方）</td>
+</tr>
+<tr>
+<td>RENDER_ROTATION_LANDSCAPE</td>
+<td>画面顺时针旋转270度（Home 键在画面正左方）</td>
+</tr>
+</tbody></table>
 
 ![](https://main.qcloudimg.com/raw/f3c65504a98c38857ff3e78bcb6c9ae9.jpg)
 
@@ -192,7 +211,7 @@ _txLivePlayer.recordDelegate = recordListener;
 ```
 - 录制的进度以时间为单位，由 TXVideoRecordListener 的 `onRecordProgress` 通知出来。
 - 录制好的文件以 MP4 文件的形式，由 TXVideoRecordListener 的 `onRecordComplete` 通知出来。
-- 视频的上传和发布由 TXUGCPublish 负责，具体使用方法可以参考 [短视频-文件发布](https://cloud.tencent.com/document/product/584/15534)。
+- 视频的上传和发布由 TXUGCPublish 负责，具体使用方法请参见 [短视频-文件发布](https://cloud.tencent.com/document/product/584/15534)。
 
 [](id:step_12)
 ### step 12：清晰度无缝切换
@@ -234,15 +253,39 @@ _txLivePlayer.recordDelegate = recordListener;
 腾讯云 SDK 的直播播放功能，并非基于 ffmpeg 做二次开发， 而是采用了自研的播放引擎，所以相比于开源播放器，在直播的延迟控制方面有更好的表现，我们提供了三种延迟调节模式，分别适用于：秀场，游戏以及混合场景。
 
 - **三种模式的特性对比**
-
-| 控制模式 | 卡顿率 | 平均延迟 | 适用场景 | 原理简述 |
-|---------|---------|---------| ------ | ----- |
-| 极速模式 | 较流畅偏高 | 2s- 3s | 美女秀场（冲顶大会）| 在延迟控制上有优势，适用于对延迟大小比较敏感的场景|
-| 流畅模式 | 卡顿率最低 | >= 5s | 游戏直播（企鹅电竞） | 对于超大码率的游戏直播（例如绝地求生）非常适合，卡顿率最低|
-| 自动模式 | 网络自适应 | 2s-8s | 混合场景 | 观众端的网络越好，延迟就越低；观众端网络越差，延迟就越高 |
-
+<table>
+<thead>
+<tr>
+<th>控制模式</th>
+<th>卡顿率</th>
+<th>平均延迟</th>
+<th>适用场景</th>
+<th>原理简述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>极速模式</td>
+<td>较流畅偏高</td>
+<td>2s- 3s</td>
+<td>美女秀场（冲顶大会）</td>
+<td>在延迟控制上有优势，适用于对延迟大小比较敏感的场景</td>
+</tr>
+<tr>
+<td>流畅模式</td>
+<td>卡顿率最低</td>
+<td>&gt;= 5s</td>
+<td>游戏直播（企鹅电竞）</td>
+<td>对于超大码率的游戏直播（例如绝地求生）非常适合，卡顿率最低</td>
+</tr>
+<tr>
+<td>自动模式</td>
+<td>网络自适应</td>
+<td>2s-8s</td>
+<td>混合场景</td>
+<td>观众端的网络越好，延迟就越低；观众端网络越差，延迟就越高</td>
+</tr>
+</tbody></table>
 - **三种模式的对接代码**
-
 ```objectivec
 TXLivePlayConfig*  _config = [[TXLivePlayConfig alloc] init];
 //自动模式
@@ -263,7 +306,7 @@ _config.maxAutoAdjustCacheTime = 5;
 //设置完成之后再启动播放
 ```
 
->? 更多关于卡顿和延迟优化的技术知识，请参见 [如何优化视频卡顿？](https://cloud.tencent.com/document/product/454/7946)
+>? 更多关于卡顿和延迟优化的技术知识，请参见 [如何优化视频卡顿](https://cloud.tencent.com/document/product/454/7946)。
 
 [](id:RealTimePlay)
 ## 超低延时播放
@@ -288,7 +331,7 @@ bizid 的获取需要进入 [域名管理](https://console.cloud.tencent.com/liv
 - **Obs 的延时是不达标的**
 推流端如果是 [TXLivePusher](https://cloud.tencent.com/document/product/454/7879)，请使用 [setVideoQuality](https://cloud.tencent.com/document/product/454/7879#7.-.E8.AE.BE.E5.AE.9A.E7.94.BB.E9.9D.A2.E6.B8.85.E6.99.B0.E5.BA.A6) 将 `quality`  设置为 MAIN_PUBLISHER 或者 VIDEO_CHAT。
 - **该功能按播放时长收费**
-本功能按照播放时长收费，费用跟拉流的路数有关系，跟音视频流的码率无关，具体价格请参考 **[价格总览](https://cloud.tencent.com/document/product/454/8008#ACC)**。
+本功能按照播放时长收费，费用跟拉流的路数有关系，跟音视频流的码率无关，具体价格请参见 **[价格总览](https://cloud.tencent.com/document/product/454/8008#ACC)**。
 
 ## SDK 事件监听
 您可以为 TXLivePlayer 对象绑定一个 **TXLivePlayListener**，之后 SDK 的内部状态信息均会通过 onPlayEvent（事件通知） 和 onNetStatus（状态反馈）通知给您。
@@ -310,7 +353,7 @@ bizid 的获取需要进入 [域名管理](https://console.cloud.tencent.com/liv
 | PLAY_EVT_GET_MESSAGE  |  2012|  获取夹在视频流中的自定义 SEI 消息，消息的发送需使用 TXLivePusher |  
 | PLAY_EVT_VOD_PLAY_PREPARED    |  2013|  如果您在直播中收到此消息，可以忽略|  
 | PLAY_EVT_VOD_LOADING_END  |  2014|  如果您在直播中收到此消息，可以忽略|  
-| PLAY_EVT_STREAM_SWITCH_SUCC   |  2015|  直播流切换完成，请参考 [清晰度无缝切换](#step_12)|  
+| PLAY_EVT_STREAM_SWITCH_SUCC   |  2015|  直播流切换完成，请参见 [清晰度无缝切换](#step_12)|  
 
 **不要在收到 PLAY_LOADING 后隐藏播放画面**
 因为 `PLAY_LOADING -> PLAY_BEGIN` 的等待时间长短是不确定的，可能是5s也可能是5ms，有些客户考虑在 LOADING 时隐藏画面，BEGIN 时显示画面，会造成严重的画面闪烁（尤其是直播场景下）。推荐的做法是在视频播放画面上叠加一个背景透明的 loading 动画。
