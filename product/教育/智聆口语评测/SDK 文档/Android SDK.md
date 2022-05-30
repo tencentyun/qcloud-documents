@@ -13,8 +13,8 @@ TAISDK 是一款封装了腾讯云教育 AI 能力的 SDK，通过集成 SDK，�
 [下载 SDK](https://github.com/TencentCloud/tencentcloud-sdk-android-soe) 地址。
 获取密钥（ 密钥获取⽅式⻅下⽂） 后到
 `tencentcloud-sdk-androidsoe/TAIDemo/app/src/main/java/com/tencent/taidemo/PrivateInfo.java` 
-根据需要填写 AppId、secretId、secretKey、soeAppId 和 hcmAppId（token 不需要填写）。
-![](https://main.qcloudimg.com/raw/ce5b479bbcb7497b46d630f266c6a28c.jpg)
+根据需要填写参数，参数请参考 [TAIOralEvaluationParam 参数说明](https://cloud.tencent.com/document/product/884/31870#:~:text=TAIOralEvaluationParam%20%E5%8F%82%E6%95%B0%E8%AF%B4%E6%98%8E) 。
+![](https://qcloudimg.tencent-cloud.cn/raw/21b7bff5c484c84a303b5d9ae0835c95.png)
 
 
 
@@ -121,6 +121,7 @@ param.scoreCoeff = 1.0;
 param.refText = "";
 param.secretId = "";
 param.secretKey = "";
+param.token = "";
 ```
 
 **4.1.2 开始录制**
@@ -163,6 +164,8 @@ param.scoreCoeff = 1.0;
 param.refText = "hello guagua";
 param.secretId = "";
 param.secretKey = "";
+param.token = "";
+
 //传输数据
 try{
     InputStream is = getAssets().open("hello_guagua.mp3");
@@ -229,9 +232,10 @@ public String getStringToSign(long timestamp);
 | context            | Context                      | 是             | 上下文                                                       |
 | AppID              | String                       | 是             | 账号应用 ID                                                   |
 | timeout            | Int                          | 否             | 超时时间，默认30秒                                           |
-| secretId           | String                       | 是             | 您在控制台获取的密钥 ID                                       |
-| secretKey          | String                       | 内部签名：必填 | 您在控制台获取的密钥 Key，在使用内部签名时必须设置此参数      |
-| signature          | String                       | 外部签名：必填 | 仅在使用外部签名时需要设置此参数，详细获取方式请查看上述5.签名 |
+| secretId           | String                       | 是             | 您在控制台获取的密钥 ID，临时密钥的 TmpSecretId                                    |
+| secretKey          | String                       | 内部签名：必填 | 您在控制台获取的密钥 Key，临时密钥的 TmpSecretKey      |
+| token     | 	String	| 临时签名：必填	| 临时密钥的 Token，仅在使用临时签名时需要设置此参数，详细获取方式请查看 [签名](https://cloud.tencent.com/document/product/884/31870#5.-.E7.AD.BE.E5.90.8D)| 
+| signature          | String                       | 外部签名：必填 | 仅在使用外部签名时需要设置此参数，详细获取方式请查看 [签名](https://cloud.tencent.com/document/product/884/31870#5.-.E7.AD.BE.E5.90.8D) |
 | timestamp          | Long                         | 外部签名：必填 | 秒级时间戳                                                   |
 | soeAppId           | String                       | 否             | 业务应用 ID，与账号应用 AppID 无关，是用来方便客户管理服务的参数 |
 | sessionId          | String                       | 是             | 一次评测唯一标识                                             |

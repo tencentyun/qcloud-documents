@@ -281,8 +281,8 @@
 ::: Web
 <table>
      <tr>
-         <th>主播麦位操作</th>  
-         <th>观众麦位操作</th>  
+         <th>主播端</th>  
+         <th>观众端</th>  
      </tr>
 <tr>
 <td><img src="https://web.sdk.qcloud.com/component/tuiliveroom/assets/pusher.gif"/></td>

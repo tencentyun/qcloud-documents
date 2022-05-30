@@ -164,6 +164,85 @@ func main() {
 
 ## 临时密钥预签名请求示例
 
+#### 上传请求示例
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "github.com/tencentyun/cos-go-sdk-v5"
+    "net/http"
+    "net/url"
+    "os"
+    "time"
+    "strings"
+)
+// 通过tag的方式，用户可以将请求参数或者请求头部放进签名中。
+type URLToken struct {
+	SessionToken string `url:"x-cos-security-token,omitempty" header:"-"`
+}
+
+func main() {
+	// 替换成您的临时密钥
+	tak := os.Getenv("SECRETID")
+	tsk := os.Getenv("SECRETKEY")
+	token := &URLToken{
+		SessionToken: "<token>",
+	}
+	u, _ := url.Parse("https://examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com")
+	b := &cos.BaseURL{BucketURL: u}
+	c := cos.NewClient(b, &http.Client{})
+
+	name := "exampleobject"
+	ctx := context.Background()
+
+	// 方法1 通过 PresignedURLOptions 设置 x-cos-security-token
+	// PresignedURLOptions 提供用户添加请求参数和请求头部
+	opt := &cos.PresignedURLOptions{
+		Query:  &url.Values{},
+		Header: &http.Header{},
+	}
+	opt.Query.Add("x-cos-security-token", "<token>")
+	// 获取预签名
+	presignedURL, err := c.Object.GetPresignedURL(ctx, http.MethodPut, name, tak, tsk, time.Hour, opt)
+	if err != nil {
+		fmt.Printf("Error: %v\n", err)
+		return
+	}
+	// 通过预签名方式上传对象
+	data := "test upload with presignedURL"
+	f := strings.NewReader(data)
+	req, err := http.NewRequest(http.MethodPut, presignedURL.String(), f)
+	if err != nil {
+		fmt.Printf("Error: %v\n", err)
+	}
+	_, err = http.DefaultClient.Do(req)
+	if err != nil {
+		fmt.Printf("Error: %v\n", err)
+	}	
+
+	// 方法2 通过 tag 设置 x-cos-security-token
+	// 获取预签名
+	presignedURL, err = c.Object.GetPresignedURL(ctx, http.MethodPut, name, tak, tsk, time.Hour, token)
+	if err != nil {
+		fmt.Printf("Error: %v\n", err)
+		return
+	}
+	f = strings.NewReader(data)
+	req, err = http.NewRequest(http.MethodPut, presignedURL.String(), f)
+	if err != nil {
+		fmt.Printf("Error: %v\n", err)
+	}
+	_, err = http.DefaultClient.Do(req)
+	if err != nil {
+		fmt.Printf("Error: %v\n", err)
+	}	
+}
+```
+
+#### 下载请求示例
+
 ```go
 package main
 
@@ -203,13 +282,13 @@ func main() {
 	}
 	opt.Query.Add("x-cos-security-token", "<token>")
 	// 获取预签名
-    presignedURL, err := c.Object.GetPresignedURL(ctx, http.MethodGet, name, tak, tsk, time.Hour, opt)
+	presignedURL, err := c.Object.GetPresignedURL(ctx, http.MethodGet, name, tak, tsk, time.Hour, opt)
 	if err != nil {
 		fmt.Printf("Error: %v\n", err)
 		return
 	}
 	// 通过预签名访问对象
-    resp, err := http.Get(presignedURL.String())
+	resp, err := http.Get(presignedURL.String())
 	if err != nil {
 		fmt.Printf("Error: %v\n", err)
 	}

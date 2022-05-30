@@ -24,7 +24,7 @@
 5. 单击**提交**，任务创建成功后会生成接入点信息。
 6. 复制接入点信息到 SDK 中使用，用于写入数据。
 
->?详细说明请参见 [数据上报 SDK](https://cloud.tencent.com/document/product/597/71210)。
+>?详细说明请参见 [数据上报 SDK](https://cloud.tencent.com/document/product/1591/74485)。
 
 
 
@@ -105,7 +105,6 @@
 1. 登录 [DIP 控制台](https://console.cloud.tencent.com/datahub-overview) 。
 2. 在左侧导航栏单击**数据接入**，单击目标任务的**ID**，进入任务基本信息页面。
 3. 选择**监控**页签，可查看目标 Topic 监控数据。
-
 <table>
     <tr>
         <th>图标</th>
@@ -128,8 +127,6 @@
         <td>勾选后可在图表上显示图例信息。</td>
     </tr>
 </table>
-
-
  选择分区后，可以查看指定 Partition 的监控数据。
  <img src ="https://qcloudimg.tencent-cloud.cn/raw/3ee5cf22055038671f968749876c960c.png">  
    不选择时默认全部，展示现有的 Topic 级别的监控数据。
@@ -138,7 +135,7 @@
 ### 查看消息
 
 1. 登录 [DIP 控制台](https://console.cloud.tencent.com/datahub-overview) 。
-2. 在左侧导航栏单击**数据接入**，单击目标任务的**ID**，进入任务基本信息页面。
+2. 在左侧导航栏单击**数据接入**，单击目标任务的 **ID**，进入任务基本信息页面。
 3. 单击**查看消息**页签，选择好 Topic 和分区后，可以查看数据接入成功的最近5条、20条、60条和100条消息。
    ![](https://qcloudimg.tencent-cloud.cn/raw/171fd12cb463579aec77a1702cbcf988.png)
 

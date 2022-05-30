@@ -3,7 +3,6 @@
 ## 环境要求
 - Xcode 11.0及以上版本。
 - 请确保您的项目已设置有效的开发者签名。
-- Qt Creator 4.13.3（Mac）及以上版本。
 
 ## 前提条件
 您已 [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 账号，并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
