@@ -9,9 +9,9 @@
 <thead>
   <tr>
     <td>支持 DNSSEC 域名后缀</td>
-    <td>cn、 .com、 .net、 .xyz、.wang、.ac.cn、.com.cn、.net.cn、
-		<br> .中国、 .网址、 .在线、.top、.club、.vip、.beer、.work、.fashion、
-		<br>.luxe、.yoga、 .love、 .online、 .mobi、 .中文网、.ltd、 .chat、
+    <td>cn、 .com、 .net、 .xyz、.ac.cn、.com.cn、.net.cn、
+		<br> .中国、 .网址、 .top、.vip、.beer、.work、.fashion、
+		<br>.luxe、.yoga、 .love、 .online、 .mobi、.ltd、 .chat、
 		<br> .group、.pub、 .run、 .city、 .live、 .info、 .pro、 .red、 .网店、
     <br> .kim、.blue、 .pet、.移动、.space、.tech、.host、.site、.fun、
 		<br>.store、.ski、.pink、.design、.ink、.wiki、.email、.video、.company、

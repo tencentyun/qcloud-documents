@@ -1,6 +1,6 @@
-本文主要介绍如何快速地将腾讯云 TRTC Web SDK 集成到您的项目中。
+本文主要介绍如何快速地将腾讯云 TRTC uni-app SDK 集成到您的项目中。
 ## 准备工作
-集成 TRTC Web SDK 之前需要了解的事项。
+集成 TRTC uni-app SDK 之前需要了解的事项。
 
 ## 开发环境要求
 - 建议使用最新的 HBuilderX 编辑器 。
