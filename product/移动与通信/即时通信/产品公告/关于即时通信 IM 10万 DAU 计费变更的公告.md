@@ -148,6 +148,7 @@
       <td>不支持</td>
       <td>不支持</td>
       <td>支持</td>
+      <td>不支持</td>
    </tr>
  <tr height=19 style='height:14.25pt'>
   <td rowspan=11 height=209 style='height:156.75pt' align="">增值服务能力</td>
