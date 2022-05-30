@@ -27,15 +27,11 @@
 
 
 ### 2. 给 SDK 配置 License 授权
-
-若您已获得相关License授权，需在 [云直播控制台](https://console.cloud.tencent.com/live/license) 获取License URL和License Key；
-
-<img width="1317" alt="image" src="https://user-images.githubusercontent.com/88317062/169646279-929248e3-8ded-4b9e-8b04-2b6e462054a0.png">
-
-若您暂未获得License授权，需先参考 [新增与续期License](https://cloud.tencent.com/document/product/454/34750) 进行申请。
-
-在您的 App 调用企业版 SDK 相关功能之前（建议在 Application类中）进行如下设置：
-
+1. 获取 License 授权：
+    - 若您已获得相关 License 授权，需在 [云直播控制台](https://console.cloud.tencent.com/live/license) 获取 License URL 和 License Key。
+    ![](https://qcloudimg.tencent-cloud.cn/raw/7053ac66fd06b9f178bf416d9d52ea21.png)
+    - 若您暂未获得 License 授权，需先参考 [新增与续期 License](https://cloud.tencent.com/document/product/454/34750) 进行申请。
+2. 在您的 App 调用企业版 SDK 相关功能之前（建议在 Application类中）进行如下设置：
 ```java
 public class MApplication extends Application {
 
@@ -54,8 +50,9 @@ public class MApplication extends Application {
     }
 }
 ```
->! 1. 企业版已不对外提供，美颜相关功能可参见 [腾讯特效 SDK（美颜 SDK）](https://cloud.tencent.com/product/x-magic)；
->2. License 中配置的 packageName 必须和应用本身一致，否则会推流失败。
+>! 
+>- 企业版已不对外提供，美颜相关功能可参见 [腾讯特效 SDK（美颜 SDK）](https://cloud.tencent.com/product/x-magic)。
+>- License 中配置的 packageName 必须和应用本身一致，否则会推流失败。
 
 
 ### 3. 初始化 TXLivePusher 组件
@@ -109,7 +106,7 @@ mLivePusher.stopCameraPreview(true); //如果已经启动了摄像头预览，�
 ```
 
 - **获取可用的推流 URL** 
-开通直播服务后，可以使用 [【直播控制台】>【直播工具箱】>【地址生成器】](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator) 生成推流地址，详细信息请参见 [推拉流 URL](https://cloud.tencent.com/document/product/454/7915)。 
+开通直播服务后，可以使用**直播控制台** > **直播工具箱** > [**地址生成器**](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator) 生成推流地址，详细信息请参见 [推拉流 URL](https://cloud.tencent.com/document/product/454/7915)。 
 ![](https://main.qcloudimg.com/raw/7110d39cdb464b789bd68301f4de7ebe.png)   
 - **返回 -5 的原因**    
 如果 `startPusher` 接口返回 -5，则代表您的 License 校验失败了，请检查第2步“给 SDK 配置 License 授权”中的工作是否有问题。   
