@@ -20,14 +20,14 @@ Cloud-init 主要提供实例首次初始化时自定义配置的能力。如果
 
 
 <dx-alert infotype="explain" title="">
-- 在正常安装的情况下，cloud-init-17.1 版本与腾讯云的兼容性最佳，可以保证使用该镜像创建的云服务器的所有配置项都可以正常初始化。建议选择 **cloud-init-17.1.tar.gz** 安装版本。您也可以 [点此获取](https://launchpad.net/cloud-init/+download) 其他版本的 cloud-init 源码包。本文以 cloud-init-17.1 版本为例。
-- 如使用 cloud-init-17.1 或其他版本的 cloud-init 源码包安装不成功，您还可以通过 [手工下载绿色版 cloud-init 包方式](#greeninitCloudInit) 进行安装。
+- 在正常安装的情况下，cloud-init-20.1 版本与腾讯云的兼容性最佳，可以保证使用该镜像创建的云服务器的所有配置项都可以正常初始化。建议选择 **cloud-init-20.1.tar.gz** 安装版本。您也可以 [点此获取](https://launchpad.net/cloud-init/+download) 其他版本的 cloud-init 源码包。本文以 cloud-init-20.1 版本为例。
+- 如使用 cloud-init-20.1 或其他版本的 cloud-init 源码包安装不成功，您还可以通过 [手工下载绿色版 cloud-init 包方式](#greeninitCloudInit) 进行安装。
 </dx-alert>
 
 
 执行以下命令，下载 cloud-init 源码包。
 ```shellsession
-wget https://launchpad.net/cloud-init/trunk/17.1/+download/cloud-init-17.1.tar.gz
+wget https://launchpad.net/cloud-init/trunk/20.1/+download/cloud-init-20.1.tar.gz
 ```
 
 ### 安装 cloud-init
@@ -36,28 +36,32 @@ wget https://launchpad.net/cloud-init/trunk/17.1/+download/cloud-init-17.1.tar.g
 如果您使用的操作系统为 Ubuntu，请切换至 root 帐号。
 </dx-alert>
 ```shellsession
-tar -zxvf cloud-init-17.1.tar.gz 
+tar -zxvf cloud-init-20.1.tar.gz 
 ```
-2. 执行以下命令，进入已解压的 cloud-init 安装包目录（即进入 cloud-init-17.1 目录）。
+2. 执行以下命令，进入已解压的 cloud-init 安装包目录（即进入 cloud-init-20.1 目录）。
 ```shellsession
-cd cloud-init-17.1
+cd cloud-init-20.1
 ```
 3. 根据操作系统版本，安装 Python-pip。
   - CentOS 6/7系列，执行以下命令：
 ```shellsession
-yum install python-pip -y
+yum install python3-pip -y
 ```
   - Ubuntu 系列，执行以下命令：
 ```shellsession
-apt-get install python-pip -y
+apt-get -y install python3-pip
 ```
 若在安装时，出现无法安装或找不到安装包的错误，可参考 [解决无法安装 Python-pip 问题](#updateSoftware) 进行处理。
-4. 执行以下命令，安装依赖包。
+4. 执行以下命令，升级 pip。
+```
+python3 -m pip install --upgrade pip
+```
+5. 执行以下命令，安装依赖包。
 <dx-alert infotype="notice" title="">
 Cloud-init 依赖组件 requests 2.20.0版本后，已弃用 Python2.6。如果镜像环境的 Python 解释器为 Python2.6及以下，在安装 cloud-init 依赖包之前，请执行 `pip install 'requests&lt;2.20.0'` 命令，安装 requests 2.20.0 版本以下的版本。
 </dx-alert>
 ```shellsession
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 5. 根据操作系统版本，安装 cloud-utils 组件。
   - CentOS 6系列，执行以下命令：
@@ -75,10 +79,10 @@ apt-get install cloud-guest-utils -y
 ```
 6. 执行以下命令，安装 cloud-init。
 ```shellsession
-python setup.py build
+python3 setup.py build
 ```
 ```shellsession
-python setup.py install --init-system systemd
+python3 setup.py install --init-system systemd
 ``` <dx-alert infotype="notice" title="">
 --init-system 的可选参数有：(systemd, sysvinit,  sysvinit_deb, sysvinit_freebsd, sysvinit_openrc, sysvinit_suse, upstart)  [default: None]。请根据当前操作系统使用的自启动服务管理方式，进行选择。若选择错误，cloud-init 服务会无法开机自启动。本文以 systemd 自启动服务管理为例。
 </dx-alert>
@@ -269,7 +273,7 @@ yum install epel-release -y
 ```
   2. 执行以下命令，安装 Python-pip。
 ```shellsession
-yum install python-pip -y
+yum install python3-pip -y
 ```
 :::
 ::: Ubuntu\s系列
@@ -279,7 +283,7 @@ apt-get update -y
 ```
   2. 执行以下命令，安装 Python-pip。
 ```shellsession
-apt-get install python-pip -y
+apt-get -y install python3-pip
 ```
 :::
 </dx-tabs>

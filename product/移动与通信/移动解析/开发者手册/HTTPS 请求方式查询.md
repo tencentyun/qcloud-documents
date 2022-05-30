@@ -1,10 +1,12 @@
-移动解析 HTTPDNS 的 HTTPS 请求方式查询可以通过 `https://119.29.29.99/d? + {请求参数}` 接口使用移动解析 HTTPDNS 服务。
+## 概述
+移动解析 HTTPDNS 通过 HTTP/HTTPS 接口对外提供域名解析服务，服务接入直接使用 IP 地址，服务 IP 有多个，移动解析 HTTPDNS 的 HTTPS 请求方式查询入口以 `119.29.29.99` 为例。
 
 >? 
 >- [开通移动解析 HTTPDNS 服务](https://cloud.tencent.com/document/product/379/54577) 后，您需在移动解析 HTTPDNS 控制台添加解析域名后才可正常使用。具体操作请参见 [添加域名](https://cloud.tencent.com/document/product/379/54588)。
->- HTTP 协议服务地址为 `119.29.29.98`，HTTPS 协议服务地址为 `119.29.29.99`。
->- 新版本 API 更新为使用 `119.29.29.99/98` 接入，同时原移动解析 HTTPDNS 服务地址 `119.29.29.29` 仅供开发调试使用，无 SLA 保障，不建议用于正式业务，请您尽快将正式业务迁移至 `119.29.29.99/98`。
-
+>- 我们提供2个入口 IP 示例，HTTPS 协议的服务 IP：`119.29.29.99`，HTTP 协议的服务 IP：`119.29.29.98`。
+>- 请优先使用官方 SDK，如果场景特殊下无法使用 SDK，需要直接访问 HTTPS API 接口，请加入 [技术支持群](https://cloud.tencent.com/document/product/379/56872) 或者 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们，我们将根据您的具体使用场景，为您提供多个服务 IP 和相关的安全建议。
+>- 考虑到服务 IP 防攻击之类的安全风险，为保障服务可用性，HTTPDNS 同时提供多个服务IP，当某个服务 IP 在异常情况下不可用时，可以使用其它服务 IP 进行重试。
+>
 
 ## 前期准备
 使用请求接口 `https://119.29.29.99/d? + {请求参数}` 时，需使用以下配置信息。请先前往移动解析 HTTPDNS 管理控制台 [开发配置页](https://console.cloud.tencent.com/httpdns/configure) 获取相关配置信息：
@@ -14,6 +16,8 @@
 ## 接口描述
 - 接口请求地址：  `https://119.29.29.99/d? + {请求参数}`。
 - 请求方式：POST 或 GET。
+- 考虑到服务 IP 防攻击之类的安全风险，为保障服务可用性，我们同时提供多个服务 IP，如您直接通过 API 接口请求 HTTPDNS 服务，请加入 [技术支持群](https://cloud.tencent.com/document/product/379/56872) 或者 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们，我们将根据您的具体使用场景，为您提供多个服务 IP 和相关的安全建议。
+- 入口 IP 的切换逻辑：当接入 IP 访问超时，或者返回的结果非 IP 格式，或者返回为空的时候，请采用其他入口 IP 接入，若所有 IP 均出现异常，请兜底至 LocalDNS 进行域名解析。
 
 ## 请求参数
 <table>

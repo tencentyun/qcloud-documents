@@ -6,7 +6,7 @@
 
 如果您此前未获得过直播 License （原直播推流 License）或短视频 License 授权，**且需使用新版本 SDK 中的直播播放或点播播放功能，则需购买指定 License 获得授权**，详情参见 [授权说明](#warrant)；若您无需使用相关功能或未升级至最新版本 SDK，将不受到此次变更的影响。
 
->! 10.1 版本将在2022年05月底正式发布，届时将同步上线相关 License 的申请、购买页面及相关文档，本次升级涉及的移动端（iOS & Android & Flutter）SDK 包含：[直播 SDK](https://tcloud-doc.isd.com/document/product/454/74194?!preview&!editLang=zh)、[播放器 SDK](https://tcloud-doc.isd.com/document/product/881/74199?!editLang=zh&!preview)、[短视频 SDK](https://tcloud-doc.isd.com/document/product/584/74197?!preview&!editLang=zh)、[实时音视频（TRTC）SDK](https://tcloud-doc.isd.com/document/product/647/74201?!preview&!editLang=zh)、[全功能版 SDK](https://tcloud-doc.isd.com/document/product/1449/74203?!preview&!editLang=zh)，您可持续关注对应 SDK 官网通知以了解最新动态。
+>! 10.1 版本将在2022年05月底正式发布，届时将同步上线相关 License 的申请、购买页面及相关文档，本次升级涉及的移动端（iOS & Android & Flutter）SDK 包含：[直播 SDK](https://cloud.tencent.com/document/product/454/74194)、[播放器 SDK](https://cloud.tencent.com/document/product/881/74199)、[短视频 SDK](https://cloud.tencent.com/document/product/584/74197)、[实时音视频（TRTC）SDK](https://cloud.tencent.com/document/product/647/74201)、[全功能版 SDK](https://cloud.tencent.com/document/product/1449/74203)，您可持续关注对应 SDK 官网通知以了解最新动态。
 
 [](id:warrant)
 
@@ -63,7 +63,7 @@
 [](id:up)
 ## 升级特性
 
-升级后的音视频终端 SDK（腾讯云视立方）视频播放内核由腾讯内部完全自研，且经过长期优化和海量服务验证，对比业内广泛使用的开源播放器，性能提升 30% ~ 50%。 同时针对控制带宽成本、辅助运营增长、降低接入门槛等方面为企业用户进行了专门的优化升级，新增终端极速高清、版权保护、全链路数据洞察和场景化低代码等多种方案，打造业界独家、行业领先的企业级视频播放解决方案，全面满足企业级需求。  
+升级后的音视频终端 SDK（腾讯云视立方）视频播放内核由腾讯内部完全自研，且经过长期优化和海量服务验证，对比系统播放器，性能提升 30% ~ 50%。 同时针对控制带宽成本、辅助运营增长、降低接入门槛等方面为企业用户进行了专门的优化升级，新增终端极速高清、版权保护、全链路数据洞察和场景化低代码等多种方案，打造业界独家、行业领先的企业级视频播放解决方案，全面满足企业级需求。  
 <table>
 <thead>
 <tr>
@@ -76,13 +76,13 @@
 <td style="text-align: left;">首次将“腾讯视频”播放能力以 SDK 的形式开放给广大开发者，在具备“臻彩视听”、精准 Seek、清晰度切换、小窗播放、离线缓存等多项“腾讯视频”同款播放功能的同时，具备同等水平的视频播放稳定性和机型适配性。</td>
 </tr><tr>
 <td style="text-align: left;">新增格式支持</td>
-<td style="text-align: left;">新增支持 AV1、H.266 等格式，相比 H.264/H.265节省带宽 20%～55%，满足多样化的业务场景同时降低客户成本。</td>
+<td style="text-align: left;">新增支持 QUIC、AV1、H.266 等格式，相比 H.264/H.265节省带宽 20%～55%，满足多样化的业务场景同时降低客户成本。</td>
 </tr><tr>
 <td style="text-align: left;">版权保护升级</td>
 <td style="text-align: left;">在支持私有协议加密、本地加密、防盗链等方案前提下，新增支持商业 DRM 加密方案，具备完整视频安全方案矩阵，全方位保护视频版权。</td>
 </tr><tr>
 <td style="text-align: left;">画质提升解决方案</td>
-<td style="text-align: left;">新增支持“腾讯视频-臻彩视听” HDR 10 视频播放能力；并提供终端极速高清方案，能够在几乎不降低视频主观画质的情况下，为企业节省高达 50% 的传输带宽成本。</td>
+<td style="text-align: left;">新增支持“腾讯视频-臻彩视听” HDR 10 视频播放能力；并提供终端极速高清方案，能够在几乎不降低视频主观画质的情况下，为企业节省传输带宽成本。</td>
 </tr><tr>
 <td style="text-align: left;">全链路数据洞察</td>
 <td style="text-align: left;">提供播放数据统计、质量监控及可视化分析服务。针对点播、直播等各种不同场景，提供了细致到单个文件的近百项不同维度数据指标及数据对比、多维筛选、定向追查等能力，方便开发者进行运营决策，驱动业务快速增长。</td>
@@ -98,6 +98,7 @@
 ## 视频播放 License 计费说明
 
 2022年05月底起，新上线可用于解锁 10.1 版本音视频终端 SDK（腾讯云视立方）视频播放能力的视频播放 License，该 License 提供两种购买解锁方式：购买指定资源包赠送 License 或购买独立 License，计费说明见下表：
+
 <table>
 <thead>
 <tr>
@@ -122,11 +123,12 @@
 <td rowspan=9>1年</td>
 <td>购买独立视频播放 License 一年使用授权<br>（无资源包）</td>
 <td>12</td>
-<td rowspan=9>购买获得<br>（2022年5月底上线）</td>
+<td>直接购买<br>（2022年05月底上线）</td>
 </tr>
 <tr>
 <td>购买 100GB 直播流量资源包<br>赠送视频播放 License 一年使用授权</td>
 <td>26</td>
+<td rowspan=8>购买资源包免费赠送<br>（2022年05月底上线）</td>
 </tr>
 <tr>
 <td>购买 500GB 直播流量资源包<br>赠送视频播放 License 一年使用授权</td>

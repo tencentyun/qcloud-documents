@@ -678,4 +678,4 @@ EMR 支持资源级授权，您可以指定子账号拥有特定资源的接口�
 </tbody>
 </table>
 
-资源级和接口级别具体授权方案详见：[授权粒度方案](https://tcloud-doc.isd.com/document/product/589/66673)。
+资源级和接口级别具体授权方案详见：[授权粒度方案](https://cloud.tencent.com/document/product/589/66673)。

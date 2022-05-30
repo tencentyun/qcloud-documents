@@ -30,7 +30,7 @@ LNMP 环境是指在 Linux 系统下，由 Nginx + MySQL/MariaDB + PHP 组成的
 
 ### 步骤2：安装 Nginx
 1. 执行以下命令，在 `/etc/yum.repos.d/` 下创建 `nginx.repo` 文件。
-```
+```plaintext
 vi /etc/yum.repos.d/nginx.repo
 ```
 2. 按 **i** 切换至编辑模式，写入以下内容。
@@ -43,11 +43,11 @@ enabled = 1
 ```
 3. 按 **Esc**，输入 **:wq**，保存文件并返回。
 4. 执行以下命令，安装 nginx。
-```
+```plaintext
 yum install -y nginx
 ```
 5. 执行以下命令，打开 `default.conf` 文件。
-```
+```plaintext
 vim /etc/nginx/conf.d/default.conf
 ```
 6. 按 **i** 切换至编辑模式，编辑 `default.conf` 文件。
@@ -82,15 +82,15 @@ server {
 ```
 7. 按 **Esc**，输入 **:wq**，保存文件并返回。
 8. 执行以下命令启动 Nginx。
-```
+```plaintext
 systemctl start nginx
 ```
 9. 执行以下命令，设置 Nginx 为开机自启动。
-```
+```plaintext
 systemctl enable nginx 
 ```
 10. 在本地浏览器中访问以下地址，查看 Nginx 服务是否正常运行。
-```
+```plaintext
 http://云服务器实例的公网 IP
 ```
 显示如下，则说明 Nginx 安装配置成功。
@@ -99,18 +99,18 @@ http://云服务器实例的公网 IP
 
 ### 步骤3：安装数据库
 1. 执行以下命令，查看系统中是否已安装 MariaDB。 
-```
+```plaintext
 rpm -qa | grep -i mariadb
 ```
  - 返回结果类似如下内容，则表示已存在 MariaDB。
 ![](https://main.qcloudimg.com/raw/6fa7fb51de4a61f4da08eb036b6c3e85.png)
 为避免安装版本不同造成冲突，请执行以下命令移除已安装的 MariaDB。
-```
+```plaintext
 yum -y remove 包名
 ```
  - 若返回结果为空，则说明未预先安装，则执行下一步。
 2.  执行以下命令，在 `/etc/yum.repos.d/` 下创建 `MariaDB.repo` 文件。
-```
+```plaintext
 vi /etc/yum.repos.d/MariaDB.repo
 ```
 3. 按 **i** 切换至编辑模式，写入以下内容，添加 MariaDB 软件库。
@@ -129,62 +129,62 @@ gpgcheck=1
 ```
 4. 按 **Esc**，输入 **:wq**，保存文件并返回。
 5. 执行以下命令，安装 MariaDB。此步骤耗时较长，请关注安装进度，等待安装完毕。
-```
+```plaintext
 yum -y install MariaDB-client MariaDB-server
 ```
 6. 执行以下命令，启动 MariaDB 服务。
-```
+```plaintext
 systemctl start mariadb
 ```
 7. 执行以下命令，设置 MariaDB 为开机自启动。
-```
+```plaintext
 systemctl enable mariadb
 ```
 8. 执行以下命令，验证 MariaDB 是否安装成功。
-```
+```plaintext
 mysql
 ```
 显示结果如下，则成功安装。
 ![](https://main.qcloudimg.com/raw/bfe9a604457f6de09933206c21fde13b.png)
 9. 执行以下命令，退出 MariaDB。
-```
+```plaintext
 \q
 ```
 
 
 ### 步骤4：安装配置 PHP
 1. 依次执行以下命令，更新 yum 中 PHP 的软件源。
-```
+```plaintext
 rpm -Uvh https://mirrors.cloud.tencent.com/epel/epel-release-latest-7.noarch.rpm
 ```
-```
+```plaintext
 rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
 ```
 2. 执行以下命令，安装 PHP 7.2 所需要的包。
-```
+```plaintext
 yum -y install mod_php72w.x86_64 php72w-cli.x86_64 php72w-common.x86_64 php72w-mysqlnd php72w-fpm.x86_64
 ```
 3. 执行以下命令，启动 PHP-FPM 服务。
-```
+```plaintext
 systemctl start php-fpm
 ```
 4. 执行以下命令，设置 PHP-FPM 服务为开机自启动。
-```
+```plaintext
 systemctl enable php-fpm
 ```
 
 ## 验证环境配置
 当您完成环境配置后，可以通过以下验证 LNMP 环境是否搭建成功。
 1. 执行以下命令，创建测试文件。
-```
+```plaintext
 echo "<?php phpinfo(); ?>" >> /usr/share/nginx/html/index.php
 ```
 2. 执行以下命令，重启 Nginx 服务。
-```
+```plaintext
 systemctl restart nginx
 ```
-2. 在本地浏览器中访问如下地址，查看环境配置是否成功。
-```
+3. 在本地浏览器中访问如下地址，查看环境配置是否成功。
+```plaintext
 http://云服务器实例的公网 IP
 ```
 显示结果如下， 则说明环境配置成功。

@@ -1,5 +1,5 @@
 ## 操作场景
-本文介绍如何为容器安装用户态 RDMA 驱动
+本文介绍如何为容器安装用户态 RDMA 驱动。
 
 
 ## 操作步骤
@@ -18,20 +18,22 @@ wget https://www.mellanox.com/downloads/ofed/MLNX_OFED-5.1-2.5.8.0/MLNX_OFED_LIN
 <dx-alert infotype="notice" title="">
 OFED版本选择`5.0-2.1.8.0`。
 </dx-alert>
-<img src="https://qcloudimg.tencent-cloud.cn/raw/071a3cc234ba48e9635e9238813939a1.png"/>
+<img src="https://qcloudimg.tencent-cloud.cn/raw/071a3cc234ba48e9635e9238813939a1.png" width="918px"/>
 2. 依次执行以下命令，进行解压及安装。
 ```plaintext
 tar xf MLNX_OFED_LINUX-5.1-2.5.8.0-ubuntu20.04-x86_64.tgz
 ```
 ```plaintext
 cd MLNX_OFED_LINUX-5.1-2.5.8.0-ubuntu20.04-x86_64
+```
+```plaintext
 ./mlnxofedinstall --user-space-only --without-fw-update --force
 ```
 安装过程中出现的红色 warning 信息可忽略，直至页面出现 “Installation passed successfully” 绿色字样，表示安装成功。
 
 ## 相关操作
 若您在安装过程中出现如下图所示错误：
-![](https://qcloudimg.tencent-cloud.cn/raw/02451f555785db6819bed7c6e3d43512.png)
+<img src="https://qcloudimg.tencent-cloud.cn/raw/02451f555785db6819bed7c6e3d43512.png" width="918px"/>
 请参考以下步骤处理：
 1. 由于 neohost 需要依赖 python2，执行以下命令，修改系统默认的 python 版本。
 ```plaintext

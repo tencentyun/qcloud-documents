@@ -32,12 +32,12 @@ kubectl edit configmap coredns -n kube-system
 2. 修改 hosts 配置，将域名加入 hosts，示例如下：
 ```
 hosts {
-        192.168.1.6     harbor.oa.com
-        192.168.1.8     es.oa.com
+        192.168.1.6     harbor.example.com
+        192.168.1.8     es.example.com
         fallthrough
 }
 ```
->?将 `harbor.oa.com` 指向192.168.1.6；`es.oa.com` 指向192.168.1.8。  
+>?将 `harbor.example.com` 指向192.168.1.6；`es.example.com` 指向192.168.1.8。  
 
  **完整配置示例如下：**
 ```yaml
@@ -53,8 +53,8 @@ data:
                 fallthrough in-addr.arpa ip6.arpa
             }
             hosts {
-                192.168.1.6     harbor.oa.com
-                192.168.1.8     es.oa.com
+                192.168.1.6     harbor.example.com
+                192.168.1.8     es.example.com
                 fallthrough
             }
             prometheus :9153
@@ -85,9 +85,9 @@ kubectl edit configmap coredns -n kube-system
 ```
 2. 执行以下命令，加入 Rewrite 配置。示例如下：
 ```bash
-rewrite name es.oa.com es.logging.svc.cluster.local
+rewrite name es.example.com es.logging.svc.cluster.local
 ```
->?将 `es.oa.com` 指向部署在 `logging` 命名空间下的 `es` 服务，如有多个域名可添加多行。  
+>?将 `es.example.com` 指向部署在 `logging` 命名空间下的 `es` 服务，如有多个域名可添加多行。  
 
  **完整配置示例如下：**
 ```yaml
@@ -102,7 +102,7 @@ data:
                 upstream
                 fallthrough in-addr.arpa ip6.arpa
             }
-            rewrite name es.oa.com es.logging.svc.cluster.local
+            rewrite name es.example.com es.logging.svc.cluster.local
             prometheus :9153
             forward . /etc/resolv.conf
             cache 30

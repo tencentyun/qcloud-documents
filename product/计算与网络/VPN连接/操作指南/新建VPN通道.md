@@ -97,10 +97,12 @@ VPN 通道的建立包括以下配置信息：
 5. 单击**下一步**，进入**通信模式**配置界面。[](id:buzhou6)[](id:cfg_vpn_spd)
  - 目的路由
 本通信通过路由策略指定 VPN 网关所属网络可以和 IDC 中哪些网段通信，创建通道完成后需在 VPN 网关的路由表中配置对应路由策略，详情请参见[配置 VPN 网关路由](https://cloud.tencent.com/document/product/554/52860) 。
+![](https://qcloudimg.tencent-cloud.cn/raw/bb0d4c807a0d5ccda1e9a60e411ea03b.png)
  - SPD 策略。
 >?
 >+ SPD（Security Policy Database）策略由一系列 SPD 规则组成，用于指定 VPC 或云联网内哪些网段可以和 IDC 内哪些网段通信。每条 SPD 规则包括一个本端网段 CIDR，和至少一个对端网段 CIDR。一个本端网段 CIDR 和一个对端网段 CIDR 构成一组匹配关系。一个 SPD 规则下可以有多组匹配关系。
 >+ 同一 VPN 网关下所有通道内的规则，匹配关系不能重叠，即一组的匹配关系中，本端网段和对端网段不能同时重叠。
+>- 配置 SPD 策略后，VPN 网关会自动下发路由，无需在 VPN 网关添加路由。
 >
 **示例：**
 如下图所示，某 VPN 网关下已经存在以下 SPD 规则：
@@ -116,7 +118,7 @@ VPN 通道的建立包括以下配置信息：
 这四组匹配关系相互不能重叠，即他们的本端网段和对端网段不能同时重叠。
  - 如果新增一个10.0.0.0/24-----192.168.1.0/24匹配关系，则会因为和已有匹配关系重叠，而无法添加 SPD 规则。
  - 如果新增一个10.0.1.0/24-----192.168.1.0/24匹配关系，和已有的3个匹配关系均不重叠，则可以加入 SPD 规则。
-![](https://qcloudimg.tencent-cloud.cn/raw/e1a0f317ff3450bc5a04bafb11df6a95.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/2dc1d778c97875840410720faf89bc1e.png)
 6. [](id:buzhou7)单击**下一步**，进入**IKE 配置（选填）**界面，如不需要高级配置，可直接单击**下一步**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/163a6fd49d27906ead4175c84262ac93.png)
 <table>
