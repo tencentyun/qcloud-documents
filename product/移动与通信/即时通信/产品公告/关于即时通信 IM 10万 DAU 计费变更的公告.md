@@ -23,7 +23,7 @@
   <th width=141 style='width:106pt' align="">旧版本 IM</td>
  </tr>
  <tr height=19 style='height:14.25pt'>
-  <td rowspan=17 height=323 style='height:242.25pt' align="">版本能力</td>
+  <td rowspan=18 height=323 style='height:242.25pt' align="">版本能力</td>
   <td align="">全球多点覆盖</td>
   <td align="">支持</td>
   <td align="">支持</td>
@@ -143,6 +143,12 @@
   <td align="">支持</td>
   <td align="">不支持</td>
  </tr>
+    <tr>
+      <td>群消息已读回执</td>
+      <td>不支持</td>
+      <td>不支持</td>
+      <td>支持</td>
+   </tr>
  <tr height=19 style='height:14.25pt'>
   <td rowspan=11 height=209 style='height:156.75pt' align="">增值服务能力</td>
   <td align="">扩展直播群（AVChatRoom）创建<span style='display:none'>数量至无上限</span></td>
@@ -201,22 +207,6 @@
  <tr height=19 style='height:14.25pt'>
   <td height=19 style='height:14.25pt'>存储360天：2500元/月</td>
   <td>存储360天：2000元/月</td>
- </tr>
-   <tr>
-      <td>群消息已读回执</td>
-      <td>不支持</td>
-      <td>不支持</td>
-      <td>不支持</td>
-      <td>支持</td>
-   </tr>
- <![if supportMisalignedColumns]>
- <tr height=0 style='display:none'>
-  <td width=111 style='width:83pt'></td>
-  <td width=225 style='width:169pt'></td>
-  <td width=104 style='width:78pt'></td>
-  <td width=159 style='width:119pt'></td>
-  <td width=177 style='width:133pt'></td>
-  <td width=141 style='width:106pt'></td>
  </tr>
  
 </table>
