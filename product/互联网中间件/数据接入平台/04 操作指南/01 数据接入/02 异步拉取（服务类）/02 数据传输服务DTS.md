@@ -14,7 +14,7 @@
 
 **操作步骤**：
 
-1. 登录 [DIP 控制台](https://console.cloud.tencent.com/datahub-overview)。
+1. 登录 [DIP 控制台](https://console.cloud.tencent.com/ckafka/datahub-overview)。
 2. 在左侧导航栏单击**数据流入**，选择好地域后，单击**新建任务**。
 3. 在弹窗中数据源类型选择**异步拉取** > **DTS**。
    ![](https://qcloudimg.tencent-cloud.cn/raw/7acb9788a080bba5d5ac25025bb6fbd4.png)
@@ -33,7 +33,7 @@
 
 ### 编辑数据目标
 
-1. 登录 [DIP 控制台](https://console.cloud.tencent.com/datahub-overview)。
+1. 登录 [DIP 控制台](https://console.cloud.tencent.com/ckafka/datahub-overview)。
 2. 在左侧导航栏单击**数据接入**，单击目标任务的**ID**，进入任务基本信息页面。
 3. 单击**数据目标**模块右上角的**更改数据目标**，修改数据目标信息。
 
@@ -84,7 +84,7 @@
 
 ### 查看监控
 
-1. 登录 [DIP 控制台](https://console.cloud.tencent.com/datahub-overview) 。
+1. 登录 [DIP 控制台](https://console.cloud.tencent.com/ckafka/datahub-overview) 。
 2. 在左侧导航栏单击**数据接入**，单击目标任务的**ID**，进入任务基本信息页面。
 3. 选择**监控**页签，可查看目标 Topic 监控数据。
 
@@ -118,7 +118,7 @@
 
 ### 查看消息
 
-1. 登录 [DIP 控制台](https://console.cloud.tencent.com/datahub-overview) 。
+1. 登录 [DIP 控制台](https://console.cloud.tencent.com/ckafka/datahub-overview) 。
 2. 在左侧导航栏单击**数据接入**，单击目标任务的**ID**，进入任务基本信息页面。
 3. 单击**查看消息**页签，选择好 Topic 和分区后，可以查看数据接入成功的最近5条、20条、60条和100条消息。
    ![](https://qcloudimg.tencent-cloud.cn/raw/171fd12cb463579aec77a1702cbcf988.png)

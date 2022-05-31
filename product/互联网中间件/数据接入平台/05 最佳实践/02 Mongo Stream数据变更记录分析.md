@@ -23,7 +23,7 @@ MongoDB 的数据流入配置项可参见官方 [MongoDB Kafka source connector]
 
 ### 步骤1：创建数据接入任务
 
-1. 登录 [DIP 控制台](https://console.cloud.tencent.com/datahub-overview)。
+1. 登录 [DIP 控制台](https://console.cloud.tencent.com/ckafka/datahub-overview)。
 2. 在左侧导航栏单击**数据流入**，选择好地域后，单击**新建任务**。
 3. 在弹窗中数据源类型选择 **异步拉取** > **MongoDB**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/2733ca5e5b966bac82f1858962cc960c.png)
@@ -36,7 +36,7 @@ MongoDB 的数据流入配置项可参见官方 [MongoDB Kafka source connector]
 
 ### 步骤2：创建数据流出任务
 
-1. 登录 [DIP 控制台](https://console.cloud.tencent.com/datahub-overview)。
+1. 登录 [DIP 控制台](https://console.cloud.tencent.com/ckafka/datahub-overview)。
 2. 在左侧导航栏单击**数据流出**，选择好地域后，单击**新建任务**。
 3. 目标类型选择**日志服务（CLS）**，单击**下一步**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/49edecde6642832c3d7c2d57322ed672.png)
