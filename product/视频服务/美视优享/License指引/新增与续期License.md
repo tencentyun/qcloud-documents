@@ -76,7 +76,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/7d7b23dd672ea2c877eab6beb112ea47.png)
 2. 填写正式应用的 `App Name`、`Package Name` 和 `Bundle ID` 信息，勾选功能模块**腾讯特效**，勾选后准确填写 **公司名称、所属行业类型**，上传**公司营业执照**，单击**下一步**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/103c57f63ee9f379f84b84359eb98559.png)
-3. 进入选择资源项并绑定 License 界面，点击**立即绑定** ，选择**未绑定**的腾讯特效套餐包（若没有可绑定的资源包，可前往 [资源包购买页](https://buy.cloud.tencent.com/vcube?type=magic) 购买），并单击**确定**即可提交审核申请，等待人工审核流程，且同时创建应用并生成正式版 License。
+3. 进入选择资源项并绑定 License 界面，单击**立即绑定** ，选择**未绑定**的腾讯特效套餐包（若没有可绑定的资源包，可前往 [资源包购买页](https://buy.cloud.tencent.com/vcube?type=magic) 购买），并单击**确定**即可提交审核申请，等待人工审核流程，且同时创建应用并生成正式版 License。
 ![](https://qcloudimg.tencent-cloud.cn/raw/1d04924b15bb61ca6e0d816a5b1dab1d.png)
 > ?单击**确定**前需要再次确认 Bundle ID 和 Package Name 与业务使用包名信息一致，如与提交到商店的不一致，请在提交前进行修改，**正式版 License 一旦提交成功将无法再修改 License 信息**。
 4. 正式版 License 成功创建后，页面会显示生成的正式版 License 信息。此时 Key 和 LicenseURL 两个参数暂未生效，需提交的审核通过后方才生效使用。**在 SDK 初始化配置时需要传入 Key 和 License URL 两个参数，请妥善保存以下信息。**
