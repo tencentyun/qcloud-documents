@@ -1,18 +1,4 @@
 ## TPNS Android SDK 1.3.2.0
-### OPPO 推送 SDK 升级
-升级 TPNS OPPO 推送 SDK 1.3.2.0 时，请注意一并加入以下依赖语句，否则可能导致 OPPO 推送注册失败：
-```
-implementation 'com.google.code.gson:gson:2.6.2'
-implementation 'commons-codec:commons-codec:1.15'
-```
-### 对应各厂商推送依赖版本
-- 华为 : 6.3.0.302
-- 小米 : 4.9.1
-- 魅族 : 4.1.0
-- OPPO : 3.0.0
-- vivo :  3.0.0.4
-
-## TPNS Android SDK 1.3.2.0
 TPNS 1.3.2.0 升级了各厂商推送依赖版本，版本详情如下：
 - 华为 : 6.3.0.302
 - 小米 : 4.9.1
@@ -33,7 +19,7 @@ implementation 'commons-codec:commons-codec:1.15'
 
 ### 通过 Eclipse 集成
 >?如您的工程通过手动引入 jar 文件集成，请注意以下内容变更。
-### 小米推送
+#### 小米推送
 请在 AndroidManifest 文件 application 标签下新增以下节点，否则可能导致在 Android 12 起的小米设备上通知点击失效：
 ```xml
 <activity
@@ -45,7 +31,7 @@ implementation 'commons-codec:commons-codec:1.15'
 </activity>
 ```
 
-### 魅族推送
+####  魅族推送
 1. 请在主工程添加以下类资源文件，否则可能导致在 Android 6.0 及以下的魅族设备上接收通知失效。代码如下：
 ```java
 package com.meizu.cloud.pushinternal;
@@ -73,7 +59,7 @@ public class R {
 </receiver>
 ```
 
-### OPPO 推送
+####  OPPO 推送
 1. 请在主工程将之前为 OPPO 推送添加的类资源文件 `com.heytap.mcssdk.R` 变更包名为 `com.pushsdk.R`（如未添加过则直接新增），否则可能导致 OPPO 推送注册失败，示例如下：
 ```java
 package com.pushsdk;
@@ -90,7 +76,7 @@ implementation files('libs/gson-2.6.2-sources.jar')
 implementation files('libs/commons-codec-1.15.jar')
 ```
 
-### vivo 推送
+####  vivo 推送
 1. 请在 AndroidManifest 文件 application 标签内修改 service 节点 `com.vivo.push.sdk.service.CommandClientService` 为如下内容：
 ```xml
 <service
