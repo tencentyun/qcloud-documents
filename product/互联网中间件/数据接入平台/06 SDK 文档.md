@@ -7,7 +7,7 @@
 
 ### 步骤1： 创建 HTTP 接入点
 
-参见 [创建 HTTP 上报接入点](https://cloud.tencent.com/document/product/1591/74484)在 DIP 控制台创建一个 HTTP 接入点，获取到标识上报 EndPoint 的DatahubId。
+参见 [创建 HTTP 上报接入点](https://cloud.tencent.com/document/product/1591/74484) 在 DIP 控制台创建一个 HTTP 接入点，获取到标识上报 EndPoint 的DatahubId。
 
 ### 步骤2：引入 Java SDK
 
