@@ -4,7 +4,8 @@
 
 同时从该版本开始将增加对**视频播放**功能模块的授权校验，**如果您的 App 已经拥有直播 License （原直播推流 License）或短视频 License 授权，当您升级至 10.1 版本后仍可继续正常使用**，不受到此次变更影响。您可以登录 [腾讯云直播控制台](https://console.cloud.tencent.com/live/livestat) 查看您当前的 License 信息。
 
-如果您此前未获得过直播 License （原直播推流 License）或短视频 License 授权，**且需使用新版本 SDK 中的直播播放或点播播放功能，则需购买指定 License 获得授权**，详情参见 [授权说明](#warrant)；**若您无需使用视频播放功能或未升级至10.1及更高版本的 SDK，将不受到此次变更的影响。**
+如果您此前未获得过直播 License （原直播推流 License）或短视频 License 授权，**且需使用新版本 SDK 中的直播播放或点播播放功能，则需购买指定 License 获得授权**，详情参见 [授权说明](#warrant)。
+**若您无需使用视频播放功能或未升级至10.1及更高版本的 SDK，将不受到此次变更的影响。**
 
 >! 10.1版本 SDK 预计在2022年05月底发布，您可在 [License 购买页](https://buy.cloud.tencent.com/vcube) 内购买包含视频播放功能的 License，并参考 [License 操作指引](https://cloud.tencent.com/document/product/1449/56981) 进行 License 的新增与续期操作。本次升级涉及的移动端（iOS & Android & Flutter）SDK 包含直播 SDK、直播 SDK（基础版）和全功能版 SDK，您可持续关注对应 SDK 官网通知以了解最新动态。
 
@@ -13,8 +14,8 @@
 10.1 版本后，直播 License（原直播推流 License）、短视频 License 和视频播放 License **均可**授权解锁新版本 SDK 的**视频播放**功能模块，您只需购买其中的**任意一种** License，即可正常使用新版 SDK 中的直播和点播播放功能，相关 License 的购买、计费信息及操作指引如下：
 
 - [购买直播 License](https://buy.cloud.tencent.com/vcube?type=live&pkg-type=10tb) 授权解锁**直播推流 + 视频播放**功能模块，相关计费详情请参见 [直播 SDK 价格总览](https://cloud.tencent.com/document/product/454/8008#.E7.9B.B4.E6.92.AD-license.EF.BC.88.E5.8E.9F.E7.A7.BB.E5.8A.A8.E7.9B.B4.E6.92.AD.E5.9F.BA.E7.A1.80.E7.89.88-license.EF.BC.89)，操作指引参见 [直播License新增与续期](https://cloud.tencent.com/document/product/454/34750)。
-- [购买短视频 License](https://buy.cloud.tencent.com/vcube?type=video&pkg-type=10tb) 授权解锁**短视频制作 + 视频播放**功能模块，相关计费详情请参见 [短视频 SDK 价格总览](https://cloud.tencent.com/document/product/584/9368)，操作指引参见 [短视频License新增与续期](https://cloud.tencent.com/document/product/584/54333)。
-- [购买视频播放 License](https://buy.cloud.tencent.com/vcube) 授权解锁**视频播放**功能模块，相关计费详情请参见 [视频播放 License 计费说明](https://cloud.tencent.com/document/product/1449/74203#play_price)，操作指引参见 [视频播放 License 新增与续期](https://cloud.tencent.com/document/product/881/74588)。
+- [购买短视频 License](https://buy.cloud.tencent.com/vcube?type=video&pkg-type=10tb) 授权解锁**短视频制作 + 视频播放**功能模块，相关计费详情请参见 [短视频 SDK 价格总览](https://cloud.tencent.com/document/product/584/9368)，操作指引参见 [短视频 License 新增与续期](https://cloud.tencent.com/document/product/584/54333)。
+- [购买视频播放 License](https://buy.cloud.tencent.com/vcube) 授权解锁**视频播放**功能模块，相关计费详情请参见 [视频播放 License 计费说明](#play_price)，操作指引参见 [视频播放 License 新增与续期](https://cloud.tencent.com/document/product/881/74588)。
 
 <table>
 <thead>
