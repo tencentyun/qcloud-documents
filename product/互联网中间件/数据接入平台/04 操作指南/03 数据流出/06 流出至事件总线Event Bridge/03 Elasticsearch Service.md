@@ -88,7 +88,6 @@
    单击**查看消费者详情**可以看到消费者详细信息。
 ![](https://qcloudimg.tencent-cloud.cn/raw/31faa5b743ab259b2b150ac7b27a85ac.png)
 4. 选择**监控**页签，选择要查看资源，设置好时间范围，可以查看对应的监控数据。
-
    <table>
        <tr>
            <th>图标</th>
