@@ -1,7 +1,7 @@
 ## 组件介绍
 
 TUIRoom 是一个包含 UI 的开源音视频组件，通过集成 TUIRoom，您可以在业务中快速上线音视频房间，屏幕分享，聊天等功能。Web 端 TUIRoom 基础功能如下图所示：
-
+ 
 <table>
 <tr>
 <td><img width="460" src="https://web.sdk.qcloud.com/component/tuiroom/assets/page-home.png"></td>
@@ -21,7 +21,7 @@ TUIRoom 组件使用 Vue3 + TS + Pinia + Element Plus + SCSS 开发，要求接�
 TUIRoom 基于腾讯云实时音视频和即时通信服务进行开发。
 
 1. **创建实时音视频 TRTC 应用**
-  - 如果您还没有腾讯云账号，请 [注册腾讯云账号](https://cloud.tencent.com/register?s_url=https%3A%2F%2Fcloud.tencent.com%2Fdocument%2Fproduct%2F647%2F49327) ，并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
+	- 如果您还没有腾讯云账号，请 [注册腾讯云账号](https://cloud.tencent.com/register?s_url=https%3A%2F%2Fcloud.tencent.com%2Fdocument%2Fproduct%2F647%2F49327) ，并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
 	- 在 [实时音视频控制台](https://console.cloud.tencent.com/trtc) 单击 **应用管理 > 创建应用** 创建新应用。
 ![](https://qcloudimg.tencent-cloud.cn/raw/570a1d2db433f5b2429823f2c7ea9837.png)
 2. **获取 TRTC 应用及密钥信息**
@@ -164,7 +164,7 @@ app.mount('#app');
 ```
 3. **配置 svg-icon 组件加载 SVG 图标**
 TUIRoom 将所有图标资源（SVG 文件）放置在 `src/TUIRoom/assets/icons/svg` 目录下，需要您在 `vite.config.ts` 文件中配置 SVG 图标加载方式。
->! 以下配置项为增量配置，不要删除已经存在的 VITE 配置项。
+>! 以下配置项为增量配置，不要删除已经存在的 Vite 配置项。
 >
 ```javascript
 // vite.config.ts
@@ -181,7 +181,7 @@ export default defineConfig({
 ```
 4. **配置 element-plus 按需引入**
 TUIRoom 使用 element-plus UI 组件，为避免引入所有 element-plus组件，需要您在 `vite.config.ts` 中配置 element-plus 组件按需加载。
->! 以下配置项为增量配置，不要删除已经存在的 VITE 配置项。
+>! 以下配置项为增量配置，不要删除已经存在的 Vite 配置项。
 >
 ```javascript
 // vite.config.ts
@@ -218,7 +218,7 @@ export default defineConfig({
 ### 步骤五：开发环境运行
 在控制台执行开发环境运行脚本，使用浏览器打开包含 TUIRoom 的页面，即可在页面中使用 TUIRoom 组件。
 
-如果您是使用 [步骤二](#step2) 中的脚本生成 VUE + TS 项目，您需要：
+如果您是使用 [步骤二](#step2) 中的脚本生成 Vue + TS 项目，您需要：
 
 1. 执行开发环境命令。
 ```bash
