@@ -1,8 +1,8 @@
-直播 SDK 推荐配合腾讯云直播服务使用，购买指定直播流量资源包即赠送直播 License（原直播推流 License）1年使用权限，或购买独立直播 License 获得授权。计费购买详情请参见 [价格总览](https://cloud.tencent.com/document/product/454/8008)。
+直播 SDK 推荐配合腾讯云直播服务使用，购买指定直播流量资源包即赠送直播 License（原直播推流 License）1年使用权限，或购买独立直播 License 获得授权。计费购买详情请参见 [价格总览](https://cloud.tencent.com/document/product/454/8008#.E7.9B.B4.E6.92.AD-license.EF.BC.88.E5.8E)。
 
 购买后可在 [云直播控制台](https://console.cloud.tencent.com/live/license) 对直播 License 进行新增和续期等操作。本文档将对直播 License 测试版和正式版的新增与续期等操作进行说明指引。
 
-> !购买直播 License 授权可解锁**直播推流 + 视频播放**功能模块。10.1 版本起，若您仅使用 SDK 中视频播放功能，也可购买视频播放 License 授权解锁**视频播放**功能模块，详情参见 [播放器 SDK 价格总览](https://cloud.tencent.com/document/product/881/20193)，操作指引参见 [新增与续期视频播放 License](https://cloud.tencent.com/document/product/881/74588)。**更多授权解锁详情参见 [腾讯云视立方 License 授权说明](https://cloud.tencent.com/document/product/1449/74203)**。
+> !购买直播 License 授权可解锁**直播推流 + 视频播放**功能模块。10.1 版本起，若您仅使用 SDK 中视频播放功能，也可购买 [视频播放 License](https://cloud.tencent.com/document/product/881/20193#.E8.AE.A1.E8.B4.B9.E4.BB.B7.E6.A0.BC)  授权解锁**视频播放**功能模块，操作指引参见 [视频播放 License](https://cloud.tencent.com/document/product/881/74588#.E6.B5.8B.E8.AF.95.E7.89.88-license)。
 
 [](id:test)
 ## 测试版 License
