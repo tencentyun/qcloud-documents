@@ -11,7 +11,7 @@
 
 ### 创建数据流出任务
 
-1. 登录 [DIP 控制台](https://console.cloud.tencent.com/ckafka/datahub-overview) 。
+1. 登录 [DIP 控制台](https://console.cloud.tencent.com/ckafka/datahub-overview)。
 2. 在左侧导航栏单击**数据流出**，选择好地域后，单击**新建任务**。
 3. 目标类型选择 **Elasticsearch Service**，单击**下一步**。
    ![](https://qcloudimg.tencent-cloud.cn/raw/9be51dee0aa418113302d7ec42c800a9.png)
@@ -119,7 +119,7 @@
 
 ### 查看消息
 
-1. 登录 [DIP 控制台](https://console.cloud.tencent.com/ckafka/datahub-overview) 。
+1. 登录 [DIP 控制台](https://console.cloud.tencent.com/ckafka/datahub-overview)。
 2. 在左侧导航栏单击**数据流出**，单击目标任务的**ID**，进入任务基本信息页面。
 3. 单击**查看消息**页签，选择好 Topic 和分区后，可以查看数据流出成功的最近5条、20条、60条和100条消息。
    ![](https://qcloudimg.tencent-cloud.cn/raw/171fd12cb463579aec77a1702cbcf988.png)

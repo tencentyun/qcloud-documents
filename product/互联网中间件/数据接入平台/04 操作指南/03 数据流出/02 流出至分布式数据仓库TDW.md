@@ -10,7 +10,7 @@ Datahub 提供数据流出能力，您可以将 CKafka 数据分发至分布式�
 
 ### 创建任务
 
-1. 登录 [DIP 控制台](https://console.cloud.tencent.com/ckafka/datahub-overview) 。
+1. 登录 [DIP 控制台](https://console.cloud.tencent.com/ckafka/datahub-overview)。
 2. 在左侧导航栏单击**数据流出**，选择好地域后，单击**新建任务**。
 3. 目标类型选择**分布式数据仓库（TDW）**，单击**下一步**。
    ![](https://qcloudimg.tencent-cloud.cn/raw/b9cd20132c4e6a7e1bd1427c2637ec90.png)
@@ -116,7 +116,7 @@ Datahub 提供数据流出能力，您可以将 CKafka 数据分发至分布式�
 
 ### 查看消息
 
-1. 登录 [DIP 控制台](https://console.cloud.tencent.com/ckafka/datahub-overview) 。
+1. 登录 [DIP 控制台](https://console.cloud.tencent.com/ckafka/datahub-overview)。
 2. 在左侧导航栏单击**数据流出**，单击目标任务的**ID**，进入任务基本信息页面。
 3. 单击**查看消息**页签，选择好 Topic 和分区后，可以查看数据流出成功的最近5条、20条、60条和100条消息。
    ![](https://qcloudimg.tencent-cloud.cn/raw/171fd12cb463579aec77a1702cbcf988.png)
