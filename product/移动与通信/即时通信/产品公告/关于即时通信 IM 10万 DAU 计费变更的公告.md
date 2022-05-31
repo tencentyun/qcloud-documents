@@ -6,18 +6,18 @@
 旧版本 IM 与体验版、专业版和旗舰版能力对比如下表所示。**相比于旧版本 IM ，专业版和旗舰版具备更多的产品能力，例如：全员推送、同平台多设备在线、本地消息搜索（Android、iOS)、直播群新成员查看入群前消息、创建社群（Community）、群消息已读回执、延长历史消息存储时长**。如果您需要变更为专业版或旗舰版，需要 [提交工单申请](https://console.cloud.tencent.com/workorder/category?level1_id=29&level2_id=40&source=0&data_title=%E4%BA%91%E9%80%9A%E4%BF%A1%20%20IM&step=1)，审批完成后即可在控制台将旧版本 IM 变更为体验版，再升级为专业版或者旗舰版。
 >!版本变更为体验版、专业版、旗舰版后，产品能力将对应调整为体验版、专业版、旗舰版能力，各版本计费请参见 [价格说明](https://cloud.tencent.com/document/product/269/11673)。
 
-<table border=0 cellpadding=0 cellspacing=0 width=711 style='border-collapse:
- collapse;table-layout:fixed;width:533pt'>
- <col width=244 style='mso-width-source:userset;mso-width-alt:7808;width:183pt'>
- <col width=119 style='mso-width-source:userset;mso-width-alt:3808;width:89pt'>
- <col width=121 style='mso-width-source:userset;mso-width-alt:3872;width:91pt'>
- <col width=107 style='mso-width-source:userset;mso-width-alt:3424;width:80pt'>
+<table border=0 cellpadding=0 cellspacing=0 width=893 style='border-collapse:
+ collapse;table-layout:fixed;width:671pt'>
+ <col width=330 style='mso-width-source:userset;mso-width-alt:10560;width:248pt'>
+ <col width=148 style='mso-width-source:userset;mso-width-alt:4736;width:111pt'>
+ <col width=153 style='mso-width-source:userset;mso-width-alt:4896;width:115pt'>
+ <col width=142 style='mso-width-source:userset;mso-width-alt:4544;width:107pt'>
  <col width=120 style='mso-width-source:userset;mso-width-alt:3840;width:90pt'>
  <tr height=19 style='height:14.25pt'>
-  <th height=19 width=244 style='height:14.25pt;width:183pt' align="">功能点</td>
-  <th width=119 style='width:89pt' align="">体验版</td>
-  <th width=121 style='width:91pt' align="">专业版</td>
-  <th width=107 style='width:80pt' align="">旗舰版</td>
+  <th height=19 width=330 style='height:14.25pt;width:248pt' align="">功能点</td>
+  <th width=148 style='width:111pt' align="">体验版</td>
+  <th width=153 style='width:115pt' align="">专业版</td>
+  <th width=142 style='width:107pt' align="">旗舰版</td>
   <th width=120 style='width:90pt' align="">旧版本 IM</td>
  </tr>
  <tr height=19 style='height:14.25pt'>
