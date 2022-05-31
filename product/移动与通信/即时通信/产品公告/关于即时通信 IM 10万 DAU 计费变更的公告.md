@@ -74,7 +74,7 @@
   <td align="">100个</td>
   <td align="">10000个</td>
   <td align="">10000个</td>
-  <td align="">无限制</td>
+  <td align="">10000个</td>
  </tr>
  <tr height=19 style='height:14.25pt'>
   <td height=19 style='height:14.25pt' align="">免费历史消息存储时长</td>
