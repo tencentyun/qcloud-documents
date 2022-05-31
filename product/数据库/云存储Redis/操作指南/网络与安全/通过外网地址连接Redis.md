@@ -7,17 +7,16 @@ redis-cli 是原生 Redis 自带的命令行工具，您可以本地设备上安
 2. 在本地设备上，使用 Windows 键 + R 组合键打开**运行**对话框，输入 cmd 单击**确定**，打开 Windows 命令行窗口。
 3. 执行如下命令，进入 redis-cli 的安装目录。
 ```
-**cd** /d <path> 
+cd /d <path> 
 ```
 其中，path 为 redis-cli 的安装目录。例如：cd /d D:\Temp\Redis-x64-3.2.100
 4. 执行如下命令，访问数据库。
 ```
 redis-cli -h <hostname> -p <port> -a <password>
 ```
-其中，hostname：指已申请的外网地址；-p：外网地址对应的网络端口；password：实例默认账号访问密码。若连接时使用的是 [自定义账号](https://cloud.tencent.com/document/product/239/36710)，自定义账号的鉴权方式为`账号名@密码`，作为访问 Redis 的密码参数。
+其中，hostname：指已申请的 [外网地址](https://cloud.tencent.com/document/product/239/63527)；-p：外网地址对应的网络端口；password：实例默认账号访问密码。若连接时使用的是 [自定义账号](https://cloud.tencent.com/document/product/239/36710)，自定义账号的鉴权方式为`账号名@密码`，作为访问 Redis 的密码参数。
 执行示例，请参见下图。
 ![](https://qcloudimg.tencent-cloud.cn/raw/fff9e2358332579cd84411647e13b6c2.png)
-
 
 **通过 Redis 客户端连接**
 下载 Redis Windows 系统的客户端，配置如下参数，单击**测试连接**，连接数据库实例。
@@ -27,7 +26,7 @@ redis-cli -h <hostname> -p <port> -a <password>
 | -------- | ------------------------------------------------------------ |
 | **名字** | 连接数据库实例的连接名称。                                   |
 | **地址** | 请输入数据库实例的外网地址及其端口号。                       |
-| **验证** | 输入数据库实例的连接密码。如果为默认账号，直接输入实例访问密码；如果为[自定义账号](https://cloud.tencent.com/document/product/239/36710)，鉴权方式为 `账号名@密码`。 |
+| **验证** | 输入数据库实例的连接密码。如果为默认账号，直接输入实例访问密码；如果为 [自定义账号](https://cloud.tencent.com/document/product/239/36710)，鉴权方式为`账号名@密码`。 |
 
 ## 使用 redis-cli 通过外网地址连接数据库（本地 Linux 系统）
 1. 下载最新稳定的源码包，以6.2.6版本为例。
