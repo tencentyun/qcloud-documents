@@ -1,3 +1,5 @@
+<style> table th:nth-of-type(1) {width:20%; } table th:nth-of-type(2){ width:40%; } table th:nth-of-type(3){ width:40%;  } </style>
+
 ## 匹配项-请求总览
 |分类-匹配项  |场景 |说明 |
 |---|---|---|
