@@ -3,28 +3,25 @@
 若您创建的第一个 IM 应用时间在2019-12-27 00:00:00之前，该账号下所有的 IM 应用为旧版本 IM。旧版本 IM 不收取套餐包费用，DAU 按1000元/万 DAU 进行计费，不足1万的部分按1万计算；旧版本 IM 提供免费10万峰值群组，超出后按1000元/10万峰值群组进行计费，不足10万的部分按10万计算。例如，您的 DAU 月峰值为2.2万、月峰群组数为20.2万个。按刊例价计费：
 - 本月刊例价总费用：DAU 费用 + 超量峰值群组费用 = 3万 DAU x 1000元/万 DAU + 20万超量峰值群组数 x 1000元/10万峰值群组数 = 3000元 + 2000元 = 5000元
 
-旧版本 IM 与体验版、专业版和旗舰版能力对比如下表所示。如果您希望用到专业版和旗舰版的产品能力，如全员推送、延长历史消息存储时长、社群等，需要 [提交工单申请](https://console.cloud.tencent.com/workorder/category?level1_id=29&level2_id=40&source=0&data_title=%E4%BA%91%E9%80%9A%E4%BF%A1%20%20IM&step=1)。审批完成后即可在控制台将旧版本 IM 变更为体验版，再升级为专业版或者旗舰版。
+旧版本 IM 与体验版、专业版和旗舰版能力对比如下表所示。**相比于旧版本 IM ，专业版和旗舰版具备更多的产品能力，例如：全员推送、同平台多设备在线、本地消息搜索（Android、iOS)、直播群新成员查看入群前消息、创建社群（Community）、群消息已读回执、延长历史消息存储时长**。如果您需要变更为专业版或旗舰版，需要 [提交工单申请](https://console.cloud.tencent.com/workorder/category?level1_id=29&level2_id=40&source=0&data_title=%E4%BA%91%E9%80%9A%E4%BF%A1%20%20IM&step=1)，审批完成后即可在控制台将旧版本 IM 变更为体验版，再升级为专业版或者旗舰版。
 >!版本变更为体验版、专业版、旗舰版后，产品能力将对应调整为体验版、专业版、旗舰版能力，各版本计费请参见 [价格说明](https://cloud.tencent.com/document/product/269/11673)。
 
-<table border=0 cellpadding=0 cellspacing=0 width=917 style='border-collapse:
- collapse;table-layout:fixed;width:688pt'>
- <col width=111 style='mso-width-source:userset;mso-width-alt:3552;width:83pt'>
- <col width=225 style='mso-width-source:userset;mso-width-alt:7200;width:169pt'>
- <col width=104 style='mso-width-source:userset;mso-width-alt:3328;width:78pt'>
- <col width=159 style='mso-width-source:userset;mso-width-alt:5088;width:119pt'>
- <col width=177 style='mso-width-source:userset;mso-width-alt:5664;width:133pt'>
- <col width=141 style='mso-width-source:userset;mso-width-alt:4512;width:106pt'>
+<table border=0 cellpadding=0 cellspacing=0 width=711 style='border-collapse:
+ collapse;table-layout:fixed;width:533pt'>
+ <col width=244 style='mso-width-source:userset;mso-width-alt:7808;width:183pt'>
+ <col width=119 style='mso-width-source:userset;mso-width-alt:3808;width:89pt'>
+ <col width=121 style='mso-width-source:userset;mso-width-alt:3872;width:91pt'>
+ <col width=107 style='mso-width-source:userset;mso-width-alt:3424;width:80pt'>
+ <col width=120 style='mso-width-source:userset;mso-width-alt:3840;width:90pt'>
  <tr height=19 style='height:14.25pt'>
-  <th height=19 width=111 style='height:14.25pt;width:83pt' align=""></td>
-  <th width=225 style='width:169pt' align="">功能点</td>
-  <th width=104 style='width:78pt' align="">体验版</td>
-  <th width=159 style='width:119pt' align="">专业版</td>
-  <th width=177 style='width:133pt' align="">旗舰版</td>
-  <th width=141 style='width:106pt' align="">旧版本 IM</td>
+  <th height=19 width=244 style='height:14.25pt;width:183pt' align="">功能点</td>
+  <th width=119 style='width:89pt' align="">体验版</td>
+  <th width=121 style='width:91pt' align="">专业版</td>
+  <th width=107 style='width:80pt' align="">旗舰版</td>
+  <th width=120 style='width:90pt' align="">旧版本 IM</td>
  </tr>
  <tr height=19 style='height:14.25pt'>
-  <td rowspan=18 height=323 style='height:242.25pt' align="">版本能力</td>
-  <td align="">全球多点覆盖</td>
+  <td height=19 style='height:14.25pt' align="">全球多点覆盖</td>
   <td align="">支持</td>
   <td align="">支持</td>
   <td align="">支持</td>
@@ -40,23 +37,23 @@
  <tr height=19 style='height:14.25pt'>
   <td height=19 style='height:14.25pt' align="">单个用户好友人数上限</td>
   <td align="">20个好友</td>
-  <td align="">3000个好友/人</td>
-  <td align="">3000个好友/人</td>
-  <td align="">无限制</td>
+  <td align="">3000个好友</td>
+  <td align="">3000个好友</td>
+  <td align="">3000个好友</td>
  </tr>
  <tr height=19 style='height:14.25pt'>
   <td height=19 style='height:14.25pt' align="">单个用户可加入群组数上限</td>
   <td align="">50个群/人</td>
   <td align="">500个群/人</td>
   <td align="">1000个群/人</td>
-  <td align="">无限制</td>
+  <td align="">1000个群/人</td>
  </tr>
  <tr height=19 style='height:14.25pt'>
   <td height=19 style='height:14.25pt' align="">单个群成员数上限 (非直播群)</td>
-  <td align="">20个人/群</td>
+  <td align="">20人/群</td>
   <td align="">200人/群</td>
   <td align="">2000人/群</td>
-  <td align="">无限制</td>
+  <td align="">2000人/群</td>
  </tr>
  <tr height=19 style='height:14.25pt'>
   <td height=19 style='height:14.25pt' align="">群组数上限（解散后不统计）</td>
@@ -66,17 +63,9 @@
   <td align="">无限制</td>
  </tr>
  <tr height=19 style='height:14.25pt'>
-  <td height=19 style='height:14.25pt' align="">可创建直播群（AvChatRoom）个<span
-  style='display:none'>数</span></td>
+  <td height=19 style='height:14.25pt' align="">可创建直播群（AvChatRoom）个数</td>
   <td align="">10个</td>
   <td align="">50个</td>
-  <td align="">无限制</td>
-  <td align="">无限制</td>
- </tr>
- <tr height=19 style='height:14.25pt'>
-  <td height=19 style='height:14.25pt' align="">直播群人数上限</td>
-  <td align="">无限制</td>
-  <td align="">无限制</td>
   <td align="">无限制</td>
   <td align="">无限制</td>
  </tr>
@@ -96,118 +85,78 @@
  </tr>
  <tr height=19 style='height:14.25pt'>
   <td height=19 style='height:14.25pt' align="">免费峰值 DAU 额度</td>
-  <td align="">100 DAU/月</td>
-  <td align="">1万/月</td>
-  <td align="">1万/月</td>
-  <td align="">0/月</td>
+  <td align="">100个/月</td>
+  <td align="">10000个/月</td>
+  <td align="">10000个/月</td>
+  <td align="">0个/月</td>
  </tr>
  <tr height=19 style='height:14.25pt'>
   <td height=19 style='height:14.25pt' align="">免费峰值群组数</td>
-  <td align="">100个群/月</td>
-  <td align="">10万个群组/月</td>
-  <td align="">10万个群组/月</td>
-  <td align="">10万个群组/月</td>
+  <td align="">100个/月</td>
+  <td align="">100000个/月</td>
+  <td align="">100000个/月</td>
+  <td align="">100000个/月</td>
  </tr>
  <tr height=19 style='height:14.25pt'>
-  <td height=19 style='height:14.25pt' align="">全员推送</td>
+  <td height=19 style='height:14.25pt' align=""><a
+  href="https://cloud.tencent.com/document/product/269/38656#.E5.8E.86.E5.8F.B2.E6.B6.88.E6.81.AF.E5.AD.98.E5.82.A8.E6.97.B6.E9.95.BF.E9.85.8D.E7.BD.AE"
+  target="_parent">延长历史消息存储时长</span></a></td>
+  <td align="">不支持</td>
+  <td align="">支持</td>
+  <td align="">支持</td>
+  <td class=xl65 align=""><b>不支持</td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 style='height:14.25pt' align=""><a
+  href="https://cloud.tencent.com/document/product/269/45933" target="_parent">全员推送</span></a></td>
   <td align="">不支持</td>
   <td align="">不支持</td>
   <td align="">支持</td>
-  <td align="">不支持</td>
+  <td class=xl65 align=""><b>不支持</td>
  </tr>
  <tr height=19 style='height:14.25pt'>
-  <td height=19 style='height:14.25pt' align="">同平台多设备在线</td>
-  <td align="">不支持</td>
-  <td align="">不支持</td>
-  <td align="">支持</td>
-  <td align="">不支持</td>
- </tr>
- <tr height=19 style='height:14.25pt'>
-  <td height=19 style='height:14.25pt' align="">本地消息搜索（Android、iOS)</td>
+  <td height=19 style='height:14.25pt' align=""><a
+  href="https://cloud.tencent.com/document/product/269/38656" target="_parent">同平台多设备在线</span></a></td>
   <td align="">不支持</td>
   <td align="">不支持</td>
   <td align="">支持</td>
-  <td align="">不支持</td>
+  <td class=xl65><b>不支持</td>
  </tr>
  <tr height=19 style='height:14.25pt'>
-  <td height=19 style='height:14.25pt' align="">直播群新成员查看入群前消息</td>
-  <td align="">不支持</td>
-  <td align="">不支持</td>
-  <td align="">支持</td>
-  <td align="">不支持</td>
- </tr>
- <tr height=19 style='height:14.25pt'>
-  <td height=19 style='height:14.25pt' align="">创建社群（community）</td>
+  <td height=19 style='height:14.25pt' align=""><a
+  href="https://cloud.tencent.com/document/product/269/56936" target="_parent">本地消息搜索（Android、iOS)</span></a></td>
   <td align="">不支持</td>
   <td align="">不支持</td>
   <td align="">支持</td>
+  <td class=xl65><b>不支持</td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 style='height:14.25pt' align=""><a
+  href="https://cloud.tencent.com/document/product/269/38656#.E7.9B.B4.E6.92.AD.E7.BE.A4.E6.96.B0.E6.88.90.E5.91.98.E6.9F.A5.E7.9C.8B.E5.85.A5.E7.BE.A4.E5.89.8D.E6.B6.88.E6.81.AF.E9.85.8D.E7.BD.AE"
+  target="_parent">直播群新成员查看入群前消息</span></a></td>
   <td align="">不支持</td>
- </tr>
-    <tr>
-      <td>群消息已读回执</td>
-      <td>不支持</td>
-      <td>不支持</td>
-      <td>支持</td>
-      <td>不支持</td>
-   </tr>
- <tr height=19 style='height:14.25pt'>
-  <td rowspan=11 height=209 style='height:156.75pt' align="">增值服务能力</td>
-  <td align="">扩展直播群（AVChatRoom）创建<span style='display:none'>数量至无上限</span></td>
   <td align="">不支持</td>
-  <td align="">1000元/月</td>
-  <td align="">免费</td>
-  <td align="">免费</td>
+  <td align="">支持</td>
+  <td class=xl65><b>不支持</td>
  </tr>
  <tr height=19 style='height:14.25pt'>
-  <td rowspan=3 height=57 style='height:42.75pt' align="">扩展单个群成员数上限</td>
-  <td rowspan=3 align="">不支持</td>
-  <td align="">200人/群：免费</td>
-  <td align="">200人/群：免费</td>
-  <td rowspan=3 align="">免费</td>
+  <td height=19 style='height:14.25pt' align=""><a
+  href="https://cloud.tencent.com/document/product/269/44494#.E7.A4.BE.E7.BE.A4.E8.AF.9D.E9.A2.98"
+  target="_parent">创建社群（Community）</span></a></td>
+  <td align="">不支持</td>
+  <td align="">不支持</td>
+  <td align="">支持</td>
+  <td class=xl65><b>不支持</td>
  </tr>
  <tr height=19 style='height:14.25pt'>
-  <td height=19 style='height:14.25pt'>2000人/群：500元/月</td>
-  <td>2000人/群：免费</td>
+  <td height=19 style='height:14.25pt' align=""><a
+  href="https://cloud.tencent.com/document/product/269/38656#.E7.BE.A4.E6.B6.88.E6.81.AF.E5.B7.B2.E8.AF.BB.E5.9B.9E.E6.89.A7.E9.85.8D.E7.BD.AE"
+  target="_parent">群消息已读回执</span></a></td>
+  <td align="">不支持</td>
+  <td align="">不支持</td>
+  <td align="">支持</td>
+  <td class=xl65><b>不支持</td>
  </tr>
- <tr height=19 style='height:14.25pt'>
-  <td height=19 style='height:14.25pt'>6000人/群：不支持</td>
-  <td>6000人/群：500元/月</td>
- </tr>
- <tr height=19 style='height:14.25pt'>
-  <td rowspan=3 height=57 style='height:42.75pt' align="">扩展单个用户可加入群组数上限</td>
-  <td rowspan=3 align="">不支持</td>
-  <td align="">500个群/人：免费</td>
-  <td align="">500个群/人：免费</td>
-  <td rowspan=3 align="">免费</td>
- </tr>
- <tr height=19 style='height:14.25pt'>
-  <td height=19 style='height:14.25pt'>1000个群/人：1100元/<span style='display:
-  none'>月</span></td>
-  <td>1000个群/人：免费</td>
- </tr>
- <tr height=19 style='height:14.25pt'>
-  <td height=19 style='height:14.25pt'>3000个群/人：不支持</td>
-  <td>3000个群/人：900元/月</td>
- </tr>
- <tr height=19 style='height:14.25pt'>
-  <td rowspan=4 height=76 style='height:57.0pt' align="">延长历史消息存储时长</td>
-  <td rowspan=4 align="">不支持</td>
-  <td align="">存储30天：500元/月</td>
-  <td align="">存储30天：免费</td>
-  <td rowspan=4 align="">不支持</td>
- </tr>
- <tr height=19 style='height:14.25pt'>
-  <td height=19 style='height:14.25pt'>存储90天：1000元/月</td>
-  <td>存储90天：500元/月</td>
- </tr>
- <tr height=19 style='height:14.25pt'>
-  <td height=19 style='height:14.25pt'>存储180天：1500元/月</td>
-  <td>存储180天：1000元/月</td>
- </tr>
- 
- <tr height=19 style='height:14.25pt'>
-  <td height=19 style='height:14.25pt'>存储360天：2500元/月</td>
-  <td>存储360天：2000元/月</td>
- </tr>
- 
+ <![endif]>
 </table>
+
