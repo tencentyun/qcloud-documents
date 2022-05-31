@@ -56,7 +56,7 @@
 若您需要将腾讯特效模块的测试版 License 升级成为正式版 License，增加使用的有效期，请先 [选择并购买腾讯特效正式版套餐包](https://buy.cloud.tencent.com/vcube?type=magic)，然后执行如下操作：
 1. 单击测试版 License 腾讯特效模块中的**升级**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/3cf3633ecd1a093d61b4b1561c18d4da.png)
-2. 进入升级功能模块界面，点击**立即绑定**，选择未绑定的腾讯特效套餐包，单击**确定**即可升级创建同包名的正式应用，同时解锁腾讯特效模块的正式版 License，无需签发审核。若无可绑定的腾讯特效套餐包，可单击 [资源包购买页](https://buy.cloud.tencent.com/vcube?type=magic) 前往腾讯视立方资源包购买页购买。
+2. 进入升级功能模块界面，单击**立即绑定**，选择未绑定的腾讯特效套餐包，单击**确定**即可升级创建同包名的正式应用，同时解锁腾讯特效模块的正式版 License，无需签发审核。若无可绑定的腾讯特效套餐包，可单击 [资源包购买页](https://buy.cloud.tencent.com/vcube?type=magic) 前往腾讯视立方资源包购买页购买。
 ![](https://qcloudimg.tencent-cloud.cn/raw/9c3134446ec1584428cf88b8859fefa9.png)
 
 [](id:formal)
