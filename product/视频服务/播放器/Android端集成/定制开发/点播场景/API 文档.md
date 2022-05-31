@@ -17,25 +17,25 @@
 
 | API                                                          | 描述                                                         |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [setConfig](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#ae69bc2dd060217e595c38f0dc819290a) | 设置播放器配置信息，配置信息请参见 [TXVodPlayConfig](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayConfig__android.html) |
-| [setPlayerView](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#a64eefab5bdb76cef17f609560eec5830) | 设置播放器的视频渲染 TXCloudVideoView                        |
-| [setPlayerView](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#aeb2f15f370d50b6261b7832f02a0f411) | 设置播放器的视频渲染 TextureView                             |
-| [setSurface](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#ac06d94f1ed4ec1441c075e4ba556eb37) | 设置播放器的视频渲染 SurfaceView                             |
-| setStringOption                                              | 设置播放器业务参数，参数格式为<String,Object>                |
+| [setConfig](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#ae69bc2dd060217e595c38f0dc819290a) | 设置播放器配置信息，配置信息请参见 [TXVodPlayConfig](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayConfig__android.html) 。|
+| [setPlayerView](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#a64eefab5bdb76cef17f609560eec5830) | 设置播放器的视频渲染 TXCloudVideoView。                        |
+| [setPlayerView](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#aeb2f15f370d50b6261b7832f02a0f411) | 设置播放器的视频渲染 TextureView。                             |
+| [setSurface](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#ac06d94f1ed4ec1441c075e4ba556eb37) | 设置播放器的视频渲染 SurfaceView。                             |
+| setStringOption                                              | 设置播放器业务参数，参数格式为<String,Object>。                |
 
 ### 播放基础接口  
 | API                                                          | 描述                        |
 | ------------------------------------------------------------ | --------------------------- |
-| [startPlay](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#a32fe5a77dedc7fc903345f00e6c47c3a) | 播放 HTTP URL 形式地址 |
-| startPlay | 以 fileId 形式播放，传入TXPlayInfoParams参数 |
-| [ stopPlay](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#a6abf34bf566c275476b1706593cb0fe1) | 停止播放 |
-| [isPlaying](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#ac651fc45a9f04e4db6f258f8cdd7bbcf) | 是否正在播放      |
-| [pause](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#a7167f5c196fc5e167bfabde1a730e81d) | 暂停播放，停止获取流数据,保留最后一帧画面 |
-| [resume](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#a41de8150eff044a237990c271d57ea27) | 恢复播放，重新获取流数据 |
-| [seek](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#a914c54a0122cba5ad78d84f893df8578) | 跳转到视频流指定时间点，单位秒 |
-| [seek](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#aa5d7fcf690ac3a1102ffa3c02192674d) | 跳转到视频流指定时间点，单位毫秒 |
-| [getCurrentPlaybackTime](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#a128b89dd39053d6d19d262a5f45110cd) | 获取当前播放位置，单位秒 |
-| [getBufferDuration](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#acebd6ae9dd87e10c8959a24d3b6d5e7f) | 获取缓存的总时长，单位秒 |
+| [startPlay](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#a32fe5a77dedc7fc903345f00e6c47c3a) | 播放 HTTP URL 形式地址。 |
+| startPlay | 以 fileId 形式播放，传入TXPlayInfoParams参数。 |
+| [ stopPlay](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#a6abf34bf566c275476b1706593cb0fe1) | 停止播放。 |
+| [isPlaying](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#ac651fc45a9f04e4db6f258f8cdd7bbcf) | 是否正在播放。      |
+| [pause](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#a7167f5c196fc5e167bfabde1a730e81d) | 暂停播放，停止获取流数据,保留最后一帧画面。 |
+| [resume](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#a41de8150eff044a237990c271d57ea27) | 恢复播放，重新获取流数据。 |
+| [seek](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#a914c54a0122cba5ad78d84f893df8578) | 跳转到视频流指定时间点，单位秒。 |
+| [seek](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#aa5d7fcf690ac3a1102ffa3c02192674d) | 跳转到视频流指定时间点，单位毫秒。 |
+| [getCurrentPlaybackTime](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#a128b89dd39053d6d19d262a5f45110cd) | 获取当前播放位置，单位秒。 |
+| [getBufferDuration](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#acebd6ae9dd87e10c8959a24d3b6d5e7f) | 获取缓存的总时长，单位秒。 |
 | [getDuration](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#a83ee44393f1e0db930be75b73ff47812) | 获取总时长，单位秒。 |
 | [getPlayableDuration](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#a37cb584556d48d043b93dfec33c40a97) | 获取可播放时长，单位秒。 |
 | [getWidth](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#a67a0997183f24da19b776d96c1052998) | 获取视频宽度。 |
@@ -45,7 +45,7 @@
 | [setToken](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#a5f9eadc88ca97238f84226462f095536) | 加密 HLS 的 token。 |
 | [setLoop](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#a3f5ae863c82509d1ed266503e8138781) | 设置是否循环播放。 |
 | [isLoop](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#aaa3fcc823e0fce316dea1cc9162f1c8e) | 返回是否循环播放状态。 |
-| [getEncryptedPlayKey](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#acc32bf00b94774e5314cb733f9f339df) | 获取加固加密播放密钥 |
+| [getEncryptedPlayKey](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#acc32bf00b94774e5314cb733f9f339df) | 获取加固加密播放密钥。 |
 
 ### 视频相关接口
 
@@ -113,7 +113,7 @@
 | [setConnectRetryInterval](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayConfig__android.html#a5f3b8315c6276bd1c03c999ce01e4f8f) | 设置播放器重连间隔，单位秒。                                 |
 | [setTimeout](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayConfig__android.html#ae44a6096c42cdb61adc10370ca2a42b6) | 设置播放器连接超时时间，单位秒。                             |
 | [setCacheFolderPath](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayConfig__android.html#a6ad0d546e6da3abacd5d4ea8bd6f94de) | 设置点播缓存目录，点播 MP4、HLS 有效。                       |
-| [setMaxCacheItems](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayConfig__android.html#acc2f17764df9bb52163dac9faf81f11e) | 设置缓存文件个数。接口废弃，请使用TXPlayerGlobalSetting#setMaxCacheSize进行全局配置 |
+| [setMaxCacheItems](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayConfig__android.html#acc2f17764df9bb52163dac9faf81f11e) | 设置缓存文件个数。接口废弃，请使用TXPlayerGlobalSetting#setMaxCacheSize 进行全局配置。 |
 | [setPlayerType](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayConfig__android.html#a3594024855210dc07f50a6d7c5f8b088) | 设置播放器类型。                                             |
 | [setHeaders](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayConfig__android.html#a9ca40412371b505f9d52fbe95fdbaa6f) | 设置自定义 HTTP headers。                                    |
 | [setEnableAccurateSeek](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayConfig__android.html#a3caff179964976945f3754f1ec48a42b) | 设置是否精确 seek，默认 true。                               |
@@ -141,9 +141,9 @@
 
 | API          | 描述                                                         |
 | ------------ | ------------------------------------------------------------ |
-| getInstance  | 获取 TXVodPreloadManager 实例对象，单例模式                    |
-| startPreload | 启动预下载前，请先设置好播放引擎的缓存目录 TXPlayerGlobalSetting#setCacheFolderPath 和缓存大小TXPlayerGlobalSetting#setMaxCacheSize。 |
-| stopPreload  | 停止预下载                                                   |
+| getInstance  | 获取 TXVodPreloadManager 实例对象，单例模式。                    |
+| startPreload | 启动预下载前，请先设置好播放引擎的缓存目录。 TXPlayerGlobalSetting#setCacheFolderPath 和缓存大小。TXPlayerGlobalSetting#setMaxCacheSize。 |
+| stopPreload  | 停止预下载。                                                   |
 
 ## TXVodDownloadManager 
 
@@ -151,15 +151,15 @@
 
 | API                      | 描述                                                         |
 | ------------------------ | ------------------------------------------------------------ |
-| getInstance              | 获取 TXVodDownloadManager 实例对象，单例模式                   |
-| setHeaders               | 设置下载 HTTP 头                                               |
-| setListener              | 设置下载回调方法，下载前必须设好                             |
-| startDownloadUrl         | 以 URL 方式开始下载                                            |
-| startDownload            | 以 fileid 方式开始下载                                         |
-| stopDownload             | 停止下载，ITXVodDownloadListener.onDownloadStop 回调时停止成功 |
-| deleteDownloadMediaInfo  | 删除下载信息                                                 |
-| getDownloadMediaInfoList | 获取所有用户的下载列表信息                                   |
-| getDownloadMediaInfo     | 获取下载信息                                   |
+| getInstance              | 获取 TXVodDownloadManager 实例对象，单例模式。                   |
+| setHeaders               | 设置下载 HTTP 头。                                               |
+| setListener              | 设置下载回调方法，下载前必须设好。                             |
+| startDownloadUrl         | 以 URL 方式开始下载。                                          |
+| startDownload            | 以 fileid 方式开始下载。                                         |
+| stopDownload             | 停止下载，ITXVodDownloadListener.onDownloadStop 回调时停止成功。 |
+| deleteDownloadMediaInfo  | 删除下载信息。                                                 |
+| getDownloadMediaInfoList | 获取所有用户的下载列表信息。                                   |
+| getDownloadMediaInfo     | 获取下载信息。                                   |
 
 ## ITXVodDownloadListener
 
