@@ -8,7 +8,7 @@
     - 也可以通过程序指定，如 `System.setProperty("apollo.config-service", "http://config-service-url:port");`
 >? config-service-url:port 为腾讯云微服务引擎 Apollo 实例的公网地址。
 2. 通过操作系统的 System Environment APOLLO_CONFIG_SERVICE(1.9.0+) 或者 APOLLO_CONFIGSERVICE(1.9.0之前)。
->! key 为全大写，且中间是 `_` 进行分隔
+>! key 为全大写，且中间是 `_` 进行分隔。
 3. 通过 server.properties 配置文件，可以在 server.properties 配置文件中指定 apollo.config-service=http://config-service-url:port(1.9.0+) 或者 apollo.configService=http://config-service-url:port(1.9.0之前)。
 >? config-service-url:port 为腾讯云微服务引擎 Apollo 实例的公网地址。
 
