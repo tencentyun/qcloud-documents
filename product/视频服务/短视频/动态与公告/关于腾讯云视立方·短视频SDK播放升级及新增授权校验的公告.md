@@ -4,7 +4,8 @@
 
 同时从该版本开始将增加对**视频播放**功能模块的授权校验，**如果您的 App 已经拥有直播 License （原直播推流 License）或短视频 License 授权，当您升级至 10.1 版本后仍可继续正常使用**，不受到此次变更影响。您可以登录 [腾讯云视立方控制台](https://console.cloud.tencent.com/vcube) 查看您当前的 License 信息。
 
-如果您此前未获得过直播 License （原直播推流 License）或短视频 License 授权，**且需使用新版本 SDK 中的直播播放或点播播放功能，则需购买指定 License 获得授权**，详情参见 [授权说明](#warrant)；**若您无需使用视频播放功能或未升级至10.1及更高版本的 SDK，将不受到此次变更的影响。**
+如果您此前未获得过直播 License （原直播推流 License）或短视频 License 授权，**且需使用新版本 SDK 中的直播播放或点播播放功能，则需购买指定 License 获得授权**，详情参见 [授权说明](#warrant)。
+**若您无需使用视频播放功能或未升级至10.1及更高版本的 SDK，将不受到此次变更的影响。**
 
 >! 10.1版本 SDK 预计在2022年05月底发布，您可在 [License 购买页](https://buy.cloud.tencent.com/vcube) 内购买包含视频播放功能的 License，并参考 [License 操作指引](https://cloud.tencent.com/document/product/1449/56981) 进行 License 的新增与续期操作。
 
