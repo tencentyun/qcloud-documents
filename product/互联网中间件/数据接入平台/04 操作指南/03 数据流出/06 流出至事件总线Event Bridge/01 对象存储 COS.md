@@ -1,6 +1,6 @@
 ## 操作场景
 
-Datahub 提供数据流出能力，您可以将 CKafka 数据分发至 COS 以便于对数据进行分析与下载等操作。处理流程及架构如下：
+数据接入平台 DIP 提供数据流出能力，您可以将 CKafka 数据分发至 COS 以便于对数据进行分析与下载等操作。处理流程及架构如下：
 ![](https://qcloudimg.tencent-cloud.cn/raw/632ca05c1fa3c65507f1a89388427bc3.jpg)
 
 

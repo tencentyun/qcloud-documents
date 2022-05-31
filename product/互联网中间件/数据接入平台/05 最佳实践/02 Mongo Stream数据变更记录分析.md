@@ -4,7 +4,7 @@ MongoDB 内有 Change Stream 作为其追踪变更的解决方案，但为了更
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/4689f690f7d5753e0fcdbe7142fca6ea.jpg)
 
-本文以 MongoDB 接入 CKafka 并从 CKafka 流出到 CLS 为例，讲解如何使用 DataHub 数据转储服务实现 Mongo Stream 数据变更记录分析。
+本文以 MongoDB 接入 CKafka 并从 CKafka 流出到 CLS 为例，讲解如何使用 DIP 数据转储服务实现 Mongo Stream 数据变更记录分析。
 
 ## 运行原理
 
