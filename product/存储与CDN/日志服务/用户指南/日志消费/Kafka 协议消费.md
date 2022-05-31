@@ -1,4 +1,4 @@
-## 操作场景
+## 概述
 您可以通过 Kafka 协议消费，将采集到日志服务（Cloud Log Service，CLS）的数据，消费到下游的大数据组件或者数据仓库。例如，Kafka、HDFS、Hive、Flink，以及腾讯云产品 Oceanus、EMR 等。   
 
 本文提供了 Flink、Logstash 消费日志主题的 demo。
