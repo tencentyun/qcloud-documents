@@ -16,7 +16,7 @@
 3. 单击目标引擎的“ID”，进入基本信息页面。
 4. 查看访问地址，Golang 应用访问使用 gRPC 端口（8091）：
 ![](https://qcloudimg.tencent-cloud.cn/raw/e7dc5ac5f7c76a316ae68b667d8a365f.png)
-5. 将服务治理中心和 Kubernetes 集群进行关联，请参见 [关联 K8s 集群](https://cloud.tencent.com/document/product/1364/65869)
+5. 将服务治理中心和 Kubernetes 集群进行关联，请参见 [关联 K8s 集群](https://cloud.tencent.com/document/product/1364/65869)。
 6. 开启 polaris-sidecar 的注入能力。
 <dx-codeblock>
 :::  shell
@@ -26,8 +26,7 @@ kubectl label namespace default polaris-injection=enabled
 kubectl label namespace default polaris-sidecar-mode=dns
 :::
 </dx-codeblock>
-
-7. 修改 demo 中的注册中心地址。
+7. 修改 demo 中的注册中心地址：
  1. 在下载到本地的 [demo 源码](https://github.com/polarismesh/polaris-go/tree/main/examples/route/nearby/k8s) 目录下，找到`configmap-provider.yaml`文件。
  - 添加微服务引擎服务治理中心地址到项目配置文件中（这里已`configmap-provider.yaml`为例）。
  - 修改位置信息获取插件名称到项目配置文件中（这里已`configmap-provider.yaml`为例）。
@@ -62,13 +61,13 @@ metadata:
 kubectl apply -f ./
 :::
 </dx-codeblock>
-9. 确认部署结果。
+9. 确认部署结果：
  1. 进入前面提到的微服务治理中心实例页面。
- - 选择**服务管理** > **服务列表**，查看微服务 RouteNearbyEchoServer 的实例数量
-    - 若实例数量值不为0，则表示已经成功接入微服务引擎
+ - 选择**服务管理** > **服务列表**，查看微服务 RouteNearbyEchoServer 的实例数量。
+    - 若实例数量值不为0，则表示已经成功接入微服务引擎。
     - 若实例数量为0，或者找不到 RouteNearbyEchoServer 服务名，则表示微服务应用接入微服务引擎失败。
 ![](https://qcloudimg.tencent-cloud.cn/raw/7f46cd9aabfbfba93ac3e8bc7bbfbe4b.png)
- - 开启 RouteNearbyEchoServer 的就近路由
+ - 开启 RouteNearbyEchoServer 的就近路由。
 ![](https://qcloudimg.tencent-cloud.cn/raw/91ff51daff64a22a9d47261c096ccbe8.png)
 10. 为 RouteNearbyEchoServer 创建服务别名 routenearby.echoserver。
 ![](https://qcloudimg.tencent-cloud.cn/raw/3d542768f5d3e89396c6ac679604dc5f.png)
