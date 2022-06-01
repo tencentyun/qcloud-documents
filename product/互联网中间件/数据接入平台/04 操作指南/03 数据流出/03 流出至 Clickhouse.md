@@ -65,7 +65,7 @@
 - 用户名：目标 ClickHouse 的用户名（默认为 `default`）。
 - 密码：目标 ClickHouse 的密码。
 >!出于安全考虑，数据流出 ClickHouse 中密码为必填项。
->目前实例创建后可能密码为空，此时需要在配置文件 `user.xml` 中修改密码。具体可参考 [ClickHouse 官方文档](https://clickhouse.com/docs/en/operations/settings/settings-users/)。 
+>目前实例创建后可能密码为空，此时需要在配置文件 `user.xml` 中修改密码。具体可参见 [ClickHouse 官方文档](https://clickhouse.com/docs/en/operations/settings/settings-users/)。 
 - cluster： ClickHouse 的集群名称（默认为 `default_cluster`）。
 - database：ClickHouse 设置的数据库名称。
 - table：在该数据库内构建的表名称，目前数据流出 ClickHouse 服务不会自动创建表，**需要客户手动创建当前 ClickHouse 目标表**。
