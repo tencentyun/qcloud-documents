@@ -2,7 +2,7 @@
 
 本接口用于封禁聊天消息中的富媒体文件。
 
->? 仅针对富媒体消息中使用 IM SDK 上传的文件有效。
+>?仅针对富媒体消息中使用 IM SDK 上传的文件有效。
 
 ### 请求URL示例
 
@@ -12,7 +12,7 @@ https://console.tim.qq.com/v4/im_cos_msg/forbid_illegal_object?sdkappid=88888888
 
 ### 请求参数说明
 
-下表仅列出调用本接口时涉及修改的参数及其说明，更多参数详情请参见 [REST API 简介](https://cloud.tencent.com/document/product/269/1519)。
+下表仅列出调用本接口时涉及修改的参数及其说明，更多参数详情请参考 [REST API 简介](https://cloud.tencent.com/document/product/269/1519)。
 
 | 参数                                | 说明                                                         |
 | ----------------------------------- | ------------------------------------------------------------ |
