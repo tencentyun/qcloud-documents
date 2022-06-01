@@ -1,7 +1,7 @@
 产品使用攻略、上云技术实践，有奖征集，多重好礼等您带回家～
-![](https://qcloudimg.tencent-cloud.cn/raw/e20a3c52b6ea41818236e56524245ff9.jpg)
-![](https://qcloudimg.tencent-cloud.cn/raw/a8297eeeb35f8793c764992c85e96ca8.jpg)
-![](https://qcloudimg.tencent-cloud.cn/raw/2753a791e3b1d07fb12da858f1c98a1f.jpg)
+![](https://qcloudimg.tencent-cloud.cn/raw/2a054ad14d7fb5b67c90e128f1a89304.jpg)
+![](https://qcloudimg.tencent-cloud.cn/raw/cdaf290482c4ced8978970f2344e1bb1.jpg)
+![](https://qcloudimg.tencent-cloud.cn/raw/56ecb21800341af662a3e0075ccfdfb5.jpg)
 
 ## 投稿说明
 
