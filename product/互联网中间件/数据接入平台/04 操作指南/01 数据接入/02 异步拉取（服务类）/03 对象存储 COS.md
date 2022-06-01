@@ -87,7 +87,6 @@
 1. 登录 [DIP 控制台](https://console.cloud.tencent.com/ckafka/datahub-overview)。
 2. 在左侧导航栏单击**数据接入**，单击目标任务的**ID**，进入任务基本信息页面。
 3. 选择**监控**页签，可查看目标 Topic 监控数据。
-
 <table>
     <tr>
         <th>图标</th>
