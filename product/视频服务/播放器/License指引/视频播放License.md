@@ -1,8 +1,8 @@
-播放器 SDK 提供直播播放和点播播放能力，购买指定直播/点播流量资源包即赠送视频播放 License 1年使用权限，或购买独立视频播放 License 获得授权。计费购买详情请参见 [价格总览](https://cloud.tencent.com/document/product/881/20193)。
+播放器 SDK 提供直播播放和点播播放能力，购买指定直播/点播流量资源包即赠送视频播放 License 1年使用权限，或购买独立视频播放 License 获得授权。计费购买详情请参见 [价格总览](https://cloud.tencent.com/document/product/881/20193#.E8.AE.A1.E8.B4.B9.E4.BB.B7.E6.A0.BC)。
 
 购买后可在 [腾讯云视立方控制台](https://console.cloud.tencent.com/vcube) 对各 License 进行新增和续期等操作。本文档将对视频播放 License 测试版和正式版的新增与续期等操作进行说明指引。
 
-> !10.1 版本起，直播 License 和短视频 License 包含了视频播放 License 全部能力，因此也可用于解锁播放器 SDK 的视频播放功能。直播 License 相关参见[ License 计费购买](https://cloud.tencent.com/document/product/454/8008#.E7.9B.B4.E6.92.AD.E6.8E.A8.E6.B5.81-license.EF.BC.88.E5.8E.9F.E7.A7.BB.E5.8A.A8.E7.9B.B4.E6.92.AD.E5.9F.BA.E7.A1.80.E7.89.88-license.EF.BC.89) 和 [新增与续期](https://cloud.tencent.com/document/product/454/34750)，短视频 License 相关参见 [License 计费购买](https://cloud.tencent.com/document/product/584/9368) 和 [新增与续期](https://cloud.tencent.com/document/product/584/54333)。
+> !10.1 版本起，直播 License 和短视频 License 包含了视频播放 License 全部能力，因此也可用于解锁播放器 SDK 的视频播放功能。直播 License 相关参见[ License 计费购买](https://cloud.tencent.com/document/product/454/8008#sdklicense) 和 [新增与续期](https://cloud.tencent.com/document/product/454/34750)，短视频 License 相关参见 [License 计费购买](https://cloud.tencent.com/document/product/584/9368) 和 [新增与续期](https://cloud.tencent.com/document/product/584/54333)。
 
 [](id:test)
 ## 测试版 License

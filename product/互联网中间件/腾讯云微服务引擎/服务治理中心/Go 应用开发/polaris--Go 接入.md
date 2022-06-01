@@ -19,7 +19,7 @@
 4. 查看访问地址，Golang 应用访问使用 gRPC 端口（8091）：
 ![](https://qcloudimg.tencent-cloud.cn/raw/e7dc5ac5f7c76a316ae68b667d8a365f.png)
 5. 修改 demo 中的注册中心地址
- 1. 在下载到本地的 [demo 源码](https://github.com/polarismesh/polaris-go/tree/main/sample/quickstart) 目录下，分别找到`quickstart/consumer/polaris.yaml`以及`quickstart/provider/polaris.yaml`文件
+ 1. 在下载到本地的 [demo 源码](https://github.com/polarismesh/polaris-go/tree/main/examples/quickstart) 目录下，分别找到`quickstart/consumer/polaris.yaml`以及`quickstart/provider/polaris.yaml`文件
  - 添加微服务引擎服务治理中心地址到项目配置文件中（这里已`quickstart/consumer/polaris.yaml`为例）。
 <dx-codeblock>
 :::  yaml

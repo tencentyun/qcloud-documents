@@ -1273,11 +1273,11 @@
 }
 ```
 
-### 实时消费
+### kafka协议消费
 
-#### 管理权限：对所有日志主题具备实时消费权限
+#### 管理权限：对所有日志主题具备Kafka协议消费权限
 
-具备所有日志主题实时消费权限。
+具备所有日志主题Kafka协议消费权限。
 
 ```
 {
@@ -1290,15 +1290,15 @@
                 "cls:DescribeTopics"
             ],
             "resource": [
-                "*"
-            ]
-        },
+                "*"]
+     },
         {
             "effect": "allow",
             "action": [
-                "cls:DescribeKafkaConsume",
-                "cls:OpenKafkaConsume",
-                "cls:GetDeliverFunction",
+                "cls:DescribeKafkaConsumer",
+                "cls:CloseKafkaConsumer",
+                "cls:ModifyKafkaConsumer",
+                "cls:OpenKafkaConsumer",
                 "cam:ListAttachedRolePolicies"
             ],
             "resource": [
@@ -1309,9 +1309,9 @@
 }
 ```
 
-#### 管理权限：对指定标签日志主题具备实时消费权限
+#### 管理权限：对指定标签日志主题具备Kafka协议消费权限
 
-具备指定标签日志主题实时消费的管理权限。
+具备指定标签日志主题Kafka协议消费的管理权限。
 
 ```
 {
@@ -1329,7 +1329,7 @@
             "condition": {
                 "for_any_value:string_equal": {
                     "qcs:resource_tag": [
-                        "group&group3"
+                        "key&value"
                     ]
                 }
             }
@@ -1337,9 +1337,10 @@
         {
             "effect": "allow",
             "action": [
-                "cls:DescribeKafkaConsume",
-                "cls:OpenKafkaConsume",
-                "cls:GetDeliverFunction",
+                "cls:DescribeKafkaConsumer",
+                "cls:CloseKafkaConsumer",
+                "cls:ModifyKafkaConsumer",
+                "cls:OpenKafkaConsumer",
                 "cam:ListAttachedRolePolicies"
             ],
             "resource": [
@@ -1398,4 +1399,3 @@
     ]
 }
 ```
-

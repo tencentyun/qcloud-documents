@@ -2,7 +2,7 @@
 
 数据接入平台 DIP 支持接入各种数据源产生的不同类型的数据，统一管理，再分发给下游的离线/在线处理平台，构建清晰的数据通道。
 
-本文以 HTTP 数据为例介绍如何在 CKafka 控制台创建数据主动上报任务，并对任务进行修改配置，帮助您更好地了解数据接入功能。
+本文以 HTTP 数据为例介绍如何在 DIP 控制台创建数据主动上报任务，并对任务进行修改配置，帮助您更好地了解数据接入功能。
 
 ## 操作步骤
 
@@ -11,7 +11,7 @@
 **前提条件**：已创建好目标 CKafka 实例和 Topic。
 
 
-1. 登录 [DIP 控制台](https://console.cloud.tencent.com/datahub-overview)。
+1. 登录 [DIP 控制台](https://console.cloud.tencent.com/ckafka/datahub-overview)。
 2. 在左侧导航栏单击**数据接入**，选择好地域后，单击**新建任务**。
 3. 在弹窗中数据源类型选择**主动上报**。
    ![](https://qcloudimg.tencent-cloud.cn/raw/e6ded2ebd807722f2eaf1ef9bb1c674a.png)
@@ -30,7 +30,7 @@
 
 ### 修改数据目标
 
-1. 登录 [DIP 控制台](https://console.cloud.tencent.com/datahub-overview)。
+1. 登录 [DIP 控制台](https://console.cloud.tencent.com/ckafka/datahub-overview)。
 2. 在左侧导航栏单击**数据接入**，单击目标任务的 **ID**，进入任务基本信息页面。
 3. 单击**数据接入模块**右上角的**更改数据目标**，修改数据接入目标。
    ![](https://qcloudimg.tencent-cloud.cn/raw/0d2568133d8e3e7d716374ba40533d1e.png)
@@ -49,7 +49,7 @@
 
 若用户在新建任务时没有绑定 Schema，后续也可以再进行绑定。同时也支持解绑 Schema。操作路径如下：
 
-1. 登录 [DIP 控制台](https://console.cloud.tencent.com/datahub-overview)。
+1. 登录 [DIP 控制台](https://console.cloud.tencent.com/ckafka/datahub-overview)。
 2. 在左侧导航栏单击**数据接入**，单击目标任务的 **ID**，进入任务基本信息页面，在基本信息模块可以绑定/解绑 Schema。
    ![](https://qcloudimg.tencent-cloud.cn/raw/3bce4941780945762c16e5020d28794a.png)
 
@@ -102,7 +102,7 @@
 
 ### 查看监控
 
-1. 登录 [DIP 控制台](https://console.cloud.tencent.com/datahub-overview) 。
+1. 登录 [DIP 控制台](https://console.cloud.tencent.com/ckafka/datahub-overview)。
 2. 在左侧导航栏单击**数据接入**，单击目标任务的**ID**，进入任务基本信息页面。
 3. 选择**监控**页签，可查看目标 Topic 监控数据。
 <table>
@@ -134,7 +134,7 @@
 
 ### 查看消息
 
-1. 登录 [DIP 控制台](https://console.cloud.tencent.com/datahub-overview) 。
+1. 登录 [DIP 控制台](https://console.cloud.tencent.com/ckafka/datahub-overview)。
 2. 在左侧导航栏单击**数据接入**，单击目标任务的 **ID**，进入任务基本信息页面。
 3. 单击**查看消息**页签，选择好 Topic 和分区后，可以查看数据接入成功的最近5条、20条、60条和100条消息。
    ![](https://qcloudimg.tencent-cloud.cn/raw/171fd12cb463579aec77a1702cbcf988.png)

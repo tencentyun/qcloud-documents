@@ -8,7 +8,7 @@
 
 ## 操作步骤
 
-1. 登录 [DIP 控制台](https://console.cloud.tencent.com/datahub-overview)。
+1. 登录 [DIP 控制台](https://console.cloud.tencent.com/ckafka/datahub-overview)。
 2. 在左侧导航栏单击**数据流出**，选择好地域后，单击**新建任务**。
 3. 目标类型选择**事件总线（Event Bridge）**，单击**下一步**。
    ![](https://qcloudimg.tencent-cloud.cn/raw/da277c21f2e8f2e5aec7af561aecff86.png)
@@ -29,7 +29,7 @@
 
 ### 编辑数据源和数据目标
 
-1. 登录 [DIP 控制台](https://console.cloud.tencent.com/datahub-overview)。
+1. 登录 [DIP 控制台](https://console.cloud.tencent.com/ckafka/datahub-overview)。
 2. 在左侧导航栏单击**数据流出**，单击目标任务的**ID**，进入任务基本信息页面。
 3. 单击**数据源**模块右上角的**更改数据源**，修改数据源信息。
 4. 单击**数据目标**模块右上角的**更改数据目标**，修改数据目标信息。
@@ -88,7 +88,6 @@
    单击**查看消费者详情**可以看到消费者详细信息。
 ![](https://qcloudimg.tencent-cloud.cn/raw/31faa5b743ab259b2b150ac7b27a85ac.png)
 4. 选择**监控**页签，选择要查看资源，设置好时间范围，可以查看对应的监控数据。
-
    <table>
        <tr>
            <th>图标</th>
@@ -119,7 +118,7 @@
 
 ### 查看消息
 
-1. 登录 [DIP 控制台](https://console.cloud.tencent.com/datahub-overview) 。
+1. 登录 [DIP 控制台](https://console.cloud.tencent.com/ckafka/datahub-overview)。
 2. 在左侧导航栏单击**数据流出**，单击目标任务的**ID**，进入任务基本信息页面。
 3. 单击**查看消息**页签，选择好 Topic 和分区后，可以查看数据流出成功的最近5条、20条、60条和100条消息。
    ![](https://qcloudimg.tencent-cloud.cn/raw/171fd12cb463579aec77a1702cbcf988.png)

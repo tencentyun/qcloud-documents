@@ -1,12 +1,12 @@
 ## 操作场景
 
-Datahub 支持 Schema 管理功能，您可以将创建好的 Schema 绑定到具体的数据流入任务上，将会按该 Schema 对流入的数据进行格式校验。
+数据接入平台 DIP 支持 Schema 管理功能，您可以将创建好的 Schema 绑定到具体的数据流入任务上，将会按该 Schema 对流入的数据进行格式校验。
 
 ## 操作步骤
 
 ### 创建 Schema
 
-1. 登录 [DIP 控制台](https://console.cloud.tencent.com/datahub-overview)。
+1. 登录 [DIP 控制台](https://console.cloud.tencent.com/ckafka/datahub-overview)。
 2. 在左侧导航栏选择 **Schema 管理**，选择好地域后，单击**新建 Schema**，填写 Schema 信息。
    ![](https://qcloudimg.tencent-cloud.cn/raw/a1495c9cd98b0709264514a2ae701507.png)
    - Schema 名称：填写 Schema 名称，只能包含字母、数字、下划线、"-"、"."。

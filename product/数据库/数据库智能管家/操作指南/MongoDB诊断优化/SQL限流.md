@@ -13,7 +13,7 @@ SQL 限流功能适用于流量过高引起的 CPU 消耗过大的场景。通�
 2. 创建限流任务。
   需要先登录数据库，才可以发起 SQL 限流任务。
   ![](https://main.qcloudimg.com/raw/c8967e89be4cf777f8a97a26b46eb107.png)
- - SQL 类型：包含 find、insert、update、delete。。
+ - SQL 类型：包含 find、insert、update、delete。
  - 最大并发数：SQL 最大并发数，当包含关键词的 SQL 达到最大并发数时会触发限流策略。如果该值设为0，则表示限制所有匹配的 SQL 执行。
  - 执行方式：支持**定时关闭**和**手动关闭**。
  - 限流时间：选择**定时关闭**时，需选择 SQL 限流的生效时间。
