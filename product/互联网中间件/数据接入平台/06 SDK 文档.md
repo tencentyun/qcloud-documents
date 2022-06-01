@@ -11,7 +11,7 @@
 
 ### 步骤2：引入 Java SDK
 
-参见 [SDK中心：Java](https://cloud.tencent.com/document/sdk/Java) 在 Java 项目通过 Maven、Gradle 等方式引入数据上报 SDK。
+参见 [SDK 中心：Java](https://cloud.tencent.com/document/sdk/Java) 在 Java 项目通过 Maven、Gradle 等方式引入数据上报 SDK。
 
 ### 步骤3：数据上报
 

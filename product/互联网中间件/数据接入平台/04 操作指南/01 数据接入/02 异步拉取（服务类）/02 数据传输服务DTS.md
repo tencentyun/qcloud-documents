@@ -34,7 +34,7 @@
 ### 编辑数据目标
 
 1. 登录 [DIP 控制台](https://console.cloud.tencent.com/ckafka/datahub-overview)。
-2. 在左侧导航栏单击**数据接入**，单击目标任务的**ID**，进入任务基本信息页面。
+2. 在左侧导航栏单击**数据接入**，单击目标任务的 **ID**，进入任务基本信息页面。
 3. 单击**数据目标**模块右上角的**更改数据目标**，修改数据目标信息。
 
 
@@ -87,7 +87,6 @@
 1. 登录 [DIP 控制台](https://console.cloud.tencent.com/ckafka/datahub-overview)。
 2. 在左侧导航栏单击**数据接入**，单击目标任务的**ID**，进入任务基本信息页面。
 3. 选择**监控**页签，可查看目标 Topic 监控数据。
-
 <table>
     <tr>
         <th>图标</th>
@@ -110,7 +109,6 @@
         <td>勾选后可在图表上显示图例信息。</td>
     </tr>
 </table>
-
  选择分区后，可以查看指定 Partition 的监控数据。
  <img src ="https://qcloudimg.tencent-cloud.cn/raw/3ee5cf22055038671f968749876c960c.png">  
    不选择时默认全部，展示现有的 Topic 级别的监控数据。

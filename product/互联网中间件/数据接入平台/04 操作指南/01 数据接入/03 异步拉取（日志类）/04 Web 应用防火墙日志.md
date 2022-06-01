@@ -13,40 +13,37 @@
 - 支撑环境接入 CKafka 时需 [提交工单](https://console.cloud.tencent.com/workorder/category)，转 CKafka 消息队列小助手加白名单才可以使用。
 
 ## 操作步骤
-
+ <img src = "" style = "width:80%"> 
 ### 日志投递至 CKafka[](id:CKafka)
 
 1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/attack)，在左侧导航栏中，选择**访问日志** > **日志投递**。
 2. 在日志投递页面的投递至 Ckafka 模块中，单击**立即授权**。
  1.  在 CAM 中对 WAF 进行角色授权。
-![](https://qcloudimg.tencent-cloud.cn/raw/f754e86f36ad5099414c5183a2e548b3.png)
-![](https://qcloudimg.tencent-cloud.cn/raw/dc077ef0361fc07ef6434614dd942242.png)
+ <img src = "https://qcloudimg.tencent-cloud.cn/raw/f754e86f36ad5099414c5183a2e548b3.png" style = "width:80%"> 
+ <img src = "https://qcloudimg.tencent-cloud.cn/raw/dc077ef0361fc07ef6434614dd942242.png" style = "width:80%"> 
  2. 该角色将在已关联策略的权限范围内访问您的 CKafka 消息队列资源。
-![](https://qcloudimg.tencent-cloud.cn/raw/d3a5c108dcb25511edbcc206fb17260a.png)
+ <img src = "https://qcloudimg.tencent-cloud.cn/raw/d3a5c108dcb25511edbcc206fb17260a.png" style = "width:80%"> 
  3. 单击**同意授权**后，可以返回日志投递页面进行投递。
-![](https://qcloudimg.tencent-cloud.cn/raw/cd46ef07158857f0e29c3041dd448828.png)
+ <img src = "https://qcloudimg.tencent-cloud.cn/raw/cd46ef07158857f0e29c3041dd448828.png" style = "width:80%"> 
 3. 在 CKafka 投递配置弹窗中，配置相关参数，单击**确定**。
  - 支持环境：**支撑环境接入指您在腾讯云已选购可以与 CKafka 结合使用的产品，并选择消息队列实例和 IP 端口。**
-   ![](https://qcloudimg.tencent-cloud.cn/raw/12227d988accf8bff2145e7cd0f5a0c7.png)
-   **参数说明：**
+ <img src = "https://qcloudimg.tencent-cloud.cn/raw/12227d988accf8bff2145e7cd0f5a0c7.png" style = "width:60%"> 
+ **参数说明：**
     - 地域：CKafka 支持的地域，详情请参见 [CKafka-地域和可用区](https://cloud.tencent.com/document/product/597/44597)。
     - 消息队列实例：前地域下运行中的 CKafka 实例。
     - Topic ID/名称：对应的 Topic ID 信息。
     - 支撑环境接入：支撑网络的路由。
 >!支撑环境接入 CKafka 时需 [提交工单](https://console.cloud.tencent.com/workorder/category)，转 Ckafka 消息队列小助手加白名单才可以使用。
 >
-
-
-
  - 公网域名接入：**选择公网域名接入，选择消息队列实例和公网域名，并输入所选消息队列实例的用户名和密码。**
-   ![](https://qcloudimg.tencent-cloud.cn/raw/ca21b211a754cc7c2e273dae44aa4cb7.png)
+ <img src = "https://qcloudimg.tencent-cloud.cn/raw/ca21b211a754cc7c2e273dae44aa4cb7.png" style = "width:60%"> 
    **参数说明：**
-   - 地域：Ckafka 支持的地域，详情请参见 [Ckafka 地域和可用区](https://cloud.tencent.com/document/product/597/44597)。
-   - 消息队列实例：当前地域下运行中的 Ckafka 实例。
-   - Topic ID/名称：对应的 Topic ID 信息。
-   - 公网域名接入：支撑网络的路由。
-   - 用户名：SASL 用户名。
-   - 密码：SASL 密码。
+	 - 地域：Ckafka 支持的地域，详情请参见 [Ckafka 地域和可用区](https://cloud.tencent.com/document/product/597/44597)。
+	- 消息队列实例：当前地域下运行中的 Ckafka 实例。
+    - Topic ID/名称：对应的 Topic ID 信息。
+    - 公网域名接入：支撑网络的路由。
+    - 用户名：SASL 用户名。
+    - 密码：SASL 密码。
 
 ### 开启日志投递
 

@@ -8,9 +8,9 @@ Database 连接器支持 MySQL 数据库的连接及增删改查等数据库常�
 ### 购买云数据库 RDS MySQL 实例
 
 1. 进入 [阿里云云数据库RDS控制台](https://rdsnext.console.aliyun.com/rdsList/cn-hangzhou/basic)，配置数据库基础资源。
-![image-20220401154807678](https://qcloudimg.tencent-cloud.cn/raw/3e39baa4b791286f3c9204384c75cde2.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/e77b5398c97ef48f89927aadf46fbd29.png)
 2. 配置基础资源后，进入实例配置界面，配置成功后，创建 RDS 实例。[](id:method3)
-![](https://qcloudimg.tencent-cloud.cn/raw/aa0b0e8724f46bed378c95e57d4d0f8f.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/0501a6e70c3fb6f9c3728f6b3ec0830c.png)
 
 ### 申请外网地址
 1. 登录 [云数据库RDS控制台](https://rdsnext.console.aliyun.com/rdsList/cn-hangzhou/basic)。
