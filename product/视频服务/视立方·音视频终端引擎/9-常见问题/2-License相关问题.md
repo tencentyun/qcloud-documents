@@ -11,8 +11,7 @@
 [](id:q3)
 
 ### 腾讯云视立方 License 和功能模块 License 有什么区别？
-![image](https://qcloudimg.tencent-cloud.cn/raw/4b2ee9c7601211832d4b9a458e674f09.png)
-
+![](https://qcloudimg.tencent-cloud.cn/raw/4693835ca4a19907cf74ef6262b00dde.png)
 <table>
 <thead>
 <tr>
