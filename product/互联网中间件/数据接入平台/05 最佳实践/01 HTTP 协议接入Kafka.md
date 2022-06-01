@@ -12,7 +12,7 @@ HTTP 数据接入层开启后，公网的 HTTP 客户端可通过云 API 直接�
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/37a35f97e9ede93e35b3a3567cc50884.jpg)
 
-### 前提条件
+## 前提条件
 
 已创建好目标 CKafka 实例和 Topic。
 
