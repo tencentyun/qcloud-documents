@@ -45,7 +45,7 @@ iOS 可在工程配置中的 **General** > **Identity** 中获取，如下图所
 直播 License（原移动直播基础版 SDK License） 需购买云直播10TB及以上 [流量资源包](https://cloud.tencent.com/document/product/267/34174) 获取一年使用授权。
 
 [](id:q9)
-### 直播推流 License（原移动直播基础版 SDK License）提供美颜功能吗？
+### 直播 License（原移动直播基础版 SDK License）提供美颜功能吗？
 直播 License（原移动直播基础版 SDK License） 即可解锁直播推流和播放功能，以及基础的美颜功能（美白、磨皮等）。 
 高级美颜（大眼、瘦脸）、背景虚化、动效贴纸等增值能力由 [腾讯云视立方·腾讯特效 SDK ](https://cloud.tencent.com/document/product/616/36807) 提供。
 
