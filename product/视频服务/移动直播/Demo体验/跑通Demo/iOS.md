@@ -21,9 +21,10 @@
 ### 步骤二：配置 License
 1. 登录 [云直播控制台](https://console.cloud.tencent.com/live/livestat)，在左侧菜单中选择 **直播 SDK** >[ **License管理**](https://console.cloud.tencent.com/live/license)，单击 **新建测试 License**。
  ![](https://qcloudimg.tencent-cloud.cn/raw/4d63d6f14f82ba1775083ed461c5f5db.png) 
-2. 根据实际需求填写 `App Name`、`Package Name` 和 `Bundle ID`，勾选功能模块 **直播**（直播推流 + 视频播放），单击**确定**。 ![](https://qcloudimg.tencent-cloud.cn/raw/1ff37a853c8dd26d05419af4f5340661.png) 
+2. 根据实际需求填写 `App Name`、`Package Name` 和 `Bundle ID`，勾选功能模块 **直播**（直播推流 + 视频播放），单击**确定**。
+<img src="https://main.qcloudimg.com/raw/1ff37a853c8dd26d05419af4f5340661.png" width=600px>
 3. 测试版 License 成功创建后，页面会显示生成的 License 信息。**在 SDK 初始化配置时需要传入 Key 和 License URL 两个参数，请妥善保存以下信息。**
-  ![](https://qcloudimg.tencent-cloud.cn/raw/709cf255601e5edd6913f7f8742cbfdd.png)
+<img src="https://main.qcloudimg.com/raw/709cf255601e5edd6913f7f8742cbfdd.png" width=600px>
 4. 打开 `LiteAVSDK_Professional_iOS_版本号/MLVB-API-Example-OC/Debug/GenerateTestUserSig.h` 文件。
 设置 `GenerateTestUserSig.h` 文件中的相关参数：
     - LICENSEURL：默认为空，请设置为您的下载 Licence url。
