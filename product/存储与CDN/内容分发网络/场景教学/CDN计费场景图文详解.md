@@ -47,7 +47,7 @@ CDN支持接入拥有稳定运行的任意业务服务器（即源站）。CDN�
 | 计费项   | 计费产品                      | 说明                                                         |
 | -------- | ----------------------------- | ------------------------------------------------------------ |
 | 按量计费 | 内容分发网络 CDN               | 基础费用：按流量计费 或 按带宽计费<br />按流量计费的客户可预先购买流量包用以抵扣后续将产生的流量费用，详见 [CDN 流量包](https://buy.cloud.tencent.com/cdn_package)<br /><br />增值费用：如“QUIC 访问请求数”和 “APK动态打包”等其他费用。不使用不计费。<br />详情可参见 [CDN 计费说明](https://cloud.tencent.com/document/product/228/2949#.E5.A2.9E.E5.80.BC.E6.9C.8D.E5.8A.A1.E8.AE.A1.E8.B4.B9)。 |
-| 包年包月 | 云服务器 CVM / 轻量应用服务器 | 包年包月是云服务器实例的一种预付费模式，提前一次性支付一个月或多个月甚至多年的费用。详见 [包年包月实例价格](https://cloud.tencent.com/document/product/213/2176#.E5.8C.85.E5.B9.B4.E5.8C.85.E6.9C.88.E5.AE.9E.E4.BE.8B.E4.BB.B7.E6.A0.BC)。。<br />根据您实际的业务使用情况，可能还会存在增值服务。详细计费项，请参见 [CVM 计费概述](https://cloud.tencent.com/document/product/213/2180)。 |
+| 包年包月 | 云服务器 CVM / 轻量应用服务器 | 包年包月是云服务器实例的一种预付费模式，提前一次性支付一个月或多个月甚至多年的费用。详见 [包年包月实例价格](https://cloud.tencent.com/document/product/213/2176#.E5.8C.85.E5.B9.B4.E5.8C.85.E6.9C.88.E5.AE.9E.E4.BE.8B.E4.BB.B7.E6.A0.BC)。<br />根据您实际的业务使用情况，可能还会存在增值服务。详细计费项，请参见 [CVM 计费概述](https://cloud.tencent.com/document/product/213/2180)。 |
 
 
 
