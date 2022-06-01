@@ -36,6 +36,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/cb38326ce794c76aecf3f8f893b9ac80.png)
 :::
 </dx-tabs>
+
 3. 提交审核申请后模块进入**公司资质审核中**，审核时间通常 1-2 个工作日。可单击**查看审核信息**查看提交的审核信息。
 ![](https://qcloudimg.tencent-cloud.cn/raw/96ca8e3ee3fd42c22205d76ba5288517.png)
 ![](https://qcloudimg.tencent-cloud.cn/raw/9ee26ec97685f4fd881804ccf204ebcb.png)
