@@ -35,18 +35,18 @@
 </tr>
 </tbody></table>
 在“基本配置”步骤中，配置示例如下图所示：<br>
-<img src="https://qcloudimg.tencent-cloud.cn/raw/1e6c784c41bdbbf94d9dda672d5b6377.png"/><br>
+<img src="https://qcloudimg.tencent-cloud.cn/raw/45667797513bc5c0bc8af60cc6f43846.png" width="918px"/><br>
 在“高级配置”步骤中，配置示例如下图所示：<br>
-<img src="https://qcloudimg.tencent-cloud.cn/raw/32761ada2de2c9ab37f8a41d0478edfa.png"/><br>
+<img src="https://qcloudimg.tencent-cloud.cn/raw/afcae67004ee7e28a2ae965d6890a5f8.png"/><br>
 
 
 #### 查看投递任务结果
 
 
 通常在启动投递任务15分钟后，可以在对象存储控制台查看到日志数据，如果在 log_data 日志集设置了按天分区，则目录结构类似下图，分区目录下包含具体的日志文件。
-![](https://qcloudimg.tencent-cloud.cn/raw/54c3c676090a4c1fa73a73ec357b1632.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/8422e00e0d7543384686805199b205db.png)
 对象存储控制台日志数据如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/86d56e0df8814d186500c67c936fde10.png)
+<img src="https://qcloudimg.tencent-cloud.cn/raw/4e388ef2b3287bfe4582e41146d2afd2.png" width="918px"/>
 
 
 
@@ -122,7 +122,7 @@ alter table DataLakeCatalog.test.log_data add partition(dt='20220424')
 select dt,count(1) from `DataLakeCatalog`.`test`.`log_data` group by dt;
 ```
 结果如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/3f74c5181c32cfb7a5422f0f5295ce09.png)
+<img src="https://qcloudimg.tencent-cloud.cn/raw/236bb86c500187f7885b0859d09435c2.png" width="918px"/>
 
 
 
