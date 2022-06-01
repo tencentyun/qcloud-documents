@@ -7,8 +7,6 @@
 - 基础服务计费：使用 CDN 产生的下行流量或者带宽费用。
 - 增值服务计费：除基础服务外，您可以根据需求选择一种或多种增值服务，例如 QUIC 访问请求数、APK 动态打包请求数等。
 
-CDN 计费周期流程图：
-
 <img src="https://qcloudimg.tencent-cloud.cn/raw/eed3ba3e077174176145f21e43cb532d.png" width="800px">
 
 
