@@ -124,7 +124,7 @@
 | [setMaxBufferSize](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayConfig__android.html#a2705841bfedb3c44839cc355eaad26dc) | 最大预加载大小，单位 MB。                                    |
 | setMaxPreloadSize                                            | 设置预加载最大缓冲大小，单位：MB。                           |
 | setExtInfo                                                   | 设置拓展信息。                                               |
-| setPreferredResolution                                       | 播放HLS有多条码流时，根据设定的 preferredResolution 选最优的码流进行起播 *，preferredResolution 是宽高的乘积（width * height）， 启播前设置才有效。 |
+| setPreferredResolution                                       | 播放 HLS 有多条码流时，根据设定的 preferredResolution 选最优的码流进行起播，preferredResolution 是宽高的乘积（width * height）， 启播前设置才有效。 |
 
 ## TXPlayerGlobalSetting
 
@@ -173,7 +173,6 @@
 | onDownloadFinish   | 下载结束                                     |
 | onDownloadError    | 下载过程中遇到错误                           |
 
-## 
 
 ## TXVodDownloadDataSource
 
