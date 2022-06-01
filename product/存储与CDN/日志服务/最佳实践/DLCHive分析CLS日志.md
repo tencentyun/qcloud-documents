@@ -35,7 +35,7 @@
 </tr>
 </tbody></table>
 在“基本配置”步骤中，配置示例如下图所示：<br>
-<img src="https://qcloudimg.tencent-cloud.cn/raw/45667797513bc5c0bc8af60cc6f43846.png" width="918px"/><br>
+<img src="https://qcloudimg.tencent-cloud.cn/raw/98b9f0db88658ab9b6c582713f67ef66.png"/><br>
 在“高级配置”步骤中，配置示例如下图所示：<br>
 <img src="https://qcloudimg.tencent-cloud.cn/raw/afcae67004ee7e28a2ae965d6890a5f8.png"/><br>
 
