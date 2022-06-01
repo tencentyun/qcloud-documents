@@ -36,7 +36,7 @@
 #### 启用日志采集
 
 1. 登录 [TKE 控制台](https://console.cloud.tencent.com/tke2/cluster)。
-2. 在左侧导航栏选择 **运维功能管理**，点击目标实例操作栏的**设置**按钮。
+2. 在左侧导航栏选择 **运维功能管理**，单击目标实例操作栏的**设置**按钮。
 3. 勾选 **开启日志采集**，启用日志采集功能后确认。具体操作步骤可参见 [配置日志采集文档](https://cloud.tencent.com/document/product/457/36771)。
    ![](https://qcloudimg.tencent-cloud.cn/raw/7e8c996db32b82e0f6f11a7c219b9049.png)
 > ?
