@@ -115,7 +115,7 @@
 <tr>
 <th>解析模式</th>
 <th>说明</th>
-<th>相关文档</th>
+<th style="width:13%">相关文档</th>
 </tr>
 </thead>
 <tbody><tr>
