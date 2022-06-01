@@ -45,7 +45,6 @@
 | [setToken](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#a5f9eadc88ca97238f84226462f095536) | 加密 HLS 的 token。 |
 | [setLoop](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#a3f5ae863c82509d1ed266503e8138781) | 设置是否循环播放。 |
 | [isLoop](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#aaa3fcc823e0fce316dea1cc9162f1c8e) | 返回是否循环播放状态。 |
-| [getEncryptedPlayKey](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#acc32bf00b94774e5314cb733f9f339df) | 获取加固加密播放密钥。 |
 
 ### 视频相关接口
 
@@ -124,7 +123,7 @@
 | [setMaxBufferSize](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayConfig__android.html#a2705841bfedb3c44839cc355eaad26dc) | 最大预加载大小，单位 MB。                                    |
 | setMaxPreloadSize                                            | 设置预加载最大缓冲大小，单位：MB。                           |
 | setExtInfo                                                   | 设置拓展信息。                                               |
-| setPreferredResolution                                       | 播放HLS有多条码流时，根据设定的 preferredResolution 选最优的码流进行起播 *，preferredResolution 是宽高的乘积（width * height）， 启播前设置才有效。 |
+| setPreferredResolution                                       | 播放 HLS 有多条码流时，根据设定的 preferredResolution 选最优的码流进行起播，preferredResolution 是宽高的乘积（width * height）， 启播前设置才有效。 |
 
 ## TXPlayerGlobalSetting
 
@@ -132,8 +131,8 @@
 
 | API                | 描述                                                         |
 | ------------------ | ------------------------------------------------------------ |
-| setCacheFolderPath | 设置播放引擎的 Cache 目录。设置后，离线下载，预下载，播放器等会优先从此目录读取和存储 |
-| setMaxCacheSize    | 设置播放引擎的最大缓存大小。设置后会根据设定值自动清理 Cache 目录的文件。单位 MB。 |
+| setCacheFolderPath | 设置播放引擎的cache目录。设置后，离线下载，预下载，播放器等会优先从此目录读取和存储 |
+| setMaxCacheSize    | 设置播放引擎的最大缓存大小。设置后会根据设定值自动清理Cache目录的文件。单位MB。 |
 
 ## TXVodPreloadManager
 
@@ -176,7 +175,7 @@
 
 ## TXVodDownloadDataSource
 
-腾讯云视频 fildid 下载源，下载时作为参数传入。
+腾讯云视频fildid下载源，下载时作为参数传入。
 
 | API                        | 描述                                         |
 | ------------------         | -------------------------------------------- |
@@ -190,7 +189,7 @@
 
 ## TXVodDownloadMediaInfo
 
-腾讯云视频下载信息，可获取下载进度，播放链接等信息。
+腾讯云视频下载信息，可获取下载进度，播放链接等等信息
 
 | API                        | 描述                                         |
 | ------------------         | -------------------------------------------- |
@@ -211,7 +210,7 @@
 
 | code | 事件定义                   | 含义说明                                                    |
 | ---- | -------------------------- | ----------------------------------------------------------- |
-| 2004 | PLAY_EVT_PLAY_BEGIN        | 视频播放开始（若有转圈圈效果，此时将停止）。                |
+| 2004 | PLAY_EVT_PLAY_BEGIN        | 视频播放开始（若有转菊花效果，此时将停止）。                |
 | 2005 | PLAY_EVT_PLAY_PROGRESS     | 视频播放进度，会通知当前播放进度、加载进度和总体时长。      |
 | 2007 | PLAY_EVT_PLAY_LOADING      | 视频播放 loading，如果能够恢复，之后会有 LOADING_END 事件。 |
 | 2014 | PLAY_EVT_VOD_LOADING_END   | 视频播放 loading 结束，视频继续播放。                       |
@@ -225,13 +224,13 @@
 
 ### 警告事件
 
-| code  | 事件定义                          | 含义说明                                                     |
-| ----- | --------------------------------- | ------------------------------------------------------------ |
-| -2301 | PLAY_ERR_NET_DISCONNECT           | 网络断连,且经多次重连亦不能恢复,更多重试请自行重启播放。     |
-| -2305 | PLAY_ERR_HLS_KEY                  | HLS 解密 key 获取失败。                                      |
-| 2101  | PLAY_WARNING_VIDEO_DECODE_FAIL    | 当前视频帧解码失败。                                         |
-| 2102  | PLAY_WARNING_AUDIO_DECODE_FAIL    | 当前音频帧解码失败                                           |
-| 2103  | PLAY_WARNING_RECONNECT            | 网络断连, 已启动自动重连 (重连超过三次就直接抛送 PLAY_ERR_NET_DISCONNECT)。 |
-| 2106  | PLAY_WARNING_HW_ACCELERATION_FAIL | 硬解启动失败，采用软解。                                     |
-| -2304 | PLAY_ERR_HEVC_DECODE_FAIL         | H265 解码失败。                                              |
-| -2303 | PLAY_ERR_FILE_NOT_FOUND           | 播放的文件不存在。                                           |
+| code   | 事件定义                                  | 含义说明                                                    |
+| ------ | ------------------------------------- | ------------------------------------------------------- |
+| \-2301 | PLAY\_ERR\_NET\_DISCONNECT            | 网络断连，且经多次重连亦不能恢复，更多重试请自行重启播放。                           |
+| \-2305 | PLAY\_ERR\_HLS\_KEY                   | HLS 解密 key 获取失败。                                        |
+| 2101   | PLAY\_WARNING\_VIDEO\_DECODE\_FAIL    | 当前视频帧解码失败。                                              |
+| 2102   | PLAY\_WARNING\_AUDIO\_DECODE\_FAIL    | 当前音频帧解码失败                                               |
+| 2103   | PLAY\_WARNING\_RECONNECT              | 网络断连, 已启动自动重连 (重连超过三次就直接抛送 PLAY\_ERR\_NET\_DISCONNECT)。 |
+| 2106   | PLAY\_WARNING\_HW\_ACCELERATION\_FAIL | 硬解启动失败，采用软解。                                            |
+| \-2304 | PLAY\_ERR\_HEVC\_DECODE\_FAIL         | H265 解码失败。                                              |
+| \-2303 | PLAY\_ERR\_FILE\_NOT\_FOUND           | 播放的文件不存在。                                               |
