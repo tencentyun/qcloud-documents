@@ -224,13 +224,13 @@
 
 ### 警告事件
 
-| code  | 事件定义                          | 含义说明                                                     |
-| ----- | --------------------------------- | ------------------------------------------------------------ |
-| -2301 | PLAY_ERR_NET_DISCONNECT           | 网络断连,且经多次重连亦不能恢复,更多重试请自行重启播放。     |
-| -2305 | PLAY_ERR_HLS_KEY                  | HLS 解密 key 获取失败。                                      |
-| 2101  | PLAY_WARNING_VIDEO_DECODE_FAIL    | 当前视频帧解码失败。                                         |
-| 2102  | PLAY_WARNING_AUDIO_DECODE_FAIL    | 当前音频帧解码失败                                           |
-| 2103  | PLAY_WARNING_RECONNECT            | 网络断连, 已启动自动重连 (重连超过三次就直接抛送 PLAY_ERR_NET_DISCONNECT)。 |
-| 2106  | PLAY_WARNING_HW_ACCELERATION_FAIL | 硬解启动失败，采用软解。                                     |
-| -2304 | PLAY_ERR_HEVC_DECODE_FAIL         | H265 解码失败。                                              |
-| -2303 | PLAY_ERR_FILE_NOT_FOUND           | 播放的文件不存在。                                    |
+| code   | 事件定义                                  | 含义说明                                                    |
+| ------ | ------------------------------------- | ------------------------------------------------------- |
+| \-2301 | PLAY\_ERR\_NET\_DISCONNECT            | 网络断连，且经多次重连亦不能恢复，更多重试请自行重启播放。                           |
+| \-2305 | PLAY\_ERR\_HLS\_KEY                   | HLS 解密 key 获取失败。                                        |
+| 2101   | PLAY\_WARNING\_VIDEO\_DECODE\_FAIL    | 当前视频帧解码失败。                                              |
+| 2102   | PLAY\_WARNING\_AUDIO\_DECODE\_FAIL    | 当前音频帧解码失败                                               |
+| 2103   | PLAY\_WARNING\_RECONNECT              | 网络断连, 已启动自动重连 (重连超过三次就直接抛送 PLAY\_ERR\_NET\_DISCONNECT)。 |
+| 2106   | PLAY\_WARNING\_HW\_ACCELERATION\_FAIL | 硬解启动失败，采用软解。                                            |
+| \-2304 | PLAY\_ERR\_HEVC\_DECODE\_FAIL         | H265 解码失败。                                              |
+| \-2303 | PLAY\_ERR\_FILE\_NOT\_FOUND           | 播放的文件不存在。                                               |
