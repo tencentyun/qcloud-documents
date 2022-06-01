@@ -1,6 +1,6 @@
 在进房之前，或者通话过程中，可以检测用户的网络质量，可以提前判断用户当下的网络质量情况。若用户网络质量太差，应建议用户更换网络环境，以保证正常通话质量。
 
-本文主要介绍如何基于 [NETWORK_QUALITY](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/module-ClientEvent.html#.NETWORK_QUALITY) 事件实现通话前网络质量检测。通话过程中感知网络质量，只需监听[NETWORK_QUALITY](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/module-ClientEvent.html#.NETWORK_QUALITY) 事件即可。
+本文主要介绍如何基于 [NETWORK_QUALITY](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/module-ClientEvent.html#.NETWORK_QUALITY) 事件实现通话前网络质量检测。通话过程中感知网络质量，只需监听 [NETWORK_QUALITY](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/module-ClientEvent.html#.NETWORK_QUALITY) 事件即可。
 
 ## 实现流程
 
@@ -10,7 +10,7 @@
 4. 使用 downlinkClient 进行拉流，监听 [NETWORK_QUALITY](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/module-ClientEvent.html#.NETWORK_QUALITY) 事件来检测下行网络质量。
 5. 整个过程可持续 15s 左右，最后取平均网络质量，从而大致判断出上下行网络情况。
 
-> ! 检测过程将产生少量的[基础服务费用](https://cloud.tencent.com/document/product/647/17157#.E5.9F.BA.E7.A1.80.E6.9C.8D.E5.8A.A1)。如果未指定推流分辨率，则默认以 640*480 的分辨率推流。
+> ! 检测过程将产生少量的 [基础服务费用](https://cloud.tencent.com/document/product/647/17157#.E5.9F.BA.E7.A1.80.E6.9C.8D.E5.8A.A1)。如果未指定推流分辨率，则默认以 640*480 的分辨率推流。
 
 ## 代码示例
 
