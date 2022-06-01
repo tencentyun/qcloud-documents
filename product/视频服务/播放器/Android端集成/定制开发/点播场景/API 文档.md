@@ -45,7 +45,6 @@
 | [setToken](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#a5f9eadc88ca97238f84226462f095536) | 加密 HLS 的 token。 |
 | [setLoop](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#a3f5ae863c82509d1ed266503e8138781) | 设置是否循环播放。 |
 | [isLoop](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#aaa3fcc823e0fce316dea1cc9162f1c8e) | 返回是否循环播放状态。 |
-| [getEncryptedPlayKey](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#acc32bf00b94774e5314cb733f9f339df) | 获取加固加密播放密钥。 |
 
 ### 视频相关接口
 
