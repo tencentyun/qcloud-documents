@@ -180,7 +180,7 @@ export default defineConfig({
 });
 ```
 4. **配置 element-plus 按需引入**
-TUIRoom 使用 element-plus UI 组件，为避免引入所有 element-plus组件，需要您在 `vite.config.ts` 中配置 element-plus 组件按需加载。
+	- TUIRoom 使用 element-plus UI 组件，为避免引入所有 element-plus组件，需要您在 `vite.config.ts` 中配置 element-plus 组件按需加载。
 >! 以下配置项为增量配置，不要删除已经存在的 Vite 配置项。
 >
 ```javascript
@@ -213,6 +213,12 @@ export default defineConfig({
 	},
 });
 ```
+	- 同时为了保证 element-plus 带 UI 组件能够正常显示样式，需要您在入口文件 `src/main.ts` 中加载 element-plus 组件样式。
+```
+// src/main.ts
+import 'element-plus/theme-chalk/el-message.css';
+import 'element-plus/theme-chalk/el-message-box.css';、
+```
 
 [](id:step5)
 ### 步骤五：开发环境运行
@@ -225,6 +231,7 @@ export default defineConfig({
 npm run dev
 ```
 2. 在浏览器中打开页面 `http://localhost:3000/`。
+>! 因 TUIRoom 按需引入 element-plus 组件，会导致开发环境路由页面第一次加载时反应较慢，等待 element-plus 按需加载完成即可正常使用。element-plus 按需加载不会影响打包之后的页面加载。
 3. 体验 TUIRoom 组件功能。
 
 
