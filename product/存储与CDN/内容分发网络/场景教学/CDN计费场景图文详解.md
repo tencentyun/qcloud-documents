@@ -9,8 +9,7 @@
 
 CDN 计费周期流程图：
 
-![计费周期图](https://qcloudimg.tencent-cloud.cn/raw/eed3ba3e077174176145f21e43cb532d.png)
-
+<img src="https://qcloudimg.tencent-cloud.cn/raw/eed3ba3e077174176145f21e43cb532d.png" width="800px">
 
 
 ## CDN产品计费说明
@@ -24,7 +23,7 @@ CDN 计费周期流程图：
 #### 计费说明
 
 当对象存储 COS 作为客户源站时，可能会存在以下费用：**内容分发网络 CDN 费用 + COS 对象存储 费用**
-![](https://qcloudimg.tencent-cloud.cn/raw/f6116da8af542d23164fb3ed0b871b35.png)
+<img src="https://qcloudimg.tencent-cloud.cn/raw/f6116da8af542d23164fb3ed0b871b35.png" width="800px">
 
 #### 具体计费项说明
 
@@ -43,7 +42,7 @@ CDN支持接入拥有稳定运行的任意业务服务器（即源站）。CDN�
 
 当使用云服务器 CVM 或轻量应用服务器作为源站时，可能会存在以下费用：**内容分发网络 CDN 费用+云服务器  CVM/Lighthouse费用
 
-![](https://qcloudimg.tencent-cloud.cn/raw/fa87e03b9175dfb0137a5b77b3e9d697.png)
+<img src="https://qcloudimg.tencent-cloud.cn/raw/fa87e03b9175dfb0137a5b77b3e9d697.png" width="800px">
 
 #### 具体计费项说明
 
@@ -61,7 +60,7 @@ CDN 支持接入拥有稳定运行的任意业务服务器（即源站）。CDN 
 #### 计费说明
 
 当使用自有源站作为 CDN 源站时，可能会存在以下费用：**内容分发网络 CDN 费用。**
-![](https://qcloudimg.tencent-cloud.cn/raw/d2adcce7b5feaf8f8d6bc6f11985a0a6.png)
+<img src="https://qcloudimg.tencent-cloud.cn/raw/d2adcce7b5feaf8f8d6bc6f11985a0a6.png" width="800px">
 
 #### 具体计费项说明
 
