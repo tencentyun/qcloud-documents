@@ -7,8 +7,11 @@
 **活动流程如下：**
 
 首先用户需要完成授权，因为这里涉及使用者人脸图片等隐私数据，需要谨慎对待。
+
 <img src="https://qcloudimg.tencent-cloud.cn/raw/53405f88d891b5fd450db21bcc1a1944.png" width="300px">
+
 然后上传或拍摄人脸图片，活动平台通过人脸融合服务，将用户上传图片与各种毕业造型进行融合，最终得到毕业照融合结果并展示。并且用户可以通过点击换造型，体验不同造型的融合效果，大大增加了趣味性。
+
 <img src="https://qcloudimg.tencent-cloud.cn/raw/55c1514a376b3939e4bd579652aae769.png" length="606px">
 
 ## 一、准备工作
@@ -22,7 +25,7 @@
 	- [人脸融合 API 概览](https://cloud.tencent.com.cn/document/product/670/31052)
 2. 访问人脸融合控制台：[登录 - 腾讯云](https://console.cloud.tencent.com/facefusion) 开通人脸融合服务。
 3. 新建活动，上传模板图片。
-![](https://qcloudimg.tencent-cloud.cn/raw/8f74635aa331f110add267a8a4753026.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/3eb740caf0a52123fcdfc49cee79845f.png)
 ![](https://qcloudimg.tencent-cloud.cn/raw/9de04d9d8070723b1b41a878719f7b4b.png)
 >! 新活动有500次免费调用，后续可以购买资源包或者走后付费结算。
 4. 获取 API 访问密钥 [登录 - 腾讯云](https://console.cloud.tencent.com/cam/capi)，这个访问密钥十分重要，是每个用户请求腾讯云请求的标识，一旦泄漏，可能被拿去刷量从而产生高额费用，要谨慎保管。其次，需要学习小程序开发的基础知识：[微信开放文档](https://developers.weixin.qq.com/miniprogram/dev/framework/)，充分了解这两个内容后，就可以开始开发。
@@ -30,7 +33,7 @@
 ## 二、开发过程
 1. 前端页面
 以毕业照活动为例，总共包括：开始页、上传页以及结果页。
-![](https://qcloudimg.tencent-cloud.cn/raw/46b6814fd42fe832953e32d4aec77d0a.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/df25916552fdc2d0f81385d52b4fa745.png)
 	- 开始页：点击进入上传页
 	- 上传页：用户可上传或拍摄带有人脸的图片，作为毕业照的换脸图使用
 	- 结果页：将换脸图与活动设定的随机模板图，通过腾讯云人脸融合服务，请求并获得换脸结果展示出来。当前活动主题是毕业季云写真，因此模板图都是毕业照相关的内容，如果需要展示其他主题内容，可更换模板图达到效果。
