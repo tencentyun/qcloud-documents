@@ -234,4 +234,4 @@
 | 2103  | PLAY_WARNING_RECONNECT            | 网络断连, 已启动自动重连 (重连超过三次就直接抛送 PLAY_ERR_NET_DISCONNECT)。 |
 | 2106  | PLAY_WARNING_HW_ACCELERATION_FAIL | 硬解启动失败，采用软解。                                     |
 | -2304 | PLAY_ERR_HEVC_DECODE_FAIL         | H265 解码失败。                                              |
-| -2303 | PLAY_ERR_FILE_NOT_FOUND           | 播放的文件不存在。                                           |
+| -2303 | PLAY_ERR_FILE_NOT_FOUND           | 播放的文件不存在。                                    |
