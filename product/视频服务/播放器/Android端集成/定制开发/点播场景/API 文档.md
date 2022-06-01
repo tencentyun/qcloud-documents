@@ -21,7 +21,7 @@
 | [setPlayerView](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#a64eefab5bdb76cef17f609560eec5830) | 设置播放器的视频渲染 TXCloudVideoView。                        |
 | [setPlayerView](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#aeb2f15f370d50b6261b7832f02a0f411) | 设置播放器的视频渲染 TextureView。                             |
 | [setSurface](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#ac06d94f1ed4ec1441c075e4ba556eb37) | 设置播放器的视频渲染 SurfaceView。                             |
-| setStringOption                                              | 设置播放器业务参数，参数格式为<String,Object>。                |
+| setStringOption                                              | 设置播放器业务参数，参数格式为`<String,Object>`。                |
 
 ### 播放基础接口  
 | API                                                          | 描述                        |
