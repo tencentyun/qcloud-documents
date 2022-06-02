@@ -16,7 +16,7 @@
 
 如果您希望控制摄像头的各种控制参数，可以用过调用 **TXDeviceManager** 接口来完成“切换前后摄像头”、“设置对焦模式“、“打开、关闭闪光灯”等一系列操作。
 
-如果您希望调节美颜效果和画面质量，我们会分别在 [开启美颜磨皮]() 和 [设定画面质量]() 中进行详细介绍。
+如果您希望调节美颜效果和画面质量，我们会分别在 [开启美颜磨皮](https://cloud.tencent.com/document/product/647/68505) 和 [设定画面质量](https://cloud.tencent.com/document/product/647/32236) 中进行详细介绍。
 
 <dx-codeblock>
 ::: Android  java
