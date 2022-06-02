@@ -6,7 +6,7 @@ TRTC SDK 的自定义音频采集功能的开启分为两步，即：开启功�
 
 - [Android](https://github.com/LiteAVSDK/TRTC_Android/blob/main/TRTC-API-Example/Advanced/LocalVideoShare/src/main/java/com/tencent/trtc/mediashare/LocalVideoShareActivity.java)
 - [iOS](https://github.com/LiteAVSDK/TRTC_iOS/blob/main/TRTC-API-Example-OC/Advanced/LocalVideoShare/LocalVideoShareViewController.m)
-- [Windows](https://github.com/LiteAVSDK/TRTC_Windows) 
+- [Windows](https://github.com/LiteAVSDK/TRTC_Windows/blob/main/TRTC-API-Example-C++/TRTC-API-Example-Qt/src/TestCustomCapture/test_custom_capture.cpp) 
 
 ### 开启自定义音频采集功能
 
