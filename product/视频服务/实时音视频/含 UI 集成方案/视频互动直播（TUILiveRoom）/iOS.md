@@ -35,8 +35,9 @@ pod 'TUIBarrage', :path => "./TUILiveRoom/TUIBeauty/"
 pod 'TUIGift', :path => "./TUILiveRoom/TUIBeauty/"
 ```
 
->!  `Source`、`Resources` 文件夹 和`TUILiveRoom.podspec`文件必需在同一目录下。
->-  TXAppBasic.podspec 在 TXAppBasic 文件夹下。
+>!  
+>- `Source`、`Resources` 文件夹 和 `TUILiveRoom.podspec` 文件必需在同一目录下。
+- TXAppBasic.podspec 在 TXAppBasic 文件夹下。
 
 [](id:model.step2)
 ### 步骤二：配置权限
@@ -251,7 +252,7 @@ extension ViewController: TRTCLiveRoomDelegate {
 </dx-codeblock>
 
 ### 步骤五：美颜特效（可选）
-TUILiveRoom 美颜使用了 [腾讯特效SDK](https://cloud.tencent.com/document/product/616)，在使用美颜功能时，需要先设置 XMagic License，XMagic License 申请请参见 [XMagic License申请指引](https://cloud.tencent.com/document/product/616/65878)。
+TUILiveRoom 美颜使用了 [腾讯特效 SDK](https://cloud.tencent.com/document/product/616)，在使用美颜功能时，需要先设置 XMagic License，XMagic License 申请请参见 [XMagic License 申请指引](https://cloud.tencent.com/document/product/616/65878)。
 <dx-codeblock>
 :::  Objective-C Objc
 @import TUIBeauty;
