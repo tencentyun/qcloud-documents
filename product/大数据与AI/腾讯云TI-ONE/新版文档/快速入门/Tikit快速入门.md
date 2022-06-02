@@ -15,7 +15,7 @@ TiKit 是腾讯云 TI 平台 TI-ONE 提供的开源 Python sdk软件包。用户
 ```
 #centos:
 
-sudo yum -y install cyrus-sasl cyrus-sasl-devel cyrus-sasl-lib
+sudo yum -y install cyrus-sasl cyrus-sasl-devel cyrus-sasl-lib gcc-c++ python3-devel
 
 #ubuntu:
 
