@@ -10,6 +10,9 @@ TUICalling 插件是**腾讯云官方推出**的基于腾讯云实时音视频�
 </tr>
 </table>
 
+>!本功能同时使用了腾讯云 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269) 两个基础 PaaS 服务，开通实时音视频后会同步开通即时通信 IM 服务。 即时通信 IM 属于增值服务，详细计费规则请参见 [即时通信 IM 价格说明](https://cloud.tencent.com/document/product/269/11673)。
+
+
 ## 组件集成
 
 ### 步骤一：导入插件 
