@@ -1,5 +1,8 @@
 如需快速实现视频通话功能，您可以直接基于我们提供的 Demo 进行修改适配，也可以使用我们提供的 TRTCCalling 组件并实现自定义 UI 界面。
 
+>?
+>TUICalling组件同时使用了腾讯云[实时音视频TRTC](https://cloud.tencent.com/document/product/647/16788)和 [即时通信IM](https://cloud.tencent.com/document/product/269/42440)两个基础PaaS服务，开通实时音视频后会同步开通即时通信IM服务。即时通信IM服务详细计费规则请参见：[即时通信 - 价格说明](https://cloud.tencent.com/document/product/269/11673)，TRTC 开通会默认关联开通IM SDK的体验版，仅支持100个DAU。
+
 ## 复用 Demo 的 UI 界面
 
 ### 步骤1：创建新的应用
