@@ -40,8 +40,7 @@ ext {
 [](id:model.step2)
 ### 步骤二：配置权限及混淆规则
 1. 在 AndroidManifest.xml 中配置 App 的权限，SDK 需要以下权限（6.0以上的 Android 系统需要动态申请相机、读取存储权限）：
-<dx-codeblock>
-::: java java
+```java
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -54,19 +53,15 @@ ext {
 <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 <uses-feature android:name="android.hardware.camera"/>
 <uses-feature android:name="android.hardware.camera.autofocus" />
-:::
-</dx-codeblock>
+```
 2. 在 proguard-rules.pro 文件，将 SDK 相关类加入不混淆名单：
-<dx-codeblock>
-::: java java
+```java
 -keep class com.tencent.** { *; }
-:::
-</dx-codeblock>
+```
 
 [](id:model.step3)
 ### 步骤三：初始化并登录组件
-<dx-codeblock>
-::: java java
+```java
 // 1.添加事件监听及登录
 TUILogin.addLoginListener(new TUILoginListener() {
     @Override
@@ -102,8 +97,7 @@ TUILogin.login(mContext, "Your SDKAppID", "Your userId", "Your userSig", new TUI
 
 // 2.初始化TUILiveRoom组件
 TUILiveRoom mLiveRoom = TUILiveRoom.sharedInstance(mContext);
-:::
-</dx-codeblock>
+```
 
 **参数说明：**
 - **SDKAppID**：**TRTC 应用 ID**，如果您未开通腾讯云 TRTC 服务，可进入 [腾讯云实时音视频控制台](https://console.cloud.tencent.com/trtc/app)，创建一个新的 TRTC 应用后，单击**应用信息**，SDKAppID 信息如下图所示：
