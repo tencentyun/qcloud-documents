@@ -2,7 +2,7 @@
 
 当我们在使用微信视频通话的时候，如果遇到网络环境较差的情况（比如在进入电梯以后），微信会在视频通话的界面上提示”您当前的网络质量较差“。本文档主要介绍如何通过 TRTC 完成同样的交互。
 
-![](https://qcloudimg.tencent-cloud.cn/raw/22766930827983b14cf0875776233eeb.jpg)
+<img src="https://qcloudimg.tencent-cloud.cn/raw/22766930827983b14cf0875776233eeb.jpg" width=800>
 
 ## 调用指引
 
