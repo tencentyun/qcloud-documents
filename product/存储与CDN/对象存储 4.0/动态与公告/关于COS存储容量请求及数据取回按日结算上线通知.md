@@ -20,9 +20,11 @@
 
 自2022年7月1日起，陆续升级。具体升级时间，请以通知（站内信、邮件及短信）中的升级时间为准，并关注升级后的账单。
 
-## 发布影响及变化
+## 发布影响
 
-本次升级您无须做任何操作，账单的统计周期会产生变化。详情如下；
+本次升级您无须做任何操作，账单的统计周期会产生变化。关于计费项的计费周期、价格、计算公式变更点，请查看下一章节。
+
+升级前后账单变化，详情如下：
 
 升级前：已出账的账单不变，不受影响。
 - 存储容量、请求及数据取回计费项：按月结算。
@@ -32,26 +34,7 @@
 - 存储容量、请求及数据取回计费项：按日结算。
 - 流量、管理功能计费项：已按日结算，不受影响。
 
-
-## 相关指引
-
-### 如何查看账单
-
-您可登录腾讯云官网控制台，在费用中心的 [费用账单](https://console.cloud.tencent.com/expense/bill/overview) 中查看及下载账单。关于账单的介绍，请查看 [账单介绍](https://cloud.tencent.com/document/product/555/30250#.E8.AE.A1.E8.B4.B9.E6.A8.A1.E5.BC.8F.E4.B8.8E.E8.B4.A6.E5.8D.95.E7.BB.9F.E8.AE.A1.E5.91.A8.E6.9C.9F)。
-
-**操作步骤**
-
-1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/)。
-2. 在右上方导航栏**费用**中，单击 **[费用中心](https://console.cloud.tencent.com/expense)**，进入费用中心总览页面。
-3. 单击 **费用账单** > **[账单详情](https://console.cloud.tencent.com/expense/bill/summary)**，进入账单详情页面。
-4. 在“资源 ID 账单”选项卡页面，下拉列表中选择 COS 对象存储，可按照地域、计费模式和交易类型等维度查看您的 COS 消费情况。
-5. 在 **[账单下载中心](https://console.cloud.tencent.com/expense/bill/downloadCenter)** 可下载账单。
-
-### 如何查看计费项信息
-
-#### 价格
-
-关于 COS 的按量计费（后付费）的定价，请参见 [产品定价](https://buy.cloud.tencent.com/price/cos)。您也可以通过 [价格计算器](https://buy.cloud.tencent.com/price/cos/calculator)进行费用预估。
+## 计费项变更点
 
 #### 计费周期
 
@@ -63,28 +46,28 @@
 <thead>
 <tr>
 <th width="10%">计费项</th>
-<th>计费周期</th>
 <th>计费项说明</th>
 <th>价格说明</th>
+<th>计费周期</th>
 </tr>
 </thead>
 <tbody><tr>
 <td>存储容量</td>
-<td>按日计费</td>
 <td>按存储容量和存储时长计算</td>
 <td>价格“元/GB/月”与计费周期有关。其中，价格中的“月”指的是 30 天。按日结算价格需要换算，换算公式为：日单价 = 月单价/30。例如，北京地域的标准存储容量的月单价为0.118 元/GB/月，则日单价为 0.118 / 30 = 0.00393333 元/GB/日。</td>
+<td>按日计费</td>
 </tr>
 <tr>
 <td>请求</td>
-<td>按日计费</td>
 <td>按发送到COS的请求次数计算</td>
 <td>价格“元/万次”与计费周期无关，按日结算价格无须换算。例如，北京地域的标准存储读写请求价格为0.01元/万次，无论按日结算还是按月结算，请求价格不变。</td>
+<td>按日计费</td>
 </tr>
 <tr>
 <td>数据取回</td>
-<td>按日计费</td>
 <td>按实际取回数据量的大小计算</td>
 <td>价格“元/GB”与计费周期无关，按日结算价格无须换算。例如，北京地域的低频存储数据取回价格为0.02元/GB，无论按日结算还是按月结算，数据取回价格不变。</td>
+<td>按日计费</td>
 </tr>
 </tbody></table>
 
@@ -161,6 +144,32 @@
       <td>按日结算</td>
    </tr>
 </table>
+
+## 相关指引
+
+### 如何查看账单
+
+您可登录腾讯云官网控制台，在费用中心的 [费用账单](https://console.cloud.tencent.com/expense/bill/overview) 中查看及下载账单。关于账单的介绍，请查看 [账单介绍](https://cloud.tencent.com/document/product/555/30250#.E8.AE.A1.E8.B4.B9.E6.A8.A1.E5.BC.8F.E4.B8.8E.E8.B4.A6.E5.8D.95.E7.BB.9F.E8.AE.A1.E5.91.A8.E6.9C.9F)。
+
+**操作步骤**
+
+1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/)。
+2. 在右上方导航栏**费用**中，单击 **[费用中心](https://console.cloud.tencent.com/expense)**，进入费用中心总览页面。
+3. 单击 **费用账单** > **[账单详情](https://console.cloud.tencent.com/expense/bill/summary)**，进入账单详情页面。
+4. 在“资源 ID 账单”选项卡页面，下拉列表中选择 COS 对象存储，可按照地域、计费模式和交易类型等维度查看您的 COS 消费情况。
+5. 在 **[账单下载中心](https://console.cloud.tencent.com/expense/bill/downloadCenter)** 可下载账单。
+
+### 如何查看价格
+
+关于 COS 的按量计费（后付费）的定价，请参见 [产品定价](https://buy.cloud.tencent.com/price/cos)。您也可以通过 [价格计算器](https://buy.cloud.tencent.com/price/cos/calculator)进行费用预估。
+
+### 如何查看计费项信息
+
+关于 COS 的计费项您可通过[按量计费（后付费）](https://cloud.tencent.com/document/product/436/36522)了解。本次变更的计费项的更多信息，请查看文档：
+- [存储容量费用](https://cloud.tencent.com/document/product/436/53482)
+- [请求费用](https://cloud.tencent.com/document/product/436/53861)
+- [数据取回费用](https://cloud.tencent.com/document/product/436/53862)
+
 
 ## 遇到问题？
 
