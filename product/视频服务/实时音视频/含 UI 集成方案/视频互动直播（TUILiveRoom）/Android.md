@@ -1,6 +1,6 @@
 ## 组件介绍
 
-`TUILiveRoom` 是一个开源的视频直播 `UI` 组件，通过在项目中集成 `TUILiveRoom` 组件，您只需要编写几行代码就可以为您的 `App` 添加“视频互动直播”场景。`TUILiveRoom`包含 `Android`、`iOS`、小程序等平台的源代码，基本功能如下图所示：
+TUILiveRoom 是一个开源的视频直播 UI 组件，通过在项目中集成 TUILiveRoom 组件，您只需要编写几行代码就可以为您的 App 添加“视频互动直播”场景。TUILiveRoom 包含 Android、iOS、小程序等平台的源代码，基本功能如下图所示：
 <table>
 <tr>
 <td><img width="260" height="561" src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/beauty.gif"/></td>
@@ -110,27 +110,21 @@ TUILiveRoom mLiveRoom = TUILiveRoom.sharedInstance(mContext);
 ![](https://qcloudimg.tencent-cloud.cn/raw/cf6de5f10b77be75174d0ba359101f60.png)
 - **Secretkey**：**TRTC 应用密钥**和 SDKAppId 对应，进入 [TRTC 应用管理](https://console.cloud.tencent.com/trtc/app) 后，SecretKey 信息如上图所示。
 - **userId**：当前用户的 ID，字符串类型，只允许包含英文字母（a-z 和 A-Z）、数字（0-9）、连词符（-）和下划线（\_）。建议结合业务实际账号体系自行设置。
-- **userSig**：根据 SDKAppId、userId，Secretkey等信息计算得到的安全保护签名，您可以单击 [这里](https://console.cloud.tencent.com/trtc/usersigtool) 直接在线生成一个调试的userSig，也可以参照我们的 [示例工程](https://github.com/tencentyun/TUIRoom/blob/main/Android/Debug/src/main/java/com/tencent/liteav/debug/GenerateTestUserSig.java#L88) 自行计算，更多信息见 [如何计算及使用 UserSig](https://cloud.tencent.com/document/product/647/17275)。
+- **userSig**：根据 SDKAppId、userId，Secretkey等信息计算得到的安全保护签名，您可以单击 [这里](https://console.cloud.tencent.com/trtc/usersigtool) 直接在线生成一个调试的userSig，也可以参照我们的 [示例工程](https://github.com/tencentyun/TUIRoom/blob/main/Android/Debug/src/main/java/com/tencent/liteav/debug/GenerateTestUserSig.java#L88) 自行计算，更多信息请参见 [如何计算及使用 UserSig](https://cloud.tencent.com/document/product/647/17275)。
 
 
 [](id:model.step4)
 ### 步骤四：实现视频互动直播间
 1. **主播端开播**
-<dx-codeblock>
-::: java java
+```java
 mLiveRoom.createRoom(int roomId, String roomName, String coverUrl);
-:::
-</dx-codeblock>
+```
 2. **观众端观看**
-<dx-codeblock>
-::: java java
+```java
 mLiveRoom.enterRoom(roomId);
-:::
-</dx-codeblock>
-
+```
 3. **观众与主播连麦 [TRTCLiveRoom#requestJoinAnchor](https://cloud.tencent.com/document/product/647/43391#requestjoinanchor)**
-<dx-codeblock>
-::: java java
+```java
 // 1.观众端发起连麦请求
 // LINK_MIC_TIMEOUT为超时时间
 TRTCLiveRoom mTRTCLiveRoom=TRTCLiveRoom.sharedInstance(mContext);
@@ -167,11 +161,9 @@ mTRTCLiveRoom.setDelegate(new TRTCLiveRoomDelegate() {
         mTRTCLiveRoom.startPlay(userId, view, null);
     }
 });
-:::
-</dx-codeblock>
+```
 4. **主播与主播 PK [TRTCLiveRoom#requestRoomPK](https://cloud.tencent.com/document/product/647/43391#requestroompk)**
-<dx-codeblock>
-::: java java
+```java
 // 主播 A 创建12345的房间
 mLiveRoom.createRoom(12345, "roomA", "Your coverUrl");
 // 主播 B 创建54321的房间
@@ -217,8 +209,7 @@ mTRTCLiveRoom.setDelegate(new TRTCLiveRoomDelegate() {
         mTRTCLiveRoom.startPlay(userId, mTXCloudVideoView, null);
     }
 });
-:::
-</dx-codeblock>
+```
 
 ### 步骤五：美颜特效（可选）
 TUIRoom 美颜使用了 [腾讯特效SDK](https://cloud.tencent.com/document/product/616)，在使用美颜功能时，需要先设置 XMagic License，XMagic License 申请请参见 [XMagic License申请指引](https://cloud.tencent.com/document/product/616/65878)。
