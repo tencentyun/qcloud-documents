@@ -99,7 +99,6 @@
 [](id:play_price)
 ## 视频播放 License 计费说明
 2022年05月底起，新上线可用于解锁 10.1 版本实时音视频（TRTC）SDK 视频播放能力的视频播放 License，该 License 提供两种购买解锁方式：购买指定资源包赠送 License 或购买独立 License，计费说明见下表：
-
 <table>
 <thead>
 <tr>
@@ -117,19 +116,19 @@
 <td>-</td>
 <td rowspan=10>视频播放</td>
 <td>0</td>
-<td>免费申请</td>
+<td><a href="https://console.cloud.tencent.com/vcube">免费申请</a></td>
 </tr>
 <tr>
 <td rowspan=9>正式版</td>
 <td rowspan=9>1年</td>
 <td>购买独立视频播放 License 一年使用授权<br>（无资源包）</td>
 <td>12</td>
-<td><a href="https://buy.cloud.tencent.com/vcube">直接购买</a></td>
+<td><a href="https://buy.cloud.tencent.com/vcube?type=player&pkg-type=lic">直接购买</a></td>
 </tr>
 <tr>
 <td>购买 100GB 直播流量资源包<br>赠送视频播放 License 一年使用授权</td>
 <td>26</td>
-<td rowspan=8><a href="https://buy.cloud.tencent.com/vcube">购买资源包免费赠送</a></td>
+<td rowspan=8><a href="https://buy.cloud.tencent.com/vcube?type=live&pkg-type=100GB">购买资源包免费赠送</a></td>
 </tr>
 <tr>
 <td>购买 500GB 直播流量资源包<br>赠送视频播放 License 一年使用授权</td>
@@ -160,4 +159,3 @@
 <td>869</td>
 </tr>
 </tbody></table>
-
