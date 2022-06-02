@@ -24,8 +24,13 @@ console.log(a.OPENID);
 3. 为按钮组件配置点击触发获取 openid 方法的事件。
 ![](https://qcloudimg.tencent-cloud.cn/raw/aa5b203934510ec76c5c1a637b750f38.png)
 4. 配置完成后，将应用发布为小程序，打开调试模式并单击按钮，查看 openid 输出结果。
-<img src="https://qcloudimg.tencent-cloud.cn/raw/b99d7ee9dbc271873017889bb9a42fca.jpg" style="zoom: 33%;" />
-
+<img src="https://qcloudimg.tencent-cloud.cn/raw/b99d7ee9dbc271873017889bb9a42fca.jpg" style="zoom: 33%;" /> 
+5. 新定义一个 string 类型的普通变量（$page.dataset.state.varopenid）：在获取小程序 OPENID 的代码中加入一行代码（$page.dataset.state.varopenid = a.OPENID），把获取的 OPENID 值给变量，OPENID 的值给变量之后，我们就可以通过该变量灵活使用获取的 OPENID 的值。
+![](https://qcloudimg.tencent-cloud.cn/raw/a3ac5fb4f54fcd124287c68f2fefb6bc.png)
+您可以尝试添加一个单行输入组件，输入值绑定 varopenid 变量：
+![](https://qcloudimg.tencent-cloud.cn/raw/bd647c8745b30be4142c45097cde3391.png)
+单击**按钮**后输入值显示内容如下：
+<img src="https://qcloudimg.tencent-cloud.cn/raw/27cc0d3b39e54573835e41c952191e0a.png" style="zoom: 33%;" /> 
 
 
 ### 场景二：在生命周期中获取 openid
@@ -46,7 +51,7 @@ export default {
 :::
 </dx-codeblock>
 2. 将应用发布为小程序，打开调试模式并刷新页面，可以看到当页面加载时 openid 已经成功输出。
-<img src="https://qcloudimg.tencent-cloud.cn/raw/000784181a9407081c2b586feaa44618.png" style="zoom: 50%;" /> 
+<img src="https://qcloudimg.tencent-cloud.cn/raw/000784181a9407081c2b586feaa44618.png" style="zoom: 50%;" />  
 
 
 
