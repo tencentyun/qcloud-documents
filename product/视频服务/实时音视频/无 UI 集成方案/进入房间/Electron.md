@@ -3,19 +3,16 @@
 
 ## 调用指引
 
-[](id:step1)
 ### 步骤1：导入 SDK
-请参考文档 [导入 SDK 到项目中](https://cloud.tencent.com/document/product/647/38549) 完成 SDK 的导入工作。
+请参考文档 [导入SDK到项目中](https://cloud.tencent.com/document/product/647/38549) 完成 SDK 的导入工作。
 
-[](id:step2)
 ### 步骤2：创建 SDK 实例
+
 ```javascript
 import TRTCCloud from 'trtc-electron-sdk';
 const rtcCloud = new TRTCCloud();
 ```
 
-
-[](id:step3)
 ### 步骤3：监听 SDK 的事件
 通过设置事件回调接口，您可以监听 SDK 在运行期间所发生的错误信息、警告信息、流量统计信息、网络质量信息以及各种音视频事件。
 
@@ -34,7 +31,6 @@ rtcCloud.on('onError', onError);
 rtcCloud.on('onWarning', onWarning);
 ```
 
-[](id:step4)
 ### 步骤4：准备进房参数 TRTCParams
 在调用 enterRoom 接口时需要填写两个关键参数，即 `TRTCParams` 和 `TRTCAppScene`，接下来进行详细介绍：
 
@@ -62,28 +58,25 @@ TRTCParams 由很多的字段构成，但通常您只需要关心如下几个字
 >- TRTC 不支持同一个 userId 在两台不同的设备上同时进入房间，否则会相互干扰。
 >- 每个端在应用场景 appScene 上必须要进行统一，否则会出现一些不可预料的问题。
 
-[](id:step5)
-### 步骤5：进入房间（enterRoom）
+### 步骤5：进入房间(enterRoom)
 在准备好步骤4中两个参数（TRTCAppScene 和 TRTCParams）后，就可以调用 enterRoom 接口函数进入房间了。
-// Please replace each field in TRTCParams with your own parameters
 
 ```javascript
 import { TRTCParams, TRTCRoleType, TRTCAppScene } from 'trtc-electron-sdk';
 
 const param = new TRTCParams();
-params.sdkAppId = 1400000123;  // Please replace with your own SDKAppID
-params.userId = "denny";       // Please replace with your own userid  
-params.roomId = 123321;        // Please replace with your own room number
-params.userSig = "xxx";        // Please replace with your own userSig
+params.sdkAppId = 1400000123;
+params.userId = "denny";  
+params.roomId = 123321;
+params.userSig = "xxx";
 params.role = TRTCRoleType.TRTCRoleAnchor;
 
 // 如果您的场景是“在线直播”，请将应用场景设置为 TRTC_APP_SCENE_LIVE
-// If your application scenario is a video call between several people, please use "TRTC_APP_SCENE_LIVE"
 rtcCloud.enterRoom(param, TRTCAppScene.TRTCAppSceneLIVE);
 ```
 
 **事件回调**
-如果进入房间成功，SDK 会回调 onEnterRoom(result) 事件，其中 result 会是一个大于 0 的数值，代表加入房间所消耗的时间，单位为毫秒（ms）。
+如果进入房间成功，SDK 会回调 onEnterRoom(result) 事件，其中 result 会是一个大于 0 的数值，代表加入房间所消耗的时间，单位为毫秒（ms）；
 如果进入房间失败，SDK 同样会回调 onEnterRoom(result) 事件，但参数 `result` 会是一个负数，其数值为进房失败的错误码。
 
 ```javascript

@@ -2,12 +2,10 @@
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/b887b390411aef1396bd593ccdd9eb0e.png)
 ## 调用指引
-
-[](id:step1)
 ### 步骤1：完成前序步骤
-请参考文档 [导入 SDK 到项目中](https://cloud.tencent.com/document/product/647/38549) 完成 SDK 的导入和配置。
 
-[](id:step2)
+请参考文档 [导入SDK到项目中](https://cloud.tencent.com/document/product/647/38549) 完成 SDK 的导入和配置。
+
 ### 步骤2：打开摄像头预览
 您可以调用 **startLocalPreview** 接口打开摄像头预览，此时 SDK 会向系统申请摄像头的使用权限，需要用户授权通过后才会开启摄像头的采集流程。
 
@@ -15,7 +13,7 @@
 
 ```javascript
 // 设置本地画面的预览模式：开启左右镜像，设置画面为填充模式
-import { 
+import TRTCCloud, { 
 	TRTCRenderParams, TRTCVideoRotation,
 	TRTCVideoFillMode, TRTCVideoMirrorType
 } from 'trtc-electron-sdk';
@@ -25,20 +23,22 @@ const param = new TRTCRenderParams(
 	TRTCVideoFillMode.TRTCVideoFillMode_Fill,
 	TRTCVideoMirrorType.TRTCVideoMirrorType_Auto
 );
+const rtcCloud = new TRTCCloud();
 rtcCloud.setLocalRenderParams(param);
 const cameraVideoDom = document.querySelector('.camera-dom');
 rtcCloud.startLocalPreview(cameraVideoDom);
 ```
 
-[](id:step3)
 ### 步骤3：打开麦克风采集
 您可以调用 **startLocalAudio** 来开启麦克风采集，该接口需要您通过 `quality` 参数确定采集模式。虽然这个参数的名字叫做 quality，但并不是说质量越高越高，不同的业务场景有最适合的参数选择（这个参数更准确的含义是 scene）。
 
-- **SPEECH**
+**SPEECH**
 该模式下的 SDK 音频模块会专注于提炼语音信号，尽最大限度的过滤周围的环境噪音，同时该模式下的音频数据也会获得最好的差质量网络的抵抗能力，因此该模式特别适合于“视频通话”和“在线会议”等侧重于语音沟通的场景。
-- **MUSIC**
+
+**MUSIC**
 该模式下的 SDK 会采用很高的音频处理带宽以及立体式模式，在最大限度地提升采集质量的同时也会将音频的 DSP 处理模块调节到最弱的级别，从而最大限度地保证音质。因此该模式适合“音乐直播”场景，尤其适合主播采用专业的声卡进行音乐直播的场景。
-- **DEFAULT**
+
+**DEFAULT**
 该模式下的 SDK 会启用智能识别算法来识别当前环境，并针对性地选择最佳的处理模式。不过再好的识别算法也总是有不准确的时候，如果您非常清楚自己的产品定位，更推荐您在专注语音通信的 SPEECH 和专注音乐音质的 MUSIC 之间二选一。
 
 ```javascript
@@ -50,7 +50,6 @@ rtcCloud.startLocalAudio(TRTCAudioQuality.TRTCAudioQualitySpeech);
 rtcCloud.startLocalAudio(TRTCAudioQuality.TRTCAudioQualityMusic);
 ```
 
-[](id:step4)
 ### 步骤4：进入 TRTC 房间
 
 参考文档 [进入房间](https://cloud.tencent.com/document/product/647/74635) 让当前用户进入 TRTC 房间。一旦进入房间后，SDK 便会开始向房间中的其他用户发布自己的音频流。
