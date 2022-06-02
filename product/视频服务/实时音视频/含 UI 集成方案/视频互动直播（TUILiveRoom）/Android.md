@@ -212,7 +212,7 @@ mTRTCLiveRoom.setDelegate(new TRTCLiveRoomDelegate() {
 ```
 
 ### 步骤五：美颜特效（可选）
-TUIRoom 美颜使用了 [腾讯特效SDK](https://cloud.tencent.com/document/product/616)，在使用美颜功能时，需要先设置 XMagic License，XMagic License 申请请参见 [XMagic License申请指引](https://cloud.tencent.com/document/product/616/65878)。
+TUILiveRoom 美颜使用了 [腾讯特效SDK](https://cloud.tencent.com/document/product/616)，在使用美颜功能时，需要先设置 XMagic License，XMagic License 申请请参见 [XMagic License申请指引](https://cloud.tencent.com/document/product/616/65878)。
 ```java
 TUIBeautyView.getBeautyService().setLicense(context, “XMagicLicenseURL”, “XMagicLicenseKey”);
 ```
