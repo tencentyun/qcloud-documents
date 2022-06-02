@@ -7,7 +7,7 @@ DELETE FROM table_name [ [ AS ] alias ]
 
 
 ## 参数说明
-table_identifier：指定表名，支持三段式，例如：catalog.database.table。
+`table_identifier`：指定表名，支持三段式，例如：catalog.database.table。
 
 ## 示例
 ```

@@ -37,10 +37,10 @@ pip show ttensorflow
 ```
 
 
-## 模型适配
+### 模型适配
 
-### 动态 embedding
-TF 原生的静态 Embedding 及 TTF 提供的动态 Embedding代码如下：
+#### 动态 embedding
+TF 原生的静态 Embedding 及 TTF 提供的动态 Embedding 代码如下：
 <dx-tabs>
 ::: TF 原生的静态 embedding
 
@@ -91,7 +91,7 @@ TTF 仅对以下两部分进行替换，使用非常便利：
 - lookup 使用 [`tf.dynamic_embedding.embedding_lookup()`](https://github.com/tensorflow/recommenders-addons/blob/master/docs/api_docs/tfra/dynamic_embedding/embedding_lookup.md)。
 详细的 API 使用说明文档请参见 [Module: tfra.dynamic_embedding](https://github.com/tensorflow/recommenders-addons/blob/master/docs/api_docs/tfra/dynamic_embedding.md)。
 
-### 混合精度
+#### 混合精度
 
 混合精度既可以通过代码对优化器进行重写，也可通过修改环境变量实现。如下所示：
 - 代码修改的方式
@@ -107,7 +107,7 @@ export TF_ENABLE_AUTO_MIXED_PRECISION=1
 :::
 </dx-codeblock>
 
-### XLA
+#### XLA
 XLA 既可以通过代码进行配置，也可通过修改环境变量实现。如下所示：
 - 代码修改的方式
 <dx-codeblock>

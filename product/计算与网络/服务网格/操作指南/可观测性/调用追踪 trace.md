@@ -3,13 +3,13 @@
 
 调用追踪数据通过 sidecar 收集上报，sidecar 会自动生成 trace span。如果您需要查看完整调用链信息，需要在业务代码中做少量改造，传递请求上下文，以便 TCM 可以正确关联入站和出站的 span，形成完整调用链路。需要业务传递的 headers 包括：
 
-- ` x-request-id `
-- ` x-b3-traceid `
-- ` x-b3-spanid `
-- ` x-b3-parentspanid `
-- ` x-b3-sampled `
-- ` x-b3-flags `
-- ` x-ot-span-context `
+- x-request-id 
+- x-b3-traceid 
+- x-b3-spanid 
+- x-b3-parentspanid 
+- x-b3-sampled 
+- x-b3-flags 
+- x-ot-span-context 
 
 更多关于 Envoy-based tracing 的信息，请参见 [Istio Distributed Tracing FAQ](https://istio.io/latest/faq/distributed-tracing/)。
 
@@ -35,6 +35,7 @@
 
 调用追踪采样率是 trace 数据的采样比例，sidecar 采集与上报数据消耗资源与带宽和采样率成正相关。通常生产环境下，不需要为所有调用都生成 trace 数据并采集上报，避免过多消耗计算资源与带宽资源，只需要配置一定比例即可。建议开发测试环境可以配置100%采样率，生产环境配置1%采样率。
 
-您可以在网格创建时配置采样率，网格创建后，也可以在网格基本信息页面修改采样率配置。如下图所示：
-![](https://main.qcloudimg.com/raw/cd22709601ef09d58b4f696bbe57a4cd.png)
+您可以在网格创建时配置采样率，如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/26433b10e90d87609af2ca6a759ffd08.png)
+也可以在网格创建后，在网格基本信息页面修改采样率配置。如下图所示：
 ![](https://main.qcloudimg.com/raw/bf192503ca214c01923a3287257d3c3d.png)

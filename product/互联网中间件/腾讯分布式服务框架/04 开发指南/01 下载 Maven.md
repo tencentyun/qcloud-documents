@@ -36,7 +36,7 @@ java -version
 
 使用上面提到的 **java -version** 命令验证 Java 安装。
 
-### 安装 Maven 
+## 安装 Maven 
 
 ### 步骤1：下载  安装 Maven 
 

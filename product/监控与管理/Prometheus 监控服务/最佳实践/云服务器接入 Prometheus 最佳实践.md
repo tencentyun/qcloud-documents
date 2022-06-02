@@ -31,7 +31,7 @@ systemctl status prometheus
 1. 下载安装 node_expoter：
 在需要上报的云服务器上，下载并安装 node_expoter（采集基础指标数据的 exporter），您可以单击进入 Prometheus 开源官网下载地址 [node_expoter](https://prometheus.io/download/#node_exporter)，也可以直接执行下列命令，下载解压：
 ```
-wget https://github.com/prometheus/node_exporter/releases/download/v1.3.1/node_exporter-1.3.1.linux-amd64.tar.gztar -xvf node_exporter-1.3.1.linux-amd64.tar.gz
+wget https://github.com/prometheus/node_exporter/releases/download/v1.3.1/node_exporter-1.3.1.linux-amd64.tar.gz & tar -xvf node_exporter-1.3.1.linux-amd64.tar.gz
 ```
 文件目录如下: 
 ![](https://qcloudimg.tencent-cloud.cn/raw/215bcb6ce3c069bd73eda5a9b1f8bdee.jfif)

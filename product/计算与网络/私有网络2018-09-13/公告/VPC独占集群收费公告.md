@@ -8,6 +8,7 @@
 + 独占集群至少购买3个月
 + 独占集群和网络流量/带宽是不同维度的资源
 
+
 ## 计费说明
 <table >
 <tr >
@@ -48,11 +49,9 @@
 <td >DS4-100G</td>
 <td >按天后付费</td>
 <td >480
-
 <dx-alert infotype="explain" title="说明">
 圣保罗地域为580。
 </dx-alert>
-
 </td>
 </tr>
 <tr >

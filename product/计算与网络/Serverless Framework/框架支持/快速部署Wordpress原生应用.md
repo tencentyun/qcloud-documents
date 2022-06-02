@@ -48,7 +48,7 @@
 </dx-tabs>
 4. 在 Serverless 应用页，单击**访问应用**，即可访问您的 WordPress 项目。
 ![](https://main.qcloudimg.com/raw/90d900584c4a1da68d356c1fc5adb75a.png)
-您也可以单击您的应用名称，查看资源列表和部署日志。在资源列表页，您可以单机**新增**配置您的自定义域名。
+您也可以单击您的应用名称，查看资源列表和部署日志。在资源列表页，您可以单击**新增**配置您的自定义域名。
 ![](https://main.qcloudimg.com/raw/55218c4f1a6f83f3a1e1ff58a2f15006.png)
 
 ### 版本升级

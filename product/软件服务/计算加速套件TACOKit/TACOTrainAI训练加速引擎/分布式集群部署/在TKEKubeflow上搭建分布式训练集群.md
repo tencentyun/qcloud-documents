@@ -7,7 +7,7 @@
 
 
 ### 准备环境[](id:Step1)
-1. 创建 TKE 集群，其中节点、操作系统请参考以下信息选择，其余配置可参考 [创建集权](https://cloud.tencent.com/document/product/457/32189) 按需选择。
+1. 创建 TKE 集群，其中节点、操作系统请参考以下信息选择，其余配置可参考 [创建集群](https://cloud.tencent.com/document/product/457/32189) 按需选择。
  - **Node节点**：8卡V100（GN10Xp.20XLARGE320 + 25G 网络）或8卡A100（GT4.41XLARGE948 + 50G 网络）。
  - **操作系统**：目前已验证的操作系统为 Ubunut Server 18.04、CentOS 7.8、 Tencent Linux 2.4，请按需选择。
 本文示例配置如下图所示：
@@ -16,7 +16,7 @@
 3. 在 “AI环境” 页面单击**新建**，根据页面提示创建 AI 环境，并为集群安装 Kubeflow 组件 mpi-operator。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/69eb6953c9285d21d0ffc5b40bb5286c.png)
 安装成功后，可登录 worker 节点查看存在如下图所示 pod：
-![](https://qcloudimg.tencent-cloud.cn/raw/bac9d596994435435fe5c23768aa9f01.png)
+<img src="https://qcloudimg.tencent-cloud.cn/raw/bac9d596994435435fe5c23768aa9f01.png" width="918px"/>
 4. 参考 [配置 HARP 分布式训练环境](https://cloud.tencent.com/document/product/1573/74099) 配置环境，实现在多机多卡训练场景中使用 HARP 协议栈进行数据交换。
 
 
@@ -81,7 +81,7 @@ spec:
  - 主机侧一些设备节点和配置文件需要 bind mount 到 Pod 中供 HARP 使用。
  - Pod 需要配置 privileged 权限，否则 HARP 无法读取配置文件。
  - 需要给 Pod 配置大页内存 `hugepages-1Gi`。针对八卡机器可配置 `hugepages=50`，其他机型建议按照 `hugepages=（卡数 × 5+10）`进行配置。
- - `ccr.ccs.tencentyun.com/qcloud/taco-train:ttf115-cu112-cvm-0.4.1` 是 taco-train 的官方 demo 镜像，基于 Ubunut 18.04/python 3.6.9/CUDA 11.2.152/CUDNN 8.1.1/NCCL 2.8.4编译产生，如果有其他的版本需求，请 [联系我们](https://cloud.tencent.com/act/event/connect-service?from=connect-us#/) 并通过腾讯云售后获取特定版本的加速组件。
+ - `ccr.ccs.tencentyun.com/qcloud/taco-train:ttf115-cu112-cvm-0.4.1` 是 taco-train 的官方 demo 镜像，基于 Ubunut 18.04/python 3.6.9/CUDA 11.2.152/CUDNN 8.1.1/NCCL 2.8.4编译产生，如果有其他的版本需求，请 [联系我们](https://cloud.tencent.com/document/product/1573/74090) 并通过腾讯云售后获取特定版本的加速组件。
 2. 执行以下命令，创建 Pod。
 ```plaintext
 kubectl create -f taco.yaml
@@ -111,13 +111,16 @@ kubectl exec -it taco-bench-launcher -- bash
 ```plaintext
 // 卸载HARP加速库
 for i in `kubectl get pods | grep worker | awk '{print $1}'`; do kubectl exec $i -- bash -c 'mv /usr/lib/x86_64-linux-gnu/libnccl-net.so /mnt/'; done
-
+```
+```plaintext
 // 卸载LightCC
 for i in `kubectl get pods | grep worker | awk '{print $1}'`; do kubectl exec $i -- bash -c 'pip uninstall -y light-horovod;echo'; done
-
+```
+```plaintext
 // 安装horovod(耗时8分钟左右)
 for i in `kubectl get pods | grep worker | awk '{print $1}'`; do kubectl exec $i -- bash -c 'export PATH=/usr/local/openmpi/bin:$PATH;HOROVOD_WITH_MPI=1 HOROVOD_GPU_OPERATIONS=NCCL HOROVOD_WITH_TENSORFLOW=1 HOROVOD_NCCL_LINK=SHARED pip3 install --no-cache-dir horovod==0.21.3'; done
-
+```
+```plaintext
 // 检查确认所有的worker都已经成功horovod
 for i in `kubectl get pods | grep worker | awk '{print $1}'`; do kubectl exec $i -- bash -c 'pip show horovod;echo'; done
 ```
@@ -154,7 +157,7 @@ for i in `kubectl get pods | grep worker | awk '{print $1}'`; do kubectl exec $i
 </tr>
 </tbody></table>
 可发现，随着网络模型参数量的增加，TACO 相比 Horovod 的提升效果愈加明显，Transformer-XL 上甚至有高达两倍多的性能提升。
-- 下图展示无论是 ResNet50 还是Transformer-XL，在双机16卡 A100的训练环境下，CVM 实例（GT4.41XLARGE948 + 50G VPC）通过 HARP 加速后，能够提供接近裸金属云服务器100G RDMA 产品（HCCPNV4h ）的性能。
+- 下图表明无论是 ResNet50 还是Transformer-XL，在双机16卡 A100的训练环境下，CVM 实例（GT4.41XLARGE948 + 50G VPC）通过 HARP 加速后，能够提供接近裸金属云服务器100G RDMA 产品（HCCPNV4h ）的性能。
 ![](https://qcloudimg.tencent-cloud.cn/raw/963414f3122f18f61fb15655b46adf62.png)
 ![](https://qcloudimg.tencent-cloud.cn/raw/6440479d100566a1dd1f9935099f561c.png)
 
