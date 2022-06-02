@@ -18,7 +18,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/0e0b724d81d4a3bcdd511de60db4bdfe.png)
 6. 单击**新增规则**，类型为文件后缀，内容为 html;js;css，缓存选项为缓存，缓存时间为7天，强制缓存为否，单击**确定**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/ec7e8d45f19ad999cc951278c6d31e6c.png)
-7. 按照优先级顺序，底部优先级高于顶部，单击调整优先级，拖动"/wp-admin目录不缓存规则"规则调整至底部，使该规则优先级最高。
+7. 按照优先级顺序，底部优先级高于顶部，单击**调整优先级**，拖动"/wp-admin目录不缓存规则"规则调整至底部，使该规则优先级最高。
 ![](https://qcloudimg.tencent-cloud.cn/raw/445654003cb341d5e2ca1e35e67dac0c.png)
 8. 调整完成后的缓存规则为：
  - /wp-admin目录下的所有资源不缓存；
