@@ -21,7 +21,7 @@ ABAC（Attribute-Based Access Control）是基于属性的访问控制授权策�
 | 授权方式 | <nobr>ABAC 授权</nobr> | <nobr>传统授权</nobr> |
 |---------|---------|---------|
 | 授权步骤 | 1. 为三个项目创建具有 access-project 标签键的三个角色。<br>2. 将第一个角色的标签值设置为 GroupA，第二个为 GroupB，第三个为 GroupC。<br>3. 使用单个策略，将策略附加给创建好的角色，员工通过代入指定角色来访问，在角色和资源标记了access-project的相同值时允许访问。 | 1. 为这三个项目分别创建一个权限管理策略。<br>2. 在策略中指定每一个项目可以访问的具体资源。 |
-| GroupA 新增一个资源时 | 将新增的资源标签标签键设置为 access-project，标签值设置为 GroupA 。   | 更新 GroupA 对应的策略， 添加新的资源权限，才能保证项目 GroupA  的员工能够访问到新的存储桶。|
+| GroupA 新增一个资源时 | 将新增的资源标签标签键设置为 access-project，标签值设置为 GroupA。   | 更新 GroupA 对应的策略， 添加新的资源权限，才能保证项目 GroupA  的员工能够访问到新的存储桶。|
 | 员工加入/离开项目时 |  增加/删除角色载体。  | 通过调整策略绑定来新增或解除授权。 | 
 
 <img src="https://qcloudimg.tencent-cloud.cn/raw/8ce078d55bd0d50b715d87ccf1f765b2.png" width="666px">       
