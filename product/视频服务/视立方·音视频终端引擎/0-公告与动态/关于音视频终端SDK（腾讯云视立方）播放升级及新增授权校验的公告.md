@@ -120,7 +120,7 @@
 <td>-</td>
 <td rowspan=10>视频播放</td>
 <td>0</td>
-<td>免费申请</td>
+<td><a href="https://console.cloud.tencent.com/vcube">免费申请</a></td>
 </tr>
 <tr>
 <td rowspan=9>正式版</td>
