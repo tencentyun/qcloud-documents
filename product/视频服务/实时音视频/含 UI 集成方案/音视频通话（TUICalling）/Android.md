@@ -87,7 +87,7 @@ TUILogin.login(mContext, "Your SDKAppID", "Your userId", "Your userSig", new TUI
     public void onError(int errorCode, String errorMsg) {
         Log.d(TAG, "errorCode: " + errorCode + " errorMsg:" + errorMsg);
     }
-
+});
 // 2.初始化TUICalling实例
 TUICalling callingImpl = TUICallingImpl.sharedInstance(context);
 ```
