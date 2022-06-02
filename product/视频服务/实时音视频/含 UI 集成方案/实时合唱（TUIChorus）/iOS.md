@@ -20,7 +20,7 @@ TUIChorus 是一个开源的音视频 UI 组件，通过在项目中集成 TUICh
 </table>
 
 
-## 二. 组件集成
+## 组件集成
 
 ### 步骤一：下载并导入 TUIChorus 组件
 单击进入 [Github](https://github.com/tencentyun/TUIChorus) ，选择克隆/下载代码，然后拷贝`iOS`目录下的`Resources`、`Source`、`TXAppBasic`文件夹及`TUIChorus.podspec`文件到您的工程中，并完成如下导入动作：
@@ -163,7 +163,7 @@ func onRecvRoomCustomMsg(cmd: String, message: String, userInfo: ChorusUserInfo)
 ```
 
 
-## 三. 常见问题
+## 常见问题
 ### TUIChorus 组件支持变声、变调、混响等音效功能吗？
 支持，具体请参见 [TUIChorus 示例工程](https://github.com/tencentyun/TUIChorus/blob/main/iOS/Source/ui/TRTCChorusViewController/SubViews/TRTCChorusSoundEffectAlert.swift)。
 
