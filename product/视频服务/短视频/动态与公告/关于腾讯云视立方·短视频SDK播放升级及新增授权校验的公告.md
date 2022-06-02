@@ -100,7 +100,6 @@
 ## 视频播放 License 计费说明
 2022年05月底起，新上线可用于解锁 10.1 版本腾讯云视立方·短视频 SDK 视频播放能力的视频播放 License，该 License 提供两种购买解锁方式：购买指定资源包赠送 License 或购买独立 License，计费说明见下表：
 
-
 <table>
 <thead>
 <tr>
@@ -118,7 +117,7 @@
 <td>-</td>
 <td rowspan=10>视频播放</td>
 <td>0</td>
-<td>免费申请</td>
+<td><a href="https://console.cloud.tencent.com/vcube">免费申请</a></td>
 </tr>
 <tr>
 <td rowspan=9>正式版</td>
