@@ -3,7 +3,7 @@
 
 
 ## 步骤1：完成前序步骤
-先参考文档 [导入 SDK 到项目中](https://cloud.tencent.com/document/product/647/32183) 并 [进入房间](https://cloud.tencent.com/document/product/647/74637?!editLang=zh&!preview)。
+先参考文档 [导入 SDK 到项目中](https://cloud.tencent.com/document/product/647/32183) 并 [进入房间](https://cloud.tencent.com/document/product/647/74637)。
 
 ## 步骤2：订阅远端流
 在远端用户进入的回调中，更新 playerList，通过循环遍历。

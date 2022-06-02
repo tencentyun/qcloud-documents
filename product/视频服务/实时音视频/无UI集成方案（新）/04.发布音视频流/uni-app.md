@@ -5,7 +5,7 @@
 [](id:step1)
 ### 步骤1：完成前序步骤
 
-请参考文档 [导入 SDK 到项目中](https://tcloud-doc.isd.com/document/product/647/73371?!preview) 完成 SDK 的导入和 App 权限的配置。
+请参考文档 [导入 SDK 到项目中](https://cloud.tencent.com/document/product/647/73371) 完成 SDK 的导入和 App 权限的配置。
 
 [](id:step2)
 ### 步骤2：打开摄像头预览
@@ -39,7 +39,7 @@ this.trtcCloud.startLocalAudio(TRTCAudioQuality.TRTCAudioQualityDefault);
 [](id:step4)
 ### 步骤4：进入 TRTC 房间
 
-参考文档 [进入房间](https://tcloud-doc.isd.com/document/product/647/74638?!preview) 让当前用户进入 TRTC 房间。一旦进入房间后，SDK 便会开始向房间中的其他用户发布自己的音频流。
+参考文档 [进入房间](https://cloud.tencent.com/document/product/647/74638) 让当前用户进入 TRTC 房间。一旦进入房间后，SDK 便会开始向房间中的其他用户发布自己的音频流。
 
 >! 当然，您可以在进入房间（enterRoom）后再启动摄像头预览和麦克风采集，不过在直播场景下，我们需要先给主播一个测试麦克风和调整美颜的时间，所以更常见的做法是先启动摄像头和麦克风再进入房间。
 

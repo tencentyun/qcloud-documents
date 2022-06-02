@@ -5,7 +5,7 @@
 
 [](id:step1)
 ### 步骤1：导入 SDK
-请参考文档 [导入 SDK 到项目中](https://cloud.tencent.com/document/product/647/38549?!editLang=zh&!preview) 完成 SDK 的导入工作。
+请参考文档 [导入 SDK 到项目中](https://cloud.tencent.com/document/product/647/38549) 完成 SDK 的导入工作。
 
 [](id:step2)
 ### 步骤2：创建 SDK 实例

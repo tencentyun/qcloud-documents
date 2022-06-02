@@ -4,11 +4,11 @@
 
 [](id:step1)
 ### 步骤1：完成前序步骤
-请参考文档 [导入 SDK 到项目中](https://tcloud-doc.isd.com/document/product/647/73371?!preview) 完成 SDK 的导入和 App 权限的配置。
+请参考文档 [导入 SDK 到项目中](https://cloud.tencent.com/document/product/647/73371) 完成 SDK 的导入和 App 权限的配置。
 
 [](id:step2)
 ### 步骤2：进入 TRTC 房间
-参考文档 [进入房间](https://tcloud-doc.isd.com/document/product/647/74638?!preview) 让当前用户进入 TRTC 房间，只有在成功进入房间之后才能订阅其他用户的音视频流。
+参考文档 [进入房间](https://cloud.tencent.com/document/product/647/74638) 让当前用户进入 TRTC 房间，只有在成功进入房间之后才能订阅其他用户的音视频流。
 
 [](id:step3)
 ### 步骤3：音频流的播放

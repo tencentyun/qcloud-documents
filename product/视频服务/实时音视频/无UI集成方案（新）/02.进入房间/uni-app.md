@@ -3,7 +3,7 @@
 ## 调用指引
 [](id:step1)
 ### 步骤1：导入 SDK 并设置 App 权限
-请参考文档 [导入 SDK 到项目中](https://cloud.tencent.com/document/product/647/73371?!editLang=zh&!preview) 完成 SDK 的导入工作。
+请参考文档 [导入 SDK 到项目中](https://cloud.tencent.com/document/product/647/73371) 完成 SDK 的导入工作。
 
 [](id:step2)
 ### 步骤2：创建 SDK 实例并设置事件监听器

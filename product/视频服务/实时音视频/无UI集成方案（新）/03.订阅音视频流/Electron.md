@@ -5,7 +5,7 @@
 
 [](id:step1)
 ### 步骤1：完成前序步骤
-请参考文档 [导入 SDK 到项目中](https://cloud.tencent.com/document/product/647/38549?!editLang=zh&!preview) 完成 SDK 的导入。
+请参考文档 [导入 SDK 到项目中](https://cloud.tencent.com/document/product/647/38549) 完成 SDK 的导入。
 
 
 [](id:step2)
@@ -18,7 +18,7 @@
 
 [](id:step3)
 ### 步骤3：进入 TRTC 房间
-参考文档 [进入房间](https://tcloud-doc.isd.com/document/product/647/74635?!preview) 让当前用户进入 TRTC 房间，只有在成功进入房间之后才能订阅其他用户的音视频流。
+参考文档 [进入房间](https://cloud.tencent.com/document/product/647/74635) 让当前用户进入 TRTC 房间，只有在成功进入房间之后才能订阅其他用户的音视频流。
 
 [](id:step4)
 ### 步骤4：音频流的播放
@@ -160,4 +160,4 @@ rtcCloud.on('onRemoteUserLeaveRoom', onRemoteUserLeaveRoom);
 
 - **第三种：远端用户自己关闭麦克风**
 本文档介绍的所有操作都是在介绍播放端的操作，这些操作所产生的效果仅对当前用户生效，比如您通过 muteRemoteAudio("denny", true)  将远端用户 denny 设置为静音，房间中的其他用户还是能听到 denny 的声音。
-如果要让 denny 彻底“闭嘴”，就需要去影响 denny 的音频发布行为，我们会在下一篇文档 [发布音视频流](https://tcloud-doc.isd.com/document/product/647/74663?!preview) 中详细介绍。
+如果要让 denny 彻底“闭嘴”，就需要去影响 denny 的音频发布行为，我们会在下一篇文档 [发布音视频流](https://cloud.tencent.com/document/product/647/74663) 中详细介绍。
