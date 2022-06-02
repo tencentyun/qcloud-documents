@@ -21,8 +21,8 @@
 7. 按照优先级顺序，底部优先级高于顶部，单击调整优先级，拖动"/wp-admin目录不缓存规则"规则调整至底部，使该规则优先级最高。
 ![](https://qcloudimg.tencent-cloud.cn/raw/445654003cb341d5e2ca1e35e67dac0c.png)
 8. 调整完成后的缓存规则为：
-- /wp-admin目录下的所有资源不缓存；
-- html;js;css文件后缀的资源缓存7天；
-- php;jsp;asp;aspx文件后缀的资源不缓存；
-- 其余全部文件缓存30天。
+ - /wp-admin目录下的所有资源不缓存；
+ - html;js;css文件后缀的资源缓存7天；
+ - php;jsp;asp;aspx文件后缀的资源不缓存；
+ - 其余全部文件缓存30天。
 ![](https://qcloudimg.tencent-cloud.cn/raw/e6f003557d8455dd7c6f81a10d27cb8c.png)
