@@ -6,14 +6,14 @@
 -  Mac
 
 ## 导入SDK
-### 步骤1：安装 Node.js
+### 1. 安装 Node.js
 <dx-tabs>
-::: Windows 平台安装指引
+::: Windows平台安装指引
 1. 根据 Windows 操作系统选择下载最新版本的 [Node.js](https://nodejs.org/en/download/)  安装包 `Windows Installer (.msi) 64-bit`。
 2. 打开应用程序列表中的 Node.js command prompt，启动命令行窗口，用于输入后续步骤中的各项命令。
 ![](https://main.qcloudimg.com/raw/148c49336f0d89829736af81de305de4.png)
 :::
-::: MacOS 平台安装指引
+::: MacOS平台安装指引
 1. 打开终端（Terminal）窗口，执行以下命令安装 Homebrew，如果已经安装请跳过此步骤。
 <dx-codeblock>
 ::: shell shell
@@ -33,14 +33,14 @@ $ brew update
 :::
 </dx-tabs>
 
-### 步骤2：安装 Electron
+### 2：安装 Electron
 在命令行窗口中执行如下命令，安装 Electron，建议版本号 >= 4.0.0。
 ```shell
 $ npm install electron@latest --save-dev
 ```
 >?在国内网络安装 Electron 可能会遇到一系列下载过程的障碍。如果您安装 Electron 没有成功，可以参考 [Electron 常见问题收录](https://cloud.tencent.com/developer/article/1616668) 进行处理。
 
-### 步骤3：安装 Electron 版的 TRTC SDK
+### 3：安装 Electron 版的 TRTC SDK
 1. 在您的 Electron 项目中使用 npm 命令安装 SDK 包：
 ```shell
 $ npm install trtc-electron-sdk@latest --save
@@ -62,7 +62,7 @@ const rtcCloud: TRTCCloud = new TRTCCloud();
 rtcCloud.getSDKVersion();
 ```
 
-### 步骤4：打包可执行程序
+### 4：打包可执行程序
 1. 安装打包工具
 推荐使用打包工具 `electron-builder` 进行打包，您可以执行如下命令安装 `electron-builder`：
 ```bash
@@ -73,48 +73,49 @@ $ npm install electron-builder@latest --save-dev
 $ npm install native-ext-loader@latest --save-dev
 ```
 
-### 步骤5：修改打包配置，以 webpack.config.js 为例
+### 5：修改打包配置，以 webpack.config.js 为例
 
 `webpack.config.js` 包含了项目构建的配置信息，`webpack.config.js` 文件的位置如下：
 - 通常情况下，`webpack.config.js` 位于项目的根目录。
 - 使用 `create-react-app` 创建项目的情况下，此配置文件为 `node_modules/react-scripts/config/webpack.config.js`。
 - 使用 `vue-cli` 创建项目的情况下，webpack 的配置存放在 `vue.config.js` 配置中的 `configureWebpack` 属性中。
 - 如您的工程文件经过了定制化，还请自行查找 webpack 配置。
-  1. 首先使 `webpack.config.js` 在构建时可以接收名为 `--target_platform` 的命令行参数，以使代码构建过程按不同的目标平台特点正确打包，在 `module.exports` 之前添加以下代码：
+
+1. 首先使 `webpack.config.js` 在构建时可以接收名为 `--target_platform` 的命令行参数，以使代码构建过程按不同的目标平台特点正确打包，在 `module.exports` 之前添加以下代码：
 ``` js
 const os = require('os');
 const targetPlatform = (function(){
-    let target = os.platform();
-    for (let i=0; i<process.argv.length; i++) {
-      if (process.argv[i].includes('--target_platform=')) {
-        target = process.argv[i].replace('--target_platform=', '');
-        break;
-      }
-    }
-    if (!['win32', 'darwin'].includes) target = os.platform();
-    return target;
+		let target = os.platform();
+		for (let i=0; i<process.argv.length; i++) {
+			if (process.argv[i].includes('--target_platform=')) {
+				target = process.argv[i].replace('--target_platform=', '');
+				break;
+			}
+		}
+		if (!['win32', 'darwin'].includes) target = os.platform();
+		return target;
 })();
 ```
 >! `os.platform()` 返回的结果中，"darwin" 表示 Mac 平台。"win32" 表示 Windows 平台，不论 64 位还是 32 位。
-  2. 然后在 `rules` 选项中添加以下配置，`targetPlatform` 变量可以使 `rewritePath` 可以根据不同的目标平台切换不同的配置：
+2. 然后在 `rules` 选项中添加以下配置，`targetPlatform` 变量可以使 `rewritePath` 可以根据不同的目标平台切换不同的配置：
 ```js
 rules: [
   { 
-      test: /\.node$/, 
-      loader: 'native-ext-loader', 
-      options: { 
-        rewritePath: targetPlatform === 'win32' ? './resources' : '../Resources' 
-      } 
-    },
+			test: /\.node$/, 
+			loader: 'native-ext-loader', 
+			options: { 
+				rewritePath: targetPlatform === 'win32' ? './resources' : '../Resources' 
+			} 
+		},
 ]
 ```
-  该配置的含义是：
-    - 打包 Windows 下的 `.exe` 文件时，让 `native-ext-loader` 到 `[应用程序根目录]/resources` 目录下加载 TRTC SDK。
-    - 打包 Mac 下的 `.dmg` 时，让 `native-ext-loader` 到 `[应用程序目录]/Contents/Frameworsk/../Resources` 目录下加载 TRTC SDK。
+	该配置的含义是：
+	- 打包 Windows 下的 `.exe` 文件时，让 `native-ext-loader` 到 `[应用程序根目录]/resources` 目录下加载 TRTC SDK。
+	- 打包 Mac 下的 `.dmg` 时，让 `native-ext-loader` 到 `[应用程序目录]/Contents/Frameworsk/../Resources` 目录下加载 TRTC SDK。
 
 还需要在 `package.json` 中的构建脚本中添加 `--target_platform` 参数，将在下一步进行。
 
-### 步骤6：修改 package.json 配置
+### 6：修改 package.json 配置
 `package.json` 位于项目的根目录，其中包含了项目打包所必须的信息。但默认情况下，`package.json`  中的路径是需要修改才能顺利实现打包的，我们可以按如下步骤修改此文件： 
 
 1. 修改 `main` 配置。
@@ -215,19 +216,19 @@ rules: [
 </tr></table>
 
 
-### 步骤7：执行打包命令
+### 7：执行打包命令
 - 打包 Mac.dmg 安装文件：
 ```bash
 $ cd [项目目录]
 $ npm run pack:mac
 ```
-  成功执行后，打包工具会生成 `bin/your-app-name-0.1.0.dmg` 安装文件，请选择此文件发布。
+	成功执行后，打包工具会生成 `bin/your-app-name-0.1.0.dmg` 安装文件，请选择此文件发布。
 - 打包 Windows.exe 安装文件：
 ```bash
 $ cd [项目目录]
 $ npm run pack:win64
 ```
-  成功执行后，打包工具会生成 `bin/your-app-name Setup 0.1.0.exe` 安装文件，请选择此文件发布。
+	成功执行后，打包工具会生成 `bin/your-app-name Setup 0.1.0.exe` 安装文件，请选择此文件发布。
 
 
 >!TRTC Electron SDK 暂不支持跨平台打包（例如在 Mac 下打包 Windows 的 .exe 文件，或在 Windows 平台下打包 Mac 的 .dmg 文件）。目前我们正在研究跨平台打包方案，敬请期待。
