@@ -23,8 +23,7 @@
 | -------------- | ---------------- |
 | 默认存储桶域名 | &lt;BucketName-APPID&gt;.cos.&lt;Region&gt;.tencentcos.cn
 | 默认存储桶域名(内网) | &lt;BucketName-APPID&gt;.cos-internal.&lt;Region&gt;.tencentcos.cn  |
-| 全球加速域名 | &lt;BucketName-APPID&gt;.cos.&lt;accelerate&gt;.tencentcos.cn  |
-| 全球加速域名(内网) | &lt;BucketName-APPID&gt;.cos-internal.&lt;accelerate&gt;.tencentcos.cn  |
+| 全球加速域名 | &lt;BucketName-APPID&gt;.cos.accelerate.tencentcos.cn  |
+| 全球加速域名(内网) | &lt;BucketName-APPID&gt;.cos-internal.accelerate.tencentcos.cn  |
 | 静态网站域名 | &lt;BucketName-APPID&gt;.cos-website.&lt;Region&gt;.tencentcos.cn  |
 | 静态网站域名(内网) | &lt;BucketName-APPID&gt;.cos-website-internal.&lt;Region&gt;.tencentcos.cn  |   
-
