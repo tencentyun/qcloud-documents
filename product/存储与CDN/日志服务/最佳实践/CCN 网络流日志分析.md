@@ -49,92 +49,87 @@
 
 为了更好的管理业务，根据业务发展需求随时对各地域的带宽上限进行调整，需要对各地域间的带宽进行监控统计，设置带宽使用预警。
 
-#### 各线路带宽趋势
-
+<dx-accordion>
+::: 各线路带宽趋势
 ```sql
 log-status:OK | select histogram(cast(__TIMESTAMP__ as timestamp), interval 1 MINUTE) as time, sum(bytes)/60.00*8 as bandwidth, concat(concat('srcRegion : ',srcregionid, ' , dstRegion : '), dstregionid) as region_ip group by time, region_ip limit 10000
 ```
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/abf58cc6c711774c77af3e81d940b529.png)
-
-
-#### 各线路 PPS 趋势
-
+:::
+::: 各线路 PPS 趋势
 ```sql
 log-status:OK | select histogram(cast(__TIMESTAMP__ as timestamp), interval 1 MINUTE) as time, sum(packets)/60.00 as pps, concat(concat('srcRegion : ',srcregionid, ' , dstRegion : '), dstregionid) as region_ip group by time, region_ip limit 10000
 ```
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/3feed866d0d1ed4e143d5d99ffc6fd06.png)
 
-
-#### TOP20线路总流量分布
-
+:::
+::: TOP20线路总流量分布
 ```sql
 log-status:OK | select concat(concat('srcRegion : ',srcregionid, ' , dstRegion : '), dstregionid) as region, sum(bytes) as bytes group by region order by bytes desc limit 20
 ```
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/9e6c04a93dbb2d134fc949e067592b81.png)
 
-#### Top10源 IP 流量带宽
-
+:::
+::: Top10源 IP 流量带宽
 ```sql
 log-status:OK | select histogram(cast(__TIMESTAMP__ as timestamp), interval 1 MINUTE) as time, sum(bytes)/60.00*8 as pps  , srcaddr where srcaddr in (select srcaddr group by srcaddr order by sum(cast(bytes as double)) desc limit 10)  group by time, srcaddr limit 10000
 ```
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/8e1e19ebaca4fa77ad5606f8d3829fa0.png)
 
-#### Top10源IP流量PPS
-
+:::
+::: Top10源 IP 流量 PPS
 ```sql
 log-status:OK | select histogram(cast(__TIMESTAMP__ as timestamp), interval 1 MINUTE) as time, sum(packets)/60.00 as pps  , srcaddr where srcaddr in (select srcaddr group by srcaddr order by sum(cast(packets as double)) desc limit 10) group by time, srcaddr  limit 10000
 ```
 
-![image-20220602161305669](/Users/williamdang/Desktop/文档/CCN实践/image-20220602161305669.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/a3672cb2f7fd597dc0da51fea119e883.png)
 
-#### Top10协议流量带宽
-
+:::
+::: Top10协议流量带宽
 ```sql
 log-status:OK | select histogram(cast(__TIMESTAMP__ as timestamp), interval 1 MINUTE) as time, sum(bytes)/60*8 as bandwidth, cast(protocol as varchar) where protocol in ( select protocol group by protocol order by sum(cast(bytes as double)) desc limit 10) group by time, protocol  limit 10000
 ```
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/8e6802c2b55f3fbd21e4631f0f8c110f.png)
 
-#### Top10各协议流量 PPS
-
+:::
+::: Top10各协议流量 PPS
 ```sql
 log-status:OK | select histogram(cast(__TIMESTAMP__ as timestamp), interval 1 MINUTE) as time, sum(packets)/60.00 as pps, cast(protocol as varchar) where protocol in ( select protocol group by protocol order by sum(cast(bytes as double)) desc limit 10) group by time, protocol  limit 10000
 ```
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/880fedda6d9b1418625c3c790b89bc57.png)
 
-#### 拒绝访问占比
-
+:::
+::: 拒绝访问占比
 ```sql
 log-status:OK | select round(sum(case when action = 'REJECT' then 1.00 else 0.00 end) / cast(count(*) as double) * 100,2) as "拒绝访问占比(%)"
 ```
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/e177cbfa10485af3ba0918c57fe24284.png)
 
-
-#### ACCEPT 与 REJECT 的带宽趋势
-
+:::
+::: ACCEPT 与 REJECT 的带宽趋势
 ```sql
 log-status:OK | select histogram(cast(__TIMESTAMP__ as timestamp), interval 1 MINUTE) as time, sum(bytes)/60.00*8 as bandwidth, action group by time, action limit 10000
 ```
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/4fbb33da3f04893a1f4129b27bb8d844.png)
 
-#### ACCEPT 与 REJECT 的 PPS
-
+:::
+::: ACCEPT 与 REJECT 的 PPS
 ```sql
 log-status:OK | select histogram(cast(__TIMESTAMP__ as timestamp), interval 1 MINUTE) as time, sum(packets)/60.00 as pps, action group by time, action limit 10000
 ```
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/8b7480cb468ecfe1d1b037f4d31c85e4.png)
 
-
-#### 某线路带宽的阈值告警
-
+:::
+::: 某线路带宽的阈值告警
 使用中给某线路配置了带宽上限，需要监控配置的合理性，随时对某地域的带宽上限进行调整，轻松掌控网络。例如，初次配置了中国香港-硅谷线路的带宽上限为100Mbps，当该线路的带宽使用，连续10min带宽都大于等于95Mbps时，即进行告警，以便于及时调整带宽上限。
 
 根据以上场景，配置 CLS 告警。
@@ -146,3 +141,6 @@ log-status:OK AND srcregionid:ap-hongkong AND dstregionid:na-siliconvalley | sel
 ![](https://qcloudimg.tencent-cloud.cn/raw/76fbcc7cfab5b0e46b9b7daef496d400.png)
 2. 配置告警策略，当连续10次（即10分钟）的监控任务结果都大于等于95Mbps时，则触发告警。
 ![](https://qcloudimg.tencent-cloud.cn/raw/404fb206909a0278fe307284da4fe492.png)
+
+:::
+</dx-accordion>
