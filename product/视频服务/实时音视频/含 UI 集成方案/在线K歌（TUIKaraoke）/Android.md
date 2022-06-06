@@ -35,7 +35,7 @@ api project(':Source')
 - 在根目录的 `build.gradle` 文件中添加 `TRTC SDK` 和 `IM SDK` 的依赖：
 ```
 ext {
-    liteavSdk = "com.tencent.liteav:LiteAVSDK_TRTCl:latest.release"
+    liteavSdk = "com.tencent.liteav:LiteAVSDK_TRTC:latest.release"
     imSdk = "com.tencent.imsdk:imsdk-plus:latest.release"
 }
 ```
