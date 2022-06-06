@@ -96,10 +96,10 @@ TDMQ Pulsar 版控制台支持手动创建订阅，在控制台进行相应的�
 
 1. 在 [Topic 管理](https://console.cloud.tencent.com/tdmq/topic) 中，找到需要创建订阅的 Topic ，单击操作列中的**新增订阅**。
 2. 在弹出的对话框中输入订阅的名称和说明。
- - 订阅名称：长度不超过128个字符
+ - 订阅名称：长度不超过64个字符
  - 自动创建重试&死信队列：可以选择是否自动创建重试和死信 Topic
  - 说明：不超过2字符
-   ![](https://qcloudimg.tencent-cloud.cn/raw/9b47f5db34b6dfc3bf1540773eff6e67.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/97151a4e137b3688f7a2753b78bea89f.png)
 3. 单击**提交**完成创建。
    创建后可通过单击操作列的**查看订阅**，查看订阅了该 Topic 的订阅，即可在列表中看到刚刚创建的订阅。
 
