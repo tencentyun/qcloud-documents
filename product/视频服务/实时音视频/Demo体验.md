@@ -169,7 +169,7 @@ ul.rno-tabs-operation {
     margin-bottom: -1px;
     margin-right: 20px;
     border-bottom: 2px solid transparent;
-    height: 36px;
+    height: 31px;
     margin-top: 19px;
 }
 .rno-tabs-operation-item.active>a {
