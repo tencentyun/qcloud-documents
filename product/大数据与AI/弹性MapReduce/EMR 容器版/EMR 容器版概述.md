@@ -3,5 +3,6 @@
 >! 当前 EMR 容器版为白名单开放，如需要可 [联系工单](https://console.cloud.tencent.com/workorder/category) 开通。
 
 ## 原理介绍
-EMR 集群的主要运维操作，如集群创建、销毁等，通过 k8s 的 operator 进行。在创建过程中，通过 K8S API Server 调度各项资源，如 pod、configmap、secret、pvc、pv 等。提交任务到集群进行计算，EKS 定时推送集群资源使用量（cpu、mem）到 emrcc，由 emrcc 进⾏处理，调⽤计费平台服务进行相关费用的结算。
-![](https://qcloudimg.tencent-cloud.cn/raw/92ca7888ce0f98feb8d188f94c4333e0.png)
+EMR 容器集群在创建时，会在当前所选地域自动创建一个隐藏的 EMR 专用 EKS 集群，由 EMR 管控系统在 EKS 集群自动创建 EMR 容器集群资源。
+当 EMR 容器集群提交 Spark 作业时，SparkOperator 会根据作业需求自动创建 Driver 和 Executor POD 资源，作业结束后释放相关 POD 资源。
+![](https://qcloudimg.tencent-cloud.cn/raw/49a1c52271d128484ec17101f03d6278.png)

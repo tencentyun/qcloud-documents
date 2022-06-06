@@ -42,17 +42,17 @@ helm install servicemesh-tcm/wasmer --generate-name
 
 ```shell
 # 将准备好的 exaple.wasm 文件 push 到 OCI 标准的镜像仓库，支持二进制或镜像格式
-wasmc push ccr.ccs.tencentyun.com/xxx/wasm-add-header:v0.3 -f ./example.wasm
+wasmc push ccr.ccs.tencentyun.com/{$repoName}/wasm-add-header:v0.3 -f ./example.wasm
 
-Pushed ccr.ccs.tencentyun.com/xxx/wasm-add-header:v0.3
-Digest: sha256:xxxx
+Pushed ccr.ccs.tencentyun.com/***/wasm-add-header:v0.3
+Digest: sha256:***
 
 # 从仓库将文件 pull 到本地
-wasmc pull ccr.ccs.tencentyun.com/xxx/wasm-add-header-wadecai:v0.3
+wasmc pull ccr.ccs.tencentyun.com/{$repoName}/wasm-add-header-wadecai:v0.3
 
-Pulled ccr.ccs.tencentyun.com/xxx/wasm-add-header-wadecai:v0.3
-Sha256: xxx
-Location: xxx/filter.wasm
+Pulled ccr.ccs.tencentyun.com/***/wasm-add-header-wadecai:v0.3
+Sha256: ***
+Location: ***/filter.wasm
 ```
 
 
@@ -75,7 +75,7 @@ spec:
     rootID: test
     source:
       registry:
-        image: ccr.ccs.tencentyun.com/xxx/wasm-add-header:v0.3
+        image: ccr.ccs.tencentyun.com/{您的镜像仓库}/wasm-add-header:v0.3
     vmID: test
   secret: test # 镜像仓库 secret
   selector:
@@ -85,12 +85,15 @@ spec:
 
 
 说明：
-spec.filter.applyPorts：需要生效的端口（该字段选填，默认所有端口）。
-spec.filter.rootID：唯一 ID 用于共享 wasm 的 RootContext and Contexts（选填）。
-spec.filter.vmID：wasm 虚机 ID（选填，不填会自动生成）。
-spec.filter.sourc：wasm 文件来源，支持 registry 和 object，代表镜像仓库和对象存储。
-spec.selector.matchLabels：用于匹配需要生效的 Pod。
-spec.secret：镜像仓库密码，公开镜像可以不填写 secret。
+
+| 参数 	|描述	|
+|---	|-	|
+| spec.filter.applyPorts|需要生效的端口（该字段选填，默认所有端口）。 	|
+| spec.filter.rootID|唯一 ID 用于共享 wasm 的 RootContext and Contexts（选填）。 	|
+| spec.filter.vmID|wasm 虚机 ID（选填，不填会自动生成）。 	|
+| spec.filter.sourc|wasm 文件来源，支持 registry 和 object，代表镜像仓库和对象存储。 	|
+| spec.selector.matchLabels|用于匹配需要生效的 Pod。 	|
+| spec.secret|镜像仓库密码，公开镜像可以不填写 secret。 	|
 
 其中，source.registry 部分表示从镜像仓库获取 wasm 扩展。
 

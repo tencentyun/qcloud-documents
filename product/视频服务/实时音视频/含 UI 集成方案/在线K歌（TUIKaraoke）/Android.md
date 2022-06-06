@@ -1,6 +1,8 @@
 ## 组件介绍
 TUIKaraoke 是一个开源的音视频 UI 组件，通过在项目中集成 TUIKaraoke 组件，您只需要编写几行代码就可以为您的应用添加在线 K 歌场景，体验 K 歌、麦位管理、收发礼物、文字聊天等 TRTC 在 KTV 场景下的相关能力。TUIKaraoke 同时支持 iOS 平台的源代码，基本功能如下图所示：
 
+>?TUIKit 系列组件同时使用了腾讯云 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269/42440) 两个基础 PaaS 服务，开通实时音视频后会同步开通即时通信IM服务。即时通信 IM 服务详细计费规则请参见 [即时通信 - 价格说明](https://cloud.tencent.com/document/product/269/11673)，TRTC 开通会默认关联开通 IM SDK 的体验版，仅支持100个 DAU。
+
 <table>
      <tr>
          <th width=20%  style="text-align:center">聊天</th>
@@ -33,7 +35,7 @@ api project(':Source')
 - 在根目录的 `build.gradle` 文件中添加 `TRTC SDK` 和 `IM SDK` 的依赖：
 ```
 ext {
-    liteavSdk = "com.tencent.liteav:LiteAVSDK_TRTCl:latest.release"
+    liteavSdk = "com.tencent.liteav:LiteAVSDK_TRTC:latest.release"
     imSdk = "com.tencent.imsdk:imsdk-plus:latest.release"
 }
 ```

@@ -12,7 +12,7 @@
 TXLiveBase.getInstance().setLicence(context, LicenceUrl, Key);
 ```
 
->!直播推流 License 集成使用腾讯特效（美颜特效）功能时，License 设置方法如上，但工程需要额外进行配置，具体操作请参见：
+>!直播 License 集成使用腾讯特效（美颜特效）功能时，License 设置方法如上，但工程需要额外进行配置，具体操作请参见：
 >- [AI 变脸和挂件（iOS）](https://cloud.tencent.com/document/product/454/9018) 
 >- [AI 变脸和挂件（Android）](https://cloud.tencent.com/document/product/454/9020)
 

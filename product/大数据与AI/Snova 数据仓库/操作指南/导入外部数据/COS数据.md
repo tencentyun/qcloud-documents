@@ -83,7 +83,7 @@ cos://cos_endpoint/bucket/prefix secretId=id secretKey=key compressType=[none|gz
 | ------------ | ------------------------------------ | ---- | --------------------------------------- |
 | URL          | <li/>COS V4：`cos://cos.{REGION}.myqcloud.com/{BUCKET}/{PREFIX}`<li/>COS V5：`cos:// {BUCKET}-{APPID}.cos.{REGION}.myqcloud.com/{PREFIX}`  | 是   | 参见 [URL 参数说明](#url)                |
 | secretId     | 无         | 是   | 访问 API 使用的密钥 ID，参见 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) |
-| secretKey    | 无     | 是   | 访问 API 使用的密钥 ID，参见 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) |
+| secretKey    | 无     | 是   | 访问 API 使用的密钥 Key，参见 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) |
 | HTTPS        | true &Iota; false       | 否   | 是否使用 HTTPS 访问 COS，默认为 true        |
 | compressType | gzip            | 否   | COS 文件是否压缩，默认为空，不压缩            |
 
@@ -167,7 +167,7 @@ CREATE EXTENSION IF NOT EXISTS cos_ext SCHEMA public;
 CREATE TABLE cos_local_tbl (c1 int, c2 text, c3 int)
 DISTRIBUTED BY (c1);
 ```
-COS 外表：指定读取广州 simple-bucket 下的所有文件。
+COS 外表：指定写入广州 simple-bucket 下的所有文件。
 ```
 CREATE WRITABLE EXTERNAL TABLE cos_tbl_wr (c1 int, c2 text, c3 int)
 LOCATION('cos://cos.ap-guangzhou.myqcloud.com/simple-bucket/to-cos/ secretKey=xxx secretId=xxx')

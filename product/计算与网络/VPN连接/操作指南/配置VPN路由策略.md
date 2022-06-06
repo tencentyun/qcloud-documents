@@ -9,6 +9,11 @@
    ![](https://main.qcloudimg.com/raw/d261071d65c453ecf21d3980d1b3a8cd.png)
 5. 单击**新增路由**，并配置路由策略。
 ![](https://main.qcloudimg.com/raw/288637983594aa439f67c2ee00a7a12a.png)
+>?
+>- VPN 网关路由表新增路由时，列表默认显示 VPN 网关下所有 VPN 通道（即 VPN 网关下所有 SPD 策略型和路由型 VPN 通道）。
+>- 创建 SPD 策略型通道完成后会自动下发路由，无需在 VPN 网关添加路由。
+>- 创建路由型通道完成后需配置对应路由策略。
+>
 <table>
 <tr>
 <th>配置项</th>

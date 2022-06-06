@@ -31,7 +31,7 @@ SSL 证书的核心功能是保护服务器-客户端通信。数据通过 SSL �
 1. 在 pom.xml 中添加以下依赖。
 <dx-codeblock>
 :::  xml
-<dependency>
+<dependencies>
    <dependency>
       <groupId>org.apache.kafka</groupId>
       <artifactId>kafka-clients</artifactId>
@@ -47,7 +47,7 @@ SSL 证书的核心功能是保护服务器-客户端通信。数据通过 SSL �
       <artifactId>slf4j-simple</artifactId>
       <version>1.6.4</version>
    </dependency>
-</dependency>
+</dependencies>
 :::
 </dx-codeblock>
 2. 创建 JAAS 配置文件 `ckafka_client_jaas.conf`，使用**用户管理**界面创建的用户进行修改。

@@ -4,11 +4,12 @@
 
 Redis 是使用 ANSI C 编写的开源、支持网络、基于内存、分布式的 [键值对存储数据库](https://zh.wikipedia.org/wiki/键值-值数据库)。
 
-iPaaS Redis 连接器可连接第三方 Redis 服务并执行操作。用户通过连接器配置来配置 Redis 的连接参数，配置成功后便可执行 Redis 操作。
+Redis 连接器可连接第三方 Redis 服务并执行操作。用户通过连接器配置来配置 Redis 的连接参数，配置成功后便可执行 Redis 操作。
+
 
 ## 连接器配置
 ### 连接方式
-iPaaS Redis 连接器支持三种 Redis 服务的连接方式：
+Redis 连接器支持三种 Redis 服务的连接方式：
 - Cluster 模式
 - NonCluster 模式
 - Sentinel 模式

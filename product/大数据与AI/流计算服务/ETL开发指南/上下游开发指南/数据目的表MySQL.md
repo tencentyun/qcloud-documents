@@ -2,14 +2,6 @@
 
 MySQL 数据目的表支持将数据写入到 MySQL 数据库中。
 
-## 示例
-创建 ETL 作业后，进入**开发调试**页面。在数据目的表处单击**添加**。
-![](https://main.qcloudimg.com/raw/78286815cc3b3113b6bba5a164eac2ec.png)
-根据示例正确填写 MySQL 目的表相应信息。
-![](https://main.qcloudimg.com/raw/2f3538540629c911831b5d77a59762e0.png)
-如信息填写无误，ETL 作业会自动获取数据目的表中所有字段的名称和类型（前提为数据源表已正确录入）。
-![](https://main.qcloudimg.com/raw/23de48ec5209af05292b0889213ed40f.png)
-
 ## 注意事项
 #### 主键说明
 由于 ETL 数据源表产生的数据都为 Upsert 数据，因此 MySQL 数据库的表**必须**正确定义主键。

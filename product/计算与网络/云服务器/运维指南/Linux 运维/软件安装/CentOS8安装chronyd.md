@@ -5,15 +5,15 @@
 ### 安装配置 chronyd 服务
 1. 登录云服务器实例，详情请参见 [使用标准方式登录 Linux 实例（推荐）](https://cloud.tencent.com/document/product/213/5436)。
 2. 执行以下命令，安装 chronyd 服务。
-```
+```shell
 yum -y install chrony
 ```
 3. 执行以下命令，修改配置文件 `chrony.conf`。
-```
+```shell
 vim /etc/chrony.conf
 ```
 4. 按 **i** 进入编辑模式，并在 `#log measurements statistics tracking` 后另起一行，输入以下内容。
-```
+```shell
 server time1.tencentyun.com iburst
 server time2.tencentyun.com iburst
 server time3.tencentyun.com iburst
@@ -24,20 +24,20 @@ server time5.tencentyun.com iburst
 ![](https://main.qcloudimg.com/raw/578e072599f8d50ea188d3911a9d76c7.png)
 5. 按 **Esc** 输入 **:wq** 保存后退出编辑模式。
 6. 依次执行以下命令，设置 chronyd 服务为开机自启动并重启服务。
-```
+```shell
 systemctl restart chronyd
 ```
-```
+```shell
 systemctl enable chronyd
 ```
 
 ### 检查服务配置
 1. 执行以下命令，检查时间是否同步。
-```
+```shell
 date
 ```
 2. 执行以下命令，看时间同步源状态。
-```
+```shell
 chronyc sourcestats -v
 ```
 若返回类似如下结果，则表示配置成功。

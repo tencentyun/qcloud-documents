@@ -2,14 +2,14 @@
 
 该任务以 Java 客户端为例指导您在 VPC 网络环境下，使用 SASL_SCRAM 方式接入消息队列 CKafka 并收发消息。
 
-> ? SASL_SCRAM 接入方式仅北京地域且2.4.1版本实例支持，其他地域和存量实例需要 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=876&level2_id=951&source=0&data_title=消息服务CKafKa&step=1) 申请）。
+> ? SASL_SCRAM 接入方式仅北京地域且2.4.1版本实例支持，其他地域和存量实例需要 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=876&level2_id=951&source=0&data_title=消息服务CKafKa&step=1) 申请。
 
 ## 前提条件
 
 - [安装 1.8 或以上版本 JDK](https://www.oracle.com/java/technologies/javase-downloads.html)
 - [安装 2.5 或以上版本 Maven](http://maven.apache.org/download.cgi#)
 - [配置 ACL 策略](https://cloud.tencent.com/document/product/597/31528)
-- [下载 Demo](https://github.com/TencentCloud/ckafka-sdk-demo/tree/main/javakafkademo/PUBLIC_SASL/src/main/java/ckafka/demo/scram)
+- [下载 Demo](https://github.com/TencentCloud/ckafka-sdk-demo/tree/main/javakafkademo/PUBLIC_SASL)
 
 ## 操作步骤
 
@@ -34,7 +34,7 @@
 1. 在 pom.xml 中添加以下依赖。
    <dx-codeblock>
    :::  xml
-   <dependency>
+<dependencies>
    <dependency>
       <groupId>org.apache.kafka</groupId>
       <artifactId>kafka-clients</artifactId>
@@ -50,7 +50,7 @@
       <artifactId>slf4j-simple</artifactId>
       <version>1.6.4</version>
    </dependency>
-   </dependency>
+</dependencies>
    :::
    </dx-codeblock>
 2. 创建 JAAS 配置文件 `ckafka_client_jaas.conf`，使用**用户管理**界面创建的用户进行修改。

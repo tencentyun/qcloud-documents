@@ -1,7 +1,7 @@
 
 
 ## 类型
-- 在 DataWay 中， 用 Entity 类型来表示千帆鹊桥 iPaaS 中的实体数据，表示二进制数据的封装对象，其主要组成部分包括 blob、mime_type 以及 encoding。
+- 在 DataWay 中， 用 Entity 类型来表示腾讯云数据连接器中的实体数据，表示二进制数据的封装对象，其主要组成部分包括 blob、mime_type 以及 encoding。
  - blob：原始的二进制数据。
  - mime_type：表示二进制数据的内容格式，例如：application/json、application/www-form-urlencoded、multipart/form-data 等。
  - encoding：表示二进制数据的字符编码格式，例如：utf8、gbk 等。

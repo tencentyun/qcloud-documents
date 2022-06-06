@@ -211,7 +211,7 @@
                     <div style="margin-top: 13px;" >
                     <a  href="https://github.com/tencentyun/TIMSDK/tree/master/iOS">Github 下载</a>
                           <a  style="margin-left: 10px;"href="https://im.sdk.qcloud.com/download/github/TIMSDK.zip">ZIP 下载</a>
-                                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/269/36838">集成指引</a>
+                                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/269/68228">集成指引</a>
                     </div>
             </div>
         </div>

@@ -1,8 +1,7 @@
 ## 概述
 腾讯云智聆口语评测（Smart Oral Evaluation，SOE）是腾讯云推出的语音评测产品，是基于口语类教育培训场景和腾讯云的语音处理技术，应用特征提取、声学模型和语音识别算法，为儿童和成人提供高准确度的口语发音评测。支持单词、句子和段落模式的评测，多维度反馈口语表现，可广泛应用于中文及英语口语类教学中。    
 TAISDK 是一款封装了腾讯云教育 AI 能力的 SDK，通过集成 SDK，用户可以快速接入相关产品功能，如数学作业批改、智聆口语评测等。本文档介绍智聆口语评测 iOS SDK 相关说明，如需其他产品的调用说明，可在对应产品的产品文档查看。
-详细的网络 API 说明请参见 [API 文档](https://cloud.tencent.com/document/product/884/19309)。
-单击 [示例链接](https://tec.qq.com/ai/soe#demos) 在线体验智聆口语评测 demo。
+>?详细的网络 API 说明请参见 [API 文档](https://cloud.tencent.com/document/product/884/19309)。
 
 ## 总体流程
 ### 1. 流程图
@@ -10,15 +9,18 @@ TAISDK 是一款封装了腾讯云教育 AI 能力的 SDK，通过集成 SDK，�
 
 ### 2. 集成 demo 示例
 [下载 SDK](https://github.com/TencentCloud/tencentcloud-sdk-ios-soe) 地址。
-获取密钥（ 密钥获取⽅式⻅下⽂） 后到 TAIDemo/TAIDemo/PrivateInfo.m 根据需要填写 appId、secretId、secretKey、soeAppId 和hcmAppId（token 无需填写）。
-![](https://main.qcloudimg.com/raw/c9d27bfaa226bc2e513666c635b21d94.png)
+获取密钥（ 密钥获取⽅式⻅下⽂） 后到 `TAIDemo/TAIDemo/PrivateInfo.m`。
+根据需要填写参数，参数描述请查看 [TAIOralEvaluationParam 参数说明](https://cloud.tencent.com/document/product/884/31888#:~:text=TAIOralEvaluationParam%20%E5%8F%82%E6%95%B0%E8%AF%B4%E6%98%8E%EF%BC%9A)
+![](https://qcloudimg.tencent-cloud.cn/raw/1e878727bec51f40532d7e6b8c613808.png)
 
 ## SDK 集成准备
 ###  1. 添加第三方库依赖
 第三方库 lame.framework 的主要目的是为了实现文件类型转换。本 SDK 依赖第三方库为 lame.framework，您只需将 SDK 和 lame.framework 直接引入项目中即可。
 
 ### 2. 获取密钥
-SecretId 和 SecretKey 是使用 SDK 的安全凭证，您可以在**[访问管理](https://console.cloud.tencent.com/cam/overview)**>**访问密钥**>**[API 密钥管理](https://console.cloud.tencent.com/cam/capi)**中获取该凭证。
+SecretId 和 SecretKey 是使用 SDK 的安全凭证，您可以在**[访问管理](https://console.cloud.tencent.com/cam/overview) > 访问密钥 > [API 密钥管理](https://console.cloud.tencent.com/cam/capi)** 中获取该凭证。
+>!密钥属于敏感信息，正式密钥仅可在调试使用，线上环境情况下，为了防止他人盗取，推荐使用 [临时签名](https://cloud.tencent.com/document/product/884/31888#:~:text=%E5%88%B0%E5%AE%A2%E6%88%B7%E7%AB%AF%E3%80%82-,%E4%B8%B4%E6%97%B6%E7%AD%BE%E5%90%8D,-policy%20%E7%A4%BA%E4%BE%8B%E5%A6%82%E4%B8%8B)，具体请参考 [签名](https://cloud.tencent.com/document/product/884/31888#5.-.E7.AD.BE.E5.90.8D) 相关内容。
+
 ![](https://main.qcloudimg.com/raw/273b67bc4d38af6cb9999e9f4663d268.png)
 
 ## SDK 集成步骤  
@@ -89,6 +91,8 @@ param.fileType = TAIOralEvaluationFileType_Mp3;
 param.refText = @""; 
 param.secretId = @""; 
 param.secretKey = @"";
+param.token = @"";
+
 ```
 
 **4.1.2 开始录制**
@@ -121,7 +125,8 @@ param.scoreCoeff = 1.0;
 param.fileType = TAIOralEvaluationFileType_Mp3; 
 param.refText = @"hello guagua"; 
 param.secretId = @""; 
-param.secretKey = @"";  
+param.secretKey = @""; 
+param.token = @"";
 
 
 NSString *mp3Path = [[NSBundlemainBundle] pathForResource:@"hello_guagua"ofType:@"mp3"]; 
@@ -146,7 +151,7 @@ __weak typeof(self) ws = self;
 
 
 ### 5. 签名
-SecretKey 属于安全敏感参数，线上版本一般由业务后台生成 [临时 SecretKey](https://cloud.tencent.com/document/api/598/13896) 或者 SDK 外部签名返回到客户端。
+SecretKey 属于安全敏感参数，线上版本一般由业务后台生成 [临时 SecretKey](https://cloud.tencent.com/document/product/1312/48195) 或者 SDK 外部签名返回到客户端。
 临时签名 policy 示例如下：
 ```json
 {
@@ -183,9 +188,10 @@ SecretKey 属于安全敏感参数，线上版本一般由业务后台生成 [�
 | :----------------- | :--------------------------- | :------------- | :----------------------------------------------------------- |
 | appid              | NSString                     | 是             | 账号应用 ID                                                   |
 | timeout            | NSInteger                    | 否             | 超时时间，默认30秒                                           |
-| secretId           | NSString                     | 是             | 您在控制台获取的密钥 ID                                       |
-| secretKey          | NSString                     | 内部签名：必填 | 您在控制台获取的密钥 Key，在使用内部签名时必须设置此参数      |
-| signature          | NSString                     | 外部签名：必填 | 仅在使用外部签名时需要设置此参数，详细获取方式请查看上述5.签名 |
+| secretId           | NSString                     | 是             | 您在控制台获取的密钥 ID，临时密钥的 TmpSecretId                                       |
+| secretKey          | NSString                     | 内部签名：必填 | 您在控制台获取的密钥 Key，临时密钥的 TmpSecretKey      |
+| token	| NSString| 	临时签名：必填	| 临时密钥的 Token，仅在使用临时签名时需要设置此参数，详细获取方式请查看 [签名](https://cloud.tencent.com/document/product/884/31888#5.-.E7.AD.BE.E5.90.8D)| 
+| signature          | NSString                     | 外部签名：必填 | 仅在使用外部签名时需要设置此参数，详细获取方式请查看 [签名](https://cloud.tencent.com/document/product/884/31888#5.-.E7.AD.BE.E5.90.8D)| 
 | timestamp          | NSInteger                    | 外部签名：必填 | 秒级时间戳                                                   |
 | soeAppId           | NSString                     | 否             | 业务应用 ID                                                   |
 | sessionId          | NSString                     | 是             | 一次评测唯一标识                                             |

@@ -1,3 +1,47 @@
+## 2022年05月
+
+<table><tr>
+<th width="20%">动态名称</th>
+<th width="45%">动态描述</th>
+<th width="15%">发布时间</th>
+<th width="20%">相关文档</th>
+</tr><tr>
+<td>支持 EMR ClickHouse。</td>
+<td>数据流出至 ClickHouse时，数据仓库类型支持 EMR ClickHouse。</td>
+<td>2022-05-24</td>
+<td><a href="https://cloud.tencent.com/document/product/597/67387">数据流出至 ClickHouse</a></td>
+</tr><tr>
+<td>支持重启任务</td>
+<td>任务在<b>异常</b>状态时，可以重启任务，重启任务表示重新开始任务，不会影响到已经处理的数据和相关的 CKafka 实例。</td>
+<td>2022-05-24</td>
+<td><a href="https://cloud.tencent.com/document/product/597/66014">DataHub 概述</a></td>
+  </tr><tr>
+<td>支持复制和重建任务</td>
+<td><li>当您有大量配置相似的任务时，在第一个任务创建成功后可以通过复制任务功能将任务进行复制。</li><li>创建失败的任务可能是因为创建任务时的配置失误，用户可以手动重建任务。</li></td>
+<td>2022-05-24</td>
+<td><a href="https://cloud.tencent.com/document/product/597/66014">DataHub 概述</a></td>
+   </tr><tr> 
+  <td>数据处理和数据流出支持展示消费进度</td>
+<td>-</td>
+<td>2022-05-24</td>
+<td><a href="https://cloud.tencent.com/document/product/597/66014">DataHub 概述</a></td>
+   </tr><tr>
+  <td>支持查看最新消息</td>
+<td>-</td>
+<td>2022-05-24</td>
+<td><a href="https://cloud.tencent.com/document/product/597/66014">DataHub 概述</a></td>
+</tr></table>
+
+
+
+
+
+
+
+
+
+
+
 ## 2022年04月
 
 <table><tr>
@@ -9,7 +53,7 @@
 <td>支持 Schema 管理功能</td>
 <td>Datahub 支持 Schema 管理功能，您可以将创建好的 Schema 绑定到具体的数据流入任务上，将会按该 Schema 对流入的数据进行格式校验。</td>
 <td>2022-04-08</td>
-<td><a href="https://cloud.tencent.com/document/product/597/72321">Schema 管理</a></td>
+<td><a href="https://cloud.tencent.com/document/product/597/71916">Schema 管理</a></td>
 </tr><tr>
 <td>HTTP 支持 Schema</td>
 <td>Datahub 支持在 HTTP 接收数据上报的时候，根据指定的 Schema，对上报数据进行格式校验。</td>
@@ -107,4 +151,3 @@
 <td>2021-12-21</td>
 <td><a href="https://cloud.tencent.com/document/product/597/66014">Datahub 概述</a></td>
 </tr></table>
-

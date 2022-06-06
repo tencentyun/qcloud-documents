@@ -47,7 +47,7 @@ CLS 支持您使用各类 Kafka producer SDK 采集日志，并通过 Kafka 协�
 ### Agent 调用示例
 
 <span id="filebeat"></span>
-#### filebeat 配置
+#### filebeat/winlogbeat 配置
 
 ```filebeat
 output.kafka:

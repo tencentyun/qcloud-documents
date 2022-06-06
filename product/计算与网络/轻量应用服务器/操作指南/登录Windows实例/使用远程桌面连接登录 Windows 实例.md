@@ -42,19 +42,19 @@ Windows 实例公网 IP 可前往 [轻量应用服务器控制台](https://conso
 </dx-alert>
 
 
-1. 执行以下命令，检查系统是否已安装 rdesktop。
-```
+1. 在终端执行以下命令，检查系统是否已安装 rdesktop。
+```shellsession
 rdesktop
 ```
    - 若已安装 rdesktop，请执行 [步骤4](#step04)。
    - 若提示 command not found，则表示未安装 rdesktop，请执行 [步骤2](#step02)。
 2. [](id:step02)在终端执行以下命令，下载 rdesktop 安装包，此步骤以 rdesktop 1.8.3 版本为例。
-```
+```shellsession
 wget https://github.com/rdesktop/rdesktop/releases/download/v1.8.3/rdesktop-1.8.3.tar.gz
 ```
 如果您需要最新的安装包，可以前往 [GitHub rdesktop页面](https://github.com/rdesktop/rdesktop/releases) 查找最新安装包，并在命令行中替换为最新安装路径。
 3. 在待安装 rdesktop 的目录下，依次执行以下命令，解压和安装 rdesktop。
-```
+```shellsession
 tar xvzf rdesktop-<x.x.x>.tar.gz ##替换x.x.x为下载的版本号 
 cd rdesktop-1.8.3
 ./configure 
@@ -65,7 +65,7 @@ make install
 <dx-alert infotype="explain" title="">
 请将示例中的参数修改为您自己的参数。
 </dx-alert>
-```
+```shellsession
 rdesktop -u Administrator -p <your-password> <hostname or IP address>
 ```
    - `Administrator` 即为前提条件中获得的管理员帐号。

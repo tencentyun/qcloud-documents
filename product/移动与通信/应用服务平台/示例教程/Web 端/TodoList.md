@@ -188,3 +188,5 @@
 目前应用内使用匿名登录方式，不支持多端设备共享 Todo List 记录。云开发团队提供了一个支持**邮件登录**方式的 [Todo List 应用实战项目](https://github.com/TCloudBase/WEB-TodoList)，支持多设备共享记录。您可以在此基础上开发更多功能，打造一个您的专属 Todo List 应用。
 
 
+
+
