@@ -1,5 +1,7 @@
 您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 App 体验多人音视频房间的效果，包括屏幕分享、美颜、低延时会议等 TRTC 在多人音视频房间场景下的相关能力。
 
+>?TUIKit 系列组件同时使用了腾讯云 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269/42440) 两个基础 PaaS 服务，开通实时音视频后会同步开通即时通信IM服务。即时通信 IM 服务详细计费规则请参见 [即时通信 - 价格说明](https://cloud.tencent.com/document/product/269/11673)，TRTC 开通会默认关联开通 IM SDK 的体验版，仅支持100个 DAU。
+
 [](id:DemoUI)
 ## 复用 App 的 UI 界面
 [](id:ui.step1)

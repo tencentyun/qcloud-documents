@@ -81,7 +81,18 @@
 
 您可根据实际需求创建自定义 Mock，步骤如下：
 ![](https://qcloudimg.tencent-cloud.cn/raw/749a611b2b7459154d3c9dd4f154c3a4.png)
-2. 在弹出的“创建Mock” 窗口中，按需输入 Mock 信息。
+2. 在弹出的“创建Mock” 窗口中，按需输入 Mock 信息。Mock 数据需为合法的 JSON 数据，例如：
+```json
+{
+	"Response": {
+		"InstanceIdSet": [
+			"xxx1",
+			"xxx2"
+		],
+		"RequestId": "eac6b301-a322-493a-8e36-83b295459397"
+	}
+}
+```
 <dx-alert infotype="notice" title="">
 请注意 Mock 中不要输入密码等敏感信息。
 </dx-alert>
@@ -101,6 +112,7 @@ https://cvm.mock.tencentcloudapi.com/?tag=default&action=DescribeZones&version=2
 ```
 3. 在代码中调用获取的 url 地址，即可使用 Mock。以 Python 语言为例，示例代码如下：
 ```python
+# -*- coding: utf-8 -*-
 import requests
 import json
 

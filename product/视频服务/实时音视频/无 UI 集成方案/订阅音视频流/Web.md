@@ -6,7 +6,7 @@
 - Stream 对象，代表一个音视频流对象，包括本地音视频流对象 [LocalStream](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/LocalStream.html) 和远端音视频流对象 [RemoteStream](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/RemoteStream.html)。Stream 类的方法主要提供音视频流对象的行为，包括音频和视频的播放控制。
 
 ## 步骤1：创建 Client 对象
-可以参考文档 [进入房间-步骤1](https://tcloud-doc.isd.com/document/product/647/74636?!preview#step1) 创建 client。
+可以参考文档 [进入房间-步骤1](https://cloud.tencent.com/document/product/647/74636#step1) 创建 client。
 
 需要特别注意的是，创建 Client 时可选择设置订阅模式，TRTC 提供了两种订阅模式：
  - 自动订阅，当收到 stream-added 事件时，SDK 会立刻接收并解码该远端流所包含的音视频数据，这也是 SDK 的默认行为。
@@ -70,7 +70,7 @@ client.on('stream-subscribed', event => {
 ```
 
 ## 步骤4：进入音视频通话房间
-监听事件后，即可调用 Client.join() 进入音视频通话房间。可以参考文档 [进入房间-步骤2](https://cloud.tencent.com/document/product/647/74636?!editLang=zh&!preview?!editLang=zh&!preview#step2)。
+监听事件后，即可调用 Client.join() 进入音视频通话房间。可以参考文档 [进入房间-步骤2](https://cloud.tencent.com/document/product/647/74636#step2)。
 
 ## 完整代码
 

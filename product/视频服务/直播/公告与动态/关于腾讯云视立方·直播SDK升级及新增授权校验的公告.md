@@ -36,8 +36,8 @@
 <td>-</td>
 <td>&#10003; </td>
 <td style="text-align: left;"><ul style="margin:0">
-<li><a href="https://buy.cloud.tencent.com/vcube?type=live&pkg-type=10tb">购买</a> 10TB、50TB、200TB、1PB 云直播流量资源包赠送直播 License 一年使用授权</li>
-    <li><a href="https://buy.cloud.tencent.com/vcube?type=live&pkg-type=10tb">购买</a> 独立直播 License 一年使用授权</li></ul></td>
+<li><a href="https://buy.cloud.tencent.com/vcube?type=live&pkg-type=10TB">购买</a> 10TB、50TB、200TB、1PB 云直播流量资源包赠送直播 License 一年使用授权</li>
+    <li><a href="https://buy.cloud.tencent.com/vcube?type=live&pkg-type=lic">购买</a> 独立直播 License 一年使用授权</li></ul></td>
 </tr>
 <tr>
 <td>短视频 License</td>
@@ -45,8 +45,8 @@
 <td>&#10003; </td>
 <td>&#10003; </td>
 <td style="text-align: left;"><ul style="margin:0">
-<li><a href="https://buy.cloud.tencent.com/vcube?type=video&pkg-type=10tb">购买</a> 10TB、50TB、200TB、1PB 云点播流量资源包赠送短视频精简版/基础版 License 一年使用授权</li>
-    <li><a href="https://buy.cloud.tencent.com/vcube?type=video&pkg-type=10tb">购买</a> 独立短视频 License 一年使用授权</li></ul></td>
+<li><a href="https://buy.cloud.tencent.com/vcube?type=video&pkg-type=10TB">购买</a> 10TB、50TB、200TB、1PB 云点播流量资源包赠送短视频精简版/基础版 License 一年使用授权</li>
+    <li><a href="https://buy.cloud.tencent.com/vcube?type=video&pkg-type=lic-lite">购买</a> 独立短视频 License 一年使用授权</li></ul></td>
 </tr>
 <tr>
 <td>视频播放 License</td>
@@ -54,8 +54,8 @@
 <td>-</td>
 <td>&#10003; </td>
 <td style="text-align: left;"><ul style="margin:0">
-<li><a href="https://buy.cloud.tencent.com/vcube">购买</a> 100GB、500GB、1TB、5TB 直播/点播流量资源包赠送视频播放 License 一年使用授权</li>
-    <li><a href="https://buy.cloud.tencent.com/vcube">购买</a> 独立视频播放 License 一年使用授权</li></ul></td>
+<li><a href="https://buy.cloud.tencent.com/vcube?type=live&pkg-type=100GB">购买</a> 100GB、500GB、1TB、5TB 直播/点播流量资源包赠送视频播放 License 一年使用授权</li>
+    <li><a href="https://buy.cloud.tencent.com/vcube?type=player&pkg-type=lic">购买</a> 独立视频播放 License 一年使用授权</li></ul></td>
 </tr>
 </tbody></table>
 
@@ -99,8 +99,6 @@
 [](id:play_price)
 ## 视频播放 License 计费说明
 2022年05月底起，新上线可用于解锁 10.1 版本腾讯云视立方·直播 SDK 视频播放能力的视频播放 License，该 License 提供两种购买解锁方式：购买指定资源包赠送 License 或购买独立 License，计费说明见下表：
-
-
 <table>
 <thead>
 <tr>
@@ -118,19 +116,19 @@
 <td>-</td>
 <td rowspan=10>视频播放</td>
 <td>0</td>
-<td>免费申请</td>
+<td><a href="https://console.cloud.tencent.com/vcube">免费申请</a></td>
 </tr>
 <tr>
 <td rowspan=9>正式版</td>
 <td rowspan=9>1年</td>
 <td>购买独立视频播放 License 一年使用授权<br>（无资源包）</td>
 <td>12</td>
-<td><a href="https://buy.cloud.tencent.com/vcube">直接购买</a></td>
+<td><a href="https://buy.cloud.tencent.com/vcube?type=player&pkg-type=lic">直接购买</a></td>
 </tr>
 <tr>
 <td>购买 100GB 直播流量资源包<br>赠送视频播放 License 一年使用授权</td>
 <td>26</td>
-<td rowspan=8><a href="https://buy.cloud.tencent.com/vcube">购买资源包免费赠送</a></td>
+<td rowspan=8><a href="https://buy.cloud.tencent.com/vcube?type=live&pkg-type=100GB">购买资源包免费赠送</a></td>
 </tr>
 <tr>
 <td>购买 500GB 直播流量资源包<br>赠送视频播放 License 一年使用授权</td>
@@ -161,6 +159,7 @@
 <td>869</td>
 </tr>
 </tbody></table>
+
 
 
 

@@ -6,8 +6,8 @@
 
 [](id:step1)
 ### 步骤1：完成前序步骤
-请参考文档 [导入 SDK 到项目中](https://tcloud-doc.isd.com/document/product/647/32173?!preview) 完成 SDK 的导入和 App 权限的配置。
-请参考文档 [进入房间](https://tcloud-doc.isd.com/document/product/647/74634?!preview) 完成进房流程。
+请参考文档 [导入 SDK 到项目中](https://cloud.tencent.com/document/product/647/32173) 完成 SDK 的导入和 App 权限的配置。
+请参考文档 [进入房间](https://cloud.tencent.com/document/product/647/74634) 完成进房流程。
 
 [](id:step2)
 ### 步骤2：主动退出当前房间

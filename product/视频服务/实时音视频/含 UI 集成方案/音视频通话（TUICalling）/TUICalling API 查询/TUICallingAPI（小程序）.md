@@ -2,6 +2,8 @@
 TUICalling 小程序组件是基于腾讯云实时音视频（TRTC）和腾讯云信令 SDK（TSignalling）组合而成，支持1V1，多人场景下的视频通话。TUICalling 是一个开源组件，依赖闭源的信令 SDK（TSignalling）进行状态管理，通过 C2C 通信，完成信令传递。组件可快速服务线上客服，咨询，医疗问诊，跨端实时通话等应用场景。您可前往 [**Github**](https://github.com/tencentyun/TUICalling/tree/main/MiniProgram) 或单击 [**ZIP**](https://web.sdk.qcloud.com/component/trtccalling/download/trtc-calling-miniapp.zip)，下载相关 SDK 及配套的 Demo 源码。
 ![](https://web.sdk.qcloud.com/component/trtccalling/doc/miniapp/6b1368e2186abcd5126fc1c165f2fb78.png)
 
+>?TUIKit 系列组件同时使用了腾讯云 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269/42440) 两个基础 PaaS 服务，开通实时音视频后会同步开通即时通信IM服务。即时通信 IM 服务详细计费规则请参见 [即时通信 - 价格说明](https://cloud.tencent.com/document/product/269/11673)，TRTC 开通会默认关联开通 IM SDK 的体验版，仅支持100个 DAU。
+
 ## 环境要求
 - 微信 App iOS 最低版本要求：7.0.9。
 - 微信 App Android 最低版本要求：7.0.8。

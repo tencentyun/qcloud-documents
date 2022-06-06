@@ -16,7 +16,7 @@
 
 如果您希望控制摄像头的各种控制参数，可以用过调用 **TXDeviceManager** 接口来完成“切换前后摄像头”、“设置对焦模式“、“打开、关闭闪光灯”等一系列操作。
 
-如果您希望调节美颜效果和画面质量，我们会分别在 [开启美颜磨皮]() 和 [设定画面质量]() 中进行详细介绍。
+如果您希望调节美颜效果和画面质量，我们会分别在 [开启美颜磨皮](https://cloud.tencent.com/document/product/647/68505) 和 [设定画面质量](https://cloud.tencent.com/document/product/647/32236) 中进行详细介绍。
 
 <dx-codeblock>
 ::: Android  java
@@ -119,7 +119,7 @@ trtc_cloud_->startLocalAudio(TRTCAudioQualityMusic);
 [](id:step4)
 ### 步骤4：进入 TRTC 房间
 
-参考文档 [进入房间](https://tcloud-doc.isd.com/document/product/647/74634?!preview) 让当前用户进入 TRTC 房间。一旦进入房间后，SDK 便会开始向房间中的其他用户发布自己的音频流。
+参考文档 [进入房间](https://cloud.tencent.com/document/product/647/74634) 让当前用户进入 TRTC 房间。一旦进入房间后，SDK 便会开始向房间中的其他用户发布自己的音频流。
 
 >! 当然，您可以在进入房间（enterRoom）后再启动摄像头预览和麦克风采集，不过在直播场景下，我们需要先给主播一个测试麦克风和调整美颜的时间，所以更常见的做法是先启动摄像头和麦克风再进入房间。
 

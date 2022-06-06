@@ -5,7 +5,7 @@
 
 [](id:step1)
 ### 步骤1：完成前序步骤
-请参考文档 [导入 SDK 到项目中](https://tcloud-doc.isd.com/document/product/647/38549?!preview) 完成 SDK 的导入和配置。
+请参考文档 [导入 SDK 到项目中](https://cloud.tencent.com/document/product/647/38549) 完成 SDK 的导入和配置。
 
 [](id:step2)
 ### 步骤2：打开摄像头预览
@@ -15,7 +15,7 @@
 
 ```javascript
 // 设置本地画面的预览模式：开启左右镜像，设置画面为填充模式
-import { 
+import TRTCCloud, { 
 	TRTCRenderParams, TRTCVideoRotation,
 	TRTCVideoFillMode, TRTCVideoMirrorType
 } from 'trtc-electron-sdk';
@@ -25,6 +25,7 @@ const param = new TRTCRenderParams(
 	TRTCVideoFillMode.TRTCVideoFillMode_Fill,
 	TRTCVideoMirrorType.TRTCVideoMirrorType_Auto
 );
+const rtcCloud = new TRTCCloud();
 rtcCloud.setLocalRenderParams(param);
 const cameraVideoDom = document.querySelector('.camera-dom');
 rtcCloud.startLocalPreview(cameraVideoDom);
@@ -52,8 +53,7 @@ rtcCloud.startLocalAudio(TRTCAudioQuality.TRTCAudioQualityMusic);
 
 [](id:step4)
 ### 步骤4：进入 TRTC 房间
-
-参考文档 [进入房间](https://tcloud-doc.isd.com/document/product/647/74635?!preview) 让当前用户进入 TRTC 房间。一旦进入房间后，SDK 便会开始向房间中的其他用户发布自己的音频流。
+参考文档 [进入房间](https://cloud.tencent.com/document/product/647/74635) 让当前用户进入 TRTC 房间。一旦进入房间后，SDK 便会开始向房间中的其他用户发布自己的音频流。
 
 >! 当然，您可以在进入房间（enterRoom）后再启动摄像头预览和麦克风采集，不过在直播场景下，我们需要先给主播一个测试麦克风和调整美颜的时间，所以更常见的做法是先启动摄像头和麦克风再进入房间。
 

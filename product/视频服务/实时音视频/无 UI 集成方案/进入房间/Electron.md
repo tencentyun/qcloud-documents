@@ -5,15 +5,15 @@
 
 [](id:step1)
 ### 步骤1：导入 SDK
-请参考文档 [导入 SDK 到项目中](https://cloud.tencent.com/document/product/647/38549?!editLang=zh&!preview) 完成 SDK 的导入工作。
+请参考文档 [导入 SDK 到项目中](https://cloud.tencent.com/document/product/647/38549) 完成 SDK 的导入工作。
 
 [](id:step2)
 ### 步骤2：创建 SDK 实例
+
 ```javascript
 import TRTCCloud from 'trtc-electron-sdk';
 const rtcCloud = new TRTCCloud();
 ```
-
 
 [](id:step3)
 ### 步骤3：监听 SDK 的事件
@@ -21,13 +21,13 @@ const rtcCloud = new TRTCCloud();
 
 ```javascript
 function onError(errCode, errMsg) {
-	// errorCode 可参考 https://cloud.tencent.com/document/product/647/32257#.E9.94.99.E8.AF.AF.E7.A0.81.E8.A1.A8
-	console.log(errCode, errMsg);
+  // errorCode 可参考 https://cloud.tencent.com/document/product/647/32257#.E9.94.99.E8.AF.AF.E7.A0.81.E8.A1.A8
+  console.log(errCode, errMsg);
 }
 
 function onWarning(warningCode, warningMsg) {
-	// warningCode 可参考 https://cloud.tencent.com/document/product/647/32257#.E8.AD.A6.E5.91.8A.E7.A0.81.E8.A1.A8
-	console.log(warningCode, warningMsg);
+  // warningCode 可参考 https://cloud.tencent.com/document/product/647/32257#.E8.AD.A6.E5.91.8A.E7.A0.81.E8.A1.A8
+  console.log(warningCode, warningMsg);
 }
 
 rtcCloud.on('onError', onError);
@@ -40,11 +40,8 @@ rtcCloud.on('onWarning', onWarning);
 
 #### 参数一：TRTCAppScene
 该参数用于指定您的应用场景，即**在线直播**还是**实时通话**：
-- **实时通话：**
-包含 `TRTCAppSceneVideoCall` 和 `TRTCAppSceneAudioCall` 两个可选项，分别是视频通话和语音通话，该模式适合 1对1 的音视频通话，或者参会人数在 300 人以内的在线会议。
-
-- **在线直播：**
-包含 `TRTCAppSceneLIVE` 和 `TRTCAppSceneVoiceChatRoom` 两个可选项，分别是视频直播和语音直播，该模式适合十万人以内的在线直播场景，但需要您在接下来介绍的 TRTCParams 参数中指定 **角色(role)** 这个字段，也就是将房间中的用户区分为 **主播(anchor)** 和 **观众(audience)** 两种不同的角色。
+- **实时通话：**包含 `TRTCAppSceneVideoCall` 和 `TRTCAppSceneAudioCall` 两个可选项，分别是视频通话和语音通话，该模式适合 1对1 的音视频通话，或者参会人数在 300 人以内的在线会议。
+- **在线直播：**包含 `TRTCAppSceneLIVE` 和 `TRTCAppSceneVoiceChatRoom` 两个可选项，分别是视频直播和语音直播，该模式适合十万人以内的在线直播场景，但需要您在接下来介绍的 TRTCParams 参数中指定 **角色(role)** 这个字段，也就是将房间中的用户区分为 **主播(anchor)** 和 **观众(audience)** 两种不同的角色。
 
 #### 参数二：TRTCParams
 TRTCParams 由很多的字段构成，但通常您只需要关心如下几个字段的填写：
@@ -63,39 +60,37 @@ TRTCParams 由很多的字段构成，但通常您只需要关心如下几个字
 >- 每个端在应用场景 appScene 上必须要进行统一，否则会出现一些不可预料的问题。
 
 [](id:step5)
-### 步骤5：进入房间（enterRoom）
-在准备好步骤4中两个参数（TRTCAppScene 和 TRTCParams）后，就可以调用 enterRoom 接口函数进入房间了。
-// Please replace each field in TRTCParams with your own parameters
+### 步骤5：进入房间(enterRoom)
+在准备好 [步骤4](#step4) 中两个参数（TRTCAppScene 和 TRTCParams）后，就可以调用 enterRoom 接口函数进入房间了。
 
 ```javascript
 import { TRTCParams, TRTCRoleType, TRTCAppScene } from 'trtc-electron-sdk';
 
 const param = new TRTCParams();
-params.sdkAppId = 1400000123;  // Please replace with your own SDKAppID
-params.userId = "denny";       // Please replace with your own userid  
-params.roomId = 123321;        // Please replace with your own room number
-params.userSig = "xxx";        // Please replace with your own userSig
+params.sdkAppId = 1400000123;
+params.userId = "denny";  
+params.roomId = 123321;
+params.userSig = "xxx";
 params.role = TRTCRoleType.TRTCRoleAnchor;
 
 // 如果您的场景是“在线直播”，请将应用场景设置为 TRTC_APP_SCENE_LIVE
-// If your application scenario is a video call between several people, please use "TRTC_APP_SCENE_LIVE"
 rtcCloud.enterRoom(param, TRTCAppScene.TRTCAppSceneLIVE);
 ```
 
-**事件回调**
-如果进入房间成功，SDK 会回调 onEnterRoom(result) 事件，其中 result 会是一个大于 0 的数值，代表加入房间所消耗的时间，单位为毫秒（ms）。
-如果进入房间失败，SDK 同样会回调 onEnterRoom(result) 事件，但参数 `result` 会是一个负数，其数值为进房失败的错误码。
+**事件回调：**
+- 如果进入房间成功，SDK 会回调 onEnterRoom(result) 事件，其中 result 会是一个大于 0 的数值，代表加入房间所消耗的时间，单位为毫秒（ms）。
+- 如果进入房间失败，SDK 同样会回调 onEnterRoom(result) 事件，但参数 `result` 会是一个负数，其数值为进房失败的错误码。
 
 ```javascript
 function onEnterRoom(result) {
-	// onEnterRoom 参见 https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCallback.html#event:onEnterRoom
-	if (result > 0) {
-		console.log('Enter room succeed');
-	} else {
-		// 参见进房错误码 https://cloud.tencent.com/document/product/647/32257#.E8.BF.9B.E6.88.BF.E7.9B.B8.E5.85.B3.E9.94.99.E8.AF.AF.E7.A0.81
-		console.log('Enter room failed');
-	}
-	
+  // onEnterRoom 参见 https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCallback.html#event:onEnterRoom
+  if (result > 0) {
+    console.log('Enter room succeed');
+  } else {
+    // 参见进房错误码 https://cloud.tencent.com/document/product/647/32257#.E8.BF.9B.E6.88.BF.E7.9B.B8.E5.85.B3.E9.94.99.E8.AF.AF.E7.A0.81
+    console.log('Enter room failed');
+  }
+  
 }
 
 rtcCloud.on('onEnterRoom', onEnterRoom);

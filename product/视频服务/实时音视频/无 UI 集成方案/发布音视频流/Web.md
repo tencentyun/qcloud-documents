@@ -8,7 +8,7 @@
 
 [](id:step1)
 ## 步骤1：完成前序步骤
-可以参考文档 [进入房间](https://tcloud-doc.isd.com/document/product/647/74636?!preview)，创建 Client 并进入房间，为接下来发布音视频流做准备。
+可以参考文档 [进入房间](https://cloud.tencent.com/document/product/647/74636)，创建 Client 并进入房间，为接下来发布音视频流做准备。
 
 
 [](id:step2)
