@@ -21,11 +21,11 @@
 - 全平台：修复不手动设置3A场景下开启自定义音频采集会打开3A。
 - 全平台：修复音频自定义渲染偶现的杂音问题。
 - iOS：修复中途设置 log 路径（setLogDirPath）且沙盒变化时，内存泄漏的问题。
-- iOS & Mac：在系统音频服务异常时，BGM 连播场景的崩溃问题。
+- iOS&Mac：在系统音频服务异常时，BGM 连播场景的崩溃问题。
 - Android：修复偶现的蓝牙耳机不断重连接问题。
 - Android：修复部分手机上偶现的无声问题。
 - Android：修复红米等部分机型反复插拔耳机导致的崩溃问题。
-- Windows & iOS：修复截图失败的问题。
+- Windows&iOS：修复截图失败的问题。
 - Windows：修复点播播放器开启镜像后，关闭 vod 必现 crash。
 - Windows：修复播片 pts 未使用 generateCustomPts，多个播片播放可能导致 pts 回退问题。
 - Windows：修复偶现选择禁画显示图片后崩溃问题。
