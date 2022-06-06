@@ -169,7 +169,7 @@ COS 控制台提供默认 CDN 加速、自定义 CDN 加速两种方式。
 
 #### 5. 解析域名
 
-在自定义域名接入 CDN 后，系统会自动为您分配一个 CNAME 域名（以`.cdn.dnsv1.com`为后缀)，您需要在域名服务提供商处完成 CNAME 的配置，具体请见 [CNAME 配置](https://cloud.tencent.com/document/product/228/3121) 。
+在自定义域名接入 CDN 后，系统会自动为您分配一个 CNAME 域名（以`.cdn.dnsv1.com`为后缀），您需要在域名服务提供商处完成 CNAME 的配置，具体请见 [CNAME 配置](https://cloud.tencent.com/document/product/228/3121) 。
 
 >!CNAME 域名不能直接访问。
 
