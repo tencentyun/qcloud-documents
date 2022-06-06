@@ -3,7 +3,7 @@
 **新特性：**
 - 全平台：支持平滑切换角色，音视频播放不会因为切角色短暂中断。
 - iOS：支持立体声音频采集。
-- Android：在 Android 10 及以上系统支持采集系统播放音频（详见：startSystemAudioLoopback）。
+- Android：在 Android 10 及以上系统支持采集系统播放音频（startSystemAudioLoopback）。
 
 **功能优化：** 
 - 全平台：优化音乐场景下的回声消除能力，音质效果更自然。
@@ -15,9 +15,9 @@
 - Windows：优化立体声采集逻辑，有效避免漏回声问题。
 
 **缺陷修复：**
-- 全平台：修复退房回调（onExitRoom）的 reason 异常问题
-- 全平台：修复上行自定义视频发送时，时间戳相等情况下的黑屏问题
-- 全平台：修复先 muteLocalAudio 再 startLocalAudio音频时 crash 问题
+- 全平台：修复退房回调（onExitRoom）的 reason 异常问题。
+- 全平台：修复上行自定义视频发送时，时间戳相等情况下的黑屏问题。
+- 全平台：修复先 muteLocalAudio 再 startLocalAudio 音频时 crash 问题。
 - 全平台：修复不手动设置3A场景下开启自定义音频采集会打开3A。
 - 全平台：修复音频自定义渲染偶现的杂音问题。
 - iOS：修复中途设置 log 路径（setLogDirPath）且沙盒变化时，内存泄漏的问题。
@@ -28,7 +28,7 @@
 - Windows & iOS：修复截图失败的问题。
 - Windows：修复点播播放器开启镜像后，关闭 vod 必现 crash。
 - Windows：修复播片 pts 未使用 generateCustomPts，多个播片播放可能导致 pts 回退问题。
-- Windows：修复偶现-选择禁画显示图片后崩溃。
+- Windows：修复偶现选择禁画显示图片后崩溃问题。
 
 
 ### Version 10.0 @ 2022.05.17
