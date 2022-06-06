@@ -5,4 +5,4 @@
 ## 原理介绍
 EMR 容器集群在创建时，会在当前所选地域自动创建一个隐藏的 EMR 专用 EKS 集群，由 EMR 管控系统在 EKS 集群自动创建 EMR 容器集群资源。
 当 EMR 容器集群提交 Spark 作业时，SparkOperator 会根据作业需求自动创建 Driver 和 Executor POD 资源，作业结束后释放相关 POD 资源。
-![](https://qcloudimg.tencent-cloud.cn/raw/89d3bdb1b581a5d5f158b79ccdc5a0ab.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/49a1c52271d128484ec17101f03d6278.png)
