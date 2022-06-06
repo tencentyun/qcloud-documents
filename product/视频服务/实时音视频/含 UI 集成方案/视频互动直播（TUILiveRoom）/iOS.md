@@ -31,11 +31,11 @@ pod 'TXAppBasic', :path => "./TUILiveRoom/TXAppBasic/"
 # :path => "指向TUIBeauty.podspec的相对路径"
 pod 'TUIBeauty', :path => "./TUILiveRoom/TUIBeauty/"
 # :path => "指向TUIBeauty.podspec的相对路径"
-pod 'TUIAudioEffect', :path => "./TUILiveRoom/TUIBeauty/"
+pod 'TUIAudioEffect', :path => "./TUILiveRoom/TUIAudioEffect/"
 # :path => "指向TUIBeauty.podspec的相对路径"
-pod 'TUIBarrage', :path => "./TUILiveRoom/TUIBeauty/"
+pod 'TUIBarrage', :path => "./TUILiveRoom/TUIBarrage/"
 # :path => "指向TUIBeauty.podspec的相对路径"
-pod 'TUIGift', :path => "./TUILiveRoom/TUIBeauty/"
+pod 'TUIGift', :path => "./TUILiveRoom/TUIGift/"
 ```
 
 >!  
