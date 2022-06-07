@@ -55,7 +55,7 @@ c. 在弹出的对话框，逐步完成设置，然后单击**提交**即可完�
 1. 在本地下载并安装 [SQL Server Management Studio](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16)。SQL Server Management Studio 相关介绍请参见 [使用 SQL Server Management Studio](https://docs.microsoft.com/zh-cn/sql/ssms/sql-server-management-studio-ssms?view=sql-server-ver15)。
 2. 本地启动 SQL Server Management Studio。在 **Connect to server**  页面，填写相关信息连接云数据库。单击 **Connect**，稍等几分钟后，SQL Server Management Studio 将连接到您的数据库实例。
  - **Server type**：选择 Database Engine。
- - **Server name**：本机 IP 地址和端口号，需用英文逗号隔开，例如 `10.0.0.1,4000`。
+ - **Server name**：CLB 的 IP 地址和端口号，需用英文逗号隔开，例如 `10.0.0.1,4000`。
  -  **Authentication**：选择 SQL Server Authentication。
  -  **Login 和 Password**：在实例**帐号管理**页创建帐号时，填写的帐号名和密码。
 ![](https://main.qcloudimg.com/raw/14d90aa2eda6c841680f0fdc74db8219.png)
