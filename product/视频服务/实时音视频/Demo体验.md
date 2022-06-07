@@ -10,7 +10,7 @@
     border-radius: 1px;
     text-align: center;
     padding: 0 15px;
-    margin: 10px 13px 10px 2px;
+    margin: 10px 13px 10px 7px;
     vertical-align: top;
 }
 
@@ -220,7 +220,7 @@ ul.rno-tabs-operation {
             <div class="demo-item-download-btn" onclick="window.open('https://liteav.sdk.qcloud.com/app/install/TXLiteAVSDK_Win_Demo.exe');reportEvent({name: 'demo-click-native', ext1: 'windows'});">立即下载</div>
         </div>
     </div>
-    <div class="preview-demo-item style-single-download-btn">
+    <div class="preview-demo-item style-single-download-btn" style="margin-right:0">
         <div class="demo-item-header">
             <div class="demo-logo-wrapper">
                 <img src="https://qcloudimg.tencent-cloud.cn/raw/2f867a868913c590fbb2929b8b240f45.svg" alt="">
@@ -278,7 +278,7 @@ ul.rno-tabs-operation {
             <div class="demo-item-download-btn" onclick="window.open('https://comm.qq.com/im_demo_download/trtc_flutter_demo.apk');reportEvent({name: 'demo-click-flutter', ext1: 'android'});">立即下载</div>
         </div>
     </div>
-    <div class="preview-demo-item style-electron">
+    <div class="preview-demo-item style-electron" style="margin-right:0">
         <div class="demo-item-header">
             <div class="demo-logo-wrapper">
                 <img src="https://qcloudimg.tencent-cloud.cn/raw/96a6b7e86eb8d7a93f830d3686d3164c.svg" alt="">
