@@ -91,7 +91,7 @@
     line-height: 24px;
 }
 .tab-bottom{
-    width: 978;
+    width: 100%;
     height: 172px;
     background: #EDF1F5;
     display:flex;
