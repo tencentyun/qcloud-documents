@@ -3,14 +3,14 @@
 .inbuttom{height: 30px;width: 150px;min-width: 24px;padding: 0 20px;background-color: #00a4ff;color: #fff;border: 1px solid #00a4ff;line-height: 30px;text-align: center;display: inline-block;cursor: pointer;outline: 0 none;box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;}
 .preview-demo-section .preview-demo-item {
     display: inline-block;
-    width: 186px;
+    width: 226px;
     height: 300px;
     background: #fff;
-    box-shadow: 0 1px 8px 0 rgba(156,175,204,0.25);
+    box-shadow: 0 1px 8px 0 rgb(156 175 204 / 25%);
     border-radius: 1px;
     text-align: center;
     padding: 0 15px;
-    margin: 10px 10px 10px 0;
+    margin: 10px 13px 10px 2px;
     vertical-align: top;
 }
 
@@ -91,7 +91,7 @@
     line-height: 24px;
 }
 .tab-bottom{
-    width: 100%;
+    width: 978;
     height: 172px;
     background: #EDF1F5;
     display:flex;
