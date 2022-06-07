@@ -1,17 +1,19 @@
 
 本文介绍在 Windows 本地通过 SQL Server Management Studio（SSMS）连接到 SQL Server 实例，并运行简单查询的操作。
+
 ## 连接场景
 根据云上数据库实例类型的不同，连接方式也有所差异：
 若从本地连接云上高可用/集群版 SQL Server 实例，可通过以下3种方案进行连接。
-- 方案1：通过 [VPN](https://cloud.tencent.com/document/product/554) 或 [专线](https://cloud.tencent.com/document/product/216) 或 [云联网](https://cloud.tencent.com/document/product/877/18768) 连接，更安全更稳定（推荐）。
-- 方案2：通过外网连接，可[绑定 CLB 开启外网服务](#CLBKQWW)。
-- 方案3：需要借助[具有外网 IP 的 Linux 云服务器进行端口映射](#WWIPLJSL)。
+1. 通过 [VPN](https://cloud.tencent.com/document/product/554) 或 [专线](https://cloud.tencent.com/document/product/216) 或 [云联网](https://cloud.tencent.com/document/product/877/18768) 连接，更安全更稳定（推荐）。
+2. 通过外网连接，可 [绑定 CLB 开启外网服务](#CLBKQWW)。
+3. 借助 [具有外网 IP 的 Linux 云服务器进行端口映射](#WWIPLJSL)。
 
 若从本地连接基础版 SQL Server 实例，可通过以下2种方案进行连接。
-- 方案1：通过 [VPN](https://cloud.tencent.com/document/product/554) 或 [专线](https://cloud.tencent.com/document/product/216) 或 [云联网](https://cloud.tencent.com/document/product/877/18768) 连接，更安全更稳定（推荐）。
-- 方案2：需要借助[具有外网 IP 的 Linux 云服务器进行端口映射](#WWIPLJSL)。
+1. 通过 [VPN](https://cloud.tencent.com/document/product/554) 或 [专线](https://cloud.tencent.com/document/product/216) 或 [云联网](https://cloud.tencent.com/document/product/877/18768) 连接，更安全更稳定（推荐）。
+2. 借助 [具有外网 IP 的 Linux 云服务器进行端口映射](#WWIPLJSL)。
 
 以下分别详细介绍通过绑定 CLB 开启外网服务在本地通过 SSMS 连接到 SQL Server 实例及借助具有外网 IP 的 Linux 云服务器进行端口映射，在本地通过 SSMS 连接到 SQL Server 实例这两种方案。
+
 ## 方案一：[绑定 CLB 开启外网服务在本地通过 SSMS 连接到 SQL Server 实例](id:CLBKQWW)
 ### 步骤1：新购负载均衡
 >?如果在云数据库 SQLServer 同地域已经有负载均衡实例，可以不用购买。

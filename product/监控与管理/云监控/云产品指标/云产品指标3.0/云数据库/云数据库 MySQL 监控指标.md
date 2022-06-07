@@ -15,7 +15,7 @@ Namespace=QCE/CDB
 | IOPS          | IOPS         | 每秒的输入输出量(或读写次数)                                 | 次/秒 | InstanceId、InstanceType（选填） | 5s、60s、300s、3600s、86400s |
 | MemoryUse     | 内存占用     | 允许闲时超用，实际内存占用可能大于购买规格                   | MB     | InstanceId、InstanceType（选填） | 5s、60s、300s、3600s、86400s |
 | MemoryUseRate | 内存利用率   | 允许闲时超用，内存利用率可能大于100%                         | %     | InstanceId、InstanceType（选填） | 5s、60s、300s、3600s、86400s |
-| RealCapacity  | 磁盘使用空间 | 仅包括 MySQL 数据目录，不含  binlog、relaylog、undolog、errorlog、slowlog 日志空间 | MB    | InstanceId、InstanceType（选填） | 5s、60s、300s、3600s、86400s |
+| RealCapacity  | 数据使用空间 | 仅包括 MySQL 数据目录，不含  binlog、relaylog、undolog、errorlog、slowlog 日志空间 | MB    | InstanceId、InstanceType（选填） | 5s、60s、300s、3600s、86400s |
 | VolumeRate    | 磁盘利用率   | 磁盘使用空间/实例购买空间                                    | %     | InstanceId、InstanceType（选填） | 5s、60s、300s、3600s、86400s |
 
 ### 引擎监控（普通）- MyISAM

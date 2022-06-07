@@ -18,18 +18,18 @@ SDK 3.0是云 API 3.0平台的配套工具，您可以通过 SDK 使用所有 [�
 
 ## 相关资料
 - 各个接口及其参数的详细介绍请参见 [API 文档](https://cloud.tencent.com/document/product/382/52077)。
-- 下载 SDK 源码请访问 [Golang SDK 源码](https://github.com/TencentCloud/tencentcloud-sdk-go)。
+- 下载 SDK 源码请访问 [Github 仓库](https://github.com/tencentcloud/tencentcloud-sdk-go) 或者 [Gitee 仓库](https://gitee.com/tencentcloud/tencentcloud-sdk-go)。
 
 ## 安装 SDK
 ### 通过 go get 安装（推荐）
-推荐使用语言自带的工具安装 SDK：
-```
- go get -u github.com/tencentcloud/tencentcloud-sdk-go
-```
+
+- Github 仓库参考 [通过 go get 安装（推荐）](https://github.com/tencentcloud/tencentcloud-sdk-go#%E9%80%9A%E8%BF%87go-get%E5%AE%89%E8%A3%85%E6%8E%A8%E8%8D%90)
+- Gitee 仓库参考 [通过 go get 安装（推荐）](https://gitee.com/tencentcloud/tencentcloud-sdk-go#%E9%80%9A%E8%BF%87go-get%E5%AE%89%E8%A3%85%E6%8E%A8%E8%8D%90)
 
 ### 通过源码安装
-1. 前往 [Github 代码托管地址](https://github.com/tencentcloud/tencentcloud-sdk-go) 或 [快速下载地址](https://tencentcloud-sdk-1253896243.file.myqcloud.com/tencentcloud-sdk-go/tencentcloud-sdk-go.zip) 下载最新代码。
-2. 解压后安装到`$GOPATH/src/github.com/tencentcloud`目录下。
+
+- Github 仓库参考 [通过源码安装](https://github.com/tencentcloud/tencentcloud-sdk-go#%E9%80%9A%E8%BF%87%E6%BA%90%E7%A0%81%E5%AE%89%E8%A3%85)
+- Gitee 仓库参考 [通过源码安装](https://gitee.com/tencentcloud/tencentcloud-sdk-go#%E9%80%9A%E8%BF%87%E6%BA%90%E7%A0%81%E5%AE%89%E8%A3%85)
 
 ## 示例代码
 >?所有示例代码仅作参考，无法直接编译和运行，需根据实际情况进行修改，您也可以根据实际需求使用 [API 3.0 Explorer](https://console.cloud.tencent.com/api/explorer?Product=sms&Version=2021-01-11&Action=SendSms) 自动化生成 Demo 代码。
@@ -38,7 +38,7 @@ SDK 3.0是云 API 3.0平台的配套工具，您可以通过 SDK 使用所有 [�
 
 ### 发送短信
 
-``` Go
+```go
 package main
     
 import (
@@ -154,7 +154,7 @@ func main() {
 
 ### 拉取回执状态
 
-``` Go
+```go
 package main
     
 import (
@@ -240,7 +240,7 @@ func main() {
 
 ### 统计短信发送数据
 
-``` Go
+```go
 package main
     
 import (
@@ -332,7 +332,7 @@ func main() {
 ```
 
 ### 申请短信模板
-``` Go
+```go
 package main
     
 import (
