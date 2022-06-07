@@ -1,6 +1,40 @@
 <style>
-.markdown-text-box table th,.markdown-text-box table td{text-align: center;}
-.inbuttom{height: 30px;width: 150px;min-width: 24px;padding: 0 20px;background-color: #00a4ff;color: #fff;border: 1px solid #00a4ff;line-height: 30px;text-align: center;display: inline-block;cursor: pointer;outline: 0 none;box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;}
+.markdown-text-box table th,.markdown-text-box table td{
+    text-align: center;
+}
+.inbuttom{
+    height: 30px;
+    width: 150px;
+    min-width: 24px;
+    padding: 0 20px;
+    background-color: #00a4ff;
+    color: #fff;
+    border: 1px solid #00a4ff;
+    line-height: 30px;
+    text-align: center;
+    display: inline-block;
+    cursor: pointer;
+    outline: 0 none;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-size: 12px;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+ul.rno-tabs-operation {
+    border-bottom: #E5E8ED 1px solid;
+    position: relative;
+    padding-left: 0;
+    font-size: 0;
+    margin-bottom: 0;
+    height: 43px;
+    background-color: #F4F7FA;
+}
+.markdown-text-box .rno-tabs-operation {
+    margin: 0;
+    padding-top: 8px;
+    height: 41px;
+}
 .preview-demo-section .preview-demo-item {
     display: inline-block;
     width: 226px;
@@ -146,17 +180,20 @@
     background-color: #F4F7FA;
 }
 ul.rno-tabs-operation {
-    padding-top: 4px;
     border-bottom: #E5E8ED 1px solid;
     position: relative;
     padding-left: 0;
     font-size: 0;
-    margin-bottom: 0;
     height: 58px;
     background-color: #F4F7FA;
 }
+.markdown-text-box .rno-tabs-operation {
+    margin: 0px;
+    padding-top: 0;
+}
 .rno-tabs-operation-item.active {
     border-bottom-color: #06A4FF;
+		top: -7px;
 }
 .rno-tabs-operation-item {
     display: inline-block;
@@ -171,6 +208,7 @@ ul.rno-tabs-operation {
     border-bottom: 2px solid transparent;
     height: 31px;
     margin-top: 19px;
+		top: -7px;
 }
 .rno-tabs-operation-item.active>a {
     color: #00a4ff;
