@@ -218,7 +218,7 @@ GRANT RELOAD ON *.* TO 'elastic'@'172.16.32.44';
 	2018/06/02 16:13:21 INFO  save position (mysql-bin.000001, 120)
 ```
 9. 测试：向 MySQL 中插入、修改、删除数据，都可以反映到 ES 中。
-10. ES 7.x 只允许存在(_doc)的表名,程序插入时type字段控制 表名,因此旧版本不受影响. 新版本因只允许_doc 所以type字段只能写_doc.
+10. ES 7.x 只允许存在(_doc)的表名,程序插入时 type 字段控制 表名,因此旧版本不受影响. 新版本因只允许_doc 所以 type 字段只能写_doc。
 ```
 [[rule]]
 schema = "rule1"
