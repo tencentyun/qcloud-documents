@@ -351,12 +351,12 @@
    <tr>
     <td rowspan='4' style="text-align:center">安装包增量</td>
     <td style="text-align:center">Android</td>
-    <td style="text-align:center">armv7: 3.97M<br>arm64: 4.33M</td>
-    <td style="text-align:center">armv7: 9.15M<br>arm64: 10.4M</td>
+    <td style="text-align:center">armv7：3.97M<br>arm64：4.33M</td>
+    <td style="text-align:center">armv7：9.15M<br>arm64：10.4M</td>
   </tr>
     <tr>
     <td style="text-align:center">iOS</td>
-    <td style="text-align:center">arm64: 3.15M</td>
+    <td style="text-align:center">arm64：3.15M</td>
     <td style="text-align:center">N/A</td>
   </tr>
 </table>
