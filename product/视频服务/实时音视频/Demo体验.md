@@ -178,7 +178,7 @@ ul.rno-tabs-operation {
 </style>
 
 <div class="preview-demo-section" id="demo-card">
-    <div class="preview-demo-item style-qrcode">
+    <div class="preview-demo-item style-qrcode" style="margin-left:0">
         <div class="demo-item-header">
             <div class="demo-logo-wrapper">
                 <img src="https://qcloudimg.tencent-cloud.cn/raw/53be7f245c4d11d3aefcb6dc53918757.svg" alt="">
@@ -186,7 +186,7 @@ ul.rno-tabs-operation {
             <div class="demo-item-platform">Android</div>
         </div>
         <div class="demo-item-desc">
-            音视频通话·多人会议<br>KTV语音聊天·互动直播等
+            音视频通话·多人会议<br>KTV 语音聊天·互动直播等
         </div>
         <div class="demo-item-download">
             <img src="https://main.qcloudimg.com/raw/8a603ced0a61983018c794df842f7029.png" data-nonescope="true">
@@ -200,7 +200,7 @@ ul.rno-tabs-operation {
             <div class="demo-item-platform">iOS</div>
         </div>
         <div class="demo-item-desc">
-            音视频通话·多人会议<br>KTV语音聊天·互动直播等
+            音视频通话·多人会议<br>KTV 语音聊天·互动直播等
         </div>
         <div class="demo-item-download">
             <img src="https://web.sdk.qcloud.com/document/assets/ios-download.png" data-nonescope="true">
@@ -234,7 +234,7 @@ ul.rno-tabs-operation {
             <div class="demo-item-download-btn" onclick="window.open('https://liteav.sdk.qcloud.com/app/install/TXLiteAVSDK_Mac_Demo.tar.bz2');reportEvent({name: 'demo-click-native', ext1: 'windows'});">立即下载</div>
         </div>
     </div>
-          <div class="preview-demo-item style-qrcode">
+          <div class="preview-demo-item style-qrcode" style="margin-left:0">
         <div class="demo-item-header">
             <div class="demo-logo-wrapper">
                 <img src="https://qcloudimg.tencent-cloud.cn/raw/f86154130067ff386c90306fd71dfdce.svg" alt="">
@@ -245,7 +245,7 @@ ul.rno-tabs-operation {
             音视频通话·多人会议<br>语音聊天室等
         </div>
         <div class="demo-item-download">
-            <img src="https://s3-alpha-sig.figma.com/img/6c10/7ada/0eb496a2cfcfcc23e23bb42571be0d14?Expires=1655683200&Signature=Xf1uP-xpRXaC0w-WZta5aXhzg9Yl~jserZHQ8cqbm5SLorQl1weA0X-5nFW6xUo-gbwXK~YXz~yGc0utpG9L2RzyRocihYrihrRY9OzgO-Cdrla-JWmXYv6XFM0BBhmucXm5IJHoHhd0GgCI8NbZzQkAzY5799uZDZvD56tIqttkYeYt6BQduY5tnn4aC-b60AZ5QhORdRl3DPOLC5~ldhMMjbW7u3mfeQ4F56UTbGpa-6be7ujLa5i9m1Z-PC39~GhW7ywE18Db0ySwn8V3X1Tz7kR8HdBfgUjjrHxNI055pyLXoaG~jFTsIqeq~1Ocqm-PFxW-UjcP3jWx5~~mIA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA" data-nonescope="true">
+            <img src="https://qcloudimg.tencent-cloud.cn/raw/e0ffb1aeaf0ff8761277c78597aad01f.png" data-nonescope="true">
         </div>
     </div>
     <div class="preview-demo-item style-web">
