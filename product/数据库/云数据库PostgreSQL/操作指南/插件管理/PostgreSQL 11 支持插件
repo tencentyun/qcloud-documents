@@ -69,3 +69,4 @@
 <tr><td>pgcrypto</td><td>1.3</td><td>1.3</td><td>1.3</td><td>1.3</td><td>1.3</td></tr>
 <tr><td>cos_fdw</td><td>1</td><td>不支持</td><td>不支持</td><td>不支持</td><td>不支持</td></tr>
 <tr><td>topn</td><td>2.4.0</td><td>2.4.0</td><td>不支持</td><td>不支持</td><td>不支持</td></tr>
+</table>
