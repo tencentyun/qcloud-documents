@@ -26,7 +26,7 @@
 
 - http-flv
 
-## Demo示例
+## Demo 示例
 
 - 集成 SDK 到播放器（flv.js）编写 loader 示例代码，请参见 [此处](https://xp2p-1258344699.cos.ap-nanjing.myqcloud.com/demo/h5_flv_p2p/index.html)。
 - 集成 SDK 到播放器（flv.js）的 Demo，请参见 [为播放器编写loader](#m1)一节。
