@@ -22,7 +22,7 @@ SSL VPN 网关是 VPC 建立 SSL VPN 连接的出口网关 ，与 SSL 客户端�
 </tr>
 <tr>
 <td>可用区</td>
-<td>选择可用区</td>
+<td>选择可用区。</td>
 </tr>
 <tr>
 <td>协议类型</td>
@@ -47,7 +47,7 @@ SSL VPN 网关是 VPC 建立 SSL VPN 连接的出口网关 ，与 SSL 客户端�
 <tr>
 <tr>
 <td>计费方式</td>
-<td>默认使用按流量计费方式</td>
+<td>默认使用按流量计费方式。</td>
 </tr>
 <tr>
 </table>
