@@ -25,8 +25,8 @@
 
 ## 步骤3：登录轻量应用服务器 Linux 实例
 登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse/instance/index)，在服务器列表中找到刚购买的服务器，单击**登录**。
-Linux 实例将通过 Webshell 终端并以免密方式登录。
-![](https://qcloudimg.tencent-cloud.cn/raw/2a6ea6b733d1c70af4d2f46777cfaa00.png)
+Linux 实例将通过 Webshell 终端并以免密方式登录。登录成功后界面如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/846c617c31d43ab1f04b8ff0d42b8e71.png)
 
 
 
