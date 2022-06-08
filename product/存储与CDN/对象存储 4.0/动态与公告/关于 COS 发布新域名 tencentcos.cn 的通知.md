@@ -1,4 +1,4 @@
-2022年X月X日，对象存储（Cloud Object Storage，COS）将正式发布新域名 tencentcos.cn，旧域名 myqcloud.com 支持继续使用，但不支持 COS 后续的新增特性与功能。新域名具有更高的安全性和稳定性，建议用户优先使用新域名 tencentcos.cn。
+2022年7月25日，对象存储（Cloud Object Storage，COS）将正式发布新域名 tencentcos.cn，旧域名 myqcloud.com 支持继续使用，但不支持 COS 后续的新增特性与功能。新域名具有更高的安全性和稳定性，建议用户优先使用新域名 tencentcos.cn。
 
 
 >! 旧域名 myqcloud.com 支持继续使用，旧域名的原有特性仍然不受影响，但不再支持 COS 后续的新增特性。
