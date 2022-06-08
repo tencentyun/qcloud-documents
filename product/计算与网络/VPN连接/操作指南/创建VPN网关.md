@@ -13,7 +13,7 @@ VPN 网关是 VPN 连接服务的功能实例，因此在使用 VPN 连接实现
 >- 200Mbps、500Mbps和1000Mbps带宽仅支持新建网关，存量网关暂不支持。
 >- 如果 VPN 网关使用200Mbps、500Mbps和1000Mbps规格的带宽，VPN 通道加密协议建议使用 AES128+MD5。
 >
-![](https://qcloudimg.tencent-cloud.cn/raw/5930468229109601b94a48aea14018cf.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/89e5b6a631139b8c55cb11fcedbe7215.png)
 <table>
 <tr>
 <th>参数名称</th>
@@ -36,6 +36,11 @@ VPN 网关是 VPN 连接服务的功能实例，因此在使用 VPN 连接实现
 <td>支持 IPSec 和 SSL 两种协议类型。</td>
 </tr>
 <tr>
+<td>带宽上限</td>
+<td> 请根据业务实际情况，合理设置 VPN 网关带宽上限。
+</td>
+</tr>
+<tr>
 <td>关联网络</td>
 <td>此处表示您将创建云联网类型 VPN 还是私有网络类型的 VPN，通常我们也称为 CCN 型 VPN 网关、VPC 型 VPN 网关。<ul><li>如果您需要通过 VPN 连接实现与多 VPC 网络，或其他专线网络的互通，您可以勾选<b>云联网</b>。
 <dx-alert infotype="notice" title="">
@@ -46,11 +51,6 @@ VPN 网关是 VPN 连接服务的功能实例，因此在使用 VPN 连接实现
 <tr>
 <td>所属网络</td>
 <td>仅当关联网络为<b>私有网络</b>时，此处需要选择 VPN 网关将要关联的具体私有网络。</td>
-</tr>
-<tr>
-<td>带宽上限</td>
-<td> 请根据业务实际情况，合理设置 VPN 网关带宽上限。
-</td>
 </tr>
 <tr>
 <td>标签</td>
