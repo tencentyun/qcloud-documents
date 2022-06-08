@@ -15,7 +15,7 @@
 
 ### Java SDK 的默认超时时间是多少？
 
-Java SDK 默认连接超时时间为 45000ms，默认读写超时时间为 45000ms，可以使用 SDK 中的 SetConnectionTimeoutMs 方法和 SetReadWriteTimeoutMs 来进行调整。
+Java SDK 默认连接超时时间为 30000ms，默认读写超时时间为 30000ms，可以使用 SDK 中的 SetConnectionTimeoutMs 方法和 setSocketTimeout 来进行调整。
 
 ### Java SDK 上传速度慢，日志频繁打印 IOException，该如何处理？
 
