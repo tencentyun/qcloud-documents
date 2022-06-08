@@ -2,7 +2,6 @@
 
 <table>
 <thead><tr><th>插件名</th><th>v14.2_r1.1</th><th>v14.2_r1.0</th></tr></thead>
-<tbody>
 <tr><td>pg_hint_plan</td><td>1.4</td><td>1.4</td></tr>
 <tr><td>pg_prewarm</td><td>1.2</td><td>1.2</td></tr>
 <tr><td>pg_stat_error</td><td>不支持</td><td>不支持</td></tr>
@@ -69,3 +68,5 @@
 <tr><td>pgcrypto</td><td>1.3</td><td>1.3</td></tr>
 <tr><td>cos_fdw</td><td>1</td><td>不支持</td></tr>
 <tr><td>topn</td><td>2.4.0</td><td>2.4.0</td></tr>
+</table>
+
