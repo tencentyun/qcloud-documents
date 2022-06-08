@@ -80,8 +80,13 @@
     <td>支持</td>
     <td>不支持</td>
   </tr>
+	  <tr>
+  	<td>是否支持云端历史消息存储</td>
+  	<td colspan="4"><ul style="margin:0;padding-left:10px" ><li>体验版：7天</li><li>专业版 ：默认7天，最高支持 <a href="https://cloud.tencent.com/document/product/269/11673#zz">增值</a> 延长至360天</li><li>旗舰版 ：默认30天，最高支持 <a href="https://cloud.tencent.com/document/product/269/11673#zz">增值</a> 延长至360天</li></ul></td>
+  <td>不支持</td>
+  </tr>
   <tr>
-    <td>是否支持查看入群前消息记录</td>
+    <td>是否支持查看入群前漫游消息</td>
     <td>支持 <a href="https://console.cloud.tencent.com/im-detail/qun-setting">控制台</a> 配置</td>
     <td>支持 <a href="https://console.cloud.tencent.com/im-detail/qun-setting">控制台</a> 配置</td>
     <td>支持 <a href="https://console.cloud.tencent.com/im-detail/qun-setting">控制台</a> 配置</td>
@@ -111,11 +116,6 @@
     <td>支持 <a href="https://console.cloud.tencent.com/im-detail/qun-setting">控制台</a> 配置</td>
     <td>支持 <a href="https://console.cloud.tencent.com/im-detail/qun-setting">控制台</a> 配置</td>
     <td>支持 <a href="https://console.cloud.tencent.com/im-detail/qun-setting">控制台</a> 配置</td>
-  </tr>
-  <tr>
-  	<td>是否支持云端历史消息存储</td>
-  	<td colspan="4"><ul style="margin:0;padding-left:10px" ><li>体验版：7天</li><li>专业版 ：默认7天，最高支持 <a href="https://cloud.tencent.com/document/product/269/11673#zz">增值</a> 延长至360天</li><li>旗舰版 ：默认30天，最高支持 <a href="https://cloud.tencent.com/document/product/269/11673#zz">增值</a> 延长至360天</li></ul></td>
-  <td>不支持</td>
   </tr>
   <tr>
   <td>群组数量</td>
