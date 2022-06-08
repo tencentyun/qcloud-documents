@@ -240,7 +240,7 @@ Batch：256<br>
 - 对于 HCCPNV4h/A100，相比开源方案，2机16卡通过 LightCC 可将线性加速比从93.85%提升到95.63%。
 - 上述 benchmark 也支持除 ResNet50之外的其他模型，ModelName 请参考 [Keras Applications](https://keras.io/api/applications/)。
 - 上述 docker 镜像仅用于 demo，若您需使用自己的 docker 开发环境，请参考 [容器安装用户态 RDMA 驱动](https://cloud.tencent.com/document/product/1573/74101) 安装网卡驱动。
-- - 如需特定 OS/python/CUDA/tensorflow 版本的 LightCC 加速组件，请联系腾讯云售后获取。
+- 如需特定 OS/python/CUDA/tensorflow 版本的 LightCC 加速组件，请联系腾讯云售后获取。
 
 
 
