@@ -20,7 +20,7 @@
 | edge           |  16+   |
 | IE             | 不支持 |
 
->? 您可 [点击此处](https://xp2p-1258344699.cos.ap-nanjing.myqcloud.com/demo/h5-support/index.html) 查看浏览器是否支持以上特性
+> ? 您可 [点击此处](https://xp2p-1258344699.cos.ap-nanjing.myqcloud.com/demo/h5-support/index.html) 查看浏览器是否支持以上特性
 
 ### 2. 支持的流媒体格式
 
@@ -39,21 +39,21 @@
 
 ### `QVBP2P`
 
-QVBP2P 是sdk lib名称, 可以访问到一些常量和生成 qvbp2p实例, 如下`qvbp2p`表示sdk实例
+QVBP2P 是 sdk lib 名称, 可以访问到一些常量和生成 qvbp2p 实例, 如下 `qvbp2p` 表示 sdk 实例
 
 #### `构造函数`
 
-QVBP2P构造函数
+QVBP2P 构造函数
 
 ##### 语法
 
-```
+```typescript
 new QVBP2P(config);
 ```
 
 ##### 参数
 
-```
+```typescript
 type config = {
   debug?: boolean;   // true打开debug日志
   pcdnMixed: string; // 拉流域名, 邮件给出 
@@ -65,11 +65,13 @@ type config = {
 
 ##### 返回值
 
+```
 sdk 实例
+```
 
 ##### 例子
 
-```
+```typescript
 const { pcdnMixed, partner, domain, appId, bizId } = p2pClientConfig;
 const qvbp2p = new QVBP2P({
      pcdnMixed,
@@ -92,7 +94,7 @@ SDK 会抛出的事件,客户端需监听处理
 
 ##### 定义
 
-```
+```typescript
 enum ComEvents {
   STATE_CHANGE // 目前sdk仅抛出了这一个事件, 客户需要监听这个事件,并处理对应的消息,消息码见 QVBP2P.ComCode
 }
@@ -100,7 +102,7 @@ enum ComEvents {
 
 ##### 例子
 
-```
+```typescript
 见listen()和demo
 
 ```
@@ -113,7 +115,7 @@ QVBP2P.ComEvents.STATE_CHANGE 事件对对应多种消息, 通过此处的消息
 
 ##### 定义
 
-```
+```typescript
 enum ComCodes {
   ROLLBACK, // 回退
   RECEIVE_BUFFER, // 接收flv chunk数据
@@ -124,9 +126,7 @@ enum ComCodes {
 
 ##### 例子
 
-##### 例子
-
-```
+```typescript
 见listen()和demo
 
 ```
@@ -139,17 +139,19 @@ enum ComCodes {
 
 ##### 语法
 
-```
+```typescript
 QVBP2P.isSupported()
 ```
 
 ##### 返回值
 
-`boolean`  true表示支持sdk
+```typescript
+type boolean  // true表示支持sdk
+```
 
 ##### 例子
 
-```
+```typescript
 if (QVBP2P.isSupported()) {
   // 支持sdk,可以使用
 }
@@ -163,13 +165,13 @@ if (QVBP2P.isSupported()) {
 
 ##### 语法
 
-```
+```typescript
 qvbp2p.listen(event, callback)
 ```
 
 ##### 参数
 
-```
+```typescript
 type event = QVBP2P.ComEvents.STATE_CHANGE;
 type callback = (event: QVBP2P.ComEvents.STATE_CHANGE, data: CallbackData) => void;
 
@@ -189,7 +191,9 @@ type CallbackData = ReceiveBufferCallbackData | RollbackCallbackData;
 
 ##### 返回值
 
+```
 void
+```
 
 ##### 例子
 
@@ -203,23 +207,25 @@ void
 
 ##### 语法
 
-```
+```typescript
 qvbp2p.setMediaElement(videoElement)
 ```
 
 ##### 参数
 
-```
+```typescript
 type videoElement: HTMLVideoElement;
 ```
 
 ##### 返回值
 
+```
 void
+```
 
 ##### 例子
 
-```
+```typescript
 const videoEl = document.getElementById('your-video-id')
 qvbp2p.setMediaElement(videoEl);
 ```
@@ -230,13 +236,13 @@ qvbp2p.setMediaElement(videoEl);
 
 ##### 语法
 
-```
+```typescript
 qvbp2p.loadSource(config)
 ```
 
 ##### 参数
 
-```
+```typescript
 type config = {
   src: string; // 原始flv流的url. sdk会进行解析, 然后拼出sdk内部使用的url进行拉流
 }
@@ -244,11 +250,13 @@ type config = {
 
 ##### 返回值
 
+```
 void
+```
 
 ##### 例子
 
-```
+```typescript
 qvbp2p.loadSource({
   src: 'https://xxxx.xxx.xxx/live/teststrea.flv?xxxx'
 })
@@ -260,7 +268,7 @@ qvbp2p.loadSource({
 
 ##### 语法
 
-```
+```typescript
 qvbp2p.destroy();
 ```
 
@@ -270,11 +278,12 @@ qvbp2p.destroy();
 
 ### 1. 首先加载 sdk
 
-```
-<script src='qvbp2p.js'></script>
+```html
+<script src='qvbp2p_common.js'></script>
 ```
 
 [](id:m1)
+
 ### 2. 为播放器编写 loader / 集成 sdk 到播放器
 
 通常H5 FLV player有不同的loader用于下载, 例如flv.js有如下loader
@@ -289,7 +298,7 @@ xhr-moz-chunked-loader.js
 
 如下通过集成到flv.js, 来演示sdk接口的使用方法和注意事项
 
-```
+```typescript
 import { BaseLoader } from './loader.js';
 // QVBP2P默认挂在window上
 // 不支持多实例
