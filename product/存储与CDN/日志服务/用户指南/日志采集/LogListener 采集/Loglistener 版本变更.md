@@ -13,7 +13,6 @@
 
 <table>
 	<tr><th style="width: 10%;">版本号</th><th style="width: 11%;">变更类型</th><th>描述</th></tr>
-	<tr><td><b></b></td><td></td><td></td></tr>
 	<tr><td><b>v2.7.9</b></td><td>体验优化</td><td><ul  style="margin: 0;"><li>增加 loglistener 文件锁校验，默认只能启动一个 agent 实例。</li><li>优化 containerd stdout 空行处理异常。</li><li>优化文件句柄泄露导致的磁盘满、业务异常问题。</li><li>优化多行日志行数过多时，后半部分内容被解析失败的问题。</li></ul></td></tr>
 	<tr><td><b>v2.7.8</b></td><td>体验优化</td><td>优化容器场景下 metadata 文件生成延迟，造成日志无 TAG 元数据的问题。</td></tr>
 	<tr><td><b>v2.7.7</b></td><td>体验优化</td><td>优化 DNS 解析异常恢复后，采集程序网络连接无法恢复的问题。</td></tr>
