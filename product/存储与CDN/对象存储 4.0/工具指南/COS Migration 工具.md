@@ -9,7 +9,7 @@ COS Migration 是一个集成了 COS 数据迁移功能的一体化工具。通�
 >!
 >- COS Migration 的编码格式只支持 UTF-8 格式。
 >- 使用该工具上传同名文件，默认会覆盖较旧的同名文件，需要额外设置以跳过同名文件。
->- 如果需要从其他云存储迁移至 COS，请使用 [迁移服务平台](https://cloud.tencent.com/document/product/659/13908)。
+>- 除本地数据迁移之外的场景请优先使用 [迁移服务平台](https://cloud.tencent.com/document/product/659/13908)。
 >
 
 ## 使用环境
