@@ -23,7 +23,7 @@ CCN 类型的 VPN 网关可以关联至云联网，每个 CCN 型 VPN 网关可�
 4. 在弹出的“新建VPN网关”窗口中，填写 VPN 网关名称（如 TomVPNGw），选择关联网络、带宽上限、计费方式，单击**创建**即可。VPN 网关创建完成后，系统随机分配公网 IP，如 `203.195.147.82`。
 >?如需将 CCN 型 VPN 网关新建在指定的可用区下，请提交 [工单申请](https://console.cloud.tencent.com/workorder/category)。
 >
-![](https://qcloudimg.tencent-cloud.cn/raw/73ac6ea178e7f7f4fefa032d07fbcb28.png)	
+![](https://qcloudimg.tencent-cloud.cn/raw/3a37f98bee304ae12927e85630dfb315.png)
 <table>
 <tr>
 <th>参数名称</th>
@@ -53,10 +53,6 @@ CCN 类型的 VPN 网关可以关联至云联网，每个 CCN 型 VPN 网关可�
 <tr>
 <td>关联网络</td>
 <td>此处选择云联网。</td>
-</tr>
-<tr>
-<td>所属网络</td>
-<td>仅当关联网络为<b>私有网络</b>时，此处需要选择 VPN 网关将要关联的具体私有网络。</td>
 </tr>
 <tr>
 <td>标签</td>
