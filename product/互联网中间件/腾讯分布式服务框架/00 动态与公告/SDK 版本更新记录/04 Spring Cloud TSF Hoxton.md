@@ -1,5 +1,6 @@
 基于 Spring Cloud Hoxton SR9 版本 SDK，支持 spring boot 2.3.1。
 
+
 ## 1.29.3-Hoxton-Higher-RELEASE（2021-11-26）
 ### 优化
 - 优化 swagger 依赖。

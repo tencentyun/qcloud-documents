@@ -107,3 +107,4 @@ public class ProviderController {
 </dx-codeblock>排除后，不影响在 TSF 服务治理 > 接口列表中查询 API 的能力，仅仅不支持通过 `ip:pot/swagger.html` 查看。
 </dx-alert>
 
+

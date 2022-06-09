@@ -3,7 +3,6 @@
 在开始开发前，请确保您已经参见 [下载 Maven](https://cloud.tencent.com/document/product/649/73789) 下载安装了 Java 和 Maven，并且配置了 TSF 私服地址。
 
 
-
 ## 下载 Demo
 
 [Demo 下载地址](https://github.com/tencentyun/tsf-simple-demo)。
