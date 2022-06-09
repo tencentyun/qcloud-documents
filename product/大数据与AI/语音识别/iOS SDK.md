@@ -14,7 +14,7 @@ iOS SDK 接入请观看视频：
 2. XcodeFile > Add Files to "Your Project"，在弹出 Panel 选中所下载组件包 > Add（选中“Copy items if needed”）。
 ![](https://qcloudimg.tencent-cloud.cn/raw/70347c715d9a38107704eb96b0d2f6d9.png)
 
-### 开发环境
+### 工程配置
 在工程` info.plist` 添加以下设置：
 1.  **设置 NSAppTransportSecurity 策略，添加如下内容：**
 ```objective-c
