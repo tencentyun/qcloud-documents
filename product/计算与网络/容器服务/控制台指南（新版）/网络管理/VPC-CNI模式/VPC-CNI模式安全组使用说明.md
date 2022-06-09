@@ -76,11 +76,14 @@ kubectl annotate node <nodeName> --overwrite tke.cloud.tencent.com/disable-node-
 
 - 特性开启以后，如果设置了 `--security-groups`，则各节点安全组设置为该安全组集合。
 
-- 特性开启以后，如果变更 `--security-groups` 参数，增量节点安全组设置会与全局参数同步，存量节点安全组设置不会改变，若需同步存量节点安全组设置，则需禁用节点安全组再开启，来达到同步。操作方法见[IPAMD 组件开启安全组特性]()。
+- 特性开启以后，如果变更 `--security-groups` 参数，增量节点安全组设置会与全局参数同步，存量节点安全组设置不会改变，若需同步存量节点安全组设置，则需禁用节点安全组再开启，来达到同步。操作方法见 [IPAMD 组件开启安全组特性](https://cloud.tencent.com/document/product/457/50360#ipamd-.E7.BB.84.E4.BB.B6.E5.BC.80.E5.90.AF.E5.AE.89.E5.85.A8.E7.BB.84.E7.89.B9.E6.80.A7)。
 
 - 安全组设置的优先级与节点安全组设置的顺序一致，若继承自主网卡，则与主网卡保持一致。
 
 - 执行以下命令可查看节点安全组。其中 `spec.securityGroups` 域包含了节点安全组信息。
+
+
+
 ```
 kubectl get nec <nodeName> -oyaml
 ```
