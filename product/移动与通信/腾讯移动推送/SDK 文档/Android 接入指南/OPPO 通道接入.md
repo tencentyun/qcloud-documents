@@ -61,13 +61,11 @@ class R {
 }
 ```
 3. 在 `Androidmanifest.xml` 文件中新增如下配置：
- - TPNS Android SDK 1.2.0.2以后的版本使用以下配置：
 ```
 <!--OPPO 推送服务必须权限-->
 <uses-permission android:name="com.coloros.mcs.permission.RECIEVE_MCS_MESSAGE"/>
 <uses-permission android:name="com.heytap.mcs.permission.RECIEVE_MCS_MESSAGE"/>
 <application>
-		<!-- 以下为1.2.0.2 OPPO版本组件 -->
 		<service
 			android:name="com.heytap.msp.push.service.CompatibleDataMessageCallbackService"
 			android:permission="com.coloros.mcs.permission.SEND_MCS_MESSAGE">
