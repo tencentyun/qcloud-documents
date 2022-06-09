@@ -100,11 +100,11 @@
 添加域名后，您还需要配置 CNAME 才能使加速生效。我们为您提供了两种配置 CNAME 的方式，详情请见 [配置 CNAME](https://cloud.tencent.com/document/product/228/3121)。
 
 #### 如何验证 CNAME 是否生效
-1. 在配置完成 CNAME 后，您可以在添加域名的第三步中，单击验证 CNAME 状态，查看当前域名 CNAME 是否生效，如果生效状态显示为已生效，则当前 CNAME 解析已正确生效，域名已启动 CDN 加速，如果当前生效状态未生效，需检查当前是否已完成 CNAME 配置，如果确认当前 CNAME 已正确配置，可能是当前解析生效延迟问题，您也可以选择用2、3两种方式进行验证。
+1. 在配置完成 CNAME 后，您可以在添加域名的第三步中，单击验证 CNAME 状态，查看当前域名 CNAME 是否生效，如果生效状态显示为已生效，则当前 CNAME 解析已正确生效，域名已启动 CDN 加速，如果当前生效状态未生效，需检查当前是否已完成 CNAME 配置，如果确认当前 CNAME 已正确配置，可能是当前解析生效延迟问题，您也可以选择用第3种方式进行验证。
 ![](https://qcloudimg.tencent-cloud.cn/raw/468e8395cbf14923afe41df096b8da2c.png)
 2. 您可以在控制台的域名管理列表内查看，如果域名的 CNAME 解析已有正确解析提示，表示当前 CDN 域名加速已生效。**如果有两条 CNAME 解析的情况下，其中一条生效即可。**
 ![](https://qcloudimg.tencent-cloud.cn/raw/2183b758f9f8618b241e68c7797a527f.png)
-您也可以使用 nslookup 或 dig 命令来查看当前域名的解析生效状态。如果您的系统为windows系统，在window系统中打开cmd运行程序，以域名 `www.test.com`为例，您可以在 cmd 内运行：`nslookup -qt=cname www.test.com`，根据运行的解析结果内，可以查看该域名的 CNAME 信息，如果与腾讯云 CDN 提供的 CNAME 地址一致，即当前 CDN 加速已生效。
+3. 您也可以使用 nslookup 或 dig 命令来查看当前域名的解析生效状态。如果您的系统为windows系统，在window系统中打开cmd运行程序，以域名 `www.test.com`为例，您可以在 cmd 内运行：`nslookup -qt=cname www.test.com`，根据运行的解析结果内，可以查看该域名的 CNAME 信息，如果与腾讯云 CDN 提供的 CNAME 地址一致，即当前 CDN 加速已生效。
 <br>
 <img src="https://qcloudimg.tencent-cloud.cn/raw/8d744fb4485d1c61c412c645b36de419.png" width="70%">
 <br>
