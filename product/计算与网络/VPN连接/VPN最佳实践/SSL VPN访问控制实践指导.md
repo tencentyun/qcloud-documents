@@ -1,4 +1,4 @@
-﻿本文介绍如何使用IEAM（即数字身份管控平台）和SSL VPN实现访问控制，提升您业务的安全性。
+本文介绍如何使用IEAM（即数字身份管控平台）和SSL VPN实现访问控制，提升您业务的安全性。
 
 ## 流程
 ![](https://qcloudimg.tencent-cloud.cn/raw/be8ada635d55d479af9adf08aea83331.png)
