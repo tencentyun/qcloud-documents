@@ -6,7 +6,7 @@
 - 智能 CC 防护当前仅支持域名接入的规则生效。
 
 ## 操作步骤
-1.	登录 [DDoS 高防包（新版）管理控制台](https://console.cloud.tencent.com/ddos/antiddos-native/config/web) ，在左侧导航中，单击防护配置 > CC 防护。
+1.	登录 [DDoS 高防包（新版）管理控制台](https://console.cloud.tencent.com/ddos/antiddos-native/config/web)，在左侧导航中，单击**防护配置** > **CC 防护**。
 2.	在 CC 防护页面的左侧列表中，选中高防包的 ID，如“bgp-00xxxxxx”。
 ![](https://qcloudimg.tencent-cloud.cn/raw/ccb38f5389e75aee5258221672d146a5.png)
 3. 在 CC 防护开关及清洗阈值卡片中，单击![](https://qcloudimg.tencent-cloud.cn/raw/9795d7ce17dc03f5be0daae4ef488f98.png)开启 CC 防护开关，当防护开启后必须进行清洗阈值设置否则无法使用智能 CC 防护。
