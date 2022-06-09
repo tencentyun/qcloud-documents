@@ -17,8 +17,9 @@ Web License 是 **Web 美颜特效**功能的授权文件，一个 Web License �
 [](id:formal)
 ## 正式版 Web License
 ### 获取 Web License 资源
->! 推广阶段可通过[申请免费获取](https://cloud.tencent.com/apply/p/9fuh8sv6fl)，待审批通过后，可以继续创建操作。此 License 资源后期需要购买获得，目前免费申请得到的正式版 License 默认有效期为半年。
-在正式收费之前，我们会保障所有 License 的运行不受影响，推广期间如有面临到期的正式版 License 我们会自动续期并给用户推送具体续期详情。
+>! 
+>- 推广阶段可通过 [申请免费获取](https://cloud.tencent.com/apply/p/9fuh8sv6fl)，待审批通过后，可以继续创建操作。此 License 资源后期需要购买获得，目前免费申请得到的正式版 License 默认有效期为半年。
+>- 在正式收费之前，我们会保障所有 License 的运行不受影响，推广期间如有面临到期的正式版 License 我们会自动续期并给用户推送具体续期详情。
 
 ### 创建正式版 Web License
 已获取 Web License 资源后，您可按照下述步骤创建正式版 Web License。
