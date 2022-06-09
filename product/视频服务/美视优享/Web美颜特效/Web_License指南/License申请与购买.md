@@ -10,14 +10,14 @@ Web License 是 **Web 美颜特效**功能的授权文件，一个 Web License �
    ![](https://qcloudimg.tencent-cloud.cn/raw/d08aeb6eb83b12969836e710ae58ba4d.png)
 
 ### 续期测试版 License
-测试版 License 初次申请默认有效期默认为14天，期满后您可续期**1次**。单击功能模块**Web 美颜特效**右侧的**续期**，单击**确定续期**即可续期14天。
+测试版 License 初次申请默认有效期默认为14天，期满后您可续期**1次**。单击功能模块 **Web 美颜特效** 右侧的 **续期**，单击**确定续期**即可续期14天。
 ![](https://qcloudimg.tencent-cloud.cn/raw/c98f868c00660e957c7a0e3fb240881c.png)
 >! 测试版 License 有效期共28天，**只能续期一次**。若您需继续使用，请购买 [正式版 License](#formal)。
 
 [](id:formal)
 ## 正式版 Web License
 ### 获取 Web License 资源
->! 推广阶段可通过[申请免费获取](https://cloud.tencent.com/apply/p/9fuh8sv6fl)，待审批通过后，可以继续创建操作。此license资源后期需要购买获得，目前免费申请得到的正式版 License 默认有效期为半年。
+>! 推广阶段可通过[申请免费获取](https://cloud.tencent.com/apply/p/9fuh8sv6fl)，待审批通过后，可以继续创建操作。此 License 资源后期需要购买获得，目前免费申请得到的正式版 License 默认有效期为半年。
 在正式收费之前，我们会保障所有 License 的运行不受影响，推广期间如有面临到期的正式版 License 我们会自动续期并给用户推送具体续期详情。
 
 ### 创建正式版 Web License
