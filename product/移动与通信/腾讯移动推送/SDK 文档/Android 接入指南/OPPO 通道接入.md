@@ -52,38 +52,15 @@ implementation 'commons-codec:commons-codec:1.15'
 1. 打开 Other-push-jar 文件夹，将 OPPO 推送相关 jar 导入项目工程中。
 2. 在主工程添加类资源文件，代码如下：
 ```java
-package com.heytap.mcssdk;
+package com.pushsdk;
+
 class R {
     public static final class string {
-        public static final int system_default_channel = 
-	com.tencent.android.tpns.demo.R.string.oppo_system_default_channel;//可更改为自定义字符串资源ID
+	public final static int system_default_channel = com.tencent.android.tpns.demo.R.string.app_name; // 可更改为自定义字符串资源ID
     }
 }
 ```
-3. 在 `Androidmanifest.xml` 文件中新增如下配置（二选一）：
- - TPNS Android SDK 1.2.0.2以前的版本使用以下配置：
-```
-<!--OPPO 推送服务必须权限-->
-<uses-permission android:name="com.coloros.mcs.permission.RECIEVE_MCS_MESSAGE"/>
-<uses-permission android:name="com.heytap.mcs.permission.RECIEVE_MCS_MESSAGE"/>
-<application>
-		<!--OPPO 推送服务必须组件-->
-		<service
-			android:name="com.heytap.mcssdk.PushService"
-			android:permission="com.coloros.mcs.permission.SEND_MCS_MESSAGE">
-			<intent-filter>
-				<action android:name="com.coloros.mcs.action.RECEIVE_MCS_MESSAGE"/>
-			</intent-filter>
-		</service>
-		<service
-			android:name="com.heytap.mcssdk.AppPushService"
-			android:permission="com.heytap.mcs.permission.SEND_MCS_MESSAGE">
-			<intent-filter>
-				<action android:name="com.heytap.mcs.action.RECEIVE_MCS_MESSAGE"/>
-			</intent-filter>
-		</service>
-</application>
-```
+3. 在 `Androidmanifest.xml` 文件中新增如下配置：
  - TPNS Android SDK 1.2.0.2以后的版本使用以下配置：
 ```
 <!--OPPO 推送服务必须权限-->
