@@ -12,8 +12,7 @@ WordPress 是全球最流行的开源的博客和内容管理网站的建站平�
 同时，轻量应用服务器还提供了 WordPress 插件版镜像，其中已预置 Nginx、MariaDB、PHP 软件，并集成腾讯云验证码、CDN、对象存储、图片内容安全、文本内容安全和短信等插件。您可在购买实例时选择 WordPress 插件版作为镜像。插件使用方法请参见 [腾讯云开源应用插件中心](https://openapp.qq.com/docs/)。
 
 ## 说明事项
-- CentOS 系统在安装了宝塔面板后，会默认开启操作系统防火墙（可通过命令行 `systemctl status firewalld.service` 查看）。若您需访问指定端口（例如8080端口），则需通过配置轻量应用服务器网络防火墙及操作系统防火墙放通指定端口。具体操作请参见 [管理防火墙](https://cloud.tencent.com/document/product/1207/44577) 及 [配置操作系统防火墙](#updatePort)。
-- 为提高宝塔面板安全性，建议将面板默认的8888端口修改为其他端口，您可以登录面板后进行修改。修改后需在轻量应用服务器网络防火墙中放通对应端口，详情请参见 [管理防火墙](https://cloud.tencent.com/document/product/1207/44577) 。
+为提高宝塔面板安全性，建议将面板默认的8888端口修改为其他端口，您可以登录面板后进行修改。修改后需在轻量应用服务器网络防火墙中放通对应端口，详情请参见 [管理防火墙](https://cloud.tencent.com/document/product/1207/44577) 。
 
 ## 操作步骤
 
@@ -65,18 +64,6 @@ WordPress 是全球最流行的开源的博客和内容管理网站的建站平�
 在 WordPress 实例的应用管理详情页，您除了可以查看 WordPress 的配置信息，还可以查看其他配置信息。例如首页地址、 Nginx 主配置文件保存路径、 MariaDB 数据库管理员密码、实例中各个软件的安装路径等。
 ![](https://qcloudimg.tencent-cloud.cn/raw/83322b83442ad997e2d6af717286cfb5.png)
 
-
-### 配置操作系统防火墙[](id:updatePort)
-WordPress 应用镜像集成了宝塔 Linux 面板，可通过宝塔面板直接放通操作系统防火墙端口。步骤如下：
-1.  登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse)。
-2.  在“服务器”页面，选择实例进入实例详情页面。
-3.  选择**应用管理**页签，在“应用内软件信息”中获取宝塔 Linux 面板相关信息。如下图所示：
-![](https://main.qcloudimg.com/raw/7a46224ff8fd6d73098ffd552cc8e9fa.png)
-3.  配置并登录宝塔 Linux 面板。
-4.  在宝塔 Linux 面板中，选择左侧菜单栏中的**安全**。
-5. 在“系统安全”页面的“防火墙”中，填写需放行端口号及说明。如下图所示：
-![](https://main.qcloudimg.com/raw/866b18637a5587cd09b0919e16aa5f0d.png)
-6. 单击**放行**即可放通对应端口。
 
 
 ### 域名与 DNS 解析设置
