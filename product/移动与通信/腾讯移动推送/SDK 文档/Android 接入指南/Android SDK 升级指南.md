@@ -129,11 +129,10 @@ implementation files('libs/commons-codec-1.15.jar')
 
 
 ## TPNS Android SDK 1.3.1.1
-###  AndroidManifest 新增节点
-如您通过手动引入 jar 文件，即参考 SDK 集成文档 [Android Studio 手动集成](https://cloud.tencent.com/document/product/548/36652#android-studio-.E6.89.8B.E5.8A.A8.E9.9B.86.E6.88.90) 部分接入 TPNS SDK 的，请注意在应用的 AndroidManifest 文件 application 标签内添加以下节点，或直接参考上述链接重新引入 AndroidManifest 配置。否则可能引起应用在线时收到的推送无法响应通知点击事件。
+### 通过 Eclipse 集成
+如您的工程通过手动引入 jar 文件集成，请注意以下内容变更。
 
->! 此项变更仅需要通过手动引入 jar 文件的应用开发者注意。如您通过拉取远程依赖接入 TPNS SDK，可忽略此项配置。
-
+1. 请在应用的 AndroidManifest 文件 application 标签内添加以下节点，否则可能引起应用在线时收到的推送无法响应通知点击事件。
 ```xml
     <activity
         android:name="com.tencent.android.tpush.InnerTpnsActivity"
@@ -161,6 +160,31 @@ implementation files('libs/commons-codec-1.15.jar')
     </activity>
 ```
 
+2. 请在应用的 AndroidManifest 文件 application 标签内修改以下节点内容，否则可能存在自启动合规风险。
+```xml
+    <!-- 手动集成时该receiver的intent-filter只保留下面3个action -->
+    <receiver
+         android:name="com.tencent.android.tpush.XGPushReceiver"
+         android:exported="false"
+         android:process=":xg_vip_service" >
+         <intent-filter android:priority="0x7fffffff" tools:node="replace" >
+            <!-- 【必须】 信鸽SDK的内部广播 -->
+            <action android:name="com.tencent.android.xg.vip.action.SDK" />
+            <action android:name="com.tencent.android.xg.vip.action.INTERNAL_PUSH_MESSAGE" />
+            <action android:name="com.tencent.android.xg.vip.action.ACTION_SDK_KEEPALIVE" />
+         </intent-filter>
+    </receiver>
+    
+    <!-- 如果您有集成小米通道,手动集成小米通道时，将该receiver对应的intent-filter删除 -->
+    <receiver
+       android:name="com.xiaomi.push.service.receivers.NetworkStatusReceiver"
+       android:exported="true" >
+       <intent-filter tools:node="remove">
+           <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+           <category android:name="android.intent.category.DEFAULT" />
+       </intent-filter>
+    </receiver>
+```
 ## TPNS Android SDK 1.2.7.0
 
 ###  新增应用内消息补推能力
