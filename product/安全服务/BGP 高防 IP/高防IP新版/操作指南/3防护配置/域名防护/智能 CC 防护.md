@@ -15,7 +15,7 @@
 >- 当高防包的 IP 为“Web 应用防火墙” 的 IP 时，需要先到 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/tea-baseconfig) 为此 IP 开启 CC 防护，详情请参见 [CC 防护规则设置](https://cloud.tencent.com/document/product/627/64336)。
 >
 ![](https://qcloudimg.tencent-cloud.cn/raw/080d63287105c7b0f0a6fd750bbf6a33.png)
-4. 在智能 CC 防护卡片中，单击![](https://qcloudimg.tencent-cloud.cn/raw/9795d7ce17dc03f5be0daae4ef488f98.png)开启智能 CC 防护，
+4. 在智能 CC 防护卡片中，单击![](https://qcloudimg.tencent-cloud.cn/raw/9795d7ce17dc03f5be0daae4ef488f98.png)开启智能防护。
 ![](https://qcloudimg.tencent-cloud.cn/raw/e21b98b8948a2e2d0a9a97396a6f0ff9.png)
 6. 开启智能 CC 防护后，基于每次攻击，智能防护自动生成防护规则。智能防护下发的规则存在**单次有效期**，单次攻击结束后，防护规则自动失效并清除。若需要针对下一次攻击调整。请单击右侧**查看**进行智能防护规则编辑。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d4221e8b6814294fde9eaafbfe7df5b4.png)
