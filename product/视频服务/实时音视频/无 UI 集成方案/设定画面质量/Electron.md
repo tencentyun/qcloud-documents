@@ -8,17 +8,12 @@
 - [setNetworkQosParam](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#setNetworkQosParam) ：用于设置网络调控策略。
 
 本文主要介绍如何配置上述参数，使 TRTC SDK 的画质效果符合您的项目需要。
-您也可以参考以下 Demo：
-- [Electron API Example：video-quality](
-https://github.com/tencentyun/TRTCSDK/blob/master/Electron/TRTC-API-Example/assets/code/advanced/video-quality/index.js)
+您也可以参考 [Electron API Example：video-quality](https://github.com/tencentyun/TRTCSDK/blob/master/Electron/TRTC-API-Example/assets/code/advanced/video-quality/index.js) Demo。
 
 ## TRTCAppScene
 
-- **VideoCall** 
-对应视频通话场景，即绝大多数时间都是两人或两人以上视频通话的场景，内部编码器和网络协议优化侧重流畅性，降低通话延迟和卡顿率。
-
-- **LIVE** 
-对应直播场景，即绝大多数时间都是一人直播，偶尔有多人视频互动的场景，内部编码器和网络协议优化侧重性能和兼容性，性能和清晰度表现更佳。	
+- **VideoCall：**对应视频通话场景，即绝大多数时间都是两人或两人以上视频通话的场景，内部编码器和网络协议优化侧重流畅性，降低通话延迟和卡顿率。
+- **LIVE：**对应直播场景，即绝大多数时间都是一人直播，偶尔有多人视频互动的场景，内部编码器和网络协议优化侧重性能和兼容性，性能和清晰度表现更佳。	
 
 
 ## TRTCVideoEncParam
@@ -89,16 +84,16 @@ https://github.com/tencentyun/TRTCSDK/blob/master/Electron/TRTC-API-Example/asse
 controlMode 参数选择 **TRTCQosControlModeServer** 即可，TRTCQosControlModeClient 是腾讯云研发团队做内部调试用的，请勿关注。
 
 ## 常见的误区
-**1. 分辨率越高越好？**
+#### 1. 分辨率越高越好？
 较高的分辨率也需要较高的码率来支撑，如果分辨率选择 1280 x 720，但码率却指定为 200kbps，画面就会有大量的马赛克。推荐参考 [分辨率码率参照表](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/global.html#TRTCVideoResolution) 进行设置。
 
-**2. 帧率越高越好？**
+#### 2. 帧率越高越好？
 由于摄像头采集的画面是曝光阶段中所有现实物体的完整映射，所以并不是帧率越高，感官就越流畅，这一点跟游戏里的FPS是不一样的。恰恰相反，帧率过高，会拉低每帧画面的画质，也会减少摄像机的曝光时间，效果可能会更差。
 
-**3. 码率越高越好？**
+#### 3. 码率越高越好？
 较高的码率也需要较高的分辨率来匹配，对于 320 x 240 这样分辨率，1000kbps 的码率就很浪费了，推荐参考 [分辨率码率参照表](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/global.html#TRTCVideoResolution) 进行设置。
 
-**4. 用 Wi-Fi 的时候就可以设置很高的分辨率和码率**
+#### 4. 用 Wi-Fi 的时候就可以设置很高的分辨率和码率
 并不是说 Wi-Fi 的网速是恒定不变的，如果离无线路由器较远， 或者路由器信道被占用，可能网速还不如 4G。
 针对这种情况， TRTC SDK 提供了测速功能，可以在视频通话前先进行测速，根据打分值来确定网络好坏。
 

@@ -30,7 +30,7 @@ Window，Linux 或者 Mac OS
  - 使用 [应用镜像](https://cloud.tencent.com/document/product/1207/44361#appOS) 创建的实例，可在实例详情页选择**应用管理**，单击“应用内软件信息”中的**登录**，或页面右上角的**登录**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/b63b2de114205c2979fb40bec2bc1469.png)
 登录成功界面如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/d6c7f8dba3d2a9bcea950e7cf5547826.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/25cdfe39f66708358a5743e15c8b5c09.png)
 成功登录后，您可参考 [最佳实践](https://cloud.tencent.com/document/product/1207/45116) 及 [第三方教程](https://cloud.tencent.com/document/product/1207/58793)，进行搭建中小型网站、Web 应用、博客、论坛、小程序/小游戏、电商、云盘/图床、云端开发测试和学习环境等轻量级、低负载且访问量适中的应用。
 
 ## 相关操作

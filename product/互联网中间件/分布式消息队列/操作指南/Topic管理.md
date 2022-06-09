@@ -20,7 +20,7 @@ Topic 是 TDMQ Pulsar 版中的核心概念。Topic 通常用来对系统生产�
     - Topic 名称：不能为空，支持数字字母以及符号 “-_=:.”，长度不超过128个字符。
     - 类型：选择消息类型，包括：普通、全局顺序、局部顺序（关于消息类型的说明，请参见 [消息类型](https://cloud.tencent.com/document/product/1179/44833)）。
     - 分区数：全局顺序只有1个分区，其他为1-128个分区。多分区可以提高单个Topic的生产消费性能，但是无法保证顺序性。
-    - 说明：填写 Topic 的说明信息，不超过256字符。
+    - 说明：填写 Topic 的说明信息，不超过128字符。
 4. 单击**保存**，在 Topic 列表中即可看见创建好的 Topic。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d0328e4a60fb563b8f45a3808912de61.png)
 <table>
@@ -96,10 +96,10 @@ TDMQ Pulsar 版控制台支持手动创建订阅，在控制台进行相应的�
 
 1. 在 [Topic 管理](https://console.cloud.tencent.com/tdmq/topic) 中，找到需要创建订阅的 Topic ，单击操作列中的**新增订阅**。
 2. 在弹出的对话框中输入订阅的名称和说明。
- - 订阅名称：长度不超过128个字符
+ - 订阅名称：长度不超过64个字符
  - 自动创建重试&死信队列：可以选择是否自动创建重试和死信 Topic
  - 说明：不超过2字符
-   ![](https://qcloudimg.tencent-cloud.cn/raw/9b47f5db34b6dfc3bf1540773eff6e67.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/97151a4e137b3688f7a2753b78bea89f.png)
 3. 单击**提交**完成创建。
    创建后可通过单击操作列的**查看订阅**，查看订阅了该 Topic 的订阅，即可在列表中看到刚刚创建的订阅。
 
