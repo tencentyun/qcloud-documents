@@ -26,34 +26,52 @@ implementation 'com.tencent.tpns:meizu:[VERSION]-release'//meizu 推送 [VERSION
 #### Eclipse 集成
 1. 下载 [SDK 安装包](https://console.cloud.tencent.com/tpns/sdkdownload)。
 2. 打开 Other-Push-jar 文件夹， 导入魅族推送相关 jar 包，将 mz4tpns1.1.2.1.jar 导入项目工程中。
-3. 在 Android manifest 下配置以下配置：
+3. 请在主工程添加以下类资源文件：
+```java
+package com.meizu.cloud.pushinternal;
+public class R {
+    public static final class drawable {
+            // 资源文件 stat_sys_third_app_notify.png 请从 TPNS SDK 压缩包魅族厂商依赖目录的 flyme-notification-res 文件夹获取，并复制到应用自己的资源目录下
+        public static final int stat_sys_third_app_notify = com.tencent.android.tpns.demo.R.drawable.stat_sys_third_app_notify;
+    }
+}
+```
+4. 在 AndroidManifest 文件添加以下配置：
 ```xml
 <application>
-<service
-                 android:name="com.meizu.cloud.pushsdk.NotificationService"
-                 android:exported="true"/>
-<receiver android:name="com.meizu.cloud.pushsdk.SystemReceiver" >
- <intent-filter>
-                <action android:name="com.meizu.cloud.pushservice.action.PUSH_SERVICE_START"/>
-                <category android:name="android.intent.category.DEFAULT" />
- </intent-filter>
- </receiver>
+  <!-- 注：魅族push 需要的 begin -->
+    <service
+        android:name="com.meizu.cloud.pushsdk.NotificationService"
+        android:exported="true" />
+  <!-- version 4.1.0-->
+    <receiver
+        android:name="com.meizu.cloud.pushsdk.MzPushSystemReceiver"
+        android:exported="false"
+        android:permission="com.meizu.flyme.permission.PUSH">
+        <intent-filter>
+            <action android:name="com.meizu.flyme.push.intent.PUSH_SYSTEM" />
+        </intent-filter>
+    </receiver>
 </application>
- <!-- 注：魅族push 需要的权限 begin -->
- <!-- 兼容flyme5.0以下版本，魅族内部集成pushSDK必填，不然无法收到消息-->
+<!-- version 4.1.0-->
+<uses-permission android:name="com.meizu.flyme.permission.PUSH" />
+<!-- version 3.9.0-->
+<!-- 注：魅族push 需要的权限 begin -->
+<!-- 兼容flyme5.0以下版本，魅族内部集成pushSDK必填，不然无法收到消息-->
 <uses-permission android:name="com.meizu.flyme.push.permission.RECEIVE"></uses-permission>
-<permission android:name="应用包名.push.permission.MESSAGE" 
-                android:protectionLevel="signature"/>
-<uses-permission android:name="应用包名.push.permission.MESSAGE"></uses-permission>
+<permission
+    android:name="${applicationId}.push.permission.MESSAGE"
+    android:protectionLevel="signature" />
+<uses-permission android:name="${applicationId}.push.permission.MESSAGE"></uses-permission>
 <!--  兼容flyme3.0配置权限-->
 <uses-permission android:name="com.meizu.c2dm.permission.RECEIVE" />
-<permission android:name="应用包名.permission.C2D_MESSAGE"
-                android:protectionLevel="signature">
-</permission>
-<uses-permission android:name="应用包名.permission.C2D_MESSAGE"/>
+<permission
+    android:name="${applicationId}.permission.C2D_MESSAGE"
+    android:protectionLevel="signature"></permission>
+<uses-permission android:name="${applicationId}.permission.C2D_MESSAGE" />
 <!-- 注：魅族push 需要的权限 end -->
 ```
-4. 魅族消息 receiver：在 `AndroidManifest.xml` 增加 `Receiver` 配置如下：
+5. 魅族消息 receiver：在 `AndroidManifest.xml` 增加 `Receiver` 配置如下：
 ```xml
 <receiver android:name="com.tencent.android.mzpush.MZPushMessageReceiver">
     <intent-filter>
@@ -69,7 +87,7 @@ implementation 'com.tencent.tpns:meizu:[VERSION]-release'//meizu 推送 [VERSION
      </intent-filter>
 </receiver>
 ```
-5.  Flyme 6.0 及以下版本的魅族手机，使用手动集成方式，需要在 drawable 不同分辨率的文件夹下对应放置一张名称必须为 stat_sys_third_app_notify 的图片，详情请参考 [TPNS Android SDK](https://console.cloud.tencent.com/tpns/sdkdownload) 中魅族厂商依赖目录的 flyme-notification-res 文件夹。
+6.  Flyme 6.0 及以下版本的魅族手机，使用手动集成方式，需要在 drawable 不同分辨率的文件夹下对应放置一张名称必须为 stat_sys_third_app_notify 的图片，详情请参见 [TPNS Android SDK](https://console.cloud.tencent.com/tpns/sdkdownload) 中魅族厂商依赖目录的 flyme-notification-res 文件夹。
 
 ### 开启魅族推送
 

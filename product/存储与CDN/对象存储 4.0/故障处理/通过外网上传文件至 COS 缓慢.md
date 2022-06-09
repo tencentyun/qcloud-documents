@@ -90,3 +90,4 @@ CosXmlConfig config = new CosXmlConfig.Builder()
 .SetDebugLog(true) .Build(); //创建 CosXmlConfig 对象
 ```
 其他 SDK 调用请参见 [SDK 概览](https://cloud.tencent.com/document/product/436/6474)。
+
