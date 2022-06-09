@@ -2,7 +2,8 @@
 >?该功能为灰度上线阶段，部分用户暂无法使用敬请期待全量上线。
 
 ## 前提条件
-您需要成功 [购买 DDoS 高防包](https://cloud.tencent.com/document/product/1021/43894) ，并设置防护对象。
+- 您需要成功 [购买 DDoS 高防包](https://cloud.tencent.com/document/product/1021/43894) ，并设置防护对象。
+- 智能 CC 防护当前仅支持域名接入的规则生效。
 
 ## 操作步骤
 1.	登录 [DDoS 高防包（新版）管理控制台](https://console.cloud.tencent.com/ddos/antiddos-native/config/web) ，在左侧导航中，单击防护配置 > CC 防护。
