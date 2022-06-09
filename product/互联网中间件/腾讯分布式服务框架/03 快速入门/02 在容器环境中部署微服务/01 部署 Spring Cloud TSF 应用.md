@@ -81,11 +81,6 @@ Spring Cloud 普通应用使用 TSF SDK 接入，支持 TSF 全栈服务治理�
 
 
 
-
-
-
-
-
 ### 步骤4：验证服务调用
 
 使用与之前相同的流程部署一组 consumer-demo 和 provider-demo。
