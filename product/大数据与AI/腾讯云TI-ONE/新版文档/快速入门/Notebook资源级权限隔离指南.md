@@ -72,7 +72,7 @@ TI-ONE 的主要资源已完成接入资源级权限控制，具体所有支持�
 ![](https://qcloudimg.tencent-cloud.cn/raw/2471baeb414e475a6703e214b806552d.png)
 在弹出的对话框中，选择按策略语法创建
 ![](https://qcloudimg.tencent-cloud.cn/raw/a8935e01034f1e261770decb06940670.png)
-选择模版类型为自定义-空白模版，将上述策略语法粘贴，完成创建。
+选择模板类型为自定义-空白模板，将上述策略语法粘贴，完成创建。
 ![](https://qcloudimg.tencent-cloud.cn/raw/a0a743dc46c0ab28d71e065166fe4331.png)
 2. 给子账号授权
 进入[用户列表](https://console.cloud.tencent.com/cam)，确定需要授权的子账号，单击**授权**，将刚刚创建的自定义策略授予给该子账号，即可完成授权。
