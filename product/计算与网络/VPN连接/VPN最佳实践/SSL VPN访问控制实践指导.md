@@ -159,7 +159,7 @@
  使用 EIAM 创建的用户密码进行登录。
  ![](https://qcloudimg.tencent-cloud.cn/raw/7da3bbc24a8e84f433ecb8b5830178a4.png)
  - SAML 自动认证方式
- 如果您在 EIAM 的用户组中，并在 SSL 访问控制策略中，你还可以直接单击![](https://qcloudimg.tencent-cloud.cn/raw/30a42799e4a89cef711771017807a9de.png)进行 SAML 认证，然后单击**跳转进行认证（SAML）**进行登录。
+ 如果您在 EIAM 的用户组中，并在 SSL 访问控制策略中，您还可以直接单击![](https://qcloudimg.tencent-cloud.cn/raw/30a42799e4a89cef711771017807a9de.png)进行 SAML 认证，然后单击**跳转进行认证（SAML）**进行登录。
  ![](https://qcloudimg.tencent-cloud.cn/raw/18d2898024149b5d5343d32f8ef554f5.png)
 4. 在**下载SSL客户端配置文件**区域找到您需要下载的客户端配置文件，单击**下载**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/26eec93d1ddcc1a5165f13a2bf196e80.png)
