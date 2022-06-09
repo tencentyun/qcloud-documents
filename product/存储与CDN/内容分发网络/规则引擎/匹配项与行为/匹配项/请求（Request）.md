@@ -3,14 +3,14 @@
 ## 匹配项-请求总览
 |分类-匹配项  |场景 |说明 |
 |---|---|---|
-|请求（Request）|[请求协议](#m1) |首页（url-index）：以根目录格式的请求URL可通过匹配
-|请求（Request）|[请求方法](#m2) |全部文件（url-all） ：该域名下的所有请求都可通过匹配
-|请求（Request）|[请求 HOST](#m3) |文件后缀 （uri-file）：根据您的输入值匹配访问请求的后缀
+|请求（Request）|[请求协议](#m1) |首页（url-index）：以根目录格式的请求URL可通过匹配。
+|请求（Request）|[请求方法](#m2) |全部文件（url-all） ：该域名下的所有请求都可通过匹配。
+|请求（Request）|[请求 HOST](#m3) |文件后缀 （uri-file）：根据您的输入值匹配访问请求的后缀。
 |请求（Request）|[请求头](#m4) |指定访问请求中的header，精准或正则匹配对应的请求头值。
 |请求（Request）|[请求 Cookie](#m5) |根据访问请求中的Cookie， 精准或正则匹配对应的值。
 |请求（Request）|[请求用户代理](#m3) |根据访问请求中的user-agent，精准或正则匹配对应的值。
-|请求（Request）|[请求客户端IP](#m7) |根据访问请求中的client ip，匹配任一 ip 地址
-|请求（Request）|[请求 HTTP 版本](#m8) |判断访问请求中的 HTTP 版本， 匹配任一版本
+|请求（Request）|[请求客户端IP](#m7) |根据访问请求中的client ip，匹配任一 IP 地址。
+|请求（Request）|[请求 HTTP 版本](#m8) |判断访问请求中的 HTTP 版本， 匹配任一版本。
 
 [](id:m1)
 ### 请求协议（request-protocol）
@@ -26,7 +26,7 @@
 
 | 规则块 | 效果图                                                       | 描述                                                         |
 | ------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 匹配项 | ![](https://qcloudimg.tencent-cloud.cn/raw/d3d1a0475c42825fd1469d582a54f6c5.png) | 根据访问请求中请求头的请求协议（request-method）进行匹配， 请求方法包含：GET，POST，PUT，DELETE，HEAD，OPTIONS，TRACE |
+| 匹配项 | ![](https://qcloudimg.tencent-cloud.cn/raw/d3d1a0475c42825fd1469d582a54f6c5.png) | 根据访问请求中请求头的请求协议（request-method）进行匹配， 请求方法包含：GET，POST，PUT，DELETE，HEAD，OPTIONS，TRACE。 |
 
 [](id:m3)
 ### 请求HOST （request host）
@@ -56,10 +56,10 @@
 ### 请求客户端IP（client-ip）
 | 规则块 | 效果图                                                       | 描述                                         |
 | ------ | ------------------------------------------------------------ | -------------------------------------------- |
-| 匹配项 | ![](https://qcloudimg.tencent-cloud.cn/raw/2996c2bfced6e7028ec9a28221f90789.png) | 根据访问请求中的 client ip，匹配任一 ip 地址 |
+| 匹配项 | ![](https://qcloudimg.tencent-cloud.cn/raw/2996c2bfced6e7028ec9a28221f90789.png) | 根据访问请求中的 client ip，匹配任一 IP 地址。 |
 
 [](id:m8)
 ### 请求HTTP版本（http version）
 | 规则块 | 效果图                                                       | 描述                                      |
 | ------ | ------------------------------------------------------------ | ----------------------------------------- |
-| 匹配项 | ![](https://qcloudimg.tencent-cloud.cn/raw/1925be15bff40dd1ed800e9debd2aba6.png) | 判断访问请求中的 HTTP 版本， 匹配任一版本 |
+| 匹配项 | ![](https://qcloudimg.tencent-cloud.cn/raw/1925be15bff40dd1ed800e9debd2aba6.png) | 判断访问请求中的 HTTP 版本， 匹配任一版本。 |
