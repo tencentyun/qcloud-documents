@@ -12,7 +12,7 @@
 ### 新建告警策略
 进入 [云监控控制台](https://console.cloud.tencent.com/monitor/overview)，在**告警管理 > 告警配置 > 告警策略**中，单击**新建**，新增告警策略。新建告警策略时，**策略类型**可选择为 cdwpg 数据仓库-集群监控、cdwpg 数据仓库-主节点监控和 cdwpg 数据仓库-计算节点监控。本章以计算节点监控为例。
 1. 选择**策略类型**为 cdwpg 数据仓库-计算节点监控。
-![](https://main.qcloudimg.com/raw/594ef807f8989f9fb239e6874a63a98e.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/fc2a1f813ab2498c79d45218c72399e8.png)
 2. 设置**告警对象**，可通过下拉框自行选择不同分组的计算节点。
 ![](https://main.qcloudimg.com/raw/f9b3f00aa31c7cf6870129fd86614509.png)
 3. 配置**触发条件**，可通过**选择模板**或**手动配置**两种方式。
