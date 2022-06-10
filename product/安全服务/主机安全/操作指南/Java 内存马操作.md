@@ -8,7 +8,7 @@ Java 内存马属于主机安全旗舰版功能，须 [升级旗舰版](https://
  
 
 ## 操作步骤
-1. 登录 [主机安全控制台](https://console.cloud.tencent.com/cwp/manage/maliciousRequest)，在左侧导航栏，选择**高级防御** > **Java 内存马**，进入 Java 内存马页面。
+1. 登录 [主机安全控制台](https://console.cloud.tencent.com/cwp/defend/memShell)，在左侧导航栏，选择**高级防御** > **Java 内存马**，进入 Java 内存马页面。
 2. 选择**插件配置**，插件配置是监测 Java 内存马的前提，您可对旗舰版主机进行插件的开启和关闭，并观测插件的具体运行状态。 
 >?
 >- 启用 Java 内存马插件后，主机安全会自动检测主机上 JavaWeb 服务进程，并注入检测探针到服务进程中，实时监控黑客通过漏洞、Shell 等注入的 Java 内存马。
