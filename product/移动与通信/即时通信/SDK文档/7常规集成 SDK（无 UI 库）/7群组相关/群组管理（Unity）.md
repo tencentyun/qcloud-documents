@@ -85,38 +85,41 @@
   	<td colspan="4"><ul style="margin:0;padding-left:10px" ><li>体验版：7天</li><li>专业版 ：默认7天，最高支持 <a href="https://cloud.tencent.com/document/product/269/11673#zz">增值</a> 延长至360天</li><li>旗舰版 ：默认30天，最高支持 <a href="https://cloud.tencent.com/document/product/269/11673#zz">增值</a> 延长至360天</li></ul></td>
   <td>不支持</td>
   </tr>
-  <tr>
-    <td>是否支持查看入群前漫游消息</td>
-    <td>支持 <a href="https://console.cloud.tencent.com/im/qun-setting">控制台</a> 配置</td>
-    <td>支持 <a href="https://console.cloud.tencent.com/im/qun-setting">控制台</a> 配置</td>
-    <td>支持 <a href="https://console.cloud.tencent.com/im/qun-setting">控制台</a> 配置</td>
-    <td>支持 <a href="https://console.cloud.tencent.com/im/qun-setting">控制台</a> 配置</td>
-    <td>不支持</td>
-  </tr>
-  <tr>
-    <td>群成员变更通知</td>
-    <td>支持 <a href="https://console.cloud.tencent.com/im/qun-setting">控制台</a> 配置</td>
-    <td>支持 <a href="https://console.cloud.tencent.com/im/qun-setting">控制台</a> 配置</td>
-    <td>支持 <a href="https://console.cloud.tencent.com/im/qun-setting">控制台</a> 配置</td>
-    <td>支持 <a href="https://console.cloud.tencent.com/im/qun-setting">控制台</a> 配置</td>
-    <td>不支持</td>
-  </tr>
-	  <tr>
-    <td>群资料变更通知</td>
-    <td>支持 <a href="https://console.cloud.tencent.com/im/qun-setting">控制台</a> 配置</td>
-    <td>支持 <a href="https://console.cloud.tencent.com/im/qun-setting">控制台</a> 配置</td>
-    <td>支持 <a href="https://console.cloud.tencent.com/im/qun-setting">控制台</a> 配置</td>
-    <td>支持 <a href="https://console.cloud.tencent.com/im/qun-setting">控制台</a> 配置</td>
-    <td>不支持</td>
-  </tr>
-	  <tr>
-    <td>群资料变更通知</td>
-    <td>支持 <a href="https://console.cloud.tencent.com/im/qun-setting">控制台</a> 配置</td>
-    <td>支持 <a href="https://console.cloud.tencent.com/im/qun-setting">控制台</a> 配置</td>
-    <td>支持 <a href="https://console.cloud.tencent.com/im/qun-setting">控制台</a> 配置</td>
-    <td>支持 <a href="https://console.cloud.tencent.com/im/qun-setting">控制台</a> 配置</td>
-    <td>支持 <a href="https://console.cloud.tencent.com/im/qun-setting">控制台</a> 配置</td>
-  </tr>
+ <tr>
+<td>是否支持查看入群前漫游消息</td>
+<td>默认关闭查看入群前漫游消息，支持 <a href="https://console.cloud.tencent.com/im/qun-setting">控制台</a> 配置</td>
+<td>默认关闭查看入群前漫游消息，支持 <a href="https://console.cloud.tencent.com/im/qun-setting">控制台</a> 配置</td>
+<td>默认开启查看入群前漫游消息，支持 <a href="https://console.cloud.tencent.com/im/qun-setting">控制台</a> 配置</td>
+<td>默认开启查看入群前漫游消息，支持 <a href="https://console.cloud.tencent.com/im/qun-setting">控制台</a> 配置</td>
+<td>不支持</td>
+</tr>
+
+<tr>
+<td>群成员变更通知</td>
+<td>邀请进群，申请进群，踢人，退群默认下发通知且存漫游，支持 <a href="https://console.cloud.tencent.com/im/qun-setting">控制台</a> 配置</td>
+<td>邀请进群，申请进群，踢人，退群默认下发通知且存漫游，支持 <a href="https://console.cloud.tencent.com/im/qun-setting">控制台</a> 配置</td>
+<td>邀请进群，申请进群，踢人，退群默认关闭通知，支持 <a href="https://console.cloud.tencent.com/im/qun-setting">控制台</a> 配置</td>
+<td>邀请进群，申请进群，踢人，退群默认下发通知且存漫游，支持 <a href="https://console.cloud.tencent.com/im/qun-setting">控制台</a> 配置</td>
+<td>邀请进群，申请进群，踢人，退群下发通知且不存漫游</td>
+</tr>
+
+<tr>
+<td>群资料变更通知</td>
+<td>群名称，群通知，群简介，群头像，群主变更默认下发通知且存漫游，群禁言变更默认关闭通知，支持 <a href="https://console.cloud.tencent.com/im/qun-setting">控制台</a> 配置</td>
+<td>群名称，群通知，群简介，群头像，群主变更默认下发通知且存漫游，群禁言变更默认关闭通知，支持 <a href="https://console.cloud.tencent.com/im/qun-setting">控制台</a> 配置</td>
+<td>群名称，群通知，群简介，群头像，群主变更默认下发通知且存漫游，群禁言变更默认关闭通知，支持 <a href="https://console.cloud.tencent.com/im/qun-setting">控制台</a> 配置</td>
+<td>群名称，群通知，群简介，群头像，群主变更默认下发通知且存漫游，群禁言变更默认关闭通知，支持 <a href="https://console.cloud.tencent.com/im/qun-setting">控制台</a> 配置</td>
+<td>群名称，群通知，群简介，群头像，群主变更下发通知且不存漫游，群禁言变更关闭通知</td>
+</tr>
+
+<tr>
+<td>群成员资料变更通知</td>
+<td>群成员禁言，群管理员变更默认下发通知且存漫游，支持 <a href="https://console.cloud.tencent.com/im/qun-setting">控制台</a> 配置</td>
+<td>群成员禁言，群管理员变更默认下发通知且存漫游，支持 <a href="https://console.cloud.tencent.com/im/qun-setting">控制台</a> 配置</td>
+<td>群成员禁言，群管理员变更默认关闭通知，支持 <a href="https://console.cloud.tencent.com/im/qun-setting">控制台</a> 配置</td>
+<td>群成员禁言，群管理员变更默认下发通知且存漫游，支持 <a href="https://console.cloud.tencent.com/im/qun-setting">控制台</a> 配置</td>
+<td>群成员禁言，群管理员变更默认关闭通知，支持 <a href="https://console.cloud.tencent.com/im/qun-setting">控制台</a> 配置</td>
+</tr>
   <tr>
   <td>群组数量</td>
   <td colspan="3"><ul style="margin:0;padding-left:10px"><li>体验版：最多同时存在100个，已解散的群组不计数</li><li>专业版或旗舰版：无上限</li></ul></td>
