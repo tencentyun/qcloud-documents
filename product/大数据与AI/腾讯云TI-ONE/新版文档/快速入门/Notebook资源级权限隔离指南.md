@@ -48,7 +48,7 @@ TI-ONE 的主要资源已完成接入资源级权限控制，具体所有支持�
                 "tione:ModifyNotebook"
             ],
             "resource": [
-                "qcs::tione:ap-guangzhou:uin/100006116610:notebook/nb-1530380051508621312"
+                "qcs::tione:ap-guangzhou:uin/100*****6610:notebook/nb-1530380051508621312"
             ]
         },
         {
