@@ -1,15 +1,13 @@
-本文为您介绍如何部署 SSIS 项目。
-
-在 SSIS 项目部署之前，首先需要连接商业智能服务器。您可以从 windows 云服务器 CVM 连接商业智能服务器，也可以从 windows 本地连接商业智能服务器。但无论从哪里连接，都需要进行以下步骤：
-1. 在 windows 云服务器 CVM（或 windows 本地 ）创建与商业智能服务器中同名同密码的 windows 系统鉴权账号。
-2. 使用第1步中在 windows 云服务器 CVM（或 windows 本地）上创建的 windows 系统鉴权账号来登录 windows云服务器 CVM（或 windows 本地）。
-3. 使用 windows 系统鉴权账号登录商业智能服务器实例（如需在 windows 本地登录商业智能服务器，您需要先开启外网，详见 [通过 CLB 开启外网服务](https://cloud.tencent.com/document/product/238/73132)）。
+在 SSIS 项目部署之前，首先需要连接商业智能服务器。需要进行以下步骤：
+1. 在 windows 云服务器 CVM 创建与商业智能服务器中同名同密码的 windows 系统鉴权账号。
+2. 使用第1步中在 windows 云服务器 CVM 上创建的 windows 系统鉴权账号来登录 windows云服务器 CVM。
+3. 使用 windows 系统鉴权账号登录商业智能服务器实例。
 4. 部署 SSIS 项目。
 5. 配置 SSIS 服务，包括平面文件连接配置及源和目标 SQL Server 数据库实例连接配置。
-6. 运行 SSIS 服务，执行 packsge 包。
+6. 运行 SSIS 服务，执行 package 包。
 7. 配置 agent 作业，包括新建作业步骤、新建作业执行计划等。
 
-**以在 windows 云服务器 CVM 连接商业智能服务器为例，以下为您介绍详细的部署操作步骤。**
+本文为您详细的介绍如何通过 windows 云服务器 CVM 连接商业智能服务器实例并进行项目部署。
 ## 操作步骤
 **1. 在 CVM 上创建与商业智能服务器中同名同密码的 windows 系统鉴权账号**
 在创建 windows 鉴权账号步骤中，已经在商业智能服务器中创建了 windows 系统鉴权账号，下面需要在 CVM 中创建与商业智能服务器中同名同密码的 windows 系统鉴权账号。
