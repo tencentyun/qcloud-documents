@@ -297,6 +297,7 @@ ul.rno-tabs-operation {
            单击即可体验
         </div>
         <div class="demo-item-download">
+						<div class="demo-item-download-btn" onclick="window.open('https://sdk-web-1252463788.cos.ap-hongkong.myqcloud.com/trtc/webrtc/test/xinli-test/tuiroom/index.html#/home');reportEvent({name: 'demo-click-web', ext1: 'api-sample'});">多人视频会议</div>
             <div class="demo-item-download-btn" onclick="window.open('https://web.sdk.qcloud.com/trtc/webrtc/demo/api-sample/login.html');reportEvent({name: 'demo-click-web', ext1: 'api-sample'});">音视频通话</div>
             <div class="demo-item-download-btn" onclick="window.open('https://web.sdk.qcloud.com/component/tuiliveroom/tuipusher/login.html');reportEvent({name: 'demo-click-web', ext1: 'pusher'});">互动直播推流</div>
             <div class="demo-item-download-btn" onclick="window.open('https://web.sdk.qcloud.com/component/tuiliveroom/tuiplayer/login.html');reportEvent({name: 'demo-click-web', ext1: 'player'});">互动直播拉流</div>
