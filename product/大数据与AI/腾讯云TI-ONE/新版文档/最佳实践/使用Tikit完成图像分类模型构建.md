@@ -1,9 +1,7 @@
 
 ## 实验背景
 
-本实验通过一个简单的图像分类场景，演示如何使用 TI-ONE 平台开发套件 Tikit 在 Notebook 中提交训练任务，注册模型，同时演示如何使用平台功能将模型部署上线，并进行在线测试功能演示。
-通过此案例的学习，您可以完成平台端到端模型开发、纳管和上线流程。
-
+本实验通过一个简单的图像分类场景，演示如何使用 TI-ONE 平台开发套件 Tikit 在 Notebook 中提交分布式训练任务和注册模型，通过此案例的学习，您可以掌握 Tikit 的基本使用方法。
 ## 实验准备
 
 Notebook 环境内已内置本案例代码包和说明指引，您可以前往 Notebook 案例集进行 Copy 体验。
@@ -31,11 +29,11 @@ client.upload_to_cos("LOCAL_PATH", "YOUR_BUCKE_NAME", "YOUR_COS_PATH")
 
 ### 第二步 准备训练代码
 
-下面介绍如何准备实验代码.
+下面介绍如何准备实验代码。
 
 #### 2.1 脚本命名
 
-1. 将算法脚本命名为 main.py
+1. 将算法脚本命名为 main.py。
 2. 准备本地运行启动命令 start_local.sh。
 3. 准备提交到远程算力集群启动命令 start_cloud.sh。
 
@@ -207,7 +205,7 @@ client.describe_train_logs("train-544168070598700544*")
 
 任务训练完成后，需要将模型注册到模型仓库；注册模型时需要指定模型后续的推理框架。
 
-```
+````
 # 查看推理镜像。（运行查看最新版本信息）
 client.describe_system_reasoning_images()
 
@@ -222,8 +220,6 @@ reasoning_env = models.ReasoningEnvironment.new_system_environment("torch1.9.0-p
 model_output_path = models.CosPathInfo("demo-1256580188", "output/train-544168070598700544/", "ap-guangzhou")
 # 创建模型，这里训练任务ID就是上面创建的训练任务ID
 client.create_model_by_task("model1", "train-544168070598700544", reasoning_env, module_output_path, "PYTORCH")
-
-
 ```
 
 模型创建成功后可在模型仓库查看对应的模型信息。
