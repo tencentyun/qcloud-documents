@@ -81,7 +81,7 @@ SSIS 提供了相关的组件实现管理的自动化，例如复制 SQL Server 
 **4. [互通源、目标实例及商业智能服务器](https://cloud.tencent.com/document/product/238/75227)**
 在 SSIS 项目部署之前，还需要将 SSIS 项目涉及的相关源数据库实例、目标数据库实例及商业智能服务器互通，以此保证各实例间可以互相访问。互通组管理功能用于承载实例间的互通访问，因此同一账号同一地域下，SSIS 项目相关的所有数据库实例与商业智能服务器实例需要加入至同一互通组中且每个实例均需要开启商业智能服务互通 IP，加入至互通组中的多个实例之间可便以互相访问。
 
-**5. 部署 SSIS 项目**
+**5. [部署 SSIS 项目](https://cloud.tencent.com/document/product/238/75228)**
 在 SSIS 项目部署之前，首先需要连接商业智能服务器。需要进行以下步骤：
 5.1 在 Windows 云服务器 CVM 创建与商业智能服务器中同名同密码的 Windows 系统鉴权帐号。
 5.2 使用5.1步骤中在 Windows 云服务器 CVM 上创建的 Windows 系统鉴权帐号来登录 Windows 云服务器 CVM。
@@ -89,7 +89,7 @@ SSIS 提供了相关的组件实现管理的自动化，例如复制 SQL Server 
 5.4 部署 SSIS 项目。
 5.5 配置 SSIS 服务，包括平面文件连接配置及源和目标 SQL Server 数据库实例连接配置。
 5.6 运行 SSIS 服务，执行 package 包。
-5.7 配置 agent 作业，包括新建作业步骤、新建作业执行计划等，详情请参见 [部署项目](https://cloud.tencent.com/document/product/238/75228)。
+5.7 配置 agent 作业，包括新建作业步骤、新建作业执行计划等。
 
 ## 云数据库 SQL Server 数据集成服务（SSIS）功能相关操作
 <table>
