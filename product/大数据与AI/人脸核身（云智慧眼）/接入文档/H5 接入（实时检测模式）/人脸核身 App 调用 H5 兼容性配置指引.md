@@ -31,7 +31,7 @@ ses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     - 如果第三方编译的 targetSdkVersion >= 23，则需要动态申请权限。
     - 如果第三方编译的 targetSdkVersion < 23，则不需要动态申请权限。
     - 权限代码申请处理逻辑，demo 仅供参考，合作方可根据自身业务需求自行处理。
-    - 一定要要在动态权限申请成功后，才能去调用 WBH5FaceVerifySDK的enterOldModeFaceVerify() 录制模式或enterTrtcFaceVerify() trtc 模式体验 h5 刷脸功能。
+    - 一定要在动态权限申请成功后，才能去调用 WBH5FaceVerifySDK的enterOldModeFaceVerify() 录制模式或enterTrtcFaceVerify() trtc 模式体验 h5 刷脸功能。
 3. 设置 WebSettings
  调用 WebView.loadUrl(String url) 前一行添加如下代码设置 WebSettings。
 ```
