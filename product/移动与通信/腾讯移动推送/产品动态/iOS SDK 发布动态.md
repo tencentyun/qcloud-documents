@@ -1,4 +1,4 @@
-## 2022年06月
+## 2022年05月
 
 <table>
  <tr>
@@ -13,7 +13,7 @@
   <li> 修复：修复已知问题</li>
   <li> 优化：提升业务接口性能</li>
  </td>
- <td>2022-06-10</td>
+ <td>2022-05-25</td>
  <td><a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</a></td>
  </tr>
 </table>
