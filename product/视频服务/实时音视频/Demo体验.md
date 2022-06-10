@@ -394,7 +394,6 @@ ul.rno-tabs-operation {
 :::
 </dx-tabs>
 
-</dx-tabs>  
 
 ## 视频互动直播场景
 <dx-tabs>
@@ -436,7 +435,6 @@ ul.rno-tabs-operation {
 :::
 </dx-tabs>
 
-</dx-tabs>
 
 ## 语音互动直播场景
 <dx-tabs>
@@ -458,7 +456,7 @@ ul.rno-tabs-operation {
 :::
 </dx-tabs>
 
-</dx-tabs>
+
 ## 视频会议场景
 <dx-tabs>
 ::: iOS&Android
@@ -542,9 +540,8 @@ ul.rno-tabs-operation {
 :::
 </dx-tabs>
 
-</dx-tabs>
 
-## 在线K歌场景
+## 在线 K 歌场景
 <dx-tabs>
 ::: iOS&Android
 <div class="tab-img">
@@ -564,7 +561,7 @@ ul.rno-tabs-operation {
 
 :::
 </dx-tabs>
-</dx-tabs>
+
 
 <script src="https://cdn-go.cn/aegis/aegis-sdk/latest/aegis.min.js"></script>
 <script>
