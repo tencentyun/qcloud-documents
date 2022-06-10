@@ -1,6 +1,6 @@
-### 2.7.3.119 @ 2022-06-07
-* [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/2.7.3.119/TEduBoard_2.7.3.119.zip)
-* [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/2.7.3.119/TEduBoard_Mac_2.7.3.119.zip)
+### 2.7.3.120 @ 2022-06-10
+* [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/2.7.3.120/TEduBoard_2.7.3.120.zip)
+* [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/2.7.3.120/TEduBoard_Mac_2.7.3.120.zip)
 
 - 调整初始化参数
     1. 权限配置下,新增customCursorIcon参数:是否自定义鼠标样式,默认false显示系统自带样式, true时需要根据返回的鼠标位置, 自定义鼠标样式;
