@@ -1,6 +1,7 @@
 本文档为您介绍日志服务 LogListener 的版本更新记录。
 
 >?
+> - 采集 \_\_HOSTNAME\_\_ 功能，在 Loglistener 2.7.4版本中开始支持。
 > - 组合解析功能，在 LogListener 2.6.4版本中开始支持。
 > - 全量/增量采集策略功能，在 LogListener 2.6.2版本中开始支持。
 > - CVM 批量部署功能，在 LogListener 2.6.0版本中开始支持。
@@ -12,6 +13,14 @@
 
 <table>
 	<tr><th style="width: 10%;">版本号</th><th style="width: 11%;">变更类型</th><th>描述</th></tr>
+	<tr><td><b>v2.7.9</b></td><td>体验优化</td><td><ul  style="margin: 0;"><li>增加 loglistener 文件锁校验，默认只能启动一个 agent 实例。</li><li>优化 containerd stdout 空行处理异常。</li><li>优化文件句柄泄露导致的磁盘满、业务异常问题。</li><li>优化多行日志行数过多时，后半部分内容被解析失败的问题。</li></ul></td></tr>
+	<tr><td><b>v2.7.8</b></td><td>体验优化</td><td>优化容器场景下 metadata 文件生成延迟，造成日志无 TAG 元数据的问题。</td></tr>
+	<tr><td><b>v2.7.7</b></td><td>体验优化</td><td>优化 DNS 解析异常恢复后，采集程序网络连接无法恢复的问题。</td></tr>
+	<tr><td><b>v2.7.6</b></td><td>体验优化</td><td>优化 hostname 提取时的换行符处理。</td></tr>
+	<tr><td><b>v2.7.5</b></td><td>体验优化</td><td>优化真实文件及其同目录软链接同时采集（不同采集配置）时，文件轮转情况下的处理异常。</td></tr>
+	<tr><td rowspan=2><b>v2.7.4</b></td><td>新功能</td><td><ul  style="margin: 0;"><li>支持采集 hostname 作为元数据。</li><li>组合解析增加 meta_processor，支持自定义元数据解析（路径）。</li></ul></td></tr>
+	<tr><td>体验优化</td><td><ul  style="margin: 0;"><li>优化在文件删除场景的漏采问题。</li><li>由于文件尾无换行符引起的文件大小判断出错，进而引起文件重采。</li></ul></td></tr>
+	<tr><td><b>v2.7.3</b></td><td>新功能	</td><td>单 agent 实例支持同时多 endpoint 上传日志。</td></tr>
 	<tr><td><b>v2.7.2</b></td><td>体验优化</td><td>优化轮转文件在移除时无法清理掉对应的配置缓存，造成内存泄漏。</td></tr>
 	<tr><td><b>v2.7.1</b></td><td>体验优化</td><td>优化大量打印 processor 为空日志的问题。</td></tr>
 	<tr><td><b>v2.7.0</b></td><td>体验优化</td><td>优化空字符串在封装 PB 时，有可能引发异常，导致采集阻塞的问题。</td></tr>

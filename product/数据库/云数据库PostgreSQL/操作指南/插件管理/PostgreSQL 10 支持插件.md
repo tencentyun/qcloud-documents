@@ -2,7 +2,6 @@
 
 <table>
 <thead><tr><th>插件名</th><th>v10.17_r1.4</th><th>v10.17_r1.3</th><th>v10.17_r1.2</th><th>v10.17_r1.1</th><th>v10.4_r1.1</th><th>v10.4_r1.0</th></tr></thead>
-<tbody>
 <tr><td>pg_hint_plan</td><td>1.3.6</td><td>1.3.6</td><td>1.3.6</td><td>1.3.6</td><td>1.3.6</td><td>1.3.6</td></tr>
 <tr><td>pg_prewarm</td><td>1.1</td><td>1.1</td><td>1.1</td><td>1.1</td><td>1.1</td><td>1.1</td></tr>
 <tr><td>pg_stat_error</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
@@ -69,3 +68,5 @@
 <tr><td>pgcrypto</td><td>1.3</td><td>1.3</td><td>1.3</td><td>1.3</td><td>1.3</td><td>1.3</td></tr>
 <tr><td>cos_fdw</td><td>1</td><td>不支持</td><td>不支持</td><td>不支持</td><td>不支持</td><td>不支持</td></tr>
 <tr><td>topn</td><td>2.4.0</td><td>2.4.0</td><td>不支持</td><td>不支持</td><td>不支持</td><td>不支持</td></tr>
+</table>
+

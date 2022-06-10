@@ -120,3 +120,6 @@
 | 拉取运营数据  |[v4/openconfigsvr/getappinfo](https://cloud.tencent.com/document/product/269/4193) |
 | 下载消息记录  |[v4/open_msg_svc/get_history](https://cloud.tencent.com/document/product/269/1650) |
 | 获取服务器 IP 地址  |[v4/ConfigSvc/GetIPList](https://cloud.tencent.com/document/product/269/45438) |
+|聊天文件封禁|[v4/im_cos_msg/forbid_illegal_object](https://cloud.tencent.com/document/product/269/74775)|
+|聊天文件解封|[v4/im_cos_msg/allow_banned_object](https://cloud.tencent.com/document/product/269/74776)|
+|聊天文件签名|[v4/im_cos_msg/get_cos_sig](https://cloud.tencent.com/document/product/269/74777)|
