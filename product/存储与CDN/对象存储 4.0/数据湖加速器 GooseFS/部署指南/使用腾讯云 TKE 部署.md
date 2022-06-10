@@ -47,7 +47,7 @@ stringData:
 secret/mysecret created
 ```
 
-dataset.yaml 模版如下：
+dataset.yaml 模板如下：
 ```yaml
 apiVersion: data.fluid.io/v1alpha1
 kind: Dataset
