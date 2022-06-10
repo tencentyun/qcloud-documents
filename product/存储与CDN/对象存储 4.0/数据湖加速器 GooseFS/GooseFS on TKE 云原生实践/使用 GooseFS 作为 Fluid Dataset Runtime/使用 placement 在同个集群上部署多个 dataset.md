@@ -1,6 +1,5 @@
 通过 GooseFS 和 [Fuse](https://github.com/libfuse/libfuse)，Fluid 为用户提供了一种更为简单的文件访问接口，使得任意运行在 Kubernetes 集群上的程序能够像访问本地文件一样轻松访问存储在远程文件系统中的文件。Fluid 针对数据集进行全生命周期的管理和隔离，尤其对于短生命周期应用（例如数据分析任务、机器学习任务），用户可以在集群中大规模部署。
 
-
 ## 前提条件
 
 在运行该示例之前，请参考 [安装](https://cloud.tencent.com/document/product/436/59493) 文档完成安装，并检查 Fluid 各组件正常运行：
@@ -95,7 +94,6 @@ hbase                                                                  NotBound 
 spark                                                                  NotBound   4s
 ```
 如上所示，`status`中的`phase`属性值为`NotBound`，这意味着该`Dataset`资源对象目前还未与任何`GooseFSRuntime`资源对象绑定，接下来，我们将创建一个`GooseFSRuntime`资源对象。
-
 
 **查看待创建的 GooseFSRuntime 资源对象**
 
