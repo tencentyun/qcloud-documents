@@ -8,3 +8,4 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/8b7aee12d02881438f368530cb371d12.png)
 
 3. 在 **Yarn 作业查询 > 作业列表**单击操作列 > **任务信息**，查看作业的任务列表及任务的运行日志。
+![](https://qcloudimg.tencent-cloud.cn/raw/647f5439e782b0f49893223aa9b2f5a8.png)
