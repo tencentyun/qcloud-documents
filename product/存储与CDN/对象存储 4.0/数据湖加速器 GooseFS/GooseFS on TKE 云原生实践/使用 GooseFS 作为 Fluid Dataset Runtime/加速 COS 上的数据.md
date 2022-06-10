@@ -213,3 +213,4 @@ sys	  0m0.046s
 ```shell
 $ kubectl delete -f resource.yaml
 ```
+
