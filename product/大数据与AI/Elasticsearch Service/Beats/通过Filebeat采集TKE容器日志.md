@@ -33,7 +33,7 @@ Filebeat 是一个轻量型的日志采集器，可以轻松地采集云上的 T
 		- 写入的索引名称前缀：选填。写入的索引名称前缀将作为 ES 索引名称的一部分，例如替代 filebeat-%{[index]}-%{+yyyy.MM.dd}中的 index 。
 		- 日志内容过滤：选填。根据关键字过滤日志，可填多个关键字，以逗号分隔。
 		- 高级采集配置：选填。个性化设置解析方式、过滤等，一般采用默认配置，详情请参见 [配置文件填写参考](https://www.elastic.co/guide/en/beats/filebeat/7.17/defining-processors.html)。
-![](https://qcloudimg.tencent-cloud.cn/raw/4b8ba073d7786371b28e74d4725c6908.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/3a51c6b488e8b7f4e29a474e3ce0791b.png)
 3. 单击**确定启用**后，跳转到 Beats 采集器管理界面，可以查看 Filebeat 采集器运行状态，显示“正常”则表示采集器安装成功。
 ![](https://qcloudimg.tencent-cloud.cn/raw/c35434d895650bc5d38114f67f3c439b.png)
 
