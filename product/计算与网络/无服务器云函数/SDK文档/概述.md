@@ -3,15 +3,8 @@
 安装 SDK 前，需要先获取安全凭证。在第一次使用云 API 之前，用户首先需要在腾讯云控制台上申请安全凭证，安全凭证包括 SecretId 和 SecretKey。SecretId 是用于标识 API 调用者的身份，SecretKey 是用于加密签名字符串和服务器端验证签名字符串的密钥。SecretKey 必须严格保管，避免泄露。
 
 ## 安装 SDK
+腾讯云开发者工具套件（SDK）提供多种语言版本，统一了接口调用方式，规范了错误码以及返回包格式，方便您快速接入和使用腾讯云服务。您可在 [SDK 中心](https://cloud.tencent.com/document/sdk) 中快速获取腾讯云 SDK 并开始调用。
 
-- [Python](https://cloud.tencent.com/document/product/583/19698)
-- [Node.js](https://cloud.tencent.com/document/product/583/19694)
-- [PHP](https://cloud.tencent.com/document/product/583/19695)
-- [Java](https://cloud.tencent.com/document/product/583/59024)
-- [Go](https://cloud.tencent.com/document/product/583/59025)
-- [.NET](https://cloud.tencent.com/document/product/583/59026)
-- [C++](https://cloud.tencent.com/document/product/583/59027)
-- [Ruby](https://cloud.tencent.com/document/product/583/59028)
 
 ## API
 
