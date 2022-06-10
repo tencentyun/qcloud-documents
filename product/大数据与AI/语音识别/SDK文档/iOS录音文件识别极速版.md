@@ -8,7 +8,9 @@
 - 运行 Demo 必须设置 AppID、SecretID、SecretKey，可在 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取。
 
 ### SDK 导入
-下载并解压 iOS SDK 压缩包，压缩包中包含 Sample Code 和 QCloudSDK。
+1. 下载并解压 iOS SDK 压缩包，压缩包中包含 Sample Code 和 QCloudSDK。
+2. XcodeFile > Add Files to "Your Project"，在弹出 Panel 选中所下载组件包 > Add（选中“Copy items if needed”）。
+![](https://qcloudimg.tencent-cloud.cn/raw/2ce4dab754cca64598743d1188dca876.png)
 
 ### 工程配置
 在工程` info.plist` 添加以下设置：
@@ -41,11 +43,10 @@
    + AVFoundation.framework
    + AudioToolbox.framework
    + QCloudSDK.framework
-   + CoreTelephony.framework
    + libWXVoiceSpeex.a
    + libc++.tbd
 添加完如图所示。
-![](https://main.qcloudimg.com/raw/17ff6f4f4a27e0843de528eb070c2f32.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/9f69311b17be5d1dcaf3c2ef853d44a7.png)
 4. **在 Build Settings 下的 other Linker Flags 中不能有 -all_load。**
 
 ### 类说明

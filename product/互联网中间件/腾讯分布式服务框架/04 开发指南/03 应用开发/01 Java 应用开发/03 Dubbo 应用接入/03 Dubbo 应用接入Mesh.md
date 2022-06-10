@@ -9,7 +9,7 @@ Dubbo 作为一款传统基于 SDK 的 Java RPC 框架，通过引入 jar 包的
 
 ## 操作步骤
 #### 步骤1：安装 Maven 环境
-参见 [下载 Maven](https://cloud.tencent.com/document/product/649/73789) 下载安装 Java 和 Maven。
+参见 [下载 Maven](https://cloud.tencent.com/document/product/649/20231) 下载安装 Java 和 Maven。
 
 #### 步骤2：配置 spec.yaml 服务注册文件
 Dubbo Mesh Demo 中提供了三个 Dubbo 应用，以 greet 应用为例，其 spec.yaml 配置为：
@@ -55,4 +55,5 @@ Dubbo Mesh Demo 中每个应用都提供了`build.sh`脚本用于构建部署在
 - TSF Mesh 为 Dubbo 应用提供服务间通信、服务注册发现、负载均衡、服务路由、服务熔断、服务鉴权和服务限流等治理能力。
 - Dubbo 应用可以保留原有的注册方式。
 - Dubbo 应用可以继续使用原有的 filter 机制。
+
 

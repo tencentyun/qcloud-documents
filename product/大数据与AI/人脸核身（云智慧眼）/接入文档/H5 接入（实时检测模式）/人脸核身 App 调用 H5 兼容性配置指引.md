@@ -31,7 +31,7 @@ ses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     - 如果第三方编译的 targetSdkVersion >= 23，则需要动态申请权限。
     - 如果第三方编译的 targetSdkVersion < 23，则不需要动态申请权限。
     - 权限代码申请处理逻辑，demo 仅供参考，合作方可根据自身业务需求自行处理。
-    - 一定要要在动态权限申请成功后，才能去调用 WBH5FaceVerifySDK的enterOldModeFaceVerify() 录制模式或enterTrtcFaceVerify() trtc 模式体验 h5 刷脸功能。
+    - 一定要在动态权限申请成功后，才能去调用 WBH5FaceVerifySDK的enterOldModeFaceVerify() 录制模式或enterTrtcFaceVerify() trtc 模式体验 h5 刷脸功能。
 3. 设置 WebSettings
  调用 WebView.loadUrl(String url) 前一行添加如下代码设置 WebSettings。
 ```
@@ -44,11 +44,6 @@ WBH5FaceVerifySDK.getInstance().setWebViewSettings(mWebView,getApplicationContex
 ```
 4. 重写 WebChromeClient
 调用 WebView.loadUrl(String url) 前，WebView 必须调用 setWebChromeClient(WebChromeClient webChromeClient)，并重写 WebChromeClient 的如下5个函数：
->! 
->- 如果第三方已重写以上函数，只要将如上述所示的函数体内容添加至第三方的对应函数体首行即可。
->- 如果第三方没有重写以上函数，则直接按上述所示重写。
->- WebView 不要使用 layerType 属性，否则导致刷脸界面白屏。
->
 ```
 /**
      *TRTC 刷脸模式配置，这里负责处理来自H5页面发出的相机权限申请
@@ -123,6 +118,11 @@ WBH5FaceVerifySDK.getInstance().setWebViewSettings(mWebView,getApplicationContex
         return false;
     }
 ```
+>! 
+>- 如果第三方已重写以上函数，只要将如上述所示的函数体内容添加至第三方的对应函数体首行即可。
+>- 如果第三方没有重写以上函数，则直接按上述所示重写。
+>- WebView 不要使用 layerType 属性，否则导致刷脸界面白屏。
+>
 
 5. 重写 Activity
  WebView 所属的 Activity 必须重写如下函数：
