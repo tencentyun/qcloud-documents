@@ -2,7 +2,7 @@
 
 开发前，请确保：
 
-* 已参见 [下载 Maven](https://cloud.tencent.com/document/product/649/73789) 安装 Java 和 Maven。
+* 已参见 [下载 Maven](https://cloud.tencent.com/document/product/649/20231) 安装 Java 和 Maven。
 * 已安装 [Docker](https://www.docker.com/products/docker-desktop/)（容器部署场景）。
 
 ## 下载 Demo
