@@ -72,12 +72,17 @@ path 里的参数（name，phone）均使用 `~${base64url(value)}` 统一编码
 | orgName | string | - |否 |企业账号的名称，如果添加 organizationId 则还要同步携带此参数。 |
 | id | string | - |否 |合同 ID，如果是到合同封面页或者合同详情页，此参数必填。 |
 | channel | string | - |否 |其他小程序渠道的标记，方便统计使用。 |
-
+| quickSponsor   | string | false  | 否   | 到首页是否需要立即拉起快速发起合同弹框。<br>true：出现快速发起弹框。 <br>false：不出现。     |
 
 #### 首页
 ##### C 端用户进入首页
 ```josn
 - pages/guide/index?path=/pages/home/home-index&accountType=personal&channel=${channel}
+```
+
+##### C 端用户进入首页-快速发起合同
+```josn
+- pages/guide/index?path=/pages/home/home-index&login=1&accountType=personal&channel=${channel}&quickSponsor=true
 ```
 
 ###### B 端用户进入首页
@@ -86,6 +91,12 @@ path 里的参数（name，phone）均使用 `~${base64url(value)}` 统一编码
 ```josn
 - pages/guide/index?path=/pages/home/home-index&login=1&verify=1&userIds=${userIds}&channel=${channel}
 - pages/guide/index?path=/pages/home/home-index&login=1&verify=1&organizationId=${organizationId}&orgName=${orgName}&channel=${channel}
+```
+
+###### B 端用户进入首页-快速发起合同
+```josn
+- pages/guide/index?path=/pages/home/home-index&login=1&verify=1&userIds=${userIds}&channel=${channel}&quickSponsor=true
+- pages/guide/index?path=/pages/home/home-index&login=1&verify=1&organizationId=${organizationId}&orgName=${orgName}&channel=${channel}&quickSponsor=true
 ```
 
 #### 列表页
