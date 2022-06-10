@@ -58,7 +58,7 @@ LLSync 蓝牙辅助配网功能是腾讯云IoT推出的针对`Wi-Fi + BLE` 的�
    // 配置为1，使能LLSync配网功能
    #define BLE_QIOT_LLSYNC_CONFIG_NET		(1)
 ```
-   LLSync 使用配网功能不需要 ota、数据模版等能力，`SDK`会通过功能宏控制编译。
+   LLSync 使用配网功能不需要 ota、数据模板等能力，`SDK`会通过功能宏控制编译。
    2. HAL 实现
       `inc/ble_qiot_import.h` 中定义了 `LLSync SDK` 依赖的设备 `HAL` 实现，需要您在自己的硬件平台上进行实现。
 ```c
