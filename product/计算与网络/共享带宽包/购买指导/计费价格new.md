@@ -10,7 +10,7 @@
 <tr><td><a href="#singleip">移动/联通/电信带宽包</a></td><td>通过单个网络运营商访问公网，静态单线 IP 线路类型的带宽包。自动创建，不支持手动创建。
 
 <dx-alert infotype="explain" title="">
-自2022年06月01日00时00分起，静态单线 IP（电信/联通/移动共享带宽包）将支持按天结算，如有疑问请咨询<a href="https://cloud.tencent.com/online-service">  在线支持</a>，给您带来不便，敬请谅解。
+自2022年06月01日00时00分起，静态单线 IP（移动/电信/联通共享带宽包）将支持按天结算，如有疑问请咨询<a href="https://cloud.tencent.com/online-service">  在线支持</a>，给您带来不便，敬请谅解。
 </dx-alert>
 
 
@@ -42,6 +42,23 @@
 >- 目前仅标准账户类型支持精品 BGP 带宽包，传统账户类型需升级后才能使用，升级详情请参见 [账户类型升级说明](https://cloud.tencent.com/document/product/1199/49090)。如需体验，请提交 [内测申请](https://cloud.tencent.com/apply/p/224jt7718s8)。
 >- 仅中国香港地域支持精品 BGP IP。
 >
+
+### 预付费带宽包
+<table>
+<thead>
+<tr>
+<th align="left">地域</th>
+<th align="left" width="35%">单价（元/Mbps/月）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">中国香港
+</td>
+<td align="left">380</td>
+</tr>
+</tbody></table>
+
+### 后付费带宽包
 <table>
 <thead>
 <tr>
