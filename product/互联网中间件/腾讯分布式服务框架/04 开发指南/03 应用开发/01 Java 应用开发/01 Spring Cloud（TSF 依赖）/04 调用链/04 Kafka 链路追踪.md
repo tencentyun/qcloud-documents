@@ -16,7 +16,6 @@ Kafka 的链路追踪能力通过 Spring Boot 的自动配置方式实现。
 :::
 </dx-codeblock>
 
-
 #### 参见配置
 <dx-codeblock>
 :::  properties

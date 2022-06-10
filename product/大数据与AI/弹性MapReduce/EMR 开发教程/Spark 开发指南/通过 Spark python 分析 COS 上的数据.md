@@ -1,4 +1,4 @@
-本节主要是通过 Spark Python 来进行 wordcount 的工作。
+本节主要是通过 Spark Python 来进行 wordcount 的工作。  
 ## 开发准备
 - 因为任务中需要访问腾讯云对象存储（COS），所以需要在 COS 中先 [创建一个存储桶（Bucket）](https://cloud.tencent.com/document/product/436/13309)。
 - 确认您已开通腾讯云，并且创建了一个 EMR 集群。在创建 EMR 集群的时候需要在软件配置见面选择 Spark 组件，并且在基础配置页面开启对象存储的授权。

@@ -27,9 +27,7 @@ com.qcloud.cos.goosefs.hadoop.FileSystem
 
 ![](https://main.qcloudimg.com/raw/53adde8f2bbd97d17b10dc277b2395b4.png)
 
-
 下发配置后，重启 YARN 相关组件即可生效。
-
 
 ## Spark 支持
 

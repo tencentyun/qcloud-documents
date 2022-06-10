@@ -42,4 +42,3 @@
     - 视频加密：开启视频加密。
     - UriKey：用户搭建的密钥管理服务的地址。
 7. 单击**确定**，完成加密模板配置，后续选用此模板 [配置工作流](https://cloud.tencent.com/document/product/436/53967) 和 [配置任务](https://cloud.tencent.com/document/product/436/53968) 即可实现加密视频。
-

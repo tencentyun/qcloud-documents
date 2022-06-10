@@ -87,35 +87,35 @@
   </tr>
   <tr>
     <td>是否支持查看入群前漫游消息</td>
-    <td>支持 <a href="https://console.cloud.tencent.com/im-detail/qun-setting">控制台</a> 配置</td>
-    <td>支持 <a href="https://console.cloud.tencent.com/im-detail/qun-setting">控制台</a> 配置</td>
-    <td>支持 <a href="https://console.cloud.tencent.com/im-detail/qun-setting">控制台</a> 配置</td>
-    <td>支持 <a href="https://console.cloud.tencent.com/im-detail/qun-setting">控制台</a> 配置</td>
+    <td>支持 <a href="https://console.cloud.tencent.com/im/qun-setting">控制台</a> 配置</td>
+    <td>支持 <a href="https://console.cloud.tencent.com/im/qun-setting">控制台</a> 配置</td>
+    <td>支持 <a href="https://console.cloud.tencent.com/im/qun-setting">控制台</a> 配置</td>
+    <td>支持 <a href="https://console.cloud.tencent.com/im/qun-setting">控制台</a> 配置</td>
     <td>不支持</td>
   </tr>
   <tr>
     <td>群成员变更通知</td>
-    <td>支持 <a href="https://console.cloud.tencent.com/im-detail/qun-setting">控制台</a> 配置</td>
-    <td>支持 <a href="https://console.cloud.tencent.com/im-detail/qun-setting">控制台</a> 配置</td>
-    <td>支持 <a href="https://console.cloud.tencent.com/im-detail/qun-setting">控制台</a> 配置</td>
-    <td>支持 <a href="https://console.cloud.tencent.com/im-detail/qun-setting">控制台</a> 配置</td>
+    <td>支持 <a href="https://console.cloud.tencent.com/im/qun-setting">控制台</a> 配置</td>
+    <td>支持 <a href="https://console.cloud.tencent.com/im/qun-setting">控制台</a> 配置</td>
+    <td>支持 <a href="https://console.cloud.tencent.com/im/qun-setting">控制台</a> 配置</td>
+    <td>支持 <a href="https://console.cloud.tencent.com/im/qun-setting">控制台</a> 配置</td>
     <td>不支持</td>
   </tr>
 	  <tr>
     <td>群资料变更通知</td>
-    <td>支持 <a href="https://console.cloud.tencent.com/im-detail/qun-setting">控制台</a> 配置</td>
-    <td>支持 <a href="https://console.cloud.tencent.com/im-detail/qun-setting">控制台</a> 配置</td>
-    <td>支持 <a href="https://console.cloud.tencent.com/im-detail/qun-setting">控制台</a> 配置</td>
-    <td>支持 <a href="https://console.cloud.tencent.com/im-detail/qun-setting">控制台</a> 配置</td>
+    <td>支持 <a href="https://console.cloud.tencent.com/im/qun-setting">控制台</a> 配置</td>
+    <td>支持 <a href="https://console.cloud.tencent.com/im/qun-setting">控制台</a> 配置</td>
+    <td>支持 <a href="https://console.cloud.tencent.com/im/qun-setting">控制台</a> 配置</td>
+    <td>支持 <a href="https://console.cloud.tencent.com/im/qun-setting">控制台</a> 配置</td>
     <td>不支持</td>
   </tr>
 	  <tr>
     <td>群资料变更通知</td>
-    <td>支持 <a href="https://console.cloud.tencent.com/im-detail/qun-setting">控制台</a> 配置</td>
-    <td>支持 <a href="https://console.cloud.tencent.com/im-detail/qun-setting">控制台</a> 配置</td>
-    <td>支持 <a href="https://console.cloud.tencent.com/im-detail/qun-setting">控制台</a> 配置</td>
-    <td>支持 <a href="https://console.cloud.tencent.com/im-detail/qun-setting">控制台</a> 配置</td>
-    <td>支持 <a href="https://console.cloud.tencent.com/im-detail/qun-setting">控制台</a> 配置</td>
+    <td>支持 <a href="https://console.cloud.tencent.com/im/qun-setting">控制台</a> 配置</td>
+    <td>支持 <a href="https://console.cloud.tencent.com/im/qun-setting">控制台</a> 配置</td>
+    <td>支持 <a href="https://console.cloud.tencent.com/im/qun-setting">控制台</a> 配置</td>
+    <td>支持 <a href="https://console.cloud.tencent.com/im/qun-setting">控制台</a> 配置</td>
+    <td>支持 <a href="https://console.cloud.tencent.com/im/qun-setting">控制台</a> 配置</td>
   </tr>
   <tr>
   <td>群组数量</td>
@@ -222,7 +222,7 @@ TencentIMSDK.GroupCreate(CreateGroupParam,(int code, string desc, string json_pa
 可以继续接收消息，但是直播群（AVChatRoom）中的消息不支持云端存储，因此无法拉取到掉线期间的消息。
 
 ### 2. 为什么群成员进群和退群收不到通知？
-- 请确保已在 [即时通信 IM 控制台](https://console.cloud.tencent.com/im-detail/qun-setting) “群系- 统通知配置”中，配置群成员变更通知为“下发通知”。
+- 请确保已在 [即时通信 IM 控制台](https://console.cloud.tencent.com/im/qun-setting) “群系- 统通知配置”中，配置群成员变更通知为“下发通知”。
 - 群消息限制40条/秒，会优先保证高优先级消息的收发，超过限制后会优先丢弃低优先级的消息。
 
 

@@ -34,8 +34,6 @@ Dubbo 应用使用 TSF Atom-SDK 框架接入，支持 TSF 全栈服务治理、�
    ![](https://main.qcloudimg.com/raw/761b87560d72e3a9e4b00a0d3b05a3b3.png)
 
 
-
-
 [](id:step2)
 ### 步骤2：上传镜像
 

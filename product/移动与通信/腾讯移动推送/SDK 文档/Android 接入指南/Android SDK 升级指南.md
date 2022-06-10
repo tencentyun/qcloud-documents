@@ -1,3 +1,34 @@
+## 常规升级步骤
+
+### 通过 AndroidStudio 自动集成
+若您的工程通过远程拉取依赖集成，如版本不涉及下方具体版本说明的，请直接更换工程中添加的 TPNS SDK 相关依赖版本号为最新版本即可。最新版本号可前往 [Android SDK 发布动态](https://cloud.tencent.com/document/product/548/44520) 查看获取。
+
+>! 
+> - 如您当前使用的版本和最新版本跨度较大，请务必参考下方涉及版本的变更内容进行配置修改。
+> - 如无特殊情况，建议您对来自 TPNS SDK 的各厂商推送 SDK 依赖版本号也同步进行升级修改。
+
+修改示例如下：
+```groovy
+dependencies {
+    // TPNS 推送依赖，其中 [VERSION] 请替换为最新版本号        
+    implementation 'com.tencent.tpns:tpns:[VERSION]-release' 
+}
+```
+
+
+### 通过 Eclipse 集成
+若您的工程通过手动引入 jar 文件集成，如版本不涉及下方具体版本说明的，请参考以下步骤进行变更：
+1. 前往 [SDK 下载页](https://console.cloud.tencent.com/tpns/sdkdownload) 获取最新版本 SDK 压缩包；
+2. 使用 SDK 压缩包目录 libs 下的各 `tpns-*.jar` 文件替换工程内原本的各 `tpns-*.jar` 文件。
+
+>! 
+> - 如您当前使用的版本和最新版本跨度较大，请务必参考下方涉及版本的变更内容进行配置修改。
+> - 如无特殊情况，建议您对来自 TPNS SDK 的各厂商推送 SDK 依赖包也同步进行升级替换。
+
+
+### 通过其他合集工具包集成
+若您的工程通过其他三方合集工具包集成（如 MSDK、GCloud 等），请优先参考合集工具包提供的升级指南。
+
 ## TPNS Android SDK 1.3.2.0
 TPNS 1.3.2.0 升级了各厂商推送依赖版本，版本详情如下：
 - 华为 : 6.3.0.302
@@ -98,11 +129,10 @@ implementation files('libs/commons-codec-1.15.jar')
 
 
 ## TPNS Android SDK 1.3.1.1
-###  AndroidManifest 新增节点
-如您通过手动引入 jar 文件，即参考 SDK 集成文档 [Android Studio 手动集成](https://cloud.tencent.com/document/product/548/36652#android-studio-.E6.89.8B.E5.8A.A8.E9.9B.86.E6.88.90) 部分接入 TPNS SDK 的，请注意在应用的 AndroidManifest 文件 application 标签内添加以下节点，或直接参考上述链接重新引入 AndroidManifest 配置。否则可能引起应用在线时收到的推送无法响应通知点击事件。
+### 通过 Eclipse 集成
+如您的工程通过手动引入 jar 文件集成，请注意以下内容变更。
 
->! 此项变更仅需要通过手动引入 jar 文件的应用开发者注意。如您通过拉取远程依赖接入 TPNS SDK，可忽略此项配置。
-
+1. 请在应用的 AndroidManifest 文件 application 标签内添加以下节点，否则可能引起应用在线时收到的推送无法响应通知点击事件。
 ```xml
     <activity
         android:name="com.tencent.android.tpush.InnerTpnsActivity"
@@ -128,6 +158,32 @@ implementation files('libs/commons-codec-1.15.jar')
             <action android:name="android.intent.action" />
         </intent-filter>
     </activity>
+```
+
+2. 请在应用的 AndroidManifest 文件 application 标签内修改以下节点内容，否则可能存在自启动合规风险。
+```xml
+    <!-- 手动集成时该receiver的intent-filter只保留下面3个action -->
+    <receiver
+         android:name="com.tencent.android.tpush.XGPushReceiver"
+         android:exported="false"
+         android:process=":xg_vip_service" >
+         <intent-filter android:priority="0x7fffffff" tools:node="replace" >
+            <!-- 【必须】 信鸽SDK的内部广播 -->
+            <action android:name="com.tencent.android.xg.vip.action.SDK" />
+            <action android:name="com.tencent.android.xg.vip.action.INTERNAL_PUSH_MESSAGE" />
+            <action android:name="com.tencent.android.xg.vip.action.ACTION_SDK_KEEPALIVE" />
+         </intent-filter>
+    </receiver>
+    
+    <!-- 如果您有集成小米通道,手动集成小米通道时，将该receiver对应的intent-filter删除 -->
+    <receiver
+       android:name="com.xiaomi.push.service.receivers.NetworkStatusReceiver"
+       android:exported="true" >
+       <intent-filter tools:node="remove">
+           <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+           <category android:name="android.intent.category.DEFAULT" />
+       </intent-filter>
+    </receiver>
 ```
 
 ## TPNS Android SDK 1.2.7.0

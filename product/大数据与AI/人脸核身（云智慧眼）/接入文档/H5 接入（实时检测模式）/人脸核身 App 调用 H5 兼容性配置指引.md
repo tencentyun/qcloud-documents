@@ -44,11 +44,6 @@ WBH5FaceVerifySDK.getInstance().setWebViewSettings(mWebView,getApplicationContex
 ```
 4. 重写 WebChromeClient
 调用 WebView.loadUrl(String url) 前，WebView 必须调用 setWebChromeClient(WebChromeClient webChromeClient)，并重写 WebChromeClient 的如下5个函数：
->! 
->- 如果第三方已重写以上函数，只要将如上述所示的函数体内容添加至第三方的对应函数体首行即可。
->- 如果第三方没有重写以上函数，则直接按上述所示重写。
->- WebView 不要使用 layerType 属性，否则导致刷脸界面白屏。
->
 ```
 /**
      *TRTC 刷脸模式配置，这里负责处理来自H5页面发出的相机权限申请
@@ -123,6 +118,11 @@ WBH5FaceVerifySDK.getInstance().setWebViewSettings(mWebView,getApplicationContex
         return false;
     }
 ```
+>! 
+>- 如果第三方已重写以上函数，只要将如上述所示的函数体内容添加至第三方的对应函数体首行即可。
+>- 如果第三方没有重写以上函数，则直接按上述所示重写。
+>- WebView 不要使用 layerType 属性，否则导致刷脸界面白屏。
+>
 
 5. 重写 Activity
  WebView 所属的 Activity 必须重写如下函数：
