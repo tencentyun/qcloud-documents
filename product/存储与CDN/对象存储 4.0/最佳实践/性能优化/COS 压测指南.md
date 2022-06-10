@@ -36,8 +36,7 @@ sudo apt install nmap openjdk-8-jdk
    4. cleanup 阶段，删除生成的对象。
    5. dispose 阶段：删除存储桶。
 
-示例配置如下：
-
+ 示例配置如下：
 ```shell
 <?xml version="1.0" encoding="UTF-8" ?>
 <workload name="s3-50M-sample" description="sample benchmark for s3">
@@ -73,19 +72,42 @@ sudo apt install nmap openjdk-8-jdk
 
 </workload>
 ```
-
 **参数说明**
-
-| 参数                 | 描述                                                         |
-| -------------------- | ------------------------------------------------------------ |
-| accesskey、secretkey | 密钥信息，分别替换为用户的 SecretId  和 SecretKey            |
-| cprefix              | 存储桶名称前缀，例如 examplebucket                           |
-| containers           | 为存储桶名称数值区间，最后的存储桶名称由 cprefix 和 containers 组成，例如：examplebucket1，examplebucket2 |
-| csuffix              | 用户的 APPID，需注意 APPID 前面带上符号`-`，例如 -1250000000 |
-| runtime              | 压测运行时间                                                 |
-| ratio                | 读和写的比例                                                 |
-| workers              | 压测线程数                                                   |
-
+<table>
+<thead>
+<tr><th>参数</th><th>描述</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>accesskey、secretkey</td>
+<td>密钥信息，分别替换为用户的 SecretId  和 SecretKey</td>
+</tr>
+<tr>
+<td>cprefix</td>
+<td>存储桶名称前缀，例如 examplebucket</td>
+</tr>
+<tr>
+<td>containers</td>
+<td>为存储桶名称数值区间，最后的存储桶名称由 cprefix 和 containers 组成，例如：examplebucket1，examplebucket2</td>
+</tr>
+<tr>
+<td>csuffix</td>
+<td>用户的 APPID，需注意 APPID 前面带上符号<code>-</code>，例如 -1250000000</td>
+</tr>
+<tr>
+<td>runtime</td>
+<td>压测运行时间</td>
+</tr>
+<tr>
+<td>ratio</td>
+<td>读和写的比例</td>
+</tr>
+<tr>
+<td>workers</td>
+<td>压测线程数</td>
+</tr>
+</tbody>
+</table>
 4. 编辑 cosbench-start.sh 文件，在 Java 启动行添加如下参数，关闭 s3 的 md5 校验功能：
 ```plaintext
 -Dcom.amazonaws.services.s3.disableGetObjectMD5Validation=true
