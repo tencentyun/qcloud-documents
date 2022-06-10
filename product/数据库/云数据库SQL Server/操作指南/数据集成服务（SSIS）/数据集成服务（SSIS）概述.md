@@ -115,6 +115,6 @@ SSIS 提供了相关的组件实现管理的自动化，例如复制 SQL Server 
 <td>SSIS 管理</td><td>SSIS 管理添加文件操作请参见 <a href="https://cloud.tencent.com/document/product/238/75226" target="_blank">添加平面文件</a>。</td></tr>
 <tr>
 <td rowspan="1">互通组管理</td>
-<td>互通源、目标实例及商业智能服务器</td><td>开启商业智能服务互通 IP 、添加互通实例，请参见 <a href="https://cloud.tencent.com/document/product/238/75227" target="_blank">互通源\目标实例及商业智能服务器</a>。</td></tr>
+<td>互通源、目标实例及商业智能服务器</td><td>开启商业智能服务互通 IP 、添加互通实例，请参见 <a href="https://cloud.tencent.com/document/product/238/75227" target="_blank">互通源目标实例及商业智能服务器</a>。</td></tr>
 </tbody></table>
 
