@@ -9,7 +9,7 @@ SSIS、SSAS、SSRS 是 SQL Server 实现商业智能（BI）的三个重要组�
 
 Integration Services 支持从各种数据源中提取和转换数据，然后将数据加载到一个或多个目标。腾讯云云上 Integration Services 能力当前支持云数据库 SQL Server 及平面文件（要求为 txt、csv、xlsx、xls 后缀）。
 
-云数据库 SQL Server 使用 SSIS 能力，需要通过商业智能服务器中 Integration Services 引擎进行项目部署。
+云数据库 SQL Server 使用 SSIS 能力，需要通过商业智能服务器中 Integration Services 引擎部署项目。
 
 ## 应用场景
 ### 合并来自异构数据存储区的数据
@@ -97,24 +97,24 @@ SSIS 提供了相关的组件实现管理的自动化，例如复制 SQL Server 
 <tbody>
 <tr>
 <td rowspan="6">实例列表</td>
-<td>购买商业智能服务器</td><td>新建/购买商业智能服务器请参见 <a href="https://cloud.tencent.com/document/product/238/75224" target="_blank">购买商业智能服务器</a></td></tr>
-<td>修改实例名称</td><td> 与 SQL Server 数据库实例操作方法相同，请参见 <a href="https://cloud.tencent.com/document/product/238/70169" target="_blank">修改实例名称</a></td></tr>
-<td>重启</td><td>与 SQL Server 数据库实例操作方法相同，请参见 <a href="https://cloud.tencent.com/document/product/238/70918" target="_blank">重启实例</a></td></tr>
-<td>销毁实例</td><td>与 SQL Server 数据库实例操作方法相同，请参见 <a href="https://cloud.tencent.com/document/product/238/43225" target="_blank">销毁实例</a></td></tr>
-<td>回收站</td><td>商业智能服务器 实例销毁或误删除后，在回收站的操作方法与 SQL Server 数据库实例相同，请参见 <a href="https://cloud.tencent.com/document/product/238/70915" target="_blank">回收站</a></td></tr>
-<td>编辑标签</td><td>与 SQL Server 数据库实例相同，请参见 <a href="https://cloud.tencent.com/document/product/238/70916" target="_blank">设置实例标签</a></td></tr>
+<td>购买商业智能服务器</td><td>新建/购买商业智能服务器请参见 <a href="https://cloud.tencent.com/document/product/238/75224" target="_blank">购买商业智能服务器</a>。</td></tr>
+<td>修改实例名称</td><td> 与 SQL Server 数据库实例操作方法相同，请参见 <a href="https://cloud.tencent.com/document/product/238/70169" target="_blank">修改实例名称</a>。</td></tr>
+<td>重启</td><td>与 SQL Server 数据库实例操作方法相同，请参见 <a href="https://cloud.tencent.com/document/product/238/70918" target="_blank">重启实例</a>。</td></tr>
+<td>销毁实例</td><td>与 SQL Server 数据库实例操作方法相同，请参见 <a href="https://cloud.tencent.com/document/product/238/43225" target="_blank">销毁实例</a>。</td></tr>
+<td>回收站</td><td>商业智能服务器 实例销毁或误删除后，在回收站的操作方法与 SQL Server 数据库实例相同，请参见 <a href="https://cloud.tencent.com/document/product/238/70915" target="_blank">回收站</a>。</td></tr>
+<td>编辑标签</td><td>与 SQL Server 数据库实例相同，请参见 <a href="https://cloud.tencent.com/document/product/238/70916" target="_blank">设置实例标签</a>。</td></tr>
 <tr>
 <td rowspan="8">实例管理</td>
-<td>设置实例备注</td><td>与 SQL Server 数据库实例相同，请参见 <a href="https://cloud.tencent.com/document/product/238/70170" target="_blank">设置实例备注</a></td></tr>
-<td>更改网络</td><td> 与 SQL Server 数据库实例操作方法相同，请参见 <a href="https://cloud.tencent.com/document/product/238/68270" target="_blank">更改网络（VPC 转 VPC）</a></td></tr>
-<td>修改项目</td><td>与 SQL Server 数据库实例操作方法相同，请参见 <a href="https://cloud.tencent.com/document/product/238/43219" target="_blank">设置实例所属项目</a></td></tr>
-<td>设置实例维护信息</td><td>与 SQL Server 数据库实例操作方法相同，请参见 <a href="https://cloud.tencent.com/document/product/238/43218" target="_blank">设置实例维护信息</a></td></tr>
-<td>查看监控图表</td><td>商业智能服务器 实例监控项与 SQL Server 数据库实例的监控项不完全一致，详细监控项以实际监控页面显示为准，操作请参考 <a href="https://cloud.tencent.com/document/product/238/70272" target="_blank">查看监控图表</a></td></tr>
-<td>配置安全组</td><td>商业智能服务器 实例也需要配置安全组，请参见 <a href="https://cloud.tencent.com/document/product/238/43287" target="_blank">配置安全组</a></td></tr>
-<td>帐号管理</td><td>创建、删除帐号登操作请参见 <a href="https://cloud.tencent.com/document/product/238/75225" target="_blank">创建 Windows 鉴权帐号</a></td></tr>
-<td>SSIS 管理</td><td>SSIS 管理添加文件操作请参见 <a href="https://cloud.tencent.com/document/product/238/75226" target="_blank">添加平面文件</a></td></tr>
+<td>设置实例备注</td><td>与 SQL Server 数据库实例相同，请参见 <a href="https://cloud.tencent.com/document/product/238/70170" target="_blank">设置实例备注</a>。</td></tr>
+<td>更改网络</td><td> 与 SQL Server 数据库实例操作方法相同，请参见 <a href="https://cloud.tencent.com/document/product/238/68270" target="_blank">更改网络（VPC 转 VPC）</a>。</td></tr>
+<td>修改项目</td><td>与 SQL Server 数据库实例操作方法相同，请参见 <a href="https://cloud.tencent.com/document/product/238/43219" target="_blank">设置实例所属项目</a>。</td></tr>
+<td>设置实例维护信息</td><td>与 SQL Server 数据库实例操作方法相同，请参见 <a href="https://cloud.tencent.com/document/product/238/43218" target="_blank">设置实例维护信息</a>。</td></tr>
+<td>查看监控图表</td><td>商业智能服务器 实例监控项与 SQL Server 数据库实例的监控项不完全一致，详细监控项以实际监控页面显示为准，操作请参考 <a href="https://cloud.tencent.com/document/product/238/70272" target="_blank">查看监控图表</a>。</td></tr>
+<td>配置安全组</td><td>商业智能服务器 实例也需要配置安全组，请参见 <a href="https://cloud.tencent.com/document/product/238/43287" target="_blank">配置安全组</a>。</td></tr>
+<td>帐号管理</td><td>创建、删除帐号登操作请参见 <a href="https://cloud.tencent.com/document/product/238/75225" target="_blank">创建 Windows 鉴权帐号</a>。</td></tr>
+<td>SSIS 管理</td><td>SSIS 管理添加文件操作请参见 <a href="https://cloud.tencent.com/document/product/238/75226" target="_blank">添加平面文件</a>。</td></tr>
 <tr>
 <td rowspan="1">互通组管理</td>
-<td>互通源、目标实例及商业智能服务器</td><td>开启商业智能服务互通 IP 、添加互通实例，请参见 <a href="https://cloud.tencent.com/document/product/238/75227" target="_blank">互通源\目标实例及商业智能服务器</a></td></tr>
+<td>互通源、目标实例及商业智能服务器</td><td>开启商业智能服务互通 IP 、添加互通实例，请参见 <a href="https://cloud.tencent.com/document/product/238/75227" target="_blank">互通源\目标实例及商业智能服务器</a>。</td></tr>
 </tbody></table>
 
