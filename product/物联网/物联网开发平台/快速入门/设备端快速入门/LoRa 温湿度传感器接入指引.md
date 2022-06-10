@@ -53,7 +53,7 @@
 - fPort：设备上报的 LoRaWAN 协议数据的 FPort 字段。
 - bytes：设备上报的 LoRaWAN 协议数据的 FRMPayload 字段。
 
-脚本主函数的出参为产品数据模版协议格式的对象。
+脚本主函数的出参为产品数据模板协议格式的对象。
 
 在上行数据解析部分，javascript 示例代码如下：
 <dx-codeblock>
@@ -72,7 +72,7 @@ function RawToProtocol(fPort, bytes) {
 :::
 </dx-codeblock>
 
-下行数据解析的脚本主函数为 ProtocolToRaw，其入参为产品数据模版协议格式的对象，其出参为至少3个字节的数组：
+下行数据解析的脚本主函数为 ProtocolToRaw，其入参为产品数据模板协议格式的对象，其出参为至少3个字节的数组：
 - 第1字节：下发给设备的 LoRaWAN 协议数据的 FPort 字段。
 - 第2字节：bytes 为下发给设备的 LoRaWAN 协议数据的 MType（0表示 Unconfirmed Data Down，1表示 Confirmed Data Down）。
 - 第3字节：开始为下发给设备的 LoRaWAN 协议数据的 FRMPayload 字段。
