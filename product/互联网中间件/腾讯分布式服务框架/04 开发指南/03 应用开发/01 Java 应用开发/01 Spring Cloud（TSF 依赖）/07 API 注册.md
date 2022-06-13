@@ -6,7 +6,7 @@ TSF 框架在微服务注册时，会自动收集并注册微服务提供的 API
 
 ## 前提条件
 
-请确保您已经参见 [下载 Maven](https://cloud.tencent.com/document/product/649/73789) 下载安装了 Java 和 Maven，并且配置了 TSF 私服地址。
+请确保您已经参见 [下载 Maven](https://cloud.tencent.com/document/product/649/20231) 下载安装了 Java 和 Maven，并且配置了 TSF 私服地址。
 
 
 
@@ -106,4 +106,5 @@ public class ProviderController {
 :::
 </dx-codeblock>排除后，不影响在 TSF 服务治理 > 接口列表中查询 API 的能力，仅仅不支持通过 `ip:pot/swagger.html` 查看。
 </dx-alert>
+
 

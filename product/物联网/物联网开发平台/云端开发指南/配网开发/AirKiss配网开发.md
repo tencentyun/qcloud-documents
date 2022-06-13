@@ -4,6 +4,8 @@
 AirKiss 是微信为 Wi-Fi 设备提供的配网技术，具体文档请参考 [AirKiss 概述及应用场景](https://iot.weixin.qq.com/wiki/new/index.html?page=4-1-1)
 其配网原理跟 SmartConfig 一样，如下所述：
 
+
+
 ### 基本原理
 
 1. 设备进入 Wi-Fi 混杂模式（promiscuous mode）以监听捕获周围的 Wi-Fi 报文。由于设备暂未联网，且 Wi-Fi 网络的数据帧已通过加密，设备无法获取 payload 的内容，但可以获取报文的某些特征数据，例如每个报文的长度，同时对于某些数据帧，例如 UDP 的广播包或多播包，其报文的帧头结构比较固定，较容易识别。

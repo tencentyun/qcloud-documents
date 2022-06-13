@@ -506,6 +506,16 @@ EMR 支持资源级授权，您可以指定子账号拥有特定资源的接口�
 <td >查询导出配置</td>
 <td >emr-instance|qcs::emr:${region}:uin/${uin}:emr-instance/$emrInstanceId</td>
 </tr>
+<tr>
+<td >CheckDiskInfo</td>
+<td >检测控制台磁盘元数据是否更新</td>
+<td >emr-instance|qcs::emr:${region}:uin/${uin}:emr-instance/$emrInstanceId</td>
+</tr>
+<tr>
+<td >SyncDiskInfo</td>
+<td >控制台磁盘元数据更新</td>
+<td >emr-instance|qcs::emr:${region}:uin/${uin}:emr-instance/$emrInstanceId</td>
+</tr>
 </tbody>
 </table>
 
@@ -674,6 +684,10 @@ EMR 支持资源级授权，您可以指定子账号拥有特定资源的接口�
 </tr><tr>
 <td >AddServiceRoleInstance</td>
 <td >添加角色实例</td>
+</tr>
+<tr>
+<td >ModifyResourcesTags</td>
+<td >强制修改标签</td>
 </tr>
 </tbody>
 </table>

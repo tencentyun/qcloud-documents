@@ -25,7 +25,6 @@
     [QCloudCOSTransferMangerService registerDefaultCOSTransferMangerWithConfiguration:configuration];
 ```
 
-
 ### 集成 SDK 后抛出异常“默认的 COSXMLService 已存在，如有新的配置，请通过 registerCOSXMLWithConfiguration:withKey:重新注册”，该如何处理？
 
 原因：在 SDK 中，不同的 COSXMLService 实例对应不同的配置（配置信息可以参考相关属性），例如 regionName 为 ap-guangzhou 和 ap-beijing 是两个不同的配置，需要注册两个不同的 service，如果在用 ap-guangzhou 注册了一个 service 之后，将其 region 又改成 ap-guangzhou 重新注册就会触发该异常。
@@ -60,7 +59,6 @@ sdk 目前只支持设置以下三种类型的 body：
 1. NSURL：文件的本地路径，通过[NSURL fileURLWithPath:@"文件在本地的路径"]初始化一个 URL。
 2. NSData：二进制数据。
 3. QCloudFileOffsetBody：分块的 body，开发者一般不需要关心该类型，属于 SDK 高级接口内部使用的 body 类型。
-
 
 ### 通过 SDK 的高级接口“QCloudCOSXMLUploadObjectRequest”上传系统图库中的视频或者文件，断点续传失败，报错“The specified Content-Length is zero”，该如何处理？
 
@@ -107,7 +105,8 @@ SDK 只支持续传沙盒中的文件，如需使用断点续传的功能，请�
 
 ### COS iOS SDK 出现 crash，该如何处理？
 
-请检查当前版本是否为最新版本，若是旧版本建议您升级到最新的 SDK 版本。最新版本 iOS SDK 请参见 [qcloud-sdk-ios](https://github.com/tencentyun/qcloud-sdk-ios) 。
+请检查当前版本是否为最新版本，若是旧版本建议您升级到最新的 SDK 版本。最新版本 iOS SDK 请参见 [qcloud-sdk-ios](https://github.com/tencentyun/qcloud-sdk-ios)。
 
 ### “Undefined symbols for architecture arm64: "_ne10 init dsp", referenced from:”类错误，该如何处理？
+
 可以参考 [编译报错：Undefined symbols for architecture arm64](https://github.com/LiteAVSDK/Player_iOS/issues/277)。

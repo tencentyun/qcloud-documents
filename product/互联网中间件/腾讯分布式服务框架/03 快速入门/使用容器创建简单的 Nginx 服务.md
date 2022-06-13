@@ -47,3 +47,5 @@
 ![](https://main.qcloudimg.com/raw/e2aa0deba845244336360365b13b27c4.png)
 2. 复制负载均衡 IP，在浏览器地址栏粘贴后，显示 Nginx 欢迎页面。
 ![](https://main.qcloudimg.com/raw/3ff519319e5dc4d3b3cc3d6668281a45.png)
+
+

@@ -45,7 +45,7 @@
 ### 步骤4：修改工程配置[](id:using_cpp_qt_step4)
 打开 TRTCDemo 属性页，在**解决方案资源管理器** >**TRTCDemo 工程的右键菜单** > **属性**，请按照以下步骤进行配置：
 1. **添加包含目录：**
-在 **C/C++** > **常规** > **附件包含目录**，以64位为例，添加 SDK 头文件目录 `$(ProjectDir)SDK\CPlusPlus\Win64\include` 和 `$(ProjectDir)SDK\CPlusPlus\Win64\include\TRTC`，如下图所示：
+在 **C/C++** > **常规** > **附加包含目录**，以64位为例，添加 SDK 头文件目录 `$(ProjectDir)SDK\CPlusPlus\Win64\include` 和 `$(ProjectDir)SDK\CPlusPlus\Win64\include\TRTC`，如下图所示：
 >?如果为32位，则需要将 SDK 头文件目录设为 `$(ProjectDir)SDK\CPlusPlus\Win32\include` 和 `$(ProjectDir)SDK\CPlusPlus\Win32\include\TRTC`。
 >
 ![](https://qcloudimg.tencent-cloud.cn/raw/91adc6849773ef65225968121a15a78a.png)
