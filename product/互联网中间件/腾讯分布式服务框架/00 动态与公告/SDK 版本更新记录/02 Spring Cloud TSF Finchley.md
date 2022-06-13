@@ -1,28 +1,89 @@
 基于 Spring Cloud Finchley 版本 SDK，支持 spring boot 2.0.x。
 
-## 1.32.0-Finchley-RELEASE（2021-06-21）
-### 新特性
-- 支持微服务网关可扩展性。支持使用 TSF 网关 SDK 的同时，自定义网关路由策略、支持 websocket、支持跨域等原生网关能力。
-- Oauth 插件支持第三方鉴权地址为微服务 API 的能力。
-- 支持原生网关使用熔断治理的能力。
-- 支持服务监听触发回调。
-
-### 优化
-- consul 异常时，避免一直刷日志。
-- 增加 tsf launcher。 
-  
+## 1.29.13-Finchley-RELEASE（2022-06-07）
 ### Bug 修复
-- 修复 Feign 在指定 URL 的模式下无法请求的问题。
-- 修改 scg metrics duration 异常问题。
+- 修复 consul actuator 因为不兼容而导致down的问题。
+- 修复 redis 重复执行的问题。
+- 升级 commons-io、xercesImpl、guava、jackson、junit、fastjson、netty、mysql-connector-java、logback、classmate、slf4j-api、springfox、spring-security 的版本。
+
+
+## 1.29.12-Finchley-RELEASE（2022-05-16）
+### 优化
+- 优化feign预热服务名为变量时，且为多级目录的场景。
+- 增加默认日志清理策略，默认最多保留7天，总大小500MB。
+
+### Bug 修复
+- 修复路由、鉴权、限流的 api path 标签的匹配。
+- 修复异常时，网关tag未设置的问题。
+
+
+## 1.29.11-Finchley-RELEASE（2022-04-11）
+### 优化
+- 修复网关使用 log4j2 时提示 Log4J2TraceConverter 重复的问题。
+- 优化服务发现对于零实例的判断。
+- 优化网关预热、普通微服务预热。
+- 优化实例熔断时的日志提示。
+
+### Bug 修复
+- 修复 zuul 网关中 zuul.retryable 重试参数配置不生效的问题。
+- 修复 zuul 网关调用链服务名异常的问题。
+- 默认关闭 management.endpoint.gateway.enabled，以规避 scg 漏洞。
 
 ### 版本建议
 支持向后兼容，建议全量升级。
+
+## 1.29.10-Finchley-RELEASE（2022-03-25）
+
+### Bug 修复
+- 修复 feign url 调用时，调用链报错的问题。
+
+### 版本建议
+支持向后兼容，建议全量升级。
+
+## 1.29.9-Finchley-RELEASE（2022-03-11）
+### 优化
+- zuul 默认关闭掉 hystrix 熔断
+- 升级 dubbo 依赖版本至 2.6.12
+
+### Bug 修复
+- 修复 1.29.5-Finchley-RELEASE 优化 spring-cloud-openfeign-core 依赖而造成的 feign 服务名相关治理功能失效的问题
+- 修复实例熔断超过阈值时，对应实例的熔断事件依旧上报的问题
+- 修复熔断规则变化时，后续熔断事件没有上报的问题
+
+### 版本建议
+支持向后兼容，建议全量升级。
+
+## 1.29.8-Finchley-RELEASE（2022-02-28）
+### 优化
+- 支持通过设置 tsf.feign.eager-load.enabled=true 打开应用 feign 预热。
+
+### 版本建议
+如果有使用 feign 服务治理功能，建议使用 1.29.10-Finchley-RELEASE 及之后的版本。
+
+## 1.29.7-Finchley-RELEASE（2022-02-23）
+### Bug 修复
+- 修复默认日志输出时，logging.level 设置无效问题。
+- 修复调用链 MongoDB 异常时 resultStatus 为空的问题。
+
+### 版本建议
+如果有使用 feign 服务治理功能，建议使用 1.29.10-Finchley-RELEASE 及之后的版本。
+
+## 1.29.6-Finchley-RELEASE（2022-01-20）
+### 优化
+- 管理 log4j2 依赖的版本，默认版本为 2.17.1。
+
+### Bug 修复
+- 修复 redis 连接异常时无法被线程池回收的问题。
+- 调用链修复 scg invocation 丢失 MSGW tags 的问题。
+
+### 版本建议
+如果有使用 feign 服务治理功能，建议使用 1.29.10-Finchley-RELEASE 及之后的版本。
 
 ## 1.29.5-Finchley-RELEASE（2022-01-07）
 ### 优化
 - 优化 spring-cloud-openfeign-core、swagger 的依赖冲突。
 - spring-cloud-tsf-sleuth 兼容 mysql-connector-java 8.x。
-  
+
 ### Bug 修复
 - 修复 feign 和 httpclient 拦截的冲突导致重复生成 client span 的问题。
 
@@ -30,7 +91,7 @@
 ### 优化
 - 支持通过 `-Dtsf.discovery.zeroInstanceProtect=false` 关闭零实例保护。
 - 优化 TSF 加密判断逻辑，只有配置了 TSF 密钥才对 ENC 配置进行解析。
-  
+
 ### Bug 修复
 - 修复 for 循环调用导致泳道 HTTP Header 过大的问题。
 - 修复服务发现时无本地缓存文件导致延迟。
@@ -44,7 +105,7 @@
 - 优化熔断模块不必要的日志输出。
 - 优化去除 TSF 日志配置后，使用 log4j2 时出现 `${sys:LOG_FILE}` 的情况。
 - 统一第三方组件的版本号。
-  
+
 ### Bug 修复
 - 修复 Feign 在指定 URL 的模式下无法请求的问题。
 - 修复日志组件 log4j 和 log4j2 输出调用链数据问题。
@@ -66,7 +127,7 @@
 - actuator 依赖改为 optional。
 - spring-cloud-tsf-sleuth：优化 getProperties 性能。
 - spring-cloud-tsf-ratelimit：优化限流的 httpclient。
-  
+
 ### Bug 修复
 - spring-cloud-tsf-logger：修复自定义日志格式没有服务名的问题。
 - spring-cloud-tsf-sleuth：修复调用链获取 IP 偶现获取不到问题。
@@ -76,6 +137,38 @@
 ### 版本建议
 支持向后兼容，建议全量升级。
 
+## 1.23.14-Finchley-RELEASE（2022-05-30）
+### 优化
+ - 修改默认输出日志文件配置。
+
+### Bug 修复
+ - 修复 springcloud gateway 漏洞。
+ - 升级 logback。
+
+## 1.23.13-Finchley-RELEASE（2022-06-07）
+### 优化
+ - 优化和开源 spring cloud consul 依赖的冲突。
+ - 兼容 jdk11。
+ - actuator 依赖改为 optional。
+ - 优化服务发现对于零实例的判断。
+
+### Bug 修复
+ - 优化去除 TSF 日志配置后，使用 log4j2 时出现 `${sys:LOG_FILE}` 的情况。
+ - 修复调用链 MongoDB 异常时 resultStatus 为空的问题。
+ - 修复不配置 logging.file 且无日志配置文件(log*.xml)时，导致 logging.level 无效。
+ - 修复 scg 标签传递时,网关上下文信息被上游服务信息覆盖的问题。
+
+## 1.23.12-Finchley-RELEASE（2022-01-13）
+### Bug 修复
+- 修复泳道规则排序问题。
+
+### 优化
+- 修复零实例保护而导致的，服务发现时无本地缓存文件导致延迟。
+- 支持关闭 consul 的启动，以支持单元测试场景。
+
+
+### 版本建议
+支持向后兼容，建议全量升级。
 
 ## 1.23.11-Finchley-RELEASE（2021-09-28）
 ### Bug 修复
@@ -164,7 +257,7 @@
 - 修复 feign 请求调用链中只展示 HTTP 方法。
 - 修复定时任务的线程数问题。
 - 修复网关使用就近命名空间的问题。
-    
+
 ### 版本建议
 
 支持向后兼容，建议全量升级。
@@ -176,8 +269,8 @@
 - spring-cloud-tsf-msgw：
 修复网关 MSGW SDK 和服务发现 SDK 不兼容，造成拉取服务列表过快的问题，从而导致注册中心负载压力过大的问题。
 - spring-cloud-tsf-consul-discovery：
-修复服务发现线程数不准确（少于需要请求的服务数），导致服务发现线程调度不及时，节点状态更新可能会延迟30s的问题。
-    
+  修复服务发现线程数不准确（少于需要请求的服务数），导致服务发现线程调度不及时，节点状态更新可能会延迟30s的问题。
+
 
 ### 版本建议
 
@@ -348,8 +441,12 @@ spring-cloud-tsf-gateway 网关兼容新插件类型。
    - 修复当绑定网关插件后造成 Query 参数未透传问题。
 
 ### 优化
-
 支持 swagger 自动扫描包多路径特性。
+
+## 1.18.8-Finchley-RELEASE（2022-03-08）
+### 优化
+- 支持零实例保护。
+- 支持关闭 consul 的启动，以支持单元测试场景。
 
 ## 1.18.7-Finchley-RELEASE（2022-01-10）
 ### Bug 修复
@@ -360,7 +457,7 @@ spring-cloud-tsf-gateway 网关兼容新插件类型。
 - 修复网关多个命名空间时 consul index 混用问题。
 
 ### 优化
-- 优化和开源 spring cloud consul 依赖的冲突。
+- 优化和开源 spring cloud consul 依赖的冲突。。
 - spring-cloud-tsf-consul-discovery 心跳请求增加重试。
 - spring-cloud-tsf-consul-config 支持本地加密配置解析。
 
@@ -541,5 +638,4 @@ spring-cloud-tsf-sleuth 优化 TraceStatementProxyHandler  JDBC 代理过程 SDK
 ### 版本建议
 
 支持向后兼容，建议全量升级。
-
 
