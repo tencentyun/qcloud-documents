@@ -19,7 +19,7 @@ TSF 为用户现存的 Dubbo 应用提供了两种插件，分别适合不同场
 
 #### 步骤1：安装 Maven 环境
 
-参见 [下载 Maven](https://cloud.tencent.com/document/product/649/73789)下载安装 Java 和 Maven。
+参见 [下载 Maven](https://cloud.tencent.com/document/product/649/20231)下载安装 Java 和 Maven。
 
 #### 步骤2：配置注册中心
 
@@ -205,8 +205,6 @@ TSF 支持上报 Alibaba Dubbo 程序的 API，在服务治理-接口列表中�
 
 
 
-
-
 ## 轻量级插件接入
 
 轻量级框架为 Dubbo 应用提供服务注册中心，Dubbo 应用可通过依赖 jar 包的方式接入该项服务。下文将介绍 Dubbo 应用从接入TSF 到部署应用的操作方法及相关注意事项。
@@ -215,7 +213,7 @@ TSF 支持上报 Alibaba Dubbo 程序的 API，在服务治理-接口列表中�
 
 #### 步骤1：安装Maven 环境
 
-参见 [下载 Maven](https://cloud.tencent.com/document/product/649/73789) 下载安装 Java 和 Maven。
+参见 [下载 Maven](https://cloud.tencent.com/document/product/649/20231) 下载安装 Java 和 Maven。
 
 #### 步骤2：配置注册中心
 

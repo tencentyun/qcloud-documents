@@ -33,7 +33,7 @@ Theia IDE 是一套构建基于 Web 的云端 IDE 的开源框架，是一个可
 
 ## 后续操作
 ### 选择工作空间
-1. 选择 Thiea IDE 起始界面中的 **Open WordSpace**。
+1. 选择 Theia IDE 起始界面中的 **Open WorkSpace**。
 2. 在弹出的 “Open Workspace” 窗口的下拉列表中选择`/`，打开目录。在 Theia IDE 中目录即为工作空间，本文以选择 `/data` 为例。如下图所示：
 ![](https://main.qcloudimg.com/raw/5451fbf0a2d310a2b3b77be9bab1a1a4.png)
 3. 单击 **Open**，进入 `/data` 工作空间。

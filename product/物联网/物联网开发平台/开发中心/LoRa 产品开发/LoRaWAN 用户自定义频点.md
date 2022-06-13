@@ -1,4 +1,7 @@
+
+
 ## 背景介绍
+
 - LoRaWAN 联盟在 lorawan_regional_parameters_v1.x 版本的 CN470**470Mhz，510Mhz**40Mhz频宽中，定义了上行96个信道，下行48个信道。
 - LoRaWAN 联盟在 lorawan_regional_parameters_v2.x 版本的 CN470**470Mhz，510Mhz**40Mhz频宽中，定义了26M TypeA 和 TypeB、20M TypeA 和 TypeB 共4种频谱计划。
 

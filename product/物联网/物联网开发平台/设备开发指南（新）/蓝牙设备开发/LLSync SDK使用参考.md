@@ -2,6 +2,8 @@
 
 LLSync SDK 提供 LLSync 协议接入方案，打通了 `BLE 设备-App-物联网开发平台` 或 `BLE 设备-网关设备-物联网开发平台` 的数据链路，方便用户将 BLE 设备快速接入物联网开发平台。用户可以在物联网开发平台创建产品，通过云 API 下发数据模版操作来控制 BLE 设备。
 
+
+
 ## SDK获取
 
 SDK 使用 Github 托管，可访问 Github 下载最新版本设备端 [LLSync SDK](https://github.com/tencentyun/qcloud-iot-explorer-BLE-sdk-embedded )。

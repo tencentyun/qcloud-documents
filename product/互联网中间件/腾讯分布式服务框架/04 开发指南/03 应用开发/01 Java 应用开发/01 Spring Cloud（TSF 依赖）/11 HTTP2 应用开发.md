@@ -349,3 +349,4 @@ public class ConsumerApplication {
 	2. 浏览器访问 `http://127.0.0.1:18083/echo-rest/123`。
    ![](https://main.qcloudimg.com/raw/4242479b5f87c0399e0c60ec866b67f2.png)
 
+

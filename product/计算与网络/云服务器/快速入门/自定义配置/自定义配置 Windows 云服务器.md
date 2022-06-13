@@ -18,21 +18,116 @@
 1. 根据页面提示，配置以下信息：
 ![](https://qcloudimg.tencent-cloud.cn/raw/a1d7a7c57ee0919b895e618e571f628e.png)
 <table>
-<tr><th style="width: 20%">类别</th><th style="width: 12%">必选/可选</th><th>配置说明</th></tr>
-<tr><td><a href="https://cloud.tencent.com/document/product/213/2180">计费模式</a></td><td>必选</td><td>请根据实际需求进行选择：<ul><li><b>包年包月</b>：云服务器的预付费模式，适用于提前预估设备需求量的场景，价格相较于按量计费模式更低廉。</li><li><b>按量计费</b>：云服务器的弹性计费模式，适用于电商抢购等设备需求量会瞬间大幅波动的场景，单价比包年包月计费模式高。</li><li><b>竞价实例</b>：一种新实例运作模式，适用于大数据计算、采用负载均衡的在线服务和网站服务等场景，一般价格区间为按量付费的10% - 20%。</li></ul></td></tr>
-<tr><td>地域</td><td>必选</td><td>建议选择与您的客户最近的地域，可降低访问时延、提高访问速度。</td></tr>
-<tr><td>可用区</td><td>必选</td><td>请根据实际需求进行选择。</br>如果您需要购买多台云服务器，建议选择不同可用区，实现容灾效果。</td></tr>
-<tr><td>网络</td><td>必选</td><td>表示在腾讯云上构建的逻辑隔离的网络空间，一个私有网络由至少一个子网组成。系统会为您在每个地域提供的默认私有网络和子网。</br>
-如现有的私有网络/子网不符合您的要求，可以在私有网络控制台进行创建。</br><b>注意</b>：<ul><li>同一私有网络内资源默认内网互通。</li><li>购买时，云服务器需要创建在与云服务器相同可用区属性的子网内。</li></ul></td></tr>
-<tr><td>实例</td><td>必选</td><td>根据底层硬件的不同，腾讯云目前提供了多种不同的实例类型。为获得最佳性能，建议使用新一代实例类型。</br>更多实例详情请参见 <a href="https://cloud.tencent.com/document/product/213/11518">实例规格</a>。</td></tr>
-<tr><td>镜像</td><td>必选</td><td>腾讯云提供公共镜像、自定义镜像、共享镜像、服务市场，您可参考 <a href="https://cloud.tencent.com/document/product/213/4941">镜像类型</a> 进行选择。</br>对于刚开始使用腾讯云的用户，推荐选择公共镜像，内含 Windows 操作系统正版激活，无需额外付费（北美地域除外）。 </td></tr>
-<tr><td><a href="https://cloud.tencent.com/document/product/362/2353">系统盘</a></td><td>必选</td><td>用于安装操作系统，默认为50GB。</br>地域的不同将会影响可供选择的云硬盘类型，请根据实际页面提示进行选择。</br>更多关于云硬盘的介绍，请参考 <a href="https://cloud.tencent.com/document/product/362/2353">云硬盘类型</a>。</td></tr>
-<tr><td><a href="https://cloud.tencent.com/document/product/362/2353">数据盘</a></td><td>可选</td><td>用于扩展云服务器的存储容量，提供高效可靠的存储设备。默认不添加云硬盘数据盘。</br>更多关于云硬盘的介绍，请参考 <a href="https://cloud.tencent.com/document/product/362/2353">云硬盘类型</a>。</td></tr>
-<tr><td>定期快照</td><td>可选</td><td>可针对系统盘或数据盘设置定期快照策略。更多关于定期快照的介绍，请参见 <a href="https://cloud.tencent.com/document/product/362/8191">定期快照</a>。</td></tr>
-<tr><td>公网带宽</td><td>必选</td><td>腾讯云提供以下两种网络计费方式，请根据实际需求进行选择。<ul><li><b>按带宽计费</b>：选择固定带宽，超过本带宽时将丢包。适合网络波动较小的场景。</li><li><b>按使用流量计费</b>：按实际使用流量收费。可限制峰值带宽避免意外流量带来的费用，当瞬时带宽超过该值时将丢包。适合网络波动较大的场景。</li></ul></td></tr>
-<tr><td>IPv6地址</td><td>可选</td><td>开通实例的 IPv6 地址。更多关于 IPv6 的介绍，请参见 <a href="https://cloud.tencent.com/document/product/1142/38134">弹性公网 IPv6</a>。</td></tr>
-<tr><td>数量</td><td>必选</td><td>表示需购买云服务器的数量。</td></tr> 
-<tr><td>时长</td><td>必选</td><td>仅限包年包月的云服务器。</br>表示云服务器的使用时长。</td></tr> 
+  <tr>
+	<th style="width: 20%">类别</th>
+	<th style="width: 12%">必选/可选</th>
+	<th>配置说明</th>
+  </tr>
+  <tr>
+	<td>
+	  <a href="https://cloud.tencent.com/document/product/213/2180">计费模式</a>
+	</td>
+	<td>必选</td>
+	<td>请根据实际需求进行选择：
+	<ul>
+	  <li>
+	  <b>包年包月</b>：云服务器的预付费模式，适用于提前预估设备需求量的场景，价格相较于按量计费模式更低廉。</li>
+	  <li>
+	  <b>按量计费</b>：云服务器的弹性计费模式，适用于电商抢购等设备需求量会瞬间大幅波动的场景，单价比包年包月计费模式高。</li>
+	  <li>
+	  <b>竞价实例</b>：一种新实例运作模式，适用于大数据计算、采用负载均衡的在线服务和网站服务等场景，一般价格区间为按量付费的10% - 20%。</li>
+	</ul></td>
+  </tr>
+  <tr>
+	<td>地域</td>
+	<td>必选</td>
+	<td>建议选择与您的客户最近的地域，可降低访问时延、提高访问速度。</td>
+  </tr>
+  <tr>
+	<td>可用区</td>
+	<td>必选</td>
+	<td>请根据实际需求进行选择。
+	<br />如果您需要购买多台云服务器，建议选择不同可用区，实现容灾效果。</td>
+  </tr>
+  <tr>
+	<td>网络</td>
+	<td>必选</td>
+	<td>
+	表示在腾讯云上构建的逻辑隔离的网络空间，一个私有网络由至少一个子网组成。系统会为您在每个地域提供的默认私有网络和子网。
+	<br />如现有的私有网络/子网不符合您的要求，可以在私有网络控制台进行创建。
+	<br />
+	<b>注意</b>：
+	<ul>
+	  <li>同一私有网络内资源默认内网互通。</li>
+	  <li>购买时，云服务器需要创建在与云服务器相同可用区属性的子网内。</li>
+	</ul></td>
+  </tr>
+  <tr>
+	<td>实例</td>
+	<td>必选</td>
+	<td>
+	根据底层硬件的不同，腾讯云目前提供了多种不同的实例类型。为获得最佳性能，建议使用新一代实例类型。
+	<br />更多实例详情请参见 <a href="https://cloud.tencent.com/document/product/213/11518">实例规格</a>。</td>
+  </tr>
+  <tr>
+	<td>镜像</td>
+	<td>必选</td>
+	<td>腾讯云提供公共镜像、自定义镜像、共享镜像、服务市场，您可参考 <a href="https://cloud.tencent.com/document/product/213/4941">镜像类型</a> 进行选择。
+	<br />对于刚开始使用腾讯云的用户，推荐选择公共镜像，具备多类型的 Windows 操作系统版本。</td>
+  </tr>
+  <tr>
+	<td>
+	  <a href="https://cloud.tencent.com/document/product/362/2353">系统盘</a>
+	</td>
+	<td>必选</td>
+	<td>用于安装操作系统，默认为50GB。
+	<br />地域的不同将会影响可供选择的云硬盘类型，请根据实际页面提示进行选择。
+	<br />更多关于云硬盘的介绍，请参考 
+	<a href="https://cloud.tencent.com/document/product/362/2353">云硬盘类型</a>。</td>
+  </tr>
+  <tr>
+	<td>
+	  <a href="https://cloud.tencent.com/document/product/362/2353">数据盘</a>
+	</td>
+	<td>可选</td>
+	<td>用于扩展云服务器的存储容量，提供高效可靠的存储设备。默认不添加云硬盘数据盘。
+	<br />更多关于云硬盘的介绍，请参考 
+	<a href="https://cloud.tencent.com/document/product/362/2353">云硬盘类型</a>。</td>
+  </tr>
+  <tr>
+	<td>定期快照</td>
+	<td>可选</td>
+	<td>可针对系统盘或数据盘设置定期快照策略。更多关于定期快照的介绍，请参见 
+	<a href="https://cloud.tencent.com/document/product/362/8191">定期快照</a>。</td>
+  </tr>
+  <tr>
+	<td>公网带宽</td>
+	<td>必选</td>
+	<td>腾讯云提供以下两种网络计费方式，请根据实际需求进行选择。
+	<ul>
+	  <li>
+	  <b>按带宽计费</b>：选择固定带宽，超过本带宽时将丢包。适合网络波动较小的场景。</li>
+	  <li>
+	  <b>按使用流量计费</b>：按实际使用流量收费。可限制峰值带宽避免意外流量带来的费用，当瞬时带宽超过该值时将丢包。适合网络波动较大的场景。</li>
+	</ul></td>
+  </tr>
+  <tr>
+	<td>IPv6地址</td>
+	<td>可选</td>
+	<td>开通实例的 IPv6 地址。更多关于 IPv6 的介绍，请参见 
+	<a href="https://cloud.tencent.com/document/product/1142/38134">弹性公网 IPv6</a>。</td>
+  </tr>
+  <tr>
+	<td>数量</td>
+	<td>必选</td>
+	<td>表示需购买云服务器的数量。</td>
+  </tr>
+  <tr>
+	<td>时长</td>
+	<td>必选</td>
+	<td>仅限包年包月的云服务器。
+	<br />表示云服务器的使用时长。</td>
+  </tr>
 </table>
 2. 单击**下一步：设置主机**，进入设置主机页面。
 
