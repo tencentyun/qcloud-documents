@@ -1,6 +1,8 @@
 ## 组件介绍
 TUIRoom 是一个开源的音视频 UI 组件，通过在项目中集成 TUIRoom 组件，您只需要编写几行代码就可以为您的 App 添加屏幕分享、美颜、低延时视频通话等。TUIRoom 同时支持 [Android](https://cloud.tencent.com/document/product/647/45667)、[Windows](https://cloud.tencent.com/document/product/647/63494)，[Mac](https://cloud.tencent.com/document/product/647/63494) 等平台，基本功能如下图所示：
 
+>?TUIKit 系列组件同时使用了腾讯云 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269/42440) 两个基础 PaaS 服务，开通实时音视频后会同步开通即时通信IM服务。即时通信 IM 服务详细计费规则请参见 [即时通信 - 价格说明](https://cloud.tencent.com/document/product/269/11673)，TRTC 开通会默认关联开通 IM SDK 的体验版，仅支持100个 DAU。
+
 <table class="tablestyle">
 <tbody><tr>
 <td><img src="https://qcloudimg.tencent-cloud.cn/raw/6edda9960c4f116bc0a513b8254e47ba.jpg" width="250"></td>
@@ -90,12 +92,12 @@ let tuiRoom = TUIRoom.sharedInstance
 :::  Objective-C ObjectiveC
 @import TUIRoom;
 
-[tuiRoom createRoomWithRoomId:@"您的RoomId" speechMode:TUIRoomFreeSpeech isOpenCamera:YES isOpenMicrophone:YES];
+[tuiRoom createRoomWithRoomId:12345 speechMode:TUIRoomFreeSpeech isOpenCamera:YES isOpenMicrophone:YES];
 :::
 ::: Swift Swift
 import TUIRoom
 
-tuiRoom.createRoom(roomId: "您的RoomId", speechMode: .freeSpeech, isOpenCamera: true, isOpenMicrophone: true)
+tuiRoom.createRoom(roomId: 12345, speechMode: .freeSpeech, isOpenCamera: true, isOpenMicrophone: true)
 ```
 :::
 </dx-codeblock>
@@ -104,12 +106,12 @@ tuiRoom.createRoom(roomId: "您的RoomId", speechMode: .freeSpeech, isOpenCamera
 :::  Objective-C ObjectiveC
 @import TUIRoom;
 
-[tuiRoom enterRoomWithRoomId:@"对方的RoomId" isOpenCamera:YES isOpenMicrophone:YES]
+[tuiRoom enterRoomWithRoomId:12345 isOpenCamera:YES isOpenMicrophone:YES]
 :::
 ::: Swift Swift
 import TUIRoom
 
-tuiRoom.enterRoom(roomId: "对方的RoomId", isOpenCamera: true, isOpenMicrophone: true)
+tuiRoom.enterRoom(roomId: 12345, isOpenCamera: true, isOpenMicrophone: true)
 ```
 :::
 </dx-codeblock>

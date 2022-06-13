@@ -19,7 +19,7 @@ Pulsar 在存储消息时，会先找到当前分区使用的 ledger ，然后�
 Ledger 只是一个逻辑概念，是数据的一种逻辑组装维度，并没有对应的实体。而 bookie 只会按照 entry 维度进行写入、查找、获取。
 
 
-## 分片机制详解：Legder 和 Entry
+## 分片机制详解：Ledger 和 Entry
 
 Pulsar 中的消息数据以 ledger 的形式存储在 BookKeeper 集群的 bookie 存储节点上。Ledger 是一个只追加的数据结构，并且只有一个写入器，这个写入器负责多个 bookie 的写入。Ledger 的条目会被复制到多个 bookie 中，同时会写入相关的数据来保证数据的一致性。
 

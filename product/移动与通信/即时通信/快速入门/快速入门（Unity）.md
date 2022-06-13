@@ -23,7 +23,7 @@
 >
 2. 单击**创建新应用**，在**创建应用**对话框中输入您的应用名称，单击**确定**。
 ![](https://main.qcloudimg.com/raw/78340e403359fcf4d753ade29ae9aace.png)
-3. 左侧导航栏单击 **[辅助工具](https://console.cloud.tencent.com/im-detail/tool-usersig)** > **UserSig 生成&校验**，创建一个 UserID 及其对应的 UserSig，复制签名信息，在 [步骤5](#step5) 中使用。
+3. 左侧导航栏单击 **[辅助工具](https://console.cloud.tencent.com/im/tool-usersig)** > **UserSig 生成&校验**，创建一个 UserID 及其对应的 UserSig，复制签名信息，在 [步骤5](#step5) 中使用。
 ![](https://qcloudimg.tencent-cloud.cn/raw/aa6c33f0430f87f788f42dcde92f7094.png)
 
 [](id:step2)
@@ -51,11 +51,10 @@
 
 [](id:step5)
 ### 步骤5：测试脚本
-1. 您可 [下载测试脚本](https://github.com/TencentCloud/TIMSDK/blob/master/Unity/im_unity_sdk_plus/Assets/Demo/TestApi.cs
-)，将文件解压后，放入项目中，并绑定 TestApi.cs 到任意场景上。
+1. 您可 [下载测试脚本](https://github.com/TencentCloud/TIMSDK/blob/master/Unity/im_unity_sdk_plus/Assets/Demo/TestApi.cs)，将文件解压后，放入项目中，并绑定 TestApi.cs 到任意场景上。
 ![](https://qcloudimg.tencent-cloud.cn/raw/b4d770775523fdd76b75f1d80f07c925.jpg)
-2. 选中场景并运行，配置 [步骤1](#step1) 中的 SDKAppID，UserID，UserSig 开始测试。
-![](https://qcloudimg.tencent-cloud.cn/raw/940da8044cd80db27d08a7b0dff45b94.png)
+2. [下载配置文件](https://github.com/TencentCloud/TIMSDK/blob/master/Unity/im_unity_sdk_plus/Assets/Demo/Config.cs) Config.cs。
+3. 在配置文件 Config.cs中 配置 [步骤1](#step1) 中得到自己的 SDKAppID，UserID，UserSig 后，选中场景并运行测试。
 
 ## 常见问题
 

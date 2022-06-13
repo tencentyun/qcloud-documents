@@ -33,13 +33,13 @@
 ## 配置示例
 
 若加速域名 `www.test.com` 的 IP 白名单配置如下：
-<img src="https://qcloudimg.tencent-cloud.cn/raw/a722dc6eb4a39195951cd15bfbc67b76.png" width="60%">
+![](https://qcloudimg.tencent-cloud.cn/raw/a1f4e9d3ef474635d93693ef761d13a3.png)
 则实际访问情况如下：
 1. 用户端 IP 为1.1.1.1的用户访问资源 `http://www.test.com/test.txt`，匹配白名单1.0.0.0/8，正常返回内容。
-2. 用户端 IP 为2.1.1.1的用户访问资源 `http://www.test.com/test.txt`，未匹配白名单1.0.0.0/8，返回403。
+2. 用户端 IP 为2.1.1.1的用户访问资源 `http://www.test.com/test.txt`，未匹配白名单，返回403。
 
 若加速域名 `www.test.com` 的 IP 黑名单配置如下：
-<img src="https://qcloudimg.tencent-cloud.cn/raw/88724029e5bf7ebfef551d62e72f6a57.png" width="60%">
+![](https://qcloudimg.tencent-cloud.cn/raw/a0bd155807084516b72fd0ae764290dd.png)
 则实际访问情况如下：
 1. 用户端 IP 为1.1.1.1的用户访问资源 `http://www.test.com/test.txt`，匹配黑名单1.0.0.0/8，返回403。
 2. 用户端 IP 为2.1.1.1的用户访问资源 `http://www.test.com/test.txt`，未匹配黑名单，正常返回内容。

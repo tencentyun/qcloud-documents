@@ -3,7 +3,7 @@
 腾讯云云原生 etcd（Cloud Service for etcd）是基于 [开源 etcd](https://github.com/etcd-io/etcd) 针对云原生服务场景进行优化的 etcd 托管解决方案，由腾讯云容器团队提供，完全兼容开源的 etcd 分布式存储能力，为用户提供高稳定、可观测、免运维的云原生 etcd 服务。
 
 
->? 云原生 etcd 服务目前正在内测中，内测阶段 etcd 服务将以白名单形式开放。若需要部署测试生产级业务，请通过腾讯云助手或 [在线咨询](https://cloud.tencent.com/online-service?from=doc_457) 申请开通 etcd 服务。
+>? 云原生 etcd 服务将于2022年6月8日结束内测，正式对外开放并开始商业化计费，详细资费策略请查看 [购买指南](https://cloud.tencent.com/document/product/457/73706)。
 
 ### 应用场景
 

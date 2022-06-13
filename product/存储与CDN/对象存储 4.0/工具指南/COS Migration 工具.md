@@ -1,10 +1,6 @@
 
 ## 功能说明
-COS Migration 是一个集成了 COS 数据迁移功能的一体化工具。通过简单的配置操作，用户可以将源地址数据快速迁移至 COS 中，它具有以下特点：
-- 丰富的数据源：
-   - 本地数据：将本地存储的数据迁移到 COS。
-   - URL 列表：根据指定的 URL 下载列表进行下载迁移到 COS。
-   - Bucket 相互复制：COS 的 Bucket 数据相互复制，支持跨账号跨地域的数据复制。
+COS Migration 是一个集成了 COS 数据迁移功能的一体化工具。通过简单的配置操作，用户可以将本地数据迁移至 COS 中，它具有以下特点：
 - 断点续传：工具支持上传时断点续传。对于一些大文件，如果中途退出或者因为服务故障，可重新运行工具，会对未上传完成的文件进行续传。
 - 分块上传：将对象按照分块的方式上传到 COS。
 - 并行上传：支持多个对象同时上传。
@@ -13,7 +9,7 @@ COS Migration 是一个集成了 COS 数据迁移功能的一体化工具。通�
 >!
 >- COS Migration 的编码格式只支持 UTF-8 格式。
 >- 使用该工具上传同名文件，默认会覆盖较旧的同名文件，需要额外设置以跳过同名文件。
->- 如果需要从其他云存储迁移至 COS，请使用 [迁移服务平台](https://cloud.tencent.com/document/product/659/13908)。
+>- 除本地数据迁移之外的场景请优先使用 [迁移服务平台](https://cloud.tencent.com/document/product/659/13908)。
 >
 
 ## 使用环境
@@ -78,8 +74,6 @@ type=migrateLocal
 | migrateType | 描述 |
 | ------| ------ |
 | migrateLocal| 从本地迁移至 COS |
-| migrateUrl| 下载 URL 迁移到 COS |
-| migrateBucketCopy| 从源 Bucket 复制到目标 Bucket|
 
 
 
@@ -149,42 +143,7 @@ ignoreModifiedTimeLessThanSeconds=
 |excludes| 要排除的目录或者文件的绝对路径，表示将 localPath 下面某些目录或者文件不进行迁移，多个绝对路径之前用分号分割，不填表示 localPath 下面的全部迁移|
 |ignoreModifiedTimeLessThanSeconds| 排除更新时间与当前时间相差不足一定时间段的文件，单位为秒，默认不设置，表示不根据 lastmodified 时间进行筛选，适用于客户在更新文件的同时又在运行迁移工具，并要求不把正在更新的文件迁移上传到 COS，例如设置为300，表示只上传更新了5分钟以上的文件|
 
-**3.3.2 配置 URL 列表数据源 migrateUrl**
 
-若从指定 URL 列表迁移至 COS，则进行该部分配置，具体配置项及说明如下：
-```plaintext
-# 从 URL 列表下载迁移到 COS 配置分节
-[migrateUrl]
-urllistPath=D:\\folder\\urllist.txt
-```
-     
-| 配置项 | 描述 |
-| ------| ------ |
-|urllistPath|URL 列表文件的地址。</br>注意：该配置内容不是直接填写 URL，而是填写文本文件的**本地地址**。该文本文件内容是具体的 URL，一行一条 URL 原始地址（例如`http://aaa.bbb.com/yyy/zzz.dat`，无需添加任何双引号或其他符号）。</br>URL 列表的地址要求为绝对路径：<ul  style="margin: 0;"><li>Linux 下分隔符为单斜杠，例如`/a/b/c.txt` </li><li>Windows  下分隔符为两个反斜杠，例如`E:\\a\\b\\c.txt`</li><li>如果填写的是目录，则会将该目录下的所有文件视为 urllist 文件去扫描迁移</li></ul>|
-
- 
-**3.3.6 配置 Bucket 相互复制 migrateBucketCopy**
-
-若从 COS 的一个指定 Bucket 迁移至另一个 Bucket，则进行该部分配置，具体配置项及说明如下：
->!发起迁移的账号，需具备源读权限、目的写权限。
-
-```plaintext
-# 从源 Bucket 迁移到目标 Bucket 配置分节
-[migrateBucketCopy]
-srcRegion=ap-shanghai
-srcBucketName=examplebucket-1250000000
-srcSecretId=COS_SECRETID
-srcSecretKey=COS_SECRETKEY
-srcCosPath=/
-```
-
-| 配置项 | 描述 |
-| ------| ------ |
-|srcRegion|源 Bucket 的 Region 信息，请参照 [可用地域](https://cloud.tencent.com/document/product/436/6224)|
-|srcBucketName|源 Bucket 的名称，命名格式为 `<BucketName-APPID>`，即 Bucket 名必须包含 APPID，例如 examplebucket-1250000000|
-|srcSecretId|源 Bucket 隶属的用户的密钥 SecretId，可在 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 查看。如果是同一用户的数据，则 srcSecretId 和 common 中的 SecretId 相同，否则是跨账号 Bucket 拷贝|
-|srcSecretKey|源 Bucket 隶属的用户的密钥 secret_key，可在 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 查看。如果是同一用户的数据，则 srcSecretKey 和 common 中的 secretKey 相同，否则是跨账号 Bucket 拷贝|
-|srcCosPath|要迁移的 COS 路径，表示该路径下的文件要迁移至目标 Bucket|
 
 ### 4. 运行迁移工具
 #### Windows

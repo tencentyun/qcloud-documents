@@ -1,7 +1,45 @@
 您可通过拖拽组合基础 IVR 模块完成基础呼入流程的搭建，如基础模块无法满足您的业务场景，可参考多功能 IVR 模块完成较复杂呼入场景搭建。
 ## 开始模块与系统参数
 开始模块作为 IVR 第一个模块自动出现在画布中，不可删除。开始模块中提供了系统参数可用于其他模块中的引用。
-![](https://qcloudimg.tencent-cloud.cn/raw/2443d3303f0e5df13cbf6490041329d6.png)
+<table>
+   <tr>
+      <th width="0px" style="text-align:center">关键参数</td>
+      <th width="0px" style="text-align:center">说明</td>
+      <th width="0px"  style="text-align:center">示例</td>
+   </tr>
+   <tr>
+      <td>${WaitNo}</td>
+      <td>排队时当前用户前面的排队人数</td>
+      <td>当前有${WaitNo}人排队中，您可继续等待或稍后再次致电</td>
+   </tr>
+   <tr>
+      <td>${StaffNo}</td>
+      <td>用户接入客服代表的工号</td>
+      <td>转接成功，${StaffNo}号客服为您服务</td>
+   </tr>
+   <tr>
+      <td>${SystemCallerNumber}</td>
+      <td>主叫号码</td>
+      <td rowspan='5'>该参数一般用于传递至业务系统</td>
+   </tr>
+   <tr>
+      <td>${SystemCalleeNumber}</td>
+      <td>被叫号码</td>
+   </tr>
+   <tr>
+      <td>${SystemSessionId}</td>
+      <td>会话 ID</td>
+   </tr>
+   <tr>
+      <td>${SystemCallRingDuration}</td>
+      <td>呼出响铃时长（秒）</td>
+   </tr>
+   <tr>
+      <td>${SystemCallAcceptDuration}</td>
+      <td>电话接通时长（秒）</td>
+   </tr>
+</table>
+
 ![](https://qcloudimg.tencent-cloud.cn/raw/af5f047a0b186643d68adc80b051c5c6.png)
 
 ## 放音模块
@@ -38,6 +76,7 @@
 服务时间模块用于设定人工客服工作时间，工作与非工作时间用户呼入可进入不同的接待流程。
 ![](https://qcloudimg.tencent-cloud.cn/raw/1631194fa995fc47ee459dfde1efe799.png)
 
+[](id:satisfy)
 ## 满意度评价模块
 满意度评价一般用于客服与用户通话结束后收集用户的满意度评价信息。
 
