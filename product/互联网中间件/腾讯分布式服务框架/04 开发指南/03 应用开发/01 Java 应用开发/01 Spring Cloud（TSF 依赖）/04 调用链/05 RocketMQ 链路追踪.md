@@ -29,7 +29,6 @@ apache:
 </dx-codeblock>
 
 
-
 ## 生产者示例
 向 Spring 容器中加入 bean DefaultMQProducer：
 <dx-codeblock>

@@ -183,3 +183,4 @@ mvn help:effective-settings
 1. 完成以上步骤后，您可以参见 [应用开发](https://cloud.tencent.com/document/product/649/55489) 来开发您的应用。
 2. 完成应用开发后，您可以参见 [应用打包](https://cloud.tencent.com/document/product/649/73793) 下载 TSF SDK 并将您的应用工程打包，部署到 TSF 平台。
 
+
