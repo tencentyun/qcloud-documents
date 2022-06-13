@@ -185,6 +185,7 @@ implementation files('libs/commons-codec-1.15.jar')
        </intent-filter>
     </receiver>
 ```
+
 ## TPNS Android SDK 1.2.7.0
 
 ###  新增应用内消息补推能力

@@ -50,21 +50,17 @@
 
 1. 通过外网 IP 访问测试 Node.js 应用。
    ![](https://main.qcloudimg.com/raw/294f01d232081462a244f7d8323976b2.png)
-
 2. 通过外网 IP 访问测试前端静态资源。
    ![](https://main.qcloudimg.com/raw/92f731a6c2416ca0507a712d93785c09.png)
-
 3. 在 Node.js 服务容器内 curl 访问 Nginx 服务。
    ```shell
    sudo docker ps   #查找容器id
    ```
    ![](https://main.qcloudimg.com/raw/21c24a732ea6f2f7577ef8b06dbf8d9d.png)
-
    ```shell
    sudo docker exec -it cfa4343f4a22 /bin/bash  #进入容器内部
    ```
    ![](https://main.qcloudimg.com/raw/7f8ade898b39b45a6dc94c9a48cf1871.png)
-
    在 Node.js 服务容器内 curl 访问 Nginx 服务成功。
    ![](https://main.qcloudimg.com/raw/aeb01fe440637c205c5533c9d371ce48.png)
 
