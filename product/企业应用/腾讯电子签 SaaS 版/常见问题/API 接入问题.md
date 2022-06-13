@@ -51,6 +51,121 @@ path 里的参数（name，phone）均使用 `~${base64url(value)}` 统一编码
 请确认客户有使用和发起时相同的姓名、手机号进行小程序登录。且在**个人中心** > **切换身份**确认已切换为签署时要求的身份。
 <img style="width:500px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/7b732d9eb1777f687dfdb2d189fc9f3a.png" />
 
+### 如何选择通过全屏或半屏方式打开电子签小程序？
+可参见微信官方文档：
+- [全屏方式](https://developers.weixin.qq.com/miniprogram/dev/api/navigate/wx.navigateToMiniProgram.html)
+- [半屏方式](https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/openEmbeddedMiniProgram.html)
+
+### 如何配置跳转至电子签小程序的不同页面？
+请参见以下表格及说明：
+#### 参数说明
+下表描述的是外部小程序拉起电子签小程序首页、列表页、个人中心页、合同封面页、合同详情页的参数配置。
+
+| 参数 | 类型 | 默认值 |必填 |描述 |
+|---------|---------|---------|---------|---------|
+| path | string | - |是 |目标页面路由。 |
+| login | number | 0 |否 |是否需要登录。 |
+| verify | number | 0 |否 |是否需要实名。 |
+| accountType | string |- | 否 |personal：切换个人身份。 |
+| userIds | string | - |否 |如果该链接目标用户只有一个人使用，则直接取该用户的 userId；如果该链接目标用户多人使用，可以将 userId1，userId2 这样赋值：[userId1，userId2]。 |
+| organizationId | string | - |否 |企业账号的企业 ID，如果添加此参数则还要同步携带 orgName。 |
+| orgName | string | - |否 |企业账号的名称，如果添加 organizationId 则还要同步携带此参数。 |
+| id | string | - |否 |合同 ID，如果是到合同封面页或者合同详情页，此参数必填。 |
+| channel | string | - |否 |其他小程序渠道的标记，方便统计使用。 |
+| quickSponsor   | string | false  | 否   | 到首页是否需要立即拉起快速发起合同弹框。<br>true：出现快速发起弹框。 <br>false：不出现。     |
+
+#### 首页
+##### C 端用户进入首页
+```josn
+- pages/guide/index?path=/pages/home/home-index&accountType=personal&channel=${channel}
+```
+
+##### C 端用户进入首页-快速发起合同
+```josn
+- pages/guide/index?path=/pages/home/home-index&login=1&accountType=personal&channel=${channel}&quickSponsor=true
+```
+
+###### B 端用户进入首页
+进入 B 端首页必须已登录已实名，可指定用户的 userIds 合集，或者 organizationId（指定了 organizationId，则需要同步携带 orgName
+以下两种方式均可：
+```josn
+- pages/guide/index?path=/pages/home/home-index&login=1&verify=1&userIds=${userIds}&channel=${channel}
+- pages/guide/index?path=/pages/home/home-index&login=1&verify=1&organizationId=${organizationId}&orgName=${orgName}&channel=${channel}
+```
+
+###### B 端用户进入首页-快速发起合同
+```josn
+- pages/guide/index?path=/pages/home/home-index&login=1&verify=1&userIds=${userIds}&channel=${channel}&quickSponsor=true
+- pages/guide/index?path=/pages/home/home-index&login=1&verify=1&organizationId=${organizationId}&orgName=${orgName}&channel=${channel}&quickSponsor=true
+```
+
+#### 列表页
+##### C 端进入用户列表页
+```josn
+- pages/guide/index?path=/pages/home/home-list&login=1&verify=1&accountType=personal&channel=${channel}
+```
+
+##### B 端进入用户列表页
+进入 B 端首页必须已登录已实名，可指定用户的 userIds 合集，或者 organizationId（指定了 organizationId，则需要同步携带 orgName。）。
+以下两种方式均可：
+```josn
+- pages/guide/index?path=/pages/home/home-list&login=1&verify=1&userIds=${userIds}&channel=${channel}
+- pages/guide/index?path=/pages/home/home-list&login=1&verify=1&organizationId=${organizationId}&orgName=${orgName}&channel=${channel}
+```
+
+#### 个人中心
+##### C 端进入用户个人中心
+```josn
+- pages/guide/index?path=/pages/home/home-user&accountType=personal&channel=${channel}
+```
+
+##### B 端进入用户个人中心
+进入 B 端首页必须已登录已实名，可指定用户的 userIds 合集，或者 organizationId（指定了 organizationId，则需要同步携带 orgName。）。
+以下两种方式均可：
+```josn
+- pages/guide/index?path=/pages/home/home-user&login=1&verify=1&userIds=${userIds}&channel=${channel}
+- pages/guide/index?path=/pages/home/home-user&login=1&verify=1&organizationId=${organizationId}&orgName=${orgName}&channel=${channel}
+```
+
+#### 合同封面页
+##### C 端用户进入合同封面页或 B 端用户合同封面页
+未登录或者未实名的用户也可进入到合同封面页，切换到个人身份可以使用两种方式，使用 accountType=personal，或者使用 userIds 赋值个人身份的 userId。
+```josn
+- pages/guide/index?path=/pages/mvp/contract-preview&accountType=personal&id=${id}&channel=${channel}
+- pages/guide/index?path=/pages/mvp/contract-preview&userIds=${userIds}&id=${id}&channel=${channel}
+```
+
+#### 合同详情页
+无论是 C 端还是 B 端，进入合同详情页均必须已登录已实名。
+##### C 端进入合同详情页
+以下方式进入：
+- 可以设置 accountType=personal 进入。
+- 也可指定 C 端用户的个人身份的 userId。
+```josn
+- pages/guide/index?path=/pages/contracts/contract-detail&login=1&verify=1&id=${id}&accountType=personal&channel=${channel}
+- pages/guide/index?path=/pages/contracts/contract-detail&login=1&verify=1&id=${id}&userIds=${userIds}&channel=${channel}
+```
+
+>!
+>- 如果 B2C 合同发起，对方签署方 C 是新用户，则 C 没有 userId，可指定参数 accountType=personal。
+>- 如果 B2C 合同发起，对方签署方 C 是老用户，则以上两种方式均可。
+
+##### B 端进入合同详情页
+可指定用户的 userIds 合集，或者 organizationId（指定了organizationId，则需要同步携带 orgName。）。
+- 以下两种常用方式均可：
+```josn
+ - pages/guide/index?path=/pages/contracts/contract-detail&login=1&verify=1&id=${id}&userIds=${userIds}&channel=${channel}
+ - pages/guide/index?path=/pages/contracts/contract-detail&login=1&verify=1&id=${id}&organizationId=${organizationId}&orgName=${orgName}&channel=${channel}
+```
+- 特殊情形：
+```josn
+- pages/guide/index?path=/pages/contracts/contract-detail&login=1&verify=1&id=${id}&accountType=personal&channel=${channel}
+```
+
+>!
+>- 如果 B2B 合同发起，对方签署方 B 所在的企业没有注册，那么使用特殊情形，切换到个人身份可查看合同，合同详情页会引导用户申请企业注册。
+>- 如果 B2B 合同发起，对方签署方 B 没有加入该企业，那么使用特殊情形，切换到个人身份可查看合同，合同详情页会引导用户申请加入企业。
+>- 如果 B2B 合同发起，对方签署方 B 是该企业的员工，那么以上两种常用方式均可使用。
 
 
 ## 接口报错相关

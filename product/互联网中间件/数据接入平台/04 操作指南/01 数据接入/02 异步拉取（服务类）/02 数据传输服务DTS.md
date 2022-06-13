@@ -2,7 +2,7 @@
 
 数据接入平台 DIP 支持接入各种数据源产生的不同类型的数据，统一管理，再分发给下游的离线/在线处理平台，构建清晰的数据通道。
 
-本文以 DTS 数据为例介绍如何在 CKafka 控制台创建数据异步拉取任务，并对任务进行修改配置，帮助您更好地了解数据接入功能。
+本文以 DTS 数据为例介绍如何在 DIP 控制台创建数据异步拉取任务，并对任务进行修改配置，帮助您更好地了解数据接入功能。
 
 ## 操作步骤
 
@@ -14,7 +14,7 @@
 
 **操作步骤**：
 
-1. 登录 [DIP 控制台](https://console.cloud.tencent.com/datahub-overview)。
+1. 登录 [DIP 控制台](https://console.cloud.tencent.com/ckafka/datahub-overview)。
 2. 在左侧导航栏单击**数据流入**，选择好地域后，单击**新建任务**。
 3. 在弹窗中数据源类型选择**异步拉取** > **DTS**。
    ![](https://qcloudimg.tencent-cloud.cn/raw/7acb9788a080bba5d5ac25025bb6fbd4.png)
@@ -22,7 +22,7 @@
    ![](https://qcloudimg.tencent-cloud.cn/raw/045ae1e9daf5b41ea0cb7ce7a32f0519.png)
    - 任务名称：只能包含字母、数字、下划线、"-"、"."。
    - CKafka 实例：选择 CKafka 实例。
-   - 目标 CKafak topic：选择数据投递的目标 CKafak Topic。
+   - 目标 CKafka topic：选择数据投递的目标 CKafka Topic。
    - DTS 实例：选择 DTS 实例，DTS 订阅 Topic 分区数量要与目标转储 Kafka 的 Topic 分区数量一致。
    - DTS 消费组：选择 DTS 消费组。
    - 消费者账号：DTS 消费组的账号。
@@ -33,8 +33,8 @@
 
 ### 编辑数据目标
 
-1. 登录 [DIP 控制台](https://console.cloud.tencent.com/datahub-overview)。
-2. 在左侧导航栏单击**数据接入**，单击目标任务的**ID**，进入任务基本信息页面。
+1. 登录 [DIP 控制台](https://console.cloud.tencent.com/ckafka/datahub-overview)。
+2. 在左侧导航栏单击**数据接入**，单击目标任务的 **ID**，进入任务基本信息页面。
 3. 单击**数据目标**模块右上角的**更改数据目标**，修改数据目标信息。
 
 
@@ -84,10 +84,9 @@
 
 ### 查看监控
 
-1. 登录 [DIP 控制台](https://console.cloud.tencent.com/datahub-overview) 。
+1. 登录 [DIP 控制台](https://console.cloud.tencent.com/ckafka/datahub-overview)。
 2. 在左侧导航栏单击**数据接入**，单击目标任务的**ID**，进入任务基本信息页面。
 3. 选择**监控**页签，可查看目标 Topic 监控数据。
-
 <table>
     <tr>
         <th>图标</th>
@@ -110,7 +109,6 @@
         <td>勾选后可在图表上显示图例信息。</td>
     </tr>
 </table>
-
  选择分区后，可以查看指定 Partition 的监控数据。
  <img src ="https://qcloudimg.tencent-cloud.cn/raw/3ee5cf22055038671f968749876c960c.png">  
    不选择时默认全部，展示现有的 Topic 级别的监控数据。
@@ -118,7 +116,7 @@
 
 ### 查看消息
 
-1. 登录 [DIP 控制台](https://console.cloud.tencent.com/datahub-overview) 。
+1. 登录 [DIP 控制台](https://console.cloud.tencent.com/ckafka/datahub-overview)。
 2. 在左侧导航栏单击**数据接入**，单击目标任务的**ID**，进入任务基本信息页面。
 3. 单击**查看消息**页签，选择好 Topic 和分区后，可以查看数据接入成功的最近5条、20条、60条和100条消息。
    ![](https://qcloudimg.tencent-cloud.cn/raw/171fd12cb463579aec77a1702cbcf988.png)

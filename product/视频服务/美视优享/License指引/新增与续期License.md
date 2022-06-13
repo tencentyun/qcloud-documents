@@ -36,6 +36,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/cb38326ce794c76aecf3f8f893b9ac80.png)
 :::
 </dx-tabs>
+
 3. 提交审核申请后模块进入**公司资质审核中**，审核时间通常 1-2 个工作日。可单击**查看审核信息**查看提交的审核信息。
 ![](https://qcloudimg.tencent-cloud.cn/raw/96ca8e3ee3fd42c22205d76ba5288517.png)
 ![](https://qcloudimg.tencent-cloud.cn/raw/9ee26ec97685f4fd881804ccf204ebcb.png)
@@ -56,7 +57,7 @@
 若您需要将腾讯特效模块的测试版 License 升级成为正式版 License，增加使用的有效期，请先 [选择并购买腾讯特效正式版套餐包](https://buy.cloud.tencent.com/vcube?type=magic)，然后执行如下操作：
 1. 单击测试版 License 腾讯特效模块中的**升级**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/3cf3633ecd1a093d61b4b1561c18d4da.png)
-2. 进入升级功能模块界面，点击**立即绑定**，选择未绑定的腾讯特效套餐包，单击**确定**即可升级创建同包名的正式应用，同时解锁腾讯特效模块的正式版 License，无需签发审核。若无可绑定的腾讯特效套餐包，可单击 [资源包购买页](https://buy.cloud.tencent.com/vcube?type=magic) 前往腾讯视立方资源包购买页购买。
+2. 进入升级功能模块界面，单击**立即绑定**，选择未绑定的腾讯特效套餐包，单击**确定**即可升级创建同包名的正式应用，同时解锁腾讯特效模块的正式版 License，无需签发审核。若无可绑定的腾讯特效套餐包，可单击 [资源包购买页](https://buy.cloud.tencent.com/vcube?type=magic) 前往腾讯视立方资源包购买页购买。
 ![](https://qcloudimg.tencent-cloud.cn/raw/9c3134446ec1584428cf88b8859fefa9.png)
 
 [](id:formal)
@@ -76,7 +77,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/7d7b23dd672ea2c877eab6beb112ea47.png)
 2. 填写正式应用的 `App Name`、`Package Name` 和 `Bundle ID` 信息，勾选功能模块**腾讯特效**，勾选后准确填写 **公司名称、所属行业类型**，上传**公司营业执照**，单击**下一步**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/103c57f63ee9f379f84b84359eb98559.png)
-3. 进入选择资源项并绑定 License 界面，点击**立即绑定** ，选择**未绑定**的腾讯特效套餐包（若没有可绑定的资源包，可前往 [资源包购买页](https://buy.cloud.tencent.com/vcube?type=magic) 购买），并单击**确定**即可提交审核申请，等待人工审核流程，且同时创建应用并生成正式版 License。
+3. 进入选择资源项并绑定 License 界面，单击**立即绑定** ，选择**未绑定**的腾讯特效套餐包（若没有可绑定的资源包，可前往 [资源包购买页](https://buy.cloud.tencent.com/vcube?type=magic) 购买），并单击**确定**即可提交审核申请，等待人工审核流程，且同时创建应用并生成正式版 License。
 ![](https://qcloudimg.tencent-cloud.cn/raw/1d04924b15bb61ca6e0d816a5b1dab1d.png)
 > ?单击**确定**前需要再次确认 Bundle ID 和 Package Name 与业务使用包名信息一致，如与提交到商店的不一致，请在提交前进行修改，**正式版 License 一旦提交成功将无法再修改 License 信息**。
 4. 正式版 License 成功创建后，页面会显示生成的正式版 License 信息。此时 Key 和 LicenseURL 两个参数暂未生效，需提交的审核通过后方才生效使用。**在 SDK 初始化配置时需要传入 Key 和 License URL 两个参数，请妥善保存以下信息。**

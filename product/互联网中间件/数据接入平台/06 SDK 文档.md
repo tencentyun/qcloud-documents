@@ -1,17 +1,17 @@
 
 ## 操作场景
 
-本文档以 Java 语言为例，介绍客户端通过集成 Java 版本的数据上报 SDK 快捷地将数据上报到 Datahub 中的操作方法。
+本文档以 Java 语言为例，介绍客户端通过集成 Java 版本的数据上报 SDK 快捷地将数据上报到 DIP 中的操作方法。
 
 ## 操作步骤
 
 ### 步骤1： 创建 HTTP 接入点
 
-参见 [创建 HTTP 上报接入点](https://cloud.tencent.com/document/product/1591/74484)在 Datahub 控制台创建一个 HTTP 接入点，获取到标识上报 EndPoint 的DatahubId。
+参见 [创建 HTTP 上报接入点](https://cloud.tencent.com/document/product/1591/74484) 在 DIP 控制台创建一个 HTTP 接入点，获取到标识上报 EndPoint 的DatahubId。
 
 ### 步骤2：引入 Java SDK
 
-参见 [SDK中心：Java](https://cloud.tencent.com/document/sdk/Java) 在 Java 项目通过 Maven、Gradle 等方式引入数据上报 SDK。
+参见 [SDK 中心：Java](https://cloud.tencent.com/document/sdk/Java) 在 Java 项目通过 Maven、Gradle 等方式引入数据上报 SDK。
 
 ### 步骤3：数据上报
 

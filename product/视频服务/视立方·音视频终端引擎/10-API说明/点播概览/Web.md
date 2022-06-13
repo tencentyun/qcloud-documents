@@ -63,6 +63,7 @@ plugins 参数可以配置播放器插件的功能，支持的属性有：
 | ContextMenu | Object | 无 | 可选值如下：<br><li>mirror: Boolean 控制是否支持镜像显示<br><li>statistic: Boolean 控制是否支持显示数据面板<br><li>levelSwitch: Object 控制切换清晰度时的文案提示<br><li>&emsp;{<br><li>&emsp;&emsp;open: Boolean 是否开启提示<br><li>&emsp;&emsp;switchingText: String, 开始切换清晰度时的提示文案<br><li>&emsp;&emsp;switchedText: String, 切换成功时的提示文案<br><li>&emsp;&emsp;switchErrorText: String, 切换失败时的提示文案<br><li>&emsp;}|
 
 
+   
 <br>
 
 ## 对象方法

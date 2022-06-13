@@ -34,7 +34,7 @@ SDK 早期版本只有 TXLivePlayer 一个 Class 承载直播和点播功能，�
 1. 获取 License 授权：
 	- 若您已获得相关 License 授权，需在 [云直播控制台](https://console.cloud.tencent.com/live/license) 获取 License URL 和 License Key。
 	![](https://qcloudimg.tencent-cloud.cn/raw/7053ac66fd06b9f178bf416d9d52ea21.png)
-	- 若您暂未获得 License 授权，需先参考 [新增与续期License](https://cloud.tencent.com/document/product/454/34750) 进行申请。
+	- 若您暂未获得 License 授权，需先参考 [新增与续期 License](https://cloud.tencent.com/document/product/454/34750) 进行申请。
 2. 在您的 App 调用 SDK 的相关功能之前（建议在 `- [AppDelegate application:didFinishLaunchingWithOptions:]` 中）进行如下设置：
 ```objc
 @import TXLiteAVSDK_Professional;

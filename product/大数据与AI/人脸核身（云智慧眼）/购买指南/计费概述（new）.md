@@ -51,13 +51,13 @@
 <td><a href="https://cloud.tencent.com/document/product/1007/56804#.E5.A2.9E.E5.BC.BA.E7.89.88.E4.BA.BA.E8.84.B8.E6.A0.B8.E8.BA.AB.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E">价格说明</a></td> 
 </tr>
 <tr>
-<td rowspan =2>微信浮层 H5</td>
+<td rowspan =2>微信原生 H5</td>
 <td>跟权威库比对</td>
-<td>增强版人脸核身（权威库）-浮层 H5</td>
+<td>增强版人脸核身（权威库）-原生 H5</td>
 <td><a href="https://cloud.tencent.com/document/product/1007/56804#.E5.A2.9E.E5.BC.BA.E7.89.88.E4.BA.BA.E8.84.B8.E6.A0.B8.E8.BA.AB.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E">价格说明</a></td> 
 </tr>
 <tr>
-<td>跟上传照片比对</td><td>增强版人脸核身（自传照片）-浮层 H5</td>
+<td>跟上传照片比对</td><td>增强版人脸核身（自传照片）-原生 H5</td>
 <td><a href="https://cloud.tencent.com/document/product/1007/56804#.E5.A2.9E.E5.BC.BA.E7.89.88.E4.BA.BA.E8.84.B8.E6.A0.B8.E8.BA.AB.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E">价格说明</a></td> 
 </tr>
 </table>

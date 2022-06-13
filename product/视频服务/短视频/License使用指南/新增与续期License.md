@@ -2,7 +2,7 @@
 
 购买后可在 [云点播控制台](https://console.cloud.tencent.com/vod/license/video) 对短视频 License 进行新增和续期等操作。本文档将对短视频 License 测试版和正式版的新增与续期等操作进行说明指引。
 
-> !购买短视频 License 授权可解锁**短视频制作 + 视频播放**功能模块。10.1 版本起，若您仅使用 SDK 中视频播放功能，也可购买视频播放 License 授权解锁**视频播放**功能模块，详情参见 [播放器 SDK 价格总览](https://cloud.tencent.com/document/product/881/20193)，操作指引参见 [新增与续期视频播放 License](https://cloud.tencent.com/document/product/881/74588)。**更多授权解锁详情参见 [腾讯云视立方 License 授权说明](https://cloud.tencent.com/document/product/1449/74203)**。
+> !购买短视频 License 授权可解锁**短视频制作 + 视频播放**功能模块。10.1 版本起，若您仅使用 SDK 中视频播放功能，也可购买 [视频播放 License](https://cloud.tencent.com/document/product/881/20193#.E8.AE.A1.E8.B4.B9.E4.BB.B7.E6.A0.BC)  授权解锁**视频播放**功能模块，操作指引参见 [视频播放 License](https://cloud.tencent.com/document/product/881/74588#.E6.B5.8B.E8.AF.95.E7.89.88-license)。
 
 [](id:test)
 ## 测试版 License

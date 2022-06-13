@@ -4,9 +4,10 @@
 
 同时从该版本开始将增加对**视频播放**功能模块的授权校验，**如果您的 App 已经拥有直播 License （原直播推流 License）或短视频 License 授权，当您升级至 10.1 版本后仍可继续正常使用**，不受到此次变更影响。您可以登录 [腾讯云视立方控制台](https://console.cloud.tencent.com/vcube) 查看您当前的 License 信息。
 
-如果您此前未获得过直播 License （原直播推流 License）或短视频 License 授权，**且需使用新版本 SDK 中的直播播放或点播播放功能，则需购买指定 License 获得授权**，详情参见 [授权说明](#warrant)；若您无需使用相关功能或未升级至最新版本 SDK，将不受到此次变更的影响。
+如果您此前未获得过直播 License （原直播推流 License）或短视频 License 授权，**且需使用新版本 SDK 中的直播播放或点播播放功能，则需购买指定 License 获得授权**，详情参见 [授权说明](#warrant)。
+**若您无需使用视频播放功能或未升级至10.1及更高版本的 SDK，将不受到此次变更的影响。**
 
->! 10.1 版本将在2022年05月底正式发布，届时将同步上线相关 License 的申请、购买页面及相关文档，本次升级涉及的移动端（iOS & Android & Flutter）SDK 包含：[直播 SDK](https://cloud.tencent.com/document/product/454/74194)、[播放器 SDK](https://cloud.tencent.com/document/product/881/74199)、[短视频 SDK](https://cloud.tencent.com/document/product/584/74197)、[实时音视频（TRTC）SDK](https://cloud.tencent.com/document/product/647/74201)、[全功能版 SDK](https://cloud.tencent.com/document/product/1449/74203)，您可持续关注对应 SDK 官网通知以了解最新动态。
+>! 10.1版本 SDK 预计在2022年05月底发布，您可在 [License 购买页](https://buy.cloud.tencent.com/vcube) 内购买包含视频播放功能的 License，并参考 [License 操作指引](https://cloud.tencent.com/document/product/1449/56981) 进行 License 的新增与续期操作。本次升级涉及的移动端（iOS & Android & Flutter）SDK 包含：[直播 SDK](https://cloud.tencent.com/document/product/454/74194)、[播放器 SDK](https://cloud.tencent.com/document/product/881/74199)、[短视频 SDK](https://cloud.tencent.com/document/product/584/74197)、[实时音视频（TRTC）SDK](https://cloud.tencent.com/document/product/647/74201)、[全功能版 SDK](https://cloud.tencent.com/document/product/1449/74203)，您可持续关注对应 SDK 官网通知以了解最新动态。
 
 [](id:warrant)
 
@@ -14,9 +15,10 @@
 
 10.1 版本后，直播 License（原直播推流 License）、短视频 License 和视频播放 License **均可**授权解锁新版本 SDK 的**视频播放**功能模块，您只需购买其中的**任意一种** License，即可正常使用新版 SDK 中的直播和点播播放功能，相关 License 的购买及计费信息如下：
 
-- 购买直播 License 授权解锁**直播推流 + 视频播放**功能模块，相关计费详情请参见 [直播 SDK 价格总览](https://cloud.tencent.com/document/product/454/8008)。
-- 购买短视频 License 授权解锁**短视频制作 + 视频播放**功能模块，相关计费详情请参见 [短视频 SDK 价格总览](https://cloud.tencent.com/document/product/584/9368)。
-- 购买视频播放 License 授权解锁**视频播放**功能模块，相关计费详情请参见 [视频播放 License 计费说明](#play_price)。
+
+- [购买直播 License](https://buy.cloud.tencent.com/vcube?type=live&pkg-type=10tb) 授权解锁**直播推流 + 视频播放**功能模块，相关计费详情请参见 [直播 SDK 价格总览](https://cloud.tencent.com/document/product/454/8008#.E7.9B.B4.E6.92.AD-license.EF.BC.88.E5.8E.9F.E7.A7.BB.E5.8A.A8.E7.9B.B4.E6.92.AD.E5.9F.BA.E7.A1.80.E7.89.88-license.EF.BC.89)，操作指引参见 [直播 License 新增与续期](https://cloud.tencent.com/document/product/454/34750)。
+- [购买短视频 License](https://buy.cloud.tencent.com/vcube?type=video&pkg-type=10tb) 授权解锁**短视频制作 + 视频播放**功能模块，相关计费详情请参见 [短视频 SDK 价格总览](https://cloud.tencent.com/document/product/584/9368)，操作指引参见 [短视频 License 新增与续期](https://cloud.tencent.com/document/product/584/54333)。
+- [购买视频播放 License](https://buy.cloud.tencent.com/vcube) 授权解锁**视频播放**功能模块，相关计费详情请参见 [视频播放 License 计费说明](#play_price)，操作指引参见 [视频播放 License 新增与续期](https://cloud.tencent.com/document/product/881/74588)。
 
 <table>
 <thead>
@@ -37,8 +39,8 @@
 <td>-</td>
 <td>&#10003; </td>
 <td style="text-align: left;"><ul style="margin:0">
-    <li>购买 10TB、50TB、200TB、1PB 云直播流量资源包赠送直播 License 一年使用授权</li>
-    <li>购买独立直播 License 一年使用授权</li></ul></td>
+<li><a href="https://buy.cloud.tencent.com/vcube?type=live&pkg-type=10TB">购买</a> 10TB、50TB、200TB、1PB 云直播流量资源包赠送直播 License 一年使用授权</li>
+    <li><a href="https://buy.cloud.tencent.com/vcube?type=live&pkg-type=lic">购买</a> 独立直播 License 一年使用授权</li></ul></td>
 </tr>
 <tr>
 <td>短视频 License</td>
@@ -46,8 +48,8 @@
 <td>&#10003; </td>
 <td>&#10003; </td>
 <td style="text-align: left;"><ul style="margin:0">
-    <li>购买 10TB、50TB、200TB、1PB 云点播流量资源包赠送短视频精简版/基础版 License 一年使用授权</li>
-    <li>购买独立短视频 License 一年使用授权</li></ul></td>
+<li><a href="https://buy.cloud.tencent.com/vcube?type=video&pkg-type=10TB">购买</a> 10TB、50TB、200TB、1PB 云点播流量资源包赠送短视频精简版/基础版 License 一年使用授权</li>
+    <li><a href="https://buy.cloud.tencent.com/vcube?type=video&pkg-type=lic-lite">购买</a> 独立短视频 License 一年使用授权</li></ul></td>
 </tr>
 <tr>
 <td>视频播放 License</td>
@@ -55,10 +57,11 @@
 <td>-</td>
 <td>&#10003; </td>
 <td style="text-align: left;"><ul style="margin:0">
-    <li>购买 100GB、500GB、1TB、5TB 直播/点播流量资源包赠送视频播放 License 一年使用授权</li>
-    <li>购买独立视频播放 License 一年使用授权</li></ul></td>
+<li><a href="https://buy.cloud.tencent.com/vcube?type=live&pkg-type=100GB">购买</a> 100GB、500GB、1TB、5TB 直播/点播流量资源包赠送视频播放 License 一年使用授权</li>
+    <li><a href="https://buy.cloud.tencent.com/vcube?type=player&pkg-type=lic">购买</a> 独立视频播放 License 一年使用授权</li></ul></td>
 </tr>
 </tbody></table>
+
 
 [](id:up)
 ## 升级特性
@@ -99,6 +102,7 @@
 
 2022年05月底起，新上线可用于解锁 10.1 版本音视频终端 SDK（腾讯云视立方）视频播放能力的视频播放 License，该 License 提供两种购买解锁方式：购买指定资源包赠送 License 或购买独立 License，计费说明见下表：
 
+
 <table>
 <thead>
 <tr>
@@ -116,19 +120,19 @@
 <td>-</td>
 <td rowspan=10>视频播放</td>
 <td>0</td>
-<td>免费申请</td>
+<td><a href="https://console.cloud.tencent.com/vcube">免费申请</a></td>
 </tr>
 <tr>
 <td rowspan=9>正式版</td>
 <td rowspan=9>1年</td>
 <td>购买独立视频播放 License 一年使用授权<br>（无资源包）</td>
 <td>12</td>
-<td>直接购买<br>（2022年05月底上线）</td>
+<td><a href="https://buy.cloud.tencent.com/vcube?type=player&pkg-type=lic">直接购买</a></td>
 </tr>
 <tr>
 <td>购买 100GB 直播流量资源包<br>赠送视频播放 License 一年使用授权</td>
 <td>26</td>
-<td rowspan=8>购买资源包免费赠送<br>（2022年05月底上线）</td>
+<td rowspan=8><a href="https://buy.cloud.tencent.com/vcube?type=live&pkg-type=100GB">购买资源包免费赠送</a></td>
 </tr>
 <tr>
 <td>购买 500GB 直播流量资源包<br>赠送视频播放 License 一年使用授权</td>
@@ -159,6 +163,9 @@
 <td>869</td>
 </tr>
 </tbody></table>
+
+
+
 
 
 

@@ -1,5 +1,33 @@
 基于 Spring Cloud Greenwich 版本 SDK，支持 spring boot 2.1.6。
 
+## 1.29.1-Greenwich-RELEASE（2022-06-07）
+### 优化
+ - 优化熔断规则日志输出。
+ - 优化 TSF 加密判断逻辑，只有配置了 TSF 密钥才对 ENC 配置进行解析。
+ - 优化服务发现对于零实例的判断。
+ - 调用链兼容mysql-connector-java 5.x和8.x版本。
+ - 优化 swagger 的依赖冲突，并升级到 springfox 2.10.5。
+ - 升级 log4j2、logback、tomcat、guava、jackson 等第三方依赖的版本。
+ - 调用链支持 Kafka 批量消费消息场景。
+ - 支持网关自动预热加载服务。
+ - 支持普通应用预热加载。
+
+
+### Bug 修复
+ - 修复分布式配置下发 spring.application.name 时，无法上报 swagger 问题。
+ - 修复泳道规则排序问题。
+ - 优化去除 TSF日志配置后，使用 log4j2 时出现 ${sys:LOG_FILE} 的情况。
+ - 修复 for 循环调用导致泳道 HTTP Header 过大的问题。
+ - 修复调用链 MongoDB 异常时 resultStatus 为空的问题。
+ - 修复不配置 logging.file 且无日志配置文件(log*.xml)时，导致 logging.level 无效。
+ - 修复实例熔断超过阈值时，对应实例的熔断事件依旧上报的问题。
+ - 修复熔断规则变化时，后续熔断事件没有上报的问题。
+ - 修复zuul重试参数配置不生效。
+ - 修复 consul actuator 因为不兼容而导致 down。
+ - 修复路由、鉴权、限流的 api path 标签的匹配。
+
+### 版本建议
+支持向后兼容，建议全量升级。
 
 ## 1.29.0-Greenwich-RELEASE（2021-06-23）
 ### 新特性
@@ -12,7 +40,7 @@
 - spring-cloud-tsf-sleuth：优化 getProperties 性能。
 - spring-cloud-tsf-sleuth：监控数据添加 http method 和 path template。
 - spring-cloud-tsf-ratelimit：优化限流的 httpclient。
-  
+
 ### Bug 修复
 - spring-cloud-tsf-logger：修复自定义日志格式没有服务名的问题。
 - spring-cloud-tsf-sleuth：修复调用链获取 IP 偶现获取不到问题。
@@ -24,6 +52,30 @@
 
 ### 版本建议
 支持向后兼容，建议全量升级。
+
+## 1.23.18-Greenwich-RELEASE（2022-03-20）
+
+### 优化
+- 优化服务发现对于零实例的判断
+
+### Bug 修复
+- 修复不配置 logging.file 且无日志配置文件(log*.xml)时，导致 logging.level 无效。
+
+### 版本建议
+支持向后兼容，建议全量升级。
+
+## 1.23.17-Greenwich-RELEASE（2022-03-04）
+
+### 新特性
+- 支持泳道过 kafka 场景，泳道跨线程传递，增加跨线程支持。
+
+### 优化
+- 移除任务调度 SDK 对 TSF 的依赖。
+
+### Bug 修复
+- 修复调用链 MongoDB 异常时 resultStatus 为空的问题。
+- 优化去除 TSF 日志配置后，使用 log4j2 时出现 ${sys:LOG_FILE} 的情况。
+
 
 ## 1.23.16-Greenwich-RELEASE（2022-01-11）
 
@@ -99,7 +151,7 @@
 - 修复泳道规则内存可见性 Bug。
 - 修复路由关闭问题。
 - 修复分布式配置下发 spring.application.name 时，无法上报 swagger 问题。
-- 修复本地加密配置不能被正确解密的问题。 
+- 修复本地加密配置不能被正确解密的问题。
 - 修复网关多个命名空间时 consul index 混用导致第一次跨命名空间调用加载慢的问题。
 - 修复 Spring Framework 反射型文件下载漏洞。
 - 解决和 spring-boot-devtools 的冲突。
@@ -139,7 +191,7 @@
 - 修复 feign 请求调用链中只展示 HTTP 方法。
 - 修复定时任务的线程数问题。
 - 修复网关使用就近命名空间的问题。
-    
+
 
 ### 版本建议
 
@@ -152,8 +204,8 @@
 - spring-cloud-tsf-msgw：
 修复网关 MSGW SDK 和服务发现 SDK 不兼容，造成拉取服务列表过快的问题，从而导致注册中心负载压力过大的问题。
 - spring-cloud-tsf-consul-discovery：
-修复服务发现线程数不准确（少于需要请求的服务数），导致服务发现线程调度不及时，节点状态更新可能会延迟30s的问题。
-  
+  修复服务发现线程数不准确（少于需要请求的服务数），导致服务发现线程调度不及时，节点状态更新可能会延迟30s的问题。
+
 ## 1.23.2-Greenwich-RELEASE（2020-08-19）
 
 ### Bug 修复
@@ -183,7 +235,7 @@ spring-cloud-tsf-msgw：
 
 - spring-cloud-tsf-msgw：
   - 新增网关路径重写配置功能。
-  - 新增网关微信小程序登录插件功能。 
+  - 新增网关微信小程序登录插件功能。
 - spring-cloud-tsf-sleuth：新增调用链支持 RocketMQ。
 - spring-cloud-tsf-core：
   - 监控数据结构中增加 HTTP 请求方法、以及请求模板路径。
@@ -199,7 +251,7 @@ spring-cloud-tsf-msgw：
   - 升级 org.apache.tomcat.embed.tomcat-embed-el 到9.0.36版本。
   - 升级 org.apache.tomcat.embed.tomcat-embed-websocket 到9.0.36版本。
 - spring-cloud-tsf-sleuth：修复 Kafka 中的类型转发错误。
-  
+
 ## 1.21.4-Greenwich-RELEASE (2020-08-20)
 ### bug 修复
 - 处理 MySQL 中 SQL 获取截断的问题。
@@ -218,8 +270,8 @@ spring-cloud-tsf-msgw：
   - 升级 org.apache.tomcat.embed.tomcat-embed-websocket 到9.0.36版本。
 
 ### 优化
-- 调整泳道标签的传递属性。
-- 调整泳道入口行为。
+- 调整泳道标签的传递属性
+- 调整泳道入口行为
 
 ## 1.21.1-Greenwich-RELEASE（2020-04-29）
 
@@ -241,7 +293,7 @@ spring-cloud-tsf-msgw：
 
 ### Bug 修复
 
-- 修复 Feign 无法使用绝对 URL 请求的问题。
+- 修复 Feign 无法使用绝对 URL 请求的问题
 - 修复 spring-cloud-tsf-swagger 包中 @ApiParam 注解 Example 属性解析异常问题。
 
 ### 优化
@@ -286,4 +338,3 @@ spring-cloud-tsf-sleuth 优化 TraceStatementProxyHandler  JDBC 代理过程内�
 ### 版本建议
 
 支持向后兼容，建议全量升级。
-

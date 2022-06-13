@@ -33,7 +33,7 @@ Kubernetes Dashboard 默认端口为9090。
 1.  在“服务器”页面中，选择并进入实例详情页。
 2. 选择**应用管理**页签，进入应用管理详情页。您可以在此页面查看应用的各项配置信息。
 3. [](id:Step3)在“应用内软件信息”栏中，单击 <img src="https://main.qcloudimg.com/raw/6603ab4f907562addb1c01596c6296cd.png" style="margin:-3px 0px">，复制 Kubernetes Dashboard 的管理员 TOKEN。如下图所示：
- ![](https://main.qcloudimg.com/raw/4c6d21f54dab5b3f027d09a6536951d9.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/46116280da7801b3c2ec452c35a0756d.png)
 4. 在“应用内软件信息”栏中，单击**登录**。
 5. 在弹出的登录窗口中，粘贴并执行 [步骤3](#Step3) 获取的命令，按 **Enter**。
 6. [](id:Step6)记录返回结果 TOKEN 值。如下图所示：

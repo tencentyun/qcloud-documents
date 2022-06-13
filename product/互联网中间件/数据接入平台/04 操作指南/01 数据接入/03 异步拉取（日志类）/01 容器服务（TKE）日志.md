@@ -62,7 +62,7 @@
    <dx-alert infotype="explain" title="">
    - 路径支持文件路径和通配规则，例如当需要采集所有文件路径形式为 `/opt/logs/service1/*.log`，`/opt/logs/service2/*.log`，可以指定采集路径的文件夹为 `/opt/logs/service*`，文件名为 `*.log`。
 - 对于容器的标准输出及容器内文件（非 hostPath 挂载），除了原始的日志内容， 还会带上容器或 kubernetes 相关的元数据（例如：产生日志的容器 ID）一起上报到 CLS，方便用户查看日志时追溯来源或根据容器标识、特征（例如：容器名、labels）进行检索。
-容器或 kubernetes 相关的元数据请参考下方表格：
+容器或 kubernetes 相关的元数据请参见下方表格：
 <table>
 <thead>
 <tr>
@@ -115,7 +115,7 @@
 <tr>
 <th>解析模式</th>
 <th>说明</th>
-<th>相关文档</th>
+<th style="width:13%">相关文档</th>
 </tr>
 </thead>
 <tbody><tr>
