@@ -220,7 +220,7 @@ pkg_resources.DistributionNotFound: pyyaml
 ### 如何查看 Cloudbase-Init 执行日志？
 您可对应操作系统，查看以下日志文件：
 - Linux 系统：`/var/log/cloud-init-output.log`
-- Windows 系统：`C:\Program Files\Cloudbase Solutions\Cloudbase-Init\log\cloudbase-init.log
+- Windows 系统：`C:\Program Files\Cloudbase Solutions\Cloudbase-Init\log\cloudbase-init.log`
 
 ### 如何排查 Cloudbase-Init 常见问题？
 #### 初始化重置密码失败
