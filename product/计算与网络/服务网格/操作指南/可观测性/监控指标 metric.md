@@ -1,15 +1,19 @@
-当前腾讯云服务网格可选择使用 [Prometheus 监控 TMP](https://cloud.tencent.com/document/product/457/71896) 为您提供服务流量 metric 数据的收集、存储与展示。
->? 服务网格将于近期支持使用第三方 Prometheus 服务作为监控后端服务。
+当前腾讯云服务网格使用 Prometheus 作为监控指标存储方案，您可选择使用 [Prometheus 监控 TMP](https://cloud.tencent.com/document/product/457/71896) 为您提供服务流量 metric 数据的收集、存储与展示，也可以使用第三方 Prometheus 服务，作为监控指标存储服务。
 
-服务网格控制台的监控图表将基于存储在 TMP 中的监控指标来展示，如果您有自定义监控的诉求，可以通过 TMP 中的 Grafana 面板设置自定义的监控面板。
+服务网格数据面 Sidecar 将 Metric 数据上报到 TMP 或第三方 Prometheus 服务，控制台从对应的服务查询指标数据，并提供网格拓扑、服务拓扑、服务监控（请求数、请求状态码分布、请求耗时、请求大小）图表的展示分析。此外，如果您有自定义监控的诉求，可以通过 TMP 中的 Grafana 面板设置自定义的监控面板。
 
 ## 操作步骤
 
-服务网格控制台基于 Sidecar 上报到 TMP 的 Metric 数据，提供网格拓扑、服务拓扑、服务监控（请求数、请求状态码分布、请求耗时、请求大小）图表的展示分析。
 
 ### 开启 TMP 监控
 在 [**创建网格**](https://cloud.tencent.com/document/product/1261/62958) 或**网格基本信息页**中的可观测性配置 >  监控指标中，勾选**腾讯云 Prometheus 监控 TMP**，按需选择自动创建或者关联已有 TMP 实例即可。开启后，Sidecar 将会将 metric 数据上报到对应的实例，您也可以在 TMP 控制台查看该实例。
 ![](https://qcloudimg.tencent-cloud.cn/raw/064b68e13ee610b9f1b491e41dbdfbc2.png)
+
+### 开启第三方Promehtues服务
+在 [**创建网格**](https://cloud.tencent.com/document/product/1261/62958) 或**网格基本信息页**中的可观测性配置 >  监控指标中，勾选第三方 Prometheus 服务，填写该服务对于的 VPC 信息、地址、认证信息。
+> 由于TCM控制台会从 Prometheus 服务中查询和展示监控指标数据，对数据源服务的网络可达性、稳定性要求较高，因此当前仅支持通过内网的形式访问。
+
+![](https://qcloudimg.tencent-cloud.cn/raw/20b6d37040aa83341199c26db5b26c3c.png)
 
 ### 查看监控相关图表
 #### 网格拓扑
