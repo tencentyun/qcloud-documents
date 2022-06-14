@@ -46,6 +46,6 @@
 ### 配置 DTS 任务
 使用 CLD 代理的 DTS 配置步骤，与普通的 [DTS 数据迁移任务](https://cloud.tencent.com/document/product/571/58688) 或 [DTS 数据同步任务](https://cloud.tencent.com/document/product/571/56516) 配置步骤基本一致，这里仅对差异点进行详细介绍。
 
-使用 C 账号购买数据迁移/同步任务后，在**设置源和目标数据库**步骤中，接入方式选择 **私有网络 VPC**（需要 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通），私有网络及子网选择 C 账号的 VPC 和子网，主机地址填入 CLB 实例的 VIP 地址。
+使用 C 账号购买数据迁移/同步任务后，在**设置源和目标数据库**步骤中，接入方式选择**私有网络 VPC**（需要 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通），私有网络及子网选择 C 账号的 VPC 和子网，主机地址填入 CLB 实例的 VIP 地址。
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/6406b54d41a2a1ba448e6c2bd8fb8df1.png)
