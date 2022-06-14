@@ -17,7 +17,7 @@ DTS 支持 Redis 数据迁移的源端和目标端部署形态如下：
 >?单机版迁移内存版（集群架构）兼容性问题请参见 [单机版迁移集群版说明](https://cloud.tencent.com/document/product/239/43697)。
 
 #### 支持版本
-- DTS 迁移服务支持的版本包括 Redis 2.8、3.0、3.2、4.0、5.0，建议目标库版本大于或等于源库版本，否则会存在兼容性问题。
+- DTS 迁移服务支持的版本包括 Redis 2.8、3.0、3.2、4.0、5.0、6.0，其中6.0版本如需体验请 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行申请。建议目标库版本大于或等于源库版本，否则会存在兼容性问题。
 - 标准架构和集群架构支持相互迁移，但异构迁移（如集群架构 > 标准架构）可能会存在兼容性问题。
 - 支持的架构包括单节点、redis cluster、codis、twemproxy。
 - 迁移权限要求：DTS 迁移数据需要源实例支持 SYNC 或者 PSYNC 命令。
@@ -44,21 +44,75 @@ DTS 迁移服务支持常见的网络迁移，包括公网、CVM 自建、专线
 
 ## 环境要求
 
-> ?如下环境要求，系统会在启动迁移任务前自动进行校验，不符合要求的系统会报错提示，用户可参考提前进行自查。
+### 系统检查
+
+> ?DTS 系统会在启动迁移任务前进行如下校验，不符合要求的系统会报错提示，用户也可提前进行自查，报错后的处理方法请参考 [Redis 校验项](https://cloud.tencent.com/document/product/571/61639#redis)。
 
 <table>
 <tr><th width="20%">类型</th><th width="80%">环境要求</th></tr>
 <tr>
 <td>源库要求</td>
 <td>
-<li>源库和目标库网络能够连通。</li><li>源库中的数据库个数需要小于或等于目标库的数据库个数。</li></td></tr>
+<li>源库和目标库网络能够连通。</li><li>源库中的数据库个数需要小于或等于目标库的数据库个数。</li><li>Redis 源实例版本需要大于等于2.2.6，2.2.6以下版本不支持 DTS 迁移。</li><li>源库必须为 Slave 节点，否则校验项会报警告。</li></td></tr>
 <tr> 
 <td>目标库要求</td>
 <td>
-<li>建议目标库的版本大于或等于源实例的版本，否则校验时会报警告，提示兼容性问题。</li>
-<li>目标库的空间必须大于源库待迁移数据所占空间。</li>
+<li>建议目标库的版本大于或等于源实例的版本，否则校验时会报警告，提示兼容性问题。</li><li>目标端 Redis 的 Proxy 版本为最新版本。</li>
+<li>目标库的空间必须大于等于源库待迁移数据所占空间的1.5倍。</li>
 <li>目标库必须为空。</li></td></tr>
 </table>
+
+### [用户自查](id:zxjc)
+
+如下检查需要用户在迁移前自行排查，否则可能会出现迁移失败。
+
+#### 检查源端是否存在大key
+
+迁移之前，请检查源端数据库中是否存在大key 。在迁移过程中，大Key可能引起缓冲区client-output-buffer-limit溢出，导致迁移失败。
+
+- 腾讯云数据库，请使用数据库智能管家（TencentDB for DBbrain，DBbrain）的诊断优化功能快速分析大Key。具体操作，请参见[内存分析](https://cloud.tencent.com/document/product/239/73524)。
+- 非腾讯云数据库，请使用**rdbtools**分析redis大key。具体操作，请参见[【最佳实践】如何使用rdbtools分析redis大key](https://cloud.tencent.com/developer/article/1981133)。
+
+评估大Key进行拆分或清理，如果保留大key，请设置源端缓冲区的大小client-output-buffer-limit为无限大。
+
+```
+config set client-output-buffer-limit 'slave 0 0 0' 
+```
+
+#### 检查源端Linux内核TCP连接数的限制
+
+如果业务并发请求比较大，迁移之前，请检查Linux内核对连接数的限制，如果业务请求连接数超出内核限制的连接数，Linux服务器将会主动断开与DTS的连接。
+
+```
+echo "net.ipv4.tcp_max_syn_backlog=4096" >> /etc/sysctl.conf
+echo "net.core.somaxconn=4096" >> /etc/sysctl.conf
+echo "net.ipv4.tcp_abort_on_overflow=0" /etc/sysctl.conf
+sysctl -p
+```
+
+#### 检查源端RDB文件目录的访问权限
+
+迁移之前，请务必检查源端存放RDB文件目录的访问权限是否为可读，否则将会因RDB文件不可读而引起迁移失败。
+
+如果RDB文件所在目录不可读，请在源端执行如下命令，设置“无盘复制”，直接发送RDB文件给DTS落盘，而不需要保存在源端的磁盘再发送。 
+
+```
+config set repl-diskless-sync yes
+```
+
+#### 标准架构迁移到集群架构，请检查命令兼容性问题
+
+标准架构迁移至内存版（集群架构）面临的最大问题为命令是否兼容内存版（集群架构）的使用规范。
+
+- 多key 操作
+
+  腾讯云数据库 Redis 内存版（集群架构）仅支持 mget、mset、 del 、 exists 命令的跨 SLOT 多 Key 访问， 源端数据库可以通过 Hash Tag 的方式，将需要进行多 Key 运算的 Key 聚合至相同 SLOT，Hash Tag 的使用方式请参考 [Redis Cluster 文档](https://redis.io/topics/cluster-spec)。 
+
+- 事务操作
+
+  内存版（集群架构）支持事务，但是事务中的命令不能跨 SLOT 访问 Key。
+
+ 具体操作，请参见 [标准架构迁移集群架构检查](https://cloud.tencent.com/document/product/239/43697) 进行静态评估与动态评估。
 
 ## 迁移步骤
 
