@@ -133,12 +133,6 @@ apply plugin: 'com.huawei.agconnect'
 ### 步骤4: 解析离线推送消息
 收到离线推送的通知栏消息，点击会自动跳转到您配置的跳转界面，该界面可以获取透传的离线消息，请您参见  [解析离线推送消息](https://cloud.tencent.com/document/product/269/44516#.E6.AD.A5.E9.AA.A48.EF.BC.9A.E8.A7.A3.E6.9E.90.E7.A6.BB.E7.BA.BF.E6.8E.A8.E9.80.81.E6.B6.88.E6.81.AF) 。
 
-
-## 交流与反馈
-欢迎加入 QQ 群进行技术交流和反馈问题，QQ 群：**QQ: 592465424**。
-<img src="https://qcloudimg.tencent-cloud.cn/raw/ca5f8724cd5a9002abc454f80bf3df12.png" alt="592465424" style="zoom:50%;" />
-
-
 ## 常见问题
 
 ### 离线推送怎么自定义推送的声音？
@@ -197,3 +191,9 @@ OPPO 手机收不到推送一般有以下几种情况：
 具体请参见 [厂商描述](http://open.res.flyme.cn/fileserver/upload/file/202201/85079f02ac0841da859c1da0ef351970.pdf)。
 - FCM：推送上行消息频率有限制。
 具体请参见 [厂商描述](https://firebase.google.com/docs/cloud-messaging/concept-options?hl=zh-cn#upstream_throttling)。
+
+
+## 交流与反馈
+欢迎加入 QQ 群进行技术交流和反馈问题。
+<img src="https://qcloudimg.tencent-cloud.cn/raw/ca5f8724cd5a9002abc454f80bf3df12.png" alt="" style="zoom:50%;" />
+
