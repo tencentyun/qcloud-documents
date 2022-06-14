@@ -84,4 +84,4 @@
 ### 步骤4：验证结果
 使用子用户 cvmtest01 再次验证，达到预期效果。
 至此，子用户 cvmtest01 可以对实例进行开关机、重启、更名、重置密码等操作。
-<img src="https://qcloudimg.tencent-cloud.cn/raw/cb9646bb327c46707873d3c8bbe3f5f9.png" >    
+<img src="https://qcloudimg.tencent-cloud.cn/raw/f52e729bf9fb570f08d240b8a157b761.png" >    

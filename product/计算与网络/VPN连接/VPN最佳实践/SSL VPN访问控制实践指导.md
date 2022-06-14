@@ -48,7 +48,7 @@
 ### 创建 SSL 服务端。
 1. 在左侧导航栏中选择 **VPN 连接** > **SSL 服务端**，进入管理页。
 2. 在 SSL 服务端管理页面，单击**+新建**，在弹出的新建 SSL 服务端对话框中依据界面参数配置 SSL 服务端。
-![](https://qcloudimg.tencent-cloud.cn/raw/6647bb406397bc5c378009a581678830.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/ee0b3a4b96c0ac24e70462ca40d2a3b7.png)
 <table>
 <tr>
 <th>参数名称</th>
@@ -164,7 +164,7 @@
 4. 在**下载SSL客户端配置文件**区域找到您需要下载的客户端配置文件，单击**下载**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/26eec93d1ddcc1a5165f13a2bf196e80.png)
 5. 在**下载SSL客户端**区域找到适合您的SSL客户端，单击**下载**。
-本文已 MAC 为例，单击下载后跳转至 OpenVPN 官网，您可以在官网下载。
+本文以 MAC 为例，单击下载后跳转至 OpenVPN 官网，您可以在官网下载。
 ![](https://qcloudimg.tencent-cloud.cn/raw/a3acb588a5998f9f4ab26f6fae6f677e.png)
 
 ## SSL 客户端安装与连接
