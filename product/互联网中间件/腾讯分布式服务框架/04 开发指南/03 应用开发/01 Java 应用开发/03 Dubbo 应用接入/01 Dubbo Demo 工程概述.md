@@ -3,7 +3,7 @@
 
 >?
 >- 本 Demo 工程仅是示例，现存的 Dubbo 应用接入 TSF 可以直接参见 [Dubbo 应用接入TSF](https://cloud.tencent.com/document/product/649/13947)。
->- 如果从零开始新开发的微服务系统推荐采用 Spring Cloud 框架，详情参见 [Spring Cloud TSF 应用开发](https://cloud.tencent.com/document/product/649/16616)。
+>- 如果从零开始新开发的微服务系统推荐采用 Spring Cloud 框架，详情参见 [Spring Cloud TSF 应用开发](https://cloud.tencent.com/document/product/649/74249)。
 
 ## 工程目录
 `tsf-dubbo-xxx-demo`的工程目录如下：
@@ -66,4 +66,5 @@
 </project>
 :::
 </dx-codeblock>
+
 

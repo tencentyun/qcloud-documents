@@ -19,10 +19,10 @@
 
 ### 模板部署 -- 一键部署 Next.js 项目
 
-1. 登录 [Serverless 控制台](https://console.cloud.tencent.com/scf/index?rid=1)，单击左侧导航栏的**函数服务**。
+1. 登录 [Serverless 控制台](https://console.cloud.tencent.com/scf/list?rid=1&ns=default)，单击左侧导航栏的**函数服务**。
 2. 在主界面上方选择期望创建函数的地域，并单击**新建**，进入函数创建流程。
 3. 选择使用**模板创建**来新建函数，在搜索框里输入 `webfunc` 筛选函数模板，选择**Next.js 框架模板**并单击**下一步**。如下图所示： 
-![](https://main.qcloudimg.com/raw/bfaf9cf6e08135ba5a34650c1e93eb25.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/fd858f9e56c9b51d531a3aa562af5707.png)
 4. 在**新建**页面，您可以查看模板项目的具体配置信息并进行修改。
 5. 单击**完成**即可创建函数。函数创建完成后，您可在**函数管理**页面查看 Web 函数的基本信息。
 6. 您可以通过 API 网关生成的访问路径 URL，访问您部署的 Next.js 项目。单击左侧菜单栏中的**触发管理**，查看访问路径。如下图所示： 
@@ -82,7 +82,7 @@ chmod 777 scf_bootstrap
 3. 登录 [Serverless 控制台](https://console.cloud.tencent.com/scf/index?rid=1)，单击左侧导航栏的**函数服务**。
 4. 在主界面上方选择期望创建函数的地域，并单击**新建**，进入函数创建流程。
 5. 选择**从头开始**新建函数，根据页面提示配置相关选项。如下图所示： 
-![](https://main.qcloudimg.com/raw/5ea3c99b29d6a21d158635f314f760e3.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/2fd5869c91e6296857de89ed63504b5a.png)
 	- **函数类型**：选择 “Web 函数”。
 	- **函数名称**：填写您自己的函数名称。
 	- **地域**：填写您的函数部署地域，默认为广州。

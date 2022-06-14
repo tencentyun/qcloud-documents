@@ -1,6 +1,6 @@
 Alluxio 用户通常具有通过现有应用程序访问其底层存储系统（Under-FileSystem），将 Alluxio 添加到现有的生态系统中需求，但现有应用程序必须更改是需要在应用程序使用 Alluxio 的 URI。透明 URI 功能允许用户访问现有存储系统，且无需在应用程序级别更改 URI。
 
-## 支持版本与配置 URI
+## 支持版本与配置 URI  
 1. 服务组件支持版本：Alluxio2.5.0 及以上版本。
 2. 产品版本：Hadoop2.x 标准版本 EMR-V2.5.1 及以上版本和 Hadoop3.x 标准版本 EMR-V3.2.0 及以上版本。
 3. 配置支持透明 URI。使用 Alluxio 透明 URI，需要配置新的 Hadoop 兼容文件系统客户端实现。只要将客户端配置为接收外部 URI，此新的 ShimFileSystem 就会替换现有的 FileSystem。Hadoop 兼容的计算框架--Hadoop FileSystem 接口定义了从 FileSystem 方案到 FileSystem 实现的映射。为了配置 ShimFileSystem，请确保 core-site 其配置了以下配置项：
