@@ -29,7 +29,7 @@
    ![](https://main.qcloudimg.com/raw/da669f277fc1daf118292804c69d5de5.png) 
 4. 开启后，在后端服务模块会显示新增 SNAT IP，单击**新增 SNAT IP**。
    ![](https://qcloudimg.tencent-cloud.cn/raw/e14d3641f25f312a7729c67c41c5ddd7.png)
-5. 在弹出的对话框中，选择所属 VPC 和子网，单击**新增**分配 IP，最后单击**保存**。这里的所属 VPC 和子网选择源数据库关联的 VPC 和子网，即 VPC-A 及其子网。
+5. 在弹出的对话框中，选择子网，然后单击**新增**分配 IP，最后单击**保存**。
    <img src="https://qcloudimg.tencent-cloud.cn/raw/7ac0571408d5c63f767eb8534123f7d4.png" style="zoom:67%;" />
 6. 配置 SNAT IP 完成后页面如下。
    ![](https://qcloudimg.tencent-cloud.cn/raw/0f022d634569aab3a9e1d0e72bf07f38.png)
@@ -46,6 +46,6 @@
 ### 配置 DTS 任务
 使用 CLD 代理的 DTS 配置步骤，与普通的 [DTS 数据迁移任务](https://cloud.tencent.com/document/product/571/58688) 或 [DTS 数据同步任务](https://cloud.tencent.com/document/product/571/56516) 配置步骤基本一致，这里仅对差异点进行详细介绍。
 
-在**设置源和目标数据库**步骤中，接入方式选择选择 **私有网络 VPC**（需要 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通），私有网络及子网选择 A 账号下的 VPC 和子网，主机地址填入 CLB 实例的 VIP 地址。
+使用 C 账号购买数据迁移/同步任务后，在**设置源和目标数据库**步骤中，接入方式选择 **私有网络 VPC**（需要 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通），私有网络及子网选择 C 账号的 VPC 和子网，主机地址填入 CLB 实例的 VIP 地址。
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/6406b54d41a2a1ba448e6c2bd8fb8df1.png)
