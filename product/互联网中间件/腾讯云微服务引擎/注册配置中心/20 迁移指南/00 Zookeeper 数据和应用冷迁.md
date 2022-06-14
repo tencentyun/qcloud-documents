@@ -8,9 +8,9 @@
 ### 持久化数据迁移（若有）
 
 #### 步骤1：创建包含事务日志和快照日志的压缩包
-首先，通过 `echo srvr | nc [Zookeeper节点IP] [Zookeeper节点端口，默认为2181] | grep Mode` 命令来找到自建Zookeeper集群的Leader节点。
-然后，根据Leader节点的 `zoo.cfg` 配置获取其事务日志和快照日志所对应的存储路径。在 `zoo.cfg` 配置文件中，`dataDir` 表示快照日志对应的本地存储路径；`dataLogDir` 表示事务日志对应的本地存储路径。
-最后，根据 `dataDir` 和 `dataLogDir`的文件路径，拷贝对应的事务日志和快照日志到同一个压缩包中，其中，快照日志文件名以snapshot开头，存储在 `dataDir/version-2` 路径下；事务日志文件名以log开头，存储在`dataLogDir/version-2`路径下。
+首先，通过 `echo srvr | nc [Zookeeper节点IP] [Zookeeper节点端口，默认为2181] | grep Mode` 命令来找到自建Zookeeper集群的Leader节点。   
+然后，根据Leader节点的 `zoo.cfg` 配置获取其事务日志和快照日志所对应的存储路径。在 `zoo.cfg` 配置文件中，`dataDir` 表示快照日志对应的本地存储路径；`dataLogDir` 表示事务日志对应的本地存储路径。  
+最后，根据 `dataDir` 和 `dataLogDir`的文件路径，拷贝对应的事务日志和快照日志到同一个压缩包中，其中，快照日志文件名以snapshot开头，存储在 `dataDir/version-2` 路径下；事务日志文件名以log开头，存储在`dataLogDir/version-2`路径下。   
 
 #### 步骤2：通过事务日志和快照日志完成数据迁移 
 
