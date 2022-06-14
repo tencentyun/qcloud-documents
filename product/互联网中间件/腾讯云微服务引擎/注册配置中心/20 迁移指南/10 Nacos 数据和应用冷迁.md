@@ -12,7 +12,7 @@
 ![image](https://user-images.githubusercontent.com/14815194/173516008-618513c6-05ac-41a7-bc37-cdb45d937c6f.png)
 2、将导出的配置导入到新的Nacos
 ![image](https://user-images.githubusercontent.com/14815194/173516580-52f8729d-4db4-4f4a-9165-dd2f771b870a.png)
-3、以此将所有命令空间按照1、2步骤进行导出导入操作即可。
+3、依次将所有命令空间按照1、2步骤进行导出导入操作即可。
 
 ### 新部署的业务应用接入
 
