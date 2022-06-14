@@ -1,4 +1,50 @@
 
+## 2022年06月
+
+<table>
+	<tr>
+		<th width=20%>动态名称</th>
+    <th width=44%>动态描述</th>
+    <th width=16%>发布时间</th>
+    <th width=20%>相关文档</th>
+	</tr>
+	<tr>
+        <td>SDK 1.3.4.3 版本发布</td>
+	<td>
+		<li>新增：新增接口 XGPushConfig.enableAutoStart 配置是否开启自启动，默认关闭</li>
+		</td>
+        <td>2022-06-07</td><td>
+		<li><a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</a></li>
+		<li><a href="https://cloud.tencent.com/document/product/548/56364">Android SDK 升级指南</a></li>
+</td>
+    </tr>
+<tr>
+</table>
+
+## 2022年05月
+
+<table>
+	<tr>
+		<th width=20%>动态名称</th>
+    <th width=44%>动态描述</th>
+    <th width=16%>发布时间</th>
+    <th width=20%>相关文档</th>
+	</tr>
+	<tr>
+        <td>SDK 1.3.4.1 版本发布</td>
+	<td>
+		<li>新增：支持在 meta-data 中的默认通知小图标配置</li>
+		<li>优化：调整使用显示 PendingIntent</li>
+		<li>修复：不再判断设备是否存在光线传感器</li>
+		<li>修复：其他已知问题</li>
+		</td>
+        <td>2022-05-31</td><td>
+		<li><a href="https://cloud.tencent.com/document/product/548/56364">Android SDK 升级指南</a></li>
+</td>
+    </tr>
+<tr>
+</table>
+
 ## 2022年04月
 
 <table>
@@ -13,6 +59,7 @@
 	<td>
 		<li>优化：支持搭载 EMUI 系统的设备使用华为推送通道</li>
 		<li>修复：偶现长连接重试时间间隔不准确的问题</li>
+		<li>新增：支持荣耀厂商推送通道，请参考文档<a href="https://cloud.tencent.com/document/product/548/74465">荣耀通道接入 SDK</a></li>
 		</td>
         <td>2022-04-25</td><td>
 		<a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</a>

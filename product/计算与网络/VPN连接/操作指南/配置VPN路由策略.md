@@ -9,6 +9,10 @@
    ![](https://main.qcloudimg.com/raw/d261071d65c453ecf21d3980d1b3a8cd.png)
 5. 单击**新增路由**，并配置路由策略。
 ![](https://main.qcloudimg.com/raw/288637983594aa439f67c2ee00a7a12a.png)
+>?
+>- VPN 网关路由表新增路由时，列表默认显示 VPN 网关下所有 VPN 通道（即 VPN 网关下所有 SPD 策略型和路由型 VPN 通道）。
+>- SPD 策略型通道无需添加路由，仅路由型通道根据您的通信需要添加对应的路由。
+>
 <table>
 <tr>
 <th>配置项</th>
@@ -20,7 +24,11 @@
 </tr>
 <tr>
 <td>下一跳类型</td>
-<td>支持<b> VPN 通道</b>和<b>云联网</b>类型。<p>说明：如果是 CCN 型 VPN 网关，且 VPN 网关已关联至云联网实例时，则下一跳到<b>云联网</b>的路由策略系统将自动学习到并展示在路由条目中，请勿手动配置重复路由。</td>
+<td>支持<b> VPN 通道</b>和<b>云联网</b>类型。
+<dx-alert infotype="explain" title="">
+如果是 CCN 型 VPN 网关，且 VPN 网关已关联至云联网实例时，则下一跳到<b>云联网</b>的路由策略系统将自动学习到并展示在路由条目中，请勿手动配置重复路由。
+</dx-alert>
+</td>
 </tr>
 <tr>
 <td>下一跳</td>
@@ -28,7 +36,12 @@
 </tr>
 <tr>
 <td>权重</td>
-<td>选择通道的权重值：<ul><li>0：优先级高。</li><li>100：优先级低。</li></ul></td>
+<td>选择通道的权重值：<ul><li>0：优先级高。</li><li>100：优先级低。</li></ul>
+<dx-alert infotype="explain" title="">
+主备通道场景请为主通道选择高优先级，备通道选择低优先级，其他情况请选默认值即可。
+</dx-alert>
+
+</td>
 </tr>
 <tr>
 <td>新增一行</td>

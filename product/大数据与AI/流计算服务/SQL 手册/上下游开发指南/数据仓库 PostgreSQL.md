@@ -23,7 +23,7 @@ CREATE TABLE `jdbc_sink_table` (
 ) WITH (
     -- 指定数据库连接参数
     'connector' = 'jdbcPG',
-    'url' = 'jdbc:postgresql://10.1.28.93:3306/CDB?rewriteBatchedStatements=true&serverTimezone=Asia/Shanghai', -- 请替换为您的实际 PG 连接参数
+    'url' = 'jdbc:postgresql://10.1.28.93:3306/CDB?reWriteBatchedInserts=true&serverTimezone=Asia/Shanghai', -- 请替换为您的实际 PG 连接参数
     'table-name' = 'my-table',  -- 需要写入的数据表
     'username' = 'admin',       -- 数据库访问的用户名（需要提供 INSERT 权限）
     'password' = 'MyPa$$w0rd',  -- 数据库访问的密码
@@ -41,7 +41,7 @@ CREATE TABLE `jdbc_upsert_sink_table` (
 ) WITH (
     -- 指定数据库连接参数
     'connector' = 'jdbcPG',
-    'url' = 'jdbc:postgresql://10.1.28.93:3306/CDB?rewriteBatchedStatements=true&serverTimezone=Asia/Shanghai', -- 请替换为您的实际 PG 连接参数
+    'url' = 'jdbc:postgresql://10.1.28.93:3306/CDB?reWriteBatchedInserts=true&serverTimezone=Asia/Shanghai', -- 请替换为您的实际 PG 连接参数
     'table-name' = 'my-upsert-table', -- 需要写入的数据表
     'username' = 'admin',             -- 数据库访问的用户名（需要提供 INSERT 权限）
     'password' = 'MyPa$$w0rd',        -- 数据库访问的密码

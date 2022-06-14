@@ -49,7 +49,7 @@ rpm -ivh migrate2tencentos-1.0-3.tl2.noarch.rpm
 ```
 5. 执行以下命令，开始迁移。
 ```shell
-/usr/sbin/migrate2tencentos.py -v 2.4
+python3 /usr/sbin/migrate2tencentos.py -v 2.4
 ```
 迁移需要一定时间，请耐心等待。脚本执行完成后，输出如下图所示信息，表示已完成迁移。
 ![](https://qcloudimg.tencent-cloud.cn/raw/a5d1a2cc65970b98b51071f6c90a40f5.png)
@@ -57,7 +57,7 @@ rpm -ivh migrate2tencentos-1.0-3.tl2.noarch.rpm
 7. 检查迁移结果。 
    1. 执行以下命令，检查 os-release。
 ```shell
-cat /etc/ os-release
+cat /etc/os-release
 ```
 返回如下图所示信息：
 ![](https://qcloudimg.tencent-cloud.cn/raw/11ae97a1ed88d3a6e6ddfddc369b2574.png)
@@ -103,7 +103,7 @@ rpm -ivh migrate2tencentos-1.0-3.tl3.noarch.rpm
 7. 检查迁移结果。 
    1. 执行以下命令，检查 os-release。
 ```shell
-cat /etc/ os-release
+cat /etc/os-release
 ```
 返回如下图所示信息：
 ![](https://qcloudimg.tencent-cloud.cn/raw/eb7333c8badf5d7a4852a66084fcc190.png)

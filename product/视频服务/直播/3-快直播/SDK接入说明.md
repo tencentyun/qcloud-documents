@@ -79,11 +79,11 @@ WebRTC 协议推流主要用于视频云的快直播（超低延时直播）推�
 [](id:set)
 ### 配置 OBS 插件
 1. **配置插件数据**。
-下载 [OBS 插件](https://mediacloud-76607.gzc.vod.tencent-cloud.com/TOBSWebRTC/Release/tencent_webrtc_plugin_20210628.zip)，把 data 文件里面的两个 `services.json` 和 `package.json` 文件，挪动到对应的 **obs-studio** > **rtmp-service** > **data** 目录进行覆盖。（`obs-studio` 默认安装在 C 盘，对应的目录为：`C:\Program Files\obs-studio\data\obs-plugins\rtmp-services`，请根据您的实际情况进行配置。）
+下载 [OBS 插件](https://mediacloud-76607.gzc.vod.tencent-cloud.com/TOBSWebRTC/Release/tencent_webrtc_plugin_20220509.zip)，把 data 文件里面的两个 `services.json` 和 `package.json` 文件，挪动到对应的 **obs-studio** > **rtmp-service** > **data** 目录进行覆盖。（`obs-studio` 默认安装在 C 盘，对应的目录为：`C:\Program Files\obs-studio\data\obs-plugins\rtmp-services`，请根据您的实际情况进行配置。）
 ![](https://main.qcloudimg.com/raw/03859054448cb140d31f2a57a60d82aa.png)  
 2. **配置插件动态库**。
-将 `obs-plugins\64bit` 中的 dll 和 pdb 文件，挪动到对应的 **obs-studio** > **obs-plugins** > **64bit** 目录下。（`obs-studio` 默认安装在 C 盘，对应的目录为：`C:\Program Files\obs-studio\obs-plugins\64bit`，请根据您的实际情况进行配置。）
-![](https://main.qcloudimg.com/raw/0384bd8ebe63704fdb306a0620124ebf.png)   
+将 `obs-plugins\64bit` 中的 dll 文件，挪动到对应的 **obs-studio** > **obs-plugins** > **64bit** 目录下。（`obs-studio` 默认安装在 C 盘，对应的目录为：`C:\Program Files\obs-studio\obs-plugins\64bit`，请根据您的实际情况进行配置。）
+<img src="https://qcloudimg.tencent-cloud.cn/raw/0fbf5009fcbbd2e9642af859ee2ccca6.png" width=650px>
 
 [](id:push)
 ### 配置推流链接

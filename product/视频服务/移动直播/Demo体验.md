@@ -75,8 +75,7 @@
 </tr>
 <tr>
 <td>iOS</td>
-<td><div style="width:130px;height: 130px;background-image:url(https://main.qcloudimg.com/raw/82f6b81a28f310c5edc5c3237e326e2f.png);background-size: cover;margin:auto">
-</div></a></td>
+<td>升级维护中</td>
 <td><a href="https://github.com/tencentyun/LiteAVProfessional_iOS/tree/master/Demo">Github</a></td>
 </tr>
 <tr>

@@ -96,3 +96,5 @@ videoEffectManager.setWatermark({
 ```javascript
 livePusher.startPush('webrtc://domain/AppName/StreamName?txSecret=xxx&txTime=xxx');
 ```
+
+>? WebRTC 混流相关接口说明，请参见 [API 概览](https://webrtc-demo.myqcloud.com/push-sdk/v2/docs/TXLivePusher.html)。

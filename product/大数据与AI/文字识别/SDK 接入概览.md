@@ -20,11 +20,11 @@
 
 ### 快速体验
 
-目前腾讯云提供了 Android 端的文字识别体验 App，[联系商务](https://cloud.tencent.com/online-service?from=doc_866) 即可体验文字识别客户端 SDK 能力。
+目前腾讯云提供了 Android 端的文字识别体验 App，[一分钟快速体验](https://cloud.tencent.com/document/product/866/47384) 即可体验文字识别客户端 SDK 能力。
 
 ### SDK 接入
 
-文字识别客户端 SDK 目前支持 Android、iOS 双平台。
-
+文字识别客户端 SDK 目前支持 Android、iOS 双平台。前往 [文字识别控制台](https://console.cloud.tencent.com/ocr/download) 即可下载 SDK。
+![](https://qcloudimg.tencent-cloud.cn/raw/ad568b7c916b94fa63755eb63a98b1fb.png)
 
 

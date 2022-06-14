@@ -6,7 +6,7 @@
 
 
 **算法说明**
-- timestamp：格式为 YYYYMMDDHHMM。
+- timestamp：服务端生成鉴权 URL 的时间，使用十进制整型正数的 Unix 时间戳，是从 UTC 时间1970年01月01日00时00分00秒到现在的总秒数，其定义与所在时区无关。
 - md5hash：MD5（自定义密钥 + timestamp + 文件路径）。
 
 **请求示例**

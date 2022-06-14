@@ -48,8 +48,8 @@ GRANT SELECT ON 待备份的库.* TO '帐号';
 1. 登录 [DBS 控制台](https://console.cloud.tencent.com/dbs)，在左侧导航选择**备份计划**页，然后在右侧选择已购买的备份计划，单击**配置**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/c8febe50a84a788546ca461860150b34.png)
 2. 在**设置备份源**页面配置备份计划和数据源，单击**测试连通性**，通过后进入**下一步**。
-   如果连通性测试失败，请参考 [连通性测试不通过处理方法](https://cloud.tencent.com/document/product/1513/64057) 进行处理。
-![](https://qcloudimg.tencent-cloud.cn/raw/ad89d7899a6fa05f7c2680e8b3548a17.png)
+如果连通性测试失败，请参考 [连通性测试不通过处理方法](https://cloud.tencent.com/document/product/1513/64057) 进行处理。
+![](https://qcloudimg.tencent-cloud.cn/raw/c83d0a6990031fcda067d7f9f70bed5e.png)
 <table>
 <thead><tr><th width="10%">设置类型</th><th width="20%">配置项</th><th width="70%">说明</th></tr></thead>
 <tbody>
@@ -61,7 +61,7 @@ GRANT SELECT ON 待备份的库.* TO '帐号';
 <td>全量备份并行数上限</td>
 <td>该上限与用户购买的备份计划规格中的上限一致。</td></tr>
 <tr>
-<td rowspan=8>源实例设置</td>
+<td rowspan=10>源实例设置</td>
 <td>数据库类型</td><td>选择“MySQL”。</td></tr>
 <tr>
 <td>服务提供商</td><td>如果源数据库为自建数据库（包括腾讯云 CVM 上自建）、腾讯云数据库，请选择“普通”，如果是第三方云厂商，选择对应的服务提供商。</td></tr>
@@ -83,7 +83,11 @@ GRANT SELECT ON 待备份的库.* TO '帐号';
 <tr>
 <td>帐号</td><td>源库 MySQL 的数据库帐号，帐号权限需要满足要求。</td></tr>
 <tr>
-<td>密码</td><td>源库 MySQL 的数据库帐号的密码。</td></tr></tbody></table>
+<td>密码</td><td>源库 MySQL 的数据库帐号的密码。</td></tr>
+<tr>
+<td>连接方式</td><td><ul><li>非加密方式：DBS 与源数据库的连接不加密。</li><li>SSL 安全连接：DBS 与源数据库通过 SSL（Secure socket layer）安全连接，对传输链路进行加密。</li></ul><dx-alert infotype="explain" title="说明">选择 SSL 安全连接可能会增加源库的连接响应时间，一般腾讯云内网链路相对较安全，无需开启 SSL 安全连接，采用公网/专线等传输方式，并且对数据安全要求较高的场景，需要开启 SSL 安全连接。<br>选择<b> SSL 安全连接</b> 前，请先在源数据库中开启 SSL 加密。如果源库为腾讯云数据库，可参考 <a href="https://cloud.tencent.com/document/product/237/33944">开启 SSL 加密</a>。</dx-alert></td></tr>
+<tr>
+<td>CA 根证书</td><td>可选，上传 CA 证书后，DBS 会校验传输目标服务器的身份，使传输链路更加安全。</td></tr></tbody></table>
 3. 在**设置备份对象**页面，选择备份对象后，单击**下一步**。
 备份对象：
    - 整个实例：备份整个实例，当前仅支持备份库、表和视图，暂不支持备份用户权限、存储过程、Function等。选择整个实例，后续源库新增的对象会同步到备份集中，恢复任务中可以恢复新增的对象。  

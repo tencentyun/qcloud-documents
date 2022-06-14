@@ -91,7 +91,7 @@ http://domain/AppName/StreamName.m3u8?txSecret=Md5(key+StreamName+hex(time))&txT
 如果您有 [观众连麦](https://cloud.tencent.com/document/product/454/52751#step_live1) 或者 [直播 PK](https://cloud.tencent.com/document/product/454/60980#step1) 的需求，需要使用支持更低延迟、更好弱网抗性的 RTC 协议进行推拉流。
 
 ### 控制台生成推流 URL [](id:rtc_push_manual)
-1. 登录登录云直播控制台。  
+1. 登录云直播控制台。  
 2. 选择进入**连麦管理**>[**地址生成器**](https://console.cloud.tencent.com/live/micro/address)，进入如下配置：
 	- 按需选择连麦应用。如果您当前没有连麦应用，可以在 [连麦应用](https://console.cloud.tencent.com/live/micro/appmanage) > **新建连麦应用**新建一个。
 	- 填写**主播 Stream Id** 和**主播 User Id**，这一步骤是为了生成主播的推流和播放地址。

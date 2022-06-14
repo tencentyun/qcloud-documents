@@ -7,16 +7,15 @@ VPN 通道的建立包括以下配置信息：
 + [IPsec 配置（选填）](#buzhou8)
 
 ## 前提条件
-+ 已完成 VPN 网关和对端网关的配置。
-+ SPD 策略的 VPN 通道本端和对端网段不能重叠。
-+ 对端 IDC 必须配置静态的公网 IP。
++ 已购买 VPN 网关和对端网关。
++ 请确保您已创建的VPN通道没有超出配额，调整配额请参考xxxx。
 
 
 
 
 ## 操作步骤
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。
-2. 在左侧目录中单击 **VPN 连接** > **VPN 通道**，进入管理页。
+2. 单击左侧导航栏中 **VPN 连接** > **VPN 通道**，进入管理页。
 3. 在 **VPN 通道**管理页面，单击**新建**。
 4. 在弹出的新建对话框中，配置 VPN 通道基本信息。[](id:buzhou4)
 ![](https://qcloudimg.tencent-cloud.cn/raw/2a8cf9d6e7436d438ee906ef825a7148.png)
@@ -31,11 +30,11 @@ VPN 通道的建立包括以下配置信息：
 </tr>
 <tr>
 <td>地域</td>
-<td>此处地域与本端 VPN 网关所在地域一样。</td>
+<td>您要创建的VPN通道关联的VPN网关所在的地域。</td>
 </tr>
 <tr>
 <td>VPN 网关类型</td>
-<td>VPN 网关类型有私有网络型 VPN 和云联网型 VPN。</td>
+<td>VPN 网关类型有私有网络型 VPN 和云联网型 VPN。关于两种VPN网关类型的详细说明请参考 <a href="https://cloud.tencent.com/document/product/554/18980#ipsec-vpn">产品概述</a>。</td>
 </tr>
 <tr>
 <td>私有网络</td>
@@ -83,11 +82,19 @@ VPN 通道的建立包括以下配置信息：
 </tr>
 <tr>
 <td>健康检查本端地址</td>
-<td>仅当开启健康检查功能时，需要设置此参数，需填写 VPC 外的可用 IP 地址。</td>
+<td>仅当开启健康检查功能时，需要设置此参数。您可以使用系统为您分配的IP地址或者指定。
+<dx-alert infotype="explain" title="">
+指定地址不能与 VPC 或 CCN 以及 IDC 通信私网地址或网段冲突，也不能与健康检查对端地址冲突。不能使用多播、广播及本地环回地址。
+</dx-alert>
+</td>
 </tr>
 <tr>
 <td>健康检查对端地址</td>
-<td>仅当开启健康检查功能时，需要设置此参数，需填写 IDC 内可用 IP 地址，不可为169.254.0.0/16，224.0.0.0-239.255.255.255，以及0.0.0.0地址。</td>
+<td>仅当开启健康检查功能时，需要设置此参数。您可以使用系统为您分配的IP地址或者指定。
+<dx-alert infotype="explain" title="">
+指定地址不能与 VPC 或 CCN 以及 IDC 通信私网地址或网段冲突，也不能与健康检查本端地址冲突。不能使用多播、广播及本地环回地址。
+</dx-alert>
+</td>
 </tr>
 <tr>
 <td>标签</td>
@@ -97,10 +104,12 @@ VPN 通道的建立包括以下配置信息：
 5. 单击**下一步**，进入**通信模式**配置界面。[](id:buzhou6)[](id:cfg_vpn_spd)
  - 目的路由
 本通信通过路由策略指定 VPN 网关所属网络可以和 IDC 中哪些网段通信，创建通道完成后需在 VPN 网关的路由表中配置对应路由策略，详情请参见[配置 VPN 网关路由](https://cloud.tencent.com/document/product/554/52860) 。
+![](https://qcloudimg.tencent-cloud.cn/raw/bb0d4c807a0d5ccda1e9a60e411ea03b.png)
  - SPD 策略。
 >?
 >+ SPD（Security Policy Database）策略由一系列 SPD 规则组成，用于指定 VPC 或云联网内哪些网段可以和 IDC 内哪些网段通信。每条 SPD 规则包括一个本端网段 CIDR，和至少一个对端网段 CIDR。一个本端网段 CIDR 和一个对端网段 CIDR 构成一组匹配关系。一个 SPD 规则下可以有多组匹配关系。
 >+ 同一 VPN 网关下所有通道内的规则，匹配关系不能重叠，即一组的匹配关系中，本端网段和对端网段不能同时重叠。
+>- 配置 SPD 策略后，VPN 网关会自动下发路由，无需在 VPN 网关添加路由。
 >
 **示例：**
 如下图所示，某 VPN 网关下已经存在以下 SPD 规则：
@@ -116,7 +125,7 @@ VPN 通道的建立包括以下配置信息：
 这四组匹配关系相互不能重叠，即他们的本端网段和对端网段不能同时重叠。
  - 如果新增一个10.0.0.0/24-----192.168.1.0/24匹配关系，则会因为和已有匹配关系重叠，而无法添加 SPD 规则。
  - 如果新增一个10.0.1.0/24-----192.168.1.0/24匹配关系，和已有的3个匹配关系均不重叠，则可以加入 SPD 规则。
-![](https://qcloudimg.tencent-cloud.cn/raw/e1a0f317ff3450bc5a04bafb11df6a95.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/2dc1d778c97875840410720faf89bc1e.png)
 6. [](id:buzhou7)单击**下一步**，进入**IKE 配置（选填）**界面，如不需要高级配置，可直接单击**下一步**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/163a6fd49d27906ead4175c84262ac93.png)
 <table>
@@ -158,7 +167,7 @@ VPN 通道的建立包括以下配置信息：
 </tr>
 <tr>
 <td>IKE SA Lifetime</td>
-<td>单位：秒<br/>设置 IKE 安全提议的 SA 生存周期，在设定的生存周期超时前，会提前协商另一个 SA 来替换旧的 SA。在新的 SA 还没有协商完之前，依然使用旧的 SA；在新的 SA 建立后，将立即使用新的 SA，而旧的 SA 在生存周期超时后，被自动清除</td>
+<td>单位：s<br/>设置 IKE 安全提议的 SA 生存周期，在设定的生存周期超时前，会提前协商另一个 SA 来替换旧的 SA。在新的 SA 还没有协商完之前，依然使用旧的 SA；在新的 SA 建立后，将立即使用新的 SA，而旧的 SA 在生存周期超时后，被自动清除</td>
 </tr>
 </table>
 7. [](id:buzhou8) 进入**IPsec配置（选填）**界面，如果不需要高级配置，可直接单击**完成**。
