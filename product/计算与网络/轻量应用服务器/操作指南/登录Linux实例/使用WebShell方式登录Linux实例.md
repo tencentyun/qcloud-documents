@@ -13,7 +13,7 @@ WebShell 为腾讯云推荐的登录方式，您可以直接使用腾讯云 WebS
 
 
 ## 适用本地操作系统
-Window，Linux 或者 Mac OS
+Windows，Linux 或者 Mac OS
 
 ## 前提条件
 
