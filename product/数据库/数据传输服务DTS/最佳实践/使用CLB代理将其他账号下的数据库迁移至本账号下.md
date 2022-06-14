@@ -12,14 +12,14 @@
 3. 创建迁移/同步任务，源数据库的 IP 地址和端口，填写 CLB 的地址和端口。
 
 ## 操作步骤
-#### 使用 C 账号创建 CLB 实例
+### 使用 C 账号创建 CLB 实例
 1. 使用 C 账号登录腾讯云 [负载均衡购买页](https://buy.cloud.tencent.com/lb)。
 2. 配置负载均衡相关参数。选择**按量计费**，和**内网**类型。
    ![](https://qcloudimg.tencent-cloud.cn/raw/ba4a65e0f1ca0b3f5c9db449e8ff7e84.png)
 3. 返回负载均衡**实例管理**页面，查看 VIP，后续 DTS 配置中需要使用。
    ![](https://qcloudimg.tencent-cloud.cn/raw/26c81a412e61922ae9190c836b0cb864.png)
 
-#### 将源数据库 IP 绑定在 CLB 后端服务中
+### 将源数据库 IP 绑定在 CLB 后端服务中
 > ? 如下指导中的 CLB 操作仅提供参考，如果实际控制台界面有差异，请以 [CLB 官网文档](https://cloud.tencent.com/document/product/214/48181) 为准。
 
 1. 在负载均衡**实例管理**页面，找到刚才购买的负载均衡实例，单击实例 ID。
@@ -29,7 +29,7 @@
    ![](https://main.qcloudimg.com/raw/da669f277fc1daf118292804c69d5de5.png) 
 4. 开启后，在后端服务模块会显示新增 SNAT IP，单击**新增 SNAT IP**。
    ![](https://qcloudimg.tencent-cloud.cn/raw/e14d3641f25f312a7729c67c41c5ddd7.png)
-5. 在弹出的对话框中，选择所属 VPC 和子网，单击**新增**分配 IP，最后单击**保存**。这里的所属 VPC 和子网选择 C 账号的 VPC 和子网。
+5. 在弹出的对话框中，选择所属 VPC 和子网，单击**新增**分配 IP，最后单击**保存**。这里的所属 VPC 和子网选择源数据库关联的 VPC 和子网，即 VPC-A 及其子网。
    <img src="https://qcloudimg.tencent-cloud.cn/raw/7ac0571408d5c63f767eb8534123f7d4.png" style="zoom:67%;" />
 6. 配置 SNAT IP 完成后页面如下。
    ![](https://qcloudimg.tencent-cloud.cn/raw/0f022d634569aab3a9e1d0e72bf07f38.png)
@@ -43,9 +43,9 @@
 11. 返回**已绑定后端服务**区域可以查看已绑定的源数据库 IP。
       ![](https://qcloudimg.tencent-cloud.cn/raw/c3dc35d9e9dd2e6955c62ddeed777ca2.png)
 
-#### 配置 DTS 任务
+### 配置 DTS 任务
 使用 CLD 代理的 DTS 配置步骤，与普通的 [DTS 数据迁移任务](https://cloud.tencent.com/document/product/571/58688) 或 [DTS 数据同步任务](https://cloud.tencent.com/document/product/571/56516) 配置步骤基本一致，这里仅对差异点进行详细介绍。
 
-在**设置源和目标数据库**步骤中，接入方式选择选择 **私有网络 VPC**（需要 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通），私有网络及子网选择 C 账号下的 VPC 和子网，主机地址填入 CLB 实例的 VIP 地址。
+在**设置源和目标数据库**步骤中，接入方式选择选择 **私有网络 VPC**（需要 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通），私有网络及子网选择 A 账号下的 VPC 和子网，主机地址填入 CLB 实例的 VIP 地址。
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/6406b54d41a2a1ba448e6c2bd8fb8df1.png)
