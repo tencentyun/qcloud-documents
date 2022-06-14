@@ -8,6 +8,11 @@
 ### 配置数据迁移（若有）
 
 将配置数据迁移到 TSE Nacos
+1、将原有配置从nacos导出
+![image](https://user-images.githubusercontent.com/14815194/173516008-618513c6-05ac-41a7-bc37-cdb45d937c6f.png)
+2、将导出的配置导入到新的Nacos
+![image](https://user-images.githubusercontent.com/14815194/173516580-52f8729d-4db4-4f4a-9165-dd2f771b870a.png)
+3、以此将所有命令空间按照1、2步骤进行导出导入操作即可。
 
 ### 新部署的业务应用接入
 
