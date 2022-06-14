@@ -1,7 +1,7 @@
 
 ## 适用场景
 
-将业务应用从自建 Zookeeper 冷迁到 TSE Zookeeper，在迁移过程中，新部署的业务应用不提供服务
+将业务应用从自建 Zookeeper 冷迁到 TSE Zookeeper，在迁移过程中，新部署的业务应用不提供服务。
 
 ## 迁移步骤
 
@@ -16,18 +16,14 @@
 
 #### 步骤2：通过事务日志和快照日志完成数据迁移 
 
-事务日志和快照日志的组合包含了Zookeeper节点数据的全部信息。通过日志文件，可以快速的将自建Zookeeper的数据迁移到TSE Zookeeper中。
+事务日志和快照日志的组合包含了Zookeeper节点数据的全部信息。通过日志文件，可以快速的将自建Zookeeper的数据迁移到TSE Zookeeper中。   
 
-**本功能尚未对外开放，如有需要可 [提工单咨询](https://console.cloud.tencent.com/workorder/category)。**
+**本功能尚未对外开放，如有需要可 [提工单咨询](https://console.cloud.tencent.com/workorder/category)** 。
 
 ### 新部署的业务应用接入
 
-新部署的业务应用接入 TSE Zookeeper，暂时不对外提供服务
+将新部署的业务应用接入到 TSE Zookeeper，暂时不对外提供服务。
 
 ### 新部署的业务应用上线
 
-验证新部署的业务应用运行正常
-
-将请求切换到新部署的业务应用
-
-下线存量的业务应用
+验证新部署的业务应用运行是否正常，若能够正常运行，则将请求切换到新部署的业务应用，并下线存量的业务应用。
