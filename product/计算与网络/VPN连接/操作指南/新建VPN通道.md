@@ -1,4 +1,4 @@
-VPN 通道是 VPN 连接中用来传输数据包的公网加密通道，腾讯云上的 VPN 通道在实现 IPsec 时，使用 IKE（Internet Key Exchange，因特网密钥交换）协议来建立会话。IKE 具有一套自我保护机制，可以在不安全的网络上安全地认证身份、分发密钥、建立 IPSec 会话。本文介绍如何在[ 私有网络控制台 ](https://console.cloud.tencent.com/vpc/vpnConn?rid=25)创建 VPN 通道。
+VPN 通道是 VPN 连接中用来传输数据包的公网加密通道，腾讯云上的 VPN 通道在实现 IPsec 时，使用 IKE（Internet Key Exchange，因特网密钥交换）协议来建立会话。IKE 具有一套自我保护机制，可以在不安全的网络上安全地认证身份、分发密钥、建立 IPSec 会话。本文介绍如何通过“控制台”创建 VPN 通道。您还可以通过 API、SDK 管理您的 VPN 通道，详情参见 [API 文档](https://cloud.tencent.com/document/product/554/19005)。
 
 VPN 通道的建立包括以下配置信息：
 + [基本信息](#buzhou4)
@@ -8,9 +8,7 @@ VPN 通道的建立包括以下配置信息：
 
 ## 前提条件
 + 已购买 VPN 网关和对端网关。
-+ 请确保您已创建的VPN通道没有超出配额，调整配额请参考xxxx。
-
-
++ 请确保您已创建的 VPN 通道没有超出配额，调整配额请参考xxxx。
 
 
 ## 操作步骤

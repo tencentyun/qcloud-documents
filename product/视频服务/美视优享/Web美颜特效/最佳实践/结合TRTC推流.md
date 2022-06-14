@@ -16,35 +16,36 @@
 
 [](id:step2)
 ### 步骤2：理解 TRTC 流初始化逻辑
-在 TRTC 的 Demo 项目里，查看 TRTC 本地流的初始化过程，TRTC 通过 createStream 方法创建流对象，
-可以指定使用 TRTC SDK 的默认采集方式, 如下
+1. 在 TRTC 的 Demo 项目里，查看 TRTC 本地流的初始化过程，TRTC 通过 createStream 方法创建流对象，可以指定使用 TRTC SDK 的默认采集方式，如下：
 ```js
 // 从麦克风和摄像头采集本地音视频流
 const localStream = TRTC.createStream({ userId, audio: true, video: true });
 localStream.initialize().then(() => {
-	console.log('initialize localStream success');
-	// 本地流初始化成功，可通过Client.publish(localStream)发布本地音视频流
+    console.log('initialize localStream success');
+    // 本地流初始化成功，可通过Client.publish(localStream)发布本地音视频流
 }).catch(error => {
-	console.error('failed initialize localStream ' + error);
+    console.error('failed initialize localStream ' + error);
 });
 ```
 以上为最基本的采集本地音视频流的初始化方式。
-为了便于开发者对音视频流进行预处理，TRTC.createStream 也支持从外部音视频源创建本地流，通过这种方式创建本地流，开发者可以实现自定义处理（例如对视频进行美颜处理），以下为示例代码：
+2. 为了便于开发者对音视频流进行预处理，TRTC.createStream 也支持从外部音视频源创建本地流，通过这种方式创建本地流，开发者可以实现自定义处理（例如对视频进行美颜处理），以下为示例代码：
 ```js
+// 获取自定义的stream
+const stream = await this.ar.getOutput();
+
 // 从指定的音视频源创建本地音视频流
-navigator.mediaDevices.getUserMedia({ audio: true, video: true }).then(stream => {
-	const audioTrack = stream.getAudioTracks()[0];
-	const videoTrack = stream.getVideoTracks()[0];
-	const localStream = TRTC.createStream({ userId, audioSource: audioTrack, videoSource: videoTrack });
-	localStream.initialize().then(() => {
-		console.log('initialize localStream success');
-		// 本地流初始化成功，可通过Client.publish(localStream)发布本地音视频流
-	}).catch(error => {
-		console.error('failed initialize localStream ' + error);
-	});
+const audioTrack = stream.getAudioTracks()[0];
+const videoTrack = stream.getVideoTracks()[0];
+const localStream = TRTC.createStream({ userId, audioSource: audioTrack, videoSource: videoTrack });
+localStream.initialize().then(() => {
+    console.log('initialize localStream success');
+    // 本地流初始化成功，可通过Client.publish(localStream)发布本地音视频流
+}).catch(error => {
+    console.error('failed initialize localStream ' + error);
 });
 ```
-createStream 方法的使用详情可见 [TRTC SDK 文档](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/TRTC.html#createStream)，为了获取经过美颜处理的流，我们需要先 [初始化 Web 美颜特效 SDK](#step3)。
+createStream 方法的使用详情可见 [TRTC SDK 文档](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/TRTC.html#createStream)。
+3. 为了获取经过美颜处理的自定义流（即上面的getMyStream方法），我们需要先 [初始化 Web 美颜特效 SDK](#step3)。
 
 [](id:step3)
 ### 步骤3：初始化 Web 美颜特效 SDK
@@ -96,15 +97,12 @@ const getSignature = function () {
 let w = 1280;
 let h = 720;
 
-// 获取设备输入流
-const stream = await navigator.mediaDevices.getUserMedia({
-	audio: true,
-	video: { width: w, height: h }
-})
-
 // ar sdk 基础配置参数
 const config = {
-	input: stream,
+	camera: { //这个参数表示从本机摄像头开始采集流
+        width: 1280,
+        height:720
+    },
 	auth: {
 		licenseKey: LICENSE_KEY,
 		appId: APPID,
@@ -196,12 +194,11 @@ ar.on('error', (e) => {
 	console.log(e);
 });
 ```
-上述代码对 Web 美颜特效 SDK 进行了初始化配置，且在 ready 事件内进行了一些简单的美颜设置交互处理，更细致的UI交互可以通过下载文末提供的代码包来进一步查看。
+上述代码对 Web 美颜特效 SDK 进行了初始化配置，且在 ready 事件内进行了一些简单的美颜设置交互处理，更细致的 UI 交互可以通过下载文末提供的代码包来进一步查看。
 
 
 [](id:step4)
 ### 步骤4：修改 TRTC stream 初始化过程
-
 Web 美颜特效 SDK 初始化完成后就可以使用 `getOutput` 方法获取输出的流，再根据 [步骤2](#step2) 的介绍完成 TRTC 流初始化，示例代码如下：
 ```js
 // 获取 ar sdk 输出流
@@ -225,6 +222,44 @@ this.localStream_ = TRTC.createStream({
 
 您在进入房间后可以很快查看实际的播放效果（运行示例代码中的 `index_AR.html`），成功后可以新开浏览器标签页进入刚才创建的房间模拟其他人加入房间的效果。
 
+
+[](id:step6)
+### 步骤6：查看设备控制能力
+在输入类型为 camera 的情况下，Web 美颜特效 SDK 还提供了一些设备控制能力，示例代码如下：
+```js
+const cameraApi = this.ar.camera;
+// 支持获取设备列表
+const devices = await cameraApi.getDevices()
+console.log(devices)
+// 支持切换不同摄像头
+// await cameraApi.switchDevice('video', 'your-video-device-id')
+// 禁用视频轨道
+// cameraApi.muteVideo()
+// 恢复视频轨道
+// cameraApi.unmuteVideo()
+// 禁用音频轨道
+// cameraApi.muteAudio()
+// 恢复音频轨道
+// cameraApi.unmuteAudio()
+// 停止摄像头
+// cameraApi.stop()
+// 停止摄像头
+// await cameraApi.restart()
+
+```
+
+[](id:step7)
+### 步骤7：查看本地预览能力
+在输入类型为 camera 的情况下，Web 美颜特效 SDK 还提供了本地预览播放的能力，示例代码如下：
+```js
+// 使用SDK内置player，其中my-dom-id表示您需要放置播放器的容器id
+const player = await sdk.initLocalPlayer('my-dom-id')
+// 直接播放
+await player.play()
+// 暂停
+player.pause()
+
+```
 
 ## 示例代码
 您可以下载 [示例代码](https://webar-static.tencent-cloud.com/docs/quick-demo/best_practice.zip) 解压后查看，
