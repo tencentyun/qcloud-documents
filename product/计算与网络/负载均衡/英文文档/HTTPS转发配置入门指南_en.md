@@ -48,7 +48,6 @@ Tencent Cloud's CLB has achieved significant improvement in HTTPS performance ba
 
 ## HTTP and HTTPS Header Identifier
 
-<<<<<<< Updated upstream
 CLB will act as a proxy for HTTPS. Both HTTP and HTTPS requests will become HTTP requests when forwarded to the backend CVM by CLB. In this case, the developer will not be able to distinguish whether the front end request is HTTP or HTTPS.
 
 Tencent CLB will implant X-Client-Proto into the header when it forwards the request to the backend CVM:
@@ -62,15 +61,10 @@ Tencent CLB will implant X-Client-Proto into the header when it forwards the req
 
 Assume that a user needs to configure the website https://example.com. The developer wishes that users can directly access the site securely through HTTPS protocol simply by entering www.example.com in the browser.
 
-=======
 ## HTTP and HTTPS Header Identifier
 
-<<<<<<< HEAD
 
 #3. Starting Configuration
-=======
-CLB will act as a proxy for HTTPS. Both HTTP and HTTPS requests will become HTTP requests when forwarded to the backend CVM by CLB. In this case, the developer will not be able to distinguish whether the front end request is HTTP or HTTPS.
->>>>>>> origin/master
 
 Tencent CLB will implant X-Client-Proto into the header when it forwards the request to the backend CVM:
 

@@ -31,15 +31,9 @@ This request operation is implemented using header x-cos-acl in request Put to s
 | Name | Description | Type | Required |
 |:---|:-- |:--|:--|
 | x-cos-acl | Define the ACL attribute of Object. Valid values: private, public-read-write, public-read. Default value: private | String | No |
-<<<<<<< HEAD
 | x-cos-grant-read | Grant read permission to the authorized user. Format: x-cos-grant-read: id=" ", id=" "; <br/>when you need to authorize a sub-account, id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt;"; <br/>when you need to authorize the root account, id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;OwnerUin&gt;" | String | No |
 | x-cos-grant-write | Grant write permission to the authorized user. Format: x-cos-grant-write: id=" ", id=" "; <br/>when you need to authorize a sub-account, id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt;"; <br/>when you need to authorize the root account, id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;OwnerUin&gt;" | String | No |
 | x-cos-grant-full-control | Grant read-write permission to the authorized user. Format: x-cos-grant-full-control: id=" ", id=" "; <br/>when you need to authorize a sub-account, id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt;"; <br/>when you need to authorize the root account, id="qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;OwnerUin&gt;" | String | No |
-=======
-| x-cos-grant-read |Give the authorized person read access. Format: x-cos-grant-read: id="[OwnerUin]" | String |  No |
-| x-cos-grant-write|Gives permission to the authorized person to write. Format: x-cos-grant-write: id="[OwnerUin]" |String |  No |
-| x-cos-grant-full-control | Give the authorized person read and write permissions. Format: x-cos-grant-full-control: id="[OwnerUin]" | String| No |
->>>>>>> ae6d63de043d7dd3ac0a4d33a9f19d4be5703f6c
 
 ### Request Body
 The request body of this request is null.
