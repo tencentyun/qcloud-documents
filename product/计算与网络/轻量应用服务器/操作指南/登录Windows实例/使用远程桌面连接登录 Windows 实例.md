@@ -18,7 +18,7 @@ Windows、Linux 和 Mac OS 都可以使用远程桌面登录轻量应用服务�
 ::: Windows 系统
 
 <dx-alert infotype="explain" title="">
-以下操作步骤以 Windows 7 操作系统为例。
+以下操作步骤以 windows桌面客户端（windows7操作系统）为例。
 </dx-alert>
 
 
@@ -32,6 +32,29 @@ Windows 实例公网 IP 可前往 [轻量应用服务器控制台](https://conso
 </dx-alert>
 <img src="https://main.qcloudimg.com/raw/3a9aa79200ace4a6ebd68a6e511a341d.png"/>
 4. 单击**确定**，即可登录到 Windows 实例。
+
+<dx-alert infotype="explain" title="">
+以下操作步骤以 Microsoft Store客户端（windows11操作系统）为例。
+</dx-alert>
+
+1. 在Microsoft Store 搜索“Microsoft远程桌面”，点击下载并安装
+2. 为要连接的计算机输入以下信息：
+- 电脑名称 ：Windows实例的IP地址
+<img src="https://ask8088-private-1251520898.cn-south.myqcloud.com/developer-images/article/6030023/pemqt4482c.png?q-sign-algorithm=sha1&q-ak=AKID2uZ1FGBdx1pNgjE3KK4YliPpzyjLZvug&q-sign-time=1655267094;1655274294&q-key-time=1655267094;1655274294&q-header-list=&q-url-param-list=&q-signature=f377c2213cb071dfef2040e7fc65bf08f5253415">
+- 用户信息：Windows系统的用户名和密码，用于访问远程电脑的用户帐户。 点击 + 添加新帐户或选择现有帐户。 
+<img src="https://ask8088-private-1251520898.cn-south.myqcloud.com/developer-images/article/6030023/v4i2cn7vs8.png?q-sign-algorithm=sha1&q-ak=AKID2uZ1FGBdx1pNgjE3KK4YliPpzyjLZvug&q-sign-time=1655266535;1655273735&q-key-time=1655266535;1655273735&q-header-list=&q-url-param-list=&q-signature=c580ff7adf26c480c1d9b881ae0902233e237b89">
+
+3. 用户可以通过点击“显示更多”或“详细显示”设置其他选项：
+- 显示名称 - 设置要连接到的电脑的易记名称，如未指定易记名称，则显示电脑名称。
+- 组 – 指定一个组，以便以后更轻松地找到连接。 可以通过点击 + 添加新组或从列表中选择一个组。
+- 连接到管理会话 - 使用此选项可连接到控制台会话以管理 Windows 服务器。
+- 将远程会话分辨率设置为： – 选择在会话中使用的分辨率。 “为我选择”将根据客户端大小设置分辨率。
+- 更改显示大小 - 为会话选择高静态分辨率时，可使用此设置将屏幕上的项目放大来提高可读性。 （仅支持Windows 8.1 或更高版本）
+- 在调整大小时更新远程会话分辨率 – 启用时，客户端将基于客户端大小动态更新会话解析。 （仅支持Windows 8.1 或更高版本）
+- 剪贴板 – 启用后可以从/向远程电脑复制文本和图像。
+- 音频播放 – 启用后可以选择在本地设备、远程电脑上播放声音或完全不播放。
+- 音频录制 – 启用后可以在远程电脑上对应用程序使用本地麦克风。
+4. 单击**保存**后连接即可登录到 Windows 实例。
 
 :::
 ::: Linux 系统
