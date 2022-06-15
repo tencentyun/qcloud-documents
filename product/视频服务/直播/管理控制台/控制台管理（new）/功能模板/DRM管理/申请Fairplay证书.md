@@ -17,7 +17,7 @@ I am using a 3rd party DRM company and the company has already built and tested 
 ```
 
  [](id:step2)
-### 步骤2：创建私钥和证书签名请求（CSR）:
+### 步骤2：创建私钥和证书签名请求（CSR）
 根据开发包中的指导文档，创建私钥（`privatekey.pem`）文件和证书签名请求（`certreq.csr`）文件。下面介绍了指南中证书签名请求部分的 OpenSSL 方法。
 >! 必须在执行此过程的 PC 或服务器环境上安装 OpenSSL。
 
