@@ -1,5 +1,3 @@
-
-
 ### 步骤1：引入SDK
 ```javascript
 import { ArSdk } from 'tencentcloud-webar';// SDK 类
@@ -45,12 +43,13 @@ const sdk = new ArSdk(
 ```javascript
 const config = {
 	auth: authData, // 鉴权参数
-  input: 'https://xxx.png', // input传输入流
+    input: 'https://xxx.png', // input传输入流
 }
 const sdk = new ArSdk(
 	// 传入一个 config 对象用于初始化 sdk
 	config
 )
+// 设置美颜效果，详见[设置美颜和特效]()
 sdk.setBeautify({
 	whiten: 0.2
 });
@@ -83,6 +82,9 @@ document.body.appendChild(video)
 video.play()
 ```
 
-推流等操作参见[最佳实践-结合TRTC推流](),[最佳实践-结合WebRTC推流](),
+推流等操作参见[最佳实践-结合TRTC推流](),[最佳实践-结合WebRTC推流]()
+
+## 步骤5：设置美颜和特效
+SDK的所有素材均兼容微信小程序端与Web端，调用方式一致，详情可参见[设置美颜和特效]()。
 
 

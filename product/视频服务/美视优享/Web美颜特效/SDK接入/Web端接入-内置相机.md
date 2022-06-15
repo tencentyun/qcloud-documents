@@ -1,4 +1,4 @@
-SDK 提供了内置摄像头，如开发者无需自行维护媒体流，仅需要快速调起摄像头，推荐使用内置摄像头方式。
+SDK 提供了内置相机，如开发者无需自行维护媒体流，仅需要快速调起摄像头，推荐使用内置相机方式。
 
 ### 步骤1：引入SDK
 ```javascript
@@ -20,11 +20,11 @@ const authData = {
 };
 
 const config = {
-	auth: authData, // 鉴权参数
-  camera: { // 传camera配置调起内置相机
-    width: 1280,
-    height: 720
-  },
+    auth: authData, // 鉴权参数
+      camera: { // 传camera配置调起内置相机
+        width: 1280,
+        height: 720
+      },
 	beautify: { // 初始化美颜参数(可选)
 		whiten: 0.1,
 		dermabrasion: 0.3,
@@ -39,15 +39,16 @@ const sdk = new ArSdk(
 	config
 )
 
-// 输入类型为摄像头时,提供cameraReady事件,该事件在sdk ready之前
+// 内置相机初始化时,提供cameraReady事件,该事件在sdk ready之前
 sdk.on('cameraReady', async ()=>{
     const cameraApi = sdk.camera;
     // 支持获取设备列表
     const devices = await cameraApi.getDevices()
     console.log(devices)
-    // 支持切换不同摄像头
+    // 如果有多个设备，支持切换不同摄像头
     await cameraApi.switchDevice('video', 'your-video-device-id')
 })
+// 设置美颜效果，详情可参见[设置美颜和特效]()
 sdk.setBeautify({
 	whiten: 0.2
 });
@@ -56,7 +57,7 @@ sdk.on('created', () => {
 })
 ```
 
->! `config`中的 `camera` 参数表示将由 SDK 来采集当前设备的摄像头流作为输入，当设置了 `camera` 参数，SDK 还提供一系列基础的摄像头设备管理方法。
+>! `config`中的 `camera` 参数表示将由 SDK 来采集当前设备的摄像头媒体流作为输入，当设置了 `camera` 参数，SDK 还提供一系列基础的设备管理方法。
 
 为了方便控制，内置的`camera`提供了以下方法调用：
 <table>
@@ -95,16 +96,24 @@ sdk.on('created', () => {
 <td>-</td>
 <td>-</td>
 </tr><tr>
+<td>stopVideo</td>
+<td>停止当前摄像头设备，视频流会停止（音频流还存在）</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>restartVideo</td>
+<td>重启当前摄像头，在 stopVideo 之后使用</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
 <td>stop</td>
-<td>停止当前摄像头，此时流会停止</td>
+<td>停止当前摄像头视频以及音频设备</td>
 <td>-</td>
 <td>-</td>
-</tr><tr>
-<td>restart</td>
-<td>重启当前摄像头，在 stop 之后使用</td>
-<td>-</td>
-<td>-</td>
-</tr></tbody></table>
+</tr>
+</tbody></table>
 
 ### 步骤3：获取输出
 如果有推流等需求，可以使用`getOutput`方法获取输出的媒体流
@@ -131,7 +140,7 @@ await player.play()
 // 不需要的时候可以销毁
 // player.destroy()
 ```
->! initLocalPlayer 获取到的播放器默认静音，如果开启静音则可能产生回声。
+>! 注意：initLocalPlayer 获取到的播放器默认静音，如果开启静音则可能产生回声。
 
 SDK initLocalPlayer 后，其 player 对象支持以下方法：
 
@@ -145,6 +154,15 @@ SDK initLocalPlayer 后，其 player 对象支持以下方法：
 | setMirror       | 设置镜像                   | true\|false | -                |
 | getVideoElement | 获取内置 video 对象        | -           | HTMLVideoElement |
 | destroy         | 销毁                       | -           | -                |
+
+>! 注意：播放器会默认跟随camera的变化。您可以简单理解为camera的设备控制是总开关，
+而localPlayer的播放控制是一个子开关；例如调用camera.muteVideo后，此时禁用了设备视频流，此时
+localPlayer即使再调用play也相当于处于停止播放状态；调用camera.unmuteVideo后，重新启用了视频流，
+此时localPlayer会默认自动恢复播放状态；因此启用camera配置情况下您无须再手动控制localPlayer的状态，
+管理好camera设备状态即可。
+
+## 步骤4：设置美颜和特效
+SDK的所有素材均兼容微信小程序端与Web端，调用方式一致，详情可参见[设置美颜和特效]()。
 
 
 
