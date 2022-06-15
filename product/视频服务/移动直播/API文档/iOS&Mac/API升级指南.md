@@ -9,7 +9,7 @@
 
 >! **适用范围：**使用 `TXLivePusher` 和 `TXLivePlayer` API 的客户。
 
-移动直播 SDK 从 8.4 版本开始增加了一套新的 API `V2TXLivePusher` 和 `V2TXLivePlayer` 用来替代 `TXLivePusher` 和 `TXLivePlayer` ，主要优化点有以下几个方面：
+直播 SDK 从 8.4 版本开始增加了一套新的 API `V2TXLivePusher` 和 `V2TXLivePlayer` 用来替代 `TXLivePusher` 和 `TXLivePlayer` ，主要优化点有以下几个方面：
 - 去掉了 V1 一些冗余接口，例如 `TXLivePushConfig#setAutoAdjustBitrate` 等。
 - 简化了 V1 一些复杂的使用方式，例如 `TXLivePushConfig` 类。
 - 新增了一些实用的接口，例如 `V2TXLivePremierObserver#onLicenceLoaded` 用来告知用户 Licence 设置的结果以及失败原因。
@@ -27,7 +27,7 @@
 </dx-alert>
 
 
-移动直播 SDK V1 API 只能使用 RTMP 协议推流，V2 API 新增了 RTC 协议的推流能力。RTC 协议基于 [TRTC SDK](https://cloud.tencent.com/document/product/647/) ，在延迟以及弱网下有极佳的表现，详见 [RTC 推流优势](https://cloud.tencent.com/document/product/454/68574)。
+直播 SDK V1 API 只能使用 RTMP 协议推流，V2 API 新增了 RTC 协议的推流能力。RTC 协议基于 [TRTC SDK](https://cloud.tencent.com/document/product/647/) ，在延迟以及弱网下有极佳的表现，详见 [RTC 推流优势](https://cloud.tencent.com/document/product/454/68574)。
 **针对不同的业务状态升级策略会有些不同：**
 
 [](id:push1)
