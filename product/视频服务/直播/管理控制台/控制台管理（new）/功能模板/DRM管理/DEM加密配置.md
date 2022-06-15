@@ -5,15 +5,16 @@
 
 ## 前提条件
 - 已开通腾讯云直播服务，并添加 [播放域名](https://cloud.tencent.com/document/product/267/20381)。
-- 已在 [华曦达 SDMC DRM 服务](https://www.xmediacloud.com/contact-us/) 创建服务账号并设置访问秘钥。
+- 已在 [华曦达 SDMC DRM 服务](https://www.xmediacloud.com/contact-us/) 创建服务账号并设置访问密钥。
 
 ## 控制台配置
-
-### 设置访问 DRM 秘钥信息
-1. 登录云直播控制台，进入 **功能配置** > [DRM 管理](https://console.cloud.tencent.com/live/config/drm)。
-2. 单击 **编辑** 设置用户访问华曦达（SDMC）DRM 秘钥信息，需要设置 UID、SecretID、SecretKey，这些秘钥信息需要从证书的第三方服务商处获取：
+[](id:step1)
+### 设置访问 DRM 密钥信息
+1. 登录云直播控制台，进入 **功能配置** > [DRM      管理](https://console.cloud.tencent.com/live/config/drm)。
+2. 单击 **编辑** 设置用户访问华曦达（SDMC）DRM 密钥信息，需要设置 UID、SecretID、SecretKey，这些密钥信息需要从证书的第三方服务商处获取：
 ![](https://qcloudimg.tencent-cloud.cn/raw/9bd8c32b66d3c5687aff8ced8617ecf5.png)
 
+[](id:step2)
 ### 设置转码模板
 1. 进入 **功能配置** > [直播转码](https://console.cloud.tencent.com/live/config/transcode)。
 2. 单击 **创建转码模板** 设置 DRM 加密信息。
@@ -23,7 +24,7 @@
 <tbody><tr>
 <td>DRM 加密</td>
 <td>否</td>
-<td>DRM 加密开关，默认关闭。开启该功能前要求在 DRM 管理中配置 DRM 秘钥</td>
+<td>DRM 加密开关，默认关闭。开启该功能前要求在 DRM 管理中配置 DRM 密钥</td>
 </tr><tr>
 <td>加密类型</td>
 <td>是</td>
@@ -31,11 +32,13 @@
 </tr>
 </tbody></table>
 
+[](id:step3)
 ### 获取 DRM 播放地址
 使用 DRM 加密要求播放地址必须是 HLS 播放协议，您可前往 [地址生成器](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator) 选择对应的转码模板，生成播放地址，选择 HLS 播放协议的地址作为 DRM 播放地址。
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/c96727b0b70d3ba05fa489e1f66c5083.png) 
 
+[](id:step4)
 ### 配置播放器
 使用直播 DRM 加密功能对播放器有一定要求：
 - 播放器需要与 [华曦达（SDMC）](https://www.xmediacloud.com/contact-us/) 做对接，实现通过视频信息获取 License 并解密的能力。
