@@ -10,7 +10,7 @@
 ## 控制台配置
 
 ### 设置访问 DRM 秘钥信息
-1. 登录云直播控制台，进入 **功能配置** > [DRM      管理](https://console.cloud.tencent.com/live/config/drm)。
+1. 登录云直播控制台，进入 **功能配置** > [DRM 管理](https://console.cloud.tencent.com/live/config/drm)。
 2. 单击 **编辑** 设置用户访问华曦达（SDMC）DRM 秘钥信息，需要设置 UID、SecretID、SecretKey，这些秘钥信息需要从证书的第三方服务商处获取：
 ![](https://qcloudimg.tencent-cloud.cn/raw/9bd8c32b66d3c5687aff8ced8617ecf5.png)
 
