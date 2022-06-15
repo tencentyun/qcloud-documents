@@ -43,10 +43,10 @@
 ![](https://main.qcloudimg.com/raw/167ef56bf7c870e000dae7c18c51f25d.png)
 
 <dx-alert infotype="notice" title="">
-- 当前 TBaaS 控制台暂支持上传编译过后的 .wasm 或 .bin 合约文件。
-- 合约支持 Rust、Go、C++ 、Solidity 四种语言。
-- 合约编译方法可参考开发指南 [智能合约开发（Go）](https://cloud.tencent.com/document/product/663/72538) 或 [智能合约开发（Rust）](https://cloud.tencent.com/document/product/663/72540) 或 [智能合约开发（Solidity）](https://cloud.tencent.com/document/product/663/72542)。
-- 安装 Solidity 合约时，若选择使用初始化参数，需对合约初始化参数进行 ABI 编码，可参考 [合约调用（Solidity）](https://cloud.tencent.com/document/product/663/72544)。
+- 当前 TBaaS 控制台暂支持上传编译过后的 .wasm 或者 .bin 和 .abi 合约文件。
+- 合约支持 Go、Solidity、Rust、C++ 四种语言。
+- 合约编译方法可参考开发指南 [智能合约开发（Go）](https://cloud.tencent.com/document/product/663/72538) 或 [智能合约开发（Solidity）](https://cloud.tencent.com/document/product/663/72542) 或 [智能合约开发（Rust）](https://cloud.tencent.com/document/product/663/72540) 或 [智能合约开发（C++）](https://cloud.tencent.com/document/product/663/72999)。
+- 安装 Solidity 合约时，需将 .bin 和 .abi 两个合约文件一起上传。
 </dx-alert>
 
 
