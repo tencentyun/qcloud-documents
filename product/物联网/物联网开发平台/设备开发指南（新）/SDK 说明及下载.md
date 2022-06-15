@@ -8,6 +8,8 @@
 
 > ! V3.1.0 之前的版本相较于 V3.1.0 及以后的版本，代码 GitHub 路径不一样，同时与平台交互协议有较大区别。
 
+
+
 ## AT SDK 代码托管
 
 在 IoT explorer 平台 [创建产品和设备](https://cloud.tencent.com/document/product/1081/34739) 后，选择基于 MQTT AT 定制模组开发的方式，将会自动生成 MCU 侧的 [AT SDK](https://github.com/tencentyun/qcloud-iot-sdk-tencent-at-based.git) 代码，并且在平台创建的数据模板和事件会生成对应的配置及初始化代码。

@@ -1,4 +1,4 @@
-VPN 通道是 VPN 连接中用来传输数据包的公网加密通道，腾讯云上的 VPN 通道在实现 IPsec 时，使用 IKE（Internet Key Exchange，因特网密钥交换）协议来建立会话。IKE 具有一套自我保护机制，可以在不安全的网络上安全地认证身份、分发密钥、建立 IPSec 会话。本文介绍如何在[ 私有网络控制台 ](https://console.cloud.tencent.com/vpc/vpnConn?rid=25)创建 VPN 通道。
+VPN 通道是 VPN 连接中用来传输数据包的公网加密通道，腾讯云上的 VPN 通道在实现 IPsec 时，使用 IKE（Internet Key Exchange，因特网密钥交换）协议来建立会话。IKE 具有一套自我保护机制，可以在不安全的网络上安全地认证身份、分发密钥、建立 IPSec 会话。本文介绍如何通过“控制台”创建 VPN 通道。您还可以通过 API、SDK 管理您的 VPN 通道，详情参见 [API 文档](https://cloud.tencent.com/document/product/554/19005)。
 
 VPN 通道的建立包括以下配置信息：
 + [基本信息](#buzhou4)
@@ -7,16 +7,13 @@ VPN 通道的建立包括以下配置信息：
 + [IPsec 配置（选填）](#buzhou8)
 
 ## 前提条件
-+ 已完成 VPN 网关和对端网关的配置。
-+ SPD 策略的 VPN 通道本端和对端网段不能重叠。
-+ 对端 IDC 必须配置静态的公网 IP。
-
-
++ 已购买 VPN 网关和对端网关。
++ 请确保您已创建的 VPN 通道没有超出配额，调整配额请参考[ 使用限制](https://cloud.tencent.com/document/product/554/18982)。
 
 
 ## 操作步骤
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。
-2. 在左侧目录中单击 **VPN 连接** > **VPN 通道**，进入管理页。
+2. 单击左侧导航栏中 **VPN 连接** > **VPN 通道**，进入管理页。
 3. 在 **VPN 通道**管理页面，单击**新建**。
 4. 在弹出的新建对话框中，配置 VPN 通道基本信息。[](id:buzhou4)
 ![](https://qcloudimg.tencent-cloud.cn/raw/2a8cf9d6e7436d438ee906ef825a7148.png)
@@ -31,11 +28,11 @@ VPN 通道的建立包括以下配置信息：
 </tr>
 <tr>
 <td>地域</td>
-<td>此处地域与本端 VPN 网关所在地域一样。</td>
+<td>您要创建的VPN通道关联的VPN网关所在的地域。</td>
 </tr>
 <tr>
 <td>VPN 网关类型</td>
-<td>VPN 网关类型有私有网络型 VPN 和云联网型 VPN。</td>
+<td>VPN 网关类型有私有网络型 VPN 和云联网型 VPN。关于两种VPN网关类型的详细说明请参考 <a href="https://cloud.tencent.com/document/product/554/18980#ipsec-vpn">产品概述</a>。</td>
 </tr>
 <tr>
 <td>私有网络</td>
@@ -75,19 +72,27 @@ VPN 通道的建立包括以下配置信息：
 </tr>
 <tr>
 <td>开启健康检查</td>
-<td>健康检查的开启/关闭开关，用于检测链路健康状态，默认不开启。
+<td>健康检查用于主备通道的场景，具体请参考<a href="https://cloud.tencent.com/document/product/554/60005"> IDC 与单个腾讯云 VPC 实现主备容灾</a>。如果您不涉及，无需开启此开关（默认不开启），否则请开启本开关，并完成下面的健康检查本端及对端地址的配置。
 <dx-alert infotype="explain" title="">
-健康检查参数配置完成后，您还需要在 [步骤6](#buzhou6) 中配置健康检查的 SPD 策略，这样健康检查功能才会生效。健康检查操作指导可参考 [配置健康检查](https://cloud.tencent.com/document/product/554/70209)。
+一旦您开启健康检查并创建通道完成，系统立即开始通过 NQA 检测 VPN 通道健康状况，如果 VPN 通道未联通或您配置的对端地址不响应 NQA 探测，则系统会在多次探测失败后判定为不健康，并临时中断业务流量，直到 VPN 通道恢复健康。
 </dx-alert>
 </td>
 </tr>
 <tr>
 <td>健康检查本端地址</td>
-<td>仅当开启健康检查功能时，需要设置此参数，需填写 VPC 外的可用 IP 地址。</td>
+<td>仅当开启健康检查功能时，需要设置此参数。您可以使用系统为您分配的IP地址或者指定。
+<dx-alert infotype="explain" title="">
+指定地址不能与 VPC 或 CCN 以及 IDC 通信私网地址或网段冲突，也不能与健康检查对端地址冲突。不能使用多播、广播及本地环回地址。
+</dx-alert>
+</td>
 </tr>
 <tr>
 <td>健康检查对端地址</td>
-<td>仅当开启健康检查功能时，需要设置此参数，需填写 IDC 内可用 IP 地址，不可为169.254.0.0/16，224.0.0.0-239.255.255.255，以及0.0.0.0地址。</td>
+<td>仅当开启健康检查功能时，需要设置此参数。您可以使用系统为您分配的IP地址或者指定。
+<dx-alert infotype="explain" title="">
+指定地址不能与 VPC 或 CCN 以及 IDC 通信私网地址或网段冲突，也不能与健康检查本端地址冲突。不能使用多播、广播及本地环回地址。
+</dx-alert>
+</td>
 </tr>
 <tr>
 <td>标签</td>
@@ -160,7 +165,7 @@ VPN 通道的建立包括以下配置信息：
 </tr>
 <tr>
 <td>IKE SA Lifetime</td>
-<td>单位：秒<br/>设置 IKE 安全提议的 SA 生存周期，在设定的生存周期超时前，会提前协商另一个 SA 来替换旧的 SA。在新的 SA 还没有协商完之前，依然使用旧的 SA；在新的 SA 建立后，将立即使用新的 SA，而旧的 SA 在生存周期超时后，被自动清除</td>
+<td>单位：s<br/>设置 IKE 安全提议的 SA 生存周期，在设定的生存周期超时前，会提前协商另一个 SA 来替换旧的 SA。在新的 SA 还没有协商完之前，依然使用旧的 SA；在新的 SA 建立后，将立即使用新的 SA，而旧的 SA 在生存周期超时后，被自动清除</td>
 </tr>
 </table>
 7. [](id:buzhou8) 进入**IPsec配置（选填）**界面，如果不需要高级配置，可直接单击**完成**。

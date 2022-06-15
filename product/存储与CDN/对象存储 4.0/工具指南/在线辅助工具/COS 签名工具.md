@@ -1,6 +1,6 @@
 ## 功能概述
 
-COS 签名工具是腾讯云对象存储为用户提供的 Web 工具，可用于生成请求签名。您可以在工具页面上填入指定的参数，生成请求签名，以及校验请求签名的正确性。
+COS 签名工具是腾讯云对象存储（Cloud Object Storage，COS）为用户提供的 Web 工具，可用于生成请求签名。您可以在工具页面上填入指定的参数，生成请求签名，以及校验请求签名的正确性。
 - 目前 COS 存在 XML 和 JSON 两个不同版本的 API，两类 API 的签名入参有所差异，COS 推荐您使用 XML 版本的 API。JSON API 是腾讯云 COS 服务在推出 XML API 前为用户提供接入使用 COS 的 API 接口，接口与标准 XML 的 API 底层架构相同，数据互通，可以交叉使用，但是接口不兼容。
 - 有关 XML 版本的签名介绍文档，请参见 XML 版本 [请求签名](https://cloud.tencent.com/document/product/436/7778)。
 - 有关 JSON 版本的签名介绍文档，请参见 JSON 版本 [签名算法](https://cloud.tencent.com/document/product/436/6054)。

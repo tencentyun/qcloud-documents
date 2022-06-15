@@ -110,3 +110,4 @@
    ![](https://qcloudimg.tencent-cloud.cn/raw/3ae53795483ce0bebe227a461a4825f9.png)
    在选中时间范围内，consul-consumer 调用了 consul-provider 服务，调用成功比例为 100% （绿色部分）。
 
+

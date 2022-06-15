@@ -55,7 +55,7 @@ Kubernetes Dashboard 默认端口为9090。
 k3s-add-node {node-ip}
 ```
 <dx-alert infotype="explain" title="">
-- Master 节点操作系统为 CentOS 8.2，建议您添加同地域同可用区下的其他轻量应用服务器实例作为集群 Node 节点。您可先使用 CentOS 8.2 系统镜像参考 [快速创建 Linux 实例](https://cloud.tencent.com/document/product/1207/44548) 创建实例，再通过以上命令将实例加入集群作为 Node 节点。
+- Master 节点操作系统为 CentOS 8.2，建议您添加同地域、同可用区及同系列操作系统的其他轻量应用服务器实例作为集群 Node 节点。您可先使用 CentOS 8.2 系统镜像参考 [快速创建 Linux 实例](https://cloud.tencent.com/document/product/1207/44548) 创建实例，再通过以上命令将实例加入集群作为 Node 节点。
 - Node 节点需与 Master 节点内网互通。
   - 同账号下同一地域内的不同轻量应用服务器默认内网互通。更多轻量应用服务器内网连通能力介绍，请参见 [内网连通性说明](https://cloud.tencent.com/document/product/1207/50103#IntranetUnicom)。
   - 实例间的网络访问受到防火墙的控制，`TCP:6443`、`UDP:8472`及 `TCP:10250` 端口默认未在防火墙中放通，您需按照 [步骤1](#Step1) 放通端口。

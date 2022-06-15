@@ -23,6 +23,27 @@
 ### 如何导入 SDK ？  
 目前官方提供了 PHP、Python、Java、Go、.NET、Node.js、C++、Ruby 等语言的 SDK 支持，请根据您的实际需要进行导入，请参见  [SDK 导入指引](https://cloud.tencent.com/document/sdk) 。
 
+### JDK1.7 使用 sdk 调用上传文件接口报 javax.net.ssl.SSLException-Received fatal alert: protocol_version？
+JDK1.7 默认使用 TLSv1.0，需要强制设置成 TLSv1.2，官方使用的 HTTP 客户端是 okhttp，需要自行修改官网 SDK 源码。
+在 com.tencentcloudapi.common.http.HttpConnection 类中修改构造函数如下：
+```
+ public HttpConnection(Integer connTimeout, Integer readTimeout, Integer writeTimeout) {
+    this.client = new OkHttpClient();
+    SSLContext sslContext = null; //这边指定tls版本
+    try {
+        sslContext = SSLContext.getInstance("TLSv1.2");
+        sslContext.init(null, null,null);
+    } catch (Exception e) {
+        e.printStackTrace();
+        throw new RuntimeException(e.getMessage());
+    }
+    SSLSocketFactory factory = sslContext.getSocketFactory();
+    this.client.setSslSocketFactory(factory);
+    this.client.setConnectTimeout(connTimeout, TimeUnit.SECONDS);
+    this.client.setReadTimeout(readTimeout, TimeUnit.SECONDS);
+    this.client.setWriteTimeout(writeTimeout, TimeUnit.SECONDS);
+  }
+```
 
 ## 小程序相关
 ### 客户小程序如何跳转到电子签小程序完成签署？  
@@ -51,14 +72,14 @@ path 里的参数（name，phone）均使用 `~${base64url(value)}` 统一编码
 请确认客户有使用和发起时相同的姓名、手机号进行小程序登录。且在**个人中心** > **切换身份**确认已切换为签署时要求的身份。
 <img style="width:500px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/7b732d9eb1777f687dfdb2d189fc9f3a.png" />
 
-## 如何选择通过全屏或半屏方式打开电子签小程序？
+### 如何选择通过全屏或半屏方式打开电子签小程序？
 可参见微信官方文档：
 - [全屏方式](https://developers.weixin.qq.com/miniprogram/dev/api/navigate/wx.navigateToMiniProgram.html)
 - [半屏方式](https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/openEmbeddedMiniProgram.html)
 
-## 如何配置跳转至电子签小程序的不同页面？
+### 如何配置跳转至电子签小程序的不同页面？
 请参见以下表格及说明：
-### 参数说明
+#### 参数说明
 下表描述的是外部小程序拉起电子签小程序首页、列表页、个人中心页、合同封面页、合同详情页的参数配置。
 
 | 参数 | 类型 | 默认值 |必填 |描述 |
@@ -72,15 +93,20 @@ path 里的参数（name，phone）均使用 `~${base64url(value)}` 统一编码
 | orgName | string | - |否 |企业账号的名称，如果添加 organizationId 则还要同步携带此参数。 |
 | id | string | - |否 |合同 ID，如果是到合同封面页或者合同详情页，此参数必填。 |
 | channel | string | - |否 |其他小程序渠道的标记，方便统计使用。 |
+| quickSponsor   | string | false  | 否   | 到首页是否需要立即拉起快速发起合同弹框。<br>true：出现快速发起弹框。 <br>false：不出现。     |
 
-
-### 首页
-#### C 端用户进入首页
+#### 首页
+##### C 端用户进入首页
 ```josn
 - pages/guide/index?path=/pages/home/home-index&accountType=personal&channel=${channel}
 ```
 
-##### B 端用户进入首页
+##### C 端用户进入首页-快速发起合同
+```josn
+- pages/guide/index?path=/pages/home/home-index&login=1&accountType=personal&channel=${channel}&quickSponsor=true
+```
+
+###### B 端用户进入首页
 进入 B 端首页必须已登录已实名，可指定用户的 userIds 合集，或者 organizationId（指定了 organizationId，则需要同步携带 orgName
 以下两种方式均可：
 ```josn
@@ -88,13 +114,19 @@ path 里的参数（name，phone）均使用 `~${base64url(value)}` 统一编码
 - pages/guide/index?path=/pages/home/home-index&login=1&verify=1&organizationId=${organizationId}&orgName=${orgName}&channel=${channel}
 ```
 
-### 列表页
-#### C 端进入用户列表页
+###### B 端用户进入首页-快速发起合同
+```josn
+- pages/guide/index?path=/pages/home/home-index&login=1&verify=1&userIds=${userIds}&channel=${channel}&quickSponsor=true
+- pages/guide/index?path=/pages/home/home-index&login=1&verify=1&organizationId=${organizationId}&orgName=${orgName}&channel=${channel}&quickSponsor=true
+```
+
+#### 列表页
+##### C 端进入用户列表页
 ```josn
 - pages/guide/index?path=/pages/home/home-list&login=1&verify=1&accountType=personal&channel=${channel}
 ```
 
-#### B 端进入用户列表页
+##### B 端进入用户列表页
 进入 B 端首页必须已登录已实名，可指定用户的 userIds 合集，或者 organizationId（指定了 organizationId，则需要同步携带 orgName。）。
 以下两种方式均可：
 ```josn
@@ -102,13 +134,13 @@ path 里的参数（name，phone）均使用 `~${base64url(value)}` 统一编码
 - pages/guide/index?path=/pages/home/home-list&login=1&verify=1&organizationId=${organizationId}&orgName=${orgName}&channel=${channel}
 ```
 
-### 个人中心
-#### C 端进入用户个人中心
+#### 个人中心
+##### C 端进入用户个人中心
 ```josn
 - pages/guide/index?path=/pages/home/home-user&accountType=personal&channel=${channel}
 ```
 
-#### B 端进入用户个人中心
+##### B 端进入用户个人中心
 进入 B 端首页必须已登录已实名，可指定用户的 userIds 合集，或者 organizationId（指定了 organizationId，则需要同步携带 orgName。）。
 以下两种方式均可：
 ```josn
@@ -116,17 +148,17 @@ path 里的参数（name，phone）均使用 `~${base64url(value)}` 统一编码
 - pages/guide/index?path=/pages/home/home-user&login=1&verify=1&organizationId=${organizationId}&orgName=${orgName}&channel=${channel}
 ```
 
-### 合同封面页
-#### C 端用户进入合同封面页或 B 端用户合同封面页
+#### 合同封面页
+##### C 端用户进入合同封面页或 B 端用户合同封面页
 未登录或者未实名的用户也可进入到合同封面页，切换到个人身份可以使用两种方式，使用 accountType=personal，或者使用 userIds 赋值个人身份的 userId。
 ```josn
 - pages/guide/index?path=/pages/mvp/contract-preview&accountType=personal&id=${id}&channel=${channel}
 - pages/guide/index?path=/pages/mvp/contract-preview&userIds=${userIds}&id=${id}&channel=${channel}
 ```
 
-### 合同详情页
+#### 合同详情页
 无论是 C 端还是 B 端，进入合同详情页均必须已登录已实名。
-#### C 端进入合同详情页
+##### C 端进入合同详情页
 以下方式进入：
 - 可以设置 accountType=personal 进入。
 - 也可指定 C 端用户的个人身份的 userId。
@@ -139,7 +171,7 @@ path 里的参数（name，phone）均使用 `~${base64url(value)}` 统一编码
 >- 如果 B2C 合同发起，对方签署方 C 是新用户，则 C 没有 userId，可指定参数 accountType=personal。
 >- 如果 B2C 合同发起，对方签署方 C 是老用户，则以上两种方式均可。
 
-#### B 端进入合同详情页
+##### B 端进入合同详情页
 可指定用户的 userIds 合集，或者 organizationId（指定了organizationId，则需要同步携带 orgName。）。
 - 以下两种常用方式均可：
 ```josn
