@@ -11,7 +11,7 @@
 
 ### 开启第三方 Promehtues 服务
 在 [**创建网格**](https://cloud.tencent.com/document/product/1261/62958) 或**网格基本信息页**中的可观测性配置 >  监控指标中，勾选第三方 Prometheus 服务，填写该服务对于的 VPC 信息、地址、认证信息。
-> 由于TCM控制台会从 Prometheus 服务中查询和展示监控指标数据，对数据源服务的网络可达性、稳定性要求较高，因此当前仅支持通过内网的形式访问。
+> 由于 TCM 控制台会从 Prometheus 服务中查询和展示监控指标数据，对数据源服务的网络可达性、稳定性要求较高，因此当前仅支持通过内网的形式访问。
 > 
 ![](https://qcloudimg.tencent-cloud.cn/raw/20b6d37040aa83341199c26db5b26c3c.png)
 
