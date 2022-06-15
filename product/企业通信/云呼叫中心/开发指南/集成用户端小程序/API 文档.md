@@ -141,7 +141,7 @@ this.selectComponent('#tcccSdk').endCall();
       <td>digits</td>
       <td>string</td>
       <td>是</td>
-      <td>DTMF digits参数是一个字符串，可以包含字符 0-9、*、#。</td>
+      <td>DTMF digits 参数是一个字符串，可以包含字符 0-9、*、#。</td>
    </tr>
 </table>
 ```javascript
