@@ -1,4 +1,4 @@
-本文主要介绍如何快速集成腾讯云 IM SDK（Flutter）。
+本文主要介绍如何快速将腾讯云即时通信 IM SDK 集成到您的 Flutter 项目中。
 
 ## 环境要求
 
@@ -22,7 +22,7 @@ flutter pub add tencent_im_sdk_plugin
 ### 在 pubspec.yaml 中写入
 ```
 dependencies:
-  tencent_im_sdk_plugin: ^3.8.2
+  tencent_im_sdk_plugin: "最新版本" //可在https://pub.dev/packages/tencent_im_sdk_plugin上查看im flutter sdk的最新版本并使用
 ```
 此时您的 editor 或许会自动 flutter pub get，如果没有请您在命令行中手动输入 flutter pub get。
 
@@ -38,5 +38,4 @@ import 'package:tencent_im_sdk_plugin/tencent_im_sdk_plugin.dart';
 
 ### flutter pub get/add 失败如何解决？
 请参见官网配置 [国内镜像](https://flutter.cn/community/china)。
-
 

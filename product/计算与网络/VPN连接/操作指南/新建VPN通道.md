@@ -1,4 +1,4 @@
-VPN 通道是 VPN 连接中用来传输数据包的公网加密通道，腾讯云上的 VPN 通道在实现 IPsec 时，使用 IKE（Internet Key Exchange，因特网密钥交换）协议来建立会话。IKE 具有一套自我保护机制，可以在不安全的网络上安全地认证身份、分发密钥、建立 IPSec 会话。本文介绍如何通过”控制台“创建 VPN 通道。您还可以通过API、SDK管理您的VPN通道，详情参见 [API 文档](https://cloud.tencent.com/document/product/554/19005)。
+VPN 通道是 VPN 连接中用来传输数据包的公网加密通道，腾讯云上的 VPN 通道在实现 IPsec 时，使用 IKE（Internet Key Exchange，因特网密钥交换）协议来建立会话。IKE 具有一套自我保护机制，可以在不安全的网络上安全地认证身份、分发密钥、建立 IPSec 会话。本文介绍如何通过“控制台”创建 VPN 通道。您还可以通过 API、SDK 管理您的 VPN 通道，详情参见 [API 文档](https://cloud.tencent.com/document/product/554/19005)。
 
 VPN 通道的建立包括以下配置信息：
 + [基本信息](#buzhou4)
@@ -8,9 +8,7 @@ VPN 通道的建立包括以下配置信息：
 
 ## 前提条件
 + 已购买 VPN 网关和对端网关。
-+ 请确保您已创建的VPN通道没有超出配额，调整配额请参考xxxx。
-
-
++ 请确保您已创建的 VPN 通道没有超出配额，调整配额请参考[ 使用限制](https://cloud.tencent.com/document/product/554/18982)。
 
 
 ## 操作步骤
@@ -74,9 +72,9 @@ VPN 通道的建立包括以下配置信息：
 </tr>
 <tr>
 <td>开启健康检查</td>
-<td>健康检查的开启/关闭开关，用于检测链路健康状态，默认不开启。
+<td>健康检查用于主备通道的场景，具体请参考<a href="https://cloud.tencent.com/document/product/554/60005"> IDC 与单个腾讯云 VPC 实现主备容灾</a>。如果您不涉及，无需开启此开关（默认不开启），否则请开启本开关，并完成下面的健康检查本端及对端地址的配置。
 <dx-alert infotype="explain" title="">
-健康检查参数配置完成后，您还需要在 [步骤6](#buzhou6) 中配置健康检查的 SPD 策略，这样健康检查功能才会生效。健康检查操作指导可参考 [配置健康检查](https://cloud.tencent.com/document/product/554/70209)。
+一旦您开启健康检查并创建通道完成，系统立即开始通过 NQA 检测 VPN 通道健康状况，如果 VPN 通道未联通或您配置的对端地址不响应 NQA 探测，则系统会在多次探测失败后判定为不健康，并临时中断业务流量，直到 VPN 通道恢复健康。
 </dx-alert>
 </td>
 </tr>
