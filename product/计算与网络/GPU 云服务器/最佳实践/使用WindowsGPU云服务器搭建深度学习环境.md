@@ -3,12 +3,12 @@
 
 
 ## 实例环境[](id:exampleEnv)
-- 实例类型：[GN8.LARGE56](https://cloud.tencent.com/document/product/560/19700#GN8)
-- 操作系统：Windows Server 2019 数据中心版 64位 中文版
-- CPU：Intel(R) Xeon(R) CPU E5-2680 v4 @2.40GHz 2.40GHz * 6vCPUs
-- RAM：56GB
-- GPU：Tesla P40 * 1
-- 驱动及相关库、软件版本：CUDA 10.2、Python 3.7、Pytorch 1.8.1、Tensorflow_gpu_2.2.0
+- **实例类型**：[GN8.LARGE56](https://cloud.tencent.com/document/product/560/19700#GN8)
+- **操作系统**：Windows Server 2019 数据中心版 64位 中文版
+- **CPU**：Intel(R) Xeon(R) CPU E5-2680 v4 @2.40GHz 2.40GHz * 6vCPUs
+- **RAM**：56GB
+- **GPU**：Tesla P40 * 1
+- **驱动及相关库、软件版本**：CUDA 10.2、Python 3.7、Pytorch 1.8.1、Tensorflow_gpu_2.2.0
 
 
 ## 驱动及相关库、软件版本适配
@@ -16,7 +16,7 @@
 
 <dx-accordion>
 ::: 选择 CUDA 驱动版本
-CUDA（Compute Unified Device Architecture），是显卡厂商 NVIDIA 推出的运算平台。 CUDA™ 是一种由 NVIDIA 推出的通用并行计算架构，该架构使 GPU 能够解决复杂的计算问题。其包含了 CUDA 指令集架构（ISA）以及 GPU 内部的并行计算引擎。
+CUDA（Compute Unified Device Architecture），是显卡厂商 NVIDIA 推出的运算平台。CUDA™ 是一种由 NVIDIA 推出的通用并行计算架构，该架构使 GPU 能够解决复杂的计算问题。其包含了 CUDA 指令集架构（ISA）以及 GPU 内部的并行计算引擎。
 
 #### 1. 查看显卡算力
 在选择 CUDA 驱动版本时，需先了解本文使用（Tesla P40）显卡的算力。可从 [NVIDIA 官网](https://developer.nvidia.com/zh-cn/cuda-gpus) 查询到 Tesla P40 显卡算力为6.1。如下图所示：
@@ -29,7 +29,7 @@ CUDA（Compute Unified Device Architecture），是显卡厂商 NVIDIA 推出的
 
 :::
 ::: 选择显卡驱动版本
-确定可 CUDA 版本后，选择显卡驱动版本。您可参考如下所示 CUDA 与驱动对应关系图进行选择。如需了解更多及更新信息，请参见 [cuda-toolkit-driver-versions](https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html#cuda-major-component-versions__table-cuda-toolkit-driver-versions)。
+确定 CUDA 版本后，再选择显卡驱动版本。您可参考如下图所示 CUDA 与驱动对应关系图进行选择。如需了解更多及更新信息，请参见 [cuda-toolkit-driver-versions](https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html#cuda-major-component-versions__table-cuda-toolkit-driver-versions)。
 ![](https://qcloudimg.tencent-cloud.cn/raw/698eb46e57f014573c48fe17b27036dd.png)
 
 
@@ -57,12 +57,6 @@ CUDA 及 Pytorch 最新版本不一定是最佳选择，可能出现适配问题
 Tensorflow 较 Pytorch 稍复杂，它还需要 Python、编译器的版本支持。CPU、GPU 版本与 Python、CUDA、cuDNN 的版本对应关系如下：
 - [基于 CPU 版本的 TensorFlow 版本](https://tensorflow.google.cn/install/source_windows#cpu)
 - [基于 GPU 版本的 TensorFlow 版本](https://tensorflow.google.cn/install/source_windows#gpu)
-如需支持 GPU，请将 CUDA 和 cuDNN bin 目录添加到 `$PATH` 中。内容如下：
-```shellsession
-export PATH="/c/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.0/bin:$PATH"
-export PATH="/c/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.0/extras/CUPTI/libx64:$PATH"
-export PATH="/c/tools/cuda/bin:$PATH"
-```
 
 
 :::
@@ -72,7 +66,7 @@ export PATH="/c/tools/cuda/bin:$PATH"
 ## 操作步骤
 
 ### 创建实例
-参考 [购买 NVIDIA GPU 实例](https://cloud.tencent.com/document/product/560/30211) 创建 GPU 云服务器实例。
+参考 [购买 NVIDIA GPU 实例](https://cloud.tencent.com/document/product/560/30211)，创建 GPU 云服务器实例。
 若您已具备 GPU 云服务器实例，则可参考 [重装系统](https://cloud.tencent.com/document/product/213/4933)，重置已有实例的操作系统。
 
 
@@ -101,7 +95,7 @@ export PATH="/c/tools/cuda/bin:$PATH"
  ![](https://qcloudimg.tencent-cloud.cn/raw/727857dfa0ce1ffce9c3548ee2db24ee.png)
  根据实际需求选择安装组件，并单击**下一步**。如下图所示：
  ![](https://qcloudimg.tencent-cloud.cn/raw/1fc07d6706a932dab471c411bf9391a3.png)
- 其余选项请根据页面提示，及实际需求进行选择，支持安装完毕。
+ 其余选项请根据页面提示，及实际需求进行选择，直至安装完毕。
 
 
 #### 配置环境变量
@@ -212,8 +206,7 @@ pip install tensorflow-gpu==2.2.0 -i https://pypi.tuna.tsinghua.edu.cn/simple
 pip install keras -i https://pypi.tuna.tsinghua.edu.cn/simple
 ```
 
-至此，已完成了基本深度学习库的安装。您可参考本文方法安装多需要的包，并利用 Anaconda 自带的 jupyter notebook、Spyder 具或者安装 PyCharm 等工具开始代码学习！
-
+至此，已完成了基本深度学习库的安装。您可参考本文方法安装更多所需要的包，并利用 Anaconda 自带的 jupyter notebook、Spyder 具或者安装 PyCharm 等工具开始代码学习！
 
 
 
