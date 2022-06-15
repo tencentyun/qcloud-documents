@@ -23,8 +23,8 @@
 ### 如何导入 SDK ？  
 目前官方提供了 PHP、Python、Java、Go、.NET、Node.js、C++、Ruby 等语言的 SDK 支持，请根据您的实际需要进行导入，请参见  [SDK 导入指引](https://cloud.tencent.com/document/sdk) 。
 
-### jdk1.7 使用 sdk 调用上传文件接口报 javax.net.ssl.SSLException-Received fatal alert: protocol_version？
-jdk1.7 默认使用 TLSv1.0，需要强制设置成 TLSv1.2，官方使用的 http 客户端是 okhttp，需要自行修改官网 sdk 源码。
+### JDK1.7 使用 sdk 调用上传文件接口报 javax.net.ssl.SSLException-Received fatal alert: protocol_version？
+JDK1.7 默认使用 TLSv1.0，需要强制设置成 TLSv1.2，官方使用的 HTTP 客户端是 okhttp，需要自行修改官网 SDK 源码。
 在 com.tencentcloudapi.common.http.HttpConnection 类中修改构造函数如下：
 ```
  public HttpConnection(Integer connTimeout, Integer readTimeout, Integer writeTimeout) {
