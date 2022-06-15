@@ -16,11 +16,11 @@ Topic（主题）是某一种分类的名字，消息在 Topic 中可以被存�
 2. 在**实例列表**页，单击目标实例的“ID/名称”，进入实例详情页。
 3. 在实例详情页，单击页面顶部的 **Topic 管理**，单击**新建**。
 4. 在编辑 Topic 窗口中，选择分区数和副本数等信息。
-   ![](https://qcloudimg.tencent-cloud.cn/raw/e17df82d0cbdf6f3dbea46a154c0c45f.png)
+   ![](https://qcloudimg.tencent-cloud.cn/raw/c71e1e73fb7a503b4e517e10d6256f87.png)
    - 名称：Topic 名称，输入后无法更改，名称只能包含字母、数字、下划线、“-”和“.”。
    - 分区数：一个物理上分区的概念，一个 Topic 可以包含一个或者多个 partition，CKafka 以 partition 作为分配单位。
-   - 副本数：partition 的副本个数，用于保障 partition 的高可用，为保障数据可靠性，当前不支持创建单副本 Topic，默认开启2副本。
-     副本数也算分区个数，例如客户创建了1个 Topic、6个分区、2个副本，那么分区额度一共用了1 × 6 × 2 = 12个。
+   - 副本数：Partition 的副本个数，用于保障 Partition 的高可用。为保障数据可靠性，默认开启2副本。副本数也算分区个数，例如客户创建了1个 Topic、6个分区、2个副本，那么分区额度一共用了1 × 6 × 2 = 12个。
+> !设置为单副本会导致可用性无法保证，请谨慎操作。
    - 标签：设置资源标签，关于标签的详细介绍请参见 [标签管理](https://cloud.tencent.com/document/product/597/33355)。
    - 预设 ACL 策略：勾选提前设置好的 ACL 策略，关于 ACL 策略详情请参见 [配置 ACL 策略](https://cloud.tencent.com/document/product/597/31528)。
 5. 单击**提交**，完成 Topic 创建。
@@ -90,16 +90,3 @@ Topic（主题）是某一种分类的名字，消息在 Topic 中可以被存�
     </tr>
     </tbody>
 </table>
-
-
-
-
-
-
-
-
-
-
-
-
-

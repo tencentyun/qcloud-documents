@@ -1,8 +1,7 @@
 本文介绍如何使用IEAM（即数字身份管控平台）和SSL VPN实现访问控制，提升您业务的安全性。
 
 ## 流程
-![](https://qcloudimg.tencent-cloud.cn/raw/be8ada635d55d479af9adf08aea83331.png)
-
+![](https://qcloudimg.tencent-cloud.cn/raw/5ca529614f594787abf10b106ddca19a.png)
 ## EIAM 认证配置
 本节仅介绍 EIAM（即数字身份管控平台）认证配置的主要步骤，其他配置详情请单击连接前往 EIAM 产品文档查看。
 
@@ -170,8 +169,8 @@
 ## SSL 客户端安装与连接
 1. 在本地解压安装包，双击安装程序依据界面提示进行安装。
 ![](https://qcloudimg.tencent-cloud.cn/raw/91055f2191fa4e39f9c0b3fc283d2555.png)
-2. SSL 客户端安装完成后，上传已下载的SSL客户端配置文件。
-上传后自动与 SSL 服务端连接。</br>
-<img src="https://qcloudimg.tencent-cloud.cn/raw/f39630923b2d06bc4b451e18a049e9a6.png" width="60%">
-<img src="https://qcloudimg.tencent-cloud.cn/raw/8437ce820537800355e5363392277ecf.png" width="60%">
-<img src="https://qcloudimg.tencent-cloud.cn/raw/0dc91f380f87230739c75716cf48d601.png" width="60%">
+2. SSL 客户端安装完成后，选择 file，上传已下载的 SSL 客户端配置文件（.ovpn 格式）。
+<img src="https://qcloudimg.tencent-cloud.cn/raw/f39630923b2d06bc4b451e18a049e9a6.png" width="60%"></img></br>上传成功后，选择 connect 进行连接。
+<img src="https://qcloudimg.tencent-cloud.cn/raw/2749df288279c6b7d9965b77a0621928.png" width="60%"></br>Profiles 连接中，请稍后。
+<img src="https://qcloudimg.tencent-cloud.cn/raw/41ff2524ac4ffd107059cdd00c7ac246.png" width="60%"></br>进行认证登录。
+<img src="https://qcloudimg.tencent-cloud.cn/raw/d180678d03f8311ad6b7563a38b994d7.png" width="60%"></br>连接成功。</br><img src="https://qcloudimg.tencent-cloud.cn/raw/3397478b0ae43da47d9c1711d60c828f.png" width="60%">
