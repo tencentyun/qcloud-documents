@@ -128,7 +128,7 @@ try {
 this.selectComponent('#tcccSdk').endCall();
 ```
 
-#### sendDigits — 发送分机号
+#### sendDigits — 发送 DTMF（双音多频信号）
 <table>
    <tr>
       <th width="0px" style="text-align:center" colspan="2">参数</td>
@@ -141,7 +141,7 @@ this.selectComponent('#tcccSdk').endCall();
       <td>digits</td>
       <td>string</td>
       <td>是</td>
-      <td>分机号</td>
+      <td>DTMF digits参数是一个字符串，可以包含字符 0-9、*、#。</td>
    </tr>
 </table>
 ```javascript
@@ -166,6 +166,7 @@ this.selectComponent('#tcccSdk').sendDigits(options)
       <td>IVR 入口 ID</td>
    </tr>
 </table>
+
 ```javascript
 try {
     const channelId = 'xxx'
