@@ -36,12 +36,12 @@ Namespace = QCE/POSTGRES
 | SqlRuntimeMin   | 最短 TOP10 执行时延        | ms    | 一次统计周期内最短 TOP10 的 SQL 平均执行时延                 | resourceId | 5s、60s、300s |
 | RemainXid       | 剩余 XID 数量              | 个    | 对数据库发起采集时，显示当前剩余 xid 最少的库的剩余 xid 数量。只读实例无此指标 | resourceId | 5s、60s、300s |
 | XlogDiff        | 备库日志发送与回放位置差异 | byte  | 日志从主库发送至备库与备库回放完成之间的大小差异，主要反映了备库日志应用的速度，主要能够通过此指标查看出备库的性能、网络传输的速度。只读实例无此指标 | resourceId | 5s、60s、300s |
-| XlogDiffTime    | 备库日志落盘时间延迟       | byte  | 日志从主库发送至备库与备库接收到日志并落盘之间的时间差异。只读实例无此指标，且实例版本在10.x以上版本才有此指标 | resourceId | 5s、60s、300s |
-| SlaveApplyDelay | 主备数据同步延迟           | s     | 主备数据同步延迟,对于主实例而言，此指标可以体现出故障切换的RTO。反映到只读实例在多少时间后能够查询到在主库进行写入的数据. 只读实例指标名为：与主实例数据同步延迟 | resourceId | 5s、60s、300s |
+| XlogDiffTime    | 备库日志落盘时间延迟       | byte  | 日志从主库发送至备库与备库接收到日志并落盘之间的时间差异。只读实例无此指标，且实例版本在 10.x 以上版本才有此指标 | resourceId | 5s、60s、300s |
+| SlaveApplyDelay | 主备数据同步延迟           | s     | 主备数据同步延迟,对于主实例而言，此指标可以体现出故障切换的 RTO。反映到只读实例在多少时间后能够查询到在主库进行写入的数据. 只读实例指标名为：与主实例数据同步延迟 | resourceId | 5s、60s、300s |
 | SlowQueryCnt    | 慢查询数量                 | 个    | 一个采集周期内，出现的慢查询个数                             | resourceId | 5s、60s、300s |
 | LongQuery       | 执行时长超过1秒的 SQL 数   | 个    | 对数据库发起采集时，查询出来 执行时间超过1s的 SQL 数量       | resourceId | 5s、60s、300s |
-| 2pc             | 2pc事务数                  | 个    | 对数据库发起采集时，当前的2pc事务数量                        | resourceId | 5s、60s、300s |
-| Long2pc         | 超过5s未提交的2PC事务数    | 个    | 对数据库发起采集时，当前执行时间超过5s的 2PC 事务数量        | resourceId | 5s、60s、300s |
+| 2pc             | 2pc事务数                  | 个    | 对数据库发起采集时，当前的 2PC 事务数量                        | resourceId | 5s、60s、300s |
+| Long2pc         | 超过5s未提交的 2PC 事务数    | 个    | 对数据库发起采集时，当前执行时间超过5s的 2PC 事务数量        | resourceId | 5s、60s、300s |
 | TupDeleted      | 每秒删除记录数             | 个    | 平均每秒删除的 tupe 数量。只读实例无此指标                   | resourceId | 5s、60s、300s |
 | TupInserted     | 每秒插入记录数             | 个    | 平均每秒插入的 tupe 数量。只读实例无此指标                   | resourceId | 5s、60s、300s |
 | TupUpdated      | 每秒更新记录数             | 个    | 平均每秒更新的 tupe 数量。只读实例无此指标                   | resourceId | 5s、60s、300s |
