@@ -21,10 +21,10 @@ const authData = {
 
 const config = {
     auth: authData, // 鉴权参数
-      camera: { // 传camera配置调起内置相机
+    camera: { // 传camera配置调起内置相机
         width: 1280,
         height: 720
-      },
+    },
 	beautify: { // 初始化美颜参数(可选)
 		whiten: 0.1,
 		dermabrasion: 0.3,
@@ -39,21 +39,36 @@ const sdk = new ArSdk(
 	config
 )
 
-// 内置相机初始化时,提供cameraReady事件,该事件在sdk ready之前
-sdk.on('cameraReady', async ()=>{
-    const cameraApi = sdk.camera;
-    // 支持获取设备列表
-    const devices = await cameraApi.getDevices()
-    console.log(devices)
-    // 如果有多个设备，支持切换不同摄像头
-    await cameraApi.switchDevice('video', 'your-video-device-id')
-})
-// 设置美颜效果，详情可参见[设置美颜和特效]()
-sdk.setBeautify({
-	whiten: 0.2
-});
+let effectList = [];
+let filterList = [];
+
 sdk.on('created', () => {
-	// 可以在回调中处理业务逻辑，详见[参数与方法]()
+    // 在 created 回调中可拉取特效和滤镜列表供页面展示，详见[参数与方法]()
+    sdk.getEffectList({
+        Type: 'Preset',
+        Label: '美妆',
+    }).then(res => {
+        effectList = res
+    });
+    sdk.getCommonFilter().then(res => {
+        filterList = res
+    })
+})
+
+// 在 ready 回调中调用 setBeautify/setEffect/setFilter 等渲染方法
+// 详情可参见[设置美颜和特效]()
+sdk.on('ready', () => {
+    // 设置美颜
+    sdk.setBeautify({
+        whiten: 0.2
+    });
+    // 设置特效
+    sdk.setEffect({
+        id: effectList[0].EffectId,
+        intensity: 0.7
+    });
+    // 设置滤镜
+    sdk.setFilter(filterList[0].EffectId, 0.5)
 })
 ```
 
@@ -120,8 +135,12 @@ sdk.on('created', () => {
 ```javascript
 const output = await sdk.getOutput()
 ```
+> getOutput方法支持传入一个fps参数，表示设置输出的帧率为fps（比如15）,不传则默认取输入流的帧率。
+> getOutput可以执行多次，每次执行会产生一个新的媒体流；
 
-同时 SDK 提供了一个快速在页面预览输出效果的播放器，可用于本地预览效果场景，代码如下：
+### 步骤4：播放流
+拿到输出的 `MediaStream` 之后，可以进行推流等后续处理，也可以直接在页面里播放。
+SDK 提供了一个快速在页面预览输出效果的播放器，可用于本地预览效果场景，代码如下：
 ```javascript
 // 初始化一个SDK的player，其中my-dom-id表示您需要放置播放器的容器id
 const player = await sdk.initLocalPlayer('my-dom-id')
@@ -141,6 +160,7 @@ await player.play()
 // player.destroy()
 ```
 >! 注意：initLocalPlayer 获取到的播放器默认静音，如果开启静音则可能产生回声。
+获取到的player，内部已封装了sdk.getOutput()方法，方便用户使用
 
 SDK initLocalPlayer 后，其 player 对象支持以下方法：
 

@@ -24,7 +24,7 @@ const stream = await navigator.mediaDevices.getUserMedia({
 
 const config = {
 	auth: authData, // 鉴权参数
-  input: stream, // input传输入流
+    input: stream, // input传输入流
 	beautify: { // 初始化美颜参数(可选)
 		whiten: 0.1,
 		dermabrasion: 0.3,
@@ -49,12 +49,36 @@ const sdk = new ArSdk(
 	// 传入一个 config 对象用于初始化 sdk
 	config
 )
-// 设置美颜效果，详见[设置美颜和特效]()
-sdk.setBeautify({
-	whiten: 0.2
-});
+
+// 在 created 回调中可拉取特效和滤镜列表供页面展示，详见[参数与方法]()
 sdk.on('created', () => {
-	// 可以在回调中处理业务逻辑，详见[参数与方法]()
+    // 获取内置美妆
+    sdk.getEffectList({
+        Type: 'Preset',
+        Label: '美妆',
+    }).then(res => {
+        effectList = res
+    });
+    // 获取内置滤镜
+    sdk.getCommonFilter().then(res => {
+        filterList = res
+    })
+})
+
+// 在 ready 回调中调用 setBeautify/setEffect/setFilter 等渲染方法
+// 详情可参见[设置美颜和特效]()
+sdk.on('ready', () => {
+    // 设置美颜
+    sdk.setBeautify({
+        whiten: 0.2
+    });
+    // 设置特效
+    sdk.setEffect({
+        id: effectList[0].EffectId,
+        intensity: 0.7
+    });
+    // 设置滤镜
+    sdk.setFilter(filterList[0].EffectId, 0.5)
 })
 ```
 
@@ -68,6 +92,7 @@ const output = await sdk.getOutput()
 > - 如果传入的 input 是图片，则返回为 string 类型的 DataURL。
 > - 其他场景（包括 input 是 camera 时）均返回 `MediaStream` 类型，其中的 `video` 轨道是 ArSdk 实时处理的画面轨，如果媒体流有音频则 `audio` 轨道保持不变。
 > - getOutput方法是异步方法，会等到sdk执行完一系列初始化工作并且可以生成流之后直接返回。
+
 
 
 ### 步骤4：播放流
