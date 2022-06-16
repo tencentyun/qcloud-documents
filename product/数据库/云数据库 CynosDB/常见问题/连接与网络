@@ -7,11 +7,10 @@
 详细操作方法 请参见 [连接集群](https://cloud.tencent.com/document/product/1003/37907)。
 
 ### TDSQL-C MySQL 版外网地址如何开通?
-TDSQL-C MySQL 版外网地址包含读写外网地址和只读外网地址，可通过控制台，在集群详情页对应位置后开通或关闭。
-目前支持开启外网的地域为：北京、上海、广州、成都、南京。操作可参见 [开启外网地址](https://cloud.tencent.com/document/product/1003/62725)。
+TDSQL-C MySQL 版外网地址包含读写外网地址和只读外网地址，可通过控制台，在集群详情页对应位置后开通或关闭。操作可参见 [开启外网地址](https://cloud.tencent.com/document/product/1003/62725)。
 
 ### 轻量应用服务器如何访问 TDSQL-C MySQL 版？
-通过内网地址访问时，您可使用轻量应用服务器直接连接数据库的内网地址，这种连接方式使用内网高速网络，延迟低。轻量应用服务器和 TDSQL-C MySQL 版须是同一账号，且同一个地域内。操作可参考 [快速入门](https://cloud.tencent.com/document/product/1207/59868)。
+通过内网地址访问时，您可使用轻量应用服务器直接连接数据库的内网地址，这种连接方式使用内网高速网络，延迟低。轻量应用服务器和 TDSQL-C MySQL 版须是同一账号，且同一个地域内。操作可参见 [快速入门](https://cloud.tencent.com/document/product/1207/59868)。
 
 ### TDSQL-C MySQL 版可以直接和其他服务商的服务器内网互通吗？
 TDSQL-C MySQL 版暂时是无法直接和其他服务商的服务器内网互通。
@@ -21,11 +20,10 @@ TDSQL-C MySQL 版暂时是无法直接和其他服务商的服务器内网互通
 TDSQL-C MySQL 版不支持更换外网地址。
 
 ### 如何更换网络？
-TDSQL-C MySQL 版支持设置私有网络 VPC，你可通过控制台，在集群详情的基本信息下，修改所属网络。
+TDSQL-C MySQL 版支持设置私有网络 VPC，你可通过 [控制台](https://console.cloud.tencent.com/cynosdb)，在集群详情的基本信息下，修改所属网络。
 
 ### 一个 TDSQL-C MySQL 版集群内最多可以支持多少个只读实例？
-TDSQL-C MySQL 版一个集群包含一个读写实例和最多15个只读实例。
-
+一个集群包含一个读写实例和最多15个只读实例。
 
 ### 怎么降低读写实例的负载？
 TDSQL-C MySQL 版支持用户为一个集群创建一个或多个只读实例，用以支持读写分离和一写多读的应用场景，增加只读实例可以降低读写实例的负载。请参见 [创建只读实例](https://cloud.tencent.com/document/product/1003/45915)。
