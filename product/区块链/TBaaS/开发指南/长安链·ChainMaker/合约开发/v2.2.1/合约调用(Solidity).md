@@ -1,21 +1,20 @@
 
 ## 合约参数格式
 
-当前 TBaaS 控制台暂支持两种 Solidity 合约参数的格式：**原始数据**、 **ABI编码**。在安装或调用 Solidity 合约时，合约初始化参数、合约调用参数可以使用以上两种格式的任意一种。
+当前 TBaaS 控制台暂支持两种 Solidity 合约参数的格式：**原始数据**、**ABI编码**。在安装或调用 Solidity 合约时，合约初始化参数、合约调用参数可以使用以上两种格式的任意一种。
 
-当使用**原始数据**格式时，参数的 key 为 参数名称，参数的 value 为 参数值，如下图所示：
+- 当使用**原始数据**格式时，参数的 key 为参数名称，参数的 value 为参数值，如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/8b5300012ee14f87c36fc8135a827d4e.png)
+ 
 
-<img src="https://main.qcloudimg.com/raw/8bbf14b61f1cdf2124270a75bd2aa440.png" style="zoom: 60%;" />
-
-当使用**ABI编码**格式时，参数的 key 是一个固定的字符串 data，参数的 value 为 hex 格式的 ABI 编码，如下图所示：
-
-<img src="https://main.qcloudimg.com/raw/8a141576b1193db70183413d1d792ab3.png" style="zoom: 60%;" />
-
+- 当使用**ABI编码**格式时，参数的 key 是一个固定的字符串 data，参数的 value 为 hex 格式的 ABI 编码，如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/ff8c68f9de5c3e64c214bc43e2e72494.png)
+ 
 ## 长安链证书转换 EVM 地址
 
 ChainMake Solidity 语言版本智能合约完全兼容 EVM，更多长安链证书与 EVM 地址的转换详情可参见 [EVM 地址说明](https://docs.chainmaker.org.cn/v2.2.1/html/operation/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6.html#evm)。
 
-在“证书管理”界面申请证书后，可根据获得的用户证书文件 user_sign.crt 获取该用户的 EVM 地址，代码示例如下：
+在 [证书管理](https://cloud.tencent.com/document/product/663/60107) 界面申请证书后，可根据获得的用户证书文件 user_sign.crt 获取该用户的 EVM 地址，代码示例如下：
 
 ```go
 import (
@@ -125,10 +124,10 @@ func testUserContractTokenEVMConstructor () {
 FuncParam map [data:00000000000000000000000089f4090e315621696d6936453661ec4b9795ad27]
 ```
 
-通过 TBaaS 控制台安装合约并填写对应初始化参数：
+通过 TBaaS 控制台 [安装合约](https://cloud.tencent.com/document/product/663/60101#.E5.AE.89.E8.A3.85.E5.90.88.E7.BA.A6) 并填写对应初始化参数：
 - key 取值：data
 - value 取值：00000000000000000000000089f4090e315621696d6936453661ec4b9795ad27
-<img src="https://main.qcloudimg.com/raw/8a141576b1193db70183413d1d792ab3.png"/>
+![](https://qcloudimg.tencent-cloud.cn/raw/9d3f4507a327f1db2c27a670a0cf939c.png)
 
 ### 合约调用
 

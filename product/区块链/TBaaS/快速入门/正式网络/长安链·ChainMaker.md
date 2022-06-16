@@ -44,8 +44,8 @@
 
 <dx-alert infotype="notice" title="">
 - 当前 TBaaS 控制台暂支持上传编译过后的 .wasm 或者 .bin 和 .abi 合约文件。
-- 合约支持 Go、Solidity、Rust、C++ 四种语言。
-- 合约编译方法可参考开发指南 [智能合约开发（Go）](https://cloud.tencent.com/document/product/663/72538) 或 [智能合约开发（Solidity）](https://cloud.tencent.com/document/product/663/72542) 或 [智能合约开发（Rust）](https://cloud.tencent.com/document/product/663/72540) 或 [智能合约开发（C++）](https://cloud.tencent.com/document/product/663/72999)。
+- 合约支持 Go、Solidity、Rust、C++ 四种语言。不同的合约上传的合约文件类型不同。
+- 合约编译方法可参考开发指南 [智能合约开发（Go）](https://cloud.tencent.com/document/product/663/75581) 或 [智能合约开发（Solidity）](https://cloud.tencent.com/document/product/663/72542) 或 [智能合约开发（Rust）](https://cloud.tencent.com/document/product/663/72540) 或 [智能合约开发（C++）](https://cloud.tencent.com/document/product/663/75577)。
 - 安装 Solidity 合约时，需将 .bin 和 .abi 两个合约文件一起上传。
 </dx-alert>
 

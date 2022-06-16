@@ -3,11 +3,11 @@
 
 本章节主要描述使用 Solidity 进行 ChainMaker 合约编写的方法，主要面向于使用 Solidity 进行 ChainMaker 的合约开发的开发者。
 
-### 使用 Docker 镜像进行合约开发
+## 使用 Docker 镜像进行合约开发
 
 ChainMaker 官方已经将容器发布至 [docker hub](https://hub.docker.com/u/chainmakerofficial)。
 
-#### 1. 拉取镜像
+1. 拉取镜像
 代码示例如下：
 ```
 docker pull chainmakerofficial/chainmaker-solidity-contract:2.0.0
@@ -23,7 +23,7 @@ docker run -d  --name chainmaker-solidity-contract -v $WORK_DIR:/home chainmaker
 docker exec -it chainmaker-solidity-contract bash
 ```
 
-#### 2. 编译合约
+2. 编译合约
 代码示例如下：
 
 ```
@@ -45,7 +45,7 @@ solc为编译命令， –abi选项指示生成abi文件，–bin指示生成字
 
 `Token.bin` 文件可在 [TBaaS 控制台](https://console.cloud.tencent.com/tbaas/overview) 上传并部署。
 
-#### 3. 合约开发框架描述
+3. 合约开发框架描述
 解压缩 contract_solidity_template.tar.gz 后，文件描述如下：
 
 ```
