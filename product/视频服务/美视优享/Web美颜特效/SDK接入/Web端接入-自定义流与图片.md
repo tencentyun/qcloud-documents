@@ -109,7 +109,7 @@ const output = await sdk.getOutput()
 - 如果传入的 input 是图片，则返回为 string 类型的 DataURL，其他场景均返回 `MediaStream` 类型。
 - 输出的媒体流中 `video` 轨道是 ArSdk 实时处理的，如有 `audio` 轨道则保持不变。
 - getOutput方法是异步方法，会等到sdk执行完一系列初始化工作并且可以生成流之后返回。
-- getOutput方法支持传入一个fps参数，表示设置输出的帧率为fps（比如15）,不传则默认取输入流的帧率。
+- getOutput方法支持传入一个fps参数，表示设置输出的帧率为fps（比如15），不传则默认取输入流的帧率。
 - getOutput可以执行多次，每次执行会产生一个新的媒体流，可用于输出不同帧率媒体流的场景（例如预览时使用高帧率流，推流时使用低帧率流）。
 
 
