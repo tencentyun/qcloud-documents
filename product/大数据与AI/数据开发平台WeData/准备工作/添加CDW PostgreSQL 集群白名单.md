@@ -7,7 +7,7 @@
 登录 [云数据仓库 PostgreSQL](https://console.cloud.tencent.com/cdwpg) 控制台，在**集群列表**中选择目标集群点击**管理**。
 ![](https://main.qcloudimg.com/raw/d630511e1a61dbbbbf5f470986d9228e.png)
 2. 选择**配置**，单击**新建白名单**。
-![](https://main.qcloudimg.com/raw/7677d7a6d850524ce37bb2f56119e118.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/e2dc73827c2d4d4aecf3524a55828d92.png)
 3. 在弹窗中配置白名单名称、用户及数据库信息。
 ![](https://main.qcloudimg.com/raw/60df7783cf18ac3dbca35dd1f70a287d.png)
 

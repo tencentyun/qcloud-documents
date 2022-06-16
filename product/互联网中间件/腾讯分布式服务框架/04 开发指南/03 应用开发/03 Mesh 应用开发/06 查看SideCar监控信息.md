@@ -14,3 +14,4 @@
    ![](https://main.qcloudimg.com/raw/1ac78071d6498e63c147f45813c89486.png)
 5. 选择**SideCar监控**，查询 SideCar 的版本与组件状态和基本信息。
    ![](https://main.qcloudimg.com/raw/7944640569bb154f21847f09db1e0948.png)
+

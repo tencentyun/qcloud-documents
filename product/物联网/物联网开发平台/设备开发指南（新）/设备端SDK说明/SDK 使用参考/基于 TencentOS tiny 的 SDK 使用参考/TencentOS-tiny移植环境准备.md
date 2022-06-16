@@ -2,6 +2,9 @@
 
 
 本文为您介绍 TencentOS tiny 接入腾讯物联网开发平台相关的准备工作。 
+
+
+
  ##   步骤1：准备目标硬件（开发板/芯片/模组）
 
 TencentOS tiny 目前主要支持 ARM Cortex M 核芯片的移植，例如 STM32、NXP 芯片支持 Cortex M 核全系列。本教程将使用 TencentOS tiny 官方开发板 EVB_MX_Plus 演示如何移植，其他 ARM Cortex M 系列开发板和芯片移植方法类似。
@@ -81,13 +84,13 @@ EVB_MX_Plus 开发板板载四个按键，其中 KEY1 连接在 PB12，操作如
 2. 进入 GPIO 配置界面。
 3. 设置引脚别名为“KEY1”。
 ![](https://main.qcloudimg.com/raw/1f7bb6afc54e3fbebbaaa9c7ef2e5d18.png)
-     
+   
 
 ### 3.6 配置总线时钟
 1. 选择系统时钟源为外部高速时钟 HSE。
 2. 设置系统主频 HCLK 为最高主频 80Mhz。
 ![](https://main.qcloudimg.com/raw/661e3f702d16763c4cbed19e95e57e87.png)
-     
+   
 ### 3.7 工程生成参数配置
 1. 进入工程配置页面。
 2. 设置工程名称。
@@ -100,7 +103,7 @@ EVB_MX_Plus 开发板板载四个按键，其中 KEY1 连接在 PB12，操作如
 2. 选择拷贝所有库文件。
 3. 设置配置的芯片外设生成单独的初始化文件。
 ![](https://main.qcloudimg.com/raw/610243c5fc3fab6728a7b9ada0a5edb5.png)
-     
+   
 
 ### 3.9 生成工程
 1. 单击生成代码按钮生成裸机工程。

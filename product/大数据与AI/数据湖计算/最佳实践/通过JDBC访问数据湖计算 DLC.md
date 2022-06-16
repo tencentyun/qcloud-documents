@@ -1,6 +1,6 @@
 ## 环境准备
 - 依赖：JDK 1.8
-- JDBC 下载：[点击下载 JDBC 驱动](https://dlc-jdbc-1304028854.cos.ap-beijing.myqcloud.com/dlc-jdbc-2.0.1-jar-with-dependencies.jar)
+- JDBC 下载：[点击下载 JDBC 驱动](https://dlc-jdbc-1304028854.cos.ap-beijing.myqcloud.com/dlc-jdbc-2.2.0-jar-with-dependencies.jar)
 
 ## 连接 DLC
 1. 加载 DLC JDBC 驱动
