@@ -51,13 +51,13 @@
 
 [](id:step5)
 ### 步骤5：测试脚本
-1. 您可 获取[测试脚本（TestApi.cs）](https://github.com/TencentCloud/TIMSDK/blob/master/Unity/im_unity_sdk_plus/Assets/Demo/TestApi.cs)和[配置文件（Config.cs）](https://github.com/TencentCloud/TIMSDK/blob/master/Unity/im_unity_sdk_plus/Assets/Demo/Config.cs)，完善Config.cs中参SDKAppID、UserID、UserSig、toUserID 后，将TestApi.cs绑定到测试场景的Camera上。
+1. 您可获取 [测试脚本（TestApi.cs）](https://github.com/TencentCloud/TIMSDK/blob/master/Unity/im_unity_sdk_plus/Assets/Demo/TestApi.cs)和 [配置文件（Config.cs）](https://github.com/TencentCloud/TIMSDK/blob/master/Unity/im_unity_sdk_plus/Assets/Demo/Config.cs)，完善 Config.cs 中参 SDKAppID、UserID、UserSig、toUserID 后，将 TestApi.cs 绑定到测试场景的 Camera 上。
   ![](https://qcloudimg.tencent-cloud.cn/raw/b4d770775523fdd76b75f1d80f07c925.jpg)
 
-2. 点击Unity Editor运行按钮、启动该场景的运行。点击Init(初始化SDK)、Login(登录到IM)，以及其他测试按钮进行测试。
+2. 单击 Unity Editor 运行按钮、启动该场景的运行。单击 Init（初始化SDK）、Login（登录到 IM），以及其他测试按钮进行测试。
 
-  <img src="https://markdown-1252238885.cos.ap-guangzhou.myqcloud.com/2022-06-16-035353.png" alt="image-20220616115353114" style="zoom:50%;" />
-
+  <img src="https://qcloudimg.tencent-cloud.cn/raw/40fb0f381096840418b66b804d403140.png" alt="image-20220616115353114" style="zoom:50%;" />
+	
 ## 常见问题
 
 ### 支持哪些平台？
