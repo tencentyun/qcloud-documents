@@ -7,7 +7,7 @@ VPN 通道的建立包括以下配置信息：
 + [IPsec 配置（选填）](#buzhou8)
 
 ## 前提条件
-+ 已购买 VPN 网关和对端网关。
++ 已[ 创建 VPN 网关 ](https://cloud.tencent.com/document/product/554/71816)和[ 对端网关](https://cloud.tencent.com/document/product/554/52865)。
 + 请确保您已创建的 VPN 通道没有超出配额，调整配额请参考[ 使用限制](https://cloud.tencent.com/document/product/554/18982)。
 
 
@@ -141,11 +141,11 @@ VPN 通道的建立包括以下配置信息：
 </tr>
 <tr>
 <td>加密算法</td>
-<td>加密算法支持 AES-128、AES-192、AES-256、3DES、DES、SM4</td>
+<td>加密算法支持 AES-128、AES-192、AES-256、3DES、DES、SM4，推荐使用 AES-128</td>
 </tr>
 <tr>
 <td>认证算法</td>
-<td>身份认证算法，支持 MD5、SHA1、SHA256、AES-383、SHA512、SM3</td>
+<td>身份认证算法，支持 MD5、SHA1、SHA256、AES-383、SHA512、SM3，推荐使用 MD5</td>
 </tr>
 <tr>
 <td>协商模式</td>
