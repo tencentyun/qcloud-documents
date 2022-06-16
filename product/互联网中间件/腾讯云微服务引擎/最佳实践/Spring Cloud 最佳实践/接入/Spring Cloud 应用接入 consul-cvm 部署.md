@@ -1,6 +1,8 @@
 ## 操作场景
 本文介绍如何将通过 CVM 部署的 Spring Cloud 应用接入微服务引擎托管的 consul 注册中心。接入无需修改任何代码。
 
+![](https://qcloudimg.tencent-cloud.cn/raw/a67695fbc7a015912b919f3b900375ee.png)
+
 ## 操作步骤
 1. 登录至 CVM 实例中，下载并安装 Consul。
 <dx-alert infotype="notice" title="">
