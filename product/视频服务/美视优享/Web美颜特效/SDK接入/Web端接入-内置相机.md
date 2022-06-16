@@ -1,6 +1,6 @@
 SDK 提供了内置相机，如开发者无需自行维护媒体流，仅需要快速调起摄像头，推荐使用内置相机方式。
 
-### 步骤1：引入SDK
+## 步骤1：引入SDK
 ```javascript
 import { ArSdk } from 'tencentcloud-webar';// SDK 类
 ```
@@ -9,7 +9,7 @@ import { ArSdk } from 'tencentcloud-webar';// SDK 类
 <script charset="utf-8" src="https://webar-static.tencent-cloud.com/ar-sdk/resources/latest/webar-sdk.umd.js"></script>
 ```
 
-### 步骤2：初始化实例
+## 步骤2：初始化实例
 接下来初始化一个 SDK 实例用于显示：
 ```javascript
 // 获取鉴权参数
@@ -115,7 +115,7 @@ sdk.on('created', () => {
 </tr>
 </tbody></table>
 
-### 步骤3：获取输出
+## 步骤3：获取输出
 如果有推流等需求，可以使用`getOutput`方法获取输出的媒体流
 ```javascript
 const output = await sdk.getOutput()
@@ -140,7 +140,7 @@ await player.play()
 // 不需要的时候可以销毁
 // player.destroy()
 ```
->! 注意：initLocalPlayer 获取到的播放器默认静音，如果开启静音则可能产生回声。
+>! initLocalPlayer 获取到的播放器默认静音，如果开启静音则可能产生回声。
 
 SDK initLocalPlayer 后，其 player 对象支持以下方法：
 
@@ -155,14 +155,13 @@ SDK initLocalPlayer 后，其 player 对象支持以下方法：
 | getVideoElement | 获取内置 video 对象        | -           | HTMLVideoElement |
 | destroy         | 销毁                       | -           | -                |
 
->! 注意：播放器会默认跟随camera的变化。您可以简单理解为camera的设备控制是总开关，
-而localPlayer的播放控制是一个子开关；例如调用camera.muteVideo后，此时禁用了设备视频流，此时
-localPlayer即使再调用play也相当于处于停止播放状态；调用camera.unmuteVideo后，重新启用了视频流，
-此时localPlayer会默认自动恢复播放状态；因此启用camera配置情况下您无须再手动控制localPlayer的状态，
-管理好camera设备状态即可。
+>! 播放器会默认跟随 camera 的变化。您可以简单理解为 camera 的设备控制是总开关，localPlayer 的播放控制是一个子开关。例如：
+>- 调用 camera.muteVideo 后，此时禁用了设备视频流，此时 localPlayer 即使再调用 play也相当于处于停止播放状态。
+>- 调用 camera.unmuteVideo 后，重新启用了视频流，此时 localPlayer 会默认自动恢复播放状态。
+>因此启用 camera 配置情况下您无须再手动控制 localPlayer 的状态，管理好 camera 设备状态即可。
 
 ## 步骤4：设置美颜和特效
-SDK的所有素材均兼容微信小程序端与Web端，调用方式一致，详情可参见[设置美颜和特效]()。
+SDK 的所有素材均兼容微信小程序端与 Web 端，调用方式一致，详情可参见 [设置美颜和特效](https://cloud.tencent.com/document/product/616/75680)。
 
 
 
