@@ -49,7 +49,7 @@ cd electron-vite-vue
 npm install
 npm run dev
 ```
-2. 单击 [Github](https://github.com/tencentyun/TUIRoom) , 克隆或下载 TUIRoom 仓库代码，复制 `TUIRoom/Electron/packages/renderer/src/TUIRoom` 文件夹到已有项目 packages/renderer/src/ 目录下。
+2. 单击 [Github](https://github.com/tencentyun/TUIRoom) , 克隆或下载 TUIRoom 仓库代码，复制 `TUIRoom/Electron/packages/renderer/src/TUIRoom` 文件夹到已有项目 `packages/renderer/src/` 目录下。
 
 [](id:step3)
 ### 步骤三：引用 TUIRoom 组件
@@ -217,9 +217,9 @@ export default defineConfig({
 import 'element-plus/theme-chalk/el-message.css'
 import 'element-plus/theme-chalk/el-message-box.css'
 ```
-5. **引入trtc-electron-sdk**
-    - 为了在UI层以import方式引入trtc-electron-sdk，统一代码风格，否则必须要以require的方式引入,需要您在 `packages/renderer/vite.config.ts` 中配置。
->! 以下配置项将resolve中的内容替换掉
+5. **引入 trtc-electron-sdk**
+为了在 UI 层以 import 方式引入 `trtc-electron-sdk`，统一代码风格，否则必须要以 require 的方式引入，需要您在 `packages/renderer/vite.config.ts` 中配置。
+>! 以下配置项将 resolve 中的内容替换掉：
 ```javascript
 // vite.config.ts
 
@@ -282,10 +282,9 @@ export default defineConfig({
 	// ...
 });
 ```
-6. **env.d.ts文件配置**
-    - env.d.ts文件配置需要您在 `packages/renderer/src/env.d.ts` 中配置。
->! 以下配置全文替换env.d.ts文件
->
+6. **env.d.ts 文件配置**
+`env.d.ts` 文件配置需要您在 `packages/renderer/src/env.d.ts` 中配置。
+>! 以下配置全文替换 `env.d.ts` 文件：
 ```javascript
 // env.d.ts
 
@@ -320,11 +319,11 @@ interface ImportMeta {
 }
 
 ```
-7. **如果项目中存在import动态加载，需要修改构建配置，打包生成es模块**
-    - 打包生成es模块需要您在 `packages/renderer/vite.config.ts` 中配置。
->! 项目中若不存在import动态加载，请不要进行此配置！
->! 以下配置项为增量配置，不要删除已经存在的 Vite 配置项。
->
+7. **如果项目中存在 import 动态加载，需要修改构建配置，打包生成 es 模块**
+打包生成 es 模块需要您在 `packages/renderer/vite.config.ts` 中配置。
+>! 
+>- 项目中若不存 在import 动态加载，请不要进行此配置。
+>- 以下配置项为增量配置，不要删除已经存在的 Vite 配置项。
 ```javascript
 // vite.config.ts
 
@@ -339,11 +338,10 @@ export default defineConfig({
   },
 });
 ```
-[](id:step5)
 
+[](id:step5)
 ### 步骤五：开发环境运行
 在控制台执行开发环境运行脚本，使用浏览器打开包含 TUIRoom 的页面，即可在页面中使用 TUIRoom 组件。
-
 如果您是使用 [步骤二](#step2) 中的脚本生成 Electron + Vue3 + TS 项目，您需要：
 
 1. 执行开发环境命令。
@@ -355,13 +353,13 @@ npm run dev
 
 ### 步骤六: 构建安装包、运行
 
-在命令行终端中,执行以下命令构建安装包，构建好的安装包位于 `release` 目录下，可以安装运行。
+在命令行终端中，执行以下命令构建安装包，构建好的安装包位于 `release` 目录下，可以安装运行。
 
 ```
 npm run build
 ```
 
-> 注意：只能使用 Mac 电脑构建 Mac 安装包，使用 Windows 电脑构建 Windows 安装包。
+>! 只能使用 Mac 电脑构建 Mac 安装包，使用 Windows 电脑构建 Windows 安装包。
 
 ## 附录：TUIRoom API
 ### TUIRoom 接口
@@ -383,7 +381,7 @@ TUIRoomRef.value.init(roomData);
 | roomData.userSig      | string | 用户的 UserSig                                               |
 | roomData.userName     | string | 用户的昵称                                                   |
 | roomData.userAvatar   | string | 用户的头像                                                   |
-| roomData.shareUserId  | string | 非必填，用户进行屏幕分享的 UserId，要求 shareUserId = `share_${userId}`，无屏幕分享功能可不传入 |
+| roomData.shareUserId  | string | 非必填，用户进行屏幕分享的 UserId，要求 `shareUserId = share_${userId}`，无屏幕分享功能可不传入 |
 | roomData.shareUserSig | string | 非必填，用户进行屏幕分享的 UserSig                           |
 
 
