@@ -94,7 +94,7 @@ await player.play()
 // 不需要的时候可以销毁
 // player.destroy()
 ```
->! 注意：initLocalPlayer 获取到的播放器默认静音，如果开启静音则可能产生回声。
+>! 注意：initLocalPlayer 获取到的播放器默认静音，如果取消静音则可能产生回声。
 获取到的player，内部封装了sdk.getOutput()方法，方便用户使用
 
 SDK initLocalPlayer 后，其 player 对象支持以下方法：
@@ -118,16 +118,19 @@ localPlayer即使再调用play也相当于处于停止播放状态；调用camer
 
 
 ### 步骤4：获取输出
-如果有推流等需求，可使用`getOutput`方法获取输出的媒体流。
-拿到输出的 `MediaStream` 之后，可进行推流等后续处理，也可以直接在页面里播放。
+如有推流相关需求，可使用`getOutput`方法获取输出的媒体流。
+拿到输出的 `MediaStream` 之后，可以结合第三方SDK（如TRTC Web SDK，快直播Web SDK）进行推流等后续处理。
 
 ```javascript
 const output = await sdk.getOutput()
 ```
-> getOutput方法支持传入一个fps参数，表示设置输出的帧率为fps（比如15）,不传则默认取输入流的帧率。
-> getOutput可以执行多次，每次执行会产生一个新的媒体流；
+>!
+- 使用内置相机初始化时，getOutput输出的媒体流均为 `MediaStream` 类型。
+- 输出的媒体流中 `video` 轨道是 ArSdk 实时处理的，如有 `audio` 轨道则保持不变。
+- getOutput方法是异步方法，会等到sdk执行完一系列初始化工作并且可以生成流之后返回。
+- getOutput方法支持传入一个fps参数，表示设置输出的帧率为fps（比如15）,不传则默认取输入流的帧率。
 
-推流等操作参见[最佳实践-结合TRTC推流](),[最佳实践-结合WebRTC推流]()
+推流等具体操作参见[最佳实践-结合TRTC推流](),[最佳实践-结合WebRTC推流]()
 
 ## 步骤5：设置美颜和特效
 SDK的所有素材均兼容微信小程序端与Web端，调用方式一致，详情可参见[设置美颜和特效]()。

@@ -99,16 +99,18 @@ video.play()
 ```
 
 ### 步骤4：获取输出
-拿到输出的 `MediaStream` 之后，也可以进行推流等后续处理
+拿到输出的 `MediaStream` 之后，可以结合第三方SDK（如TRTC Web SDK，快直播Web SDK）进行推流等后续处理。
 ```javascript
 const output = await sdk.getOutput()
 ```
 推流等操作参见[最佳实践-结合TRTC推流](),[最佳实践-结合WebRTC推流]()
 
 >!
-- 如果传入的 input 是图片，则返回为 string 类型的 DataURL。
-- 其他场景（包括 input 是 camera 时）均返回 `MediaStream` 类型，其中的 `video` 轨道是 ArSdk 实时处理的画面轨，如果媒体流有音频则 `audio` 轨道保持不变。
-- getOutput方法是异步方法，会等到sdk执行完一系列初始化工作并且可以生成流之后直接返回。
+- 如果传入的 input 是图片，则返回为 string 类型的 DataURL，其他场景均返回 `MediaStream` 类型。
+- 输出的媒体流中 `video` 轨道是 ArSdk 实时处理的，如有 `audio` 轨道则保持不变。
+- getOutput方法是异步方法，会等到sdk执行完一系列初始化工作并且可以生成流之后返回。
+- getOutput可以执行多次，每次执行会产生一个新的媒体流。
+
 
 ## 步骤5：设置美颜和特效
 SDK的所有素材均兼容微信小程序端与Web端，调用方式一致，详情可参见[设置美颜和特效]()。
