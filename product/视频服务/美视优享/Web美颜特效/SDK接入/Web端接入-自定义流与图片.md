@@ -82,23 +82,14 @@ sdk.on('ready', () => {
 })
 ```
 
-### 步骤3：获取输出
-初始化完成后，可以使用 `ArSdk.prototype.getOutput` 方法获取输出的画面。
+### 步骤3：播放流
+初始化完成后，可以使用 `ArSdk.prototype.getOutput` 方法获取输出的媒体流。
 ```javascript
 const output = await sdk.getOutput()
 ```
-
->!
-> - 如果传入的 input 是图片，则返回为 string 类型的 DataURL。
-> - 其他场景（包括 input 是 camera 时）均返回 `MediaStream` 类型，其中的 `video` 轨道是 ArSdk 实时处理的画面轨，如果媒体流有音频则 `audio` 轨道保持不变。
-> - getOutput方法是异步方法，会等到sdk执行完一系列初始化工作并且可以生成流之后直接返回。
-
-
-
-### 步骤4：播放流
-拿到输出的 `MediaStream` 之后，可以进行推流等后续处理，也可以直接在页面里播放。
-
+拿到输出的 `MediaStream` 之后，可以直接在页面里播放。
 ```javascript
+// 在页面内使用video播放输出的媒体流，预览效果
 const video = document.createElement('video')
 video.setAttribute('playsinline', '');
 video.setAttribute('autoplay', '');
@@ -107,7 +98,17 @@ document.body.appendChild(video)
 video.play()
 ```
 
+### 步骤4：获取输出
+拿到输出的 `MediaStream` 之后，也可以进行推流等后续处理
+```javascript
+const output = await sdk.getOutput()
+```
 推流等操作参见[最佳实践-结合TRTC推流](),[最佳实践-结合WebRTC推流]()
+
+>!
+- 如果传入的 input 是图片，则返回为 string 类型的 DataURL。
+- 其他场景（包括 input 是 camera 时）均返回 `MediaStream` 类型，其中的 `video` 轨道是 ArSdk 实时处理的画面轨，如果媒体流有音频则 `audio` 轨道保持不变。
+- getOutput方法是异步方法，会等到sdk执行完一系列初始化工作并且可以生成流之后直接返回。
 
 ## 步骤5：设置美颜和特效
 SDK的所有素材均兼容微信小程序端与Web端，调用方式一致，详情可参见[设置美颜和特效]()。
