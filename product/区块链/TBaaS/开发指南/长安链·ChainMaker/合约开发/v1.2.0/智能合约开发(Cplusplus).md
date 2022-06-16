@@ -52,4 +52,4 @@ emmake make
 	- **main.cc**：用户写合约入口
 	- **Makefile**：常用 build 命令
 
-用户使用 C++ 编写智能合约后，可以把源代码更新到 `main.cc` 文件中并重新编译，可得到新的智能合约的压缩文件，并前往 [TBaaS 控制台](https://console.cloud.tencent.com/tbaas/overview) 上传并部署。更多关于使用 C++ 开发长安链智能合约的详情，可参考长安链官网 [使用 Go（DockerGo）进行智能合约开发](https://docs.chainmaker.org.cn/v1.2.0/html/dev/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6.html#c)。
+用户使用 C++ 编写智能合约后，可以把源代码更新到 `main.cc` 文件中并重新编译，可得到新的智能合约的压缩文件，并前往 [TBaaS 控制台](https://console.cloud.tencent.com/tbaas/overview) 上传并部署。更多关于使用 C++ 开发长安链智能合约的详情，可参考长安链官网 [使用 C++ 进行智能合约开发](https://docs.chainmaker.org.cn/v1.2.0/html/dev/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6.html#c)。
