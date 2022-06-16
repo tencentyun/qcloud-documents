@@ -2,7 +2,7 @@
 
 ## 使用限制
 - LDAP 身份验证是 Elasticsearch 官方商业特性 [X-pack](https://cloud.tencent.com/document/product/845/34926) 提供的高级功能，**当前仅在白金版集群支持**。其他版本集群如需使用，请先升级至白金版。
-- 由于网络架构原因，2020年5月20号之前创建的集群无法访问外部服务，不支持使用 LDAP。如需开启 LDAP 身份验证服务，请重新 [创建集群](https://cloud.tencent.com/document/product/845/19536)。
+- 由于网络架构原因，2020年5月20号之前创建的集群无法访问外部服务，不支持使用 LDAP。如需开启 LDAP 身份验证服务，可重新 [创建集群](https://cloud.tencent.com/document/product/845/19536)。
 
 ## 设置 LDAP 身份验证
 1. 登录腾讯云 [Elasticsearch 控制台](https://console.cloud.tencent.com/es)，单击**集群名称**访问目标集群，跳转至**基础配置**页面。
