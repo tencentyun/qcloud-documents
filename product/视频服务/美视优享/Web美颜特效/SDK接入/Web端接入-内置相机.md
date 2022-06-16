@@ -71,7 +71,8 @@ sdk.on('ready', () => {
     sdk.setFilter(filterList[0].EffectId, 0.5)
 })
 ```
->! `config`中的 `camera` 参数表示将由 SDK 来采集当前设备的摄像头媒体流作为输入，当设置了 `camera` 参数，SDK 还提供一系列基础的设备管理方法。
+>! `config`中的 `camera` 参数表示将由 SDK 来采集当前设备的摄像头媒体流作为输入，
+> 当设置了 `camera` 参数，SDK 还提供一系列基础设备管理方法，详见步骤6:设备控制
 
 ### 步骤3：播放流
 SDK 提供了一个快速在页面预览输出效果的播放器，可用于本地预览效果场景，代码如下：
@@ -109,7 +110,7 @@ SDK initLocalPlayer 后，其 player 对象支持以下方法：
 | getVideoElement | 获取内置 video 对象        | -           | HTMLVideoElement |
 | destroy         | 销毁                       | -           | -                |
 
->! 注意：播放器会默认跟随camera的变化。您可以简单理解为camera的设备控制是总开关，
+>! 注意：播放器会默认跟随camera设备控制（步骤6）的变化。您可以简单理解为camera的设备控制是总开关，
 而localPlayer的播放控制是一个子开关；例如调用camera.muteVideo后，此时禁用了设备视频流，此时
 localPlayer即使再调用play也相当于处于停止播放状态；调用camera.unmuteVideo后，重新启用了视频流，
 此时localPlayer会默认自动恢复播放状态；因此启用camera配置情况下您无须再手动控制localPlayer的状态，
