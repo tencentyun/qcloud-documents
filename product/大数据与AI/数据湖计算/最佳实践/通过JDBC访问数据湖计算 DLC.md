@@ -1,6 +1,6 @@
 ## 环境准备
 - 依赖：JDK 1.8
-- JDBC 下载：[点击下载 JDBC 驱动](https://dlc-jdbc-1304028854.cos.ap-beijing.myqcloud.com/dlc-jdbc-2.0.1-jar-with-dependencies.jar)
+- JDBC 下载：[点击下载 JDBC 驱动](https://dlc-jdbc-1304028854.cos.ap-beijing.myqcloud.com/dlc-jdbc-2.2.0-jar-with-dependencies.jar)
 
 ## 连接 DLC
 1. 加载 DLC JDBC 驱动
@@ -44,7 +44,7 @@ jdbc:dlc:<dlc_endpoint>?task_type=SQLTask&database_name=abc&datasource_connectio
 </tr><tr>
 <td >region</td >
 <td >是</td >
-<td >地域，目前 dlc 服务支持 ap-nanjing, ap-beijing, ap-guangzhou</td >
+<td >地域，目前 dlc 服务支持 ap-nanjing, ap-beijing, ap-guangzhou，ap-shanghai， ap-chengdu，ap-chongqing，us</td >
 </tr><tr>
 <td >data_engine_name</td >
 <td >是</td >

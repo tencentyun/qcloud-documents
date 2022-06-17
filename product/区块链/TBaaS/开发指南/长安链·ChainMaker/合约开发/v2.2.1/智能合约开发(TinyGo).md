@@ -1,4 +1,4 @@
-## 使用 Go（TinyGo）进行智能合约开发
+
 
 本章节主要描述使用 Go 进行 ChainMaker 合约编写的方法，主要面向于使用 Go 进行 ChainMaker 的合约开发的开发者。为了最小化 wasm 文件尺寸，应使用 TinyGO 编译器。
 
@@ -7,7 +7,7 @@
 - 新用户请使用 Go（DockerGo）进行智能合约开发， Go（TinyGo）仅供老用户进行智能合约升级。
 </dx-alert>
 
-### 使用 Docker 镜像进行合约开发
+## 使用 Docker 镜像进行合约开发
 
 ChainMaker 官方已经将容器发布至 [docker hub](https://hub.docker.com/u/chainmakerofficial)。
 
