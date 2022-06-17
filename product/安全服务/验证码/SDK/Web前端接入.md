@@ -122,7 +122,7 @@ new TencentCaptcha(CaptchaAppId, callback, options);
 <th>参数名</th><th>值类型</th><th>说明</th></tr>
 </thead>
 <tbody><tr><td>CaptchaAppId</td><td>String</td>
-<td>验证码 CaptchaAppId：登录 验证码控制台，从**验证管理页面**进行查看。如果未创建过验证，请先新建验证。<br>注意：不可使用客户端类型为小程序的 CaptchaAppId，会导致数据统计错误。</td></tr><tr><td>callback</td><td>Function</td><td>验证码回调函数，详情请参见 <a href="#hdhs">callback 回调函数</a>。</td>
+<td>验证码 CaptchaAppId：登录 <a href="https://console.cloud.tencent.com/captcha/graphical">验证码控制台</a>，在<strong>验证管理页面</strong>进行查看。如果未创建过验证，请先新建验证。<br>注意：不可使用客户端类型为小程序的 CaptchaAppId，会导致数据统计错误。</td></tr><tr><td>callback</td><td>Function</td><td>验证码回调函数，详情请参见 <a href="#hdhs">callback 回调函数</a>。</td>
 </tr><tr><td>options</td><td>Object</td>
 <td>验证码外观配置参数, 详情请参见 <a href="#pzcs">options 外观配置参数</a>。</td>
 </tr></tbody></table>
@@ -222,7 +222,7 @@ TencentCaptcha 的实例提供一些操作验证码的常用方法：
 | --------- | -------------------------- | -------- | ---------------------------------------- |
 | show      | 显示验证码，可以反复调用。 | 无       | 无                                       |
 | destroy   | 隐藏验证码，可以反复调用。 | 无       | 无                                       |
-| getTicket | 获取验证成功后的ticket。   | 无       | `Object:{"CaptchaAppId":"","ticket":""}` |
+| getTicket | 获取验证成功后的 ticket。   | 无       | `Object:{"CaptchaAppId":"","ticket":""}` |
 
 ### 步骤4：容灾处理
 
