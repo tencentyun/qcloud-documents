@@ -13,8 +13,8 @@
 
 ### 2. 小程序模板：快速打造定制化个性应用
 微搭应用市场是基于低码可视化开发的应用市场，可基于低代码进行高性能的拖拽式开发，帮助企业快速打造定制化个性应用。                                   
-                  
-<img src="https://qcloudimg.tencent-cloud.cn/raw/9501467e4d72fa3fc58386465e583c43.jpg" width="80%"></img> 
+
+<img src="https://qcloudimg.tencent-cloud.cn/raw/f2aae02735fdf99e14de9da7a3ed17b0.jpg" width="80%"></img>  
 
 ### 3. 企业名片：面向企业提供的信息聚合及展现能力（此部分请师丁丁律师评估）
 企业名片是基于 QQ 浏览器搜索、微信小程序生态，作为解决方案的重要升级能力，面向企业提供的信息聚合及展现服务能力，腾讯云及 QQ 浏览器会提供基础的企业信息核验及展示，方便企业客户快速了解企业相关信息。
@@ -34,7 +34,7 @@
 2. 客户小程序质量符合准入标准。
 3. 客户提交相关信息并授权腾讯用于企业名片展示。
 
-<img src="https://qcloudimg.tencent-cloud.cn/raw/cbae931351bd51309bb26be60d8be37a.jpg" width="80%"></img>
+<img src="https://qcloudimg.tencent-cloud.cn/raw/a3c65288479e5022a855d74985d56e6d.jpg" width="80%"></img>
 
                        
 
@@ -59,6 +59,7 @@
 2. 服务在准入行业内，业务搜索词为服务窗开放词。
 3. 一家客户需提交子链及关键词等相关信息。
 
+
 <img src="https://qcloudimg.tencent-cloud.cn/raw/8825529fe1ba622a302f73dcb6681bbd.jpg" width="80%"></img>
                            
 
@@ -73,7 +74,7 @@
 
 <dx-alert infotype="explain" title="">
 <ul style = "margin-bottom: 0px;"><li>客户提交信息后需要审核，若因不符合准入条件审核不通过，则无法上线企业名片和服务窗相关资源。</li>
-<li>客户小程序若有较多严重的质量问题，我们会提供相应的修改建议，客户修改后可重新提交审核。若无法配合提升小程序质量，QQ浏览器也无法为客户上线企业名片和服务窗相关资源。</li></ul>
+<li>客户小程序若有较多严重的质量问题，我们会提供相应的修改建议，客户修改后可重新提交审核。若无法配合提升小程序质量，QQ 浏览器也无法为客户上线企业名片和服务窗相关资源。</li></ul>
 </dx-alert>
 
 
