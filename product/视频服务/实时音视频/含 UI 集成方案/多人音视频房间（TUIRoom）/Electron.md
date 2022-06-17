@@ -6,8 +6,8 @@ TUIRoom 是一个包含 UI 的开源音视频组件，通过集成 TUIRoom，您
 
 <table>
 <tr>
-<td><img width="460" src="https://web.sdk.qcloud.com/component/tuiroom/assets/page-home.png"></td>
-<td><img width="460" src="https://web.sdk.qcloud.com/component/tuiroom/assets/page-room.png"></td>
+<td><img width="460" src="https://sdk-web-1252463788.cos.ap-hongkong.myqcloud.com/trtc/electron/download/resources/common/page-room.png"></td>
+<td><img width="460" src="https://sdk-web-1252463788.cos.ap-hongkong.myqcloud.com/trtc/electron/download/resources/common/page-home.png"></td>
 </tr>
 </table>
 
@@ -157,8 +157,10 @@ import { createPinia } from 'pinia';
 
 const app = createApp(App);
 // 注册pina
-app.use(createPinia());
-app.mount('#app').$nextTick(window.removeLoading);
+createApp(App)
+  .use(createPinia())
+  .mount('#app')
+  .$nextTick(window.removeLoading)
 ```
 3. **配置 svg-icon 组件加载 SVG 图标**
 TUIRoom 将所有图标资源（SVG 文件）放置在 `packages/renderer/src/TUIRoom/assets/icons/svg` 目录下，需要您在 `packages/renderer/vite.config.ts` 文件中配置 SVG 图标加载方式。
@@ -284,21 +286,10 @@ export default defineConfig({
 ```
 6. **env.d.ts文件配置**
     - env.d.ts文件配置需要您在 `packages/renderer/src/env.d.ts` 中配置。
->! 以下配置全文替换env.d.ts文件
+>! 以下配置项为增量配置，不要删除已经存在的 env.d.ts文件配置。
 >
 ```javascript
 // env.d.ts
-
-/*eslint-disable*/
-
-/// <reference types="vite/client" />
-
-declare module '*.vue' {
-  import type { DefineComponent } from 'vue';
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/ban-types
-  const component: DefineComponent<{}, {}, any>;
-  export default component;
-}
 
 declare module 'tsignaling/tsignaling-js' {
   import TSignaling from 'tsignaling/tsignaling-js';
@@ -310,20 +301,10 @@ declare module 'tim-js-sdk' {
   export default TIM;
 }
 
-interface ImportMetaEnv {
-  readonly VITE_APP_TITLE: string;
-  readonly VITE_RUNTIME_ENV: string;
-}
-
-interface ImportMeta {
-  readonly env: ImportMetaEnv
-}
-
 ```
 7. **如果项目中存在import动态加载，需要修改构建配置，打包生成es模块**
     - 打包生成es模块需要您在 `packages/renderer/vite.config.ts` 中配置。
->! 项目中若不存在import动态加载，请不要进行此配置！
->! 以下配置项为增量配置，不要删除已经存在的 Vite 配置项。
+>! 项目中若不存在import动态加载，请不要进行此配置！以下配置项为增量配置，不要删除已经存在的 Vite 配置项。
 >
 ```javascript
 // vite.config.ts
@@ -332,11 +313,11 @@ export default defineConfig({
 	// ...
 	build: {
         rollupOptions: {
-        output: {
-            format: 'es'
+          output: {
+              format: 'es'
+          }
         }
-      }
-  },
+    },
 });
 ```
 [](id:step5)
