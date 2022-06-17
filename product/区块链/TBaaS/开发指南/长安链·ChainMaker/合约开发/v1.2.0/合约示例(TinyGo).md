@@ -47,9 +47,10 @@ func main() { // sdk 代码中，有且仅有一个 main() 方法
 ```
 
 ### 对链暴露方法写法
-
-- //export method_name
-- func  method_name(): 不可带参数，无返回值
+```
+//export method_name
+func  method_name(): 不可带参数，无返回值
+```
 
 例如：对链暴露 init_contract 函数。
 ```go
@@ -248,14 +249,29 @@ func main() {
 
 ### 存证合约代码说明
 
-- init_contract: 合约的初始化函数，在合约部署时被调用，在本合约中为空
-- upgrade：合约升级时调用的函数，在本合约中为空
-- save：save 函数实现将文件相关信息记录到链上的功能
-  1. save 函数先通过 [**交易信息提取**]API 接口`GetTxId`函数拿到交易哈希
-  2. 紧接着通过 [**参数处理**]API 接口`Arg`函数拿到时间，文件哈希和文件名字等信息
-  3. 再构造 stone 结构，序列化为 byte 数据；且当序列化错误时调用 [**其他辅助类**]API 接口`LogMessage`函数记录相应日志
-  4. 再通过调用 [**账本交互**]API 接口`PutState`函数将数据记录到链上
-  5. 最后通过调用 [**其他辅助类**]API 接口`SuccessResult`函数将操作结果记录到链上
-- findByFileHash：通过文件哈希查询该条记录
-  1. findByFileHash 通过 [**参数处理**]API 接口`Arg`函数拿到要查找的文件的文件哈希
-  2. 紧接着通过 [**账本交互**]API 接口`GetState`函数获取文件的信息；若失败则通过 [**其他辅助类**]API 接口`ErrorResult`函数将操作结果记录到链上，否则，通过 [**其他辅助类**]API 接口`LogMessage`函数和`SuccessResult`函数记录相关日志和返回结果。
+<table>
+<thead>
+  <tr>
+    <th>参数名称</th>
+    <th>描述</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>init_contract</td>
+    <td>合约的初始化函数，在合约部署时被调用，在本合约中为空。</td>
+  </tr>
+  <tr>
+    <td>upgrade</td>
+    <td>合约升级时调用的函数，在本合约中为空。</td>
+  </tr>
+  <tr>
+    <td>save </td>
+    <td>save 函数实现将文件相关信息记录到链上的功能。<br>1. save 函数先通过 [交易信息提取]API 接口GetTxId函数拿到交易哈希。<br>2. 通过 [参数处理]API 接口Arg函数拿到时间，文件哈希和文件名字等信息。<br>3. 构造 stone 结构，序列化为 byte 数据；且当序列化错误时调用 [其他辅助类]API 接口 LogMessage 函数记录相应日志。<br>4. 通过调用 [账本交互]API 接口 PutState 函数将数据记录到链上。<br>5. 通过调用 [其他辅助类]API 接口 SuccessResult 函数将操作结果记录到链上。</td>
+  </tr>
+  <tr>
+    <td>findByFileHash</td>
+    <td>通过文件哈希查询该条记录。<br>1. findByFileHash 通过 [参数处理]API 接口 Arg 函数拿到要查找的文件的文件哈希。<br>2. 通过 [账本交互]API 接口 GetState 函数获取文件的信息；若失败则通过 [其他辅助类]API 接口 ErrorResult 函数将操作结果记录到链上，否则，通过 [其他辅助类]API 接口 LogMessage 函数和 SuccessResult 函数记录相关日志和返回结果。</td>
+  </tr>
+</tbody>
+</table>

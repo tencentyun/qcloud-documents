@@ -1,8 +1,8 @@
-## 使用 Go（DockerGo）进行智能合约开发
+
 
 本章节主要描述使用 Go 进行 ChainMaker 合约编写的方法，主要面向于使用 Go 进行 ChainMaker 的合约开发的开发者。Docker-go 合约运行在独立的 Docker VM 容器中，与长安链节点程序通过 UNIX Domain Socket 或者 TCP 通信。Docker-go 合约需在 Linux 环境下进行编译。
 
-### 使用 Docker 镜像进行合约开发
+## 使用 Docker 镜像进行合约开发
 
 ChainMaker 官方已经将容器发布至 [docker hub](https://hub.docker.com/u/chainmakerofficial)。
 
@@ -26,7 +26,7 @@ please input contract name, contract name should be same as name in tx:
 please input zip file: 
 <zip_file_name> #建议与contract_name保持一致（不包含文件后缀）
 ```
-编译，压缩好的文件位置如下：
+编译、压缩好的文件位置如下：
 ```
 /home/contract_docker_go/<contract_name>.7z
 ```
