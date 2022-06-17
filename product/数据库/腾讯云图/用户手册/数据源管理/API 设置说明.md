@@ -9,7 +9,7 @@
 
 ### 设置数据源
 
-![设置数据源](https://main.qcloudimg.com/raw/5cd10c18f9e4ce4c98f017fad7fd1ed1.png)
+![设置数据源](https://main.qcloudimg.com/raw/ae67fc4bcf36bf1c51272dfee641b781.png)
 
 ### 接口的实现
 
