@@ -1,6 +1,6 @@
 ## 操作场景
 
-WooCommerce 是当前最受欢迎的电商独立站建站工具，具备开源、免费、使用简单且功能强大等特点，您可通过该镜像快速搭建基于 WordPress 的电商独立站。该镜像已预装 WordPress（包含WooCommerce插件）、Nginx、MariaDB、PHP 软件。
+WooCommerce 是当前很受欢迎的电商独立站建站工具，具备开源、免费、使用简单且功能强大等特点，您可通过该镜像快速搭建基于 WordPress 的电商独立站。该镜像已预装 WordPress（包含WooCommerce插件）、Nginx、MariaDB、PHP 软件。
 
 
 ## 操作步骤
