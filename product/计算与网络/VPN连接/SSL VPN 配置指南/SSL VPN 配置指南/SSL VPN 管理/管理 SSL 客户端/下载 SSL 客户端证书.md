@@ -11,7 +11,7 @@
 
 
 ## 用户通过自助 Portal 下载 SSL 客户端配置[](id:Portal)
-为了方便您更加快捷的建立SSL VPN连接提供了便捷的 SSL 客户端下载配置服务。
+为了方便您更加快捷的建立 SSL VPN 连接，您可以通过自助 Portal 下载 SSL 客户端配置。
 
 ### 前提条件
 - 在[ 数字身份管控平台 ](https://console.cloud.tencent.com/eiam)已创建[ 用户组 ](https://cloud.tencent.com/document/product/1442/55067)、添加了相应的[ 用户 ](https://cloud.tencent.com/document/product/1442/55066)并配为用户组配置[ 应用授权](https://cloud.tencent.com/document/product/1442/55069)。
@@ -31,8 +31,8 @@
 >3. 切换 EIAM 应用后，已连接的 SSL VPN 连接不会中断。
 >
 2. 下载 SSL 客户端配置文件和 SSL 客户端。
-     1.在**下载 SSL 客户端配置文件**区域找到您需要下载的客户端配置文件，单击**下载**。
-     2.在**下载 SSL 客户端**区域找到适合您的 SSL 客户端软件，下载后请安装该客户端。
+  1. 在**下载 SSL 客户端配置文件**区域找到您需要下载的客户端配置文件，单击**下载**。
+  2. 在**下载 SSL 客户端**区域找到适合您的 SSL 客户端软件，下载后请安装该客户端。
 ![](https://qcloudimg.tencent-cloud.cn/raw/3ab6a81b13fd4fad19931cdbc832cfe3.png)
 3. SSL 客户端安装完成后，上传您下载好的 SSL 客户端配置文件，上传后自动与 SSL 服务端连接。
-4. <img src="https://qcloudimg.tencent-cloud.cn/raw/b51ffdfba9caa56ccb742d2e60403d9a.png" width="70%">
+4. <img src="https://qcloudimg.tencent-cloud.cn/raw/b51ffdfba9caa56ccb742d2e60403d9a.png" width="35%">
