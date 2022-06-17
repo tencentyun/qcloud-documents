@@ -44,7 +44,7 @@ jdbc:dlc:<dlc_endpoint>?task_type=SQLTask&database_name=abc&datasource_connectio
 </tr><tr>
 <td >region</td >
 <td >是</td >
-<td >地域，目前 dlc 服务支持 ap-nanjing, ap-beijing, ap-guangzhou</td >
+<td >地域，目前 dlc 服务支持 ap-nanjing, ap-beijing, ap-guangzhou，ap-shanghai， ap-chengdu，ap-chongqing，us</td >
 </tr><tr>
 <td >data_engine_name</td >
 <td >是</td >
