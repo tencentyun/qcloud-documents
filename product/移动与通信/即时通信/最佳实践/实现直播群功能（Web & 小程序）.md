@@ -35,7 +35,7 @@
 - [SDK 手册](https://web.sdk.qcloud.com/im/doc/zh-cn/TIM.html)
 - [集成 SDK（Web & 小程序）](https://cloud.tencent.com/document/product/269/37413)
 - [初始化与登录（Web & 小程序）](https://cloud.tencent.com/document/product/269/75292)
-- [消息收发（Web & 小程序）](https://cloud.tencent.com/document/product/269/37448)
+- [消息收发（Web & 小程序）](https://cloud.tencent.com/document/product/269/75315)
 - [群组管理（Web & 小程序）](https://cloud.tencent.com/document/product/269/37459)
 
 ## 使用指南
