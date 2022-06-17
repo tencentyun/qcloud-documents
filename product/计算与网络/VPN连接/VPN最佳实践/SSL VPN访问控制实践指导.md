@@ -1,14 +1,15 @@
-本文介绍如何使用IEAM（即数字身份管控平台）和SSL VPN实现访问控制，提升您业务的安全性。
+本文介绍如何使用 IEAM（即数字身份管控平台）和 SSL VPN 实现访问控制，提升您业务的安全性。
 
 ## 流程
 ![](https://qcloudimg.tencent-cloud.cn/raw/5ca529614f594787abf10b106ddca19a.png)
+
 ## EIAM 认证配置
 本节仅介绍 EIAM（即数字身份管控平台）认证配置的主要步骤，其他配置详情请单击连接前往 EIAM 产品文档查看。
 
 ### [创建用户](https://cloud.tencent.com/document/product/1442/55066)
 1. 登录 [EIAM 平台](https://console.cloud.tencent.com/eiam)，在导航栏选择**用户管理** > **组织机构管理** > **根节点**，然后在**根节点**页面单击**新建用户**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/a311106358be715ecf08850a6f4f2300.png)
-2. 在弹出的【新建用户】页面配置相应参数。
+2. 在弹出的**新建用户**页面配置相应参数。
 该处用户名密码将会用于登录 [腾讯云 Client VPN 自助服务门户](https://self-service-test.vpn.woa.com/)。
 ![](https://qcloudimg.tencent-cloud.cn/raw/56b38f1a100b3f8bc1125437a351aba4.png)
 
@@ -21,7 +22,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/92a5d64e1e0b2ece68b5a15d4fdda519.png)
 
 ### [创建 EIAM 应用](https://cloud.tencent.com/document/product/1442/55068)
-1. 在导航栏选择**应用管理**，单击**应用市场新建**，在弹出的**应用市场新建**页面选择**Open VPN**，然后单击**下一步：编辑应用信息**。
+1. 在导航栏选择**应用管理**，单击**应用市场新建**，在弹出的**应用市场新建**页面选择 **Open VPN**，然后单击**下一步：编辑应用信息**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/5274221f7041d52e563201cc5f0261ed.png)
 ![](https://qcloudimg.tencent-cloud.cn/raw/cf224673ba7d8ddae92a502f7f1b6bb4.png)
 2. 在**编辑应用信息**页签依据界面提示填写相应的信息，然后单击**下一步：完成**。
@@ -30,7 +31,7 @@
 ### [EIAM 应用授权](https://cloud.tencent.com/document/product/1442/55069)
 1. 在导航栏选择**应用授权**，在**应用授权**页面单击**用户组授权**，然后单击**新增授权**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/a11bb2c93a55cd99f86943fc7fd8520a.png)
-2. 在弹出的**新增授权**页面选择创建好的EIAM应用，然后单击**下一步：选择用户组**。
+2. 在弹出的**新增授权**页面选择创建好的 EIAM 应用，然后单击**下一步：选择用户组**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/04cabda472ff5223269e076300440dad.png)
 3. 在**选择用户组**页签勾选待授权的用户组，然后单击**下一步：完成**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/04a316bb2214564c3f61569a07de57e9.png)
@@ -40,7 +41,7 @@
 
 ### 创建 SSL VPN 网关
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)，在左侧导航栏中选择 **VPN 连接** > **VPN 网关**，进入管理页。
-2. 在 VPN 网关管理页面，单击**+新建**，并在弹出的**新建VPN网关**页面依据界面参数配置 SSL VPN 网关。
+2. 在 VPN 网关管理页面，单击**+新建**，并在弹出的**新建 VPN 网关**页面依据界面参数配置 SSL VPN 网关。
 ![](https://qcloudimg.tencent-cloud.cn/raw/052eb5bf85699f14e4ebd957ac625877.png)
 3. SSL VPN 网关参数配置完成后单击**创建**。
 
@@ -170,7 +171,7 @@
 1. 在本地解压安装包，双击安装程序依据界面提示进行安装。
 ![](https://qcloudimg.tencent-cloud.cn/raw/91055f2191fa4e39f9c0b3fc283d2555.png)
 2. SSL 客户端安装完成后，选择 file，上传已下载的 SSL 客户端配置文件（.ovpn 格式）。
-<img src="https://qcloudimg.tencent-cloud.cn/raw/f39630923b2d06bc4b451e18a049e9a6.png" width="60%"></img></br>上传成功后，选择 connect 进行连接。
-<img src="https://qcloudimg.tencent-cloud.cn/raw/2749df288279c6b7d9965b77a0621928.png" width="60%"></br>Profiles 连接中，请稍后。
-<img src="https://qcloudimg.tencent-cloud.cn/raw/41ff2524ac4ffd107059cdd00c7ac246.png" width="60%"></br>进行认证登录。
-<img src="https://qcloudimg.tencent-cloud.cn/raw/d180678d03f8311ad6b7563a38b994d7.png" width="60%"></br>连接成功。</br><img src="https://qcloudimg.tencent-cloud.cn/raw/3397478b0ae43da47d9c1711d60c828f.png" width="60%">
+<img src="https://qcloudimg.tencent-cloud.cn/raw/f39630923b2d06bc4b451e18a049e9a6.png" width="35%"></img></br>上传成功后，选择 connect 进行连接。
+<img src="https://qcloudimg.tencent-cloud.cn/raw/2749df288279c6b7d9965b77a0621928.png" width="35%"></br>Profiles 连接中，请稍后。
+<img src="https://qcloudimg.tencent-cloud.cn/raw/41ff2524ac4ffd107059cdd00c7ac246.png" width="35%"></br>进行认证登录。
+<img src="https://qcloudimg.tencent-cloud.cn/raw/d180678d03f8311ad6b7563a38b994d7.png" width="35%"></br>连接成功。</br><img src="https://qcloudimg.tencent-cloud.cn/raw/3397478b0ae43da47d9c1711d60c828f.png" width="35%">
