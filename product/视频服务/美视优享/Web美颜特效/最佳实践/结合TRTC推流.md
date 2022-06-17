@@ -243,7 +243,7 @@ console.log(devices)
 // cameraApi.unmuteAudio()
 // 停止摄像头
 // cameraApi.stop()
-// 停止摄像头
+// 重启摄像头
 // await cameraApi.restart()
 
 ```
