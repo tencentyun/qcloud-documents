@@ -180,8 +180,8 @@ options 参数用于对验证码进行定制外观设置，默认可以设置为
 | enableDarkMode | Boolean &#124; String | 开启自适应深夜模式: {"enableDarkMode": true}<br>强制深夜模式: {"enableDarkMode": 'force'} |
 | sdkOpts        | Object                | 示例 {"width": 140, "height": 140}<br>仅支持移动端原生 webview 调用时传入，用来设置验证码loading加载弹窗的大小（**注意，并非验证码弹窗大小**）。 |
 | ready          | Function              | 验证码加载完成的回调，回调参数为验证码实际的宽高：<br>{"sdkView": {<br>"width": number,<br>"height": number<br>}}<br>该参数仅为查看验证码宽高使用，**请勿使用此参数直接设定宽高**。 |
-| needFeedBack   | Boolean &#124; String | 隐藏帮助按钮或自定义帮助按钮链接。（**VTT空间语义验证暂不支持自定义链接**） <br>隐藏帮助按钮: {"needFeedBack": false }<br>自定义帮助链接: {"needFeedBack": 'url地址' } |
-| userLanguage   | String                | 指定验证码提示文案的语言，优先级高于控制台配置（**VTT空间语义验证暂不支持语言配置**）。<br/>支持传入值同 navigator.language 用户首选语言，大小写不敏感。<br/>详情参见 [userLanguage 配置参数](#userLanguage)。 |
+| needFeedBack   | Boolean &#124; String | 隐藏帮助按钮或自定义帮助按钮链接。（**VTT 空间语义验证暂不支持自定义链接**） <br>隐藏帮助按钮: {"needFeedBack": false }<br>自定义帮助链接: {"needFeedBack": 'url地址' } |
+| userLanguage   | String                | 指定验证码提示文案的语言，优先级高于控制台配置。（**VTT 空间语义验证暂不支持语言配置**）<br/>支持传入值同 navigator.language 用户首选语言，大小写不敏感。<br/>详情参见 [userLanguage 配置参数](#userLanguage)。 |
 | type           | String                | 定义验证码展示方式。<li>popup（默认）弹出式，以浮层形式居中弹出展示验证码。</li><li>embed 嵌入式，以嵌入指定容器元素中的方式展示验证码。</li> |
 
 [](id:userLanguage)
