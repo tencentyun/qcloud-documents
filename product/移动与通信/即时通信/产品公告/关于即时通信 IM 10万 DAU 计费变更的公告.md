@@ -142,7 +142,7 @@
  </tr>
  <tr height=19 style='height:14.25pt'>
   <td height=19 style='height:14.25pt' align=""><a
-  href="https://cloud.tencent.com/document/product/269/44494#.E7.A4.BE.E7.BE.A4.E8.AF.9D.E9.A2.98"
+  href="https://cloud.tencent.com/document/product/269/75394#.E7.A4.BE.E7.BE.A4.E8.AF.9D.E9.A2.98"
   target="_parent">创建社群（Community）</span></a></td>
   <td align="">不支持</td>
   <td align="">不支持</td>
