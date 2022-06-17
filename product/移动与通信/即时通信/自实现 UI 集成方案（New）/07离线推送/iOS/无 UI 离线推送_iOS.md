@@ -23,7 +23,7 @@
    <img src="https://qcloudimg.tencent-cloud.cn/raw/5888bba294f17848ab8343d507ee427d.jpg" style="zoom:30%;" />
 
 2. 单击 Identifiers 右侧的 **+**。
-   <img src="https://qcloudimg.tencent-cloud.cn/raw/ba3222cc6bda236f5080e897351c36a2.png" style="zoom:30%;" />
+   <img src="https://qcloudimg.tencent-cloud.cn/raw/ba3222cc6bda236f5080e897351c36a2.png" style="zoom:25%;" />
 
 3. 您可以参考如下步骤新建一个 AppID，或者在您原有的 AppID 上增加 `Push Notification` 的 `Service`。
 
@@ -33,29 +33,29 @@
    <img src="https://main.qcloudimg.com/raw/1e047d154a30d4dc95e3d9fa52779a37.jpg" style="zoom:30%;" />
 
 5. 选择 **App**，单击 **Continue** 进行下一步。
-   <img src="https://qcloudimg.tencent-cloud.cn/raw/d8c81677b1c06cad5d2b4017a17eb5ae.jpg" style="zoom:30%;" />
+   <img src="https://qcloudimg.tencent-cloud.cn/raw/d8c81677b1c06cad5d2b4017a17eb5ae.jpg" style="zoom:25%;" />
 
 6. 配置 `Bundle ID` 等其他信息，单击 **Continue** 进行下一步。
    <img src="https://qcloudimg.tencent-cloud.cn/raw/bc8105688bc097e5028585f4a1a57088.png" style="zoom:30%;" />
 
 7. 勾选 **Push Notifications**，开启远程推送服务。
-   <img src="https://qcloudimg.tencent-cloud.cn/raw/bcdc52d8bae2c8bfabdbe2364d1b1180.jpg" style="zoom:30%;" />
+   <img src="https://qcloudimg.tencent-cloud.cn/raw/bcdc52d8bae2c8bfabdbe2364d1b1180.jpg" style="zoom:25%;" />
 
 #### 生成证书
 1. 选中您的 AppID，选择**Configure**。
-   <img src="https://qcloudimg.tencent-cloud.cn/raw/7f1a06b0d5e7ae4ea74106218e3169c9.jpg" style="zoom:30%;" />
+   <img src="https://qcloudimg.tencent-cloud.cn/raw/7f1a06b0d5e7ae4ea74106218e3169c9.jpg" style="zoom:25%;" />
 
 2. 可以看到在 **Apple Push Notification service SSL Certificates** 窗口中有两个 `SSL  Certificate`，分别用于开发环境（Development）和生产环境（Production）的远程推送证书，如下图所示：
-   <img src="https://main.qcloudimg.com/raw/bd55cffb96e80b505e70db33c73e27dd.jpg" style="zoom:30%;" />
+   <img src="https://main.qcloudimg.com/raw/bd55cffb96e80b505e70db33c73e27dd.jpg" style="zoom:25%;" />
 
 3. <span id="step3"></span>我们先选择开发环境（Development）的 **Create Certificate**，系统将提示我们需要一个 Certificate Signing Request（CSR）。
-   <img src="https://main.qcloudimg.com/raw/637ce37ec54ca5a4bf3006b527572da5.jpg" style="zoom:30%;" />
+   <img src="https://main.qcloudimg.com/raw/637ce37ec54ca5a4bf3006b527572da5.jpg" style="zoom:25%;" />
 
 4. 在 Mac 上打开**钥匙串访问工具（Keychain Access）**，在菜单中选择**钥匙串访问**>**证书助理**>**从证书颁发机构请求证书**（`Keychain Access - Certificate Assistant - Request a Certificate From a Certificate Authority`）。
-   <img src="https://main.qcloudimg.com/raw/6492b4df769ec5bccf90994d30e5e520.jpg" style="zoom:30%;" />
+   <img src="https://main.qcloudimg.com/raw/6492b4df769ec5bccf90994d30e5e520.jpg" style="zoom:40%;" />
 
 5. 输入用户电子邮件地址（您的邮箱）、常用名称（您的名称或公司名），选择**存储到磁盘**，单击继续，系统将生成一个 `*.certSigningRequest` 文件。
-   <img src="https://qcloudimg.tencent-cloud.cn/raw/258d11e7a7d79ab51a8f89560400eac6.png" style="zoom:30%;" />
+   <img src="https://qcloudimg.tencent-cloud.cn/raw/258d11e7a7d79ab51a8f89560400eac6.png" style="zoom:40%;" />
 
 6. 返回上述 [第3步骤](#step3) 中 Apple Developer 网站刚才的页面，单击 **Choose File** 上传生成的`*.certSigningRequest`文件。
    <img src="https://qcloudimg.tencent-cloud.cn/raw/ac9f49f0d8afbcdfa42f13511334f00b.png" style="zoom:30%;" />
@@ -64,7 +64,7 @@
    <img src="https://qcloudimg.tencent-cloud.cn/raw/c19c9bbdbdd8fdfe6b4f95af08d9035c.jpg" style="zoom:30%;" />
 
 8. 单击 **Download** 下载开发环境的 `Development SSL Certificate` 到本地。
-   ![](https://main.qcloudimg.com/raw/9dece7f318c93e97732fe7ea7806f961.jpg)
+   <img src="https://main.qcloudimg.com/raw/9dece7f318c93e97732fe7ea7806f961.jpg" style="zoom:30%;" />
 
 9. 再次按照上述步骤1 - 8，将生产环境的 `Production SSL Certificate` 下载到本地。
 
@@ -74,9 +74,9 @@
 
    <img src="https://qcloudimg.tencent-cloud.cn/raw/62f6ff03e36340507d66e519796258dc.jpg" style="zoom:30%;" />
 
-10. 双击打开下载的开发环境和生产环境的 `SSL Certificate`，系统会将其导入钥匙串中。
+11. 双击打开下载的开发环境和生产环境的 `SSL Certificate`，系统会将其导入钥匙串中。
 
-11. 打开钥匙串应用，在**登录**>**我的证书**，右键分别导出刚创建的开发环境（`Apple Development IOS Push Service`）和生产环境（`Apple Push Services`）的 `P12` 文件。
+12. 打开钥匙串应用，在**登录**>**我的证书**，右键分别导出刚创建的开发环境（`Apple Development IOS Push Service`）和生产环境（`Apple Push Services`）的 `P12` 文件。
     <img src="https://qcloudimg.tencent-cloud.cn/raw/3ab45a54c9cf39beffb1fc2adf12a0e5.jpg" style="zoom:30%;" />
 
     > ! 保存`P12`文件时，请务必要为其设置密码。
