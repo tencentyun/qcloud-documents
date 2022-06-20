@@ -170,11 +170,11 @@
 ## SSL 客户端安装与连接
 1. 在本地解压安装包，双击安装程序依据界面提示进行安装。
 ![](https://qcloudimg.tencent-cloud.cn/raw/91055f2191fa4e39f9c0b3fc283d2555.png)
-2. SSL 客户端安装完成后，选择 file，上传已下载的 SSL 客户端配置文件（.ovpn 格式）。
+2. SSL 客户端安装完成后，选择 “Import Profile” 菜单中的 “FILE” 页面，，上传已下载的 SSL 客户端配置文件（.ovpn 格式）。
 <img src="https://qcloudimg.tencent-cloud.cn/raw/f39630923b2d06bc4b451e18a049e9a6.png" width="35%"></img>
 3. 上传成功后，选择 connect 进行连接。
 <img src="https://qcloudimg.tencent-cloud.cn/raw/2749df288279c6b7d9965b77a0621928.png" width="35%">
-4. Profiles 连接中，请稍后。
+4. Profiles 连接中，请稍候。
 <img src="https://qcloudimg.tencent-cloud.cn/raw/41ff2524ac4ffd107059cdd00c7ac246.png" width="35%">
 5. 进行认证登录。
 <img src="https://qcloudimg.tencent-cloud.cn/raw/d180678d03f8311ad6b7563a38b994d7.png" width="35%">
