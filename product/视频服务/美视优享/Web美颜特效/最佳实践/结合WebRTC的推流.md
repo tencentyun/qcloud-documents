@@ -42,7 +42,7 @@ const LICENSE_KEY = ''; // 此处请填写您自己的参数
  * 计算签名用的密钥 Token
  * 
  * 注意：此处仅用于 DEMO 调试，正式环境中请将 Token 保管在服务端，签名方法迁移到服务端实现，通过接口提供，前端调用拉取签名，参考
- * [签名方法](https://https://cloud.tencent.com/document/product/616/71370#.E7.AD.BE.E5.90.8D.E6.96.B9.E6.B3.95)
+ * [签名方法](https://cloud.tencent.com/document/product/616/71370#.E7.AD.BE.E5.90.8D.E6.96.B9.E6.B3.95)
  */
 const token = ''; // 此处请填写您自己的参数
 

@@ -122,7 +122,7 @@ new TencentCaptcha(CaptchaAppId, callback, options);
 <th>参数名</th><th>值类型</th><th>说明</th></tr>
 </thead>
 <tbody><tr><td>CaptchaAppId</td><td>String</td>
-<td>验证码 CaptchaAppId：登录 验证码控制台，从**验证管理页面**进行查看。如果未创建过验证，请先新建验证。<br>注意：不可使用客户端类型为小程序的 CaptchaAppId，会导致数据统计错误。</td></tr><tr><td>callback</td><td>Function</td><td>验证码回调函数，详情请参见 <a href="#hdhs">callback 回调函数</a>。</td>
+<td>验证码 CaptchaAppId：登录 <a href="https://console.cloud.tencent.com/captcha/graphical">验证码控制台</a>，在<strong>验证管理页面</strong>进行查看。如果未创建过验证，请先新建验证。<br>注意：不可使用客户端类型为小程序的 CaptchaAppId，会导致数据统计错误。</td></tr><tr><td>callback</td><td>Function</td><td>验证码回调函数，详情请参见 <a href="#hdhs">callback 回调函数</a>。</td>
 </tr><tr><td>options</td><td>Object</td>
 <td>验证码外观配置参数, 详情请参见 <a href="#pzcs">options 外观配置参数</a>。</td>
 </tr></tbody></table>
@@ -180,8 +180,8 @@ options 参数用于对验证码进行定制外观设置，默认可以设置为
 | enableDarkMode | Boolean &#124; String | 开启自适应深夜模式: {"enableDarkMode": true}<br>强制深夜模式: {"enableDarkMode": 'force'} |
 | sdkOpts        | Object                | 示例 {"width": 140, "height": 140}<br>仅支持移动端原生 webview 调用时传入，用来设置验证码loading加载弹窗的大小（**注意，并非验证码弹窗大小**）。 |
 | ready          | Function              | 验证码加载完成的回调，回调参数为验证码实际的宽高：<br>{"sdkView": {<br>"width": number,<br>"height": number<br>}}<br>该参数仅为查看验证码宽高使用，**请勿使用此参数直接设定宽高**。 |
-| needFeedBack   | Boolean &#124; String | 隐藏帮助按钮或自定义帮助按钮链接。（**VTT空间语义验证暂不支持自定义链接**） <br>隐藏帮助按钮: {"needFeedBack": false }<br>自定义帮助链接: {"needFeedBack": 'url地址' } |
-| userLanguage   | String                | 指定验证码提示文案的语言，优先级高于控制台配置（**VTT空间语义验证暂不支持语言配置**）。<br/>支持传入值同 navigator.language 用户首选语言，大小写不敏感。<br/>详情参见 [userLanguage 配置参数](#userLanguage)。 |
+| needFeedBack   | Boolean &#124; String | 隐藏帮助按钮或自定义帮助按钮链接。（**VTT 空间语义验证暂不支持自定义链接**） <br>隐藏帮助按钮: {"needFeedBack": false }<br>自定义帮助链接: {"needFeedBack": 'url地址' } |
+| userLanguage   | String                | 指定验证码提示文案的语言，优先级高于控制台配置。（**VTT 空间语义验证暂不支持语言配置**）<br/>支持传入值同 navigator.language 用户首选语言，大小写不敏感。<br/>详情参见 [userLanguage 配置参数](#userLanguage)。 |
 | type           | String                | 定义验证码展示方式。<li>popup（默认）弹出式，以浮层形式居中弹出展示验证码。</li><li>embed 嵌入式，以嵌入指定容器元素中的方式展示验证码。</li> |
 
 [](id:userLanguage)
@@ -222,7 +222,7 @@ TencentCaptcha 的实例提供一些操作验证码的常用方法：
 | --------- | -------------------------- | -------- | ---------------------------------------- |
 | show      | 显示验证码，可以反复调用。 | 无       | 无                                       |
 | destroy   | 隐藏验证码，可以反复调用。 | 无       | 无                                       |
-| getTicket | 获取验证成功后的ticket。   | 无       | `Object:{"CaptchaAppId":"","ticket":""}` |
+| getTicket | 获取验证成功后的 ticket。   | 无       | `Object:{"CaptchaAppId":"","ticket":""}` |
 
 ### 步骤4：容灾处理
 
