@@ -14,7 +14,7 @@
 如果您在创建 SSL 服务端时已开启身份认证，则移动终端的用户（例如您公司的员工）可以自助下载 OpenVPN 或兼容的 VPN 客户端所需的配置文件。同时，腾讯云通过身份认证确保整个下载过程的安全性。
 
 ### 前提条件
-- 租户管理员已经在[ 数字身份管控平台 ](https://console.cloud.tencent.com/eiam)已创建[ 用户组 ](https://cloud.tencent.com/document/product/1442/55067)、添加了相应的[ 用户 ](https://cloud.tencent.com/document/product/1442/55066)并为用户组配置[ 应用授权](https://cloud.tencent.com/document/product/1442/55069)。
+- 租户管理员已经在[ 数字身份管控平台 ](https://console.cloud.tencent.com/eiam)已创建[ 用户组 ](https://cloud.tencent.com/document/product/1442/55067)、添加了相应的[ 用户 ](https://cloud.tencent.com/document/product/1442/55066)并为用户组配置[ 应用授权](https://cloud.tencent.com/document/product/1442/55069)。详细操作请参考 [EIAM 产品文档](https://cloud.tencent.com/document/product/1442)。
 - 在 VPN 控制台已 [创建 SSL 服务端](https://cloud.tencent.com/document/product/554/63717)，且 SSL 服务端支持身份认证。
 - 租户管理员已经将开启身份认证的 SSL 服务端 ID 分发给您（作为用户）。如果没有，请联系您的管理员获取。
 
