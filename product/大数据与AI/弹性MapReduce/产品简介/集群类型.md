@@ -1,4 +1,5 @@
 EMR 支持6种集群类型及相应的应用场景，并定义了5种节点类型，不同集群类型及应用场景支持的节点类型及部署节点数、部署服务不同；可根据业务选择不同的集群类型及应用场景创建集群。
+>? ClickHouse、Doris、Kafka 集群类型未默认开放，如需要可 [联系工单](https://console.cloud.tencent.com/workorder/category) 开通。
 
 ## 集群类型说明
 ### Hadoop 集群

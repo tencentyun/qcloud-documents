@@ -683,7 +683,6 @@ ipv6_defaultrouter="<IPv6网关>"
 6. 运行 `/etc/netstart restart` 重启网络服务，使配置生效。
 7. 请参考[ SSH 支持 IPv6 配置 ](#ssh-ipv6)开启 SSH 的 IPv6 功能。
 
-
 ## 附录[](id:ssh-ipv6)
 
 ### SSH 支持 IPv6 配置

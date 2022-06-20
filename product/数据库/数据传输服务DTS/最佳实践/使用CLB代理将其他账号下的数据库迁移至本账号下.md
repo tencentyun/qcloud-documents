@@ -3,7 +3,7 @@
 
 - VPC-A 和 VPC-B 为集团公司网络，VPC-C 为子公司网络，账号 C 没有操作 A 和 B 资源的权限。
 - 账号 A 下建立专线打通自建 IDC 网络或者第三方云厂商网络，账号 B 下通过云联网连通 VPC-A、VPC-B 和 VPC-C，所以虚线框中的网络都已打通，账号 C 可以访问到源数据库。
-- 使用账号 C 进行 DTS 迁移/同步， DTS 需要一个代理服务来提供路由转发（如专线网关），账号 C 不具备提供代理服务的权限。
+- 使用账号 C 进行 DTS 迁移/同步。<br>
 <img src="https://qcloudimg.tencent-cloud.cn/raw/e9520643090f507ab8a9b4f8741f064e.png" style="zoom:40%;" />
 
 针对这种场景，可以通过 CLB 关联源数据库，因为 CLB 有跨账号关联网络能力，将 CLB 作为 DTS 的代理服务进行路由转发。关键配置原则如下：
@@ -46,6 +46,6 @@
 ### 配置 DTS 任务
 使用 CLD 代理的 DTS 配置步骤，与普通的 [DTS 数据迁移任务](https://cloud.tencent.com/document/product/571/58688) 或 [DTS 数据同步任务](https://cloud.tencent.com/document/product/571/56516) 配置步骤基本一致，这里仅对差异点进行详细介绍。
 
-使用 C 账号购买数据迁移/同步任务后，在**设置源和目标数据库**步骤中，接入方式选择 **私有网络 VPC**（需要 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通），私有网络及子网选择 C 账号的 VPC 和子网，主机地址填入 CLB 实例的 VIP 地址。
+使用 C 账号购买数据迁移/同步任务后，在**设置源和目标数据库**步骤中，接入方式选择**私有网络 VPC**（需要 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通），私有网络及子网选择 C 账号的 VPC 和子网，主机地址填入 CLB 实例的 VIP 地址。
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/6406b54d41a2a1ba448e6c2bd8fb8df1.png)
