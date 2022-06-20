@@ -15,7 +15,7 @@ SQL 语句的编写请参考 [SQL 开发指南](https://cloud.tencent.com/docume
 [](id:jump)
 ## 作业参数
 作业参数可以在**开发调试**页面中单击**作业参数**并在侧边弹出的参数界面中设置参数值，然后单击**确定**保存作业参数信息。下文会有各参数的详细介绍说明，以帮助您更好地配置各作业参数。
-![](https://main.qcloudimg.com/raw/aca2626fe87464c13de3848f3fc18eea.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/eb02e793dabb56c1bffe0b184d44d441.png)
 
 ### 引用程序包
 若 [SQL 开发指南](https://cloud.tencent.com/document/product/849/48242) 中提供的内置函数不满足需求，用户可以自行开发自定义函数，并以 JAR 包的形式在**依赖管理**中上传后，方可在此添加引用程序包，并选择版本。
