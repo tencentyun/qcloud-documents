@@ -19,13 +19,7 @@ SQL 语句的编写请参考 [SQL 开发指南](https://cloud.tencent.com/docume
 
 ### 引用程序包
 若 [SQL 开发指南](https://cloud.tencent.com/document/product/849/48242) 中提供的内置函数不满足需求，用户可以自行开发自定义函数，并以 JAR 包的形式在**依赖管理**中上传后，方可在此添加引用程序包，并选择版本。
-
-若内置 Connector 无法满足需求，可自行开发自定义 Connector，以同样的方式上传并在此添加引用。自定义 Connector 的开发可参考 [自定义 Connector](https://cloud.tencent.com/document/product/849/48330)。
-
 程序包的上传和版本管理方式可参考 [依赖管理](https://cloud.tencent.com/document/product/849/48295)。
-
-### 内置 Connector
-由系统提供可让用户选择的 Connector。例如，在 SQL 语句中使用了来自 Ckafka 的数据流，则必须要在此处选择 Ckafka 相应的 Connector。关于上下游的 SQL DDL 写法与内置 Connector 的使用说明，可参考 [上下游开发指南](https://cloud.tencent.com/document/product/849/48263)。
 
 ### Checkpoint
 Checkpoint 即作业快照，开启 checkpoint 之后作业会按照设置的时间间隔自动保存作业快照，用于遇到故障时作业的恢复。可设置 checkpoint 的时间间隔，设置范围在30秒 - 3600秒。
