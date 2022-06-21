@@ -1,6 +1,4 @@
 
-## 简介
-
 本文将为您介绍收到云服务器 “ping 不可达” 事件告警通知的排查方法和解决方案。您可以参考 [排查步骤](#paichabuzhou) 恢复告警，如告警通知打扰到您可以参考 [关闭告警功能](#guanbi)。
 
 ## 告警原因及处理方法
@@ -28,7 +26,7 @@ ping 不可达告警原因和处理方法对照表：
 
 1. 登录 [云监控控制台](https://console.cloud.tencent.com/monitor)。 
 2. 单击**云服务器**> 告警相关的**实例名称**，查看云服务器监控数据是否有监控数据断点、监控数据过高异常。
-	- 若监控数据出现断点或监控数据过高，可能是云服务器内核故障、宕机或带宽高负载引起，您可以参考 [云服务器—实例相关故障]( https://cloud.tencent.com/document/product/213/17144 ) 进行排查。
+	- 若监控数据出现断点或监控数据过高，可能是云服务器内核故障、宕机或带宽高负载引起，您可以参考 [云服务器实例相关故障]( https://cloud.tencent.com/document/product/213/17144 ) 进行排查。
 	![](https://main.qcloudimg.com/raw/74e937123ed49778ab308e4bf9d67d6c.png)
 	- 若无异常请进行下一步骤：[检查云服务器实例状态是否异常](#buzhou2)。
 
@@ -119,9 +117,9 @@ iptables -A OUTPUT -p icmp --icmp-type echo-reply -j ACCEPT
 ### 关闭事件告警规则
 
 若部分告警打扰到您，您可以参考以下步骤关闭特定事件告警。
-
-1. 进入 [事件总线控制台-事件规则]( https://console.cloud.tencent.com/monitor/policylist )。
-2. 选择 **广州** 地域下的 default 事件集。
+ 
+1. 登录 [事件总线控制台](https://console.cloud.tencent.com/monitor/alarm2/policy)，选择左侧**事件规则**。
+2. 选择**广州**地域下的 default 事件集。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d1643b2daf17568221580752407ce459.png)
 3. 单击**状态启停**开关，关闭特定规则即可。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d81749831e65a8c0f288b17067c8f97b.png)

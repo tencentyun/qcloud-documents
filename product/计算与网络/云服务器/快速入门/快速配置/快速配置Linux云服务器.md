@@ -14,17 +14,58 @@
 <div style="background-color:#00A4FF; width: 190px; height: 35px; line-height:35px; text-align:center;"><a href="https://buy.cloud.tencent.com/cvm?tab=lite" target="_blank"  style="color: white; font-size:16px;">点此进入快速购买页面</a></div>
 </br>
 
-![](https://qcloudimg.tencent-cloud.cn/raw/bead6c3bbb92bc10a5abcd80a38c1714.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/ad10e8f473d961ef59797cb539f710a7.png)
 
-- **地域**：选择与您最近的一个地区，例如我在 “深圳”，地域选择 “广州”。
-- **机型**：选择您需要的云服务器机型配置。这里我们选择 “普及配置（2核4GB）”。 
-- **操作系统**：选择您需要的云服务器操作系统。这里我们选择 “CentOS 8.2 64位”。
-- **公网带宽**：勾选后会为您分配公网 IP，默认为 “1Mbps”，您可以根据需求调整。
-- **登录方式**：自动生成的密码将在服务器创建完成后通过 [站内信](https://console.cloud.tencent.com/message) 发送。
-- **购买数量**：默认为 “1台”。
-- **购买时长**：默认为 “1个月”。
+配置说明如下：
+<table>
+<tr>
+<th>配置项</th>
+<th>说明</th>
+</tr>
+<tr>
+<td>地域</td>
+<td>选择与您最近的一个地区，例如我在 “深圳”，地域选择 “广州”。</td>
+</tr>
+<tr>
+<td>机型</td>
+<td>选择您需要的云服务器机型配置。这里我们选择 “普及配置（2核4GB）”。 </td>
+</tr>
+<tr>
+<td>操作系统</td>
+<td>选择您需要的云服务器操作系统。这里我们选择 “CentOS 8.2 64位”。</td>
+</tr>
+<tr>
+<td>公网 IP</td>
+<td>勾选后会为您分配公网 IP，默认公网带宽为 “1Mbps”，您可以根据需求调整。</td>
+</tr>
+<tr>
+<td>登录方式</td>
+<td>自动生成的密码将在服务器创建完成后通过 <a href="https://console.cloud.tencent.com/message">站内信</a> 发送。</td>
+</tr>
+<tr>
+<td>默认配置</td>
+<td>可展开查看可用区、安全组等6项默认配置。</td>
+</tr>
+<tr>
+<td>自动续费</td>
+<td>勾选后，若账户余额足够，则将在云服务器到期时按月自动续费。</td>
+</tr>
+<tr>
+<td>协议</td>
+<td>查阅并了解相关协议后勾选。</td>
+</tr>
+<tr>
+<td>时长</td>
+<td>购买时长，默认为 “1个月”。</td>
+</tr>
+<tr>
+<td>数量</td>
+<td>购买数量，默认为 “1台”。</td>
+</tr>
+</table>
 
-当您付费完成后，即完成了云服务器的购买。云服务器可以作为个人虚拟机或者您建站的服务器。接下来，您可以登录您购买的这台服务器。
+单击**立即购买**，并付费完成后，即完成了云服务器的购买。云服务器可以作为个人虚拟机或者您建站的服务器。接下来，您可以登录您购买的这台服务器。
+
 
 ## 步骤3：登录云服务器
 
