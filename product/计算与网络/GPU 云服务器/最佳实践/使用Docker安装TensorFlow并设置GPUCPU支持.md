@@ -1,5 +1,10 @@
+
+<dx-alert infotype="explain" title="">
+本文第三方教程来自 [GPU 云服务器用户实践征文](https://cloud.tencent.com/document/product/855/71869)，仅供学习和参考。
+</dx-alert>
+
 ## 操作场景
-您可通过 Docker 快速在 GPU 实例上运行 TensorFlow。且实例仅需安装 NVIDIA® 驱动程序，无需安装 NVIDIA® CUDA® 工具包。
+您可通过 Docker 快速在 GPU 实例上运行 TensorFlow，且该方式仅需实例已安装 NVIDIA® 驱动程序，无需安装 NVIDIA® CUDA® 工具包。
 
 本文介绍如何在 GPU 云服务器上，使用 Docker 安装 TensorFlow 并设置 GPU/CPU 支持。
 
@@ -168,7 +173,7 @@ docker run -it --rm tensorflow/tensorflow \
 ```
 其他 TensorFlow Docker 方案示例如下：
 
-- 执行以下命令，在配置 TensorFlow 的容器中启动 `bash` shell 会话：
+- 在配置 TensorFlow 的容器中启动 `bash` shell 会话：
 ```shellsession
 docker run -it tensorflow/tensorflow bash
 ```
@@ -179,7 +184,7 @@ docker run -it --rm -v $PWD:/tmp -w /tmp tensorflow/tensorflow python ./script.p
 <dx-alert infotype="explain" title="">
 向主机公开在容器中创建的文件时，可能会出现权限问题。通常情况下，最好修改主机系统上的文件。
 </dx-alert>
-- 执行以下命令，使用每夜版 TensorFlow 启动 Jupyter 笔记本服务器：
+- 使用 nightly 版 TensorFlow 启动 Jupyter 笔记本服务器：
 ```shellsession
 docker run -it -p 8888:8888 tensorflow/tensorflow:nightly-jupyter
 ```
