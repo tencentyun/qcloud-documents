@@ -1,3 +1,9 @@
+
+<dx-alert infotype="explain" title="">
+本文第三方教程来自 [GPU 云服务器用户实践征文](https://cloud.tencent.com/document/product/855/71869)，仅供学习和参考。
+</dx-alert>
+
+
 ## 操作场景
 本文介绍如何使用 GPU 云服务器实现边云协同处理。
 
@@ -73,10 +79,10 @@ rpm -qa | grep yum-utils
 ![](https://main.qcloudimg.com/raw/e0412e1a06eb06ad9f98e7f6a2d5a026.png)
 4. 参考 [使用标准登录方式登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)，登录 GPU 云服务器。
 5. 使用 `wget` 命令，粘贴 [步骤3](#Step3) 中已获取的驱动下载链接，下载驱动。命令如下：
-若您需将驱动下载至本地再上传至 GPU 云服务器，则可参考 [如何将本地文件拷贝到云服务器](https://cloud.tencent.com/document/product/213/39138)。
 ```shellsession
 wget https://us.download.nvidia.com/tesla/510.47.03/NVIDIA-Linux-x86_64-510.47.03.run
 ```
+若您需将驱动下载至本地再上传至 GPU 云服务器，则可参考 [如何将本地文件拷贝到云服务器](https://cloud.tencent.com/document/product/213/39138)。
 
 
 #### 安装驱动
@@ -116,13 +122,13 @@ systemctl status firewalld
 ```
 返回结果如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/248938b102550b87abf693cc41538ecd.png)
-2. 关闭 SELINUX
+2. 禁用 SELINUX
 执行以下命令，编辑 `/etc/selinux/config` 配置文件。
 ```shellsession
 sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
 ```
 3. 关闭 swap
-安装 Kubernetes 需关闭swap，执行以下命令，修改` /etc/fstab` 文件中的 swap 配置。
+安装 Kubernetes 需关闭 swap，执行以下命令，修改 `/etc/fstab` 文件中的 swap 配置。
 ```shellsession
 sed -ri 's/.*swap.*/#&/' /etc/fstab
 ```
@@ -256,7 +262,7 @@ k8s.gcr.io/pause                     3.6       6270bb605e12   7 months ago   683
 
 
 #### 配置 Kubelet（可选）
-您可参考以下步骤，在云中心配置 Kubelet，以便验证 K8s 集群的部署是否正确。
+您可参考以下步骤，在云中心配置 Kubelet，验证 K8s 集群的部署是否正确。
 
 1. 执行以下命令，获取 Docker 的 cgroups。
 ```shellsession
@@ -311,7 +317,7 @@ systemctl enable kubelet && systemctl start kubelet
 
 
 <dx-alert infotype="notice" title="">
- - 初始化完成后需记录返回信息最后的 node 节点添加到集群的命令。若忘记该命令，可使用 `kubeadm token create --print-join-command` 进行查看。
+ - 初始化完成后需记录返回信息最后的 node 节点添加到集群的命令。同时支持使用 `kubeadm token create --print-join-command` 进行查看。
  - 若您使用了云服务器，则可删除 `--apiserver-advertise-address` 配置。
 </dx-alert>
 
@@ -381,7 +387,7 @@ vm-0-9-centos   NotReady   control-plane,master   21m   v1.23.5
 
 #### 配置网络插件 flannel（可选）
 Kubernetes v1.17及以上版本，可使用以下命令安装 flannel。如需了解更多关于 flannel 信息，请参见 [flannel Github](tps://github.com/flannel-io/flannel)。
-```
+```shellsession
 kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 ```
 配置完成后，可依次执行以下命令进行查看。
@@ -414,13 +420,13 @@ NAME         TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
 kubernetes   ClusterIP   10.96.0.1    <none>        443/TCP   32m
 ```
 <dx-alert infotype="explain" title="">
-网络插件也安装配置完成后，请等待几分钟，node 才会显示为 ready 状态。
+网络插件安装配置完成后，请等待几分钟，node 才会显示为 ready 状态。
 </dx-alert>
 
 
 
 #### 配置 iptables 转发 IP
-由于在初始化时删除了 `--apiserver-advertise-address` 参数，返回的节点加入集群命令为内网 IP，而本文中使用的云服务器内网不互通，故需使用 iptables 进行 IP 转发，将主节点公网 IP 转发至内网 IP，及配置 node 节点将主节点的内网 IP 转发至主节点的公网 IP。步骤如下：
+由于在初始化时删除了 `--apiserver-advertise-address` 参数，返回的节点加入集群命令为内网 IP，而本文中使用的云服务器内网不互通，故需配置 iptables 进行 IP 转发，将主节点公网 IP 转发至内网 IP，及配置 node 节点将主节点的内网 IP 转发至主节点的公网 IP。步骤如下：
 1. 在主节点 master 上，执行以下命令。
 ```shellsession
 sudo iptables -t nat -A OUTPUT -d <主节点公网IP> -j DNAT --to-destination <主节点内网IP>
@@ -444,7 +450,7 @@ sudo iptables -t nat -A OUTPUT -d 172.21.0.9 -j DNAT --to-destination 49.232.76.
 ### 安装 KubeEdge
 
 #### 配置 Cloud
-cloud 端负责编译 KubeEdge 的相关组件与运行 cloudcore。配置步骤如下：
+Cloud 端负责编译 KubeEdge 的相关组件与运行 cloudcore。配置步骤如下：
 1. 安装 golang
 依次执行以下命令，下载并解压 golang 安装包。
 ```shellsession
@@ -515,7 +521,7 @@ systemctl status cloudcore.service
 
 
 #### 配置 Edge
-edge 端也可以通过 keadm 进行配置，可以将 cloud 端编译生成的二进制可执行文件通过 scp 命令复制到 edge 端。步骤如下：
+Edge 端也可以通过 keadm 进行配置，可以将 cloud 端编译生成的二进制可执行文件通过 scp 命令复制到 edge 端。步骤如下：
 
 1. 安装必要环境
   1. 执行以下命令，查看操作系统版本。

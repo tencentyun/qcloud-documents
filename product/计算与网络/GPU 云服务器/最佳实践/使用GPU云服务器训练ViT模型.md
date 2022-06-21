@@ -1,3 +1,8 @@
+
+<dx-alert infotype="explain" title="">
+本文第三方教程来自 [GPU 云服务器用户实践征文](https://cloud.tencent.com/document/product/855/71869)，仅供学习和参考。
+</dx-alert>
+
 ## 操作场景
 本文介绍如何使用 GPU 云服务器进行 ViT 模型离线训练，完成简单的图像分类任务。
 
@@ -15,20 +20,21 @@ ViT 全称 Vision Transformer，该模型由 Alexey Dosovitskiy 等人提出，�
 - **所在地域**：由于可能需上传一些尺寸较大的数据集，需优先选择延迟最低的地域。本文使用 [在线 Ping](https://cloud.feitsui.com/tencent) 工具测试，所在位置到提供 GN7 的重庆区域延迟最小，因此选择重庆区域。
 - **系统盘**：100GB 高性能云硬盘。
 - **操作系统**：Ubuntu 18.04
-
+- **带宽**：5M
+- **本地操作系统**：MacOS
 
 
 ## 操作步骤
 
 ### 增加实例安全性（可选）
-1. 参考 [使用标准登录方式登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)，登录已创建的 GPU 云服务器实例。
-2. （可选）您可在 `~/.ssh/config` 中，配置服务器的别名。本文创建别名为 `tcg`。
-3. 通过 `ssh-copy-id` 命令，将本机 SSH 公钥复制至 GPU 云服务器。
-4. 在 GPU 云服务器中执行以下命令，关闭密码登录以增强安全性。
+
+1. （可选）您可在本机 `~/.ssh/config` 中，配置服务器的别名。本文创建别名为 `tcg`。
+2. 通过 `ssh-copy-id` 命令，将本机 SSH 公钥复制至 GPU 云服务器。
+3. 在 GPU 云服务器中执行以下命令，关闭密码登录以增强安全性。
 ```shellsession
 echo 'PasswordAuthentication no' | sudo tee -a /etc/ssh/ssh\_config
 ```
-5. 执行以下命令，重启 SSH 服务。
+4. 执行以下命令，重启 SSH 服务。
 ```shellsession
 sudo systemctl restart sshd
 ```
@@ -47,7 +53,7 @@ sudo apt install nvidia-driver-418
 nvidia-smi
 ```
 返回结果如下图所示，表示已安装成功。
-![](https://qcloudimg.tencent-cloud.cn/raw/85aa8a063b9b7dc66c2b2b124bc80326.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/b8faab7af92e4a7c58930a970aa69325.png)
 2. 配置 conda 环境
 依次执行以下命令，配置 conda 环境。
 ```shellsession
@@ -94,7 +100,7 @@ custom\_channels:
 
   simpleitk: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
 ```
-4. 执行以下命令，设置 pip 源为清华源。
+4. 执行以下命令，设置 pip 源为腾讯云镜像源。
 ```shellsession
 pip config set global.index-url https://mirrors.cloud.tencent.com/pypi/simple
 ```
@@ -111,7 +117,7 @@ python
 import torch
 ```
 返回结果如下图所示，表示 PyTorch 已安装成功。
-![](https://qcloudimg.tencent-cloud.cn/raw/4b265f755fbd671f918aca5f52fa4526.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/12b5f76946fd80ff46a4e4dfa9aed2cd.png)
 
 
 
@@ -407,16 +413,16 @@ dali = dict(
 )
 ```
 模型运行过程如下图所示， 单个 epoch 的时间在20s以内：
-![](https://qcloudimg.tencent-cloud.cn/raw/6956ff2d893d88c08c559188bf9b1e73.png)
-结果显示模型在验证集上达到的最佳准确率为66.62%。我们也可以通过增加模型的参数量，例如修改模型为 `vit\_small\_patch16\_224`，来进一步尝试优化模型效果。如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/bec2efaefa4842b10637b64eae55c686.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/0b9d0c91d5a05acd5808b8e71211e4a8.png)
+结果显示模型在验证集上达到的最佳准确率为66.62%。我们也可以通过增加模型的参数量，例如修改模型为 `v![](https://qcloudimg.tencent-cloud.cn/raw/34f6f93aa9479375e23ccee3dd31dd68.png)
+
 
 ## 总结
-本次使用过程中遇到的最大的问题是从 GitHub 克隆非常缓慢，为了解决该问题，尝试使用了 tunnel 和 proxychains 工具进行提速。但这一动作已违反了云服务器使用规则，导致了一段时间的不可用，最终通过删除代理并提交工单的方式才得以解决。
+本次使用过程中遇到的最大的问题是从 GitHub 克隆非常缓慢，为了解决该问题，尝试使用了 tunnel 和 proxychains 工具进行提速。但该行为违反了云服务器使用规则，导致了一段时间的云服务器不可用，最终通过删除代理并提交工单的方式才得以解决。
 借此也提醒其他用户，进行外网代理不符合云服务器使用规范，为了保证您服务的稳定运行，切勿违反规定。
 
 
 ## 参考
-- Dosovitskiy, Alexey, et al. "An image is worth 16x16 words: Transformers for image recognition at scale." arXiv preprint arXiv:2010.11929 (2020).
-- https://github.com/NVIDIA/DALI
-- Bian, Zhengda, et al. "Colossal-AI: A Unified Deep Learning System For Large-Scale Parallel Training." arXiv preprint arXiv:2110.14883 (2021).
+[1] Dosovitskiy, Alexey, et al. "An image is worth 16x16 words: Transformers for image recognition at scale." arXiv preprint arXiv:2010.11929 (2020).
+[2] [NVIDIA/DALI](https://github.com/NVIDIA/DALI)
+[3] Bian, Zhengda, et al. "Colossal-AI: A Unified Deep Learning System For Large-Scale Parallel Training." arXiv preprint arXiv:2110.14883 (2021).
