@@ -178,7 +178,7 @@
                  <p style="color:#586376;">包含 TRTC、直播、短视频、点播等多项功能</p>
                     <div style="margin-top: 13px;" >
                         <a  href="https://www.npmjs.com/package/im_electron_sdk">NPM 下载</a>
-                                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/269/63008">集成指引</a>
+                                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/269/63007">集成指引</a>
                                 <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/269/63009">更新日志</a>
                     </div>
             </div>
@@ -255,7 +255,7 @@
                 <p style="color:#586376;">包含 IM 主要功能</p>
                      <div style="margin-top: 13px; " >
                     <a href="https://github.com/tencentyun/TIMSDK/tree/master/Flutter/Demo/im-flutter-uikit">Github 下载</a>
-                     <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/269/68823">集成指引</a></div>
+                     <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/269/75286">集成指引</a></div>
             </div>
         </div>
         <div class="card-container">

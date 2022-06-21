@@ -15,14 +15,15 @@ TUIVoiceRoom 是一个开源的音视频 UI 组件，通过在项目中集成 TU
 ## 组件集成
 
 ### 步骤一：下载并导入 TUIVoiceRoom 组件
-单击进入 [Github](https://github.com/tencentyun/TUIVoiceRoom) ，选择克隆/下载代码，然后拷贝 Android/Source 目录到您的工程中，并完成如下导入动作：
+单击进入 [Github](https://github.com/tencentyun/TUIVoiceRoom) ，选择克隆/下载代码，然后拷贝 `Android/debug` 和 `Android/tuivoiceroom` 目录到您的工程中，并完成如下导入动作：
 - 在 `setting.gradle` 中完成导入，参考如下：
 ```
-include ':Source'
+include ':debug'
+include ':tuivoiceroom'
 ```
-- 在 app 的 build.gradle 文件中添加对 Source 的依赖：
+- 在 app 的 build.gradle 文件中添加对 tuivoiceroom 的依赖：
 ```
-api project(':Source')
+api project(':tuivoiceroom')
 ```
 - 在根目录的`build.gradle`文件中添加`TRTC SDK`和`IM SDK`的依赖：
 ```
@@ -69,7 +70,7 @@ ext {
 ![](https://qcloudimg.tencent-cloud.cn/raw/cf6de5f10b77be75174d0ba359101f60.png)
 - **Secretkey**：**TRTC 应用密钥**和 SDKAppId 对应，进入 [TRTC 应用管理](https://console.cloud.tencent.com/trtc/app) 后，SecretKey 信息如上图所示。
 - **userId**：当前用户的 ID，字符串类型，只允许包含英文字母（a-z 和 A-Z）、数字（0-9）、连词符（-）和下划线（\_）。建议结合业务实际账号体系自行设置。
-- **userSig**：根据 SDKAppId、userId，Secretkey等信息计算得到的安全保护签名，您可以单击 [这里](https://console.cloud.tencent.com/trtc/usersigtool) 直接在线生成一个调试的userSig，也可以参照我们的 [示例工程](https://github.com/tencentyun/TUIVoiceRoom/blob/main/Android/Debug/src/main/java/com/tencent/liteav/debug/GenerateTestUserSig.java#L88) 自行计算，更多信息见 [如何计算及使用 UserSig](https://cloud.tencent.com/document/product/647/17275)。
+- **userSig**：根据 SDKAppId、userId，Secretkey等信息计算得到的安全保护签名，您可以单击 [这里](https://console.cloud.tencent.com/trtc/usersigtool) 直接在线生成一个调试的userSig，也可以参照我们的 [示例工程](https://github.com/tencentyun/TUIVoiceRoom/blob/main/Android/debug/src/main/java/com/tencent/liteav/debug/GenerateTestUserSig.java#L104) 自行计算，更多信息见 [如何计算及使用 UserSig](https://cloud.tencent.com/document/product/647/17275)。
 
 ### 步骤四：实现语音聊天房间
 1. **实现房主创建语音聊天房间 [TRTCVoiceRoom#createRoom](https://cloud.tencent.com/document/product/647/45979#createroom)**
