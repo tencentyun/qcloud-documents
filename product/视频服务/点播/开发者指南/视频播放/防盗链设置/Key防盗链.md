@@ -15,9 +15,9 @@
 
 防盗链 URL 的生成规则是在原始 URL 尾部，以 QueryString 的方式加入防盗链参数，形如：
 ```
-http://example.vod2.myqcloud.com/dir1/dir2/myVideo.mp4?t=[t]&exper=[exper]&rlimit=[rlimit]&us=[us]&sign=[sign]
+http://example.vod2.myqcloud.com/dir1/dir2/myVideo.mp4?t=[t]&exper=[exper]&rlimit=[rlimit]&us=[us]&uid=[uid]&sign=[sign]
 ```
-QueryString 中的防盗链参数必须按照`t`、`exper`、`rlimit`、`us`、`sign`的顺序拼接，下面详细介绍防盗链 URL 中各个参数的含义和取值方法。
+下面详细介绍防盗链 URL 中各个参数的含义和取值方法。
 
 #### 防盗链参数
 | 参数名 | 必选 | 说明                                                         |
