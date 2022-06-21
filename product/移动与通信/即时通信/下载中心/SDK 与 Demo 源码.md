@@ -64,7 +64,7 @@
         <div style="margin-top: 13px;" >
         <a  href="https://github.com/tencentyun/TIMSDK/tree/master/Web/IMSDK">Github 下载</a>
         <a style="margin-left: 10px;" href="https://www.npmjs.com/package/tim-js-sdk">NPM 下载</a>
-        <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/269/37413">集成指引</a>
+        <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/269/75285">集成指引</a>
         <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/269/38492">更新日志</a>
         </div>
     </div>
@@ -77,7 +77,7 @@
       <div style="margin-top: 13px;" >
         <a  href="https://github.com/tencentyun/TIMSDK/tree/master/MiniProgram/IMSDK">Github 下载</a>
         <a style="margin-left: 10px;" href="https://www.npmjs.com/package/tim-wx-sdk">NPM 下载</a>
-      <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/269/37413">集成指引</a>
+      <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/269/75285">集成指引</a>
       <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/269/38492">更新日志</a>
       </div>
     </div>
@@ -97,7 +97,7 @@
                     <div style="margin-top: 13px;" >
                                 <a  href="https://github.com/tencentyun/TIMSDK/tree/master/Android/IMSDK">Github 下载</a>
                                 <a style="margin-left: 10px;" href="https://gitee.com/cloudtencent/TIMSDK/tree/master/Android/IMSDK">Gitee 下载</a>
-                                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/269/32679">集成指引</a>
+                                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/269/75283">集成指引</a>
                                 <a style="margin-left: 10px" href="https://cloud.tencent.com/document/product/269/1606">更新日志</a>
                     </div>
             </div>
@@ -110,7 +110,7 @@
                     <div style="margin-top: 13px;" >
                         <a  href="https://github.com/tencentyun/TIMSDK/tree/master/iOS/IMSDK">Github 下载</a>
                         <a style="margin-left: 10px;" href="https://gitee.com/cloudtencent/TIMSDK/tree/master/iOS/IMSDK">Gitee 下载</a>
-                                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/269/32675">集成指引</a>
+                                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/269/75284">集成指引</a>
                                 <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/269/1606">更新日志</a>
                     </div>
             </div>
@@ -123,7 +123,7 @@
                     <div style="margin-top: 13px; " >
                         <a  href="https://github.com/tencentyun/TIMSDK/tree/master/Mac/IMSDK">Github 下载</a>
                         <a style="margin-left: 10px;" href="https://gitee.com/cloudtencent/TIMSDK/tree/master/Mac/IMSDK">Gitee 下载</a>
-                                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/269/32676">集成指引</a>
+                                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/269/75288">集成指引</a>
                                 <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/269/1606">更新日志</a>
                     </div>
             </div>
@@ -136,7 +136,7 @@
                     <div style="margin-top: 13px;" >
                       <a  href="https://github.com/tencentyun/TIMSDK/tree/master/Windows/IMSDK">Github 下载</a>
                         <a style="margin-left: 10px;" href="https://gitee.com/cloudtencent/TIMSDK/tree/master/Windows/IMSDK">Gitee 下载</a>
-                                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/269/33489">集成指引</a>
+                                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/269/75287">集成指引</a>
                                 <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/269/1606">更新日志</a>
                     </div>
             </div>
@@ -166,7 +166,7 @@
                 <p style="color:#586376;">包含 IM 主要功能</p>
                     <div style="margin-top: 13px;" >
                         <a  href="https://comm.qq.com/im/sdk/unity_plus/im_unity_sdk_plus_v1.6.0.unitypackage">Unity Package</a>
-                                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/269/70387">集成指引</a>
+                                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/269/75289">集成指引</a>
                                 <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/269/56150">更新日志</a>
                     </div>
             </div>
@@ -178,7 +178,7 @@
                  <p style="color:#586376;">包含 TRTC、直播、短视频、点播等多项功能</p>
                     <div style="margin-top: 13px;" >
                         <a  href="https://www.npmjs.com/package/im_electron_sdk">NPM 下载</a>
-                                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/269/63008">集成指引</a>
+                                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/269/63007">集成指引</a>
                                 <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/269/63009">更新日志</a>
                     </div>
             </div>
@@ -255,7 +255,7 @@
                 <p style="color:#586376;">包含 IM 主要功能</p>
                      <div style="margin-top: 13px; " >
                     <a href="https://github.com/tencentyun/TIMSDK/tree/master/Flutter/Demo/im-flutter-uikit">Github 下载</a>
-                     <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/269/68823">集成指引</a></div>
+                     <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/269/75286">集成指引</a></div>
             </div>
         </div>
         <div class="card-container">

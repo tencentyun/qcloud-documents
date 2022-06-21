@@ -130,7 +130,11 @@
                 "cls:DescribeLogHistogram",
                 "cls:DescribeLogContext",
                 "cls:DescribeLogFastAnalysis",
-                "cls:DescribeLatestJsonLog"
+                "cls:DescribeLatestJsonLog",
+				"cls:DescribeRebuildIndexTasks",
+				"cls:CreateRebuildIndexTask",
+				"cls:EstimateRebuildIndexTask",
+				"cls:CancelRebuildIndexTask"
             ],
             "resource": [
                 "*"
@@ -174,7 +178,11 @@
                 "cls:DescribeLogHistogram",
                 "cls:DescribeLogContext",
                 "cls:DescribeLogFastAnalysis",
-                "cls:DescribeLatestJsonLog"
+                "cls:DescribeLatestJsonLog",
+				"cls:DescribeRebuildIndexTasks",
+				"cls:CreateRebuildIndexTask",
+				"cls:EstimateRebuildIndexTask",
+				"cls:CancelRebuildIndexTask"
             ],
             "resource": [
                 "qcs::cls:ap-guangzhou:100007***827:logset/1c012db7-2cfd-4418-****-7342c7a42516",
@@ -219,7 +227,11 @@
                 "cls:DescribeLogHistogram",
                 "cls:DescribeLogContext",
                 "cls:DescribeLogFastAnalysis",
-                "cls:DescribeLatestJsonLog"
+                "cls:DescribeLatestJsonLog",
+				"cls:DescribeRebuildIndexTasks",
+				"cls:CreateRebuildIndexTask",
+				"cls:EstimateRebuildIndexTask",
+				"cls:CancelRebuildIndexTask"
             ],
             "resource": [
                 "*"
@@ -257,7 +269,8 @@
                 "cls:DescribeLogHistogram",
                 "cls:DescribeLogContext",
                 "cls:DescribeLogFastAnalysis",
-                "cls:DescribeLatestJsonLog"
+                "cls:DescribeLatestJsonLog",
+				"cls:DescribeRebuildIndexTasks"
             ],
             "resource": [
                 "*"
@@ -288,7 +301,8 @@
                 "cls:DescribeLogHistogram",
                 "cls:DescribeLogContext",
                 "cls:DescribeLogFastAnalysis",
-                "cls:DescribeLatestJsonLog"
+                "cls:DescribeLatestJsonLog",
+				"cls:DescribeRebuildIndexTasks"
             ],
             "resource": [
                 "qcs::cls:ap-guangzhou:100007***827:logset/1c012db7-2cfd-4418-****-7342c7a42516",
@@ -320,7 +334,8 @@
                 "cls:DescribeLogHistogram",
                 "cls:DescribeLogContext",
                 "cls:DescribeLogFastAnalysis",
-                "cls:DescribeLatestJsonLog"
+                "cls:DescribeLatestJsonLog",
+				"cls:DescribeRebuildIndexTasks"
             ],
             "resource": [
                 "*"
