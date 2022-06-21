@@ -97,7 +97,7 @@ WebRTC 协议推流主要用于视频云的快直播（超低延时直播）推�
   2. 单击 **推流** 进入流设置页签，选择服务类型为 `Tenent webrtc`，服务器为 `Default`，串流密钥中输入之前生成的 [WebRTC 推流地址](#push)，并在后面拼接上 `&stopstream_api=https://webrtcpush.myqcloud.com/webrtc/v1/stopstream`。
   **串流密钥示例：**
 ```
-webrtc://domain/AppName/StreamName?txSecret=xxx&txTime=xxx &stopstream_api=https://webrtcpush.myqcloud.com/webrtc/v1/stopstream 
+webrtc://domain/AppName/StreamName?txSecret=xxx&txTime=xxx&stopstream_api=https://webrtcpush.myqcloud.com/webrtc/v1/stopstream 
 ```
 如下图：
 ![](https://main.qcloudimg.com/raw/5c33acc958da82c01127ba2d4575ce1e.png)     
