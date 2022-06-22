@@ -26,7 +26,7 @@ const wss = new WebSocket.Server({
 wss.on('connection', (ws) => {
   console.log('client connected')
 })
-server.listen(443)
+server.listen(3000)
 ```
 
 ## 使用 WebSocket 更新大屏图表
@@ -363,5 +363,5 @@ app.get('/refresh-chart', (req, res, next) => {
     msg: 'ok'
   })
 })
-server.listen(443)
+server.listen(3000)
 ```
