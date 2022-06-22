@@ -15,7 +15,7 @@
 ## 3. 创建云服务器
 前往 [云服务器购买页](http://manage.qcloud.com/shoppingcart/shop.php?tab=cvm&_ga=1.91351132.770173325.1571651505)，仔细查阅页面信息，灵活地选择云服务器所在地域、机型、镜像、公网带宽、购买数量及购买时长，以确保满足您实际的业务需求。
 您可参考 [快速配置 Linux 云服务器](https://cloud.tencent.com/document/product/213/2936) 或 [快速配置 Windows 云服务器](https://cloud.tencent.com/document/product/213/2764) 文档，了解快速创建方法。如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/39236446ab9abf8b6d4685020e65bd6e.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/1186dfc3df383751fc6f0ebfa9e66396.png)
 
 ## 4. 登录云服务器
 当您购买完成后，您可以登录您购买的云服务器。详情请参见：
