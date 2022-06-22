@@ -129,7 +129,7 @@
   <tr>
 	<td>公网 IP</td>
 	<td>可选</td>
-	<td>	若您的云服务器需外网访问能力，则需为云服务器分配公网 IP。</td>
+	<td>	若您的云服务器需外网访问能力，则需为云服务器分配公网 IP。您可在创建云服务器时选择分配公网 IP，或在云服务器创建后为其配置 <a href="https://cloud.tencent.com/document/product/213/5733">弹性公网 IP</a>。 </td>
 	</tr>
 	<tr>
 	<td>带宽计费模式</td>
@@ -147,12 +147,12 @@
 	<tr>
 	<td>带宽值</td>
 	<td>可选</td>
-	<td>您可按需设置云服务器的公网带宽上限，详情请参见  <a href="https://cloud.tencent.com/document/product/213/12523">公网带宽上限</a>。</td>
+	<td>您可按需设置云服务器的公网带宽上限，更多信息请参见  <a href="https://cloud.tencent.com/document/product/213/12523">公网带宽上限</a>。</td>
 	</tr>
   <tr>
 	<td>IPv6 地址</td>
 	<td>可选</td>
-	<td>开通云服务器的 IPv6 地址。更多关于 IPv6 的介绍，请参见 
+	<td>开通云服务器的 IPv6 地址。更多信息请参见 
 	<a href="https://cloud.tencent.com/document/product/1142/38134">弹性公网 IPv6</a>。</td>
   </tr>
   <tr>
@@ -166,7 +166,7 @@
 	<tr>
 	<td>标签</td>
 	<td>可选</td>
-	<td>可按需给云服务器增加标签，用于云资源进行分类、搜索和聚合。关于标签更多介绍，请参见 <a href="https://cloud.tencent.com/document/product/651/13334">标签</a>。</td>
+	<td>可按需给云服务器增加标签，用于云资源进行分类、搜索和聚合。更多信息请参见 <a href="https://cloud.tencent.com/document/product/651/13334">标签</a>。</td>
   </tr>
 	<tr>
 	<td>实例名称</td>
