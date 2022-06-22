@@ -2,6 +2,9 @@
 
 
 本章节主要描述使用 Solidity 进行 ChainMaker 合约编写的方法，主要面向于使用 Solidity 进行 ChainMaker 的合约开发的开发者。
+<dx-alert infotype="notice" title="">
+安装 Solidity 合约时，需将 .bin 和 .abi 两个合约文件一起上传。
+</dx-alert>
 
 ## 使用 Docker 镜像进行合约开发
 
