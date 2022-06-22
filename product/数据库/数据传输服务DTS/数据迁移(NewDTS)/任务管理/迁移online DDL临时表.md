@@ -1,6 +1,6 @@
 
 ## 操作场景
-使用 gh-ost、  pt-online-schema-change 工具对源库中的表执行 Online DDL 操作，需要将 Online DDL 变更产生的临时表迁移到目标库。
+使用 gh-ost、 pt-online-schema-change 工具对源库中的表执行 Online DDL 操作，需要将 Online DDL 变更产生的临时表迁移到目标库。
 
 - 使用 gh-ost 工具对表 `表名` 做 Online DDL，DTS 支持迁移临时表 `_表名_ghc`、`_表名_gho`、`_表名_del` 到目标库。 
 - 使用 pt-online-schema-change  工具对表 `表名` 做 Online DDL，DTS 支持迁移临时表 `_表名_new`、  `_表名_old` 到目标库。
