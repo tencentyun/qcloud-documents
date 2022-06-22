@@ -23,7 +23,7 @@
    <img src="https://qcloudimg.tencent-cloud.cn/raw/5888bba294f17848ab8343d507ee427d.jpg" style="zoom:30%;" />
 
 2. 单击 Identifiers 右侧的 **+**。
-   <img src="https://qcloudimg.tencent-cloud.cn/raw/ba3222cc6bda236f5080e897351c36a2.png" style="zoom:25%;" />
+   <img src="https://qcloudimg.tencent-cloud.cn/raw/ba3222cc6bda236f5080e897351c36a2.png" style="zoom:20%;" />
 
 3. 您可以参考如下步骤新建一个 AppID，或者在您原有的 AppID 上增加 `Push Notification` 的 `Service`。
 
@@ -85,10 +85,10 @@
 ### 步骤2：上传证书到控制台
 1. 登录 [即时通信 IM 控制台](https://console.cloud.tencent.com/im)。
 2. 单击目标应用卡片，进入应用的基础配置页面。
-   <img src="https://qcloudimg.tencent-cloud.cn/raw/74c3e635896cf575de7bd9bfafa135e8.jpg" style="zoom:30%;" />
+   <img src="https://qcloudimg.tencent-cloud.cn/raw/0d9e979448bc73d89cef42bcfed1ef1b.jpeg" style="zoom:30%;" />
 3. 单击 **iOS 原生离线推送设置**右侧的**添加证书**。
 4. 选择证书类型，上传 iOS 证书（p.12），设置证书密码，单击**确认**。
-   <img src="https://qcloudimg.tencent-cloud.cn/raw/c2843be158d3a7c0beaa91dda62dea88.jpg" style="zoom:30%;" />
+   <img src="https://qcloudimg.tencent-cloud.cn/raw/be35b3dc7ce18a2873ff30c1fe1f6a42.jpeg" style="zoom:30%;" />
 
 >!
 >- 上传证书名最好使用全英文（尤其不能使用括号等特殊字符）。
@@ -98,8 +98,8 @@
 
 [](id:businessid)
 5. 待推送证书信息生成后，记录证书的 ID。
-   
-   <img src="https://qcloudimg.tencent-cloud.cn/raw/f0be96239237918df38977e25d982e23.jpg" style="zoom:30%;" />
+
+   <img src="https://qcloudimg.tencent-cloud.cn/raw/3ed35dbddad2ed8b2c383a490903c134.jpeg" style="zoom:30%;" />
 
 [](id:DeviceToken)
 ### 步骤3：App 向苹果后台请求 deviceToken
