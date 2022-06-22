@@ -8,7 +8,7 @@ mysqldump -hX.X.X.X -uroot -pXXXX --single-transaction --set-gtid-purged=OFF hiv
 # X.X.X.X为数据库服务器地址  
 # XXXX为数据库密码  
 # 如果数据库用户不是 root，请用正确的用户名  
-# hivemetastor 是 Hive 元数据库名 
+# hivemetastore 是 Hive 元数据库名 
 ```
 2. 确认目标 Hive 表数据在 HDFS 中的缺省路径。
 Hive 表数据在 HDFS 中的缺省路径由 `hive-site.xml` 中的 `hive.metastore.warehouse.dir` 指定。如果 Hive 表在 HDFS 的存储位置依然保持与源 Hive 一致，那么需要修改为与源 Hive 数据库中的值一致。例如，源 `hive-site.xml` 中 `hive.metastore.warehouse.dir` 为下面的值。
