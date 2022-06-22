@@ -1,7 +1,7 @@
 
 ## 操作场景
-使用 gh-ost、  pt-online-schema-change（下文简称 pt-osc ）等工具对源库中的表做 Online DDL，需要将 Online DDL 变更产生的临时表同步到目标库。
-
+使用 gh-ost、 pt-online-schema-change（下文简称 pt-osc ）等工具对源库中的表做 Online DDL，需要将 Online DDL 变更产生的临时表同步到目标库。
+DTS 支持在选择同步对象时，提前关联对象表的临时表名，在后续源库产生临时表时一并进行同步。  
 - 使用 gh-ost 工具对表 `表名` 做 Online DDL，DTS 支持同步临时表 `_表名_ghc`、`_表名_gho`、`_表名_del` 到目标库。 
 - 使用 pt-osc 工具对表 `表名` 做 Online DDL，DTS 支持同步临时表 `_表名_new`、  `_表名_old` 到目标库。
 
