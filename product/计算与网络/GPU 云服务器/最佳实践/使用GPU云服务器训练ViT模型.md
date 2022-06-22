@@ -1,6 +1,6 @@
 
 <dx-alert infotype="explain" title="">
-本文第三方教程来自 [GPU 云服务器用户实践征文](https://cloud.tencent.com/document/product/855/71869)，仅供学习和参考。
+本文来自 [GPU 云服务器用户实践征文](https://cloud.tencent.com/document/product/855/71869)，仅供学习和参考。
 </dx-alert>
 
 ## 操作场景
@@ -26,7 +26,7 @@ ViT 全称 Vision Transformer，该模型由 Alexey Dosovitskiy 等人提出，�
 
 ## 操作步骤
 
-### 增加实例安全性（可选）
+### 设置实例免密登录（可选）
 
 1. （可选）您可在本机 `~/.ssh/config` 中，配置服务器的别名。本文创建别名为 `tcg`。
 2. 通过 `ssh-copy-id` 命令，将本机 SSH 公钥复制至 GPU 云服务器。
@@ -115,6 +115,9 @@ python
 ```
 ```shellsession
 import torch
+```
+```shellsession
+print(torch.cuda.is_avaliable())
 ```
 返回结果如下图所示，表示 PyTorch 已安装成功。
 ![](https://qcloudimg.tencent-cloud.cn/raw/12b5f76946fd80ff46a4e4dfa9aed2cd.png)
@@ -250,9 +253,11 @@ python3 make\_idx.py --tfrecord\_root="../train\_val\_tfrecord"
 1. 根据 [版本选择页面](https://colossalai.org/download) 通过以下命令，安装 Colossal-AI 和 pytorch-image-models：
 ```shellsession
 pip install colossalai==0.1.5+torch1.11cu11.3 -f https://release.colossalai.org
+```
+```shellsession
 pip install timm
 ```
-2. 参考 Colossal-AI 提供的 [demo](https://github.com/hpcaitech/ColossalAI-Examples), 编写模型训练代码如下：
+2. 参考 Colossal-AI 提供的 [demo](https://github.com/hpcaitech/ColossalAI-Examples)，编写模型训练代码如下：
 ```python
 from pathlib import Path
 
