@@ -4,7 +4,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/5ca529614f594787abf10b106ddca19a.png)
 
 ## EIAM 认证配置
-本节仅介绍 EIAM（即数字身份管控平台）认证配置的主要步骤，其他配置详情请参见  [EIAM 产品文档 ](https://cloud.tencent.com/document/product/1442)查看。
+本节仅介绍 EIAM（即数字身份管控平台）认证配置的主要步骤，其他配置详情请参见  [EIAM 产品文档 ](https://cloud.tencent.com/document/product/1442)。
 
 ### [创建用户](https://cloud.tencent.com/document/product/1442/55066)
 1. 登录 [EIAM 平台](https://console.cloud.tencent.com/eiam)，在导航栏选择**用户管理** > **组织机构管理** > **根节点**，然后在**根节点**页面单击**新建用户**。
@@ -13,7 +13,7 @@
 该处用户名密码将会用于登录 [腾讯云 Client VPN 自助服务门户](https://self-service-test.vpn.woa.com/)。
 ![](https://qcloudimg.tencent-cloud.cn/raw/e5700176a40839e80d59f445c22e497e.png)
 
-### [创建用户组](https://cloud.tencent.com/document/product/1442/55067) 并添加下相应的成员。
+### [创建用户组](https://cloud.tencent.com/document/product/1442/55067) 并添加下相应的成员
 1. 在导航栏选择**用户管理** > **用户组管理**，在**用户组管理**页面单击**新建用户组**，并依据界面参数填写相应的内容，然后单击**确定**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/20bc3ebb60e62e85439066e7c8c55a62.png)
 2. 在创建好的用户组区域单击**添加用户**。
@@ -26,7 +26,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/5274221f7041d52e563201cc5f0261ed.png)
 ![](https://qcloudimg.tencent-cloud.cn/raw/cf224673ba7d8ddae92a502f7f1b6bb4.png)
 2. 在**编辑应用信息**页签依据界面提示填写相应的信息，然后单击**下一步：完成**。
-![](https://qcloudimg.tencent-cloud.cn/raw/60f84c4c30e460b7f0c4b21ddf0057e1.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/e2c16f030576ba0677c4dadd01295afe.png)
 
 ### [EIAM 应用授权](https://cloud.tencent.com/document/product/1442/55069)
 1. 在导航栏选择**应用授权**，在**应用授权**页面单击**用户组授权**，然后单击**新增授权**。
@@ -115,8 +115,8 @@
 ### 配置访问控制策略
 1. 在左侧导航栏中选择 **VPN 连接** > **SSL 服务端**，进入管理页。
 2. 在 SSL 服务端列表单击具体是实例 ID。
-3. 在 SSL 服务端详情页面单击**访问控制**，并单击**新建策略**，然后依据界面信息配置策略信息。
-![](https://qcloudimg.tencent-cloud.cn/raw/0a368fee585018b3a9f1b501947bd674.png)
+3. 在 SSL 服务端详情页面单击**访问控制**，并单击**新增策略**，然后依据界面信息配置策略信息。
+![](https://qcloudimg.tencent-cloud.cn/raw/b572e512a3742fb8f21506cace07e359.png)
 <table>
 <tr>
 <th>参数名称</th>
@@ -146,6 +146,8 @@
 4. 完成配置后，单击**确定**。
 
 ### （可选）创建 SSL 客户端
+>?若需要通过SSL客户端管理页 [下载客户端对应的配置](https://cloud.tencent.com/document/product/554/63729)，用于与服务端连接，可按需创建 SSL 客户端。
+>
 1. 在左侧导航栏中选择 **VPN 连接** > **SSL 客户端**，进入管理页。
 2. 在**新建SSL客户端**对话框中设置客户端名称和选择待连接的 SSL 服务端，然后单击**确定**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/b65569fc55aedb84ed681b5d5b2b726e.png)
