@@ -1,8 +1,8 @@
 ## TKE kubernetes 1.20.6 revisions
 <table>
-  <thead>
-    <tr><th> 时间         </th><th> 版本                 </th><th> 更新内容                           </th></tr>
-  </thead>
+<thead>
+<tr><th width="13%">时间</th><th width="13%">版本</th><th width="74%">更新内容</th></tr>
+</thead>
   <tbody>
 	 <tr>
     <td>2022-06-16</td>
