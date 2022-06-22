@@ -60,7 +60,7 @@ app.get('/refresh-chart', (req, res, next) => {
       // body 是数组，这里可以传入多个图表组件的数据
       body: [
         {
-          id: 'ChartColumnBasic_1_0_0_2_1583478813519',
+          id: 'component/ChartColumnBasic_1_0_0_2_1583478813519',
           data: [
             {
               x: '一月',
