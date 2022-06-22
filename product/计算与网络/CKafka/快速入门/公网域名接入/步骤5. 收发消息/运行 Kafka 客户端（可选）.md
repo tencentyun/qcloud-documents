@@ -14,6 +14,7 @@
 java -version
 :::
 </dx-codeblock>
+
 如果输出 Java 版本号，说明 Java 安装成功；如果没有安装 Java，请 [下载安装 Java 软件开发套件（JDK）](https://www.oracle.com/java/technologies/downloads/)。
 
 
