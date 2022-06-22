@@ -88,7 +88,7 @@
    <img src="https://qcloudimg.tencent-cloud.cn/raw/0d9e979448bc73d89cef42bcfed1ef1b.jpeg" style="zoom:30%;" />
 3. 单击 **iOS 原生离线推送设置**右侧的**添加证书**。
 4. 选择证书类型，上传 iOS 证书（p.12），设置证书密码，单击**确认**。
-   <img src="https://qcloudimg.tencent-cloud.cn/raw/be35b3dc7ce18a2873ff30c1fe1f6a42.jpeg" style="zoom:30%;" />
+   <img src="https://qcloudimg.tencent-cloud.cn/raw/ec3e35778acc8b2e85022bc7c57f373b.jpeg" style="zoom:30%;" />
 
 >!
 >- 上传证书名最好使用全英文（尤其不能使用括号等特殊字符）。
