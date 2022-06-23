@@ -3,7 +3,7 @@ TUIRoom 是一个开源的音视频 UI 组件，通过在项目中集成 TUIRoom
 
 >?TUIKit 系列组件同时使用了腾讯云 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269/42440) 两个基础 PaaS 服务，开通实时音视频后会同步开通即时通信IM服务。即时通信 IM 服务详细计费规则请参见 [即时通信 - 价格说明](https://cloud.tencent.com/document/product/269/11673)，TRTC 开通会默认关联开通 IM SDK 的体验版，仅支持100个 DAU。
 
-![](https://qcloudimg.tencent-cloud.cn/raw/08f914b45857743fd05dfaa28e2adb72.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/fc82f1fa6c4e6841cda00f8ee6578b5d.png)
 
 ## 组件集成
 
