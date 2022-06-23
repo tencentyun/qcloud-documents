@@ -9,7 +9,7 @@
 
 ## 步骤3：新建问卷
 选择相应账号登录后，进入腾讯问卷工作台，您可单击**新建 +**，选择**新建问卷**，即可进入“创建问卷”页面。
-<img style="width:978px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/e265dcf078e0888dabbcbffaa6b02ddf.png" />
+<img style="width:978px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/b87e9e147831bf7f3f7c74201baa6ac5.png" />
 
 ## 步骤4：开始使用
 单击**创建空白问卷**下方的开始，进入问卷“编辑”界面。您可以根据需求自定义问卷。
