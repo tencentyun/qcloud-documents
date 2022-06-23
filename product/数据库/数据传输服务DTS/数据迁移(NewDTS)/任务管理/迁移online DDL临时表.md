@@ -1,9 +1,9 @@
 
 ## 操作场景
-使用 gh-ost、 pt-online-schema-change 工具对源库中的表执行 Online DDL 操作，需要将 Online DDL 变更产生的临时表迁移到目标库。
+使用 gh-ost、pt-online-schema-change（下文简称 pt-osc ）工具对源库中的表执行 Online DDL 操作，需要将 Online DDL 变更产生的临时表迁移到目标库。
 DTS 支持在选择迁移对象时，提前关联对象表的临时表名，在后续源库产生临时表时一并进行迁移。  
 - 使用 gh-ost 工具对表 `表名` 做 Online DDL，DTS 支持迁移临时表 `_表名_ghc`、`_表名_gho`、`_表名_del` 到目标库。 
-- 使用 pt-online-schema-change  工具对表 `表名` 做 Online DDL，DTS 支持迁移临时表 `_表名_new`、  `_表名_old` 到目标库。
+- 使用 pt-osc 工具对表 `表名` 做 Online DDL，DTS 支持迁移临时表 `_表名_new`、  `_表名_old` 到目标库。
 
 ## 适用范围
  MySQL、MariaDB、Percona、TDSQL-C MySQL 之间的数据迁移。
