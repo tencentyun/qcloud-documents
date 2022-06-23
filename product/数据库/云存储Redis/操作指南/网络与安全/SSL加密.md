@@ -14,7 +14,9 @@ SSL（Secure Sockets Layer）认证是客户端到云数据库服务器端的认
 
 ## 版本架构说明
 - 新建实例：兼容版本4.0、5.0、6.0均支持直接开通 SSL 加密。如需使用6.0版本，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请。
-- 存量实例：兼容版本为2.8，需升级版本至4.0，才能开通 SSL 加密。兼容版本为4.0或5.0，需 [升级代理版本](https://cloud.tencent.com/document/product/239/74569) 至5.6.0才能开通 SSL 加密。
+- 存量已有实例：
+ - 兼容版本为2.8，可根据需要升级兼容版本至4.0、5.0或6.0，才能开通 SSL 加密。具体操作，请参见 [版本升级](https://cloud.tencent.com/document/product/239/46457)。
+ - 兼容版本为4.0、5.0、6.0，需升级代理版本至5.6.0才能支持。具体操作，请参见 [代理升级](https://cloud.tencent.com/document/product/239/74569)。
 - 支持架构：标准架构与集群架构均支持 SSL 加密。
 
 ## 前提条件
