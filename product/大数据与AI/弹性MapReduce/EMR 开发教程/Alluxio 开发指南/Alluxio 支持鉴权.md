@@ -6,7 +6,7 @@ Alluxio 用户在对已有的统一命名空间访问 COS、HDFS、CHDFS 上的�
 
 ## 支持版本
 - 服务组件支持版本：Alluxio2.8.0版本。
-- 产品版本：Hadoop2.x 标准版本 EMR-V2.7.0及 Hadoop3.x 标准版本 EMR-V3.4.0版本。
+- 产品版本：Hadoop3.x 标准版本 EMR-V3.4.0版本。
 
 ## 配置鉴权
 ### 前置配置
