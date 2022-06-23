@@ -22,7 +22,7 @@
 <tr>
 <td>腾讯特效 TE</td>
 <td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.4.2.104/demo.zip">ZIP 包</a></td>
-<td align="center"><img src="!https://qcloudimg.tencent-cloud.cn/raw/41fe7f901b2ed8c129b51a4f10d62463.png" width=120><br><a href="http://dldir1.qq.com/hudongzhibo/xmagic/xmagic-demo-2.4.2.311-signed.apk">单击下载</a></td>
+<td align="center"><img src="https://qcloudimg.tencent-cloud.cn/raw/41fe7f901b2ed8c129b51a4f10d62463.png" width=120><br><a href="http://dldir1.qq.com/hudongzhibo/xmagic/xmagic-demo-2.4.2.311-signed.apk">单击下载</a></td>
 <td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.2.311/xmagic_S1-04_android_2.4.2.311.zip">ZIP 包</a></td>
 <td><a href="https://cloud.tencent.com/document/product/616/65894">DOC</a></td></tr>
 <tr>
