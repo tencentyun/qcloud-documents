@@ -89,7 +89,7 @@ S 系列高级套餐提供高级美型功能，适用于对脸部美颜调整需
 </thead>
 <tbody><tr>
 <td >高级版 S1 - 00</td>
-<td ><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.4.1.69/xmagic_res_s100_ios.zip">DOWNLOAD</a></td>
+<td ><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.4.2.104/xmagic_res_s100_ios.zip">DOWNLOAD</a></td>
 <td ><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.2.312/xmagic_S1-00_android_2.4.2.312.zip">DOWNLOAD</a></td>
 <td rowspan=5>
 <li/><a href="https://cloud.tencent.com/document/product/616/65894">iOS DOC</a>
