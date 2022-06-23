@@ -1,502 +1,317 @@
-# Interface: URL
+## Constructors（构造函数）
 
-[url](../modules/url.md).URL
-
-URL 接口表示提供用于创建对象URL的静态方法的对象。
-
-## Table of contents
-
-### Constructors
-
-- [constructor](#constructor)
-
-### Properties
-
-- [hash](#hash)
-- [host](#host)
-- [hostname](#hostname)
-- [href](#href)
-- [origin](#origin)
-- [password](#password)
-- [pathname](#pathname)
-- [port](#port)
-- [protocol](#protocol)
-- [search](#search)
-- [searchParams](#searchparams)
-- [username](#username)
-
-### Methods
-
-- [setHash](#sethash)
-- [setHost](#sethost)
-- [setHostname](#sethostname)
-- [setHref](#sethref)
-- [setPassword](#setpassword)
-- [setPathname](#setpathname)
-- [setPort](#setport)
-- [setProtocol](#setprotocol)
-- [setSearch](#setsearch)
-- [setUsername](#setusername)
-- [toJSON](#tojson)
-- [toString](#tostring)
-
-## Constructors
-
-<span id="constructor"></span>
-
+[](id:constructor)
 ### constructor
-
-• **new URL**(`url`, `base?`)
+- **new URL**(`url`, `base?`)
 
 #### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `url` | `string` |
-| `base?` | `string` \| [`URL`](../modules/url.md#url) |
-
-#### Defined in
-
-typings/url.d.ts:5
+| Name    | Type                                                         |
+| :------ | :----------------------------------------------------------- |
+| `url`   | `string`                                                     |
+| `base?` | `string` \| [`URL`](https://cloud.tencent.com/document/product/1484/75838) |
 
 
+```
+Defined in typings/url.d.ts:5
+```
 
-## Properties
 
-<span id="hash"></span>
+## Properties（属性）
 
+[](id:hash)
 ### hash
+- **hash**: `string`
 
-• **hash**: `string`
+```
+Defined in node_modules/typescript/lib/lib.dom.d.ts:14342
+```
 
-#### Defined in
-
-node_modules/typescript/lib/lib.dom.d.ts:14342
-
-___
-
-<span id="host"></span>
-
+[](id:host)
 ### host
+- **host**: `string`
 
-• **host**: `string`
+```
+Defined in node_modules/typescript/lib/lib.dom.d.ts:14343
+```
 
-#### Defined in
-
-node_modules/typescript/lib/lib.dom.d.ts:14343
-
-___
-
-<span id="contentType"></span>
-
+[](id:contentType)
 ### hostname
+- **hostname**: `string`
 
-• **hostname**: `string`
+```
+Defined in node_modules/typescript/lib/lib.dom.d.ts:14344
+```
 
-#### Defined in
-
-node_modules/typescript/lib/lib.dom.d.ts:14344
-
-___
-
-<span id="href"></span>
-
+[](id:href)
 ### href
+**href**: `string`
 
-• **href**: `string`
+```
+Defined in node_modules/typescript/lib/lib.dom.d.ts:14345
+```
 
-#### Defined in
-
-node_modules/typescript/lib/lib.dom.d.ts:14345
-
-___
-
-<span id="origin"></span>
-
+[](id:origin)
 ### origin
+- `Readonly` **origin**: `string`
 
-• `Readonly` **origin**: `string`
+```
+Defined in node_modules/typescript/lib/lib.dom.d.ts:14347
+```
 
-#### Defined in
-
-node_modules/typescript/lib/lib.dom.d.ts:14347
-
-___
-
-<span id="password"></span>
-
+[](id:password)
 ### password
+- **password**: `string`
 
-• **password**: `string`
+```
+Defined in node_modules/typescript/lib/lib.dom.d.ts:14348
+```
 
-#### Defined in
-
-node_modules/typescript/lib/lib.dom.d.ts:14348
-
-___
-
-<span id="pathname"></span>
-
+[](id:pathname)
 ### pathname
+- **pathname**: `string`
 
-• **pathname**: `string`
+```
+Defined in node_modules/typescript/lib/lib.dom.d.ts:14349
+```
 
-#### Defined in
-
-node_modules/typescript/lib/lib.dom.d.ts:14349
-
-___
-
-<span id="port"></span>
-
+[](id:port)
 ### port
+- **port**: `string`
 
-• **port**: `string`
+```
+Defined in node_modules/typescript/lib/lib.dom.d.ts:14350
+```
 
-#### Defined in
-
-node_modules/typescript/lib/lib.dom.d.ts:14350
-
-___
-
-<span id="protocol"></span>
-
+[](id:protocol)
 ### protocol
+- **protocol**: `string`
 
-• **protocol**: `string`
+```
+Defined in node_modules/typescript/lib/lib.dom.d.ts:14351
+```
 
-#### Defined in
-
-node_modules/typescript/lib/lib.dom.d.ts:14351
-
-___
-
-<span id="search"></span>
-
+[](id:search)
 ### search
+- **search**: `string`
 
-• **search**: `string`
+```
+Defined in node_modules/typescript/lib/lib.dom.d.ts:14352
+```
 
-#### Defined in
-
-node_modules/typescript/lib/lib.dom.d.ts:14352
-
-___
-
-<span id="searchParams"></span>
-
+[](id:searchParams)
 ### searchParams
+- `Readonly` **searchParams**: [`URLSearchParams`](https://cloud.tencent.com/document/product/1484/75833#urlsearchparams)
 
-• `Readonly` **searchParams**: [`URLSearchParams`](../modules/url.md#urlsearchparams)
+```
+Defined in node_modules/typescript/lib/lib.dom.d.ts:14353
+```
 
-#### Defined in
-
-node_modules/typescript/lib/lib.dom.d.ts:14353
-
-___
-
-<span id="username"></span>
-
+[](id:username)
 ### username
+- **username**: `string`
 
-• **username**: `string`
-
-#### Defined in
-
-node_modules/typescript/lib/lib.dom.d.ts:14354
+```
+Defined in node_modules/typescript/lib/lib.dom.d.ts:14354
+```
 
 ## Methods
 
-<span id="setHash"></span>
-
+[](id:setHash)
 ### setHash
-
-▸ **setHash**(`hash`): `void`
+- **setHash**(`hash`): `void`
 
 设置网址的片段部分
+```
+Defined in typings/url.d.ts:14
+```
 
 #### Parameters
-
-| Name | Type |
-| :------ | :------ |
+| Name   | Type     |
+| :----- | :------- |
 | `hash` | `string` |
 
-#### Returns
+**Returns：**`void`
 
-`void`
 
-#### Defined in
-
-typings/url.d.ts:14
-
-___
-
-<span id="setHost"></span>
-
+[](id:setHost)
 ### setHost
-
-▸ **setHost**(`host`): `void`
+- **setHost**(`host`): `void`
 
 设置网址的主机部分
+```
+Defined in typings/url.d.ts:22
+```
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name   | Type     |
+| :----- | :------- |
 | `host` | `string` |
 
-#### Returns
+**Returns：**`void`
 
-`void`
-
-#### Defined in
-
-typings/url.d.ts:22
-
-___
-
-<span id="setHostname"></span>
-
+[](id:setHostname)
 ### setHostname
-
-▸ **setHostname**(`hostname`): `void`
+-  **setHostname**(`hostname`): `void`
 
 设置网址的主机名部分
+```
+Defined in typings/url.d.ts:30
+```
 
 #### Parameters
-
-| Name | Type |
-| :------ | :------ |
+| Name       | Type     |
+| :--------- | :------- |
 | `hostname` | `string` |
 
-#### Returns
+**Returns：**`void`
 
-`void`
-
-#### Defined in
-
-typings/url.d.ts:30
-
-___
-
-<span id="setHref"></span>
-
+[](id:setHref)
 ### setHref
-
-▸ **setHref**(`href`): `void`
+- **setHref**(`href`): `void`
 
 设置序列化的网址
+```
+Defined in typings/url.d.ts:38
+```
 
 #### Parameters
-
-| Name | Type |
-| :------ | :------ |
+| Name   | Type     |
+| :----- | :------- |
 | `href` | `string` |
 
-#### Returns
+**Returns：**`void`
 
-`void`
-
-#### Defined in
-
-typings/url.d.ts:38
-
-___
-
-<span id="setPassword"></span>
-
+[](id:setPassword)
 ### setPassword
-
-▸ **setPassword**(`password`): `void`
+- **setPassword**(`password`): `void`
 
 设置网址的密码部分
+```
+Defined in typings/url.d.ts:50
+```
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name       | Type     |
+| :--------- | :------- |
 | `password` | `string` |
 
-#### Returns
+**Returns：**`void`
 
-`void`
-
-#### Defined in
-
-typings/url.d.ts:50
-
-___
-
-<span id="setPathname"></span>
-
+[](id:setPathname)
 ### setPathname
-
-▸ **setPathname**(`pathname`): `void`
+- **setPathname**(`pathname`): `void`
 
 设置网址的路径部分
+```
+Defined in typings/url.d.ts:58
+```
 
 #### Parameters
-
-| Name | Type |
-| :------ | :------ |
+| Name       | Type     |
+| :--------- | :------- |
 | `pathname` | `string` |
 
-#### Returns
+**Returns**：`void`
 
-`void`
-
-#### Defined in
-
-typings/url.d.ts:58
-
-___
-
-<span id="setPort"></span>
-
+[](id:setPort)
 ### setPort
-
-▸ **setPort**(`port`): `void`
+- **setPort**(`port`): `void`
 
 设置网址的端口部分
+```
+Defined in typings/url.d.ts:66
+```
+
 
 #### Parameters
-
-| Name | Type |
-| :------ | :------ |
+| Name   | Type     |
+| :----- | :------- |
 | `port` | `string` |
 
-#### Returns
+**Returns：**`void`
 
-`void`
-
-#### Defined in
-
-typings/url.d.ts:66
-
-___
-
-<span id="setProtocol"></span>
-
+[](id:setProtocol)
 ### setProtocol
-
-▸ **setProtocol**(`protocol`): `void`
+- **setProtocol**(`protocol`): `void`
 
 设置网址的协议部分
+```
+Defined in typings/url.d.ts:74
+```
 
 #### Parameters
-
-| Name | Type |
-| :------ | :------ |
+| Name       | Type     |
+| :--------- | :------- |
 | `protocol` | `string` |
 
-#### Returns
+** Returns**：`void`
 
-`void`
-
-#### Defined in
-
-typings/url.d.ts:74
-
-___
-
-<span id="setSearch"></span>
-
+[](id:setSearch)
 ### setSearch
-
-▸ **setSearch**(`search`): `void`
+- **setSearch**(`search`): `void`
 
 设置网址的序列化的查询部分
+```
+Defined in typings/url.d.ts:82
+```
 
 #### Parameters
-
-| Name | Type |
-| :------ | :------ |
+| Name     | Type     |
+| :------- | :------- |
 | `search` | `string` |
 
-#### Returns
+**Returns：**`void`
 
-`void`
-
-#### Defined in
-
-typings/url.d.ts:82
-
-___
-
-<span id="setUsername"></span>
-
+[](id:setUsername)
 ### setUsername
-
-▸ **setUsername**(`username`): `void`
+- **setUsername**(`username`): `void`
 
 设置网址的用户名部分
+```
+Defined in typings/url.d.ts:94
+```
 
 #### Parameters
-
-| Name | Type |
-| :------ | :------ |
+| Name       | Type     |
+| :--------- | :------- |
 | `username` | `string` |
 
-#### Returns
+**Returns：**`void`
 
-`void`
-
-#### Defined in
-
-typings/url.d.ts:94
-
-___
-
-<span id="toJSON"></span>
-
+[](id:toJSON)
 ### toJSON
+- **toJSON**(): `string`
 
-▸ **toJSON**(): `string`
+```
+Defined in node_modules/typescript/lib/lib.dom.d.ts:14355
+```
 
-#### Returns
+**Returns**：`string`
 
-`string`
-
-#### Defined in
-
-node_modules/typescript/lib/lib.dom.d.ts:14355
-
-▸ **toJSON**(): `string`
+- **toJSON**(): `string`
 
 返回序列化的网址，当 URL 对象用 JSON.stringify() 序列化时，会自动调用此方法
+```
+Defined in typings/url.d.ts:98
+```
 
-#### Returns
+**Returns：**`string`
 
-`string`
 
-#### Defined in
-
-typings/url.d.ts:98
-
-___
-
-<span id="toString"></span>
-
+[](id:toString)
 ### toString
+- **toString**(): `string`
 
-▸ **toString**(): `string`
-
-#### Returns
-
-`string`
-
-#### Defined in
-
-node_modules/typescript/lib/lib.dom.d.ts:14346
-
-▸ **toString**(): `string`
+```
+ Defined in node_modules/typescript/lib/lib.dom.d.ts:14346
+```
+**Returns**：`string`
+- **toString**(): `string`
 
 返回序列化的网址
-
-#### Returns
-
-`string`
-
-#### Defined in
-
-typings/url.d.ts:102
+```
+Defined in typings/url.d.ts:102
+```
+**Returns：**`string`
