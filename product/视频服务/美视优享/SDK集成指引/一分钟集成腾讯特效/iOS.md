@@ -16,15 +16,11 @@ XCode 默认 C++ 环境。
 <tr>
 <td>系统依赖库</td>
 <td><ul style="margin:0">
-<li/>AVFoundation
-<li/>Accelerate
-<li/>AssetsLibrary
-<li/>CoreML
-<li/>JavaScriptCore
-<li/>CoreFoundation
-<li/>MetalPerformanceShaders
 <li/>CoreTelephony
+<li/>JavaScriptCore
 <li/>libc++.tbd
+<li/>MetalPerformanceShaders
+<li/>VideoToolbox
 </ul></td>
 </tr>
 <tr>
@@ -33,9 +29,12 @@ XCode 默认 C++ 环境。
 <li/>YTCommon（鉴权静态库）
 <li/>XMagic（美颜静态库）
 <li/>libpag（视频解码动态库）
+<li/>Masonry（控件布局库）
+<li/>SSZipArchive（文件解压库）
 </ul></td>
 </tr>
 </table>
+
 
 ## 导入资源
 ### 资源
