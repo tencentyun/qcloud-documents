@@ -1,25 +1,12 @@
-# Interface: TRPC
-
-[global](../modules/global.md).TRPC
-
-## Table of contents
-
-### Properties
-
-- [env](#env)
-- [namespace](#namespace)
-- [sendOnly](#sendonly)
-
-## Properties
-
-<span id="env"></span>
-
+## Properties（属性）
+[](id:env)
 ### env
+- **env**: `string`
 
-• **env**: `string`
-
+```
+ Defined in typings/global.d.ts:304
+```
 123 环境名，例如 formal、pre、test
-
 ```js
 export const option = {
     trpc: {
@@ -28,20 +15,15 @@ export const option = {
 }
 ```
 
-#### Defined in
 
-typings/global.d.ts:304
-
-___
-
-<span id="namespace"></span>
-
+[](id:namespace)
 ### namespace
+- **namespace**: `string`
 
-• **namespace**: `string`
-
+```
+Defined in ypings/global.d.ts:316
+```
 环境类型，例如 Production、Development
-
 ```js
 export const option = {
     trpc: {
@@ -50,20 +32,14 @@ export const option = {
 }
 ```
 
-#### Defined in
-
-typings/global.d.ts:316
-
-___
-
-<span id="sendOnly"></span>
-
+[](id:sendOnly)
 ### sendOnly
+- **sendOnly**: `boolean`
 
-• **sendOnly**: `boolean`
-
+```
+Defined in typings/global.d.ts:328
+```
 trpc 只发不收选项
-
 ```js
 export const option = {
     trpc: {
@@ -71,7 +47,3 @@ export const option = {
     }
 }
 ```
-
-#### Defined in
-
-typings/global.d.ts:328
