@@ -531,8 +531,8 @@ TIMUIKitChat(
 
 >?在后台跳转情况下，此时 Flutter 首页可能已经 unmounted，无法为跳转提供 context，因此建议启动时缓存一个 context，保证跳转成功。
 
->?建议跳转成功后，清除通知栏中其他通知消息，避免太多 IM 消息堆积在通知栏中。调用插件中`clearAllNotification()`方法即可。
-
+>?建议在跳转成功后，及时清除通知栏中其他本应用的通知，避免太多 IM 消息堆积其中。调用插件中`clearAllNotification()`方法即可。
+>
 ```Dart
 BuildContext? _cachedContext;
 
