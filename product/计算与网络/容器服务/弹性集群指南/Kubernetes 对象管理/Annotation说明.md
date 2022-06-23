@@ -119,7 +119,7 @@ eks.tke.cloud.tencent.com/eip-attributes: '{}' # 启用 EIP 并使用默认配�
 eks.tke.cloud.tencent.com/eip-claim-delete-policy: 'Never' # Pod 删除后，EIP 是否自动回收，默认回收。使用 "Never" 不回收，即下次同名 Pod 创建出来仍然会绑定此 EIP，实现固定 EIP。
 ```
 
->! Deployment 类型的工作负载使用 "Never" 不回收策略时，Pod 删除后 EIP 不会回收，滚动更新后的 Pod 也不会使用原本的 EIP。
+>! Deployment 类型的工作负载使用 `Never` 不回收策略时，Pod 删除后 EIP 不会回收，滚动更新后的 Pod 也不会使用原本的 EIP。
 
 ### StatefulSet 使用已有 EIP
 
@@ -214,7 +214,7 @@ eks.tke.cloud.tencent.com/host-modprobe: 'toa'
 
 ## 自动重建自愈
 
-超级节点所在集群虚拟机内的 agent 会上报心跳给控制面，如果上报超时（默认 5min)，一般说明 Pod 内进程已经无法正常工作了，故障原因通常是高负载，这时集群默认会自动迁移虚拟机（对当前虚拟机关机并自动创建新虚拟机，让 Pod 漂移到新虚拟机里去运行），从而实现自愈。
+超级节点所在集群虚拟机内的 agent 会上报心跳给控制面，如果上报超时（默认 5min)，一般说明 Pod 内进程已经无法正常工作了，故障原因通常是高负载，这时集群默认会自动迁移虚拟机（对当前虚拟机关机并自动创建新虚拟机，让 Pod 迁移到新虚拟机里去运行），从而实现自愈。
 
 如果用户不希望自动重建（比如用于保留现场），可以在 Pod 上添加如下注解：
 
