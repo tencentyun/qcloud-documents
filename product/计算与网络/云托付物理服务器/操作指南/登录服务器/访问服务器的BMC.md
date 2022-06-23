@@ -31,7 +31,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/d970cf7bbfe861c7225353d2a2bb65bf.png)
 3. 在浏览器访问输入 CHC 物理服务器带外网络的 IP 地址。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/632e4813b4346e0b4235d8fb0e6341f6.png)
-4. 输入用户及密码，单击**登录**。
+4. 输入用户名及密码，单击**登录**。
 5. 登录成功后，选择左侧导航栏中的**远程控制**，选择合适的访问方式，即可访问带外管理控制台。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/2de318f095878159b8e4074707f282c5.png)
 <dx-alert infotype="notice" title="">
