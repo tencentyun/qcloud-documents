@@ -12,7 +12,7 @@ SSL（Secure Sockets Layer）认证是客户端到云数据库服务器端的认
 - SSL 证书有效期为20年。
 
 ## 版本架构说明
-- 支持兼容 Redis 版本：2.8、4.0、5.0、6.0。
+- 支持兼容 Redis 版本：2.8、4.0、5.0、6.0。如需使用6.0版本，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请。
 - 支持架构：标准架构与集群架构均支持 SSL 加密。
 
 ## 前提条件
