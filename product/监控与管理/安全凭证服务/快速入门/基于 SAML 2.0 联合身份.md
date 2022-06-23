@@ -10,8 +10,7 @@
 2. 身份提供商根据企业的身份认证系统进行验证。
 3. 返回用户验证的结果。
 4. 身份提供商根据验证结果，生成一个标准的 SAML 2.0 断言文档，并返回到客户端。
-5. 客户端根据 SAML 2.0 断言、身份提供商的资源描述和使用的身份提供商角色的资源描
-6. 向 [sts:AssumeRoleWithSAML](https://cloud.tencent.com/document/product/598/35816) 请求申请临时安全密钥。
+5. 客户端根据 SAML 2.0 断言、身份提供商的资源描述向 [sts:AssumeRoleWithSAML](https://cloud.tencent.com/document/product/598/35816) 请求申请临时安全密钥。
 7. STS 校验 SAML 2.0 断言信息。
 8. 返回校验结果。
 9. 根据返回结果申请临时证书，并返回到客户端。

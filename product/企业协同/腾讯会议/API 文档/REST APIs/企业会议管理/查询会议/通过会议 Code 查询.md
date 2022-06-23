@@ -1,10 +1,10 @@
 ## 接口描述
-**描述**：用于会议 Code 查询会议详情。
-- 企业 secret 鉴权用户可查询到任何该用户创建的企业下的会议，OAuth2.0 鉴权用户只能查询到通过 OAuth2.0 鉴权创建的会议。
-- 本接口的邀请参会成员限制调整至300人。
-
-**调用方式**：GET
-**接口请求域名**：
+- **描述**：用于会议 Code 查询会议详情。
+ - 企业 secret 鉴权用户可查询到任何该用户创建的企业下的会议，OAuth2.0 鉴权用户只能查询到通过 OAuth2.0 鉴权创建的会议。
+ - 本接口的邀请参会成员限制调整至300人。
+ - 当会议为周期性会议时，主持人密钥每场会议固定，但单场会议只能获取一次。支持查询周期性会议的主持人密钥。
+- **调用方式**：GET
+- **接口请求域名**：
 ```plaintext
 https://api.meeting.qq.com/v1/meetings?meeting_code={meetingCode}&userid={userid}&instanceid={instanceid}
 ```
@@ -61,8 +61,9 @@ https://api.meeting.qq.com/v1/meetings?meeting_code={meetingCode}&userid={userid
 |enable_doc_upload_permission    | Boolean       | 是否允许成员上传文档，默认为允许。                                                     |
 |guests   | Guest 数组     | 会议嘉宾列表（会议创建人才有权限查询）。                                                     |
 |has_vote   | Boolean     | 是否有投票（会议创建人和主持人才有权限查询）。                                                     |
+|enable_host_key   | Boolean     | 是否开启主持人密钥。<br>true：开启<br>false：关闭                                                    |
+|host_key   | String     | 主持人密钥，仅支持6位数字（会议创建人才有权限查询）。<br>如开启主持人密钥后没有填写此项，将自动分配一个6位数字的密钥。                                                    |
 
-<span id="settings"></span>
 
 **用户对象**
 
@@ -74,6 +75,7 @@ https://api.meeting.qq.com/v1/meetings?meeting_code={meetingCode}&userid={userid
 
 | 参数名称                        | 参数类型 | 参数描述                                                     |
 | ------------------------------- | -------- | ------------------------------------------------------------ |
+| mute_enable_type_join                | Integer     |  成员入会时静音选项。<br>当同时返回“mute_enable_join”和“mute_enable_type_join”时，请以“mute_enable_type_join”的结果为准。<br>0：关闭<br>1：开启<br>2：超过6人后自动开启             |
 | mute_enable_join                | Boolean     | 加入静音状态，默认值为true。<br>true：开启<br>false：关闭              |
 | allow_unmute_self               | Boolean     | 是否允许参会者取消静音，默认值为true。<br>true：开启<br>false：关闭            |
 | allow_in_before_host            | Boolean     | 是否允许成员在主持人进会前加入会议，默认值为 true。<br>true：允许<br>false：不允许     |
@@ -165,13 +167,13 @@ GET https://api.meeting.qq.com/v1/meetings?meeting_code=806146667&userid=tester1
       "join_url": "https://wemeet.qq.com/w/5NmV29k",
       "meeting_type":0,      
       "settings": {        
-        "mute_enable_join": true,        
+        "mute_enable_type_join": 2,        
         "allow_unmute_self": false,
         "play_ivr_on_leave": false,
         "allow_in_before_host": true,
-	    "auto_in_waiting_room": false,
-	    "allow_screen_shared_watermark": true,
-	    "only_allow_enterprise_user_join": false     
+        "auto_in_waiting_room": false,
+        "allow_screen_shared_watermark": true,
+        "only_allow_enterprise_user_join": false     
       },
       "enable_live":true,
       "live_config":{
@@ -191,11 +193,12 @@ GET https://api.meeting.qq.com/v1/meetings?meeting_code=806146667&userid=tester1
                 "phone_number":"xxxxxxxxx",
                 "guest_name":"xxxx"
             }
-        ] 
+        ],
+		"enable_host_key":true,
+        "host_key":"191810"
     }  
   ]
 }
-
 ```
 #### 输出示例（周期性会议）
 ```plaintext
@@ -218,7 +221,7 @@ GET https://api.meeting.qq.com/v1/meetings?meeting_code=806146667&userid=tester1
       ],
       "join_url": "https://meeting.tencent.com/s/iY4GQ2HkQQGL",
       "settings": {
-        "mute_enable_join": true,
+        "mute_enable_type_join": 2,
         "allow_unmute_self": false,
         "allow_in_before_host": true,
         "auto_in_waiting_room": true,
@@ -274,7 +277,9 @@ GET https://api.meeting.qq.com/v1/meetings?meeting_code=806146667&userid=tester1
             "enable_live_im":true,
             "enable_live_replay":true,
             "live_addr":"https://meeting.tencent.com/l/xxxx"
-        }
+        },
+		"enable_host_key":true,
+        "host_key":"191810"
     }
   ]
 }

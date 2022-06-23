@@ -35,7 +35,7 @@
 | [pauseVideo](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePlayer__android.html#a0db95f1fb6d448b943400b3149bacff3)  | 暂停播放器的视频流。       |
 | [resumeVideo](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePlayer__android.html#ac6addf129d35e104ba087ee6a93718d3) | 恢复播放器的视频流。       |
 | [snapshot](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePlayer__android.html#a2a507ea1cd894a1635dbfd772802fefd)    | 截取播放过程中的视频画面。 |
-| [enableCustomRendering](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePlayer__android.html#a3c31a1de340f63433d486befa6371e7c) | 设置视频自定义渲染回调。   |
+| [enableObserveVideoFrame](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePlayer__android.html#af105fd13a342720b70e3f85eee054197) | 设置视频自定义渲染回调。   |
 
 ### 音频相关接口
 

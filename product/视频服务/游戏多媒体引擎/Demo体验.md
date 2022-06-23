@@ -74,6 +74,7 @@
 - 此演示程序需要在 Windows 平台运行。
 - 演示程序需要在同一机器上双开程序，或者同一局域网下的两台机器分别开一个程序。
 - 请确保电脑耳机及麦克风是可用状态。
+- 请提前申请开通 GME 实时语音服务。
 
 ### 1. 下载
 
@@ -142,3 +143,50 @@
 <img src="https://gme-public-1256590279.cos.ap-nanjing.myqcloud.com/GMEResource/yuan.gif"  width="80%"/></img>
 
 
+## 高级变声音效体验
+
+使用 GME 高级变声效果，可以在游戏语音聊天时自由变换您的声音，携带各种各样的音效。
+
+### 前提条件
+- 此演示程序需要在 Windows 平台运行。
+- 请确保电脑耳机及麦克风是可用状态。
+- 请提前申请开通 GME 实时语音服务。
+
+### 打开程序
+
+单击下载 [高级变声音效体验程序](https://dldir1.qq.com/hudongzhibo/QCloud_TGP/GME/pubilc/GMEDemoWithVoicemod_1.0.zip)，下载完后进行解压。双击打开标题为 **TMGSDK_For_Audio_ApiExample.exe** 的可执行文件，运行程序。
+
+### 运行界面
+
+<img src="https://qcloudimg.tencent-cloud.cn/raw/b4e2a3c8ef86b7ce8a8750adbc21cae8.png" width=80%/><img>
+
+### 1. 填入 AppID 以及 Key
+
+初始化程序需要填入 [游戏多媒体引擎控制台](https://console.cloud.tencent.com/gamegme/detail/1400391524) 服务管理中的 AppID 以及权限密钥。申请 GME 服务，详情请参见 [接入指引](https://cloud.tencent.com/document/product/607/10782)。**AppID 对应控制台的 AppID，Key 对应控制台的权限密钥。**
+
+
+<dx-alert infotype="explain" title="">
+- 请务必注意保存 AppID 以及权限密钥不被泄露。
+- 请注意此时的 userId 数字，请确保打开的另一个演示程序中的 userId 与此 userId 不同。
+</dx-alert>
+
+### 2. 初始化
+单击 **Init** 按钮进行初始化。
+
+### 3. 进房
+单击 **EnterRoom** 进入语音房间。
+
+### 4. 打开设备
+
+单击 **EnableMic**、**EnableSpeaker**、**EnableLoopback**，打开设备及耳返。
+
+### 5. 体验
+
+对着麦克风说话，体验变声效果。
+
+变声效果配置说明：
+
+<img src="https://qcloudimg.tencent-cloud.cn/raw/dc5f3b8312cc4cab666c2d43719f79cc.png" width=80%/><img>
+
+### 6. 退出房间
+测试完成后请单击 **ExitRoom** 退出房间，避免产生额外费用。

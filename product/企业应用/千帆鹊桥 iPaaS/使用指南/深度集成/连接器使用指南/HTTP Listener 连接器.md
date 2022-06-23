@@ -6,9 +6,9 @@ HTTP Listener 连接器可以接收 HTTP 请求并生成消息，从而作为 Tr
 
 ## 连接器配置
 - 基本配置：HTTP Listener 连接器基本配置中包括描述和监听域名两项，其中监听域名为必填项。
-![image-20210325113903169](https://main.qcloudimg.com/raw/563b20e4f97052d140765120acbd8ca1/image-20210325113903169.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/67dfd64aacc7eaa62b67de4e31194e37.png)
 - 高级配置：HTTP Listener 连接器高级配置中包括 IP 白名单和认证配置两项。
-![image-20210325113953686](https://main.qcloudimg.com/raw/e36433e9aef2d83faf013de192e5f1de/image-20210325113953686.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/51505fc3fe6b21d24dadf880fe53f4b5.png)
 - 上述连接器配置参数相关描述如下表所示：
 
 | 参数     | 数据类型              | 描述                                                         | 是否必填 | 默认值|
@@ -20,14 +20,14 @@ HTTP Listener 连接器可以接收 HTTP 请求并生成消息，从而作为 Tr
 ## 操作说明
 
 HTTP Listener 操作配置包括基本配置、高级配置、响应配置三项：
-![image-20210426110043222](https://main.qcloudimg.com/raw/9f94faac33be924c77a68236234d81d7/image-20210426110043222.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/83a4dd7963979506403d3b27f6008484.png)
 
 <dx-tabs>
 ::: 基础配置参数描述
 | 参数     | 参数类型 | 描述                                                         | 是否必填 | 默认值 |
 | -------- | -------- | ------------------------------------------------------------ | ------------ | ---------- |
 | 监听路径 | string   | Listener 通过监听路径区分不同的 URI，同时支持三种模式路径匹配：通配符 * 、变量匹配、精确匹配。例如：监听路径设置为 /user/{userId}/\*时，可以匹配 /user/123/testpath，也可以匹配 /user/123 和 /user/123/testpath/testpath1，即{}可以匹配一级目录，*"*"匹配多级目录。当多个请求同时匹配一个模式时，会优先匹配更具体的，同等条件下，优先匹配第一个。 | 是           | “/”        |
-| 请求方法 | string   | 下拉框多选，全集为：全部、GET、POST、PUT、PATCH、DELETE、HEAD | 是           | 全部       |
+| 请求方法 | string   | 下拉框多选，全集为：全部、GET、POST、PUT、PATCH、DELETE、HEAD、OPTIONS | 是           | 全部       |
 :::
 ::: 高级配置参数描述
 | 参数         | 参数类型 | 描述                                                         | 是否必填 | 默认值     |
@@ -110,18 +110,18 @@ HTTP Listener 生成的消息中，会将接收到请求的基本信息、Header
 
 ## 案例
 1. Trigger 配置选择 HTTP Listener。
-![image-20210426120942806](https://main.qcloudimg.com/raw/2a9d1ce396e84949d7adaa248061b515/image-20210426120942806.png)
+<img src="https://qcloudimg.tencent-cloud.cn/raw/9047dda3ffaeae37c1f77464e70c6411.png" width="80%">
 2. 新建并配置 HTTP Listener 连接器。
-![image-20210426121234475](https://main.qcloudimg.com/raw/896f5ee0a507a22f0274262a945d5d90/image-20210426121234475.png)
+<img src="https://qcloudimg.tencent-cloud.cn/raw/28d364408ab5b6ae1cce27412c4b90ae.png" width="80%">
 3. 配置必填项监听路径和监听方法。
-![image-20210426121422813](https://main.qcloudimg.com/raw/13cddf55b9beefb501e03b5cc043bb41/image-20210426121422813.png)
-4.发布并触发。
+<img src="https://qcloudimg.tencent-cloud.cn/raw/315aab424ebfc82896c9d775b78b0391.png" width="80%">
+4. 发布并触发。
 使用 POST 请求对应的 Listener，将请求 body 设置成 JSON 格式的{"key":"value"}，HTTP Listener 会默认响应 body 为消息的 payload，同时也是接收请求的 body：
 ![image-20210426122040758](https://main.qcloudimg.com/raw/ae5a566473b140cae97ce3ed62be5e1b/image-20210426122040758.png)
  - 应用测试模式下，可以清楚看到 payload 内容：
-![image-20210426122435612](https://main.qcloudimg.com/raw/86c2400ba58b31a8c6079eafac526e6c/image-20210426122435612.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/1ed4657c46b461d9402e79b86c59bdde.png)
  - attributes：
-![image-20210426122411179](https://main.qcloudimg.com/raw/3c601b1994094c29d7f604b7f557bb52/image-20210426122411179.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/21a88b3b273b6aba0b7a590197480daf.png)
 
 ## 附录
 HTTP Listener 错误描述如下： 

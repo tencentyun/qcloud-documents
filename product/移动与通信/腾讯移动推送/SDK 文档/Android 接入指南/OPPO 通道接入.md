@@ -34,8 +34,13 @@ OPPO 通道是由 OPPO 官方提供的系统级推送通道。在 OPPO 手机上
 #### AndroidStudio 集成方法
 
 导入 OPPO 推送相关依赖。示例代码如下：
-```js
-implementation 'com.tencent.tpns:oppo:[VERSION]-release'//OPPO 推送 [VERSION] 为当前 SDK 版本号，版本号可在 Android SDK 发布动态查看
+```
+//  OPPO 推送 SDK，[VERSION] 为当前 SDK 版本号，版本号可在 Android SDK 发布动态查看
+implementation 'com.tencent.tpns:oppo:[VERSION]-release'
+
+// 自 SDK 1.3.2.0 起，需一并加入以下依赖语句，否则可能导致 OPPO 推送注册失败
+implementation 'com.google.code.gson:gson:2.6.2'
+implementation 'commons-codec:commons-codec:1.15'
 ```
 >? OPPO 推送 [VERSION] 为当前 SDK 版本号，版本号可在 [Android SDK 发布动态](https://console.cloud.tencent.com/tpns/sdkdownload) 查看。
 >
@@ -47,45 +52,20 @@ implementation 'com.tencent.tpns:oppo:[VERSION]-release'//OPPO 推送 [VERSION] 
 1. 打开 Other-push-jar 文件夹，将 OPPO 推送相关 jar 导入项目工程中。
 2. 在主工程添加类资源文件，代码如下：
 ```java
-package com.heytap.mcssdk;
+package com.pushsdk;
+
 class R {
     public static final class string {
-        public static final int system_default_channel = 
-	com.tencent.android.tpns.demo.R.string.oppo_system_default_channel;//可更改为自定义字符串资源ID
+	public final static int system_default_channel = com.tencent.android.tpns.demo.R.string.app_name; // 可更改为自定义字符串资源ID
     }
 }
 ```
-3. 在 `Androidmanifest.xml` 文件中新增如下配置（二选一）：
- - TPNS Android SDK 1.2.0.2以前的版本使用以下配置：
+3. 在 `Androidmanifest.xml` 文件中新增如下配置：
 ```
 <!--OPPO 推送服务必须权限-->
 <uses-permission android:name="com.coloros.mcs.permission.RECIEVE_MCS_MESSAGE"/>
 <uses-permission android:name="com.heytap.mcs.permission.RECIEVE_MCS_MESSAGE"/>
 <application>
-		<!--OPPO 推送服务必须组件-->
-		<service
-			android:name="com.heytap.mcssdk.PushService"
-			android:permission="com.coloros.mcs.permission.SEND_MCS_MESSAGE">
-			<intent-filter>
-				<action android:name="com.coloros.mcs.action.RECEIVE_MCS_MESSAGE"/>
-			</intent-filter>
-		</service>
-		<service
-			android:name="com.heytap.mcssdk.AppPushService"
-			android:permission="com.heytap.mcs.permission.SEND_MCS_MESSAGE">
-			<intent-filter>
-				<action android:name="com.heytap.mcs.action.RECEIVE_MCS_MESSAGE"/>
-			</intent-filter>
-		</service>
-</application>
-```
- - TPNS Android SDK 1.2.0.2以后的版本使用以下配置：
-```
-<!--OPPO 推送服务必须权限-->
-<uses-permission android:name="com.coloros.mcs.permission.RECIEVE_MCS_MESSAGE"/>
-<uses-permission android:name="com.heytap.mcs.permission.RECIEVE_MCS_MESSAGE"/>
-<application>
-		<!-- 以下为1.2.0.2 OPPO版本组件 -->
 		<service
 			android:name="com.heytap.msp.push.service.CompatibleDataMessageCallbackService"
 			android:permission="com.coloros.mcs.permission.SEND_MCS_MESSAGE">

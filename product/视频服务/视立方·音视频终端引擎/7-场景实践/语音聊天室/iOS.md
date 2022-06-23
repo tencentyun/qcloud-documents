@@ -1,12 +1,4 @@
-## 版本支持
-本页文档所描述功能，在腾讯云视立方中支持情况如下：
 
-| 版本名称 | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 播放器 Player | 全功能 |
-| -------- | -------- | -------- | -------- | -------- | -------- | -------- |
-| 支持情况 | -  | -  | -  | &#10003;  | -  | &#10003;  |
-| SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=allPart) |
-
-不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
 
 ## 效果展示
 您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 App 体验语音聊天室的能力，包括麦位管理、低延时语音互动、文字聊天等 TRTC 在语音聊天场景下的相关能力。
@@ -104,52 +96,31 @@
 [源码](https://github.com/tencentyun/TUIVoiceRoom) 中的 `Source` 文件夹包含两个子文件夹 ui 和 model，model 文件夹中包含可重用的开源组件 TRTCVoiceRoom，您可以在 `TRTCVoiceRoom.h` 文件中看到该组件提供的接口函数，并使用对应接口实现自定义 UI 界面。
 ![](https://main.qcloudimg.com/raw/0ebcbb27843bf03a790a945a8c92d560.png)
 
-
 [](id:model.step1)
-### 步骤1：集成 SDK
-语音聊天组件 TRTCVoiceRoom 依赖 TRTC SDK 和 IM SDK，您可以按照如下步骤将两个 SDK 集成到项目中。
-
-- **方法一：通过 cocoapods 仓库依赖**
-<dx-codeblock>
-::: swift
-pod 'TXIMSDK_iOS'
-pod 'TXLiteAVSDK_TRTC'
-:::
-</dx-codeblock>
->?两个 SDK 产品的最新版本号，可以在 [TRTC](https://github.com/tencentyun/TRTCSDK) 和 [IM](https://github.com/tencentyun/TIMSDK) 的 GitHub 首页获取。
-- **方法二：通过本地依赖**
-如果您的开发环境访问 cocoapods 仓库较慢，您可以直接下载 ZIP 包，并按照集成文档手动集成到您的工程中。
-<table>
-<tr><th>SDK</th><th>下载页面</th><th>集成指引</th></tr>
-<tr>
-<td>TRTC SDK</td>
-<td><a href="https://cloud.tencent.com/document/product/647/32689">DOWNLOAD</a></td>
-<td><a href="https://cloud.tencent.com/document/product/647/32175">集成文档</a></td>
-</tr><tr>
-<td>IM SDK</td>
-<td><a href="https://cloud.tencent.com/document/product/269/36887">DOWNLOAD</a></td>
-<td><a href="https://cloud.tencent.com/document/product/269/32679">集成文档</a></td>
-</tr></table>
+### 步骤1：配置权限
+在 info.plist 文件中需要添加 `Privacy > Microphone Usage Description` 申请麦克风权限。
+![](https://qcloudimg.tencent-cloud.cn/raw/e2204721f142d9cabb84d4b4c5429e22.png)
 
 [](id:model.step2)
-### 步骤2：配置权限
-在 info.plist 文件中需要添加 `Privacy > Camera Usage Description`， `Privacy > Microphone Usage Description` 申请麦克风权限。
-
-[](id:model.step3)
-### 步骤3：导入 TUIVoiceRoom 组件
+### 步骤2：导入 TUIVoiceRoom 组件
 **通过 cocoapods 导入组件**，具体操作如下：
 1. 将工程目录下的 `Source`、`Resources`、`TXAppBasic` 文件夹、`TUIVoiceRoom.podspec` 文件拷贝到您的工程目录下。
 2. 在您的 `Podfile` 文件中添加以下依赖。之后执行 `pod install` 命令，完成导入。
-<dx-codeblock>
-::: swift
-pod 'TXAppBasic', :path => "TXAppBasic/"
-pod 'TXLiteAVSDK_TRTC'
-pod 'TUIVoiceRoom', :path => "./", :subspecs => ["TRTC"] 
-:::
-</dx-codeblock>
 
-[](id:model.step4)
-### 步骤4：创建并登录组件
+```swift\
+# :path => "指向TXAppBasic.podspec所在目录的相对路径"
+pod 'TXAppBasic', :path => "TXAppBasic/"
+
+# :path => "指向TUIVoiceRoom.podspec所在目录的相对路径"
+pod 'TUIVoiceRoom', :path => "./", :subspecs => ["TRTC"]
+```
+
+>!
+>-   `Source`、`Resources` 和 `TUIVoiceRoom.podspec` 文件必需在同一目录下。
+>-  TXAppBasic.podspec在TXAppBasic文件夹下
+
+[](id:model.step3)
+### 步骤3：创建并登录组件
 1. 调用 TRTCVoiceRoom 的 `sharedInstance` 类方法可以创建一个遵守 TRTCVoiceRoom 协议的实例对象。也可以使用调用 `shared` 类方法，获取 TRTCVoiceRoomImp实例对象直接使用，二者在 TRTCVoiceRoom 的接口使用上没有任何区别。
 2. 调用 `setDelegate` 函数注册组件的事件回调通知。
 3. 调用 `login` 函数完成组件的登录，请参考下表填写关键参数：
@@ -192,8 +163,8 @@ self.vocieRoom.login(sdkAppId: sdkAppID, userId: userId, userSig: userSig) { [we
 :::
 </dx-codeblock>
 
-[](id:model.step5)
-### 步骤5：房主端开播
+[](id:model.step4)
+### 步骤4：房主端开播
 1. 房主执行 [步骤4](#model.step4) 登录后，可以调用 `setSelfProfile` 设置自己的昵称和头像。
 2. 房主调用 `createRoom` 创建新的语音聊天室，此时传入房间 ID、上麦是否需要房主确认、麦位数等房间属性信息。
 3. 房主创建房间成功后，调用 `enterSeat` 进入座位。
@@ -249,8 +220,8 @@ func onAnchorEnterSeat(index: Int, user: VoiceRoomUserInfo) {
 :::
 </dx-codeblock>
 
-[](id:model.step6)
-### 步骤6：听众端观看
+[](id:model.step5)
+### 步骤5：听众端观看
 1. 听众端执行 [步骤4](#model.step4) 登录后，可以调用 `setSelfProfile` 设置自己的昵称和头像。
 2. 听众端向业务后台获取最新的语音聊天室房间列表。
 >?App 中的语音聊天室列表仅做演示使用，语音聊天室列表的业务逻辑千差万别，腾讯云暂不提供语音聊天室列表的管理服务，请自行管理您的语音聊天室列表。
@@ -305,8 +276,8 @@ func onAnchorEnterSeat(index: Int, user: VoiceRoomUserInfo) {
 :::
 </dx-codeblock>
 
-[](id:model.step7)
-### 步骤7：麦位管理
+[](id:model.step6)
+### 步骤6：麦位管理
 <dx-tabs>
 ::: 房主端
 1. `pickSeat` 传入对应的麦位和听众 userId, 可以抱人上麦，房间内所有成员会收到 `onSeatListChange` 和 `onAnchorEnterSeat` 的事件通知。
@@ -368,8 +339,8 @@ func onAnchorEnterSeat(index: Int, user: VoiceRoomUserInfo) {
 :::
 </dx-tabs>
 
-[](id:model.step8)
-### 步骤8：邀请信令的使用
+[](id:model.step7)
+### 步骤7：邀请信令的使用
 在 [麦位管理](#model.step7) 中，听众上下麦、房主抱人上麦都不需要经过对方的同意就可以直接操作。
 如果您的 App 需要对方同意才能进行下一步操作的业务流程，那么邀请信令可以提供相应支持。
 <dx-tabs>
@@ -447,8 +418,8 @@ func onReceiveNewInvitation(identifier: String, inviter: String, cmd: String, co
 :::
 </dx-tabs>
 
-[](id:model.step9)
-### 步骤9：实现文字聊天和弹幕消息
+[](id:model.step8)
+### 步骤8：实现文字聊天和弹幕消息
 - 通过` sendRoomTextMsg` 可以发送普通的文本消息，所有在该房间内的主播和听众均可以收到 `onRecvRoomTextMsg` 回调。
 即时通信 IM 后台有默认的敏感词过滤规则，被判定为敏感词的文本消息不会被云端转发。
 <dx-codeblock>
@@ -482,3 +453,4 @@ func onRecvRoomCustomMsg(cmd: String, message: String, userInfo: VoiceRoomUserIn
 }
 :::
 </dx-codeblock>
+

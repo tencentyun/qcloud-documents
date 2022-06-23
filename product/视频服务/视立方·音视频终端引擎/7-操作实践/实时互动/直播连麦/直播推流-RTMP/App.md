@@ -1,12 +1,4 @@
-## 版本支持
-本页文档所描述功能，在腾讯云视立方中支持情况如下：
 
-| 版本名称 | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 播放器 Player | 全功能 |
-| -------- | -------- | -------- | -------- | -------- | -------- | -------- |
-| 支持情况 | &#10003;  | &#10003;                                                            | -  | -  | -  | &#10003;  |
-| SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=allPart) |
-
-不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
 >! 旧版移动直播连麦资源包已下线，仅限连麦老用户购买。
 
 ## 功能介绍
@@ -49,7 +41,7 @@ TXLivePusher 和 TXLivePlayer 这两个基础组件可以比较容易的实现�
 | 所属平台 |                          LiteAVSDK                           |                            TIMSDK                            |                      MLVBLiveRoom 组件                       |                           示例代码                           |
 | :------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
 |   iOS    | [MLVBSDK](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/SDK) | [TIMSDK](https://github.com/tencentyun/TIMSDK/tree/master/iOS/IMSDK ) | [MLVBLiveRoom](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/Demo/TXLiteAVDemo/LiveLinkMicDemoOld/LiveRoom) | [SimpleCode](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/Demo/TXLiteAVDemo/LiveLinkMicDemoOld/LiveRoomUI) |
-| Android  | [MLVBSDK](https://github.com/tencentyun/MLVBSDK/tree/master/Android/SDK) | [TIMSDK](https://github.com/tencentyun/TIMSDK/tree/master/Android/IMSDK) | [MLVBLiveRoom](https://github.com/tencentyun/MLVBSDK/tree/master/Android/Demo/livelinkmicdemoold/src/main/java/com/tencent/liteav/demo/liveroom) | [SimpleCode](https://github.com/tencentyun/MLVBSDK/tree/master/Android/Demo/livelinkmicdemoold/src/main/java/com/tencent/liteav/demo/liveroom/ui) |
+| Android  | [MLVBSDK](https://github.com/LiteAVSDK/Live_Android/tree/main/SDK) | [TIMSDK](https://github.com/tencentyun/TIMSDK/tree/master/Android/IMSDK) | [MLVBLiveRoom](https://github.com/tencentyun/MLVBSDK/tree/master/Android/Demo/livelinkmicdemoold/src/main/java/com/tencent/liteav/demo/liveroom) | [SimpleCode](https://github.com/tencentyun/MLVBSDK/tree/master/Android/Demo/livelinkmicdemoold/src/main/java/com/tencent/liteav/demo/liveroom/ui) |
 
 
 
@@ -71,7 +63,7 @@ TXLiveBase.getInstance().setLicence(context, LicenceUrl, Key);
 ### Step3. 购买连麦套餐包
 由于连麦功能会使用到高速专线来降低音视频传输延迟，这部分功能需要额外购买套餐包才能开通，否则移动直播的各端 SDK 只能使用云直播的普通服务（推流和拉流），并不能开启连麦功能。
 
-- 仅限老用户前往 **云直播控制台** > **资源包/插件管理** > **[连麦包](https://console.cloud.tencent.com/live/resources/liveroom)**，单击**购买连麦包**
+- 仅限老用户前往 **云直播控制台** > **直播 SDK** > [**直播连麦**](https://console.cloud.tencent.com/live/liveroom)，单击**购买连麦包**
 - [移动直播连麦计费说明](https://cloud.tencent.com/document/product/454/70298)
 
 >!

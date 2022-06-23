@@ -11,6 +11,8 @@ Tencentcloud-Serverless-Nodejs SDK 的功能特性可分为以下几点：
 * 支持 keepalive 能力。
 * 支持跨地域函数调用。
 
+>? 函数间调用 SDK 仅适用于事件函数，Web 函数可通过在函数代码中请求 Web 函数对应路径的方式发起调用。
+
 
 ## 快速开始
 ### 开发准备

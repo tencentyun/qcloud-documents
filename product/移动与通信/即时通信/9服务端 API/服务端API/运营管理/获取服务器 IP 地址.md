@@ -5,7 +5,7 @@
 ## 接口调用说明
 ### 请求 URL 示例
 ```
-https://console.tim.qq.com/v4/ConfigSvc/GetIPList?sdkappid=88888888&identifier=admin&usersig=xxx&random=99999999&contenttype=json
+https://console.tim.qq.com/v4/ConfigSvc/GetIPList?sdkappid=88888888&identifier=admin&usersig=xxx&random=99999999&contenttype=json&nettype=0
 ```
  
 ### 请求参数说明
@@ -20,6 +20,9 @@ https://console.tim.qq.com/v4/ConfigSvc/GetIPList?sdkappid=88888888&identifier=a
 | usersig            | App 管理员帐号生成的签名，具体操作请参见 [生成 UserSig](https://cloud.tencent.com/document/product/269/32688)    |
 | random             | 请输入随机的32位无符号整数，取值范围0 - 4294967295                 |
 |contenttype|请求格式固定值为`json`|
+|nettype|请求指定类型的服务器 IP 地址列表：<br><li>nettype=0:所有的服务器 IP 地址列表；<br><li>nettype=1:native SDK 访问的中国地区(包括中国香港)服务器 IP 地址列表；<br><li>nettype=2:native SDK 访问的海外地区服务器地址列表；<br><li>nettype=3:web SDK 访问的中国地区(包括中国香港)服务器 IP 地址列表；<br><li>nettype=4:web SDK  访问的海外地区服务器地址列表；<br><li>nettype=5: IM 回调中国地区(包括中国香港)的出口地址列表；<br><li>nettype=6:IM 回调海外地区的出口地址列表。|
+
+>?针对回调业务，业务服务器需要针对 IM 出口加白，可以根据业务服务器地址归属，通过指定 nettype=5(或6) 来获取 IM 出口地址列表。
 
 ### 最高调用频率
 200次/秒。
@@ -57,5 +60,3 @@ https://console.tim.qq.com/v4/ConfigSvc/GetIPList?sdkappid=88888888&identifier=a
 ## 接口调试工具
 
 通过 [REST API 在线调试工具](https://29294-22989-29805-29810.cdn-go.cn/api-test.html#v4/ConfigSvc/GetIPList)调试本接口。
-
-

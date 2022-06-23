@@ -6,7 +6,7 @@ CLB 触发器具有以下特点：
 - **同步调用**
 CLB 触发器通过同步调用的方式来调用函数。有关调用类型的更多信息，请参阅 [调用类型](https://cloud.tencent.com/document/product/583/9694#.E8.B0.83.E7.94.A8.E7.B1.BB.E5.9E.8B)。
 
->? CLB 账户分为标准账户类型和传统账户类型。传统账户类型不支持绑定 SCF，建议升级为标准账户类型。详情可参见 [账户类型升级说明](https://cloud.tencent.com/document/product/1199/49090)。 
+>? CLB 账户分为标准账户类型和传统账户类型。传统账户类型不支持绑定 SCF，建议升级为标准账户类型。详情可参见 [账户类型升级说明](https://cloud.tencent.com/document/product/1199/49090)。   
 >
 
 ## CLB 触发器配置
@@ -107,10 +107,10 @@ CLB 负载均衡发送到云函数的请求处理方式，和云函数响应给 
 
 |    结构名    | 内容 |
 | ---------- | --- |
-| isBase64Encoded |  指明 body 内的内容是否为 Base64 编码后的二进制内容，取值需要为 JSON 格式的 true 或 false。 |
-| statusCode | HTTP 返回的状态码，取值需要为 Integer 值。 |
-| headers | HTTP 返回的头部内容，取值需要为多个 key-value 对象，或 `key:[value,value]` 对象。其中 key、value 均为字符串。 |
-| body | HTTP 返回的 body 内容。 |
+| isBase64Encoded |  指明 body 内的内容是否为 Base64 编码后的二进制内容，取值需要为 JSON 格式的 true 或 false。   |
+| statusCode | HTTP 返回的状态码，取值需要为 Integer 值。   |
+| headers | HTTP 返回的头部内容，取值需要为多个 key-value 对象，或 `key:[value,value]` 对象。其中 key、value 均为字符串。   |
+| body | HTTP 返回的 body 内容。   |
 
 在需要返回 key 相同的多个 headers 时，可以使用字符串数组的方式描述不同 value，例如：
 ```

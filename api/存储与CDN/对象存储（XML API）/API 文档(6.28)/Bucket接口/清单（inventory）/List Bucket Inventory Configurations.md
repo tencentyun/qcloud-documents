@@ -139,11 +139,11 @@ Authorization: Auth String
 
 | 节点名                               | 父节点                              | 描述                                                         | 类型      |
 | ------------------------------------ | ----------------------------------- | ------------------------------------------------------------ | --------- |
-| List Inventory Configuration Results | 无                                  | 存储桶中所有清单任务信息的列表                             | Container |
-| Inventory Configuration              | ListInventory Configuration Results | 包含清单任务的详细信息，其 XML 结构请参见 [GET Bucket inventory](https://cloud.tencent.com/document/product/436/33705) | Container |
-| IsTruncated                          | ListInventory Configuration Results | 是否已列出所有清单任务信息的标识。如果已经展示完则为 false，否则为 true | Boolean   |
-| Continuation Token                   | ListInventory Configuration Results | 当页清单列表的标识，可理解为页数。该标识与请求中的 continuation-token 参数对应 | String    |
-| NextContinuation Token               | ListInventory Configuration Results | 下一页清单列表的标识。如果该参数中有值，则可将该值作为 continuation-token 参数并发起 GET 请求以获取下一页清单任务信息 | String    |
+| List InventoryConfigurationResult | 无                                  | 存储桶中所有清单任务信息的列表                             | Container |
+| InventoryConfiguration              | ListInventoryConfigurationResult | 包含清单任务的详细信息，其 XML 结构请参见 [GET Bucket inventory](https://cloud.tencent.com/document/product/436/33705) | Container |
+| IsTruncated                          | ListInventoryConfigurationResult | 是否已列出所有清单任务信息的标识。如果已经展示完则为 false，否则为 true | Boolean   |
+| ContinuationToken                   | ListInventoryConfigurationResult | 当页清单列表的标识，可理解为页数。该标识与请求中的 continuation-token 参数对应 | String    |
+| NextContinuationToken               | ListInventoryConfigurationResult | 下一页清单列表的标识。如果该参数中有值，则可将该值作为 continuation-token 参数并发起 GET 请求以获取下一页清单任务信息 | String    |
 
 #### 错误码
 
@@ -170,7 +170,7 @@ Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 
 - 分析存储桶 examplebucket-1250000000 中前缀为 myPrefix 的对象及其所有版本。
 - 分析频次为每天一次。
-- 分析维度包括 Size ， LastModifiedDate，StorageClass， ETag， IsMultipartUploaded，  ReplicationStatus。
+- 分析维度包括 Size、LastModifiedDate、StorageClass、ETag、IsMultipartUploaded、ReplicationStatus。
 - 分析结果将以 CSV 格式文件存储在存储桶 examplebucket-1250000000 中，文件添加前缀 list1 且用 SSE-COS 加密。  
 
 **清单任务 list2**

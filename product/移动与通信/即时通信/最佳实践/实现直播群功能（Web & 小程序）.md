@@ -3,9 +3,7 @@
 
 即时通信 IM 的直播群（AVChatRoom）有以下特点：
 - **无人数限制，可实现千万级的互动直播场景**。
-- **支持针对违法违规内容以及不雅词的安全打击，满足安全监管需求**。
 - 支持向全体在线用户推送消息（群系统通知）。
-- Web 和微信小程序端支持以游客身份（即不登录）接收消息。
 - 申请加群后，无需管理员审批，直接加入。
 
 >?本文以 Web 和微信小程序端 SDK 为例，其他端 SDK 实现流程相同，操作略有差异。
@@ -13,7 +11,7 @@
 ## 适用场景
 
 #### 直播弹幕
- AVChatRoom 支持弹幕、 送礼和点赞等多消息类型，轻松打造良好的直播聊天互动体验；提供弹幕内容审核能力，保证您的直播免受不雅信息干扰。
+ AVChatRoom 支持弹幕、 送礼和点赞等多消息类型，轻松打造良好的直播聊天互动体验。
 ![](https://imgcache.qq.com/open_proj/proj_qcloud_v2/gateway/product/im-new/css/img/scenes/function2.gif)
 #### 网红带货
  AVChatRoom 与商业直播相结合，通过提供点赞、询价、购物券等特定消息类型，帮助直播客户实现流量变现。
@@ -35,10 +33,10 @@
 - [SDK 下载](https://cloud.tencent.com/document/product/269/36887)
 - [更新日志（Web & 小程序）](https://cloud.tencent.com/document/product/269/38492)
 - [SDK 手册](https://web.sdk.qcloud.com/im/doc/zh-cn/TIM.html)
-- [集成 SDK（Web & 小程序）](https://cloud.tencent.com/document/product/269/37413)
-- [初始化与登录（Web & 小程序）](https://cloud.tencent.com/document/product/269/37416)
-- [消息收发（Web & 小程序）](https://cloud.tencent.com/document/product/269/37448)
-- [群组管理（Web & 小程序）](https://cloud.tencent.com/document/product/269/37459)
+- [集成 SDK（Web & 小程序 & uni-app）](https://cloud.tencent.com/document/product/269/75285)
+- [初始化与登录（Web & 小程序）](https://cloud.tencent.com/document/product/269/75292)
+- [发送消息（Web & 小程序 & uni-app）](https://cloud.tencent.com/document/product/269/75316)
+- [群组管理（Web & 小程序 & uni-app）](https://cloud.tencent.com/document/product/269/75395)
 
 ## 使用指南
 [](id:Step1)
@@ -267,14 +265,7 @@ promise.then(<span class="hljs-function"><span class="hljs-keyword">function</sp
 
 可以将踢人功能通过自定义消息实现，自定义消息中需包含被踢者的 Members_Account，通过将该消息优先级设置为 High 避免因40条/秒消息限频后被后台抛弃，被踢者的 SDK 收到该消息后，调用 [退出群组](https://cloud.tencent.com/document/product/269/44498#.E7.BE.A4.E7.BB.84.E7.9B.B8.E5.85.B3.E6.8E.A5.E5.8F.A3) 接口即可在直播群中实现踢人功能。
 
-### 4. [](id:p4)为什么在小程序/Web 端调用退出群组接口后，Android/iOS/PC 端会同步退群；但是 Android/iOS/PC 调用退出群组接口后，小程序/Web 端不会退出呢？
-
-因为小程序/Web 端支持用户以游客模式访问，所以当 Android/iOS/PC 退群后，小程序/Web 端不会主动触发退出群组操作。
-
-- 如果希望实现全端同步退出操作，您可以配置 [群成员离开之后](https://cloud.tencent.com/document/product/269/1668) 回调，通过 OptPlatform 字段判断当前退出平台，当退群平台为 Android/iOS/PC 时，通过 [单发单聊消息](https://cloud.tencent.com/document/product/269/2282) 接口以系统消息的方式发送一条自定义消息至退群者，前端屏蔽该会话不做 UI 层展示，小程序/Web 端收到该消息后，调用 [退出群组](https://cloud.tencent.com/document/product/269/37411#.E7.BE.A4.E7.BB.84) 接口即可。
-- 如果希望实现单端独立退出操作，您可以配置 [群成员离开之后](https://cloud.tencent.com/document/product/269/1668) 回调，通过 OptPlatform 判断当前退出平台，通过 [单发单聊消息](https://cloud.tencent.com/document/product/269/2282) 接口以系统消息的方式发送一条自定义消息至退群者，前端屏蔽该会话不做 UI 层展示，非退出端收到该消息后调用 [加入群组](https://cloud.tencent.com/document/product/269/44498#.E7.BE.A4.E7.BB.84.E7.9B.B8.E5.85.B3.E6.8E.A5.E5.8F.A3) 接口再次加入该群即可，为避免多次出现加退群系统通知，可提交工单关闭加退群系统通知。
-
-### 5. 为什么会丢消息？
+### 4. 为什么会丢消息？
 
 出现丢消息的可能原因如下：
 
@@ -284,11 +275,11 @@ promise.then(<span class="hljs-function"><span class="hljs-keyword">function</sp
 
 如果您已排除以上可能性，您可以提交工单联系我们。
 
-### 6. 如何实现点赞/关注数量统计？
+### 5. 如何实现点赞/关注数量统计？
 
 先通过自定义消息构建点赞/关注消息类型，当用户在前端点击点赞/关注 icon 触发自定义消息下发后，将点赞/关注消息通过 [群内发言之前回调](https://cloud.tencent.com/document/product/269/1619) 抄送到业务侧，业务侧根据收到的点赞/关注消息数进行数量统计，每3秒 - 5秒可通过 [修改群基础资料接口](https://cloud.tencent.com/document/product/269/1620) 将该数据更新进群资料字段中，SDK 通过 [拉取群资料接口](https://cloud.tencent.com/document/product/269/44498#.E7.BE.A4.E7.BB.84.E7.9B.B8.E5.85.B3.E6.8E.A5.E5.8F.A3) 即可实现点赞/关注数量统计。
 
-### 7. 如何设置消息优先级更为合理？
+### 6. 如何设置消息优先级更为合理？
 
 为避免重要消息被抛弃，直播间针对所有消息提供3种优先级选择，SDK 获取消息时将会优先获取高优先级消息，针对自定义消息优先级设置建议如下：
 
@@ -296,12 +287,9 @@ promise.then(<span class="hljs-function"><span class="hljs-keyword">function</sp
 - Normal：普通文本消息。
 - Low：点赞、关注消息。
 
-### 8. 有没有开源的直播组件，可以直接看视频和聊天互动？
+### 7. 有没有开源的直播组件，可以直接看视频和聊天互动？
 
 有的，且代码开源，详情请参考 [腾讯云 Web 直播互动组件](https://github.com/tencentyun/TWebLive)。
 您也可以直接扫码体验腾讯云 Web 直播互动组件：
 <img src="https://main.qcloudimg.com/raw/7ebc3e270add5ec6d62f6f8972c61249.png" width="150">
-
-
-
 

@@ -1,13 +1,3 @@
-## 版本支持
-本页文档所描述功能，在腾讯云视立方中支持情况如下：
-
-| 版本名称 | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 播放器 Player | 全功能 |
-| -------- | -------- | -------- | -------- | -------- | -------- | -------- |
-| 支持情况 | -  | -  | -  | -  | -  | &#10003;  |
-| SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=allPart) |
-
-不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
-
 ## 效果展示
 您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 App 体验 Chorus 的能力，包括双人超低延迟合唱、收发礼物、文字聊天等 TRTC 在 Chorus 场景下的相关能力。
 <table>
@@ -27,7 +17,7 @@
 ## 复用 App 的 UI 界面
 [](id:ui.step1)
 ### 步骤1：创建新的应用
-1. 登录实时音视频控制台，选择 **开发辅助** > [**快速跑通Demo**](https://console.cloud.tencent.com/trtc/quickstart)。
+1. 登录实时音视频控制台，选择 **开发辅助**> **[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)**。
 2. 输入应用名称，例如 `TestChorus`，单击 **创建**。
 3. 单击 **已下载，下一步** ，跳过此步骤。
 
@@ -102,52 +92,34 @@
 <img src="https://main.qcloudimg.com/raw/93c7ea16b33623730d3718f3f4e75a72.png">
 
 [](id:model.step1)
-### 步骤1：集成 SDK
-Chorus 组件 TRTCChorusRoom 依赖 TRTC SDK 和 IM SDK，您可以按照如下步骤将两个 SDK 集成到项目中。
 
-- **方法一：通过 cocoapods 仓库依赖**
-  <dx-codeblock>
-  ::: swift
-  pod 'TXIMSDK_iOS'
-  pod 'TXLiteAVSDK_TRTC'
-  :::
-  </dx-codeblock>
->?两个 SDK 产品的最新版本号，可以在 [TRTC](https://github.com/tencentyun/TRTCSDK) 和 [IM](https://github.com/tencentyun/TIMSDK) 的 GitHub 首页获取。
-- **方法二：通过本地依赖**
-如果您的开发环境访问 cocoapods 仓库较慢，您可以直接下载 ZIP 包，并按照集成文档手动集成到您的工程中。
-<table>
-<tr><th>SDK</th><th>下载页面</th><th>集成指引</th></tr>
-<tr>
-<td>TRTC SDK</td>
-<td><a href="https://cloud.tencent.com/document/product/647/32689">DOWNLOAD</a></td>
-<td><a href="https://cloud.tencent.com/document/product/647/32173">集成文档</a></td>
-</tr><tr>
-<td>IM SDK</td>
-<td><a href="https://cloud.tencent.com/document/product/269/36887">DOWNLOAD</a></td>
-<td><a href="https://cloud.tencent.com/document/product/269/32675">集成文档</a></td>
-</tr></table>
+### 步骤1：配置权限
+在 info.plist 文件中需要添加 `Privacy > Microphone Usage Description` 申请麦克风权限。
+![](https://qcloudimg.tencent-cloud.cn/raw/4359169be7737e2aebbf74ae8f6fe41c.png)
 
 [](id:model.step2)
 
-### 步骤2：配置权限
-在 info.plist 文件中需要添加 `Privacy > Microphone Usage Description` 申请麦克风权限。
-
-[](id:model.step3)
-### 步骤3：导入 TUIChorus 组件
+### 步骤2：导入 TUIChorus 组件
 **通过 cocoapods 导入组件**，具体操作如下：
 1. 将工程目录下的 `Source`、`Resources`、`TXAppBasic` 文件夹、`TUIChorus.podspec` 文件拷贝到您的工程目录下。
 2. 在您的 `Podfile` 文件中添加以下依赖。之后执行 `pod install` 命令，完成导入。
-<dx-codeblock>
-::: swift
+
+```swift\
+# :path => "指向TXAppBasic.podspec所在目录的相对路径"
 pod 'TXAppBasic', :path => "TXAppBasic/"
-pod 'TXLiteAVSDK_TRTC'
-pod 'TUIChorus', :path => "./", :subspecs => ["TRTC"] 
-:::
-</dx-codeblock>
 
-[](id:model.step4)
+# :path => "指向TUIChorus.podspec所在目录的相对路径"
+pod 'TUIChorus', :path => "./", :subspecs => ["Professional"]
+```
 
-### 步骤4：创建并登录组件
+>!  
+>- `Source`、`Resources` 和 `TUIChorus.podspec` 文件必需在同一目录下。
+>-  TXAppBasic.podspec在TXAppBasic文件夹下
+
+
+[](id:model.step3)
+
+### 步骤3：创建并登录组件
 1. 调用 TRTCChorusRoom 的 `sharedInstance` 类方法可以创建一个遵守 TRTCChorusRoom 协议的实例对象。也可以使用调用 `shared` 类方法，获取 TRTCChorusRoom 实例对象直接使用，二者在 TRTCChorusRoom 的接口使用上没有任何区别。
 2. 调用 `setDelegate` 函数注册组件的事件回调通知。
 3. 调用 `login` 函数完成组件的登录，请参考下表填写关键参数：
@@ -190,8 +162,8 @@ self.chorusRoom.login(sdkAppId: sdkAppID, userId: userId, userSig: userSig) { [w
 :::
 </dx-codeblock>
 
-[](id:model.step5)
-### 步骤5：房主创建房间
+[](id:model.step4)
+### 步骤4：房主创建房间
 1. 房主执行 [步骤4](#model.step4) 登录后，可以调用 `setSelfProfile` 设置自己的昵称和头像。
 2. 房主调用 `createRoom` 创建新的 Chorus 房间，此时传入房间 ID、上麦是否需要房主确认等房间属性信息。
 3. 房主创建房间成功后，自动调用 `enterSeat` 进入1号主唱座位。
@@ -201,8 +173,7 @@ self.chorusRoom.login(sdkAppId: sdkAppID, userId: userId, userSig: userSig) { [w
 ![](https://main.qcloudimg.com/raw/4295ae0314924a8a93df8f6c19465c9c.png)
 
 示例代码：
-<dx-codeblock>
-::: swift
+```swift
 // 1.房主设置昵称和头像
 self.chorusRoom.setSelfProfile(userName: userName, avatarUrl: avatarURL) { (code, message) in
     // 结果回调           
@@ -245,12 +216,10 @@ func onSeatListChange(seatInfoList: [SeatInfo]) {
 func onAnchorEnterSeat(index: Int, user: UserInfo) {
   // 处理房主上麦事件
 }
+```
 
-:::
-</dx-codeblock>
-
-[](id:model.step6)
-### 步骤6：听众端观看
+[](id:model.step5)
+### 步骤5：听众端观看
 1. 听众端执行 [步骤4](#model.step4) 登录后，可以调用 `setSelfProfile` 设置自己的昵称和头像。
 2. 听众端向业务后台获取最新的 Chorus 房间列表。
 >?App 中的 Chorus 房间列表仅做演示使用，Chorus 房间列表的业务逻辑千差万别，腾讯云暂不提供 Chorus 房间列表的管理服务，请自行管理您的 Chorus 房间列表。
@@ -303,8 +272,8 @@ func onAnchorEnterSeat(index: Int, user: UserInfo) {
 :::
 </dx-codeblock>
 
-[](id:model.step7)
-### 步骤7：麦位管理
+[](id:model.step6)
+### 步骤6：麦位管理
 <dx-tabs>
 ::: 房主端
 1. `pickSeat` 传入对应的麦位和听众 userId, 可以抱人上麦，房间内所有成员会收到 `onSeatListChange` 和 `onAnchorEnterSeat` 的事件通知。
@@ -360,8 +329,8 @@ func onAnchorEnterSeat(index: Int, user: UserInfo) {
 :::
 </dx-tabs>
 
-[](id:model.step8)
-### 步骤8：邀请信令的使用
+[](id:model.step7)
+### 步骤7：邀请信令的使用
 在 [麦位管理](#model.step7) 中，听众上下麦、房主抱人上麦都不需要经过对方的同意就可以直接操作。
 如果您的 App 需要对方同意才能进行下一步操作的业务流程，那么邀请信令可以提供相应支持。
 <dx-tabs>
@@ -439,8 +408,8 @@ func onReceiveNewInvitation(identifier: String, inviter: String, cmd: String, co
 :::
 </dx-tabs>
 
-[](id:model.step9)
-### 步骤9：实现文字聊天和弹幕消息
+[](id:model.step8)
+### 步骤8：实现文字聊天和弹幕消息
 - 通过 `sendRoomTextMsg` 可以发送普通的文本消息，所有在该房间内的主播和听众均可以收到 `onRecvRoomTextMsg` 回调。
   即时通信 IM 后台有默认的敏感词过滤规则，被判定为敏感词的文本消息不会被云端转发。
   <dx-codeblock>
@@ -475,4 +444,5 @@ func onRecvRoomTextMsg(message: String, userInfo: UserInfo) {
   }
   :::
   </dx-codeblock>
+
 

@@ -53,7 +53,7 @@ width: 150px;
 }
 </style>
 | 组件名称                   |    全量配置                           |  
-| ----------------------- | ------------------------------------- | 
+| ----------------------- | ---------------------------------------- | 
 | SCF 组件     | [SCF - serverless.yml 全量配置](https://github.com/serverless-components/tencent-scf/blob/master/docs/configure.md)         |
 | Website 组件  |[Website - serverless.yml 全量配置](https://github.com/serverless-components/tencent-website/blob/master/docs/configure.md)|      
 | API 网关组件     | [API 网关 - serverless.yml 全量配置](https://github.com/serverless-components/tencent-apigateway/blob/master/docs/configure.md)                |      
@@ -72,7 +72,7 @@ width: 150px;
 </style>
 
 | 组件名称                   |    全量配置                           |  
-| ----------------------- | ------------------------------------- | 
+| ----------------------- | ---------------------------------------- | 
 | Express 组件     | [Express - serverless.yml 全量配置](https://github.com/serverless-components/tencent-express/blob/master/docs/configure.md) |
 |  Koa 组件       | [Koa - serverless.yml 全量配置](https://github.com/serverless-components/tencent-koa/blob/master/docs/configure.md)         |      
 | Egg 组件  | [Egg - serverless.yml 全量配置](https://github.com/serverless-components/tencent-egg/blob/master/docs/configure.md)   |      

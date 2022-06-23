@@ -18,7 +18,7 @@
 >?配置项“网络”请选择在 [创建私有网络 VPC](#createVPC) 步骤中已创建的 VPC。
 >
 2. 参考 [初始化 MySQL 数据库](https://cloud.tencent.com/document/product/236/3128) 完成初始化操作，并获取数据库帐户名称及密码。
-3. 在 “[MySQL - 实例列表](https://console.cloud.tencent.com/cdb)” 页面，选择实例 ID 进入数据库详情页面，获取该数据库的**内网地址**、**所属网络**、**内网端口**信息。如下图所示：
+3. 在 “[MySQL - 实例列表](https://console.cloud.tencent.com/cdb)” 页面，选择实例 ID 进入数据库详情页面，获取该数据库的**内网地址**、**所属网络**、**内网端口**信息。如下图所示： 
 ![](https://main.qcloudimg.com/raw/bb4109d666fca0405d968293c879e72b.png)
 
 ### 创建安全组（可选）
@@ -37,7 +37,7 @@
 #### 配置环境变量和私有网络
 1. 登录 [云函数控制台](https://console.cloud.tencent.com/scf)，单击左侧导航栏中的**函数服务**。
 2. 单击需连接数据库的函数名，进入该函数的“函数配置”页面，参考以下信息进行配置。
- - 新增**环境变量**，并参考以下表格填写。如下图所示：
+ - 新增**环境变量**，并参考以下表格填写。如下图所示： 
 ![](https://main.qcloudimg.com/raw/94a17932ae2a1968d6ab19be4aa3fb91.png)
 <table align=center>
 <tr>
@@ -65,7 +65,7 @@
 <td>数据库名</code></td>
 </tr>
 </table>
- - 开启私有网络，并选择和数据库相同的私有网络和子网。如下图所示：
+ - 开启私有网络，并选择和数据库相同的私有网络和子网。如下图所示： 
 ![](https://main.qcloudimg.com/raw/b605a903a25988de2a148d9baac65678.png)
 
 
@@ -254,7 +254,7 @@ SCF DB SDK for MySQL 具备以下特点：
 #### 配置环境变量和私有网络
 1. 登录 [云函数控制台](https://console.cloud.tencent.com/scf)，单击左侧导航栏中的**函数服务**。
 2. 单击需连接数据库的函数 ID，进入该函数的“函数配置”页面，参考以下信息进行配置。
- - 新增**环境变量**，请参考以下表格填写，如下图所示：
+ - 新增**环境变量**，请参考以下表格填写，如下图所示： 
 ![](https://main.qcloudimg.com/raw/46c8b2aab4d4463dd16e1e063b318e36.png)
 >!
 >- 环境变量 key 格式为 `DB_{引用}_XXX`，您可通过 `mysql.database(引用).connection()` 获得已初始化的数据库连接（引用为此数据库的标识）。
@@ -298,7 +298,7 @@ SCF DB SDK for MySQL 具备以下特点：
 <td>是</td>
 </tr>
 </table>
- - 开启私有网络，并选择和数据库相同的私有网络和子网。如下图所示：
+ - 开启私有网络，并选择和数据库相同的私有网络和子网。如下图所示： 
 ![](https://main.qcloudimg.com/raw/b605a903a25988de2a148d9baac65678.png)
 
 

@@ -16,17 +16,17 @@
 
 ## 操作步骤
 1. 执行以下命令，检查 kernel 版本。
-```
+```shellsession
 uname -a
 ```
 查看 kernel 版本是否低于5.4.119-19.0008：
  - 是，请执行以下命令更新 kernel。
-```
+```shellsession
 yum update kernel
 ```   
  - 否，则请执行下一步。
 2. 执行以下命令，安装 SGX runtime 所需的软件包。
-```
+```shellsession
 yum install \
     libsgx-ae-le libsgx-ae-pce libsgx-ae-qe3 libsgx-ae-qve \
     libsgx-aesm-ecdsa-plugin libsgx-aesm-launch-plugin libsgx-aesm-pce-plugin libsgx-aesm-quote-ex-plugin \
@@ -39,7 +39,7 @@ sgx-aesm-service
 SGX AESM 服务的默认安装目录为 `/opt/intel/sgx-aesm-service`。
 </dx-alert>
 3. 执行以下命令，安装 intel SGXSDK。
-```
+```shellsession
 yum install sgx-linux-x64-sdk
 ```
 <dx-alert infotype="explain" title="">
@@ -53,7 +53,7 @@ Intel SGXSDK 的默认安装目录为 /`opt/intel/sgxsdk`。您可参考 [intel 
 - Intel Ice Lake 仅支持基于 Intel SGX DCAP 远程证明方式，不支持 Intel EPID 远程证明方式。
 </dx-alert>
 使用 VIM 编辑器，将 `/etc/sgx_default_qcnl.conf` 修改为如下内容：
-```
+```shellsession
 # PCCS server address
 PCCS_URL=https://sgx-dcap-server-tc.[Region-ID].tencent.cn/sgx/certification/v3/
 # To accept insecure HTTPS cert, set this option to FALSE
@@ -61,21 +61,21 @@ USE_SECURE_CERT=TRUE
 ```
 请将 `[Region-ID]` 替换为 SGX 云服务器实例所在地域的 ID。例如：<br>
  北京地域修改示例如下：
-```
+```shellsession
 # PCCS server address
 PCCS_URL=https://sgx-dcap-server-tc.bj.tencent.cn/sgx/certification/v3/
 # To accept insecure HTTPS cert, set this option to FALSE
 USE_SECURE_CERT=TRUE
 ```
 上海地域修改示例如下：
-```
+```shellsession
 # PCCS server address
 PCCS_URL=https://sgx-dcap-server-tc.sh.tencent.cn/sgx/certification/v3/
 # To accept insecure HTTPS cert, set this option to FALSE
 USE_SECURE_CERT=TRUE
 ```
 广州地域修改示例如下：
-```
+```shellsession
 # PCCS server address
 PCCS_URL=https://sgx-dcap-server-tc.gz.tencent.cn/sgx/certification/v3/
 # To accept insecure HTTPS cert, set this option to FALSE
@@ -87,15 +87,15 @@ USE_SECURE_CERT=TRUE
 ### 示例1：启动 Enclave
 Intel SGXSDK 中提供了 SGX 示例代码用于验证 SGX 功能，默认目录为 `/opt/intel/sgxsdk/SampleCode`。本示例中的代码（SampleEnclave）效果为启动一个 Enclave，以验证是否正常使用安装的 SGXSDK，以及 SGX 云服务器实例的机密内存资源是否可用。
 1. 执行以下命令，设置 intel SGXSDK 相关的环境变量。
-```
+```shellsession
 source /opt/intel/sgxsdk/environment
 ```
 2. 执行以下命令，编译示例代码 SampleEnclave。
-```
+```shellsession
 cd /opt/intel/sgxsdk/SampleCode/SampleEnclave && make
 ```
 3. 执行以下命令，运行编译出的可执行文件。
-```
+```shellsession
 ./app
 ```
 返回如下图所示结果，则说明已启动成功。
@@ -106,39 +106,39 @@ cd /opt/intel/sgxsdk/SampleCode/SampleEnclave && make
 ### 示例2：SGX 远程证明
 Intel sgx 的 code tree 提供了示例代码用于验证 SGX 远程证明功能（DCAP）。本示例为生成和验证 Quote，示例涉及 Quote 生成方（QuoteGenerationSample）和 Quote 验证方（QuoteVerificationSample）。
 1. 执行以下命令，设置 intel SGXSDK 相关的环境变量。
-```
+```shellsession
 source /opt/intel/sgxsdk/environment
 ```
 2. 依次执行以下命令，安装 git 并下载 intel sgx DCAP code tree。
-```
+```shellsession
 cd /root && yum install git
 ```
-```
+```shellsession
 git clone https://github.com/intel/SGXDataCenterAttestationPrimitives.git
 ```
 3. 依次执行以下命令，编译并运行 Quote 生成方示例代码 QuoteGenerationSample。
     1. 进入 QuoteGenerationSample 目录。 
-```
+```shellsession
 cd /root/SGXDataCenterAttestationPrimitives/SampleCode/QuoteGenerationSample
 ```
     2. 编译 QuoteGenerationSample。
-```
+```shellsession
 make
 ```
     3. 运行 QuoteGenerationSample 并生成 Quote。
-```
+```shellsession
 ./app
 ```
 4. 执行以下命令，编译 Quote 验证方示例代码 QuoteVerificationSample。
-```
+```shellsession
 cd /root/SGXDataCenterAttestationPrimitives/SampleCode/QuoteVerificationSample && make
 ```
 5. 执行以下命令，对 QuoteVerificationSample Enclave 进行签名。
-```
+```shellsession
 sgx_sign sign -key Enclave/Enclave_private_sample.pem -enclave enclave.so -out enclave.signed.so -config Enclave/Enclave.config.xml
 ```
 6. 执行以下命令，运行 QuoteVerificationSample 以验证 Quote。
-```
+```shellsession
 ./app
 ```
 返回如下图所示结果，则说明已验证成功。

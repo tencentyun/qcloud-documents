@@ -6,7 +6,7 @@
 HP 开发的网络性能测量工具，主要测试 TCP 及 UDP 吞吐量性能。测试结果主要反应系统向其他系统发送数据的速度，以及其他系统接收数据的速度。
 - SAR
 用于监控网络流量，运行示例如下：
-```
+```shellsession
 sar -n DEV 1
 02:41:03 PM     IFACE   rxpck/s   txpck/s    rxkB/s    txkB/s   rxcmp/s   txcmp/s  rxmcst/s
 02:41:04 PM      eth0 1626689.00      8.00  68308.62      1.65      0.00      0.00      0.00
@@ -99,29 +99,29 @@ sar -n DEV 1
 ### 准备测试环境
 1. 准备3台测试机器，请参见 [自定义配置 Linux 云服务器](https://cloud.tencent.com/document/product/213/10517) 购买测试机器。本文测试机器使用 CentOS 8.2 操作系统。
 2. 依次登录测试机器，并执行以下命令安装 netperf 工具。如何登录云服务器，请参见 [使用标准登录方式登录 Linux 实例（推荐）](https://cloud.tencent.com/document/product/213/5436)。
-```
+```shellsession
 yum install -y sysstat wget tar automake make gcc 
 ```
-```
+```shellsession
 wget -O netperf-2.7.0.tar.gz -c  https://codeload.github.com/HewlettPackard/netperf/tar.gz/netperf-2.7.0
 ```
-```
+```shellsession
 tar zxf netperf-2.7.0.tar.gz
 ```
-```
+```shellsession
 cd netperf-netperf-2.7.0
 ```
-```
+```shellsession
 ./autogen.sh && ./configure && make && make install
 ```
 
 ### 测试发包性能
 1. [](id:Step1)分别在机器中执行以下命令，停止残余的 netperf 和 netserver 进程。
-```
+```shellsession
 pkill netserver && pkill netperf
 ```
 2. 将其中的机器 a 作为客户端，机器 b 和机器 c 作为服务端。在服务端中执行以下命令，运行 netserver。
-```
+```shellsession
 netserver
 ```
  - 若返回结果如下图所示，则说明仍存在其他 netserver 进程。请执行 [步骤1](#Step1) 中的命令，停止该进程。
@@ -129,21 +129,22 @@ netserver
  - 若返回结果如下图所示，则说明已成功运行 netserver，请继续下一步操作。
 ![](https://main.qcloudimg.com/raw/4e137b8ec16b479066b74fa35618bab7.png)
 3. 在客户端中执行 [测试场景](#multiSceneTest) 中提供的命令，不断增减 netperf 进程，直到客户端发包性能不再增加。
->?需重复执行命令，且 server ip 需使用不同的服务端 IP。若一个进程无法达到最大性能，可执行 [测试辅助脚本](#auxiliaryScript) 批量发起进程。
->
+<dx-alert infotype="explain" title="">
+需重复执行命令，且 server ip 需使用不同的服务端 IP。若一个进程无法达到最大性能，可执行 [测试辅助脚本](#auxiliaryScript) 批量发起进程。
+</dx-alert>
 4. 在客户端执行以下命令，观察客户端发包性能变化，取最大值。
-```
+```shellsession
 sar -n DEV 1
 ```
 根据所得结果，参考 [性能指标](#Performance) 进行分析，即可测出云服务器高吞吐网络性能。
 
 ### 测试收包性能
 1. [](id:StepOne)分别在机器中执行以下命令，停止残余的 netperf 和 netserver 进程。
-```
+```shellsession
 pkill netserver && pkill netperf
 ```
 2. 将其中的机器 a 作为服务端，机器 b 和机器 c 作为客户端。在服务端中执行以下命令，运行 netserver。
-```
+```shellsession
 netserver
 ```
  - 若返回结果如下图所示，则说明仍存在其他 netserver 进程。请执行 [步骤1](#StepOne) 中的命令，停止该进程。
@@ -151,10 +152,11 @@ netserver
  - 若返回结果如下图所示，则说明已成功运行 netserver，请继续下一步操作。
 ![](https://main.qcloudimg.com/raw/4e137b8ec16b479066b74fa35618bab7.png)
 3. 在客户端中执行 [测试场景](#multiSceneTest) 中提供的命令，不断增减 netperf 进程，直到客户端发包性能不再增加。
->?需重复执行命令，客户端各自发起 netperf。若一个进程无法达到最大性能，可执行 [测试辅助脚本](#auxiliaryScript) 批量发起进程。
->
+<dx-alert infotype="explain" title="">
+需重复执行命令，客户端各自发起 netperf。若一个进程无法达到最大性能，可执行 [测试辅助脚本](#auxiliaryScript) 批量发起进程。
+</dx-alert>
 4. 在服务端执行以下命令，观察服务端收包性能变化，取最大值。
-```
+```shellsession
 sar -n DEV 1
 ```
 根据所得结果，参考 [性能指标](#Performance) 进行分析，即可测出云服务器高吞吐网络性能。

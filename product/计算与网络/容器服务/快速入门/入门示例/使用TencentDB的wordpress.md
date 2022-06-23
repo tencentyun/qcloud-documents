@@ -25,7 +25,7 @@
 4. 对数据库进行初始化操作，详情请参见 [初始化 MySQL 数据库](https://cloud.tencent.com/document/product/236/3128)。
 
 #### 创建使用 TencentDB 的 WordPress 服务
-1. 登录腾讯云容器服务控制台，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
+1. 登录腾讯云容器服务控制台 ，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
 2. 在“集群管理”页面，选择需创建服务的集群 ID，进入集群的工作负载 “Deployment” 页面并单击**新建**。如下图所示：
 ![](https://main.qcloudimg.com/raw/19997a6644943a2c6ec1587404eb8ca0.png)
 3. 在“新建Workload” 页面，根据以下信息，设置工作负载基本信息。如下图所示：

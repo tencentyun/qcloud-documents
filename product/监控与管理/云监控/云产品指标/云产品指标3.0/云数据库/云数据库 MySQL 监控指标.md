@@ -15,7 +15,7 @@ Namespace=QCE/CDB
 | IOPS          | IOPS         | 每秒的输入输出量(或读写次数)                                 | 次/秒 | InstanceId、InstanceType（选填） | 5s、60s、300s、3600s、86400s |
 | MemoryUse     | 内存占用     | 允许闲时超用，实际内存占用可能大于购买规格                   | MB     | InstanceId、InstanceType（选填） | 5s、60s、300s、3600s、86400s |
 | MemoryUseRate | 内存利用率   | 允许闲时超用，内存利用率可能大于100%                         | %     | InstanceId、InstanceType（选填） | 5s、60s、300s、3600s、86400s |
-| RealCapacity  | 磁盘使用空间 | 仅包括 MySQL 数据目录，不含  binlog、relaylog、undolog、errorlog、slowlog 日志空间 | MB    | InstanceId、InstanceType（选填） | 5s、60s、300s、3600s、86400s |
+| RealCapacity  | 数据使用空间 | 仅包括 MySQL 数据目录，不含  binlog、relaylog、undolog、errorlog、slowlog 日志空间 | MB    | InstanceId、InstanceType（选填） | 5s、60s、300s、3600s、86400s |
 | VolumeRate    | 磁盘利用率   | 磁盘使用空间/实例购买空间                                    | %     | InstanceId、InstanceType（选填） | 5s、60s、300s、3600s、86400s |
 
 ### 引擎监控（普通）- MyISAM
@@ -31,7 +31,7 @@ Namespace=QCE/CDB
 | ------------------ | ------------------------------------- | ---------------------------------- | ----- | -------------------------------- | ---------------------------- |
 | InnodbCacheHitRate | innodb 缓存命中率                     | Innodb 引擎的缓存命中率            | %     | InstanceId、InstanceType（选填） | 5s、60s、300s、3600s、86400s |
 | InnodbCacheUseRate | innodb 缓存使用率                     | Innodb 引擎的缓存使用率            | %     | InstanceId、InstanceType（选填） | 5s、60s、300s、3600s、86400s |
-| InnodbNumOpenFiles | InnoDB 总页数当前 InnoDB 打开表的数量 | Innodb 引擎当前打开表的数量        | 个    | InstanceId、InstanceType（选填） | 5s、60s、300s、3600s         |
+| InnodbNumOpenFiles |当前 InnoDB 打开表的数量 | Innodb 引擎当前打开表的数量        | 个    | InstanceId、InstanceType（选填） | 5s、60s、300s、3600s         |
 | InnodbOsFileReads  | innodb 读磁盘数量                     | Innodb 引擎每秒读磁盘文件的次数    | 次/秒 | InstanceId、InstanceType（选填） | 5s、60s、300s、3600s、86400s |
 | InnodbOsFileWrites | innodb 写磁盘数量                     | Innodb 引擎每秒写磁盘文件的次数    | 次/秒 | InstanceId、InstanceType（选填） | 5s、60s、300s、3600s、86400s |
 | InnodbOsFsyncs     | innodbfsync 数量                      | Innodb 引擎每秒调用 fsync 函数次数 | 次/秒 | InstanceId、InstanceType（选填） | 5s、60s、300s、3600s、86400s |

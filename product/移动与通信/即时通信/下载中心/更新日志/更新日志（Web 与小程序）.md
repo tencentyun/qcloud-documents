@@ -1,3 +1,85 @@
+### 2.20.0 @2022.6.9
+
+**新增**
+
+- [modifyMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#modifyMessage)，支持消息变更。
+- [getMessageListHopping](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getMessageListHopping)，支持根据指定的消息 sequence 或消息时间拉取会话的消息列表。
+- 支持针对单条或多条 C2C 消息发送已读回执（需开通旗舰版）。
+- C2C 会话 lastMessage 新增字段 isPeerRead，用于标识对端是否已读。
+- 支持群提示消息不计入会话未读。
+- 新增类型 [TIM.TYPES.KICKED_OUT_REST_API](https://web.sdk.qcloud.com/im/doc/zh-cn/module-TYPES.html#.KICKED_OUT_REST_API)，支持 REST API [kick](https://cloud.tencent.com/document/product/269/3853)。
+
+**变更**
+
+完善并优化 [getMessageList](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getMessageList) 拉漫游消息的体验。
+
+**修复**
+
+- 传参问题导致的 [deleteMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#deleteMessage) 成功后会话列表未更新。
+- 部分机型真机调试小程序时遇到的 `Cannot add property markTimeline, Object is not extensible` 问题。
+
+
+### 2.19.1 @2022.5.7
+
+**新增**
+- 支持 [社群（Community）](https://cloud.tencent.com/document/product/269/1502#.E7.BE.A4.E7.BB.84.E7.B1.BB.E5.9E.8B.E4.BB.8B.E7.BB.8D)下创建话题（Topic），支持互动性更强的场景。
+- [getJoinedCommunityList](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getJoinedCommunityList) 获取支持话题的社群列表。
+- [createTopicInCommunity](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#createTopicInCommunity) 创建话题。
+- [deleteTopicFromCommunity](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#deleteTopicFromCommunity) 删除话题。
+- [updateTopicProfile](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#updateTopicProfile) 设置话题资料。
+- [getTopicList](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getTopicList) 获取话题列表。
+- [Topic](https://web.sdk.qcloud.com/im/doc/zh-cn/Topic.html) 社群话题对象，用于描述话题具有的属性，如名称、公告、简介、未读数等信息。
+- 事件 [TIM.EVENT.TOPIC_CREATED](https://web.sdk.qcloud.com/im/doc/zh-cn/module-EVENT.html#.TOPIC_CREATED) 创建话题时触发。
+- 事件 [TIM.EVENT.TOPIC_DELETED](https://web.sdk.qcloud.com/im/doc/zh-cn/module-EVENT.html#.TOPIC_DELETED) 删除话题时触发。
+- 事件 [TIM.EVENT.TOPIC_UPDATED](https://web.sdk.qcloud.com/im/doc/zh-cn/module-EVENT.html#.TOPIC_UPDATED) 话题资料更新时触发。
+
+### 2.18.2 @2022.4.22
+
+**变更**
+
+优化直播群使用体验。
+
+**修复**
+
+- 部分场景下统计不准确的问题。
+- 调用接口 [getGroupMessageReadMemberList](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getGroupMessageReadMemberList) 返回结果不准确的问题。
+
+### 2.18.0 @2022.4.8
+
+**新增**
+
+- [sendMessageReadReceipt](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#sendMessageReadReceipt) 发送群消息已读回执。
+- [getMessageReadReceiptList](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getMessageReadReceiptList) 拉取群消息已读回执列表。
+- [getGroupMessageReadMemberList](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getGroupMessageReadMemberList) 拉取群消息已读（或未读）群成员列表。
+- [findMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#findMessage) 根据 messageID 查询会话的本地消息。
+- 消息被撤回后，会话未读数的变更体验对齐 NativeIM。
+
+**变更**
+
+- [Message.ID](https://web.sdk.qcloud.com/im/doc/zh-cn/Message.html) 拼接规则为 `${senderTinyID}-${clientTime}-${random}`，与 NativeIM 消息的 ID 拼接规则一致。
+- SDK not ready 时提示具体原因，方便接入侧使用。
+
+**修复**
+
+踢出群成员后，其它群成员从 [CONVERSATION_LIST_UPDATED](https://web.sdk.qcloud.com/im/doc/zh-cn/module-EVENT.html#.CONVERSATION_LIST_UPDATED) 事件回调里面获取的 `Conversation.groupProfile.memberCount` 值未更新。
+
+### 2.17.0 @2022.3.2
+
+**新增**
+
+- 支持 [社群](https://cloud.tencent.com/document/product/269/1502#.E7.BE.A4.E7.BB.84.E7.B3.BB.E7.BB.9F.E7.AE.80.E4.BB.8B)。
+- 最近联系人 `Conversation.lastMessage` 支持群提示消息。
+- `Message.payload.memberList` 支持获取加入群或者退出群的群成员的昵称、头像等信息。
+- 发送图片消息支持 webp 格式的图片。
+- 发视频消息支持视频封面 [snapshotUrl](https://web.sdk.qcloud.com/im/doc/zh-cn/Message.html#.VideoPayload)。
+- 优化消息传输效率，节流 [CONVERSATION_LIST_UPDATED](https://web.sdk.qcloud.com/im/doc/zh-cn/module-EVENT.html#.CONVERSATION_LIST_UPDATED) 等事件。
+
+**修复**
+
+- 发送了带自定义数据（cloudCustomData）的消息后，重新登录后 cloudCustomData 为空的问题。
+- [login](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#login) 失败后再次登录提示“请勿重复登录”的问题。
+- [getGroupProfile](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getGroupProfile) 后 `Conversation.groupProfile` 与最新群资料不一致的问题。
+
 ### 2.16.3 @2022.2.11
 
 **修复**

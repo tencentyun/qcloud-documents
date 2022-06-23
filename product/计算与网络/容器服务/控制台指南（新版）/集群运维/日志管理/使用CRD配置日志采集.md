@@ -2,7 +2,7 @@
 用户不仅可以 [使用控制台配置日志采集](https://cloud.tencent.com/document/product/457/36771)，还可通过自定义资源定义（CustomResourceDefinitions，CRD）的方式配置日志采集。CRD 支持采集容器标准输出、容器文件和主机文件，支持多种日志采集格式。支持投递到 CLS 和 CKafka 等不同消费端。
 
 ## 前提条件
-已在容器服务控制台的 **[功能管理](https://console.cloud.tencent.com/tke2/ops/list?rid=8)** 中开启日志采集，详情参见 [开启日志采集](https://cloud.tencent.com/document/product/457/36771)。
+已在容器服务控制台 的 **[功能管理](https://console.cloud.tencent.com/tke2/ops/list?rid=8)** 中开启日志采集，详情参见 [开启日志采集](https://cloud.tencent.com/document/product/457/36771)。
 
 
 
@@ -57,7 +57,7 @@ spec:
       customLablels:
         k1: v1
 ```
-<dx-alert infotype="notice" title="">
+<dx-alert infotype="notice" title=" ">
 如果选择采集类型为“容器文件路径”时，对应的“容器文件路径”<b>不能为软链接</b>，否则会导致软链接的实际路径在采集器的容器内不存在，采集日志失败。
 </dx-alert>
 

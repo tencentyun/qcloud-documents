@@ -4,23 +4,35 @@
 ## 前提条件
 - 源数源数据库符合备份功能和版本要求，请参见 [备份和恢复能力汇总](https://cloud.tencent.com/document/product/1513/64026) 进行核对。
 - 已完成 [准备工作](https://cloud.tencent.com/document/product/1513/64040)。
-- 备份账号需要具备源数据库的对应权限，请参考如下指导进行授权。
+- 备份帐号需要具备源数据库的相关权限，如下为全量和增量备份的授权，如果仅全量，无增量备份，则不需要 REPLICATION CLIENT、REPLICATION SLAVE 授权。
   - “整个实例”备份：
 ```
 CREATE USER '帐号'@'%' IDENTIFIED BY '密码';  
-GRANT RELOAD,LOCK TABLES,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO '帐号'@'%';  
+GRANT LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO '帐号'@'%';  
+使用只读帐号对腾讯云 MariaDB 的从库进行备份时，只读帐号缺少`lock table`权限，需要提交工单https://console.cloud.tencent.com/workorder/category申请
 GRANT SELECT ON *.* TO '帐号';
 ```
   - “指定对象”备份：
 ```
 CREATE USER '帐号'@'%' IDENTIFIED BY '密码';  
-GRANT RELOAD,LOCK TABLES,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO '帐号'@'%';  
+GRANT LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO '帐号'@'%';  
 GRANT SELECT ON `mysql`.* TO '帐号'@'%';
 GRANT SELECT ON 待备份的库.* TO '帐号';
 ```
 
 ## 约束限制
-逻辑备份的对象仅支持库、表、索引、视图，不支持用户数据、存储过程、Function 等。
+- 逻辑备份的对象仅支持库、表、索引、视图，不支持用户数据、存储过程、Function 等。
+- 不支持 GIS 地理类型的数据备份。
+- 源库为 MariaDB 10.0.X 版本时，不支持 Decimal 数据类型的备份。 
+- 只支持备份 InnoDB、MyISAM、TokuDB 三种数据库引擎，如果存在这三种以外的数据引擎表则默认跳过不进行备份。
+- 全量备份阶段，源库不能进行 DDL 操作，否则任务报错，增量备份阶段可以进行 DDL 操作。 
+
+## 支持的 SQL 操作
+
+| 操作类型 | 支持的 SQL 操作                                              |
+| -------- | ------------------------------------------------------------ |
+| DML      | INSERT、UPDATE、DELETE、REPLACE                              |
+| DDL      | TABLE：CREATE TABLE、ALTER TABLE、DROP TABLE、TRUNCATE TABLE、RENAEM TABLE  VIEW：CREATE VIEW、DROP VIEW INDEX：CREATE INDEX、DROP INDEX  DATABASE：CREATE DATABASE、ALTER DATABASE、DROP DATABASE |
 
 ## 操作步骤
 ### 购买备份计划
@@ -77,9 +89,9 @@ GRANT SELECT ON 待备份的库.* TO '帐号';
 <td>CA 根证书</td><td>可选，上传 CA 证书后，DBS 会校验传输目标服务器的身份，使传输链路更加安全。</td></tr></tbody></table>
 3. 在**设置备份对象**页面，选择备份对象后，单击**下一步**。
 备份对象：
-   - 整个实例：备份整个实例，当前仅支持备份库、表和视图，暂不支持备份用户权限、存储过程、Function等。  
-   - 指定对象：备份指定对象，然后在下面的界面中选择需要备份的指定库、表等。
-![](https://qcloudimg.tencent-cloud.cn/raw/069c3df7c09a9b5f97a2c597053176b0.png)
+   - 整个实例：备份整个实例，当前仅支持备份库、表和视图，暂不支持备份用户权限、存储过程、Function等。选择整个实例，后续源库新增的对象会同步到备份集中，恢复任务中可以恢复新增的对象。 
+   - 指定对象：备份指定对象，然后在下面的界面中选择需要备份的指定库、表等。选择指定对象，则仅同步指定对象到备份集中，后续恢复任务中不能恢复新增的对象。
+   ![](https://qcloudimg.tencent-cloud.cn/raw/069c3df7c09a9b5f97a2c597053176b0.png)
 4. 在**选择备份策略**页面，选择策略模板、备份方式、备份频率、备份周期等，单击**下一步**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/2e55da1199d1137fbb9f73b3f1d8e328.png)
 <table>

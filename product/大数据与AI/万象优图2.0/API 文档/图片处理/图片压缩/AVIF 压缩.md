@@ -13,8 +13,7 @@
 
 ## 前提条件
 
-- 目前 AVIF 压缩属于内测功能，仅支持北京、上海、广州地域的存储桶，使用前请先 [申请开通 AVIF 功能内测](https://cloud.tencent.com/apply/p/igpvms3gjcn)。
-- 使用 AVIF 压缩，需要先开通存储桶的图片高级压缩功能，您需要在相应的存储桶配置页中通过开关按钮开启功能，详情请参见 [设置图片高级压缩](https://cloud.tencent.com/document/product/436/48981)。
+使用 AVIF 压缩，需要先开通存储桶的图片高级压缩功能，您需要在相应的存储桶配置页中通过开关按钮开启功能，详情请参见 [图片高级压缩](https://cloud.tencent.com/document/product/460/46821)。
 
 ## 使用方式
 
@@ -53,6 +52,10 @@ Pic-Operations:
 }
 ```
 
+>? Pic-Operations 为 json 格式的字符串，具体参数信息可参考 [图片持久化处理](https://cloud.tencent.com/document/product/460/18147)。
+>
+
+
 #### 3. 云上数据处理
 
 ```http
@@ -71,8 +74,9 @@ Pic-Operations:
 }
 ```
 
->? 本篇文档中的实际案例仅包含**下载时处理**，该类处理不会保存处理后的图片至存储桶。如有保存需求，请使用**上传时处理**或**云上数据处理**方式。
+>? Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 >
+
 
 ## 处理参数说明
 
@@ -82,6 +86,9 @@ Pic-Operations:
 | /format/&lt;Format> | 压缩格式，此处为 avif。                                       |
 
 ## 实际案例
+
+>? 本篇文档中的实际案例仅包含**下载时处理**，该类处理不会保存处理后的图片至存储桶。如有保存需求，请使用**上传时处理**或**云上数据处理**方式。
+>
 
 假设原图格式为 png，图片大小为1335.2KB，如下图所示：
 ![img](https://example-1258125638.cos.ap-shanghai.myqcloud.com/sample.png)

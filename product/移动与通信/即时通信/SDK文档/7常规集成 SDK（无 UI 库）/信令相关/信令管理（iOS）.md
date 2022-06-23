@@ -54,3 +54,47 @@
 5. 学生根据  [onReceiveNewInvitation](https://im.sdk.qcloud.com/doc/zh-cn/protocolV2TIMSignalingListener-p.html#ae544e6c0e26c7f23cd2b544f66aab450) 回调中的 `inviteeList` 和 `data` 字段判断被邀请者里有自己且是发言操作，则调用 [accept](https://im.sdk.qcloud.com/doc/zh-cn/categoryV2TIMManager_07Signaling_08.html#a0f486191d6b1755a12de6e2fc42afc14) 接口发言。
 6. 如果有学生发言，所有人都可以收到  [onInviteeAccepted](https://im.sdk.qcloud.com/doc/zh-cn/protocolV2TIMSignalingListener-p.html#ac768c6b6214ca04277bc732bf71c61c0) 回调，判断 `data` 中的字段为“发言操作”，展示发言成员列表。
 
+## 交流&反馈
+
+欢迎加入 QQ 群进行技术交流和反馈问题，QQ 群：**592465424**。
+
+![img](https://qcloudimg.tencent-cloud.cn/raw/ca5f8724cd5a9002abc454f80bf3df12.png)
+
+
+
+## 常见问题
+
+### 1. 用户 A 邀请用户 B 时，用户 C 可以邀请用户 B 吗？
+
+SDK 提供的信令接口（ [iOS](https://im.sdk.qcloud.com/doc/zh-cn/categoryV2TIMManager_07Signaling_08.html) | [Android](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMSignalingManager.html) ）本身不限制邀请的逻辑，一个用户可以同时收到多个邀请信令。对于音视频通话场景，我们的 [TUICalling](https://cloud.tencent.com/document/product/647/70641) 组件做了“忙线”提醒。
+
+### 2. 发送信令邀请时，是否可以同时发送多个 Invite 请求？
+
+可以，上层根据实际业务需求加以区分。
+
+### 3. IM SDK 的信令接口只有**邀请**、**同意/拒绝**、**取消**，如何实现**挂断**操作？
+
+* 邀请操作，上层语义可以理解成**请求建连**。
+* 挂断操作，上层语义可以理解成**请求挂断**。
+
+可以使用 IM SDK 的邀请接口，结合自定义 data 来表示当前的邀请是**请求建连**还是**请求挂断**，由 IM 透传给对端处理。可以参见 TUICalling （ [iOS](https://github.com/TencentCloud/TIMSDK/blob/master/iOS/TUIKit/TUICalling/Source/Model/Impl/TRTCCalling%2BSignal.m) | [Android](https://github.com/TencentCloud/TIMSDK/blob/master/Android/TUIKit/TUICalling/tuicalling/src/main/java/com/tencent/liteav/trtccalling/model/TRTCCalling.java) ）组件的挂断逻辑。
+
+### 4. 发送信令邀请时，对于信令邀请超时的处理逻辑是怎么样的？
+
+* 当邀请发送方和接收方都在线时，超时信令由接收方触发，且发送方和接收方都会收到 `onInvitationTimeout` 回调。
+* 当接收方不在线时，超时信令由发送发触发，发送方会收到 `onInvitationTimeout` 回调。
+* 超时信令均由 IM SDK 发出。
+
+### 5. 离线再上线，会收到未超时的信令消息吗？
+
+App 冷启动（杀进程后再次单击 App 图标启动）时，根据聊天类型，有两种情况：
+
+* 如果是单聊，IM SDK 会自动同步所有信令消息。如果信令未超时，则会回调 `onReceiveNewInvitation`。
+* 如果是群聊，IM SDK 会自动同步最近 30 秒的消息，如果包含了未超时的信令消息，则会回调 `onReceiveNewInvitation`。
+
+App 热启动（App 在后台，单击 App 图标启动）时，不管是单聊还是群聊，都会同步所有的未超时信令消息，并回调 `onReceiveNewInvitation`。
+
+### 6. 信令回调中 inviteID 是不是唯一的？
+
+是唯一的。inviteID 唯一标识了一组信令消息（包括邀请、同意/拒绝、超时）。
+

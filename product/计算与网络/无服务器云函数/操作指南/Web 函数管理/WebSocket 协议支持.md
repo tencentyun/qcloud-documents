@@ -5,11 +5,11 @@ Web 函数目前已经支持通过原生 WebSocket 协议在客户端和函数�
 ### 服务启动
 可以通过在配置支持 WebSocket 协议的 Web 函数的运行环境中，使用启动文件启动 WebSocket 服务器，并在 **指定端口（9000）** 上进行监听，等待客户端连接。
 
-同时，API 网关触发器需要设定为前端协议为 “WS 或 WSS” 支持，后端为当前指定支持 WebSocket 的 Web 函数。 通过 API 网关提供的 ws 路径，可供客户端连接使用。
+同时，API 网关触发器需要设定为前端协议为 “WS 或 WSS” 支持，后端为当前指定支持 WebSocket 的 Web 函数。   通过 API 网关提供的 ws 路径，可供客户端连接使用。
 
 ### 建立 WebSocket 连接
 
-WebSocket 客户端通过使用 API 网关触发器提供的 WS 连接，发起 WebSocket 连接。 API 网关及云函数平台将透传连接至运行环境中的服务进程上。建立连接的协商及通讯过程，均由服务端代码处理。
+WebSocket 客户端通过使用 API 网关触发器提供的 WS 连接，发起 WebSocket 连接。   API 网关及云函数平台将透传连接至运行环境中的服务进程上。建立连接的协商及通讯过程，均由服务端代码处理。
 
 连接建立后，客户端及服务端按 WebSocket 协议进行正常通讯。
 
@@ -53,11 +53,11 @@ WebSocket 客户端通过使用 API 网关触发器提供的 WS 连接，发起 
 ### 创建函数
 
 1. 登录 [云函数控制台](https://console.cloud.tencent.com/scf/list?rid=1&ns=default)。
-2. 单击**新建**创建云函数，可以通过选择**自定义创建** > **选择 Web 函数** > **高级配置**来看到协议支持选项。如下图所示：
+2. 单击**新建**创建云函数，可以通过选择**自定义创建** > **选择 Web 函数** > **高级配置**来看到协议支持选项。如下图所示： 
 ![](https://qcloudimg.tencent-cloud.cn/raw/02caa24cddfa1b16c95a7ee8255c4586.png)
-3. 通过勾选 WebSocket 支持，配置好 WebSocket 空闲超时时间，来完成 WebSocket协议支持。如下图所示：
+3. 通过勾选 WebSocket 支持，配置好 WebSocket 空闲超时时间，来完成 WebSocket协议支持。如下图所示： 
 ![](https://main.qcloudimg.com/raw/5e72c2cd51f6a31a0c9f746e8bba8fc3.png)
-4. 同时在勾选 WebSocket 支持后，API 网关的协议支持同样将自动切换为 WS&WSS 支持，创建的 API 网关所提供的链接地址，也将是 Websocket 地址。如下图所示：
+4. 同时在勾选 WebSocket 支持后，API 网关的协议支持同样将自动切换为 WS&WSS 支持，创建的 API 网关所提供的链接地址，也将是 Websocket 地址。如下图所示： 
 ![](https://main.qcloudimg.com/raw/dd02d4e09577f26eaabbc33cfea4e97d.png)
 >?在完成创建后，WebSocket 的协议支持不可取消，但可以根据需求修改空闲超时时间配置。
 

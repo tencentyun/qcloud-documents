@@ -3,7 +3,7 @@
 
 ## 前提条件
 
-登录 [弹性容器服务控制台](https://console.cloud.tencent.com/tke2/ops/list?rid=8)，并为弹性集群开启日志采集功能。操作详情请参见 [开启日志采集](https://cloud.tencent.com/document/product/457/56751#.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4)。
+登录 [弹性容器服务控制台 ](https://console.cloud.tencent.com/tke2/ops/list?rid=8)，并为弹性集群开启日志采集功能。操作详情请参见 [开启日志采集](https://cloud.tencent.com/document/product/457/56751#.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4)。
 
 
 
@@ -54,7 +54,7 @@ spec:
       filePattern: app_*.log                ## 日志文件名，支持通配符 * 和 ? ，* 表示匹配多个任意字符，? 表示匹配单个任意字符
        
 ```
-<dx-alert infotype="notice" title="">
+<dx-alert infotype="notice" title=" ">
 如果选择采集类型为“容器文件路径”时，对应的“容器文件路径”不能为软链接，否则会导致软链接的实际路径在采集器的容器内不存在，采集日志失败。
 </dx-alert>
 

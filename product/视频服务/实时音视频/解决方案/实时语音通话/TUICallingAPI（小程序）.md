@@ -1,5 +1,5 @@
 ## 组件介绍
-TUICalling 小程序组件是基于腾讯云实时音视频（TRTC）和腾讯云信令 SDK（TSignalling）组合而成，支持1V1，多人场景下的语音通话。TUICalling 是一个开源组件，依赖闭源的信令 SDK（TSignalling）进行状态管理，通过 C2C 通信，完成信令传递。组件可快速服务线上客服，咨询，医疗问诊，跨端实时通话等应用场景。您可前往 [ **Github** ](https://github.com/tencentyun/TRTCSDK/tree/master/WXMini/TRTCScenesDemo) 或单击 [**ZIP**](https://web.sdk.qcloud.com/component/trtccalling/download/trtc-calling-miniapp.zip)，下载相关 SDK 及配套的 Demo 源码。
+TUICalling 小程序组件是基于腾讯云实时音视频（TRTC）和腾讯云信令 SDK（TSignalling）组合而成，支持1V1，多人场景下的语音通话。TUICalling 是一个开源组件，依赖闭源的信令 SDK（TSignalling）进行状态管理，通过 C2C 通信，完成信令传递。组件可快速服务线上客服，咨询，医疗问诊，跨端实时通话等应用场景。您可前往 [ **Github** ](https://github.com/tencentyun/TUICalling/tree/main/MiniProgram) 或单击 [**ZIP**](https://web.sdk.qcloud.com/component/trtccalling/download/trtc-calling-miniapp.zip)，下载相关 SDK 及配套的 Demo 源码。
 ![](https://web.sdk.qcloud.com/component/trtccalling/doc/miniapp/6b1368e2186abcd5126fc1c165f2fb78.png)
 
 ## 环境要求
@@ -177,5 +177,5 @@ TUICallingContext.groupCall({userIDList, type, groupID})
 
 ## 参考文档
 - [TUICalling 组件源码](https://github.com/tencentyun/TUICalling/tree/main/MiniProgram)
-- [TUICalling demo 源码](https://github.com/tencentyun/TRTCSDK/tree/master/WXMini/TRTCScenesDemo/trtc-calling-miniapp)
+- [TUICalling demo 源码](https://github.com/tencentyun/TUICalling)
 - [小程序端相关问题](https://cloud.tencent.com/document/product/647/45532)

@@ -31,16 +31,22 @@ COSFS 主要提供两种安装方式：通过安装包方式安装和通过编�
 #### Ubuntu 系统
 
 1. 根据系统版本选择对应的安装包，目前支持的 Ubuntu 发行版包括 Ubuntu14.04、Ubuntu16.04、Ubuntu18.04、Ubuntu20.04。
+Github下载地址：
 ```plaintext
 #Ubuntu14.04
-wget https://github.com/tencentyun/cosfs/releases/download/v1.0.19/cosfs_1.0.19-ubuntu14.04_amd64.deb
+sudo wget https://github.com/tencentyun/cosfs/releases/download/v1.0.19/cosfs_1.0.19-ubuntu14.04_amd64.deb
 #Ubuntu16.04
-wget https://github.com/tencentyun/cosfs/releases/download/v1.0.19/cosfs_1.0.19-ubuntu16.04_amd64.deb
+sudo wget https://github.com/tencentyun/cosfs/releases/download/v1.0.19/cosfs_1.0.19-ubuntu16.04_amd64.deb
 #Ubuntu18.04
-wget https://github.com/tencentyun/cosfs/releases/download/v1.0.19/cosfs_1.0.19-ubuntu18.04_amd64.deb
+sudo wget https://github.com/tencentyun/cosfs/releases/download/v1.0.19/cosfs_1.0.19-ubuntu18.04_amd64.deb
 #Ubuntu20.04
-wget https://github.com/tencentyun/cosfs/releases/download/v1.0.19/cosfs_1.0.19-ubuntu20.04_amd64.deb
+sudo wget https://github.com/tencentyun/cosfs/releases/download/v1.0.19/cosfs_1.0.19-ubuntu20.04_amd64.deb
 ```
+CDN 下载地址：
+[cosfs_1.0.19-ubuntu14.04_amd64.deb](https://cos-sdk-archive-1253960454.file.myqcloud.com/cosfs/v1.0.19/cosfs_1.0.19-ubuntu14.04_amd64.deb)
+[cosfs_1.0.19-ubuntu16.04_amd64.deb](https://cos-sdk-archive-1253960454.file.myqcloud.com/cosfs/v1.0.19/cosfs_1.0.19-ubuntu16.04_amd64.deb)
+[cosfs_1.0.19-ubuntu18.04_amd64.deb](https://cos-sdk-archive-1253960454.file.myqcloud.com/cosfs/v1.0.19/cosfs_1.0.19-ubuntu18.04_amd64.deb)
+[cosfs_1.0.19-ubuntu20.04_amd64.deb](https://cos-sdk-archive-1253960454.file.myqcloud.com/cosfs/v1.0.19/cosfs_1.0.19-ubuntu20.04_amd64.deb)
 2. 安装。以 Ubuntu16.04 为例：
 ```shell
 sudo dpkg -i cosfs_1.0.19-ubuntu16.04_amd64.deb
@@ -53,12 +59,16 @@ sudo dpkg -i cosfs_1.0.19-ubuntu16.04_amd64.deb
 sudo yum install libxml2-devel libcurl-devel -y
 ```
 2. 根据系统版本选择对应的安装包，目前支持的 CentOS 发行版包括 CentOS6.5、CentOS7.0。
+Github下载地址：
 ```plaintext
 #CentOS6.5
-wget https://github.com/tencentyun/cosfs/releases/download/v1.0.19/cosfs-1.0.19-centos6.5.x86_64.rpm
+sudo wget https://github.com/tencentyun/cosfs/releases/download/v1.0.19/cosfs-1.0.19-centos6.5.x86_64.rpm
 #CentOS7.0
-wget https://github.com/tencentyun/cosfs/releases/download/v1.0.19/cosfs-1.0.19-centos7.0.x86_64.rpm
+sudo wget https://github.com/tencentyun/cosfs/releases/download/v1.0.19/cosfs-1.0.19-centos7.0.x86_64.rpm
 ```
+CDN下载地址：
+[cosfs-1.0.19-centos6.5.x86_64.rpm](https://cos-sdk-archive-1253960454.file.myqcloud.com/cosfs/v1.0.19/cosfs-1.0.19-centos6.5.x86_64.rpm)
+[cosfs-1.0.19-centos7.0.x86_64.rpm](https://cos-sdk-archive-1253960454.file.myqcloud.com/cosfs/v1.0.19/cosfs-1.0.19-centos7.0.x86_64.rpm)
 3. 安装。以 CentOS7.0为例：
 ```shell
 sudo rpm -ivh cosfs-1.0.19-centos7.0.x86_64.rpm
@@ -97,7 +107,7 @@ brew install cask osxfuse
 
 您需要从 GitHub 上将 [COSFS 源码](https://github.com/tencentyun/cosfs) 下载到指定目录，下面以目录`/usr/cosfs`为例（实际操作下，建议您根据具体操作环境选择目录）：
 ```shell
-git clone https://github.com/tencentyun/cosfs /usr/cosfs
+sudo git clone https://github.com/tencentyun/cosfs /usr/cosfs
 ```
 
 
@@ -105,9 +115,9 @@ git clone https://github.com/tencentyun/cosfs /usr/cosfs
 进入安装目录，执行如下命令进行编译和安装：
 ```shell
 cd /usr/cosfs
-./autogen.sh
-./configure
-make
+sudo ./autogen.sh
+sudo ./configure
+sudo make
 sudo make install
 cosfs --version  #查看 cosfs 版本号
 ```
@@ -121,13 +131,13 @@ checking for common_lib_checking... configure: error: Package requirements (fuse
 ```
 此时，您需要手动安装 fuse 2.8.4及以上版本，安装命令示例如下：
 ```shell
-yum -y remove fuse-devel
-wget https://github.com/libfuse/libfuse/releases/download/fuse_2_9_4/fuse-2.9.4.tar.gz
+sudo yum -y remove fuse-devel
+sudo wget https://github.com/libfuse/libfuse/releases/download/fuse_2_9_4/fuse-2.9.4.tar.gz
 tar -zxvf fuse-2.9.4.tar.gz
 cd fuse-2.9.4
-./configure
-make
-make install
+sudo ./configure
+sudo make
+sudo make install
 export PKG_CONFIG_PATH=/usr/lib/pkgconfig:/usr/lib64/pkgconfig/:/usr/local/lib/pkgconfig
 modprobe fuse   #挂载 fuse 内核模块
 echo "/usr/local/lib" >> /etc/ld.so.conf
@@ -139,12 +149,12 @@ pkg-config --modversion fuse  #查看 fuse 版本号，当看到 “2.9.4” 时
 >
 ```shell
 zypper remove fuse libfuse2
-wget https://github.com/libfuse/libfuse/releases/download/fuse_2_9_4/fuse-2.9.4.tar.gz
+sudo wget https://github.com/libfuse/libfuse/releases/download/fuse_2_9_4/fuse-2.9.4.tar.gz
 tar -zxvf fuse-2.9.4.tar.gz
 cd fuse-2.9.4
-./configure
-make 
-make install
+sudo ./configure
+sudo make 
+sudo make install
 export PKG_CONFIG_PATH=/usr/lib/pkgconfig:/usr/lib64/pkgconfig/:/usr/local/lib/pkgconfig
 modprobe fuse   #挂载 fuse 内核模块
 echo "/usr/local/lib" >> /etc/ld.so.conf
@@ -251,8 +261,8 @@ cosfs examplebucket-1250000000 /mnt/cosfs -ourl=http://cos.ap-guangzhou.myqcloud
 该选项可以去除给定类型用户，对挂载目录内文件的操作权限。例如，-oumask=755，对应挂载目录的权限变为022。
 
 #### -ouid=[uid]
-该选项允许用户 id 为 [uid] 的用户不受挂载目录中文件权限位的限制，可以访问挂载目录中的所有文件。
-获取用户 uid 可以使用 id 命令，格式` id -u username`。例如执行`id -u user_00`，可获取到用户 user_00 的 uid。
+该选项允许用户 ID 为 [uid] 的用户不受挂载目录中文件权限位的限制，可以访问挂载目录中的所有文件。
+获取用户 uid 可以使用 ID 命令，格式` id -u username`。例如执行`id -u user_00`，可获取到用户 user_00 的 uid。
 
 #### -oensure_diskfree=[size]
 

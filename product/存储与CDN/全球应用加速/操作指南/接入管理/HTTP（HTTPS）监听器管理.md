@@ -6,7 +6,7 @@
    1. 当选中 HTTP 时，仅需要输入监听端口即可，监听器会默认按照 HTTP 协议进行转发。
       ![](https://qcloudimg.tencent-cloud.cn/raw/29beac16f44c6b19468afec179760a90.png)
    2. 当选中 HTTPS 时，则需要额外配置证书和其他信息，如下图：
-      ![](https://qcloudimg.tencent-cloud.cn/raw/fe628f0b60eb3934793220060f42ef61.png)
+     ![](https://qcloudimg.tencent-cloud.cn/raw/c370f3cff6aa162100a340730eace618.png)
       - “监听器与源站之间使用 HTTP 协议”，指客户端到加速通道 VIP 之间使用 HTTPS 协议，而 VIP 到源站之间使用 HTTP 协议，需要源站开通HTTP协议端口；
         “监听器与源站之间使用 HTTPS 协议”，指客户端到源站之间全程使用 HTTPS 协议，需要源站开通 HTTPS 协议端口。
       - SSL 解析方式：支持单项认证、双向认证。
@@ -19,27 +19,33 @@
 ### 添加域名
 
 1. 为HTTP监听器添加域名只需直接输入域名即可，但须符合域名格式要求，且只支持精确匹配。监听器支持的字符集有：`a-z、0-9、.、–，长度3 - 80`。
-![](https://main.qcloudimg.com/raw/057018c56c9219eed61d88fd3571122e.png)
+   ![](https://main.qcloudimg.com/raw/057018c56c9219eed61d88fd3571122e.png)
 2. 为 HTTPS 监听器添加域名需输入域名并选择对应服务器证书
-![](https://qcloudimg.tencent-cloud.cn/raw/5eb054683ddd76e2287ab5163f391655.png)
-	- 域名：需要符合域名的格式要求，只支持精确匹配，支持字符集如下，长度3-80个字符：a-z 0-9  . -
-	- 服务器证书：默认使用创建监听器时选择的证书。如您在此处重新上传证书，则该域名将使用新证书进行认证
-	- HTTP3 传输：点击**开启**后，支持通过 HTTP3（QUIC）访问，若客户端不支持 HTTP3，规则自动降级为 HTTP2.0 及以下协议访问
+   ![](https://qcloudimg.tencent-cloud.cn/raw/5eb054683ddd76e2287ab5163f391655.png)
+   - 域名：需要符合域名的格式要求，只支持精确匹配，支持字符集如下，长度3-80个字符：a-z 0-9  . -
+   - 服务器证书：默认使用创建监听器时选择的证书。如您在此处重新上传证书，则该域名将使用新证书进行认证
+   - HTTP3 传输：点击**开启**后，支持通过 HTTP3（QUIC）访问，若客户端不支持 HTTP3，规则自动降级为 HTTP2.0 及以下协议访问
 
 ### 添加规则
 
 完成“添加域名”操作后，单击**添加规则**，可以添加对应URL及选择源站类型。同一个域名下可以添加最多20条 URL 规则，具体如下：
 
 1. 基本配置：
-   ![](https://main.qcloudimg.com/raw/d42c66a8f2d208221546690bcd71ce96.png)
+<img src="https://qcloudimg.tencent-cloud.cn/raw/82b4e5cd5d8481231201e937e5e28cdf.png" width="80%" >
+
    - URL：支持字符集如下，`a-z、A-Z、0-9、_ 、.、- 、/，长度1 - 80`。
+   - 回源Host：支持修改回源请求中的HOST字段。
    - 源站类型：支持 IP 和域名两种类型，但同一个监听器只支持一种类型。 
+
 2. 源站处理策略：
    设置源站的转发处理规则，即在同一个监听器绑定多个源站的情况下，选择源站之间的调度策略。
-    ![](https://main.qcloudimg.com/raw/fcd51cf3681b1c464e29392ff8262d51.png)
+<img src="https://qcloudimg.tencent-cloud.cn/raw/3969115bad46f56cb7ae9bf3e47c43d3.png" width="80%">
+
    - 轮询：多个源站按轮询策略回源。
    - 轮询加权：多个源站按权重比例回源（源站类型为域名时不支持配置）。
    - 最小连接数：在所有源站中选择连接数最小的源站优先进行调度。
+   - 回源SNI：与源站建立SSL连接之前先发送SNI，源站根据SNI值返回对应的证书。
+
 3. 源站健康检查机制：
    您可以选择针对当前域名启用监控检查机制。可以设置独立的检查 URL，请求方式可以支持HEAD及GET，检查状态码可支持 http_1xx，http_2xx，http_3xx，http_4xx，http_5xx，状态码可单选也可多选，即当检测到指定的状态码时，监听器认为后端源站属于正常状态。如果未检测到任何状态码时，监听器认为后端源站异常。
    ![](https://qcloudimg.tencent-cloud.cn/raw/2ef77eccf69b650bdf07f681f2a96cc7.png)
@@ -80,11 +86,11 @@
 
 1. 完成“添加规则”操作后，在规则的操作栏选择**更多**，单击**配置回源请求头**
    ![](https://main.qcloudimg.com/raw/9bf54d20a31f34222875d8acf2e68640.png)
-2. 单击**新增参数**，添加请求头的名称参数及取值；如需要携带用户真实IP的头部，其变量值为$remote_addr（默认已经有X-Forwarded-For头部携带客户IP回源），当前仅支持变量$remote_addr，其余带$变量暂未不支持。
+2. 单击**新增参数**，添加请求头的名称参数及取值；如需要携带用户真实IP的头部，其变量值为 $remote_addr（默认已经有 X-Forwarded-For 头部携带客户IP回源），携带用户真实端口的变量值为 $remote_por ；其余带$变量默认不支持，如有需求，可 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们。
 
 > !
 >
-> 1. HTTP头部的名称Key值长度默认为1 - 100个字符，由数字0 - 9、字符a - z、A - Z，及特殊符 - _ : 空格 组成。Value 长度为1 - 100个字符，不支持中文，除了 $remote_addr之外， 不支持配置的文案地方出现 $ 字符；
+> 1. HTTP 头部的名称 Key 值长度默认为1 - 100个字符，由数字0 - 9、字符a - z、A - Z，及特殊符 - _ : 空格 组成。Value 长度为1 - 100个字符，不支持中文；
 > 2. 每条规则最多可配置10条回源 HTTP 请求头；
 > 3. 部分标准头部不支持自助设置/增加/删除，具体清单请参见以下列表。
 

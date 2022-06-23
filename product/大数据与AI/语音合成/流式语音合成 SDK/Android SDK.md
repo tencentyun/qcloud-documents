@@ -9,7 +9,7 @@
 
 ### 下载安装 SDK
 
-- 语音合成 Android SDK [下载地址](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/tts/tts_sdk_android_v1.5.0.zip)。
+- 语音合成 Android SDK [联系我们](https://cloud.tencent.com/act/event/connect-service#/)。
 - 解压后即是示例代码工程，工程目录 `libqcloudtts-demo/libs` 下的 aar 文件即 SDK 包。
 - 用 Android Studio 打开此工程查看语音合成示例代码。
 - 文本合成接口：基于基础语音合成接口封装，支持不限字数长文本入参，SDK内部会将文本切分为短句多次请求合成，也支持入参切分好的句子集合  ，支持播放暂停与恢复，适合实时播放场景，实例代码参考 LongTextTtsActivity 类。

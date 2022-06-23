@@ -1,5 +1,6 @@
 ## 集成准备
-**文件准备**：
+1. [下载 SDK](https://cloud.tencent.com/document/product/616/65876)，并解压。
+2. **准备下列文件**：
 <table>
 <tbody><tr><th>文件类型</th><th>说明</th></tr>
 <tr>
@@ -15,7 +16,7 @@
 ### 资源
 
 - 添加上述文件准备的全部 `.aar` 文件到 app 工程 `libs` 目录下。
-- 将 SDK 包内的 assets/ 目录下的全部资源拷贝到 `../src/main/assets` 目录下。
+- 将 SDK 包内的 assets/ 目录下的全部资源拷贝到 `../src/main/assets` 目录下，如果 SDK 包中的 MotionRes 文件夹内有资源，将此文件夹也拷贝到 `../src/main/assets` 目录下 。
 - 将 jniLibs 文件夹拷贝到工程的 `../src/main/jniLibs` 目录下。
 
 ### 导入方法
@@ -25,7 +26,7 @@
 android{
     ...
     defaultConfig {
-        applicationId "修改成与授权lic绑定的appID"
+        applicationId "修改成与授权lic绑定的包名"
         ....
     }
     packagingOptions {
@@ -39,79 +40,141 @@ dependencies{
 }
 ```
 
-## 动态下载 assets、so、动效资源指引
+[](id:download)
+## 包体大小瘦身：动态下载 assets、so、动效资源指引
 
 为了减少包大小，您可以将 SDK 所需的 assets 资源、so 库、以及动效资源 MotionRes（部分基础版 SDK 无动效资源）改为联网下载。在下载成功后，将上述文件的路径设置给 SDK。
 
-我们建议您复用 Demo 的下载逻辑，当然，也可以使用您已有的下载服务。动态下载的详细指引，请参见 [腾讯特效 SDK 资源动态下载说明（Android）](https://docs.qq.com/doc/DWHRlU0dlcHlGR3V4)。 
+我们建议您复用 Demo 的下载逻辑，当然，也可以使用您已有的下载服务。动态下载的详细指引，请参见 [SDK 包体瘦身（Android）](https://cloud.tencent.com/document/product/616/73016)。
 
 ## 整体流程
 
 [](id:step1)
 ### 步骤一：鉴权
 
-> !部分代码与 Demo 工程中的代码有差异，请以本文档描述为准。
-
 1. 申请授权，得到 License URL 和 License KEY，请参见 [License 指引](https://cloud.tencent.com/document/product/616/65879)。
-> !**不需要**把 License 文件下载下来放到本地工程里。
-2. 在 Application 的 onCreate 或相关业务模块的初始化代码中设置 URL 和 KEY，触发 license 下载，避免在使用前才临时去下载。
+> !正常情况下，只要 App成功联网一次，就能完成鉴权流程，因此您**不需要**把 License 文件放到工程的 assets 目录里。但是如果您的 App 在从未联网的情况下也需要使用 SDK 相关功能，那么您可以把 License 文件下载下来放到 assets 目录，作为保底方案，此时 License文件名必须是 `v_cube.license`。
+2. 在相关业务模块的初始化代码中设置 URL 和 KEY，触发 License 下载，避免在使用前才临时去下载。也可以在 Application 的 onCreate 方法里触发下载，但不建议，因为此时可能没有网络权限或联网失败率较高。
 ```
-LicenceCheck.getInstance().setXMagicLicense(context, URL, KEY);
+//如果仅仅是为了触发下载或更新license，而不关心鉴权结果，则第4个参数传入null。
+TELicenseCheck.getInstance().setXMagicLicense(context, URL, KEY, null);
 ```
-3. 然后在真正要使用美颜功能时 ( 例如 Demo 的 LaunchActivity.java )，再去做鉴权：
+3. 然后在真正要使用美颜功能前( 例如 Demo 的 `LaunchActivity.java`)，再去做鉴权：
 ```java
-private void auth() {
-	LicenceCheck.getInstance().setListener(new LicenceCheck.LicenceCheckListener() {
-		@Override
-		public void onLicenceLoaded(int result, String reason) {
-			//在2.4.0版本，如果无需下载，或者下载失败，不会回调这个方法。（后续版本会补齐）
-			//如果有下载，且下载成功，会回调。result为LicenceCheck.ERROR_OK表示下载下来的license文件是有效的
-			if (result == LicenceCheck.ERROR_OK) {
-				checkAuth(context);
-			}
-		}
-	});
-	//再次触发下载（因为有可能之前在onCreate那里触发下载没有成功）
-	LicenceCheck.getInstance().setXMagicLicense(context,URL,KEY);
+// 如果您的so库是从网络下载的，那么请在调用TELicenseCheck.getInstance().setTELicense之前，先设置so的路径，否则鉴权会失败。
+// XmagicApi.setLibPathAndLoad(validLibsDirectory);
+// 如果您的so内置在apk包内，则无需调用上面的方法。
+TELicenseCheck.getInstance().setTELicense(context, URL, KEY, new TELicenseCheckListener() {
 
-	checkAuth(context);
-}
-
-private boolean authorized = false;
-private synchronized void checkAuth(Context context) {
-		Log.d(TAG, "checkAuth: authorized=" + authorized);
-		if (authorized) {
-		return;
-	}
-	LicenceCheck mLicenceCheck = LicenceCheck.getInstance();
-	String licenseInfo = mLicenceCheck.getBase64Licence();
-	if (TextUtils.isEmpty(licenseInfo)) {
-		licenseInfo = mLicenceCheck.getLicensePathBase64();
-	}
-	if (TextUtils.isEmpty(licenseInfo)) {
-		Log.d(TAG, "licenseInfo is empty");
-		authorized = false;
-	} else {
-		Auth.AuthResult result = Auth.authByBase64(context, licenseInfo, "");
-
-		String msg = Json.toJsonStr(result);
-		Log.d(TAG, "isSucceed=" + result.isSucceed);
-		Log.d(TAG, "msg=" + msg);
-		authorized = result.isSucceed;
-	}
-
-	if (authorized) {
-		//TODO 鉴权成功，在这里通知UI刷新、执行下一步操作之类的事情
-	}
-}
+            @Override
+            public void onLicenseCheckFinish(int errorCode, String msg) {
+                //注意：此回调不一定在调用线程
+                if (errorCode == TELicenseCheck.ERROR_OK) {
+                    //鉴权成功
+                } else {
+                    //鉴权失败
+                }
+            }
+        });
 ```
-
->? 如果鉴权失败，您可参考 [查看鉴权结果及错误码说明](https://cloud.tencent.com/document/product/616/68760) 定位失败原因。
+**鉴权 errorCode 说明：**
+<table>
+<thead>
+<tr>
+<th>错误码</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>成功。Success</td>
+</tr>
+<tr>
+<td>-1</td>
+<td>输入参数无效，例如 URL 或 KEY 为空</td>
+</tr>
+<tr>
+<td>-3</td>
+<td>下载环节失败，请检查网络设置</td>
+</tr>
+<tr>
+<td>-4</td>
+<td>从本地读取的 TE 授权信息为空，可能是 IO 失败引起</td>
+</tr>
+<tr>
+<td>-5</td>
+<td>读取 VCUBE TEMP License文件内容为空，可能是 IO 失败引起</td>
+</tr>
+<tr>
+<td>-6</td>
+<td><code>v_cube.license</code> 文件 JSON 字段不对。请联系腾讯云团队处理</td>
+</tr>
+<tr>
+<td>-7</td>
+<td>签名校验失败。请联系腾讯云团队处理</td>
+</tr>
+<tr>
+<td>-8</td>
+<td>解密失败。请联系腾讯云团队处理</td>
+</tr>
+<tr>
+<td>-9</td>
+<td>TELicense 字段里的 JSON 字段不对。请联系腾讯云团队处理</td>
+</tr>
+<tr>
+<td>-10</td>
+<td>从网络解析的 TE 授权信息为空。请联系腾讯云团队处理</td>
+</tr>
+<tr>
+<td>-11</td>
+<td>把TE授权信息写到本地文件时失败，可能是 IO 失败引起</td>
+</tr>
+<tr>
+<td>-12</td>
+<td>下载失败，解析本地 asset 也失败</td>
+</tr>
+<tr>
+<td>-13</td>
+<td>鉴权失败，请检查 so 是否在包里，或者已正确设置 so 路径</td>
+</tr>
+<tr>
+<td>3004/3005</td>
+<td>无效授权。请联系腾讯云团队处理</td>
+</tr>
+<tr>
+<td>3015</td>
+<td>Bundle Id / Package Name 不匹配。检查您的 App 使用的 Bundle Id / Package Name 和申请的是否一致，检查是否使用了正确的授权文件</td>
+</tr>
+<tr>
+<td>3018</td>
+<td>授权文件已过期，需要向腾讯云申请续期</td>
+</tr>
+<tr>
+<td>其他</td>
+<td>请联系腾讯云团队处理</td>
+</tr>
+</tbody></table>
 
 [](id:step2)
-### 步骤二：加载腾讯特效 SDK xmagic-xxx.aar
+### 步骤二：资源拷贝
+1. 如果您的资源文件是内置在 assets 目录的，那么使用前需要 copy 到 app 的私有目录。您可以提前 copy 好，或者在上一步鉴权成功的回调里执行拷贝操作。示例代码在 Demo 的 `LaunchActivity.java`。
+```
+XmagicResParser.setResPath(new File(getFilesDir(), "xmagic").getAbsolutePath());
+//loading
+
+//copy资源文件到私有目录，只需要做一次
+XmagicResParser.copyRes(getApplicationContext());
+```
+2. 如果您的资源文件是从 [网络动态下载](#download) 的，下载成功后，需要设置资源文件路径。示例代码在 Demo 的 `LaunchActivity.java`。
+```
+XmagicResParser.setResPath(下载的资源文件本地路径);
+```
+
+[](id:step3)
+### 步骤三：SDK 初始化及使用方法
+
 使用腾讯特效 SDK 生命周期大致如下：
-1. 构造美颜 UI 数据，可参考 Demo 工程的 `XmagicResParser.java,XmagicPropertyData.java,XmagicUIState.java` 代码。
+1. 构造美颜 UI 数据，可参考 Demo 工程的。 `XmagicResParser.java,XmagicUIProperty.java,XmagicPanelDataManager.java` 代码。
 2. 预览布局中添加 GLSurfaceView。  
 ```java
 <android.opengl.GLSurfaceView
@@ -125,7 +188,7 @@ android:layout_height="match_parent" />
 //初始化相机
 mPreviewMgr = new PreviewMgr();
 //将布局的GlSurfaceView示例传入相机工具类
-mPreviewMgr.onCreate(mGlSurfaceView);
+mPreviewMgr.onCreate(mGlSurfaceView,false);
 //注册预览纹理数据回调函数
 mPreviewMgr.setCustomTextureProcessor((textureId, textureWidth, textureHeight) -> {
 	if (mXmagicApi == null) {
@@ -141,18 +204,17 @@ mPreviewMgr.onResume(this, 1280, 720);
 ```
 4. 初始化美颜 SDK，建议放在 Activity 的 `onResume()`方法中。
 ```java
-mXmagicApi = new XmagicApi(this, XmagicResParser.getResPath(),                  
-new XmagicApi.OnXmagicPropertyErrorListener()); 
+mXmagicApi = new XmagicApi(this, XmagicResParser.getResPath(),new XmagicApi.OnXmagicPropertyErrorListener()); 
 ```
-- **参数**
+	- **参数**
  <table>
  <tr><th>参数</th><th>含义</th></tr><tr><td>Context context</td><td>上下文</td>
  </tr><tr>
- <td>String resDir</td><td>资源文件目录，V1版本固定写法</td>
+ <td>String resDir</td><td>资源文件目录，详见请参见 <a href="#step2">步骤二</a></td>
  </tr><tr>
  <td>OnXmagicPropertyErrorListener errorListener</td><td>回调函数实现类</td>
  </tr></table>
-- **返回**
+	- **返回**
  错误码含义对照表：
  <table>
  <tr><th>错误码</th><th>含义</th></tr><tr>
@@ -185,22 +247,8 @@ new XmagicApi.OnXmagicPropertyErrorListener());
  <td>5004</td><td>分割背景视频格式不支持</td>
  </tr>
  </tbody></table>
-5. 美颜 SDK 处理每帧数据并返回相应处理结果。
+5. 添加素材提示语回调函数（方法回调有可能运行在子线程），部分素材会提示用户：点点头、伸出手掌、比心，这个回调就是用于展示类似的提示语。
 ```
-int outTexture = mXmagicApi.process(textureId, textureWidth, textureHeight);
-```
-6. 用于更新指定类型的美颜特效数值。
-```java
-// 可用的入参属性可以从 XmagicResParser.parseRes() 获得
-mXmagicApi.updateProperty(XmagicProperty<?> p);
-```
-7. 释放美颜 SDK，建议与 Activity 的 `onPause()` 生命周期绑定。
-```java
-//在 Activity 的 onPause 时调用, 需要在 OpenGL 线程调用
-mXmagicApi.onPause();
-```
-8. 添加素材提示语回调函数（方法回调有可能运行在子线程）。
-```java
 mXmagicApi.setTipsListener(new XmagicTipsListener() {
 	final XmagicToast mToast = new XmagicToast();
 	@Override
@@ -214,5 +262,23 @@ mXmagicApi.setTipsListener(new XmagicTipsListener() {
 	}
 });
 ```
+6. 美颜 SDK 处理每帧数据并返回相应处理结果。
+```
+int outTexture = mXmagicApi.process(textureId, textureWidth, textureHeight);
+```
+7. 更新指定类型的美颜特效数值。
+```java
+// 可用的入参属性可以从 XmagicResParser.parseRes() 获得
+mXmagicApi.updateProperty(XmagicProperty<?> p);
+```
+8. Pause美颜 SDK，建议与 Activity 的 `onPause()` 生命周期绑定。
+```java
+//在 Activity 的 onPause 时调用, 需要在 OpenGL 线程调用
+mXmagicApi.onPause();
+```
+9. 释放美颜 SDK，建议与 Activity 的 `onDestroy() `生命周期绑定。
+```java
+//注意，此方法需要在GL线程中调用
+mXmagicApi.onDestroy()
+```
 
-完成上述步骤后，用户即可根据自己的实际需求控制展示时机以及其他设备相关环境。

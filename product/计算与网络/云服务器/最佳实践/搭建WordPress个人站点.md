@@ -2,7 +2,12 @@
 WordPress 是一款使用 PHP 语言开发的博客平台，您可使用通过 WordPress 搭建属于个人的博客平台。本文以 CentOS 7.6 操作系统的腾讯云云服务器为例，手动搭建 WordPress 个人站点。
 
 进行搭建 WordPress 个人博客，您需要熟悉 Linux 命令，例如 [CentOS 环境下通过 YUM 安装软件](https://cloud.tencent.com/document/product/213/2046) 等常用命令，并对所安装软件的使用及版本兼容性比较了解。
->!腾讯云建议您可以通过云市场的镜像环境部署 WordPress 个人博客，手动搭建过程可能需要较长时间。具体步骤可参考 [镜像部署 WordPress 个人站点](https://cloud.tencent.com/document/product/213/9740)。
+
+<dx-alert infotype="notice" title="">
+腾讯云建议您可以通过云市场的镜像环境部署 WordPress 个人博客，手动搭建过程可能需要较长时间。具体步骤可参考 [镜像部署 WordPress 个人站点](https://cloud.tencent.com/document/product/213/9740)。
+</dx-alert>
+
+
 
 ## 示例软件版本
 本文搭建的 WordPress 个人站点组成版本及说明如下：
@@ -24,75 +29,86 @@ WordPress 是一款使用 PHP 语言开发的博客平台，您可使用通过 W
 LNMP 是 Linux、Nginx、MariaDB 和 PHP 的缩写，这个组合是最常见的 Web 服务器的运行环境之一。在创建并登录云服务器实例之后，您可参考 [手动搭建 LNMP 环境](https://cloud.tencent.com/document/product/213/38056) 完成基本环境搭建。
 
 
-### 步骤3：配置数据库<span id="database"></span>
->!根据 MariaDB 版本，设置用户身份验证方式有一定区别，具体步骤请参见 MariaDB 官网。
->
+### 步骤3：配置数据库[](id:database)
+
+
+<dx-alert infotype="notice" title="">
+根据 MariaDB 版本，设置用户身份验证方式有一定区别，具体步骤请参见 MariaDB 官网。
+</dx-alert>
+
+
 1. 执行以下命令，进入 MariaDB。
-```
+```shellsession
 mysql
 ```
 2. 执行以下命令，创建 MariaDB 数据库。例如 “wordpress”。
-```
+```shellsession
 CREATE DATABASE wordpress;
 ```
 3. 执行以下命令，创建一个新用户。例如 “user”，登录密码为 `123456`。
-```
+```shellsession
 CREATE USER 'user'@'localhost' IDENTIFIED BY '123456';
 ```
 4. 执行以下命令，赋予用户对 “wordpress” 数据库的全部权限。
-```
+```shellsession
 GRANT ALL PRIVILEGES ON wordpress.* TO 'user'@'localhost' IDENTIFIED BY '123456';
 ```
 5. 执行以下命令，设置 root 帐户密码。
->?MariaDB 10.4 在 CentOS 系统上已增加了 root 帐户免密登录功能，请执行以下步骤设置您的 root 帐户密码并牢记。
->
-```
+<dx-alert infotype="explain" title="">
+MariaDB 10.4 在 CentOS 系统上已增加了 root 帐户免密登录功能，请执行以下步骤设置您的 root 帐户密码并牢记。
+</dx-alert>
+```shellsession
 ALTER USER root@localhost IDENTIFIED VIA mysql_native_password USING PASSWORD('输入您的密码');
 ```
 6. 执行以下命令，使所有配置生效。
-```
+```shellsession
 FLUSH PRIVILEGES;
 ```
 7. 执行以下命令，退出 MariaDB。
-```
+```shellsession
 \q
 ```
 
 
 ### 步骤4：安装和配置 WordPress
 #### 下载 WordPress
->? WordPress 可从 WordPress 官方网站下载 WordPress 最新中文版本并安装，本教程采用 WordPress 中文版本。
->
+
+
+<dx-alert infotype="explain" title="">
+WordPress 可从 WordPress 官方网站下载 WordPress 最新中文版本并安装，本教程采用 WordPress 中文版本。
+</dx-alert>
+
+
 1. 执行以下命令，删除网站根目录下用于测试 PHP-Nginx 配置的`index.php`文件。
-```
+```shellsession
 rm -rf /usr/share/nginx/html/index.php
 ```
 2. 依次执行以下命令，进入`/usr/share/nginx/html/`目录，并下载与解压 WordPress。
-```
+```shellsession
 cd /usr/share/nginx/html
 ```
-```
+```shellsession
 wget https://cn.wordpress.org/wordpress-5.0.4-zh_CN.tar.gz
 ```
-```
+```shellsession
 tar zxvf wordpress-5.0.4-zh_CN.tar.gz
 ```
 
 
 ####  修改 WordPress 配置文件
 1. 依次执行以下命令，进入 WordPress 安装目录，将`wp-config-sample.php`文件复制到`wp-config.php`文件中，并将原先的示例配置文件保留作为备份。
-```
+```shellsession
 cd /usr/share/nginx/html/wordpress
 ```
-```
+```shellsession
 cp wp-config-sample.php wp-config.php
 ```
 2. 执行以下命令，打开并编辑新创建的配置文件。
-```
+```shellsession
 vim wp-config.php
 ```
 3. 按 **i** 切换至编辑模式，找到文件中 MySQL 的部分，并将相关配置信息修改为 [配置 WordPress 数据库](#database) 中的内容。
-```
+```shellsession
 	// ** MySQL settings - You can get this info from your web host ** //
 	/** The name of the database for WordPress */
 	define('DB_NAME', 'wordpress');
@@ -110,12 +126,12 @@ vim wp-config.php
 
 ### 步骤5：验证 WordPress 安装
 1. 在浏览器地址栏输入`http://域名或云服务器实例的公网 IP/wordpress 文件夹`，例如：
-```
+```shellsession
 http://192.xxx.xxx.xx/wordpress
 ```
 转至 WordPress 安装页，开始配置 WordPress。
 ![配置WP1](https://main.qcloudimg.com/raw/c79c35b3d75f763561d7024f46983611.png)
-2. 根据 WordPress 安装向导提示输入以下安装信息，单击【安装 WordPress】，完成安装。
+2. 根据 WordPress 安装向导提示输入以下安装信息，单击**安装 WordPress**，完成安装。
 <table>
 	<th style="width: 18%;">所需信息</th>
 	<th style="width: 25%;">说明</th>

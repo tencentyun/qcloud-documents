@@ -70,10 +70,7 @@
 
 
 ### 准备云产品指标信息[](id:step2)
-
-
 本文以云服务器 CPU 利用率指标为例。
-
 1.	查看 [云服务器监控指标文档](https://cloud.tencent.com/document/product/248/6843),
 2.	找到 CPU 利用率指标，即可查看 CPU 利用率指标名、维度，统计粒度等相关信息。
 ![](https://main.qcloudimg.com/raw/0140541d15e09a5ae4b41394f4f529e4.png)

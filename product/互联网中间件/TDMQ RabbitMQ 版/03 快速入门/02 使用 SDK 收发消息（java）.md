@@ -2,6 +2,14 @@
 
 本文以调用 Java SDK 为例介绍通过开源 SDK 实现消息收发的操作过程，帮助您更好地理解消息收发的完整过程。
 
+
+
+<dx-alert infotype="explain" title="">
+以 Java 客户端为例说明，其他语言客户端请参见 [SDK 文档](https://cloud.tencent.com/document/product/1495/64515)。
+</dx-alert>
+
+
+
 ## 前提条件
 
 - [完成资源创建与准备](https://cloud.tencent.com/document/product/1495/61829)
@@ -14,21 +22,22 @@
 ### 步骤1：安装 Java 依赖库
 
 在 pom.xml 添加以下依赖：
-
-```xml
+<dx-codeblock>
+:::  xml
 <!-- in your <dependencies> block -->
 <dependency>
     <groupId>com.rabbitmq</groupId>
     <artifactId>amqp-client</artifactId>
     <version>5.13.0</version>
 </dependency>
-```
+:::
+</dx-codeblock>
 
 ### 步骤2：生产消息
 
-创建并编译运行 MessageProducer.java。
-
-```java
+编译并运行 MessageProducer.java。
+<dx-codeblock>
+:::  java
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
@@ -70,21 +79,42 @@ public class MessageProducer {
         }
     }
 }
-```
-
-| 参数                   | 说明                                                         |
-| :--------------------- | :----------------------------------------------------------- |
-| EXCHANGE_NAME          | Exchange 名称，在控制台 Exchange 列表获取。                  |
-| factory.setUri         | 集群接入地址，在**集群管理**页面操作列的**获取接入地址**获取。![img](https://main.qcloudimg.com/raw/0238d2d64bd896704ebef400fc08a7f1.png) |
-| factory.setVirtualHost | Vhost 名称，在控制台 Vhost 页面复制，格式是**“集群 ID + \| + vhost 名称”**。![img](https://main.qcloudimg.com/raw/ae6ec1a5a94c9befea289ad7f5b46aed.png) |
-| factory.setUsername    | 角色名称，在 **[角色管理](https://console.cloud.tencent.com/tdmq/role)** 页面复制。 |
-| factory.setPassword    | 角色密钥，在 **[角色管理](https://console.cloud.tencent.com/tdmq/role)** 页面复制**密钥**列复制。![img](https://main.qcloudimg.com/raw/52907691231cc11e6e4801298ba90a6c.png) |
+:::
+</dx-codeblock>
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">EXCHANGE_NAME</td>
+<td align="left">Exchange 名称，在控制台 Exchange 列表获取。</td>
+</tr>
+<tr>
+<td align="left">factory.setUri</td>
+<td align="left">集群接入地址，在<strong>集群管理</strong>页面操作列的<strong>获取接入地址</strong>获取。<img src="https://main.qcloudimg.com/raw/0253d014dd12c0b406cf2d2dfb63c88f.png" alt="img"></td>
+</tr>
+<tr>
+<td align="left">factory.setVirtualHost</td>
+<td align="left">Vhost 名称，在控制台 Vhost 页面复制，格式是<strong>“集群 ID + | + vhost 名称”</strong>。<img src="https://main.qcloudimg.com/raw/de750dc729a5bd60e9c1fa398af8c910.png" alt="img"></td>
+</tr>
+<tr>
+<td align="left">factory.setUsername</td>
+<td align="left">角色名称，在 <strong><a href="https://console.cloud.tencent.com/tdmq/role">角色管理</a></strong> 页面复制。</td>
+</tr>
+<tr>
+<td align="left">factory.setPassword</td>
+<td align="left">角色密钥，在 <strong><a href="https://console.cloud.tencent.com/tdmq/role">角色管理</a></strong> 页面复制<strong>密钥</strong>列复制。<img src="https://main.qcloudimg.com/raw/65ef236aaaa1b664dfe7fd7bdcbd3576.png" alt="img"></td>
+</tr>
+</tbody></table>
 
 ### 步骤3：消费消息
 
-创建并编译运行 MessageConsumer.java。
-
-```java
+编译并运行 MessageConsumer.java。
+<dx-codeblock>
+:::  java
 import com.rabbitmq.client.AMQP;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
@@ -146,23 +176,45 @@ public class MessageConsumer1 {
         });
     }
 }
-```
-
-| 参数                   | 说明                                                         |
-| :--------------------- | :----------------------------------------------------------- |
-| QUEUE_NAME             | Queue名称，在控制台 Queue 列表获取。                         |
-| EXCHANGE_NAME          | Exchange 名称，在控制台 Exchange 列表获取。                  |
-| factory.setUri         | 集群接入地址，在**集群管理**页面操作列的**获取接入地址**获取。![img](https://main.qcloudimg.com/raw/0238d2d64bd896704ebef400fc08a7f1.png) |
-| factory.setVirtualHost | Vhost 名称，在控制台 Vhost 页面复制，格式是**“集群 ID + \| + vhost 名称”**。![img](https://main.qcloudimg.com/raw/ae6ec1a5a94c9befea289ad7f5b46aed.png) |
-| factory.setUsername    | 角色名称，在 **[角色管理](https://console.cloud.tencent.com/tdmq/role)** 页面复制。 |
-| factory.setPassword    | 角色密钥，在 **[角色管理](https://console.cloud.tencent.com/tdmq/role)** 页面复制**密钥**列复制。![img](https://main.qcloudimg.com/raw/52907691231cc11e6e4801298ba90a6c.png) |
+:::
+</dx-codeblock>
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">QUEUE_NAME</td>
+<td align="left">Queue名称，在控制台 Queue 列表获取。</td>
+</tr>
+<tr>
+<td align="left">EXCHANGE_NAME</td>
+<td align="left">Exchange 名称，在控制台 Exchange 列表获取。</td>
+</tr>
+<tr>
+<td align="left">factory.setUri</td>
+<td align="left">集群接入地址，在<strong>集群管理</strong>页面操作列的<strong>获取接入地址</strong>获取。<img src="https://main.qcloudimg.com/raw/0253d014dd12c0b406cf2d2dfb63c88f.png" alt="img"></td>
+</tr>
+<tr>
+<td align="left">factory.setVirtualHost</td>
+<td align="left">Vhost 名称，在控制台 Vhost 页面复制，格式是<strong>“集群 ID + | + vhost 名称”</strong>。<img src="https://main.qcloudimg.com/raw/de750dc729a5bd60e9c1fa398af8c910.png" alt="img"></td>
+</tr>
+<tr>
+<td align="left">factory.setUsername</td>
+<td align="left">角色名称，在 <strong><a href="https://console.cloud.tencent.com/tdmq/role">角色管理</a></strong> 页面复制。</td>
+</tr>
+<tr>
+<td align="left">factory.setPassword</td>
+<td align="left">角色密钥，在 <strong><a href="https://console.cloud.tencent.com/tdmq/role">角色管理</a></strong> 页面复制<strong>密钥</strong>列复制。<img src="https://main.qcloudimg.com/raw/65ef236aaaa1b664dfe7fd7bdcbd3576.png" alt="img"></td>
+</tr>
+</tbody></table>
 
 ### 步骤4：查询消息
 
 如果您想确认消息是否成功发送至 TDMQ RabbitMQ 版，可以在控制台 **[集群管理](https://console.cloud.tencent.com/tdmq/rocket-cluster)** > **Queue** 页面查看接入的消费者情况。
 
-![](https://main.qcloudimg.com/raw/a7d78cc58efadfb614b890cc33d08632.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/4a3eee6e8b2899916f787c30412f1087.png)
 
 >?上述是基于 RabbitMQ 的发布订阅模型的一个简单示例。其他示例可参见 [Demo](https://tdmq-document-1306598660.cos.ap-nanjing.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91demo/rabbitmq/tdmq-rabbitmq-java-sdk-demo.zip) 或 [RabbitMQ 官网](https://www.rabbitmq.com/getstarted.html) 实例。
-
-

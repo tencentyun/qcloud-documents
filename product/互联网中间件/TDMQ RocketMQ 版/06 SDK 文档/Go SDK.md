@@ -134,6 +134,9 @@
         <td>设置消息业务 key。</td>
     </tr>
 </table>
+<dx-alert infotype="notice" title="">
+如果要在一个进程中创建多个消息生产者（producer）实例，您需要给每个生产者实例设置不同的实例名；否则只会有一个消息生产者发送成功。
+</dx-alert>
 3. 资源释放。
 <dx-codeblock>
 :::  go
@@ -222,7 +225,7 @@
         </td>
     </tr>
 </table>
-2. 发送消息。
+2. 消费消息。
 <dx-codeblock>
 :::  go
    // topic名称

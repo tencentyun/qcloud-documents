@@ -1,4 +1,10 @@
-您可以在负载均衡实例上添加一个 QUIC 监听器，转发来自客户端加密的 QUIC 协议请求。QUIC 协议的监听器，后端服务器可直接获取客户端的真实 IP。
+您可以在负载均衡实例上添加一个 [QUIC](https://www.chromium.org/quic) 监听器，转发来自客户端加密的 QUIC 协议请求。QUIC 协议的监听器，后端服务器可直接获取客户端的真实 IP。
+
+QUIC（Quick UDP Internet Connection），又称为快速 UDP 互联网连接，是由 Google 提出的使用 UDP 进行多路并发传输的协议，QUIC 相比现在广泛应用的 TCP+TLS+HTTP2 协议有如下优势：
+- 减少连接建立时间。
+- 改善拥塞控制。
+- 避免队头阻塞的多路复用。
+- 连接迁移。
 
 ## 使用场景
 QUIC 监听器支持连接迁移，当您的网络发生变化时，例如 4G 网络与 Wi-Fi 网络频繁切换，能够平滑迁移连接无中断，适用于音视频业务、游戏业务等。
@@ -18,7 +24,7 @@ QUIC 监听器支持连接迁移，当您的网络发生变化时，例如 4G �
 2. 在 CLB 实例列表页面左上角选择地域，在实例列表右侧的操作列中单击**配置监听器**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/2c0b7f73cd81582c7ace11dbfe7d6c18.png)
 3. 在 TCP/UDP/TCP SSL/QUIC 监听器下，单击**新建**，在弹出的**创建监听器**对话框中配置 QUIC 监听器。
-  **a. 基本配置**
+  **1. 基本配置**
 <table>
 <thead>
 <tr>
@@ -54,9 +60,9 @@ QUIC 监听器支持连接迁移，当您的网络发生变化时，例如 4G �
 <td>加权轮询</td>
 </tr>
 </tbody></table>
- <b>b. 健康检查</b></br>
+ <b>2. 健康检查</b></br>
 健康检查详情请参见<a href="https://cloud.tencent.com/document/product/214/50011#tcp-ssl"> TCP SSL 健康检查</a>。</br>
-<b>c. 会话保持</b>
+<b>3. 会话保持</b>
 </br>QUIC 监听器暂不支持会话保持。
 
 ### 步骤二：绑定后端云服务器

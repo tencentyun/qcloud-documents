@@ -148,7 +148,7 @@ Capacity Scheduler 将集群资源粗略的分配给不同的队列，不能指�
 	<value>100</value>
 </property>
 <property>
-	<name>yarn.scheduler.capacity.root.dev.accessible-node-labels.cpu.capacity</name>
+	<name>yarn.scheduler.capacity.root.product.accessible-node-labels.cpu.capacity</name>
 	<value>100</value>
 </property>
 <property>

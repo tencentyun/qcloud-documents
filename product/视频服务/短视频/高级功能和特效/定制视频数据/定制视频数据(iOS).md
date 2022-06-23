@@ -12,13 +12,6 @@
 - (GLuint)onPreProcessTexture:(GLuint)texture width:(CGFloat)width height:(CGFloat)height;
 
 /**
- * 五官位置回调（企业版接口）
- * @prama points 五官坐标
- * 说明：使用了挂件的相关功能如动效贴纸、大眼或者瘦脸等。此回调在 onPreProcessTexture:width:height: 之前会被调用
- */
-- (void)onDetectFacePoints:(NSArray *)points;
-
-/**
  * 在 OpenGL 线程中回调，可以在这里释放创建的 OpenGL 资源
  */
 - (void)onTextureDestoryed;

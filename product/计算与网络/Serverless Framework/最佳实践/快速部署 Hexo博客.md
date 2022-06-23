@@ -1,5 +1,5 @@
 ## 操作场景
-该任务指导您通过 Serverless Website 组件，快速构建一个 Serverless Hexo 站点。 
+该任务指导您通过 Serverless Website 组件，快速构建一个 Serverless Hexo 站点。  
 
 ## 前提条件
 - 已安装 [Node.js](https://nodejs.org/en/)（**2020年9月1日起，Serverless 组件不再支持 Node.js10.0 以下版本，请注意升级**）

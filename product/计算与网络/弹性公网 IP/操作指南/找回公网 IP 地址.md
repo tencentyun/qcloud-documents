@@ -14,7 +14,7 @@
 3. 在弹出的“找回IP”窗口中，输入公网 IP 地址，单击**查询**，检测 IP 是否可以申请找回。
  - 若显示该 IP 可申请，单击**立即申请**。
  - 若显示该 IP 已被分配等信息，表示待找回的 IP 资源已被使用等原因，暂不支持申请。请尝试申请其他 IP 或单击**取消**退出当前功能。
-![](https://main.qcloudimg.com/raw/100d5be1d7e06b435b9797c7691a501b.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/727ab8949ab5beb980fd21ec708a7c77.png)
 4. 在公网 IP 的 [列表页](https://console.cloud.tencent.com/cvm/eip?rid=1) 中，查看已找回的公网 IP（找回后的公网 IP 为 EIP）。
 
 ## 后续步骤

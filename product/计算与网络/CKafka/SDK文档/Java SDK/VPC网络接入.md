@@ -14,7 +14,7 @@
 
 1. 将下载的 Demo 中的 javakafkademo 上传至 Linux 服务器。
 2. 登录 Linux 服务器，进入 javakafkademo 目录，并配置相关参数。
-  2.在 pom.xml 中添加以下依赖。 
+  1. 在 pom.xml 中添加以下依赖。 
 <dx-codeblock>
 :::  xml
       <dependency>
@@ -24,11 +24,11 @@
       </dependency>
 :::
 </dx-codeblock>
-   2.创建消息队列 CKafka 配置文件 kafka.properties。
+   2. 创建消息队列 CKafka 配置文件 kafka.properties。
 <dx-codeblock>
 :::  bash
       ## 配置接入网络，在控制台的实例详情页面接入方式模块的网络列复制。
-      bootstrap.servers=ckafka-xxxxxxxxxxxxxxxxx
+      bootstrap.servers=xx.xx.xx.xx:xxxx
       ## 配置Topic，在控制台上topic管理页面复制。
       topic=XXX
       ## 配置Consumer Group，您可以自定义设置

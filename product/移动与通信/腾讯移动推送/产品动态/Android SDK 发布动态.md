@@ -1,4 +1,73 @@
 
+## 2022年06月
+
+<table>
+	<tr>
+		<th width=20%>动态名称</th>
+    <th width=44%>动态描述</th>
+    <th width=16%>发布时间</th>
+    <th width=20%>相关文档</th>
+	</tr>
+	<tr>
+        <td>SDK 1.3.4.3 版本发布</td>
+	<td>
+		<li>新增：新增接口 XGPushConfig.enableAutoStart 配置是否开启自启动，默认关闭</li>
+		</td>
+        <td>2022-06-07</td><td>
+		<li><a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</a></li>
+		<li><a href="https://cloud.tencent.com/document/product/548/56364">Android SDK 升级指南</a></li>
+</td>
+    </tr>
+<tr>
+</table>
+
+## 2022年05月
+
+<table>
+	<tr>
+		<th width=20%>动态名称</th>
+    <th width=44%>动态描述</th>
+    <th width=16%>发布时间</th>
+    <th width=20%>相关文档</th>
+	</tr>
+	<tr>
+        <td>SDK 1.3.4.1 版本发布</td>
+	<td>
+		<li>新增：支持在 meta-data 中的默认通知小图标配置</li>
+		<li>优化：调整使用显示 PendingIntent</li>
+		<li>修复：不再判断设备是否存在光线传感器</li>
+		<li>修复：其他已知问题</li>
+		</td>
+        <td>2022-05-31</td><td>
+		<li><a href="https://cloud.tencent.com/document/product/548/56364">Android SDK 升级指南</a></li>
+</td>
+    </tr>
+<tr>
+</table>
+
+## 2022年04月
+
+<table>
+	<tr>
+		<th width=20%>动态名称</th>
+    <th width=44%>动态描述</th>
+    <th width=16%>发布时间</th>
+    <th width=20%>相关文档</th>
+	</tr>
+	<tr>
+        <td>SDK 1.3.3.3 版本发布</td>
+	<td>
+		<li>优化：支持搭载 EMUI 系统的设备使用华为推送通道</li>
+		<li>修复：偶现长连接重试时间间隔不准确的问题</li>
+		<li>新增：支持荣耀厂商推送通道，请参考文档<a href="https://cloud.tencent.com/document/product/548/74465">荣耀通道接入 SDK</a></li>
+		</td>
+        <td>2022-04-25</td><td>
+		<a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</a>
+</td>
+    </tr>
+<tr>
+</table>
+
 ## 2022年02月
 
 <table>
@@ -11,16 +80,14 @@
 	<tr>
         <td>SDK 1.3.2.0 版本发布</td>
 	<td>
-		<li>优化：升级小米推送 SDK 4.9.1</li>
-		<li>优化：升级 vivo 推送 SDK 3.0.0.4</li>
-		<li>优化：升级魅族推送SDK 4.1.0</li>
-		<li>优化：升级 OPPO 推送 SDK 3.0.0</li>
+		<li>优化：升级封装的小米、魅族、OPPO、vivo 厂商推送 SDK 版本</li>
 		<li>新增：提供接口方便在推送目标页面内获取随推送下发的自定义参数 customContent</li>
 		<li> 修复：其他已知问题</li>
 		</td>
         <td>2022-02-23</td><td>
 		<li><a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</a></li>
 		<li>获取随推送下发的 custom_content 请参见 <a href="https://cloud.tencent.com/document/product/548/48572#.E5.AE.A2.E6.88.B7.E7.AB.AF.E8.8E.B7.E5.8F.96.E5.8F.82.E6.95.B0">通知点击跳转 > 客户端获取参数</a></li>
+		<li><a href="https://cloud.tencent.com/document/product/548/56364">Android SDK 升级指南</a></li>
 </td>
     </tr>
 <tr>

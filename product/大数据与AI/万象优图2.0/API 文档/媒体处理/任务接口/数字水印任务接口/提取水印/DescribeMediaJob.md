@@ -99,14 +99,10 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzh****=
       <Object>test.mp4</Object>
     </Input>
     <Operation>
-      <Output>
-        <Region>ap-beijing</Region>
-        <Bucket>abc-1250000000</Bucket>
-        <Object>watermark.jpg</Object>
-      </Output>
       <ExtractDigitalWatermark>
-        <Type>Image</Type>
-        <Version>1.0</Version>
+        <Type>Text</Type>
+        <Message>123456789ab</Message>
+        <Version>V1</Version>
       </ExtractDigitalWatermark> 
     </Operation>
   </JobsDetail>

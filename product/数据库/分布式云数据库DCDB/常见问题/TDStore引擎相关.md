@@ -20,3 +20,6 @@ TDStore 目前是免费内测期，不收费。内测结束后正式商用前，
 ### 使用轻量应用服务器 Lighthouse 如何连接 TDStore 数据库？
 轻量应用服务器 Lighthouse 使用腾讯云自动分配的私有网络 VPC 进行网络隔离，默认情况下内网不与云数据库等其他处于私有网络 VPC 中的腾讯云资源内网互通，需通过关联云联网实现。请参考 [Lighthouse 内网连通性说明](https://cloud.tencent.com/document/product/1207/50103#IntranetUnicom)、[内网互联](https://cloud.tencent.com/document/product/1207/56847)。
 
+### 系统提示"实例版本校验错误；请升级内核至最新版后重试"，需要怎么做？
+TDStore 引擎内核在不断迭代升级中，如果您遇到上述系统提示，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系腾讯云工程师为您升级引擎内核。
+

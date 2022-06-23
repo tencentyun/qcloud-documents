@@ -25,7 +25,7 @@
 3. 添加域名完成后，单击域名进入解析设置**记录管理**页签，依次单击**更多操作>批量导入记录**。如下图所示：
 ![](https://main.qcloudimg.com/raw/3ab9cc3308ad97e78cc5749e3e1f649e.png)
 4. 在 “导入记录” 页签中，将准备好的解析记录数据，导入至 DNSPod DNS 解析。具体操作请参见 [记录批量导入](https://docs.dnspod.cn/dns/5fb721ba7daf787f4ed520b8/)。如下图所示：
-![](https://main.qcloudimg.com/raw/52773ccd1e92ee666fcab42595d6b458.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/67820a6e2ec0ded33d4bde6090a308f0.png)
 
 
 ### 步骤3：修改 DNS 服务器地址
@@ -38,4 +38,5 @@
 **一般情况下在48小时内即可完成更新。**
 
 >!更新期间 DNS 解析仍有可能向原 DNS 服务商发起 DNS 查询，所以在变更同步期间请不要删除原 DNS 服务商处的解析记录数据。
+
 

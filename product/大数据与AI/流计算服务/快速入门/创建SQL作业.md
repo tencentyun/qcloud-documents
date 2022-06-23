@@ -1,9 +1,10 @@
+
 ## 前提条件
 流计算作业 SQL 作业需运行于流计算独享集群，若还没有集群，请参考 [创建独享集群](https://cloud.tencent.com/document/product/849/48298)。
 
 ## 步骤1：创建 SQL 作业
-登录 [流计算 Oceanus 控制台](https://console.cloud.tencent.com/oceanus)，单击左侧导航**作业管理**，进入作业管理页面，单击**新建作业**，作业类型选中 SQL 作业，输入作业名称，并选择一个运行中的集群，新建的 SQL 作业将运行于此集群，单击**确定**后，即成功创建作业。
-![](https://main.qcloudimg.com/raw/c9e501fe8aa1c3e7b20d48cc81042467.png)
+登录 [流计算 Oceanus 控制台](https://console.cloud.tencent.com/oceanus)，进入某一工作空间后，单击左侧导航**作业管理**，进入作业管理页面，单击**新建作业**，作业类型选中 SQL 作业，输入作业名称，并选择一个运行中的集群，新建的 SQL 作业将运行于此集群，单击**确定**后，即成功创建作业。
+![](https://qcloudimg.tencent-cloud.cn/raw/5361c726541f973bebc7cc6ba6ab1415.png)
 
 ## 步骤2：流计算服务委托授权
 选择作业管理中刚新建的作业，单击**开发调试**。在未授权时，弹出访问授权对话框如下，单击**前往授权**，授权流计算作业访问您的消息队列或云数据库等资源。此授权的详细说明参见 [流计算服务委托授权](https://cloud.tencent.com/document/product/849/38290)。
@@ -26,8 +27,8 @@ CREATE TABLE `Data_Input` ( --步骤 1 ：创建数据源表（Source） Data_In
     'rows-per-second'='100',          -- 每秒产生的数据条数
 
     'fields.age.kind'='random',       -- 无界的随机数
-    'fields.f_random.min'='1',           -- 随机数的最小值
-    'fields.f_random.max'='100',         -- 随机数的最大值
+    'fields.age.min'='1',           -- 随机数的最小值
+    'fields.age.max'='100',         -- 随机数的最大值
 
     'fields.score.kind'='random',        -- 无界的随机数
     'fields.score.min'='1',              -- 随机数的最小值
@@ -52,8 +53,14 @@ SELECT AVG(age), AVG(score) FROM `Data_Input`;
 
 
 ## 步骤5：发布运行 SQL 作业
-单击**发布运行**，将进行作业运行检查，检查通过后将进入发布确认。发布将生成新的作业版本，版本号由系统自动生成，需输入版本说明并选择运行策略，再单击**确认启动**。
-![](https://main.qcloudimg.com/raw/40a295f78570a2ca273ddfddd81d0623.png)
+单击**发布草稿**，将进行作业运行检查，检查通过后将进入发布确认。发布将生成新的作业版本，版本号由系统自动生成。
+![](https://qcloudimg.tencent-cloud.cn/raw/bdf936b67899e3841eebd2ca65997e81.png)
+
+发布草稿后，单击**版本管理**，可以查看并切换当前作业的不同版本。
+![](https://qcloudimg.tencent-cloud.cn/raw/d6fd906d5a1ad2d4b27c2367f588abd0.png)
+
+切换到期望运行的作业版本后，单击**运行版本**，再单击**确认**即可启动作业。
+![](https://qcloudimg.tencent-cloud.cn/raw/635a8f4fd7d1fee30c5b1e28ab87621d.png)
 
 ## 步骤6：查看作业运行情况
 作业发布并启动运行后，将变为操作中的状态，成功启动后将变为运行中的状态。作业运行中时，可以通过监控、日志、Flink UI 等功能查看作业运行的情况。

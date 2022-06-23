@@ -3,7 +3,7 @@ Android SDK 接入请观看视频：
 
 ## 开发准备
 ### SDK 下载
-录音文件识别 Android SDK 及 Demo 下载地址：[Android SDK](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/realtime/QCloudSDK_Android_v2.6.7.zip )。
+录音文件识别 Android SDK 及 Demo 下载地址：[联系我们](https://cloud.tencent.com/act/event/connect-service#/)。
 
 ### 接入须知
 - 开发者使用录音文件识别功能前，需要先在 [腾讯云控制台](https://console.cloud.tencent.com/) 注册账号，并获得 APPID、SecretId 和 SecretKey 信息。
@@ -26,6 +26,17 @@ Android SDK 接入请观看视频：
 ```
 < uses-permission android:name="android.permission.INTERNET"/>
 ```
+
+### 混淆规则
+```
+-keepclasseswithmembernames class * { # 保持 native 方法不被混淆
+native <methods>;
+}
+-keep public class com.tencent.*
+-keep public class com.qq.wx.voice.*
+```
+
+
 
 ## 快速接入
 ### 开发流程及接入示例

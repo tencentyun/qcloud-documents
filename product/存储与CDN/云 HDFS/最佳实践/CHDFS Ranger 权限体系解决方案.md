@@ -232,6 +232,6 @@ hadoop fs -rm ofs://f4mxxxxyyyy-zzzz.chdfs.ap-guangzhou.myqcloud.com/exampleobje
 
 Ranger 鉴权是在客户端环境进行的，经过 ranger 鉴权的请求，会发给 CHDFS 服务端，服务端默认会进行 POSIX 鉴权。因此如果权限都在 Ranger 端进行控制，请在 CHDFS 控制台关闭 POSIX 权限。
 
-### 在 ranger 页面更改了 Policy 未生效怎么办？
+#### 在 ranger 页面更改了 Policy 未生效怎么办？
 请修改 cos-ranger-service 服务目录 conf 下的 ranger-chdfs-security.xml 文件的配置项：ranger.plugin.chdfs.policy.pollIntervalMs，调小该配置项（单位为毫秒），然后重启 cos-ranger-service 服务。Policy 相关测试结束后，建议修改回原来值（时间间隔太小导致轮训频率高，从而导致 CPU 利用率高企）。
 

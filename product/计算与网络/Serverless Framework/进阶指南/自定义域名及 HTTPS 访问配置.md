@@ -1,5 +1,5 @@
 ## 操作场景
-通过 Serverless Component 快速构建一个 Serverless Web 网站服务后，如果您希望配置自定义域名及支持 HTTPS 的访问，则可以按照本文提供的两种方案快速配置。 
+通过 Serverless Component 快速构建一个 Serverless Web 网站服务后，如果您希望配置自定义域名及支持 HTTPS 的访问，则可以按照本文提供的两种方案快速配置。  
 
 ## 前提条件
 - 已经部署了网站服务，获取了 COS/API 网关的网站托管地址。具体部署方法参考 [部署 Vue.js+Express.js 全栈应用](https://cloud.tencent.com/document/product/1154/39272) 或 [快速部署 Hexo 博客](https://cloud.tencent.com/document/product/1154/40217)。

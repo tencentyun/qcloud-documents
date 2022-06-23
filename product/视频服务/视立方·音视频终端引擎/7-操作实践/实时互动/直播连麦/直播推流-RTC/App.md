@@ -1,12 +1,4 @@
-## 版本支持
-本页文档所描述功能，在腾讯云视立方中支持情况如下：
 
-| 版本名称 | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 播放器 Player | 全功能 |
-| -------- | -------- | -------- | -------- | -------- | -------- | -------- |
-| 支持情况 | &#10003;  | &#10003; | -  | -  | -  | &#10003;  |
-| SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=allPart) |
-
-不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
 
 
 ## 基于 RTC 协议的连麦方案
@@ -30,8 +22,8 @@ RTC 连麦方案用来帮助客户实现更加灵活、更低延时、更多人�
 
 | 平台    | 源码地址                                                     |  目标文件夹  |
 | -------| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Android | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/Android/MLVB-API-Example) | [LiveLink](https://github.com/tencentyun/MLVBSDK/tree/master/Android/MLVB-API-Example/Basic/LiveLink) |
-| iOS      | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/MLVB-API-Example)|[LiveLink](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/MLVB-API-Example/Basic/LiveLink) |
+| Android | [Github](https://github.com/LiteAVSDK/Live_Android/tree/main/MLVB-API-Example) | [LiveLink](https://github.com/LiteAVSDK/Live_Android/tree/main/MLVB-API-Example/Basic/LiveLink) |
+| iOS      | [Github](https://github.com/LiteAVSDK/Live_iOS/blob/main/MLVB-API-Example-OC)|[LiveLink](https://github.com/LiteAVSDK/Live_iOS/blob/main/MLVB-API-Example-OC/Basic/LiveLink) |
 
 ### 演示图示
 <dx-tabs>
@@ -308,11 +300,12 @@ playerB.startPlay(playURLB);
 
 [](id:price)
 ## RTC 连麦方案怎么计算费用
-RTC 连麦互动直播服务费用按所有参与连麦的用户产生的 [视频时长](#v_duration) 和 [语音时长](#s_duration) 来统计连麦服务产生的用量。
+新版直播连麦基于 TRTC 能力实现，连麦计费逻辑参考 [TRTC 音视频时长计费](#v_duration)，**新版直播连麦套餐包即 [TRTC 音视频通用套餐包](#pre-payment)**。RTC 连麦服务费用按所有参与连麦的用户产生的 [视频时长](#v_duration) 和 [语音时长](#s_duration) 来统计连麦服务产生的用量。
 
 >!
 >- 时长统计精度为秒，以当月累计秒数转换成分钟数后进行计费，不足一分钟按一分钟计。
 >- 如果您与商务经理约定了 TRTC 其他的计费方式，请以实际计费方式和账单中心输出账单为准，单击 [查看费用账单](https://console.cloud.tencent.com/expense/bill/overview)。
+>- 直播连麦中的 CDN 拉流观看线路依然按照云直播 [带宽](https://cloud.tencent.com/document/product/267/34175#bandwidth) 或 [流量](https://cloud.tencent.com/document/product/267/34175#flow) 计费，连麦服务仅对连麦通话部分进行计费。
 
 [](id:v_duration)
 ### 视频时长
@@ -331,7 +324,6 @@ RTC 连麦互动直播服务费用按所有参与连麦的用户产生的 [视�
 
 
 [](id:s_duration)
-
 ### 语音时长
 语音时长指所有用户收听其他参与连麦的用户音频流的时间。
 - 只有当用户没有观看视频流时，才会统计语音时长。
@@ -350,12 +342,10 @@ RTC 连麦互动直播服务费用按所有参与连麦的用户产生的 [视�
 | 全高清 FHD | 105.00            |
 
 [](id:Billing_method)
-
 ### 计费方式
 即支付方式，RTC 连麦互动直播支持**预付费套餐包**和**后付费**，默认采用预付费套餐包，后付费只能通过购买的套餐包消耗完或过期后自动开通，无法直接开通。
 
 [](id:pre-payment)
-
 #### 预付费套餐包
 RTC连麦互动直播服务为您提供音视频通用套餐包，可按照**1:2:4:15**分别抵扣语音、标清 SD、高清 HD 和全高清 FHD 时长，例如1分钟高清视频时长扣除4分钟通用套餐包时长。
 通用套餐包定价如下表所示：

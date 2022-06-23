@@ -3,7 +3,7 @@ Android SDK 接入请观看视频：
 
 ## 接入准备
 ### SDK 获取
-实时语音识别 Android SDK 及 Demo 下载地址：[Android SDK](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/realtime/QCloudSDK_Android_v2.6.7.zip)。
+实时语音识别 Android SDK 及 Demo 下载地址：[联系我们](https://cloud.tencent.com/act/event/connect-service#/)。
 
 ### 接入须知
 - 开发者在调用前请先查看实时语音识别的 [接口说明](https://cloud.tencent.com/document/product/1093/37138)，了解接口的**使用要求**和**使用步骤**。
@@ -28,6 +28,15 @@ implementation(name: 'speech_release', ext: 'aar')
     < uses-permission android:name="android.permission.RECORD_AUDIO"/>
     < uses-permission android:name="android.permission.INTERNET"/>
     < uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+```
+
+### 混淆规则
+```
+-keepclasseswithmembernames class * { # 保持 native 方法不被混淆
+native <methods>;
+}
+-keep public class com.tencent.*
+-keep public class com.qq.wx.voice.*
 ```
 
 ## 快速接入

@@ -3,7 +3,7 @@ Apache Kudu 是一个分布式，可水平扩展的列式存储系统，它完�
 ## Kudu 基本特点
 - 高效处理类 OLAP 负载。
 - 与 MapReduce、Spark 以及 Hadoop 生态系统中其他组件进行友好集成。
-- 可与 Impala 集成，替代目前 Impala 常用的 HDFS + Parquet 组合。
+- 可与 Impala 集成，替代目前 Impala 常用的 HDFS + Parquet 组合。  
 - 灵活的一致性模型。
 - 顺序写和随机写并存的场景下，仍能达到良好的性能。
 - 高可用，使用 Raft 协议保证数据高可靠存储。

@@ -38,10 +38,10 @@ Unity 的 Demo 中设置了  OnApplicationFocus，当程序失去焦点时，会
 
 | 平台    | 路径                                                         |
 | ------- | ------------------------------------------------------------ |
-| Windows | %appdata%\Tencent\GME\ProcessName                            |
-| iOS     | Application/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Documents   |
-| Android | /sdcard/Android/data/xxx.xxx.xxx/files                       |
-| Mac     | /Users/username/Library/Containers/xxx.xxx.xxx/Data/Documents |
+| Windows | `%appdata%\Tencent\GMEGLOBAL\ProcessName`                            |
+| iOS     | `Application/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Documents`   |
+| Android | `/sdcard/Android/data/xxx.xxx.xxx/files`                       |
+| Mac     | `/Users/username/Library/Containers/xxx.xxx.xxx/Data/Documents` |
 
 如果是使用 Unity 引擎，并且在 PC 端开发，可以尝试在 `%appdata%\Tencent\GME\Unity.exe` 路径下找到日志。
 
@@ -50,6 +50,8 @@ Unity 的 Demo 中设置了  OnApplicationFocus，当程序失去焦点时，会
 2. 将您希望共享的文件放在应用程序的 Documents 目录下。
 3. 一旦设备插入到用户计算机，iTunes 就会在选中设备的 Apps 标签中显示一个 File Sharing 区域。
 4. 此后，用户就可以向该目录添加文件或者将文件移动到桌面计算机中。
+
+>?使用 GME2.8.4以下版本，Windows 平台日志位置为：`%appdata%\Tencent\GME\ProcessName`。
 
 **日志等级**
 

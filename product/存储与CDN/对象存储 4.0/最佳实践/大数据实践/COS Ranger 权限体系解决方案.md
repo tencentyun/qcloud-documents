@@ -65,7 +65,7 @@ curl -v -u${adminUser}:${adminPasswd} -X DELETE -H "Accept:application/json" -H 
 </dx-codeblock>
 5. 创建服务成功后，可在 Ranger 控制台看到 COS 服务。如下所示：
 ![](https://main.qcloudimg.com/raw/d1a6e2722d11f7177636a5e2c54226e3.png)
-6. 在 COS 服务侧单击【+】，定义新服务实例，服务实例名可自定义，例如`cos`或者`cos_test`，服务的配置如下所示。
+6. 在 COS 服务侧单击**+**，定义新服务实例，服务实例名可自定义，例如`cos`或者`cos_test`，服务的配置如下所示。
 ![](https://main.qcloudimg.com/raw/2be86fb2b8232b16679b29e908f82d3a.png)
 其中 policy.grantrevoke.auth.users 需设置后续启动 COSRangerService 服务的用户名（即允许拉取权限策略的用户）。通常建议设置成 hadoop，后续 COSRangerService 可使用此用户名进行启动。
 7. 单击新生成的 COS 服务实例。
@@ -218,6 +218,5 @@ Kerberos 满足认证的需求，如果所在的集群，用户都是可信的�
 可以是子账号，但是必须拥有被操作 bucket 的相应权限，才能生成临时密钥给到 COSN 插件，进行相应的操作。通常建议这里设置的密钥拥有对该 bucket 的所有权限。
 #### 临时密钥需如何更新，每次访问 COS 前都需要从 COS Ranger Service 侧获取?
 临时密钥是 cache 在 COSN 插件侧，并周期性进行异步更新。
-
-### 在 ranger 页面更改了 Policy 未生效怎么办？
+#### 在 ranger 页面更改了 Policy 未生效怎么办？
 请修改 ranger-cos-security.xml 文件的配置项：ranger.plugin.cos.policy.pollIntervalMs，调小该配置项（单位为毫秒），然后重启 cos-ranger-service 服务。Policy 相关测试结束后，建议修改回原来值（时间间隔太小导致轮训频率高，从而导致 CPU 利用率高企）。

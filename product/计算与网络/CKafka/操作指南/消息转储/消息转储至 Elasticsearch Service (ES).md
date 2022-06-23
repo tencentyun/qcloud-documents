@@ -14,10 +14,10 @@
 
 1. 登录 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 。
 2. 在左侧导航栏单击**实例列表**，单击目标实例的“ID/名称”，进入实例详情页。
-3. 在实例详情页，单击**topic管理**标签页，单击操作列的**消息转储**。
-4. 单击**添加消息转储**，转储类型选择**Elasticsearch Service**。
-   ![](https://main.qcloudimg.com/raw/ef35ef87117791731fffff3b6c8a28ff.png)
-    - 转储类型：选择Elasticsearch Service 
+3. 在实例详情页，单击 **topic 管理**标签页，单击操作列的**消息转储**。
+4. 单击**添加消息转储**，转储类型选择 **Elasticsearch Service**。
+![](https://qcloudimg.tencent-cloud.cn/raw/9109ed990065831877b8cea4f516feb9.png)
+    - 转储类型：选择 Elasticsearch Service 
     - 自建集群：如 ES 集群为自建集群，请将自建集群开关保持开启状态，并填写示例 IP。如 Elasticsearch 集群为腾讯云集群，则直接选取相关集群信息即可。
     - 实例集群：选取腾讯云 Elasticsearch Service 实例集群信息。
     - 实例用户名：输入 Elasticsearch 实例用户名，腾讯云 Elasticsearch 默认用户名为 elastic，且不可更改。
@@ -36,7 +36,7 @@
 2. 在函数代码中修相关配置信息。
    ![](https://main.qcloudimg.com/raw/d53d4fd5aec72743c44be5b8efa623be.png)
 
-当前模版代码拥有显性注释，可根据注释填写，主要配置列举：
+当前模板代码拥有显性注释，可根据注释填写，主要配置列举：
 ```
 # 自定义es索引
 def createIndex(ES_Index_KeyWord, ES_Index_TimeFormat):
@@ -64,7 +64,7 @@ def cleanData(data):
 ### 日志查看与排障
 
 CKafka 转储能力基于 SCF 实现，可在 [SCF 控制台](https://console.cloud.tencent.com/scf) 的日志中查询到相关转储的信息及转储状态。
-![](https://main.qcloudimg.com/raw/70f36ef4d426b6aae1ca30301514bf56.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/fc8d3a8468a0ade9cea7454441294ff6.png)
 
 ## 产品限制和费用计算
 
@@ -72,3 +72,4 @@ CKafka 转储能力基于 SCF 实现，可在 [SCF 控制台](https://console.cl
 - CKafkaToES 方案采用 CKafka 触发器，重试策略与最大消息数等设置参见 [CKafka 触发器](https://cloud.tencent.com/document/product/583/17530)。
 - 使用消息转储 ES 能力，默认转储的信息为 CKafka 触发器的 msgBody 数据，如需自行处理参见 [CKafka 触发器的事件消息结构](https://cloud.tencent.com/document/product/583/17530#ckafka-.E8.A7.A6.E5.8F.91.E5.99.A8.E7.9A.84.E4.BA.8B.E4.BB.B6.E6.B6.88.E6.81.AF.E7.BB.93.E6.9E.84)。 
 - 该功能基于云函数 SCF 服务提供。SCF 为用户提供了一定 [免费额度](https://cloud.tencent.com/document/product/583/12282) ，超额部分产生的收费，请以 SCF 服务的 [计费规则](https://cloud.tencent.com/document/product/583/17299) 为准。
+

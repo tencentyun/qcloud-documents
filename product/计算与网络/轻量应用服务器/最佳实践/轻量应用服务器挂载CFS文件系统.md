@@ -7,15 +7,15 @@
 ## 操作步骤
 
 ### 创建实例
-1. 登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse)，在“服务器”页面单击【新建】。
+1. 登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse)，在“服务器”页面单击**新建**。
 2. 在轻量应用服务器购买页面，选择所需配置完成轻量应用服务器购买。
 本文中“镜像”以选择“系统镜像 CentOS 7.6”为例，您可按需进行选择。其他参数可参考 [购买方式](https://cloud.tencent.com/document/product/1207/44580) 进行选择。
 
 ### 创建文件系统
-1. 登录文件存储控制台，选择左侧导航栏中的【[文件系统](https://console.cloud.tencent.com/cfs/fs)】。
-2. 在“文件系统”页面上方，选择文件系统所在地域，并单击【新建】。
+1. 登录文件存储控制台，选择左侧导航栏中的 **[文件系统](https://console.cloud.tencent.com/cfs/fs)**。
+2. 在“文件系统”页面上方，选择文件系统所在地域，并单击**新建**。
 3. 进入“新建文件系统”页面：
- 1. 在”选择文件系统类型“中，选择”通用标准型“，并单击【下一步：详细设置】。
+ 1. 在”选择文件系统类型“中，选择”通用标准型“，并单击**下一步：详细设置**。
  2. 在“详细设置”中，参考以下信息进行设置。如下图所示：
 ![](https://main.qcloudimg.com/raw/7ac9f718737d57e49579790c663b3bae.png)
    主要配置信息如下：
@@ -24,8 +24,8 @@
     - **文件协议**：若轻量应用服务器实例为 Linux 操作系统，则选择 “NFS”。若轻量应用服务器实例为 Windows 操作系统，则选择 “SMB”。
     - **选择网络**：选择文件系统所在私有网络 VPC。如需新建 VPC，请参见 [创建私有网络](https://cloud.tencent.com/document/product/215/36515)。
    如需了解其他配置项及更多信息，请参见 [创建文件系统及挂载点](https://cloud.tencent.com/document/product/582/9132)。
- 4. 单击【下一步：资源包】。
- 3. 在“资源包”中单击【立即购买】，即可成功创建文件系统。
+ 4. 单击**下一步：资源包**。
+ 3. 在“资源包”中单击**立即购买**，即可成功创建文件系统。
 
 ### 使用内网互联
 1. 轻量应用服务器实例关联云联网
@@ -36,30 +36,30 @@
 ### 挂载文件系统
 1. 参考 [使用 WebShell 方式登录 Linux 实例](https://cloud.tencent.com/document/product/1207/44642) 登录实例。
 2. 执行以下命令，安装 `nfs-utils`。
-```
+```shellsession
 sudo yum install nfs-utils
 ```
 3. 执行以下命令，待挂载目标目录。
-```
-mkdir <待挂载目标目录>
+```shellsession
+sudo mkdir <待挂载目标目录>
 ```
 例如，执行以下命令，创建目录 `local`。
-```
-mkdir /local/
+```shellsession
+sudo mkdir /local/
 ```
 4. 获取挂载命令：
  1. 在 “[文件系统](https://console.cloud.tencent.com/cfs/fs)” 页面中，单击文件系统名。
- 2. 进入文件系统详情页，选择【挂载点信息】页签，即可从 “Linux下挂载” 获取命令。如下图所示：
+ 2. 进入文件系统详情页，选择**挂载点信息**页签，即可从 “Linux下挂载” 获取命令。如下图所示：
 ![](https://main.qcloudimg.com/raw/6bd9984c4bf732dc3a7973afa9bbf50e.png)
 5. 执行获取的挂载命令。本文以使用 NFS v4.0 挂载，且挂载 CFS 根目录为例，执行以下命令。
-```
+```shellsession
 sudo mount -t nfs -o vers=4.0,noresvport xx.xx.x.xx:/ /local
 ``` 
 如需了解 Linxu 操作系统挂载文件系统更多信息，请参见 [挂载 NFS 文件系统](https://cloud.tencent.com/document/product/582/11523#.E6.8C.82.E8.BD.BD-nfs-.E6.96.87.E4.BB.B6.E7.B3.BB.E7.BB.9F)。
 
 ### 查看挂载点信息
 挂载完成后，可使用以下命令查看该文件系统的容量信息。
-```
+```shellsession
 df -h
 ```
 返回类似如下信息，则说明已成功挂载 CFS 文件系统。

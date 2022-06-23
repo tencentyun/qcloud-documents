@@ -355,7 +355,7 @@
     <td class="tg-s268">&#10003;</td>
   </tr>
   <tr>
-    <td class="tg-0lax" rowspan="6"><a id="Security">Security</a></td>
+    <td class="tg-0lax" rowspan="7"><a id="Security">Security</a></td>
     <td class="tg-s268">加密通信</td>
     <td class="tg-s268">-</td>
     <td class="tg-s268">&#10003;</td>
@@ -387,6 +387,12 @@
   </tr>
   <tr>
     <td class="tg-s268">字段和文档级别安全性</td>
+    <td class="tg-s268">-</td>
+    <td class="tg-s268">-</td>
+    <td class="tg-s268">&#10003;</td>
+  </tr>
+	  <tr>
+    <td class="tg-s268">LDAP 身份验证</td>
     <td class="tg-s268">-</td>
     <td class="tg-s268">-</td>
     <td class="tg-s268">&#10003;</td>

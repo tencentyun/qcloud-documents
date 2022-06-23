@@ -1,13 +1,3 @@
-## 版本支持
-本页文档所描述功能，在腾讯云视立方中支持情况如下：
-
-| 版本名称 | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 播放器 Player | 全功能 |
-| -------- | -------- | -------- | -------- | -------- | -------- | -------- |
-| 支持情况 | -  | -  | -  | &#10003;  | -  | &#10003;  |
-| SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=allPart) |
-
-不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
-
 ## 效果展示
 您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 App 体验多人视频会话的效果，包括屏幕分享、美颜、低延时视频通话等 TRTC 在多人音视频场景下的相关能力。
 <table>
@@ -31,7 +21,7 @@
 
 [](id:ui_step1)
 ### 步骤1：创建新的应用
-1. 登录实时音视频控制台，选择 **开发辅助** > [**快速跑通Demo**](https://console.cloud.tencent.com/trtc/quickstart)。
+1. 登录实时音视频控制台，选择 **开发辅助** > [快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)。
 2. 输入应用名称，例如 `TestTUIRoom` ，单击 **创建**。
 3. 单击 **已下载，下一步**，跳过此步骤。
 
@@ -67,8 +57,8 @@
 
 | 文件夹 | 功能描述 |
 |:-------:|:--------|
-| TUIRoomEnter | TUIRoom入口相关实现代码，TUIRoomEntranceViewController类为 Pods 对外暴露的公共类。 |
-| TUIRoomMain | TUIRoom主界面相关 UI 实现代码，此类为 Pods 私有类。 |
+| TUIRoomEnter | TUIRoom 入口相关实现代码，TUIRoomEntranceViewController 类为 Pods 对外暴露的公共类。 |
+| TUIRoomMain | TUIRoom 主界面相关 UI 实现代码，此类为 Pods 私有类。 |
 | TUIRoomMemberList | 成员列表界面相关 UI 实现代码，此类为 Pods 私有类。 |
 | TUIRoomSet | 设置界面相关 UI 实现代码，此类为 Pods 私有类。 |
 
@@ -119,65 +109,38 @@ B 用户输入 A 用户的房间号，单击 **加入房间** 可以进入主页
 [源码](https://github.com/tencentyun/TUIRoom) 中的 `Source` 文件夹包含 UI 和 Presenter，Presenter 文件夹中包含可重用的开源组件 TUIRoomCore，您可以在 `TUIRoomCore.h` 文件中看到该组件提供的接口函数，并使用对应接口实现自定义 UI 界面。
 ![#600px](https://qcloudimg.tencent-cloud.cn/raw/26d50df38b49c1aa36446ce909aa9ce4.png)
 
-[](id:ui_step1)
-### 步骤1：集成 SDK
-多人音视频视频组件 TUIRoom 依赖 TRTC SDK 和 IM SDK，您可以按照如下步骤将两个 SDK 集成到项目中。
+[](id:model_step1)
+### 步骤1：配置权限
 
-- **方法一：通过 cocoapods 仓库依赖**
-```
- pod 'TXIMSDK_iOS'
- pod 'TXLiteAVSDK_TRTC'
-```
->? 两个 SDK 产品的最新版本号，可以在 [TRTC](https://github.com/tencentyun/TRTCSDK) 和 [IM](https://github.com/tencentyun/TIMSDK) 的 Github 首页获取。
-- **方法二：通过本地依赖**
-如果您的开发环境访问 cocoapods 仓库较慢，您可以直接下载 ZIP 包，并按照集成文档手动集成到您的工程中。
-<table>
-<thead><tr><th>SDK</th><th>下载页面</th><th>集成指引</th></tr></thead>
-<tbody><tr>
-<td>TRTC SDK</td>
-<td><a href="https://cloud.tencent.com/document/product/647/32689">DOWNLOAD</a></td>
-<td><a href="https://cloud.tencent.com/document/product/647/32173">集成文档</a></td>
-</tr>
-<tr>
-<td>IM SDK</td>
-<td><a href="https://cloud.tencent.com/document/product/269/36887">DOWNLOAD</a></td>
-<td><a href="https://cloud.tencent.com/document/product/269/32675">集成文档</a></td>
-</tr>
-</tbody></table>
+使用音视频功能，需要授权麦克风和摄像头的使用权限。在 App 的 Info.plist 中添加以下两项，分别对应麦克风和摄像头在系统弹出授权对话框时的提示信息。
+- **Privacy - Microphone Usage Description**，并填入麦克风使用目的提示语。
+- **Privacy - Camera Usage Description**，并填入摄像头使用目的提示语。
+
+![](https://main.qcloudimg.com/raw/54cc6989a8225700ff57494cba819c7b.jpg)
 
 [](id:model_step2)
-### 步骤2：配置权限
-在 `info.plist` 文件中需要添加 `Privacy > Camera Usage Description` 和 `Privacy > Microphone Usage Description` 申请摄像头和麦克风权限。
-
-[](id:model_step3)
-### 步骤3：导入 TUIRoom 组件
+### 步骤2：导入 TUIRoom 组件
 您可通过 **cocoapods 导入组件**，具体步骤如下：
 1. 将工程目录下的 `Source`、`Resources`、`TCBeautyKit`、`TXAppBasic` 文件夹、`TUIRoom.podspec` 文件拷贝到您的工程目录下。
 2. 在您的 `Podfile` 文件中添加以下依赖。之后执行 `pod install` 命令，完成导入。
+
 ```swift
-# 本地依赖库
-def local
-  pod 'TXAppBasic', :path => "../../TXAppBasic/"
-  pod 'TCBeautyKit', :path => "../../TCBeautyKit/"
-  pod 'TXLiteAVSDK_TRTC',:path => "../../../SDK/"
-end
+# :path => "指向TXAppBasic.podspec所在目录的相对路径"
+pod 'TXAppBasic', :path => "../SDK/TXAppBasic/"
 
-def pod_local(type)
-  loadLocalPod('TUIRoom', type)
-end
+# :path => "指向TCBeautyKit.podspec所在目录的相对路径"
+pod 'TCBeautyKit', :path => "../SDK/TCBeautyKit/"
 
-def loadLocalPod(name, type)
-    pod "#{name}/#{type}", :path => "../"
-end
-
-target 'DemoApp' do
-  local
-  pod_local('TRTC')
-end
+# :path => "指向TUIRoom.podspec所在目录的相对路径"
+pod 'TUIRoom', :path => "../", :subspecs => ["TRTC"]
 ```
 
-[](id:model_step4)
-### 步骤4：创建并登录组件
+>!  `Source`、`Resources`文件夹 和 `TUIRoom.podspec` 文件必需在同一目录下。
+>-  TXAppBasic.podspec 在 TXAppBasic 文件夹下。
+>-  TCBeautyKit.podspec 在 TCBeautyKit 文件夹下。
+
+[](id:model_step3)
+### 步骤3：创建并登录组件
 1.  调用 TUICore 中的 TUILogin 进行登录，请参考如下示例：
 ```swift
 TUILogin.initWithSdkAppID(Int32(SDKAPPID))
@@ -207,8 +170,8 @@ navigationController?.pushViewController(vc, animated: true)
 ```
 ![#600px](https://qcloudimg.tencent-cloud.cn/raw/e286295b14f04efb4f52be0da991ab56.png)
 
-[](id:model_step5)
-### 步骤5：成员进入房间
+[](id:model_step4)
+### 步骤4：成员进入房间
 1. 成员调用 TUICore 中的 TUILogin 进行登录，请参考如下示例：
 ```swift
 TUILogin.initWithSdkAppID(Int32(SDKAPPID))
@@ -238,8 +201,8 @@ navigationController?.pushViewController(vc, animated: true)
 ```
 ![#600px](https://qcloudimg.tencent-cloud.cn/raw/bc320a6fbd044ddad021aed0a488c298.png)
 
-[](id:model_step6)
-### 步骤6：屏幕分享
+[](id:model_step5)
+### 步骤5：屏幕分享
 1. 调用 TUIRoomCore 的 `startScreenCapture` 实现分享。
 2. 房间中其他成员会收到 `onRemoteUserScreenVideoAvailable` 的事件通知。
 
@@ -261,7 +224,7 @@ if #available(iOS 12.0, *) {
 ```
 
 [](id:step)
-### 步骤7：离开房间
+### 步骤6：离开房间
 - **主持人**调用 destoryRoom 接口解散房间，解散 IM 群聊，退出 TRTC 房间，成员端会收到 onDestroyRoom 回调消息，通知群解散，退出 TRTC 房间。
 - **成员**调用 leaveRoom 接口解散房间，退出 IM 群聊，退出 TRTC 房间，其他成员端会收到 onRemoteUserLeave 回调，通知有成员离开房间。
 
@@ -278,3 +241,4 @@ if isHomeowner {
     }
  }
 ```
+

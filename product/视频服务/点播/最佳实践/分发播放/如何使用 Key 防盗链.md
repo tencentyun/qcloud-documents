@@ -63,7 +63,7 @@ Key 防盗链签名派发服务 Demo 的部署和运行过程需要使用到开�
 
 ### 步骤4：部署防盗链签名派发服务
 
-登录 [步骤1准备的 CVM](#p1)（登录方法详见 [操作指南 - 登录 Linux](https://cloud.tencent.com/document/product/213/5436)），在远程终端输入以下命令并运行：
+登录 [步骤1. 准备的 CVM](#p1)（登录方法详见 [操作指南 - 登录 Linux](https://cloud.tencent.com/document/product/213/5436)），在远程终端输入以下命令并运行：
 
 ```
 ubuntu@VM-69-2-ubuntu:~$ export SECRET_ID=AKxxxxxxxxxxxxxxxxxxxxxxx; export SECRET_KEY=xxxxxxxxxxxxxxxxxxxxx;export APPID=125xxxxxxx;export ANTI_LEECH_KEY=xxxx;git clone https://github.com/tencentyun/vod-server-demo.git ~/vod-server-demo; bash ~/vod-server-demo/installer/anti_leech_sign_scf.sh
@@ -74,12 +74,10 @@ ubuntu@VM-69-2-ubuntu:~$ export SECRET_ID=AKxxxxxxxxxxxxxxxxxxxxxxx; export SECR
 该命令将从 Github 下载 Demo 源码并自动执行安装脚本。安装过程需几分钟（具体取决于 CVM 网络状况），期间远程终端会打印如下示例的信息：
 
 ```
-[2020-06-04 15:57:10]开始安装 pip3。
-[2020-06-04 15:57:18]pip3 安装成功。
-[2020-06-04 15:57:18]开始安装腾讯云 SCF 工具。
-[2020-06-04 15:57:19]scf 安装成功。
-[2020-06-04 15:57:19]开始配置 scf。
-[2020-06-04 15:57:20]scf 配置完成。
+[2020-06-04 15:57:10]开始检查npm。
+[2020-06-04 15:57:18]npm 安装成功。
+[2020-06-04 15:57:18]开始安装 ServerLess。
+[2020-06-04 15:57:19]serverless 安装成功。
 [2020-06-04 15:57:20]开始部署云点播 Key 防盗链签名派发服务。
 [2020-06-04 15:57:30]云点播 Key 防盗链签名派发服务部署完成。
 [2020-06-04 15:57:32]服务地址：https://service-xxxxxxxx-125xxxxxxx.gz.apigw.tencentcs.com/release/anti_leech_sign

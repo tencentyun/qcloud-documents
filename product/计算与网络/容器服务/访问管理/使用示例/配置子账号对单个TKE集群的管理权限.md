@@ -62,7 +62,7 @@
 ```
 6. 在 “编辑策略内容” 中，将 `qcs::tke:sh::cluster/cls-XXXXXXX` 修改为您想赋予权限的指定地域下的集群。
 例如，您需要为广州地域的 cls-69z7ek9l 集群赋予全读写的权限，将 `qcs::tke:sh::cluster/cls-XXXXXXX` 修改为 `"qcs::tke:gz::cluster/cls-69z7ek9l"`。
-<dx-alert infotype="notice" title="">
+<dx-alert infotype="notice" title=" ">
 请替换成您想赋予权限的指定地域下的集群 ID。如果您需要允许子账号进行集群的扩缩容，还需要配置子账号用户支付权限。
 </dx-alert>
 7. 单击**创建策略**，即可完成对单个集群全读写权限的配置。

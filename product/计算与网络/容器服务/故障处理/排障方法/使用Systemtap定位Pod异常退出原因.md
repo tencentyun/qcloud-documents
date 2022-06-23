@@ -20,7 +20,7 @@ You need package linux-image-4.4.0-104-generic-dbgsym but it does not seem to be
  Follow https://wiki.ubuntu.com/DebuggingProgramCrash to add this repository
 apt install -y linux-headers-4.4.0-104-generic
 ```
-3. 根据上述返回结果可知目前需要 dbgsym 包，但已有软件源中并不包含，需使用第三方软件源安装。 请执行以下命令，安装 dbgsym。
+3. 根据上述返回结果可知目前需要 dbgsym 包，但已有软件源中并不包含，需使用第三方软件源安装。  请执行以下命令，安装 dbgsym。
 ```bash
     sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys C8CAB6595FDFF622
     
@@ -84,7 +84,7 @@ kernel-devel-3.10.0-862.9.1.el7.x86_64
 ```
 若存在多个版本，则只需保留与当前内核版本相同的版本。假设当前内核版本为 `3.10.0-862.9.1.el7.x86_64`，结合上述返回结果需执行以下命令删除多余版本。
 >!
->- 可通过执行 `uname -r` 命令查看内核版本。 
+>- 可通过执行 `uname -r` 命令查看内核版本。  
 >- 需确保 `kernel-debuginfo` 和 `kernel-devel` 均已安装并且安装版本与当前内核版本相同。
 >
 ```

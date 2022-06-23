@@ -1,13 +1,3 @@
-## 版本支持
-本页文档所描述功能，在腾讯云视立方中支持情况如下：
-
-| 版本名称 | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 播放器 Player | 全功能 |
-| -------- | -------- | -------- | -------- | -------- | -------- | -------- |
-| 支持情况 | -  | -  | -  | &#10003;  | -  | &#10003;  |
-| SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=allPart) |
-
-不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
-
 ## 效果展示
 您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 App 体验实时音视频通话的效果。
 <table>
@@ -86,11 +76,11 @@
 [](id:model)
 ## 具体接入流程
 
-[源码](https://github.com/tencentyun/TUICalling/tree/master/Android/Source/src/main/java/com/tencent/liteav/trtccalling) 文件夹 `Source` 中包含两个子文件夹 ui 和 model，其中 model 文件夹中包含了我们对外暴露的开源组件 TUICallingManager，您可以在  `TUICalling.java`  文件中看到该组件提供的接口函数。
+[源码](https://github.com/tencentyun/TUICalling/tree/master/Android/Source/src/main/java/com/tencent/liteav/trtccalling) 文件夹 `Source` 中包含子文件夹 ui 和 model 以及对外接口文件`TUICalling`和`TUICallingImpl`，您可以在  `TUICalling`  文件中看到该组件提供的接口函数。
 ![](https://main.qcloudimg.com/raw/18e2e6fd62ade4a8bac560d45f4fbab4.png)
 
 
-您直接使用开源组件 TUICalling 的 TUICallingManager 即可轻松实现音视频通话功能，而无需再自己实现复杂的通话 UI 界面和逻辑。
+您直接使用开源组件 TUICalling 和 TUICallingImpl 即可轻松实现音视频通话功能，而无需再自己实现复杂的通话 UI 界面和逻辑。
 
 [](id:model.step1)
 ### 步骤1：集成 SDK
@@ -111,7 +101,7 @@ dependencies {
 }
 :::
 </dx-codeblock>
->?两个 SDK 产品的最新版本号，可以在 [实时音视频](https://github.com/tencentyun/TRTCSDK) 和 [即时通信 IM](https://github.com/tencentyun/TIMSDK) 的 Github 首页获取。
+
 2. 在 defaultConfig 中，指定 App 使用的 CPU 架构。
 <dx-codeblock>
 ::: java java
@@ -138,9 +128,10 @@ defaultConfig {
 
 ### 步骤2：配置权限及混淆规则
 
-在 AndroidManifest.xml 中配置 App 的权限，SDK 需要以下权限（6.0以上的 Android 系统需要动态申请相机、读取存储权限）：
+在 AndroidManifest.xml 中配置 App 的权限，SDK 需要以下权限（6.0以上的 Android 系统需要动态申请相机、麦克风、读取存储权限等）：
 
 ```
+<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -175,7 +166,7 @@ include ':Source'
 
 ### 步骤4：初始化并登录组件
 
-1. 调用 `TUICallingManager.sharedInstance()` 进行组件初始化。
+1. 调用 `TUICallingImpl.sharedInstance(context)` 进行组件初始化。
 2. 调用 `TUILogin.init(context, SDKAppID, config, listener)` 进行登录初始化。
 3. 调用 `TUILogin.login(userId, userSig, callback)` 完成组件的登录，其中几个关键参数的填写请参考下表：
  <table>
@@ -206,7 +197,7 @@ include ':Source'
 <dx-codeblock>
 ::: java java
      // 组件初始化
-     TUICallingManager manager = TUICallingManager.sharedInstance();
+     TUICalling callingImpl = TUICallingImpl.sharedInstance(context);
   // 登录
   V2TIMSDKConfig config = new V2TIMSDKConfig();
   config.setLogLevel(V2TIMSDKConfig.V2TIM_LOG_DEBUG);
@@ -221,13 +212,11 @@ include ':Source'
             @Override
             public void onKickedOffline() {  // 登录被踢下线通知
                 mIsKickedOffline = true;
-                checkUserStatus();
             }
 
             @Override
-            public void onUserSigExpired() { // suerSig过期通知
+            public void onUserSigExpired() { // userSig过期通知
                 mIsUserSigExpired = true;
-                checkUserStatus();
             }
   });
   TUILogin.login("${您的userId}", "${您的userSig}", new V2TIMCallback() {
@@ -249,16 +238,16 @@ include ':Source'
 
 ### 步骤5：实现音视频通话
 
-1. 发起方：调用 TUICallingManager 的 `call();` 方法发起通话的请求, 并传入用户 ID数组（userids）和通话类型（type），通话类型参数传入`TUICalling.Type.AUDIO`（音频通话）或者`TUICalling.Type.VIDEO`（视频通话）。如果用户 ID数组（userids）只有1个userId时视为单人通话，如果用户 ID数组（userids）有多个userId时（>=2）视为多人通话。
+1. 发起方：调用 TUICallingImpl 的 `call();` 方法发起通话的请求, 并传入用户 ID数组（userIds）和通话类型（type），通话类型参数传入`TUICalling.Type.AUDIO`（音频通话）或者`TUICalling.Type.VIDEO`（视频通话）。如果用户 ID数组（userIds）只有1个userId时视为单人通话，如果用户 ID数组（userIds）有多个userId时（>=2）视为多人通话。
 2. 接收方：当接收方处于已登录状态时，会自动启动相应的界面。如果希望接收方在不处于登录状态时也能收到通话请求，请参见 [离线接听](#model.offline)。
 
 
 <dx-codeblock>
 ::: java java
 // 1. 初始化组件
-TUICallingManager manager = TUICallingManager.sharedInstance();
+TUICalling callingImpl = TUICallingImpl.sharedInstance(context);
 // 2. 注册监听器
-manager.setCallingListener(new TUICalling.TUICallingListener() {
+callingImpl.setCallingListener(new TUICalling.TUICallingListener() {
             @Override
             public boolean shouldShowOnCallView() {
                 return true;
@@ -292,7 +281,7 @@ manager.setCallingListener(new TUICalling.TUICallingListener() {
             }
 });
 // 3.拨打电话
-manager.call(userIDs, TUICalling.Type.VIDEO);
+callingImpl.call(userIDs, TUICalling.Type.VIDEO);
 :::
 </dx-codeblock>
 
@@ -304,8 +293,8 @@ manager.call(userIDs, TUICalling.Type.VIDEO);
 
 IM SDK 支持离线推送，但是 Android 端各个手机厂商均有各自的离线推送服务，因此接入复杂度要高于 iOS 平台，您需要进行相应的设置才能达到可用标准。
 
-1. 申请对应厂商的推送渠道需要的证书等，并将其配置到即时通信 IM 控制台中，按照推送要求增加证书和 ID 等，详细的操作步骤请参见 [即时通信 IM > 离线推送（Android） ](https://cloud.tencent.com/document/product/269/44516)。
-2. 目前在 TRTCCallingImpl 的 sendModel 信令发送函数中已经集成了离线发送的函数，当配置好 App 的离线推送后，消息就可实现离线推送。
+1. 申请对应厂商的推送渠道需要的证书等，并将其配置到即时通信 IM 控制台中，按照推送要求增加证书和 ID 等，详细的操作步骤请参见 [即时通信 IM > TPNS离线推送（Android） ](https://cloud.tencent.com/document/product/269/68720)。
+2. 目前在 `TRTCCalling` 中已经集成了离线发送的函数，当配置好 App 的离线推送后，消息就可实现离线推送。
 
 [](id:api)
 
@@ -316,9 +305,9 @@ TUICalling 组件的 API 接口列表如下：
 | 接口函数        | 接口功能                                                  |
 | --------------- | --------------------------------------------------------- |
 | call            | C2C 邀请通话         |
-| receiveAPNSCalled          | 作为被邀请方接听来电                                      |
 | setCallingListener          | 设置监听器                                     |
 | setCallingBell          | 设置铃声(建议在30s以内)                                                 |
 | enableMuteMode | 开启静音模式    |
 | enableCustomViewRoute      | 开启自定义视图， 开启后，会在呼叫/被叫开始回调中，接收到 CallingView 的实例，由开发者自行决定展示方式。注意：必须全屏或者与屏幕等比例展示，否则会有展示异常            |
+
 

@@ -10,7 +10,7 @@
 2. 在 CLB 实例列表页面左上角选择地域，在实例列表右侧的操作列中单击**配置监听器**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/2c0b7f73cd81582c7ace11dbfe7d6c18.png)
 3. 在 HTTP/HTTPS 监听器下，单击**新建**，在弹出的“创建监听器”对话框中配置 HTTPS 监听器。
-**a. 创建监听器**
+**1. 创建监听器**
 <table>
 <thead>
 <tr>
@@ -32,7 +32,10 @@
 </tr>
 <tr>
 <td>启用长连接</td>
-<td>启用后，CLB 与后端服务之间使用长连接，CLB 不再透传源 IP，请从 XFF 中获取源 IP。为保证正常转发，请在 CLB 上打开安全组默认放通或者在 CVM 的安全组上放通 `100.127.0.0/16`。</td>
+<td>开启后，CLB 与后端服务之间使用长连接，CLB 不再透传源 IP，请从 XFF 中获取源 IP。为保证正常转发，请在 CLB 上打开安全组默认放通或者在 CVM 的安全组上放通100.127.0.0/16。
+<dx-alert infotype="explain" title="">
+开启后，CLB 与后端服务的连接数范围在请求[QPS, QPS*60]区间波动，具体数值取决于连接复用率。若后端服务对连接数上限有限制，则建议谨慎开启。此功能目前处于内测中，如需使用，请提交 [内测申请](https://cloud.tencent.com/apply/p/tsodp6qm21)。
+</dx-alert></td>
 <td><span>选择已有证书</span></td>
 </tr>
 <tr>
@@ -52,7 +55,7 @@
 </tr>
 </tbody>
 </table>
- <b>b. 创建转发规则</b>
+ <b>2. 创建转发规则</b>
  <table>
 <tr>
 <th>转发规则基本配置</th>
@@ -100,9 +103,9 @@
 <td>已开启</td>
 </tr>
 </table>
- <b>c. 健康检查</b>
+ <b>3. 健康检查</b>
 健康检查详情请参见 <a href="https://cloud.tencent.com/document/product/214/50011#https">HTTPS 健康检查</a>。</br> 
- <b>b. 会话保持</b>
+ <b>4. 会话保持</b>
 <table>
 <tr>
 <th>会话保持配置</th>

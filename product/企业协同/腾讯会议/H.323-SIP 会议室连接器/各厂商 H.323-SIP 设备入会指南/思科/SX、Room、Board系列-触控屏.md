@@ -55,3 +55,4 @@
 - 离开腾讯会议：在触控屏上单击**结束通话**，即可离开会议。
 ![](https://main.qcloudimg.com/raw/28ad45baa20e6c2d5d5cc1b9435f58b8.png)
 
+ 

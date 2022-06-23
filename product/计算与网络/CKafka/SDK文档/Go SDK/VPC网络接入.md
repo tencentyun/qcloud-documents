@@ -26,7 +26,7 @@ go get -v gopkg.in/confluentinc/confluent-kafka-go.v1/kafka
       "test"
   ],
   "bootstrapServers": [
-      "xxx-.ap-changsha-ec.ckafka.tencentcloudmq.com:6000"
+      "xx.xx.xx.xx:xxxx"
   ],
   "consumerGroupId": "yourConsumerId"
 }  

@@ -1,7 +1,9 @@
 ## 防护说明
 CC 防护根据访问特征和连接状态判定恶意行为， 阻断黑客的攻击。可根据不同的攻击场景配置相应的防护策略，保证业务稳定。清洗阈值是高防产品启动清洗动作的阈值。
->?CC 防护开关是控制是否启用 CC 防护的总开关，开启后下方的防护策略才能生效。
-
+>?
+>- CC 防护开关是控制是否启用 CC 防护的总开关，开启后下方的防护策略才能生效。
+>- 轻量应用服务器（Lighthouse）定制版不支持 DDoS 防护、CC 防护的自定义防护配置。
+>
 ## 前提条件
 您需要成功 [购买 DDoS 高防包](https://cloud.tencent.com/document/product/1021/43894) ，并设置防护对象。
 
@@ -10,7 +12,9 @@ CC 防护根据访问特征和连接状态判定恶意行为， 阻断黑客的�
 2. 在 CC 防护页面的左侧列表中，选中高防包的 ID，如“bgp-00xxxxxx”。
 ![](https://qcloudimg.tencent-cloud.cn/raw/87a4773836c1e230b9b742325f35270c.png)
 3. 在 CC 防护开关及清洗阈值卡片中，单击![](https://qcloudimg.tencent-cloud.cn/raw/b56da8e70914bb5f6fce1900bcf81ef5.png)开启 CC 防护开关，当防护开启后必须进行清洗阈值设置否则无法使用 CC 防护。
->?清洗阈值是高防产品启动清洗动作的阈值，当指定域名收到的 HTTP 请求超过阈值时，将触发 CC 防护。
+>?
+>- 清洗阈值是高防产品启动清洗动作的阈值，当指定域名收到的 HTTP 请求超过阈值时，将触发 CC 防护。
+>- 当高防包的 IP 为“Web 应用防火墙” 的 IP 时，需要先到 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/tea-baseconfig) 为此 IP 开启 CC 防护，详情请参见 [CC 防护规则设置](https://cloud.tencent.com/document/product/627/64336)。
 >
 ![](https://qcloudimg.tencent-cloud.cn/raw/080d63287105c7b0f0a6fd750bbf6a33.png)
 4. 在 CC 防护开关和清洗阈值卡片中，单击**设置**，进入 CC 防护开关和清洗阈值规则列表。

@@ -1,6 +1,6 @@
 ## 集成准备[](id:ready)
 
-1. 下载并解压 [Demo 包](https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.4.0.vcube/UGSV-API-Example.zip)，将 Demo 工程中的 xmagic 模块（bundle，XmagicIconRes 两个文件夹下面的文件，**Record** > **View** 文件夹下面的文件）导入到实际项目工程中。
+1. 下载并解压 [Demo 包](https://cloud.tencent.com/document/product/616/65875)，将 Demo 工程中的 xmagic 模块（bundle，XmagicIconRes 两个文件夹下面的文件，**Record** > **View** 文件夹下面的文件）导入到实际项目工程中。
 2. 导入 lib 目录中的 `libpag.framework`、`Masonry.framework`、`XMagic.framework` 和 `YTCommonXMagic.framework`。
 3. framework 签名 **General--> Masonry.framework** 和 **libpag.framework** 选 **Embed & Sign**。
 4. 将 Bundle ID 修改成与申请的测试授权一致。
@@ -11,12 +11,19 @@
 - [步骤四](#step4) 至 [步骤七](#step7) 可参考 Demo 工程的 UGCKitRecordViewController，BeautyView 类相关实例代码。
 
 ### 步骤一：初始化授权 [](id:step1)
-在工程 AppDelegate 的 didFinishLaunchingWithOptions 中添加如下代码，其中 LicenseURL，LicenseKey 为腾讯云官网申请到授权信息，请参见 [License 指引](https://cloud.tencent.com/document/product/616/65879)：
-
+1. 在工程 AppDelegate 的 didFinishLaunchingWithOptions 中添加如下代码，其中 LicenseURL，LicenseKey 为腾讯云官网申请到授权信息，请参见 [License 指引](https://cloud.tencent.com/document/product/616/65879)：
 ```
 [TXUGCBase setLicenceURL:LicenseURL key:LicenseKey];
+
+[TELicenseCheck setTELicense:@"https://license.vod2.myqcloud.com/license/v2/1258289294_1/v_cube.license" key:@"3c16909893f53b9600bc63941162cea3" completion:^(NSInteger authresult, NSString * _Nonnull errorMsg) {
+              if (authresult == TELicenseCheckOk) {
+                   NSLog(@"鉴权成功");
+               } else {
+                   NSLog(@"鉴权失败");
+               }
+       }];
 ```
-授权代码可参考 Demo 中 UGCKitRecordViewController 类 viewDidLoad 中的授权代码：
+2. 授权代码可参考 Demo 中 UGCKitRecordViewController 类 viewDidLoad 中的授权代码：
 ```
 NSString *licenseInfo = [TXUGCBase getLicenceInfo];
 NSData *jsonData = [licenseInfo dataUsingEncoding:NSUTF8StringEncoding];

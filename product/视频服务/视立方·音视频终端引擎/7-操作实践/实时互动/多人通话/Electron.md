@@ -18,7 +18,7 @@
 
 ## 示例代码
 
-您可以登录 [Github](https://github.com/tencentyun/TRTCSDK/tree/master/Electron) 获取本文档相关的示例代码。
+您可以登录 [Github](https://github.com/LiteAVSDK/TRTC_Electron) 获取本文档相关的示例代码。
 
 ## 操作步骤
 

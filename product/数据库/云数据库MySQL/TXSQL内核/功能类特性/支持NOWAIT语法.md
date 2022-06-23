@@ -1,3 +1,4 @@
+
 ## 功能介绍
 - DDL 支持 NO_WAIT 和 WAIT 选项。对于 DDL 操作，可通过 WAIT 设置等待 MDL LOCK 的秒数，如果在设定时间内未能获取到 MDL LOCK 则直接返回，也可指定 NO_WAIT 选项，未能获取到 MDL LOCK 直接返回。
 - SELECT FOR UPDATE 支持 NOWAIT 和 SKIP LOCKED 选项。原有的 SELECT FOR UPDATE 逻辑下，如果目标行数据被另一个事务所加了锁，则需要等待该事务释放锁，但某些场景，如秒杀，并不希望等待锁，通过 SKIP LOCKED 和 NOWAIT 选项提供一种不需要等待锁的功能。SKIP LOCKED 语句会跳过已经被加锁的行，这些行不会出现在结果集中；NOWAIT 语句遇到被加锁的行不会等待，同时会报错。

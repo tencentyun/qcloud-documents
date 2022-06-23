@@ -5,11 +5,11 @@ DDoS 高防 IP 支持通过配置 IP 黑名单和白名单，实现对访问 DDo
 
 
 ## 前提条件
-您需要成功 [购买 DDoS 高防 IP](https://cloud.tencent.com/document/product/1014/44082) ，并设置防护对象。
+您需要成功 [购买 DDoS 高防 IP](https://cloud.tencent.com/document/product/1014/44082)，并设置防护对象。
 
 
 ## 操作步骤
-1. 登录 [DDoS 高防 IP（新版）管理控制台](https://console.cloud.tencent.com/ddos/antiddos-advanced/config/port) ，在左侧导航中，单击**防护配置** > **CC 防护**。
+1. 登录 [DDoS 高防 IP（新版）管理控制台](https://console.cloud.tencent.com/ddos/antiddos-advanced/config/port)，在左侧导航中，单击**防护配置** > **CC 防护**。
 2. 在 CC 防护页面的左侧列表中，选中高防 IP 的 ID 下面的域名。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d2699b5321965d929c07908171c5b7c5.png)
 3. 在右侧 IP 黑白名单卡片中，单击**设置**，进入 IP 黑白名单列表。

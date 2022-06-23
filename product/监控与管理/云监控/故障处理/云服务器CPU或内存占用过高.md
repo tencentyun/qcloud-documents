@@ -8,7 +8,7 @@
 2. 对 CPU 或内存占用率高的进程进行分析。
  - 如果是异常进程，可能是病毒或木马导致，您可以自行终止进程，或者使用安全软件进行查杀。
  - 如果是业务进程，则需要分析是否由于访问量变化引起，是否存在优化空间。
- - 如果是腾讯云组件进程，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们进行进一步定位处理。
+ - 如果是腾讯云组件进程，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们进一步定位处理。
 
 ## 故障定位及处理
 

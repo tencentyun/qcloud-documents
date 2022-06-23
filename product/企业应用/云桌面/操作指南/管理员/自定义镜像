@@ -1,0 +1,48 @@
+## 操作场景
+除了使用云桌面提供的公共镜像、腾讯云办公镜像外，您还可以创建自定义镜像。您可以基于一台已经安装配置好所需办公软件的云桌面实例创建自定义镜像，创建自定义镜像后，您可以在云桌面控制台快速创建与该镜像相同配置的腾讯云云桌面实例。
+
+## 注意事项
+- 云桌面内默认预装 cloudbase-init、Tencent CVD Assistant 服务，请务必确认已设置为自动启动（默认为自动启动），否则制作的镜像将不可用。
+- 按量计费的机器不支持在关机状态下制作自定义镜像，支持在线制作镜像，镜像制作过程约30分钟。
+- 含有数据盘的镜像，不支持用来重置云桌面，只允许使用此镜像进行新建云桌面，请谨慎选择。
+- 用来制作镜像的数据盘，容量大小上限为1000GB。
+- 自定义镜像当前处于功能内测阶段，每个账号主体下最多允许保留5个自定义镜像；未来会根据镜像数量和镜像大小收取对应的存储费用。
+- 软件安装目录请选择 `C:\Program Files` 或 `C:\Program Files (x86)`，请勿选择 `C:\Users\xxxxxx`，会导致基于此镜像新创建的云桌面无法使用该软件。
+
+## 操作步骤
+1. 在桌面列表页面，选择**更多** > **制作自定义镜像**。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/cbf8f6c075d791fa6310b4cef9740055.png)
+2. 在弹出的**制作自定义镜像**窗口中，参见以下信息进行配置：
+ - **镜像名称**及**镜像描述**：自定义名称及描述。
+ - **镜像包含数据盘**：若您的实例仅具备系统盘，则不会出现该选项。若您的实例具备数据盘，则请按需勾选。
+    - 勾选，创建自定义镜像会同时包含数据盘。
+    - 不勾选，则仅创建云桌面实例系统盘镜像。
+
+<img style="width:400px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/c0b4d95210480c0eab37b411f221bc5c.png" />
+
+3. 开始制作自定义镜像，可通过**云桌面控制台** > [镜像](https://console.cloud.tencent.com/cvd/image) > **自定义镜像**中查看进度。
+<img style="width:400px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/d532ebf753ccf38e79b0c93e72ddd2f3.png" />
+
+4. 自定义镜像制作完成。
+<img style="width:700px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/f333812c6bfd1323bff0b53a0ba2f719.png" />
+
+
+
+
+## 基于自定义镜像创建云桌面
+创建云桌面时，镜像类型选择**自定义镜像**，在下拉列表中选择所需的自定义镜像进行创建云桌面。
+<img style="width:400px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/c97f84ddba0ced30e478371d826a54fd.png" />
+>?
+>- 系统盘容量需大于等于自定义镜像系统盘容量。
+>- 如自定义镜像包含数据盘，数据盘容量需大于等于自定义镜像数据盘容量。
+
+
+
+
+
+## 删除自定义镜像
+删除自定义镜像后，无法再通过此镜像创建桌面，但不影响已启动的桌面。
+1. 进入**云桌面控制台** > [镜像](https://console.cloud.tencent.com/cvd/image) > **自定义镜像**选择要删除的镜像，单击**删除**。
+<img style="width:700px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/98d45e4445d88ea258306efaa96d1898.png" />
+2. 确认删除页面勾选**删除后自定义镜像会被清除且不可恢复**，再单击**确定**进行删除。
+<img style="width:400px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/961e96a286f585d2f2d0fe01fdd39598.png" />

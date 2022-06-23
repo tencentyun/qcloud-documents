@@ -1,4 +1,4 @@
-本文主要介绍如何快速地将腾讯云视立方·移动直播 LiteAVSDK（iOS）集成到您的项目中，按照如下步骤进行配置，就可以完成 SDK 的集成工作。下面以全功能的 [移动直播全功能版 SDK](https://cloud.tencent.com/document/product/454/7873#ALL) 为例：
+本文主要介绍如何快速地将 LiteAVSDK（iOS）集成到您的项目中，按照如下步骤进行配置，就可以完成 SDK 的集成工作。下面以全功能的 [全功能版 SDK](https://cloud.tencent.com/document/product/454/7873#ALL) 为例：
 
 ## 开发环境要求
 - Xcode 9.0+。
@@ -30,7 +30,7 @@ pod init
   platform :ios, '9.0'
   
   target 'App' do
-  pod 'TXLiteAVSDK_Professional', :podspec => 'http://pod-1252463788.cosgz.myqcloud.com/liteavsdkspec/TXLiteAVSDK_Professional.podspec'
+  pod 'TXLiteAVSDK_Professional', :podspec => 'https://liteav.sdk.qcloud.com/pod/liteavsdkspec/TXLiteAVSDK_Professional.podspec'
   end
 :::
 </dx-codeblock>

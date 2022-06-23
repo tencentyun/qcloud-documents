@@ -2,8 +2,8 @@
 ##  概述
 腾讯云智聆口语评测（Smart Oral Evaluation，SOE）是腾讯云推出的语音评测产品，是基于口语类教育培训场景和腾讯云的语音处理技术，应用特征提取、声学模型和语音识别算法，为儿童和成人提供高准确度的口语发音评测。腾讯云智聆口语评测支持单词、句子和段落模式的评测，多维度反馈口语表现，可广泛应用于中文及英语口语类教学中。
 TAISDK 是一款封装了腾讯云教育 AI 能力的 SDK，通过集成 SDK，用户可以快速接入相关产品功能，如智聆口语评测、数学作业批改等。本文档介绍智聆口语评测 Android SDK 相关说明，如需其他产品的调用说明，可在对应产品的产品文档查看。
-本文档只对 Android SDK 进行描述，详细的网络 API 说明请参见 [API 文档](https://cloud.tencent.com/document/product/884/19309)。
-单击 [示例链接](https://tec.qq.com/ai/soe#demos) 在线体验智聆口语评测 demo。
+>?本文档只对 Android SDK 进行描述，详细的网络 API 说明请参见 [API 文档](https://cloud.tencent.com/document/product/884/19309)。
+
 
 ## 总体流程
 ### 1. 流程图
@@ -13,8 +13,8 @@ TAISDK 是一款封装了腾讯云教育 AI 能力的 SDK，通过集成 SDK，�
 [下载 SDK](https://github.com/TencentCloud/tencentcloud-sdk-android-soe) 地址。
 获取密钥（ 密钥获取⽅式⻅下⽂） 后到
 `tencentcloud-sdk-androidsoe/TAIDemo/app/src/main/java/com/tencent/taidemo/PrivateInfo.java` 
-根据需要填写 AppId、secretId、secretKey、soeAppId 和 hcmAppId（token 不需要填写）。
-![](https://main.qcloudimg.com/raw/ce5b479bbcb7497b46d630f266c6a28c.jpg)
+根据需要填写参数，参数请参考 [TAIOralEvaluationParam 参数说明](https://cloud.tencent.com/document/product/884/31870#:~:text=TAIOralEvaluationParam%20%E5%8F%82%E6%95%B0%E8%AF%B4%E6%98%8E) 。
+![](https://qcloudimg.tencent-cloud.cn/raw/21b7bff5c484c84a303b5d9ae0835c95.png)
 
 
 
@@ -30,7 +30,9 @@ android.permission.WRITE_EXTERNAL_STORAGE
 ```
 
 ### 2. 获取密钥
-SecretId 和 SecretKey 是使用 SDK 的安全凭证，您可以在**[访问管理](https://console.cloud.tencent.com/cam/overview)**>**访问密钥**>**[API 密钥管理](https://console.cloud.tencent.com/cam/capi)**中获取该凭证。
+SecretId 和 SecretKey 是使用 SDK 的安全凭证，您可以在**[访问管理](https://console.cloud.tencent.com/cam/overview) > 访问密钥  >  [API 密钥管理](https://console.cloud.tencent.com/cam/capi)** 中获取该凭证。
+>!密钥属于敏感信息，正式密钥仅可在调试使用，线上环境情况下，为了防止他人盗取，应使用 [临时签名](https://cloud.tencent.com/document/product/884/31870#:~:text=%E5%88%B0%E5%AE%A2%E6%88%B7%E7%AB%AF%E3%80%82-,%E4%B8%B4%E6%97%B6%E7%AD%BE%E5%90%8D,-policy%20%E7%A4%BA%E4%BE%8B%E5%A6%82%E4%B8%8B)，具体请参考 [签名](https://cloud.tencent.com/document/product/884/31870#5.-.E7.AD.BE.E5.90.8D) 相关内容。
+
 ![](https://main.qcloudimg.com/raw/273b67bc4d38af6cb9999e9f4663d268.png)
 
 
@@ -119,6 +121,7 @@ param.scoreCoeff = 1.0;
 param.refText = "";
 param.secretId = "";
 param.secretKey = "";
+param.token = "";
 ```
 
 **4.1.2 开始录制**
@@ -161,6 +164,8 @@ param.scoreCoeff = 1.0;
 param.refText = "hello guagua";
 param.secretId = "";
 param.secretKey = "";
+param.token = "";
+
 //传输数据
 try{
     InputStream is = getAssets().open("hello_guagua.mp3");
@@ -185,7 +190,7 @@ catch (Exception e){
 
 
 ### 5. 签名
-SecretKey 属于安全敏感参数，线上版本一般由业务后台生成 [临时 SecretKey](https://cloud.tencent.com/document/api/598/13896) 或者 SDK 外部签名返回到客户端。
+SecretKey 属于安全敏感参数，线上版本一般由业务后台生成 [临时 SecretKey](https://cloud.tencent.com/document/product/1312/48195) 或者 SDK 外部签名返回到客户端。
 临时签名 policy 示例如下：
 ```json
 {
@@ -227,9 +232,10 @@ public String getStringToSign(long timestamp);
 | context            | Context                      | 是             | 上下文                                                       |
 | AppID              | String                       | 是             | 账号应用 ID                                                   |
 | timeout            | Int                          | 否             | 超时时间，默认30秒                                           |
-| secretId           | String                       | 是             | 您在控制台获取的密钥 ID                                       |
-| secretKey          | String                       | 内部签名：必填 | 您在控制台获取的密钥 Key，在使用内部签名时必须设置此参数      |
-| signature          | String                       | 外部签名：必填 | 仅在使用外部签名时需要设置此参数，详细获取方式请查看上述5.签名 |
+| secretId           | String                       | 是             | 您在控制台获取的密钥 ID，临时密钥的 TmpSecretId                                    |
+| secretKey          | String                       | 内部签名：必填 | 您在控制台获取的密钥 Key，临时密钥的 TmpSecretKey      |
+| token     | 	String	| 临时签名：必填	| 临时密钥的 Token，仅在使用临时签名时需要设置此参数，详细获取方式请查看 [签名](https://cloud.tencent.com/document/product/884/31870#5.-.E7.AD.BE.E5.90.8D)| 
+| signature          | String                       | 外部签名：必填 | 仅在使用外部签名时需要设置此参数，详细获取方式请查看 [签名](https://cloud.tencent.com/document/product/884/31870#5.-.E7.AD.BE.E5.90.8D) |
 | timestamp          | Long                         | 外部签名：必填 | 秒级时间戳                                                   |
 | soeAppId           | String                       | 否             | 业务应用 ID，与账号应用 AppID 无关，是用来方便客户管理服务的参数 |
 | sessionId          | String                       | 是             | 一次评测唯一标识                                             |

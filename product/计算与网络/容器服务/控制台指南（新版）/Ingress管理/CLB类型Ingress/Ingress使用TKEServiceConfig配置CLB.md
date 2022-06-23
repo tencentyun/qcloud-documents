@@ -1,7 +1,7 @@
 ## TkeServiceConfig
 TkeServiceConfig 是腾讯云容器服务 TKE 提供的自定义资源 CRD，通过 TkeServiceConfig 能够帮助您更灵活的进行 Ingress 管理负载均衡的各种配置。
 
-### 使用场景
+### 使用场景 
 Ingress YAML 的语义无法定义的负载均衡参数和功能，可以通过 TkeServiceConfig 来配置。
 
 ### 配置说明
@@ -26,7 +26,7 @@ TkeServiceConfig 不会帮您配置并修改协议、端口、域名以及转发
 
 
 ## Ingress 与 TkeServiceConfig 关联行为
-1. 创建 Ingress 时，设置 **ingress.cloud.tencent.com/tke-service-config-auto:&lt;true&gt;** ，将自动创建 &lt;IngressName>-auto-ingress-config。 您也可以通过 **ingress.cloud.tencent.com/tke-service-config:&lt;config-name&gt;** 直接指定您自行创建的 TkeServiceConfig。两个注解不可同时使用。 
+1. 创建 Ingress 时，设置 **ingress.cloud.tencent.com/tke-service-config-auto:&lt;true&gt;** ，将自动创建 &lt;IngressName>-auto-ingress-config。  您也可以通过 **ingress.cloud.tencent.com/tke-service-config:&lt;config-name&gt;** 直接指定您自行创建的 TkeServiceConfig。两个注解不可同时使用。  
 2. 您为 Service\Ingress 使用的自定义配置，名称不能以 `-auto-service-config` 与 `-auto-ingress-config` 为后缀。
 3. 其中自动创建的 TkeServiceConfig 存在以下同步行为：
   - 更新 Ingress 资源时，新增若干7层转发规则，如果该转发规则没有对应的 TkeServiceConfig 配置片段。Ingress-Controller 将主动添加 TkeServiceConfig 对应片段。

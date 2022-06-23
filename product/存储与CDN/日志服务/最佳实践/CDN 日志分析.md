@@ -85,7 +85,7 @@ CDN 日志字段说明：
 * | select *  from (select * from (select * from (select date_trunc('minute', __TIMESTAMP__) as time,count(*) as errct where http_code>=400 group by time order by time desc limit 2)) order by time asc limit 1)
 ```
 
-告警策略配置触发条件为【最近一分钟内的错误数量】-【上一分钟内的错误数量】 > 指定阈值
+告警策略配置触发条件为**最近一分钟内的错误数量**-**上一分钟内的错误数量** > 指定阈值
 ```
 $2.errct-$1.errct >100
 ```

@@ -7,7 +7,7 @@
 ### 安装文件存储扩展组件
 >? 若您的集群已安装 CFS-CSI 的扩展组件，则请跳过此步骤。
 >
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
+1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)。
 2. 单击左侧导航栏中的**集群**，进入**集群管理**页面。
 3. 选择需新建组件的集群 ID，进入**集群详情**页面。
 4. 在“集群详情页”，选择**组件管理** > **新建**，进入**新建组件**页面。
@@ -41,7 +41,7 @@
 
 [](id:create)
 #### 通过控制台创建 StorageClass
-1. 登录 [ 容器服务控制台 ](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的**集群**。
+1. 登录 [ 容器服务控制台  ](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的**集群**。
 2. 在“集群管理”页面单击目标集群 ID，进入集群详情页。
 3. 选择左侧菜单栏中的**存储** > **StorageClass**，进入 “StorageClass” 页面。如下所示：
 ![](https://main.qcloudimg.com/raw/a630fa854ae6a45da2b24dcbabf50438.png)

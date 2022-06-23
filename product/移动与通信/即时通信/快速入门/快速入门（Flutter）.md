@@ -22,15 +22,15 @@
 2. 单击**创建新应用**，在**创建应用**对话框中输入您的应用名称，单击**确定**。
 ![](https://main.qcloudimg.com/raw/78340e403359fcf4d753ade29ae9aace.png)
 3. 请保存 SDKAppID 信息。可在控制台总览页查看新建应用的状态、业务版本、SDKAppID、创建时间以及到期时间。
-  ![](https://main.qcloudimg.com/raw/ed34d9294a485d8d06b3bb7e0cc5ae59.png)
+    ![](https://main.qcloudimg.com/raw/ed34d9294a485d8d06b3bb7e0cc5ae59.png)
 4. 单击创建后的应用，左侧导航栏单击**辅助工具**>**UserSig 生成&校验**，创建一个 UserID 及其对应的 UserSig，复制签名信息，后续登录使用。
 ![](https://main.qcloudimg.com/raw/8315da2551bf35ec85ce10fd31fe2f52.png)
 
 [](id:step2)
 ### 步骤2：下载 SDK 与源码
-1. 根据您的实际业务需求，下载 SDK 及配套的 [Demo 源码](https://github.com/tencentyun/TIMSDK/tree/master/Flutter/Demo/im_discuss)。
-2. 下载完成进入目录：TIMSDK/Flutter/Demo/im_discuss
-![](https://qcloudimg.tencent-cloud.cn/raw/8b865854e14e8848b4e8d31d8daf55ac.png)
+1. 根据您的实际业务需求，下载 SDK 及配套的 [Demo 源码](https://github.com/tencentyun/TIMSDK/tree/master/Flutter/Demo)。
+2. 下载完成进入目录：TIMSDK/Flutter/Demo/
+![](https://qcloudimg.tencent-cloud.cn/raw/4075bf990d2213bbdfef1fc6da6e4e00.png)
 3. Flutter pub get 安装依赖，启动 Demo 项目，在命令行中输入：
 <dx-codeblock>
 :::  plaintext

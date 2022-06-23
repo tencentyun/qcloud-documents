@@ -11,7 +11,7 @@ SDK 3.0是云 API 3.0平台的配套工具，您可以通过 SDK 使用所有 [�
 
 ## 前提条件
 
-- 已开通短信服务，具体操作请参见 [国内短信快速入门](https://cloud.tencent.com/document/product/382/37745)。
+- 已开通短信服务，创建签名和模板并通过审核，具体操作请参见 [国内短信快速入门](https://cloud.tencent.com/document/product/382/37745)。
 - 如需发送国内短信，需要先 [购买国内短信套餐包](https://cloud.tencent.com/document/product/382/18060)。
 - 已准备依赖环境：JDK 7 及以上版本。
 - 已在访问管理控制台 >[**API密钥管理**](https://console.cloud.tencent.com/cam/capi)页面获取 SecretID 和 SecretKey。
@@ -22,33 +22,21 @@ SDK 3.0是云 API 3.0平台的配套工具，您可以通过 SDK 使用所有 [�
 ## 相关资料
 
 - 各个接口及其参数的详细介绍请参见 [API 文档](https://cloud.tencent.com/document/product/382/52077)。
-- 下载 SDK 源码请访问 [Java SDK 源码](https://github.com/TencentCloud/tencentcloud-sdk-java)。
+- 下载 SDK 源码请访问 [Github 仓库](https://github.com/tencentcloud/tencentcloud-sdk-java) 或者 [Gitee 仓库](https://gitee.com/tencentcloud/tencentcloud-sdk-java)。
 
 
 ## 安装 SDK
 
 ### 通过 Maven 安装（推荐）
 
-[Maven](https://maven.apache.org) 是 Java 的依赖管理工具，支持您项目所需的依赖项，并将其安装到项目中。
+- Github 仓库参考 [通过 Maven 安装(推荐)](https://github.com/TencentCloud/tencentcloud-sdk-java#%E9%80%9A%E8%BF%87-maven-%E5%AE%89%E8%A3%85%E6%8E%A8%E8%8D%90)
+- Gitee 仓库参考 [通过 Maven 安装(推荐)](https://gitee.com/tencentcloud/tencentcloud-sdk-java#%E9%80%9A%E8%BF%87-maven-%E5%AE%89%E8%A3%85%E6%8E%A8%E8%8D%90)
 
-1. 访问 [Maven 官网](https://maven.apache.org/) 下载对应系统 Maven 安装包进行安装。
-2. 添加 Maven 依赖项，只需在 Maven pom.xml 添加以下依赖项即可：
->!
->- 版本号仅为示例，请在 [Maven 仓库](https://search.maven.org/search?q=tencentcloud-sdk-java) 获取最新的版本号并替换。
->- Maven 仓库中显示的 4.0.11 是废弃版本，由于 Maven 索引更新问题尚未完全删除。
-<pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.tencentcloudapi<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>tencentcloud-sdk-java<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.1.270<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><span class="hljs-comment">&lt;!-- 注：这里只是示例版本号（可直接使用），可获取并替换为 <a href="https://mvnrepository.com/artifact/com.tencentcloudapi/tencentcloud-sdk-java">最新的版本号</a>，注意不要使用4.0.x版本（非最新版本） --&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span></code></pre>
-3. 引用方法可参考 [示例代码](#example)。
 
 ### 通过源码包安装
 
-1. [下载](https://github.com/tencentcloud/tencentcloud-sdk-java) 源码压缩包。
-2. 解压源码包到您项目中合适的位置。
-3. 将 vendor 目录下的 jar 包放在 Java 可找到的路径中。
-4. 引用方法可参考 [示例代码](#example)。
+- Github 仓库参考 [通过源码包安装](https://github.com/TencentCloud/tencentcloud-sdk-java#%E9%80%9A%E8%BF%87%E6%BA%90%E7%A0%81%E5%8C%85%E5%AE%89%E8%A3%85)
+- Gitee 仓库参考 [通过源码包安装](https://gitee.com/tencentcloud/tencentcloud-sdk-java#%E9%80%9A%E8%BF%87%E6%BA%90%E7%A0%81%E5%8C%85%E5%AE%89%E8%A3%85)
 
 ## 示例代码[](id:example)
 
@@ -58,7 +46,7 @@ SDK 3.0是云 API 3.0平台的配套工具，您可以通过 SDK 使用所有 [�
 
 ### 发送短信
 
-```
+```java
 import com.tencentcloudapi.common.Credential;
 import com.tencentcloudapi.common.exception.TencentCloudSDKException;
 
@@ -92,7 +80,7 @@ public class SendSms
 
             // 实例化一个http选项，可选，没有特殊需求可以跳过
             HttpProfile httpProfile = new HttpProfile();
-            // 设置代理
+            // 设置代理（无需要直接忽略）
             // httpProfile.setProxyHost("真实代理ip");
             // httpProfile.setProxyPort(真实代理端口);
             /* SDK默认使用POST方法。
@@ -125,40 +113,43 @@ public class SendSms
              * 基本类型的设置:
              * 帮助链接：
              * 短信控制台: https://console.cloud.tencent.com/smsv2
-             * sms helper: https://cloud.tencent.com/document/product/382/3773 */
+             * 腾讯云短信小助手: https://cloud.tencent.com/document/product/382/3773#.E6.8A.80.E6.9C.AF.E4.BA.A4.E6.B5.81 */
 
             /* 短信应用ID: 短信SdkAppId在 [短信控制台] 添加应用后生成的实际SdkAppId，示例如1400006666 */
+            // 应用 ID 可前往 [短信控制台](https://console.cloud.tencent.com/smsv2/app-manage) 查看
             String sdkAppId = "1400009099";
             req.setSmsSdkAppId(sdkAppId);
 
-            /* 短信签名内容: 使用 UTF-8 编码，必须填写已审核通过的签名，签名信息可登录 [短信控制台] 查看 */
-            String signName = "签名内容";
+            /* 短信签名内容: 使用 UTF-8 编码，必须填写已审核通过的签名 */
+            // 签名信息可前往 [国内短信](https://console.cloud.tencent.com/smsv2/csms-sign) 或 [国际/港澳台短信](https://console.cloud.tencent.com/smsv2/isms-sign) 的签名管理查看
+            String signName = "腾讯云";
             req.setSignName(signName);
 
-            /* 国际/港澳台短信 SenderId: 国内短信填空，默认未开通，如需开通请联系 [sms helper] */
-            String senderid = "";
-            req.setSenderId(senderid);
-
-            /* 用户的 session 内容: 可以携带用户侧 ID 等上下文信息，server 会原样返回 */
-            String sessionContext = "xxx";
-            req.setSessionContext(sessionContext);
-
-            /* 短信号码扩展号: 默认未开通，如需开通请联系 [sms helper] */
-            String extendCode = "";
-            req.setExtendCode(extendCode);
-
-            /* 模板 ID: 必须填写已审核通过的模板 ID。模板ID可登录 [短信控制台] 查看 */
-            String templateId = "400000";
+            /* 模板 ID: 必须填写已审核通过的模板 ID */
+            // 模板 ID 可前往 [国内短信](https://console.cloud.tencent.com/smsv2/csms-template) 或 [国际/港澳台短信](https://console.cloud.tencent.com/smsv2/isms-template) 的正文模板管理查看
+            String templateId = "449739";
             req.setTemplateId(templateId);
+
+            /* 模板参数: 模板参数的个数需要与 TemplateId 对应模板的变量个数保持一致，若无模板参数，则设置为空 */
+            String[] templateParamSet = {"1234"};
+            req.setTemplateParamSet(templateParamSet);
 
             /* 下发手机号码，采用 E.164 标准，+[国家或地区码][手机号]
              * 示例如：+8613711112222， 其中前面有一个+号 ，86为国家码，13711112222为手机号，最多不要超过200个手机号 */
             String[] phoneNumberSet = {"+8621212313123", "+8612345678902", "+8612345678903"};
             req.setPhoneNumberSet(phoneNumberSet);
 
-            /* 模板参数: 若无模板参数，则设置为空 */
-            String[] templateParamSet = {"5678"};
-            req.setTemplateParamSet(templateParamSet);
+            /* 用户的 session 内容（无需要可忽略）: 可以携带用户侧 ID 等上下文信息，server 会原样返回 */
+            String sessionContext = "";
+            req.setSessionContext(sessionContext);
+
+            /* 短信码号扩展号（无需要可忽略）: 默认未开通，如需开通请联系 [腾讯云短信小助手] */
+            String extendCode = "";
+            req.setExtendCode(extendCode);
+
+            /* 国际/港澳台短信 SenderId（无需要可忽略）: 国内短信填空，默认未开通，如需开通请联系 [腾讯云短信小助手] */
+            String senderid = "";
+            req.setSenderId(senderid);
 
             /* 通过 client 对象调用 SendSms 方法发起请求。注意请求方法名与请求对象是对应的
              * 返回的 res 是一个 SendSmsResponse 类的实例，与请求对象对应 */
@@ -168,7 +159,15 @@ public class SendSms
             System.out.println(SendSmsResponse.toJsonString(res));
 
             // 也可以取出单个值，你可以通过官网接口文档或跳转到response对象的定义处查看返回字段的定义
-            System.out.println(res.getRequestId());
+            // System.out.println(res.getRequestId());
+
+            /* 当出现以下错误码时，快速解决方案参考
+             * [FailedOperation.SignatureIncorrectOrUnapproved](https://cloud.tencent.com/document/product/382/9558#.E7.9F.AD.E4.BF.A1.E5.8F.91.E9.80.81.E6.8F.90.E7.A4.BA.EF.BC.9Afailedoperation.signatureincorrectorunapproved-.E5.A6.82.E4.BD.95.E5.A4.84.E7.90.86.EF.BC.9F)
+             * [FailedOperation.TemplateIncorrectOrUnapproved](https://cloud.tencent.com/document/product/382/9558#.E7.9F.AD.E4.BF.A1.E5.8F.91.E9.80.81.E6.8F.90.E7.A4.BA.EF.BC.9Afailedoperation.templateincorrectorunapproved-.E5.A6.82.E4.BD.95.E5.A4.84.E7.90.86.EF.BC.9F)
+             * [UnauthorizedOperation.SmsSdkAppIdVerifyFail](https://cloud.tencent.com/document/product/382/9558#.E7.9F.AD.E4.BF.A1.E5.8F.91.E9.80.81.E6.8F.90.E7.A4.BA.EF.BC.9Aunauthorizedoperation.smssdkappidverifyfail-.E5.A6.82.E4.BD.95.E5.A4.84.E7.90.86.EF.BC.9F)
+             * [UnsupportedOperation.ContainDomesticAndInternationalPhoneNumber](https://cloud.tencent.com/document/product/382/9558#.E7.9F.AD.E4.BF.A1.E5.8F.91.E9.80.81.E6.8F.90.E7.A4.BA.EF.BC.9Aunsupportedoperation.containdomesticandinternationalphonenumber-.E5.A6.82.E4.BD.95.E5.A4.84.E7.90.86.EF.BC.9F)
+             * 更多错误，可咨询[腾讯云助手](https://tccc.qcloud.com/web/im/index.html#/chat?webAppId=8fa15978f85cb41f7e2ea36920cb3ae1&title=Sms)
+             */
 
         } catch (TencentCloudSDKException e) {
             e.printStackTrace();
@@ -181,7 +180,7 @@ public class SendSms
 
 ### 拉取回执状态
 
-```
+```java
 import com.tencentcloudapi.common.Credential;
 import com.tencentcloudapi.common.exception.TencentCloudSDKException;
 
@@ -248,7 +247,7 @@ public class PullSmsSendStatus {
              * 基本类型的设置:
              * 帮助链接：
              * 短信控制台: https://console.cloud.tencent.com/smsv2
-             * sms helper: https://cloud.tencent.com/document/product/382/3773 */
+             * 腾讯云短信小助手: https://cloud.tencent.com/document/product/382/3773#.E6.8A.80.E6.9C.AF.E4.BA.A4.E6.B5.81 */
 
             /* 短信应用ID: 短信SdkAppId在 [短信控制台] 添加应用后生成的实际SdkAppId，示例如1400006666 */
             String sdkAppId = "1400009099";
@@ -275,7 +274,7 @@ public class PullSmsSendStatus {
 
 ### 统计短信发送数据
 
-```
+```java
 import com.tencentcloudapi.common.Credential;
 import com.tencentcloudapi.common.exception.TencentCloudSDKException;
 
@@ -342,7 +341,7 @@ public class SendStatusStatistics {
              * 基本类型的设置:
              * 帮助链接：
              * 短信控制台: https://console.cloud.tencent.com/smsv2
-             * sms helper: https://cloud.tencent.com/document/product/382/3773 */
+             * 腾讯云短信小助手: https://cloud.tencent.com/document/product/382/3773#.E6.8A.80.E6.9C.AF.E4.BA.A4.E6.B5.81 */
 
             /* 短信应用ID: 短信SdkAppId在 [短信控制台] 添加应用后生成的实际SdkAppId，示例如1400006666 */
             String sdkAppId = "1400009099";
@@ -378,7 +377,7 @@ public class SendStatusStatistics {
 
 ### 申请短信模板
 
-```
+```java
 import com.tencentcloudapi.common.Credential;
 import com.tencentcloudapi.common.exception.TencentCloudSDKException;
 //导入可选配置类
@@ -438,7 +437,7 @@ public class AddSmsTemplate
            * 基本类型的设置:
            * 帮助链接：
            * 短信控制台：https://console.cloud.tencent.com/smsv2
-           * sms helper：https://cloud.tencent.com/document/product/382/3773 */
+           * 腾讯云短信小助手：https://cloud.tencent.com/document/product/382/3773#.E6.8A.80.E6.9C.AF.E4.BA.A4.E6.B5.81 */
            /* 模板名称*/
           String templatename = "腾讯云";
           req.setTemplateName(templatename);

@@ -4,23 +4,25 @@
 
 流计算 Oceanus 提供了便捷的控制台环境，方便用户编写 SQL 分析语句或者上传运行自定义 JAR 包，支持作业运维管理。基于 Flink 技术，流计算可以在 PB 级数据集上支持亚秒级的处理延时。
 
-目前 Oceanus 使用的是独享集群模式，用户可以在自己的集群中运行各类作业，并进行相关资源管理。本文将为您详细介绍如何使用 Oceanus 对接 COS。
+目前 Oceanus 使用的是独享集群模式，用户可以在自己的集群中运行各类作业，并进行相关资源管理。本文将为您详细介绍如何使用 Oceanus 对接对象存储（Cloud Object Storage，COS）。
 
 ## 准备工作
 
 #### 创建 Oceanus 集群
 
-进入 [Oceanus 控制台](https://console.cloud.tencent.com/oceanus/overview)，单击左侧【集群管理】，单击左上方【创建集群】，具体可参见 [创建独享集群](https://cloud.tencent.com/document/product/849/48298) 文档。
+登录 [Oceanus 控制台](https://console.cloud.tencent.com/oceanus/workspace)，创建一个 Oceanus 集群。具体可参见 [创建独享集群](https://cloud.tencent.com/document/product/849/48298) 文档。
 
 #### 创建 COS 存储桶
 
-进入 [COS 控制台](https://console.cloud.tencent.com/cos5)，单击左侧【存储桶列表】，单击【创建存储桶】，具体可参见 [创建存储桶](https://cloud.tencent.com/document/product/436/13309) 文档。
-
-> ?当写入 COS 时，Oceanus 作业所运行的地域必须和 COS 在同一个地域。
+1. 登录 [COS 控制台](https://console.cloud.tencent.com/cos5)。
+2. 在左侧导航栏中，单击**存储桶列表**。
+3. 单击**创建存储桶**，创建一个存储桶。具体可参见 [创建存储桶](https://cloud.tencent.com/document/product/436/13309) 文档。
+>? 当写入 COS 时，Oceanus 作业所运行的地域必须和 COS 在同一个地域。
+>
 
 ## 实践步骤
 
-进入 [Oceanus 控制台](https://console.cloud.tencent.com/oceanus/overview)，单击左侧【作业管理】，创建 SQL 作业，集群选择与 COS 在相同地域的集群。
+前往 [Oceanus 控制台](https://console.cloud.tencent.com/oceanus/overview)，创建一个 SQL 作业，集群选择与 COS 在相同地域的集群。具体可参见 [创建 SQL 作业](https://cloud.tencent.com/document/product/849/48301) 文档。
 
 #### 1. 创建 Source
 
@@ -42,7 +44,8 @@ CREATE TABLE `random_source` (
 );
 ```
 
-> ?此处选用内置 connector `datagen`，请根据实际业务需求选择相应数据源，详情参见 [Oceanus 上下游开发指南](https://cloud.tencent.com/document/product/849/48310)。
+>? 此处选用内置 connector `datagen`，请根据实际业务需求选择相应数据源，详情参见 [Oceanus 上下游开发指南](https://cloud.tencent.com/document/product/849/48310)。
+>
 
 #### 2. 创建 Sink
 
@@ -63,7 +66,8 @@ CREATE TABLE `cos_sink` (
 );
 ```
 
-> ?更多 Sink 的 WITH 参数，请参见 [Filesystem (HDFS/COS)](https://cloud.tencent.com/document/product/849/53852) 文档。
+>? 更多 Sink 的 WITH 参数，请参见 [Filesystem (HDFS/COS)](https://cloud.tencent.com/document/product/849/53852) 文档。
+>
 
 #### 3. 业务逻辑
 
@@ -72,11 +76,12 @@ INSERT INTO `cos_sink`
 SELECT * FROM `random_source`;
 ```
 
-> !此处只做展示，无实际业务目的。
+>! 此处只做展示，无实际业务目的。
+>
 
 #### 4. 作业参数设置
 
-在【内置 Connector】选择`flink-connector-cos`，在【高级参数】中对 COS 的地址进行如下配置：
+在**内置 Connector**选择`flink-connector-cos`，在**高级参数**中对 COS 的地址进行如下配置：
 
 ```shell
 fs.AbstractFileSystem.cosn.impl: org.apache.hadoop.fs.CosN
@@ -91,8 +96,9 @@ fs.cosn.userinfo.appid: <COS 所属用户的 appid>
 - 请将`<COS 所在地域>`替换为您实际的 COS 地域，例如：ap-guangzhou。
 - 请将`<COS 所属用户的 appid>`替换为您实际的 APPID，具体请进入 [账号中心](https://console.cloud.tencent.com/developer) 查看。 
 
-> ?具体的作业参数设置请参见 [Filesystem (HDFS/COS)](https://cloud.tencent.com/document/product/849/53852) 文档。
+>? 具体的作业参数设置请参见 [Filesystem (HDFS/COS)](https://cloud.tencent.com/document/product/849/53852) 文档。
+>
 
 #### 5. 启动作业
 
-依次单击【保存】>【语法检查】>【发布草稿】，等待 sql 作业启动后，即可前往相应 COS 目录中查看写入数据。
+依次单击**保存 > 语法检查 > 发布草稿**，等待 SQL 作业启动后，即可前往相应 COS 目录中查看写入数据。

@@ -101,52 +101,33 @@
 ![](https://main.qcloudimg.com/raw/fcf694c8550664623414604d14ffcd94.png)
 
 [](id:model.step1)
+### 步骤1：配置权限
+需要授权麦克风和摄像头的使用权限。在 App 的 Info.plist 中添加以下两项，分别对应麦克风和摄像头在系统弹出授权对话框时的提示信息。
+- **Privacy - Microphone Usage Description**，并填入麦克风使用目的提示语。
+- **Privacy - Camera Usage Description**，并填入摄像头使用目的提示语。
 
-### 步骤1：集成 SDK
-
-语音沙龙组件 TRTCChatSalon 依赖 TRTC SDK 和 IM SDK，您可以按照如下步骤将两个 SDK 集成到项目中。
-
-- **方法一：通过 cocoapods 仓库依赖**
-<dx-codeblock>
-::: swift
-pod 'TXIMSDK_iOS'
-pod 'TXLiteAVSDK_TRTC'
-:::
-</dx-codeblock>
->?两个 SDK 产品的最新版本号，可以在 [TRTC](https://github.com/tencentyun/TRTCSDK) 和 [IM](https://github.com/tencentyun/TIMSDK) 的 GitHub 首页获取。
-- **方法二：通过本地依赖**
-如果您的开发环境访问 cocoapods 仓库较慢，您可以直接下载 ZIP 包，并按照集成文档手动集成到您的工程中。
-<table>
-<tr><th>SDK</th><th>下载页面</th><th>集成指引</th></tr>
-<tr>
-<td>TRTC SDK</td>
-<td><a href="https://cloud.tencent.com/document/product/647/32689">DOWNLOAD</a></td>
-<td><a href="https://cloud.tencent.com/document/product/647/32173">集成文档</a></td>
-</tr><tr>
-<td>IM SDK</td>
-<td><a href="https://cloud.tencent.com/document/product/269/36887">DOWNLOAD</a></td>
-<td><a href="https://cloud.tencent.com/document/product/269/32675">集成文档</a></td>
-</tr></table>
+![](https://main.qcloudimg.com/raw/54cc6989a8225700ff57494cba819c7b.jpg)
 
 [](id:model.step2)
-### 步骤2：配置权限
-在 `info.plist` 文件中需要添加 `Privacy > Camera Usage Description`， `Privacy > Microphone Usage Description` 申请麦克风权限。
-
-[](id:model.step3)
-### 步骤3：导入 TUIChatSalon 组件
+### 步骤2：导入 TUIChatSalon 组件
 **通过 cocoapods 导入组件**，具体操作如下：
 1. 将工程目录下的 `Source`、`Resources`、`TXAppBasic` 文件夹、`TUIChatSalon.podspec` 文件拷贝到您的工程目录下。
 2. 在您的 `Podfile` 文件中添加以下依赖。之后执行 `pod install` 命令，完成导入。
-<dx-codeblock>
-::: swift
-pod 'TXAppBasic', :path => "TXAppBasic/"
-pod 'TXLiteAVSDK_TRTC'
-pod 'TUIChatSalon', :path => "./", :subspecs => ["TRTC"] 
-:::
-</dx-codeblock>
 
-[](id:model.step4)
-### 步骤4：创建并登录组件
+```swift\
+# :path => "指向TXAppBasic.podspec所在目录的相对路径"
+pod 'TXAppBasic', :path => "TXAppBasic/"
+
+# :path => "指向TUIChatSalon.podspec所在目录的相对路径"
+pod 'TUIChatSalon', :path => "./", :subspecs => ["TRTC"]
+```
+
+>!  
+>- `Source`、`Resources`文件夹 和 `TUIChatSalon.podspec` 文件必需在同一目录下。
+>-  TXAppBasic.podspec 在TXAppBasic文件夹下。
+
+[](id:model.step3)
+### 步骤3：创建并登录组件
 1. 调用 TRTCChatSalon 的 `sharedInstance` 类方法可以创建一个 TRTCChatSalon 的实例对象。
 2. 调用 `setDelegate` 方法注册组件的事件回调通知。
 3. 调用 `login` 方法完成组件的登录，请参考下表填写关键参数：
@@ -191,9 +172,9 @@ self.chatSalon.login(sdkAppID: sdkAppID, userID: userId, userSig: userSig) { [we
 :::
 </dx-codeblock>
 
-[](id:model.step5)
+[](id:model.step4)
 
-### 步骤5：房主端开播
+### 步骤4：房主端开播
 
 1. 房主执行 [步骤4](#model.step4) 登录后，可以调用 `setSelfProfile` 设置自己的昵称和头像。
 2. 房主调用 `createRoom` 创建新的语音沙龙，此时传入房间 ID、上麦是否需要房主确认、房间类型等房间属性信息。
@@ -234,9 +215,9 @@ func onAnchorEnterSeat(user: ChatSalonUserInfo) {
 </dx-codeblock>
 
 
-[](id:model.step6)
+[](id:model.step5)
 
-### 步骤6：听众端观看
+### 步骤5：听众端观看
 
 1. 听众端执行 [步骤4](#model.step4) 登录后，可以调用 `setSelfProfile` 设置自己的昵称和头像。
 2. 听众端向业务后台获取最新的语音沙龙房间列表。
@@ -283,9 +264,9 @@ func onAnchorEnterSeat(user: ChatSalonUserInfo) {
 :::
 </dx-codeblock>
 
-[](id:model.step7)
+[](id:model.step6)
 
-### 步骤7：上下麦
+### 步骤6：上下麦
 
 <dx-tabs>
 ::: 房主端
@@ -336,9 +317,9 @@ func onAnchorEnterSeat(user: ChatSalonUserInfo) {
 </dx-tabs>
 
 
-[](id:model.step8)
+[](id:model.step7)
 
-### 步骤8：邀请信令的使用
+### 步骤7：邀请信令的使用
 
 如果您的 App 需要对方同意才能进行下一步操作的业务流程，那么邀请信令可以提供相应支持。
 
@@ -418,9 +399,9 @@ func onReceiveNewInvitation(identifier: String, inviter: String, cmd: String, co
 </dx-tabs>
 
 
-[](id:model.step9)
+[](id:model.step8)
 
-### 步骤9：实现文字聊天和弹幕消息
+### 步骤8：实现文字聊天和弹幕消息
 
 - 通过 `sendRoomTextMsg` 可以发送普通的文本消息，所有在该房间内的主播和听众均可以收到 `onRecvRoomTextMsg` 回调。
   即时通信 IM 后台有默认的敏感词过滤规则，被判定为敏感词的文本消息不会被云端转发。

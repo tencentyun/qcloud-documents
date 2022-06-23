@@ -43,3 +43,4 @@ Wiki 是一个根据交流需要、可以随时增删改的知识库。团队成
 2. 设置保密 Wiki，在 Wiki 编辑页面底部，可以为单篇 Wiki 设置访问权限，设置 Wiki 可见成员。
 
 ![图片描述](https://main.qcloudimg.com/raw/44ca7159ded12e0a74fa4fee283b70bc.png)
+ 

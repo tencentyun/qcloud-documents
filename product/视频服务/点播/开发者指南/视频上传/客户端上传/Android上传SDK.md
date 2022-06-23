@@ -10,9 +10,8 @@
 1. 拷贝上传源码目录`Demo/app/src/main/java/com/tencent/ugcupload/demo/videoupload`到您的工程目录中，需要手动修改一下 package 名。
 2. 参考`Demo/app/build.gradle`在您的工程中添加依赖：
     ```
-    implementation ('com.tencent.qcloud:cosxml:5.5.3') {
-        exclude group: 'com.tencent.qcloud', module: 'mtaUtils' //关闭 mta 上报功能}
-    }
+    implementation 'com.qcloud.cos:cos-android-nobeacon:5.8.5'
+    implementation 'com.qcloud.cos:quic:1.5.38'
     ```
 >?您也可以参考 [手动集成](https://cloud.tencent.com/document/product/436/12159#.E6.96.B9.E5.BC.8F.E4.BA.8C.EF.BC.9A.E6.89.8B.E5.8A.A8.E9.9B.86.E6.88.90) 文档集成对应版本的依赖库。
 3. 使用视频上传需要网络、存储等相关访问权限，可在`AndroidManifest.xml`中增加如下权限声明：
@@ -165,6 +164,13 @@ mVideoPublish.canclePublish();
 
 `signature`计算规则请参见 [客户端上传签名](/document/product/266/9221)。
 
+#### 开启 https 上传
+将上传参数中 TXPublishParam 中的 enableHTTPS 置为 true 即可，默认 false。
+
+```java
+TXUGCPublishTypeDef.TXPublishParam param = new TXUGCPublishTypeDef.TXPublishParam();
+param.enableHttps = true;
+```
 
 ## 视频上传接口描述
 
