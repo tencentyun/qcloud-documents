@@ -3,7 +3,7 @@ SSL（Secure Sockets Layer）认证是客户端到云数据库服务器端的认
 >?SSL 加密当前在各地域逐步发布中，如需提前体验，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请。
 
 ## 计费说明
-开启 SSL，不收费任何费用，您可免费使用。
+开启 SSL，不收取任何费用，您可免费使用。
 
 ## 使用前须知
 - 开启 SSL 过程中，将触发重启实例，请在业务低峰期进行，并确保应用具备重连机制。
