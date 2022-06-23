@@ -439,15 +439,15 @@ if (token != "") {
 
 ### 步骤5: 前后台切换监听[](id:step_5)
 
-需要在每次切换前后台时，通过IM SDK上报IM后端当前状态。
+需要在每次切换前后台时，通过 IM SDK 上报 IM 后端当前状态。
 
-若为前台在线状态，则收到新消息不触发notification推送；反之则会进行推送。
+若为前台在线状态，则收到新消息不触发 notification 推送，反之则会进行推送。
 
-具体请查看[Flutter官方监听前后台切换方案](https://docs.flutter.dev/get-started/flutter-for/android-devs#how-do-i-listen-to-android-activity-lifecycle-events)。
+具体请查看 [Flutter 官方监听前后台切换方案](https://docs.flutter.dev/get-started/flutter-for/android-devs#how-do-i-listen-to-android-activity-lifecycle-events)。
 
-建议：在应用切换到 inactive/paused 状态前，使用插件中`setBadgeNum( int badgeNum )`方法，将最新未读数同步至桌面角标。iOS角标由IM SDK自动管理，此处本插件支持配置 XIAOMI(MIUI6 - MIUI 11机型), HUAWEI, HONOR, vivo 及 OPPO 设备角标。
+建议：在应用切换到 inactive/paused 状态前，使用插件中`setBadgeNum( int badgeNum )`方法，将最新未读数同步至桌面角标。iOS 角标由 IM SDK 自动管理，此处本插件支持配置 XIAOMI（MIUI6 - MIUI 11机型）, HUAWEI, HONOR, vivo 及 OPPO 设备角标。
 
->?OPPO角标属于OPPO侧高级权益，不默认开放。如需使用，请自行联系OPPO应用推送权益对接人。
+>?OPPO 角标属于 OPPO 侧高级权益，不默认开放。如需使用，请自行联系 OPPO 应用推送权益对接人。
 
   ```Dart
   /// App
@@ -531,7 +531,7 @@ TIMUIKitChat(
 
 >?在后台跳转情况下，此时 Flutter 首页可能已经 unmounted，无法为跳转提供 context，因此建议启动时缓存一个 context，保证跳转成功。
 
->?建议跳转成功后，清除通知栏中其他通知消息，避免太多IM消息堆积在通知栏中。调用插件中`clearAllNotification()`方法即可。
+>?建议跳转成功后，清除通知栏中其他通知消息，避免太多 IM 消息堆积在通知栏中。调用插件中`clearAllNotification()`方法即可。
 
 ```Dart
 BuildContext? _cachedContext;
