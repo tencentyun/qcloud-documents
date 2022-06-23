@@ -2,7 +2,7 @@
 如果您是首次使用云服务器，建议您先选择轻量应用服务器（Lighthouse） 来作为云服务器使用的入门途径，详情请参见 [快速配置轻量应用服务器 Linux 实例](https://cloud.tencent.com/document/product/1207/44548)。轻量应用服务器专为云开发者及云计算入门者设计，您可前往 [与云服务器 CVM 对比](https://cloud.tencent.com/document/product/1207/49819) 了解云服务器与轻量应用服务器的区别。
 </dx-alert>
 
-本文主要介绍如何从零开始，以最简单的方式搭建一个 Linux 云服务器。您可按照以下文档，购买和配置您的第一台云服务器。
+本文主要介绍如何从零开始，以最简单的方式搭建一个 Linux 云服务器。您可按照以下文档，购买和配置您的第一台包年包月的 Linux 云服务器。
 若想了解搭建 Windows 云服务器的入门教程，可以参考 [快速配置 Windows 云服务器](https://cloud.tencent.com/document/product/213/2764)。
 
 ## 步骤1：注册腾讯云账号
@@ -14,7 +14,7 @@
 <div style="background-color:#00A4FF; width: 190px; height: 35px; line-height:35px; text-align:center;"><a href="https://buy.cloud.tencent.com/cvm?tab=lite" target="_blank"  style="color: white; font-size:16px;">点此进入快速购买页面</a></div>
 </br>
 
-![](https://qcloudimg.tencent-cloud.cn/raw/ad10e8f473d961ef59797cb539f710a7.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/1186dfc3df383751fc6f0ebfa9e66396.png)
 
 配置说明如下：
 <table>
@@ -27,7 +27,7 @@
 <td>选择与您最近的一个地区，例如我在 “深圳”，地域选择 “广州”。</td>
 </tr>
 <tr>
-<td>机型</td>
+<td>实例</td>
 <td>选择您需要的云服务器机型配置。这里我们选择 “普及配置（2核4GB）”。 </td>
 </tr>
 <tr>

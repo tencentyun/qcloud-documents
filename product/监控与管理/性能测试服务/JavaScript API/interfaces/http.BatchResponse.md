@@ -1,38 +1,19 @@
-# Interface: BatchResponse
+## Properties（属性）
 
-[http](../modules/http.md).BatchResponse
-
-## Table of contents
-
-### Properties
-
-- [error](#error)
-- [response](#response)
-
-## Properties
-
-<span id="error"></span>
-
+[](id:error)
 ### error
-
-• **error**: `string`
+- **error**: `string`
 
 error 不为空表示请求出错。
+```
+Defined in typings/http.d.ts:132
+```
 
-#### Defined in
-
-typings/http.d.ts:132
-
-___
-
-<span id="response"></span>
-
+[](id:response)
 ### response
-
-• **response**: [`Response`](http.Response.md)
+- **response**: [`Response`](https://cloud.tencent.com/document/product/1484/75824)
 
 response 请求结果。
-
-#### Defined in
-
-typings/http.d.ts:128
+```
+Defined in typings/http.d.ts:128
+```

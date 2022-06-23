@@ -1,26 +1,12 @@
-# Interface: WS
-
-[global](../modules/global.md).WS
-
-## Table of contents
-
-### Properties
-
-- [handshakeTimeout](#handshaketimeout)
-- [readTimeout](#readtimeout)
-- [writeControlTimeout](#writecontroltimeout)
-- [writeTimeout](#writetimeout)
-
-## Properties
-
-<span id="handshakeTimeout"></span>
-
+## Properties（属性）
+[](id:handshakeTimeout)
 ### handshakeTimeout
+- **handshakeTimeout**: `number`
 
-• **handshakeTimeout**: `number`
-
-握手超时时间，单位毫秒，默认 30s
-
+```
+Defined in typings/global.d.ts:355
+```
+握手超时时间，单位毫秒，默认30s
 ```js
 export const option = {
     ws: {
@@ -29,20 +15,14 @@ export const option = {
 }
 ```
 
-#### Defined in
-
-typings/global.d.ts:355
-
-___
-
-<span id="readTimeout"></span>
-
+[](id:readTimeout)
 ### readTimeout
+- **readTimeout**: `number`
 
-• **readTimeout**: `number`
-
+```
+Defined in typings/global.d.ts:378
+```
 读消息超时时间，单位毫秒，默认不限制
-
 ```js
 export const option = {
     ws: {
@@ -51,20 +31,14 @@ export const option = {
 }
 ```
 
-#### Defined in
-
-typings/global.d.ts:378
-
-___
-
-<span id="writeControlTimeout"></span>
-
+[](id:writeControlTimeout)
 ### writeControlTimeout
+- **writeControlTimeout**: `number`
 
-• **writeControlTimeout**: `number`
-
-写控制指令超时时间，单位毫秒，默认 10s
-
+```
+Defined in typings/global.d.ts:343
+```
+写控制指令超时时间，单位毫秒，默认10s
 ```js
 export const option = {
     ws: {
@@ -73,18 +47,13 @@ export const option = {
 }
 ```
 
-#### Defined in
-
-typings/global.d.ts:343
-
-___
-
-<span id="writeTimeout"></span>
-
+[](id:writeTimeout)
 ### writeTimeout
+- **writeTimeout**: `number`
 
-• **writeTimeout**: `number`
-
+```
+Defined in typings/global.d.ts:366
+```
 写消息超时时间，单位毫秒，默认不限制
 ```js
 export const option = {
@@ -93,7 +62,3 @@ export const option = {
     }
 }
 ```
-
-#### Defined in
-
-typings/global.d.ts:366

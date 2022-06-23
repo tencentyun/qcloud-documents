@@ -1,3 +1,24 @@
+### Version 10.2 @ 2022.06.23
+
+**新特性：**
+- 全平台：全新推出更加灵活，且功能强大的混流转推 API。详见 `startPublishMediaStream`。
+- 全平台：新增 3D 音频特效功能，详见 `enable3DSpatialAudioEffect`。
+- 全平台：新增人声检测功能，当 muteLoalAudio 和 setAudioCaptureVolume 为 0 时不会影响人声检测结果。详见 `enableAudioVolumeEvaluation`（方便提示用户开麦）。
+- 全平台：切换角色时，增加支持权限校验的功能，详见 `switchRole(TRTCRoleType role, const char* privateMapKey)`。
+- iOS&Mac：自定义预处理的 C++ 接口，支持以纹理方式对接视频处理。
+
+**功能优化：** 
+- Android：优化耳返效果，降低延迟。
+- Android：优化音频的采集链路，解决部分机型存在的杂音问题。
+- iOS：优化上行视频处理链路，节省 CPU、GPU 占用。
+- Windows&Mac：优化窗口分享时的编码性能，编码宽高不再受采集窗口大小的影响。
+- Windows：优化性能，减少内存碎片及其分配时造成性能开销。
+
+**缺陷修复：**
+- 全平台：修复切换网络类型时，偶现的上行失败问题。
+- iOS：修复在部分 iOS 14系统上，本地录制文件存在的杂音问题。
+
+
 ### Version 10.1 @ 2022.06.06
 
 **新特性：**

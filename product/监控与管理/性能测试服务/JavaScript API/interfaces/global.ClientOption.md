@@ -1,164 +1,93 @@
-# Interface: ClientOption
-
-[global](../modules/global.md).ClientOption
-
-## Hierarchy
-
-- **`ClientOption`**
-
-  ↳ [`Option`](protohub.Option.md)
-
-  ↳ [`Option`](trpc_client.Option.md)
-
-## Table of contents
-
-### Properties
-
-- [aliasName](#aliasname)
-- [env](#env)
-- [metaData](#metadata)
-- [namespace](#namespace)
-- [protocol](#protocol)
-- [sendOnly](#sendonly)
-- [serializationType](#serializationtype)
-- [serviceName](#servicename)
-- [target](#target)
-- [timeoutMs](#timeoutms)
-
-## Properties
-
-<span id="aliasName"></span>
-
+## Properties（属性）
+[](id:aliasName)
 ### aliasName
-
-• `Optional` **aliasName**: `string`
+- `Optional` **aliasName**: `string`
 
 trpc 特有插件别名
+```plaintext
+Defined in typings/global.d.ts:73
+```
 
-#### Defined in
 
-typings/global.d.ts:73
-
-___
-
-<span id="env"></span>
-
+[](id:env)
 ### env
-
-• `Optional` **env**: `string`
+- `Optional` **env**: `string`
 
 123 环境名，例如 formal、pre、test
+```plaintext
+Defined in typings/global.d.ts:6
+```
 
-#### Defined in
-
-typings/global.d.ts:65
-
-___
 
 <span id="metaData"></span>
 
 ### metaData
-
-• `Optional` **metaData**: `Record`<`string`, `string` \| `ArrayBuffer`\>
+- `Optional` **metaData**: `Record`<`string`, `string` \| `ArrayBuffer`\>
 
 请求头信息
+```plaintext
+Defined in typings/global.d.ts:89
+```
 
-#### Defined in
-
-typings/global.d.ts:89
-
-___
-
-<span id="namespace"></span>
-
+[](id:namespace)
 ### namespace
-
-• `Optional` **namespace**: `string`
+- `Optional` **namespace**: `string`
 
 环境类型，例如 Production、Development
+```plaintext
+Defined in typings/global.d.ts:69
+```
 
-#### Defined in
-
-typings/global.d.ts:69
-
-___
-
-<span id="protocol"></span>
-
+[](id:protocol)
 ### protocol
-
-• `Optional` **protocol**: `string`
+- `Optional` **protocol**: `string`
 
 协议
+```plaintext
+Defined in typings/global.d.ts:61
+```
 
-#### Defined in
-
-typings/global.d.ts:61
-
-___
-
-<span id="sendOnly"></span>
-
+[](id:sendOnly)
 ### sendOnly
-
-• `Optional` **sendOnly**: `boolean`
+- `Optional` **sendOnly**: `boolean`
 
 trpc 只发不收选项
+```plaintext
+Defined in typings/global.d.ts:97
+```
 
-#### Defined in
-
-typings/global.d.ts:97
-
-___
-
-<span id="serializationType"></span>
-
+[](id:serializationType)
 ### serializationType
+- `Optional` **serializationType**: ``0`` \| ``2``
 
-• `Optional` **serializationType**: ``0`` \| ``2``
+序列化类型。0：pb，2：json
+```plaintext
+Defined in typings/global.d.ts:93
+```
 
-序列化类型。0-pb，2-json
-
-#### Defined in
-
-typings/global.d.ts:93
-
-___
-
-<span id="serviceName"></span>
-
+[](id:serviceName)
 ### serviceName
-
-• `Optional` **serviceName**: `string`
+- `Optional` **serviceName**: `string`
 
 被调服务名，用于北极星寻址
+```plaintext
+Defined in typings/global.d.ts:85
+```
 
-#### Defined in
-
-typings/global.d.ts:85
-
-___
 
 ### target
-
-• `Optional` **target**: `string`
+- `Optional` **target**: `string`
 
 目标
+```plaintext
+Defined in typings/global.d.ts:81
+```
 
-#### Defined in
-
-typings/global.d.ts:81
-
-___
-
-<span id="timeoutMs"></span>
-
+[](id:timeoutMs)
 ### timeoutMs
-
-• `Optional` **timeoutMs**: `number`
+- `Optional` **timeoutMs**: `number`
 
 请求超时，单位毫秒
-
-#### Defined in
-
-typings/global.d.ts:77
+```plaintext
+Defined in typings/global.d.ts:77
+```

@@ -1,38 +1,19 @@
-# Interface: InvokeOption
+## Properties（属性）
 
-[grpc](../modules/grpc.md).InvokeOption
-
-## Table of contents
-
-### Properties
-
-- [headers](#headers)
-- [timeout](#timeout)
-
-## Properties
-
-<span id="headers"></span>
-
+[](id:headers)
 ### headers
-
-• `Optional` **headers**: `Record`<`string`, `string`[]\>
+- `Optional` **headers**: `Record`<`string`, `string`[]\>
 
 请求头
+```
+Defined in typings/grpc.d.ts:62
+```
 
-#### Defined in
-
-typings/grpc.d.ts:62
-
-___
-
-<span id="timeout"></span>
-
+[](id:timeout)
 ### timeout
-
-• `Optional` **timeout**: `number`
+- `Optional` **timeout**: `number`
 
 超时时间，单位毫秒
-
-#### Defined in
-
-typings/grpc.d.ts:66
+```
+Defined in typings/grpc.d.ts:66
+```
