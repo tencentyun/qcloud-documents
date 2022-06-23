@@ -1,83 +1,46 @@
-# Interface: Response
+## Properties（属性）
 
-[grpc](../modules/grpc.md).Response
-
-## Table of contents
-
-### Properties
-
-- [code](#code)
-- [data](#data)
-- [headers](#headers)
-- [message](#message)
-- [trailers](#trailers)
-
-## Properties
-
-<span id="code"></span>
-
+[](id:code)
 ### code
-
-• **code**: `number`
+- **code**: `number`
 
 状态码
+```
+Defined in typings/grpc.d.ts:28
+```
 
-#### Defined in
-
-typings/grpc.d.ts:28
-
-___
-
-<span id="data"></span>
-
+[](id:data)
 ### data
-
-• **data**: `any`
+- **data**: `any`
 
 业务数据
+```
+Defined in typings/grpc.d.ts:36
+```
 
-#### Defined in
-
-typings/grpc.d.ts:36
-
-___
-
-<span id="headers"></span>
-
+[](id:headers)
 ### headers
-
-• **headers**: `Record`<`string`, `string`[]\>
+- **headers**: `Record`<`string`, `string`[]\>
 
 headers 请求头信息
+```
+Defined in typings/grpc.d.ts:40
+```
 
-#### Defined in
-
-typings/grpc.d.ts:40
-
-___
-
-<span id="message"></span>
-
+[](id:message)
 ### message
-
-• **message**: `string`
+- **message**: `string`
 
 错误信息
+```
+Defined in typings/grpc.d.ts:32
+```
 
-#### Defined in
-
-typings/grpc.d.ts:32
-
-___
-
-<span id="trailers"></span>
-
+[](id:trailers)
 ### trailers
-
-• **trailers**: `Record`<`string`, `string`[]\>
+- **trailers**: `Record`<`string`, `string`[]\>
 
 trailers 请求头信息
-
-#### Defined in
-
-typings/grpc.d.ts:44
+```
+Defined in typings/grpc.d.ts:44
+```
