@@ -1,23 +1,10 @@
-# Interface: BatchOption
+### Properties（属性）
 
-[http](../modules/http.md).BatchOption
-
-## Table of contents
-
-### Properties
-
-- [parallel](#parallel)
-
-## Properties
-
-<span id="parallel"></span>
-
+[](id:parallel)
 ### parallel
-
-• `Optional` **parallel**: `number`
+- `Optional` **parallel**: `number`
 
 parallel 并行数，默认 20。
-
-#### Defined in
-
-typings/http.d.ts:139
+```
+Defined in typings/http.d.ts:139
+```
