@@ -12,7 +12,5 @@
 <img style="width:978px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/b87e9e147831bf7f3f7c74201baa6ac5.png" />
 
 ## 步骤4：开始使用
-单击**创建空白问卷**下方的开始，进入问卷“编辑”界面。您可以根据需求自定义问卷。
-<img style="width:978px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/c6ae067bc7284a0b07fc51a8a2e41f1d.png" />
-<img style="width:978px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/093e68b52122d834773a63862ed095cf.png" />
-
+进入问卷“编辑”界面。您可以根据需求自定义问卷。
+<img style="width:978px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/9e4d271ad6da27ef337bb009672ee103.png" />
