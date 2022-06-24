@@ -1,4 +1,7 @@
 
+<dx-alert infotype="explain" title="">
+SDK 正在内测中，请 [联系我们](https://cloud.tencent.com/online-service) 或 [提交工单](https://console.cloud.tencent.com/workorder/category) 获取 SDK。
+</dx-alert>
 
 ## 操作步骤
 
