@@ -112,8 +112,13 @@ Authorization: Auth String
 | IsEnabled               | Inventory Configuration | 清单是否启用的标识：<br><li>如果设置为 true，清单功能将生效<br><li>如果设置为 false，将不生成任何清单 | String    |
 | IncludedObject Versions | Inventory Configuration | 是否在清单中包含对象版本：<br><li>如果设置为 All ，清单中将会包含所有对象版本，并在清单中增加 VersionId， IsLatest， DeleteMarker 这几个字段<br><li>如果设置为 Current，则清单中不包含对象版本信息 | String    |
 | Filter                  | Inventory Configuration | 筛选待分析对象。清单功能将分析符合 Filter 中设置的前缀的对象 | Container |
-| Prefix                  | Filter                  | 需要分析的对象的前缀                                   | String    |
-| OptionalFields          | Inventory Configuration | 设置清单结果中应包含的分析维度                            | Container |
+| And                     | Filter                  | 筛选待分析时，如果同时需要前缀与对象标签条件，需要用And包装  | Container |
+| Prefix                  | And                  | 需要分析的对象的前缀                                         | String    |
+| Tag                     | And                     | 筛选待分析对象时，可以用对象标签（支持多个）作为过滤条件。   | Container |
+| Period                  | Filter                  | 需要分析的对象的创建时间范围                                 | Container |
+| StartTime               | Period                  | 需要分析的对象创建的起始时间，参数为秒级时间戳，如1568688761 | String    |
+| EndTime                 | Period                  | 需要分析的对象创建的结束时间，参数为秒级时间戳，如1568688762 | String    |
+| OptionalFields          | Inventory Configuration | 设置清单结果中应包含的分析维度                               | Container |
 | Field                   | OptionalFields          | 清单结果中可选包含的分析维度名称，可选字段包括：  Size， LastModifiedDate，  StorageClass， ETag， IsMultipartUploaded，  ReplicationStatus | String    |
 | Schedule                | Inventory Configuration | 配置清单任务周期                                           | Container |
 | Frequency               | Schedule                | 清单任务周期，可选项为按日或者按周                         | String    |
