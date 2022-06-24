@@ -10,7 +10,7 @@ NONCE 类型的 ticket，其有效期为120秒，且一次性有效，即每次�
 | appId	| 业务流程唯一标识	| 参考 [获取 WBappid](https://cloud.tencent.com/document/product/1007/49634) 指引在人脸核身控制台内申请| 
 | userId	| 用户唯一标识	| 合作方自行分配（和 SDK 里面定义的 userId 保持一致）| 
 | version	| 参数值为：1.0.0	   |- | 
-| ticket	| 合作伙伴服务端获取的 ticket，注意是 SIGN 类型	| 获取方式见 SIGN  ticket 获取| 
+| ticket	| 合作伙伴服务端获取的 ticket，注意是 NONCE 类型| 获取方式见 [NONCE ticket 获取](https://cloud.tencent.com/document/product/1007/37306)| 
 | nonce	| 必须是32位随机数	| 合作方自行生成（和 SDK 里面定义的随机数保持一致）| 
 
 ### 基本步骤
