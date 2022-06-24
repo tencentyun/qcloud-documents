@@ -2,27 +2,47 @@
 
 ## 算法说明
 
-**访问 URL 格式**
-
- `http://DomainName/Filename?sign=timestamp-rand-uid-md5hash` 
-
+- **访问 URL 格式**
+`http://DomainName/Filename?sign=timestamp-rand-uid-md5hash` 
 >! 访问 URL 中不能包含中文。
 
-**鉴权字段说明** 
-
-|字段|说明|
-|-|-|
-|DomainName|CDN 域名。|
-|Filename|资源访问路径，鉴权时Filename需以正斜线（ `/` ）开头。|
-|timestamp|服务端生成鉴权 URL 的时间，使用十进制整型正数的 Unix 时间戳，是从 UTC 时间1970年01月01日00时00分00秒到现在的总秒数，其定义与所在时区无关。|
-|rand|随机字符串，0 - 100位随机字符串，由大小写字母与数字组成。|
-|uid|用户 ID，暂未使用，直接设置为0即可。|
-|md5hash|通过 MD5 算法计算出的固定长度为32位的字符串。md5hash 具体的计算公式如下：<br>• md5hash = md5sum(uri-timestamp-rand-uid-pkey)   <br>•  uri 资源访问路径以正斜线（/）开头    <br>• timestamp：取值为上述中的timestamp<br>    • rand： 取值为上述的rand   <br>•  uid： 取值为上述的uid  <br>•  pkey：自定义密钥：由6 - 40位大小写字母、数字构成，密钥需要严格保密，仅客户端与服务端知晓。|
-
-**鉴权逻辑说明** 
+- **鉴权字段说明** 
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>DomainName</td>
+<td>CDN 域名。</td>
+</tr>
+<tr>
+<td>Filename</td>
+<td>资源访问路径，鉴权时Filename需以正斜线（ <code>/</code> ）开头。</td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td>服务端生成鉴权 URL 的时间，使用十进制整型正数的 Unix 时间戳，是从 UTC 时间1970年01月01日00时00分00秒到现在的总秒数，其定义与所在时区无关。</td>
+</tr>
+<tr>
+<td>rand</td>
+<td>随机字符串，0 - 100位随机字符串，由大小写字母与数字组成。</td>
+</tr>
+<tr>
+<td>uid</td>
+<td>用户 ID，暂未使用，直接设置为0即可。</td>
+</tr>
+<tr>
+<td>md5hash</td>
+<td>通过 MD5 算法计算出的固定长度为32位的字符串。md5hash 具体的计算公式如下：<br>• md5hash = md5sum(uri-timestamp-rand-uid-pkey)   <br>•  uri 资源访问路径以正斜线（/）开头    <br>• timestamp：取值为上述中的timestamp<br>    • rand： 取值为上述的rand   <br>•  uid： 取值为上述的uid  <br>•  pkey：自定义密钥：由6 - 40位大小写字母、数字构成，密钥需要严格保密，仅客户端与服务端知晓。</td>
+</tr>
+</tbody></table>
+- **鉴权逻辑说明** 
 CDN 服务器接受到客户请求后，解析出 url 中的 timestamp 参数 + 鉴权 URL 有效时长与当前时间比较。
-1. 如果 timestamp + 鉴权 URL 有效时长小于当前时间，则服务器判定过期失效，并返回 HTTP 403错误。
-2. 如果 timestamp + 鉴权 URL 有效时长大于当前时间，则使用 MD5 算法算出 md5hash 的值，再比较计算出来的 md5hash 值与 url 中传入的 md5hash 值，如果一致则放过，不一致则返回HTTP 403错误。
+	1. 如果 timestamp + 鉴权 URL 有效时长小于当前时间，则服务器判定过期失效，并返回 HTTP 403错误。
+	2. 如果 timestamp + 鉴权 URL 有效时长大于当前时间，则使用 MD5 算法算出 md5hash 的值，再比较计算出来的 md5hash 值与 url 中传入的 md5hash 值，如果一致则放过，不一致则返回HTTP 403错误。
 
 ## 配置指南 
 
