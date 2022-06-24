@@ -1,54 +1,44 @@
-## Table of contents
+## 目录
 
-### Namespaces
+### Namespaces（命名空间）
+- [&quot;pts/url&quot;](https://cloud.tencent.com/document/product/1484/75837)
 
-- [&quot;pts/url&quot;](url._pts_url_.md)
+### Interfaces（接口）
+- [URL](https://cloud.tencent.com/document/product/1484/75825)
+- [URLSearchParams](https://cloud.tencent.com/document/product/1484/75827)
 
-### Interfaces
-
-- [URL](../interfaces/url.URL.md)
-- [URLSearchParams](../interfaces/url.URLSearchParams.md)
-
-### Variables
-
+### Variables（变量）
 - [URL](#url)
 - [URLSearchParams](#urlsearchparams)
 
-## Variables
+## Variables（变量）
 
-<span id="url"></span>
-
+[](id:url)
 ### URL
+- **URL**: `Object`
 
-• **URL**: `Object`
+```
+Defined in node_modules/typescript/lib/lib.dom.d.ts:14358
+```
+
 
 #### Type declaration
+| Name              | Type                                                         |
+| :---------------- | :----------------------------------------------------------- |
+| prototype      | [`URL`](https://cloud.tencent.com/document/product/1484/75838) |
+| createObjectURL | (`obj`: `Blob` \| `MediaSource`) => `string`                 |
+| revokeObjectURL | (`url`: `string`) => `void`                                  |
 
-| Name | Type |
-| :------ | :------ |
-| `prototype` | [`URL`](url.md#url) |
-| `createObjectURL` | (`obj`: `Blob` \| `MediaSource`) => `string` |
-| `revokeObjectURL` | (`url`: `string`) => `void` |
 
-#### Defined in
-
-node_modules/typescript/lib/lib.dom.d.ts:14358
-
-___
-
-<span id="URLSearchParams"></span>
-
+[](id:URLSearchParams)
 ### URLSearchParams
-
-• **URLSearchParams**: `Object`
+- **URLSearchParams**: `Object`
+```
+Defined in node_modules/typescript/lib/lib.dom.d.ts:14387
+```
 
 #### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `prototype` | [`URLSearchParams`](url.md#urlsearchparams) |
-| `toString` | () => `string` |
-
-#### Defined in
-
-node_modules/typescript/lib/lib.dom.d.ts:14387
+| Name        | Type                                                         |
+| :---------- | :----------------------------------------------------------- |
+| prototype | [`URLSearchParams`](https://cloud.tencent.com/document/product/1484/75838#URLSearchParams) |
+| toString  | () => `string`                                               |
