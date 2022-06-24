@@ -1,25 +1,23 @@
-## Table of contents
+## 目录
 
-### Variables
-
+### Variables（变量）
 - [default](#default)
 
-## Variables
+## Variables（变量）
 
-<span id="default"></span>
-
+[](id:default)
 ### default
+- `Const` **default**: `Object`
 
-• `Const` **default**: `Object`
+```
+Defined in typings/protobuf.d.ts:5
+```
 
 #### Type declaration
-
 | Name | Type |
 | :------ | :------ |
-| `load` | (`importPaths`: `string`[], ...`filenames`: `string`[]) => `void` |
-| `marshal` | (`message`: `string`, `value`: `any`, `filename?`: `string`) => `ArrayBuffer` |
-| `unmarshal` | (`message`: `string`, `data`: `ArrayBuffer`, `filename?`: `string`) => `any` |
+| load | (`importPaths`: `string`[], ...`filenames`: `string`[]) => `void` |
+| marshal | (`message`: `string`, `value`: `any`, `filename?`: `string`) => `ArrayBuffer` |
+| unmarshal | (`message`: `string`, `data`: `ArrayBuffer`, `filename?`: `string`) => `any` |
 
-#### Defined in
 
-typings/protobuf.d.ts:5
