@@ -21,8 +21,7 @@
 ## Variables
 [](id:option)
 ### Option
-- **Option**: `Object`
-
+**Option**: `Object`
 ```
 Defined innode_modules/typescript/lib/lib.dom.d.ts:17667
 ```
@@ -31,8 +30,7 @@ Defined innode_modules/typescript/lib/lib.dom.d.ts:17667
 
 [](id:int64)
 ### int64
-- **int64**(`v`): `object`
-
+**int64**(`v`): `object`
 int64 类型。
 ```
 Defined in typings/global.d.ts:34
@@ -48,7 +46,6 @@ export default function () {
 ```
 
 #### Parameters
-
 | Name | Type     | Description                |
 | :--- | :------- | :------------------------- |
 | `v`  | `string` | int64 类型数据的字符串格式 |
@@ -57,8 +54,7 @@ export default function () {
 
 [](id:open)
 ### open
-- **open**(`url?`, `target?`, `features?`): `WindowProxy` \| ``null``
-
+**open**(`url?`, `target?`, `features?`): `WindowProxy` \| ``null``
 打开文件。
 ```js
 export default function () {
@@ -107,8 +103,7 @@ Defined in typings/global.d.ts:17
 
 [](id:uint64)
 ### uint64
-- **uint64**(`v`): `object`
-
+**uint64**(`v`): `object`
 uint64 类型。
 ```
 Defined in typings/global.d.ts:51
