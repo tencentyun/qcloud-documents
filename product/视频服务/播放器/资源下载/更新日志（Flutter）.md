@@ -1,8 +1,8 @@
 ## 播放器SDK Flutter 端 V1.0.2 @ 2022.6.24
 
-- superPlayer 组件用dart代码重构，支持UI自定义
-- 完善直播和点播SDK 接口
-- 修复通过file和psign播放失败问题
+- superPlayer 组件用 dart 代码重构，支持 UI 自定义
+- 完善直播和点播 SDK 接口
+- 修复通过 file 和 psign 播放失败问题
 
 
 
