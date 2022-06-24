@@ -1,28 +1,23 @@
-## Table of contents
+## 目录
 
-### Interfaces
+### Interfaces（接口）
+- [Response](https://cloud.tencent.com/document/product/1484/75828)
+- [Socket](https://cloud.tencent.com/document/product/1484/75829)
 
-- [Response](../interfaces/ws.Response.md)
-- [Socket](../interfaces/ws.Socket.md)
-
-### Variables
-
+### Variables（变量）
 - [default](#default)
 
-## Variables
+## Variables（变量）
 
-<span id="default"></span>
-
+[](id:default)
 ### default
+- `Const` **default**: `Object`
 
-• `Const` **default**: `Object`
+```
+Defined in typings/ws.d.ts:72
+```
 
 #### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `connect` | (`url`: `string`, `callback`: (`socket`: [`Socket`](../interfaces/ws.Socket.md)) => `void`, `headers?`: `Record`<`string`, `string`\>) => [`Response`](../interfaces/ws.Response.md) |
-
-#### Defined in
-
-typings/ws.d.ts:72
+| Name      | Type                                                         |
+| :-------- | :----------------------------------------------------------- |
+| connect | (`url`: `string`, `callback`: (`socket`: [`Socket`](https://cloud.tencent.com/document/product/1484/75829)) => `void`, `headers?`: `Record`<`string`, `string`\>) => [`Response`](https://cloud.tencent.com/document/product/1484/75828) |
