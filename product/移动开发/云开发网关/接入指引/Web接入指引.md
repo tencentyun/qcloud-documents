@@ -1,6 +1,7 @@
+<dx-alert infotype="explain" title="">
+此项能力内测中，如需接入请请 [联系我们](https://cloud.tencent.com/online-service) 或 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行开通。
+</dx-alert>
 
-
->! 此项能力内测中，如需接入请 [联系我们](https://cloud.tencent.com/online-service) 进行开通。
 
 首先引入 SDK：
 <dx-codeblock>
