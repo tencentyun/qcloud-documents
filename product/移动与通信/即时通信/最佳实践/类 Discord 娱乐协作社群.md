@@ -1,7 +1,7 @@
 ## 功能介绍
 社群模式，既支持**社群**-**分组**-**话题**三级结构，将消息相互区隔，又可运营百万级成员，共用一套好友关系，还可将百万成员分组，设置成员组的查看、发言、管理等权限。
-![](https://qcloudimg.tencent-cloud.cn/raw/f2dd088fd91c964fa13c810dad647cb9.png)
-![](https://qcloudimg.tencent-cloud.cn/raw/99b3011d250ab784e64617b85be96ba6.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/012568d737c68249ce61b4ba51f7654a.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/b3912b1a206d87c93dc3191d1dd71472.png)
 
 ## 适用场景
 ### 兴趣交友：新颖的用户增长模式
