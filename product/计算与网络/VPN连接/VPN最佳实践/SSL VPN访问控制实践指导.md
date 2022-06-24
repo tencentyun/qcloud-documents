@@ -22,11 +22,11 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/92a5d64e1e0b2ece68b5a15d4fdda519.png)
 
 ### [创建 EIAM 应用](https://cloud.tencent.com/document/product/1442/55068)
-1. 在导航栏选择**应用管理**，单击**应用市场新建**，在弹出的**应用市场新建**页面选择 **Open VPN**，然后单击**下一步：编辑应用信息**。
+1. 在导航栏选择**应用管理**，单击**应用市场新建**，在弹出的**应用市场新建**页面选择 **腾讯云 VPN**，然后单击**下一步：编辑应用信息**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/5274221f7041d52e563201cc5f0261ed.png)
-![](https://qcloudimg.tencent-cloud.cn/raw/cf224673ba7d8ddae92a502f7f1b6bb4.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/fa2b71a80a7ab85ecca723dfb57e7359.png)
 2. 在**编辑应用信息**页签依据界面提示填写相应的信息，然后单击**下一步：完成**。
-![](https://qcloudimg.tencent-cloud.cn/raw/e2c16f030576ba0677c4dadd01295afe.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/6afcbe71a91b5dcc826f35e7db6ee108.png)
 
 ### [EIAM 应用授权](https://cloud.tencent.com/document/product/1442/55069)
 1. 在导航栏选择**应用授权**，在**应用授权**页面单击**用户组授权**，然后单击**新增授权**。
@@ -153,7 +153,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/b65569fc55aedb84ed681b5d5b2b726e.png)
 
 ## 在 Client VPN 门户下载 SSL 客户端配置文件和 SSL 客户端
-1. 登录 [腾讯云 Clinet VPN 自主服务门户](http://self-service-test.vpn.woa.com/)。
+1. 登录 [腾讯云 Clinet VPN 自主服务门户](https://self-service.vpnconnection.tencent.com)。
 2. 在 SSL 服务端 ID 所在行的输入框中输入创建好的 SSL 服务端 ID，然后单击**下一步**，进入登录界面。
 ![](https://qcloudimg.tencent-cloud.cn/raw/f8d45066f57190c5dde9ba878bf2861c.png)
 3. 登录腾讯云 Clinet VPN 自主服务门户。
