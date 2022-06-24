@@ -1,4 +1,10 @@
 
+<dx-alert infotype="explain" title="">
+SDK 正在内测中，请 [联系我们](https://cloud.tencent.com/online-service) 或 [提交工单](https://console.cloud.tencent.com/workorder/category) 获取 SDK。
+</dx-alert>
+
+
+
 ## 操作步骤
 
 ### 步骤1：获取 SDK
@@ -68,7 +74,7 @@ System.out.printf("wxcloud resp.ret=%d, resp.http_code=%d, resp.body=%s, resp.he
 :::
 </dx-codeblock>
 
-执行返回 ret=0 且 http_code=200 表示调用成功。至此，已经成功接入 SDK，也可以自行参见 [WXCloudDemo 接入](https://cloud.tencent.com/document/product/1595/75968)。
+执行返回 ret=0 且 http_code=200 表示调用成功。至此，已经成功接入 SDK，也可以自行参见 WXCloudDemo 接入。
 
 ## 相关说明
 
