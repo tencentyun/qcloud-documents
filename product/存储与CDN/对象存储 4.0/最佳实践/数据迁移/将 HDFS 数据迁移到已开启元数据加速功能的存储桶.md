@@ -2,6 +2,7 @@
 元数据加速器是由腾讯云对象存储（Cloud Object Storage，COS）服务提供的高性能文件系统功能。元数据加速器底层采用了云 HDFS 卓越的元数据管理功能，支持用户通过文件系统语义访问对象存储服务，系统设计指标可以达到2.4Gb/s带宽、10万级 QPS 以及 ms 级延迟。存储桶在开启元数据加速器后，可以广泛应用于大数据、高性能计算、机器学习、AI 等场景。有关元数据加速器的详细介绍，请参见 [元数据加速器](https://cloud.tencent.com/document/product/436/56971)。
 
 通过元数据加速服务，COS 提供了 Hadoop 文件系统的语义，因此利用 [Hadoop Distcp 工具](https://cloud.tencent.com/document/product/436/50272) 可以方便地在对象存储 COS 与其他 Hadoop 文件系统之间进行双向的数据迁移，本文重点介绍如何通过 Hadoop Distcp 工具将本地 HDFS 中的文件搬迁到 COS 元数据加速存储桶中。 
+
 ## 迁移环境准备
 
 ### 迁移工具准备
@@ -69,7 +70,7 @@
 </tr>
 </tbody>
 </table>
-4. 验证迁移集群可以通过内网访问元数据加速存储桶，详细步骤可参见 [使用 HDFS 协议访问已开启元数据加速器的存储桶](https://cloud.tencent.com/document/product/436/68700) 中的“配置计算集群访问 COS”章节。通过迁移集群提交验证是否能成功访问COS。
+4. 验证迁移集群可以通过内网访问元数据加速存储桶，详细步骤可参见 [使用 HDFS 协议访问已开启元数据加速器的存储桶](https://cloud.tencent.com/document/product/436/68700) 中的“配置计算集群访问 COS”章节。通过迁移集群提交验证是否能成功访问 COS。
 
 
 
@@ -79,7 +80,7 @@
 
 一般情况下，迁移数据会先从 HDFS 存储数据开始迁移，会选定源 HDFS 集群待迁移的目录，目标段保持和源路径相同，如下所示：
 
-假设需要将 HDFS 路径`hdfs:///data/user/target` 迁移到`ofs://{bucketname-appid}/data/user/target`。
+假设需要将 HDFS 路径`hdfs:///data/user/target`迁移到`ofs://{bucketname-appid}/data/user/target`。
 
 为了保证迁移过程中，源端目录的文件不发生改变，会采用 HDFS 的快照功能，先给待迁移的目录打上快照，以当前日期作为快照文件名。
 
