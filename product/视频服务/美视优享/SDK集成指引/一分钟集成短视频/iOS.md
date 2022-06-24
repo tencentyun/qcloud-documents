@@ -53,7 +53,8 @@ XCode 默认 C++ 环境。
 - [步骤四](#step4) 至 [步骤七](#step7) 可参考 Demo 工程的 UGCKitRecordViewController，BeautyView 类相关实例代码。
 
 ### 步骤一：初始化授权 [](id:step1)
-1. 在工程 AppDelegate 的 didFinishLaunchingWithOptions 中添加如下代码，其中 LicenseURL，LicenseKey 为腾讯云官网申请到授权信息，请参见 [License 指引](https://cloud.tencent.com/document/product/616/65879)：
+在工程 AppDelegate 的 didFinishLaunchingWithOptions 中添加如下代码，其中 LicenseURL，LicenseKey 为腾讯云官网申请到授权信息，请参见 [License 指引](https://cloud.tencent.com/document/product/616/65879)：
+
 ```
 [TXUGCBase setLicenceURL:LicenseURL key:LicenseKey];
 
@@ -65,22 +66,74 @@ XCode 默认 C++ 环境。
                }
        }];
 ```
-2. 授权代码可参考 Demo 中 UGCKitRecordViewController 类 viewDidLoad 中的授权代码：
-```
-NSString *licenseInfo = [TXUGCBase getLicenceInfo];
-NSData *jsonData = [licenseInfo dataUsingEncoding:NSUTF8StringEncoding];
-NSError *err = nil;
-NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:jsonData
-options:NSJSONReadingMutableContainers error:&err];
-NSString *xmagicLicBase64Str = [dic objectForKey:@"TELicense"];
+**鉴权 errorCode 说明**：
 
-//初始化 xmagic 授权
-int authRet = [XMagicAuthManager initAuthByString:xmagicLicBase64Str withSecretKey:@""];// withSecretKey 为空字符串, 不需要填写内容
-NSLog(@"xmagic auth ret : %i", authRet);
-NSLog(@"xmagic auth version : %@", [XMagicAuthManager getVersion]);
-```
+<table>
+<thead>
+<tr>
+<th>错误码</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>成功。Success</td>
+</tr>
+<tr>
+<td>-1</td>
+<td>输入参数无效，例如 URL 或 KEY 为空</td>
+</tr>
+<tr>
+<td>-3</td>
+<td>下载环节失败，请检查网络设置</td>
+</tr>
+<tr>
+<td>-4</td>
+<td>从本地读取的 TE 授权信息为空，可能是 IO 失败引起</td>
+</tr>
+<tr>
+<td>-5</td>
+<td>读取 VCUBE TEMP License文件内容为空，可能是 IO 失败引起</td>
+</tr>
+<tr>
+<td>-6</td>
+<td>v_cube.license 文件 JSON 字段不对。请联系腾讯云团队处理</td>
+</tr>
+<tr>
+<td>-7</td>
+<td>签名校验失败。请联系腾讯云团队处理</td>
+</tr>
+<tr>
+<td>-8</td>
+<td>解密失败。请联系腾讯云团队处理</td>
+</tr>
+<tr>
+<td>-9</td>
+<td>TELicense 字段里的 JSON 字段不对。请联系腾讯云团队处理</td>
+</tr>
+<tr>
+<td>-10</td>
+<td>从网络解析的 TE 授权信息为空。请联系腾讯云团队处理</td>
+</tr>
+<tr>
+<td>-11</td>
+<td>把TE授权信息写到本地文件时失败，可能是 IO 失败引起</td>
+</tr>
+<tr>
+<td>-12</td>
+<td>下载失败，解析本地 asset 也失败</td>
+</tr>
+<tr>
+<td>-13</td>
+<td>鉴权失败</td>
+</tr>
+<tr>
+<td>其他</td>
+<td>请联系腾讯云团队处理</td>
+</tr>
+</tbody></table>
 
-### 步骤二：设置 SDK 素材资源路径 [](id:step2)
+步骤二：设置 SDK 素材资源路径 [](id:step2)
 
 ```objectivec
 CGSize previewSize = [self getPreviewSizeByResolution:self.currentPreviewResolution];
