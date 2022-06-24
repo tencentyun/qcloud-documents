@@ -9,8 +9,8 @@
 2. 在左侧目录中单击 **VPN 连接** > **SSL 服务端**，进入管理页面。
 3. 在 SSL 服务端管理页面，单击**+新建**。
 4. 在弹出的**新建 SSL 服务端**对话框中，**认证方式**选择**证书认证** + **身份认证**，然后选择 EIAM 应用。
-![](https://qcloudimg.tencent-cloud.cn/raw/e84fd4674fa394c8286462da60edcd52.png)
-5. **访问控制**选择**开启**，详情请参见 [开启访问控制](https://cloud.tencent.com/document/product/554/75188)。
+<img src="https://qcloudimg.tencent-cloud.cn/raw/e84fd4674fa394c8286462da60edcd52.png" width="70%">
+5. **访问控制**按需**开启**，详情请参见 [开启访问控制](https://cloud.tencent.com/document/product/554/75188)。
 
 ## 在 SSL 服务端创建完成后开启
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。

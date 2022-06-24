@@ -1,32 +1,12 @@
-# Interface: HTTP
-
-[global](../modules/global.md).HTTP
-
-## Table of contents
-
-### Properties
-
-- [basicAuth](#basicauth)
-- [disableKeepAlives](#disablekeepalives)
-- [discardResponseBody](#discardresponsebody)
-- [headers](#headers)
-- [http2](#http2)
-- [maxIdleConns](#maxidleconns)
-- [maxIdleConnsPerHost](#maxidleconnsperhost)
-- [maxRedirects](#maxredirects)
-- [timeout](#timeout)
-
-## Properties
-
-<span id="basicAuth"></span>
-
+## Properties（属性）
+[](id:basicAuth)
 ### basicAuth
-
-• **basicAuth**: [`BasicAuth`](global.BasicAuth.md)
-
+**basicAuth**: [`BasicAuth`](https://cloud.tencent.com/document/product/1484/75806)
+```plaintext
+Defined in typings/global.d.ts:265
+```
 HTTP Basic authentication
-
-```js
+```plaintext
 export const option = {
     http: {
         basicAuth: {
@@ -37,21 +17,15 @@ export const option = {
 }
 ```
 
-#### Defined in
 
-typings/global.d.ts:265
-
-___
-
-<span id="disableKeepAlives"></span>
-
+[](id:disableKeepAlives)
 ### disableKeepAlives
-
-• **disableKeepAlives**: `boolean`
-
+**disableKeepAlives**: `boolean`
+```plaintext
+Defined in typings/global.d.ts:224
+```
 是否禁用长连接
-
-```js
+``` plaintext
 export const option = {
     http: {
         disableKeepAlives: true
@@ -59,21 +33,15 @@ export const option = {
 }
 ```
 
-#### Defined in
 
-typings/global.d.ts:224
-
-___
-
-<span id="discardResponseBody"></span>
-
+[](id:discardResponseBody)
 ### discardResponseBody
-
-• **discardResponseBody**: `boolean`
-
+**discardResponseBody**: `boolean`
+```plaintext
+Defined in typings/global.d.ts:277
+```
 是否丢弃回包
-
-```js
+```json
 export const option = {
     http: {
         discardResponseBody: true
@@ -81,21 +49,14 @@ export const option = {
 }
 ```
 
-#### Defined in
-
-typings/global.d.ts:277
-
-___
-
-<span id="headers"></span>
-
+[](id:headers)
 ### headers
-
-• **headers**: `Record`<`string`, `string`\>
-
+**headers**: `Record`<`string`, `string`\>
+```plaintext
+Defined in typings/global.d.ts:238
+```
 http 请求头
-
-```js
+```json
 export const option = {
     http: {
         headers: {
@@ -105,21 +66,14 @@ export const option = {
 }
 ```
 
-#### Defined in
-
-typings/global.d.ts:238
-
-___
-
-<span id="http2"></span>
-
+[](id:http2)
 ### http2
-
-• **http2**: `boolean`
-
+**http2**: `boolean`
+```plaintext
+Defined in typings/global.d.ts:289
+```
 是否启用 HTTP2
-
-```js
+```json
 export const option = {
     http: {
         http2: true
@@ -127,21 +81,14 @@ export const option = {
 }
 ```
 
-#### Defined in
-
-typings/global.d.ts:289
-
-___
-
-<span id="maxIdleConns"></span>
-
+[](id:maxIdleConns)
 ### maxIdleConns
-
-• **maxIdleConns**: `number`
-
+**maxIdleConns**: `number`
+```plaintext
+Defined in typings/global.d.ts:200
+```
 单个 VU 最大活跃连接数
-
-```js
+```json
 export const option = {
     http: {
         maxIdleConns: 50
@@ -149,21 +96,14 @@ export const option = {
 }
 ```
 
-#### Defined in
-
-typings/global.d.ts:200
-
-___
-
-<span id="maxIdleConnsPerHost"></span>
-
+[](id:maxIdleConnsPerHost)
 ### maxIdleConnsPerHost
-
-• **maxIdleConnsPerHost**: `number`
-
+**maxIdleConnsPerHost**: `number`
+```plaintext
+Defined in typings/global.d.ts:212
+```
 单个 VU 单个域名最大活跃连接数
-
-```js
+```plaintext
 export const option = {
     http: {
         maxIdleConnsPerHost: 10
@@ -171,20 +111,14 @@ export const option = {
 }
 ```
 
-#### Defined in
 
-typings/global.d.ts:212
-
-___
-
-<span id="maxRedirects"></span>
-
+[](id:maxRedirects)
 ### maxRedirects
-
-• **maxRedirects**: `number`
-
+**maxRedirects**: `number`
+```plaintext
+Defined in typings/global.d.ts:188
+```
 http 重定向跳转次数
-
 ```js
 export const option = {
     http: {
@@ -193,21 +127,14 @@ export const option = {
 }
 ```
 
-#### Defined in
-
-typings/global.d.ts:188
-
-___
-
-<span id="timeout"></span>
-
+[](id:timeout)
 ### timeout
-
-• **timeout**: `number`
-
+**timeout**: `number`
+```plaintext
+Defined in typings/global.d.ts:250
+```
 请求超时时间，单位毫秒
-
-```js
+```json
 export const option = {
     http: {
         timeout: 3000
@@ -215,6 +142,3 @@ export const option = {
 }
 ```
 
-#### Defined in
-
-typings/global.d.ts:250

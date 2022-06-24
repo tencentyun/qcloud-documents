@@ -1,441 +1,285 @@
-# Interface: URLSearchParams
-
-[url](../modules/url.md).URLSearchParams
-
-## Table of contents
-
-### Constructors
-
-- [constructor](url.URLSearchParams.md#constructor)
-
-### Methods
-
-- [append](#append)
-- [delete](#delete)
-- [entries](#entries)
-- [forEach](#foreach)
-- [get](#get)
-- [getAll](#getall)
-- [has](#has)
-- [keys](#keys)
-- [set](#set)
-- [sort](#sort)
-- [toString](#tostring)
-- [values](#values)
-
-## Constructors
-
-<span id="contentType"></span>
-
+## Constructors（构造函数）
+[](id:contentType)
 ### constructor
+- **new URLSearchParams**(`init`)
 
-• **new URLSearchParams**(`init`)
+```
+Defined in typings/url.d.ts:106
+```
 
 #### Parameters
-
-| Name | Type |
-| :------ | :------ |
+| Name   | Type     |
+| :----- | :------- |
 | `init` | `string` |
 
-#### Defined in
-
-typings/url.d.ts:106
-
-
-
 ## Methods
-
-<span id="append"></span>
-
+[](id:append)
 ### append
+- **append**(`name`, `value`): `void`
 
-▸ **append**(`name`, `value`): `void`
+追加指定的键/值对作为新的搜索参数。
+```
+Defined in node_modules/typescript/lib/lib.dom.d.ts:14370
+```
 
-Appends a specified key/value pair as a new search parameter.
 
 #### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `name` | `string` |
+| Name    | Type     |
+| :------ | :------- |
+| `name`  | `string` |
 | `value` | `string` |
 
-#### Returns
+**Returns：**void`
+- **append**(`key`, `value`): `void`
 
-`void`
-
-#### Defined in
-
-node_modules/typescript/lib/lib.dom.d.ts:14370
-
-▸ **append**(`key`, `value`): `void`
-
-插入一个指定的键/值对作为新的搜索参数
+插入一个指定的键/值对作为新的搜索参数。
+```
+Defined in typings/url.d.ts:111
+```
 
 #### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `key` | `string` |
+| Name    | Type                 |
+| :------ | :------------------- |
+| `key`   | `string`             |
 | `value` | `string` \| `number` |
 
-#### Returns
+**Returns：**`void`
 
-`void`
-
-#### Defined in
-
-typings/url.d.ts:111
-
-___
-
-<span id="delete"></span>
-
+[](id:delete)
 ### delete
+- **delete**(`name`): `void`
 
-▸ **delete**(`name`): `void`
+从所有搜索参数列表中删除给定的搜索参数及其关联值。
 
-Deletes the given search parameter, and its associated value, from the list of all search parameters.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name   | Type     |
+| :----- | :------- |
 | `name` | `string` |
 
-#### Returns
+**Returns**：`void`
+```
+Defined in node_modules/typescript/lib/lib.dom.d.ts:14372
+```
+- **delete**(`key`): `void`
 
-`void`
-
-#### Defined in
-
-node_modules/typescript/lib/lib.dom.d.ts:14372
-
-▸ **delete**(`key`): `void`
-
-从搜索参数列表里删除指定的搜索参数及其对应的值
+从搜索参数列表里删除指定的搜索参数及其对应的值。
 
 #### Parameters
-
-| Name | Type |
-| :------ | :------ |
+| Name  | Type     |
+| :---- | :------- |
 | `key` | `string` |
 
-#### Returns
+**Returns：**`void`
+```
+Defined in typings/url.d.ts:115
+```
 
-`void`
-
-#### Defined in
-
-typings/url.d.ts:115
-
-___
-
-<span id="entries"></span>
-
+[](id:entries)
 ### entries
+- **entries**(): `string`[][]
+```
+Defined in typings/url.d.ts:119
+```
 
-▸ **entries**(): `string`[][]
+返回一个 iterator 可以遍历所有键/值对的对象。
 
-返回一个 iterator 可以遍历所有键/值对的对象
+**Returns：**`string`[][]
 
-#### Returns
-
-`string`[][]
-
-#### Defined in
-
-typings/url.d.ts:119
-
-___
-
-<span id="forEach"></span>
-
+[](id:forEach)
 ### forEach
+- **forEach**(`callbackfn`, `thisArg?`): `void`
 
-▸ **forEach**(`callbackfn`, `thisArg?`): `void`
+```
+Defined in node_modules/typescript/lib/lib.dom.d.ts:14384
+```
 
 #### Parameters
-
-| Name | Type |
-| :------ | :------ |
+| Name         | Type                                                         |
+| :----------- | :----------------------------------------------------------- |
 | `callbackfn` | (`value`: `string`, `key`: `string`, `parent`: [`URLSearchParams`](../modules/url.md#urlsearchparams)) => `void` |
-| `thisArg?` | `any` |
+| `thisArg?`   | `any`                                                        |
 
-#### Returns
+**Returns：**`void`
+- **forEach**(`callback`): `void`
 
-`void`
+通过回调函数来遍历 URLSearchParams 实例对象上的键值对。
+```
+Defined in typings/url.d.ts:123
+```
 
-#### Defined in
-
-node_modules/typescript/lib/lib.dom.d.ts:14384
-
-▸ **forEach**(`callback`): `void`
-
-通过回调函数来遍历 URLSearchParams 实例对象上的键值对
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name       | Type                                                         |
+| :--------- | :----------------------------------------------------------- |
 | `callback` | (`value`: `string`, `key`: `string`, `urlSearchParams`: [`URLSearchParams`](../modules/url.md#urlsearchparams)) => `void` |
 
-#### Returns
+**Returns：**`void`
 
-`void`
-
-#### Defined in
-
-typings/url.d.ts:123
-
-___
-
-<span id="get"></span>
-
+[](id:get)
 ### get
+- **get**(`name`): ``null`` \| `string`
 
-▸ **get**(`name`): ``null`` \| `string`
-
-Returns the first value associated to the given search parameter.
+返回与给定搜索参数关联的第一个值。
+```
+Defined in node_modules/typescript/lib/lib.dom.d.ts:14374
+```
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name   | Type     |
+| :----- | :------- |
 | `name` | `string` |
 
-#### Returns
+**Returns**：``null`` \| `string`
+- **get**(`key`): ``null`` \| `string`
 
-``null`` \| `string`
-
-#### Defined in
-
-node_modules/typescript/lib/lib.dom.d.ts:14374
-
-▸ **get**(`key`): ``null`` \| `string`
-
-获取指定搜索参数的第一个值
+获取指定搜索参数的第一个值。
+```
+Defined in typings/url.d.ts:127
+```
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name  | Type     |
+| :---- | :------- |
 | `key` | `string` |
 
-#### Returns
+**Returns：**``null`` \| `string`
 
-``null`` \| `string`
-
-#### Defined in
-
-typings/url.d.ts:127
-
-___
-
-<span id="getAll"></span>
-
+[](id:getAll)
 ### getAll
+- **getAll**(`name`): `string`[]
 
-▸ **getAll**(`name`): `string`[]
-
-Returns all the values association with a given search parameter.
+返回与给定搜索参数关联的所有值。
+```
+Defined in node_modules/typescript/lib/lib.dom.d.ts:14376
+```
 
 #### Parameters
-
-| Name | Type |
-| :------ | :------ |
+| Name   | Type     |
+| :----- | :------- |
 | `name` | `string` |
 
-#### Returns
+**Returns：**`string`[]
+- **getAll**(`key`): `string`
 
-`string`[]
-
-#### Defined in
-
-node_modules/typescript/lib/lib.dom.d.ts:14376
-
-▸ **getAll**(`key`): `string`
-
-获取指定搜索参数的所有值，返回是一个数组
+获取指定搜索参数的所有值，返回是一个数组。
+```
+Defined in typings/url.d.ts:131
+```
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name  | Type     |
+| :---- | :------- |
 | `key` | `string` |
 
-#### Returns
+**Returns：**`string`
 
-`string`
-
-#### Defined in
-
-typings/url.d.ts:131
-
-___
-
-<span id="has"></span>
-
+[](id:has)
 ### has
+- **has**(`name`): `boolean`
 
-▸ **has**(`name`): `boolean`
-
-Returns a Boolean indicating if such a search parameter exists.
+返回一个 boolean 值，指示是否存在此类搜索参数。
+```
+Defined in ode_modules/typescript/lib/lib.dom.d.ts:14378
+```
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name   | Type     |
+| :----- | :------- |
 | `name` | `string` |
 
-#### Returns
+**Returns：**`boolean`
+- **has**(`key`): `boolean`
 
-`boolean`
-
-#### Defined in
-
-node_modules/typescript/lib/lib.dom.d.ts:14378
-
-▸ **has**(`key`): `boolean`
-
-返回 Boolean 判断是否存在此搜索参数
+返回 Boolean 判断是否存在此搜索参数。
+```
+Defined in typings/url.d.ts:135
+```
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name  | Type     |
+| :---- | :------- |
 | `key` | `string` |
 
-#### Returns
+**Returns：**`boolean`
 
-`boolean`
-
-#### Defined in
-
-typings/url.d.ts:135
-
-___
-
-<span id="keys"></span>
-
+[](id:keys)
 ### keys
+- **keys**(): `string`[]
 
-▸ **keys**(): `string`[]
+返回 iterator 此对象包含了键/值对的所有键名。
+```
+Defined in typings/url.d.ts:139
+```
+**Returns：**`string`[]
 
-返回 iterator 此对象包含了键/值对的所有键名
-
-#### Returns
-
-`string`[]
-
-#### Defined in
-
-typings/url.d.ts:139
-
-___
-
-<span id="set"></span>
-
+[](id:set)
 ### set
+- **set**(`name`, `value`): `void`
 
-▸ **set**(`name`, `value`): `void`
-
-Sets the value associated to a given search parameter to the given value. If there were several values, delete the others.
+将与给定搜索参数关联的值设置为给定值。如果有多个值，请删除其他值。
+```
+Defined in node_modules/typescript/lib/lib.dom.d.ts:14380
+```
 
 #### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `name` | `string` |
+| Name    | Type     |
+| :------ | :------- |
+| `name`  | `string` |
 | `value` | `string` |
 
-#### Returns
+**Returns：**`void`
+- **set**(`key`, `value`): `void`
 
-`void`
-
-#### Defined in
-
-node_modules/typescript/lib/lib.dom.d.ts:14380
-
-▸ **set**(`key`, `value`): `void`
-
-设置一个搜索参数的新值，假如原来有多个值将删除其他所有的值
+设置一个搜索参数的新值，假如原来有多个值将删除其他所有的值。
+```
+Defined in typings/url.d.ts:143
+```
 
 #### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `key` | `string` |
+| Name    | Type                 |
+| :------ | :------------------- |
+| `key`   | `string`             |
 | `value` | `string` \| `number` |
 
-#### Returns
+**Returns：**`void`
 
-`void`
-
-#### Defined in
-
-typings/url.d.ts:143
-
-___
-
-<span id="sort"></span>
-
+[](id:sort)
 ### sort
+- **sort**(): `void`
 
-▸ **sort**(): `void`
+```
+Defined in node_modules/typescript/lib/lib.dom.d.ts:14381
+```
+**Returns：**`void`
 
-#### Returns
-
-`void`
-
-#### Defined in
-
-node_modules/typescript/lib/lib.dom.d.ts:14381
-
-___
-
-<span id="toString"></span>
-
+[](id:toString)
 ### toString
+- **toString**(): `string`
+返回一个字符串，该字符串包含适合在URL中使用的查询字符串（不包括问号）
+```
+Defined in node_modules/typescript/lib/lib.dom.d.ts:14383
+```
+**Returns：**`string`
+- **toString**(): `string`
+返回搜索参数组成的字符串，可直接使用在 URL 上。
+```
+Defined in typings/url.d.ts:147
+```
+**Returns：**`string`
 
-▸ **toString**(): `string`
-
-Returns a string containing a query string suitable for use in a URL. Does not include the question mark.
-
-#### Returns
-
-`string`
-
-#### Defined in
-
-node_modules/typescript/lib/lib.dom.d.ts:14383
-
-▸ **toString**(): `string`
-
-返回搜索参数组成的字符串，可直接使用在 URL 上
-
-#### Returns
-
-`string`
-
-#### Defined in
-
-typings/url.d.ts:147
-
-___
-
-<span id="values"></span>
-
+[](id:values)
 ### values
-
-▸ **values**(): `string`[]
-
-返回 iterator 此对象包含了键/值对的所有值
-
-#### Returns
-
-`string`[]
-
-#### Defined in
-
-typings/url.d.ts:151
+- **values**(): `string`[]
+返回 iterator 此对象包含了键/值对的所有值。
+```
+Defined in typings/url.d.ts:151
+```
+**Returns：**`string`[]

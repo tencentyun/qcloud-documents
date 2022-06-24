@@ -1,28 +1,12 @@
-# Interface: Option
-
-[global](../modules/global.md).Option
-
-## Table of contents
-
-### Properties
-
-- [http](#http)
-- [setupTimeoutSeconds](#setuptimeoutseconds)
-- [teardownTimeoutSeconds](#teardowntimeoutseconds)
-- [tlsConfig](#tlsconfig)
-- [trpc](#trpc)
-- [ws](#ws)
-
-## Properties
-
-<span id="http"></span>
-
+## Properties（属性）
+[](id:http)
 ### http
+- **http**: [`HTTP`](https://cloud.tencent.com/document/product/1484/75811)
 
-• **http**: [`HTTP`](global.HTTP.md)
-
+```
+Defined in typings/global.d.ts:147
+```
 HTTP 参数选项
-
 ```js
 export const option = {
     http: {
@@ -32,55 +16,44 @@ export const option = {
 }
 ```
 
-#### Defined in
-
-typings/global.d.ts:147
-
-___
-
-<span id="setupTimeoutSeconds"></span>
-
+[](id:setupTimeoutSeconds)
 ### setupTimeoutSeconds
+- **setupTimeoutSeconds**: `number`
 
-• **setupTimeoutSeconds**: `number`
-
+```
+Defined in typings/global.d.ts:109
+```
 setup 超时时间
-
 ```js
 export const option = {
     setupTimeoutSeconds: 30
 }
+```
 
-#### Defined in
 
-typings/global.d.ts:109
-
-___
 
 ### teardownTimeoutSeconds
+- **teardownTimeoutSeconds**: `number`
 
-• **teardownTimeoutSeconds**: `number`
-
+```
+Defined in typings/global.d.ts:118
+```
 teardown 超时时间
-
-​```js
+```
 export const option = {
     teardownTimeoutSeconds: 30
 }
+```
 
-#### Defined in
 
-typings/global.d.ts:118
-
-___
 
 ### tlsConfig
-
-• **tlsConfig**: `Record`<`string`, [`TLSConfig`](global.TLSConfig.md)\>
-
+- **tlsConfig**: `Record`<`string`, [`TLSConfig`](https://cloud.tencent.com/document/product/1484/75813)\>
+```
+Defined in typings/global.d.ts:134
+```
 Transport Layer Security 配置
-
-​```js
+```
 export const option = {
     tlsConfig: {
         'localhost': {
@@ -92,21 +65,15 @@ export const option = {
 }
 ```
 
-#### Defined in
-
-typings/global.d.ts:134
-
-___
-
-<span id="trpc"></span>
-
+[](id:trpc)
 ### trpc
+- **trpc**: [`TRPC`](https://cloud.tencent.com/document/product/1484/75814)
 
-• **trpc**: [`TRPC`](global.TRPC.md)
-
+```
+Defined in typings/global.d.ts:160
+```
 TRPC 参数选项
-
-```js
+```
 export const option = {
     trpc: {
         env: "formal",
@@ -115,21 +82,15 @@ export const option = {
 }
 ```
 
-#### Defined in
-
-typings/global.d.ts:160
-
-___
-
-<span id="ws"></span>
-
+[](id:ws)
 ### ws
+- **ws**: [`WS`](https://cloud.tencent.com/document/product/1484/75815)
 
-• **ws**: [`WS`](global.WS.md)
-
+```
+Defined in typings/global.d.ts:173
+```
 WS 参数选项
-
-```js
+```
 export const option = {
     ws: {
         writeTimeout: 3000,
@@ -137,7 +98,3 @@ export const option = {
     }
 }
 ```
-
-#### Defined in
-
-typings/global.d.ts:173

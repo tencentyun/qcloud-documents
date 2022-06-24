@@ -24,14 +24,6 @@
 | [setXmagicStreamType](#setxmagicstreamtype)                  | 设置输入数据类型，默认 Android camera 数据流。               |
 | [setXmagicLogLevel](#setxmagicloglevel)                      | 设置 SDK 的 log 等级，建议开发调试时设为 `Log.DEBUG`，正式发布时设置为 `Log.WARN`，如果正式发布设置为 `Log.DEBUG`，大量的日志会影响性能。<br><b>在 new XmagicApi() 之后调用。</b> |
 
-## 静态函数
-
-| API               | 描述         |
-| ----------------- | ---------- |
-| [setLibPathAndLoad](#setlibpathandload) | 设置 libPath。 |
-
-## Public 成员函数说明
-
 ### XmagicApi
 
 构造函数。
@@ -566,7 +558,11 @@ void setXmagicStreamType(int type)
 
 ------
 
-## 静态函数说明
+## 静态函数
+
+| API               | 描述         |
+| ----------------- | ---------- |
+| [setLibPathAndLoad](#setlibpathandload) | 设置 libPath。 |
 
 ### setLibPathAndLoad
 
