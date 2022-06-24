@@ -3,7 +3,7 @@
 
 ## 准备工作
 
-- 已 [开通 SSL加密](https://cloud.tencent.com/document/product/239/75865)，获取 SSL 认证证书文件。
+- 已 [开通 SSL 加密](https://cloud.tencent.com/document/product/239/75865)，获取 SSL 认证证书文件。
 - 在 [Redis 控制台](https://console.cloud.tencent.com/redis) 的**实例详情**页面的**网络信息**区域，获取连接数据库的**内网IPv4地址**及端口。具体信息，请参见 [查看实例详情](https://cloud.tencent.com/document/product/239/75437)。
 - 已获取访问数据库的账号与密码。具体操作，请参见 [管理账号](https://cloud.tencent.com/document/product/239/36710)。
 
