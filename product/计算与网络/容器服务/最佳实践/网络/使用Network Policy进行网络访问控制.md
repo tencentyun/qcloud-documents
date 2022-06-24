@@ -16,7 +16,7 @@
 目前 TKE 集群的扩展组件市场已提供 NetworkPolicy 扩展组件，支持一键安装与部署。具体操作步骤可参见 [NetworkPolicy 说明](https://cloud.tencent.com/document/product/457/50841)。  
 
 ## NetworkPolicy 配置示例
-<dx-alert infotype="explain" title=" ">
+<dx-alert infotype="explain" title="">
 资源对象的 apiVersion 可能因为您集群的 Kubernetes 版本不同而不同，您可通过 `kubectl api-versions` 命令查看当前资源对象的 apiVersion。  
 </dx-alert>
 
