@@ -4,7 +4,7 @@
 
 ## 操作步骤
 
-1. 登录[事件总线控制台](https://console.cloud.tencent.com/eb)。
+1. 登录 [事件总线控制台](https://console.cloud.tencent.com/eb)。
 2. 首次登录系统会提醒用户进行授权，请参考 [开通事件总线](https://cloud.tencent.com/document/product/1359/56068) 进行操作，如果已授权请跳过此步骤。
 3. 在左侧导航选择**事件规则**页签，然后在右侧地域选择**广州**，事件集选择 **default**，单击**新建事件规则**。
 因为云服务产品的事件集默认统一存储在广州，所以此处的地域和事件集不可选择其他内容。
