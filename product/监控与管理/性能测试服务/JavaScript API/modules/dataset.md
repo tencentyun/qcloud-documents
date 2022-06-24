@@ -1,29 +1,23 @@
-## Table of contents
+## 目录
 
-### Interfaces
+### Interfaces（接口）
+- [Item](https://cloud.tencent.com/document/product/1484/75805)
 
-- [Item](../interfaces/dataset.Item.md)
-
-### Variables
-
+### Variables（变量）
 - [default](#default)
 
-## Variables
-
-<span id="default"></span>
-
+## Variables（变量）
+[](id:default)
 ### default
+- `Const` **default**: `Object`
 
-• `Const` **default**: `Object`
+```
+Defined in typings/dataset.d.ts:17
+```
+
 
 #### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `forEach` | (`fileName`: `string`, `callback`: (`item`: [`Item`](../interfaces/dataset.Item.md), `i?`: `number`) => `void`) => `void` |
-| `get` | (`key`: `string`) => `string` |
-
-#### Defined in
-
-typings/dataset.d.ts:17
-
+| Name      | Type                                                         |
+| :-------- | :----------------------------------------------------------- |
+| `forEach` | (`fileName`: `string`, `callback`: (`item`: [`Item`](https://cloud.tencent.com/document/product/1484/75805), `i?`: `number`) => `void`) => `void` |
+| `get`     | (`key`: `string`) => `string`                                |
