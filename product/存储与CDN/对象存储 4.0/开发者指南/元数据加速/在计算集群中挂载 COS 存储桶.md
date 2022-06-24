@@ -66,10 +66,10 @@
 
 | 配置项                              | 配置项内容                         | 说明                                                         |
 | ----------------------------------- | ---------------------------------- | ------------------------------------------------------------ |
-| fs.cosn.userinfo.secretId/secretKey |                                    | 填写您账户的 API 密钥信息。可登录 [访问管理控制台](https://console.cloud.tencent.com/capi) 查看云 API 密钥。 |
+| fs.cosn.userinfo.secretId/secretKey | 格式形如 AKIDxxxxxxxxxxxxxxxxxxxx | 填写您账户的 API 密钥信息。可登录 [访问管理控制台](https://console.cloud.tencent.com/capi) 查看云 API 密钥。 |
 | fs.cosn.impl                        | org.apache.hadoop.fs.CosFileSystem | cosn 对 FileSystem 的实现类，固定。                          |
 | fs.AbstractFileSystem.cosn.impl     | org.apache.hadoop.fs.CosN          | cosn 对 AbstractFileSystem 的实现类，固定为。                |
-| fs.cosn.bucket.region               |                                    | 请填写待访问存储桶的地域信息，枚举值请参见 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224) 中的地域简称，例如：ap-beijing、ap-guangzhou 等。兼容原有配置：fs.cosn.userinfo.region。 |
+| fs.cosn.bucket.region               | 格式形如 ap-beijing               | 请填写待访问存储桶的地域信息，枚举值请参见 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224) 中的地域简称，例如：ap-beijing、ap-guangzhou 等。兼容原有配置：fs.cosn.userinfo.region。 |
 | fs.cosn.tmp.dir                     | 默认/tmp/hadoop_cos                | 请设置一个实际存在的本地目录，运行过程中产生的临时文件会暂时放于此处。同时建议配置各节点该目录足够的空间和权限 |
 
 
@@ -81,9 +81,9 @@
 | fs.cosn.posix_bucket.fs.impl         | com.qcloud.chdfs.fs.CHDFSHadoopFileSystemAdapter                |      POSIX 方式访问配置为 com.qcloud.chdfs.fs.CHDFSHadoopFileSystemAdapter S3 协议方式访问配置为 org.apache.hadoop.fs.CosNFileSystem， 默认 POSIX 方式访问。               |
 | fs.cosn.trsf.fs.AbstractFileSystem.ofs.impl | com.qcloud.chdfs.fs.CHDFSDelegateFSAdapter                      |      元数据桶访问实现类                                           |
 | fs.cosn.trsf.fs.ofs.impl                    | com.qcloud.chdfs.fs.CHDFSHadoopFileSystemAdapter                |     元数据桶访问实现类                                                          |
-| fs.cosn.trsf.fs.ofs.tmp.cache.dir           |  |请设置一个实际存在的本地目录，运行过程中产生的临时文件会暂时放于此处。同时建议配置各节点该目录足够的空间和权限，例如"/data/emr/hdfs/tmp/posix-cosn/"                                                                      |
-| fs.cosn.trsf.fs.ofs.user.appid              |                                                  | 必填。用户 appid |
-| fs.cosn.trsf.fs.ofs.bucket.region           |                                       | 必填。用户 bucket 对应 region |
+| fs.cosn.trsf.fs.ofs.tmp.cache.dir           | 格式形如 /data/emr/hdfs/tmp/posix-cosn/  |请设置一个实际存在的本地目录，运行过程中产生的临时文件会暂时放于此处。同时建议配置各节点该目录足够的空间和权限，例如"/data/emr/hdfs/tmp/posix-cosn/"                                                                      |
+| fs.cosn.trsf.fs.ofs.user.appid              | 格式形如 12500000000  | 必填。用户 appid |
+| fs.cosn.trsf.fs.ofs.bucket.region           | 格式形如 ap-beijing  | 必填。用户 bucket 对应 region |
 
 
 ### 3. S3 协议访问方式必填配置项
@@ -96,3 +96,6 @@
 
 - [其他 Hadoop-cos 配置项](https://cloud.tencent.com/document/product/436/6884)
 - [其他 POSIX 方式配置项](https://cloud.tencent.com/document/product/1105/36368)，其他 POSIX 方式配置项添加“fs.cosn.trsf.”前缀即可用于访问元数据加速桶。
+
+
+

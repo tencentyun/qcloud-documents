@@ -4,13 +4,7 @@ TUIVoiceRoom 是一个开源的音视频 UI 组件，通过在项目中集成 TU
 
 >?TUIKit 系列组件同时使用了腾讯云 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269/42440) 两个基础 PaaS 服务，开通实时音视频后会同步开通即时通信IM服务。即时通信 IM 服务详细计费规则请参见 [即时通信 - 价格说明](https://cloud.tencent.com/document/product/269/11673)，TRTC 开通会默认关联开通 IM SDK 的体验版，仅支持100个 DAU。
 
-<table class="tablestyle">
-<tbody><tr>
-<td><img src="https://qcloudimg.tencent-cloud.cn/raw/797f59f998491b6ba9cc00164c076b18.jpg" width="250"></td>
-<td><img src="https://qcloudimg.tencent-cloud.cn/raw/0e4a8e5fb6d42f1c2f721195023f58bd.jpg" width="250"></td>
-<td><img src="https://qcloudimg.tencent-cloud.cn/raw/5b95135f19fbcba7acc030621107b13a.jpg" width="250"></td>
-</tr>
-</tbody></table>
+![](https://qcloudimg.tencent-cloud.cn/raw/5ba9e86ad0a9d806fe84c5e5219494cb.png)
 
 ## 组件集成
 

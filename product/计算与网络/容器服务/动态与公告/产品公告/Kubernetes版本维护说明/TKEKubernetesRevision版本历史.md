@@ -1,9 +1,18 @@
 ## TKE kubernetes 1.20.6 revisions
 <table>
-  <thead>
-    <tr><th> 时间         </th><th> 版本                 </th><th> 更新内容                           </th></tr>
-  </thead>
+<thead>
+<tr><th width="13%">时间</th><th width="13%">版本</th><th width="74%">更新内容</th></tr>
+</thead>
   <tbody>
+	 <tr>
+    <td>2022-06-16</td>
+    <td>v1.20.6-tke.20</td>
+    <td><li>支持包年包月超级节点。(kube-scheduler,kube-controller-manager)</li><li>在使用 docker 及 overlay2 时，通过 fs quota 获取磁盘用量，提高性能。(kubelet)</li><li>
+优化 daemonset pod 调度性能，只处理分配到的节点。(kube-scheduler)</li><li>
+优化 EKS 调度。(kube-scheduler)
+</li><li>EKS：支持 pod 创建后再挂载 PVC。(kube-scheduler)
+</li><li>调度到 EKS 节点时可以通过特性开关忽略 hugepages 资源。(kube-scheduler)</li></td>
+  </tr>
 <tr><td>2022-04-22</td><td>	v1.20.6-tke.17</td><td><li>EKS：支持保留沙箱特性。(kube-scheduler)
 </li><li>合并 <a rel="nofollow" href="https://github.com/kubernetes/kubernetes/pull/101093"> pr101093</a>，避免容器重启后 startupProbe 不再执行的问题。(kubelet)</li></td></tr>
 <tr><td>2022-03-24</td><td>v1.20.6-tke.16</td><td>解决升级到 1.20 后 inline csi 和 ephemeral 通用临时卷不可用的问题。(kube-apiserver，kube-controller-manager，kube-scheduler，kubelet，kubectl)</td></tr>
@@ -18,11 +27,11 @@
 <tr><td>2021-09-27</td><td>v1.20.6-tke.5</td><td>支持收集 containerd 运行时的磁盘用量指标。(kubelet)</td></tr>
 <tr><td>2021-09-23</td><td>v1.20.6-tke.4</td><td><li>修复使用 cgroup v2 时存储指标没有数据的问题。(kubelet)</li>
 <li> 修复 <a href="https://github.com/kubernetes/kubernetes/pull/104348">CVE-2021-25741</a>，避免通过软链不合法访问主机文件。(kubelet)</td></tr>
-<tr><td>2021-07-19 </td><td> v1.20.6-tke.3</td><td><ul class="params">
+<tr><td>2021-07-19 </td><td> v1.20.6-tke.3</td><td>
 <li>从 TKE 集群扩容到 EKS，在批量调度 Pod 时，能正确感知子网剩余 ip，调度正确数量的 Pod 到虚拟节点上。(kube-scheduler)</li>
 <li>移植 upstream 对 kubelet 及 cadvisor 的修改，修复使用 cgroupv2 时指标收集统计的问题。(kubelet)</li></td></ul></tr>
     <tr><td>2021-06-21 </td><td> v1.20.6-tke.2</td><td>默认开启 CSIMigration 及 CSIMigrationQcloudCbs，以 CSI 方式挂载 CBS 盘。</td></tr>
-    <tr><td> 2021-05-25   </td><td> v1.20.6-tke.1</td><td><ul class="params"><li>revert pr63066，修复 LB 健康检查与 IPVS 的问题。（kube-proxy）</li>
+    <tr><td> 2021-05-25   </td><td> v1.20.6-tke.1</td><td><li>revert pr63066，修复 LB 健康检查与 IPVS 的问题。（kube-proxy）</li>
 <li>合并 pr90260，修复 containerd 集群网络监控缺失问题。(kubelet)</li>
 <li>ubuntu16下 lxcfs 升级造成  Pod  退出问题修复。(kubelet)</li>
 <li>合并 pr72914，修复删除 Pod 后立即创建并调度到同一个节点可能导致无法挂载成功的问题。(kube-controller-manager)</li>

@@ -1,6 +1,10 @@
 
 
 本章节主要描述使用 Go 进行 ChainMaker 合约编写的方法，主要面向于使用 Go 进行 ChainMaker 的合约开发的开发者。Docker-go 合约运行在独立的 Docker VM 容器中，与长安链节点程序通过 UNIX Domain Socket 或者 TCP 通信。Docker-go 合约需在 Linux 环境下进行编译。
+<dx-alert infotype="notice" title="">
+安装 DockerGo 合约时，合约名称必须跟编译合约时使用的合约名保持一致。
+</dx-alert>
+
 
 ## 使用 Docker 镜像进行合约开发
 

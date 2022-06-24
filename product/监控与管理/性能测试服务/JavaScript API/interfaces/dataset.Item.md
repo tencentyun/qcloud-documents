@@ -1,27 +1,21 @@
-[dataset](../modules/dataset.md).Item
-
-## Table of contents
-### Properties
-- [data](#data)
-
-### Methods
-- [delete](#delete)
-
-## Properties
+## Properties（属性）
+[](id:data)
 ### data
 - **data**: `Record`<`string`, `string`\>
-这一行数据
+记录数据
+```plaintext
+Defined in typings/dataset.d.ts:9
+```
 
-#### Defined in
-typings/dataset.d.ts:9
-
-## Methods
+## Methods（方法）
+[](id:delete)
 ### delete
 - **delete**(): `void`
-删除这一行数据
 
 #### Returns
 `void`
+删除数据
+```plaintext
+Defined in typings/dataset.d.ts:14
+```
 
-#### Defined in
-typings/dataset.d.ts:14
