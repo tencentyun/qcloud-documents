@@ -29,7 +29,7 @@ CDN 服务器接受到客户请求后，解析出 url 中的 timestamp 参数 + 
 **以 Type-A 鉴权的配置为例，参数和控制台配置如下：**
 
 - **字段配置** 
-	- 鉴权秘钥：dimtm5evg50ijsx2hvuwyfoiu65
+	- 鉴权密钥：dimtm5evg50ijsx2hvuwyfoiu65
 	- 签名参数：sign
 	- 鉴权URL有效时长为：1s   
 	<img src="https://qcloudimg.tencent-cloud.cn/raw/87a4b63bab4d112b1ebc804840f67041.png" width="50%">
