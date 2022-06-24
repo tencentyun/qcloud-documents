@@ -246,7 +246,7 @@ Defined in typings/url.d.ts:74
 | :--------- | :------- |
 | `protocol` | `string` |
 
-** Returns**：`void`
+**Returns**：`void`
 
 [](id:setSearch)
 ### setSearch
