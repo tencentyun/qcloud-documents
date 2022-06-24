@@ -1,12 +1,18 @@
-# Web接入指引
 
->! 此项能力内测中，请联系我们进行开通
 
-首先引入 SDK：https://web-9gikcbug35bad3a8-1304825656.tcloudbaseapp.com/sdk/1.3.0/cloud.js
+>! 此项能力内测中，如需接入请 [联系我们](https://cloud.tencent.com/online-service) 进行开通。
+
+首先引入 SDK：
+<dx-codeblock>
+:::  js
+https://web-9gikcbug35bad3a8-1304825656.tcloudbaseapp.com/sdk/1.3.0/cloud.js
+:::
+</dx-codeblock>
+
 
 示例代码：
-
-```js
+<dx-codeblock>
+:::  js
 var c1 = new cloud.Cloud({
   identityless: true,
   resourceAppid: '<微信服务商AppId>',   //微信服务商AppId，或者环境共享下资源方微信小程序账号
@@ -28,4 +34,5 @@ const result =  await c1.callContainer({
   // 其余参数遵从 wx.request
 })
 console.log(result)
-```
+:::
+</dx-codeblock>

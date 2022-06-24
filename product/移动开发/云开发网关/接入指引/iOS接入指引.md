@@ -1,24 +1,27 @@
-# iOS接入指引
 
-## 一、获取SDK
 
-SDK包括如下：
+## 操作步骤
+
+### 步骤1：获取 SDK
+
+SDK 包括如下：
 
 - WXCloud.h（头文件）
 - libWXCloudCore.a（静态库）
 - WXCloudSample（示例工程）
 
-<img style="width:500px" src="https://7361-saas-imgbox-9gbntzkl1ad561d5-1258016615.tcb.qcloud.la/demand/c462c81061b0a08e013285e539b22ff8/content/7662-image.png"/>
+![](https://qcloudimg.tencent-cloud.cn/raw/32c525b49ab07fc7f59640b5d7661d5a.png)
 
-## 二、添加头文件和静态库
+### 步骤2：添加头文件和静态库
 
-WXCloud.h、libWXCloudCore.a和libz
+1. 准备好 WXCloud.h、libWXCloudCore.a 和 libz。
+2. SDK 底层依赖系统动态库 libz。
 
-SDK底层依赖系统动态库libz。
+### 步骤3：调用 SDK 及调试
 
-## 三、调用SDK及调试
-
-```java
+调用代码如下：
+<dx-codeblock>
+:::  java
 // 包含头文件
 #import "WXCloud.h"
 
@@ -56,12 +59,12 @@ wxCloud.callContainer(httpMethod, path.UTF8String,
     }
         printf("\nbody: %s\n", body.c_str());
 });
+:::
+</dx-codeblock>
 
-```
 
-执行返回ret=0且http_code=200表示调用成功。
-至此，已经成功接入SDK，也可以自行参考WXCloudSample接入。
+执行返回 ret=0 且 http_code=200 表示调用成功。至此，已经成功接入 SDK，也可以自行参见 WXCloudSample 接入。
 
-## 四、常见问题
+## 相关说明
 
-- **静态库冲突：** SDK集成了libcurl、libcrypto、libssl和libnghttp2，如果宿主工程也用了相同的库，可能会导致静态库冲突，可联系云开发进行处理。
+**静态库冲突：** SDK 集成了 libcurl、libcrypto、libssl 和 libnghttp2，如果宿主工程也用了相同的库，可能会导致静态库冲突，可 [联系云开发](https://cloud.tencent.com/online-service) 进行处理。
