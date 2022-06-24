@@ -1,7 +1,7 @@
 ## 功能介绍
 社群模式，既支持**社群**-**分组**-**话题**三级结构，将消息相互区隔，又可运营百万级成员，共用一套好友关系，还可将百万成员分组，设置成员组的查看、发言、管理等权限。
-![](https://qcloudimg.tencent-cloud.cn/raw/96959c6de298d6bc8a27b7118064a00a.png)
-![](https://qcloudimg.tencent-cloud.cn/raw/2a31a40d7faf2e8fd0c900cca32065f2.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/f2dd088fd91c964fa13c810dad647cb9.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/99b3011d250ab784e64617b85be96ba6.png)
 
 ## 适用场景
 ### 兴趣交友：新颖的用户增长模式
@@ -11,11 +11,11 @@
 
 ### 游戏社交：提高用户粘性和活跃度
 一个社群内多种话题，可完美解决玩家的获取资讯、招募队友、探讨剧情、分享攻略等诸多信息需求。玩游戏前可以了解咨询，玩游戏中可以随时语音（聊天室永远在线），在游戏结束后还能在话题中继续深入交流。
-![](https://qcloudimg.tencent-cloud.cn/raw/759f83057a156344fe7cb36b86c58e7b.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/f9a7348eb58a713cc8bfea86b4d1c40a.png)
 
 ### 粉丝运营：拥有一个高效的运营工具
 告别一个又一个独立的分群（取代“深圳用户1群”“深圳用户2群”“广州用户1群”“上海用户1群”等多个群）运营，一个社群不同话题就搞定，不必再担心分身乏术，让粉丝运营更轻松精准！
-![](https://qcloudimg.tencent-cloud.cn/raw/f9a7348eb58a713cc8bfea86b4d1c40a.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/759f83057a156344fe7cb36b86c58e7b.png)
 
 ### 组织管理：实现一种清晰的分层级沟通方式
 组织内所有成员可拉入同一个社群中，再依托社群的层级功能和权限设置，实现分层沟通，如设置仅对 A 部门成员展示 A 话题、对 B 部门成员展示 B 话题。
