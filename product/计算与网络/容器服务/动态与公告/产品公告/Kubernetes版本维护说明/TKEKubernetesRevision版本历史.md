@@ -7,7 +7,7 @@
 	 <tr>
     <td>2022-06-16</td>
     <td>v1.20.6-tke.20</td>
-    <td><li>支持超级节点。(kube-scheduler,kube-controller-manager)</li><li>在使用 docker 及 overlay2 时，通过 fs quota 获取磁盘用量，提高性能。(kubelet)</li><li>
+    <td><li>支持包年包月超级节点。(kube-scheduler,kube-controller-manager)</li><li>在使用 docker 及 overlay2 时，通过 fs quota 获取磁盘用量，提高性能。(kubelet)</li><li>
 优化 daemonset pod 调度性能，只处理分配到的节点。(kube-scheduler)</li><li>
 优化 EKS 调度。(kube-scheduler)
 </li><li>EKS：支持 pod 创建后再挂载 PVC。(kube-scheduler)
