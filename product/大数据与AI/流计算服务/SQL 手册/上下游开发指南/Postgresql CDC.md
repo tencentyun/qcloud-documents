@@ -30,7 +30,7 @@ CREATE TABLE postgres_cdc_source_table (
   'database-name' = 'yourDatabaseName',     -- 需要同步的数据库
   'schema-name' = 'yourSchemaName',         -- 需要同步的数据表所属schema (支持正则表达式)
   'table-name' = 'yourTableName',           -- 需要同步的数据表名 (支持正则表达式)
-  'debezium.slot.name' = 'customSlotName'   -- 定义一个唯一slot名称
+  'debezium.slot.name' = 'customslotname'   -- 定义一个唯一slot名称，可以包含小写字母、数字和下划线字符
 );
 ```
 
@@ -161,7 +161,7 @@ CREATE TABLE postgres_cdc_source_table (
   'database-name' = 'yourDatabaseName',     -- 需要同步的数据库
   'schema-name' = 'yourSchemaName',         -- 需要同步的数据表所属schema (支持正则表达式)
   'table-name' = 'yourTableName',           -- 需要同步的数据表名 (支持正则表达式)
-  'debezium.slot.name' = 'customSlotName'   -- 定义一个唯一slot名称
+  'debezium.slot.name' = 'customslotname'   -- 定义一个唯一slot名称，可以包含小写字母、数字和下划线字符
 );
 
 CREATE TABLE `print_table` (

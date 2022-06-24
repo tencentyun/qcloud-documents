@@ -161,7 +161,7 @@ FLUSH PRIVILEGES;
 >- 仅选择**全量数据初始化**的场景，用户需要提前在目标库创建好表结构。
 >- 如果用户在同步过程中确定会对某张表使用 rename 操作（例如将 table A rename 为 table B），则**同步对象**需要选择 table A 所在的整个库（或者整个实例），不能仅选择 table A，否则系统会报错。
 >
->![](https://qcloudimg.tencent-cloud.cn/raw/4f32045abaca57ccc6748ae8df42c682.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/4f32045abaca57ccc6748ae8df42c682.png)
 <table>
 <thead><tr><th>设置项</th><th>参数</th><th>描述</th></tr></thead>
 <tbody>
@@ -182,9 +182,8 @@ FLUSH PRIVILEGES;
 <td rowspan=2>同步对象选项</td>
 <td>源实例库表对象</td><td>选择待同步的对象，支持库级别和表及视图级别。</td></tr>
 <tr>
-<td>已选对象</td><td><li>支持库表映射（库表重命名），将鼠标悬浮在库名、表名上即显示编辑按钮，单击后可在弹窗中填写新的名称。</li><li>选择高级对象进行同步时，建议不要进行库表重命名操作，否则可能会导致高级对象同步失败。</li><li>支持同步 Online DDL 临时表（使用 gh-ost、 pt-online-schema-change 工具），单击表的编辑按钮，在弹窗中即可选择临时表名。更多详情请参考 <a href="https://cloud.tencent.com/document/product/571/75890">同步 Online DDL 临时表</a>。</li></td></tr>
+<td>已选对象</td><td><ul><li>支持库表映射（库表重命名），将鼠标悬浮在库名、表名上即显示编辑按钮，单击后可在弹窗中填写新的名称。</li><li>选择高级对象进行同步时，建议不要进行库表重命名操作，否则可能会导致高级对象同步失败。</li><li>支持同步 Online DDL 临时表（使用 gh-ost、 pt-online-schema-change 工具），单击表的编辑按钮，在弹窗中即可选择临时表名。更多详情请参考 <a href="https://cloud.tencent.com/document/product/571/75890">同步 Online DDL 临时表</a>。</li></ul></td></tr>
 </tbody></table>
-
 6. 在校验任务页面，完成校验并全部校验项通过后，单击**启动任务**。
 如果校验任务不通过，可以参考 [校验不通过处理方法](https://cloud.tencent.com/document/product/571/61639) 修复问题后重新发起校验任务。
  - 失败：表示校验项检查未通过，任务阻断，需要修复问题后重新执行校验任务。
