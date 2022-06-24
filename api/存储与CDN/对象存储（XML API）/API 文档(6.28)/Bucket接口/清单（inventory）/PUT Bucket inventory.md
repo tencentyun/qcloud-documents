@@ -90,6 +90,8 @@ Content-MD5: MD5
         <Field>StorageClass</Field>
         <Field>IsMultipartUploaded</Field>
         <Field>ReplicationStatus</Field>
+        <Field>Tag</Field>
+        <Field>Crc64</Field>
 	</OptionalFields>
 </InventoryConfiguration>
 ```
@@ -110,17 +112,17 @@ Content-MD5: MD5
 | StartTime              | Period                 | 需要分析的对象创建的起始时间，参数为秒级时间戳，如1568688761 | String    | 否       |
 | EndTime                | Period                 | 需要分析的对象创建的结束时间，参数为秒级时间戳，如1568688762 | String    | 否       |
 | OptionalFields         | InventoryConfiguration | 设置清单结果中应包含的分析项目                               | Container | 否       |
-| Field                  | OptionalFields         | 清单结果中可选包含的分析项目名称，可选字段包括：Size，LastModifiedDate，StorageClass，ETag，IsMultipartUploaded，ReplicationStatus | String    | 否       |
-| Schedule               | InventoryConfiguration | 配置清单任务周期                                           | Container | 是       |
-| Frequency              | Schedule               | 清单任务周期，可选项为按日或者按周，枚举值：Daily、Weekly      | String    | 是       |
-| Destination            | InventoryConfiguration | 描述存放清单结果的信息                                     | Container | 是       |
-| COSBucketDestination   | Destination            | 清单结果导出后存放的存储桶信息                             | Container | 是       |
-| Bucket                 | COSBucketDestination   | 清单分析结果的存储桶名                                    | String    | 是       |
-| AccountId              | COSBucketDestination   | 存储桶的所有者 ID，例如100000000001                                            | String    | 否       |
-| Prefix                 | COSBucketDestination   | 清单分析结果的前缀                                         | String    | 否       |
-| Format                 | COSBucketDestination   | 清单分析结果的文件形式，可选项为 CSV 格式                  | String    | 是       |
-| Encryption             | COSBucketDestination   | 为清单结果提供服务端加密的选项                             | Container | 否       |
-| SSE-COS                | Encryption             | COS 托管密钥的加密方式，无需填充                           | Container | 否       |
+| Field                  | OptionalFields         | 清单结果中可选包含的分析项目名称，可选字段包括：Size，LastModifiedDate，StorageClass，ETag，IsMultipartUploaded，ReplicationStatus，Tag，Crc64<br/><li>注意，如果筛选条件里使用了对象标签，在这里也必须添加Tag | String    | 否       |
+| Schedule               | InventoryConfiguration | 配置清单任务周期                                             | Container | 是       |
+| Frequency              | Schedule               | 清单任务周期，可选项为按日或者按周，枚举值：Daily、Weekly    | String    | 是       |
+| Destination            | InventoryConfiguration | 描述存放清单结果的信息                                       | Container | 是       |
+| COSBucketDestination   | Destination            | 清单结果导出后存放的存储桶信息                               | Container | 是       |
+| Bucket                 | COSBucketDestination   | 清单分析结果的存储桶名                                       | String    | 是       |
+| AccountId              | COSBucketDestination   | 存储桶的所有者 ID，例如100000000001                          | String    | 否       |
+| Prefix                 | COSBucketDestination   | 清单分析结果的前缀                                           | String    | 否       |
+| Format                 | COSBucketDestination   | 清单分析结果的文件形式，可选项为 CSV 格式                    | String    | 是       |
+| Encryption             | COSBucketDestination   | 为清单结果提供服务端加密的选项                               | Container | 否       |
+| SSE-COS                | Encryption             | COS 托管密钥的加密方式，无需填充                             | Container | 否       |
 
 ## 响应
 
