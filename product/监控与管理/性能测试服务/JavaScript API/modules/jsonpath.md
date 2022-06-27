@@ -1,15 +1,13 @@
 ## 目录
 
 ### Variables（变量）
-
 - [default](#default)
 
 ## Variables（变量）
 
 [](id:default)
 ### default
-- `Const` **default**: `Object`
-
+`Const` **default**: `Object`
 ```
 Defined in typings/jsonpath.d.ts:5
 ```
