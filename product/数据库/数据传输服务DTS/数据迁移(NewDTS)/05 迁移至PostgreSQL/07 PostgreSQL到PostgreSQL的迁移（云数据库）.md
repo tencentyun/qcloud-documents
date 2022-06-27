@@ -12,9 +12,9 @@ TDSQL-C PostgreSQL 迁移至 PostgreSQL 的要求和指导，本场景的内容�
 - 已 [创建云数据库 PostgreSQL](https://cloud.tencent.com/document/product/409/56961)。
 - 源数据库和目标数据库符合迁移功能和版本要求，请参见 [数据迁移支持的数据库](https://cloud.tencent.com/document/product/571/58686) 进行核对。
 - 已完成 [准备工作](https://cloud.tencent.com/document/product/571/59968)。
-- 源数据库需要具备的权限如下：
-  - 源库为腾讯云数据库 PostgreSQL 之外的其他 PostgreSQL 时，要求源端库必须具有 replication 权限。  
-  - 源库腾讯云数据库 PostgreSQL，要求源数据库必须为创建云数据库实例时的初始化用户。  
+- 源数据库的权限要求如下：
+  - 源库为腾讯云数据库 PostgreSQL 之外的其他 PostgreSQL 时，要求源端库账号必须具有 replication 权限。  
+  - 源库为腾讯云数据库 PostgreSQL，要求源数据库的账号必须为创建云数据库实例时的初始化用户。  
   - 如果部分表或者对象无权限，可使用高权限用户执行如下示例语句，对无权限的对象分别授予权限：  
 ```
 grant select on table 表名 to 用户名;
@@ -23,12 +23,13 @@ grant connect on database 库名 to 用户名;
 grant select on large object 大对象oid to 用户名;
 GRANT USAGE ON SCHEMA 模式名 to 用户名;
 ```
-- 目标数据库必须为创建云数据库实例时的初始化用户。 
-   - 如果目标实例中包含待迁移的 database，且 database 的 owner 非当前迁移用户，可执行以下语句将 database 授予迁移用户：
+- 目标数据库的账号必须为创建云数据库实例时的初始化用户。 
+   
+   如果目标数据库实例中包含待迁移的 database，但 database 的 owner 非当前迁移用户所属，可执行以下语句将 database 授予迁移账号：
 ```
 alter database 库名 owner to 迁移用户;
 ```
-   - 如果目标迁移账户为非 `pg_tencentdb_superuser` 角色用户，在校验时，会提示“目标实例权限检查失败，无法获取Schema列表”，请使用如下语句为迁移用户赋予初始化用户权限：
+   - 如果迁移用户（执行迁移任务的账号）为非 `pg_tencentdb_superuser` 角色用户，在校验时，会提示“目标实例权限检查失败，无法获取Schema列表”，请使用如下语句为迁移用户赋予初始化用户权限：
 ```
 grant pg_tencentdb_superuser to 迁移用户;
 ```
@@ -37,7 +38,7 @@ grant pg_tencentdb_superuser to 迁移用户;
 - 相互关联的数据对象需要同时迁移，否则会导致迁移失败。常见的关联关系：视图引用表、视图引用视图、存储过程/函数/触发器引用视图/表、主外键关联表等。
 - 为保障迁移效率，CVM 自建实例迁移不支持跨地域迁移。如需要跨地域迁移，请选择公网接入方式。
 - 如果进行整个实例迁移，目标库中不能存在与源库同名的用户和角色。
-- **迁移类型**选择**全量 + 增量迁移**时，源数据库中的表必须有主键，否则会出现源库和不目标库数据不一致，对于无主键的表，建议选择**全量迁移**。
+- **迁移类型**选择**全量 + 增量迁移**时，源数据库中的表必须有主键，否则会出现源库和目标库数据不一致，对于无主键的表，建议选择**全量迁移**。
 
 ## 操作限制
 - 迁移过程中请勿修改、删除源数据库和目标数据库中用户信息（包括用户名、密码和权限）和端口号。
