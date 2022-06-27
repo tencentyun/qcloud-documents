@@ -1,4 +1,6 @@
 若您通过 [自助 Portal](https://self-service-test.vpn.woa.com/) 下载 SSL 客户端配置，可以在 SSL 服务端开启 SSO 认证。
+>?目前 SSO 身份认证功能灰度中，当前仅支持新加坡地域，如有需要，请提交 [工单申请](https://console.cloud.tencent.com/workorder/category)。
+>
 
 ## 前提条件
 在 [数字身份管控平台](https://console.cloud.tencent.com/eiam) 已创建 [用户组](https://cloud.tencent.com/document/product/1442/55067)、添加了相应的 [用户](https://cloud.tencent.com/document/product/1442/55066) 并配为用户组配置 [应用授权](https://cloud.tencent.com/document/product/1442/55069)。
