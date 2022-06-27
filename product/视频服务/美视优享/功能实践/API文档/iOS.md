@@ -82,7 +82,6 @@ NSString *propertyValue = @"60";           //配置美白的效果数值
 [self.xmagicApi configPropertyWithType:propertyType withName:key withData:propertyValue withExtraInfo:nil];
 ```
 - **滤镜**：配置心动效果
-
 ```objectivec
 NSString *propertyType = @"lut";        //配置美颜的效果类型，这里以滤镜为例
 NSString *propertyName = [@"lut.bundle/" stringByAppendingPathComponent:@"xindong_lf.png"]; //配置美颜的名称，这里以心动为例
