@@ -1,4 +1,4 @@
-﻿本文为您介绍Linux、Windows和MAC客户端如何通过SSL-VPN连接VPC。
+本文为您介绍Linux、Windows和MAC客户端如何通过SSL-VPN连接VPC。
 
 ## 背景信息
 本文以下图场景为例，为您介绍 Linux 和 Windows 客户端如何使用 SSL VPN 连接VPC。
