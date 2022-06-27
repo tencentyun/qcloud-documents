@@ -14,8 +14,7 @@
 
 [](id:default)
 ### default
-- `Const` **default**: `Object`
-
+`Const` **default**: `Object`
 ```
 Defined in typings/http.d.ts:157
 ```
