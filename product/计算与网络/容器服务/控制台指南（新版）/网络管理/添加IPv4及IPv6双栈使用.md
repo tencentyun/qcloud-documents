@@ -85,7 +85,7 @@ TKE IPv4/IPv6 双栈基于集群维度，即需要先创建一个 TKE IPv4/IPv6 
 - 对 Service 中 ipFamilies 进行展示。
 :::
 </dx-tabs>
-
+4. 单击**创建服务**，完成创建。您可在 Service 管理页面进行查看。
 
 
 
