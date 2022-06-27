@@ -1,8 +1,7 @@
 ## Properties（属性）
 [](id:http)
 ### http
-- **http**: [`HTTP`](https://cloud.tencent.com/document/product/1484/75811)
-
+**http**: [`HTTP`](https://cloud.tencent.com/document/product/1484/75811)
 ```
 Defined in typings/global.d.ts:147
 ```
@@ -18,8 +17,7 @@ export const option = {
 
 [](id:setupTimeoutSeconds)
 ### setupTimeoutSeconds
-- **setupTimeoutSeconds**: `number`
-
+**setupTimeoutSeconds**: `number`
 ```
 Defined in typings/global.d.ts:109
 ```
@@ -33,8 +31,7 @@ export const option = {
 
 
 ### teardownTimeoutSeconds
-- **teardownTimeoutSeconds**: `number`
-
+**teardownTimeoutSeconds**: `number`
 ```
 Defined in typings/global.d.ts:118
 ```
@@ -48,7 +45,7 @@ export const option = {
 
 
 ### tlsConfig
-- **tlsConfig**: `Record`<`string`, [`TLSConfig`](https://cloud.tencent.com/document/product/1484/75813)\>
+**tlsConfig**: `Record`<`string`, [`TLSConfig`](https://cloud.tencent.com/document/product/1484/75813)\>
 ```
 Defined in typings/global.d.ts:134
 ```
@@ -67,8 +64,7 @@ export const option = {
 
 [](id:trpc)
 ### trpc
-- **trpc**: [`TRPC`](https://cloud.tencent.com/document/product/1484/75814)
-
+**trpc**: [`TRPC`](https://cloud.tencent.com/document/product/1484/75814)
 ```
 Defined in typings/global.d.ts:160
 ```
@@ -84,8 +80,7 @@ export const option = {
 
 [](id:ws)
 ### ws
-- **ws**: [`WS`](https://cloud.tencent.com/document/product/1484/75815)
-
+**ws**: [`WS`](https://cloud.tencent.com/document/product/1484/75815)
 ```
 Defined in typings/global.d.ts:173
 ```

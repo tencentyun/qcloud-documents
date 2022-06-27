@@ -4,7 +4,7 @@
 
 ## 操作步骤
 
-1. 登录[事件总线控制台](https://console.cloud.tencent.com/eb)。
+1. 登录 [事件总线控制台](https://console.cloud.tencent.com/eb)。
 2. 首次登录系统会提醒用户进行授权，请参考 [开通事件总线](https://cloud.tencent.com/document/product/1359/56068) 进行操作，如果已授权请跳过此步骤。
 3. 在左侧导航选择**事件规则**页签，然后在右侧地域选择**广州**，事件集选择 **default**，单击**新建事件规则**。
 因为云服务产品的事件集默认统一存储在广州，所以此处的地域和事件集不可选择其他内容。
@@ -15,9 +15,16 @@
   - 事件模式预览：请拷贝后面的代码样例并替换任务 ID，这里的 ID 指需要监控的 DTS 任务 ID，多个任务用英文逗号","隔开。
 <img src="https://qcloudimg.tencent-cloud.cn/raw/d758b09db99885d5aad538b1d32e6ba4.png" style="zoom:50%;" />
 ```
+// 接收单个任务 ID 示例
     {
      "source":"dts.cloud.tencent",
-     "subject":"sync-jtXXXXX"
+     "subject":"sync-jt12XXgt"
+    }
+		
+// 接收多个任务 ID 示例
+    {
+     "source":"dts.cloud.tencent",
+     "subject":["sync-jt12XXgt","dts-a5uqXXhs"]
     }
 ```
 DTS 界面的任务 ID 示例：

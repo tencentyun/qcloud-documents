@@ -46,7 +46,7 @@ HTTPS，是指超文本传输安全协议（Hypertext Transfer Protocol Secure�
 CDN 支持 QUIC，如何开启请参考  [QUIC](https://cloud.tencent.com/document/product/228/51800)。
 
 
-###  CDN 是否支持证书证书自动续签？
+###  CDN 是否支持证书自动续签？
  自定义上传证书和您于 SSL 控制台申请的免费证书暂不支持自动续签新的证书，若您于 SSL 控制台购买了多年期证书可实现自动签发第二张证书，详情见 [多年期证书方案说明](https://cloud.tencent.com/document/product/400/72804)。
 
 ###  CDN 支持 HTTP 2.0吗？

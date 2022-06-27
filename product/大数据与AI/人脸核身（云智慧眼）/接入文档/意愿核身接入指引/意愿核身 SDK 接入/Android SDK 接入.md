@@ -145,16 +145,16 @@ WbFaceWillModeResult 是 SDK 用来给合作方传递意愿性表达综合信息
 InputData 是用来给 SDK 传递一些必须参数所需要使用的对象（WbCloudFaceVerifySdk.initWillSdk() 的第二个参数），合作方需要往里塞入SDK 需要的一些数据以便启动刷脸 SDK。
 其中 InputData 对象中的各个参数定义如下表，请合作方按下表标准传入对应的数据。
 
-| 参数 | 说明 | 类型 |	长度（字节）|		是否必填|	
+| 参数 | 说明 | 类型 |	<nobr>长度（字节）|		是否必填|	
 |---------|---------|---------|---------|---------|
 | faceId	| 刷脸 id 号，由合作方向人脸识别后台拉取获得	| String	| -	| 是| 
 | agreementNo| 	订单号，合作方订单的唯一标识	| String	| 32	| 是| 
 | openApiAppId	| 业务流程唯一标识，即   wbappid，可参考 获取 WBappid 指引在人脸核身控制台内申请| 	String| 	8| 	是| 
 |openApiAppVersion	| 接口版本号，默认填 1.0.0	|String|	20	|是|
-| openApiNonce	| 32 位随机字符串，每次请求需要的一次性 | nonce| 	String	| 32| 	是| 
+| openApiNonce	| 32 位随机字符串，每次请求需要的一次性  nonce| 	String	| 32| 	是| 
 | openApiUserId	| User Id，每个用户唯一的标识| 	String| 	30| 	是| 
 | openApiSign	| 获取方式请参考 生成SDK接口调用步骤使用签名 | 	String	| 40| 	是| 
-|verifyMode	|刷脸类型：分级模式 FaceVerifyStatus.Mode.GRADE|FaceVerifyStatus.Mode		|是|
+|verifyMode	|刷脸类型：分级模式 FaceVerifyStatus.Mode.GRADE| FaceVerifyStatus.Mode	|-	|是|
 | keyLicence	|在人脸核身控制台内申请	| String	|以实际申请为准|	是|
 
 **个性化参数设置（可选）**
