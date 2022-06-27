@@ -1,6 +1,6 @@
 ## 操作场景
 
-WooCommerce 是当前很受欢迎的电商独立站建站工具，具备开源、免费、使用简单且功能强大等特点，您可通过该镜像快速搭建基于 WordPress 的电商独立站。该镜像已预装 WordPress（包含WooCommerce插件）、Nginx、MariaDB、PHP 软件。
+WooCommerce 是当前很受欢迎的电商独立站建站工具，具备开源、免费、使用简单且功能强大等特点，您可通过该镜像快速搭建基于 WordPress 的电商独立站。该镜像已预装 WordPress（包含 WooCommerce 插件）、Nginx、MariaDB、PHP 软件。
 
 
 ## 操作步骤
@@ -15,7 +15,7 @@ WooCommerce 是当前很受欢迎的电商独立站建站工具，具备开源�
 </dx-alert>
 
 
-### 登录网站后台管理页面
+### 登录网站后台管理页面[](id:login)
 1. 在实例详情页面，选择**应用管理**页签，进入应用管理详情页。
 2. [](id:Step2)在“应用内软件信息”中，单击 <img src="https://main.qcloudimg.com/raw/6603ab4f907562addb1c01596c6296cd.png" style="margin-bottom:-3px 0px">，复制获取管理员帐号及密码的命令。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/49964533bf999981244387c28bc214f0.png)
@@ -33,6 +33,37 @@ WooCommerce 是当前很受欢迎的电商独立站建站工具，具备开源�
 
 
 ## 相关操作
+
+### 切换为中文版
+1. 参考 [登录网站后台管理页面](#login) 步骤1 -  步骤7，登录管理页面。
+2. 选择左侧导航栏中的**仪表盘** > **更新**。
+3. 进入 “WordPress更新”页面，拉至页面底部，单击**更新翻译**。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/31de981a34bf3cc0e8f80c89c22f48e4.png)
+4. 待翻译升级成功后，自动进入“更新翻译”页面，单击**转到“WordPress页面”**。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/ac744dc964ca43c0b5cd05a9a3616e89.png)
+5. 待页面刷新后，您即可查看 WooCommerce 已切换为中文版。
+
+
+
+### 管理 WooCommerce 主题
+系统已默认安装了 Kadence 和 Astra 主题。您可通过该步骤，了解如何切换、添加、更新 WooCommerce 主题。
+1. 参考 [登录网站后台管理页面](#login) 步骤1 -  步骤7，登录管理页面。
+2. 选择左侧导航栏中的**外观** > **主题**。
+3. 在“主题”页面中，您可进行以下操作：
+<dx-tabs>
+::: 添加主题
+单击**添加新主题**进入“添加主题”页面后，您可按需单击**安装**，以安装新主题。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/4090a23fa9e983b16369e035845ee771.png)
+:::
+::: 切换主题
+在“主题”页面，您可按需单击**启用**主题，以切换主题。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/25ea1494bfad54db3ab78465b67fcd40.png)
+:::
+</dx-tabs>
+
+
+
+
 
 ### 域名与 DNS 解析设置
 您可以给自己的 WooCommerce 网站设定一个单独的域名。用户可以使用易记的域名访问您的网站，而不需要使用复杂的 IP 地址。有些用户搭建网站仅用于学习，那么可使用 IP 直接访问网站，但不推荐这样操作。

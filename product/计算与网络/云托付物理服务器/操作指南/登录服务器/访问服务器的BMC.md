@@ -10,9 +10,7 @@
 
 ## 前提条件
 
-在进行登录操作前，您需完成 [接入指引](https://cloud.tencent.com/document/product/1448/60642)。CHC 物理服务器应处于“已生产”状态。如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/4e416a741fda3d719779485c5dc4626e.png)
-
+在进行登录操作前，您需完成 [接入指引](https://cloud.tencent.com/document/product/1448/60642) 中的前7个步骤。CHC 物理服务器应处于“可生产”或“已生产”状态。
 
 ## 操作步骤
 
@@ -29,15 +27,18 @@
 1. 参考 [登录 Windows 实例](https://cloud.tencent.com/document/product/213/35697)，登录 Windows 服务器。
 2. 执行 ping 命令访问 CHC 物理服务器的带外 IP，判断网络是否可通。返回结果如下图所示，表示网络可通：
 ![](https://qcloudimg.tencent-cloud.cn/raw/d970cf7bbfe861c7225353d2a2bb65bf.png)
-3. 在浏览器访问输入 CHC 物理服务器带外网络的 IP 地址。如下图所示：
+3. 在浏览器访问输入 CHC 物理服务器带外网络的 IP 地址，访问服务器 BMC。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/632e4813b4346e0b4235d8fb0e6341f6.png)
 4. 输入用户名及密码，单击**登录**。
-5. 登录成功后，选择左侧导航栏中的**远程控制**，选择合适的访问方式，即可访问带外管理控制台。如下图所示：
+
+
+### 访问带外管理控制台
+1. 服务器 BMC 登录成功后，选择左侧导航栏中的**远程控制**，选择合适的访问方式，即可访问带外管理控制台。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/2de318f095878159b8e4074707f282c5.png)
 <dx-alert infotype="notice" title="">
 部分服务器 BMC 仅支持通过 Java 远程控制，此时需要安装特定版本的 Java，具体版本请与服务器供应商联系h。
 </dx-alert>
-此时，可以在带外管理控制台上访问到服务器的操作系统。如下图所示：
+2. 此时，可以在带外管理控制台上访问到服务器的操作系统。如下图所示：
 <img src="https://qcloudimg.tencent-cloud.cn/raw/f388f049fce0280ef8a6f07c1bdad9ac.png"/>
 
 

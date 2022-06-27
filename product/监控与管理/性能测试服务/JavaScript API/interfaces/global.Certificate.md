@@ -1,7 +1,7 @@
 ## 属性（Properties）
 [](id:cert)
 ### cert
-- **cert**: `string`
+**cert**: `string`
 证书
 ```plaintext
 Defined in typings/global.d.ts:411
@@ -9,7 +9,7 @@ Defined in typings/global.d.ts:411
 
 [](id:key)
 ### key
-- **key**: `string`
+**key**: `string`
 私钥
 ```plaintext
 Defined in typings/global.d.ts:415

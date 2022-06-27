@@ -55,3 +55,14 @@
 
 >! API 及 SDK 接入文档会在您的 [内测申请](https://cloud.tencent.com/apply/p/5yhsncp7q3) 通过后向您提供。
 
+## 其他配置
+除上述配置外，全链路加速管理控制台为您提供了编辑已创建应用模板，查询 QoS 使用量等相关操作。
+
+1. 您可在全链路加速管理控制台单击**修改**按钮对应用模板进行编辑（修改名称，变更加速类型，变更加速时间）。
+![](https://qcloudimg.tencent-cloud.cn/raw/6ad75453cb6d2d0b22be725566547b77.png)
+<img src="https://qcloudimg.tencent-cloud.cn/raw/dc87d67d788b81da3b38f614c151fa31.png" width="60%">
+2. 您可单击**删除**按钮，删除不再使用的应用模板。
+![](https://qcloudimg.tencent-cloud.cn/raw/1dcc7b55d5c0e5113276937687e3cf43.png)
+3. 您可单击**统计**按钮，查看不同应用模板下 QoS 加速具体使用情况（不同加速类型、运营商的 QoS 加速调用次数及成功率）。
+![](https://qcloudimg.tencent-cloud.cn/raw/b52e0996267e52e2fe4fc78e4d9bb944.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/8fa42dada092adbadd7e27fadcfa935c.png)
