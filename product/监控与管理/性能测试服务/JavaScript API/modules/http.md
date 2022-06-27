@@ -23,7 +23,7 @@ Defined in typings/http.d.ts:157
 | Name       | Type                                                         |
 | :--------- | :----------------------------------------------------------- |
 | FormData | () => { `append`: (`key`: `string`, `value`: `string` \| [`File`](https://cloud.tencent.com/document/product/1484/75822)) => `void` ; `body`: () => `ArrayBuffer` ; `contentType`: () => `string`  } |
-| batch    | (`requests`: [`Request`](https://cloud.tencent.com/document/product/1484/75823)[], `opt?`: [`BatchOption`](https://cloud.tencent.com/document/product/1484/75820) => [`BatchResponse`](https://cloud.tencent.com/document/product/1484/75821)[] |
+| batch    | (`requests`: [`Request`](https://cloud.tencent.com/document/product/1484/75823)[], `opt?`: [`BatchOption`](https://cloud.tencent.com/document/product/1484/75820) )=> [`BatchResponse`](https://cloud.tencent.com/document/product/1484/75821)[] |
 | delete   | (`url`: `string`, `request?`: [`Request`](https://cloud.tencent.com/document/product/1484/75823)) => [`Response`](https://cloud.tencent.com/document/product/1484/75819) |
 |do       | (`request`: [`Request`](https://cloud.tencent.com/document/product/1484/75823)) => [`Response`](https://cloud.tencent.com/document/product/1484/75819) |
 | file    | (`data`: `string` \| `ArrayBuffer`, `name?`: `string`, `contentType?`: `string`) => [`File`](https://cloud.tencent.com/document/product/1484/75822) |
