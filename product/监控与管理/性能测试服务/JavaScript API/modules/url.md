@@ -15,8 +15,7 @@
 
 [](id:url)
 ### URL
-- **URL**: `Object`
-
+**URL**: `Object`
 ```
 Defined in node_modules/typescript/lib/lib.dom.d.ts:14358
 ```
@@ -32,7 +31,7 @@ Defined in node_modules/typescript/lib/lib.dom.d.ts:14358
 
 [](id:URLSearchParams)
 ### URLSearchParams
-- **URLSearchParams**: `Object`
+**URLSearchParams**: `Object`
 ```
 Defined in node_modules/typescript/lib/lib.dom.d.ts:14387
 ```
