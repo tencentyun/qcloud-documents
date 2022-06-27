@@ -9,13 +9,13 @@
 ## 步骤1：创建 Client 对象
 通过 [TRTC.createClient()](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/TRTC.html#createClient) 方法创建 [Client](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/Client.html) 对象，主要参数如下：
 
-| 参数名称 | 字段含义 | 补充说明 | 数据类型 |填写示例 | 默认值 | 
-|---------|---------|---------|---------|---------|---------|
-| mode | 应用场景 | 实时通话模式设置为 `rtc`，该模式适合 1对1 的音视频通话，或者参会人数在 300 人以内的在线会议。<br> 在线直播模式设置为 `live`，该模式适合十万人以内的在线直播场景 | string | rtc | rtc |
-| sdkAppId | 应用 ID | 您可以在 <a href="https://console.cloud.tencent.com/trtc/app">实时音视频控制台</a> 中找到这个 sdkAppId，如果没有就单击“创建应用”按钮创建一个新的应用。| number | 1400000123 | 无**必填** |
-| userId | 用户 ID | 即用户名，只允许包含大小写英文字母（a-z、A-Z）、数字（0-9）及下划线和连词符。<br> **注意：** TRTC 不支持同一个 userId 在两台不同的设备上同时进入房间，否则会相互干扰。| string | “denny” 或者 “123321”| 无**必填** |
-| userSig | 进房鉴权票据 | 计算方法请参见 [如何计算及使用 UserSig](https://cloud.tencent.com/document/product/647/17275) 。|string| eJyrVareCeYrSy1SslI... | 无**必填** |
-| useStringRoomId | 字符串房间号开关 | 是否使用 string 类型的 roomId。|boolean| true | false |
+| 参数名称 | 字段含义 | 补充说明 | 数据类型 |填写示例 | 默认值 | 备注 |
+|---------|---------|---------|---------|---------|---------|---------|
+| mode | 应用场景 | 实时通话模式设置为 `rtc`，该模式适合 1对1 的音视频通话，或者参会人数在 300 人以内的在线会议。<br> 在线直播模式设置为 `live`，该模式适合十万人以内的在线直播场景 | string | rtc | rtc | -|
+| sdkAppId | 应用 ID | 您可以在 <a href="https://console.cloud.tencent.com/trtc/app">实时音视频控制台</a> 中找到这个 sdkAppId，如果没有就单击“创建应用”按钮创建一个新的应用。| number | 1400000123 | 无 |必填 |
+| userId | 用户 ID | 即用户名，只允许包含大小写英文字母（a-z、A-Z）、数字（0-9）及下划线和连词符。<br> **注意：** TRTC 不支持同一个 userId 在两台不同的设备上同时进入房间，否则会相互干扰。| string | “denny” 或者 “123321”| 无 |必填 |
+| userSig | 进房鉴权票据 | 计算方法请参见 [如何计算及使用 UserSig](https://cloud.tencent.com/document/product/647/17275) 。|string| eJyrVareCeYrSy1SslI... | 无 |必填 |
+| useStringRoomId | 字符串房间号开关 | 是否使用 string 类型的 roomId。|boolean| true | false | - |
 
 更详细的参数说明参见 [TRTC.createClient()](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/TRTC.html#createClient)。 
 
