@@ -230,20 +230,19 @@ $ npm run pack:mac
 $ cd [项目目录]
 $ npm run pack:win64
 ```
-    成功执行后，打包工具会生成 `bin/your-app-name Setup 0.1.0.exe` 安装文件，请选择此文件发布。
+成功执行后，打包工具会生成 `bin/your-app-name Setup 0.1.0.exe` 安装文件，请选择此文件发布。
 
 
 >!TRTC Electron SDK 暂不支持跨平台打包（例如在 Mac 下打包 Windows 的 .exe 文件，或在 Windows 平台下打包 Mac 的 .dmg 文件）。目前我们正在研究跨平台打包方案，敬请期待。
 
 ## 常见问题
 
-[](id:step)
-### 步骤1. 防火墙有什么限制？
-
+[](id:q1)
+### 防火墙有什么限制？
 由于 SDK 使用 UDP 协议进行音视频传输，所以对 UDP 有拦截的办公网络下无法使用，如遇到类似问题，请参见 [应对公司防火墙限制](https://cloud.tencent.com/document/product/647/34399)。
 
-[](id:step)
-### 步骤2. Electron 安装或打包异常
+[](id:q2)
+### Electron 安装或打包异常？
 - 如果您在集成 Electron 过程中遇到异常：例如安装超时或失败，打包后出现 trtc_electron_sdk.node 文件加载失败等情况，相关问题解答请参见 [Electron 相关常见问题](https://cloud.tencent.com/document/product/647/62562)。
 - 若相关答疑仍未能解决问题，那推荐您参见 [Electron 常见问题收录](https://cloud.tencent.com/developer/article/1616668) 的手动离线安装 Electron章节。
 
