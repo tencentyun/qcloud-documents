@@ -7,8 +7,7 @@
 
 [](id:default)
 ### default
-- `Const` **default**: `Object`
-
+`Const` **default**: `Object`
 ```
 Defined in typings/protobuf.d.ts:5
 ```
