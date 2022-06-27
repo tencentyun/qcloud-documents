@@ -117,7 +117,7 @@ rules: [
     该配置的含义是：
     - 打包 Windows 下的 `.exe` 文件时，让 `native-ext-loader` 到 `[应用程序根目录]/resources` 目录下加载 TRTC SDK。
     - 打包 Mac 下的 `.dmg` 时，让 `native-ext-loader` 到 `[应用程序目录]/Contents/Frameworsk/../Resources` 目录下加载 TRTC SDK。
-    - 本地开发运行时，让 `native-ext-loader` 到 `./node_modules/trtc-electron-sdk/build/Release` 目录下加载 TRTC SDK, 可参考 [simple demo 配置](https://github.com/LiteAVSDK/TRTC_Electron/blob/main/TRTCSimpleDemo/vue.config.js)。
+    - 本地开发运行时，让 `native-ext-loader` 到 `./node_modules/trtc-electron-sdk/build/Release` 目录下加载 TRTC SDK，请参见 [simple demo 配置](https://github.com/LiteAVSDK/TRTC_Electron/blob/main/TRTCSimpleDemo/vue.config.js)。
 
 还需要在 `package.json` 中的构建脚本中添加 `--target_platform` 参数，将在下一步进行。
 
