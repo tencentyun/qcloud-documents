@@ -42,10 +42,10 @@ const client = TRTC.createClient({
 
 调用 [Client.join()](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/Client.html#join) 进入音视频通话房间。主要参数如下：
 
-| 参数名称 | 字段含义 | 补充说明 | 数据类型 |填写示例 | 默认值 | 
-|---------|---------|---------|---------|---------|---------|
-| roomId | 房间号 | 默认是 number 类型，如需使用 string 类型的 roomId，请在 createClient() 中设置 useStringRoomId 参数为 true<br> - roomId 为 number 类型时，取值要求为 [1, 4294967294] 的整数;<br> - roomId 为 string 类型时，限制长度为64字节，且仅支持以下范围的字符集： <br> 大小写英文字母（a-zA-Z）; 数字（0-9）; 空格、!、#、$、%、&、(、)、+、-、:、;、<、=、.、>、?、@、[、]、^、_、 {、}、\|、~、, |   number / string  | 3364 或 class-room | 无**必填** |
-| role | 角色 | 用户角色仅在 `live` 模式才需要设置，目前支持两种角色：`anchor` 主播，`audience` 观众 | string | anchor |  audience |
+| 参数名称 | 字段含义 | 补充说明 | 数据类型 |填写示例 | 默认值 | 备注  |
+|---------|---------|---------|---------|---------|---------|---------|
+| roomId | 房间号 | 默认是 number 类型，如需使用 string 类型的 roomId，请在 createClient() 中设置 useStringRoomId 参数为 true<br> - roomId 为 number 类型时，取值要求为 [1, 4294967294] 的整数;<br> - roomId 为 string 类型时，限制长度为64字节，且仅支持以下范围的字符集： <br> 大小写英文字母（a-zA-Z）; 数字（0-9）; 空格、!、#、$、%、&、(、)、+、-、:、;、<、=、.、>、?、@、[、]、^、_、 {、}、\|、~、, |   number / string  | 3364 或 class-room | 无 | 必填 |
+| role | 角色 | 用户角色仅在 `live` 模式才需要设置，目前支持两种角色：`anchor` 主播，`audience` 观众 | string | anchor |  audience | - |
 
 更详细的参数说明参见 [Client.join()](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/Client.html#join)。 
 
