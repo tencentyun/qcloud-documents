@@ -44,7 +44,7 @@ ChainMake C++ 语言版本智能合约有丰富的 API 接口，供用户在撰�
 </thead>
 <tbody><tr>
 <td>bool arg(const std::string& name, std::string& value){}</td>
-<td>该接口可返回属性名为 “name” 的参数的属性值。需要注意的是通过arg接口返回的参数，全都都是字符串，合约开发者有必要将其他数据类型的参数与字符串做转换，包括atoi、itoa、自定义序列化方式等。</td>
+<td>该接口可返回属性名为 “name” 的参数的属性值。需要注意的是通过arg接口返回的参数，全部为字符串，合约开发者有必要将其他数据类型的参数与字符串做转换，包括atoi、itoa、自定义序列化方式等。</td>
 </tr>
 </tbody></table>
 
