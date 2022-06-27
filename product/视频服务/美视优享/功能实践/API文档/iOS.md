@@ -79,21 +79,21 @@
 NSString *propertyType = @"beauty";        //配置美颜的效果类型，这里以美颜为例
 NSString *propertyName = @"beauty.whiten"; //配置美颜的名称，这里以美白为例
 NSString *propertyValue = @"60";           //配置美白的效果数值
-[self.xmagicApi configPropertyWithType:propertyType withName:key withData:propertyValue withExtraInfo:nil];
+[self.xmagicApi configPropertyWithType:propertyType withName:propertyName withData:propertyValue withExtraInfo:nil];
 ```
 - **滤镜**：配置心动效果
 ```objectivec
 NSString *propertyType = @"lut";        //配置美颜的效果类型，这里以滤镜为例
 NSString *propertyName = [@"lut.bundle/" stringByAppendingPathComponent:@"xindong_lf.png"]; //配置美颜的名称，这里以心动为例
 NSString *propertyValue = @"60";           //配置滤镜的效果数值
-[self.xmagicApi configPropertyWithType:propertyType withName:key withData:propertyValue withExtraInfo:nil];
+[self.xmagicApi configPropertyWithType:propertyType withName:propertyName withData:propertyValue withExtraInfo:nil];
 ```
 - **美体**：配置长腿效果
 ```objectivec
 NSString *propertyType = @"body";        //配置美颜的效果类型，这里以美体为例
 NSString *propertyName = @"body.legStretch"; //配置美颜的名称，这里以长腿为例
 NSString *propertyValue = @"60";           //配置长腿的效果数值
-[self.xmagicApi configPropertyWithType:propertyType withName:key withData:propertyValue withExtraInfo:nil];
+[self.xmagicApi configPropertyWithType:propertyType withName:propertyName withData:propertyValue withExtraInfo:nil];
 ```
 - **动效**：配置2D动效的可爱涂鸦效果
 ```objectivec
@@ -101,7 +101,7 @@ NSString *propertyValue = @"60";           //配置长腿的效果数值
  NSString *propertyType = @"motion";         //配置美颜的效果类型，这里以动效为例
  NSString *propertyName = @"video_keaituya"; //配置美颜的名称，这里以2D动效的可爱涂鸦为例
  NSString *propertyValue = motion2dResPath;  //配置动效的路径
- [self.xmagicApi configPropertyWithType:propertyType withName:key withData:propertyValue withExtraInfo:nil];
+ [self.xmagicApi configPropertyWithType:propertyType withName:propertyName withData:propertyValue withExtraInfo:nil];
 ```
 - **美妆**：配置女团妆效果
 ```objectivec
@@ -109,12 +109,12 @@ NSString *motionMakeupResPath = [[NSBundle mainBundle] pathForResource:@"makeupM
 NSString *propertyType = @"motion";         //配置美颜的效果类型，这里以美妆为例
 NSString *propertyName = @"video_nvtuanzhuang"; //配置美颜的名称，这里以女团妆为例
 NSString *propertyValue = motionMakeupResPath;  //配置动效的路径
-[self.xmagicApi configPropertyWithType:propertyType withName:key withData:propertyValue withExtraInfo:nil];
+[self.xmagicApi configPropertyWithType:propertyType withName:propertyName withData:propertyValue withExtraInfo:nil];
 //下面是要配置美妆的数值（上面的动效只需要调用一次，下面的配置美妆数值可以多次调用）
  NSString *propertyTypeMakeup = @"custom";         //配置美颜的效果类型，这里以美妆为例
  NSString *propertyNameMakeup = @"makeup.strength"; //配置美颜的名称，这里以女团妆为例
  NSString *propertyValueMakeup = @"60";             //配置美妆的效果数值
- [self.xmagicApi configPropertyWithType:propertyType withName:key withData:propertyValue withExtraInfo:nil];
+ [self.xmagicApi configPropertyWithType:propertyTypeMakeup withName:propertyNameMakeup withData:propertyValueMakeup withExtraInfo:nil];
 ```
 - **分割**：配置背景模糊（强效果）
 ```objectivec
