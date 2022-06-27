@@ -1,4 +1,4 @@
-本文列举客户端 Java 代码示例，辅助您使用 SSL 加密方式访问数据库。
+本文列举客户端 Java 代码示例，辅助您使用 SSL 加密或不加密的方式访问数据库。
 
 ## 准备工作
 - 在 [Redis 控制台](https://console.cloud.tencent.com/redis) 的**实例详情**页面的**网络信息**区域，获取连接数据库的**内网IPv4地址**及端口。具体信息，请参见 [查看实例详情](https://cloud.tencent.com/document/product/239/75437)。
