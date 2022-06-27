@@ -8,17 +8,14 @@
 
 [](id:url)
 ### URL
-- `Const` **URL**: `Object`
-
-
+`Const` **URL**: `Object`
 ```
 Defined in typings/url.d.ts:155
 ```
 
 [](id:urlsearchparams)
 ### URLSearchParams
-- `Const` **URLSearchParams**: `Object`
-
+`Const` **URLSearchParams**: `Object`
 ```
 Defined in typings/url.d.ts:156
 ```
