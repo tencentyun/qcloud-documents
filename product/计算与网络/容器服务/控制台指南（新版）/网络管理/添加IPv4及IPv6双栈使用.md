@@ -43,8 +43,8 @@ TKE IPv4/IPv6 双栈基于集群维度，即需要先创建一个 TKE IPv4/IPv6 
 
 ### 步骤四：创建 IPv4/IPv6 双栈 Service
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，单击集群 ID，进入详情页。
-2. 选择**服务与路由 > Service**，单击**新建**。
-
+2. 选择**服务与路由 > Service**，进入 “Service” 管理页面。
+3. 单击**新建**。根据实际需求，设置 Service 参数。
 <dx-tabs>
 ::: ClusterIP 类型
 
