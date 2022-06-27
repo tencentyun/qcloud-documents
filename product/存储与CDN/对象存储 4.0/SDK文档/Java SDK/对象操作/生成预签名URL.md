@@ -271,7 +271,7 @@ params.put("param1", "value1");
 // 填写本次请求的头部
 Map<String, String> headers = new HashMap<String, String>();
 // host 必填
-headers.put(Headers.HOST, clientConfig.getEndpointBuilder().buildGeneralApiEndpoint(bucketName))
+headers.put(Headers.HOST, clientConfig.getEndpointBuilder().buildGeneralApiEndpoint(bucketName));
 headers.put("header1", "value1");
 
 // 请求的 HTTP 方法，上传请求用 PUT，下载请求用 GET，删除请求用 DELETE
@@ -309,7 +309,7 @@ params.put("param1", "value1");
 // 填写本次请求的头部
 Map<String, String> headers = new HashMap<String, String>();
 // host 必填
-headers.put(Headers.HOST, clientConfig.getEndpointBuilder().buildGeneralApiEndpoint(bucketName))
+headers.put(Headers.HOST, clientConfig.getEndpointBuilder().buildGeneralApiEndpoint(bucketName));
 headers.put("header1", "value1");
 
 // 请求的 HTTP 方法，上传请求用 PUT，下载请求用 GET，删除请求用 DELETE

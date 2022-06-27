@@ -28,10 +28,10 @@ TUIKit 是基于 IM SDK 实现的一套 UI 组件，其包含会话、聊天、�
 > 
 > ```shell
 > cd projectName  // 进入您的项目
-> yarn add sass sass-loader@10.1.1```
+> npm install sass sass-loader@10.1.1 --save-dev```
 
 ### 步骤2：下载 TUIKit 组件
-从 [GitHub 下载](https://github.com/TencentCloud/TIMSDK/tree/master/Web) TUIKit 源码。复制 TUIKit 文件夹放置到自己到工程文件中，例如：
+从 [GitHub 下载](https://github.com/TencentCloud/TIMSDK/tree/master/Web) TUIKit 源码。复制 TUIKit 文件夹放置到自己到工程的 src 文件夹中，例如：
 <img style="width:400px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/439be8d9fa36d879a8e8f29218bf7702.png" />
 ### 步骤3：生成 UserSig
 
@@ -52,14 +52,17 @@ TUIKit 是基于 IM SDK 实现的一套 UI 组件，其包含会话、聊天、�
 ### 步骤4：下载 TUIKit 组件依赖
 ```shell
 cd src/TUIKit
-yarn install
+npm install
 ```
 
 ### 步骤5：引入 TUIKit 组件
 在 main.ts 中，引入 TUIKit，并注册到 vue 项目实例中：
 ```typescript
+import { createApp } from 'vue'
+import App from './App.vue'
+
 import { TUICore, TUIComponents } from "./TUIKit";
-import { genTestUserSig } from "../GenerateTestUserSig";
+import { genTestUserSig } from "../debug";
 
 const config = {
   SDKAppID: 0, // Replace 0 with the SDKAppID of your IM application when connecting. Value type: Number
@@ -79,7 +82,7 @@ const userInfo = {
 TUIKit.login(userInfo);
 
 // register
-createApp(App).use(TUIKit).mount("#app");
+createApp(App).use(TUIKit).mount('#app')
 ```
 
 >!
@@ -88,7 +91,7 @@ createApp(App).use(TUIKit).mount("#app");
 
 ### 步骤6：调用 TUIKit 组件
 在需要展示的页面，调用 TUIKit 的组件即可使用。
-例如：在 Home.vue页 面中，使用 TUIConversation、TUIChat 搭建聊天界面。
+例如：在 App.vue页 面中，使用 TUIConversation、TUIChat 搭建聊天界面。
 
 ```html
 <template>
@@ -103,11 +106,6 @@ createApp(App).use(TUIKit).mount("#app");
     </div>
   </div>
 </template>
-
-<script lang="ts">
-import { Vue } from "vue-class-component";
-export default class Home extends Vue {}
-</script>
 
 <style scoped>
 .home-TUIKit-main {
@@ -129,12 +127,12 @@ export default class Home extends Vue {}
 
 ### 步骤7：启动项目
 ```shell
-yarn serve
+npm run serve
 ```
 
 ## 常见问题
 
-### 1. 如何生成 useSig ？
+### 1. 如何生成 UserSig？
 
 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向项目的接口，在需要 UserSig 时由您的项目向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/269/32688#GeneratingdynamicUserSig)。
 
@@ -143,5 +141,5 @@ UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并
 - IM TUIKit web 样式依赖 sass，需在项目全局安装 sass 和 sass-loader。
 - 其中 sass-loader 的版本<=10.1.1
 ```shell
-yarn add sass sass-loader@10.1.1
+npm install sass sass-loader@10.1.1 --save-dev
 ```

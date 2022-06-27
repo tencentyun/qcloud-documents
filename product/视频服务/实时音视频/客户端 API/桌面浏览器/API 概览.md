@@ -416,7 +416,7 @@ LocalStream 本地音视频流，通过 [createStream](https://web.sdk.qcloud.co
 
 ### RemoteStream
 
-远端音视频流，通过监听 [Client.on('stream-added')](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/module-Event.html#.STREAM_ADDED) 事件获得。是 [Stream](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/Stream.html) 的子类。
+远端音视频流，通过监听 [Client.on('stream-added')](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/module-ClientEvent.html#.STREAM_ADDED) 事件获得。是 [Stream](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/Stream.html) 的子类。
 
 | API  | 描述              |
 |-----------------|-----------|

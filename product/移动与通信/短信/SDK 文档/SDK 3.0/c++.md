@@ -18,15 +18,18 @@ SDK 3.0是云 API 3.0平台的配套工具，您可以通过 SDK 使用所有 [�
 
 ## 相关资料
 - 各个接口及其参数的详细介绍请参见 [API 文档](https://cloud.tencent.com/document/product/382/52077)。
-- 下载 SDK 源码请访问 [C++ SDK 源码](https://github.com/TencentCloud/tencentcloud-sdk-cpp)。
+- 下载 SDK 源码请访问 [Github 仓库](https://github.com/tencentcloud/tencentcloud-sdk-cpp) 或者 [Gitee 仓库](https://gitee.com/tencentcloud/tencentcloud-sdk-cpp)。
 
 ## 安装 SDK
 ### 环境依赖
-参见 [环境依赖](https://github.com/TencentCloud/tencentcloud-sdk-cpp#%E7%8E%AF%E5%A2%83%E4%BE%9D%E8%B5%96)。
+
+- Github 仓库参考 [环境依赖](https://github.com/tencentcloud/tencentcloud-sdk-cpp#%E7%8E%AF%E5%A2%83%E4%BE%9D%E8%B5%96)
+- Gitee 仓库参考 [环境依赖](https://gitee.com/tencentcloud/tencentcloud-sdk-cpp#%E7%8E%AF%E5%A2%83%E4%BE%9D%E8%B5%96)
 
 ### 从源代码构建 SDK
-参见 [从源代码构建 SDK](https://github.com/TencentCloud/tencentcloud-sdk-cpp#%E4%BB%8E%E6%BA%90%E4%BB%A3%E7%A0%81%E6%9E%84%E5%BB%BA-sdk)。
 
+- Github 仓库参考 [从源代码构建 SDK](https://github.com/tencentcloud/tencentcloud-sdk-cpp#%E4%BB%8E%E6%BA%90%E4%BB%A3%E7%A0%81%E6%9E%84%E5%BB%BA-sdk)
+- Gitee 仓库参考 [从源代码构建 SDK](https://gitee.com/tencentcloud/tencentcloud-sdk-cpp#%E4%BB%8E%E6%BA%90%E4%BB%A3%E7%A0%81%E6%9E%84%E5%BB%BA-sdk)
 
 ## 示例代码
 >?所有示例代码仅作参见，无法直接编译和运行，需根据实际情况进行修改，您也可以根据实际需求使用 [API 3.0 Explorer](https://console.cloud.tencent.com/api/explorer?Product=sms&Version=2021-01-11&Action=SendSms) 自动化生成 Demo 代码。
@@ -35,7 +38,7 @@ SDK 3.0是云 API 3.0平台的配套工具，您可以通过 SDK 使用所有 [�
 
 ### 发送短信
 
-```
+```c++
 #include <tencentcloud/core/TencentCloud.h>
 #include <tencentcloud/core/profile/HttpProfile.h>
 #include <tencentcloud/core/profile/ClientProfile.h>
@@ -144,7 +147,7 @@ int main()
 
 ### 拉取回执状态
 
-```
+```c++
 #include <tencentcloud/core/TencentCloud.h>
 #include <tencentcloud/core/profile/HttpProfile.h>
 #include <tencentcloud/core/profile/ClientProfile.h>
@@ -218,7 +221,7 @@ int main()
 
 ### 统计短信发送数据
 
-```
+```c++
 #include <tencentcloud/core/TencentCloud.h>
 #include <tencentcloud/core/profile/HttpProfile.h>
 #include <tencentcloud/core/profile/ClientProfile.h>
@@ -299,7 +302,7 @@ int main()
 
 ### 申请短信模板
 
-```
+```c++
 #include <tencentcloud/core/TencentCloud.h>
 #include <tencentcloud/core/profile/HttpProfile.h>
 #include <tencentcloud/core/profile/ClientProfile.h>

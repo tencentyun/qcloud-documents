@@ -48,12 +48,12 @@
 </dx-tabs>
 4. 在 Serverless 应用页，单击**访问应用**，即可访问您的 WordPress 项目。
 ![](https://main.qcloudimg.com/raw/90d900584c4a1da68d356c1fc5adb75a.png)
-您也可以单击您的应用名称，查看资源列表和部署日志。在资源列表页，您可以单机**新增**配置您的自定义域名。
-![](https://main.qcloudimg.com/raw/55218c4f1a6f83f3a1e1ff58a2f15006.png)
+您也可以单击您的应用名称，查看资源列表和部署日志。在资源列表页，您可以单击**新增**配置您的自定义域名。
+![](https://qcloudimg.tencent-cloud.cn/raw/86977296f19974d94381fda3db466142.png)
 
 ### 版本升级
    Serverless Wordpress 应用的旧版部署架构中，存在访问速度慢的问题。为此 Serverless 应用开发团队针对此问题进行了 Serverless Wordpress 应用的优化工作，改进了部署架构，大幅提升了站点的访问速度。本指引仅适用于 Serverless Wordpress 应用旧版本的部署升级。
->? 您可通过如下方法确认您的应用是否需要升级：如您的站点可正常访问并且 Wordpress 云函数代码中仅包含一个 'scf_bootstrap' 文件，则可进行升级。
+>? 您可通过如下方法确认您的应用是否需要升级：如您的站点可正常访问并且 **Wordpress 云函数代码中**仅包含一个 'scf_bootstrap' 文件，则可进行升级。
 >
 ![](https://qcloudimg.tencent-cloud.cn/raw/c8412afff57ea15d2b576a6b10928bfc.png)
    
@@ -66,7 +66,7 @@
 1. 发布函数版本和流量切换
   为了确保升级操作期间您的站点的正常访问，请首先为 wp-server-* 发布一个版本。操作详情见 [发布版本](https://cloud.tencent.com/document/product/583/15371)。
  ![](https://qcloudimg.tencent-cloud.cn/raw/11387b1104c86545562d38cda2ee1571.png)
-  发布版本后，将函数的默认流量配置到新版本。
+  发布版本后，将函数的默认流量配置到新版本。操作详情见 [流量路由配置](https://cloud.tencent.com/document/product/583/43716)。
  ![](https://qcloudimg.tencent-cloud.cn/raw/258b95d11b81d88942d8e3f447af84d2.png)
 
 2. 更新 $LATEST 版本的函数代码
@@ -76,10 +76,15 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/20cdb3b7791b2d7ccd8eb57028ceb77c.png)
 
 3. 更新 Php 版本（可选）
-此步骤为可选，Serverless Wordpress 应用站点的 Php 依赖位于函数的挂载 Layer 中，您可以选择是否升级站点的 Php Runtime 环境，升级后的 Php Runtime 版本为 php 7.4.25。在此版本中，使用了 Php Opcache 功能，在函数实例预置场景下，可进一步提高您的站点访问速度。下载 Php Runtime 源码包（[php74.zip](https://www.php.net/downloads.php)），并上传更新函数的 Layer。如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/ff375fac8066160af34e91230e3c18af.png)
-![](https://qcloudimg.tencent-cloud.cn/raw/ab0d5c59d98430b7855b3942ad3d18df.png)
-更新完成后，直接解绑老版本的 Layer 即可。
+此步骤为可选，Serverless Wordpress 应用站点的 Php 依赖位于函数的挂载 Layer 中，您可以选择是否升级站点的 Php Runtime 环境，升级后的 Php Runtime 版本为 php 7.4.25。在此版本中，使用了 Php Opcache 功能，在函数实例预置场景下，可进一步提高您的站点访问速度。操作步骤如下：
+	1. 下载 Php Runtime 源码包（[php74.zip](https://www.php.net/downloads.php)）。
+	2. 在 [Serverless 控制台](https://console.cloud.tencent.com/scf/layer?rid=1) 新建层。详情见 [创建层](https://cloud.tencent.com/document/product/583/45760#.E5.88.9B.E5.BB.BA.E5.B1.82.3Ca-id.3D.22create.22.3E.3C.2Fa.3E)。
+	![](https://qcloudimg.tencent-cloud.cn/raw/3c5f104366cf9a1da486a00ab60f21af.png)
+	3. 在 [函数服务](https://console.cloud.tencent.com/scf/list?rid=1&ns=default) 中绑定层。详情见 [云函数绑定层](https://cloud.tencent.com/document/product/583/45760#.E4.BA.91.E5.87.BD.E6.95.B0.E7.BB.91.E5.AE.9A.E5.B1.82.3Ca-id.3D.22bind.22.3E.3C.2Fa.3E)。
+	![](https://qcloudimg.tencent-cloud.cn/raw/ab0d5c59d98430b7855b3942ad3d18df.png)
+	4. 更新完成后，解绑老版本的 Layer 即可。
+ 
+
 
 
 4. 流量切换

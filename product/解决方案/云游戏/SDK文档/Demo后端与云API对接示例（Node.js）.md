@@ -2,7 +2,7 @@
 
 [](id:step1)
 ### 步骤1：环境部署
-[cloudapi.js](https://cloud.tencent.com/document/product/1162/47523?!editLang=zh&!preview#cloudapi) 是 Node.js 版的云 API 调用实例，自行安装 Node.js 运行环境。将 `cloudapi.js` 中的 SecretId 和 SecretKey，替换成您的腾讯云帐号下的 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 信息。
+[cloudapi.js](https://cloud.tencent.com/document/product/1162/47523#cloudapi) 是 Node.js 版的云 API 调用实例，自行安装 Node.js 运行环境。将 `cloudapi.js` 中的 SecretId 和 SecretKey，替换成您的腾讯云帐号下的 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 信息。
 
 
 **cloudapi.js 示例代码如下：**[](id:cloudapi)

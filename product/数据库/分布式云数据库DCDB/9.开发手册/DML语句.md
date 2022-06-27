@@ -23,7 +23,7 @@ Query OK, 1 row affected (0.01 sec)
 ```
 
 ## delete/update
-为安全考虑，执行该类 SQL 时，必须带有 where 条件，否则拒绝执行该 SQL 命令：
+使用分表时，为安全考虑，执行该类 SQL 时，必须带有 where 条件，否则拒绝执行该 SQL 命令：
 ```
 mysql> delete from test1;
 ERROR 810 (HY000): Proxy ERROR:sql is too complex,need to send to only noshard table.

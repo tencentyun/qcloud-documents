@@ -36,11 +36,11 @@ GRANT SELECT ON `mysql`.* TO '迁移帐号'@'%';
 
 ## 应用限制
 - 只支持迁移基础表和视图，不支持迁移函数、触发器、存储过程等对象。
-- 不支持迁移系统库表，包括 `information_schema`， `sys`， `performance_schema`，`__cdb_recycle_bin__`， `__recycle_bin__`， `__tencentdb__`， `mysql`。迁移完成后，如果需要调用目标库的视图、存储过程或函数，则要对调用者授予读写权限。 
+- 不支持迁移系统库表，包括 `information_schema`， `sys`， `performance_schema`，`__cdb_recycle_bin__`， `__recycle_bin__`， `__tencentdb__`， `mysql`。
 - 在导出视图结构时，DTS 会检查源库中 `DEFINER` 对应的 user1（ [DEFINER = user1]）和迁移目标的 user2 是否一致，如果不一致，则会修改 user1 在目标库中的 `SQL SECURITY` 属性，由 `DEFINER` 转换为 `INVOKER`（ [INVOKER = user1]），同时设置目标库中 `DEFINER` 为迁移目标的 user2（[DEFINER = 迁移目标 user2]）。如果源库中视图定义过于复杂，可能会导致任务失败。
 - 源端如果是非 GTID 实例，DTS 不支持源端 HA 切换，一旦源端 MySQL 发生切换可能会导致 DTS 增量同步中断。
 - 只支持迁移 InnoDB、MyISAM、TokuDB 三种数据库引擎，如果存在这三种以外的数据引擎表则默认跳过不进行迁移。
-- 相互关联的数据对象需要同时迁移，否则会导致迁移失败。常见的关联关系：视图引用表、视图引用视图、存储过程/函数/触发器引用视图/表、主外键关联表等。
+- 相互关联的数据对象需要同时迁移，否则会导致迁移失败。常见的关联关系：视图引用表、视图引用视图、主外键关联表等。
 - 增量迁移过程中，若源库存在分布式事务或者产生了类型为 `STATEMENT` 格式的 Binlog 语句，则会导致迁移失败。
 - 无锁迁移场景，迁移任务步骤为“源库导出”时，不支持 DDL 操作。
 - 源数据库 Binlog 的 GTID 如果存在空洞，可能会影响迁移任务的性能并导致任务失败。
@@ -183,8 +183,8 @@ GRANT SELECT ON `mysql`.* TO '迁移帐号'@'%';
 </tbody></table>
 4. 在设置迁移选项及选择迁移对象页面，设置迁移类型、对象，单击**保存**。
 >?
->- 如果用户在迁移过程中确定会使用 gh-ost、pt-osc 等工具对某张表做 Online DDL，则**迁移对象**需要选择这个表所在的整个库（或者整个实例），不能仅选择这个表，否则无法迁移 Online DDL 变更产生的临时表数据到目标数据库。
->- 如果用户在迁移过程中确定会对某张表使用 rename 操作（例如将 table A rename 为 table B），则**迁移对象**需要选择 table A 所在的整个库（或者整个实例），不能仅选择 table A，否则系统会报错。
+>
+>如果用户在迁移过程中确定会对某张表使用 rename 操作（例如将 table A rename 为 table B），则**迁移对象**需要选择 table A 所在的整个库（或者整个实例），不能仅选择 table A，否则系统会报错。
 >
 <img src="https://qcloudimg.tencent-cloud.cn/raw/3561b68b040ae0bd747ef769745e0cbe.png" style="zoom:67%;" />
 <table>
@@ -196,11 +196,10 @@ GRANT SELECT ON `mysql`.* TO '迁移帐号'@'%';
 <td>迁移对象</td>
 <td>如果需要整个实例迁移，请选择整个实例，不包括系统库，如 information_schema、mysql、performance_schema、sys。 <br>如果需要指定库表迁移，请选择指定对象。</td></tr>
 <tr>
-<td>指定对象</td>
-<td>在源库对象中选择待迁移的对象，然后将其移到已选对象框中。</td></tr>
-<tr>
 <td>是否迁移账号</td>
-<td>如果需要对源数据中的账号信息进行迁移，请勾选该按钮。</td></tr>
+<td>如果需要对源数据中的账号信息进行迁移，请勾选该按钮。</td></tr><tr>
+<td>已选对象</td>
+<td><ul><li>支持库表映射（库表重命名），将鼠标悬浮在库名、表名上即显示编辑按钮，单击后可在弹窗中填写新的名称。</li><li>选择高级对象进行迁移时，建议不要进行库表重命名操作，否则可能会导致高级对象迁移失败。</li><li>支持迁移 Online DDL 临时表（使用 gh-ost、 pt-online-schema-change 工具），单击表的编辑按钮，在弹窗中即可选择临时表名。更多详情请参考 <a href="https://cloud.tencent.com/document/product/571/75889">迁移 Online DDL 临时表</a>。</li></ul></td></tr>
 </tbody></table>
 5. 在校验任务页面，进行校验，校验任务通过后，单击**启动任务**。
  - 如果校验任务不通过，可以参考 [校验不通过处理方法](https://cloud.tencent.com/document/product/571/61639) 修复问题后重新发起校验任务。

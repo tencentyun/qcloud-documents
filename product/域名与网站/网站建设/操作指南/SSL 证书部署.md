@@ -14,7 +14,7 @@
 ### 证书申请
 1. 证书与私钥文件您可在 [SSL 证书控制台](https://console.cloud.tencent.com/ssl) 申请后，待审核通过后单击**下载**。
 2. 在弹出的 “证书下载” 窗口中，服务器类型选择 **Nginx**，单击操作栏的**下载**。如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/f32e02c9f42ccb4391e0860097dd7a5a.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/79fb6699b350539ae5dbf58fad6ad5d8.png)
 >?申请 SSL 证书操作请参见 [SSL 证书申请流程](https://cloud.tencent.com/document/product/400/43473)。
 
 ### 证书安装

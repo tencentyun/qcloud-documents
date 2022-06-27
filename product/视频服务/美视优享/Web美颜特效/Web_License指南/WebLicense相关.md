@@ -7,7 +7,7 @@
 
 [](id:w2)
 ### 如何开通正式版 License？
-要开通正式版 License 需要购买 License 资源（推广期间可以 [免费申请](https://cloud.tencent.com/apply/p/9fuh8sv6fl)），申请通过后会获得正式版 License 资源），后续按照 [**License 申请与购买**](https://cloud.tencent.com/document/product/616/71368) 完成绑定后可以开通。
+要开通正式版 License 需要购买 License 资源（推广期间可以 [免费申请](https://cloud.tencent.com/apply/p/9fuh8sv6fl)），申请通过后会获得正式版 License 资源，后续按照 [**License 申请与购买**](https://cloud.tencent.com/document/product/616/71368) 完成绑定后可以开通。
 
 [](id:w3)
 ### 后续如何续期？

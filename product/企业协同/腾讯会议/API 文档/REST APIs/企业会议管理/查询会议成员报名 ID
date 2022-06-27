@@ -13,10 +13,12 @@ https://api.meeting.qq.com/v1/meetings/{meeting_id}/enroll/ids
 ## 输入参数
 |参数名称|	是否必须	|参数类型	|参数描述|
 |-----|-----|----|----|
+| operator_id              |   否    | String   |     操作者 ID。会议创建者可以导入报名信息。<br />operator_id 必须与 operator_id_type 配合使用。根据 operator_id_type 的值，operator_id 代表不同类型。<br />operator_id_type=2，operator_id 必须和公共参数的 openid 一致。<br />operator_id 和 userid 至少填写一个，两个参数如果都传了以 operator_id 为准。<br />使用 OAuth 公参鉴权后不能使用 userid 为入参。                                                     |
+| operator_id_type              |    否   |  String  | 	操作者 ID 的类型：<br />1：userid<br />2：open_id<br />如果 operator_id 和 userid 具有值，则以 operator_id 为准。                                     |
 |meeting_id|	是|	String	|会议 ID。|
-|userid	|是	|String|	调用方用于标示用户的唯一 ID（企业内部请使用企业唯一用户标识；OAuth2.0 鉴权用户请使用 openId）。|
+| userid              |     否  | String  |  	会议创建者的用户 ID。为了防止现网应用报错，此参数实则仍然兼容 openid，如无 oauth 应用使用报名接口则也可做成不兼容变更。  |
 |instanceid	|是|	Integer|	用户的终端设备类型：<br>1：PC <br>2：Mac <br>3：Android <br>4：iOS <br>5：Web <br>6：iPad <br>7：Android Pad <br>8：小程序|
-|ms_open_id_list|	是|	String数组|	当场会议的用户临时 ID（适用于所有用户）数组，单次最多支持500条。|
+|ms_open_id_list|	是|	String 数组|	当场会议的用户临时 ID（适用于所有用户）数组，单次最多支持500条。|
 
 ## 输出参数
 |参数名称	|参数类型	|参数描述|

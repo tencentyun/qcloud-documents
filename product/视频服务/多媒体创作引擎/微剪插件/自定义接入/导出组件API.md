@@ -11,7 +11,7 @@
         "export": "plugin://myPlugin/wj-export"
       }
     }
-```
+``` 
 2. 在 wxml 中引入组件：
 ```
 <export
