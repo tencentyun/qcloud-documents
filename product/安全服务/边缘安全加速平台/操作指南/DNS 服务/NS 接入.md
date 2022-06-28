@@ -222,8 +222,8 @@ DNSSEC (DNS Security Extension，DNS 安全扩展) 通过数字签名对 DNS 数
  - [name.com](https://www.name.com/support/articles/205439058-Managing-DNSSEC)
  - [Public Domain Registry](http://manage.publicdomainregistry.com/kb/answer/1909)
 
-### 自定义 NS 服务器[](id:customize)
-自定义名称服务器允许您创建自己站点专属的名称服务器，以替代所分配默认名称服务器。创建后 EdgeOne 会自动为自定义 NS 分配对应的 IP 地址。
+### 自定义 NS[](id:customize)
+自定义 NS 允许您创建自己站点专属的名称服务器，以替代所分配默认名称服务器。创建后 EdgeOne 会自动为自定义 NS 分配对应的 IP 地址。
 >?自定义 NS 服务器有如下限制：
 >- 只能以当前站点 (example.com) 的子域名 (ns.example.com) 作为自定义 NS。
 >- 自定义 NS 需至少有 2 个，最多可添加 5 个。
