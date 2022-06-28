@@ -23,7 +23,7 @@ grant connect on database 库名 to 用户名;
 grant select on large object 大对象oid to 用户名;
 GRANT USAGE ON SCHEMA 模式名 to 用户名;
 ```
-- 执行迁移任务的账号必须为创建目标数据库的初始化用户。
+- 目标数据库必须为创建云数据库实例时的初始化用户。 
    - 如果目标实例中包含待迁移的 database，且 database 的 owner 非当前迁移用户，可执行以下语句将 database 授予迁移用户：
 ```
 alter database 库名 owner to 迁移用户;
