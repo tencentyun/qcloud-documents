@@ -48,7 +48,7 @@
 
 
 
-### 步骤4：Prometheus 实例关联注册集群。
+### 步骤4：Prometheus 实例关联注册集群
 1. 进入 [Prometheus控制台](https://console.cloud.tencent.com/monitor/prometheus)。
 2. 选择您需要对应的 Prometheus 实例，单击其实例名称。
 3. 进入实例管理页，单击 **集成容器服务** > **集群监控**。关联对应的注册集群。完成后单击 **确认** 即可。
