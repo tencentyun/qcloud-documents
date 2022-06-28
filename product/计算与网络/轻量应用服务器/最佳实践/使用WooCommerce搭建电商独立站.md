@@ -61,7 +61,21 @@ WooCommerce 是当前很受欢迎的电商独立站建站工具，具备开源�
 :::
 </dx-tabs>
 
-
+本文以默认安装的 Kadence 主题为例，介绍如何使用 Kadence 主题中的独立站模板，使店铺变得更美观。操作步骤如下：
+1. 参考 [登录网站后台管理页面](#login) 步骤1 -  步骤7，登录管理页面。
+2. 选择左侧导航栏中的**外观** > **主题**，进入“主题”页面后，单击 Kadence 主题。
+3. 在 Kadence 主题详情页中，单击 **Kadence**。
+4. 选择 **Starter Templates** 页签，并单击 **安装Kadence Starter Templates**。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/5b43ebf4fc3803d806162b848bf2c570.png)
+5. 在页面中选择模板，本文以选择 **Outdoor Shop** 模板为例。单击模板，如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/ba902b5d415ecbeda9a52a5758187860.png)
+6. 在模板编辑页面，按需编辑模板后，选择页面左下角 “IMPORT OPTIONS” 中的 **Single Page** 或 **Full Site**。本文以选择 **Full Site** 为例，即完整站点导入。
+7. 在弹出的 “Import Starter Template” 窗口中查阅注意事项，并进行导入。
+<dx-alert infotype="notice" title="">
+该方式会将您的站点定制器设置、小部件、菜单覆盖。如果您正在测试不同的入门模板，建议启用 “Delete Previously Imported Posts and Images?”。
+</dx-alert>
+8. 导入成功后页面如下图所示，您的店铺即已使用了该模板，您可单击 **Finished! View your site** 前往店铺首页查看。
+![](https://qcloudimg.tencent-cloud.cn/raw/7d158c44d2860a27dbb6301b832653f7.png)
 
 
 
