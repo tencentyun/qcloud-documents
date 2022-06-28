@@ -2,7 +2,7 @@
 * [单击下载 SDK](https://sdk.qcloudtiw.com/android/TEduBoardSdk_2.7.3.177.zip)  
 
 - 调整初始化参数
-    1. 权限配置下,新增 customCursorIcon 参数：是否自定义鼠标样式，默认 false 显示系统自带样式,，true 时需要根据返回的鼠标位置,，自定义鼠标样式
+    1. 权限配置下，新增 customCursorIcon 参数：是否自定义鼠标样式，默认 false 显示系统自带样式，true 时需要根据返回的鼠标位置，自定义鼠标样式
   
 - 调整事件
     1. 自定义鼠标样式时，坐标位置回调(TEB_BOARD_CURSOR_POSITION)，用户根据位置，自定义鼠标样式
