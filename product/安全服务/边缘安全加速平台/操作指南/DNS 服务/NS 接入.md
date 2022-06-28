@@ -229,7 +229,7 @@ DNSSEC (DNS Security Extension，DNS 安全扩展) 通过数字签名对 DNS 数
 >- 自定义 NS 需至少有 2 个，最多可添加 5 个。
 >- 首次开启需添加两个自定义 NS 域名，自定义名称不能和现有 DNS 记录冲突。
 
-1. 在 [域名服务页面](https://console.cloud.tencent.com/edgeone/dns?tab=config)，选择所需站点，单击**DNS 配置**。
+1. 在 [域名服务页面](https://console.cloud.tencent.com/edgeone/dns?tab=config)，选择所需站点，单击 **DNS 配置**。
 2. 在 DNS 配置页面，单击自定义 NS 服务模块的![](https://qcloudimg.tencent-cloud.cn/raw/20efaa7f4ecc99b93da623f1c61784ac.png)，输入自定义 NS 域名，单击**添加**。
 3. 添加成功后，**需要在域名注册商添加该自定义 NS 的胶水记录，才能真正生效**。
 
