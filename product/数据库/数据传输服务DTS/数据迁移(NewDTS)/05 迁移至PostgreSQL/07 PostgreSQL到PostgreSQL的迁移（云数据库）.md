@@ -23,13 +23,12 @@ grant connect on database 库名 to 用户名;
 grant select on large object 大对象oid to 用户名;
 GRANT USAGE ON SCHEMA 模式名 to 用户名;
 ```
-- 目标数据库的账号必须为创建云数据库实例时的初始化用户。 
-   
-   如果目标数据库实例中包含待迁移的 database，但 database 的 owner 非当前迁移用户所属，可执行以下语句将 database 授予迁移账号：
+- 目标数据库的账号必须为创建云数据库实例时的初始化用户。   
+ - 如果目标数据库实例中包含待迁移的 database，但 database 的 owner 非当前迁移用户所属，可执行以下语句将 database 授予迁移账号：
 ```
 alter database 库名 owner to 迁移用户;
 ```
-   - 如果迁移用户（执行迁移任务的账号）为非 `pg_tencentdb_superuser` 角色用户，在校验时，会提示“目标实例权限检查失败，无法获取Schema列表”，请使用如下语句为迁移用户赋予初始化用户权限：
+  - 如果迁移用户（执行迁移任务的账号）为非 `pg_tencentdb_superuser` 角色用户，在校验时，会提示“目标实例权限检查失败，无法获取Schema列表”，请使用如下语句为迁移用户赋予初始化用户权限：
 ```
 grant pg_tencentdb_superuser to 迁移用户;
 ```
