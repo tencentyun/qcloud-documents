@@ -5,17 +5,17 @@
   1. 权限配置下，新增 customCursorIcon 参数：是否自定义鼠标样式,默认 false 显示系统自带样式，true 时需要根据返回的鼠标位置，自定义鼠标样式
 
 - 调整事件
-  1. 自定义鼠标样式时,坐标位置回调(TEB_BOARD_CURSOR_POSITION),用户根据位置，自定义鼠标样式
+  1. 自定义鼠标样式时，坐标位置回调(TEB_BOARD_CURSOR_POSITION),用户根据位置，自定义鼠标样式
 
 - 新增接口
-  1. 是否本地显示自己的别名(setOwnerNickNameVisible),设置为 false 时，画笔部分不显示自己的 NickName
+  1. 是否本地显示自己的别名(setOwnerNickNameVisible)，设置为 false 时，画笔部分不显示自己的 NickName
 
 - 优化历史数据拉取
   1. 首帧渲染只拉取活跃白板的历史数据
   2. 用户翻页的时候会由操作者拉取，对应白板页的历史数据，然后广播给房间内其他用户
 
 - Bug 修复
-  1. 针对Android端处理视频铺满问题;
+  1. 针对 Android 端处理视频铺满问题;
   2. 其他已知问题修复。
 
 ### 2.7.2 @ 2022.04.01
