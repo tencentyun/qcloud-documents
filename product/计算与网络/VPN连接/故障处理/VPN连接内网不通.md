@@ -59,14 +59,14 @@ display   current-configuration   configuration security-policy
 	```plaintext
 display current-configuration configuration acl
    ```
-   + 若是，请执行 [步骤8](#step9) 。
+   + 若是，请执行 [步骤8](#step8) 。
    + 若否，请补充缺失的 SPD 策略，再执行 [步骤8](#step8)。
-8. 检查 VPN 网关的路由表中是否包含对应的路由策略。进入 VPN 网关，单击 VPN 网关 ID，进入“路由表”页，即可检查路由策略。
+8. [](id:step8)检查 VPN 网关的路由表中是否包含对应的路由策略。进入 VPN 网关，单击 VPN 网关 ID，进入“路由表”页，即可检查路由策略。
 ![](https://qcloudimg.tencent-cloud.cn/raw/abe46db44d3d1d2a6257442bfb727186.png)
     + 若是，请执行 [步骤9](#step9)。
-    + 若否，请在 VPN 网关 > 路由页签指定下一跳。
+    + 若否，请在 VPN 网关 > 路由页签指定下一跳，再执行 [步骤9](#step9)。
     ![](https://qcloudimg.tencent-cloud.cn/raw/a866476e08cff596734ffbc3781becfb.png)
-9. [](id:step8)检查通信是否恢复正常，即登录 VPC/IDC 中的一台服务器，ping 对端服务器内网 IP。
+9. [](id:step9)检查通信是否恢复正常，即登录 VPC/IDC 中的一台服务器，ping 对端服务器内网 IP。
    + 若是，通信正常，问题解决，结束。
-   + 若否，请执行 [步骤10](#step9) 。
-10. [](id:step9)请收集以上检查信息，并[ 提交工单 ](https://console.cloud.tencent.com/workorder/category)或联系设备厂商跟进处理。
+   + 若否，请执行 [步骤10](#step10) 。
+10. [](id:step10)请收集以上检查信息，并[ 提交工单 ](https://console.cloud.tencent.com/workorder/category)或联系设备厂商跟进处理。
