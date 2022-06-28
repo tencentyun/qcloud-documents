@@ -70,4 +70,4 @@ wxCloud.callContainer(httpMethod, path.UTF8String,
 
 ## 相关说明
 
-**静态库冲突：** SDK 集成了 libcurl、libcrypto、libssl 和 libnghttp2，如果宿主工程也用了相同的库，可能会导致静态库冲突，可 [联系云开发](https://cloud.tencent.com/online-service) 进行处理。
+**静态库冲突：** SDK 集成了 libcurl、libcrypto、libssl 和 libnghttp2，如果宿主工程也用了相同的库，可能会导致静态库冲突，可 [联系我们](https://cloud.tencent.com/online-service) 进行处理。
