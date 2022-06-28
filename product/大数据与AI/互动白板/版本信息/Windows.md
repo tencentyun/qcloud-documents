@@ -8,7 +8,7 @@
     1. 自定义鼠标样式时,坐标位置回调(TEB_BOARD_CURSOR_POSITION)，用户根据位置，自定义鼠标样式
 
 - 新增接口
-    1. 是否本地显示自己的别名(setOwnerNickNameVisible)，设置为 false 时，画笔部分不显示自己的 NickName;
+    1. 是否本地显示自己的别名(setOwnerNickNameVisible)，设置为 false 时，画笔部分不显示自己的 NickName
   
 - 优化历史数据拉取
     1. 首帧渲染只拉取活跃白板的历史数据
