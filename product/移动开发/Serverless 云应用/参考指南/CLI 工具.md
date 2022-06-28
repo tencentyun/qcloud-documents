@@ -1,5 +1,5 @@
 
-云托管推出 CLI 工具，帮助开发者能够在本地或者自定义CI/CD中快速进行版本创建和其他操作。
+云托管推出 CLI 工具，帮助开发者能够在本地或者自定义 CI/CD 中快速进行版本创建和其他操作。
 
 <dx-alert infotype="notice" title="">
 <ul style = "margin-bottom: 0px;"><li>CLI 工具仅限 <a href = "https://console.cloud.tencent.com/tcbr">云托管独立控制台</a> 的环境使用（当前白名单内测中），云开发中的云托管无法使用。</li>
@@ -9,7 +9,7 @@
 
 ## 安装
 
-CLI工具安装前需要在安装 `npm`，具体请看 [此文档](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)。
+CLI 工具安装前需要在安装 `npm`，具体请看 [此文档](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)。
 <dx-codeblock>
 :::  shell
 npm install -g @cloudbase/cli
