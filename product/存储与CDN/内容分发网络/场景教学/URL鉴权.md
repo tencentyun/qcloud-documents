@@ -28,12 +28,10 @@ TypeD：`http://DomainName/FileName?sign=md5hash&t=timestamp`
 		- uid：  0
 		- timestamp：  TypeA 使用十进制整型正数的 Unix 时间戳 、TypeB 使用十进制（YYYYMMDDHHMM）格式、TypeC 使用十六进制（Unix 时间戳）、TypeD 可选十或十六进制（Unix 时间戳） ；
 		- md5hash：  MD5 格式：TypeA（文件路径-timestamp-rand-uid-自定义密钥）、TypeB（自定义密钥 + timestamp + 文件路径）、TypeC（自定义密钥 + 文件路径 + timestamp）、TypeD（自定义密钥 + 文件路径 + timestamp）；
-
-### 参数设置
+3. 参数设置
 将鉴权密钥、签名参数、有效时间填入对应参数
 ![](https://qcloudimg.tencent-cloud.cn/raw/ccef2008f7d3b2869affe3ae8e40015f.png)
-
-### 配置鉴权的范围
+4. 配置鉴权的范围
 ![](https://qcloudimg.tencent-cloud.cn/raw/dfa7f62c4eb152a3877e4120bbba641e.png)
 根据业务需求给鉴权对象做鉴权，推荐选择指定文件后辍鉴权，将所有已经配置缓存的静态文件后辍鉴权。
 
