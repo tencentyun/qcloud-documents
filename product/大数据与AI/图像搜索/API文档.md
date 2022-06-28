@@ -11,8 +11,9 @@
 | [CreateImage](https://cloud.tencent.com/document/api/865/63487) | 创建图片                  |
 | [DeleteImages](https://cloud.tencent.com/document/api/865/63486) | 删除图片                   |
 | [DescribeGroups](https://cloud.tencent.com/document/api/865/63485) | 查询图片库     |
-| [SearchImage](https://cloud.tencent.com/document/api/865/63483) | 检索图片                 |
 | [DescribeImages](https://cloud.tencent.com/document/api/865/63484) | 查询图片信息              |
+| [SearchImage](https://cloud.tencent.com/document/api/865/63483) | 检索图片                 |
+
 
 
 
