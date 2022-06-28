@@ -56,3 +56,11 @@ Unity 的 Demo 中设置了  OnApplicationFocus，当程序失去焦点时，会
 **日志等级**
 
 提供日志时如果有调用过 SetLogLevel 设置的日志等级，建议恢复默认日志等级。
+
+
+### GME Unity SDK 支持哪些 Unity 版本？
+GME Unity SDK 支持的 Unity 没有版本限制。
+
+
+### GME 多个用户使用同一个 OpenID 会有影响吗？
+初始化 GME 引擎时候会使用到 OpenID，这个 OpenID 是唯一标识一个用户。多端同时使用一个 OpenID，例如异地多端登录可能会造成账号异常，无法正常使用 GME 功能。
