@@ -17,6 +17,7 @@
 - Bug 修复
   1. 针对Android端处理视频铺满问题;
   2. 其他已知问题修复。
+
 ### 2.7.2 @ 2022.04.01
 * 链接地址：https://res.qcloudtiw.com/board/2.7.2/TEduBoard.min.js
 
