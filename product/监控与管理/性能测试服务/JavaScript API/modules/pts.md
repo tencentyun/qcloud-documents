@@ -12,8 +12,7 @@
 
 [](id:default)
 ### default
-- **default**: `Object`
-
+**default**: `Object`
 ```
 Defined in typings/pts.d.ts:58
 ```
@@ -30,8 +29,7 @@ Defined in typings/pts.d.ts:58
 
 [](id:check)
 ### check
-- **check**(`name`, `callback`, `interrupt?`): `boolean`
-
+**check**(`name`, `callback`, `interrupt?`): `boolean`
 check 主要针对请求返回的结果做进一步检查，如果检查失败，则代表测试失败。
 ```
 Defined in typings/pts.d.ts:57
@@ -59,8 +57,7 @@ export default function () {
 
 [](id:sleep)
 ### sleep
-- **sleep**(`seconds`): `void`
-
+**sleep**(`seconds`): `void`
 在指定的时间内暂停 VU 执行。
 ```
 Defined in typings/pts.d.ts:18
@@ -83,8 +80,7 @@ export default function () {
 
 
 ### step
-- **step**(`name`, `callback`): `any`
-
+**step**(`name`, `callback`): `any`
 把压测场景分步骤，在压测报告中可以体现。
 ```
 Defined in typings/pts.d.ts:37
@@ -103,7 +99,6 @@ export default function () {
 ```
 
 #### Parameters
-
 | Name       | Type         | Description |
 | :--------- | :----------- | :---------- |
 | name   | `string`     | 名称        |

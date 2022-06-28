@@ -12,7 +12,7 @@ ChainMaker 官方已经将容器发布至 [docker hub](https://hub.docker.com/u/
 
 1. 拉取镜像
 ```
-docker pull chainmakerofficial/chainmaker-vm-docker-go:v2.2.1
+docker pull chainmakerofficial/chainmaker-docker-go-contract:v2.2.1
 ```
 请指定您本机的工作目录 $WORK_DIR，例如 /data/workspace/contract，挂载到 docker 容器中以方便后续进行必要的一些文件拷贝。
 ```

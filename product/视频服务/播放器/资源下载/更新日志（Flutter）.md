@@ -2,7 +2,7 @@
 
 - superPlayer 组件用 dart 代码重构，支持 UI 自定义
 - 完善直播和点播 SDK 接口
-- 修复通过 file 和 psign 播放失败问题
+- 修复通过 fileId 和 psign 播放失败问题
 
 
 

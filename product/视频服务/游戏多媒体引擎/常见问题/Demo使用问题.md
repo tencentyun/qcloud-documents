@@ -11,9 +11,9 @@
 - 需要在 [控制台](https://console.cloud.tencent.com/gamegme/detail/1400391524) 服务管理中获取 AppID 和权限密钥。
 - 若使用您申请的 AppID ，则需要在 AVChatViewController 中的 GetAuthBuffer 中修改实时语音的 Key。
 
-### GME 可以只使用一个 OpenId 吗？
 
-初始化 GME 引擎时候将会使用到 OpenId，OpenId 是用户的唯一标识。多端同时使用一个 OpenId，例如异地多端登录，会造成账号异常，无法正常使用 GME 功能。
+### GME 多个用户使用同一个 OpenID 会有影响吗？
+初始化 GME 引擎时候会使用到 OpenID，这个 OpenID 是唯一标识一个用户。多端同时使用一个 OpenID，例如异地多端登录可能会造成账号异常，无法正常使用 GME 功能。
 
 ### 房间内只有一个人，如何在本地体验效果？
 
@@ -56,3 +56,16 @@ Unity 的 Demo 中设置了  OnApplicationFocus，当程序失去焦点时，会
 **日志等级**
 
 提供日志时如果有调用过 SetLogLevel 设置的日志等级，建议恢复默认日志等级。
+
+
+### GME Unity SDK 支持哪些 Unity 版本？
+GME Unity SDK 支持的 Unity 没有版本限制。
+
+
+
+### GME Android 的 so 库有 armv8 的吗？
+有，在2.3.5版本上已经支持。
+
+
+### Android 的 so 库是否提供 x86_64 版本？
+不提供。

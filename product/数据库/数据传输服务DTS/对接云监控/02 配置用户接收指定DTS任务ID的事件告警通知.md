@@ -15,9 +15,16 @@
   - 事件模式预览：请拷贝后面的代码样例并替换任务 ID，这里的 ID 指需要监控的 DTS 任务 ID，多个任务用英文逗号","隔开。
 <img src="https://qcloudimg.tencent-cloud.cn/raw/d758b09db99885d5aad538b1d32e6ba4.png" style="zoom:50%;" />
 ```
+// 接收单个任务 ID 示例
     {
      "source":"dts.cloud.tencent",
-     "subject":"sync-jtXXXXX"
+     "subject":"sync-jt12XXgt"
+    }
+		
+// 接收多个任务 ID 示例
+    {
+     "source":"dts.cloud.tencent",
+     "subject":["sync-jt12XXgt","dts-a5uqXXhs"]
     }
 ```
 DTS 界面的任务 ID 示例：
