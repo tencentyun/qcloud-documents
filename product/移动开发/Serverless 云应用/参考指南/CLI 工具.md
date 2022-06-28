@@ -65,7 +65,6 @@ tcb run service:list  [OPTIONS]
 :::  bash
 OPTIONS
   -h, --help                     查看帮助信息
-
   -e, --envId                    环境ID，必填
   -s, --serviceName              服务名
   --json                         以 JSON 形式展示结果
