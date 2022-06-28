@@ -64,3 +64,7 @@ GME Unity SDK 支持的 Unity 没有版本限制。
 
 ### GME 多个用户使用同一个 OpenID 会有影响吗？
 初始化 GME 引擎时候会使用到 OpenID，这个 OpenID 是唯一标识一个用户。多端同时使用一个 OpenID，例如异地多端登录可能会造成账号异常，无法正常使用 GME 功能。
+
+
+### GME Android 的 so 库有 armv8 的吗？
+有，在2.3.5版本上已经支持。
