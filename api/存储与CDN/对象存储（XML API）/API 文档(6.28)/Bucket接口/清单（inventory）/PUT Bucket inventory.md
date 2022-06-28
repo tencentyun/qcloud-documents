@@ -105,7 +105,7 @@ Content-MD5: MD5
 | IsEnabled              | InventoryConfiguration | 清单是否启用的标识：<br><li>如果设置为 true，清单功能将生效<br><li>如果设置为 false，将不生成任何清单 | String    | 是       |
 | IncludedObjectVersions | InventoryConfiguration | 是否在清单中包含对象版本：<br><li>如果设置为 All，清单中将会包含所有对象版本，并在清单中增加 VersionId，IsLatest，DeleteMarker 这几个字段<br><li>如果设置为 Current，则清单中不包含对象版本信息 | String    | 是       |
 | Filter                 | InventoryConfiguration | 筛选待分析对象。清单功能将分析符合 Filter 中设置的前缀的对象 | Container | 否       |
-| And                    | Filter                 | 筛选待分析时，如果同时需要前缀与对象标签条件，需要用And包装  | Container | 否       |
+| And                    | Filter                 | 筛选待分析对象时，如果同时需要前缀与对象标签条件，需要用And包装  | Container | 否       |
 | Prefix                 | And                    | 需要分析的对象的前缀                                         | String    | 否       |
 | Tag                    | And                    | 筛选待分析对象时，可以用对象标签（支持多个）作为过滤条件。   | Container | 否       |
 | Period                 | Filter                 | 需要分析的对象的创建时间范围                                 | Container | 否       |
@@ -140,7 +140,7 @@ Content-MD5: MD5
 
 ## 实际案例
 
-#### 案例一：使用特定前缀过滤对象。
+#### 案例一：使用特定前缀过滤对象
 
 #### 请求
 
@@ -208,7 +208,7 @@ Server: tencent-cos
 x-cos-request-id: NTlhMzg1ZWVfMjQ4OGY3MGFfMWE1NF8****
 ```
 
-#### 案例二：过滤对象时，除了特定前缀，还加上指定的对象标签
+#### 案例二：过滤对象时，指定对象前缀与对象标签
 
 #### 请求 
 
