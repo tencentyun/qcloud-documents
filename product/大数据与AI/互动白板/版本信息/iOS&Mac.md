@@ -17,6 +17,7 @@
 
 - Bug 修复
     1. 其他已知问题修复。
+
 ### 2.7.2.106 @ 2022-04-06
 * [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/2.7.2.106/TEduBoard_2.7.2.106.zip)
 * [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/2.7.2.106/TEduBoard_Mac_2.7.2.106.zip)
