@@ -13,7 +13,7 @@ TDSQL-C PostgreSQL 迁移至 PostgreSQL 的要求和指导，本场景的内容�
 - 源数据库和目标数据库符合迁移功能和版本要求，请参见 [数据迁移支持的数据库](https://cloud.tencent.com/document/product/571/58686) 进行核对。
 - 已完成 [准备工作](https://cloud.tencent.com/document/product/571/59968)。
 - 源数据库的权限要求如下：
-  - 源库为腾讯云数据库 PostgreSQL 之外的其他 PostgreSQL 时，要求源端库账号必须具有 replication 权限。  
+  - 源库为腾讯云数据库 PostgreSQL 之外的其他 PostgreSQL 时，要求源库账号必须具有 replication 权限。  
   - 源库为腾讯云数据库 PostgreSQL，要求源数据库的账号必须为创建云数据库实例时的初始化用户。  
   - 如果部分表或者对象无权限，可使用高权限用户执行如下示例语句，对无权限的对象分别授予权限：  
 ```
@@ -24,7 +24,7 @@ grant select on large object 大对象oid to 用户名;
 GRANT USAGE ON SCHEMA 模式名 to 用户名;
 ```
 - 目标数据库的账号必须为创建云数据库实例时的初始化用户。   
- - 如果目标数据库实例中包含待迁移的 database，但 database 的 owner 非当前迁移用户所属，可执行以下语句将 database 授予迁移账号：
+ - 如果目标数据库实例中包含待迁移的 database，但 database 的 owner 非当前迁移用户所属，可执行以下语句将 database 授予迁移用户：
 ```
 alter database 库名 owner to 迁移用户;
 ```
