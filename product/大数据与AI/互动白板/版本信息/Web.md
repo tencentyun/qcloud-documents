@@ -1,4 +1,4 @@
-## 2.7.3 @ 2022.05.20
+### 2.7.3 @ 2022.05.20
 * 链接地址：https://res.qcloudtiw.com/board/2.7.3/TEduBoard.min.js
 
 - 调整初始化参数
