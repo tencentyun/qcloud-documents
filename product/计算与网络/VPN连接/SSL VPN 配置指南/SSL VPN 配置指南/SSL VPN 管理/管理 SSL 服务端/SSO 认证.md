@@ -1,5 +1,5 @@
 若您通过 [自助 Portal](https://self-service-test.vpn.woa.com/) 下载 SSL 客户端配置，可以在 SSL 服务端开启 SSO 认证。
->?目前 SSO 身份认证功能灰度中，当前仅支持新加坡地域，如有需要，请提交 [工单申请](https://console.cloud.tencent.com/workorder/category)。
+>?目前 SSO 身份认证功能灰度中，仅支持新加坡地域，如有需要，请提交 [工单申请](https://console.cloud.tencent.com/workorder/category)。
 >
 
 ## 前提条件
@@ -9,7 +9,7 @@
 ## 在创建 SSL 服务端过程中开启
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。
 2. 在左侧目录中单击 **VPN 连接** > **SSL 服务端**，进入管理页面。
-3. 在 SSL 服务端管理页面，单击**+新建**。
+3. 在 SSL 服务端管理页面，单击**新建**。
 4. 在弹出的**新建 SSL 服务端**对话框中，**认证方式**选择**证书认证** + **身份认证**，然后选择 EIAM 应用。
 <img src="https://qcloudimg.tencent-cloud.cn/raw/e84fd4674fa394c8286462da60edcd52.png" width="70%">
 5. **访问控制**按需**开启**，详情请参见 [开启访问控制](https://cloud.tencent.com/document/product/554/75188)。
