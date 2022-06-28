@@ -76,7 +76,7 @@ group.id=XXX
 java.security.auth.login.config.plain=/xxxx/ckafka_client_jaas.conf
 ## SSL 证书配置,接入方式选择为 SASL_SSL 时生效
 ssl.truststore.location=/xxxx/client.truststore.jks
-ssl.truststore.password=5fi6R!M
+ssl.truststore.password=xxxxxxx
 ssl.endpoint.identification.algorithm=
 :::
 </dx-codeblock>
