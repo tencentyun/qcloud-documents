@@ -39,15 +39,15 @@
 </tr>
 <tr>
 <td>认证方式</td>
-<td>当前建议使用证书认证 + 身份认证</td>
+<td><ul><li>证书认证：该认证方式默认 SSL 服务端可被 SSL 客户端全量访问</li><li>证书认证 + 身份认证：该认证方式仅允许在控制策略中的访问策略连接，您可选择为特定用户组或全部用户配置访问策略，勾选后需要选择对应的 EIAM 应用</li></ul></td>
 </tr>
 <tr>
 <td>EIAM 应用</td>
-<td>可使用 EIAM 配置身份认证规则</td>
+<td>EIAM 是在 <a href="https://console.cloud.tencent.com/eiam">数字身份管控平台</a> 所创建的用于访问控制的应用</td>
 </tr>
 <tr>
 <td>访问控制</td>
-<td>若未开启访问控制，服务端将会拒绝所有连接</td>
+<td>SSL 服务端访问控制开关</td>
 </tr>
 </table>
 5. **访问控制**按需**开启**，详情请参见 [开启访问控制](https://cloud.tencent.com/document/product/554/75188)。
