@@ -12,7 +12,7 @@
 - **镜像**：建议选择**公共镜像**，支持自动安装 GPU 驱动。若您选择**自定义镜像**，则需要自行安装 GPU 驱动。
  - 操作系统请使用 CentOS 8.0/CentOS 7.8/Ubuntu 20.04/Ubuntu 18.04/TecentOS 3.1/TencentOS 2.4。
  - 若您选择**公共镜像**，则请勾选“后台自动安装GPU驱动”，实例将在系统启动后预装对应版本驱动。如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/3e9e1639e8e120e6ad0050d060f3e006.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/6cc967fbe8293c06e311cbbd3aa8a879.png)
 
 
 ### 配置实例环境[](id:Step2)
