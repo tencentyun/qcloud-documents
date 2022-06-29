@@ -34,7 +34,7 @@ Hadoop-2.6.0及以上版本。
 1. 将 `hadoop-cos-{hadoop.version}-{version}.jar` 和 `cos_api-bundle-{version}.jar` 拷贝到 `$HADOOP_HOME/share/hadoop/tools/lib`下。
 >? 根据 Hadoop 的具体版本选择对应的 jar 包，若 release 中没有提供匹配版本的 jar 包，可自行通过修改 pom 文件中 Hadoop 版本号，重新编译生成。
 > 
-2. 修改 hadoop_env.sh 文件。进入`$HADOOP_HOME/etc/hadoop`目录，编辑 hadoop_env.sh 文件，增加以下内容，将 cosn 相关 jar 包加入 Hadoop 环境变量：
+2. 修改 hadoop-env.sh 文件。进入`$HADOOP_HOME/etc/hadoop`目录，编辑 hadoop-env.sh 文件，增加以下内容，将 cosn 相关 jar 包加入 Hadoop 环境变量：
 ```shell
 for f in $HADOOP_HOME/share/hadoop/tools/lib/*.jar; do
   if [ "$HADOOP_CLASSPATH" ]; then

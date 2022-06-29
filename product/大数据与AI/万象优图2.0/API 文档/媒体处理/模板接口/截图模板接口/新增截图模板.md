@@ -107,7 +107,7 @@ Container 类型 Snapshot.SpriteSnapshotConfig 的具体数据描述如下：
 | 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 必选 | 默认值       | 限制  |
 | ------------------ | ------- | -------------------------------------------------------- | --------- | ---- |---| ---- |
 | CellWidth          | Request.Snapshot.SpriteSnapshotConfig | 单图宽度 | String    | 否   | 截图宽度 | <li>值范围：[8，4096]</li><li>单位：px |
-| CellHeight         | Request.Snapshot.SpriteSnapshotConfig | 单图高度 | String    | 否  | 截图宽度  | <li>值范围：[8，4096]</li><li>单位：px |
+| CellHeight         | Request.Snapshot.SpriteSnapshotConfig | 单图高度 | String    | 否  | 截图高度  | <li>值范围：[8，4096]</li><li>单位：px |
 | Padding            | Request.Snapshot.SpriteSnapshotConfig | 雪碧图内边距大小  | String    | 否   | 0  | <li>值范围：[0，1024]</li><li>单位：px |
 | Margin             | Request.Snapshot.SpriteSnapshotConfig | 雪碧图外边距大小  | String    | 否   | 0  | <li>值范围：[0，1024]</li><li>单位：px |
 | Color              | Request.Snapshot.SpriteSnapshotConfig | 背景颜色  | String    | 是   | 无  | 支持颜色详见 [FFmpeg](https://www.ffmpeg.org/ffmpeg-utils.html#color-syntax) |
