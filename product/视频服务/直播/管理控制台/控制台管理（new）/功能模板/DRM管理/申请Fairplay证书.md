@@ -17,7 +17,7 @@ I am using a 3rd party DRM company and the company has already built and tested 
 ```
 
  [](id:step2)
-### 步骤2：创建私钥和证书签名请求（CSR）:
+### 步骤2：创建私钥和证书签名请求（CSR）
 根据开发包中的指导文档，创建私钥（`privatekey.pem`）文件和证书签名请求（`certreq.csr`）文件。下面介绍了指南中证书签名请求部分的 OpenSSL 方法。
 >! 必须在执行此过程的 PC 或服务器环境上安装 OpenSSL。
 
@@ -37,21 +37,21 @@ openssl req -new -sha1 -key privatekey.pem -out certreq.csr -subj "/CN=SubjectNa
 [](id:step3)
 ### 步骤3：在 Apple Developer Portal 上创建 FPS 证书
 1. 登录 [Apple Developer Portal](https://developer.apple.com/)，然后进入 [Certificates, IDs, & Profiles](https://developer.apple.com/account/ios/certificate/)。
-![](https://qcloudimg.tencent-cloud.cn/raw/bbfdd71a926157336f67f9c771a0e7ac.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/3c2963e1317986b25f05014042f120de.png)
 2. 单击菜单上**+**按钮，跳转到 Create a New Certificate 页面。
-![](https://qcloudimg.tencent-cloud.cn/raw/3397ba52d6db806d355d1d94a230d9f6.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/79a02a3d039ae6bfe40144e2d90b0d44.png)
 3. 选择 **FairPlay Streaming Certificate**，然后单击 **Continue**。
-![](https://qcloudimg.tencent-cloud.cn/raw/dd4633296323af7044c4dd8ab43df03c.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/fef15cd65ddf3c21752c3b71c37b9b04.png)
 4. 单击 **Choose File**，选择上面步骤中创建的 `certreq.csr` 文件，然后单击 **Continue**。
-![](https://qcloudimg.tencent-cloud.cn/raw/d0adc7850919346cd7f363e5cc8cf6fc.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/d179f0554b61453a51e2a6efa83338e9.png)
 5. 复制 Application Secret Key (ASK) 字符串，单独保存到一个文件中。然后再复制到下面的空格处，然后单击 **Continue**。
-![](https://qcloudimg.tencent-cloud.cn/raw/d2c9468cfebe109f759c3755f3d7e83b.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/3a69ea9e79824df5d39213373830c8a2.png)
 6. 此时，将会出现一个弹出窗口，确认您是否已单独保存了 ASK 字符串到文件中；如果已确认保存，单击 **Generate**。
-![](https://qcloudimg.tencent-cloud.cn/raw/abab9cc88bfe77c2492d9f8db7526086.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/1a9471e089b5224e393b8efecd5a77c7.png)
 7. 完成上述步骤后, 使用 FairPlay Streaming type 创建的证书将显示在 Certificate 列表中。
-![](https://qcloudimg.tencent-cloud.cn/raw/844ca26f76429ce99291d7e9777d12d6.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/0a0a4fa58cb43e811b21f34bfa91823e.png)
 8. 单击 **Download** 保存 FPS 证书文件（`fairplay.cer`）。
-![](https://qcloudimg.tencent-cloud.cn/raw/89be80e179873b7928121273eef5658f.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/dcc1be70e6c01658348920c8856ec6c2.png)
 
 [](id:step4)
 ### 步骤4：通过华曦达（SDMC）控制台上传 FPS 证书文件

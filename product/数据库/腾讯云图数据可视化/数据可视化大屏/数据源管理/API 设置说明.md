@@ -8,8 +8,7 @@
 下图由接口 `https://127.0.0.1/api` 举例，文章后面会给出代码。
 
 ### 设置数据源
-
-![设置数据源](https://main.qcloudimg.com/raw/ae67fc4bcf36bf1c51272dfee641b781.png)
+<img src="https://main.qcloudimg.com/raw/ae67fc4bcf36bf1c51272dfee641b781.png"  style="zoom:60%;">
 
 ### 接口的实现
 

@@ -1,5 +1,25 @@
+### 2.7.3 @ 2022.05.20
+* 链接地址：https://res.qcloudtiw.com/board/2.7.3/TEduBoard.min.js
+
+- 调整初始化参数
+  1. 权限配置下，新增 customCursorIcon 参数：是否自定义鼠标样式,默认 false 显示系统自带样式，true 时需要根据返回的鼠标位置，自定义鼠标样式
+
+- 调整事件
+  1. 自定义鼠标样式时，坐标位置回调(TEB_BOARD_CURSOR_POSITION)，用户根据位置，自定义鼠标样式
+
+- 新增接口
+  1. 是否本地显示自己的别名(setOwnerNickNameVisible)，设置为 false 时，画笔部分不显示自己的 NickName
+
+- 优化历史数据拉取
+  1. 首帧渲染只拉取活跃白板的历史数据
+  2. 用户翻页的时候会由操作者拉取，对应白板页的历史数据，然后广播给房间内其他用户
+
+- Bug 修复
+  1. 针对 Android 端处理视频铺满问题;
+  2. 其他已知问题修复。
+
 ### 2.7.2 @ 2022.04.01
-* 链接地址：[https://res.qcloudtiw.com/board/2.7.2/TEduBoard.min.js]()
+* 链接地址：https://res.qcloudtiw.com/board/2.7.2/TEduBoard.min.js
 
 - 错误码调整
   1. [错误码](https://doc.qcloudtiw.com/web/TEduBoard.html#.TEduBoardErrorCode) 新增 `TEDU_BOARD_MAX_BOARD_LIMITED` 错误码，在单个房间内白板页总数量达到上限后触发。
@@ -10,7 +30,7 @@
 
 
 ### 2.7.1 @ 2022.02.28
-* 链接地址：[https://res.qcloudtiw.com/board/2.7.1/TEduBoard.min.js]()
+* 链接地址：https://res.qcloudtiw.com/board/2.7.1/TEduBoard.min.js
 
 - 功能优化
   1. 白板资源和课件资源备份域名优化。
@@ -18,7 +38,7 @@
   1. 优化历史数据加载耗时。
 
 ### 2.7.0 @ 2022.01.31
-* 链接地址：[https://res.qcloudtiw.com/board/2.7.0/TEduBoard.min.js]()
+* 链接地址：https://res.qcloudtiw.com/board/2.7.0/TEduBoard.min.js
 
 - Bug 修复
   1. 修复偶现对线条进行点擦后，线条有抖动的问题。
