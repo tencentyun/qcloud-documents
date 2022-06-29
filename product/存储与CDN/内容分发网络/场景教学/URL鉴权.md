@@ -1,6 +1,6 @@
 
 ## 业务场景
-为了防止 URL 被盗刷 CDN 资源产生高额流量，使用 URL 鉴权方式给 CDN 资源加密以防止被盗刷。
+为了防止 URL 被盗刷 CDN 资源而产生高额流量，使用 URL 鉴权方式给 CDN 资源加密以防止被盗刷。
 
 ## 具体需求
 配置 URL 鉴权域名：`www.qcdntest.cn`
@@ -9,7 +9,7 @@
 签名参数：sign
 有效时间：150s
 鉴权范围：指定文件后缀鉴权
-文件后辍：所有文件
+文件后辍：jpg;html;css
 
 ## 配置步骤
 1. 在控制台菜单栏里选择**域名管理**，单击域名右侧**管理**，即可进入域名配置页面**访问控制**中找到鉴权配置，默认情况下，鉴权配置为关闭状态：
@@ -39,11 +39,12 @@ TypeD：`http://DomainName/FileName?sign=md5hash&t=timestamp`
 本次测试使用 TypeA 模式验证，其它模式的测试可参考以上步骤配置。
 测试时间：2022年6月27日  11：30
 测试 URL：`http://www.qcdntest.cn/test.jpg`
-本次测试带鉴权URL参考鉴权计算器得出如下：
+
 
 ### 验证场景一
 带鉴权参数，验证返回结果
 打开鉴权计算器将参数填入 获得带鉴权 URL 如下（如是 https 访问需手动调整 https）：
+`http://www.qcdntest.cn/test.jpg?sign=1656300600-FnyigRo7yny-0-3276ffbdf30dc974ed955d7db761653a`
 执行命令：
 ```
 curl http://www.qcdntest.cn/test.jpg?sign=1656300600-FnyigRo7yny-0-3276ffbdf30dc974ed955d7db761653a -i
@@ -62,13 +63,13 @@ curl https://www.sobodo.top/test.jpg -i
 未带鉴权参数的 URL，返回403状态码。
 
 ### 验证场景三
-带过期的鉴权 URL 参数，验证返回结果
-使用场景一鉴权 URL，将已经超过了控制台配置的鉴权有效时间150s； 过期鉴权URL：`http://www.qcdntest.cn/test.jpg?sign=1656300600-FnyigRo7yny-0-3276ffbdf30dc974ed955d7db761653a`
+使用过期的鉴权 URL 参数，验证返回结果
+过期鉴权 URL：`http://www.qcdntest.cn/test.jpg?sign=1656300600-FnyigRo7yny-0-3276ffbdf30dc974ed955d7db761653a`
 执行命令：
 ```
 curl http://www.qcdntest.cn/test.jpg?sign=1656300600-FnyigRo7yny-0-3276ffbdf30dc974ed955d7db761653a -i
 ```
 ![](https://qcloudimg.tencent-cloud.cn/raw/e123d6ed926c85ac8d6575510a0e44d2.png)
 
-带过期鉴权 URL 参数，返回403状态码。
+带过期鉴权 URL，返回403状态码。
 
