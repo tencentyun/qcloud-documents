@@ -35,7 +35,7 @@
 ### 前端上传
 
 1. 参考 [post-policy 示例](https://github.com/tencentyun/cos-demo/tree/main/server/post-policy/) 实现一个服务端接口，用于生成随机文件路径、计算签名，并返回给前端。
-2. 使用 HBuildX 默认模板创建 uni-app 应用。
+2. 使用 HBuilderX 默认模板创建 uni-app 应用。
 创建后，该应用为一个基于 Vue 的项目。
 3. 复制以下代码替换 pages/index/index.vue 文件内容，并修改调用的 post-policy 接口链接，将其指向自己的服务端地址（即步骤1的服务端接口）。
 ```html
