@@ -36,7 +36,7 @@
 1. 服务器 BMC 登录成功后，选择左侧导航栏中的**远程控制**，选择合适的访问方式，即可访问带外管理控制台。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/2de318f095878159b8e4074707f282c5.png)
 <dx-alert infotype="notice" title="">
-部分服务器 BMC 仅支持通过 Java 远程控制，此时需要安装特定版本的 Java，具体版本请与服务器供应商联系h。
+部分服务器 BMC 仅支持通过 Java 远程控制，此时需要安装特定版本的 Java，具体版本请与服务器供应商联系。
 </dx-alert>
 2. 此时，可以在带外管理控制台上访问到服务器的操作系统。如下图所示：
 <img src="https://qcloudimg.tencent-cloud.cn/raw/f388f049fce0280ef8a6f07c1bdad9ac.png"/>
