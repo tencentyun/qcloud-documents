@@ -5,10 +5,10 @@
 
 ## 播放器 SDK
 ### 播放器 SDK 10.2.0 @  2022.06.23
-**功能优化:** 
+**功能优化：** 
 Android&iOS：优化播放过程中回调 cachedBytes、IP 地址等参数。
 
-**缺陷修复:** 
+**缺陷修复：** 
 - Android&iOS：修复硬解播放H265格式视频失败问题。
 - Android&iOS：修复播放 HLS 直播异常。
 - iOS：修复某些场景下获取 supportedBitrates 异常。
