@@ -109,12 +109,12 @@ Authorization: Auth String
 | ----------------------- | ----------------------- | ------------------------------------------------------------ | --------- |
 | Inventory Configuration | 无                      | 包含清单的配置参数                                         | Container |
 | Id                      | Inventory Configuration | 清单的名称，与请求参数中的 ID 对应                           | Container |
-| IsEnabled               | Inventory Configuration | 清单是否启用的标识：<br><li>如果设置为 true，清单功能将生效<br><li>如果设置为 false，将不生成任何清单 | String    |
-| IncludedObject Versions | Inventory Configuration | 是否在清单中包含对象版本：<br><li>如果设置为 All ，清单中将会包含所有对象版本，并在清单中增加 VersionId， IsLatest， DeleteMarker 这几个字段<br><li>如果设置为 Current，则清单中不包含对象版本信息 | String    |
+| IsEnabled               | Inventory Configuration | 清单是否启用的标识：<ul  style="margin: 0;"><li>如果设置为 true，清单功能将生效</li><li>如果设置为 false，将不生成任何清单</li></ul> | String    |
+| IncludedObject Versions | Inventory Configuration | 是否在清单中包含对象版本：<ul  style="margin: 0;"><li>如果设置为 All ，清单中将会包含所有对象版本，并在清单中增加 VersionId， IsLatest， DeleteMarker 这几个字段</li><li>如果设置为 Current，则清单中不包含对象版本信息</li></ul> | String    |
 | Filter                  | Inventory Configuration | 筛选待分析对象。清单功能将分析符合 Filter 中设置的前缀的对象 | Container |
-| And                     | Filter                  | 筛选待分析对象时，如果同时需要前缀与对象标签条件，需要用And包装  | Container |
+| And                     | Filter                  | 筛选待分析对象时，如果同时需要前缀与对象标签条件，需要用 And 包装  | Container |
 | Prefix                  | And                  | 需要分析的对象的前缀                                         | String    |
-| Tag                     | And                     | 筛选待分析对象时，可以用对象标签（支持多个）作为过滤条件。   | Container |
+| Tag                     | And                     | 筛选待分析对象时，可以用对象标签（支持多个）作为过滤条件   | Container |
 | Period                  | Filter                  | 需要分析的对象的创建时间范围                                 | Container |
 | StartTime               | Period                  | 需要分析的对象创建的起始时间，参数为秒级时间戳，如1568688761 | String    |
 | EndTime                 | Period                  | 需要分析的对象创建的结束时间，参数为秒级时间戳，如1568688762 | String    |
@@ -218,7 +218,7 @@ Host: examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com
 - 该清单任务分析存储桶`examplebucket-1250000000`中前缀为 myPrefix，且含有对象标签{age:18}的对象及其所有版本。
 - 分析频次为每天一次。
 - 分析维度包括 Size，LastModifiedDate， StorageClass，ETag，Tag。
-- 分析结果将以 CSV 格式文件存储在存储桶 inventorybucket-1250000000 中
+- 分析结果将以 CSV 格式文件存储在存储桶 inventorybucket-1250000000 中。
 
 ```shell
 HTTP/1.1 200 OK
