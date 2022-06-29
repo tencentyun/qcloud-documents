@@ -57,7 +57,7 @@ curl http://www.qcdntest.cn/test.jpg?sign=1656300600-FnyigRo7yny-0-3276ffbdf30dc
 使用不带鉴权参数的 URL， 看测试域名是否能正常访问。
 执行命令：
 ```
-curl https://www.sobodo.top/test.jpg -i
+curl http://www.qcdntest.cn/test.jpg -i
 ```
 <img src="https://qcloudimg.tencent-cloud.cn/raw/2c21ea57f1e10c3d9e3f0f1e64f94ace.png" width="70%">
 未带鉴权参数的 URL，返回403状态码。
