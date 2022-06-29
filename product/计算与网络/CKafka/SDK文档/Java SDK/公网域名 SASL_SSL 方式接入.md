@@ -23,7 +23,7 @@ SSL 证书的核心功能是保护服务器-客户端通信。数据通过 SSL �
 在**用户管理**页面新建角色，设置密码。
 ![](https://qcloudimg.tencent-cloud.cn/raw/fb78b8290232e6342397a30a4c554ef9.png)
 3. 创建 Topic。
-在控制台 **topic 管理**页面新建 Topic（参见 [创建 Topic](https://cloud.tencent.com/document/product/597/20247#.E5.88.9B.E5.BB.BA-topic)）。
+在控制台 **topic 管理**页面新建 Topic（参见 [创建 Topic](https://cloud.tencent.com/document/product/597/73566#.E6.AD.A5.E9.AA.A41.EF.BC.9A.E5.88.9B.E5.BB.BA-topic)）。
 
 
 ### 步骤2：添加配置文件
@@ -76,7 +76,7 @@ group.id=XXX
 java.security.auth.login.config.plain=/xxxx/ckafka_client_jaas.conf
 ## SSL 证书配置,接入方式选择为 SASL_SSL 时生效
 ssl.truststore.location=/xxxx/client.truststore.jks
-ssl.truststore.password=5fi6R!M
+ssl.truststore.password=xxxxxxx
 ssl.endpoint.identification.algorithm=
 :::
 </dx-codeblock>

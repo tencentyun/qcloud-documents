@@ -78,4 +78,4 @@ System.out.printf("wxcloud resp.ret=%d, resp.http_code=%d, resp.body=%s, resp.he
 
 ## 相关说明
 
-**Android minSDK 版本不支持：** SDK 目前配置的 minSDK 是19，如果宿主工程有更低版本的需求，可 [联系我们](https://cloud.tencent.com/document/product/1595/75974) 进行处理。
+**Android minSDK 版本不支持：** SDK 目前配置的 minSDK 是19，如果宿主工程有更低版本的需求，可 [联系我们](https://cloud.tencent.com/online-service) 进行处理。
