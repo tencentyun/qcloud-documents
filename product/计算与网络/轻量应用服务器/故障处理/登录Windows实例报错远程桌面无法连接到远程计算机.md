@@ -30,7 +30,7 @@
 ### 检查实例是否处于运行状态
 1. 登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse/instance/index)。
 2. 在“服务器”页面，查看实例是否处于“运行中”。如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/faee7a4ea28561aac4612b0c1741883d.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/c6d0e30e9db5078d7ffff2e3f309a528.png)
  - 是，请进行下一步。
  - 否，请启动该 Windows 实例。
 

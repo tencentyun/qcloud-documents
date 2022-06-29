@@ -67,11 +67,11 @@ Database 连接器支持 MySQL 数据库的连接及增删改查等数据库常�
 >
 ![image-20220325105957204](https://qcloudimg.tencent-cloud.cn/raw/da9d0685e106381d7ddf3ce35933d556/image-20220325105957204.png)
 2. 按实际情况选择计费模式，设置区域，线路和带宽等参数，点击立即购买。
- ![image-20220325110114446](https://qcloudimg.tencent-cloud.cn/raw/0c3582d96bbb61f27db682f8b636f852/image-20220325110114446.png)
+ ![](https://qcloudimg.tencent-cloud.cn/raw/cddd277747e1c935378042a8be6d600b.png)
 3. 购买弹性公网IP后，在 [实例管理](https://console.huaweicloud.com/rds/?agencyId=0d6513274680f2a11fe9c008e8660bbb&region=cn-east-3&locale=zh-cn#/rds/management/list)页面，选择目标实例，单击**实例名称**，进入实例的**基本信息**页面。在左侧导航栏，单击**连接管理**，在**连接信息**>**公网地址**处，单击**绑定**。
- ![image-20220401155129644](https://qcloudimg.tencent-cloud.cn/raw/9e998721254b996b7175f803d1bcf7b3.png)
+ ![](https://qcloudimg.tencent-cloud.cn/raw/bd7ac1f5974a70d800815f40c09835c7.png)
  4. 绑定成功后，界面显示公网地址：[](id:method1)
-![](https://qcloudimg.tencent-cloud.cn/raw/37a938431fa4adb8e28532b30fd2d652.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/edab7019fe21ff19742301ce4179f06f.png)
 :::
 ::: 已有弹性公网 IP 绑定到 MySQL
 
@@ -86,14 +86,14 @@ Database 连接器支持 MySQL 数据库的连接及增删改查等数据库常�
 ## 接入配置
 ### 步骤1：创建测试数据库[](id:method2)
 
-在[实例管理](https://console.huaweicloud.com/rds/?agencyId=0d6513274680f2a11fe9c008e8660bbb&region=cn-east-3&locale=zh-cn#/rds/management/list)页面，选择目标实例，单击**实例名称**，进入实例的**基本信息**页面。在左侧导航栏，单击**数据库管理**>**创建数据库**，创建测试数据库。
+在 [实例管理](https://console.huaweicloud.com/rds/?agencyId=0d6513274680f2a11fe9c008e8660bbb&region=cn-east-3&locale=zh-cn#/rds/management/list) 页面，选择目标实例，单击**实例名称**，进入实例的**基本信息**页面。在左侧导航栏，单击**数据库管理**>**创建数据库**，创建测试数据库。
 ![image-20220401160001490](https://qcloudimg.tencent-cloud.cn/raw/1a8070b507ac93a3ca3c9c1195eeaab1.png)
 
 ### 步骤2：配置腾讯云数据连接器 Database 连接器连接属性
 
-1. 在 [腾讯云数据连接器控制台](https://console.cloud.tencent.com/ipaas)，单击**新建应用**，选择**空白应用**进行创建。
+1. 在 [腾讯云数据连接器控制台](https://console.cloud.tencent.com/ipaas)，单击**添加应用**，选择**空白应用**进行创建。
 ![](https://qcloudimg.tencent-cloud.cn/raw/f0e3a02558a61e6168e4a6c993931820.png)
-2. 单击左侧的**集成流**展开选择**NewFlow**在画布中单击**+**选择Database连接器相关操作。
+2. 单击左侧的**集成流**展开选择 **NewFlow**，在画布中单击 **+** 选择 Database 连接器相关操作。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d9c19f62caa7e148b330f90c69ee6a5f.png)
 3. 单击右侧的**新建连接器配置**并按照指引填入相关参数。
 ![image-20220401160819999](https://qcloudimg.tencent-cloud.cn/raw/14e0018d4398c500a088685161920d57.png)

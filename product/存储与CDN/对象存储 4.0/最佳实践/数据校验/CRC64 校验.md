@@ -57,7 +57,8 @@ x-cos-request-id: NWRlODY0ZWRfMjNiMjU4NjRfOGQ4Ml81MDEw****
 
 下面以 Python SDK 为例演示如何校验对象，完整的示例代码如下。
 
-> ?代码基于 Python 2.7，其中 Python SDK 详细使用方式，请参见 Python SDK 的 [对象操作](https://cloud.tencent.com/document/product/436/35151) 文档。
+>? 代码基于 Python 2.7，其中 Python SDK 详细使用方式，请参见 Python SDK 的 [对象操作](https://cloud.tencent.com/document/product/436/35151) 文档。
+>
 
 #### 1. 初始化配置
 

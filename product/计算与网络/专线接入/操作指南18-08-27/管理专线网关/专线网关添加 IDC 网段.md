@@ -40,7 +40,7 @@
 	<dx-alert infotype="explain" title="">
 发布方式系统自动填充，默认**自定义**方式，如果需要**自动传递**方式请提交[ 工单申请](https://console.cloud.tencent.com/workorder/category)。
 </dx-alert>
-   2. 在**网段详情**页面的**自定义**页签中单击**新建**，并填写发往云联网的网关信息，然后单击**保存**。
+   2. 在**网段详情**页面的**自定义**页签中单击**新建**，并填写发往云联网的网段信息，然后单击**保存**。
 	  ![](https://main.qcloudimg.com/raw/296ba61bf58e98f1496026909e74b994.png)
 		单击**保存**后，专线网关将配置的 IDC 网段发送给云联网。
 <dx-alert infotype="explain" title="">

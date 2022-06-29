@@ -23,6 +23,8 @@
 >? 
 >- WebP 压缩为付费服务，费用同基础图片处理，具体费用请参见 [图片处理费用](https://cloud.tencent.com/document/product/460/58117)。
 >- 图片转换为 WebP 格式后，部分浏览器无法读取 WebP 图片的 exif 信息，导致没有旋转。您可参见 [旋转](https://cloud.tencent.com/document/product/460/36542) 文档，增加 auto-orient 参数，对原图旋转后再进行压缩。
+>- WebP 压缩默认继承原始图片的质量参数。您可参见 [质量变换](https://cloud.tencent.com/document/product/460/36544) 文档，通过修改图片质量来调节压缩率。
+>
 
 
 ## 接口示例
@@ -50,6 +52,9 @@ Pic-Operations:
 }
 ```
 
+>? Pic-Operations 为 json 格式的字符串，具体参数信息可参考 [图片持久化处理](https://cloud.tencent.com/document/product/460/18147)。
+>
+
 #### 3. 云上数据处理
 
 ```http
@@ -68,7 +73,7 @@ Pic-Operations:
 }
 ```
 
->? 本篇文档中的实际案例仅包含**下载时处理**，该类处理不会保存处理后的图片至存储桶。如有保存需求，请使用**上传时处理**或**云上数据处理**方式。
+>? Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 >
 
 ## 处理参数说明
@@ -79,6 +84,9 @@ Pic-Operations:
 | /format/&lt;Format> | 压缩格式，此处为 webp。                                       |
 
 ## 实际案例
+
+>? 本篇文档中的实际案例仅包含**下载时处理**，该类处理不会保存处理后的图片至存储桶。如有保存需求，请使用**上传时处理**或**云上数据处理**方式。
+>
 
 假设原图格式为 png，图片大小为1335.2KB，如下图所示：
 ![img](https://example-1258125638.cos.ap-shanghai.myqcloud.com/sample.png)

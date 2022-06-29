@@ -2,13 +2,14 @@
 
 TUIPusher & TUIPlayer 是 Web 端开源的含 UI 直播互动组件。TUIPusher & TUIPlayer 集成 [实时音视频 TRTC](https://cloud.tencent.com/product/trtc) 、 [即时通信 IM](https://cloud.tencent.com/product/im) 等基础 SDK，为企业直播、电商带货、行业培训、远程教学等多种直播场景提供快速上线 Web 端直播推拉流工具的解决方案。
 
+>?TUIKit 系列组件同时使用了腾讯云 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269/42440) 两个基础 PaaS 服务，开通实时音视频后会同步开通即时通信IM服务。即时通信 IM 服务详细计费规则请参见 [即时通信 - 价格说明](https://cloud.tencent.com/document/product/269/11673)，TRTC 开通会默认关联开通 IM SDK 的体验版，仅支持100个 DAU。
+
 TUIPusher & TUIPlayer 的优势：
 + 贴合直播场景需求，提供了含 UI 的直播场景通用解决方案，覆盖了直播场景常见功能（如设备选择、美颜、直播推流、观众拉流、聊天等），助力业务快速上线。
 + 直接接入腾讯云实时音视频 TRTC、腾讯云即时通信 IM 以及腾讯云超级播放器 TCPlayer 等基础 SDK，方便客户灵活扩展业务功能。
 + Web 端易于用户使用，易于功能迭代的天然优势。
 
-![TUIPusher演示](https://web.sdk.qcloud.com/component/tuiliveroom/assets/pusher.gif)
-![TUIPlayer演示](https://web.sdk.qcloud.com/component/tuiliveroom/assets/player.gif)
+![](https://qcloudimg.tencent-cloud.cn/raw/d36ecef9608d14b1168df3748558d714.png)
 
 ## 快速体验
 

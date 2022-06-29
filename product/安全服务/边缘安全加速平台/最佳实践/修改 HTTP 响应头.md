@@ -6,7 +6,7 @@
 ## 操作步骤
 1. 登录 [边缘安全加速平台控制台](https://console.cloud.tencent.com/edgeone) ，在左侧菜单栏中，单击**规则引擎**。
 2. 在规则引擎页面，选择所需站点，单击![](https://qcloudimg.tencent-cloud.cn/raw/fe4d4900f8ad69d506adc49bdb70fa32.png)可按需配置修改 HTTP 响应头规则。
->!目前仅支持匹配条件为全部（任意请求） 或 Host 时配置修改 HTTP 请求头操作。
+>!目前仅支持匹配条件为全部（任意请求） 或 Host 时配置修改 HTTP 响应头操作。
 >
 参数说明：
 <table>
@@ -36,7 +36,7 @@
   - 参数值：1 - 1000个字符，不支持中文。
 - 一个修改 HTTP 请求头操作中，可添加多条不同类型操作，最多30条，执行顺序为从上至下。
 - 部分标准头部不支持修改，清单如下：
-```
+```js.
 Date
 Expires
 Content-Type

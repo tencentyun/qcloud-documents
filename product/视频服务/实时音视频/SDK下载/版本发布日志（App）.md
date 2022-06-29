@@ -1,4 +1,76 @@
-## Version 9.9 @ 2022.05.06
+此页面仅更新 TRTC SDK 的版本历史，如您想了解全功能版 SDK 的版本历史，请参见 [音视频终端 SDK（腾讯云视立方）版本历史](https://cloud.tencent.com/document/product/1449/76109)。
+
+> ? 全功能版 SDK 是多个基础 SDK 的集合，它包含了直播、短视频、音视频通话（TRTC）和播放器等子产品 SDK 的功能模块。
+
+### Version 10.2 @ 2022.06.23
+
+**新特性：**
+- 全平台：全新推出更加灵活，且功能强大的混流转推 API。详见 `startPublishMediaStream`。
+- 全平台：新增 3D 音频特效功能，详见 `enable3DSpatialAudioEffect`。
+- 全平台：新增人声检测功能，当 muteLoalAudio 和 setAudioCaptureVolume 为 0 时不会影响人声检测结果。详见 `enableAudioVolumeEvaluation`（方便提示用户开麦）。
+- 全平台：切换角色时，增加支持权限校验的功能，详见 `switchRole(TRTCRoleType role, const char* privateMapKey)`。
+- iOS&Mac：自定义预处理的 C++ 接口，支持以纹理方式对接视频处理。
+
+**功能优化：** 
+- Android：优化耳返效果，降低延迟。
+- Android：优化音频的采集链路，解决部分机型存在的杂音问题。
+- iOS：优化上行视频处理链路，节省 CPU、GPU 占用。
+- Windows&Mac：优化窗口分享时的编码性能，编码宽高不再受采集窗口大小的影响。
+- Windows：优化性能，减少内存碎片及其分配时造成性能开销。
+
+**缺陷修复：**
+- 全平台：修复切换网络类型时，偶现的上行失败问题。
+- iOS：修复在部分 iOS 14系统上，本地录制文件存在的杂音问题。
+
+
+### Version 10.1 @ 2022.06.06
+
+**新特性：**
+- 全平台：支持平滑切换角色，音视频播放不会因为切角色短暂中断。
+- iOS：支持立体声音频采集。
+- Android：在 Android 10 及以上系统支持采集系统播放音频（startSystemAudioLoopback）。
+
+**功能优化：** 
+- 全平台：优化音乐场景下的回声消除能力，音质效果更自然。
+- 全平台：优化切换角色 + muteLocalAudio 下的音质和启动效果。
+- 全平台：优化带宽预测 onSpeedTest 回调。
+- iOS：优化内存管理，避免内存堆积的问题。
+- Android：优化部分机型手机上耳返的延迟。
+- Windows：优化视频下行时视频渲染链路的性能。
+- Windows：优化立体声采集逻辑，有效避免漏回声问题。
+
+**缺陷修复：**
+- 全平台：修复退房回调（onExitRoom）的 reason 异常问题。
+- 全平台：修复上行自定义视频发送时，时间戳相等情况下的黑屏问题。
+- 全平台：修复先 muteLocalAudio 再 startLocalAudio 音频时 crash 问题。
+- 全平台：修复不手动设置3A场景下开启自定义音频采集会打开3A。
+- 全平台：修复音频自定义渲染偶现的杂音问题。
+- iOS：修复中途设置 log 路径（setLogDirPath）且沙盒变化时，内存泄漏的问题。
+- iOS&Mac：在系统音频服务异常时，BGM 连播场景的崩溃问题。
+- Android：修复偶现的蓝牙耳机不断重连接问题。
+- Android：修复部分手机上偶现的无声问题。
+- Android：修复红米等部分机型反复插拔耳机导致的崩溃问题。
+- Windows&iOS：修复截图失败的问题。
+- Windows：修复点播播放器开启镜像后，关闭 vod 必现 crash。
+- Windows：修复播片 pts 未使用 generateCustomPts，多个播片播放可能导致 pts 回退问题。
+- Windows：修复偶现选择禁画显示图片后崩溃问题。
+
+
+### Version 10.0 @ 2022.05.17
+
+**功能优化:** 
+
+- 全平台：优化主播进退房通知回调（[onRemoteUserEnterRoom](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDelegate__ios.html#a390831928a4d2a7977c4c1572da8be58) / [onRemoteUserLeaveRoom](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDelegate__ios.html#afa7d16e1e4c66d938fc2bc69f3e34c28)）的速度。
+- Windows：优化屏幕分享的性能，在未设置过滤窗口时，性能提升一倍。
+
+**缺陷修复:** 
+
+- iOS&Mac：修复开始播放 BGM 时，偶现的 [onComplete](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXAudioEffectManager__ios.html#a08ab9a6d9100f133420e44ae5eb99ee6) 回调错误的问题。
+- Android：修复一例网络模块导致的崩溃问题。
+- 全平台：修复 SEI 发送异常的问题。
+
+
+### Version 9.9 @ 2022.05.06
 
 **功能优化:** 
 - Windows：优化视频链路，降低性能开销。
@@ -94,8 +166,6 @@
 - Android：优化美颜等预处理流程，修复低端机器下的采集卡顿问题。
 - Windows：Live V1 升级到 V2 接口，提供更稳定的 Live 组件。
 - Windows：提升了低端机上的显卡兼容性。
-
->?更早期的版本更新历史请单击  [更多](https://cloud.tencent.com/document/product/647/46907)。
 
 ### Version 9.5 @ 2022.01.11
 

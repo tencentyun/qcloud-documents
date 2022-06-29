@@ -105,7 +105,7 @@ TUIKitDemo 已经按照如下步骤接入了离线推送功能，文档中已有
 
 
 
-### 步骤3：配置离线推送跳转界面
+### 步骤3：配置离线推送跳转界面 [](id:step3)
 
 收到离线推送后，通知栏会显示推送信息如图所示，单击通知栏会打开应用并进入配置的跳转界面。请您参见下面的步骤，配置单击通知消息后跳转的 Activity。
 
@@ -653,7 +653,7 @@ V2TIMManager.getOfflinePushManager().setOfflinePushConfig(v2TIMOfflinePushConfig
 });
 ```
 
-### 步骤6：前后台状态同步 [](id:step6)
+### 步骤6：前后台状态同步
 
  如果您的应用退到后台，收到新消息时需要在手机通知栏进行展示，请您调用 IMSDK 的 [doBackground()](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushManager.html#a2b191294ac4d68a2d69e482eae1b638f) 接口，将应用的状态同步给 IM 后台；当应用回到前台时，请您调用 IMSDK 的 [doForeground()](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushManager.html#a4c2ff4eea609da1d0950648905fbf6aa) 接口，将应用的状态同步给 IM 后台。监听 App 前后台切换的方案推荐您参见 [TUIOfflinePushService](https://github.com/TencentCloud/TIMSDK/blob/master/Android/TUIKit/TUIOfflinePush/tuiofflinepush/src/main/java/com/tencent/qcloud/tim/tuiofflinepush/TUIOfflinePushService.java) 的 initActivityLifecycle() 相关逻辑。
 
@@ -687,7 +687,7 @@ V2TIMManager.getOfflinePushManager().doForeground(new V2TIMCallback() {
 
 ### 步骤7：发消息时设置离线推送参数
 
-调用 [sendMessage](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMMessageManager.html#a28e01403acd422e53e999f21ec064795) 发送消息时，您可以通过 V2TIMOfflinePushInfo 设置离线推送参数，可以参见 [ChatProvider](https://github.com/tencentyun/TIMSDK/blob/master/Android/TUIKit/TUIChat/tuichat/src/main/java/com/tencent/qcloud/tuikit/tuichat/model/ChatProvider.java) 的 sendMessage() 方法：
+调用 [sendMessage](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMMessageManager.html#a28e01403acd422e53e999f21ec064795) 发送消息时，您可以通过 V2TIMOfflinePushInfo 设置离线推送参数，可以参照 [ChatProvider](https://github.com/tencentyun/TIMSDK/blob/master/Android/TUIKit/TUIChat/tuichat/src/main/java/com/tencent/qcloud/tuikit/tuichat/model/ChatProvider.java) 的 sendMessage() 方法：
 
 ```
 OfflineMessageContainerBean containerBean = new OfflineMessageContainerBean();
@@ -727,7 +727,7 @@ String msgID = V2TIMManager.getMessageManager().sendMessage(v2TIMMessage, isGrou
 
 ### 步骤8：解析离线推送消息
 
-当手机收到离线推送消息时，会在系统通知栏里展示收到的推送消息。单击通知栏的消息时，会自动跳转到您在步骤四配置的界面，您可以在该界面通过调用 getIntent().getExtras() 获取您在 [步骤6](#step6) 中配置的离线推送参数。示例代码可以参见 TUIKitDemo 的 [handleOfflinePush()](https://github.com/TencentCloud/TIMSDK/blob/master/Android/Demo/app/src/main/java/com/tencent/qcloud/tim/demo/main/MainActivity.java) 方法。
+收到离线推送的通知栏消息，点击会自动跳转到您在 [步骤3](#step3) 配置的跳转界面，可以在界面启动的 onResume() 方法中，调用 getIntent().getExtras() 获取透传的离线推送参数再自定义跳转。具体可以参照 TUIKitDemo 的 [handleOfflinePush()](https://github.com/TencentCloud/TIMSDK/blob/master/Android/Demo/app/src/main/java/com/tencent/qcloud/tim/demo/main/MainActivity.java) 方法。
 
 ```
 private void handleOfflinePush() {
@@ -764,7 +764,7 @@ private void handleOfflinePush() {
 ```
 
 >!
->- FCM 单击通知栏的消息会默认跳转至应用的默认 Launcher 界面，该界面可以通过调用 getIntent().getExtras() 获取您在 [步骤6](#step6) 中配置的离线推送参数，此处进行解析和自定义跳转。
+>- FCM 单击通知栏的消息会默认跳转至应用的默认 Launcher 界面，您可以在界面启动的 onResume() 方法中，通过调用 getIntent().getExtras() 获取透传的离线推送参数再自定义跳转。
  
 以上完成后，当您的应用退到后台或者进程被杀掉时，消息会进行离线推送通知栏展示，可单击通知栏跳转到设定的应用界面，完成实现离线推送功能。
 
@@ -800,7 +800,7 @@ OPPO 手机收不到推送一般有以下几种情况：
 - “手机设置-通知-应用的通知管理-通知铃声” 和 “手机设置-通知-应用的通知管理-静默通知”，会影响离线推送通知铃音的效果。
 
 #### 4、按照流程接入完成，还是收不到离线推送
-- 首先在 IM 控制台通过 [离线测试工具](https://console.cloud.tencent.com/im-detail/tool-push-check) 自测下是否可以正常推送。
+- 首先在 IM 控制台通过 [离线测试工具](https://console.cloud.tencent.com/im/tool-push-check) 自测下是否可以正常推送。
 推送异常情况，设备状态异常，需要检查下 IM 控制台配置各项参数是否正确，再者需要检查下代码初始化注册逻辑，包括厂商推送服务注册和 IM 设置离线推送配置相关逻辑是否正确设置。
 推送异常情况，设备状态正常，需要看下是否需要正确填写 channel ID 或者后台服务是否正常。
 - 离线推送依赖厂商能力，一些简单的字符可能会被厂商过滤不能透传推送。

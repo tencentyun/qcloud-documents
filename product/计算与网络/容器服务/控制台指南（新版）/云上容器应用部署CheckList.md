@@ -28,7 +28,7 @@
 				<td>安全组是重要的安全隔离手段，不当的安全策略配置可能会引起安全相关的隐患及服务连通性等问题。</td><td><a href="https://cloud.tencent.com/document/product/457/9084">容器服务安全组设置</a></td>
     </tr>
     <tr>
-        <td> Containerd 和 Docker 作为 TKE 当前支持的运行时组件，有不同的适用场景。创建集群时，请根据业务场景选择合适的容器运行时（Container Runtime）组件。</td><td>部署</td><td>集群一旦创建，便无法更改容器运行时，除非重新创建集群。</td><td><a href="https://cloud.tencent.com/document/product/457/35747">如何选择 Containerd 和 Docker</a></td>
+        <td> Containerd 和 Docker 作为 TKE 当前支持的运行时组件，有不同的适用场景。创建集群时，请根据业务场景选择合适的容器运行时（Container Runtime）组件。</td><td>部署</td><td>集群创建后，如修改运行时组件及版本，只对集群内无节点池归属的增量节点生效，不会影响存量节点。</td><td><a href="https://cloud.tencent.com/document/product/457/35747">如何选择 Containerd 和 Docker</a></td>
     </tr>
 	<tr>
         <td>默认情况下，Kube-proxy 使用 iptables 来实现 Service 到 Pod 之间的负载均衡。创建集群时，支持快速开启 IPVS 来承接流量并实现负载均衡。</td>

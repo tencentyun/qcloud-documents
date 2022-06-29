@@ -44,7 +44,7 @@
 | ------------ | ----------- | ---- |
 | Android 设备1 | 骁龙835-8核 | 6G   |
 | Android 设备2 | 麒麟980-8核 | 8G   |
-| iOS 设备1     | A8-双核     | 3G   |
+| iOS 设备1     | A8-双核     | 1G   |
 | iOS 设备2     | A13-6核     | 4G   |
 
 ### 测试参数配置
@@ -75,7 +75,7 @@
 ![](https://main.qcloudimg.com/raw/227236da4935eb07cbcb490684f02a54.png)
 - **运行30分钟耗电量：**
 ![](https://main.qcloudimg.com/raw/c973dfcca4888e10b5e9d171732c6395.png)
-- **运营30分钟发热增量：**
+- **运行30分钟发热增量：**
 ![](https://main.qcloudimg.com/raw/85df93deb059759ab9548416e0c2cc3b.png)
 
 

@@ -8,7 +8,7 @@
 2. 目前 IPv6 仅支持部分地域开通，详情请参见 [搭建 IPv6 私有网络操作须知](https://cloud.tencent.com/document/product/215/47557#.E6.93.8D.E4.BD.9C.E9.A1.BB.E7.9F.A5)。
 3. IPv6 地址为 GUA 地址，每个 VPC 分配1个`/56`的 IPv6 CIDR，每个子网分配1个`/64`的 IPv6 CIDR，每个弹性网卡分配1个 IPv6 地址。
 4. 主网卡、辅助网卡均支持申请 IPv6 地址。想要了解更多云服务器和弹性网卡的关系，请参见 [弹性网卡](https://cloud.tencent.com/document/product/576) 产品文档。
-5. 黑石物理服务器2.0不支持在创建实例时配置 IPv6 地址。如需在黑石物理服务器2.0配置此功能，请在创建黑石物理服务器2.0实例后，前往弹性网卡 IPv6 控制台进行开通。详情请参见 [管理 IPv6 公网](https://cloud.tencent.com/document/product/1142/38141)。
+5. 裸金属云服务器不支持在创建实例时配置 IPv6 地址。如需在裸金属云服务器配置此功能，请在创建裸金属云服务器实例后，前往弹性网卡 IPv6 控制台进行开通。详情请参见 [管理 IPv6 公网](https://cloud.tencent.com/document/product/1142/38141)。
 
 ## 操作步骤
 
