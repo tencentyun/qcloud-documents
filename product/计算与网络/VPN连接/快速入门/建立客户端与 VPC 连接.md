@@ -12,8 +12,7 @@
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。
 2. 在左侧目录中单击 **VPN 连接** > **VPN 网关**，进入管理页。
 3. 在 VPN 网关管理页面，单击**+新建**。
-4. 在弹出的新建 VPN 网关对话框中，配置如下网关参数。
-<img src="https://qcloudimg.tencent-cloud.cn/raw/63b66de84dceb2997a5282fad56ccd25.png" width="60%">
+4. 在弹出的新建 VPN 网关对话框中，配置如下网关参数。</br><img src="https://qcloudimg.tencent-cloud.cn/raw/63b66de84dceb2997a5282fad56ccd25.png" width="60%">
 <table>
 <tr>
 <th>参数名称</th>
@@ -55,8 +54,7 @@
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。
 2. 在左侧目录中单击 **VPN 连接** > **SSL 服务端**，进入管理页面。
 3. 在 SSL 服务端管理页面，单击**+新建**。
-4. 在弹出的新建 SSL 服务端对话框中，配置如下参数。
-<img src="https://qcloudimg.tencent-cloud.cn/raw/fd799d4abb00eb9e429ad900ee389efb.png" width="60%">
+4. 在弹出的新建 SSL 服务端对话框中，配置如下参数。</br><img src="https://qcloudimg.tencent-cloud.cn/raw/fd799d4abb00eb9e429ad900ee389efb.png" width="60%">
 <table>
 <tr>
 <th>参数名称</th>

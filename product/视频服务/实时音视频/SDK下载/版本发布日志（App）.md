@@ -1,14 +1,13 @@
-此页面仅更新 TRTC SDK 的版本历史，如您想了解全功能版 SDK 的版本历史，请参见 [音视频终端 SDK（腾讯云视立方）版本历史](https://cloud.tencent.com/document/product/1449/76109)。
+此页面仅更新 TRTC SDK 的版本历史，如您想了解全功能版 SDK 的版本历史，请参见 [全功能版 SDK 版本历史](https://cloud.tencent.com/document/product/1449/76109)。
 
 > ? 全功能版 SDK 是多个基础 SDK 的集合，它包含了直播、短视频、音视频通话（TRTC）和播放器等子产品 SDK 的功能模块。
 
 ### Version 10.2 @ 2022.06.23
-
 **新特性：**
-- 全平台：全新推出更加灵活，且功能强大的混流转推 API。详见 `startPublishMediaStream`。
-- 全平台：新增 3D 音频特效功能，详见 `enable3DSpatialAudioEffect`。
-- 全平台：新增人声检测功能，当 muteLoalAudio 和 setAudioCaptureVolume 为 0 时不会影响人声检测结果。详见 `enableAudioVolumeEvaluation`（方便提示用户开麦）。
-- 全平台：切换角色时，增加支持权限校验的功能，详见 `switchRole(TRTCRoleType role, const char* privateMapKey)`。
+- 全平台：全新推出更加灵活，且功能强大的混流转推 API。详见：startPublishMediaStream。
+- 全平台：新增 3D 音频特效功能，详见：enable3DSpatialAudioEffect。
+- 全平台：新增人声检测功能，当 muteLoalAudio 和 setAudioCaptureVolume 为 0 时不会影响人声检测结果。详见 enableAudioVolumeEvaluation，Tips：方便提示用户开麦。
+- 全平台：切换角色时，增加支持权限校验的功能。详见：`switchRole(TRTCRoleType role, const char* privateMapKey)`。
 - iOS&Mac：自定义预处理的 C++ 接口，支持以纹理方式对接视频处理。
 
 **功能优化：** 
@@ -18,10 +17,9 @@
 - Windows&Mac：优化窗口分享时的编码性能，编码宽高不再受采集窗口大小的影响。
 - Windows：优化性能，减少内存碎片及其分配时造成性能开销。
 
-**缺陷修复：**
+**缺陷修复：** 
 - 全平台：修复切换网络类型时，偶现的上行失败问题。
 - iOS：修复在部分 iOS 14系统上，本地录制文件存在的杂音问题。
-
 
 ### Version 10.1 @ 2022.06.06
 
@@ -72,14 +70,14 @@
 
 ### Version 9.9 @ 2022.05.06
 
-**功能优化:** 
+**功能优化：** 
 - Windows：优化视频链路，降低性能开销。
 - Windows：优化 Systemloopback 采集前处理，保留双声道的效果。
 - Mac：优化采集音量过大时导致的爆音问题，提升音质体验。
 - Mac：提升屏幕分享（辅路）的画质。
 - Android：优化采集延迟，提升耳返体验。
 
-**缺陷修复:** 
+**缺陷修复：** 
 - Android：修复房间号不支持21亿以上号段的问题。
 
 
@@ -93,7 +91,7 @@
 
 全平台：优化视频场景下的性能。
 
-**缺陷修复:** 
+**缺陷修复：** 
 - Mac：修复录制系统声卡音频时，驱动安装失败的问题。
 - 全平台：修复本地屏幕分享（辅路）时自定义渲染失效的问题。
 
@@ -203,7 +201,7 @@
 
 ### Version 9.3 @ 2021.11.03
 
-**故障修复**
+**故障修复：**
 - 全平台：修复 point2PointDelay 有时获取不到，数值为0的问题。
 - 全平台：修复偶现解析失败 SEI 消息丢失的问题。
 - Mac：修复在 MacOS 12 beta 上摄像头不出帧的问题。
@@ -211,7 +209,7 @@
 - Windows：修复使用竖屏编码并开启美颜的情况下画面出现锯齿的问题。
 - Windows：修复第三方美颜开启情况下，切换分辨率后自定义渲染不回调的问题。
 
-**功能优化**
+**功能优化：**
 - 全平台：优化弱网情况下视频秒开速度。
 - 全平台：优化弱网调控策略，同场景下更流畅。
 - 全平台：优化测速功能，支持对当前网络带宽进行检测。
@@ -219,17 +217,17 @@
 
 ### Version 9.2 @ 2021.09.23
 
-**功能新增**
+**功能新增：**
 - Android&iOS：支持 Socks5 代理。
 - Windows：TRTCAudioQualityMusic 高音质场景新增自适应回声消除功能，自动平衡音质与回声消除强度。
 - 全平台：新增设置语音音调功能。
 
-**故障修复**
+**故障修复：**
 - Windows：修复 Mac 安装 Windows 的环境部分摄像头不吐数据问题。
 - Android：修复偶现 CDN/TRTC 互切后没有上行音频的问题。
 - iOS：修复 Web 端屏幕分享导致 iOS 接受端自定义渲染花屏的问题。
 
-**功能优化**
+**功能优化：**
 - Android：优化硬解码时导致 ANR 的问题。
 - Android：优化摄像头本地预览角度兼容的问题。
 - Android：优化首帧秒开速度。
@@ -239,14 +237,14 @@
 
 ### Version 9.1 @ 2021.09.04
 
-**功能新增**
+**功能新增：**
 - 全平台：C++ 接口支持音频帧回调格式设置。
 - Windows：播片增加 ac3 格式的支持。
 - Windows：摄像头信息支持获取支持的分辨率列表，具体请参见 [ITXDeviceCollection.getDeviceProperties](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXDeviceManager__cplusplus.html#ad502f48cb2a4470943134e4b48904450)。
 - Windows：支持 Nvidia、Intel、AMD 硬解。
 - Mac：新增本地媒体录制支持。
 
-**问题修复**
+**问题修复：**
 - 全平台：修复偶现的进房失败问题。
 - Mac：修复屏幕分享时切换分辨率，预览画面闪一下的问题。
 - Android：修复子房间切回主房间时，辅路视频画面显示异常的问题。
@@ -254,7 +252,7 @@
 - Windows：修复观众切换为 CDN 流后无法拉流的问题。
 - Windows：修复播片功能播放特定格式视频画面消失的问题。
 
-**质量优化**
+**质量优化：**
 - 全平台：优化弱网下音视频体验。
 - Android：优化退房时的音频状态管理。
 - Android：优化音频采集启动失败后的恢复逻辑，提升成功率。
@@ -262,16 +260,16 @@
 
 ### Version 9.0 @ 2021.08.06
 
-**功能新增**
+**功能新增：**
 - iOS：支持设置系统采集音量，详情请参见 [setSystemAudioLoopbackVolume](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#afc45226807d84673bab78b21d1be54ae)。
 - 全平台：支持设置自定义音轨的音量，详情请参见 [setMixExternalAudioVolume](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__cplusplus.html#ae0031e4af8bb120ef6de164d99886418)。
 - 全平台：状态回调可区分音频和视频的丢包率，详情请参见 [TRTCRemoteStatistics](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCStatistic__cplusplus.html#structliteav_1_1TRTCRemoteStatistics)。
 
-**质量优化**
+**质量优化：**
 - 全平台：优化订阅流程，提升手动订阅的秒开速度。
 - 全平台：修复特定场景 onExitRoom 回调重复的问题。
 
-**问题修复**
+**问题修复：**
 - Android：修复自定义采集动态设置码率和帧率无效的问题。
 - iOS：修复先开启录屏辅路，再开启摄像头推流导致的推流失败问题。
 - iOS：修复本地视频录制模糊的问题。

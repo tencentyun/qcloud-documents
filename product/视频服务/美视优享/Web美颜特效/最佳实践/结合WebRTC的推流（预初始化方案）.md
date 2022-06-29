@@ -1,10 +1,9 @@
 ## 准备工作
-WebRTC的推流相关请参考 [结合WebRTC的推流]()，本文重点介绍采取预初始方案时代码及流程差异部分。
-预初始化方案相关介绍，请参考[加载优化]()
+WebRTC 的推流相关请参见 [结合 WebRTC 的推流](https://cloud.tencent.com/document/product/616/71373)，本文重点介绍采取预初始方案时代码及流程差异部分。
+预初始化方案相关介绍，请参见 [加载优化](https://cloud.tencent.com/document/product/616/76111)
 
 ## 开始使用
-
-预初始化方案与常规加载方案相比，最大的差异在于初始化SDK时不需要指定input或camera属性，即初始化时不为SDK指定输入数据，后续根据业务需求在适当的位置调用 initCore 接口指定输入数据。这样做的好处是将SDK依赖的资源提前加载，后续调用 initCore 后，SDK的ready事件就会更快地触发，便于获取输出流展示等。以下为关键代码示例：
+预初始化方案与常规加载方案相比，最大的差异在于初始化 SDK 时不需要指 input 或 camera 属性，即初始化时不为 SDK 指定输入数据，后续根据业务需求在适当的位置调用 initCore 接口指定输入数据。这样做的好处是将 SDK 依赖的资源提前加载，后续调用 initCore 后，SDK 的 ready 事件就会更快地触发，便于获取输出流展示等。以下为关键代码示例：
 
 ### 初始化SDK
 
@@ -68,8 +67,8 @@ function onClickStartCamera(){
 		input: arInputStream
 	})
 }
-
 ```
 
-## 代码示例 [](id:demo)
+[](id:demo)
+## 代码示例 
 您可以下载 [示例代码](https://webar-static.tencent-cloud.com/docs/quick-demo/best_practice.zip) 解压后查看 `AR_LEB_WEB` 代码目录中的 `AR_and_LEB_Preload.html` 文件。
