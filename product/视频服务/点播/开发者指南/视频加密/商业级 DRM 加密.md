@@ -6,10 +6,10 @@
 使用商业级 DRM ，有如下优势：
 
 <ul>
-<li>密钥不可见：密钥本身被加密，仅内容解密模块（CDM）能读取密钥；</li>
-<li>License 终端绑定：License 仅对单个终端有效，其他终端无法使用；</li>
-<li>License 支持过期：支持指定 License 的有效期；</li>
-<li>解码过程安全：支持硬件级（TEE）解密和解码；</li>
+<li>密钥不可见：密钥本身被加密，仅内容解密模块（CDM）能读取密钥。</li>
+<li>License 终端绑定：License 仅对单个终端有效，其他终端无法使用。</li>
+<li>License 支持过期：支持指定 License 的有效期。</li>
+<li>解码过程安全：支持硬件级（TEE）解密和解码。</li>
 <li>知名版权方认证：Widevine、FairPlay 获好莱坞、迪士尼等知名内容版权商认可。</li>
 </ul>
 
