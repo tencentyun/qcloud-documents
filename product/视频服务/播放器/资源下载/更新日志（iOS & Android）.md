@@ -1,4 +1,15 @@
+此页面仅更新播放器 SDK 的版本历史，如您想了解全功能版 SDK 的版本历史，请参见 [音视频终端 SDK（腾讯云视立方）版本历史](https://cloud.tencent.com/document/product/1449/76109)。
+
+> ? 全功能版 SDK 是多个基础 SDK 的集合，它包含了直播、短视频、音视频通话（TRTC）和播放器等子产品 SDK 的功能模块。
+
+
 ## 播放器 SDK
+### 播放器 SDK 10.2.0 @  2022.06.23
+- Android&iOS：修复硬解播放 H265 格式视频失败问题
+- Android&iOS：修复播放 HLS 直播异常
+- Android&iOS：优化播放过程中回调 cachedBytes、IP 地址等参数
+- iOS：修复某些场景下获取 supportedBitrates 异常
+
 ### 播放器 SDK 10.1.0 @ 2022.05.31
 - Android&iOS： 视频超分效果优化
 - Android&iOS：修复嵌套 m3u8 refer header 子流传递问题

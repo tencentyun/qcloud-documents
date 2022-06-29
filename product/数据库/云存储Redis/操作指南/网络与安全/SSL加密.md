@@ -6,7 +6,6 @@ SSL（Secure Sockets Layer）认证是客户端到云数据库服务器端的认
 开启 SSL，不收取任何费用，您可免费使用。
 
 ## 使用前须知
-- 开启 SSL 过程中，将触发重启实例，请在业务低峰期进行，并确保应用具备重连机制。
 - 开启 SSL 访问，保障数据访问及传输的安全，可能会略影响实例性能。建议仅在有加密需求时才开通 SSL 加密。
 - 未开启免密登录， 同时支持 SSL 和非 SSL 两种连接数据库的方式；而开启免密功能之后，且开启了 SSL 加密，就仅能通过 SSL 加密访问数据库。 
 - 开启 SSL 加密功能再关闭后，加密连接的客户端程序将无法正常连接。
@@ -36,4 +35,4 @@ SSL（Secure Sockets Layer）认证是客户端到云数据库服务器端的认
 ![](https://qcloudimg.tencent-cloud.cn/raw/914e99f788f4755a6ab08f9baf5aaff2.png)
 8. 等待**开启 SSL** 的状态为**已开启**，单击**下载证书**。
 9. 在页面左下角，将获取到的证书 **-crt.zip** 放在服务端，使用 SSL 加密方式访问数据库。
-
+客户端 Java 代码连接示例，请参见 [Java 连接示例](https://cloud.tencent.com/document/product/239/30885)；客户端 Python 程序代码连接示例，请参见 [Python 连接示例](https://cloud.tencent.com/document/product/239/30887)。

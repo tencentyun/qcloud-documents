@@ -1,45 +1,39 @@
-## Table of contents
+## 目录
 
-### Variables
-
+### Variables（变量）
 - [default](#default)
 
-### Functions
-
+### Functions（函数）
 - [check](#check)
 - [sleep](#sleep)
 - [step](#step)
 
-## Variables
+## Variables（变量）
 
-<span id="default"></span>
-
+[](id:default)
 ### default
-
-• **default**: `Object`
+**default**: `Object`
+```
+Defined in typings/pts.d.ts:58
+```
 
 #### Type declaration
+| Name    | Type                                                         |
+| :------ | :----------------------------------------------------------- |
+| check | (`name`: `string`, `callback`: () => `boolean`, `interrupt?`: `boolean`) => `boolean` |
+| sleep | (`seconds`: `number`) => `void`                              |
+| step  | (`name`: `string`, `callback`: () => `void`) => `any`        |
 
-| Name | Type |
-| :------ | :------ |
-| `check` | (`name`: `string`, `callback`: () => `boolean`, `interrupt?`: `boolean`) => `boolean` |
-| `sleep` | (`seconds`: `number`) => `void` |
-| `step` | (`name`: `string`, `callback`: () => `void`) => `any` |
-
-#### Defined in
-
-typings/pts.d.ts:58
 
 ## Functions
 
-<span id="check"></span>
-
+[](id:check)
 ### check
-
-▸ **check**(`name`, `callback`, `interrupt?`): `boolean`
-
+**check**(`name`, `callback`, `interrupt?`): `boolean`
 check 主要针对请求返回的结果做进一步检查，如果检查失败，则代表测试失败。
-
+```
+Defined in typings/pts.d.ts:57
+```
 ```js
 import http from 'pts/http';
 import { check } from 'pts';
@@ -51,33 +45,23 @@ export default function () {
 ```
 
 #### Parameters
+| Name         | Type            | Description             |
+| :----------- | :-------------- | :---------------------- |
+| name       | `string`        | 名字                    |
+| callback   | () => `boolean` | 函数，返回 boolean 类型 |
+| interrupt? | `boolean`       | 可选。是否中断函数      |
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `name` | `string` | 名字 |
-| `callback` | () => `boolean` | 函数，返回 boolean 类型 |
-| `interrupt?` | `boolean` | 可选。是否中断函数 |
-
-#### Returns
-
-`boolean`
-
+**Returns：**`boolean`
 检查结果
 
-#### Defined in
 
-typings/pts.d.ts:57
-
-___
-
-<span id="sleep"></span>
-
+[](id:sleep)
 ### sleep
-
-▸ **sleep**(`seconds`): `void`
-
+**sleep**(`seconds`): `void`
 在指定的时间内暂停 VU 执行。
-
+```
+Defined in typings/pts.d.ts:18
+```
 ```js
 import { sleep } from 'pts';
 
@@ -87,26 +71,21 @@ export default function () {
 ```
 
 #### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name      | Type     | Description  |
+| :-------- | :------- | :----------- |
 | `seconds` | `number` | 时间，单位秒 |
 
-#### Returns
+** Returns：**`void`
 
-`void`
 
-#### Defined in
-
-typings/pts.d.ts:18
-
-___
 
 ### step
-
-▸ **step**(`name`, `callback`): `any`
-
+**step**(`name`, `callback`): `any`
 把压测场景分步骤，在压测报告中可以体现。
+```
+Defined in typings/pts.d.ts:37
+```
+
 
 ```js
 import http from 'pts/http';
@@ -120,16 +99,9 @@ export default function () {
 ```
 
 #### Parameters
+| Name       | Type         | Description |
+| :--------- | :----------- | :---------- |
+| name   | `string`     | 名称        |
+| callback | () => `void` | 函数        |
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `name` | `string` | 名称 |
-| `callback` | () => `void` | 函数 |
-
-#### Returns
-
-`any`
-
-#### Defined in
-
-typings/pts.d.ts:37
+**Returns：**`any`

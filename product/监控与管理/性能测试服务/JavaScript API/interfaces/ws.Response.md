@@ -1,68 +1,32 @@
-# Interface: Response
-
-[ws](../modules/ws.md).Response
-
-## Table of contents
-
-### Properties
-
-- [body](#body)
-- [headers](#headers)
-- [status](#status)
-- [url](#url)
-
-## Properties
-
-<span id="body"></span>
-
+## Properties（属性）
+[](id:body)
 ### body
+**body**: `string`
+响应包体内容。
+```
+Defined in typings/ws.d.ts:69
+```
 
-• **body**: `string`
-
-响应包体内容
-
-#### Defined in
-
-typings/ws.d.ts:69
-
-___
-
-<span id="headers"></span>
-
+[](id:headers)
 ### headers
+**headers**: `Record`<`string`, `string`\>
+响应头参数。
+```
+Defined in typings/ws.d.ts:65
+```
 
-• **headers**: `Record`<`string`, `string`\>
-
-响应头参数
-
-#### Defined in
-
-typings/ws.d.ts:65
-
-___
-
-<span id="status"></span>
-
+[](id:status)
 ### status
+**status**: `number`
+返回状态码。
+```
+Defined in typings/ws.d.ts:61
+```
 
-• **status**: `number`
-
-返回状态码
-
-#### Defined in
-
-typings/ws.d.ts:61
-
-___
-
-<span id="url"></span>
-
+[](id:url)
 ### url
-
-• **url**: `string`
-
-请求地址
-
-#### Defined in
-
-typings/ws.d.ts:57
+**url**: `string`
+请求地址。
+```
+Defined in typings/ws.d.ts:57
+```

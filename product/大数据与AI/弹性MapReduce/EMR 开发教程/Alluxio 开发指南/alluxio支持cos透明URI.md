@@ -2,7 +2,7 @@ Alluxio 用户通常具有通过现有应用程序访问其底层存储系统（
 
 ## 支持版本与配置 URI  
 1. 服务组件支持版本：Alluxio2.8.0版本。
-2. 产品版本：Hadoop2.x 标准版本 EMR-V2.7.0 及 Hadoop3.x 标准版本 EMR-V3.4.0 版本。
+2. 产品版本：Hadoop3.x 标准版本 EMR-V3.4.0 版本。
 3. 配置支持透明 URI。使用 Alluxio 透明 URI，需要配置新的 Hadoop 兼容文件系统客户端实现。只要将客户端配置为接收外部 URI，此新的 ShimFileSystem 就会替换现有的 FileSystem。Hadoop 兼容的计算框架--Hadoop FileSystem 接口定义了从 FileSystem 方案到 FileSystem 实现的映射。为了配置 ShimFileSystem，请确保 core-site.xml 中配置了以下配置项：
 
 | 配置项                          | 配置项值                                  |

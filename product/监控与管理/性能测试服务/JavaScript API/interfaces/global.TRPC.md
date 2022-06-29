@@ -1,8 +1,7 @@
 ## Properties（属性）
 [](id:env)
 ### env
-- **env**: `string`
-
+**env**: `string`
 ```
  Defined in typings/global.d.ts:304
 ```
@@ -18,8 +17,7 @@ export const option = {
 
 [](id:namespace)
 ### namespace
-- **namespace**: `string`
-
+**namespace**: `string`
 ```
 Defined in ypings/global.d.ts:316
 ```
@@ -34,8 +32,7 @@ export const option = {
 
 [](id:sendOnly)
 ### sendOnly
-- **sendOnly**: `boolean`
-
+**sendOnly**: `boolean`
 ```
 Defined in typings/global.d.ts:328
 ```

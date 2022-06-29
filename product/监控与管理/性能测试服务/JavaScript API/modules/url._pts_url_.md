@@ -1,30 +1,21 @@
-## Table of contents
+## 目录
 
-### Variables
-
+### Variables（变量）
 - [URL](#url)
 - [URLSearchParams](#urlsearchparams)
 
-## Variables
+## Variables（变量）
 
-<span id="url"></span>
-
+[](id:url)
 ### URL
+`Const` **URL**: `Object`
+```
+Defined in typings/url.d.ts:155
+```
 
-• `Const` **URL**: `Object`
-
-#### Defined in
-
-typings/url.d.ts:155
-
-___
-
-<span id="urlsearchparams"></span>
-
+[](id:urlsearchparams)
 ### URLSearchParams
-
-• `Const` **URLSearchParams**: `Object`
-
-#### Defined in
-
-typings/url.d.ts:156
+`Const` **URLSearchParams**: `Object`
+```
+Defined in typings/url.d.ts:156
+```
