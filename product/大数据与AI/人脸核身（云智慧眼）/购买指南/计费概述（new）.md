@@ -20,36 +20,46 @@
 增强版人脸核身接入渠道与计费标签对应关系说明如下：
 
 <table>
-    <tr>
-        <th>接入渠道</th>
-				<th>比对库源</th>
-        <th>计费标签</th>
-			<th>定价</th>
-    </tr>
-    <tr>
-        <td rowspan =2>
-            <li><a href="https://cloud.tencent.com/document/product/1007/42656">微信原生 H5</a></li><li><a href="https://cloud.tencent.com/document/product/1007/31071">微信小程序</a></li>
-				</td>
-				<td>跟权威库比对</td>
-			 <td>增强版人脸核身（权威库）-微信</td>
-			 	<td><a href="https://cloud.tencent.com/document/product/1007/56804#.E5.A2.9E.E5.BC.BA.E7.89.88.E4.BA.BA.E8.84.B8.E6.A0.B8.E8.BA.AB.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E">价格说明</a></td>        
-    </tr>
-		   <tr>
-			 <td>跟上传照片比对</td>
-			 <td>增强版人脸核身（自传照片）-微信</td>
-			 <td><a href="https://cloud.tencent.com/document/product/1007/56804#.E5.A2.9E.E5.BC.BA.E7.89.88.E4.BA.BA.E8.84.B8.E6.A0.B8.E8.BA.AB.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E">价格说明</a></td> 
-			  </tr>
-			   <tr>
-                   <td rowspan =2><a href="https://cloud.tencent.com/document/product/1007/57617">增强版 SDK（APP）</a>
-				</td>
-				<td>跟权威库比对</td>
-				<td>增强版人脸核身（权威库）-App</td>
-		<td><a href="https://cloud.tencent.com/document/product/1007/56804#.E5.A2.9E.E5.BC.BA.E7.89.88.E4.BA.BA.E8.84.B8.E6.A0.B8.E8.BA.AB.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E">价格说明</a></td> 
-    </tr>
-		   <tr>
-	 <td>跟上传照片比对</td><td>增强版人脸核身（自传照片）-App</td>
-			 	<td><a href="https://cloud.tencent.com/document/product/1007/56804#.E5.A2.9E.E5.BC.BA.E7.89.88.E4.BA.BA.E8.84.B8.E6.A0.B8.E8.BA.AB.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E">价格说明</a></td> 
-			  </tr>
+<tr>
+<th>接入渠道</th>
+<th>比对库源</th>
+<th>计费标签</th>
+<th>定价</th>
+</tr>
+<tr>
+<td rowspan =2>
+<li><a href="https://cloud.tencent.com/document/product/1007/42656">微信原生 H5</a></li><li><a href="https://cloud.tencent.com/document/product/1007/31071">微信小程序</a></li>
+</td>
+<td>跟权威库比对</td>
+<td>增强版人脸核身（权威库）-微信</td>
+<td><a href="https://cloud.tencent.com/document/product/1007/56804#.E5.A2.9E.E5.BC.BA.E7.89.88.E4.BA.BA.E8.84.B8.E6.A0.B8.E8.BA.AB.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E">价格说明</a></td>        
+</tr>
+<tr>
+<td>跟上传照片比对</td>
+<td>增强版人脸核身（自传照片）-微信</td>
+<td><a href="https://cloud.tencent.com/document/product/1007/56804#.E5.A2.9E.E5.BC.BA.E7.89.88.E4.BA.BA.E8.84.B8.E6.A0.B8.E8.BA.AB.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E">价格说明</a></td> 
+</tr>
+<tr>
+<td rowspan =2><a href="https://cloud.tencent.com/document/product/1007/57617">增强版 SDK（APP）</a>
+</td>
+<td>跟权威库比对</td>
+<td>增强版人脸核身（权威库）-App</td>
+<td><a href="https://cloud.tencent.com/document/product/1007/56804#.E5.A2.9E.E5.BC.BA.E7.89.88.E4.BA.BA.E8.84.B8.E6.A0.B8.E8.BA.AB.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E">价格说明</a></td> 
+</tr>
+<tr>
+<td>跟上传照片比对</td><td>增强版人脸核身（自传照片）-App</td>
+<td><a href="https://cloud.tencent.com/document/product/1007/56804#.E5.A2.9E.E5.BC.BA.E7.89.88.E4.BA.BA.E8.84.B8.E6.A0.B8.E8.BA.AB.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E">价格说明</a></td> 
+</tr>
+<tr>
+<td rowspan =2>微信原生 H5</td>
+<td>跟权威库比对</td>
+<td>增强版人脸核身（权威库）-原生 H5</td>
+<td><a href="https://cloud.tencent.com/document/product/1007/56804#.E5.A2.9E.E5.BC.BA.E7.89.88.E4.BA.BA.E8.84.B8.E6.A0.B8.E8.BA.AB.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E">价格说明</a></td> 
+</tr>
+<tr>
+<td>跟上传照片比对</td><td>增强版人脸核身（自传照片）-原生 H5</td>
+<td><a href="https://cloud.tencent.com/document/product/1007/56804#.E5.A2.9E.E5.BC.BA.E7.89.88.E4.BA.BA.E8.84.B8.E6.A0.B8.E8.BA.AB.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E">价格说明</a></td> 
+</tr>
 </table>
 
 ### 基础版人脸核身

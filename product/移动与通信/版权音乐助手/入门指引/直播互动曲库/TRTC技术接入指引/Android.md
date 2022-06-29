@@ -182,7 +182,7 @@ copyrightedMedia.preloadMusic(String musicId, String bitrateDefinition, String p
 </tr><tr>
 <td>bitrateDefinition</td>
 <td>String</td>
-<td>码率描述，从服务器歌曲详情获取（ audio/mi: 代表64kbps码率 audio/lo:代表128kbps码率 audio/hi: 代表320kbps码率）</td>
+<td>码率描述，从服务器歌曲详情获取（audio/mi：代表64kbps码率，audio/lo：代表128kbps码率，audio/hi：代表320kbps码率）</td>
 </tr><tr>
 <td>playToken</td>
 <td>String</td>
@@ -193,7 +193,6 @@ copyrightedMedia.preloadMusic(String musicId, String bitrateDefinition, String p
 <td>回调函数</td>
 </tr>
 </tbody></table>
-
 ```java
 interface ITXMusicPreloadCallback {
     void onPreloadStart(String musicId, String bitrateDefinition);
@@ -262,10 +261,9 @@ copyrightedMedia.cancelPreloadMusic(String musicId, String bitrateDefinition);
 </tr><tr>
 <td>bitrateDefinition</td>
 <td>String</td>
-<td>码率描述，从服务器歌曲详情获取（ audio/mi: 代表64kbps码率 audio/lo:代表128kbps码率 audio/hi: 代表320kbps码率）</td>
+<td>码率描述，从服务器歌曲详情获取（audio/mi：代表64kbps码率，audio/lo：代表128kbps码率，audio/hi：代表320kbps码率）</td>
 </tr>
 </tbody></table>
-
 - **检测是否已预加载 Music 数据**
 ```java
 boolean isPreloaded = copyrightedMedia.isMusicPreloaded(String musicId, String bitrateDefinition);
@@ -280,10 +278,9 @@ boolean isPreloaded = copyrightedMedia.isMusicPreloaded(String musicId, String b
 </tr><tr>
 <td>bitrateDefinition</td>
 <td>String</td>
-<td>码率描述，从服务器歌曲详情获取（ audio/mi: 代表64kbps码率 audio/lo:代表128kbps码率 audio/hi: 代表320kbps码率）</td>
+<td>码率描述，从服务器歌曲详情获取（audio/mi：代表64kbps码率，audio/lo：代表128kbps码率，audio/hi：代表320kbps码率）</td>
 </tr>
 </tbody></table>
-
 - **生成 Music URI**
 App 客户端在 preloadMusic 成功之后调用，原唱&伴奏传给 TRTC 进行播放。
 ```java
@@ -303,10 +300,9 @@ String MusicUri = TXCopyrightedMedia.genMusicURI(String musicId，int musicType,
 </tr><tr>
 <td>bitrateDefinition</td>
 <td>String</td>
-<td>码率描述，从服务器歌曲详情获取（ audio/mi: 代表64kbps码率 audio/lo:代表128kbps码率 audio/hi: 代表320kbps码率）</td>
+<td>码率描述，从服务器歌曲详情获取（audio/mi：代表64kbps码率，audio/lo：代表128kbps码率，audio/hi：代表320kbps码率）</td>
 </tr>
 </tbody></table>
-
 返回说明：
 <table>
 <thead><tr><th>返回值</th><th>类型</th><th>描述</th></tr></thead>

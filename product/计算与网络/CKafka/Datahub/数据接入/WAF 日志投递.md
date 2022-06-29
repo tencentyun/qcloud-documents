@@ -10,7 +10,6 @@
 
 ## 前提条件
 - 已购买腾讯云 [消息队列 CKafka 实例](https://cloud.tencent.com/document/product/597/11745)，按照实际日志用量来配置 CKafka 实例的带宽规格。
-- 支撑环境接入 CKafka 时需 [提交工单](https://console.cloud.tencent.com/workorder/category)，转 CKafka 消息队列小助手加白名单才可以使用。
 
 ## 操作步骤
 

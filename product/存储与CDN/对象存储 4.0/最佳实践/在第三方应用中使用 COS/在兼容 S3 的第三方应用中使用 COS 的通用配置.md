@@ -1,4 +1,4 @@
-Amazon Simple Storage Service（Amazon S3，下文简称 S3）是 AWS 最早推出的云服务之一，经过多年的发展，S3 协议在对象存储行业事实上已经成为标准。腾讯云对象存储 COS（下文简称 COS）提供了兼容 S3 的实现方案，因此您可以在大部分兼容 S3 应用中直接使用 COS 服务。本文将重点介绍如何将此类应用配置为使用 COS 服务。
+Amazon Simple Storage Service（Amazon S3，下文简称 S3）是 AWS 最早推出的云服务之一，经过多年的发展，S3 协议在对象存储行业事实上已经成为标准。腾讯云对象存储（Cloud Object Storage，COS）提供了兼容 S3 的实现方案，因此您可以在大部分兼容 S3 应用中直接使用 COS 服务。本文将重点介绍如何将此类应用配置为使用 COS 服务。
 
 ## 准备工作
 
@@ -37,15 +37,9 @@ Amazon Simple Storage Service（Amazon S3，下文简称 S3）是 AWS 最早推�
 <span id="step5"></span>
 #### 步骤5：创建存储桶
 
-部分应用内置创建存储桶的过程，如果您希望由应用去创建存储桶，您可以忽略此步骤。
+参见 [创建存储桶](https://cloud.tencent.com/document/product/436/13309) 创建一个存储桶。
 
-1. 在 [对象存储控制台](https://console.cloud.tencent.com/cos5) 左侧导航栏中单击**存储桶列表**，进入存储桶管理页。
-2. 单击**创建存储桶**，输入存储桶信息。
-	- 名称：存储桶名称，如 examplebucket。
-	- 所属地域：存储桶存放地域，选择与您最近的一个地区，例如我在 “深圳”，地域可以选择 “广州”。
-	- 访问权限：存储桶访问权限，此处我们选择“私有读写”。
-		![](https://main.qcloudimg.com/raw/403185f7cc974daf2cb962a45474747d.jpg)
-3. 单击**确定**，即可创建存储桶。
+部分应用内置创建存储桶的过程，如果您希望由应用去创建存储桶，您可以忽略此步骤。
 
 
 ## 在应用中配置 COS 服务

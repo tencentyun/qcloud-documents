@@ -17,7 +17,7 @@ GooseFS 默认的获取监控指标的方式是通过 JSON 格式拉取，对应
 $ curl <LEADING_MASTER_HOSTNAME>:<MASTER_WEB_PORT>/metrics/json
 ```
 
-如上示例中，<LEADING_MASTER_HOSTNAME> 需要是合法的 MASTER 节点的IP，<MASTER_WEB_PORT> 需要为已经启用的端口。
+如上示例中，&lt;LEADING_MASTER_HOSTNAME> 需要是合法的 MASTER 节点的 IP，&lt;MASTER_WEB_PORT> 需要为已经启用的端口。
 
 如果需要获取某个 WORKER 节点的监控指标，可以通过如下方式获取：
 
@@ -48,8 +48,9 @@ sink.csv.directory=/tmp/goosefs-metrics # 设置监控指标导出路径
 配置好后需要重启节点以便配置生效。配置生效后，监控指标将周期性地导出成 CSV 格式并存储在指定路径下。
 
 >!
-- GooseFS 准备了监控配置模板，可以参考 conf/metrics.properties.template文件；
-- 如果 GooseFS 是集群化部署，需要保证指定的指标存储路径能被所有节点读取。
+> - GooseFS 准备了监控配置模板，可以参考 conf/metrics.properties.template文件。
+> - 如果 GooseFS 是集群化部署，需要保证指定的指标存储路径能被所有节点读取。
+> 
 
 ### 3. 拉取 Prometheus 监控指标
 GooseFS  master 和 worker 的 Prometheus 的监控指标可用如下的命令查看，其中 master 的 metrics 端口为9201，worker 的 metrics 端口为 9204：

@@ -15,7 +15,7 @@ Dockershim 已经正式被弃用。kubernetes 对 Docker 的支持已弃用，�
 更多信息，可以参考 [Configure Liveness, Readiness and Startup Probes - Configure Probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#configure-probes)
 #### 卷快照操作功能 GA
 此功能提供了一种触发卷快照操作的标准方法，并允许用户以可移植的方式在任何 Kubernetes 环境和支持的存储 provider 上进行合并快照的操作。
-此外，这些 Kubernetes 快照原语可以作为基础，解锁为 Kubernetes 开发高级企业级存储管理功能（包括应用程序或群集级备份解决方案）的能力。
+此外，这些 Kubernetes 快照原语可以作为基础，解锁为 Kubernetes 开发高级企业级存储管理功能（包括应用程序或集群级备份解决方案）的能力。
 请注意，快照支持需要 Kubernetes 集群部署快照控制器、快照 CRD 和验证 Webhook，以及支持快照功能的 CSI 驱动。
 
 #### kubectl debug 进入 beta 阶段
@@ -26,13 +26,13 @@ Dockershim 已经正式被弃用。kubernetes 对 Docker 的支持已弃用，�
 请注意，作为新的内置命令，kubectl debug 优先于任何名为 "debug" 的 kubectl 插件，必须重命名受影响的插件。
  `kubectl alpha debug` 已弃用，并将在随后的版本中删除，需要替换为 `kubectl debug` 。更多信息，可以参考 [Debug Running Pods](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-running-pod/)
  
-#### API 优先级和公平性功能（API Priority and Fairness）进步 beta 阶段
+#### API 优先级和公平性功能（API Priority and Fairness）进入 beta 阶段
 1.18 引入的 API Priority and Fairness 功能，将在 1.20 版本默认启用，允许 `kube-apiserver` 按优先级对传入的请求进行分类。
 #### PID 资源限制功能 GA
  `SupportNodePidsLimit`  （节点到 pod 的 PID 隔离）和  `SupportPodPidsLimit`  （ 限制每个 Pod 的 PID 的能力）都已经到了 GA 阶段。
  
 #### alpha 功能：节点优雅关机
-用户和群集管理员都希望 pod 将遵循预期的 pod 生命周期，包括 pod 的终止。但是当节点关机时，pod 不遵循预期的 pod 终止生命周期，并且不会正常终止，这可能会导致工作负载的某些问题。1.20 增加了 alpha 的  `GracefulNodeShutdown`  功能，使得 kubelet 能 监听到节点的系统关机事件，从而在系统关闭期间优雅终止 pod。
+用户和集群管理员都希望 pod 将遵循预期的 pod 生命周期，包括 pod 的终止。但是当节点关机时，pod 不遵循预期的 pod 终止生命周期，并且不会正常终止，这可能会导致工作负载的某些问题。1.20 增加了 alpha 的  `GracefulNodeShutdown`  功能，使得 kubelet 能 监听到节点的系统关机事件，从而在系统关闭期间优雅终止 pod。
 
 #### CSIVolumeFSGroupPolicy 进入 beta 阶段
 CSIDrivers 可以使用 `fsGroupPolicy` 字段来控制是否支持在 mount 时修改属主和权限。（ReadWriteOnceWithFSType，File，None）
@@ -153,7 +153,7 @@ VolumeSnapshotDataSource 默认开启。详情请参阅 [releasing CSI volume sn
 CSIMigration 默认开启。详情请参阅 [CSI migration going to beta](https://kubernetes.io/blog/2019/12/09/kubernetes-1-17-feature-csi-migration-beta/)。
 
 #### Kubernetes 拓扑管理器迎来 Beta 版
-拓扑管理器功能（TopologyManager）在1.18中进步 Beta，可以让 CPU 与其他设备（例如 SR-IOV-VF）实现 NUMA 对齐，使工作负载能够支持低延迟的工作场景。
+拓扑管理器功能（TopologyManager）在1.18中进入 Beta，可以让 CPU 与其他设备（例如 SR-IOV-VF）实现 NUMA 对齐，使工作负载能够支持低延迟的工作场景。
 在引入拓扑管理器之前，CPU 与设备管理器只能彼此独立地做出资源分配决策，可能导致在多插座 CPU 系统中无法获取理想的资源分配结果，影响延迟敏感应用的性能。
 
 #### Serverside Apply 进入 Beta 2阶段
@@ -204,7 +204,7 @@ Server-side Apply 在 Kubernetes 1.16版本被提升到 Beta 版，1.18引入第
  - `system:csi-external-provisioner` 
  - `system:csi-external-attacher`
 
-####  废弃的特性和参数
+####  废弃的特性开关和参数
 - 废弃默认的 service IP CIDR（`10.0.0.0/24`），必须通过 kube-apiserver 的 `--service-cluster-ip-range` 参数进行设置。
 - 废弃 API 组 `rbac.authorization.k8s.io/v1alpha1` 和 `rbac.authorization.k8s.io/v1beta1`，计划在1.20版本中移除。请迁移到 `rbac.authorization.k8s.io/v1`。
 - 废弃 `CSINodeInfo` 特性，该特性已经达到 GA 并默认开启。
@@ -424,7 +424,7 @@ k8s.io/kubernetes 和其他发布的组件，包括 k8s.io/client-go 和 k8s.io/
 ## 1.12 changes since 1.10
 ### 重大更新
 #### API 
-- CustomResources 子资源现在进入 beta 阶段，并默认开启，可以对 `/status` 子资源更新除了 `.status` 字段（之前只允许对 .spec 和 .metadata 进行更新）。在启用 `/status` 子资源时，`required` 和 `rescription` 可用于 CRD OpenAPI 验证 schema。另外，用户可以创建多个版本的 CustomResourceDefinitions，不需进行自动转换。可以通过 CustomResourceDefinitions 的 `spec.additionalPrinterColumns` 字段让 `kubectl get` 的输出包含额外的列。
+- CustomResources 子资源现在进入 beta 阶段，并默认开启，可以对 `/status` 子资源更新除了 `.status` 字段（之前只允许对 .spec 和 .metadata 进行更新）。在启用 `/status` 子资源时，`required` 和 `description` 可用于 CRD OpenAPI 验证 schema。另外，用户可以创建多个版本的 CustomResourceDefinitions，不需进行自动转换。可以通过 CustomResourceDefinitions 的 `spec.additionalPrinterColumns` 字段让 `kubectl get` 的输出包含额外的列。
 - 支持 `dry run` 功能，允许用户可以看到某些命令的执行结果，而不需要真正提交相关的更改。
 
 #### 认证授权
@@ -445,12 +445,12 @@ CLI 实现了新的插件机制，并提供了包含通用 CLI 工具的开发�
 - DynamicKubeletConfig 进入 Beta 阶段。
 - cri-tools GA。
 - PodShareProcessNamespace 进入 Beta 阶段。
-- 新增 Alpha 特性：RuntimeClass，CustomCFSQuotaPeriod 。
+- 新增 Alpha 特性：RuntimeClass，CustomCFSQuotaPeriod。
 
 #### 调度器
 - Pod Priority 及 Preemption 进入 Beta 阶段。
 - DaemonSet Pod 的调度不再由 DaemonSet 控制器管理，而由默认调度器管理。
-- TaintNodeByCondition 进步 Beta 阶段。
+- TaintNodeByCondition 进入 Beta 阶段。
 - 默认开启本地镜像优选功能。在调度 Pod 时，本地已经拉取全部或者部分 Pod 所需镜像的节点会有更高的优先级，这样可以加速 Pod 启动。
 
 ### 一般更新

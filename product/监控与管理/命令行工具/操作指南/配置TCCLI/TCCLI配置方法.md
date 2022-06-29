@@ -10,7 +10,7 @@
 
 
 <dx-alert infotype="explain" title="">
-下文中 secretId、secretKey、地域等信息仅作为实例，请以实际情况为准。
+下文中 secretId、secretKey、地域等信息仅作为示例，请以实际情况为准。
 </dx-alert>
 
 

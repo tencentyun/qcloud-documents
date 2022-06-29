@@ -1,3 +1,5 @@
+
+
 ## 操作场景
 
 假设一款智能灯接入到物联网开发平台，通过物联网开发平台可以远程控制灯的亮度、颜色、开关，并实时获取智能灯上报到物联网开发平台的数据。本文档主要指导您如何基于 TencentOS-tiny 物联网操作系统，使用 MQTT 协议在物联网开发平台控制台接入智能灯。
@@ -88,7 +90,7 @@ git clone https://github.com/Tencent/TencentOS-tiny.git
     -  产品 ID： 将控制台的产品 ID ，复制到下图 sg_product_id。
     -  设备名称： 将控制台的设备名称，复制到下图 sg_device_name。
     -  设备密钥：将控制台的设备密钥，复制到下图 sg_device_secret。
-  ![](https://main.qcloudimg.com/raw/cadab6199c68fc70debc7e02a6580731.png)
+    ![](https://main.qcloudimg.com/raw/cadab6199c68fc70debc7e02a6580731.png)
  3. 修改 entry.c 中的 Wi-Fi 网络接入配置信息。
 ![](https://main.qcloudimg.com/raw/d1dc0309a19ff454112f64fbc3111da2.png)
 

@@ -19,7 +19,7 @@
 
 <dx-tabs>
 ::: 使用 pip工具进行安装（推荐）
-1. Windows 系统按 Win+R 打开运行窗口输入 cmd 并单击**确定**，本文以 Linux 为例。
+1. 安装命令在 Windows、Mac OS 以及 Linux 上一致，请打开您使用系统的命令行窗口。
 2. 在命令行窗口中，执行以下命令进行 TCCLI 安装。
 ```bash
 sudo pip install tccli

@@ -11,7 +11,7 @@ GooseFS-Lite 工具支持将对象存储（Cloud Object Storage，COS）存储�
 - 不支持读取和 rename 当前挂载点正在写入的文件。
 - 元数据操作。例如 list directory，性能较差，因为需要远程访问 COS 服务器。
 - 不支持 soft/hard link。
-- 追加写性能较差，且存在大小限制，需要将被追加文件下载到本地。
+- 追加写性能较差，涉及服务端数据拷贝和下载被追加文件。
 >! 外网挂载和非低频存储的追加写操作，会产生下载流量费用。
 >
 
@@ -29,9 +29,36 @@ GooseFS-Lite 工具支持将对象存储（Cloud Object Storage，COS）存储�
 yum install -y fuse-devel java-11-openjdk-devel
 ```
 
-### 步骤2：配置密钥文件
+### 步骤2：下载 GooseFS-Lite 安装包
 
-修改配置文件 conf/core-site.xml 中的配置项：
+1. 执行如下命令，获取 GooseFS-Lite 安装包：
+```
+curl -LO https://cos-data-lake-release-1253960454.cos.ap-guangzhou.myqcloud.com/goosefs-lite/goosefs-lite-1.0.0.tar.gz
+```
+2. 执行如下命令，获取 GooseFS-Lite 的 Md5 文件：
+```
+curl -LO https://cos-data-lake-release-1253960454.cos.ap-guangzhou.myqcloud.com/goosefs-lite/goosefs-lite-1.0.0-md5.txt
+```
+3. 执行如下命令，验证文件的完整性。
+```
+md5sum --check goosefs-lite-1.0.0-md5.txt
+```
+执行以上三步后，当看到如下图所示，则表示文件完整性验证通过。
+![](https://qcloudimg.tencent-cloud.cn/raw/408ed5acc4d6d0866499f94362fe70aa.png)
+
+### 步骤3：解压 GooseFS-Lite 安装包
+```
+tar -xvf goosefs-lite-1.0.0.tar.gz
+```
+当看到如下图所示，则表示解压成功，并生成了一个 goosefs-lite-1.0.0的目录。
+<img src="https://qcloudimg.tencent-cloud.cn/raw/d9fb1f5c09e49799a31fd63446cd95d8.png" style="width: 70%" />
+
+
+### 步骤4：配置密钥文件
+
+进入./conf 目录下，修改配置文件 conf/core-site.xml 中的配置项，如下图所示：
+<img src="https://qcloudimg.tencent-cloud.cn/raw/e08ad0e443d783172a759ffb9764b456.png" style="width: 70%" />
+
 - 将 fs.cosn.userinfo.secretKey 配置为腾讯云密钥 ID。
 - 将 fs.cosn.userinfo.secretId 配置为腾讯云密钥 Key。
 - 将 fs.cosn.bucket.region 配置为存储桶地域。
@@ -67,7 +94,7 @@ yum install -y fuse-devel java-11-openjdk-devel
 </configuration>
 ```
 
-如果您挂载的是元数据加速存储桶，则需要您先对元数据加速存储桶进行如下配置：
+如果您挂载的是 [元数据加速](https://cloud.tencent.com/document/product/436/56971) 存储桶，则需要您先对元数据加速存储桶进行如下配置：
 1. 性能配置 > HDFS 权限配置 > HDFS 用户配置，添加超级用户，例如 root。
 2. 性能配置 > HDFS 权限配置 > HDFS 权限配置，添加访问 COS 存储桶的 VPC 和 IP 地址信息。
 3. 在本机执行如下命令，添加 hadoop 用户和 supergroup 组。
@@ -98,7 +125,7 @@ groupadd supergroup
     <name>fs.cosn.trsf.fs.ofs.bucket.region</name>
     <value>ap-guangzhou</value>
   </property>
-     <property>
+  <property>
     <name>fs.cosn.trsf.fs.ofs.plugin.info.log</name>
     <value>true</value>
   </property>
@@ -113,7 +140,7 @@ groupadd supergroup
 </configuration>
 ```
 
-### 步骤3：运行工具
+### 步骤5：运行工具
 
 执行如下命令，将密钥文件中配置的存储桶挂载到指定目录：
 ```shell
@@ -137,7 +164,7 @@ pid     mount_point     cos_path
 13815   /mnt/goosefs-lite-mnt/  cosn://examplebucket-1250000000/
 ```
 
-### 步骤4：卸载存储桶
+### 步骤6：卸载存储桶
 
 卸载存储桶示例：
 ```shell
@@ -145,7 +172,7 @@ $./bin/goosefs-lite umount /mnt/goosefs-lite-mnt
 Unmount fuse at /mnt/goosefs-lite-mnt/ (PID: 17206).
 ```
 
-### 步骤5：参数调优
+### 步骤7：参数调优
 
 GooseFS-Lite 包含两个配置文件，分别为 conf/core-site.xml 及 conf/goosefs-lite.properties。
 您可以通过修改 conf/core-site.xml 调优上传下载带宽。常用参数如下，更多参数可参考 [Hadoop-COS](https://cloud.tencent.com/document/product/436/6884) 文档。
@@ -169,21 +196,19 @@ GooseFS-Lite 包含两个配置文件，分别为 conf/core-site.xml 及 conf/go
 | goosefs.fuse.list.entries.cache.enabled | 是否开启客户端 List 缓存 | true | 否     |
 | goosefs.fuse.list.entries.cache.max.size            | 客户端 List 最大缓存的条目数，单位：条 | 100000 | 否   |
 | goosefs.fuse.list.entries.cache.max.expiration.time | 客户端 List 缓存的有效时间，单位：ms | 15000 | 否   |
-| goosefs.fuse.append.file.enabled                    | 是否允许对文件进行追加操作 | true | 否   |
-| goosefs.fuse.append.file.max.size                   | 限制被追加文件的大小，单位：字节 | 10485760      | 否   |
 | goosefs.fuse.async.release.wait_time.max.ms         | open 和 rename 操作的文件正在被写入时，等待写入操作完成的时间，单位：ms | 5000 | 否   |
 | goosefs.fuse.umount.timeout                         | 卸载文件系统时，等待未完成操作的时间，单位：ms | 120000        | 否   |
 
-当您的读取并发度较大时，您可以通过如下方式，调整 GooseFS-Lite 最大 JVM 运行内存，避免 FullGC。默认值为`-Xms4G -Xmx4G -XX:+UseG1GC`。
+当您的读取和写入并发度较大，您可以通过如下方式，调整 GooseFS-Lite 最大 JVM 运行内存，避免 FullGC 和 OutOfMemoryError。JVM 默认值为`-Xms2G -Xmx2G -XX:MaxDirectMemorySize=4G -XX:+UseG1GC`，调整方式如下：
 ```
-export JAVA_OPTS=" -Xms4G -Xmx4G -XX:+UseG1GC"
+export JAVA_OPTS=" -Xms16G -Xmx16G  -XX:MaxDirectMemorySize=16G -XX:+UseG1GC"
 ./bin/goosefs-lite mount /mnt/goosefs-lite-mnt/ cosn://examplebucket-1250000000/
 ps -ef|grep goosefs-lite|grep -v grep
 ```
 
 ### 常见问题
 
-#### 缺少 libfuse 库文件，该如何处理？
+#### 1. 缺少 libfuse 库文件，该如何处理？
 
 需要安装 libfuse:
 ![img](https://qcloudimg.tencent-cloud.cn/raw/7a535eed0fac0da06f530fb04ca9702b.png)
@@ -227,5 +252,52 @@ ln -s /usr/lib64/libfuse.so.2.9.7 /usr/lib64/libfuse.so
 ln -s /usr/lib64/libfuse.so.2.9.7 /usr/lib64/libfuse.so.2
 ```
 
+#### 2. 如何配置开机挂载？
+步骤一:
+编辑文件 /usr/lib/systemd/system/goosefs-lite.service，追加如下内容，您可以将 examplebucket-1250000000 换为您的存储桶：
+```
+[Unit]
+Description=The Tencent Cloud GooseFS Lite for COS
+Requires=network-online.target
+After=network-online.target
 
+[Service]
+Type=forking
+User=root
+Environment="JAVA_OPTS=-Xms16G -Xmx16G -XX:MaxDirectMemorySize=16G -XX:+UseG1GC"
+ExecStart=/usr/local/goosefs-lite-1.0.0/bin/goosefs-lite mount /mnt/goosefs-mnt cosn://examplebucket-1250000000/
+ExecStop=/usr/local/goosefs-lite-1.0.0/bin/goosefs-lite umount /mnt/goosfs-mnt
 
+[Install]
+WantedBy=multi-user.target
+```
+步骤二：
+执行如下命令，执行挂载命令和查看后台 Daemon 进程状态：
+```
+# 让 goosefs-lite 的 systemd 配置生效
+systemctl daemon-reload
+# 启动后台 Fuse 进程
+systemctl start goosefs-lite
+# 查看后台 Daemon 进程状态
+systemctl status goosefs-lite
+# 查看挂载点列表
+/usr/local/goosefs-lite-1.0.0/bin/goosefs-lite stat
+
+```
+设置为开机启动时尝试挂载：
+```
+systemctl enable goosefs-lite
+```
+
+步骤三：
+卸载挂载点，重启机器，并查看 Fuse 进程状态：
+```
+# 执行卸载，注意：请勿在数据写入的时卸载，否则会导致数据不完整
+systemctl stop goosefs-lite
+# 重启操作系统，请谨慎操作，不要影响业务
+reboot -h now
+# 查看后台 Daemon 进程状态
+systemctl status goosefs-lite
+# 查看挂载点列表
+/usr/local/goosefs-lite-1.0.0/bin/goosefs-lite stat
+```

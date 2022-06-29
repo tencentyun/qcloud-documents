@@ -121,6 +121,7 @@ dependencies {
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+<uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
 
 <!-- 【常用】 移动推送 TPNS SDK所需权限 -->
 <uses-permission android:name="android.permission.WAKE_LOCK" />
@@ -136,6 +137,7 @@ dependencies {
 | android.permission.ACCESS_WIFI_STATE      | 必选 | 允许程序获取当前 Wi-Fi 接入的状态以及 WLAN 热点的信息 |
 | android.permission.ACCESS_NETWORK_STATE   | 必选 | 允许程序获取网络信息状态                              |
 | android.permission.WAKE_LOCK              | 必选     | 允许程序在手机屏幕关闭后，后台进程仍然运行            |
+| android.permission.SCHEDULE_EXACT_ALARM             | 必选     | 允许定时广播            |
 | android.permission.VIBRATE                | 可选     | 允许应用震动                                          |
 | android.permission.RECEIVE_USER_PRESENT   | 可选     | 允许应用可以接收点亮屏幕或解锁广播                    |
 | android.permission.WRITE_EXTERNAL_STORAGE | 可选     | 允许程序写入外部存储                                  |

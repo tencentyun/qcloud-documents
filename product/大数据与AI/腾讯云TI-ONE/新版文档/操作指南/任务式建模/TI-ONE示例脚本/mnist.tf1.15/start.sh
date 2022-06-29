@@ -1,0 +1,1 @@
+python3 /opt/ml/code/fully_connected_feed.py  --train_dir /opt/ml/input/data  --max_steps 100000 --batch_size 1000  --log_dir /opt/ml/output/summary  --ckpt_dir /opt/ml/output --model_dir /opt/ml/model

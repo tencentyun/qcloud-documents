@@ -28,6 +28,8 @@ DLC 支持的语法如下表所示：
 | 向数据表添加列| [ALTER TABLE ADD COLUMNS](https://cloud.tencent.com/document/product/1342/61802)	| 
 | 对数据表新增分区信息| [ALTER TABLE ADD PARTATION](https://cloud.tencent.com/document/product/1342/61804)	| 
 | 删除数据表分区信息| [ALTER TABLE DROP PARTITION](https://cloud.tencent.com/document/product/1342/61805)	| 
+| 对 Iceberg 表添加分区字段| 	[ALTER TABLE ADD PARTITION FIELD](https://cloud.tencent.com/document/product/1342/74174)| 
+| 删除 Iceberg 表分区字段	| [ALTER TABLE DROP PARTITION FIELD](https://cloud.tencent.com/document/product/1342/74175)| 
 | 查看数据表列信息及元数据信息| [DESCRIBE TABLE](https://cloud.tencent.com/document/product/1342/61806)	| 
 | 查看视图的列信息| [DESCRIBE VIEW](https://cloud.tencent.com/document/product/1342/61807)	| 
 | 创建函数	| [CREATE FUNCTION](https://cloud.tencent.com/document/product/1342/61808) | 
@@ -39,5 +41,7 @@ DLC 支持的语法如下表所示：
 | 替换一行数据| [INSERT OVERWRITE STATEMENT](https://cloud.tencent.com/document/product/1342/61990)	| 
 | 数据查询| [SELECT STATEMENT](https://cloud.tencent.com/document/product/1342/61991)	| 
 | 将查询结果插入数据表| [INSERT INTO](https://cloud.tencent.com/document/product/1342/73084)	| 
+| 删除 Iceberg 表的数据	| [DELETE STATEMENT](https://cloud.tencent.com/document/product/1342/74176)| 
+
 
 相关查询保留字参见：[保留字](https://cloud.tencent.com/document/product/1342/61765)。

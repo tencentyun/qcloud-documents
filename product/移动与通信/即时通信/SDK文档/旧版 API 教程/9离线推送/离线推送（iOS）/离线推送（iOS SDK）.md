@@ -19,8 +19,7 @@
 5. 待推送证书信息生成后，记录证书的 ID。
 
 ### 客户端实现 APNs 推送
-
-客户端要实现接收 APNs 推送，需要实现以下几个步骤，更详细的操作步骤可参考 [即时通信 iOS IM SDK 离线推送视频](https://cloud.tencent.com/edu/learning/learn-1059-1112)。
+客户端要实现接收 APNs 推送，需要实现以下几个步骤：
 
 #### 向苹果后台请求 DeviceToken
 
