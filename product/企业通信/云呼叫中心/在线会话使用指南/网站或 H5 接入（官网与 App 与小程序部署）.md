@@ -33,4 +33,4 @@
 
 ## 隐藏标题栏方法
 在 WebView 中出现双重标题栏，造成“双下巴”现象，如下图所示。如需隐藏该标题栏，可通过添加`&hideHeader=true` 使用 `https://tccc.qcloud.com/web/im/index.html#/H5chat?webAppId=XXXXXXXXXX&hideHeader=1`
-![](https://qcloudimg.tencent-cloud.cn/raw/847d762aaefc55b24831a3fd7309e275.png)
+<img style="width:300px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/847d762aaefc55b24831a3fd7309e275.png" />
