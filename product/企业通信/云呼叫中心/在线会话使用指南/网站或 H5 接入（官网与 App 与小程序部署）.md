@@ -1,7 +1,7 @@
 ﻿腾讯云呼叫中心 TCCC 网页端接入提供两种部署方式，分别为网页组件（Web JS）与会话链接（URL 链接），开发者通过简短的代码或地址调用，就可以直接将在线会话能力集成到网页中，省去大量的开发调试时间。
 
 ## 接入步骤
-1. 登录 [腾讯云呼叫中心 TCCC 管理工作](https://cloud.tencent.com/document/product/679/73497#logintccc)，左侧导航栏单击**在线客服**-**渠道管理**后选择**网站渠道**，单击**新增网站**。        
+1. 登录 [腾讯云呼叫中心 TCCC 管理工作台](https://cloud.tencent.com/document/product/679/73497#logintccc)，左侧导航栏单击**在线客服**-**渠道管理**后选择**网站渠道**，单击**新增网站**。        
 ![](https://qcloudimg.tencent-cloud.cn/raw/d9d240db387a1b8d34f6c20617dac50d.png)
 2. 在添加桌面网站对话窗口中填写“桌面网站名称”，单击**确认**。网站名称用于接入网页标题展示
 ![](https://qcloudimg.tencent-cloud.cn/raw/d7542ecec378d7953003e183bd827c8e.png)
