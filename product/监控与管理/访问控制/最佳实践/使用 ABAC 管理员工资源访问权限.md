@@ -10,7 +10,7 @@ ABAC（Attribute-Based Access Control）是基于属性的访问控制授权策�
 3. 使用单个策略，允许访问三个项目下的资源，将策略附加给创建好的角色。
 4. 员工通过 CAM 子用户代入角色来访问，当员工的标签键和资源的标签值相同时，允许访问。
 
-<img src="https://qcloudimg.tencent-cloud.cn/raw/a26e73768acece31d036eacf1e6bcd10.png" width="666px">
+<img src="https://qcloudimg.tencent-cloud.cn/raw/a26e73768acece31d036eacf1e6bcd10.png" width="800px">
 
 
 ## ABAC 与传统授权方式对比
