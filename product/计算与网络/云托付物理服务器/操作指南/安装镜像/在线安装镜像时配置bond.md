@@ -13,7 +13,7 @@
 
 示例如下：
 本文以 CentOS7.6 为例，将以下代码填写至“自定义数据”并创建 CHC 云服务器，安装镜像时会自动配置 bond。如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/a0faada792f2969366f354e4445e000b.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/f81380f64236835371ba4b1656e9b5f6.png)
 代码如下：
 ```
 #!/bin/bash
