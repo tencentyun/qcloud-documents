@@ -32,11 +32,11 @@ const config = {
 // config 传入 ar sdk
 const ar = new ArSdk(config);
 // resourceReady 回调事件触发，意味着相关资源已加载完成，等待 initCore 提供输入
-ar.on('resourceReady', _=>{
+ar.on('resourceReady', () => {
 	resourceReady = true
 })
 // 调用 initCore 后会触发 ready 事件
-ar.on('ready', _=>{
+ar.on('ready', () => {
 	// 获取 ar sdk 输出流数据
 	const arStream = await ar.getOutput();
 	// 处理输出流
@@ -71,4 +71,4 @@ function onClickStartCamera(){
 
 [](id:demo)
 ## 代码示例 
-您可以下载 [示例代码](https://webar-static.tencent-cloud.com/docs/quick-demo/best_practice.zip) 解压后查看 `AR_LEB_WEB_Preload` 代码目录。
+您可以下载 [示例代码](https://webar-static.tencent-cloud.com/docs/quick-demo/best_practice.zip) 解压后查看 `AR_LEB_WEB` 代码目录中的 `AR_and_LEB_Preload.html` 文件。
