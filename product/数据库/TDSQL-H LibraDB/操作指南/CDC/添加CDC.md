@@ -55,7 +55,6 @@
 ## DDL支持
 
 <table><thead><tr><th>对象</th><th>DDL</th><th>备注</th></tr></thead><tbody><tr><td>Database</td><td>create、drop</td><td>drop 操作转义为重命名操作：将库名修改为“deleted_unix时间戳_原库名”</td></tr><tr><td rowspan="3">Table</td><td rowspan="3">create、rename、drop、truncate、alter</td><td>drop 操作转义为重命名操作：将表名修改为“deleted_unix时间戳_原表名” </td></tr><tr><td>truncate 操作转义为：将表名修改为“deleted_unix时间戳_原表名”并新建本地表</td></tr><tr><td>rename 操作不支持移动表：`RENAME TABLE current_db.tbl_name TO other_db.tbl_name;`</td></tr><tr><td>Column</td><td>add、drop、rename、change、modify、alter</td><td>-</td></tr></tbody></table>
-
 >!
 >
 >- 当分析引擎是 LibraSQL 10.3.203 及更早期版本时，由于 Database Engine 不支持 [atomic engine](https://clickhouse.com/docs/en/engines/database-engines/atomic/)，下述 DDL 不支持：rename、drop、truncate、alter rename table、drop database。
@@ -211,7 +210,7 @@
 
 7. 设置完成后，单击**下一步**。
 
-8. 高级设置：可 [设置分区键](https://cloud.tencent.com/document/product/1488/63692) 和 [自定义字段类型映射](https://cloud.tencent.com/document/product/1488/63691#.E8.87.AA.E5.AE.9A.E4.B9.89.E6.95.B0.E6.8D.AE.E7.B1.BB.E5.9E.8B.E8.BD.AC.E6.8D.A2) 。
+8. 高级设置：可[设置排序键]()、 [设置分区键](https://cloud.tencent.com/document/product/1488/63692) 和 [自定义字段类型映射](https://cloud.tencent.com/document/product/1488/63691#.E8.87.AA.E5.AE.9A.E4.B9.89.E6.95.B0.E6.8D.AE.E7.B1.BB.E5.9E.8B.E8.BD.AC.E6.8D.A2) 。
 
 9. 设置完成后，单击**下一步**。
 
@@ -223,7 +222,7 @@
 
 页面返回至CDC列表页面，显示当前CDC任务的状态、进度等相关信息。
 
-## 后续操作
+## 后续步骤
 
 - CDC任务创建成功后，如果未立即启动，支持立即启动任务、查看任务详情、修改任务配置参数、终止任务和创建类似任务等操作。
 - CDC任务启动后，支持完成准备工作、查看任务详情、数据对比、终止任务和创建类似任务等操作。
