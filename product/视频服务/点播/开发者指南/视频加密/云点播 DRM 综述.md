@@ -27,7 +27,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/d05f245304feeee5386c8ef4515fdd18.png)
 
 ## 接入参考
-发生盗录后，您需要 [提交工单](https://console.cloud.tencent.com/workorder/category)，由云点播帮您对盗录的视频提取盗录者 ID，因此会产生提取费用。
+为了帮助您快速接入点播的 DRM 加密能力，请您 [提交工单](https://console.cloud.tencent.com/workorder/category) 给我们，由云点播帮您对视频进行 DRM 加密，因此会产生视频加密费用。
 
 ## 费用相关
 使用商业级 DRM 加密，主要涉及以下费用：
