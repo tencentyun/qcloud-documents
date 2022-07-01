@@ -265,9 +265,9 @@ TRTC Web SDK 基于 WebRTC 实现，目前支持桌面端和移动端的主流�
 </table>
 
 >!
-- 由于 H.264 版权限制，华为 Chrome 88 以下版本，无法使用 H264 编码（即无法推流）。如果您希望在华为设备 Chrome 浏览器中，使用 TRTC Web SDK 推流，请进 [TRTC 交流群](https://cloud.tencent.com/apply/p/pnh3a63d95)，联系群内技术支持开通 VP8 编解码。
+- 由于 H.264 版权限制，华为 Chrome 88 以下版本，无法使用 H264 编码（即无法推流）。如果您希望在华为设备 Chrome 浏览器中，使用 TRTC Web SDK 推流，请提交 [腾讯云实时音视频 Web SDK 用户能力支持申请](https://cloud.tencent.com/apply/p/4ab2rutgukk) 开通 VP8 编解码能力。
 - Mac OS 下的 Firefox 屏幕分享效果比较差且暂无解决方案，建议使用 Chrome 或者 Safari 进行屏幕分享。[](id:attention3)
-- 如果您希望 Web 端在推流时支持双声道编码，请进 [TRTC 交流群](https://cloud.tencent.com/apply/p/pnh3a63d95)，联系群内技术支持开通 WebRTC 双声道编码能力。
+- 如果您希望 Web 端在推流时支持双声道编码，请提交 [腾讯云实时音视频 Web SDK 用户能力支持申请](https://cloud.tencent.com/apply/p/4ab2rutgukk) 开通 WebRTC 双声道编码能力。
 - 建议您及时将 TRTC Web SDK 更新至最新版本，以便获得更好的产品稳定性及在线支持。版本升级注意事项请参见：[升级指引](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/tutorial-00-info-update-guideline.html)。
 
 ## URL 域名协议限制
