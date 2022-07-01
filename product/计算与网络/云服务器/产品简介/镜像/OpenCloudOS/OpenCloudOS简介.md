@@ -14,7 +14,7 @@ OpenCloudOS 适用于云上绝大多数机型生产实例，包括云服务器�
 
 
 ## OpenCloudOS 镜像版本
-目前已支持在腾讯云上使用 OpenCloudOS 8.5版本镜像，该镜像与 CentOS 8用户态完全兼容，配套了基于社区5.4 LTS 的 OpenCLoudOS Kernel。
+目前已支持在腾讯云上使用 OpenCloudOS 8.5版本镜像，该镜像与 CentOS 8用户态完全兼容，配套了基于社区5.4 LTS 的 OpenCloudOS Kernel。
 
 
 ## OpenCloudOS 内核
