@@ -84,11 +84,11 @@ userSig 的计算方法请参见 [如何计算及使用 UserSig](https://cloud.t
 
 - **拼装 streamId 的计算规则**
  <table>
-<tr>
+<thead><tr>
 <th>拼装</th>
 <th>2020年01月09日及此后新建的应用</th>
 <th>2020年01月09日前创建且使用过的应用</th>
-</tr>
+</tr></thead>
 <tr>
 <td>拼装规则</td>
 <td>streamId = urlencode(sdkAppId_roomId_userId_streamType)</td>
