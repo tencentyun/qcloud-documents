@@ -27,8 +27,8 @@ TKE IPv4/IPv6 双栈基于集群维度，即需要先创建一个 TKE IPv4/IPv6 
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，单击集群 ID，进入详情页。
 2. 选择**节点管理 > 节点**，单击**新建节点**。参考如下信息进行设置：
 ![](https://qcloudimg.tencent-cloud.cn/raw/94acf511bcf0299935bca6083da3ae17.png)
- - 操作系统：选择操作系统支持类型为 tlinux2.2(tkernel3)、tlinux2.4(tkernel3)、tlinux2.6(tkernel3)、tlinux3.1(tkernel4)、tlinux3.2(tkernel4)、ubuntu18、ubuntu20、centos7.6、centos7.8。
- - 集群网络：集群网络选择 IPv4/IPv6 双栈子网。
+ - **操作系统**：选择操作系统支持类型为 tlinux2.2(tkernel3)、tlinux2.4(tkernel3)、tlinux2.6(tkernel3)、tlinux3.1(tkernel4)、tlinux3.2(tkernel4)、ubuntu18、ubuntu20、centos7.6、centos7.8。
+ - **集群网络**：集群网络选择 IPv4/IPv6 双栈子网。
 3. 选择**节点管理 > 节点池**，单击**新建节点池**。参考如下信息进行设置：
 ![](https://qcloudimg.tencent-cloud.cn/raw/df8c2ad95d0f439ca62b423cfcdcac47.png)
  - **操作系统**：选择操作系统支持类型为 tlinux2.2(tkernel3)、tlinux2.4(tkernel3)、tlinux2.6(tkernel3)、tlinux3.1(tkernel4)、tlinux3.2(tkernel4)、ubuntu18、ubuntu20、centos7.6、centos7.8。
