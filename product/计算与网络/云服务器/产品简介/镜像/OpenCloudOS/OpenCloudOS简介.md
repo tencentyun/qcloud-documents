@@ -7,7 +7,7 @@ OpenCloudOS 8.5是 OpenCloudOS 社区发布首个正式版本，其基础库和�
 OpenCloudOS 适用于云上绝大多数机型生产实例，包括云服务器，裸金属云服务器等。
 
 <dx-alert infotype="notice" title="">
-目前 OpenCloudOS 未预装 GPU驱动，若需在 GPU 实例上使用，则请手动安装 GPU 驱动。
+目前 OpenCloudOS 未预装 GPU 驱动，若需在 GPU 实例上使用，则请手动安装 GPU 驱动。
 </dx-alert>
 
 
