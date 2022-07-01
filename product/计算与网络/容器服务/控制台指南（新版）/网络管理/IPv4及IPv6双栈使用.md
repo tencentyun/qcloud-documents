@@ -1,6 +1,6 @@
 
 ## 概述
-TKE IPv4/IPv6 双栈基于集群维度，即需要先创建一个 TKE IPv4/IPv6 双栈集群。已创建的集群，其 Pod 会自动分配 IPv4/IPv6 双栈地址，其 Servcie 也支持 IPv4/IPv6 双栈。
+TKE IPv4/IPv6 双栈基于集群维度，即需要先创建一个 TKE IPv4/IPv6 双栈集群。已创建的双栈集群，其 Pod 会自动分配 IPv4/IPv6 双栈地址，其 Servcie 也支持 IPv4/IPv6 双栈。
 >? TKE IPv4/IPv6 双栈目前正在内测中，如需使用可 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=350&source=14&data_title=%E5%AE%B9%E5%99%A8%E6%9C%8D%E5%8A%A1%20TKE&step=1) 申请。
 
 ## 前提条件
@@ -15,7 +15,7 @@ TKE IPv4/IPv6 双栈基于集群维度，即需要先创建一个 TKE IPv4/IPv6 
 ### 步骤一：创建 TKE IPv4/IPv6 双栈集群
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
 2. 选择新建标准集群，选择 **IPv4/IPv6 双栈**集群 IP 类型。如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/e5644efdf13e88c180f5cd69ce561ebc.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/b8885956b0a20908ef3f83c8b1f3eaeb.png)
 >? 
 >- 集群 IP 类型选项，IPv4 或 IPv4/IPv6 双栈，只能二选一。
 >- IPv4/IPv6 双栈，其 Kubernetes 版本必须是 1.22 版本及以上。
@@ -31,13 +31,12 @@ TKE IPv4/IPv6 双栈基于集群维度，即需要先创建一个 TKE IPv4/IPv6 
  - 集群网络：集群网络选择 IPv4/IPv6 双栈子网。
 3. 选择**节点管理 > 节点池**，单击**新建节点池**。参考如下信息进行设置：
 ![](https://qcloudimg.tencent-cloud.cn/raw/df8c2ad95d0f439ca62b423cfcdcac47.png)
- - 操作系统：选择操作系统支持类型为 tlinux2.2(tkernel3)、tlinux2.4(tkernel3)、tlinux2.6(tkernel3)、tlinux3.1(tkernel4)、tlinux3.2(tkernel4)、ubuntu18、ubuntu20、centos7.6、centos7.8。
- - 集群网络：集群网络选择 IPv4/IPv6 双栈子网。
+ - **操作系统**：选择操作系统支持类型为 tlinux2.2(tkernel3)、tlinux2.4(tkernel3)、tlinux2.6(tkernel3)、tlinux3.1(tkernel4)、tlinux3.2(tkernel4)、ubuntu18、ubuntu20、centos7.6、centos7.8。
+ - **集群网络**：集群网络选择 IPv4/IPv6 双栈子网。
 
 ### 步骤三：双栈集群创建完成后集群信息展示
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，单击集群 ID，进入详情页。
-2. 选择**节点管理 > 节点**，选择节点名称，进入详情页。
-3. 在节点基本信息标签页查看集群 IP 类型和 Service CIDR（IPv4）、Service CIDR（IPv6）。如下图所示：
+2. 在基本信息标签页查看集群 IP 类型和 Service CIDR（IPv4）、Service CIDR（IPv6）。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/1e490c770c69950bb4faef4e8f1039ef.png)
  
 
@@ -48,45 +47,46 @@ TKE IPv4/IPv6 双栈基于集群维度，即需要先创建一个 TKE IPv4/IPv6 
 <dx-tabs>
 ::: ClusterIP 类型
 
-针对 ClusterIP 类型，您可进行如下设置：
+针对 ClusterIP 类型，您需进行如下设置：
 ![](https://qcloudimg.tencent-cloud.cn/raw/0a12b096cbd40be6155f44f187c6e5ac.png)
 - 对 Service 中 ipFamilyPolicy 进行展示。
 - 实现对 Service 中 ipFamilies 进行配置。
 :::
 ::: NodePort 类型
-针对 NodePort 类型，您可进行如下设置：
+针对 NodePort 类型，您需进行如下设置：
 ![](https://qcloudimg.tencent-cloud.cn/raw/f5437c8027b75fef664e4ce5689f8230.png)
 >? 
 - 对 Service 中 ipFamilyPolicy 进行展示。
 - 实现对 Service 中 ipFamilies 进行配置。
 :::
 ::: 公网 LoadBalance 类型
-针对公网 LoadBalance 类型，您可进行如下设置：
-当前 CLB 只支持公网 IPv6 和 IPv4 单栈，同时 TKE 中单个 Servcie 只能绑定一个 CLB，如果需要使用 IPv4/IPv6 双栈，用户必须建立两个公网 LoadBalance 类型 Servcie，一个绑定 IPv4 CLB，一个绑定 IPv6 CLB。
+针对公网 LoadBalance 类型，您需进行如下设置：
+当前 CLB 只支持公网 IPv6 和 IPv4 单栈，同时 TKE 中单个 Servcie 只能绑定一个 CLB，如果需要使用 IPv4/IPv6 双栈，您必须新建两个公网 LoadBalance 类型 Servcie，一个绑定 IPv4 CLB，一个绑定 IPv6 CLB。
 
 **新建 IPv4 公网 LoadBalance 类型 Servcie：**
-![](https://qcloudimg.tencent-cloud.cn/raw/76e29fb6c2696d566e9252344203fe01.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/2587f7c37ff5a0bedc9d76e9ff63fd1f.png)
 - 对 Service 中 ipFamilyPolicy 进行展示。
 - IP 版本必须选择 IPv4。
 
+<br>
+		
 **新建 IPv6 公网 LoadBalance 类型 Servcie：**
-![](https://qcloudimg.tencent-cloud.cn/raw/4d937824338b2b0c5bc1abf737835558.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/c8b0eb5fea197e2998d5eb2bdcb7723e.png)
 - 对 Service 中 ipFamilyPolicy 进行展示。
 - IP 版本必须选择 IPv6。
 - 选择相应的双栈子网。
-- IPv6 公网 LoadBalance 运营商类型只有 BGP、网络计费模式只有按使用流量、共享带宽包。
+- IPv6 公网 LoadBalance 运营商类型只有 BGP，网络计费模式只有按使用流量、共享带宽包。
 - 负载均衡器使用已有选项，只能选择 IPv6 CLB。
 :::
 ::: 内网 LoadBalance 类型
 针对内网 LoadBalance 类型，您可进行如下设置：
 当前 CLB 不支持内网 IPv6，因此 TKE Servcie 内网 LoadBalance 类型也只能支持 IPv4 单栈方式。
-![](https://qcloudimg.tencent-cloud.cn/raw/ec21e23edcf44d969855c7b0cd58d04c.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/2e58bcc2aa816201740f6add186bf623.png)
 - 对 Service 中 ipFamilyPolicy 进行展示。
 - 对 Service 中 ipFamilies 进行展示。
 :::
 </dx-tabs>
-4. 单击**创建服务**，完成创建。您可在 Service 管理页面进行查看。
-
+4. 单击**创建Service**，完成创建。您可在 Service 管理页面进行查看。
 
 
 
