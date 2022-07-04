@@ -8,7 +8,7 @@
 客户端通过 SSL VPN 连接 VPC 流程图如下所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/b7ee18586c39de9dea92b07ed345672b.png)
 
-## 步骤1：创建 VPN 网关
+## 步骤1：创建 SSL VPN 网关
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。
 2. 在左侧目录中单击 **VPN 连接** > **VPN 网关**，进入管理页。
 3. 在 VPN 网关管理页面，单击**+新建**。
