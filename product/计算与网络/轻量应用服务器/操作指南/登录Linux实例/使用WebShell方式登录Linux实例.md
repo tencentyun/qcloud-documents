@@ -146,7 +146,18 @@ WebShell 功能介绍如下：
 
 
 :::
+::: 使用实例自助检测[](id:selfCheck)
+
+若您在登录或使用实例过程中遇到问题，可随时使用实例自助检测。步骤如下：
+
+1. 参考 [使用 WebShell 方式登录 Linux 实例](https://cloud.tencent.com/document/product/1207/44642)，登录实例。
+2. 选择 WebShell 界面工具栏中的 <img src="https://qcloudimg.tencent-cloud.cn/raw/2d3d7e693d09bb8a58d58557e4f25ff4.png" style="margin:-3px 0px">。
+3. 在弹出的“实例自助检测”窗口中，单击**确定**即可使用实例自助检测。您可参考 [使用实例自助检测](https://cloud.tencent.com/document/product/1207/74704) 了解实例自助检测及检测项。
+
+
+:::
 </dx-accordion>
+
 
 
 
