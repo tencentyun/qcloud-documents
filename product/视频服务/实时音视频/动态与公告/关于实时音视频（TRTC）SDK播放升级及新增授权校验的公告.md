@@ -22,13 +22,13 @@
 <tr>
 <th rowspan="2" width=20%>License 类型</th>
 <th colspan="3">解锁的功能模块授权</th>
-<th rowspan="2">License 获取方式</th>
-</tr><tr>
+<th rowspan="2">License 获取方式</th></tr>
+</thead>
+<tr>
 <th>直播推流</th>
 <th>短视频制作</th>
 <th>视频播放</th>
 </tr>
-</thead>
 <tbody>
 <tr>
 <td>直播 License</td>

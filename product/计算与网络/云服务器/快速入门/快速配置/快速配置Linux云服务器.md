@@ -14,7 +14,7 @@
 <div style="background-color:#00A4FF; width: 190px; height: 35px; line-height:35px; text-align:center;"><a href="https://buy.cloud.tencent.com/cvm?tab=lite" target="_blank"  style="color: white; font-size:16px;">点此进入快速购买页面</a></div>
 </br>
 
-![](https://qcloudimg.tencent-cloud.cn/raw/1186dfc3df383751fc6f0ebfa9e66396.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/a58a744f2aad1103cd09263b6efbf573.png)
 
 配置说明如下：
 <table>

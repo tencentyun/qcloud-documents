@@ -222,8 +222,7 @@
 	  <li>
 	  <b>置放群组</b>：根据需要可以将实例添加到置放群组中，提高业务的可用性。具体可参考 <a href="https://cloud.tencent.com/document/product/213/15486">置放群组</a> 进行设置。</li>
 	  <li> <b>自定义数据</b>：指定自定义数据来配置实例，既当实例启动时运行配置的脚本。如果一次购买多台云服务器，自定义数据会在所有的云服务器上运行。Windows
-	  操作系统支持 PowerShell 格式，最大支持 16KB 原始数据。具体可参考 <a href="https://cloud.tencent.com/document/product/213/17526">自定义设置自定义数据（Windows
-	  云服务器）</a>。
+	  操作系统支持 PowerShell 格式，最大支持 16KB 原始数据。具体可参考 <a href="https://cloud.tencent.com/document/product/213/17526">设置自定义数据</a>。
 	  <br />
 	  <b>注意</b>：自定义数据配置仅支持 Windows 公有镜像，具体可参考 <a href="https://cloud.tencent.com/document/product/213/17526#.E6.B3.A8.E6.84.8F.E4.BA.8B.E9.A1.B9">注意事项</a>。</li>
 	</ul></td>

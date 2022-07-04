@@ -153,7 +153,7 @@
       <td>HUE</td>
       <td>Hue</td>
       <td>默认重启模式</td>
-			<td>通过<code> build/env/bin/start.sh </code>和 <code>build/env/bin/sop.sh </code>进行重启</td>
+			<td>通过<code> build/env/bin/start.sh </code>和 <code>build/env/bin/stop.sh </code>进行重启</td>
 			<td>-</td>
    </tr>
 	 <tr>
