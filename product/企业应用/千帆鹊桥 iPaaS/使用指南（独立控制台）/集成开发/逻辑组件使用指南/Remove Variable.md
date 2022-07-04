@@ -14,7 +14,7 @@ Remove Variable组件与Set Variable组件的作用相反，Remove Variable组�
 
 ##### 配置界面
 
-![image-20210325145534545](https://main.qcloudimg.com/raw/ab9a378a0900d2c8b4cd0528071d1600/image-20210325145534545.png)
+![image-20210325145534545](https://qcloudimg.tencent-cloud.cn/raw/ed66b946bc366e104cc364dfba38ef37.png)
 
 ##### 输出
 
@@ -29,22 +29,16 @@ Remove Variable组件与Set Variable组件的作用相反，Remove Variable组�
 | attribute   | 继承上个组件的attribute信息                                  |
 | variable    | 上个组件的variable信息中去除删掉的变量                       |
 
-例如，输入到Remove Varaible中的变量如下：
+##### 数据预览
 
-![image-20210426165649320](https://main.qcloudimg.com/raw/53161e060afb3594a22095ed57e363b0/image-20210426165649320.png)
-
-使用Remove Variable删除变量name后，如下所示：
-
-![image-20210426165741239](https://main.qcloudimg.com/raw/6cec7de7bfba3708ae9f50c77b3a13a6/image-20210426165741239.png)
-
-
+无
 
 #### 3. 案例
 
 1. 添加Remove Variable组件
 
-![image-20210330172804271](https://main.qcloudimg.com/raw/f6013c84dfcbbc76b97362868d9c9404/image-20210330172804271.png)
+![image-20210330172804271](https://qcloudimg.tencent-cloud.cn/raw/e761cd9561567cde138c327891b25ced.png)
 
 2. 填入要移除的变量名称
 
-   ![image-20210330172924688](https://main.qcloudimg.com/raw/065c78d32f78f046911c1e3c239094a5/image-20210330172924688.png)
+![image-20210330172924688](https://qcloudimg.tencent-cloud.cn/raw/920f42cfec2bf38feb675775ceca237f.png)
