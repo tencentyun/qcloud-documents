@@ -75,19 +75,19 @@ WebShell 功能介绍如下：
 3. 在弹出的菜单中，选择**上传**或**下载**。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/40a90811712d7800c21f309d2971fa81.png)
 具体操作步骤如下：
- - **上传文件**：
-    1. 在弹出窗口的“选择上传文件和位置”窗口中，选择 `点击上传`。
-    2. 在弹出窗口中，选择文件后单击**确定**。
-    3. 上传位置请选择 `home > lighthouse` 目录。
+    - **上传文件**：
+       1. 在弹出窗口的“选择上传文件和位置”窗口中，选择 `点击上传`。
+       2. 在弹出窗口中，选择文件后单击**确定**。
+       3. 上传位置请选择 `home > lighthouse` 目录。
     <dx-alert infotype="explain" title="">
 目前仅支持上传文件至  `home > lighthouse` 目录。
-</dx-alert>
-    4. 单击**确定**即可。您可单击页面右下角的 <img src="https://qcloudimg.tencent-cloud.cn/raw/a78e204de7cde3473482732c8b9fef98.png" style="margin:-3px 0px">，在弹出窗口中查看操作结果。上传成功则如下图所示：
+  </dx-alert>
+       4. 单击**确定**即可。您可单击页面右下角的 <img src="https://qcloudimg.tencent-cloud.cn/raw/a78e204de7cde3473482732c8b9fef98.png" style="margin:-3px 0px">，在弹出窗口中查看操作结果。上传成功则如下图所示：
     ![](https://qcloudimg.tencent-cloud.cn/raw/742c648fbb6191849f0f1b4ad31df288.png)
- - **下载文件**：
-    1. 在弹出窗口的“下载文件”窗口中，依次再开目录，选择需下载的文件。
-    2. 单击**确定**，并在弹出窗口中，选择需存储的本地位置。
-    3. 您可单击页面右下角的 <img src="https://qcloudimg.tencent-cloud.cn/raw/a78e204de7cde3473482732c8b9fef98.png" style="margin:-3px 0px">，在弹出窗口中查看操作结果。下载成功则如下图所示：
+    - **下载文件**：
+       1. 在弹出窗口的“下载文件”窗口中，依次再开目录，选择需下载的文件。
+       2. 单击**确定**，并在弹出窗口中，选择需存储的本地位置。
+       3. 您可单击页面右下角的 <img src="https://qcloudimg.tencent-cloud.cn/raw/a78e204de7cde3473482732c8b9fef98.png" style="margin:-3px 0px">，在弹出窗口中查看操作结果。下载成功则如下图所示：
    ![](https://qcloudimg.tencent-cloud.cn/raw/5e54b868de203f3dd24e4213eb9ad194.png)
 
 :::
