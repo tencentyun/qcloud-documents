@@ -79,7 +79,7 @@ WebShell 功能介绍如下：
 
 
 :::
-::: 更改外观[](id:changeAppearance)
+::: 更改皮肤[](id:changeAppearance)
 
 您可通过该步骤，修改 WedShell 界面的文字大小、字体及配色。具体步骤如下：
 
