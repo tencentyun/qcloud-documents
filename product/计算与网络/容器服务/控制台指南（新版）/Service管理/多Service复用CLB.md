@@ -5,10 +5,10 @@
 
 
 
-## 说明事项
-- **于2020年8月17日前创建的TKE集群，其 Service 创建的 CLB 默认支持复用相同的 CLB。**
+## 说明事项 
+- **于2020年8月17日前创建的 TKE 集群，其 Service 创建的 CLB 默认支持复用相同的 CLB。**
 开启复用功能的集群，其中 Service 创建的 CLB 将默认配置 `<serviceUUID>:tke-lb-serviceId` 和 `<serviceUUID>_<lb_listener_id>:<lb_listener_id>` 两个标签。每个 CLB 具备单独的 key 和 value，生成的标签数量较多。您可通过 [在线咨询](https://cloud.tencent.com/online-service?from=doc_457) 联系我们关闭此类型集群的复用 CLB 功能，并清理标签。
-- **于2020年8月17日起创建的TKE集群，默认关闭多 Service 复用相同 CLB 的功能。**
+- **于2020年8月17日起创建的 TKE 集群，默认关闭多 Service 复用相同 CLB 的功能。**
 关闭复用功能的集群，其中 Service 创建的 CLB 将默认配置 `tke-lb-serviceuuid:<serviceUUID>` 标签。所有 Service 使用同一批标签 Key，标签 Key 数量可控。您可通过 [在线咨询](https://cloud.tencent.com/online-service?from=doc_457) 联系我们开启需要使用多个 Service 复用相同 CLB 的功能。
 - **如果您的集群是 EKS 集群，集群默认已开启了CLB复用能力，但需要注意：**
 1.用于复用的 CLB 必须为客户手动购买，而非 EKS 自动购买，EKS 自动购买的 CLB 在复用时会报错，这是为了保护复用 CLB 的 Service 的 CLB 不被 EKS 回收；
