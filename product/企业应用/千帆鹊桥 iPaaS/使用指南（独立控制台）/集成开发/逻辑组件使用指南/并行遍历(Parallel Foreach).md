@@ -1,4 +1,4 @@
-### Parallel Foreach
+### 并行遍历（Parallel Foreach）
 
 #### 1. 简介
 
