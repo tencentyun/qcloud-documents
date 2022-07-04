@@ -1,4 +1,4 @@
-### Remove Variable
+### 删除变量（Remove Variable）
 
 #### 1. 简介
 
