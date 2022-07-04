@@ -18,14 +18,13 @@
 1. 登录 [Serverless 控制台](https://console.cloud.tencent.com/scf/index?rid=1)，单击左侧导航栏的**函数服务**。
 2. 在主界面上方选择期望创建函数的地域，并单击**新建**，进入函数创建流程。
 3. 选择使用**模板创建**来新建函数，在搜索框里输入 `WebFunc` 筛选所有 Web 函数模板，选择**Flask 框架模板**并单击**下一步**。如下图所示： 
-![](https://main.qcloudimg.com/raw/75e0b81b90ccd94fbd6afc016957a416.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/b636d58f505eef8704acb0f2755fb458.png)
 4. 在**新建**页面，您可以查看模板项目的具体配置信息并进行修改。
 5. 单击**完成**即可创建函数。函数创建完成后，您可在**函数管理**页面查看 Web 函数的基本信息。
-6. 您可以通过 API 网关生成的访问路径 URL，访问您部署的 Flask 项目。单击左侧菜单栏中的**触发管理**，查看访问路径。如下图所示： 
-![](https://main.qcloudimg.com/raw/0f11b58bdcff56598230144bb6b7be1b.png)
+6. 您可以通自动生成的访问路径 URL，访问您部署的 Flask 项目。单击左侧菜单栏中的**触发管理**，查看访问路径。如下图所示： 
+![](https://qcloudimg.tencent-cloud.cn/raw/ce1a16975efea0953a1d1a40ba5c6c43.png)
 7. 单击访问路径 URL，即可访问服务 Flask 项目。如下图所示： 
-![](https://main.qcloudimg.com/raw/fd6c71feeddd7f84cfdb0a974f9c794a.png)
-
+![](https://qcloudimg.tencent-cloud.cn/raw/cd8a7533b111a17f948663299ffc75de.png)
 
 
 ### 自定义部署 -- 快速迁移本地项目上云
@@ -113,8 +112,7 @@ chmod 777 scf_bootstrap
 5. 登录 [Serverless 控制台](https://console.cloud.tencent.com/scf/index?rid=1)，单击左侧导航栏的**函数服务**。
 6. 在主界面上方选择期望创建函数的地域，并单击**新建**，进入函数创建流程。
 7. 选择**从头开始**新建函数，根据页面提示配置相关选项。如下图所示： 
-![](https://main.qcloudimg.com/raw/e86d6b23487ae5f73cbf3ea643ab6ac2.png)
-	- **函数类型**：选择 “Web 函数”。
+![](https://qcloudimg.tencent-cloud.cn/raw/be2d74ae5c29b0ba40c0f3d5b9a15dbc.png)	- **函数类型**：选择 “Web 函数”。
 	- **函数名称**：填写您自己的函数名称。
 	- **地域**：填写您的函数部署地域，例如成都。
 	- **部署方式**：选择“代码部署”，上传您的本地项目。
