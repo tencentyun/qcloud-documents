@@ -38,11 +38,11 @@ find / -name "chdfs*"
  1. 下载更新 jar 包的脚本文件，下载地址如下：
     - [update_cos_jar.sh](https://hadoop-jar-beijing-1259378398.cos.ap-beijing.myqcloud.com/hadoop_plugin_network/2.7/update_cos_jar.sh)
     - [update_cos_jar_common.sh](https://hadoop-jar-beijing-1259378398.cos.ap-beijing.myqcloud.com/hadoop_plugin_network/2.7/update_cos_jar_common.sh)
- 2. 把这两个脚本放到服务器 /root 目录下，为 update_ccos_jar.sh 添加执行权限，执行以下命令：
+ 2. 把这两个脚本放到服务器 /root 目录下，为 update_cos_jar.sh 添加执行权限，执行以下命令：
 ```
-sh update_cos_jar.sh  https://hadoop-jar-beijing-1250000000.cos.ap-beijing.myqcloud.com/hadoop_plugin_network/2.7  
+sh update_cos_jar.sh  https://hadoop-jar-beijing-1259378398.cos.ap-beijing.myqcloud.com/hadoop_plugin_network/2.7  
 ```
-参数替换为对应地域的存储桶，例如广州地域，则替换为`https://hadoop-jar-guangzhou-1250000000.cos.ap-guangzhou.myqcloud.com/hadoop_plugin_network/2.7`。
+参数替换为对应地域的存储桶，例如广州地域，则替换为`https://hadoop-jar-guangzhou-1259378398.cos.ap-guangzhou.myqcloud.com/hadoop_plugin_network/2.7`。
 在每一台 EMR 节点上执行以上步骤，直到机器上的 jar 包都替换完成。
 3. 在 EMR 控制台配置 core-site.xml，新增配置项`fs.ofs.bucket.region` ，该参数用于指定存储桶所在的 COS 地域，例如 `ap-shanghai`。
 >!`fs.ofs.bucket.region` 必须配置，该参数用于指定存储桶所在的 COS 地域，例如 `ap-shanghai`。

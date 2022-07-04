@@ -3,7 +3,7 @@ RabbitMQ 是实现了高级消息队列协议（Advanced Message Queuing Protoco
 
 ## 示例版本
 本文在示例步骤中的软件版本及组成如下：
-- Linux：Linux 操作系统，本文以 CentOS 7.7 为例。
+- Linux：Linux 操作系统，本文以 CentOS 7.7 为例。若您使用其他操作系统版本，可参考官网部署文档 [Installing on RPM-based Linux](https://www.rabbitmq.com/install-rpm.html)。
 - RabbitMQ Server：开源消息代理软件，本文以 RabbitMQ Server 3.6.9 为例。
 - Erlang：编程语言，本文以 Erlang 19.3 为例。
 

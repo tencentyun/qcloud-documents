@@ -1,5 +1,13 @@
 本文主要介绍如何快速将腾讯云即时通信 IM SDK 集成到您的 Unitiy 项目中。
 
+## 环境要求
+
+| 平台    | 版本                                                         |
+| ------- | ------------------------------------------------------------ |
+| Unity   | 2019.4.15f1 及以上版本。                                     |
+| Android | Android Studio 3.5及以上版本，App 要求 Android 4.1及以上版本设备。 |
+| iOS     | Xcode 11.0及以上版本，请确保您的项目已设置有效的开发者签名。 |
+
 ## UPM 集成（推荐）
 1. 修改 manifest.json 文件：
 ![](https://qcloudimg.tencent-cloud.cn/raw/88597bf131303e1b444baa33c641924e.png)
