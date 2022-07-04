@@ -1,4 +1,4 @@
-### 抛出错误(Raise Error)
+### 抛出错误（Raise Error）
 
 #### 1. 简介
 
