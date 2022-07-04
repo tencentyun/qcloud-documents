@@ -23,36 +23,35 @@
 >! EMR 环境下自带依赖 jar 包，无需安装，可直接通过 POSIX 语义访问元数据加速桶，如需使用 s3 协议访问则更改 fs.cosn.posix_bucket.fs.impl 配置项，详见下文。
 3. 编辑 `core-site.xml`文件，新增以下基本配置：
 ```
-<!--chdfs 的实现类-->
+<!--账户的 API 密钥信息。可登录 [访问管理控制台](https://console.cloud.tencent.com/capi) 查看云 API 密钥。-->
 <property>
-		 <name>fs.AbstractFileSystem.ofs.impl</name>
-		 <value>com.qcloud.chdfs.fs.CHDFSDelegateFSAdapter</value>
+		 <name>fs.cosn.userinfo.secretId/secretKey</name>
+		 <value>AKIDxxxxxxxxxxxxxxxxxxxxx</value>
 </property>
 
-<!--chdfs 的实现类-->
+<!--cosn 的实现类-->
 <property>
-		 <name>fs.ofs.impl</name>
-		 <value>com.qcloud.chdfs.fs.CHDFSHadoopFileSystemAdapter</value>
+		 <name>fs.AbstractFileSystem.cosn.impl</name>
+		 <value>org.apache.hadoop.fs.CosN</value>
 </property>
 
-<!--本地 cache 的临时目录, 对于读写数据, 当内存 cache 不足时会写入本地硬盘, 这个路径若不存在会自动创建-->
+<!--cosn 的实现类-->
 <property>
-		 <name>fs.ofs.tmp.cache.dir</name>
-		 <value>/data/chdfs_tmp_cache</value>
+		 <name>fs.cosn.impl</name>
+		 <value>org.apache.hadoop.fs.CosFileSystem</value>
 </property>
 
-<!--用户的appId, 可登录腾讯云控制台(https://console.cloud.tencent.com/developer)查看-->      
+<!--用户存储桶的地域信息，格式形如ap-guangzhou-->      
 <property>
-		 <name>fs.ofs.user.appid</name>
-		 <value>1250000000</value>
+		 <name>fs.cosn.bucket.region</name>
+		 <value>ap-guangzhou</value>
 </property>
 
-<!--flush语义, 默认false(异步刷盘), 请参考下图数据可见性与持久化详细说明 -->      
+<!--本地临时目录，用于存放运行过程中产生的临时文件->      
 <property>
-		 <name>fs.ofs.upload.flush.flag</name>
-		 <value>false</value>
+		 <name>fs.cosn.tmp.dir</name>
+		 <value>/tmp/hadoop_cos</value>
 </property>
-
 ```
 4. 将 `core-site.xml`同步到所有`hadoop`节点上。
 >?对于 EMR 集群，以上步骤3、4可在 EMR 控制台的组件管理中，修改 HDFS 配置即可。

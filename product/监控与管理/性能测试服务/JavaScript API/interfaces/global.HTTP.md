@@ -1,8 +1,7 @@
 ## Properties（属性）
 [](id:basicAuth)
 ### basicAuth
-- **basicAuth**: [`BasicAuth`](https://cloud.tencent.com/document/product/1484/75806)
-
+**basicAuth**: [`BasicAuth`](https://cloud.tencent.com/document/product/1484/75806)
 ```plaintext
 Defined in typings/global.d.ts:265
 ```
@@ -21,12 +20,10 @@ export const option = {
 
 [](id:disableKeepAlives)
 ### disableKeepAlives
-- **disableKeepAlives**: `boolean`
-
+**disableKeepAlives**: `boolean`
 ```plaintext
 Defined in typings/global.d.ts:224
 ```
-
 是否禁用长连接
 ``` plaintext
 export const option = {
@@ -39,12 +36,10 @@ export const option = {
 
 [](id:discardResponseBody)
 ### discardResponseBody
-- **discardResponseBody**: `boolean`
-
+**discardResponseBody**: `boolean`
 ```plaintext
 Defined in typings/global.d.ts:277
 ```
-
 是否丢弃回包
 ```json
 export const option = {
@@ -56,8 +51,7 @@ export const option = {
 
 [](id:headers)
 ### headers
-- **headers**: `Record`<`string`, `string`\>
-
+**headers**: `Record`<`string`, `string`\>
 ```plaintext
 Defined in typings/global.d.ts:238
 ```
@@ -74,8 +68,7 @@ export const option = {
 
 [](id:http2)
 ### http2
-- **http2**: `boolean`
-
+**http2**: `boolean`
 ```plaintext
 Defined in typings/global.d.ts:289
 ```
@@ -90,8 +83,7 @@ export const option = {
 
 [](id:maxIdleConns)
 ### maxIdleConns
-- **maxIdleConns**: `number`
-
+**maxIdleConns**: `number`
 ```plaintext
 Defined in typings/global.d.ts:200
 ```
@@ -106,8 +98,7 @@ export const option = {
 
 [](id:maxIdleConnsPerHost)
 ### maxIdleConnsPerHost
-- **maxIdleConnsPerHost**: `number`
-
+**maxIdleConnsPerHost**: `number`
 ```plaintext
 Defined in typings/global.d.ts:212
 ```
@@ -123,8 +114,7 @@ export const option = {
 
 [](id:maxRedirects)
 ### maxRedirects
-- **maxRedirects**: `number`
-
+**maxRedirects**: `number`
 ```plaintext
 Defined in typings/global.d.ts:188
 ```
@@ -139,8 +129,7 @@ export const option = {
 
 [](id:timeout)
 ### timeout
-- **timeout**: `number`
-
+**timeout**: `number`
 ```plaintext
 Defined in typings/global.d.ts:250
 ```

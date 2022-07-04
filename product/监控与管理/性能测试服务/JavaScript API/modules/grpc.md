@@ -1,30 +1,24 @@
-## Table of contents
+## 目录
 
-### Interfaces
+### Interfaces（接口）
+- [DialOption](https://cloud.tencent.com/document/product/1484/75816)
+- [Info](https://cloud.tencent.com/document/product/1484/75817)
+- [InvokeOption](https://cloud.tencent.com/document/product/1484/75818)
+- [Response](https://cloud.tencent.com/document/product/1484/75819)
 
-- [DialOption](../interfaces/grpc.DialOption.md)
-- [Info](../interfaces/grpc.Info.md)
-- [InvokeOption](../interfaces/grpc.InvokeOption.md)
-- [Response](../interfaces/grpc.Response.md)
-
-### Variables
-
+### Variables（变量）
 - [default](#default)
 
-## Variables
+## Variables（变量）
 
-<span id="default"></span>
-
+[](id:default)
 ### default
-
-• `Const` **default**: `Object`
+`Const` **default**: `Object`
+```
+ Defined in typings/grpc.d.ts:69
+```
 
 #### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `Client` | () => { `close`: () => `void` ; `connect`: (`target`: `string`, `option?`: [`DialOption`](../interfaces/grpc.DialOption.md)) => `void` ; `invoke`: (`method`: `string`, `request`: `any`, `option?`: [`InvokeOption`](../interfaces/grpc.InvokeOption.md)) => [`Response`](../interfaces/grpc.Response.md) ; `load`: (`importPaths`: `string`[], ...`filenames`: `string`[]) => `void`  } |
-
-#### Defined in
-
-typings/grpc.d.ts:69
+| Name     | Type                                                         |
+| :------- | :----------------------------------------------------------- |
+| `Client` | () => { `close`: () => `void` ; `connect`: (`target`: `string`, `option?`: [`DialOption`](https://cloud.tencent.com/document/product/1484/75816)) => `void` ; `invoke`: (`method`: `string`, `request`: `any`, `option?`: [`InvokeOption`](https://cloud.tencent.com/document/product/1484/75818) => [`Response`](https://cloud.tencent.com/document/product/1484/75819)） ; `load`: (`importPaths`: `string`[], ...`filenames`: `string`[]) => `void`  } |

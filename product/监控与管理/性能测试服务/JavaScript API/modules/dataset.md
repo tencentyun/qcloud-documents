@@ -9,8 +9,7 @@
 ## Variables（变量）
 [](id:default)
 ### default
-- `Const` **default**: `Object`
-
+`Const` **default**: `Object`
 ```
 Defined in typings/dataset.d.ts:17
 ```

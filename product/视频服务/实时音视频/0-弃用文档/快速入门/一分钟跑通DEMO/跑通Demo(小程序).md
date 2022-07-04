@@ -74,7 +74,8 @@
 - 请将服务端代码部署到申请的服务器上。
 - 请将以下域名配置到小程序控制台 request 合法域名里：
 <table>
-<tr><th>域名</th><th>说明</th></tr>
+<thead><tr><th>域名</th><th>说明</th></tr>
+</thead>
 <tr>
 <td><code>https://cloud.tencent.com</code></td>
 <td>推流域名</td>

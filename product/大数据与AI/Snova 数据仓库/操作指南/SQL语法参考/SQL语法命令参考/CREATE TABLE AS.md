@@ -76,7 +76,7 @@ DISTRIBUTED RANDOMLY
 
 CREATE TABLE AS 可以用于从外部表数据源中快速加载数据。参阅 CREATE EXTERNAL TABLE。
 
-## 实例
+## 示例
 创建一个新表 films_recent 仅由表 films 最近的条目组成：
 ```sql
 CREATE TABLE films_recent AS SELECT * FROM films WHERE 

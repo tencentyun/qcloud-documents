@@ -1,8 +1,7 @@
 ## Properties（属性）
 [](id:handshakeTimeout)
 ### handshakeTimeout
-- **handshakeTimeout**: `number`
-
+**handshakeTimeout**: `number`
 ```
 Defined in typings/global.d.ts:355
 ```
@@ -17,8 +16,7 @@ export const option = {
 
 [](id:readTimeout)
 ### readTimeout
-- **readTimeout**: `number`
-
+**readTimeout**: `number`
 ```
 Defined in typings/global.d.ts:378
 ```
@@ -33,8 +31,7 @@ export const option = {
 
 [](id:writeControlTimeout)
 ### writeControlTimeout
-- **writeControlTimeout**: `number`
-
+**writeControlTimeout**: `number`
 ```
 Defined in typings/global.d.ts:343
 ```
@@ -49,8 +46,7 @@ export const option = {
 
 [](id:writeTimeout)
 ### writeTimeout
-- **writeTimeout**: `number`
-
+**writeTimeout**: `number`
 ```
 Defined in typings/global.d.ts:366
 ```

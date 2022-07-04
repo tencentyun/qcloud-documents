@@ -1,8 +1,7 @@
 ## Properties
 [](id:fullName)
 ### fullName
-- **fullName**: `string`
-
+**fullName**: `string`
 完整 path 路径: /a.b.c.d/e
 ```
 Defined in typings/grpc.d.ts:21
@@ -10,8 +9,7 @@ Defined in typings/grpc.d.ts:21
 
 [](id:name)
 ### name
-- **name**: `string`
-
+**name**: `string`
 方法名
 ```
 Defined in typings/grpc.d.ts:9
@@ -19,8 +17,7 @@ Defined in typings/grpc.d.ts:9
 
 [](id:package)
 ### package
-- **package**: `string`
-
+**package**: `string`
 包名
 ``` 
 Defined in typings/grpc.d.ts:13
@@ -28,8 +25,7 @@ Defined in typings/grpc.d.ts:13
 
 [](id:service)
 ### service
-- **service**: `string`
-
+**service**: `string`
 服务名
 ```
 Defined in typings/grpc.d.ts:17 

@@ -46,7 +46,7 @@ vrrp_instance VI_1 {
 </code></pre>
 
 在云服务器的 HA 软件中配置了 HAVIP 后，控制台中该 HAVIP 的状态将变更为**已绑定云服务器**。
-![](https://main.qcloudimg.com/raw/f22aaa2b2b9aeb72e445c27f8702e089.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/ce807d7cefac6091b5a561c85b8028e5.png)
 
 常见配置案例请参考：
 + [最佳实践 - 用 HAVIP+Keepallved 搭建高可用主备集群](https://cloud.tencent.com/document/product/215/20186)
