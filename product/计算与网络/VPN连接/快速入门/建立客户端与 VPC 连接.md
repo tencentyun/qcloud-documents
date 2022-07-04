@@ -28,7 +28,7 @@
 </tr>
 <tr>
 <td>可用区</td>
-<td>选择当前网关所在的可用区</td>
+<td>选择当前网关所在的可用区。</td>
 </tr>
 <tr>
 <td>协议类型</td>
@@ -52,7 +52,7 @@
 </tr>
 <tr>
 <td>计费方式</td>
-<td>SSL VPN 默认为按流量计费</td>
+<td>SSL VPN 默认为按流量计费。</td>
 </tr>
 </table>
 5. 完成网关参数设置后，单击**创建**。
@@ -118,10 +118,10 @@
 4. 在弹出的 SSL 客户端对话框中，配置如下参数。
 ![](https://qcloudimg.tencent-cloud.cn/raw/348ae4eaa9af64085744a9f4974da7ed.png)
 5. 完成 SSL 客户端参数设置后，单击**确定**，当证书状态为可用表示创建完成。
-6. 在SSL客户端页面，找到已创建的客户端证书，然后在操作列单击**下载**。
+6. 在 SSL 客户端页面，找到已创建的客户端证书，然后在操作列单击**下载配置**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/41938c0da569c592f83ef2fe74ecb432.png)
 
-## 步骤4：配置腾讯云侧路由策略
+## 步骤4：配置 VPC 内路由
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。
 2. 在左侧目录中单击路由表，进入管理页面。
 3. 在列表中，单击需要修改的路由表 ID，进入详情页，若需新建路由表，可参考 [创建自定义路由表](https://cloud.tencent.com/document/product/215/36682)。
@@ -146,20 +146,20 @@
 </tr>
 </table>
 
-## 步骤5：客户端配置
+## 步骤5：配置客户端
 以下内容为您介绍如何配置 Windows、MAC 及 Linux 客户端。
 
 
 ### Windows 客户端
-1. 首先在 [openvpn 官方下载页面 ](https://openvpn.net/vpn-client/)下载并安装 OpenVPN Connect。
+1. 首先在 [OpenVPN 官方下载页面 ](https://openvpn.net/vpn-client/)下载并安装 OpenVPN Connect。
 ![](https://qcloudimg.tencent-cloud.cn/raw/949a9e0031b880397bca986ac8eedfff.png)
 2. SSL 客户端安装完成后，选择 “Import Profile” 菜单中的 “FILE” 页面，上传 [步骤3](#step3) 已下载的 SSL 客户端配置文件（.ovpn 格式）。
 ![](https://qcloudimg.tencent-cloud.cn/raw/f55cc9eebb56b47511a063eb1135556a.png)
 
 ### MAC 客户端
-1. 首先在[ openvpn 官方下载页面 ](https://openvpn.net/vpn-client/)下载并安装 OpenVPN Connect。 
+1. 首先在[ OpenVPN 官方下载页面 ](https://openvpn.net/vpn-client/)下载并安装 OpenVPN Connect。 
 ![](https://qcloudimg.tencent-cloud.cn/raw/d08446a7176b855c0e19a77dd95cfdc3.png)
-2. SSL 客户端安装完成后，选择 “Import Profile” 菜单中的 “FILE” 页面，上传 [步骤3](#step3) 已下载的 SSL 客户端配置文件（.ovpn 格式）。
+2. SSL 客户端安装完成后，选择 “Import Profile” 菜单中的 “FILE” 页面，上传 [步骤3](#step3) 已下载的 SSL 客户端配置文件（.ovpn 格式）。
 ![](https://qcloudimg.tencent-cloud.cn/raw/efade3f1b6290cae59a337e0927fe7c5.png)
 
 ### Linux 客户端
@@ -179,6 +179,6 @@ sudo apt-get install openvpn
 openvpn --config /etc/openvpn/conf/config.ovpn --daemon
 ```
 
-## 步骤6：连通性验证
-腾讯云侧与用户移动端建立 SSL VPN 连接后，使用 Ping 命令检测连通性。
-例如：使用 VPC 内的云服务器 ping 客户端网段中的 IP，可以 ping 通表示 VPC 和 客户端画可以正常通信。
+## 步骤6：测试连通性
+腾讯云侧与用户移动端建立 SSL VPN 连接后，使用 ping 命令检测连通性。
+例如：使用 VPC 内的云服务器 ping 客户端网段中的 IP，可以 ping 通表示 VPC 和客户端可以正常通信。
