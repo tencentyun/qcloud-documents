@@ -64,33 +64,6 @@ WebShell 目前具备丰富的功能，希望您在使用过程中拥有满意�
 
 WebShell 功能介绍如下：
 <dx-accordion>
-::: 使用移动端虚拟键盘[](id:virtualKeyboard)
-
-
-1. 微信搜索“腾讯云助手”小程序，并登录腾讯云账号。
-2. 选择页面下方的**控制台**，并单击页面中“收藏的云产品”中的**更多云产品**。如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/194d2b7f4625d0442f1546eda1bb7816.jpg)
-3. 在“云产品中心”页面，选择**轻量应用服务器**。
-4. 在“轻量应用服务器”控制台页面，选择实例所在地域，并单击实例卡片中的 <img src="https://qcloudimg.tencent-cloud.cn/raw/278e10214177bff2c64ae55480c99493.png" style="margin:-3px 0px">。
-5. 在弹出窗口中，单击**登录**。
-6. 登录成功后，可选择键盘右上方的**虚拟**。开启后如下图所示，您可再次单击**系统**切换回手机系统键盘。
-![](https://qcloudimg.tencent-cloud.cn/raw/87ca1e1fb1ac9d20f664a19722a639bd.jpg)
-
-
-
-:::
-::: 更改皮肤[](id:changeAppearance)
-
-您可通过该步骤，修改 WedShell 界面的文字大小、字体及配色。具体步骤如下：
-
-1. 参考 [使用 WebShell 方式登录 Linux 实例](https://cloud.tencent.com/document/product/1207/44642)，登录实例。
-2. 选择 WebShell 界面工具栏中的 <img src="https://qcloudimg.tencent-cloud.cn/raw/183be38a53180ccd705dddbb859820e3.png" style="margin:-3px 0px">。
-3. 在弹出的菜单中修改字体大小、字体或配色，按照喜好更改 WebShell 外观。
-![](https://qcloudimg.tencent-cloud.cn/raw/cca68be8bd34a8aa7be49387322701e5.png)
-
-
-
-:::
 ::: 上传/下载文件[](id:updownload)
 
 
@@ -118,7 +91,17 @@ WebShell 功能介绍如下：
    ![](https://qcloudimg.tencent-cloud.cn/raw/5e54b868de203f3dd24e4213eb9ad194.png)
 
 :::
-::: 开启多标签窗口会话
+::: 使用实例自助检测[](id:selfCheck)
+
+若您在登录或使用实例过程中遇到问题，可随时使用实例自助检测。步骤如下：
+
+1. 参考 [使用 WebShell 方式登录 Linux 实例](https://cloud.tencent.com/document/product/1207/44642)，登录实例。
+2. 选择 WebShell 界面工具栏中的 <img src="https://qcloudimg.tencent-cloud.cn/raw/2d3d7e693d09bb8a58d58557e4f25ff4.png" style="margin:-3px 0px">。
+3. 在弹出的“实例自助检测”窗口中，单击**确定**即可使用实例自助检测。您可参考 [使用实例自助检测](https://cloud.tencent.com/document/product/1207/74704) 了解实例自助检测及检测项。
+
+
+:::
+::: 开启多标签窗口会话[](id:multilabel)
 
 您可通过该步骤，在 WebShell 界面以标签的形式打开多个实例连接界面，以便捷使用实例。具体步骤如下：
 
@@ -146,13 +129,30 @@ WebShell 功能介绍如下：
 
 
 :::
-::: 使用实例自助检测[](id:selfCheck)
+::: 更改皮肤[](id:changeAppearance)
 
-若您在登录或使用实例过程中遇到问题，可随时使用实例自助检测。步骤如下：
+您可通过该步骤，修改 WedShell 界面的文字大小、字体及配色。具体步骤如下：
 
 1. 参考 [使用 WebShell 方式登录 Linux 实例](https://cloud.tencent.com/document/product/1207/44642)，登录实例。
-2. 选择 WebShell 界面工具栏中的 <img src="https://qcloudimg.tencent-cloud.cn/raw/2d3d7e693d09bb8a58d58557e4f25ff4.png" style="margin:-3px 0px">。
-3. 在弹出的“实例自助检测”窗口中，单击**确定**即可使用实例自助检测。您可参考 [使用实例自助检测](https://cloud.tencent.com/document/product/1207/74704) 了解实例自助检测及检测项。
+2. 选择 WebShell 界面工具栏中的 <img src="https://qcloudimg.tencent-cloud.cn/raw/183be38a53180ccd705dddbb859820e3.png" style="margin:-3px 0px">。
+3. 在弹出的菜单中修改字体大小、字体或配色，按照喜好更改 WebShell 外观。
+![](https://qcloudimg.tencent-cloud.cn/raw/cca68be8bd34a8aa7be49387322701e5.png)
+
+
+
+:::
+::: 使用移动端虚拟键盘[](id:virtualKeyboard)
+
+
+1. 微信搜索“腾讯云助手”小程序，并登录腾讯云账号。
+2. 选择页面下方的**控制台**，并单击页面中“收藏的云产品”中的**更多云产品**。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/194d2b7f4625d0442f1546eda1bb7816.jpg)
+3. 在“云产品中心”页面，选择**轻量应用服务器**。
+4. 在“轻量应用服务器”控制台页面，选择实例所在地域，并单击实例卡片中的 <img src="https://qcloudimg.tencent-cloud.cn/raw/278e10214177bff2c64ae55480c99493.png" style="margin:-3px 0px">。
+5. 在弹出窗口中，单击**登录**。
+6. 登录成功后，可选择键盘右上方的**虚拟**。开启后如下图所示，您可再次单击**系统**切换回手机系统键盘。
+![](https://qcloudimg.tencent-cloud.cn/raw/87ca1e1fb1ac9d20f664a19722a639bd.jpg)
+
 
 
 :::
