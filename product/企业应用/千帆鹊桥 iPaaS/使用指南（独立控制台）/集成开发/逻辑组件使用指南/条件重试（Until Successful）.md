@@ -1,4 +1,4 @@
-### 条件重试(Until Successful)
+### 条件重试（Until Successful）
 
 #### 1. 简介
 
