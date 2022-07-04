@@ -1,4 +1,4 @@
-各大企业每天都有大量的 API 增长，同时越来越多公司开始公开 Web API，API 的使用场景正在累积。现在，每日 API 调用量在不断飙升，如何能够安全有效将这些 API 管理起来对于企业而言并不容易。
+[各大企业每天都有大量的 API 增长，同时越来越多公司开始公开 Web API，API 的使用场景正在累积。现在，每日 API 调用量在不断飙升，如何能够安全有效将这些 API 管理起来对于企业而言并不容易。
 
 腾讯云数据连接器提供 API 发布功能，可以一键将已发布的应用打包生成 API，方便用户进行管理和调用；同时提供了 API 管理能力，可以针对 API 进行访问权限管控和流量调度。
 
@@ -167,3 +167,4 @@ iii. 单击 **send**，从界面下方的“body”处复制“access_token”�
 
 iv. 重新打开一个请求界面，填入需要请求的 API 域名，并选择 Bearer Token 模式。在右侧的“Token”处输入前面获得的token，单击 **send**，即可看到访问结果。
 ![](https://qcloudimg.tencent-cloud.cn/raw/388ff8dbc3f595e44a2c6342e74d4707.png)
+](https://ipaas.cloud.tencent.com/apimanage)
