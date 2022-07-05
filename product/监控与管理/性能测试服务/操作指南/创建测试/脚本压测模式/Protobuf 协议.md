@@ -6,7 +6,7 @@
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/dfd5b3c74a2462cbbf14159a62d47647.png)
 
-> ? 多协议文件参考 [使用协议文件](https://cloud.tencent.com/document/product/1484/74048)。
+> ? 多协议文件请参见 [使用协议文件](https://cloud.tencent.com/document/product/1484/74048)。
 
 
 
