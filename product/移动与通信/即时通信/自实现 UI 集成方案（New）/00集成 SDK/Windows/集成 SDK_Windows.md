@@ -6,9 +6,8 @@
 
 ## 集成 IM SDK
 下面通过创建一个简单的 MFC 项目，介绍如何在 Visual Studio 2019 工程中集成 SDK。
-
-### 步骤 1. 下载 IM SDK
-
+[](id:step1)
+### 步骤1：下载 IM SDK
 在 [Github](https://github.com/TencentCloud/TIMSDK/tree/master/Windows/IMSDK) 下载 Windows IM SDK，Windows IM SDK 的下载方式如下：
 ![](https://qcloudimg.tencent-cloud.cn/raw/dab3c3117d9198a5ef620c83f4abf1c7.png)
 
@@ -21,7 +20,7 @@
 | lib\Win64 | **64 位 Release 模式**，采用 /MT 选项链接库文件 |
 
 
-### 步骤 2. 新建工程
+### 步骤2：新建工程
 打开 Visual Studio，新建一个名为 IMDemo 的 MFC 应用程序（若 MFC 应用不在备选项前列，可借助上方的搜索模板进行查找），如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/93a8fdbce5266e95846c83f7fefc985f.png)
 ![](https://qcloudimg.tencent-cloud.cn/raw/bd5c02e2e4e0a39deaf5cdabde5001ec.png)
@@ -30,13 +29,13 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/a601202a7ca2729cabe99be341bd2bbb.png)
 
 
-### 步骤 3. 拷贝文件
-将解压后的 IM SDK 文件夹（即步骤 1 中获取的 ImSDK 文件夹）拷贝到 IMDemo.vcxproj 所在目录下，如下图所示：
+### 步骤3：拷贝文件
+将解压后的 IM SDK 文件夹（即 [步骤1](#step1) 中获取的 ImSDK 文件夹）拷贝到 IMDemo.vcxproj 所在目录下，如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/20047b53b37d70cfc741413bed6448fd.png)
 
-### 步骤 4. 修改工程配置
+### 步骤4：修改工程配置
 
-IM SDK中提供了 **Release** 模式下 32 位和 64 位的静态库，针对这两类有些地方要专门配置。打开 IMDemo 属性页，在 **解决方案资源管理器** > **IMDemo 工程的右键菜单** > **属性**。
+IM SDK 中提供了 **Release** 模式下 32 位和 64 位的静态库，针对这两类有些地方要专门配置。打开 IMDemo 属性页，在 **解决方案资源管理器** > **IMDemo 工程的右键菜单** > **属性**。
 
 以 **32 位 Release 模式** 为例，请按照以下步骤进行配置：
 
@@ -67,7 +66,7 @@ IM SDK中提供了 **Release** 模式下 32 位和 64 位的静态库，针对�
 ![](https://qcloudimg.tencent-cloud.cn/raw/fc26d4ffaa5d6c73925ca84db1a81ceb.png)
 
 
-### 步骤 5. 打印 IM SDK 版本号
+### 步骤5：打印 IM SDK 版本号
 
 - 在 IMDemoDlg.cpp 文件中，添加头文件包含：
 ```c++
