@@ -116,6 +116,7 @@ userSig 的计算方法请参见 [如何计算及使用 UserSig](https://cloud.t
 
 [](id:step5)
 ### 步骤5：给 SDK 配置 License 授权
+音视频通话（TRTC）SDK 提供了功能全面性能强大的直播播放能力，可轻松配合云直播实现 CDN 直播观看功能。若您使用移动端（iOS&Android）10.1及其之后版本的音视频通话（TRTC）SDK 实现 CDN 直播观看，则须配置 License 授权，否则可跳过本步骤。
 1. 获取 License 授权：
 	- 若您已获得相关 License 授权，需在 [云直播控制台](https://console.cloud.tencent.com/live/license) 获取 License URL 和 License Key。
 	![](https://qcloudimg.tencent-cloud.cn/raw/7053ac66fd06b9f178bf416d9d52ea21.png)
