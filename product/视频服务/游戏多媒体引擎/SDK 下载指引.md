@@ -49,12 +49,12 @@ v2.9.3 正式版本更新如下：
 <tbody><tr>
 <td>发布 SDK v2.9.3 正式版本</td>
 <td ><ul style="margin:0;">
-<li >新增 openid 支持字符串功能（旧 SDK 只支持数字形式）</li>
-<li >为更好的适配 VR 场景，增加本地 3D 位置输入接口</li>
-<li >新增 3D 语音黑名单接口，调用后对方声音不具有 3D 效果</li>
-<li >SDK 适配 xbox gamecore 平台</li>
-<li >降低 SDK 内存消耗</li>
-<li >优化硬件设备启动时间，减少实时语音功能进房耗时</li>
+<li >新增 openid 支持字符串功能（旧 SDK 只支持数字形式）。</li>
+<li >为更好的适配 VR 场景，增加本地 3D 位置输入接口。</li>
+<li >新增 3D 语音黑名单接口，调用后对方声音不具有 3D 效果。</li>
+<li >SDK 适配 xbox gamecore 平台。</li>
+<li >降低 SDK 内存消耗。</li>
+<li >优化硬件设备启动时间，减少实时语音功能进房耗时。</li>
 </ul ></td>
 <td>2022-07-05</td> 
 <td><li><a href="https://cloud.tencent.com/document/product/607/67303">openid 支持字符串接口</li>
