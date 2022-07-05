@@ -1,8 +1,6 @@
 
 
-[NVIDIA GPU 实例](https://cloud.tencent.com/document/product/560/19700) 需要安装驱动后才可以正常使用。腾讯云提供购买页自动安装驱动功能及预装驱动的实例，创建实例后十分钟内初始化完毕即可开始您的业务，免除手动下载部署 GPU 驱动所需要的数小时繁琐流程。
-
-您可参考本文，为您的实例选择适合的驱动类型及安装方式。
+[NVIDIA GPU 实例](https://cloud.tencent.com/document/product/560/19700) 需要安装驱动后才可以正常使用，您可通过腾讯云提供购买页自动安装驱动功能，或已预装驱动的镜像创建实例。创建实例后十分钟内初始化完毕即可开展您的业务，免除了手动下载部署 GPU 驱动所需要的数小时繁琐流程。您可参考本文，为您的实例选择适合的驱动类型及安装方式。
 
 
 
@@ -10,9 +8,10 @@
 
 
 ### 自动安装 GPU 驱动[](id:autoInstall)
-1. 在云服务器 [购买页](https://buy.cloud.tencent.com/?tab=custom&regionId=8&zoneId=800005&instanceType=GN7.5XLARGE80) 创建实例的过程中，[选择镜像](https://cloud.tencent.com/document/product/560/30211#.E6.AD.A5.E9.AA.A43.EF.BC.9A.E9.80.89.E6.8B.A9.E9.95.9C.E5.83.8F) 时请选择 CentOS 或 Ubuntu 镜像。
-2. 选择后即出现“后台自动安装GPU驱动”选项，勾选后即可按需选择 CUDA 和 cuDNN 版本。各实例支持自动安装的镜像版本请参考 [各实例支持的 GPU 驱动版本及安装方式](#supportList)。如下图所示：
+1. 在云服务器 [购买页](https://buy.cloud.tencent.com/?tab=custom&regionId=8&zoneId=800005&instanceType=GN7.5XLARGE80) 创建实例的过程中，[选择镜像](https://cloud.tencent.com/document/product/560/30211#.E6.AD.A5.E9.AA.A43.EF.BC.9A.E9.80.89.E6.8B.A9.E9.95.9C.E5.83.8F) 步骤请选择 CentOS 或 Ubuntu 镜像。
+选择后即出现“后台自动安装GPU驱动”选项，勾选后即可按需选择 CUDA 和 cuDNN 版本。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/c5e5885953d8f2d8f54f8f2aebfde6cd.png)
+各实例支持自动安装的镜像版本请参考 [各实例支持的 GPU 驱动版本及安装方式](#supportList)。
 3. 购买页其他配置选择请参考 [购买 GPU 实例](https://cloud.tencent.com/document/product/560/30211)，创建完成后请前往控制台，找到实例并等待10分钟左右驱动安装完成。
 4. 参考 [使用标准登录方式登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)，登录实例。
 5. 执行以下命令，验证驱动是否安装成功。
@@ -31,8 +30,9 @@ nvidia-smi
 ::: 渲染型实例
 
 如果您的业务类型属于图形图像处理（3D 渲染，视频编解码），需要使用 DirectX 和 OpenGL 等图形 API，推荐您选择 [渲染型实例](https://cloud.tencent.com/document/product/560/63854)。
-腾讯云提供预装 GRID 驱动的镜像，您在 [购买页](https://buy.cloud.tencent.com/?tab=custom&regionId=8&zoneId=800005&instanceType=GN7.5XLARGE80) 中选择对应镜像版本后，在 [控制台](https://console.cloud.tencent.com/cvm/instance) 等待创建完成即可使用渲染型实例。各个实例支持 GRID 版本请参考 [各实例支持的 GPU 驱动版本及安装方式](#supportList)。如下图所示：
+腾讯云提供预装 GRID 驱动的镜像，您在 [购买页](https://buy.cloud.tencent.com/?tab=custom&regionId=8&zoneId=800005&instanceType=GN7.5XLARGE80) 中选择对应镜像版本后，在 [控制台](https://console.cloud.tencent.com/cvm/instance) 等待创建完成即可使用渲染型实例。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/83ede2624a92f6cc145b52447391e014.png)
+各个实例支持 GRID 版本请参考 [各实例支持的 GPU 驱动版本及安装方式](#supportList)。
 
 
 :::
@@ -64,7 +64,7 @@ nvidia-smi
 
 <table>
 <tr>
-<th width="30%">实例类型</th>
+<th width="25%">实例类型</th>
 <th width="13%">场景</th>
 <th width="13%">驱动类型</th>
 <th>推荐安装方式</th>
@@ -110,18 +110,28 @@ nvidia-smi
 ### 各实例支持的 GPU 驱动版本及安装方式[](id:supportList)
 
 <table>
-  <thead>
-	<tr>
-	  <th>实例</th>
-	  <th>支持驱动类型</th>
-	  <th>自动安装支持驱动版本</th>
-	  <th>可用带驱动镜像</th>
-	  <th>手动安装驱动版本限制</th>
-	</tr>
+<thead>
+    <tr>
+      <th style="
+    width: 11%;
+">实例</th>
+      <th style="
+    width: 11%;
+">支持驱动类型</th>
+      <th style="
+    width: 20%;
+">自动安装支持驱动版本</th>
+      <th style="
+    width: 33%;
+">可用带驱动镜像</th>
+      <th style="
+    width: 25%;
+">手动安装驱动版本限制</th>
+    </tr>
   </thead>
   <tbody>
 	<tr>
-	  <td>计算型 PNV4</td>
+	  <td>计算型<br>PNV4</td>
 	  <td rowspan="8">Tesla 驱动
 	  <br />GRID 驱动</td>
 	  <td>
@@ -152,7 +162,7 @@ nvidia-smi
 	  <td rowspan="8">
 	  <b>Tesla 驱动</b>
 	  <br />无特殊要求，官方支持版本即可。
-	  <br />
+	  <br />  <br />
 	  <b>GRID 驱动</b>
 	  <ul class="params">
 		<li>GRID14 驱动</li>
@@ -160,11 +170,11 @@ nvidia-smi
 		<li>GRID11 驱动</li>
 	  </ul>
 	  <br />
-	  <b>说明：</b>手动安装 GRID 驱动需要您前往 NVIDIA 官网下载并购买 license。版选择可参考 
+	  <b>说明：</b>手动安装 GRID 驱动需要您前往 NVIDIA 官网下载并购买 license。版本选择可参考 
 	  <a href="https://docs.nvidia.com/grid/index.html">GRID 驱动版本说明</a>。</td>
 	</tr>
 	<tr>
-	  <td>计算型 GT4</td>
+	  <td>计算型<br>GT4</td>
 	  <td>
 		<b>CentOS 8.0 - 8.2 64位</b>
 		<ul class="params">
@@ -186,7 +196,7 @@ nvidia-smi
 	  </td>
 	</tr>
 	<tr>
-	  <td>计算型 GN10Xp</td>
+	  <td>计算型<br>GN10Xp</td>
 	  <td rowspan="2">
 		<b>CentOS 7.2 - 8.2 64位、Ubuntu 18.04/20.04 LTS 64位</b>
 		<ul class="params">
@@ -197,10 +207,10 @@ nvidia-smi
 	  </td>
 	</tr>
 	<tr>
-	  <td>计算型 GN7-直通卡</td>
+	  <td>计算型<br>GN7-直通卡</td>
 	</tr>
 	<tr>
-	  <td>推理型 GI3X</td>
+	  <td>推理型<br>GI3X</td>
 	  <td>
 		<b>CentOS 7.2 - 8.2 64位、Ubuntu 18.04 LTS 64位</b>
 		<ul class="params">
@@ -211,7 +221,7 @@ nvidia-smi
 	  </td>
 	</tr>
 	<tr>
-	  <td>计算型 GN10X</td>
+	  <td>计算型<br>GN10X</td>
 	  <td rowspan="3">
 		<b>CentOS 7.2 - 8.2 64位、Ubuntu 18.04 LTS 64位</b>
 		<ul class="params">
@@ -227,10 +237,10 @@ nvidia-smi
 	  </td>
 	</tr>
 	<tr>
-	  <td>计算型 GN8</td>
+	  <td>计算型<br>GN8</td>
 	</tr>
 	<tr>
-	  <td>计算型 GN6/GN6S</td>
+	  <td>计算型<br>GN6/GN6S</td>
 	</tr>
 	<tr>
 	  <td>计算型 GN7-vGPU</td>
@@ -245,15 +255,15 @@ nvidia-smi
 	  <td>Linux- GRID11.1 450.80.02</td>
 	</tr>
 	<tr>
-	  <td>渲染型 GNV4v</td>
+	  <td>渲染型<br>GNV4v</td>
 	  <td rowspan="2">Windows Server 2019 数据中心版 64位 中文版 GRID13</td>
 	  <td rowspan="2">Windows-GRID13 驱动 471.68</td>
 	</tr>
 	<tr>
-	  <td>渲染型 GNV4</td>
+	  <td>渲染型<br>GNV4</td>
 	</tr>
 	<tr>
-	  <td>渲染型 GN7vw</td>
+	  <td>渲染型<br>GN7vw</td>
 	  <td>
 		<ul class="params">
 		  <li>CentOS 8.0 64位 GRID11.1</li>
