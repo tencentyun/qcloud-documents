@@ -150,6 +150,15 @@ Content-Type: application/json;charset=UTF-8
   "error" : "insufficient_email_quota"
 }
 ```
+- 邮箱地址不存在或在黑名单中。
+```
+HTTP/1.1 400 Bad Request
+Content-Type: application/json;charset=UTF-8
+
+{
+  "error" : "invalid_email"
+}
+```
 - 验证码发送失败。
 ```
 HTTP/1.1 503 Service Unavailable
