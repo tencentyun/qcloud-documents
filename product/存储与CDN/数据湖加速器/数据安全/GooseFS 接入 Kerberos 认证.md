@@ -6,7 +6,7 @@ Kerberos 是大数据生态系统中广泛应用的统一认证服务，GooseFS 
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/f3fa3d97e385d113faf053cb989edef7.png)
 
-### GooseFS Kerberos 认证优势
+## GooseFS Kerberos 认证优势
 
 - 与 HDFS 接入 Kerberos 的认证架构和流程基本一致，在 HDFS 上启用了 Kerberos 认证流程的应用可以很容易地迁移到 GooseFS。
 - 支持 Hadoop 的 Delegation Token 认证机制，因此可以很好地兼容 Hadoop 生态的应用作业。
