@@ -66,7 +66,7 @@ INSERT INTO jdbc_upsert_sink_table SELECT * FROM DataInput;
 | scan.startup.specific-offsets | 否   | 无             | 如果 `scan.startup.mode` 的值为`'specific-offsets'`，则必须使用本参数指定具体起始读取的偏移量。例如 `'partition:0,offset:42;partition:1,offset:300'`                                                                                                                                                                                                                                          |
 | scan.startup.timestamp-millis | 否   | 无             | 如果`scan.startup.mode` 的值为`'timestamp'`，则必须使用本参数来指定开始读取的时间点（毫秒为单位的 Unix 时间戳）            |
 |tdsql.database.name| 否 | 无 | tdsql 数据库名称，配置此参数，可以消费 tdsql 指定数据库的 binlog，前提是订阅任务包含了此数据库的 binlog。参数支持正则，例如 `test_case_2022_06_0*` |
-|tdsql.table.name| 否 | 无 | tdsql 数据表名称，配置此参数，可以消费 tdsql 指定数据表的 binlog，前提是订阅任务包含了此数据库的 binlog。参数支持正则，例如 `test_0*`，`test_1,test_2` |
+|tdsql.table.name| 否 | 无 | tdsql 数据表名称，配置此参数，可以消费 tdsql 指定数据表的 binlog，前提是订阅任务包含了此数据表的 binlog。参数支持正则，例如 `test_0*`，`test_1,test_2` |
 
 >? 如果需要配置 `tdsql.database.name` 或 `tdsql.table.name` 参数，订阅任务建议配置 **订阅全实例** ，如果有多个 Oceanus 任务消费不同 tdsql 数据库表时，多个 Oceanus 任务需要使用订阅任务的不同消费组，可在订阅任务中创建不同消费组。
 
