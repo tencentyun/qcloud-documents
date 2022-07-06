@@ -23,10 +23,10 @@
 
 | message属性 | 值                  |
 |-----------|--------------------|
-| payload   | 子流最后一个节点输出的payload |
-| error     | 执行成功后，error为空；     |
-| attribute | 子流输出的attribute     |
-| variable  | 子流所有设置过的variable   |
+| payload   | 子流最后一个节点输出的 payload |
+| error     | 执行成功后，error 为空     |
+| attribute | 子流输出的 attribute     |
+| variable  | 子流所有设置过的 variable   |
 
 ## 案例
 
