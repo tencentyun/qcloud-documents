@@ -27,8 +27,8 @@ CREATE TABLE `DataInput` (
        `age` INT
 ) WITH (
     'connector' = 'tdsql-subscribe',   -- 注意选择对应的内置  Connector
-    'tdsql.database.name' = 'test_case_2022_06_0*', -- 只消费数据库名满足 test_case_2022_06_0* 正则的binlog
-    'tdsql.table.name' = 'test_0*', -- 只消费数据表满足
+    'tdsql.database.name' = 'test_case_2022_06_0*', -- 对订阅消息进行过滤，消费数据库名满足 test_case_2022_06_0* 正则的订阅数据
+    'tdsql.table.name' = 'test_0*', -- 对订阅消息进行过滤，消费数据表满足 test_0* 正则的订阅数据
     'topic' = 'topic-subs-5xop97nffk-tdsqlshard-xxx',  -- 替换为订阅任务消费的 Topic
     'scan.startup.mode' = 'latest-offset', -- 可以是 latest-offset / earliest-offset / specific-offsets / group-offsets 的任何一种
     'properties.bootstrap.servers' = 'guangzhou-kafka-2.cdb-dts.tencentcs.com.cn:3212',  -- 替换为您的订阅任务 Kafka 连接地址
