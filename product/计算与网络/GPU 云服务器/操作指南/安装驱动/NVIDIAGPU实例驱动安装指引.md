@@ -10,7 +10,7 @@
 ### 自动安装 GPU 驱动[](id:autoInstall)
 1. 在云服务器 [购买页](https://buy.cloud.tencent.com/?tab=custom&regionId=8&zoneId=800005&instanceType=GN7.5XLARGE80) 创建实例的过程中，[选择镜像](https://cloud.tencent.com/document/product/560/30211#.E6.AD.A5.E9.AA.A43.EF.BC.9A.E9.80.89.E6.8B.A9.E9.95.9C.E5.83.8F) 步骤请选择 CentOS 或 Ubuntu 镜像。
 选择后即出现“后台自动安装GPU驱动”选项，勾选后即可按需选择 CUDA 和 cuDNN 版本。如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/c5e5885953d8f2d8f54f8f2aebfde6cd.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/352d7b636f81cb97362fdb0ee0333ae9.gif)
 各实例支持自动安装的镜像版本请参考 [各实例支持的 GPU 驱动版本及安装方式](#supportList)。
 3. 购买页其他配置选择请参考 [购买 GPU 实例](https://cloud.tencent.com/document/product/560/30211)，创建完成后请前往控制台，找到实例并等待10分钟左右驱动安装完成。
 4. 参考 [使用标准登录方式登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)，登录实例。
@@ -31,7 +31,7 @@ nvidia-smi
 
 如果您的业务类型属于图形图像处理（3D 渲染，视频编解码），需要使用 DirectX 和 OpenGL 等图形 API，推荐您选择 [渲染型实例](https://cloud.tencent.com/document/product/560/63854)。
 腾讯云提供预装 GRID 驱动的镜像，您在 [购买页](https://buy.cloud.tencent.com/?tab=custom&regionId=8&zoneId=800005&instanceType=GN7.5XLARGE80) 中选择对应镜像版本后，在 [控制台](https://console.cloud.tencent.com/cvm/instance) 等待创建完成即可使用渲染型实例。如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/83ede2624a92f6cc145b52447391e014.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/5e492284a4d1252acef79fb5fda94ff1.gif)
 各个实例支持 GRID 版本请参考 [各实例支持的 GPU 驱动版本及安装方式](#supportList)。
 
 
@@ -105,9 +105,8 @@ nvidia-smi
 
 
 
-## 附录
 
-### 各实例支持的 GPU 驱动版本及安装方式[](id:supportList)
+## 各实例支持的 GPU 驱动版本及安装方式[](id:supportList)
 
 <table>
 <thead>
