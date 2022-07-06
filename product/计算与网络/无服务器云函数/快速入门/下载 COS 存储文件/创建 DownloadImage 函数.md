@@ -4,7 +4,7 @@
  - 名称：命名为 “test-scf”。
  - 地域：选择 “广州（华南）”。
  - 访问权限：选择 “私有读写”。
-4. 切换至 [云函数控制台](https://console.cloud.tencent.com/scf/list?rid=1)，进入**函数服务**页面。
+4. 切换至 [Serverless 控制台](https://console.cloud.tencent.com/scf/list?rid=1)，进入**函数服务**页面。
 5. 选择**广州**地域，单击**新建**，进入新建函数页面。
 6. 填写以下参数信息，单击**下一步**。如下图所示： 
 ![](https://main.qcloudimg.com/raw/2fa61bd4c599d0798b48e1faee5e2e9e.png)

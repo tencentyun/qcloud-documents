@@ -52,7 +52,7 @@ CLS 支持您使用各类 Kafka producer SDK 采集日志，并通过 Kafka 协�
 ```filebeat
 output.kafka:
   enabled: true
-  hosts: ["${region}-producer.cls.tencentyun.com:9096"] # TODO 服务地址；公网端口9096，内网端口9095
+  hosts: ["${region}-producer.cls.tencentyun.com:9095"] # TODO 服务地址；外网端口9096，内网端口9095
   topic: "${topicID}" #  TODO topicID
   version: "0.11.0.2"
   compression: "${compress}"   # TODO 配置压缩方式
@@ -100,7 +100,7 @@ func main() {
     config.Version = sarama.V0_11_0_0
     config.Producer.Compression = ${compress}                   // TODO 配置压缩方式
 
-    // TODO 服务地址；公网端口9096，内网端口9095
+    // TODO 服务地址；外网端口9096，内网端口9095
     producer, err := sarama.NewSyncProducer([]string{"${region}-producer.cls.tencentyun.com:9096"}, config)
     if err != nil {
         panic(err)
@@ -131,7 +131,7 @@ from kafka import KafkaProducer
 
 if __name__ == '__main__':
     produce = KafkaProducer(
-        # TODO 服务地址；公网端口9096，内网端口9095
+        # TODO 服务地址；外网端口9096，内网端口9095
         bootstrap_servers=["${region}-producer.cls.tencentyun.com:9096"],
         security_protocol='SASL_PLAINTEXT',
         sasl_mechanism='PLAIN',

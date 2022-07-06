@@ -22,7 +22,7 @@ SCF 提供模板函数，按照如下流程操作可使用 Web 函数快速创�
 
 #### 创建函数[](id:createwebfunc)
 
-1.  登录 [云函数控制台](https://console.cloud.tencent.com/scf)。
+1.  登录 [Serverless 控制台](https://console.cloud.tencent.com/scf)。
 2.  在**函数服务页**中单击**新建**。
 3. 在**新建**页中，选择**模板创建**，并搜索关键词 `springboot`、`webfunc`。在查询结果中选择 **SpringBoot 待办应用**并单击**下一步**。如下图所示： 
 ![](https://qcloudimg.tencent-cloud.cn/raw/2d969cfd33c1af14c8a4d913e758a079.png )
@@ -75,7 +75,7 @@ SCF 提供模板函数，按照如下流程操作可使用 Web 函数快速创�
 >! 在 scf_bootstrap 文件所在目录执行 `chmod 755 scf_bootstrap` 来保证 scf_bootstrap 文件具有可执行权限。
 
 -   将 `scf_bootstrap` 文件与生成的 jar 包一起打包为 zip 部署到云函数。部署函数步骤如下：
-    1. 登录 [云函数控制台](https://console.cloud.tencent.com/scf)。
+    1. 登录 [Serverless 控制台](https://console.cloud.tencent.com/scf)。
     2. 在**函数服务页**中单击**新建**。
     3. 在**新建**页中，选择**从头开始**。参考以下内容进行配置：
           **函数类型**：web 函数
@@ -96,7 +96,7 @@ SCF 提供模板函数，按照如下流程操作可使用事件函数快速创�
 >! 本模板仅作为示例提供，待办事项数据实际存储在实例缓存中，不作为持久化存储。
 
 #### 创建函数[](id:createnew)
-1.  登录 [云函数控制台](https://console.cloud.tencent.com/scf)。
+1.  登录 [Serverless 控制台](https://console.cloud.tencent.com/scf)。
 2.  在**函数服务页**中单击**新建**。
 3. 在**新建**页中，选择**模板创建**，并搜索关键词 `springboot`。在查询结果中选择 **SpringBoot** 并单击**下一步**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/65b09f8bb55d040c671e14f8181f4042.png )
@@ -168,7 +168,7 @@ SCF 提供模板函数，按照如下流程操作可使用事件函数快速创�
   编译完成后可在 `build/libs` 目录下获取到打包完成的 jar 包，选择后缀为 `-all` 的 jar 包。
 
 -   将编译生成的 jar 包部署到云函数。部署函数步骤如下：
-   1. 登录 [云函数控制台](https://console.cloud.tencent.com/scf)。
+   1. 登录 [Serverless 控制台](https://console.cloud.tencent.com/scf)。
    2. 在**函数服务页**中单击**新建**。
    3. 在**新建**页中，选择**从头开始**。参考以下内容进行配置：
      **函数类型**：事件函数函数
