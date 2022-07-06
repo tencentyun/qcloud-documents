@@ -243,7 +243,7 @@ nvidia-smi
 	  <td>计算型<br>GN6/GN6S</td>
 	</tr>
 	<tr>
-	  <td>计算型 GN7-vGPU</td>
+	  <td>计算型<br>GN7-vGPU</td>
 	  <td rowspan="4">GRID 驱动</td>
 	  <td rowspan="4">-</td>
 	  <td>
