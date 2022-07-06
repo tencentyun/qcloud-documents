@@ -48,7 +48,7 @@ Scheduler 作为 trigger 组件，是集成流的第一个组件，Scheduler 会
 | message 属性 | 值                                                           |
 | ----------- | ------------------------------------------------------------ |
 | payload     | 空，没有值存在                                               |
-| error       | <ul><li>执行成功后，error 为空。</li><li>执行失败后，error 为 dict 类型，包含“Code”和“Description”字段：“Code”字段表示错误类型，“Description”字段表示错误具体信息。</li></ul> |
+| error       | <ul><li>执行成功后，error 为空</li><li>执行失败后，error 为 dict 类型，包含“Code”和“Description”字段：“Code”字段表示错误类型，“Description”字段表示错误具体信息</li></ul> |
 | attribute   | 空，没有值存在                                               |
 | variable    | 空，没有值存                                                 |
 
