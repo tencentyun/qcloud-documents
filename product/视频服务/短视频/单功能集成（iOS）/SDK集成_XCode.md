@@ -10,15 +10,53 @@ SDK 支持 iOS 8.0 以上系统。
 ## 设置步骤
 
 ### 步骤1：链接 SDK 及系统库
-1. 将下载的 SDK 资源包解压，并将 SDK 文件夹中 TXLiteAVSDK\_ 开头的 framework（如 TXLiteAVSDK_UGC.framework）复制到工程所在文件夹，并拖动到工程当中。
-2. 选中工程的 Target，添加以下系统库：
+
+将下载的 SDK 资源包解压，并将 SDK 文件夹中 TXLiteAVSDK\_ 开头的 framework（如 TXLiteAVSDK_UGC.framework）复制到工程所在文件夹，并拖动到工程当中。
+
+1. 按照SDK的版本，集成对应的库：
+
+```
+<dx-tabs>
+::: TXLiteAVSDK 9.5以下添加集成库[](id:9.5)
+选中工程的 Target，添加以下系统库：
+
   - Accelerate.framework
   - SystemConfiguration.framework
   - libc++.tbd
   - libsqlite3.tbd
-添加完毕后，工程库依赖如下图所示：
-![](https://main.qcloudimg.com/raw/a5fe16ca046a0aad84224e1ffa766a42.jpg)
-3. 选中工程的 Target，在 Build Settings 中搜索 bitcode，将 Enable Bitcode 设置为 NO。
+    添加完毕后，工程库依赖如下图所示：
+    ![](https://main.qcloudimg.com/raw/a5fe16ca046a0aad84224e1ffa766a42.jpg)
+:::
+::: TXLiteAVSDK 10.0以上添加系统库[](id:10.0)
+选中工程的 Target，添加以下系统库：
+  - Accelerate.framework
+  - SystemConfiguration.framework
+  - libc++.tbd
+  - libsqlite3.tbd
+  - MetalKit.framework
+  - VideoToolbox.framework
+  - ReplayKit.framework
+  - GLKit.framework
+  - OpenAL.framework
+  - CoreServices.framework
+  
+ Build Phases选项下面添加以下动态库，动态库在SDK目录下面：
+ Link Binary With Librares添加
+ - TXFFmpeg.xcframework
+ - TXSoundTouch.xcframework
+ 
+ Embed Frameworks添加以下，勾选Code Sign On Copy
+ - TXFFmpeg.xcframework
+ - TXSoundTouch.xcframework
+ 
+  
+:::
+</dx-tabs>
+```
+
+2. 选中工程的 Target，在 Build Settings 中搜索 bitcode，将 Enable Bitcode 设置为 NO。
+
+
 
 ### 步骤2：配置 App 权限
 应用会需要相册及相册的访问权限，需要在 Info.plist 中添加对应项，可以通过在 Info.plist 中右键选 Open as / Source Code 粘贴并修改以下内容进行配置。
@@ -128,9 +166,9 @@ UGCKitRecordViewController *recordViewController = [[UGCKitRecordViewController 
 :::
 </dx-codeblock>
 2. **编辑**
-`UGCKitEditViewController`提供了完整的图片转场和视频编辑功能，实例化时需要传入待编辑的媒体对象，以处理录制结果为例，示例如下：
-<dx-codeblock>
-::: objectivec 
+   `UGCKitEditViewController`提供了完整的图片转场和视频编辑功能，实例化时需要传入待编辑的媒体对象，以处理录制结果为例，示例如下：
+   <dx-codeblock>
+   ::: objectivec 
    - (void)processRecordedVideo:(UGCKitMedia *)media {
        // 实例化编辑控制器
        UGCKitEditViewController *editViewController = [[UKEditViewController alloc] initWithMedia:media conifg:nil theme:nil];
@@ -188,9 +226,9 @@ UGCKitRecordViewController *recordViewController = [[UGCKitRecordViewController 
 :::
 </dx-codeblock>
 4. **裁剪**
-`UGCKitCutViewController`提供视频的裁剪功能，与编辑接口相同，在实例化时传入媒体对象，在 completion 中处理剪辑结果即可。示例如下：
-<dx-codeblock>
-::: objectivec 
+   `UGCKitCutViewController`提供视频的裁剪功能，与编辑接口相同，在实例化时传入媒体对象，在 completion 中处理剪辑结果即可。示例如下：
+   <dx-codeblock>
+   ::: objectivec 
    UGCKitMedia *media = [UGCKitMedia mediaWithVideoPath:@"<#视频路径#>"];
    UGCKitCutViewController *cutViewController = [[UGCKitCutViewController alloc] initWithMedia:media theme:nil];
    cutViewController.completion = ^(UGCKitResult *result) {
@@ -201,8 +239,8 @@ UGCKitRecordViewController *recordViewController = [[UGCKitRecordViewController 
         }
    }
    [self.navigationController pushViewController: cutViewController]
-:::
-</dx-codeblock>
+   :::
+   </dx-codeblock>
    
 
 ## 详细介绍
