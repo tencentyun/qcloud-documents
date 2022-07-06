@@ -109,7 +109,7 @@ TRTCParams 由很多的字段构成，但通常您只需要关心如下几个字
 | userId | 用户 ID | 即用户名，只允许包含大小写英文字母（a-z、A-Z）、数字（0-9）及下划线和连词符。注意 TRTC 不支持同一个 userId 在两台不同的设备上同时进入房间，否则会相互干扰。| 字符串 | “denny” 或者 “123321”|
 | userSig | 进房鉴权票据 | 您可以使用 SDKAppID 和 userId 计算出 userSig，计算方法请参见 [如何计算及使用 UserSig](https://cloud.tencent.com/document/product/647/17275) 。|字符串| eJyrVareCeYrSy1SslI... |
 | roomId | 房间号 | 数字类型的房间号。注意如果您想使用字符串类型的房间号，请使用 **strRoomId** 字段，而不要使用 roomId 字段，因为 strRoomId 和 roomId 不可以混用。 | 数字 | 29834 |
-| strRoomId | 房间号 | 字符串类型的房间号。注意 strRoomId 和 roomId 不可以混用，“123” 和 123 在 TRTC 后台服务看来并不是同一个房间。  | 数字 | 29834 |
+| strRoomId | 房间号 | 字符串类型的房间号。注意 strRoomId 和 roomId 不可以混用，“123” 和 123 在 TRTC 后台服务看来并不是同一个房间。  | 字符串 | "29834" |
 | role | 角色 | 分为“主播”和“观众”两种角色，只有当 TRTCAppScene 被指定为 `TRTCAppSceneLIVE` 或 `TRTCAppSceneVoiceChatRoom` 这两种直播场景时才需要指定该字段。| 枚举值 | TRTCRoleAnchor 或 TRTCRoleAudience   |
 
 >!

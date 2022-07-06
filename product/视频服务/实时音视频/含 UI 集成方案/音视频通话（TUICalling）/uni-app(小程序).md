@@ -1,7 +1,7 @@
 ## 组件介绍
 
 TUICalling 小程序组件是基于腾讯云实时音视频（TRTC）和腾讯云信令 SDK（TSignalling）组合而成，支持1V1，多人场景下的视频通话。TUICalling 同时支持 iOS、Web、小程序、Flutter、UniApp 等平台，基本功能如下图所示：
-<img src="https://qcloudimg.tencent-cloud.cn/raw/80d21c47a70a9862c637c9a2bf8d58d5.png" width=600>
+![](https://qcloudimg.tencent-cloud.cn/raw/d05db03536a2e3035f59246810f4fe41.png)
 
 >?TUIKit 系列组件同时使用了腾讯云 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269/42440) 两个基础 PaaS 服务，开通实时音视频后会同步开通即时通信IM服务。即时通信 IM 服务详细计费规则请参见 [即时通信 - 价格说明](https://cloud.tencent.com/document/product/269/11673)，TRTC 开通会默认关联开通 IM SDK 的体验版，仅支持100个 DAU。
 

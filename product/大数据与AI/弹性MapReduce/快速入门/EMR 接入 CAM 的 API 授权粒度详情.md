@@ -516,6 +516,31 @@ EMR 支持资源级授权，您可以指定子账号拥有特定资源的接口�
 <td >控制台磁盘元数据更新</td>
 <td >emr-instance|qcs::emr:${region}:uin/${uin}:emr-instance/$emrInstanceId</td>
 </tr>
+<tr>
+<td >DescribeServiceConfsNew</td>
+<td >获取组件配置信息（配置管理页）</td>
+<td >emr-instance|qcs::emr:${region}:uin/${uin}:emr-instance/$emrInstanceId</td>
+</tr>
+<tr>
+<td >DescribeConfFileList</td>
+<td > 获取配置文件列表（配置管理页）</td>
+<td >emr-instance|qcs::emr:${region}:uin/${uin}:emr-instance/$emrInstanceId</td>
+</tr>
+<tr>
+<td >DescribeServiceConfCategories</td>
+<td > 获取组件配置类别（配置管理页）</td>
+<td >emr-instance|qcs::emr:${region}:uin/${uin}:emr-instance/$emrInstanceId</td>
+</tr>
+<tr>
+<td >DescribeServiceConfDiff</td>
+<td > 配置比对（配置管理页）</td>
+<td >emr-instance|qcs::emr:${region}:uin/${uin}:emr-instance/$emrInstanceId</td>
+</tr>
+<tr>
+<td >DescribeConfigGroupList</td>
+<td > 查询节点类型的配置组信息</td>
+<td >emr-instance|qcs::emr:${region}:uin/${uin}:emr-instance/$emrInstanceId</td>
+</tr>
 </tbody>
 </table>
 
