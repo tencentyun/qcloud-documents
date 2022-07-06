@@ -13,14 +13,14 @@
 
 ## 操作步骤
 
->? 由于使用 qGPU 能力需要使用特定镜像以及设置相关 Label，因此强烈建议您使用 TKE 的节点池能力来对节点进行分组管理（节点池的节点具备统一的 Label 以及镜像属性），详情请参见 [新建节点池](https://cloud.tencent.com/document/product/457/43735) 。
+>? 由于使用 qGPU 能力需要使用特定镜像以及设置相关 Label，因此强烈建议您使用 TKE 的 [节点池](https://cloud.tencent.com/document/product/457/43719) 能力来对节点进行分组管理（节点池的节点具备统一的 Label 以及镜像属性），详情请参见 [新建节点池](https://cloud.tencent.com/document/product/457/43735)。
 
 ### 安装 qGPU 
 1. 登录 [容器服务控制台 ](https://console.qcloud.com/tke2)，在左侧导航栏中选择**集群**。
-2. 在“集群管理”页面单击目标集群 ID，进入集群详情页。
-3. 选择左侧菜单栏中的**组件管理**，进入“组件列表”页面。
-4. 在“组件列表”页面中选择**新建**，并在“新建组件”页面中勾选 QGPU（GPU隔离组件）。
-5. 单击**参数配置**，可以设置 qgpu-scheduler 的调度策略。
+2. 在“集群管理”页面选择地域，单击目标集群 ID，进入集群详情页。
+3. 选择左侧菜单栏中的**组件管理**，在组件管理页面中单击**新建**。
+4. 在“新建组件”页面中勾选 QGPU（GPU隔离组件）。
+5. 单击**参数配置**，设置 qgpu-scheduler 的调度策略。
    - **spread**：多个 Pod 会分散在不同节点、不同显卡上，优先选择资源剩余量较多的节点，适用于高可用场景，避免把同一个应用的副本放到同一个设备上。
    - **binpack**：多个 Pod 会优先使用同一个节点，适用于提高 GPU 利用率的场景。
 6. 单击**完成**即可创建组件。安装成功后，需要为集群准备 GPU 资源。
@@ -28,11 +28,12 @@
 
 ### 准备 GPU 资源
 1. 单击**新建节点池**，选中**qGPU 专用市场镜像**。如下图所示：
-     ![](https://main.qcloudimg.com/raw/af37f83b8a65b4772587c9138fdfbb1e.png)
-     通过 qGPU 指定的镜像创建节点后，tke 后台会自动给节点添加 label qgpu-device-enable:"enable"，设置了该 label 后，DaemonSet qgpu-manager 会调度到对应节点上，并自动进行 qGPU 相关的设置。
-2. 通过节点池的高级配置来设置 Label，从而指定 qGPU 隔离策略（填写 Label value 时，可填写全称或者缩写）：
-      - Label 键：`tke.cloud.tencent.com/qgpu-schedule-policy`。
-      - Label 值：fixed-share（更多取值可参考下方 [隔离策略说明](#table) ）。
+![](https://qcloudimg.tencent-cloud.cn/raw/37aa364035def110290592a543300a6f.png)
+>? 通过 qGPU 指定的镜像创建节点，TKE 后台会自动给节点添加 `label qgpu-device-enable:"enable"`。设置了该 Label 后，DaemonSet qgpu-manager 会调度到对应节点上，并自动进行 qGPU 相关的设置。
+>
+2. 在**更多设置 > Labels**中，通过节点池的高级配置来设置 Label，指定 qGPU 隔离策略：
+      - Label 键：`tke.cloud.tencent.com/qgpu-schedule-policy`
+      - Label 值：`fixed-share`（Label value 可填写全称或者缩写，更多取值可参考下方 [隔离策略说明](#table)）
    ![](https://main.qcloudimg.com/raw/0d062a7c9b0cf648298e53f6ecddc267.png)
     当前 qGPU 支持以下三种隔离策略：[](id:table)
 <table>
