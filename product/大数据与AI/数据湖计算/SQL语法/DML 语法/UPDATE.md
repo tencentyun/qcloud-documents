@@ -1,4 +1,4 @@
-﻿>! 该语法仅支持 Spark 3.1及以上版本，如需升级 Spark 版本可 [提交工单](https://console.cloud.tencent.com/workorder/category ) 与我们沟通升级。
+>! 该语法仅支持 Spark 3.1及以上版本，如需升级 Spark 版本可 [提交工单](https://console.cloud.tencent.com/workorder/category ) 与我们沟通升级。
 
 ## 语法
 ```
