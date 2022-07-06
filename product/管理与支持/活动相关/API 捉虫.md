@@ -14,7 +14,6 @@ API 输入参数描述错误？输出参数缺失？示例无法跑通？腾讯�
 	- [腾讯云助手消息](https://cloud.tencent.com/product/tca?from=10680) 通知（关注“腾讯云助手”微信公众号）。
 
 活动结束后，我们会统计所有用户的反馈数据，评出奖项，在 [文档活动中心](https://cloud.tencent.com/document/act?from=10680) 公布（每月10号公布上月获奖结果）。
-关注云+社区“腾讯云文档”，及时获得消息提醒。
 
 ## 奖励规则
 - **积分奖励**：成功提交问题参与活动的用户，即可获得积分奖励2-600分不等。积分可用于 [腾讯云积分商城](https://cloud.tencent.com/act/integralmall?from=10680) 进行积分兑换好礼。积分规则请参见 [腾讯云文档积分规则](https://cloud.tencent.com/document/product/855/54543?from=10680#m1) 文档。
@@ -26,7 +25,7 @@ API 输入参数描述错误？输出参数缺失？示例无法跑通？腾讯�
 ![](https://qcloudimg.tencent-cloud.cn/raw/513e5a3a99129c789139a2733b3430ed.png)
 
 ## 说明
-1. 代金券发放对象为：已完成 [实名认证](https://cloud.tencent.com/solution/face-recognition?from=10680) 的腾讯云用户（协作者、子账号、国际账号、代理商客户除外）。
+1. 代金券发放对象为：已完成 [实名认证](https://cloud.tencent.com/solution/face-recognition?from=10680) 的腾讯云用户（协作者、子账号、国际账号除外）。
 2. 周边礼物发放对象为：已完成实名认证的腾讯云用户。
 
 
