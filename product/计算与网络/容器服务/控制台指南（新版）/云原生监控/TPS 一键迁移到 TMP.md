@@ -76,7 +76,7 @@ TPS 和 TMP 已上线“收费指标采集速率”的能力，您可以用该�
 2. 在当前的云原生监控的实例列表页，在上方选择需要迁移的实例所在的地域。
 3. 勾选状态为“未迁移”的实例后，单击上方的“一键迁移”。
 >! 
->- 批量迁移不支持择新 TMP 实例的 VPC 和子网，如您有类似需求，请进行**单实例迁移**。
+>- 批量迁移不支持选择新 TMP 实例的 VPC 和子网，如您有类似需求，请进行**单实例迁移**。
 >- 迁移前请查看 TMP 涉及 [计费方式](https://cloud.tencent.com/document/product/1416/65379) 和相关 [云资源使用情况](https://cloud.tencent.com/document/product/457/71905)。若费用过高，建议您 [精简监控指标](https://cloud.tencent.com/document/product/457/72482)。
 4. 单击**确定**。当 TPS 实例状态的括号中内容显示“已迁移”，表示迁移成功。
 5. TPS 迁移完成后，您可以在 **[Prometheus 监控](https://console.cloud.tencent.com/tke2/prometheus)** 控制台，在同样的地域里找到一个名为**“旧实例名 (trans-from-prom-xxx)”的 TMP 新实例，其中“旧实例名”为原 TPS 的实例名，“xxx” 为原 TPS 实例 ID。**
