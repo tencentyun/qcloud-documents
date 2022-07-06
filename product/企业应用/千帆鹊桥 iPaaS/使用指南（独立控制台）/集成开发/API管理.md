@@ -102,7 +102,7 @@ API Endpoint 指一个 API 服务可以连接的后端服务信息，包括 API 
 ![](https://qcloudimg.tencent-cloud.cn/raw/0a55c29f24282a66d94d70f1e6c0b3f4.png)
 
 ## API 用户管理
-
+### 功能概述
 用户管理功能允许 API 的提供者帮助其用户添加及管理账号、分配权限，并获取请求 API 时所需要的所有必要信息。
 在 [API 管理](https://ipaas.cloud.tencent.com/apimanage) 页面，找到目标 API 服务，单击**用户数量**，进入用户管理页面。
 ![](https://qcloudimg.tencent-cloud.cn/raw/4a619b5393472eb059c71976f088c3ae.png)
