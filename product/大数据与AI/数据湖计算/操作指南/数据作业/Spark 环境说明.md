@@ -1,4 +1,4 @@
-﻿## 基础环境
+## 基础环境
 目前 DLC 的 Spark 基础运行环境如下：
 ```
 OS = Debian 11(bullseye)
