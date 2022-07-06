@@ -6,7 +6,7 @@ Python = 3.9.2
 ```
 
 ## 基础镜像
-DLC 提供如下 pyspark 镜像的，您可以根据需求选择。
+DLC 提供如下 pyspark 镜像的，您可以根据需求选择：
 ```
 spark:3.2.1-python
 spark:3.2.1-python-ml
@@ -16,38 +16,61 @@ spark:3.2.1-python-ai
 ### spark:3.2.1-python
 该版本镜像提供基础运行环境，具体依赖如下：
 ```
-Package         Version
---------------- -------
-numpy           1.22.4
-pandas          1.4.2
-pip             22.1.2
-pyarrow         8.0.0
-python-dateutil 2.8.2
-pytz            2022.1
-setuptools      62.6.0
-six             1.16.0
-wheel           0.34.2
+Package            Version
+------------------ ---------
+certifi            2022.6.15
+charset-normalizer 2.1.0
+greenlet           1.1.2
+idna               3.3
+numpy              1.23.0
+pandas             1.4.3
+pip                22.1.2
+psycopg2-binary    2.9.3
+pyarrow            8.0.0
+PyMySQL            1.0.2
+python-dateutil    2.8.2
+pytz               2022.1
+requests           2.28.1
+setuptools         63.1.0
+six                1.16.0
+SQLAlchemy         1.4.39
+urllib3            1.26.9
+wheel              0.34.2
 ```
 
 ### spark:3.2.1-python-ml
-该版本镜像提供机器学习场景运行环境，具体依赖如下：
+该版本镜像提供轻量机器学习场景运行环境，具体依赖如下：
 ```
-Package         Version
---------------- -------
-joblib          1.1.0
-networkx        2.8.4
-numpy           1.23.0
-pandas          1.4.3
-pip             22.1.2
-pyarrow         8.0.0
-python-dateutil 2.8.2
-pytz            2022.1
-scikit-learn    1.1.1
-scipy           1.8.1
-setuptools      62.6.0
-six             1.16.0
-threadpoolctl   3.1.0
-wheel           0.34.2
+Package            Version
+------------------ ---------
+certifi            2022.6.15
+charset-normalizer 2.1.0
+greenlet           1.1.2
+idna               3.3
+joblib             1.1.0
+networkx           2.8.4
+numpy              1.23.0
+packaging          21.3
+pandas             1.4.3
+patsy              0.5.2
+pip                22.1.2
+psycopg2-binary    2.9.3
+pyarrow            8.0.0
+PyMySQL            1.0.2
+pyparsing          3.0.9
+python-dateutil    2.8.2
+pytz               2022.1
+requests           2.28.1
+scikit-learn       1.1.1
+scipy              1.8.1
+setuptools         63.1.0
+six                1.16.0
+SQLAlchemy         1.4.39
+statsmodels        0.13.2
+threadpoolctl      3.1.0
+urllib3            1.26.9
+wheel              0.34.2
+
 ```
 
 ### spark:3.2.1-python-ai
