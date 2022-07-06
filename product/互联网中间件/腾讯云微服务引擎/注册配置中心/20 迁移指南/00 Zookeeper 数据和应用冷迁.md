@@ -1,11 +1,11 @@
 
 ## 适用场景
 
-将业务应用从自建 Zookeeper 冷迁到 TSE Zookeeper，在迁移过程中，新部署的业务应用不提供服务。
+将业务应用从自建 Zookeeper 冷迁到 TSE Zookeeper，在迁移过程中，新部署的服务暂不可用，存量服务不受影响。
 
 ## 迁移步骤
 
-### 持久化数据迁移（若有）
+### 步骤一：持久化数据迁移（若有）
 
 #### 步骤1：创建包含事务日志和快照日志的压缩包
 首先，对自建Zookeeper集群的所有节点执行以下命令： `echo srvr | nc [Zookeeper节点IP] [Zookeeper节点端口，默认为2181] | grep Mode` 来获取自建Zookeeper集群Leader节点的ip。   
@@ -20,10 +20,10 @@
 
 **本功能尚未对外开放，如有需要可 [提工单咨询](https://console.cloud.tencent.com/workorder/category)** 。
 
-### 新部署的业务应用接入
+### 步骤二：新部署的业务应用使用TSE Zookeeper
 
-将新部署的业务应用接入到 TSE Zookeeper，暂时不对外提供服务。
+将新部署的业务应用使用 TSE Zookeeper，详情查看[以spring cloud应用为例](https://cloud.tencent.com/document/product/1364/59334)。
 
-### 新部署的业务应用上线
+### 步骤三：新部署的业务应用上线
 
 验证新部署的业务应用运行是否正常，若能够正常运行，则将请求切换到新部署的业务应用，并下线存量的业务应用。
