@@ -7,7 +7,7 @@
 
 登录 [腾讯云数据连接器控制台](https://ipaas.cloud.tencent.com/apimanage)，在左侧导航栏单击 **集成开发** > **API管理**，即可进入 API 管理的主页。
 
-在 API 管理主页，您可以创建或查看 API，API 列表中展示有 API 服务名称、API 服务状态、API 服务域名、API 更新时间、API服务的数据统计、endpoint 统计、API 服务的鉴权方式用户数量以及操作等内容。同时，每个API服务均可展开，查看下属的endpoint的信息和状态。
+在 API 管理主页，您可以创建或查看 API，API 列表中展示有 API 服务名称、API 服务状态、API 服务域名、API 更新时间、API服务的数据统计、endpoint 统计、API 服务的鉴权方式用户数量以及操作等内容。同时，每个 API 服务均可展开，查看下属的 endpoint 的信息和状态。
 ![](https://qcloudimg.tencent-cloud.cn/raw/e2ae555cc4321dcb2a2c601c90ac3ecf.png)
 
 
@@ -23,7 +23,7 @@ API 管理功能支持 3.0.0 版本的 OpenAPI 规范。OpenAPI 3.0.0 规范的�
 	- 创建方式：选择“创建自配置文件”
 	- 上传描述文件：上传 YAML 或 JSON 格式的文件，大小100KB以内
 	- 支持格式：YAML、JSON 
->?-如果您需要更多帮助，如获取API描述文档样例文件，请参考此章节末尾处的“[API描述文件样例](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/API%E7%AE%A1%E7%90%86%EF%BC%88%E6%96%B0%EF%BC%89/case.yaml)”
+>?如果您需要更多帮助，如获取API描述文档样例文件，请参考 [API描述文件样例](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/API%E7%AE%A1%E7%90%86%EF%BC%88%E6%96%B0%EF%BC%89/case.yaml)。
 >
 ![](https://qcloudimg.tencent-cloud.cn/raw/df19c01382aa8cc8453c1705d9536e40.png)
 2. 在策略信息中配置以下信息，单击**完成**即可创建一个 API 服务。
@@ -101,7 +101,7 @@ API Endpoint 指一个 API 服务可以连接的后端服务信息，包括 API 
 随后即可获取到测试的结果。我们会将后端服务返回的 Response 状态码和结果返回给用户，方便进行进一步的调试工作。
 ![](https://qcloudimg.tencent-cloud.cn/raw/0a55c29f24282a66d94d70f1e6c0b3f4.png)
 
-## API用户管理
+## API 用户管理
 
 用户管理功能允许 API 的提供者帮助其用户添加及管理账号、分配权限，并获取请求 API 时所需要的所有必要信息。
 在 [API 管理](https://ipaas.cloud.tencent.com/apimanage) 页面，找到目标 API 服务，单击**用户数量**，进入用户管理页面。
@@ -112,14 +112,14 @@ API 服务提供方可以将会以类似管理者的视角去统一管理用户�
 添加用户的时候需要提供以下用户信息，以便能够更好的记录和维护。同时，此处的用户名称和用户密码也将作为对应 API 服务的 Basic Auth 验证方式。
 ![](https://qcloudimg.tencent-cloud.cn/raw/9a887b6eca815885896527cd2c4b448c.png)
 
-当创建好用户之后，则可以通过“查看详细信息”按钮获取到用户的client ID，client Secret等内容
+当创建好用户之后，则可以通过**查看详细信息**按钮获取到用户的 client ID、client Secret等内容
 ![](https://qcloudimg.tencent-cloud.cn/raw/b4d6ad0301ea46b60a1e21927c5ecc7f.png)
 
 >?当前仅支持 API 服务提供方手动帮助客户添加成员信息和账户信息，客户的自助注册的能力暂不支持。
 
 ### 使用流程
 #### 步骤1：创建 API 服务及其 API Endpoint
-具体操作请参考[创建 API 服务](#service) 、[创建 API Endpoint](#endpoint) 。
+具体操作请参考 [创建 API 服务](#service) 、[创建 API Endpoint](#endpoint)。
 
 #### 步骤2：获取 API 请求地址
 1. 在 API 服务列表中获取 API 服务的域名。
@@ -137,6 +137,7 @@ API 服务提供方可以将会以类似管理者的视角去统一管理用户�
 ![](https://qcloudimg.tencent-cloud.cn/raw/9a887b6eca815885896527cd2c4b448c.png)
 4. 绑定好 API 服务之后，返回用户管理列表获取此用户的 OAuth 信息（当前系统会默认给添加的用户进行自动审批，所以无需手动审批操作），并复制保存 OAuth 的 Token 获取地址、Client ID、Client Secret 等信息，连同用户的账号和密码一同分享给用户。
 ![](https://qcloudimg.tencent-cloud.cn/raw/c3f0d78f35767df1201052c5d01afd16.png)
+
 [](id:step4)
 #### 步骤4：从用户侧调用 API（以 postman 为例）
 API 服务无需验证的情况：
@@ -144,7 +145,7 @@ API 服务无需验证的情况：
 API 服务需要 Basic Auth 的情况(对应API服务的 Endpoint 安全策略需要绑定Basic Auth)：
 ![](https://qcloudimg.tencent-cloud.cn/raw/36e5f6eef4b7e646a3820b475cc9a959.png)
 API 服务需要 OAuth2.0的情况(对应API服务的 Endpoint 安全策略需要绑定OAuth2.0）：
-i. 在用户信息处获取 Client ID 和 Client Secret，在待访问的 API 服务页面获取 Access Token URL。 
+1. 在用户信息处获取 Client ID 和 Client Secret，在待访问的 API 服务页面获取 Access Token URL。 
 <dx-tabs>
 ::: 获取 OAuth 信息
 	![](https://qcloudimg.tencent-cloud.cn/raw/a36e2451969708e9cb60a50443acf75f.png)
@@ -156,14 +157,14 @@ token 地址如下：
 :::
 </dx-tabs>
 
-ii. 复制之后，在 postman 中创建一个新的请求，填写入上方的 token 获取地址并使用“GET”方法（此处的鉴权方式应为“NoAuth”）。随后选择 Params 标签页，输入 client 信息。输入方式：
-- 第一列：key 为 client_id，value 为从上方复制的 Client ID 对应的内容
-- 第二列：key 为 client_sectet，value 为从上方复制的 Client Secret 对应的内容
+2. 复制之后，在 postman 中创建一个新的请求，填写入上方的 token 获取地址并使用“GET”方法（此处的鉴权方式应为“NoAuth”）。随后选择 Params 标签页，输入 client 信息。输入方式：
+	- 第一列：key 为 client_id，value 为从上方复制的 Client ID 对应的内容
+	- 第二列：key 为 client_sectet，value 为从上方复制的 Client Secret 对应的内容
 	
 ![](https://qcloudimg.tencent-cloud.cn/raw/bb936f5bc3090384e45c56df5e4a354f.png)
 
-iii. 单击 **send**，从界面下方的“body”处复制“access_token”字段的值。此即为本次调用时需要用到的 token 信息。
+3. 单击 **send**，从界面下方的“body”处复制“access_token”字段的值。此即为本次调用时需要用到的 token 信息。
 ![](https://qcloudimg.tencent-cloud.cn/raw/44b750b810cf09c5a6e182a785bbe2bf.png)
 
-iv. 重新打开一个请求界面，填入需要请求的 API 域名，并选择 Bearer Token 模式。在右侧的“Token”处输入前面获得的token，单击 **send**，即可看到访问结果。
+4. 重新打开一个请求界面，填入需要请求的 API 域名，并选择 Bearer Token 模式。在右侧的“Token”处输入前面获得的token，单击 **send**，即可看到访问结果。
 ![](https://qcloudimg.tencent-cloud.cn/raw/388ff8dbc3f595e44a2c6342e74d4707.png)
