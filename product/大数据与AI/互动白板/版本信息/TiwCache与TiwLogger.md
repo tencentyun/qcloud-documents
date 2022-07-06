@@ -36,5 +36,5 @@
 #### 1.0.1.77 @ 2022-05-11
 * [单击下载 SDK](https://res.qcloudclass.com/Android/TIWLogger/sdk/android/TIWLogger_1.0.1.77.zip)
 * **更新内容**
-	1. 【Opt】编译时不指定JDK版本
+	1. 【Opt】编译时不指定 JDK 版本
 
