@@ -1,16 +1,16 @@
-# 适用场景
+## 适用场景
 
 将自建的 Apollo 集群冷迁移到 TSE Apollo 集群。
 
-# 迁移步骤
+## 迁移步骤
 
-## 步骤一：TSE 创建 Apollo 实例
+### 步骤一：TSE 创建 Apollo 实例
 
 通过 TSE 管控页面创建 Apollo 实例，创建的环境信息需跟自建的 Apollo 一致。迁移整体思路是通过数据库层面的数据导入，所以在迁移过程中需要确保创建的 TSE Apollo 实例的数据库为空库。
 
-## 步骤二：导出自建 Apollo 数据
+### 步骤二：导出自建 Apollo 数据
 
-### 导出 Portal 数据
+#### 导出 Portal 数据
 
 ```shell
 mysqldump -t -uroot -p --databases ApolloPortalDB --tables App AppNamespace Authorities Consumer ConsumerRole ConsumerToken Favorite Permission Role RolePermission UserRole Users --complete-insert > portal_dump.sql
@@ -30,7 +30,7 @@ mysqldump -t -uroot -p --databases ApolloPortalDB --tables App AppNamespace Auth
 > 注意：替换用户名
 
 
-### 导出每个环境的 Config 数据
+#### 导出每个环境的 Config 数据
 
 ```shell
 mysqldump -t -uroot -p --databases ApolloConfigDB --tables App AppNamespace  AccessKey Cluster Commit Item Namespace Release ReleaseHistory --complete-insert > config_${环境名}_dump.sql
@@ -49,10 +49,9 @@ mysqldump -t -uroot -p --databases ApolloConfigDB --tables App AppNamespace  Acc
 >
 > 注意：替换用户名以及导出的文件名中的环境信息
 
-
 ConfigDB 中包含所有历史发布的配置内容，所以数据量会比较大。
 
-![](https://qcloudimg.tencent-cloud.cn/raw/8803cb5aaab7904c4cb1b1dfa082cdc6.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/98ef76ce659268f176a7d9027f942341.png)
 
 以上图两个环境为例，将会导出三份数据：
 
@@ -60,7 +59,7 @@ ConfigDB 中包含所有历史发布的配置内容，所以数据量会比较�
 - config_dev_dump.sql
 - config_pro_dump.sql
 
-## 步骤三：提腾讯云工单导入数据
+### 步骤三：提腾讯云工单导入数据
 
 提腾讯云工单，联系腾讯云助手导入数据，提供以下两个内容：
 
@@ -72,9 +71,9 @@ ConfigDB 中包含所有历史发布的配置内容，所以数据量会比较�
 > [快速提工单](https://console.cloud.tencent.com/workorder/category?level1_id=517&level2_id=727&source=14&data_title=%E5%85%B6%E4%BB%96%E8%85%BE%E8%AE%AF%E4%BA%91%E4%BA%A7%E5%93%81&step=1
 > )
 
-## 步骤四：业务应用迁移
+### 步骤四：业务应用迁移
 
-### 方式一：原地迁移（推荐）
+#### 方式一：原地迁移（推荐）
 
 原地迁移为在原有的服务上，通过逐步修改服务实例的 Apollo 地址来完成整体的迁移。整个过程如下所示：
 
@@ -112,7 +111,7 @@ ConfigDB 中包含所有历史发布的配置内容，所以数据量会比较�
 1. Kill ConfigService 的进程，不 Kill AdminService 和 Portal 的进程。ConfigService 用于对客户端提供服务，Kill ConfigService 就可认为切断整个 Apollo 服务。只 Kill ConfigService 进程为了下线过程中如果有残留客户端，则可以快速拉起 ConfigService 恢复，减少影响面。
 2. 当第一步灰度一段时间之后（1周到1个月），再回收其它服务的资源。
 
-### 方式二：先扩容再缩容
+#### 方式二：先扩容再缩容
 
 先扩再缩的方式，总的来说先部署一组新的服务并指向 TSE Apollo，通过流量切换的方式把流量从老的服务实例迁移到新的服务实例。最后再缩容掉老的服务实例。
 
