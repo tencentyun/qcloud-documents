@@ -58,7 +58,7 @@ v2.9.3 正式版本更新如下：
 </ul ></td>
 <td>2022-07-05</td> 
 <td><li><a href="https://cloud.tencent.com/document/product/607/48324#openid-.E6.94.AF.E6.8C.81.E5.AD.97.E7.AC.A6.E4.B8.B2">openid 支持字符串接口</li>
-<li><a href="https://cloud.tencent.com/document/product/607/18218#3d-.E8.AF.AD.E9.9F.B3.E9.BB.91.E5.90.8D.E5.8D.95.E6.8">3D 语音黑名单接口</li>
+<li><a href="https://cloud.tencent.com/document/product/607/18218#3d-.E8.AF.AD.E9.9F.B3.E9.BB.91.E5.90.8D.E5.8D.95.E6.8E.A5.E5.8F.A3">3D 语音黑名单接口</li>
 <li><a href="https://cloud.tencent.com/document/product/607/18218#.E6.9C.AC.E5.9C.B0.E6.96.B9.E4.BD.8D.E6.8E.A5.E5.8F.A3.EF.BC.88vr-.E5.9C.BA.E6.99.AF.EF.BC.89">本地 3D 位置输入接口</li>
 </tr>
 </tbody></table>
