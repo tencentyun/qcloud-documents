@@ -1,3 +1,17 @@
+### 2.7.4.128 @ 2022-07-04
+* [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/2.7.4.128/TEduBoard_2.7.4.128.zip)
+* [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/2.7.4.128/TEduBoard_Mac_2.7.4.128.zip)
+
+- 接口调整
+    1. 课件/自定义资源加载loadResource/loadCustomResource接口，增加callback返回加载进度
+  
+- 调整全局变量
+    1. 白板错误码 增加TEDU_BOARD_WARNING_IMAGE_MEDIA_BITRATE_TOO_LARGE 多媒体资源码率过大
+
+- Bug 修复
+  1. 橡皮擦除在移动快的时候会导致擦除不干净的情况，会漏掉一些点；
+  2. ppt转码问题，转码文件被系统认为了是pad，只响应滑动翻页，不响应点击事件了；
+  3. 其他已知问题修复。
 ### 2.7.3.120 @ 2022-06-10
 * [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/2.7.3.120/TEduBoard_2.7.3.120.zip)
 * [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/2.7.3.120/TEduBoard_Mac_2.7.3.120.zip)

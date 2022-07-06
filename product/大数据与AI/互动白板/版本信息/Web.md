@@ -1,3 +1,17 @@
+## 2.7.4 @ 2022.07.04
+* 链接地址：https://res.qcloudtiw.com/board/2.7.4/TEduBoard.min.js
+
+- 新增功能
+  1. 在小程序的webview版本中支持mp3,mp4播放；
+  2. 课件预加载时回调，返回预加载的进度值；
+
+- 调整事件
+  1. 添加多媒体资源码率过高告警回调类型(TEDU_BOARD_WARNING_IMAGE_MEDIA_BITRATE_TOO_LARGE);
+
+- Bug 修复
+  1. 橡皮擦除在移动快的时候会导致擦除不干净的情况，会漏掉一些点；
+  2. ppt转码问题，转码文件被系统认为了是pad，只响应滑动翻页，不响应点击事件了；
+  3. 其他已知问题修复。
 ### 2.7.3 @ 2022.05.20
 * 链接地址：https://res.qcloudtiw.com/board/2.7.3/TEduBoard.min.js
 
