@@ -4,53 +4,48 @@
 
 ## 迁移步骤
 
-### 步骤一：TSE 创建 Apollo 实例
+[](id:step1)
+### 步骤1：TSE 创建 Apollo 实例
 
 通过 TSE 管控页面创建 Apollo 实例，创建的环境信息需跟自建的 Apollo 一致。迁移整体思路是通过数据库层面的数据导入，所以在迁移过程中需要确保创建的 TSE Apollo 实例的数据库为空库。
 
-### 步骤二：导出自建 Apollo 数据
+[](id:step2)
+### 步骤2：导出自建 Apollo 数据
 
-#### 导出 Portal 数据
-
-```shell
+#### 1. 导出 Portal 数据
+<dx-codeblock>
+:::  shell
 mysqldump -t -uroot -p --databases ApolloPortalDB --tables App AppNamespace Authorities Consumer ConsumerRole ConsumerToken Favorite Permission Role RolePermission UserRole Users --complete-insert > portal_dump.sql
-```
-
-> 参数说明：
->
-> - -t
->   - 只导出数据，不导出表结构
-> - --databases
->   - 指定导出的数据库名
-> - --tables
->   - 指定导出的表
-> - --complete-insert
->   - 导出的 insert 语句包含字段信息
->
-> 注意：替换用户名
+:::
+</dx-codeblock>
+<dx-alert infotype="explain" title="参数说明">
+- **`-t`**：只导出数据，不导出表结构。
+- **`--databases`**：指定导出的数据库名。
+- **`--tables`**：指定导出的表。
+- **`--complete-insert`**：导出的 insert 语句包含字段信息。
 
 
-#### 导出每个环境的 Config 数据
+注意：替换用户名。
+</dx-alert>
 
-```shell
+
+#### 2. 导出每个环境的 Config 数据
+<dx-codeblock>
+:::  shell
 mysqldump -t -uroot -p --databases ApolloConfigDB --tables App AppNamespace  AccessKey Cluster Commit Item Namespace Release ReleaseHistory --complete-insert > config_${环境名}_dump.sql
-```
+:::
+</dx-codeblock>
+<dx-alert infotype="explain" title="参数说明">
+- **`-t`**：只导出数据，不导出表结构。
+- **`--databases`**：指定导出的数据库名。
+- **`--tables`**：指定导出的表。
+- **`--complete-insert`**：导出的 insert 语句包含字段信息。
 
-> 参数说明：
->
-> - -t
->   - 只导出数据，不导出表结构
-> - --databases
->   - 指定导出的数据库名
-> - --tables
->   - 指定导出的表
-> - --complete-insert
->   - 导出的 insert 语句包含字段信息
->
-> 注意：替换用户名以及导出的文件名中的环境信息
+
+注意：替换用户名以及导出的文件名中的环境信息。
+</dx-alert>
 
 ConfigDB 中包含所有历史发布的配置内容，所以数据量会比较大。
-
 ![](https://qcloudimg.tencent-cloud.cn/raw/98ef76ce659268f176a7d9027f942341.png)
 
 以上图两个环境为例，将会导出三份数据：
@@ -59,19 +54,18 @@ ConfigDB 中包含所有历史发布的配置内容，所以数据量会比较�
 - config_dev_dump.sql
 - config_pro_dump.sql
 
-### 步骤三：提腾讯云工单导入数据
+### 步骤3：提腾讯云工单导入数据
 
-提腾讯云工单，联系腾讯云助手导入数据，提供以下两个内容：
+可通过 [快速提工单](https://console.cloud.tencent.com/workorder/category?level1_id=517&level2_id=727&source=14&data_title=%E5%85%B6%E4%BB%96%E8%85%BE%E8%AE%AF%E4%BA%91%E4%BA%A7%E5%93%81&step=1)，联系腾讯云助手导入数据。其中需提供以下两个内容：
 
-1. 步骤一 TSE 创建的 Apollo 实例 ID
-2. 步骤二导出的 sql 文件
+1. [步骤1](#step1) TSE 创建的 Apollo 实例 ID。
+2. [步骤2](#step2) 导出的 SQL 文件。
 
 腾讯云助手将会手工把数据导入到 TSE Apollo 的数据库中。至此，Apollo 的数据即已完成迁移。如果业务迁移过程中涉及到配置的变更，需要同时在自建的 Apollo 集群以及 TSE Apollo 集群修改、发布配置内容，确保两边数据一致性。
 
-> [快速提工单](https://console.cloud.tencent.com/workorder/category?level1_id=517&level2_id=727&source=14&data_title=%E5%85%B6%E4%BB%96%E8%85%BE%E8%AE%AF%E4%BA%91%E4%BA%A7%E5%93%81&step=1
-> )
 
-### 步骤四：业务应用迁移
+
+### 步骤4：业务应用迁移
 
 #### 方式一：原地迁移（推荐）
 
