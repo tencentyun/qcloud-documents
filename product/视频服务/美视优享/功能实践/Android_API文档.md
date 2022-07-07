@@ -137,7 +137,7 @@ void updateProperty(XmagicProperty<?> p)
 <thead><tr><th width=15%>属性字段</th><th>说明</th></tr></thead>
 <tbody><tr>
 <td>category</td>
-<td>Category.BEAUTY  </td>
+<td>Category.BODY_BEAUTY</td>
 </tr>
 <tr>
 <td>ID</td><td>null</td>
@@ -159,7 +159,7 @@ void updateProperty(XmagicProperty<?> p)
 <thead><tr><th width=15%>属性字段</th><th>说明</th></tr></thead>
 <tbody><tr>
 <td>category</td>
-<td>Category.BEAUTY  </td>
+<td>Category.LUT</td>
 </tr>
 <tr>
 <td>ID</td>

@@ -16,19 +16,18 @@ SSL 协议要求建立在可靠的传输层协议（TCP）之上，其优势在�
 - 实例架构为双节点/三节点。
 - 实例引擎为 InooDB/RocksDB。
 
->?SSL 加密当前已支持新加坡、成都、法兰克福，其他各地域在逐步发布中，如需提前体验，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请。
-
+>?SSL 加密当前灰度中，如需体验，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请。
 
 ## 开启 SSL 加密
-1. 登录[ MySQL 控制台](https://console.cloud.tencent.com/cdb/instance)，在实例列表，单击**实例 ID** 或操作列的**管理**，进入实例管理页面。
-2. 在**实例管理页>数据安全**下，选择 **SSL** 页。
+1. 登录 [MySQL 控制台](https://console.cloud.tencent.com/cdb/instance)，在实例列表，单击实例 ID 或操作列的**管理**，进入实例管理页面。
+2. 在实例管理页面的**数据安全**页下，选择 **SSL** 页。
 ![](https://qcloudimg.tencent-cloud.cn/raw/cacf74d49df9fd1d3ecf68e9b056295b.png)
 3. 此功能状态默认为未打开，将开关调为开启，然后单击**确定**，开启 SSL 加密。
-3.1 主实例开启 SSL 窗口如下
+ - 主实例开启 SSL 窗口如下：
  ![](https://qcloudimg.tencent-cloud.cn/raw/496e876d660522078f06062fbc6d836d.png)
 >!开启 SSL 过程中，会重启您的数据库实例以加载 SSL 证书，请确保业务具备重连机制。
 >
-3.2 RO 实例开启 SSL 界面如下
+ - RO 实例开启 SSL 界面如下：
 ![](https://qcloudimg.tencent-cloud.cn/raw/a6fe527d8e4199a3d0f9c49b04f50ab3.png)
 >!配置 RO 实例 SSL 功能会同步配置所属 RO 组中其他 RO 实例。
 >
@@ -38,7 +37,6 @@ SSL 协议要求建立在可靠的传输层协议（TCP）之上，其优势在�
  - p7b 文件：用于 Windows 系统中导入 CA 证书。
  - jks 文件：Java 中的 truststore 证书存储文件，密码统一为 tencentdb，用于 Java 程序中导入 CA 证书链。
 
-
 ## 配置 SSL CA 证书
 开启 SSL 加密后，使用客户端连接云数据库时需要配置 SSL CA 证书。以下以 Navicat 为例，为您介绍 SSL CA 证书安装方法。其它应用或者客户端请参见对应产品的使用说明。
 1. 打开 Navicat。
@@ -47,13 +45,12 @@ SSL 协议要求建立在可靠的传输层协议（TCP）之上，其优势在�
 3. 选择 SSL 页签，选择.pem 格式 CA 证书的路径。完成下图进行设置后单击**确定**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/4ce97b6daec9de58d0c4bdcd9264c1f3.png)
 >?如果出现 connection is being used 报错，可能由于之前的会话未断开，请关闭 Navicat 后重试。
-
 4. 双击对应数据库测试能否正常连接。
 ![](https://qcloudimg.tencent-cloud.cn/raw/c39f48b8fb1659588fc8d89e7970acb5.png)
 
 ## 关闭 SSL 加密
-1. 登录[ MySQL 控制台](https://console.cloud.tencent.com/cdb/instance)，在实例列表，单击**实例 ID** 或操作列的**管理**，进入实例管理页面。
-2. 在**实例管理页>数据安全**下，选择 **SSL** 页。
+1. 登录[ MySQL 控制台](https://console.cloud.tencent.com/cdb/instance)，在实例列表，单击实例 ID 或操作列的**管理**，进入实例管理页面。
+2. 在实例管理页面的**数据安全**页下，选择 **SSL** 页。
 3. 单击已开通前面的开关按钮，在弹出的提示框中单击**确定**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/2e7dc23dc0d2ddabf2411ba9f33fc1c9.png)
 >?关闭 SSL 过程中，会重启您的数据库实例以卸载 SSL 证书，请确保业务具备重连机制。
