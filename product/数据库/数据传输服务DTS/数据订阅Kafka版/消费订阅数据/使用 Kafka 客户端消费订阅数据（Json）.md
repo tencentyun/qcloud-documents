@@ -6,6 +6,7 @@ Demo 中已包含 Json 协议文件，您可以直接使用 Demo 代码，无需
 ## 注意事项
 - **Demo 并不包含消费数据的用法演示，仅对数据做了打印处理，您需要在此基础上自行编写数据处理逻辑**，您也可以使用其他语言的 Kafka 客户端消费并解析数据。
 - 目前不支持通过外网连接数据订阅的 Kafka 进行消费，只支持腾讯云内网的访问，并且订阅的数据库实例所属地域与数据消费的地域相同。
+- DTS 中内置的 Kafka 处理单条消息有一定上限，当源库中的单行数据超过10M时，这行数据有可能会被丢弃。
 
 ## 消费 Demo 下载
 | Demo 语言 | 云数据库 MySQL、TDSQL-C MySQL           |
@@ -97,7 +98,7 @@ Java Demo 中的定义文件路径为 `consumerDemo-json-java\src\main\java\json
 | total                    | 如果消息分片，记录分片总数。当前版本 (version=1) 无意义，预留扩展。 |
 | index                    | 如果消息分片，记录分片总数。当前版本 (version=1) 无意义，预留扩展。 |
 
-## Record 中 MySQL 列属性
+### Record 中 MySQL 列属性
 - name：列名。
 - dataTypeNumber：是 binlog 中记录的数据类型。取值详见 [MySQL](https://dev.mysql.com/doc/internals/en/com-query-response.html)。
 - isKey：是否主键。
