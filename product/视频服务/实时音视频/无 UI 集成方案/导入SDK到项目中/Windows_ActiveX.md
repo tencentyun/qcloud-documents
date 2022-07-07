@@ -83,4 +83,4 @@
 
 ## 常见问题
 ### 单击 Get SDK Version 按钮后，页面没有任何反应？
-如果单击 **Get SDK Version** 按钮后，页面没有任何反应：请检查是否关闭了下载 LiteAVAX.cab 的提示框，导致插件没有正确下载并安装到本地。可尝试刷新或重新加载网站首页地址，并在 IE 浏览器弹出 `此网站想要安装以下加载项：来自"Tencent Technology(Shenzhen) CompanyLimited"的"LiteAVActiveXSDK.cab"。` 时单击 **安装** 按钮以下载并安装 ActiveX 插件。
+如果单击 **Get SDK Version** 按钮后，页面没有任何反应：请检查是否关闭了下载 LiteAVAX.cab 的提示框，导致插件没有正确下载并安装到本地。此时，您可以尝试刷新或重新加载网站首页地址，并在 IE 浏览器弹出 `此网站想要安装以下加载项：来自"Tencent Technology(Shenzhen) CompanyLimited"的"LiteAVActiveXSDK.cab"。` 时单击 **安装** 按钮以下载并安装 ActiveX 插件。
