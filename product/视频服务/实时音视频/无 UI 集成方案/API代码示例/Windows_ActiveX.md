@@ -1,7 +1,6 @@
 本文主要介绍如何快速运行腾讯云 TRTC Demo（Windows ActiveX版本）。
 
-## 环境要求
-### Windows（ActiveX）运行环境
+## Windows（ActiveX）运行环境
 - Windows 7及以上操作系统。
 - IE 9及以上版本，推荐使用 IE 11版本。
 
