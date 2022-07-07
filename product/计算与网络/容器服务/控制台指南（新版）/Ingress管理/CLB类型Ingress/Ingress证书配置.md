@@ -50,11 +50,12 @@ type: Opaque
  - **Secret类型**：选择 **Opaque**，该类型适用于保存密钥证书和配置文件，Value 将以 Base64 格式编码。
  - **生效范围**：按需选择，需确保与 Ingress 在同一 Namespace 下。
  - **内容**：变量名设置为 `qcloud_cert_id`，变量值配置为服务器证书所对应的证书 ID。
->! 若您需要配置双向证书，则 Secret 除了要添加“服务器证书”外，还需要添加“客户端CA证书”。此时该 Secret 还需要额外添加一个键值对：变量名为：`qcloud_ca_cert_id`，变量值配置为“客户端CA证书”所对应的证书ID。
-
 
 :::
 </dx-tabs>
+
+>! 若您需要配置双向证书，则 Secret 除了要添加“服务器证书”外，还需要添加“客户端CA证书”。此时该 Secret 还需要额外添加一个键值对：变量名为：`qcloud_ca_cert_id`，变量值配置为“客户端CA证书”所对应的证书ID。
+
 
 ## Ingress 证书配置行为
 - 仅配置单个 `spec.secretName` 且未配置 hosts 的情况下，将会为所有的 HTTPS 的转发规则配置该证书。示例如下：
