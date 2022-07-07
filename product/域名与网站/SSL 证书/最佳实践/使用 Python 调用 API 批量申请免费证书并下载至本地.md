@@ -11,11 +11,11 @@
 
 ## 操作步骤
 1. 打开命令提示符，查看 Python 版本。命令行如下：
-```
+```plaintext
 python -V
 ```
 2. 查看 Python 目前已经安装的第三方模块，命令行如下：
-```
+```plaintext
 pip list
 ```
 ![](https://qcloudimg.tencent-cloud.cn/raw/a9e6874edf016baa7f88f52352222dcb.png)
