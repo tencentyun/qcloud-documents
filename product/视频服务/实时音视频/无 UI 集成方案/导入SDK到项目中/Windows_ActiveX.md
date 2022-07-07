@@ -24,14 +24,14 @@
 <!DOCTYPE html>
 <HTML>
 <HEAD>
-<TITLE>TestMyActiveXDemo</TITLE>
+	<TITLE>TestMyActiveXDemo</TITLE>
 </HEAD>
 <BODY>
 	<div class="Local">
 		<OBJECT ID="obj_user_ocx" class="obj_user"
-		codebase="./SDK/LiteAVActiveXSDK.cab#version=1,0,0,1"
-		CLASSID="CLSID:99DD15EF-B353-4E47-9BE7-7DB4BC13613C">
-	</OBJECT>
+			    codebase="./SDK/LiteAVActiveXSDK.cab#version=1,0,0,1"
+			    CLASSID="CLSID:99DD15EF-B353-4E47-9BE7-7DB4BC13613C">
+		</OBJECT>
 	</div>
 	<p><input type="button" value="Get SDK Version" id="GetVersion" onclick="GetVersion();"></input>
 </BODY>
@@ -70,10 +70,10 @@
 当有新的 `LiteAVActiveXSDK.cab` 安装包需要升级时，可以将新的 LiteAVActiveXSDK.cab 包放到 SDK 目录下覆盖原来的 LiteAVActiveXSDK.cab 包，并将新的 index.html 文件放到 Web 服务器上覆盖原来的 index.html 文件。此时，HTML 中的代码如下：
 ```html
 <div class="Local">
-  <OBJECT ID="obj_user_ocx" class="obj_user"
-    codebase="./SDK/LiteAVActiveXSDK.cab#version=1,0,0,2"
-    CLASSID="CLSID:99DD15EF-B353-4E47-9BE7-7DB4BC13613C">
-  </OBJECT>
+	<OBJECT ID="obj_user_ocx" class="obj_user"
+			codebase="./SDK/LiteAVActiveXSDK.cab#version=1,0,0,2"
+			CLASSID="CLSID:99DD15EF-B353-4E47-9BE7-7DB4BC13613C">
+	</OBJECT>
 </div>
 ```
 当请求时，IE 浏览器会根据 `codebase="./SDK/LiteAVActiveXSDK.cab#version=1,0,0,2` 指定的版本号与本地保存的 LiteAVActiveX.inf 中 LiteAVActiveXPlugin.dll 的版本号进行比较，如果发现有更新的版本，则会触发浏览器的重新下载页面，如下：
