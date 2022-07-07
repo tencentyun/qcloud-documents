@@ -64,11 +64,11 @@ pip install avro
 
 ## [Demo 关键逻辑讲解](id:dgxljjj)
 Demo 中的文件说明如下，以 Java Demo 为例进行介绍。
-- `consumerDemo-avro-java\src\main\resources\avro-tools-1.8.2.jar`：是用来生成 avro 协议相关代码的工具。
-- `consumerDemo-avro-java\src\main\java\com\tencent\subscribe\avro`：avro 工具生成代码的目录。
+- `consumerDemo-avro-java\src\main\resources\avro-tools-1.8.2.jar`：是用来生成 Avro 协议相关代码的工具。
+- `consumerDemo-avro-java\src\main\java\com\tencent\subscribe\avro`：Avro 工具生成代码的目录。
 - `consumerDemo-avro-java\src\main\resources\Record.avsc`：协议定义文件。
 
-Record.avsc 中我们定义了14个结构（avro 中叫做 schema），其中主要的数据结构为 Record，用于表示 binlog 中的一条数据，Record 的结构如下，其他数据结构可以在 Record.avsc 中查看：
+Record.avsc 中我们定义了14个结构（Avro 中叫做 schema），其中主要的数据结构为 Record，用于表示 binlog 中的一条数据，Record 的结构如下，其他数据结构可以在 Record.avsc 中查看：
 ```
  {
     "namespace": "com.tencent.subscribe.avro",    //第14个，即最后1个 schema 开始，"name" 显示为 "Record"
