@@ -1,3 +1,17 @@
+### 2.7.4.184 @ 2022-07-04
+* [单击下载 SDK](https://sdk.qcloudtiw.com/android/TEduBoardSdk_2.7.4.184.zip)  
+
+- 接口调整
+    1. 课件/自定义资源加载 loadResource/loadCustomResource 接口，增加 callback 返回加载进度
+  
+- 调整全局变量
+    1. 白板错误码 增加 TEDU_BOARD_WARNING_IMAGE_MEDIA_BITRATE_TOO_LARGE 多媒体资源码率过大
+
+- Bug 修复
+  1. 橡皮擦除在移动快的时候会导致擦除不干净的情况，会漏掉一些点；
+  2. ppt 转码问题，转码文件被系统认为了是 pad，只响应滑动翻页，不响应点击事件了；
+  3. 其他已知问题修复。
+   
 ### 2.7.3.177 @ 2022-06-07
 * [单击下载 SDK](https://sdk.qcloudtiw.com/android/TEduBoardSdk_2.7.3.177.zip)  
 

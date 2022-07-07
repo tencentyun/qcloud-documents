@@ -198,7 +198,7 @@ Resources:
 
 #### 下载函数
 
-如果您已经在 [云函数控制台](https://console.cloud.tencent.com/scf/list) 创建了函数，则可以在 VS Code 插件里直接将云端函数下载到本地。    
+如果您已经在 [Serverless 控制台](https://console.cloud.tencent.com/scf/list) 创建了函数，则可以在 VS Code 插件里直接将云端函数下载到本地。    
 1. 单击目标云端函数右侧的<img src="https://main.qcloudimg.com/raw/3c72bf2180157adcd5bc66072e1d063f.png" style="margin:-3px 0;">，将函数导入到本地。如下图所示：    
 ![](https://main.qcloudimg.com/raw/48225ecf3d903c41d67c6cdbf071d09b.png)
 2. 选择函数下载的目标目录，下载完成后您可以选择在本窗口打开函数或者新建窗口打开。
@@ -215,7 +215,7 @@ Resources:
 
 #### 查看监控
 
-1. 登录 [云函数控制台](https://console.cloud.tencent.com/scf/list)，单击左侧导航栏**函数服务**。
+1. 登录 [Serverless 控制台](https://console.cloud.tencent.com/scf/list)，单击左侧导航栏**函数服务**。
 2. 在“函数服务”页面上方选择已创建函数地域，并单击函数 ID。
 3. 在已创建函数的详情页面，选择**监控信息**，即可查看函数调用次数/运行时间等情况。如下图所示： 
 >?监控统计的粒度最小为1分钟。您需要等待1分钟后，才可查看当次的监控记录。
