@@ -86,6 +86,16 @@
             </div>
                 </div>
         </div>
+				<div class="card-container">
+            <div class="card">
+                            <img src="https://main.qcloudimg.com/raw/98394fa5d669de7fb7a187565d138cdb.svg" data-nonescope="true">
+                                <p class="titlename">H5</p>
+                <div style="width: 100px; margin: auto;">
+                <p style="color:#586376;"><img style="width:100px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/14c9b415faf001e00a604098af7c5d21.png" /></p>
+                                <a href="https://cloud.tencent.com/document/product/269/68433">快速入门</a>
+                </div>
+                            </div>
+</div>
 </div>
 
 <div style="display: flex; padding-top: 10px;" >
