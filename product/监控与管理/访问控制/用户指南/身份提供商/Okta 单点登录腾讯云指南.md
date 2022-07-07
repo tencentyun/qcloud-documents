@@ -3,8 +3,8 @@
 Okta 是身份识别与访问管理解决方案提供商。腾讯云支持基于 SAML 2.0（安全断言标记语言 2.0）的联合身份验证，SAML 2.0 是许多身份验证提供商（Identity Provider， IdP）使用的一种开放标准。您可以通过基于 SAML 2.0 联合身份验证将 Okta 与腾讯云进行集成，从而实现 Okta 帐户自动登录（单一登录）腾讯云控制台管理腾讯云的资源，不必为企业或组织中的每一个成员都创建一个 CAM 子用户。
 
 ## 操作步骤
-
-### <span id="stepCREATE"></span>创建 Okta 应用程序
+[](id:stepCREATE)
+### 创建 Okta 应用程序
 
 >?您可以通过本步骤创建 Okta 应用程序，如您已经有正在使用的应用程序，可忽略本操作，进行 [配置 CAM](#stepCAM)。
 
@@ -21,16 +21,17 @@ Okta 是身份识别与访问管理解决方案提供商。腾讯云支持基于
 7. 在通用设置/General Settings 页面，补充 App name、App logo（可选）、App visibility（可选）信息，单击 **Next**，此应用程序可以用于和腾讯云进行集成，实现 Okta 帐户自动登录（单一登录）腾讯云控制台管理腾讯云的资源。
 
 
-### <span id="stepCAM"></span>为 Okta 应用程序配置 SAML
+[](id:stepCAM)
+### 为 Okta 应用程序配置 SAML
 
 >?
 >
 >- 您可以通过本步骤将 Okta 应用程序属性映射到腾讯云的属性，建立 Okta 和腾讯云之间的信任关系使之相互信任。
->- 如您是参考 [创建 Okta 应用程序](#stepCREATE)  创建的应用程序，可直接进行操作 [步骤3](#stepbuzhou3) 。
+>- 如您是参考 [创建 Okta 应用程序](#stepCREATE)  创建的应用程序，可直接进行操作 [步骤3](#step3) 。
 
 1. 前往 [应用管理页面](#stepapp) ，单击您创建的应用程序名称。
 2. 在通用/GENERAL 页面，单击 SAML Settings 栏下的 **Edit**，确认当前 App name、App logo（可选）、App visibility（可选）信息，单击 **Next**，进入配置 SAML/Configure SAML 页面。
-3. <span id="buzhou3"></span>在配置 SAML/Configure SAML 页面将 GENERAL 下 Single sign on URL 和 Audience URL(SP Entity ID)补充为以下信息，如下图所示：
+3. <span id="step3"></span>在配置 SAML/Configure SAML 页面将 GENERAL 下 Single sign on URL 和 Audience URL(SP Entity ID)补充为以下信息，如下图所示：
    ![](https://main.qcloudimg.com/raw/43a621945ad09042a40986abaea67962.png)
    您可以根据您的腾讯云账号所在站点进行配置：
 
