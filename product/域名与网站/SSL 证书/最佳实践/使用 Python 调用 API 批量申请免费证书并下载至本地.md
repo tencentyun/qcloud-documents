@@ -22,7 +22,7 @@ pip list
 >!例如缺少 requests，可通过 `pip install requests` 安装该模块。
 >
 3. 通过 pip 安装腾讯云 Python SDK。命令行如下：
-```
+```plaintext
 pip install -i https://mirrors.tencent.com/pypi/simple/ --upgrade tencentcloud-sdk-python
 ```
 3. 前往 [Github 仓库](https://github.com/tencentcloud/tencentcloud-sdk-python) 或者 [Gitee 仓库](https://gitee.com/tencentcloud/tencentcloud-sdk-python) 下载最新代码至本地，并进行解压。
