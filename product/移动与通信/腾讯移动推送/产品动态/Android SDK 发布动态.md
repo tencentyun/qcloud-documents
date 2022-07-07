@@ -1,4 +1,28 @@
 
+## 2022年07月
+
+<table>
+	<tr>
+		<th width=20%>动态名称</th>
+    <th width=44%>动态描述</th>
+    <th width=16%>发布时间</th>
+    <th width=20%>相关文档</th>
+	</tr>
+	<tr>
+        <td>SDK 1.3.5.0 版本发布</td>
+	<td>
+		<li>修复：调整荣耀手机选择执行厂商通道的策略</li>
+		<li>优化：改善 SDK 内部通信机制，提高通信效率</li>
+		<li>优化：调整 SDK 内部上报机制，节省流量消耗</li>
+		</td>
+        <td>2022-07-06</td><td>
+		<li><a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</a></li>
+		<li><a href="https://cloud.tencent.com/document/product/548/56364">Android SDK 升级指南</a></li>
+</td>
+    </tr>
+<tr>
+</table>
+
 ## 2022年06月
 
 <table>
