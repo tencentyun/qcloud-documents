@@ -20,7 +20,7 @@
 
 [](id:step2)
 ### 步骤2：下载 Windows ActiveX 和 Demo 源码
-1. 根据实际业务需求下载 Windows 的 ZIP 包或到 GitHub/Gitee 下载 ActiveX 的 cab 包及配套的 Demo 源码。
+1. 根据实际业务需求下载 Windows（Active X） 的 ZIP 包或到 GitHub/Gitee 下载 ActiveX 的 cab 包及配套的 Demo 源码。
 2. 下载完成后，单击**已下载，下一步**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/a0817d04fb14ee9d62dd043b94854676.png)
 
