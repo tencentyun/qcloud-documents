@@ -10,14 +10,14 @@ TCCLI 集成了腾讯云所有支持云 API 的产品，您可以在命令行下
 
 
 
-## 基础功能示例
+## 使用基础功能
 
 <dx-alert infotype="explain" title="">
 以下以 Linux 操作系统为例，示例中非简单类型的参数，必须为标准 JSON 格式。
 </dx-alert>
 
 
-#### 使用 TCCLI 创建 CVM
+### 使用 TTCLI 创建 CVM
 执行以下命令，创建一台 CVM。
 ```bash
 tccli cvm RunInstances
@@ -36,14 +36,14 @@ tccli cvm RunInstances
 ```
 
 
-#### 使用标准输入 `< /path/to/file` 传输二进制文件
+### 使用标准输入传输二进制文件
 TCCLI 支持调用 octet-stream 类型的接口，若调用接口使用 octet-stream 协议，您可以使用标准输入 `< /path/to/file` 来传输二进制文件。示例命令如下：
 ```bash
 # 以 cls 的 UploadLog 接口为例，上传日志可使用如下命令
 tccli cls UploadLog --TopicId xxx < /path/to/file
 ```
 
-####  `--cli-unfold-argument` 参数
+###  --cli-unfold-argument 参数
 若调用接口参数为复杂类型时，可以增加 `--cli-unfold-argument` 参数，并进行参数补全，使用复杂类型点(`.`)展开的方式调用，降低输入难度。示例命令如下：
 ```bash
 tccli cvm RunInstances --cli-unfold-argument \
@@ -57,7 +57,7 @@ tccli cvm RunInstances --cli-unfold-argument \
 </dx-alert>
 
 
-####  `--generate-cli-skeleton` 参数
+### --generate-cli-skeleton 参数
 您可增加 `--generate-cli-skeleton` 参数，输出 JSON 格式入参骨架。示例命令如下：
 ```bash
 # 您还可将 json 格式入参骨架直接输入到 json 文件中
@@ -87,7 +87,7 @@ tccli cvm DescribeInstances --generate-cli-skeleton
 - `--generate-cli-skeleton` 命令需`3.0.273.1`版本及以上。
 </dx-alert>
 
-####  `--cli-input-json` 参数
+### --cli-input-json 参数
 若接口入参较多，可增加 `--cli-input-json` 参数，该参数支持 JSON 文件输入（参数后需增加 `file://+文件路径`）。您可以使用 `--generate-cli-skeleton` 生成相应的 JSON 文件，填写参数后即可直接使用该 JSON 文件调用接口。示例命令如下：
 ```bash
 tccli cvm DescribeInstances --cli-input-json file:///home/test.json
