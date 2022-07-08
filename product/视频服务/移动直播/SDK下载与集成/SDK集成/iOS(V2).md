@@ -84,7 +84,7 @@ CoreMedia.framework
 ```
 ![](https://qcloudimg.tencent-cloud.cn/raw/85974527c721e13dd88e37ffa8a217bc.png)
 5. 选中 Build Settings 项，搜索 `Other Linker Flags`。添加 `-ObjC`。
-![](https://qcloudimg.tencent-cloud.cn/raw/7d6812ebcc37d330b0c1a84979ccef67.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/e331f3025779bfbb1db3f230004159fc.png)
 
 ## 授权摄像头和麦克风使用权限
 使用 SDK 的音视频功能，需要授权麦克风和摄像头的使用权限。在 App 的 Info.plist 中添加以下两项，分别对应麦克风和摄像头在系统弹出授权对话框时的提示信息。
