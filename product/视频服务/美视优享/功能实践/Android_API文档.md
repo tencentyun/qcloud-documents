@@ -163,11 +163,16 @@ void updateProperty(XmagicProperty<?> p)
 </tr>
 <tr>
 <td>ID</td>
-<td>图片名称，必填<br>示例：<code>dongjing_lf.png</code></td>
+<td>图片名称，必填
+<ul style="margin:0">
+<li>示例：<code>dongjing_lf.png</code>
+<li>“无” ID 为 <code>XmagicProperty.ID_NONE</code>
+</ul>
+</td>
 </tr>
 <tr>
 <td>resPath</td>
-<td>滤镜图片路径，必填<br>示例：“无”设置为 null</td>
+<td>滤镜图片路径，必填，“无”设置为 null</td>
 </tr>
 <tr>
 <td>effkey</td>
@@ -187,7 +192,12 @@ void updateProperty(XmagicProperty<?> p)
 </tr>
 <tr>
 <td>ID</td>
-<td>资源文件夹名称，必填<br>示例：<code>video_lianliancaomei</code></td>
+<td>资源文件夹名称，必填
+<ul style="margin:0">
+<li>示例：<code>video_lianliancaomei</code>
+<li>“无” ID 为 <code>XmagicProperty.ID_NONE</code>
+</ul>
+</td>
 </tr>
 <tr>
 <td>resPath</td>
@@ -211,7 +221,11 @@ void updateProperty(XmagicProperty<?> p)
 </tr>
 <tr>
 <td>ID</td>
-<td>资源文件夹名称，必填<br><code>示例：video_xuejiezhuang<code></td>
+<td>资源文件夹名称，必填
+<ul style="margin:0">
+<li><code>示例：video_xuejiezhuang</code>
+<li>“无” ID 为 <code>XmagicProperty.ID_NONE</code>
+</ul></td>
 </tr>
 <tr>
 <td>resPath</td>
@@ -219,7 +233,8 @@ void updateProperty(XmagicProperty<?> p)
 </tr>
 <tr>
 <td>effkey</td>
-<td>必填，取值为：makeup.strength，“无”设置为 null</td>
+<td>必填，取值为：<code>makeup.strength</code>
+	<br>“无”设置为 null</td>
 </tr>
 <tr>
 <td>effValue</td>
@@ -235,8 +250,13 @@ void updateProperty(XmagicProperty<?> p)
 </tr>
 <tr>
 <td>ID</td>
-<td>资源文件夹名称，必填<br>示例：<code>video_segmentation_blur_45</code>
-<br>自定义分割 ID 值必须使用：<code>XmagicConstant.SegmentationId.CUSTOM_SEG_ID</code></td>
+<td>资源文件夹名称，必填
+<ul style="margin:0">
+<li>示例：<code>video_segmentation_blur_45</code>
+<li>“无” ID 为 <code>XmagicProperty.ID_NONE</code>
+<li>自定义分割 ID 值必须使用：<code>XmagicConstant.SegmentationId.CUSTOM_SEG_ID</code>
+</ul>
+</td>
 </tr>
 <tr>
 <td>resPath</td>
