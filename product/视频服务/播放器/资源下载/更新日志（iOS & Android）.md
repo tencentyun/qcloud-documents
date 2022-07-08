@@ -4,11 +4,22 @@
 
 
 ## 播放器 SDK
+### 播放器 SDK 10.3.0 @  2022.07.06
+**新功能：** 
+- iOS：视频播放支持画中画模式。
+
+**缺陷修复：** 
+- Android：修复硬解后台连续播放视频列表会中断问题。
+- Android&iOS：修复 Seek 完成事件不回调问题。
+
 ### 播放器 SDK 10.2.0 @  2022.06.23
-- Android&iOS：修复硬解播放 H265 格式视频失败问题
-- Android&iOS：修复播放 HLS 直播异常
-- Android&iOS：优化播放过程中回调 cachedBytes、IP 地址等参数
-- iOS：修复某些场景下获取 supportedBitrates 异常
+**功能优化：** 
+- Android&iOS：优化播放过程中回调 cachedBytes、IP 地址等参数。
+
+**缺陷修复：** 
+- Android&iOS：修复硬解播放H265格式视频失败问题。
+- Android&iOS：修复播放 HLS 直播异常。
+- iOS：修复某些场景下获取 supportedBitrates 异常。
 
 ### 播放器 SDK 10.1.0 @ 2022.05.31
 - Android&iOS： 视频超分效果优化

@@ -1,33 +1,25 @@
-# <span id='code-java'></span>代码模式 Java
-
-## 简介
 为了降低熟练使用 Java 的用户接入腾讯云数据连接器的门槛，Dataway 代码模式提供对 Java 脚本的支持。
 
 ## IDE 使用
 
-1. 对于任意 Dataway 编辑文本框，将鼠标移至文本框，会自动填出模式选择按钮，点击**"代码“**进入代码模式。
+1. 对于任意 Dataway 编辑文本框，将鼠标移至文本框，会自动弹出模式选择按钮，单击**代码**进入代码模式。
 ![](https://qcloudimg.tencent-cloud.cn/raw/09857e2a0b5ca72761d9f5a57997f06d.png)
-
-
-2. 点击编辑文本框，弹出代码编辑器，点击**"Java"**，进入 Java 脚本编辑器。
+2. 单击编辑文本框，弹出代码编辑器，单击**Java**，进入 Java 脚本编辑器。
 <img src="https://qcloudimg.tencent-cloud.cn/raw/f790705d53b448dc41d7f16b053f43f4.png" alt="Java编辑器" style="zoom:50%;" />
+3. 编辑完成后，单击**确定**进行保存。
 
-
-3. 编辑完成后，点击**"确定"**按钮保存。
-
-代码模式 Java 支持[集成流数据面板](../Dataway文档/基础概念.md#dataref)引用。
+代码模式 Java 支持 [集成流数据面板](https://cloud.tencent.com/document/product/1270/73950#dataref)引用。
 
 ## 脚本结构
 Java 脚本需符合 JDK8 语法规定。
 
-特别地，类名必须为 Handler，且必须定义一个签名为 Object eval(Message msg) 的函数作为入口函数；
-
-`
+类名必须为 Handler，且必须定义一个签名为 Object eval(Message msg) 的函数作为入口函数。
+```java
 import com.tencent.ipaas.dataway.common.message.Message; 
 import com.tencent.ipaas.dataway.common.message.DataRef; 
-`
-不能删除，其它 import 语句可以根据类型使用需求在下面新增；
+```
 
+不能删除，其它 import 语句可以根据类型使用需求在下面新增。
 ```java
 // 这行 import 固定，不能删除
 import com.tencent.ipaas.dataway.common.message.Message;
@@ -272,49 +264,61 @@ public class Handler {
 
 ## 使用 Entity 对象
 
-### ** 基础方法**
-- 在代码模式 Java 中， 用 Entity 类型来表示数据连接器集成流中的实体数据，表示二进制数据的封装对象，其主要组成部分包括 blob、mimeType 以及 encoding。
-    - blob：原始的二进制数据。
-    - mimeType：表示二进制数据的内容格式，例如：application/json、application/www-form-urlencoded、multipart/form-data 等。
-    - encoding：表示二进制数据的字符编码格式，例如：utf-8、gbk 等。
-- 可以通过如下方式访问 Entity 中的内容：
-    - byte[] getBlob()：获取该消息对象的负载数据，返回 byte[] 类型的对象。
-    - String getMimeType()：获取该消息对象的 MIME 类型，返回 String 对象。
-    - String getEncoding()：获取该消息对象的编码类型，返回 String 对象。
-    - Object getValue()：根据 MIME 类型和编码类型，对负载数据 blob 进行反序列化，并返回其结果，该类型为代码模式 Java 类型系统中定义的类型之一。
-    - Object get(Object key)：根据 MIME 类型和编码类型对 message 的内容进行反序列化，并获取其中指定 key 的值。
+### 基础方法
+在代码模式 Java 中， 用 Entity 类型来表示数据连接器集成流中的实体数据，表示二进制数据的封装对象，其主要组成部分包括 blob、mimeType 以及 encoding。
+
+| 组成部分 | 说明 | 
+|---------|---------|
+| blob  |  原始的二进制数据。|
+| mimeType  |  表示二进制数据的内容格式，例如：application/json、application/www-form-urlencoded  |  multipart/form-data 等。  |  
+| encoding  |  表示二进制数据的字符编码格式，例如：utf-8、gbk 等。  |  
+
+
+可以通过如下方式访问 Entity 中的内容：
+
+| 访问方式 | 说明 | 
+|---------|---------|
+|   byte[] getBlob() |  获取该消息对象的负载数据，返回 byte[] 类型的对象。 |  
+|   String getMimeType() |  获取该消息对象的 MIME 类型，返回 String 对象。
+|   String getEncoding() |  获取该消息对象的编码类型，返回 String 对象。 |  
+|   Object getValue() |  根据 MIME 类型和编码类型，对负载数据 blob 进行反序列化，并返回其结果，该类型为代码模式 Java 类型系统中定义的类型之一。 |  
+|   Object get(Object key) |  根据 MIME 类型和编码类型对 message 的内容进行反序列化，并获取其中指定 key 的值。 |   
 
 当前反序列化支持的 MIME 类型及其反序列化后的值类型如下：
-1. text/plain → String
-1. application/json →  Object，与 GSON 一致
-1. application/x-www-form-urlencoded → Multimap
-1. application/xml → Map
-1. application/csv → List&lt;Map&lt;String,String&gt;&gt;，即字段名与取值映射的列表
-1. multipart/form-data → FormDataParts
+- text/plain → String
+- application/json →  Object，与 GSON 一致
+- application/x-www-form-urlencoded → Multimap
+- application/xml → Map
+- application/csv → List&lt;Map&lt;String,String&gt;&gt;，即字段名与取值映射的列表
+- multipart/form-data → FormDataParts
 
-### ** 构造方法**
-- **Entity.fromValue 静态方法**
+
+
+### 构造方法
+#### Entity.fromValue 静态方法
 用于将值类型 data 封装为 Entity 类型，并返回。如下所示：
 ```java
 Entity.fromValue(Object value, String mimeType, String encoding)
 ```
 在 fromValue 函数内部，会先根据给定的 MIME 类型和编码类型尝试对 value 进行序列化得到 byte[] 类型的数据，然后再封装为 Entity 类型进行返回。
-mimeType 参数必传，且目前支持的 MIME 类型有 text/plain、application/json、application/x-www-form-urlencoded、application/csv、 application/xml 和 multipart/form-data 六种。
-encoding 参数必传，且支持任意合法的编码类型。
 
-- **Entity.fromBytes 静态方法**
+- mimeType 参数必传，且目前支持的 MIME 类型有 text/plain、application/json、application/x-www-form-urlencoded、application/csv、 application/xml 和 multipart/form-data 六种。
+- encoding 参数必传，且支持任意合法的编码类型。
+
+#### Entity.fromBytes 静态方法
 用于将 String 或者 byte[] 类型数据封装为 Entity 类型，并返回。如下所示：
 ```java
 Entity.fromBytes(Object data, String mimeType, String encoding)
 ```
 fromBytes 函数中的 MIME 类型和编码类型参数校验规则与 fromValue 函数相似，不同的是不会对 MIME 类型的参数值进行限制，可以为任意的 MIME 类型。
-如果传递给 fromBytes 函数的 data 参数类型为 byte[] 类型，该函数会直接返回一个以 data、mimeType、encoding 作为参数构造的 Entity 对象。
-如果传递的 data 是 String 数据，则会尝试根据 encoding 参数将其编码为 byte[] 类型，并构造成 Entity 对象。
 
-**使用限制**
+- 如果传递给 fromBytes 函数的 data 参数类型为 byte[] 类型，该函数会直接返回一个以 data、mimeType、encoding 作为参数构造的 Entity 对象。
+- 如果传递的 data 是 String 数据，则会尝试根据 encoding 参数将其编码为 byte[] 类型，并构造成 Entity 对象。
+
+### 使用限制
 Entity 对象在本质上是一个对二进制数据的封装对象，为方便使用，提供 entity.get() 等访问对象内容的方法。在使用这些功能时，需要注意的是，有些特殊操作下系统会尝试先对 Entity 中的二进制数据进行反序列化解析，如果解析失败则会导致运行时错误。这些特殊操作包括：
 
-- 用 entity.getValue() 来获取解析后的结构化结果；
-- 用 entity.get(key) 来获取结构化结果中的某项内容；
+- 用 entity.getValue() 来获取解析后的结构化结果。
+- 用 entity.get(key) 来获取结构化结果中的某项内容。
 
 在不符合条件的 Entity 对象上执行上述特殊操作，将会导致运行时错误。

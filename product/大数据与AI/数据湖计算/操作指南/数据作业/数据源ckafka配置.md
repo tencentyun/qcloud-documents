@@ -1,4 +1,3 @@
->? 数据作业目前为邀请内测阶段，如您需使用体验可 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们开通体验。
 
 ## 创建配置
 如您需要在数据作业中使用 ckafka 作为数据源，可通过配置 VPC 网关的方式打通数据湖计算与 ckafka 的网络，实现数据访问。
