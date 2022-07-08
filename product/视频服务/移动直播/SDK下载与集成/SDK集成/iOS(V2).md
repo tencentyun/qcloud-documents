@@ -49,7 +49,7 @@ pod install
 ```
 pod update
 ```
-5. pod 命令执行完后，会生成集成了 SDK 的 `.xcworkspace` 后缀的工程文件，双击打开即可。
+pod 命令执行完后，会生成集成了 SDK 的 `.xcworkspace` 后缀的工程文件，双击打开即可。
 
 [](id:manual)
 ### 手动集成
