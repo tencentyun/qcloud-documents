@@ -42,7 +42,7 @@ flush privileges;
     - 数据更新：订阅选择对象的数据更新，包括数据 INSERT、UPDATE、DELETE 操作。
     - 结构更新：订阅实例中全部对象的结构创建、修改和删除。
     - 全实例：包括该订阅实例的全部对象的数据更新和结构更新。
- - 订阅数据格式：支持 ProtoBuf、Avro 和 Json 三种格式。 ProtoBuf 和 Avro 采用二级制格式，消费效率更高，Json 采用轻量级的文本格式，更加简单易用。
+ - 订阅数据格式：支持 ProtoBuf、Avro 和 Json 三种格式。 ProtoBuf 和 Avro 采用二进制格式，消费效率更高，Json 采用轻量级的文本格式，更加简单易用。
  - Kafka 分区策略：选择按表名分区，按表名+主键分区。
  - 使用自定义分区策略：用户根据自己的需求自定义分区。
 ![](https://qcloudimg.tencent-cloud.cn/raw/b5364aa79598fb8e6046e2a60c686fda.png)
