@@ -11,62 +11,54 @@
 
 [](id:cocoapods)
 ### CocoaPods
-#### 1. 安装 CocoaPods
+1. **安装 CocoaPods**
 在终端窗口中输入如下命令（需要提前在 Mac 中安装 Ruby 环境）：
 ```
 sudo gem install cocoapods
 ```
-
-#### 2. 创建 Podfile 文件
+2. **创建 Podfile 文件**
 进入项目所在路径，输入以下命令行之后项目路径下会出现一个 Podfile 文件。
 ```
 pod init
 ```
-
-#### 3. 编辑 Podfile 文件
+3. **编辑 Podfile 文件**
 编辑 Podfile 文件，有如下有两种设置方式：
--  方式一：使用腾讯云 LiteAVSDK 的 podspec 文件路径。
-<dx-codeblock>
-:::  podspec
-  platform :ios, '9.0'
-  
-  target 'App' do
-  pod 'TXLiteAVSDK_Professional', :podspec => 'https://liteav.sdk.qcloud.com/pod/liteavsdkspec/TXLiteAVSDK_Professional.podspec'
-  end
-:::
-</dx-codeblock>
--  方式二：使用 CocoaPod 官方源，支持选择版本号。
-<dx-codeblock>
-:::  CocoaPod
-   platform :ios, '9.0'
-   source 'https://github.com/CocoaPods/Specs.git'
-   
-   target 'App' do
-   pod 'TXLiteAVSDK_Professional'
-   end
-:::
-</dx-codeblock>
+	-  方式一：使用腾讯云 LiteAVSDK 的 podspec 文件路径。
+```podspec
+platform :ios, '9.0'
 
-#### 4. 更新并安装 SDK
-在终端窗口中输入如下命令以更新本地库文件，并安装 LiteAVSDK：
+target 'App' do
+pod 'TXLiteAVSDK_Professional', :podspec => 'https://liteav.sdk.qcloud.com/pod/liteavsdkspec/TXLiteAVSDK_Professional.podspec'
+end
+```
+	-  方式二：使用 CocoaPod 官方源，支持选择版本号。
+```
+platform :ios, '9.0'
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'App' do
+pod 'TXLiteAVSDK_Professional'
+end
+```
+4. **更新并安装 SDK**
+	- 在终端窗口中输入如下命令以更新本地库文件，并安装 LiteAVSDK：
 ```
 pod install
 ```
-或使用以下命令更新本地库版本：
+	- 或使用以下命令更新本地库版本：
 ```
 pod update
 ```
-
-pod 命令执行完后，会生成集成了 SDK 的 `.xcworkspace` 后缀的工程文件，双击打开即可。
+5. pod 命令执行完后，会生成集成了 SDK 的 `.xcworkspace` 后缀的工程文件，双击打开即可。
 
 [](id:manual)
 ### 手动集成
 1. 下载 [LiveAVSDK](https://cloud.tencent.com/document/product/454/7873) ，下载完成后进行解压。
 2. 打开您的 Xcode 工程项目，选择要运行的 target , 选中 **Build Phases** 项。
 ![](https://qcloudimg.tencent-cloud.cn/raw/be1dada9803b1bfd26c0feddb2f1cbb5.png)
-3. 单击 **Link Binary with Libraries** 项展开，单击底下的【+】添加依赖库。
+3. 单击 **Link Binary with Libraries** 项展开，单击底下的 **+** 添加依赖库。
 ![](https://qcloudimg.tencent-cloud.cn/raw/3b10bf93bef29868b611bb0095fb63c5.png)
-4. 依次添加所下载的 `TXLiteAVSDK_Professional.framework` 、`TXFFmpeg.xcframework`、`TXSoundTouch.xcframework`及其所需依赖库 :
+4. 依次添加所下载的 `TXLiteAVSDK_Professional.framework` 、`TXFFmpeg.xcframework`、`TXSoundTouch.xcframework` 及其所需依赖库：
 ```
 GLKit.framework
 AssetsLibrary.framework
