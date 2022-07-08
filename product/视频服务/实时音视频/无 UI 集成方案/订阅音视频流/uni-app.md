@@ -42,13 +42,11 @@ this.trtcCloud.stopRemoteView(remoteUserId, TRTCVideoStreamType.TRTCVideoStreamT
 
 [](id:step5)
 ### 步骤5：感知房间中远端用户的音视频状态
-
 在 [步骤4](#step3) 和 [步骤5](#step4) 中，您可以控制对远端用户的声音和视频的播放，但是如果没有足够的信息，您并不知道：
 - 当前房间里有哪些用户？
 - 他们是否开启了摄像头和麦克风？
 
 为了解决这个问题，您需要监听来自 SDK 的几个事件回调：
-
 - **音频状态变化通知（[onUserAudioAvailable](https://web.sdk.qcloud.com/trtc/uniapp/doc/zh-cn/TRTCCallback.html#event:onUserAudioAvailable)）**
 当远端用户开启或关闭麦克风时，您可以通过监听 [onUserAudioAvailable](https://web.sdk.qcloud.com/trtc/uniapp/doc/zh-cn/TRTCCallback.html#event:onUserAudioAvailable) 来感知到这个状态的变化。
 
@@ -65,10 +63,10 @@ import TrtcCloud from '@/TrtcCloud/lib/index';
 this.trtcCloud = TrtcCloud.createInstance();
 
 this.trtcCloud.on('onRemoteUserEnterRoom', (userId) => {
-  console.log('remote user enter room id ', userId);
+	console.log('remote user enter room id ', userId);
 });
 this.trtcCloud.on('onRemoteUserLeaveRoom', (res) => {
-  const { userId, reason } = res;
-  console.log('remote user leave room ', userId, reason);
+	const { userId, reason } = res;
+	console.log('remote user leave room ', userId, reason);
 });
 ```
