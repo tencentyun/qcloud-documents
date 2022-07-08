@@ -41,7 +41,7 @@ pika -c pika.conf
 ```
 slaveof ip port force
 ```
-5. 确认主从关系建立成功之后，pika-migrate 同时向目标 Redis 转发数据。执行如下命令，查看主从同步延迟。可在主库写入⼀个特殊的 Key，然后看在 Redis 侧查看是否可以立马获取到，判断数据同步完毕。
+5. 确认主从关系建立成功之后，pika-migrate 同时向目标 Redis 转发数据。执行如下命令，查看主从同步延迟。可在主库写入⼀个特殊的 Key，然后在 Redis 侧查看是否可立即获取到该 Key，判断数据同步完毕。
 ```
 info Replication
 ```
