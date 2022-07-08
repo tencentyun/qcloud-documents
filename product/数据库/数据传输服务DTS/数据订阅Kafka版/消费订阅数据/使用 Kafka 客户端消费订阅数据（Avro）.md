@@ -2,9 +2,9 @@
 
 数据订阅 Kafka 版中，您可以通过0.11版本及以上的 [Kafka 客户端](http://kafka.apache.org/downloads) 进行消费订阅数据， 本文为您提供了 Java、Go、Python 语言的客户端消费 Demo 示例，方便您快速测试消费数据的流程，了解数据格式解析的方法。
 
-在配置订阅任务中，您可以选择不同的订阅数据格式，ProtoBuf、Avro 和 Json。 ProtoBuf 和 Avro 采用二级制格式，消费效率更高，Json 采用轻量级的文本格式，更加简单易用。选择的订阅数据格式不同，参考的 Demo 示例也不同。
+在配置订阅任务中，您可以选择不同的订阅数据格式，ProtoBuf、Avro 和 Json。ProtoBuf 和 Avro 采用二级制格式，消费效率更高，Json 采用轻量级的文本格式，更加简单易用。选择的订阅数据格式不同，参考的 Demo 示例也不同。
 
-本场景将为提供 Avro 订阅版本的 Demo 示例，并且 Demo 中已包含 Avro 协议文件，无需另外下载。
+本场景提供 Avro 订阅版本的 Demo 示例，并且 Demo 中已包含 Avro 协议文件，无需另外下载。
 
 > ?当前仅 MySQL、TDSQL-C MySQL 支持 Avro 协议的数据消费。
 
@@ -83,9 +83,9 @@ Demo 中的文件说明如下，以 Java Demo 为例进行介绍。
 Record.avsc 中我们定义了14个结构（Avro 中叫做 schema），其中主要的数据结构为 Record，用于表示 binlog 中的一条数据，Record 的结构如下，其他数据结构可以在 Record.avsc 中查看：
 ```
  {
-    "namespace": "com.tencent.subscribe.avro",    //Record.avsc中的最后1个 schema，"name" 显示为 "Record"
+    "namespace": "com.tencent.subscribe.avro",    //Record.avsc 中的最后1个 schema，"name" 显示为 "Record"
     "type": "record",    
-    "name": "Record",     //"name"显示为"Record"，表示从 kafka 中消费的数据格式
+    "name": "Record",     //"name" 显示为 "Record"，表示从 kafka 中消费的数据格式
     "fields": [
       {
         "name": "id",     //id 表示全局递增 ID，更多 record 取值解释如下表
@@ -160,12 +160,12 @@ Record 中的字段类型解释如下：
 | total                    | 如果消息分片，记录分片总数。当前版本 (version=1) 无意义，预留扩展。 |
 | index                    | 如果消息分片，记录分片总数。当前版本 (version=1) 无意义，预留扩展。 |
 
-Record 中描述列属性的字段为"Field"，包含如下四个属性：
+Record 中描述列属性的字段为 "Field"，包含如下四个属性：
 
-+ name：列名。
-+ dataTypeNumber：是 binlog 中记录的数据类型。取值详见 [MySQL](https://dev.mysql.com/doc/internals/en/com-query-response.html)。
-+ isKey：是否主键。
-+ originalType：DDL 中定义的类型。
+- name：列名。
+- dataTypeNumber：是 binlog 中记录的数据类型。取值详见 [MySQL](https://dev.mysql.com/doc/internals/en/com-query-response.html)。
+- isKey：是否主键。
+- originalType：DDL 中定义的类型。
 
 ## 数据库字段映射关系
 
@@ -204,3 +204,4 @@ Record 中描述列属性的字段为"Field"，包含如下四个属性：
 | MYSQL_TYPE_MEDIUM_BLOB   | BinaryObject                                           |
 | MYSQL_TYPE_LONG_BLOB     | BinaryObject                                           |
 | MYSQL_TYPE_GEOMETRY      | BinaryObject                                           |
+
