@@ -59,7 +59,7 @@ pod 命令执行完后，会生成集成了 SDK 的 `.xcworkspace` 后缀的工�
 3. 单击 **Link Binary with Libraries** 项展开，单击底下的 **+** 添加依赖库。
 ![](https://qcloudimg.tencent-cloud.cn/raw/625efe18420f8f4c01af264007e942d7.png)
 4. 依次添加所下载的 `TXLiteAVSDK_Professional.framework` 、`TXFFmpeg.xcframework`、`TXSoundTouch.xcframework` 及其所需依赖库：
-```
+```node
 AVFoundation.framework
 VideoToolbox.framework
 libz.tbd
@@ -100,11 +100,8 @@ CoreMedia.framework
 ```
 
 ## 给 SDK 配置 License 授权
-
-单击 [License 申请](https://console.cloud.tencent.com/live/license) 获取测试用 License，您会获得两个字符串：一个字符串是 licenseURL，另一个字符串是解密 key。
-
-在您的 App 调用 LiteAVSDK 的相关功能之前（建议在 `- [AppDelegate application:didFinishLaunchingWithOptions:]` 中）进行如下设置：
-
+1. 单击 [License 申请](https://console.cloud.tencent.com/live/license) 获取测试用 License，您会获得两个字符串：一个字符串是 licenseURL，另一个字符串是解密 key。
+2. 在您的 App 调用 LiteAVSDK 的相关功能之前（建议在 `- [AppDelegate application:didFinishLaunchingWithOptions:]` 中）进行如下设置：
 ```objc
 @import TXLiteAVSDK_Professional;
 @implementation AppDelegate
@@ -122,11 +119,12 @@ CoreMedia.framework
 [](id:faq)
 ## 常见问题
 ### 1. LiteAVSDK 是否支持后台运行？
-**支持**，如需要进入后台仍然运行相关功能，可选中当前工程项目，选择 **Signing&Capabilities** ，点击左上角➕，如图所示：
+**支持**，如需要进入后台仍然运行相关功能，操作如下：
+1. 选中当前工程项目，选择 **Signing&Capabilities** ，单击左上角**+**，如图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/d06bbd6669a4d60bbf2c217b0a8cc961.png)
-选择**Background Modes**
+2. 选择 **Background Modes**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d43e735cb3450fe10c3327803904c0b2.png)
-在**Background Modes**中勾选 **Audio，AirPlay and Picture in Picture** ，如下图所示：
+3. 在 **Background Modes**中勾选 **Audio，AirPlay and Picture in Picture** ，如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/e37c5de253b07f27de0a6554ba3a6311.png)
 
 ### 2. 项目里面同时集成了直播 SDK/实时音视频/播放器等 LiteAVSDK 系列的多个 SDK 报符号冲突问题怎么解决？
