@@ -26,7 +26,7 @@ this.trtcCloud.on('onError', (res) => {
 
 [](id:step4)
 ### 步骤4：准备进房参数 TRTCParams
-在调用 enterRoom 接口时需要填写两个关键参数，即 `TRTCParams` 和 `TRTCAppScene`，接下来进行详细介绍：
+在调用 [enterRoom](https://web.sdk.qcloud.com/trtc/uniapp/doc/zh-cn/TrtcCloud.html#enterRoom) 接口时需要填写两个关键参数，即 `TRTCParams` 和 `TRTCAppScene`，接下来进行详细介绍：
 
 #### 参数一：TRTCAppScene
 该参数用于指定您的应用场景，即**在线直播**还是**实时通话**：
@@ -54,12 +54,12 @@ TRTCParams 由很多的字段构成，但通常您只需要关心如下几个字
 
 
 [](id:step5)
-### 步骤5：进入房间（enterRoom）
-在准备好 [步骤4](#step4) 中两个参数（TRTCAppScene 和 TRTCParams）后，就可以调用 enterRoom 接口函数进入房间了。
+### 步骤5：进入房间（[enterRoom](https://web.sdk.qcloud.com/trtc/uniapp/doc/zh-cn/TrtcCloud.html#enterRoom)）
+在准备好 [步骤4](#step4) 中两个参数（TRTCAppScene 和 TRTCParams）后，就可以调用 [enterRoom](https://web.sdk.qcloud.com/trtc/uniapp/doc/zh-cn/TrtcCloud.html#enterRoom) 接口函数进入房间了。
 
 ```javascript
 import TrtcCloud from '@/TrtcCloud/lib/index';
-import { TRTCAppScene, TRTCCloudDef } from '@/TrtcCloud/lib/TrtcDefines';
+import { TRTCAppScene, TRTCRoleType } from '@/TrtcCloud/lib/TrtcDefines';
 
 this.trtcCloud = TrtcCloud.createInstance();
 
@@ -67,10 +67,10 @@ this.trtcCloud = TrtcCloud.createInstance();
 // Please replace each field in TRTCParams with your own parameters
 const params = {
   sdkAppId: 1400000123;  // Please replace with your own sdkAppId
-  userId: "test";       // Please replace with your own userid
+  userId: "denny";       // Please replace with your own userid
   roomId: 123321;       // Please replace with your own room number 
   userSig: "xxx";       // Please replace with your own userSig
-  role: TRTCCloudDef.TRTCRoleAnchor;
+  role: TRTCRoleType.TRTCRoleAnchor;
 };
 
 // 如果您的场景是“在线直播”，请将应用场景设置为 TRTC_APP_SCENE_LIVE
@@ -79,9 +79,12 @@ this.trtcCloud.enterRoom(params, TRTCAppScene.TRTCAppSceneVideoCall);
 ```
 
 **事件回调**
-如果进入房间成功，SDK 会回调 onEnterRoom(result) 事件，其中 result 会是一个大于 0 的数值，代表加入房间所消耗的时间，单位为毫秒（ms）。
-如果进入房间失败，SDK 同样会回调 onEnterRoom(result) 事件，但参数 `result` 会是一个负数，其数值为进房失败的错误码。
+如果进入房间成功，SDK 会回调 [onEnterRoom(result)](https://web.sdk.qcloud.com/trtc/uniapp/doc/zh-cn/TRTCCallback.html#event:onEnterRoom) 事件，其中 `result` 会是一个大于 0 的数值，代表加入房间所消耗的时间，单位为毫秒（ms）。
+如果进入房间失败，SDK 同样会回调 [onEnterRoom(result)](https://web.sdk.qcloud.com/trtc/uniapp/doc/zh-cn/TRTCCallback.html#event:onEnterRoom) 事件，但参数 `result` 会是一个负数，其数值为进房失败的错误码。
 ```javascript
+import TrtcCloud from '@/TrtcCloud/lib/index';
+this.trtcCloud = TrtcCloud.createInstance();
+
 // 监听 SDK 的 onEnterRoom 事件并获知是否成功进入房间
 // Listen to the onEnterRoom event of the SDK and learn whether the room is successfully entered
 this.trtcCloud.on("onEnterRoom", (result) => {
