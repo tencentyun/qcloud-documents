@@ -119,7 +119,7 @@ CoreMedia.framework
 [](id:faq)
 ## 常见问题
 ### 1. LiteAVSDK 是否支持后台运行？
-**支持**，如需要进入后台仍然运行相关功能，可选中当前工程项目，选择 **Signing&Capabilities** ，点击左上角➕，如图所示：
+**支持**，如需要进入后台仍然运行相关功能，可选中当前工程项目，选择 **Signing&Capabilities** ，单击左上角的**+**，如图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/5225214aa320fc58f81964432f740be5.png)
 选择**Background Modes**
 ![](https://qcloudimg.tencent-cloud.cn/raw/98932e57112fd904fc77e282d461f364.png)
