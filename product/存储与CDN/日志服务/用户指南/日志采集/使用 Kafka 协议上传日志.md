@@ -71,7 +71,7 @@ output {
     sasl_mechanism => "PLAIN"
     security_protocol => "SASL_PLAINTEXT"
     compression_type => "${compress}"
-    sasl_jaas_config => "org.apache.kafka.common.security.plain.PlainLoginModule required username='${logsetID}' password='${securityID}#${securityKEY};"
+    sasl_jaas_config => "org.apache.kafka.common.security.plain.PlainLoginModule required username='${logsetID}' password='${securityID}#${securityKEY}';"
   }
 }
 ```
