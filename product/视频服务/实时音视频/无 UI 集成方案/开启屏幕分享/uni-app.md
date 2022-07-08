@@ -3,7 +3,6 @@
 ## 调用指引
 ### 开启屏幕分享
 要开启屏幕分享，只需调用 [startScreenCapture()](https://web.sdk.qcloud.com/trtc/uniapp/doc/zh-cn/TrtcCloud.html#startScreenCapture) 接口即可。
-
 通过设置 [startScreenCapture()](https://web.sdk.qcloud.com/trtc/uniapp/doc/zh-cn/TrtcCloud.html#startScreenCapture) 中参数 `encParams` ，您可以指定屏幕分享的编码质量。如果您指定 `encParams` 为 null，SDK 会自动使用之前设定的编码参数，我们推荐的参数设定如下：
 
 | 参数项 | 参数名称 | 常规推荐值 |  文字教学场景 |
