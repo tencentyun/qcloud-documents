@@ -1,7 +1,7 @@
 
 ## 迁移原理
 
-将 PIKA 中的数据在线迁移到 Redis，并支持全量和增量同步。使用 [pika-migrate](https://github.com/Qihoo360/pika/tree/v3_2_7_migrate) 工具，将工具虚拟为 PIKA 的从库，将从主库获取到的数据转发给 Redis，同时并支持增量同步，实现在线热迁的功能。
+将 PIKA 中的数据在线迁移到 Redis，并支持全量和增量同步。使用 [pika-migrate](https://github.com/Qihoo360/pika/tree/v3_2_7_migrate) 工具，将工具虚拟为 PIKA 的从库，然后从主库获取到数据转发给 Redis，同时支持增量同步，实现在线热迁的功能。
 
 1. [pika-migrate](https://github.com/Qihoo360/pika/tree/v3_2_7_migrate) 通过 dbsync 请求获取主库当前 PIKA 全量 DB 数据，以及当前 DB 数据所对应的 binlog 点位。
 2. 获取到主库当前全量 DB 数据之后，扫描 DB，将 DB 中的数据打包转发给 Redis。
@@ -37,7 +37,7 @@ config set expire-logs-nums 10000
 ```
 pika -c pika.conf
 ```
-4. 执行如下命令，向主库请求同步, 并观察是否有报错信息。
+4. 执行如下命令，向主库请求同步，并观察是否有报错信息。
 ```
 slaveof ip port force
 ```
