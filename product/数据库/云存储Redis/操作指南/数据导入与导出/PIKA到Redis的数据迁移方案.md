@@ -33,11 +33,11 @@ config set expire-logs-nums 10000
  - **target-redis-pwd**：指定 Redis 默认账号的密码。
  - **sync-batch-num**：指定 pika-migrate 接收到主库的 sync-batch-num 个数据⼀起打包发送给 Redis，提升转发效率。
  - **redis-sender-num**：指定 redis-sender-num 个线程用于转发数据包。转发命令通过 Key 的哈希值将数据分配到不同的线程发送，无需担心多线程发送导致数据错乱的问题。
-3. 执行如下命令，启动 pika-migrate 工具，并查看日志。
+3. 在工具包的路径下执行如下命令，启动 pika-migrate 工具，并查看回显信息。
 ```
 pika -c pika.conf
 ```
-4. 执行如下命令，向主库请求同步，并观察是否有报错信息。
+4. 执行如下命令，将迁移工具伪装成 Slave，向主库请求同步，并观察是否有报错信息。
 ```
 slaveof ip port force
 ```
