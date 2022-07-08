@@ -71,10 +71,10 @@ git clone https://github.com/LiteAVSDK/TRTC_UniApp.git
 ### 2. 【官方】腾讯云实时音视频SDK 支持小程序吗？
 [【官方】腾讯云实时音视频SDK](https://ext.dcloud.net.cn/plugin?id=7774) **暂不支持** 小程序。
 
-### 3. 实例里面 app.vue 中的 `aegis-weex-sdk` 有什么用？
+### 3. 实例里面 app.vue 中的 aegis-weex-sdk 有什么用？
 [Demo](https://web.sdk.qcloud.com/trtc/uniapp/download/Api-Example.zip) 里的 `aegis-weex-sdk` 主要是用来对 Demo 做性能监控统计。
 
-### 4. 创建实例 `this.trtcCloud = TrtcCloud.createInstance()`; 和 `this.trtcCloud = new TrtcCloud()`; 有什么区别？
+### 4. 创建实例 this.trtcCloud = TrtcCloud.createInstance(); 和 this.trtcCloud = new TrtcCloud(); 有什么区别？
 创建 trtcCloud 单例，只能通过 [`TrtcCloud.createInstance()`](https://web.sdk.qcloud.com/trtc/uniapp/doc/zh-cn/TrtcCloud.html#.createInstance) 实例化一个 TrtcCloud 对象
 
 ### 5. startRemoteView 在什么时候调用？
