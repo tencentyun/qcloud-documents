@@ -38,6 +38,6 @@
     单击 Header 右侧的 👤 并填写相应信息。
     <img src="https://qcloudimg.tencent-cloud.cn/raw/5b5641156812d46d7e03218e856385a8.jpg" width="35%">
 
-    分别单击基础模块内的 InitSDK & Login 完成初始化和登陆，接下来您可以自由调用 Api Example 里提供的接口。
+    分别单击基础模块内的 InitSDK & Login 完成初始化和登录，接下来您可以自由调用 Api Example 里提供的接口。
     <img src="https://qcloudimg.tencent-cloud.cn/raw/4b5cff4c369a770f980b16a017f6d329.jpg" width="23%">
     <img src="https://qcloudimg.tencent-cloud.cn/raw/a2d0dfab936904bf8703ef8240656ab6.jpg" width="23%"> <img src="https://qcloudimg.tencent-cloud.cn/raw/cc01b9a6b752f26b056d04f346bc1056.jpg" width="23%">
