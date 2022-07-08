@@ -1,8 +1,8 @@
 数据订阅 Kafka 版中，您可以通过0.11版本及以上的 [Kafka 客户端](http://kafka.apache.org/downloads) 进行消费订阅数据， 本文为您提供了 Java、Go、Python 语言的客户端消费 Demo 示例，方便您快速测试消费数据的流程，了解数据格式解析的方法。
 
-在配置订阅任务中，您可以选择不同的订阅数据格式，ProtoBuf、Avro 和 Json。 ProtoBuf 和 Avro 采用二级制格式，消费效率更高，Json 采用轻量级的文本格式，更加简单易用。选择的订阅数据格式不同，参考的 Demo 示例也不同。
+在配置订阅任务中，您可以选择不同的订阅数据格式，ProtoBuf、Avro 和 Json。ProtoBuf 和 Avro 采用二级制格式，消费效率更高，Json 采用轻量级的文本格式，更加简单易用。选择的订阅数据格式不同，参考的 Demo 示例也不同。
 
-本场景将为提供 Json 订阅版本的 Demo 示例，并且 Demo 中已包含 Json 协议文件，无需另外下载。
+本场景提供 Json 订阅版本的 Demo 示例，并且 Demo 中已包含 Json 协议文件，无需另外下载。
 
 > ?当前仅 MySQL、TDSQL-C MySQL 支持 Json 协议的数据消费。
 
