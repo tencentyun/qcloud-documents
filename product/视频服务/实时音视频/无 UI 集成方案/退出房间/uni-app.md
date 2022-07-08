@@ -4,9 +4,8 @@
 
 [](id:step1)
 ### 步骤1：完成前序步骤
-
-请参考文档 [导入 SDK 到项目中](https://cloud.tencent.com/document/product/647/73371) 完成 SDK 的导入和 App 权限的配置。
-请参考文档 [进入房间](https://cloud.tencent.com/document/product/647/74638) 完成进房流程。
+- 参考文档 [导入 SDK 到项目中](https://cloud.tencent.com/document/product/647/73371) 完成 SDK 的导入和 App 权限的配置。
+- 参考文档 [进入房间](https://cloud.tencent.com/document/product/647/74638) 完成进房流程。
 
 [](id:step2)
 ### 步骤2：主动退出当前房间
@@ -41,6 +40,6 @@ this.trtcCloud = TrtcCloud.createInstance();
 
 // 监听 onExitRoom 回调即可获知自己的退房原因
 this.trtcCloud.on('onExitRoom', (reason) => {
-  console.log(`onExitRoom reason = ${reason}`);
+	console.log(`onExitRoom reason = ${reason}`);
 });
 ```
