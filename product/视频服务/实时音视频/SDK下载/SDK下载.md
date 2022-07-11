@@ -161,17 +161,6 @@
                                 <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/71425">运行 Demo</a>
             </div>
         </div>
-				        <div class="card-container">
-            <div class="card">
-                                <img src="https://main.qcloudimg.com/raw/104e3aadbd4515f61c3f2f5378948cfb.svg" data-nonescope="true">
-                                <p class="titlename">Windows SDK（ActiveX 版）</p>
-                <p style="color:#586376;">基于 ActiveX 插件封装的 TRTC SDK，让您在 ActiveX 场景下快速便捷的集成实时音视频服务。</p>
-                          <a href="https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_TRTC_Win_ActiveX_latest.zip">ZIP 下载</a>
-                <a style="margin-left: 10px;" href="https://github.com/LiteAVSDK/TRTC_Windows">GitHub</a>
-                                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/76512">集成指引</a>
-                                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/76514">运行 Demo</a>
-            </div>
-        </div>
 </div>
 
 ### Mac OS SDK
