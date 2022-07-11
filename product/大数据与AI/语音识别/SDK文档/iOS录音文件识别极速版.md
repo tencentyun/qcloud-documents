@@ -1,6 +1,6 @@
 ## 开发准备  
 ### SDK 获取
-录音文件识别的 iOS SDK 以及 Demo 的下载地址：[联系我们](https://cloud.tencent.com/act/event/connect-service#/)。
+录音文件识别的 iOS SDK 以及 Demo 的下载地址：[接入 SDK 下载](https://console.cloud.tencent.com/asr/download)。
 
 ### 使用须知
 - QCloudSDK 支持 **iOS 9.0** 及以上版本。
