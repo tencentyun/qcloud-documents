@@ -10,7 +10,6 @@ VPC 是您独有的云上私有网络，不同 VPC 之间默认完全隔离。�
 ![](https://main.qcloudimg.com/raw/7a1df80ea37f7d576d4b3abada1d3347.png)
 
 ## 前提条件
-+ 您已提交私有连接 [内测申请](https://cloud.tencent.com/apply/p/5i6ii4g3lgk)。
 + 已创建服务提供方 VPC2 和服务使用方 VPC1。
 + 请服务使用方将 UIN 账号告知服务提供方，由服务提供方添加白名单后才允许连通，同时获取服务提供方的 UIN 账号。
 + 在服务提供方 VPC2 中已创建内网4层 CLB 实例，并在 CLB 后端云服务器实例中部署相关服务资源，请确保后端云服务器实例可以正常处理负载均衡转发的请求，具体请参加 [负载均衡快速入门](https://cloud.tencent.com/document/product/214/8975)。

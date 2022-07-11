@@ -113,3 +113,4 @@ player.src(https://examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/path/e
 ## 体验
 
 以上实践，我们准备了一个 [线上体验 demo](https://ci-exhibition.cloud.tencent.com/tools/video/)，欢迎体验。
+

@@ -12,13 +12,14 @@
 
 ### 连接云服务器
 1. 执行以下命令，安装 ftp。
->? 若 Linux 系统的本地机器已安装了 ftp，请跳过此步骤，执行下一步。
->
-```
+<dx-alert infotype="explain" title="">
+若 Linux 系统的本地机器已安装了 ftp，请跳过此步骤，执行下一步。
+</dx-alert>
+```shell
 yum -y install ftp
 ```
 2. 执行以下命令，在本地机器上连接云服务器，并根据界面提示，输入 FTP 服务的用户名和密码。
-```
+```shell
 ftp 云服务器的 IP 地址
 ```
 进入如下界面，即表示连接成功。
@@ -26,21 +27,21 @@ ftp 云服务器的 IP 地址
 
 ### 上传文件
 执行以下命令，将本地文件上传至云服务器中。
-```
+```shell
 put local-file [remote-file]
 ```
 例如，将本地文件 `/home/1.txt` 上传到云服务器。
-```
+```shell
 put /home/1.txt 1.txt
 ```
 
 ### 下载文件
 执行以下命令，将云服务器中的文件下载至本地。
-```
+```shell
 get [remote-file] [local-file]
 ```
 例如，将云服务器中的 `A.txt` 文件下载到本地的 `/home` 目录下。
-```
+```shell
 get A.txt /home/A.txt
 ```
 

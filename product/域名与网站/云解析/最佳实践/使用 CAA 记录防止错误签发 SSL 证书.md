@@ -66,7 +66,7 @@ CAA 记录的格式为：`[flag] [tag] [value]`，是由一个标志字节的 `[
 <tbody>
   <tr>
     <td>flag</td>
-    <td>0-255之间的无符号整数，用于标志认证机构。通常情况下填0，表示如果颁发证书机构无法识别本条信息，就忽略。</td>
+    <td>可填写0或128，用于标志认证机构。通常情况下填0，表示如果颁发证书机构无法识别本条信息，就忽略。</td>
   </tr>
   <tr>
     <td>tag</td>
@@ -94,7 +94,7 @@ CAA 记录的格式为：`[flag] [tag] [value]`，是由一个标志字节的 `[
  - **记录值**：分别  填写 `0 issue "sectigo.com"` 与 `0 issuewild "sectigo.com"`。
  - **权重**：不填写，可忽略。
  - **MX 优先级**：不填写，可忽略。
- - **TTL**：缓存的生存时间，默认600秒。如需修改，可参考 [TTL 如何填写？](https://tcloud-doc.isd.com/document/product/302/3468?!preview&!editLang=zh#ttl-.E5.A6.82.E4.BD.95.E5.A1.AB.E5.86.99.EF.BC.9F)
+ - **TTL**：缓存的生存时间，默认600秒。如需修改，可参考 [TTL 如何填写？](https://cloud.tencent.com/document/product/302/3468#ttl-.E5.A6.82.E4.BD.95.E5.A1.AB.E5.86.99.EF.BC.9F)
 4. 单击【确定】，完成添加。
 
 

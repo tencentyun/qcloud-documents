@@ -5,6 +5,8 @@ C SDK 已提供 Ubuntu Linux 基于 gcc 的适配，开发人员安装相应软�
 
 SDK 使用 Github 托管，可访问 Github 下载最新版本设备端 [C SDK](https://github.com/tencentyun/qcloud-iot-explorer-sdk-embedded-c/releases)。
 
+
+
 ## 接入指引
 
 Linux 平台接入腾讯云物联网开发平台可以分为以下3个步骤。

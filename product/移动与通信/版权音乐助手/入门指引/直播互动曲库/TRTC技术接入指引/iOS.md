@@ -185,7 +185,7 @@ TXCopyrightedMedia *copyrightedMedia = [TXCopyrightedMedia instance];
 </tr><tr>
 <td>bitrateDefinition</td>
 <td>NSString</td>
-<td>码率描述（audio/mi：64，audio/lo：128，audio/hi：320）</td>
+<td>码率描述，从服务器歌曲详情获取（audio/mi：代表64kbps码率，audio/lo：代表128kbps码率，audio/hi：代表320kbps码率）</td>
 </tr><tr>
 <td>playToken</td>
 <td>NSString</td>
@@ -275,11 +275,11 @@ errorCode返回错误码定义如下：
 </tr><tr>
 <td>bitrateDefinition</td>
 <td>NSString</td>
-<td>码率描述（audio/mi：64，audio/lo：128，audio/hi：320）</td>
+<td>码率描述，从服务器歌曲详情获取（audio/mi：代表64kbps码率，audio/lo：代表128kbps码率，audio/hi：代表320kbps码率）</td>
 </tr>
 </tbody></table>
 - **检测是否已预加载 Music 数据**
-```java
+```swift
 BOOL isPreloaded = [copyrightedMedia isMusicPreloaded:musicId bitrateDefinition:bitrateDefinition];
 ```
 参数说明：
@@ -292,12 +292,12 @@ BOOL isPreloaded = [copyrightedMedia isMusicPreloaded:musicId bitrateDefinition:
 </tr><tr>
 <td>bitrateDefinition</td>
 <td>NSString</td>
-<td>码率描述（audio/mi：64，audio/lo：128，audio/hi：320）</td>
+<td>码率描述，从服务器歌曲详情获取（audio/mi：代表64kbps码率，audio/lo：代表128kbps码率，audio/hi：代表320kbps码率）</td>
 </tr>
 </tbody></table>
 - **生成 Music URI**
 App 客户端在 preloadMusic 成功之后调用，原唱&伴奏传给 TRTC 进行播放。
-```java
+```swift
 NSString *musicUri = [copyrightedMedia genMusicURI:musicId bgmType:musicType bitrateDefinition:bitrateDefinition];
 ```
 参数说明：
@@ -314,7 +314,7 @@ NSString *musicUri = [copyrightedMedia genMusicURI:musicId bgmType:musicType bit
 </tr><tr>
 <td>bitrateDefinition</td>
 <td>NSString</td>
-<td>码率描述（audio/mi：64，audio/lo：128，audio/hi：320）</td>
+<td>码率描述，从服务器歌曲详情获取（audio/mi：代表64kbps码率，audio/lo：代表128kbps码率，audio/hi：代表320kbps码率）</td>
 </tr>
 </tbody></table>
 返回说明：
@@ -327,11 +327,11 @@ NSString *musicUri = [copyrightedMedia genMusicURI:musicId bgmType:musicType bit
 </tr>
 </tbody></table>
 - **清理本地所有缓存歌曲数据**
-```java
+```swift
 [copyrightedMedia clearMusicCache];
 ```
 - **设置缓存歌曲最大数量**
-```java
+```swift
 [copyrightedMedia setMusicCacheMaxCount:maxCount];
 ```
 参数说明：
@@ -346,24 +346,24 @@ NSString *musicUri = [copyrightedMedia genMusicURI:musicId bgmType:musicType bit
 
 ### 代码示例
 - application 创建时候调用：
-```java
+```swift
 [[TXCopyrightedMedia instance] setLicense:licence key:key];
 ```
 - 进入主界面时候调用：
-```java
+```swift
 [[TXCopyrightedMedia instance] initialization];
 ```
 - 退出主界面时候调用：
-```java
+```swift
 [TXCopyrightedMedia destroy];
 ```
 - 进入 K 歌房间，单击 **K 歌**，下载 Music：
-```java
+```swift
 TXCopyrightedMedia *copyRightedMedia = [TXCopyrightedMedia instance];
 if([copyRightedMedia isMusicPreloaded:musicId bitrateDefinition:@"audio/lo"]) {
-		 [self startPlayMusic];
+     [self startPlayMusic];
 }else {
-		[copyRightedMedia preloadMusic:musicId bitrateDefinition:@"audio/lo" playToken:playToken callback:self];
+    [copyRightedMedia preloadMusic:musicId bitrateDefinition:@"audio/lo" playToken:playToken callback:self];
 }
 
 - (void)startPlayMusic

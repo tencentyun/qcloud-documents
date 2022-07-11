@@ -2,6 +2,8 @@
 
 Java SDK 依赖开源社区实现的 MQTT 协议 **eclipse.paho**，并在之上封装 [数据模板协议](https://cloud.tencent.com/document/product/1081/34916) 以便更好的接入腾讯云物联网开发平台。
 
+
+
 ## SDK 获取
 
 SDK 使用 Github 托管，可访问 Github 下载最新版本设备端 [iot-device-java](https://github.com/tencentyun/iot-device-java)。

@@ -22,7 +22,8 @@
 >!构造请求头的时候，需注意自定义字段名的大小写。服务器端读取字段值时对大小写敏感。
 
 ## 授权方式
-下面将为您介绍 OAuth 2.0的授权步骤，**步骤中包含的接口均无需公共参数**，按照步骤中描述的请求参数调用接口即可。具体如下：
+下面将为您介绍 OAuth2.0 的授权步骤，按照步骤中描述的请求参数调用接口即可。具体如下：
+
 ### 步骤一：用户同意授权，获取 auth_code
 **接口描述**：用户同意授权。
 **接口请求方法**：GET
@@ -30,6 +31,7 @@
 ```Plaintext
 https://meeting.tencent.com/authorize.html?corp_id={corpId}&sdk_id={sdkId}&redirect_uri={redirect_uri}&state={state}
 ```
+**Header 参数：**不需要。
 
 #### 输入参数 
 
@@ -77,6 +79,12 @@ https://meeting.tencent.com/wemeet-webapi/v2/oauth2/oauth/access_token
 ```
 
 >!由于授权的 secret 和获取到的 access_token 安全级别都非常高，必须只保存在服务器，不允许传给客户端。后续刷新 access_token、通过 access_token 获取用户信息等步骤时，也必须从服务器发起。
+
+**Header 参数：**统一放到 HTTP Header 请求头部中。
+
+| 参数名称| 类型 | 必选 |描述 |
+|---------|---------|---------|---------|
+| Content-Type | String | 是 |内容类型，传入格式必须为 application/json。 |
 
 
 #### 输入参数
@@ -138,6 +146,11 @@ https://meeting.tencent.com/wemeet-webapi/v2/oauth2/oauth/access_token
 ```Plaintext
 https://meeting.tencent.com/wemeet-webapi/v2/oauth2/oauth/refresh_token
 ```
+**Header 参数：**统一放到 HTTP Header 请求头部中。
+
+| 参数名称| 类型 | 必选 |描述 |
+|---------|---------|---------|---------|
+| Content-Type | String | 是 |内容类型，传入格式必须为 application/json。 |
 
 #### 输入参数
 
@@ -201,7 +214,11 @@ https://meeting.tencent.com/wemeet-webapi/v2/oauth2/oauth/refresh_token
 ```Plaintext
 https://meeting.tencent.com/wemeet-webapi/v2/oauth2/oauth/user_info
 ```
+**Header 参数：**统一放到 HTTP Header 请求头部中。
 
+| 参数名称| 类型 | 必选 |描述 |
+|---------|---------|---------|---------|
+| Content-Type | String | 是 |内容类型，传入格式必须为 application/json。 |
 
 #### 输入参数
 

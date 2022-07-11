@@ -82,7 +82,7 @@ Time: 6.124 ms
 ```
 
 ## 兼容性
-由于历史原因，此命令是数据库扩展名。ROLLBACK 是等效的标准 SQL 命令。ROLLBACK 是等效的标准 SQL 命令。
+由于历史原因，此命令是数据库扩展名。ROLLBACK 是等效的标准 SQL 命令。
 
 ## 另见
 BEGIN、COMMIT、ROLLBACK

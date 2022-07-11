@@ -17,8 +17,12 @@ Content-Type: application/xml
 <body>
 ```
 
->? Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
->
+
+>? 
+> - Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+> - 通过子账号使用时，需要授予相关的权限，详情请参见 [授权粒度详情](https://cloud.tencent.com/document/product/460/41741) 文档。
+> 
+
 
 
 #### 请求头
@@ -63,7 +67,7 @@ Container 类型 Request 的具体数据描述如下：
 | ------------------ | ------- | -------------------------------------------------------- | --------- | ---- |
 | Tag                | Request | 创建任务的 Tag：SDRtoHDR                                   | String    | 是   |
 | Input              | Request | 待操作的媒体信息                                         | Container | 是   |
-| Operation          | Request | 操作规则，支持对单个文件执行多个不同任务，最多可填写6个                                                | Container | 是   |
+| Operation          | Request | 操作规则，支持对单个文件执行多个不同任务，最多可填写6个    | Container | 是   |
 | QueueId            | Request | 任务所在的队列 ID                                         | String    | 是   |
 | CallBack           | Request | 回调地址                                                | String    | 否   |
 
@@ -78,10 +82,10 @@ Container 类型 Operation 的具体数据描述如下：
 | 节点名称（关键字） | 父节点            | 描述                                                         | 类型      | 是否必选 |
 | ------------------ | ----------------- | ------------------------------------------------------------ | --------- | ---- |
 | SDRtoHDR             | Request.Operation | 指定 SDRtoHDR 参数                                             | Container | 是   |
-| Transcode           | Request.Operation | 指定转码模板参数，不能与 Transcode 同时为空              | Container | 否   |
-| TranscodeTemplateId | Request.Operation | 指定的转码模版 ID，优先使用模板 Id，不能与 TranscodeTemplateId 同时为空   | String    | 否 |
+| Transcode           | Request.Operation | 指定转码模板参数，不能与 TranscodeTemplateId 同时为空              | Container | 否   |
+| TranscodeTemplateId | Request.Operation | 指定的转码模板 ID，优先使用模板 ID，不能与 Transcode 同时为空   | String    | 否 |
 | Watermark           | Request.Operation | 指定水印模板参数，同创建水印模板 CreateMediaTemplate 接口的 Request.Watermark, 最多传3个 | Container | 否 |
-| WatermarkTemplateId | Request.Operation | 指定的水印模版 ID，可以传多个水印模板 ID，最多传3个，优先使用模板 id          | String    | 否 |无|
+| WatermarkTemplateId | Request.Operation | 指定的水印模板 ID，可以传多个水印模板 ID，最多传3个，优先使用模板 id          | String    | 否 |
 | Output              | Request.Operation | 结果输出地址                                                            | Container | 是   |
 
 Container 类型 SDRtoHDR 的具体数据描述如下：

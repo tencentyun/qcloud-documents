@@ -1,5 +1,5 @@
 
-本文档是介绍适用于点播播放的 Web 超级播放器（ TCPlayer ）的相关参数以及 API，需结合 [超级播放器](https://cloud.tencent.com/document/product/1449/57088) 使用。本文档适合有一定 Javascript 语言基础的开发人员阅读。
+本文档是介绍适用于直播和点播播放的 [Web 超级播放器（ TCPlayer ）](https://cloud.tencent.com/document/product/881/30818)的相关参数以及 API。本文档适合有一定 Javascript 语言基础的开发人员阅读。
 
 ## 初始化参数
 播放器初始化需要传入两个参数，第一个为播放器容器 ID，第二个为功能参数对象。
@@ -14,6 +14,7 @@ options 对象可配置的参数：
 |------------|-----------------------------------|-----------------------------------|---------------------------------------|
 |  appID|  String |   无 |必选。|
 |  fileID|  String|无|必选。|
+|  sources|  Array|无|播放器播放地址，格式：[{ src: '//path/to/video.mp4', type: 'video/mp4' }]|  
 |  width|  String/Number|  无| 播放器区域宽度，单位像素，按需设置，可通过 CSS 控制播放器尺寸。|
 |  height |  String/Number|  无|  播放器区域高度，单位像素，按需设置，可通过 CSS 控制播放器尺寸。|
 |  controls|  Boolean|  true|  是否显示播放器的控制栏。|
@@ -29,8 +30,11 @@ options 对象可配置的参数：
 |  language|  String|  "zh-CN" |  设置语言，可选值为 "zh-CN"/"en" |
 |  languages|  Object|  无|  设置多语言词典。|
 |  controlBar|  Object|  无|  设置控制栏属性的参数组合，后面有详细介绍。|
+|  reportable|  Boolean |  true | 设置是否开启数据上报。|
 |  plugins|  Object|  无|  设置插件功能属性的参数组合，后面有详细介绍。|
 |  hlsConfig|  Object|  无|  hls.js 的启动配置，详细内容请参见官方文档 [hls.js](https://github.com/video-dev/hls.js/blob/master/docs/API.md#fine-tuning)。|
+|  webrtcConfig|  Object|  无|  webrtc 的启动配置，后面有详细介绍。|  
+
 
 >! controls、playbackRates、loop、preload、posterImage 这些参数在浏览器劫持播放的状态下将无效（[什么是劫持播放？](https://cloud.tencent.com/document/product/881/20219#.E6.B5.8F.E8.A7.88.E5.99.A8.E5.8A.AB.E6.8C.81.E8.A7.86.E9.A2.91.E6.92.AD.E6.94.BE)）。
 
@@ -63,6 +67,18 @@ plugins 参数可以配置播放器插件的功能，支持的属性有：
 | ContextMenu | Object | 无 | 可选值如下：<br><li>mirror: Boolean 控制是否支持镜像显示<br><li>statistic: Boolean 控制是否支持显示数据面板<br><li>levelSwitch: Object 控制切换清晰度时的文案提示<br><li>&emsp;{<br><li>&emsp;&emsp;open: Boolean 是否开启提示<br><li>&emsp;&emsp;switchingText: String, 开始切换清晰度时的提示文案<br><li>&emsp;&emsp;switchedText: String, 切换成功时的提示文案<br><li>&emsp;&emsp;switchErrorText: String, 切换失败时的提示文案<br><li>&emsp;}|
 
 
+#### webrtcConfig 参数列表
+webrtcConfig 参数来控制播放 webrtc 过程中的行为表现，支持的属性有：
+
+| 名称    | 类型                      | 默认值                        |说明 |
+|------------|-----------------------------------|-----------------------------------|---------------------------------------|
+|  connectRetryCount| Number|  3|  SDK 与服务器重连次数|  
+|  connectRetryDelay|  Number| 1|  SDK 与服务器重连延时|  
+|  receiveVideo|  Boolean|  true|  是否拉取视频流|  
+|  receiveAudio|  Boolean|  true|  是否拉取音频流|  
+|  showLog|  Boolean|  false|  是否在控制台打印日志|  
+
+
 <br>
 
 ## 对象方法
@@ -70,6 +86,7 @@ plugins 参数可以配置播放器插件的功能，支持的属性有：
 
 | 名称    | 参数及类型                 | 返回值及类型                        |说明 |
 |------------|-----------------------------------|-----------------------------------|---------------------------------------|
+|  src()|  (String)|  无|  设置播放地址。|  
 |  ready(function)|  (Function)|  无|  设置播放器初始化完成后的回调。|
 |  play()|  无|  无|  播放以及恢复播放。|
 |  pause()|  无|  无|  暂停播放。|
@@ -127,6 +144,34 @@ player.on('error', function(error) {
 |  resolutionswitching|  清晰度切换进行中。|
 |  resolutionswitched|  清晰度切换完毕。|
 |  fullscreenchange| 全屏状态切换时触发。|
+|  webrtcevent | 播放 webrtc 时的事件集合。|
+|  webrtcstats | 播放 webrtc 时的统计数据。|
+
+
+### WebrtcEvent 列表
+
+播放器可以通过 webrtcevent 获取播发 webrtc 过程中的所有事件，示例：
+```
+var player = TCPlayer('player-container-id', options);
+player.on('webrtcevent', function(event) {
+   // 从回调参数 event 中获取事件状态码及相关数据
+});
+```
+webrtcevent 状态码如下
+
+| 状态码 | 回调参数 | 介绍 |
+|------|-------|-------|
+| 1001 | 无 | 开始拉流 |
+| 1002 | 无 | 已经连接服务器 |
+| 1003 | 无 | 视频播放开始 |
+| 1004 | 无 | 停止拉流，结束视频播放 |
+| 1005 | 无 | 连接服务器失败，已启动自动重连恢复 |
+| 1006 | 无 | 获取流数据为空 |
+| 1007 | localSdp | 开始请求信令服务器 |
+| 1008 | remoteSdp | 请求信令服务器成功 |
+| 1009 | 无 | 拉流卡顿等待缓冲中 |
+| 1010 | 无 | 拉流卡顿结束恢复播放 |
+
 
 ## 错误码
 当播放器触发 error 事件时，监听函数会返回错误码，其中3位数以上的错误码为媒体数据接口错误码。错误码列表：

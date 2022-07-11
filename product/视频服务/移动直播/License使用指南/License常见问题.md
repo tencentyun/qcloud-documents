@@ -1,8 +1,8 @@
 [](id:q1)
+
 ### Android 下如何获取 package name？
 您可在 Android 工程下的  `Mainfest.xml`  文件中获取，如下所示：
-
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 package="com.huawei.player"
@@ -12,18 +12,18 @@ android:versionName="1.0">
 
 [](id:q2)
 ### iOS 下如何获取 Bundle ID？
-iOS 可在工程配置中的 `General->Identity` 中获取，如下图所示：
+iOS 可在工程配置中的 **General** > **Identity** 中获取，如下图所示：
 ![](https://main.qcloudimg.com/raw/56571d560da04bf6563ccae91d32b75a.png)
 
 [](id:q3)
 ### 测试版 License 到期后是否可以延期？
 测试 License 试用期最多28天，初次申请满14天后可延期一次，不支持二次延期，到期后请尽快 [购买正式 License](https://cloud.tencent.com/document/product/454/34750)。 试用期内申请测试续期，则续期到期时间以申请测试时刻为准；若试用期结束后申请测试续期，则续期到期时间以申请测试续期时刻为准。
-- 当申请测试开始时间为  `2021-08-12 10:28:41` ，则14天后到期时间为  `2021-08-26 10:28:41` 。
-- 免费续期一次时，若在试用期14天内申请续期，则到期时间为  `2021-09-09 10:28:41` ；若在试用期14天结束后申请续期，申请续期的时间为  `2021-08-30 22:26:20` ，则续期的到期时间为  `2021-09-13 22:26:20` 。
+- 当申请测试开始时间为 `2022-05-25 11:34:55` ，则14天后到期时间为 `2022-06-09 00:00:00` 。
+- 免费续期一次时，若在试用期14天内申请续期，则到期时间为 `2022-06-23 00:00:00` ；若在试用期14天结束后申请续期，申请续期的时间为 `2022-07-03 22:26:20` ，则续期的到期时间为 `2022-07-18 00:00:00` 。
 
 [](id:q4)
 ### 测试版 License 能否更改 Android 的 Package Name 和 iOS 的 Bundle ID?
-测试版 License 能更改 Android 的 Package Name 和 iOS 的 Bundle ID。 具体操作：进入**云直播控制台**>[**License 管理**](https://console.cloud.tencent.com/live/license)，单击测试版 License 信息右侧的**编辑**，进入编辑页面即可修改 Android 的 Package Name 和 iOS 的 Bundle ID。
+测试版 License 能更改 Android 的 Package Name 和 iOS 的 Bundle ID。 具体操作：进入**云直播控制台** > [**License 管理**](https://console.cloud.tencent.com/live/license)，单击测试版 License 信息右侧的**编辑**，进入编辑页面即可修改 Android 的 Package Name 和 iOS 的 Bundle ID。
 
 [](id:q5)
 ### 正式版 License 能否更改 Android 的 Package Name 和 iOS 的 Bundle ID?
@@ -41,15 +41,15 @@ iOS 可在工程配置中的 `General->Identity` 中获取，如下图所示：
 
 [](id:q8)
 ### 腾讯云视立方·直播 SDK License 有单独购买入口吗？
-**不支持单独购买**。
-直播推流 License（原移动直播基础版 SDK License） 需购买云直播10TB及以上 [流量资源包](https://cloud.tencent.com/document/product/267/34174) 获取一年使用授权。
+**可购买独立直播 License 授权解锁功能模块**，详情请参见 [独立 License 价格](https://cloud.tencent.com/document/product/454/8008#.E7.8B.AC.E7.AB.8B-license-.E4.BB.B7.E6.A0.BC)。
+直播 License（原移动直播基础版 SDK License） 需购买云直播10TB及以上 [流量资源包](https://cloud.tencent.com/document/product/267/34174) 获取一年使用授权。
 
 [](id:q9)
-### 直播推流 License（原移动直播基础版 SDK License）提供美颜功能吗？
-直播推流 License（原移动直播基础版 SDK License） 即可解锁直播推流和播放功能，以及基础的美颜功能（美白、磨皮等）。 
+### 直播 License（原移动直播基础版 SDK License）提供美颜功能吗？
+直播 License（原移动直播基础版 SDK License） 即可解锁直播推流和播放功能，以及基础的美颜功能（美白、磨皮等）。 
 高级美颜（大眼、瘦脸）、背景虚化、动效贴纸等增值能力由 [腾讯云视立方·腾讯特效 SDK ](https://cloud.tencent.com/document/product/616/36807) 提供。
 
->?SDK 下载中的3个版本的 SDK 均可用直播推流 License（原移动直播基础版 SDK License） 来解锁直播推流和播放功能。
+>?SDK 下载中的3个版本的 SDK 均可用直播 License（原移动直播基础版 SDK License） 来解锁直播推流和播放功能。
 
 [](id:q10)
 ### 一个账号下能创建多个 License 吗？
@@ -99,4 +99,4 @@ iOS 可在工程配置中的 `General->Identity` 中获取，如下图所示：
 [](id:q17)
 ### 为什么接收不到 License 到期等相关消息通知？
 
-腾讯云视立方·直播 SDK 的直播推流 License 用于音视频终端 SDK（腾讯云视立方）管理功能模块的授权解锁，您可以通过在 [消息订阅](https://console.cloud.tencent.com/message/subscription) 中订阅音视频终端 SDK ，配置**站内信**/**邮件**/**短信**/**微信**/**企微**等消息接收渠道，接收正式版 License 到期提醒。直播推流正式版 License 将在到期时间距离当前时间为30天、15天、7天、1天时各向您发送一次到期提醒，提示您及时续费以免影响正常业务运行。
+腾讯云视立方·直播 SDK 的直播 License 用于音视频终端 SDK（腾讯云视立方）管理功能模块的授权解锁，您可以通过在 [消息订阅](https://console.cloud.tencent.com/message/subscription) 中订阅音视频终端 SDK ，配置**站内信**/**邮件**/**短信**/**微信**/**企微**等消息接收渠道，接收正式版 License 到期提醒。直播正式版 License 将在到期时间距离当前时间为30天、15天、7天、1天时各向您发送一次到期提醒，提示您及时续费以免影响正常业务运行。

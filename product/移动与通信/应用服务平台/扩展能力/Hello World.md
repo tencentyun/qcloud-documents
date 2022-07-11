@@ -13,7 +13,6 @@
 
 ## 安装扩展
 
-
 您可以通过 [云开发控制台](https://console.cloud.tencent.com/tcb/extensions)，来安装和管理扩展。
 
 

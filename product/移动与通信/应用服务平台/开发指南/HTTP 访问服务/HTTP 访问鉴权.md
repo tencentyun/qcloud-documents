@@ -3,8 +3,7 @@ HTTP 访问支持鉴定云开发的用户登录凭证，开发者在开启鉴权
 ## 开启 HTTP 访问鉴权
 
 在云开发控制台的 [HTTP 访问服务管理页面](https://console.cloud.tencent.com/tcb/env/access)，左侧的路径列表中，可以为各条路径启动或关闭鉴权：
-
-![](https://main.qcloudimg.com/raw/2e0cbbcb2d1195cf162e4c8907fe8438.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/eb526cdda30722d415fd35d89e82fbc8.png)
 
 >? 开启访问鉴权之后，没有鉴权信息，或者鉴权信息非法的请求，都会请求失败。
 

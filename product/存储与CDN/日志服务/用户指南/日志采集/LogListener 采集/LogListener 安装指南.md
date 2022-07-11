@@ -17,6 +17,7 @@ LogListener 版本支持重要功能如下，详细版本功能信息请参考 [
 
 | LogListener 版本 | 支持功能           | 功能说明                      | 相关文档                             |
 | --------------- | ------------------------ | -------------------------- | --------------------------------- |
+| v2.7.4   | 支持采集主机名 hostname    | Loglistener 会默认采集机器的主机名作为默认字段上报，以 \_\_HOSTNAME\_\_ 作为 key 展现，例如 \_\_HOSTNAME\_\_：VM-108-centos。   | -   |
 | v2.6.4   | 支持用户通过组合解析自定义复杂日志解析规则   | 使用 Loglistener 组合解析格式解析日志，此模式支持用户在控制台输入代码（JSON 格式）用来定义日志解析的流水线逻辑。   | [组合解析格式](https://cloud.tencent.com/document/product/614/61310)   |
 | v2.6.0   | 支持腾讯云 CVM 批量部署功能   | 支持用户在控制台选择 CVM 实例，接口批量下发部署 LogListener 任务，自动完成 LogListener 的安装部署（包括 accesskey，ID 配置，地域配置）。   | [CVM 批量部署 LogListener](https://cloud.tencent.com/document/product/614/60593)   |
 | v2.5.4          | 支持 LogListener 服务日志功能 | LogListener 服务日志功能支持记录 LogListener 端运行状态和采集监控的日志数据并配置可视化视图，提供重要指标数据。 | [LogListener 服务日志](https://cloud.tencent.com/document/product/614/55281) |
@@ -26,22 +27,20 @@ LogListener 版本支持重要功能如下，详细版本功能信息请参考 [
 
 
 
-
-
 ## 安装启动
 
 ### 1. 下载安装 LogListener
 
-LogListener 最新版本下载地址：[公网下载 LogListener](https://mirrors.tencent.com/install/cls/loglistener-linux-x64-2.7.2.tar.gz)、[内网下载 LogListener](http://mirrors.tencentyun.com/install/cls/loglistener-linux-x64-2.7.2.tar.gz)
+LogListener 最新版本下载地址：[公网下载 LogListener](https://mirrors.tencent.com/install/cls/loglistener-linux-x64-2.7.9.tar.gz)、[内网下载 LogListener](http://mirrors.tencentyun.com/install/cls/loglistener-linux-x64-2.7.9.tar.gz)
 
 以安装路径`/usr/local/`为例： 下载 LogListener 安装包并解压，解压路径为`/usr/local/` ，解压完成后进入 LogListener 目录`loglistener/tools`，执行安装命令 。
 - 公网环境下，操作命令如下：
 ```plaintext
-wget https://mirrors.tencent.com/install/cls/loglistener-linux-x64-2.7.2.tar.gz  && tar -zxvf loglistener-linux-x64-2.7.2.tar.gz -C /usr/local && cd /usr/local/loglistener-2.7.2/tools && ./loglistener.sh install
+wget https://mirrors.tencent.com/install/cls/loglistener-linux-x64-2.7.9.tar.gz  && tar -zxvf loglistener-linux-x64-2.7.9.tar.gz -C /usr/local && cd /usr/local/loglistener-2.7.9/tools && ./loglistener.sh install
 ```
 - 内网环境下，操作命令如下：
 ```plaintext
-wget http://mirrors.tencentyun.com/install/cls/loglistener-linux-x64-2.7.2.tar.gz  && tar -zxvf loglistener-linux-x64-2.7.2.tar.gz -C /usr/local && cd /usr/local/loglistener-2.7.2/tools && ./loglistener.sh install
+wget http://mirrors.tencentyun.com/install/cls/loglistener-linux-x64-2.7.9.tar.gz  && tar -zxvf loglistener-linux-x64-2.7.9.tar.gz -C /usr/local && cd /usr/local/loglistener-2.7.9/tools && ./loglistener.sh install
 ```
 
 ### 2. 初始化 LogListener
@@ -159,7 +158,7 @@ cp -r /tmp/loglistener-backup/data loglistener-<version>/
 ```
  请根据实际情况替换 `<version>`，例如：
 ```plaintext
-cp -r /tmp/loglistener-backup/data loglistener-2.7.2/
+cp -r /tmp/loglistener-backup/data loglistener-2.7.9/
 ```
 6. 使用启动命令启动运行新版本 LogListener。
 

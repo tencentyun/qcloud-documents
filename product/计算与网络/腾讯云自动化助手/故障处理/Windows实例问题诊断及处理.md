@@ -330,8 +330,7 @@ route change 172.16.0.0 mask 255.240.0.0 $Gateway -p
 route change 192.168.0.0 mask 255.255.0.0 $Gateway -p
 ```
 <dx-alert infotype="notice" title="">
-- 若 route change xxx 相关命令执行失败，请替换为 route add xxx。
-- 若为自研机器，请同事参考 [腾讯云单网卡机器如何恢复默认路由](https://cloud.tencent.com/developer/article/1879366) 进行操作。
+若 route change xxx 相关命令执行失败，请替换为 route add xxx。
 </dx-alert>
 
 

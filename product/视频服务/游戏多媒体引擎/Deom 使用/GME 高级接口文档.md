@@ -129,6 +129,13 @@ public int StopTrackingVolume();
 | fTrackingTimeS | float | 监听的秒数，建议设置为 0.5f |
 
 ## 通用高级接口
+### openid 支持字符串
+>! 此接口在 GME 2.9.3 及以上版本 SDK 生效。
+
+目前 GME SDK 只支持数字以字符串形式传入 SDK，如果需要 openid 支持以字符串形式传入，需要在调用 Init 接口之前调用一次以下接口：
+```
+SetAdvanceParams("StringOpenID", "1");
+``` 
 
 ### 修复打印日志大小
 

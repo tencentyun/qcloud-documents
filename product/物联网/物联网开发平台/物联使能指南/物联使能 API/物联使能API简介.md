@@ -4,6 +4,8 @@
 
 物联使能 API 是物联使能平台为帮助用户快速开发并高效托管物联网 SaaS 而提供的接口操作与云端服务，包括设备管理与控制、设备数据查询、数据模板查询等管理能力。用户可通过调用物联使能 API 来使用物联使能服务，支持的全部 API 请参见 [物联使能 API 概览](https://cloud.tencent.com/document/product/1081/50241)。
 
+
+
 ## 调用方式
 
  **API URL 为 `https://iot.cloud.tencent.com/api/exploreropen/serviceapi`**。

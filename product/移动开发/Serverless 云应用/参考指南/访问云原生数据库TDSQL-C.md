@@ -31,3 +31,6 @@
    - [打通多个 VPC](https://cloud.tencent.com/document/product/215/36698)。
 - 云托管暂时仅支持上海、广州、北京地域。若您的 TDSQL-C 数据库不在上述地域则无法复用。更多地域将陆续开放，敬请期待。
 - 如果 TDSQL-C 集群使用的是 Serverless 的计费模式，且连接 TDSQL-C 的云托管服务采用的是高可用模式（即便无流量也保持实例常驻），则与 TDSQL-C 的连接也将被一直保持，导致 TDSQL-C 持续产生计算费用。建议云托管服务采用低成本模式（无流量时缩容到0）配合 TDSQL-C 的 Serverless 计费模式使用。
+
+
+

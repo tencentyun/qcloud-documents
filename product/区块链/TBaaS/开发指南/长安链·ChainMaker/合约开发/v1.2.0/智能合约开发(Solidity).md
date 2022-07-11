@@ -16,9 +16,9 @@ docker pull chainmakerofficial/chainmaker-solidity-contract:1.2.0
 请指定您本机的工作目录 $WORK_DIR，例如 /data/workspace/contract，挂载到 docker 容器中以方便后续进行必要的一些文件拷贝。
 
 ```
-docker run -it --name chainmaker-solidity-contract -v $WORK_DIR:/home chainmakerofficial/chainmaker-solidity-contract bash
+docker run -it --name chainmaker-solidity-contract -v $WORK_DIR:/home chainmakerofficial/chainmaker-solidity-contract:1.2.0 bash
 # 或者先后台启动
-docker run -d  --name chainmaker-solidity-contract -v $WORK_DIR:/home chainmakerofficial/chainmaker-solidity-contract bash -c "while true; do echo hello world; sleep 5;done"
+docker run -d --name chainmaker-solidity-contract -v $WORK_DIR:/home chainmakerofficial/chainmaker-solidity-contract:1.2.0 bash -c "while true; do echo hello world; sleep 5;done"
 # 再进入容器
 docker exec -it chainmaker-solidity-contract /bin/sh
 ```

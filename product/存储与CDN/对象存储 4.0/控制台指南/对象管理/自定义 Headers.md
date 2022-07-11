@@ -63,21 +63,25 @@ COS 提供了以下6种对象 HTTP 头部标识供配置。头部配置说明如
 在 APPID 为 1250000000，创建存储桶名称为 examplebucket-1250000000。存储桶根目录下上传了对象 exampleobject.txt。
 
 未自定义对象的 HTTP 头部时，浏览器或客户端下载时得到的对象头部范例如下：
+
 #### 请求
-```sh
-GET /exampleobject.txt HTTP/1.1
-Host: examplebucket-1250000000.file.myqcloud.com
-Accept: */*
+
+```plaintext
+GET /exampleobject HTTP/1.1
+Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
+Date: Fri, 10 Apr 2020 09:35:16 GMT
+Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1586511316;1586518516&q-key-time=1586511316;1586518516&q-header-list=date;host&q-url-param-list=&q-signature=1bd1898e241fb978df336dc68aaef4c0acae****
+Connection: close
 ```
 
 #### 响应
-```http
+
+```plaintext
 HTTP/1.1 200 OK
-Content-Language:zh-CN
 Content-Type: text/plain
 Content-Disposition: attachment; filename*="UTF-8''exampleobject.txt"
 Access-Control-Allow-Origin: *
-Last-Modified: Tue, 11 Jul 2017 15:30:35 GMT 
+Last-Modified: Fri, 10 Apr 2020 09:35:05 GMT 
 ```
 
 添加如下配置：
@@ -85,21 +89,24 @@ Last-Modified: Tue, 11 Jul 2017 15:30:35 GMT
 再次发起请求，浏览器或客户端得到的对象头部范例如下：
 
 #### 请求
-```sh
-GET /exampleobject.txt HTTP/1.1
-Host: examplebucket-1250000000.file.myqcloud.com
-Accept: */*
+
+```plaintext
+GET /exampleobject HTTP/1.1
+Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
+Date: Fri, 10 Apr 2020 09:35:16 GMT
+Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1586511316;1586518516&q-key-time=1586511316;1586518516&q-header-list=date;host&q-url-param-list=&q-signature=1bd1898e241fb978df336dc68aaef4c0acae****
+Connection: close
 ```
 
 #### 响应
+
 ```http
 HTTP/1.1 200 OK
-Content-Language:zh-CN
 Cache-Control: no-cache
 Content-Type: image/jpeg
 Content-Disposition: attachment; filename*="abc.txt"
 x-cos-meta-md5: 1234
 Access-Control-Allow-Origin: *
-Last-Modified: Tue, 11 Jul 2017 15:30:35 GMT
+Last-Modified: Fri, 10 Apr 2020 09:35:05 GMT 
 ```
 

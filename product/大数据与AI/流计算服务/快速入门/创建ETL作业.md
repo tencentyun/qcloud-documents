@@ -2,7 +2,7 @@
 流计算作业 ETL 作业需运行于流计算独享集群，若还没有集群，请参考 [创建独享集群](https://cloud.tencent.com/document/product/849/48298)。
 
 ## 步骤1：创建 ETL 作业
-登录 [流计算 Oceanus 控制台](https://console.cloud.tencent.com/oceanus)，单击左侧导航**作业管理**，进入作业管理页面，单击**新建作业**，作业类型选中 **ETL 作业**，输入作业名称，并选择一个运行中的集群，新建的 ETL 作业将运行于此集群，单击**确定**后即成功创建作业。
+登录 [流计算 Oceanus 控制台](https://console.cloud.tencent.com/oceanus)，进入某一工作空间后，单击左侧导航**作业管理**，进入作业管理页面，单击**新建作业**，作业类型选中 **ETL 作业**，输入作业名称，并选择一个运行中的集群，新建的 ETL 作业将运行于此集群，单击**确定**后即成功创建作业。
 ![](https://qcloudimg.tencent-cloud.cn/raw/34da335c753022921f8baa5759aae420.png)
 
 >! 注意: 当前ETL作业暂时只支持1.13版Flink，尚不支持1.13版本内核的集群需要先提 [工单](https://console.cloud.tencent.com/workorder/category) 升级后再使用。
@@ -33,7 +33,7 @@
 
 ## 步骤4：配置数据目的
 从左侧拖入数据目的，并与数据源相连。
-![image-20220420202324655](/Users/chenshaolong/Library/Application Support/typora-user-images/image-20220420202324655.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/679b42c132438835dc0ce7c80c65af5a.png)
 单击数据目的对象，配置好数据库实例与库表选择
 ![](https://qcloudimg.tencent-cloud.cn/raw/f74808edc0937e8dd12c7265348015a9.png)
 单击下一步进行字段映射配置

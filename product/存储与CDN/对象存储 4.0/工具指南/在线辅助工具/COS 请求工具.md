@@ -1,6 +1,6 @@
 ## 功能概述
 
-COS 请求工具是腾讯云对象存储（ COS） 为您提供的 Web 端调试工具，集成在云 API 3.0 Explorer 平台上，可用于 API 接口的调试工作。
+COS 请求工具是腾讯云对象存储（Cloud Object Storage，COS）为您提供的 Web 端调试工具，集成在云 API 3.0 Explorer 平台上，可用于 API 接口的调试工作。
 
 >! COS 请求工具发送的请求将被真实发送到 COS 的业务服务器，**所有操作均等同于真实操作，当您选择 DELETE 类操作时请谨慎操作。**
 

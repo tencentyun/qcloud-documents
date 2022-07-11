@@ -31,10 +31,10 @@ SET session rocksdb_bulk_load_allow_unsorted=0;
 ## 处理方法2
 导入数据过程中，关闭 unique_check，可以提升导入性能。
 ```
-set global unique_checks=OFF;
+SET unique_checks=OFF;
 ...
 导入数据
 ...
-set global unique_checks=ON;
+SET unique_checks=ON;
 ```
 >!处理完成后，务必将 unique_checks 改回 ON，否则后续正常事务写入的 insert 操作不会进行唯一性检查。

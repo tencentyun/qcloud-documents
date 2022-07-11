@@ -73,13 +73,9 @@ kubectl annotate node <nodeName> --overwrite tke.cloud.tencent.com/disable-node-
 ## 功能逻辑
 
 - 若未设置启动参数 `--security-groups`，或者其值为空，则各节点安全组继承自节点实例绑定的安全组。
-
 - 特性开启以后，如果设置了 `--security-groups`，则各节点安全组设置为该安全组集合。
-
-- 特性开启以后，如果变更 `--security-groups` 参数，增量节点安全组设置会与全局参数同步，存量节点安全组设置不会改变，若需同步存量节点安全组设置，则需禁用节点安全组再开启，来达到同步。操作方法见[IPAMD 组件开启安全组特性]()。
-
+- 特性开启以后，如果变更 `--security-groups` 参数，增量节点安全组设置会与全局参数同步，存量节点安全组设置不会改变，若需同步存量节点安全组设置，则需禁用节点安全组再开启，来达到同步。操作方法见 [IPAMD 组件开启安全组特性](https://cloud.tencent.com/document/product/457/50360#ipamd-.E7.BB.84.E4.BB.B6.E5.BC.80.E5.90.AF.E5.AE.89.E5.85.A8.E7.BB.84.E7.89.B9.E6.80.A7)。
 - 安全组设置的优先级与节点安全组设置的顺序一致，若继承自主网卡，则与主网卡保持一致。
-
 - 执行以下命令可查看节点安全组。其中 `spec.securityGroups` 域包含了节点安全组信息。
 ```
 kubectl get nec <nodeName> -oyaml
@@ -88,5 +84,4 @@ kubectl get nec <nodeName> -oyaml
 ```
 kubectl edit nec <nodeName> 
 ```
-
 - 特性开启以后，节点同步时，存量网卡如果没绑定安全组，则会绑定节点安全组。存量网卡的安全组会与节点安全组强同步，保证与设置的节点安全组保持一致。增量网卡都会绑定节点安全组。

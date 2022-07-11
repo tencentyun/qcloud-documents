@@ -40,3 +40,4 @@
 ![](https://main.qcloudimg.com/raw/3ecec823ae0159bc114754a8a3875ff9.png)
 - 方法二：**开始**→**运行**→输入 cmd 并回车，输入 nslookup 命令来查询 CNAME 是否生效，如果返回的解析结果与该域名的 CNAME 值一致，则 CNAME 已配置生效。
 ![](https://main.qcloudimg.com/raw/3b29de73c80e9d651df6bb38aed83d2a.png)
+

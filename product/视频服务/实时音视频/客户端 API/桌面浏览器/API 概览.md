@@ -4,6 +4,7 @@ TRTC Web SDK 基于 WebRTC 实现，目前支持桌面端和移动端的主流�
 如果您的应用场景不在支持的表格里，可以打开 [TRTC Web SDK 能力检测页面](https://web.sdk.qcloud.com/trtc/webrtc/demo/detect/index.html) 检测当前环境是否支持 WebRTC 所有能力，例如 WebView 等环境。
 
 <table>
+<thead>
 <tr>
 <th>操作系统</th>
 <th>浏览器类型</th>
@@ -13,6 +14,7 @@ TRTC Web SDK 基于 WebRTC 实现，目前支持桌面端和移动端的主流�
 <th>发送（上麦）</th>
 <th width=19%>屏幕分享</th>
 </tr>
+</thead>
 <tr>
 <td rowspan="11">Windows</td>
 <td>桌面版 Chrome 浏览器</td>
@@ -265,9 +267,9 @@ TRTC Web SDK 基于 WebRTC 实现，目前支持桌面端和移动端的主流�
 </table>
 
 >!
-- 由于 H.264 版权限制，华为 Chrome 88 以下版本，无法使用 H264 编码（即无法推流）。如果您希望在华为设备 Chrome 浏览器中，使用 TRTC Web SDK 推流，请进 [TRTC 交流群](https://cloud.tencent.com/apply/p/pnh3a63d95)，联系群内技术支持开通 VP8 编解码。
+- 由于 H.264 版权限制，华为 Chrome 88 以下版本，无法使用 H264 编码（即无法推流）。如果您希望在华为设备 Chrome 浏览器中，使用 TRTC Web SDK 推流，请提交 [腾讯云实时音视频 Web SDK 用户能力支持申请](https://cloud.tencent.com/apply/p/4ab2rutgukk) 开通 VP8 编解码能力。
 - Mac OS 下的 Firefox 屏幕分享效果比较差且暂无解决方案，建议使用 Chrome 或者 Safari 进行屏幕分享。[](id:attention3)
-- 如果您希望 Web 端在推流时支持双声道编码，请进 [TRTC 交流群](https://cloud.tencent.com/apply/p/pnh3a63d95)，联系群内技术支持开通 WebRTC 双声道编码能力。
+- 如果您希望 Web 端在推流时支持双声道编码，请提交 [腾讯云实时音视频 Web SDK 用户能力支持申请](https://cloud.tencent.com/apply/p/4ab2rutgukk) 开通 WebRTC 双声道编码能力。
 - 建议您及时将 TRTC Web SDK 更新至最新版本，以便获得更好的产品稳定性及在线支持。版本升级注意事项请参见：[升级指引](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/tutorial-00-info-update-guideline.html)。
 
 ## URL 域名协议限制
@@ -325,8 +327,7 @@ TRTC 是 [TRTC Web SDK](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/index.h
 | [VERSION](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/TRTC.html#.VERSION)   | TRTC Web SDK 版本号。       |
 | [checkSystemRequirements](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/TRTC.html#.checkSystemRequirements) | 检测浏览器是否兼容 TRTC Web SDK。若当前浏览器不兼容 TRTC Web SDK，建议引导用户去下载最新版本的 Chrome 浏览器。 |
 | [isScreenShareSupported](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/TRTC.html#.isScreenShareSupported)   | 检测浏览器是否支持屏幕分享。在创建屏幕分享流之前请调用该方法检查当前浏览器是否支持屏幕分享。    |
-| [isSmallStreamSupported](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/TRTC.html#isSmallStreamSupported)    | 检测浏览器是否支持开启大小流模式
-在开启大小流模式之前请调用该方法检查当前浏览器是否支持开启大小流。     | 
+| [isSmallStreamSupported](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/TRTC.html#isSmallStreamSupported)    | 检测浏览器是否支持开启大小流模式，在开启大小流模式之前请调用该方法检查当前浏览器是否支持开启大小流。     | 
 | [getDevices](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/TRTC.html#.getDevices)             | 返回媒体输入输出设备列表。   | 
 | [getCameras](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/TRTC.html#.getCameras)             | 返回摄像头设备列表。         | 
 | [getMicrophones](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/TRTC.html#.getMicrophones)     | 返回麦克风设备列表。         | 
@@ -416,7 +417,7 @@ LocalStream 本地音视频流，通过 [createStream](https://web.sdk.qcloud.co
 
 ### RemoteStream
 
-远端音视频流，通过监听 [Client.on('stream-added')](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/module-Event.html#.STREAM_ADDED) 事件获得。是 [Stream](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/Stream.html) 的子类。
+远端音视频流，通过监听 [Client.on('stream-added')](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/module-ClientEvent.html#.STREAM_ADDED) 事件获得。是 [Stream](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/Stream.html) 的子类。
 
 | API  | 描述              |
 |-----------------|-----------|

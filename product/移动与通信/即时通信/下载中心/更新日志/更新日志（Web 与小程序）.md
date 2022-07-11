@@ -1,3 +1,51 @@
+### 2.20.1 @2022.6.27
+
+**变更**
+
+- 退出/被踢出非直播群，或非直播群被解散，只删除群组记录，不删除对应的群会话，体验对齐 native。
+- [deleteMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#deleteMessage) 不支持删除群系统通知，并给出具体错误信息。
+- 私有化部署的富媒体消息支持 HTTP 协议。
+
+**修复**
+
+- 小程序前后台切换等场景下偶现群会话丢失问题。
+- C2C 会话 lastMessage 被异常更新问题。
+
+### 2.20.0 @2022.6.9
+
+**新增**
+
+- [modifyMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#modifyMessage)，支持消息变更。
+- [getMessageListHopping](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getMessageListHopping)，支持根据指定的消息 sequence 或消息时间拉取会话的消息列表。
+- 支持针对单条或多条 C2C 消息发送已读回执（需开通旗舰版）。
+- C2C 会话 lastMessage 新增字段 isPeerRead，用于标识对端是否已读。
+- 支持群提示消息不计入会话未读。
+- 新增类型 [TIM.TYPES.KICKED_OUT_REST_API](https://web.sdk.qcloud.com/im/doc/zh-cn/module-TYPES.html#.KICKED_OUT_REST_API)，支持 REST API [kick](https://cloud.tencent.com/document/product/269/3853)。
+
+**变更**
+
+完善并优化 [getMessageList](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getMessageList) 拉漫游消息的体验。
+
+**修复**
+
+- 传参问题导致的 [deleteMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#deleteMessage) 成功后会话列表未更新。
+- 部分机型真机调试小程序时遇到的 `Cannot add property markTimeline, Object is not extensible` 问题。
+
+
+### 2.19.1 @2022.5.7
+
+**新增**
+- 支持 [社群（Community）](https://cloud.tencent.com/document/product/269/1502#.E7.BE.A4.E7.BB.84.E7.B1.BB.E5.9E.8B.E4.BB.8B.E7.BB.8D)下创建话题（Topic），支持互动性更强的场景。
+- [getJoinedCommunityList](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getJoinedCommunityList) 获取支持话题的社群列表。
+- [createTopicInCommunity](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#createTopicInCommunity) 创建话题。
+- [deleteTopicFromCommunity](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#deleteTopicFromCommunity) 删除话题。
+- [updateTopicProfile](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#updateTopicProfile) 设置话题资料。
+- [getTopicList](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getTopicList) 获取话题列表。
+- [Topic](https://web.sdk.qcloud.com/im/doc/zh-cn/Topic.html) 社群话题对象，用于描述话题具有的属性，如名称、公告、简介、未读数等信息。
+- 事件 [TIM.EVENT.TOPIC_CREATED](https://web.sdk.qcloud.com/im/doc/zh-cn/module-EVENT.html#.TOPIC_CREATED) 创建话题时触发。
+- 事件 [TIM.EVENT.TOPIC_DELETED](https://web.sdk.qcloud.com/im/doc/zh-cn/module-EVENT.html#.TOPIC_DELETED) 删除话题时触发。
+- 事件 [TIM.EVENT.TOPIC_UPDATED](https://web.sdk.qcloud.com/im/doc/zh-cn/module-EVENT.html#.TOPIC_UPDATED) 话题资料更新时触发。
+
 ### 2.18.2 @2022.4.22
 
 **变更**

@@ -1,3 +1,8 @@
+## 1.7.5 @2022.05.23
+- 新增群消息已读回执相关接口
+- Newtonsoft 序列化忽略值为 null 的字段
+- 修复 GroupPendencyResult 中 uint64 字段改为 ulong
+
 ## 1.6.4 @2022.01.13
 - SDK 支持 package manager 引入
 - 增加 iOS 编译后依赖添加

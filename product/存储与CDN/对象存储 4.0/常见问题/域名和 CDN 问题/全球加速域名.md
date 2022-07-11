@@ -15,7 +15,7 @@ COS 使用全球加速域名，需要注意以下事项：
 
 ### 全球加速域名目前支持哪些操作？
 
-目前全球加速域名支持了文件上传和下载操作，详细接口为支持加速域名的接口，如下所示:
+目前全球加速域名支持了文件上传和下载操作，详细接口为支持加速域名的接口，如下所示：
 
 | 序号 | 接口                    | 序号 | 接口                    |
 | ---- | ----------------------- | ---- | ----------------------- |
@@ -24,7 +24,7 @@ COS 使用全球加速域名，需要注意以下事项：
 | 3    | GetObject               | 9    | AbortMultipartUpload    |
 | 4    | HeadObject              | 10   | CompleteMultipartUpload |
 | 5    | OptionsObject           | 11   | ListMultipartUploads    |
-| 6    | InitiateMultipartUpload |      |                         |
+| 6    | InitiateMultipartUpload | -     | -                        |
 
 
 ### 使用全球加速功能，在什么情况下会收取加速费用？

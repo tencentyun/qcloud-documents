@@ -17,7 +17,7 @@
 - 平台默认支持 Gzip 压缩，但优先响应 Brotli 压缩。
 - Brotli 压缩支持的文件大小范围：256B - 30MB。
 - Brotli 压缩支持以下文件类型：
-```
+```js.
 text/html
 text/xml
 text/plain

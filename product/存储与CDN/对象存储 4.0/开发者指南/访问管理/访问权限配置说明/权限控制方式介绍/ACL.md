@@ -55,8 +55,8 @@
 | ------------ | -------------------- | ------------------------------------------------------------ |
 | READ         | 列出对象             | GetBucket，HeadBucket，GetBucketObjectVersions，ListMultipartUploads |
 | WRITE        | 上传、覆盖和删除对象 | PutObject，PutObjectCopy，PostObject，InitiateMultipartUpload， UploadPart，UploadPartCopy，CompleteMultipartUpload， DeleteObject |
-| READ_ACP     | 读取存储桶的 ACL     | GetBucketAcl                                                 |
-| WRITE_ACP    | 写入存储桶的 ACL     | PutBucketAcl                                                 |
+| READ_ACP     | 读取存储桶的 ACL     | GetBucketACL                                                 |
+| WRITE_ACP    | 写入存储桶的 ACL     | PutBucketACL                                                 |
 | FULL_CONTROL | 以上四种权限的集合   | 以上所有行为的集合                                           |
 
 >! 请谨慎授予存储桶 WRITE、WRITE_ACP 或 FULL_CONTROL 权限。授予存储桶 WRITE 权限将允许被授权者覆盖或删除已有的任何对象。
@@ -69,8 +69,8 @@
 | 操作集       | 描述               | 许可的行为                              |
 | ------------ | ------------------ | --------------------------------------- |
 | READ         | 读取对象           | GetObject，GetObjectVersion，HeadObject |
-| READ_ACP     | 读取对象的 ACL     | GetObjectAcl，GetObjectVersionAcl       |
-| WRITE_ACP    | 写入对象的 ACL     | PutObjectAcl，PutObjectVersionAcl       |
+| READ_ACP     | 读取对象的 ACL     | GetObjectACL，GetObjectVersionACL       |
+| WRITE_ACP    | 写入对象的 ACL     | PutObjectACL，PutObjectVersionACL       |
 | FULL_CONTROL | 以上三种权限的集合 | 以上所有行为的集合                      |
 
 >?对象不支持授予 WRITE 操作集。

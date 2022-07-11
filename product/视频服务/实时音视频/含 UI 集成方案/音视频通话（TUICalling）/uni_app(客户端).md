@@ -1,14 +1,13 @@
 ## 组件介绍
 
 TUICalling 插件是**腾讯云官方推出**的基于腾讯云实时音视频（TRTC）和即时通信 IM 服务组合而成的插件，支持双人和多人音视频通话。插件提供了全套定制 UI，开发者仅需两个 API 可集成实现通话功能。TUICalling 同时支持 iOS、Web、小程序、Flutter、UniApp 等平台，基本功能如下图所示：
-<table>
-<tr><th>双人视频通话演示</th><th>多人视频通话演示</th>
- </tr>
-<tr>
-<td><img src="https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/uni-calling-call.gif"/ ></td>
-<td><img src="https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/uni-calling-group.gif" ></td>
-</tr>
-</table>
+
+>?TUIKit 系列组件同时使用了腾讯云 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269/42440) 两个基础 PaaS 服务，开通实时音视频后会同步开通即时通信IM服务。即时通信 IM 服务详细计费规则请参见 [即时通信 - 价格说明](https://cloud.tencent.com/document/product/269/11673)，TRTC 开通会默认关联开通 IM SDK 的体验版，仅支持100个 DAU。
+
+![](https://qcloudimg.tencent-cloud.cn/raw/d05db03536a2e3035f59246810f4fe41.png)
+
+>!本功能同时使用了腾讯云 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269) 两个基础 PaaS 服务，开通实时音视频后会同步开通即时通信 IM 服务。 即时通信 IM 属于增值服务，详细计费规则请参见 [即时通信 IM 价格说明](https://cloud.tencent.com/document/product/269/11673)。
+
 
 ## 组件集成
 

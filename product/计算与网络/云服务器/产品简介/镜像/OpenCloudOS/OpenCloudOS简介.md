@@ -4,17 +4,17 @@
 OpenCloudOS 8.5是 OpenCloudOS 社区发布首个正式版本，其基础库和用户态组件完全与 CentOS 8兼容，并通过内核层面的优化和增强，能够提供给用户相比于 CentOS 8更优的解决方案。
 
 ## 适用说明
-OpenCloudOS 适用于云上绝大多数机型生产实例，包括云服务器，黑石物理服务器2.0等。
+OpenCloudOS 适用于云上绝大多数机型生产实例，包括云服务器，裸金属云服务器等。
 
 <dx-alert infotype="notice" title="">
-目前 OpenCloudOS 未预装 GPU驱动，若需在 GPU 实例上使用，则请手动安装 GPU 驱动。
+目前 OpenCloudOS 未预装 GPU 驱动，若需在 GPU 实例上使用，则请手动安装 GPU 驱动。
 </dx-alert>
 
 
 
 
 ## OpenCloudOS 镜像版本
-目前已支持在腾讯云上使用 OpenCloudOS 8.5版本镜像，该镜像与 CentOS 8用户态完全兼容，配套了基于社区5.4 LTS 的 OpenCLoudOS Kernel。
+目前已支持在腾讯云上使用 OpenCloudOS 8.5版本镜像，该镜像与 CentOS 8用户态完全兼容，配套了基于社区5.4 LTS 的 OpenCloudOS Kernel。
 
 
 ## OpenCloudOS 内核

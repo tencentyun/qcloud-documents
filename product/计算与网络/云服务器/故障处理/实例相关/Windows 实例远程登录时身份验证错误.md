@@ -17,8 +17,13 @@
 
 ## 解决方案
 
->? 若仅对客户端本地进行升级操作，请直接执行 [方案一：安装安全更新（推荐）](#step4)。
->
+
+
+<dx-alert infotype="explain" title="">
+若仅对客户端本地进行升级操作，请直接执行 [方案一：安装安全更新（推荐）](#step4)。
+</dx-alert>
+
+
 ### 通过 VNC 登录云服务器
 
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)。
@@ -73,8 +78,9 @@ Windows 10 家庭版操作系统中，若没有组策略编辑器，可通过修
 ### 方案三：修改注册表[](id:Plan3)
 
 1. 在操作系统界面，单击 <img src="https://main.qcloudimg.com/raw/330624bafb194914948c8ebd9e47334d.png" style="margin:-3px 0px;"></img>，输入 **regedit**，按 **Enter**，打开注册表编辑器。
->? 您也可使用 “**Win+R**” 快捷键打开运行界面。
-> 
+<dx-alert infotype="explain" title="">
+您也可使用 “**Win+R**” 快捷键打开运行界面。
+</dx-alert>
 2. 在左侧导航树中，依次展开**计算机** > **HKEY_LOCAL_MACHINE** > **SOFTWARE** > **Microsoft** > **Windows** > **CurrentVersion** > **Policies** > **System** > **CredSSP** > **Parameters** 目录。如下图所示：
 <dx-alert infotype="explain" title="">
 若该目录路径不存在，请手动创建。

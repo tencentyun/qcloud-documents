@@ -18,22 +18,18 @@ SDK 3.0是云 API 3.0平台的配套工具，您可以通过 SDK 使用所有 [�
 
 ## 相关资料
 - 各个接口及其参数的详细介绍请参见 [API 文档](https://cloud.tencent.com/document/product/382/52077)。
-- 下载 SDK 源码请访问 [Node.js SDK 源码](https://github.com/TencentCloud/tencentcloud-sdk-nodejs)。
+- 下载 SDK 源码请访问 [Github 仓库](https://github.com/tencentcloud/tencentcloud-sdk-nodejs) 或者 [Gitee 仓库](https://gitee.com/tencentcloud/tencentcloud-sdk-nodejs)。
 
 ## 安装 SDK
 ### 通过 npm 安装（推荐）
-[npm](https://www.npmjs.com/) 是 Node.js 的包管理工具。
 
-1. 执行以下安装命令。
-```
-npm install tencentcloud-sdk-nodejs --save
-```
-2. 在您的代码中引用对应模块代码，可参考 [示例代码](#example)。
+- Github 仓库参考 [通过 npm 安装](https://github.com/tencentcloud/tencentcloud-sdk-nodejs#%E9%80%9A%E8%BF%87-npm-%E5%AE%89%E8%A3%85)
+- Gitee 仓库参考 [通过 npm 安装](https://gitee.com/tencentcloud/tencentcloud-sdk-nodejs#%E9%80%9A%E8%BF%87-npm-%E5%AE%89%E8%A3%85)
 
 ### 通过源码包安装
-1. 前往 [GitHub 代码托管地址](https://github.com/tencentcloud/tencentcloud-sdk-nodejs) 或 [快速下载地址](https://tencentcloud-sdk-1253896243.file.myqcloud.com/tencentcloud-sdk-nodejs/tencentcloud-sdk-nodejs.zip)，下载源码压缩包。
-2. 解压源码包到您项目合适的位置。
-3. 在您的代码中引用对应模块代码，可参考 [示例代码](#example)。
+
+- Github 仓库参考 [通过源码包安装](https://github.com/tencentcloud/tencentcloud-sdk-nodejs#%E9%80%9A%E8%BF%87%E6%BA%90%E7%A0%81%E5%8C%85%E5%AE%89%E8%A3%85)
+- Gitee 仓库参考 [通过源码包安装](https://gitee.com/tencentcloud/tencentcloud-sdk-nodejs#%E9%80%9A%E8%BF%87%E6%BA%90%E7%A0%81%E5%8C%85%E5%AE%89%E8%A3%85)
 
 
 ## 示例代码[](id:example)
@@ -43,7 +39,7 @@ npm install tencentcloud-sdk-nodejs --save
 
 ### 发送短信
 
-``` 
+```js
 const tencentcloud = require("tencentcloud-sdk-nodejs")
 
 // 导入对应产品模块的client models。
@@ -134,7 +130,7 @@ client.SendSms(params, function (err, response) {
 
 ### 拉取回执状态
 
-``` JavaScript
+```js
 const tencentcloud = require("tencentcloud-sdk-nodejs")
 
 // 导入对应产品模块的client models。
@@ -196,7 +192,7 @@ client.PullSmsSendStatus(params, function (err, response) {
 
 ### 统计短信发送数据
 
-``` JavaScript
+```js
 const tencentcloud = require("tencentcloud-sdk-nodejs")
 
 // 导入对应产品模块的client models。
@@ -264,7 +260,7 @@ client.SendStatusStatistics(params, function (err, response) {
 ```
 
 ### 申请短信模板
-``` JavaScript
+```js
 const tencentcloud = require("tencentcloud-sdk-nodejs")
 
 // 导入对应产品模块的client models。

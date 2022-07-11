@@ -130,7 +130,7 @@ listen=YES               #监听IPv4 sockets
 allow_writeable_chroot=YES
 local_root=/var/ftp/test #设置本地用户登录后所在的目录
 ```
-按 **Esc** 后输入 **:wq** 保存后退出，并前往 [步骤8](#create) 完成 vsftpd 配置。
+按 **Esc** 后输入 **:wq** 保存后退出，并前往“配置 vsftpd” 中的 [步骤8](#create) 完成 vsftpd 配置。
 
 ### FTP 客户端上传文件失败
 #### 问题描述

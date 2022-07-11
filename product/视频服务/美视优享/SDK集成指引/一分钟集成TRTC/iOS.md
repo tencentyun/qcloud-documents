@@ -5,6 +5,59 @@
 3. framework 签名 **General--> Masonry.framework** 和 **libpag.framework** 选 **Embed & Sign**。
 4. 将 Bundle ID 修改成与申请的测试授权一致。
 
+### 开发者环境要求
+
+- 开发工具 XCode 11 及以上：App Store 或单击 [下载地址](https://developer.apple.com/xcode/resources/)。
+- 建议运行环境：
+  - 设备要求：iPhone 5 及以上；iPhone 6 及以下前置摄像头最多支持到 720p，不支持 1080p。
+  - 系统要求：iOS 10.0 及以上。
+
+### C/C++层开发环境
+
+XCode 默认 C++ 环境。
+
+<table>
+<tr><th>类型</th><th>依赖库</th></tr>
+<tr>
+<td>系统依赖库</td>
+<td><ul style="margin:0">
+<li/>Accelerate
+<li/>AssetsLibrary
+<li/>AVFoundation
+<li/>CoreMedia  
+<li/>CoreFoundation
+<li/>CoreML
+<li/>Foundation
+<li/>JavaScriptCore
+<li/>libc++.tbd
+<li/>libz.b
+<li/>libresolv.tbd
+<li/>libsqlite3.0.tbd
+<li/>MetalPerformanceShaders
+<li/>MetalKit
+<li/>MobileCoreServices
+<li/>OpneAL
+<li/>OpneGLES
+<li/>Security
+<li/>ReplayKit
+<li/>SystemConfiguration
+<li/>UIKit
+</ul></td>
+</tr>
+<tr>
+<td>自带的库</td>
+<td><ul style="margin:0">
+<li/>YTCommon（鉴权静态库）
+<li/>XMagic（美颜静态库）
+<li/>libpag（视频解码动态库）
+<li/>Masonry（控件布局库）
+<li/>TXLiteAVSDK_Professional
+<li/>TXFFmpeg
+<li/>TXSoundTouch
+</ul></td>
+</tr>
+</table>
+
 ## SDK 接口集成 
 
 - [步骤一](#step1) 和 [步骤二](#step2) 可参考 Demo 工程中，ThirdBeautyViewController 类 viewDidLoad，buildBeautySDK 方法；AppDelegate类的application方法进行了Xmagic鉴权。

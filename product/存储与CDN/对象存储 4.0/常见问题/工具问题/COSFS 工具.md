@@ -111,6 +111,11 @@ echo log-1250000000:AKIDXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX:GYYYYYYYYYYYYYYYYYYYYYYY
 ### COSFS 如何查看已使用的存储容量？
 COSFS 不支持直接查看已使用的存储容量。如果您想要统计 COS 存储桶的存储量，对于数据量较小的场景，请登录 COS 控制台进行查看；对于数据量大的场景，请使用 [清单](https://cloud.tencent.com/document/product/436/33703) 功能。
 
+### 如何查看有哪些进程访问了挂载目录？
+执行如下命令，即可查看哪些进程访问了挂载目录（如 /mnt/cosfs）。
+```
+lsof /mnt/cosfs 
+```
 
 
 ## 故障排查

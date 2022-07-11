@@ -33,13 +33,13 @@
 1. 进入对应实例的 ACL 策略管理页面。
 ![](https://qcloudimg.tencent-cloud.cn/raw/f89cc906be484920aef2e9c7376b88cb.png)
 2. 单击**批量设置**或单击某一 Topic 右侧的**编辑ACL策略**链接，进入新建 ACL 策略。
-![](https://qcloudimg.tencent-cloud.cn/raw/9c814afa923aa5f4b9a04449892fd9ef.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/86ab8304905bc4bfad1459d4406efe34.png)
 3. 勾选要设置 ACL 策略的 Topic，并在下方 ACL 策略栏中针对用户和 IP 配置读写策略。
 >?配置 IP 地址为“ * ” 表示允许全部 IP 访问。
 
 ## 接入配置
 配置腾讯云数据连接器 Kafka 连接器连接属性步骤如下：
-1.  在[腾讯云数据连接器控制台](https://console.cloud.tencent.com/ipaas)上单击**新建应用**，选择**空白应用**进行创建。
+1.  在 [腾讯云数据连接器控制台](https://console.cloud.tencent.com/ipaas) 上单击**添加应用**，选择**空白应用**进行创建。
 ![](https://qcloudimg.tencent-cloud.cn/raw/f0e3a02558a61e6168e4a6c993931820.png)
 2. 单击左侧的**集成流**展开选择**NewFlow**在画布中单击**+**选择**Apache Kafka 连接器**相关操作。
 ![](https://qcloudimg.tencent-cloud.cn/raw/188f6b9dbdd2c8c618f417ea3d293ba6.png)

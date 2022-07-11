@@ -1,5 +1,5 @@
 
-以下展示了 VPC-CNI 各网络模式 Pod 数量默认限制，如不满足需求，可以 [提交工单](https://console.cloud.tencent.com/workorder/category/create?level1_id=6&level2_id=350&level1_name=%E8%AE%A1%E7%AE%97%E4%B8%8E%E7%BD%91%E7%BB%9C&level2_name=%E5%AE%B9%E5%99%A8%E6%9C%8D%E5%8A%A1CCS) 调整限制。
+本文说明 VPC-CNI 各网络模式 Pod 数量默认限制。
 
 ## 共享网卡 Pod 数量限制
 
@@ -44,3 +44,5 @@
 	<td>SA3</td><td>4</td><td>9</td><td>15</td><td>15</td><td>15</td>
 </tr>
 </table>
+
+

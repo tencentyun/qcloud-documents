@@ -458,7 +458,7 @@
     <td  >8</td>
    </tr>
    <tr >
-    <th colspan="2" style = "text-align:center;">黑石物理服务器2.0</th>
+    <th colspan="2" style = "text-align:center;">裸金属云服务器</th>
     <td colspan="10" style = "text-align:center;">不支持绑定弹性网卡</td>
    </tr>
   </table>
@@ -893,7 +893,7 @@
     <td  >30</td>
    </tr>
    <tr >
-    <th colspan="2" style = "text-align:center;">黑石物理服务器2.0</th>
+    <th colspan="2" style = "text-align:center;">裸金属云服务器</th>
     <td colspan="10" style = "text-align:center;">不支持绑定弹性网卡</td>
    </tr>
   </table>

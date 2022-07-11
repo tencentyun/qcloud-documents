@@ -6,6 +6,7 @@
 - `qcloud-iot-explorer-sdk-android` 是针对智能设备接入使用腾讯 IoT Explorer 平台的 Android 版本 SDK。
 
 
+
 ## C SDK 代码托管
 
 - 自 V3.1.0 版本开始，使用独立的 [Github](https://github.com/tencentyun/qcloud-iot-explorer-sdk-embedded-c.git) 托管 C 设备 SDK 代码。

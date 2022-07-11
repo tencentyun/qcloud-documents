@@ -1,5 +1,8 @@
 
 
+
+
+
 LLSync 蓝牙辅助配网功能是腾讯云IoT推出的针对`Wi-Fi + BLE` 的官方 `Combo` 芯片方案，通过 `BLE` 创建指定的 `GATT`服务，手机连接该 `GATT SERVER`，利用 `BLE` 的无线通信能力，将物联网设备连接所需的 `SSID`、`PASSWORD` 等信息传输给 `Wi-Fi + BLE` 的 `Combo` 芯片或模组，使设备顺利接入物联网平台，继而完设备绑定等功能。
 
 蓝牙辅助配网移植的主要流程如下。
@@ -56,9 +59,9 @@ LLSync 蓝牙辅助配网功能是腾讯云IoT推出的针对`Wi-Fi + BLE` 的�
    // 配置为1，使能LLSync配网功能
    #define BLE_QIOT_LLSYNC_CONFIG_NET		(1)
 ```
-   LLSync 使用配网功能不需要 ota、数据模版等能力，`SDK`会通过功能宏控制编译。
+   LLSync 使用配网功能不需要 ota、数据模板等能力，`SDK`会通过功能宏控制编译。
    2. HAL 实现
-   `inc/ble_qiot_import.h` 中定义了 `LLSync SDK` 依赖的设备 `HAL` 实现，需要您在自己的硬件平台上进行实现。
+      `inc/ble_qiot_import.h` 中定义了 `LLSync SDK` 依赖的设备 `HAL` 实现，需要您在自己的硬件平台上进行实现。
 ```c
    /* 获取设备MAC地址，示例：
    int ble_get_mac(char *mac)
@@ -201,7 +204,7 @@ LLSync 蓝牙辅助配网功能是腾讯云IoT推出的针对`Wi-Fi + BLE` 的�
    uint16_t ble_get_user_data_mtu_size(void);
 ```
    3. API 调用
-   `inc/ble_qiot_export.h` 中定义了 `LLSync SDK` 对外提供的 `API`。
+      `inc/ble_qiot_export.h` 中定义了 `LLSync SDK` 对外提供的 `API`。
 ```c
    /* 获取LLSync蓝牙服务，您可以在代码中获取蓝牙服务后将蓝牙服务添加到蓝牙协议栈*/
    const qiot_service_init_s *ble_get_qiot_services(void);

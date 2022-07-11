@@ -52,8 +52,6 @@ catch (COSXML.CosException.CosServerException serverEx)
 }
 ```
 
- 
-
 ### 通过 Go SDK 获取
 
 ```

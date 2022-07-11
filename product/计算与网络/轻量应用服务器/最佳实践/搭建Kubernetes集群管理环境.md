@@ -33,7 +33,7 @@ Kubernetes Dashboard 默认端口为9090。
 1.  在“服务器”页面中，选择并进入实例详情页。
 2. 选择**应用管理**页签，进入应用管理详情页。您可以在此页面查看应用的各项配置信息。
 3. [](id:Step3)在“应用内软件信息”栏中，单击 <img src="https://main.qcloudimg.com/raw/6603ab4f907562addb1c01596c6296cd.png" style="margin:-3px 0px">，复制 Kubernetes Dashboard 的管理员 TOKEN。如下图所示：
- ![](https://main.qcloudimg.com/raw/4c6d21f54dab5b3f027d09a6536951d9.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/46116280da7801b3c2ec452c35a0756d.png)
 4. 在“应用内软件信息”栏中，单击**登录**。
 5. 在弹出的登录窗口中，粘贴并执行 [步骤3](#Step3) 获取的命令，按 **Enter**。
 6. [](id:Step6)记录返回结果 TOKEN 值。如下图所示：
@@ -55,7 +55,7 @@ Kubernetes Dashboard 默认端口为9090。
 k3s-add-node {node-ip}
 ```
 <dx-alert infotype="explain" title="">
-- Master 节点操作系统为 CentOS 8.2，建议您添加同地域同可用区下的其他轻量应用服务器实例作为集群 Node 节点。您可先使用 CentOS 8.2 系统镜像参考 [快速创建 Linux 实例](https://cloud.tencent.com/document/product/1207/44548) 创建实例，再通过以上命令将实例加入集群作为 Node 节点。
+- Master 节点操作系统为 CentOS 8.2，建议您添加同地域、同可用区及同系列操作系统的其他轻量应用服务器实例作为集群 Node 节点。您可先使用 CentOS 8.2 系统镜像参考 [快速创建 Linux 实例](https://cloud.tencent.com/document/product/1207/44548) 创建实例，再通过以上命令将实例加入集群作为 Node 节点。
 - Node 节点需与 Master 节点内网互通。
   - 同账号下同一地域内的不同轻量应用服务器默认内网互通。更多轻量应用服务器内网连通能力介绍，请参见 [内网连通性说明](https://cloud.tencent.com/document/product/1207/50103#IntranetUnicom)。
   - 实例间的网络访问受到防火墙的控制，`TCP:6443`、`UDP:8472`及 `TCP:10250` 端口默认未在防火墙中放通，您需按照 [步骤1](#Step1) 放通端口。

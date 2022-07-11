@@ -22,33 +22,21 @@ SDK 3.0是云 API 3.0平台的配套工具，您可以通过 SDK 使用所有 [�
 ## 相关资料
 
 - 各个接口及其参数的详细介绍请参见 [API 文档](https://cloud.tencent.com/document/product/382/52077)。
-- 下载 SDK 源码请访问 [Java SDK 源码](https://github.com/TencentCloud/tencentcloud-sdk-java)。
+- 下载 SDK 源码请访问 [Github 仓库](https://github.com/tencentcloud/tencentcloud-sdk-java) 或者 [Gitee 仓库](https://gitee.com/tencentcloud/tencentcloud-sdk-java)。
 
 
 ## 安装 SDK
 
 ### 通过 Maven 安装（推荐）
 
-[Maven](https://maven.apache.org) 是 Java 的依赖管理工具，支持您项目所需的依赖项，并将其安装到项目中。
+- Github 仓库参考 [通过 Maven 安装(推荐)](https://github.com/TencentCloud/tencentcloud-sdk-java#%E9%80%9A%E8%BF%87-maven-%E5%AE%89%E8%A3%85%E6%8E%A8%E8%8D%90)
+- Gitee 仓库参考 [通过 Maven 安装(推荐)](https://gitee.com/tencentcloud/tencentcloud-sdk-java#%E9%80%9A%E8%BF%87-maven-%E5%AE%89%E8%A3%85%E6%8E%A8%E8%8D%90)
 
-1. 访问 [Maven 官网](https://maven.apache.org/) 下载对应系统 Maven 安装包进行安装。
-2. 添加 Maven 依赖项，只需在 Maven pom.xml 添加以下依赖项即可：
->!
->- 版本号仅为示例，请在 [Maven 仓库](https://search.maven.org/search?q=tencentcloud-sdk-java) 获取最新的版本号并替换。
->- Maven 仓库中显示的 4.0.11 是废弃版本，由于 Maven 索引更新问题尚未完全删除。
-<pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.tencentcloudapi<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>tencentcloud-sdk-java<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.1.270<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><span class="hljs-comment">&lt;!-- 注：这里只是示例版本号（可直接使用），可获取并替换为 <a href="https://mvnrepository.com/artifact/com.tencentcloudapi/tencentcloud-sdk-java">最新的版本号</a>，注意不要使用4.0.x版本（非最新版本） --&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span></code></pre>
-3. 引用方法可参考 [示例代码](#example)。
 
 ### 通过源码包安装
 
-1. [下载](https://github.com/tencentcloud/tencentcloud-sdk-java) 源码压缩包。
-2. 解压源码包到您项目中合适的位置。
-3. 将 vendor 目录下的 jar 包放在 Java 可找到的路径中。
-4. 引用方法可参考 [示例代码](#example)。
+- Github 仓库参考 [通过源码包安装](https://github.com/TencentCloud/tencentcloud-sdk-java#%E9%80%9A%E8%BF%87%E6%BA%90%E7%A0%81%E5%8C%85%E5%AE%89%E8%A3%85)
+- Gitee 仓库参考 [通过源码包安装](https://gitee.com/tencentcloud/tencentcloud-sdk-java#%E9%80%9A%E8%BF%87%E6%BA%90%E7%A0%81%E5%8C%85%E5%AE%89%E8%A3%85)
 
 ## 示例代码[](id:example)
 
@@ -58,7 +46,7 @@ SDK 3.0是云 API 3.0平台的配套工具，您可以通过 SDK 使用所有 [�
 
 ### 发送短信
 
-```
+```java
 import com.tencentcloudapi.common.Credential;
 import com.tencentcloudapi.common.exception.TencentCloudSDKException;
 
@@ -192,7 +180,7 @@ public class SendSms
 
 ### 拉取回执状态
 
-```
+```java
 import com.tencentcloudapi.common.Credential;
 import com.tencentcloudapi.common.exception.TencentCloudSDKException;
 
@@ -286,7 +274,7 @@ public class PullSmsSendStatus {
 
 ### 统计短信发送数据
 
-```
+```java
 import com.tencentcloudapi.common.Credential;
 import com.tencentcloudapi.common.exception.TencentCloudSDKException;
 
@@ -389,7 +377,7 @@ public class SendStatusStatistics {
 
 ### 申请短信模板
 
-```
+```java
 import com.tencentcloudapi.common.Credential;
 import com.tencentcloudapi.common.exception.TencentCloudSDKException;
 //导入可选配置类

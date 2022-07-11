@@ -4,11 +4,11 @@
 
 ### JavaScript SDK 上传速度达不到满载带宽，该如何处理？
 
-可以使用分块上传接口，通过增加每个分块的大小解决。例如当前设置每个分块大小为1MB，您可以适当调整分块大小为5MB或者其他大小，观察带宽使用情况，详情请参见 [分块上传指引](https://cloud.tencent.com/document/product/436/35649#.E5.88.86.E5.9D.97.E4.B8.8A.E4.BC.A0.E5.AF.B9.E8.B1.A1)。
+可以使用分块上传接口，通过增加每个分块的大小解决。例如当前设置每个分块大小为1MB，您可以适当调整分块大小为5MB或者其他大小，观察带宽使用情况，详情请参见 [分块操作](https://cloud.tencent.com/document/product/436/64960#.E5.88.86.E5.9D.97.E6.93.8D.E4.BD.9C)。
 
 ### JavaScript SDK 如何获取文件上传进度？
 
-JavaScript SDK 的简单上传对象接口和分块上传对象接口会返回进度，详情请参考 [对象操作](https://cloud.tencent.com/document/product/436/35649#.E5.88.86.E5.9D.97.E4.B8.8A.E4.BC.A0.E5.AF.B9.E8.B1.A1)。
+JavaScript SDK 的简单上传对象接口和分块上传对象接口会返回进度，详情请参考 [分块操作](https://cloud.tencent.com/document/product/436/64960#.E5.88.86.E5.9D.97.E6.93.8D.E4.BD.9C)。
 
 ### JavaScript SDK 的 List Multipart Uploads 能否直接获取进度？
 

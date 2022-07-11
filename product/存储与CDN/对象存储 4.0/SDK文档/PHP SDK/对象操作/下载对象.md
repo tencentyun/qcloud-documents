@@ -35,7 +35,7 @@ public Qcloud\Cos\Client download(string $bucket, string $key, string $saveAs, a
 | PartSize         | Int      | 最小分块文件大小，默认为5M | 否       |
 | Concurrency         | Int      | 并发度，默认为10 | 否       |
 | ResumableDownload         | Bool      | 是否开启断点续传，默认为 False | 否       |
-| ResumableTaskFile         | Int      | 断点文件路径。默认为&lt;saveAs.cosresumabletask> | 否       |
+| ResumableTaskFile         | String      | 断点文件路径。默认为&lt;saveAs.cosresumabletask> | 否       |
 
 
 #### 请求示例

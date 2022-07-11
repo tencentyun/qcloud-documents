@@ -59,8 +59,8 @@ Authorization: Auth String
 | Tagging            | 无                 | 标签集合                                                     | Container  | 是       |
 | TagSet             | Tagging            | 标签集合                                                     | Container  | 是       |
 | Tag                | Tagging.TagSet     | 标签集合，最多支持10个标签                                   | Containers | 是       |
-| Key                | Tagging.TagSet.Tag | 标签键，长度不超过128字节，支持英文字母、数字、空格、加号、减号、下划线、等号、点号、冒号、斜线 | String     | 是       |
-| Value              | Tagging.TagSet.Tag | 标签值，长度不超过256字节，支持英文字母、数字、空格、加号、减号、下划线、等号、点号、冒号、斜线 | String     | 是       |
+| Key                | Tagging.TagSet.Tag | 标签键，长度小于128字节，支持英文字母、数字、空格、加号、减号、下划线、等号、点号、冒号、斜线 | String     | 是       |
+| Value              | Tagging.TagSet.Tag | 标签值，长度小于256字节，支持英文字母、数字、空格、加号、减号、下划线、等号、点号、冒号、斜线 | String     | 是       |
 
 ## 响应
 

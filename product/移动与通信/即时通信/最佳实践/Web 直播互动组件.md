@@ -55,7 +55,7 @@
 #### 步骤2：获取 IM 密钥并开通实时音视频服务
 
 1. 在 [即时通信 IM 控制台](https://console.cloud.tencent.com/im) 总览页单击您创建完成的即时通信 IM 应用，随即跳转至该应用的基础配置页。在 **基本信息** 区域，单击 **显示密钥**，复制并保存密钥信息。
-   ![](https://main.qcloudimg.com/raw/030440f94a14cd031476ce815ed8e2bc.png)
+   ![](https://qcloudimg.tencent-cloud.cn/raw/aba3e2102c4e20380b92b1f9f64219dc.png)
 
 >!请妥善保管密钥信息，谨防泄露。
 

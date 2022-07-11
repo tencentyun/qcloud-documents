@@ -16,8 +16,7 @@
 4. 在实例购买页面，按照实际情况选择地域和规格类型。
 **实例类型**请选择**公网+VPC实例**，按照实际情况选择公网流量大小，其他参数如磁盘类型、磁盘大小可参考 [阿里云 Kafka 文档](https://help.aliyun.com/document_detail/99956.html) 说明，按照业务实际情况选择。
 5. 勾选服务协议后，单击**立即购买**即可完成实例购买。
-![image-20220325113354820](https://qcloudimg.tencent-cloud.cn/raw/de2e9513e154ca76c862328126ee1c32/image-20220325113354820.png)
-
+![](https://qcloudimg.tencent-cloud.cn/raw/6348eb0c447de4eaf4467ced13529264.png)
 
 ### 步骤2：创建资源
 

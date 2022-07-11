@@ -1,5 +1,5 @@
 ## 现象描述[](id:symptom)
-无法成功登录云服务器，且使用 VNC 方式登录后，查看系统启动失败且提示信息 “Welcome to emergency mode”。如下图所示：
+无法正常 SSH 远程登录 Linux 云服务器，但使用 VNC 方式登录后，查看系统启动失败且提示信息 “Welcome to emergency mode”。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/dea541a48d2a01503c1dbbc85b0d396f.png)
 
 
@@ -36,7 +36,7 @@ vi /etc/fstab
 </dx-alert>
 <img src="https://qcloudimg.tencent-cloud.cn/raw/1c238789186d7f24c0244e0307bc3a22.png"/>
 6. [](id:Step6)按 **Esc** 输入 **:wq** 后，按 **Enter** 保存设置并退出编辑器。
-7. 通过控制台重启实例，并在启动后验证是否可正常启动及登录。
+7. 通过控制台重启实例，并验证是否能正常启动及登录。
 <dx-alert infotype="explain" title="">
 通过控制台重启实例具体步骤请参见 [重启实例](https://cloud.tencent.com/document/product/213/4928)。
 </dx-alert>

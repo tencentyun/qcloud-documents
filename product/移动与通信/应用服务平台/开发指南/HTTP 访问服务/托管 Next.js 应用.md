@@ -96,3 +96,4 @@ cloudbase service:create -f next -p /next
 ✔ 云函数 HTTP service 创建成功！
 https://${env-id}.service.tcloudbase.com/next
 ```
+

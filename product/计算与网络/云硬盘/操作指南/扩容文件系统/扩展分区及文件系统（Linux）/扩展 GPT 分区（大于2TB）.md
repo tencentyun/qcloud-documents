@@ -50,11 +50,11 @@ umount /data
 ![](https://main.qcloudimg.com/raw/4a6d070830fd0629a336836fd6b4c1fd.png)
 3. 执行以下命令，进入 parted 分区工具。
 ```
-parted '<磁盘路径>'
+parted <磁盘路径>
 ```
 本文以磁盘路径以 `/dev/vdc` 为例，则执行：
 ```
-parted '/dev/vdc'
+parted /dev/vdc
 ```
 4. 执行以下命令，将显示和操纵单位变成 sector（默认为GB）。
 ```

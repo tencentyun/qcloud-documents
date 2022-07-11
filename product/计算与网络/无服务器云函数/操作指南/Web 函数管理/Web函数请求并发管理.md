@@ -14,6 +14,13 @@ Web 函数目前已经支持 [开启请求多并发](#.E6.93.8D.E4.BD.9C.E6.AD.A
 - **智能动态并发**
 启用后，在函数实例负载允许的情况下，智能动态调度更多请求到同一函数实例内运行。将于后续推出，敬请期待。
 
+
+
+## 请求并发优势
+- 在 IO 密集型场景中，如 Websocket 长连接业务，可减少计费执行时长，节省费用。
+- 多个请求并发在同一个实例中可复用数据库连接池，减缓下游服务压力。
+- 请求并发密集时，多个请求只需要一个实例进行处理，无需拉起多个实例，从而降低实例冷启动几率，降低响应延迟。
+
 ## 操作步骤
 ### 开启请求多并发
 1. 登录云函数控制台，选择左侧导航栏中的 **[函数服务](https://console.cloud.tencent.com/scf/list)**。
@@ -24,10 +31,6 @@ Web 函数目前已经支持 [开启请求多并发](#.E6.93.8D.E4.BD.9C.E6.AD.A
 ![](https://qcloudimg.tencent-cloud.cn/raw/3231fc273649a2b7ec8785c7d6f713f8.png)
 6. 单击“保存”完成配置。
 
-## 请求并发优势
-- 在 IO 密集型场景中，如 Websocket 长连接业务，可减少计费执行时长，节省费用。
-- 多个请求并发在同一个实例中可复用数据库连接池，减缓下游服务压力。
-- 请求并发密集时，多个请求只需要一个实例进行处理，无需拉起多个实例，从而降低实例冷启动几率，降低响应延迟。
 
 ## 注意事项
 ### 计费
@@ -40,7 +43,25 @@ Web 函数目前已经支持 [开启请求多并发](#.E6.93.8D.E4.BD.9C.E6.AD.A
 其他计费项保持不变，详情见 [计费概述](https://cloud.tencent.com/document/product/583/17299)。
 
 ### 日志
-开启请求多并发后，由于多个并发请求同时处理，每个请求产生的日志在流式上报时，可能会出现日志和 RequestID 无法一一对应。此时，应该在代码中正确设置 logger，将 RequestID 打印到日志中，以解决该问题。RequestID 从 Web 函数中接收到的公共请求头里的 `X-Scf-Request-Id` 字段获取。   
+开启请求多并发后，由于多个并发请求同时处理，每个请求产生的日志在流式上报时，可能会出现日志和 RequestID 无法一一对应。此时，应该在代码中正确设置 logger，将 RequestID 打印到日志中，以解决该问题。RequestID 从 Web 函数中接收到的公共请求头里的 `X-Scf-Request-Id` 字段（部分框架为 `x-scf-request-id`）获取。
+
+#### NodeJS 示例代码
+```JavaScript
+let WebSocketServer = require('ws').Server;
+let wss = new WebSocketServer({ port: 9000 });
+
+wss.on('connection', function connection(ws) {
+
+  let requestID = ws.upgradeReq.headers['x-scf-request-id'];
+  console.log('requestID: %s', requestID);
+
+  ws.on('message', function incoming(message) {
+    console.log('requestID: %s', requestID);
+    console.log('received: %s', message);
+  });
+
+});
+```
 
 ### 超限错误
 #### 内存超限
@@ -54,3 +75,6 @@ Web 函数目前已经支持 [开启请求多并发](#.E6.93.8D.E4.BD.9C.E6.AD.A
 开启请求多并发后，在监控页面会出现“并发请求个数”面板，可直观看到指定时间段内的请求并发情况。
 ![](https://qcloudimg.tencent-cloud.cn/raw/dda7d3103ae958dae3efbf35f68663fb.png)
  
+#### 监控常见问题
+
+对一段时间没有调用的函数发起并发请求，会出现虽然并发请求数量未超过设定的并发值，但监控“并发实例个数和预置并发”面板中显示的并发实例个数大于 1 的情况。这是因为一段时间没有调用，函数实例回收资源，此时发起请求，会出现冷启动，为保障及时响应处理进来的请求，此时会并发拉起函数实例，直到第一个实例可以正常接受请求为止。如果是普通的 HTTP 请求，过一段时间之后，新请求会集中在若干个函数实例上进行处理，其余的函数实例会在请求处理结束后逐步下线，监控中的并发实例数恢复正常。如果是 WebSocket 连接，则在连接未断开之前，并发实例数都会维持在一开始拉起的数量。通过配置动态预置避免冷启动，可以减少这类问题发生的概率。

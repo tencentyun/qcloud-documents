@@ -87,7 +87,7 @@
 
 对象存储（Cloud Object Storage，COS）数据处理提供了 [HLS 视频转码](https://cloud.tencent.com/document/product/436/53968#.E5.88.9B.E5.BB.BA.E9.9F.B3.E8.A7.86.E9.A2.91.E8.BD.AC.E7.A0.81.E4.BB.BB.E5.8A.A1) 的功能。您可以结合 COS 数据工作流转码任务，播放 HLS 视频文件。
 
-1. 根据 [创建音视频转码任务](https://cloud.tencent.com/document/product/436/53968#.E5.88.9B.E5.BB.BA.E9.9F.B3.E8.A7.86.E9.A2.91.E8.BD.AC.E7.A0.81.E4.BB.BB.E5.8A.A1)，选择系统模版中的任一 HLS 转码任务，配置任务生成 HLS 视频文件。
+1. 根据 [创建音视频转码任务](https://cloud.tencent.com/document/product/436/53968#.E5.88.9B.E5.BB.BA.E9.9F.B3.E8.A7.86.E9.A2.91.E8.BD.AC.E7.A0.81.E4.BB.BB.E5.8A.A1)，选择系统模板中的任一 HLS 转码任务，配置任务生成 HLS 视频文件。
 <img src="https://qcloudimg.tencent-cloud.cn/raw/ce600b583301e3e1021e36b940ceb8ee.png" style="width: 65%" />
 2. 复制生成的 m3u8 文件对象地址。
 ![](https://qcloudimg.tencent-cloud.cn/raw/8d21f4e85c63f44bf891883040ab0e8c.png)
@@ -122,3 +122,4 @@
 ## 体验
 
 以上实践，我们准备了一个 [线上体验 demo](https://ci-exhibition.cloud.tencent.com/tools/video/)，欢迎体验。
+

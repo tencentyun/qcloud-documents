@@ -16,7 +16,7 @@ vivo 通道是由 vivo 官方提供的系统级推送通道。在 vivo 手机上
 1. 开发者需向 vivo 申请开通推送权限，获取到 AppID 、AppKey、AppSecret 三个密钥参数。详情请参见 [快速接入指引](https://dev.vivo.com.cn/documentCenter/doc/180)。
 >? 开发者的应用必须要在 vivo 开放平台通过审核上架后，才会通过消息推送服务审核。
 >
-2. 复制应用的 AppId、AppKey 和 AppSecret 参数填入 【[移动推送 TPNS 控制台](https://console.cloud.tencent.com/tpns)】>【配置管理】>【基础配置】>【vivo 官方推送通道】栏目中。
+2. 复制应用的 AppId、AppKey 和 AppSecret 参数填入 **[移动推送 TPNS 控制台](https://console.cloud.tencent.com/tpns)**>**配置管理**>**基础配置**>**vivo 官方推送通道**栏目中。
 
 ###  配置内容
 #### AndroidStudio 集成方法
@@ -43,37 +43,46 @@ implementation 'com.tencent.tpns:vivo:[VERSION]-release' // vivo  推送 [VERSIO
 
 1. 下载 [SDK 安装包](https://console.cloud.tencent.com/tpns/sdkdownload)。
 2. 打开 Other-Push-jar 文件夹， 导入 vivo 推送相关 jar 包。
-2. 在 `Androidmanifest.xml` 文件中，新增如下配置：
+3. 在 `Androidmanifest.xml` 文件中，新增如下配置：
 ```xml
-  <application>
-	<service
-            android:name="com.vivo.push.sdk.service.CommandClientService"
-            android:exported="true" />
-
-        <activity
-            android:name="com.vivo.push.sdk.LinkProxyClientActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-
-        <!-- push应用定义消息receiver声明 -->
-        <receiver android:name="com.tencent.android.vivopush.VivoPushMessageReceiver" >
-            <intent-filter>
-
-                <!-- 接收push消息 -->
-                <action android:name="com.vivo.pushclient.action.RECEIVE" />
-            </intent-filter>
-        </receiver>
-
-        <meta-data
-            android:name="com.vivo.push.api_key"
-            android:value="vivo的appkey" />
-        <meta-data
-            android:name="com.vivo.push.app_id"
-            android:value="vivo的appid" />
-
+<application>
+    <service
+        android:name="com.vivo.push.sdk.service.CommandClientService"
+        android:exported="true"
+        android:permission="com.push.permission.UPSTAGESERVICE" />
+    <activity
+        android:name="com.vivo.push.sdk.LinkProxyClientActivity"
+        android:exported="false"
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+    <!-- push应用定义消息receiver声明 -->
+    <receiver
+        android:name="com.tencent.android.vivopush.VivoPushMessageReceiver"
+        android:exported="false">
+        <intent-filter>
+            <!-- 接收push消息 -->
+            <action android:name="com.vivo.pushclient.action.RECEIVE" />
+        </intent-filter>
+    </receiver>
+    <!-- version 3.0.0.3 -->
+    <!-- 该字段大于等于480，则表示支持点击消息直接打开应用activity，优化启动慢问题。 -->
+    <meta-data
+        android:name="sdk_version_vivo"
+        android:value="483" />
+    <meta-data
+        android:name="local_iv"
+        android:value="MzMsMzQsMzUsMzYsMzcsMzgsMzksNDAsNDEsMzIsMzgsMzcsMzYsMzUsMzQsMzMsI0AzNCwzMiwzMywzNywzMywzNCwzMiwzMywzMywzMywzNCw0MSwzNSwzNSwzMiwzMiwjQDMzLDM0LDM1LDM2LDM3LDM4LDM5LDQwLDQxLDMyLDM4LDM3LDMzLDM1LDM0LDMzLCNAMzQsMzIsMzMsMzcsMzMsMzQsMzIsMzMsMzMsMzMsMzQsNDEsMzUsMzIsMzIsMzI" />
+    <!-- version 3.0.0.3 end-->
+    <meta-data
+        android:name="com.vivo.push.api_key"
+        android:value="${VIVO_APPKEY}" />
+    <meta-data
+        android:name="com.vivo.push.app_id"
+        android:value="${VIVO_APPID}" />
 </application>
+
 ```
+
 
 
 ### 开启 vivo 推送

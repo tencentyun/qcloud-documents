@@ -13,7 +13,7 @@ WordPress 站点将通过标准 OIDC 协议与 CIAM 对接，因此，我们首�
 已完成 [新建用户目录](https://cloud.tencent.com/document/product/1441/60657)。
 
 ### 获取用户目录域名
-1. 登录 [数字身份管控平台（公众版）控制台](https://console.cloud.tencent.com/ciam)，在左侧导航栏，选择**个性化设置** > **域名设置**，进入域名设置页面。
+1. 登录 [账号风控平台控制台](https://console.cloud.tencent.com/ciam)，在左侧导航栏，选择**个性化设置** > **域名设置**，进入域名设置页面。
 2. 在域名设置页面，获取用户目录的域名。
 >?如需设置自定义域名，可参见 [域名设置](https://cloud.tencent.com/document/product/1441/61161)。
 >
@@ -21,9 +21,8 @@ WordPress 站点将通过标准 OIDC 协议与 CIAM 对接，因此，我们首�
 
 ### 配置应用参数
 用户目录是 CIAM 的一个基础“容器”，用户的账号信息、用户访问的应用系统的相关配置、用户的认证方式等都将在用户目录中进行存储与配置。CIAM 需要有一个用户目录中的应用来扮演 WordPress 站点的角色，实现 WordPress 与  CIAM 的对接。
-1. 登录 [数字身份管控平台（公众版）控制台](https://console.cloud.tencent.com/ciam)，在左侧导航栏选择**应用管理**，进入应用管理页面。
+1. 登录 [账号风控平台控制台](https://console.cloud.tencent.com/ciam)，在左侧导航栏选择**应用管理**，进入应用管理页面。
 2. 在应用管理页面，单击操作列的**新建应用**，弹出新建应用弹窗。
-![](https://main.qcloudimg.com/raw/39d602e8747cad6d90f0f22d2afd1b19.png)
 3. 在新建应用弹窗中，根据要求填写相关信息，其中应用类型需选择 **Web 应用**，单击**确定**，即可创建新应用。
 ![](https://main.qcloudimg.com/raw/7e02bdb5f71f412b127c05a305b5ac42.png)
 4. 在应用管理页面，选择刚刚创建的应用，单击操作列的**配置**，进入应用配置的基本信息页面。

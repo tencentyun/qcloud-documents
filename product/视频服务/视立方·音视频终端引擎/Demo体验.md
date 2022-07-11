@@ -11,8 +11,7 @@
 </tr>
 <tr>
 <td>iOS</td>
-<td><div style="width:130px;height: 130px;background-image:url(https://main.qcloudimg.com/raw/82f6b81a28f310c5edc5c3237e326e2f.png);background-size: cover;margin:auto">
-</div></a></td>
+<td>升级维护中	</td>
 <td><a href="https://github.com/tencentyun/LiteAVProfessional_iOS/tree/master/Demo">Github</a></td>
 </tr>
 <tr>
@@ -73,8 +72,7 @@
 </tr>
 <tr>
 <td>iOS</td>
-<td><div style="width:130px;height: 130px;background-image:url(https://qcloudimg.tencent-cloud.cn/raw/2c8c06a66a7494a17b51e74d9d5533cc.png);background-size: cover;margin:auto">
-</div></td>
+<td>升级维护中</td>
 <td><a href="https://github.com/tencentyun/XiaoZhiBo/tree/main/iOS">Github</a></td>
 </tr>
 <tr>
@@ -84,11 +82,9 @@
 <td><a href="https://github.com/tencentyun/XiaoZhiBo/tree/main/Android">Github</a></td>
 </tr>
 </table>
-
-
-
+ 
 **小直播 App 展示**
-
+ 
 <img width="900" src="https://main.qcloudimg.com/raw/732c851eb9c25dd426e02e764a4c0bc1.png"/>
 
 >!  

@@ -63,7 +63,7 @@
 | API                                                          | 描述                                    |
 | ------------------------------------------------------------ | --------------------------------------- |
 | [setMute](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#a85d2bb3409165c1b7b2c53f8d61a03e2) | 设置是否静音播放。                      |
-| [setAudioPlayoutVolume](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#a9b8946403b8b3ac8e11f3a78e9d531ca) | 设置音量大小，范围：0 - 100。           |
+| [setAudioPlayoutVolume](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#a9b8946403b8b3ac8e11f3a78e9d531ca) | 设置音量大小，范围：0 - 100。 |
 | [setRequestAudioFocus](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#a676f0935eca038719f58100d31f169b1) | 设置是否自动获取音频焦点 默认自动获取。 |
 
 ### 事件通知接口

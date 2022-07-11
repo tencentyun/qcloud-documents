@@ -1,5 +1,6 @@
 ## 方法1：使用 Open API 访问 CloudBase
 
+
 Cloudbase Open API 让开发者可以通过 HTTP 的方式，以管理员身份调用 CloudBase 的各项服务。以云托管中的 Node.js 服务为例：
 <dx-codeblock>
 :::  js

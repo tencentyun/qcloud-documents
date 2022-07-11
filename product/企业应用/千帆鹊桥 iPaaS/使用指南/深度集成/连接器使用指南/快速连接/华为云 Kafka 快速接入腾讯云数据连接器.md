@@ -59,7 +59,8 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/651e5338bfe657d562f3e9c29be869b6.png)
 2. 按实际情况选择计费模式，设置区域，线路和带宽等参数。
 3. 单击**立即购买**。
-![image-20220325110114446](https://qcloudimg.tencent-cloud.cn/raw/0c3582d96bbb61f27db682f8b636f852/image-20220325110114446.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/191592275dabb0a4163ac9e76d6c6a9a.png)
+
 
 ## 接入配置
 

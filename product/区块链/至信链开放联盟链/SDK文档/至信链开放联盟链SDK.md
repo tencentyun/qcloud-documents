@@ -1,12 +1,15 @@
-## 1. 获取方式
+## 获取方式
 go 语言的源代码：[resource_code](https://zhixinliantest-1302317679.cos.ap-guangzhou.myqcloud.com/nft/nft/nft_wallet_service/resources/2021-10-27/nft_wallet_service)（下载后缀修改成 .zip 文件）
 
-## 2. 场景描述
+## 场景描述
 - 生成公私钥：调用生成助记词接口生成助记词（如有助记词，可跳过），调用派生生成子公私钥对接口。
 - 鉴权：用户通过调用 GenerateApiSign 接口生成鉴权信息，将鉴权信息填入请求头。
 
-## 3. 相关接口 
-### sdk-调用至信链接口前生成签名数据接口 
+## 相关接口 
+
+
+
+### 调用至信链接口前生成签名数据接口 
 GenerateApiSign(secretId, secretKey string)(signData*SignData, nonce int, error)
 
 #### 输入参数
@@ -54,7 +57,9 @@ signData 结构如下：
 |signature|string|
 |nonce|int|
 
-### sdk-生成助记词
+
+---
+### 生成助记词
 createMnemonic() (mnemonic string, err)
 
 #### 输入参数
@@ -66,7 +71,9 @@ createMnemonic() (mnemonic string, err)
 |:--|:--|
 |mnemonic|12 个英文词组，utf8，空格分割 |
 
-### sdk-派生生成子公私钥对
+
+---
+### 派生生成子公私钥对
 DeriveKeyPair(mnemonic string, index int) (|priKey, pubKey string,err)
 
 #### 输入参数
@@ -81,7 +88,9 @@ DeriveKeyPair(mnemonic string, index int) (|priKey, pubKey string,err)
 |priKey|私钥|
 |pubKey|公钥|
 
-### sdk-私钥生成对应公钥
+
+---
+### 私钥生成对应公钥
 PriKey2PubKey(pri string) (pub string,err)
 
 #### 输入参数
@@ -94,7 +103,9 @@ PriKey2PubKey(pri string) (pub string,err)
 |:--|:--|
  |pub|公钥|
 
-### sdk-公钥生成对应地址
+
+---
+### 公钥生成对应地址
 PubKey2Address(pubKey string) (address string,err)
 
 #### 输入参数
@@ -107,7 +118,9 @@ PubKey2Address(pubKey string) (address string,err)
 |:--|:--|
 |address|地址 |
 
-### sdk-私钥生成对应地址
+
+---
+### 私钥生成对应地址
 |PriKey2Address(|priKey string) (address string,err)
 
 #### 输入参数
@@ -120,7 +133,9 @@ PubKey2Address(pubKey string) (address string,err)
 |:--|:--|
  |address|地址 |
 
-### sdk-签名
+
+---
+### 签名
 SignBy|priKey(|priKey string, data string) (signedData string,err)
 
 #### 输入参数
@@ -134,7 +149,9 @@ SignBy|priKey(|priKey string, data string) (signedData string,err)
 |:--|:--|
  |signedData|签名后的数据|
 
-### sdk-验签
+
+---
+### 验签
 VerifyByPubKey(pubKey, signedData, data string) (isValid bool,err)
 
 #### 输入参数
@@ -149,7 +166,9 @@ VerifyByPubKey(pubKey, signedData, data string) (isValid bool,err)
 |:--|:--|
  |isValid|签名是否合法|
 
-### sdk-SM3 哈希
+
+---
+### SM3 哈希
 SM3Hash(data []byte) (digest []byte, error)
 
 #### 输入参数
@@ -162,7 +181,9 @@ SM3Hash(data []byte) (digest []byte, error)
 |:--|:--|
  |digest|data 的 SM3 哈希值 |
 
-### sdk-上传 cos
+
+---
+### 上传 cos
 uploadToCos(cosPath, tempSecretId, tempSecretKey,sessionToken, filePath string) (err)
 
 #### 输入参数

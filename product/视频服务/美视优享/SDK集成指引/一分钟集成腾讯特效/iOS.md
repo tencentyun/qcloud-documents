@@ -16,15 +16,11 @@ XCode 默认 C++ 环境。
 <tr>
 <td>系统依赖库</td>
 <td><ul style="margin:0">
-<li/>AVFoundation
-<li/>Accelerate
-<li/>AssetsLibrary
-<li/>CoreML
-<li/>JavaScriptCore
-<li/>CoreFoundation
-<li/>MetalPerformanceShaders
 <li/>CoreTelephony
+<li/>JavaScriptCore
 <li/>libc++.tbd
+<li/>MetalPerformanceShaders
+<li/>VideoToolbox
 </ul></td>
 </tr>
 <tr>
@@ -33,9 +29,12 @@ XCode 默认 C++ 环境。
 <li/>YTCommon（鉴权静态库）
 <li/>XMagic（美颜静态库）
 <li/>libpag（视频解码动态库）
+<li/>Masonry（控件布局库）
+<li/>SSZipArchive（文件解压库）
 </ul></td>
 </tr>
 </table>
+
 
 ## 导入资源
 ### 资源
@@ -55,20 +54,20 @@ XCode 默认 C++ 环境。
 
 [](id:step1)
 ### 步骤一：签名准备
-framework 签名可以直接在 General-->Masonry.framework 和 libpag.framework 选 Embed & Sign。
+framework 签名可以直接在 **General** >**Masonry.framework** 和 **libpag.framework** 选 **Embed & Sign**。
 [](id:step2)
 ### 步骤二：鉴权
 1. 申请授权，得到 LicenseURL 和 LicenseKEY，请参见 [License 指引](https://cloud.tencent.com/document/product/616/65879)。
-> ! 正常情况下，只要app成功联网一次，就能完成鉴权流程，因此您**不需要**把 License 文件放到工程的工程目录里。但是如果您的app在从未联网的情况下也需要使用SDK相关功能，那么您可以把license文件下载下来放到工程目录，作为保底方案，此时license文件名必须是v_cube.license。
+> ! 正常情况下，只要 App 成功联网一次，就能完成鉴权流程，因此您**不需要**把 License 文件放到工程的工程目录里。但是如果您的 App 在从未联网的情况下也需要使用 SDK 相关功能，那么您可以把 License 文件下载下来放到工程目录，作为保底方案，此时 License 文件名必须是 `v_cube.license`。
 2. 在相关业务模块的初始化代码中设置 URL 和 KEY，触发 license 下载，避免在使用前才临时去下载。也可以在 AppDelegate 的 didFinishLaunchingWithOptions 方法里触发下载。其中，LicenseURL 和 LicenseKey 是控制台绑定 License 时生成的授权信息。
 ```
 [TELicenseCheck setTELicense:LicenseURL key:LicenseKey completion:^(NSInteger authresult, NSString * _Nonnull errorMsg) {
-       if (authresult == TELicenseCheckOk) {
-            NSLog(@"鉴权成功");
-        } else {
-            NSLog(@"鉴权失败");
-        }
-    }];
+	if (authresult == TELicenseCheckOk) {
+		NSLog(@"鉴权成功");
+	} else {
+		NSLog(@"鉴权失败");
+	}
+}];
 ```
 **鉴权 errorCode 说明**：
 <table>
@@ -126,7 +125,7 @@ framework 签名可以直接在 General-->Masonry.framework 和 libpag.framework
 
 [](id:step3)
 ### 步骤三：加载 SDK（XMagic.framework）
-使用腾讯特效 SDK 生命周期大致如下:
+使用腾讯特效 SDK 生命周期大致如下：
 1. 加载美颜相关资源。
 ```
 NSDictionary *assetsDict = @{@"core_name":@"LightCore.bundle",

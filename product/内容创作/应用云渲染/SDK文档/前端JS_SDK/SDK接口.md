@@ -94,7 +94,7 @@ params 对象有效字段描述：
 | 参数          | 类型   | 是否可选   | 描述                             |
 | ----------------------- | -------- | --------- | ------------------------------------------------------------ |
 | mount          | string  | 必填   | 页面挂载点的 HTML 元素 ID |
-| appid          | number  | 必填   | 用户的腾讯云 [APPID](https://console.cloud.tencent.com/developer) |
+| appid          | number  | 必填   | 客户腾讯云账号的 [APPID](https://console.cloud.tencent.com/developer) |
 | showLogo        | boolean | 可选   | 默认值为 true<br />true 为显示腾讯云 Logo，false不显示 |
 | mic           | boolean | 可选   | 默认值为 false<br />true 为开启本地麦克风，false不开启 |
 | tabletMode       | boolean | 可选   | 默认值为 false<br />true 为使用平板滑动鼠标模式，false 为绝对映射模式。该参数只针对移动端，PC 端忽略该参数。该 mode 下鼠标产生相对位移 |
@@ -214,12 +214,12 @@ params 对象有效字段描述：
 [](id:TCGSDK.getClientSession())
 ### TCGSDK.getClientSession()
 
-客户端获取 Client 端的会话信息，后续供业务 Server 调用 [CreateSession(ClientSession)](https://cloud.tencent.com/document/product/1162/40740) 使用。
+客户端获取 Client 端的会话信息，后续供业务 Server 调用 [CreateSession(ClientSession)](https://cloud.tencent.com/document/api/1547/72826) 使用。
 
 [](id:TCGSDK.start(serverSession))
 ### TCGSDK.start(serverSession)
 
- 业务 Server 调用 [CreateSession](https://cloud.tencent.com/document/product/1162/40740) 获取到 serversession 后调用该接口启动云应用。
+ 业务 Server 调用 [CreateSession](https://cloud.tencent.com/document/api/1547/72826) 获取到 serversession 后调用该接口启动云应用。
 
 [](id:TCGSDK.destroy(msg))
 ### TCGSDK.destroy(msg)

@@ -1,6 +1,6 @@
-## 操作场景
 
-容器服务 TKE 支持通过在控制台使用**授权管理**功能管理子账号的常用授权，也可以使用自定义 YAML 的方式（ [RBAC 授权](https://kubernetes.io/zh/docs/reference/access-authn-authz/rbac/) ）来满足更加个性化的授权需求，Kubernetes RBAC 授权说明和原理如下：
+
+容器服务 TKE 支持通过在控制台使用**授权管理**功能管理子账号的常用授权，也可以使用自定义 YAML 的方式（[RBAC 授权](https://kubernetes.io/zh/docs/reference/access-authn-authz/rbac/)）来满足更加个性化的授权需求，Kubernetes RBAC 授权说明和原理如下：
 
 - **权限对象（Role 或 ClusterRole）**： 权限对象使用 apiGroups、resources 和 verbs 来定义权限情况。其中：
 	- Role 权限对象：作用于特定命名空间。  
@@ -10,10 +10,7 @@
 	- Rolebinding：作用于某个命名空间。  
 	- ClusterRoleBinding：作用于整个集群。  
 
-![RBAC](https://main.qcloudimg.com/raw/4ec83327aca864ded5798c1018d39d8e.jpg)
-
-
-如上图所示， Kubernetes RBAC 授权主要提供以下3种常用权限绑定方式，本文将为您分别介绍如何使用这3种权限绑定方式实现对用户的授权管理。  
+Kubernetes RBAC 授权主要提供以下4种常用权限绑定方式，本文将为您分别介绍如何使用这4种权限绑定方式实现对用户的授权管理。  
 
 
 |方式 | 说明 | 
@@ -21,19 +18,19 @@
 | [方式1：作用于单个命名空间的权限绑定](#way1) |  RoleBinding 引用 Role 对象，为 Subjects 只授予某单个命名空间下资源权限。  |
 |[方式2：多个命名空间复用集群权限对象绑定](#way2) | 多个命名空间下不同的 Rolebinding 可引用同一个 ClusterRole 对象模板为 Subjects 授予相同模板权限。  | 
 |[方式3：整个集群权限的绑定](#way3) | ClusterRoleBinding 引用 ClusterRole 模板，为 Subjects 授予整个集群的权限。  | 
+|[方式4：自定义权限](#way4)|用户自定义权限，例如给一个用户预设的只读权限额外添加登录容器的权限。|
 
 
->?除上述3种方式之外，从 Kubernetes RBAC 1.9版本开始，集群角色（ClusterRole）还可通过使用 aggregationRule 组合其他 ClusterRoles 的方式进行创建，本文不作详细介绍，您可参见官网文档 [Aggregated ClusterRoles]( https://kubernetes.io/zh/docs/reference/access-authn-authz/rbac/#aggregated-clusterroles) 说明。  
+>?除上述方式之外，从 Kubernetes RBAC 1.9版本开始，集群角色（ClusterRole）还可通过使用 aggregationRule 组合其他 ClusterRoles 的方式进行创建，本文不作详细介绍，您可参见官网文档 [Aggregated ClusterRoles]( https://kubernetes.io/zh/docs/reference/access-authn-authz/rbac/#aggregated-clusterroles) 说明。  
 
 
 
 
 
 
-## 操作步骤
 
 
-### 方式1：作用于单个命名空间的权限绑定[](id:way1)
+## 方式1：作用于单个命名空间的权限绑定[](id:way1)
 
 此方式主要用于为某一个用户绑定某一个命名空间下的相关权限，适用于需要细化权限的场景。例如，开发、测试、运维人员只能在各自的命名空间下对资源操作。以下将为您介绍如何在 TKE 中实现作用于单个命名空间的权限绑定。  
 
@@ -96,7 +93,7 @@ roleRef:
 
 
 
-### 方式2：多个命名空间复用集群权限对象绑定[](id:way2)
+## 方式2：多个命名空间复用集群权限对象绑定[](id:way2)
 
 此方式主要用于为用户授予多个命名空间下相同的权限，适用于使用一个权限模板为多个命名空间绑定授权的场景，例如需要为 DevOps 人员在多个命名空间绑定相同资源操作的权限。以下将为您介绍如何在 TKE 中使用多个命名空间复用集群权限绑定授权。  
 
@@ -189,7 +186,7 @@ roleRef:
 
 
 
-### 方式3：整个集群权限的绑定[](id:way3)
+## 方式3：整个集群权限的绑定[](id:way3)
 
 此方式主要用于为某个用户绑定所有命名空间下的权限（集群范围），适用于集群范围内授权的场景。例如，日志收集权限、管理人员权限等，以下将为您介绍在如何在 TKE 中使用多个命名空间复用集群权限绑定授权。  
 
@@ -214,7 +211,64 @@ roleRef:
 2. 从下图验证结果可以得出，应用了权限绑定的 YAML 后，role_user 拥有集群范围的 test-clusterrole 权限。  
 ![image-20201020141737129](https://main.qcloudimg.com/raw/5f3415f45bac5b622264fd4929e104a5.png)
 
+## 方式4：自定义权限[](id:way4)
+本文以集群管理员给一个用户自定义权限为例：权限包括预设的只读权限额外添加登录容器的权限。
 
+#### 1. 授权
+首先集群管理员参考 [使用预设身份授权](https://cloud.tencent.com/document/product/457/46105) 给指定用户赋予只读的权限。
+
+#### 2. 查看用户 RBAC 里的 User 信息
+查看只读用户的 ClusterRoleBinding 的绑定的用户信息，作为新建 ClusterRoleBinding 的需要绑定的用户信息。如下图所示，需要在指定用户的 ClusterRoleBinding 对象中，查看详细信息。
+![](https://qcloudimg.tencent-cloud.cn/raw/fb95113f6b52e850ede09eba871300d4.png)
+
+```yaml
+subjects:
+- apiGroup: rbac.authorization.k8s.io
+  kind: User
+  name: 700000xxxxxx-1650879262  # RBAC 里指定用户的用户名，需要拿到您指定用户的该信息
+```
+
+#### 3. 创建 ClusterRole
+通过 YAML 创建有登录容器权限的只读用户的 ClusterRole，示例如下：
+
+```yaml
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRole
+metadata:
+  name: "700000xxxxxx-ClusterRole-ro"  # ClusterRole 的名字
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - pods
+  - pods/attach
+  - pods/exec  # Pod 的登陆权限
+  - pods/portforward
+  - pods/proxy
+  verbs:
+  - create
+  - get
+  - list
+  - watch
+```  
+  
+#### 4. 创建 ClusterRoleBinding
+创建指定用户 ClusterRoleBinding 的 YAML 文件，示例如下：
+
+```yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: "700000xxxxxx-ClusterRoleBinding-ro"
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: "700000xxxxxx-ClusterRole-ro"  # 使用步骤 3 中的 ClusterRole 的名字
+subjects:
+- apiGroup: rbac.authorization.k8s.io
+  kind: User
+  name: "700000xxxxxx-1650879262"  # 使用步骤 2 中的用户信息
+```
 
 ## 总结
 

@@ -29,7 +29,7 @@ LAMP 应用镜像底层基于 CentOS 7.6 64位操作系统。
 ![](https://qcloudimg.tencent-cloud.cn/raw/1a5c38ecfcaf444af07c2d39034eee57.png)
 您可以在此页面查看 LAMP 应用的各项配置信息。例如：
  - Apache 的首页地址和网站根目录。
- - MariaDB 数据的管理员账号（root）和密码、数据库地址和数据库名称。
+ - MariaDB 数据库的管理员账号（root）和密码、数据库地址和数据库名称。
 <dx-alert infotype="explain" title="">
 管理员密码可通过 Webshell 方式登录实例并执行 `cat ~lighthouse/credentials.txt` 命令获取。
 </dx-alert>

@@ -6,37 +6,37 @@ Namespace=QCE/TXMR_HIVE
 
 ### HIVE-HiveMetaStore
 
-| 指标英文名                                    | 指标中文名                           | 单位 | 指标含义                                | 维度                                     |
-| --------------------------------------------- | ------------------------------------ | ---- | --------------------------------------- | ---------------------------------------- |
-| HiveHmsGcUtilMemoryE                          | 内存区域占比_E                       | %    | Eden 区内存使用占比                     | id4hivemetastore、<br>host4hivemetastore |
-| HiveHmsGcUtilGcCountFgc                       | GC次数_FGC                           | 次   | Full GC 次数                            | id4hivemetastore、<br>host4hivemetastore |
-| HiveHmsGcUtilGcTimeYgct                       | GC时间_YGCT                          | s    | Young GC 次数                           | id4hivemetastore、<br>host4hivemetastore |
-| HiveHmsGcUtilMemoryS1                         | 内存区域占比_S1                      | %    | Survivor 1区内存使用占比                | id4hivemetastore、<br>host4hivemetastore |
-| HiveHmsGcUtilMemoryM                          | 内存区域占比_M                       | %    | Metaspace 区内存使用占比                | id4hivemetastore、<br>host4hivemetastore |
-| HiveHmsGcUtilMemoryO                          | 内存区域占比_O                       | %    | Old 区内存使用占比                      | id4hivemetastore、<br>host4hivemetastore |
-| HiveHmsGcUtilGcTimeGct                        | GC时间_GCT                           | s    | 垃圾回收时间消耗                        | id4hivemetastore、<br>host4hivemetastore |
-| HiveHmsGcUtilGcCountYgc                       | GC次数_YGC                           | 次   | Young GC 次数                           | id4hivemetastore、<br>host4hivemetastore |
-| HiveHmsGcUtilGcTimeFgct                       | GC时间_FGCT                          | s    | Full GC 消耗时间                        | id4hivemetastore、<br>host4hivemetastore |
-| HiveHmsGcUtilMemoryS0                         | 内存区域占比_S0                      | %    | Survivor 0区内存使用占比                | id4hivemetastore、<br>host4hivemetastore |
-| HiveHmsGcUtilMemoryCcs                        | 内存区域占比_CCS                     | %    | Compressed class space 区内存使用占比   | id4hivemetastore、<br>host4hivemetastore |
-| HiveHmsJvmMemMem<br/>heapcommittedm           | JVM内存_MemHeapCommittedM            | MB   | JVM 已经提交的 HeapMemory 的数量        | id4hivemetastore、<br>host4hivemetastore |
-| HiveHmsJvmMem<br/>Memheapinitm                | JVM内存_MemHeapInitM                 | MB   | JVM 初始 HeapMem 的数量                 | id4hivemetastore、<br>host4hivemetastore |
-| HiveHmsJvmMem<br/>Memheapmaxm                 | JVM内存_MemHeapMaxM                  | MB   | JVM 配置的 HeapMemory 的数量            | id4hivemetastore、<br>host4hivemetastore |
-| HiveHmsJvmMem<br/>Memheapusedm                | JVM内存_MemHeapUsedM                 | MB   | JVM 当前已经使用的 HeapMemory 的数量    | id4hivemetastore、<br>host4hivemetastore |
-| HiveHmsJvmMem<br/>Memnonheapcommittedm        | JVM内存_MemNonHeapCommittedM         | MB   | JVM 当前已经使用的 NonHeapMemory 的数量 | id4hivemetastore、<br>host4hivemetastore |
-| HiveHmsJvmMem<br/>Memnonheapinitm             | JVM内存_MemNonHeapInitM              | MB   | JVM 初始 NonHeapMem 的数量              | id4hivemetastore、<br>host4hivemetastore |
-| HiveHmsJvmMem<br/>Memnonheapusedm             | JVM内存_MemNonHeapUsedM              | MB   | JVM 当前已使用NonHeapMem 的数量         | id4hivemetastore、<br>host4hivemetastore |
-| HiveHmsJvmPause<br/>Extrasleeptime            | GC额外每秒睡眠时间_ExtraSleepTime    | ms   | GC 额外睡眠时间                         | id4hivemetastore、<br>host4hivemetastore |
-| HiveHmsOpenConnections<br/>Numopenconnections | 进程打开连接数_NumOpenConnections    | 个   | 进程打开连接数                          | id4hivemetastore、<br>host4hivemetastore |
-| HiveHmsOsCpuLoad<br/>Processcpuload           | CPU利用率_ProcessCpuLoad             | %    | 进程 CPU 利用率                         | id4hivemetastore、<br>host4hivemetastore |
-| HiveHmsOsCpuLoad<br/>Systemcpuload            | CPU利用率_SystemCpuLoad              | %    | 系统 CPU 利用率                         | id4hivemetastore、<br>host4hivemetastore |
-| HiveHmsOsCpuTime<br/>Processcputime           | CPU累计使用时间_ProcessCpuTime       | ms   | CPU累计使用时间                         | id4hivemetastore、<br>host4hivemetastore |
-| HiveHmsRtUptimeUptime                         | 进程运行时长_Uptime                  | s    | 进程运行时长                            | id4hivemetastore、<br>host4hivemetastore |
-| HiveHmsThreadCount<br/>Daemonthreadcount      | 工作线程数_DaemonThreadCount         | 个   | 守护线程数                              | id4hivemetastore、<br>host4hivemetastore |
-| HiveHmsThreadCount<br/>Threadcount            | 工作线程数_ThreadCount               | 个   | 线程总数                                | id4hivemetastore、<br>host4hivemetastore |
-| HiveHmsOsFdCount<br/>Maxfiledescriptorcount   | 文件描述符数_MaxFileDescriptorCount  | 个   | 最大文件描述符数                        | id4hivemetastore、<br>host4hivemetastore |
-| HiveHmsOsFdCountOpen<br/>filedescriptorcount  | 文件描述符数_OpenFileDescriptorCount | 个   | 已打开文件描述符数量                    | id4hivemetastore、<br>host4hivemetastore |
-| HiveHmsOsCpuUsedCpurate                       | 每秒CPU使用时间_CPURATE              | s    | 每秒CPU使用时间                         | id4hivemetastore、<br>host4hivemetastore |
+| 指标英文名                                    | 指标中文名                           | 单位 | 指标含义                                | 维度                                         |
+| --------------------------------------------- | ------------------------------------ | ---- | --------------------------------------- | -------------------------------------------- |
+| HiveHmsGcUtilMemoryE                          | 内存区域占比_E                       | %    | Eden 区内存使用占比                     | id4hivehivemetastore、<br>host4hivemetastore |
+| HiveHmsGcUtilGcCountFgc                       | GC次数_FGC                           | 次   | Full GC 次数                            | id4hivehivemetastore、<br>host4hivemetastore |
+| HiveHmsGcUtilGcTimeYgct                       | GC时间_YGCT                          | s    | Young GC 次数                           | id4hivehivemetastore、<br>host4hivemetastore |
+| HiveHmsGcUtilMemoryS1                         | 内存区域占比_S1                      | %    | Survivor 1区内存使用占比                | id4hivehivemetastore、<br>host4hivemetastore |
+| HiveHmsGcUtilMemoryM                          | 内存区域占比_M                       | %    | Metaspace 区内存使用占比                | id4hivehivemetastore、<br>host4hivemetastore |
+| HiveHmsGcUtilMemoryO                          | 内存区域占比_O                       | %    | Old 区内存使用占比                      | id4hivehivemetastore、<br>host4hivemetastore |
+| HiveHmsGcUtilGcTimeGct                        | GC时间_GCT                           | s    | 垃圾回收时间消耗                        | id4hivehivemetastore、<br>host4hivemetastore |
+| HiveHmsGcUtilGcCountYgc                       | GC次数_YGC                           | 次   | Young GC 次数                           | id4hivehivemetastore、<br>host4hivemetastore |
+| HiveHmsGcUtilGcTimeFgct                       | GC时间_FGCT                          | s    | Full GC 消耗时间                        | id4hivehivemetastore、<br>host4hivemetastore |
+| HiveHmsGcUtilMemoryS0                         | 内存区域占比_S0                      | %    | Survivor 0区内存使用占比                | id4hivehivemetastore、<br>host4hivemetastore |
+| HiveHmsGcUtilMemoryCcs                        | 内存区域占比_CCS                     | %    | Compressed class space 区内存使用占比   | id4hivehivemetastore、<br>host4hivemetastore |
+| HiveHmsJvmMemMem<br/>heapcommittedm           | JVM内存_MemHeapCommittedM            | MB   | JVM 已经提交的 HeapMemory 的数量        | id4hivehivemetastore、<br>host4hivemetastore |
+| HiveHmsJvmMem<br/>Memheapinitm                | JVM内存_MemHeapInitM                 | MB   | JVM 初始 HeapMem 的数量                 | id4hivehivemetastore、<br>host4hivemetastore |
+| HiveHmsJvmMem<br/>Memheapmaxm                 | JVM内存_MemHeapMaxM                  | MB   | JVM 配置的 HeapMemory 的数量            | id4hivehivemetastore、<br>host4hivemetastore |
+| HiveHmsJvmMem<br/>Memheapusedm                | JVM内存_MemHeapUsedM                 | MB   | JVM 当前已经使用的 HeapMemory 的数量    | id4hivehivemetastore、<br>host4hivemetastore |
+| HiveHmsJvmMem<br/>Memnonheapcommittedm        | JVM内存_MemNonHeapCommittedM         | MB   | JVM 当前已经使用的 NonHeapMemory 的数量 | id4hivehivemetastore、<br>host4hivemetastore |
+| HiveHmsJvmMem<br/>Memnonheapinitm             | JVM内存_MemNonHeapInitM              | MB   | JVM 初始 NonHeapMem 的数量              | id4hivehivemetastore、<br>host4hivemetastore |
+| HiveHmsJvmMem<br/>Memnonheapusedm             | JVM内存_MemNonHeapUsedM              | MB   | JVM 当前已使用NonHeapMem 的数量         | id4hivehivemetastore、<br>host4hivemetastore |
+| HiveHmsJvmPause<br/>Extrasleeptime            | GC额外每秒睡眠时间_ExtraSleepTime    | ms   | GC 额外睡眠时间                         | id4hivehivemetastore、<br>host4hivemetastore |
+| HiveHmsOpenConnections<br/>Numopenconnections | 进程打开连接数_NumOpenConnections    | 个   | 进程打开连接数                          | id4hivehivemetastore、<br>host4hivemetastore |
+| HiveHmsOsCpuLoad<br/>Processcpuload           | CPU利用率_ProcessCpuLoad             | %    | 进程 CPU 利用率                         | id4hivehivemetastore、<br>host4hivemetastore |
+| HiveHmsOsCpuLoad<br/>Systemcpuload            | CPU利用率_SystemCpuLoad              | %    | 系统 CPU 利用率                         | id4hivehivemetastore、<br>host4hivemetastore |
+| HiveHmsOsCpuTime<br/>Processcputime           | CPU累计使用时间_ProcessCpuTime       | ms   | CPU累计使用时间                         | id4hivehivemetastore、<br>host4hivemetastore |
+| HiveHmsRtUptimeUptime                         | 进程运行时长_Uptime                  | s    | 进程运行时长                            | id4hivehivemetastore、<br>host4hivemetastore |
+| HiveHmsThreadCount<br/>Daemonthreadcount      | 工作线程数_DaemonThreadCount         | 个   | 守护线程数                              | id4hivehivemetastore、<br>host4hivemetastore |
+| HiveHmsThreadCount<br/>Threadcount            | 工作线程数_ThreadCount               | 个   | 线程总数                                | id4hivehivemetastore、<br>host4hivemetastore |
+| HiveHmsOsFdCount<br/>Maxfiledescriptorcount   | 文件描述符数_MaxFileDescriptorCount  | 个   | 最大文件描述符数                        | id4hivehivemetastore、<br>host4hivemetastore |
+| HiveHmsOsFdCountOpen<br/>filedescriptorcount  | 文件描述符数_OpenFileDescriptorCount | 个   | 已打开文件描述符数量                    | id4hivehivemetastore、<br>host4hivemetastore |
+| HiveHmsOsCpuUsedCpurate                       | 每秒CPU使用时间_CPURATE              | s    | 每秒CPU使用时间                         | id4hivehivemetastore、<br>host4hivemetastore |
 
 
 
@@ -102,8 +102,8 @@ Namespace=QCE/TXMR_HIVE
 
 | 参数名称                       | 维度名称             | 维度解释                     | 格式                                                         |
 | :----------------------------- | :------------------- | :--------------------------- | :----------------------------------------------------------- |
-| Instances.N.Dimensions.0.Name  | id4hivemetastore     | EMR 实例 ID 的维度名称       | 输入 String 类型维度名称：id4hivemetastore                   |
-| Instances.N.Dimensions.0.Value | id4hivemetastore     | EMR 实例具体 ID              | 输入 EMR 具体实例 ID，例如 ：emr-mm8bs222                    |
+| Instances.N.Dimensions.0.Name  | id4hivehivemetastore | EMR 实例 ID 的维度名称       | 输入 String 类型维度名称：id4hivehivemetastore               |
+| Instances.N.Dimensions.0.Value | id4hivehivemetastore | EMR 实例具体 ID              | 输入 EMR 具体实例 ID，例如 ：emr-mm8bs222                    |
 | Instances.N.Dimensions.1.Name  | host4hivemetastore   | EMR 实例中节点 IP 的维度名称 | 输入String 类型维度名称：host4hivemetastore                  |
 | Instances.N.Dimensions.1.Value | host4hivemetastore   | EMR 实例中具体节点 IP        | 输入具体节点  IP ，可从控制台获取，登录 [腾讯云 MapReduce 控制台](https://console.cloud.tencent.com/emr) > 单击实例 > 集群资源 > 资源管理 > 节点内网 IP。也可通过 [查询节点信息](https://cloud.tencent.com/document/product/589/41707) API 获取。 |
 | Instances.N.Dimensions.0.Name  | id4hivehiveserver2   | EMR 实例 ID 的维度名称       | 输入 String 类型维度名称：id4hivehiveserver2                 |
@@ -121,7 +121,7 @@ Namespace=QCE/TXMR_HIVE
 
 **1. 查询  HIVE-HiveMetaStore  的指标监控数据，入参取值如下：**
 &Namespace=QCE/TXMR_HIVE
-&Instances.N.Dimensions.0.Name=id4hivemetastore
+&Instances.N.Dimensions.0.Name=id4hivehivemetastore
 &Instances.N.Dimensions.0.Value=EMR 实例 ID 
 &Instances.N.Dimensions.1.Name=host4hivemetastore
 &Instances.N.Dimensions.1.Value=EMR 实例中具体节点 IP 
@@ -139,3 +139,4 @@ Namespace=QCE/TXMR_HIVE
 &Instances.N.Dimensions.0.Value=EMR 实例 ID
 &Instances.N.Dimensions.1.Name=host4hivehivewebhcat
 &Instances.N.Dimensions.1.Value=EMR实例中具体节点 IP 
+
