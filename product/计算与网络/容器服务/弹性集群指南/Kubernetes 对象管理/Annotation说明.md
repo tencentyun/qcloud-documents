@@ -229,7 +229,7 @@ eks.tke.cloud.tencent.com/host-modprobe: 'toa'
 
 超级节点所在集群虚拟机内的 agent 会上报心跳给控制面，如果上报超时（默认 5min)，一般说明 Pod 内进程已经无法正常工作了，故障原因通常是高负载，这时集群默认会自动迁移虚拟机（对当前虚拟机关机并自动创建新虚拟机，让 Pod 迁移到新虚拟机里去运行），从而实现自愈。
 
-如果用户不希望自动重建（比如用于保留现场），可以在 Pod 上添加如下注解：
+如果用户不希望自动重建（如用于保留现场），可以在 Pod 上添加如下注解：
 
 ```yaml
 eks.tke.cloud.tencent.com/recreate-node-lost-pod: "false"
