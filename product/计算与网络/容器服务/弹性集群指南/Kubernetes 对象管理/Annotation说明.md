@@ -166,6 +166,17 @@ eks.tke.cloud.tencent.com/cbs-reuse-key: 'image-name'
 ```yaml
 eks.tke.cloud.tencent.com/use-image-cache: 'auto'
 ```
+ 
+指定镜像缓存创建出来的盘类型：
+```yaml
+eks.tke.cloud.tencent.com/image-cache-disk-type:'CLOUD_SSD'  #指定镜像缓存创建出来的盘类型，可取值如下：CLOUD_BASIC为普通云硬盘，CLOUD_PREMIUM为高性能云硬盘（默认），CLOUD_SSD为SSD云硬盘，CLOUD_HSSD为增强型SSD云硬盘，CLOUD_TSSD为极速型SSD云硬盘
+```
+
+
+指定镜像缓存创建出来的盘的大小：
+```yaml
+eks.tke.cloud.tencent.com/image-cache-disk-size:'50' #指定镜像缓存创建出来的盘的大小，默认是镜像缓存创建时设置的大小，可以调大，不能调小
+```
 
 用户也可以手动指定镜像缓存实例，不使用自动匹配：
 
