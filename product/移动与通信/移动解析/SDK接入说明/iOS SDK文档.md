@@ -144,14 +144,14 @@ typedef struct DnsConfigStruct {
 - (BOOL) initConfigWithDictionary:(NSDictionary *)config;
 
 /**
- * （可选）预解析域名。建议不要设置太多预解析域名，当前限制为最多 10 个域名。仅在初始化时触发。
+ * （可选）预解析域名。建议不要设置太多预解析域名，当前限制为最多 8 个域名。仅在初始化时触发。
  *  示例代码：[[MSDKDns sharedInstance] WGSetPreResolvedDomains:@[@"dnspod.com", @"dnspod.cn"]];
  * @param domains  域名数组
  */
 - (void) WGSetPreResolvedDomains:(NSArray *)domains;
 
 /**
- * （可选）解析缓存自动刷新, 以数组形式进行配置。当前限制为最多 10 个域名。
+ * （可选）解析缓存自动刷新, 以数组形式进行配置。当前限制为最多 8 个域名。
  * 示例代码：[[MSDKDns sharedInstance] WGSetKeepAliveDomains:@[@"dnspod.com", @"dnspod.cn"]];
  * @param domains  域名数组
  */
