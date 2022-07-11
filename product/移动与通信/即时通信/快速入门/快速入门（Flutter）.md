@@ -1,5 +1,5 @@
 [](id:toc)
-通过阅读本文，您可以了解集成Flutter SDK的方法。
+通过阅读本文，您可以了解集成 Flutter SDK 的方法。
 
 ## 环境要求
 
@@ -33,12 +33,12 @@ IM 提供了三种方式来集成，您可以选择最合适的方案来集成�
 
 |   | 适用场景 |
 |---------|---------|
-| [使用DEMO](#part3) | IM demo是一个完整的聊天 App，代码已开源，如果您需要实现聊天类似场景，可以使用 Demo 进行二次开发。 [点此体验demo](https://cloud.tencent.com/document/product/269/36852) |
+| [使用DEMO](#part3) | IM Demo 是一个完整的聊天 App，代码已开源，如果您需要实现聊天类似场景，可以使用 Demo 进行二次开发。 可立即 [体验 Demo](https://cloud.tencent.com/document/product/269/36852) |
 | [含 UI 集成](#part4) | IM 的 UI 组件库`TUIKit`提供了通用的 UI 组件，例如会话列表、聊天界面和联系人列表等，开发者可根据实际业务需求通过该组件库快速地搭建自定义 IM 应用。**推荐优先使用该方案** |
 | [自实现 UI 集成](#part5) | 如果 TUIKit 不能满足您应用的界面需求，或者您需要比较多的定制，可以使用该方案。 |
 
 
-为帮助您更好的理解 IM SDK 的各 API，[我们还提供了 API Example](https://github.com/TencentCloud/TIMSDK/tree/master/Flutter/IMSDK/im-flutter-plugin/tencent_im_sdk_plugin/example)，演示各 API 的调用及监听的触发。
+为帮助您更好的理解 IM SDK 的各 API，我们还提供了[ API Example](https://github.com/TencentCloud/TIMSDK/tree/master/Flutter/IMSDK/im-flutter-plugin/tencent_im_sdk_plugin/example)，演示各 API 的调用及监听的触发。
 
 
 [](id:part3)
@@ -69,7 +69,7 @@ flutter run --dart-define=SDK_APPID={YOUR_SDKAPPID} --dart-define=ISPRODUCT_ENV=
 >
 >- `--dart-define=SDK_APPID={YOUR_SDKAPPID}` 其中`{YOUR_SDKAPPID}`需替换成您自己应用的 SDKAppID。
 >- `--dart-define=ISPRODUCT_ENV=false` 对开发生产环境做判断，如您是开发环境请用 false。
->- `--dart-define=KEY={YOUR_KEY}` 其中`{YOUR_KEY}`需替换成 [Part1：创建测试用户](#part1) 中的`密钥（Key）`信息。
+>- `--dart-define=KEY={YOUR_KEY}` 其中`{YOUR_KEY}`需替换成 [第一部分：创建测试用户](#part1) 中的`密钥（Key）`信息。
 >
 
 #### 也可以使用 IDE 运行：（可选步骤）
@@ -101,7 +101,7 @@ flutter run --dart-define=SDK_APPID={YOUR_SDKAPPID} --dart-define=ISPRODUCT_ENV=
 | lib | 程序核心目录 |
 | lib/i18n | 国际化相关代码。这里的国际化，不包含 TUIKit 本身的国际化能力和国际化词条，您可按需引入 |
 | lib/src | 项目主体目录 |
-| lib/src/pages | 本 Demo 几个重点导航页。项目初始化完成后，由 `app.dart` 负责展示加载动画，并判断登陆态，将用户引导至 `login.dart` 或 `home_page.dart`。用户登录后，会将登陆信息通过 `shared_preference` 插件，存储至本地。以后每次启动应用，若在本地发现原来的登录信息，则自动使用该信息进行登录，若无或登录失败，则引导至登录页。自动登录过程中，用户还在 `app.dart` ，可看到加载动画。`home_page.dart`含一个底部 Tab，支撑本 Demo 的四个主功能页的切换。 |
+| lib/src/pages | 本 Demo 几个重点导航页。项目初始化完成后，由 `app.dart` 负责展示加载动画，并判断登录态，将用户引导至 `login.dart` 或 `home_page.dart`。用户登录后，会将登录信息通过 `shared_preference` 插件，存储至本地。以后每次启动应用，若在本地发现原来的登录信息，则自动使用该信息进行登录，若无或登录失败，则引导至登录页。自动登录过程中，用户还在 `app.dart` ，可看到加载动画。`home_page.dart`含一个底部 Tab，支撑本 Demo 的四个主功能页的切换。 |
 | lib/utils | 一些工具函数类 |
 
 
@@ -136,7 +136,7 @@ flutter run --dart-define=SDK_APPID={YOUR_SDKAPPID} --dart-define=ISPRODUCT_ENV=
 
 ## 第四部分：含 UI 集成，使用 TUIKit 组件库，半天完成 IM 能力植入
 
-TUIKit 是基于腾讯云 IM SDK 的一款 UI 组件库，它提供了一些通用的 UI 组件，例如会话列表、聊天界面和联系人列表等，开发者可根据实际业务需求通过该组件库快速地搭建自定义 IM 应用。参见 [TUIKit 详细介绍](https://cloud.tencent.com/document/product/269/70746)
+TUIKit 是基于腾讯云 IM SDK 的一款 UI 组件库，它提供了一些通用的 UI 组件，例如会话列表、聊天界面和联系人列表等，开发者可根据实际业务需求通过该组件库快速地搭建自定义 IM 应用。参见 [TUIKit 详细介绍](https://cloud.tencent.com/document/product/269/70746)。
 
 ### 前提条件
 
@@ -155,10 +155,8 @@ flutter pub add tim_ui_kit
 
 #### 初始化
 
-在您应用启动时，初始化 TUIKit。
-
-请务必保证先执行 `TIMUIKitCore.getInstance()` ，再调用初始化函数 `init()` ，并将您的[sdkAppID]传入。
-
+1. 在您应用启动时，初始化 TUIKit。
+2. 请务必保证先执行 `TIMUIKitCore.getInstance()` ，再调用初始化函数 `init()` ，并将您的`sdkAppID`传入。
 ```dart
 /// main.dart
 import 'package:tim_ui_kit/tim_ui_kit.dart';
@@ -176,11 +174,8 @@ final CoreServicesImpl _coreInstance = TIMUIKitCore.getInstance();
 ```
 
 #### 登录测试账户
-
-此时，您可以使用最开始的时候，在控制台生成的测试账户，完成登录验证。
-
-调用`_coreInstance.login`方法，登录一个测试账户。
-
+1. 此时，您可以使用最开始的时候，在控制台生成的测试账户，完成登录验证。
+2. 调用`_coreInstance.login`方法，登录一个测试账户。
 ```dart
 import 'package:tim_ui_kit/tim_ui_kit.dart';
 
@@ -194,7 +189,7 @@ _coreInstance.login(userID: userID, userSig: userSig);
 
 您可以以会话列表作为您的 IM 功能首页，其涵盖了与所有有聊天记录的用户的会话。
 
-<img style="width:200px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/279da6d5d41ec1ce0b0cf7fca9a697b8.jpg" />
+<img style="width:300px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/279da6d5d41ec1ce0b0cf7fca9a697b8.jpg" />
 
 请创建一个 `Conversation` 类，`body` 中使用 `TIMUIKitConversation` 组件，渲染会话列表。
 
@@ -234,7 +229,7 @@ return Scaffold(
 #### 实现：会话聊天页面
 
 该页面由顶部主体聊天历史记录及底部发送消息模块组成。
-<img style="width:200px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/0c361254fa5117f7580f39e8b523e472.png" />
+<img style="width:300px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/0c361254fa5117f7580f39e8b523e472.png" />
 
 请创建一个 `Chat` 类，`body` 中使用 `TIMUIKitChat` 组件，渲染聊天页面。
 
@@ -277,7 +272,7 @@ return TIMUIKitChat(
 
 >? 如果您希望自定义该页面，请优先考虑使用 `profileWidgetBuilder` 传入需自定义的profile组件并配合 `profileWidgetsOrder` 确定纵向排列顺序；如果无法满足，才可使用 `builder` 。
 
-<img style="width:200px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/5f2e67ffb31adc738165e2c4ce58218c.jpg" />
+<img style="width:300px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/5f2e67ffb31adc738165e2c4ce58218c.jpg" />
 
 ```dart
 import 'package:flutter/material.dart';
@@ -427,7 +422,7 @@ V2TimValueCallback<V2TimMessage> res = await TencentImSDKPlugin.v2TIMManager
 [本节详细文档](https://cloud.tencent.com/document/product/269/75368)
 
 在上一个步骤中，完成发送测试消息，现在可登录另一个测试账户，拉取会话列表。
-<img style="width:200px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/e2fdd7632ebc0c5cde68c91afa914201.jpg" />
+<img style="width:300px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/e2fdd7632ebc0c5cde68c91afa914201.jpg" />
 
 
 获取会话列表的方式有两种：
@@ -562,9 +557,9 @@ TencentImSDKPlugin.v2TIMManager
 
 此时，您已基本完成 IM 模块开发，可以发送接收消息，也可以进入不同的会话。
 
-您可以继续完成[群组](https://cloud.tencent.com/document/product/269/75697)，[用户资料](https://cloud.tencent.com/document/product/269/75418)，[关系链](https://cloud.tencent.com/document/product/269/75421)，[离线推送](https://cloud.tencent.com/document/product/269/75430)，[本地搜索](https://cloud.tencent.com/document/product/269/75438)等相关功能开发。
+您可以继续完成 [群组](https://cloud.tencent.com/document/product/269/75697)，[用户资料](https://cloud.tencent.com/document/product/269/75418)，[关系链](https://cloud.tencent.com/document/product/269/75421)，[离线推送](https://cloud.tencent.com/document/product/269/75430)，[本地搜索](https://cloud.tencent.com/document/product/269/75438) 等相关功能开发。
 
-详情可查看[自实现UI集成SDK文档](https://cloud.tencent.com/document/product/269/75260)。
+详情可查看 [自实现 UI 集成 SDK 文档](https://cloud.tencent.com/document/product/269/75260)。
 
 ### 常见问题
 
