@@ -32,7 +32,7 @@
 ### Web 端录制文件详情页 
 #### 页面内操作
 - 录制文件分析：单击可进入详情页，查看该录制文件的查看以及下载次数。
-![image5.png](https://cdn.meeting.tencent.com/upload/Website/support-center/meeting-6290475a60a55.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/2582872d9ed24db46b69ef945f0df62f.png)
 - 分享全部：设置开启或关闭分享该录制，单击后弹窗显示分享设置。此处分享代指分享这个会议中所有的录制，即分享**录制文件夹**，收到分享链接或二维码的用户按照分享设置权限查看或下载会议录制。
 - 分享：一键复制当前云录制的分享链接（当有多个录制文件时，该选项会被隐藏）。
 - 导出全部：单击可选择导出本次会议的录制内容，到用户本地。
@@ -68,4 +68,4 @@
   - 当成员有访问权限时可以直接查看，若无权限则需要向主持人申请访问权限。
   - 当主持人关闭共享、删除云录制后，该云录制将不在成员会议详情页中展示。
 
-![](https://qcloudimg.tencent-cloud.cn/raw/c2a15ce02402bcd16e9b0a086fbb4d1e.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/ad03d6778bb72c004f21522157ca311a.png)
