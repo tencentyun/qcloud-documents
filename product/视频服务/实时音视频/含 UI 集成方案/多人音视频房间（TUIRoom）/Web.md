@@ -41,7 +41,8 @@ TUIRoom 基于腾讯云实时音视频和即时通信服务进行开发。
 ### 步骤二：下载并拷贝 TUIRoom 组件
 1. 单击 [Github](https://github.com/tencentyun/TUIRoom) , 克隆或下载 TUIRoom 仓库代码。
 2. 打开业务侧已有 Vue3 + TS 项目，支持使用 Vite 及 Webpack 打包方式。如果无 Vue3 + TS 项目，可选择以下任意一种方式生成模版工程。
-	- **生成 Vue3 + Vite + TS 模版工程。**
+<dx-tabs>
+::: 生成 Vue3 + Vite + TS 模版工程
 ```bash
 npm create vite@latest TUIRoom-demo -- --template vue
 ```
@@ -53,7 +54,8 @@ cd TUIRoom-demo
 npm install
 npm run dev
 ```
-	- **生成 Vue3 + Webpack + TS 模版工程**
+:::
+::: 生成 Vue3 + Webpack + TS 模版工程
 ```bash
 // 安装 vue-cli，注意 Vue CLI 4.x 要求 Node.js 为 v10 以上版本
 npm install -g @vue/cli
@@ -68,8 +70,9 @@ vue create TUIRoom-demo
 cd TUIRoom-demo
 npm run serve
 ```
+:::
+</dx-tabs>
 3. 复制 `TUIRoom/Web/src/TUIRoom` 文件夹到已有项目 src/ 目录下。
-
 
 [](id:step3)
 ### 步骤三：引用 TUIRoom 组件
@@ -160,7 +163,8 @@ html, body {
 
 TUIRoom 组件引入之后，为了确保项目可以正常运行，需要进行以下配置：
 
-#### 一、配置 Vue3 + Vite + TS 项目开发环境
+<dx-tabs>
+::: 配置 Vue3 + Vite + TS 项目开发环境
 1. **安装依赖**
 	- 安装开发环境依赖：
 ```bash
@@ -221,8 +225,8 @@ export default defineConfig({
 import 'element-plus/theme-chalk/el-message.css';
 import 'element-plus/theme-chalk/el-message-box.css';
 ```
-
-#### 二、配置 Vue3 + Webpack + TS 项目开发环境
+:::
+::: 配置 Vue3 + Webpack + TS 项目开发环境
 1. **安装依赖**
 	- 安装开发环境依赖：
 ```bash
@@ -302,6 +306,8 @@ declare module 'tim-js-sdk' {
 
 declare const Aegis: any;
 ```
+:::
+</dx-tabs>
 
 [](id:step5)
 ### 步骤五：开发环境运行
