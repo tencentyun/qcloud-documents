@@ -160,7 +160,8 @@ html, body {
 
 TUIRoom 组件引入之后，为了确保项目可以正常运行，需要进行以下配置：
 
-#### 一、配置 Vue3 + Vite + TS 项目开发环境
+<dx-tabs>
+::: 配置 Vue3 + Vite + TS 项目开发环境
 1. **安装依赖**
 	- 安装开发环境依赖：
 ```bash
@@ -221,8 +222,8 @@ export default defineConfig({
 import 'element-plus/theme-chalk/el-message.css';
 import 'element-plus/theme-chalk/el-message-box.css';
 ```
-
-#### 二、配置 Vue3 + Webpack + TS 项目开发环境
+:::
+::: 配置 Vue3 + Webpack + TS 项目开发环境
 1. **安装依赖**
 	- 安装开发环境依赖：
 ```bash
@@ -302,6 +303,8 @@ declare module 'tim-js-sdk' {
 
 declare const Aegis: any;
 ```
+:::
+</dx-tabs>
 
 [](id:step5)
 ### 步骤五：开发环境运行
