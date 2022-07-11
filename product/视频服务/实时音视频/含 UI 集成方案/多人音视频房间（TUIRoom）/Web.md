@@ -5,9 +5,9 @@ TUIRoom 是一个包含 UI 的开源音视频组件，通过集成 TUIRoom，您
 >?TUIKit 系列组件同时使用了腾讯云 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269/42440) 两个基础 PaaS 服务，开通实时音视频后会同步开通即时通信IM服务。即时通信 IM 服务详细计费规则请参见 [即时通信 - 价格说明](https://cloud.tencent.com/document/product/269/11673)，TRTC 开通会默认关联开通 IM SDK 的体验版，仅支持100个 DAU。
  
 <table>
-<thead><tr>
-<td><img width="460" src="https://web.sdk.qcloud.com/component/tuiroom/assets/page-home.png"></td>
-<td><img width="460" src="https://web.sdk.qcloud.com/component/tuiroom/assets/page-room.png"></td>
+<tr>
+<td><img width="460" src="https://web.sdk.qcloud.com/component/tuiroom/assets/page-home.png"/></td>
+<td><img width="460" src="https://web.sdk.qcloud.com/component/tuiroom/assets/page-room.png"/></td>
 </tr>
 </table>
 
@@ -41,7 +41,7 @@ TUIRoom 基于腾讯云实时音视频和即时通信服务进行开发。
 ### 步骤二：下载并拷贝 TUIRoom 组件
 1. 单击 [Github](https://github.com/tencentyun/TUIRoom) , 克隆或下载 TUIRoom 仓库代码。
 2. 打开业务侧已有 Vue3 + TS 项目，支持使用 Vite 及 Webpack 打包方式。如果无 Vue3 + TS 项目，可选择以下任意一种方式生成模版工程。
-1）生成 Vue3 + Vite + TS 模版工程
+	1. 生成 Vue3 + Vite + TS 模版工程。
 ```bash
 npm create vite@latest TUIRoom-demo -- --template vue
 ```
@@ -53,7 +53,7 @@ cd TUIRoom-demo
 npm install
 npm run dev
 ```
-2）生成 Vue3 + Webpack + TS 模版工程
+	2. 生成 Vue3 + Webpack + TS 模版工程
 ```bash
 // 安装 vue-cli，注意 Vue CLI 4.x 要求 Node.js 为 v10 以上版本
 npm install -g @vue/cli
@@ -62,7 +62,7 @@ vue create TUIRoom-demo
 ```
 >! 执行生成模板工程脚本的过程中，生成模版的方式选择 Manually select features，其余配置选项参考图片。
 > ![](https://qcloudimg.tencent-cloud.cn/raw/800412fb72b8e092f41fd06d5272601b.png)
-
+> 
 成功生成 Vue3 + Webpack + TS 模板工程后，执行以下脚本：
 ```
 cd TUIRoom-demo
@@ -307,29 +307,25 @@ declare const Aegis: any;
 ### 步骤五：开发环境运行
 在控制台执行开发环境运行脚本，使用浏览器打开包含 TUIRoom 的页面，即可在页面中使用 TUIRoom 组件。
 
-如果您是使用 [步骤二](#step2) 中的脚本生成 Vue + Vite + TS 项目，您需要：
-
-1. 执行开发环境命令。
+- **如果您是使用 [步骤二](#step2) 中的脚本生成 Vue + Vite + TS 项目**，您需要：
+	1. 执行开发环境命令。
 ```bash
 npm run dev
 ```
-2. 在浏览器中打开页面 `http://localhost:3000/`。
->! 因 TUIRoom 按需引入 element-plus 组件，会导致开发环境路由页面第一次加载时反应较慢，等待 element-plus 按需加载完成即可正常使用。element-plus 按需加载不会影响打包之后的页面加载。
-3. 体验 TUIRoom 组件功能。
-
-如果您是使用 [步骤二](#step2) 中的脚本生成 Vue + Webpack + TS 项目，您需要：
-
-1. 执行开发环境命令
+	2. 在浏览器中打开页面 `http://localhost:3000/`。
+	>! 因 TUIRoom 按需引入 element-plus 组件，会导致开发环境路由页面第一次加载时反应较慢，等待 element-plus 按需加载完成即可正常使用。element-plus 按需加载不会影响打包之后的页面加载。
+	3. 体验 TUIRoom 组件功能。
+- **如果您是使用 [步骤二](#step2) 中的脚本生成 Vue + Webpack + TS 项目**，您需要：
+	1. 执行开发环境命令
 ```bash
 npm run serve
 ```
-2. 在浏览器中打开页面 `http://localhost:8080/`
-> ! 运行过程中若 src/TUIRoom 目录中有 eslint 报错，可在 .eslintignore 文件中添加 /src/TUIRoom 路径屏蔽 eslint 检查
-3. 体验 TUIRoom 组件功能
+	2. 在浏览器中打开页面 `http://localhost:8080/`
+	> ! 运行过程中若 src/TUIRoom 目录中有 eslint 报错，可在 .eslintignore 文件中添加 /src/TUIRoom 路径屏蔽 eslint 检查。
+	3. 体验 TUIRoom 组件功能
 
 ## 附录：TUIRoom API
 ### TUIRoom 接口
-
 #### init
 
 初始化 TUIRoom 数据，任何使用 TUIRoom 的用户都需要调用 init 方法。
