@@ -2,8 +2,7 @@
 云托管推出 CLI 工具，帮助开发者能够在本地或者自定义 CI/CD 中快速进行版本创建和其他操作。
 
 <dx-alert infotype="notice" title="">
-<ul style = "margin-bottom: 0px;"><li>CLI 工具仅限 <a href = "https://console.cloud.tencent.com/tcbr">云托管独立控制台</a> 的环境使用（当前白名单内测中），云开发中的云托管无法使用。</li>
-<li>CLI 工具暂不支持镜像方式部署。</li></ul>
+CLI 工具仅限 <a href = "https://console.cloud.tencent.com/tcbr">云托管独立控制台</a> 的环境使用（当前白名单内测中），云开发中的云托管无法使用。
 </dx-alert>
 
 
@@ -102,7 +101,7 @@ OPTIONS
   --remark <remark>                版本备注，默认为空
   --targetDir <targetDir>          目标目录
   --dockerfile <dockerfile>        Dockerfile文件名，默认为 Dockerfile
-  --image <image>                  镜像标签或ID
+  --custom_image <custom_image>    容器镜像仓库企业版（TCR）镜像 URL
   --json                           以 JSON 形式展示结果
   -h, --help                       查看命令帮助信息
 :::
@@ -138,8 +137,7 @@ OPTIONS
   --containerPort <containerPort>  监听端口，必填
   --remark <remark>                版本备注，默认为空
   --dockerfile <dockerfile>        Dockerfile文件名，默认为 Dockerfile
-  --library_image <library_image>  线上镜像仓库的 tag
-  --image <image>                  镜像标签或ID
+  --custom_image <custom_image>    容器镜像仓库企业版（TCR）镜像 URL
   --json                           以 JSON 形式展示结果
   -h, --help                       查看命令帮助信息
 :::
@@ -177,8 +175,7 @@ OPTIONS
   --remark <remark>                版本备注，默认为空
   --targetDir <targetDir>          目标目录
   --dockerfile <dockerfile>        Dockerfile文件名，默认为 Dockerfile
-  --library_image <library_image>  线上镜像仓库的 tag，仅在服务已存在时可用
-  --image <image>                  镜像标签或ID
+  --custom_image <custom_image>    容器镜像仓库企业版（TCR）镜像 URL
   --json                           以 JSON 形式展示结果
   -h, --help                       查看命令帮助信息
 :::
