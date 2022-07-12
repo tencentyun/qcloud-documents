@@ -16,7 +16,7 @@ SSL 协议要求建立在可靠的传输层协议（TCP）之上，其优势在�
 - 实例架构为双节点/三节点。
 - 实例引擎为 InooDB/RocksDB。
 
->?SSL 加密当前灰度中，如需体验，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请。
+>?SSL 加密当前为内测阶段，如需体验，请提交 [内测申请](https://cloud.tencent.com/apply/p/6a75pcd4h1e)。
 
 ## 开启 SSL 加密
 1. 登录 [MySQL 控制台](https://console.cloud.tencent.com/cdb/instance)，在实例列表，单击实例 ID 或操作列的**管理**，进入实例管理页面。

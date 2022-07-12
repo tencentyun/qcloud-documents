@@ -1,7 +1,8 @@
 ## 概述
-您可以通过 Kafka 协议消费，将采集到日志服务（Cloud Log Service，CLS）的数据，消费到下游的大数据组件或者数据仓库。例如，Kafka、HDFS、Hive、Flink，以及腾讯云产品 Oceanus、EMR 等。   
 
-本文提供了 Flink、Logstash 消费日志主题的 demo。
+使用 Kafka 协议消费功能，您可以将一个日志主题，当作一个 Kafka Topic 来消费。在实际使用场景中，通过使用 Kafka Consumer 或者开源社区提供的 Kafka  connectors，如flink-connector-kafka、Kafka-connector-jdbc 等，将采集到的日志数据，消费到下游的大数据组件或者数据仓库。例如 Spark、HDFS、Hive、Flink，以及腾讯云产品 Oceanus、EMR 等。
+
+本文提供了 Flink、Flume 消费日志主题的 demo。
 
 
 ### 支持的 Kafka 协议版本
@@ -10,14 +11,14 @@ Kafka 1.1.1及更早的版本
 
 ### 内网消费和外网消费说明
 
-- 内网和外网的定义：例如您在广州地域的日志主题，使用 Kafka 消费协议，消费到广州地域的腾讯云 Oceanus，则属于内网消费。若消费到上海地域的腾讯云 Oceanus，则属于外网消费。
-- 计费的区别：内网流量费用0.18元/GB，外网流量费用0.8元/GB。
-- 消费服务域名的区别：在控制台页面会给出内网服务域名和外网服务域名，请按需选择。
+- **内网和外网的定义**：例如您在广州地域的日志主题，使用 Kafka 消费协议，消费到广州地域的腾讯云 Oceanus，则属于内网消费。若消费到上海地域的腾讯云 Oceanus，则属于外网消费。
+- **计费的区别**：内网流量费用0.18元/GB，外网流量费用0.8元/GB。
+- **消费服务域名的区别**：在控制台页面会给出内网服务域名和外网服务域名，请按需选择。可用域名请参见 [可用域名- Kafka 消费日志](https://cloud.tencent.com/document/product/614/18940#Kafka_Consume)。
 
 ## 使用限制
 
 - 目前仅支持当前数据消费，不支持历史数据的消费。
-- 当您在 SDK 中配置 auto_offset_reset='earliest' 时，可以回溯两小时前的数据。
+- Topic 中的数据保留时间为2小时。
 
 ## 前提条件
 
