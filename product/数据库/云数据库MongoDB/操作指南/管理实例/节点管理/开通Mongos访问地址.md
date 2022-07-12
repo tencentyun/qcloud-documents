@@ -8,11 +8,11 @@
 - 开通 Mongos 访问地址不影响原有的负载均衡访问地址。
 
 ## 版本说明
-4.0、4.2版本支持开通 Mongos 访问地址。
+MongoDB 4.0、4.2版本支持开通 Mongos 访问地址。
 
 ## 前提条件
 - 实例类型：分片实例。
-- 实例状态：运行中
+- 实例状态：运行中。
 - Mongos 的 CPU 性能与内存容量不足需提升。
 
 ## 操作步骤
@@ -26,8 +26,6 @@
 8. 在弹出的对话框，了解开通访问地址的影响，单击**确定**。
 <img src="https://qcloudimg.tencent-cloud.cn/raw/8e894465d269aaf2f49b7b7f4ab23e08.png" style="zoom:80%;" />
 7. 在左侧导航栏，选择**任务管理**，在任务列表中，根据实例 ID 找到**任务类型**为**开启节点访问地址**的实例，等待**任务执行状态**为**完成**。
-8. 在左侧导航栏，选择分片实例，在实例列表找到已开启节点访问地址的实例，单击其实例 ID，进入**实例详情**页面，在**网络配置**区域的**访问地址**中，可查看 Mongos 访问地址，将鼠标放在访问地址的连接串上，单击<img src="https://qcloudimg.tencent-cloud.cn/raw/036d66791d6ca5688900c92d7dc9a2cc.png" style="zoom:33%;" />，可直接复制连接串去访问 Mongos 节点。
+8. 在左侧导航栏，选择**分片实例**，在实例列表找到已开启节点访问地址的实例，单击其实例 ID，进入**实例详情**页面，在**网络配置**区域的**访问地址**中，可查看 Mongos 访问地址，将鼠标放在访问地址的连接串上，单击<img src="https://qcloudimg.tencent-cloud.cn/raw/036d66791d6ca5688900c92d7dc9a2cc.png" style="zoom:33%;" />，可直接复制连接串去访问 Mongos 节点。
 ![](https://qcloudimg.tencent-cloud.cn/raw/7d5250bd32c27f6d74bc90dbacf59a50.png)
-
-
 
