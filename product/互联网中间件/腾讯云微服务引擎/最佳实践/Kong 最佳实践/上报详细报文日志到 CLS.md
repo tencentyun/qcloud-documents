@@ -2,9 +2,9 @@
 本文介绍如何通过 CLS Log 插件，将包含详细请求、响应 Body 报文的日志上报到 CLS Topic 中。
 
 # 前置条件
-已购买 Kong 网关实例，[操作文档](https://cloud.tencent.com/document/product/1364/72495)。
-
-
+1. 已购买 Kong 网关实例，[操作文档](https://cloud.tencent.com/document/product/1364/72495)。
+2. 进入 [TSE 控制台](https://console.cloud.tencent.com/tse/kong)，并找到需要的实例。
+3. 进入实例详情页后，找到**自定义插件**。
 # 操作步骤
 
 1. 下载 CLS Log 插件安装包 [cls_log.zip](TODO)
