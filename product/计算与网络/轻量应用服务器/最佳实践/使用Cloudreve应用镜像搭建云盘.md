@@ -50,7 +50,7 @@ Cloudreve 是一款开源的网盘软件，支持服务器本机及腾讯云对�
 Cloudreve 应用镜像中已预置 Aria2，无需重复下载安装。Cloudreve 支持 Aria2 驱动的离线下载功能。在使用该功能前，您需了解 Aria2 配置与 Cloudreve 接入设置。步骤如下：
 1. 在 Cloudreve 页面中，选择右上角的用户头像，并在弹出菜单中单击**管理面板**。
 2. 进入”Cloudreve 仪表盘“ 页面，选择左侧导航栏中的**参数设置** > **离线下载**。可查看相关参数设置如下图所示：
-您可参考 [离线下载](https://docs.cloudreve.org/use/aria2)，按需修改相关参数设置。
+您可参考 [离线下载](https://docs.cloudreve.org/use/aria2)，按需修改相关参数设置。<br>
 <img src="https://main.qcloudimg.com/raw/5eaab79ca7797a5b64cb8a3a3b7af3dd.png" width="70%">
 
 
