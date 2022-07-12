@@ -17,7 +17,7 @@ INCLUDING { ALL TABLES | TABLE 'table_name' }
 -- EXCLUDING TABLE 'table' 表示不同步数据库中特定的表，支持正则表达式，如 'order_.*';
 -- 排除多张表时，可以写成 EXCLUDING TABLE 'tableA|tableB|tableC'的格式
 [/*+ OPTIONS(key1=val1, key2=val2, ... ) */] 
--- （可选，指明读取source的参数，如指定source serverId的范围等等）
+-- （可选，指明读取source的参数，如指定source serverId的范围，解析debezium时间戳字段类型等）
 ```
 
 参数说明：
@@ -29,9 +29,9 @@ INCLUDING { ALL TABLES | TABLE 'table_name' }
 | WITH参数                           | 指明写入目标库的参数，目前会被翻译成下游 sink 表的描述参数     |
 | <source_catalog>.<source_database> | 声明源 catalog 中需要同步的数据库                              |
 | INCLUDING  ALL TABLES              | 同步源库中的所有表                                           |
-| INCLUDING TABLE                    | 示同步数据库中特定的表，支持正则表达式，如 'order_.*' ； 同步多张表时，可以写成 INCLUDING TABLE 'tableA\|tableB'格式 |
-| EXCLUDING TABLE                    | 表示不同步数据库中特定的表，支持正则表达式，如 'order_.*'; 排除多张表时，可以写成 EXCLUDING TABLE 'tableA\|tableB'格式 |
-| OPTIONS                            | 可选，指明读取Source时覆盖的参数，如指定 source serverId 的范围等 |
+| INCLUDING TABLE                    | 表示同步数据库中特定的表，支持正则表达式，如 'order_.*' ； 同步多张表时，可以写成 INCLUDING TABLE 'tableA\|tableB' 格式 |
+| EXCLUDING TABLE                    | 表示不同步数据库中特定的表，支持正则表达式，如 'order_.*'; 排除多张表时，可以写成 EXCLUDING TABLE 'tableA\|tableB' 格式 |
+| OPTIONS                            | 可选，指明读取 Source 时覆盖的参数，如指定 source serverId 的范围等 |
 
 >! 第三行 [WITH (key1=val1, key2=val2, ...)] 指明写入目标库的参数中， value 值支持将 Source 表的表名进行变量替换，使用方法是使用占位符 $tableName。如下整库同步到 Doris 的示例中，写入每一个 sink 的表中 $tableName 会替换为相对应 Mysql 库中源表表名。
 >
@@ -43,7 +43,8 @@ with (
   'table.identifier' = 'db1.$tableName_doris'
   ...
 ) 
-including all tables;
+including all tables
+/*+ `OPTIONS`('server-time-zone' = 'Asia/Shanghai') */; -- 声明解析timestamp字段的时区类型
 ```
 
 
@@ -79,7 +80,8 @@ with (
 'connector' = 'hudi',
 'path' = 'hdfs://namenode:8020/user/hive/warehouse/$tableName_mor'
 ) as database `my_mysql`.`trade_log`
-including all tables;
+including all tables
+/*+ `OPTIONS`('server-time-zone' = 'Asia/Shanghai') */; -- 声明解析timestamp字段的时区类型
 ```
 
 ### 同步到 Doris 示例
@@ -104,8 +106,8 @@ comment 'test_sink'  with (
 'sink.batch.interval' = '1s',
 'fenodes' = 'ip:port'
 ) as database `my_mysql`.`trade_log`
-including all tables;
-
+including all tables
+/*+ `OPTIONS`('server-time-zone' = 'Asia/Shanghai') */; -- 声明解析timestamp字段的时区类型
 ```
 
 
@@ -131,7 +133,7 @@ comment 'test_sink'  with (
 'sink.partition-commit.policy.kind' = 'metastore'
 ) as database `my_mysql`.`trade_log`
 including all tables
-/*+ `OPTIONS`('append-mode' = 'true') */;  
+/*+ `OPTIONS`('append-mode' = 'true', 'server-time-zone' = 'Asia/Shanghai') */;  
 -- 因为hive sink不支持变更数据，此处的hint会把原始cdc的变更数据转成成append流下发
 ```
 
@@ -148,10 +150,9 @@ including all tables
 3. 推荐搭配 Mysql CDC Source 复用功能开启，一起使用，可以降低对 DB 的压力。
 4. CDAS 语法没有限制下游输出的类型，理论上可以同步到**任意的**下游类型。
 5. 当同步的表的数量非常多的时候，flink 生成的单个 task 的 name 会非常长，导致 metric 系统占用大量的内存，影响作业稳定性，Oceanus 针对这种情况引入了 `pipeline.task-name-length` 参数来限制 taskName 的长度，能极大的提高作业稳定性和日志可读性。（适用 Flink 1.13 和1.14版本）。
-可以在作业的高级参数中配置生效：
+   可以在作业的高级参数中配置生效：
    ```yaml
    pipeline.task-name-length: 80
    ```
 
    
-
