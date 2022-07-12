@@ -3,7 +3,7 @@ MySQL 独享集群创建后，您需要在独享集群内新建主机，才能�
 ## 前提条件
 [创建 MySQL 独享集群](https://cloud.tencent.com/document/product/1322/76526)。
 
-## 新建 MySQL 独享集群主机
+## 操作步骤
 1. 登录 [云数据库 MySQL 独享集群控制台](https://console.cloud.tencent.com/dbdcp)。
 2. 在页面上方选择目标地域。
 3. 找到目标集群，单击集群 ID，选择**主机列表**或直接单击**操作**列的**管理主机**。
