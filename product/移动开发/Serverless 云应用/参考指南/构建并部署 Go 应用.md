@@ -28,7 +28,7 @@ import (
 
 func main() {
     http.HandleFunc("/", handler)
-    port := "8080"
+    port := "80"
     if err := http.ListenAndServe(":"+port, nil); err != nil {
         log.Fatal(err)
     }
@@ -40,7 +40,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 :::
 </dx-codeblock>
 <dx-alert infotype="explain" title="">
-此代码会创建一个基本的 Web 服务器，侦听 `8080` 端口。
+此代码会创建一个基本的 Web 服务器，侦听 `80` 端口。
 </dx-alert>
 
 
