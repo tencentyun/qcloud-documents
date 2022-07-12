@@ -1,4 +1,4 @@
-## 步骤1：编写基础应用（使用flask框架）
+## 步骤1：编写基础应用（使用 flask 框架）
 
 1. 创建名为 `helloworld-python` 的新目录，并转到此目录中：
 <dx-codeblock>
