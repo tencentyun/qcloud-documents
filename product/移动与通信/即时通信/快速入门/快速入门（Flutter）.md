@@ -432,7 +432,7 @@ V2TimValueCallback<V2TimMessage> res = await TencentImSDKPlugin.v2TIMManager
 
 常见应用场景为：
 
-在启动应用程序后立即获取对话列表，然后监听长连接以实时更新对话列表的变化。
+在启动应用程序后立即获取会话列表，然后监听长连接以实时更新会话列表的变化。
 
 ##### 一次性请求会话列表
 
@@ -441,16 +441,15 @@ V2TimValueCallback<V2TimMessage> res = await TencentImSDKPlugin.v2TIMManager
 ```dart
 import 'package:tencent_im_sdk_plugin/tencent_im_sdk_plugin.dart';
 
+String nextSeq = "0";
+
 getConversationList() async {
   V2TimValueCallback<V2TimConversationResult> res = await TencentImSDKPlugin
       .v2TIMManager
       .getConversationManager()
       .getConversationList(nextSeq: nextSeq, count: 10);
-
-  V2TimValueCallback<V2TimConversationResult> nextSeq =
-      await TencentImSDKPlugin.v2TIMManager
-          .getConversationManager()
-          .getConversationList(nextSeq: res.data?.nextSeq ?? "0", count: 20);
+  
+  nextSeq = res.data?.nextSeq ?? "0";
 }
 ```
 
