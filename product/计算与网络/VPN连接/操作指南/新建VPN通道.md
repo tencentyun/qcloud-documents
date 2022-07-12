@@ -72,7 +72,7 @@ VPN 通道的建立包括以下配置信息：
 </tr>
 <tr>
 <td>开启健康检查</td>
-<td>健康检查用于主备通道的场景，具体请参考<a href="https://cloud.tencent.com/document/product/554/60005"> IDC 与单个腾讯云 VPC 实现主备容灾</a>。如果您不涉及，无需开启此开关（默认不开启），否则请开启本开关，并完成下面的健康检查本端及对端地址的配置。
+<td>健康检查用于主备通道的场景，具体请参考<a href="https://cloud.tencent.com/document/product/554/60005"> IDC 与单个腾讯云 VPC 实现主备容灾</a>。如果您不涉及，无需开启此开关（默认不开启），否则请开启本开关，并完成下面的健康检查本端及对端地址的配置，详情请参见 <a href="https://cloud.tencent.com/document/product/554/70209">配置健康检查</a>。
 <dx-alert infotype="explain" title="">
 一旦您开启健康检查并创建通道完成，系统立即开始通过 NQA 检测 VPN 通道健康状况，如果 VPN 通道未联通或您配置的对端地址不响应 NQA 探测，则系统会在多次探测失败后判定为不健康，并临时中断业务流量，直到 VPN 通道恢复健康。
 </dx-alert>

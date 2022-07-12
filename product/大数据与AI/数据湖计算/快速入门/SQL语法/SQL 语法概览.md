@@ -42,6 +42,6 @@ DLC 支持的语法如下表所示：
 | 数据查询| [SELECT STATEMENT](https://cloud.tencent.com/document/product/1342/61991)	| 
 | 将查询结果插入数据表| [INSERT INTO](https://cloud.tencent.com/document/product/1342/73084)	| 
 | 删除 Iceberg 表的数据	| [DELETE STATEMENT](https://cloud.tencent.com/document/product/1342/74176)| 
-
+| Spark 引擎支持 UPDATE | [UPDATE](https://cloud.tencent.com/document/product/1342/76479)|
 
 相关查询保留字参见：[保留字](https://cloud.tencent.com/document/product/1342/61765)。

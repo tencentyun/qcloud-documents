@@ -25,7 +25,7 @@
 ![img](https://qcloudimg.tencent-cloud.cn/raw/d98dfb17bbee6c0319e370de6f2ba9dd.jpg)
 
 4. 该步骤为测试环节，您可下载 [IM_Api_Example](https://github.com/TencentCloud/TIMSDK/tree/master/Unity/im_unity_sdk_plus/Assets/IM_Api_Example)，解压后放入您的项目内。
-   <img src="https://dscache.tencent-cloud.cn/upload/nodir/a5-3c78cc7316ba1c06a78dfbf468ae381a7ce570d7.png" width="70%">
+   <img src="https://qcloudimg.tencent-cloud.cn/raw/7c7e35b688673c3bca02b95f6ca74e4a.png" width="70%">
     > ?
     >  IM_Api_Example 是我们提供的用来测试 SDK 接口回调数据的 Demo，您也可以在项目开发早期通过调用我们提供的接口来对您的应用进行操作。
 

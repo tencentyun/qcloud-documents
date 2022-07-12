@@ -111,7 +111,8 @@ dependencies:
 1. 调用 `TRTCCalling.sharedInstance()` 获取组件实例。
 2. 调用 `login(SDKAppID, userId, userSig)` 完成组件的登录，其中几个关键参数的填写请参考下表：
  <table>
-<tr><th>参数名</th><th>作用</th></tr>
+<thead><tr><th>参数名</th><th>作用</th></tr>
+</thead>
 <tr>
 <td>SDKAppID</td>
 <td>您可以在 <a href="https://console.cloud.tencent.com/trtc/app">实时音视频控制台</a> 中查看 SDKAppID。</td>

@@ -4,8 +4,7 @@ TUIRoom 是一个包含 UI 的开源音视频组件，通过集成 TUIRoom，您
 
 >?TUIKit 系列组件同时使用了腾讯云 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269/42440) 两个基础 PaaS 服务，开通实时音视频后会同步开通即时通信 IM 服务。即时通信 IM 服务详细计费规则请参见 [即时通信 - 价格说明](https://cloud.tencent.com/document/product/269/11673)，TRTC 开通会默认关联开通 IM SDK 的体验版，仅支持100个 DAU。
 
-<table>
-<tr>
+<table><tr>
 <td><img width="460" src="https://sdk-web-1252463788.cos.ap-hongkong.myqcloud.com/trtc/electron/download/resources/common/page-room.png"></td>
 <td><img width="460" src="https://sdk-web-1252463788.cos.ap-hongkong.myqcloud.com/trtc/electron/download/resources/common/page-home.png"></td>
 </tr>
@@ -162,25 +161,7 @@ createApp(App)
   .mount('#app')
   .$nextTick(window.removeLoading)
 ```
-3. **配置 svg-icon 组件加载 SVG 图标**
-TUIRoom 将所有图标资源（SVG 文件）放置在 `packages/renderer/src/TUIRoom/assets/icons/svg` 目录下，需要您在 `packages/renderer/vite.config.ts` 文件中配置 SVG 图标加载方式。
->! 以下配置项为增量配置，不要删除已经存在的 Vite 配置项。
->
-```javascript
-// vite.config.ts
-import { createSvg } from './src/TUIRoom/assets/icons/index';
-const path = require('path');
-
-export default defineConfig({
-	// ...
-	plugins: [
-		// ...
-		 createSvg(path.join(path.resolve(__dirname, 'src/TUIRoom/assets/icons/svg/'), '/')),
-	],
-	// ...
-});
-```
-4. **配置 element-plus 按需引入**
+3. **配置 element-plus 按需引入**
 	- TUIRoom 使用 element-plus UI 组件，为避免引入所有 element-plus组件，需要您在 `packages/renderer/vite.config.ts` 中配置 element-plus 组件按需加载。
 >! 以下配置项为增量配置，不要删除已经存在的 Vite 配置项。
 >
@@ -219,7 +200,7 @@ export default defineConfig({
 import 'element-plus/theme-chalk/el-message.css'
 import 'element-plus/theme-chalk/el-message-box.css'
 ```
-5. **引入 trtc-electron-sdk**
+4. **引入 trtc-electron-sdk**
 为了在 UI 层以 import 方式引入 `trtc-electron-sdk`，统一代码风格，否则必须要以 require 的方式引入，需要您在 `packages/renderer/vite.config.ts` 中配置。
 >! 以下配置项将 resolve 中的内容替换掉：
 ```javascript
@@ -284,7 +265,7 @@ export default defineConfig({
 	// ...
 });
 ```
-6. **env.d.ts文件配置**
+5. **env.d.ts 文件配置**
 `env.d.ts` 文件配置需要您在 `packages/renderer/src/env.d.ts` 中配置。
 >! 以下配置项为增量配置，不要删除已经存在的 `env.d.ts` 文件配置。
 >
@@ -302,7 +283,7 @@ declare module 'tim-js-sdk' {
 }
 
 ```
-7. **如果项目中存在 import 动态加载，需要修改构建配置，打包生成 es 模块**
+6. **如果项目中存在 import 动态加载，需要修改构建配置，打包生成 es 模块**
 打包生成 es 模块需要您在 `packages/renderer/vite.config.ts` 中配置。
 >! 项目中若不存在 import 动态加载，**请不要进行此配置**。以下配置项为增量配置，不要删除已经存在的 Vite 配置项。
 >
