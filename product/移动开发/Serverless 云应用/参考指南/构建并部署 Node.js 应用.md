@@ -36,14 +36,14 @@ app.get("/", (req, res) => {
   res.send(`Hello World!`);
 });
 
-const port = 8080;
+const port = 80;
 app.listen(port, () => {
   console.log(`helloworld: listening on port ${port}`);
 });
 :::
 </dx-codeblock>
 <dx-alert infotype="explain" title="">
-此代码会创建一个基本的 Web 服务器，侦听 `8080` 端口。
+此代码会创建一个基本的 Web 服务器，侦听 `80` 端口。
 </dx-alert>
 
 ## 步骤2：将应用容器化
