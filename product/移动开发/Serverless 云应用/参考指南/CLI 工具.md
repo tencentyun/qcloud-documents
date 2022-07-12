@@ -102,7 +102,7 @@ OPTIONS
   --remark <remark>                版本备注，默认为空
   --targetDir <targetDir>          目标目录
   --dockerfile <dockerfile>        Dockerfile文件名，默认为 Dockerfile
-  --image <image>                  镜像标签或ID
+  --custom_image <custom_image>    容器镜像仓库企业版（TCR）镜像 URL
   --json                           以 JSON 形式展示结果
   -h, --help                       查看命令帮助信息
 :::
@@ -138,8 +138,7 @@ OPTIONS
   --containerPort <containerPort>  监听端口，必填
   --remark <remark>                版本备注，默认为空
   --dockerfile <dockerfile>        Dockerfile文件名，默认为 Dockerfile
-  --library_image <library_image>  线上镜像仓库的 tag
-  --image <image>                  镜像标签或ID
+  --custom_image <custom_image>    容器镜像仓库企业版（TCR）镜像 URL
   --json                           以 JSON 形式展示结果
   -h, --help                       查看命令帮助信息
 :::
@@ -177,8 +176,7 @@ OPTIONS
   --remark <remark>                版本备注，默认为空
   --targetDir <targetDir>          目标目录
   --dockerfile <dockerfile>        Dockerfile文件名，默认为 Dockerfile
-  --library_image <library_image>  线上镜像仓库的 tag，仅在服务已存在时可用
-  --image <image>                  镜像标签或ID
+  --custom_image <custom_image>    容器镜像仓库企业版（TCR）镜像 URL
   --json                           以 JSON 形式展示结果
   -h, --help                       查看命令帮助信息
 :::
