@@ -50,7 +50,7 @@ npm install
 cd TIMSDK/Web/Demo/src/TUIKit
 
 # 安装 TUIKit 依赖
-npm install
+npm install  --legacy-peer-deps
 ```
 
 ### 步骤2：初始化
