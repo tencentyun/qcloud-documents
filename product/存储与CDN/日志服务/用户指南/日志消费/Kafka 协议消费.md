@@ -1,11 +1,6 @@
 ## 概述
 
-您可以将一个日志服务（Cloud Log Service，CLS）日志主题，当作一个 Kafka Topic 来消费。在实际使用场景中，通过使用开源社区提供的 Kafka  connectors，如下所示：
-```
-flink-connector-kafka，spark-sql-kafka,Kafka-connector-jdbc ，kafka-connector-hive ,com.cloudera.dim.kafka.connect.hdfs.HdfsSinkConnector
-```
-
-您可以将采集到的 CLS 数据，消费到下游的大数据组件或者数据仓库。例如 Spark、HDFS、Hive、Flink，以及腾讯云产品 Oceanus、EMR 等。
+使用 Kafka 协议消费功能，您可以将一个日志主题，当作一个 Kafka Topic 来消费。在实际使用场景中，通过使用 Kafka Consumer 或者开源社区提供的 Kafka  connectors，如flink-connector-kafka、Kafka-connector-jdbc 等，将采集到的日志数据，消费到下游的大数据组件或者数据仓库。例如 Spark、HDFS、Hive、Flink，以及腾讯云产品 Oceanus、EMR 等。
 
 本文提供了 Flink、Flume 消费日志主题的 demo。
 
