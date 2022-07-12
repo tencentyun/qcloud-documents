@@ -187,7 +187,7 @@ _coreInstance.login(userID: userID, userSig: userSig);
 
 #### 实现：会话列表页面
 
-您可以以会话列表作为您的 IM 功能首页，其涵盖了与所有有聊天记录的用户的会话。
+您可以以会话列表作为您的 IM 功能首页，其涵盖了与所有有聊天记录的用户及群聊的会话。
 
 <img style="width:300px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/279da6d5d41ec1ce0b0cf7fca9a697b8.jpg" />
 
@@ -561,7 +561,7 @@ TencentImSDKPlugin.v2TIMManager
 
 详情可查看 [自实现 UI 集成 SDK 文档](https://cloud.tencent.com/document/product/269/75260)。
 
-### 常见问题
+## 常见问题
 
 #### 支持哪些平台？
 
@@ -587,5 +587,5 @@ TencentImSDKPlugin.v2TIMManager
 3. 打开 `\android\app\build.gradle`，根据下图，补全 `defaultConfig`。
 ![](https://qcloudimg.tencent-cloud.cn/raw/2024d588718bb7b71dc9e4d2c3938736.png)
 
-### 联系我们
+## 联系我们
 如果您在接入使用过程中有任何疑问，请加入QQ群：788910197 咨询。
