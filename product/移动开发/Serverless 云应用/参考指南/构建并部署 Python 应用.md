@@ -21,11 +21,11 @@ def hello_world():
     return 'Hello World!'
 
 if __name__ == "__main__":
-    app.run(debug=True, host='0.0.0.0', port=8080)
+    app.run(debug=True, host='0.0.0.0', port=80)
 :::
 </dx-codeblock>
 <dx-alert infotype="explain" title="">
-以上代码会创建一个基本的 Web 服务器，并监听 `8080` 端口。
+以上代码会创建一个基本的 Web 服务器，并监听 `80` 端口。
 </dx-alert>
 
 
