@@ -1,4 +1,5 @@
-## 步骤1：编写基础应用（使用spring boot框架）
+
+## 步骤1：编写基础应用（使用 spring boot 框架）
 
 1. 首先我们创建一个 Spring Boot 应用。使用 curl 和 unzip 命令新建一个空 Web 项目：
 <dx-codeblock>
