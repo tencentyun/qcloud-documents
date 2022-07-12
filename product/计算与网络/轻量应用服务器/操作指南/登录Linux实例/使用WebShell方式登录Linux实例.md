@@ -64,8 +64,8 @@ WebShell 目前具备丰富的功能，希望您在使用过程中拥有满意�
 
 WebShell 功能介绍如下：
 <dx-accordion>
-::: 选择登录实例[](id:choose)
-您可通过该步骤，在一个 WebShell 窗口中选择登录任意一台实例。具体步骤如下：
+::: 选择实例登录[](id:choose)
+您可通过该步骤，在一个 WebShell 窗口中选择任意一台实例登录。具体步骤如下：
 
 1. 参考 [使用 WebShell 方式登录 Linux 实例](https://cloud.tencent.com/document/product/1207/44642)，登录实例。
 2. 选择 WebShell 界面工具栏中的 <img src="https://qcloudimg.tencent-cloud.cn/raw/5bb1db36d10fd49f34ecc27eda0e306a.png" style="margin:-3px 0px">。
