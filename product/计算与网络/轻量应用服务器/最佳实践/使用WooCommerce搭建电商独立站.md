@@ -34,24 +34,16 @@ WooCommerce 是当前很受欢迎的电商独立站建站工具，具备开源�
 
 ## 相关操作
 
-### 切换为中文版
+### 切换后台管理页面语言
+
 1. 参考 [登录网站后台管理页面](#login) 步骤1 -  步骤7，登录管理页面。
-2. 选择左侧导航栏中的**仪表盘** > **更新**。
-3. 进入 “WordPress更新”页面，拉至页面底部，单击**更新翻译**。如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/31de981a34bf3cc0e8f80c89c22f48e4.png)
-4. 待翻译升级成功后，自动进入“更新翻译”页面，单击**转到“WordPress页面”**。如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/ac744dc964ca43c0b5cd05a9a3616e89.png)
-5. 待页面刷新后，您即可查看 WooCommerce 已切换为中文版。
-此时，您的网站后台管理页面，及网站首页均已切换至中文。若您需设置网站首页为英文版，请参考 [切换网站语言](#webLanguage) 进行操作。
-
-
-### 切换网站语言[](id:webLanguage)
-1. 参考 [登录网站后台管理页面](#login) 步骤1 -  步骤7，登录管理页面。
-2. 选择左侧导航栏中的**设置**，进入“常规选项”页面。
-3. 在“常规选项”页面中，找到“站点语言”，并选择 “English（United States）”。本文以切换至英文为例，您可按需选择。如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/f4bdfe6aa547c76179bbc66b03a7d45f.png)
-4. 拉至页面底部，单击**保存更改**即生效，您的网站首页已切换为指定语言。
-
+2. 选择左侧导航栏中的**用户**，进入所有用户列表页面。
+3. 选择您当前登录用户名下的**编辑**。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/d1d724edba875dd458b1c0c1e56ba1cd.png)
+4. 在用户个人资料页面，找到“语言”，设置该用户登录后台管理页面时使用的语言。
+本文以“简体中文”为例，如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/71b0a0b40c5c5493c0f0b47320d32e25.png)
+5. 拉至页面底部，单击**更新个人资料**即生效。
 
 
 ### 使用 WordPress 主题
