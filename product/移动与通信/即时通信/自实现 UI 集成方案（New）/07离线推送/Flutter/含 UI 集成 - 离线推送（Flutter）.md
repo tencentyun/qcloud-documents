@@ -10,7 +10,7 @@
 
 本教程含接入腾讯云即时通信 IM 离线推送全流程。插件已封装上述厂商的 SDK，使用时仅需简单改造调用即可。
 
-如果您的应用不需要离线推送，或场景不满足离线推送的需求，请直接看本文最后一节 “在线推送-在本地创建新消息通知”(#online_push) 在线推送部分。
+如果您的应用不需要离线推送，或场景不满足离线推送的需求，请直接看本文最后一节 [“在线推送-在本地创建新消息通知”](#online_push) 在线推送部分。
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/2ed516e8c5a960fb03abcbc351d8a066.png)
 
@@ -753,7 +753,7 @@ OPPO 手机收不到推送一般有以下几种情况：
 - 离线推送依赖厂商能力，一些简单的字符可能会被厂商过滤不能透传推送。如 OPPO 则对 ext 字段限制为 JSON 格式。
 - 如果离线推送消息出现推送不及时或者偶尔收不到情况，需要看下厂商的推送限制。
 
-## 在线推送-在本地创建新消息通知(id:online_push)
+## 在线推送-在本地创建新消息通知[](id:online_push)
 
 本文以上部分介绍了，如何使用本插件，结合腾讯云IM后端的推送服务，实现通过厂商通道的离线推送。
 
@@ -889,7 +889,7 @@ cPush.displayDefaultNotificationForMessage(
 
 ### 点击通知跳转
 
-本步骤与上文离线推送的Step 6点击回调一致，均为在ext中，读取需要跳转的conversation，并导航过去。
+本步骤与[上文离线推送的步骤6](#step_6)点击回调一致，均为在ext中，读取需要跳转的conversation，并导航过去。
 
 如果您在上一步使用 `displayDefaultNotificationForMessage`，或在 `displayNotification` 中使用与default相同的ext生成函数，此时的ext结构为：` "conversationID": "对应的conversation"`。此处触发的是
 
@@ -897,7 +897,7 @@ cPush.displayDefaultNotificationForMessage(
 
 初始化时，注册该回调方法，可拿到含推送本体及ext信息在内的Map。
 
-> 在后台跳转情况下，此时Flutter首页可能已经unmounted，无法为跳转提供context，因此建议启动时缓存一个context，保证跳转成功。
+>? 在后台跳转情况下，此时Flutter首页可能已经unmounted，无法为跳转提供context，因此建议启动时缓存一个context，保证跳转成功。
 >
 > 建议跳转成功后，清除通知栏中其他通知消息，避免太多IM消息堆积在通知栏中。调用插件中`clearAllNotification()`方法即可。
 
