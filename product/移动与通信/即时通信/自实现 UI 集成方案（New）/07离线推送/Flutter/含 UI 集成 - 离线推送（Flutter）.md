@@ -6,9 +6,11 @@
 >- 在没有主动退出登录的情况下，应用退后台、手机锁屏、或者应用进程被用户主动杀掉三种场景下，如果想继续接收到 IM 消息提醒，可以接入即时通信 IM 离线推送。
 >- 如果应用主动调用  logout 退出登录，或者多端登录被踢下线，即使接入了 IM 离线推送，也收不到离线推送消息。
 
-使用腾讯云IM厂商离线推送 Flutter 集成插件，可快速接入主流厂商（苹果 iOS/Google FCM/OPPO/vivo/华为/小米/魅族）的离线推送。
+使用腾讯云IM厂商推送Flutter集成插件的离线推送能力，可快速接入主流厂商（苹果iOS/Google FCM/OPPO/VIVO/华为/小米/魅族）的离线推送。
 
 本教程含接入腾讯云即时通信 IM 离线推送全流程。插件已封装上述厂商的 SDK，使用时仅需简单改造调用即可。
+
+如果您的应用不需要离线推送，或场景不满足离线推送的需求，请直接看本文最后一节 “在线推送-在本地创建新消息通知”(#online_push) 在线推送部分。
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/2ed516e8c5a960fb03abcbc351d8a066.png)
 
@@ -144,9 +146,13 @@
 ##### 上传证书至控制台
 
 1. 在 [IM 控制台-基础配置](https://console.cloud.tencent.com/im-detail) 右侧，添加 Android 证书。
-2. 选择华为后，请填写相关信息。**单击后续动作**请选择为：**打开应用**。
+2. 选择华为后，请填写相关信息。
 
-![](https://qcloudimg.tencent-cloud.cn/raw/beeddafc39ebd0e2f12d79df8685be06.png)
+`角标参数`请填写Android应用入口 Activity 类，如我们DEMO的 `com.tencent.flutter.tuikit`，否则华为通道下发通知的角标设置将不生效。
+
+`点击后续动作`请选择打开应用。
+
+![20220614153143](https://tuikit-1251787278.cos.ap-guangzhou.myqcloud.com/20220614153143.png)
 
 #### 魅族
 
@@ -169,6 +175,8 @@
 ```shell
 flutter pub add tim_ui_kit_push_plugin
 ```
+
+[并根据该指南](https://cloud.tencent.com/document/product/269/76803)，在插件市场，启用推送插件。
 
 
 ### 步骤1: 汇总常量类[](id:step_1)
@@ -261,7 +269,7 @@ buildscript {
     repositories {
         google()
         jcenter()
-        maven {url 'http://developer.huawei.com/repo/'}     // 添加华为 maven 仓库地址
+        maven {url 'https://developer.huawei.com/repo/'}     // 添加华为 maven 仓库地址
     }
     dependencies {
         // 其他classpath配置
@@ -293,7 +301,7 @@ allprojects {
     repositories {
         google()
         jcenter()
-        maven {url 'http://developer.huawei.com/repo/'}     // 添加华为 maven 仓库地址
+        maven {url 'https://developer.huawei.com/repo/'}     // 添加华为 maven 仓库地址
     }
 }
 ```
@@ -309,6 +317,17 @@ android {
     // app 配置内容
 }
 ```
+
+##### 华为/新荣耀推送角标权限
+
+打开 `android/app/src/main/AndroidManifest.xml` 文件，如下添加 uses-permission 。
+
+```xml
+<uses-permission android:name = "com.huawei.android.launcher.permission.CHANGE_BADGE "/>
+<uses-permission android:name = "com.hihonor.android.launcher.permission.CHANGE_BADGE" />
+```
+
+
 #### vivo
 
 ##### 配置 APPID 及 APPKey
@@ -327,16 +346,26 @@ android {
       }
 ```
 
-或打开 `android/app/src/main/AndroidManifest.xml` 文件，如下添加meta-data。
+打开 `android/app/src/main/AndroidManifest.xml` 文件，在 `<application>` 中，如下添加meta-data。
 
 ```xml
-<meta-data
-  android:name="com.vivo.push.api_key"
-  android:value="" />
-<meta-data
-  android:name="com.vivo.push.app_id"
-  android:value="" />
+  <meta-data
+    android:name="com.vivo.push.api_key"
+    android:value="" />
+  <meta-data
+    android:name="com.vivo.push.app_id"
+    android:value="" />
+</application>
 ```
+
+##### VIVO角标权限
+
+打开 `android/app/src/main/AndroidManifest.xml` 文件，如下添加 uses-permission 。
+
+```xml
+<uses-permission android:name="com.vivo.notification.permission.BADGE_ICON" />
+```
+
 
 #### 小米/OPPO/魅族
 
@@ -412,9 +441,7 @@ cPush.requireNotificationPermission();
 
 需要将当前设备对应厂商的证书 ID 及 Device Token 上报至腾讯云即时通信后台，服务端才可正常使用厂商通道下行通知。
 
-1. 插件支持自动在 appInfo 内找到当前厂商的证书ID，仅需调用`getBuzId()`方法即可获得。
-2. 请使用`getDevicePushToken()`自动获取当前厂商Device Token。
-3. 准备好这两个参数后，使用 IM SDK 的`setOfflinePushConfig()`方法上报。
+插件支持自动在appInfo内找到当前厂商的证书ID，并自动完成Token上报。
 
 >?
 >- 根据个保法内隐私相关规定，请在用户Login后再调用该方法上报。
@@ -427,14 +454,7 @@ final TimUiKitPushPlugin cPush = TimUiKitPushPlugin(
     isUseGoogleFCM: false,
   );
 
-int? businessID = await TimUiKitPushPlugin.getBuzId(PushConfig.appInfo);
-String token = await cPush.getDevicePushToken();
-if (token != "") {
-  TencentImSDKPlugin.v2TIMManager.v2TIMOfflinePushManager.setOfflinePushConfig(
-     token: token,
-     businessID: businessID
-   );
-}
+final bool isUploadSuccess = await cPush.uploadToken(PushConfig.appInfo);
 ```
 
 ### 步骤5: 前后台切换监听[](id:step_5)
@@ -535,6 +555,9 @@ TIMUIKitChat(
 >
 ```Dart
 BuildContext? _cachedContext;
+final TimUiKitPushPlugin cPush = TimUiKitPushPlugin(
+  isUseGoogleFCM: false,
+);
 
 @override
 void initState() {
@@ -546,7 +569,16 @@ void handleClickNotification(Map<String, dynamic> msg) async {
     String ext = msg['ext'] ?? "";
     Map<String, dynamic> extMsp = jsonDecode(ext);
     String convId = extMsp["conversationID"] ?? "";
-    V2TimConversation? targetConversation = await _conversationService.getConversation(conversationID: convId);
+
+    // 此处建议判断当前打开的页面是否是将要跳转的Conversation。
+    // 如果是，建议阻止跳转，以避免进入多个相同页面。
+
+    final targetConversationRes = await TencentImSDKPlugin.v2TIMManager
+        .getConversationManager()
+        .getConversation(conversationID: convId);
+
+    V2TimConversation? targetConversation = targetConversationRes.data;
+
     if(targetConversation != null){
       cPush.clearAllNotification();
       Navigator.push(
@@ -587,7 +619,7 @@ _calling?.call(widget.selectedConversation.userID!, CallingScenes.Audio, offline
 ## 使用插件跑通离线推送（iOS 增补）
 本部分在使用插件跑通离线推送（Android）完成的基础上，补充对应步骤 iOS 端需要做的事情。
 
-该页面没有提到过的步骤，和 Android 端一致。
+该部分没有提到过的步骤，和 Android 端一致。
 
 ### 步骤2: 代码中添加 iOS 工程配置
 1. 使用 Xcode 打开您的项目，在 **Runner**>**Target** 中，配置支持 **Push** 的 **Signing Profile**。
@@ -721,6 +753,202 @@ OPPO 手机收不到推送一般有以下几种情况：
 - 离线推送依赖厂商能力，一些简单的字符可能会被厂商过滤不能透传推送。如 OPPO 则对 ext 字段限制为 JSON 格式。
 - 如果离线推送消息出现推送不及时或者偶尔收不到情况，需要看下厂商的推送限制。
 
+## 在线推送-在本地创建新消息通知(id:online_push)
+
+本文以上部分介绍了，如何使用本插件，结合腾讯云IM后端的推送服务，实现通过厂商通道的离线推送。
+
+但是，在某些情况下，厂商离线推送并不适用。如，您的目标客户端机型非我们兼容的厂商，使用华强北定制的Android设备等。
+
+此时，您只得通过在线监听收到新消息回调，在客户端上，手动触发创建通知。这仅适用于，应用未被kill掉，还处于前后台状态，能正常与IM服务端通信。
+
+为此种情况，本插件在0.3版本中，新增两个本地创建消息的方法，`displayNotification` 自定义通知，及 `displayDefaultNotificationForMessage` 根据消息生成默认通知，您可按需使用。
+
+### 接入前准备
+
+在您的项目中安装IM Flutter 推送插件：
+
+```shell
+flutter pub add tim_ui_kit_push_plugin
+```
+
+[并根据该指南](https://cloud.tencent.com/document/product/269/76803)，在插件市场，启用推送插件。
+
+#### Android
+
+1. 确保 `@mipmap/ic_launcher` 存在且为您的应用Icon。完整路径：`android/app/src/main/res/mipmap/ic_launcher.png`
+
+![20220713155110](https://tuikit-1251787278.cos.ap-guangzhou.myqcloud.com/20220713155110.png)
+
+如果不存在，可手动将您的应用Icon复制进去，或通过Android Studio自动创建不同分辨率版本（`mipmap` 目录右键，`New` => `Image Asset`）。
+
+![20220713155548](https://tuikit-1251787278.cos.ap-guangzhou.myqcloud.com/20220713155548.png)
+
+2. 打开 `android/app/src/main/AndroidManifest.xml` 文件，在您应用的主activity中，添加如下代码。
+
+```xml
+<activity
+    android:showWhenLocked="true"
+    android:turnScreenOn="true">
+```
+
+#### iOS
+
+如果您已经配置iOS端离线推送，可忽略本部分。若无，请在 `ios/Runner/AppDelegate.swift` 或 `ios/Runner/AppDelegate.m`文件中， `didFinishLaunchingWithOptions` 函数内，添加如下代码。可参考我们的DEMO。
+
+Objective-C:
+```objc
+if (@available(iOS 10.0, *)) {
+  [UNUserNotificationCenter currentNotificationCenter].delegate = (id<UNUserNotificationCenterDelegate>) self;
+}
+```
+
+Swift:
+```swift
+if #available(iOS 10.0, *) {
+  UNUserNotificationCenter.current().delegate = self as? UNUserNotificationCenterDelegate
+}
+```
+
+### 初始化插件
+
+请在IM SDK 初始化完成后，初始化本Push插件。实例化一个 `cPush` 插件类，供后续调用。
+
+```dart
+final TimUiKitPushPlugin cPush = TimUiKitPushPlugin();
+
+cPush.init(
+  // 此处绑定点击通知的跳转函数，下文会介绍
+  pushClickAction: onClickNotification,
+);
+```
+
+### 监听新消息回调触发通知
+
+#### 监听 `V2TimAdvancedMsgListener`
+
+如果您已经挂载监听 `V2TimAdvancedMsgListener` ，可忽略本部分；若无，请在IM login后，挂载监听。
+
+代码如下：
+
+```dart
+final advancedMsgListener = V2TimAdvancedMsgListener(
+  onRecvNewMessage: (V2TimMessage newMsg) {
+    // 这里完成监听回调触发事件
+    // 下一步创建的方法，请在这里调用
+  }, 
+});
+
+TencentImSDKPlugin.v2TIMManager
+        .getMessageManager()
+        .addAdvancedMsgListener(listener: advancedMsgListener);
+```
+
+
+
+#### 触发本地消息通知
+
+请从我们提供的两个API中，`displayNotification` 自定义通知，及 `displayDefaultNotificationForMessage` 根据消息生成默认通知，选一个用户触发。
+
+对于Android端，这两个API均需传入 `channelID` 及 `channelName`。若还未创建Channel，请使用插件 `createNotificationChannel()` API创建。
+
+```dart
+cPush.createNotificationChannel(
+        channelId: "new_message",
+        channelName: "消息推送",
+        channelDescription: "推送新聊天消息");
+```
+
+##### `displayNotification`
+
+本API需要您提供 `title`, `body`, 及 `ext` 用于点击跳转信息，三个参数。您可以根据需要自行解析收到的 `V2TimMessage`，生成这三个字段。
+
+![20220713163737](https://tuikit-1251787278.cos.ap-guangzhou.myqcloud.com/20220713163737.png)
+
+为便于跳转，此处ext的生成规则可查看 `displayDefaultNotificationForMessage` 的代码。
+
+```dart
+cPush.displayNotification(
+  channelID: "new_message",
+  channelName: "消息推送",
+  title: "",
+  body: "",
+  ext: ""
+);
+```
+
+##### `displayDefaultNotificationForMessage`
+
+为了方便，推荐您使用此API，自动根据 `V2TimMessage`，生成通知。
+
+您只需传入一个 `V2TimMessage` 即可。
+
+```dart
+cPush.displayDefaultNotificationForMessage(
+        message: message, channelID: "new_message", channelName: "消息推送");
+```
+
+### 点击通知跳转
+
+本步骤与上文离线推送的Step 6点击回调一致，均为在ext中，读取需要跳转的conversation，并导航过去。
+
+如果您在上一步使用 `displayDefaultNotificationForMessage`，或在 `displayNotification` 中使用与default相同的ext生成函数，此时的ext结构为：` "conversationID": "对应的conversation"`。此处触发的是
+
+此时，填上初始化时，为pushClickAction埋的坑。
+
+初始化时，注册该回调方法，可拿到含推送本体及ext信息在内的Map。
+
+> 在后台跳转情况下，此时Flutter首页可能已经unmounted，无法为跳转提供context，因此建议启动时缓存一个context，保证跳转成功。
+>
+> 建议跳转成功后，清除通知栏中其他通知消息，避免太多IM消息堆积在通知栏中。调用插件中`clearAllNotification()`方法即可。
+
+```Dart
+BuildContext? _cachedContext;
+final TimUiKitPushPlugin cPush = TimUiKitPushPlugin(
+      isUseGoogleFCM: false,
+    );
+// 仅限TUIKit
+final TIMUIKitChatController _timuiKitChatController =
+  TIMUIKitChatController();
+
+@override
+void initState() {
+  super.initState();
+  _cachedContext = context;
+}
+
+void onClickNotification(Map<String, dynamic> msg) async {
+    String ext = msg['ext'] ?? "";
+    Map<String, dynamic> extMsp = jsonDecode(ext);
+    String convId = extMsp["conversationID"] ?? "";
+
+    // 【TUIKit】若当前的会话与要跳转至的会话一致，则不跳转
+    final currentConvID = _timuiKitChatController.getCurrentConversation();
+    if(currentConvID == convId.split("_")[1]){
+      return;
+    }
+
+    final targetConversationRes = await TencentImSDKPlugin.v2TIMManager
+        .getConversationManager()
+        .getConversation(conversationID: convId);
+
+    V2TimConversation? targetConversation = targetConversationRes.data;
+
+    if(targetConversation != null){
+      cPush.clearAllNotification();
+      Navigator.push(
+          _cachedContext ?? context,
+          MaterialPageRoute(
+            builder: (context) => Chat(
+              selectedConversation: targetConversation,
+            ),
+          ));
+    }
+  }
+```
+
+如果您自定义了 `ext` 结构，则需自实现点击跳转函数。
+
+此时，您已完成在线推送的接入。测试通过后，你可以在 `onRecvNewMessage` 内定义，触发推送通知的时机及场景。
 
 ## 联系我们
 如果您在接入使用过程中有任何疑问，请加入QQ群：788910197 咨询。    
