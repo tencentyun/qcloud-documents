@@ -17,7 +17,7 @@
 
 ### 模板部署 -- 部署 Koa 示例代码
 1. 登录 [Serverless 控制台](https://console.cloud.tencent.com/sls)。
-2. 单击**新建应用**，选择**Web 应用>Koa 框架**，如下图所示：
+2. 单击**新建应用**，选择**Web 应用 > Koa 框架**，如下图所示：
 ![](https://main.qcloudimg.com/raw/fb2c3d23447e36dc0fb1190002edd780.png)
 3. 单击“下一步”，完成基础配置选择。
 4. 上传方式，选择**示例代码**直接部署，单击**完成**，即可开始应用的部署。
@@ -33,7 +33,6 @@
 #### 本地开发
 
 1. 参考 [Koa.js](https://koajs.com/) 官方文档，安装 Koa 环境并初始化您的 Koa 项目，此处以 `hello world` 为例，`app.js` 内容如下：
-
 ```js
 // app.js
 const Koa = require('koa');
@@ -46,7 +45,6 @@ const main = ctx => {
 app.use(main);
 app.listen(3000);
 ```
-
 2. 在根目录下，执行以下命令在本地直接启动服务。
 ```shell
 node app.js
@@ -74,7 +72,7 @@ node app.js
 ```sh
 chmod 777 scf_bootstrap
 ```
-3. 本地配置完成后，执行启动文件，确保您的服务可以本地正常启动，接下来，登录 [Serverless 控制台](https://console.cloud.tencent.com/sls)，选择**Web 应用>Koa 框架**，上传方式可以选择**本地上传**或**代码仓库拉取**
+3. 本地配置完成后，执行启动文件，确保您的服务可以本地正常启动，接下来，登录 [Serverless 控制台](https://console.cloud.tencent.com/sls)，选择**Web 应用 > Koa 框架**，上传方式可以选择**本地上传**或**代码仓库拉取**
 
 您可以在控制台完成启动文件 `scf_bootstrap` 内容配置，配置完成后，控制台将为您自动生成 启动文件，和项目代码一起打包部署。
 >! 启动文件以项目内文件为准，如果您的项目里已经包含 `scf_bootstrap` 文件，将不会覆盖该内容。

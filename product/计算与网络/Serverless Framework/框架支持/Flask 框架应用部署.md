@@ -10,7 +10,7 @@
 
 ## 模板部署 -- 部署 Flask 示例代码
 1. 登录 [Serverless 控制台](https://console.cloud.tencent.com/sls)。
-2. 单击**新建应用**，选择**Web 应用>Flask 框架**，如下图所示：
+2. 单击**新建应用**，选择**Web 应用 > Flask 框架**，如下图所示：
 ![](https://main.qcloudimg.com/raw/5085acaefb589659b38d6ad796ce80f0.png)
 3. 单击“下一步”，完成基础配置选择。
 ![](https://main.qcloudimg.com/raw/9f22f8c1e5426b5d3d54631caabde012.png)
@@ -78,7 +78,7 @@ pip install -r requirements.txt
 ![](https://main.qcloudimg.com/raw/ea0a28fae8c9ab16dbe447bfe883aafe.png)
 >! 您也可以在 `scf_bootstrap` 中，通过环境变量配置监听端口。
 
-**3. (可选)配置 scf_bootstrap 启动文件**
+**3. （可选）配置 scf_bootstrap 启动文件**
 
 在项目根目录下新建 `scf_bootstrap` 启动文件，在里面完成环境变量配置，指定服务启动命令等自定义操作，确保您的服务可以通过该文件正常启动。
 
@@ -99,7 +99,7 @@ chmod 777 scf_bootstrap
 
 **4. 控制台上传**
 
-登录 [Serverless 控制台](https://console.cloud.tencent.com/sls)，选择**Web 应用>Flask 框架**，上传方式可以选择**本地上传**或**代码仓库拉取**。
+登录 [Serverless 控制台](https://console.cloud.tencent.com/sls)，选择**Web 应用 > Flask 框架**，上传方式可以选择**本地上传**或**代码仓库拉取**。
 
 您可以在控制台完成启动文件 `scf_bootstrap` 内容配置，配置完成后，控制台将为您自动生成 启动文件，和项目代码一起打包部署。
 >! 启动文件以项目内文件为准，如果您的项目里已经包含 `scf_bootstrap` 文件，将不会覆盖该内容。

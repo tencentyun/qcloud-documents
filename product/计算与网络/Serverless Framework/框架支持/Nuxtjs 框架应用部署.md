@@ -7,14 +7,14 @@
 
 
 ## 前提条件
-- 在使用腾讯云 Serverless 应用中心之前，您需要 [注册腾讯云账号](https://cloud.tencent.com/register?s_url=https%3A%2F%2Fcloud.tencent.com%2F) 并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
+在使用腾讯云 Serverless 应用中心之前，您需要 [注册腾讯云账号](https://cloud.tencent.com/register?s_url=https%3A%2F%2Fcloud.tencent.com%2F) 并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
 >! 本文档主要介绍控制台部署方案，您也可以通过命令行完成部署，请参考具体操作请参考 [产品文档](https://cloud.tencent.com/document/product/583/58183)。
 
 ## 操作步骤
 
 ### 模板部署 -- 部署 Nuxt.js 示例代码
 1. 登录 [Serverless 控制台](https://console.cloud.tencent.com/sls)。
-2. 单击**新建应用**，选择**Web 应用>Nuxt.js 框架**，如下图所示：
+2. 单击**新建应用**，选择**Web 应用 > Nuxt.js 框架**，如下图所示：
 ![](https://main.qcloudimg.com/raw/fb2c3d23447e36dc0fb1190002edd780.png)
 3. 单击“下一步”，完成基础配置选择。
 ![](https://main.qcloudimg.com/raw/9f22f8c1e5426b5d3d54631caabde012.png)
@@ -50,7 +50,9 @@ cd nuxt-app && npm run dev
 
 具体步骤如下：
 1. 在项目根目录下新建 `scf_bootstrap` 启动文件，在该文件添加如下内容（用于启动服务并指定启动端口）：
->? 您也可以在控制台完成该模块配置。
+>? 
+>- 此处仅为示例启动文件，具体请根据您的业务场景进行调整。
+>- 示例使用的是云函数标准 node 环境路径，本地调试时，注意修改成您的本地路径。
 >
 ```sh
 #!/var/lang/node12/bin/node
@@ -62,16 +64,11 @@ require("@nuxt/cli")
   });
 ```
 
->!  
-1. 此处仅为示例启动文件，具体请根据您的业务场景进行调整
-2. 示例使用的是云函数标准 node 环境路径，本地调试时，注意修改成您的本地路径
->
-
 新建完成后，还需执行以下命令修改文件可执行权限，默认需要 `777` 或 `755` 权限才可正常启动。示例如下： 
 ```sh
 chmod 777 scf_bootstrap
 ```
-2. 本地配置完成后，执行启动文件，确保您的服务可以本地正常启动，接下来，登录 [Serverless 控制台](https://console.cloud.tencent.com/sls)，选择**Web 应用>Nuxt.js 框架**，上传方式可以选择**本地上传**或**代码仓库拉取**。
+2. 本地配置完成后，执行启动文件，确保您的服务可以本地正常启动，接下来，登录 [Serverless 控制台](https://console.cloud.tencent.com/sls)，选择**Web 应用 > Nuxt.js 框架**，上传方式可以选择**本地上传**或**代码仓库拉取**。
 
 您可以在控制台完成启动文件 `scf_bootstrap` 内容配置，配置完成后，控制台将为您自动生成启动文件，和项目代码一起打包部署。
 >! 启动文件以项目内文件为准，如果您的项目里已经包含 `scf_bootstrap` 文件，将不会覆盖该内容。
