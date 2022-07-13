@@ -9,7 +9,7 @@
 
 ## 模板部署 -- 部署 Django 示例代码
 1. 登录 [Serverless 控制台](https://console.cloud.tencent.com/sls)。
-2. 单击**新建应用**，选择**Web 应用>Django 框架**，如下图所示：
+2. 单击**新建应用**，选择**Web 应用 > Django 框架**，如下图所示：
 ![](https://main.qcloudimg.com/raw/3c03bbfe813cf5d094318593b1cc4ce8.png)
 3. 单击“下一步”，完成基础配置选择。
 ![](https://main.qcloudimg.com/raw/9f22f8c1e5426b5d3d54631caabde012.png)
@@ -66,7 +66,7 @@ pip install -r requirements.txt -t .
 >! 由于初始化的默认项目引用了`db.sqlite3` 库，请同步安装该依赖，或将项目文件内 `setting.py` 里 `DATABASES` 字段部分配置注释掉。
 
 
-**2. (可选)配置 scf_bootstrap 启动文件**
+**2. （可选）配置 scf_bootstrap 启动文件**
 
 >? 您也可以在控制台完成该模块配置。
 >
@@ -94,7 +94,7 @@ chmod 777 scf_bootstrap
 **3. 控制台上传**
 
 
-登录 [Serverless 控制台](https://console.cloud.tencent.com/sls)，选择**Web 应用>Django 框架**，上传方式可以选择**本地上传**或**代码仓库拉取**
+登录 [Serverless 控制台](https://console.cloud.tencent.com/sls)，选择**Web 应用 > Django 框架**，上传方式可以选择**本地上传**或**代码仓库拉取**
 
 您可以在控制台完成启动文件 `scf_bootstrap` 内容配置，配置完成后，控制台将为您自动生成 启动文件，和项目代码一起打包部署。
 >! 启动文件以项目内文件为准，如果您的项目里已经包含 `scf_bootstrap` 文件，将不会覆盖该内容。
