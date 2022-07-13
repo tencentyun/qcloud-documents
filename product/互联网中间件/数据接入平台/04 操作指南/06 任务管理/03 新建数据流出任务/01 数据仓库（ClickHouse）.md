@@ -18,21 +18,21 @@
 4. 配置数据源信息。
    ![](https://qcloudimg.tencent-cloud.cn/raw/f8b47026ccb8b0982605b59d7b926f5b.png)
    - 源 Topic 类型：选择数据源 Topic
-     - DIP Topic：选择在数据接入平台提前创建好的 Topic，详情参见 [Topic 管理](https://cloud.tencent.com/document/product/597/76516)。
+     - DIP Topic：选择在数据接入平台提前创建好的 Topic，详情参见 [Topic 管理](https://cloud.tencent.com/document/product/1591/77020)。
      - CKafka Topic：选择在 CKafka 创建好的实例和 Topic，一条数据流出任务最多支持选择 5 个源 Topic，选中的 Topic 内的数据格式需要保持一致方可转储成功。详情参见 [Topic 管理](https://cloud.tencent.com/document/product/597/73566)。
    - 起始位置：选择转储时历史消息的处理方式，topic offset 设置。
 5. 设置上述信息后，单击**下一步**，单击**预览 Topic 数据**，将会选取**源 Topic** 中的第一条消息进行解析。
 >? 目前解析消息需要满足以下条件：
 >
 >- 消息为 JSON 字符串结构。
->- 源数据必须为单层 JSON 格式，嵌套 JSON 格式可使用 [数据处理](https://cloud.tencent.com/document/product/597/73131#.E5.A4.84.E7.90.86.E5.AD.97.E7.AC.A6.E4.B8.B2.E5.BA.8F.E5.88.97.E5.8C.96-json-.E6.A0.BC.E5.BC.8F.E6.97.A5.E5.BF.97) 进行简单的消息格式转换。 
+>- 源数据必须为单层 JSON 格式，嵌套 JSON 格式可使用 [数据处理](https://cloud.tencent.com/document/product/1591/77082#3) 进行简单的消息格式转换。 
    解析完成后，控制台将会出现解析后的消息字段，可以通过修改预览结果中的 type 属性来确定投递到目标对应列的类型。
    当选择 type 为 `Date` 或 `DateTime` 时，如果源消息格式为整型，将会尝试使用 `unix timestamp` 格式解析；如果源消息格式为字符串，将会尝试用常用的时间格式模式串解析。
    ![](https://qcloudimg.tencent-cloud.cn/raw/4c238e5b241311845b9f92dacb39ef91.png)
-6. （可选）开启数据处理规则，具体配置方法请参见 [简单数据处理](https://cloud.tencent.com/document/product/597/76063)。
+6. （可选）开启数据处理规则，具体配置方法请参见 [简单数据处理](https://cloud.tencent.com/document/product/1591/74495)。
 7. 单击**下一步**，配置数据目标信息。
    ![](https://qcloudimg.tencent-cloud.cn/raw/4f159bc2a6c3a47a2387834d12230103.png)
-   - 源数据：点击拉取源 Topic 数据。源数据必须为单层 JSON 格式，嵌套 JSON 格式可使用 [数据处理](https://cloud.tencent.com/document/product/597/73131#.E5.A4.84.E7.90.86.E5.B5.8C.E5.A5.97.E7.B1.BB.E5.9E.8B.E6.A0.BC.E5.BC.8F.E6.97.A5.E5.BF.97) 功能进行转换。
+   - 源数据：单击拉取源 Topic 数据。源数据必须为单层 JSON 格式，嵌套 JSON 格式可使用 [数据处理](https://cloud.tencent.com/document/product/1591/77082#3) 功能进行转换。
    - 数据目标：选择创建好的 Clickhouse 连接。
    - cluster： ClickHouse 的集群名称（默认为 `default_cluster`）。
    - database：ClickHouse 设置的数据库名称。

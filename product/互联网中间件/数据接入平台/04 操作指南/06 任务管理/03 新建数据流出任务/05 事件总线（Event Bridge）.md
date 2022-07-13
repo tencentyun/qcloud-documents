@@ -23,8 +23,8 @@
    >? 目前解析消息需要满足以下条件：
    >
    >- 消息为 JSON 字符串结构。
-   >- 源数据必须为单层 JSON 格式，嵌套 JSON 格式可使用使用 [数据处理](https://cloud.tencent.com/document/product/597/73131#.E5.A4.84.E7.90.86.E5.AD.97.E7.AC.A6.E4.B8.B2.E5.BA.8F.E5.88.97.E5.8C.96-json-.E6.A0.BC.E5.BC.8F.E6.97.A5.E5.BF.97) 进行简单的消息格式转换。 
-6. （可选）开启数据处理规则，具体配置方法请参见 [简单数据处理](https://cloud.tencent.com/document/product/597/76063)。
+   >- 源数据必须为单层 JSON 格式，嵌套 JSON 格式可使用使用 [数据处理](https://cloud.tencent.com/document/product/1591/77082#3) 进行简单的消息格式转换。 
+6. （可选）开启数据处理规则，具体配置方法请参见 [简单数据处理](https://cloud.tencent.com/document/product/1591/74495)。
 7. 单击**下一步**，配置数据目标信息。
    <dx-tabs>
    :::COS

@@ -23,7 +23,7 @@ DIP 支持订阅MongoDB变更数据，免去对基于 CDC 的订阅组件如（C
     - 监听事件类型：选择监听事件类型，默认选择全部。
     - 写入 Topic 的 key：如果使用 ObjectId 作为写入 topic 的 key，则对同一条 MongoDB 中数据的操作，存放在同一个分区内。
 5. 选择数据目标 Topic，支持选择 **DIP Topic** 或者 **CKafka Topic**。
-   - DIP Topic：选择在数据接入平台提前创建好的 Topic，详情参见 [Topic 管理](https://cloud.tencent.com/document/product/597/76516)。
+   - DIP Topic：选择在数据接入平台提前创建好的 Topic，详情参见 [Topic 管理](https://cloud.tencent.com/document/product/1591/77020)。
    - CKafka Topic：选择在 CKafka 创建好的 Topic，详情参见 [Topic 管理](https://cloud.tencent.com/document/product/597/73566)。
 6. 单击**提交**，可以在任务列表看到刚刚创建的任务，在状态栏可以看到创建进度。
 

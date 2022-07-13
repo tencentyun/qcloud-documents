@@ -18,7 +18,7 @@
    ![](https://qcloudimg.tencent-cloud.cn/raw/0f912ad283e90bd19bb39d45eb188c1b.png)
 5. 单击**下一步**，选择数据目标 Topic，支持选择 **DIP Topic** 或者 **CKafka Topic**。
    ![](https://qcloudimg.tencent-cloud.cn/raw/9cad0d6de6be9a50284b7aa905e2b14a.png)
-   - DIP Topic：选择在数据接入平台提前创建好的 Topic，详情参见 [Topic 管理](https://cloud.tencent.com/document/product/597/76516)。
+   - DIP Topic：选择在数据接入平台提前创建好的 Topic，详情参见 [Topic 管理](https://cloud.tencent.com/document/product/1591/77020)。
    - CKafka Topic：选择在 CKafka 创建好的 Topic，详情参见 [Topic 管理](https://cloud.tencent.com/document/product/597/73566)。
 6. 单击**提交**，任务创建成功后会生成接入点信息。
    ![](https://qcloudimg.tencent-cloud.cn/raw/c99a1f809ecb66155807ab396c3ecffd.png)
@@ -26,7 +26,7 @@
 ## 后续处理
 
 
-接入点生成后，您可以复制接入点信息到 SDK 中使用，用于写入数据，详细说明请参见 [数据上报 SDK](https://cloud.tencent.com/document/product/597/71210)。
+接入点生成后，您可以复制接入点信息到 SDK 中使用，用于写入数据，详细说明请参见 [数据上报 SDK](https://cloud.tencent.com/document/product/1591/74485)。
 
 
 

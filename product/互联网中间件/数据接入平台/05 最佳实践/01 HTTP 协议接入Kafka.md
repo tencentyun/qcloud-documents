@@ -20,7 +20,7 @@ HTTP 数据接入层开启后，公网的 HTTP 客户端可通过云 API 直接�
 
 ### 创建数据接入任务
 
-具体操作请参见 [HTTP 主动上报](https://cloud.tencent.com/document/product/597/66017)。
+具体操作请参见 [HTTP 主动上报](https://cloud.tencent.com/document/product/1591/74484)。
 
 
 ### 使用 SDK 发送消息
@@ -85,7 +85,7 @@ try {
 
 ### 查询消息
 
-通过 [CKafka 控制台](https://cloud.tencent.com/document/product/597/53176) 查询 HTTP 接入层发送的消息，详细操作参见 [消息查询](https://cloud.tencent.com/document/product/597/53176)。如下图，示例 topic 名称为 topicDev 的4号分区查询2号位点消息。
+通过 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 查询 HTTP 接入层发送的消息，详细操作参见 [消息查询](https://cloud.tencent.com/document/product/1591/77047)。如下图，示例 topic 名称为 topicDev 的4号分区查询2号位点消息。
 ![](https://qcloudimg.tencent-cloud.cn/raw/9aa559445ddd6053bc6bcba0eceb9cbf.png)
 
 

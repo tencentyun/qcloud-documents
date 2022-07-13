@@ -22,7 +22,7 @@
    - 源对象：选择源数据对象，当前 Topic 支持的最大消息大小为12MB，单行文本数据超过12MB 会写入失败。
    - 角色授权：使用对象存储（COS）产品功能，您需要授予一个第三方角色代替您执行访问相关产品权限。
 5. 单击**下一步**，选择数据目标 Topic，支持选择 **DIP Topic** 或者 **CKafka Topic**。
-   - DIP Topic：选择在数据接入平台提前创建好的 Topic，详情参见 [Topic 管理](https://cloud.tencent.com/document/product/597/76516)。
+   - DIP Topic：选择在数据接入平台提前创建好的 Topic，详情参见 [Topic 管理](https://cloud.tencent.com/document/product/1591/77020)。
    - CKafka Topic：选择在 CKafka 创建好的 Topic，详情参见 [Topic 管理](https://cloud.tencent.com/document/product/597/73566)。
 6. 单击**提交**，可以在任务列表看到刚刚创建的任务，在状态栏可以看到创建进度。
 

@@ -17,7 +17,7 @@ Datahub 支持接入各种数据源产生的不同类型的数据，统一管理
 4. 在数据源配置页面选择创建好的 DTS 连接，单击**下一步**。
    ![](https://qcloudimg.tencent-cloud.cn/raw/e5d38beed615705cf85e6a938555ba24.png)
 5. 选择数据目标 Topic，支持选择 **DIP Topic** 或者 **CKafka Topic**。
-   - DIP Topic：选择在数据接入平台提前创建好的 Topic，详情参见 [Topic 管理](https://cloud.tencent.com/document/product/597/76516)。
+   - DIP Topic：选择在数据接入平台提前创建好的 Topic，详情参见 [Topic 管理](https://cloud.tencent.com/document/product/1591/77020)。
    - CKafka Topic：选择在 CKafka 创建好的 Topic，详情参见 [Topic 管理](https://cloud.tencent.com/document/product/597/73566)。
 6. 单击**提交**，可以在任务列表看到刚刚创建的任务，在状态栏可以看到创建进度。
 

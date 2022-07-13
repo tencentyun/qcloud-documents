@@ -6,11 +6,11 @@
 
 ### 步骤1： 创建 HTTP 接入点
 
-参见 [创建HTTP上报接入点 ](https://cloud.tencent.com/document/product/597/66017)在 Datahub 控制台创建一个 HTTP 接入点，获取到标识上报 EndPoint 的DatahubId。
+参见 [创建 HTTP 上报接入点](https://cloud.tencent.com/document/product/1591/74484)在 Datahub 控制台创建一个 HTTP 接入点，获取到标识上报 EndPoint 的DatahubId。
 
 ### 步骤2：引入 Java SDK
 
-参见 [SDK中心：Java](https://cloud.tencent.com/document/sdk/Java) 在 Java 项目通过 Maven、Gradle 等方式引入数据上报 SDK。
+参见 [SDK 中心：Java](https://cloud.tencent.com/document/sdk/Java) 在 Java 项目通过 Maven、Gradle 等方式引入数据上报 SDK。
 
 ### 步骤3：数据上报
 
@@ -74,7 +74,7 @@ public class SendMessage
 
 ### 步骤4：消息查询
 
-数据发送成功后，可以在消息查询页面，查看数据是否发送成功，详情参见 [消息查询](https://cloud.tencent.com/document/product/597/53176)。
+数据发送成功后，可以在消息查询页面，查看数据是否发送成功，详情参见 [消息查询](https://cloud.tencent.com/document/product/1591/77047)。
 
 
 
