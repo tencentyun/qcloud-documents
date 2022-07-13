@@ -1,17 +1,19 @@
 创建 MySQL 独享集群主机后，您可通过主机监控页查询主机的 CPU、磁盘、内网宽带和内存情况。
+
 ## 前提条件
-[创建 MySQL 独享集群]()
-[创建 MySQL 独享集群主机]()
+[创建 MySQL 独享集群](https://cloud.tencent.com/document/product/1322/76526)。
+[创建 MySQL 独享集群主机](https://cloud.tencent.com/document/product/1322/76527)。
+
 ## 查看主机监控信息
-1. 登录 [云数据库 MySQL 独享集群控制台](https://console.cloud.tencent.com/dbdcp?region=ap-guangzhou)。
+1. 登录 [云数据库 MySQL 独享集群控制台](https://console.cloud.tencent.com/dbdcp)。
 2. 在页面上方选择目标地域。
-3. 找到目标集群，单击**集群 ID** >选择**主机列表**或直接单击操作列的**管理主机**。
+3. 找到目标集群，单击集群 ID，然后选择**主机列表**，或直接单击**操作**列的**管理主机**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/eb7418889e5eee2e81f0e1bcecdd05da.png)
 4. 在主机列表页，单击监控图标![](https://qcloudimg.tencent-cloud.cn/raw/1d33b0f7204dc702fe75f7bc85da927d.png)，进入主机监控页签。
 ![](https://qcloudimg.tencent-cloud.cn/raw/8790572ed2cf4efb1a6a9fa91e76befd.png)
 
 ## 全屏显示图表
-您可以将单个指标进行全屏显示，方便更清晰的预览指标数据。
+您可以将单个指标进行全屏显示，方便更清晰地预览指标数据。
 1. 在主机监控页，通过单击对应指标右侧的![](https://qcloudimg.tencent-cloud.cn/raw/5ad2d8ff9f3dfcf99cc82d10f0c718ae.png)图标，可全屏显示该指标情况。
 2. 全屏显示预览数据后，可单击右上角的 x，关闭全屏显示窗口。
 
