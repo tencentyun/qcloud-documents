@@ -331,9 +331,9 @@
 	 <tr>
 		<td rowspan=2=>安装包增量</td>
 		<td colspan=2>Android</td>
-		<td>armv7：4.15<br>Marm64：4.53M</td>
-		<td>armv7：5.00<br>Marm64：5.49M</td>
-		<td>armv7：9.15<br>Marm64：10.4M</td>
+		<td>armv7：4.15M<br>arm64：4.53M</td>
+		<td>armv7：5.00M<br>arm64：5.49M</td>
+		<td>armv7：9.15M<br>arm64：10.4M</td>
 	</tr>
 	<tr>
 		<td colspan=2>iOS</td>
