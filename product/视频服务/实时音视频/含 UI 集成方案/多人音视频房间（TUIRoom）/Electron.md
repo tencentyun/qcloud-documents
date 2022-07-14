@@ -38,11 +38,9 @@ TUIRoom 基于腾讯云实时音视频和即时通信服务进行开发。
 
 ### 步骤二：下载并拷贝 TUIRoom 组件
 1. 打开业务侧已有 Electron + Vue3 + TS 项目，如果无 Electron + Vue3 + TS 项目,可通过此模版 [Github](https://github.com/electron-vite/electron-vite-vue/tree/v1.0.0) 生成Electron + Vue3 + TS 的模板工程。
-
->! 本文档介绍的集成步骤基于 electron-vite-vue 模版工程1.0.0版本。
-
->！electron-vite-vue 模版工程最新版本目录结构有调整，如需使用最新版本，可参照本文档自行调整目录和配置。
->
+>! 
+>- 本文档介绍的集成步骤基于 electron-vite-vue 模版工程1.0.0版本。
+>- electron-vite-vue 模版工程最新版本目录结构有调整，如需使用最新版本，可参照本文档自行调整目录和配置。
 2. 成功生成模板工程后，执行以下脚本：
 ```bash
 cd electron-vite-vue
@@ -269,7 +267,7 @@ export default defineConfig({
 });
 ```
 5. **env.d.ts文件配置**
-    - env.d.ts文件配置需要您在 `packages/renderer/src/env.d.ts` 中配置。
+    - env.d.ts 文件配置需要您在 `packages/renderer/src/env.d.ts` 中配置。
 >! 以下配置项为增量配置，不要删除已经存在的 env.d.ts文件配置。
 >
 ```javascript
@@ -286,9 +284,9 @@ declare module 'tim-js-sdk' {
 }
 
 ```
-6. **如果项目中存在import动态加载，需要修改构建配置，打包生成es模块**
-    - 打包生成es模块需要您在 `packages/renderer/vite.config.ts` 中配置。
->! 项目中若不存在import动态加载，请不要进行此配置！以下配置项为增量配置，不要删除已经存在的 Vite 配置项。
+6. **如果项目中存在 import 动态加载，需要修改构建配置，打包生成 es 模块**
+    - 打包生成 es 模块需要您在 `packages/renderer/vite.config.ts` 中配置。
+>! 项目中若不存在 import 动态加载，请不要进行此配置！以下配置项为增量配置，不要删除已经存在的 Vite 配置项。
 >
 ```javascript
 // vite.config.ts
