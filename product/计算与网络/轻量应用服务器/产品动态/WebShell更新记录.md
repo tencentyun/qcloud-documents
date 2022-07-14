@@ -11,15 +11,13 @@ WebShell 目前具备丰富的功能，希望您在使用过程中拥有满意�
 ## 2022年07月
 
 #### 新特性
+- WebShell 界面支持选择实例登录
+您可通过实例选择功能，将多台需登录的实例添加至 WebShell 界面。目前最多支持10台实例同时保持登录状态。详情请参见 [选择实例登录](https://cloud.tencent.com/document/product/1207/44642#choose)。
 - WebShell 界面支持上传/下载文件
 您可直接通过轻量应用服务器控制台，在 WebShell 界面将本地文件上传至实例，或将实例的文件下载至本地。详情请参见 [上传/下载文件](https://cloud.tencent.com/document/product/1207/44642#updownload)。
 - WebShell 界面支持使用实例自助检测
 若您在登录或使用实例过程中遇到问题，可直接在 WebShell 界面中使用实例自助检测。详情请参见 [使用实例自助检测](https://cloud.tencent.com/document/product/1207/44642#selfCheck)。
 
-
-#### 即将上线
-- 多实例登选择
-您可选择不同的实例进行登录。
 
 
 ## 2022年06月

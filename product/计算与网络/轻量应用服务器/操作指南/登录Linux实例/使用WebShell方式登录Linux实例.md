@@ -64,6 +64,23 @@ WebShell 目前具备丰富的功能，希望您在使用过程中拥有满意�
 
 WebShell 功能介绍如下：
 <dx-accordion>
+::: 选择实例登录[](id:choose)
+您可通过该步骤，在一个 WebShell 窗口中选择任意一台实例登录。具体步骤如下：
+
+1. 参考 [使用 WebShell 方式登录 Linux 实例](https://cloud.tencent.com/document/product/1207/44642)，登录实例。
+2. 选择 WebShell 界面工具栏中的 <img src="https://qcloudimg.tencent-cloud.cn/raw/5bb1db36d10fd49f34ecc27eda0e306a.png" style="margin:-3px 0px">。
+3. 首次选择会弹出的“选择要展示的实例”窗口，请选择您期望登录的实例，并单击**确定**。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/ebc15cae5b84fc92dca6c8380dade5ab.png)
+4. 选择 <img src="https://qcloudimg.tencent-cloud.cn/raw/5bb1db36d10fd49f34ecc27eda0e306a.png" style="margin:-3px 0px"> > **添加实例**，并按需添加多个实例。
+<dx-alert infotype="explain" title="">
+目前最多支持添加10个实例。
+</dx-alert>
+5. 添加成功后，您选择任意实例即可登录。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/41089996dd2363a7516c2683794e3cbf.png)
+
+
+
+:::
 ::: 上传/下载文件[](id:updownload)
 
 
