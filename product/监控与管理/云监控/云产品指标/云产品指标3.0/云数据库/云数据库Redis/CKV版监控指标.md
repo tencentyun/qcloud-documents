@@ -1,5 +1,3 @@
->?此文档准备下线中。
-
 ## 命名空间
 
 Namespace = QCE/REDIS
