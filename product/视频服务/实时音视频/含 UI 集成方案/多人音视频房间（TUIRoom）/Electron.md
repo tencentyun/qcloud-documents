@@ -6,8 +6,8 @@ TUIRoom 是一个包含 UI 的开源音视频组件，通过集成 TUIRoom，您
 
 <table>
 <tr>
-<td><img width="460" src="https://web.sdk.qcloud.com/component/tuiroom/assets/page-home.png"></td>
-<td><img width="460" src="https://web.sdk.qcloud.com/component/tuiroom/assets/page-room.png"></td>
+<td><img width="460" src="https://web.sdk.qcloud.com/trtc/electron/download/resources/common/page-room.png"></td>
+<td><img width="460" src="https://web.sdk.qcloud.com/trtc/electron/download/resources/common/page-home.png"></td>
 </tr>
 </table>
 
@@ -37,10 +37,8 @@ TUIRoom 基于腾讯云实时音视频和即时通信服务进行开发。
 [](id:step2)
 
 ### 步骤二：下载并拷贝 TUIRoom 组件
-1. 打开业务侧已有 Electron + Vue3 + TS 项目，如果无 Electron + Vue3 + TS 项目,可通过以下脚本生成 Electron + Vue3 + TS 的模板工程。
-```bash
-npm create electron-vite
-```
+1. 打开业务侧已有 Electron + Vue3 + TS 项目，如果无 Electron + Vue3 + TS 项目,可通过此模版 [Github](https://github.com/electron-vite/electron-vite-vue/tree/v1.0.0) 生成Electron + Vue3 + TS 的模板工程。
+
 >! 执行生成模板工程脚本的过程中，选择 Vue。
 >
 成功生成模板工程后，执行以下脚本：
@@ -187,6 +185,7 @@ export default defineConfig({
 import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
+const path = require('path');
 
 export default defineConfig({
 	// ...
