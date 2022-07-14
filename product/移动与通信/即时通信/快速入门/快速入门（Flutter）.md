@@ -580,7 +580,7 @@ TencentImSDKPlugin.v2TIMManager
 
 如您需得知 Flutter 的环境是否存在问题，请运行 Flutter doctor 检测 Flutter 环境是否装好。
 
-#### 使用 Flutter 自动生成的项目，引入TUIKit 后报错
+#### 使用 Flutter 自动生成的项目，引入TUIKit 后，运行Android端报错
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/d95efdd4ae50f13f38f4c383ca755ae7.png)
 
