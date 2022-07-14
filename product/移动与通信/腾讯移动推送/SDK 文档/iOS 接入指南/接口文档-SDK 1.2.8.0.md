@@ -488,23 +488,19 @@ attributeKeys：用户属性 key 组成的集合，字符串不允许有空格�
 
 badgeNumber：应用的角标数。
 
-> ! 当本地应用角标设置后需调用此接口同步角标值到 TPNS 服务器，并在下次推送时生效，此接口必须在 TPNS 注册成功后调用（xgPushDidRegisteredDeviceToken）。
+> ! 当本地应用角标设置后需调用此接口同步角标值到 TPNS 服务器，并在下次推送时生效，此接口必须在 TPNS 长链接建立后调用（xgPushNetworkConnected）。
 
 #### 示例代码
 
 ```Objective-C
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    /// 每次启动 App 应用角标清零（本地应用角标设置需要在主线程执行）
-    if ([XGPush defaultManager].xgApplicationBadgeNumber > 0) {
-        [XGPush defaultManager].xgApplicationBadgeNumber = 0;
-    }
-    return YES;
-}
-
-- (void)xgPushDidRegisteredDeviceToken:(nullable NSString *)deviceToken xgToken:(nullable NSString *)xgToken error:(nullable NSError *)error {
-    /// 在注册完成后同步角标数到TPNS
-    if (!error) {
+/// TPNS网络连接成功
+/// _launchTag清零标识，比如冷启动/热启动时将此tag设置为YES
+- (void)xgPushNetworkConnected {
+    if (_launchTag) {
+        /// -1不清空通知栏，0清空通知栏
+        [XGPush defaultManager].xgApplicationBadgeNumber = -1;
         [[XGPush defaultManager] setBadge:0];
+        _launchTag = NO;
     }
 }
 
