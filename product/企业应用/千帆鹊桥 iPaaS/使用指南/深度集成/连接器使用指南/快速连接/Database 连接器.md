@@ -1,8 +1,8 @@
 ##  简介
 
-Database连接器可连接第三方关系型数据库系统并执行SQL操作。用户通过连接器配置来配置数据库的连接参数，配置成功后便可执行对应的数据库操作。
+Database 连接器可连接第三方关系型数据库系统并执行SQL操作。用户通过连接器配置来配置数据库的连接参数，配置成功后便可执行对应的数据库操作。
 
-Database连接器目前支持的数据库有：MySQL、Oracle、PostgreSQL、SQL Server。
+Database 连接器目前支持的数据库有：MySQL、Oracle、PostgreSQL、SQL Server。
 
 ##  连接器配置
 
@@ -10,7 +10,7 @@ Database连接器目前支持的数据库有：MySQL、Oracle、PostgreSQL、SQL
 
 | 参数       | 数据类型 | 描述                                                  | **是否必填** | **默认值** |
 | ---------- | -------- | ----------------------------------------------------- | ------------ | ---------- |
-| 数据库类型 | enum     | 数据库类型，支持MySQL、Oracle、PostgreSQL、SQL Server | 是           |            |
+| 数据库类型 | enum     | 数据库类型，支持 MySQL、Oracle、PostgreSQL、SQL Server | 是           |            |
 | 地址       | string   | 数据库地址                                            | 是           |            |
 | 端口号     | int      | 数据库端口号                                          | 是           |            |
 | 用户名     | string   | 用于连接数据库的用户名                                | 是           |            |
@@ -23,7 +23,7 @@ Database连接器目前支持的数据库有：MySQL、Oracle、PostgreSQL、SQL
 
 ## 操作说明
 
-Database连接器目前支持查询、插入、更新、删除、批量插入、批量合并、批量删除、存储过程（目前仅支持Sql Server）操作。
+Database连接器目前支持查询、插入、更新、删除、批量插入、批量合并、批量删除、存储过程（目前仅支持 Sql Server）操作。
 
 ### 查询操作
 <dx-tabs>
@@ -37,28 +37,28 @@ Database连接器目前支持查询、插入、更新、删除、批量插入、
 
 | 参数     | 数据类型 | 描述                                                         | **是否必填** | **默认值** |
 | -------- | -------- | ------------------------------------------------------------ | ------------ | ---------- |
-| 操作模式 | enum     | 操作模式，支持支持支持简单模式-单表查询、简单模式-多表查询和SQL模式 | 是           | SQL模式    |
-| 查询语句 | string   | SQL模式参数，SQL语句，支持两种写法：1. 原生SQL。例: "select * from p where age=12"  2. 嵌入占位符的SQL，使用参数化输入（冒号+参数），可防止SQL注入。例："select * from p where age = :age"， 在”输入参数“中，填入变量名key为"age"，value值为"12"，此时待执行的查询语句为“select * from p where age=12” | 是           |            |
-| 输入参数 | dict     | SQL模式参数，输入参数列表，列表元素为字典，key对应”查询语句“中的参数化变量名，key值需要与参数化变量名一致，value为该变量的值 | 否           |            |
+| 操作模式 | enum     | 操作模式，支持支持支持简单模式-单表查询、简单模式-多表查询和 SQL 模式 | 是           | SQL模式    |
+| 查询语句 | string   | SQL 模式参数，SQL 语句，支持两种写法：1. 原生 SQL。例: "select * from p where age=12"  2. 嵌入占位符的 SQL ，使用参数化输入（冒号+参数），可防止 SQL 注入。例："select * from p where age = :age"， 在”输入参数“中，填入变量名 key 为 "age"，value 值为"12"，此时待执行的查询语句为 “select * from p where age=12” | 是           |            |
+| 输入参数 | dict     | SQL 模式参数，输入参数列表，列表元素为字典，key 对应”查询语句“中的参数化变量名，key 值需要与参数化变量名一致，value 为该变量的值 | 否           |            |
 
 
 ![image-20210706145020450](https://main.qcloudimg.com/raw/3ca26bbdd1656dd753a80523898204ec/database37.png)
 
 ####  输出
 
-查询操作执行成功后，输出结果会保存在Message消息体的payload；执行失败后，错误信息会保存在Message消息体的error。
-组件输出的message信息如下：
+查询操作执行成功后，输出结果会保存在Message消息体的payload；执行失败后，错误信息会保存在 Message 消息体的 error。
+组件输出的 message 信息如下：
 
 
 | message属性 | 值                                                           |
 | ----------- | ------------------------------------------------------------ |
-| payload     | 执行成功后，payload为list类型，list成员为dict类型，键表示数据库字段名称，值表示数据库字段值；执行失败后，payload为空 |
-| error       | 执行成功后，error为空；执行失败后，error为dict类型，包含“Code”和“Description”字段：“Code”字段表示错误类型，“Description”字段表示错误具体信息 |
+| payload     | 执行成功后，payload 为 list 类型，list 成员为 dict 类型，键表示数据库字段名称，值表示数据库字段值；执行失败后，payload 为空 |
+| error       | 执行成功后，error 为空；执行失败后，error 为dict 类型，包含 “Code” 和 “Description” 字段：“Code” 字段表示错误类型，“Description” 字段表示错误具体信息 |
 | attribute   | 继承上个组件的attribute信息                                  |
 | variable    | 继承上个组件的variable信息                                   |
 
 
-例如，执行成功后，message payload值如下：
+例如，执行成功后，message payload 值如下：
 
 ```json
 [
@@ -77,7 +77,7 @@ Database连接器目前支持查询、插入、更新、删除、批量插入、
  ]
 ```
 
-执行失败后，message error值如下：
+执行失败后，message error 值如下：
 
 ```json
 {
@@ -88,7 +88,7 @@ Database连接器目前支持查询、插入、更新、删除、批量插入、
 
 #### 案例
 
-1. 添加Database连接器组件，选择查询操作
+1. 添加 Database 连接器组件，选择查询操作
 
 ![image-20210322174020999](https://main.qcloudimg.com/raw/dedd178d8b4df665832d87897429ba6a/database7.png)
 
@@ -98,7 +98,7 @@ Database连接器目前支持查询、插入、更新、删除、批量插入、
 
 ![image-20210322174307139](https://main.qcloudimg.com/raw/f420cf6b8d1fa8a342de570ace1107b6/database9.png)
 
-3. 在通用配置中，填入SQL语句及输入参数。例如，”查询语句“为`select * from books where book_price > :book_price`，输入参数中key为book_price，value为30，正确的查询结果如下：
+3. 在通用配置中，填入 SQL 语句及输入参数。例如，”查询语句“为`select * from books where book_price > :book_price`，输入参数中 key 为 book_price，value 为30，正确的查询结果如下：
 
    ![image-20210706145213416](https://main.qcloudimg.com/raw/a4b41a731f3a4f4b8833d988b73af174/database38.png)
 
@@ -128,33 +128,33 @@ Database连接器目前支持查询、插入、更新、删除、批量插入、
 
 | 参数     | 数据类型 | 描述                                                         | **是否必填** | **默认值** |
 | -------- | -------- | ------------------------------------------------------------ | ------------ | ---------- |
-| 输出模式 | enum     | 查询所得数据的输出模式，支持普通模式和RecordSet模式          | 是           | 普通模式   |
-| 是否缓存 | bool     | 输出模式为RecordSet模式时的参数，输出的RecordSet数据是否支持缓存 | 否           | false      |
-| 分区数量 | int      | 输出模式为RecordSet模式时的参数，输出的RecordSet数据分区数设置，范围[1,10] | 是           | 1          |
+| 输出模式 | enum     | 查询所得数据的输出模式，支持普通模式和 RecordSet 模式          | 是           | 普通模式   |
+| 是否缓存 | bool     | 输出模式为 RecordSet 模式时的参数，输出的 RecordSet 数据是否支持缓存 | 否           | false      |
+| 分区数量 | int      | 输出模式为 RecordSet 模式时的参数，输出的 RecordSet 数据分区数设置，范围[1,10] | 是           | 1          |
 
 
 #### 输出
 
-查询操作执行成功后，输出结果会保存在Message消息体的payload；执行失败后，错误信息会保存在Message消息体的error。
+查询操作执行成功后，输出结果会保存在 Message 消息体的 payload；执行失败后，错误信息会保存在Message消息体的error。
 
-组件输出的message信息如下：
+组件输出的 message 信息如下：
 
 
 | message属性 | 值                                                           |
 | ----------- | ------------------------------------------------------------ |
-| payload     | 执行成功后，payload为list类型，list成员为dict类型，键表示数据库字段名称，值表示数据库字段值；执行失败后，payload为空 |
-| error       | 执行成功后，error为空；执行失败后，error为dict类型，包含“Code”和“Description”字段：“Code”字段表示错误类型，“Description”字段表示错误具体信息 |
-| attribute   | 继承上个组件的attribute信息                                  |
-| variable    | 继承上个组件的variable信息                                   |
+| payload     | 执行成功后，payload 为 list 类型，list 成员为 dict 类型，键表示数据库字段名称，值表示数据库字段值；执行失败后，payload 为空 |
+| error       | 执行成功后，error 为空；执行失败后，error 为dict 类型，包含 “Code” 和 “Description” 字段：“Code” 字段表示错误类型，“Description” 字段表示错误具体信息 |
+| attribute   | 继承上个组件的 attribute 信息                                  |
+| variable    | 继承上个组件的 variable 信息                                   |
 
 
 #### 案例
 
-1. 添加Database连接器组件，选择查询操作
+1. 添加 Database 连接器组件，选择查询操作
 
 2. 新建连接器配置或选择已创建的连接器配置
 
-3. 配置中的“表选择”选择数据表“books”，“字段选择”填写“book_id”和“book_name”字段，，输出模式选择“普通输出”，过滤条件中填写如下内容：
+3. 配置中的“表选择”选择数据表 “books” ，“字段选择”填写 “book_id” 和 “book_name” 字段，，输出模式选择“普通输出”，过滤条件中填写如下内容：
 
    ![image-20210706145432851](https://main.qcloudimg.com/raw/95fe552c43461e825e80649b3b62ee72/database39.png)
 
@@ -172,7 +172,7 @@ Database连接器目前支持查询、插入、更新、删除、批量插入、
 
 | 参数     | 数据类型 | 描述                                                         | **是否必填** | **默认值** |
 | -------- | -------- | ------------------------------------------------------------ | ------------ | ---------- |
-| 操作模式 | enum     | 操作模式，支持支持支持简单模式-单表查询、简单模式-多表查询和SQL模式 | 是           | SQL模式    |
+| 操作模式 | enum     | 操作模式，支持支持支持简单模式-单表查询、简单模式-多表查询和 SQL 模式 | 是           | SQL模式    |
 
 
 ​	**查询逻辑配置**：
@@ -180,8 +180,8 @@ Database连接器目前支持查询、插入、更新、删除、批量插入、
 
 | 参数     | 数据类型 | 描述                                                         | **是否必填** | **默认值** |
 | -------- | -------- | ------------------------------------------------------------ | ------------ | ---------- |
-| 连接类型 | enum     | 简单模式-多表查询参数，支持INNER JOIN、LEFT JOIN、RIGHT JOIN | 是           |            |
-| 连接条件 | list     | 简单模式-多表查询参数，数据表间join查询的连接条件            | 是           |            |
+| 连接类型 | enum     | 简单模式-多表查询参数，支持 INNER JOIN、LEFT JOIN、RIGHT JOIN | 是           |            |
+| 连接条件 | list     | 简单模式-多表查询参数，数据表间 join 查询的连接条件            | 是           |            |
 | 过滤条件 | list     | 简单模式-单表查询参数，查询的过滤条件                        | 否           |            |
 | 字段选择 | list     | 简单模式-多表查询参数，查询的数据表字段                      | 是           |            |
 
@@ -191,29 +191,29 @@ Database连接器目前支持查询、插入、更新、删除、批量插入、
 
 | 参数     | 数据类型 | 描述                                                         | **是否必填** | **默认值** |
 | -------- | -------- | ------------------------------------------------------------ | ------------ | ---------- |
-| 输出模式 | enum     | 查询所得数据的输出模式，支持普通模式和RecordSet模式          | 是           | 普通模式   |
-| 是否缓存 | bool     | 输出模式为RecordSet模式时的参数，输出的RecordSet数据是否支持缓存 | 否           | false      |
-| 分区数量 | int      | 输出模式为RecordSet模式时的参数，输出的RecordSet数据分区数设置，范围[1,10] | 是           | 1          |
+| 输出模式 | enum     | 查询所得数据的输出模式，支持普通模式和 RecordSet 模式          | 是           | 普通模式   |
+| 是否缓存 | bool     | 输出模式为 RecordSet 模式时的参数，输出的 RecordSet 数据是否支持缓存 | 否           | false      |
+| 分区数量 | int      | 输出模式为 RecordSet 模式时的参数，输出的 RecordSet 数据分区数设置，范围[1,10] | 是           | 1          |
 
 
 #### 输出
 
-查询操作执行成功后，输出结果会保存在Message消息体的payload；执行失败后，错误信息会保存在Message消息体的error。
+查询操作执行成功后，输出结果会保存在 Message 消息体的 payload；执行失败后，错误信息会保存在 Message 消息体的 error。
 
-组件输出的message信息如下：
+组件输出的 message 信息如下：
 
 
-| message属性 | 值                                                           |
+| message 属性 | 值                                                           |
 | ----------- | ------------------------------------------------------------ |
-| payload     | 执行成功后，payload为list类型，list成员为dict类型，键表示数据库字段名称，值表示数据库字段值；执行失败后，payload为空 |
-| error       | 执行成功后，error为空；执行失败后，error为dict类型，包含“Code”和“Description”字段：“Code”字段表示错误类型，“Description”字段表示错误具体信息 |
-| attribute   | 继承上个组件的attribute信息                                  |
-| variable    | 继承上个组件的variable信息                                   |
+| payload     | 执行成功后，payload 为 list 类型，list 成员为 dict 类型，键表示数据库字段名称，值表示数据库字段值；执行失败后，payload 为空 |
+| error       | 执行成功后，error 为空；执行失败后，error 为 dict 类型，包含 “Code” 和 “Description” 字段：“Code” 字段表示错误类型，“Description” 字段表示错误具体信息 |
+| attribute   | 继承上个组件的 attribute 信息                                  |
+| variable    | 继承上个组件的 variable 信息                                   |
 
 
 #### 案例
 
-1. 添加Database连接器组件，选择查询操作
+1. 添加 Database 连接器组件，选择查询操作
 
 2. 新建连接器配置或选择已创建的连接器配置
 
@@ -221,44 +221,44 @@ Database连接器目前支持查询、插入、更新、删除、批量插入、
 
    ![image-20210706155231095](https://main.qcloudimg.com/raw/03051a4f09e66c0433e575a29f56e7c5/database48.png)
 
-查询成功后，message payload中包含了查询结果：
+查询成功后，message payload 中包含了查询结果：
 
 ![image-20210624192504242](https://main.qcloudimg.com/raw/3c0b39b96d0c4274bdcda16c1b5988a1/database32.png)
 
 ::: 
 
-:::  Recordset输出模式
+:::  Recordset 输出模式
 
 #### 输出
 
-查询操作执行成功后，输出结果会保存在Message消息体的payload；执行失败后，错误信息会保存在Message消息体的error。
+查询操作执行成功后，输出结果会保存在 Message 消息体的 payload；执行失败后，错误信息会保存在 Message 消息体的 error。
 
 组件输出的message信息如下：
 
 
 | message属性 | 值                                                           |
 | ----------- | ------------------------------------------------------------ |
-| payload     | 执行成功后，payload为RecordSet类型数据；执行失败后，payload为空 |
-| error       | 执行成功后，error为空；执行失败后，error为dict类型，包含“Code”和“Description”字段：“Code”字段表示错误类型，“Description”字段表示错误具体信息 |
-| attribute   | 继承上个组件的attribute信息                                  |
-| variable    | 继承上个组件的variable信息                                   |
+| payload     | 执行成功后，payload 为 RecordSet 类型数据；执行失败后，payload 为空 |
+| error       | 执行成功后，error 为空；执行失败后，error 为dict 类型，包含 “Code” 和 “Description” 字段：“Code” 字段表示错误类型，“Description” 字段表示错误具体信息 |
+| attribute   | 继承上个组件的 attribute 信息                                  |
+| variable    | 继承上个组件的 variable 信息                                   |
 
 
 #### 案例
 
-1. 添加Database连接器组件，选择查询操作
+1. 添加 Database 连接器组件，选择查询操作
 
 2. 新建连接器配置或选择已创建的连接器配置
 
-3. 在配置中填写如下配置，输出模式选择“RecordSet模式”：
+3. 在配置中填写如下配置，输出模式选择 “RecordSet 模式”：
 
    ![image-20210706155048420](https://main.qcloudimg.com/raw/cfca41b5da11f06eb86a1e51ae2c4256/database47.png)
 
-查询成功后，message payload中包含了查询结果，该查询结果为RecordSet类型：
+查询成功后，message payload 中包含了查询结果，该查询结果为 RecordSet 类型：
 
 ![image-20210624194603160](https://main.qcloudimg.com/raw/2013e269c3ad7d154b68fcee17c07a64/database34.png)
 
-可以通过“For Each”组件对RecordSet数据进行迭代：
+可以通过 “For Each” 组件对 RecordSet 数据进行迭代：
 
 ![image-20210624194833360](https://main.qcloudimg.com/raw/b9dace4bf8d31995201f34061790e93a/database35.png)
 
@@ -279,29 +279,29 @@ Database连接器目前支持查询、插入、更新、删除、批量插入、
 
 | 参数     | 数据类型 | 描述                                                         | **是否必填** | **默认值** |
 | -------- | -------- | ------------------------------------------------------------ | ------------ | ---------- |
-| 操作模式 | enum     | 支持简单模式和SQL模式；简单模式可辅助编写操作语句，SQL模式下可编写结构化SQL语句" | 是           | SQL模式    |
-| 插入语句 | string   | SQL模式参数，SQL语句，支持两种写法：1. 原生SQL。  2. 嵌入占位符的SQL，使用参数化输入（冒号+参数），可防止SQL注入 | 是           |            |
-| 输入参数 | dict     | SQL模式，输入参数列表，列表元素为字典，key对应”插入语句“中的参数化变量名，key值需要与参数化变量名一致，value为该变量的值 | 否           |            |
+| 操作模式 | enum     | 支持简单模式和 SQL 模式；简单模式可辅助编写操作语句，SQL 模式下可编写结构化 SQL 语句" | 是           | SQL模式    |
+| 插入语句 | string   | SQL 模式参数，SQL 语句，支持两种写法：1. 原生SQL。  2. 嵌入占位符的 SQL ，使用参数化输入（冒号+参数），可防止 SQL 注入 | 是           |            |
+| 输入参数 | dict     | SQL 模式，输入参数列表，列表元素为字典，key 对应”插入语句“中的参数化变量名，key 值需要与参数化变量名一致，value 为该变量的值 | 否           |            |
 
 
 ![image-20210706154015476](https://main.qcloudimg.com/raw/d70e2efcf5dd0a659cfd4f17d86154b7/database40.png)
 
 ####  输出
 
-操作执行成功后，输出结果会保存在message消息体的payload；执行失败后，错误信息会保存在message消息体的error。
+操作执行成功后，输出结果会保存在 message 消息体的 payload；执行失败后，错误信息会保存在 message 消息体的 error。
 
 组件输出的message信息如下：
 
 
-| message属性 | 值                                                           |
+| message 属性 | 值                                                           |
 | ----------- | ------------------------------------------------------------ |
-| payload     | 执行成功后，payload为list类型，包含“rowsAffected”字段，当为MySQL数据库时，会额外包含“lastId”字段；执行失败后，payload为空 |
-| error       | 执行成功后，error为空；执行失败后，error为dict类型，包含“Code”和“Description”元素：“Code”表示错误类型，“Description”表示错误具体信息 |
-| attribute   | 继承上个组件的attribute信息                                  |
-| variable    | 继承上个组件的variable信息                                   |
+| payload     | 执行成功后，payload 为 list 类型，包含 “rowsAffected” 字段，当为 MySQL 数据库时，会额外包含 “lastId” 字段；执行失败后，payload 为空 |
+| error       | 执行成功后，error 为空；执行失败后，error 为 dict 类型，包含 “Code” 和 “Description” 元素：“Code” 表示错误类型，“Description” 表示错误具体信息 |
+| attribute   | 继承上个组件的 attribute 信息                                  |
+| variable    | 继承上个组件的 variable 信息                                   |
 
 
-例如，MySQL数据库的插入操作，执行成功后，message payload值如下：
+例如，MySQL 数据库的插入操作，执行成功后，message payload 值如下：
 
 ```json
 {
@@ -310,7 +310,7 @@ Database连接器目前支持查询、插入、更新、删除、批量插入、
 }
 ```
 
-执行失败后，message error值如下：
+执行失败后，message error 值如下：
 
 ```json
 {
@@ -322,11 +322,11 @@ Database连接器目前支持查询、插入、更新、删除、批量插入、
 
 ### 案例
 
-1. 添加Database连接器组件，选择插入操作
+1. 添加 Database 连接器组件，选择插入操作
 
 2. 新建连接器或选择已创建的连接器
 
-3. 在通用配置中，填入SQL语句及输入参数。例如，”插入语句“为`insert into books (book_auth, book_name, book_price) values (:book_auth, :book_name, :book_price)`，输入参数使用Dataway格式编写
+3. 在通用配置中，填入 SQL 语句及输入参数。例如，”插入语句“为`insert into books (book_auth, book_name, book_price) values (:book_auth, :book_name, :book_price)`，输入参数使用 Dataway 格式编写
 
    ```python
    def dw_process(msg):
@@ -367,22 +367,22 @@ Database连接器目前支持查询、插入、更新、删除、批量插入、
 
 ####  输出
 
-操作执行成功后，输出结果会保存在message消息体的payload；执行失败后，错误信息会保存在message消息体的error。
+操作执行成功后，输出结果会保存在 message 消息体的 payload；执行失败后，错误信息会保存在 message 消息体的 error。
 
-组件输出的message信息如下：
+组件输出的 message 信息如下：
 
 
-| message属性 | 值                                                           |
+| message 属性 | 值                                                           |
 | ----------- | ------------------------------------------------------------ |
-| payload     | 执行成功后，payload为list类型，包含“rowsAffected”字段，当为MySQL数据库时，会额外包含“lastId”字段；执行失败后，payload为空 |
-| error       | 执行成功后，error为空；执行失败后，error为dict类型，包含“Code”和“Description”元素：“Code”表示错误类型，“Description”表示错误具体信息 |
-| attribute   | 继承上个组件的attribute信息                                  |
-| variable    | 继承上个组件的variable信息                                   |
+| payload     | 执行成功后，payload 为 list 类型，包含 “rowsAffected” 字段，当为 MySQL 数据库时，会额外包含 “lastId” 字段；执行失败后，payload 为空 |
+| error       | 执行成功后，error 为空；执行失败后，error 为 dict 类型，包含 “Code” 和 “Description” 元素：“Code” 表示错误类型，“Description” 表示错误具体信息 |
+| attribute   | 继承上个组件的 attribute 信息                                  |
+| variable    | 继承上个组件的 variable 信息                                   |
 
 
 #### 案例
 
-1. 添加Database连接器组件，选择插入操作
+1. 添加 Database 连接器组件，选择插入操作
 
 2. 新建连接器配置或选择已创建的连接器配置
 
@@ -405,9 +405,9 @@ Database连接器目前支持查询、插入、更新、删除、批量插入、
 
 | 参数     | 数据类型 | 描述                                                         | **是否必填** | **默认值** |
 | -------- | -------- | ------------------------------------------------------------ | ------------ | ---------- |
-| 操作模式 | enum     | 支持简单模式和SQL模式；简单模式可辅助编写操作语句，SQL模式下可编写结构化SQL语句" | 是           | SQL模式    |
-| 更新语句 | string   | SQL模式参数，SQL语句，支持两种写法：1. 原生SQL。  2. 嵌入占位符的SQL，使用参数化输入（冒号+参数），可防止SQL注入 | 是           |            |
-| 输入参数 | dict     | SQL模式，输入参数列表，列表元素为字典，key对应”更新语句“中的参数化变量名，key值需要与参数化变量名一致，value为该变量的值 | 否           |            |
+| 操作模式 | enum     | 支持简单模式和 SQL 模式；简单模式可辅助编写操作语句，SQL模式下可编写结构化 SQL 语句" | 是           | SQL模式    |
+| 更新语句 | string   | SQL 模式参数，SQL 语句，支持两种写法：1. 原生SQL。  2. 嵌入占位符的 SQL ，使用参数化输入（冒号+参数），可防止SQL注入 | 是           |            |
+| 输入参数 | dict     | SQL 模式，输入参数列表，列表元素为字典，key 对应”更新语句“中的参数化变量名，key 值需要与参数化变量名一致，value 为该变量的值 | 否           |            |
 
 
 ![image-20210706154234388](https://main.qcloudimg.com/raw/40a1ad7c71b3dae39da056cacdee83bd/database42.png)
@@ -415,20 +415,20 @@ Database连接器目前支持查询、插入、更新、删除、批量插入、
 
 ####  输出
 
-操作执行成功后，输出结果会保存在Message消息体的payload；执行失败后，错误信息会保存在Message消息体的error。
+操作执行成功后，输出结果会保存在 Message 消息体的 payload；执行失败后，错误信息会保存在 Message 消息体的 error。
 
-组件输出的message信息如下：
+组件输出的 message 信息如下：
 
 
-| message属性 | 值                                                           |
+| message 属性 | 值                                                           |
 | ----------- | ------------------------------------------------------------ |
-| payload     | 执行成功后，payload为list类型，包含“rowsAffected”字段；执行失败后，payload为空 |
-| error       | 执行成功后，error为空；执行失败后，error为dict类型，包含“Code”和“Description”元素：“Code”表示错误类型，“Description”表示错误具体信息 |
-| attribute   | 继承上个组件的attribute信息                                  |
-| variable    | 继承上个组件的variable信息                                   |
+| payload     | 执行成功后，payload 为 list 类型，包含 “rowsAffected” 字段；执行失败后，payload 为空 |
+| error       | 执行成功后，error 为空；执行失败后，error 为 dict 类型，包含 “Code” 和 “Description” 元素：“Code” 表示错误类型，“Description” 表示错误具体信息 |
+| attribute   | 继承上个组件的 attribute 信息                                  |
+| variable    | 继承上个组件的 variable 信息                                   |
 
 
-例如，执行成功后，message payload值如下：
+例如，执行成功后，message payload 值如下：
 
 ```json
 {
@@ -447,11 +447,11 @@ Database连接器目前支持查询、插入、更新、删除、批量插入、
 
 #### 案例
 
-1. 添加Database连接器组件，选择更新操作
+1. 添加 Database 连接器组件，选择更新操作
 
 2. 新建连接器或选择已创建的连接器
 
-3. 在通用配置中，填入SQL语句及输入参数。例如，”更新语句“为`update books set book_price = :book_price where book_name = :book_name`，输入参数如下：
+3. 在通用配置中，填入 SQL 语句及输入参数。例如，”更新语句“为`update books set book_price = :book_price where book_name = :book_name`，输入参数如下：
 
    ```python
    def dw_process(msg):
@@ -476,7 +476,7 @@ Database连接器目前支持查询、插入、更新、删除、批量插入、
 
 | 参数     | 数据类型 | 描述                                                         | **是否必填** | **默认值** |
 | -------- | -------- | ------------------------------------------------------------ | ------------ | ---------- |
-| 操作模式 | enum     | 支持简单模式和SQL模式；简单模式可辅助编写操作语句，SQL模式下可编写结构化SQL语句" | 是           | SQL模式    |
+| 操作模式 | enum     | 支持简单模式和 SQL 模式；简单模式可辅助编写操作语句，SQL模式下可编写结构化SQL语句" | 是           | SQL模式    |
 
 
 ​	**更新逻辑配置**：
@@ -491,22 +491,22 @@ Database连接器目前支持查询、插入、更新、删除、批量插入、
 
 ####  输出
 
-操作执行成功后，输出结果会保存在Message消息体的payload；执行失败后，错误信息会保存在Message消息体的error。
+操作执行成功后，输出结果会保存在 Message 消息体的 payload ；执行失败后，错误信息会保存在 Message 消息体的 error。
 
-组件输出的message信息如下：
+组件输出的 message 信息如下：
 
 
-| message属性 | 值                                                           |
+| message 属性 | 值                                                           |
 | ----------- | ------------------------------------------------------------ |
-| payload     | 执行成功后，payload为list类型，包含“rowsAffected”字段；执行失败后，payload为空 |
-| error       | 执行成功后，error为空；执行失败后，error为dict类型，包含“Code”和“Description”元素：“Code”表示错误类型，“Description”表示错误具体信息 |
-| attribute   | 继承上个组件的attribute信息                                  |
-| variable    | 继承上个组件的variable信息                                   |
+| payload     | 执行成功后，payload 为 list 类型，包含 “rowsAffected” 字段；执行失败后，payload 为空 |
+| error       | 执行成功后，error 为空；执行失败后，error 为 dict 类型，包含 “Code” 和 “Description” 元素：“Code” 表示错误类型，“Description” 表示错误具体信息 |
+| attribute   | 继承上个组件的 attribute 信息                                  |
+| variable    | 继承上个组件的 variable 信息                                   |
 
 
 #### 案例
 
-1. 添加Database连接器组件，选择更新操作
+1. 添加 Database 连接器组件，选择更新操作
 
 2. 新建连接器或选择已创建的连接器
 
@@ -529,29 +529,29 @@ Database连接器目前支持查询、插入、更新、删除、批量插入、
 
 | 参数     | 数据类型 | 描述                                                         | **是否必填** | **默认值** |
 | -------- | -------- | ------------------------------------------------------------ | ------------ | ---------- |
-| 操作模式 | enum     | 支持简单模式和SQL模式；简单模式可辅助编写操作语句，SQL模式下可编写结构化SQL语句" | 是           | SQL模式    |
-| 删除语句 | string   | SQL模式，SQL语句，支持两种写法：1. 原生SQL。  2. 嵌入占位符的SQL，使用参数化输入（冒号+参数），可防止SQL注入 | 是           |            |
-| 输入参数 | dict     | SQL模式，输入参数列表，列表元素为字典，key对应”删除语句“中的参数化变量名，key值需要与参数化变量名一致，value为该变量的值 | 否           |            |
+| 操作模式 | enum     | 支持简单模式和 SQL 模式；简单模式可辅助编写操作语句，SQL 模式下可编写结构化 SQL 语句" | 是           | SQL 模式    |
+| 删除语句 | string   | SQL 模式，SQL语句，支持两种写法：1. 原生SQL。  2. 嵌入占位符的 SQL，使用参数化输入（冒号+参数），可防止 SQL 注入 | 是           |            |
+| 输入参数 | dict     | SQL 模式，输入参数列表，列表元素为字典，key 对应”删除语句“中的参数化变量名，key 值需要与参数化变量名一致，value 为该变量的值 | 否           |            |
 
 
 ![image-20210706154506714](https://main.qcloudimg.com/raw/9877797277ceccca3f038d398d0db265/database44.png)
 
 #### 输出
 
-操作执行成功后，输出结果会保存在message消息体的payload；执行失败后，错误信息会保存在message消息体的error。
+操作执行成功后，输出结果会保存在 message 消息体的 payload；执行失败后，错误信息会保存在 message 消息体的 error。
 
-组件输出的message信息如下：
+组件输出的 message 信息如下：
 
 
-| message属性 | 值                                                           |
+| message 属性 | 值                                                           |
 | ----------- | ------------------------------------------------------------ |
-| payload     | 执行成功后，payload为list类型，包含“rowsAffected”字段；执行失败后，payload为空 |
-| error       | 执行成功后，error为空；执行失败后，error为dict类型，包含“Code”和“Description”元素：“Code”表示错误类型，“Description”表示错误具体信息 |
-| attribute   | 继承上个组件的attribute信息                                  |
-| variable    | 继承上个组件的variable信息                                   |
+| payload     | 执行成功后，payload 为 list 类型，包含“rowsAffected”字段；执行失败后，payload为空 |
+| error       | 执行成功后，error 为空；执行失败后，error 为 dict 类型，包含 “Code” 和 “Description” 元素：“Code” 表示错误类型，“Description” 表示错误具体信息 |
+| attribute   | 继承上个组件的 attribute 信息                                  |
+| variable    | 继承上个组件的 variable 信息                                   |
 
 
-例如，执行成功后，message payload值如下：
+例如，执行成功后，message payload 值如下：
 
 ```json
 {
@@ -559,7 +559,7 @@ Database连接器目前支持查询、插入、更新、删除、批量插入、
 }
 ```
 
-执行失败后，message error值如下：
+执行失败后，message error 值如下：
 
 ```json
 {
@@ -570,11 +570,11 @@ Database连接器目前支持查询、插入、更新、删除、批量插入、
 
 #### 案例
 
-1. 添加Database连接器组件，选择删除操作
+1. 添加 Database 连接器组件，选择删除操作
 
 2. 新建连接器或选择已创建的连接器
 
-3. 在通用配置中，填入SQL语句及输入参数。例如，”删除语句“为`delete from books where book_name = :book_name`，输入参数如下：
+3. 在通用配置中，填入 SQL 语句及输入参数。例如，”删除语句“为`delete from books where book_name = :book_name`，输入参数如下：
 
    ```python
    def dw_process(msg):
@@ -613,22 +613,22 @@ Database连接器目前支持查询、插入、更新、删除、批量插入、
 
 ####  输出
 
-操作执行成功后，输出结果会保存在message消息体的payload；执行失败后，错误信息会保存在message消息体的error。
+操作执行成功后，输出结果会保存在 message 消息体的 payload；执行失败后，错误信息会保存在 message 消息体的 error。
 
-组件输出的message信息如下：
+组件输出的 message 信息如下：
 
 
-| message属性 | 值                                                           |
+| message 属性 | 值                                                           |
 | ----------- | ------------------------------------------------------------ |
-| payload     | 执行成功后，payload为list类型，包含“rowsAffected”字段；执行失败后，payload为空 |
-| error       | 执行成功后，error为空；执行失败后，error为dict类型，包含“Code”和“Description”元素：“Code”表示错误类型，“Description”表示错误具体信息 |
-| attribute   | 继承上个组件的attribute信息                                  |
-| variable    | 继承上个组件的variable信息                                   |
+| payload     | 执行成功后，payload 为 list 类型，包含 “rowsAffected” 字段；执行失败后，payload 为空 |
+| error       | 执行成功后，error 为空；执行失败后，error 为 dict 类型，包含 “Code” 和 “Description” 元素：“Code” 表示错误类型，“Description” 表示错误具体信息 |
+| attribute   | 继承上个组件的 attribute 信息                                  |
+| variable    | 继承上个组件的 variable 信息                                   |
 
 
 #### 案例
 
-1. 添加Database连接器组件，选择删除操作
+1. 添加 Database 连接器组件，选择删除操作
 
 2. 新建连接器或选择已创建的连接器
 
@@ -661,9 +661,9 @@ Database连接器目前支持查询、插入、更新、删除、批量插入、
 
 ####  输出
 
-组件输出的message信息如下：
+组件输出的 message 信息如下：
 
-| message属性 | 值                                                           |
+| message 属性 | 值                                                           |
 | ----------- | ------------------------------------------------------------ |
 | payload     | 执行成功后，payload为前一个组件的payload；执行失败后，payload为空 |
 | error       | 执行成功后，error为空；执行失败后，error为dict类型，包含“Code”和“Description”元素：“Code”表示错误类型，“Description”表示错误具体信息 |
@@ -672,15 +672,15 @@ Database连接器目前支持查询、插入、更新、删除、批量插入、
 
 #### 案例
 
-1. 添加Database连接器组件，选择批量插入操作
+1. 添加 Database 连接器组件，选择批量插入操作
 
 2. 新建连接器或选择已创建的连接器
 
-3. 通过“RecordSet Encoder”生成RecordSet类型的数据，在“Encoder”组件中设置如下Schema：
+3. 通过“RecordSet Encoder”生成 RecordSet 类型的数据，在 “Encoder” 组件中设置如下 Schema：
 
    ![image-20210624201918451](https://main.qcloudimg.com/raw/6ce16796b5196581f86ea7111b03abf4/database45.png)
 
-4. 在“Encoder”组件选择“Set Payload”组件，按如下配置设置：
+4. 在 “Encoder” 组件选择 “Set Payload” 组件，按如下配置设置：
 
    ```python
    def dw_process(msg):
@@ -699,11 +699,11 @@ Database连接器目前支持查询、插入、更新、删除、批量插入、
        return msg.payload
    ```
 
-7. Database组件通过数据表字段和RecordSet数据字段的映射关系来构造插入的数据信息，配置如下：
+7. Database组件通过数据表字段和 RecordSet 数据字段的映射关系来构造插入的数据信息，配置如下：
 
    ![image-20210701152327985](https://main.qcloudimg.com/raw/20a7b1987e7c9f977ca15db377e7bc10/database34.png)
 
-8. 批量插入成功后，message的error信息为空。
+8. 批量插入成功后，message 的 error 信息为空。
 
 ### 批量合并操作
 
@@ -713,7 +713,7 @@ Database连接器目前支持查询、插入、更新、删除、批量插入、
 
 | 参数                 | 数据类型      | 描述                                         | **是否必填** | **默认值** |
 | -------------------- | ------------- | -------------------------------------------- | ------------ | ---------- |
-| 输入数据集           | Recordset类型 | 输入数据集，若未填写，默认为message的payload | 是           |            |
+| 输入数据集           | Recordset 类型 | 输入数据集，若未填写，默认为 message 的 payload | 是           |            |
 | 输入数据集Schema校准 | list          | 对输入数据集进行字段校准                     | 否           |            |
 
 ​	**合并逻辑配置**：
@@ -722,7 +722,7 @@ Database连接器目前支持查询、插入、更新、删除、批量插入、
 | ---------- | -------- | ------------------------------------------------------------ | ------------ | ---------- |
 | 表选择     | enum     | 待操作的数据表                                               | 否           |            |
 | 过滤条件   | list     | 批量更新的过滤条件                                           | 是           |            |
-| 字段映射   | enum     | 字段映射，数据表字段和Recordset类型数据字段的映射，插入数据表字段的值为Recordset类型数据字段的值 | 是           |            |
+| 字段映射   | enum     | 字段映射，数据表字段和 Recordset 类型数据字段的映射，插入数据表字段的值为 Recordset 类型数据字段的值 | 是           |            |
 | 只执行插入 | bool     | 数据不存在时执行插入操作                                     | 是           | false      |
 | 只执行更新 | bool     | 数据存在时执行更新操作                                       | 是           | false      |
 
@@ -730,23 +730,23 @@ Database连接器目前支持查询、插入、更新、删除、批量插入、
 
 组件输出的message信息如下：
 
-| message属性 | 值                                                           |
+| message 属性 | 值                                                           |
 | ----------- | ------------------------------------------------------------ |
-| payload     | 执行成功后，payload为前一个组件的payload；执行失败后，payload为空 |
-| error       | 执行成功后，error为空；执行失败后，error为dict类型，包含“Code”和“Description”元素：“Code”表示错误类型，“Description”表示错误具体信息 |
-| attribute   | 继承上个组件的attribute信息                                  |
-| variable    | 继承上个组件的variable信息                                   |
+| payload     | 执行成功后，payload 为前一个组件的 payload；执行失败后，payload 为空 |
+| error       | 执行成功后，error 为空；执行失败后，error 为 dict 类型，包含 “Code”和“Description” 元素：“Code” 表示错误类型，“Description” 表示错误具体信息 |
+| attribute   | 继承上个组件的 attribute 信息                                  |
+| variable    | 继承上个组件的 variable 信息                                   |
 
 #### 案例
 
 1. 新建连接器或选择已创建的连接器
 
-2. 通过“RecordSet Encoder”组件生成RecordSet类型的数据
+2. 通过 “RecordSet Encoder” 组件生成 RecordSet 类型的数据
 
-3. 构造好RecordSet数据后，添加Database组件的“批量合并”操作，数据表字段和RecordSet数据字段的关系构成了合并的过滤条件，数据表字段和RecordSet数据字段的映射构成了合并的字段映射；Database组件配置如下：
+3. 构造好 RecordSet 数据后，添加 Database 组件的“批量合并”操作，数据表字段和RecordSet数据字段的关系构成了合并的过滤条件，数据表字段和 RecordSet 数据字段的映射构成了合并的字段映射；Database 组件配置如下：
 
    ![image-20210701152525761](https://main.qcloudimg.com/raw/9d2b884efed077e6f603bead1f0115ef/database35.png)
-4. 批量插入成功后，message的error信息为空。
+4. 批量插入成功后，message 的 error 信息为空。
 
 ### 批量删除操作
 
@@ -768,14 +768,14 @@ Database连接器目前支持查询、插入、更新、删除、批量插入、
 
 ####  输出
 
-组件输出的message信息如下：
+组件输出的 message 信息如下：
 
-| message属性 | 值                                                           |
+| message 属性 | 值                                                           |
 | ----------- | ------------------------------------------------------------ |
-| payload     | 执行成功后，payload为前一个组件的payload；执行失败后，payload为空 |
-| error       | 执行成功后，error为空；执行失败后，error为dict类型，包含“Code”和“Description”元素：“Code”表示错误类型，“Description”表示错误具体信息 |
-| attribute   | 继承上个组件的attribute信息                                  |
-| variable    | 继承上个组件的variable信息                                   |
+| payload     | 执行成功后，payload 为前一个组件的 payload；执行失败后，payload 为空 |
+| error       | 执行成功后，error 为空；执行失败后，error 为 dict 类型，包含“Code”和“Description”元素：“Code”表示错误类型，“Description”表示错误具体信息 |
+| attribute   | 继承上个组件的 attribute 信息                                  |
+| variable    | 继承上个组件的 variable 信息                                   |
 
 #### 案例
 
@@ -791,7 +791,7 @@ Database连接器目前支持查询、插入、更新、删除、批量插入、
 
 ![image-20210624204634109](https://main.qcloudimg.com/raw/2fde49c668ea4697ba65011105e15444/database50.png)
 
-5. 批量插入成功后，message的error信息为空。
+5. 批量插入成功后，message 的 error 信息为空。
 
 ### 存储过程操作
 
@@ -808,18 +808,18 @@ Database连接器目前支持查询、插入、更新、删除、批量插入、
 
 ####  输出
 
-操作执行成功后，输出结果会保存在message消息体的payload；执行失败后，错误信息会保存在message消息体的error。
+操作执行成功后，输出结果会保存在message消息体的payload；执行失败后，错误信息会保存在 message 消息体的 error。
+ 
+组件输出的 message 信息如下：
 
-组件输出的message信息如下：
-
-| message属性 | 值                                                           |
+| message 属性 | 值                                                           |
 | ----------- | ------------------------------------------------------------ |
-| payload     | 执行成功后，存储过程输出的payload取决于输出参数，payload为list类型，list成员为dict类型，键表示输出参数字段名称，值表示输出参数字段值；执行失败后，payload为空 |
-| error       | 执行成功后，error为空；执行失败后，error为dict类型，包含“Code”和“Description”元素：“Code”表示错误类型，“Description”表示错误具体信息 |
-| attribute   | 继承上个组件的attribute信息                                  |
-| variable    | 继承上个组件的variable信息                                   |
+| payload     | 执行成功后，存储过程输出的payload取决于输出参数，payload 为 list 类型，list 成员为 dict 类型，键表示输出参数字段名称，值表示输出参数字段值；执行失败后，payload 为空 |
+| error       | 执行成功后，error 为空；执行失败后，error 为 dict 类型，包含“Code”和“Description”元素：“Code”表示错误类型，“Description”表示错误具体信息 |
+| attribute   | 继承上个组件的 attribute 信息                                  |
+| variable    | 继承上个组件的 variable 信息                                   |
 
-例如，执行成功后，message payload值如下，其中“id”和“book_name“为指定的输出参数字段：
+例如，执行成功后，message payload 值如下，其中“id”和“book_name“为指定的输出参数字段：
 
 ```json
 [
@@ -847,13 +847,13 @@ Database连接器目前支持查询、插入、更新、删除、批量插入、
 
 #### 案例
 
-1. 添加Database连接器组件，选择存储过程操作
+1. 添加 Database 连接器组件，选择存储过程操作
 
 ![image-20210323144706499](https://main.qcloudimg.com/raw/8b0dc537e9ff2ce516d5e232aa2a24c8/database23.png)
 
 2. 新建连接器或选择已创建的连接器
 
-3. 在通用配置中，填入参数信息。例如，”存储过程“为getBookId，输入参数dataway表达式如下：
+3. 在通用配置中，填入参数信息。例如，”存储过程“为 getBookId，输入参数 dataway 表达式如下：
 
    ```python
    def dw_process(msg):
