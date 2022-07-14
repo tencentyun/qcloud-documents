@@ -268,7 +268,7 @@ info.setProperty("password","");
 | approx_percentile(x,w,percentage,accuracy)| 	[same as x]| 
 | approx_percentile(x,w,percentages)	| array([same as x])| 
 | approx_percentile(x,w,percentages,accuracy)	| array([same as x])| 
-| numeric_histogram(buckets,value,weight)	| map (double,double)| 
+| numeric_histogram(buckets,value,weight)	| map(double,double)| 
 | numeric_histogram(buckets,value)	| map(double,double)| 
 | corr(y,x)	| double| 
 | covar_pop(y,x)	| double| 
