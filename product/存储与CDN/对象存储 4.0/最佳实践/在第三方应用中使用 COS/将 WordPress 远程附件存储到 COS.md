@@ -44,7 +44,6 @@ COS 具有高扩展性、低成本、可靠和安全等特点，将媒体库附�
 </tr>
 </thead>
 <tbody>
-
 <tr>
 <td align="left">SecretId、SecretKey</td>
 <td align="left">访问密钥信息，可前往 <a href="https://console.cloud.tencent.com/capi">云 API 密钥</a> 中创建和获取</td>
@@ -85,8 +84,8 @@ COS 具有高扩展性、低成本、可靠和安全等特点，将媒体库附�
 2. 配置完成后，单击**保存配置**即可。
 3. 上传一个新文件进行测试，查看附件详情，查看附件图片的 URL，确认附件图片的 URL 指向腾讯云 COS。
 ![](https://main.qcloudimg.com/raw/eec09d6877cf0d573a6522146418eea2.png)
-
 >? 如果以上测试成功，那么接下来需要同步旧资源到 COS 存储桶中（可使用 [COSCMD 工具](https://cloud.tencent.com/document/product/436/10976) 或者 [COS Migration 工具](https://cloud.tencent.com/document/product/436/15392)），**否则后台无法正常预览旧资源**。同步完成以后，可以开启回源设置，可参考下文的 [设置回源](#1)。
+>
 
 ## 扩展
 
