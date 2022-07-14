@@ -10,11 +10,11 @@ Database 连接器目前支持的数据库有：MySQL、Oracle、PostgreSQL、SQ
 
 | 参数       | 数据类型 | 描述                                                  | **是否必填** | **默认值** |
 | ---------- | -------- | ----------------------------------------------------- | ------------ | ---------- |
-| 数据库类型 | enum     | 数据库类型，支持 MySQL、Oracle、PostgreSQL、SQL Server | 是           |            |
-| 地址       | string   | 数据库地址                                            | 是           |            |
-| 端口号     | int      | 数据库端口号                                          | 是           |            |
-| 用户名     | string   | 用于连接数据库的用户名                                | 是           |            |
-| 密码       | string   | 用于连接数据库的用户密码                              | 是           |            |
+| 数据库类型 | enum     | 数据库类型，支持 MySQL、Oracle、PostgreSQL、SQL Server | 是           |      -      |
+| 地址       | string   | 数据库地址                                            | 是           |     -       |
+| 端口号     | int      | 数据库端口号                                          | 是           |      -      |
+| 用户名     | string   | 用于连接数据库的用户名                                | 是           |      -      |
+| 密码       | string   | 用于连接数据库的用户密码                              | 是           |      -      |
 | 超时时间   | int      | 数据库连接超时时间，时间单位：秒，最长超时时间为30秒  | 否           | 5          |
 
 连接器配置界面如下：
@@ -297,7 +297,7 @@ Database 连接器目前支持查询、插入、更新、删除、批量插入�
 
 1. 添加 Database 连接器组件，选择插入操作。
 2. 新建连接器或选择已创建的连接器。
-3. 在通用配置中，填入 SQL 语句及输入参数。例如：”插入语句“为`insert into books (book_auth, book_name, book_price) values (:book_auth, :book_name, :book_price)`，输入参数使用 Dataway 格式编写。
+3. 在通用配置中，填入 SQL 语句及输入参数。例如：“插入语句”为`insert into books (book_auth, book_name, book_price) values (:book_auth, :book_name, :book_price)`，输入参数使用 Dataway 格式编写。
    ```python
    def dw_process(msg):
    	return {
@@ -373,7 +373,7 @@ Database 连接器目前支持查询、插入、更新、删除、批量插入�
 | -------- | -------- | ------------------------------------------------------------ | ------------ | ---------- |
 | 操作模式 | enum     | 支持简单模式和 SQL 模式；简单模式可辅助编写操作语句，SQL 模式下可编写结构化 SQL 语句" | 是           | SQL 模式    |
 | 更新语句 | string   | SQL 模式参数，SQL 语句，支持两种写法：<br>1. 原生 SQL  <br>2. 嵌入占位符的 SQL，使用参数化输入（冒号+参数），可防止 SQL 注入 | 是           |    -        |
-| 输入参数 | dict     | SQL 模式，输入参数列表，列表元素为字典，key 对应”更新语句“中的参数化变量名，key 值需要与参数化变量名一致，value 为该变量的值 | 否           |     -       |
+| 输入参数 | dict     | SQL 模式，输入参数列表，列表元素为字典，key 对应“更新语句”中的参数化变量名，key 值需要与参数化变量名一致，value 为该变量的值 | 否           |     -       |
 
 
 ![image-20210706154234388](https://main.qcloudimg.com/raw/40a1ad7c71b3dae39da056cacdee83bd/database42.png)
@@ -413,7 +413,7 @@ Database 连接器目前支持查询、插入、更新、删除、批量插入�
 
 1. 添加 Database 连接器组件，选择更新操作。
 2. 新建连接器或选择已创建的连接器。
-3. 在通用配置中，填入 SQL 语句及输入参数。例如，”更新语句“为`update books set book_price = :book_price where book_name = :book_name`，输入参数如下：
+3. 在通用配置中，填入 SQL 语句及输入参数。例如，“更新语句”为`update books set book_price = :book_price where book_name = :book_name`，输入参数如下：
    ```python
    def dw_process(msg):
    	return {
@@ -487,7 +487,7 @@ Database 连接器目前支持查询、插入、更新、删除、批量插入�
 | -------- | -------- | ------------------------------------------------------------ | ------------ | ---------- |
 | 操作模式 | enum     | 支持简单模式和 SQL 模式；简单模式可辅助编写操作语句，SQL 模式下可编写结构化 SQL 语句" | 是           | SQL 模式    |
 | 删除语句 | string   | SQL 模式，SQL 语句，支持两种写法：<br>1. 原生 SQL<br>  2. 嵌入占位符的 SQL，使用参数化输入（冒号+参数），可防止 SQL 注入 | 是           |       -     |
-| 输入参数 | dict     | SQL 模式，输入参数列表，列表元素为字典，key 对应”删除语句“中的参数化变量名，key 值需要与参数化变量名一致，value 为该变量的值 | 否           |    -        |
+| 输入参数 | dict     | SQL 模式，输入参数列表，列表元素为字典，key 对应“删除语句”中的参数化变量名，key 值需要与参数化变量名一致，value 为该变量的值 | 否           |    -        |
 
 
 ![image-20210706154506714](https://main.qcloudimg.com/raw/9877797277ceccca3f038d398d0db265/database44.png)
@@ -527,7 +527,7 @@ Database 连接器目前支持查询、插入、更新、删除、批量插入�
 
 1. 添加 Database 连接器组件，选择删除操作。
 2. 新建连接器或选择已创建的连接器。
-3. 在通用配置中，填入 SQL 语句及输入参数。例如：”删除语句“为`delete from books where book_name = :book_name`，输入参数如下：
+3. 在通用配置中，填入 SQL 语句及输入参数。例如：“删除语句”为`delete from books where book_name = :book_name`，输入参数如下：
    ```python
    def dw_process(msg):
    	return {
@@ -726,8 +726,8 @@ Database 连接器目前支持查询、插入、更新、删除、批量插入�
 | ---------------- | -------- | ------------------------------------------------------------ | ------------ | ---------- |
 | 存储过程名称     | string   | 待调用存储过程的名称                                         |              |     -       |
 | 存储过程输入参数 | string   | 待调用存储过程的输入参数，输入参数顺序必须和存储过程传入参数顺序一致，使用参数化(冒号+参数名)输入，参数间以英文逗号相隔 | 是           |      -      |
-| 输入参数         | dict     | 输入参数列表，列表元素为字典，key对应”存储过程输入参数“中的变量名，key值需要与参数化变量名一致，value为该变量的值 | 否           |     -       |
-| 存储过程输出参数 | list     | 待调用存储过程的输出参数信息，输出参数顺序需要和存储过程的输出参数一致，列表添加时需要输入”字段名称“及”字段类型“信息；若使用表达式输入，列表元素字段名称命名为'fieldName'，字段类型为'fieldType' |              |        -    |
+| 输入参数         | dict     | 输入参数列表，列表元素为字典，key对应“存储过程输入参数”中的变量名，key值需要与参数化变量名一致，value 为该变量的值 | 否           |     -       |
+| 存储过程输出参数 | list     | 待调用存储过程的输出参数信息，输出参数顺序需要和存储过程的输出参数一致，列表添加时需要输入“字段名称”及“字段类型”信息；若使用表达式输入，列表元素字段名称命名为'fieldName'，字段类型为'fieldType' |              |        -    |
 
 ![image-20210322172755536](https://main.qcloudimg.com/raw/4059f3b4b9b339b370b69b0e274412c1/database24.png)
 
@@ -744,7 +744,7 @@ Database 连接器目前支持查询、插入、更新、删除、批量插入�
 | attribute   | 继承上个组件的 attribute 信息                                  |
 | variable    | 继承上个组件的 variable 信息                                   |
 
-例如：执行成功后，message payload 值如下，其中“id”和“book_name“为指定的输出参数字段：
+例如：执行成功后，message payload 值如下，其中“id”和“book_name”为指定的输出参数字段：
 ```json
 [
     {
@@ -773,7 +773,7 @@ Database 连接器目前支持查询、插入、更新、删除、批量插入�
 1. 添加 Database 连接器组件，选择存储过程操作。
 ![image-20210323144706499](https://main.qcloudimg.com/raw/8b0dc537e9ff2ce516d5e232aa2a24c8/database23.png)
 2. 新建连接器或选择已创建的连接器。
-3. 在通用配置中，填入参数信息。例如：”存储过程“为 getBookId，输入参数 dataway 表达式如下：
+3. 在通用配置中，填入参数信息。例如：“存储过程”为 getBookId，输入参数 dataway 表达式如下：
    ```python
    def dw_process(msg):
    	return {
