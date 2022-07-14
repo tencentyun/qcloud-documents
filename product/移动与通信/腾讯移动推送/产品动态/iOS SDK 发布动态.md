@@ -1,3 +1,24 @@
+## 2022年07月
+
+<table>
+ <tr>
+ <th width=20%>动态名称 </th>
+ <th width=44%>动态描述 </th>
+ <th width=16%>发布时间 </th>
+ <th width=20%>相关文档 </th>
+ </tr>
+<tr>
+ <td>SDK 1.3.9.1 版本发布 </td>
+ <td>  
+  <li> 修复：修复已知问题</li>
+  <li> 优化：替换上报域名，减少上报宽带消耗</li>
+ </td>
+ <td>2022-07-06</td>
+ <td><a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</a></td>
+ </tr>
+</table>
+
+
 ## 2022年05月
 
 <table>

@@ -2,7 +2,22 @@
 
 > ? 全功能版 SDK 是多个基础 SDK 的集合，它包含了直播、短视频、音视频通话（TRTC）和播放器等子产品 SDK 的功能模块。
 
+###  Version 10.3 @ 2022.07.08
+**新特性：**
+- Windows：新增录制本地录制功能，可用于在本地录制互动直播或音视频通话完整内容。详见 ITXLiteAVLocalRecord。
+-  Windows&Mac：新增参数支持在 startMicDeviceTest 接口中开启/关闭 播放麦克风检测时麦克风采集到的声音。详见 startMicDeviceTest。
+
+**功能优化：** 
+全平台：优化 Music 音质下的声音效果。
+
+**缺陷修复：**
+- 全平台：修复房间用户列表偶现的回调异常问题。
+- Windows：修复视频播放过程偶现的画面卡住问题。
+- Windows：修复视频播放过程偶现的播放失败问题。
+- Windwos：修复音频自定义采集场景中出现回声的问题。
+
 ### Version 10.2 @ 2022.06.23
+
 **新特性：**
 - 全平台：全新推出更加灵活，且功能强大的混流转推 API。详见：startPublishMediaStream。
 - 全平台：新增 3D 音频特效功能，详见：enable3DSpatialAudioEffect。
