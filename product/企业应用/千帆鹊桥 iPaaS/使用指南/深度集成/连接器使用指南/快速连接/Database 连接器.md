@@ -796,5 +796,4 @@ Database 连接器目前支持查询、插入、更新、删除、批量插入�
 ![image-20210323145529825](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/img/Database/database25.png)
  - 若执行过程中出现错误，message error 中会包含错误信息：
 ![image-20210323145701162](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/img/Database/database26.png)
- - 若查询过程中出现错误，message error 中会包含错误信息。
 
