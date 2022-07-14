@@ -944,7 +944,7 @@ auth        required      pam_succeed_if.so uid <= 1000    # 修改策略
 连续多次输入错误密码，触发系统 pam 认证模块策略限制，导致用户被锁定。
 
 <dx-alert infotype="explain" title="">
-更多 pam 安全认证相关信息，请参考官网文档 [pam_tally2 - login counter (tallying) module](http://www.linux-pam.org/Linux-PAM-html/sag-pam_tally2.html?spm=a2c4g.11186623.0.0.44262fc7r2i3PU)。
+更多 pam 安全认证相关信息，请参考官网文档 [pam_tally2 - login counter (tallying) module](https://www.linux.org/docs/man8/pam_tally2.html)。
 </dx-alert>
 
 

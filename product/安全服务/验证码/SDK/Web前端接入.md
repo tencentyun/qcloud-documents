@@ -31,7 +31,7 @@
 <script>
 
     // 定义回调函数
-    function callbackName(res) {
+    function callback(res) {
         // 第一个参数传入回调结果，结果如下：
         // ret         Int       验证结果，0：验证成功。2：用户主动关闭验证码。
         // ticket      String    验证成功的票据，当且仅当 ret = 0 时 ticket 有值。
@@ -78,8 +78,8 @@
             try {
       			// 生成一个验证码对象
       			// CaptchaAppId：登录验证码控制台，从【验证管理】页面进行查看。如果未创建过验证，请先新建验证。注意：不可使用客户端类型为小程序的CaptchaAppId，会导致数据统计错误。
-      			//callbackName：定义的回调函数
-      			var captcha = new TencentCaptcha('你的验证码CaptchaAppId', callbackName, {});
+      			//callback：定义的回调函数
+      			var captcha = new TencentCaptcha('你的验证码CaptchaAppId', callback, {});
       			// 调用方法，显示验证码
       			captcha.show(); 
     		} catch (error) {

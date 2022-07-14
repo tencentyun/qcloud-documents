@@ -155,28 +155,12 @@ import { createPinia } from 'pinia';
 
 const app = createApp(App);
 // 注册pina
-app.use(createPinia());
-app.mount('#app').$nextTick(window.removeLoading);
+createApp(App)
+  .use(createPinia())
+  .mount('#app')
+  .$nextTick(window.removeLoading)
 ```
-3. **配置 svg-icon 组件加载 SVG 图标**
-TUIRoom 将所有图标资源（SVG 文件）放置在 `packages/renderer/src/TUIRoom/assets/icons/svg` 目录下，需要您在 `packages/renderer/vite.config.ts` 文件中配置 SVG 图标加载方式。
->! 以下配置项为增量配置，不要删除已经存在的 Vite 配置项。
->
-```javascript
-// vite.config.ts
-import { createSvg } from './src/TUIRoom/assets/icons/index';
-const path = require('path');
-
-export default defineConfig({
-	// ...
-	plugins: [
-		// ...
-		 createSvg(path.join(path.resolve(__dirname, 'src/TUIRoom/assets/icons/svg/'), '/')),
-	],
-	// ...
-});
-```
-4. **配置 element-plus 按需引入**
+3. **配置 element-plus 按需引入**
 	- TUIRoom 使用 element-plus UI 组件，为避免引入所有 element-plus组件，需要您在 `packages/renderer/vite.config.ts` 中配置 element-plus 组件按需加载。
 >! 以下配置项为增量配置，不要删除已经存在的 Vite 配置项。
 >
@@ -216,7 +200,7 @@ export default defineConfig({
 import 'element-plus/theme-chalk/el-message.css'
 import 'element-plus/theme-chalk/el-message-box.css'
 ```
-5. **引入 trtc-electron-sdk**
+4. **引入 trtc-electron-sdk**
 为了在 UI 层以 import 方式引入 `trtc-electron-sdk`，统一代码风格，否则必须要以 require 的方式引入，需要您在 `packages/renderer/vite.config.ts` 中配置。
 >! 以下配置项将 resolve 中的内容替换掉：
 ```javascript
@@ -281,22 +265,12 @@ export default defineConfig({
 	// ...
 });
 ```
-6. **env.d.ts 文件配置**
+5. **env.d.ts 文件配置**
 `env.d.ts` 文件配置需要您在 `packages/renderer/src/env.d.ts` 中配置。
->! 以下配置全文替换 `env.d.ts` 文件：
+>! 以下配置项为增量配置，不要删除已经存在的 `env.d.ts` 文件配置。
+>
 ```javascript
 // env.d.ts
-
-/*eslint-disable*/
-
-/// <reference types="vite/client" />
-
-declare module '*.vue' {
-  import type { DefineComponent } from 'vue';
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/ban-types
-  const component: DefineComponent<{}, {}, any>;
-  export default component;
-}
 
 declare module 'tsignaling/tsignaling-js' {
   import TSignaling from 'tsignaling/tsignaling-js';
@@ -308,21 +282,11 @@ declare module 'tim-js-sdk' {
   export default TIM;
 }
 
-interface ImportMetaEnv {
-  readonly VITE_APP_TITLE: string;
-  readonly VITE_RUNTIME_ENV: string;
-}
-
-interface ImportMeta {
-  readonly env: ImportMetaEnv
-}
-
 ```
-7. **如果项目中存在 import 动态加载，需要修改构建配置，打包生成 es 模块**
+6. **如果项目中存在 import 动态加载，需要修改构建配置，打包生成 es 模块**
 打包生成 es 模块需要您在 `packages/renderer/vite.config.ts` 中配置。
->! 
->- 项目中若不存 在import 动态加载，请不要进行此配置。
->- 以下配置项为增量配置，不要删除已经存在的 Vite 配置项。
+>! 项目中若不存在 import 动态加载，**请不要进行此配置**。以下配置项为增量配置，不要删除已经存在的 Vite 配置项。
+>
 ```javascript
 // vite.config.ts
 
@@ -330,11 +294,11 @@ export default defineConfig({
 	// ...
 	build: {
         rollupOptions: {
-        output: {
-            format: 'es'
+          output: {
+              format: 'es'
+          }
         }
-      }
-  },
+    },
 });
 ```
 
@@ -350,10 +314,9 @@ npm run dev
 >! 因 TUIRoom 按需引入 element-plus 组件，会导致开发环境路由页面第一次加载时反应较慢，等待 element-plus 按需加载完成即可正常使用。element-plus 按需加载不会影响打包之后的页面加载。
 2. 体验 TUIRoom 组件功能。
 
+[](id:step6)
 ### 步骤六：构建安装包、运行
-
 在命令行终端中，执行以下命令构建安装包，构建好的安装包位于 `release` 目录下，可以安装运行。
-
 ```
 npm run build
 ```

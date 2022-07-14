@@ -260,3 +260,8 @@ android.useAndroidX=trueandroid.enableJetifier=true
 ### 注册方法能在线程中创建吗？
 注册方法可以在任何地方调用，但注意要传递 ApplicationContext。
 
+### 手机没有安装 Google 服务是否可以使用 FCM 通道？
+不可以，Google 服务和一个可以正常访问 Google 的网是可以使用 FCM 的必要条件。
+
+### FCM 通道适用哪个集群
+FCM 需要国外网络，适用于境外香港和新加坡集群。

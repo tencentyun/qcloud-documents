@@ -90,6 +90,7 @@ GRANT SELECT ON `mysql`.* TO '迁移帐号'@'%';
 <li>MySQL 5.6 及以上版本 gtid_mode 变量不为 ON 时会报警告，建议打开 gtid_mode。</li>
 <li>不允许设置 do_db, ignore_db 过滤条件。</li>
 <li>源实例为从库时，log_slave_updates 变量必须设置为 ON。</li>
+<li>建议源库 Binlog 日志至少保留3天及以上，否则可能会因任务暂停/中断时间大于 Binlog 日志保留时间，造成任务无法续传，进而导致任务失败。</li>
 </ul></li>
 <li>外键依赖：
 <ul>
@@ -183,8 +184,8 @@ GRANT SELECT ON `mysql`.* TO '迁移帐号'@'%';
 </tbody></table>
 4. 在设置迁移选项及选择迁移对象页面，设置迁移类型、对象，单击**保存**。
 >?
->- 如果用户在迁移过程中确定会使用 gh-ost、pt-osc 等工具对某张表做 Online DDL，则**迁移对象**需要选择这个表所在的整个库（或者整个实例），不能仅选择这个表，否则无法迁移 Online DDL 变更产生的临时表数据到目标数据库。
->- 如果用户在迁移过程中确定会对某张表使用 rename 操作（例如将 table A rename 为 table B），则**迁移对象**需要选择 table A 所在的整个库（或者整个实例），不能仅选择 table A，否则系统会报错。
+>
+>如果用户在迁移过程中确定会对某张表使用 rename 操作（例如将 table A rename 为 table B），则**迁移对象**需要选择 table A 所在的整个库（或者整个实例），不能仅选择 table A，否则系统会报错。
 >
 <img src="https://qcloudimg.tencent-cloud.cn/raw/3561b68b040ae0bd747ef769745e0cbe.png" style="zoom:67%;" />
 <table>
@@ -196,11 +197,10 @@ GRANT SELECT ON `mysql`.* TO '迁移帐号'@'%';
 <td>迁移对象</td>
 <td>如果需要整个实例迁移，请选择整个实例，不包括系统库，如 information_schema、mysql、performance_schema、sys。 <br>如果需要指定库表迁移，请选择指定对象。</td></tr>
 <tr>
-<td>指定对象</td>
-<td>在源库对象中选择待迁移的对象，然后将其移到已选对象框中。</td></tr>
-<tr>
 <td>是否迁移账号</td>
-<td>如果需要对源数据中的账号信息进行迁移，请勾选该按钮。</td></tr>
+<td>如果需要对源数据中的账号信息进行迁移，请勾选该按钮。</td></tr><tr>
+<td>已选对象</td>
+<td><ul><li>支持库表映射（库表重命名），将鼠标悬浮在库名、表名上即显示编辑按钮，单击后可在弹窗中填写新的名称。</li><li>选择高级对象进行迁移时，建议不要进行库表重命名操作，否则可能会导致高级对象迁移失败。</li><li>支持迁移 Online DDL 临时表（使用 gh-ost、 pt-online-schema-change 工具），单击表的编辑按钮，在弹窗中即可选择临时表名。更多详情请参考 <a href="https://cloud.tencent.com/document/product/571/75889">迁移 Online DDL 临时表</a>。</li></ul></td></tr>
 </tbody></table>
 5. 在校验任务页面，进行校验，校验任务通过后，单击**启动任务**。
  - 如果校验任务不通过，可以参考 [校验不通过处理方法](https://cloud.tencent.com/document/product/571/61639) 修复问题后重新发起校验任务。
