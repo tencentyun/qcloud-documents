@@ -562,25 +562,35 @@ TencentImSDKPlugin.v2TIMManager
 
 ## 常见问题
 
-#### 支持哪些平台？
+### 支持哪些平台？
 
 目前 [IM SDK(tencent_im_sdk_plugin)](https://cloud.tencent.com/document/product/269/75286) 支持 iOS 、Android 和 Web 三个平台，此外 Windows 和 Mac 版正在开发中，敬请期待。
 
 [TUIKit](https://cloud.tencent.com/document/product/269/70746) 及 [配套完整版交互DEMO](https://github.com/TencentCloud/TIMSDK/tree/master/Flutter/Demo/im-flutter-uikit) 支持 iOS 及 Android 两个移动平台。
 
-#### Android 单击 Build And Run 报错找不到可用设备？
+### Android 单击 Build And Run 报错找不到可用设备？
 
 确保设备没被其他资源占用，或单击 **Build** 生成 APK 包，再拖动进模拟器里运行。
 
-#### iOS 第一次运行报错？
+### iOS 第一次运行报错？
 
-配置运行后，如果报错，可以单击 **Product** > **Clean**，清除产物后重新 Build，或者关闭 Xcode，重新打开后再次 Build。
+配置运行后，如果报错，可以单击 **Product** > **Clean Build Folder**，清除产物后重新 `pod install` 或 `flutter run`。
 
-#### Flutter 环境问题
+![20220714152720](https://tuikit-1251787278.cos.ap-guangzhou.myqcloud.com/20220714152720.png)
+
+### 佩戴Apple Watch时，真机调试iOS报错
+
+![20220714152340](https://tuikit-1251787278.cos.ap-guangzhou.myqcloud.com/20220714152340.png)
+
+请将您的Apple Watch调整至飞行模式，并将iPhone的蓝牙功能通过 `设置 => 蓝牙` 彻底关闭。
+
+重新Xcode（若打开），并重新 `flutter run` 即可。
+
+### Flutter 环境问题
 
 如您需得知 Flutter 的环境是否存在问题，请运行 Flutter doctor 检测 Flutter 环境是否装好。
 
-#### 使用 Flutter 自动生成的项目，引入TUIKit 后，运行Android端报错
+### 使用 Flutter 自动生成的项目，引入TUIKit 后，运行Android端报错
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/d95efdd4ae50f13f38f4c383ca755ae7.png)
 
