@@ -37,14 +37,13 @@ Discuz! 论坛可以通过配置远程附件功能将论坛的附件保存在腾
 
 ### 补充说明
 
-1. php7.2之后已经移除了__autoload()函数，如果出现告警需要注释或删除upload/source/class/class_core.php 文件中的"__autoload()"函数。
+1. PHP 7.2之后已经移除了\_\_autoload()函数，如果出现告警需要注释或删除 upload/source/class/class_core.php 文件中的"\_\_autoload()"函数。
 ![](https://qcloudimg.tencent-cloud.cn/raw/6b510689dcbfd3fa7b244b8bee2611c3.png)
 2. Discuz!X 版本更新比较频繁，可能在最新的版本中代码和本次修改的代码会有重叠部分，建议使用文件比较工具认真比较合并，且在修改代码前做好本地备份。
 3. 当前扩展中不支持将历史附件上传到腾讯云的对象存储功能，如果需要同步历史附件到腾讯云存储中，需要站点维护人员手动上传历史附件。在同步历史附件前请做好全站备份。
->?
->您可使用 [工具概览](https://cloud.tencent.com/document/product/436/6242) 中介绍的上传工具上传附件；或者通过对象存储控制台直接上传文件。附件存放在存储桶中的路径和附件在本地的'/upload/data/attachment/'目录下的相对路径需保持一致。
+>? 您可使用 [工具概览](https://cloud.tencent.com/document/product/436/6242) 中介绍的上传工具上传附件；或者通过对象存储控制台直接上传文件。附件存放在存储桶中的路径和附件在本地的'/upload/data/attachment/'目录下的相对路径需保持一致。
+>
 ![](https://qcloudimg.tencent-cloud.cn/raw/2b689f80b81921c1c608874af257b90a.png)
-
 
 
 ## 配置远程附件
