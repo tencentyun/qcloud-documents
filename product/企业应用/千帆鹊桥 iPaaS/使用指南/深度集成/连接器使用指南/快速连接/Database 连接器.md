@@ -1,6 +1,6 @@
 ##  简介
 
-Database 连接器可连接第三方关系型数据库系统并执行SQL操作。用户通过连接器配置来配置数据库的连接参数，配置成功后便可执行对应的数据库操作。
+Database 连接器可连接第三方关系型数据库系统并执行 SQL 操作。用户通过连接器配置来配置数据库的连接参数，配置成功后便可执行对应的数据库操作。
 
 Database 连接器目前支持的数据库有：MySQL、Oracle、PostgreSQL、SQL Server。
 
@@ -50,7 +50,7 @@ Database连接器目前支持查询、插入、更新、删除、批量插入、
 组件输出的 message 信息如下：
 
 
-| message属性 | 值                                                           |
+| message 属性 | 值                                                           |
 | ----------- | ------------------------------------------------------------ |
 | payload     | 执行成功后，payload 为 list 类型，list 成员为 dict 类型，键表示数据库字段名称，值表示数据库字段值；执行失败后，payload 为空 |
 | error       | 执行成功后，error 为空；执行失败后，error 为dict 类型，包含 “Code” 和 “Description” 字段：“Code” 字段表示错误类型，“Description” 字段表示错误具体信息 |
@@ -140,7 +140,7 @@ Database连接器目前支持查询、插入、更新、删除、批量插入、
 组件输出的 message 信息如下：
 
 
-| message属性 | 值                                                           |
+| message 属性 | 值                                                           |
 | ----------- | ------------------------------------------------------------ |
 | payload     | 执行成功后，payload 为 list 类型，list 成员为 dict 类型，键表示数据库字段名称，值表示数据库字段值；执行失败后，payload 为空 |
 | error       | 执行成功后，error 为空；执行失败后，error 为dict 类型，包含 “Code” 和 “Description” 字段：“Code” 字段表示错误类型，“Description” 字段表示错误具体信息 |
