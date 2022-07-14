@@ -1,4 +1,4 @@
-数据湖计算 DLC 在统一函数（参见：统一函数）之外，同时支持 Presto 的内置函数。
+数据湖计算 DLC 在 [统一函数](https://cloud.tencent.com/document/product/1342/76992) 之外，同时支持 Presto 的内置函数。
 ## 如何开启 Presto 内置函数应用
 ### 途径一：在数据探索对数据引擎进行函数配置
 1. 登录[ 数据湖计算 DLC 控制台](https://console.cloud.tencent.com/dlc)，选择服务地域。
