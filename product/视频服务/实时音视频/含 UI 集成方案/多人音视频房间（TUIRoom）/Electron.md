@@ -4,9 +4,10 @@ TUIRoom 是一个包含 UI 的开源音视频组件，通过集成 TUIRoom，您
 
 >?TUIKit 系列组件同时使用了腾讯云 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269/42440) 两个基础 PaaS 服务，开通实时音视频后会同步开通即时通信 IM 服务。即时通信 IM 服务详细计费规则请参见 [即时通信 - 价格说明](https://cloud.tencent.com/document/product/269/11673)，TRTC 开通会默认关联开通 IM SDK 的体验版，仅支持100个 DAU。
 
-<table><tr>
-<td><img width="460" src="https://sdk-web-1252463788.cos.ap-hongkong.myqcloud.com/trtc/electron/download/resources/common/page-room.png"></td>
-<td><img width="460" src="https://sdk-web-1252463788.cos.ap-hongkong.myqcloud.com/trtc/electron/download/resources/common/page-home.png"></td>
+<table>
+<tr>
+<td><img width="460" src="https://web.sdk.qcloud.com/trtc/electron/download/resources/common/page-room.png"></td>
+<td><img width="460" src="https://web.sdk.qcloud.com/trtc/electron/download/resources/common/page-home.png"></td>
 </tr>
 </table>
 
@@ -36,19 +37,15 @@ TUIRoom 基于腾讯云实时音视频和即时通信服务进行开发。
 [](id:step2)
 
 ### 步骤二：下载并拷贝 TUIRoom 组件
-1. 打开业务侧已有 Electron + Vue3 + TS 项目，如果无 Electron + Vue3 + TS 项目,可通过以下脚本生成 Electron + Vue3 + TS 的模板工程。
-```bash
-npm create electron-vite
-```
+1. 打开业务侧已有 Electron + Vue3 + TS 项目，如果无 Electron + Vue3 + TS 项目,可通过此模版 [Github](https://github.com/electron-vite/electron-vite-vue/tree/v1.0.0) 生成 Electron + Vue3 + TS 的模板工程。
 >! 执行生成模板工程脚本的过程中，选择 Vue。
->
-成功生成模板工程后，执行以下脚本：
+2. 成功生成模板工程后，执行以下脚本：
 ```bash
 cd electron-vite-vue
 npm install
 npm run dev
 ```
-2. 单击 [Github](https://github.com/tencentyun/TUIRoom) , 克隆或下载 TUIRoom 仓库代码，复制 `TUIRoom/Electron/packages/renderer/src/TUIRoom` 文件夹到已有项目 `packages/renderer/src/` 目录下。
+3. 单击 [Github](https://github.com/tencentyun/TUIRoom) , 克隆或下载 TUIRoom 仓库代码，复制 `TUIRoom/Electron/packages/renderer/src/TUIRoom` 文件夹到已有项目 `packages/renderer/src/` 目录下。
 
 [](id:step3)
 ### 步骤三：引用 TUIRoom 组件
@@ -170,6 +167,7 @@ createApp(App)
 import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
+const path = require('path');
 
 export default defineConfig({
 	// ...
