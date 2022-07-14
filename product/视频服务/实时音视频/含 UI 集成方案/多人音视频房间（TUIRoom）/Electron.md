@@ -6,8 +6,8 @@ TUIRoom 是一个包含 UI 的开源音视频组件，通过集成 TUIRoom，您
 
 <table>
 <tr>
-<td><img width="460" src="https://sdk-web-1252463788.cos.ap-hongkong.myqcloud.com/trtc/electron/download/resources/common/page-room.png"></td>
-<td><img width="460" src="https://sdk-web-1252463788.cos.ap-hongkong.myqcloud.com/trtc/electron/download/resources/common/page-home.png"></td>
+<td><img width="460" src="https://web.sdk.qcloud.com/trtc/electron/download/resources/common/page-room.png"></td>
+<td><img width="460" src="https://web.sdk.qcloud.com/trtc/electron/download/resources/common/page-home.png"></td>
 </tr>
 </table>
 
@@ -43,13 +43,13 @@ TUIRoom 基于腾讯云实时音视频和即时通信服务进行开发。
 
 >！electron-vite-vue 模版工程最新版本目录结构有调整，如需使用最新版本，可参照本文档自行调整目录和配置。
 >
-成功生成模板工程后，执行以下脚本：
+2. 成功生成模板工程后，执行以下脚本：
 ```bash
 cd electron-vite-vue
 npm install
 npm run dev
 ```
-2. 单击 [Github](https://github.com/tencentyun/TUIRoom) , 克隆或下载 TUIRoom 仓库代码，复制 `TUIRoom/Electron/packages/renderer/src/TUIRoom` 文件夹到已有项目 `packages/renderer/src/` 目录下。
+3. 单击 [Github](https://github.com/tencentyun/TUIRoom) , 克隆或下载 TUIRoom 仓库代码，复制 `TUIRoom/Electron/packages/renderer/src/TUIRoom` 文件夹到已有项目 `packages/renderer/src/` 目录下。
 
 [](id:step3)
 ### 步骤三：引用 TUIRoom 组件
@@ -136,6 +136,7 @@ html, body {
 
 >! 在页面中复制以上代码之后，需要修改 TUIRoom 接口的参数为实际数据。
 
+[](id:step4)
 ### 步骤四：配置开发环境
 
 TUIRoom 组件引入之后，为了确保项目可以正常运行，需要进行以下配置：
@@ -316,6 +317,7 @@ npm run dev
 >! 因 TUIRoom 按需引入 element-plus 组件，会导致开发环境路由页面第一次加载时反应较慢，等待 element-plus 按需加载完成即可正常使用。element-plus 按需加载不会影响打包之后的页面加载。
 2. 体验 TUIRoom 组件功能。
 
+[](id:step6)
 ### 步骤六：构建安装包、运行
 
 在命令行终端中，执行以下命令构建安装包，构建好的安装包位于 `release` 目录下，可以安装运行。

@@ -347,6 +347,10 @@ FLUSH TABLES WITH READ LOCK 的上锁备份方式导致整个数据库不可提�
 - 修复在异步模式下速度限制插件不可用的问题。
 
 ## MySQL 5.6
+### 20220302
+#### Bug 修复：
+- 修复 sql_update.cc 中内存泄漏问题。
+
 ### 20220301
 #### 新特性：
 - 支持动态配置自旋周期，通过动态参数 innodb_spin_wait_pause_multiplier 可以动态调整自旋周期(0~100)。

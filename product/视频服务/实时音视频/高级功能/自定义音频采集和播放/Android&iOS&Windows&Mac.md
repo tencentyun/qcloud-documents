@@ -30,7 +30,7 @@ trtc_cloud->enableCustomAudioCapture(true);
 
 ### 发送自定义音频帧
 
-然后您就可以使用 TRTCCloud 的 `sendCustomVideoData` 接口向 TRTC SDK 填充您自己的声音数据，示例代码如下：
+然后您就可以使用 TRTCCloud 的 `sendCustomAudioData` 接口向 TRTC SDK 填充您自己的声音数据，示例代码如下：
 
 <dx-codeblock>
 ::: Android  Java

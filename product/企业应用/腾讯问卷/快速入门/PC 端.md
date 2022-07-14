@@ -5,14 +5,10 @@
 
 ## 步骤2：选择登录方式
 在登录界面选择 QQ、微信、企业微信，通过 App 扫码登录，或使用 QQ 账号密码登录。
-<img style="width:500px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/b93104e36bbc81b3cca851d3508942b5.png" />
+<img style="width:400px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/b93104e36bbc81b3cca851d3508942b5.png" />
 
 ## 步骤3：新建问卷
-选择相应账号登录后，进入腾讯问卷工作台，您可单击**新建 +**，选择**新建问卷**，即可进入“创建问卷”页面。
-<img style="width:978px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/e265dcf078e0888dabbcbffaa6b02ddf.png" />
+选择相应账号登录后，进入腾讯问卷工作台，您可单击**新建 +**，选择“新建问卷、疫情健康申报、通过模版创建、新建文本编辑、通过Excel导入等”中的任意创建方式，即可进入问卷编辑页面。
+<img style="width:978px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/c854b057ec9de0c6ae10f1cb17a7eae6.png" />
 
-## 步骤4：开始使用
-单击**创建空白问卷**下方的开始，进入问卷“编辑”界面。您可以根据需求自定义问卷。
-<img style="width:978px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/c6ae067bc7284a0b07fc51a8a2e41f1d.png" />
-<img style="width:978px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/093e68b52122d834773a63862ed095cf.png" />
 

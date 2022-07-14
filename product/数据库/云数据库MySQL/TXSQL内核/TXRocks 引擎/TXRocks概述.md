@@ -12,7 +12,7 @@ RocksDB 使用 LSM Tree 存储结构，数据组织为一组在内存中的 MemT
 当读取一行记录时，按照新旧，依次从 Active MemTable、Immutable MemTable、L0、L1 - L6各个组件查找这一行，从任一组件找到，就表明找到了最新的版本，可以立刻返回。
 
 当执行范围扫描时，对包含每层 MemTable 在内的各层数据，分别生成一个迭代器，这些迭代器归并查找下一条记录。从读的流程可以看到，如果 LSM Tree 层数太多，则读性能，尤其是范围扫描的性能会明显下降。所以，为了维持一个更好的 LSM Tree 形状，后台会不断地执行 compaction 操作，将低层数据合并到高层数据，减少层数。
-![](https://qcloudimg.tencent-cloud.cn/raw/5f5e47996ea8af096ef4b79efecabe61.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/60ffda65b47bd4cd582250f97124159b.png)
 
 ## TXRocks 架构
 ![](https://qcloudimg.tencent-cloud.cn/raw/6eaaa7a50072a6de3f2cecb364e3ac42.png)

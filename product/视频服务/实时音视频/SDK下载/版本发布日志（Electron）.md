@@ -7,7 +7,6 @@ Windows & Mac：新增 [onSpeedTestResult](https://web.sdk.qcloud.com/trtc/elect
 - Windows & Mac：改进 [startSpeedTest](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#startSpeedTest) 开始进行网络测速。
 - Windows & Mac：改进 [muteLocalVideo](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#muteLocalVideo) 暂停/恢复发布本地的视频流，新增 streamType 参数。
 - Windows & Mac：改进 [muteRemoteVideoStream](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#muteRemoteVideoStream) 暂停接收指定的远端视频流，新增 streamType 参数。
-- Windows & Mac：改进 [selectScreenCaptureTarget](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#selectScreenCaptureTarget) 设置屏幕共享参数，支持 source、captureRect、property 三个参数。
 - Windows & Mac：改进 [startScreenCapture](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#startScreenCapture) 启动屏幕分享，新增 params 参数。
 
 **问题修复**
