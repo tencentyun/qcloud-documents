@@ -64,7 +64,7 @@
 |Metinfo 5.3.17 前台 SQL 注入漏洞	| 高	| SQL 注入 |
 |MetInfo 6.0.0-6.1.2 SQL 注入漏洞	| 高	| SQL 注入 |
 |MetInfo v5.1.3任意文件上传漏洞	| 高	| 任意文件上传 |
-|Nexus Repository Manager OSS 3 命令执行漏洞	| 高	| 远程代码执行 |
+|Nexus Repository Manager OSS 3命令执行漏洞	| 高	| 远程代码执行 |
 |Nexus Repository Manager OSS 默认密码	| 高	| 弱口令 |
 |phpcms phpcms/modules/member/index.php sql 注入漏洞	| 高	| SQL 注入 |
 |PHPCMS V9 /phpsso_server/phpcms/modules/phpsso/index.php SQL 注入漏洞	| 高	| SQL 注入 |

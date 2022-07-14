@@ -5,13 +5,66 @@
 
 设置美颜类型。
 ```
-void setBeautyStyle(int beautyStyle)
+void setBeautyStyle(int beautyStyle) 
 ```
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | beautyStyle | int | 美颜风格，0表示光滑，1表示自然，2表示朦胧。 |
+
+### setFilter
+
+设置指定素材滤镜特效。
+```
+void setFilter(Bitmap bmp)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| bmp | Bitmap | 滤镜图片。 |
+
+>?滤镜图片一定要用 png 格式，demo 用到的滤镜查找表图片位于 app/src/main/res/drawable-xxhdpi/ 中。
+
+***
+
+### setFilterStrength
+
+设置滤镜浓度。
+```
+void setFilterStrength(float strength)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| strength | float | 取值范围0 - 1的浮点型数字，取值越大滤镜效果越明显，默认取值0.5。 |
+
+__介绍__
+
+在美女秀场等应用场景里，滤镜浓度的要求会比较高，以便更加突显主播的差异。 我们默认的滤镜浓度是0.5，如果您觉得滤镜效果不明显，可以使用下面的接口进行调节。
+
+***
+
+### setGreenScreenFile
+
+设置绿幕背景视频（商业版有效，其它版本设置此参数无效）。
+```
+boolean setGreenScreenFile(String path)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| path | String | 视频文件路径。支持 MP4；null 表示关闭特效。 |
+
+__介绍__
+
+此处的绿幕功能并非智能抠背，它需要被拍摄者的背后有一块绿色的幕布来辅助产生特效。
 
 ### setBeautyLevel
 
@@ -201,84 +254,84 @@ __参数__
 ### setForeheadLevel
 设置发际线 （商用企业版有效，其它版本设置此参数无效）。
 ```
-void setForeheadLevel(int foreheadLevel)
+void setForeheadLevel(float foreheadLevel)
 ```
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| foreheadLevel | int | 发际线级别，取值范围0 - 9；0表示关闭，1 - 9值越大，发际线越向下移。 |
+| foreheadLevel | float | 发际线级别，取值范围-9 - 9；0表示关闭，9表示效果最明显。 |
 
 ### setEyeDistanceLevel
 设置眼距 （商用企业版有效，其它版本设置此参数无效）。
 ```
-void setEyeDistanceLevel(int eyeDistanceLevel) 
+void setEyeDistanceLevel(float eyeDistanceLevel)
 ```
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| eyeDistanceLevel | int | 眼距级别，取值范围0 - 9；0表示关闭，1 - 9值越大，眼间距越小。 |
+| eyeDistanceLevel  |float | 眼距级别，取值范围-9 - 9；0表示关闭，小于0表示拉伸，大于0表示收缩。 |
 
 ### setEyeAngleLevel
-设置眼角 （商用企业版有效，其它版本设置此参数无效）。
+设置眼角调整级别 （商用企业版有效，其它版本设置此参数无效）。
 ```
-void setEyeAngleLevel(int eyeAngleLevel)
+void setEyeAngleLevel(float eyeAngleLevel)
 ```
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| eyeAngleLevel | int | 眼角级别，取值范围0 - 9；0表示关闭，1 - 9值越大，外眼角越向上，内眼角越向下。 |
+| eyeAngleLevel | float | 眼角调整级别，取值范围-9 - 9；0表示关闭，9表示效果最明显。 |
 
 ### setMouthShapeLevel
-设置嘴型 （商用企业版有效，其它版本设置此参数无效）。
+设置嘴型调整级别（商用企业版有效，其它版本设置此参数无效）。
 
 ```
-void setMouthShapeLevel(int mouthShapeLevel)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| mouthShapeLevel | int | 嘴型级别，取值范围0 - 9；0表示关闭，1 - 9值越大，嘴越小。 |
-
-### setNoseWingLevel
-设置鼻翼 （商用企业版有效，其它版本设置此参数无效）。
-```
-void setNoseWingLevel(int noseWingLevel)
+void setMouthShapeLevel(float mouthShapeLevel)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| noseWingLevel | int | 鼻翼级别，取值范围0 - 9；0表示关闭，1 - 9值越大，鼻翼越小。 |
+| mouthShapeLevel  | float | 嘴型级别，取值范围-9 - 9；0表示关闭，小于0表示拉伸，大于0表示收缩。 |
+
+### setNoseWingLevel 
+设置鼻翼调整级别（商用企业版有效，其它版本设置此参数无效）。
+```
+void setNoseWingLevel(float noseWingLevel)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| noseWingLevel | float | 鼻翼调整级别，取值范围-9 - 9；0表示关闭，小于0表示拉伸，大于0表示收缩。|
 
 ### setNosePositionLevel
 设置鼻子位置 （商用企业版有效，其它版本设置此参数无效）。
 ```
-void setNosePositionLevel(int nosePositionLevel)
+void setNosePositionLevel(float nosePositionLevel)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| nosePositionLevel | int | 鼻子位置级别，取值范围0 - 9；0表示关闭，1 - 9值越大，鼻子位置越向下移。 |
+| nosePositionLevel | float | 鼻子位置级别，取值范围-9 - 9；0表示关闭，小于0表示抬高，大于0表示降低。 |
 
 ### setLipsThicknessLevel
 设置嘴唇厚度 （商用企业版有效，其它版本设置此参数无效）。
 
 ```
-void setLipsThicknessLevel(int lipsThicknessLevel)
+void setLipsThicknessLevel(float lipsThicknessLevel)
 ```
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| lipsThicknessLevel | int | 嘴唇厚度级别，取值范围0 - 9；0表示关闭，1 - 9值越大，嘴唇越厚。 |
+| lipsThicknessLevel | float | 嘴唇厚度级别，取值范围-9 - 9；0表示关闭，小于0表示拉伸，大于0表示收缩。 |
 
 ### setFaceBeautyLevel
 设置脸型 （商用企业版有效，其它版本设置此参数无效）。
@@ -316,7 +369,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| motionMute | boolean | true表示静音；false表示不静音。 |
+| motionMute | boolean | true 表示静音；false 表示不静音。 |
 
 
 

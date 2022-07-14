@@ -1,3 +1,4 @@
+
 ##  准备工作
 - 接入安全 SDK，开发者需要完成以下步骤：
  1. 根据游戏运行平台和支持的 CPU 架构将 SDK 动态库拷贝到指定工程目录。
@@ -8,7 +9,7 @@
 ```
 tp2.jar
 tp2_sdk.h
-tss_sdt.h,tss_sdt_ex.h（安全数据类型选接，接入教程见《SDK 安全数据类型接入教程 C++）
+tss_sdt.h,tss_sdt_ex.h（安全数据类型选接，接入教程见《SDK 安全数据类型接入教程 C++》）
 libtersafe2.so
 ```
 
@@ -37,7 +38,7 @@ libtersafe2.so
  ![](https://mc.qcloudimg.com/static/img/5c0861221c69ff2a296717b48223b614/image.png)
 
 ### 工程属性设置
-1. 在 Eclipse 中左边的项目导航栏 [Project Explorer] 中选择游戏项目，单击鼠标右键，在弹出的菜单中选择 [Properties]，选中 Properties 窗口左边导航栏中的[Java Build Path] 选项，然后在 [Library] 中单击 [add JARs] 添加 tp2.jar。
+1. 在 Eclipse 中左侧的项目导航栏 [Project Explorer] 中选择游戏项目，单击鼠标右键，在弹出的菜单中选择 [Properties]，选中 Properties 窗口左边导航栏中的[Java Build Path] 选项，然后在 [Library] 中单击 [add JARs] 添加 tp2.jar。
 ![](https://mc.qcloudimg.com/static/img/2b038746f019e439ef5bbdb473ab16b2/image.png)
 2. 选择已拷贝到工程目录的 tp2.jar。
 ![](https://mc.qcloudimg.com/static/img/b48aeb6b30b9c689ca5e56357a0c72b3/image.png)
@@ -60,12 +61,12 @@ LOCAL_SHARED_LIBRARIES:=libtp2
 ```
 
 ## SDK 接口调用
-所需头文件
 ```
-#include “tp2_sdk.h”
+#include “tp2_sdk.h”；//所需头文件
+int tp2_sdk_init_ex(int game_id  const char* app_key);// 初始化接口 函数原型
 ```
 
-### 初始化接口
+### 参数说明
 
 | 参数 | 是否必须 | 说明 |
 |---------|---------|---------|
@@ -88,7 +89,7 @@ int tp2_setuserinfo(int account_type, int world_id, string open_id, string role_
 | account_type | 与运营平台相关的帐号类型，参考下文的 TssSdkEntryId 填写 |
 | world_id | 用户游戏角色的大区信息 |
 | open_id | 用户唯一身份标识，可自定义字符串。（和处罚相关必须填写） |
-| open_id | 区分用户创建的不同角色的标识 |
+| role_id | 区分用户创建的不同角色的标识 |
 
 account_type 默认 QQ 平台填 1，微信平台填 2，其他平台填 99。国内外主流帐号登录平台可参考以下数值填写。
 ```
@@ -139,11 +140,11 @@ TP2_GAME_STATUS_BACKEND = 2 // 后台
 void Start ()
 {
 // 游戏启动的第一时间调用
-tp2_sdk_init_ex (8888, “a5ab8dc7ef67ca92e41d730982c5c602”);
+tp2_sdk_init_ex (8888, “a5ab8dc7ef67ca92e41d730982******”);
 // 用户登录时调用
 int account_type = ENTRY_ID_QZONE; /* 帐号类型 */
 int world_id = 101; /* 大区 id*/
-string open_id = "B73B36366565F9E02C752"; /* 与平台相关的用户标识 */
+string open_id = "B73B36366565F9E******"; /* 与平台相关的用户标识 */
 string role_id = "paladin"; /* 角色 id*/
 tp2_setuserinfo(account_type, world_id, open_id, role_id);
 }

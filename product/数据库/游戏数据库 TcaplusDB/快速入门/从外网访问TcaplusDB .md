@@ -3,6 +3,7 @@
 >?iptable 转发的方式存在稳定性风险，不建议在生产环境使用外网接入。
 >
 ![](https://main.qcloudimg.com/raw/8a5ed2e2527a5d50ca2b0deda2ce0908.png)
+![](https://main.qcloudimg.com/raw/45192ccfd85eaebbe35223258191ed73.png)
 
 ## 操作步骤
 1. 登录 [云服务器](https://cloud.tencent.com/document/product/213/5436)，开通云服务器 IP 转发功能。

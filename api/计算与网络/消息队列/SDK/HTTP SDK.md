@@ -1,6 +1,6 @@
 ## 概述
-腾讯云消息队列 CMQ 目前支持 Java、Python、PHP、及 C++ SDK ，后续会支持更多语言。欢迎广大开发者根据 API 说明开发更多语言版本的 SDK。
-由于分配资源和释放资源需要1s左右的时间，当前消息队列 SDK 在创建及删除队列/主题时会有1s 延迟，建议在程序中增加创建和删除的时间间隔保障调用成功。
+腾讯云消息队列 CMQ 目前支持 Java、Python、PHP 及 C++ SDK ，后续会支持更多语言。欢迎广大开发者根据 API 说明开发更多语言版本的 SDK。
+由于分配资源和释放资源需要1s左右的时间，当前消息队列 SDK 在创建及删除队列/主题时会有1s延迟，建议在程序中增加创建和删除的时间间隔保障调用成功。
 
 >!
 - 为了保障数据传输的安全，为您提供更加可靠的服务，腾讯云团队将在2019年1月31日23:59:59停止对主题及队列的公网 HTTP 方式的访问，建议您将公网接口请求域名改为 HTTPS。
@@ -9,14 +9,8 @@
 例如：`endpoint=http://cmq-topic-gz.api.qcloud.com`该接入方式为 HTTP 协议访问广州主题公网域名，修改为：`endpoint=https://cmq-topic-gz.api.qcloud.com`。
 
 ## 下载地址
-不同语言版本的 SDK 下载地址如下：
-- [Java SDK](https://main.qcloudimg.com/raw/71de95fdb5e7f080b1ae648ab573b9cb/cmq-java-sdk_V1.0.4.zip)
-- [Python SDK](http://cmqsdk-10016717.cossh.myqcloud.com/qc_cmq_python_sdk_V1.0.4.zip)
-- [PHP SDK](http://cmqsdk-10016717.cossh.myqcloud.com/qc_cmq_php_sdk_V1.0.4.zip)
-- [C++ SDK](http://cmqsdk-10016717.cossh.myqcloud.com/qc_cmq_cpp_sdk_V1.0.4.zip)
 
-
-#### GitHub 地址
+不同语言版本 SDK 的 GitHub 地址如下：
 - [Java SDK](https://github.com/tencentyun/cmq-java-sdk)
 - [Python SDK](https://github.com/tencentyun/cmq-python-sdk)（默认为 Python2 SDK，您可切换至 Python3 分支中查看 Python3 SDK ）
 - [PHP SDK](https://github.com/tencentyun/cmq-php-sdk)

@@ -1,6 +1,7 @@
 本文档介绍可能导致 Pod 健康检查失败的几种情形，以及如何通过排查步骤定位异常原因。请按照以下步骤依次进行排查，定位问题后恢复正确配置即可。
 
 
+
 ## 现象描述
 Kubernetes 健康检查包含就绪检查（readinessProbe）和存活检查（livenessProbe），不同阶段的检查失败将会分别出现以下现象：
 * Pod IP 从 Service 中摘除。通过 Service 访问时，流量将不会被转发给就绪检查失败的 Pod。
@@ -45,3 +46,5 @@ SYN backlog 大小即 SYN 队列大小，如果短时间内新建连接比较多
 
 #### 解决方法
 如果已确认由于 backlog 满了导致的丢包，则建议调高 backlog 值，相关内核参数为 `net.ipv4.tcp_max_syn_backlog`。
+
+

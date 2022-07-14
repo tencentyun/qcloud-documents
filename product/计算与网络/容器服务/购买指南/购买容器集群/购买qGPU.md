@@ -1,0 +1,59 @@
+
+## 购买须知
+为了提供更优质的服务质量和服务保障，[腾讯云 Tencent Kubernetes Engine qGPU 服务](https://cloud.tencent.com/document/product/457/61448)（以下简称 TKE qGPU）决定于2022年8月15日结束公测，开启商业化的产品支持。您需要**按需付费使用 qGPU 算力强隔离与在离线混部特性**，或免费使用 qGPU 显存隔离特性。在2022年8月15日前，您可以继续免费使用 TKE qGPU 服务。
+
+
+## qGPU 计费模式
+|  计费项 	|  计费模式 	|  付款方式 	|  计费单位 	|
+|---	|---	|---	|---	|
+|  vgpu（个）     	|  按量计费 	|  购买时 [冻结费用](https://cloud.tencent.com/document/product/555/12039)，每小时结算 	|  元/小时 	|
+
+
+
+
+
+## qGPU 计费说明
+qGPU 计费如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/3fedeccf3cf0596ecaa9fac0cf29874d.png)
+
+
+
+2022年8月15日，GPU 虚拟化套件提供商业化的服务与支持，您仅需为 **GPU 算力隔离和在离线混部模式**的 GPU 付费。即当您的 qGPU 使用以下隔离策略时，需要付费：
+
+使用 GPU 虚拟化套件，按虚拟化的虚拟 GPU 个数计费。例如一张 GPU 卡虚拟出3个 best-effort 模式的 vgpu，1个 fixed-share 模式的 vgpu，您仅需为 fixed-share 模式的 GPU 个数付费。
+
+<table>
+<thead>
+<tr>
+<th>Label 值</th>
+<th>缩写</th>
+<th>英文名</th>
+<th>中文名</th>
+<th>含义</th>
+<th>是否计费</th>
+</tr>
+</thead>
+<tbody><tr>
+<td nowrap="nowrap">best-effort（默认值）</td>
+<td>be</td>
+<td>Best Effort</td>
+<td>争抢模式</td>
+<td>默认值。各个 Pods 不限制算力，只要卡上有剩余算力就可使用。  如果一共启动 N 个 Pods，每个 Pod 负载都很重，则最终结果就是 1/N 的算力。</td>
+<td>否</td></tr>
+<tr>
+<td>fixed-share</td>
+<td>fs</td>
+<td>Fixed Share</td>
+<td>固定配额</td>
+<td>每个 Pod 有固定的算力配额，无法超过固定配额，即使 GPU 还有空闲算力。</td>
+<td>是</td></tr>
+<tr>
+<td>burst-share</td>
+<td>bs</td>
+<td>Guaranteed Share with Burst</td>
+<td>保证配额加弹性能力</td>
+<td>调度器保证每个 Pod 有保底的算力配额，但只要 GPU 还有空闲算力，就可被 Pod 使用。例如，当 GPU 有空闲算力时（没有分配给其他 Pod），Pod 可以使用超过它的配额的算力。需注意，当它所占用的这部分空闲算力再次被分配出去时，Pod 会回退到它的算力配额。</td>
+<td>是</td></tr>
+</tbody></table>
+
+>? 您可以通过节点池的高级配置来设置 Label，从而指定 qGPU 隔离策略。操作详情见 [准备 GPU 资源](https://cloud.tencent.com/document/product/457/65734#.E5.87.86.E5.A4.87-gpu-.E8.B5.84.E6.BA.90)。

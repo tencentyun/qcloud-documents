@@ -101,3 +101,4 @@ $createProductResponse = $client->createProduct($createProductRequest);
 | 13   | getCreateMultiDevTask   | 查询批量创建设备任务的执行状态  |
 | 14   | getMultiDevices         | 查询批量创建设备的执行结果     |
 | 15   | publish                 | 向某个主题发布消息            |
+

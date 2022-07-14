@@ -1,0 +1,78 @@
+
+日志服务提供丰富的图表类型，支持用户使用 SQL 灵活统计日志内的系统及业务指标，并通过图表进行展示。用户还可以将图表分析结果保存到仪表盘，进行长期监控。
+
+## 图表类型
+
+<table>
+<thead>
+<tr><th style="width: 17%">图表类型</th><th style="width: 66%">使用场景</th><th style="width: 17%">详细信息</th></tr>
+</thead>
+<tbody><tr>
+<td>表格</td>
+<td>表格是最常见的数据展示类型，通过对数据结构化的整理，实现数据的对比与统计。大多数场景均适用。</td>
+<td><a href="https://cloud.tencent.com/document/product/614/74026">表格</a></td>
+</tr>
+<tr>
+<td>时序图</td>
+<td>时序图需要统计数据具备时序字段，依据时间顺序组织与聚合指标。可直观反映指标随时间的变化趋势。统计近一周，每天404错误出现的次数等趋势分析场景适用。</td>
+<td><a href="https://cloud.tencent.com/document/product/614/74027">时序图</a></td>
+</tr>
+<tr>
+<td>柱状图</td>
+<td>柱状图描述的是分类数据，直观表现每一个分类项的大小对比关系。统计近一天各错误码类型出现的次数等分类统计场景适用。</td>
+<td><a href="https://cloud.tencent.com/document/product/614/74028">柱状图</a></td>
+</tr>
+<tr>
+<td>饼图</td>
+<td>饼图描述的是不同分类的占比情况，通过扇区大小来衡量各分类项的占比情况。错误码占比情况分析等占比统计场景适用。</td>
+<td><a href="https://cloud.tencent.com/document/product/614/74029">饼图</a></td>
+</tr>
+<tr>
+<td>单值图</td>
+<td>单值图描述的是单个指标，一般选择具备有业务价值的关键性指标。统计天、周、月 PV、UV 等单指标场景适用。</td>
+<td><a href="https://cloud.tencent.com/document/product/614/74030">单值图</a></td>
+</tr>
+<tr>
+<td>计量仪</td>
+<td>计量仪描述的是单个指标，与单值图不同的是，计量仪一般搭配阈值使用，用来衡量该指标的状态。系统健康度监控等有分级标准的场景适用。</td>
+<td><a href="https://cloud.tencent.com/document/product/614/74031">计量仪</a></td>
+</tr>
+<tr>
+<td>地图</td>
+<td>地图通过图形的位置来表现数据的地理位置，通常来展示数据在不同地理区域上的分布情况。攻击 IP 地理分布等地理位置统计场景适用。</td>
+<td><a href="https://cloud.tencent.com/document/product/614/74032">地图</a></td>
+</tr>
+<tr>
+<td>桑基图</td>
+<td>桑基图是一种特定类型的流图，用于描述一组值到另一组值的流向。防火墙目的与源 IP 流量统计等场景适用。</td>
+<td><a href="https://cloud.tencent.com/document/product/614/74033">桑基图</a></td>
+</tr>
+<tr>
+<td>词云图</td>
+<td>词云是文本数据的视觉表示，用于展示文本数据的出现频率。在高频操作人员统计等审计场景适用。</td>
+<td><a href="https://cloud.tencent.com/document/product/614/74034">词云图</a></td>
+</tr>
+</tbody></table>
+
+## 常见功能操作
+
+<table>
+<thead>
+<tr><th style="width: 17%">功能名称</th><th style="width: 66%">功能描述</th><th style="width: 17%">详细信息</th></tr>
+</thead>
+<tbody><tr>
+<td>数据转换</td>
+<td>数据转换支持用户对检索结果进行二次处理，包括字段类型修改、选择制图字段、合并分组等。可以在不修改 SQL 语句的情况下，满足制图的需求。</td>
+<td><a href="https://cloud.tencent.com/document/product/614/74035">数据转换</a></td>
+</tr>
+<tr>
+<td>单位换算</td>
+<td>图表支持自动单位换算，选择一个原始单位后，当数值满足换算进率时，自动换算为更高一级别的单位。单位支持精度配置。</td>
+<td><a href="https://cloud.tencent.com/document/product/614/74036">单位配置</a></td>
+</tr>
+<tr>
+<td>添加图表到仪表盘</td>
+<td>支持将图表分析结果保存到仪表盘，进行长期监控。</td>
+<td><a href="https://cloud.tencent.com/document/product/614/63399">添加图表到仪表盘</a></td>
+</tr>
+</tbody></table>

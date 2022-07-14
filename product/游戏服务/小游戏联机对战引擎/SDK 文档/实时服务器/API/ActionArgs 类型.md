@@ -1,4 +1,4 @@
-
+>!由于产品逻辑已无法满足游戏行业技术发展，游戏联机对战引擎 MGOBE 将于2022年6月1日下线，请您在2022年5月31日前完成服务迁移。
 
 ActionArgs 是一个模板类型，其 TypeScript 定义如下：
 ```
@@ -43,7 +43,7 @@ export interface ActionArgs<T> {
 ### gameData 属性
 
 **描述**
-该属性类型为 GameData，表示游戏数据，开发者可以用来实现游戏状态同步等功能。在第一次执行 gameServer.onCreateRoom 时会被初始化，在执行 gameServer.onDestroyRoom 时会被销毁。
+该属性类型为 GameData，表示游戏数据，您可以用来实现游戏状态同步等功能。在第一次执行 gameServer.onCreateRoom 时会被初始化，在执行 gameServer.onDestroyRoom 时会被销毁。
 
 ### room 属性
 
@@ -55,7 +55,7 @@ export interface ActionArgs<T> {
 **描述**
 该属性类型为 object，包含了一个类型为 GameData 的子属性 data，用于更新游戏数据 gameData。
 
-如果开发者需要重新给 gameData 赋值，可以参考以下代码：
+如果您需要重新给 gameData 赋值，可以参考以下代码：
 
 ```
 const newData = {};
@@ -80,9 +80,15 @@ exports.data = newData;
 |:---|---|---|
 |data|{ playerIdList: string[]; data: UserDefinedData; }|消息内容|
 
->?
+
+
+<dx-alert infotype="explain" title="">
 - data.playerIdList 表示接收消息的玩家 ID 列表。数组为空表示发给房间内全部玩家。
 - data.data 为具体消息，类型为 UserDefinedData，即 object。
+</dx-alert>
+
+
+
 
 **返回值说明**
 
@@ -117,7 +123,13 @@ SDK.sendData(data2);
 
 无。
 
->?使用该方法后，下次 gameServer.onRecvFromClient 接口回调将处理该方法发送的消息。
+
+
+<dx-alert infotype="explain" title="">
+使用该方法后，下次 gameServer.onRecvFromClient 接口回调将处理该方法发送的消息。
+</dx-alert>
+
+
 
 **使用示例**
 
@@ -140,7 +152,13 @@ SDK.dispatchAction(actionData);
 
 无。
 
->?当 gameServer.mode 为 "sync" 时，gameServer.onRecvFromClient 广播会保存在一个队列里面，在 gameServer.onRecvFromClient 回调函数中通过调用 SDK.exitAction 才能处理下一条 gameServer.onRecvFromClient 广播。SDK.clearAction 作用就是清空 gameServer.onRecvFromClient 队列，可用于游戏结束后实时服务器忽略客户端消息的场景。
+
+
+<dx-alert infotype="explain" title="">
+当 gameServer.mode 为 "sync" 时，gameServer.onRecvFromClient 广播会保存在一个队列里面，在 gameServer.onRecvFromClient 回调函数中通过调用 SDK.exitAction 才能处理下一条 gameServer.onRecvFromClient 广播。SDK.clearAction 作用就是清空 gameServer.onRecvFromClient 队列，可用于游戏结束后实时服务器忽略客户端消息的场景。
+</dx-alert>
+
+
 
 **使用示例**
 
@@ -162,7 +180,13 @@ SDK.clearAction();
 
 无。
 
->?当 gameServer.mode 为 "sync" 时，需要在 gameServer.onRecvFromClient 回调里面显式调用 SDK.exitAction 方法才能继续处理下一条 gameServer.onRecvFromClient 广播消息。
+
+
+<dx-alert infotype="explain" title="">
+当 gameServer.mode 为 "sync" 时，需要在 gameServer.onRecvFromClient 回调里面显式调用 SDK.exitAction 方法才能继续处理下一条 gameServer.onRecvFromClient 广播消息。
+</dx-alert>
+
+
 
 **使用示例**
 
@@ -207,7 +231,14 @@ IGetRoomByRoomIdRsp 定义如下：
 
 无。
 
->?调用该接口需要在 mgobexsCode 配置正确的游戏 ID 和后端密钥。
+
+
+<dx-alert infotype="explain" title="">
+调用该接口需要在 mgobexsCode 配置正确的游戏 ID 和后端密钥。
+</dx-alert>
+
+
+
 
 **使用示例**
 
@@ -237,14 +268,14 @@ SDK.getRoomByRoomId(getRoomByRoomIdPara, event => {
 
 IChangeRoomPara 定义如下：
 
-|属性名|类型/值|描述|可选|
+|属性名|类型/值|描述|是否必填|
 |:---|---|---|---|
-|roomId|string|房间 ID||
-|roomName|string|房间名称|是|
-|owner|string|房主 ID|是|
-|isPrivate|boolean|是否私有|是|
-|isForbidJoin|boolean|是否禁止加入房间|是|
-|customProperties|string|自定义房间属性|是|
+|roomId|string|房间 ID|是|
+|roomName|string|房间名称|否|
+|owner|string|房主 ID|否|
+|isPrivate|boolean|是否私有|否|
+|isForbidJoin|boolean|是否禁止加入房间|否|
+|customProperties|string|自定义房间属性|否|
 
 IChangeRoomRsp 定义如下：
 
@@ -256,7 +287,13 @@ IChangeRoomRsp 定义如下：
 
 无。
 
->?调用该接口需要在 mgobexsCode 配置正确的游戏 ID 和后端密钥。
+
+
+<dx-alert infotype="explain" title="">
+调用该接口需要在 mgobexsCode 配置正确的游戏 ID 和后端密钥。
+</dx-alert>
+
+
 
 **使用示例**
 
@@ -302,7 +339,11 @@ IChangeCustomPlayerStatusRsp 定义如下：
 
 无。
 
->?调用该接口需要在 mgobexsCode 配置正确的游戏 ID 和后端密钥。
+<dx-alert infotype="explain" title="">
+调用该接口需要在 mgobexsCode 配置正确的游戏 ID 和后端密钥。
+</dx-alert>
+
+
 
 **使用示例**
 
@@ -347,7 +388,13 @@ IRemovePlayerRsp 定义如下：
 
 无。
 
->?调用该接口需要在 mgobexsCode 配置正确的游戏 ID 和后端密钥。
+
+
+<dx-alert infotype="explain" title="">
+调用该接口需要在 mgobexsCode 配置正确的游戏 ID 和后端密钥。
+</dx-alert>
+
+
 
 **使用示例**
 

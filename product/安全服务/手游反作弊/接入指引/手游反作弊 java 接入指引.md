@@ -1,3 +1,4 @@
+
 ## 准备工作
 - 接入安全 SDK，开发者需要完成以下步骤：
  1. 根据游戏运行平台和支持的 CPU 架构将 SDK 动态库拷贝到指定工程目录
@@ -65,19 +66,19 @@ public static int initEx(int gameId, String appKey);
 ### 用户登录接口
 **函数原型**
 ```
-public static native int onUserLogin(int accountType, int worldId, String openId, String roleId);
+public static native int onUserLogin(int  accountType, int worldId, String openId, String roleId);
 ```
 
 **参数说明**
 
 | 参数 | 标题 2 |
 |---------|---------|
-| account_type | 与运营平台相关的帐号类型，参考下文的 TssSdkEntryId 填写 |
+|accountType | 与运营平台相关的帐号类型，参考下文的 TssSdkEntryId 填写 |
 | worldId | 用户游戏角色的大区信息 |
 | openId | 用户唯一身份标识，可自定义字符串。（和处罚相关必须填写） |
 | roleId | 区分用户创建的不同角色的标识 |
 
-account_type 默认 QQ 平台填 1，微信平台填 2，其他平台填 99。国内外主流帐号登录平台可参考以下数值填写。
+accountType 默认 QQ 平台填 1，微信平台填 2，其他平台填 99。国内外主流帐号登录平台可参考以下数值填写。
 ```
 enum TssSdkEntryId
 {
@@ -119,10 +120,10 @@ int onAppPause ();
 public void onCreate()
  {
 // 游戏启动的第一时间调用
-TP2Sdk. initEx(9000, “d5ab8dc7ef67ca92e41d730982c5c602”);
+TP2Sdk. initEx(9000, “d5ab8dc7ef67ca92e41d730982******”);
 int accountType = ENTRYID.ENTRY_ID_QZONE; /* 帐号类型 */
 int worldId = 1; /* 大区 ID*/
-String openId = "B73B36366565F9E02C752"; /* 与平台相关的用户标识 */
+String openId = "B73B36366565F9E******"; /* 与平台相关的用户标识 */
 String roleId = "paladin"; /* 角色 ID*/
 // 用户登录游戏时调用
 TP2Sdk.onUserLogin(accountType, worldId, openId, roleId);

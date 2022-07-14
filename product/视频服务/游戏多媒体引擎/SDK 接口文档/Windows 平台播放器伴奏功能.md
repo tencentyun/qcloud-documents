@@ -1,3 +1,4 @@
+
 为方便开发者调试和接入腾讯云游戏多媒体引擎产品，本文主要为您介绍适用于使用 Windows 平台第三方播放器伴奏功能的相关技术文档。
 
 ## 配置头文件
@@ -84,3 +85,4 @@ virtual int SetSpeakerDeviceVolume(int vol) = 0;
 
 #### 函数原型
 virtual int GetSpeakerDeviceVolume() = 0;
+

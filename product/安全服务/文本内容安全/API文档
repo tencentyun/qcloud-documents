@@ -9,9 +9,8 @@
 	- [返回结果](https://cloud.tencent.com/document/product/669/34497)
 - 文本内容安全相关接口
 	- [文本内容检测](https://cloud.tencent.com/document/product/669/34502)
-	- [新增文本样本](https://cloud.tencent.com/document/product/669/35620)
+	- [新增文本样本库](https://cloud.tencent.com/document/product/669/35620)
 	- [删除文字样本库](https://cloud.tencent.com/document/product/669/35619)
 	- [查询文字样本库](https://cloud.tencent.com/document/product/669/35618)
-	- [识别结果概览数据](https://cloud.tencent.com/document/product/669/34504)
 - [数据结构](https://cloud.tencent.com/document/product/669/34506)
 - [错误码](https://cloud.tencent.com/document/product/669/34507)

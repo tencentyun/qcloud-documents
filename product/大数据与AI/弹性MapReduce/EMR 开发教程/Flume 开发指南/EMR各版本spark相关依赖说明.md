@@ -12,7 +12,7 @@
 ```
 https://spark.apache.org/docs/{spark.version}/index.html
 ```
-将`{spark.version}`替换为对应的 spark 版本，例如查看2.0.2版本的依赖关系，访问链接如下：
+将 `{spark.version}` 替换为对应的 spark 版本，例如查看2.0.2版本的依赖关系，访问链接如下：
 ```
 https://spark.apache.org/docs/2.0.2/index.html
 ```

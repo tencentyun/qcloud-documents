@@ -1,8 +1,11 @@
-
+>!由于产品逻辑已无法满足游戏行业技术发展，游戏联机对战引擎 MGOBE 将于2022年6月1日下线，请您在2022年5月31日前完成服务迁移。
 
 在初始化 MGOBE SDK 时，为了避免在客户端泄露游戏项目的游戏密钥，可以使用签名的方式初始化 SDK。在开发者服务器通过游戏 ID、游戏密钥、玩家 openId 等信息计算出游戏签名，然后下发给客户端。客户端在初始化、掉线重连、前后台切换等场景中均会验证玩家签名信息。
 
+
+
 ## 签名计算方式
+
 
 签名涉及到的字段如下：
 
@@ -16,7 +19,7 @@
 
 1. 拼接字符串 str：
 ```
-// 注意字段的顺序为game_id、nonce、open_id、timestamp
+// 注意字段的顺序为 game_id、nonce、open_id、timestamp
 // 字段和值之间使用 = 连接
 // 不同字段之间使用 & 连接
 const str = "game_id=您的游戏ID&nonce=1655790837&open_id=玩家openId&timestamp=1571902273"
@@ -42,8 +45,8 @@ const HmacSHA1 = require("crypto-js/hmac-sha1");
 /**
  * 生成SDK初始化签名
  * @param secretKey {string} 游戏密钥
- * @param gameId {string} 游戏ID
- * @param openId {string} 玩家ID
+ * @param gameId {string} 游戏 ID
+ * @param openId {string} 玩家 ID
  */
 function getSignature(secretKey: string, gameId: string, openId: string): { sign: string, nonce: number, timestamp: number } {
 
@@ -73,7 +76,7 @@ export default getSignature;
 
 #### 客户端
 
-客户端在初始化 SDK 时，需要实现一个 createSignature 签名函数，从服务端获取签名信息然后回调给 SDK。
+客户端在初始化 SDK 时，需要实现一个 createSignature 签名函数，从服务端获取签名信息然后回调给 SDK。示例代码如下：
 
 ```
 const gameInfo = {
@@ -107,3 +110,9 @@ Listener.init(gameInfo, config, event => {
     }
 });
 ```
+
+
+<dx-alert infotype="explain" title="">
+示例代码帮助您理解如何使用签名的方式初始化 SDK，具体业务里的服务端部署、请求方式、请求协议格式，由您自行实现。
+</dx-alert>
+

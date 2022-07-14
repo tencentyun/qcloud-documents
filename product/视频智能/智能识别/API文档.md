@@ -1,6 +1,4 @@
-
 智能识别基于腾讯实验室最新研究成果，为您提供视频内容的全方位识别，支持识别视频内的人物、语音、文字、物体以及帧标签，其 API 接口如下所示：
-
 
 ## 调用方式
 
@@ -65,7 +63,7 @@
 - [获取任务列表](https://cloud.tencent.com/document/product/862/37613)
 - [任务管理](https://cloud.tencent.com/document/product/862/40947)
 
-
+ 
 
 ## 解析事件通知相关接口
 

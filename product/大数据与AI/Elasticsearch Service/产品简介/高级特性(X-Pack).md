@@ -2,7 +2,7 @@
 高级特性，是指 Elasticsearch 官方商业特性（原 X-Pack 商业版插件包含的特性），包含了安全（Security）、SQL、机器学习（Machine Learning）、监控（Monitor）等高级功能，可以为 Elasticsearch 服务的应用开发和运维管理，提供更有力的帮助。腾讯云 ES 已提供了包含高级特性的版本，您可以在创建购买集群时选择，下文介绍各版本详细功能。
 
 ## 购买指引
-![](https://main.qcloudimg.com/raw/718c1da8f743676dea93c048751b53fb.png)
+![](https://main.qcloudimg.com/raw/24601df6d24efe0d711db1569ff4a0f8.png)
 如上图所示，在腾讯云 ES 创建购买页，有高级特性版本选项。腾讯云 ES 提供了3种可选的高级特性版本，版本说明如下：
 
 | 对比项            | 基础版 | 白金版 | 开源版 |
@@ -11,11 +11,13 @@
 | X-Pack 功能完整度 | 部分   | 全部   | 无     |
 
 **购买推荐**  
-为了能够使用腾讯云 Elasticsearch 更多高级功能，我们建议您在创建购买集群时，选择**白金版**，各版本具体功能介绍及区别见下文，产品的定价信息详见 [产品定价](https://cloud.tencent.com/document/product/845/18376)。
+为了能够使用腾讯云 Elasticsearch 更多高级功能，我们建议您在创建购买集群时，选择**白金版**，各版本具体功能介绍及区别见下文，产品的定价信息详见 [Elasticsearch Service 集群定价](https://cloud.tencent.com/document/product/845/18376)。
 
 ## 高级特性介绍
-本文对部分常用高级特性进行了说明，完整的高级特性及说明，可查看官方说明 [Elastic Stack](https://www.elastic.co/cn/products/stack) 、[API 文档](https://www.elastic.co/guide/en/elasticsearch/reference/6.4/xpack-api.html)。
->! 部分功能在不同的高级特性版本（基础、白金、开源）间有区别。
+本文对部分常用高级特性进行了说明，完整的高级特性及说明，可查看官方说明 [Elastic Stack 订阅](https://www.elastic.co/cn/subscriptions) 、[API 文档](https://www.elastic.co/guide/en/elasticsearch/reference/6.4/xpack-api.html)。
+>! 
+>- 部分功能在不同的高级特性版本（基础、白金、开源）间有区别。
+>- 部分功能在较老的腾讯云 ES 版本不支持，若您遇到此问题，可通过 [售后支持](https://cloud.tencent.com/online-service?from=connect-us) 咨询。
 
 - **安全（Security）**  
 支持索引和字段级别读写等细分权限的控制管理，实现数据安全防护、业务访问隔离，向正确的人员授予访问权限，阻止恶意破坏和数据泄露，有效的保障数据安全。
@@ -34,7 +36,7 @@
 
 本节主要对不同 ES 版本的部分重点功能做对比说明，方便用户了解不同版本中功能的区别。因 Elasticsearch 正处于快速发展阶段，不同版本对各功能的支持情况也在不断调整，所以我们不保证下述内容能及时跟进社区变化。
 
-了解最新准确的功能对比，可查看 Elasticsearch 官方介绍 [Elastic 各版本功能说明](https://www.elastic.co/cn/subscriptions)。
+了解最新准确的功能对比，可查看 Elasticsearch 官方介绍 [Elastic Stack 订阅](https://www.elastic.co/cn/subscriptions)。
 
 
 >?下表中![全部](https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png)、![部分](https://main.qcloudimg.com/raw/07a75780ad731f49a5f28b3918c6c461.png)、![不包含](https://main.qcloudimg.com/raw/77ef3c9aa6959f7027acb2484781c491.png)用于表示对应特性的功能完整度，![全部](https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png)：包含全部功能；![部分](https://main.qcloudimg.com/raw/07a75780ad731f49a5f28b3918c6c461.png)：包含部分功能；![不包含](https://main.qcloudimg.com/raw/77ef3c9aa6959f7027acb2484781c491.png)：不包含。
@@ -63,8 +65,8 @@
   <tr>
     <td class="tg-s268">数据扩充</td>
     <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
-		<td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
-		<td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+        <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+        <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-s268"><a href="#manage_tool">管理和工具</a></td>
@@ -79,7 +81,7 @@
     <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
-    <td class="tg-s268"><a href="#machine_learning">Machine Learning</a></td>
+    <td class="tg-s268"><a href="#machine_learning">机器学习</a></td>
     <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/77ef3c9aa6959f7027acb2484781c491.png"  alt="不包含" /></td>
     <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/77ef3c9aa6959f7027acb2484781c491.png"  alt="不包含" /></td>
     <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
@@ -116,7 +118,7 @@
     <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
-    <td class="tg-0lax">Machine Learning</td>
+    <td class="tg-0lax">机器学习</td>
     <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/77ef3c9aa6959f7027acb2484781c491.png"  alt="不包含" /></td>
     <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/77ef3c9aa6959f7027acb2484781c491.png"  alt="不包含" /></td>
     <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
@@ -150,26 +152,26 @@
     <td class="tg-0lax" rowspan="5">Logstash</td>
     <td class="tg-0lax">数据收集</td>
     <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
-		<td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
-		<td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+        <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+        <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-0lax">数据扩充</td>
     <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
-		<td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
-		<td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+        <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+        <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-0lax">数据传输</td>
     <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
-		<td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
-		<td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+        <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+        <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-0lax">模块</td>
     <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/07a75780ad731f49a5f28b3918c6c461.png"  alt="包含部分" /></td>
     <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
-		<td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+        <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-0lax">监测和管理</td>
@@ -203,7 +205,7 @@
     <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
-    <td class="tg-0lax">分布式追踪</td>
+    <td class="tg-0lax">分布式跟踪</td>
     <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/77ef3c9aa6959f7027acb2484781c491.png"  alt="不包含" /></td>
     <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
     <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
@@ -353,7 +355,7 @@
     <td class="tg-s268">&#10003;</td>
   </tr>
   <tr>
-    <td class="tg-0lax" rowspan="6"><a id="Security">Security</a></td>
+    <td class="tg-0lax" rowspan="7"><a id="Security">Security</a></td>
     <td class="tg-s268">加密通信</td>
     <td class="tg-s268">-</td>
     <td class="tg-s268">&#10003;</td>
@@ -375,7 +377,7 @@
     <td class="tg-s268">审核日志</td>
     <td class="tg-s268">-</td>
     <td class="tg-s268">-</td>
-    <td class="tg-s268">&#10003;</td>
+    <td class="tg-s268">-</td>
   </tr>  
   <tr>
     <td class="tg-s268">基于属性的权限控制</td>
@@ -385,6 +387,12 @@
   </tr>
   <tr>
     <td class="tg-s268">字段和文档级别安全性</td>
+    <td class="tg-s268">-</td>
+    <td class="tg-s268">-</td>
+    <td class="tg-s268">&#10003;</td>
+  </tr>
+	  <tr>
+    <td class="tg-s268">LDAP 身份验证</td>
     <td class="tg-s268">-</td>
     <td class="tg-s268">-</td>
     <td class="tg-s268">&#10003;</td>

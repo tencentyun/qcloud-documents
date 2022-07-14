@@ -43,7 +43,7 @@ public class Main {
         context.setRegion("ap-chongqing");
         // 订阅的 serviceIp 和 servicePort
         // 注意：2.8.0以前的 SDK 需要设置 IP 和 Port 两个参数，2.8.0以后的版本如果设置了 region 参数则可以省略
-        // context.setServiceIp("10.108.112.24");
+        // context.setServiceIp("10.xx.xx.24");
         // context.setServicePort(50120);
 
         // 如果运行 SDK 的 CVM 不能访问外网，设置网络环境为内网;默认为外网。

@@ -10,7 +10,7 @@
 <dependency>
     <groupId>com.qcloud</groupId>
     <artifactId>vod_api</artifactId>
-    <version>2.1.2</version>
+    <version>2.1.4</version>
 </dependency>
 ```
 
@@ -19,8 +19,8 @@
 如果项目没有采用 Maven 的方式进行依赖管理，可采用如下方式，下载各个所需的 jar 包，导入项目即可：
 
 | jar 文件         | 说明    |
-| ------------ | ------------ | 
-| vod_api-2.1.2.jar | 云点播 SDK。 |
+| ------------ | ------------ |
+| vod_api-2.1.4.jar | 云点播 SDK。 |
 | jackson-annotations-2.9.0.jar,jackson-core-2.9.7.jar,jackson-databind-2.9.7.jar,gson-2.2.4.jar       | 开源的 JSON 相关库。 |
 | cos_api-5.4.10.jar            | 腾讯云对象存储服务 COS SDK。                          |
 | tencentcloud-sdk-java-3.1.2.jar             | 腾讯云 API SDK。                        |
@@ -142,6 +142,58 @@ try {
 }
 ```
 
+### 使用临时证书上传
+传入 [临时证书](https://cloud.tencent.com/document/product/1312/48195) 的相关密钥信息，使用临时证书验证身份并进行上传。
+```
+VodUploadClient client = new VodUploadClient("Credentials TmpSecretId", "Credentials TmpSecretKey", "Credentials Token");
+VodUploadRequest request = new VodUploadRequest();
+request.setMediaFilePath("/data/videos/Wildlife.wmv");
+try {
+    VodUploadResponse response = client.upload("ap-guangzhou", request);
+    logger.info("Upload FileId = {}", response.getFileId());
+} catch (Exception e) {
+    // 业务方进行异常处理
+    logger.error("Upload Err", e);
+}
+```
+
+
+### 设置代理上传
+设置上传代理，涉及协议及数据都会经过代理进行处理，开发者可以借助代理在自己公司内网上传文件到腾讯云。
+```
+VodUploadClient client = new VodUploadClient("your secretId", "your secretKey");
+VodUploadRequest request = new VodUploadRequest();
+request.setMediaFilePath("/data/videos/Wildlife.wmv");
+HttpProfile httpProfile = new HttpProfile();
+httpProfile.setProxyHost("your proxy ip");
+httpProfile.setProxyPort(8080); //your proxy port
+client.setHttpProfile(httpProfile);
+try {
+    VodUploadResponse response = client.upload("ap-guangzhou", request);
+    logger.info("Upload FileId = {}", response.getFileId());
+} catch (Exception e) {
+    // 业务方进行异常处理
+    logger.error("Upload Err", e);
+}
+```
+
+### 自适应码流文件上传
+
+本 SDK 支持上传的自适应码流格式包括 HLS 和 DASH，同时要求 manifest（M3U8 或 MPD）所引用的媒体文件必须为相对路径（即不可以是 URL 和绝对路径），且位于 manifest 的同级目录或者下级目录（即不可以使用`../`）。在调用 SDK 上传接口时，`MediaFilePath`参数填写 manifest 路径，SDK 会解析出相关的媒体文件列表一并上传。
+
+```
+VodUploadClient client = new VodUploadClient("your secretId", "your secretKey");
+VodUploadRequest request = new VodUploadRequest();
+request.setMediaFilePath("/data/videos/prog_index.m3u8");
+try {
+    VodUploadResponse response = client.upload("ap-guangzhou", request);
+    logger.info("Upload FileId = {}", response.getFileId());
+} catch (Exception e) {
+    // 业务方进行异常处理
+    logger.error("Upload Err", e);
+}
+```
+
 ## 接口描述
 上传客户端类`VodUploadClient`
 
@@ -155,6 +207,7 @@ try {
 | 属性名称      | 属性描述                   | 类型      | 必填   |
 | --------- | ---------------------- | ------- | ---- |
 | MediaFilePath   | 待上传的媒体文件路径。必须为本地路径，不支持 URL。| String | 是    |
+| SubAppId   | **云点播 [子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID，否则无需填写该字段。**        | Integer | 否    |
 | MediaType   | 待上传的媒体文件类型，可选类型请参见 [视频上传综述](/document/product/266/9760#.E6.96.87.E4.BB.B6.E7.B1.BB.E5.9E.8B)，若 MediaFilePath 路径带后缀可不填。        | String | 否    |
 | MediaName   | 上传后的媒体名称，若不填默认采用 MediaFilePath 的文件名。      | String | 否    |
 | CoverFilePath   | 待上传的封面文件路径。必须为本地路径，不支持 URL。| String | 否    |
@@ -163,7 +216,6 @@ try {
 | ExpireTime   | 媒体文件过期时间，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#52)。        | String | 否    |
 | ClassId   | 分类 ID，用于对媒体进行分类管理，可通过 [创建分类](/document/product/266/31772) 接口，创建分类，获得分类 ID。        | Integer | 否    |
 | SourceContext   | 来源上下文，用于透传用户请求信息，上传回调接口将返回该字段值，最长250个字符。        | String | 否    |
-| SubAppId   | 云点播 [子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID，否则无需填写该字段。        | Integer | 否    |
 | StorageRegion   | 存储地域，指定预期希望存储的地域，该字段填写为存储地域的 [英文简称](/document/product/266/9760#.E4.B8.8A.E4.BC.A0.E5.AD.98.E5.82.A8)。        | String | 否    |
 | ConcurrentUploadNumber   | 分片并发数，针对大文件分片时有效。        | Integer | 否    |
 
@@ -193,3 +245,6 @@ try {
 | InvalidParameterValue.SubAppId       | 参数值错误：子应用 ID。              |
 | InvalidParameterValue.VodSessionKey       | 参数值错误：点播会话。              |
 | ResourceNotFound       | 资源不存在。              |
+
+
+

@@ -13,7 +13,7 @@
 1. 打开 SecureCRT 工具，选择【Options】>【Global Options】。
 2. 在打开的配置框中选中【SSH2】， 并单击【Create Identity File】。
 ![](https://main.qcloudimg.com/raw/c2a0fbf59643738c506bd558f322c88b.png)
-3. 单击【下一步】>【下一步】，并选择 Key Type 为 RSA。
+3. 选择【下一步】>【下一步】，并选择 Key Type 为 RSA。
 ![](https://main.qcloudimg.com/raw/76310dd2992d8791eeafbc2c9b4ef59b.png)
 4. 下一步设置密钥对加密口令（可填可不填）。
 5. 若设置了密钥，则下一步需要设置密钥长度，推荐长度2048。

@@ -1,22 +1,22 @@
 ## 简介
-本文档介绍如何不依赖 SDK，用简单的代码，在网页（Web 端）直传文件到 COS 的存储桶。
+本文档介绍如何不依赖 SDK，用简单的代码，在网页（Web 端）直传文件到对象存储（Cloud Object Storage，COS）的存储桶。
 
 >! 本文档内容基于 XML 版本的 [API](https://cloud.tencent.com/document/product/436/7751)。
+>
 
-
+<span id="1"></span>
 ## 前提条件
-<span id="前期准备"></span>
+
 1. 登录  [COS 控制台](https://console.cloud.tencent.com/cos5) 并创建存储桶，得到 Bucket（存储桶名称） 和 Region（地域名称），详情请参见 [创建存储桶](https://cloud.tencent.com/document/product/436/13309) 文档。
-2. 进入存储桶详情页，单击【基础配置】页签。下拉页面找到【跨域访问CORS设置】配置项，单击【添加规则】，配置示例如下图，详情请参见 [设置跨域访问](https://cloud.tencent.com/document/product/436/13318) 文档。
+2. 进入存储桶详情页，单击**安全管理**页签。下拉页面找到**跨域访问CORS设置**配置项，单击**添加规则**，配置示例如下图，详情请参见 [设置跨域访问](https://cloud.tencent.com/document/product/436/13318) 文档。
 ![](https://main.qcloudimg.com/raw/86dc77bee6d3da13a91ab378c79d8a53.jpg)
 3. 登录 [访问管理控制台](https://console.cloud.tencent.com/cam/capi)， 获取您的项目 SecretId 和 SecretKey。
 
 
-
 ## 实践步骤
 
-
 >! 正式部署时服务端请加一层您的网站本身的权限检验。
+>
 
 ### 获取临时密钥和计算签名
 出于安全考虑，签名使用临时密钥，服务端搭建临时密钥服务，可参考 [PHP 示例](https://github.com/tencentyun/cos-js-sdk-v5/blob/master/server/sts.php)、[Nodejs 示例](https://github.com/tencentyun/cos-js-sdk-v5/blob/master/server/sts.js)。
@@ -30,11 +30,10 @@
 ### 前端上传
 #### 方案 A：使用 AJAX 上传
 AJAX 上传需要浏览器支持基本的 HTML5 特性，当前方案使用 [PUT Object ](https://cloud.tencent.com/document/product/436/7749)  文档，操作指引如下：
-1. 按照 [前提条件](#前期准备) 的步骤，准备存储桶的相关配置。
+1. 按照 [前提条件](#1) 的步骤，准备存储桶的相关配置。
 2. 创建`test.html`文件，修改下方代码的 Bucket 和 Region，并复制到`test.html`文件。
 3. 部署后端的签名服务，并修改`test.html`里的签名服务地址。
 4. 将`test.html`放在 Web 服务器下，并通过浏览器访问页面，测试文件上传功能。
-
 ```html
 <!doctype html>
 <html lang="en">
@@ -64,10 +63,10 @@ AJAX 上传需要浏览器支持基本的 HTML5 特性，当前方案使用 [PUT
 <script>
     (function () {
         // 请求用到的参数
-        var Bucket = 'test-1250000000';
+        var Bucket = 'examplebucket-1250000000';
         var Region = 'ap-guangzhou';
         var protocol = location.protocol === 'https:' ? 'https:' : 'http:';
-        var prefix = protocol + '//' + Bucket + '.cos.' + Region + '.myqcloud.com/';
+        var prefix = protocol + '//' + Bucket + '.cos.' + Region + '.myqcloud.com/';  // prefix 用于拼接请求 url 的前缀，域名使用存储桶的默认域名
 
         // 对更多字符编码的 url encode 格式
         var camSafeUrlEncode = function (str) {
@@ -92,7 +91,7 @@ AJAX 上传需要浏览器支持基本的 HTML5 特性，当前方案使用 [PUT
                 } catch (e) {}
                 if (credentials) {
                     callback(null, {
-                        XCosSecurityToken: credentials.sessionToken,
+                        SecurityToken: credentials.sessionToken,
                         Authorization: CosAuth({
                             SecretId: credentials.tmpSecretId,
                             SecretKey: credentials.tmpSecretKey,
@@ -122,12 +121,12 @@ AJAX 上传需要浏览器支持基本的 HTML5 特性，当前方案使用 [PUT
                 }
 
                 var auth = info.Authorization;
-                var XCosSecurityToken = info.XCosSecurityToken;
+                var SecurityToken = info.SecurityToken;
                 var url = prefix + camSafeUrlEncode(Key).replace(/%2F/g, '/');
                 var xhr = new XMLHttpRequest();
                 xhr.open('PUT', url, true);
                 xhr.setRequestHeader('Authorization', auth);
-                XCosSecurityToken && xhr.setRequestHeader('x-cos-security-token', XCosSecurityToken);
+                SecurityToken && xhr.setRequestHeader('x-cos-security-token', SecurityToken);
                 xhr.upload.onprogress = function (e) {
                     console.log('上传进度 ' + (Math.round(e.loaded / e.total * 10000) / 100) + '%');
                 };
@@ -164,18 +163,16 @@ AJAX 上传需要浏览器支持基本的 HTML5 特性，当前方案使用 [PUT
 </body>
 </html>
 ```
-
 执行效果如下图：
 ![Ajax 上传](https://main.qcloudimg.com/raw/4bfc2883d71deddccc76b250ebb6a051.png)
 
 #### 方案 B：使用 Form 表单上传
 Form 表单上传支持低版本的浏览器的上传（如 IE8），当前方案使用 [Post Object ](https://cloud.tencent.com/document/product/436/14690) 接口。操作指引：
-1. 按照 [前提条件](#前期准备) 的步骤，准备存储桶。
+1. 按照 [前提条件](#1) 的步骤，准备存储桶。
 2. 创建`test.html`文件，修改下方代码的 Bucket 和 Region，并复制到`test.html`文件。
 3. 部署后端的签名服务，并修改`test.html`里的签名服务地址。
 4. 在`test.html`同一个目录下，创建一个空的`empty.html`，用于上传成功时跳转回来。
 5. 将`test.html`和`empty.html`放在 Web 服务器下，并通过浏览器访问页面，测试文件上传功能。
-
 ```html
 <!doctype html>
 <html lang="en">
@@ -197,6 +194,8 @@ Form 表单上传支持低版本的浏览器的上传（如 IE8），当前方�
     <input id="Signature" name="Signature" type="hidden" value="">
     <input name="Content-Type" type="hidden" value="">
     <input id="x-cos-security-token" name="x-cos-security-token" type="hidden" value="">
+
+    <!-- file 字段放在表单最后，避免文件内容过长影响签名判断和鉴权 -->
     <input id="fileSelector" name="file" type="file">
     <input id="submitBtn" type="button" value="提交">
 </form>
@@ -209,10 +208,10 @@ Form 表单上传支持低版本的浏览器的上传（如 IE8），当前方�
     (function () {
 
         // 请求用到的参数
-        var Bucket = 'test-1250000000';
+        var Bucket = 'examplebucket-1250000000';
         var Region = 'ap-guangzhou';
         var protocol = location.protocol === 'https:' ? 'https:' : 'http:';
-        var prefix = protocol + '//' + Bucket + '.cos.' + Region + '.myqcloud.com/';
+        var prefix = protocol + '//' + Bucket + '.cos.' + Region + '.myqcloud.com/'; // prefix 用于拼接请求 url 的前缀，域名使用存储桶的默认域名
         var form = document.getElementById('form');
         form.action = prefix;
 
@@ -241,7 +240,7 @@ Form 表单上传支持低版本的浏览器的上传（如 IE8），当前方�
                         } catch (e) {}
                         if (credentials) {
                             callback(null, {
-                                XCosSecurityToken: credentials.sessionToken,
+                                SecurityToken: credentials.sessionToken,
                                 Authorization: CosAuth({
                                     SecretId: credentials.tmpSecretId,
                                     SecretKey: credentials.tmpSecretKey,
@@ -300,18 +299,18 @@ Form 表单上传支持低版本的浏览器的上传（如 IE8），当前方�
                 document.getElementById('success_action_redirect').value = location.href.substr(0, location.href.lastIndexOf('/') + 1) + 'empty.html';
                 document.getElementById('key').value = Key;
                 document.getElementById('Signature').value = AuthData.Authorization;
-                document.getElementById('x-cos-security-token').value = AuthData.XCosSecurityToken || '';
+                document.getElementById('x-cos-security-token').value = AuthData.SecurityToken || '';
                 form.submit();
             });
         };
     })();
 </script>
-
 </body>
 </html>
 ```
 执行效果如下图：
 ![Form 表单上传](https://main.qcloudimg.com/raw/ef666461bc5f88715f28934393ebe4f4.png)
+
 ## 相关文档
 若您有更丰富的接口调用需求，请参考以下 JavaScript SDK 文档：
 - [JavaScript SDK](https://cloud.tencent.com/document/product/436/11459)

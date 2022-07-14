@@ -1,5 +1,5 @@
 ### 请求 URL 字段说明
-Rest API 是一种灵活、安全、通用的接入解决方案，同时 Rest API 读写简单，请求 body 信息直观，业务可以快速完成功能集成，实现产品上线。小微客服机器人 Rest 请求格式如下所示：
+Rest API 是一种灵活、安全、通用的接入解决方案，同时 Rest API 读写简单，请求 body 信息直观，业务可以快速完成功能集成，实现产品上线。小微客服机器人 Rest 请求格式如下所示：  
 
 <pre>
 https://yun.tim.qq.com/v3/prophet/$command?
@@ -25,5 +25,5 @@ appid=$appid
 
 ### AppID 获取方式
 如果您还没有腾讯云账号，您需要先注册腾讯云账号；
-如果您已有腾讯云账号，登录腾讯云小微机器人 [控制台](https://console.cloud.tencent.com/prophet/prophetlist/) 就能看到 AppID 信息和业务 SDK_ID 信息了。
+如果您已有腾讯云账号，登录腾讯云小微机器人控制台就能看到 AppID 信息和业务 SDK_ID 信息了。
 ![](//mc.qcloudimg.com/static/img/49f6d25112eacb7373a1f850629a4ec1/image.png)

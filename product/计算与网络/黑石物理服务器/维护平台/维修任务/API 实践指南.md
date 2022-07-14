@@ -50,11 +50,5 @@
 #### 操作类别
 - 服务器恢复正常：入参“Operate”指定为“ConfirmRecovered”，提交。
 - 服务器存在异常：入参“Operate”指定为“ConfirmUnRecovered”，提交，并联系售后，说明异常现象，由腾讯云侧进行协查。
-
-
-
-
-
-
 		
 

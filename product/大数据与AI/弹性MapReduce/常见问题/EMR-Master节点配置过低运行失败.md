@@ -105,7 +105,7 @@ hdfs dfsadmin -fs 10.0.0.9(standby节点IP):4007 -safemode leave 离开安全模
    </tr>
    <tr>
       <td>HDFS(Namenode)</td>
-      <td>堆内存最小内存 = 250 * 文件数量 + 290 * 目录数量 + 368 * 块数量</td>
+      <td>堆内存最小内存 = 250 × 文件数量 + 290 × 目录数量 + 368 × 块数量</td>
    </tr>
    <tr>
       <td>YARN(Resourcemaneger) </td>
@@ -117,7 +117,7 @@ hdfs dfsadmin -fs 10.0.0.9(standby节点IP):4007 -safemode leave 离开安全模
    </tr>
    <tr>
       <td>Hbase(Hmaster)</td>
-      <td>master 仅接收 DDL 请求和做负载均衡，默认 1g 一般够用 </td>
+      <td>master 仅接收 DDL 请求和做负载均衡，默认1g一般够用 </td>
    </tr>
    <tr>
       <td>Presto(Coordinator)</td>
@@ -140,6 +140,3 @@ hdfs dfsadmin -fs 10.0.0.9(standby节点IP):4007 -safemode leave 离开安全模
 4. EMR 部署组件根据实际的业务情况可分为独立部署或者混合部署。
  - 独立部署：专门用于存储如 HDFS 集群，用于海量数据分析的 Hbase 集群，计算任务的 spark 集群等。
  - 混合部署：测试集群或当前业务量不大，或资源抢占不严重的情况下可以进行多个组件部署到同一个集群。
-
-
-

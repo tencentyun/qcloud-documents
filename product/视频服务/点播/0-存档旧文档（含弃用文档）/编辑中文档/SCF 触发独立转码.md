@@ -60,7 +60,7 @@
 
 ```json
 {
-    "SecretId":"AKIDgJoxxxxxxxxxxxxxxxxxxxxxxsW78G9r",
+    "SecretId":"AKIDxxxxxxxxgJoxxxxxxxxxxxxxxxxxxxxxxsW78G9r",
     "SecretKey":"f8OTP9xxxxxxxxxxxxxxxxxxCh186sUy",
     "Para": {
         "output": {

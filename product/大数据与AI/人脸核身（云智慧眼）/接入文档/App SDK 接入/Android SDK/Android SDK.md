@@ -1,4 +1,4 @@
-腾讯云人脸核身针对 Android 端提供 SDK，开发人员可以将相应的 SDK 添加到项目工程中，直接调用 SDK 中提供的 OCR 识别、活体检测和1：1人脸比对服务。
+腾讯云人脸核身针对 Android 端提供 SDK，开发人员可以将相应的 SDK 添加到项目工程中，直接调用 SDK 中提供的 OCR 识别、活体检测和1:1人脸比对服务。
 ![](https://main.qcloudimg.com/raw/ba6e243fdce04a0a9aea85f26516a3e6.png)
 
 ## 业务流程
@@ -52,7 +52,7 @@ compile 'com.github.bumptech.glide:glide:3.7.0'
 }
 ```
 
-#### 3. 初始化 SDK 接口<span id="aar">
+#### [3. 初始化 SDK 接口](id:aar)
 在程序的 Application 中或在调用 SDK 之前初始化 SDK，设置相关配置，具体请参考 AuthDemo。**每次调用都需要从 [DetectAuth](https://cloud.tencent.com/document/api/1007/31816) 接口生成新的 BizToken**。
 ```
 AuthConfig.Builder configBuilder = new AuthConfig.Builder(editText.getText().toString(), R.class.getPackage().getName());

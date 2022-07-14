@@ -163,3 +163,4 @@ XML C++ SDK 新增 API，您可根据需求进行调用。包括：
 - 存储桶生命周期的操作，如 PutBucketLifecycleReq、GetBucketLifecycleReq 等。
 
 具体请参考我们的 C++ SDK [快速入门](https://cloud.tencent.com/document/product/436/12301) 文档。
+

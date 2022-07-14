@@ -1,3 +1,5 @@
+
+
 ### v1.22.0
 - [add] `tcb.registerExtension()`，注册扩展。
 - [add] `tcb.invokeExtension()`，使用扩展。
@@ -206,4 +208,6 @@
 - [changed] 云函数内使用不需要填写 secretId 和 secretKey，云函数重新部署后生效。
 - [changed] 文件上传添加支持 buffer。
 - [changed] 修复了嵌套对象的 bug。
+
+
 

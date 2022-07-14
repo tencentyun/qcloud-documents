@@ -1,13 +1,13 @@
 本文介绍了使用腾讯云 Sqoop 服务将数据在 MySQL 和 Hive 之间相互导入导出的方法。
 
 ## 1. 开发准备
-- 确认您已经开通了腾讯云，并且创建了一个 EMR 集群。在创建 EMR 集群的时候需要在软件配置界面选择 Sqoop，Hive 组件。 
-- Sqoop 等相关软件安装在路径 EMR 云服务器的`/usr/local/service/`路径 下。
+- 确认已开通腾讯云，并且创建了一个 EMR 集群。在创建 EMR 集群的时候需要在软件配置界面选择 Sqoop、Hive 组件。 
+- Sqoop 等相关软件安装在路径 EMR 云服务器的`/usr/local/service/`路径下。
 
 ## 2. 将关系型数据库导入到 Hive 中
 本节将继续使用上一节的用例。
 
-进入 EMR 控制台，复制目标集群的实例 ID，即集群的名字。再进入关系型数据库控制台，使用 Ctrl+F 进行搜索，找到集群对应的 MySQL 数据库，查看该数据库的内网地址 $mysqlIP。
+进入 [弹性 MapReduce 控制台](https://console.cloud.tencent.com/emr)，复制目标集群的实例 ID，即集群的名字。再进入关系型数据库控制台，使用 Ctrl+F 进行搜索，找到集群对应的 MySQL 数据库，查看该数据库的内网地址 $mysqlIP。
 
 登录 EMR 集群中的任意机器，最好是登录到 Master 节点。登录 EMR 的方式请参考 [登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)。这里我们可以选择使用 WebShell 登录。单击对应云服务器右侧的登录，进入登录界面，用户名默认为 root，密码为创建 EMR 时用户自己输入的密码。输入正确后，即可进入命令行界面。
 
@@ -29,9 +29,13 @@ Time taken: 0.167 seconds
 [hadoop@172 sqoop]$ bin/sqoop-import --connect  jdbc:mysql://$mysqlIP/test --username 
 root -P --table sqoop_test_back --hive-database hive_from_sqoop --hive-import --hive-table hive_from_sqoop
 ```
-其中 $mysqlIP 为您的腾讯云关系型数据库（CDB）的内网地址。test 为您 MySQL 数据库的名字，--table 为要导出的 MySQL 表名，--hive-database 为您的 Hive 数据库名，--hive-table 为您要导入的 Hive 表名。
+- $mysqlIP：腾讯云关系型数据库（CDB）的内网地址。
+- test：MySQL 数据库名称。
+- --table：要导出的 MySQL 表名。
+- --hive-database：Hive 数据库名。
+- --hive-table：导入的 Hive 表名。
 
-执行指令需要输入您的 MySQL 密码，默认为您创建 EMR 集群时设置的密码。执行成功后，可以在 Hive 中查看您导入的数据库：
+执行指令需要输入您的 MySQL 密码，默认为您创建 EMR 集群时设置的密码。执行成功后，可以在 Hive 中查看导入的数据库：
 ```
 hive> select * from hive_from_sqoop;
 OK
@@ -89,7 +93,6 @@ OK
 Time taken: 0.204 seconds
 hive> load data inpath "/$hdfspath/hive_test.data" into table hive_test;   #导入数据
 ```
-
 $hdfspath 为 HDFS 上的您存放文件的路径。
 
 成功后可使用`quit`命令退出 Hive 数据仓库。连接关系型数据库并创建对应的表格：
@@ -180,7 +183,6 @@ Time taken: 0.013 seconds
 hive> create table if not exists orc_test(a int,b string) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' stored as orc;
 ```
 可以通过如下指令来查看表格中数据的存储格式：	
-
 ```
 hive> show create table orc_test;
 OK
@@ -237,7 +239,6 @@ mysql> create table table_from_orc (a int,b varchar(255));
 其中 $mysqlIP 为您的关系型数据库的内网 IP 地址，test 为关系型数据库中的数据库名，--table 后跟的参数为您的关系型数据库的表名，--hcatalog-database 后面跟的参数是要导出的 Hive 表所在的数据库的名称，--hcatalog-table 后面跟的参数是要 Hive 中要导出的表的名称。
 
 导入成功后可以在 MySQL 中查看相应表中的数据：
-
 ```
 mysql> select count(*) from table_from_orc;
 +----------+

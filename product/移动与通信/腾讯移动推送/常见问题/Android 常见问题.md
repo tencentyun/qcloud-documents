@@ -1,192 +1,267 @@
+### Google Play 应用商店上架时提示“您的应用包含一个隐式 PendingIntent 漏洞”？
+1. TPNS SDK 在代码位置 TPushAlarmManager.set 处使用了一个隐式 PendingIntent，用于触发 SDK 内部心跳。
+您可以参见 Google [隐式 PendingIntent 处理帮助文档](https://support.google.com/faqs/answer/10437428) 提出的针对建议，TPNS SDK 已进行如下自查：
+a. 使用的 setAction 为 SDK 自声明的静态广播 action，无对外暴露风险；
+b. 涉及 PendingIntent 的打开目标为 SDK 内部静态广播，且已添加 SDK 内部自声明的广播权限，属于可信任组件。
 
-### 推送消息为何收不到？
-登录 [腾讯移动推送控制台](https://console.cloud.tencent.com/tpns) ，使用已获取的 Token 进行推送。如无法收到推送，请根据以下情况进行排查：
-- 请确保 SDK 版本是否为最新版本，如是旧版本出现问题，在新版本可能已经修复。
-- 如遇到 Web 端推送报错，请刷新页面重试。
+2. Google 文档提及 “Fixing this issue is recommended but not mandatory. The publication status of your app will be unaffected by the presence of this issue.”。
+
+综合考虑，TPNS 此处当前使用的 PendingIntent 为可信任安全 PendingIntent，且 Google 提示的此项内容不会影响您的应用上架。当前您可以忽视此项提示，继续上架您的应用。
+
+### 如何设置自定义铃声？
+
+使用自定义铃声可以通过创建通知渠道实现：
+1. 创建通知渠道，通过 TPNS 封装 API 或安卓原生 API 创建指定自定义铃声文件的通知渠道，可参考 [创建通知渠道](https://cloud.tencent.com/document/product/548/36659#.E5.88.9B.E5.BB.BA.E9.80.9A.E7.9F.A5.E6.B8.A0.E9.81.93)。
+2. 在 TPNS 推送 REST API 指定相同的通知渠道`n_ch_id `进行推送,厂商通道需指定厂商渠道 ID，如华为通道需指定`hw_ch_id`,小米通道需指定`xm_ch_id`。
+
+>?
+- 目前仅华为、小米、FCM 和 TPNS 通道支持自定义铃声。
+- 部分厂商推送通道使用通道渠道需要先进行通知分类权限申请，相关说明和申请步骤可参见 [厂商通道消息分类功能使用说明](https://cloud.tencent.com/document/product/548/44531)。
+- 针对华为推送通道，如果您的应用在华为推送控制台申请开通华为推送服务时，选择的数据处理位置为中国区，自定义渠道功能将不再适用于您的应用，即不支持利用通知渠道能力进行通知铃声自定义，详见 [自定义通知渠道](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/android-custom-chan-0000001050040122)。
+
+### 如何关闭 TPNS 的保活功能？
+
+如需关闭联合保活功能，请在应用初始化的时候，例如 Application 或 LauncherActivity 的 onCreate 中调用如下接口，并传递 false 值：
+>!仅 1.1.6.0 之后版本支持关闭联合保活功能，1.1.6.0之前版本TPNS 默认开启联合保活能力，且不可关闭。
+
+```java
+XGPushConfig.enablePullUpOtherApp(Context context, boolean pullUp);
+```
+
+若您使用 gradle 自动集成方式，请在自身应用的 AndroidManifest.xml 文件 &lt;application&gt; 标签下配置如下结点，其中 `xxx` 为任意自定义名称；如果使用手动集成方式，请修改如下节点属性：
+```xml
+<!-- 在自身应用的AndroidManifest.xml文件中添加如下结点，其中 xxx 为任意自定义名称: -->     
+<!-- 关闭与 TPNS 应用的联合保活功能，请配置 -->
+<provider
+		 android:name="com.tencent.android.tpush.XGPushProvider"
+		 tools:replace="android:authorities"
+		 android:authorities="应用包名.xxx.XGVIP_PUSH_AUTH"
+		 android:exported="false" />    
+```
+
+若控制台有以下日志打印，则表明联合保活功能已经关闭：`I/TPush: [ServiceUtil] disable pull up other app`。
+
+### 首次安装启动时如何配置不自动启动推送服务？
+
+针对“用户同意隐私服务协议” 场景，开发者可以在 AndroidManifest.xml 文件添加以下节点，应用首次安装启动时即不会自启推送服务，直到调用了推送服务注册接口`XGPushManager.registerPush()` 才会开启：
+
+```
+<meta-data
+android:name="XG_SERVICE_PULL_UP_OFF"
+android:value="true" />
+```
+### TPNS SDK 支持鸿蒙系统的推送吗？
+
+鸿蒙系统完全兼容 Android SDK，推送功能可正常使用。
 
 
-### 为何注册成功，无法收到推送？
-- 请查看当前应用包名，是否与注册腾讯移动推送应用时填写的应用包名不一致。如果不一致，推送时，建议开启多包名推送。
-- 检查手机网络是否异常，切换4G网络，进行测试。
-- 腾讯移动推送分为通**知栏消息**和**应用内消息**（透传消息），通知栏消息可以展示到通知栏，应用内消息不能展示到通知栏。
-- 确认手机当前模式是正常模式，部分手机在低电量，勿扰模式，省电模式下，会对后台腾讯移动推送进程进行一系列网络和活动的限制。
-- 查看设备是否开启通知栏权限，OPPO，vivo 等手机，需要手动开启通知栏权限。
+### 厂商推送服务需要上架应用市场才可以开通吗？
 
+| 厂商 | 是否需要上架应用市场 |
+|---------|---------|
+| 小米 | 否，个人开发者账号即可 [开通小米平台推送服务](https://dev.mi.com/console/doc/detail?pId=68) | 
+| 魅族 | 否，个人开发者账号即可 [开通魅族平台推送服务](http://open.res.flyme.cn/fileserver/upload/file/201709/a271468fe23b47408fc2ec1e282f851f.pdf)| 
+| FCM | 否，个人开发者账号即可开通 FCM 推送服务 |
+| 华为 | 否，个人开发者账号即可 [开通华为平台推送服务](https://developer.huawei.com/consumer/cn/doc/distribution/app/agc-enable_service#enable-service) | 
+| OPPO | 是，且需要企业开发者账号可 [开通 OPPO 平台推送服务](https://open.oppomobile.com/wiki/doc/#id=10195)| 
+| vivo | 是 ，且需要企业开发者账号可 [开通 vivo 平台推送服务](https://dev.vivo.com.cn/documentCenter/doc/2)|
+
+
+### 集成 vivo 厂商通道后 “APP 包含未使用的权限字符串”，如何处理？
+
+开发者在集成 vivo 厂商通道推送服务后，部分安全检测工具可能会提示 “APP 包含未使用的权限字符串”，详情如下： 
+问题来源：vivo 厂商通道推送 SDK 版本名 2.3.4。
+涉及类文件：com.vivo.push.util.z 涉及敏感权限字符串：android.permission.GET_ACCOUNTS。
+>! 经检查发现最新的 vivo 厂商通道推送 SDK 版本名 3.0.0.3 中同样包含此问题。
+
+问题代码来源为 vivo 厂商通道推送 SDK，TPNS 项目组无法变更其内容；此问题已向 vivo 推送服务相关人员反馈，表示相关静态字段为 SDK 遗留代码，并无实际使用，会尽快排期修复。 当前可参考的快速解决办法如下：
+- 方式一（推荐）： 在《APP隐私声明》里增加 [移动推送 TPNS 的隐私说明](https://cloud.tencent.com/document/product/548/36652#.E9.9A.90.E7.A7.81.E5.8D.8F.E8.AE.AE.E5.A3.B0.E6.98.8E.E5.BB.BA.E8.AE.AE)。 
+- 方式二（不推荐）： 剔除掉 vivo 相关 jar 包，但是也会丧失掉 vivo 厂商通道的能力。
+ 
+### 什么是 TPNS 通道？
+
+- TPNS 通道是移动推送 TPNS 的自建通道，依赖移动推送 TPNS Service 在线（与移动推送 TPNS 后台服务器保持长连接）才能下发消息，因此 TPNS 通道的实际发送一般比其他厂商通道的数据要低。
+- 如果需要实现离线推送，建议集成厂商通道，请参见 [厂商通道接入指南](https://cloud.tencent.com/document/product/548/45909)。
+
+
+
+### 为何关闭应用后，无法收到推送？
+
+- 目前第三方推送都无法保证关闭应用后仍可收到推送消息，该问题为手机定制 ROM 对移动推送 TPNS  Service 的限制问题，移动推送的 TPNS 通道推送，需要建立在移动推送 TPNS 的 Service 能够与移动推送 TPNS 后台服务器保持长连接，Service 被终止后，需由系统、安全软件和用户操作决定是否能够再次启动。
+- 移动推送 TPNS 的 Service 和移动推送 TPNS 的服务器断开连接后，此时给这个设备下发的消息，将变成离线消息，离线消息最多保存72小时，每个设备最多保存三条，如果有多条离线消息，只保留最新的三条消息。在关闭应用期间推送的消息，如开启应用无法收到，请检查是否调用了反注册接口：XGPushManager.unregisterPush\(this\)。
+- 如果已经集成厂商通道，但是仍收不到离线推送，请先在 [排查工具](https://console.cloud.tencent.com/tpns/user-tools) 上查询该 Token 是否已经注册上厂商通道，如果未注册成功，请参见 [厂商通道注册失败排查指南](https://cloud.tencent.com/document/product/548/45659) 进行排查。
+- QQ 和微信是系统级别的应用白名单，相关的 Service 不会因为关闭应用而退出，所以用户感知推出应用过后，仍可收到消息，但相关的 Service 仍能够在后台存活。
 
 ### 设备注册失败的原因？
+
 - 新创建的 App 会有一分钟左右的数据同步过程，在此期间，注册可能返回20错误码，稍后重试即可。
 - **参数填写有误**：Access ID 和 Access Key 是否正确配置，常见错误是误用 Secret key ，或者 Access key 头尾有空格。
 - **注册返回错误**：若控制台返回10004、10002、20等错误码，请参见 [Android SDK 错误码](https://cloud.tencent.com/document/product/548/36660)。
 - **注册无回调**：确认当前网络情况是否良好，建议使用4G网络测试，Wi-Fi 由于使用人数过多可能造成网络带宽不足。
 - **努比亚品牌的手机**：在2015年下半年和2016年出的机器均无法注册，具体机型包括 Nubia Z11 系列，NubiaZ11S 系列，NubiaZ9S 系列。
 
-### 为何关闭应用后，无法收到推送？
-- 目前第三方推送都无法保证关闭应用后，仍可收到推送消息，该问题为手机定制 ROM 对腾讯移动推送 Service 的限制问题，腾讯移动推送的一切活动，都需要建立在腾讯移动推送的 Service 能够正常联网运行，Service 被终止后，由系统、安全软件和用户操作限定是否能够再次启动。
-- QQ 和微信是系统级别的应用白名单，相关的 Service 不会因为关闭应用而退出，所以用户感知推出应用过后，仍可收到消息，其实相关的 Service 还是能够在后台存活的。
-- Android 端在应用退出腾讯移动推送 Service 和腾讯移动推送的服务器断开连接后，此时给这个设备下发的消息，会变成离线消息，离线消息最多保存72小时，每个设备最多保存两条，如果有多条离线消息。在关闭应用期间推送的消息，如开启应用无法收到，请检查是否调用了反注册接口：XGPushManager.unregisterPush\(this\)。
+### 为何注册成功，无法收到推送？
+
+请参见 [排查工具指南](https://cloud.tencent.com/document/product/548/48774) 使用排查工具进行自动化排查，一般有如下错误：
+
+- 请查看当前应用包名，是否与注册移动推送 TPNS 应用时填写的应用包名不一致。如果不一致，推送时，建议开启多包名推送。
+- 检查手机网络是否异常，切换4G网络，进行测试。
+- 移动推送 TPNS 分为通**知栏消息**和**应用内消息**（透传消息），通知栏消息可以展示到通知栏，应用内消息不能展示到通知栏。
+- 确认手机当前模式是正常模式，部分手机在低电量，勿扰模式，省电模式下，会对后台移动推送 TPNS 进程进行一系列网络和活动的限制。
+- 查看设备是否开启通知栏权限，OPPO，vivo 等手机，需要手动开启通知栏权限。
+
+### 努比亚机型无法收到推送？
+不支持2015年后发布的努比亚机型，因为努比亚新的系统版本增加了超级省电的功能（会迅速将后台进程停止），移动推送 TPNS  Service 无法启动，所以努比亚机型无法注册成功。
 
 
 
+### 在非华为手机上安装了华为移动服务，且在 App 中集成了 TPNS SDK，会导致华为推送及其它组件功能失效，如何解决？
+
+自 TPNS SDK 1.1.6.3 版本起，为避免**在非本品牌手机上、其他品牌的推送服务在后台自启、传输用户数据**，会在非本品牌手机上禁用其他品牌的推送服务组件。
+华为在账号、游戏、推送等不同功能上有一些公共组件，TPNS 禁用推送组件可能会导致其它服务功能在非华为品牌手机上同样不能启动；若您需要关闭此禁用功能，可配置以下内容：
+在 AndroidManifest.xml 文件 application 标签下添加节点配置，并重装应用（需卸载后重装）。
+```xml
+<meta-data
+		android:name="tpns-disable-component-huawei-v2"
+		android:value="false" />
+<meta-data
+		android:name="tpns-disable-component-huawei-v4"
+		android:value="false" />
+```
 
 ### 如何设置消息点击事件？
-由于目前 SDK 点击消息默认拥有点击事件，默认的点击事件是打开主界面。所以在终端点击消息回调的 onNotifactionClickedResult 方法内设置跳转操作时，自定义的跳转和默认的点击事件造成冲突。结果是点击后，会跳转到指定界面过后再回到主界面，因此不能在 onNotifactionClickedResult 内设置跳转。
+
+当订阅者点击您的通知时，可以根据您的配置跳转至指定的应用内页面、H5、Deeplink 等，来满足您在不同场景下的需求。详情请参见 [通知点击跳转](https://cloud.tencent.com/document/product/548/48572)。
+
+### 终端内厂商通道支持哪些通知事件回调？
+
+| 回调 | 抵达回调 | 点击回调 |
+|---------|---------|---------|
+| 小米 | 不支持 | 支持 |
+| 魅族 | 不支持 | 支持 |
+| FCM | 不支持 | 支持 |
+| 华为 | 不支持 | 支持 |
+| OPPO | 不支持 | 支持 |
+| vivo | 不支持 | 支持 |
+
+>! 厂商通道的点击回调需 SDK 版本1.2.0.1及以上版本支持；旧版本仅支持华为、小米、魅族、vivo。
+>
 
 
-**使用 Intent 来跳转指定页面**
-在客户端 App 的 manifest 上，配置需要跳转的页面：
- - 如要跳转 AboutActivity 指定页面，示例代码如下：
-```
-<activity
-android:name="com.qq.xg.AboutActivity"
-android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
-<intent-filter >
-<action android:name="android.intent.action.VIEW" />
-<category android:name="android.intent.category.DEFAULT"/>
-<data android:scheme="xgscheme"
-android:host="com.xg.push"
-android:path="/notify_detail" />
-</intent-filter>
-</activity>
-```
- - 若使用腾讯移动推送管理台设置 Intent 进行跳转，填写方式如下：
-![](https://main.qcloudimg.com/raw/58bb9b0105dd6ba00f6524e29efb12fb.png)
- - 若使用服务端 SDK ，设置 Intent 进行跳转，可设置 Intent 为（以 Java SDK 为例）：
-```
-action.setIntent("xgscheme://com.xg.push/notify_detail");
-```
- - 若需要带上 param1 和 param2 等参数，您可以做如下设置：
-```
-action.setIntent("xgscheme://com.xg.push/notify_detail?param1=aa&param2=bb");
-```
+### 为什么关闭应用时，onNotifactionClickedResult、onNotificationShowedResult 获取的 title 和 content 为空？
 
-**终端获取参数**：
-1. 在您跳转指定的页面 onCreate 方法里，添加如下代码：
+如需在厂商离线推送场景下获取推送的 title 和 content，请通过在通知点击跳转的 intent uri 上拼接一份 title 和 content 内容参数，并在通知点击后获取。详情请参见 [通知点击跳转](https://cloud.tencent.com/document/product/548/48572)。
+
+
+### 应用接入了厂商通道，但在调试过程中遇到 other push Token 为空的问题，如何解决？
+
+
+在应用运行日志中观察到如下类似日志： 
 ```
-Uri uri = getIntent().getData();
-    if (uri != null) {                
-String url = uri.toString();
-String p1= uri.getQueryParameter("param1");
-String p2= uri.getQueryParameter("param2");
- }
-```
-2. 如果传参包含有特殊字符，如 # 、& 等，可以参考使用如下方式解析：
-```
-Uri uri = getIntent().getData();
-    if (uri != null) {                
- String url = uri.toString();
- UrlQuerySanitizer sanitizer = new UrlQuerySanitizer();
- sanitizer.setUnregisteredParameterValueSanitizer(UrlQuerySanitizer.getAllButNulLegal());
-   sanitizer.parseUrl(url);
-   String value1 = sanitizer.getValue("key1");
-   String value2 = sanitizer.getValue("key2");
-   Log.i("XG" , "value1 = " + value1 + " value2 = " + value2);
-}
+[OtherPushClient] handleUpdateToken other push token is :  other push type: huawei
 ```
 
+表示您的应用注册该厂商通道失败，您可以通过获取厂商通道注册失败的返回码来进行问题定位和排查，详情请参见 [厂商通道注册失败排查指南](https://cloud.tencent.com/document/product/548/45659)。
 
+### 同时集成了即时通信 IM 和 TPNS，存在大量的厂商类冲突，该如何解决？
 
+目前 IM 已使用 TPNS 提供的厂商 jar 包，请按照下方表格替换相关依赖包，替换后即可解决。
 
+ | 推送通道 | 系统要求 | 条件说明 |
+ | --------------- | ------| -------------------------------------------- | 
+ | 小米推送| MIUI|使用小米推送，添加依赖：`implementation 'com.tencent.tpns:xiaomi:1.2.1.3-release'`|
+ | 华为推送| EMUI|使用华为推送，添加依赖：<li>`implementation 'com.tencent.tpns:huawei:1.2.1.3-release'`</li><li>`implementation 'com.huawei.hms:push:5.0.2.300'`</li>| 
+| Google FCM 推送| Android 4.1及以上|手机端需安装 Google Play Services 且在中国大陆地区以外使用。添加依赖：`implementation 'com.google.firebase:firebase-messaging:20.2.3'`| 
+| 魅族推送 | Flyme| 使用魅族推送，添加依赖：`implementation 'com.tencent.tpns:meizu:1.2.1.3-release'` | 
+| OPPO 推送| ColorOS |并非所有 OPPO 机型和版本都支持使用 OPPO 推送，使用 OPPO 推送，添加依赖：`implementation 'com.tencent.tpns:oppo:1.2.1.3-release'`| 
+| vivo 推送| FuntouchOS|并非所有 vivo 机型和版本都支持使用 vivo 推送，使用 vivo 推送，添加依赖：`implementation 'com.tencent.tpns:vivo:1.2.1.3-release'`|
 
+### 如何适配 small icon 小图标？
 
-### 厂商通道的回调支持哪些？
-- 小米通道支持抵达回调，不支持点击回调，支持透传。
-- 华为通道不支持抵达回调，支持点击回调（需要自定义参数），支持透传（但忽略自定义参数）。
-- 魅族通道支持抵达回调，支持点击回调，不支持透传。
-- vivo 通道不支持抵达回调，支持点击回调，不支持透传
-- OPPO 通道不支持点击和抵达回调，不支持透传
+- 谷歌原生 Android 5.0 以上的 ROM 都会对 target sdk 大于等于21的 App 的小图标进行处理，增加一层颜色，导致图标变灰。
+- 若需要显示颜色效果，可以将 target sdk 设成低于21；如果并不想将 target sdk 设成低于21，可以将一张背景透明的 png 格式小图片名称改成 notification_icon.png（资源名称不能被混淆），并放在 drawable 目录下，该方式显示的小图标即可为灰色（但是图标有形状）。
+- TPNS Android SDK 1.2.2.0 起，默认情况下 notification_icon.png 小图标资源将仅在谷歌 Pixel 手机上直接生效；其他品牌手机若需实现此类自定义通知小图标效果，还需指定推送 API 字段 message.android.small_icon 为资源文件名称（不带文件后缀）；同时自定义通知小图标支持染色为单一纯色，需指定推送 API 字段 message.android.icon_color 为 RGB 颜色的十进制值。
 
->?如果需要通过点击回调获取参数或者跳转自定义页面，可以通过使用 Intent 来实现。
-
-
-
-### 在调试过程中遇到 otherpushToken = null 的问题，如何解决？
-#### 小米通道排查路径
-- 检查 App 包名是否和小米开放推送平台的包名一致。
-- 检查是否在小米小米开放推送平台开启消息推送服务。
-- 如果是手动接入的方式请根据开发文档检查 manifest 文件配置，尤其是需要修改包名的地方是否修改：
+推送 API 字段设置示例如下，其中 icon_color: 123456，即为 RGB 颜色 #01e240：
 ```
-<permission android:name="com.example.mipushtest.permission.MIPUSH_RECEIVE" android:protectionLevel="signature" />
-<!-- 这里com.example.mipushtest改成app的包名 -->
-<uses-permission android:name="com.example.mipushtest.permission.MIPUSH_RECEIVE" />
-<!-- 这里com.example.mipushtest改成app的包名 -->
-```
-- 在腾讯移动推送注册前是否设置了小米的 AppID 和 AppKey，以及第三方推送有没有启动：
-```
-//打开第三方推送
-XGPushConfig.enableOtherPush(this,true);
-// 设置小米的Appid和Appkey
-XGPushConfig.setMiPushAppId(this,MIPUSH_APPID);
-XGPushConfig.setMiPushAppKey(this,MIPUSH_APPKEY);
-```
-- 通过实现自定义继承 PushMessageReceiver 的广播，监听小米的注册结果，查看注册返回码。
-- 启动 logcat，观察 tag 为 PushService 的日志，查看是否有错误信息。
-
-#### 华为通道排查路径
-- 检查华为手机中【设置】>【应用管理】>【华为移动服务】的版本信息是否大于2.5.3。
-- 检查是否为签名包。
-- 华为官网是否配置 SHA256 证书指纹。
-- 按照开发文档华为通道接入指南部分检查 manifest 文件配置。
-- 在腾讯移动推送注册之前是否启动了第三方推送，以及华为 AppID 是否配置正确。
-- App 的包名和华为推送官网、腾讯移动推送管理台注册包名是否一致。
-- 在注册代码之前调用：XGPushConfig.setHuaweiDebug\(true\)，手动确认给应用存储权限，然后查看 SD 卡目录下的 huawei.txt 文件内输出的华为注册失败的错误原因，然后根据华为开发文档对应的错误码查找原因。
-- cmd 里执行 ```adb shell setprop log.tag.hwpush VERBOSE 和
-  adb shell logcat -v time &gt; D:/log.txt``` 开始抓日志，然后进行测试，测完再关闭 cmd 窗口。将 log 发给技术支持。
-
-
-#### 魅族通道排查路径
-与小米通道的排查方法类似，参考小米通道的排查路径即可。
-
-
-
-### 魅族 Flyme6.0 及低版本手机，为何消息抵达设备却不在通知栏展示？
-高版本魅族手机不再需要设置状态栏图标，如果 Android SDK 版本低于1.1.4.0，请在相应的 drawable 不同分辨率文件夹下放置一张名称必须为 stat_sys_third_app_notify 的图片。
-
-
-### 集成华为推送通道时遇到组件依赖冲突如何解决?
-项目使用了华为 HMS 2.x.x 游戏、支付、账号等其他服务组件，因依赖 `com.tencent.tpns:huawei:1.1.x.x-release` 集成华为推送通道而遇到组件依赖冲突时，请按照以下步骤集成华为厂商通道：
-1. 取消项目对 `"com.tencent.tpns:huawei:[VERSION]-release"` 此单个依赖包的依赖。
-2. 在参照华为开发者平台官方文档集成华为官方 SDK 时，请同时勾选 push 模块，为华为 SDK 添加 push 功能。
-3. 在 HMSAgent 模块的源代码中，就工具类 `com.huawei.android.hms.agent.common.StrUtils`做以下修改，以解决华为 SDK 内部一处异常造成的华为厂商 token 注册失败问题。
-修改前：
-```java
-package com.huawei.android.hms.agent.common;
-public final class StrUtils {
-    public static String objDesc(Object object) {
-        return object == null ? "null" : (object.getClass().getName()+'@'+ Integer.toHexString(object.hashCode()));
-    }
-}
-```
-修改后：
-```java
-package com.huawei.android.hms.agent.common;
-public final class StrUtils {
-    public static String objDesc(Object object) {
-        String s = "";
-        try {
-            s = Integer.toHexString(object.hashCode());
-        } catch (Throwable e) {
+{
+    "message": {
+        "android": {
+            "small_icon": "notification_icon",
+            "icon_color": 123456
         }
-        return object == null ? "null" : (object.getClass().getName()+'@'+ s);
     }
 }
 ```
+
+适配后的具体效果如下，[建议参考 Demo logo 图标进行作图](https://git.code.tencent.com/tpns/TPNS-Demo-Android/blob/master/app/src/main/res/drawable/notification_icon.png)。
+
+<img src="https://main.qcloudimg.com/raw/d9f92fb413aa98a01af64b2c17680bef.jpg" width="60%"></img>
+
+
+>?
+- small icon 必须是带 Alpha 透明通道的 PNG 图片。
+- 背景必须是透明。
+- 周围不宜留过多 padding。
+- 建议统一使用46 x 46px，过小图片会模糊，过大系统会自动缩小。
+
+
+### Flyme 6.0 及以下版本的魅族手机，为何消息抵达设备却不在通知栏展示？
+
+1. Flyme 6.0 及以下版本的魅族手机，使用手动集成方式。
+2. Flyme 6.0 及以下版本的魅族手机，使用自动集成方式，且使用的 TPNS Android SDK 为1.1.4.0 以下的版本。
+
+以上两种情况，需要在 drawable 不同分辨率的文件夹下对应放置一张名称必须为 stat_sys_third_app_notify 的图片，详情请参考 [TPNS Android SDK](https://console.cloud.tencent.com/tpns/sdkdownload) 中魅族厂商依赖目录的 flyme-notification-res 文件夹。
 
 
 ### 使用控制台快速集成时出现异常，如何解决？
+
 1. 如果集成出现异常， 则将 `tpns-configs.json `文件中的 `"debug"` 字段置为` true`,  运行命令： 
 ```
 ./gradlew --rerun-tasks :app:processReleaseManifest 
 ```
 并通过` "TpnsPlugin" `关键字进行分析。
-2. 点击 sync projects。
+2. 单击【sync projects】。
 ![](https://main.qcloudimg.com/raw/5fecbe6b63374e7e0e58c4b2cd215acb.png)
-
 3. 在项目的 External Libraries 中查看是否有相关依赖。
 ![](https://main.qcloudimg.com/raw/485c7595f1b478a6fad725d38deb87b4.png)
 
-### Android 是否支持设置通知角标？
-通知角标目前都是遵从各厂商的默认逻辑，其中：
-- 小米：支持角标数值展示，默认按 1 自动增减；自建通道通知可通过系统 API 另外设置，详情请参考 [小米开发文档](https://dev.mi.com/console/doc/detail?pId=939)。
-- 华为：支持角标数值展示，默认无展示；自建通道可通过系统 API 另外设置，详情请参考 [华为开发文档](https://developer.huawei.com/consumer/cn/doc/30802)。
-- 魅族：仅支持红点展示，系统默认逻辑，有通知则展示，无则不展示；不支持自定义。
-- OPPO、vivo ：只对指定应用开启，如 QQ、微信，需向官方进行权限申请，暂无明确适配说明。  
+
+### Android 拓展库 V4 到 AndroidX 如何转换？
+
+在 AndroidX 项目工程的 gradle.properties 文件中添加如下属性：
+```
+android.useAndroidX=trueandroid.enableJetifier=true
+```
+
+> ? 
+> - android.useAndroidX=true，表示当前项目启用 AndroidX。
+> - android.enableJetifier=true，表示将依赖包迁移到 AndroidX。 
+> 
+
+### 厂商通道推送服务 SDK “存在通过 HTTP 明文传输信息的行为”，如何处理？
+
+开发者在集成各厂商通道推送服务后，部分安全检测工具可能会提示 “App 存在通过 HTTP 明文传输信息的行为” ，具体 HTTP 地址涉及：
+1. 小米推送 SDK：`http://new.api.ad.xiaomi.com/logNotificationAdActions，http://resolver.msg.xiaomi.net/psc/?t=a`
+2. 魅族推送 SDK：`http://norma-external-collect.meizu.com/android/exchange/getpublickey.do，http://norma-external-collect.meizu.com/push/android/external/add.do`
+
+以上 HTTP URL 均来自各厂商推送 SDK，TPNS 项目组无法明确其目的或控制其行为，但正在积极与厂商服务提供者联系并推动 HTTPS 改造；开发者当前可以自行评估选择是否继续使用以上厂商提供的推送服务。
+
+
+### Android 版本4.4.4编译报错，怎么办？
+
+由于工程加载方法数超过65K，请对工程做分包处理。
+
+### 指定打开某个 Activity 页面，但经常不能正常跳转？
+
+在部分手机，通知栏跳转到某个页面可能会出现权限问题。
+处理方法：在 androidManifest.xml 中，需要打开的 Activity 加上 android:exported="true"。
+
+### 注册方法能在线程中创建吗？
+注册方法可以在任何地方调用，但注意要传递 ApplicationContext。
+
+### 手机没有安装 Google 服务是否可以使用 FCM 通道？
+不可以，Google 服务和一个可以正常访问 Google 的网是可以使用 FCM 的必要条件。
+
+### FCM 通道适用哪个集群
+FCM 需要国外网络，适用于境外香港和新加坡集群。

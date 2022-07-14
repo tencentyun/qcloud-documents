@@ -7,7 +7,6 @@
 | 操作系统平台  | 浏览器/Webview  | 版本要求  |  备注|
 | ------------------------- | -------- | ---------------------- |------- |
 | Windows  | Chrome | 50+   |   Win7+   |
-| Windows  | IE | 10+ | Win7+    |
 | Windows  | Firefox | 50+ | Win7+    |
 | Mac  | Chrome | 50+   |   -   |
 | Mac  | Safari | 8+ | -    |
@@ -21,28 +20,29 @@
 
 ```html
 <!-- axios SDK -->
-<script src="https://resources-tiw.qcloudtrtc.com/board/third/axios/axios.min.js"></script>
+<script src="https://res.qcloudtiw.com/board/third/axios/axios.min.js"></script>
 <!-- COS SDK -->
-<script src="https://resources-tiw.qcloudtrtc.com/board/third/cos/5.1.0/cos.min.js"></script>
+<script src="https://res.qcloudtiw.com/board/third/cos/5.1.0/cos.min.js"></script>
 <!-- TEduBoard SDK -->
-<script src="https://resources-tiw.qcloudtrtc.com/board/2.4.6/TEduBoard.min.js"></script>
+<script src="https://res.qcloudtiw.com/board/2.6.9/TEduBoard.min.js"></script>
 ```
 
 如果您需要添加视频文件还需要添加以下代码：
 ```html
-<link href="https://resources-tiw.qcloudtrtc.com/board/third/videojs/video-js.min.css" rel="stylesheet">
-<script src="https://resources-tiw.qcloudtrtc.com/board/third/videojs/video.min.js"></script>
+<link href="https://res.qcloudtiw.com/board/third/videojs/1.0.0/video-js.min.css" rel="stylesheet">
+<script src="https://res.qcloudtiw.com/board/third/videojs/1.0.0/video.min.js"></script>
 ```
+
+目前互动白板中依赖 axios、cos，请使用 script:src 的方式加载，这样能够保证在全局访问到 axios 和 cos，不支持 import 的方式。
 
 ## 使用 TEduBoard SDK
 
 #### 1. 创建白板控制器
 
-
 ```
 var initParams = {
   id: domId, // dom节点id
-  classId: classId, // 整数
+  classId: classId, // 课堂 ID，32位整型，取值范围[1, 4294967294]
   sdkAppId: sdkAppId, // 整数
   userId: userId, // 字符串
   userSig: userSig, // 字符串
@@ -50,13 +50,34 @@ var initParams = {
 var teduBoard = new TEduBoard(initParams);
 ```
 
-#### 2. 白板数据同步
+#### 2. 监听白板关键事件
 
-白板在使用过程中，需要在不同的用户之间进行数据同步（涂鸦数据等），SDK 支持两种不同的数据同步模式。
+使用 on 监听白板关键事件
 
-**使用腾讯云 IMSDK 同步数据**
+- [onTEBError 错误详情](https://cloud.tencent.com/document/product/1137/60716#.E9.94.99.E8.AF.AF.E4.BA.8B.E4.BB.B6)
+- [onTEBWarning 警告详情](https://cloud.tencent.com/document/product/1137/60716#.E8.AD.A6.E5.91.8A.E4.BA.8B.E4.BB.B6)
 
- - 监听事件 TEduBoard.EVENT.TEB_SYNCDATA
+```
+// 监听白板错误事件
+teduBoard.on(TEduBoard.EVENT.TEB_ERROR, (code, msg) => {
+
+});
+```
+
+```
+// 监听白板告警事件
+teduBoard.on(TEduBoard.EVENT.TEB_WARNING, (code, msg) => {
+
+});
+```
+
+#### 3. 白板数据同步
+
+白板在使用过程中，需要在不同的用户之间进行数据同步（涂鸦数据等），SDK 默认使用 IMSDK 作为信令通道，您需要自行实现 IMSDK 的初始化、登录、加入群组操作，确保白板初始化时，IMSDK 已处于所指定的群组内。
+
+监听事件 TEduBoard.EVENT.TEB_SYNCDATA
+
+>!因为 TIM 消息有限频，请将白板消息的优先级设置为最高，以保证白板信令消息不会被丢弃。
 
 ```
 // 1. 监听操作白板参数的数据，并将回调的数据通过 im 发送到接收者
@@ -64,10 +85,11 @@ teduBoard.on(TEduBoard.EVENT.TEB_SYNCDATA, data => {
   let message = this.tim.createCustomMessage({
     to: '课堂号',
     conversationType: window.TIM.TYPES.CONV_GROUP,
+    priority: TIM.TYPES.MSG_PRIORITY_HIGH,  // 因为im消息有限频，白板消息的优先级调整为最高
     payload: {
       data: JSON.stringify(data), 
       description: '',
-      extension: 'TXWhiteBoardExt'
+      extension: 'TXWhiteBoardExt' // 固定写法，各端会以extension: 'TXWhiteBoardExt'为标志作为白板信令
     }
   })
   this.tim.sendMessage(message).then(() => {
@@ -86,13 +108,13 @@ this.tim.on(window.TIM.EVENT.MESSAGE_RECEIVED, () => {
   messages.forEach((message) => {
     // 群组消息
     if (message.conversationType === window.TIM.TYPES.CONV_GROUP) {
-      if (message.to === '课堂号') { // 如果是当前群组
+      if (message.to === '课堂号') { // 如果是当前课堂，这里需要注意一定只能接受当前课堂群组的信令。如果用户加入多个im群组，恰巧这几个群组也在上课，白板信令则会多个课堂错乱，引发互动白板不能同步的异常行为。
         let elements = message.getElements();
         if (elements.length) {
           elements.forEach((element) => {
             if (element.type === 'TIMCustomElem') {
               if (element.content.extension === 'TXWhiteBoardExt') {
-                if (message.from != this.userId) {
+                if (message.from != this.userId) { // 过滤自己本人的操作信令
                   teduBoard.addSyncData(JSON.parse(element.content.data));
                 }
               }
@@ -107,18 +129,3 @@ this.tim.on(window.TIM.EVENT.MESSAGE_RECEIVED, () => {
 }, this)
 
 ```
-
-**使用自定义的数据通道同步数据**
-
-```
-teduBoard.on(TEduBoard.EVENT.TEB_SYNCDATA, data => {
-  // 通过自定义数据通道同步出去
-});
-
-// 在收到其他用户的信息时，将消息传递给 TEduBoard
-teduBoard.addSyncData(data);
-```
-
-> 以下两种情况，实时录制功能可不可用：
-- 实时录制功能在使用腾讯云 IMSDK 同步数据时，自定义消息中的 extension 不等于'TXWhiteBoardExt'时不可用。
-- 实时录制功能在自定义数据通道模式下不可用。

@@ -1,7 +1,7 @@
 极速高清产品包括极速高清转码、智能弹幕以及画质重生功能。云直播和云点播服务中，均有极速高清转码 API 接口供您调用，请根据您选择的视频全链路产品选择具体调用方式。
 
 >? 智能弹幕和画质重生需要提交申请通过后对接使用，具体请参见 [智能弹幕入门](https://cloud.tencent.com/document/product/1183/41081)、[画质重生入门](https://cloud.tencent.com/document/product/1183/41082)。
-
+ 
 ## 调用方式
 云直播、云点播和视频处理的 API 调用方式相同，其相关说明如下所示：
 
@@ -75,4 +75,5 @@
 - [查询任务详情](https://cloud.tencent.com/document/product/862/37614)
 - [获取任务列表](https://cloud.tencent.com/document/product/862/37613)
 - [任务管理](https://cloud.tencent.com/document/product/862/40947)
+
 

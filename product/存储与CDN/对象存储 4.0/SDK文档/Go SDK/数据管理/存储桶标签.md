@@ -24,20 +24,49 @@ func (s *BucketService) PutTagging(ctx context.Context, opt *BucketPutTaggingOpt
 
 #### 请求示例
 
+[//]: # (.cssg-snippet-put-bucket-tagging)
 ```go
-opt := &cos.BucketPutTaggingOptions{
-	TagSet: []cos.BucketTaggingTag{
-	{   
-		Key:   "testk1",
-		Value: "testv1",
-    },  
-    {   
-    	Key:   "testk2",
-        Value: "testv2",
-    },  
-    },  
-}   
-resp, err := client.Bucket.PutTagging(context.Background(), opt)
+package main
+
+import (
+    "context"
+    "github.com/tencentyun/cos-go-sdk-v5"
+    "net/http"
+    "net/url"
+    "os"
+)
+
+func main() {
+    // 存储桶名称，由bucketname-appid 组成，appid必须填入，可以在COS控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
+    // 替换为用户的 region，存储桶region可以在COS控制台“存储桶概览”查看 https://console.cloud.tencent.com/ ，关于地域的详情见 https://cloud.tencent.com/document/product/436/6224 。
+    u, _ := url.Parse("https://examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com")
+    b := &cos.BaseURL{BucketURL: u}
+    client := cos.NewClient(b, &http.Client{
+        Transport: &cos.AuthorizationTransport{
+            // 通过环境变量获取密钥
+            // 环境变量 SECRETID 表示用户的 SecretId，登录访问管理控制台查看密钥，https://console.cloud.tencent.com/cam/capi
+            SecretID: os.Getenv("SECRETID"),
+            // 环境变量 SECRETKEY 表示用户的 SecretKey，登录访问管理控制台查看密钥，https://console.cloud.tencent.com/cam/capi
+            SecretKey: os.Getenv("SECRETKEY"),
+        },
+    })
+    opt := &cos.BucketPutTaggingOptions{
+        TagSet: []cos.BucketTaggingTag{
+            {
+                Key:   "testk1",
+                Value: "testv1",
+            },
+            {
+                Key:   "testk2",
+                Value: "testv2",
+            },
+        },
+    }
+    _, err := client.Bucket.PutTagging(context.Background(), opt)
+    if err != nil {
+        // ERROR
+    }
+}
 ```
 
 #### 参数说明
@@ -74,8 +103,39 @@ func (s *BucketService) GetTagging(ctx context.Context) (*BucketGetTaggingResult
 
 #### 请求示例
 
+[//]: # (.cssg-snippet-get-bucket-tagging)
 ```go
-v, resp, err := client.Bucket.GetTagging(context.Background())
+package main
+
+import (
+    "context"
+    "fmt"
+    "github.com/tencentyun/cos-go-sdk-v5"
+    "net/http"
+    "net/url"
+    "os"
+)
+
+func main() {
+    // 存储桶名称，由bucketname-appid 组成，appid必须填入，可以在COS控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
+    // 替换为用户的 region，存储桶region可以在COS控制台“存储桶概览”查看 https://console.cloud.tencent.com/ ，关于地域的详情见 https://cloud.tencent.com/document/product/436/6224 。
+    u, _ := url.Parse("https://examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com")
+    b := &cos.BaseURL{BucketURL: u}
+    client := cos.NewClient(b, &http.Client{
+        Transport: &cos.AuthorizationTransport{
+            // 通过环境变量获取密钥
+            // 环境变量 SECRETID 表示用户的 SecretId，登录访问管理控制台查看密钥，https://console.cloud.tencent.com/cam/capi
+            SecretID: os.Getenv("SECRETID"),
+            // 环境变量 SECRETKEY 表示用户的 SecretKey，登录访问管理控制台查看密钥，https://console.cloud.tencent.com/cam/capi
+            SecretKey: os.Getenv("SECRETKEY"),
+        },
+    })
+    v, _, err := client.Bucket.GetTagging(context.Background())
+    if err != nil {
+        fmt.Println(err)
+    }
+    fmt.Println(v)
+}
 ```
 
 #### 返回结果说明
@@ -107,6 +167,7 @@ DELETE Bucket tagging 用于删除指定存储桶下已有的存储桶标签。
 
 #### 方法原型
 
+[//]: # (.cssg-snippet-delete-bucket-tagging)
 ```go
 func (s *BucketService) DeleteTagging(ctx context.Context) (*Response, error)
 ```
@@ -114,5 +175,35 @@ func (s *BucketService) DeleteTagging(ctx context.Context) (*Response, error)
 #### 请求示例
 
 ```go
-resp, err := client.Bucket.DeleteTagging(context.Background())
+package main
+
+import (
+    "context"
+    "fmt"
+    "github.com/tencentyun/cos-go-sdk-v5"
+    "net/http"
+    "net/url"
+    "os"
+)
+
+func main() {
+    // 存储桶名称，由bucketname-appid 组成，appid必须填入，可以在COS控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
+    // 替换为用户的 region，存储桶region可以在COS控制台“存储桶概览”查看 https://console.cloud.tencent.com/ ，关于地域的详情见 https://cloud.tencent.com/document/product/436/6224 。
+    u, _ := url.Parse("https://examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com")
+    b := &cos.BaseURL{BucketURL: u}
+    client := cos.NewClient(b, &http.Client{
+        Transport: &cos.AuthorizationTransport{
+            // 通过环境变量获取密钥
+            // 环境变量 SECRETID 表示用户的 SecretId，登录访问管理控制台查看密钥，https://console.cloud.tencent.com/cam/capi
+            SecretID: os.Getenv("SECRETID"),
+            // 环境变量 SECRETKEY 表示用户的 SecretKey，登录访问管理控制台查看密钥，https://console.cloud.tencent.com/cam/capi
+            SecretKey: os.Getenv("SECRETKEY"),
+        },
+    })
+    resp, err := client.Bucket.DeleteTagging(context.Background())
+    if err != nil {
+        fmt.Println(err)
+    }
+    fmt.Println(resp.Header)
+}
 ```

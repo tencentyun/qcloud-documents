@@ -1,3 +1,4 @@
+
 ## 操作场景
 本文档指导您如何授权访问消息队列（CKafka）和配置消息队列 CKafka。
 
@@ -24,8 +25,6 @@
 
  
 
-
-
 #### 配置推送实例
 >?若当前账号没有实例，可前往 [CKafka](https://console.cloud.tencent.com/ckafka) 购买和创建实例。
 
@@ -40,5 +39,5 @@
 如果您想删除当前消息队列配置，可单击【删除当前配置】，即可完成删除。
 
 
-
-消息队列的 SDK 使用说明，您可以参照消息队列提供的 [使用入门](https://cloud.tencent.com/document/product/597/30931) 文档。
+## 相关信息
+消息队列的 SDK 使用说明，您可以参考消息队列提供的 [快速入门](https://cloud.tencent.com/document/product/597/30931) 相关文档。

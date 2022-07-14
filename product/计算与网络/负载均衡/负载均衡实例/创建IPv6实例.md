@@ -1,8 +1,13 @@
 >?
 >- IPv6 NAT64 负载均衡仅支持北京、上海、广州三个地域。
 >- IPv6 NAT64 负载均衡不支持传统型负载均衡。
->- IPv6 NAT64 负载均衡不支持获取 Client IP。
 >- 互联网 IPv6 网络大环境还处于建设初期，不提供 SLA 保障，如出现线路访问不通的情况，请 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=163&source=0&data_title=%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%20LB&step=1) 反馈。
+>
+
+<dx-alert infotype="notice" title="">
+为了给您提供稳定优质的网络服务，腾讯云计划于北京时间2022年5月24日（周二）凌晨00:00-07:00对北京、广州地区 IPV6 NAT64 CLB 服务进行升级优化。2022年5月24日（周二）8:00前暂时无法购买 IPV6 NAT64 CLB实例，此时间以后可以正常购买 IPV6 NAT64 CLB 实例。
+</dx-alert>
+
 
 负载均衡支持创建 IPv6 NAT64 负载均衡实例，腾讯云会给实例分配一个 IPv6 公网地址（即 IPv6 版的 VIP），该 VIP 会将来自 IPv6 客户端的请求转发给后端的 IPv4 云服务器。
 
@@ -24,15 +29,19 @@ IPv6 NAT64 负载均衡的架构如下图所示。
 ### 创建 IPv6 NAT64 负载均衡
 1. 登录腾讯云官网，进入 [负载均衡购买页](https://buy.cloud.tencent.com/lb)。
 2. 请正确选择如下参数：
+ - 计费模式：支持包年包月和按量计费两种计费模式。
  - 地域：仅支持北京、上海、广州三个地域。
  - 实例类型：负载均衡。
  - 网络类型：公网。
  - IP 版本：IPv6 NAT64。
  - 所属网络：私有网络。
  - 其他配置和普通实例配置相同。
-3. 在购买页选择各项配置后，单击【立即购买】，返回至 [负载均衡实例列表页](https://console.cloud.tencent.com/loadbalance/index?rid=1&forward=1)，即可查看已购的 IPv6 NAT64 负载均衡。
-![](https://main.qcloudimg.com/raw/d55b34c80b12ac6effa806d969ef74a0.png)
+3. 在购买页选择各项配置后，单击**立即购买**，返回至 [负载均衡实例列表页](https://console.cloud.tencent.com/loadbalance/index?rid=1&forward=1)，即可查看已购的 IPv6 NAT64 负载均衡。
+
 
 ### 使用 IPv6 NAT64 负载均衡
 登录 [负载均衡控制台](https://console.cloud.tencent.com/loadbalance/index?rid=1&forward=1)，单击实例 ID，进入详情页，在“监听器管理”页面配置监听器、转发规则、绑定云服务器，详情请参见 [负载均衡快速入门](https://cloud.tencent.com/document/product/214/8975)。
 ![](https://main.qcloudimg.com/raw/37295edc8457d19babd3b6b9f2785de5.png)
+
+## 相关文档
+[混合云部署场景下通过 TOA 获取客户端真实 IP](https://cloud.tencent.com/document/product/214/68105)

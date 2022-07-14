@@ -1,3 +1,8 @@
+>?
+>- 当前页面接口为旧版 API，未来可能停止维护。短信 API 3.0 版本接口定义更加规范，访问时延下降显著，建议使用 [短信 API 3.0](https://cloud.tencent.com/document/product/382/38763)。
+>- 如果您需要访问短信旧版 API，可继续阅读本章节内容。
+
+
 ## 短信 API 
 |API 名称	|描述| 
 |-----|------| 
@@ -15,3 +20,4 @@
 |[发送数据统计](https://cloud.tencent.com/document/product/382/7755)	|获取一段时间内短信发送状态，包括发送量、成功量以及计费条数 |
 |[回执数据统计](https://cloud.tencent.com/document/product/382/7756)	|获取一段时间内短信回执状态，包括提交成功量、回执量、回执成功量、回执失败量及失败分布 |
 |[查询短信套餐包信息](https://cloud.tencent.com/document/product/382/18324)	|查询短信套餐包信息，包括套餐包个数、套餐包生效时间、套餐包过期时间以及当前使用量等 |
+

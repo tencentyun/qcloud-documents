@@ -54,12 +54,16 @@ import logging
 
 logging.basicConfig(level=logging.INFO, stream=sys.stdout)
 
-secret_id = 'COS_SECRETID'      # 替换为用户的 secretId
-secret_key = 'COS_SECRETKEY'      # 替换为用户的 secretKey
-region = 'ap-shanghai'      # 替换为用户的 Region
-token = None                # 使用临时密钥需要传入 Token，默认为空，可不填
-scheme = 'https'            # 指定使用 http/https 协议来访问 COS，默认为 https，可不填
+# 1. 设置用户属性, 包括 secret_id, secret_key, region等。Appid 已在CosConfig中移除，请在参数 Bucket 中带上 Appid。Bucket 由 BucketName-Appid 组成
+secret_id = 'SecretId'     # 替换为用户的 SecretId，请登录访问管理控制台进行查看和管理，https://console.cloud.tencent.com/cam/capi
+secret_key = 'SecretKey'   # 替换为用户的 SecretKey，请登录访问管理控制台进行查看和管理，https://console.cloud.tencent.com/cam/capi
+region = 'ap-beijing'      # 替换为用户的 region，已创建桶归属的region可以在控制台查看，https://console.cloud.tencent.com/cos5/bucket
+                           # COS支持的所有region列表参见https://cloud.tencent.com/document/product/436/6224
+token = None               # 如果使用永久密钥不需要填入token，如果使用临时密钥需要填入，临时密钥生成和使用指引参见https://cloud.tencent.com/document/product/436/14048
+scheme = 'https'           # 指定使用 http/https 协议来访问 COS，默认为 https，可不填
+
 config = CosConfig(Region=region, SecretId=secret_id, SecretKey=secret_key, Token=token, Scheme=scheme)
+
 # 2. 获取客户端对象
 client = CosS3Client(config)
 ```
@@ -154,3 +158,4 @@ XML Python SDK 新增 API，您可根据需求进行调用。包括：
 * 存储桶生命周期的操作，如 put_bucket_lifecycle、get_bucket_lifecycle 等。
 
 阅读更多请参考我们的 Python SDK [快速入门](https://cloud.tencent.com/document/product/436/12269) 文档。
+

@@ -1,0 +1,211 @@
+Android 阵营各厂商机型角标开放能力不同，移动推送 TPNS 对推送角标的支持程度做以下说明，供开发者参考使用。
+
+## 概览
+
+| 厂商 | 是否支持角标/红点显示 | 是否需要配置 | 适配说明                                                     |
+| ---- | --------------------- | ------------ | ------------------------------------------------------------ |
+| 华为 | 支持角标              | 是           | 请参考下文 [华为手机角标适配说明](#huawei)                               |
+| 小米 | 支持角标              | 否           | 遵从系统默认逻辑，感应通知栏通知数目，按 1 自动增减          |
+| 魅族 | 支持红点              | 否           | 遵从系统默认逻辑，仅支持红点展示，有通知则展示，无则不展示   |
+| OPPO | 支持红点              | 否           | 圆点展示需由用户在通知设置中手动开启，遵从系统默认逻辑，有通知则展示，无则不展示；<br>数值展示只对指定应用开启，例如 QQ、微信，需向官方进行权限申请，暂无明确适配说明 |
+| vivo | 支持角标              | 是           | 请参考下文 [vivo 手机角标适配说明](#vivo)                             |
+
+
+
+## 服务端下发角标设置
+
+您可以通过 TPNS 控制台或 Push API 设置服务端下发角标：
+
+<dx-tabs>
+::: 方式1：通过控制台推送页面设置
+1. 登录 [TPNS 控制台](https://console.cloud.tencent.com/tpns)。
+2. 找到您需要配置的 Android 产品，在其右侧【操作】项下单击【推送管理】，进入推送管理页面。
+3. 单击您需要配置的推送，进入推送配置页面。
+4. 在【高级设置】配置项中，开启角标数字：
+![](https://main.qcloudimg.com/raw/880ff2c7aacb4525033580b88c53320f.jpg)
+:::
+::: 方式2：通过\sPush\sAPI\s设置
+  在推送消息体 `body.message.android` 下添加字段 "badge_type" ，属性如下：
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>类型</th>
+<th>父项目</th>
+<th>是否必需</th>
+<th>默认值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>badge_type</td>
+<td>int</td>
+<td>android</td>
+<td>否</td>
+<td>-1</td>
+<td>通知角标：<li>-2：自动增加1，支持华为设备<li>-1：不变，支持华为、vivo 设备<li>[0, 100)：直接设置，支持华为、vivo 设备</td>
+</tr>
+</tbody></table>
+<dx-alert infotype="explain" title="">
+不同厂商设备的角标适配能力不同，详情参考下方各厂商的角标适配说明。
+</dx-alert>
+消息体示例：
+<dx-codeblock>
+:::  json
+{
+	"audience_type": "token",
+	"expire_time": 3600,
+	"message_type": "notify",
+	"message": {
+			"android": {
+					"badge_type": -2,
+					"clearable": 1,
+					"ring": 1,
+					"ring_raw": "xtcallmusic",
+					"vibrate": 1,
+					"lights": 1,
+					"action": {
+							"action_type": 1,
+							"activity": "com.qq.xg4all.JumpActivity",
+							"aty_attr": {
+							"if": 0,
+							"pf": 0
+					}
+					}
+			},
+			"title": "android test",
+			"content": "android test 21"
+	},
+	"token_list": [
+		"01f6ac091755a79015b4a30c9c4c7ddba1ea"
+	],
+	"multi_pkg": true,
+	"platform": "android",
+}
+:::
+</dx-codeblock>
+:::
+</dx-tabs>
+
+
+
+
+
+## 终端通用 API
+
+#### 直接设置角标数值（SDK v1.2.0.1 起）
+
+直接设置角标数值；当前支持华为、OPPO、vivo 手机角标展示，其中 OPPO 需另外向厂商申请角标展示权限。
+
+```java
+/**
+ * @param context 应用上下文
+ * @param setNum  修改角标值
+ * @since v1.2.0.1
+ */
+XGPushConfig.setBadgeNum(Context context, int setNum);
+```
+
+示例：在收到透传消息时，调用 `XGPushConfig.setBadgeNum(context, 8)` 设置角标数值为 8。
+
+
+#### 清除角标数值（SDK v1.2.0.1 起）
+
+设置手机应用角标归零；当前支持华为、OPPO、vivo 手机角标展示，其中 OPPO 需另外向厂商申请角标展示权限。
+
+```java
+	/**
+	 * @param context 应用上下文
+	 * @since v1.2.0.1
+	 */
+	XGPushConfig.resetBadgeNum(Context context);
+```
+
+示例：在透传消息已阅读或打开应用时，调用 `XGPushConfig.resetBadgeNum(context)` 清除角标数值。
+
+>!  因厂商通道抵达的通知不支持通知清除时角标数值自动减1，建议您在恰当时机调用此接口来清除角标数值，如重新从桌面打开应用时。
+>
+
+## 华为手机角标适配说明[](id:huawei)
+
+### 使用限制
+
+华为手机角标展示支持 EMUI 8.0 及以上手机。
+受限于华为手机角标能力的开放程度，在不同的推送场景下角标功能有所不同，详见下表。请按照指导方式使用华为手机角标功能。
+
+|   推送形式    |                           角标能力                           |             实现方式             |
+| :-----------: | :----------------------------------------------------------: | :------------------------------: |
+| 华为通道通知  | 支持角标自动加1、直接设置或不变，支持通知点击的自动减1，不支持通知清除的自动减1 | 通过管理台或 Push API 关键字设置 |
+| TPNS 通道通知 | 支持角标自动加1、直接设置或不变，支持通知点击/清除的自动减1 | 通过管理台或 Push API 关键字设置 |
+|   透传消息    |                 开发者自行处理设置、加减逻辑                 |      调用 TPNS SDK 开放接口      |
+
+### 配置内容
+
+#### 应用内角标设置权限申请
+
+为能实现角标修改的正确效果，请首先为应用添加华为手机上的角标读写权限，具体实现为在应用 AndroidManifest.xml 文件的 manifest 标签下添加以下权限配置：
+
+```xml
+<uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE" />
+<!-- 兼容荣耀手机 -->
+<uses-permission android:name="com.hihonor.android.launcher.permission.CHANGE_BADGE" />
+```
+
+#### 通知下发角标设置
+
+请一定先在管理台华为通道开启及参数配置处填写桌面图标对应的应用入口 Activity 类，如“com.test.badge.MainActivity”，否则华为通道下发通知的角标设置将不生效，如图所示：
+![](https://main.qcloudimg.com/raw/815a22b60155a70557bdd0d0bc4c63a5.png)
+
+#### 启动类名称获取指引：
+请在应用 App 模块目录 AndroidManifest.xml 文件内搜索关键字 “android.intent.action.MAIN”，其所属 activity 节点即是所需要的启动类，并填写此类的完整类名（携带完整包名）。
+![](https://qcloudimg.tencent-cloud.cn/raw/dddbcc3d3f6c6a8cb7a150beda956bd9.png)
+
+
+#### 华为手机终端设置角标自增减
+
+华为手机支持角标自动增减1，接口如下：
+
+```java
+	/**
+	 * 华为手机角标修改接口
+	 *
+	 * @param context   应用上下文
+	 * @param changeNum 改变的数字，修改效果为累加；例如先前角标为5，入参为1，则角标被设置为6。
+	 *		当前支持 1：角标加1；-1：角标-1
+	 */
+	XGPushConfig.changeHuaweiBadgeNum(Context context, int changeNum);
+```
+
+示例：在收到透传消息时，调用 `XGPushConfig.changeHuaweiBadgeNum(context, 1)` 实现角标加1；在需要清除该消息的角标时调用 `XGPushConfig.changeHuaweiBadgeNum(context, -1)` 实现角标减1。
+
+
+
+## vivo 手机角标适配说明[](id:vivo)
+
+### 使用限制
+
+受限于 vivo 手机角标能力的开放程度，当前 vivo 手机角标仅支持直接设置角标数值，不支持自动增减；仅支持 TPNS 通道下发的通知。
+
+|   推送形式    |                角标能力                |             实现方式             |
+| :-----------: | :------------------------------------: | :------------------------------: |
+| vivo 通道通知 |                 不支持                 |              不支持              |
+| TPNS 通道通知 | 支持角标直接设置或不变，不支持自动增减 | 通过管理台或 Push API 关键字设置 |
+|   透传消息    |         开发者自行处理设置逻辑         |      调用 TPNS SDK 开放接口      |
+
+### 配置内容
+
+#### 应用内角标设置权限申请
+
+为能实现角标修改的正确效果，请首先为应用添加 vivo 手机上的角标读写权限，具体实现为在应用 AndroidManifest.xml 文件的 manifest 标签下添加以下权限配置：
+
+```xml
+<uses-permission android:name="com.vivo.notification.permission.BADGE_ICON" />
+```
+
+#### 手机设置内开启“桌面应用图标”
+
+接入成功后，“桌面图标角标”默认关闭，需要用户手动开启。
+开启路径：【设置】>【通知与状态栏】>【应用通知管理】>【应用名称】>【桌面图标角标】。
+未成功接入“桌面图标角标”的应用，无“桌面图标角标”选项。
+
+>?视 OS 版本差异，“桌面图标角标”名称可能为“应用图标标记”或“桌面角标”。

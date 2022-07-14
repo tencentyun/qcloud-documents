@@ -142,3 +142,5 @@ libstdc++6.i386                         4.7.2-5
 3、不自动加载 nouveau 驱动。在使用 GPU 时，防止对 CUDA 驱动造成干扰。
 4、添加 irqaffinity。优化中断处理。
 ```
+
+

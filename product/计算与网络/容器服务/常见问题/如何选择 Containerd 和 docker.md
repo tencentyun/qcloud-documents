@@ -1,14 +1,23 @@
 ### 如何选择运行时组件？
-容器运行时（Container Runtime）是 Kubernetes（k8s） 最重要的组件之一，负责管理镜像和容器的生命周期。Kubelet 通过 `Container Runtime Interface (CRI)` 与容器运行时交互，以管理镜像和容器。
+容器运行时（Container Runtime）是 Kubernetes（K8S） 最重要的组件之一，负责管理镜像和容器的生命周期。Kubelet 通过 `Container Runtime Interface (CRI)` 与容器运行时交互，以管理镜像和容器。
 
 TKE 支持用户选择 containerd 和 docker 作为运行时组件：
-- Containerd 调用链更短，组件更少，更稳定，占用节点资源更少。 建议选择 containerd。
+- Containerd 调用链更短，组件更少，更稳定，占用节点资源更少。  建议选择 containerd。
 - 当您遇到以下情况时，请选择 docker 作为运行时组件：
  - 如需使用 docker in docker。
  - 如需在 TKE 节点使用 docker build/push/save/load 等命令。
  - 如需调用 docker API。
  - 如需 docker compose 或 docker swarm。
- 
+
+
+### 如何修改运行时组件？
+1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2/cluster/startUp) ，选择左侧导航栏中的集群。
+2. 在“集群管理”列表页面，选择目标集群 ID，进入该集群基本信息页面。
+3. 在“集群基本信息”中修改运行时组件。如下图所示：
+>? 修改运行时组件及版本，只对集群内无节点池归属的增量节点生效，不会影响存量节点。
+>
+![](https://qcloudimg.tencent-cloud.cn/raw/bafb92c1dff0c5a51555745f85b9e13f.png)
+
 
 ### Containerd 和 Docker 组件常用命令是什么？
 Containerd 不支持 docker API 和 docker CLI，但是可以通过 cri-tool 命令实现类似的功能。
@@ -19,7 +28,7 @@ Containerd 不支持 docker API 和 docker CLI，但是可以通过 cri-tool 命
 | 下载镜像     | docker pull    | crictl pull     |
 | 上传镜像     | docker push     | 无               |
 | 删除本地镜像   | docker rmi     | crictl rmi      |
-| 查看镜像详情   | docker inspect IMAGE-ID | crictl inspecti IMAGE-ID |
+| 查看镜像详情   | docker inspect IMAGE-ID | crictl inspect IMAGE-ID |
 
 
 
@@ -45,9 +54,9 @@ Containerd 不支持 docker API 和 docker CLI，但是可以通过 cri-tool 命
 | 停止 POD   | 无      | crictl stopp    |
 
 ### 调用链区别有哪些？
-- Docker 作为 k8s 容器运行时，调用关系如下：
+- Docker 作为 K8S 容器运行时，调用关系如下：
 `kubelet --> docker shim （在 kubelet 进程中） --> dockerd --> containerd`
-- Containerd 作为 k8s 容器运行时，调用关系如下：
+- Containerd 作为 K8S 容器运行时，调用关系如下：
 `kubelet --> cri plugin（在 containerd 进程中） --> containerd`
 
 其中 dockerd 虽增加了 swarm cluster、 docker build 、 docker API 等功能，但也会引入一些 bug，而与 containerd 相比，多了一层调用。
@@ -67,12 +76,12 @@ Containerd 的 stream 服务需要单独配置：
   enable_tls_streaming = false
 ```
 
-### k8s 1.11 前后版本配置区别是什么？
-Containerd 的 stream 服务在 k8s 不同版本运行时场景下配置不同。
-- 在 k8s 1.11 之前：
+### K8S 1.11 前后版本配置区别是什么？
+Containerd 的 stream 服务在 K8S 不同版本运行时场景下配置不同。
+- 在 K8S 1.11 之前：
 Kubelet 不会做 stream proxy，只会做重定向。即 Kubelet 会将 containerd 暴露的 stream server 地址发送给 apiserver，并让 apiserver 直接访问 containerd 的 stream 服务。此时，您需要给 stream 服务转发器认证，用于安全防护。
-- 在 k8s 1.11 之后：
- k8s1.11 引入了 [kubelet stream proxy](https://github.com/kubernetes/kubernetes/pull/64006)， 使 containerd stream 服务只需要监听本地地址即可。
+- 在 K8S 1.11 之后：
+ K8S 1.11 引入了 [kubelet stream proxy](https://github.com/kubernetes/kubernetes/pull/64006)， 使 containerd stream 服务只需要监听本地地址即可。
 
 ## 其他差异
 ### 容器日志及相关参数
@@ -86,10 +95,10 @@ Kubelet 不会做 stream proxy，只会做重定向。即 Kubelet 会将 contain
 	<tr>
 		<td>存储路径</td>
 		<td>
-	如果 Docker 作为 k8s 容器运行时，容器日志的落盘将由 docker 来完成，保存在类似<code>/var/lib/docker/containers/$CONTAINERID</code> 目录下。Kubelet 会在 <code>/var/log/pods</code> 和 <code>/var/log/containers</code> 下面建立软链接，指向 <code>/var/lib/docker/containers/$CONTAINERID</code> 该目录下的容器日志文件。
+	如果 Docker 作为 K8S 容器运行时，容器日志的落盘将由 docker 来完成，保存在类似<code>/var/lib/docker/containers/$CONTAINERID</code> 目录下。Kubelet 会在 <code>/var/log/pods</code> 和 <code>/var/log/containers</code> 下面建立软链接，指向 <code>/var/lib/docker/containers/$CONTAINERID</code> 该目录下的容器日志文件。
 		</td>
 		<td>
-		如果 Containerd 作为 k8s 容器运行时， 容器日志的落盘由 Kubelet 来完成，保存至 <code>/var/log/pods/$CONTAINER_NAME</code> 目录下，同时在 <code>/var/log/containers</code> 目录下创建软链接，指向日志文件。            
+		如果 Containerd 作为 K8S 容器运行时， 容器日志的落盘由 Kubelet 来完成，保存至 <code>/var/log/pods/$CONTAINER_NAME</code> 目录下，同时在 <code>/var/log/containers</code> 目录下创建软链接，指向日志文件。             
 		</td>
 	</tr>
 	<tr>
@@ -112,7 +121,7 @@ Kubelet 不会做 stream proxy，只会做重定向。即 Kubelet 会将 contain
 	<tr>
 	<td>把容器日志保存到数据盘</td>
 	<td>把数据盘挂载到 “data-root”（缺省是 <code>/var/lib/docker</code>）即可。</td>
-	<td>创建一个软链接 <code>/var/log/pods</code> 指向数据盘挂载点下的某个目录。 <br>在 TKE 中选择“将容器和镜像存储在数据盘”，会自动创建软链接 <code>/var/log/pods</code>。
+	<td>创建一个软链接 <code>/var/log/pods</code> 指向数据盘挂载点下的某个目录。  <br>在 TKE 中选择“将容器和镜像存储在数据盘”，会自动创建软链接 <code>/var/log/pods</code>。
 	</td>
 	</tr>
 </table>
@@ -123,3 +132,7 @@ Kubelet 不会做 stream proxy，只会做重定向。即 Kubelet 会将 contain
 |:-------- |:---------------------------------------- |:---------------------------------------------------------------------------------------------------------------- |
 | 谁负责调用 CNI | Kubelet 内部的 docker-shim                    | Containerd 内置的 cri-plugin（containerd 1.1 以后）                                                                        |
 | 如何配置 CNI  | Kubelet 参数 <code>--cni-bin-dir</code> 和 <code>--cni-conf-dir</code> | Containerd 配置文件（toml）：<br> <code>[plugins.cri.cni]</code><br>    <code>bin\_dir = "/opt/cni/bin"</code><br>    <code>conf\_dir = "/etc/cni/net.d"</code> |
+
+
+
+

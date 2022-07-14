@@ -24,7 +24,7 @@ Normal  Killing  39s (x735 over 15h)  kubelet, 10.179.80.31  Killing container w
 ``` txt
        A file with the 'i' attribute cannot be modified: it cannot be deleted or renamed, no link can be created to this file and no data can be written to the file.  Only the superuser or a process possessing the CAP_LINUX_IMMUTABLE capability can set or clear this attribute.
 ```
->!如果容器镜像本身或者容器启动后写入的文件存在 “i” 文件属性，此文件将无法被修改或删除。 
+>!如果容器镜像本身或者容器启动后写入的文件存在 “i” 文件属性，此文件将无法被修改或删除。  
 >
 在进行 Pod 删除操作时，会清理容器目录，若该目录中存在不可删除的文件，会导致容器目录无法删除，Pod 状态也将一直保持 Terminating。此种情况下，kubelet 将会出现以下报错：
 ``` log
@@ -52,7 +52,7 @@ Warning FailedSync 3m (x408 over 1h) kubelet, 10.179.80.31 error determining sta
 
 #### 解决方法
 升级 Docker 版本至18，该版本使用了新的 containerd，针对很多已有 bug 进行了修复。
-若 Pod 仍出现 Terminating 状态，请 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=350&source=0&data_title=%E5%AE%B9%E5%99%A8%E6%9C%8D%E5%8A%A1TKE&step=1) 联系工程师进行排查。**不建议直接强行删除**，可能会导致业务出现问题。
+若 Pod 仍出现 Terminating 状态，请 [在线咨询](https://cloud.tencent.com/online-service?from=doc_457) 联系工程师进行排查。**不建议直接强行删除**，可能会导致业务出现问题。
 
 ### 检查是否存在 Finalizers
 #### 现象描述
@@ -107,4 +107,7 @@ K8S 中存在的 Bug 会导致 Daemonset Pod 持续 Terminating，Kubernetes 1.1
 #### 解决方法
 - 临时解决方法：确保 rollingUpdate 类型 Daemonset 使用 nodeSelector 而不使用 nodeAffinity。
 - 彻底解决方法：参考文档[ 升级集群 ](https://cloud.tencent.com/document/product/457/32192)步骤将集群 Kubernetes 版本升级至 1.12。
+
+
+
 

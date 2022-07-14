@@ -1,5 +1,6 @@
-## 录制预处理回调
-```objc
+## 录制预处理回调  
+<dx-codeblock>
+::: objc objc
 /**
  * 在 OpenGL 线程中回调，在这里可以进行采集图像的二次处理
  * @param texture    纹理 ID
@@ -11,19 +12,16 @@
 - (GLuint)onPreProcessTexture:(GLuint)texture width:(CGFloat)width height:(CGFloat)height;
 
 /**
- * 人脸数据回调（企业版接口）
- * @prama points 人脸坐标
- * 说明：使用了人脸识别的相关功能如人脸识别贴纸、大眼或者瘦脸等。此回调在 onPreProcessTexture:width:height: 之前会被调用
- */
-- (void)onDetectFacePoints:(NSArray *)points;
-
-/**
  * 在 OpenGL 线程中回调，可以在这里释放创建的 OpenGL 资源
  */
 - (void)onTextureDestoryed;
-```
+:::
+</dx-codeblock>
+
+
 ## 编辑预处理回调
-```objc
+<dx-codeblock>
+::: objc objc
 /** 
  在 OpenGL 线程中回调，在这里可以进行采集图像的二次处理
  @param texture    纹理 ID
@@ -40,4 +38,5 @@
  * 在 OpenGL 线程中回调，可以在这里释放创建的 OpenGL 资源
  */
 - (void)onTextureDestoryed;
-```
+:::
+</dx-codeblock>

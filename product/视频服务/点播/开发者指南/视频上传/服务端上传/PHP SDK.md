@@ -12,12 +12,8 @@
 ```
 
 ### 通过源码包安装
-如果项目中没有使用 composer 工具进行依赖管理，可以直接下载源码，导入项目中使用：
-
-* [从 Github 访问](https://github.com/tencentyun/vod-php-sdk-v5)
-* [单击下载 PHP SDK](https://github.com/tencentyun/vod-php-sdk-v5/raw/master/packages/vod-sdk.zip)
-
-解压 vod-sdk.zip 文件到项目中，引入 autoload.php 文件即可使用。
+1. 如果项目中没有使用 composer 工具进行依赖管理，[从 Github 访问](https://github.com/tencentyun/vod-php-sdk-v5) 可以直接下载源码，导入项目中使用。
+2. 解压 vod-sdk.zip 文件到项目中，引入 autoload.php 文件即可使用。
 
 ##  简单视频上传
 ### 初始化上传对象
@@ -32,6 +28,7 @@ use Vod\VodUploadClient;
 
 $client = new VodUploadClient("your secretId", "your secretKey");
 ```
+
 
 **使用源码导入**
 ```php
@@ -159,6 +156,78 @@ try {
 }
 ```
 
+### 使用临时证书上传
+传入 [临时证书](https://cloud.tencent.com/document/product/1312/48195) 的相关密钥信息，使用临时证书验证身份并进行上传。
+```
+<?php
+require 'vendor/autoload.php';
+
+use Vod\VodUploadClient;
+use Vod\Model\VodUploadRequest;
+
+$client = new VodUploadClient("Credentials TmpSecretId", "Credentials TmpSecretKey", "Credentials Token");
+$req = new VodUploadRequest();
+$req->MediaFilePath = "/data/videos/Wildlife.wmv";
+try {
+    $rsp = $client->upload("ap-guangzhou", $req);
+    echo "FileId -> ". $rsp->FileId . "\n";
+    echo "MediaUrl -> ". $rsp->MediaUrl . "\n";
+} catch (Exception $e) {
+    // 处理上传异常
+    echo $e;
+}
+```
+
+
+### 设置代理上传
+设置上传代理，涉及协议及数据都会经过代理进行处理，开发者可以借助代理在自己公司内网上传文件到腾讯云。
+```
+<?php
+require 'vendor/autoload.php';
+
+use Vod\VodUploadClient;
+use Vod\Model\VodUploadRequest;
+use Vod\Model\VodUploadHttpProfile;
+
+$client = new VodUploadClient("your secretId", "your secretKey");
+$uploadHttpProfile = new VodUploadHttpProfile("your proxy addr");
+$client->setHttpProfile($uploadHttpProfile);
+$req = new VodUploadRequest();
+$req->MediaFilePath = "/data/videos/Wildlife.wmv";
+try {
+    $rsp = $client->upload("ap-guangzhou", $req);
+    echo "FileId -> ". $rsp->FileId . "\n";
+    echo "MediaUrl -> ". $rsp->MediaUrl . "\n";
+} catch (Exception $e) {
+    // 处理上传异常
+    echo $e;
+}
+```
+
+### 自适应码流文件上传
+
+本 SDK 支持上传的自适应码流格式包括 HLS 和 DASH，同时要求 manifest（M3U8 或 MPD）所引用的媒体文件必须为相对路径（即不可以是 URL 和绝对路径），且位于 manifest 的同级目录或者下级目录（即不可以使用`../`）。在调用 SDK 上传接口时，`MediaFilePath`参数填写 manifest 路径，SDK 会解析出相关的媒体文件列表一并上传。
+
+```
+<?php
+require 'vendor/autoload.php';
+
+use Vod\VodUploadClient;
+use Vod\Model\VodUploadRequest;
+
+$client = new VodUploadClient("your secretId", "your secretKey");
+$req = new VodUploadRequest();
+$req->MediaFilePath = "/data/videos/prog_index.m3u8";
+try {
+    $rsp = $client->upload("ap-guangzhou", $req);
+    echo "FileId -> ". $rsp->FileId . "\n";
+    echo "MediaUrl -> ". $rsp->MediaUrl . "\n";
+} catch (Exception $e) {
+    // 处理上传异常
+    echo $e;
+}
+```
+
 ## 接口描述
 上传客户端类`VodUploadClient`
 
@@ -172,6 +241,7 @@ try {
 | 属性名称      | 属性描述                   | 类型      | 必填   |
 | --------- | ---------------------- | ------- | ---- |
 | MediaFilePath   | 待上传的媒体文件路径。必须为本地路径，不支持 URL。| String | 是    |
+| SubAppId   | **云点播 [子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID，否则无需填写该字段。**        | Integer | 否    |
 | MediaType   | 待上传的媒体文件类型，可选类型请参见 [视频上传综述](/document/product/266/9760#.E6.96.87.E4.BB.B6.E7.B1.BB.E5.9E.8B)，若 MediaFilePath 路径带后缀可不填。        | String | 否    |
 | MediaName   | 上传后的媒体名称，若不填默认采用 MediaFilePath 的文件名。      | String | 否    |
 | CoverFilePath   | 待上传的封面文件路径。必须为本地路径，不支持 URL。| String | 否    |
@@ -180,7 +250,6 @@ try {
 | ExpireTime   | 媒体文件过期时间，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#52)。        | String | 否    |
 | ClassId   | 分类 ID，用于对媒体进行分类管理，可通过 [创建分类](/document/product/266/31772) 接口，创建分类，获得分类 ID。        | Integer | 否    |
 | SourceContext   | 来源上下文，用于透传用户请求信息，上传回调接口将返回该字段值，最长250个字符。        | String | 否    |
-| SubAppId   | 云点播 [子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID，否则无需填写该字段。        | Integer | 否    |
 | StorageRegion   | 存储地域，指定预期希望存储的地域，该字段填写为存储地域的 [英文简称](/document/product/266/9760#.E4.B8.8A.E4.BC.A0.E5.AD.98.E5.82.A8)。        | String | 否    |
 
 上传响应类`VodUploadResponse`
@@ -209,3 +278,4 @@ try {
 | InvalidParameterValue.SubAppId       | 参数值错误：子应用 ID。              |
 | InvalidParameterValue.VodSessionKey       | 参数值错误：点播会话。              |
 | ResourceNotFound       | 资源不存在。              |
+

@@ -78,3 +78,5 @@ HKEY_Local_Machine\SYSTEM\CurrentControlSet\Control\Class\{4D36E97B-E325-11CE-BF
 	重新启动之前，必须确保刷新了对卷进行的所有写入操作的结果。请在重启前将任何映射的存储卷磁盘脱机。
 
 
+
+

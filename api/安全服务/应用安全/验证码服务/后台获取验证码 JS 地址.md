@@ -41,7 +41,7 @@
 ```
 https://csec.api.qcloud.com/v2/index.php?Action=CaptchaIframeQuery
 &<公共请求参数>
-&secretId=AKIDmQtAxYTAB2iBS8s2DCzazCD2g7OUq4Zw
+&secretId=AKID******AB2iBS8s2DCzazCD2g7OUq4Zw
 &captchaType=1
 &disturbLevel=1
 &isHttps=1

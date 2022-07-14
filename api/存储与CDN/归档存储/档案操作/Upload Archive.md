@@ -10,7 +10,7 @@ Upload Archive 请求实现上传一个 Archive 到指定 Vault。请求成功�
 
 #### 请求语法
 
-```http
+```plaintext
 POST /<UID>/vaults/<VaultName>/archives HTTP/1.1
 Host: cas.<Region>.myqcloud.com
 Date: date

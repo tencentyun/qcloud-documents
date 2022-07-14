@@ -10,7 +10,7 @@
 1. 打开 PuTTY 安装目录，双击运行 puttygen.exe。
 2. 打开后，选择密钥对类型及长度，选择 Generate 生成密钥对。
 <img src="https://main.qcloudimg.com/raw/8f6073ef798ed32011db3e9cb048c668.png"  width="70%">
-3. 生成密钥对后，可选择保存公钥和保存密钥。（PuTTY 工具生成速度较慢，请耐心等候）
+3. 生成密钥对后，可选择保存公钥和保存密钥（PuTTY 工具生成速度较慢，请耐心等候）。
 <img src="https://main.qcloudimg.com/raw/e60edc9ee4a419b6cfb0657ca651878d.png"  width="70%">
 
 

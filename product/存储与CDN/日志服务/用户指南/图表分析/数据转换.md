@@ -1,0 +1,43 @@
+数据转换支持用户对检索结果进行二次处理，包括字段类型修改、选择制图字段、合并分组等。可以在不修改 SQL 语句的情况下，满足制图的需求。
+
+## 开启数据转换
+
+1. 登录 [日志服务控制台](https://console.cloud.tencent.com/cls)。
+2. 在左侧导航栏中，单击**检索分析**，进入检索分析页面。
+3. 选择**图表分析**页签，将下方的**数据转换**设置为![](https://qcloudimg.tencent-cloud.cn/raw/90402f86446bf0509031d128da8dddc9.png)。
+![](https://qcloudimg.tencent-cloud.cn/raw/1abc366a355679a042b916072757b818.png)
+4. 在**仪表盘图表编辑**页面，选择**数据转换**页签，将**数据转换**设置为![](https://qcloudimg.tencent-cloud.cn/raw/90402f86446bf0509031d128da8dddc9.png)。
+![](https://qcloudimg.tencent-cloud.cn/raw/58e29c15fa38a3d79381caf80f3be0e9.png)
+
+## 什么时候使用数据转换
+
+![](https://qcloudimg.tencent-cloud.cn/raw/95ab3d34abcec2c538736fcc002ceb00.png)
+
+执行一个 SQL 分析语句后，想要在不同的图表类型上做可视化。因为不同的图表需要的字段数量与属性不同，在不匹配时就会出现以上情况。此时，用户可以通过修改 SQL，使其适配图表要求。也可以通过数据转换配置，对已有结果进行二次处理，满足制图需求。
+
+## 使用数据转换
+
+### 选择制图字段
+
+![](https://qcloudimg.tencent-cloud.cn/raw/622b28a3d107283853c6b732dc663e5a.png)
+通过 SQL 检索出了以上列表中的结果，此时通过勾选字段列表中的字段，可以控制图表选中指定字段来制图，等价于 select。以下为选中部分字段后的结果：
+![](https://qcloudimg.tencent-cloud.cn/raw/1f480decab2a2e18ded1b739c314b8ef.png)
+
+### 转换字段类型
+
+![](https://qcloudimg.tencent-cloud.cn/raw/f305dc5ce687e92c893151a8f8dde924.png)
+
+SQL统计的结果中，每个字段都有一个默认的类型，图表依据类型识别`#数值类型`的字段为指标，`t字符串类型`的字段为普通维度，`时间类型`的字段作为时间维度。并将其与制图所需的字段属性对应。例如在时序图中，就需要时间维度字段作为X轴，指标字段作为Y轴。
+
+上图示例中的 time 字段被当做了一个普通维度，此时，无法满足时序图的字段属性要求。而通过修改 time 字段属性为时间类型，会发现 time 字段转变为时间格式（等价于 CAST 函数），此时即可使用时序图。
+
+常见用户使用 histogram 函数处理字段，其结果可以是非标准的时间格式，因此若默认为普通维度，无法使用时序图。需要提前通过 cast 函数转换为时间类型，或者通过数据转换修改字段属性为时间维度。
+![](https://qcloudimg.tencent-cloud.cn/raw/812b3ebc41ceb8a3090bf12b6b76da04.png)
+
+
+### 合并分组
+
+![](https://qcloudimg.tencent-cloud.cn/raw/cc6b808d9c75b09c6d4eb59b6a7cb5c9.png)
+
+通过 SQL 检索出以上结果，按照 "server_addr" 与 "server_name" 进行分组，统计每个分组的 PV、UV。此时，想要在当前的结果上对 "server_name" 进行合并分组统计，可以通过隐藏 "server_addr" 字段，然后合并所选的普通维度 "server_name"，等价于 Group By 函数。得到的结果如下：
+![](https://qcloudimg.tencent-cloud.cn/raw/636d24a4dd240320a666ebf415017f62.png)

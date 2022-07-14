@@ -3,10 +3,11 @@
 
 会话列表 Controller 用于显示最近会话，同时内部会监听会话变更通知，并根据时间做排序。
 
+
 | API | 描述 |
 | --- | --- |
 | [delegate](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/iOS/TUIKit/Classes/TUIConversationListController.html) | 委托回调，用于外部处理选中事件 |
-| [viewMode](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/iOS/TUIKit/Classes/TUIConversationListController.html) | 控制器的数据源 |
+| [viewModel](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/iOS/TUIKit/Classes/TUIConversationListController.html) | 控制器的数据源 |
 
 ## 聊天界面
 
@@ -58,5 +59,6 @@ iOS TableView 的特点是滚动时 TableViewCell 会被重用，所有消息数
 | [nameColor](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/iOS/TUIKit/Classes/TUIMessageCellData.html) | 昵称颜色 |
 | [cellLayout](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/iOS/TUIKit/Classes/TUIMessageCellData.html) | 消息布局，控制头像、昵称以及气泡等位置 |
 | [contentSize](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/iOS/TUIKit/Classes/TUIMessageCellData.html) | 消息内容大小 |
+
 
 

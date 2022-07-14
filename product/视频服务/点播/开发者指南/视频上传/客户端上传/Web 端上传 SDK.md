@@ -15,7 +15,7 @@
 - **使用 CDN 资源**
 	使用 CDN 资源，可直接按以下方式引入：
 ```html
-<script src="//cdn-go.cn/cdn/vod-js-sdk-v6/latest/vod-js-sdk-v6.js"></script>
+<script src="https://cdn-go.cn/cdn/vod-js-sdk-v6/latest/vod-js-sdk-v6.js"></script>
 ```
 
 请 [单击此处](https://tencentyun.github.io/vod-js-sdk-v6/) 查看 script 方式引入的 Demo，请 [单击此处](https://github.com/tencentyun/vod-js-sdk-v6/blob/master/docs/index.html) 查看 Demo 源码。
@@ -85,6 +85,7 @@ uploader.done().then(function (doneResult) {
 >?
 >- `new TcVod(opts)`中的 opts 指该接口的相关参数，详细请参见 [TcVod 接口描述](#.E6.8E.A5.E5.8F.A3.E6.8F.8F.E8.BF.B0)。
 >- 上传方法根据用户文件的长度，自动选择普通上传以及分片上传，用户不用关心分片上传的每个步骤，即可实现分片上传。
+>- 如需上传至指定子应用下，请参见 [子应用体系 - 客户端上传](https://cloud.tencent.com/document/product/266/14574#.E5.AE.A2.E6.88.B7.E7.AB.AF.E4.B8.8A.E4.BC.A0)。
 
 ## 高级功能
 
@@ -170,6 +171,11 @@ SDK 支持自动断点续传功能，无需做额外操作。当上传意外终�
 | mediaName    | 否    | string     | 覆盖媒体文件元信息中的文件名。  |
 | fileId    | 否    | string     | 当修改封面时传入。  |
 | reportId    | 否    | number     | 填入后，内置的统计上报会自动带上。会覆盖构造函数中的设置。  |
+| fileParallelLimit    | 否    | number     | 同一个实例下上传的文件并发数，默认值3  |
+| chunkParallelLimit    | 否    | number     | 同一个上传文件的分块并发数，默认值6  |
+| chunkRetryTimes    | 否    | number     | 分块上传时，出错重试次数，默认值2（加第一次，请求共3次）  |
+| chunkSize    | 否    | number     | 分块上传时，每片的字节数大小，默认值8388608（8MB）  |
+| progressInterval    | 否    | number     | 上传进度的回调方法 onProgress 的回调频率，单位 ms ，默认值1000  |
 
 ### 事件
 
@@ -182,13 +188,13 @@ SDK 支持自动断点续传功能，无需做额外操作。当上传意外终�
 
 ## 常见问题
 
-1. **`File`对象怎么获取？**
+1. **File 对象怎么获取？**
 使用`input`标签，`type`为`file`类型，即可拿到`File`对象。
 2. **上传的文件是否有大小限制?**
 最大支持60GB。
 3. **SDK 支持的浏览器版本有哪些？**
-Chrome、Firefox 等支持`HTML5`的主流浏览器，IE 方面支持的最低版本是 IE10。
+Chrome、Firefox 等支持 HTML5 的主流浏览器，IE 方面支持的最低版本是 IE10。
 4. **如何实现类似暂停上传或恢复上传的功能？**
 SDK 底层已经自动实现了断点续传的功能，因此暂停的本质即是调用`uploader.cancel()`这个方法。同理，暂停后的恢复上传也是调用初始的`tcVod.upload`方法，区别在于恢复上传时调用该方法的参数，应该是之前缓存起来的参数（例如可以在启动上传时全局变量存储一份参数，上传完成后再清掉）。
-
-
+5.  <b>Web 端上传 SDK 是否支持使用 https: 域名上传？ </b>
+可以支持。Web 端默认判断当前页面的域名是 http: 时，使用 http: 域名上传。若判断域名非 http: 时，则使用 https: 域名上传。 

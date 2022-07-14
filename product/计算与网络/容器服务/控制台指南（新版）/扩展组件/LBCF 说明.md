@@ -1,4 +1,4 @@
-## 简介
+## 简介 
 
 ### 组件介绍
 
@@ -10,20 +10,20 @@ Load Balancer Controlling Framework（LBCF）是一款部署在 Kubernetes 内�
 
 | Kubernetes 对象名称                                 | 类型                             | 默认占用资源 | 所属 Namespaces |
 | ---------------------------------------------- | ------------------------------ | ------ | ------------ |
-| lbcf-controller                                | Deployment                     | /      | kube-system  |
-| lbcf-controller                                | ServiceAccount                 | /      | kube-system  |
-| lbcf-controller                                | ClusterRole                    | /      | /            |
-| lbcf-controller                                | ClusterRoleBinding             | /      | /            |
-| lbcf-controller                                | Secret                         | /      | kube-system  |
-| lbcf-controller                                | Service                        | /      | kube-system  |
-| backendrecords.lbcf.tke.cloud.tencent.com      | CustomResourceDefinition       | /      | /            |
-| backendgroups.lbcf.tke.cloud.tencent.com       | CustomResourceDefinition       | /      | /            |
-| loadbalancers.lbcf.tke.cloud.tencent.com       | CustomResourceDefinition       | /      | /            |
-| loadbalancerdrivers.lbcf.tke.cloud.tencent.com | CustomResourceDefinition       | /      | /            |
-| lbcf-mutate                                    | MutatingWebhookConfiguration   | /      | /            |
-| lbcf-validate                                  | ValidatingWebhookConfiguration | /      | /            |
+| lbcf-controller                                | Deployment                     | -      | kube-system  |
+| lbcf-controller                                | ServiceAccount                 | -      | kube-system  |
+| lbcf-controller                                | ClusterRole                    | -      | -            |
+| lbcf-controller                                | ClusterRoleBinding             | -      | -            |
+| lbcf-controller                                | Secret                         | -      | kube-system  |
+| lbcf-controller                                | Service                        | -      | kube-system  |
+| backendrecords.lbcf.tke.cloud.tencent.com      | CustomResourceDefinition       | -      | -            |
+| backendgroups.lbcf.tke.cloud.tencent.com       | CustomResourceDefinition       | -      | -            |
+| loadbalancers.lbcf.tke.cloud.tencent.com       | CustomResourceDefinition       | -      | -            |
+| loadbalancerdrivers.lbcf.tke.cloud.tencent.com | CustomResourceDefinition       | -      | -            |
+| lbcf-mutate                                    | MutatingWebhookConfiguration   | -      | -            |
+| lbcf-validate                                  | ValidatingWebhookConfiguration | -      | -            |
 
-## 使用场景
+## 使用场景 
 
 LBCF 对 Kubernetes 内部晦涩的运行机制进行了封装并以 Webhook 的形式对外暴露，在容器的全生命周期中提供了多达8种 Webhook。通过这些 Webhook，开发人员可以轻松实现下述功能：
 
@@ -48,8 +48,8 @@ LBCF 对系统有以下要求：
 
 ## 使用方法
 ### 组件安装
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的【扩展组件】。
-2. 在“扩展组件”管理页面上方，选择地域及需安装 LBCF 的集群，并单击【新建】。如下图所示：
+1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的**扩展组件**。
+2. 在“扩展组件”管理页面上方，选择地域及需安装 LBCF 的集群，并单击**新建**。如下图所示：
 ![](https://main.qcloudimg.com/raw/887d95fb6d298edbb4e9a329440c22c1.png)
 3. 开发或选择安装 LBCF Webhook 规范，实现 Webhook 服务器。
 
@@ -154,7 +154,7 @@ spec:
     weight: "66"
 ```
 
-## 附录<span id="other"></span>
+## 附录[](id:other)
 
 ### 腾讯云 CLB LBCF driver
 #### ConfigMap
@@ -272,3 +272,5 @@ spec:
   sessionAffinity: None
   type: ClusterIP
 ```
+
+

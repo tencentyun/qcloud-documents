@@ -1,18 +1,18 @@
 ## 集成 SDK
 
-本文主要介绍如何快速的将腾讯云 互动白板 SDK 集成到您的项目中。
+本文主要介绍如何快速的将腾讯云互动白板 SDK 集成到您的项目中。
 
 ## 开发环境要求
 
 - Windows 7 及以上版本 Windows 操作系统
 - Microsoft Visual Studio 2015 及以上版本，推荐使用 Microsoft Visual Studio 2015
-- Windows SDK 8.0 及以上版本，推荐使用 Windows SDK 8.1
+- Windows SDK 8.0 及以上版本，推荐使用 Windows SDK 8.1  
 
 ## 集成 互动白板 SDK
 
 #### 步骤1：下载  Windows SDK
 
-[下载 SDK](https://tic-res-1259648581.file.myqcloud.com/demo/Windows.zip)，解压并打开文件，包含以下部分：
+[下载 SDK](https://demo.qcloudtiw.com/win/exe/tic_demo.zip)，解压并打开文件，包含以下部分：
 
 |              目录/文件名              |           说明          |
 |---------------------------------------|-------------------------|
@@ -31,12 +31,12 @@
 
 在 Visual Studio 开发环境下，按如下步骤导入 SDK：
 
-1. 从菜单中依次选择【视图】>【解决方案资源管理器】；
-2. 在【解决方案资源管理器】中，右键单击要导入 SDK 的项目名称；
-3. 在弹出菜单内单击【属性】选项，弹出项目属性对话框；
-4. 从左侧配置属性列表中，选择【VC++目录】项；
-5. 将 SDK 头文件所在目录路径添加到右侧【包含目录】中；
-6. 将 SDK 导入库所在目录路径添加到右侧【库目录】中；
+1. 从菜单中依次选择**视图**>**解决方案资源管理器**。
+2. 在**解决方案资源管理器**中，右键单击要导入 SDK 的项目名称。
+3. 在弹出菜单内单击**属性**选项，弹出项目属性对话框。
+4. 从左侧配置属性列表中，选择**VC++目录**项。
+5. 将 SDK 头文件所在目录路径添加到右侧**包含目录**中。
+6. 将 SDK 导入库所在目录路径添加到右侧**库目录**中。
 7. 在需要使用 SDK 的源码文件内添加如下代码导入 SDK。
 
 ```cpp
@@ -68,6 +68,31 @@ authParam.userSig = USER_SIG;       // 填写用户签名
 
 // 初始化白板控制器（配合腾讯云 IMSDK 4.0 以上版本使用时，initParam 参数可以不填）
 boardCtrl->Init(authParam, ROOM_ID);
+```
+
+#### 监听白板关键事件
+
+白板事件回调接口 TEduBoardCallback 的 onTEBError 和 onTEBWarning 回调方法内监听白板事件 
+
+- [onTEBError 错误详情](https://cloud.tencent.com/document/product/1137/39987#teduboarderrorcode)
+- [onTEBWarning 警告详情](https://cloud.tencent.com/document/product/1137/39987#teduboardwarningcode)
+
+```cpp
+/**
+* 白板错误回调
+* 
+* @param code 错误码，参见 TEduBoardErrorCode 定义
+* @param msg 错误信息，编码格式为 UTF8
+*/
+virtual void onTEBError(TEduBoardErrorCode code,const char* msg)		
+
+/**
+* 白板警告回调
+*
+* @param code 警告码，参见 TEduBoardWarningCode 定义
+* @param msg  警告信息，编码格式为 UTF8
+*/
+virtual void onTEBWarning(TEduBoardWarningCode code,const char* msg)	
 ```
 
 #### 白板窗口获取及显示
@@ -123,36 +148,6 @@ DestroyTEduBoardController(&boardCtrl);
 
 #### 步骤4：白板数据同步
 
-白板在使用过程中，需要在不同的用户之间进行数据同步（涂鸦数据等），SDK支持两种不同的数据同步模式。
-
-#### 使用腾讯云 IMSDK 同步数据
-
-如果您在使用白板的同时使用了腾讯云 IMSDK，则只需要在初始化白板控制器时进行指定 initParam 参数的 timSync 字段为 true 即可实现数据同步。
-```cpp
-// 初始化白板控制器（initParam 参数不填，默认 timSync 为 true）
-boardCtrl->Init(authParam, ROOM_ID); // ROOM_ID 为 IMSDK 所使用的群组号
-```
-
->! 您需要自行实现 IMSDK 的登录、加入群组等操作，确保白板初始化时，IMSDK 已处于 ROOM_ID 所指定的群组内。
-
-#### 使用自定义的数据通道同步数据
-
-如果您需要使用自已的数据通道进行数据同步，则需要按下面步骤进行：
-```cpp
-// 1. 构造初始化参数
-TEduBoardInitParam initParam;
-initParam.timSync = false; // 设置 timSync 字段为 false
-
-// 2. 初始化白板控制器
-boardCtrl->Init(authParam, ROOM_ID, initParam); // 使用上面构造的初始化参数
-
-// 3. 在 onTEBSyncData 回调里，将数据发送给其他白板用户
-virtual void onTEBSyncData(const char * data) override {
-    //使用自定义的通道，发送 data 数据给其他白板用户。
-}
-
-// 4. 在收到其他用户的 data 数据时，调用白板控制器的 AddSyncData 接口将数据塞给白板
-boardCtrl->AddSyncData(data);
-```
-
->! 实时录制功能在自定义数据通道模式下不可用
+白板在使用过程中，需要在不同的用户之间进行数据同步（涂鸦数据等），SDK 默认使用 IMSDK 作为信令通道，您需要自行实现 IMSDK 的初始化、登录、加入群组操作，确保白板初始化时，IMSDK 已处于所指定的群组内。
+- [TIM 同步信令通道](https://cloud.tencent.com/document/product/1137/60737)
+- [TIM 相关文档](https://cloud.tencent.com/document/product/269/33543)

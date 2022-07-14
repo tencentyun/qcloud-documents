@@ -1,4 +1,5 @@
 ## 操作场景
+
 为提升用户在云服务器上的软件安装效率，减少下载和安装软件的成本，腾讯云提供了 Apt-get 下载源。在 Ubuntu 环境下，用户可通过 Apt-get 快速安装软件。对于 Apt-get 下载源，不需要添加软件源，可以直接安装软件包。
 
 ## 前提条件
@@ -35,3 +36,6 @@ sudo dpkg -l 软件名
 
 查看已安装的 Nginx 信息。如下图所示：
 ![](https://mc.qcloudimg.com/static/img/8bbc99d7a31e8463da36f3dc2221c028/46.png)
+
+
+

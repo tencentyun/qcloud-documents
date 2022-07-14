@@ -1,0 +1,37 @@
+## 事件描述
+**事件名：**meeting.unmute-all
+**事件说明：**会议解除全体静音时触发该事件通知。解除全体静音和全体静音并非成对出现，可能有多次解除全体静音。
+
+## 示例
+```json
+{
+    "event":"meeting.unmute-all",
+    "trace_id":"a985b135-c394-4614-8796-aff693d0d39d",
+    "payload":[
+        {
+            "operate_time":1645166462235,
+            "operator":{
+                "userid":"test",
+                "user_name":"test",
+                "instance_id":"1",
+                "ms_open_id":"YgC/Y/pPS2lSh09H3IVkAz8+g2bS**********H5oFYWZGhObfwOcIULVE4JhiTqjKFMsVyvv449ZQ=="
+            },
+            "meeting_info":{
+                "meeting_id":"12070603000007571232",
+                "meeting_code":"170000525",
+                "subject":"test预定的会议",
+                "creator":{
+                    "userid":"test",
+                    "user_name":"test",
+                    "instance_id":"1",
+                    "ms_open_id":"YgC/Y/pPS2lSh09H3IVkAz8****************GhObfwOcIULVE4JhiTqjKFMsVyvv449ZQ=="
+                },
+                "meeting_type":0,
+                "start_time":1645167600,
+                "end_time":1645169400,
+                "meeting_create_mode":0
+            }
+        }
+    ]
+}
+```

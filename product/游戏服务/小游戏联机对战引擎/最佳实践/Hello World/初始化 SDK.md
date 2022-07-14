@@ -1,10 +1,11 @@
+>!由于产品逻辑已无法满足游戏行业技术发展，游戏联机对战引擎 MGOBE 将于2022年6月1日下线，请您在2022年5月31日前完成服务迁移。
+
 ## 操作场景
 本文档指导您如何初始化 SDK。
 
-
 ## 操作步骤
-1. 在 game.js 文件中，将启动页改为 MainView，
-2. 完成 SDK 监听器初始化、实例化 Room 对象。玩家的 playerId 使用 Util.js 中的 mockPlayerId 方法生成。
+1. 在 game.js 文件中，将启动页改为 MainView。
+2. 完成 SDK 监听器初始化、实例化 Room 对象。玩家 playerId 通过使用 Util.js 中的 mockPlayerId 方法生成。
 
 game.js 最终代码如下所示：
 
@@ -26,9 +27,9 @@ import "./view/GameView.js";
 const gameInfo = {
     // 随机生成 玩家 ID
     openId: Util.mockOpenId(),
-    // 替换 为控制台上的“游戏ID”
+    // 替换 为控制台上的“游戏 ID”
     gameId: "xxxxxx",
-    // 替换 为控制台上的“游戏Key”
+    // 替换 为控制台上的“游戏 Key”
     secretKey: 'xxxxxxxxxxxxxxxxxxx',
 };
 
@@ -67,6 +68,6 @@ Global.ErrCode = ErrCode;
 Global.ENUM = ENUM;
 Global.gameInfo = gameInfo;
 
-
 ```
+
 

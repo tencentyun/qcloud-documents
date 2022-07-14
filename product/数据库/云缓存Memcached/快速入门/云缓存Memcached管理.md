@@ -3,7 +3,7 @@
 - **存储扩容**
 云数据库 Memcached 会自动为每个实例每日预留约20%的空间作为数据增长 buffer。例如，实例的使用空间为80GB，则会分配96GB作为实例的占用空间。如果实例的数据日增长量超过20%，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行存储扩容申请。云数据库 Memcached 扩容过程是数据搬迁过程，不会影响业务访问。 
 - **接口/端口扩容**
-请提交工单，填写接口/端口扩容进行申请。
+请 [提交工单](https://console.cloud.tencent.com/workorder/category)，填写接口/端口扩容进行申请。
 
 ## 实例缩容
 实例缩容指的是减少实例的占用空间，即存储缩容。因为需要预留缓冲空间，缩容后实例使用率不会超过80%。实例缩容的最小粒度是1GB，如果缩容会造成使用率超过80%，则不能进行缩容。
@@ -36,7 +36,6 @@
 
 ## 实例监控
 在 Memcached 实例列表，单击如下监控图标，或单击实例名进入【实例监控】页面可查看实例监控信息。
-指标说明请参见 [Memcached 监控指标说明](/doc/product/248/云缓存Memcached监控指标说明)。
 ![](https://main.qcloudimg.com/raw/eabba956635c2d95482e3e90bfcf325c.png)
 
 ## 数据回档

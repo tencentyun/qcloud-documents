@@ -1,7 +1,7 @@
 ### 实时音视频 TRTC 可以与 iLiveSDK 通信吗？
 不可以，建议更新 iLiveSDK 方案到 TRTC ，具体操作请参考 [iLiveSDK 迁移方案](https://cloud.tencent.com/document/product/647/32281)。
 
-### 实时音视频的小程序端、Web 端、PC 端是不是同步的？
+### 实时音视频的小程序端、桌面浏览器端、PC 端是不是同步的？
 是的，实时音视频支持全平台互通。
 
 ### 实时音视频在小程序端创建了一个房间，手机端（Andriod/iOS）能否进入该房间？
@@ -13,20 +13,19 @@
 
 ### 如何创建房间？
 房间是由腾讯云后台在客户端进房时自动创建的，您无需手动创建房间，只需调用客户端的相关接口“进入房间”即可：
-- [iOS & Mac > enterRoom](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a96152963bf6ac4bc10f1b67155e04f8d)
-- [Android > enterRoom](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#abfc1841af52e8f6a5f239a846a1e5d5c)
-- [Windows（C++） > enterRoom](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#ac73c4ad51eda05cd2bcec820c847e84f)
-- [Windows（C#） > enterRoom](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a28b2d3ec27af8c9bfd5cf687dd8e002b)
-- [Electron > enterRoom](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html?_ga=1.212321108.1562552652.1542703643#enterRoom)
-- [桌面浏览器 > join](https://trtc-1252463788.file.myqcloud.com/web/docs/Client.html?_ga=1.256770123.1562552652.1542703643#join)
+- [iOS & Mac > enterRoom](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a96152963bf6ac4bc10f1b67155e04f8d)
+- [Android > enterRoom](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#abfc1841af52e8f6a5f239a846a1e5d5c)
+- [Windows（C++） > enterRoom](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__ITRTCCloud__cplusplus.html#ac73c4ad51eda05cd2bcec820c847e84f)
+- [Windows（C#） > enterRoom](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__ITRTCCloud__csharp.html#a28b2d3ec27af8c9bfd5cf687dd8e002b)
+- [Electron > enterRoom](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#enterRoom)
+- [桌面浏览器 > join](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/Client.html#join)
 - [小程序 > enterRoom](https://cloud.tencent.com/document/product/647/17018#enterroom(params))
 
 ### 小程序端集成实时音视频 SDK 前需要做哪些准备工作？
 
-1. 创建腾讯云实时音视频应用，购买相应的套餐，并获取到 SDKAppID。
-2. 获取私钥文件。
-3. 小程序服务器域名配置。
-4. 开通小程序类目与推拉流标签权限。
+1. 创建腾讯云实时音视频应用，购买相应的套餐，并获取到 SDKAppID 和密钥信息。
+2. 小程序服务器域名配置。
+3. 开通小程序类目与推拉流标签权限。
    出于政策和合规的考虑，微信暂未放开所有小程序对实时音视频功能（即 &lt;live-pusher&gt; 和 &lt;live-player&gt; 标签）的支持：
    - 小程序推拉流标签不支持个人小程序，只支持企业类小程序。
    - 小程序推拉流标签使用权限暂时只开放给有限 [类目](https://developers.weixin.qq.com/miniprogram/dev/component/live-pusher.html)。
@@ -91,18 +90,16 @@
 | user count    | 房间内人数以及 user 信息<br/>userID：用户 ID<br/>mainV：该用户是否有主路视频<br/>mainA：该用户是否有主路音频<br/>auxV：该用户是否有辅路视频 |
 | stream count  | 房间内流的数量以及流信息<br/>userID：用户 ID<br/>SubV：是否订阅此路流的视频<br />SubA：是否订阅此路流的音频 |
 
-### 运行 Web 端 SDK 时，出现错误：“RtcError: no valid ice candidate found”该如何处理？
+### 运行桌面浏览器端 SDK 时，出现错误：“RtcError: no valid ice candidate found”该如何处理？
 
-出现该错误说明 TRTC Web SDK 在 STUN 打洞失败，请检查防火墙配置。TRTC Web SDK 依赖以下端口进行数据传输，请将其加入防火墙白名单，配置完成后，您可以通过访问并体验 [官网 Demo](https://trtc-1252463788.file.myqcloud.com/web/demo/official-demo/index.html) 检查配置是否生效。
- - TCP 端口：8687
- - UDP 端口：8000，8800，843，443
- - 域名：qcloud.rtc.qq.com
+出现该错误说明 TRTC 桌面浏览器 SDK 在 STUN 打洞失败，请检查防火墙配置。TRTC 桌面浏览器 SDK 依赖以下端口进行数据传输，请将其加入防火墙白名单，配置完成后，您可以通过访问并体验 [官网 Demo](https://web.sdk.qcloud.com/trtc/webrtc/demo/api-sample/basic-rtc.html) 检查配置是否生效。
+
+具体请参见 [应对防火墙限制相关](https://cloud.tencent.com/document/product/647/34399)。
 
 ### 出现客户端错误："RtcError: ICE/DTLS Transport connection failed" 或 “RtcError: DTLS Transport connection timeout”该如何处理？
-出现该错误说明 TRTC Web SDK 在建立媒体传输通道时失败，请检查防火墙配置。TRTC Web SDK 依赖以下端口进行数据传输，请将其加入防火墙白名单，配置完成后，您可以通过访问并体验 [官网 Demo](https://trtc-1252463788.file.myqcloud.com/web/demo/official-demo/index.html) 检查配置是否生效。
- - TCP 端口：8687
- - UDP 端口：8000，8800，843，443
- - 域名：qcloud.rtc.qq.com
+出现该错误说明 TRTC 桌面浏览器 SDK 在建立媒体传输通道时失败，请检查防火墙配置。TRTC 桌面浏览器 SDK 依赖以下端口进行数据传输，请将其加入防火墙白名单，配置完成后，您可以通过访问并体验 [官网 Demo](https://web.sdk.qcloud.com/trtc/webrtc/demo/api-sample/basic-rtc.html) 检查配置是否生效。
+
+具体请参见 [应对防火墙限制相关](https://cloud.tencent.com/document/product/647/34399)。
 
 
 ### 出现10006 error 该如何处理？
@@ -111,7 +108,7 @@
 ![](https://main.qcloudimg.com/raw/13c9b520ea333804cffb4e2c4273fced.png)
 
 
-### 实时音视频 Web 端的截图功能如何实现？
+### 实时音视频桌面浏览器端的截图功能如何实现？
 截图功能使用的是实例 HTMLVideoElement 中的 HTMLVideoElement.takeSnapshot。
 ``` 
 /*

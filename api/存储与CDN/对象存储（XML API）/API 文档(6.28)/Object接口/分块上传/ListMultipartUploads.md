@@ -1,7 +1,24 @@
 ## 功能描述
 List Multipart Uploads 用于查询正在进行中的分块上传任务。单次请求操作最多列出1000个正在进行中的分块上传。
 
->!该请求需要有 Bucket 的读权限。
+>! 该请求需要有存储桶的读权限。
+>
+
+<div class="rno-api-explorer">
+    <div class="rno-api-explorer-inner">
+        <div class="rno-api-explorer-hd">
+            <div class="rno-api-explorer-title">
+                推荐使用 API Explorer
+            </div>
+            <a href="https://console.cloud.tencent.com/api/explorer?Product=cos&Version=2018-11-26&Action=ListMultipartUploads&SignVersion=" class="rno-api-explorer-btn" hotrep="doc.api.explorerbtn" target="_blank"><i class="rno-icon-explorer"></i>点击调试</a>
+        </div>
+        <div class="rno-api-explorer-body">
+            <div class="rno-api-explorer-cont">
+                API Explorer 提供了在线调用、签名验证、SDK 代码生成和快速检索接口等能力。您可查看每次调用的请求内容和返回结果以及自动生成 SDK 调用示例。
+            </div>
+        </div>
+    </div>
+</div>
 
 ## 请求
 #### 请求示例
@@ -13,7 +30,10 @@ Date: GMT Date
 Authorization: Auth String
 ```
 
->?Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）
+>? 
+> - Host: &lt;BucketName-APPID>.cos.&lt;Region>.myqcloud.com，其中 &lt;BucketName-APPID> 为带 APPID 后缀的存储桶名字，例如 examplebucket-1250000000，可参阅 [存储桶概览 > 基本信息](https://cloud.tencent.com/document/product/436/48921#.E5.9F.BA.E6.9C.AC.E4.BF.A1.E6.81.AF) 和 [存储桶概述 > 存储桶命名规范](https://cloud.tencent.com/document/product/436/13312#.E5.AD.98.E5.82.A8.E6.A1.B6.E5.91.BD.E5.90.8D.E8.A7.84.E8.8C.83) 文档；&lt;Region> 为 COS 的可用地域，可参阅 [地域和访问域名](http://cloud.tencent.com/document/product/436/6224) 文档。
+> - Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+> 
 
 #### 请求头
 
@@ -23,14 +43,14 @@ Authorization: Auth String
 
 具体内容如下：<style  rel="stylesheet"> table th:nth-of-type(1) { width: 200px; }</style>
 
-| 名称               | 描述                                       | 类型     | 必选   |
+| 名称               | 描述                                       | 类型     | 是否必选   |
 | ---------------- | ---------------------------------------- | ------ | ---- |
 | delimiter        | 定界符为一个符号，对 Object 名字包含指定前缀且第一次出现 delimiter 字符之间的 Object 作为一组元素：common prefix。若无 prefix，则从路径起点开始。 | String | 否    |
 | encoding-type    | 规定返回值的编码格式，合法值：url。                               | String | 否    |
 | prefix           | 限定返回的 Object key 必须以 Prefix 作为前缀。</br>注意使用 prefix 查询时，返回的 key 中仍会包含 Prefix。 | String | 否    |
 | max-uploads      | 设置最大返回的 multipart 数量，合法取值从1到1000，默认1000。                       | String | 否    |
-| key-marker       | 与 upload-id-marker 一起使用：<Br/><li>当 upload-id-marker 未被指定时，ObjectName 字母顺序大于 key-marker 的条目将被列出。<Br/><li>当 upload-id-marker 被指定时，ObjectName 字母顺序大于 key-marker 的条目被列出，ObjectName 字母顺序等于 key-marker 同时 UploadID 大于 upload-id-marker 的条目将被列出。 | String | 否    |
-| upload-id-marker | 与 key-marker 一起使用：<Br/><li>当 key-marker 未被指定时，upload-id-marker 将被忽略。<Br/><li>当 key-marker 被指定时，ObjectName字母顺序大于 key-marker 的条目被列出，ObjectName 字母顺序等于 key-marker 同时 UploadID 大于 upload-id-marker 的条目将被列出。 | String | 否    |
+| key-marker       | 与 upload-id-marker 一起使用：<Br/><li>当 upload-id-marker 未被指定时，ObjectName 字母顺序大于 key-marker 的条目将被列出。<Br/><li>当 upload-id-marker 被指定时，ObjectName 字母顺序大于 key-marker 的条目被列出，ObjectName 字母顺序等于 key-marker 同时 UploadId 大于 upload-id-marker 的条目将被列出。 | String | 否    |
+| upload-id-marker | 与 key-marker 一起使用：<Br/><li>当 key-marker 未被指定时，upload-id-marker 将被忽略。<Br/><li>当 key-marker 被指定时，ObjectName字母顺序大于 key-marker 的条目被列出，ObjectName 字母顺序等于 key-marker 同时 UploadId 大于 upload-id-marker 的条目将被列出。 | String | 否    |
 
 #### 请求体
 该请求的请求体为空。
@@ -57,7 +77,7 @@ Authorization: Auth String
   <Delimiter></Delimiter>
   <Upload>
     <Key></Key>
-    <UploadID></UploadID>
+    <UploadId></UploadId>
     <StorageClass></StorageClass>
     <Initiator>
       <ID></ID>
@@ -75,7 +95,7 @@ Authorization: Auth String
 </ListMultipartUploadsResult>
 ```
 
-具体的数据内容如下：
+具体的节点描述如下：
 
 |节点名称（关键字）|父节点|描述|类型|
 |:---|:-- |:--|:--|
@@ -103,7 +123,7 @@ Container 节点 Upload 的内容：
 |节点名称（关键字）|父节点|描述|类型|
 |:---|:-- |:--|:--|
 | Key | ListMultipartUploadsResult.Upload |  Object 的名称。 |  String |
-| UploadID | ListMultipartUploadsResult.Upload |  标示本次分块上传的 ID。 | String |
+| UploadId | ListMultipartUploadsResult.Upload |  标示本次分块上传的 ID。 | String |
 | StorageClass | ListMultipartUploadsResult.Upload |  用来表示分块的存储级别，枚举值：STANDARD，STANDARD_IA，ARCHIVE。 |  String |
 | Initiator | ListMultipartUploadsResult.Upload |  用来表示本次上传发起者的信息。 |  Container |
 | Owner | ListMultipartUploadsResult.Upload | 用来表示这些分块所有者的信息。 |  Container |
@@ -129,14 +149,9 @@ Container 节点 CommonPrefixes 的内容：
 | ------------ | ------------------------------------- | --------- |:--|
 | Prefix | ListMultipartUploadsResult.CommonPrefixes | 显示具体的 CommonPrefixes。 | String    |
 
-#### 错误分析
-以下描述此请求可能会发生的一些特殊的且常见的错误情况：
+#### 错误码
 
-| 错误码             | HTTP 状态码         |描述                    | 
-| ------------- | ------------------------------------ | ------------- |
-| InvalidArgument | 400 Bad Request |max-uploads 必须是整数，且值介于0 - 1000之间，否则返回 InvalidArgument。<br>encoding-type 只能取值 url，否则会返回 InvalidArgument。 | 
-
-获取更多关于 COS 的错误码的信息，或者产品所有的错误列表，请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
+此接口遵循统一的错误响应和错误码，详情请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 ## 实际案例
 
@@ -146,7 +161,7 @@ Container 节点 CommonPrefixes 的内容：
 GET /?uploads HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Wed, 18 Jan 2015 21:32:00 GMT
-Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484727508;32557623508&q-key-time=1484727508;32557623508&q-header-list=host&q-url-param-list=uploads&q-signature=5bd4759a7309f7da9a0550c224d8c61589c9dbbf
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUj****&q-sign-time=1484727508;32557623508&q-key-time=1484727508;32557623508&q-header-list=host&q-url-param-list=uploads&q-signature=5bd4759a7309f7da9a0550c224d8c61589c9****
 ```
 
 #### 响应
@@ -157,7 +172,7 @@ Content-Type: application/xml
 Content-Length: 1203
 Date: Wed, 18 Jan 2015 21:32:00 GMT
 Server: tencent-cos
-x-cos-request-id: NTg3ZjI0ZGRfNDQyMDRlXzNhZmRfMjRl
+x-cos-request-id: NTg3ZjI0ZGRfNDQyMDRlXzNhZmRf****
 
 <ListMultipartUploadsResult>
     <Bucket>examplebucket-1250000000</Bucket>
@@ -170,7 +185,7 @@ x-cos-request-id: NTg3ZjI0ZGRfNDQyMDRlXzNhZmRfMjRl
     <IsTruncated>false</IsTruncated>
     <Upload>
         <Key>Object</Key>
-        <UploadID>1484726657932bcb5b17f7a98a8cad9fc36a340ff204c79bd2f51e7dddf0b6d1da6220520c</UploadID>
+        <UploadId>1484726657932bcb5b17f7a98a8cad9fc36a340ff204c79bd2f51e7dddf0b6d1da6220520c</UploadId>
         <Initiator>
            <ID>qcs::cam::uin/100000000001:uin/100000000001</ID>
 		<DisplayName>100000000001</DisplayName>
@@ -184,7 +199,7 @@ x-cos-request-id: NTg3ZjI0ZGRfNDQyMDRlXzNhZmRfMjRl
     </Upload>
     <Upload>
         <Key>Object</Key>
-        <UploadID>1484727158f2b8034e5407d18cbf28e84f754b791ecab607d25a2e52de9fee641e5f60707c</UploadID>
+        <UploadId>1484727158f2b8034e5407d18cbf28e84f754b791ecab607d25a2e52de9fee641e5f60707c</UploadId>
         <Initiator>
            <ID>qcs::cam::uin/100000000001:uin/100000000001</ID>
 		<DisplayName>100000000001</DisplayName>
@@ -198,7 +213,7 @@ x-cos-request-id: NTg3ZjI0ZGRfNDQyMDRlXzNhZmRfMjRl
     </Upload>
     <Upload>
         <Key>exampleobject</Key>
-        <UploadID>1484727270323ddb949d528c629235314a9ead80f0ba5d993a3d76b460e6a9cceb9633b08e</UploadID>
+        <UploadId>1484727270323ddb949d528c629235314a9ead80f0ba5d993a3d76b460e6a9cceb9633b08e</UploadId>
         <Initiator>
            <ID>qcs::cam::uin/100000000001:uin/100000000001</ID>
 		<DisplayName>100000000001</DisplayName>

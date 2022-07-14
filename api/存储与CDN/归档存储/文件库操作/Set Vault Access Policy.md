@@ -8,7 +8,7 @@ Set Vault Access Policy 请求实现为一个 Vault 设置权限。具体策略�
 
 #### 请求语法
 
-```HTTP
+```plaintext
 PUT /<UID>/vaults/<VaultName>/access-policy HTTP 1.1
 Host:cas.<Region>.myqcloud.com
 Date:date

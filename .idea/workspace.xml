@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="17fb8973-4c4a-41fe-9f96-aa31da083355" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/product/计算与网络/容器服务/控制台指南（新版）/分布式云/注册集群管理/创建注册集群.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/product/计算与网络/容器服务/控制台指南（新版）/分布式云/注册集群管理/删除注册集群.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/product/计算与网络/容器服务/控制台指南（新版）/分布式云/注册集群管理/连接注册集群.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/product/计算与网络/容器服务/控制台指南（新版）/分布式云/第三方节点管理/第三方节点概述.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/product/计算与网络/容器服务/控制台指南（新版）/分布式云/第三方节点管理/管理第三方节点池.md" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="false" />
+  </component>
+  <component name="ProjectId" id="23xG4RqQYRA71Qin4VDLEz7D0D7" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="foldersAlwaysOnTop" value="false" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="false" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="go.formatter.settings.were.checked" value="true" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="go.modules.go.list.on.any.changes.was.set" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/product/计算与网络/容器服务/注册集群指南/运维中心" />
+    <property name="settings.editor.selected.configurable" value="configurable.stylesheets" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/product/计算与网络/容器服务/注册集群指南/运维中心" />
+      <recent name="$PROJECT_DIR$/product/计算与网络/容器服务/控制台指南（新版）/节点池管理/第三方节点管理" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="VgoProject">
+    <integration-enabled>true</integration-enabled>
+  </component>
+</project>

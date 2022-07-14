@@ -1,6 +1,6 @@
 ## 简介
 
-在移动应用和 Web 应用中，您可以通过 iOS/Android/JavaScript SDK 在前端直接向 COS 发起请求，此时数据的上传和下载可以不经过您的后端服务器，既节约了您后端服务器的带宽和负载，还可以充分利用 COS 的带宽和全球加速等能力，提升您的应用体验。
+在移动应用和 Web 应用中，您可以通过 iOS/Android/JavaScript SDK 在前端直接向对象存储（Cloud Object Storage，COS）发起请求，此时数据的上传和下载可以不经过您的后端服务器，既节约了您后端服务器的带宽和负载，还可以充分利用 COS 的带宽和全球加速等能力，提升您的应用体验。
 
 在实际应用中，您需要使用临时密钥作为前端的 COS 请求签名，以防止永久密钥的泄漏及越权访问等问题。然而，即便是使用临时密钥，如果您在生成临时密钥时指定了过大的权限或路径，那么同样有可能发生越权访问等问题，将对您的应用带来一定的风险，本文重点介绍了部分风险案例，以及您应当遵守的安全规范，以便让您的应用能够安全的使用 COS。
 
@@ -8,23 +8,26 @@
 
 本文假定您已经充分理解临时密钥的相关概念，能够生成及使用临时密钥来请求 COS。有关临时密钥的生成及使用指引，请参见 [临时密钥生成及使用指引](https://cloud.tencent.com/document/product/436/14048) 文档。
 
+>! 使用临时密钥授权访问时，请务必根据业务需要，按照最小权限原则进行授权。如果您直接授予所有资源(`resource:*`)，或者所有操作(`action:*`)权限，则存在由于权限范围过大导致的数据安全风险。
+>
+
 ## 反面案例与安全规范
 
 ### 反面案例一：资源（resource）超范围限定
 
-应用 A 在注册用户上传头像中使用到了 COS，每个注册用户的头像拥有固定的对象键`app/avatar/<Username>.jpg`，同时还会包含头像的不同尺寸，对应的对象键分别为`app/avatar/<Username>_m.jpg`和`app/avatar/<Username>_s.jpg`，后端为了方便使用，在生成临时密钥时直接将 resource 指定为`<BucketName-APPID>/app/avatar/*`，此时恶意用户通过网络抓包等手段获取到生成的临时密钥后，可以覆盖上传任何用户的头像，产生越权访问，用户的合法头像数据被覆盖导致丢失。
+应用 A 在注册用户上传头像中使用到了 COS，每个注册用户的头像拥有固定的对象键`app/avatar/<Username>.jpg`，同时还会包含头像的不同尺寸，对应的对象键分别为`app/avatar/<Username>_m.jpg`和`app/avatar/<Username>_s.jpg`，后端为了方便使用，在生成临时密钥时直接将 resource 指定为`qcs::cos:<Region>:uid/<APPID>:<BucketName-APPID>/app/avatar/*`，此时恶意用户通过网络抓包等手段获取到生成的临时密钥后，可以覆盖上传任何用户的头像，产生越权访问，用户的合法头像数据被覆盖导致丢失。
 
 #### 安全规范
 
-resource 代表临时密钥所允许访问的资源路径，此时需要充分考虑该路径所覆盖的最终用户，原则上 resource 所指定的资源要求仅能被单一用户所使用。此案例中指定的`<BucketName-APPID>/app/avatar/*`显然会覆盖所有用户，因此存在安全漏洞。
+resource 代表临时密钥所允许访问的资源路径，此时需要充分考虑该路径所覆盖的最终用户，原则上 resource 所指定的资源要求仅能被单一用户所使用。此案例中指定的`qcs::cos:<Region>:uid/<APPID>:<BucketName-APPID>/app/avatar/*`显然会覆盖所有用户，因此存在安全漏洞。
 
-在该案例中，可以考虑将用户的头像路径修改为`app/avatar/<Username>/<size>.jpg`，此时可以将 resource 指定为 `<BucketName-APPID>/app/avatar/<Username>/*`来满足规范要求；此外，resource 字段支持以数组的形式传入多个值。因此，您也可以显式指定多个 resource 值来完全限定用户有权限访问的最终资源路径，例如：
+在该案例中，可以考虑将用户的头像路径修改为`app/avatar/<Username>/<size>.jpg`，此时可以将 resource 指定为 `qcs::cos:<Region>:uid/<APPID>:<BucketName-APPID>/app/avatar/<Username>/*`来满足规范要求；此外，resource 字段支持以数组的形式传入多个值。因此，您也可以显式指定多个 resource 值来完全限定用户有权限访问的最终资源路径，例如：
 
 ```json
 "resource": [
-	"<BucketName-APPID>/app/avatar/<Username>.jpg",
-	"<BucketName-APPID>/app/avatar/<Username>_m.jpg",
-	"<BucketName-APPID>/app/avatar/<Username>_s.jpg"
+	"qcs::cos:<Region>:uid/<APPID>:<BucketName-APPID>/app/avatar/<Username>.jpg",
+	"qcs::cos:<Region>:uid/<APPID>:<BucketName-APPID>/app/avatar/<Username>_m.jpg",
+	"qcs::cos:<Region>:uid/<APPID>:<BucketName-APPID>/app/avatar/<Username>_s.jpg"
 ]
 ```
 
@@ -34,9 +37,9 @@ resource 代表临时密钥所允许访问的资源路径，此时需要充分�
 
 #### 安全规范
 
-action 代表临时密钥所允许请求的操作，原则上不允许使用`name/cos:*`等允许所有操作的临时密钥下发至前端，必须明确列出所有需要用到的操作，同时如果各操作所需的资源路径不通，则需要**操作**与**资源**路径单独匹配，而不应合并处理。
+action 代表临时密钥所允许请求的操作，原则上不允许使用`name/cos:*`等允许所有操作的临时密钥下发至前端，必须明确列出所有需要用到的操作，同时如果各操作所需的资源路径不同，则需要**操作**与**资源**路径单独匹配，而不应合并处理。
 
-在该案例中，应当使用`"action": [ "name/cos:GetBucket", "name/cos:GetObject" ]`指明具体的操作。
+在该案例中，应当使用`"action": [ "name/cos:GetBucket", "name/cos:GetObject" ]`指明具体的操作。授权操作指引请参见 [COS API 授权策略使用指引](https://cloud.tencent.com/document/product/436/31923)。
 
 ### 反面案例三：资源与操作超范围限定
 
@@ -56,7 +59,7 @@ action 代表临时密钥所允许请求的操作，原则上不允许使用`nam
 			"name/cos:GetBucket", 
 			"name/cos:GetObject"
 		], 
-		"resource": "<BucketName-APPID>/app/files/*"
+		"resource": "qcs::cos:<Region>:uid/<APPID>:<BucketName-APPID>/app/files/*"
 	},
 	{
 		"effect": "allow", 
@@ -64,7 +67,7 @@ action 代表临时密钥所允许请求的操作，原则上不允许使用`nam
 			"name/cos:PutObject",
 			"name/cos:DeleteObject"
 		],
-		"resource": "<BucketName-APPID>/app/files/<Username>/*"
+		"resource": "qcs::cos:<Region>:uid/<APPID>:<BucketName-APPID>/app/files/<Username>/*"
 	}
 ]
 ```
@@ -84,6 +87,7 @@ action 代表临时密钥所允许请求的操作，原则上不允许使用`nam
 
 以上几个案例说明了在预期外扩大临时密钥的权限可能导致的安全风险。由于前端直传 COS 时，恶意用户比较容易获取到临时密钥内容，因此该场景相对于通过后端访问 COS 来说，需要开发者们更加注重权限的控制。
 
-本文提到的安全规范即最小权限原则，在实际应用中，根据 action 和 resource 可以枚举出所有可能的权限，例如3种 action 和2个 resource，可以计算出3 x 2=6个被允许访问的资源和对应的操作，您可以据此评估每一种情况是否符合预期，如超出预期权限范围，则应当考虑通过枚举多个 statement 的方式拆分权限。
+本文提到的安全规范即最小权限原则，在实际应用中，根据 action 和 resource 可以枚举出所有可能的权限，例如3种 action 和2个 resource，可以计算出3 x 2 = 6个被允许访问的资源和对应的操作，您可以据此评估每一种情况是否符合预期，如超出预期权限范围，则应当考虑通过枚举多个 statement 的方式拆分权限。
 
 此外，用于生成临时密钥的接口本身也要充分考虑身份认证和鉴权处理，只有获取临时密钥的行为是安全的，这样得到的临时密钥才能确保真正安全。安全链条上，不能有任何一处疏漏！
+

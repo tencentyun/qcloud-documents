@@ -1,6 +1,6 @@
 ## 功能描述
 
-Put Bucket Notification接口实现配置用户回调通知。目前支持用户主动触发的Object创建与删除的回调通知，不支持自动策略，例如生命周期管理和跨区域复制的回调通知，只支持回调自己的业务资源。
+Put Bucket Notification 接口实现配置用户回调通知。目前支持用户主动触发的 Object 创建与删除的回调通知，不支持自动策略，例如生命周期管理和跨区域复制的回调通知，只支持回调自己的业务资源。
 
 **回调支持事件**
 
@@ -39,7 +39,7 @@ Authorization: Auth
 
 ### 请求内容
 
-| 名称                       | 描述                                                         | 类型      | 必选 |
+| 名称                       | 描述                                                         | 类型      | 是否必选 |
 | -------------------------- | ------------------------------------------------------------ | --------- | ---- |
 | NotificationConfiguration  | 说明本Bucket回调请求的所有内容，支持覆盖，当内容为空时，意为删除原有配置 | Container | 是   |
 | CloudFunctionConfiguration | 配置的回调请求，支持配置一条或多条 Configuration，不可以使用重叠前缀，不可以使用重叠后缀<br> 父节点：NotificationConfiguration | Container | 是   |
