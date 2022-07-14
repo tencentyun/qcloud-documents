@@ -37,17 +37,15 @@ TUIRoom 基于腾讯云实时音视频和即时通信服务进行开发。
 [](id:step2)
 
 ### 步骤二：下载并拷贝 TUIRoom 组件
-1. 打开业务侧已有 Electron + Vue3 + TS 项目，如果无 Electron + Vue3 + TS 项目,可通过此模版 [Github](https://github.com/electron-vite/electron-vite-vue/tree/v1.0.0) 生成Electron + Vue3 + TS 的模板工程。
-
+1. 打开业务侧已有 Electron + Vue3 + TS 项目，如果无 Electron + Vue3 + TS 项目,可通过此模版 [Github](https://github.com/electron-vite/electron-vite-vue/tree/v1.0.0) 生成 Electron + Vue3 + TS 的模板工程。
 >! 执行生成模板工程脚本的过程中，选择 Vue。
->
-成功生成模板工程后，执行以下脚本：
+2. 成功生成模板工程后，执行以下脚本：
 ```bash
 cd electron-vite-vue
 npm install
 npm run dev
 ```
-2. 单击 [Github](https://github.com/tencentyun/TUIRoom) , 克隆或下载 TUIRoom 仓库代码，复制 `TUIRoom/Electron/packages/renderer/src/TUIRoom` 文件夹到已有项目 `packages/renderer/src/` 目录下。
+3. 单击 [Github](https://github.com/tencentyun/TUIRoom) , 克隆或下载 TUIRoom 仓库代码，复制 `TUIRoom/Electron/packages/renderer/src/TUIRoom` 文件夹到已有项目 `packages/renderer/src/` 目录下。
 
 [](id:step3)
 ### 步骤三：引用 TUIRoom 组件
