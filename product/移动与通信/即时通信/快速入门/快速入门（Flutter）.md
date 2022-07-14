@@ -581,12 +581,32 @@ TencentImSDKPlugin.v2TIMManager
 如您需得知 Flutter 的环境是否存在问题，请运行 Flutter doctor 检测 Flutter 环境是否装好。
 
 #### 使用 Flutter 自动生成的项目，引入TUIKit 后报错
+
 ![](https://qcloudimg.tencent-cloud.cn/raw/d95efdd4ae50f13f38f4c383ca755ae7.png)
-1. 需要在`\android\app\src\main\AndroidManifest.xml`中进行修改。
-2. 打开 `\android\app\src\main\AndroidManifest.xml`，根据下图，补全。
-![](https://qcloudimg.tencent-cloud.cn/raw/3b56ce5775cc33d03e36b384d4a46d48.png)
-3. 打开 `\android\app\build.gradle`，根据下图，补全 `defaultConfig`。
-![](https://qcloudimg.tencent-cloud.cn/raw/2024d588718bb7b71dc9e4d2c3938736.png)
+
+1. 打开 `android\app\src\main\AndroidManifest.xml`，根据如下，补全 `xmlns:tools="http://schemas.android.com/tools"` / `android:label="@string/android_label"` 及 `tools:replace="android:label"`。
+
+```xml
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="替换成您的Android端包名"
+    xmlns:tools="http://schemas.android.com/tools">
+    <application
+        android:label="@string/android_label"
+        tools:replace="android:label"
+        android:icon="@mipmap/ic_launcher" // 指定一个icon路径
+        android:usesCleartextTraffic="true"
+        android:requestLegacyExternalStorage="true">
+``` 
+
+2. 打开 `android\app\build.gradle`，补全 `defaultConfig` 中 `minSdkVersion` 及 `targetSdkVersion`。
+
+```gradle
+defaultConfig {
+  applicationId "" // 替换成您的Android端包名
+  minSdkVersion 21
+  targetSdkVersion 30
+}
+```
 
 ## 联系我们
 如果您在接入使用过程中有任何疑问，请加入QQ群：788910197 咨询。
