@@ -52,7 +52,7 @@
 ### 云数据库 SQL Server 能否有服务器访问文件夹，创建文件夹权限？
 云数据库 SQL Server 目前不支持客户在实例服务器上访问和创建文件夹。
 
-### 云数据库 SQL Server 是否可以查看链接明细？
+### 云数据库 SQL Server 是否可以查看连接明细？
 用户可以使用 SSMS 连接实例后自行查看，若权限不足请 [提交工单](https://console.cloud.tencent.com/workorder/category) 协助申请提升数据库帐号权限。
 
 [](id:CKMSQLB)
@@ -88,5 +88,5 @@ server 级别角色：
 - Dbcreator，创建和修改数据库。
 
 database 级别角色：
-- db_owner，可以执行数据库中技术所有动作的用户。
+- db_owner，拥有数据库的所有权，可以执行数据库的所有操作。
 - db_datareader，可以查看所有数据库中用户表内数据的用户。
