@@ -5,7 +5,7 @@
 
 |   | 版本 |
 |---------|---------|
-| Flutter | IM SDK 最低要求 Flutter 2.2.0版本，TUIKit 集成组件库最低要求 Flutter 2.8.1版本。|
+| Flutter | IM SDK 最低要求 Flutter 2.2.0版本，TUIKit 集成组件库最低要求 Flutter 2.10.0 版本。|
 |Android|Android Studio 3.5及以上版本，App 要求 Android 4.1及以上版本设备。|
 |iOS|Xcode 11.0及以上版本，请确保您的项目已设置有效的开发者签名。|
 
@@ -564,7 +564,9 @@ TencentImSDKPlugin.v2TIMManager
 
 #### 支持哪些平台？
 
-目前支持 iOS 、Android 和 Web 三个平台，另外 Windows 和 Mac 版正在开发中，敬请期待。
+目前 [IM SDK(tencent_im_sdk_plugin)](https://cloud.tencent.com/document/product/269/75286) 及其[ API Example](https://github.com/TencentCloud/TIMSDK/tree/master/Flutter/IMSDK/im-flutter-plugin/tencent_im_sdk_plugin/example) 支持 iOS 、Android 和 Web 三个平台，此外 Windows 和 Mac 版正在开发中，敬请期待。
+
+[TUIKit](https://cloud.tencent.com/document/product/269/70746) 及 [配套完整版交互DEMO](https://github.com/TencentCloud/TIMSDK/tree/master/Flutter/Demo/im-flutter-uikit) 支持 iOS 及 Android 两个移动平台。
 
 #### Android 单击 Build And Run 报错找不到可用设备？
 
