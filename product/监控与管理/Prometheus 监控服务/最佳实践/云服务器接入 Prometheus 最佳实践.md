@@ -113,7 +113,7 @@ rate(order_service_processed_orders_total[5m])
 ![img](https://main.qcloudimg.com/raw/fc6bf3f5cfbab1bbd931d418b9dddef2.png)
 
 
-3. 暴露 Prometheus 指标
+3. 暴露 Prometheus 指标：
 通过 `promhttp.Handler()` 把监控埋点数据暴露到 HTTP 服务上。
 ``` go
 package main
