@@ -28,19 +28,17 @@
 
 [](id:step2)
 ### 步骤2：下载源码安装依赖并运行
-1. 下载即时通信[源码](https://github.com/TencentCloud/TIMSDK/tree/master/ReactNative/IMSDK/react-native-tim-js)
-
-2. 安装项目依赖。
+1. 下载 IM 即时通信 [源码](https://github.com/TencentCloud/TIMSDK/tree/master/ReactNative/IMSDK/react-native-tim-js)
+2. 安装项目依赖：
 ```javascript
 yarn
 ```
-
-3. 项目运行。
+3. 项目运行：
 ```javascript
-// 安卓
+// Android
 yarn example android
 
-// ios
+// iOS
 yarn example ios
 ```
 
