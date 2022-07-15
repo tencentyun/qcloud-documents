@@ -31,11 +31,7 @@
 ### 接入步骤
 
 #### 安装 IM SDK
-
-使用如下命令，安装 React Naitve IM SDK 最新版本。
-
-在命令行执行：
-
+使用如下命令，安装 React Naitve IM SDK 最新版本。在命令行执行：
 ```shell
 // npm
 npm install react-native-tim-js
@@ -45,11 +41,7 @@ yarn add react-native-tim-js
 ```
 
 #### 完成 SDK 初始化
-
-调用`initSDK`，完成 SDK 初始化。
-
-将您的 `sdkAppID` 传入。
-
+调用`initSDK`，完成 SDK 初始化。将您的 `sdkAppID` 传入。
 ```javascript
 import { TencentImSDKPlugin, LogLevelEnum } from 'react-native-tim-js';
 
@@ -63,13 +55,8 @@ TencentImSDKPlugin.v2TIMManager.initSDK(
 在本步骤，你可以针对 IM SDK 挂载一些监听，主要包括网络状态及用户信息变更等，详情可参见 [该文档](https://comm.qq.com/im-react-native-doc/interfaces/interface.V2TimSDKListener.html)。
 
 #### 登录测试账户
-
-此时，您可以使用最开始的时候，在控制台生成的测试账户，完成登录验证。
-
-调用`TencentImSDKPlugin.v2TIMManager.login`方法，登录一个测试账户。
-
-当返回值`res.code`为 0 时，登录成功。
-
+1. 此时，您可以使用最开始的时候，在控制台生成的测试账户，完成登录验证。
+2. 调用`TencentImSDKPlugin.v2TIMManager.login`方法，登录一个测试账户。当返回值`res.code`为 0 时，登录成功。
 ```javascript
 import { TencentImSDKPlugin } from 'react-native-tim-js';
  const res = await TencentImSDKPlugin.v2TIMManager.login(
@@ -77,13 +64,11 @@ import { TencentImSDKPlugin } from 'react-native-tim-js';
     userSig: userSig,
   );
 ```
-
 > ? 该账户仅限开发测试使用。应用上线前，正确的 `UserSig` 签发方式是将 `UserSig` 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 `UserSig` 时由您的 App 向业务服务器发起请求获取动态 `UserSig`。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/269/32688#GeneratingdynamicUserSig)。
 
 #### 发送消息
 
 此处以发送文本消息举例，其流程为：
-
 1. 调用 `createTextMessage(String)`创建一个文本消息。
 2. 根据其返回值，拿到消息 ID。
 3. 调用 `sendMessage()` 发送该 ID 的消息。`receiver`可填入您此前创建的另一个测试账户 ID。发送单聊消息无需填入`groupID`。
@@ -154,7 +139,6 @@ const getConversationList = async () => {
 您在此步骤中，需要先在 SDK 上挂载监听，然后处理回调事件，更新 UI。
 
 1. 挂载监听。
-
 ```javascript
 import { TencentImSDKPlugin } from "react-native-tim-js";
 
@@ -175,7 +159,6 @@ const addConversationListener = () => {
 ```
 
 2. 处理回调事件，将最新的会话列表展示在界面上。
-
 ```javascript
 const _onConversationListChanged = (list) => {
   // you can use conversation list to update UI
@@ -243,10 +226,7 @@ const addAdvancedMsgListener = () => {
 ```
 
 此时，您已基本完成 IM 模块开发，可以发送接收消息，也可以进入不同的会话。
-
-您可以继续完成群组，用户资料，关系链，离线推送，本地搜索 等相关功能开发。
-
-详情可查看 [SDK API 文档](https://comm.qq.com/im-react-native-doc/index.html)。
+您可以继续完成群组，用户资料，关系链，离线推送，本地搜索等相关功能开发，详情可参见 [SDK API 文档](https://comm.qq.com/im-react-native-doc/index.html)。
 
 ## 联系我们
 
