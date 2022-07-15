@@ -2,7 +2,7 @@
 ## 如何开启 Presto 内置函数应用
 ### 途径一：在数据探索对数据引擎进行函数配置
 1. 登录[ 数据湖计算 DLC 控制台](https://console.cloud.tencent.com/dlc)，选择服务地域。
-2. 进入数据探索，选择数据引擎，当引擎内核为 Presto 时，可在高级配置中选择参数 **USEHIVEFUCATION**，将该参数配置为 **false** 即可在使用该数据引擎进行 SQL 任务时使用 Presto 内置函数。
+2. 进入数据探索，选择数据引擎，当引擎内核为 Presto 时，可在高级配置中选择参数 **USEHIVEFUNCTION**，将该参数配置为 **false** 即可在使用该数据引擎进行 SQL 任务时使用 Presto 内置函数。
 ![](https://qcloudimg.tencent-cloud.cn/raw/a0b6390a7c2b4fffcaa0bdb3fb9420c6.png)
 
 >! 在当前查询 session，所有使用该数据引擎的查询任务皆可使用 Presto 内置函数。
@@ -37,8 +37,7 @@ request.setTasks(task);
 参考 API 文档：[任务创建](https://cloud.tencent.com/document/product/1342/53775)。
 
 ### 途径四：使用 JDBC 进行任务创建时添加参数
-- 在 JDBCURL 路径中添加`&presto.USEHIVEFUNCTION=true`参数
-- `info.setProperty("presto.USEHIVEFUNCTION","false");`
+- 在 JDBCURL 路径中添加 `&presto.USEHIVEFUNCTION=true` 参数或 `info.setProperty("presto.USEHIVEFUNCTION","false");`。
 ```
 Connectionconnection=
 DriverManager.getConnection("jdbc:dlc:dlc.tencentcloudapi.com?task_type=SQLTask&x省略中间参数xx&presto.USEHIVEFUNCTION=true",info);
@@ -134,7 +133,7 @@ info.setProperty("password","");
 | split(string,delimiter)	| array(varchar)| 
 | split(string,delimiter,limit)	| array(varchar)| 
 | split_part(string,delimiter,index)	| varchar| 
-| split_to_map(string,entryDelimiter,keyValueDelimiter)	| map &ltvarchar,varchar>| 
+| split_to_map(string,entryDelimiter,keyValueDelimiter)	| map(varchar,varchar)| 
 | split_to_multimap(string,entryDelimiter,keyValueDelimiter)	| map(varchar,array(varchar))| 
 |strpos(string,substring)	|bigint|
 |strpos(string,substring,instance)|	bigint|
@@ -191,24 +190,17 @@ info.setProperty("password","");
 |hmac_sha1(binary,key)|	varbinary|
 |hmac_sha256(binary,key)|	varbinary|
 |hmac_sha512(binary,key)	|varbinary|
-
-**ATTIMEZONE**
-
-| 函数 | 出参 | 
-|---------|---------|
 |current_date	|date|
-|current_time	|timewithtimezone|
-|current_timestamp	|timestampwithtimezone|
+|current_timestamp	|timestamp|
 |current_timezone()	|varchar|
 | date(x)	| date| 
-| from_iso8601_timestamp(string)	| timestampwithtimezone| 
+| from_iso8601_timestamp(string)	| timestamp| 
 | from_iso8601_date(string)	| date| 
 | from_unixtime(unixtime)	| timestamp| 
-| from_unixtime(unixtime,string)	| timestampwithtimezone| 
-| from_unixtime(unixtime,hours,minutes)| 	timestampwithtimezone| 
-| localtime	| time| 
+| from_unixtime(unixtime,string)	| timestamp| 
+| from_unixtime(unixtime,hours,minutes)| 	timestamp| 
 | localtimestamp	| timestamp| 
-| now()	| timestampwithtimezone| 
+| now()	| timestamp| 
 | to_iso8601(x)| 	varchar| 
 | to_milliseconds(interval)	| bigint| 
 | to_unixtime(timestamp)	| double| 
@@ -218,7 +210,7 @@ info.setProperty("password","");
 | date_format(timestamp,format)| 	varchar| 
 | date_parse(string,format)	| timestamp| 
 | format_datetime(timestamp,format)| 	varchar| 
-| parse_datetime(string,format)| 	timestampwithtimezone| 
+| parse_datetime(string,format)| 	timestamp| 
 | day(x)	| bigint| 
 | day_of_month(x)	| bigint| 
 | day_of_week(x)| 	bigint| 
@@ -239,7 +231,7 @@ info.setProperty("password","");
 | year_of_week(x)| 	bigint| 
 | yow(x)	| bigint| 
 | arbitrary(x)	| 与入参一致| 
-| array_agg(x)	| array<与入参一致>| 
+| array_agg(x)	| array(与入参一致)| 
 | avg(x)	| double| 
 | bool_and(boolean)	| boolean| 
 | bool_or(boolean)	| boolean| 
@@ -249,15 +241,15 @@ info.setProperty("password","");
 | count_if(x)	| bigint| 
 | every(boolean)	| boolean| 
 | geometric_mean(x)	| double| 
-| max_by(x,y)	| [sameasx]| 
-| max_by(x,y,n)	| array<[sameasx]>| 
-| min_by(x,y)	| [sameasx]| 
-| min_by(x,y,n)	| array<[sameasx]>| 
+| max_by(x,y)	| [same as x]| 
+| max_by(x,y,n)	| array([same as x])| 
+| min_by(x,y)	| [same as x]| 
+| min_by(x,y,n)	| array([same as x])| 
 | max(x)	| 与入参一致| 
-| max(x,n)	| array<[sameasx]>| 
+| max(x,n)	| array([same as x])| 
 | min(x)	| 与入参一致| 
-| min(x,n)	| array<[sameasx]>| 
-| set_agg(x)	| array<与入参一致>| 
+| min(x,n)	| array([same as x])| 
+| set_agg(x)	| array(与入参一致)| 
 | set_union(array(T))	| array(T)| 
 | sum(x)	| 与入参一致| 
 | bitwise_and_agg(x)	| bigint| 
@@ -268,16 +260,16 @@ info.setProperty("password","");
 | multimap_agg(key,value)	| map(K,array(V))| 
 | approx_distinct(x)	| bigint| 
 | approx_distinct(x,e)| 	bigint| 
-| approx_percentile(x,percentage)| 	[sameasx]| 
-| approx_percentile(x,percentage,accuracy)	| [sameasx]| 
-| approx_percentile(x,percentages)	| array<[sameasx]>| 
-| approx_percentile(x,percentages,accuracy)	| array<[sameasx]>| 
-| approx_percentile(x,w,percentage)| 	[sameasx]| 
-| approx_percentile(x,w,percentage,accuracy)| 	[sameasx]| 
-| approx_percentile(x,w,percentages)	| array<[sameasx]>| 
-| approx_percentile(x,w,percentages,accuracy)	| array<[sameasx]>| 
-| numeric_histogram(buckets,value,weight)	| map <double,double>| 
-| numeric_histogram(buckets,value)	| map<double,double>| 
+| approx_percentile(x,percentage)| 	[same as x]| 
+| approx_percentile(x,percentage,accuracy)	| [same as x]| 
+| approx_percentile(x,percentages)	| array([same as x])| 
+| approx_percentile(x,percentages,accuracy)	| array([same as x])| 
+| approx_percentile(x,w,percentage)| 	[same as x]| 
+| approx_percentile(x,w,percentage,accuracy)| 	[same as x]| 
+| approx_percentile(x,w,percentages)	| array([same as x])| 
+| approx_percentile(x,w,percentages,accuracy)	| array([same as x])| 
+| numeric_histogram(buckets,value,weight)	| map(double,double)| 
+| numeric_histogram(buckets,value)	| map(double,double)| 
 | corr(y,x)	| double| 
 | covar_pop(y,x)	| double| 
 | covar_samp(y,x)| 	double| 
@@ -292,14 +284,14 @@ info.setProperty("password","");
 | variance(x)| 	double| 
 | var_pop(x)	| double| 
 | var_samp(x)	| double
-| classification_miss_rate(buckets,y,x,weight)	| array &ltdouble>| 
-| classification_miss_rate(buckets,y,x)| 	array &ltdouble>| 
-| classification_fall_out(buckets,y,x,weight)| 	array &ltdouble>| 
-| classification_fall_out(buckets,y,x)	| array &ltdouble>| 
-| classification_precision(buckets,y,x,weight)	| array &ltdouble>| 
-| classification_precision(buckets,y,x)	| array &ltdouble>| 
-| classification_recall(buckets,y,x,weight)	| array &ltdouble>| 
-| classification_recall(buckets,y,x)	| array &ltdouble>| 
+| classification_miss_rate(buckets,y,x,weight)	| array(double)| 
+| classification_miss_rate(buckets,y,x)| 	array(double)| 
+| classification_fall_out(buckets,y,x,weight)| 	array(double)| 
+| classification_fall_out(buckets,y,x)	| array(double)| 
+| classification_precision(buckets,y,x,weight)	| array(double)| 
+| classification_precision(buckets,y,x)	| array(double)| 
+| classification_recall(buckets,y,x,weight)	| array(double)| 
+| classification_recall(buckets,y,x)	| array(double)| 
 | classification_thresholds(buckets,y,x)	|-|
 | differential_entropy(sample_size,x)	|-|
 | differential_entropy(sample_size,x,weight)	|-|
@@ -335,7 +327,7 @@ info.setProperty("password","");
 |ngrams(array(T),n)	|array(array(T))|
 |repeat(element,count)	|array|
 |reverse(x)	|array|
-|sequence(start,stop)->	|array(bigint)|
+|sequence(start,stop)	|array(bigint)|
 |sequence(start,stop,step)|	array(bigint)|
 |sequence(start,stop)	|array(date)|
 |sequence(start,stop,step)	|array(date)|
@@ -354,7 +346,7 @@ info.setProperty("password","");
 |url_extract_fragment(url)|	varchar|
 |url_extract_host(url)|	varchar|
 |url_extract_parameter(url,name)|	varchar|
-|url_extract_path(url)|	|varchar|
+|url_extract_path(url)	|varchar|
 |url_extract_port(url)|	bigint|
 |url_extract_protocol(url)	|varchar|
 |url_extract_query(url)	|varchar|
