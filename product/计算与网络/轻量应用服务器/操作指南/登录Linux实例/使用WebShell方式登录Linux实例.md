@@ -81,19 +81,6 @@ WebShell 功能介绍如下：
 
 
 :::
-::: 使用 URL 上传文件[](id:urlUpload)
-您可通过该步骤，使用 URL 直接上传文件至实例的指定位置。具体步骤如下：
-1. 参考 [使用 WebShell 方式登录 Linux 实例](https://cloud.tencent.com/document/product/1207/44642)，登录实例。
-2. 选择 WebShell 界面工具栏中的 <img src="https://qcloudimg.tencent-cloud.cn/raw/81fbdd2c2b7cb70f17c508073496f58e.png" style="margin:-3px 0px">，并在弹出菜单中选择**上传**。如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/408035b20e65287edebc3e784b88c56c.png)
-3. 在弹出的“选择上传文件和位置”窗口中：
-![](https://qcloudimg.tencent-cloud.cn/raw/3e9d8e7c852cabfecacb2993387b0f6d.png)
-  1. 选择 “URL上传”。
-  2. 在 “URL地址”中输入需上传文件的 URL
-  3. 指定文件位置后，单击**确定**即可上传文件。
-
-
-:::
 ::: 查看发布说明[](id:changelogs)
 您可通过该步骤，查看 WebShell 最近一次的发布说明，包含新特性、Bug 修复、即将上线的功能。具体步骤如下：
 
@@ -128,12 +115,11 @@ WebShell 功能介绍如下：
 1. 参考 [使用 WebShell 方式登录 Linux 实例](https://cloud.tencent.com/document/product/1207/44642)，登录实例。
 2. 选择 WebShell 界面工具栏中的 <img src="https://qcloudimg.tencent-cloud.cn/raw/81fbdd2c2b7cb70f17c508073496f58e.png" style="margin:-3px 0px">。
 3. 在弹出的菜单中，选择**上传**或**下载**。如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/40a90811712d7800c21f309d2971fa81.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/a47daf701e2f526b7da764640e0b8793.png)
 具体操作步骤如下：
     - **上传文件**：
-       1. 在弹出窗口的“选择上传文件和位置”窗口中，选择 `点击上传`。
-       2. 在弹出窗口中，选择文件后单击**确定**。
-       3. 上传位置请选择 `home > lighthouse` 目录。
+       1. 在弹出窗口的“选择上传文件和位置”窗口中，您可按需选择“本地上传”或 “URL上传”。
+       2. 选择“本地上传”，则请单击**点击上传**后选择本地文件。选择 “URL上传”，则请在 “URL地址”中输入需上传文件的 URL。
     <dx-alert infotype="explain" title="">
 目前仅支持上传文件至  `home > lighthouse` 目录。
   </dx-alert>
