@@ -120,10 +120,11 @@ WebShell 功能介绍如下：
     - **上传文件**：
        1. 在弹出窗口的“选择上传文件和位置”窗口中，您可按需选择“本地上传”或 “URL上传”。
        2. 选择“本地上传”，则请单击**点击上传**后选择本地文件。选择 “URL上传”，则请在 “URL地址”中输入需上传文件的 URL。
-    <dx-alert infotype="explain" title="">
+       4. 选择需上传位置后，单击**确定**即可。
+<dx-alert infotype="explain" title="">
 目前仅支持上传文件至  `home > lighthouse` 目录。
   </dx-alert>
-       4. 单击**确定**即可。您可单击页面右下角的 <img src="https://qcloudimg.tencent-cloud.cn/raw/a78e204de7cde3473482732c8b9fef98.png" style="margin:-3px 0px">，在弹出窗口中查看操作结果。上传成功则如下图所示：
+您可单击页面右下角的 <img src="https://qcloudimg.tencent-cloud.cn/raw/a78e204de7cde3473482732c8b9fef98.png" style="margin:-3px 0px">，在弹出窗口中查看操作结果。上传成功则如下图所示：
     ![](https://qcloudimg.tencent-cloud.cn/raw/742c648fbb6191849f0f1b4ad31df288.png)
     - **下载文件**：
        1. 在弹出窗口的“下载文件”窗口中，依次再开目录，选择需下载的文件。
