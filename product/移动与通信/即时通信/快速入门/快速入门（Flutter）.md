@@ -584,7 +584,7 @@ TencentImSDKPlugin.v2TIMManager
 
 请将您的Apple Watch调整至飞行模式，并将iPhone的蓝牙功能通过 `设置 => 蓝牙` 彻底关闭。
 
-重新Xcode（若打开），并重新 `flutter run` 即可。
+重新启动Xcode（若打开），并重新 `flutter run` 即可。
 
 ### Flutter 环境问题
 
