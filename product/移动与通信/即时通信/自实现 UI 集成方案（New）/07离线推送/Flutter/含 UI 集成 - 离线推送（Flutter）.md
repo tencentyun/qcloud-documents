@@ -859,7 +859,7 @@ cPush.init(
 final advancedMsgListener = V2TimAdvancedMsgListener(
   onRecvNewMessage: (V2TimMessage newMsg) {
     // 这里完成监听回调触发事件
-    // 下一步创建的方法，请在这里调用
+    // 请在这里调用下一步提及的触发本地消息通知API
   }, 
 });
 
@@ -872,9 +872,9 @@ TencentImSDKPlugin.v2TIMManager
 
 #### 触发本地消息通知
 
-请从我们提供的两个API中，`displayNotification` 自定义通知，及 `displayDefaultNotificationForMessage` 根据消息生成默认通知，选一个用户触发。
+请从我们提供的两个API中，`displayNotification` 自定义通知，及 `displayDefaultNotificationForMessage` 根据消息生成默认通知，选一个合适的API。
 
-对于Android端，这两个API均需传入 `channelID` 及 `channelName`。若还未创建Channel，请使用插件 `createNotificationChannel()` API创建。
+对于Android端，这两个API均需传入 `channelID` 及 `channelName`。若还未创建 [Android Push Channel](https://developer.android.com/training/notify-user/channels) ，请使用插件 `createNotificationChannel` API创建。
 
 ```dart
 cPush.createNotificationChannel(
@@ -916,7 +916,7 @@ cPush.displayDefaultNotificationForMessage(
 
 本步骤与 [上文离线推送的步骤6](#step_6) 点击回调一致，均为在 ext 中，读取需要跳转的 conversation，并导航过去。
 
-如果您在上一步使用 `displayDefaultNotificationForMessage`，或在 `displayNotification` 中使用与default相同的ext生成函数，此时的ext结构为：` "conversationID": "对应的conversation"`。此处触发的是
+如果您在上一步使用 `displayDefaultNotificationForMessage`，或在 `displayNotification` 中使用与default相同的ext生成函数，此时的ext结构为：` "conversationID": "对应的conversation"`。
 
 此时，填上初始化时，为 pushClickAction 埋的坑。
 
@@ -931,9 +931,6 @@ BuildContext? _cachedContext;
 final TimUiKitPushPlugin cPush = TimUiKitPushPlugin(
       isUseGoogleFCM: false,
     );
-// 仅限TUIKit
-final TIMUIKitChatController _timuiKitChatController =
-  TIMUIKitChatController();
 
 @override
 void initState() {
@@ -946,11 +943,8 @@ void onClickNotification(Map<String, dynamic> msg) async {
     Map<String, dynamic> extMsp = jsonDecode(ext);
     String convId = extMsp["conversationID"] ?? "";
 
-    // 【TUIKit】若当前的会话与要跳转至的会话一致，则不跳转
-    final currentConvID = _timuiKitChatController.getCurrentConversation();
-    if(currentConvID == convId.split("_")[1]){
-      return;
-    }
+    // 若当前的会话与要跳转至的会话一致，则不跳转
+    // 此处建议您自行判断下，用户当前打开的页面
 
     final targetConversationRes = await TencentImSDKPlugin.v2TIMManager
         .getConversationManager()
