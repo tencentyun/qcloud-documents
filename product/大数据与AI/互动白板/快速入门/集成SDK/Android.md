@@ -96,8 +96,8 @@ dependencies {
 ```grovy
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation ('com.tencent.edu:TEduBoardSdk:latest.release'){
-        exclude group: 'com.tencent.tbs.tbssdk', module: 'sdk'
+    implementation ('com.tencent.edu:TEduBoardSdk:2.7.3.182') {
+        exclude group: 'com.tencent.tbs'
     }
     ...
 }

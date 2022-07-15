@@ -1,16 +1,17 @@
 ## 支持的操作系统
 
-目前在线迁移工具支持的源端主机操作系统包括但不限于以下操作系统（32位或64位均可）：
+目前在线迁移工具支持的源端主机操作系统包括但不限于以下操作系统：
 
 <table>
 	<tr><th>Linux 操作系统</th><th>Windows 操作系统</th></tr>
-	<tr><td>CentOS 5/6/7/8</td><td rowspan=7>暂不支持</td></tr>
+	<tr><td>CentOS 5/6/7/8</td><td rowspan=8>Windows Server 2008<br>Windows Server 2012<br>Windows Server 2016<br>Windows Server 2019<br>Windows Server 2022</td></tr>
 	<tr><td>Ubuntu 10/12/14/16/18/20 </td></tr>
 	<tr><td>Debian 7/8/9/10</td></tr>
 	<tr><td>SUSE 11/12/15</td></tr>
 	<tr><td>openSUSE 42</td></tr>
 	<tr><td>Amazon Linux AMI</td></tr>
-	<tr><td>Red Hat 7/8</td></tr>
+	<tr><td>Red Hat 5/6/7/8</td></tr>
+	<tr><td>Oracle Linux 5/6/7/8</td></tr>
 </table>
 
 ## 支持的迁移模式
@@ -39,6 +40,7 @@
 <table>
 	<tr><th width="30%">文件名</th><th>说明</th></tr>
 	<tr><td>go2tencentcloud-linux.zip</td><td>Linux 系统的迁移压缩包。</td></tr>
+	<tr><td>go2tencentcloud-windows.zip</td><td>Windows 系统的迁移压缩包。</td></tr>
 	<tr><td>readme.txt</td><td>目录简介文件。</td></tr>
 	<tr><td>release_notes.txt</td><td>迁移工具变更日志。</td></tr>
 </table>
@@ -51,6 +53,15 @@
 	<tr><td>user.json</td><td>迁移时的用户信息。</td></tr>
 	<tr><td>client.json</td><td>迁移工具的配置文件。</td></tr>
 	<tr><td>rsync_excludes_linux.txt</td><td>rsync 配置文件，排除 Linux 系统下不需要迁移的文件目录。</td></tr>
+</table>
+
+`go2tencentcloud-windows.zip` 解压后，文件说明如下：
+<table>
+	<tr><th width="30%">文件名</th><th>说明</th></tr>
+	<tr><td>go2tencentcloud_x64.exe</td><td>64位 Windows 系统的迁移工具可执行程序。</td></tr>
+	<tr><td>user.json</td><td>迁移时的用户信息。</td></tr>
+	<tr><td>client.json</td><td>迁移工具的配置文件。</td></tr>
+	<tr><td>client.exe</td><td>Windows 系统的迁移可执行程序。</td></tr>
 </table>
 
 <dx-alert infotype="notice" title="">

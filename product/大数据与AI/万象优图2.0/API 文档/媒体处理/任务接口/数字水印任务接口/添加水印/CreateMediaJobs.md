@@ -17,8 +17,12 @@ Content-Type: application/xml
 <body>
 ```
 
->? Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
->
+
+>? 
+> - Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+> - 通过子账号使用时，需要授予相关的权限，详情请参见 [授权粒度详情](https://cloud.tencent.com/document/product/460/41741) 文档。
+> 
+
 
 
 #### 请求头
@@ -83,11 +87,11 @@ Container 类型 Operation 的具体数据描述如下：
 
 Container 类型 DigitalWatermark 的具体数据类型描述如下：
 
-| 节点名称（关键字） | 父节点            | 描述                                                         | 类型      | 是否必选 | 默认值 | 限制 |
-| ------------------ | ----------------- | ------------------------------------------------------------ | --------- | ---- | ---- | ---- |
-| Message               | Request.Operation.DigitalWatermark |  数字水印嵌入的字符串信息    | string | 是   | | 长度不超过64个字符，仅支持中文、英文、数字、\_、-和\* |
-| Type               | Request.Operation.DigitalWatermark | 水印类型      | String | 是 | | Text |
-| Version            | Request.Operation.DigitalWatermark | 水印版本     | String | 是 | | V1 |
+| 节点名称（关键字） | 父节点            | 描述                                                         | 类型      | 是否必选  | 限制 |
+| ------------------ | ----------------- | ------------------------------------------------------------ | --------- | ---- | ---- |
+| Message               | Request.Operation.DigitalWatermark |  数字水印嵌入的字符串信息    | string | 是 | 长度不超过64个字符，仅支持中文、英文、数字、\_、-和\* |
+| Type               | Request.Operation.DigitalWatermark | 水印类型      | String | 是 | Text |
+| Version            | Request.Operation.DigitalWatermark | 水印版本     | String | 是 | V1 |
 
 
 

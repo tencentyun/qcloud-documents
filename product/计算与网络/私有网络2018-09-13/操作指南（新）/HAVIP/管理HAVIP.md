@@ -12,7 +12,7 @@
  + IP 地址：支持自动分配和手动填写。选择自动分配系统将从子网中分配一个 IP 地址；选择手动填写，需填写子网网段范围内的可用 IP 地址，且不能为系统保留 IP，例如，所属子网网段为：10.0.0.0/24，则可填的内网 IP 范围为：10.0.0.2 - 10.0.0.254。
   ![](https://main.qcloudimg.com/raw/036b8d78f4b0de150fbd2d1bb2ae143d.png)
 4. 单击**确定**，创建成功的 HAVIP 展示在列表中，状态为**未绑定云服务器**。
-    ![](https://main.qcloudimg.com/raw/eced960b793c2897d3267b7a7a3c8ccb.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/a9a55d52d64d0838ac6b7a6c3569bdfa.png)		
 
 ## 后续操作
 HAVIP 用于配合第三方 HA 软件使用，创建后还需要在第三方 HA 软件中操作（HAVIP 只是被操作的对象，作为可被声明绑定的内网 IP，操作的发起方为第三方 HA 软件，不在 HAVIP 的控制台实现绑定和解绑）。即：在第三方 HA 软件中，将 HAVIP 指定为可漂移的 VIP（Virtual IP Address），然后由第三方 HA 软件通过 ARP 协议指定 HAVIP 要绑定的网卡。示意图如下：
@@ -46,7 +46,7 @@ vrrp_instance VI_1 {
 </code></pre>
 
 在云服务器的 HA 软件中配置了 HAVIP 后，控制台中该 HAVIP 的状态将变更为**已绑定云服务器**。
-![](https://qcloudimg.tencent-cloud.cn/raw/ce807d7cefac6091b5a561c85b8028e5.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/d07d0e95d211146b96c3d12c7641d2e7.png)
 
 常见配置案例请参考：
 + [最佳实践 - 用 HAVIP+Keepallved 搭建高可用主备集群](https://cloud.tencent.com/document/product/215/20186)
