@@ -13,7 +13,7 @@
 2. 在页面上方选择目标地域。
 3. 找到目标集群，单击集群 ID，然后选择**主机列表**，或直接单击**操作**列的**管理主机**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/eb7418889e5eee2e81f0e1bcecdd05da.png)
-4. 在主机列表，找到目标主机，查看**主机帐号**以及**IP 地址**。
+4. 在主机列表，找到目标主机，查看**主机帐号**以及 **IP 地址**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/90c12f45665cac0d3ac9d76330e35c26.png)
 5. 通过 SSH 命令进行连接。
 ```
