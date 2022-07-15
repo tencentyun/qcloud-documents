@@ -4,7 +4,7 @@ EMR 容器版集群支持在控制台提交 Spark 作业，查看作业信息。
 
 ## 操作步骤
 1. 登录 [EMR 容器版控制台](https://console.cloud.tencent.com/emr/static/containerdeploy)，在集群列表中单击对应的集群 **ID/名称**进入集群详情页。
-2. 在集群详情页中单击**作业管理**，即可进行相关作业查询。
+2. 在集群详情页中单击**作业管理**，即可进行相关作业提交和查询。
 3. EMR 支持 CRD 方式提交作业，用户编写 yaml 作业文件后，由控制台进行作业提交。
 4. 单击作业列表上方的**提交作业**，打开提交作业弹框。选择需要提交的作业文件，单击**确认**后，即可提交作业。
 ![](https://qcloudimg.tencent-cloud.cn/raw/6c24bc7f507a3b713fbac4fcfe1ecacc.png)
