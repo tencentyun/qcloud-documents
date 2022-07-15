@@ -115,7 +115,6 @@ rate(order_service_processed_orders_total[5m])
 
 3. 暴露 Prometheus 指标
 通过 `promhttp.Handler()` 把监控埋点数据暴露到 HTTP 服务上。
-
 ``` go
 package main
 
