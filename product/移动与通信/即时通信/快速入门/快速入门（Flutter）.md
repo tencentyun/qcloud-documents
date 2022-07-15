@@ -563,10 +563,8 @@ TencentImSDKPlugin.v2TIMManager
 ## 常见问题
 
 ### 支持哪些平台？
-
-目前 [IM SDK(tencent_im_sdk_plugin)](https://cloud.tencent.com/document/product/269/75286) 支持 iOS 、Android 和 Web 三个平台，此外 Windows 和 Mac 版正在开发中，敬请期待。
-
-[TUIKit](https://cloud.tencent.com/document/product/269/70746) 及 [配套完整版交互DEMO](https://github.com/TencentCloud/TIMSDK/tree/master/Flutter/Demo/im-flutter-uikit) 支持 iOS 及 Android 两个移动平台。
+- 目前 [IM SDK(tencent_im_sdk_plugin)](https://cloud.tencent.com/document/product/269/75286) 支持 iOS 、Android 和 Web 三个平台，此外 Windows 和 Mac 版正在开发中，敬请期待。
+- [TUIKit](https://cloud.tencent.com/document/product/269/70746) 及 [配套完整版交互 Demo](https://github.com/TencentCloud/TIMSDK/tree/master/Flutter/Demo/im-flutter-uikit) 支持 iOS 及 Android 两个移动平台。
 
 ### Android 单击 Build And Run 报错找不到可用设备？
 
@@ -578,7 +576,7 @@ TencentImSDKPlugin.v2TIMManager
 
 ![20220714152720](https://tuikit-1251787278.cos.ap-guangzhou.myqcloud.com/20220714152720.png)
 
-### 佩戴Apple Watch时，真机调试iOS报错
+### 佩戴 Apple Watch 时，真机调试 iOS 报错
 
 ![20220714152340](https://tuikit-1251787278.cos.ap-guangzhou.myqcloud.com/20220714152340.png)
 
@@ -590,26 +588,24 @@ TencentImSDKPlugin.v2TIMManager
 
 如您需得知 Flutter 的环境是否存在问题，请运行 Flutter doctor 检测 Flutter 环境是否装好。
 
-### 使用 Flutter 自动生成的项目，引入TUIKit 后，运行Android端报错
+### 使用 Flutter 自动生成的项目，引入TUIKit 后，运行 Android 端报错
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/d95efdd4ae50f13f38f4c383ca755ae7.png)
 
 1. 打开 `android\app\src\main\AndroidManifest.xml`，根据如下，补全 `xmlns:tools="http://schemas.android.com/tools"` / `android:label="@string/android_label"` 及 `tools:replace="android:label"`。
-
 ```xml
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="替换成您的Android端包名"
+    package="替换成您的 Android 端包名"
     xmlns:tools="http://schemas.android.com/tools">
     <application
         android:label="@string/android_label"
         tools:replace="android:label"
-        android:icon="@mipmap/ic_launcher" // 指定一个icon路径
+        android:icon="@mipmap/ic_launcher" // 指定一个 icon 路径
         android:usesCleartextTraffic="true"
         android:requestLegacyExternalStorage="true">
 ``` 
 
 2. 打开 `android\app\build.gradle`，补全 `defaultConfig` 中 `minSdkVersion` 及 `targetSdkVersion`。
-
 ```gradle
 defaultConfig {
   applicationId "" // 替换成您的Android端包名
@@ -619,4 +615,4 @@ defaultConfig {
 ```
 
 ## 联系我们
-如果您在接入使用过程中有任何疑问，请加入QQ群：788910197 咨询。
+如果您在接入使用过程中有任何疑问，请加入 QQ 群：788910197 咨询。
