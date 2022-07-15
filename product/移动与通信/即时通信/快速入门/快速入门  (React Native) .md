@@ -116,6 +116,7 @@ const res = await TencentImSDKPlugin.v2TIMManager
 #### 获取会话列表
 
 在上一个步骤中，完成发送测试消息，现在可登录另一个测试账户，拉取会话列表。
+
 <img style="width:300px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/e2fdd7632ebc0c5cde68c91afa914201.jpg" />
 
 获取会话列表的方式有两种：
