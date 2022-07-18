@@ -1,6 +1,6 @@
 ## 功能描述
 
-更新转码pro模板。
+更新转码 pro 模板。
 
 <div class="rno-api-explorer">
     <div class="rno-api-explorer-inner">
