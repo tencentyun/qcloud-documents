@@ -64,6 +64,31 @@ WebShell 目前具备丰富的功能，希望您在使用过程中拥有满意�
 
 WebShell 功能介绍如下：
 <dx-accordion>
+::: 使用命令块模式[](id:block)
+
+您可通过该步骤，在 WebShell 界面中使用命令块模式。开启后，执行的每条命令会以模块进行展示，帮助您便捷使用 WebShell。您也可按需关闭命令块模式。具体操作步骤如下：
+
+1. 参考 [使用 WebShell 方式登录 Linux 实例](https://cloud.tencent.com/document/product/1207/44642)，登录实例。
+2. 在 WebShell 界面中，您可开启或关闭命令行模式。
+  - **开启命令行模式**：选择 WebShell 界面工具栏中的 <img src="https://qcloudimg.tencent-cloud.cn/raw/2a7a6b5795be349496600bda16a038c6.png" style="margin:-3px 0px"> 即可开启命令块模式。开启后执行命令效果如下图：
+![](https://qcloudimg.tencent-cloud.cn/raw/2b3752cb5644e4e06af15d037a7992cb.png)
+  - **关闭命令行模式**：选择 WebShell 界面工具栏中的 <img src="https://qcloudimg.tencent-cloud.cn/raw/bb5426e4e2012fc77ff78561de913e15.png" style="margin:-3px 0px"> 即可关闭命令块模式。关闭后执行命令效果如下图：
+![](https://qcloudimg.tencent-cloud.cn/raw/5862c7588022194f1a855f26e87b6f86.png)
+<dx-alert infotype="explain" title="">
+若关闭后重新开启命令块模式，需重新连接 WebShell。
+</dx-alert>
+
+
+
+:::
+::: 查看发布说明[](id:changelogs)
+您可通过该步骤，查看 WebShell 最近一次的发布说明，包含新特性、Bug 修复、即将上线的功能。具体步骤如下：
+
+1. 参考 [使用 WebShell 方式登录 Linux 实例](https://cloud.tencent.com/document/product/1207/44642)，登录实例。
+2. 选择 WebShell 界面右下角的 <img src="https://qcloudimg.tencent-cloud.cn/raw/4796538ba87024b0a264e8d512c4544b.png" style="margin:-3px 0px">。
+3. 您即可在弹出窗口中查看最近一次的发布说明。如需查看所有发布记录，可参见 [WebShell 更新记录](https://cloud.tencent.com/document/product/1207/76448)。
+
+:::
 ::: 选择实例登录[](id:choose)
 您可通过该步骤，在一个 WebShell 窗口中选择任意一台实例登录。具体步骤如下：
 
@@ -90,16 +115,16 @@ WebShell 功能介绍如下：
 1. 参考 [使用 WebShell 方式登录 Linux 实例](https://cloud.tencent.com/document/product/1207/44642)，登录实例。
 2. 选择 WebShell 界面工具栏中的 <img src="https://qcloudimg.tencent-cloud.cn/raw/81fbdd2c2b7cb70f17c508073496f58e.png" style="margin:-3px 0px">。
 3. 在弹出的菜单中，选择**上传**或**下载**。如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/40a90811712d7800c21f309d2971fa81.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/a47daf701e2f526b7da764640e0b8793.png)
 具体操作步骤如下：
     - **上传文件**：
-       1. 在弹出窗口的“选择上传文件和位置”窗口中，选择 `点击上传`。
-       2. 在弹出窗口中，选择文件后单击**确定**。
-       3. 上传位置请选择 `home > lighthouse` 目录。
-    <dx-alert infotype="explain" title="">
+       1. 在弹出窗口的“选择上传文件和位置”窗口中，您可按需选择“本地上传”或 “URL上传”。
+       2. 选择“本地上传”，则请单击**点击上传**后选择本地文件。选择 “URL上传”，则请在 “URL地址”中输入需上传文件的 URL。
+       4. 选择需上传位置后，单击**确定**即可。
+<dx-alert infotype="explain" title="">
 目前仅支持上传文件至  `home > lighthouse` 目录。
   </dx-alert>
-       4. 单击**确定**即可。您可单击页面右下角的 <img src="https://qcloudimg.tencent-cloud.cn/raw/a78e204de7cde3473482732c8b9fef98.png" style="margin:-3px 0px">，在弹出窗口中查看操作结果。上传成功则如下图所示：
+您可单击页面右下角的 <img src="https://qcloudimg.tencent-cloud.cn/raw/a78e204de7cde3473482732c8b9fef98.png" style="margin:-3px 0px">，在弹出窗口中查看操作结果。上传成功则如下图所示：
     ![](https://qcloudimg.tencent-cloud.cn/raw/742c648fbb6191849f0f1b4ad31df288.png)
     - **下载文件**：
        1. 在弹出窗口的“下载文件”窗口中，依次再开目录，选择需下载的文件。
