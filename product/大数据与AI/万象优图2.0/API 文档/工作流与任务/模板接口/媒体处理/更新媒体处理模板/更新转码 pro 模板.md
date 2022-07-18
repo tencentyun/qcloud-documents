@@ -1,6 +1,6 @@
 ## 功能描述
 
-更新转码pro模板。
+更新转码 pro 模板。
 
 <div class="rno-api-explorer">
     <div class="rno-api-explorer-inner">
@@ -83,7 +83,7 @@ Content-Type: application/xml
 
 | 节点名称（关键字） | 父节点 | 描述                                      | 类型      | 必选 |
 | :----------------- | :----- | :---------------------------------------- | :-------- | ---- |
-| Request            | 无     | <a href="https://cloud.tencent.com/document/product/460/77094#Response" target="_blank">同创建转码 Pro 模板接口的 Request</a> | Container | 是   |
+| Request            | 无     | <a href="https://cloud.tencent.com/document/product/460/77094#Request" target="_blank">同创建转码 Pro 模板接口的 Request</a> | Container | 是   |
 
 
 ## 响应
