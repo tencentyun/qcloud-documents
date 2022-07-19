@@ -1,8 +1,8 @@
-套餐包权益包含：[智绘抠图](https://cloud.tencent.com/document/product/1351/77405)、[智绘合图](https://cloud.tencent.com/document/product/1351/77406)、[智绘图片封面生成](https://cloud.tencent.com/document/product/1351/77407)、[智绘视频封面生成](https://cloud.tencent.com/document/product/1351/77408)。
 在使用所有的腾讯云智绘 API，都需要通过鉴权，从而获取 access_token，最后再通过 access_token 来调用 腾讯云智绘 API。鉴权流程接入如下：
-1. 注册获取智绘泰山的用户信息
-通过 [腾讯云控制台](https://console.cloud.tencent.com/taidc/api ) 获取以下信息：Uin、userId、secretId、secretKey。
-2. 通过 secretId 和 secreKey 获取 access_token
+步骤1：注册获取智绘泰山的用户信息
+通过 [腾讯云控制台](https://console.cloud.tencent.com/taidc/api ) 获取以下信息：Uin、userId、secretId、secretKey。
+
+步骤2：通过 secretId 和 secreKey 获取 access_token
  - 调用地址：
  ```plaintext
  https://zhihui.qq.com/account/api/auth/secret
@@ -33,7 +33,7 @@
       <td>sig</td>
       <td>string</td>
       <td>是</td>
-      <td>签名，前面计算方法：https://docs.qq.com/doc/DYUJXTlBKd3R2aFhu。<b>注意：</b>加密密钥使用 secretKey。</td>
+      <td>签名，计算方法请参见 <a href="https://cloud.tencent.com/document/product/1351/77421">腾讯云智绘签名 Sig 加密计算方法</a>。<b>注意：</b>加密密钥使用 secretKey。</td>
    </tr>
 </table>	
  - 请求示例：
