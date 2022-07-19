@@ -23,7 +23,7 @@
 5. 进入 Konga 控制台，点击侧边导航栏的 **CERTIFICATES**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/b875fa07dab2047f06bd0ff641c5c476.png)
 >? 若您初次登录管理控制台，需要激活 Connection，[查看指引](https://cloud.tencent.com/document/product/1364/72496)。
-6. 点击 **ADD CERTIFICATE**。
+6. 单击 **ADD CERTIFICATE**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/8f39eec4a0aeb46208d9f47088c665e8.png)
 7. 填写 Certificate、Key，并填写您的域名到 Server Name Indications 中，单击 SUBMIT CERTIFICATES 提交。
 >? Certificate 使用以 `.crt` 为后缀的文件；Key 使用以 `.key` 为后缀的文件。
