@@ -4,7 +4,7 @@
 - 如您的公众号不满足原生资质，推荐使用浮层 H5。
 
 两者对比传统 H5（需要手动录制视频上传）都有更好的用户体验。
-![](https://qcloudimg.tencent-cloud.cn/raw/65480bbeec57f12c0048312f9ac05598.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/ed6a62d402c77a23e8cbc32a93146fb9.png)
 
 ### 微信原生 H5 接入说明
 1. 主体行业要求
