@@ -1,7 +1,8 @@
 在使用所有的腾讯云智绘 API，都需要通过鉴权，从而获取 access_token，最后再通过 access_token 来调用 腾讯云智绘 API。鉴权流程接入如下：
-步骤1. 注册获取智绘泰山的用户信息
+步骤1：注册获取智绘泰山的用户信息
 通过 [腾讯云控制台](https://console.cloud.tencent.com/taidc/api ) 获取以下信息：Uin、userId、secretId、secretKey。
-步骤2. 通过 secretId 和 secreKey 获取 access_token
+
+步骤2：通过 secretId 和 secreKey 获取 access_token
  - 调用地址：
  ```plaintext
  https://zhihui.qq.com/account/api/auth/secret
