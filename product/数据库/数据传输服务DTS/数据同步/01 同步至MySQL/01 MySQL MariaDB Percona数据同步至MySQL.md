@@ -75,7 +75,9 @@ FLUSH PRIVILEGES;
 <li>源端 binlog_row_image 变量必须设置为 FULL。</li>
 <li>MySQL 5.6 及以上版本 gtid_mode 变量不为 ON 时会报警告，建议打开 gtid_mode。</li>
 <li>不允许设置 do_db, ignore_db。</li>
-<li>源实例为从库时，log_slave_updates 变量必须设置为 ON。</li></ul></li>
+<li>源实例为从库时，log_slave_updates 变量必须设置为 ON。</li>
+   <li>建议源库 Binlog 日志至少保留3天及以上，否则可能会因任务暂停/中断时间大于 Binlog 日志保留时间，造成任务无法续传，进而导致任务失败。</li>
+  </ul></li>
 <li>外键依赖：
 <ul>
 <li>外键依赖只能设置为 NO ACTION，RESTRICT 两种类型。</li>

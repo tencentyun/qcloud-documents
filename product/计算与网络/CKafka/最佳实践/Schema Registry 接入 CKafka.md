@@ -163,7 +163,7 @@ public class SchemaProduce {
 </dx-codeblock>
 
 
-在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的**Consumer Group**页面，选择 schema消费组名称，在主题名称输入 Topic 名称，单击**查询详情**，查看消费详情。
+在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的**Consumer Group**页面，选择 schema消费组名称，在主题名称输入 Topic 名称，单击**查看消费者详情**，查看消费详情。
 ![](https://main.qcloudimg.com/raw/27775267907600f4ff759e6a197195ee.png)
 
  启动消费者进行消费，下图为消费日志截图：

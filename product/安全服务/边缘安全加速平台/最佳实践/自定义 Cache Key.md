@@ -6,7 +6,6 @@
 - 查询字符串，具体操作可参见 [查询字符串](https://cloud.tencent.com/document/product/1552/70751)。
 - HTTP 请求头，指定的 HTTP 请求头将被包含在 Cache Key 中，拼接在 URL 后方。只需输入 HTTP 请求头名称，例如：Accept-Language;User-Agent，Cache Key 里会自动包含头部对应的值。
 - 忽略大小写，具体操作可参见 [ 忽略大小写](https://cloud.tencent.com/document/product/1552/70750)。
->?查询字符串和忽略大小写，详情可查看具体的产品文档，如还需拼接 HTTP 请求头，请参见 [操作步骤](#bz)。
 
 
 ## 操作步骤[](id:bz)
