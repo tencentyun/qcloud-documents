@@ -20,7 +20,6 @@
 3. 在缓存配置页面，选择所需站点，单击预热 URL 模块的**预热资源**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/7433f630558ba4a747edb5f518f49314.png)
 3. 在预热 URL 弹窗中，输入或上传 URL，单击**确认预热**。
-![](https://qcloudimg.tencent-cloud.cn/raw/ab194cdef6adb850913a376152daf064.png)
  
 ## 注意事项
 ### 内容规范

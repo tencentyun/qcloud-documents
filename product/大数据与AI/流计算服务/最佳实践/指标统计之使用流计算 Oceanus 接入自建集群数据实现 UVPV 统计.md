@@ -86,13 +86,12 @@ Kafka topic：uvpv-demo（浏览记录）
 
 | 字段        | 类型      | 含义         |
 | :---------- | :-------- | :----------- |
-| record_type | int       | 客户号       |
-| user_id     | varchar   | 客户 IP 地址   |
-| client_ip   | varchar   | 房间号       |
-| product_id  | Int       | 进入房间时间 |
+| record_type | int       | 记录类型       |
+| user_id     | varchar   | 用户 ID   |
+| client_ip   | varchar   | 客户端 IP       |
+| product_id  | Int       | 产品 ID |
 | create_time | timestamp | 创建时间     |
-
-
+    
 Kafka 内部采用 json 格式存储，数据格式如下：
 ```json
 # 浏览记录

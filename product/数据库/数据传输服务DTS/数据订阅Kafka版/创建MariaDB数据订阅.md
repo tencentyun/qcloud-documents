@@ -1,4 +1,4 @@
-本场景介绍使用 DTS 创建云原生数据库 TDSQL-C MySQL 的数据订阅任务操作指导。
+本场景介绍使用 DTS 创建云数据库 MariaDB 的数据订阅任务操作指导。
 
 ## 前提条件
 -  已准备好待订阅的腾讯云数据库，并且数据库版本符合要求，请参见 [数据订阅支持的数据库](https://cloud.tencent.com/document/product/571/59965)。
