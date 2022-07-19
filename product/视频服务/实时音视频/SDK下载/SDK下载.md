@@ -61,7 +61,7 @@
   <div class="card-container">
       <div class="card">
         <img src="https://main.qcloudimg.com/raw/7e2651085e3e3c6e32190e401a6dfd32.svg" data-nonescope="true">
-        <p class="titlename">稳定版（TRTC）SDK</p>
+        <p class="titlename">TRTC Web SDK</p>
         <p style="color:#586376;">包含 TRTC 功能，无需安装 App 即可音视频通话，兼容主流的桌面和移动端浏览器。</p>
         <a onclick="reportEvent({name: 'download-click-web', ext1: 'zip'})" target="_blank" href="https://web.sdk.qcloud.com/trtc/webrtc/download/webrtc_latest.zip">ZIP 下载</a>
         <a style="margin-left: 10px;" onclick="reportEvent({name: 'download-click-web', ext1: 'github'})" target="_blank" href="https://github.com/LiteAVSDK/TRTC_Web">GitHub</a>
@@ -159,6 +159,17 @@
                 <a style="margin-left: 10px;" href="https://github.com/LiteAVSDK/TRTC_Windows">GitHub</a>
                                 <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/32178">集成指引</a>
                                 <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/71425">运行 Demo</a>
+            </div>
+        </div>
+				        <div class="card-container">
+            <div class="card">
+                                <img src="https://main.qcloudimg.com/raw/104e3aadbd4515f61c3f2f5378948cfb.svg" data-nonescope="true">
+                                <p class="titlename">Windows SDK（ActiveX 版）</p>
+                <p style="color:#586376;">基于 ActiveX 插件封装的 TRTC SDK，让您在 ActiveX 场景下快速便捷的集成实时音视频服务。</p>
+                          <a href="https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_TRTC_Win_ActiveX_latest.zip">ZIP 下载</a>
+                <a style="margin-left: 10px;" href="https://github.com/LiteAVSDK/TRTC_Windows">GitHub</a>
+                                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/76512">集成指引</a>
+                                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/76514">运行 Demo</a>
             </div>
         </div>
 </div>

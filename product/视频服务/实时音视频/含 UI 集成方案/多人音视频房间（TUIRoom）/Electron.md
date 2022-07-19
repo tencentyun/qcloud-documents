@@ -6,8 +6,8 @@ TUIRoom 是一个包含 UI 的开源音视频组件，通过集成 TUIRoom，您
 
 <table>
 <tr>
-<td><img width="460" src="https://sdk-web-1252463788.cos.ap-hongkong.myqcloud.com/trtc/electron/download/resources/common/page-room.png"></td>
-<td><img width="460" src="https://sdk-web-1252463788.cos.ap-hongkong.myqcloud.com/trtc/electron/download/resources/common/page-home.png"></td>
+<td><img width="460" src="https://web.sdk.qcloud.com/trtc/electron/download/resources/common/page-room.png"></td>
+<td><img width="460" src="https://web.sdk.qcloud.com/trtc/electron/download/resources/common/page-home.png"></td>
 </tr>
 </table>
 
@@ -37,19 +37,17 @@ TUIRoom 基于腾讯云实时音视频和即时通信服务进行开发。
 [](id:step2)
 
 ### 步骤二：下载并拷贝 TUIRoom 组件
-1. 打开业务侧已有 Electron + Vue3 + TS 项目，如果无 Electron + Vue3 + TS 项目,可通过以下脚本生成 Electron + Vue3 + TS 的模板工程。
-```bash
-npm create electron-vite
-```
->! 执行生成模板工程脚本的过程中，选择 Vue。
->
-成功生成模板工程后，执行以下脚本：
+1. 打开业务侧已有 Electron + Vue3 + TS 项目，如果无 Electron + Vue3 + TS 项目,可通过此模版 [Github](https://github.com/electron-vite/electron-vite-vue/tree/v1.0.0) 生成Electron + Vue3 + TS 的模板工程。
+>! 
+>- 本文档介绍的集成步骤基于 electron-vite-vue 模版工程1.0.0版本。
+>- electron-vite-vue 模版工程最新版本目录结构有调整，如需使用最新版本，可参照本文档自行调整目录和配置。
+2. 成功生成模板工程后，执行以下脚本：
 ```bash
 cd electron-vite-vue
 npm install
 npm run dev
 ```
-2. 单击 [Github](https://github.com/tencentyun/TUIRoom) , 克隆或下载 TUIRoom 仓库代码，复制 `TUIRoom/Electron/packages/renderer/src/TUIRoom` 文件夹到已有项目 `packages/renderer/src/` 目录下。
+3. 单击 [Github](https://github.com/tencentyun/TUIRoom) , 克隆或下载 TUIRoom 仓库代码，复制 `TUIRoom/Electron/packages/renderer/src/TUIRoom` 文件夹到已有项目 `packages/renderer/src/` 目录下。
 
 [](id:step3)
 ### 步骤三：引用 TUIRoom 组件
@@ -136,6 +134,7 @@ html, body {
 
 >! 在页面中复制以上代码之后，需要修改 TUIRoom 接口的参数为实际数据。
 
+[](id:step4)
 ### 步骤四：配置开发环境
 
 TUIRoom 组件引入之后，为了确保项目可以正常运行，需要进行以下配置：
@@ -162,25 +161,7 @@ createApp(App)
   .mount('#app')
   .$nextTick(window.removeLoading)
 ```
-3. **配置 svg-icon 组件加载 SVG 图标**
-TUIRoom 将所有图标资源（SVG 文件）放置在 `packages/renderer/src/TUIRoom/assets/icons/svg` 目录下，需要您在 `packages/renderer/vite.config.ts` 文件中配置 SVG 图标加载方式。
->! 以下配置项为增量配置，不要删除已经存在的 Vite 配置项。
->
-```javascript
-// vite.config.ts
-import { createSvg } from './src/TUIRoom/assets/icons/index';
-const path = require('path');
-
-export default defineConfig({
-	// ...
-	plugins: [
-		// ...
-		 createSvg(path.join(path.resolve(__dirname, 'src/TUIRoom/assets/icons/svg/'), '/')),
-	],
-	// ...
-});
-```
-4. **配置 element-plus 按需引入**
+3. **配置 element-plus 按需引入**
 	- TUIRoom 使用 element-plus UI 组件，为避免引入所有 element-plus组件，需要您在 `packages/renderer/vite.config.ts` 中配置 element-plus 组件按需加载。
 >! 以下配置项为增量配置，不要删除已经存在的 Vite 配置项。
 >
@@ -189,6 +170,7 @@ export default defineConfig({
 import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
+const path = require('path');
 
 export default defineConfig({
 	// ...
@@ -219,7 +201,7 @@ export default defineConfig({
 import 'element-plus/theme-chalk/el-message.css'
 import 'element-plus/theme-chalk/el-message-box.css'
 ```
-5. **引入 trtc-electron-sdk**
+4. **引入 trtc-electron-sdk**
 为了在 UI 层以 import 方式引入 `trtc-electron-sdk`，统一代码风格，否则必须要以 require 的方式引入，需要您在 `packages/renderer/vite.config.ts` 中配置。
 >! 以下配置项将 resolve 中的内容替换掉：
 ```javascript
@@ -284,9 +266,9 @@ export default defineConfig({
 	// ...
 });
 ```
-6. **env.d.ts文件配置**
-`env.d.ts` 文件配置需要您在 `packages/renderer/src/env.d.ts` 中配置。
->! 以下配置项为增量配置，不要删除已经存在的 `env.d.ts` 文件配置。
+5. **env.d.ts文件配置**
+    - env.d.ts 文件配置需要您在 `packages/renderer/src/env.d.ts` 中配置。
+>! 以下配置项为增量配置，不要删除已经存在的 env.d.ts文件配置。
 >
 ```javascript
 // env.d.ts
@@ -302,9 +284,9 @@ declare module 'tim-js-sdk' {
 }
 
 ```
-7. **如果项目中存在 import 动态加载，需要修改构建配置，打包生成 es 模块**
-打包生成 es 模块需要您在 `packages/renderer/vite.config.ts` 中配置。
->! 项目中若不存在 import 动态加载，**请不要进行此配置**。以下配置项为增量配置，不要删除已经存在的 Vite 配置项。
+6. **如果项目中存在 import 动态加载，需要修改构建配置，打包生成 es 模块**
+    - 打包生成 es 模块需要您在 `packages/renderer/vite.config.ts` 中配置。
+>! 项目中若不存在 import 动态加载，请不要进行此配置！以下配置项为增量配置，不要删除已经存在的 Vite 配置项。
 >
 ```javascript
 // vite.config.ts
@@ -335,7 +317,9 @@ npm run dev
 
 [](id:step6)
 ### 步骤六：构建安装包、运行
+
 在命令行终端中，执行以下命令构建安装包，构建好的安装包位于 `release` 目录下，可以安装运行。
+
 ```
 npm run build
 ```

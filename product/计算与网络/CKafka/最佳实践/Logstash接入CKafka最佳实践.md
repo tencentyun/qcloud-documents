@@ -90,18 +90,16 @@ Logstash 数据处理可以分为三个阶段：inputs → filters → outputs�
    此处将标准输入作为数据来源，将 Kafka 作为数据目的地。
 
    ```bash
-   input {
-       input {
-         stdin{}
-     }
-   }
-   
-   output {
-      kafka {
-           bootstrap_servers => "xx.xx.xx.xx:xxxx"  // ckafka 实例接入地址
-           topic_id => "logstash_test" // ckafka topic 名称
-          }
-   }
+input {
+      stdin{}
+}
+
+output {
+   kafka {
+        bootstrap_servers => "xx.xx.xx.xx:xxxx"  // ckafka 实例接入地址
+        topic_id => "logstash_test" // ckafka topic 名称
+       }
+}
    ```
 
 3. 执行如下命令启动 Logstash，向创建的 Topic 发送消息。

@@ -52,7 +52,7 @@ WebSocket 客户端通过使用 API 网关触发器提供的 WS 连接，发起 
 
 ### 创建函数
 
-1. 登录 [云函数控制台](https://console.cloud.tencent.com/scf/list?rid=1&ns=default)。
+1. 登录 [Serverless 控制台](https://console.cloud.tencent.com/scf/list?rid=1&ns=default)。
 2. 单击**新建**创建云函数，可以通过选择**自定义创建** > **选择 Web 函数** > **高级配置**来看到协议支持选项。如下图所示： 
 ![](https://qcloudimg.tencent-cloud.cn/raw/02caa24cddfa1b16c95a7ee8255c4586.png)
 3. 通过勾选 WebSocket 支持，配置好 WebSocket 空闲超时时间，来完成 WebSocket协议支持。如下图所示： 

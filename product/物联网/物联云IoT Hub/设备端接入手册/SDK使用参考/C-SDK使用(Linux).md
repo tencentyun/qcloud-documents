@@ -1,4 +1,5 @@
 
+
 在 Linux 环境下快速体验利用设备端 C-SDK 接入腾讯云物联网平台服务。
 
 ## 编译选项说明
@@ -22,11 +23,11 @@
 | FEATURE_OTA_SIGNAL_CHANNEL    | OTA 通道选择 MQTT/COAP，默认 MQTT 通道                  |
 | FEATURE_AUTH_MODE             | MQTT/CoAP 接入认证方式，使用证书认证：CERT；使用密钥认证：KEY，默认 KEY                  |
 | FEATURE_AUTH_WITH_NOTLS       | 接入认证是否不使用 TLS 加密，证书方式必须选择使用 TLS，密钥认证可选择不使用 TLS，默认选择使用 TLS    |
-| FEATURE_DEV_DYN_REG_ENABLED   | 是否打开设备动态注册功能，默认开启    |                                                
-| FEATURE_LOG_UPLOAD_ENABLED    | 是否打开运行日志上报云端功能，默认开启  |                                                 
+| FEATURE_DEV_DYN_REG_ENABLED   | 是否打开设备动态注册功能，默认开启    |
+| FEATURE_LOG_UPLOAD_ENABLED    | 是否打开运行日志上报云端功能，默认开启  |
 | FEATURE_EVENT_POST_ENABLED    | 是否打开事件上报功能，默认开启            |
-| FEATURE_SYSTEM_COMM_ENABLED   | 是否打开获取 IoT 后台时间功能，默认开启    |                                                
-| FEATURE_MULTITHREAD_TEST_ENABLED   | 是否编译 Linux 多线程测试例程，默认关闭  |                                                   
+| FEATURE_SYSTEM_COMM_ENABLED   | 是否打开获取 IoT 后台时间功能，默认开启    |
+| FEATURE_MULTITHREAD_TEST_ENABLED   | 是否编译 Linux 多线程测试例程，默认关闭  |
 
 ## 可变参数配置
 C-SDK 的使用可以根据具体场景需求，配置相应的参数，满足实际业务的运行。可变接入参数包括 MQTT 心跳消息发送周期， MQTT 阻塞调用(包括连接, 订阅, 发布等)的超时时间，TLS 连接握手超时时间，MQTT/CoAP 协议发送消息和接受消息的缓冲区大小等等参数。具体可参考SDK docs目录下产品使用文档的可变接入参数配置部分
@@ -84,9 +85,9 @@ INF|2019-06-21 21:41:56|mqtt_client.c|IOT_MQTT_Destroy(172): mqtt release!
 | IOT_Shadow_Get_Sync                                | 同步方式获取设备影子文档                           |
 | IOT_Shadow_Register_Property                       | 注册当前设备的设备属性                             |
 | IOT_Shadow_UnRegister_Property                     | 删除已经注册过的设备属性                           |
-| IOT_Shadow_JSON_ConstructReport                    | 在 JSON 文档中添加 reported 字段，不覆盖更新            | 
+| IOT_Shadow_JSON_ConstructReport                    | 在 JSON 文档中添加 reported 字段，不覆盖更新            |
 | IOT_Shadow_JSON_Construct_OverwriteReport          | 在 JSON 文档中添加 reported 字段，覆盖更新              |
-| IOT_Shadow_JSON_ConstructReportAndDesireAllNull    | 在 JSON 文档中添加 reported 字段，同时清空 desired 字段|   
+| IOT_Shadow_JSON_ConstructReportAndDesireAllNull    | 在 JSON 文档中添加 reported 字段，同时清空 desired 字段|
 | IOT_Shadow_JSON_ConstructDesireAllNull             | 在 JSON 文档中添加 "desired": null 字段             |
 
 ### CoAP 接口

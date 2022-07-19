@@ -103,7 +103,7 @@ function main_handler () {
 ```
 $ chmod 755 index.sh bootstrap
 ```
-3. 使用 [Serverless Framework](#Serverless) 创建和发布函数。或执行以下命令，打包生成 zip 包，通过 [SDK](#SDK) 或 [云函数控制台](#KZT) 来创建和发布函数。
+3. 使用 [Serverless Framework](#Serverless) 创建和发布函数。或执行以下命令，打包生成 zip 包，通过 [SDK](#SDK) 或 [Serverless 控制台](#KZT) 来创建和发布函数。
 ```
 $ zip demo.zip index.sh bootstrap
    adding: index.sh (deflated 23%)
@@ -288,7 +288,7 @@ except TencentCloudSDKException as err:
 ```
 ### 使用控制台创建及发布函数[](id:KZT)
 #### 创建函数
-1. 登录 [云函数控制台](https://console.cloud.tencent.com/scf)，单击左侧导航栏的**函数服务**。
+1. 登录 [Serverless 控制台](https://console.cloud.tencent.com/scf)，单击左侧导航栏的**函数服务**。
 2. 在“函数服务”页面上方选择期望创建函数的地域，并单击**新建**，进入函数创建流程。
 3. 在“新建函数”页面填写函数基础信息，单击**下一步**。如下图所示： 
 ![](https://main.qcloudimg.com/raw/963dcca09bc987d7ceaaa0a157e633f6.png)
@@ -303,7 +303,7 @@ except TencentCloudSDKException as err:
 5. 单击**完成**即可完成函数创建。
 
 #### 调用函数
-1. 登录 [云函数控制台](https://console.cloud.tencent.com/scf)，单击左侧导航栏的**函数服务**。
+1. 登录 [Serverless 控制台](https://console.cloud.tencent.com/scf)，单击左侧导航栏的**函数服务**。
 2. 在“函数服务”页面上方选择期望调用函数的地域，并单击列表页中期望调用的函数，进入函数详情页面。
 3. 选择左侧**函数管理**，并在“函数管理”页面选择**函数代码**页签。如下图所示： 
 ![](https://main.qcloudimg.com/raw/7ba11b77d4198b2eddc98635114a7e48.png)

@@ -1,13 +1,13 @@
 
 <dx-alert infotype="explain" title="">
-本文第三方教程来自 [GPU 云服务器用户实践征文](https://cloud.tencent.com/document/product/855/71869)，仅供学习和参考。
+本文来自 [GPU 云服务器用户实践征文](https://cloud.tencent.com/document/product/855/71869)，仅供学习和参考。
 </dx-alert>
 
 
 ## 操作场景
 本文介绍如何使用 GPU 云服务器实现边云协同处理。
 
-## 示例环境
+## 配置环境
 <table>
 <tr>
 <th>主机名</th>

@@ -31,12 +31,15 @@ SQL 优化不仅能够为用户提供的专家级别的 SQL 优化建议，同�
  - 单击**优化建议**图标，可以查看 SQL 语句的优化建议。
 在优化对比中，可以查看 SQL 的执行计划、索引建议、重写建议、表结构及 SQL 代价，SQL 代价通过可视化图表清晰展示优化前后开销的变化。
    SQL 代价通过分析 SQL 相关库表的统计信息、OPTIMIZER_SWITCH 配置、及索引字段区分度进行估算，对优化后的 SQL 语句代价进行整体估计，使用可视化图表直观呈现 SQL 优化后降低的效果，您也可通过优化前后的执行计划比对进一步验证优化的效果。
-  ![](https://main.qcloudimg.com/raw/b6e9431df017f5bbc877d0f5aa149fbc.png)
+    ![](https://main.qcloudimg.com/raw/b6e9431df017f5bbc877d0f5aa149fbc.png)
 4. 在执行面板右侧，可查看监控详情、设置 SQL 查询条件、查看历史命令等。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d41d17eaea471f1a67ec45c20a02f0cb.png)
  - 单击右侧的**监控详情**，可查看数据库的监控信息。
  - 单击右侧的**设置**，可以设置具体的查询条件，包括执行超时时间和最大返回行数。
  - 单击右侧的**我的命令**，可以查看我的收藏、系统运维 SQL 模板，支持常用运维 SQL 快捷执行，包含参数/指标、用户信息、information_schema、其他类的常用运维 SQL 快捷执行。
+5. 查看表分析数据。
+在左边选择对应的表，然后单击分析页签，右侧即可查看到表分析数据。
+![](https://qcloudimg.tencent-cloud.cn/raw/6e545035130197aefbbe365fbe6ee189.png)
 
 ## [可视化执行计划](id:kshjhxq)
 1. 登录 [DBbrain 控制台](https://console.cloud.tencent.com/dbbrain/analysis)，在左侧导航选择**诊断优化**，在上方选择对应数据库，然后选择 **SQL 优化**页。
