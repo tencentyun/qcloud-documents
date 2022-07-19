@@ -19,6 +19,7 @@
 微信原生 H5 用户进行人脸核身流程：
 ![](https://qcloudimg.tencent-cloud.cn/raw/7101dde5bec0dfc9fbeff0d134e15fae.png)
 
+
 ### 微信浮层 H5 接入说明
 1. 主体行业要求
 无行业类目没有限制。
@@ -50,7 +51,6 @@
 <td>都支持</td>
 </tr></tbody>
 </table>
-
 3. 活体检测模式
 微信浮层 H5 支持一闪活体检测（眨眼+光线）、随机双动作检测。
 4. 认证页面流程
