@@ -33,7 +33,7 @@
       <td>sig</td>
       <td>string</td>
       <td>是</td>
-      <td>签名，前面计算方法：https://docs.qq.com/doc/DYUJXTlBKd3R2aFhu。<b>注意：</b>加密密钥使用 secretKey。</td>
+      <td>签名，计算方法请参见 <a href="https://cloud.tencent.com/document/product/1351/77421">腾讯云智绘签名 Sig 加密计算方法</a>。<b>注意：</b>加密密钥使用 secretKey。</td>
    </tr>
 </table>	
  - 请求示例：
