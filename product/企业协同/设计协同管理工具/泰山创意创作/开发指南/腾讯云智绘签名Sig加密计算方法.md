@@ -43,7 +43,7 @@ function sigCode(params: any, key: string) {
 {
     "id": "611f6b5b01af259c18954808",
     "secretId": "ca355ab0019211ecaed0ed79aa4a58cf",
-    "users": [{"name": "javinz", "age": 18}],
+    "users": [{"name": "javinz", "age": 18}],
 }
 
 ```
