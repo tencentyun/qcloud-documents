@@ -1,4 +1,4 @@
-加密示例：
+加密过程：
 ```plaintext
 const crypto = require('crypto')
 const urlencode = require('urlencode')
