@@ -26,7 +26,7 @@
 6. 点击 **ADD CERTIFICATE**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/8f39eec4a0aeb46208d9f47088c665e8.png)
 7. 填写 Certificate、Key 以及域名信息，并单击 SUBMIT CERTIFICATES 提交。
->? Certificate 使用以 `.crt` 为后缀文件；Key 使用以 `.key` 为后缀的文件。
+>? Certificate 使用以 `.crt` 为后缀的文件；Key 使用以 `.key` 为后缀的文件。
 ![](https://qcloudimg.tencent-cloud.cn/raw/5b865891364fce2ac3e66740f2ca50cf.jpg)
 8. 查看安装好的证书。
 ![](https://qcloudimg.tencent-cloud.cn/raw/1fcc5f5ac8ee13421bc5c7be29c8361f.jpg)
