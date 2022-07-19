@@ -240,19 +240,19 @@ TRTC 提供了两种云端录制方案，分别是 API 调用录制和全局自�
 | url    | 水印文件的存储 URL        |
 
 [](id:DescribeCloudRecording)
-### 查询录制（DescribeCloudRecording）
+#### 查询录制（DescribeCloudRecording）
 如果需要，您可以调用该接口查询录制服务的状态。
 >! 
 >- 只有录制任务存在的时候才能查询到信息，如果录制任务已经结束会返回错误。
 >- 如果是上传云点播任务，该接口返回的 StorageFile 为空。
 
 [](id:ModifyCloudRecording)
-### 更新录制（ModifyCloudRecording）
+#### 更新录制（ModifyCloudRecording）
 如果需要，您可以调用该接口修改录制服务的参数，如订阅黑白名单 SubscribeStreamUserIds（单流和混流录制有效），录制的模板参数 MixLayoutParams（混流录制有效）。
 >! 更新操作是全量覆盖的操作，并不是增量更新的操作，您每次更新都需要携带全量的信息，包括模板参数 MixLayoutParams 和黑白名单 SubscribeStreamUserIds，因此您需要保存之前的启动录制的参数或者重新计算完整的录制相关参数。
 
 [](id:DeleteCloudRecording)
-### 停止录制（DeleteCloudRecording）
+#### 停止录制（DeleteCloudRecording）
 在录制结束之后需要调用停止录制（DeleteCloudRecording）的接口来结束录制任务，否则录制任务会等待到达预设的超时时间 MaxIdleTime 后自动结束。
 >! MaxIdleTime 的定义是房间内持续没有主播的状态超过 MaxIdleTime 的时长，这里如果房间是存在有主播，但是主播没有上行数据是不会进入超时的计时状态的，此时后台录制会持续工作。建议业务在录制结束的时候调用此接口结束录制任务。
 
