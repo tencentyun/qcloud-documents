@@ -1,7 +1,7 @@
 ## 注意事项
 1. 推荐用户使用 PHPMailer 包：
-	a. 如果是新项目并且使用 composer 那么只需在 composer.json 加上 `"phpmailer/phpmailer": "^6.5"` ，或者执行 `composer require phpmailer/phpmailer` ，然后使用下面的代码即可。
-	b. 如果是老项目且没有使用 composer 的，需手动引入 [PHPMailer](https://github.com/PHPMailer/PHPMailer)。
+ - 如果是新项目并且使用 composer 那么只需在 composer.json 加上 `"phpmailer/phpmailer": "^6.5"` ，或者执行 `composer require phpmailer/phpmailer` ，然后使用下面的代码即可。
+ - 如果是老项目且没有使用 composer 的，需手动引入 [PHPMailer](https://github.com/PHPMailer/PHPMailer)。
 2. 服务地址和端口请参见 [SMTP 服务地址](https://cloud.tencent.com/document/product/1288/65750)。
 
 以下是代码示例：
