@@ -62,8 +62,9 @@ Defined in typings/global.d.ts:34
 
 - open(url?: *string* | [URL](url.html#URL-1), target?: *string*, features?: *string*): *WindowProxy* | *null*
 - open(filePath: *string*, mode?: *""* | *"b"*): *string* | *ArrayBuffer*
-
-- Defined in node_modules/typescript/lib/lib.dom.d.ts:17754
+```
+ Defined in node_modules/typescript/lib/lib.dom.d.ts:17754
+ ```
 
   打开文件。
 
@@ -93,8 +94,9 @@ Defined in typings/global.d.ts:34
 ### uint64
 
 - uint64(v: *string*): *object*
-
-- Defined in typings/global.d.ts:51
+```
+Defined in typings/global.d.ts:51
+```
 
   uint64 类型。
 
