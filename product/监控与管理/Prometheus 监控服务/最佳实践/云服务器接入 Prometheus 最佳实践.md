@@ -108,12 +108,7 @@ func makeOrder() {
 ```
 rate(order_service_processed_orders_total[5m])
 ```
-2. 采集数据：
-完成相关业务自定义监控埋点之后，应用发布，即可通过 Prometheus 来抓取监控指标数据。采集完成后，等待数分钟，您即可在 Prometheus 监控服务集成的 Grafana 中查看业务指标监控数据。
-![img](https://main.qcloudimg.com/raw/fc6bf3f5cfbab1bbd931d418b9dddef2.png)
-
-
-3. 暴露 Prometheus 指标：
+2. 暴露 Prometheus 指标：
 通过 `promhttp.Handler()` 把监控埋点数据暴露到 HTTP 服务上。
 ``` go
 package main
@@ -134,3 +129,9 @@ func main() {
 }
 
 ```
+
+3. 采集数据：
+完成相关业务自定义监控埋点之后，应用发布，即可通过 Prometheus 来抓取监控指标数据。采集完成后，等待数分钟，您即可在 Prometheus 监控服务集成的 Grafana 中查看业务指标监控数据。
+![img](https://main.qcloudimg.com/raw/fc6bf3f5cfbab1bbd931d418b9dddef2.png)
+
+
