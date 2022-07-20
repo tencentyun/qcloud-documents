@@ -60,7 +60,7 @@ Defined in typings/global.d.ts:34
 
 ### open
 
-- open(url?: *string* | [URL](url.html#URL-1), target?: *string*, features?: *string*): *WindowProxy* | *null*
+- open(url?: *string* | [URL](https://cloud.tencent.com/document/product/1484/75825), target?: *string*, features?: *string*): *WindowProxy* | *null*
 - open(filePath: *string*, mode?: *""* | *"b"*): *string* | *ArrayBuffer*
 ```
  Defined in node_modules/typescript/lib/lib.dom.d.ts:17754
