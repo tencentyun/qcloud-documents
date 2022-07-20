@@ -67,7 +67,7 @@ Defined in typings/dataset.d.ts:54
 
 - ##### forEach:function
 
-  - forEach(fileName: *string*, callback: ((item: [Item](../interfaces/dataset.Item.html), i?: *number*) => *void*)): *void*
+  - forEach(fileName: *string*, callback: ((item: [Item](https://cloud.tencent.com/document/product/1484/75805), i?: *number*) => *void*)): *void*
 
   - Defined in typings/dataset.d.ts:95
 
@@ -93,15 +93,15 @@ Defined in typings/dataset.d.ts:54
 
       文件名
 
-    - ##### callback: ((item: [Item](../interfaces/dataset.Item.html), i?: *number*) => *void*)
+    - ##### callback: ((item: [Item](https://cloud.tencent.com/document/product/1484/75805), i?: *number*) => *void*)
 
       回调函数
 
-      - - (item: [Item](../interfaces/dataset.Item.html), i?: *number*): *void*
+      - - (item: [Item](https://cloud.tencent.com/document/product/1484/75805), i?: *number*): *void*
 
         - #### Parameters
 
-          - ##### item: [Item](../interfaces/dataset.Item.html)
+          - ##### item: [Item](https://cloud.tencent.com/document/product/1484/75805)
 
           - ##### Optional i: *number*
 
