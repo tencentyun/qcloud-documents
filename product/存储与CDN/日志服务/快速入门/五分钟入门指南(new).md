@@ -18,12 +18,12 @@
 LogListener 是日志服务的采集客户端，通过 LogListener 可将日志文件采集至日志服务。下文将演示如何在腾讯云 CVM/Lighthouse 中安装 LogListener。
 此外，LogListener 也支持 [非腾讯云服务器](https://cloud.tencent.com/document/product/614/17414)、[容器服务 TKE](https://cloud.tencent.com/document/product/457/36771) 和 [自建 K8s 集群](https://cloud.tencent.com/document/product/614/61244)。
 
-### 步骤2.1：获取密钥
+#### 步骤2.1：获取密钥
 
 前往 [访问管理控制台](https://console.cloud.tencent.com/cam/capi)，查看（或创建）并记录密钥，并确认密钥状态为启用。
 ![](https://main.qcloudimg.com/raw/def581cc17891febfab6ecd1d616327c.png)
 
-### 步骤2.2：安装 LogListener
+#### 步骤2.2：安装 LogListener
 
 1. 前往 [机器组管理](https://console.cloud.tencent.com/cls/hosts)，在页面左上角将地域切换为需要安装 LogListener 的CVM/Lighthouse 所属的地域，单击页面右上角**实例批量部署**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/902899636f58398872a39c417a857b5a.png)
