@@ -32,7 +32,7 @@ LogListener 是日志服务的采集客户端，通过 LogListener 可将日志�
 3. 等待安装完成后，单击**下一步**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/66ba1bb5f90a5b4cc125678d6b0f964a.png)
 4. 将安装好 LogListener 的机器实例加入至新的机器组中（机器组是一组需要采集日志的机器实例列表，可针对同一机器组内的多个实例批量采集相同路径下的日志文件），填写**机器组名称**，单击**加入**。
-![](IMG/Pasted%20image%2020220719150634.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/e9ddc47a57cbffaf23f0fb3b0b2db478.png)
 
 ## 步骤3：创建日志主题
 
@@ -69,6 +69,7 @@ LogListener 是日志服务的采集客户端，通过 LogListener 可将日志�
 > - 如果日志提取模式不是单行全文，可开启键值索引，单击**自动配置**，采集到的日志自动配置键值索引。
 > - 修改索引配置仅对新写入的日志生效，已有数据不会更新。
 > - 索引配置中的各个配置项说明请参见 [配置索引](https://cloud.tencent.com/document/product/614/50922) 文档。
+> 
 
 ## 步骤5：检索分析日志
 
