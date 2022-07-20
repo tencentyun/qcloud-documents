@@ -1,4 +1,6 @@
 ## 目录
+### Interfaces（接口）
+- [Metadata](../interfaces/pts.Metadata.html)
 
 ### Variables（变量）
 - [default](#default)
