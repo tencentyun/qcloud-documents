@@ -1,27 +1,25 @@
 本文为您介绍使用数据传输服务 DTS 从腾讯云 MySQL 同步数据至自建 MySQL 或者第三方友商 MySQL 的操作过程。
 
-本操作指导为单向同步的操作，如果您需要构建双向同步、多对一同步等复杂拓扑结构，请参考[构建双向同步数据结构](https://cloud.tencent.com/document/product/571/60956)，[构建多对一同步数据结构](https://cloud.tencent.com/document/product/571/60969)，[构建多活数据中心](https://cloud.tencent.com/document/product/571/56520)。
+本操作指导为单向同步的操作，如果您需要构建双向同步、多对一同步等复杂拓扑结构，请参考 [构建双向同步数据结构](https://cloud.tencent.com/document/product/571/60956)，[构建多对一同步数据结构](https://cloud.tencent.com/document/product/571/60969)，[构建多活数据中心](https://cloud.tencent.com/document/product/571/56520)。
 
 ## 注意事项
 
 - DTS 在执行全量数据同步时，会占用一定源端实例资源，可能会导致源实例负载上升，增加数据库自身压力。如果您数据库配置过低，建议您在业务低峰期进行。
 - 为了避免数据重复，请确保需要同步的表具有主键或者非空唯一键。 
 - 默认采用无锁方式，同步过程中对源库不加全局锁（FTWRL），仅对无主键的表加表锁，其他不加锁。 
-- 数据同步时，DTS 会使用执行同步任务的账号在源库中写入系统库`__tencentdb__`，用于记录同步任务过程中的数据对比信息。
-  - 为保证后续数据对比问题可定位，同步任务结束后不会删除源库中的`__tencentdb__`。
-  - `__tencentdb__`系统库占用空间非常小，约为源库存储空间的千分之一到万分之一（例如源库为50G，则`__tencentdb__`系统库约为 5K-50K） ，并且采用单线程，等待连接机制，所以对源库的性能几乎无影响，也不会抢占资源。 
+- 数据同步时，DTS 会使用执行同步任务的账号在源库中写入系统库 `__tencentdb__`，用于记录同步任务过程中的数据对比信息。
+  - 为保证后续数据对比问题可定位，同步任务结束后不会删除源库中的 `__tencentdb__`。
+  - `__tencentdb__` 系统库占用空间非常小，约为源库存储空间的千分之一到万分之一（例如源库为50GB，则 `__tencentdb__` 系统库约为 5KB - 50KB） ，并且采用单线程，等待连接机制，所以对源库的性能几乎无影响，也不会抢占资源。 
 
 ## [前提条件](id:qttj)
 
 - 源数据库和目标数据库符合同步功能和版本要求，请参考 [数据同步支持的数据库](https://cloud.tencent.com/document/product/571/58672) 进行核对。
 - 需要具备源数据库的权限如下：
-
 ```sql
 GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW VIEW,PROCESS,SELECT ON *.* TO '帐号'@'%' IDENTIFIED BY '密码';
 GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '帐号'@'%'; 
 FLUSH PRIVILEGES;
 ```
-
 - 需要具备目标数据库的权限：ALTER, ALTER ROUTINE, CREATE, CREATE ROUTINE, CREATE TEMPORARY TABLES, CREATE USER, CREATE VIEW, DELETE, DROP, EVENT, EXECUTE, INDEX, INSERT, LOCK TABLES, PROCESS, REFERENCES, RELOAD, SELECT, SHOW DATABASES, SHOW VIEW, TRIGGER, UPDATE。
 
 ## 应用限制
@@ -98,7 +96,6 @@ FLUSH PRIVILEGES;
 ## 操作步骤
 
 1. 登录 [数据同步购买页](https://buy.cloud.tencent.com/replication)，选择相应配置，单击**立即购买**。
-
 <table>
 <thead><tr><th>参数</th><th>描述</th></tr></thead>
 <tbody><tr>
@@ -114,13 +111,11 @@ FLUSH PRIVILEGES;
 <tr>
 <td>规格</td><td>请根据业务诉求选择规格，规格越高，性能越好。详情请参考 <a href="https://cloud.tencent.com/document/product/571/18736">计费概述</a>。</td></tr>
 </tbody></table>
-
 2. 购买完成后，返回 [数据同步列表](https://console.cloud.tencent.com/dts/replication)，可看到刚创建的数据同步任务，刚创建的同步任务需要进行配置后才可以使用。
 3. 在数据同步列表，单击**操作**列的**配置**，进入配置同步任务页面。
-   ![](https://qcloudimg.tencent-cloud.cn/raw/ce122767f3ba5fd0123f5af570ec4da3.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/ce122767f3ba5fd0123f5af570ec4da3.png)
 4. 在配置同步任务页面，配置源端实例、帐号密码，配置目标端实例、帐号和密码，测试连通性后，单击**下一步**。
-   <img src="https://qcloudimg.tencent-cloud.cn/raw/a5783da39df1cda9280ebff1a3962a93.png" style="zoom:80%;" />
-
+<img src="https://qcloudimg.tencent-cloud.cn/raw/a5783da39df1cda9280ebff1a3962a93.png" style="zoom:80%;" />
 <table>
 <thead><tr><th width="10%">设置项</th><th width="15%">参数</th><th width="75%">描述</th></tr></thead>
 <tbody><tr>
@@ -167,17 +162,13 @@ FLUSH PRIVILEGES;
 <tr>
 <td>密码</td><td>目标数据库帐号的密码。</td></tr>
 </tbody></table>
-
 5. 在设置同步选项和同步对象页面，将对数据初始化选项、数据同步选项、同步对象选项进行设置，在设置完成后单击**保存并下一步**。
-
 >?
->
 >- 当**初始化类型**仅选择**全量数据初始化**，系统默认用户在目标库已经创建了表结构，不会进行表结构同步，也不会校验源库和目标库是否有同名表，所以当用户同时在**已存在同名表**项选择**前置校验并报错**，则校验并报错功能不生效。
 >- 仅选择**全量数据初始化**的场景，用户需要提前在目标库创建好表结构。
 >- 如果用户在同步过程中确定会对某张表使用 rename 操作（例如将 table A rename 为 table B），则**同步对象**需要选择 table A 所在的整个库（或者整个实例），不能仅选择 table A，否则系统会报错。
-
+>
 ![](https://qcloudimg.tencent-cloud.cn/raw/4f32045abaca57ccc6748ae8df42c682.png)
-
 <table>
 <thead><tr><th>设置项</th><th>参数</th><th>描述</th></tr></thead>
 <tbody>
@@ -193,25 +184,21 @@ FLUSH PRIVILEGES;
 <td>冲突处理机制</td>
 <td><ul><li>冲突报错：在同步时发现表主键冲突，报错并暂停数据同步任务。<li>冲突忽略：在同步时发现表主键冲突，保留目标库主键记录。<li>冲突覆盖：在同步时发现表主键冲突，用源库主键记录覆盖目标库主键记录。</td></tr>
 <tr>
-<td>同步操作类型</td><td>支持操作：Insert、Update、Delete、DDL。勾选“DDL自定义”，可以根据需要选择不同的DDL同步策略。详情请参考 <a href="https://cloud.tencent.com/document/product/571/63955">设置 SQL 过滤策略</a>。</td></tr>
+<td>同步操作类型</td><td>支持操作：Insert、Update、Delete、DDL。打开 “DDL 自定义”，可以根据需要选择不同的 DDL 同步策略。详情请参考 <a href="https://cloud.tencent.com/document/product/571/63955">设置 SQL 过滤策略</a>。</td></tr>
 <tr>
 <td rowspan=2>同步对象选项</td>
 <td>源实例库表对象</td><td>选择待同步的对象，支持基础库表、视图、存储过程和函数。<br>高级对象的同步是一次性动作，仅支持同步在任务启动前源库中已有的高级对象，在任务启动后，新增的高级对象不会同步到目标库中。更多详情，请参考 <a href="https://cloud.tencent.com/document/product/571/74612">同步高级对象</a>。</td></tr>
 <tr>
 <td>已选对象</td><td><ul><li>支持库表映射（库表重命名），将鼠标悬浮在库名、表名上即显示编辑按钮，单击后可在弹窗中填写新的名称。</li><li>选择高级对象进行同步时，建议不要进行库表重命名操作，否则可能会导致高级对象同步失败。</li><li>支持同步 Online DDL 临时表（使用 gh-ost、 pt-online-schema-change 工具），单击表的编辑按钮，在弹窗中即可选择临时表名。更多详情请参考 <a href="https://cloud.tencent.com/document/product/571/75890">同步 Online DDL 临时表</a>。</li></ul></td></tr>
 </tbody></table>
-
 6. 在校验任务页面，完成校验并全部校验项通过后，单击**启动任务**。
    如果校验任务不通过，可以参考 [校验不通过处理方法](https://cloud.tencent.com/document/product/571/61639) 修复问题后重新发起校验任务。
-
  - 失败：表示校验项检查未通过，任务阻断，需要修复问题后重新执行校验任务。
  - 警告：表示检验项检查不完全符合要求，可以继续任务，但对业务有一定的影响，用户需要根据提示自行评估是忽略警告项还是修复问题再继续。
-   ![](https://qcloudimg.tencent-cloud.cn/raw/19dd91492f0f39b8a1eb576e52a5a15f.png)
-
+  ![](https://qcloudimg.tencent-cloud.cn/raw/19dd91492f0f39b8a1eb576e52a5a15f.png)
 7. 返回数据同步任务列表，任务开始进入**运行中**状态。
-
 >?选择**操作**列的**更多** > **结束**可关闭同步任务，请您确保数据同步完成后再关闭任务。
-
+>
 ![](https://qcloudimg.tencent-cloud.cn/raw/eb3955767ce32cdbbe3789161317502d.png)
-
 8. （可选）您可以单击任务名，进入任务详情页，查看任务初始化状态和监控数据。
+
