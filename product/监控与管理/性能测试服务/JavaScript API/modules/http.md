@@ -1,4 +1,4 @@
-## Table of contents（目录）
+ ## Table of contents（目录）
 
 ### Interfaces（接口）
 - [BatchOption](https://cloud.tencent.com/document/product/1484/75820)
@@ -46,7 +46,7 @@ Defined in typings/grpc.d.ts:69
 
 - ##### connect:function
 
-  - connect(target: *string*, option?: [DialOption](../interfaces/grpc.DialOption.html)): *void*
+  - connect(target: *string*, option?: [DialOption](https://cloud.tencent.com/document/product/1484/75816)): *void*
 
  ```
    Defined in typings/grpc.d.ts:95
@@ -59,7 +59,7 @@ Defined in typings/grpc.d.ts:69
 
      目标地址
 
-   - ##### Optional option: [DialOption](../interfaces/grpc.DialOption.html)
+   - ##### Optional option: [DialOption](https://cloud.tencent.com/document/product/1484/75816)
 
       可选。 DialOption 对象。
 
@@ -67,7 +67,7 @@ Defined in typings/grpc.d.ts:69
 
  - ##### invoke:function
 
- - invoke(method: *string*, request: *any*, option?: [InvokeOption](../interfaces/grpc.InvokeOption.html)): [Response](../interfaces/grpc.Response.html)
+ - invoke(method: *string*, request: *any*, option?: [InvokeOption](https://cloud.tencent.com/document/product/1484/75818)): [Response](https://cloud.tencent.com/document/product/1484/75819)
 
 ```
 Defined in typings/grpc.d.ts:132
@@ -107,13 +107,13 @@ Defined in typings/grpc.d.ts:132
 
     业务请求内容
 
- - ##### Optional option: [InvokeOption](../interfaces/grpc.InvokeOption.html)
+ - ##### Optional option: [InvokeOption](https://cloud.tencent.com/document/product/1484/75818)
 
     可选。InvokeOption 对象。
 
-  #### Returns [Response](../interfaces/grpc.Response.html)
+  #### Returns [Response](https://cloud.tencent.com/document/product/1484/75819)
 
-     响应对象
+   响应对象
 
  - ##### load:function
       - load(importPaths: *string*[], ...filenames: *string*[]): *void*
