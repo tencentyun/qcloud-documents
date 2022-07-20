@@ -8,6 +8,7 @@
 
 ## Variables（变量）
 [](id:default)
+
 ### default
 **default**:  { add: any; forEach: any; get: any; random: any }
 ```
@@ -21,11 +22,13 @@ Defined in typings/dataset.d.ts:17
 
   - add(filename: *string*, values: *Record*<*string*, *any*>[]): *void*
 
-  - Defined in typings/dataset.d.ts:54
+```
+Defined in typings/dataset.d.ts:54
+```
 
-    增加一行参数文件。
+增加一行参数文件。
 
-    ```js
+    ```
     import dataset from 'pts/dataset';
     
     export function setup () {
@@ -37,17 +40,17 @@ Defined in typings/dataset.d.ts:17
     };
     ```
 
-    #### Parameters
+#### Parameters
 
-    - ##### filename: *string*
+  - ##### filename: *string*
 
       文件名。
 
-    - ##### values: *Record*<*string*, *any*>[]
+   - ##### values: *Record*<*string*, *any*>[]
 
       文件数据。
 
-    #### Returns *void*
+  #### Returns *void*
 
 - ##### forEach:function
 
@@ -101,7 +104,7 @@ Defined in typings/dataset.d.ts:17
 
     获取 csv 文件的列数据。
 
-    ```js
+    ```
     import http from 'pts/http';
     import dataset from 'pts/dataset';
     
@@ -112,15 +115,15 @@ Defined in typings/dataset.d.ts:17
     };
     ```
 
-    #### Parameters
+#### Parameters
 
-    - ##### key: *string*
+ - ##### key: *string*
 
-      列名
+   列名
 
-    #### Returns *string*
+ #### Returns *string*
 
-    数据
+   数据
 
 - ##### random:function
 
@@ -130,7 +133,7 @@ Defined in typings/dataset.d.ts:17
 
     随机获取参数文件一行。
 
-    ```js
+    ```
     import dataset from 'pts/dataset';
     
     export default function () {
@@ -142,7 +145,7 @@ Defined in typings/dataset.d.ts:17
 
     #### Parameters
 
-    - ##### filename: *string*
+   - ##### filename: *string*
 
       文件名。
 
