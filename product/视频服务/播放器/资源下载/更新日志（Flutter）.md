@@ -1,3 +1,8 @@
+## 播放器SDK Flutter 端 V1.0.3 @ 2022.7.5
+
+- Android & iOS 端新增画中画（PIP) 功能
+
+
 ## 播放器SDK Flutter 端 V1.0.2 @ 2022.6.24
 
 - superPlayer 组件用 dart 代码重构，支持 UI 自定义
