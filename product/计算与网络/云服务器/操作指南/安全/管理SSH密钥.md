@@ -76,8 +76,21 @@
 
 
 
+## 相关操作
+
+
 ### 使用 SSH 密钥登录 Linux 云服务器
 
 1. [创建 SSH 密钥](#creatSSH)。
 2. [将 SSH 密钥绑定云服务器](#bindingSSH)。
 3. [使用 SSH 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35700)。
+
+
+### 编辑密钥标签
+
+若您需对 SSH 密钥进行标签的增加、修改、删除操作，可参考以下步骤。若您需了解更多标签相关信息，请参见 [标签](https://cloud.tencent.com/document/product/651/13334)。 
+
+1. 在 “SSH密钥” 页面，单击密钥右侧的**编辑标签**。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/cada9cc1f72d11e8c5c637a309d99fa9.png)
+2. 在弹出的 “编辑标签” 窗口中，请按需进行操作。
+3. 调整完毕后单击**确定**即可。
