@@ -9,7 +9,7 @@
 - 默认采用无锁方式，同步过程中对源库不加全局锁（FTWRL），仅对无主键的表加表锁，其他不加锁。 
 - 数据同步时，DTS 会使用执行同步任务的账号在源库中写入系统库 `__tencentdb__`，用于记录同步任务过程中的数据对比信息。
   - 为保证后续数据对比问题可定位，同步任务结束后不会删除源库中的 `__tencentdb__`。
-  - `__tencentdb__` 系统库占用空间非常小，约为源库存储空间的千分之一到万分之一（例如源库为50GB，则 `__tencentdb__` 系统库约为 5KB - 50KB） ，并且采用单线程，等待连接机制，所以对源库的性能几乎无影响，也不会抢占资源。 
+  - `__tencentdb__` 系统库占用空间非常小，约为源库存储空间的千分之一到万分之一（例如源库为50GB，则 `__tencentdb__` 系统库约为5KB - 50KB），并且采用单线程，等待连接机制，所以对源库的性能几乎无影响，也不会抢占资源。 
 
 ## [前提条件](id:qttj)
 
@@ -87,7 +87,7 @@ FLUSH PRIVILEGES;
 <li>目标库的版本必须大于等于源库的版本。</li>
 <li>目标库需要有足够的存储空间，如果初始类型选择“全量数据初始化”，则目标库的空间大小须是源库待同步库表空间的1.2倍以上。</li>
 <li>目标库不能有和源库同名的表、视图等同步对象。</li>
-<li>目标库 max_allowed_packet 参数设置数值至少为4M。</li></td></tr>
+<li>目标库 max_allowed_packet 参数设置数值至少为4MB。</li></td></tr>
 <tr> 
 <td>其他要求</td>
 <td>环境变量 innodb_stats_on_metadata 必须设置为 OFF。</td></tr>
@@ -187,9 +187,9 @@ FLUSH PRIVILEGES;
 <td>同步操作类型</td><td>支持操作：Insert、Update、Delete、DDL。打开 “DDL 自定义”，可以根据需要选择不同的 DDL 同步策略。详情请参考 <a href="https://cloud.tencent.com/document/product/571/63955">设置 SQL 过滤策略</a>。</td></tr>
 <tr>
 <td rowspan=2>同步对象选项</td>
-<td>源实例库表对象</td><td>选择待同步的对象，支持基础库表、视图、存储过程和函数。<br>高级对象的同步是一次性动作，仅支持同步在任务启动前源库中已有的高级对象，在任务启动后，新增的高级对象不会同步到目标库中。更多详情，请参考 <a href="https://cloud.tencent.com/document/product/571/74612">同步高级对象</a>。</td></tr>
+<td>源实例库表对象</td><td>选择待同步的对象，支持基础库表、视图、存储过程和函数。<br>高级对象的同步是一次性动作，仅支持同步在任务启动前源库中已有的高级对象，在任务启动后，新增的高级对象不会同步到目标库中。详情请参考 <a href="https://cloud.tencent.com/document/product/571/74612">同步高级对象</a>。</td></tr>
 <tr>
-<td>已选对象</td><td><ul><li>支持库表映射（库表重命名），将鼠标悬浮在库名、表名上即显示编辑按钮，单击后可在弹窗中填写新的名称。</li><li>选择高级对象进行同步时，建议不要进行库表重命名操作，否则可能会导致高级对象同步失败。</li><li>支持同步 Online DDL 临时表（使用 gh-ost、 pt-online-schema-change 工具），单击表的编辑按钮，在弹窗中即可选择临时表名。更多详情请参考 <a href="https://cloud.tencent.com/document/product/571/75890">同步 Online DDL 临时表</a>。</li></ul></td></tr>
+<td>已选对象</td><td><ul><li>支持库表映射（库表重命名），将鼠标悬浮在库名、表名上即显示编辑按钮，单击后可在弹窗中填写新的名称。</li><li>选择高级对象进行同步时，建议不要进行库表重命名操作，否则可能会导致高级对象同步失败。</li><li>支持同步 Online DDL 临时表（使用 gh-ost、 pt-online-schema-change 工具），单击表的编辑按钮，在弹窗中即可选择临时表名。详情请参考 <a href="https://cloud.tencent.com/document/product/571/75890">同步 Online DDL 临时表</a>。</li></ul></td></tr>
 </tbody></table>
 6. 在校验任务页面，完成校验并全部校验项通过后，单击**启动任务**。
    如果校验任务不通过，可以参考 [校验不通过处理方法](https://cloud.tencent.com/document/product/571/61639) 修复问题后重新发起校验任务。
@@ -199,6 +199,6 @@ FLUSH PRIVILEGES;
 7. 返回数据同步任务列表，任务开始进入**运行中**状态。
 >?选择**操作**列的**更多** > **结束**可关闭同步任务，请您确保数据同步完成后再关闭任务。
 >
-![](https://qcloudimg.tencent-cloud.cn/raw/eb3955767ce32cdbbe3789161317502d.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/d86224302f6bc2b727ba94d0bdcee69e.png)
 8. （可选）您可以单击任务名，进入任务详情页，查看任务初始化状态和监控数据。
 
