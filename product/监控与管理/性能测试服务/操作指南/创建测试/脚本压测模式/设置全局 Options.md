@@ -1,5 +1,5 @@
 用户通过全局 Options 可控制压测引擎默认行为。
->?Options 可配置选项文档请参考 [Global Options](https://pts-js-api-1258344701.cos-website.ap-nanjing.myqcloud.com/docs/interfaces/global.Option.html)。
+>?Options 可配置选项文档请参见 [Global Options](https://pts-js-api-1258344701.cos-website.ap-nanjing.myqcloud.com/docs/interfaces/global.Option.html)。
 
 ### 设置 http 默认参数
 
