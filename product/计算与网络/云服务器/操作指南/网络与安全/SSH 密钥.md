@@ -11,42 +11,43 @@
 ## 操作步骤
 
 ### 创建 SSH 密钥[](id:creatSSH)
- 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/)。
- 2. 在左侧导航栏中，单击 **[SSH 密钥](https://console.cloud.tencent.com/cvm/sshkey)**。
- 3. 在 SSH 密钥管理页面，单击**创建密钥**。
+1. 登录云服务器控制台，选择左侧导航栏中的 **[SSH密钥](https://console.cloud.tencent.com/cvm/sshkey)**。
+2. 在 “SSH密钥” 页面，单击**创建密钥**。
+3. 在弹出的 “创建SSH密钥” 窗口中，配置密钥。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/9df80136b7aefd2f079367105bb0166d.png)
+ - **创建方式**：
+    - 选择 “创建新密钥对”，则请输入密钥名称。
+    - 选择 “导入已有公钥”，则请输入密钥名称和原有的公钥信息。
+ - **密钥名称**：自定义名称。
+ - **标签（选填）**：可按需给密钥增加标签，用于资源的分类、搜索和聚合。更多信息请参见 [标签](https://cloud.tencent.com/document/product/651/13334)。
+4. 单击**确定**，即可完成创建。
 <dx-alert infotype="notice" title="">
 单击**确定**后会自动下载私钥，腾讯云不会保管您的私钥信息，请务必妥善保管您的私钥。
 </dx-alert>
-<img src="https://main.qcloudimg.com/raw/c6670263e32491f583d1bf0a31e19ce7.png">
-  <ul>
-  <li> 若创建方式选择 “创建新密钥对”，请输入密钥名称。</li>
-  <li>若创建方式选择 “导入已有公钥”，请输入密钥名称和原有的公钥信息。</li>
-	</ul>
+
 
 
 
 ### 密钥绑定实例[](id:bindingSSH)
- 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/)。
- 2. 在左侧导航栏中，单击 **[SSH 密钥](https://console.cloud.tencent.com/cvm/sshkey)**。
- 3. 在 SSH 密钥管理页面，勾选需要绑定云服务器的 SSH 密钥，并单击**绑定实例**。如下图所示：
-![](https://main.qcloudimg.com/raw/454857fb36fc098e3de5d7987a8b9c46.png)
- 4. 在弹出的绑定实例窗口中，选择地域，勾选需绑定的云服务器，单击**确定**。
+1. 登录云服务器控制台，选择左侧导航栏中的 **[SSH密钥](https://console.cloud.tencent.com/cvm/sshkey)**。
+2. 在 “SSH密钥” 页面，单击需绑定实例密钥所在行右侧的**绑定实例**。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/d522b51edb289350e56085023d1c928b.png)
+3. 在弹出的绑定实例窗口中，选择地域，勾选需绑定的云服务器，单击**绑定**。
 
 
 ### 密钥解绑实例
- 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/)。
- 2. 在左侧导航栏中，单击 **[SSH 密钥](https://console.cloud.tencent.com/cvm/sshkey)**。
- 3. 在 SSH 密钥管理页面，勾选需要解绑云服务器的 SSH 密钥，并单击**解绑实例**。如下图所示：
-![](https://main.qcloudimg.com/raw/6b84f5c8a8460f435444044726404991.png)
- 4. 在弹出的解绑实例窗口中，选择地域，勾选需解绑的云服务器，单击**确定**。
+1. 登录云服务器控制台，选择左侧导航栏中的 **[SSH密钥](https://console.cloud.tencent.com/cvm/sshkey)**。
+2. 在 “SSH密钥” 页面，单击解绑实例密钥所在行右侧的**解绑实例**。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/e04b1f72a9c210062ecca0926855311b.png)
+3. 在弹出的解绑实例窗口中，选择地域，勾选需解绑的实例，单击**解绑**。
 
 
-### 修改 SSH 密钥名称/描述
- 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/)。
- 2. 在左侧导航栏中，单击 **[SSH 密钥](https://console.cloud.tencent.com/cvm/sshkey)**。
- 3. 在 SSH 密钥管理页面，选择密钥名称右侧的 <img  style="margin:-3px 0px" src="https://main.qcloudimg.com/raw/9db81482f9242417d94a04f314b42b19.png"/>。如下图所示：
-![](https://main.qcloudimg.com/raw/d6392148e08a8a6c527dd5aae0088eaf.png)
- 4. 在弹出的修改密钥窗口中，输入新的密钥名称和密钥描述，单击**确定**。
+### 修改 SSH 密钥名称或描述
+1. 登录云服务器控制台，选择左侧导航栏中的 **[SSH密钥](https://console.cloud.tencent.com/cvm/sshkey)**。
+2. 在 “SSH密钥” 页面，选择密钥名称右侧的 <img  style="margin:-3px 0px" src="https://main.qcloudimg.com/raw/9db81482f9242417d94a04f314b42b19.png"/>。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/4fb25cd3978cd8c66c31959aad676dd9.png)
+3. 在弹出的“修改密钥”窗口中，输入新的密钥名称和密钥描述，单击**确定**。
+
 
 ### 删除 SSH 密钥
 
@@ -55,20 +56,20 @@
 </dx-alert>
 
 
-1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/)。
-2. 在左侧导航栏中，单击 **[SSH 密钥](https://console.cloud.tencent.com/cvm/sshkey)**。您可按需删除单个密钥或批量删除密钥：
+1. 登录云服务器控制台，选择左侧导航栏中的 **[SSH密钥](https://console.cloud.tencent.com/cvm/sshkey)**。
+2. 在 “SSH密钥” 页面，您可按需删除单个密钥或批量删除密钥：
 <dx-tabs>
 ::: 删除单个密钥
-    1. 在 SSH 密钥管理页面，选择需要删除的 SSH 密钥所在行右侧的**删除**。如下图所示：
-![](https://main.qcloudimg.com/raw/e9094886151039cd1843e0ebc2a8dfb7.png)
+    1. 选择需要删除的 SSH 密钥所在行右侧的**删除**。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/4f818d12eaced81cf28ea65e07553eb6.png)
     2. 在弹出的删除密钥窗口中，单击**确定**。
     
 :::
 ::: 批量删除密钥
-    1. 在 SSH 密钥管理页面，勾选需删除的密钥并单击页面上方的**删除**，进行密钥批量删除操作。
+    1. 勾选需删除的密钥，并单击页面上方的**删除**，进行密钥批量删除操作。
     2. 在弹出的删除密钥窗口中，单击**确定**。如下图所示：
     如果所选密钥对中包含无法删除的密钥对，则该操作仅对允许删除的密钥对进行删除。
-		![](https://main.qcloudimg.com/raw/568387aa0a8a59c5a34c61ae3193c921.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/c7ffc2842ce04426869cd4ad89e613ef.png)
 		
 :::
 </dx-tabs>
