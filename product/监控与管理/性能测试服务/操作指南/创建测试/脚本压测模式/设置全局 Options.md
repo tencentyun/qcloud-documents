@@ -36,39 +36,4 @@ export default function () {
 }
 ```
 
-### 设置 Trpc 默认参数
-
-```
-// TRPC API
-import trpc from 'pts/trpc';
-
-export const option = {
-    // trpc default configs
-    trpc: {
-        env: "formal",
-        namespace: "Production",
-    }
-}
-
-const client = new trpc.Client();
-
-export default function () {
-  const res = client.invoke(
-    '/trpc.wtp.demo.demo/SayHello',
-    {
-      msg: 'pts',
-    },
-    {
-      env: 'test',
-      serviceName: 'trpc.wtp.demo.trpc',
-      metaData: {
-        person_id: '123456',
-      },
-      serializationType: 2,
-    }
-  );
-  console.log(JSON.stringify(res));
-}
-
-```
 
