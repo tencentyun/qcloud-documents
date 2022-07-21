@@ -1,7 +1,7 @@
 
 本介绍基于 WebSocket 协议的压测脚本的编写方法。
 
->?详细的 API 文档请参考 [PTS API](https://pts-js-api-1258344701.cos-website.ap-nanjing.myqcloud.com/docs/modules.html)。
+>?详细的 API 文档请参考 [PTS API](https://cloud.tencent.com/document/product/1484/75805)。
 
  
 
@@ -13,7 +13,7 @@
 
 ## 脚本编写
 
-PTS API 的 ws 模块提供了 WebSocket 协议的相关接口，请参考 [pts/ws API](https://pts-js-api-1258344701.cos-website.ap-nanjing.myqcloud.com/docs/modules/ws.html)。
+PTS API 的 ws 模块提供了 WebSocket 协议的相关接口，请参考 [pts/ws API](https://cloud.tencent.com/document/product/1484/75829)。
 
 **基本用法**
 - 用 `ws.connect` 方法建立连接，并在其回调函数里定义您的业务逻辑：
