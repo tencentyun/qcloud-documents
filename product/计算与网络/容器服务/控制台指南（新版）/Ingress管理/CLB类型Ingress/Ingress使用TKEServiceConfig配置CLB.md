@@ -172,6 +172,7 @@ spec:
             enable: false
     - protocol: HTTPS
       port: 443
+      defaultServer: "sample.tencent.com" # 默认域名
       domains:
       - domain: "sample.tencent.com"
         rules:
@@ -182,7 +183,8 @@ spec:
             sessionExpireTime: 3600
           healthCheck:
             enable: true
-            intervalTime: 10
+            intervalTime: 10 # intervalTime 要大于 timeout，否则会出错
+            timeout: 5 # timeout 要小于 intervalTime，否则会出错
             healthNum: 2
             unHealthNum: 2
             httpCheckPath: "/checkHealth"
