@@ -54,7 +54,7 @@
   </tr>
   <tr>
     <td>实例创建模式</td>
-    <td>提供<b>创建新实例</b>和<b>共享实例</b>两种回收策略。<li>创建新实例：挂载时每个 PVC 默认创建一个 CFS 实例。</li><li>共享实例：挂载时每个 PVC 将共享同一 CFS 实例的不同子目录，共享的 CFS 实例及子目录由系统自动创建。</li></td>
+    <td>提供<b>创建新实例</b>和<b>共享实例</b>两种回收策略。<ul><li>创建新实例：挂载时每个 PVC 默认创建一个 CFS 实例。</li><li>共享实例：挂载时每个 PVC 将共享同一 CFS 实例的不同子目录，共享的 CFS 实例及子目录由系统自动创建。</li></ul></td>
   </tr>
   <tr>
     <td>可用区</td>
@@ -66,7 +66,7 @@
   </tr>
   <tr>
     <td>存储类型</td>
-    <td>文件存储提供<b>标准存储</b>和<b>性能存储</b>两种类型的文件系统，每个地域下不同可用区所适用的存储类型不完全一致，请结合控制台实际情况进行选择。 <li>标准存储：低成本、大容量，适用于成本敏感及大容量的业务。例如数据备份、文件共享、日志存储等场景。 </li><li>性能存储：高吞吐、高 IOPS，适用于 IO 密集型工作负载。例如高性能计算、媒资渲染、机器学习、DevOps、办公 OA 等场景。</li></td>
+    <td>文件存储提供<b>标准存储</b>和<b>性能存储</b>两种类型的文件系统，每个地域下不同可用区所适用的存储类型不完全一致，请结合控制台实际情况进行选择。 <ul><li>标准存储：低成本、大容量，适用于成本敏感及大容量的业务。例如数据备份、文件共享、日志存储等场景。 </li><li>性能存储：高吞吐、高 IOPS，适用于 IO 密集型工作负载。例如高性能计算、媒资渲染、机器学习、DevOps、办公 OA 等场景。</li></ul></td>
   </tr>
   <tr>
     <td>文件服务协议</td>
@@ -82,7 +82,7 @@
   </tr>
   <tr>
     <td>回收策略</td>
-    <td>提供<b>删除</b>和<b>保留</b>两种回收策略，出于数据安全考虑，推荐使用<b>保留</b>回收策略。 <li>删除：通过 PVC 动态创建的 PV，在 PVC 销毁时，与其绑定的 PV 和存储实例也会自动销毁。</li><li>保留：通过 PVC 动态创建的 PV，在 PVC 销毁时，与其绑定的 PV 和存储实例会被保留。</li></td>
+    <td>提供<b>删除</b>和<b>保留</b>两种回收策略，出于数据安全考虑，推荐使用<b>保留</b>回收策略。 <ul><li>删除：通过 PVC 动态创建的 PV，在 PVC 销毁时，与其绑定的 PV 和存储实例也会自动销毁。</li><li>保留：通过 PVC 动态创建的 PV，在 PVC 销毁时，与其绑定的 PV 和存储实例会被保留。</li></ul></td>
   </tr>
   <tr>
     <td>标签</td>
@@ -91,8 +91,7 @@
 </tbody>
 </table>
 5. 单击 **新建 StorageClass** 即可。
->? 
->CFS-CSI 组件自 v1.0.1 版本开始支持“共享存储实例”功能，请及时升级组件版本，使用说明如下：
+>? CFS-CSI 组件自 v1.0.1 版本开始支持**共享存储实例**功能，请及时升级组件版本，使用说明如下：
 >1. 共享实例类型的 StorageClass 回收策略限制为“保留”。
 >2. 通过该 StorageClass 初次动态创建 PVC 时会默认创建一个 CFS 实例，并在该实例下创建子目录实现 PVC 之间的挂载隔离。
 >3. 每个共享实例类型 StorageClass 创建的 CFS 实例不同，建议您妥善控制数量。
@@ -131,24 +130,24 @@
     <td>StorageClass</td>
     <td>按需指定 StorageClass。本文选择<b>指定 StorageClass</b>，以在 <a href="https://untitled+.vscode-resource.vscode-cdn.net/Untitled-2#create">创建 StorageClass</a> 步骤中创建的 cfs-storageclass 为例。
 		<dx-alert infotype="explain" title="">
-<li>PVC 和 PV 会绑定在同一个 StorageClass 下。</li>
-<li><b>不指定 StorageClass</b> 意味着该 PVC 对应的 StorageClass 取值为空，对应 YAML 文件中的 `storageClassName` 字段取值为空字符串。</li>
+<ul><li>PVC 和 PV 会绑定在同一个 StorageClass 下。</li>
+<li><b>不指定 StorageClass</b> 意味着该 PVC 对应的 StorageClass 取值为空，对应 YAML 文件中的 `storageClassName` 字段取值为空字符串。</li></ul>
 </dx-alert>
 		</td>
   </tr>
   <tr>
     <td>PersistVolume</td>
     <td>按需指定 PersistentVolume。本文选择<b>不指定 PersistentVolume</b>。
-		<dx-alert infotype="explain" title="">
+		<dx-alert infotype="explain" title=""><ul>
 <li>系统首先会筛选当前集群内是否存在符合绑定规则的 PV，若没有则根据 PVC 和所选 StorageClass 的参数动态创建 PV 与之绑定。</li>
 <li>系统不允许在不指定 StorageClass 的情况下同时选择不指定 PersistVolume。</li>
-<li>关于<b>不指定 PersistVolume</b> 的详细介绍，请参见 <a href="https://cloud.tencent.com/document/product/457/47014">查看 PV 和 PVC 的绑定规则</a>。</li>
+<li>关于<b>不指定 PersistVolume</b> 的详细介绍，请参见 <a href="https://cloud.tencent.com/document/product/457/47014">查看 PV 和 PVC 的绑定规则</a>。</li></ul>
 </dx-alert>
 </td>
   </tr>
 </tbody>
 </table>
-1. 单击**创建 PersistentVolumeClaim**。
+4. 单击**创建 PersistentVolumeClaim**。
 
 ### 创建 Workload 使用 PVC 数据卷
 >? 该步骤以创建工作负载 Deployment 为例。
@@ -224,3 +223,4 @@ spec:
 >? 
 > 1. CFS 文件存储系统支持根据文件容量大小自动扩展文件系统存储容量，扩展过程不会中断请求和应用。默认创建的 CFS 实例容量大小为 10Gi，容量上限与产品类型相关，详情根据请参考 [系统限制](https://cloud.tencent.com/document/product/582/9135)。
 > 2. 通过 PVC 动态创建的 PV 将自动继承 StorageClass 中设定的参数，该参数由存储插件自动生成。
+   
