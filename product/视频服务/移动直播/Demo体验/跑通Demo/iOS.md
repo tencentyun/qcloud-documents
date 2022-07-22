@@ -44,13 +44,13 @@
 " width=500px>
 5. 打开 `LiteAVSDK_Professional_iOS_版本号/MLVB-API-Example-OC/Debug/GenerateTestUserSig.h` 文件。
 设置 `GenerateTestUserSig.h` 文件中的相关参数：
-  - **PUSH_DOMAIN**：请设置为您的[推流域名](https://console.cloud.tencent.com/live/domainmanage)。
-  - **PLAY_DOMAIN**：请设置为您的[播放域名](https://console.cloud.tencent.com/live/domainmanage)。
-  - **LIVE_URL_KEY**：非必需，用于生成 txSecret 等鉴权信息，具体计算请参见 [推拉流 URL](https://cloud.tencent.com/document/product/454/7915)，查询步骤参见  [域名页面] (https://console.cloud.tencent.com/live/domainmanage)=> 管理 => 推流配置 => 鉴权配置。
- 
-<img src="https://qcloudimg.tencent-cloud.cn/raw/8dd35aad623d677624ef0cd30dd77661.png" width=600px>
+  - **PUSH_DOMAIN**：请设置为您的 [推流域名](https://console.cloud.tencent.com/live/domainmanage)。
+  - **PLAY_DOMAIN**：请设置为您的 [播放域名](https://console.cloud.tencent.com/live/domainmanage)。
+  - **LIVE_URL_KEY**：非必需，用于生成 txSecret 等鉴权信息，具体计算请参见 [推拉流 URL](https://cloud.tencent.com/document/product/454/7915)，查询步骤参见  [域名页面](https://console.cloud.tencent.com/live/domainmanage) > **管理** > **推流配置** > **鉴权配置**。<br>
+<img src="https://qcloudimg.tencent-cloud.cn/raw/2e577f071ebd7ee0637d946bfee4bc00.png" width=700px>
 
-[](id:step4)[](id:step41)
+
+[](id:step4)
 ### 步骤四：配置连麦或 PK 能力/服务开通
 
 1. 登录**云直播控制台**，选择 **连麦管理** > **[连麦应用](https://console.cloud.tencent.com/live/micro/appmanage)**。
