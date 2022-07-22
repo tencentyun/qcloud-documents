@@ -47,4 +47,4 @@
 - iOS 平台支持 Fairplay ，Android 平台支持 WideVine 及 NomalAES。
 - iOS 平台需要申请证书并上传至 [华曦达（SDMC）平台](https://www.xmediacloud.com/contact-us/)。
 
->? - 在您对接 DRM 或者华曦达的过程中的任何问题，都可以提工单 [联系我们](https://console.cloud.tencent.com/workorder/category)，我们全程负责帮您解决。
+>? 在您对接 DRM 或者华曦达的过程中的任何问题，都可以提工单 [联系我们](https://console.cloud.tencent.com/workorder/category)，我们全程负责帮您解决。
