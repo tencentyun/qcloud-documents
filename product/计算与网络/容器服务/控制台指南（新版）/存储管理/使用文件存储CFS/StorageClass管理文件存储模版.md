@@ -193,7 +193,7 @@ parameters 支持参数如下：
 | zone | 否 |设置文件存储所在的地域。|
 |pgroupid|否|设置文件存储所归属的权限组。|
 |storagetype|否|默认为标准存储 SD，可取值及描述如下：<br>SD：标准型存储 <br>HP：性能存储|
-|subdir-share|是|填写则代表StorageClass的实例创建模式为共享实例|
+|subdir-share|是|填写则代表 StorageClass 的实例创建模式为共享实例。|
 |vpcid|是|创建的文件存储所在的私有网络 ID。|
 |subnetid|是|创建的文件存储所在的子网 ID。|
 |vers|是|插件连接文件系统时所使用的协议版本，动态生成的 PV 会继承该参数，目前支持的版本有 "3" 和 "4"。|
