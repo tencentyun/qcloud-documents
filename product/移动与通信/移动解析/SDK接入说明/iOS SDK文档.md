@@ -164,7 +164,7 @@ typedef struct DnsConfigStruct {
 ```objc
 	DnsConfig *config = new DnsConfig();
 	config->dnsIp = @"HTTPDNS 服务器IP";
-	config->dnsId = @"dns授权id";
+	config->dnsId = dns授权id;
 	config->dnsKey = @"加密密钥";
 	config->encryptType = HttpDnsEncryptTypeDES;
 	config->debug = YES;
@@ -225,7 +225,7 @@ msdkDns?.initConfig(with: [
 /**
  域名同步解析（通用接口）
  @param domain 域名 
- @return 查询到的 IP 数组，超时（1s）或者未未查询到返回[0,0]数组
+ @return 查询到的 IP 数组，超时（1s）或者未查询到返回[0,0]数组
 */
 - (NSArray *) WGGetHostByName:(NSString *) domain;
 
@@ -278,7 +278,7 @@ if (ips && ips.count > 1) {
 /**
  域名异步解析（通用接口）
  @param domain  域名
- @param handler 返回查询到的 IP 数组，超时（1s）或者未未查询到返回[0,0]数组
+ @param handler 返回查询到的 IP 数组，超时（1s）或者未查询到返回[0,0]数组
  */
  - (void) WGGetHostByNameAsync:(NSString *) domain returnIps:(void (^)(NSArray *ipsArray))handler;
 
