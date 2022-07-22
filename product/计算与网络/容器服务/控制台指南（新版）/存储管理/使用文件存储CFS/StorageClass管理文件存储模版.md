@@ -129,7 +129,7 @@
   </tr>
   <tr>
     <td>StorageClass</td>
-    <td>按需指定 StorageClass。本文选择<b>指定 StorageClass</b>，以在 <a href="https://untitled+.vscode-resource.vscode-cdn.net/Untitled-2#create">创建 StorageClass</a> 步骤中创建的 cfs-storageclass 为例。
+    <td>按需指定 StorageClass。本文选择<b>指定 StorageClass</b>，以在 <a href="https://cloud.tencent.com/document/product/457/44235#.E5.88.9B.E5.BB.BA-storageclass">创建 StorageClass</a> 步骤中创建的 cfs-storageclass 为例。
 		<dx-alert infotype="explain" title="">
 <ul><li>PVC 和 PV 会绑定在同一个 StorageClass 下。</li>
 <li><b>不指定 StorageClass</b> 意味着该 PVC 对应的 StorageClass 取值为空，对应 YAML 文件中的 `storageClassName` 字段取值为空字符串。</li></ul>
