@@ -29,8 +29,7 @@
 <li>CDC：请选择<b>云数据库/TDSQL-H LibraDB/CDC</b>。</li></ul></td></tr>
 </table>
 >?如果需要配置图表，请参见 [图表配置](https://cloud.tencent.com/document/product/248/46762)。 
-5. 配置完成后， 单击![img](https://main.qcloudimg.com/raw/2cf48d6910973ec3dc7074e05bac24db.png) 。
-保存后可在 **Dashboard 列表**中查看对应的 Dashboard。
+5. 配置完成后， 单击右上角![img](https://main.qcloudimg.com/raw/2cf48d6910973ec3dc7074e05bac24db.png) 保存后，可在 **Dashboard 列表**中查看对应的 Dashboard。
 
 ## 后续操作
 查看已创建的 Dashboard 操作请参见 [查看 Dashboard](https://cloud.tencent.com/document/product/248/46748)。

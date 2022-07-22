@@ -16,6 +16,7 @@ include ':tuiaudioeffect'
 include ':tuibeauty'
 include ':tuibarrage' 
 include ':tuigift' 
+include ':tuicore'
 ```
 4. 在 `app` 的 `build.gradle` 文件中添加对 `tuipusher` 等 moudle 的依赖：
 ```
@@ -24,6 +25,7 @@ api project(':tuiaudioeffect')
 api project(':tuibeauty')
 api project(':tuibarrage')
 api project(':tuigift')
+api project(':tuicore')
 ```
 
 ### 步骤二：配置权限及混淆规则

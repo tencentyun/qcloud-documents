@@ -166,6 +166,19 @@ eks.tke.cloud.tencent.com/cbs-reuse-key: 'image-name'
 ```yaml
 eks.tke.cloud.tencent.com/use-image-cache: 'auto'
 ```
+ 
+指定镜像缓存创建出来的盘类型：
+
+```yaml
+eks.tke.cloud.tencent.com/image-cache-disk-type: 'CLOUD_SSD'  # 指定镜像缓存创建出来的盘类型，可取值如下：CLOUD_BASIC为普通云硬盘，CLOUD_PREMIUM为高性能云硬盘（默认），CLOUD_SSD为SSD云硬盘，CLOUD_HSSD为增强型SSD云硬盘，CLOUD_TSSD为极速型SSD云硬盘
+```
+
+
+指定镜像缓存创建出来的盘的大小：
+
+```yaml
+eks.tke.cloud.tencent.com/image-cache-disk-size: '50' # 指定镜像缓存创建出来的盘的大小，默认是镜像缓存创建时设置的大小，可以调大，不能调小
+```
 
 用户也可以手动指定镜像缓存实例，不使用自动匹配：
 
@@ -216,7 +229,7 @@ eks.tke.cloud.tencent.com/host-modprobe: 'toa'
 
 超级节点所在集群虚拟机内的 agent 会上报心跳给控制面，如果上报超时（默认 5min)，一般说明 Pod 内进程已经无法正常工作了，故障原因通常是高负载，这时集群默认会自动迁移虚拟机（对当前虚拟机关机并自动创建新虚拟机，让 Pod 迁移到新虚拟机里去运行），从而实现自愈。
 
-如果用户不希望自动重建（比如用于保留现场），可以在 Pod 上添加如下注解：
+如果用户不希望自动重建（如用于保留现场），可以在 Pod 上添加如下注解：
 
 ```yaml
 eks.tke.cloud.tencent.com/recreate-node-lost-pod: "false"

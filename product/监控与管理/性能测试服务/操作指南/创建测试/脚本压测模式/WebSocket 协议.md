@@ -1,7 +1,7 @@
 
 本介绍基于 WebSocket 协议的压测脚本的编写方法。
 
->?详细的 API 文档请参考 [PTS API](https://pts-js-api-1258344701.cos-website.ap-nanjing.myqcloud.com/docs/modules.html)。
+>?详细的 API 文档请参见 [PTS API](https://cloud.tencent.com/document/product/1484/75805)。
 
  
 
@@ -13,7 +13,7 @@
 
 ## 脚本编写
 
-PTS API 的 ws 模块提供了 WebSocket 协议的相关接口，请参考 [pts/ws API](https://pts-js-api-1258344701.cos-website.ap-nanjing.myqcloud.com/docs/modules/ws.html)。
+PTS API 的 ws 模块提供了 WebSocket 协议的相关接口，请参见 [pts/ws API](https://cloud.tencent.com/document/product/1484/75829)。
 
 **基本用法**
 - 用 `ws.connect` 方法建立连接，并在其回调函数里定义您的业务逻辑：
@@ -68,5 +68,5 @@ export default function () {
 
 在压测场景里，您可上传以下几种类型的文件，提供压测执行时的状态数据：
 
-- 参数文件：以 csv 文件的形式，动态提供测试数据。场景被每个并发用户（VU）执行时，会获取参数文件里的每行数据，作为测试数据的值，供脚本里的变量引用。具体使用方法请参考 [使用参数文件](https://cloud.tencent.com/document/product/1484/74046)。
+- 参数文件：以 csv 文件的形式，动态提供测试数据。场景被每个并发用户（VU）执行时，会获取参数文件里的每行数据，作为测试数据的值，供脚本里的变量引用。具体使用方法请参见 [使用参数文件](https://cloud.tencent.com/document/product/1484/74046)。
 - 请求文件：构建您的请求所需的文件，如需要上传的文件。
