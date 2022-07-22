@@ -54,7 +54,12 @@
   </tr>
   <tr>
     <td>实例创建模式</td>
-    <td>提供<b>创建新实例</b>和<b>共享实例</b>两种回收策略。<ul><li>创建新实例：挂载时每个 PVC 默认创建一个 CFS 实例。</li><li>共享实例：挂载时每个 PVC 将共享同一 CFS 实例的不同子目录，共享的 CFS 实例及子目录由系统自动创建。</li></ul></td>
+    <td>提供<b>创建新实例</b>和<b>共享实例</b>两种回收策略。<ul><li>创建新实例：挂载时每个 PVC 默认创建一个 CFS 实例。</li><li>共享实例：挂载时每个 PVC 将共享同一 CFS 实例的不同子目录，共享的 CFS 实例及子目录由系统自动创建。</li>
+		<dx-alert infotype="explain" title="">CFS-CSI 组件自 v1.0.1 版本开始支持<b>共享存储实例</b>功能，请及时升级组件版本，使用说明如下：
+<li>共享实例类型的 StorageClass 回收策略限制为“保留”。</li>
+<li>通过该 StorageClass 初次动态创建 PVC 时会默认创建一个 CFS 实例，并在该实例下创建子目录实现 PVC 之间的挂载隔离。</li>
+<li>每个共享实例类型 StorageClass 创建的 CFS 实例不同，建议您妥善控制数量。</li></ul>
+</dx-alert></td>
   </tr>
   <tr>
     <td>可用区</td>
@@ -91,11 +96,7 @@
 </tbody>
 </table>
 5. 单击 **新建 StorageClass** 即可。
->? CFS-CSI 组件自 v1.0.1 版本开始支持**共享存储实例**功能，请及时升级组件版本，使用说明如下：
->1. 共享实例类型的 StorageClass 回收策略限制为“保留”。
->2. 通过该 StorageClass 初次动态创建 PVC 时会默认创建一个 CFS 实例，并在该实例下创建子目录实现 PVC 之间的挂载隔离。
->3. 每个共享实例类型 StorageClass 创建的 CFS 实例不同，建议您妥善控制数量。
-
+ 
 
 ### 使用指定 StorageClass 创建 PVC[](id:createPVC)
 1. 在“集群管理”页，选择需创建 PVC 的集群 ID。
