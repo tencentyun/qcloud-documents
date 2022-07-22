@@ -3,7 +3,7 @@
 
 ## 性能监控
 进入 [云数据仓库 PostgreSQL 控制台](https://console.cloud.tencent.com/snova)，在集群列表中单击集群名，进入集群详情页。在**性能监控**中，可以查看集群的各项指标。当有多个节点时，可在**节点维度**中选择想要查看的集群节点。
-![](https://main.qcloudimg.com/raw/db6dd6d113fee6cdae86b9ce9fa43b91.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/6edae422e9cb09d2ea9d24450f313d5f.png)
 目前云数据仓库 PostgreSQL 提供了连接数、CPU 利用率、内存利用、网络接收吞吐量、网络输出吞吐量、写入 IOPS、读取 IOPS、磁盘空间使用率、读取吞吐量、写入吞吐量、读取延时、写入延时等指标。
 
 ## 告警接入

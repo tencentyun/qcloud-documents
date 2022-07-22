@@ -113,3 +113,18 @@ spring.kafka.consumer.value-deserializer=org.apache.kafka.common.serialization.S
 
 
 其他更详细配置、使用方法详见 [Demo 示例](https://github.com/tencentyun/tsf-simple-demo)。
+
+## Kafka 批量消费消息场景
+- Kafka 消费单条消息时，接收的调用链信息在同个线程中自动传递。
+- Kafka 批量消费消息时，需要手动将调用链信息注入，从而继续传递调用链信息，方法如下：
+<dx-codeblock>
+:::  JAVA
+@Autowired
+private KafkaTracing kafkaTracing;
+
+kafkaTracing.joinBatchReceiveSpan(consumerRecord);
+:::
+</dx-codeblock>
+
+
+>?当前仅以下 SDK 版本及其之后的 SDK 版本支持：1.29.4-H、1.32.0-G、1.29.1-G、1.32.1-F、1.29.7-F。

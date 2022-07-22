@@ -545,11 +545,23 @@
 #### tccc.Devices.getSpeakers(): Promise<<a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaDeviceInfo">MediaDeviceInfo</a> []>
 
 ## UI（用户界面相关接口函数）
-### 隐藏 SDK UI
+### 隐藏 SDK 所有 UI
 #### tccc.UI.hide(): void
 
-### 显示 SDK UI
+### 显示 SDK 所有 UI
 #### tccc.UI.show(): void
+
+### 显示浮动按钮
+#### tccc.UI.showfloatButton(): void
+
+### 隐藏浮动按钮
+#### tccc.UI.hidefloatButton(): void
+
+### 显示工作台
+#### tccc.UI.showWorkbench(): void
+
+### 隐藏工作台
+#### tccc.UI.hideWorkbench(): void
 
 ## Events（事件）
 ### SDK 初始化完成

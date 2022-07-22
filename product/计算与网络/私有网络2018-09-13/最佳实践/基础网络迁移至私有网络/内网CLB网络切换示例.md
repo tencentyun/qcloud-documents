@@ -40,5 +40,3 @@
 6. 待 VPC 业务验证正常后， VPC  CVM 客户端开始访问 VPC 内内网 CLB 业务，删除终端连接，继续保持基础网络互通，释放基础网络服务资源。
  ![](https://main.qcloudimg.com/raw/0abdb8141743e23985f3adc200e6da24.png)
     
- 
-

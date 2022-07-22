@@ -1,3 +1,9 @@
+## Version 10.3.401 @ 2022.07.20
+
+**改进**
+- 性能优化。
+- 升级低层库。
+
 ## Version 9.3.201 @ 2022.01.05
 
 **功能新增**
@@ -7,7 +13,6 @@ Windows & Mac：新增 [onSpeedTestResult](https://web.sdk.qcloud.com/trtc/elect
 - Windows & Mac：改进 [startSpeedTest](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#startSpeedTest) 开始进行网络测速。
 - Windows & Mac：改进 [muteLocalVideo](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#muteLocalVideo) 暂停/恢复发布本地的视频流，新增 streamType 参数。
 - Windows & Mac：改进 [muteRemoteVideoStream](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#muteRemoteVideoStream) 暂停接收指定的远端视频流，新增 streamType 参数。
-- Windows & Mac：改进 [selectScreenCaptureTarget](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#selectScreenCaptureTarget) 设置屏幕共享参数，支持 source、captureRect、property 三个参数。
 - Windows & Mac：改进 [startScreenCapture](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#startScreenCapture) 启动屏幕分享，新增 params 参数。
 
 **问题修复**
@@ -89,19 +94,16 @@ Windows & Mac：onStatistics 回调新增字段 gatewayRtt [onStatistics](https:
 - Windows & Mac：其他 bug 修复。
 
 ## Version 7.9.348 @ 2020.11.12
-
 **改进**
 - Windows：修复录音路径设置不支持中文路径文件夹。
 - Windows：窗口捕获指定区域捕获支持抗遮挡。
 
 ## Version 7.8.342 @ 2020.10.10
-
 **新增**
 - Windows & Mac：新增 [onAudioDeviceCaptureVolumeChanged](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCallback.html#event:onAudioDeviceCaptureVolumeChanged) 当前音频采集设备音量变化回调。
 - Windows & Mac：新增 [onAudioDevicePlayoutVolumeChanged](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCallback.html#event:onAudioDevicePlayoutVolumeChanged) 当前音频播放设备音量变化回调。
 
 ## Version 7.7.330 @ 2020.09.11
-
 **新增**
 Windows & Mac：新增 [setAudioQuality](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#setAudioQuality) 用于设置音频质量。
 
@@ -112,12 +114,10 @@ Windows & Mac：新增 [setAudioQuality](https://web.sdk.qcloud.com/trtc/electro
 - Windows & Mac：其他 bug 修复。
 
 ## Version 7.6.300 @ 2020.08.26
-
 **新增**
 Windows & Mac：新增 [setCurrentMicDeviceMute](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#setCurrentMicDeviceMute) 、[getCurrentMicDeviceMute](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#getCurrentMicDeviceMute)、[setCurrentSpeakerDeviceMute](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#setCurrentSpeakerDeviceMute)、[getCurrentSpeakerDeviceMute](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#getCurrentSpeakerDeviceMute) 用于控制 PC 的麦克风和扬声器。
 
 ## Version 7.5.210 @ 2020.08.11
-
 **改进**
 - Windows & Mac：修复 SDK 回调乱序问题。
 - Windows & Mac：解决切换渲染模式导致崩溃的问题。 
@@ -125,7 +125,6 @@ Windows & Mac：新增 [setCurrentMicDeviceMute](https://web.sdk.qcloud.com/trtc
 - Windows & Mac：其他 bug 修复。
 
 ## Version 7.4.204 @ 2020.07.01
-
 **改进**
 - Windows：优化 Windows 平台的回声抵消（AEC）效果。
 - Windows：增强 Windows 平台的摄像头采集的设备兼容性。
@@ -134,7 +133,6 @@ Windows & Mac：新增 [setCurrentMicDeviceMute](https://web.sdk.qcloud.com/trtc
 - Windows：64 位支持系统混音
 
 ## Version 7.2.174 @ 2020.04.20
-
 **改进**
 - Mac：修复 Mac 偶现本地自定义渲染分辨率不一致问题。
 - Windows：优化 Windows 端 getCurrentCameraDevice 逻辑，在未使用摄像头时，返回第一个设备作为默认设备。
@@ -145,9 +143,7 @@ Windows & Mac：新增 [setCurrentMicDeviceMute](https://web.sdk.qcloud.com/trtc
 - Windows：修复 Windows 端屏幕分享后，webrtc 要很久才能看到画面的问题。
 
 ## Version 7.1.157 @ 2020.04.02
-
 **新增**
-
 支持使用 [主路](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/global.html#TRTCVideoStreamType) 进行 [屏幕分享](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#startScreenCapture)。
 
 **改进**
@@ -157,7 +153,5 @@ Windows & Mac：新增 [setCurrentMicDeviceMute](https://web.sdk.qcloud.com/trtc
 
 
 ## Version 7.0.149 @ 2020.03.019
-
 **新增**
-
 [trtc.d.ts](https://cloud.tencent.com/document/product/647/38551#.E5.88.9B.E5.BB.BA-trtc-.E5.AF.B9.E8.B1.A1) 文件，方便使用 typescript 的开发者。

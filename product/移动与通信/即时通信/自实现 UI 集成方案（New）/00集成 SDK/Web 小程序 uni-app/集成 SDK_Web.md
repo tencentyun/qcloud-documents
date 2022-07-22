@@ -1,6 +1,7 @@
+本文主要介绍如何快速将腾讯云即时通信 IM SDK 集成到您的 Web、小程序、uni-app 项目中。
+
 ## 集成 SDK
 
-本文主要介绍如何快速地将腾讯云 IM SDK 集成到您的 Web、小程序、uni-app 项目中。
 - 通过 npm 和 script 方式将 IM SDK 集成到您的 Web 项目中，推荐使用 npm 集成。
 - 通过 npm 方式将 IM SDK 集成到您的小程序或者 uni-app 项目中。
 - 通过集成 SDK 上传插件 [tim-upload-plugin](https://www.npmjs.com/package/tim-upload-plugin)，实现更快更安全的富文本消息资源上传。

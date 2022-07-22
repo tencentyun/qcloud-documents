@@ -12,7 +12,7 @@ RocksDB 使用 LSM Tree 存储结构，数据组织为一组在内存中的 MemT
 当读取一行记录时，按照新旧，依次从 Active MemTable、Immutable MemTable、L0、L1 - L6各个组件查找这一行，从任一组件找到，就表明找到了最新的版本，可以立刻返回。
 
 当执行范围扫描时，对包含每层 MemTable 在内的各层数据，分别生成一个迭代器，这些迭代器归并查找下一条记录。从读的流程可以看到，如果 LSM Tree 层数太多，则读性能，尤其是范围扫描的性能会明显下降。所以，为了维持一个更好的 LSM Tree 形状，后台会不断地执行 compaction 操作，将低层数据合并到高层数据，减少层数。
-![](https://qcloudimg.tencent-cloud.cn/raw/5f5e47996ea8af096ef4b79efecabe61.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/60ffda65b47bd4cd582250f97124159b.png)
 
 ## TXRocks 架构
 ![](https://qcloudimg.tencent-cloud.cn/raw/6eaaa7a50072a6de3f2cecb364e3ac42.png)
@@ -32,7 +32,7 @@ InnoDB 采用 In-Place 的修改方式，即使仅修改一行记录也可能要
 TXRocks 采用 Append-Only 方式，相比而言写入放大更低。因此 TXRocks 对于擦写次数有限的 SSD 等产品更友好。
 
 ## 适用场景
-TXRocks 非常适合对存储成本比较敏感，读多写少但对事务读写性能有要求的，数据存储量大的业务场景。
+TXRocks 非常适合对存储成本比较敏感，写多读少但对事务读写性能有要求的，数据存储量大的业务场景。
 
 ## 如何使用 TXRocks 存储引擎
 请参见 [TXRocks 引擎使用须知](https://cloud.tencent.com/document/product/236/71456)。

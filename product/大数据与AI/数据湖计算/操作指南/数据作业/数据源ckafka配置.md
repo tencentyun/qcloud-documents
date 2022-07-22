@@ -1,4 +1,3 @@
->? 数据作业目前为邀请内测阶段，如您需使用体验可 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们开通体验。
 
 ## 创建配置
 如您需要在数据作业中使用 ckafka 作为数据源，可通过配置 VPC 网关的方式打通数据湖计算与 ckafka 的网络，实现数据访问。
@@ -6,7 +5,7 @@
 2. 单击左侧菜单**数据作业**进入数据作业页，单击**作业配置**，选择**ckafka 连接**，单击**创建 ckafka 连接**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/4d2c70a4d81b0f168f56727996e5200d.png)
 3. 选择需要关联的 spark 作业引擎，然后选择需要连接的 ckafka 实例（实例选择需具备实例访问相关权限），然后选择对应的 VPC。
->! 仅关联的数据作业引擎可以访问到对应的 ckafka 实例。
+>! 仅关联的数据作业引擎可以访问到对应的 ckafka 实例，当前仅支持选择包年包月的 Spark 作业数据引擎。
 4. 命名后单击**保存**即可完成配置。
 ![](https://qcloudimg.tencent-cloud.cn/raw/8b2730d33fbc5554f83acdb7cc7d94a8.png)
 >? 由于连接是异步操作，您可通过管理界面的状态来确认连接是否成功建立。若状态为“失败”，需您重新编辑或删除该配置。

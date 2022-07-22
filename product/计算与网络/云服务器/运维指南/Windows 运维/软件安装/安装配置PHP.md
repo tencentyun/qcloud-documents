@@ -53,8 +53,8 @@ PHP 5.3 版本后取消了安装包模式，仅通过 zip 文件和 debug pack �
 PHP 安装包对应需下载和安装的 Visual C++ Redistributable 安装包如下表所示：
 <table>
 <tr><th>PHP 安装包名</th><th>Visual C++ Redistributable 安装包下载地址</th></tr>
-<tr><td>php-x.x.x-nts-Win32-VC16-x86.zip</td><td><a href="https://visualstudio.microsoft.com/zh-hans/downloads/">Microsoft Visual C++ Redistributable for Visual Studio 2019</a> x86版本</td></tr>
-<tr><td>php-x.x.x-nts-Win32-VC15-x86.zip</td><td><a href="https://visualstudio.microsoft.com/zh-hans/vs/older-downloads/">Microsoft Visual C++ Redistributable for Visual Studio 2017</a> x86版本</td></tr>
+<tr><td>php-x.x.x-nts-Win32-VC16-x86.zip</td><td><a href="https://aka.ms/vs/16/release/VC_redist.x86.exe">Microsoft Visual C++ Redistributable for Visual Studio 2019</a> x86版本</td></tr>
+<tr><td>php-x.x.x-nts-Win32-VC15-x86.zip</td><td><a href="https://go.microsoft.com/fwlink/?LinkId=746571">Microsoft Visual C++ Redistributable for Visual Studio 2017</a> x86版本</td></tr>
 <tr><td>php-x.x.x-nts-Win32-VC14-x86.zip</td><td><a href="https://www.microsoft.com/zh-cn/download/details.aspx?id=48145">Microsoft Visual C++ Redistributable for Visual Studio 2015</a> x86版本</td></tr>
 </table>
  例如，下载的 PHP 安装包名称为 <code>PHP-7.1.30-nts-Win32-VC14-x86.zip</code>，则需下载和安装 Microsoft Visual C++ Redistributable for Visual Studio 2015 x86版本的安装包。

@@ -194,7 +194,7 @@ GRANT SELECT ON 待同步的库.* TO 'CDC帐号';
    - **指定对象**：支持库级别、表级别同步。指定对象时还支持多表归并和修改库表名映射。
 多表归并说明及操作请参见 [多表归并（数据合并）](https://cloud.tencent.com/document/product/1488/74331)，修改库表名映射说明及操作请参见 [修改库表名映射](https://cloud.tencent.com/document/product/1488/63694)。
 7. 设置完成后，单击**下一步**。
-8. 高级设置：可 [设置分区键](https://cloud.tencent.com/document/product/1488/63692) 和 [自定义字段类型映射](https://cloud.tencent.com/document/product/1488/63691#.E8.87.AA.E5.AE.9A.E4.B9.89.E6.95.B0.E6.8D.AE.E7.B1.BB.E5.9E.8B.E8.BD.AC.E6.8D.A2)。
+8. 高级设置：可[设置排序键](https://cloud.tencent.com/document/product/1488/76363)、 [设置分区键](https://cloud.tencent.com/document/product/1488/63692) 和 [自定义字段类型映射](https://cloud.tencent.com/document/product/1488/63691#.E8.87.AA.E5.AE.9A.E4.B9.89.E6.95.B0.E6.8D.AE.E7.B1.BB.E5.9E.8B.E8.BD.AC.E6.8D.A2)。
 9. 设置完成后，单击**下一步**。
 10. 在校验任务页面，完成校验并各项校验通过后，单击**启动任务**或**稍后启动**。
 >?CDC 任务正式启动数据同步前，会检查源实例和目标实例。查询检查结果中会显示各项检查结果是否通过。

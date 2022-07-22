@@ -31,18 +31,20 @@ systemctl status prometheus
 1. 下载安装 node_expoter：
 在需要上报的云服务器上，下载并安装 node_expoter（采集基础指标数据的 exporter），您可以单击进入 Prometheus 开源官网下载地址 [node_expoter](https://prometheus.io/download/#node_exporter)，也可以直接执行下列命令，下载解压：
 ```
-wget https://github.com/prometheus/node_exporter/releases/download/v1.3.1/node_exporter-1.3.1.linux-amd64.tar.gz & tar -xvf node_exporter-1.3.1.linux-amd64.tar.gz
+wget https://github.com/prometheus/node_exporter/releases/download/v1.3.1/node_exporter-1.3.1.linux-amd64.tar.gz && tar -xvf node_exporter-1.3.1.linux-amd64.tar.gz
 ```
 文件目录如下: 
 ![](https://qcloudimg.tencent-cloud.cn/raw/215bcb6ce3c069bd73eda5a9b1f8bdee.jfif)
 2. 运行 node_exporter 采集基础监控数据：
- 1. 执行 node_exporter
+
+ i. 进入相关文件夹，执行 node_exporter。
 ```
+cd node_exporter-1.3.1.linux-amd64
 ./node_exporter
 ```
 如下图所示即为成功采集到了基础监控数据。
 ![](https://qcloudimg.tencent-cloud.cn/raw/fb9bb9fcfb6f0e1a47ec2942e7215299.png)
-ii. 可通过下列命令，将该基础监控数据暴露在9100 端口：
+iii. 可通过下列命令，将该基础监控数据暴露在9100 端口：
 ```
 curl 127.0.0.1:9100/metrics
 ```
@@ -106,6 +108,30 @@ func makeOrder() {
 ```
 rate(order_service_processed_orders_total[5m])
 ```
-2. 采集数据：
+2. 暴露 Prometheus 指标：
+通过 `promhttp.Handler()` 把监控埋点数据暴露到 HTTP 服务上。
+``` go
+package main
+
+import (
+	"net/http"
+
+	"github.com/prometheus/client_golang/prometheus/promhttp"
+)
+
+func main() {
+        // 业务代码
+
+        // 把 Prometheus 指标暴露在 HTTP 服务上
+        http.Handle("/metrics", promhttp.Handler())
+
+        // 业务代码
+}
+
+```
+
+3. 采集数据：
 完成相关业务自定义监控埋点之后，应用发布，即可通过 Prometheus 来抓取监控指标数据。采集完成后，等待数分钟，您即可在 Prometheus 监控服务集成的 Grafana 中查看业务指标监控数据。
 ![img](https://main.qcloudimg.com/raw/fc6bf3f5cfbab1bbd931d418b9dddef2.png)
+
+

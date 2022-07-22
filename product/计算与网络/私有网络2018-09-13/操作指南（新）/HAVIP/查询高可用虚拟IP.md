@@ -6,7 +6,7 @@
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/)。
 2. 在左侧导航栏中，选择 **IP 与网卡** > **高可用虚拟 IP**，进入高可用虚拟 IP 界面。
 3. 选择地域，可查看该地域下所有已申请的 HAVIP 的详细信息。
-    ![](https://main.qcloudimg.com/raw/a5b4737bf70d4e184c7581b52686a58d.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/d5cef802c8e7431db61bca920267252e.png)
 	字段含义如下：
 	+ ID/名称：HAVIP 创建后，系统会自动生成一个 ID，单击 ID 可进入 HAVIP 的基本信息界面；名称为创建时用户自定义的名称。
 	+ 状态：表示该 HAVIP 是否已在云服务器的 HA 软件的配置文件中被指定为可漂移的 VIP，如已配置成功，则状态显示为**已绑定云服务器**，如未配置或配置失败，则状态显示为**未绑定云服务器**。

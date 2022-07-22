@@ -178,13 +178,11 @@ TRTC SDK 6.6（Web SDK 4.0）版本（2019年08月）开始启用新的签名算
 升级/切换操作：
  1. 登录 [实时音视频控制台](https://console.cloud.tencent.com/trtc)。
  2. 在左侧导航栏选择 **应用管理**，单击目标应用所在行的 **应用信息**。
- 3. 选择 **快速上手** 页签，单击 **第二步 获取签发UserSig的密钥** 区域的 **点此升级** 、 **非对称式加密** 或 **HMAC-SHA256**。
-  - 升级：
-  ![](https://qcloudimg.tencent-cloud.cn/raw/8cc65ddd7101486fda684e990acd4626.png)
+ 3. 选择**快速上手**页签，单击**第二步 获取签发UserSig的密钥**区域的 **HMAC-SHA256**。
   - 切换回老版本算法 ECDSA-SHA256：
- ![](https://qcloudimg.tencent-cloud.cn/raw/7650c896868586c96623145bafe8a209.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/ba76b709e17c100798810e38c94c9f9d.png)
   - 切换为新版本算法 HMAC-SHA256：
- ![](https://qcloudimg.tencent-cloud.cn/raw/2796b694419cc7f2aaabf4efe79704da.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/73d25cffe81af56353db4a874255f1bc.png)
 
 ### 2. 出现客户端错误：“RtcError: no valid ice candidate found”该如何处理？
 出现该错误说明 TRTC Web SDK 在 STUN 打洞失败，请根据 [环境要求](#requirements) 检查防火墙配置。

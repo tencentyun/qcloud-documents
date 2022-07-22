@@ -13,6 +13,9 @@
 
 ### Chrome 无来电铃声的问题[](id:noring)
 - 首先检查音频设备是否有问题，音量是否设置为0。
+- 检查浏览器设置，浏览器地址栏输入`chrome://settings/content/siteDetails?site=https%3A%2F%2Ftccc.qcloud.com`。把**摄像头**、**麦克风**、**通知**、**后台同步**、**声音**设置为允许。
+![](https://qcloudimg.tencent-cloud.cn/raw/506d6c31d2db427460bd919c231d2557.png)
+
 - 如果上面检查都没有问题，则为浏览器防止网页自动播放音视频对用户造成干扰，对音视频的自动播放功能做了限制。这种情况需要执行下面步骤：
   1. 下载 [chrome_policy.reg.zip](https://upload-dianshi-1255598498.file.myqcloud.com/chrome_policy-2fad0f85195e7bf4101fb90f92ce1fa5234b41d2.reg.zip)，并且解压。
   - 双击执行刚刚解压的文件，选择**是**。

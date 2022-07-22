@@ -23,7 +23,7 @@
 #### 安装及配置
 
 - 环境安装与配置详细操作请参见 [Python 安装与配置](https://cloud.tencent.com/document/product/436/10866)。
-- pip 环境安装与配置详细操作请参见 [官网 pip 安装说明](https://pip.pypa.io/en/stable/installing/)。
+- pip 环境安装与配置详细操作请参见 [官网 pip 安装说明](https://pip.pypa.io/en/stable/installation/)。
 
 
 ## 下载与安装

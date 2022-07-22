@@ -29,7 +29,7 @@ TXLivePusher 和 TXLivePlayer 这两个基础组件可以比较容易的实现�
 [](id:Step1)
 ### Step1. 下载 LiteAVSDK 和 MLVBLiveRoom 组件
 
-移动直播提供的连麦能力需要依赖三个组件： 
+直播 SDK 提供的连麦能力需要依赖三个组件： 
 - LiteAVSDK：闭源，负责直播推流，直播拉流，以及连麦视频通话功能。
 - TIMSDK：闭源，负责构建直播聊天室，以及聊天室中用户之间的消息传输功能。
 - MLVBLiveRoom：开源，基于 LiteAVSDK 和 TIMSDK 搭建一个支持连麦互动和消息互动的“直播间”。
@@ -63,7 +63,7 @@ TXLiveBase.getInstance().setLicence(context, LicenceUrl, Key);
 
 [](id:Step3)
 ### Step3. 购买连麦套餐包
-由于连麦功能会使用到高速专线来降低音视频传输延迟，这部分功能需要额外购买套餐包才能开通，否则移动直播的各端 SDK 只能使用云直播的普通服务（推流和拉流），并不能开启连麦功能。
+由于连麦功能会使用到高速专线来降低音视频传输延迟，这部分功能需要额外购买套餐包才能开通，否则直播 SDK 的各端 SDK 只能使用云直播的普通服务（推流和拉流），并不能开启连麦功能。
 
 - 仅限老用户前往 **云直播控制台** > **直播 SDK** > [**直播连麦**](https://console.cloud.tencent.com/live/liveroom)，单击**购买连麦包**
 - [移动直播连麦计费说明](https://cloud.tencent.com/document/product/454/70298)
@@ -170,7 +170,7 @@ MLVBLiveRoom 包装了 TIMSDK 的消息发送接口，您可以通过 **sendRoom
 
 ## 常见问题
 
-#### 移动直播是不是使用 RTMP 协议进行连麦？
+#### 直播 SDK 是不是使用 RTMP 协议进行连麦？
 不是。腾讯云采用了两种传输通道才实现了直播 + 连麦功能：
 - 直播采用标准的 HTTP-FLV 协议，使用标准 CDN 线路，没有并发观看人数的限制，且带宽成本很低，但延迟一般在3s以上。
 - 连麦采用 UDP 协议，使用专用加速线路，延迟一般在500ms以内，但由于线路成本较高，因此采用连麦时长进行计费。

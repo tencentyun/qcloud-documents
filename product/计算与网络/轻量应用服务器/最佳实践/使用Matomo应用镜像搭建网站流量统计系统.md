@@ -44,7 +44,7 @@ Matomo 是一款开源的网站数据统计软件，可以用于跟踪、分析�
 ![](https://qcloudimg.tencent-cloud.cn/raw/04a8691f9b6f237cf271b70bd277da6b.png)
 7. [](id:Step7)在“超级用户”步骤中，自定义 Matomo 超级用户名、密码及电子邮箱（本文超级用户名以 admin 为例），其他参数可按需设置，并单击**下一步**。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/e274ed7b79112a9e6510d98c4146687a.png)
-8. 在“设置网站”步骤中，填写需追踪的网站信息、时区等信息，并单击**下一步**。如下图所示：
+8. 在“设置网站”步骤中，填写需跟踪的网站信息、时区等信息，并单击**下一步**。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/827dc1bf3a19736e2860c3e1ea2fab7a.png)
 9. 在 “JavaScript 跟踪代码” 步骤中，查看信息，并单击**下一步**。
 10. 进入完成安装页面，单击**继续使用 MATOMO**。
@@ -54,9 +54,9 @@ Matomo 是一款开源的网站数据统计软件，可以用于跟踪、分析�
 ### 使用 Matomo 进行站点统计
 1. 在 Matomo 登录页面，输入 [步骤7](#Step7) 设置的超级用户名及密码，单击**登录**。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/9493fd13213181a0bd8bee8444425712.png)
-2. 登录成功后，可查看追踪代码信息。请复制如下图所示中的追踪代码：
+2. 登录成功后，可查看跟踪代码信息。请复制如下图所示中的跟踪代码：
 <img src="https://qcloudimg.tencent-cloud.cn/raw/15a7dd0851ff0a032baf458c135f067b.png" width="80%"/>
-3. 将已获取的追踪代码粘贴至网站的相关版块。本文以追踪 WordPress 网站为例，您可通过以下两种方式编辑追踪代码。
+3. 将已获取的跟踪代码粘贴至网站的相关版块。本文以跟踪 WordPress 网站为例，您可通过以下两种方式编辑跟踪代码。
 <dx-tabs>
 ::: 登录实例编辑代码
  1. 参考 [使用 WebShell 方式登录 Linux 实例](https://cloud.tencent.com/document/product/1207/44642)，登录 Matomo 实例。
@@ -64,13 +64,13 @@ Matomo 是一款开源的网站数据统计软件，可以用于跟踪、分析�
 ```text
 sudo vi /usr/local/lighthouse/softwares/wordpress/wp-content/themes/<主题名称>/header.php
 ```
-3. 按 **i** 进入编辑模式，在 `</header><!-- #site-header -->` 上方，输入已获取的追踪代码内容。编辑完成后如下图所示：
+3. 按 **i** 进入编辑模式，在 `</header><!-- #site-header -->` 上方，输入已获取的跟踪代码内容。编辑完成后如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/c6509fec7fb154924ac7e8f80ba6edb2.png)
 4. 按 **Esc**，输入 **:wq** 保存编辑并退出编辑器。
 :::
 ::: 登录博客后台管理页面编辑代码
 1. 登录 WordPress 后台管理页面，选择左侧导航栏中的**外观** > **主题编辑器**。
-2. 在“编辑主题”页面，选择 **主题页眉 header.php** 文件，并在 `</header><!-- #site-header -->` 上方输入已获取的追踪代码内容。编辑完成后如下图所示：
+2. 在“编辑主题”页面，选择 **主题页眉 header.php** 文件，并在 `</header><!-- #site-header -->` 上方输入已获取的跟踪代码内容。编辑完成后如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/ad20aa5957a67ac3d880e0d96f2375c1.png)
 3. 单击**更新文件**保存编辑。
 
@@ -108,4 +108,4 @@ sudo vi /usr/local/lighthouse/softwares/matomo/config/config.ini.php
 
 
 ### 开启 HTTPS 访问[](id:httpsConfig)
-可参考 [安装 SSL 证书](https://cloud.tencent.com/document/product/1207/47027) 文档为您的 Matomo 实例安装 SSL 证书并开启 HTTPS 访问。您也可参考 [Nginx 官方 https 配置介绍](https://nginx.org/en/docs/http/configuring_https_servers.html)，以了解更多配置信息。
+可参考 [安装 SSL 证书](https://cloud.tencent.com/document/product/1207/47027) 文档为您的 Matomo 实例安装 SSL 证书并开启 HTTPS 访问。您也可参考 [Nginx 官方 HTTPS 配置介绍](https://nginx.org/en/docs/http/configuring_https_servers.html)，以了解更多配置信息。

@@ -16,10 +16,14 @@ Topic 是 TDMQ Pulsar 版中的核心概念。Topic 通常用来对系统生产�
 1. 登录 [TDMQ Pulsar 版控制台](https://console.cloud.tencent.com/tdmq)，在左侧导航栏单击 **Topic 管理**。
 2. 在 Topic 管理页面，单击**新建**，弹出新建 Topic 的对话框。
 3. 在新建 Topic 对话框中，填写以下信息：
-   ![](https://qcloudimg.tencent-cloud.cn/raw/1b8c62a5fd0e3ec2d29ac5e7a3f3cc66.png)
-    - Topic 名称：不能为空，支持数字字母以及符号 “-_=:.”，长度不超过128个字符。
-    - 类型：选择消息类型，包括：普通、全局顺序、局部顺序（关于消息类型的说明，请参见 [消息类型](https://cloud.tencent.com/document/product/1179/44833)）。
-    - 分区数：全局顺序只有1个分区，其他为1-128个分区。多分区可以提高单个Topic的生产消费性能，但是无法保证顺序性。
+   ![](https://qcloudimg.tencent-cloud.cn/raw/27e26efb1d41905affe40ae686d8e80c.png)
+    - Topic 名称：不能为空，支持数字字母以及符号 “-\_=:.”，长度不超过128个字符。
+    - Topic 类型：支持**持久化**和**非持久化**两种类型。
+      - 持久化：持久化的消息会以多副本形式落盘，保证消息不丢失，多适用于金融、交易等高可靠场景
+      - 非持久化：非持久化的消息不会落盘，会存储在 broker 的内存中，多适用于数据可靠性要求不高、流处理等场景（非持久化消息不支持消息查询和轨迹）
+    - 是否分区：
+      - Pulsar 内部可以保证单个分区内的消息有序，即如果创建1分区的 Topic 则可以保证全局有序。
+      - 单分区的 Topic 会在性能上弱于多分区 Topic，如果希望兼顾性能与有序性， 可以参见 [订阅模式](https://cloud.tencent.com/document/product/1179/44818) 使用 Key-shared 模式进行消费，实现局部有序，标记同一个 key 让需要有序的消息落在同一分区即可。
     - 说明：填写 Topic 的说明信息，不超过128字符。
 4. 单击**保存**，在 Topic 列表中即可看见创建好的 Topic。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d0328e4a60fb563b8f45a3808912de61.png)
@@ -65,11 +69,13 @@ Topic 是 TDMQ Pulsar 版中的核心概念。Topic 通常用来对系统生产�
 </tr>
 </table>
 
-   
+
 
 ### 查询 Topic
 
 您可以在 [Topic 管理](https://console.cloud.tencent.com/tdmq/topic) 页右上角的搜索框中，通过 Topic 名称进行搜索查询，TDMQ Pulsar 版将会模糊匹配并呈现搜索结果。
+
+您也可以在 Topic 列表中通过**类型**和**创建来源**对 Topic 进行筛选。
 
 ### 编辑 Topic
 
@@ -106,7 +112,7 @@ TDMQ Pulsar 版控制台支持手动创建订阅，在控制台进行相应的�
 >?
 >
 >- 如果选择自动创建重试和死信 Topic，TDMQ Pulsar 版会自动帮用户创建好一个重试队列和死信队列，以两个新的 Topic 呈现于 Topic 列表，分别以 “订阅名”+“RETRY” 和 “订阅名”+“DLQ” 命名。
->- 关于重试队列和死信队列的概念和用法请参考 [重试队列和死信队列](https://cloud.tencent.com/document/product/1179/44834) 文档。
+>- 关于重试队列和死信队列的概念和用法请参见 [重试队列和死信队列](https://cloud.tencent.com/document/product/1179/44834)。
 
 ### 删除 Topic
 

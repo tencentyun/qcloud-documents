@@ -14,5 +14,5 @@
 | FailedOperation.CompareFail	|比对失败。|否    |
 | FailedOperation.CompareLowSimilarity	|比对相似度未达到通过标准。|是 |
 
-## 要素类
+## 要素类   
 身份证要素、银行卡要素和运营商要素的接口错误码及对应计费关系，请参阅各自接口文档。
