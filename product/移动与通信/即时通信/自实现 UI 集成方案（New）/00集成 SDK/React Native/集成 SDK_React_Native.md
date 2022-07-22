@@ -10,7 +10,7 @@
 
 ## 集成 IM SDK
 
-您可以通过 npm 的方式直接集成腾讯云 IM SDK(React Native))。
+您可以通过 npm 的方式直接集成腾讯云 IM SDK（React Native）。
 
 ### npm 集成
 

@@ -7,11 +7,34 @@
 > - 如您当前使用的版本和最新版本跨度较大，请务必参考下方涉及版本的变更内容进行配置修改。
 > - 如无特殊情况，建议您对来自 TPNS SDK 的各厂商推送 SDK 依赖版本号也同步进行升级修改。
 
-修改示例如下：
-```groovy
+例如，当前使用的版本号为 1.3.3.3，最新版本号为 1.3.5.0，则将使用的推送 SDK 依赖版本号从 1.3.3.3 修改为 1.3.5.0：
+```
 dependencies {
-    // TPNS 推送依赖，其中 [VERSION] 请替换为最新版本号        
-    implementation 'com.tencent.tpns:tpns:[VERSION]-release' 
+    // TPNS 主包
+    implementation "com.tencent.tpns:tpns:1.3.5.0-release"
+
+    // 小米推送依赖包
+    implementation "com.tencent.tpns:xiaomi:1.3.5.0-release"
+
+    // 魅族推送依赖包
+    implementation "com.tencent.tpns:meizu:1.3.5.0-release"
+    
+    // 华为推送依赖包
+    implementation "com.tencent.tpns:huawei:1.3.5.0-release"
+    // 华为推送 HMS Core Push 模块依赖包
+    implementation 'com.huawei.hms:push:6.5.0.300'       
+
+    // OPPO 推送依赖包
+    implementation "com.tencent.tpns:oppo:1.3.5.0-release"
+    // 自 SDK 1.3.2.0 起，需一并加入以下依赖语句，否则可能导致 OPPO 推送注册失败
+    implementation 'com.google.code.gson:gson:2.6.2'
+    implementation 'commons-codec:commons-codec:1.15'
+
+    // vivo 推送依赖包
+    implementation "com.tencent.tpns:vivo:1.3.5.0-release"
+
+    // 荣耀推送依赖包
+    implementation "com.tencent.tpns:honor:1.3.5.0-release"
 }
 ```
 
