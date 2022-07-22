@@ -1,4 +1,3 @@
-
 本文主要介绍如何快速运行腾讯云 MLVB-API-Example（Android）。
 
 ## 环境要求
@@ -41,11 +40,10 @@
 <img src="https://qcloudimg.tencent-cloud.cn/raw/0a789d4495f4c35d55ed57749d48acbd.png" width=500px>
 5. 打开 `LiteAVSDK_Professional_Android版本号/MLVB-API-Example/Debug/src/main/java/com/tencent/mlvb/debug/GenerateTestUserSig.java` 文件。
 设置 `GenerateTestUserSig.java` 文件中的相关参数：
-  - **PUSH_DOMAIN**：请设置为您的[推流域名](https://console.cloud.tencent.com/live/domainmanage)。
-  - **PLAY_DOMAIN**：请设置为您的[播放域名](https://console.cloud.tencent.com/live/domainmanage)。
-  - **LIVE_URL_KEY**：非必需，用于生成 txSecret 等鉴权信息，具体计算请参见 [推拉流 URL](https://cloud.tencent.com/document/product/454/7915)，查询步骤参见 [域名页面](https://console.cloud.tencent.com/live/domainmanage) => 管理 => 推流配置 => 鉴权配置。
-	
-	<img src="https://qcloudimg.tencent-cloud.cn/raw/ba8671a104e8bf65757265b9aeace0fa.png" width=600px>
+  - **PUSH_DOMAIN**：请设置为您的 [推流域名](https://console.cloud.tencent.com/live/domainmanage)。
+  - **PLAY_DOMAIN**：请设置为您的 [播放域名](https://console.cloud.tencent.com/live/domainmanage)。
+  - **LIVE_URL_KEY**：非必需，用于生成 txSecret 等鉴权信息，具体计算请参见 [推拉流 URL](https://cloud.tencent.com/document/product/454/7915)，查询步骤参见 [域名页面](https://console.cloud.tencent.com/live/domainmanage) > **管理** > **推流配置** > **鉴权配置**。<br>	
+<img src="https://qcloudimg.tencent-cloud.cn/raw/ba8671a104e8bf65757265b9aeace0fa.png" width=600px>
 
 [](id:step4)
 ### 步骤四：配置连麦或 PK 能力/服务开通
