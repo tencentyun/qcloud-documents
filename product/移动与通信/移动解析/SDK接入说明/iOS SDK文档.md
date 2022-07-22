@@ -206,7 +206,7 @@ msdkDns?.initConfig(with: [
  - IPv4 下，仅返回 IPv4 地址，即返回格式为：{"queryDomain" : [ipv4, 0]}。
  - IPv6 下，仅返回 IPv6 地址，即返回格式为：{"queryDomain" : [0, ipv6]}。
  - 双栈网络下，返回解析到 IPv4&IPv6（如果存在）地址，即返回格式为：{"queryDomain" : [ipv4, ipv6]}。
- - 解析失败，返回{"queryDomain" : [0, 0]}，业务重新调用 WGGetHostByNames 接口即可。
+ - 解析失败，返回{"queryDomain" : [0, 0]}，业务重新调用 WGGetHostsByNames 接口即可。
 - **批量查询（返回所有 IP）**：批量查询接口返回 NSDictionary，key 为查询的域名，value 为 NSDictionary，包含两个 key（ipv4、ipv6），对应的 value 为 NSArray 对象，表示所有的ipv4/ipv6 解析结果 IP。以下为返回格式的详细说明：
  返回格式为：{"queryDomain" : { "ipv4": [], "ipv6": []}}。
 
@@ -217,7 +217,7 @@ msdkDns?.initConfig(with: [
 >- 如 IPv4 和 IPv6 地址都不为0，则由客户端决定优先使用哪个地址进行连接，但优先地址连接失败时应切换为另一个地址。 
 >- 使用 SDK 方式接入 HTTPDNS，若 HTTPDNS 未查询到解析结果，则通过 LocalDNS 进行域名解析，返回 LocalDNS 的解析结果。
 
-#### 同步解析接口：WGGetHostByName、WGGetHostByNames
+#### 同步解析接口：WGGetHostByName、WGGetHostsByNames
 
 ##### 接口声明
 
@@ -256,7 +256,7 @@ if (ipsArray && ipsArray.count > 1) {
 }
 
 // 批量域名查询
-NSDictionary *ipsDict = [[MSDKDns sharedInstance] WGGetHostByNames: @[@"qq.com", @"dnspod.cn"]];
+NSDictionary *ipsDict = [[MSDKDns sharedInstance] WGGetHostsByNames: @[@"qq.com", @"dnspod.cn"]];
 NSArray *ips = [ipsDict objectForKey: @"qq.com"];
 if (ips && ips.count > 1) {
 	NSString *ipv4 = ips[0];
@@ -270,7 +270,7 @@ if (ips && ips.count > 1) {
 	}
 }
 ```
-#### 异步解析接口：WGGetHostByNameAsync、WGGetHostByNamesAsync
+#### 异步解析接口：WGGetHostByNameAsync、WGGetHostsByNamesAsync
 
 ##### 接口声明
 
@@ -318,7 +318,7 @@ if (ips && ips.count > 1) {
 	}
 }];
 // 批量域名查询
-[[MSDKDns sharedInstance] WGGetHostByNamesAsync:@[@"qq.com", @"dnspod.cn"] returnIps:^(NSDictionary *ipsDict) {
+[[MSDKDns sharedInstance] WGGetHostsByNamesAsync:@[@"qq.com", @"dnspod.cn"] returnIps:^(NSDictionary *ipsDict) {
 	//等待完整解析过程结束后，拿到结果，进行连接操作
 	NSArray *ips = [ipsDict objectForKey: @"qq.com"];
 	if (ips && ips.count > 1) {

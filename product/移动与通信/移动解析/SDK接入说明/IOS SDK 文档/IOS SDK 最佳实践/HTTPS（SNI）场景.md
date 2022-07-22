@@ -1,5 +1,5 @@
 
-### 原理
+## 原理
 
 SNI（Server Name Indication）是为了解决一个服务器使用多个域名和证书的 SSL/TLS 扩展。它的工作原理如下：
 - 在连接到服务器建立 SSL 链接之前先发送要访问站点的域名（Hostname）。
@@ -13,7 +13,7 @@ SNI（Server Name Indication）是为了解决一个服务器使用多个域名�
 - 使用 NSURLConnection 发 POST 请求。
 - 先将 HTTPBody 放入 HTTP Header field 中，然后在 NSURLProtocol 中再取出来。
 
-### Demo 示例
+## Demo 示例
 
 在网络请求前注册 NSURLProtocol 子类，在示例的 SNIViewController.m 中。
 ```
@@ -70,7 +70,7 @@ self.task = [session dataTaskWithRequest:request];
 // NSURLSessionTask *task = [session dataTaskWithRequest:_request];
 // [task resume];
 ```
-### 使用说明
+## 使用说明
 需调用以下接口设置需要拦截域名或无需拦截的域名：
 ```
 #pragma mark - SNI 场景，仅调用一次即可，请勿多次调用
