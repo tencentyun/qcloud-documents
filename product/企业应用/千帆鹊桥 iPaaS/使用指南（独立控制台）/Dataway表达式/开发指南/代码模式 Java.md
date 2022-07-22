@@ -47,7 +47,7 @@ public class Handler {
     <tr>
         <th>类型名</th>
         <th>类型描述</th>
-        <th>对应 python 类型</th>
+        <th>对应 Python 类型</th>
         <th>类型举例</th>
         <th>类型方法</th>
     </tr>
@@ -60,92 +60,92 @@ public class Handler {
     </tr>
     <tr>
         <td>String</td>
-        <td>字符串，即 java 原生的字符串 String</td>
+        <td>字符串，即 Java 原生的字符串 String</td>
         <td>str</td>
         <td>“abc”</td>
         <td>略</td>
     </tr>
     <tr>
         <td>Boolean</td>
-        <td>布尔值，即 java 原生布尔值 bool</td>
+        <td>布尔值，即 Java 原生布尔值 bool</td>
         <td>bool</td>
         <td>true/false</td>
         <td>略</td>
     </tr>
     <tr>
         <td>float/Float</td>
-        <td>浮点数，即 java 原生浮点数 float</td>
+        <td>浮点数，即 Java 原生浮点数 float</td>
         <td>float</td>
         <td>123.456</td>
         <td>略</td>
     </tr>
     <tr>
         <td>int/Integer</td>
-        <td>整数，即 java 原生整型 int</td>
+        <td>整数，即 Java 原生整型 int</td>
         <td rowspan="3">int</td>
         <td>123</td>
         <td>略</td>
     </tr>
     <tr>
         <td>long/Long</td>
-        <td>长整数，即 java 原生长整型 Long</td>
+        <td>长整数，即 Java 原生长整型 Long</td>
         <td>123L</td>
         <td>略</td>
     </tr>
     <tr>
         <td>short/Short</td>
-        <td>短整数，即 java 原生短整型 Short</td>
+        <td>短整数，即 Java 原生短整型 Short</td>
         <td>123</td>
         <td>略</td>
     </tr>
     <tr>
         <td>byte[]</td>
-        <td>字节数组，即 java 字节数组类型 byte[]</td>
+        <td>字节数组，即 Java 字节数组类型 byte[]</td>
         <td>bytes</td>
         <td>byte[]{1,2,3}</td>
         <td>略</td>
     </tr>
     <tr>
         <td>java.util.List</td>
-        <td>列表，序列类型容器，即 java 原生 List 类型</td>
+        <td>列表，序列类型容器，即 Java 原生 List 类型</td>
         <td>list</td>
         <td>new java.util.ArrayList&lt;&gt;()</td>
-        <td>详情可参考：https://docs.oracle.com/javase/8/docs/api/java/util/List.html</td>
+        <td>详情可参考 <a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html">官方文档</a></td>
     </tr>
     <tr>
         <td>java.util.Map</td>
-        <td>字典，kv 类型容器，即 java 原生 Map 类型</td>
+        <td>字典，kv 类型容器，即 Java 原生 Map 类型</td>
         <td>dict</td>
         <td>new java.util.HashMap&lt;&gt;()</td>
-        <td>详情可参考：https://docs.oracle.com/javase/8/docs/api/java/util/Map.html</td>
+        <td>详情可参考 <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Map.html">官方文档</a></td>
     </tr>
     <tr>
         <td>java.time.OffsetDateTime</td>
-        <td>时间，即 java 原生的 OffsetDateTime</td>
+        <td>时间，即 Java 原生的 OffsetDateTime</td>
         <td>datetime.datetime</td>
         <td>java.time.OffsetDateTime.now()</td>
-        <td>详情可参考：https://docs.oracle.com/javase/8/docs/api/java/time/OffsetDateTime.html</td>
+        <td>详情可参考 <a href="https://docs.oracle.com/javase/8/docs/api/java/time/OffsetDateTime.html">官方文档</a></td>
     </tr>
     <tr>
         <td>java.time.LocalDate</td>
-        <td>日期，即 java 原生的 LocalDate</td>
+        <td>日期，即 Java 原生的 LocalDate</td>
         <td>datetime.date</td>
         <td>java.time.LocalDate.now()</td>
-        <td>详情可参考：https://docs.oracle.com/javase/8/docs/api/java/time/LocalDate.html</td>
+        <td>详情可参考 <a href="https://docs.oracle.com/javase/8/docs/api/java/time/LocalDate.html">官方文档</a></td>
     </tr>
     <tr>
         <td>java.time.OffsetTime</td>
-        <td>时钟，即 java 原生的 OffsetTime</td>
+        <td>时钟，即 Java 原生的 OffsetTime</td>
         <td>datetime.time</td>
         <td>java.time.OffsetTime.now()</td>
-        <td>详情可参考：https://docs.oracle.com/javase/8/docs/api/java/time/OffsetTime.html</td>
+        <td>详情可参考 <a href="https://docs.oracle.com/javase/8/docs/api/java/time/OffsetTime.html">官方文档</a></td>
     </tr>
     <tr>
         <td>java.math.BigDecimal</td>
-        <td>十进制数，即 java 原生的 BigDecimal</td>
+        <td>十进制数，即 Java 原生的 BigDecimal</td>
         <td>decimal.Decimal</td>
         <td>new java.math.BigDecimal("1") </td>
-        <td>详情可参考：https://docs.oracle.com/javase/8/docs/api/java/math/BigDecimal.html</td>
+        <td>详情可参考 <a href="https://docs.oracle.com/javase/8/docs/api/java/math/BigDecimal.html">官方文档</a></td>
     </tr>
     <tr>
         <td>com.tencent.ipaas.dataway.common.message.Entity（数据连接器特有类型）</td>

@@ -4,8 +4,7 @@
 - TDSQL MySQL 到腾讯云数据库 MariaDB 的数据同步
 - TDSQL MySQL 到腾讯云数据库 MySQL 的数据同步 
 - MySQL/MariaDB/Percona 到 TDSQL MySQL 的数据同步（源数据库类型为自建或者腾讯云 MySQL、自建或者腾讯云 MariaDB、自建 Percona）
->?如需体验本章节中 TDSQL MySQL 的同步功能，请先 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行申请。
->
+
 
 ## 注意事项
 - DTS 在执行全量数据同步时，会占用一定源端实例资源，可能会导致源实例负载上升，增加数据库自身压力。如果您数据库配置过低，建议您在业务低峰期进行。
@@ -72,7 +71,9 @@ FLUSH PRIVILEGES;
 <li>源端 binlog_row_image 变量必须设置为 FULL。</li>
 <li>MySQL 5.6 及以上版本 gtid_mode 变量不为 ON 时会报警告，建议打开 gtid_mode。</li>
 <li>不允许设置 do_db, ignore_db。</li>
-<li>源实例为从库时，log_slave_updates 变量必须设置为 ON。</li></ul></li>
+<li>源实例为从库时，log_slave_updates 变量必须设置为 ON。</li>
+   <li>建议源库 Binlog 日志至少保留3天及以上，否则可能会因任务暂停/中断时间大于 Binlog 日志保留时间，造成任务无法续传，进而导致任务失败。</li>
+  </ul></li>
 <li>外键依赖：
 <ul>
 <li>外键依赖只能设置为 NO ACTION，RESTRICT 两种类型。</li>

@@ -8,7 +8,7 @@ TKE IPv4/IPv6 双栈基于集群维度，即需要先创建一个 TKE IPv4/IPv6 
 2. 在 IPv4/IPv6 双栈类型的 VPC 中创建 IPv4/IPv6 双栈类型子网，具体方式先创建 IPv4 类型子网，然后再开启 IPv6，操作详情见 [搭建 IPv6 私有网络](https://cloud.tencent.com/document/product/215/47557)。
 
 ## 相关约束
-- 目前支持地域为北京、上海、广州、上海金融、深圳金融、北京金融、成都、重庆、南京、香港、新加坡、弗吉尼亚。
+- 目前支持地域为北京、上海、广州、上海金融、深圳金融、北京金融、成都、重庆、南京、中国香港、新加坡、弗吉尼亚。
 - 目前仅支持 IPv4/IPv6 双栈类型 Service，暂不支持 IPv4/IPv6 双栈类型 Ingress。
 
 ## 操作步骤
@@ -21,17 +21,17 @@ TKE IPv4/IPv6 双栈基于集群维度，即需要先创建一个 TKE IPv4/IPv6 
 >- IPv4/IPv6 双栈，其 Kubernetes 版本必须是 1.22 版本及以上。
 >- 使用 IPv4/IPv6 双栈必须 VPC 和 CLB 支持 IPv6，以上展示地域为 VPC 和 CLB IPv6 支持地域。
 >- IPv4/IPv6 双栈只支持 VPC-CNI 共享网卡模式，不支持固定 Pod IP，在选择集群网络、容器子网时，必须选 IPv4/IPv6 双栈 VPC 和子网。
->- 操作系统支持类型为 tlinux2.2(tkernel3)、tlinux2.4(tkernel3)、tlinux2.6(tkernel3)、tlinux3.1(tkernel4)、tlinux3.2(tkernel4)、ubuntu18、ubuntu20、centos7.6、centos7.8。
+>- 操作系统支持类型为 ubuntu18、ubuntu20、centos7.6、TencentOS Server 3.1 (TK4) 即 tlinux3.1(TK4)、TencentOS Server 2.6 (TK4) 即 tlinux2.6(TK4）。
 
 ### 步骤二：双栈集群创建完成后节点/节点池管理
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，单击集群 ID，进入详情页。
 2. 选择**节点管理 > 节点**，单击**新建节点**。参考如下信息进行设置：
 ![](https://qcloudimg.tencent-cloud.cn/raw/042f859dc5f22bb994863fd28d4c4343.png)
- - **操作系统**：选择操作系统支持类型为 tlinux2.2(tkernel3)、tlinux2.4(tkernel3)、tlinux2.6(tkernel3)、tlinux3.1(tkernel4)、tlinux3.2(tkernel4)、ubuntu18、ubuntu20、centos7.6、centos7.8。
+ - **操作系统**：选择操作系统支持类型为 ubuntu18、ubuntu20、centos7.6、TencentOS Server 3.1 (TK4) 即 tlinux3.1(TK4)、TencentOS Server 2.6 (TK4) 即 tlinux2.6(TK4）。
  - **集群网络**：集群网络选择 IPv4/IPv6 双栈子网。
 3. 选择**节点管理 > 节点池**，单击**新建节点池**。参考如下信息进行设置：
 ![](https://qcloudimg.tencent-cloud.cn/raw/3d3c0562da21f76f6c0b117b2e2cb575.png)
- - **操作系统**：选择操作系统支持类型为 tlinux2.2(tkernel3)、tlinux2.4(tkernel3)、tlinux2.6(tkernel3)、tlinux3.1(tkernel4)、tlinux3.2(tkernel4)、ubuntu18、ubuntu20、centos7.6、centos7.8。
+ - **操作系统**：选择操作系统支持类型为 ubuntu18、ubuntu20、centos7.6、TencentOS Server 3.1 (TK4) 即 tlinux3.1(TK4)、TencentOS Server 2.6 (TK4) 即 tlinux2.6(TK4）。
  - **集群网络**：集群网络选择 IPv4/IPv6 双栈子网。
 
 ### 步骤三：双栈集群创建完成后集群信息展示
@@ -79,7 +79,7 @@ TKE IPv4/IPv6 双栈基于集群维度，即需要先创建一个 TKE IPv4/IPv6 
 - 负载均衡器使用已有选项，只能选择 IPv6 CLB。
 :::
 ::: 内网 LoadBalance 类型
-针对内网 LoadBalance 类型，您可进行如下设置：
+针对内网 LoadBalance 类型，您需进行如下设置：
 当前 CLB 不支持内网 IPv6，因此 TKE Servcie 内网 LoadBalance 类型也只能支持 IPv4 单栈方式。
 ![](https://qcloudimg.tencent-cloud.cn/raw/2e58bcc2aa816201740f6add186bf623.png)
 - 对 Service 中 ipFamilyPolicy 进行展示。
