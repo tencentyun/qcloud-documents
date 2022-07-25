@@ -5,10 +5,10 @@ FCM 通道是谷歌推出的系统级推送通道，在国外具备谷歌 Servic
 ### 获取密钥
 FCM 推送支持两种密钥配置，以下方式二选一，推荐使用“服务器私钥”的新协议方式。
 1. 服务器私钥 （推荐）
-进入 [FireBase 官网](https://firebase.google.com/?hl=zh-cn)，注册应用信息。在 **Firebase 项目** > **选择具体的项目应用** > **设置** > **服务账号** > **Firebase Admin SDK**，单击**生成新的私钥**，获取到 Firebase 服务器私钥 json 文件。然后进入 [**移动推送 TPNS 控制台**](https://console.cloud.tencent.com/tpns) > **配置管理** > **基础配置** > **FCM 官方推送通道** 栏目中，选中“（推荐）服务器私钥”，单击**点击上传**，上传获取到的 json 文件。
+进入 [FireBase 官网](https://firebase.google.com/?hl=zh-cn)，注册应用信息。在 **Firebase 项目** > **选择具体的项目应用** > **设置** > **服务账号** > **Firebase Admin SDK**，单击**生成新的私钥**，获取到 Firebase 服务器私钥 json 文件。然后进入 [**移动推送控制台**](https://console.cloud.tencent.com/tpns) > **配置管理** > **基础配置** > **FCM 官方推送通道** 栏目中，选中“（推荐）服务器私钥”，单击**点击上传**，上传获取到的 json 文件。
 ![](https://qcloudimg.tencent-cloud.cn/raw/3a129ce4ab18e3d31c3ba2389e9b03cf.png)
 2. 旧版服务器密钥
-进入 [FireBase 官网](https://firebase.google.com/?hl=zh-cn)，注册应用信息。在**Firebase 项目** > **选择具体的项目应用** > **设置** > **云消息传递** 获取到的 FCM 应用推送 **服务器密钥**，并配置到 [**移动推送 TPNS 控制台**](https://console.cloud.tencent.com/tpns) > **配置管理** > **基础配置** > **FCM 官方推送通道** 栏目中。
+进入 [FireBase 官网](https://firebase.google.com/?hl=zh-cn)，注册应用信息。在**Firebase 项目** > **选择具体的项目应用** > **设置** > **云消息传递** 获取到的 FCM 应用推送 **服务器密钥**，并配置到 [**移动推送控制台**](https://console.cloud.tencent.com/tpns) > **配置管理** > **基础配置** > **FCM 官方推送通道** 栏目中。
 ![](https://main.qcloudimg.com/raw/d82c9dd04fe986ffc35a57e30eefce4f.png)
 ### 配置内容
 1. 配置 google-services.json 文件。如图所示：
@@ -34,7 +34,7 @@ classpath 'com.google.gms:google-services:4.2.0'
 
 
 ### 启用 FCM 推送
-在调用移动推送 TPNS 注册代码 XGPushManager.registerPush 前，添加以下代码设置：
+在调用移动推送注册代码 XGPushManager.registerPush 前，添加以下代码设置：
 
 ```java
 XGPushConfig.enableOtherPush(this, true);

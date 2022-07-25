@@ -44,5 +44,7 @@
 ### 配置播放器
 使用直播 DRM 加密功能对播放器有一定要求：
 - 播放器需要与 [华曦达（SDMC）](https://www.xmediacloud.com/contact-us/) 做对接，实现通过视频信息获取 License 并解密的能力。
-- iOS 平台支持 Fairplay ，Android平台支持 WideVine 及 NomalAES。
+- iOS 平台支持 Fairplay ，Android 平台支持 WideVine 及 NomalAES。
 - iOS 平台需要申请证书并上传至 [华曦达（SDMC）平台](https://www.xmediacloud.com/contact-us/)。
+
+>? 在您对接 DRM 或者华曦达的过程中的任何问题，都可以提工单 [联系我们](https://console.cloud.tencent.com/workorder/category)，我们全程负责帮您解决。

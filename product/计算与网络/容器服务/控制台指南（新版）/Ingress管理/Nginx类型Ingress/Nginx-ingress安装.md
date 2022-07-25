@@ -5,8 +5,6 @@
 
 
 ## 安装 NginxIngress 组件[](id:Nginx-ingress)
->? 如果您需要安装 NginxIngress 组件，可通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 来联系我们。
->
 
 
 

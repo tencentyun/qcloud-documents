@@ -42,8 +42,9 @@ SSL 协议要求建立在可靠的传输层协议（TCP）之上，其优势在�
 2. 在对应数据库上单击鼠标右键，选择**编辑连接**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/b2616fec8f18bef820c74a2236787332.png)
 3. 选择 SSL 页签，选择.pem 格式 CA 证书的路径。完成下图设置后单击**确定**。
-![](https://qcloudimg.tencent-cloud.cn/raw/4ce97b6daec9de58d0c4bdcd9264c1f3.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/df0f9ff3b6478cad06e54f456d9f76c3.png)
 >?如果出现 connection is being used 报错，可能由于之前的会话未断开，请关闭 Navicat 后重试。
+>
 4. 双击对应数据库，测试能否正常连接。
 ![](https://qcloudimg.tencent-cloud.cn/raw/c39f48b8fb1659588fc8d89e7970acb5.png)
 

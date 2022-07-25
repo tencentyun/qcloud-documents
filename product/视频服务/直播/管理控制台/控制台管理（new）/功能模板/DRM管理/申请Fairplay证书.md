@@ -61,3 +61,6 @@ openssl req -new -sha1 -key privatekey.pem -out certreq.csr -subj "/CN=SubjectNa
 ![](https://qcloudimg.tencent-cloud.cn/raw/b6e7c92bab1dc0c7efa7b8bbfc179303.png)
 3. 上传 FPS 证书文件、私钥文件、私钥密码文件和 ASK 文件，然后单击 **OK** 进行上传。
 ![](https://qcloudimg.tencent-cloud.cn/raw/c318449d607d21ed74d2aaaa89119f9e.png)
+
+
+>? 在您对接 DRM 或者华曦达的过程中的任何问题，都可以提工单 [联系我们](https://console.cloud.tencent.com/workorder/category)，我们全程负责帮您解决。
