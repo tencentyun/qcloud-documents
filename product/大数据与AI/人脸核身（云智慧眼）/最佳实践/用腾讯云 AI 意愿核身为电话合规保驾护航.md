@@ -169,6 +169,10 @@ public class GetDetectInfoEnhanced
     }
 }
 ```
+## 意愿核身效果展示
+接入意愿核身的效果展示请参见 [意愿核身实践 Demo 演示](https://cloud.tencent.com/developer/video/31897)。
+
+
 
 ## 查询调用量
 登录 [人脸核身控制台](https://console.cloud.tencent.com/faceid/access)，在**计费统计**页面，可查看意愿核身的计费量情况。
