@@ -146,7 +146,10 @@ msdkDns?.initConfig(with: [
 
 
 
-### 同步解析接口：WGGetHostByName、WGGetHostsByNames
+### 同步解析接口 
+
+#### 接口名称
+WGGetHostByName、WGGetHostsByNames
 
 #### 接口声明
 
@@ -201,7 +204,10 @@ if (ips && ips.count > 1) {
 }
 ```
 
-### 异步解析接口：WGGetHostByNameAsync、WGGetHostsByNamesAsync
+### 异步解析接口
+
+#### 接口名称
+WGGetHostByNameAsync、WGGetHostsByNamesAsync
 
 #### 接口声明
 
