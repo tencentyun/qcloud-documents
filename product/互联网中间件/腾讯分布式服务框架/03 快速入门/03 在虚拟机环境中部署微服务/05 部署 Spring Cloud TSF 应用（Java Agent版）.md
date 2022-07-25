@@ -9,7 +9,19 @@ Java Agent 是 Java 1.5 版本之后引⼊的特性，可以被理解为 JVM 虚
 ## 前提条件
 请确保您已经参见 [下载 Maven](https://cloud.tencent.com/document/product/649/20231) 下载安装了 Java 和 Maven，并且配置了 TSF 私服地址。
 
-> ? 目前 同时请确保 SDK 版本高于**2020**。
+> ? 目前仅支持 **Spring Cloud 2020** 使用 Java Agent 接入 TSF 平台。
+
+以下表格是目前支持的 Agent 插件以及其对应功能的详细说明
+| Agent 插件名称       | 插件说明 |
+| :------------------ | ------------- |
+| 服务 Agent           | 支持 TSF 服务注册发现、服务治理以及应用配置管理能力 |
+| 可观测 Agent         | 支持 TSF 应用性能监控能力，包括调用链、数据指标监控等 |
+
+以下表格是 Spring Cloud 版本以及对应支持 Agent 插件的详细说明
+| 开源 Spring Cloud 版本  | 服务 Agent | 可观测 Agent |
+| :--------------------- | ---------- | ---------- |
+| Spring Cloud 2020      | 支持        | 支持       |
+
 ## 操作步骤
 >?[步骤1](#step1) 和 [步骤2](#step2) 与其他模块一样，已经使用过其他模块的可直接跳至 [步骤3](#step3)。
 [](id:step1)
