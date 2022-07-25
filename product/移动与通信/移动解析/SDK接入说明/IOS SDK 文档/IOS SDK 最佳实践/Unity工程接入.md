@@ -1,5 +1,5 @@
 
-## 接入步骤
+## 操作步骤
 
 1. 将 HTTPDNSUnityDemo/Assets/Plugins/Scripts 下的 **HttpDns.cs** 文件拷贝到 Unity 对应 Assets/Plugins/Scripts 路径下。
 2. 在需要进行域名解析的部分，调用 HttpDns.GetAddrByName(string domain) 或者 HttpDns.GetAddrByNameAsync(string domain) 方法。
