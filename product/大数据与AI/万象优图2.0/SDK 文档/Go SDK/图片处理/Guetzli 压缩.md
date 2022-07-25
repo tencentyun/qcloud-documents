@@ -1,13 +1,12 @@
-
 ## 简介
 
 本文档提供关于 Guetzli 压缩的相关的 API 概览以及 SDK 示例代码。
 
-| API           |  操作描述               |
-| :--------------- | :------------------ |
+| API                                                          | 操作描述                          |
+| :----------------------------------------------------------- | :-------------------------------- |
 | [开通 Guetzli 压缩](https://cloud.tencent.com/document/product/460/30112) | 对 Bucket 开通 Guetzli 压缩功能   |
-| [查询 Guetzli 状态](https://cloud.tencent.com/document/product/460/30111) |用于查询 Guetzli 压缩功能是否开启 |
-|[关闭 Guetzli 压缩](https://cloud.tencent.com/document/product/460/30113)  |   用于关闭 Guetzli 压缩功能   |
+| [查询 Guetzli 状态](https://cloud.tencent.com/document/product/460/30111) | 用于查询 Guetzli 压缩功能是否开启 |
+| [关闭 Guetzli 压缩](https://cloud.tencent.com/document/product/460/30113) | 用于关闭 Guetzli 压缩功能         |
 
 
 ## 开通 Guetzli 压缩
@@ -80,8 +79,8 @@ type GetGuetzliResult struct {
 }
 ```
 
-| 节点名称      | 描述                                                    | 类型   |
-| :------------ | :------------------------------------------------------ | :----- |
+| 节点名称      | 描述                                                     | 类型   |
+| :------------ | :------------------------------------------------------- | :----- |
 | GuetzliStatus | 是否开启 Guetzli 压缩功能，拥有 `on` 与 `off` 两种状态。 | String |
 
 ## 关闭 Guetzli 压缩
