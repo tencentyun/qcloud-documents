@@ -1,7 +1,7 @@
 
 ## 原理
 
-SNI（Server Name Indication）是为了解决一个服务器使用多个域名和证书的 SSL/TLS 扩展。它的工作原理如下：
+SNI（Server Name Indication）是为了解决一个服务器使用多个域名和证书的 SSL/TLS 扩展。工作原理如下：
 - 在连接到服务器建立 SSL 链接之前先发送要访问站点的域名（Hostname）。
 - 服务器根据这个域名返回一个合适的证书。
 
@@ -70,6 +70,8 @@ self.task = [session dataTaskWithRequest:request];
 // NSURLSessionTask *task = [session dataTaskWithRequest:_request];
 // [task resume];
 ```
+
+
 ## 使用说明
 需调用以下接口设置需要拦截域名或无需拦截的域名：
 ```
@@ -89,8 +91,14 @@ self.task = [session dataTaskWithRequest:request];
  */
  - (void) WGSetNoHijackDomainArray:(NSArray *)noHijackDomainArray;
 ```
-- 如设置了需要拦截的域名列表，则仅会拦截处理该域名列表中的 HTTPS 请求，其它域名不做处理。
+- 如设置了需要拦截的域名列表，则仅会拦截处理该域名列表中的 HTTPS 请求，其他域名不做处理。
 - 如设置了不需要拦截的域名列表，则不会拦截处理该域名列表中的 HTTPS 请求。
 
->!建议使用 WGSetHijackDomainArray 仅拦截 SNI 场景下的域名，避免拦截其它场景下的域名。
+
+
+<dx-alert infotype="notice" title="">
+建议使用 WGSetHijackDomainArray 仅拦截 SNI 场景下的域名，避免拦截其他场景下的域名。
+</dx-alert>
+
+
 
