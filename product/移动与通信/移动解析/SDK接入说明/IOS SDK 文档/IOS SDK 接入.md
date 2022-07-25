@@ -61,7 +61,7 @@
 <dx-tabs>
 ::: 已接入灯塔（Beacon）的业务
 
-仅需引入位于 HTTPDNSLibs 目录下的 `MSDKDns.framework`（或 `MSDKDns_C11.framework`，根据工程配置选其一）即可。
+仅需引入位于 HTTPDNSLibs 目录下的 MSDKDns.framework（或 MSDKDns_C11.framework，根据工程配置选其一）即可。
 :::
 ::: 未接入灯塔（Beacon）的业务
 
