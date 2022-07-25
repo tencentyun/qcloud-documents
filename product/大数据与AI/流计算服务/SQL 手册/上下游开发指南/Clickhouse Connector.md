@@ -184,7 +184,7 @@ insert into clickhouse_sink_table select * from datagen_source_table;
 
 如果 ClickHouse 底层表引擎使用 CollapsingMergeTree，则可以通过 `table.collapsing.field` 参数来指定 Sign 字段。它的原理是通过发送内容相同，但符号（Sign）相反的消息，来实现旧数据的删除（抵消），以及新数据的插入。
 
-此外，在生产环境中，一般会使用 ReplicatedCollapsingMergeTree，而 `ReplicatedMergeTree` 的 deduplicated 可能会使得短期内多次写入到 ClickHouse 的数据被判断为重复数据，导致数据丢失。此时，可在建表（或者修改表）时，指定 `replicated_deduplication_window=0`，以关闭 deduplicated 功能。
+此外，在生产环境中，一般会使用 ReplicatedCollapsingMergeTree，而 `ReplicatedMergeTree` 的自动去重可能会使得短期内多次写入到 ClickHouse 的数据被判断为重复数据，导致数据丢失。此时，可在建表（或者修改表）时，指定 `replicated_deduplication_window=0`，以关闭自动去重功能。
 
 例如：
 
@@ -192,7 +192,7 @@ insert into clickhouse_sink_table select * from datagen_source_table;
 CREATE TABLE testdb.testtable on cluster default_cluster (`id` Int32,`name` Nullable(String),`age` Nullable(Int32),`weight` Nullable(Float64),`Sign` Int8) ENGINE = ReplicatedCollapsingMergeTree('/clickhouse/tables/{layer}-{shard}/testdb/testtable', '{replica}', Sign) ORDER BY id SETTINGS  replicated_deduplication_window = 0;
 ```
 
-deduplicated 更多详情可参见 [Data Replication](https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/replication/)。
+自动去重更多详情可参见 [Data Replication](https://clickhouse.tech/docs/en/engines/table-engines/mergetree-family/replication/)。
 
 #### ClickHouse 分布式表的 sharding_key
 
