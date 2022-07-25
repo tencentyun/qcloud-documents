@@ -466,7 +466,7 @@ public static void enableError();
 
 
 ## 错误码
-- 后端错误码，详情请详见 [API 文档](https://cloud.tencent.com/document/product/1093/48982)。
+- 后端错误码，详情请参见 [API 文档](https://cloud.tencent.com/document/product/1093/48982)。
 - 客户端错误码如下：
 
 | 错误码 | 名称                                | 描述                           |
