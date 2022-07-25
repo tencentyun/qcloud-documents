@@ -1,4 +1,4 @@
-除了使用传统的 [pg_dump 和 pg_restore](https://cloud.tencent.com/document/product/409/7552) 方法进行数据导入和导出之外，腾讯云数据库提供了数据传输服务 DTS 以支持数据迁移上云以及云上实例数据迁移的功能。
+除了使用传统的 pg_dump 和 pg_restore 方法进行数据导入和导出之外，腾讯云数据库提供了数据传输服务 DTS 以支持数据迁移上云以及云上实例数据迁移的功能。
 
 ## 支持功能
 - 支持云下自建 PostgreSQL 迁移至腾讯云数据库。
