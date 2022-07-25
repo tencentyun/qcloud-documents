@@ -1,6 +1,3 @@
-Android SDK 接入请观看视频：
-<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/1692-20716?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
-
 ## 接入准备
 ### SDK 获取
 实时语音识别 Android SDK 及 Demo 下载地址：[接入 SDK 下载](https://console.cloud.tencent.com/asr/download)。
@@ -58,17 +55,17 @@ try {
 
      // 2、初始化语音识别请求。
     final AudioRecognizeRequest audioRecognizeRequest = builder
-           //设置数据源，数据源要求实现PcmAudioDataSource接口，您可以自己实现此接口来定制您的自定义数据源，例如从第三方推流中获
-					.pcmAudioDataSource(new AudioRecordDataSource(false)) // 使用SDK内置录音器作为数据源,false:不保存音频
-          .setEngineModelType("16k_zh") // 设置引擎参数("16k_zh" 通用引擎，支持中文普通话+英文)
-          .setFilterDirty(0)  // 0 ：默认状态 不过滤脏话 1：过滤脏话
-          .setFilterModal(0) // 0 ：默认状态 不过滤语气词  1：过滤部分语气词 2:严格过滤
-          .setFilterPunc(0) // 0 ：默认状态 不过滤句末的句号 1：滤句末的句号
-          .setConvert_num_mode(1) //1：默认状态 根据场景智能转换为阿拉伯数字；0：全部转为中文数字。
-          .setNeedvad(1) //0：关闭 vad，1：默认状态 开启 vad。语音时长超过一分钟需要开启,如果对实时性要求较高,并且时间较短的输入,建议关闭
+		//设置数据源，数据源要求实现PcmAudioDataSource接口，您可以自己实现此接口来定制您的自定义数据源，例如从第三方推流中获
+		.pcmAudioDataSource(new AudioRecordDataSource(false)) // 使用SDK内置录音器作为数据源,false:不保存音频
+		.setEngineModelType("16k_zh") // 设置引擎参数("16k_zh" 通用引擎，支持中文普通话+英文)
+		.setFilterDirty(0)  // 0 ：默认状态 不过滤脏话 1：过滤脏话
+		.setFilterModal(0) // 0 ：默认状态 不过滤语气词  1：过滤部分语气词 2:严格过滤
+		.setFilterPunc(0) // 0 ：默认状态 不过滤句末的句号 1：滤句末的句号
+		.setConvert_num_mode(1) //1：默认状态 根据场景智能转换为阿拉伯数字；0：全部转为中文数字。
+		.setNeedvad(1) //0：关闭 vad，1：默认状态 开启 vad。语音时长超过一分钟需要开启,如果对实时性要求较高,并且时间较短的输入,建议关闭
 					// .setHotWordId("")//热词 id。用于调用对应的热词表，如果在调用语音识别服务时，不进行单独的热词 id 设置，自动生效默认热词；如果进行了单独的热词 id 设置，那么将生效单独设置的热词 id。
 					//.setCustomizationId("")//自学习模型 id。如不设置该参数，自动生效最后一次上线的自学习模型；如果设置了该参数，那么将生效对应的自学习模型
-           .build();
+		.build();
 
     // 3、初始化语音识别结果监听器。
     final AudioRecognizeResultListener audioRecognizeResultlistener = new AudioRecognizeResultListener() {
@@ -340,9 +337,9 @@ void onFailure(AudioRecognizeRequest request, final ClientException clientExcept
 ```
 AudioRecognizeConfiguration audioRecognizeConfiguration = new AudioRecognizeConfiguration.Builder()
     .setSilentDetectTimeOut(true)// 是否开启静音检测，开启后检测到超时不说话将停止识别
-        .audioFlowSilenceTimeOut(5000) // 静音检测超时停止录音
-        .minVolumeCallbackTime(80) // 音量回调时间
-        .build();
+    .audioFlowSilenceTimeOut(5000) // 静音检测超时停止录音
+    .minVolumeCallbackTime(80) // 音量回调时间
+    .build();
 ```
 
 ### 设置状态监听器
