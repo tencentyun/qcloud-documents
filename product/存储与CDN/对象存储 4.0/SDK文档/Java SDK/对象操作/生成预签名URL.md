@@ -317,3 +317,49 @@ HttpMethodName method = HttpMethodName.GET;
 
 String sign = signer.buildAuthorizationStr(method, key, headers, params, cred, expirationDate, true);
 ```
+
+### 生成限速的预签名下载 URL
+
+单链接限速的使用说明可参见[这篇文档](https://cloud.tencent.com/document/product/436/40140)。
+
+#### 请求示例
+
+以生成限速的预签名下载 URL为例：
+
+```
+public static void GenerateSimplePresignedDownloadUrl() {
+        // 1 初始化用户身份信息(secretId, secretKey)
+        COSCredentials cred = new BasicCOSCredentials("secretId", "secretKey");
+        // 2 设置bucket的区域, COS地域的简称请参照 https://www.qcloud.com/document/product/436/6224
+        ClientConfig clientConfig = new ClientConfig(new Region("COS_REGION"));
+        // 如果要获取 https 的 url 则在此设置，否则默认获取的是 http url
+        clientConfig.setHttpProtocol(HttpProtocol.https);
+        // 3 生成cos客户端
+        COSClient cosclient = new COSClient(cred, clientConfig);
+        // bucket名需包含appid
+        String bucketName = "examplebucket-1250000000";
+        
+        String key = "exampleobject";
+        GeneratePresignedUrlRequest req =
+                new GeneratePresignedUrlRequest(bucketName, key, HttpMethodName.GET);
+        // 设置签名过期时间(可选), 若未进行设置则默认使用ClientConfig中的签名过期时间(1小时)
+        // 这里设置签名在半个小时后过期
+        Date expirationDate = new Date(System.currentTimeMillis() + 30 * 60 * 1000);
+        req.setExpiration(expirationDate);
+
+        // 填写本次请求的参数
+        // 设定限速值，例如128KB/s
+        req.addRequestParameter("x-cos-traffic-limit", "1048576");
+
+        // 填写本次请求的头部。Host 必填
+        req.putCustomRequestHeader(Headers.HOST,
+        cosclient.getClientConfig().getEndpointBuilder().buildGeneralApiEndpoint(bucketName));
+        //req.putCustomRequestHeader("header1", "value1");
+
+        URL url = cosclient.generatePresignedUrl(req);
+        System.out.println(url.toString());
+
+        cosclient.shutdown();
+    }
+```
+
