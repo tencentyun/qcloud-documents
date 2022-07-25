@@ -1,5 +1,5 @@
-## 操作场景
-本文提供了 GooseFS 集成 MinIO 的步骤。由于 GooseFS、MinIO 和 COS 三者均支持 AWS S3 协议，因此 GooseFS 可以很方便地与 MinIO 集成，下面将详细介绍操作步骤。
+## 简介
+本文提供了 GooseFS 集成 [MinIO](http://www.minio.org.cn/overview.shtml) 的步骤。由于 GooseFS、MinIO 和 COS 三者均支持 AWS S3 协议，因此 GooseFS 可以很方便地与 MinIO 集成，下面将详细介绍操作步骤。
 
 ## 前提条件
 
@@ -75,7 +75,7 @@ minio gateway s3 http://cos.ap-guangzhou.myqcloud.com
 ```
 这里的 ap-guangzhou 需要替换成正确的 Endpoint。
 启动成功后如图所示，至此，MinIO 已经可以正常地操作 COS。      
-![image](https://wdoc-76491.picgzc.qpic.cn/MTY4ODg1NjM2NzMyNDk0Mw_328202_4xd83yYK-2Ac8yJ5_1657201183?w=1280&amp;h=348.32232496697486)
+![](https://qcloudimg.tencent-cloud.cn/raw/a8ad6f3a890ab745b0a375faf1246c59.png)
 3. 记录如下三个值，用于配置 GooseFS。
  - API 对应 Endpoint。
  - RootUser 对应 SecretId。
@@ -95,7 +95,7 @@ vim cmd/gateway/s3/gateway-s3.go
 ```
 需要修改的函数是 randString，如下图所示。
 修改部分已高亮显示，即在139行末尾添加了+"-000000"。
-![image](https://wdoc-76491.picgzc.qpic.cn/MTY4ODg1NjM2NzMyNDk0Mw_14537_WcYz7U8KkW9TR3ac_1657180024?w=1280&amp;h=490.71960297766753)
+![](https://qcloudimg.tencent-cloud.cn/raw/03fd405bed2e6cc922f0ed75b2bf8eb5.png)
 3. 修改完成后，确认保存。
 4. 编译 MinIO。
 ```
@@ -149,9 +149,9 @@ aws.secretKey={SecretKey}
 ./bin/goosefs-start.sh local
 ```
 该命令执行完毕后，可以访问 `http://localhost:9201` 和 `http://localhost:9204`，分别查看 Master 和 Worker 的运行状态，并且可以检查参数是否生效。如下图所示：  
-![image](https://wdoc-76491.picgzc.qpic.cn/MTY4ODg1NjM2NzMyNDk0Mw_6655__3RBmgUhgHJQENcu_1657201643?w=1280&amp;h=433.36823734729495)
+![](https://qcloudimg.tencent-cloud.cn/raw/5203d442c2fb1573e7b27295a5cd28e6.png)
 启动成功后，如下图所示：
-![image](https://wdoc-76491.picgzc.qpic.cn/MTY4ODg1NjM2NzMyNDk0Mw_545414_mkEIrCvDUdE5Vy1b_1657201708?w=1154&amp;h=338)
+![](https://qcloudimg.tencent-cloud.cn/raw/13cde13c592cdd2bac17db9dce1de033.png)
         
 ### 测试
 
