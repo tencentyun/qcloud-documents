@@ -14,9 +14,9 @@
 
 ### 工程配置
 **在工程中添加依赖库，在 build Phases Link Binary With Libraries 中添加以下库：**
-- QCloudFileRecognizer.framework- 
-- libc++.tbd- 
-- AVFoundation.framework- 
+- QCloudFileRecognizer.framework
+- libc++.tbd
+- AVFoundation.framework
 - AudioToolbox.framework
 
 ### 类说明
