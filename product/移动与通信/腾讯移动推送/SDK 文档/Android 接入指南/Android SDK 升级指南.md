@@ -52,7 +52,7 @@ dependencies {
 ### 通过其他合集工具包集成
 若您的工程通过其他三方合集工具包集成（如 MSDK、GCloud 等），请优先参考合集工具包提供的升级指南。
 
-##移动推送Android SDK 1.3.2.0
+## 移动推送 Android SDK 1.3.2.0
 移动推送1.3.2.0 升级了各厂商推送依赖版本，版本详情如下：
 - 华为 : 6.3.0.302
 - 小米 : 4.9.1
@@ -151,7 +151,7 @@ implementation files('libs/commons-codec-1.15.jar')
 
 
 
-##移动推送Android SDK 1.3.1.1
+## 移动推送 Android SDK 1.3.1.1
 ### 通过 Eclipse 集成
 如您的工程通过手动引入 jar 文件集成，请注意以下内容变更。
 
@@ -209,12 +209,12 @@ implementation files('libs/commons-codec-1.15.jar')
     </receiver>
 ```
 
-##移动推送Android SDK 1.2.7.0
+## 移动推送 Android SDK 1.2.7.0
 
 ###  新增应用内消息补推能力
 新增是否允许应用内消息展示接口，请注意高版本 Android 使用 WebView 的兼容性详见 [Android 接口文档](https://cloud.tencent.com/document/product/548/36659#.E5.BA.94.E7.94.A8.E5.86.85.E6.B6.88.E6.81.AF.E5.B1.95.E7.A4.BA)。
 
-##移动推送Android SDK 1.2.5.0
+## 移动推送 Android SDK 1.2.5.0
 
 ###  1. 配置工程依赖环境（可选）
 
@@ -247,14 +247,14 @@ public class MessageReceiver extends XGPushBaseReceiver {
 ```
 
 
-##移动推送Android SDK 1.2.1.3
+## 移动推送 Android SDK 1.2.1.3
 ### 华为推送 SDK 接入变更
 此版本起正式支持华为推送 V5 版本 SDK，请参见 [华为通道 V5 接入](https://cloud.tencent.com/document/product/548/45909) 更新华为推送集成配置。
 
-##移动推送Android SDK 1.2.0.2
+## 移动推送Android SDK 1.2.0.2
 ### 通过 Eclipse 集成
 如您的工程通过手动引入 jar 文件集成，请注意以下内容变更。
-####移动推送主包
+#### 移动推送主包
 1. 替换 SDK 压缩包目录 libs 下的各 tpns-.jar 文件；
 2. 替换 SDK 压缩包目录 Other-Platform-SO 下的各平台 so 文件；
 3. 请在 AndroidManifest 文件 application 标签内移除以下节点：
