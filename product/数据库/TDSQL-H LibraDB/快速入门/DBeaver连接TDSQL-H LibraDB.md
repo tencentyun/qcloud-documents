@@ -56,7 +56,7 @@ DBeaver 是一款免费的多平台数据库工具，适用于开发人员、数
 
 连接 DBeaver 和 TDSQL-H LibraDB 实例后，您可以在 DBeaver 左侧查看到新建的 TDSQL-H LibraDB 实例连接，并可通过 SQL 编辑器执行 SQL。
 
-可通过 SQL 编辑器执行 SQL 语句的操作示例如下。更多执行 SQL 操作，请参见 [SQL 编辑器](https://github.com/dbeaver/dbeaver/wiki/SQL-Editor)。
+通过 SQL 编辑器执行 SQL 语句的操作示例如下。更多执行 SQL 操作，请参见 [SQL 编辑器](https://github.com/dbeaver/dbeaver/wiki/SQL-Editor)。
 
 1. 在创建的 TDSQL-H LibraDB 实例连接下，在界面顶部选择 **SQL 编辑器 > 新建 SQL 编辑器**。
   ![](https://qcloudimg.tencent-cloud.cn/raw/4d22eb276f4b01885eceaaeed64b9478.png)
