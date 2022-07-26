@@ -43,11 +43,11 @@
 
 
 ### 智能结构化识别 API 文档
-查看接口具体的使用说明，在文字识别的 API 文档中可以查看智能结构化识别的输入参数、输出参数、错误码、示例等信息。
+查看接口具体的使用说明，在文字识别的 [API 文档](https://cloud.tencent.com/document/product/866/60877?from=10680) 中可以查看智能结构化识别的输入参数、输出参数、错误码、示例等信息。
 ![](https://qcloudimg.tencent-cloud.cn/raw/a89c9e6be345094c17a972cf0d895e9c.png)
 
 ### 在线调试
-腾讯云 AI 文字识别提供了在线调用 API Explorer 工具，方便我们可视化调用，并生成调用代码，可以直观的看到请求参数和返回参数。
+腾讯云 AI 文字识别提供了在线调用 [API Explorer 工具](http://test.api.explorer.woa.com/apiexplorer/?Product=ocr&Version=2018-11-19&Action=RecognizeTravelCardOCR&SignVersion=)，方便我们可视化调用，并生成调用代码，可以直观的看到请求参数和返回参数。
 ![](https://qcloudimg.tencent-cloud.cn/raw/5f44b55a2a166602d66ee8a67ded7815.png)
 
 ### 使用 SDK 调用
