@@ -1,7 +1,7 @@
 ## Index
 
 ### Interfaces
-- [Result](../interfaces/sql.Result.html)
+- [Result](https://cloud.tencent.com/document/product/1484/77618)
 
 ### Variables
 - [default](#default)
@@ -27,7 +27,7 @@ Defined in typings/sql.d.ts:17
 
 #### Returns { exec: *any*; query: *any* }
 - ##### exec:function
- - exec(query: *string*, ...args: *any*[]): [Result](../interfaces/sql.Result.html)
+ - exec(query: *string*, ...args: *any*[]): [Result](https://cloud.tencent.com/document/product/1484/77618)
 ```
  Defined in typings/sql.d.ts:48
 ```
@@ -48,7 +48,7 @@ Defined in typings/sql.d.ts:17
 查询语句。
 - ##### Rest ...args: *any*[]
 用于查询中的占位符参数。
-- #### Returns [Result](../interfaces/sql.Result.html)
+- #### Returns [Result](https://cloud.tencent.com/document/product/1484/77618)
 查询结果。
 - ##### query:function
  - query(query: *string*, ...args: *any*[]): *Record*<*string*, *any*>[]
