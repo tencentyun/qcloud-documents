@@ -75,7 +75,7 @@ ul.rno-tabs-operation {
     margin-top: 55px;
 }
 .preview-demo-section .preview-demo-item.style-electron .demo-item-download {
-    margin-top: 25px;
+    margin-top: 46px;
 }
 .preview-demo-section .preview-demo-item.style-electron .demo-item-download-btn:first-child {
     margin-bottom: 10px;
