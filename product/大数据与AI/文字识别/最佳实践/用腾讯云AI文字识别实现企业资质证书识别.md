@@ -22,7 +22,7 @@
 当免费资源包用尽后，我们先根据使用情况购买了部分预付费资源包，后来又开通了后付费，保证业务可以持续正常调用接口。
 	- 我们首先评估了业务的请求量级，于是在文字识别 [购买页](https://buy.cloud.tencent.com/iai_ocr) 购买了智能结构化识别100万次的资源包，资源包购买的越多优惠越大。可以在 [资源包管理页面](https://console.cloud.tencent.com/ocr/packagemanage) 中查看资源包的具体使用情况。
 ![](https://qcloudimg.tencent-cloud.cn/raw/1f8662823381b2c77332b165b46eb65f.png)
-	- 然后在用量统计页面可以看到接口的调用量。
+	- 然后在 [用量统计页面](https://console.cloud.tencent.com/ocr/stats) 可以看到接口的调用量。
 ![](https://qcloudimg.tencent-cloud.cn/raw/f499bbebab37466466e80976041faa32.png)
 	- 最后我们在设置页面开通了后付费服务，这样就不用担心资源包耗尽导致调用接口失败了。需要注意后付费设置每月只能变更一次。
 ![](https://qcloudimg.tencent-cloud.cn/raw/6a5c4147b92b190fd6d1d1285218228b.png)
