@@ -24,7 +24,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/1f8662823381b2c77332b165b46eb65f.png)
 	- 然后在 [用量统计页面](https://console.cloud.tencent.com/ocr/stats) 可以看到接口的调用量。
 ![](https://qcloudimg.tencent-cloud.cn/raw/f499bbebab37466466e80976041faa32.png)
-	- 最后我们在设置页面开通了后付费服务，这样就不用担心资源包耗尽导致调用接口失败了。需要注意后付费设置每月只能变更一次。
+	- 最后我们在 [设置页面](https://console.cloud.tencent.com/ocr/settings) 开通了后付费服务，这样就不用担心资源包耗尽导致调用接口失败了。需要注意后付费设置每月只能变更一次。
 ![](https://qcloudimg.tencent-cloud.cn/raw/6a5c4147b92b190fd6d1d1285218228b.png)
 
 
