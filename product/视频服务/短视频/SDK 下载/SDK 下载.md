@@ -31,10 +31,10 @@
       <td>￥8399元/年</td>
    </tr>
         <tr>
-      <td rowspan="4">美颜特效<br>（增值能力）</td>
+      <td rowspan="3">美颜特效<br>（增值能力）</td>
       <td>高级美颜</td>
       <td>拍摄设置大眼、瘦脸、V 脸、下巴调整、短脸、小鼻效果，并支持调节强度</td>
-      <td style="text-align:center" rowspan="4" colspan="2">美颜特效相关功能为增值能力，短视频 SDK 不支持此功能。若需结合使用，请购买腾讯特效 SDK 套餐包，解锁腾讯特效（美颜特效）功能模块。
+      <td style="text-align:center" rowspan="3" colspan="2">美颜特效相关功能为增值能力，短视频 SDK 不支持此功能。若需结合使用，请购买腾讯特效 SDK 套餐包，解锁腾讯特效（美颜特效）功能模块。
           <li><a href="https://cloud.tencent.com/product/x-magic">了解腾讯特效 SDK</a>
           </li><li><a href="https://cloud.tencent.com/document/product/616/36807">腾讯特效 SDK 价格总览</a>
           </li><li><a href="https://buy.cloud.tencent.com/vcube?type=magic">购买腾讯特效 SDK</a>
@@ -45,14 +45,10 @@
 <td>定位五官位置，然后添加变形、覆盖贴纸挂件等效果</td>
 </tr>
 <tr>
-<td>AI 抠图</td>
+<td>人像分割</td>
 <td>识别出背景轮廓，把背景抠除，替换成素材视频的元素</td>
 </tr>
-<tr>
-      <td>绿幕抠像</td>
-      <td>将画面中的绿色元素（如纯绿背景）抠除，替换成其他的元素</td>
-         </tr>
-         <tr>
+ <tr>
       <td>界面</td>
       <td>自定义 UI</td>
       <td>开发者自定义 UI，小视频 App 提供了一套完整的 UI 交互源码，可复用或自定义</td>
