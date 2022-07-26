@@ -30,7 +30,7 @@
 <td><a href="https://cloud.tencent.com/document/product/881/30818"> 使用文档 </a></td>
 </tr>
 <tr>
-<td rowspan=4>高级功能</td>
+<td rowspan=5>高级功能</td>
 <td>播放 AV1 视频</td>
 <td colspan=2><a href="https://doc.weixin.qq.com/doc/w3_APEAMQbpAEsWnwpwnahSVi0Kn7QrL?scode=AJEAIQdfAAozGFUZ6qAPEAMQbpAEs">接入指引</a></td>
 <td>-</td>
@@ -54,7 +54,7 @@
 <td>-</td>
 </tr>
 <tr>
-<td colspan=2>美颜特效</td>
+<td>美颜特效</td>
 <td><a href="https://cloud.tencent.com/document/product/616/65887">iOS </a>&amp; <a href="https://cloud.tencent.com/document/product/616/65888">Android</a></td>
 <td><a href="https://cloud.tencent.com/document/product/616/75678">Web端接入</a></td>
 <td><a href="https://cloud.tencent.com/document/product/616/75675">微信小程序端接入</a></td>
