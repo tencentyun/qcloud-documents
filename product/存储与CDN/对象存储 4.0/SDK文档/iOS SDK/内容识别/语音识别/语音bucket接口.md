@@ -23,7 +23,7 @@ SDK 所有接口的具体参数与方法说明，请参考 [SDK API](https://cos
 #### 示例代码
 **Objective-C**
 
-[//]: # (.cssg-snippet-audiodiscern-bucketlist)
+[//]: # (.cssg-snippet-get-audiodiscern-bucketlist)
 ```objective-c
     QCloudGetAudioDiscernOpenBucketListRequest * request = [[QCloudGetAudioDiscernOpenBucketListRequest alloc]init];
 
@@ -41,11 +41,11 @@ SDK 所有接口的具体参数与方法说明，请参考 [SDK API](https://cos
     [[QCloudCOSXMLService defaultCOSXML] GetAudioDiscernOpenBucketList:request];
 ```
 
->?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/iOS/Objc/Examples/cases/QrcodeRecognition.m) 查看。
+>?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/iOS/Objc/Examples/cases/AudioDiscernTaskQueue.m) 查看。
 
 **Swift**
 
-[//]: # (.cssg-snippet-audiodiscern-bucketlist)
+[//]: # (.cssg-snippet-get-audiodiscern-bucketlist)
 ```swift
     let request = QCloudGetAudioDiscernOpenBucketListRequest.init();
 
@@ -63,4 +63,4 @@ SDK 所有接口的具体参数与方法说明，请参考 [SDK API](https://cos
     QCloudCOSXMLService.defaultCOSXML().getAudioDiscernOpenBucketList(request);
 ```
 
->?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/iOS/Swift/Examples/cases/QrcodeRecognition.swift) 查看。
+>?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/iOS/Swift/Examples/cases/AudioDiscernTaskQueue.swift) 查看。
