@@ -40,4 +40,4 @@ AV1是一款开源、免版权费的视频编码格式，相同画面质量下�
 	- **PC 端**
 	VLC PC 版，支持AV1 in FLV、HEVC in FLV， 可按需下载 [Windowos版](https://share.weiyun.com/haPT1L0W) & [MacOS版](https://share.weiyun.com/W2btBASt)
 - **自有播放器改造**
-如果您的播放器不具备播放AV1格式视频的能力，可参考 [AV1视频播放](https://doc.weixin.qq.com/doc/w3_APEAMQbpAEsWnwpwnahSVi0Kn7QrL?scode=AJEAIQdfAAojyBFmdnAPEAMQbpAEs) 改造播放器
+如果您的播放器不具备播放AV1格式视频的能力，可参考 [AV1视频播放](https://cloud.tencent.com/document/product/267/77810) 改造播放器
