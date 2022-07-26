@@ -38,6 +38,6 @@ AV1是一款开源、免版权费的视频编码格式，相同画面质量下�
 		- shaka-player 已经支持（解码取决于浏览器，Chrome 支持）
 		- hls.js 因为 HLS 不支持 AV1，并未支持 AV1
 	- **PC 端**
-	VLC PC 版，支持AV1 in FLV、HEVC in FLV， 可按需下载 [Windowos版](https://share.weiyun.com/haPT1L0W) & [MacOS版](https://share.weiyun.com/W2btBASt)
+	VLC PC 版，支持AV1 in FLV、HEVC in FLV， 可按需下载 [Windowos 版](https://share.weiyun.com/haPT1L0W) & [MacOS 版](https://share.weiyun.com/W2btBASt)
 - **自有播放器改造**
 如果您的播放器不具备播放AV1格式视频的能力，可参考 [AV1视频播放](https://cloud.tencent.com/document/product/267/77810) 改造播放器
