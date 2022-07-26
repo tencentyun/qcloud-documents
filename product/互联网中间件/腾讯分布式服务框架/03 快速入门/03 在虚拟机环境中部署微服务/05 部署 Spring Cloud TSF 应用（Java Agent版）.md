@@ -6,30 +6,32 @@ Java Agent 是 Java 1.5 版本之后引⼊的特性，可以被理解为 JVM 虚
 
 本文主要介绍开源 Spring Cloud 应用如何 0 改造就可以将应用部署接入到 TSF 平台。
 
-## 前提条件
-请确保您已经参见 [下载 Maven](https://cloud.tencent.com/document/product/649/20231) 下载安装了 Java 和 Maven，并且配置了 TSF 私服地址。
+## Agent 插件功能说明
+- 以下表格是目前支持的 Agent 插件以及其对应功能的详细说明
 
-> ? 目前仅支持 **Spring Cloud 2020** 使用 Java Agent 接入 TSF 平台。
-
-以下表格是目前支持的 Agent 插件以及其对应功能的详细说明
 | Agent 插件名称       | 插件说明 |
 | :------------------ | ------------- |
 | 服务 Agent           | 支持 TSF 服务注册发现、服务治理以及应用配置管理能力 |
 | 可观测 Agent         | 支持 TSF 应用性能监控能力，包括调用链、数据指标监控等 |
 
-以下表格是 Spring Cloud 版本以及对应支持 Agent 插件的详细说明
+- 以下表格是 Spring Cloud 版本以及对应支持 Agent 插件的详细说明
+
 | 开源 Spring Cloud 版本  | 服务 Agent | 可观测 Agent |
 | :--------------------- | ---------- | ---------- |
 | Spring Cloud 2020      | 支持        | 支持       |
 
+> ? 目前仅支持 **Spring Cloud 2020** 使用 Java Agent 接入 TSF 平台。
+
+## 前提条件
+
+1. 已创建好集群并导入云主机。
+   - 虚拟机场景请参见 [虚拟机集群管理](https://cloud.tencent.com/document/product/649/73964)。
+   - 容器场景请参见 [容器集群管理](https://cloud.tencent.com/document/product/649/73965)。
+2. 下载 [官方开源 Spring Cloud 2020 Demo](https://github.com/polarismesh/femas/tree/develop/femas-agent/femas-agent-example)，在pom.xml文件所在目录下执行`mvn clean package`将应用程序打包，在`femas-agent-example-springcloud-provider/target/`目录下可以看到打包好的 jar 程序包。
+
 ## 操作步骤
->?[步骤1](#step1) 和 [步骤2](#step2) 与其他模块一样，已经使用过其他模块的可直接跳至 [步骤3](#step3)。
-[](id:step1)
-**1. 向工程中添加依赖。**
-在 `pom.xml` 中添加以下代码：
-```xml
-<dependency>
-    <groupId>com.tencent.tsf</groupId>
-    <artifactId>spring-cloud-tsf-starter</artifactId>
-    <version><!-- 调整为 SDK 最新版本号 --></version> 
-</dependency>
+1. 登录 [TSF 控制台](https://console.cloud.tencent.com/tsf)。
+2. 这里跳过 **新建应用** 步骤，直接到 **部署应用**，如果需要了解 **新建应用** 相关操作可以参考如下文档：
+   - 虚拟机场景请参见 [虚拟机应用管理](https://cloud.tencent.com/document/product/649/55494)。
+   - 容器场景请参见 [容器应用管理](https://cloud.tencent.com/document/product/649/55504)。
+3. **部署应用**
