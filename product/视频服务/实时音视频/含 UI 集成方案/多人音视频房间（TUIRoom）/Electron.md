@@ -11,6 +11,8 @@ TUIRoom 是一个包含 UI 的开源音视频组件，通过集成 TUIRoom，您
 </tr>
 </table>
 
+您可以单击在线体验链接： [Mac OS版](https://web.sdk.qcloud.com/trtc/electron/download/solution/TUIRoom-Electron/TUIRoom-Electron-mac-latest.zip) 及 [Windows版](https://web.sdk.qcloud.com/trtc/electron/download/solution/TUIRoom-Electron/TUIRoom-Electron-windows-latest.zip) 下载体验 TUIRoom Electron 更多功能。
+
 您可以单击 [Github](https://github.com/tencentyun/TUIRoom) 下载 TUIRoom 代码，并参考 [TUIRoom Electron 示例工程快速跑通](https://github.com/tencentyun/TUIRoom/tree/main/Electron) 文档跑通 TUIRoom Electron 示例工程。
 如需在现有业务中集成 Electron 端 TUIRoom 组件，请参考本文档。
 
