@@ -28,7 +28,7 @@ metadata:
 spec:
   hadoopConf:
     "fs.cosn.userinfo.secretId":"$SecretId"
-    "fs.cosn.userinfo.secretKey": "$SecretKey" 
+    "fs.cosn.userinfo.secretKey":"$SecretKey" 
   type: Scala
   mode: cluster
   mainClass: org.apache.spark.examples.SparkPi
@@ -108,7 +108,7 @@ metadata:
 spec:
   hadoopConf:
     "fs.cosn.userinfo.secretId":"$SecretId"
-    "fs.cosn.userinfo.secretKey": "$SecretKey" 
+    "fs.cosn.userinfo.secretKey":"$SecretKey" 
   type: Java
   mode: cluster
   mainClass: com.tencent.WordCountOnCos
@@ -129,7 +129,7 @@ metadata:
   name: test3
 spec:
   hadoopConf:
-    "fs.cosn.userinfo.secretId": "$SecretId"
+    "fs.cosn.userinfo.secretId":"$SecretId"
     "fs.cosn.userinfo.secretKey":"$SecretKey" 
   type: Java
   mode: cluster
@@ -163,8 +163,8 @@ metadata:
   name: test4
 spec:
   hadoopConf:
-    "fs.cosn.userinfo.secretId": "$SecretId"
-    "fs.cosn.userinfo.secretKey": "$SecretKey" 
+    "fs.cosn.userinfo.secretId":"$SecretId"
+    "fs.cosn.userinfo.secretKey":"$SecretKey" 
   type: Java
   mode: cluster
   mainClass: com.tencent.WordCountOnCos
