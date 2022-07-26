@@ -134,10 +134,10 @@ spec:
   type: Java
   mode: cluster
   mainClass: com.tencent.WordCountOnCos
-  mainApplicationFile: "hdfs://10.0.130.70:4007/sparkapp/jar/wordcount.jar"
+  mainApplicationFile: "hdfs://$ip:$port/sparkapp/jar/wordcount.jar"
   arguments:
     - "cosn://kt-test-251007880/sparkapp/input/input"
-    - "hdfs://10.0.130.70:4007/sparkapp/output"
+    - "hdfs://$ip:$port/sparkapp/output"
 
 ```
 >! 若使用 HFDS 存放 jar 包，HDFS 需要和容器集群位于同一 VPC。
