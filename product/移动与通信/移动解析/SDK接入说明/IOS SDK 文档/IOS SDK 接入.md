@@ -77,6 +77,34 @@
 >!请在 Other linker flag 里加入 -ObjC 标志。
 
 
+## SDK初始化
+
+接口调用示例：
+- 在 Objective-C 项目中。
+```objc
+	DnsConfig *config = new DnsConfig();
+	config->dnsIp = @"HTTPDNS 服务器IP";
+	config->dnsId = dns授权id;
+	config->dnsKey = @"加密密钥";
+	config->encryptType = HttpDnsEncryptTypeDES;
+	config->debug = YES;
+	config->timeout = 2000;
+	config->routeIp = @"查询线路ip";
+	[[MSDKDns sharedInstance] initConfig: config];
+```
+
+- 在 Swift 项目中。
+```swift
+let msdkDns = MSDKDns.sharedInstance() as? MSDKDns;
+msdkDns?.initConfig(with: [
+		"dnsIp": "HTTPDNS 服务器IP",
+		"dnsId": "dns授权id",
+		"dnsKey": "加密密钥",
+		"encryptType": 0, // 0 -> des，1 -> aes，2 -> https
+]);
+```
+
+
 ## 接入验证
 ## 日志验证
 开启 SDK 调试日志（设置 DnsConfig 中 debug 为 YES），找到打印的 `ReportingEvent, name:HDNSGetHostByName, events: { ... }` 日志，并检查 LocalDns（日志上为 ldns_ip）和 HTTPDNS（日志上为 hdns_ip）相关日志，可以确认接入是否成功。
