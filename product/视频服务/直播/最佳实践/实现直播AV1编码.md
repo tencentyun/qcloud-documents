@@ -10,7 +10,7 @@ AV1是一款开源、免版权费的视频编码格式，相同画面质量下�
 [](id:step1)
 ### 步骤1：创建转码模板
 1. 登录云直播控制台，进入**功能配置** > [直播转码](https://console.cloud.tencent.com/live/config/transcode)。
-2. 单击 **创建转码模板**，选择转码类型为标准转码或极速高清转码，展开高级配置；
+2. 单击 **创建转码模板**，选择转码类型为标准转码或极速高清转码，展开高级配置。
 3. 在编码方式中选择 **AV1**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/8a2d93bbcc9154fadd96d51ac916066e.png) 
 4. 填写完成后，单击 **保存** 即可。
@@ -22,7 +22,7 @@ AV1是一款开源、免版权费的视频编码格式，相同画面质量下�
 
 [](id:step3)
 ### 步骤3：生成播放地址
-单击 **地址生成器** ，选择步骤2中绑定的播放域名，以及 [步骤1](#[](id:step1)) 中的转码模板，生成播放地址。
+单击 **地址生成器** ，选择步骤2中绑定的播放域名，以及 [步骤1](#step1) 中的转码模板，生成播放地址。
 
 [](id:step4)
 ### 步骤4：播放AV1视频
@@ -33,11 +33,11 @@ AV1是一款开源、免版权费的视频编码格式，相同画面质量下�
 	- **App 客户端**
 		- ExoPlayer 已支持AV1，用的 libgav1
 		- ijkplayer FFmpeg 版本陈旧，可以升级 FFmpeg 并集成 dav1d
-	- Web端
+	- **Web 端**
 		- dash.js 已经支持（解码取决于浏览器，Chrome 支持）
 		- shaka-player 已经支持（解码取决于浏览器，Chrome 支持）
 		- hls.js 因为 HLS 不支持 AV1，并未支持 AV1
 	- **PC 端**
-	VLC PC 版，支持AV1 in FLV、HEVC in FLV， 可按需下载 [Windowos版](https://share.weiyun.com/haPT1L0W) & [MacOS版](https://share.weiyun.com/W2btBASt)
+	VLC PC 版，支持AV1 in FLV、HEVC in FLV， 可按需下载 [Windowos 版](https://share.weiyun.com/haPT1L0W) & [MacOS 版](https://share.weiyun.com/W2btBASt)
 - **自有播放器改造**
-如果您的播放器不具备播放AV1格式视频的能力，可参考 [AV1视频播放](https://doc.weixin.qq.com/doc/w3_APEAMQbpAEsWnwpwnahSVi0Kn7QrL?scode=AJEAIQdfAAojyBFmdnAPEAMQbpAEs) 改造播放器
+如果您的播放器不具备播放AV1格式视频的能力，可参考 [AV1视频播放](https://cloud.tencent.com/document/product/267/77810) 改造播放器
