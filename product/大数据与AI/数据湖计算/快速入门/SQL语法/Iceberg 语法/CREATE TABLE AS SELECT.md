@@ -1,4 +1,4 @@
-﻿## 语法
+## 语法
 ```
 CREATE TABLE [ IF NOT EXISTS ] table_identifier
 USING iceberg
