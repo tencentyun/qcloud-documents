@@ -97,6 +97,34 @@
 
 
 
+## SDK初始化
+
+接口调用示例：
+- 在 Objective-C 项目中。
+```objc
+	DnsConfig *config = new DnsConfig();
+	config->dnsIp = @"HTTPDNS 服务器IP";
+	config->dnsId = dns授权id;
+	config->dnsKey = @"加密密钥";
+	config->encryptType = HttpDnsEncryptTypeDES;
+	config->debug = YES;
+	config->timeout = 2000;
+	config->routeIp = @"查询线路ip";
+	[[MSDKDns sharedInstance] initConfig: config];
+```
+
+- 在 Swift 项目中。
+```swift
+let msdkDns = MSDKDns.sharedInstance() as? MSDKDns;
+msdkDns?.initConfig(with: [
+		"dnsIp": "HTTPDNS 服务器IP",
+		"dnsId": "dns授权id",
+		"dnsKey": "加密密钥",
+		"encryptType": 0, // 0 -> des，1 -> aes，2 -> https
+]);
+```
+
+
 ## 接入验证
 
 ### 日志验证
