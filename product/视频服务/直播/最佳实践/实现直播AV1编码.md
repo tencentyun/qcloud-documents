@@ -32,12 +32,11 @@ AV1是一款开源、免版权费的视频压缩格式，相比上一代H.265[HE
 - **已支持AV1的播放器**
 	- **App 客户端**
 		- [ExoPlayer](https://github.com/google/ExoPlayer) 已支持AV1，用的 libgav1
-		- [ijkplayer](https://github.com/bilibili/ijkplayer) FFmpeg版本陈旧，可以升级 FFmpeg 并集成 [dav1d](https://code.videolan.org/videolan/dav1d)
+		- [ijkplayer](https://github.com/bilibili/ijkplayer) FFmpeg 版本陈旧，可以升级 FFmpeg 并集成 [dav1d](https://code.videolan.org/videolan/dav1d)
 	- **Web 端**
-		- [dash.js](http://cdn.dashjs.org/v2.4.0/jsdoc/index.html) 已经支持（解码取决于浏览器，Chrome支持）
-		- [shaka-player](https://github.com/shaka-project/shaka-player) 已经支持（解码取决于浏览器，Chrome支持）
-		- [hls.js](https://github.com/video-dev/hls.js/) 因为 HLS 不支持AV1，并未支持AV1
+		- [dash.js](http://cdn.dashjs.org/v2.4.0/jsdoc/index.html) 已经支持（解码取决于浏览器，Chrome 支持）
+		- [shaka-player](https://github.com/shaka-project/shaka-player) 已经支持（解码取决于浏览器，Chrome 支持）
 	- **PC 端**
-	VLC PC 版，支持AV1 in FLV、HEVC in FLV， 可按需下载 [Windowos版](https://share.weiyun.com/haPT1L0W) & [MacOS版](https://share.weiyun.com/W2btBASt)
+	VLC PC 版，支持AV1 in FLV、HEVC in FLV， 可按需下载 [Windowos 版](https://share.weiyun.com/haPT1L0W) & [MacOS 版](https://share.weiyun.com/W2btBASt)
 - **自有播放器改造**
 如果您的播放器不具备播放AV1格式视频的能力，可参考 [AV1视频播放](https://cloud.tencent.com/document/product/267/77810) 改造播放器
