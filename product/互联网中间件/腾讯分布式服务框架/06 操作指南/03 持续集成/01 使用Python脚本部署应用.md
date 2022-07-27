@@ -81,4 +81,4 @@ python2.7.14 upload_container_deploy.py group-zvw397wa v1
 </dx-codeblock>
 
 
-> !docker 相关命令必须按照 [制作容器镜像](https://cloud.tencent.com/document/product/649/73794) 和 [镜像管理](https://cloud.tencent.com/document/product/649/16695) 调整为用户自己的账号和应用名。
+> !docker 相关命令必须按照 [制作容器镜像](https://cloud.tencent.com/document/product/649/50610) 和 [镜像管理](https://cloud.tencent.com/document/product/649/16695) 调整为用户自己的账号和应用名。
