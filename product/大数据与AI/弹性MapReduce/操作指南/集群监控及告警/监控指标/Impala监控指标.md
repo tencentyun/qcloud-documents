@@ -533,11 +533,8 @@
 <tr>
 <td >StateStore 中注册后端总数</td>
 <td >Total</td>
-<td rowspan=2>个</td>
-<td rowspan=2>StateStore 中注册后端总数</td>
-</tr><tr>
-<td >超过 JVM 暂停检测信息阈值数</td>
-<td >Count</td>
+<td rowspan=1>个</td>
+<td rowspan=1>StateStore 中注册后端总数</td>
 </tr>
 <tr>
 <td rowspan=8>查询延迟发布</td>
@@ -639,7 +636,7 @@
 <td >打开 HS2会话数</td>
 <td >NumOpenHS2Sessions</td>
 <td >个</td>
-<td >打开 HS2 会话数</td>
+<td >打开 HS2会话数</td>
 </tr>
 <tr>
 <td >Catalog 里面表数量</td>
@@ -654,22 +651,16 @@
 <td >	Catalog Databases 数量</td>
 </tr>
 <tr>
-<td >HDFS 缓存命中率</td>
-<td >CachedFileHandlesHitRatio</td>
-<td >个</td>
-<td >	IO 管理器写入磁盘字节数</td>
-</tr>
-<tr>
 <td >IO 管理器写入磁盘的字节数</td>
 <td >BytesWritten</td>
 <td >个</td>
-<td >	IO 管理器打开文件数</td>
+<td >	IO 管理器写入磁盘的字节数</td>
 </tr>
 <tr>
 <td >IO 管理器打开的文件数</td>
 <td >NumOpenFiles</td>
 <td >个</td>
-<td >使用的 HDFS 文件句柄数</td>
+<td >IO 管理器打开的文件数</td>
 </tr>
 <tr>
 <td >使用的 HDFS 文件句柄数</td>
@@ -681,7 +672,7 @@
 <td >读取的本地字节数</td>
 <td >LocalBytesRead</td>
 <td >Bytes</td>
-<td >读取的本地字节数</td>
+<td >IO 管理器读取的本地字节数</td>
 </tr>
 </table>
 
