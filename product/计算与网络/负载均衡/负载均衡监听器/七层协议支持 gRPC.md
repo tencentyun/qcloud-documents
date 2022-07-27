@@ -113,12 +113,12 @@
 </tr>
 <tr>
 <td>获取客户端 IP</td>
-<td>默认启用</td>
+<td>默认启用。</td>
 <td>已开启</td>
 </tr>
 <tr>
 <td>Gzip 压缩</td>
-<td> 默认启用</td>
+<td> 默认启用。</td>
 <td>已开启</td>
 </tr>
 </table>
