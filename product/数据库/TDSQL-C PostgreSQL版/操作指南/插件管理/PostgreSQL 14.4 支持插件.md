@@ -61,3 +61,4 @@
 <tr><td>citext</td><td>1.6</td></tr>
 <tr><td>uuid-ossp</td><td>1.1</td></tr>
 </table>
+

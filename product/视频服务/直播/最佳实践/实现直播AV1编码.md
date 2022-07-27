@@ -1,4 +1,4 @@
-AV1是一款开源、免版权费的视频编码格式，相同画面质量下，使用AV1编码可以使视频体积缩小20％，能保证在同等带宽下可以传输更高清的画质，从而达到降低带宽成本的效果。通过阅读本文，您可以了解如何将视频转码为AV1格式的视频并进行播放。
+AV1是一款开源、免版权费的视频压缩格式，相比上一代H.265[HEVC]编码，在相同画质下码率可以再降低30%+，这就意味着在同等带宽下可以传输更高清的画质，从而达到降低带宽成本的效果。通过阅读本文，您可以了解如何将视频转码为AV1格式的视频并进行播放。
 
 ## AV1 使用
 
@@ -31,12 +31,11 @@ AV1是一款开源、免版权费的视频编码格式，相同画面质量下�
 
 - **已支持AV1的播放器**
 	- **App 客户端**
-		- ExoPlayer 已支持AV1，用的 libgav1
-		- ijkplayer FFmpeg 版本陈旧，可以升级 FFmpeg 并集成 dav1d
+		- [ExoPlayer](https://github.com/google/ExoPlayer) 已支持AV1，用的 libgav1
+		- [ijkplayer](https://github.com/bilibili/ijkplayer) FFmpeg 版本陈旧，可以升级 FFmpeg 并集成 [dav1d](https://code.videolan.org/videolan/dav1d)
 	- **Web 端**
-		- dash.js 已经支持（解码取决于浏览器，Chrome 支持）
-		- shaka-player 已经支持（解码取决于浏览器，Chrome 支持）
-		- hls.js 因为 HLS 不支持 AV1，并未支持 AV1
+		- [dash.js](http://cdn.dashjs.org/v2.4.0/jsdoc/index.html) 已经支持（解码取决于浏览器，Chrome 支持）
+		- [shaka-player](https://github.com/shaka-project/shaka-player) 已经支持（解码取决于浏览器，Chrome 支持）
 	- **PC 端**
 	VLC PC 版，支持AV1 in FLV、HEVC in FLV， 可按需下载 [Windowos 版](https://share.weiyun.com/haPT1L0W) & [MacOS 版](https://share.weiyun.com/W2btBASt)
 - **自有播放器改造**

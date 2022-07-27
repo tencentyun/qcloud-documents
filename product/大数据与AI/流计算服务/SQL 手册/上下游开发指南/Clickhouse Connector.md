@@ -112,6 +112,7 @@ CREATE TABLE `clickhouse_dimension` (
 | sink.partition-key      | 否   | -   | 启用写本地表（`local.read-write` 为 `true`），且 `sink.partition-strategy` 为  `hash ` 时需要设置，值为所定义表中的主键。如果主键包含多个字段，则需要指定为第一个字段。 |
 | sink.ignore-delete | 否 | false | 启用该参数后，会过滤所有向 ClickHouse 写入的 DELETE（删除）消息。该选项适用于使用 ReplacingMergeTree 表引擎，并期望实现数据的动态更新的场景。 |
 | sink.backpressure-aware | 否 | false | 当 Flink 日志频繁出现 "Too many parts" 报错，且作业因此崩溃时，启用该参数可以大幅减轻服务端负载，提升整体的吞吐量和稳定性。 |
+| sink.max-partitions-per-insert | 否 | 20 | 当clickhouse是分区表，且分区函数CK内置为intHash32、toYYYYMM 或toYYYYMMDD 之一时，Flink写入Clickhouse会通过预先在sink端按分区攒数据buffer，当攒的分区数目到达设定值时会触发往下游clickhouse写入（如果`sink.flush-interval` 和`sink.batch-size`  先到的话也会先触发写入），极大的提高写入clickhouse的吞吐效率。设置为-1时会关闭分区聚合写入功能。 |
 | scan.fetch-size | 否 | 100 | 每次从数据库读取时，批量获取的行数。 |
 | scan.by-part.enabled | 否 | false | 是否启用读 ClickHouse 表 part。若启用，必须先在所有节点上使用命令'STOP MERGES'和'STOP TTL MERGES'停止表的后台 merge 和基于 TTL 的数据删除操作，否则读取的数据会不正确。 |
 | scan.part.modification-time.lower-bound | 否 | - | 用于根据 modification_time 过滤 ClickHouse 表  part 的最小时间（包含），格式 yyyy-MM-dd HH:mm:ss。|
@@ -222,6 +223,12 @@ CREATE TABLE testdb.testtable on cluster default_cluster (`id` Int32,`name` Null
 ```sql
 CREATE TABLE testdb.testtable on cluster default_cluster (`id` Int32,`name` Nullable(String),`age` Nullable(Int32),`weight` Nullable(Float64),`Sign` Int8) ENGINE = ReplicatedCollapsingMergeTree('/clickhouse/tables/{layer}-{shard}/testdb/testtable', '{replica}', Sign) ORDER BY id ;
 ```
+
+### 分区表写入优化
+
+Oceanus 在写入到 Clickhouse 分区表时，如果 clickhouse 的分区定义中使用的函数在 Oceanus 的支持范围内（intHash32、toYYYYMM、toYYYYMMDD），写入时默认会开启按分区预先攒 buffer 数据再写入的功能。启用后，Oceanus 单批次写入数据会包含尽量少的分区数量（业务分区数据吞吐足够大时，每个批次仅包含一个分区），从而提高 ClickHouse 的 merge 性能。如果单个分区数据不够批大小时，多个分区数据合并成一个批次写入 ClickHouse。详细的配置项可以参见上文中`sink.max-partitions-per-insert` 参数。
+
+
 
 ### 示例：ClickHouse 建表语句
 

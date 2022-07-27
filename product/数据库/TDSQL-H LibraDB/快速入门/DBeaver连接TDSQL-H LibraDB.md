@@ -19,7 +19,7 @@ DBeaver 是一款免费的多平台数据库工具，适用于开发人员、数
 ## 步骤1：连接 DBeaver 和 TDSQL-H LibraDB 实例
 
 1. 启动 DBeaver，进入 DBeaver 界面。
-2. 在顶部菜单栏单击![新建](https://static-aliyun-doc.oss-accelerate.aliyuncs.com/assets/img/zh-CN/8974386261/p296958.png)图标后，在**选择您的数据库**对话框选择 **SQL > ClickHouse (Legacy)**，单击**下一步**。
+2. 在顶部菜单栏单击如下图标后，在**选择您的数据库**对话框选择 **SQL > ClickHouse (Legacy)**，单击**下一步**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/4f6ff50d068e97e445944c5e8f73cfa7.png)
 3. 在**通用 JDBC 连接设置**对话框中，单击**编辑驱动设置**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/0f666ab6c36560675a1f10c090d43488.png)

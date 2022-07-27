@@ -1,12 +1,11 @@
 [gRPC](https://grpc.io/docs/what-is-grpc/introduction/) 是 Google 发布的基于 HTTP 2.0 传输层协议承载的高性能开源软件框架，提供了支持多种编程语言的、对网络设备进行配置和纳管的方法。本文指导您通过配置 HTTPS 监听器的 gRPC 协议的健康检查，将客户端的 gRPC 请求通过 CLB 实例转发到后端协议为 gRPC 的后端服务。
->? 此功能处于内测中，如需使用，请联系 [在线支持](https://cloud.tencent.com/online-service) 开通。
+
 
 ## 使用场景
 当您的请求类型为 HTTPS 的客户端想要访问协议类型为 gRPC 的后端服务时，您可以通过 CLB 实例的 HTTPS 监听器支持 gRPC 协议来实现。
 ![](https://qcloudimg.tencent-cloud.cn/raw/f71367bab84383e0d9d9735306528fc4.svg)
 
 ## 限制说明
-- 目前仅北京、广州、新加坡、多伦多地域支持。
 - 仅负载均衡类型支持，传统型负载均衡不支持。
 - IPv6 与 IPv6 七层混绑不支持。
 - 仅 VPC 网络支持，基础网络不支持。
@@ -114,12 +113,12 @@
 </tr>
 <tr>
 <td>获取客户端 IP</td>
-<td>默认启用</td>
+<td>默认启用。</td>
 <td>已开启</td>
 </tr>
 <tr>
 <td>Gzip 压缩</td>
-<td> 默认启用</td>
+<td> 默认启用。</td>
 <td>已开启</td>
 </tr>
 </table>
