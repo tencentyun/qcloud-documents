@@ -1,4 +1,4 @@
-﻿行级数据插入操作。
+行级数据插入操作。
 ## 语法
 ```
 INSERT { OVERWRITE | INTO } [ TABLE ] table_name
