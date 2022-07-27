@@ -15,8 +15,6 @@
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | [精简版 SDK（UGC_Smart）](https://cloud.tencent.com/document/product/584/9366#sdk) | [点播流量资源包 10TB](https://buy.cloud.tencent.com/vod?t=ugsv&from=console-license-bottom-ugsv) |
 | [基础版 SDK（UGC）](https://cloud.tencent.com/document/product/584/9366#sdk) | [点播流量资源包 50TB、200TB 或 1PB](https://buy.cloud.tencent.com/vod?t=ugsv&from=console-license-bottom-ugsv) |
-| [企业版 SDK（UGC_Enterprise）](https://cloud.tencent.com/document/product/584/9366#sdk) | 请参见 [申请企业版本 License](#enterpriseli)                 |
-| [企业版 Pro SDK（EnterprisePro）](https://cloud.tencent.com/document/product/584/9366#sdk) | 请参见 [申请企业版本 License](#enterpriseli)                 |
 
 #### 操作步骤
 1. 进入**云点播控制台]**>**License 管理** >**[SDK License](https://console.cloud.tencent.com/vod/license/video)**，单击**创建应用并绑定License**按钮。填写 App Name、Package Name 和 Bundle ID并勾选功能模块**短视频**，根据实际需求选择**精简版**或**基础版**，完成后单击**下一步**。
