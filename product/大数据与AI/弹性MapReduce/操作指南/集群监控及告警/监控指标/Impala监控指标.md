@@ -282,24 +282,24 @@
 <td >此 Impala Daemon 已被接收并等待建立连接的 Beeswax API 连接数</td>
 </tr>
 <tr>
-<td rowspan=4>HiveServer2 API 客户端连接数</td>
+<td rowspan=4>HS2 API 客户端连接数</td>
 <td >Use</td>
 <td >个</td>
-<td >活跃 HiveServer2 API 连接数</td>
+<td >活跃 HS2 API 连接数</td>
 </tr><tr>
 <td >Conn_In_Use</td>
 <td >个</td>
-<td >活跃 HiveServer2 API 连接数</td>
+<td >活跃 HS2 API 连接数</td>
 </tr>
 <tr>
 <td >TotalConns</td>
 <td >个</td>
-<td >此 Impala Daemon 在生命周期内建立连接的 HiveServer2 API 连接总数</td>
+<td >此 Impala Daemon 在生命周期内建立连接的 HS2 API 连接总数</td>
 </tr>
 <tr>
 <td >ConnSetupQueueSize</td>
 <td >个</td>
-<td >此 Impala Daemon 已被接收并等待建立连接的 HiveServer2 API 连接数</td>
+<td >此 Impala Daemon 已被接收并等待建立连接的 HS2 API 连接数</td>
 </tr>
 <tr>
 <td rowspan=2>线程管理器</td>
