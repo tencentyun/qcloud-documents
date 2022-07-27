@@ -1,4 +1,4 @@
-﻿变更字段类型/备注信息。
+变更字段类型/备注信息。
 ## 语法
 ```
 ALTER TABLE table_identifier 
