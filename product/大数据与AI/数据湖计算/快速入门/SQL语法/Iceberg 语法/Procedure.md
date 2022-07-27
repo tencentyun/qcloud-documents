@@ -1,4 +1,4 @@
-﻿## 基本句法
+## 基本句法
 ```
 CALL catalog_name.system.procedure_name(arg_name_2 => arg_2, arg_name_1 => arg_1);
 ```
