@@ -51,13 +51,3 @@
 >! **短视频精简版正式版 License** 成功升级为**短视频基础版正式版 License** 后，原有绑定短视频精简版的套餐包（规格为 10TB 的云点播流量资源包）会进行释放，即结束绑定关系，此套餐包可重新绑定其他应用内的短视频 License。
 
 [](id:pro)[](id:enterpriseli)
-
-## 企业版本 License
-
-相比于基础版，企业版增加了基于腾讯优图实验室专利技术的人脸特效功能。使用企业版 License 可以开启优图实验室的 AI 功能。
-
-> ? 
-> - 企业版 License 基本配置方法与基础版 License 相同，具体请参见 配置查看 License。配置完成后需额外配置 [动效变脸](https://cloud.tencent.com/document/product/584/13509) 功能。
-> - 若您需开通企业版 License，请 [单击此处](https://cloud.tencent.com/product/x-magic)。
-
-
