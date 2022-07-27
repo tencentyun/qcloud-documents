@@ -1,4 +1,4 @@
-﻿## 语法
+## 语法
 ```
 ALTER TABLE table_identifier 
 WRITE DISTRIBUTED BY PARTITION  
