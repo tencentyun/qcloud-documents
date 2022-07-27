@@ -1,4 +1,4 @@
-﻿支持四段式的 Iceberg 表元数据查询，包括：history、snapshots、files、manifests。
+支持四段式的 Iceberg 表元数据查询，包括：history、snapshots、files、manifests。
 ## 语法
 ```
 SELECT select_expr (, select_expr)*
