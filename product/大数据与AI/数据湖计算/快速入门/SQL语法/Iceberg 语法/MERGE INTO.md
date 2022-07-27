@@ -1,4 +1,4 @@
-﻿行级数据更新操作，可用于替换 INSERT OVERWRITE 操作。
+行级数据更新操作，可用于替换 INSERT OVERWRITE 操作。
 ## 语法
 ```
 MERGE INTO target_table_name [target_alias]
