@@ -1,4 +1,4 @@
-﻿>! 从 Spark 3.1开始支持 UPDATE 操作。
+>! 从 Spark 3.1开始支持 UPDATE 操作。
 
 ## 语法
 ```
