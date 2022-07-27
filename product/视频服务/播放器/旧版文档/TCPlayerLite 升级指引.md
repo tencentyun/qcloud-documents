@@ -1,4 +1,4 @@
-﻿TCPlayerLite 为旧版播放器，仅包含基础直播场景的播放功能，而 TCPlayer 是兼顾直播和点播场景的完整版播放器，包含 TCPlayerLite 全部能力，同时拥有更多更强大的播放以及数据统计等功能。
+TCPlayerLite 为旧版播放器，仅包含基础直播场景的播放功能，而 TCPlayer 是兼顾直播和点播场景的完整版播放器，包含 TCPlayerLite 全部能力，同时拥有更多更强大的播放以及数据统计等功能。
 
 若您正在使用 TCPlayerLite，建议您升级到 TCPlayer 以享受更多更全面的功能及服务，本文将为您介绍如何从 TCPlayerLite 升级为 TCPlayer。
 
