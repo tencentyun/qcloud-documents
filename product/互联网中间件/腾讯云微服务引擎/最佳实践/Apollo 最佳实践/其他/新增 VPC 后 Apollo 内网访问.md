@@ -13,4 +13,4 @@
 >? config-service-url:port 为新增 vpc 下的 Apollo 内网地址。
 
 ## 附录
-您可以查看 [Apollo 官方文档](https://www.apolloconfig.com/#/zh/usage/java-sdk-user-guide?id=_1222-%e8%b7%b3%e8%bf%87apollo-meta-server%e6%9c%8d%e5%8a%a1%e5%8f%91%e7%8e%b0) 获取更多详细信息。
+您可以参见 [Apollo 官方文档](https://www.apolloconfig.com/#/zh/usage/java-sdk-user-guide?id=_1222-%e8%b7%b3%e8%bf%87apollo-meta-server%e6%9c%8d%e5%8a%a1%e5%8f%91%e7%8e%b0) 获取更多详细信息。
