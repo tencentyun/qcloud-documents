@@ -27,7 +27,7 @@ curl 127.0.0.1:9100/metrics
 
 ### 步骤3：采集配置
 登录 [Prometheus 监控服务控制台](https://console.cloud.tencent.com/monitor/prometheus)，进入 **集成中心**  > **选择云服务器**，在任务配置中根据页面提示进行配置。
-![](https://qcloudimg.tencent-cloud.cn/raw/8efcd3a9e3312388798f065c3a1afdef.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/7f09712ba63621c3f6635c224f90f2ff.png)
 
 
 ### 步骤4：查看数据是否上报成功：
