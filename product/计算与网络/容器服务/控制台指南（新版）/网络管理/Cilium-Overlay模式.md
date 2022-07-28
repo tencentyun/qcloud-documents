@@ -6,7 +6,7 @@ Cilium-Overlay 网络模式是容器服务 TKE 基于 Cilium VXLan 实现的容�
 - 使用 Cilium VXLan 隧道封装协议构建 Overlay 网络。
 
 云上 VPC 网络和第三方节点 IDC 网络通过云联网互通后，跨节点 Pod 访问原理如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/50dd194c2974c0cebbefeccfcf286d81.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/c09deb3c0e07b777a436c62945055158.png)
  
  
  
