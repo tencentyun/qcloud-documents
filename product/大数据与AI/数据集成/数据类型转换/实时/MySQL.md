@@ -10,7 +10,7 @@
 | REAL，FLOAT| 	FLOAT	| -| 
 | DOUBLE	| DOUBLE	| -| 
 | NUMERIC(p, s)，DECIMAL(p, s)，where p <= 38	DECIMAL(p, s)	| NUMERIC(p, s)| -| 
-| NUMERIC(p, s)，DECIMAL(p, s)，where 38 < p <= 65	| STRING	| MySQL 中 DECIMAL 数据类型的精度最高为 65，而 inlong 内部使用 DECIMAL 的精度限制为 38。所以如果您定义一个精度大于38的十进制列，你应该把它映射到 STRING，以避免精度损失|
+| NUMERIC(p, s)，DECIMAL(p, s)，where 38 < p <= 65	| STRING	| MySQL 中 DECIMAL 数据类型的精度最高为 65，而 inlong 内部使用 DECIMAL 的精度限制为 38。所以如果您定义一个精度大于38的十进制列，您应该把它映射到 STRING，以避免精度损失|
 | BOOLEAN，TINYINT(1)，BIT(1)	| BOOLEAN	| -| 
 | DATE	| DATE	| -| 
 | TIME [(p)]	| TIME [(p)]	| -| 
