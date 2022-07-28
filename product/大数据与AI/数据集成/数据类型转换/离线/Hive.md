@@ -1,6 +1,6 @@
 ## 读取
 
-| Hive 表数据类型 | 内部类型 | 
+| Hive 数据类型 | 内部类型 | 
 |---------|---------|
 | TINYINT，SMALLINT，INT，BIGINT| 	Long| 
 | FLOAT，DOUBLE	| Double| 
@@ -10,7 +10,7 @@
 
 ## 写入
 
-| 内部类型 | Hive 表数据类型 |
+| 内部类型 | Hive 数据类型 |
 |---------|---------|
 | Long	| TINYINT，SMALLINT，INT，BIGINT| 
 | Double	| FLOAT，DOUBLE| 
