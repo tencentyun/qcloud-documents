@@ -17,8 +17,8 @@
 | TIMESTAMP [(p)]，DATETIME [(p)]	| TIMESTAMP [(p)]	| -| 
 | CHAR(n)	| CHAR(n)	| -| 
 | VARCHAR(n)	| VARCHAR(n)	| -| 
-| BIT(n)| 	BINARY(⌈n/8⌉)	| 
-BINARY(n)| 	BINARY(n)	-| 
+| BIT(n)| 	BINARY(⌈n/8⌉)	| -|
+BINARY(n)| 	BINARY(n)|	-| 
 | VARBINARY(N)	| VARBINARY(N)	| -| 
 | TINYTEXT，TEXT，MEDIUMTEXT，LONGTEXT	| STRING	| -| 
 | TINYBLOB，BLOB，MEDIUMBLOB，LONGBLOB	| BYTES	| 目前，对于 MySQL 中的 BLOB 数据类型，仅支持长度不大于 2,147,483,647(2 * 31 - 1) 的 blob| 
