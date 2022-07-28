@@ -1,6 +1,4 @@
-
-https://iwiki.woa.com/pages/viewpage.action?pageId=1990138632 TKE DNS最佳实践（jimmyhzhang(张浩)）
-
+ 
 ## 总述
 DNS 作为 Kubernetes 集群中服务访问的第一环节，其稳定性和性能至关重要，如何以更优的方式配置和使用 DNS，涉及到方方面面，本文尝试总结这些最佳实践。
 
@@ -267,7 +265,7 @@ DNS 缓存。
 ## 配置业务建议
 除了 DNS 服务的最佳实践外，在业务侧，也可以做适当的优化配置，来提升 DNS 的使用体验。
 
-1. 默认情况下，Kubernetes 集群中的域名解析往往需要经过多次请求才能解析到。查看 pod 内 的  `/etc/resolv.conf`  可以知道  `ndots`  选项默认为 5。比如，在 debug 命名空间查询  `kubernetes.default.svc.cluster.local`  这个 service：
+1. 默认情况下，Kubernetes 集群中的域名解析往往需要经过多次请求才能解析到。查看 pod 内 的  `/etc/resolv.conf`  可以知道  `ndots`  选项默认为 5。例如，在 debug 命名空间查询  `kubernetes.default.svc.cluster.local`  这个 service：
 	- 域名中有 4 个  `.` ，小于 5，尝试拼接上第一个 search 进行查询，即`kubernetes.default.svc.cluster.local.debug.svc.cluster.local` ，查不到该域名。
 	- 继续尝试  `kubernetes.default.svc.cluster.local.svc.cluster.local` ，查不到该域名。
 	- 继续尝试  `kubernetes.default.svc.cluster.local.cluster.local` ，仍然查不到该域名。
