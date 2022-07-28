@@ -39,8 +39,8 @@ CoreDNS 社区给出的 Kubernetes 版本适配情况（只列出 TKE 目前支�
 ::: CPU
 主要受 QPS 的影响。
  
-以下数据来自于官方：
-单副本 CoreDNS，运行在 GCE n1-standard-2 (2 vCPUs, 7.5 GB memory)
+以下数据来自于 CoreDNS 官方：
+单副本 CoreDNS，运行节点规格：2 vCPUs, 7.5 GB memory
 
 | Query Type | QPS              | Avg Latency (ms)   | Memory Delta (MB)  |
 |:-------------:|:--------------:|:----------------------:|:----------------------:|
