@@ -34,7 +34,7 @@ nested_type
   | list
   | map
   
-  transform
+transform
   : identity，支持任意类型, DLC不支持该转换
   | bucket[N]，hash mod N分桶，支持col_type: int,long, decimal, date, timestamp, string, binary
   | truncate[L]，L截取分桶，支持col_type: int,long,decimal,string
