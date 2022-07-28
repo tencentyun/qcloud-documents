@@ -39,6 +39,14 @@ curl 127.0.0.1:9100/metrics
 登录 [Prometheus 监控服务控制台](https://console.cloud.tencent.com/monitor/prometheus)，进入 **集成中心**  > **选择云服务器**，在采集配置-任务配置中根据页面提示进行配置。
 ![](https://qcloudimg.tencent-cloud.cn/raw/8efcd3a9e3312388798f065c3a1afdef.png)
 
+抓取任务参考配置如下：
+
+```
+job_name: cvm_node_exporterhonor_timestamps: falsescrape_interval: 30smetrics_path: /metricsscheme: httpstatic_configs:- targets:  - 111.111.111.111:9100
+```
+
+> ？targets 下的 IP 地址要改成自身 CVM 监控数据的地址。
+
 4. 查看数据是否上报成功：
 登录 [Prometheus 监控服务控制台](https://console.cloud.tencent.com/monitor/prometheus)，单击 Grafana 图标，进入 Grafana。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d1d5a1bc33284f949a4d02286166262e.png)
