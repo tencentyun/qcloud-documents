@@ -30,12 +30,12 @@ SQL 编辑器支持多个 Session 进行数据查询，每个 Session 内的配�
 - 您可以通过单击![](https://qcloudimg.tencent-cloud.cn/raw/c5576a8cc876cdde0ad4d5ea77e97c86.png)图标创建 Session，单击 tab 栏进行编辑器界面的切换。
 ![](https://qcloudimg.tencent-cloud.cn/raw/f0ebcc569fb84a5f19850a7902b0f5cc.png)
 - 为了方便您的查询使用，常用的 Session 您可以单击**保存**按钮将 Session 进行保存，同时您可以通过单击![](https://qcloudimg.tencent-cloud.cn/raw/e405bd9e6bea9bee4308ee9a20d6ce6c.png)图标快速打开您已保存的 Session。
-![](https://qcloudimg.tencent-cloud.cn/raw/85738c553ff158bb0049978ab5be1b2c.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/e1ac903032df71018a89166230f6ab14.png)
 - 针对已保存的 Session，您可以单击**刷新**按钮来更新同步已保存的信息，保证查询语句的准确性。
-![](https://qcloudimg.tencent-cloud.cn/raw/a9d23bf01e8bb7cf4c5ec7fde8b80efa.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/f24f0d14c71831fda1cd3306a63c19a9.png)
 - 编辑器支持同时运行多个不同的 SQL 语句，单击**运行**按钮将会把编辑器内所有的 SQL 语句进行运行，同时拆分为多个 SQL 任务。
 - 如需运行部分语句，可选中需运行的语句后单击**部分运行**。
-![](https://qcloudimg.tencent-cloud.cn/raw/ed0696f8e96c3385f2fe217f5c95b388.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/13037a3f85216cb53732addc9fe9e9f7.png)
 
 ### 引擎参数配置
 选择数据引擎后，支持对数据引擎进行参数配置，选择数据引擎后，在高级设置单击**添加**即可进行配置。
