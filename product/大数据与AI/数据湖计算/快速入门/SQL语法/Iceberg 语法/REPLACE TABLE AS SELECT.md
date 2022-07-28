@@ -1,7 +1,7 @@
 保留表 history 情况下，从目标表更新替换表快照 snapshot。
 ## 语法
 ```
-[CREATE OR] REPLACE TABLE table_identifier
+CREATE [OR REPLACE] TABLE table_identifier
 USING iceberg
     [ COMMENT table_comment ]
     [ PARTITIONED BY ( col_name1, transform(col_name2), ... ) ]
