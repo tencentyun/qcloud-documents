@@ -210,10 +210,10 @@ Timeout (tcp tcpfin udp): 900 120 10
 ```
 
 ### 插件介绍
-- errors
+- **errors**
 输出错误信息。
 
-- health 
+- **health**
 上报健康状态，用于配置健康检查，如 `livenessProbe`，默认监听 8080 端口，路径为 `http://localhost:8080/health`
 >! 如果有多 Server 块，health 只能配置一次，或者配置在不同端口。
 >
@@ -229,19 +229,19 @@ net {
 }
 ```
 
-- lameduck
+- **lameduck**
 用于配置优雅退出的时间，实现方式是 hook 在 CoreDNS 收到退出信号时，在其中执行 sleep，以保证时限内可以继续提供服务。
 
-- ready 
+- **ready** 
 上报插件状态，用于配置服务就绪检查，如`readinessProbe`，默认监听 8181 端口，路径为`http://localhost:8181/ready`
 
-- kubernetes 
+- **kubernetes** 
 Kubernetes 插件，支持集群内服务解析。
 
-- prometheus 
+- **prometheus** 
 metrics 数据接口，用于获取监控数据，路径为 `http://localhost:9153/metrics` 
 
-- forward（proxy）
+- **forward（proxy）**
 将无法处理的请求转发到上游 DNS 服务器。默认使用宿主机的 `/etc/resolv.conf` 配置。
 	- 根据 forward aaa bbb 的配置，内部会维护一个 udns 的列表 [aaa,bbb]
 	- 当有请求到来时，根据预设的策略（random|round_robin|sequential，默认 random）在列表 [aaa,bbb] 中找一个 udns 发请求，如果失败，则找出下一个 udns 进行尝试，同时针对失败的 udns 启动周期性的健康监测，直到其变为健康，停止健康监测。
@@ -249,13 +249,13 @@ metrics 数据接口，用于获取监控数据，路径为 `http://localhost:91
 	- 当所有的 udns 都 down 时，随机选一个 udns 做转发。
 因此，可以认为 coredns 有在多个 upstream 间智能切换的能力，forward 列表里只要有一个可用的 udns，则请求可以成功。
 
-- cache
+- **cache**
 DNS 缓存。
 
-- reload
+- **reload**
 热加载 Corefile，修改 ConfigMap 后，会在两分钟内加载新配置。
 
-- loadbalance 
+- **loadbalance** 
 提供基于 DNS 的负载均衡功能，随机响应记录的顺序。
 
 ## 使用 NodeLocal DNSCache
