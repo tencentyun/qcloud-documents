@@ -63,13 +63,13 @@ git clone https://github.com/LiteAVSDK/TRTC_UniApp.git
 在 **运行** > **运行到手机或模拟器** 菜单，选择自己的设备，并运行。
 
 ## 常见问题
-### 1.【官方】腾讯云实时音视频SDK 和 【官方】腾讯云原生音视频插件的区别？
+### 1.【官方】腾讯云实时音视频 SDK 和 【官方】腾讯云原生音视频插件的区别？
 - [【官方】腾讯云实时音视频 SDK](https://ext.dcloud.net.cn/plugin?id=7774) 就是 `TRTC SDK`。[【官方】腾讯云原生音视频插件](https://ext.dcloud.net.cn/plugin?id=7097) 就是 `TUICalling`。
 - `TRTC SDK` 是音视频基础能力，无 UI 和逻辑。适用于比较复杂的场景，或者定制化比较强的场景。用现有的 `TUICalling` 无法满足的需求，就可以使用 `TRTC SDK` 自己搭建。
 - `TUICalling` 插件包含 UI 和逻辑，专用于 1V1、多人音视频通话场景，接入简单。
 
-### 2. 【官方】腾讯云实时音视频SDK 支持小程序吗？
-[【官方】腾讯云实时音视频SDK](https://ext.dcloud.net.cn/plugin?id=7774) **暂不支持** 小程序。
+### 2. 【官方】腾讯云实时音视频 SDK 支持小程序吗？
+建议请参见 [TRTCSimpleDemoUniApp](https://github.com/LiteAVSDK/Live_WXMini/tree/main/TRTCSimpleDemoUniApp)。
 
 ### 3. 实例里面 app.vue 中的 aegis-weex-sdk 有什么用？
 [Demo](https://web.sdk.qcloud.com/trtc/uniapp/download/Api-Example.zip) 里的 `aegis-weex-sdk` 主要是用来对 Demo 做性能监控统计。
@@ -91,3 +91,6 @@ git clone https://github.com/LiteAVSDK/TRTC_UniApp.git
 - 解决方案：
 	- 首先必须是 .nvue 文件，[详见](https://nativesupport.dcloud.net.cn/NativePlugin/course/ios)。
 	- 页面必须使用 `trtc-local-view` 并且绑定了 viewId。
+
+### 9. [【官方】腾讯云实时音视频 SDK](https://ext.dcloud.net.cn/plugin?id=7774) 和 [livepusher](https://nativesupport.dcloud.net.cn/AppDocs/usemodule/androidModuleConfig/android_Library) 推流模块同时使用，打包冲突
+ [uni-app 官网文档介绍](https://nativesupport.dcloud.net.cn/AppDocs/usemodule/androidModuleConfig/android_Library) 第三方 SDK 使用 LiteAVSDK（weex_livepusher-release.aar）做直播推流，和 [【官方】腾讯云实时音视频 SDK](https://ext.dcloud.net.cn/plugin?id=7774) 使用的 LiteAVSDK_TRTC 类冲突。和 uni-app 技术沟通后，对方反馈不清楚 SDK 属于那个版本类型，因此 uni-app 他们无法对 livepusher 进行升级。

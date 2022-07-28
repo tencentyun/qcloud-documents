@@ -7,6 +7,7 @@
 
 ## 支持版本
 内核版本 MySQL 5.7 20210330 及以上
+>?列压缩功能默认为关闭状态，如需使用请 [提交工单](https://console.cloud.tencent.com/workorder/category) 开启。
 
 ## 适用场景
 表中有某些大字段和其他很多小字段，同时对小字段的读写很频繁，对大字段访问不频繁的情形中，可以将大字段设置为压缩列。
@@ -14,7 +15,7 @@
 ## 使用说明
 ### 支持的数据类型
 1. `BLOB`（包含 `TINYBLOB`、`MEDIUMBLOB`、`LONGBLOB`）
-2. `TEXT`（包含 `TINYTEXT`、`MEDUUMTEXT`、`LONGTEXT`）
+2. `TEXT`（包含 `TINYTEXT`、`MEDIUMTEXT`、`LONGTEXT`）
 3. `VARCHAR`
 4. `VARBINARY`
 

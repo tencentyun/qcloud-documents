@@ -574,11 +574,11 @@ TencentImSDKPlugin.v2TIMManager
 
 配置运行后，如果报错，可以单击 **Product** > **Clean Build Folder**，清除产物后重新 `pod install` 或 `flutter run`。
 
-![20220714152720](https://tuikit-1251787278.cos.ap-guangzhou.myqcloud.com/20220714152720.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/d495b2e8be86dac4b430e8f46a15cef4.png)
 
 ### 佩戴 Apple Watch 时，真机调试 iOS 报错
 
-![20220714152340](https://tuikit-1251787278.cos.ap-guangzhou.myqcloud.com/20220714152340.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/1ffcfe39a18329c86849d7d3b34b9a0e.png)
 
 请将您的Apple Watch调整至飞行模式，并将iPhone的蓝牙功能通过 `设置 => 蓝牙` 彻底关闭。
 
