@@ -1,6 +1,6 @@
 ## 读取
 
-| MongoDB 数据类型 | 内部类型 | 
+| Mongo 数据类型 | 内部类型 | 
 |---------|---------|	
 | int， Long	| Long| 
 | double	| Double| 
@@ -11,7 +11,7 @@
 
 ## 写入
 
-| 内部类型 | MongoDB 数据类型 | 
+| 内部类型 | Mongo 数据类型 | 
 |---------|---------|	
 | Long| 	int， Long| 
 | Double	| double| 
