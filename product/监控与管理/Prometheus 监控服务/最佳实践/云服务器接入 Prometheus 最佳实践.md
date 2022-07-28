@@ -42,7 +42,26 @@ curl 127.0.0.1:9100/metrics
 抓取任务参考配置如下：
 
 ```
-job_name: cvm_node_exporterhonor_timestamps: falsescrape_interval: 30smetrics_path: /metricsscheme: httpstatic_configs:- targets:  - 111.111.111.111:9100
+job_name: example-job-name
+metrics_path: /metrics
+cvm_sd_configs:
+- region: ap-guangzhou
+  ports:
+  - 9100
+  filters:         
+  - name: tag:示例标签键
+    values: 
+    - 示例标签值
+relabel_configs: 
+- source_labels: [__meta_cvm_instance_state]
+  regex: RUNNING
+  action: keep
+- regex: __meta_cvm_tag_(.*)
+  replacement: $1
+  action: labelmap
+- source_labels: [__meta_cvm_region]
+  target_label: region
+  action: replace
 ```
 
 > ？targets 下的 IP 地址要改成自身 CVM 监控数据的地址。
