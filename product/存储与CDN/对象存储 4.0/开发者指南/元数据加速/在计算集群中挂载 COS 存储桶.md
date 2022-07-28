@@ -9,7 +9,7 @@
 ## 前提条件
 
 - 确保计算集群中需要挂载的机器或者容器内已安装 [Java 1.8](https://www.oracle.com/java/technologies/downloads/)。
-- 确保计算集群中需要挂载的机器或者容器已授权访问，您需要在 HDFS 权限配置里指定可访问的 VPC 网络和 IP 地址
+- 确保计算集群中需要挂载的机器或者容器已授权访问，您需要在 HDFS 权限配置里指定可访问的 VPC 网络和 IP 地址。
 - 依赖 JAR 包说明：
 1. [chdfs_hadoop_plugin_network-2.8.jar](https://github.com/tencentyun/chdfs-hadoop-plugin/tree/master/jar) verison>=2.7;
 2. [cos_api-bundle.jar](https://search.maven.org/artifact/com.qcloud/cos_api-bundle/5.6.69/jar) version>=5.6.69;
