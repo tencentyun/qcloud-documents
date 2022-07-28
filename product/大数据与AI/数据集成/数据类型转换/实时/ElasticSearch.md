@@ -1,6 +1,6 @@
 ## 写入
 
-| 内部类型 | JSON 类型 | 标
+| 内部类型 | JSON 类型 | 
 |---------|---------|
 |CHAR / VARCHAR / STRING	|string|
 |BOOLEAN	|boolean|
