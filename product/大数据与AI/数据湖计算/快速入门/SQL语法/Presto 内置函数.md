@@ -352,3 +352,7 @@ info.setProperty("password","");
 |url_extract_query(url)	|varchar|
 |url_encode(value)	|varchar|
 |url_decode(value)	|varchar|
+|try_cast(value AS type)	|type|
+|current_user 	|varchar|
+|typeof(expr) 	|varchar|
+|parse_presto_data_size(string)	|decimal(38)|
