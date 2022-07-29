@@ -9,159 +9,123 @@
 ### Variables（变量）
 - [default](#default)
 
-## Variables（变量）
 
-[](id:default)
-## 目录
-
-### Interfaces（接口）
-- [Item](https://cloud.tencent.com/document/product/1484/75805)
-
-### Variables（变量）
-- [default](#default)
-
-## Variables（变量）
-[](id:default)
 ### default
 **default**:  { add: any; forEach: any; get: any; random: any }
-```
-Defined in typings/dataset.d.ts:17
-```
+
+
+### Const default
+
+- default: { Client: (new () => { close: *any*; connect: *any*; invoke: *any*; load: *any* }) }
 
 
 #### Type declaration
 
-- ##### add:function
-
-  - add(filename: *string*, values: *Record*<*string*, *any*>[]): *void*
+- ##### Client: (new () => { close: *any*; connect: *any*; invoke: *any*; load: *any* })
 
 ```
-Defined in typings/dataset.d.ts:54
+new (): { close: *any*; connect: *any*; invoke: *any*; load: *any* }
 ```
 
-增加一行参数文件。
+ #### Returns { close: *any*; connect: *any*; invoke: *any*; load: *any* }
 
-    ```
-    import dataset from 'pts/dataset';
-    
-    export function setup () {
-        dataset.add("user", [
-                {"id": 1, "name": "zhangsan", "age": 1},
-                {"id": 2, "name": "lisi", "age": 2}
-            ]
-        )
-    };
-    ```
+ - ##### close:function
 
-#### Parameters
+```
+   close(): *void*
+```
+     
+关闭连接。
 
-  - ##### filename: *string*
+#### Returns *void*
 
-      文件名。
+- ##### connect:function
 
-   - ##### values: *Record*<*string*, *any*>[]
+```
+connect(target: *string*, option?: [DialOption](../interfaces/grpc.DialOption.html)): *void*
+```
+建立连接。
 
-      文件数据。
+ #### Parameters
 
-    #### Returns *void*
+- ##### target: *string*
+目标地址
+- ##### Optional option: [DialOption](https://cloud.tencent.com/document/product/1484/75816)
+可选。DialOption 对象
 
-- ##### forEach:function
+#### Returns *void*
 
-  - forEach(fileName: *string*, callback: ((item: [Item](https://cloud.tencent.com/document/product/1484/75805), i?: *number*) => *void*)): *void*
+- ##### invoke:function
 
-  - Defined in typings/dataset.d.ts:95
+```
+invoke(method: *string*, request: *any*, option?: [InvokeOption](https://cloud.tencent.com/document/product/1484/75818)): [Response](https://cloud.tencent.com/document/product/1484/75819)
+```
 
-    遍历 csv 文件，支持修改和删除。
+ 执行 method 方法。
 
-    ```js
-    import dataset from 'pts/dataset';
-    
-    export function setup() {
-        dataset.forEach("test.csv", (item) => {
-            item.data.key5 = "555";
-            if (item.data.key1 === "1") {
-                item.delete();
-            }
-            console.log(JSON.stringify(item.data));
-        });
-    }
-    ```
+```js
+     import grpc from 'pts/grpc';
+          
+     // 加载协议文件根目录中的 addsvc.proto
+    client.load([], 'addsvc.proto');
+          
+     // 加载中协议文件 dirName 目录中的 addsvc.proto
+     // client.load(['dirName'], 'addsvc.proto');
+          
+      export default () => {
+      client.connect('grpcb.in:9000', {insecure: true});
+          
+      const rsp = client.invoke('addsvc.Add/Sum', {
+            a: 1,
+            b: 2,
+       });
+       console.log(rsp.data.v); // 3
+          
+       client.close();
+        };
+        ```
 
-    #### Parameters
+ #### Parameters
 
-    - ##### fileName: *string*
+ - ##### method: *string*
 
-      文件名
+     完整 path 路径 /a.b.c.d/e
 
-    - ##### callback: ((item: [Item](https://cloud.tencent.com/document/product/1484/75805), i?: *number*) => *void*)
+- ##### request: *any*
 
-      回调函数
+    业务请求内容
 
-      - - (item: [Item](https://cloud.tencent.com/document/product/1484/75805), i?: *number*): *void*
+- ##### Optional option: [InvokeOption](../interfaces/grpc.InvokeOption.html)
 
-        - #### Parameters
+            可选。InvokeOption 对象
 
-          - ##### item: [Item](https://cloud.tencent.com/document/product/1484/75805)
+#### Returns [Response](../interfaces/grpc.Response.html)
 
-          - ##### Optional i: *number*
+      响应对象
 
-          #### Returns *void*
+ - ##### load:function
 
-    #### Returns *void*
+  - load(importPaths: *string*[], ...filenames: *string*[]): *void*
 
-- ##### get:function
+  加载 pb 文件。
 
-  - get(key: *string*): *string*
-
-  - Defined in typings/dataset.d.ts:73
-
-    获取 csv 文件的列数据。
-
-    ```
-    import http from 'pts/http';
-    import dataset from 'pts/dataset';
-    
-    export default function () {
-        const value = dataset.get('key1');
-        console.log('key1 => '+value)
-        const postResponse = http.post('http://httpbin.org/post', JSON.stringify({data:value}));
-    };
-    ```
-
-#### Parameters
-
- - ##### key: *string*
-
-   列名
-
-#### Returns *string*
-
-  数据
-
-- ##### random:function
-
-  - random(filename: *string*): *Record*<*string*, *any*>
-
-  - Defined in typings/dataset.d.ts:34
-
-    随机获取参数文件一行。
-
-    ```js
-    import dataset from 'pts/dataset';
-    
-    export default function () {
-        const record = dataset.random('test.csv');
-        console.log(JSON.stringify(record)); // {"key1":"1","key2":"2","key3":"3","key4":"4"}
-        console.log(record.key1); // 1 
-    };
-    ```
+   ```js
+    import grpc from 'pts/grpc';
+          
+     // 加载协议文件根目录中的 addsvc.proto
+      client.load([], 'addsvc.proto');
+          
+      // 加载中协议文件 dirName 目录中的 addsvc.proto
+      client.load(['dirName'], 'addsvc.proto');
+      ```
 
 #### Parameters
+- ##### importPaths: *string*[]
 
- - ##### filename: *string*
+用于搜索在 proto 源文件的 import 语句中引用的依赖项的路径。如果没有提供导入路径，则当前目录被假定为唯一的导入路径。
 
-      文件名。
+- ##### Rest ...filenames: *string*[]
 
-#### Returns *Record*<*string*, *any*>
+   pb 文件名列表, 支持单个文件名调用
 
-  一行数据。
+#### Returns *void*
