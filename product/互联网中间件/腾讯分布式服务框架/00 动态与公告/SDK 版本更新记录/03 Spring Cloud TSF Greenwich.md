@@ -1,5 +1,15 @@
 基于 Spring Cloud Greenwich 版本 SDK，支持 spring boot 2.1.6。
 
+## 1.29.3-Greenwich-RELEASE（2022-07-29）
+### bug 修复
+- 修复 jdbc postgresql Multi-Hosts 解析失败的问题
+- 修复 fix invocation AggregatedStat 数据合并的问题
+- 调用链兼容ShardingConnection
+- 修复潜在的监控数据http method异常的问题
+- 修复 rocketmq 调用链 NPE 问题
+- 修复潜在的重复bean问题
+- 修复 scg invocation 丢失 tag 的问题
+
 ## 1.29.1-Greenwich-RELEASE（2022-06-07）
 ### 优化
  - 优化熔断规则日志输出。
