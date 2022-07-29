@@ -11,21 +11,6 @@
 3. 选择完后，单击立即购买并支付即可。
 >?如需了解 Prometheus 更多定价规则，请参考 [产品定价](https://cloud.tencent.com/document/product/1416/55777)。
 
-## 安装 Agent
-1. 在 Prometheus 控制台新建 Agent：
-登录 [Prometheus 监控服务控制台](https://console.cloud.tencent.com/monitor/prometheus)，单击 **Agent 管理 > 新建**，输入 Agent 名称并保存。
-![](https://qcloudimg.tencent-cloud.cn/raw/043a422d86346a6d429368b87a6a0ea8.png)
-2. 在云服务器上执行命令安装 Agent：
-登录  [Prometheus 监控服务控制台](https://console.cloud.tencent.com/monitor/prometheus)，单击 **Agent 管理**，进入 Agent 的安装指南页面。根据页面的安装指南，到上报数据的同一台云服务器执行命令安装 Agent。
-![](https://qcloudimg.tencent-cloud.cn/raw/f9818a6826fa87b90a292e0fb83b0b05.png)
-3. 安装成功后，执行下列命令查看 Agent 状态
-```
-systemctl status prometheus
-```
-![](https://qcloudimg.tencent-cloud.cn/raw/b7a1f373af49e06440ccb797b87977e3.png)
-![](https://qcloudimg.tencent-cloud.cn/raw/377220fe469914502d68f78ffad4d0a9.jfif)
-
-
 
 ## 接入云服务器基础指标
 1. 下载安装 node_expoter：
@@ -51,14 +36,36 @@ curl 127.0.0.1:9100/metrics
 如下图为执行命令后看到的暴露出来的指标监控数据。
 ![](https://qcloudimg.tencent-cloud.cn/raw/4295420750699bf57711deb515319131.jfif)
 3. 新增抓取任务：
-登录 [Prometheus 监控服务控制台](https://console.cloud.tencent.com/monitor/prometheus)，进入 **Agent 管理 > 抓取任务 > 新建**，在抓取任务管理页中新建抓取任务。如下图：
-![](https://qcloudimg.tencent-cloud.cn/raw/89cb21469446c454546ea74aaeb9a029.png)
-![](https://qcloudimg.tencent-cloud.cn/raw/f7f8e58a0c7ce0f700c3289c019bb812.png)
+登录 [Prometheus 监控服务控制台](https://console.cloud.tencent.com/monitor/prometheus)，进入 **集成中心**  > **选择云服务器**，在采集配置-任务配置中根据页面提示进行配置。
+![](https://qcloudimg.tencent-cloud.cn/raw/8efcd3a9e3312388798f065c3a1afdef.png)
+
 抓取任务参考配置如下：
+
 ```
-job_name: cvm_node_exporterhonor_timestamps: falsescrape_interval: 30smetrics_path: /metricsscheme: httpstatic_configs:- targets:  - 111.111.111.111:9100
+job_name: example-job-name
+metrics_path: /metrics
+cvm_sd_configs:
+- region: ap-guangzhou
+  ports:
+  - 9100
+  filters:         
+  - name: tag:示例标签键
+    values: 
+    - 示例标签值
+relabel_configs: 
+- source_labels: [__meta_cvm_instance_state]
+  regex: RUNNING
+  action: keep
+- regex: __meta_cvm_tag_(.*)
+  replacement: $1
+  action: labelmap
+- source_labels: [__meta_cvm_region]
+  target_label: region
+  action: replace
 ```
->!targets 下的 IP 地址要改成自身 CVM 监控数据的地址。
+
+> ？targets 下的 IP 地址要改成自身 CVM 监控数据的地址。
+
 4. 查看数据是否上报成功：
 登录 [Prometheus 监控服务控制台](https://console.cloud.tencent.com/monitor/prometheus)，单击 Grafana 图标，进入 Grafana。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d1d5a1bc33284f949a4d02286166262e.png)
