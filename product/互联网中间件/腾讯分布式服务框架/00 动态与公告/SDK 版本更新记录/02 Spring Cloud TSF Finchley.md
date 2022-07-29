@@ -1,5 +1,23 @@
 基于 Spring Cloud Finchley 版本 SDK，支持 spring boot 2.0.x。
 
+
+# 1.29.15-Finchley-RELEASE（2022-07-29）
+### bug 修复
+- 修复调用链兼容 ShardingConnection
+- 修复潜在的监控数据http method异常的问题
+- 修复 rocketmq 调用链 NPE 问题
+
+### 版本建议
+支持向后兼容，建议全量升级。
+
+# 1.29.14-Finchley-RELEASE（2022-06-24）
+### Bug 修复
+- 修复潜在的 CacheClient bean 重复问题
+- 修复invocation AggregatedStat 数据合并的问题
+
+### 版本建议
+部分场景可能因为 ShardingConnection 而启动失败，建议升级到 1.29.15-Finchley-RELEASE
+
 ## 1.29.13-Finchley-RELEASE（2022-06-07）
 ### Bug 修复
 - 修复 consul actuator 因为不兼容而导致down的问题。
