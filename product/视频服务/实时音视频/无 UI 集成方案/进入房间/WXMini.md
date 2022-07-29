@@ -117,7 +117,7 @@ bindTRTCRoomEvent() {
 
 [](id:step3)
 ## 步骤3：进入音视频通话房间
-需要先调用 [createpusher](https://cloud.tencent.com/document/product/647/17018#createpusher(pusherattributes)) 初始化pusher实例并配置初始参数，再调用 [enterroom](https://cloud.tencent.com/document/product/647/17018#enterroom(params)) 获取新的 pusher 实例，通过 setData 赋值给 [live-pusher](https://developers.weixin.qq.com/miniprogram/dev/component/live-pusher.html) 标签。
+需要先调用 [createpusher](https://cloud.tencent.com/document/product/647/17018#createpusher(pusherattributes)) 初始化 pusher 实例并配置初始参数，再调用 [enterroom](https://cloud.tencent.com/document/product/647/17018#enterroom(params)) 获取新的 pusher 实例，通过 setData 赋值给 [live-pusher](https://developers.weixin.qq.com/miniprogram/dev/component/live-pusher.html) 标签。
 ```javascript
 // 生命周期函数--监听页面加载
 onLoad(options) {
