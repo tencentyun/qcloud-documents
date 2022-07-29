@@ -35,8 +35,8 @@ curl 127.0.0.1:9100/metrics
 如下图为执行命令后看到的暴露出来的指标监控数据。
 ![](https://qcloudimg.tencent-cloud.cn/raw/4295420750699bf57711deb515319131.jfif)
 3. 新增抓取任务：
-登录 [Prometheus 监控服务控制台](https://console.cloud.tencent.com/monitor/prometheus)，进入 **集成中心**  > **选择云服务器**，在 **采集配置** > **任务配置** 中根据页面提示进行配置。
-![](https://qcloudimg.tencent-cloud.cn/raw/8efcd3a9e3312388798f065c3a1afdef.png)
+登录 [Prometheus 监控服务控制台](https://console.cloud.tencent.com/monitor/prometheus)，进入 **集成中心**  > **选择云服务器**，在任务配置中根据页面提示进行配置。
+![](https://qcloudimg.tencent-cloud.cn/raw/7f09712ba63621c3f6635c224f90f2ff.png)
 抓取任务参考配置如下：
 ```
 job_name: example-job-name
