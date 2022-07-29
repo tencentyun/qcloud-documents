@@ -17,11 +17,12 @@
 4. ofs-java-sdk.jar (version >=1.0.4) 自动拉取无需安装，运行 hadoop fs ls 成功后可以在 fs.cosn.trsf.fs.ofs.tmp.cache.dir 配置的目录下查看对应版本是否符合预期;
 
 ## 操作步骤
-1. 下载 [Hadoop 客户端工具安装包](https://github.com/tencentyun/hadoop-cos/releases) 。
-2. 下载 [POSIX Hadoop 客户端工具安装包](https://github.com/tencentyun/chdfs-hadoop-plugin/tree/master/jar) 。
-3. 下载 [cos java sdk安装包](https://search.maven.org/artifact/com.qcloud/cos_api-bundle/5.6.69/jar) 。
+1. 下载 [Hadoop 客户端工具安装包](https://github.com/tencentyun/hadoop-cos/releases)。
+2. 下载 [POSIX Hadoop 客户端工具安装包](https://github.com/tencentyun/chdfs-hadoop-plugin/tree/master/jar)。
+3. 下载 [cos java sdk 安装包](https://search.maven.org/artifact/com.qcloud/cos_api-bundle/5.6.69/jar)。
 4. 将安装包放到各节点 classpath 下保证任务启动能正常加载，例如`$HADOOP_HOME/share/hadoop/common/lib/`下。
->! EMR 环境下自带依赖 jar 包，无需安装，可直接通过 POSIX 语义访问元数据加速桶，如需使用 s3 协议访问则更改 fs.cosn.posix_bucket.fs.impl 配置项，详见下文。
+>! EMR 环境下自带依赖 jar 包，无需安装，可直接通过 POSIX 语义访问元数据加速桶。如需使用 s3 协议访问，则更改 fs.cosn.posix_bucket.fs.impl 配置项，详情请参见下文。
+>
 5. 编辑 `core-site.xml`文件，新增以下基本配置：
 ```
 <!--账户的 API 密钥信息。可登录 [访问管理控制台](https://console.cloud.tencent.com/capi) 查看云 API 密钥。-->
@@ -98,7 +99,8 @@
 - [其他 POSIX 方式配置项](https://cloud.tencent.com/document/product/1105/36368)，其他 POSIX 方式配置项添加“fs.cosn.trsf.”前缀即可用于访问元数据加速桶。
 
 ### 5. 注意事项
-1. 不能使用旧的hadoop cos jar包访问开启元数据加速的bucket；
-2. 使用Hadoop cos <= 8.1.5 版本posix方式访问元数据加速bucket需要在控制台关闭ranger校验；
+
+1. 不能使用旧的 hadoop cos jar 包访问开启元数据加速的 bucket。
+2. 使用 Hadoop cos <= 8.1.5 版本 posix 方式访问元数据加速 bucket 需要在控制台关闭 ranger 校验。
 
 
