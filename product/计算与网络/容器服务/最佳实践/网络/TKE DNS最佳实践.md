@@ -53,10 +53,10 @@ CoreDNS 和 TKE 版本的兼容性列表如下所示：
  
 
 ### TKE 推荐策略
-1. TKE 默认设置 CoreDNS 副本数为 2，且配置了 `podAntiAffinity` 使两副本部署在不同节点。
-2. 一般根据集群内业务访问 DNS 的 QPS 来确定合理的副本数。
-3. 也可以根据节点数以及总核数来确定副本数，如配置副本数 / 集群节点数 = 1/8
-4. 可以通过在控制台 [安装 DNSAutoScaler 组件](https://cloud.tencent.com/document/product/457/49305)，来实现自动调整 CoreDNS 副本数（要注意提前配置好平滑升级），组件的默认配置如下：
+1. TKE 默认设置 CoreDNS 副本数为2，且配置了 `podAntiAffinity` 使两副本部署在不同节点。
+2. 一般根据集群内业务访问 DNS 的 QPS 来确定合理的副本数，也可以根据节点数以及总核数来确定，一般不超过10副本，建议配置：
+   副本数 = min ( max ( ceil (QPS/10000), ceil (集群节点数/8) ), 10 )
+3. 可以通过在控制台 [安装 DNSAutoScaler 组件](https://cloud.tencent.com/document/product/457/49305)，来实现自动调整 CoreDNS 副本数（要注意提前配置好平滑升级），组件的默认配置如下：
 ```
 data:
   ladder: |-
@@ -74,7 +74,7 @@ data:
       ]
     }
 ```
-5. 针对节点较多的集群，建议安装 NodeLocal DNSCache，详情参见：[在 TKE 集群中使用 NodeLocal DNS Cache](https://cloud.tencent.com/document/product/457/40613)
+4. 针对节点较多的集群，建议安装 NodeLocal DNSCache，详情参见：[在 TKE 集群中使用 NodeLocal DNS Cache](https://cloud.tencent.com/document/product/457/40613)
 
 ## 配置平滑升级
 当重启节点或者升级 CoreDNS 时，可能导致 CoreDNS 部分副本在一段时间不可用，可以通过以下配置，最大程度保证 DNS 服务的可用性，实现平滑升级。
