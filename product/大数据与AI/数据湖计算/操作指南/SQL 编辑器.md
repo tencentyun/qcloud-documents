@@ -65,7 +65,7 @@ SQL 编辑器支持多个 Session 进行数据查询，每个 Session 内的配�
 <td>200</td>
 <td >默认分区数</td>
 </tr><tr>
-<td>spark.sql.dynamicPartitionOverwrite.enabled</td>
+<td>spark.sql.sources.partitionOverwriteMode</td>
 <td>false</td>
 <td >该值为 false 时，在执行覆盖写操作之前，会删除所有符合条件的分区<br>举例说明：分区表中有一个“2022-01”的分区，当使用 INSERT OVERWRITE 语句向表中写入“2022-02”这个分区的数据时，会把“2021-01”的分区数据也覆盖掉<br>当该值为 true 时，不会提前删除分区，而是在运行时覆盖那些有数据写入的分区</td>
 </tr><tr>
