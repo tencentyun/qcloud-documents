@@ -18,9 +18,11 @@ SDK 所有接口的具体参数与方法说明，请参考 [SDK API](https://cos
 
 接口用于查询存储桶是否已开通语音识别功能。
 
-> ! COS iOS SDK 版本需要大于等于 v6.1.3。
+>! COS iOS SDK 版本需要大于等于 v6.1.3。
+>
 
 #### 示例代码
+
 **Objective-C**
 
 [//]: # (.cssg-snippet-get-audiodiscern-bucketlist)
@@ -41,7 +43,8 @@ request.finishBlock = ^(QCloudGetAudioOpenBucketListResult * outputObject, NSErr
 [[QCloudCOSXMLService defaultCOSXML] GetAudioDiscernOpenBucketList:request];
 ```
 
->?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/iOS/Objc/Examples/cases/AudioDiscernTaskQueue.m) 查看。
+>? 更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/iOS/Objc/Examples/cases/AudioDiscernTaskQueue.m) 查看。
+>
 
 **Swift**
 
@@ -63,5 +66,6 @@ request.setFinish { outputObject, error in
 QCloudCOSXMLService.defaultCOSXML().getAudioDiscernOpenBucketList(request);
 ```
 
->?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/iOS/Swift/Examples/cases/AudioDiscernTaskQueue.swift) 查看。
+>? 更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/iOS/Swift/Examples/cases/AudioDiscernTaskQueue.swift) 查看。
+>
 
