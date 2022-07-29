@@ -94,8 +94,8 @@
 将 iPhone 设备连接 Xcode，安装 App 并观察控制台日志，若显示如下相似日志，表明客户端已经正确集成 SDK：
 
 ```plaintext
-[移动推送] Current device token is 9298da5605c3b242261b57****376e409f826c2caf87aa0e6112f944
-[移动推送] Current移动推送token is 00c30e0aeddff1270d8****dc594606dc184
+[TPNS] Current device token is 9298da5605c3b242261b57****376e409f826c2caf87aa0e6112f944
+[TPNS] Current TPNS token is 00c30e0aeddff1270d8****dc594606dc184
 ```
 
 若未搜索到 Token，请查看注册接口返回的错误码，根据 [错误码对照表](https://cloud.tencent.com/document/product/548/36669) 排查。
