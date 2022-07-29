@@ -234,7 +234,7 @@ image: ccr.ccs.tencentyun.com/tkeimages/coredns:1.7.0
 
 
 <span id="1.8.4"></span>
-## 升级到1.8.4
+### 升级到1.8.4
 
 1. 编辑 coredns clusterrole
 ```
