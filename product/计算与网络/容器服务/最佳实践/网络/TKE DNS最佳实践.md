@@ -298,7 +298,7 @@ kubectl edit deployment coredns -n kube-system
 替换镜像为
 ```yaml
 image: ccr.ccs.tencentyun.com/tkeimages/coredns:1.8.4
- 
+```
 
 ## 配置介绍
 - **errors**
