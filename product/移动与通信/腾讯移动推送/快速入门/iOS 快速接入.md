@@ -16,9 +16,9 @@
    ![](https://main.qcloudimg.com/raw/c4eaeb3f2d9c3fbb42dbb75f2c5c12dc.png)
 3. 完成以上步骤后，单击快速接入，下载快速集成工具。
    ![](https://main.qcloudimg.com/raw/bbe22b0a4ea25ed313c5c3785814f922.png)
-4. 解压缩文件包，双击移动推送Smart Tool。
+4. 解压缩文件包，双击TPNS Smart Tool。
    ![](https://main.qcloudimg.com/raw/b900deaadd11180abd6918e400ed55b6.png)
-5. 此时会提示“无法打开移动推送Smart Tool”。
+5. 此时会提示“无法打开 TPNS Smart Tool”。
    ![](https://main.qcloudimg.com/raw/67334a5258eb5d879c54663d158029ee.png)
 6. 前往**系统偏好设置**>**安全性与隐私**> 通用中单击**仍要打开**。
    ![](https://main.qcloudimg.com/raw/2c5313c7d0e07ef38e231c16f056dfb2.jpg)
@@ -65,7 +65,7 @@
 
 
 1. 前往 [苹果开发者平台](https://developer.apple.com/account/resources/identifiers/list) 为通知服务扩展插件申请 `Bundle Identifier`。
->?`Bundle Identifier` 命名规则 (主tartget Bundle Identifier).移动推送Service。
+>?`Bundle Identifier` 命名规则 (主tartget Bundle Identifier).TPNSService。
 2. 申请包含 `Bundle Identifier` 的描述文件。
 ![](https://main.qcloudimg.com/raw/62cffd22ab74e0505abc54e61787e0a4.png)
 3. 将扩展插件的 `Bundle Identifier` 指定为上述申请的 `Bundle Identifier` 并将 `Provisioning Profile` 指定为上述申请的描述文件。
@@ -75,7 +75,7 @@
 >- 您可以单独集成配置项5或者6，也可以同时集成5和6，请根据您的项目情况自行选择。
 
 
-### 进行移动推送SDK 集成
+### 进行移动推送 SDK 集成
 
 1. 完成上述6项配置之后，**一键集成**将变成蓝色可单击状态，单击**一键集成**。
   ![](https://main.qcloudimg.com/raw/30059198465ce5fb475e848aa2214372.jpg)
