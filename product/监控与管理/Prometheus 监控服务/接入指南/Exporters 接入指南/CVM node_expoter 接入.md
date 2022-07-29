@@ -51,7 +51,6 @@ relabel_configs:
   target_label: region
   action: replace
 ```
->?targets 下的 IP 地址要改成自身 CVM 监控数据的地址。
 
 ### 步骤4：查看数据是否上报成功：
 登录 [Prometheus 监控服务控制台](https://console.cloud.tencent.com/monitor/prometheus)，单击 Grafana 图标，进入 Grafana。
