@@ -54,6 +54,7 @@ Content-Type: application/xml
 | ------------------ | ------ | -------------- | --------- | ---- |
 | Request            | 无     | 保存请求的容器 | Container | 是   |
 
+<span id="Request"></span>
 Container 类型 Request 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 是否必选 |
@@ -64,6 +65,7 @@ Container 类型 Request 的具体数据描述如下：
 | QueueId            | Request | 任务所在的图片处理队列 ID                                         | String    | 是   |
 | CallBack           | Request | 回调地址                 | String    | 否   |
 
+<span id="Input"></span>
 Container 类型 Input 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点        | 描述            | 类型   | 是否必选 |
@@ -78,8 +80,10 @@ Container 类型 Operation 的具体数据描述如下：
 | TemplateId                   | Request.Operation | 指定的模板 ID                                        | String    | 否   |
 | Output                       | Request.Operation | 结果输出地址                                          | Container | 是   |
 
->!优先使用 TemplateId，无 TemplateId 时使用对应任务类型的参数。
+>! 优先使用 TemplateId，无 TemplateId 时使用对应任务类型的参数。
+>
 
+<span id="Output"></span>
 Container 类型 Output 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点                   | 描述                                                         | 类型   | 是否必选 |
@@ -133,13 +137,14 @@ Container 类型 Output 的具体数据描述如下：
 |:---|:--- |:--- |:--- |
 | Response |无| 保存结果的容器 | Container |
 
+<span id="Response"></span>
 Container 节点 Response 的内容：
 
 |节点名称（关键字）|父节点|描述|类型|
 |:---|:--- |:--- |:--- |
 | JobsDetail | Response | 任务的详细信息 |  Container |
 
-
+<span id="jobsDetail"></span>
 Container 节点 JobsDetail 的内容：
 
 |节点名称（关键字）|父节点|描述|类型|
@@ -159,6 +164,7 @@ Container 节点 JobsDetail 的内容：
 Container 节点 Input 的内容：
 同请求中的 Request.Input 节点。
 
+<span id="Operation"></span>
 Container 节点 Operation 的内容：
 
 |节点名称（关键字）|父节点|描述|类型|
