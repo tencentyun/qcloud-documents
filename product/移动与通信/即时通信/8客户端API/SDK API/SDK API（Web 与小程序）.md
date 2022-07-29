@@ -17,7 +17,7 @@ TIM 是 IM Web SDK 的命名空间，提供了创建 SDK 实例的静态方法 [
 | 基本概念 | 说明 |
 | :--- | :---- |
 | Message（消息） | IM SDK 中 [Message](https://web.sdk.qcloud.com/im/doc/zh-cn/Message.html) 表示要发送给对方的内容，消息包括若干属性，例如自己是否为发送者，发送人帐号以及消息产生时间等。 |
-| Conversation（会话） | IM SDK 中 [Conversation](https://web.sdk.qcloud.com/im/doc/zh-cn/Conversation.html) 分为两种：<li> C2C（Client to Client）会话，表示单聊情况，自己与对方建立的对话。</li><li> GROUP（群）会话，表示群聊情况下群内成员组成的会话。 |
+| Conversation（会话） | IM SDK 中 [Conversation](https://web.sdk.qcloud.com/im/doc/zh-cn/Conversation.html) 分为两种：<li> C2C（Client to Client）会话，表示单聊情况，自己与对方建立的对话。</li><li> GROUP（群）会话，表示群聊情况下群内成员组成的会话。</li> |
 | Profile（资料） | IM SDK 中 [Profile](https://web.sdk.qcloud.com/im/doc/zh-cn/Profile.html) 描述个人的常用基本信息，例如昵称、性别、个性签名以及头像地址等。 |
 | Friend（好友） | IM SDK 中 [Friend](https://web.sdk.qcloud.com/im/doc/zh-cn/Friend.html) 描述好友的常用基本信息，例如备注、分组等。 |
 | FriendApplication（好友申请）	| IM SDK 中 [FriendApplication](https://web.sdk.qcloud.com/im/doc/zh-cn/FriendApplication.html) 描述好友申请的常用基本信息，例如加好友来源、备注等。 |
