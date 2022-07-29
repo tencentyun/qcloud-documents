@@ -4,19 +4,20 @@ DNS 作为 Kubernetes 集群中服务访问的第一环节，其稳定性和性�
 
 ## 选择最佳 CoreDNS 版本
 
-CoreDNS 社区给出的 Kubernetes 版本适配情况（只列出 TKE 目前支持的 Kubernetes 版本）
+CoreDNS 和 TKE 版本的兼容性列表如下所示：
 
-| Kubernetes Version | CoreDNS version |
+| TKE Version | CoreDNS version |
 | :------------------: | :------------------: |
 | v1.22 | [v1.8.4](https://github.com/coredns/coredns/releases/tag/v1.8.4) |
-| v1.20 | [v1.7.0](https://github.com/coredns/coredns/releases/tag/v1.7.0) |
-| v1.18 |  [v1.6.7](https://github.com/coredns/coredns/releases/tag/v1.6.7) |
+| v1.20 | [v1.8.4](https://github.com/coredns/coredns/releases/tag/v1.8.4) |
+| v1.18 |  [v1.7.0](https://github.com/coredns/coredns/releases/tag/v1.7.0) |
 | v1.16 |  [v1.6.2](https://github.com/coredns/coredns/releases/tag/v1.6.2) |
-| v1.14 |  [v1.3.1](https://github.com/coredns/coredns/releases/tag/v1.3.1) |
+| v1.14 |  [v1.6.2](https://github.com/coredns/coredns/releases/tag/v1.6.2) |
 
-目前 TKE 集群默认安装 [v1.6.2](https://github.com/coredns/coredns/releases/tag/v1.6.2) 版本，但 TCR 镜像仓库中也提供了以下更高版本用来支持手动升级，后续也会默认安装更高的版本。
-- **v1.7.0：**`ccr.ccs.tencentyun.com/tkeimages/coredns:1.7.0`
-- **v1.8.4：**`ccr.ccs.tencentyun.com/tkeimages/coredns:1.8.4`
+目前所有版本 TKE 集群默认安装 [v1.6.2](https://github.com/coredns/coredns/releases/tag/v1.6.2) 版本，后续将按照以上列表安装对应的版本。如果当前 CoreDNS 版本不满足需求，可以按如下指引手动升级：
+
+- [升级到1.7.0](#1.7.0)
+- [升级到1.8.4](#1.8.4)
 
 
  
@@ -107,7 +108,7 @@ ipvsadm -L --timeout
 Timeout (tcp tcpfin udp): 900 120 10
 ```
 
->! 在配置完成后，需要等待 5min，再继续后面的步骤。
+>! 在配置完成后，需要等待 5min，再继续后面的步骤；如果业务有使用 UDP 服务，请 [提交工单](https://console.cloud.tencent.com/workorder/category)  来寻求帮助。
 
 ### 配置 CoreDNS 优雅退出
 已经收到退出信号的副本，可以通过配置 lameduck 使其能在一段时间内继续提供服务，按如下方式配置 CoreDNS 的 configmap：
@@ -152,7 +153,7 @@ Timeout (tcp tcpfin udp): 900 120 10
 ```
 
 ## 配置 CoreDNS 使用 UDP 访问上游 DNS
-如果在集群内开启了 NodeLocal DNSCache，它将强制通过 TCP 协议与 CoreDNS 通信，CoreDNS 默认会使用收到请求的协议与上游 DNS Server 进行通信，而 TKE 集群 CoreDNS 的上游为 VPC 内的 DNS 服务，该服务对 TCP 的支持在性能方面比较有限，因此推荐使用如下配置显示指定 UDP：
+当 CoreDNS 需要与上游 DNS Server  通信时，它将默认使用客户端请求的协议（UDP 或者 TCP），而 TKE 中 CoreDNS 的上游默认为 VPC 内的 DNS 服务，该服务对 TCP 的支持在性能上比较有限，因此推荐做如下配置，显示指定 UDP（尤其在安装了 NodeLocal DNSCache 时）：
 ```
           .:53 {
               forward . /etc/resolv.conf {
@@ -160,8 +161,10 @@ Timeout (tcp tcpfin udp): 900 120 10
               }
           }
 ```
+
 ## 配置 CoreDNS 过滤 HINFO 请求
-如果在集群内开启了 NodeLocal DNSCache，且打开了 loop 检测，那 NodeLocal DNSCache 在启动时将通过发送 HINFO 类型的 DNS 请求来检测 DNS 访问链路上是否存在回环，但该类型的请求在 VPC DNS Server 侧并不支持，因此推荐做如下配置，过滤此类请求。
+
+VPC 内的 DNS 服务不支持 HINFO 类型的 DNS 请求，因此推荐做如下配置，在 CoreDNS 侧过滤此类请求（尤其在安装了 NodeLocal DNSCache 时）： 
 ```
           .:53 {
               template ANY HINFO . {
@@ -171,6 +174,7 @@ Timeout (tcp tcpfin udp): 900 120 10
 ```
 
 ## 配置 CoreDNS 对 IPv6 类型的 AAAA 记录查询返回域名不存在
+当业务不需要做 IPv6 的域名解析时，可以通过该配置降低通信成本：
 ```
 		.:53 {
 			template ANY AAAA {
@@ -179,13 +183,24 @@ Timeout (tcp tcpfin udp): 900 120 10
 		}
 ```
 
+>! IPv4/IPv6 双栈集群不能做此配置。
+
 ## 配置自定义域名解析
 详情参见：[在 TKE 中实现自定义域名解析](https://cloud.tencent.com/document/product/457/50865)
 
-## 默认配置解析
-### TKE CoreDNS 默认配置
+
+## 手动升级
+
+<span id="1.7.0"></span>
+### 升级到1.7.0
+
+1. 编辑 coredns configmap
+```shell
+kubectl edit cm coredns -n kube-system
 ```
-          .:53 {
+修改为以下内容：
+```
+        .:53 {
               template ANY HINFO . {
                   rcode NXDOMAIN
               }
@@ -195,9 +210,76 @@ Timeout (tcp tcpfin udp): 900 120 10
               }
               ready
               kubernetes cluster.local. in-addr.arpa ip6.arpa {
-                  pods insecure
-                  upstream
-                  fallthrough in-addr.arpa ip6.arpa
+                pods insecure
+                fallthrough in-addr.arpa ip6.arpa
+            }
+            prometheus :9153
+            forward . /etc/resolv.conf {
+                prefer_udp
+            }
+            cache 30
+            reload
+            loadbalance
+        }
+```
+
+2. 编辑 coredns deployment
+```shell
+kubectl edit deployment coredns -n kube-system
+```
+替换镜像为
+```yaml
+image: ccr.ccs.tencentyun.com/tkeimages/coredns:1.7.0
+```
+
+
+<span id="1.8.4"></span>
+## 升级到1.8.4
+
+1. 编辑 coredns clusterrole
+```
+kubectl edit clusterrole system:coredns
+```
+修改为以下内容：
+```
+rules:
+- apiGroups:
+  - '*'
+  resources:
+  - endpoints
+  - services
+  - pods
+  - namespaces
+  verbs:
+  - list
+  - watch
+- apiGroups:
+  - discovery.k8s.io
+  resources:
+  - endpointslices
+  verbs:
+  - list
+  - watch
+```
+
+2. 编辑 coredns configmap
+```shell
+kubectl edit cm coredns -n kube-system
+```
+修改为以下内容：
+```
+        .:53 {
+            template ANY HINFO . {
+                rcode NXDOMAIN
+            }
+            errors
+            health {
+                lameduck 30s
+            }
+            ready
+            kubernetes cluster.local. in-addr.arpa ip6.arpa {
+                pods insecure
+                fallthrough in-addr.arpa ip6.arpa
               }
               prometheus :9153
               forward . /etc/resolv.conf {
@@ -206,10 +288,19 @@ Timeout (tcp tcpfin udp): 900 120 10
               cache 30
               reload
               loadbalance
-          }
+        }
 ```
 
-### 插件介绍
+3. 编辑 coredns deployment
+```shell
+kubectl edit deployment coredns -n kube-system
+```
+替换镜像为
+```yaml
+image: ccr.ccs.tencentyun.com/tkeimages/coredns:1.8.4
+ 
+
+## 配置介绍
 - **errors**
 输出错误信息。
 
