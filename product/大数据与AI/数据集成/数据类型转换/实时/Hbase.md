@@ -1,6 +1,6 @@
 ## 写入
 
-| HBase 类型| 内部类型 | 
+| 内部类型 | HBase 类型 |
 |---------|---------|
 | CHAR，VARCHAR，STRING| byte[] toBytes(String s)，String toString(byte[] b)	| 
 | BOOLEAN| byte[] toBytes(boolean b)，boolean toBoolean(byte[] b)	| 
