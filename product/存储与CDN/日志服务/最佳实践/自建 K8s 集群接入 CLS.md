@@ -5,12 +5,14 @@
 ## 前提条件
 
 - 已创建 Kubernetes 1.10 及以上版本集群。
+- 已配置自建 K8S 采集所需的云 API 权限，详情请参见 [自定义权限策略示例](https://cloud.tencent.com/document/product/614/68374) 文档。
 - 已开通日志服务， 创建日志集和日志主题，且获取日志主题 ID（topicId）。
-详细配置请参见 [创建日志主题](https://cloud.tencent.com/document/product/614/41035) 文档。
+详情请参见 [创建日志主题](https://cloud.tencent.com/document/product/614/41035) 文档。
 - 已获取日志主题所在地域的域名（CLS_HOST）。
 详细 CLS 域名列表请参见 [可用地域](https://cloud.tencent.com/document/product/614/18940) 文档。
 - 已获取访问 CLS 侧鉴权所需的 API 密钥 ID（TmpSecretId）以及 API 密钥 Key（TmpSecretKey）。
 可前往 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 查看。
+
 
 ## K8s 日志采集原理
 K8s 集群上部署日志采集主要涉及 Log-Provisioner，Log-Agent，LogListener 三个组件，以及一个 LogConfig 采集配置。
@@ -23,7 +25,6 @@ K8s 集群上部署日志采集主要涉及 Log-Provisioner，Log-Agent，LogLis
 ## 操作流程
 <dx-steps>
 - <a href="#install_LogListener">自建 K8S 集群安装 LogListener</a>
-- <a href="#crd">定义 LogConfig 资源类型</a>
 - <a href="#logconfig_def">定义 LogConfig 对象</a>
 - <a href="#logconfig_create">创建 LogConfig 对象</a>
 </dx-steps>
@@ -35,16 +36,7 @@ K8s 集群上部署日志采集主要涉及 Log-Provisioner，Log-Agent，LogLis
 首先，您需要在自建 Kubernetes 集群上安装 LogListener 组件，从而将日志收集到 CLS。详情请参见 [自建 K8S 集群安装 LogListener](https://cloud.tencent.com/document/product/614/64566) 文档。
 
 
-### 步骤2：定义 LogConfig 资源类型[](id:crd)
-
-使用 K8s 中的 Custom Resource Definition（CRD）定义 LogConfig 资源类型。 
-以 Master 节点路径 /usr/local/ 为例，使用 wget 命令下载 CRD.yaml 声明文件，使用 kubectl 定义 LogConfig 资源类型。
-```shell
-wget https://mirrors.tencent.com/install/cls/k8s/CRD.yaml
-kubectl create -f /usr/local/CRD.yaml
-```
-
-### 步骤3：定义 LogConfig 对象[](id:logconfig_def)
+### 步骤2：定义 LogConfig 对象[](id:logconfig_def)
 
 通过创建 LogConfig 对象定义日志采集配置。以 Master 节点路径/usr/local/为例，使用 wget 命令下载 LogConfig.yaml 声明文件。
 ```shell
@@ -335,7 +327,7 @@ spec:
       namespace: production
       workload:
         name: ingress-gateway
-        type: deployment
+        kind: deployment
       container: nginx
       logPath: /data/nginx/log
       filePattern: access.log
@@ -376,7 +368,7 @@ spec:
 :::
 </dx-tabs>
 
-### 步骤4：创建 LogConfig 对象 [](id:logconfig_create)
+### 步骤3：创建 LogConfig 对象 [](id:logconfig_create)
 
 由于 [步骤2：定义 LogConfig 对象](#logconfig_def) 定义了 LogConfig.yaml 声明文件，我们可以使用 kubectl 命令创建 LogConfig 对象。
 ```shell
