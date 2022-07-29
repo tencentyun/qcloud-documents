@@ -195,7 +195,7 @@ end
 
 >?
 > 
-> 如您需要用到推送能力，还需要添加推送相关权限，详情可查看 [Flutter推送指南](https://cloud.tencent.com/document/product/269/75430)。
+> 如您需要用到推送能力，还需要添加推送相关权限，详情可查看 [Flutter厂商消息推送插件集成指南](https://cloud.tencent.com/document/product/269/75430)。
 
 #### 安装 IM TUIkit
 
