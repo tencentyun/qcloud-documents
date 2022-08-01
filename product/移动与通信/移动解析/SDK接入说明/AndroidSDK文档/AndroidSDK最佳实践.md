@@ -1,10 +1,12 @@
 ## HTTPDNS SDK 接入 HTTP 网络访问实践
 
-将 HTTPDNS SDK 的域名解析能力接入到业务的 HTTP（HTTPS）网络访问流程中，总的来说可以分为两种方式：
+将 HTTPDNS SDK 的域名解析能力接入到业务的 HTTP（HTTPS）网络访问流程中，总的来说可以分为以下两种方式：
 
-- **方式1**：替换 URL 中的 Host 部分得到新的 URL，并使用新的 URL 进行网络访问。
+- **方式1：替换 URL**
+替换 URL 中的 Host 部分得到新的 URL，并使用新的 URL 进行网络访问。
   这种实现方案下，URL 丢掉了域名的信息，对于需要使用到域名信息的网络请求，需进行较多的兼容性工作。
-- **方式2**：将 HTTPDNS 的域名解析能力注入到网络访问流程中，替换掉原本网络访问流程中的 LocalDNS 来实现。
+- **方式2：替换 DNS**
+将 HTTPDNS 的域名解析能力注入到网络访问流程中，替换掉原本网络访问流程中的 LocalDNS 来实现。
   - 这种实现方案下，不需要逐个对请求的 URL 进行修改，同时由于没有修改 URL，无需进行额外的兼容性工作，但需要业务侧使用的网络库支持 DNS 实现替换。
   - DNS 替换也可以通过 Hook 系统域名解析函数的方式来实现，但 HTTPDNS SDK 内部已经使用系统的域名解析函数，Hook 系统域名解析函数可能会造成递归调用直到栈溢出。
 
@@ -14,12 +16,11 @@
 ### 替换 URL 接入方式兼容
 如前文所述，对于需要使用到域名信息的网络请求（一般是多个域名映射到同一个 IP 的情况），需要进行额外兼容。以下从协议层面阐述具体的兼容方式，具体的实现方式需要视网络库的实现而定。
 
-#### HTTP 兼容
+- **HTTP 兼容**
 对于 HTTP 请求，需要通过指定报文头中的 Host 字段来告知服务器域名信息。Host 字段详细介绍参见 [Host](https://tools.ietf.org/html/rfc2616#page-128)。
-
-#### HTTPS 兼容[](id:HTTPS)
-- HTTPS 是基于 TLS 协议之上的 HTTP 协议的统称。对于 HTTPS 请求，同样需要设置 Host 字段。
-- 在 HTTPS 请求中，需要先进行 TLS 的握手。TLS 握手过程中，服务器会将自己的数字证书发给我们用于身份认证，因此，在 TLS 握手过程中，也需要告知服务器相关的域名信息。在 TLS 协议中，通过 SNI 扩展来指明域名信息。SNI 扩展的详细介绍参见 [Server Name Indication](https://tools.ietf.org/html/rfc6066#page-6)。
+- **HTTPS 兼容**[](id:HTTPS)
+ - HTTPS 是基于 TLS 协议之上的 HTTP 协议的统称。对于 HTTPS 请求，同样需要设置 Host 字段。
+ - 在 HTTPS 请求中，需要先进行 TLS 的握手。TLS 握手过程中，服务器会将自己的数字证书发给我们用于身份认证，因此，在 TLS 握手过程中，也需要告知服务器相关的域名信息。在 TLS 协议中，通过 SNI 扩展来指明域名信息。SNI 扩展的详细介绍参见 [Server Name Indication](https://tools.ietf.org/html/rfc6066#page-6)。
 
 
 ### 本地使用 HTTP 代理[](id:local)
@@ -30,16 +31,13 @@
 
 以下区分两种接入方式并进行分析：
 
-#### 替换 URL 接入方式
+- **替换 URL 接入**
 根据 HTTP/1.1 协议规定，在使用 HTTP 代理情况下，客户端侧将在请求行中带上完整的服务器地址信息。详细介绍可以参见 [origin-form](https://tools.ietf.org/html/rfc7230#page-42)。
 这种情况下（本地使用了 HTTP 代理，业务侧使用替换 URL 方式接入了 HTTPDNS SDK，且已经正确设置了 Host 字段），HTTP 代理接收到的 HTTP 请求中会包含服务器的 IP 信息（请求行中）以及域名信息（Host 字段中），但具体 HTTP 代理会如何向真正的目标服务器发起 HTTP 请求，则取决于 HTTP 代理的实现，可能会直接丢掉我们设置的 Host 字段使得网络请求失败。
-
-#### 替换 DNS 实现方式
+- **替换 DNS 实现**
 以 OkHttp 网络库为例，在本地启用 HTTP 代理情况下，OkHttp 网络库不会对一个 HTTP 请求 URL 中的 Host 字段进行域名解析，而只会对设置的 HTTP 代理的 Host 进行域名解析。在这种情况下，启用 HTTPDNS 没有意义。
 
-#### 判断本地是否使用 HTTP 代理
-判断代码如下：
-
+您可通过以下代码，**判断本地是否使用 HTTP 代理**：
 ```kotlin
 val host = System.getProperty("http.proxyHost")
 val port = System.getProperty("http.proxyPort")
