@@ -181,15 +181,15 @@ kubectl edit cm coredns -n kube-system
 修改为以下内容：
 ```
         .:53 {
-              template ANY HINFO . {
-                  rcode NXDOMAIN
-              }
-              errors
-              health {
-                  lameduck 30s
-              }
-              ready
-              kubernetes cluster.local. in-addr.arpa ip6.arpa {
+            template ANY HINFO . {
+                rcode NXDOMAIN
+            }
+            errors
+            health {
+                lameduck 30s
+            }
+            ready
+            kubernetes cluster.local. in-addr.arpa ip6.arpa {
                 pods insecure
                 fallthrough in-addr.arpa ip6.arpa
             }
@@ -260,14 +260,14 @@ kubectl edit cm coredns -n kube-system
             kubernetes cluster.local. in-addr.arpa ip6.arpa {
                 pods insecure
                 fallthrough in-addr.arpa ip6.arpa
-              }
-              prometheus :9153
-              forward . /etc/resolv.conf {
-                  prefer_udp
-              }
-              cache 30
-              reload
-              loadbalance
+            }
+            prometheus :9153
+            forward . /etc/resolv.conf {
+                prefer_udp
+            }
+            cache 30
+            reload
+            loadbalance
         }
 ```
 
