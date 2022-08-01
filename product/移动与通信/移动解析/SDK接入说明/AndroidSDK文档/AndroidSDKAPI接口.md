@@ -1,6 +1,5 @@
-### 接口调用
+### 同步解析接口
 ```Java
-
 /**
  * HTTPDNS 同步解析接口
  * 首先查询缓存，若存在则返回结果，若不存在则进行同步域名解析请求
@@ -25,8 +24,11 @@ String ips = MSDKDnsResolver.getInstance().getAddrByName(domain);
  * @return 域名对应的解析 IP 结果集合
  */
 Ipset ips = MSDKDnsResolver.getInstance().getAddrsByName(domain);
+```
 
+### 异步解析接口
 
+```Java
 //  异步回调，注意所有异步请求需配合异步回调使用
 MSDKDnsResolver.getInstance().setHttpDnsResponseObserver(new HttpDnsResponseObserver() {
     @Override
