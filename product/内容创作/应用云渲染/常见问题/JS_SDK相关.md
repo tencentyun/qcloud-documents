@@ -1,3 +1,4 @@
+## JS SDK 相关
 ### 浏览器控制台报 setServerDescription 失败?
 通常是 CreateSession 请求获取 ServerSession 的结构层次不对，把返回结果打印下就可以知道如何获取。 
 
@@ -12,3 +13,8 @@
 
 ### 鼠标模式有哪些？
 目前有 3 种模式。鼠标模式 0 无鼠标下发，鼠标模式 1 下发鼠标由 SDK 进行鼠标绘制，鼠标模式 2 为云端绘制鼠标延迟比 1 大，建议优先用鼠标模式 0 或 1。默认鼠标模式 0，具体实现请参见 [JS SDK 接口说明](https://cloud.tencent.com/document/product/1547/72694)。
+
+---
+## SDK Plugin 相关问题
+### 摇杆按钮点击方向为什么不对？
+建议创建摇杆在 connectSuccess 之后再操作。
