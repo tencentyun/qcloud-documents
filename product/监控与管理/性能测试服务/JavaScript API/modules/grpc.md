@@ -6,9 +6,6 @@
 - [InvokeOption](https://cloud.tencent.com/document/product/1484/75818)
 - [Response](https://cloud.tencent.com/document/product/1484/75819)
 
-### Variables（变量）
-- [default](#default)
-
 
 ### default
 **default**:  { add: any; forEach: any; get: any; random: any }
