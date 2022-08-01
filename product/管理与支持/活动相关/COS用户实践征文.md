@@ -15,6 +15,7 @@
 2. 扫描下方二维码 或者 [单击链接](https://doc.weixin.qq.com/forms/AJEAIQdfAAoAHsAXwboACc0pcRzvLdQAf) 进行投稿
 ![](https://qcloudimg.tencent-cloud.cn/raw/1ef6c93da0946160550b2348bb2ef438.png)
 （移动端如果无法长按扫码，建议先保存本地再扫描）
+[「腾讯云 COS “用户实践”有奖征文」 投稿登记表](https://doc.weixin.qq.com/forms/AJEAIQdfAAoAHsAXwboACc0pcRzvLdQAf)
 
 ## 重要说明
 1. 审核通过被采纳的文章作者，将在下月初进行获奖名单公布和奖励发放，届时会有站内信和短信通知。
