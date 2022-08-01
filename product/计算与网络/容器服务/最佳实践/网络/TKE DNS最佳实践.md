@@ -88,7 +88,7 @@ Timeout (tcp tcpfin udp): 900 120 10
 
 
 ### 配置 CoreDNS 优雅退出
-已经收到退出信号的副本，可以通过配置 lameduck 使其能在一段时间内继续提供服务，按如下方式配置 CoreDNS 的 configmap：
+已经收到退出信号的副本，可以通过配置 lameduck 使其能在一段时间内继续提供服务，按如下方式配置 CoreDNS 的 configmap（仅展示 CoreDNS 1.6.2版本的部分配置，其它版本配置参见 [手动升级 CoreDNS](#1.7.0)）：
 ```
           .:53 {
               health {
@@ -104,7 +104,7 @@ Timeout (tcp tcpfin udp): 900 120 10
 
 ### 配置 CoreDNS 服务就绪确认
 新副本启动后，需确认其服务就绪，再加入 DNS 服务的后端列表。
-1. 打开 ready 插件，按如下方式配置 CoreDNS 的 configmap
+1. 打开 ready 插件，按如下方式配置 CoreDNS 的 configmap（仅展示 CoreDNS 1.6.2版本的部分配置，其它版本配置参见 [手动升级 CoreDNS](#1.7.0)）：
 ```
            .:53 {
                ready
