@@ -315,8 +315,7 @@ String url = "https://192.168.0.1/"; // 业务自己的请求连接
 - 初始化 HTTPDNS 和灯塔接口。
 <dx-alert infotype="notice" title="">
 若已接入 msdk 或者单独接入了腾讯灯塔则不用初始化灯塔。
-</dx-alert>
-示例如下：
+</dx-alert> 示例如下：
 ```C#
  private static AndroidJavaObject sHttpDnsObj;
  public static void Init() {
