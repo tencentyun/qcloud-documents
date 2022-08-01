@@ -13,7 +13,7 @@
 
 ## 使用限制
 - 仅负载均衡类型支持，传统型负载均衡不支持。
-- IPv6 与 IPv6 七层混绑不支持。
+- IPv6 版本 CLB 与开启了七层混绑的 IPv6 版本 CLB 不支持。
 - 仅 VPC 网络支持，基础网络不支持。
 - 后端服务不支持 SCF（需要 SCF target 内部支持 gRPC 协议）。
 
@@ -110,7 +110,7 @@
 </tr>
 <tr>
 <td>后端协议</td>
-<td>后端协议是指 CLB 与后端服务之间的协议：<ul style="margin-bottom:0px;"> <li>后端协议选择 HTTP 时，后端服务需部署 HTTP 服务。</li><li>后端协议选中 HTTPS 时，后端服务需部署 HTTPS 服务，HTTPS 服务的加解密会让后端服务消耗更多资源。</li><li>后端协议选中 gRPC 时，后端服务需部署 gRPC 服务。仅 HTTP2.0开启且 QUIC 关闭的情况下，后端转发协议支持选择 gRPC。</li></ul></td>
+<td>后端协议是指 CLB 与后端服务之间的协议：<ul style="margin-bottom:0px;"> <li>后端协议选择 HTTP 时，后端服务需部署 HTTP 服务。</li><li>后端协议选中 HTTPS 时，后端服务需部署 HTTPS 服务，HTTPS 服务的加解密会让后端服务消耗更多资源。</li><li>后端协议选中 gRPC 时，后端服务需部署 gRPC 服务。仅 HTTP2.0 开启且 QUIC 关闭的情况下，后端转发协议支持选择 gRPC。</li></ul></td>
 <td>gRPC</td>
 </tr>
 <tr>
