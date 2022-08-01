@@ -32,7 +32,7 @@
 2. 登录 [TSE 控制台](https://console.cloud.tencent.com/tse/kong)，进入需要的 Kong 网关实例详情页，在**访问控制**页 Kong 实例的内网节点地址。
 <img src="待补充">
 3. 若您使用 Prometheus agent，可以在 prometheus.yml 配置文件中的 scrape_configs.static_configs.targets 添加内网地址列表，注意端口必须为 8100。例如对于上图的内网地址列表，可以如下图配置。
-<img src="https://qcloudimg.tencent-cloud.cn/raw/4be3c3db0033e9be7a4426a34a757eea.png">
+<img src="https://qcloudimg.tencent-cloud.cn/raw/4be3c3db0033e9be7a4426a34a757eea.png" width="720px">
 4. 若您使用自定义程序的拉取方式，可以通过云原生网关 DescribeCloudNativeAPINodes 接口自动获取节点 IP 列表。
 
 #### 三、在 Grafana 配置 Kong 模板的 Dashboard（可选）
