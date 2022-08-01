@@ -1,4 +1,4 @@
-## HTTPDNS SDK 接入 HTTP 网络访问实践
+## HTTPDNS SDK 接入 HTTP 网络访问
 
 将 HTTPDNS SDK 的域名解析能力接入到业务的 HTTP（HTTPS）网络访问流程中，总的来说可以分为以下两种方式：
 
@@ -13,7 +13,7 @@
 不同网络库具体的接入方式，可以参见对应的接入文档（当前目录下）及参考使用 Sample（HttpDnsSample 目录）。
 
 
-### 替换 URL 接入方式兼容
+## 替换 URL 接入方式兼容
 如前文所述，对于需要使用到域名信息的网络请求（一般是多个域名映射到同一个 IP 的情况），需要进行额外兼容。以下从协议层面阐述具体的兼容方式，具体的实现方式需要视网络库的实现而定。
 
 - **HTTP 兼容**
@@ -23,7 +23,7 @@
  - 在 HTTPS 请求中，需要先进行 TLS 的握手。TLS 握手过程中，服务器会将自己的数字证书发给我们用于身份认证，因此，在 TLS 握手过程中，也需要告知服务器相关的域名信息。在 TLS 协议中，通过 SNI 扩展来指明域名信息。SNI 扩展的详细介绍参见 [Server Name Indication](https://tools.ietf.org/html/rfc6066#page-6)。
 
 
-### 本地使用 HTTP 代理[](id:local)
+## 本地使用 HTTP 代理[](id:local)
 
 <dx-alert infotype="explain" title="">
 本地使用 HTTP 代理情况下，建议**不要使用 HTTPDNS** 进行域名解析。
