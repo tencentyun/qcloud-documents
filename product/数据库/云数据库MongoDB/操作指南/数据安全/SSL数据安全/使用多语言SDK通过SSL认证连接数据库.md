@@ -7,7 +7,7 @@ keytool -importcert -trustcacerts -file <certificate file> -keystore <trust stor
 ```
 - `-file <certificate file>`：指 SSL 证书或 TLS 证书文件 **MongoDB-CA.crt**。
 - `-keystore <trust store>`：指定密钥库的名称。
-- s`torepass <password> `：指定密钥库的密码。
+- `-storepass <password> `：指定密钥库的密码。
 
 设置 JVM 系统属性的密钥库，请根据实际替换 trustStore 与 password，以指向正确的密钥库。URI 拼接也请替换为访问数据库的用户密码信息。
 ```
@@ -25,7 +25,7 @@ MongoClient client = new MongoClient(uri, options);
 ## Go
 如下为使用 GO 语言，通过 SSL 认证方式连接数据库的代码示例。请您根据实际情况替换证书文件 MongoDB-CA.crt 的路径、URI 中拼接的账号及其密码、IP 信息与端口信息。
 ```
- package main
+package main
 
 import (
     "context"
@@ -66,7 +66,7 @@ func main() {
 ## python
 如下为使用 Python 语言，通过 SSL 认证方式连接数据库的代码示例。请您根据实际情况替换证书文件 MongoDB-CA.crt 的路径、URI 中拼接的账号及其密码、IP 信息与端口信息。
 ```
- uri = "mongodb://mongouser:password@10.x.x.1:27017/admin"
+uri = "mongodb://mongouser:password@10.x.x.1:27017/admin"
 client = MongoClient(uri,
            ssl=True,
            ssl_ca_certs='MongoDB-CA.crt',
