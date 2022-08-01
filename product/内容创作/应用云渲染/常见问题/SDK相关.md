@@ -12,7 +12,12 @@
 微信 WebView 限制，需要有 User Action 才会播放，也可以监听 WeixinJSBridgeReady 回调后 init SDK。
 
 ### 鼠标模式有哪些？
-目前有 3 种模式。鼠标模式 0 无鼠标下发，鼠标模式 1 下发鼠标由 SDK 进行鼠标绘制，鼠标模式 2 为云端绘制鼠标延迟比 1 大，建议优先用鼠标模式 0 或 1。默认鼠标模式 0，具体实现请参见 [JS SDK 接口说明](https://cloud.tencent.com/document/product/1547/72694)。
+目前有 3 种模式。
+- 鼠标模式 0 无鼠标下发
+- 鼠标模式 1 下发鼠标由 SDK 进行鼠标绘制
+- 鼠标模式 2 为云端绘制鼠标延迟比 1 大
+
+建议优先用鼠标模式 0 或 1。默认鼠标模式 0，具体实现请参见 [JS SDK 接口说明](https://cloud.tencent.com/document/product/1547/72694)。
 
 ## SDK Plugin 相关问题
 ### 摇杆按钮点击方向为什么不对？
