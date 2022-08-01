@@ -1,5 +1,5 @@
 ## 概述
-总的来说，移动解析 HTTPDNS 作为移动互联网时代 DNS 优化的一个通用解决方案，主要解决了以下几类问题：
+移动解析 HTTPDNS 作为移动互联网时代 DNS 优化的一个通用解决方案，主要解决了以下几类问题：
 - LocalDNS 劫持/故障
 - LocalDNS 调度不准确
 
@@ -106,9 +106,10 @@ try {
 MSDKDnsResolver.getInstance().WGSetDnsOpenId("10000");
 ```
  
-### SDK 初始化
+ 
+## SDK 初始化
 
-#### 初始化配置服务（4.0.0版本开始支持）
+### 初始化配置服务（4.0.0版本开始支持）
 <dx-alert infotype="notice" title="">
 可选项请根据功能需要进行开启。
 </dx-alert>
@@ -143,14 +144,14 @@ DnsConfig dnsConfigBuilder = DnsConfig.Builder()
 MSDKDnsResolver.getInstance().init(this, dnsConfigBuilder);
 ```
 
-#### 老版本初始化方法
+### 旧版本初始化
   - HTTP 协议服务地址为 `119.29.29.98`，HTTPS 协议服务地址为 `119.29.29.99`（仅当采用自选加密方式并且 `channel` 为 `Https` 时使用 `99` 的 IP）。
   - 新版本 API 更新为使用 `119.29.29.99/98` 接入，同时原移动解析 HTTPDNS 服务地址 `119.29.29.29` 仅供开发调试使用，无 SLA 保障，不建议用于正式业务，请您尽快将正式业务迁移至 `119.29.29.99/98`。
   - 具体以 [API 说明](https://cloud.tencent.com/document/product/379/54976) 提供的 IP 为准。
   - 使用 SDK 方式接入 HTTPDNS，若 HTTPDNS 未查询到解析结果，则通过 LocalDNS 进行域名解析，返回 LocalDNS 的解析结果。
 
 
-#### 默认使用 DES 加密
+### 默认使用 DES 加密
 - **默认不进行解析异常上报**
 ```Java
 // 以下鉴权信息可在腾讯云控制台（https://console.cloud.tencent.com/httpdns/configure）开通服务后获取
@@ -186,10 +187,7 @@ MSDKDnsResolver.getInstance().init(MainActivity.this, appkey, dnsid, dnskey, dns
  */
 MSDKDnsResolver.getInstance().init(MainActivity.this, appkey, dnsid, dnskey, dnsIp, debug, timeout, enableReport);
 ```
-
-
-#### 自选加密方式（DesHttp, AesHttp, Https）
-
+- **自选加密方式（DesHttp, AesHttp, Https）**
 ```Java
 /**
  * 初始化 HTTPDNS（自选加密方式）：如果接入了 MSDK，建议初始化 MSDK 后再初始化 HTTPDNS
@@ -242,28 +240,25 @@ MSDKDnsResolver.getInstance().init(MainActivity.this, appkey, dnsid, dnskey, dns
 ### 抓包验证
 
 以下以接入 HTTP 网络访问为例进行说明：
-<ul>
-<li>使用 <b>tcpdump</b> 进行抓包。</li>
 <dx-alert infotype="notice" title="">
 常用的移动端 HTTP/HTTPS 抓包工具（例如 Charles/Fiddler），是通过 HTTP 代理方式进行抓包，不适用于抓包验证 HTTPDNS 服务是否生效，相关说明请参见 [本地使用 HTTP 代理](https://cloud.tencent.com/document/product/379/78134#local)。
 </dx-alert>
-<ul>
-<li>Root 机器可以通过 tcpdump 命令抓包。</li>
-<li>非 Root 机器上，系统可能内置有相关的调试工具，可以获取抓包结果（不同机器具体的启用方式不同）。</li>
-</ul>
-<li>通过 <b>WireShark</b> 观察抓包结果。</li>
-<ul>
-<li>对于 HTTP 请求，我们可以观察到明文信息，通过对照日志和具体的抓包记录，可以确认最终发起请求时使用的 IP 是否和 SDK 返回的一致。如下图所示： </li>
-<img src="https://main.qcloudimg.com/raw/63464903e3861007c1c9cb2130781701.png"/>
+
+- 使用 **tcpdump** 进行抓包。
+ - Root 机器可以通过 tcpdump 命令抓包。
+ - 非 Root 机器上，系统可能内置有相关的调试工具，可以获取抓包结果（不同机器具体的启用方式不同）。
+- 通过 **WireShark** 观察抓包结果。
+ - 对于 HTTP 请求，我们可以观察到明文信息，通过对照日志和具体的抓包记录，可以确认最终发起请求时使用的 IP 是否和 SDK 返回的一致。如下图所示：
+ <img src="https://main.qcloudimg.com/raw/63464903e3861007c1c9cb2130781701.png"/>
 从抓包上看，`xw.qq.com` 的请求最终发往了 IP 为 `183.3.226.35` 的服务器。
-<li>对于 HTTPS 请求，TLS 的握手包实际上是明文包，在设置了 SNI 扩展（请参见 <a href="https://cloud.tencent.com/document/product/379/78134#HTTPS">HTTPS 兼容</a>）情况下，通过对照日志和具体的抓包记录，可以确认最终发起请求时使用的 IP 是否和 SDK 返回的一致。如下图所示：</li>
-<img src="https://main.qcloudimg.com/raw/544370c87fb2d09029699fb1f0db30d9.png"/>
+ - 对于 HTTPS 请求，TLS 的握手包实际上是明文包，在设置了 SNI 扩展（请参见 <a href="https://cloud.tencent.com/document/product/379/78134#HTTPS">HTTPS 兼容</a>）情况下，通过对照日志和具体的抓包记录，可以确认最终发起请求时使用的 IP 是否和 SDK 返回的一致。如下图所示：
+ <img src="https://main.qcloudimg.com/raw/544370c87fb2d09029699fb1f0db30d9.png"/>
 从抓包上看，`xw.qq.com` 的请求最终发往了 IP 为 `183.3.226.35` 的服务器。
-</ul>
 
 
 
 ### 注意事项
+
 - getAddrByName 是耗时同步接口，应当在子线程调用。
 - 如果客户端的业务与 HOST 绑定，例如客户端的业务绑定了 HOST 的 HTTP 服务或者是 CDN 的服务，那么您将 URL 中的域名替换成 HTTPDNS 返回的 IP 之后，还需要指定下 HTTP 头的 HOST 字段。
  - 以 URLConnection 为例：
