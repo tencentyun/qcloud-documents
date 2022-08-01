@@ -11,7 +11,6 @@
 
 ## 参与方式
 1. 扫码加入活动交流群
-（目前是临时二维码，一周有效期，下周替换成永久二维码）
 ![](https://qcloudimg.tencent-cloud.cn/raw/9955789abb96acee4ac760c4dfa71a03.png)
 2. 扫描下方二维码 或者 [单击链接](https://doc.weixin.qq.com/forms/AJEAIQdfAAoAHsAXwboACc0pcRzvLdQAf) 进行投稿
 ![](https://qcloudimg.tencent-cloud.cn/raw/1ef6c93da0946160550b2348bb2ef438.png)
