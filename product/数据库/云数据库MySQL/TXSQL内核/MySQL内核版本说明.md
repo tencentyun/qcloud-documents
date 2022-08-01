@@ -1,6 +1,55 @@
 本文为您介绍 MySQL 内核版本更新动态，如需升级，请参见 [升级内核小版本](https://cloud.tencent.com/document/product/236/45522)。
 
 ## MySQL 8.0
+### 20220331
+
+#### bug 修复：
+
+- 修复线程池中野指针被解引用导致 crash 的问题。
+
+### 20220330
+
+#### 新特性：
+
+- 默认打开 writeset 并行复制。
+- 支持扩展资源组，可对 IO、内存使用占比以及 SQL 超时策略以用户为单位进行控制。
+- 支持闪回查询能力，可以查询 UNDO 时间范围内的任意时间点数据。
+- 支持 delete/insert/replace/update的returning 语法，可以返回该 statment 所操作的数据行。
+- 支持 row 模式 gtid 复制功能扩展。
+- 支持事务锁优化功能。
+- 回收站增强，支持 truncate table 和自动清理回收站中的表。
+- 支持 parallel ddl 能力，通过三阶段并行的方式加速需要创建索引的 DDL 操作。
+- 支持快速修改索引列功能。
+- 支持自动统计信息收集和跨机统计信息收集。
+
+#### 性能优化：
+
+- 优化关闭 binlog_order_commits 时事务提交时 gtid 的锁冲突。
+- 通过将 InnoDB 启动阶段将单线程创建 rsegs 更改为多线程创建，优化 MySQL 启动时间。
+
+#### bug 修复：
+
+- 修复死锁或被锁等待后连接断开事务不结束的问题。
+- 修复 innodb_row_lock_current_waits 等统计值异常的问题。
+- 修复审计插件没有 use database下sql type 错误的问题。
+- 修复大表异步删除功能中，小于 innodb_async_table_size 的表也会被 rename 的问题。
+- 修复审计插件转义字符错误的出问题。
+- 修复快速修改列后回滚的问题。
+- 修复 trx_sys close 时带 xa 场景可能出现 crash 的问题。
+- 修复 merge derived table 的时候出现 crash的问题。
+- 修复 writeset 开启后修改 binlog_format 的问题。
+- 修复 hash scan 对同一行进行 A->B->A->C 更新时1032问题。
+- 修复 Prepared Statement 模式下排序索引可能失效的问题。
+- 修复消费物化结果的算子可能被并入物化算子返值路径，导致的执行计划理解和显示问题。
+- 大表异步删除修复极端情况下的异常行为。
+- 修复设置 sql filter 时错误信息提示异常的问题。
+- 修复解析存储过程语法报错问题。
+- 修复不能应用历史直方图问题。
+- 修复 SHOW SLAVE HOSTS(show replicas) 显示 Role 列显示带来的兼容性问题。
+- 修复 Item_in_subselect::single_value_transformer 在列数目出错的情况下，会 crash 的问题。
+- 修复子表存在 virtual column 和外键列，级联更新的过程中存在内存泄漏导致实例 crash 问题。
+
+
 ### 20211202
 #### 新特性：
 - 支持快速修改列功能。
@@ -110,6 +159,23 @@
 - 修复全文索引中，词组查找（phrase search）在多字节字符集下存在的崩溃问题。
 
 ## MySQL 5.7
+### 20211230
+
+#### 新特性：
+
+- 合并官方[5.7.19](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-19.html) 至 [5.7.36](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-36.html)的变更。
+- 主从 buffer pool 同步，加速 HA 以后的性能恢复速度，对比原生模式性能恢复速度减少90秒左右。
+- 新增 backup lock 特性，提供轻量级的元数据锁，提高备份时的服务可用性。
+
+#### 性能优化：
+
+- 将 utf8/utf8mb4 my_charpos 相关函数内联，优化 UTF_8 相关函数在 read_write 场景下的性能。
+- jemalloc 版本升级至5.2.1。
+- binlog rotate 时文件编号获取优化。
+- 半同步 slave io 优化。
+- hash scan 聚合优化。
+- 优化大事务 crash recover 启动时间。
+
 ### 20211102
 #### 新特性：
 - 解决使用第三方数据订阅工具时，因订阅到内部数据一致性对比 SQL 导致数据订阅工具异常的问题。
