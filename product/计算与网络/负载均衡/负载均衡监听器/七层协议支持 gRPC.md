@@ -1,29 +1,31 @@
-[gRPC](https://grpc.io/docs/what-is-grpc/introduction/) 是 Google 发布的基于 HTTP 2.0 传输层协议承载的高性能开源软件框架，提供了支持多种编程语言的、对网络设备进行配置和纳管的方法。本文指导您通过配置 HTTPS 监听器的 gRPC 协议的健康检查，将客户端的 gRPC 请求通过 CLB 实例转发到后端协议为 gRPC 的后端服务。
+[gRPC](https://grpc.io/docs/what-is-grpc/introduction/) 是 Google 发布的基于 HTTP 2.0 传输层协议的高性能开源软件框架，提供了支持多种编程语言、对网络设备进行配置和纳管的方法。本文指导您通过配置 HTTPS 监听器的 gRPC 协议的健康检查，将客户端的 gRPC 请求通过 CLB 实例转发到后端协议为 gRPC 的后端服务。
 
 
 ## 使用场景
-当您的请求类型为 HTTPS 的客户端想要访问协议类型为 gRPC 的后端服务时，您可以通过 CLB 实例的 HTTPS 监听器支持 gRPC 协议来实现。
+当客户端通过 HTTPS 请求访问协议类型为 gRPC 的后端服务时，您可以通过 CLB 实例的 HTTPS 监听器支持 gRPC 协议来实现。
 ![](https://qcloudimg.tencent-cloud.cn/raw/f71367bab84383e0d9d9735306528fc4.svg)
 
-## 限制说明
+ ## 前提条件
+ - 您已创建 VPC，详情请参见 [创建私有网络](https://cloud.tencent.com/document/product/215/36515)。
+ - 您已在 VPC 中创建了 CVM 实例，并在实例上部署了 gRPC 服务，详情请参见 [通过镜像创建实例](https://cloud.tencent.com/document/product/213/44265)。
+ - 您已购买了 CLB 实例，详情请参见 [创建负载均衡实例](https://cloud.tencent.com/document/product/214/6149)。
+ 
+
+## 使用限制
 - 仅负载均衡类型支持，传统型负载均衡不支持。
 - IPv6 与 IPv6 七层混绑不支持。
 - 仅 VPC 网络支持，基础网络不支持。
 - 后端服务不支持 SCF（需要 SCF target 内部支持 gRPC 协议）。
 
  
- ## 前提条件
- - 您已创建 VPC，详情请参见 [创建私有网络](https://cloud.tencent.com/document/product/215/36515)。
- - 您已在 VPC 中创建了 CVM 实例，并在实例上部署了 gRPC 服务，详情请参见 [通过镜像创建实例](https://cloud.tencent.com/document/product/213/44265)。
- - 您已购买了 CLB 实例，详情请参见 [创建负载均衡实例](https://cloud.tencent.com/document/product/214/6149)。
- 
+
 ## 操作步骤
 
 ### 步骤一：配置监听器
 1. 登录 [负载均衡控制台](https://console.cloud.tencent.com/clb)，在左侧导航栏单击**实例管理**。
-2. 在 CLB 实例列表页面左上角选择地域，在实例列表右侧的操作列中单击**配置监听器**。
+2. 在 CLB 实例列表页面左上角选择地域，在实例列表右侧的**操作**列中单击**配置监听器**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/2c0b7f73cd81582c7ace11dbfe7d6c18.png)
-3. 在 HTTP/HTTPS 监听器下，单击**新建**，在弹出的“创建监听器”对话框中配置 HTTPS 监听器。
+3. 在 HTTP/HTTPS 监听器下，单击**新建**，在弹出的**创建监听器**对话框中配置 HTTPS 监听器。
 **1. 创建监听器**
 <table>
 <thead>
@@ -78,7 +80,7 @@
 </tr>
 <tr>
 <td>域名</td>
-<td>转发域名：<ul style="margin-bottom:0px;"><li>长度限制：1 - 80个字符。</li><li>不能以 `_` 开头。</li><li>支持精准域名和通配域名。</li><li>支持正则表达式。</li><li>具体配置规则，详情请参见 <a href="https://cloud.tencent.com/document/product/214/9032#.E8.BD.AC.E5.8F.91.E5.9F.9F.E5.90.8D.E9.85.8D.E7.BD.AE.E8.A7.84.E5.88.99">转发域名配置规则</a>。</li></ul></td>
+<td>转发域名：<ul style="margin-bottom:0px;"><li>长度限制：1 - 80个字符。</li><li>不能以 `_` 开头。</li><li>支持精准域名和通配域名。</li><li>支持正则表达式。</li></ul>具体配置规则，详情请参见 <a href="https://cloud.tencent.com/document/product/214/9032#.E8.BD.AC.E5.8F.91.E5.9F.9F.E5.90.8D.E9.85.8D.E7.BD.AE.E8.A7.84.E5.88.99">转发域名配置规则</a>。</td>
 <td>www.example.com</td>
 </tr>
 <tr>
@@ -122,8 +124,7 @@
 <td>已开启</td>
 </tr>
 </table>
-<b>3. 健康检查</b>
-健康检查详情请参见 <a href="https://cloud.tencent.com/document/product/214/50011#https">HTTPS 健康检查</a>。</br> 
+<b>3. <a href="https://cloud.tencent.com/document/product/214/50011#https">HTTPS 健康检查</a></b>。</br> 
 <b>4. 会话保持</b>
 <table>
 <tr>
@@ -138,7 +139,7 @@
 </tr>
 <tr>
 <td>会话保持时间</td>
-<td><ul><li>当超过保持时间，连接内无新的请求，将会自动断开会话保持。</li><li>可配置范围30 - 3600秒。</li></ul></td>
+<td><ul><li>当超过保持时间，连接内无新的请求，将会自动断开会话保持。</li><li>可配置范围30s - 3600s。</li></ul></td>
 <td>30s</td>
 </tr>
 </table>
