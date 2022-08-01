@@ -8,8 +8,8 @@
 ### default
 **default**:  { add: any; forEach: any; get: any; random: any }
 
-#### Type declaration
-- ##### add:function
+### Type declaration
+#### add:function
 add(filename: *string*, values: *Record*<*string*, *any*>[]): *void*
 
 
@@ -28,16 +28,15 @@ add(filename: *string*, values: *Record*<*string*, *any*>[]): *void*
     };
 ```
  
-#### Parameters
-- ##### filename: *string*
+**Parameters**
+   - ##### filename: *string*
 文件名。
-
-- ##### values: *Record*<*string*, *any*>[]
+   - ##### values: *Record*<*string*, *any*>[]
 文件数据。
 
-#### Returns *void*
+Returns *void*
 
-- ##### forEach:function
+#### forEach:function
 
 forEach(fileName: *string*, callback: ((item: [Item](https://cloud.tencent.com/document/product/1484/75805), i?: *number*) => *void*)): *void*
 
@@ -58,7 +57,7 @@ export function setup() {
     }
  ```
 
-#### Parameters
+**Parameters**
 
 - ##### fileName: *string*
   文件名
@@ -67,20 +66,19 @@ export function setup() {
   回调函数
   (item: [Item](https://cloud.tencent.com/document/product/1484/75805), i?: *number*): *void*
 
-- #### Parameters
+ **Parameters**
 
- - ##### item: [Item](https://cloud.tencent.com/document/product/1484/75805)
+   - ##### item: [Item](https://cloud.tencent.com/document/product/1484/75805)
 
-  - ##### Optional i: *number*
+   - ##### Optional i: *number*
+   Returns *void*
 
-#### Returns *void*
+Returns *void*
 
-#### Returns *void*
-
-- ##### get:function
+- #### get:function
 get(key: *string*): *string*
 
-获取 csv 文件的列数据。
+ 获取 csv 文件的列数据。
 
 ```
   import http from 'pts/http';
@@ -93,7 +91,7 @@ get(key: *string*): *string*
     };
 ```
 
-#### Parameters
+**Parameters**
 - ##### key: *string*
 列名
 
@@ -104,7 +102,7 @@ get(key: *string*): *string*
 random(filename: *string*): *Record*<*string*, *any*>
 
 
- 随机获取参数文件一行。
+随机获取参数文件一行。
 
 ```
   import dataset from 'pts/dataset';
@@ -116,7 +114,7 @@ random(filename: *string*): *Record*<*string*, *any*>
     };
  ```
 
-#### Parameters
+**Parameters**
 - ##### filename: *string*
 文件名。
 Returns *Record*<*string*, *any*>
