@@ -9,7 +9,6 @@
 ### default
 **default**:  { add: any; forEach: any; get: any; random: any }
 
-
 #### Type declaration
 
 - ##### add:function
@@ -17,10 +16,12 @@
 ```
  add(filename: *string*, values: *Record*<*string*, *any*>[]): *void*
 ```
+
 增加一行参数文件。
 
+
 ```
-  import dataset from 'pts/dataset';
+ import dataset from 'pts/dataset';
     
   export function setup () {
   dataset.add("user", [
@@ -29,16 +30,16 @@
             ]
         )
     };
-    ```
-
+ ```
+ 
 #### Parameters
-
 - ##### filename: *string*
 文件名。
+
 - ##### values: *Record*<*string*, *any*>[]
 文件数据。
 
- #### Returns *void*
+#### Returns *void*
 
 - ##### forEach:function
 
@@ -46,21 +47,21 @@
 forEach(fileName: *string*, callback: ((item: [Item](https://cloud.tencent.com/document/product/1484/75805), i?: *number*) => *void*)): *void*
 ```
 
- 遍历 csv 文件，支持修改和删除。
+遍历 csv 文件，支持修改和删除。
 
 ```js
- import dataset from 'pts/dataset';
+import dataset from 'pts/dataset';
     
-  export function setup() {
-      dataset.forEach("test.csv", (item) => {
-      item.data.key5 = "555";
-      if (item.data.key1 === "1") {
-            item.delete();
-            }
-            console.log(JSON.stringify(item.data));
+export function setup() {
+    dataset.forEach("test.csv", (item) => {
+    item.data.key5 = "555";
+    if (item.data.key1 === "1") {
+          item.delete();
+          }
+         console.log(JSON.stringify(item.data));
         });
     }
-    ```
+ ```
 
 #### Parameters
 
@@ -74,8 +75,7 @@ forEach(fileName: *string*, callback: ((item: [Item](https://cloud.tencent.com/d
  (item: [Item](https://cloud.tencent.com/document/product/1484/75805), i?: *number*): *void*
 ```
 
-
-- - #### Parameters
+- #### Parameters
 
  - ##### item: [Item](https://cloud.tencent.com/document/product/1484/75805)
 
@@ -103,7 +103,7 @@ forEach(fileName: *string*, callback: ((item: [Item](https://cloud.tencent.com/d
   console.log('key1 => '+value)
    const postResponse = http.post('http://httpbin.org/post', JSON.stringify({data:value}));
     };
-    ```
+```
 
 #### Parameters
 - ##### key: *string*
@@ -128,7 +128,7 @@ forEach(fileName: *string*, callback: ((item: [Item](https://cloud.tencent.com/d
   console.log(JSON.stringify(record)); // {"key1":"1","key2":"2","key3":"3","key4":"4"}
     console.log(record.key1); // 1 
     };
-    ```
+ ```
 
 #### Parameters
 - ##### filename: *string*
