@@ -14,7 +14,7 @@ iOS&Android：V2TXLivePlayer 结束播放时，允许保留最后一帧。
 - iOS：优化 iPad 采集音量小的问题。
 
 #### 缺陷修复
-Android：修复 TXLivePlayer\V2TXLivePlayer 拉流时，偶先切换到软解的问题。
+Android：修复 TXLivePlayer\V2TXLivePlayer 拉流时，偶现切换到软解的问题。
 
 ### Version 10.3 @ 2022.07.05
 
