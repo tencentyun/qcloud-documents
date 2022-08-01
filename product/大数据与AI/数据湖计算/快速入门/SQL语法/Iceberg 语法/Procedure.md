@@ -64,19 +64,6 @@ CALL `DataLakeCatalog`.`system`.remove_orphan_files('validation.dempts', TIMESTA
 ```
 
 
-### remove_orphan_files
-移除不再被引用元数据文件。
-```
-CALL `Catalog`.`system`.remove_orphan_files(table_name, [older_than], [location], [dry_run], [max_concurrent_deletes]);
-```
-**示例**
-```
-CALL `DataLakeCatalog`.`system`.remove_orphan_files(`table`=>'validation.dempts', dry_run=>TRUE);
-CALL `DataLakeCatalog`.`system`.remove_orphan_files(`table`=>'validation.dempts', `location`=>'cosn://channingdata-1305424723/example2/');
-CALL `DataLakeCatalog`.`system`.remove_orphan_files('validation.dempts', TIMESTAMP '2022-07-10 17:25:19.000');
-```
-
-
 ### rewrite_data_files
 数据文件合并重写，即小数据文件合并。
 ```
@@ -108,8 +95,10 @@ CALL `DataLakeCatalog`.`system`.rewrite_manifests('validation.dempts', FALSE);
 CALL `Catalog`.`system`.ancestors_of(table_name, [snapshot_id]);
 ```
 **示例**
+```
 CALL `DataLakeCatalog`.`system`.ancestors_of('validation.dempts');
 CALL `DataLakeCatalog`.`system`.ancestors_of('validation.dempts', 1);
+```
 
 ## 数据表迁移管理
 >! 原表必须为 Hive 表或 Spark 表。

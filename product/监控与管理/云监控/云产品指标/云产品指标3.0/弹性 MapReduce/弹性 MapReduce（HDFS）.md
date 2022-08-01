@@ -11,8 +11,6 @@ Namespace=QCE/TXMR_HDFS
 
 ### HDFS-Overview
 
-aa
-
 | 指标英文名                                                   | 指标中文名                               | 指标单位 | 指标含义                                      | 维度            |
 | ------------------------------------------------------------ | ---------------------------------------- | -------- | --------------------------------------------- | --------------- |
 | EmrHdfsOverviewHdfs<br>NnBlocksBlockstotal                   | BLOCKS数量_BlocksTotal                   | 个       | 总 BLOCK 数量                                 | id4hdfsoverview |

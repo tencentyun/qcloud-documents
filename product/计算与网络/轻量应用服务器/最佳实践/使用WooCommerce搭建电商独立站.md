@@ -3,6 +3,10 @@
 WooCommerce 是当前很受欢迎的电商独立站建站工具，具备开源、免费、使用简单且功能强大等特点，您可通过该镜像快速搭建基于 WordPress 的电商独立站。该镜像已预装 WordPress（包含 WooCommerce 插件）、Nginx、MariaDB、PHP 软件。
 
 
+您可参考以下视频或文档，使用轻量应用服务器快速搭建电商独立站。
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/3645-62993?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
+
+
 ## 操作步骤
 
 ### 使用 WooCommerce 应用镜像创建实例
