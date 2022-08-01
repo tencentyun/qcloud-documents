@@ -34,7 +34,7 @@ Dataway 提供文本模式、表达式模式和代码模式三套脚本工具集
 | [**Entity**](#entity-explain)   | 二进制实体 | 数据连接器中的实体数据，用于代表一个二进制对象，包括 blob、mime_type、encoding 等信息 | 是                    | http-listener 构造消息中的 payload                           |
 | **MultiMap**                    | 多值字典   | 类似于 xml 而与 dict 不同，该类型可以支持重复的 key          | 是                    | application/www-form-urlencoded 格式的数据解析之后得到的对象 |
 | **FormDataParts**               | 表单数据   | 数组+列表的数据结构，类似于 Python 中的 orderDict 结构       | 是                    | multipart/form-data 格式的数据解析后得到的对象               |
-| [**Message**](#message-explain) | 消息       | 数据连接器中的消息，承载了集成流数据，包括 payload、variables、attributes 等信息 | 是                    | 代码模式 python 脚本 dw_process 入口函数中的 msg 参数        |
+| [**Message**](#message-explain) | 消息       | 数据连接器中的消息，承载了集成流数据，包括 payload、variables、attributes 等信息 | 是                    | 代码模式 Python 脚本 dw_process 入口函数中的 msg 参数        |
 | **DataSet**                     | 数据集     | 数据连接器数据集成中数据集，通过数据集成组件操作             | 是                    | Builder 组件的输出                                           |
 | **Record**                      | 单条数据   | 数据连接器数据集成中的单条数据，附有 Schema                  | 是                    | 可通过 Foreach 组件遍历 DataSet 获取                         |
 

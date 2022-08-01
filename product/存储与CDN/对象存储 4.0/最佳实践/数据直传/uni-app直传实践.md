@@ -75,7 +75,7 @@
             // 获取上传路径、上传凭证L
             var getUploadInfo = function (extName, callback) {
                // 传入文件后缀，让后端生成随机的 COS 对象路径，并返回上传域名、PostObject 接口要用的 policy 签名
-               // 参考服务端示例：https://github.com/tencentyun/cos-demo/server/post-policy/
+               // 参考服务端示例：https://github.com/tencentyun/cos-demo/tree/main/server/post-policy
                uni.request({
                   url: 'http://127.0.0.1:3000/post-policy?ext=' + extName,
                   success: (res) => {

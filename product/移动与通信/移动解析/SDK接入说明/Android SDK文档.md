@@ -112,8 +112,10 @@ DnsConfig dnsConfigBuilder = DnsConfig.Builder()
     .token("xxx")
     //（可选）日志粒度，如开启Debug打印则传入"Log.VERBOSE"
     .logLevel(Log.VERBOSE)
-    //（可选）预解析域名，填写形式："baidu.com", "qq.com"，建议不要设置太多预解析域名，当前限制为最多 10 个域名
+    //（可选）预解析域名，填写形式："baidu.com", "qq.com"，建议不要设置太多预解析域名，当前限制为最多 10 个域名。仅在初始化时触发。
     .preLookupDomains("baidu.com", "qq.com")
+    //（可选）解析缓存自动刷新, 以域名形式进行配置，填写形式："baidu.com", "qq.com"。配置的域名会在 TTL * 75% 时自动发起解析请求更新缓存，实现配置域名解析时始终命中缓存。此项建议不要设置太多域名，当前限制为最多 10 个域名。与预解析分开独立配置。
+    .persistentCacheDomains("baidu.com", "qq.com")
     //（可选）手动指定网络栈支持情况，仅进行 IPv4 解析传 1，仅进行 IPv6 解析传 2，进行 IPv4、IPv6 双栈解析传 3。默认为根据客户端本地网络栈支持情况发起对应的解析请求。
     .setCustomNetStack(3)
     //（可选）设置域名解析请求超时时间，默认为1000ms

@@ -23,11 +23,11 @@ pod 'TUILiveRoom', :path => "./TUILiveRoom/TUILiveRoom.podspec", :subspecs => ["
 pod 'TXAppBasic', :path => "./TUILiveRoom/TXAppBasic/"
 # :path => "指向TUIBeauty.podspec的相对路径"
 pod 'TUIBeauty', :path => "./TUILiveRoom/TUIBeauty/"
-# :path => "指向TUIBeauty.podspec的相对路径"
-pod 'TUIAudioEffect', :path => "./TUILiveRoom/TUIAudioEffect/"
-# :path => "指向TUIBeauty.podspec的相对路径"
+# :path => "指向TUIAudioEffect.podspec的相对路径"
+pod 'TUIAudioEffect', :path => "./TUILiveRoom/TUIAudioEffect/", :subspecs => ["TRTC"]
+# :path => "指向TUIBarrage.podspec的相对路径"
 pod 'TUIBarrage', :path => "./TUILiveRoom/TUIBarrage/"
-# :path => "指向TUIBeauty.podspec的相对路径"
+# :path => "指向TUIGift.podspec的相对路径"
 pod 'TUIGift', :path => "./TUILiveRoom/TUIGift/"
 ```
 

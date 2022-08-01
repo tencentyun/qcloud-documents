@@ -1,7 +1,7 @@
 
 ## 简介 
 ### 组件介绍
-Kubernetes-csi-tencentloud CFS 插件实现 CSI 的接口，可帮助您在容器集群中使用腾讯云文件存储。
+Kubernetes-csi-tencentcloud CFS 插件实现 CSI 的接口，可帮助您在容器集群中使用腾讯云文件存储。
 
 > ! 1.12 集群需要修改 kubelet 配置，增加 `\--feature-gates=KubeletPluginsWatcher=false\`。
 

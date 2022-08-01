@@ -2,7 +2,7 @@ DataX 是一个开源的命令行工具，支持将 TencentDB 中全量或增量
 
 **DataX 工具安装：**
 1. 在 [DataX 官网](https://github.com/HashDataInc/DataX) 下载源码进行编译。
-2. 直接使用已编译好的版本，[datax-v1.0.4-hashdata.tar.gz](https://packagedown-online-1256722404.cos.ap-guangzhou.myqcloud.com/datax/datax-v1.0.4-hashdata.tar.gz)。
+2. 直接使用已编译好的版本，[datax-v1.0.4-hashdata.tar.gz](https://cloud.tencent.com/document/product/878/20063)。
 
 下文主要介绍由 HashData 公司修改过的 [DataX](https://github.com/HashDataInc/DataX)，其导入云数据仓库 PostgreSQL 效率更高，经测试可达到每秒10W条以上。以 MySQL 导入到云数据仓库 PostgreSQL 为例，配置文件如下：
 ```

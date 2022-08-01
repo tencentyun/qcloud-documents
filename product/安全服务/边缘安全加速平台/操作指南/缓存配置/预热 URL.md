@@ -15,12 +15,9 @@
 正式举办运营活动前，将活动页面涉及到的静态资源（例如，网页图片）预热至节点。活动正式开始后，用户请求中的这些静态资源均由节点直接响应，加速页面访问速度，提升用户体验。
 ## 操作步骤
 1. 登录 [边缘安全加速平台控制台](https://console.cloud.tencent.com/edgeone)，在左侧菜单栏中，单击**站点加速** > **缓存配置**。
->?目前边缘安全加速平台控制台仅对部分用户开放，如需访问控制台，请 [联系我们](https://cloud.tencent.com/online-service) 开通权限。
->
 3. 在缓存配置页面，选择所需站点，单击预热 URL 模块的**预热资源**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/7433f630558ba4a747edb5f518f49314.png)
 3. 在预热 URL 弹窗中，输入或上传 URL，单击**确认预热**。
-![](https://qcloudimg.tencent-cloud.cn/raw/ab194cdef6adb850913a376152daf064.png)
  
 ## 注意事项
 ### 内容规范

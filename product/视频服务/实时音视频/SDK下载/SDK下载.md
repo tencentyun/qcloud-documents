@@ -61,7 +61,7 @@
   <div class="card-container">
       <div class="card">
         <img src="https://main.qcloudimg.com/raw/7e2651085e3e3c6e32190e401a6dfd32.svg" data-nonescope="true">
-        <p class="titlename">稳定版（TRTC）SDK</p>
+        <p class="titlename">TRTC Web SDK</p>
         <p style="color:#586376;">包含 TRTC 功能，无需安装 App 即可音视频通话，兼容主流的桌面和移动端浏览器。</p>
         <a onclick="reportEvent({name: 'download-click-web', ext1: 'zip'})" target="_blank" href="https://web.sdk.qcloud.com/trtc/webrtc/download/webrtc_latest.zip">ZIP 下载</a>
         <a style="margin-left: 10px;" onclick="reportEvent({name: 'download-click-web', ext1: 'github'})" target="_blank" href="https://github.com/LiteAVSDK/TRTC_Web">GitHub</a>

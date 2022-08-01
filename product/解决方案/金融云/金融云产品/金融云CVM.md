@@ -3,4 +3,4 @@
 ![](https://main.qcloudimg.com/raw/c79cc60f2d20ce64835b062703bf8dca.png)
 
 ## 详细了解
-[金融云 CVM](http://cloud.tencent.com/product/cvm.html)
+[金融云 CVM](http://cloud.tencent.com/product/cvm)

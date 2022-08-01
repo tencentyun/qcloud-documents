@@ -70,7 +70,7 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 >?如下环境要求，系统会在启动迁移任务前自动进行校验，不符合要求的系统会报错。如果用户能够识别出来，可以参考 [校验项检查要求](https://cloud.tencent.com/document/product/571/61639) 自行修改，如果不能则等系统校验完成，按照报错提示修改。
 
 <table>
-<tr><th width="20%">类型</th><th width="80%">环境要求</th></tr>
+<thead><tr><th width="20%">类型</th><th width="80%">环境要求</th></tr></thead>
 <tr>
 <td>源数据库要求</td>
 <td>
@@ -78,27 +78,33 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 <li>源库和目标库网络能够连通。</li>
 <li>源库所在的服务器需具备足够的出口带宽，否则将影响迁移速率。</li>
 <li>实例参数要求：
-<ul>
-<li>源库 server_id 参数需要手动设置，且值不能设置为0。</li>
-<li>源库表的 row_format 不能设置为 FIXED。</li>
-<li>源库和目标库 lower_case_table_names 变量必须设置为一致。</li>
-<li>源库变量 connect_timeout 设置数值必须大于10。</li>
-<li>建议开启 skip-name-resolve，减少连接超时的可能性。</li></ul></li>
+ <ul>
+ <li>源库 server_id 参数需要手动设置，且值不能设置为0。</li>
+ <li>源库表的 row_format 不能设置为 FIXED。</li>
+ <li>源库和目标库 lower_case_table_names 变量必须设置为一致。</li>
+ <li>源库变量 connect_timeout 设置数值必须大于10。</li>
+ <li>建议开启 skip-name-resolve，减少连接超时的可能性。</li>
+ </ul>
+</li>
 <li>Binlog 参数要求：
-<ul>
-<li>源库 log_bin 变量必须设置为 ON。</li>
-<li>源库 binlog_format 变量必须设置为 ROW。</li>
-<li>源库 binlog_row_image 变量必须设置为 FULL。</li>
-<li>MySQL 5.6 及以上版本 gtid_mode 变量不为 ON 时会报警告，建议打开 gtid_mode。</li>
-<li>不允许设置 do_db, ignore_db 过滤条件。</li>
-<li>源实例为从库时，log_slave_updates 变量必须设置为 ON。</li>
-</ul></li>
+ <ul>
+ <li>源库 log_bin 变量必须设置为 ON。</li>
+ <li>源库 binlog_format 变量必须设置为 ROW。</li>
+ <li>源库 binlog_row_image 变量必须设置为 FULL。</li>
+ <li>MySQL 5.6 及以上版本 gtid_mode 变量不为 ON 时会报警告，建议打开 gtid_mode。</li>
+ <li>不允许设置 do_db, ignore_db 过滤条件。</li>
+ <li>源实例为从库时，log_slave_updates 变量必须设置为 ON。</li>
+ <li>建议源库 Binlog 日志至少保留3天及以上，否则可能会因任务暂停/中断时间大于 Binlog 日志保留时间，造成任务无法续传，进而导致任务失败。</li>
+  </ul>
+</li>
 <li>外键依赖：
-<ul>
-<li>外键依赖只能设置为 NO ACTION，RESTRICT 两种类型。</li>
-<li>部分库表迁移时，有外键依赖的表必须齐全。</li>
-</ul></li>
-<li>DTS 对数据类型为 FLOAT 的迁移精度为38位，对数据类型为 DOUBLE 的迁移精度为308位，需要确认是否符合预期。</li></ul></td></tr>
+ <ul>
+ <li>外键依赖只能设置为 NO ACTION，RESTRICT 两种类型。</li>
+ <li>部分库表迁移时，有外键依赖的表必须齐全。</li>
+ </ul>
+</li>
+<li>DTS 对数据类型为 FLOAT 的迁移精度为38位，对数据类型为 DOUBLE 的迁移精度为308位，需要确认是否符合预期。</li>
+</ul></td></tr>
 <tr> 
 <td>目标数据库要求</td>
 <td>
