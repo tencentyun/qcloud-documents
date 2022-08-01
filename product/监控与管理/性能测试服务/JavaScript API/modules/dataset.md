@@ -10,12 +10,9 @@
 **default**:  { add: any; forEach: any; get: any; random: any }
 
 #### Type declaration
-
 - ##### add:function
+add(filename: *string*, values: *Record*<*string*, *any*>[]): *void*
 
-```
- add(filename: *string*, values: *Record*<*string*, *any*>[]): *void*
-```
 
 增加一行参数文件。
 
@@ -43,9 +40,8 @@
 
 - ##### forEach:function
 
-```
 forEach(fileName: *string*, callback: ((item: [Item](https://cloud.tencent.com/document/product/1484/75805), i?: *number*) => *void*)): *void*
-```
+
 
 遍历 csv 文件，支持修改和删除。
 
@@ -69,11 +65,8 @@ export function setup() {
   文件名
 
 - ##### callback: ((item: [Item](https://cloud.tencent.com/document/product/1484/75805), i?: *number*) => *void*)
-回调函数
-
-```
- (item: [Item](https://cloud.tencent.com/document/product/1484/75805), i?: *number*): *void*
-```
+  回调函数
+  (item: [Item](https://cloud.tencent.com/document/product/1484/75805), i?: *number*): *void*
 
 - #### Parameters
 
@@ -86,13 +79,9 @@ export function setup() {
 #### Returns *void*
 
 - ##### get:function
+get(key: *string*): *string*
 
-```
-  get(key: *string*): *string*
-```
-
-
- 获取 csv 文件的列数据。
+获取 csv 文件的列数据。
 
 ```
   import http from 'pts/http';
@@ -113,10 +102,8 @@ export function setup() {
 数据
 
 - ##### random:function
+random(filename: *string*): *Record*<*string*, *any*>
 
-```
-  random(filename: *string*): *Record*<*string*, *any*>
-```
 
  随机获取参数文件一行。
 
