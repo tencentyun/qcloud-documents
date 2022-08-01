@@ -1,6 +1,5 @@
-## 目录
 
-### Interfaces（接口）
+## Interfaces（接口）
 - [Item](https://cloud.tencent.com/document/product/1484/75805)
 
 ## Variables（变量）
