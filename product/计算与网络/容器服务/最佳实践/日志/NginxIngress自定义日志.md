@@ -47,7 +47,7 @@ Nginx Ingress 实例的日志配置在该实例的主配置 ConfigMap 中。Conf
 
 ### （可选）步骤3：修改 CLS 的日志索引格式 
 
-如果需要检索该字段的能力，则需要在对应日志主题中，添加新字段的索引。您可以在日志服务控制台操作，操作完成之后所有采集到的日志都可以通过索引进行检索。操作详情见 [创建 CRD 投递日志到 CLS](https://cloud.tencent.com/document/product/457/48425)。
+如果需要检索该字段的能力，则需要在对应日志主题中，添加新字段的索引。您可以在日志服务控制台操作，操作完成之后所有采集到的日志都可以通过索引进行检索。操作详情见 [配置索引](https://cloud.tencent.com/document/product/614/50922)。
  
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/cafd4249ccd0602a8a2d19fa71e61943.png)
