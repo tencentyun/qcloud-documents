@@ -36,8 +36,6 @@ Web Iframe 集成模式中，业务前端以 Iframe 方式集成剪辑界面，�
 2. [后端集成](https://cloud.tencent.com/document/product/1156/65100)：搭建业务服务，为下一步前端集成提供必要的接口。
 3. [前端集成](https://cloud.tencent.com/document/product/1156/65101)：集成多媒体创作引擎剪辑页面，并和上一步已经搭建好的后端服务进行通信，完成前后端联调并导出视频。
 
-<!-- 4. [高级功能](TODO)：在完成基础教程的前提下，针对具体业务需求，进行更高级的业务开发。 -->
+## 集成 Demo
 
-## 更多参考
-- 相关 SDK 说明，请参见 [Web 在线编辑(Iframe集成)](https://cloud.tencent.com/document/product/1156/51217)。
-- 为方便业务集成参考，多媒体创作引擎团队提供了集成 Demo，具体使用，请参见 [在线编辑 Demo 使用说明](https://cloud.tencent.com/document/product/1156/71276)。
+为方便业务集成参考，多媒体创作引擎团队提供了集成 Demo，具体使用请参见 [在线编辑 Demo 使用说明](https://cloud.tencent.com/document/product/1156/71276)。
