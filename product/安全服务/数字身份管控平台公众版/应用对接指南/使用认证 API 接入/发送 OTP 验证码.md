@@ -98,7 +98,7 @@ Host: sample.portal.tencentciam.com
 | auth_source_id | String   | 短信 OTP 或邮箱 OTP 认证源 ID。可在控制台的通用认证源列表页面查看。短信和邮箱 OTP 登录场景传递此参数，系统将使用认证源配置的验证码长度和有效期。其他场景不传递此参数，系统默认使用6位数字验证码，有效期60秒。 |
 
 ## 正常响应示例
-验证码发送成功
+验证码发送成功.
 ```
 HTTP/1.1 200 OK
 Content-Type: application/json
