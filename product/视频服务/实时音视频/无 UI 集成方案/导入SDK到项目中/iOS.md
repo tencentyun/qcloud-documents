@@ -58,7 +58,7 @@ pod 命令执行完后，会生成集成了 SDK 的 .xcworkspace 后缀的工程
 ![](https://qcloudimg.tencent-cloud.cn/raw/79123f9d068777fc4b8a164583c872f6.png)
 4. 依次添加下载的 `TXLiteAVSDK_TRTC.Framework`（或者 `TXLiteAVSDK_Professional.Framework`）、`TXFFmpeg.xcframework`、`TXSoundTouch.xcframework`、及其所需依赖库 `GLKit.framework`、`AssetsLibrary.framework`、`SystemConfiguration.framework`、`libsqlite3.0.tbd`、`CoreTelephony.framework`、`AVFoundation.framework`、`OpenGLES.framework`、`Accelerate.framework`、`MetalKit.framework`、`libresolv.tbd`、`MobileCoreServices.framework`、`libc++.tbd`、`CoreMedia.framework`。
 ![](https://qcloudimg.tencent-cloud.cn/raw/29f2ff828e7244195c0daf95b12a178e.png)
-5. 单击 **General**，选择 **Frameworks,Libraries,and Embedded Content**，,检查 TXLiteAVSDK_TRTC.framework 所需要动态库 **TXFFmpeg.xcframework**、**TXSoundTouch.xcframework**是否已经天剑，是否正确选择选择 **Embed & Sign**，如果没有单击底下的“**+**”号图标依次添加。
+5. 单击 **General**，选择 **Frameworks,Libraries,and Embedded Content**，检查 TXLiteAVSDK_TRTC.framework 所需要动态库 **TXFFmpeg.xcframework**、**TXSoundTouch.xcframework**是否已经添加，是否正确选择选择 **Embed & Sign**，如果没有单击底下的“**+**”号图标依次添加。
 ![](https://qcloudimg.tencent-cloud.cn/raw/0e56b082c37ea2d8cff1e309433070af.png)
 
 ## 第二步：配置 App 权限
