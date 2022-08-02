@@ -398,7 +398,7 @@ vm-0-9-centos   NotReady   control-plane,master   21m   v1.23.5
 
 
 #### 配置网络插件 flannel（可选）
-Kubernetes v1.17及以上版本，可使用以下命令安装 flannel。如需了解更多关于 flannel 信息，请参见 [flannel Github](tps://github.com/flannel-io/flannel)。
+Kubernetes v1.17及以上版本，可使用以下命令安装 flannel。如需了解更多关于 flannel 信息，请参见 [flannel Github](https://github.com/flannel-io/flannel)。
 ```shellsession
 kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 ```
