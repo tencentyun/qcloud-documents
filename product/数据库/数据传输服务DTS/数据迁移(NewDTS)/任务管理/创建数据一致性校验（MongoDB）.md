@@ -31,7 +31,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/7385bbe8e656a0cec10b2dd3af0d5c45.png)
 3. 单击**创建数据一致性校验**。
 >?数据一致性校验需要在 DTS 任务步骤进行到**同步增量**时，才可以创建。如果界面按钮呈灰色，则 DTS 任务状态不满足条件，如任务未进行到**同步增量**步骤、任务失败、任务终止。
-
+>
 ![](https://qcloudimg.tencent-cloud.cn/raw/bf4ba5dd632c15759b41f24f47b312f7.png)
 4. 在弹出的对话框中，单击**确定**。
 <img src="https://main.qcloudimg.com/raw/55b8c0bc502105ea07ff7cc6988aa096.png" style="zoom:50%;" />
@@ -51,6 +51,6 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/aa10631eace5d1235d3534ecb2cb3319.png)<br>
 **校验不一致的结果示例：**  
 > ?针对不一致性的结果，需要用户根据提示，手动确认源数据库和目标数据库的对应数据内容。
-
+> 
 ![](https://qcloudimg.tencent-cloud.cn/raw/8320540d227a96f2af3a12654b934c62.png)
 
