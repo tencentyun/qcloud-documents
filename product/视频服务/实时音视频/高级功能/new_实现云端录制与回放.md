@@ -874,7 +874,7 @@ TRTC 房间中的主播上行音视频后将触发启动录制任务，房间内
 为了保障录制的高可用，建议客户在集成 REST ful API 的同时注意以下几点。
 - 调用 CreateCloudRecording 请求后，请关注 HTTP response，如果请求失败，那么需要根据具体的状态码采取相应的重试策略。错误码是由“一级错误码”和“二级错误码”组合而成，例如：`InvalidParameter.SdkAppId`。
 	 - 如果返回的 Code 是 `InValidParameter.xxxxx`，说明输入的参数有误，请根据提示检查参数。
-	 - 如果返回的 Code 是 `InternalError.xxxxx`，说明遇到了服务端错误，可以使用相同的参数重试多次，知道返回正常，拿到 taskid 为止。建议使用退避重试策略，如第一次3s重试，第二次6s重试，第三次12s重试，以此类推。
+	 - 如果返回的 Code 是 `InternalError.xxxxx`，说明遇到了服务端错误，可以使用相同的参数重试多次，直到返回正常，拿到 taskid 为止。建议使用退避重试策略，如第一次3s重试，第二次6s重试，第三次12s重试，以此类推。
 	 - 如果返回的 Code 是 `FailedOperation.RestrictedConcurrency`，说明客户的并发录制任务数，超过了后台预留的资源（默认是100路），请联系腾讯云技术支持来调整最高并发路数限制。
 
 - 如果您有订阅录制回调，当收到 EVENT_TYPE_CLOUD_RECORDING_RECORDER_STOP 回调事件，LeaveCode 为100时，说明录制与主播数据长时间断开连接，请再次发起录制任务保证录制的可用性。
