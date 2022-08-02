@@ -21,6 +21,4 @@
 | INTERVAL_DAY_TIME| 	Int64| 
 | ARRAY	| Array| 
 | MAP	| Map| 
-| ROW	| Not supported| 
-| MULTISET	| Not supported| 
-| RAW	| Not supported| 
+

@@ -1,7 +1,7 @@
 本文为您介绍物联网 SaaS 托管 MySQL 节点的新建集群流程。
 
 ## 前提条件
-已完成 [开通 SaaS 托管](https://cloud.tencent.com/document/product/1465/59049)。
+已完成 [SaaS 创建](https://cloud.tencent.com/document/product/1465/58446)。
 
 ## 操作步骤
 1. 登录 [物联网开发平台控制台](https://console.cloud.tencent.com/iotexplorer) ，选择**公共实例**或您购买的**标准企业实例**。

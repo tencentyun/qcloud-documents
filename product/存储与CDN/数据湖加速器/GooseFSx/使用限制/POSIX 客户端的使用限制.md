@@ -1,15 +1,15 @@
-本文主要介绍数据加速器 GooseFSx POSIX 客户端的使用限制。
+本文主要介绍数据加速器 GooseFSx 客户端的使用限制。
 
-## POSIX 客户端规格
+## 客户端规格
 
 | **项目**                          | **规格** | **说明**                                                     |
 | --------------------------------- | -------- | ------------------------------------------------------------ |
-| 单 POSIX 客户端挂载 GooseFSx 实例个数 | 1        | 一个 POSIX 客户端只能挂载一个 GooseFSx 实例。                      |
-| 单 GooseFSx 实例支持 POSIX 客户端个数 | 256      | 256个 POSIX 客户端可同时挂载一个 GooseFSx 实例；若您有其他需求，您可咨询 [在线客服](https://cloud.tencent.com/act/event/Online_service?from=doc_582) 寻求帮助。 |
+| 单客户端挂载 GooseFSx 实例个数 | 1        | 一个客户端只能挂载一个 GooseFSx 实例。                      |
+| 单 GooseFSx 实例支持客户端个数 | 256      | 256个客户端可同时挂载一个 GooseFSx 实例；若您有其他需求，您可咨询 [在线客服](https://cloud.tencent.com/act/event/Online_service?from=doc_582) 寻求帮助。 |
 
 ## 适用的操作系统
 
-GooseFSx 的 POSIX 客户端支持 Linux 和 Windows 操作系统，推荐的操作系统版本如下表所示：
+GooseFSx 的客户端支持 Linux 和 Windows 操作系统，推荐的操作系统版本如下表所示：
 
 <table>
    <tr>

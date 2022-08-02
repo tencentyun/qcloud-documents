@@ -32,7 +32,7 @@
 ## 美颜特效类场景
 支持与视频直播、短视频、音视频通话相结合的各类 AI 特效场景，同时提供游戏竞技、AI 相机、在线会议等特效场景。支持智能美颜、特效滤镜、动态贴纸、多风格美妆（实时磨皮、五官美化）、人像和背景分割等功能。可选择 iOS 和 Android SDK 版本进行下载。
 
-![](https://qcloudimg.tencent-cloud.cn/raw/712024b72f3139cd7af038d230e82e52.jpg)
+![](https://qcloudimg.tencent-cloud.cn/raw/d8e3f9ddf49872d1ca41fb5cede2a0be.jpg)
 
 <input type="button" value="前往下载美颜特效 SDK 及 Demo 跳转链接" class="inbuttom" onclick="window.open('https://cloud.tencent.com/document/product/616/65876');reportEvent({name: 'demo-click-web', ext1: 'pusher'});" />
 
@@ -47,7 +47,7 @@
 ## 多场景组合
 支持上述多种音视频终端使用场景组合使用，可下载全功能版 SDK（可选择 iOS 和 Android 版本），仅需集成一个 SDK 便可实现互动直播、短视频、美颜特效、音视频通话等全部音视频终端能力。
 
-![](https://qcloudimg.tencent-cloud.cn/raw/ad925f093e02aa141d009b28154fe324.jpg)
+![](https://qcloudimg.tencent-cloud.cn/raw/de6821e8bbe0cee0661d0c3283263f7b.png)
 
 <input type="button" value="前往下载全功能 SDK 及 Demo 跳转链接" class="inbuttom" onclick="window.open('https://cloud.tencent.com/document/product/454/7873#ALL');reportEvent({name: 'demo-click-web', ext1: 'pusher'});" />
 
