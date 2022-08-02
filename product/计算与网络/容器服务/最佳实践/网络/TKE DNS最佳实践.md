@@ -88,7 +88,7 @@ Timeout (tcp tcpfin udp): 900 120 10
 
 
 ### 配置 CoreDNS 优雅退出
-已经收到退出信号的副本，可以通过配置 lameduck 使其能在一段时间内继续提供服务，按如下方式配置 CoreDNS 的 configmap：
+已经收到退出信号的副本，可以通过配置 lameduck 使其能在一段时间内继续提供服务，按如下方式配置 CoreDNS 的 configmap（仅展示 CoreDNS 1.6.2版本的部分配置，其它版本配置参见 [手动升级 CoreDNS](#1.7.0)）：
 ```
           .:53 {
               health {
@@ -104,7 +104,7 @@ Timeout (tcp tcpfin udp): 900 120 10
 
 ### 配置 CoreDNS 服务就绪确认
 新副本启动后，需确认其服务就绪，再加入 DNS 服务的后端列表。
-1. 打开 ready 插件，按如下方式配置 CoreDNS 的 configmap
+1. 打开 ready 插件，按如下方式配置 CoreDNS 的 configmap（仅展示 CoreDNS 1.6.2版本的部分配置，其它版本配置参见 [手动升级 CoreDNS](#1.7.0)）：
 ```
            .:53 {
                ready
@@ -181,15 +181,15 @@ kubectl edit cm coredns -n kube-system
 修改为以下内容：
 ```
         .:53 {
-              template ANY HINFO . {
-                  rcode NXDOMAIN
-              }
-              errors
-              health {
-                  lameduck 30s
-              }
-              ready
-              kubernetes cluster.local. in-addr.arpa ip6.arpa {
+            template ANY HINFO . {
+                rcode NXDOMAIN
+            }
+            errors
+            health {
+                lameduck 30s
+            }
+            ready
+            kubernetes cluster.local. in-addr.arpa ip6.arpa {
                 pods insecure
                 fallthrough in-addr.arpa ip6.arpa
             }
@@ -260,14 +260,14 @@ kubectl edit cm coredns -n kube-system
             kubernetes cluster.local. in-addr.arpa ip6.arpa {
                 pods insecure
                 fallthrough in-addr.arpa ip6.arpa
-              }
-              prometheus :9153
-              forward . /etc/resolv.conf {
-                  prefer_udp
-              }
-              cache 30
-              reload
-              loadbalance
+            }
+            prometheus :9153
+            forward . /etc/resolv.conf {
+                prefer_udp
+            }
+            cache 30
+            reload
+            loadbalance
         }
 ```
 

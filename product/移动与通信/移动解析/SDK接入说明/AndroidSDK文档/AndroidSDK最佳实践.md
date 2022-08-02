@@ -1,28 +1,29 @@
-## HTTPDNS SDK 接入 HTTP 网络访问实践
+## HTTPDNS SDK 接入 HTTP 网络访问
 
-将 HTTPDNS SDK 的域名解析能力接入到业务的 HTTP（HTTPS）网络访问流程中，总的来说可以分为两种方式：
+将 HTTPDNS SDK 的域名解析能力接入到业务的 HTTP（HTTPS）网络访问流程中，总的来说可以分为以下两种方式：
 
-- **方式1**：替换 URL 中的 Host 部分得到新的 URL，并使用新的 URL 进行网络访问。
+- **方式1：替换 URL**
+替换 URL 中的 Host 部分得到新的 URL，并使用新的 URL 进行网络访问。
   这种实现方案下，URL 丢掉了域名的信息，对于需要使用到域名信息的网络请求，需进行较多的兼容性工作。
-- **方式2**：将 HTTPDNS 的域名解析能力注入到网络访问流程中，替换掉原本网络访问流程中的 LocalDNS 来实现。
+- **方式2：替换 DNS**
+将 HTTPDNS 的域名解析能力注入到网络访问流程中，替换掉原本网络访问流程中的 LocalDNS 来实现。
   - 这种实现方案下，不需要逐个对请求的 URL 进行修改，同时由于没有修改 URL，无需进行额外的兼容性工作，但需要业务侧使用的网络库支持 DNS 实现替换。
   - DNS 替换也可以通过 Hook 系统域名解析函数的方式来实现，但 HTTPDNS SDK 内部已经使用系统的域名解析函数，Hook 系统域名解析函数可能会造成递归调用直到栈溢出。
 
 不同网络库具体的接入方式，可以参见对应的接入文档（当前目录下）及参考使用 Sample（HttpDnsSample 目录）。
 
 
-### 替换 URL 接入方式兼容
+## 替换 URL 接入方式兼容
 如前文所述，对于需要使用到域名信息的网络请求（一般是多个域名映射到同一个 IP 的情况），需要进行额外兼容。以下从协议层面阐述具体的兼容方式，具体的实现方式需要视网络库的实现而定。
 
-#### HTTP 兼容
+- **HTTP 兼容**
 对于 HTTP 请求，需要通过指定报文头中的 Host 字段来告知服务器域名信息。Host 字段详细介绍参见 [Host](https://tools.ietf.org/html/rfc2616#page-128)。
+- **HTTPS 兼容**[](id:HTTPS)
+ - HTTPS 是基于 TLS 协议之上的 HTTP 协议的统称。对于 HTTPS 请求，同样需要设置 Host 字段。
+ - 在 HTTPS 请求中，需要先进行 TLS 的握手。TLS 握手过程中，服务器会将自己的数字证书发给我们用于身份认证，因此，在 TLS 握手过程中，也需要告知服务器相关的域名信息。在 TLS 协议中，通过 SNI 扩展来指明域名信息。SNI 扩展的详细介绍参见 [Server Name Indication](https://tools.ietf.org/html/rfc6066#page-6)。
 
-#### HTTPS 兼容[](id:HTTPS)
-- HTTPS 是基于 TLS 协议之上的 HTTP 协议的统称。对于 HTTPS 请求，同样需要设置 Host 字段。
-- 在 HTTPS 请求中，需要先进行 TLS 的握手。TLS 握手过程中，服务器会将自己的数字证书发给我们用于身份认证，因此，在 TLS 握手过程中，也需要告知服务器相关的域名信息。在 TLS 协议中，通过 SNI 扩展来指明域名信息。SNI 扩展的详细介绍参见 [Server Name Indication](https://tools.ietf.org/html/rfc6066#page-6)。
 
-
-### 本地使用 HTTP 代理[](id:local)
+## 本地使用 HTTP 代理[](id:local)
 
 <dx-alert infotype="explain" title="">
 本地使用 HTTP 代理情况下，建议**不要使用 HTTPDNS** 进行域名解析。
@@ -30,16 +31,13 @@
 
 以下区分两种接入方式并进行分析：
 
-#### 替换 URL 接入方式
+- **替换 URL 接入**
 根据 HTTP/1.1 协议规定，在使用 HTTP 代理情况下，客户端侧将在请求行中带上完整的服务器地址信息。详细介绍可以参见 [origin-form](https://tools.ietf.org/html/rfc7230#page-42)。
 这种情况下（本地使用了 HTTP 代理，业务侧使用替换 URL 方式接入了 HTTPDNS SDK，且已经正确设置了 Host 字段），HTTP 代理接收到的 HTTP 请求中会包含服务器的 IP 信息（请求行中）以及域名信息（Host 字段中），但具体 HTTP 代理会如何向真正的目标服务器发起 HTTP 请求，则取决于 HTTP 代理的实现，可能会直接丢掉我们设置的 Host 字段使得网络请求失败。
-
-#### 替换 DNS 实现方式
+- **替换 DNS 实现**
 以 OkHttp 网络库为例，在本地启用 HTTP 代理情况下，OkHttp 网络库不会对一个 HTTP 请求 URL 中的 Host 字段进行域名解析，而只会对设置的 HTTP 代理的 Host 进行域名解析。在这种情况下，启用 HTTPDNS 没有意义。
 
-#### 判断本地是否使用 HTTP 代理
-判断代码如下：
-
+您可通过以下代码，**判断本地是否使用 HTTP 代理**：
 ```kotlin
 val host = System.getProperty("http.proxyHost")
 val port = System.getProperty("http.proxyPort")
@@ -50,9 +48,8 @@ if (null != host && null != port) {
 
 ## 实践场景
 
-<dx-tabs>
-::: OkHttp
-OkHttp 提供了 DNS 接口，用于向 OkHttp 注入 DNS 实现。得益于 OkHttp 的良好设计，使用 OkHttp 进行网络访问时，实现 DNS 接口即可接入 HTTPDNS 进行域名解析，在较复杂场景（HTTP/HTTPS + SNI）下也不需要做额外处理，侵入性极小。示例如下：
+### OkHttp
+OkHttp 提供了 DNS 接口，用于向 OkHttp 注入 DNS 实现。得益于 OkHttp 的良好设计，使用 OkHttp 进行网络访问时，实现 DNS 接口即可接入 HTTPDNS 进行域名解析，在较复杂场景（HTTP/HTTPS/WebSocket + SNI）下也不需要做额外处理，侵入性极小。示例如下：
 
 
 ```Java
@@ -89,8 +86,8 @@ mOkHttpClient =
 实现 DNS 接口，即表示所有经由当前 OkHttpClient 实例处理的网络请求都会经过 HTTPDNS。如果您只有少部分域名是需要通过 HTTPDNS 进行解析，建议您在调用 HTTPDNS 域名解析接口之前先进行过滤。
 </dx-alert>
 
-:::
-::: Retrofit + OkHttp
+
+###  Retrofit + OkHttp
 Retrofit 实际上是一个基于 OkHttp，对接口做了一层封装桥接的 lib。因此只需要仿 OkHttp 的接入方式，定制 Retrofit 中的 OkHttpClient，即可方便地接入 HTTPDNS。示例如下：
 
 ```Java
@@ -101,10 +98,12 @@ mRetrofit =
         .build();
 ```
 
-:::
-::: WebView
+### WebView
 
 Android 系统提供了 API 以实现 WebView 中的网络请求拦截与自定义逻辑注入。我们可以通过该 API 拦截 WebView 的各类网络请求，截取 URL 请求的 HOST，调用 HTTPDNS 解析该 HOST，通过得到的 IP 组成新的 URL 来进行网络请求。示例如下：
+<dx-alert infotype="notice" title="">
+由于 shouldInterceptRequest(WebView view, WebResourceRequest request) 中 WebResourceRequest 没有提供请求 body 信息，所以只能成功拦截 get 请求，无法拦截 post 请求。
+</dx-alert>
 
 
 ```Java
@@ -178,11 +177,9 @@ mWebView.setWebViewClient(new WebViewClient() {
 mWebView.loadUrl(targetUrl);
 ```
 
+### HttpURLConnection
 
-:::
-::: HttpURLConnection
-
-- HTTPS 示例如下：
+- HTTPS 证书校验示例如下：
 ```Java
  // 以域名为 www.qq.com，HTTPDNS 解析得到的 IP 为192.168.0.1为例
 String url = "https://192.168.0.1/"; // 业务自己的请求连接
@@ -312,13 +309,12 @@ String url = "https://192.168.0.1/"; // 业务自己的请求连接
 ```
 
 
-:::
-::: Unity
+
+### Unity
 - 初始化 HTTPDNS 和灯塔接口。
 <dx-alert infotype="notice" title="">
 若已接入 msdk 或者单独接入了腾讯灯塔则不用初始化灯塔。
-</dx-alert>
-示例如下：
+</dx-alert> 示例如下：
 ```C#
  private static AndroidJavaObject sHttpDnsObj;
  public static void Init() {
@@ -362,8 +358,6 @@ public static string GetHttpDnsIP(string url) {
 }
 ```
 
-:::
-</dx-tabs>
 
 
 	
