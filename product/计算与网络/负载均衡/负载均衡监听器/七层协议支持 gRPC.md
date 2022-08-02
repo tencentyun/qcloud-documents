@@ -1,29 +1,31 @@
-[gRPC](https://grpc.io/docs/what-is-grpc/introduction/) 是 Google 发布的基于 HTTP 2.0 传输层协议承载的高性能开源软件框架，提供了支持多种编程语言的、对网络设备进行配置和纳管的方法。本文指导您通过配置 HTTPS 监听器的 gRPC 协议的健康检查，将客户端的 gRPC 请求通过 CLB 实例转发到后端协议为 gRPC 的后端服务。
+[gRPC](https://grpc.io/docs/what-is-grpc/introduction/) 是 Google 发布的基于 HTTP 2.0 传输层协议的高性能开源软件框架，提供了支持多种编程语言、对网络设备进行配置和纳管的方法。本文指导您通过配置 HTTPS 监听器的 gRPC 协议的健康检查，将客户端的 gRPC 请求通过 CLB 实例转发到后端协议为 gRPC 的后端服务。
 
 
 ## 使用场景
-当您的请求类型为 HTTPS 的客户端想要访问协议类型为 gRPC 的后端服务时，您可以通过 CLB 实例的 HTTPS 监听器支持 gRPC 协议来实现。
+当客户端通过 HTTPS 请求访问协议类型为 gRPC 的后端服务时，您可以通过 CLB 实例的 HTTPS 监听器支持 gRPC 协议来实现。
 ![](https://qcloudimg.tencent-cloud.cn/raw/f71367bab84383e0d9d9735306528fc4.svg)
 
-## 限制说明
-- 仅负载均衡类型支持，传统型负载均衡不支持。
-- IPv6 与 IPv6 七层混绑不支持。
-- 仅 VPC 网络支持，基础网络不支持。
-- 后端服务不支持 SCF（需要 SCF target 内部支持 gRPC 协议）。
-
- 
  ## 前提条件
  - 您已创建 VPC，详情请参见 [创建私有网络](https://cloud.tencent.com/document/product/215/36515)。
  - 您已在 VPC 中创建了 CVM 实例，并在实例上部署了 gRPC 服务，详情请参见 [通过镜像创建实例](https://cloud.tencent.com/document/product/213/44265)。
  - 您已购买了 CLB 实例，详情请参见 [创建负载均衡实例](https://cloud.tencent.com/document/product/214/6149)。
  
+
+## 使用限制
+- 仅负载均衡类型支持，传统型负载均衡不支持。
+- IPv6 版本 CLB 与开启了七层混绑的 IPv6 版本 CLB 不支持。
+- 仅 VPC 网络支持，基础网络不支持。
+- 后端服务不支持 SCF（需要 SCF target 内部支持 gRPC 协议）。
+
+ 
+
 ## 操作步骤
 
 ### 步骤一：配置监听器
 1. 登录 [负载均衡控制台](https://console.cloud.tencent.com/clb)，在左侧导航栏单击**实例管理**。
-2. 在 CLB 实例列表页面左上角选择地域，在实例列表右侧的操作列中单击**配置监听器**。
+2. 在 CLB 实例列表页面左上角选择地域，在实例列表右侧的**操作**列中单击**配置监听器**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/2c0b7f73cd81582c7ace11dbfe7d6c18.png)
-3. 在 HTTP/HTTPS 监听器下，单击**新建**，在弹出的“创建监听器”对话框中配置 HTTPS 监听器。
+3. 在 HTTP/HTTPS 监听器下，单击**新建**，在弹出的**创建监听器**对话框中配置 HTTPS 监听器。
 **1. 创建监听器**
 <table>
 <thead>
@@ -78,7 +80,7 @@
 </tr>
 <tr>
 <td>域名</td>
-<td>转发域名：<ul style="margin-bottom:0px;"><li>长度限制：1 - 80个字符。</li><li>不能以 `_` 开头。</li><li>支持精准域名和通配域名。</li><li>支持正则表达式。</li><li>具体配置规则，详情请参见 <a href="https://cloud.tencent.com/document/product/214/9032#.E8.BD.AC.E5.8F.91.E5.9F.9F.E5.90.8D.E9.85.8D.E7.BD.AE.E8.A7.84.E5.88.99">转发域名配置规则</a>。</li></ul></td>
+<td>转发域名：<ul style="margin-bottom:0px;"><li>长度限制：1 - 80个字符。</li><li>不能以 `_` 开头。</li><li>支持精准域名和通配域名。</li><li>支持正则表达式。</li></ul>具体配置规则，详情请参见 <a href="https://cloud.tencent.com/document/product/214/9032#.E8.BD.AC.E5.8F.91.E5.9F.9F.E5.90.8D.E9.85.8D.E7.BD.AE.E8.A7.84.E5.88.99">转发域名配置规则</a>。</td>
 <td>www.example.com</td>
 </tr>
 <tr>
@@ -108,7 +110,7 @@
 </tr>
 <tr>
 <td>后端协议</td>
-<td>后端协议是指 CLB 与后端服务之间的协议：<ul style="margin-bottom:0px;"> <li>后端协议选择 HTTP 时，后端服务需部署 HTTP 服务。</li><li>后端协议选中 HTTPS 时，后端服务需部署 HTTPS 服务，HTTPS 服务的加解密会让后端服务消耗更多资源。</li><li>后端协议选中 gRPC 时，后端服务需部署 gRPC 服务。仅 HTTP2.0开启且 QUIC 关闭的情况下，后端转发协议支持选择 gRPC。</li></ul></td>
+<td>后端协议是指 CLB 与后端服务之间的协议：<ul style="margin-bottom:0px;"> <li>后端协议选择 HTTP 时，后端服务需部署 HTTP 服务。</li><li>后端协议选中 HTTPS 时，后端服务需部署 HTTPS 服务，HTTPS 服务的加解密会让后端服务消耗更多资源。</li><li>后端协议选中 gRPC 时，后端服务需部署 gRPC 服务。仅 HTTP2.0 开启且 QUIC 关闭的情况下，后端转发协议支持选择 gRPC。</li></ul></td>
 <td>gRPC</td>
 </tr>
 <tr>
@@ -122,8 +124,7 @@
 <td>已开启</td>
 </tr>
 </table>
-<b>3. 健康检查</b>
-健康检查详情请参见 <a href="https://cloud.tencent.com/document/product/214/50011#https">HTTPS 健康检查</a>。</br> 
+<b>3. <a href="https://cloud.tencent.com/document/product/214/50011#https">HTTPS 健康检查</a></b>。</br> 
 <b>4. 会话保持</b>
 <table>
 <tr>
@@ -138,14 +139,14 @@
 </tr>
 <tr>
 <td>会话保持时间</td>
-<td><ul><li>当超过保持时间，连接内无新的请求，将会自动断开会话保持。</li><li>可配置范围30 - 3600秒。</li></ul></td>
+<td><ul><li>当超过保持时间，连接内无新的请求，将会自动断开会话保持。</li><li>可配置范围30s - 3600s。</li></ul></td>
 <td>30s</td>
 </tr>
 </table>
 
 
 ### 步骤二：绑定后端云服务器
-1. 在“监听器管理”页面，单击刚才创建的监听器，如上述 `HTTPS:443` 监听器，单击左侧的 **+** 展开域名和 URL 路径，选中具体的 URL 路径，即可在监听器右侧查看该路径上已绑定的后端服务。
+1. 在**监听器管理**页面，单击刚才创建的监听器，如上述 `HTTPS:443` 监听器，单击左侧的 **+** 展开域名和 URL 路径，选中具体的 URL 路径，即可在监听器右侧查看该路径上已绑定的后端服务。
 2. 单击**绑定**，在弹出框中选择需绑定的后端服务器，并配置服务端口和权重。
 >? 默认端口功能：先填写“默认端口”，再选择云服务器后，每台云服务器的端口均为默认端口。
 >
@@ -154,5 +155,5 @@
 您可以配置负载均衡的安全组来进行公网流量的隔离，详情请参见 [配置负载均衡安全组](https://cloud.tencent.com/document/product/214/14733)。
 
 ### 步骤四：修改/删除监听器（可选）
-如果您需要修改或删除已创建的监听器，请在“监听器管理”页面，单击已创建完毕的监听器，单击![](https://qcloudimg.tencent-cloud.cn/raw/4ab10b98316964812832043bbfd99df6.svg)图标修改或![](https://qcloudimg.tencent-cloud.cn/raw/e863cc51c29790d665d53feba800fd90.svg)图标删除。
+如果您需要修改或删除已创建的监听器，请在**监听器管理**页面，单击已创建完毕的监听器，单击![](https://qcloudimg.tencent-cloud.cn/raw/4ab10b98316964812832043bbfd99df6.svg)图标修改或![](https://qcloudimg.tencent-cloud.cn/raw/e863cc51c29790d665d53feba800fd90.svg)图标删除。
 

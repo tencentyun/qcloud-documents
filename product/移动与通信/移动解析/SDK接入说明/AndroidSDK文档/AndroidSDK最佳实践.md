@@ -48,8 +48,7 @@ if (null != host && null != port) {
 
 ## 实践场景
 
-<dx-tabs>
-::: OkHttp
+### OkHttp
 OkHttp 提供了 DNS 接口，用于向 OkHttp 注入 DNS 实现。得益于 OkHttp 的良好设计，使用 OkHttp 进行网络访问时，实现 DNS 接口即可接入 HTTPDNS 进行域名解析，在较复杂场景（HTTP/HTTPS/WebSocket + SNI）下也不需要做额外处理，侵入性极小。示例如下：
 
 
@@ -87,8 +86,8 @@ mOkHttpClient =
 实现 DNS 接口，即表示所有经由当前 OkHttpClient 实例处理的网络请求都会经过 HTTPDNS。如果您只有少部分域名是需要通过 HTTPDNS 进行解析，建议您在调用 HTTPDNS 域名解析接口之前先进行过滤。
 </dx-alert>
 
-:::
-::: Retrofit + OkHttp
+
+###  Retrofit + OkHttp
 Retrofit 实际上是一个基于 OkHttp，对接口做了一层封装桥接的 lib。因此只需要仿 OkHttp 的接入方式，定制 Retrofit 中的 OkHttpClient，即可方便地接入 HTTPDNS。示例如下：
 
 ```Java
@@ -99,11 +98,12 @@ mRetrofit =
         .build();
 ```
 
-:::
-::: WebView
+### WebView
 
 Android 系统提供了 API 以实现 WebView 中的网络请求拦截与自定义逻辑注入。我们可以通过该 API 拦截 WebView 的各类网络请求，截取 URL 请求的 HOST，调用 HTTPDNS 解析该 HOST，通过得到的 IP 组成新的 URL 来进行网络请求。示例如下：
->! 由于 shouldInterceptRequest(WebView view, WebResourceRequest request) 中 WebResourceRequest 没有提供请求 body 信息，所以只能成功拦截 get 请求，无法拦截 post 请求 。
+<dx-alert infotype="notice" title="">
+由于 shouldInterceptRequest(WebView view, WebResourceRequest request) 中 WebResourceRequest 没有提供请求 body 信息，所以只能成功拦截 get 请求，无法拦截 post 请求。
+</dx-alert>
 
 
 ```Java
@@ -177,9 +177,7 @@ mWebView.setWebViewClient(new WebViewClient() {
 mWebView.loadUrl(targetUrl);
 ```
 
-
-:::
-::: HttpURLConnection
+### HttpURLConnection
 
 - HTTPS 证书校验示例如下：
 ```Java
@@ -311,8 +309,8 @@ String url = "https://192.168.0.1/"; // 业务自己的请求连接
 ```
 
 
-:::
-::: Unity
+
+### Unity
 - 初始化 HTTPDNS 和灯塔接口。
 <dx-alert infotype="notice" title="">
 若已接入 msdk 或者单独接入了腾讯灯塔则不用初始化灯塔。
@@ -360,8 +358,6 @@ public static string GetHttpDnsIP(string url) {
 }
 ```
 
-:::
-</dx-tabs>
 
 
 	
