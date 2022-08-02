@@ -104,7 +104,7 @@ pod 'TPNS-macOS'
 
 #### 示例代码
 ```objective-c
-//获取移动推送生成的 Token
+//获取 TPNS 生成的 Token
 [[XGPushTokenManager defaultTokenManager] xgTokenString];
 //获取 APNs 生成的 DeviceToken
 [[XGPushTokenManager defaultTokenManager] deviceTokenString];

@@ -18,7 +18,7 @@
 ![](https://main.qcloudimg.com/raw/64bd9d0160d2a31bb60f70524c2f3e6e.png)
 **第四步：**需要更新云端角标数时，需调用下方接口将角标值同步到移动推送服务器，下次推送时以此值为基准。如当前移动推送服务器角标值同步为 n，则下次收到推送时 App 角标值为 n+1。
 ```
-//将角标值同步到移动推送服务器，下次推送时以此值为基准
+//将角标值同步到 TPNS 服务器，下次推送时以此值为基准
 - (void)setBadge:(NSInteger)badgeNumber;
 ```
 
@@ -125,9 +125,9 @@ clearEpisodeNotification.applicationIconBadgeNumber = -1;
 #### 如何监听移动推送网络连接的状态？
 建议使用 v1.3.1.0 及以上版本 SDK 的如下方法：
 ```
-// 移动推送网络连接成功
+// TPNS网络连接成功
 - (void)xgPushNetworkConnected;
-// 移动推送网络连接断开
+// TPNS网络连接断开
 - (void)xgPushNetworkDisconnected;
 ```
 
@@ -193,6 +193,6 @@ NSLog(@"<%@ %p> %@ - caller: %@ ", [self class], self, NSStringFromSelector(_cmd
 
 ```
 将上面的两个文件加入到自己的工程中使用。
-下图是加入到移动推送Demo示例：
+下图是加入到移动推送 Demo 示例：
 ![](https://main.qcloudimg.com/raw/b079a5fbbd9b0c9f174e841db692330d.png)
 

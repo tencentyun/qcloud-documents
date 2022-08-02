@@ -12,7 +12,7 @@
 1. 登录 [EIAM 平台](https://console.cloud.tencent.com/eiam)，在导航栏选择**用户管理** > **组织机构管理** > **根节点**，然后在**根节点**页面单击**新建用户**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/a311106358be715ecf08850a6f4f2300.png)
 2. 在弹出的**新建用户**页面配置相应参数。
-该处用户名密码将会用于登录 [腾讯云 Client VPN 自助服务门户](https://self-service-test.vpn.woa.com/)。
+该处用户名密码将会用于登录 [腾讯云 Client VPN 自助服务门户](https://self-service.vpnconnection.tencent.com/)。
 ![](https://qcloudimg.tencent-cloud.cn/raw/e5700176a40839e80d59f445c22e497e.png)
 
 ### [创建用户组](https://cloud.tencent.com/document/product/1442/55067) 并添加下相应的成员

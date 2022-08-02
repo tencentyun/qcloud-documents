@@ -14,26 +14,38 @@
 <th>角色</th>
 <th>IP 地址</th>
 <th>服务</th>
+<th>配置</th>
 </tr>
 <tr>
 <td>VM-0-9-centos</td>
 <td>云端</td>
 <td>
-172.21.0.9（内网）<br>
-49.232.76.138（公网）
+VM-0-9-centos 内网 IP<br>
+VM-0-9-centos 公网 IP
 </td>
 <td>kuberbetes、docker、cloudcore</td>
+<td>操作系统：Centos 7.4<br>
+CPU：Intel Xeon Cascade Lake(2.5 GHz)<br>
+RAM：80GB<br>
+GPU：NVIDIA T4
+</td>
 </tr>
 <tr>
 <td>berbai02</td>
 <td>边端</td>
-<td>192.168.227.4（内网）</td>
+<td>berbai02 内网 IP</td>
 <td>docker、edgecore</td>
+<td rowspan=2>
+操作系统：Ubuntu 18.04.6 LTS<br>
+CPU：ARMv8 Processor rev 1 (v8l)<br>
+RAM：4G<br>
+GPU：128CUDA core Maxwell
+</td>
 </tr>
 <tr>
 <td>demo</td>
 <td>边端</td>
-<td>10.0.12.17（内网）</td>
+<td>demo 内网 IP</td>
 <td>docker、edgecore</td>
 </tr>
 </table>
@@ -325,7 +337,7 @@ systemctl enable kubelet && systemctl start kubelet
 ```shellsession
 kubeadm init --kubernetes-version=v1.23.5 \
                       --pod-network-cidr=10.244.0.0/16 \
-                      --apiserver-advertise-address= 172.21.0.9 \
+                      --apiserver-advertise-address= <VM-0-9-centos 内网 IP> \
                       --ignore-preflight-errors=Swap
 
 [root@VM-0-9-centos ~]# kubeadm init --kubernetes-version=v1.23.5 \
@@ -353,7 +365,7 @@ Run "kubectl apply -f [podnetwork].yaml" with one of the options listed at:
 
 Then you can join any number of worker nodes by running the following on each as root:
 
-kubeadm join 172.21.0.9:6443 --token 1tyany.dxr5ymxu2g3j0dzl \
+kubeadm join <VM-0-9-centos 内网 IP>:6443 --token 1tyany.dxr5ymxu2g3j0dzl \
         --discovery-token-ca-cert-hash sha256:a63bd724813ebe0c4aabadb8cc8c747b6c84c474b80d4104497542ec265ec36a
 ```
 
@@ -386,7 +398,7 @@ vm-0-9-centos   NotReady   control-plane,master   21m   v1.23.5
 
 
 #### 配置网络插件 flannel（可选）
-Kubernetes v1.17及以上版本，可使用以下命令安装 flannel。如需了解更多关于 flannel 信息，请参见 [flannel Github](tps://github.com/flannel-io/flannel)。
+Kubernetes v1.17及以上版本，可使用以下命令安装 flannel。如需了解更多关于 flannel 信息，请参见 [flannel Github](https://github.com/flannel-io/flannel)。
 ```shellsession
 kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 ```
@@ -434,16 +446,16 @@ sudo iptables -t nat -A OUTPUT -d <主节点公网IP> -j DNAT --to-destination <
 结合本文示例环境，则执行以下命令：
 ```shellsession
 # cloud
-sudo iptables -t nat -A OUTPUT -d 49.232.76.138 -j DNAT --to-destination 172.21.0.9
+sudo iptables -t nat -A OUTPUT -d <VM-0-9-centos 公网 IP> -j DNAT --to-destination <VM-0-9-centos 内网 IP>
 ```
 2. 在 node 节点上，执行以下命令。
 ```shellsession
-sudo iptables -t nat -A OUTPUT -d <主节点内网IP> -j DNAT --to-destination <主节点公网IP>
+sudo iptables -t nat -A OUTPUT -d <VM-0-9-centos 内网 IP> -j DNAT --to-destination <VM-0-9-centos 公网 IP>
 ```
 结合本文示例环境，则执行以下命令：
 ```shellsession
 # edge
-sudo iptables -t nat -A OUTPUT -d 172.21.0.9 -j DNAT --to-destination 49.232.76.138
+sudo iptables -t nat -A OUTPUT -d <VM-0-9-centos 内网 IP> -j DNAT --to-destination <VM-0-9-centos 公网 IP>
 ```
 
 
@@ -502,11 +514,11 @@ cd ./_output/local/bin
 ```
 3. 执行以下命令，创建 cloud 节点。
 ```shellsession
-./keadm init --advertise-address="172.21.0.9"
+./keadm init --advertise-address="<VM-0-9-centos 内网 IP>"
 ```
 返回结果如下所示：
 ```shellsession
-[root@VM-0-9-centos kubeedge]# ./keadm init --advertise-address="172.21.0.9"
+[root@VM-0-9-centos kubeedge]# ./keadm init --advertise-address="<VM-0-9-centos 内网 IP>"
 Kubernetes version verification passed, KubeEdge installation will start...
 
 ...
@@ -577,7 +589,7 @@ cd ./_output/local/bin
 ```
 通过 `keadm join` 命令安装 edgecore 和 mqtt。它还提供了一个标志，通过它可以设置特定的版本。
 ```shellsession
-./keadm join --cloudcore-ipport=172.21.0.9:10000 --token=9c71cbbb512afd65da8813fba9a48d19ab8602aa27555af7a07cd44b508858ae.eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NTA3MDgwNjN9.-S0YBgSSAz6loQsi0XaTgFeWyHsHDm8E2SAefluVTJA
+./keadm join --cloudcore-ipport=<VM-0-9-centos 内网 IP>:10000 --token=9c71cbbb512afd65da8813fba9a48d19ab8602aa27555af7a07cd44b508858ae.eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NTA3MDgwNjN9.-S0YBgSSAz6loQsi0XaTgFeWyHsHDm8E2SAefluVTJA
 Host has /usr/sbin/mosquitto already installed and running. Hence skipping the installation steps !!!
 
 ...
@@ -693,7 +705,7 @@ kubectl create -f kubeedge-pi-counter-app.yaml
 docker save -o kubeedge-pi-counter.tar kubeedge/kubeedge-pi-counter:v1.0.0
 ```
 ```shellsession
-scp kubeedge-pi-counter.tar root@10.0.12.17:/root
+scp kubeedge-pi-counter.tar root@<demo 内网 IP>:/root
 ```
 ```shellsession
 docker load -i kubeedge-pi-counter.tar
@@ -703,8 +715,8 @@ KubeEdge Demo 的云端部分和边缘端的部分都已经部署完毕，如下
 ```shellsession
 [root@VM-0-9-centos crds]# kubectl get pods -o wide
 NAME                                    READY   STATUS    RESTARTS   AGE   IP           NODE            NOMINATED NODE   READINESS GATES
-kubeedge-counter-app-55848d84d9-545kh   1/1     Running   0          27m   172.21.0.9   vm-0-9-centos   <none>           <none>
-kubeedge-pi-counter-54b7997965-t2bxr    1/1     Running   0          31m   10.0.12.17   demo            <none>           <none>
+kubeedge-counter-app-55848d84d9-545kh   1/1     Running   0          27m   <VM-0-9-centos 内网 IP>   vm-0-9-centos   <none>           <none>
+kubeedge-pi-counter-54b7997965-t2bxr    1/1     Running   0          31m   <demo 内网 IP>   demo            <none>           <none>
 ```
     1. 执行 ON 命令
     在 Web 页面上选择 ON，并单击 **Execute**，可以在 edge 节点上通过以下命令查看执行结果：

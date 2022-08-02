@@ -156,7 +156,7 @@ TUIRoom 使用 Pinia 进行房间数据管理，您需要在项目入口文件�
 import { createPinia } from 'pinia';
 
 const app = createApp(App);
-// 注册pina
+// 注册Pinia
 createApp(App)
   .use(createPinia())
   .mount('#app')

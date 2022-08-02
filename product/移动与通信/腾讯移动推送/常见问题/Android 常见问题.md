@@ -15,7 +15,7 @@ b. 涉及 PendingIntent 的打开目标为 SDK 内部静态广播，且已添加
 2. 在移动推送推送 REST API 指定相同的通知渠道`n_ch_id `进行推送,厂商通道需指定厂商渠道 ID，如华为通道需指定`hw_ch_id`,小米通道需指定`xm_ch_id`。
 
 >?
-- 目前仅华为、小米、FCM 和移动推送通道支持自定义铃声。
+- 目前仅华为、小米、FCM 和移动推送自建通道支持自定义铃声。
 - 部分厂商推送通道使用通道渠道需要先进行通知分类权限申请，相关说明和申请步骤可参见 [厂商通道消息分类功能使用说明](https://cloud.tencent.com/document/product/548/44531)。
 - 针对华为推送通道，如果您的应用在华为推送控制台申请开通华为推送服务时，选择的数据处理位置为中国区，自定义渠道功能将不再适用于您的应用，即不支持利用通知渠道能力进行通知铃声自定义，详见 [自定义通知渠道](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/android-custom-chan-0000001050040122)。
 
@@ -31,7 +31,7 @@ XGPushConfig.enablePullUpOtherApp(Context context, boolean pullUp);
 若您使用 gradle 自动集成方式，请在自身应用的 AndroidManifest.xml 文件 &lt;application&gt; 标签下配置如下结点，其中 `xxx` 为任意自定义名称；如果使用手动集成方式，请修改如下节点属性：
 ```xml
 <!-- 在自身应用的AndroidManifest.xml文件中添加如下结点，其中 xxx 为任意自定义名称: -->     
-<!-- 关闭与移动推送应用的联合保活功能，请配置 -->
+<!-- 关闭与 TPNS 应用的联合保活功能，请配置 -->
 <provider
 		 android:name="com.tencent.android.tpush.XGPushProvider"
 		 tools:replace="android:authorities"
@@ -78,16 +78,16 @@ android:value="true" />
 - 方式一（推荐）： 在《APP隐私声明》里增加 [移动推送的隐私说明](https://cloud.tencent.com/document/product/548/36652#.E9.9A.90.E7.A7.81.E5.8D.8F.E8.AE.AE.E5.A3.B0.E6.98.8E.E5.BB.BA.E8.AE.AE)。 
 - 方式二（不推荐）： 剔除掉 vivo 相关 jar 包，但是也会丧失掉 vivo 厂商通道的能力。
  
-### 什么是移动推送通道？
+### 什么是移动推送自建通道？
 
--移动推送通道是移动推送的自建通道，依赖移动推送Service 在线（与移动推送后台服务器保持长连接）才能下发消息，因此移动推送通道的实际发送一般比其他厂商通道的数据要低。
+-移动推送自建通道是移动推送的自建通道，依赖移动推送Service 在线（与移动推送后台服务器保持长连接）才能下发消息，因此移动推送自建通道的实际发送一般比其他厂商通道的数据要低。
 - 如果需要实现离线推送，建议集成厂商通道，请参见 [厂商通道接入指南](https://cloud.tencent.com/document/product/548/45909)。
 
 
 
 ### 为何关闭应用后，无法收到推送？
 
-- 目前第三方推送都无法保证关闭应用后仍可收到推送消息，该问题为手机定制 ROM 对移动推送 Service 的限制问题，移动推送的移动推送通道推送，需要建立在移动推送的 Service 能够与移动推送后台服务器保持长连接，Service 被终止后，需由系统、安全软件和用户操作决定是否能够再次启动。
+- 目前第三方推送都无法保证关闭应用后仍可收到推送消息，该问题为手机定制 ROM 对移动推送 Service 的限制问题，移动推送的移动推送自建通道推送，需要建立在移动推送的 Service 能够与移动推送后台服务器保持长连接，Service 被终止后，需由系统、安全软件和用户操作决定是否能够再次启动。
 -移动推送的 Service 和移动推送的服务器断开连接后，此时给这个设备下发的消息，将变成离线消息，离线消息最多保存72小时，每个设备最多保存三条，如果有多条离线消息，只保留最新的三条消息。在关闭应用期间推送的消息，如开启应用无法收到，请检查是否调用了反注册接口：XGPushManager.unregisterPush\(this\)。
 - 如果已经集成厂商通道，但是仍收不到离线推送，请先在 [排查工具](https://console.cloud.tencent.com/tpns/user-tools) 上查询该 Token 是否已经注册上厂商通道，如果未注册成功，请参见 [厂商通道注册失败排查指南](https://cloud.tencent.com/document/product/548/45659) 进行排查。
 - QQ 和微信是系统级别的应用白名单，相关的 Service 不会因为关闭应用而退出，所以用户感知推出应用过后，仍可收到消息，但相关的 Service 仍能够在后台存活。

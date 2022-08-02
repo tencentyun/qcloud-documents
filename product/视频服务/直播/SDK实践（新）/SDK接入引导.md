@@ -14,7 +14,7 @@
 <td><a href="https://cloud.tencent.com/document/product/454/56591">iOS</a> &amp; <a href="https://cloud.tencent.com/document/product/454/56592">Android</a></td>
 <td><a href="https://cloud.tencent.com/document/product/267/56505">Web 推流</a></td>
 <td><a href="https://cloud.tencent.com/document/product/1078/42916">小程序·云直播插件</a></td>
-<td><a href="https://doc.weixin.qq.com/doc/w3_APEAMQbpAEsHTjr9ilOQF6CcUtLuA?scode=AJEAIQdfAAoBqR8nomAPEAMQbpAEs">推流接入</a></td>
+<td><a href="https://cloud.tencent.com/document/product/267/77808">推流接入</a></td>
 </tr>
 <tr>
 <td  rowspan=2>播放</td>
@@ -22,19 +22,19 @@
 <td><a href="https://cloud.tencent.com/document/product/454/55880">iOS</a> &amp; <a href="https://cloud.tencent.com/document/product/454/68195">Android</a></td>
 <td><a href="https://cloud.tencent.com/document/product/454/7503">标准直播拉流</a> &amp; <a href="https://cloud.tencent.com/document/product/454/56880">快直播拉流</a></td>
 <td rowspan=2><a href="https://cloud.tencent.com/document/product/1078/42916">小程序·云直播插件</a></td>
-<td rowspan=2><a href="https://doc.weixin.qq.com/doc/w3_APEAMQbpAEsh5GbCKq8Rv6ho4Upu0?scode=AJEAIQdfAAoDWKYFx6APEAMQbpAEs">播放接入</a></td>
+<td rowspan=2><a href="https://cloud.tencent.com/document/product/267/77809">播放接入</a></td>
 </tr>
 <tr>
 <td>只支持播放的 SDK</td>
-<td><a href="https://cloud.tencent.com/document/product/881/20208">ios</a> &amp; <a href="https://cloud.tencent.com/document/product/881/20213">Android </a></td>
+<td><a href="https://cloud.tencent.com/document/product/881/20208">iOS</a> &amp; <a href="https://cloud.tencent.com/document/product/881/20213">Android </a></td>
 <td><a href="https://cloud.tencent.com/document/product/881/30818"> 使用文档 </a></td>
 </tr>
 <tr>
 <td rowspan=5>高级功能</td>
 <td>播放 AV1 视频</td>
-<td colspan=2><a href="https://doc.weixin.qq.com/doc/w3_APEAMQbpAEsWnwpwnahSVi0Kn7QrL?scode=AJEAIQdfAAozGFUZ6qAPEAMQbpAEs">接入指引</a></td>
+<td colspan=2><a href="https://cloud.tencent.com/document/product/267/77789">接入指引</a></td>
 <td>-</td>
-<td rowspan=5><a href="https://doc.weixin.qq.com/doc/w3_APEAMQbpAEsWnwpwnahSVi0Kn7QrL?scode=AJEAIQdfAAoLJLTj9sAPEAMQbpAEs">高级功能接入</a></td>
+<td rowspan=5><a href="https://cloud.tencent.com/document/product/267/77810">高级功能接入</a></td>
 </tr>
 <tr>
 <td>上行高质量传输</td>
