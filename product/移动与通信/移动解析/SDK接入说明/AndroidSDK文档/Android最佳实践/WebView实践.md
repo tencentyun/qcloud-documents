@@ -5,6 +5,15 @@ Android 系统提供了 API 以实现 WebView 中的网络请求拦截与自定�
 
 
 ```Java
+WebSettings webSettings = mWebView.getSettings();
+// 使用默认的缓存策略，cache 没有过期就用 cache
+webSettings.setCacheMode(WebSettings.LOAD_DEFAULT);
+// 加载网页图片资源
+webSettings.setBlockNetworkImage(false);
+// 支持 JavaScript 脚本
+webSettings.setJavaScriptEnabled(true);
+// 支持缩放
+webSettings.setSupportZoom(true);
 mWebView.setWebViewClient(new WebViewClient() {
     // API 21及之后使用此方法
     @SuppressLint("NewApi")
