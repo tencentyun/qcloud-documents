@@ -19,7 +19,9 @@
 
 ## 自动触发一致性校验任务
 
-在 [数据迁移任务](https://console.cloud.tencent.com/dts/migration) 的**设置迁移选项及选择迁移对象**页面，**数据一致性检查**勾选**全量检查迁移对象**，当后续任务进行到**同步增量**步骤时自动触发一次一致性校验任务。 
+在 [数据迁移任务](https://console.cloud.tencent.com/dts/migration) 的**设置迁移选项及选择迁移对象**页面，**数据一致性检查**勾选**全量检查迁移对象**，当后续任务进行到**同步增量**步骤时自动触发一次一致性校验任务。
+> ?自动触发一致性校验任务，默认会发起全量数据的内容校验和所有数据库信息校验，如需筛选校验对象，请选择手动创建一致性校验任务。
+
 ![](https://qcloudimg.tencent-cloud.cn/raw/c9780fe45a035d45d71c42c959585ae4.png) 
 
 ## 手动创建一致性校验任务
@@ -29,7 +31,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/7385bbe8e656a0cec10b2dd3af0d5c45.png)
 3. 单击**创建数据一致性校验**。
 >?数据一致性校验需要在 DTS 任务步骤进行到**同步增量**时，才可以创建。如果界面按钮呈灰色，则 DTS 任务状态不满足条件，如任务未进行到**同步增量**步骤、任务失败、任务终止。
->
+
 ![](https://qcloudimg.tencent-cloud.cn/raw/bf4ba5dd632c15759b41f24f47b312f7.png)
 4. 在弹出的对话框中，单击**确定**。
 <img src="https://main.qcloudimg.com/raw/55b8c0bc502105ea07ff7cc6988aa096.png" style="zoom:50%;" />
@@ -38,7 +40,7 @@
  - 数据库信息：支持校验**账号**、**索引**、**片键**和**库表信息**。源库和目标库都为分片集群时，支持选择片键进行校验。
  - 数据校验：行数校验，即对源库和目标库的数据行数进行对比；内容校验，即对源库和目标库的数据内容进行对比。
  - 抽样对比：选择内容校验时，支持抽取一定比例的数据进行对比，因为对一些数据量较大的场景，抽取全部数据校验可能会增加源库的负载，请用户根据业务情况选择抽样配比。
-![](https://qcloudimg.tencent-cloud.cn/raw/5d762cdbd3e03e0ef1414982c0f4d52b.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/3322f8df32bac1cb421597de52d44379.png)
 
 ## 查看数据一致性校验结果
 1. 在迁移任务首页，**最后一次校验结果**列，可查看校验结果，一致或者不一致，单击**查看更多**进入校验详情页。
@@ -49,6 +51,6 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/aa10631eace5d1235d3534ecb2cb3319.png)<br>
 **校验不一致的结果示例：**  
 > ?针对不一致性的结果，需要用户根据提示，手动确认源数据库和目标数据库的对应数据内容。
-> 
-![](https://qcloudimg.tencent-cloud.cn/raw/f5fb1e96f747de22646b611c9fb17b2a.png)
+
+![](https://qcloudimg.tencent-cloud.cn/raw/8320540d227a96f2af3a12654b934c62.png)
 
