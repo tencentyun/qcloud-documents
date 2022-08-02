@@ -9,8 +9,7 @@
 
 
 <dx-alert infotype="explain" title="">
-- 移动解析 HTTPDNS 服务的详细介绍请参见 [全局精确流量调度新思路-HTTPDNS 服务详解](https://cloud.tencent.com/developer/article/1035562)。
-
+移动解析 HTTPDNS 服务的详细介绍请参见 [全局精确流量调度新思路-HTTPDNS 服务详解](https://cloud.tencent.com/developer/article/1035562)。
 </dx-alert>
 
 
@@ -33,11 +32,9 @@
 
 ### 接入 HTTPDNS SDK
 
-- 移动解析 Android SDK 的获取方式：[点此获取](https://github.com/tencentyun/httpdns-android-sdk)。
-
-- aar 包引入: 将 HttpDNSLibs\HTTPDNS_ANDROID_SDK_xxxx.aar 拷贝至应用 libs 相应位置。
-
-- 在App module的build.gradle文件中，添加如下配置
+1. 获取 [移动解析 Android SDK](https://github.com/tencentyun/httpdns-android-sdk)。
+2. aar 包引入，将 HttpDNSLibs\HTTPDNS_ANDROID_SDK_xxxx.aar 拷贝至应用 libs 相应位置。
+3. 在 App module的build.gradle 文件中，添加如下配置：
 ```xml
 android {
 
