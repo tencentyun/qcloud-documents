@@ -15,29 +15,65 @@
 
 [](id:url)
 ### URL
-**URL**: `Object`
+
+URL: { prototype: [URL](https://cloud.tencent.com/document/product/1484/75825); createObjectURL: *any*; revokeObjectURL: *any* }
+
 ```
 Defined in node_modules/typescript/lib/lib.dom.d.ts:14358
 ```
 
-
 #### Type declaration
-| Name              | Type                                                         |
-| :---------------- | :----------------------------------------------------------- |
-| prototype      | [`URL`](https://cloud.tencent.com/document/product/1484/75838) |
-| createObjectURL | (`obj`: `Blob` \| `MediaSource`) => `string`                 |
-| revokeObjectURL | (`url`: `string`) => `void`                                  |
+
+- ##### prototype: [URL](https://cloud.tencent.com/document/product/1484/75825)
+
+- ##### createObjectURL:function
+- createObjectURL(obj: *Blob* | *MediaSource*): *string*
+
+```
+  Defined in node_modules/typescript/lib/lib.dom.d.ts:14361
+```
+
+#### Parameters
+
+- ##### obj: *Blob* | *MediaSource*
+
+#### Returns *string*
+
+- ##### revokeObjectURL:function
+
+  - revokeObjectURL(url: *string*): *void*
 
 
-[](id:URLSearchParams)
+```
+Defined in node_modules/typescript/lib/lib.dom.d.ts:14362
+```
+  
+
+#### Parameters
+
+  - ##### url: *string*
+
+ #### Returns *void*
+
+
+
 ### URLSearchParams
-**URLSearchParams**: `Object`
-```
+
+URLSearchParams: { prototype: [URLSearchParams](https://cloud.tencent.com/document/product/1484/75825#URLSearchParams); toString: *any* }
+
 Defined in node_modules/typescript/lib/lib.dom.d.ts:14387
-```
 
 #### Type declaration
-| Name        | Type                                                         |
-| :---------- | :----------------------------------------------------------- |
-| prototype | [`URLSearchParams`](https://cloud.tencent.com/document/product/1484/75838#URLSearchParams) |
-| toString  | () => `string`                                               |
+
+- ##### prototype: [URLSearchParams](https://cloud.tencent.com/document/product/1484/75825l#URLSearchParams)
+
+- ##### toString:function
+
+  - toString(): *string*
+
+```
+ Defined in node_modules/typescript/lib/lib.dom.d.ts:14390
+```
+ 
+
+ #### Returns *string*

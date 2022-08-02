@@ -27,8 +27,8 @@ metadata:
   name: test1
 spec:
   hadoopConf:
-    "fs.cosn.userinfo.secretId": "AKID42oPq570fAXihVuXt30mS3SgiYBcJwpW"
-    "fs.cosn.userinfo.secretKey": "e7TddT7atzta5OXYN416IYvDRUP8ey62" 
+    "fs.cosn.userinfo.secretId":"$SecretId"
+    "fs.cosn.userinfo.secretKey":"$SecretKey" 
   type: Scala
   mode: cluster
   mainClass: org.apache.spark.examples.SparkPi
@@ -37,7 +37,7 @@ spec:
 本文示例中的参数描述，请参见 [sparkoperator](https://github.com/GoogleCloudPlatform/spark-on-k8s-operator/blob/v1beta2-1.2.0-3.0.0/docs/api-docs.md) 。其中：
 - apiVersion 和 kind 为 k8s 中资源种类和版本，此处不能更改。
 - Metadata.name 定义作业名称，本文以 test1为例，用户可以自定义。
-- Spec.hadoopConf定义与hadoop相关配置信息，与 cos 交互需要配置密钥信息，可通过 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 获取密钥信息。
+- Spec.hadoopConf 定义与 hadoop 相关配置信息，与 cos 交互需要配置密钥信息，可通过 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 获取密钥信息，代码中的 `$SecretId`、`$Secretkey` 需要替换成业务对应的 SecretId 和 Secretkey。
 - type 定义 spark 的程序种类，包括 Java、Scala、Python、R。本文以 Scala 为例，您可根据需要选填。
 - mode 定义 sparkApplication 的部署模式，包括 cluster 和 client。本文以 cluster 为例，您可根据需要选填。
 - driver 和 executor 分别定义 spark 的驱动器和执行器，由后台自动生成，其默认参数如下： 
@@ -107,8 +107,8 @@ metadata:
   name: test2
 spec:
   hadoopConf:
-    "fs.cosn.userinfo.secretId": "AKID42oPq570fAXihVuXt30mS3SgiYBcJwpW"
-    "fs.cosn.userinfo.secretKey": "e7TddT7atzta5OXYN416IYvDRUP8ey62" 
+    "fs.cosn.userinfo.secretId":"$SecretId"
+    "fs.cosn.userinfo.secretKey":"$SecretKey" 
   type: Java
   mode: cluster
   mainClass: com.tencent.WordCountOnCos
@@ -129,15 +129,15 @@ metadata:
   name: test3
 spec:
   hadoopConf:
-    "fs.cosn.userinfo.secretId": "AKID42oPq570fAXihVuXt30mS3SgiYBcJwpW"
-    "fs.cosn.userinfo.secretKey": "e7TddT7atzta5OXYN416IYvDRUP8ey62"
+    "fs.cosn.userinfo.secretId":"$SecretId"
+    "fs.cosn.userinfo.secretKey":"$SecretKey" 
   type: Java
   mode: cluster
   mainClass: com.tencent.WordCountOnCos
-  mainApplicationFile: "hdfs://10.0.130.70:4007/sparkapp/jar/wordcount.jar"
+  mainApplicationFile: "hdfs://$ip:$port/sparkapp/jar/wordcount.jar"
   arguments:
     - "cosn://kt-test-251007880/sparkapp/input/input"
-    - "hdfs://10.0.130.70:4007/sparkapp/output"
+    - "hdfs://$ip:$port/sparkapp/output"
 
 ```
 >! 若使用 HFDS 存放 jar 包，HDFS 需要和容器集群位于同一 VPC。
@@ -163,8 +163,8 @@ metadata:
   name: test4
 spec:
   hadoopConf:
-    "fs.cosn.userinfo.secretId": "AKID42oPq570fAXihVuXt30mS3SgiYBcJwpW"
-    "fs.cosn.userinfo.secretKey": "e7TddT7atzta5OXYN416IYvDRUP8ey62" 
+    "fs.cosn.userinfo.secretId":"$SecretId"
+    "fs.cosn.userinfo.secretKey":"$SecretKey" 
   type: Java
   mode: cluster
   mainClass: com.tencent.WordCountOnCos
