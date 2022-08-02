@@ -10,7 +10,7 @@
 
 <dx-alert infotype="explain" title="">
 - 移动解析 HTTPDNS 服务的详细介绍请参见 [全局精确流量调度新思路-HTTPDNS 服务详解](https://cloud.tencent.com/developer/article/1035562)。
-- 智营解析 Android SDK 的获取方式：[点此获取](https://github.com/tencentyun/httpdns-android-sdk)。
+- 移动解析 Android SDK 的获取方式：[点此获取](https://github.com/tencentyun/httpdns-android-sdk)。
 
 </dx-alert>
 
@@ -207,7 +207,7 @@ MSDKDnsResolver.getInstance().init(MainActivity.this, appkey, dnsid, dnskey, dns
 ```
 
 
-## HTTPDNS SDK 接入业务方式
+## SDK 接入业务方式
 
 将 HTTPDNS SDK 的域名解析能力接入到业务的 HTTP（HTTPS）网络访问流程中，总的来说可以分为以下两种方式：
 
