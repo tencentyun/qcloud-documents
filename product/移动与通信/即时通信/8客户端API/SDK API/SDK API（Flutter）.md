@@ -14,7 +14,7 @@
 | [logout](https://comm.qq.com/im/doc/flutter/api/v2timmanager/logout.html) | 登出 |
 | [getLoginUser](https://comm.qq.com/im/doc/flutter/api/v2timmanager/getloginuser.html) | 获取当前登录用户的 UserID |
 | [getLoginStatus](https://comm.qq.com/im/doc/flutter/api/v2timmanager/getloginstatus.html) | 获取登录状态 |
-| [getServerTime](https://comm.qq.com/im/doc/flutter/api/v2timmanager/getservertime.html) | 获取服务器当前时间(web不支持) |
+| [getServerTime](https://comm.qq.com/im/doc/flutter/api/v2timmanager/getservertime.html) | 获取服务器当前时间（Web不支持） |
 | [getVersion](https://comm.qq.com/im/doc/flutter/api/v2timmanager/getversion.html) | 获取版本号 |
 | [getConversationManager](https://comm.qq.com/im/doc/flutter/api/v2timmanager/getconversationmanager.html) | 会话功能入口 |
 | [getFriendshipManager](https://comm.qq.com/im/doc/flutter/api/v2timmanager/getfriendshipmanager.html) | 关系链功能入口 |
