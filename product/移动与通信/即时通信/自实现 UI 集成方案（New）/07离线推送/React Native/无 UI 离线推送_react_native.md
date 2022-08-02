@@ -9,7 +9,7 @@
 
 ## 集成 react-native-tim-push 跑通离线推送功能
 
-集成 `react-native-tim-push` 之前，请您先 [注册应用到厂商推送平台](https://cloud.tencent.com/document/product/269/75428#.E6.AD.A5.E9.AA.A41.EF.BC.9A.E6.B3.A8.E5.86.8C.E5.BA.94.E7.94.A8.E5.88.B0.E5.8E.82.E5.95.86.E6.8E.A8.E9.80.81.E5.B9.B3.E5.8F.B0)，登录腾讯云账号进行 [IM 控制台配置](https://console.cloud.tencent.com/avc) 和 [配置离线推送跳转界面](https://cloud.tencent.com/document/product/269/75428#.E6.AD.A5.E9.AA.A43.EF.BC.9A.E9.85.8D.E7.BD.AE.E7.A6.BB.E7.BA.BF.E6.8E.A8.E9.80.81.E8.B7.B3.E8.BD.AC.E7.95.8C.E9.9D.A2)。之后按照如下步骤操作即可快速接入 IM 离线推送。
+集成 `react-native-tim-push` 之前，请您先 [注册应用到厂商推送平台](https://cloud.tencent.com/document/product/269/75430#.E6.8E.A5.E5.85.A5.E5.87.86.E5.A4.87.EF.BC.88.E6.B3.A8.E5.86.8C.E5.8E.82.E5.95.86.EF.BC.89.3Ca-id.3D.22firstone.22.3E.3C.2Fa.3E)，登录腾讯云账号进行 [IM 控制台配置](https://console.cloud.tencent.com/avc) 和 [配置离线推送跳转界面](https://cloud.tencent.com/document/product/269/75428#.E6.AD.A5.E9.AA.A43.EF.BC.9A.E9.85.8D.E7.BD.AE.E7.A6.BB.E7.BA.BF.E6.8E.A8.E9.80.81.E8.B7.B3.E8.BD.AC.E7.95.8C.E9.9D.A2)。之后按照如下步骤操作即可快速接入 IM 离线推送。
 
 > !
 >
