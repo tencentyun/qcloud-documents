@@ -76,14 +76,57 @@ flutter run --dart-define=SDK_APPID={YOUR_SDKAPPID} --dart-define=ISPRODUCT_ENV=
 
 <dx-tabs>
 ::: Android 平台[](id:android)
-1. 在 Android Studio 打开 discuss/andorid 目录。
-![](https://qcloudimg.tencent-cloud.cn/raw/6516f9b17c58915c4ebc93c5c8829831.png)
-2. 启动一个 Android 的模拟器，单击 **Build And Run**，Demo 可以运行起来。您可以随机输入一个 UserID（数字字母组合）。
+**1. 在 Android Studio 中安装 Flutter 和 Dart 插件。**
+Mac:
+打开插件设置（在 v3.6.3.0 以上的系统打开 Preferences > Plugins）=> 选择 Flutter 插件并点击 安装 => 当弹出安装 Dart 插件提示时，点击 Yes => 当弹出重新启动提示时，点击 Restart。
+
+Linux 或者 Windows 平台:
+打开插件设置 (位于 File > Settings > Plugins)= > 选择 Marketplace (扩展商店)，选择 Flutter plugin 然后点击 Install (安装)。
+![20220803160430](https://tuikit-1251787278.cos.ap-guangzhou.myqcloud.com/20220803160430.png)
+
+**2. 打开项目并获取依赖**
+在 Android Studio 中打开 `im-flutter-uikit` 目录。
+![20220803160624](https://tuikit-1251787278.cos.ap-guangzhou.myqcloud.com/20220803160624.png)
+
+并在该路径执行命令安装依赖。
+
+```shell
+flutter pub get
+```
+
+**3. 配置环境变量。**
+
+在右上角运行按钮旁，鼠标hover `main.dart`，配置 `Edit Configurations`
+![20220803161114](https://tuikit-1251787278.cos.ap-guangzhou.myqcloud.com/20220803161114.png)
+
+在弹出窗口中，配置 `Additional run args`，输入环境变量（SDKAPPID等信息）。如：
+
+```shell
+# 请替换SDK_APPID、KEY两个参数
+--dart-define=SDK_APPID={YOUR_SDKAPPID} --dart-define=ISPRODUCT_ENV=false --dart-define=KEY={YOUR_KEY}
+```
+![20220803161215](https://tuikit-1251787278.cos.ap-guangzhou.myqcloud.com/20220803161215.png)
+
+**4. 创建Android模拟器。**
+
+启动您刚刚安装好的模拟器，并选中其。
+ ![20220803161943](https://tuikit-1251787278.cos.ap-guangzhou.myqcloud.com/20220803161943.png)
+ 
+ 
+
+点击界面右上角Device Manager，并完成 Create devices，创建模拟器。如果您需要使用Google FCM推送能力，建议最好安装支持Google Play Store的设备。
+![20220803161649](https://tuikit-1251787278.cos.ap-guangzhou.myqcloud.com/20220803161649.png)
+
+**5. 运行项目。**
+
+根据需要，点击如图左侧 Run ，或右侧 Debug，以运行项目。
+![20220803162057](https://tuikit-1251787278.cos.ap-guangzhou.myqcloud.com/20220803162057.png)
+
 >?UI 可能会有部分调整更新，请以最新版为准。
 :::
 ::: iOS 平台[](id:ios)
-1. 打开 Xcode，打开文件 discuss/ios/Runner.xcodeproj：
-![](https://qcloudimg.tencent-cloud.cn/raw/6d74814ba9bce54c7439e8b3cea53e73.png)
+1. 在 Xcode 中打开 `im-flutter-uikit/ios`目录。
+![20220803114715](https://tuikit-1251787278.cos.ap-guangzhou.myqcloud.com/20220803114715.png)
 2. 连接 iPhone 真机，单击 **Build And Run**，iOS 工程等待编译完成，会有新窗口弹出 Xcode 工程。
 3. 打开 iOS 工程，设置主 Target 的 Signing & Capabilities（需要苹果开发者帐号），让项目可以在 iPhone 真机上运行。
 4. 启动项目，在真机上进行 Demo 的调试。
