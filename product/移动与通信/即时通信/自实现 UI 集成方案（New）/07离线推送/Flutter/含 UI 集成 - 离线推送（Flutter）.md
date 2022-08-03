@@ -721,8 +721,8 @@ TIMUIKitChat(
 2. 在 vivo 控制台内，添加该设备为测试设备。
 ![](https://qcloudimg.tencent-cloud.cn/raw/c2db1213278de5d43558046efc8e4b23.png)
 3. 此时可推送测试消息至测试设备。可参见 [vivo 单播推送文档](https://dev.vivo.com.cn/documentCenter/doc/363#w2-98542835)。
-4. 由于腾讯云 IM 控制台的测试推送，和直接使用 IM SDK 发送聊天消息的推送，均不能修改推送模式为测试。因此请使用我们提供的，可触发测试消息的JS脚本，[单击此处下载](https://tuikit-1251787278.cos.ap-guangzhou.myqcloud.com/testvivo.js)
-5. 下载后，请根据顶部五行注释，填入vivo相关参数。默认ext为`conversationID`，如果在处理单击回调跳转（可参见 [步骤6](#step_6)）时需要其他字段，请自行修改JS代码。
+4. 由于腾讯云 IM 控制台的测试推送，和直接使用 IM SDK 发送聊天消息的推送，均不能修改推送模式为测试。因此请使用我们提供的，可触发测试消息的 JS 脚本，[单击此处下载](https://tuikit-1251787278.cos.ap-guangzhou.myqcloud.com/testvivo.js)。
+5. 下载后，请根据顶部五行注释，填入vivo相关参数。默认ext为`conversationID`，如果在处理单击回调跳转（可参见 [步骤6](#step_6)）时需要其他字段，请自行修改 JS 代码。
 ![](https://qcloudimg.tencent-cloud.cn/raw/3f564ffd8f34feda3c87f065b9d2dfa0.png)
 6. 执行脚本。`npm install axios` `npm install js-md5` 后`node testvivo`。推送结果会显示在 log 最后一行。
 ![](https://qcloudimg.tencent-cloud.cn/raw/27913289ee4d2e14f697923176775cc0.png)
@@ -800,7 +800,7 @@ flutter pub add tim_ui_kit_push_plugin
 
 #### Android
 
-1. 确保 `@mipmap/ic_launcher` 存在且为您的应用Icon。完整路径：`android/app/src/main/res/mipmap/ic_launcher.png`
+1. 确保 `@mipmap/ic_launcher` 存在且为您的应用 Icon。完整路径：`android/app/src/main/res/mipmap/ic_launcher.png`
 
 ![20220713155110](https://tuikit-1251787278.cos.ap-guangzhou.myqcloud.com/20220713155110.png)
 
@@ -808,7 +808,7 @@ flutter pub add tim_ui_kit_push_plugin
 
 ![20220713155548](https://tuikit-1251787278.cos.ap-guangzhou.myqcloud.com/20220713155548.png)
 
-2. 打开 `android/app/src/main/AndroidManifest.xml` 文件，在您应用的主activity中，添加如下代码。
+2. 打开 `android/app/src/main/AndroidManifest.xml` 文件，在您应用的主 activity 中，添加如下代码。
 
 ```xml
 <activity
@@ -836,7 +836,7 @@ if #available(iOS 10.0, *) {
 
 ### 初始化插件
 
-请在IM SDK 初始化完成后，初始化本Push插件。实例化一个 `cPush` 插件类，供后续调用。
+请在IM SDK 初始化完成后，初始化本 Push 插件。实例化一个 `cPush` 插件类，供后续调用。
 
 ```dart
 final TimUiKitPushPlugin cPush = TimUiKitPushPlugin();
@@ -914,15 +914,15 @@ cPush.displayDefaultNotificationForMessage(
 
 ### 点击通知跳转
 
-本步骤与[上文离线推送的步骤6](#step_6)点击回调一致，均为在ext中，读取需要跳转的conversation，并导航过去。
+本步骤与 [上文离线推送的步骤6](#step_6) 点击回调一致，均为在 ext 中，读取需要跳转的 conversation，并导航过去。
 
 如果您在上一步使用 `displayDefaultNotificationForMessage`，或在 `displayNotification` 中使用与default相同的ext生成函数，此时的ext结构为：` "conversationID": "对应的conversation"`。
 
-此时，填上初始化时，为pushClickAction埋的坑。
+此时，填上初始化时，为 pushClickAction 埋的坑。
 
-初始化时，注册该回调方法，可拿到含推送本体及ext信息在内的Map。
+初始化时，注册该回调方法，可拿到含推送本体及 ext 信息在内的 Map。
 
->? 在后台跳转情况下，此时Flutter首页可能已经unmounted，无法为跳转提供context，因此建议启动时缓存一个context，保证跳转成功。
+>? 在后台跳转情况下，此时 Flutter 首页可能已经 unmounted，无法为跳转提供 context，因此建议启动时缓存一个 context，保证跳转成功。
 >
 > 建议跳转成功后，清除通知栏中其他通知消息，避免太多IM消息堆积在通知栏中。调用插件中`clearAllNotification()`方法即可。
 

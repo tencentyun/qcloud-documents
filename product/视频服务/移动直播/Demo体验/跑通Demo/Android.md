@@ -1,4 +1,3 @@
-
 本文主要介绍如何快速运行腾讯云 MLVB-API-Example（Android）。
 
 ## 环境要求
@@ -22,6 +21,8 @@
 1. 登录 [云直播控制台](https://console.cloud.tencent.com/live/livestat)，在左侧菜单中选择 **直播 SDK** >[ **License 管理**](https://console.cloud.tencent.com/live/license)，单击**新建测试 License**。 
 ![](https://qcloudimg.tencent-cloud.cn/raw/4d63d6f14f82ba1775083ed461c5f5db.png) 
 2. 根据实际需求填写 `App Name`、`Package Name` 和 `Bundle ID`，勾选功能模块 **直播**（直播推流 + 视频播放），单击**确定**。 
+  - **Package Name**：请在App目录下的 **build.gradle** 文件查看 **applicationId** 。
+  - **Bundle ID**：请在 **xcode** 中查看项目的 **Bundle Identifier** 。
 <img src="https://qcloudimg.tencent-cloud.cn/raw/1ff37a853c8dd26d05419af4f5340661.png">
 3. 测试版 License 成功创建后，页面会显示生成的 License 信息。**在 SDK 初始化配置时需要传入 Key 和 License URL 两个参数，请妥善保存以下信息。** 
 <img src="https://qcloudimg.tencent-cloud.cn/raw/709cf255601e5edd6913f7f8742cbfdd.png" width=800>
@@ -39,10 +40,10 @@
 <img src="https://qcloudimg.tencent-cloud.cn/raw/0a789d4495f4c35d55ed57749d48acbd.png" width=500px>
 5. 打开 `LiteAVSDK_Professional_Android版本号/MLVB-API-Example/Debug/src/main/java/com/tencent/mlvb/debug/GenerateTestUserSig.java` 文件。
 设置 `GenerateTestUserSig.java` 文件中的相关参数：
-  - **PUSH_DOMAIN**：请设置为您的推流域名。
-  - **PLAY_DOMAIN**：请设置为您的播放域名。
-  - **LIVE_URL_KEY**：非必需，用于生成 txSecret 等鉴权信息，具体计算请参见 [推拉流 URL](https://cloud.tencent.com/document/product/454/7915).
-<img src="https://qcloudimg.tencent-cloud.cn/raw/bb4e9ea8e62489ec908c51bfa0a0132b.png" width=600px>
+  - **PUSH_DOMAIN**：请设置为您的 [推流域名](https://console.cloud.tencent.com/live/domainmanage)。
+  - **PLAY_DOMAIN**：请设置为您的 [播放域名](https://console.cloud.tencent.com/live/domainmanage)。
+  - **LIVE_URL_KEY**：非必需，用于生成 txSecret 等鉴权信息，具体计算请参见 [推拉流 URL](https://cloud.tencent.com/document/product/454/7915)，查询步骤参见 [域名页面](https://console.cloud.tencent.com/live/domainmanage) > **管理** > **推流配置** > **鉴权配置**。<br>	
+<img src="https://qcloudimg.tencent-cloud.cn/raw/ba8671a104e8bf65757265b9aeace0fa.png" width=600px>
 
 [](id:step4)
 ### 步骤四：配置连麦或 PK 能力/服务开通

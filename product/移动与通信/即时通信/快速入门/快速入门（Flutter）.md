@@ -82,11 +82,11 @@ Mac:
 
 Linux 或者 Windows 平台:
 打开插件设置 (位于 File > Settings > Plugins)= > 选择 Marketplace (扩展商店)，选择 Flutter plugin 然后点击 Install (安装)。
-![20220803160430](https://tuikit-1251787278.cos.ap-guangzhou.myqcloud.com/20220803160430.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/481bc19b55b40051daa8e669325cd123.png)
 
 **2. 打开项目并获取依赖**
 在 Android Studio 中打开 `im-flutter-uikit` 目录。
-![20220803160624](https://tuikit-1251787278.cos.ap-guangzhou.myqcloud.com/20220803160624.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/b22a52c14373a222f9bf55e79b04f12b.png)
 
 并在该路径执行命令安装依赖。
 
@@ -105,14 +105,14 @@ flutter pub get
 # 请替换SDK_APPID、KEY两个参数
 --dart-define=SDK_APPID={YOUR_SDKAPPID} --dart-define=ISPRODUCT_ENV=false --dart-define=KEY={YOUR_KEY}
 ```
-![20220803161215](https://tuikit-1251787278.cos.ap-guangzhou.myqcloud.com/20220803161215.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/b01cfe2b48fa63f79c621bb174029957.png)
 
 **4. 创建Android模拟器。**
 
 启动您刚刚安装好的模拟器，并选中其。
- ![20220803161943](https://tuikit-1251787278.cos.ap-guangzhou.myqcloud.com/20220803161943.png)
+![20220803161943](https://tuikit-1251787278.cos.ap-guangzhou.myqcloud.com/20220803161943.png)
 
-点击界面右上角Device Manager，安装 Create devices，创建模拟器。如果您需要使用Google FCM推送能力，建议最好安装支持Google Play Store的设备。
+点击界面右上角Device Manager，完成 Create devices，创建模拟器。如果您需要使用Google FCM推送能力，建议最好安装支持Google Play Store的设备。
 ![20220803161649](https://tuikit-1251787278.cos.ap-guangzhou.myqcloud.com/20220803161649.png)
 
 **5. 运行项目。**
@@ -124,11 +124,11 @@ flutter pub get
 :::
 ::: iOS 平台[](id:ios)
 1. 在 Xcode 中打开 `im-flutter-uikit/ios`目录。
-![20220803114715](https://tuikit-1251787278.cos.ap-guangzhou.myqcloud.com/20220803114715.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/16b555ebe0c2caa77f13ac3b42b20a24.png)
 2. 连接 iPhone 真机，单击 **Build And Run**，iOS 工程等待编译完成，会有新窗口弹出 Xcode 工程。
 3. 打开 iOS 工程，设置主 Target 的 Signing & Capabilities（需要苹果开发者帐号），让项目可以在 iPhone 真机上运行。
 4. 启动项目，在真机上进行 Demo 的调试。
-![](https://qcloudimg.tencent-cloud.cn/raw/3fe6bbac88bb21ad7a7822bb297793b3.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/911935cf419e4298edb45cd93bf10852.png)
 :::
 </dx-tabs>
 
@@ -187,12 +187,11 @@ TUIKit 是基于腾讯云 IM SDK 的一款 UI 组件库，它提供了一些通�
 
 #### 配置权限
 
-由于UIKit运行，需要拍摄/相册/录音/网络等权限，需要您在Native的文件中手动声明，才可正常使用相关能力。
+由于 TUIKit 运行，需要拍摄/相册/录音/网络等权限，需要您在 Native 的文件中手动声明，才可正常使用相关能力。
 
 **Android**
 
 打开 `android/app/src/main/AndroidManifest.xml` ，在 `<manifest></manifest>`中，添加如下权限。
-
 ```xml
     <uses-permission
         android:name="android.permission.INTERNET"/>
@@ -217,7 +216,6 @@ TUIKit 是基于腾讯云 IM SDK 的一款 UI 组件库，它提供了一些通�
 **iOS**
 
 打开 `ios/Podfile` ，在文件末尾新增如下权限代码。
-
 ```
 post_install do |installer|
   installer.pods_project.targets.each do |target|
@@ -236,7 +234,7 @@ end
 
 >?
 > 
-> 如您需要用到推送能力，还需要添加推送相关权限，详情可查看 [Flutter厂商消息推送插件集成指南](https://cloud.tencent.com/document/product/269/75430)。
+> 如您需要用到推送能力，还需要添加推送相关权限，详情可查看 [Flutter 厂商消息推送插件集成指南](https://cloud.tencent.com/document/product/269/75430)。
 
 #### 安装 IM TUIkit
 
@@ -657,10 +655,8 @@ TencentImSDKPlugin.v2TIMManager
 ## 常见问题
 
 ### 支持哪些平台？
-
-目前 [IM SDK(tencent_im_sdk_plugin)](https://cloud.tencent.com/document/product/269/75286) 支持 iOS 、Android 和 Web 三个平台，此外 Windows 和 Mac 版正在开发中，敬请期待。
-
-[TUIKit](https://cloud.tencent.com/document/product/269/70746) 及 [配套完整版交互DEMO](https://github.com/TencentCloud/TIMSDK/tree/master/Flutter/Demo/im-flutter-uikit) 支持 iOS 及 Android 两个移动平台。
+- 目前 [IM SDK(tencent_im_sdk_plugin)](https://cloud.tencent.com/document/product/269/75286) 支持 iOS 、Android 和 Web 三个平台，此外 Windows 和 Mac 版正在开发中，敬请期待。
+- [TUIKit](https://cloud.tencent.com/document/product/269/70746) 及 [配套完整版交互 Demo](https://github.com/TencentCloud/TIMSDK/tree/master/Flutter/Demo/im-flutter-uikit) 支持 iOS 及 Android 两个移动平台。
 
 ### Android 单击 Build And Run 报错找不到可用设备？
 
@@ -670,11 +666,11 @@ TencentImSDKPlugin.v2TIMManager
 
 配置运行后，如果报错，可以单击 **Product** > **Clean Build Folder**，清除产物后重新 `pod install` 或 `flutter run`。
 
-![20220714152720](https://tuikit-1251787278.cos.ap-guangzhou.myqcloud.com/20220714152720.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/d495b2e8be86dac4b430e8f46a15cef4.png)
 
-### 佩戴Apple Watch时，真机调试iOS报错
+### 佩戴 Apple Watch 时，真机调试 iOS 报错
 
-![20220714152340](https://tuikit-1251787278.cos.ap-guangzhou.myqcloud.com/20220714152340.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/1ffcfe39a18329c86849d7d3b34b9a0e.png)
 
 请将您的Apple Watch调整至飞行模式，并将iPhone的蓝牙功能通过 `设置 => 蓝牙` 彻底关闭。
 
@@ -684,26 +680,24 @@ TencentImSDKPlugin.v2TIMManager
 
 如您需得知 Flutter 的环境是否存在问题，请运行 Flutter doctor 检测 Flutter 环境是否装好。
 
-### 使用 Flutter 自动生成的项目，引入TUIKit 后，运行Android端报错
+### 使用 Flutter 自动生成的项目，引入TUIKit 后，运行 Android 端报错
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/d95efdd4ae50f13f38f4c383ca755ae7.png)
 
 1. 打开 `android\app\src\main\AndroidManifest.xml`，根据如下，补全 `xmlns:tools="http://schemas.android.com/tools"` / `android:label="@string/android_label"` 及 `tools:replace="android:label"`。
-
 ```xml
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="替换成您的Android端包名"
+    package="替换成您的 Android 端包名"
     xmlns:tools="http://schemas.android.com/tools">
     <application
         android:label="@string/android_label"
         tools:replace="android:label"
-        android:icon="@mipmap/ic_launcher" // 指定一个icon路径
+        android:icon="@mipmap/ic_launcher" // 指定一个 icon 路径
         android:usesCleartextTraffic="true"
         android:requestLegacyExternalStorage="true">
 ``` 
 
 2. 打开 `android\app\build.gradle`，补全 `defaultConfig` 中 `minSdkVersion` 及 `targetSdkVersion`。
-
 ```gradle
 defaultConfig {
   applicationId "" // 替换成您的Android端包名
@@ -713,4 +707,4 @@ defaultConfig {
 ```
 
 ## 联系我们
-如果您在接入使用过程中有任何疑问，请加入QQ群：788910197 咨询。
+如果您在接入使用过程中有任何疑问，请加入 QQ 群：788910197 咨询。

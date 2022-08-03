@@ -58,6 +58,15 @@ eks.tke.cloud.tencent.com/cpu: '8'
 eks.tke.cloud.tencent.com/mem: '16Gi' # 内存一定要以 Gi 为单位，以 G 为单位则会报参数错误
 ```
 
+
+### 指定系统盘大小
+
+超级节点上运行的 Pod 默认免费提供20G系统盘，系统盘生命周期与 Pod 的生命周期一致，可满足通用场景的系统盘资源诉求，若特殊场景下用户需要额外扩容系统盘大小，支持通过 Annotation 来声明所需系统盘的大小，注意，此时超过20G的部分将按照 CBS 高性能云盘按量计费的刊例价进行计费，计费详情见 [云硬盘定价说明](https://buy.cloud.tencent.com/price/cbs)。系统盘大小注解示例如下：
+```yaml
+eks.tke.cloud.tencent.com/root-cbs-size: '50'  # 指定系统盘大小，超过20 Gi 额外计费
+```
+
+
 ### 规格自动升配
 
 超级节点上运行的 Pod 会按照 request 与 limit 自动计算出匹配的底层资源规格。如果对应的规格底层无相应资源，则会创建失败并在事件中提示资源不足 (insufficient resource)。如果用户接受使用更高规格的资源来创建 Pod，则可在 Pod 添加如下注解，开启自动升配，计费将按照升配后的规格计算。

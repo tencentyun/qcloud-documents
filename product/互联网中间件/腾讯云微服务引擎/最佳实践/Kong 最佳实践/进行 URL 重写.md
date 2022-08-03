@@ -43,8 +43,8 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/eb3ccfce6bdb59ec085830de13d2f924.png)
 在该 Route 上创建 Request Transformer 插件。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d585ce5662e34e423507e7663e2cd7e1.png)
-并配置 `replace.uri` 为 `/anything/user_list`, 该路径为后端接收到的实际请求路径。
-![](https://qcloudimg.tencent-cloud.cn/raw/72cbf155dc083d569db14620e7db4856.png)
+并配置 `replace.uri` 为 `/anything/user_list`，该路径为后端接收到的实际请求路径。
+![](https://qcloudimg.tencent-cloud.cn/raw/cbcd43b88e2e3aaa9218e115417ba947.png)
 4. 请求 Route 后，后端接收到的请求路径为 `/anything/path`（原始 Service Path 配置被覆盖）。
 
 ### 场景三：通过 Request Transformer 插件实现部分 URL 改写
@@ -55,11 +55,11 @@
 </dx-alert>
 
 1. 创建 Service，Path 可以任意设置。
-2. 在该 Service 上创建 Route, 设置 Path 为 `/user/(?<user_id>\w+)`。
+2. 在该 Service 上创建 Route，设置 Path 为 `/user/(?<user_id>\w+)`。
 ![](https://qcloudimg.tencent-cloud.cn/raw/a6568a1fdc258fc38f16b5581831d0ff.png)
 3. 在该 Route 上创建 Request Transformer 插件。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d585ce5662e34e423507e7663e2cd7e1.png)
-并配置 `replace.uri` 为 `/anything/$(uri_captures['user_id'])/get`, 该路径为后端接收到的实际请求路径。
+并配置 `replace.uri` 为 `/anything/$(uri_captures['user_id'])/get`，该路径为后端接收到的实际请求路径。
 ![](https://qcloudimg.tencent-cloud.cn/raw/0c6660e1e14388f9a794a3a7053bcf4c.png)
 4. 请求 `http://<kong>/user/user_a` 后，后端接收到的请求路径为 `/anything/user_a/get`。
 

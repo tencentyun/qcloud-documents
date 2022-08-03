@@ -44,7 +44,7 @@ TDSQL-C MySQL 版控制台提供备份的文件列表，并可以下载逻辑备
 为节约存储空间，TDSQL-C MySQL 版的数据/binlog 备份文件，都会先经过 qpress 压缩，后经过 xbstream 打包（xbstream 为 Percona 的一种打包/解包工具），即下载的备份文件，不能直接导入到目标数据库，需进行解包/解压文件后才能将文件导入目标数据库。
 ### 解包备份文件
 使用 xbstream 解包备份文件。
->? xbstream 工具下载地址请参见 [Percona XtraBackup 官网](https://www.percona.com/downloads/Percona-XtraBackup-2.4/LATEST/)，请选择 Percona XtraBackup 2.4.6 及以上的版本，安装介绍请参见 [Percona XtraBackup 2.4](https://www.percona.com/doc/percona-xtrabackup/2.4/installation.html?spm=a2c4g.11186623.2.14.4d8653a6QmHkgI)。
+>? xbstream 工具下载地址请参见 [Percona XtraBackup 官网](https://www.percona.com/downloads/Percona-XtraBackup-2.4/LATEST/)，请选择 Percona XtraBackup 2.4.6 及以上的版本，安装介绍请参见 [Percona XtraBackup 2.4](https://docs.percona.com/percona-xtrabackup/2.4/installation/yum_repo.html)。
 >
 ```
 xbstream -x < test0.xb

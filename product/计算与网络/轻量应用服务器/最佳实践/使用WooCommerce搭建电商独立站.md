@@ -3,6 +3,10 @@
 WooCommerce 是当前很受欢迎的电商独立站建站工具，具备开源、免费、使用简单且功能强大等特点，您可通过该镜像快速搭建基于 WordPress 的电商独立站。该镜像已预装 WordPress（包含 WooCommerce 插件）、Nginx、MariaDB、PHP 软件。
 
 
+您可参考以下视频或文档，使用轻量应用服务器快速搭建电商独立站。
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/3645-62993?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
+
+
 ## 操作步骤
 
 ### 使用 WooCommerce 应用镜像创建实例
@@ -34,16 +38,13 @@ WooCommerce 是当前很受欢迎的电商独立站建站工具，具备开源�
 
 ## 相关操作
 
-### 切换 WordPress 管理页面语言 
+### 切换 WordPress 管理页面语言
 
 1. 参考 [登录网站后台管理页面](#login) 步骤1 -  步骤7，登录管理页面。
-2. 选择左侧导航栏中的**用户**，进入所有用户列表页面。
-3. 选择您当前登录用户名下的**编辑**。如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/d1d724edba875dd458b1c0c1e56ba1cd.png)
-4. 在用户个人资料页面，找到“语言”，设置该用户登录后台管理页面时使用的语言。
-本文以“简体中文”为例，如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/71b0a0b40c5c5493c0f0b47320d32e25.png)
-5. 拉至页面底部，单击**更新个人资料**即生效。
+2. 选择左侧导航栏中的**设置**，进入“常规选项”页面。
+3. 找到“站点语言”，并按需选择页面语言。本文以选择“简体中文”为例，如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/ad82471b3fa89b3c788d0db21ab5fcac.png)
+5. 拉至页面底部，单击**保存更改**即生效。
 
 
 ### 使用 WordPress 主题

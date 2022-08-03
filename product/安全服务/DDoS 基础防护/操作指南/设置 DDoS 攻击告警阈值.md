@@ -2,7 +2,7 @@
 在 DDoS 防护管理控制台，可查看 DDoS 基础防护的防护详情，并可以对防护 DDos 攻击设置告警阈值。
 
 ## 操作步骤
-1. 登录 [DDoS 防护管理控制台](https://console.cloud.tencent.com/dayu/overview)，在左侧导航中，单击 **DDoS 基础防护**。
+1. 登录 [DDoS 防护管理控制台](https://console.cloud.tencent.com/ddos/dashboard/overview)，在左侧导航中，单击 **DDoS 基础防护**。
 2. 单击**设置 DDoS 攻击告警阈值**，弹出设置告警阈值弹窗。
 ![](https://main.qcloudimg.com/raw/d60bb4ac6716e54ea864d9828ced8fd3.png)
 3. 在设置告警阈值弹窗中，DDoS 攻击告警阈值可以选择默认、入流量带宽或清洗流量功能，并设置告警阈值，单击**确认**，即可保存设置。

@@ -493,3 +493,11 @@ TUIRoomRef.value.enterRoom(roomId, roomParam);
   }
 </script>
 ```
+
+## 联系我们
+
+如果您在接入或使用过程有任何需要或者反馈，欢迎加入 TUI 组件使用交流 QQ 群（群号：592465424）进行技术交流和问题反馈。
+
+<img src="https://main.qcloudimg.com/raw/1ea3ab1ff36d37c889f4140499585a4a.png" width="250">
+
+同时，也希望您能抽出几分钟时间，将您接入和使用 Web TUIRoom 的感受和建议通过 [反馈问卷](https://wj.qq.com/s2/10508205/c03f/) 告诉我们，我们非常重视每位用户的宝贵意见，期待您的参与！

@@ -216,8 +216,8 @@
   <tr>
     <td style="text-align:center">HLS 播放</td>
     <td style="text-align:left">用于实现 HLS（m3u8）协议的直播播放功能。</td>
-    <td style="text-align:center">&#10003;</td>
-    <td style="text-align:center">&#10003;</td>
+    <td style="text-align:center">×</td>
+    <td style="text-align:center">×</td>
     <td style="text-align:center">&#10003;</td>
   </tr>
 	<tr>
