@@ -82,7 +82,7 @@
            多清晰度智能切换
         </td>
 				<td>
-				<li><a href="TODO: 产品简介>产品功能>极致播放>多码率智能切换" title="多码率智能切换" target="_blank">多码率智能切换</a></br>一进多出生成多路码流，满足买家不同网络条件下的播放需求。</li>
+				<li><a href="https://cloud.tencent.com/document/product/266/78296" title="多码率智能切换" target="_blank">多码率智能切换</a></br>一进多出生成多路码流，满足买家不同网络条件下的播放需求。</li>
         </td>
 	</tr>
  <tr>
@@ -90,7 +90,7 @@
            多种截图
         </td>
 				<td>
-				<li><a href="TODO: 产品简介>产品功能>媒体处理>视频截图" title="视频截图" target="_blank">视频截图</a></br>商家可以进行指定时间点截图、采样截图、封面截图、雪碧图和转动图等多种截图，用多种方式更好地展示商品。</li>
+				<li><a href="https://cloud.tencent.com/document/product/266/78291" title="视频截图" target="_blank">视频截图</a></br>商家可以进行指定时间点截图、采样截图、封面截图、雪碧图和转动图等多种截图，用多种方式更好地展示商品。</li>
         </td>
 	</tr>
 	<tr>
@@ -99,7 +99,7 @@
         </td>
 				<td>
 				<li>
-					<a href="TODO: 产品简介>产品功能>高效降本>极速高清" title="极速高清" target="_blank">极速高清</a></br>通过使用云点播极速高清，顾客可以体验到十分流畅、画质清晰的视频播放。
+					<a href="https://cloud.tencent.com/document/product/266/78315" title="极速高清" target="_blank">极速高清</a></br>通过使用云点播极速高清，顾客可以体验到十分流畅、画质清晰的视频播放。
 				</li>
         </td>
 	</tr>
@@ -109,10 +109,10 @@
         </td>
 				<td>
 				<li>
-					<a href="TODO: 产品简介>产品功能>媒体上传>多端上传" title="多端上传" target="_blank">多端上传</a></br>支持 Android/iOS/Web 等多种客户端上传。
+					<a href="https://cloud.tencent.com/document/product/266/78288" title="多端上传" target="_blank">多端上传</a></br>支持 Android/iOS/Web 等多种客户端上传。
 				</li>
 				<li>
-					<a href="TODO: 产品简介>产品功能>媒体上传>上传加速" title="上传加速" target="_blank">上传加速</a></br>云点播通过调度优化等一系列技术手段实现领先业界的上传质量（上传成功率达 99.5%+），优秀的上传体验让顾客热于分享，也为平台口碑加分。
+					<a href="https://cloud.tencent.com/document/product/266/78038" title="上传加速" target="_blank">上传加速</a></br>云点播通过调度优化等一系列技术手段实现领先业界的上传质量（上传成功率达 99.5%+），优秀的上传体验让顾客热于分享，也为平台口碑加分。
 				</li>
         </td>
 	</tr>
@@ -122,7 +122,7 @@
         </td>
 				<td>
 				<li>
-					<a href="TODO: 产品简介>产品功能>直点结合>时移回看" title="时移回看" target="_blank">时移回看</a></br>电商直播进行中，中途进入直播间的顾客可以手动进度条查看前一段时间的直播内容，更全面地了解商品信息。
+					<a href="https://cloud.tencent.com/document/product/266/78310" title="时移回看" target="_blank">时移回看</a></br>电商直播进行中，中途进入直播间的顾客可以手动进度条查看前一段时间的直播内容，更全面地了解商品信息。
 				</li>
         </td>
 	</tr>
@@ -132,7 +132,7 @@
         </td>
 				<td>
 				<li>
-					<a href="TODO: 产品简介>产品功能>媒体智能>标签分类" title="标签分类" target="_blank">标签分类</a></br>云点播智能标签分类功能提供对视频自动打标签、分类，平台可基于用户的商品视频点击、完播率等维度，向顾客智能推荐相关的商品，提升商品推广的精准度。
+					<a href="https://cloud.tencent.com/document/product/266/78302" title="标签分类" target="_blank">标签分类</a></br>云点播智能标签分类功能提供对视频自动打标签、分类，平台可基于用户的商品视频点击、完播率等维度，向顾客智能推荐相关的商品，提升商品推广的精准度。
 				</li>
         </td>
 	</tr>
@@ -142,10 +142,10 @@
         </td>
 				<td>
 				<li>
-					<a href="TODO: 产品简介>产品功能>高效降本>智能降冷" title="智能降冷" target="_blank">智能降冷</a></br>对主要用于有关部门的审查、极少查看的直播录制视频，配置智能降冷策略，可以有效帮助客户降低存储成本。
+					<a href="https://cloud.tencent.com/document/product/266/78314" title="智能降冷" target="_blank">智能降冷</a></br>对主要用于有关部门的审查、极少查看的直播录制视频，配置智能降冷策略，可以有效帮助客户降低存储成本。
 				</li>
 				<li>
-					<a href="TODO: 产品简介>产品功能>高效降本>媒体删除" title="媒体删除" target="_blank">媒体删除</a></br>对仅用于有关部门的审查的直播录制视频，配置录制生成的文件过期时间，过期自动删除媒体文件，可以有效帮助客户降低存储成本。
+					<a href="https://cloud.tencent.com/document/product/266/78313" title="媒体删除" target="_blank">媒体删除</a></br>对仅用于有关部门的审查的直播录制视频，配置录制生成的文件过期时间，过期自动删除媒体文件，可以有效帮助客户降低存储成本。
 				</li>
         </td>
 	</tr>
