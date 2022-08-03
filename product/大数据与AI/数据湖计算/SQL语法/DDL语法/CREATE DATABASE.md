@@ -13,16 +13,14 @@ CREATE {DATABASE|SCHEMA} [IF NOT EXISTS] database_name
 
 
 ## 示例
+Create database `db` only if database with same name doesn't exist.
 ```
---Create database `db` only if database with same name doesn't exist.
 CREATE DATABASE IF NOT EXISTS db;
+```
 
---Create database `db` only if database with same name doesn't exist with 
--- `Comment` and `Database Properties`.
+Create database `db` only if database with same name doesn't exist with `Comment` and `Database Properties`.
+```
 CREATE DATABASE db 
 COMMENT 'db1_name' 
 WITH DBPROPERTIES('k1' = 'v1','k2' = 'v2');
-
 ```
-
-
