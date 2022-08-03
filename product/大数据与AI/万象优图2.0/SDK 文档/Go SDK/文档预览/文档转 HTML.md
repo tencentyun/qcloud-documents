@@ -99,7 +99,7 @@ type HtmlPptParams struct {
 | 名称        | 参数说明                                                         | 类型   | 是否必选 |
 | ----------- | ------------------------------------------------------------ | ------ | -------- |
 | DstType   | 转换输出目标文件类型，文档 HTML 预览固定为 html（需为小写字母）  | String  | 是       |  
-| SrcType | 指定目标文件类型，支持的文件类型请见下方  | String | 否 |
+| SrcType | 指定目标文件类型, 支持的文件类型请见 [文档转 HTML](https://cloud.tencent.com/document/product/436/54059) 文档   | String | 否 |
 | Sign          | 对象下载签名，如果预览的对象为私有读时，需要传入签名，详情请参见 [请求签名](https://cloud.tencent.com/document/product/460/6968) 文档</br>注意：需要进行 urlencode  | String | 否      | 
 | Copyable          | 是否可复制。默认为可复制，填入值为1；不可复制，填入值为0     | String   | 否      | 
 | HtmlParams          | 自定义配置参数，json结构，需要经过 [URL 安全](https://cloud.tencent.com/document/product/460/32832#.E4.BB.80.E4.B9.88.E6.98.AF-url-.E5.AE.89.E5.85.A8.E7.9A.84-base64-.E7.BC.96.E7.A0.81.EF.BC.9F) 的 Base64 编码，默认配置为：{ commonOptions: { isShowTopArea: true, isShowHeader: true } }，支持的配置参考 [自定义配置项说明](https://cloud.tencent.com/document/product/436/59408#.E8.87.AA.E5.AE.9A.E4.B9.89.E9.85.8D.E7.BD.AE.E9.80.89.E9.A1.B9)    | String   | 否   |
@@ -110,12 +110,3 @@ type HtmlPptParams struct {
 | Htmlhorizontal          | 水印文字水平间距，单位 px，默认为50  | String | 否      | 
 | Htmlvertical          | 水印文字垂直间距，单位 px，默认为100  | String | 否      | 
 
->!
-> - 目前支持的输入文件类型包含如下格式：
->  - 演示文件：pptx、ppt、pot、potx、pps、ppsx、dps、dpt、pptm、potm、ppsm。
->  - 文字文件：doc、dot、wps、wpt、docx、dotx、docm、dotm。
->  - 表格文件：xls、xlt、et、ett、xlsx、xltx、csv、xlsb、xlsm、xltm、ets。
->  - 其他格式文件： pdf、 lrc、 c、 cpp、 h、 asm、 s、 java、 asp、 bat、 bas、 prg、 cmd、 rtf、 txt、 log、 xml、 htm、 html。
-> - 输入文件大小限制在200MB之内。
-> - 输入文件页数限制在5000页之内。
-> 
