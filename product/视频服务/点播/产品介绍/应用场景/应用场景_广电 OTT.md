@@ -85,7 +85,7 @@
             高分辨率视频
         </td>
 				<td>
-					<li><a href="TODO: 产品简介>产品功能>媒体处理>音视频转码" title="音视频转码" target="_blank">音视频转码</a></br>云点播支持 2K、4K、8K 等高分辨率转码，也支持 HDR 画质转码，满足 OTT 电视等大屏设备对于超高清、高画质内容的使用需求。</li>
+					<li><a href="https://cloud.tencent.com/document/product/266/78289" title="音视频转码" target="_blank">音视频转码</a></br>云点播支持 2K、4K、8K 等高分辨率转码，也支持 HDR 画质转码，满足 OTT 电视等大屏设备对于超高清、高画质内容的使用需求。</li>
         </td>
 	</tr>
 	<tr>
@@ -93,7 +93,7 @@
             多清晰度智能切换
         </td>
 				<td>
-					<li><a href="TODO: 产品简介>产品功能>极致播放>多码率智能切换" title="多码率智能切换" target="_blank">多码率智能切换</a></br>一进多出生成多路码流，满足终端设备在复杂的家庭网络环境下的播放需求。</li>
+					<li><a href="https://cloud.tencent.com/document/product/266/78296" title="多码率智能切换" target="_blank">多码率智能切换</a></br>一进多出生成多路码流，满足终端设备在复杂的家庭网络环境下的播放需求。</li>
         </td>
 	</tr>
 	 <tr>
@@ -102,13 +102,13 @@
         </td>
 				<td>
 				<li>
-					<a href="TODO: 产品简介>产品功能>版权保护>防盗链" title="防盗链" target="_blank">防盗链</a></br>支持 Referer 防盗链和 Key 防盗链两种形式，防范非法盗链行为。
+					<a href="https://cloud.tencent.com/document/product/266/78306" title="防盗链" target="_blank">防盗链</a></br>支持 Referer 防盗链和 Key 防盗链两种形式，防范非法盗链行为。
 				</li>
 				<li>
-					<a href="TODO: 产品简介>产品功能>版权保护>盗录追溯" title="盗录追溯" target="_blank">盗录追溯</a></br>支持普通图文水印、播放端浮动水印和溯源 AB 水印，实现对盗录者的追踪溯源。
+					<a href="https://cloud.tencent.com/document/product/266/78308" title="盗录追溯" target="_blank">盗录追溯</a></br>支持普通图文水印、播放端浮动水印和溯源 AB 水印，实现对盗录者的追踪溯源。
 				</li>
 				<li>
-					<a href="TODO: 产品简介>产品功能>版权保护>加密与 DRM" title="加密与 DRM" target="_blank">加密与 DRM</a></br>支持 HLS 私有加密和商业级 DRM，均能有效防范各类破解行为，为媒体版权保驾护航。
+					<a href="https://cloud.tencent.com/document/product/266/78307M" title="加密与 DRM" target="_blank">加密与 DRM</a></br>支持 HLS 私有加密和商业级 DRM，均能有效防范各类破解行为，为媒体版权保驾护航。
 				</li>
         </td>
 	</tr>
@@ -118,7 +118,7 @@
         </td>
 				<td>
 				<li>
-					<a href="TODO: 产品简介>产品功能>合规控制>智能审核" title="智能审核" target="_blank">智能审核</a></br>云点播智能审核持续对海量的违规数据进行训练建模，识别的准确率和召回率均达到业界领先水准，全面有效保障广电 OTT 平台媒体内容安全。
+					<a href="https://cloud.tencent.com/document/product/266/78304" title="智能审核" target="_blank">智能审核</a></br>云点播智能审核持续对海量的违规数据进行训练建模，识别的准确率和召回率均达到业界领先水准，全面有效保障广电 OTT 平台媒体内容安全。
 				</li>
         </td>
 	</tr>
@@ -127,7 +127,7 @@
             媒体禁播
         </td>
 				<td>
-					<li><a href="TODO: 产品简介>产品功能>合规控制>媒体禁播" title="媒体禁播" target="_blank">媒体禁播</a></br>通过媒体禁播，广电 OTT 平台可以第一时间阻断违规媒体内容进一步传播，降低平台安全风险和品牌伤害。</li>
+					<li><a href="https://cloud.tencent.com/document/product/266/78305" title="媒体禁播" target="_blank">媒体禁播</a></br>通过媒体禁播，广电 OTT 平台可以第一时间阻断违规媒体内容进一步传播，降低平台安全风险和品牌伤害。</li>
         </td>
 	</tr>
 	<tr>
@@ -135,7 +135,7 @@
             点播转直播
         </td>
 				<td>
-					<li><a href="TODO: 产品简介>产品功能>直点结合>点播转直播" title="点播转直播" target="_blank">点播转直播</a></br>基于云点播访问控制的功能，使点播文件达成类直播效果，广电 OTT 可以低成本快速实现点播文件的类直播分发，充分利用高价值录播内容为平台吸引更多流量。</li>
+					<li><a href="https://cloud.tencent.com/document/product/266/78312" title="点播转直播" target="_blank">点播转直播</a></br>基于云点播访问控制的功能，使点播文件达成类直播效果，广电 OTT 可以低成本快速实现点播文件的类直播分发，充分利用高价值录播内容为平台吸引更多流量。</li>
         </td>
 	</tr>
 	<tr>
@@ -143,7 +143,7 @@
             高效广电编目
         </td>
 				<td>
-					<li><a href="TODO: 产品简介>产品功能>媒体智能>标签分类" title="标签分类" target="_blank">标签分类</a></br>通过云点播标签分类功能可以高效理解海量视频内容信息，改变以往人工编目效率低下的情况，借助识别出来的标签分类信息，可以快速地对视频进行归档和标签检索。</li>
+					<li><a href="https://cloud.tencent.com/document/product/266/78302" title="标签分类" target="_blank">标签分类</a></br>通过云点播标签分类功能可以高效理解海量视频内容信息，改变以往人工编目效率低下的情况，借助识别出来的标签分类信息，可以快速地对视频进行归档和标签检索。</li>
         </td>
 	</tr>
 </table>
