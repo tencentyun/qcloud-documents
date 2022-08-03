@@ -9,9 +9,7 @@
 
 
 <dx-alert infotype="explain" title="">
-- 移动解析 HTTPDNS 服务的详细介绍请参见 [全局精确流量调度新思路-HTTPDNS 服务详解](https://cloud.tencent.com/developer/article/1035562)。
-- 智营解析 Android SDK 的获取方式：[点此获取](https://github.com/tencentyun/httpdns-android-sdk)。
-
+移动解析 HTTPDNS 服务的详细介绍请参见 [全局精确流量调度新思路-HTTPDNS 服务详解](https://cloud.tencent.com/developer/article/1035562)。
 </dx-alert>
 
 
@@ -31,6 +29,31 @@
 
 
 ## SDK 接入
+
+### 接入 HTTPDNS SDK
+
+1. 获取 [移动解析 Android SDK](https://github.com/tencentyun/httpdns-android-sdk)。
+2. aar 包引入，将 HttpDNSLibs\HTTPDNS_ANDROID_SDK_xxxx.aar 拷贝至应用 libs 相应位置。
+3. 在 App module的build.gradle 文件中，添加如下配置：
+```xml
+android {
+
+    // ...
+
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+}
+
+dependencies {
+
+    // ...
+
+    implementation(name: 'HTTPDNS_Android_xxxx', ext: 'aar')
+}
+```
 
 ### 权限配置
 
@@ -71,9 +94,6 @@ App targetSdkVersion ≥ 28(Android 9.0)的情况下，系统默认不允许 HTT
 </network-security-config>
 ```
 
-
-### 接入 HTTPDNS
-将 HttpDNSLibs\HTTPDNS_ANDROID_SDK_xxxx.aar 拷贝至应用 libs 相应位置。
 
 
 ### 接入灯塔（可选）
@@ -207,7 +227,7 @@ MSDKDnsResolver.getInstance().init(MainActivity.this, appkey, dnsid, dnskey, dns
 ```
 
 
-## HTTPDNS SDK 接入业务方式
+## SDK 接入业务方式
 
 将 HTTPDNS SDK 的域名解析能力接入到业务的 HTTP（HTTPS）网络访问流程中，总的来说可以分为以下两种方式：
 

@@ -28,7 +28,7 @@ Web Iframe 集成模式中，业务前端以 Iframe 方式集成剪辑界面，�
 
 >? 
 > - 实线表示网络请求。
-> - 虚线表示用户前端与 [多媒体创作引擎剪辑 SDK](https://cloud.tencent.com/document/product/1156/43785#sdk-.E6.A6.82.E8.BF.B0) 的通信。
+> - 虚线表示用户前端与 [多媒体创作引擎剪辑 SDK](https://cloud.tencent.com/document/product/1156/65101#SDK_API) 的通信。
 
 ## 集成教程
 接下来将通过具体案例，来介绍集成流程。分为如下几个步骤：
