@@ -6,7 +6,7 @@
   <tbody>
 	   <tr>
     <td>2022-07-27</td>
-    <td>v1.20.6-tke.20</td>
+    <td>v1.20.6-tke.21</td>
     <td><li>CBS 支持原生节点。(kubelet)</li><li>优化 EKS 虚拟节点 HPA。</li></td>
   </tr>
 	 <tr>
