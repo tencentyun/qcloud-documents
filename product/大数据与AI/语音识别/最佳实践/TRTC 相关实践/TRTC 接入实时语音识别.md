@@ -74,8 +74,8 @@ QCloudRealTimeRecognizer *realTimeRecognizer = [[QCloudRealTimeRecognizer alloc]
 ## Android 接入流程
 
 1. 首先需要 [接入 TRTC](https://cloud.tencent.com/document/product/647/32221)，跑通流程。
-2. 根据实时语音识别 [音频流格式要求](https://cloud.tencent.com/document/product/1093/35799)，参考 [TRTC 技术文档](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html) 设置音频流格式。
-3. 在 [TRTC 接口协议](http://doc.qcloudtrtc.com/group__TRTCCloudListener__android.html) 里设置音频源代理，并设置 ASR 读取音频源。
+2. 根据实时语音识别 [音频流格式要求](https://cloud.tencent.com/document/product/1093/35799)，参考 [TRTC 技术文档](https://cloud.tencent.com/document/product/647/32258) 设置音频流格式。
+3. 在 [TRTC 接口协议](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDelegate__ios.html) 里设置音频源代理，并设置 ASR 读取音频源。
 4. ASR 音频源设置为第三方，并实现具体逻辑。
  - 接入第三方音频源需要在 ASR 接入部分实现 PcmAudioDataSource 接口。代码示例如下：
 ```java
