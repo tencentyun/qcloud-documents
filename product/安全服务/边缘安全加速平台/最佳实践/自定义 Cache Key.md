@@ -6,13 +6,10 @@
 - 查询字符串，具体操作可参见 [查询字符串](https://cloud.tencent.com/document/product/1552/70751)。
 - HTTP 请求头，指定的 HTTP 请求头将被包含在 Cache Key 中，拼接在 URL 后方。只需输入 HTTP 请求头名称，例如：Accept-Language;User-Agent，Cache Key 里会自动包含头部对应的值。
 - 忽略大小写，具体操作可参见 [ 忽略大小写](https://cloud.tencent.com/document/product/1552/70750)。
->?查询字符串和忽略大小写，详情可查看具体的产品文档，如还需拼接 HTTP 请求头，请参见 [操作步骤](#bz)。
 
 
 ## 操作步骤[](id:bz)
 1. 登录 [边缘安全加速平台控制台](https://console.cloud.tencent.com/edgeone)，在左侧菜单栏中，单击**规则引擎**。
->?目前边缘安全加速平台控制台仅对部分用户开放，如需访问控制台，请 [联系我们](https://cloud.tencent.com/online-service) 开通权限。
->
 2. 在规则引擎页面，选择所需站点，单击![img](https://qcloudimg.tencent-cloud.cn/raw/fe4d4900f8ad69d506adc49bdb70fa32.png)或编辑存量规则，按需配置自定义 Cache Key 规则。
 
 

@@ -43,9 +43,21 @@ JDK1.7 默认使用 TLSv1.0，需要强制设置成 TLSv1.2，官方使用的 HT
 ## 小程序相关
 ### 客户小程序如何跳转到电子签小程序完成签署？  
 请参见小程序 [官方文档](https://developers.weixin.qq.com/miniprogram/dev/api/navigate/wx.navigateToMiniProgram.html) 。小程序支持直接跳转到签署页面，完成签署后可返回客户小程序。可参见以下代码：  
-```
+正式环境：
+```plaintext
 wx.navigateToMiniProgram({  
   appId:'wxa023b292fd19d41d', // 电子签小程序的appId  
+  path:'pages/guide?from=SFY&to=CONTRACT_DETAIL&id=${flowId}&name=%E6%9D%A8%E5%B8%88&phone=MTc2MTI3Nzg1Mjk%3D', //${flowId}为流程 id，name、phone 按需给  
+  envVersion:'release’,  
+  success(res){
+    // 打开成功 
+  } 
+})
+```
+测试环境：
+```plaintext
+wx.navigateToMiniProgram({  
+  appId:'wx371151823f6f3edf', // 电子签小程序的appId  
   path:'pages/guide?from=SFY&to=CONTRACT_DETAIL&id=${flowId}&name=%E6%9D%A8%E5%B8%88&phone=MTc2MTI3Nzg1Mjk%3D', //${flowId}为流程 id，name、phone 按需给  
   envVersion:'release’,  
   success(res){
@@ -59,9 +71,14 @@ path 里的参数（name，phone）均使用 `~${base64url(value)}` 统一编码
 1. Android App 请参见 [官方文档](https://developers.weixin.qq.com/doc/oplatform/Mobile_App/Launching_a_Mini_Program/Android_Development_example.html) 。 
 2. iOS App 请参见 [官方文档](https://developers.weixin.qq.com/doc/oplatform/Mobile_App/Launching_a_Mini_Program/iOS_Development_example.html)  。
 3. 所需参数：
-电子签小程序 Appid：`wxa023b292fd19d41d`。
-电子签小程序原始 ID：`gh_da88f6188665`。
-电子签小程序合同详情页：`path：pages/guide?from=app&to=CONTRACT_DETAIL&id=${flowId}&name=&phone=`。
+ - 正式环境：
+电子签小程序 Appid：wxa023b292fd19d41d。
+电子签小程序原始 ID：gh_da88f6188665。
+电子签小程序合同详情页：path：pages/guide?from=app&to=CONTRACT_DETAIL&id=${flowId}&name=&phone=。
+ - 测试环境：
+电子签小程序 Appid：wx371151823f6f3edf。
+电子签小程序原始 ID：gh_39a5d3de69fa。
+电子签小程序合同详情页：path：pages/guide?from=app&to=CONTRACT_DETAIL&id=${flowId}&name=&phone=。
 
 ### 为什么客户在小程序中无法找到自己的合同？  
 请确认客户有使用和发起时相同的姓名、手机号进行小程序登录。且在**个人中心** > **切换身份**确认已切换为签署时要求的身份。
@@ -219,7 +236,7 @@ path 里的参数（name，phone）均使用 `~${base64url(value)}` 统一编码
 腾讯电子签回调开发者回调接口传入的参数为加密的数据，开发者需要使用腾讯电子签提供的 CallbackUrlKey 来解密数据。
 解密步骤如下：  
 1. 对收到的数据进行 Base64 解码得到密文。  
-2. 对密文进行对称解密，密钥为腾讯电子签提供的 CallbackUrlKey，数据采用 PKCS#7 填充。  
+2. 对密文进行对称解密，算法为 AES-256-CBC，密钥为腾讯电子签提供的 CallbackUrlKey，IV 取 CallbackUrlKey 值的前16位，数据采用 PKCS#7 填充。  
 3. 解密得到的数据为输入参数的 Json 格式。
 
 ### 回调数据有哪些参数呢？  

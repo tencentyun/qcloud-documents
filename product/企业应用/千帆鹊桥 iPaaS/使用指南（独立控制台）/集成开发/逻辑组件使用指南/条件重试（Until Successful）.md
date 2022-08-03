@@ -52,5 +52,5 @@
 
 1. 添加 Until Successful 组件，选择按成功条件重试，当服务器返回的 statusCode 不等于200时，重新发送请求，设置重试次数为3，重试间隔为5秒。
    ![](https://qcloudimg.tencent-cloud.cn/raw/b69a83aea60a0348b586006072cad5dd.jpg)
-2. 在 Until Successful 组件中添加 Request 组件，用于发送 http 请求。
+2. 在 Until Successful 组件中添加 Request 组件，用于发送 HTTP 请求。
    ![](https://qcloudimg.tencent-cloud.cn/raw/c278d84b7f28b4b82a627e875c102b3f.jpg)

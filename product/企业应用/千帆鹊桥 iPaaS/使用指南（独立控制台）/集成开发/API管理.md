@@ -144,7 +144,7 @@ API 服务无需验证的情况：
 ![](https://qcloudimg.tencent-cloud.cn/raw/f964a769a60ac3a8b9c366460073fc6a.png)
 API 服务需要 Basic Auth 的情况(对应API服务的 Endpoint 安全策略需要绑定Basic Auth)：
 ![](https://qcloudimg.tencent-cloud.cn/raw/36e5f6eef4b7e646a3820b475cc9a959.png)
-API 服务需要 OAuth2.0的情况(对应API服务的 Endpoint 安全策略需要绑定OAuth2.0）：
+API 服务需要 OAuth2.0的情况（对应 API 服务的 Endpoint 安全策略需要绑定OAuth2.0）：
 1. 在用户信息处获取 Client ID 和 Client Secret，在待访问的 API 服务页面获取 Access Token URL。 
 <dx-tabs>
 ::: 获取 OAuth 信息

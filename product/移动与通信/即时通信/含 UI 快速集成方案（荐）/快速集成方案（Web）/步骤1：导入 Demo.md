@@ -52,7 +52,7 @@ TUIKit 是基于 IM SDK 实现的一套 UI 组件，其包含会话、聊天、�
 ### 步骤4：下载 TUIKit 组件依赖
 ```shell
 cd src/TUIKit
-npm install
+npm install  --legacy-peer-deps
 ```
 
 ### 步骤5：引入 TUIKit 组件

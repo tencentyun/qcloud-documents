@@ -4,7 +4,7 @@
 ```sql
 CREATE TABLE `source_1`
 (
-		`f_sequence`   INT,
+	`f_sequence`   INT,
     `f_random`     INT,
     `f_random_str` VARCHAR,
     PRIMARY KEY (`f_sequence`) NOT ENFORCED
@@ -20,7 +20,7 @@ CREATE TABLE `source_1`
 
 CREATE TABLE `source_2`
 (
-		`f_sequence`   INT,
+	`f_sequence`   INT,
     `f_random`     INT,
     `f_random_1`     INT,
     `f_random_str` VARCHAR,
@@ -39,7 +39,7 @@ CREATE TABLE `source_2`
 
 CREATE TABLE `sink_1`
 (
-		`f_sequence`   INT,
+	`f_sequence`   INT,
     `f_random`     INT,
     `f_random_str` VARCHAR,
     PRIMARY KEY (`f_sequence`) NOT ENFORCED
@@ -49,7 +49,7 @@ CREATE TABLE `sink_1`
 
 CREATE TABLE `sink_2`
 (
-		`f_sequence`   INT,
+	`f_sequence`   INT,
     `f_random`     INT,
     `f_random_1`     INT,
     `f_random_str` VARCHAR,
@@ -62,7 +62,7 @@ CREATE TABLE `sink_2`
 insert into sink_1 select * from source_1;
 insert into sink_2 select * from source_2;
 ```
-对于来自相同 db 实例的表同步，Flink 会生成两条 pipeline（如下图），每个 CDC 的 Source 都会跟 Mysql 建立一个数据库连接，在表的数量非常多的时候，作业与Mysql的连接会非常多，DB 端相应的压力也会非常大。
+对于来自相同 db 实例的表同步，Flink 会生成两条 pipeline（如下图），每个 CDC 的 Source 都会跟 Mysql 建立一个数据库连接，在表的数量非常多的时候，作业与 Mysql 的连接会非常多，DB 端相应的压力也会非常大。
 ![](https://qcloudimg.tencent-cloud.cn/raw/1e4923e083f66afc48d0b3aa62dd6bfb.png)
 我们可以看到在开启了 Source 复用功能之后，读相同 DB 实例的 Mysql CDC Source 会合并成一个 Source （如下图），可以有效的降低对 DB 的链接压力。并且在 Mysql 增量同步阶段，多个 Source 只需要读取一份 binlog 数据即可，避免了多个 Source 重复拉取 binlog 的问题。
 ![](https://qcloudimg.tencent-cloud.cn/raw/7ac17662c3c7df8428197823131ca09f.png)

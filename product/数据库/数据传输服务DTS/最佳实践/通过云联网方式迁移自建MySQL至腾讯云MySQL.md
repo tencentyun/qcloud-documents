@@ -14,7 +14,7 @@
 
 接入 VPC 、迁移/同步链路的源端在整个 DTS 任务中的网络打通原则如下。
 
-- 迁移/同步链路的源端，为购买任务时选择的源数据地域网络，请见下图。
+- 迁移/同步链路的源端，为购买任务时选择的源数据库地域网络，请见下图。
   购买时选择的源数据库地域需要和接入 VPC 地域相同，否则网络不能互通。如果不相同，DTS 会将购买任务中选择的源数据库地域，改为接入 VPC 地域。
   <img src="https://qcloudimg.tencent-cloud.cn/raw/f19327d93003e8e21f724f4523d3682e.png" style="zoom:50%;" />
 
@@ -105,6 +105,7 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 <li>MySQL 5.6 及以上版本 gtid_mode 变量不为 ON 时会报警告，建议打开 gtid_mode。</li>
 <li>不允许设置 do_db, ignore_db 过滤条件。</li>
 <li>源实例为从库时，log_slave_updates 变量必须设置为 ON。</li>
+   <li>建议源库 Binlog 日志至少保留3天及以上，否则可能会因任务暂停/中断时间大于 Binlog 日志保留时间，造成任务无法续传，进而导致任务失败。</li>
 </ul></li>
 <li>外键依赖：
 <ul>

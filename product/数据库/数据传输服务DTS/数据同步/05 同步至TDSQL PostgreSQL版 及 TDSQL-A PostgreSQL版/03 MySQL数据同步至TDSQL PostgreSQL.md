@@ -70,6 +70,7 @@ ON ALL TABLES IN SCHEMA schema_name TO user_name（迁移账号）;
 <li>MySQL 5.6 及以上版本源库参数 gtid_mode 不为 ON 时会出现 WARNING 提示，建议将参数 gtid_mode 置为 ON。</li>
 <li>不允许设置 do_db, ignore_db 过滤条件。</li>
 <li>源实例为从库时，参数 log_slave_updates 须置为 ON。</li>
+   <li>建议源库 Binlog 日志至少保留3天及以上，否则可能会因任务暂停/中断时间大于 Binlog 日志保留时间，造成任务无法续传，进而导致任务失败。</li>
 </ul></li>
 <li>外键依赖：
 <ul>

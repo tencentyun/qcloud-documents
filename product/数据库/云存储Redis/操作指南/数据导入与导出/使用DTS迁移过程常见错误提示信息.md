@@ -20,7 +20,7 @@ config set client-output-buffer-limit 'slave 0 0 0'
 
 ## 问题2
 ### 问题现象
-在使用 DTS 迁移过程过程中，提示如下错误信息：
+在使用 DTS 迁移过程中，提示如下错误信息：
 ```
 [launch]state:8 #rdb rdbfile:./tmp1600395232_34851.rdb rdbsize:107994104 rdb_writed_size:107994104 rdb_parsed_size:107994104 rdb_parsed_begin:1600395238 rdb_parsed_time:5 #replication master_replid:995dba8ccffb7cc32a7c85de7b1632b952b74496 repl_offset:23851025 write_command_count:940765 finish_command_count:940763 last_replack_time:1600395298 #queue send_write_pos:440766 send_read_pos:440765 response_write_pos:440765 response_read_pos:440764 errtime:1600395297 errmsg:get rsp error:ERR value is not an integer or out of range command:*2 $4 INCR $35 APP_API_ORDER_CREATION_USER_4260882
 ```
@@ -35,7 +35,7 @@ config set client-output-buffer-limit 'slave 0 0 0'
 
 ## 问题3
 ### 问题现象
-在使用 DTS 迁移过程过程中，提示如下错误信息：
+在使用 DTS 迁移过程中，提示如下错误信息：
 ```
 errmsg:Error reading bulk length while SYNCing:Operation now in progress read rdb length from src fail save rdb fail ready shutdown dts
 ```
@@ -52,7 +52,7 @@ config set repl-diskless-sync yes
 
 ## 问题4
 ### 问题现象
-在使用 DTS 迁移过程过程中，提示如下错误信息：
+在使用 DTS 迁移过程中，提示如下错误信息：
 ```
 [launch]state:6 #rdb rdbfile:./tmp1597977351_20216.rdb rdbsize:24282193511 rdb_writed_size:18683334200 rdb_parsed_size:0 rdb_parsed_begin:0 rdb_parsed_time:0 #replication master_replid:1b0da9f595cc40b795803eba3c9bea3aad1a1d68 repl_offset:921330115650 write_command_count:0 finish_command_count:0 last_replack_time:0 #queue send_write_pos:0 send_read_pos:0 response_write_pos:0 response_read_pos:0 errtime:1597978778 errmsg:write rdb data fail:456!=1696 error:No space left on device save rdb fail ready shutdown dts
 ```
@@ -65,7 +65,7 @@ DTS Syncer 机器上的磁盘空间不足。
 
 ## 问题5
 ### 问题现象
-在使用 DTS 迁移过程过程中，提示如下错误信息：
+在使用 DTS 迁移过程中，提示如下错误信息：
 ```
 [launch]state:5 #rdb rdbfile: rdbsize:0 rdb_writed_size:0 rdb_parsed_size:0 rdb_parsed_begin:0 rdb_parsed_time:0 #replication master_replid:d3e707ec0e72c3908b0ce70dd2460f48086c5386 repl_offset:683087907631 write_command_count:0 finish_command_count:0 last_replack_time:0 #queue send_write_pos:0 send_read_pos:0 response_write_pos:0 response_read_pos:0 errtime:1654369638 errmsg:Error reading bulk length while SYNCing:Operation now in progress read rdb length from src fail save rdb fail ready shutdown dts
 ```
@@ -94,7 +94,7 @@ sysctl -p
 
 ## 问题7
 ### 问题现象
-在使用 DTS 迁移过程过程中，提示如下错误信息：
+在使用 DTS 迁移过程中，提示如下错误信息：
 ```
 [launch]state:7 #rdb rdbfile:./tmp1633836033_79441.rdb rdbsize:1008499748 rdb_writed_size:1008499748 rdb_parsed_size:607311937 rdb_parsed_begin:1633836038 rdb_parsed_time:0 #replication master_replid:d42935b9537b1d76ddd9e99e7cb8d4bc22a3e0c3 repl_offset:4649070152868 write_command_count:1569934 finish_command_count:1546843 last_replack_time:1633836088 #queue send_write_pos:69933 send_read_pos:69934 response_write_pos:69934 response_read_pos:46843 errtime:1633836089 errmsg:send replconf ack to src fail:Connection reset by peer rdb parse error: Wrong RDB checksum rdb load fail ready shutdown dts
 ```
@@ -131,7 +131,7 @@ config set client-output-buffer-limit 'slave 0 0 0'
 
 ## 问题8
 ### 问题现象
-在使用 DTS 迁移过程过程中，提示如下错误信息：
+在使用 DTS 迁移过程中，提示如下错误信息：
 ```
 [launch]state:7 #rdb rdbfile:./tmp1654365384_70581.rdb rdbsize:1664871634 rdb_writed_size:1664871634 rdb_parsed_size:1266531 rdb_parsed_begin:1654365387 rdb_parsed_time:0 #replication master_replid:d3e707ec0e72c3908b0ce70dd2460f48086c5386 repl_offset:683001122815 write_command_count:17818 finish_command_count:11224 last_replack_time:0 #queue send_write_pos:30251 send_read_pos:17767 response_write_pos:17767 response_read_pos:11213 errtime:1654365387 errmsg:rdb parse error: Short read or OOM loading DB. Unrecoverable error rdb load fail ready shutdown dts
 ```
@@ -144,7 +144,7 @@ config set client-output-buffer-limit 'slave 0 0 0'
 
 ## 问题9
 ### 问题现象
-在使用 DTS 迁移过程过程中，提示如下错误信息：
+在使用 DTS 迁移过程中，提示如下错误信息：
 ```
 [launch]state:8 #rdb rdbfile:./tmp1653290250_19158.rdb rdbsize:1721160435 rdb_writed_size:1721160435 rdb_parsed_size:1721160435 rdb_parsed_begin:1653290255 rdb_parsed_time:124 #replication master_replid:ed87c56060bc5f9b28da6d7ef2f83a15d56a4827 repl_offset:239048673513 write_command_count:360526495 finish_command_count:360520725 last_replack_time:1654350624 #queue send_write_pos:406694 send_read_pos:406694 response_write_pos:406694 response_read_pos:400925 errtime:1654350625 errmsg:redisBufferRead read rsp from target fail:1:Connection reset by peer ready shutdown dts send replconf ack to src fail:Bad file descriptor
 ```
@@ -169,7 +169,7 @@ config set client-output-buffer-limit 'slave 0 0 0'
 目标实例内存容量小于源库待迁移数据所占内存。 
 
 ### 解决方法
-扩容目标实例内容容量后再重新发起新 DTS 迁移任务。具体操作，请参见 [变更实例规格](https://cloud.tencent.com/document/product/239/30895)。
+扩容目标实例内存容量后再重新发起新 DTS 迁移任务。具体操作，请参见 [变更实例规格](https://cloud.tencent.com/document/product/239/30895)。
 
 ## 问题11
 ### 问题现象

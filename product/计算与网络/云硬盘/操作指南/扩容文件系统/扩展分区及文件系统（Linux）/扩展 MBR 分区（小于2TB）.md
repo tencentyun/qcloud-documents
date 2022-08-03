@@ -196,7 +196,7 @@ mount <新分区路径> <新挂载点>
 ```
 本文以新分区路径 `/dev/vdb2`，新挂载点 `/data1` 为例，则执行：
 ```shellsession
-mount /dev/vdb1 /data2
+mount /dev/vdb2 /data1
 ```
 9. 执行以下命令，查看新分区信息。
 ```shellsession

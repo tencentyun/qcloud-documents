@@ -55,11 +55,11 @@ pod 命令执行完后，会生成集成了 SDK 的 .xcworkspace 后缀的工程
 2. 打开您的 Xcode 工程项目，选择要运行的 target , 选中 **Build Phases** 项。
 ![](https://qcloudimg.tencent-cloud.cn/raw/be1dada9803b1bfd26c0feddb2f1cbb5.png)
 3. 单击 **Link Binary with Libraries** 项展开，单击底下的“+”号图标去添加依赖库。
-![](https://qcloudimg.tencent-cloud.cn/raw/3b10bf93bef29868b611bb0095fb63c5.png)
-4. 依次添加下载的 **TXLiteAVSDK_TRTC.Framework**（或者 **TXLiteAVSDK_Professional.Framework**）,**TXFFmpeg.xcframework**,**TXSoundTouch.xcframework**,及其所需依赖库 ** GLKit.framework**、**AssetsLibrary.framework**、**SystemConfiguration.framework**、**libsqlite3.0.tbd**、**CoreTelephony.framework**、**AVFoundation.framework**、**OpenGLES.framework**、**Accelerate.framework**、**MetalKit.framework**、**libresolv.tbd**、**MobileCoreServices.framework**、**libc++.tbd**、**CoreMedia.framework**。
-![](https://qcloudimg.tencent-cloud.cn/raw/85974527c721e13dd88e37ffa8a217bc.png)
-5. 单击 **General**，选择 **Frameworks,Libraries,and Embedded Content**，单击底下的“**+**”号图标依次添加 TXLiteAVSDK_TRTC.framework 所需要动态库 **TXFFmpeg.xcframework**、**TXSoundTouch.xcframework**，选择 **Embed & Sign**。
-![](https://qcloudimg.tencent-cloud.cn/raw/7d6812ebcc37d330b0c1a84979ccef67.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/79123f9d068777fc4b8a164583c872f6.png)
+4. 依次添加下载的 `TXLiteAVSDK_TRTC.Framework`（或者 `TXLiteAVSDK_Professional.Framework`）、`TXFFmpeg.xcframework`、`TXSoundTouch.xcframework`、及其所需依赖库 `GLKit.framework`、`AssetsLibrary.framework`、`SystemConfiguration.framework`、`libsqlite3.0.tbd`、`CoreTelephony.framework`、`AVFoundation.framework`、`OpenGLES.framework`、`Accelerate.framework`、`MetalKit.framework`、`libresolv.tbd`、`MobileCoreServices.framework`、`libc++.tbd`、`CoreMedia.framework`。
+![](https://qcloudimg.tencent-cloud.cn/raw/29f2ff828e7244195c0daf95b12a178e.png)
+5. 单击 **General**，选择 **Frameworks,Libraries,and Embedded Content**，检查 TXLiteAVSDK_TRTC.framework 所需要动态库 **TXFFmpeg.xcframework**、**TXSoundTouch.xcframework**是否已经添加，是否正确选择选择 **Embed & Sign**，如果没有单击底下的“**+**”号图标依次添加。
+![](https://qcloudimg.tencent-cloud.cn/raw/0e56b082c37ea2d8cff1e309433070af.png)
 
 ## 第二步：配置 App 权限
 1. 如需使用 SDK 提供的音视频功能，需要给 App 授权麦克风和摄像头的使用权限。在 App 的 Info.plist 中添加以下两项，分别对应麦克风和摄像头在系统弹出授权对话框时的提示信息。
@@ -80,7 +80,7 @@ pod 命令执行完后，会生成集成了 SDK 的 .xcworkspace 后缀的工程
 ```
 - **头文件引用**：在项目需要使用 SDK API 的文件里，引入具体的头文件。
 ```
-#import TXLiteAVSDK_TRTC/TRTCCloud.h
+#import "TXLiteAVSDK_TRTC/TRTCCloud.h"
 ```
 
 >? 对于 Objective-C 接口的使用方式，请参见 [iOS&Mac API 概览](https://cloud.tencent.com/document/product/647/32258)。
@@ -89,7 +89,8 @@ pod 命令执行完后，会生成集成了 SDK 的 .xcworkspace 后缀的工程
 ### 通过 C++ 接口引用(可选)
 如果您的项目是通过 QT 或者 Electron 这样的跨平台框架引入 SDK，请引用 `TXLiteAVSDK_TRTC.framework/Headers/cpp_interface` 目录下的头文件：
 ```
-#include TXLiteAVSDK_TRTC/cpp_interface/ITRTCCloud.h
+#include "TXLiteAVSDK_TRTC/cpp_interface/ITRTCCloud.h"
 ```
 
 >? 对于 C++ 接口的使用方式，请参见 [全平台（C++）API 概览](https://cloud.tencent.com/document/product/647/32268)。
+

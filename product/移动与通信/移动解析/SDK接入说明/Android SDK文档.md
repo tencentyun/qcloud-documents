@@ -112,8 +112,10 @@ DnsConfig dnsConfigBuilder = DnsConfig.Builder()
     .token("xxx")
     //（可选）日志粒度，如开启Debug打印则传入"Log.VERBOSE"
     .logLevel(Log.VERBOSE)
-    //（可选）预解析域名，填写形式："baidu.com", "qq.com"，建议不要设置太多预解析域名，当前限制为最多 10 个域名
+    //（可选）预解析域名，填写形式："baidu.com", "qq.com"，建议不要设置太多预解析域名，当前限制为最多 10 个域名。仅在初始化时触发。
     .preLookupDomains("baidu.com", "qq.com")
+    //（可选）解析缓存自动刷新, 以域名形式进行配置，填写形式："baidu.com", "qq.com"。配置的域名会在 TTL * 75% 时自动发起解析请求更新缓存，实现配置域名解析时始终命中缓存。此项建议不要设置太多域名，当前限制为最多 10 个域名。与预解析分开独立配置。
+    .persistentCacheDomains("baidu.com", "qq.com")
     //（可选）手动指定网络栈支持情况，仅进行 IPv4 解析传 1，仅进行 IPv6 解析传 2，进行 IPv4、IPv6 双栈解析传 3。默认为根据客户端本地网络栈支持情况发起对应的解析请求。
     .setCustomNetStack(3)
     //（可选）设置域名解析请求超时时间，默认为1000ms
@@ -371,7 +373,7 @@ if (null != host && null != port) {
 
 ### OkHttp
 
-OkHttp 提供了 DNS 接口，用于向 OkHttp 注入 DNS 实现。得益于 OkHttp 的良好设计，使用 OkHttp 进行网络访问时，实现 DNS 接口即可接入 HTTPDNS 进行域名解析，在较复杂场景（HTTP/HTTPS + SNI）下也不需要做额外处理，侵入性极小。示例如下：
+OkHttp 提供了 DNS 接口，用于向 OkHttp 注入 DNS 实现。得益于 OkHttp 的良好设计，使用 OkHttp 进行网络访问时，实现 DNS 接口即可接入 HTTPDNS 进行域名解析，在较复杂场景（HTTP/HTTPS/WebSocket + SNI）下也不需要做额外处理，侵入性极小。示例如下：
 
 ```Java
 mOkHttpClient =
@@ -418,6 +420,8 @@ mRetrofit =
 ### WebView
 
 Android 系统提供了 API 以实现 WebView 中的网络请求拦截与自定义逻辑注入。我们可以通过该 API 拦截 WebView 的各类网络请求，截取 URL 请求的 HOST，调用 HTTPDNS 解析该 HOST，通过得到的 IP 组成新的 URL 来进行网络请求。示例如下：
+>! 由于 shouldInterceptRequest(WebView view, WebResourceRequest request) 中 WebResourceRequest 没有提供请求 body 信息，所以只能成功拦截 get 请求，无法拦截 post 请求 。
+
 ```Java
 mWebView.setWebViewClient(new WebViewClient() {
     // API 21及之后使用此方法
@@ -491,7 +495,7 @@ mWebView.loadUrl(targetUrl);
 
 ### HttpURLConnection
 
-- HTTPS 示例如下：
+- HTTPS 证书校验示例如下：
 ```Java
  // 以域名为 www.qq.com，HTTPDNS 解析得到的 IP 为192.168.0.1为例
 String url = "https://192.168.0.1/"; // 业务自己的请求连接

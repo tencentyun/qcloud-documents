@@ -15,11 +15,11 @@
 ## 步骤2：创建本地流
 使用 [TRTC.createStream()](https://web.sdk.qcloud.com/trtc/webrtc/doc/en/TRTC.html#createStream) 方法创建本地音视频流，参数设置如下：
 
-| 参数名称 | 字段含义 | 补充说明 | 数据类型 |填写示例 | 默认值 | 
-|---------|---------|---------|---------|---------|---------|
-| userId | 用户 ID | 即用户名，与创建的 Client 的 userId 保持一致 | string | “denny” 或者 “123321”| 无**必填** |
-| audio | 是否采集音频 | 选择是否通过麦克风采集音频 | boolean | true |  无**必填** |
-| video | 是否采集视频 | 选择是否通过摄像头采集视频 | boolean | true |  无**必填** |
+| 参数名称 | 字段含义 | 补充说明 | 数据类型 |填写示例 | 默认值 | 备注 | 
+|---------|---------|---------|---------|---------|---------|---------|
+| userId | 用户 ID | 即用户名，与创建的 Client 的 userId 保持一致 | string | “denny” 或者 “123321”| 无 | **必填** |
+| audio | 是否采集音频 | 选择是否通过麦克风采集音频 | boolean | true |  无 |**必填** |
+| video | 是否采集视频 | 选择是否通过摄像头采集视频 | boolean | true |  无 |**必填** |
 
 更详细的参数说明参见 [TRTC.createStream()](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/TRTC.html#createStream)。 
 
