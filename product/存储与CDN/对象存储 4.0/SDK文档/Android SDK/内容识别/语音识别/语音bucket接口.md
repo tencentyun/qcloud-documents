@@ -19,6 +19,7 @@ SDK 所有接口的具体参数与方法说明，请参考 [SDK API 参考](http
 接口用于查询存储桶是否已开通语音识别功能。
 
 >! COS Android SDK 版本需要大于等于 v5.9.2。
+>
 
 #### 示例代码
 
@@ -54,4 +55,5 @@ SDK 所有接口的具体参数与方法说明，请参考 [SDK API 参考](http
         });
 ```
 
->?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/Android/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/CiAsr.java) 查看。
+>? 更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/Android/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/CiAsr.java) 查看。
+>
