@@ -29,7 +29,7 @@
 /*web底部链接*/
 .preview-demo-section .preview-demo-item .demo-item-link-web {
     font-size: 14px;
-	 margin-top: 55px;
+	 margin-top: 53px;
 }
 /*iOS/Android底部链接*/
 .preview-demo-section .preview-demo-item .demo-item-link {
