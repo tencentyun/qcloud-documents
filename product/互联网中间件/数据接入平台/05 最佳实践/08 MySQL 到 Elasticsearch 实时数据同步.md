@@ -54,7 +54,7 @@
 <img src="https://qcloudimg.tencent-cloud.cn/raw/646afa6211d9ed9309ad2eddeb9a6299.png" width = "50%" height = "50%"> 
 2. 单击**下一步**，填写数据源配置信息：
 <img src="https://qcloudimg.tencent-cloud.cn/raw/8e1b5c35f131390ae8e191374c4a0999.png" width = "50%" height = "50%"> 
-3. 继续单击**下一步**，选择数据目标信息，即同步 MySQL 数据的 Topic，根据实际情况选择 DIP Topic 或 CKafka Topic 即可，此处选择 **步骤1 **中创建的 DIP topic：
+3. 继续单击**下一步**，选择数据目标信息，即同步 MySQL 数据的 Topic，根据实际情况选择 DIP Topic 或 CKafka Topic 即可，此处选择 [步骤2](#step2) 中创建的 DIP topic：
 <img src="https://qcloudimg.tencent-cloud.cn/raw/3f3254a4a710938b3c57b860d1c1fe30.png" width = "50%" height = "50%"> 
 4. 任务创建成功后，在任务详情 - 查看消息可以看到订阅的数据信息：
 <img src="https://qcloudimg.tencent-cloud.cn/raw/89e7d0075042d218298c98ec6a6e0394.jpg" width = "60%" height = "60%"> 
