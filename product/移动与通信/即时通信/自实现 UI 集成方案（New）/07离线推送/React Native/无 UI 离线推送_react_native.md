@@ -31,9 +31,6 @@ yarn add react-native-tim-push
 根据 vivo 厂商接入指引，需要将 APPID 和 APPKEY 添加到清单文件中，否则会出现编译问题：
 <dx-tabs>
 ::: 方法 1
-<table> 
-<tr>
-
 ```
 android {
     ...
@@ -46,13 +43,9 @@ android {
     }
 }
 ```
-
-</tr> 
-</table>
 :::
 ::: 方法2
-<table> 
-<tr> 
+
 ```
 <receiver android:name="com.tencent.qcloud.tim.demo.thirdpush.VIVOPushMessageReceiverImpl">
     <intent-filter>
@@ -69,8 +62,6 @@ android {
     android:value="您应用分配的证书 APPID" />
 
 ```
-</tr>
-</table>
 :::
 </dx-tabs>
 
@@ -97,7 +88,6 @@ android {
 
  2. 在项目级 build.gradle 文件中 buildscript -> dependencies 下添加以下配置：
 ```
-
 repositories {
 ...
 // 配置 HMS Core SDK 的 Maven 仓地址。
@@ -109,7 +99,6 @@ dependencies {
 classpath 'com.google.gms:google-services:4.2.0'
 classpath 'com.huawei.agconnect:agcp:1.4.1.300'
 }
-
 ```
 
  3. 在应用级 build.gradle 文件中添加下方配置。
@@ -117,8 +106,7 @@ classpath 'com.huawei.agconnect:agcp:1.4.1.300'
 
 apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.huawei.agconnect'
-
-````
+```
 
 ### 步骤2: 推送参数配置
 推送证书添加成功之后，IM 控制台会为您分配一个证书 ID，请您在初始化插件时传入，该证书 ID 会在注册推送服务和上报 token 时使用, 以小米为例：
@@ -153,7 +141,7 @@ const initPushPlugin = () => {
         mi_push_app_key: '', //小米开放平台分配的应用APPKEY
     });
 }
-````
+```
 
 以上步骤完成后，就可以收到离线推送通知了。
 
@@ -240,6 +228,3 @@ OPPO 手机收不到推送一般有以下几种情况：
 - FCM：推送上行消息频率有限制。
   具体请参见 [厂商描述](https://firebase.google.com/docs/cloud-messaging/concept-options?hl=zh-cn#upstream_throttling)。
 
-```
-
-```
