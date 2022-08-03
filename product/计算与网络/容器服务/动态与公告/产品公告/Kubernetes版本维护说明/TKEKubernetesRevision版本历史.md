@@ -200,7 +200,7 @@ TKE 支持混合云节点。(kube-controller-manager)</td>
 	 <tr>
     <td>2022-07-27</td>
     <td>v1.16.3-tke.28</td>
-    <td><li>基于 hostname 进行反亲和调度时，忽略 EKS 虚拟节点。(kube-scheduler)</li><li> EKS 支持保留沙箱特性。(kube-scheduler)</li><li> EKS 支持保留沙箱特性。(kube-scheduler)</li><li>CBS 支持原生节点。(kubelet)</li></td>
+    <td><li>基于 hostname 进行反亲和调度时，忽略 EKS 虚拟节点。(kube-scheduler)</li><li> EKS 支持保留沙箱特性。(kube-scheduler)</li><li>CBS 支持原生节点。(kubelet)</li></td>
   </tr>
 <tr><td>2022-03-18</td><td>v1.16.3-tke.27</td><td><li>缩容时支持指定 pod。(kube-controller-manager) </li><li>优化超级节点调度算法。(kube-scheduler)</li></td></tr>
 <tr><td>2022-01-20</td><td>v1.16.3-tke.25</td><td><li>支持把 LB 地址绑定到 ipvs 网卡。(kube-proxy) </li><li>apiserver 支持集成 ExternalName 类型的外部服务。(kube-apiserver) </li><li>优化 EKS 调度。(kube-scheduler)</li></td></tr>
