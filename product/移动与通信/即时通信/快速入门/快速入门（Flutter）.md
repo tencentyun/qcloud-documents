@@ -76,14 +76,14 @@ flutter run --dart-define=SDK_APPID={YOUR_SDKAPPID} --dart-define=ISPRODUCT_ENV=
 
 <dx-tabs>
 ::: Android 平台[](id:android)
-1. 在 Android Studio 打开 discuss/andorid 目录。
-![](https://qcloudimg.tencent-cloud.cn/raw/6516f9b17c58915c4ebc93c5c8829831.png)
+1. 在 Android Studio 中打开 `im-flutter-uikit/android` 目录。
+![20220803114657](https://tuikit-1251787278.cos.ap-guangzhou.myqcloud.com/20220803114657.png)
 2. 启动一个 Android 的模拟器，单击 **Build And Run**，Demo 可以运行起来。您可以随机输入一个 UserID（数字字母组合）。
 >?UI 可能会有部分调整更新，请以最新版为准。
 :::
 ::: iOS 平台[](id:ios)
-1. 打开 Xcode，打开文件 discuss/ios/Runner.xcodeproj：
-![](https://qcloudimg.tencent-cloud.cn/raw/6d74814ba9bce54c7439e8b3cea53e73.png)
+1. 在 Xcode 中打开 `im-flutter-uikit/ios`目录。
+![20220803114715](https://tuikit-1251787278.cos.ap-guangzhou.myqcloud.com/20220803114715.png)
 2. 连接 iPhone 真机，单击 **Build And Run**，iOS 工程等待编译完成，会有新窗口弹出 Xcode 工程。
 3. 打开 iOS 工程，设置主 Target 的 Signing & Capabilities（需要苹果开发者帐号），让项目可以在 iPhone 真机上运行。
 4. 启动项目，在真机上进行 Demo 的调试。
