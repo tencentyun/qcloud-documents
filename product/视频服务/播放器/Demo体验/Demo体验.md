@@ -1,4 +1,4 @@
-腾讯云视立方·播放器 SDK Demo 提供完整的产品级交互界面和业务源码，开发者可基于 Demo 体验播放器各项功能，有助于快速匹配和实现业务需求，节约开发时间和成本。
+腾讯云视立方·播放器 SDK Demo 提供完整的产品级交互界面和业务源码，开发者可按需取用。
 
 ### Demo 体验
 <style>
@@ -82,7 +82,7 @@
 }
 
 </style>
-腾讯云视立方·播放器 SDK Demo 提供完整的产品级交互界面和业务源码，开发者可按需取用。
+
 <div class="preview-demo-section" id="demo-card">
  <div class="preview-demo-item style-web">
         <div class="demo-item-header">
