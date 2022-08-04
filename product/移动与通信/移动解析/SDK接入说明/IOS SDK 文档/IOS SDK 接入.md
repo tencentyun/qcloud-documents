@@ -13,7 +13,7 @@
  - **DES加密密钥**：SDK 中 `dnsKey` 参数，加密方式为 DES 时传入此项。
  - **AES加密密钥**：SDK 中 `dnsKey` 参数，加密方式为 AES 时传入此项。
  - **HTTPS加密Token**：SDK 中 `token` 参数，加密方式为 HTTPS 时传入此项。
- -  **IOS APPID**： [IOS 端 SDK](https://cloud.tencent.com/document/product/379/17669) 的 `appId（应用 ID）` 鉴权信息。
+ -  **IOS APPID**： [IOS 端 SDK](https://cloud.tencent.com/document/product/379/77756) 的 `appId（应用 ID）` 鉴权信息。
 
 
 ## 安装包结构
@@ -95,6 +95,34 @@
 </dx-tabs>
 
 
+
+
+## SDK 初始化
+
+接口调用示例：
+- 在 Objective-C 项目中。
+```objc
+	DnsConfig *config = new DnsConfig();
+	config->dnsIp = @"HTTPDNS 服务器IP";
+	config->dnsId = dns授权id;
+	config->dnsKey = @"加密密钥";
+	config->encryptType = HttpDnsEncryptTypeDES;
+	config->debug = YES;
+	config->timeout = 2000;
+	config->routeIp = @"查询线路ip";
+	[[MSDKDns sharedInstance] initConfig: config];
+```
+
+- 在 Swift 项目中。
+```swift
+let msdkDns = MSDKDns.sharedInstance() as? MSDKDns;
+msdkDns?.initConfig(with: [
+		"dnsIp": "HTTPDNS 服务器IP",
+		"dnsId": "dns授权id",
+		"dnsKey": "加密密钥",
+		"encryptType": 0, // 0 -> des，1 -> aes，2 -> https
+]);
+```
 
 
 ## 接入验证

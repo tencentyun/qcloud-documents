@@ -5,7 +5,7 @@
 关于使用预签名 url 上传的说明详见文档 [预签名授权上传](https://cloud.tencent.com/document/product/436/14114)， 使用预签名 url 下载的说明详见文档 [预签名授权下载](https://cloud.tencent.com/document/product/436/14116)。
 
 >?
-> - 建议用户[使用临时密钥](https://cloud.tencent.com/document/product/436/14048)生成预签名，通过临时授权的方式进一步提高预签名上传、下载等请求的安全性。申请临时密钥时，请遵循 [最小权限指引原则](https://cloud.tencent.com/document/product/436/38618)，防止泄漏目标存储桶或对象之外的资源。
+> - 建议用户 [使用临时密钥](https://cloud.tencent.com/document/product/436/14048) 生成预签名，通过临时授权的方式进一步提高预签名上传、下载等请求的安全性。申请临时密钥时，请遵循 [最小权限指引原则](https://cloud.tencent.com/document/product/436/38618)，防止泄漏目标存储桶或对象之外的资源。
 > - 如果您一定要使用永久密钥来生成预签名，建议永久密钥的权限范围仅限于上传或下载操作，以规避风险。
 > - 获取签名/预签名函数，默认签入 Header Host；您也可以选择不签入 Header Host，但可能导致请求失败或安全漏洞。
 > 
@@ -293,6 +293,7 @@ COSCredentials cred = new BasicCOSCredentials(secretId, secretKey);
 String bucketName = "examplebucket-1250000000";
 // 对象键(Key)是对象在存储桶中的唯一标识。详情请参见 [对象键](https://cloud.tencent.com/document/product/436/13324)
 String key = "exampleobject";
+String resource_path="/" + key
 
 ClientConfig clientConfig = new ClientConfig(new Region("ap-beijing-1"));
 
@@ -315,16 +316,24 @@ headers.put("header1", "value1");
 // 请求的 HTTP 方法，上传请求用 PUT，下载请求用 GET，删除请求用 DELETE
 HttpMethodName method = HttpMethodName.GET;
 
-String sign = signer.buildAuthorizationStr(method, key, headers, params, cred, expirationDate, true);
+String sign = signer.buildAuthorizationStr(method, resource_path, headers, params, cred, expirationDate, true);
 ```
 
 ### 生成限速的预签名下载 URL
 
+<<<<<<< HEAD
 单链接限速的使用说明可参见[这篇文档](https://cloud.tencent.com/document/product/436/40140)。
 
 #### 请求示例
 
 以生成限速的预签名下载 URL为例：
+=======
+关于限速的使用说明，可参见 [单链接限速](https://cloud.tencent.com/document/product/436/40140)。
+
+#### 请求示例
+
+以生成限速的预签名下载 URL 为例：
+>>>>>>> master
 
 ```
 public static void GenerateSimplePresignedDownloadUrl() {

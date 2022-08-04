@@ -1,6 +1,6 @@
 ## 目录
 ### Interfaces（接口）
-- [Metadata](../interfaces/pts.Metadata.html)
+- [Metadata](https://cloud.tencent.com/document/product/1484/77617)
 
 ### Variables（变量）
 - [default](#default)

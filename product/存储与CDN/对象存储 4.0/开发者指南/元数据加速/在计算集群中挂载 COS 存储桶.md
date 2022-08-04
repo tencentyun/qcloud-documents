@@ -3,7 +3,7 @@
 对象存储（Cloud Object Storage，COS）可以通过开启元数据加速能力，拥有 HDFS 协议访问的能力。开启元数据加速能力后，COS 会为存储桶生成一个挂载点，您可以通过下载 [HDFS 客户端](https://github.com/tencentyun/chdfs-hadoop-plugin/tree/master/jar)，在客户端中输入该挂载点挂载 COS。本文将详细介绍如何在计算集群中挂载开启元数据加速的存储桶。
 
 >! 
->- Hadoop-cos 自8.1.1版本开始支持`cosn://bucketname-appid/`方式访问元数据加速桶。
+>- Hadoop-cos 自8.1.5版本开始支持`cosn://bucketname-appid/`方式访问元数据加速桶。
 >- 元数据加速功能只能在创建存储桶时开启，开启后不支持关闭，请结合您的业务情况**慎重考虑**是否开启，同时注意旧版本的 Hadoop-cos 包不能正常访问已开启元数据加速功能的存储桶。
 
 ## 前提条件
@@ -13,15 +13,17 @@
 - 依赖 JAR 包说明：
 1. [chdfs_hadoop_plugin_network-2.8.jar](https://github.com/tencentyun/chdfs-hadoop-plugin/tree/master/jar) verison>=2.7;
 2. [cos_api-bundle.jar](https://search.maven.org/artifact/com.qcloud/cos_api-bundle/5.6.69/jar) version>=5.6.69;
-3. [Hadoop-cos](https://github.com/tencentyun/hadoop-cos/releases) version>=8.1.3
+3. [Hadoop-cos](https://github.com/tencentyun/hadoop-cos/releases) version>=8.1.5
 4. ofs-java-sdk.jar (version >=1.0.4) 自动拉取无需安装，运行 hadoop fs ls 成功后可以在 fs.cosn.trsf.fs.ofs.tmp.cache.dir 配置的目录下查看对应版本是否符合预期;
 
 ## 操作步骤
-
-1. 下载 [Hadoop 客户端工具安装包](https://github.com/tencentyun/chdfs-hadoop-plugin/tree/master/jar) 。
-2. 将安装包放到各节点 classpath 下保证任务启动能正常加载，例如`$HADOOP_HOME/share/hadoop/common/lib/`下。
->! EMR 环境下自带依赖 jar 包，无需安装，可直接通过 POSIX 语义访问元数据加速桶，如需使用 s3 协议访问则更改 fs.cosn.posix_bucket.fs.impl 配置项，详见下文。
-3. 编辑 `core-site.xml`文件，新增以下基本配置：
+1. 下载 [Hadoop 客户端工具安装包](https://github.com/tencentyun/hadoop-cos/releases)。
+2. 下载 [POSIX Hadoop 客户端工具安装包](https://github.com/tencentyun/chdfs-hadoop-plugin/tree/master/jar)。
+3. 下载 [cos java sdk 安装包](https://search.maven.org/artifact/com.qcloud/cos_api-bundle/5.6.69/jar)。
+4. 将安装包放到各节点 classpath 下保证任务启动能正常加载，例如`$HADOOP_HOME/share/hadoop/common/lib/`下。
+>! EMR 环境下自带依赖 jar 包，无需安装，可直接通过 POSIX 语义访问元数据加速桶。如需使用 s3 协议访问，则更改 fs.cosn.posix_bucket.fs.impl 配置项，详情请参见下文。
+>
+5. 编辑 `core-site.xml`文件，新增以下基本配置：
 ```
 <!--账户的 API 密钥信息。可登录 [访问管理控制台](https://console.cloud.tencent.com/capi) 查看云 API 密钥。-->
 <property>
@@ -73,7 +75,7 @@
 
 
 
-### 2. POSIX 访问方式必填配置项
+### 2. POSIX 访问方式必填配置项（推荐方式）
 
 | 配置项                 | 配置项内容     | 说明 |
 | ------------------------ | ------------------ | ---------------- |
@@ -96,5 +98,9 @@
 - [其他 Hadoop-cos 配置项](https://cloud.tencent.com/document/product/436/6884)
 - [其他 POSIX 方式配置项](https://cloud.tencent.com/document/product/1105/36368)，其他 POSIX 方式配置项添加“fs.cosn.trsf.”前缀即可用于访问元数据加速桶。
 
+### 5. 注意事项
+
+1. 不能使用旧的 hadoop cos jar 包访问开启元数据加速的 bucket。
+2. 使用 Hadoop cos <= 8.1.5 版本 posix 方式访问元数据加速 bucket 需要在控制台关闭 ranger 校验。
 
 
