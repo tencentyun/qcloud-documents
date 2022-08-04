@@ -1,3 +1,6 @@
+腾讯云视立方·播放器 SDK Demo 提供完整的产品级交互界面和业务源码，开发者可按需取用。
+
+### Demo 体验
 <style>
 .markdown-text-box table th,.markdown-text-box table td{
     text-align: center;
@@ -26,7 +29,7 @@
 /*web底部链接*/
 .preview-demo-section .preview-demo-item .demo-item-link-web {
     font-size: 14px;
-	 margin-top: 55px;
+	 margin-top: 53px;
 }
 /*iOS/Android底部链接*/
 .preview-demo-section .preview-demo-item .demo-item-link {
@@ -79,7 +82,7 @@
 }
 
 </style>
-腾讯云视立方·播放器 SDK Demo 提供完整的产品级交互界面和业务源码，开发者可按需取用。
+
 <div class="preview-demo-section" id="demo-card">
  <div class="preview-demo-item style-web">
         <div class="demo-item-header">
@@ -137,3 +140,18 @@
     </div>
     </div>
 </div> 
+
+## Demo 展示
+<dx-tabs>
+::: Web端（TCPlayer）
+Web 端播放器支持 PC 端和移动端的浏览器视频播放，Web 端 提供了可对比查看视频播放功能效果及其配套代码的 Demo 体验页面，您可以通过修改示例代码，即时的在播放区域内查看修改后的功能效果。
+![](https://qcloudimg.tencent-cloud.cn/raw/a597265aa4143354e0c40b231ceb7188.png)
+:::
+::: 移动端
+腾讯云视立方 App 是腾讯云音视频开发的集多款产品及功能于一身的最佳体验方案。扫码下载腾讯云视立方，在**腾讯云视立方** > **播放器** 中提供多种场景化 Demo，您可根据自身需求选择相应功能进行体验。
+* 在 **超级播放器**中，您可以体验到常见的长视频播放场景样式，以及视频试看、视频列表、自定义封面等常见视频功能。
+* 在 **短视频播放**中，您可以体验到类似“腾讯微视”的沉浸式短视频播放场景。
+* 在 **Feed 流播放**中，您可以体验到类似“腾讯新闻”的 Feed 流播放场景。
+![image](https://user-images.githubusercontent.com/88317062/150530734-74c4762c-2c12-4527-b5ff-d01d094c2cec.png)
+:::
+</dx-tabs>

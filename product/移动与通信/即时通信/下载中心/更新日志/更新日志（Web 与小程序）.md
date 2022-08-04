@@ -1,3 +1,9 @@
+### 2.21.1 @2022.8.3
+
+**修复**
+
+[resendMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#resendMessage) 可能导致的消息重复问题。
+
 ### 2.21.0 @2022.7.28
 
 **新增**

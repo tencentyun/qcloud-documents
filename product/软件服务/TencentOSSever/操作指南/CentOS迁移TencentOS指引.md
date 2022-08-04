@@ -4,9 +4,21 @@ CentOS 官方计划停止维护 CentOS Linux 项目，并于2022年01月01日停
 针对以上情况，若您需新购云服务器实例，建议选择使用 TencentOS Server 镜像。若您正在使用 CentOS 实例，则可参考本文替换为 TencentOS Server。
 
 
-## 版本建议
+## 版本说明
+**源端主机支持操作系统版本**：
+- 支持 CentOS 7系列操作系统版本：
+  - CentOS 7.2 64位、CentOS 7.3 64位、CentOS 7.4 64位、CentOS 7.5 64位、CentOS 7.6 64位、CentOS 7.7 64位、CentOS 7.8 64位、CentOS 7.9 64位
+- 支持 CentOS 8系列操作系统版本：
+  - CentOS 8.0 64位、CentOS 8.2 64位、CentOS 8.4 64位
+
+**目标主机建议操作系统版本**：
 - CentOS 7系列建议迁移至 TencentOS Server 2.4 (TK4)。
 - CentOS 8系列建议迁移至 TencentOS Server 3.1 (TK4)。
+
+<dx-alert infotype="notice" title="">
+CentOS 7.2、CentOS 7.3公共镜像可能默认包含了32位的软件包，需要手动移除后再执行升级操作。
+</dx-alert>
+
 
 
 ## 注意事项
@@ -28,8 +40,9 @@ CentOS 官方计划停止维护 CentOS Linux 项目，并于2022年01月01日停
 
 ## 操作步骤
 
-### 数据备份
-迁移操作不可逆，为保障业务数据安全，建议您在执行迁移前通过 [创建快照](https://cloud.tencent.com/document/product/362/5755) 备份系统盘数据。
+### 迁移准备
+1. 迁移操作不可逆，为保障业务数据安全，建议您在执行迁移前通过 [创建快照](https://cloud.tencent.com/document/product/362/5755) 备份系统盘数据。
+2. 检查并手动卸载i686的 rpm 包。
 
 ### 执行迁移
 <dx-tabs>
