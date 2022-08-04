@@ -66,7 +66,7 @@ uni-app 开发接⼊具体参照 [uni 官⽹](https://uniapp.dcloud.net.cn/)。
 ```
 	- ⽅法⼆：任意位置⽂件夹配置
 		1. 将 sdk 源码放置在其他⽂件夹下，例如 pagse/mp_ecard_sdk。
-		2. 在 pages.json 中配置相关⻚⾯，pages 的 path 应为 mp_ecard_sdk 的相对位置路径，例如：pagse/。
+		2. 在 pages.json 中配置相关⻚⾯，pages 的 path 应为 mp_ecard_sdk 的相对位置路径，例如：pages/。
 ```
 "pages": [
  {
