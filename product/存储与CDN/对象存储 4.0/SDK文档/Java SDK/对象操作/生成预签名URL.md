@@ -321,19 +321,11 @@ String sign = signer.buildAuthorizationStr(method, resource_path, headers, param
 
 ### 生成限速的预签名下载 URL
 
-<<<<<<< HEAD
-单链接限速的使用说明可参见[这篇文档](https://cloud.tencent.com/document/product/436/40140)。
-
-#### 请求示例
-
-以生成限速的预签名下载 URL为例：
-=======
 关于限速的使用说明，可参见 [单链接限速](https://cloud.tencent.com/document/product/436/40140)。
 
 #### 请求示例
 
 以生成限速的预签名下载 URL 为例：
->>>>>>> master
 
 ```
 public static void GenerateSimplePresignedDownloadUrl() {
