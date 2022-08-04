@@ -14,7 +14,7 @@ pip3 install pyarrow -image pip3 install pyarrow -image -i http://mirrors.tencen
 
 部署 CHDFS 插件的方法，请参考 [挂载 CHDFS](https://cloud.tencent.com/document/product/1105/36368)。
 
-## 编写 python 程序
+## 编写 Python 程序
 
 1. 使用 pyarrow 访问 CHDFS，示例代码如下：
 ```
@@ -58,7 +58,7 @@ export HADOOP_HOME=/usr/local/service/hadoop  #设置HADOOP_HOME，hadoop的安�
 export CLASSPATH=`$HADOOP_HOME/bin/hadoop classpath --glob`
 #参考网址https://arrow.apache.org/docs/python/filesystems.html#hadoop-file-system-hdfs
 ```
-3. 执行 python 文件：
+3. 执行 Python 文件：
 ```
 python3 libtest.py
 ```
