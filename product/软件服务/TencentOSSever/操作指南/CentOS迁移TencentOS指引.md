@@ -1,5 +1,11 @@
 ## 操作场景
-CentOS 官方计划停止维护 CentOS Linux 项目，并于2022年01月01日停止对 CentOS 8的维护支持，CentOS 7于2024年06月30日也将停止维护。
+CentOS 官方计划停止维护 CentOS Linux 项目，CentOS 8及 CentOS 7维护情况如下。如需了解更多信息，请参见 [CentOS 官方公告](https://blog.centos.org/2020/12/future-is-centos-stream/?spm=a2c4g.11174386.n2.3.348f4c07hk46v4)。
+-  CentOS 8已于2022年01月01日停止维护。
+-  CentOS 7将于2024年06月30日停止维护。
+
+而基于此变更，对于使用者将会产生以下影响：
+- 2022年01月01日后，CentOS 8的使用者将无法获得包括问题修复和功能更新在内的任何软件维护和支持。
+- 2024年06月30日后，CentOS 7的使用者将无法获得包括问题修复和功能更新在内的任何软件维护和支持。
 
 针对以上情况，若您需新购云服务器实例，建议选择使用 TencentOS Server 镜像。若您正在使用 CentOS 实例，则可参考本文替换为 TencentOS Server。
 
