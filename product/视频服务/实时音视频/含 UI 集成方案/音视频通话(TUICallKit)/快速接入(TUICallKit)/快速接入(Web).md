@@ -1,4 +1,3 @@
-TUICallEngine(无 UI 接口) 是一个开源的音视频组件，仅包含通话业务相关的逻辑 API，适用于 UI 定制性较高的场景。
 
 本文将介绍如何用最短的时间完成帮助您快速在桌面浏览器中集成**视频通话**功能，跟随本文档，您将在最终得到一个完整的视频通话功能。
 
@@ -100,6 +99,8 @@ TUICallEngine 依赖以下端口进行数据传输，请将其加入防火墙白
 </tr>
 </tbody></table>
 
+
+[](id:step1)
 ##  步骤一：开通服务
 
 TUICallKit 是基于腾讯云 [即时通信 IM](https://cloud.tencent.com/document/product/269/42440) 和 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 两项付费 PaaS 服务构建出的音视频通信组件。您可以按照如下步骤开通相关的服务并体验 7 天的免费试用服务：
@@ -113,8 +114,10 @@ TUICallKit 是基于腾讯云 [即时通信 IM](https://cloud.tencent.com/docume
     - SDKAppID：IM 的应用 ID，用于业务隔离，即不同的 SDKAppID 的通话彼此不能互通；
     - Secretkey：IM 的应用密钥，需要和 SDKAppID 配对使用，用于签出合法使用 IM 服务的鉴权用票据 UserSig，我们会在接下来的步骤五中用到这个 Key。
 
+
+[](id:step2)
 ## 步骤二：下载并导入 SDK 到项目中
-通过集成 TUICallEngine，您可以通过对方 userID 直接拨打一个 1v1 通话，也可以以 C2C 的方式实现群组通话。
+通过集成 TUICallEngine，您可以通过对方 userID 直接拨打一个 1v1 通话，也可以实现群内通话。
 
 ### NPM 集成
 
@@ -141,7 +144,7 @@ import { TUICallEngine, TUICallEvent } from "tuicall-engine-web"
 - [tuicall-engine-web](https://web.sdk.qcloud.com/component/trtccalling/download/tuicall-engine-web.zip)
 
 ```javascript
-// 如果您通过 script 方式使用 trtc-calling-js，需要按顺序先手动引入 trtc.js
+// 如果您通过 script 方式使用 tuicall-engine-web.js，需要按顺序先手动引入 trtc.js
 <script src="./trtc.js"></script>
 
 // 接着手动引入 tim-js.js
@@ -150,12 +153,13 @@ import { TUICallEngine, TUICallEvent } from "tuicall-engine-web"
 // 然后手动引入 tsignaling.js
 <script src="./tsignaling.js"></script>
 
-// 最后再手动引入 tuicallengine.js
+// 最后再手动引入 tuicall-engine-web.js
 <script src="./tuicall-engine-web.js"></script>
 
 const { TUICallEngine, TUICallEvent } = window['tuicall-engine-web']
 ```
 
+[](id:step3)
 ## 步骤三：创建 TUICallEngine 对象
 ```javascript
 let options = {
@@ -168,7 +172,7 @@ let tuiCallEngine = TUICallEngine.createInstance(options);
 - SDKAppID：在步骤一中的最后一步中您已经获取到，这里不再赘述。
 - tim：非必填项，若您没有，将会由内部代码自动创建。
 
-
+[](id:step4)
 ## 步骤四：登录
 ```javascript
 tuiCallEngine.login({  // 登陆事件
@@ -193,29 +197,27 @@ tuiCallEngine.login({  // 登陆事件
 
 >! Github 中的示例代码使用了 genTestUserSig 函数在本地计算 userSig 是为了更快地让您跑通当前的接入流程，但该方案会将您的 SecretKey 暴露在 Web 的代码当中，这并不利于您后续升级和保护您的 SecretKey，所以我们强烈建议您将 UserSig 的计算逻辑放在服务端进行，并由 Web 在每次使用 TUICallKit 组件时向您的服务器请求实时计算出的 UserSig。
 
+[](id:step5)
 ## 步骤五：事件监听
 
 ```javascript
-function initListener() {       // 绑定事件
-    // 呼叫远端用户
-    tuiCallEngine.on(TUICallEvent.INVITED, this.handleNewInvitationReceived);
-    // 远端用户接听
-    tuiCallEngine.on(TUICallEvent.USER_ACCEPT, this.handleUserAccept);
-    // 远端用户拒绝
-    tuiCallEngine.on(TUICallEvent.REJECT, this.handleInviteeReject);
+// 绑定事件
+tuiCallEngine.on(TUICallEvent.INVITED, () => {    // 呼叫远端用户
+    // 处理监听到 INVITED 事件的回调
     // ...
-}
-function removeListener() {     // 取消绑定事件
-    tuiCallEngine.off(TUICallEvent.INVITED, this.handleNewInvitationReceived);
-    tuiCallEngine.off(TUICallEvent.USER_ACCEPT, this.handleUserAccept);
-    tuiCallEngine.off(TUICallEvent.REJECT, this.handleInviteeReject);
+});     
+tuiCallEngine.on(TUICallEvent.USER_ACCEPT, () => { // 远端用户接听
+    // 处理监听到 USER_ACCEPT 事件的回调
     // ...
-}
-async function handleNewInvitationReceived(payload) { }
-function handleUserAccept() { }
-function handleInviteeReject() { }
+}); 
+tuiCallEngine.on(TUICallEvent.REJECT, () => {      // 远端用户拒绝
+    // 处理监听到 REJECT 事件的回调
+    // ...
+});      
+// ...
 ```
 
+[](id:step6)
 ## 步骤六：实现 1v1 通话
 - 主叫方：呼叫某个用户
     ```javascript
@@ -242,43 +244,35 @@ function handleInviteeReject() { }
     }).catch( error => {
         console.warn('accept error:', error);
     });
-    // 拒绝通话
-    tuiCallEngine.reject().then( res => {
-        // success
-    }).catch( error => {
-        console.warn('reject error:', error);
-    });
     ```
-- 展示远端的视频画面
+- 展示视频画面
+  
+  展示视频画面需要在监听到 `USER_ENTER`事件后处理。
     ```javascript
-    tuiCallEngine.startRemoteView({
-        userID, //远端用户 ID
-        videoViewDomID //该用户数据将渲染到该 DOM ID 节点里
-    }).then( res => {
-        // success
-    }).catch( error => {
-        console.warn('startRemoteView error:', error);
-    });
+    tuiCallEngine.on(TUICallEvent.USER_ENTER, () => {
+        // 远端视频画面
+        tuiCallEngine.startRemoteView({
+            userID, //远端用户 ID
+            videoViewDomID //该用户数据将渲染到该 DOM ID 节点里
+        }).then( res => {
+            // success
+        }).catch( error => {
+            console.warn('startRemoteView error:', error);
+        });
+        // 本地视频画面
+        tuiCallEngine.startLocalView({
+            userID, //本地用户 ID
+            videoViewDomID //该用户数据将渲染到该 DOM ID 节点里
+        }).then( res => {
+            // success
+        }).catch( error => {
+            console.warn('startLocalView error:', error);
+        });
+    }); 
     ```
     | 参数 | 类型 | 含义 |
     |-----|-----|-----|
-    | userID | String | 远端用户 ID|
-    | videoViewDomID | String | 该用户数据将渲染到该 DOM ID 节点里|
-
-- 展示本地的预览画面
-    ```javascript
-    tuiCallEngine.startLocalView({
-        userID, //本地用户 ID
-        videoViewDomID //该用户数据将渲染到该 DOM ID 节点里
-    }).then( res => {
-        // success
-    }).catch( error => {
-        console.warn('startLocalView error:', error);
-    });
-    ```
-    | 参数 | 类型 | 含义 |
-    |-----|-----|-----|
-    | userID | String | 本地用户 ID|
+    | userID | String | 用户 ID|
     | videoViewDomID | String | 该用户数据将渲染到该 DOM ID 节点里|
 
 - 挂断
@@ -291,6 +285,7 @@ function handleInviteeReject() { }
     ```
 
 
+[](id:step7)
 ## 步骤七：更多特性
 
 ### 一. 设置昵称&头像
@@ -310,8 +305,10 @@ tuiCallEngine.setSelfInfo({
 | nickName | String | 要设置的用户昵称 |
 | avatar | String | 头像链接 |
 
-### 二. 群组通话
-如果您想要实现群组通话，可通过该接接口以 C2C 的方式实现群组通话。
+> ! 因为用户隐私限制，非好友之间的通话，被叫的昵称和头像更新可能会有延迟，一次通话成功后就会顺利更新。
+
+### 二. 群内视频通话
+通过调用 groupCall 接口并指定通话类型和被叫方的 userID，就可以发起群内的视频或语音通话。
 ```javascript
 tuiCallEngine.groupCall({
   userIDList: ['user1', 'user2'], 
@@ -328,15 +325,23 @@ tuiCallEngine.groupCall({
 |-----|-----|-----|
 | userIDList | Array | 邀请列表 |
 | type | Number | 0-未知， 1-语音通话，2-视频通话 |
-| groupID | String | IM 群组 ID (选填) |
+| groupID | String | IM 群组 ID |
 
 >? 
 >1. 群组的创建详见：[ IM 群组管理](https://cloud.tencent.com/document/product/269/75394#.E5.88.9B.E5.BB.BA.E7.BE.A4.E7.BB.84) ，或者您也可以直接使用 [IM TUIKit](https://cloud.tencent.com/document/product/269/37059)，一站式集成聊天、通话等场景。
 >2. TUICallKit 目前还不支持发起非群组的多人视频通话，如果您有此类需求，欢迎反馈： [TUICallEngine 需求收集表]()。
 
-### 三、切换摄像头和麦克风设备
+### 三. 切换摄像头和麦克风设备
 如果您需要切换摄像头（麦克风）为外接摄像头或其他，可通过该接口实现。
 ```javascript
+let cameras = [];
+// 获取摄像头列表
+tuiCallEngine.getDeviceList('camera').then((devices)=>{  
+ cameras = devices
+}).catch(error => {
+  console.warn('getDeviceList error:', error)
+});
+// 切换设备
 tuiCallEngine.switchDevice({
   deviceType: 'video', 
   deviceId: cameras[0].deviceId
@@ -352,8 +357,10 @@ tuiCallEngine.switchDevice({
 | deviceId | string | 需要切换的设备ID|
 
 
-### 四、设置视频质量
+### 四. 设置视频质量
 如果您需要设置视频质量，使视频更加流畅，可通过该接口实现。
+
+
 ```javascript
 const profile = '720p';
 tuiCallEngine.setVideoQuality(profile)
@@ -368,6 +375,9 @@ tuiCallEngine.setVideoQuality(profile)
 |480p|640 x 480|
 |720p|1280 x 720|
 |1080p|1920 x 1080|
+
+
+>! 该方法需在 call、groupCall、accept 之前设置，之后设置不生效。
 
 ## 相关链接
 - [Github Demo 地址](https://github.com/tencentyun/TUICalling)
