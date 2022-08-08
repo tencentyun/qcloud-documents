@@ -18,7 +18,7 @@ TUICallKit API 是音视频通话组件的**含 UI 接口**，使用 TUICallKit 
 <h2 id="TUICallEngine"> API 详情</h2>
 
 ### init
-初始化 TUICallKit
+初始化 TUICallKit。
 
 ```javascript
 init()
@@ -26,7 +26,7 @@ init()
 
 
 ### call
-C2C 邀请通话，被邀请方会收到的回调，如果当前处于通话中，可以调用该函数以邀请第三方进入通话
+C2C 邀请通话，被邀请方会收到的回调，如果当前处于通话中，可以调用该函数以邀请第三方进入通话。
 
 ```javascript
 call({
@@ -51,7 +51,7 @@ call({
 | VIDEO | 视频 |
 
 ### setSelfInfo
-设置用户头像、昵称的接口
+设置用户头像、昵称的接口。
 
 ```javascript
 setSelfInfo('xxxxxxx','头像.png') ;
@@ -65,7 +65,7 @@ setSelfInfo('xxxxxxx','头像.png') ;
 | avatar | String | 头像地址 |
 
 ### destroyed
-销毁 TUICallKit
+销毁 TUICallKit。
 
 ```javascript
 destroyed()

@@ -6,21 +6,21 @@ TUICallObserver 是 TUICallEngine 对应的回调事件类，您可以通过此�
 
 | API | 描述 |
 |-----|-----|
-| [onError](#onError) | 通话过程中错误回调|
-| [onCallReceived](#onCallReceived) | 通话请求的回调|
-| [onCallCancelled](#onCallCancelled) | 通话取消的回调 |
-| [onCallBegin](#onCallBegin) | 通话接通的回调|
-| [onCallEnd](#onCallEnd) | 通话结束的回调|
-| [onCallMediaTypeChanged](#onCallMediaTypeChanged) | 通话媒体类型发生改变的回调|
-| [onUserReject](#onUserReject) |  xxxx 用户拒绝通话的回调 |
-| [onUserNoResponse](#onUserNoResponse) |  xxxx 用户不响应的回调|
-| [onUserLineBusy](#onUserLineBusy) | xxxx 用户忙线的回调|
-| [onUserJoin](#onUserJoin) | xxxx 用户加入通话的回调 |
-| [onUserLeave](#onUserLeave) | xxxx 用户离开通话的回调|
-| [onUserVideoAvailable](#onUserVideoAvailable) | xxx 用户是否有视频流的回调|
-| [onUserAudioAvailable](#onUserAudioAvailable) | xxx 用户是否有音频流的回调|
-| [onUserVoiceVolumeChanged](#onUserVoiceVolumeChanged) | 所有用户音量大小的反馈回调 |
-| [onUserNetworkQualityChanged](#onUserNetworkQualityChanged) | 所有用户网络质量的反馈回调。|
+| [onError](#onerror)                                         | 通话过程中错误回调         |
+| [onCallReceived](#oncallreceived)                           | 通话请求的回调             |
+| [onCallCancelled](#oncallcancelled)                         | 通话取消的回调             |
+| [onCallBegin](#oncallbegin)                                 | 通话接通的回调             |
+| [onCallEnd](#oncallend)                                     | 通话结束的回调             |
+| [onCallMediaTypeChanged](#oncallmediatypechanged)           | 通话媒体类型发生改变的回调 |
+| [onUserReject](#onuserreject)                               | xxxx 用户拒绝通话的回调    |
+| [onUserNoResponse](#onusernoresponse)                       | xxxx 用户不响应的回调      |
+| [onUserLineBusy](#onuserlinebusy)                           | xxxx 用户忙线的回调        |
+| [onUserJoin](#onuserjoin)                                   | xxxx 用户加入通话的回调    |
+| [onUserLeave](#onuserleave)                                 | xxxx 用户离开通话的回调    |
+| [onUserVideoAvailable](#onuservideoavailable)               | xxx 用户是否有视频流的回调 |
+| [onUserAudioAvailable](#onuseraudioavailable)               | xxx 用户是否有音频流的回调 |
+| [onUserVoiceVolumeChanged](#onuservoicevolumechanged)       | 所有用户音量大小的反馈回调 |
+| [onUserNetworkQualityChanged](#onusernetworkqualitychanged) | 所有用户网络质量的反馈回调 |
 
 <h2 id="TUICallObserver"> 回调事件详情</h2>
 
@@ -37,8 +37,8 @@ void onError(int code, String msg);
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| code | int | 错误码。 |
-| msg | String | 错误信息。 |
+| code | int | 错误码 |
+| msg | String | 错误信息 |
 
 ### onCallReceived
 
@@ -68,7 +68,7 @@ void onCallBegin(TUICommonDefine.RoomId roomId, TUICallDefine.MediaType callMedi
 void onCallEnd(TUICommonDefine.RoomId roomId, TUICallDefine.MediaType callMediaType, TUICallDefine.Role callRole, long totalTime);
 ```
 
->! 客户端的事件一般都会随着杀进程等异常事件丢失掉，如果您需要通过监听通话时长来完成计费等逻辑，建议可以使用REST API来完成这类流程；
+>! 客户端的事件一般都会随着杀进程等异常事件丢失掉，如果您需要通过监听通话时长来完成计费等逻辑，建议可以使用REST API来完成这类流程。
 
 
 ### onCallMediaTypeChanged
@@ -89,7 +89,7 @@ void onUserReject(String userId);
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | String | 拒绝用户的 ID。|
+| userId | String | 拒绝用户的 ID |
 
 ### onUserNoResponse
 
@@ -157,7 +157,7 @@ void onUserVoiceVolumeChanged(Map<String, Integer> volumeMap);
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| volumeMap | Map<String, Integer> | 音量表，根据每个 userid 可以获取对应的音量大小，音量最小值为0，音量最大值为100。 |
+| volumeMap | Map<String, Integer> | 音量表，根据每个 userid 可以获取对应的音量大小，音量最小值为0，音量最大值为100 |
 
 ### onUserNetworkQualityChanged
 
