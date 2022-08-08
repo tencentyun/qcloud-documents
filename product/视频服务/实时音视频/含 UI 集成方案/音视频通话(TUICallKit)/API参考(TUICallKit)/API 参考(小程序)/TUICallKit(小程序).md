@@ -2,16 +2,26 @@
 
 TUICallKit API 是音视频通话组件的**含 UI 接口**，使用TUICallKit API，您可以通过简单接口快速实现一个类微信的音视频通话场景。
 
-<h2 id="TUICallKit">TUICallKit API 概览</h2>
+<h2 id="TUICallKit">API 概览</h2>
 
 
 | API | 描述 |
 |-----|-----|
+| [init](#init) | 初始化TUICallKit |
 | [call](#call) | 发起 1v1 通话 |
 | [setSelfInfo](#setSelfInfo) | 设置用户的头像、昵称 |
+| [destroyed](#destroyed) | 销毁TUICallKit |
 
 
 <h2 id="TUICallEngine"> API 详情</h2>
+
+### init
+初始化TUICallKit
+
+```javascript
+init()
+```
+
 
 ### call
 C2C邀请通话，被邀请方会收到的回调，如果当前处于通话中，可以调用该函数以邀请第三方进入通话
@@ -55,3 +65,11 @@ setSelfInfo('xxxxxxx','头像.png') ;
 | nickName | String | 设置昵称 |
 | avatar | String | 头像地址 |
 
+
+[](id:destroyed)
+### destroyed
+销毁TUICallKit
+
+```javascript
+destroyed()
+```

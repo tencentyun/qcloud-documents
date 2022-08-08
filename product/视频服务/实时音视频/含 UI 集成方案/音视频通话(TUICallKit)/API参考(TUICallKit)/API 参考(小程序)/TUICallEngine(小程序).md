@@ -3,7 +3,7 @@
 TUICallEngine API 是音视频通话组件的**无 UI 接口**，如果 TUICallKit 的交互并不满足您的需求，您可以使用这套接口自己封装交互。
 由于小程序开发的限制，需要先给live-pusher[绑定事件](#bind)，具体可以参照TUICallkit。
 
-<h2 id="TUICallEngine">TUICallEngine API 概览</h2>
+<h2 id="TUICallEngine"> API 概览</h2>
 
 ### 创建实例和事件回调
 
@@ -98,7 +98,7 @@ off(EventCode, handler);
 |-----|-----|-----|
 | EventCode | String | [事件表](#evenlist) |
 | handler | Function | 监听函数 |
-| context | Object | 当前执行上下文 |
+
 
 ### call
 C2C邀请通话，被邀请方会收到的回调，如果当前处于通话中，可以调用该函数以邀请第三方进入通话
