@@ -133,7 +133,7 @@ init() {
   this.setData({
     pusher: this.TRTC.createPusher(pusherConfig)
   })
-}
+},
 enterRoom(options) {
   const { roomID, sdkAppID, userID, userSig } = options
   this.setData({
