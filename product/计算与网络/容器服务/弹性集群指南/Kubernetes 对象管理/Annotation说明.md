@@ -426,3 +426,10 @@ eks.tke.cloud.tencent.com/ipvs-sh-port: "true" # 按端口进行 source hash，�
 eks.tke.cloud.tencent.com/ipvs-sync-period: '30s' # 规则刷新的最大间隔，默认 30s 刷新一次。
 eks.tke.cloud.tencent.com/ipvs-min-sync-period: '2s' # 规则刷新的最小间隔，默认 service 一有变更就刷新。调整此参数可避免刷新过于频繁。
 ```
+
+
+- 设置集群内访问 CLB 的 VIP 时流量不走 IPVS
+适用于希望集群内访问不走 ipvs 而走 clb，通过给 service 上配置该 annotation 后，不会再生成对应的 ipvs 规则：
+```yaml
+service.cloud.tencent.com/discard-loadbalancer-ip: 'true' # 该 annotation 配置在 service 上，无需重建 Pod 即可即时生效
+```
