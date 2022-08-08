@@ -134,7 +134,7 @@ void onUserVideoAvailable(String userId, boolean isVideoAvailable);
 
 ### onUserAudioAvailable
 
-用户是否开启音频上行回调。·
+用户是否开启音频上行回调。
 ```java
 void onUserAudioAvailable(String userId, boolean isAudioAvailable);
 ```
