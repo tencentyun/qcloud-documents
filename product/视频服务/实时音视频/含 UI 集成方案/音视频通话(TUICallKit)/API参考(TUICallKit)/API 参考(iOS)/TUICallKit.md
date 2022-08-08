@@ -4,25 +4,40 @@ TUICallKit API 是音视频通话组件的**含 UI 接口**，使用TUICallKit A
 
 <h2 id="TUICallKit">API 概览</h2>
 
-
 | API | 描述 |
 |-----|-----|
-| [createInstance](#sharedinstance) | 创建 TUICallKit 实例（单例模式）|
-| [setSelfInfo](#setSelfInfo) | 设置用户的头像、昵称|
-| [call](#call) | 发起 1v1 通话|
-| [groupCall](#groupCall) | 发起群组通话|
-| [joinInGroupCall](#joinInGroupCall) | 主动加入当前的群组通话中 |
-| [setCallingBell](#setCallingBell) | 设置自定义来电铃音 |
-| [enableMuteMode](#enableMuteMode) | 开启/关闭静音模式 |
-| [enableFloatWindow](#enableFloatWindow) | 开启/关闭悬浮窗功能 |
+| [createInstance](#createinstance)       | 创建 TUICallKit 实例（单例模式） |
+| [setSelfInfo](#setselfinfo)             | 设置用户的昵称、头像             |
+| [call](#call)                           | 发起 1v1 通话                    |
+| [groupCall](#groupcall)                 | 发起群组通话                     |
+| [joinInGroupCall](#joiningroupcall)     | 主动加入当前的群组通话中         |
+| [setCallingBell](#setcallingbell)       | 设置自定义来电铃音               |
+| [enableMuteMode](#enablemutemode)       | 开启/关闭静音模式                |
+| [enableFloatWindow](#enablefloatwindow) | 开启/关闭悬浮窗功能              |
 
 <h2 id="TUICallKit">API 详情</h2>
 
+<h2 id="TUICallKit">API 概览</h2>
+
 ### createInstance
 创建 TUICallKit 的单例。
+
 ```objc
 - (instancetype)createInstance;
 ```
+
+### setSelfInfo
+设置用户昵称、头像。用户昵称不能超过500字节，用户头像必须是 URL 格式。
+
+```objc
+- (void)setSelfInfo:(NSString * _Nullable)nickname avatar:(NSString * _Nullable)avatar succ:(TUICallSucc)succ fail:(TUICallFail)fail
+```
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| nickName | NSString | 目标用户的昵称 |
+| avatar | NSString | 目标用户的头像 | 
+
 ### call
 拨打电话（1v1通话）
 
@@ -46,8 +61,8 @@ TUICallKit API 是音视频通话组件的**含 UI 接口**，使用TUICallKit A
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| groupId | NSString | 此次群组通话的群 Id. |
-| userIdList | NSArray | 目标用户的userId 列表 |
+| groupId | NSString | 此次群组通话的群 ID |
+| userIdList | NSArray | 目标用户的 userId 列表 |
 | callMediaType | TUICallMediaType | 通话的媒体类型，比如视频通话、语音通话 |
 
 ### joinInGroupCall
@@ -59,13 +74,15 @@ TUICallKit API 是音视频通话组件的**含 UI 接口**，使用TUICallKit A
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| roomId | TUIRoomId | 目标用户的userId 列表 |
-| groupId | NSString | 此次群组通话的群 Id. |
+| roomId | TUIRoomId | 此次通话的音视频房间 Id，目前仅支持数字房间号，后续版本会支持字符串房间号 |
+| groupId | NSString | 此次群组通话的群 Id |
 | callMediaType | TUICallMediaType | 通话的媒体类型，比如视频通话、语音通话 |
 
-
 ### setCallingBell
-设置自定义来电铃音，这里仅限传入本地文件地址，需要确保该文件目录是应用可以访问的。
+设置自定义来电铃音。
+这里仅限传入本地文件地址，需要确保该文件目录是应用可以访问的。
+- 铃声设置后与设备绑定，更换用户，铃声依旧会生效。
+- 如需恢复默认铃声，`filePath` 传空即可。
 
 ```objc
 - (void)setCallingBell:(NSString *)filePath;
@@ -78,11 +95,10 @@ TUICallKit API 是音视频通话组件的**含 UI 接口**，使用TUICallKit A
 - (void)enableMuteMode:(BOOL)enable;
 ```
 
-
 ### enableFloatWindow
-开启/关闭悬浮窗功能，设置为false后，通话界面左上角的悬浮窗按钮会隐藏。
+开启/关闭悬浮窗功能。
+默认为`false`，通话界面左上角的悬浮窗按钮隐藏，设置为 true 后显示。
 
 ```objc
 - (void)enableFloatWindow:(BOOL)enable;
 ```
-
