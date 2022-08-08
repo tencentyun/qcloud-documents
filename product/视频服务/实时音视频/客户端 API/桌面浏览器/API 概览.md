@@ -473,6 +473,7 @@ Client 会触发的事件列表，即 `client.on('eventName')` 事件监听中�
 | [client-banned](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/module-ClientEvent.html#.CLIENT_BANNED) | 用户被踢出房间事件，被踢原因有：<ul style="margin:0"><li/>同名用户进入同一房间，**注意**：禁止同名用户同时进入同一房间，会导致双方音视频通话异常，业务侧应避免出现这种情况。<li/>被账户管理员使用服务端 API 踢出房间。</ul> |
 | [network-quality](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/module-ClientEvent.html#.NETWORK_QUALITY) | 网络质量统计数据事件，进房后开始统计，每两秒触发一次，包括上、下行的网络质量数据。 |
 | [audio-volume](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/module-ClientEvent.html#.AUDIO_VOLUME) | 音量大小事件。<br>调用 [enableAudioVolumeEvaluation](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/Client.html#enableAudioVolumeEvaluation) 接口开启音量大小回调后，SDK 会定时抛出该事件，通知每个 userId 的音量大小。 |
+|[sei-message](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/module-ClientEvent.html#.SEI_MESSAGE) |收到 SEI 消息。|
 | [error](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/module-ClientEvent.html#.ERROR) | 错误事件，当出现不可恢复错误后，会抛出此事件。参见 [错误码](https://cloud.tencent.com/document/product/647/34342)。 |
 
 ### StreamEvent
