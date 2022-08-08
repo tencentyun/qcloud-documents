@@ -12,14 +12,14 @@
 </tr></tbody></table>
 
 ## 导入资源
-
-### 资源
-
+<dx-tabs>
+::: 手动集成
+#### 集成
 - 添加上述文件准备的全部 `.aar` 文件到 app 工程 `libs` 目录下。
 - 将 SDK 包内的 assets/ 目录下的全部资源拷贝到 `../src/main/assets` 目录下，如果 SDK 包中的 MotionRes 文件夹内有资源，将此文件夹也拷贝到 `../src/main/assets` 目录下 。
 - 将 jniLibs 文件夹拷贝到工程的 `../src/main/jniLibs` 目录下。
 
-### 导入方法
+#### 导入方法
 打开 app 模块的 `build.gradle` 添加依赖引用：
 
 ```groovy
@@ -39,13 +39,54 @@ dependencies{
     compile fileTree(dir: 'libs', include: ['*.jar','*.aar'])//添加 *.aar
 }
 ```
+:::
+::: Maven 集成
+腾讯特效 SDK 已经发布到 mavenCentral 库，您可以通过配置 gradle 自动下载更新。
+1. 在 dependencies 中添加 TRTCSDK 的依赖。
+```groovy
+dependencies {
+	//例如：S1-04套餐如下
+	implementation 'com.tencent.mediacloud:TencentEffect_S1-04:latest.release'
+}
+```
+2. 在 defaultConfig 中，指定 App 使用的 CPU 架构。
+```
+defaultConfig {
+	ndk {
+		abiFilters "armeabi-v7a", "arm64-v8a"
+	}
+}
+```
+>? 目前 特效 SDK 支持 armeabi-v7a 和 arm64-v8a。
+3. 单击![img](https://main.qcloudimg.com/raw/d6b018054b535424bb23e42d33744d03.png)**Sync Now**，自动下载 SDK 并集成到工程里。
+4. 如果您的套餐包含动效和滤镜功能，那么需要在 [SDK 下载页面](https://cloud.tencent.com/document/product/616/65876) 下载对应的资源，将动效和滤镜素材放置在您工程下的如下目录：
+	- 动效：`../assets/MotionRes`      
+	- 滤镜：`../assets/lut`
 
-[](id:download)
-## 包体大小瘦身：动态下载 assets、so、动效资源指引
+#### 各套餐对应的 Maven 地址
 
+| 版本    | Maven 地址                                                    | 
+| ------- | ------------------------------------------------------------ |
+| A1 - 01 | implementation 'com.tencent.mediacloud:TencentEffect_A1-01:latest.release' |
+| A1 - 02 | implementation 'com.tencent.mediacloud:TencentEffect_A1-02:latest.release' | 
+| A1 - 03 | implementation 'com.tencent.mediacloud:TencentEffect_A1-03:latest.release' |
+| A1 - 04 | implementation 'com.tencent.mediacloud:TencentEffect_A1-04:latest.release' |
+| A1 - 05 | implementation 'com.tencent.mediacloud:TencentEffect_A1-05:latest.release' |
+| A1 - 06 | implementation 'com.tencent.mediacloud:TencentEffect_A1-06:latest.release' |
+| S1 - 00 | implementation 'com.tencent.mediacloud:TencentEffect_S1-00:latest.release' |
+| S1 - 01 | implementation 'com.tencent.mediacloud:TencentEffect_S1-01:latest.release' |
+| S1 - 02 | implementation 'com.tencent.mediacloud:TencentEffect_S1-02:latest.release' |
+| S1 - 03 | implementation 'com.tencent.mediacloud:TencentEffect_S1-03:latest.release' |
+| S1 - 04 | implementation 'com.tencent.mediacloud:TencentEffect_S1-04:latest.release' |
+:::
+::: 动态下载集成
+#### 动态下载 assets、so、动效资源指引
 为了减少包大小，您可以将 SDK 所需的 assets 资源、so 库、以及动效资源 MotionRes（部分基础版 SDK 无动效资源）改为联网下载。在下载成功后，将上述文件的路径设置给 SDK。
 
 我们建议您复用 Demo 的下载逻辑，当然，也可以使用您已有的下载服务。动态下载的详细指引，请参见 [SDK 包体瘦身（Android）](https://cloud.tencent.com/document/product/616/73016)。
+:::
+</dx-tabs>
+
 
 ## 整体流程
 
