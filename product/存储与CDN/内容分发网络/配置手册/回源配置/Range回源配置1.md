@@ -36,17 +36,14 @@
 
 ## 配置示例
 
-### 示例一：
+**示例一**
 若全部文件都需要开启 range 回源，域名 `cloud.tencent.com` 的分片回源配置如下：
 ![](https://qcloudimg.tencent-cloud.cn/raw/f92b47292686b3de34eb5338bd9ac015.png)
 用户 A 请求资源：`http://cloud.tencent.com/test.ap`k，节点收到请求后，发现缓存的 test.apk 文件已过期，此时发起回源请求，因为当前规则为全部文件开启分片回源，则节点回源使用 Range 请求，分片获取资源并缓存。若此时用户 B 向同一节点发起的同一文件请求，并且也是 Range 请求，当节点上存储的分片已满足 Range 中指定的字节段，则会直接返回给用户，无需等所有分片获取完毕。
 
-### 示例二：
+**示例二**
 若您当前只有部分文件需要使用分片回源，域名 `cloud.tencent.com` 的分片回源配置如下：
 ![](https://qcloudimg.tencent-cloud.cn/raw/83f6b1983afeefca6cc0d5ec8b352a88.png)
 用户 A 请求资源：`http://cloud.tencent.com/test.apk`，由于下方的规则优先级高于上方的规则，所以该请求在节点资源未命中或缓存已过期的情况下，将使用分片回源。若用户B请求资源：`http://cloud.tencent.com/test.jpg`，该规则只匹配全部文件，则该请求出现回源的情况下，不使用分片回源请求。
 
 
-## 关联的常见问题：
-为什么会出现 CDN 回源流量比访问流量还高？
-为什么用了 CDN，下载速度还是非常慢？
