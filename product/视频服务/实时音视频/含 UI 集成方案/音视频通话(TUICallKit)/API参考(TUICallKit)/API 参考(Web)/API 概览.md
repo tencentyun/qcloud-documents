@@ -33,28 +33,31 @@ TUICallEngine API 是音视频通话组件的**无 UI 接口**，如果 TUICallK
 ## 事件类型定义
 | EVENT | 描述 |
 |-----|-----|
-| [TUICallEvent.ERROR]() | SDK 内部发生了错误|
-| [TUICallEvent.SDK_READY]() | SDK 进入 ready 状态时收到该回调|
-| [TUICallEvent.KICKED_OUT]() | 重复登陆，收到该回调说明被踢出房间|
-| [TUICallEvent.USER_ACCEPT]() | 如果有用户接听，那么会收到此回调 |
-| [TUICallEvent.USER_ENTER]() | 如果有用户同意进入通话，那么会收到此回调|
-| [TUICallEvent.USER_LEAVE]() | 如果有用户同意离开通话，那么会收到此回调|
-| [TUICallEvent.REJECT]() | 用户拒绝通话 |
-| [TUICallEvent.NO_RESP]() | 邀请用户无应答|
-| [TUICallEvent.LINE_BUSY]() | 邀请方忙线|
-| [TUICallEvent.CALLING_TIMEOUT]() | 作为被邀请方会收到，收到该回调说明本次通话超时未应答|
-| [TUICallEvent.USER_VIDEO_AVAILABLE]() | 远端用户开启/关闭了摄像头, 会收到该回调|
-| [TUICallEvent.USER_AUDIO_AVAILABLE]() | 远端用户开启/关闭了麦克风, 会收到该回调|
-| [TUICallEvent.USER_VOICE_VOLUME]() | 远端用户说话音量调整, 会收到该回调|
-| [TUICallEvent.GROUP_CALL_INVITEE_LIST_UPDATE]() | 群聊更新邀请列表收到该回调|
-| [TUICallEvent.INVITED]() | 被邀请进行通话|
-| [TUICallEvent.CALLING_CANCEL]() | 作为被邀请方会收到，收到该回调说明本次通话被取消了|
-| [TUICallEvent.CALLING_END]() | 收到该回调说明本次通话结束了|
-| [TUICallEvent.DEVICED_UPDATED]() | 设备列表发生变化的回调 |
-| [TUICallEvent.CALL_TYPE_CHANGED]() | 视频通话切换到语音通话的回调 |
+| [TUICallEvent.ERROR](#ERROR) | SDK 内部发生了错误|
+| [TUICallEvent.SDK_READY](#SDK_READY) | SDK 进入 ready 状态时收到该回调|
+| [TUICallEvent.KICKED_OUT](#KICKED_OUT) | 重复登陆，收到该回调说明被踢出房间|
+| [TUICallEvent.USER_ACCEPT](#USER_ACCEPT) | 如果有用户接听，那么会收到此回调 |
+| [TUICallEvent.USER_ENTER](#USER_ENTER) | 如果有用户同意进入通话，那么会收到此回调|
+| [TUICallEvent.USER_LEAVE](#USER_LEAVE) | 如果有用户同意离开通话，那么会收到此回调|
+| [TUICallEvent.REJECT](#REJECT) | 用户拒绝通话 |
+| [TUICallEvent.NO_RESP](#NO_RESP) | 邀请用户无应答|
+| [TUICallEvent.LINE_BUSY](#LINE_BUSY) | 邀请方忙线|
+| [TUICallEvent.CALLING_TIMEOUT](#CALLING_TIMEOUT) | 作为被邀请方会收到，收到该回调说明本次通话超时未应答|
+| [TUICallEvent.USER_VIDEO_AVAILABLE](#USER_VIDEO_AVAILABLE) | 远端用户开启/关闭了摄像头, 会收到该回调|
+| [TUICallEvent.USER_AUDIO_AVAILABLE](#USER_AUDIO_AVAILABLE) | 远端用户开启/关闭了麦克风, 会收到该回调|
+| [TUICallEvent.USER_VOICE_VOLUME](#USER_VOICE_VOLUME) | 远端用户说话音量调整, 会收到该回调|
+| [TUICallEvent.GROUP_CALL_INVITEE_LIST_UPDATE](#GROUP_CALL_INVITEE_LIST_UPDATE) | 群聊更新邀请列表收到该回调|
+| [TUICallEvent.INVITED](#INVITED) | 被邀请进行通话|
+| [TUICallEvent.CALLING_CANCEL](#CALLING_CANCEL) | 作为被邀请方会收到，收到该回调说明本次通话被取消了|
+| [TUICallEvent.CALLING_END](#CALLING_END) | 收到该回调说明本次通话结束了|
+| [TUICallEvent.DEVICED_UPDATED](#DEVICED_UPDATED) | 设备列表更新收到该回调 |
+| [TUICallEvent.CALL_TYPE_CHANGED](#CALL_TYPE_CHANGED) | 通话类型切换收到该回调 |
 
+## 文档链接
 
-
+- [TUICallEngine](https://tcloud-doc.isd.com/document/product/647/78757)
+- [TUICallEvent](https://tcloud-doc.isd.com/document/product/647/78758)
+- [TUICallEngine API 文档](https://web.sdk.qcloud.com/component/trtccalling/doc/TUICallEngine/web/TUICallEngine.html)
 
 
 
