@@ -887,7 +887,7 @@ cPush.createNotificationChannel(
 
 本API需要您提供 `title`, `body`, 及 `ext` 用于点击跳转信息，三个参数。您可以根据需要自行解析收到的 `V2TimMessage`，生成这三个字段。
 
-![20220713163737](https://tuikit-1251787278.cos.ap-guangzhou.myqcloud.com/20220713163737.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/a6038698a5c1f4c12e9b8454ab07ce64.png)
 
 为便于跳转，此处ext的生成规则可查看 `displayDefaultNotificationForMessage` 的代码。
 

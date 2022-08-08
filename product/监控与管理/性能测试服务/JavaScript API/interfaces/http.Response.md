@@ -26,7 +26,7 @@ proto 表示协议。例如 'HTTP/1.0'。
 
 [](id:request)
 ### request
-**request**: [`Request`](http.Request.md)
+**request**: [`Request`](https://cloud.tencent.com/document/product/1484/75823)
 request 是为获得此响应而发送的请求。
 
 

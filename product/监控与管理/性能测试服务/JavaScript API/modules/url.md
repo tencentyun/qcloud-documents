@@ -1,5 +1,3 @@
-
-
 ## Namespaces（命名空间）
 - [&quot;pts/url&quot;](https://cloud.tencent.com/document/product/1484/75837)
 
@@ -42,16 +40,12 @@ URL: { prototype: [URL](https://cloud.tencent.com/document/product/1484/75825); 
 
 
 ### URLSearchParams
-
-URLSearchParams: { prototype: [URLSearchParams](https://cloud.tencent.com/document/product/1484/75825#URLSearchParams); toString: *any* }
+URLSearchParams: { prototype: [URLSearchParams](https://cloud.tencent.com/document/product/1484/75827); toString: *any* }
 
 
 #### Type declaration
-
- - ##### prototype: [URLSearchParams](https://cloud.tencent.com/document/product/1484/75825l#URLSearchParams)
-
- - ##### toString:function
-
-  - toString(): *string*
+- prototype: [URLSearchParams](https://cloud.tencent.com/document/product/1484/75827)
+- toString:function
+- toString(): *string*
 
  Returns *string*
