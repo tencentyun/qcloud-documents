@@ -32,25 +32,12 @@ include ':tuicallkit'
 api project(':tuicallkit')
 ```
 > ? tuicallkit 工程内部已经默认依赖：`TRTC SDK`、`IM SDK`、`tuicallengine` 以及公共库 `tuicore`，不需要开发者单独配置。如需进行版本升级，则修改`tuicallkit/build.gradle`文件即可。
-3. TUICallKit 组件需要用到相机和麦克风的权限，所以需要您在 app/src/main 目录下的 `AndroidManifest.xml` 文件中配置如下权限：
-```java
-<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />        // 使用场景：悬浮窗、应用在后台时拉起通话界面时需要此权限；
-<uses-permission android:name="android.permission.INTERNET" />              
-<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-<uses-permission android:name="android.permission.RECORD_AUDIO" />
-<uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
-<uses-permission android:name="android.permission.BLUETOOTH" />                  // 使用场景：使用蓝牙耳机时需要此权限；
-<uses-permission android:name="android.permission.READ_PHONE_STATE" />           // 使用场景：判断是否是系统来电打断时需要此权限；
-<uses-permission android:name="android.permission.CAMERA" />
-<uses-feature android:name="android.hardware.camera"/>
-<uses-feature android:name="android.hardware.camera.autofocus" />
-```
->! Android 6.0 以上的 Android 系统需要动态申请相机、麦克风、读取存储权限等。
-4. 由于我们在 SDK 内部使用了Java 的反射特性，需要将 SDK 中的部分类加入不混淆名单，因此需要您在 `proguard-rules.pro` 文件中添加如下代码：
+3. 由于我们在 SDK 内部使用了Java 的反射特性，需要将 SDK 中的部分类加入不混淆名单，因此需要您在 `proguard-rules.pro` 文件中添加如下代码：
 ``` 
 -keep class com.tencent.** { *; }
 ```
+
+>! TUICallKit 会在内部帮助您动态申请相机、麦克风、读取存储权限等，如果因为您的业务问题需要删减，可以请修改`tuicallkit/src/main/AndroidManifest.xml`。
 
 [](id:step4)
 ## 步骤四：登录 TUI 组件
