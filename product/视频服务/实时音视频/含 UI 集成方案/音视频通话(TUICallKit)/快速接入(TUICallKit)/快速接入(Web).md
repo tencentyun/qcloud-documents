@@ -7,24 +7,19 @@ TUICallEngine(无 UI 接口) 是一个开源的音视频组件，仅包含通话
 腾讯云 TUICallEngine SDK 接入前，您需要：
 
 - 在 [云通信控制台](https://console.cloud.tencent.com/im) 中创建一个云通信应用，并取得 SDKAppID。
-
 - 在 [云通信控制台-基本配置](https://console.cloud.tencent.com/im-detail) 中，选择创建好的云通信应用，开通腾讯实时音视频服务。
-  
-  ![](https://camo.githubusercontent.com/20575292024f27b76db87d6688e57f16d38b579b249054466668b596975dd30e/68747470733a2f2f71636c6f7564696d672e74656e63656e742d636c6f75642e636e2f7261772f65343335333332636461386439656337666561323162643935663761306362612e706e67)
-
-- SDKAppID：IM 的应用 ID，用于业务隔离，即不同的 SDKAppID 的通话彼此不能互通；
-- Secretkey：IM 的应用密钥，需要和 SDKAppID 配对使用，用于签出合法使用 IM 服务的鉴权用票据 UserSig，我们会在接下来的步骤五中用到这个 Key。
+  ![](https://qcloudimg.tencent-cloud.cn/raw/b0eb86680b0ecacd1e5ce4424e66252e.png)
+	- **SDKAppID**：IM 的应用 ID，用于业务隔离，即不同的 SDKAppID 的通话彼此不能互通。
+	- **Secretkey**：IM 的应用密钥，需要和 SDKAppID 配对使用，用于签出合法使用 IM 服务的鉴权用票据 UserSig，我们会在接下来的 [步骤五](TODO: 文档缺少步骤5) 中用到这个 Key。
   
 
 ## 接入示例
 通过集成 TUICallEngine，您可以通过对方 userId 直接拨打一个 1v1 通话，也可以以 C2C 的方式实现群组通话。
 
+[](id:step1)
 ### 步骤一：导入 SDK 到项目中
-
 需要手动安装依赖 [trtc-js-sdk](https://www.npmjs.com/package/trtc-js-sdk) 和 [tim-js-sdk](https://www.npmjs.com/package/tim-js-sdk) 以及 [tsignaling](https://www.npmjs.com/package/tsignaling)。
-
-#### NPM 集成
-
+- **NPM 集成**[](id:NPM)
 ```javascript
 // 为了减小 tuicallengine.js 的体积，避免和接入侧已使用的 trtc-js-sdk 和 tim-js-sdk 以及 tsignaling 发生版本冲突
 // trtc-js-sdk 和 tim-js-sdk 以及 tsignaling 不再被打包到 tuicallengine.js，在使用前您需要手动安装依赖。
@@ -36,7 +31,7 @@ npm i tuicall-engine-webrtc --save
 
 import { TUICallEngine, TUICallEvent, TUICAllType } from "tuicall-engine-webrtc"
 ```
-#### Script 集成
+- **Script 集成**[](id:Script)
 ```javascript
 // 如果您通过 script 方式使用 trtc-calling-js，需要按顺序先手动引入 trtc.js
 <script src="./trtc.js"></script>
@@ -53,6 +48,7 @@ import { TUICallEngine, TUICallEvent, TUICAllType } from "tuicall-engine-webrtc"
 const { TUICallEngine, TUICallEvent, TUICAllType } = window['tuicall-engine-webrtc']
 ```
 
+[](id:step2)
 ### 步骤二：创建 TUICallEngine 对象
 ```javascript
 let options = {
@@ -63,6 +59,7 @@ let options = {
 let tuiCallEngine = TUICallEngine.createInstance(options);
 ```
 
+[](id:step3)
 ### 步骤三：进行登录与事件监听
 ```javascript
 tuiCallEngine.login({
@@ -107,43 +104,43 @@ export default {
 }
 ```
 
+[](id:step4)
 ### 步骤四：实现 1v1 通话
 - 主叫方：呼叫某个用户
-    ```javascript
-    tuiCallEngine.call({
-        userID,  //用户 ID
-        type: 2, //通话类型，0-未知， 1-语音通话，2-视频通话
-        timeout  //邀请超时时间, 单位 s(秒)
-    });
-    ```
+```javascript
+tuiCallEngine.call({
+		userID,  //用户 ID
+		type: 2, //通话类型，0-未知， 1-语音通话，2-视频通话
+		timeout  //邀请超时时间, 单位 s(秒)
+});
+```
 - 被叫方：接听新的呼叫
-    ```javascript
-    // 接听
-    tuiCallEngine.accept();
-    // 拒绝
-    tuiCallEngine.reject()
-    ```
+```javascript
+// 接听
+tuiCallEngine.accept();
+// 拒绝
+tuiCallEngine.reject()
+```
 - 展示远端的视频画面
-    ```javascript
-    tuiCallEngine.startRemoteView({
-        userID, //远端用户 ID
-        videoViewDomID //该用户数据将渲染到该 DOM ID 节点里
-    })
-    ```
+```javascript
+tuiCallEngine.startRemoteView({
+		userID, //远端用户 ID
+		videoViewDomID //该用户数据将渲染到该 DOM ID 节点里
+})
+```
 - 展示本地的预览画面
-    ```javascript
-    tuiCallEngine.startLocalView({
-        userID, //本地用户 ID
-        videoViewDomID //该用户数据将渲染到该 DOM ID 节点里
-    })
-    ```
+```javascript
+tuiCallEngine.startLocalView({
+		userID, //本地用户 ID
+		videoViewDomID //该用户数据将渲染到该 DOM ID 节点里
+})
+```
 - 挂断
-    ```javascript
-    tuiCallEngine.hangup()
-    ```
+```javascript
+tuiCallEngine.hangup()
+```
 
 ## 常见问题
-
 ### 为什么拨打不通，或者被踢下线？
 
 组件暂不支持多实例登入，不支持**离线推送信令**功能，请您确认登入账号的唯一性。
@@ -159,10 +156,8 @@ TRTCCalling 依赖以下端口进行数据传输，请将其加入防火墙白�
 
 - **TCP 端口**：8687
 - **UDP 端口**：8000，8080，8800，843，443，16285
-- **域名**：qcloud.rtc.qq.com，具体请参见 [应对防火墙限制相关](https://cloud.tencent.com/document/product/647/34399)。
+- **域名**：qcloud.rtc.qq.com，具体请参见 [应对防火墙限制相关](https://cloud.tencent.com/document/product/647/34399)
 - **平台支持**：目前该方案支持如下平台
-
-
 <table>
 <thead><tr><th>操作系统</th><th>浏览器类型</th><th>浏览器最低版本要求</th></tr></thead>
 <tbody><tr>
@@ -199,9 +194,7 @@ TRTCCalling 依赖以下端口进行数据传输，请将其加入防火墙白�
 <td>80+</td>
 </tr>
 </tbody></table>
-
 >? 详细兼容性查询，具体请参见 [浏览器支持情况](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/tutorial-05-info-browser.html)。同时，您可通过 [TRTC 检测页面](https://web.sdk.qcloud.com/trtc/webrtc/demo/detect/index.html) 在线检测。
-
 - **URL 域名协议限制**：
 <table>
 <thead><tr><th>应用场景</th><th>协议</th><th>接收（播放）</th><th>发送（上麦）</th><th>屏幕分享</th><th>备注</th></tr></thead>

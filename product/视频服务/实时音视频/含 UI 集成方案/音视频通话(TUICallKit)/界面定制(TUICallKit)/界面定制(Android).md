@@ -3,11 +3,12 @@
 ## 方案一：界面微调方案
 通过直接修改我们提供的 UI 源代码，对 TUICallKit 的用户界面进行调整，TUICallKit 的界面源代码位于 [Github](https://github.com/tencentyun/TUICalling) 中的 `Android/tuicallkit` 文件夹下面：
 
-**替换图标**
-您可以直接替换 `res\drawable-xxhdpi` 文件夹下的图标，以确保整个 app 中的图标色调风格保持一致，请在替换时保持图标文件的名字不变。
+### 替换图标
+
+您可以直接替换 `res\drawable-xxhdpi` 文件夹下的图标，以确保整个 App 中的图标色调风格保持一致，请在替换时保持图标文件的名字不变。
 ![](https://qcloudimg.tencent-cloud.cn/raw/32a0db447f1ce053d2f85a3845702312.png)
 
-**替换铃声**
+### 替换铃声
 您可以替换 `res\raw` 文件夹下的三个音频文件来达到替换铃声的目的：
 
 | 文件名 | 用途 | 
@@ -16,7 +17,7 @@
 | phone_hangup.mp3 | 被挂断的声音 | 
 | phone_ringing.wav | 接到呼叫时的声音 | 
 
-**替换文案**
+### 替换文案
 您可以通过修改 values-zh 和 values-en 中的 `strings.xml` 文件来修改视频通话界面中的字符串内容。
 
 
@@ -81,7 +82,7 @@ TUICallObserver 是 TUICallEngine 对应的回调事件类，您可以通过此�
 | [TUICallDefine.MediaType]() | 通话的媒体类型，枚举类型：视频通话、语音通话 |
 | [TUICallDefine.Role]() | 通话的角色，枚举类型：主叫、被叫 |
 | [TUICallDefine.Status]() | 通话的状态，枚举类型：空闲、待接听、接听中 |
-| [TUICommonDefine.RoomId]() | 音视频房间Id，支持数字、字符串两种类型 |
-| [TUICommonDefine.Camera]() | 摄像头Id参数，枚举类型：前摄、后摄|
+| [TUICommonDefine.RoomId]() | 音视频房间 ID，支持数字、字符串两种类型 |
+| [TUICommonDefine.Camera]() | 摄像头 ID 参数，枚举类型：前摄、后摄 |
 | [TUICommonDefine.AudioPlaybackDevice]() | 声音的播放设备，枚举类型：扬声器、听筒 |
 | [TUICommonDefine.NetworkQualityInfo]() | 当前的网络质量信息 |
