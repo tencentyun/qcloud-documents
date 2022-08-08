@@ -4,12 +4,12 @@ TUICallKit API 是音视频通话组件的**含 UI 接口**，使用TUICallKit A
 
 | API | 描述 |
 |-----|-----|
-| [createInstance](#createInstance) | 创建 TUICallKit 实例（单例模式）|
-| [destroyInstance](#destroyInstance) | 销毁 TUICallKit 实例（单例模式）|
-| [setSelfInfo](#setSelfInfo) | 设置用户的头像、昵称|
-| [call](#call) | 发起 1v1 通话|
-| [groupCall](#groupCall) | 发起群组通话|
-| [joinInGroupCall](#joinInGroupCall) | 主动加入当前的群组通话中 |
-| [setCallingBell](#setCallingBell) | 设置自定义来电铃音 |
-| [enableMuteMode](#enableMuteMode) | 开启/关闭静音模式 |
-| [enableFloatWindow](#enableFloatWindow) | 开启/关闭悬浮窗功能 |
+| [login](https://tcloud-doc.isd.com/document/product/647/78763?!preview#login) | 登录 |
+| [logout](https://tcloud-doc.isd.com/document/product/647/78763?!preview#logout) | 登出 |
+| [setSelfInfo](https://tcloud-doc.isd.com/document/product/647/78763?!preview#setSelfInfo) | 设置用户的头像、昵称 |
+| [call](https://tcloud-doc.isd.com/document/product/647/78763?!preview#call) | 发起 1v1 通话|
+| [groupCall](https://tcloud-doc.isd.com/document/product/647/78763?!preview#groupCall) | 发起群组通话 |
+| [joinInGroupCall](https://tcloud-doc.isd.com/document/product/647/78763?!preview#joinInGroupCall) | 主动加入当前的群组通话中 |
+| [setCallingBell](https://tcloud-doc.isd.com/document/product/647/78763?!preview#setCallingBell) | 设置自定义来电铃音 |
+| [enableMuteMode](https://tcloud-doc.isd.com/document/product/647/78763?!preview#enableMuteMode) | 开启/关闭静音模式 |
+| [enableFloatWindow](https://tcloud-doc.isd.com/document/product/647/78763?!preview#enableFloatWindow) | 开启/关闭悬浮窗功能 |

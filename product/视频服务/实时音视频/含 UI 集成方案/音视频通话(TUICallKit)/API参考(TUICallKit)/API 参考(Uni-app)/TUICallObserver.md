@@ -20,57 +20,85 @@ const TUICallingEvent = uni.requireNativePlugin('globalEvent');
 ```
 
 ### onError
-
 错误回调。
 >?SDK 不可恢复的错误，一定要监听，并分情况给用户适当的界面提示。
 
 ```javascript
-TUICallingEvent.addEventListener('onError', (code, msg) => {
-  console.log('onError', code, msg);
+TUICallingEvent.addEventListener('onError', (res) => {
+  console.log('onError', JSON.stringify(res));
 });
 ```
 
 参数如下表所示：
-
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| code | int | 错误码。 |
-| msg | String | 错误信息。 |
+| res | Object | 错误回调参数 |
+| res.code | Number | 错误码 |
+| res.msg | String | 错误信息 |
 
 ### onCallReceived
-
 收到一个新的来电请求回调，被叫会收到，您可以通过监听这个事件，来决定是否显示通话接听界面。
 ```javascript
-TUICallingEvent.addEventListener('onCallReceived', (callerId, calleeIdList, isGroupCall, callMediaType) => {
-  console.log('onCallReceived', callerId, calleeIdList, isGroupCall, callMediaType);
+TUICallingEvent.addEventListener('onCallReceived', (res) => {
+  console.log('onCallReceived', JSON.stringify(res));
 });
 ```
+
+参数如下表所示：
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| res | Object | 回调参数 |
+| res.callerId | String | 主叫 ID（邀请方） |
+| res.calleeIdList | Array\<String> | 被叫 ID 列表（被邀请方） |
+| res.isGroupCall | Boolean | 是否群组通话 |
+| res.callMediaType | Number | 通话的媒体类型，比如：语音通话(callMediaType = 1)、视频通话(callMediaType = 2) |
 
 ### onCallCancelled
-
 表示此次通话被主叫取消（取消原因有可能是主叫主动取消、也有可能是来自于通话超时取消），被叫会收到，您可以通过监听这个事件来实现类似未接来电等显示逻辑。
 ```javascript
-TUICallingEvent.addEventListener('onCallCancelled', (callerId) => {
-  console.log('onCallCancelled', callerId);
+TUICallingEvent.addEventListener('onCallCancelled', (res) => {
+  console.log('onCallCancelled', res);
 });
 ```
+
+参数如下表所示：
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| res | Object | 回调参数 |
+| res.callerId | String | 取消用户的 ID |
 
 ### onCallBegin
-
 表示通话接通，主叫和被叫都可以收到，您可以通过监听这个事件来开启云端录制、内容审核等流程。
 ```javascript
-TUICallingEvent.addEventListener('onCallBegin', (roomId, callMediaType, callRole) => {
-  console.log('onCallBegin', roomId, callMediaType, callRole);
+TUICallingEvent.addEventListener('onCallBegin', (res) => {
+  console.log('onCallBegin', JSON.stringify(res));
 });
 ```
+
+参数如下表所示：
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| res | Object | 回调参数 |
+| res.roomID | Number | 此次通话的音视频房间 Id，目前仅支持数字房间号，后续版本会支持字符串房间号 |
+| res.callMediaType | Number | 通话的媒体类型，比如：语音通话(callMediaType = 1)、视频通话(callMediaType = 2) |
+| res.callRole | Number | 角色，枚举类型：主叫(callRole = 1)、被叫(callRole = 2) |
+
 
 ### onCallEnd
-
 表示通话接通，主叫和被叫都可以收到，您可以通过监听这个事件来显示通话时长、通话类型等信息，或者来停止云端的录制流程。
 ```javascript
-TUICallingEvent.addEventListener('onCallEnd', (roomId, callMediaType, callRole, totalTime) => {
-  console.log('onCallEnd', roomId, callMediaType, callRole, totalTime);
+TUICallingEvent.addEventListener('onCallEnd', (res) => {
+  console.log('onCallEnd', JSON.stringify(res));
 });
 ```
+
+参数如下表所示：
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| res | Object | 回调参数 |
+| res.roomID | Number | 此次通话的音视频房间 Id，目前仅支持数字房间号，后续版本会支持字符串房间号 |
+| res.callMediaType | Number | 通话的媒体类型，比如：语音通话(callMediaType = 1)、视频通话(callMediaType = 2) |
+| res.callRole | Number | 角色，枚举类型：主叫(callRole = 1)、被叫(callRole = 2) |
+| res.totalTime | Number | 此次通话的时长，单位 ms |
 
 >! 客户端的事件一般都会随着杀进程等异常事件丢失掉，如果您需要通过监听通话时长来完成计费等逻辑，建议可以使用REST API来完成这类流程；
