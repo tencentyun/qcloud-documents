@@ -13,16 +13,14 @@
 ## Variables
 [](id:option)
 ### Option
-**Option**: `{}
+**Option**: `{}`
 #### Type declaration
 
 ## Functions
 
 ### int64
-
 - int64(v: *string*): *object*
 int64 类型。
-
 ```js
  export default function () {
      let a = {
@@ -31,22 +29,19 @@ int64 类型。
      console.log(JSON.stringify(a)); // {"k":"9223372036854775807"}
      console.log(a.k.toString()); // 9223372036854775807
   }
- ```
+```
 
 #### Parameters
-
-- ##### v: *string*
+-  v: *string*
 int64 类型数据的字符串格式
 
- #### Returns *object*
+#### Returns *object*
 
 ### open
-
 - open(url?: *string* | [URL](https://cloud.tencent.com/document/product/1484/75825), target?: *string*, features?: *string*): *WindowProxy* | *null*
 - open(filePath: *string*, mode?: *""* | *"b"*): *string* | *ArrayBuffer*
 
 打开文件。
-
 ```js
  export default function () {
      let data = open('data/test.json');
@@ -56,23 +51,17 @@ int64 类型数据的字符串格式
   };
 ```
 
- #### Parameters
-
-  - ##### Optional url: *string* | [URL](url.html#URL-1)
-
-  - ##### Optional target: *string*
-
-  - ##### Optional features: *string*
+#### Parameters
+ -  Optional url: *string* | [URL](https://cloud.tencent.com/document/product/1484/75825#URL-1)
+ -  Optional target: *string*
+ -  Optional features: *string*
 
 #### Returns *WindowProxy* | *null*
-
-  文件数据
+文件数据
 
 ### uint64
-
 - uint64(v: *string*): *object*
 uint64 类型。
-
 ```js
 export default function () {
     let a = {
@@ -84,8 +73,7 @@ export default function () {
 ```
 
  #### Parameters
-
-- ##### v: *string*
+- v: *string*
 uint64 类型数据的字符串格式
 
 #### Returns *object*
