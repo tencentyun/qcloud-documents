@@ -9,7 +9,7 @@ CentOS 官方计划停止维护 CentOS Linux 项目，CentOS 8及 CentOS 7维护
 <tr>
 <td>CentOS 8</td>
 <td>2022年01月01日</td>
-<td rowspan=2>无法获得包括问题修复和功能更新在内的任何软件维护和支持。</td>
+<td rowspan=2>停止维护后将无法获得包括问题修复和功能更新在内的任何软件维护和支持。</td>
 </tr>
 <tr>
 <td>CentOS 7</td>
