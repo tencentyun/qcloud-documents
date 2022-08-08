@@ -360,6 +360,7 @@ TRTC 是 [TRTC Web SDK](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/index.h
 | [subscribe](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/Client.html#subscribe)   | 订阅远端流。         | 
 | [unsubscribe](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/Client.html#unsubscribe)   | 取消订阅远端流。     | 
 | [switchRole](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/Client.html#switchRole)     | 切换用户角色，仅在 ‘live’ 互动直播模式下生效。     | 
+|[sendSEIMessage](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/Client.html#sendSEIMessage)   | 发送 SEI 消息。|
 | [on](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/Client.html#on)   | 监听客户端对象事件。                | 
 | [off](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/Client.html#off)               | 取消监听客户端对象事件。            | 
 | [getRemoteMutedState](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/Client.html#getRemoteMutedState)   | 获取当前房间内远端用户音视频 mute 状态列表。      | 
@@ -405,6 +406,7 @@ LocalStream 本地音视频流，通过 [createStream](https://web.sdk.qcloud.co
 | [getUserId](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/LocalStream.html#getUserId)       | 获取该流所属的用户 ID。 |
 | [setAudioOutput](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/LocalStream.html#setAudioOutput)           | 设置声音输出设备。 |
 | [getAudioLevel](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/LocalStream.html#getAudioLevel)             | 获取当前音量大小。只有当本地流或远端流中有音频数据才有效。 |
+| [setAudioCaptureVolume](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/LocalStream.html#setAudioCaptureVolume) | 设置麦克风采集音量。|
 | [hasAudio](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/LocalStream.html#hasAudio)         | 是否包含音频轨道。 |
 | [hasVideo](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/LocalStream.html#hasVideo)         | 是否包含视频轨道。 |
 | [getAudioTrack](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/LocalStream.html#getAudioTrack)             | 获取音频轨道。 |
