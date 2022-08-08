@@ -33,13 +33,13 @@
 
 ## 配置示例
 
-### 示例一
+**示例一**
 用户访问域名为：example.com，源站服务器地址为1.1.1.1，回源规则配置如下：
 
 - 当用户访问URL为：`http://example.com/test/a.jpg` 时，命中最下方的规则，根据所指定的 HOST 配置，则回源将指向源站1.1.1.1的 `image.example.com` 站点内资源，最终回源访问路径为1.1.1.1服务器下的 `http://image.example.com/test/image/a.jpg`。
 - 当用户访问URL为：`http://example.com/test/a/b.jpg` 时，命中最上方的规则，根据所指定的 HOST 配置，则回源将指向源站1.1.1.1的 `image.example.com` 站点内资源，同时根据通配符捕获的规则，最终回源访问路径为1.1.1.1服务器下的：`http://image.example.com/newtest/a/b.jpg`
 
-### 示例二
+**示例二**
 用户访问域名为：example.com，并且配置了高级回源规则如下：
 
 同时配置回源 URL 重写规则如下：
