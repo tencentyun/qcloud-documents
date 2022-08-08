@@ -176,8 +176,8 @@ let tuiCallEngine = TUICallEngine.createInstance(options);
 ## 步骤四：登录
 ```javascript
 tuiCallEngine.login({  // 登陆事件
-    userID,
-    userSig,
+    userID: "xxx",
+    userSig: "xxx",
 }).then( res => {
     // success
 }).catch( error => {
@@ -222,8 +222,8 @@ tuiCallEngine.on(TUICallEvent.REJECT, () => {      // 远端用户拒绝
 - 主叫方：呼叫某个用户
     ```javascript
     tuiCallEngine.call({
-        userID,  //用户 ID
-        type: 2, //通话类型，0-未知， 1-语音通话，2-视频通话
+        userID: "xxx",  // 用户 ID
+        type: 2, // 通话类型，0-未知， 1-语音通话，2-视频通话
     }).then( res => {
         // success
     }).catch( error => {
@@ -252,8 +252,8 @@ tuiCallEngine.on(TUICallEvent.REJECT, () => {      // 远端用户拒绝
     tuiCallEngine.on(TUICallEvent.USER_ENTER, () => {
         // 远端视频画面
         tuiCallEngine.startRemoteView({
-            userID, //远端用户 ID
-            videoViewDomID //该用户数据将渲染到该 DOM ID 节点里
+            userID: "xxx", // 远端用户 ID
+            videoViewDomID: "remote-xxx" // 该用户数据将渲染到该 DOM ID 节点里
         }).then( res => {
             // success
         }).catch( error => {
@@ -261,8 +261,8 @@ tuiCallEngine.on(TUICallEvent.REJECT, () => {      // 远端用户拒绝
         });
         // 本地视频画面
         tuiCallEngine.startLocalView({
-            userID, //本地用户 ID
-            videoViewDomID //该用户数据将渲染到该 DOM ID 节点里
+            userID: "xxx", // 本地用户 ID
+            videoViewDomID: "local-xxx" // 该用户数据将渲染到该 DOM ID 节点里
         }).then( res => {
             // success
         }).catch( error => {
@@ -337,7 +337,7 @@ tuiCallEngine.groupCall({
 let cameras = [];
 // 获取摄像头列表
 tuiCallEngine.getDeviceList('camera').then((devices)=>{  
- cameras = devices
+ cameras = devices;
 }).catch(error => {
   console.warn('getDeviceList error:', error)
 });
@@ -353,7 +353,7 @@ tuiCallEngine.switchDevice({
 ```
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| deviceType | string | 需要切换的设备类型|
+| deviceType | string |  video-摄像头，audio-麦克风|
 | deviceId | string | 需要切换的设备ID|
 
 
