@@ -39,16 +39,12 @@ dependencies{
     compile fileTree(dir: 'libs', include: ['*.jar','*.aar'])//添加 *.aar
 }
 ```
-**注：如果项目中没有集成Google的Gson库则还需添加如下依赖**
-
+>! 如果项目中没有集成 Google 的 Gson 库则还需添加如下依赖：
 ```groovy
 dependencies{
     implementation 'com.google.code.gson:gson:2.8.2'
 }
 ```
-
-
-
 :::
 ::: Maven 集成
 腾讯特效 SDK 已经发布到 mavenCentral 库，您可以通过配置 gradle 自动下载更新。
