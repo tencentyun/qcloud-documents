@@ -42,7 +42,7 @@ dependencies{
 :::
 ::: Maven 集成
 腾讯特效 SDK 已经发布到 mavenCentral 库，您可以通过配置 gradle 自动下载更新。
-1. 在 dependencies 中添加 TRTCSDK 的依赖。
+1. 在 dependencies 中添加腾讯特效 SDK 的依赖。
 ```groovy
 dependencies {
 	//例如：S1-04套餐如下
