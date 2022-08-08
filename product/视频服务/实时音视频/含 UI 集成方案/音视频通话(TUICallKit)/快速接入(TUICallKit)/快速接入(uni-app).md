@@ -25,7 +25,7 @@ TUICalling 插件是**腾讯云官方推出**的基于腾讯云实时音视频�
 ### 步骤二：在 vue 页面中引入原生插件
 使用 `uni.requireNativePlugin` 的 API 在 vue 页面中引入原生插件，参数为插件的 ID。
 ```javascript
-const TUICalling = uni.requireNativePlugin("TUICallingUniPlugin-TUICallingModule");
+const TUICallKit = uni.requireNativePlugin('TUICallKit');
 ```
 
 ### 步骤三：获取 SdkAppId 和签名密钥
@@ -36,35 +36,39 @@ const TUICalling = uni.requireNativePlugin("TUICallingUniPlugin-TUICallingModule
 - **userSig**：根据 SDKAppId、userId，Secretkey 等信息计算得到的安全保护签名，您可以单击 [这里](https://console.cloud.tencent.com/trtc/usersigtool) 直接在线生成一个调试的 UserSig，也可以参照我们的 [TUICalling示例工程](https://github.com/TencentCloud/TIMSDK/blob/master/uni-app/TUICalling/TUICalling-app/debug/GenerateTestUserSig.js)自行计算，更多信息见 [如何计算及使用 UserSig](https://cloud.tencent.com/document/product/647/17275)。
 
 ### 步骤四：在 vue 页面中实现功能
-1. 登录并填写您的应用 sdkAppID 等信息。
+1. 创建 TUICallKit 实例，并填写您的应用 sdkAppID 等信息。
 ```javascript
-TUICalling.login({
-sdkAppID: 0, 
-userID: 'your userID',
-userSig: 'your userSig'
-})
+const sdkAppId = 0;
+const userId = 'your userId';
+const userSig = 'your userSig';
+TUICallKit.createInstance(sdkAppId, userId, userSig);
 ```
 
 2. 发起音视频通话。
 	- 发起双人通话：
 ```javascript
-TUICalling.call({ userID: 'user1', type: 1 })
+const userId = 'chard';
+const callMediaType = 1; // 语音通话(callMediaType = 1)、视频通话(callMediaType = 2)
+TUICallKit.call(userId, callMediaType);
 ```
 	- 发起群通话：
 ```javascript
-TUICalling.groupCall({ userIDList: ['user1'，'user2'], type: 1 })
+const groupId = 'myGroup';
+const userIdList = ['chard', 'linda', 'rg'];
+const callMediaType = 1; // 语音通话(callMediaType = 1)、视频通话(callMediaType = 2)
+TUICallKit.groupCall(groupId, userIdList, callMediaType);
 ```
-3. 登出。
+3. 销毁 TUICallKit 实例。
 ```javascript
-TUICalling.logout()
+TUICallKit.destroyInstance()
 ```
 
 ### 步骤五：本地调试和发布
- 使用自定义基座开发调试 [uni-app 原生插件](https://ask.dcloud.net.cn/article/35412) 后，不可直接将自定义基座 APK 作为正式版发布。
+ 使用自定义基座开发调试 [uni-app 原生插件](TODO: 插件链接) 后，不可直接将自定义基座 APK 作为正式版发布。
  应该重新提交云端打包（不能勾选“**自定义基座**”）生成正式版本。
 
 ## 实现案例
-我们提供了**在线客服场景**的相关源码，建议您 [下载](https://github.com/tencentyun/TIMSDK/tree/master/uni-app/TUIKit) 并集成体验。该场景提供了示例客服群 + 示例好友的基础模板，实现功能包括：
+我们提供了**在线客服场景**的相关源码，建议您 [下载](TODO: 链接) 并集成体验。该场景提供了示例客服群 + 示例好友的基础模板，实现功能包括：
 - 支持发送文本消息、图片消息、语音消息、视频消息等常见消息。
 - 支持双人语音、视频通话功能
 - 支持创建群聊会话、群成员管理等。
