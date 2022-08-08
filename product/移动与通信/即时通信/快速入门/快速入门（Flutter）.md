@@ -109,7 +109,7 @@ flutter pub get
 
 **4. 创建Android模拟器。**
 
-启动您刚刚安装好的模拟器，并选中其。
+启动您刚安装好的模拟器，并选中其。
 ![20220803161943](https://tuikit-1251787278.cos.ap-guangzhou.myqcloud.com/20220803161943.png)
 
 点击界面右上角Device Manager，完成 Create devices，创建模拟器。如果您需要使用Google FCM推送能力，建议最好安装支持Google Play Store的设备。
