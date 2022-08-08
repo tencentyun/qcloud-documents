@@ -256,38 +256,7 @@ mXmagicApi = new XmagicApi(this, XmagicResParser.getResPath(),new XmagicApi.OnXm
  <td>OnXmagicPropertyErrorListener errorListener</td><td>回调函数实现类</td>
  </tr></table>
 	- **返回**
- 错误码含义对照表：
- <table>
- <tr><th>错误码</th><th>含义</th></tr><tr>
- <td>-1</td><td>未知错误</td>
- </tr><tr>
- <td>-100</td><td>3D 引擎资源初始化失败</td>
- </tr><tr>
- <td>-200</td><td>不支持 GAN 素材</td>
- </tr><tr>
- <td>-300</td><td>设备不支持此素材组件</td>
- </tr><tr>
- <td>-400</td><td>模板 JSON 内容为空</td>
- </tr><tr>
- <td>-500</td><td>SDK版本过低</td>
- </tr><tr>
- <td>-600</td><td>不支持分割</td>
- </tr><tr>
- <td>-700</td><td>不支持 OpenGL</td>
- </tr><tr>
- <td>-800</td><td>不支持脚本</td>
- </tr><tr>
- <td>5000</td><td>分割背景图片分辨率超过2160*3840</td>
- </tr><tr>
- <td>5001</td><td>分割背景图片所需内存不足</td>
- </tr><tr>
- <td>5002</td><td>分割背景视频解析失败</td>
- </tr><tr>
- <td>5003</td><td>分割背景视频超过200秒</td>
- </tr><tr>
- <td>5004</td><td>分割背景视频格式不支持</td>
- </tr>
- </tbody></table>
+ 错误码含义请参见 [API 文档](https://cloud.tencent.com/document/product/616/65896#xmagicapi)。
 5. 添加素材提示语回调函数（方法回调有可能运行在子线程），部分素材会提示用户：点点头、伸出手掌、比心，这个回调就是用于展示类似的提示语。
 ```
 mXmagicApi.setTipsListener(new XmagicTipsListener() {
