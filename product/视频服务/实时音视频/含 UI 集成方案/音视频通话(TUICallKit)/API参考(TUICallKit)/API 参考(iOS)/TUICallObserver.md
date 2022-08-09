@@ -23,7 +23,7 @@ TUICallObserver 是 TUICallEngine 对应的回调事件类，您可以通过此�
 | [onUserVoiceVolumeChanged](#onuservoicevolumechanged)       | 所有用户音量大小的反馈回调 |
 | [onUserNetworkQualityChanged](#onusernetworkqualitychanged) | 所有用户网络质量的反馈回调 |
 
-<h2 id="TUICallObserver"> 回调事件详情</h2>
+## 回调事件详情
 
 ### onError
 错误回调。
