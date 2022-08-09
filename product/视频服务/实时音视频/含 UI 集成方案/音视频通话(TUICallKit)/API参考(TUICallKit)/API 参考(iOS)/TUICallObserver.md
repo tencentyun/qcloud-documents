@@ -81,7 +81,7 @@ TUICallObserver 是 TUICallEngine 对应的回调事件类，您可以通过此�
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| roomId | TUIRoomId | 此次通话的音视频房间 Id，目前仅支持数字房间号，后续版本会支持字符串房间号 |
+| roomId | TUIRoomId | 此次通话的音视频房间 ID，目前仅支持数字房间号，后续版本会支持字符串房间号 |
 | callMediaType | TUICallMediaType | 通话的媒体类型，视频通话、语音通话 |
 | callRole | TUICallRole | 角色，枚举类型：主叫、被叫 |
 
@@ -96,12 +96,12 @@ TUICallObserver 是 TUICallEngine 对应的回调事件类，您可以通过此�
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| roomId | TUIRoomId | 此次通话的音视频房间 Id，目前仅支持数字房间号，后续版本会支持字符串房间号 |
+| roomId | TUIRoomId | 此次通话的音视频房间 ID，目前仅支持数字房间号，后续版本会支持字符串房间号 |
 | callMediaType | TUICallMediaType | 通话的媒体类型，视频通话、语音通话 |
 | callRole | TUICallRole | 角色，枚举类型：主叫、被叫 |
 | totalTime | float | 此次通话的时长 |
 
->! 客户端的事件一般都会随着杀进程等异常事件丢失掉，如果您需要通过监听通话时长来完成计费等逻辑，建议可以使用REST API来完成这类流程；
+>! 客户端的事件一般都会随着杀进程等异常事件丢失掉，如果您需要通过监听通话时长来完成计费等逻辑，建议可以使用 REST API 来完成这类流程。
 
 ### onCallMediaTypeChanged
 表示通话的媒体类型发生变化。
