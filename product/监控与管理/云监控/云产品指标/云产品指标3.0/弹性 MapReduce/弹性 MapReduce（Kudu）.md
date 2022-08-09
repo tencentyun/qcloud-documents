@@ -87,8 +87,8 @@ Namespace=QCE/TXMR_KUDU
 | 指标英文名                                                   | 指标中文名                                        | 单位              | 维度                                   |
 | ------------------------------------------------------------ | ------------------------------------------------- | ----------------- | -------------------------------------- |
 | KuduServerAllocated<br/>BytesAllocatedbytes                  | 分配的字节_AllocatedBytes                         | Bytes             | host4kudukuduserver、id4kudukuduserver |
-| KuduServerBlock<br/>CacheHitBlockcachehit                    | 块缓存命中_BlockCacheHit                          | Count             | host4kudukuduserver、id4kudukuduserver |
-| KuduServerBlockCache<br/>HitBlockcachemiss                   | 块缓存命中_BlockCacheMiss                         | Count             | host4kudukuduserver、id4kudukuduserver |
+| KuduServerBlock<br/>CacheHitBlockcachehit                    | 块缓存命中_BlockCacheHit                          | 次             | host4kudukuduserver、id4kudukuduserver |
+| KuduServerBlockCache<br/>HitBlockcachemiss                   | 块缓存命中_BlockCacheMiss                         | 次            | host4kudukuduserver、id4kudukuduserver |
 | KuduServerBlockCache<br/>UsageBlockcacheusage                | 块缓存使用率_BlockCacheUsage                      | Bytes             | host4kudukuduserver、id4kudukuduserver |
 | KuduServerBlockManager<br/>BlockBlockopenreading             | 块管理器 block 数_BlockOpenReading                  | 个                | host4kudukuduserver、id4kudukuduserver |
 | KuduServerBlockManager<br/>BlockBlockopenwriting             | 块管理器 block 数_BlockOpenWriting                  | 个                | host4kudukuduserver、id4kudukuduserver |
