@@ -7,21 +7,21 @@ TUICallObserver 是 TUICallEngine 对应的回调事件类，您可以通过此�
 
 | API | 描述 |
 |-----|-----|
-| [onError](#onError) | 通话过程中错误回调|
-| [onCallReceived](#onCallReceived) | 通话请求的回调|
-| [onCallCancelled](#onCallCancelled) | 通话取消的回调 |
-| [onCallBegin](#onCallBegin) | 通话接通的回调|
-| [onCallEnd](#onCallEnd) | 通话结束的回调|
-| [onCallTypeChanged](#onCallTypeChanged) | 通话的媒体类型发生改变的回调|
-| [onUserReject](#onUserReject) |  xxxx 用户拒绝通话的回调 |
-| [onUserNoResponse](#onUserNoResponse) |  xxxx 用户不响应的回调|
-| [onUserLineBusy](#onUserLineBusy) | xxxx 用户忙线的回调|
-| [onUserJoin](#onUserJoin) | xxxx 用户加入通话的回调 |
-| [onUserLeave](#onUserLeave) | xxxx 用户离开通话的回调|
-| [onUserVideoAvailable](#onUserVideoAvailable) | xxx 用户是否有视频流的回调|
-| [onUserAudioAvailable](#onUserAudioAvailable) | xxx 用户是否有音频流的回调|
-| [onUserVoiceVolumeChanged](#onUserVoiceVolumeChanged) | 所有用户音量大小的反馈回调 |
-| [onUserNetworkQualityChanged](#onUserNetworkQualityChanged) | 所有用户网络质量的反馈回调。|
+| [onError](#onerror)                                         | 通话过程中错误回调           |
+| [onCallReceived](#oncallreceived)                           | 通话请求的回调               |
+| [onCallCancelled](#oncallcancelled)                         | 通话取消的回调               |
+| [onCallBegin](#oncallbegin)                                 | 通话接通的回调               |
+| [onCallEnd](#oncallend)                                     | 通话结束的回调               |
+| [onCallTypeChanged](#oncalltypechanged)                     | 通话的媒体类型发生改变的回调 |
+| [onUserReject](#onuserreject)                               | xxxx 用户拒绝通话的回调      |
+| [onUserNoResponse](#onusernoresponse)                       | xxxx 用户不响应的回调        |
+| [onUserLineBusy](#onuserlinebusy)                           | xxxx 用户忙线的回调          |
+| [onUserJoin](#onuserjoin)                                   | xxxx 用户加入通话的回调      |
+| [onUserLeave](#onuserleave)                                 | xxxx 用户离开通话的回调      |
+| [onUserVideoAvailable](#onuservideoavailable)               | xxx 用户是否有视频流的回调   |
+| [onUserAudioAvailable](#onuseraudioavailable)               | xxx 用户是否有音频流的回调   |
+| [onUserVoiceVolumeChanged](#onuservoicevolumechanged)       | 所有用户音量大小的反馈回调   |
+| [onUserNetworkQualityChanged](#onusernetworkqualitychanged) | 所有用户网络质量的反馈回调   |
 
 ## 回调事件详情
 
