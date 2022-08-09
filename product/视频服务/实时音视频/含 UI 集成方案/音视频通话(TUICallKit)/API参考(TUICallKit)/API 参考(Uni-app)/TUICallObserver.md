@@ -2,17 +2,17 @@
 
 TUICallObserver 是 TUICallKit 对应的回调事件类，您可以通过此回调，来监听自己感兴趣的回调事件。
 
-<h2 id="TUICallObserver"> 回调事件概览</h2>
+## 回调事件概览
 
 | API | 描述 |
 |-----|-----|
-| [onError](#onError) | 通话过程中错误回调|
-| [onCallReceived](#onCallReceived) | 通话请求的回调|
-| [onCallCancelled](#onCallCancelled) | 通话取消的回调 |
-| [onCallBegin](#onCallBegin) | 通话接通的回调|
-| [onCallEnd](#onCallEnd) | 通话结束的回调|
+| [onError](#onerror)                 | 通话过程中错误回调 |
+| [onCallReceived](#oncallreceived)   | 通话请求的回调     |
+| [onCallCancelled](#oncallcancelled) | 通话取消的回调     |
+| [onCallBegin](#oncallbegin)         | 通话接通的回调     |
+| [onCallEnd](#oncallend)             | 通话结束的回调     |
 
-<h2 id="TUICallObserver"> 回调事件详情</h2>
+## 回调事件详情
 
 通过 globalEvent 监听原生插件抛出的事件。
 ```
@@ -30,6 +30,7 @@ TUICallingEvent.addEventListener('onError', (res) => {
 ```
 
 参数如下表所示：
+
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | res | Object | 错误回调参数 |
@@ -45,6 +46,7 @@ TUICallingEvent.addEventListener('onCallReceived', (res) => {
 ```
 
 参数如下表所示：
+
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | res | Object | 回调参数 |
@@ -62,6 +64,7 @@ TUICallingEvent.addEventListener('onCallCancelled', (res) => {
 ```
 
 参数如下表所示：
+
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | res | Object | 回调参数 |
@@ -76,6 +79,7 @@ TUICallingEvent.addEventListener('onCallBegin', (res) => {
 ```
 
 参数如下表所示：
+
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | res | Object | 回调参数 |
@@ -93,6 +97,7 @@ TUICallingEvent.addEventListener('onCallEnd', (res) => {
 ```
 
 参数如下表所示：
+
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | res | Object | 回调参数 |
@@ -101,4 +106,4 @@ TUICallingEvent.addEventListener('onCallEnd', (res) => {
 | res.callRole | Number | 角色，枚举类型：主叫(callRole = 1)、被叫(callRole = 2) |
 | res.totalTime | Number | 此次通话的时长，单位 ms |
 
->! 客户端的事件一般都会随着杀进程等异常事件丢失掉，如果您需要通过监听通话时长来完成计费等逻辑，建议可以使用REST API来完成这类流程；
+>! 客户端的事件一般都会随着杀进程等异常事件丢失掉，如果您需要通过监听通话时长来完成计费等逻辑，建议可以使用REST API来完成这类流程。

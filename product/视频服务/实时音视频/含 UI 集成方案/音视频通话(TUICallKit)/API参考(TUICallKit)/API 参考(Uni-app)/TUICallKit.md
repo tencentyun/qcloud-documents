@@ -1,25 +1,25 @@
 ## TUICallKit API 简介
 
-TUICallKit API 是音视频通话组件的**含 UI 接口**，使用TUICallKit API，您可以通过简单接口快速实现一个类微信的音视频通话场景，更详细的接入步骤，详见：[快速接入TUICallKit（）]()
+TUICallKit API 是音视频通话组件的**含 UI 接口**，使用TUICallKit API，您可以通过简单接口快速实现一个类微信的音视频通话场景，更详细的接入步骤，详情请参见 [快速接入 TUICallKit](https://tcloud-doc.isd.com/document/product/647/78732?!preview)。
 
-<h2 id="TUICallKit">API 概览</h2>
+## API 概览
 
 | API | 描述 |
 |-----|-----|
-| [login](#login) | 登录 |
-| [logout](#logout) | 登出 |
-| [setSelfInfo](#setSelfInfo) | 设置用户的昵称、头像|
-| [call](#call) | 发起 1v1 通话|
-| [groupCall](#groupCall) | 发起群组通话|
-| [joinInGroupCall](#joinInGroupCall) | 主动加入当前的群组通话中 |
-| [setCallingBell](#setCallingBell) | 设置自定义来电铃音 |
-| [enableMuteMode](#enableMuteMode) | 开启/关闭静音模式 |
-| [enableFloatWindow](#enableFloatWindow) | 开启/关闭悬浮窗功能 |
+| [login](#login)                         | 登录                     |
+| [logout](#logout)                       | 登出                     |
+| [setSelfInfo](#setselfinfo)             | 设置用户的昵称、头像     |
+| [call](#call)                           | 发起 1v1 通话            |
+| [groupCall](#groupcall)                 | 发起群组通话             |
+| [joinInGroupCall](#joiningroupcall)     | 主动加入当前的群组通话中 |
+| [setCallingBell](#setcallingbell)       | 设置自定义来电铃音       |
+| [enableMuteMode](#enablemutemode)       | 开启/关闭静音模式        |
+| [enableFloatWindow](#enablefloatwindow) | 开启/关闭悬浮窗功能      |
 
-<h2 id="TUICallKit">API 详情</h2>
+## API 详情
 
 ### login
-登录 login
+登录
 ```javascript
 const TUICallKit = uni.requireNativePlugin('TUICallKit');
 const options = {
@@ -35,6 +35,7 @@ TUICallKit.login(options, (res) => {
   }
 });
 ```
+
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | options | Object | 初始化参数 |
@@ -44,7 +45,7 @@ TUICallKit.login(options, (res) => {
 | callback | Function | 回调函数，code = 0 表示调用成功；code != 0 表示调用失败，失败原因见 msg | 
 
 ### logout
-登出 logout
+登出
 ```javascript
 const TUICallKit = uni.requireNativePlugin('TUICallKit');
 TUICallKit.logout((res) => {
@@ -113,7 +114,7 @@ TUICallKit.call(options, (res) => {
 | callback | Function | 回调函数，code = 0 表示调用成功；code != 0 表示调用失败，失败原因见 msg |
 
 ### groupCall
-发起群组通话，注意：使用群组通话前需要创建IM 群组，如果已经创建，请忽略；
+发起群组通话，注意：使用群组通话前需要创建IM 群组，如果已经创建，请忽略。
 
 ```javascript
 const TUICallKit = uni.requireNativePlugin('TUICallKit');
@@ -134,13 +135,13 @@ TUICallKit.groupCall(options, (res) => {
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | options | Object | 初始化参数 |
-| options.groupID | String | 此次群组通话的群 Id. |
+| options.groupID | String | 此次群组通话的群 ID |
 | options.userIDList | List | 目标用户的userId 列表 |
 | options.callMediaType | Number | 通话的媒体类型，比如：语音通话(callMediaType = 1)、视频通话(callMediaType = 2) |
 | callback | Function | 回调函数，code = 0 表示调用成功；code != 0 表示调用失败，失败原因见 msg |
 
 ### joinInGroupCall
-发起群组通话，注意：使用群组通话前需要创建IM 群组，如果已经创建，请忽略；
+发起群组通话，注意：使用群组通话前需要创建IM 群组，如果已经创建，请忽略。
 
 ```javascript
 const TUICallKit = uni.requireNativePlugin('TUICallKit');
@@ -161,8 +162,8 @@ TUICallKit.joinInGroupCall(options, (res) => {
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | options | Object | 初始化参数 |
-| options.roomID | Number | 此次通话的音视频房间 Id，目前仅支持数字房间号，后续版本会支持字符串房间号 |
-| options.groupID | String | 此次群组通话的群 Id |
+| options.roomID | Number | 此次通话的音视频房间 ID，目前仅支持数字房间号，后续版本会支持字符串房间号 |
+| options.groupID | String | 此次群组通话的群 ID |
 | options.callMediaType | Number | 通话的媒体类型，比如：语音通话(callMediaType = 1)、视频通话(callMediaType = 2) |
 | callback | Function | 回调函数，code = 0 表示调用成功；code != 0 表示调用失败，失败原因见 msg |
 

@@ -1,8 +1,8 @@
 ## TUICallEngine API 简介
-
 TUICallEngine API 是音视频通话组件的**无 UI 接口**，如果 TUICallKit 的交互并不满足您的需求，您可以使用这套接口自己封装交互。
 
-<h2 id="TUICallEngine"> API 概览</h2>
+[](id:TUICallEngine)
+## API 概览
 
 | API | 描述 |
 |-----|-----|
@@ -31,7 +31,7 @@ TUICallEngine API 是音视频通话组件的**无 UI 接口**，如果 TUICallK
 | [setSelfInfo](#setselfinfo)                             | 设置用户的昵称、头像                                        |
 | [enableMultiDeviceAbility](#enablemultideviceability)   | 开启/关闭 TUICallEngine 的多设备登录模式 （尊享版套餐支持） |
 
-<h2 id="TUICallEngine"> API 详情</h2>
+## API 详情
 
 ### createInstance
 创建 TUICallEngine 的单例。
@@ -57,10 +57,10 @@ TUICallEngine API 是音视频通话组件的**无 UI 接口**，如果 TUICallK
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| sdkAppID | int | 您可以在实时音视频控制台 >【[应用管理](https://console.cloud.tencent.com/trtc/app)】> 应用信息中查看 SDKAppID。 |
-| userId | String | 当前用户的 ID，字符串类型，只允许包含英文字母（a-z 和 A-Z）、数字（0-9）、连词符（-）和下划线（\_）。 |
-| userSig | String | 腾讯云设计的一种安全保护签名，获取方式请参见 [如何计算及使用 UserSig](https://cloud.tencent.com/document/product/647/17275)。 |
-| callback | TUIDefine.Callback | 初始化回调，`onSuccess`表示初始化成功。 ||
+| sdkAppID | int | 您可以在**实时音视频控制台** >[**应用管理**](https://console.cloud.tencent.com/trtc/app) > **应用信息**中查看 SDKAppID |
+| userId | String | 当前用户的 ID，字符串类型，只允许包含英文字母（a-z 和 A-Z）、数字（0-9）、连词符（-）和下划线（\_） |
+| userSig | String | 腾讯云设计的一种安全保护签名，获取方式请参见 [如何计算及使用 UserSig](https://cloud.tencent.com/document/product/647/17275) |
+| callback | TUIDefine.Callback | 初始化回调，`onSuccess`表示初始化成功 |
 
 ### addObserver
 添加回调接口，您可以通过这个接听，监听`TUICallObserver`相关的事件回调。
@@ -87,8 +87,8 @@ TUICallEngine API 是音视频通话组件的**无 UI 接口**，如果 TUICallK
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| roomId | TUIRoomId | 此次通话的音视频房间 Id，目前仅支持数字房间号，后续版本会支持字符串房间号 |
-| userId | NSString | 目标用户的userId |
+| roomId | TUIRoomId | 此次通话的音视频房间 ID，目前仅支持数字房间号，后续版本会支持字符串房间号 |
+| userId | NSString | 目标用户的 userId |
 | callMediaType | TUICallMediaType | 通话的媒体类型，比如视频通话、语音通话 |
 
 ### groupCall
@@ -148,7 +148,7 @@ TUICallEngine API 是音视频通话组件的**无 UI 接口**，如果 TUICallK
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userIdList | NSArray | 目标用户的userId列表 |
+| userIdList | NSArray | 目标用户的 userId 列表 |
 
 ### joinInGroupCall
 主动加入此次群组通话。
@@ -160,8 +160,8 @@ TUICallEngine API 是音视频通话组件的**无 UI 接口**，如果 TUICallK
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| roomId | TUIRoomId | 此次通话的音视频房间 Id，目前仅支持数字房间号，后续版本会支持字符串房间号 |
-| groupId | NSString | 此次群组通话的群 Id |
+| roomId | TUIRoomId | 此次通话的音视频房间 ID，目前仅支持数字房间号，后续版本会支持字符串房间号 |
+| groupId | NSString | 此次群组通话的群 ID |
 | callMediaType | TUICallMediaType | 通话的媒体类型，比如视频通话、语音通话 |
 
 ### switchCallMediaType
@@ -184,7 +184,7 @@ TUICallEngine API 是音视频通话组件的**无 UI 接口**，如果 TUICallK
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | NSString | 目标用户的userId |
+| userId | NSString | 目标用户的 userId |
 | videoView| TUIVideoView | 待渲染的视图 |
 
 ### stopRemoteReview
@@ -196,7 +196,7 @@ TUICallEngine API 是音视频通话组件的**无 UI 接口**，如果 TUICallK
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | NSString | 目标用户的userId |
+| userId | NSString | 目标用户的 userId |
 
 
 ### openCamera

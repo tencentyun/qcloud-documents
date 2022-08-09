@@ -54,10 +54,10 @@ void init(int sdkAppId, String userId, String userSig, TUICommonDefine.Callback 
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| sdkAppId | int | 您可以在实时音视频控制台 > [应用管理](https://console.cloud.tencent.com/trtc/app) > 应用信息中查看 SDKAppID。 |
-| userId | String | 当前用户的 ID，字符串类型，只允许包含英文字母（a-z 和 A-Z）、数字（0-9）、连词符（-）和下划线（\_）。 |
-| userSig | String | 腾讯云设计的一种安全保护签名，获取方式请参见 [如何计算及使用 UserSig](https://cloud.tencent.com/document/product/647/17275)。 |
-| callback | TUICommonDefine.Callback | 初始化回调，`onSuccess`表示初始化成功。 |
+| sdkAppId | int | 您可以在**实时音视频控制台** > [**应用管理**](https://console.cloud.tencent.com/trtc/app) > **应用信息**中查看 SDKAppID |
+| userId | String | 当前用户的 ID，字符串类型，只允许包含英文字母（a-z 和 A-Z）、数字（0-9）、连词符（-）和下划线（\_） |
+| userSig | String | 腾讯云设计的一种安全保护签名，获取方式请参见 [如何计算及使用 UserSig](https://cloud.tencent.com/document/product/647/17275) |
+| callback | TUICommonDefine.Callback | 初始化回调，`onSuccess`表示初始化成功|
 
 ### addObserver
 添加回调接口，您可以通过这个接听，监听`TUICallObserver`相关的事件回调。
@@ -82,8 +82,8 @@ void call(TUICommonDefine.RoomId roomId, String userId, TUICallDefine.MediaType 
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| roomId | TUICommonDefine.RoomId | 此次通话的音视频房间 Id，目前仅支持数字房间号，后续版本会支持字符串房间号 |
-| userId | String | 目标用户的userId |
+| roomId | TUICommonDefine.RoomId | 此次通话的音视频房间 ID，目前仅支持数字房间号，后续版本会支持字符串房间号 |
+| userId | String | 目标用户的 userId |
 | callMediaType | TUICallDefine.MediaType | 通话的媒体类型，比如视频通话、语音通话 |
 
 ### groupCall
@@ -95,9 +95,9 @@ void groupCall(TUICommonDefine.RoomId roomId, String groupId, List<String> userI
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| roomId | TUICommonDefine.RoomId | 此次通话的音视频房间 Id，目前仅支持数字房间号，后续版本会支持字符串房间号 |
-| groupId | String | 此次群组通话的群 Id |
-| userIdList | List | 目标用户的userId 列表 |
+| roomId | TUICommonDefine.RoomId | 此次通话的音视频房间 ID，目前仅支持数字房间号，后续版本会支持字符串房间号 |
+| groupId | String | 此次群组通话的群 ID |
+| userIdList | List | 目标用户的 userId 列表 |
 | callMediaType | TUICallDefine.MediaType | 通话的媒体类型，比如视频通话、语音通话 |
 
 
@@ -138,9 +138,10 @@ void hangup(TUICommonDefine.Callback callback);
 ```java
 void inviteUser(List<String> userIdList, TUICommonDefine.ValueCallback callback);
 ```
+
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userIdList | List | 目标用户的userId列表 |
+| userIdList | List | 目标用户的 userId 列表 |
 
 ### joinInGroupCall
 主动加入此次群组通话。
@@ -150,10 +151,11 @@ void inviteUser(List<String> userIdList, TUICommonDefine.ValueCallback callback)
 ```java
 void joinInGroupCall(TUICommonDefine.RoomId roomId, String groupId, TUICallDefine.MediaType callMediaType, TUICommonDefine.Callback callback);
 ```
+
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| roomId | TUICommonDefine.RoomId | 此次通话的音视频房间 Id，目前仅支持数字房间号，后续版本会支持字符串房间号 |
-| groupId | String | 此次群组通话的群 Id |
+| roomId | TUICommonDefine.RoomId | 此次通话的音视频房间 ID，目前仅支持数字房间号，后续版本会支持字符串房间号 |
+| groupId | String | 此次群组通话的群 ID |
 | callMediaType | TUICallDefine.MediaType | 通话的媒体类型，比如视频通话、语音通话 |
 
 ### switchCallMediaType
@@ -162,6 +164,7 @@ void joinInGroupCall(TUICommonDefine.RoomId roomId, String groupId, TUICallDefin
 ```java
 void switchCallMediaType(TUICallDefine.MediaType callMediaType);
 ```
+
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | callMediaType | TUICallDefine.MediaType | 通话的媒体类型，比如视频通话、语音通话 |
@@ -171,9 +174,10 @@ void switchCallMediaType(TUICallDefine.MediaType callMediaType);
 ```java
 void startRemoteView(String userId, TUIVideoView videoView, TUICommonDefine.PlayCallback callback);
 ```
+
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | String | 目标用户的userId |
+| userId | String | 目标用户的 userId |
 | videoView| TUIVideoView | 待渲染的视图 |
 
 ### stopRemoteReview
@@ -181,9 +185,10 @@ void startRemoteView(String userId, TUIVideoView videoView, TUICommonDefine.Play
 ```java
 void stopRemoteView(String userId);
 ```
+
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | String | 目标用户的userId |
+| userId | String | 目标用户的 userId |
 
 
 ### openCamera
@@ -191,6 +196,7 @@ void stopRemoteView(String userId);
 ```java
 void openCamera(TUICommonDefine.Camera camera, TUIVideoView videoView, TUICommonDefine.Callback callback);
 ```
+
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | camera | TUICommonDefine.Camera | 前置/后置 摄像头 |
@@ -207,6 +213,7 @@ void closeCamera();
 ```java
 void switchCamera(TUICommonDefine.Camera camera);
 ```
+
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | camera | TUICommonDefine.Camera | 前置/后置 摄像头 |
@@ -229,6 +236,7 @@ void closeMicrophone();
 ```java
 void selectAudioPlaybackDevice(TUICommonDefine.AudioPlaybackDevice device);
 ```
+
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | device | TUICommonDefine.AudioPlaybackDevice | 听筒/扬声器 |

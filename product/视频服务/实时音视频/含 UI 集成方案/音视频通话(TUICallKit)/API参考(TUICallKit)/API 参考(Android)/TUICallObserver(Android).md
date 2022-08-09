@@ -2,7 +2,8 @@
 
 TUICallObserver 是 TUICallEngine 对应的回调事件类，您可以通过此回调，来监听自己感兴趣的回调事件。
 
-<h2 id="TUICallObserver"> 回调事件概览</h2>
+[](id:TUICallObserver)
+## 回调事件概览
 
 | API | 描述 |
 |-----|-----|
@@ -22,7 +23,7 @@ TUICallObserver 是 TUICallEngine 对应的回调事件类，您可以通过此�
 | [onUserVoiceVolumeChanged](#onuservoicevolumechanged)       | 所有用户音量大小的反馈回调 |
 | [onUserNetworkQualityChanged](#onusernetworkqualitychanged) | 所有用户网络质量的反馈回调 |
 
-<h2 id="TUICallObserver"> 回调事件详情</h2>
+## 回调事件详情
 
 ### onError
 
@@ -61,6 +62,7 @@ void onCallReceived(String callerId, List<String> calleeIdList, boolean isGroupC
 ```java
 void onCallCancelled(String callerId);
 ```
+
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | callerId | String | 取消用户的 ID|
@@ -71,6 +73,7 @@ void onCallCancelled(String callerId);
 ```java
 void onCallBegin(TUICommonDefine.RoomId roomId, TUICallDefine.MediaType callMediaType, TUICallDefine.Role callRole);
 ```
+
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | roomId | TUICommonDefine.RoomId | 此次通话的音视频房间 Id，目前仅支持数字房间号，后续版本会支持字符串房间号 |
@@ -83,6 +86,7 @@ void onCallBegin(TUICommonDefine.RoomId roomId, TUICallDefine.MediaType callMedi
 ```java
 void onCallEnd(TUICommonDefine.RoomId roomId, TUICallDefine.MediaType callMediaType, TUICallDefine.Role callRole, long totalTime);
 ```
+
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | roomId | TUICommonDefine.RoomId | 此次通话的音视频房间 Id，目前仅支持数字房间号，后续版本会支持字符串房间号 |
@@ -125,8 +129,8 @@ void onUserReject(String userId);
 ```java
 void onUserNoResponse(String userId);
 ```
-
 参数如下表所示：
+
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userId | String | 无响应用户的 ID |
@@ -138,6 +142,7 @@ void onUserNoResponse(String userId);
 void onUserLineBusy(String userId);
 ```
 参数如下表所示：
+
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userId | String | 忙线用户的 ID |
@@ -149,6 +154,7 @@ void onUserLineBusy(String userId);
 void onUserJoin(String userId);
 ```
 参数如下表所示：
+
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userId | String | 加入当前通话的用户 ID |
@@ -160,6 +166,7 @@ void onUserJoin(String userId);
 void onUserLeave(String userId);
 ```
 参数如下表所示：
+
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userId | String | 离开当前通话的用户 ID |
@@ -203,7 +210,7 @@ void onUserVoiceVolumeChanged(Map<String, Integer> volumeMap);
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| volumeMap | Map<String, Integer> | 音量表，根据每个 userId 可以获取对应用户的音量大小，音量最小值为0，音量最大值为100 |
+| volumeMap | Map&lt;String, Integer> | 音量表，根据每个 userId 可以获取对应用户的音量大小，音量最小值为0，音量最大值为100 |
 
 ### onUserNetworkQualityChanged
 
@@ -211,6 +218,7 @@ void onUserVoiceVolumeChanged(Map<String, Integer> volumeMap);
 ```java
 void onUserNetworkQualityChanged(List<TUICallDefine.NetworkQualityInfo> networkQualityList);
 ```
+
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | networkQualityList | TUICallDefine.NetworkQualityInfo | 网络状态，根据每个 userId 可以获取对应用户当前的网络质量 |

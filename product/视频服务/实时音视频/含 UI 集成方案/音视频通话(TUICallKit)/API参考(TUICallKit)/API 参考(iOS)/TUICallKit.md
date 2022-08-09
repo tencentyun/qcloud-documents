@@ -53,7 +53,7 @@ TUICallKit API 是音视频通话组件的**含 UI 接口**，使用TUICallKit A
 | callMediaType | TUICallMediaType | 通话的媒体类型，比如视频通话、语音通话 |
 
 ### groupCall
-发起群组通话，注意：使用群组通话前需要创建IM 群组，如果已经创建，请忽略；
+发起群组通话，注意：使用群组通话前需要创建IM 群组，如果已经创建，请忽略。
 
 ```objc
 - (void)groupCall:(NSString *)groupId userIdList:(NSArray<NSString *> *)userIdList callMediaType:(TUICallMediaType)callMediaType;
@@ -66,7 +66,7 @@ TUICallKit API 是音视频通话组件的**含 UI 接口**，使用TUICallKit A
 | callMediaType | TUICallMediaType | 通话的媒体类型，比如视频通话、语音通话 |
 
 ### joinInGroupCall
-发起群组通话，注意：使用群组通话前需要创建IM 群组，如果已经创建，请忽略；
+发起群组通话，注意：使用群组通话前需要创建IM 群组，如果已经创建，请忽略。
 
 ```objc
 - (void)joinInGroupCall:(TUIRoomId *)roomId groupId:(NSString *)groupId callMediaType:(TUICallMediaType)callMediaType;
@@ -74,8 +74,8 @@ TUICallKit API 是音视频通话组件的**含 UI 接口**，使用TUICallKit A
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| roomId | TUIRoomId | 此次通话的音视频房间 Id，目前仅支持数字房间号，后续版本会支持字符串房间号 |
-| groupId | NSString | 此次群组通话的群 Id |
+| roomId | TUIRoomId | 此次通话的音视频房间 ID，目前仅支持数字房间号，后续版本会支持字符串房间号 |
+| groupId | NSString | 此次群组通话的群 ID |
 | callMediaType | TUICallMediaType | 通话的媒体类型，比如视频通话、语音通话 |
 
 ### setCallingBell

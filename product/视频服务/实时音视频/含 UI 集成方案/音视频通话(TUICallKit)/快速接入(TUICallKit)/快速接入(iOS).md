@@ -1,7 +1,7 @@
 ﻿本文将介绍如何用最短的时间完成 TUICallKit 组件的接入，跟随本文档，您将在一个小时的时间内完成如下几个关键步骤，并最终得到一个包含完备 UI 界面的视频通话功能。
 
 ## 环境准备
-- iOS 9.0 (API level 16) 及更高。
+iOS 9.0 (API level 16) 及更高。
 
 [](id:step1)
 ## 步骤一：开通服务
@@ -44,25 +44,21 @@ pod 'TUICallKit', :path => "TUICallKit/TUICallKit.podspec", :subspecs => ["TRTC"
 ## 步骤四：登录 TUI 组件
 在您的项目中添加如下代码，它的作用是通过调用 TUICore 中的相关接口完成 TUI 组件的登录。这个步骤异常关键，因为只有在登录成功后才能正常使用 TUICallKit 的各项功能，故请您耐心检查相关参数是否配置正确：
 <dx-codeblock>
-:::  Objective-C
-```
+:::  Objective-C Objectivec
 // 组件登录
 [TUILogin login:Int32(sdkAppId) userId:user userSig:userSig succ:^{
         NSLog(@"login success");
 } fail:^(int code, NSString *msg) {
         NSLog(@"login failed, code: %d, error: %@", code, msg);
 }];
-```
 :::
 ::: Swift
-```
 // 组件登录
 TUILogin.login(sdkAppId, userId: user, userSig: userSig) {
         print("login success")
 } fail: { (code, err) in
         print("login failed, code: \(code), error: \(message ?? "nil")")
 }
-```
 :::
 </dx-codeblock>
 
@@ -74,13 +70,12 @@ TUILogin.login(sdkAppId, userId: user, userSig: userSig) {
 - 更多信息请参见 [如何计算及使用 UserSig](https://cloud.tencent.com/document/product/647/17275)。
 
 
-> ! **这个步骤也是目前我们收到的开发者反馈最多的步骤，常见问题如下：**
-> 1. sdkAppId 设置错误，国内站的 SDKAppID 一般是以140开头的10位整数；
-> 2. userSig 被错配成了加密密钥（Secretkey），userSig 是用 SecretKey 把 sdkAppId、userId 以及过期时间等信息加密得来的，而不是直接把 Secretkey 配置成 userSig。
-> 3. userId 被设置成“1”、“123”、“111”等简单字符串，由于 **TRTC 不支持同一个 UserID 多端登录**，所以在多人协作开发时，形如 “1”、“123”、“111” 这样的 userId 很容易被您的同事占用，导致登录失败，因此我们建议您在调试的时候设置一些辨识度高的 userId。
-
-
->? Github 中的示例代码使用了 genTestUserSig 函数在本地计算 userSig 是为了更快地让您跑通当前的接入流程，但该方案会将您的 SecretKey 暴露在 App 的代码当中，这并不利于您后续升级和保护您的 SecretKey，所以我们强烈建议您将 userSig 的计算逻辑放在服务端进行，并由 App 在每次使用 TUICallKit 组件时向您的服务器请求实时计算出的 userSig。
+> !
+> -  **这个步骤也是目前我们收到的开发者反馈最多的步骤，常见问题如下：**
+	 - sdkAppId 设置错误，国内站的 SDKAppID 一般是以140开头的10位整数。
+	 - userSig 被错配成了加密密钥（Secretkey），userSig 是用 SecretKey 把 sdkAppId、userId 以及过期时间等信息加密得来的，而不是直接把 Secretkey 配置成 userSig。
+	 - userId 被设置成“1”、“123”、“111”等简单字符串，由于 **TRTC 不支持同一个 UserID 多端登录**，所以在多人协作开发时，形如 “1”、“123”、“111” 这样的 userId 很容易被您的同事占用，导致登录失败，因此我们建议您在调试的时候设置一些辨识度高的 userId。
+- Github 中的示例代码使用了 genTestUserSig 函数在本地计算 userSig 是为了更快地让您跑通当前的接入流程，但该方案会将您的 SecretKey 暴露在 App 的代码当中，这并不利于您后续升级和保护您的 SecretKey，所以我们强烈建议您将 userSig 的计算逻辑放在服务端进行，并由 App 在每次使用 TUICallKit 组件时向您的服务器请求实时计算出的 userSig。
 
 
 
@@ -88,47 +83,37 @@ TUILogin.login(sdkAppId, userId: user, userSig: userSig) {
 ## 步骤五：拨打通话
 ### 1对1视频通话
 通过调用 TUICallKit 的 call 函数并指定通话类型和被叫方的 userid，就可以发起语音或者视频通话。
-- <dx-codeblock>
-:::  Objective-C
-```
+<dx-codeblock>
+:::  Objective-C Objectivec
 // 发起1对1视频通话(假设 userid 为 mike)
 [[TUICallKit createInstance] call: @"mike" callMediaType: TUICallMediaTypeVideo];
-```
-```
 :::
 ::: Swift
-```
 // 发起1对1视频通话(假设 userid 为 mike)
 TUICallKit.createInstance().call(userId: "mike", callType: .video)
-```
 :::
 </dx-codeblock>
 
 ### 群内视频通话
 通过调用 TUICallKit 的 groupCall 函数并指定通话类型和被叫方的 userid，就可以发起群内的视频或语音通话。
--  <dx-codeblock>
-:::  Objective-C
-```
+<dx-codeblock>
+:::  Objective-C Objectivec
 [[TUICallKit createInstance] groupCall:@"12345678" userIdList:@[@"denny", @"mike", @"tommy"] callMediaType:TUICallMediaTypeVideo];
-```
-```
 :::
 ::: Swift
-```
 TUICallKit.createInstance().groupCall("12345678", userIdList: ["denny", "mike", "tommy"], callMediaType: .video)
-```
 :::
 </dx-codeblock>
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| groupId | String | 群组 Id，示例：`@"12345678"` |
+| groupId | String | 群组 ID，示例：`@"12345678"` |
 | userIdList | Array | 目标用户的userId 列表，示例：`@[@"denny", @"mike", @"tommy"]` |
 | callMediaType | TUICallMediaType | 通话的媒体类型，示例：`TUICallMediaTypeVideo` |
 
 >? 
->1. 群组的创建详见：[ IM 群组管理](https://cloud.tencent.com/document/product/269/75394#.E5.88.9B.E5.BB.BA.E7.BE.A4.E7.BB.84) ，或者您也可以直接使用 [IM TUIKit](https://cloud.tencent.com/document/product/269/37059)，一站式集成聊天、通话等场景。
->2. TUICallKit 目前还不支持发起非群组的多人视频通话，如果您有此类需求，欢迎反馈：  [TUIKit 需求收集表](https://wj.qq.com/s2/10622244/b9ae/)
+>- 群组的创建详见：[ IM 群组管理](https://cloud.tencent.com/document/product/269/75394#.E5.88.9B.E5.BB.BA.E7.BE.A4.E7.BB.84) ，或者您也可以直接使用 [IM TUIKit](https://cloud.tencent.com/document/product/269/37059)，一站式集成聊天、通话等场景。
+>- TUICallKit 目前还不支持发起非群组的多人视频通话，如果您有此类需求，欢迎反馈：  [TUIKit 需求收集表](https://wj.qq.com/s2/10622244/b9ae/)。
 
 [](id:step6)
 ## 步骤六：接听通话
@@ -136,47 +121,38 @@ TUICallKit.createInstance().groupCall("12345678", userIdList: ["denny", "mike", 
 
 [](id:step7)
 ## 步骤七：更多特性
-### 一. 设置昵称&头像
+### 一、设置昵称&头像
 如果您需要自定义昵称或头像，可以使用如下接口进行更新：
--  <dx-codeblock>
-:::  Objective-C
-```
+<dx-codeblock>
+:::  Objective-C Objectivec
 [[TUICallKit createInstance] setSelfInfo:@"昵称" avatar:@"头像url" succ:^{
         NSLog(@"login success");
 } fail:^(int code, NSString *errMsg) {
         NSLog(@"login failed, code: %d, error: %@", code, errMsg);
 }];
-```
-```
 :::
 ::: Swift
-```
 TUICallKit.createInstance().setSelfInfo(nickname: "昵称", avatar: "头像url") {
         print("login success")
 } fail: {(code, desc) in
         print("login failed, code: \(code), error: \(desc ?? "nil")")
 }
-```
 :::
 </dx-codeblock>
-> ! 这里有个常见问题：因为用户隐私限制，非好友之间的通话，被叫的昵称和头像更新可能会有延迟，一次通话成功后就会顺利更新，请知悉~
 
-### 二. 离线唤醒
+> ! 因为用户隐私限制，非好友之间的通话，被叫的昵称和头像更新可能会有延迟，一次通话成功后就会顺利更新。
+
+### 二、离线唤醒
 完成以上步骤，就可以实现音视频通话的拨打和接通，但如果您的业务场景需要在 `App 的进程被杀死后`或者`APP 退到后台后`，还可以正常接收到音视频通话请求，就需要增加离线唤醒功能，详情见 [**离线唤醒（iOS）**](https://tcloud-doc.isd.com/document/product/647/78741?!preview)。
 
-### 三. 悬浮窗功能
+### 三、悬浮窗功能
 如果您的业务需要开启悬浮窗功能，您可以在 TUICallKit 组件初始化时调用以下接口开启该功能：
--  <dx-codeblock>
-:::  Objective-C
-```
+ <dx-codeblock>
+:::  Objective-C Objectivec
 [[TUICallKit createInstance] enableFloatWindow:true];
-```
-```
 :::
 ::: Swift
-```
 TUICallKit.createInstance().enableFloatWindow(enable: true))
-```
 :::
 </dx-codeblock>
 
@@ -187,15 +163,18 @@ TUICallKit.createInstance().enableFloatWindow(enable: true))
 [[TUICallEngine createInstance] addObserver:self];
 
 - (void)onCallBegin:(nonnull TUIRoomId *)roomId callMediaType:(TUICallMediaType)callMediaType callRole:(TUICallRole)callRole {
-    
+  
+
 }
 
 - (void)onCallEnd:(nonnull TUIRoomId *)roomId callMediaType:(TUICallMediaType)callMediaType callRole:(TUICallRole)callRole totalTime:(float)totalTime {
-   
+  
+
 }
 
 - (void)onUserNetworkQualityChanged:(nonnull NSArray<TUINetworkQualityInfo *> *)networkQualityList {
-    
+  
+
 }
 :::
 ::: Swift
@@ -213,7 +192,7 @@ public func onUserNetworkQualityChanged(networkQualityList: [TUINetworkQualityIn
 :::
 </dx-codeblock>
 
-### 五. 自定义铃音
+### 五、自定义铃音
 如果您需要自定义来电铃音，可以通过如下接口进行设置：
 <dx-codeblock>
 :::  Objective-C Objectivec

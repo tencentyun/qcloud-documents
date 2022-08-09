@@ -2,7 +2,8 @@
 
 TUICallObserver 是 TUICallEngine 对应的回调事件类，您可以通过此回调，来监听自己感兴趣的回调事件。
 
-<h2 id="TUICallObserver"> 回调事件概览</h2>
+[](id:TUICallObserver)
+## 回调事件概览
 
 | API | 描述 |
 |-----|-----|
@@ -22,7 +23,7 @@ TUICallObserver 是 TUICallEngine 对应的回调事件类，您可以通过此�
 | [onUserVoiceVolumeChanged](#onUserVoiceVolumeChanged) | 所有用户音量大小的反馈回调 |
 | [onUserNetworkQualityChanged](#onUserNetworkQualityChanged) | 所有用户网络质量的反馈回调。|
 
-<h2 id="TUICallObserver"> 回调事件详情</h2>
+## 回调事件详情
 
 ### onError
 
@@ -158,7 +159,7 @@ TUICallObserver 是 TUICallEngine 对应的回调事件类，您可以通过此�
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| volumeMap | NSDictionary <NSString *, NSNumber *>| 音量表，根据每个 userid 可以获取对应的音量大小，音量最小值为0，音量最大值为100。 |
+| volumeMap | NSDictionary &lt;NSString *, NSNumber *>| 音量表，根据每个 userid 可以获取对应的音量大小，音量最小值为0，音量最大值为100。 |
 
 ### onUserNetworkQualityChanged
 

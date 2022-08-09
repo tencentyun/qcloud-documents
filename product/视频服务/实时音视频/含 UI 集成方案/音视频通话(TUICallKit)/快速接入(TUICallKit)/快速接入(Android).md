@@ -83,12 +83,12 @@ TUILogin.login(context,
 - UserSig：使用 [步骤三](#step3) 的第3步中获取的 SecretKey 对 SDKAppID、UserID 等信息进行加密，就可以得到 UserSig，它是一个鉴权用的票据，用于腾讯云识别当前用户是否能够使用 TRTC 的服务。您可以通过控制台中的 [**辅助工具**](https://console.cloud.tencent.com/im/tool-usersig) 生成一个临时可用的 UserSig。
 - 更多信息请参见 [如何计算及使用 UserSig](https://cloud.tencent.com/document/product/647/17275)。
 
-> ! **这个步骤也是目前我们收到的开发者反馈最多的步骤，常见问题如下：**
+> ! 
+> - **这个步骤也是目前我们收到的开发者反馈最多的步骤，常见问题如下：**
  - SDKAppID 设置错误，国内站的 SDKAppID 一般是以140开头的10位整数。
  - UserSig 被错配成了加密密钥（SecretKey），UserSig 是用 SecretKey 把 SDKAppID、UserID 以及过期时间等信息加密得来的，而不是直接把 SecretKey 配置成 UserSig。
  - UserID 被设置成“1”、“123”、“111”等简单字符串，由于 **TRTC 不支持同一个 UserID 多端登录**，所以在多人协作开发时，形如 “1”、“123”、“111” 这样的 UserID 很容易被您的同事占用，导致登录失败，因此我们建议您在调试的时候设置一些辨识度高的 UserID。
-
->? Github 中的示例代码使用了 genTestUserSig 函数在本地计算 UserSig 是为了更快地让您跑通当前的接入流程，但该方案会将您的 SecretKey 暴露在 App 的代码当中，这并不利于您后续升级和保护您的 SecretKey，所以我们强烈建议您将 UserSig 的计算逻辑放在服务端进行，并由 app 在每次使用 TUICallKit 组件时向您的服务器请求实时计算出的 UserSig。
+- Github 中的示例代码使用了 genTestUserSig 函数在本地计算 UserSig 是为了更快地让您跑通当前的接入流程，但该方案会将您的 SecretKey 暴露在 App 的代码当中，这并不利于您后续升级和保护您的 SecretKey，所以我们强烈建议您将 UserSig 的计算逻辑放在服务端进行，并由 app 在每次使用 TUICallKit 组件时向您的服务器请求实时计算出的 UserSig。
 
 
 [](id:step5)
@@ -99,6 +99,7 @@ TUILogin.login(context,
 // 发起1对1视频通话(假设 UserID 为 mike)
 TUICallKit.createInstance(context).call("mike", TUICallDefine.MediaType.Video); 
 ```
+
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userId | String | 目标用户的 UserID：`"mike"` |
@@ -131,23 +132,23 @@ TUICallKit.createInstance(context).groupCall("12345678", Arrays.asList("jane", "
 
 [](id:step7)
 ## 步骤七：更多特性
-### 一. 设置昵称&头像
+### 一、设置昵称&头像
 如果您需要自定义昵称或头像，可以使用如下接口进行更新：
 ```java
 TUICallKit.createInstance(context).setSelfInfo("jack", "https:/****/user_avatar.png", callback);
 ```
 > ! 因为用户隐私限制，非好友之间的通话，被叫的昵称和头像更新可能会有延迟，一次通话成功后就会顺利更新。
 
-### 二. 离线唤醒
+### 二、离线唤醒
 完成以上步骤，就可以实现音视频通话的拨打和接通，但如果您的业务场景需要在 `应用的进程被杀死后`或者`应用退到后台后`，还可以正常接收到音视频通话请求，就需要增加离线唤醒功能，详情见 [**离线唤醒（Android）**](https://cloud.tencent.com/document/product/269/44516)。
 
-### 三. 悬浮窗功能
+### 三、悬浮窗功能
 如果您的业务需要开启悬浮窗功能，您可以在 TUICallKit 组件初始化时调用以下接口开启该功能：
 ```java
 TUICallKit.createInstance(context).enableFloatWindow(true);
 ```
 
-### 四. 通话状态监听
+### 四、通话状态监听
 如果您的业务需要 **监听通话的状态**，例如通话开始、结束，以及通话过程中的网络质量等等，可以监听以下事件：
 ```java
 TUICallEngine.createInstance(context).addObserver(new TUICallObserver() {
@@ -161,7 +162,7 @@ TUICallEngine.createInstance(context).addObserver(new TUICallObserver() {
 });
 ```
 
-### 五. 自定义铃音
+### 五、自定义铃音
 如果您需要自定义来电铃音，可以通过如下接口进行设置：
 ```java
 TUICallKit.createInstance(context).setCallingBell(filePath);

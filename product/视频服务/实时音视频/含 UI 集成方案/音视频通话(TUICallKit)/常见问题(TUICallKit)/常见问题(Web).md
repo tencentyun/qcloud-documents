@@ -13,7 +13,7 @@ TRTC Web SDK 对浏览器的详细支持度，请参见 [TRTC Web SDK 对浏览�
 
 若您在本地开发测试一切正常，但是页面部署后，却无法正常采集摄像头、麦克风。则请检查您的网页是否部署到了 HTTP 协议上，若是，请使用 HTTPS 部署您的网页，并确保具备合格的 HTTPS 安全证书。
 
-更多详情请参见 [URL域名及协议限制说明](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/tutorial-05-info-browser.html#h2-2)。
+更多详情请参见 [URL 域名及协议限制说明](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/tutorial-05-info-browser.html#h2-2)。
 
 ## 二、集成问题
 
@@ -40,7 +40,7 @@ TRTC Web SDK 对浏览器的详细支持度，请参见 [TRTC Web SDK 对浏览�
 - **原因**：TRTCCalling 没有设备权限或者没有对于设备。
 - **解决方案**：
 	- 使用 [TRTC 设备检测](https://web.sdk.qcloud.com/trtc/webrtc/demo/detect/index.html) 进行检查。
-	- 访问 **Chrome 的网站设置**（chrome://settings/content） 查看使用 TRTCCalling 的网站是否开启摄像头/麦克风权限。
+	- 访问 **Chrome 的网站设置**（`chrome://settings/content`） 查看使用 TRTCCalling 的网站是否开启摄像头/麦克风权限。
 
 ### TUICallEngine web 是否支持接收离线消息？
 

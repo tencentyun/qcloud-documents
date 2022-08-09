@@ -3,16 +3,17 @@
 TUICallEngine API 是音视频通话组件的**无 UI 接口**，如果 TUICallKit 的交互并不满足您的需求，您可以使用这套接口自己封装交互。
 由于小程序开发的限制，需要先给live-pusher[绑定事件](#bind)，具体可以参照[TUICallkit](https://tcloud-doc.isd.com/document/product/647/78760?!preview)。
 
-<h2 id="TUICallEngine"> API 概览</h2>
+[](id:TUICallEngine)
+## API 概览
 
 ### 创建实例和事件回调
 
 | API | 描述 |
 |-----|-----|
-| [createInstance](#createinstance)   | 创建 TUICallEngine 实例（静态方法） |
-| [destroyInstance](#destroyinstance) | 销毁 TUICallEngine 实例（静态方法） |
-| [on](#on)                           | 增加事件监听                        |
-| [off](#off)                         | 取消事件监听                        |
+| [createInstance](#createinstance)   | 创建 TUICallEngine 实例（静态方法）|
+| [destroyInstance](#destroyinstance) | 销毁 TUICallEngine 实例（静态方法）|
+| [on](#on)                           | 增加事件监听|
+| [off](#off)                         | 取消事件监听|
 
 
 ### 通话操作相关接口函数

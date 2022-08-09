@@ -3,7 +3,6 @@
 TUICallKit API 是音视频通话组件的**含 UI 接口**，使用 TUICallKit API，您可以通过简单接口快速实现一个类微信的音视频通话场景，更详细的接入步骤，详见：[快速接入TUICallKit](https://tcloud-doc.isd.com/document/product/647/78733?!preview)
 
 [](id:TUICallKit)
-
 ## API 概览
 
 
@@ -14,8 +13,8 @@ TUICallKit API 是音视频通话组件的**含 UI 接口**，使用 TUICallKit 
 | [setSelfInfo](#setselfInfo) | 设置用户的头像、昵称 |
 | [destroyed](#destroyed) | 销毁 TUICallKit |
 
-
-<h2 id="TUICallEngine"> API 详情</h2>
+[](id:TUICallEngine)
+## API 详情
 
 ### init
 初始化 TUICallKit。

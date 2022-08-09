@@ -54,9 +54,7 @@ TUICallEngine 是整个通话组件的底层接口，主要提供了1对1音视�
 | [setSelfInfo](https://tcloud-doc.isd.com/document/product/647/78754?!preview#setSelfInfo) | 设置用户的头像、昵称|
 | [enableMultiDeviceAbility](https://tcloud-doc.isd.com/document/product/647/78754?!preview#enableMultiDeviceAbility) | 开启/关闭 TUICallEngine 的多设备登录模式 （尊享版套餐支持）|
 
-
-
-## TUICallObserver 
+### TUICallObserver 
 TUICallObserver 是 TUICallEngine 对应的回调事件类，您可以通过此回调，来监听自己感兴趣的回调事件。
 
 | API | 描述 |
@@ -75,16 +73,16 @@ TUICallObserver 是 TUICallEngine 对应的回调事件类，您可以通过此�
 | [onUserVideoAvailable](https://tcloud-doc.isd.com/document/product/647/78755?!preview#onUserVideoAvailable) | xxx 用户是否有视频流的回调|
 | [onUserAudioAvailable](https://tcloud-doc.isd.com/document/product/647/78755?!preview#onUserAudioAvailable) | xxx 用户是否有音频流的回调|
 | [onUserVoiceVolumeChanged](https://tcloud-doc.isd.com/document/product/647/78755?!preview#onUserVoiceVolumeChanged) | 所有用户音量大小的反馈回调 |
-| [onUserNetworkQualityChanged](https://tcloud-doc.isd.com/document/product/647/78755?!preview#onUserNetworkQualityChanged) | 所有用户网络质量的反馈回调。|
+| [onUserNetworkQualityChanged](https://tcloud-doc.isd.com/document/product/647/78755?!preview#onUserNetworkQualityChanged) | 所有用户网络质量的反馈回调 |
 
 
-## 关键类型定义
+### 关键类型定义
 | API | 描述 |
 |-----|-----|
 | TUICallMediaType | 通话的媒体类型，枚举类型：视频通话、语音通话 |
 | TUICallRole | 通话的角色，枚举类型：主叫、被叫 |
 | TUICallStatus | 通话的状态，枚举类型：空闲、待接听、接听中 |
-| TUIRoomId | 音视频房间Id，支持数字、字符串两种类型 |
-| TUICallCamera | 摄像头Id参数，枚举类型：前摄、后摄|
+| TUIRoomId | 音视频房间 ID，支持数字、字符串两种类型 |
+| TUICallCamera | 摄像头 ID 参数，枚举类型：前摄、后摄 |
 | TUIAudioPlaybackDevice | 声音的播放设备，枚举类型：扬声器、听筒 |
 | TUINetworkQualityInfo | 当前的网络质量信息 |
