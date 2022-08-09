@@ -1,4 +1,3 @@
-
 本文将介绍如何用最短的时间完成帮助您快速在桌面浏览器中集成**视频通话**功能，跟随本文档，您将在最终得到一个完整的视频通话功能。
 
 ## 环境准备
@@ -103,14 +102,13 @@ TUICallKit 是基于腾讯云 [即时通信 IM](https://cloud.tencent.com/docume
 
 1. 登录到 [即时通信 IM 控制台](https://console.cloud.tencent.com/im)，单击**创建新应用**，在弹出的对话框中输入您的应用名称，并单击**确定**。
 <img width="640" src="https://qcloudimg.tencent-cloud.cn/raw/1105c3c339be4f71d72800fe2839b113.png">
-
 2. 单击刚刚创建出的应用，进入**基本配置**页面，并在页面的右下角找到**开通腾讯实时音视频服务**功能区，单击**免费体验**即可开通 TUICallKit 的 7 天免费试用服务。
 <img width="640" src="https://qcloudimg.tencent-cloud.cn/raw/99a6a70e64f6877bad9406705cbf7be1.png">
-
 3. 在同一页面找到 **SDKAppID** 和**密钥**并记录下来，它们会在后续中被用到。
 <img width="640" src="https://qcloudimg.tencent-cloud.cn/raw/e435332cda8d9ec7fea21bd95f7a0cba.png">
-    - **SDKAppID**：IM 的应用 ID，用于业务隔离，即不同的 SDKAppID 的通话彼此不能互通。
-    - **Secretkey**：IM 的应用密钥，需要和 SDKAppID 配对使用，用于签出合法使用 IM 服务的鉴权用票据 UserSig，我们会在接下来的 [步骤五](#step5) 中用到这个 Key。
+
+	- **SDKAppID**：IM 的应用 ID，用于业务隔离，即不同的 SDKAppID 的通话彼此不能互通。
+	- **Secretkey**：IM 的应用密钥，需要和 SDKAppID 配对使用，用于签出合法使用 IM 服务的鉴权用票据 UserSig，我们会在接下来的 [步骤五](#step5) 中用到这个 Key。
 
 
 [](id:step2)
@@ -161,8 +159,8 @@ const { TUICallEngine, TUICallEvent } = window['tuicall-engine-web']
 ## 步骤三：创建 TUICallEngine 对象
 ```javascript
 let options = {
-  SDKAppID: 0, // 接入时需要将 0 替换为您的云通信应用的 SDKAppID
-  tim: tim     // tim 参数适用于业务中已存在 TIM 实例，为保证 TIM 实例唯一性
+	SDKAppID: 0, // 接入时需要将 0 替换为您的云通信应用的 SDKAppID
+	tim: tim     // tim 参数适用于业务中已存在 TIM 实例，为保证 TIM 实例唯一性
 };
 let tuiCallEngine = TUICallEngine.createInstance(options);
 ```
@@ -183,19 +181,17 @@ tuiCallEngine.login({  // 登陆事件
     console.warn('login error:', error);
 });
 ```
-**参数说明**：
+**参数说明**
 这里详细介绍一下 login 的关键参数：
 - **userID**：当前用户的 ID，字符串类型，只允许包含英文字母（a-z 和 A-Z）、数字（0-9）、连词符（-）和下划线（\_）。
 - **userSig**：使用步骤一中获取的 SecretKey 对 SDKAppID、userID 等信息进行加密，就可以得到 UserSig，它是一个鉴权用的票据，用于腾讯云识别当前用户是否能够使用 TRTC 的服务。您可以通过控制台中的 [**辅助工具**](https://console.cloud.tencent.com/im/tool-usersig) 生成一个临时可用的 UserSig。
 - 更多信息请参见 [如何计算及使用 UserSig](https://cloud.tencent.com/document/product/647/17275)。
 
 > !
-> **这个步骤也是目前我们收到的开发者反馈最多的步骤，常见问题如下: **
-> - sdkAppId 设置错误，国内站的 SDKAppID 一般是以140开头的10位整数。
-> - userSig 被错配成了加密密钥（Secretkey），userSig 是用 SecretKey 把 sdkAppId、userId 以及过期时间等信息加密得来的，而不是直接把 Secretkey 配置成 userSig。
-> - userId 被设置成“1”、“123”、“111”等简单字符串，由于 **TRTC 不支持同一个 UserID 多端登录**，所以在多人协作开发时，形如 “1”、“123”、“111” 这样的 userId 很容易被您的同事占用，导致登录失败，因此我们建议您在调试的时候设置一些辨识度高的 userId。
-
-> ?
+>-  **这个步骤也是目前我们收到的开发者反馈最多的步骤，常见问题如下**: 
+ - sdkAppId 设置错误，国内站的 SDKAppID 一般是以140开头的10位整数。
+ - userSig 被错配成了加密密钥（Secretkey），userSig 是用 SecretKey 把 sdkAppId、userId 以及过期时间等信息加密得来的，而不是直接把 Secretkey 配置成 userSig。
+ - userId 被设置成“1”、“123”、“111”等简单字符串，由于 **TRTC 不支持同一个 UserID 多端登录**，所以在多人协作开发时，形如 “1”、“123”、“111” 这样的 userId 很容易被您的同事占用，导致登录失败，因此我们建议您在调试的时候设置一些辨识度高的 userId。
 - Github 中的示例代码使用了 genTestUserSig 函数在本地计算 userSig 是为了更快地让您跑通当前的接入流程，但该方案会将您的 SecretKey 暴露在 App 的代码当中，这并不利于您后续升级和保护您的 SecretKey，所以我们强烈建议您将 userSig 的计算逻辑放在服务端进行，并由 App 在每次使用 TUICallKit 组件时向您的服务器请求实时计算出的 userSig。
 
 [](id:step5)
