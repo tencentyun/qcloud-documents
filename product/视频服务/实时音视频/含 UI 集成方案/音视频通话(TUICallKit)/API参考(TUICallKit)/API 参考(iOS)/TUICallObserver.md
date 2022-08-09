@@ -203,11 +203,8 @@ TUICallObserver 是 TUICallEngine 对应的回调事件类，您可以通过此�
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-<<<<<<< HEAD
 | volumeMap | NSDictionary &lt;NSString *, NSNumber *>| 音量表，根据每个 userid 可以获取对应的音量大小，音量最小值为0，音量最大值为100。 |
-=======
 | volumeMap | NSDictionary | 音量表，根据每个 userId 可以获取对应的音量大小，音量最小值为0，音量最大值为100。 |
->>>>>>> 3434fce63cb (【iOS】【TUICalling】更新 TUICallObserver 文档)
 
 ### onUserNetworkQualityChanged
 用户网络质量的回调。
