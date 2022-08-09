@@ -78,7 +78,7 @@ TUICallKit 是腾讯云推出一款音视频通话 UI 组件，通过集成该�
 	  <th width="100px" style="text-align:center"> 进阶版</th>
     <th width="100px" style="text-align:center"> 尊享版</th>
   </tr>
-   <td rowspan='15' style="text-align:center">音视频通话 TUICallKit </td>
+   <td rowspan='16' style="text-align:center">音视频通话 TUICallKit </td>
    </tr>
 	  <td style="text-align:left">微信同款UI设计</td>
     <td style="text-align:center">&#10003;</td>
@@ -144,13 +144,6 @@ TUICallKit 是腾讯云推出一款音视频通话 UI 组件，通过集成该�
   </tr>
   <tr>
     <td style="text-align:left">多端登录通话</td>
-    <td style="text-align:center">&#10003;</td>
-    <td style="text-align:center">&#10003;</td>
-		<td style="text-align:center">&#10003;</td>
-    <td style="text-align:center">&#10003;</td>
-  </tr>
-  <tr>
-    <td style="text-align:left">多端登录</td>
     <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
 		<td style="text-align:center">-</td>
@@ -175,6 +168,12 @@ TUICallKit 是腾讯云推出一款音视频通话 UI 组件，通过集成该�
     <td style="text-align:center">-</td>
 		<td style="text-align:center">&#10003;</td>
     <td style="text-align:center">&#10003;</td>
+   <tr>
+    <td   colspan="1" rowspan="1" align="" valign="middle"><p>支持平台</p></td>
+ <td   colspan="1" rowspan="1" align="" valign="middle"><p>iOS、Android、Web、微信小程序、uni-app、Flutter（即将上线）</p></td>
+ <td   colspan="1" rowspan="1" align="" valign="middle"><p>iOS、Android、Web、<strong>微信小程序（限时活动）</strong>、uni-app、Flutter（即将上线）</p></td>
+ <td   colspan="1" rowspan="1" align="" valign="middle"><p>iOS、Android、Web、微信小程序、uni-app、Flutter（即将上线）</p></td>
+ <td   colspan="1" rowspan="1" align="" valign="middle"><p>iOS、Android、Web、微信小程序、uni-app、Flutter（即将上线）</p></td>
 </table>
 
 ## TUICallKit  下载
