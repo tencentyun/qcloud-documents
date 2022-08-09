@@ -48,12 +48,11 @@ TUICallKit 是基于腾讯云 [即时通信 IM](https://cloud.tencent.com/docume
 
 1. 登录到 [即时通信 IM 控制台](https://console.cloud.tencent.com/im)，单击**创建新应用**，在弹出的对话框中输入您的应用名称，并单击**确定**。
 <img width="640" src="https://qcloudimg.tencent-cloud.cn/raw/1105c3c339be4f71d72800fe2839b113.png">
-
 2. 单击刚刚创建出的应用，进入**基本配置**页面，并在页面的右下角找到**开通腾讯实时音视频服务**功能区，单击**免费体验**即可开通 TUICallKit 的 7 天免费试用服务。
 <img width="640" src="https://qcloudimg.tencent-cloud.cn/raw/99a6a70e64f6877bad9406705cbf7be1.png">
-
 3. 在同一页面找到 **SDKAppID** 和**密钥**并记录下来，它们会在后续的 [步骤五：填写 SDKAPPID 和 SECRETKEY](#step5)  中被用到。
 <img width="640" src="https://qcloudimg.tencent-cloud.cn/raw/e435332cda8d9ec7fea21bd95f7a0cba.png">
+
     - **SDKAppID**：IM 的应用 ID，用于业务隔离，即不同的 SDKAppID 的通话彼此不能互通。
     - **Secretkey**：IM 的应用密钥，需要和 SDKAppID 配对使用，用于签出合法使用 IM 服务的鉴权用票据 UserSig，我们会在接下来的步骤五中用到这个 Key。
 
@@ -65,11 +64,12 @@ TUICallKit 是基于腾讯云 [即时通信 IM](https://cloud.tencent.com/docume
 [](id:step4)
 ## 步骤四：下载并导入 TUICallKit 组件
 单击进入 [Github](https://github.com/tencentyun/TUICalling)，选择克隆/下载代码，然后拷贝 MiniProgram 下的 debug 目录，lib 目录以及 TUICallKit 和 TUICallEngine 目录到您的工程中。
-![](https://qcloudimg.tencent-cloud.cn/raw/02c1c681bf400de5ce55e8e5eb7efa3a.png)
+<img width="350" src="https://qcloudimg.tencent-cloud.cn/raw/02c1c681bf400de5ce55e8e5eb7efa3a.png">
+
 	
 [](id:step5)
 ## 步骤五：填写SDKAPPID和SECRETKEY
-打开 debug 文件夹下的 GenerateTestUserSig.js 文件。
+打开 debug 文件夹下的 `GenerateTestUserSig.js` 文件。
 ```javascript
 /**
  * 腾讯云 SDKAppId，需要替换为您自己账号下的 SDKAppId。
@@ -109,7 +109,7 @@ const SECRETKEY = '';
   ></TUICallKit>
 ```
 3. **用 JS 代码动态设置 config 参数**
-在 JS 逻辑交互例如 pages/index/index.js 中填写如下代码，用于设置 wxml 文件中的 {{config}} 变量。这部分工作可参考 `MiniProgram/pages/videoCall/videoCall.js` 或 `MiniProgram/pages/audioCall/audioCall.js` 中的示例代码，如下所示：
+在 JS 逻辑交互例如 `pages/index/index.js` 中填写如下代码，用于设置 wxml 文件中的 {{config}} 变量。这部分工作可参考 `MiniProgram/pages/videoCall/videoCall.js` 或 `MiniProgram/pages/audioCall/audioCall.js` 中的示例代码，如下所示：
 ```javascript
 // 引入 userSig 生成函数
 import { genTestUserSig } from '../../debug/GenerateTestUserSig';
