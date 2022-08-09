@@ -92,7 +92,7 @@ TUICallEngine API 是音视频通话组件的**无 UI 接口**，如果 TUICallK
 | callMediaType | TUICallMediaType | 通话的媒体类型，比如视频通话、语音通话 |
 
 ### groupCall
-发起群组通话，注意：使用群组通话前需要创建IM 群组，如果已经创建，请忽略；
+发起群组通话，注意：使用群组通话前需要创建IM 群组，如果已经创建，请忽略。
 
 ```objc
 - (void)groupCall:(TUIRoomId *)roomId groupId:(NSString *)groupId userIdList:(NSArray *)userIdList callMediaType:(TUICallMediaType)callMediaType succ:(TUICallSucc)succ fail:(TUICallFail)fail;
@@ -100,9 +100,9 @@ TUICallEngine API 是音视频通话组件的**无 UI 接口**，如果 TUICallK
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| roomId | TUIRoomId | 此次通话的音视频房间 Id，目前仅支持数字房间号，后续版本会支持字符串房间号 |
-| groupId | NSString | 此次群组通话的群 Id. |
-| userIdList | NSArray | 目标用户的userId 列表 |
+| roomId | TUIRoomId | 此次通话的音视频房间 ID，目前仅支持数字房间号，后续版本会支持字符串房间号 |
+| groupId | NSString | 此次群组通话的群 ID|
+| userIdList | NSArray | 目标用户的 userId 列表 |
 | callMediaType | TUICallMediaType | 通话的媒体类型，比如视频通话、语音通话 |
 
 
@@ -123,9 +123,8 @@ TUICallEngine API 是音视频通话组件的**无 UI 接口**，如果 TUICallK
 ```
 
 ### ignore
-忽略当前通话，当您作为被叫收到 `onCallReceived()` 的回调时，可以调用该函数忽略来电，此时主叫会收到`onUserLineBusy`的回调；
-
-备注：如果您的业务中存在直播、会议等场景，在直播/会议中的情况时，也可以调用这个函数来忽略此次来电；
+忽略当前通话，当您作为被叫收到 `onCallReceived()` 的回调时，可以调用该函数忽略来电，此时主叫会收到`onUserLineBusy`的回调。
+备注：如果您的业务中存在直播、会议等场景，在直播/会议中的情况时，也可以调用这个函数来忽略此次来电。
 
 ```objc
 - (void)ignore:(TUICallSucc)succ fail:(TUICallFail)fail;
