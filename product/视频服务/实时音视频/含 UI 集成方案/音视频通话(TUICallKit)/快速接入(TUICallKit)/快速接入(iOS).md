@@ -1,4 +1,4 @@
-﻿本文将介绍如何用最短的时间完成 TUICallKit 组件的接入，跟随本文档，您将在一个小时的时间内完成如下几个关键步骤，并最终得到一个包含完备 UI 界面的视频通话功能。
+本文将介绍如何用最短的时间完成 TUICallKit 组件的接入，跟随本文档，您将在一个小时的时间内完成如下几个关键步骤，并最终得到一个包含完备 UI 界面的视频通话功能。
 
 ## 环境准备
 iOS 9.0 (API level 16) 及更高。
@@ -101,9 +101,8 @@ TUICallKit.createInstance().call(userId: "mike", callType: .video)
 
 ### 群内视频通话
 通过调用 TUICallKit 的 groupCall 函数并指定通话类型和被叫方的 UserID 列表，就可以发起群内的语音或者视频通话。
--  <dx-codeblock>
-:::  Objective-C
-```
+<dx-codeblock>
+:::  Objective-C Objectivec
 [[TUICallKit createInstance] groupCall:@"12345678" userIdList:@[@"denny", @"mike", @"tommy"] callMediaType:TUICallMediaTypeVideo];
 :::
 ::: Swift
