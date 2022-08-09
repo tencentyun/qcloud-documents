@@ -2,7 +2,7 @@
 
 TUICallKit API 是音视频通话组件的**含 UI 接口**，使用TUICallKit API，您可以通过简单接口快速实现一个类微信的音视频通话场景。
 
-| API                                                          | 描述                 |
+| API | 描述 |
 |-----|-----|
 | [init](https://tcloud-doc.isd.com/document/product/647/78760?!preview#init) | 初始化 TUICallKit    |
 | [call](https://tcloud-doc.isd.com/document/product/647/78760?!preview#call) | 发起 1v1 通话        |

@@ -66,7 +66,7 @@ TUICallKit 是腾讯云推出一款音视频通话 UI 组件，通过集成该�
 两人或多人进行音视频通话，覆盖游戏社交、在线客服、视频客服、在线问诊、保险咨询等场景。
 
 ## 服务开通
-**新版本的视频通话 SDK需要配合专属的音视频通话套餐**，新的套餐整合了腾讯云 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269/42440) 等两个基础的通信 PaaS 服务，一站式开通音视频通话相关服务，详细的开通流程请参考：**快速接入TUICallKit**。
+**新版本的视频通话 SDK 需要配合专属的音视频通话套餐**，新的套餐整合了腾讯云[实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269/42440) 两个基础的 PaaS 服务，您可以通过在即时通信 IM 控制台一站式解锁 **即时通信 IM** 功能及其专属的**音视频通话能力**，详细的解锁流程请参考各平台：**快速接入TUICallKit**。
 
 ### 音视频通话套餐详情
 <table>
@@ -185,10 +185,10 @@ TUICallKit 是腾讯云推出一款音视频通话 UI 组件，通过集成该�
                  <img src="https://main.qcloudimg.com/raw/b0211b0870806899009a17a4216ea65c.svg" data-nonescope="true">
                 <p class="titlename">Android TUICallKit</p>
                 <p style="color:#586376;">类“微信” UI，支持 1V1 通话、群组通话、悬浮窗、离线推送等特性，功能强大。</p>
-                <a style="margin-left: 10px;" href=""><b>Github </b></a>
-                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/32175"><b>快速接入</b></a>
-                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/32166"><b>API 参考</b></a>
-                <a style="margin-left: 10px;" href=""><b>常见问题</b></a>
+                <a style="margin-left: 10px;" href="https://github.com/tencentyun/TUICalling"><b>Github </b></a>
+                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/78729"><b>快速接入</b></a>
+                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/78748"><b>API 参考</b></a>
+                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/78767"><b>常见问题</b></a>
             </div>
         </div>
 				<div class="card-container">
@@ -196,10 +196,10 @@ TUICallKit 是腾讯云推出一款音视频通话 UI 组件，通过集成该�
                  <img src="https://main.qcloudimg.com/raw/613f2e15bed7c8297110676b52784b71.svg" data-nonescope="true">
                 <p class="titlename">iOS TUICallKit</p>
                 <p style="color:#586376;">类“微信” UI，支持 1V1 通话、群组通话、悬浮窗、离线推送等特性，功能强大。</p>
-                <a style="margin-left: 10px;" href=""><b>Github </b></a>
-                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/32175"><b>快速接入</b></a>
-                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/32166"><b>API 参考</b></a>
-                <a style="margin-left: 10px;" href=""><b>常见问题</b></a>
+                <a style="margin-left: 10px;" href="https://github.com/tencentyun/TUICalling"><b>Github </b></a>
+                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/78730"><b>快速接入</b></a>
+                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/78752"><b>API 参考</b></a>
+                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/78768"><b>常见问题</b></a>
             </div>
         </div>
 				<div class="card-container">
@@ -207,10 +207,10 @@ TUICallKit 是腾讯云推出一款音视频通话 UI 组件，通过集成该�
                  <img src="https://main.qcloudimg.com/raw/7e2651085e3e3c6e32190e401a6dfd32.svg" data-nonescope="true">
                 <p class="titlename">Web TUICallKit</p>
                 <p style="color:#586376;">类“微信” UI，支持 1V1 通话、群组通话、悬浮窗、离线推送等特性，功能强大。</p>
-                <a style="margin-left: 10px;" href=""><b>Github </b></a>
-                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/32175"><b>快速接入</b></a>
-                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/32166"><b>API 参考</b></a>
-                <a style="margin-left: 10px;" href=""><b>常见问题</b></a>
+                <a style="margin-left: 10px;" href="https://github.com/tencentyun/TUICalling"><b>Github </b></a>
+                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/78731"><b>快速接入</b></a>
+                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/78756"><b>API 参考</b></a>
+                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/78769"><b>常见问题</b></a>
             </div>
         </div>
 				<div class="card-container">
@@ -218,10 +218,10 @@ TUICallKit 是腾讯云推出一款音视频通话 UI 组件，通过集成该�
                  <img src="https://main.qcloudimg.com/raw/af07e321883032c9796848d189a80f5e.png" data-nonescope="true">
                 <p class="titlename">小程序 TUICallKit</p>
                 <p style="color:#586376;">类“微信” UI，支持 1V1 通话、群组通话、悬浮窗、离线推送等特性，功能强大。</p>
-                <a style="margin-left: 10px;" href=""><b>Github </b></a>
-                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/32175"><b>快速接入</b></a>
-                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/32166"><b>API 参考</b></a>
-                <a style="margin-left: 10px;" href=""><b>常见问题</b></a>
+                <a style="margin-left: 10px;" href="https://github.com/tencentyun/TUICalling"><b>Github </b></a>
+                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/78733"><b>快速接入</b></a>
+                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/78759"><b>API 参考</b></a>
+                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/78770"><b>常见问题</b></a>
             </div>
         </div>
 			  <div class="card-container">
@@ -229,10 +229,10 @@ TUICallKit 是腾讯云推出一款音视频通话 UI 组件，通过集成该�
                  <img src="https://main.qcloudimg.com/raw/e9d18b164152f08bc0694c01e966daea.png" data-nonescope="true">
                 <p class="titlename">Uni-APP（客户端） TUICallKit</p>
                 <p style="color:#586376;">类“微信” UI，支持 1V1 通话、群组通话、悬浮窗、离线推送等特性，功能强大。</p>
-                <a style="margin-left: 10px;" href=""><b>Github </b></a>
-								<a style="margin-left: 10px;" href=""><b>跑通示例</b></a>
-                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/32175"><b>快速集成</b></a>
-                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/32166"><b>API 参考</b></a>
+                <a style="margin-left: 10px;" href="https://github.com/tencentyun/TUICalling"><b>Github </b></a>
+                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/78732"><b>快速接入</b></a>
+                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/78762"><b>API 参考</b></a>
+								<a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/78771"><b>常见问题</b></a>
             </div>
         </div>
 				<div class="card-container">
@@ -240,13 +240,13 @@ TUICallKit 是腾讯云推出一款音视频通话 UI 组件，通过集成该�
                  <img src="https://main.qcloudimg.com/raw/e9d18b164152f08bc0694c01e966daea.png" data-nonescope="true">
                 <p class="titlename">Uni-APP（小程序）TUICallKit</p>
 								<p style="color:#586376;">类“微信” UI，支持 1V1 通话、群组通话、悬浮窗、离线推送等特性，功能强大。</p>
-                <a style="margin-left: 10px;" href=""><b>Github </b></a>
+                <a style="margin-left: 10px;" href="https://github.com/tencentyun/TUICalling"><b>Github </b></a>
                 <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/32175"><b>快速接入</b></a>
                 <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/32166"><b>API 参考</b></a>
-                <a style="margin-left: 10px;" href=""><b>常见问题</b></a>
+                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/78771"><b>常见问题</b></a>
             </div>
         </div>
 </div>
 
 ## 开源建设
-您可以在 [**这里**](https://github.com/tencentyun/TUICalling) 找到升级前的 TUICalling 开源项目。
+您可以在 [**这里**](https://github.com/tencentyun/TUICalling/tree/open) 找到升级前的 TUICalling 开源项目。
