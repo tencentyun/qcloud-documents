@@ -61,7 +61,7 @@ TUICallObserver 是 TUICallEngine 对应的回调事件类，您可以通过此�
 表示此次通话被主叫取消（取消原因有可能是主叫主动取消、也有可能是来自于通话超时取消），被叫会收到，您可以通过监听这个事件来实现类似未接来电等显示逻辑。
 
 ```objc
-- (void)onCallCancel:(NSString *)callerId;
+- (void)onCallCancelled:(NSString *)callerId;
 ```
 
 参数如下表所示：
