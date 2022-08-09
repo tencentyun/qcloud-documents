@@ -23,7 +23,7 @@ TUICallEngine API 是音视频通话组件的**无 UI 接口**，如果 TUICallK
 | [startRemoteView](#startremoteview)                     | 开始订阅远端用户视频流                                      |
 | [stopRemoteView](#stopremoteview)                       | 停止订阅远端用户视频流                                      |
 | [openCamera](#opencamera)                               | 开启摄像头                                                  |
-| [closeCamara](#closecamara)                             | 关闭摄像头                                                  |
+| [closeCamera](#closecamara)                             | 关闭摄像头                                                  |
 | [switchCamera](#switchcamera)                           | 切换前后摄像头                                              |
 | [openMicrophone](#openmicrophone)                       | 打开麦克风                                                  |
 | [closeMicrophone](#closemicrophone)                     | 关闭麦克风                                                  |
