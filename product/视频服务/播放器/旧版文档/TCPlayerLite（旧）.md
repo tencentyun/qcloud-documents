@@ -1,3 +1,7 @@
+>?
+>- TCPlayerLite 为旧版播放器，后续将持续维护，但不再主动做功能迭代，后续 Web 端播放器功能迭代将在 [超级播放器 TCPlayer](https://cloud.tencent.com/document/product/881/30818) 内进行。
+>- 当前 [超级播放器 TCPlayer](https://cloud.tencent.com/document/product/881/30818) 已包含旧版播放器 TCPlayerLite 的全部能力，同时具备更多丰富功能。若您首次使用腾讯云 Web 播放器，建议您直接使用超级播放器 TCPlayer。若您当前仍在使用 TCPlayerLite，建议您尽早升级为超级播放器 TCPlayer，以享受更多更全面的功能及服务。TCPlayerLite 升级为 TCPlayer 方式可参见 [TCPlayerLite 升级指引](https://cloud.tencent.com/document/product/881/72744)。
+
 ## 功能介绍
 
 腾讯云 Web 超级播放器 TCPlayerLite 是为了解决在手机浏览器和 PC 浏览器上播放音视频流的问题，它使您的视频内容可以不依赖用户安装 App，就能在朋友圈和微博等社交平台进行传播。本文档适合有一定 Javascript 语言基础的开发人员阅读。
@@ -555,7 +559,7 @@ TCPlayerLite 在不断更新及完善中，下面是 TCPlayerLite 发布的主�
 <td>2022.07.11</td>
 <td>2.4.5</td>
 <td>
-     <li>修复webrtc场景的stopplay方法调用时序问题。</li>
+     <li>修复 webrtc 场景的 stopplay 方法调用时序问题。</li>
 </td>
 </tr>
 <tr>
@@ -574,7 +578,7 @@ TCPlayerLite 在不断更新及完善中，下面是 TCPlayerLite 发布的主�
      <li>新增浏览器无法自动播放时触发的事件回调。</li>
      <li>新增 stop 方法，该方法会断流，包括快直播和标准直播。</li>
      <li>新增支持 amd 规范。</li>
-     <li>快直播场景降级时优先判断当前环境是否支持flv。</li>
+     <li>快直播场景降级时优先判断当前环境是否支持 flv。</li>
      <li>更新 txliveplayer 版本。</li>
      <li>修复 seek 后 loading 不消失的 bug。</li>
 </td>
