@@ -559,15 +559,15 @@ TCPlayerLite 在不断更新及完善中，下面是 TCPlayerLite 发布的主�
 <td>2022.07.11</td>
 <td>2.4.5</td>
 <td>
-     <li>修复webrtc场景的stopplay方法调用时序问题。</li>
+     <li>修复 webrtc 场景的 stopplay 方法调用时序问题。</li>
 </td>
 </tr>
 <tr>
 <td>2022.06.7</td>
 <td>2.4.4</td>
 <td>
-     <li>新增webrtc降级逻辑支持支付宝环境。</li>
-     <li>更新txliveplayer版本。</li>
+     <li>新增 webrtc 降级逻辑支持支付宝环境。</li>
+     <li>更新 txliveplayer 版本。</li>
 </td>
 </tr>
 <tr>
@@ -576,11 +576,11 @@ TCPlayerLite 在不断更新及完善中，下面是 TCPlayerLite 发布的主�
 <td>
      <li>新增拉流开始和拉流成功事件。</li>
      <li>新增浏览器无法自动播放时触发的事件回调。</li>
-     <li>新增stop方法，该方法会断流，包括快直播和标准直播。</li>
-     <li>新增支持amd规范。</li>
-     <li>快直播场景降级时优先判断当前环境是否支持flv。</li>
-     <li>更新txliveplayer版本。</li>
-     <li>修复seek后loading不消失的bug。</li>
+     <li>新增 stop 方法，该方法会断流，包括快直播和标准直播。</li>
+     <li>新增支持 amd 规范。</li>
+     <li>快直播场景降级时优先判断当前环境是否支持 flv。</li>
+     <li>更新 txliveplayer 版本。</li>
+     <li>修复 seek 后 loading 不消失的 bug。</li>
 </td>
 </tr>
 
@@ -588,7 +588,7 @@ TCPlayerLite 在不断更新及完善中，下面是 TCPlayerLite 发布的主�
 <td>2022.04.20</td>
 <td>2.4.2</td>
 <td>
-     <li>修复微信ua变化导致的判断逻辑错误</li>
+     <li>修复微信 ua 变化导致的判断逻辑错误</li>
 </td>
 </tr>
 <tr>
