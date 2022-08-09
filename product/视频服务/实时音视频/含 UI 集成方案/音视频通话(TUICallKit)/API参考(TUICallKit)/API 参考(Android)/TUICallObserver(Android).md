@@ -93,7 +93,7 @@ void onCallEnd(TUICommonDefine.RoomId roomId, TUICallDefine.MediaType callMediaT
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| roomId | TUICommonDefine.RoomId | 此次通话的音视频房间 Id，目前仅支持数字房间号，后续版本会支持字符串房间号 |
+| roomId | TUICommonDefine.RoomId | 此次通话的音视频房间 ID，目前仅支持数字房间号，后续版本会支持字符串房间号 |
 | callMediaType | TUICallDefine.MediaType | 通话的媒体类型，视频通话、语音通话 |
 | callRole | TUICallDefine.Role | 角色，枚举类型：主叫、被叫 |
 | totalTime | long | 此次通话的时长 |
