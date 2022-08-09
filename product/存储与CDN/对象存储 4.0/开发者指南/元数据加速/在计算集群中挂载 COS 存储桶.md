@@ -63,7 +63,11 @@
 
 ## 配置项说明
 
+>?这里可以通过 POSIX 语义访问、S3协议访问两种方式访问元数据加速存储桶，我们这里建议使用 POSIX 语义访问方式，可以获得更好的性能。
+
 ### 1. 通用必填配置项
+
+>!无论以哪种方式访问元数据加速存储桶，如下通用配置项必须设置。
 
 | 配置项                              | 配置项内容                         | 说明                                                         |
 | ----------------------------------- | ---------------------------------- | ------------------------------------------------------------ |
@@ -77,9 +81,12 @@
 
 ### 2. POSIX 访问方式必填配置项（推荐方式）
 
+>?
+>- POSIX 访问方式下除通用配置项外，还需要添加以下配置内容。POSIX 访问方式的 [其他可选配置项](https://cloud.tencent.com/document/product/1105/36368#.E9.85.8D.E7.BD.AE.E9.A1.B9.E8.AF.B4.E6.98.8E) 添加"fs.cosn.trsf." 前缀即可用于访问元数据加速桶。
+>- 需要注意的是原有 Hadoop cos 相关的配置项不再适用。
+
 | 配置项                 | 配置项内容     | 说明 |
 | ------------------------ | ------------------ | ---------------- |
-| fs.cosn.posix_bucket.fs.impl         | com.qcloud.chdfs.fs.CHDFSHadoopFileSystemAdapter                |      POSIX 方式访问配置为 com.qcloud.chdfs.fs.CHDFSHadoopFileSystemAdapter S3 协议方式访问配置为 org.apache.hadoop.fs.CosNFileSystem， 默认 POSIX 方式访问。               |
 | fs.cosn.trsf.fs.AbstractFileSystem.ofs.impl | com.qcloud.chdfs.fs.CHDFSDelegateFSAdapter                      |      元数据桶访问实现类                                           |
 | fs.cosn.trsf.fs.ofs.impl                    | com.qcloud.chdfs.fs.CHDFSHadoopFileSystemAdapter                |     元数据桶访问实现类                                                          |
 | fs.cosn.trsf.fs.ofs.tmp.cache.dir           | 格式形如 /data/emr/hdfs/tmp/posix-cosn/  |请设置一个实际存在的本地目录，运行过程中产生的临时文件会暂时放于此处。同时建议配置各节点该目录足够的空间和权限，例如"/data/emr/hdfs/tmp/posix-cosn/"                                                                      |
@@ -89,18 +96,14 @@
 
 ### 3. S3 协议访问方式必填配置项
 
+S3协议访问方式需要设置如下配置，其他可选项请参见 [Hadoop-cos 配置项](https://cloud.tencent.com/document/product/436/6884)。
+
 | 配置项                 | 配置项内容     | 说明 |
 | ------------------------ | ------------------ | ---------------- |
 | fs.cosn.posix_bucket.fs.impl         | org.apache.hadoop.fs.CosNFileSystem |      POSIX 方式访问配置为 com.qcloud.chdfs.fs.CHDFSHadoopFileSystemAdapter S3 协议方式访问配置为 org.apache.hadoop.fs.CosNFileSystem， 默认 POSIX 方式访问。                                        |
 
-### 4. 其他配置项
-
-- [其他 Hadoop-cos 配置项](https://cloud.tencent.com/document/product/436/6884)
-- [其他 POSIX 方式配置项](https://cloud.tencent.com/document/product/1105/36368)，其他 POSIX 方式配置项添加“fs.cosn.trsf.”前缀即可用于访问元数据加速桶。
 
 ### 5. 注意事项
-
-1. 不能使用旧的 hadoop cos jar 包访问开启元数据加速的 bucket。
-2. 使用 Hadoop cos <= 8.1.5 版本 posix 方式访问元数据加速 bucket 需要在控制台关闭 ranger 校验。
-
+1. 不能使用旧的 hadoop cos jar 包访问开启元数据加速的存储桶。
+2. 使用 Hadoop cos <= 8.1.5 版本 posix 方式访问已开启元数据加速的存储桶需要在控制台关闭 ranger 校验，8.1.5以上版本可支持在控制台打开 ranger 校验。
 
