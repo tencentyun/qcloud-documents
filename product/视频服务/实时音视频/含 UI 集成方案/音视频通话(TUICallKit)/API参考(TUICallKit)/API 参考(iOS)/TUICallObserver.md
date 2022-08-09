@@ -38,8 +38,8 @@ TUICallObserver 是 TUICallEngine 对应的回调事件类，您可以通过此�
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| code | int | 错误码。 |
-| message | NSString | 错误信息。 |
+| code | int | 错误码 |
+| message | NSString | 错误信息 |
 
 ### onCallReceived
 收到一个新的来电请求回调，被叫会收到，您可以通过监听这个事件，来决定是否显示通话接听界面。
@@ -175,8 +175,8 @@ TUICallObserver 是 TUICallEngine 对应的回调事件类，您可以通过此�
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | NSString | 用户 ID。|
-| isAudioAvailable | BOOL | 用户音频是否可用。|
+| userId | NSString | 用户 ID|
+| isAudioAvailable | BOOL | 用户音频是否可用|
 
 ### onUserVideoAvailable
 用户是否开启视频上行回调。
@@ -189,8 +189,8 @@ TUICallObserver 是 TUICallEngine 对应的回调事件类，您可以通过此�
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | NSString | 通话用户 ID。|
-| isVideoAvailable | BOOL | 用户视频是否可用。|
+| userId | NSString | 通话用户 ID|
+| isVideoAvailable | BOOL | 用户视频是否可用|
 
 ### onUserVoiceVolumeChanged
 用户通话音量的回调。
@@ -203,8 +203,8 @@ TUICallObserver 是 TUICallEngine 对应的回调事件类，您可以通过此�
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| volumeMap | NSDictionary &lt;NSString *, NSNumber *>| 音量表，根据每个 userid 可以获取对应的音量大小，音量最小值为0，音量最大值为100。 |
-| volumeMap | NSDictionary | 音量表，根据每个 userId 可以获取对应的音量大小，音量最小值为0，音量最大值为100。 |
+| volumeMap | NSDictionary &lt;NSString *, NSNumber *>| 音量表，根据每个 userid 可以获取对应的音量大小，音量最小值为0，音量最大值为100 |
+| volumeMap | NSDictionary | 音量表，根据每个 userId 可以获取对应的音量大小，音量最小值为0，音量最大值为100 |
 
 ### onUserNetworkQualityChanged
 用户网络质量的回调。
