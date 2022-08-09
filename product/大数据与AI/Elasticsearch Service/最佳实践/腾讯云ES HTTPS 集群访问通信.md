@@ -1,4 +1,4 @@
-﻿Elasticsearch 提供了多种数据访问安全的方式，如用户名密码校验、api_key 等。但是依然无法保障数据传输过程中的安全性问题。而 HTTPS 协议，则是一种以安全为目的的 HTTP 通道，在 HTTP 的基础上通过传输加密和身份认证等机制来保障数据传输过程中的安全性。本文将基于腾讯云 ES 集群环境，演示 Beats、Logstash、Kibana 和 Java Client 等客户端访问连接开启了 HTTPS 协议的 ES 集群。
+Elasticsearch 提供了多种数据访问安全的方式，如用户名密码校验、api_key 等。但是依然无法保障数据传输过程中的安全性问题。而 HTTPS 协议，则是一种以安全为目的的 HTTP 通道，在 HTTP 的基础上通过传输加密和身份认证等机制来保障数据传输过程中的安全性。本文将基于腾讯云 ES 集群环境，演示 Beats、Logstash、Kibana 和 Java Client 等客户端访问连接开启了 HTTPS 协议的 ES 集群。
 ## HTTPS 集群环境准备
 ### 创建 HTTPS 协议集群
 首先我们在腾讯云 ES 控制台创建出一个 HTTPS 集群，在购买页这里勾选上 HTTPS 协议。目前该特性目前是通过白名单支持，可提 [工单](https://console.cloud.tencent.com/workorder/category) 申请开放。
