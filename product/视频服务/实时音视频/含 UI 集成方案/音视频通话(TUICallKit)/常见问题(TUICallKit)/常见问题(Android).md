@@ -5,7 +5,7 @@
 ### TUICallKit 是否支持离线推送呢？
 **支持**，Android离线推送采用腾讯云的 TUIOfflinePush 组件，详情请参见 [TUIOfflinePush](https://cloud.tencent.com/document/product/269/44516)。
 
-在 [TUICalling](https://github.com/tencentyun/TUICalling/tree/main/Android) 组件中，我们也接入了该组件，具体的体验方式请参见 [Android离线推送接入指引](https://github.com/tencentyun/TUICalling/blob/main/Android/Android%E7%A6%BB%E7%BA%BF%E6%8E%A8%E9%80%81%E6%8E%A5%E5%85%A5%E6%8C%87%E5%BC%95.md)。
+在 [TUICalling](https://github.com/tencentyun/TUICalling/tree/main/Android) 组件中，我们也接入了该组件，具体的体验方式请参见 [Android 离线推送接入指引](https://github.com/tencentyun/TUICalling/blob/main/Android/Android%E7%A6%BB%E7%BA%BF%E6%8E%A8%E9%80%81%E6%8E%A5%E5%85%A5%E6%8C%87%E5%BC%95.md)。
 
 
 ### TUICallKit 崩溃，崩溃日志："No implementation found for xxxx"？
