@@ -63,12 +63,15 @@ TUICallKit.login(options, (res) => {
 - **userSig**：使用 [步骤一](#step1) 中获取的 SecretKey 对 SDKAppID、userID 等信息进行加密，就可以得到 userSig，它是一个鉴权用的票据，用于腾讯云识别当前用户是否能够使用 TRTC 的服务。您可以通过控制台中的 [**辅助工具**](https://console.cloud.tencent.com/im/tool-usersig) 生成一个临时可用的 userSig。
 - 更多信息请参见 [如何计算及使用 userSig](https://cloud.tencent.com/document/product/647/17275)。
 
-> ! 
-> - 这个步骤也是目前我们收到的反馈最多的步骤，常遇到的问题有如下几个：
-	-  SDKAppID 设置错误，国内站的 SDKAppID 一般是以140开头的10位整数。
-	-  userSig 被错配成了加密密钥（Secretkey），userSig 是用 SecretKey 把 SDKAppID、userID 以及过期时间等信息加密得来的，而不是直接把 Secretkey 配置成 userSig。
-	-  userID 被设置成“1”、“123”、“111”等简单字符串，由于 **TRTC 不支持同一个 userID 多端登录**，所以在多人协作开发时，形如 “1”、“123”、“111” 这样的 userID 很容易被您的同事占用，导致登录失败，因此我们建议您在调试的时候设置一些辨识度高的 userID。
+> !
+> **这个步骤也是目前我们收到的开发者反馈最多的步骤，常见问题如下: **
+> - sdkAppId 设置错误，国内站的 SDKAppID 一般是以140开头的10位整数。
+> - userSig 被错配成了加密密钥（Secretkey），userSig 是用 SecretKey 把 sdkAppId、userId 以及过期时间等信息加密得来的，而不是直接把 Secretkey 配置成 userSig。
+> - userId 被设置成“1”、“123”、“111”等简单字符串，由于 **TRTC 不支持同一个 UserID 多端登录**，所以在多人协作开发时，形如 “1”、“123”、“111” 这样的 userId 很容易被您的同事占用，导致登录失败，因此我们建议您在调试的时候设置一些辨识度高的 userId。
+
+> ?
 - Github 中的示例代码使用了 genTestUserSig 函数在本地计算 userSig 是为了更快地让您跑通当前的接入流程，但该方案会将您的 SecretKey 暴露在 App 的代码当中，这并不利于您后续升级和保护您的 SecretKey，所以我们强烈建议您将 userSig 的计算逻辑放在服务端进行，并由 App 在每次使用 TUICallKit 组件时向您的服务器请求实时计算出的 userSig。
+
 
 [](id:step5)
 ## 步骤五：拨打通话

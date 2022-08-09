@@ -75,7 +75,7 @@ TUICallObserver 是 TUICallEngine 对应的回调事件类，您可以通过此�
 | [onUserVoiceVolumeChanged](https://tcloud-doc.isd.com/document/product/647/78755?!preview#onuservoicevolumechanged) | 所有用户音量大小的反馈回调 |
 | [onUserNetworkQualityChanged](https://tcloud-doc.isd.com/document/product/647/78755?!preview#onusernetworkqualitychanged) | 所有用户网络质量的反馈回调。|
 
-## 关键类型定义
+### 关键类型定义
 | API | 描述 |
 |-----|-----|
 | TUICallMediaType | 通话的媒体类型，枚举类型：视频通话、语音通话 |
