@@ -94,10 +94,16 @@ TUICallKit.createInstance().call(userId: "mike", callType: .video)
 :::
 </dx-codeblock>
 
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| userId | String | 目标用户的 UserID：`"mike"` |
+| callMediaType |TUICallMediaType | 通话的媒体类型，示例：`TUICallMediaTypeVideo` |
+
 ### 群内视频通话
-通过调用 TUICallKit 的 groupCall 函数并指定通话类型和被叫方的 userid，就可以发起群内的视频或语音通话。
-<dx-codeblock>
-:::  Objective-C Objectivec
+通过调用 TUICallKit 的 groupCall 函数并指定通话类型和被叫方的 UserID 列表，就可以发起群内的语音或者视频通话。
+-  <dx-codeblock>
+:::  Objective-C
+```
 [[TUICallKit createInstance] groupCall:@"12345678" userIdList:@[@"denny", @"mike", @"tommy"] callMediaType:TUICallMediaTypeVideo];
 :::
 ::: Swift
