@@ -22,7 +22,7 @@ TUICallKit 是基于腾讯云 [即时通信 IM](https://cloud.tencent.com/docume
 [](id:step2)
 ## 步骤二：导入插件 
 1. **购买 uni-app 原生插件**
-登录 [uni 原生插件市场](https://ext.dcloud.net.cn/plugin?id=7097)，在插件详情页中购买（免费插件也可以在插件市场0元购）。购买后才能够云端打包使用插件。**购买插件时请选择正确的 appid，以及绑定正确包名**。
+登录 [uni 原生插件市场](https://ext.dcloud.net.cn/plugin?id=9035)，在插件详情页中购买（免费插件也可以在插件市场0元购）。购买后才能够云端打包使用插件。**购买插件时请选择正确的 appid，以及绑定正确包名**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d270d9298975ee829ae9c8c405530765.png)
 2. 使用自定义基座打包 uni 原生插件 （**请使用真机运行自定义基座**）
 使用 uni 原生插件必须先提交云端打包才能生效，购买插件后在应用的 `manifest.json` 页面的 **App原生插件配置** 项下单击**选择云端插件**，选择**腾讯云原生音视频插件**。
@@ -37,7 +37,7 @@ TUICallKit 是基于腾讯云 [即时通信 IM](https://cloud.tencent.com/docume
 ## 步骤三：在 vue 页面中引入原生插件
 使用 `uni.requireNativePlugin` 的 API 在 vue 页面中引入原生插件，参数为插件的 ID。
 ```javascript
-const TUICallKit = uni.requireNativePlugin('TUICallKit');
+const TUICallKit = uni.requireNativePlugin('TencentCloud-TUICallKit');
 ```
 
 [](id:step4)
@@ -153,11 +153,11 @@ TUICallKit.setCallingBell(filePath, (res) => {
 
 [](id:step8)
 ## 步骤八：本地调试和发布
- 使用自定义基座开发调试 [uni-app 原生插件](TODO: 插件链接) 后，不可直接将自定义基座 APK 作为正式版发布。
+ 使用自定义基座开发调试 [TencentCloud-TUICallKit 插件](https://ext.dcloud.net.cn/plugin?id=9035) 后，不可直接将自定义基座 APK 作为正式版发布。
  应该重新提交云端打包（不能勾选“**自定义基座**”）生成正式版本。
 
 ## 实现案例
-我们提供了**在线客服场景**的相关源码，建议您 [下载](TODO: 链接) 并集成体验。该场景提供了示例客服群 + 示例好友的基础模板，实现功能包括：
+我们提供了**在线客服场景**的相关源码，建议您 [下载](Thttps://ext.dcloud.net.cn/plugin?id=721) 并集成体验。该场景提供了示例客服群 + 示例好友的基础模板，实现功能包括：
 - 支持发送文本消息、图片消息、语音消息、视频消息等常见消息。
 - 支持双人语音、视频通话功能
 - 支持创建群聊会话、群成员管理等。
@@ -183,4 +183,4 @@ TUICallKit.setCallingBell(filePath, (res) => {
 - [uni-app TUIKit 源码](https://github.com/tencentyun/TIMSDK/tree/master/uni-app)
 - [一分钟跑通 Demo (uni-app)](https://cloud.tencent.com/document/product/269/64506)
 - [快速集成 uni-app TUIKit](https://cloud.tencent.com/document/product/269/64507)
-
+- [TencentCloud-TUICallKit 插件](https://ext.dcloud.net.cn/plugin?id=9035)
