@@ -318,20 +318,14 @@ TRTC 房间中的主播上行音视频后将触发启动录制任务，房间内
 
 #### 事件类型说明
 
-| 字段名     | 类型 | 含义                                                        |
-| ----------------------------------------------------- | ---- | ----------------------------------------------------------- |
-| EVENT_TYPE_CLOUD_RECORDING_RECORDER_START        | [301](#301)  | 云端录制录制模块启动 |
-| EVENT_TYPE_CLOUD_RECORDING_RECORDER_STOP         | [302](#302)  | 云端录制录制模块退出 |
-| EVENT_TYPE_CLOUD_RECORDING_UPLOAD_START          | [303](#303)  | 云端录制上传模块启动 |
-| EVENT_TYPE_CLOUD_RECORDING_FILE_INFO | [304](#304) | 云端录制生成 M3U8 索引文件，第一次生成并且上传成功后回调 |
-| EVENT_TYPE_CLOUD_RECORDING_UPLOAD_STOP | [305](#305)  | 云端录制上传结束 |
-| EVENT_TYPE_CLOUD_RECORDING_FAILOVER | [306](#306)  | 云端录制发生迁移，原有的录制任务被迁移到新负载上时触发     |
-| EVENT_TYPE_CLOUD_RECORDING_FILE_SLICE | [307](#307)  | 云端录制生成 M3U8 文件（切出第一个 TS 分片） 生成后回调 |
-| EVENT_TYPE_CLOUD_RECORDING_UPLOAD_ERROR | [308](#308)  | 云端录制 上传模块发生错误 |
-| EVENT_TYPE_CLOUD_RECORDING_DOWNLOAD_IMAGE_ERROR | [309](#309)  | 云端录制下载解码图片文件发生错误 |
-| EVENT_TYPE_CLOUD_RECORDING_MP4_STOP | [310](#310)  | 云端录制 MP4 录制任务结束，回调包含录制的 MP4 文件名和详细信息 |
-| EVENT_TYPE_CLOUD_RECORDING_VOD_COMMIT | [311](#311)  | 云端录制 VOD 录制任务上传媒体资源完成 |
-| EVENT_TYPE_CLOUD_RECORDING_VOD_STOP | [312](#312)  | 云端录制 VOD 录制任务结束 |
+| 字段名                                          | 类型        | 含义                                                   |
+| ----------------------------------------------- | ----------- | ------------------------------------------------------ |
+| EVENT_TYPE_CLOUD_RECORDING_RECORDER_START       | [301](#301) | 云端录制录制模块启动                                   |
+| EVENT_TYPE_CLOUD_RECORDING_RECORDER_STOP        | [302](#302) | 云端录制录制模块退出                                   |
+| EVENT_TYPE_CLOUD_RECORDING_FAILOVER             | [306](#306) | 云端录制发生迁移，原有的录制任务被迁移到新负载上时触发 |
+| EVENT_TYPE_CLOUD_RECORDING_DOWNLOAD_IMAGE_ERROR | [309](#309) | 云端录制下载解码图片文件发生错误                       |
+| EVENT_TYPE_CLOUD_RECORDING_VOD_COMMIT           | [311](#311) | 云端录制 VOD 录制任务上传媒体资源完成                  |
+| EVENT_TYPE_CLOUD_RECORDING_VOD_STOP             | [312](#312) | 云端录制 VOD 录制任务结束                              |
 
 >! 录制后台是实时录制 HLS(m3u8+ts) 文件后转码成 MP4 后上传至点播平台的，301-309区间的回调状态为实时录制的中间状态，可以更加清晰的知晓录制任务的进行过程并记录状态，实际录制文件上传到点播成功会回调311事件，整体任务结束回调312事件。
 
@@ -342,7 +336,7 @@ TRTC 房间中的主播上行音视频后将触发启动录制任务，房间内
 | RoomId  | String/Number | 房间名（类型与客户端房间号类型一致） |
 | EventTs | Number        | 时间发生的 Unix 时间戳，单位为秒     |
 | UserId  | String        | 录制机器人的用户 ID                  |
-| TaskId  | String        | 录制ID，一次云端录制任务唯一的 ID     |
+| TaskId  | String        | 录制ID，一次云端录制任务唯一的 ID    |
 | Payload | JsonObject    | 根据不同事件类型定义不同             |
 
 - **事件类型为301**（EVENT_TYPE_CLOUD_RECORDING_RECORDER_START）时 Payload 的定义：[](id:301)
@@ -409,87 +403,6 @@ TRTC 房间中的主播上行音视频后将触发启动录制任务，房间内
   }
 }
 ```
-- **事件类型为303**（EVENT_TYPE_CLOUD_RECORDING_UPLOAD_START）时 Payload 的定义：[](id:303)
-<table>
-<thead><tr><th>字段名</th><th>类型</th><th>含义</th></tr></thead>
-<tbody><tr>
-<td>Status</td>
-<td>Number</td>
-<td>0：代表上传模块正常启动  <br>1：代表上传模块初始化失败</td>
-</tr>
-</tbody></table>
-```json
-{
-  "EventGroupId": 3,
-  "EventType": 303,
-  "CallbackTs": 1622191965320,
-  "EventInfo": {
-    "RoomId": "20015",
-    "EventTs": 1622191965,
-    "UserId": "xx",
-    "TaskId": "xx",
-    "Payload": {
-      "Status": 0
-    }
-  }
-}
-```
-- **事件类型为304**（EVENT_TYPE_CLOUD_RECORDING_FILE_INFO）时 Payload 的定义：[](id:304)
-<table>
-<thead><tr><th>字段名</th><th>类型</th><th>含义</th></tr></thead>
-<tbody><tr>
-<td>FileList</td>
-<td>String</td>
-<td>生成的 M3U8 文件名</td>
-</tr>
-</tbody></table>
-```json
-{
-  "EventGroupId": 3,
-  "EventType": 304,
-  "CallbackTs": 1622191965350,
-  "EventInfo": {
-    "RoomId": "20015",
-    "EventTs": 1622191965,
-    "UserId": "xx",
-    "TaskId": "xx",
-    "Payload": {
-      "FileList": "xx.m3u8"
-    }
-  }
-}
-```
-- **事件类型为305**（EVENT_TYPE_CLOUD_RECORDING_UPLOAD_STOP）时 Payload 的定义：[](id:305)
-<table>
-<thead>
-<tr>
-<th>字段名</th>
-<th>类型</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Status</td>
-<td>Number</td>
-<td>0：代表 HLS 文件上传任务已经完成<br>1：代表 HLS 文件上传任务已经完成，但至少有一片文件滞留在服务器或者备份存储上<br>2：代表滞留在服务器或者备份存储上的文件已经恢复上传</td>
-</tr>
-</tbody></table>
-```json
-{
-  "EventGroupId": 3,
-  "EventType": 305,
-  "CallbackTs": 1622191989674,
-  "EventInfo": {
-    "RoomId": "20015",
-    "EventTs": 1622191989,
-    "UserId": "xx",
-    "TaskId": "xx",
-    "Payload": {
-      "Status": 0
-    }
-  }
-}
-```
 - **事件类型为306**（EVENT_TYPE_CLOUD_RECORDING_FAILOVER）时 Payload 的定义：[](id:306)
 <table>
 <thead>
@@ -521,92 +434,6 @@ TRTC 房间中的主播上行音视频后将触发启动录制任务，房间内
   }
 }
 ```
-- **事件类型为307**（EVENT_TYPE_CLOUD_RECORDING_FILE_SLICE）时 Payload 的定义：[](id:307)
-<table>
-<thead>
-<tr>
-<th>字段名</th>
-<th>类型</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>FileName</td>
-<td>String</td>
-<td>M3U8 文件名</td>
-</tr>
-<tr>
-<td>UserId</td>
-<td>String</td>
-<td>本录制文件对应的用户 ID</td>
-</tr>
-<tr>
-<td>TrackType</td>
-<td>String</td>
-<td>audio/video/audio_video</td>
-</tr>
-<tr>
-<td>BeginTimeStamp</td>
-<td>Number</td>
-<td>录制开始时，服务器 UNIX 时间戳（毫秒)</td>
-</tr>
-</tbody></table>
-```json
-{
-  "EventGroupId": 3,
-  "EventType": 307,
-  "CallbackTs": 1622186289148,
-  "EventInfo": {
-    "RoomId": "xx",
-    "EventTs": "1622186289",
-    "UserId": "xx",
-    "TaskId": "xx",
-    "Payload": {
-      "FileName": "xx.m3u8",
-      "UserId": "xx",
-      "TrackType": "audio",
-      "BeginTimeStamp": 1622186279144
-    }
-  }
-}
-```
-- **事件类型为308**（EVENT_TYPE_CLOUD_RECORDING_UPLOAD_ERROR）时 Payload 的定义：[](id:308)
-<table>
-<thead>
-<tr>
-<th>字段名</th>
-<th>类型</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Code</td>
-<td>String</td>
-<td>上传模块的返回 code</td>
-</tr>
-<tr>
-<td>Message</td>
-<td>String</td>
-<td>上传模块的返回消息内容</td>
-</tr>
-</tbody></table>
-```json
-{
-  "EventGroupId": 3,
-  "EventType": 308,
-  "CallbackTs": 1622191989674,
-  "EventInfo": {
-    "RoomId": "20015",
-    "EventTs": 1622191989,
-    "UserId": "xx",
-    "TaskId": "xx",
-    "Payload": {
-      "Code": "xx",
-      "Message": "xx"
-    }
-  }
-}
-```
 - **事件类型为309**（EVENT_TYPE_CLOUD_RECORDING_DOWNLOAD_IMAGE_ERROR）时 Payload 的定义：[](id:309)
 <table>
 <thead>
@@ -634,96 +461,6 @@ TRTC 房间中的主播上行音视频后将触发启动录制任务，房间内
     "TaskId": "xx",
     "Payload": {
       "Url": "http://xx",
-    }
-  }
-}
-```
-- **事件类型为310**（EVENT_TYPE_CLOUD_RECORDING_MP4_STOP）时 Payload 的定义：[](id:310)
-<table>
-<thead>
-<tr>
-<th>字段名</th>
-<th>类型</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Status</td>
-<td>Number</td>
-<td>0：代表此次录制mp4任务已经正常退出，所有的文件均已上传<br>1：代表此次录制mp4任务已经正常退出，但至少有一片文件滞留在服务器或者备份存储上<br>2：代表此次录制mp4任务异常退出</td>
-</tr>
-<tr>
-<td>FileList</td>
-<td>Array</td>
-<td>所有生成的 MP4 文件名</td>
-</tr>
-<tr>
-<td>FileMessage</td>
-<td>Array</td>
-<td>所有生成的 MP4 文件信息</td>
-</tr>
-<tr>
-<td>FileName</td>
-<td>String</td>
-<td>MP4 文件名</td>
-</tr>
-<tr>
-<td>UserId</td>
-<td>String</td>
-<td>MP4 文件对应的用户 ID（当录制模式为合流模式时，此字段为空）</td>
-</tr>
-<tr>
-<td>TrackType</td>
-<td>String</td>
-<td>audio/video/audio_video</td>
-</tr>
-<tr>
-<td>MediaId</td>
-<td>String</td>
-<td>main/aux</td>
-</tr>
-<tr>
-<td>StartTimeStamp</td>
-<td>Number</td>
-<td>MP4 文件开始的 UNIX 时间戳（毫秒)</td>
-</tr>
-<tr>
-<td>EndTimeStamp</td>
-<td>Number</td>
-<td>MP4 文件结束的 UNIX 时间戳（毫秒)</td>
-</tr>
-</tbody></table>
-```json
-{
-  "EventGroupId": 3,
-  "EventType": 310,
-  "CallbackTs": 1622191989674,
-  "EventInfo": {
-    "RoomId": "20015",
-    "EventTs": 1622191989,
-    "UserId": "xx",
-    "TaskId": "xx",
-    "Payload": {
-      "Status": 0,
-      "FileList": ["xxxx1.mp4", "xxxx2.mp4"],
-      "FileMessage": [
-        {
-          "FileName": "xxxx1.mp4",
-          "UserId": "xxxx",
-          "TrackType": "audio_video",
-          "MediaId": "main",
-          "StartTimeStamp": 1622186279145,
-          "EndTimeStamp": 1622186282145
-        },
-        {
-          "FileName": "xxxx2.mp4",
-          "UserId": "xxxx",
-          "TrackType": "audio_video",
-          "MediaId": "main",
-          "StartTimeStamp": 1622186279153,
-          "EndTimeStamp": 1622186282153
-        }
-      ]
     }
   }
 }
