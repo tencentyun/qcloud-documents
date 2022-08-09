@@ -80,7 +80,7 @@ TUILogin.login(context,
 这里详细介绍一下 login 函数中所需要用到的几个关键参数：
 - SDKAppID：在步骤一中的最后一步中您已经获取到，这里不再赘述。
 - UserID：当前用户的 ID，字符串类型，只允许包含英文字母（a-z 和 A-Z）、数字（0-9）、连词符（-）和下划线（\_）。
-- UserSig：使用 [步骤三](#step3) 的第3步中获取的 SecretKey 对 SDKAppID、UserID 等信息进行加密，就可以得到 UserSig，它是一个鉴权用的票据，用于腾讯云识别当前用户是否能够使用 TRTC 的服务。您可以通过控制台中的 [**辅助工具**](https://console.cloud.tencent.com/im/tool-usersig) 生成一个临时可用的 UserSig。
+- UserSig：使用 [步骤一](#step1) 的第3步中获取的 SecretKey 对 SDKAppID、UserID 等信息进行加密，就可以得到 UserSig，它是一个鉴权用的票据，用于腾讯云识别当前用户是否能够使用 TRTC 的服务。您可以通过控制台中的 [**辅助工具**](https://console.cloud.tencent.com/im/tool-usersig) 生成一个临时可用的 UserSig。
 - 更多信息请参见 [如何计算及使用 UserSig](https://cloud.tencent.com/document/product/647/17275)。
 
 > ! 
@@ -94,7 +94,7 @@ TUILogin.login(context,
 [](id:step5)
 ## 步骤五：拨打通话
 ### 1对1视频通话
-通过调用 TUICallKit 的 call 函数并指定通话类型和被叫方的 userid，就可以发起语音或者视频通话。
+通过调用 TUICallKit 的 call 函数并指定通话类型和被叫方的 userId，就可以发起语音或者视频通话。
 ```java
 // 发起1对1视频通话(假设 UserID 为 mike)
 TUICallKit.createInstance(context).call("mike", TUICallDefine.MediaType.Video); 
