@@ -66,7 +66,7 @@ TUICallKit 是腾讯云推出一款音视频通话 UI 组件，通过集成该�
 两人或多人进行音视频通话，覆盖游戏社交、在线客服、视频客服、在线问诊、保险咨询等场景。
 
 ## 服务开通
-**新版本的视频通话 SDK 需要配合专属的音视频通话套餐**，新的套餐整合了腾讯云[实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269/42440) 两个基础的 PaaS 服务，您可以通过在即时通信 IM 控制台一站式解锁 **即时通信 IM** 功能及其专属的**音视频通话能力**，详细的解锁流程请参考各平台：**快速接入TUICallKit**。
+**新版本的视频通话 SDK 需要配合专属的音视频通话套餐**，新的套餐整合了腾讯云[实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269/42440) 两个基础的 PaaS 服务，您可以通过在即时通信 IM 控制台一站式解锁 **即时通信 IM** 功能及其专属的**音视频通话能力**，详细的解锁流程请参考各平台：**快速接入 TUICallKit**。
 
 ### 音视频通话套餐详情
 <table>
