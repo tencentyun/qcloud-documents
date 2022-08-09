@@ -62,6 +62,7 @@ void onCallReceived(String callerId, List<String> calleeIdList, boolean isGroupC
 ```java
 void onCallCancelled(String callerId);
 ```
+参数如下表所示：
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
@@ -73,6 +74,8 @@ void onCallCancelled(String callerId);
 ```java
 void onCallBegin(TUICommonDefine.RoomId roomId, TUICallDefine.MediaType callMediaType, TUICallDefine.Role callRole);
 ```
+
+参数如下表所示：
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
@@ -86,6 +89,7 @@ void onCallBegin(TUICommonDefine.RoomId roomId, TUICallDefine.MediaType callMedi
 ```java
 void onCallEnd(TUICommonDefine.RoomId roomId, TUICallDefine.MediaType callMediaType, TUICallDefine.Role callRole, long totalTime);
 ```
+参数如下表所示：
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
@@ -218,7 +222,8 @@ void onUserVoiceVolumeChanged(Map<String, Integer> volumeMap);
 ```java
 void onUserNetworkQualityChanged(List<TUICallDefine.NetworkQualityInfo> networkQualityList);
 ```
+参数如下表所示：
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| networkQualityList | TUICallDefine.NetworkQualityInfo | 网络状态，根据每个 userId 可以获取对应用户当前的网络质量 |
+| networkQualityList | List | 网络状态，根据每个 userId 可以获取对应用户当前的网络质量 |
