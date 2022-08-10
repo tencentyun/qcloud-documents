@@ -115,12 +115,12 @@
 ## SDK 能力清单
 <table selecttype="cells" ><colgroup><col  ><col width="155.63" ><col  ><col  ><col  ><col  ></colgroup>
 <tbody>
-<tr  ><th>功能模块</td>
-<th style="width:5%">功能项</td>
-<th>功能简介</td>
-<th style="width:2%">Web</td>
-<th style="width:2%">iOS & Android</td>
-<th style="width:2%">Flutter</td>
+<tr  ><th style="width:5%">功能模块</td>
+<th style="width:20%">功能项</td>
+<th style="width:70%">功能简介</td>
+<th style="width:1%">Web</td>
+<th style="width:1%">iOS & Android</td>
+<th style="width:1%">Flutter</td>
 </tr>
 
 <tr  ><td colspan="1" rowspan="14" >播放协议/格式</td>
@@ -500,7 +500,7 @@
 
 <tr  ><td colspan="1" rowspan="8" >显示效果</td>
 <td>自定义 UI</td>
-<td>SDK 提供 <a href="https://cloud.tencent.com/document/product/881/30818">含 UI 集成方案</a>，提供包含 UI 界面的常用播放组件，可以根据自身需求选用</td>
+<td>SDK 提供含 UI 集成方案，提供包含 UI 界面的常用播放组件，可以根据自身需求选用</td>
 <td>&#10003;</td>
 <td>&#10003;</td>
 <td>&#10003;</td>
