@@ -2,7 +2,7 @@
 
 TUICallEngine API 是音视频通话组件的**无 UI 接口**。
 
-<h2 id="TUICallEngine"> API 概览</h2>
+## API 概览
 
 | API | 描述 |
 |-----|-----|
@@ -31,18 +31,19 @@ TUICallEngine API 是音视频通话组件的**无 UI 接口**。
 | [getDeviceList](#getDeviceList) | 获取设备列表|
 | [switchDevice](#switchDevice) | 切换摄像头或麦克风设备|
 
-<h2 id="TUICallEngine"> API 详情</h2>
+## API 详情
 
 ### createInstance
 创建 TUICallEngine 的单例。
 
 ```javascript
 const tuiCallEngine = TUICallEngine.createInstance({
-  SDKAppID: 0, // 接入时需要将0替换为您的云通信应用的 SDKAppID
-  tim: tim     // tim 参数适用于业务中已存在 TIM 实例，为保证 TIM 实例唯一性
+    SDKAppID: 0, // 接入时需要将0替换为您的云通信应用的 SDKAppID
+    tim: tim         // tim 参数适用于业务中已存在 TIM 实例，为保证 TIM 实例唯一性
 });
 ```
 **参数如下表所示：**
+
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | SDKAppID | Number | 云通信应用的 SDKAppID |
@@ -53,9 +54,9 @@ const tuiCallEngine = TUICallEngine.createInstance({
 
 ```javascript
 tuiCallEngine.destroyInstance().then(() => {
-  //success
+    //success
 }).catch(error => {
-  console.warn('destroyInstance error:', error);
+    console.warn('destroyInstance error:', error);
 });
 ```
 
@@ -64,11 +65,12 @@ tuiCallEngine.destroyInstance().then(() => {
 
 ```javascript
 let onError = function(error) {
-  console.log(error);
+    console.log(error);
 };
 tuiCallEngine.on(TUICallEvent.ERROR, onError, this);
 ```
 **参数如下表所示：**
+
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | eventName | String | 事件名 |
@@ -80,11 +82,12 @@ tuiCallEngine.on(TUICallEvent.ERROR, onError, this);
 取消监听事件。
 ```javascript
 let onError = function(error) {
-  console.log(error);
+    console.log(error);
 };
 tuiCallEngine.off(TUICallEvent.ERROR, onError, this);
 ```
 **参数如下表所示：**
+
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | eventName | String | 事件名 |
@@ -96,13 +99,14 @@ tuiCallEngine.off(TUICallEvent.ERROR, onError, this);
 ```javascript
 let promise = tuiCallEngine.login({userID: 'your userID', userSig: 'your userSig'});
 promise.then(() => {
-  //success
+    //success
 }).catch(error => {
-  console.warn('login error:', error);
+    console.warn('login error:', error);
 });
 ```
 
 **参数如下表所示：**
+
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userID | String | 当前用户的 ID，字符串类型，只允许包含英文字母（a-z 和 A-Z）、数字（0-9）、连词符（-）和下划线（_） |
@@ -114,9 +118,9 @@ promise.then(() => {
 ```javascript
 let promise = tuiCallEngine.logout();
 promise.then(() => {
-  //success
+    //success
 }).catch(error => {
-  console.warn('logout error:', error);
+    console.warn('logout error:', error);
 });
 ```
 
@@ -124,16 +128,17 @@ promise.then(() => {
 设置用户昵称和头像。
 ```javascript
 let promise = tuiCallEngine.setSelfInfo({
-  nickName: 'video', 
-  avatar:'http(s)://url/to/image.jpg'
+    nickName: 'video', 
+    avatar:'http(s)://url/to/image.jpg'
 });
 promise.then(() => {
-  //success
+    //success
 }).catch(error => {
-  console.warn('setSelfInfo error:', error);
+    console.warn('setSelfInfo error:', error);
 });
 ```
 **参数如下表所示：**
+
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | nickName | String | 昵称 |
@@ -148,17 +153,18 @@ C2C邀请通话，被邀请方会收到 TUICallEvent.INVITED 事件。
 
 ```javascript
 let promise = tuiCallEngine.call({
-  userID: 'user1', 
-  type: 1, 
+    userID: 'user1', 
+    type: 1, 
 });
 promise.then(() => {
-  //success
+    //success
 }).catch(error => {
-  console.warn('call error:', error);
+    console.warn('call error:', error);
 });
 ```
 
 **参数如下表所示：**
+
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userID | String | 被邀请方 userID |
@@ -171,90 +177,90 @@ IM 群组邀请通话，被邀请方会收到 `EVENT.INVITED` 事件。
 
 ```javascript
 let promise = tuiCallEngine.groupCall({
-  userIDList: ['user1', 'user2'], 
-  type: 1, 
-  groupID: 'IM群组 ID', 
+    userIDList: ['user1', 'user2'], 
+    type: 1, 
+    groupID: 'IM群组 ID', 
 });
 promise.then(() => {
-  //success
+    //success
 }).catch(error => {
-  console.warn('groupCall error:', error);
+    console.warn('groupCall error:', error);
 });
 ```
 **参数如下表所示：**
 <table>
-  <thead>
-    <tr>
-      <th>参数</th>
-      <th>类型</th>
-      <th>含义</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>userIDList</td>
-      <td>Array</td>
-      <td>邀请列表</td>
-    </tr>
-    <tr>
-      <td>type</td>
-      <td>Number</td>
-      <td>0-未知， 1-语音通话，2-视频通话</td>
-    </tr>
-    <tr>
-      <td>groupID</td>
-      <td>String</td>
-      <td>IM 群组</td>
-    </tr>
-    <tr>
-      <td>timeout</td>
-      <td>String</td>
-      <td>超时时长(选填)</td>
-    </tr>
-    <tr>
-      <td>roomID</td>
-      <td>String</td>
-      <td>房间 ID(选填)</td>
-    </tr>
-    <tr>
-      <td>offlinePushInfo</td>
-      <td>Object</td>
-      <td>
-        <p>自定义离线消息推送（选填）-- 需 tsignaling 版本 &gt;= 0.8.0</p>
-        <table>
-          <thead>
-            <tr>
-              <th style="text-align:left">name</th>
-              <th style="text-align:left">Type</th>
-              <th style="text-align:left">Description</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td style="text-align:left">title</td>
-              <td style="text-align:left">string</td>
-              <td style="text-align:left">离线推送标题（选填）</td>
-            </tr>
-            <tr>
-              <td style="text-align:left">description</td>
-              <td style="text-align:left">string</td>
-              <td style="text-align:left">离线推送内容（选填）</td>
-            </tr>
-            <tr>
-              <td style="text-align:left">androidOPPOChannelID</td>
-              <td style="text-align:left">string</td>
-              <td style="text-align:left">离线推送设置 OPPO 手机 8.0 系统及以上的渠道 ID （选填）</td>
-            </tr>
-            <tr>
-              <td style="text-align:left">extension</td>
-              <td style="text-align:left">string</td>
-              <td style="text-align:left">离线推送透传内容（选填）（tsignaling 版本 &gt;= 0.9.0）</td>
-            </tr>
-          </tbody>
-        </table>
-      </td>
-    </tr>
-  </tbody>
+    <thead>
+        <tr>
+            <th>参数</th>
+            <th>类型</th>
+            <th>含义</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>userIDList</td>
+            <td>Array</td>
+            <td>邀请列表</td>
+        </tr>
+        <tr>
+            <td>type</td>
+            <td>Number</td>
+            <td>0-未知， 1-语音通话，2-视频通话</td>
+        </tr>
+        <tr>
+            <td>groupID</td>
+            <td>String</td>
+            <td>IM 群组</td>
+        </tr>
+        <tr>
+            <td>timeout</td>
+            <td>String</td>
+            <td>超时时长(选填)</td>
+        </tr>
+        <tr>
+            <td>roomID</td>
+            <td>String</td>
+            <td>房间 ID(选填)</td>
+        </tr>
+        <tr>
+            <td>offlinePushInfo</td>
+            <td>Object</td>
+            <td>
+                <p>自定义离线消息推送（选填，需 tsignaling 版本 &gt;= 0.8.0）</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="text-align:left">name</th>
+                            <th style="text-align:left">Type</th>
+                            <th style="text-align:left">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="text-align:left">title</td>
+                            <td style="text-align:left">string</td>
+                            <td style="text-align:left">离线推送标题（选填）</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left">description</td>
+                            <td style="text-align:left">string</td>
+                            <td style="text-align:left">离线推送内容（选填）</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left">androidOPPOChannelID</td>
+                            <td style="text-align:left">string</td>
+                            <td style="text-align:left">离线推送设置 OPPO 手机 8.0 系统及以上的渠道 ID （选填）</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align:left">extension</td>
+                            <td style="text-align:left">string</td>
+                            <td style="text-align:left">离线推送透传内容（选填）（tsignaling 版本 &gt;= 0.9.0）</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </tbody>
 </table>
 
 ### accept
@@ -263,11 +269,11 @@ promise.then(() => {
 
 ```javascript
 tuiCallEngine.on(TUICallEvent.INVITED, () => {
-  tuiCallEngine.accept().promise.then(() => {
-    //success
-  }).catch(error => {
-    console.warn('accept error:', error);
-  });
+    tuiCallEngine.accept().promise.then(() => {
+        //success
+    }).catch(error => {
+        console.warn('accept error:', error);
+    });
 });
 ```
 
@@ -276,11 +282,11 @@ tuiCallEngine.on(TUICallEvent.INVITED, () => {
 拒绝当前通话，当您作为被叫收到 `TUICallEvent.INVITED ` 的回调时，可以调用该函数拒绝来电。
 ```javascript
 tuiCallEngine.on(TUICallEvent.INVITED, () => {
-  tuiCallEngine.reject().then(() => {
-    //success
-  }).catch(error => {
-    console.warn('reject error:', error);
-  });
+    tuiCallEngine.reject().then(() => {
+        //success
+    }).catch(error => {
+        console.warn('reject error:', error);
+    });
 });
 ```
 
@@ -291,9 +297,9 @@ tuiCallEngine.on(TUICallEvent.INVITED, () => {
 
 ```javascript
 tuiCallEngine.hangup().then(() => {
-   //success
+     //success
  }).catch(error => {
-    console.warn('hangup error:', error);
+        console.warn('hangup error:', error);
  });
 ```
 
@@ -304,13 +310,14 @@ tuiCallEngine.hangup().then(() => {
 ```javascript
 // 1 表示语音通话；2 表示视频通话
 tuiCallEngine.switchCallMediaType(2).then(() => {
-  //success
+    //success
 }).catch(error => {
-  console.warn('switchCallMediaType error:', error);
+    console.warn('switchCallMediaType error:', error);
 });
 ```
 
 **参数如下表所示：**
+
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | newMediaType | Number | 1-语音通话，2-视频通话 |
@@ -321,20 +328,21 @@ tuiCallEngine.switchCallMediaType(2).then(() => {
 
 ```javascript
 let promise = tuiCallEngine.startRemoteView({
-  userID: 'user1', 
-  videoViewDomID: 'video_1',
+    userID: 'user1', 
+    videoViewDomID: 'video_1',
 });
 promise.then(() => {
-  //success
+    //success
 }).catch(error => {
-  console.warn('startRemoteView error:', error);
+    console.warn('startRemoteView error:', error);
 });
 ```
 **参数如下表所示：**
+
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userID | String | 用户 id |
-| videoViewDomID | String | 该用户数据将渲染到该dom id节点里 |
+| userID | String | 用户 ID |
+| videoViewDomID | String | 该用户数据将渲染到该 dom id 节点里 |
 
 
 ### stopRemoteView
@@ -345,6 +353,7 @@ tuiCallEngine.stopRemoteView({userID: 'user1'});
 ```
 
 **参数如下表所示：**
+
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userID | String | 用户id |
@@ -354,17 +363,18 @@ tuiCallEngine.stopRemoteView({userID: 'user1'});
 
 ```javascript
 let promise = tuiCallEngine.startLocalView({
-  userID: 'user1', 
-  videoViewDomID: 'video_1'
+    userID: 'user1', 
+    videoViewDomID: 'video_1'
 });
 promise.then(() => {
-  //success
+    //success
 }).catch(error => {
-  console.warn('startLocalView error:', error);
+    console.warn('startLocalView error:', error);
 });
 ```
 
 **参数如下表所示：**
+
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userID | String | 用户 id |
@@ -376,12 +386,13 @@ promise.then(() => {
 ```javascript
 let promise = tuiCallEngine.stopLocalView({userID: 'user1'});
 promise.then(() => {
-  //success
+    //success
 }).catch(error => {
-  console.warn('stopLocalView error:', error)
+    console.warn('stopLocalView error:', error)
 });
 ```
 **参数如下表所示：**
+
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userID | String | 用户 id |
@@ -390,18 +401,18 @@ promise.then(() => {
 开启摄像头。
 ```javascript
 tuiCallEngine.openCamera().then(() => {
-  //success
+    //success
 }).catch(error => {
-  console.warn('openCamera error:', error);
+    console.warn('openCamera error:', error);
 });
 ```
 ### closeCamara
 关闭摄像头
 ```javascript
 tuiCallEngine.closeCamera().then(() => {
-  //success
+    //success
 }).catch(error => {
-  console.warn('closeCamara error:', error);
+    console.warn('closeCamara error:', error);
 });
 ```
 
@@ -409,9 +420,9 @@ tuiCallEngine.closeCamera().then(() => {
 打开麦克风。
 ```javascript
 tuiCallEngine.openMicrophone().then(() => {
-  //success
+    //success
 }).catch(error => {
-  console.warn('openMicrophone error:', error);
+    console.warn('openMicrophone error:', error);
 });
 ```
 
@@ -419,9 +430,9 @@ tuiCallEngine.openMicrophone().then(() => {
 关闭麦克风。
 ```javascript
 tuiCallEngine.closeMicrophone().then(() => {
-  //success
+    //success
 }).catch(error => {
-  console.warn('closeMicrophone error:', error);
+    console.warn('closeMicrophone error:', error);
 });
 ```
 
@@ -430,10 +441,10 @@ tuiCallEngine.closeMicrophone().then(() => {
 ```javascript
 const profile = '720p';
 tuiCallEngine.setVideoQuality(profile).then(() => {
-  //success
+    //success
 }).catch(error => {
-  console.warn('setVideoQuality error:', error)
-});  // 设置视频质量为720p   
+    console.warn('setVideoQuality error:', error)
+});    // 设置视频质量为720p     
 ```
 
 **参数如下表所示：**
@@ -450,12 +461,13 @@ tuiCallEngine.setVideoQuality(profile).then(() => {
 获取设备列表。
 ```javascript
 tuiCallEngine.getDeviceList("camera").then((devices) => {
-  console.log(devices);
+    console.log(devices);
 }).catch(error => {
-  console.warn('getDeviceList error:', error);
+    console.warn('getDeviceList error:', error);
 });
 ```
 **参数如下表所示：**
+
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | deviceType | String | 'camera'-摄像头，'microphones'-麦克风 |
@@ -464,47 +476,47 @@ tuiCallEngine.getDeviceList("camera").then((devices) => {
 切换摄像头或麦克风设备。
 ```javascript
 let promsie = tuiCallEngine.switchDevice({
-  deviceType: 'video', 
-  deviceId: cameras[0].deviceId
+    deviceType: 'video', 
+    deviceId: cameras[0].deviceId
 });
 promise.then(() => {
-  //success
+    //success
 }).catch(error => {
-  console.warn('switchDevice error:', error)
+    console.warn('switchDevice error:', error)
 });
 ```
 
 **参数如下表所示：**
 <table class="params">
-  <thead>
-    <tr>
-      <th>参数</th>
-      <th>类型</th>
-      <th>含义</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>deviceType</td>
-      <td>String</td>
-      <td>
-        <p>需要切换的设备类型</p>
-        <ul>
-          <li>'video' 摄像头</li>
-          <li>'audio' 麦克风</li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td>deviceId</td>
-      <td>String</td>
-      <td>
-        <p>需要切换的设备ID</p>
-        <ul>
-          <li>摄像头设备标识通过 getCameras() 获取。</li>
-          <li>麦克风设备标识通过 getMicrophones() 获取。</li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
+    <thead>
+        <tr>
+            <th>参数</th>
+            <th>类型</th>
+            <th>含义</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>deviceType</td>
+            <td>String</td>
+            <td>
+                <p>需要切换的设备类型</p>
+                <ul>
+                    <li>'video' 摄像头</li>
+                    <li>'audio' 麦克风</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>deviceId</td>
+            <td>String</td>
+            <td>
+                <p>需要切换的设备ID</p>
+                <ul>
+                    <li>摄像头设备标识通过 getCameras() 获取。</li>
+                    <li>麦克风设备标识通过 getMicrophones() 获取。</li>
+                </ul>
+            </td>
+        </tr>
+    </tbody>
 </table>
