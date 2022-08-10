@@ -6,30 +6,30 @@ TUICallEngine API 是音视频通话组件的**无 UI 接口**。
 
 | API | 描述 |
 |-----|-----|
-| [createInstance](#createinstance)           | 创建 TUICallEngine 实例（单例模式） |
-| [destroyInstance](#destroyinstance)         | 销毁 TUICallEngine 实例（单例模式） |
-| [on](#on)                                   | 监听事件                            |
-| [off](#off)                                 | 取消监听事件                        |
-| [login](#login)                             | 登录接口                            |
-| [logout](#logout)                           | 登出接口                            |
-| [setSelfInfo](#setselfinfo)                 | 设置用户昵称和头像                  |
-| [call](#call)                               | C2C邀请通话                         |
-| [groupCall](#groupcall)                     | 群聊邀请通话                        |
-| [accept](#accept)                           | 接听通话                            |
-| [reject](#reject)                           | 拒绝通话                            |
-| [hangup](#hangup)                           | 结束通话                            |
-| [switchCallMediaType](#switchcallmediatype) | 当前通话类型切换                    |
-| [startRemoteView](#startremoteview)         | 启动远端画面渲染                    |
-| [stopRemoteView](#stopremoteview)           | 停止远端画面渲染                    |
-| [startLocalView](#startlocalview)           | 启动本地画面渲染                    |
-| [stopLocalView](#stoplocalview)             | 停止本地画面渲染                    |
-| [openCamera](#opencamera)                   | 开启摄像头                          |
-| [closeCamara](#closecamara)                 | 关闭摄像头                          |
-| [openMicrophone](#openmicrophone)           | 打开麦克风                          |
-| [closeMicrophone](#closemicrophone)         | 关闭麦克风                          |
-| [setVideoQuality](#setvideoquality)         | 设置视频质量                        |
-| [getDeviceList](#getdevicelist)             | 获取设备列表                        |
-| [switchDevice](#switchdevice)               | 切换摄像头或麦克风设备              |
+| [createInstance](#createInstance) | 创建 TUICallEngine 实例（单例模式）|
+| [destroyInstance](#destroyInstance) | 销毁 TUICallEngine 实例（单例模式）|
+| [on](#on) | 监听事件|
+| [off](#off) | 取消监听事件|
+| [login](#login) | 登录接口|
+| [logout](#logout) | 登出接口|
+| [setSelfInfo](#setSelfInfo) | 设置用户昵称和头像|
+| [call](#call) | C2C邀请通话|
+| [groupCall](#groupCall) | 群聊邀请通话|
+| [accept](#accept) | 接听通话 |
+| [reject](#reject) | 拒绝通话 |
+| [hangup](#hangup) | 结束通话|
+| [switchCallMediaType](#switchCallMediaType) | 当前通话类型切换|
+| [startRemoteView](#startRemoteView) | 启动远端画面渲染|
+| [stopRemoteView](#stopRemoteView) | 停止远端画面渲染|
+| [startLocalView](#startLocalView) | 启动本地画面渲染|
+| [stopLocalView](#stopLocalView) | 停止本地画面渲染|
+| [openCamera](#opencamera) | 开启摄像头|
+| [closeCamara](#closecamara) | 关闭摄像头|
+| [openMicrophone](#openMicrophone) | 打开麦克风|
+| [closeMicrophone](#closeMicrophone) | 关闭麦克风|
+| [setVideoQuality](#setVideoQuality) | 设置视频质量|
+| [getDeviceList](#getDeviceList) | 获取设备列表|
+| [switchDevice](#switchDevice) | 切换摄像头或麦克风设备|
 
 <h2 id="TUICallEngine"> API 详情</h2>
 
@@ -125,7 +125,7 @@ promise.then(() => {
 ```
 
 ### groupCall
-IM 群组邀请通话，被邀请方会收到 `EVENT.INVITED` 事件。
+IM 群组邀请通话，被邀请方会收到 `TUICallEvent.INVITED` 事件。
 
 ```javascript
 let promise = tuiCallEngine.groupCall({
@@ -141,7 +141,6 @@ promise.then(() => {
 ```
 
 ### accept
-
 当您作为被邀请方收到 `TUICallEvent.INVITED` 事件的回调时，可以调用该接口接听来电。
 
 ```javascript
@@ -172,6 +171,9 @@ tuiCallEngine.on(TUICallEvent.INVITED, () => {
 - 当您处于通话中，可以调用该接口结束通话
 - 当未拨通时, 可用来取消通话
 
+- 当您处于通话中，可以调用该接口结束通话
+- 当未拨通时, 可用来取消通话
+
 ```javascript
 tuiCallEngine.hangup().then(() => {
    //success
@@ -184,6 +186,8 @@ tuiCallEngine.hangup().then(() => {
 当前通话类型切换。
 - 仅支持1v1通话过程中使用
 - 失败监听 ERROR 事件，code: 60001
+
+
 ```javascript
 // 1 表示语音通话；2 表示视频通话
 tuiCallEngine.switchCallMediaType(2).then(() => {
