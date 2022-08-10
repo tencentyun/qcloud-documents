@@ -1,4 +1,4 @@
-本文将介绍如何用最短的时间完成 TUICallKit 组件的接入，跟随本文档，您将在一个小时的时间内完成如下几个关键步骤，并最终得到一个包含完备 UI 界面的视频通话功能。
+﻿本文将介绍如何用最短的时间完成 TUICallKit 组件的接入，跟随本文档，您将在一个小时的时间内完成如下几个关键步骤，并最终得到一个包含完备 UI 界面的视频通话功能。
 
 ## 环境准备
 iOS 9.0 (API level 16) 及更高。
@@ -17,18 +17,20 @@ TUICallKit 是基于腾讯云 [即时通信 IM](https://cloud.tencent.com/docume
 
 
 [](id:step2)
-## 步骤二：下载并导入组件
+## 步骤二：导入组件
 使用 CocoaPods 导入组件，具体步骤如下：
-1. 在您的工程 `Podfile` 文件同一级目录下创建 `TUICallKit` 文件夹。
-2. 单击进入 [**Github/TUICallKit**](https://github.com/tencentyun/TUICalling) ，选择克隆/下载代码，然后将 [**iOS**](https://github.com/tencentyun/TUICalling/tree/main/iOS) 目录下的 `TUICallKit`、`Resources` 文件夹 和 `TUICallKit.podspec` 文件拷贝到您在 `步骤1` 创建的 `TUICallKit` 文件夹下。
-3. 在您的 `Podfile` 文件中添加以下依赖。
+1. 在您的 `Podfile` 文件中添加以下依赖。
 ```
-# :path => "指向TUICallKit.podspec 的相对路径"
-pod 'TUICallKit', :path => "TUICallKit/TUICallKit.podspec"
+pod 'TUICallKit'
 ```
-4. 执行 `pod install` 命令，完成导入。
-
->!  `TUICallKit`、`Resources` 文件夹 和`TUICallKit.podspec`文件必需在同一目录下。
+2. 执行以下命令，安装组件。
+```bash
+pod install
+```
+如果无法安装 TUICallKit 最新版本，执行以下命令更新本地的 CocoaPods 仓库列表。
+```bash
+pod repo update
+```
 
 [](id:step3)
 ## 步骤三：完成工程配置
