@@ -4,22 +4,31 @@
 ## 前提条件
 请确保您已经参见 [下载 Maven](https://cloud.tencent.com/document/product/649/20231) 下载安装了 Java 和 Maven，并且配置了 TSF 私服地址。
 
-> ? 目前 同时请确保 SDK 版本高于**2020**。
+> ? 同时请确保 SDK 版本高于**2020**。
 
 ## 操作步骤
+如果对 Agent有疑问，可以先阅读[Agent 插件功能说明](https://github.com/yangjuanying/qcloud-documents/blob/patch-6/product/%E4%BA%92%E8%81%94%E7%BD%91%E4%B8%AD%E9%97%B4%E4%BB%B6/%E8%85%BE%E8%AE%AF%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6/03%20%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/03%20%E5%9C%A8%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%8E%AF%E5%A2%83%E4%B8%AD%E9%83%A8%E7%BD%B2%E5%BE%AE%E6%9C%8D%E5%8A%A1/05%20%E9%83%A8%E7%BD%B2%20Spring%20Cloud%20TSF%20%E5%BA%94%E7%94%A8%EF%BC%88Java%20Agent%E7%89%88%EF%BC%89.md)
+
 >?[步骤1](#step1) 和 [步骤2](#step2) 与其他模块一样，已经使用过其他模块的可直接跳至 [步骤3](#step3)。
 
 [](id:step1)
-**1. 向工程中添加依赖。**
+**1. 在本地确保依赖了 2020 相关的SDK依赖。**
 在 `pom.xml` 中添加以下代码：
 ```xml
 <dependency>
     <groupId>com.tencent.tsf</groupId>
-    <artifactId>spring-cloud-tsf-starter</artifactId>
+    <artifactId>femas-adaptor-tsf-springcloud-2020</artifactId>
+    <version><!-- 调整为 SDK 最新版本号 --></version> 
+</dependency>
+
+<dependency>
+    <groupId>com.tencent.tsf</groupId>
+    <artifactId>femas-adaptor-tsf-springfox-2.10</artifactId>
     <version><!-- 调整为 SDK 最新版本号 --></version> 
 </dependency>
 ```
 **[](id:step2)2. 向 Application 类中添加注解 `@EnableTsf`：**
+
 <dx-codeblock>
 :::  java
 // 下面省略了无关的代码
@@ -33,83 +42,13 @@ public class ProviderApplication {
 :::
 </dx-codeblock>
 
-**[](id:step3)3. 使用 Feign 上的 fallback 以及 fallbackFactory 功能。** 
-TSF 容错兼容 feign 的容错功能，如果需要使用 feign 的如下降级功能，则需要关闭 Hystrix 开关。
-<dx-codeblock>
-:::  java
-@FeignClient(name = "circuit-breaker-mock-service", fallbackFactory = HystrixClientFallbackFactory.class)
-@FeignClient(name = "circuit-breaker-mock-service", fallback = FeignClientFallback.class)
-:::
-</dx-codeblock>
-关闭 Hystrix 开关（默认是关闭的，如果之前使用了该功能，可以删除该配置或者关闭）：
-<dx-codeblock>
-:::  yaml
-feign:
-  hystrix:
-    enabled: false
-:::
-</dx-codeblock>
-打开 TSF 开关：
-<dx-codeblock>
-:::  yaml
-feign:
-  tsf:
-    enabled: true
-:::
-</dx-codeblock>
-<b>4. 在代码中使用容错功能。</b>
-<dx-codeblock>
-:::  java
-// 下面省略了无关的代码
-@TsfFaultTolerance(strategy = TsfFaultToleranceStragety.FAIL_OVER, parallelism = 2, fallbackMethod = "doWorkFallback")
-public void doWork() throws InterruptedException {
-    String response = providerDemoService.echo("1234");
-    LOG.info("consumer-demo auto test, response: [" + response + "]");
-}
-public void doWorkFallback() {
-    System.out.println("fallback");
-}
-// fallbackMethod可以加也可以不加，用户可以自行选择
-@TsfFaultTolerance(strategy = TsfFaultToleranceStragety.FAIL_FAST)
-public void doWork2() throws InterruptedException {
-    String response = providerDemoService.echo2("1234");
-    LOG.info("consumer-demo auto test, response: [" + response + "]");
-}
-:::
-</dx-codeblock>
+**[](id:step3)3. 在启动应用时使用服务 Agent：**
 
-可以看到，TSF 的容错使用起来非常方便，您只需在需要保护的方法上增加一个注解即可（需要该 Bean 被 Spring 所管理）。
+下载[service-agent-release.jar](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91/jvm%E7%9B%91%E6%8E%A7/service-agent-release.tar)。在 IDE 中启动，通过 VM options 配置启动参数`-javaagent:"/xxxx/service-agent-release.jar"`，通过 main 方法直接启动。
 
-#### 容错策略说明
-failfast、failover 和 forking 容错策略是可选择的配置：
+**[](id:step4)4. 在启动应用时使用可观测 Agent：**
 
-|容错策略|含义|支持配置|
-|----|----|-----|
-|failfast|直接失败，对于没有幂等性的下游服务推荐 failfast|无|
-|failover|请求错了之后会重试|重试次数 maxAttempts|
-|forking|同时发送多个请求，需要用户配置并行度，例如同时发出两个请求，哪个先返回，就把这个结果返回回去。如果第一个请求是异常，则会等另一个请求，如果全部都异常，则返回异常。|并行度 parallelism|
+下载[ot-agent-release.jar](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91/jvm%E7%9B%91%E6%8E%A7/ot-agent-release.tar)。在 IDE 中启动，通过 VM options 配置启动参数`-javaagent:"/xxxx/ot-agent-release.jar"`，通过 main 方法直接启动。
 
-**三种容错策略均支持 fallback 方法，要求入参类型和返回值类型与原方法相同。您可以选择是否添加某一策略**。
-
-除了如上所述的基本功能外，TSF 还提供了选择容错异常的能力：
-<dx-codeblock>
-:::  java
-// 下面省略了无关的代码
-@TsfFaultTolerance(strategy = TsfFaultToleranceStragety.FAIL_OVER, parallelism = 2, ignoreExceptions = {FeignException.class}, raisedExceptions = {RuntimeException.class, InterruptedException.class}, fallbackMethod = "doWorkFallback")
-public void doWork() throws InterruptedException {
-    String response = providerDemoService.echo("1234");
-    LOG.info("consumer-demo auto test, response: [" + response + "]");
-}
-
-public void doWorkFallback() {
-    System.out.println("fallback");
-}
-:::
-</dx-codeblock>
-
-- 用户如果设置了 ignoreExceptions，且当前异常是其中一个的子类的话，则不执行容错逻辑。
-- 如果用户没有设置 ignoreExceptions，或当前异常不是 ignoreExceptions 的子类且满足如下条件则执行容错逻辑：
- - 用户未设置 raisedExceptions，则执行容错逻辑。
- - 用户设定了 raisedExceptions，且当前异常为用户设置的 raisedExceptions 其中一个的子类，则执行容错逻辑。
-
+>!如果想要多个 Agent 一起使用，可以使用命令如：`-javaagent:"/xxxx/service-agent-release.jar"`
 
