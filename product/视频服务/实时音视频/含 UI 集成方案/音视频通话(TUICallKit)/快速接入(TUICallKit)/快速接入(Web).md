@@ -166,8 +166,8 @@ const { TUICallEngine, TUICallEvent } = window['tuicall-engine-webrtc']
 ## 步骤三：创建 TUICallEngine 对象
 ```javascript
 let options = {
-  SDKAppID: 0, // 接入时需要将 0 替换为您的云通信应用的 SDKAppID
-  tim: null     // tim 参数适用于业务中已存在 TIM 实例，为保证 TIM 实例唯一性
+    SDKAppID: 0, // 接入时需要将 0 替换为您的云通信应用的 SDKAppID
+    tim: null     // tim 参数适用于业务中已存在 TIM 实例，为保证 TIM 实例唯一性
 };
 let tuiCallEngine = TUICallEngine.createInstance(options);
 ```
@@ -267,24 +267,24 @@ tuiCallEngine.accept().then( res => {
 展示视频画面需要在监听到 `USER_ENTER`事件后处理。
 ```javascript
 tuiCallEngine.on(TUICallEvent.USER_ENTER, () => {
-		// 远端视频画面
-		tuiCallEngine.startRemoteView({
-			userID: "xxx", // 远端用户 ID
-			videoViewDomID: "remote-xxx" // 该用户数据将渲染到该 DOM ID 节点里
-		}).then( res => {
-			// success
-		}).catch( error => {
-			console.warn('startRemoteView error:', error);
-		});
-		// 本地视频画面
-		tuiCallEngine.startLocalView({
-			userID: "xxx", // 本地用户 ID
-			videoViewDomID: "local-xxx" // 该用户数据将渲染到该 DOM ID 节点里
-		}).then( res => {
-			// success
-		}).catch( error => {
-			console.warn('startLocalView error:', error);
-		});
+    // 远端视频画面
+    tuiCallEngine.startRemoteView({
+        userID: "xxx", // 远端用户 ID
+        videoViewDomID: "remote-xxx" // 该用户数据将渲染到该 DOM ID 节点里
+    }).then( res => {
+        // success
+    }).catch( error => {
+        console.warn('startRemoteView error:', error);
+    });
+    // 本地视频画面
+    tuiCallEngine.startLocalView({
+        userID: "xxx", // 本地用户 ID
+        videoViewDomID: "local-xxx" // 该用户数据将渲染到该 DOM ID 节点里
+    }).then( res => {
+        // success
+    }).catch( error => {
+        console.warn('startLocalView error:', error);
+    });
 }); 
 ```
 <table>
@@ -371,15 +371,15 @@ tuiCallEngine.groupCall({
 ```javascript
 let cameras = [];
 // 获取摄像头列表
-tuiCallEngine.getDeviceList('camera').then((devices)=>{  
+tuiCallEngine.getDeviceList('camera').then( devices => {  
     cameras = devices;
 }).catch( error => {
     console.warn('getDeviceList error:', error)
 });
 // 切换设备
 tuiCallEngine.switchDevice({
-  deviceType: 'video', 
-  deviceId: cameras[0].deviceId
+    deviceType: 'video', 
+    deviceId: cameras[0].deviceId
 }).then( res => {
     // success
 }).catch( error => {
@@ -397,8 +397,7 @@ tuiCallEngine.switchDevice({
 如果您需要设置视频质量，使视频更加流畅，可通过该接口实现。
 ```javascript
 const profile = '720p';
-tuiCallEngine.setVideoQuality(profile)
-.then( res => {
+tuiCallEngine.setVideoQuality(profile).then( res => {
     // success
 }).catch( error => {
     console.warn('setVideoQuality error:', error);
