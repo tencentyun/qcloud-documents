@@ -44,7 +44,7 @@ TUICallKit 是基于腾讯云 [即时通信 IM](https://cloud.tencent.com/docume
 1.根据您的实际业务需求，下载[TUICallKit 组件](https://github.com/TencentCloud/TIMSDK)。
 ```javascript
 //命令行执行
-git clone https://gitee.com/cloudtencent/TIMSDK
+git clone https://github.com/TencentCloud/TIMSDK
 
 //进入 uni-app TUICallKit 项目
 cd TIMSDK/uni-app/TUICallKit/TUICallKit-miniprogram
@@ -104,41 +104,6 @@ npm install tim-wx-sdk --save
 >!组件名称均是小写字母。
 
 
-3.配置app.vue 填写 TIM 实例：
-```javascript
-	import TIM from 'tim-wx-sdk';
-	import { genTestUserSig } from './debug/GenerateTestUserSig.js'
-	  
-	export default {  
-		globalData: {  
-			SDKAppID: genTestUserSig('').sdkAppID,
-			userID: '',
-			userSig: '' 
-		},  
-		onLaunch() {  
-			// 重点注意： 为了 uni-app 更好地接入使用 tim，快速定位和解决问题，请勿修改 uni.$TUIKit 命名。
-			// 如果您已经接入 tim ，请将 uni.tim 修改为 uni.$TUIKit。
-			uni.$TUIKit = TIM.create({
-			  SDKAppID: this.globalData.SDKAppID
-			});
-			// 如果您已创建了 tim，请将 tim 实例挂载在 wx 上。完成 TUICalling 初始化，如果您没有创建，可以不传
-		 	wx.$TIM = uni.$TUIKit
-		 },  
-		onShow() {  
-			console.log('App Show')  
-		},  
-		onHide() {  
-			console.log('App Hide')  
-		}  
-	}
-```
-在 app.vue 中，如果您已创建了 TIM，请将 TIM 实例挂载在 wx 上，且不可以修改 wx.$TIM
-
->!TIM 参数适用于业务中已存在 TIM 实例，为保证 TIM 实例唯一性。
-填写后，不可以修改 wx.$TIM（修改变量可能导致 TUICallKit 组件无法正常使用）。
-
-![](https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/uni-calling-wx-2.png)
-
 
 [](id:step6)
 ## 步骤六：创建并初始化 TUI 组件库
@@ -162,27 +127,29 @@ import {genTestUserSig} from '../../debug/GenerateTestUserSig.js'
 3.在需要使用 TUICallKit 的页面填写 config 配置信息
 例如示例代码中的 uni-app/TUICalling/TUICalling-miniprogram/pages/index/calling.vue：
 ```javascript
-config = {
-  sdkAppID: 0, // 开通实时音视频服务创建应用后分配的 SDKAppID
-  userID: 'user0', // 用户 ID，可以由您的帐号系统指定
-  userSig: 'xxxxxxxxxxxx', // 身份签名，相当于登录密码的作用
-  type: 2, // 通话模式
-  tim: null, ////  tim 参数适用于业务中已存在 TIM 实例，为保证 TIM 实例唯一性
+data() {
+	return {
+		config :{
+			    sdkAppID: 0, // 开通实时音视频服务创建应用后分配的 SDKAppID
+				userID: 'user0', // 用户 ID，可以由您的帐号系统指定
+				userSig: 'xxxxxxxxxxxx', // 身份签名，相当于登录密码的作用
+		}
+	}
 }
 ```
 
 4.在生命周期中初始化 TUICallKit 组件
 ```javascript
 onLoad() {
-this.config = {
+  this.config = {
 	 sdkAppID: genTestUserSig('').sdkAppID,
 	 userID: this.userId,
 	 userSig: genTestUserSig(this.userId).userSig
-			}
-  	 this.$nextTick(() => {
+  }
+  this.$nextTick(() => {
   	 this.$refs.TUICalling.init()
-  	 })
-},
+  })
+}
   ```
   
 
@@ -200,5 +167,5 @@ this.$refs.TUICalling.call({ userID: 'user1', type:2 })
 // 回收 TUICallKit
 onUnload() {
 	this.$refs.TUICalling.destroyed();
-},
+}
 ```
