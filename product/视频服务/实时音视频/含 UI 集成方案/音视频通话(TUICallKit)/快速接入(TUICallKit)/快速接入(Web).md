@@ -1,9 +1,10 @@
+
 本文将介绍如何用最短的时间完成帮助您快速在桌面浏览器中集成**视频通话**功能，跟随本文档，您将在最终得到一个完整的视频通话功能。
 
 ## 环境准备
-请使用最新版本的 Chrome 浏览器。目前桌面端 Chrome 浏览器支持 TRTC Web SDK 的相关特性比较完整，因此建议使用 Chrome 浏览器进行体验。
+请使用最新版本的 Chrome 浏览器。目前桌面端 Chrome 浏览器支持视频通话所依赖的 TRTC Web SDK 的相关特性比较完整，因此建议使用 Chrome 浏览器进行体验。
 
-TUICallEngine 依赖以下端口进行数据传输，请将其加入防火墙白名单。
+视频通话能力依赖以下端口进行数据传输，请将其加入防火墙白名单。
 
 - **TCP 端口**：8687
 - **UDP 端口**：8000，8080，8800，843，443，16285
@@ -46,7 +47,14 @@ TUICallEngine 依赖以下端口进行数据传输，请将其加入防火墙白
 </tr>
 </tbody></table>
 >? 详细兼容性查询，具体请参见 [浏览器支持情况](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/tutorial-05-info-browser.html)。同时，您可通过 [TRTC 检测页面](https://web.sdk.qcloud.com/trtc/webrtc/demo/detect/index.html) 在线检测。
-- **URL 域名协议限制**：
+- **URL域名及协议限制说明**：
+
+出于对用户安全、隐私等问题的考虑，浏览器限制网页在 https 协议下才能正常使用视频通话所依赖的 TRTC Web SDK（WebRTC）的全部功能。为确保生产环境用户顺畅接入和体验 TRTC Web SDK 的全部功能，请使用 https 协议访问音视频应用页面。
+
+注：本地开发可以通过 http://localhost 或者 file:/// 协议进行访问。
+
+URL域名及协议支持情况请参考如下表格：
+
 <table>
 <thead><tr><th>应用场景</th><th>协议</th><th>接收（播放）</th><th>发送（上麦）</th><th>屏幕分享</th><th>备注</th></tr></thead>
 <tbody><tr>
@@ -102,13 +110,14 @@ TUICallKit 是基于腾讯云 [即时通信 IM](https://cloud.tencent.com/docume
 
 1. 登录到 [即时通信 IM 控制台](https://console.cloud.tencent.com/im)，单击**创建新应用**，在弹出的对话框中输入您的应用名称，并单击**确定**。
 <img width="640" src="https://qcloudimg.tencent-cloud.cn/raw/1105c3c339be4f71d72800fe2839b113.png">
+
 2. 单击刚刚创建出的应用，进入**基本配置**页面，并在页面的右下角找到**开通腾讯实时音视频服务**功能区，单击**免费体验**即可开通 TUICallKit 的 7 天免费试用服务。
 <img width="640" src="https://qcloudimg.tencent-cloud.cn/raw/99a6a70e64f6877bad9406705cbf7be1.png">
+
 3. 在同一页面找到 **SDKAppID** 和**密钥**并记录下来，它们会在后续中被用到。
 <img width="640" src="https://qcloudimg.tencent-cloud.cn/raw/e435332cda8d9ec7fea21bd95f7a0cba.png">
-
-	- **SDKAppID**：IM 的应用 ID，用于业务隔离，即不同的 SDKAppID 的通话彼此不能互通。
-	- **Secretkey**：IM 的应用密钥，需要和 SDKAppID 配对使用，用于签出合法使用 IM 服务的鉴权用票据 UserSig，我们会在接下来的 [步骤五](#step5) 中用到这个 Key。
+    - **SDKAppID**：IM 的应用 ID，用于业务隔离，即不同的 SDKAppID 的通话彼此不能互通。
+    - **Secretkey**：IM 的应用密钥，需要和 SDKAppID 配对使用，用于签出合法使用 IM 服务的鉴权用票据 UserSig，我们会在接下来的 [步骤四](#step4) 中用到这个 SecretKey。
 
 
 [](id:step2)
@@ -121,15 +130,15 @@ TUICallKit 是基于腾讯云 [即时通信 IM](https://cloud.tencent.com/docume
 - [trtc-js-sdk](https://www.npmjs.com/package/trtc-js-sdk) 
 - [tim-js-sdk](https://www.npmjs.com/package/tim-js-sdk) 
 - [tsignaling](https://www.npmjs.com/package/tsignaling)
-- [tuicall-engine-web](https://www.npmjs.com/package/tuicall-engine-web)
+- [tuicall-engine-webrtc](https://www.npmjs.com/package/tuicall-engine-webrtc)
 
 ```javascript
 npm i trtc-js-sdk --save
 npm i tim-js-sdk --save
 npm i tsignaling --save
-npm i tuicall-engine-web --save
+npm i tuicall-engine-webrtc --save
 
-import { TUICallEngine, TUICallEvent } from "tuicall-engine-web"
+import { TUICallEngine, TUICallEvent } from "tuicall-engine-webrtc"
 ```
 ### Script 集成
 
@@ -137,10 +146,10 @@ import { TUICallEngine, TUICallEvent } from "tuicall-engine-web"
 - [trtc-js-sdk](https://web.sdk.qcloud.com/component/trtccalling/download/trtc-js-sdk.zip) 
 - [tim-js-sdk](https://web.sdk.qcloud.com/component/trtccalling/download/tim-js-sdk.zip) 
 - [tsignaling](https://web.sdk.qcloud.com/component/trtccalling/download/tsignaling.zip)
-- [tuicall-engine-web](https://web.sdk.qcloud.com/component/trtccalling/download/tuicall-engine-web.zip)
+- [tuicall-engine-webrtc](https://web.sdk.qcloud.com/component/trtccalling/download/tuicall-engine-webrtc.zip)
 
 ```javascript
-// 如果您通过 script 方式使用 tuicall-engine-web.js，需要按顺序先手动引入 trtc.js
+// 如果您通过 script 方式使用 tuicall-engine-webrtc.js，需要按顺序先手动引入 trtc.js
 <script src="./trtc.js"></script>
 
 // 接着手动引入 tim-js.js
@@ -149,18 +158,18 @@ import { TUICallEngine, TUICallEvent } from "tuicall-engine-web"
 // 然后手动引入 tsignaling.js
 <script src="./tsignaling.js"></script>
 
-// 最后再手动引入 tuicall-engine-web.js
-<script src="./tuicall-engine-web.js"></script>
+// 最后再手动引入 tuicall-engine-webrtc.js
+<script src="./tuicall-engine-webrtc.js"></script>
 
-const { TUICallEngine, TUICallEvent } = window['tuicall-engine-web']
+const { TUICallEngine, TUICallEvent } = window['tuicall-engine-webrtc']
 ```
 
 [](id:step3)
 ## 步骤三：创建 TUICallEngine 对象
 ```javascript
 let options = {
-	SDKAppID: 0, // 接入时需要将 0 替换为您的云通信应用的 SDKAppID
-	tim: tim     // tim 参数适用于业务中已存在 TIM 实例，为保证 TIM 实例唯一性
+  SDKAppID: 0, // 接入时需要将 0 替换为您的云通信应用的 SDKAppID
+  tim: null     // tim 参数适用于业务中已存在 TIM 实例，为保证 TIM 实例唯一性
 };
 let tuiCallEngine = TUICallEngine.createInstance(options);
 ```
@@ -172,7 +181,7 @@ let tuiCallEngine = TUICallEngine.createInstance(options);
 [](id:step4)
 ## 步骤四：登录
 ```javascript
-tuiCallEngine.login({  // 登陆事件
+tuiCallEngine.login({  // 登陆
     userID: "xxx",
     userSig: "xxx",
 }).then( res => {
@@ -181,7 +190,7 @@ tuiCallEngine.login({  // 登陆事件
     console.warn('login error:', error);
 });
 ```
-**参数说明**
+**参数说明**：
 这里详细介绍一下 login 的关键参数：
 - **userID**：当前用户的 ID，字符串类型，只允许包含英文字母（a-z 和 A-Z）、数字（0-9）、连词符（-）和下划线（\_）。
 - **userSig**：使用步骤一中获取的 SecretKey 对 SDKAppID、userID 等信息进行加密，就可以得到 UserSig，它是一个鉴权用的票据，用于腾讯云识别当前用户是否能够使用 TRTC 的服务。您可以通过控制台中的 [**辅助工具**](https://console.cloud.tencent.com/im/tool-usersig) 生成一个临时可用的 UserSig。
@@ -316,7 +325,7 @@ tuiCallEngine.hangup().then( res => {
 ```javascript
 tuiCallEngine.setSelfInfo({
   nickName: 'video', 
-  avatar:'http(s)://url/to/image.jpg'
+  avatar: 'http(s)://url/to/image.jpg'
 }).then( res => {
     // success
 }).catch( error => {
