@@ -13,9 +13,9 @@
 
 | 文件名 | 用途 | 
 |---------|---------|
-| phone_dialing.wav | 发起呼叫时的声音 | 
+| phone_dialing.mp3 | 发起呼叫时的声音 | 
 | phone_hangup.mp3 | 被挂断的声音 | 
-| phone_ringing.wav | 接到呼叫时的声音 | 
+| phone_ringing.mp3 | 接到呼叫时的声音 | 
 
 ### 替换文案
 您可以通过修改 values-zh 和 values-en 中的 `strings.xml` 文件来修改视频通话界面中的字符串内容。

@@ -2,9 +2,9 @@
 本文将介绍如何用最短的时间完成帮助您快速在桌面浏览器中集成**视频通话**功能，跟随本文档，您将在最终得到一个完整的视频通话功能。
 
 ## 环境准备
-请使用最新版本的 Chrome 浏览器。目前桌面端 Chrome 浏览器支持 TRTC Web SDK 的相关特性比较完整，因此建议使用 Chrome 浏览器进行体验。
+请使用最新版本的 Chrome 浏览器。目前桌面端 Chrome 浏览器支持视频通话所依赖的 TRTC Web SDK 的相关特性比较完整，因此建议使用 Chrome 浏览器进行体验。
 
-TUICallEngine 依赖以下端口进行数据传输，请将其加入防火墙白名单。
+视频通话能力依赖以下端口进行数据传输，请将其加入防火墙白名单。
 
 - **TCP 端口**：8687
 - **UDP 端口**：8000，8080，8800，843，443，16285
@@ -47,7 +47,13 @@ TUICallEngine 依赖以下端口进行数据传输，请将其加入防火墙白
 </tr>
 </tbody></table>
 >? 详细兼容性查询，具体请参见 [浏览器支持情况](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/tutorial-05-info-browser.html)。同时，您可通过 [TRTC 检测页面](https://web.sdk.qcloud.com/trtc/webrtc/demo/detect/index.html) 在线检测。
-- **URL 域名协议限制**：
+- **URL域名及协议限制说明**：
+
+出于对用户安全、隐私等问题的考虑，浏览器限制网页在 HTTPS 协议下才能正常使用视频通话所依赖的 TRTC Web SDK（WebRTC）的全部功能。为确保生产环境用户顺畅接入和体验 TRTC Web SDK 的全部功能，请使用 HTTPS 协议访问音视频应用页面。
+>! 本地开发可以通过 `http://localhost` 或者 `file:///` 协议进行访问。
+
+URL域名及协议支持情况请参考如下表格：
+
 <table>
 <thead><tr><th>应用场景</th><th>协议</th><th>接收（播放）</th><th>发送（上麦）</th><th>屏幕分享</th><th>备注</th></tr></thead>
 <tbody><tr>
@@ -102,13 +108,14 @@ TUICallEngine 依赖以下端口进行数据传输，请将其加入防火墙白
 TUICallKit 是基于腾讯云 [即时通信 IM](https://cloud.tencent.com/document/product/269/42440) 和 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 两项付费 PaaS 服务构建出的音视频通信组件。您可以按照如下步骤开通相关的服务并体验 7 天的免费试用服务：
 
 1. 登录到 [即时通信 IM 控制台](https://console.cloud.tencent.com/im)，单击**创建新应用**，在弹出的对话框中输入您的应用名称，并单击**确定**。
-![](https://qcloudimg.tencent-cloud.cn/raw/1105c3c339be4f71d72800fe2839b113.png)
+<img width="640" src="https://qcloudimg.tencent-cloud.cn/raw/1105c3c339be4f71d72800fe2839b113.png">
 2. 单击刚刚创建出的应用，进入**基本配置**页面，并在页面的右下角找到**开通腾讯实时音视频服务**功能区，单击**免费体验**即可开通 TUICallKit 的 7 天免费试用服务。
-![](https://qcloudimg.tencent-cloud.cn/raw/667633f7addfd0c589bb086b1fc17d30.png)
-1. 在同一页面找到 **SDKAppID** 和**密钥**并记录下来，它们会在后续中被用到。
-![](https://qcloudimg.tencent-cloud.cn/raw/e435332cda8d9ec7fea21bd95f7a0cba.png)
+<img width="640" src="https://qcloudimg.tencent-cloud.cn/raw/99a6a70e64f6877bad9406705cbf7be1.png">
+3. 在同一页面找到 **SDKAppID** 和**密钥**并记录下来，它们会在后续中被用到。
+<img width="640" src="https://qcloudimg.tencent-cloud.cn/raw/e435332cda8d9ec7fea21bd95f7a0cba.png">
+
     - **SDKAppID**：IM 的应用 ID，用于业务隔离，即不同的 SDKAppID 的通话彼此不能互通。
-    - **Secretkey**：IM 的应用密钥，需要和 SDKAppID 配对使用，用于签出合法使用 IM 服务的鉴权用票据 UserSig，我们会在接下来的 [步骤五](#step5) 中用到这个 Key。
+    - **SecretKey**：IM 的应用密钥，需要和 SDKAppID 配对使用，用于签出合法使用 IM 服务的鉴权用票据 UserSig，我们会在接下来的 [步骤四](#step4) 中用到这个 SecretKey。
 
 
 [](id:step2)
@@ -121,15 +128,15 @@ TUICallKit 是基于腾讯云 [即时通信 IM](https://cloud.tencent.com/docume
 - [trtc-js-sdk](https://www.npmjs.com/package/trtc-js-sdk) 
 - [tim-js-sdk](https://www.npmjs.com/package/tim-js-sdk) 
 - [tsignaling](https://www.npmjs.com/package/tsignaling)
-- [tuicall-engine-web](https://www.npmjs.com/package/tuicall-engine-web)
+- [tuicall-engine-webrtc](https://www.npmjs.com/package/tuicall-engine-webrtc)
 
 ```javascript
 npm i trtc-js-sdk --save
 npm i tim-js-sdk --save
 npm i tsignaling --save
-npm i tuicall-engine-web --save
+npm i tuicall-engine-webrtc --save
 
-import { TUICallEngine, TUICallEvent } from "tuicall-engine-web"
+import { TUICallEngine, TUICallEvent } from "tuicall-engine-webrtc"
 ```
 ### Script 集成
 
@@ -137,10 +144,10 @@ import { TUICallEngine, TUICallEvent } from "tuicall-engine-web"
 - [trtc-js-sdk](https://web.sdk.qcloud.com/component/trtccalling/download/trtc-js-sdk.zip) 
 - [tim-js-sdk](https://web.sdk.qcloud.com/component/trtccalling/download/tim-js-sdk.zip) 
 - [tsignaling](https://web.sdk.qcloud.com/component/trtccalling/download/tsignaling.zip)
-- [tuicall-engine-web](https://web.sdk.qcloud.com/component/trtccalling/download/tuicall-engine-web.zip)
+- [tuicall-engine-webrtc](https://web.sdk.qcloud.com/component/trtccalling/download/tuicall-engine-webrtc.zip)
 
 ```javascript
-// 如果您通过 script 方式使用 tuicall-engine-web.js，需要按顺序先手动引入 trtc.js
+// 如果您通过 script 方式使用 tuicall-engine-webrtc.js，需要按顺序先手动引入 trtc.js
 <script src="./trtc.js"></script>
 
 // 接着手动引入 tim-js.js
@@ -149,10 +156,10 @@ import { TUICallEngine, TUICallEvent } from "tuicall-engine-web"
 // 然后手动引入 tsignaling.js
 <script src="./tsignaling.js"></script>
 
-// 最后再手动引入 tuicall-engine-web.js
-<script src="./tuicall-engine-web.js"></script>
+// 最后再手动引入 tuicall-engine-webrtc.js
+<script src="./tuicall-engine-webrtc.js"></script>
 
-const { TUICallEngine, TUICallEvent } = window['tuicall-engine-web']
+const { TUICallEngine, TUICallEvent } = window['tuicall-engine-webrtc']
 ```
 
 [](id:step3)
@@ -160,7 +167,7 @@ const { TUICallEngine, TUICallEvent } = window['tuicall-engine-web']
 ```javascript
 let options = {
   SDKAppID: 0, // 接入时需要将 0 替换为您的云通信应用的 SDKAppID
-  tim: tim     // tim 参数适用于业务中已存在 TIM 实例，为保证 TIM 实例唯一性
+  tim: null     // tim 参数适用于业务中已存在 TIM 实例，为保证 TIM 实例唯一性
 };
 let tuiCallEngine = TUICallEngine.createInstance(options);
 ```
@@ -172,7 +179,7 @@ let tuiCallEngine = TUICallEngine.createInstance(options);
 [](id:step4)
 ## 步骤四：登录
 ```javascript
-tuiCallEngine.login({  // 登陆事件
+tuiCallEngine.login({  // 登陆
     userID: "xxx",
     userSig: "xxx",
 }).then( res => {
@@ -189,11 +196,10 @@ tuiCallEngine.login({  // 登陆事件
 
 > ! 
 > - **这个步骤也是目前我们收到的反馈最多的步骤，常遇到的问题有如下几个**：
-	-  SDKAppID 设置错误，国内站的 SDKAppID 一般是以140开头的10位整数。
+	-  SDKAppID 设置错误，国内站的 SDKAppID 一般是以 140 开头的 10 位整数。
 	-  UserSig 被错配成了加密密钥（Secretkey），UserSig 是用 SecretKey 把 SDKAppID、UserID 以及过期时间等信息加密得来的，而不是直接把 Secretkey 配置成 UserSig。
 	-  UserID 被设置成“1”、“123”、“111”等简单字符串，由于 **TRTC 不支持同一个 UserID 多端登录**，所以在多人协作开发时，形如 “1”、“123”、“111” 这样的 UserID 很容易被您的同事占用，导致登录失败，因此我们建议您在调试的时候设置一些辨识度高的 UserID。
-- Github 中的示例代码使用了 genTestUserSig 函数在本地计算 userSig 是为了更快地让您跑通当前的接入流程，但该方案会将您的 SecretKey 暴露在 Web 的代码当中，这并不利于您后续升级和保护您的 SecretKey，所以我们强烈建议您将 UserSig 的计算逻辑放在服务端进行，并由 Web 在每次使用 TUICallKit 组件时向您的服务器请求实时计算出的 UserSig。
-
+- Github 中的示例代码使用了 [genTestUserSig](https://github.com/tencentyun/TUICalling/blob/main/Web/public/debug/GenerateTestUserSig.js) 函数在本地计算 userSig 是为了更快地让您跑通当前的接入流程，但该方案会将您的 SecretKey 暴露在 Web 的代码当中，这并不利于您后续升级和保护您的 SecretKey，所以我们强烈建议您将 UserSig 的计算逻辑放在服务端进行，并由 Web 在每次使用 TUICallKit 组件时向您的服务器请求实时计算出的 UserSig。
 [](id:step5)
 ## 步骤五：事件监听
 
@@ -316,7 +322,7 @@ tuiCallEngine.hangup().then( res => {
 ```javascript
 tuiCallEngine.setSelfInfo({
   nickName: 'video', 
-  avatar:'http(s)://url/to/image.jpg'
+  avatar: 'http(s)://url/to/image.jpg'
 }).then( res => {
     // success
 }).catch( error => {

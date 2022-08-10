@@ -62,7 +62,7 @@ Namespace=QCE/TXMR_IMPALA
 | ImpalaDaemonJvmMem<br/>Memnonheapcommittedm        | JVM 内存_MemNonHeapCommittedM                                 | MB              | host4impaladaemon、id4impaladaemon |
 | ImpalaDaemonJvmMem<br/>Memnonheapusedm             | JVM 内存_MemNonHeapUsedM                                      | MB              | host4impaladaemon、id4impaladaemon |
 | ImpalaDaemonJvmMem<br/>Memnonheapinitm             | JVM 内存_MemNonHeapInitM                                      | MB              | host4impaladaemon、id4impaladaemon |
-| ImpalaDaemonOsFdCount<br/>Maxfiledescriptorcount   | 文件描述符数_MaxFileDescriptorCount                          | Count           | host4impaladaemon、id4impaladaemon |
+| ImpalaDaemonOsFdCount<br/>Maxfiledescriptorcount   | 文件描述符数_MaxFileDescriptorCount                          | 个        | host4impaladaemon、id4impaladaemon |
 | ImpalaDaemonRtUptimeUptime                         | 进程运行时间_Uptime                                          | s               | host4impaladaemon、id4impaladaemon |
 | ImpalaDaemonTcmalloc<br/>Pageheapfreebytes         | Tcmalloc 内存_PageheapFreeBytes                               | Bytes           | host4impaladaemon、id4impaladaemon |
 | ImpalaDaemonTcmalloc<br/>Pageheapunmappedbytes     | Tcmalloc 内存_PageheapUnmappedBytes                           | Bytes           | host4impaladaemon、id4impaladaemon |
