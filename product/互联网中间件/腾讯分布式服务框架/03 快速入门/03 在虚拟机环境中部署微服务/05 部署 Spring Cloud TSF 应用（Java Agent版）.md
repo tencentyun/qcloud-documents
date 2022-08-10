@@ -35,7 +35,6 @@ Java Agent 是 Java 1.5 版本之后引⼊的特性，可以被理解为 JVM 虚
    - 虚拟机场景请参见 [虚拟机应用管理](https://cloud.tencent.com/document/product/649/55494)。
    - 容器场景请参见 [容器应用管理](https://cloud.tencent.com/document/product/649/55504)。
 3. **部署应用配置 Agent 插件**
-
-在部署虚拟机应用的时候点击【展开高级设置】，勾选相应的Agent插件进行部署（建议服务 Agent 和可观测 Agent 都选上）。
+   - 在部署虚拟机应用的时候点击【展开高级设置】，勾选相应的Agent插件进行部署（建议服务 Agent 和可观测 Agent 都选上）。
 ![](https://qcloudimg.tencent-cloud.cn/raw/25f2fbfa92d35a02b4abb855412eb798.png)
 
