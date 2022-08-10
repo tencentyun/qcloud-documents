@@ -79,6 +79,7 @@ public interface TAIOralEvaluationListener{
     void onVolumeChanged(int volume);
 }
 ```
+
 ### 静音检测设置
 1. 初始化 TAIRecorderParam 对象，并配置相关参数：
 请在开始调用 startRecordAndEvaluation() 函数前设置 TAIRecorderParam 参数，静音检测您可以通过 vadEnable 参数打开，并通过 vadInterval 参数设置静音检测时间间隔。
@@ -103,6 +104,7 @@ public void onVolumeChanged(finalint volume) {
     //回调录音分贝大小[0-120] ，默认20
 }
 ```
+
 ### 录制音频
 #### 内部录制（SDK 内部录制音频并传输，推荐）
 1. 初始化并设置相应参数
@@ -146,6 +148,7 @@ this.oral.stopRecordAndEvaluation(new TAIOralEvaluationCallback() {
     }
 });
 ```
+
 #### 外部录制（SDK 外部录制音频数据作为 API 调用参数）
 上传外部录制音频数据时，调用 oralEvaluation() 方法，传入实例化后的 TAIOralEvaluationParam 对象及 TAIoralEvationData 对象，并设置回调函数获取错误信息。
 ```
