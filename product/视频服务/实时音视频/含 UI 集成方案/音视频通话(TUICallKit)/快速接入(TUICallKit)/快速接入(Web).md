@@ -49,9 +49,8 @@
 >? 详细兼容性查询，具体请参见 [浏览器支持情况](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/tutorial-05-info-browser.html)。同时，您可通过 [TRTC 检测页面](https://web.sdk.qcloud.com/trtc/webrtc/demo/detect/index.html) 在线检测。
 - **URL域名及协议限制说明**：
 
-出于对用户安全、隐私等问题的考虑，浏览器限制网页在 https 协议下才能正常使用视频通话所依赖的 TRTC Web SDK（WebRTC）的全部功能。为确保生产环境用户顺畅接入和体验 TRTC Web SDK 的全部功能，请使用 https 协议访问音视频应用页面。
-
-注：本地开发可以通过 http://localhost 或者 file:/// 协议进行访问。
+出于对用户安全、隐私等问题的考虑，浏览器限制网页在 HTTPS 协议下才能正常使用视频通话所依赖的 TRTC Web SDK（WebRTC）的全部功能。为确保生产环境用户顺畅接入和体验 TRTC Web SDK 的全部功能，请使用 HTTPS 协议访问音视频应用页面。
+>! 本地开发可以通过 `http://localhost` 或者 `file:///` 协议进行访问。
 
 URL域名及协议支持情况请参考如下表格：
 
@@ -116,7 +115,7 @@ TUICallKit 是基于腾讯云 [即时通信 IM](https://cloud.tencent.com/docume
 <img width="640" src="https://qcloudimg.tencent-cloud.cn/raw/e435332cda8d9ec7fea21bd95f7a0cba.png">
 
     - **SDKAppID**：IM 的应用 ID，用于业务隔离，即不同的 SDKAppID 的通话彼此不能互通。
-    - **Secretkey**：IM 的应用密钥，需要和 SDKAppID 配对使用，用于签出合法使用 IM 服务的鉴权用票据 UserSig，我们会在接下来的 [步骤四](#step4) 中用到这个 SecretKey。
+    - **SecretKey**：IM 的应用密钥，需要和 SDKAppID 配对使用，用于签出合法使用 IM 服务的鉴权用票据 UserSig，我们会在接下来的 [步骤四](#step4) 中用到这个 SecretKey。
 
 
 [](id:step2)
