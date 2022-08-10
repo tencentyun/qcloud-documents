@@ -38,7 +38,7 @@ TUICallEngine API 是音视频通话组件的**无 UI 接口**，如果 TUICallK
 | [startRemoteView](https://tcloud-doc.isd.com/document/product/647/78754?!preview#startremoteview) | 设置显示视频画面的 View 对象                                |
 | [stopRemoteView](https://tcloud-doc.isd.com/document/product/647/78754?!preview#stopremoteview) | 设置显示视频画面的 View 对象                                |
 | [openCamera](https://tcloud-doc.isd.com/document/product/647/78754?!preview#opencamera) | 开启摄像头                                                  |
-| [closeCamara](https://tcloud-doc.isd.com/document/product/647/78754?!preview#closecamara) | 关闭摄像头                                                  |
+| [closeCamera](https://tcloud-doc.isd.com/document/product/647/78754?!preview#closecamera) | 关闭摄像头                                                  |
 | [switchCamera](https://tcloud-doc.isd.com/document/product/647/78754?!preview#switchcamera) | 切换前后摄像头                                              |
 | [openMicrophone](https://tcloud-doc.isd.com/document/product/647/78754?!preview#openmicrophone) | 打开麦克风                                                  |
 | [closeMicrophone](https://tcloud-doc.isd.com/document/product/647/78754?!preview#closemicrophone) | 关闭麦克风                                                  |
@@ -56,7 +56,7 @@ TUICallObserver 是 TUICallEngine 对应的回调事件类，您可以通过此�
 | [onCallCancelled](https://tcloud-doc.isd.com/document/product/647/78755?!preview#oncallcancelled) | 通话取消的回调               |
 | [onCallBegin](https://tcloud-doc.isd.com/document/product/647/78755?!preview#oncallbegin) | 通话接通的回调               |
 | [onCallEnd](https://tcloud-doc.isd.com/document/product/647/78755?!preview#oncallend) | 通话结束的回调               |
-| [onCallTypeChanged](https://tcloud-doc.isd.com/document/product/647/78755?!preview#oncalltypechanged) | 通话的媒体类型发生改变的回调 |
+| [onCallMediaTypeChanged](https://tcloud-doc.isd.com/document/product/647/78755?!preview#oncallmediatypechanged) | 通话的媒体类型发生改变的回调 |
 | [onUserReject](https://tcloud-doc.isd.com/document/product/647/78755?!preview#onuserreject) | xxxx 用户拒绝通话的回调      |
 | [onUserNoResponse](https://tcloud-doc.isd.com/document/product/647/78755?!preview#onusernoresponse) | xxxx 用户不响应的回调        |
 | [onUserLineBusy](https://tcloud-doc.isd.com/document/product/647/78755?!preview#onuserlinebusy) | xxxx 用户忙线的回调          |

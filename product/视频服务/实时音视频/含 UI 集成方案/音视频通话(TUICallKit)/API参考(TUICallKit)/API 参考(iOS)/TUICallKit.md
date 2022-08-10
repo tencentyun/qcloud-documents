@@ -1,8 +1,8 @@
 ## TUICallKit API 简介
 
-TUICallKit API 是音视频通话组件的**含 UI 接口**，使用TUICallKit API，您可以通过简单接口快速实现一个类微信的音视频通话场景，更详细的接入步骤，详见：[快速接入TUICallKit（）]()
+TUICallKit API 是音视频通话组件的**含 UI 接口**，使用TUICallKit API，您可以通过简单接口快速实现一个类微信的音视频通话场景，更详细的接入步骤，详情请参见 [快速接入TUICallKit](https://tcloud-doc.isd.com/document/product/647/78730?!preview)。
 
-<h2 id="TUICallKit">API 概览</h2>
+## API 概览
 
 | API | 描述 |
 |-----|-----|
@@ -15,9 +15,7 @@ TUICallKit API 是音视频通话组件的**含 UI 接口**，使用TUICallKit A
 | [enableMuteMode](#enablemutemode)       | 开启/关闭静音模式                |
 | [enableFloatWindow](#enablefloatwindow) | 开启/关闭悬浮窗功能              |
 
-<h2 id="TUICallKit">API 详情</h2>
-
-<h2 id="TUICallKit">API 概览</h2>
+## API 详情
 
 ### createInstance
 创建 TUICallKit 的单例。

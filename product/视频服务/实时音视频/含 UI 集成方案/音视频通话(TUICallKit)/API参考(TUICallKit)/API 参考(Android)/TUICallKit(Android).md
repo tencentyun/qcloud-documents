@@ -28,6 +28,7 @@ TUICallKit createInstance(Context context)
 ```java
 void setSelfInfo(String nickname, String avatar, TUICommonDefine.Callback callback)
 ```
+参数如下表所示：
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
@@ -56,6 +57,7 @@ void setSelfInfo(String nickname, String avatar, TUICommonDefine.Callback callba
 ```java
 void groupCall(String groupId, List<String> userIdList, TUICallDefine.MediaType callMediaType) {
 ```
+参数如下表所示：
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
@@ -71,11 +73,12 @@ void groupCall(String groupId, List<String> userIdList, TUICallDefine.MediaType 
 ```java
 void joinInGroupCall(TUICommonDefine.RoomId roomId, String groupId, TUICallDefine.MediaType callMediaType, TUICommonDefine.Callback callback);
 ```
+参数如下表所示：
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| roomId | TUICommonDefine.RoomId | 此次通话的音视频房间 Id，目前仅支持数字房间号，后续版本会支持字符串房间号 |
-| groupId | String | 此次群组通话的群 Id |
+| roomId | TUICommonDefine.RoomId | 此次通话的音视频房间 ID，目前仅支持数字房间号，后续版本会支持字符串房间号 |
+| groupId | String | 此次群组通话的群 ID |
 | callMediaType | TUICallDefine.MediaType | 通话的媒体类型，比如视频通话、语音通话 |
 
 

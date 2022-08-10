@@ -15,7 +15,7 @@ SecretId 和 SecretKey 是使用 SDK 的安全凭证，您可以在 访问管理
 准备一台电脑。
 
 
-## SDK 接入流程
+## SDK DEMO 使用流程
 1. 安装依赖环境
 安装 Python 2.7, 3.6-3.9 版本。
 2. 获取安装
@@ -37,7 +37,7 @@ python setup.py install
 ```
 
 3. 运行项目
-进入 examples/soe/v20180903/transmit_oral_process_with_init.py，填入 SecretId 和 SecretKey。
+进入 examples/soe/v20180903/init_oral_process.py，填入 SecretId 和 SecretKey。
 ![](https://qcloudimg.tencent-cloud.cn/raw/298987df5c9ff3efc9c5238724546bf5.png)
 填入请求参数，参考 [InitOralProcess](https://cloud.tencent.com/document/product/884/19319)，运行项目，进行评测。
 ![](https://qcloudimg.tencent-cloud.cn/raw/2fbfb05ad792fc0204880aef25b5a5cc.png)

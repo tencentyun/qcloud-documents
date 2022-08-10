@@ -14,7 +14,7 @@ SecretId 和 SecretKey 是使用 SDK 的安全凭证，您可以在访问管理�
 2. 设备准备
 准备一台电脑。
 
-## SDK 接入流程
+## SDK DEMO 使用流程
 1. 安装依赖环境
 JDK 7 版本及以上。
 
