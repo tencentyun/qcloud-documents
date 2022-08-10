@@ -365,7 +365,7 @@ TUIRoomRef.value.createRoom(roomId, roomMode, roomParam);
 | 参数                          | 类型   | 含义                                                         |
 | ----------------------------- | ------ | ------------------------------------------------------------ |
 | roomId                        | number | 房间 ID                                                      |
-| roomMode                      | string | 房间模式，'FreeSpeech'（自由发言模式）和 'ApplySpeech'（举手发言模式），默认为 'FreeSpeech'，注意目前仅支持自由发言模式 |
+| roomMode                      | string | 房间模式，'FreeSpeech'（自由发言模式）和 'ApplySpeech'（举手发言模式），默认为 'FreeSpeech' |
 | roomParam                     | Object | 非必填                                                       |
 | roomParam.isOpenCamera        | string | 非必填，进房是否打开摄像头，默认为关闭                       |
 | roomParam.isOpenMicrophone    | string | 非必填，进房是否打开麦克风，默认为关闭                       |
@@ -394,11 +394,11 @@ TUIRoomRef.value.enterRoom(roomId, roomParam);
 
 ### TUIRoom 事件
 
-#### onRoomCreate
+#### onCreateRoom
 创建房间回调。
 ```javascript
 <template>
-  <room ref="TUIRoomRef" @on-room-create="handleRoomCreate"></room>
+  <room ref="TUIRoomRef" @on-create-room="handleRoomCreate"></room>
 </template>
 
 <script setup lang="ts">
@@ -413,12 +413,12 @@ TUIRoomRef.value.enterRoom(roomId, roomParam);
 </script>
 ```
 
-#### onRoomEnter
+#### onEnterRoom
 
 进入房间回调。
 ```javascript
 <template>
-  <room ref="TUIRoomRef" @on-room-enter="handleRoomEnter"></room>
+  <room ref="TUIRoomRef" @on-enter-room="handleRoomEnter"></room>
 </template>
 
 <script setup lang="ts">
@@ -433,19 +433,19 @@ TUIRoomRef.value.enterRoom(roomId, roomParam);
 </script>
 ```
 
-#### onRoomDestory
+#### onDestroyRoom
 
 主持人销毁房间通知。
 ```javascript
 <template>
-  <room ref="TUIRoomRef" @on-room-destory="handleRoomDestory"></room>
+  <room ref="TUIRoomRef" @on-destroy-room="handleRoomDestroy"></room>
 </template>
 
 <script setup lang="ts">
   // 引入 TUIRoom 组件，注意确认引入路径是否正确
   import Room from './TUIRoom/index.vue';
   
-  function handleRoomDestory(info) {
+  function handleRoomDestroy(info) {
     if (info.code === 0) {
       console.log('主持人销毁成功')
     }
@@ -453,12 +453,12 @@ TUIRoomRef.value.enterRoom(roomId, roomParam);
 </script>
 ```
 
-#### onRoomExit
+#### onExitRoom
 普通成员退出房间通知。
 
 ```javascript
 <template>
-  <room ref="TUIRoomRef" @on-room-exit="handleRoomExit"></room>
+  <room ref="TUIRoomRef" @on-exit-room="handleRoomExit"></room>
 </template>
 
 <script setup lang="ts">

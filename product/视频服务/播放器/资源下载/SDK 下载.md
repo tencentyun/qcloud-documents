@@ -115,12 +115,12 @@
 ## SDK 能力清单
 <table selecttype="cells" ><colgroup><col  ><col width="155.63" ><col  ><col  ><col  ><col  ></colgroup>
 <tbody>
-<tr  ><th>功能模块</td>
-<th style="width:5%">功能项</td>
-<th>功能简介</td>
-<th style="width:2%">Web</td>
-<th style="width:2%">iOS & Android</td>
-<th style="width:2%">Flutter</td>
+<tr  ><th style="width:5%">功能模块</td>
+<th style="width:20%">功能项</td>
+<th style="width:70%">功能简介</td>
+<th style="width:1%">Web</td>
+<th style="width:1%">iOS & Android</td>
+<th style="width:1%">Flutter</td>
 </tr>
 
 <tr  ><td colspan="1" rowspan="14" >播放协议/格式</td>
@@ -500,7 +500,7 @@
 
 <tr  ><td colspan="1" rowspan="8" >显示效果</td>
 <td>自定义 UI</td>
-<td>SDK 提供 <a href="https://cloud.tencent.com/document/product/881/30818">含 UI 集成方案</a>，提供包含 UI 界面的常用播放组件，可以根据自身需求选用</td>
+<td>SDK 提供含 UI 集成方案，提供包含 UI 界面的常用播放组件，可以根据自身需求选用</td>
 <td>&#10003;</td>
 <td>&#10003;</td>
 <td>&#10003;</td>
@@ -557,14 +557,14 @@
 
 <tr  ><td colspan="1" rowspan="2" >增值功能</td>
 <td>终端极速高清 </td>
-<td>基于超分辨率技术提供终端的极速高清方案，针对在线视频在播放端进行实时后处理超分，在保证画质的前提下，帮助节省带宽；或在相同带宽条件下，提升视频播放清晰度与主观质量详情参见 <a href="https://cloud.tencent.com/document/product/881/70829">终端极速高清</a></td>
+<td>基于超分辨率技术提供终端的极速高清方案，针对在线视频在播放端进行实时后处理超分，在保证画质的前提下，帮助节省带宽；或在相同带宽条件下，提升视频播放清晰度与主观质量，详情参见 <a href="https://cloud.tencent.com/document/product/881/70829">终端极速高清</a></td>
 <td>x</td>
 <td>&#10003;</td>
 <td>x</td>
 </tr>
 
 <tr  ><td>播放质量监控</td>
-<td>基于播放数据上报，结合云点播和云直播服务，提供播放全链路的数据统计、质量监控及可视化分析服务点播参见 <a href="https://cloud.tencent.com/document/product/1449/68147">点播播放数据</a>，直播参见 <a href="https://cloud.tencent.com/document/product/267/20382">SDK 质量监控</a></td>
+<td>基于播放数据上报，结合云点播和云直播服务，提供播放全链路的数据统计、质量监控及可视化分析服务，点播参见 <a href="https://cloud.tencent.com/document/product/1449/68147">点播播放数据</a>，直播参见 <a href="https://cloud.tencent.com/document/product/267/20382">SDK 质量监控</a></td>
 <td>&#10003;</td>
 <td>&#10003;</td>
 <td>&#10003;</td>
