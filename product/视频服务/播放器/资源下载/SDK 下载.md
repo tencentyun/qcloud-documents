@@ -557,14 +557,14 @@
 
 <tr  ><td colspan="1" rowspan="2" >增值功能</td>
 <td>终端极速高清 </td>
-<td>基于超分辨率技术提供终端的极速高清方案，针对在线视频在播放端进行实时后处理超分，在保证画质的前提下，帮助节省带宽；或在相同带宽条件下，提升视频播放清晰度与主观质量详情参见 <a href="https://cloud.tencent.com/document/product/881/70829">终端极速高清</a></td>
+<td>基于超分辨率技术提供终端的极速高清方案，针对在线视频在播放端进行实时后处理超分，在保证画质的前提下，帮助节省带宽；或在相同带宽条件下，提升视频播放清晰度与主观质量，详情参见 <a href="https://cloud.tencent.com/document/product/881/70829">终端极速高清</a></td>
 <td>x</td>
 <td>&#10003;</td>
 <td>x</td>
 </tr>
 
 <tr  ><td>播放质量监控</td>
-<td>基于播放数据上报，结合云点播和云直播服务，提供播放全链路的数据统计、质量监控及可视化分析服务点播参见 <a href="https://cloud.tencent.com/document/product/1449/68147">点播播放数据</a>，直播参见 <a href="https://cloud.tencent.com/document/product/267/20382">SDK 质量监控</a></td>
+<td>基于播放数据上报，结合云点播和云直播服务，提供播放全链路的数据统计、质量监控及可视化分析服务，点播参见 <a href="https://cloud.tencent.com/document/product/1449/68147">点播播放数据</a>，直播参见 <a href="https://cloud.tencent.com/document/product/267/20382">SDK 质量监控</a></td>
 <td>&#10003;</td>
 <td>&#10003;</td>
 <td>&#10003;</td>
