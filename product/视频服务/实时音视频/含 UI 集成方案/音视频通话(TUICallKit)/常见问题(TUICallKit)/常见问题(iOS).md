@@ -1,4 +1,4 @@
-### 如何修改TUICallKit源码？
+### 如何修改 TUICallKit 源码？
 使用 CocoaPods 导入组件，具体步骤如下：
 1. 在您的工程 `Podfile` 文件同一级目录下创建 `TUICallKit` 文件夹。
 2. 单击进入 [**Github/TUICallKit**](https://github.com/tencentyun/TUICalling) ，选择克隆/下载代码，然后将 [**iOS**](https://github.com/tencentyun/TUICalling/tree/main/iOS) 目录下的 `TUICallKit`、`Resources` 文件夹 和 `TUICallKit.podspec` 文件拷贝到您在 `步骤1` 创建的 `TUICallKit` 文件夹下。
@@ -14,7 +14,7 @@ pod 'TUICallKit', :path => "TUICallKit/TUICallKit.podspec"
 **TUICallKit 组件集成后效果**：<br>
  <img src="https://qcloudimg.tencent-cloud.cn/raw/32ac876dd9b863accc8a63f211193b0b.png" width = "400"/>
 >? TUICallKit 组件集成后支持文件夹分层显示，方便您阅读和修改源代码。
-</ol></li>
+
 
 ### TUICallKit 是否可以不引入 IM SDK，只使用 TRTC？
 **不可以。**TUIKit 全系组件都使用了腾讯云 IM SDK 做为通信的基础服务，比如通话拨打信令、通话忙线信令等核心逻辑，如果您已经购买有其他 IM 产品，也可以参照 TUICallKit 逻辑进行适配。
