@@ -68,7 +68,7 @@ TUICallKit 是基于腾讯云 [即时通信 IM](https://cloud.tencent.com/docume
 
 	
 [](id:step5)
-## 步骤五：填写SDKAPPID和SECRETKEY
+## 步骤五：填写 SDKAPPID 和 SECRETKEY
 打开 debug 文件夹下的 `GenerateTestUserSig.js` 文件。
 ```javascript
 /**

@@ -234,7 +234,7 @@ setSelfInfo('xxxxxxx','头像.png') ;
 ### INVITED
 被邀请通话。
 ```javascript
-let handleNewInvitationReceived=function(event){
+let handleNewInvitationReceived = function(event){
     console.log('被邀请通话')
   }
 tuiCallEngine.on(EVENT.INVITED, this.handleNewInvitationReceived, this);
@@ -243,7 +243,7 @@ tuiCallEngine.on(EVENT.INVITED, this.handleNewInvitationReceived, this);
 ### USER_ACCEPT
 用户接听。
 ```javascript
-let handleUserAccept=function(event) {
+let handleUserAccept = function(event) {
     console.log('用户接听')
 }
 tuiCallEngine.on(EVENT.USER_ACCEPT, this.handleUserAccept, this);
@@ -252,7 +252,7 @@ tuiCallEngine.on(EVENT.USER_ACCEPT, this.handleUserAccept, this);
 ### USER_ENTER
 用户进入通话。
 ```javascript
-let handleUserEnter=function(event) {
+let handleUserEnter = function(event) {
     console.log('用户进入通话')
 }
 tuiCallEngine.on(EVENT.USER_ENTER, this.handleUserEnter, this);
@@ -261,7 +261,7 @@ tuiCallEngine.on(EVENT.USER_ENTER, this.handleUserEnter, this);
 ### USER_LEAVE
 用户离开通话。
 ```javascript
-let handleUserLeave=function(event) {
+let handleUserLeave = function(event) {
     console.log('用户离开通话')
 }
 tuiCallEngine.on(EVENT.USER_LEAVE, this.handleUserLeave, this);
@@ -270,7 +270,7 @@ tuiCallEngine.on(EVENT.USER_LEAVE, this.handleUserLeave, this);
 ### USER_UPDATE
 用户更新。
 ```javascript
-let handleUserUpdate=function(event) {
+let handleUserUpdate = function(event) {
     console.log('用户更新')
 }
 tuiCallEngine.on(EVENT.USER_UPDATE, this.handleUserUpdate, this)
@@ -279,7 +279,7 @@ tuiCallEngine.on(EVENT.USER_UPDATE, this.handleUserUpdate, this)
 ### REJECT
 用户拒绝通话。
 ```javascript
-let handleInviteeReject=function(event) {
+let handleInviteeReject = function(event) {
     console.log('用户拒绝通话')
 }
 tuiCallEngine.on(EVENT.REJECT, this.handleInviteeReject, this);
@@ -288,7 +288,7 @@ tuiCallEngine.on(EVENT.REJECT, this.handleInviteeReject, this);
 ### NO_RESP
 用户无响应。
 ```javascript
-let handleNoResponse=function(event) {
+let handleNoResponse = function(event) {
     console.log('用户无响应')
 }
 tuiCallEngine.on(EVENT.NO_RESP, this.handleNoResponse, this);
@@ -297,7 +297,7 @@ tuiCallEngine.on(EVENT.NO_RESP, this.handleNoResponse, this);
 ### LINE_BUSY
 用户忙线。
 ```javascript
-let handleLineBusy=function(event) {
+let handleLineBusy = function(event) {
     console.log('用户忙线')
 }
 tuiCallEngine.on(EVENT.LINE_BUSY, this.handleLineBusy, this);
@@ -306,7 +306,7 @@ tuiCallEngine.on(EVENT.LINE_BUSY, this.handleLineBusy, this);
 ### CALLING_CANCEL
 通话被取消。
 ```javascript
-let handleCallingCancel=function(event) {
+let handleCallingCancel = function(event) {
     console.log('通话被取消')
 }
 tuiCallEngine.on(EVENT.CALLING_CANCEL, this.handleCallingCancel, this);
@@ -315,7 +315,7 @@ tuiCallEngine.on(EVENT.CALLING_CANCEL, this.handleCallingCancel, this);
 ### CALLING_TIMEOUT
 通话超时未应答。
 ```javascript
-let handleCallingTimeout=function(event) {
+let handleCallingTimeout = function(event) {
     console.log('通话超时未应答')
 }
 tuiCallEngine.on(EVENT.CALLING_TIMEOUT, this.handleCallingTimeout, this);
@@ -324,7 +324,7 @@ tuiCallEngine.on(EVENT.CALLING_TIMEOUT, this.handleCallingTimeout, this);
 ### CALL_END
 通话结束。
 ```javascript
-let handleCallingEnd=function(event) {
+let handleCallingEnd = function(event) {
     console.log('通话结束')
 }
 tuiCallEngine.on(EVENT.CALL_END, this.handleCallingEnd, this);
@@ -333,7 +333,7 @@ tuiCallEngine.on(EVENT.CALL_END, this.handleCallingEnd, this);
 ### SDK_READY
 SDK Ready 回调。
 ```javascript
-let handleSDKReady=function(event) {
+let handleSDKReady = function(event) {
     console.log('SDK Ready 回调')
 }
 tuiCallEngine.on(EVENT.SDK_READY, this.handleSDKReady, this);
@@ -342,7 +342,7 @@ tuiCallEngine.on(EVENT.SDK_READY, this.handleSDKReady, this);
 ### KICKED_OUT
 被踢下线。
 ```javascript
-let handleKickedOut=function(event) {
+let handleKickedOut = function(event) {
     console.log('被踢下线')
 }
 tuiCallEngine.on(EVENT.KICKED_OUT, this.handleKickedOut, this);
@@ -351,7 +351,7 @@ tuiCallEngine.on(EVENT.KICKED_OUT, this.handleKickedOut, this);
 ### CALL_MODE
 切换通话模式。
 ```javascript
-let handleCallMode=function(event) {
+let handleCallMode = function(event) {
     console.log('切换通话模式')
 }
 tuiCallEngine.on(EVENT.CALL_MODE, this.handleCallMode, this);

@@ -50,13 +50,13 @@ git clone https://github.com/TencentCloud/TIMSDK
 cd TIMSDK/uni-app/TUICallKit/TUICallKit-miniprogram
 ```
 
-2.将项目中的 wxcomponents 中的 TUICalling 文件夹复制到自己项目的 wxcomponents 中，以及debug文件夹同样需要复制到您工程的根目录下。
+2.将项目中的 wxcomponents 中的 TUICalling 文件夹复制到自己项目的 wxcomponents 中，以及 debug 文件夹同样需要复制到您工程的根目录下。
 ![](https://qcloudimg.tencent-cloud.cn/raw/7321ded02e16ae29c711ec06e3952791.png)
 
 
 [](id:step4)
-## 步骤四：填写SDKAPPID和SECRETKEY
-打开debug文件夹下的GenerateTestUserSig.js文件
+## 步骤四：填写 SDKAPPID 和 SECRETKEY
+打开 debug 文件夹下的 GenerateTestUserSig.js 文件
 ```javascript
 /**
  * 腾讯云 SDKAppId，需要替换为您自己账号下的 SDKAppId。
@@ -119,7 +119,7 @@ npm install tim-wx-sdk --save
 >!组件的名称要与 page.json 中的保持一致，组件名称均是小写字母。
 
 
-2.引入GenerateTestUserSig.js文件
+2.引入 GenerateTestUserSig.js 文件
 ```javascript
 import {genTestUserSig} from '../../debug/GenerateTestUserSig.js'
 ```
