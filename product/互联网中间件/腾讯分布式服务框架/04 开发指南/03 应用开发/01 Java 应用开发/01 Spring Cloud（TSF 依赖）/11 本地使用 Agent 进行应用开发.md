@@ -7,7 +7,7 @@
 > ? 同时请确保 SDK 版本高于**2020**。
 
 ## 操作步骤
-如果对 Agent有疑问，可以先阅读[Agent 插件功能说明](https://github.com/yangjuanying/qcloud-documents/blob/patch-6/product/%E4%BA%92%E8%81%94%E7%BD%91%E4%B8%AD%E9%97%B4%E4%BB%B6/%E8%85%BE%E8%AE%AF%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6/03%20%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/03%20%E5%9C%A8%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%8E%AF%E5%A2%83%E4%B8%AD%E9%83%A8%E7%BD%B2%E5%BE%AE%E6%9C%8D%E5%8A%A1/05%20%E9%83%A8%E7%BD%B2%20Spring%20Cloud%20TSF%20%E5%BA%94%E7%94%A8%EF%BC%88Java%20Agent%E7%89%88%EF%BC%89.md)
+如果对 Agent 有疑问，可以先阅读[Agent 插件功能说明](https://github.com/yangjuanying/qcloud-documents/blob/patch-6/product/%E4%BA%92%E8%81%94%E7%BD%91%E4%B8%AD%E9%97%B4%E4%BB%B6/%E8%85%BE%E8%AE%AF%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6/03%20%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/03%20%E5%9C%A8%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%8E%AF%E5%A2%83%E4%B8%AD%E9%83%A8%E7%BD%B2%E5%BE%AE%E6%9C%8D%E5%8A%A1/05%20%E9%83%A8%E7%BD%B2%20Spring%20Cloud%20TSF%20%E5%BA%94%E7%94%A8%EF%BC%88Java%20Agent%E7%89%88%EF%BC%89.md)
 
 >?[步骤1](#step1) 和 [步骤2](#step2) 与其他模块一样，已经使用过其他模块的可直接跳至 [步骤3](#step3)。
 
