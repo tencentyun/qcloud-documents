@@ -255,7 +255,6 @@ tuiCallEngine.call({
 </tbody></table>
 
 - **被叫方：接听新的呼叫**
-  
 ```javascript
 // 接听通话
 tuiCallEngine.accept().then( res => {
@@ -266,7 +265,6 @@ tuiCallEngine.accept().then( res => {
 ```
 - **展示视频画面**
 展示视频画面需要在监听到 `USER_ENTER`事件后处理。
-
 ```javascript
 tuiCallEngine.on(TUICallEvent.USER_ENTER, () => {
 		// 远端视频画面
@@ -289,7 +287,6 @@ tuiCallEngine.on(TUICallEvent.USER_ENTER, () => {
 		});
 }); 
 ```
-
 <table>
 <thead>
 <tr>
