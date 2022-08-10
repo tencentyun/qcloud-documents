@@ -1,6 +1,6 @@
 ## 功能描述
 
-CreateMediaJobs 用于提交一个图片处理任务。
+CreatePicJobs 用于提交一个图片处理任务。
 
 ## 请求
 
