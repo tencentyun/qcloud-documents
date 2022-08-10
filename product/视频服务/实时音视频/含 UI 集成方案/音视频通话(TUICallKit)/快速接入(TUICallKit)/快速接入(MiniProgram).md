@@ -68,7 +68,7 @@ TUICallKit 是基于腾讯云 [即时通信 IM](https://cloud.tencent.com/docume
 
 	
 [](id:step5)
-## 步骤五：填写SDKAPPID和SECRETKEY
+## 步骤五：填写 SDKAPPID 和 SECRETKEY
 打开 debug 文件夹下的 `GenerateTestUserSig.js` 文件。
 ```javascript
 /**
@@ -85,6 +85,8 @@ const SDKAPPID = '';
  * step1. 进入腾讯云实时音视频[控制台](https://console.cloud.tencent.com/rav )，如果还没有应用就创建一个，
  * step2. 单击“应用配置”进入基础配置页面，并进一步找到“帐号体系集成”部分。
  * step3. 点击“查看密钥”按钮，就可以看到计算 UserSig 使用的加密的密钥了，请将其拷贝并复制到如下的变量中
+ * 注意：该方案仅适用于调试Demo，正式上线前请将 UserSig 计算代码和密钥迁移到您的后台服务器上，以避免加密密钥泄露导致的流量盗用。
+ * 文档：https://cloud.tencent.com/document/product/647/17275#Server
  *  */
 const SECRETKEY = '';
 ```
