@@ -186,8 +186,8 @@ Namespace = QCE/CES
 | Instances.N.Dimensions.0.Name  | uInstanceId | ES 实例 ID 的维度名称           | 输入 String 类型维度名称：uInstanceId                        |
 | Instances.N.Dimensions.0.Value | uInstanceId | ES 具体实例 ID                  | 输入实例具体 ID，例如：es-example                            |
 | Instances.N.Dimensions.0.Name  | hotwarm     | ES 节点冷热属性的维度名称       | 输入 String 类型维度名称：hotwarm                            |
-| Instances.N.Dimensions.0.Value | hotwarm     | ES 具体节点冷热属性             | 输入实例具体节点冷热属性，根据节点数据盘确定，数据盘为高性能云盘填warm，为SSD云盘填hot |
-| Instances.N.Dimensions.0.Name  | appId       | 主账号 appid的维度名称          | 输入 String 类型维度名称：appid                              |
+| Instances.N.Dimensions.0.Value | hotwarm     | ES 具体节点冷热属性             | 输入实例具体节点冷热属性，根据节点数据盘确定，数据盘为高性能云盘填 warm，为 SSD 云盘填 hot |
+| Instances.N.Dimensions.0.Name  | appId       | 主账号 appid 的维度名称          | 输入 String 类型维度名称：appid                              |
 | Instances.N.Dimensions.0.Value | appId       | 主账号 appid                    | 输入具体 appid，例如：10001234567                            |
 | Instances.N.Dimensions.0.Name  | nodeId      | ES 节点 ID 的维度名称           | 输入 String 类型维度名称：nodeId                             |
 | Instances.N.Dimensions.0.Value | nodeId      | ES 具体节点 ID                  | 输入节点 ID，例如：1111111111111111111                       |
