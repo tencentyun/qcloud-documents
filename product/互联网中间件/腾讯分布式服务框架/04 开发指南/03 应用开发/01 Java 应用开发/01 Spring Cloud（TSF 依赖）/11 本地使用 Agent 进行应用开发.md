@@ -1,5 +1,5 @@
 ## 操作场景
-本文主要介绍 Spring Cloud 开源项目如何在本地使用 Agent 进行应用开发。
+本文主要介绍 Spring Cloud 开源项目如何在本地使用 Agent 进行无侵入应用开发。
 
 ## 前提条件
 请确保您已经参见 [下载 Maven](https://cloud.tencent.com/document/product/649/20231) 下载安装了 Java 和 Maven，并且配置了 TSF 私服地址。
