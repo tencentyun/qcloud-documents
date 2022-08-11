@@ -17,14 +17,14 @@
 - 主播1的一个音视频 MP4 录制文件。
 - 主播2的一个音视频 MP4 录制文件。
 
-录制后台会把这些文件上传到您指定的 [云点播](https://console.cloud.tencent.com/vod)。为了保证录制文件的高可用，实时录制的格式为 HLS（m3u8+ts）最终录制任务结束时将由录制后台对 HLS 文件进行转封装后进行上传，具体录制流程如下：
-![](https://qcloudimg.tencent-cloud.cn/raw/c603679cf62f13213b5eafe1531b8f9e.png)
+录制后台会把这些文件上传到您指定的 [云点播](https://console.cloud.tencent.com/vod)。具体录制流程如下：
+![](https://qcloudimg.tencent-cloud.cn/raw/cdbc605589bc736c489349f38b490035.png)
 
 #### 合流录制
 如下图所示为合流录制的场景，房间1234里面有主播1和主播2都上行了音视频流，假设您订阅了主播1和主播2的音视频流，设置录制模式为合流录制，录制后台会分别拉取主播1和主播2的音视频流，并把他们的视频流按照您配置多画面模板进行合流，音频流进行混音，最后把媒体流混合成一路媒体文件。包含：合流后的的一个音视频 MP4 录制文件。
 
 录制后台会把这些文件上传到您指定的云点播，您需要通过回调保存对应录制文件的存于云点播的 [媒资信息](https://cloud.tencent.com/document/product/266/36451)。
-![](https://qcloudimg.tencent-cloud.cn/raw/362d6f011622439e5d46a4b6ab808ff7.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/d8b0f3d0e5ecea18b448843324268a10.png)
 
 [](id:mp4_file)
 ### 录制 MP4 文件说明
