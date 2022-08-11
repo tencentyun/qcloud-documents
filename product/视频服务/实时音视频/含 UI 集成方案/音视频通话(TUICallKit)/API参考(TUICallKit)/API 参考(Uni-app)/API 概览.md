@@ -13,3 +13,14 @@ TUICallKit API 是音视频通话组件的**含 UI 接口**，使用TUICallKit A
 | [setCallingBell](https://tcloud-doc.isd.com/document/product/647/78763?!preview#setcallingbell) | 设置自定义来电铃音       |
 | [enableMuteMode](https://tcloud-doc.isd.com/document/product/647/78763?!preview#enablemutemode) | 开启/关闭静音模式        |
 | [enableFloatWindow](https://tcloud-doc.isd.com/document/product/647/78763?!preview#enablefloatwindow) | 开启/关闭悬浮窗功能      |
+
+## TUICallObserver 
+TUICallObserver 是 TUICallEngine 对应的回调事件类，您可以通过此回调，来监听自己感兴趣的回调事件。
+
+| API | 描述 |
+|-----|-----|
+| [onError](https://tcloud-doc.isd.com/document/product/647/78764?!preview#onerror) | 通话过程中错误回调           |
+| [onCallReceived](https://tcloud-doc.isd.com/document/product/647/78764?!preview#oncallreceived) | 通话请求的回调               |
+| [onCallCancelled](https://tcloud-doc.isd.com/document/product/647/78764?!preview#oncallcancelled) | 通话取消的回调               |
+| [onCallBegin](https://tcloud-doc.isd.com/document/product/647/78764?!preview#oncallbegin) | 通话接通的回调               |
+| [onCallEnd](https://tcloud-doc.isd.com/document/product/647/78764?!preview#oncallend) | 通话结束的回调               |
