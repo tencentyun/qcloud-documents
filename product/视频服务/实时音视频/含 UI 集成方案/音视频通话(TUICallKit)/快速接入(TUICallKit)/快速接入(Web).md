@@ -310,7 +310,7 @@ tuiCallEngine.on(TUICallEvent.USER_ENTER, () => {
 [](id:step8)
 ## 步骤八：更多特性
 
-### 一. 设置昵称&头像
+### 1. 设置昵称&头像
 如果您需要自定义昵称或头像，可以使用该接口进行更新。
 ```javascript
 tuiCallEngine.setSelfInfo({
@@ -331,7 +331,7 @@ tuiCallEngine.setSelfInfo({
 > ! 因为用户隐私限制，非好友之间的通话，被叫的昵称和头像更新可能会有延迟，一次通话成功后就会顺利更新。
 
 
-### 二. 切换摄像头和麦克风设备
+### 2. 切换摄像头和麦克风设备
 如果您需要切换摄像头（麦克风）为外接摄像头或其他，可通过该接口实现。
 ```javascript
 let cameras = [];
@@ -358,7 +358,7 @@ tuiCallEngine.switchDevice({
 | deviceId | string | 需要切换的设备 ID|
 
 
-### 三. 设置视频画面的质量
+### 3. 设置视频画面的质量
 如果您需要调整视频画面的质量，可以调用 TUICallEngine 中的 **setVideoQuality** 接口来实现：
 ```javascript
 const profile = '720p';
