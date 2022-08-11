@@ -22,17 +22,20 @@ sync 命令包含以下可选 flag：
 |   无       | --part-size     | 文件分块大小（默认32MB，最大支持5GB）     |
 |   无       | --thread-num    | 并发线程数（默认并发5）      |
 |   无       | --rate-limiting | 单链接速率限制（0.1 - 100MB/s）       |
+| 无 | --snapshot-path | 指定保存上传或者下载文件时的快照信息所在的目录。在下一次上传或者下载文件时，coscli会读取指定目录下的快照信息进行增量上传或者下载。本选项用来加速目录文件同步。 |
+| 无 | --meta | 上传文件的元信息。包括部分HTTP标准属性（HTTP Header）以及以`x-cos-meta-`开头的用户自定义元数据（User Meta）。文件元信息格式为`header:value#header:value`，示例为`Expires:2022-10-12T00:00:00.000Z#Cache-Control:no-cache#Content-Encoding:gzip#x-cos-meta:x-cos-meta-x:x`。 |
 
 
 >?
-> - sync 命令在上传和下载大文件时会自动启用并发上传/下载。
-> - 当文件大于 `--part-size` 时，COSCLI 会先将文件按 `--part-size` 进行切块，之后用 `--thread-num` 个线程并发地执行上传/下载任务。
-> - 每个线程都会维护一个链接，对于每个链接，您可以使用 `--rate-limiting` 参数对单链接进行限速，当启用并发上传/下载时，总速率为 `--thread-num * --rate-limiting`。
-> - 当以分块形式上传/下载文件时，会默认开启断点续传。
-> - `--include` 和 `--exclude` 支持标准正则表达式的语法，您可以使用它来过滤出符合特定条件的文件。
-> - 使用 zsh 时，您可能需要在 pattern 串的两端加上双引号。
+>- sync 命令在上传和下载大文件时会自动启用并发上传/下载。
+>- 当文件大于 `--part-size` 时，COSCLI 会先将文件按 `--part-size` 进行切块，之后用 `--thread-num` 个线程并发地执行上传/下载任务。
+>- 每个线程都会维护一个链接，对于每个链接，您可以使用 `--rate-limiting` 参数对单链接进行限速，当启用并发上传/下载时，总速率为 `--thread-num * --rate-limiting`。
+>- 当以分块形式上传/下载文件时，会默认开启断点续传。
+>- `--include` 和 `--exclude` 支持标准正则表达式的语法，您可以使用它来过滤出符合特定条件的文件。
+>- 使用 zsh 时，您可能需要在 pattern 串的两端加上双引号。
+>- snapshot-path不要设置到为待迁移目录或其子目录。coscli不会主动删除snapshot-path文件夹中的快照信息。为避免快照信息过多，请定期删除snapshot-path文件夹内无用的快照。
 ```
-./coscli sync ~/test/ cos://bucket1/example/ -r --include ".*.mp4"
+./coscli sync ~/test/ cos://bucket1/example/ -r --include ".*.txt" --snapshot-path=/path/snapshot-path  --meta=x-cos-meta-a:a#ContentType:text#Expires:2022-10-12T00:00:00.000Z
 ```
 
 ## 操作示例
