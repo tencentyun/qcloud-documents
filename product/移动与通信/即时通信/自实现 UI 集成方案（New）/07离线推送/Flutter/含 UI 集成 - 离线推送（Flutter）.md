@@ -801,15 +801,12 @@ flutter pub add tim_ui_kit_push_plugin
 #### Android
 
 1. 确保 `@mipmap/ic_launcher` 存在且为您的应用 Icon。完整路径：`android/app/src/main/res/mipmap/ic_launcher.png`
+![](https://qcloudimg.tencent-cloud.cn/raw/c3a5b95e6ffc519890122b7d474101a0.png)
 
-![20220713155110](https://tuikit-1251787278.cos.ap-guangzhou.myqcloud.com/20220713155110.png)
-
-如果不存在，可手动将您的应用Icon复制进去，或通过Android Studio自动创建不同分辨率版本（`mipmap` 目录右键，`New` => `Image Asset`）。
-
-![20220713155548](https://tuikit-1251787278.cos.ap-guangzhou.myqcloud.com/20220713155548.png)
+如果不存在，可手动将您的应用 Icon 复制进去，或通过 Android Studio 自动创建不同分辨率版本（`mipmap` 目录右键，`New` => `Image Asset`）。
+![](https://qcloudimg.tencent-cloud.cn/raw/9641cb0de6a2172f57064d08f32a5a68.png)
 
 2. 打开 `android/app/src/main/AndroidManifest.xml` 文件，在您应用的主 activity 中，添加如下代码。
-
 ```xml
 <activity
     android:showWhenLocked="true"
@@ -872,7 +869,7 @@ TencentImSDKPlugin.v2TIMManager
 
 #### 触发本地消息通知
 
-请从我们提供的两个API中，`displayNotification` 自定义通知，及 `displayDefaultNotificationForMessage` 根据消息生成默认通知，选一个合适的API。
+请从我们提供的两个 API 中，`displayNotification` 自定义通知，及 `displayDefaultNotificationForMessage` 根据消息生成默认通知，选一个合适的API。
 
 对于Android端，这两个API均需传入 `channelID` 及 `channelName`。若还未创建 [Android Push Channel](https://developer.android.com/training/notify-user/channels) ，请使用插件 `createNotificationChannel` API创建。
 
