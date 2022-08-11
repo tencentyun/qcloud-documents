@@ -1,5 +1,7 @@
 
+
 ### 代码托管
+
 - 自 v1.0.0 版本开始，设备端 SDK 代码使用 Github 托管
   [https://github.com/tencentyun/qcloud-iot-sdk-embedded-c](https://github.com/tencentyun/qcloud-iot-sdk-embedded-c)
 - 下载最新版 
@@ -166,9 +168,9 @@
  5、去除若干结构体采用位域操作方式，减少跨平台错误。
 
 
-	
-	
-  
+​	
+​	
+
 ### 版本 v2.2.0  
 - 发布日期：2018/07/20
 - 开发语言：C 语言

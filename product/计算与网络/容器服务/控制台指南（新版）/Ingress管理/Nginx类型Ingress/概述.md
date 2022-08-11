@@ -1,7 +1,3 @@
->? 如果您需要安装 NginxIngress 组件，可通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 来联系我们。
->
-
-
 ## Nginx-ingress 介绍 
 
 Nginx 可以用作反向代理、负载平衡器和 HTTP 缓存。

@@ -801,15 +801,12 @@ flutter pub add tim_ui_kit_push_plugin
 #### Android
 
 1. 确保 `@mipmap/ic_launcher` 存在且为您的应用 Icon。完整路径：`android/app/src/main/res/mipmap/ic_launcher.png`
+![](https://qcloudimg.tencent-cloud.cn/raw/c3a5b95e6ffc519890122b7d474101a0.png)
 
-![20220713155110](https://tuikit-1251787278.cos.ap-guangzhou.myqcloud.com/20220713155110.png)
-
-如果不存在，可手动将您的应用Icon复制进去，或通过Android Studio自动创建不同分辨率版本（`mipmap` 目录右键，`New` => `Image Asset`）。
-
-![20220713155548](https://tuikit-1251787278.cos.ap-guangzhou.myqcloud.com/20220713155548.png)
+如果不存在，可手动将您的应用 Icon 复制进去，或通过 Android Studio 自动创建不同分辨率版本（`mipmap` 目录右键，`New` => `Image Asset`）。
+![](https://qcloudimg.tencent-cloud.cn/raw/9641cb0de6a2172f57064d08f32a5a68.png)
 
 2. 打开 `android/app/src/main/AndroidManifest.xml` 文件，在您应用的主 activity 中，添加如下代码。
-
 ```xml
 <activity
     android:showWhenLocked="true"
@@ -859,7 +856,7 @@ cPush.init(
 final advancedMsgListener = V2TimAdvancedMsgListener(
   onRecvNewMessage: (V2TimMessage newMsg) {
     // 这里完成监听回调触发事件
-    // 下一步创建的方法，请在这里调用
+    // 请在这里调用下一步提及的触发本地消息通知API
   }, 
 });
 
@@ -872,9 +869,9 @@ TencentImSDKPlugin.v2TIMManager
 
 #### 触发本地消息通知
 
-请从我们提供的两个API中，`displayNotification` 自定义通知，及 `displayDefaultNotificationForMessage` 根据消息生成默认通知，选一个用户触发。
+请从我们提供的两个 API 中，`displayNotification` 自定义通知，及 `displayDefaultNotificationForMessage` 根据消息生成默认通知，选一个合适的API。
 
-对于Android端，这两个API均需传入 `channelID` 及 `channelName`。若还未创建Channel，请使用插件 `createNotificationChannel()` API创建。
+对于Android端，这两个API均需传入 `channelID` 及 `channelName`。若还未创建 [Android Push Channel](https://developer.android.com/training/notify-user/channels) ，请使用插件 `createNotificationChannel` API创建。
 
 ```dart
 cPush.createNotificationChannel(
@@ -887,7 +884,7 @@ cPush.createNotificationChannel(
 
 本API需要您提供 `title`, `body`, 及 `ext` 用于点击跳转信息，三个参数。您可以根据需要自行解析收到的 `V2TimMessage`，生成这三个字段。
 
-![20220713163737](https://tuikit-1251787278.cos.ap-guangzhou.myqcloud.com/20220713163737.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/a6038698a5c1f4c12e9b8454ab07ce64.png)
 
 为便于跳转，此处ext的生成规则可查看 `displayDefaultNotificationForMessage` 的代码。
 
@@ -916,7 +913,7 @@ cPush.displayDefaultNotificationForMessage(
 
 本步骤与 [上文离线推送的步骤6](#step_6) 点击回调一致，均为在 ext 中，读取需要跳转的 conversation，并导航过去。
 
-如果您在上一步使用 `displayDefaultNotificationForMessage`，或在 `displayNotification` 中使用与default相同的ext生成函数，此时的ext结构为：` "conversationID": "对应的conversation"`。此处触发的是
+如果您在上一步使用 `displayDefaultNotificationForMessage`，或在 `displayNotification` 中使用与default相同的ext生成函数，此时的ext结构为：` "conversationID": "对应的conversation"`。
 
 此时，填上初始化时，为 pushClickAction 埋的坑。
 
@@ -931,9 +928,6 @@ BuildContext? _cachedContext;
 final TimUiKitPushPlugin cPush = TimUiKitPushPlugin(
       isUseGoogleFCM: false,
     );
-// 仅限TUIKit
-final TIMUIKitChatController _timuiKitChatController =
-  TIMUIKitChatController();
 
 @override
 void initState() {
@@ -946,11 +940,8 @@ void onClickNotification(Map<String, dynamic> msg) async {
     Map<String, dynamic> extMsp = jsonDecode(ext);
     String convId = extMsp["conversationID"] ?? "";
 
-    // 【TUIKit】若当前的会话与要跳转至的会话一致，则不跳转
-    final currentConvID = _timuiKitChatController.getCurrentConversation();
-    if(currentConvID == convId.split("_")[1]){
-      return;
-    }
+    // 若当前的会话与要跳转至的会话一致，则不跳转
+    // 此处建议您自行判断下，用户当前打开的页面
 
     final targetConversationRes = await TencentImSDKPlugin.v2TIMManager
         .getConversationManager()

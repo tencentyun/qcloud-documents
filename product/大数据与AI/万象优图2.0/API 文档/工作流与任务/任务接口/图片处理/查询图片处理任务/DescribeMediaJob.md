@@ -1,6 +1,6 @@
 ## 功能描述
 
-DescribeMediaJob 用于查询指定的任务。
+DescribePicJob 用于查询指定的任务。
 
 ## 请求
 

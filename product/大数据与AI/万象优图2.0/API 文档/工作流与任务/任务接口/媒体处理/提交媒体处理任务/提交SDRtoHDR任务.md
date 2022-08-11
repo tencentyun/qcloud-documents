@@ -106,7 +106,7 @@ Container 类型 Operation 的具体数据描述如下：
 | SDRtoHDR            | Request.Operation | 指定 SDRtoHDR 参数                                           | Container | 是       |
 | Transcode           | Request.Operation | 指定转码模板参数，不能与 TranscodeTemplateId 同时为空          | Container | 否       |
 | TranscodeTemplateId | Request.Operation | 指定的转码模板 ID，优先使用模板 ID，不能与 Transcode 同时为空   | String    | 否       |
-| Watermark           | Request.Operation | 指定水印模板参数，同创建水印模板 CreateMediaTemplate 接口的 Request.Watermark, 最多传3个 | Container 数组 | 否       |
+| Watermark           | Request.Operation | 指定水印模板参数，同创建水印模板 <a href="https://cloud.tencent.com/document/product/460/77099#Watermark" target="_blank">CreateMediaTemplate</a> 接口中的 Request.Watermark, 最多传3个 | Container 数组 | 否       |
 | WatermarkTemplateId | Request.Operation | 指定的水印模板 ID，可以传多个水印模板 ID，最多传3个，优先使用模板 ID | String 数组    | 否       |
 | Output              | Request.Operation | 结果输出地址                                                 | Container | 是       |
 | UserData            | Request.Operation | 透传用户信息, 可打印的 ASCII 码, 长度不超过1024                                           | String | 否 |
@@ -124,11 +124,12 @@ Container 类型 Transcode 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点                            | 描述                                                         | 类型   | 必选 |
 | ------------------ | :------------------------------ | ------------------------------------------------------------ | ------ | ---- |
-| TimeInterval       | Request.Operation.Transcode     | 同创建转码模板 CreateMediaTemplate 接口中的 Request.TimeInterval | Container | 是 | 
-| Container          | Request.Operation.Transcode     | 同创建转码模板 CreateMediaTemplate 接口中的 Request.Container    | Container | 否 | 
-| Video              | Request.Operation.Transcode     | 同创建转码模板 CreateMediaTemplate 接口中的 Request.Video        | Container | 否 |
-| Audio              | Request.Operation.Transcode     | 同创建转码模板 CreateMediaTemplate 接口中的 Request.Audio        | Container | 否 |
-| TransConfig        | Request.Operation.Transcode     | 同创建转码模板 CreateMediaTemplate 接口中的 Request.TransConfig  | Container | 否 |
+| TimeInterval       | Request.Operation.Transcode     | 同创建转码模板 <a href="https://cloud.tencent.com/document/product/460/77093#TimeInterval " target="_blank">CreateMediaTemplate</a> 接口中的 Request.TimeInterval | Container | 是 | 
+| Container          | Request.Operation.Transcode     | 同创建转码模板 <a href="https://cloud.tencent.com/document/product/460/77093#Container " target="_blank">CreateMediaTemplate</a> 接口中的 Request.Container    | Container | 否 | 
+| Video              | Request.Operation.Transcode     | 同创建转码模板 <a href="https://cloud.tencent.com/document/product/460/77093#Video " target="_blank">CreateMediaTemplate</a> 接口中的 Request.Video        | Container | 否 |
+| Audio              | Request.Operation.Transcode     | 同创建转码模板 <a href="https://cloud.tencent.com/document/product/460/77093#Audio " target="_blank">CreateMediaTemplate</a> 接口中的 Request.Audio        | Container | 否 |
+| TransConfig        | Request.Operation.Transcode     | 同创建转码模板 <a href="https://cloud.tencent.com/document/product/460/77093#TransConfig " target="_blank">CreateMediaTemplate</a> 接口中的 Request.TransConfig  | Container | 否 |
+
 
 Container 类型 Output 的具体数据描述如下：
 

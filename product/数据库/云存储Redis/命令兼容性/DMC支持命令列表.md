@@ -1,4 +1,4 @@
-DMC（Database Management Console）是腾讯云的一款数据库管理工具，可便捷地访问实例、查看实例的关键指标信息、运行 Redis 命令等。 当前 DMC 支持的 Redis 命令如下表所示，其中 DMC 支持的自定义命令包括：INFO、SLOWLOG、SCAN。具体信息，请参见 [自定义命令使用示例](https://cloud.tencent.com/document/product/239/76289)。
+DMC（Database Management Center）是腾讯云的一款数据库管理工具，可便捷地访问实例、查看实例的关键指标信息、运行 Redis 命令等。 当前 DMC 支持的 Redis 命令如下表所示，其中 DMC 支持的自定义命令包括：INFO、SLOWLOG、SCAN。具体信息，请参见 [自定义命令使用示例](https://cloud.tencent.com/document/product/239/76289)。
 下表中 &#10003; 表示支持，x 表示不支持，- 表示该命令不存在跨 Slot 访问的场景。
 
 <table>

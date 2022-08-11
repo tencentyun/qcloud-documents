@@ -23,7 +23,7 @@ wget -c "备份文件下载地址" -O 自定义名称.xb
 
 ### 步骤2：解包备份文件
 使用 xbstream 解包备份文件。
->? xbstream 工具下载地址请参见 [Percona XtraBackup 官网](https://www.percona.com/downloads/Percona-XtraBackup-2.4/LATEST/)，请选择 Percona XtraBackup 2.4.6 及以上的版本，安装介绍请参见 [Percona XtraBackup 2.4](https://www.percona.com/doc/percona-xtrabackup/2.4/installation.html?spm=a2c4g.11186623.2.14.4d8653a6QmHkgI)。
+>? xbstream 工具下载地址请参见 [Percona XtraBackup 官网](https://www.percona.com/downloads/Percona-XtraBackup-2.4/LATEST/)，请选择 Percona XtraBackup 2.4.6 及以上的版本，安装介绍请参见 [Percona XtraBackup 2.4](https://docs.percona.com/percona-xtrabackup/2.4/installation/yum_repo.html)。
 >
 ```
 xbstream -x < test0.xb

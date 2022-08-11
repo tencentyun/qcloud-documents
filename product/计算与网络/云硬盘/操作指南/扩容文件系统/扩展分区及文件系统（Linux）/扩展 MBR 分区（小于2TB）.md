@@ -45,7 +45,7 @@ umount /data
 ```
 2. 执行以下命令，下载工具。
 ```shellsession
-wget -O /tmp/devresize.py https://tencentcloud.coding.net/p/tencentcloud/d/tencentcloud-cbs-tools/git/raw/master/devresize/devresize.py?download=true
+wget -O /tmp/devresize.py https://raw.githubusercontent.com/tencentyun/tencentcloud-cbs-tools/master/devresize/devresize.py
 ```
 3. 执行以下命令，使用扩容工具进行扩容。
 ```shellsession
