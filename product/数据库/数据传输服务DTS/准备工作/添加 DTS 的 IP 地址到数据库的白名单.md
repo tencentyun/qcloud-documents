@@ -3,7 +3,7 @@
 
 如果未将 DTS IP 地址添加到源数据库的白名单中，可能会出现连通性测试失败。用户也可以在连通性测试失败后，根据界面提醒添加 DTS 的 IP 地址到数据库的白名单中。
 
-![](https://main.qcloudimg.com/raw/60f01468821b4bc3f805d98c3138a4cf.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/f681a96a6f315922e26263d96c11b7fe.png)
 
 ## 添加原则
 
