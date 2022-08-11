@@ -26,11 +26,11 @@ TUICallKit 是基于腾讯云 [即时通信 IM](https://cloud.tencent.com/docume
 ![](https://qcloudimg.tencent-cloud.cn/raw/d270d9298975ee829ae9c8c405530765.png)
 2. 使用自定义基座打包 uni 原生插件 （**请使用真机运行自定义基座**）
 使用 uni 原生插件必须先提交云端打包才能生效，购买插件后在应用的 `manifest.json` 页面的 **App原生插件配置** 项下单击**选择云端插件**，选择**腾讯云原生音视频插件**。
-![](https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/uni-app-21.png)
+![](https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/TencentCloud-TUICallKit.png)
 直接云端打包后无法打 log，无法排查问题，需要自定义基座调试原生插件。
 >! 
 >- 自定义基座不是正式版，真正发布时，需要再打正式包。使用自定义基座是无法正常升级替换 APK 的。
->- 请尽量不要使用本地插件，插件包超过自定义基座的限制，可能导致调试收费
+>- 请尽量不要使用本地插件，插件包超过自定义基座的限制，可能导致调试收费。
 
 
 [](id:step3)
@@ -138,7 +138,28 @@ const enable = true;
 TUICallKit.enableFloatWindow(enable);
 ```
 
-### 三、自定义铃音
+### 三、通话状态监听
+如果您的业务需要 **监听通话的状态**，例如：异常、通话开始、结束等，可以监听以下事件：
+```javascript
+const TUICallingEvent = uni.requireNativePlugin('globalEvent');
+TUICallingEvent.addEventListener('onError', (res) => {
+  console.log('onError', JSON.stringify(res));
+});
+TUICallingEvent.addEventListener('onCallReceived', (res) => {
+  console.log('onCallReceived', JSON.stringify(res));
+});
+TUICallingEvent.addEventListener('onCallCancelled', (res) => {
+  console.log('onCallCancelled', res);
+});
+TUICallingEvent.addEventListener('onCallBegin', (res) => {
+  console.log('onCallBegin', JSON.stringify(res));
+});
+TUICallingEvent.addEventListener('onCallEnd', (res) => {
+  console.log('onCallEnd', JSON.stringify(res));
+});
+```
+
+### 四、自定义铃音
 如果您需要自定义来电铃音，可以通过如下接口进行设置。
 ```javascript
 const filePath = './**';
