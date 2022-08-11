@@ -143,7 +143,7 @@ npm i tuicall-engine-webrtc --save
 
 import { TUICallEngine, TUICallEvent } from "tuicall-engine-webrtc"
 ```
-### 导入方式二：Script 集成
+### 集成方式二：Script 集成
 
 Script 下载地址：
 - [trtc-js-sdk](https://web.sdk.qcloud.com/component/trtccalling/download/trtc-js-sdk.zip) 
