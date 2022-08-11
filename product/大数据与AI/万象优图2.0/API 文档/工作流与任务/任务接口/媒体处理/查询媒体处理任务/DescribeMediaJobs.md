@@ -45,8 +45,8 @@ Authorization: <Auth String>
 | :----------------- | :----- | :----------------------------------------------------------- | :------ | :------- |
 | queueId            | 无     | 拉取该队列 ID 下的任务                                       | String  | 是       |
 | tag                | 无     | 任务的 Tag                                                  | String  | 是       |
-| workflowId         | 无     | 触发该任务的工作流ID                                          | String  | 否       |
-| inventoryTriggerJobId | 无     | 触发该任务的存量触发任务ID                                                  | String  | 否       |
+| workflowId         | 无     | 触发该任务的工作流 ID                                          | String  | 否       |
+| inventoryTriggerJobId | 无     | 触发该任务的存量触发任务 ID                                                  | String  | 否       |
 | inputObject | 无     | 该任务的输入文件名，暂仅支持精确匹配                                                  | String  | 否       |
 | orderByTime        | 无     | Desc 或者 Asc。默认为 Desc                                   | String  | 否       |
 | nextToken          | 无     | 请求的上下文，用于翻页。上次返回的值                         | String  | 否       |
