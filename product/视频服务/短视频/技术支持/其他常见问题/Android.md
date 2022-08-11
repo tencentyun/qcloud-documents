@@ -1,7 +1,6 @@
 ## 功能相关
 
 [](id:que1)
-
 ### 目前短视频录制生成的分辨率支持自定义吗？有哪些可定制化的输出？
 短视频录制可定制参数包括 fps（每秒钟有多少帧画面），GOP（多少秒编出一个关键I帧）大小，视频码率（每秒钟编码器产生的音视频数据的多少），录制最大/最小时长，录制的分辨率以常量方式提供了四种分辨率供您选择：360 × 640、540 × 960、720 × 1280、1080 × 1920。
 
@@ -222,7 +221,7 @@ mTXVideoEditer.generateVideo(TXVideoEditConstants.VIDEO_COMPRESSED_720P, mVideoO
 
 ## 编译相关
 
-[](id:que1)
+[](id:u_que1)
 
 ### 集成遇到异常怎么办？
 ![](https://main.qcloudimg.com/raw/b631f468aca6a2d1e83b868874631030.png)
@@ -230,7 +229,7 @@ mTXVideoEditer.generateVideo(TXVideoEditConstants.VIDEO_COMPRESSED_720P, mVideoO
 ![](https://main.qcloudimg.com/raw/9d75515640b65d91ab8730991e4c2602.png)
 如上图所示，请在`app`的 build.gradle 中指定 abiFilters 为“armeabi”。
 
-[](id:que2)
+[](id:u_que2)
 ### 同时集成两款以上 LiteAV 体系的 SDK 出现冲突怎么办？
 如果您的项目中同时集成了两款以上的 LiteAV 体系的 SDK，就会出现符号冲突（symbol duplicate）的问题，这是由于 LiteAV 体系的 SDK 都使用了相同的基础模块。
 
@@ -263,7 +262,7 @@ mTXVideoEditer.generateVideo(TXVideoEditConstants.VIDEO_COMPRESSED_720P, mVideoO
    </tr>
 </table>
 
-[](id:que3)
+[](id:u_que3)
 ### SDK 升级后，短视频的功能不能使用？
 1. 如果使用的是 androidstudio，在替换新的 aar 后，请修改`app`的 build.gradle 中的 aar 引用，是否与您放入工程下 /libs 目录下的 aar **文件名称是否一致**。然后重新 clean 并且 build 一下您的工程。
 2. 确认 SDK 版本，短视频 SDK 4.5 版本之后需要 License 支持。
@@ -273,7 +272,7 @@ mTXVideoEditer.generateVideo(TXVideoEditConstants.VIDEO_COMPRESSED_720P, mVideoO
 - 详细价格请参见 [价格文档](https://cloud.tencent.com/document/product/584/9368)
 - 如需使用美颜特效等高级功能，请参见 [腾讯特效 SDK](https://cloud.tencent.com/document/product/616/65890)。
 
-[](id:que5)
+[](id:u_que4)
 ### Android 端短视频如何设置暂停和进度条？
 短视频播放是基于短视频的播放器进行实现的，因此进度条功能需要您**自行研发**，相关功能实现说明可参见 [播放器 SDK—进度展示](https://cloud.tencent.com/document/product/881/20216#14.E3.80.81.E8.BF.9B.E5.BA.A6.E5.B1.95.E7.A4.BA)。
 
