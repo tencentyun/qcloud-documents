@@ -58,7 +58,6 @@ ALTER, ALTER ROUTINE, CREATE, CREATE ROUTINE, CREATE TEMPORARY TABLES, CREATE US
 <td>连接方式</td><td><b>恢复到云数据库 MySQL 和云数据库 TDSQL-C MySQL 时，暂不支持 SSL 安全连接功能。 </b><ul><li>非加密方式：DBS 与源数据库的连接不加密。</li><li>SSL 安全连接：DBS 与源数据库通过 SSL（Secure socket layer）安全连接，对传输链路进行加密。</li></ul><dx-alert infotype="explain" title="说明">选择 SSL 安全连接可能会增加源库的连接响应时间，一般腾讯云内网链路相对较安全，无需开启 SSL 安全连接，采用公网/专线等传输方式，并且对数据安全要求较高的场景，需要开启 SSL 安全连接。<br>选择<b> SSL 安全连接</b> 前，请先在源数据库中开启 SSL 加密。如果源库为腾讯云数据库，请参考 <a href="https://cloud.tencent.com/document/product/237/33944">开启 SSL 加密</a>。</dx-alert></td></tr>
   <tr>
   <td>CA 根证书</td><td>可选，上传 CA 证书后，DBS 会校验传输目标服务器的身份，使传输链路更加安全。</td></tr></tbody></table>
-
 5. 在**配置恢复对象**页面中，选择恢复冲突选项和恢复对象，完成后单击**下一步**。<br>
 <img src="https://qcloudimg.tencent-cloud.cn/raw/430444bf0116d82df641078b4b233a26.png" style="zoom:20%;" />
 <table>

@@ -1,6 +1,6 @@
 
 产品使用攻略、上云技术实践，有奖征集，多重好礼等您带回家～
-![](https://qcloudimg.tencent-cloud.cn/raw/28e1d67f305aadea4d43910dba372fbe.jpg)
+![](https://qcloudimg.tencent-cloud.cn/raw/93827060c1a99305044c58ee82e0adf6.jpg)
 
 ## 投稿说明
 1. 文章要求发布在腾讯云开发者社区。
@@ -11,7 +11,7 @@
 
 ## 参与方式
 1. 扫码加入活动交流群
-![](https://qcloudimg.tencent-cloud.cn/raw/9955789abb96acee4ac760c4dfa71a03.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/42ccc8c4d57f79011483c3a4265942af.png)
 2. 扫描下方二维码 或者 [单击链接](https://doc.weixin.qq.com/forms/AJEAIQdfAAoAHsAXwboACc0pcRzvLdQAf) 进行投稿
 ![](https://qcloudimg.tencent-cloud.cn/raw/1ef6c93da0946160550b2348bb2ef438.png)
 （移动端如果无法长按扫码，建议先保存本地再扫描）

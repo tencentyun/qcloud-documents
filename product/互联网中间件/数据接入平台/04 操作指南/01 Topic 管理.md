@@ -20,16 +20,6 @@ Topic 是数据接入平台订阅和发布的最小单位，用户可以用 Topi
 
 
 
-
-
-
-### 绑定/解绑 Schema
-
-若用户在新建任务时没有绑定 Schema，后续也可以再进行绑定。同时也支持解绑 Schema。操作路径如下：
-
-在 [Topic 列表](https://console.cloud.tencent.com/ckafka/datahub-topic) 中，找到需要绑定/解绑 Schema 的 Topic ，单击 Topic 的 ID 进入 Topic 基本信息页面。在基本信息模块可以绑定/解绑 Schema。
-![](https://qcloudimg.tencent-cloud.cn/raw/38eb1d6110ea90d888d9c631b9b5f2f1.png)
-
 ### 查询 Topic
 
 您可以在 [Topic 列表](https://console.cloud.tencent.com/ckafka/datahub-topic) 页右上角的搜索框中，通过 Topic 名称进行搜索查询，DIP 将会模糊匹配并呈现搜索结果。

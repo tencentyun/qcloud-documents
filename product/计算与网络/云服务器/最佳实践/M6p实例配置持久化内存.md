@@ -5,9 +5,9 @@
 ## 实例配置
 本文使用了以下配置的云服务器实例，获取的相关信息请以实际情况为准：
  - **实例规格**：内存型 M6p 实例 M6p.LARGE16（4核16GB）。其他规格配置请参见 [内存型 M6p](https://cloud.tencent.com/document/product/213/11518#M6p)。
- - **操作系统**： TencentOS Server 3.1（TK4）。
+ - **镜像**： TencentOS Server 3.1（TK4）。
 <dx-alert infotype="explain" title="">
-建议您的实例使用以下操作系统：
+实例镜像版本满足以下要求：
  - TencentOS Server 3.1
  - CentOS 7.6及更高版本
  - Ubuntu 18.10及更高版本

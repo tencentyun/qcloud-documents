@@ -264,4 +264,4 @@ android.useAndroidX=trueandroid.enableJetifier=true
 不可以，Google 服务和一个可以正常访问 Google 的网是可以使用 FCM 的必要条件。
 
 ### FCM 通道适用哪个集群
-FCM 需要国外网络，适用于境外香港和新加坡集群。
+FCM 需要国外网络，适用于境外中国香港和新加坡集群。
