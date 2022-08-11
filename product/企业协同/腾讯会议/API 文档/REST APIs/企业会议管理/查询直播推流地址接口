@@ -11,9 +11,9 @@ HTTP 请求头公共参数参考签名验证章节里的 [公共参数说明](ht
 
 |参数名称 |必选 |参数类型 |参数描述 |
 |--|--|--|--|
-|operator_id |是 |String |操作者 ID，根据 operator_id_type 的值，使用不同的类型 |
+|operator_id |是 |String |操作者 ID，根据 operator_id_type 的值，使用不同的类型。 |
 |operator_id_type |是 |Integer |操作者 ID 的类型：<br>1：userid |
-|instanceid |是 |Integer |用户的终端设备类型：<br>1：PC<br>2：Mac<br>3：Android<br>4：iOS<br>5：Web<br>6：iPad<br>7：Android Pad<br>8：小程序创建会议时 userid 对应的设备类型，不影响入会时使用的设备类型，缺省可填1。 |
+|instanceid |是 |Integer |用户的终端设备类型：<br>0：PSTN<br>1：PC<br>2：Mac<br>3：Android<br>4：iOS<br>5：Web<br>6：iPad<br>7：Android Pad<br>8：小程序<br>9：voip、sip 设备<br>10：linux<br>20：Rooms for Touch Windows<br>21：Rooms for Touch MacOS<br>22：Rooms for Touch Android<br>30：Controller for Touch Windows<br>32：Controller for Touch Android<br>33：Controller for Touch iOS<br>创建会议时 userid 对应的设备类型，不影响入会时使用的设备类型，缺省可填1。 |
 
 ## 输出参数
 **直播推流信息**
@@ -27,7 +27,7 @@ HTTP 请求头公共参数参考签名验证章节里的 [公共参数说明](ht
 
 ## 示例
 #### 输入示例
-```
+```plaintext
 GET
 https://api.meeting.qq.com/v1/meetings/7424270435941489244/live-play/push-stream-info?operator_id=afagsagwags&operator_id_type=1&instanceid=1
 {
@@ -37,7 +37,7 @@ https://api.meeting.qq.com/v1/meetings/7424270435941489244/live-play/push-stream
 }
 ```
 #### 输出示例
-```
+```plaintext
 {
     "push_stream_info":[
         {
