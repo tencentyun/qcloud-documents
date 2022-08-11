@@ -15,7 +15,7 @@ TUICallKit API 是音视频通话组件的**含 UI 接口**，使用TUICallKit A
 | [enableFloatWindow](https://tcloud-doc.isd.com/document/product/647/78763?!preview#enablefloatwindow) | 开启/关闭悬浮窗功能      |
 
 ## TUICallObserver 
-TUICallObserver 是 TUICallEngine 对应的回调事件类，您可以通过此回调，来监听自己感兴趣的回调事件。
+TUICallObserver 是回调事件类，您可以通过此回调，来监听自己感兴趣的回调事件。
 
 | API | 描述 |
 |-----|-----|
