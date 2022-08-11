@@ -1,34 +1,39 @@
 ## 短视频 SDK 版本详情及下载
 <table>
    <tbody><tr>
-      <th width="40px" style="text-align:center">功能模块</th>
-      <th width="85px" style="text-align:center">功能项</th>
-      <th width="230px">功能简介</th>
-      <th width="70px" style="text-align:center">精简版 License</th>
-      <th width="70px" style="text-align:center">基础版 License</th>
+      <th width="15%" style="text-align:center">功能模块</th>
+      <th width="15%" style="text-align:center">功能项</th>
+      <th width="30%">功能简介</th>
+      <th width="15%" style="text-align:center">精简版 License</th>
+      <th width="15%" style="text-align:center">基础版 License</th>
    </tr>
        <tr>
       <td rowspan="2">SDK 下载</td>
       <td>Android</td>
-    <td>短视频 SDK（LiteAVSDK）+ 基础功能 Demo 源代码</td>
-      <td colspan="2" style="text-align:center"> <a onclick="MtaH5.clickStat(&quot;ugc_sdk_download_android_basic&quot;)" href="https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_UGC_Android_latest.zip">基础版 SDK DOWNLOAD</a> </td>
+    <td>短视频 SDK（LiteAVSDK）+ Demo 源代码</td>
+      <td colspan="2" style="text-align:center"> <a onclick="MtaH5.clickStat(&quot;ugc_sdk_download_android_basic&quot;)" href="https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_UGC_Android_latest.zip">Android SDK DOWNLOAD</a> </td>
    </tr>
    <tr>
       <td>iOS</td>
-      <td>短视频 SDK（LiteAVSDK）+ 基础功能 Demo 源代码</td>
-      <td colspan="2" style="text-align:center"> <a onclick="MtaH5.clickStat(&quot;ugc_sdk_download_ios_basic&quot;)" href="https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_UGC_iOS_latest.zip">基础版 SDK DOWNLOAD</a> </td>
+      <td>短视频 SDK（LiteAVSDK）+ Demo 源代码</td>
+      <td colspan="2" style="text-align:center"> <a onclick="MtaH5.clickStat(&quot;ugc_sdk_download_ios_basic&quot;)" href="https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_UGC_iOS_latest.zip">iOS SDK DOWNLOAD</a> </td>
    </tr><tr>
-      <td rowspan="2">License</td>
+      <td rowspan="3">License</td>
       <td>License 申请</td>
-      <td>不同版本 SDK 需要搭配不同版本的 License 才能使用</td>
+      <td>短视频 SDK 需购买 License 后方可使用，不同 License 可解锁的功能不同</td>
       <td><a href="https://cloud.tencent.com/document/product/584/20333#.E8.B4.AD.E4.B9.B0.E6.AD.A3.E5.BC.8F.E7.89.88-license">精简版 License</a></td>
       <td><a href="https://cloud.tencent.com/document/product/584/20333#.E8.B4.AD.E4.B9.B0.E6.AD.A3.E5.BC.8F.E7.89.88-license">基础版 License</a></td>
    </tr>
    <tr>
-      <td>套餐价格</td>
-      <td>SDK 的一年使用权（精简版和基础版含腾讯云点播流量套餐）</td>
+      <td rowspan="2">License 价格</td>
+      <td>购买方式1：<a href="https://cloud.tencent.com/document/product/584/9368#.E8.B5.84.E6.BA.90.E5.8C.85.E4.BB.B7.E6.A0.BC">购买云点播流量资源包赠送 License</a></td>
       <td>￥1699元/年</td>
       <td>￥8399元/年</td>
+   </tr>
+	    <tr>
+	 		<td>购买方式2：<a href="https://cloud.tencent.com/document/product/584/9368#.E7.8B.AC.E7.AB.8B-license-.E4.BB.B7.E6.A0.BC">直接购买独立 License</a></td>
+      <td>￥3299元/年</td>
+      <td>￥16699元/年</td>
    </tr>
         <tr>
       <td rowspan="3">美颜特效<br>（增值能力）</td>
@@ -48,7 +53,7 @@
 <td>人像分割</td>
 <td>识别出背景轮廓，把背景抠除，替换成素材视频的元素</td>
 </tr>
- <tr>
+	 <tr>
       <td>界面</td>
       <td>自定义 UI</td>
       <td>开发者自定义 UI，小视频 App 提供了一套完整的 UI 交互源码，可复用或自定义</td>
@@ -238,6 +243,7 @@
       <td style="text-align:center">&#10003;</td>
    </tr>
    </tbody></table>
+
 
 
 >? **如果您对 SDK 支持的功能还有疑问，请参见 [功能答疑](https://cloud.tencent.com/document/product/584/17535)。**
