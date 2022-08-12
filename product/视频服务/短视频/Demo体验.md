@@ -129,10 +129,10 @@
     </div>
 </div>  
 
-<div class="preview-demo-section" id="demo-card">
-	 <div class="preview-demo-item-cloud">
+<div class="preview-demo-section" id="demo-card" >
+	 <div class="preview-demo-item-cloud" style="margin-top: 6px;">
 	 <div class="demo-item-header">
-            <a style="font-size: 20px;font-weight: bold;">Demo 后台源码</a>
+            <a style="font-size: 20px;font-weight: bold;" >Demo 后台源码</a>
 </div>
 	 <div class="demo-item-header">
  <a style="font-size: 12px;">小视频 App（Demo）的后台源码</a>
