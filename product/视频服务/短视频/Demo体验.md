@@ -86,9 +86,8 @@
 }
 
 </style>
-小视频 App（Demo）提供完整的产品级交互界面和业务源码，帮助您快速上线类似“微视”、“快手”、“抖音”的短视频 App。
-
-您可以在下方卡片中获取 Demo 及源码，并参考 [含 UI 的集成方案](https://cloud.tencent.com/document/product/584/15540) 进行集成。
+## Demo 体验
+小视频 App（Demo）提供完整的产品级交互界面和业务源码，帮助您快速上线类似“微视”、“快手”、“抖音”的短视频 App。您可以在下方卡片中获取 Demo 及源码，可参考 [SDK 集成方案](https://cloud.tencent.com/document/product/584/11638) 进行集成。
 
 <div class="preview-demo-section" id="demo-card">
 	 <div class="preview-demo-item style-qrcode">
@@ -105,10 +104,8 @@
             App 升级维护中，Demo 源码仍可正常使用。
         </div>
 				<div class="demo-item-link-2">
-					<a href="https://cloud.tencent.com/document/product/584/15540">集成指引</a>
-				<a  style="margin-left: 5px;" href="https://liteav.sdk.qcloud.com/download/ugc/TXXiaoShiPinDemo_ios.zip">源码 ZIP</a>
-				 <a style="margin-left: 5px;" href="https://github.com/tencentyun/UGSVSDK">GitHub</a>
-				 <a style="margin-left: 5px;" href="https://gitee.com/cloudtencent/UGSVSDK">Gitee</a>
+					<a href="https://cloud.tencent.com/document/product/584/11638">集成指引</a>
+				<a  style="margin-left: 20px;" href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.4.2.114/UGSV-API-Example.zip">源码 ZIP</a>
 				  </div>
     </div>
     <div class="preview-demo-item style-qrcode" style="margin-left:0">
@@ -118,17 +115,14 @@
             </div>
             <div class="demo-item-platform">Android</div>
         </div>
-        <div class="demo-item-desc">
-             短视频制作、播放、分享
+        <div class="demo-item-desc">短视频制作、播放、分享
         </div>
         <div class="demo-item-download">
-            <img src="https://main.qcloudimg.com/raw/6790ddaf4ffe4afd0ceb96b309a16496.png">
+            <img src="https://qcloudimg.tencent-cloud.cn/raw/2dab9ae53f83df1e53348f904ad35ef4.png">
         </div>
 					<div class="demo-item-link">
-					  	<a href="https://cloud.tencent.com/document/product/584/15540">集成指引</a>
-				<a style="margin-left: 5px;" href="https://liteav.sdk.qcloud.com/download/ugc/XiaoShiPin_Professional_Android.zip">源码 ZIP</a>
-				 <a style="margin-left: 5px;" href="https://github.com/tencentyun/UGSVSDK">GitHub</a>
-				 	 <a style="margin-left: 5px;" href="https://gitee.com/cloudtencent/UGSVSDK">Gitee</a>
+					  	<a href="https://cloud.tencent.com/document/product/584/11631">集成指引</a>
+				<a style="margin-left: 20px;" href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.2.322.vcube/UGSV-API-Example.zip">源码 ZIP</a>
         </div>
 				 </div>		
     </div>
@@ -138,16 +132,21 @@
 <div class="preview-demo-section" id="demo-card">
 	 <div class="preview-demo-item-cloud">
 	 <div class="demo-item-header">
-            <a style="font-size: 20px;font-weight: bold;">Demo后台源码</a>
+            <a style="font-size: 20px;font-weight: bold;">Demo 后台源码</a>
 </div>
 	 <div class="demo-item-header">
  <a style="font-size: 12px;">小视频 App（Demo）的后台源码</a>
  </div>
-       	<a href="https://cloud.tencent.com/document/product/584/15540">集成指引</a>
-				<a style="margin-left: 10px;" href="https://liteav.sdk.qcloud.com/download/ugc/vod-xiaoshipin-server-master.zip">源码 ZIP</a>
-				 <a style="margin-left: 10px;" href="https://github.com/tencentyun/vod-xiaoshipin-server">GitHub</a>
-				 <a style="margin-left: 10px;" href="https://gitee.com/cloudtencent/vod-xiaoshipin-server">Gitee</a>
+       	<a href="https://cloud.tencent.com/document/product/584/9371">集成指引</a>
+				<a style="margin-left: 15px;" href="https://liteav.sdk.qcloud.com/download/ugc/vod-xiaoshipin-server-master.zip">源码 ZIP</a>
+				 <a style="margin-left: 15px;" href="https://github.com/tencentyun/vod-xiaoshipin-server">GitHub</a>
+				 <a style="margin-left: 15px;" href="https://gitee.com/cloudtencent/vod-xiaoshipin-server">Gitee</a>
       </div>
 	     </div>
 </div>  
+
+
+## Demo 展示
+<img src="https://main.qcloudimg.com/raw/02c1c4fcbcfb6870d5c2804fb18cfec4.jpg"/>
+
 	 

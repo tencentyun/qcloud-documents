@@ -99,7 +99,7 @@
 - `information_schema` 数据库不会应用加密规则。
 - `UNION` 语句使用第一个 `SELECT 子句` 的加解密策略。 
 - 不支持存储过程的加解密。
-- 不支持I `NSERT INTO ... SELECT ...` 等不经过 CASB 处理的数据的加解密。
+- 不支持 `INSERT INTO ... SELECT ...` 等不经过 CASB 处理的数据的加解密。
 - 连接查询时，JOIN 字段需选择同样的密钥，否则密文不一致，无法正确进行连接查询。
 
 ### 协议
