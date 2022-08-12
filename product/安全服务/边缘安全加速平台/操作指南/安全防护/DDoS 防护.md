@@ -1,5 +1,5 @@
 本文将介绍 DDoS 防护功能的 DDoS防护等级、IP 黑白名单、区域封禁、协议封禁等功能以及相关配置操作。
->?DDoS 防护功能和相关配置可能根据您选购的EdgeOne产品套餐有所不同。
+>?DDoS 防护功能和相关配置可能根据您选购的 EdgeOne 产品套餐有所不同。
 
 ## 前提条件
 您需要成功 [购买](https://cloud.tencent.com/document/product/1552/70194) 边缘安全加速平台（EdgeOne）产品（旗舰版），并完成 [接入站点加速](https://cloud.tencent.com/document/product/1552/70788) 或 [接入四层代理](https://cloud.tencent.com/document/product/1552/70965)。
