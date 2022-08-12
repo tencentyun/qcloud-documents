@@ -50,7 +50,7 @@
 </table>
 
 ## 2. 库使用说明
-### [移动直播 SDK](https://cloud.tencent.com/document/product/454/7873)  (必选)
+### [直播 SDK](https://cloud.tencent.com/document/product/454/7873)  (必选)
 移动直播最主要的 SDK，其提供了推流、直播、点播、连麦、录屏等功能。
 - aar
 LiteAVSDK_Professional.aar

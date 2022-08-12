@@ -19,7 +19,7 @@
   计算层使用 Serverless 资源，真正做到按量计费，弹性伸缩，极大节省成本。
   
 - **部署步骤简单**
-  通过 Serverless 应用控制台， 仅需几步配置，即可快速完成 WordPress 应用部署，极大降低部署门槛。
+  通过 Serverless 控制台， 仅需几步配置，即可快速完成 WordPress 应用部署，极大降低部署门槛。
 
 ## 部署步骤
 您可以通过**控制台**快速完成 Serverless WordPress 部署，步骤如下：
@@ -32,7 +32,7 @@
 ### 控制台部署
 >!目前只支持北京、上海、广州三个地域。其中广州四区为默认区域。
 
-1. 登录[ Serverless 应用控制台](https://console.cloud.tencent.com/sls?from=wpdocs), 单击**新建应用**。
+1. 登录[ Serverless 控制台](https://console.cloud.tencent.com/sls?from=wpdocs), 单击**新建应用**。
 2. 单击**新建应用**，选择**应用模板** > **快速部署一个WordPress框架**，单击**下一步**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/b53a4169ed75189b61e06612b6de40e4.png)
 3. 输入应用名。您可以选择使用默认的或连接自建数据库和指定私有网络。

@@ -40,7 +40,6 @@
 <dx-alert infotype="explain" title="">
 主备通道场景请为主通道选择高优先级，备通道选择低优先级，其他情况请选默认值即可。
 </dx-alert>
-
 </td>
 </tr>
 <tr>
@@ -55,6 +54,12 @@
 6. 完成路由策略的配置后，单击**确定**。
 7. 其他可执行操作。
   1. 启动、或禁用路由策略。
+>!
+>- 禁用路由策略：单击某条处于启用状态的路由策略右侧的图标<img src="https://qcloudimg.tencent-cloud.cn/raw/2913784b020055bf99f4d06f94a015c0.png" width="5%">可禁用该条路由策略。路由条目禁用可能导致业务中断，请谨慎评估后再操作。
+>- 启用路由策略：单击某条处于禁用状态的路由策略右侧的图标<img src="https://qcloudimg.tencent-cloud.cn/raw/d60e0509787d8060bb522b925dd7bbd6.png" width="5%">，可启用该条路由策略。
+>
  ![](https://main.qcloudimg.com/raw/1d2b107d0c80bb1a0a291b6e68f7455f.png)
   2. 已禁用的路由策略支持删除。
+>!路由策略删除可能存在的业务影响，请谨慎评估后再操作。
+>
  ![](https://main.qcloudimg.com/raw/dfb2085c28e54597fd1d399091cd9826.png)

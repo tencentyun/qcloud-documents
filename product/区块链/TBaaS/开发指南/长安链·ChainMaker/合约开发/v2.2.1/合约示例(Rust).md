@@ -42,11 +42,10 @@ fn test3() {}
 
 ## 智能合约示例
 
-### 存证合约示例，实现功能
-
-1、存储文件哈希、文件名称和时间等信息。
-
-2、通过文件哈希查询该条记录
+### 存证合约示例
+可实现以下功能：
+1. 存储文件哈希、文件名称和时间等信息。
+2. 通过文件哈希查询该条记录。
 
 ```rust
 use crate::easycodec::*;
@@ -150,7 +149,7 @@ pub extern "C" fn save() {
     );
 }
 
-// find_by_file_hash 根据file_hash查询存证数据
+// find_by_file_hash 根据 file_hash 查询存证数据
 #[no_mangle]
 pub extern "C" fn find_by_file_hash() {
     // 获取上下文
@@ -195,13 +194,29 @@ pub extern "C" fn find_by_file_hash() {
 
 ### 存证合约代码说明
 
-- init_contract: 合约的初始化函数，在合约部署时被调用，在本合约中打印了日志"init_contract"
-- upgrade：合约升级时调用的函数
-- save：save 函数实现将文件哈希和文件名称记录到链上的功能
-  1. save 函数先通过`get_sim_context`和 [**交易信息提取**]API 接口`arg_as_utf8_str`函数拿到时间，文件哈希和文件名字等信息
-  2. 再构造`Fact`结构体并进行序列化；且当序列化错误时调用 [**其他辅助类**]API 接口`log`函数和`error`函数记录相应日志
-  3. 再通过调用 [**其他辅助类**]API 接口`emit_event`函数发送标识为`topic_vx`的合约事件
-  4. 最后通过调用 [**账本交互**]API 接口`put_state`函数将文件等信息记录到链上
-- find_by_file_hash：通过文件哈希查询该条记录
-  1. find_by_file_hash 通过`get_sim_context`和 [**参数处理**]API 接口`arg_as_utf8_str`函数拿到要查找的文件的文件哈希
-  2. 紧接着通过 [**账本交互**]API 接口`get_state`函数获取文件的信息；若失败则通过 [**其他辅助类**]API 接口`error`函数将操作结果记录到链上，否则，通过 [**其他辅助类**]API 接口`log`函数和`ok`函数记录相关日志并返回结果。
+<table>
+<thead>
+  <tr>
+    <th>参数名称</th>
+    <th>描述</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>init_contract</td>
+    <td>合约的初始化函数，在合约部署时被调用，在本合约中打印了日志"init_contract"。</td>
+  </tr>
+  <tr>
+    <td>upgrade</td>
+    <td>合约升级时调用的函数。</td>
+  </tr>
+  <tr>
+    <td>save</td>
+    <td>save 函数实现将文件哈希和文件名称记录到链上的功能。步骤如下：<br>1. save 函数先通过 get_sim_context 和 [交易信息提取]API 接口 arg_as_utf8_str 函数拿到时间，文件哈希和文件名字等信息。<br>2. 构造 Fact 结构体并进行序列化；且当序列化错误时调用 [其他辅助类]API 接口 log 函数和 error 函数记录相应日志。<br>3. 通过调用 [其他辅助类]API 接口 emit_event 函数发送标识为 topic_vx 的合约事件。<br>4. 通过调用 [账本交互]API 接口 put_state 函数将文件等信息记录到链上。</td>
+  </tr>
+  <tr>
+    <td>find_by_file_hash</td>
+    <td>通过文件哈希查询该条记录。步骤如下：<br>1. find_by_file_hash 通过 get_sim_context 和 [参数处理]API 接口 arg_as_utf8_str 函数拿到要查找的文件的文件哈希。<br>2. 通过 [账本交互]API 接口 get_state 函数获取文件的信息；若失败则通过 [其他辅助类]API 接口 error 函数将操作结果记录到链上，否则，通过 [其他辅助类]API 接口 log 函数和 ok 函数记录相关日志并返回结果。</td>
+  </tr>
+</tbody>
+</table>

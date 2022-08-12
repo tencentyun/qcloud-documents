@@ -1,4 +1,28 @@
 
+## 2022年07月
+
+<table>
+	<tr>
+		<th width=20%>动态名称</th>
+    <th width=44%>动态描述</th>
+    <th width=16%>发布时间</th>
+    <th width=20%>相关文档</th>
+	</tr>
+	<tr>
+        <td>SDK 1.3.5.0 版本发布</td>
+	<td>
+		<li>修复：调整荣耀手机选择执行厂商通道的策略</li>
+		<li>优化：改善 SDK 内部通信机制，提高通信效率</li>
+		<li>优化：调整 SDK 内部上报机制，节省流量消耗</li>
+		</td>
+        <td>2022-07-06</td><td>
+		<li><a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</a></li>
+		<li><a href="https://cloud.tencent.com/document/product/548/56364">Android SDK 升级指南</a></li>
+</td>
+    </tr>
+<tr>
+</table>
+
 ## 2022年06月
 
 <table>
@@ -169,7 +193,7 @@
 	</tr>
 	<tr>
         <td>SDK 1.2.6.0 版本发布</td><td><li> 新增：接口调用 API 支持限频
-<li>  新增：FCM 前台通知、TPNS 本地通知支持通知渠道配置
+<li>  新增：FCM 前台通知、移动推送本地通知支持通知渠道配置
 <li>  优化：优化长连接重连策略
 <li>  优化：优化日活，启动上报
 <li>  优化：SDK 日志放置在隐藏目录下
@@ -258,7 +282,7 @@
 </tr>
 <tr>
         <td>SDK 1.2.2.0 版本发布</td>
-       <td><li> 优化：统一账号、标签操作接口命名<li> 优化：优化 SDK 内部错误码上报<li> 优化：FCM 通道协议升级，FCM 通道通知弹出支持 FCM 系统接管<li> 新增：支持 TPNS 通道通知小图标染色<li> 新增：网络通信支持 GZIP 压缩<li>修复：多线程环境下可能出现的 Service 解绑异常</td>
+       <td><li> 优化：统一账号、标签操作接口命名<li> 优化：优化 SDK 内部错误码上报<li> 优化：FCM 通道协议升级，FCM 通道通知弹出支持 FCM 系统接管<li> 新增：支持移动推送自建通道通知小图标染色<li> 新增：网络通信支持 GZIP 压缩<li>修复：多线程环境下可能出现的 Service 解绑异常</td>
         <td>2020-11-26</td>
         <td>-</td>
     </tr>

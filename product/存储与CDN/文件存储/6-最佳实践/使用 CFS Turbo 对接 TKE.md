@@ -37,22 +37,20 @@ kubectl get node
 
 
 
-### 通过脚本创建挂载 Turbo 的 POD
+### 通过 yaml 文件创建挂载 Turbo 的 POD
 
 1. 阅读 [TKE Turbo 插件的说明文档](https://github.com/TencentCloud/kubernetes-csi-tencentcloud/blob/master/docs/README_CFSTURBO.md)，并 [下载](https://github.com/TencentCloud/kubernetes-csi-tencentcloud) 脚本文件。
-2. 进入 `kubernetes-csi-tencentcloud/deploy/cfsturbo/kubernetes/` 目录，分别将 csi-node-rbac.yaml、csi-node.yaml 和 csidriver.yaml 文件上传至可访问 TKE 集群的 CVM 管理节点中。
-3. 进入 `kubernetes-csi-tencentcloud/deploy/cfsturbo/examples/` 目录，下载 static-allinone.yaml 样本文件。
-4. 根据实际 PV、PVC、POD 的相关属性（如名称、镜像地址等），修改 static-allinone.yaml 文件。本文以 NGIX 为例。
-```
-sudo mount.lustre -o sync,user_xattr 10.0.1.16@tcp0:/d3dcc487/cfs /path/to/mount
-```
-其中，host为：10.0.1.16,表示 Fsid为：d3dcc487。
-修改完成的脚本示例如下：
+2. 进入 `kubernetes-csi-tencentcloud/deploy/cfsturbo/kubernetes/` 目录，分别将 csi-node-rbac.yaml、csi-node.yaml 和 csidriver-new.yaml 文件上传至 kubectl 管理节点。
+3. 进入 `kubernetes-csi-tencentcloud/deploy/cfsturbo/examples/` 目录，下载 pv.yaml、pvc.yaml、 
+pod.yaml 这三个示例文件。
+4. 根据实际 PV、PVC、POD 的相关属性（如名称、镜像地址等），修改 pv.yaml、pvc.yaml、 
+pod.yaml 文件。
+yaml 示例如下：
 ```
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: pv-cfsturbo
+  name: csi-cfsturbo-pv
 spec:
   accessModes:
   - ReadWriteMany
@@ -60,48 +58,74 @@ spec:
     storage: 10Gi
   csi:
     driver: com.tencent.cloud.csi.cfsturbo
-    volumeHandle: pv-cfsturbo
-    volumeAttributes: 
-      # cfs turbo server ip
-      host: 10.0.0.116
-      # cfs turbo fsid(not cfs id)
-      fsid: xxxxxxxx
+    # volumeHandle in PV must be unique, use pv name is better
+    volumeHandle: csi-cfsturbo-pv
+    volumeAttributes:
+      # cfs turbo proto
       proto: lustre
+      # cfs turbo rootdir
+      rootdir: /cfs
+      # cfs turbo fsid (not cfs id)
+      fsid: d3dcc487
+      # cfs turbo server ip
+      host: 10.0.1.16
+      # cfs turbo subPath
+      path: /
   storageClassName: ""
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: pvc-cfsturbo
+  name: csi-cfsturbo-pvc
 spec:
-  storageClassName: ""
-  volumeName: pv-cfsturbo
   accessModes:
   - ReadWriteMany
   resources:
     requests:
       storage: 10Gi
+  # You can specify the pv name manually or just let kubernetes to bind the pv and pvc.
+  volumeName: csi-cfsturbo-pv
+  # cfsturbo only supports static provisioning, the StorageClass name should be empty.
+  storageClassName: ""
 ---
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: nginx 
+  labels:
+    k8s-app: csi-cfsturbo-pod
+  name: csi-cfsturbo-pod
 spec:
-  containers:
-  - image: ccr.ccs.tencentyun.com/qcloud/nginx:1.9
-    imagePullPolicy: Always
-    name: nginx
-    ports:
-    - containerPort: 80
-      protocol: TCP
-    volumeMounts:
-      - mountPath: /var/www
-        name: data
-  volumes:
-  - name: data
-    persistentVolumeClaim:
-      claimName: pvc-cfsturbo
+  replicas: 1
+  selector:
+    matchLabels:
+      k8s-app: csi-cfsturbo-pod
+  template:
+    metadata:
+      labels:
+        k8s-app: csi-cfsturbo-pod
+    spec:
+      containers:
+        - image: nginx
+          name: csi-cfsturbo-pod
+          volumeMounts:
+            - mountPath: /csi-cfsturbo
+              name: csi-cfsturbo
+      volumes:
+        - name: csi-cfsturbo
+          persistentVolumeClaim:
+            # Replaced by your pvc name.
+            claimName: csi-cfsturbo-pvc
 ```
+以此挂载指令为例：
+```
+sudo mount.lustre -o sync,user_xattr 10.0.1.16@tcp0:/d3dcc487/cfs /path/to/mount
+```
+关键参数说明如下：
+ - proto:lustre, 请保持此参数不要进行修改。
+ - roodir:/cfs，请保持此参数不要进行修改。
+ - fsid:d3dcc487，此处的 fsid 不是 CFSID，需要填写挂载路径里的信息。
+ - host:10.0.1.16，挂载点 IP。
+ - path 可根据实际需要挂载的子目录进行调整，若直接挂载根目录则填写"/"。
 5. 在上传脚本文件的目录下，依次执行如下命令。
  - 配置 RBAC。
 ```
@@ -109,14 +133,16 @@ kubectl apply -f csi-node-rbac.yaml
 ```
  - 配置节点 CSI 插件。
 ```
-kubectl apply -f csidriver.yaml
+kubectl apply -f csidriver-new.yaml
 ```
 ```
 kubectl apply -f csi-node.yaml
 ```
  - 创建 PV、PVC、POD。
 ```
-kubectl create -f static-allinone.yaml
+kubectl create -f pv.yaml
+kubectl create -f pvc.yaml
+kubectl create -f pod.yaml
 ```
 6. 执行如下命令，查看 POD 状态。
 ```

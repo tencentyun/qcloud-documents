@@ -35,7 +35,7 @@
 ### 前端上传
 
 1. 参考 [post-policy 示例](https://github.com/tencentyun/cos-demo/tree/main/server/post-policy/) 实现一个服务端接口，用于生成随机文件路径、计算签名，并返回给前端。
-2. 使用 HBuildX 默认模板创建 uni-app 应用。
+2. 使用 HBuilderX 默认模板创建 uni-app 应用。
 创建后，该应用为一个基于 Vue 的项目。
 3. 复制以下代码替换 pages/index/index.vue 文件内容，并修改调用的 post-policy 接口链接，将其指向自己的服务端地址（即步骤1的服务端接口）。
 ```html
@@ -75,7 +75,7 @@
             // 获取上传路径、上传凭证L
             var getUploadInfo = function (extName, callback) {
                // 传入文件后缀，让后端生成随机的 COS 对象路径，并返回上传域名、PostObject 接口要用的 policy 签名
-               // 参考服务端示例：https://github.com/tencentyun/cos-demo/server/post-policy/
+               // 参考服务端示例：https://github.com/tencentyun/cos-demo/tree/main/server/post-policy
                uni.request({
                   url: 'http://127.0.0.1:3000/post-policy?ext=' + extName,
                   success: (res) => {
@@ -100,7 +100,7 @@
                   'q-signature': opt.qSignature,
                };
                // 如果服务端用了临时密钥计算，需要传 x-cos-security-token
-               if (opt.securityToken) formData['x-cos-security-token'] = formData.securityToken;
+               if (opt.securityToken) formData['x-cos-security-token'] = opt.securityToken;
                uni.uploadFile({
                   url: 'https://' + opt.cosHost, //仅为示例，非真实的接口地址
                   filePath: opt.filePath,

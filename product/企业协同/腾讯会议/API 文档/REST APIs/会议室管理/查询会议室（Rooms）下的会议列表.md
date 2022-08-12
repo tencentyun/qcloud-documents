@@ -93,7 +93,7 @@ HTTP 请求头公共参数请参见签名验证章节的 [公共参数说明](ht
 | meeting_code | String  | 有效会议 Code。                                              |
 | subject      | String  | 会议主题。                                                   |
 | status       | String  | 会议状态。                                                   |
-| meeting_type | Integer | 会议类型：<br>0：一次性会议。<br>1：周期性会议。<br>2：微信专属会议。<br>4：rooms 投屏会议。<br>5：个人会议号会议。<br>6：络研讨会（Webinar）。|
+| meeting_type | Integer | 会议类型：<br>0：一次性会议。<br>1：周期性会议。<br>2：微信专属会议。<br>4：rooms 投屏会议。<br>5：个人会议号会议。<br>6：网络研讨会（Webinar）。|
 | start_time   | Integer | 会议预订开始时间（Unix 秒）。                                |
 | end_time     | Integer | 会议预订结束时间（Unix 秒）。                                |
 

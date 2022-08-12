@@ -82,7 +82,7 @@ trtc_cloud_->startLocalPreview(local_view);
 
 [](id:step3)
 ### 步骤3：打开麦克风采集
-您可以调用 **startLocalAudio** 来开启麦克风采集，该接口需要您通过 `quality` 参数确定采集模式。虽然这个参数的名字叫做 quality，但并不是说质量越高越高，不同的业务场景有最适合的参数选择（这个参数更准确的含义是 scene）。
+您可以调用 **startLocalAudio** 来开启麦克风采集，该接口需要您通过 `quality` 参数确定采集模式。虽然这个参数的名字叫做 quality，但并不是说质量越高越好，不同的业务场景有最适合的参数选择（这个参数更准确的含义是 scene）。
 
 - **SPEECH**
 该模式下的 SDK 音频模块会专注于提炼语音信号，尽最大限度的过滤周围的环境噪音，同时该模式下的音频数据也会获得最好的差质量网络的抵抗能力，因此该模式特别适合于“视频通话”和“在线会议”等侧重于语音沟通的场景。
@@ -141,7 +141,6 @@ params.role = TRTCCloudDef.TRTCRoleAnchor;
 // If your application scenario is a video call between several people, please use "TRTC_APP_SCENE_LIVE"
 mCloud.enterRoom(param, TRTCCloudDef.TRTC_APP_SCENE_LIVE);        
 :::
-
 ::: iOS&Mac  ObjC
 self.trtcCloud = [TRTCCloud sharedInstance];
 self.trtcCloud.delegate = self;
@@ -159,7 +158,6 @@ params.role = TRTCRoleAnchor;
 // If your application scenario is a video call between several people, please use "TRTC_APP_SCENE_LIVE"
 [self.trtcCloud enterRoom:params appScene:TRTCAppSceneLIVE];
 :::
-
 ::: Windows  C++
 trtc_cloud_ = getTRTCShareInstance();
 
@@ -201,7 +199,7 @@ mCloud.startLocalPreview(true, cameraVide);
 // 如果切换角色失败，onSwitchRole 回调的错误码便不是 0
 // If switching operation failed, the error code of the 'onSwitchRole' is not zero
 @Override
-public void onSwitchRoom(final int errCode, final String errMsg) {
+public void onSwitchRole(final int errCode, final String errMsg) {
     if (errCode != 0) {
         Log.d(TAG, "Switching operation failed...");
     }   
@@ -217,7 +215,7 @@ self.trtcCloud = [TRTCCloud sharedInstance];
 
 // 如果切换角色失败，onSwitchRole 回调的错误码便不是 0
 // If switching operation failed, the error code of the 'onSwitchRole' is not zero
-- (void)onSwitchRoom:(TXLiteAVError)errCode errMsg:(nullable NSString *)errMsg {
+- (void)onSwitchRole:(TXLiteAVError)errCode errMsg:(nullable NSString *)errMsg {
     if (errCode != 0) {
         NSLog(@"Switching operation failed... ");
     }   
@@ -233,7 +231,7 @@ self.trtcCloud = [TRTCCloud sharedInstance];
 
 // 如果切换角色失败，onSwitchRole 回调的错误码便不是 0
 // If switching operation failed, the error code of the 'onSwitchRole' is not zero
-- (void)onSwitchRoom:(TXLiteAVError)errCode errMsg:(nullable NSString *)errMsg {
+- (void)onSwitchRole:(TXLiteAVError)errCode errMsg:(nullable NSString *)errMsg {
     if (errCode != 0) {
         NSLog(@"Switching operation failed... ");
     }   
@@ -248,7 +246,7 @@ trtc_cloud_->startLocalPreview(hWnd);
 
 // 切换角色失败，onSwitchRole 回调的错误码便不是 ERR_NULL（即0）
 // If switching operation failed, the error code of the 'onSwitchRole' is not zero
-void onSwitchRoom(TXLiteAVError errCode, const char* errMsg) {
+void onSwitchRole(TXLiteAVError errCode, const char* errMsg) {
     if (errCode != ERR_NULL) {
         printf("Switching operation failed...");
     }

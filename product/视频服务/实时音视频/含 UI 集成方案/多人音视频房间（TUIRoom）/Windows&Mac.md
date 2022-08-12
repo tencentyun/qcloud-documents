@@ -4,11 +4,7 @@
 >?TUIKit 系列组件同时使用了腾讯云 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269/42440) 两个基础 PaaS 服务，开通实时音视频后会同步开通即时通信IM服务。即时通信 IM 服务详细计费规则请参见 [即时通信 - 价格说明](https://cloud.tencent.com/document/product/269/11673)，TRTC 开通会默认关联开通 IM SDK 的体验版，仅支持100个 DAU。
 
 ## 效果展示
-<table>
-<tr><td><img src="https://qcloudimg.tencent-cloud.cn/raw/13e8da39567148855f38bb9c4542f87e.png" width="600" height="300"></td>
-<td><img src="https://qcloudimg.tencent-cloud.cn/raw/b1ea46a940b51ed51a5ef8ba350f9a34.png" width="600" height="340"></td>
-</tr></table>
-
+![](https://qcloudimg.tencent-cloud.cn/raw/ab74c1d89cd1b4f8db909e9b9acbd99f.png)
 
 ## 方案优势
 - 集成了超低延时音视频通话、聊天室、屏幕共享、美颜、设备检测、数据统计等能力，覆盖多人音视频房间常见功能。

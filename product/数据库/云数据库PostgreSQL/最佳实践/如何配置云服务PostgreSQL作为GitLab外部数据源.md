@@ -35,7 +35,7 @@ rpm -ivh gitlab-ce-13.10.2-ce.0.el7.x86_64.rpm
 ```
 
 ## 步骤2：初始化数据源 PostgreSQL
-1. 安装外部数据库 PostgreSQL，亦可直接使⽤云上数据库服务，如腾讯云数据库 PostgreSQL，要创建腾讯云数据库 PostgreSQL 请参见 [创建 PostgreSQL 实例](https://cloud.tencent.com/document/product/409/56961)。
+1. 可使⽤云上数据库服务，如腾讯云数据库 PostgreSQL，要创建腾讯云数据库 PostgreSQL 请参见 [创建 PostgreSQL 实例](https://cloud.tencent.com/document/product/409/56961)。
 >!创建或安装数据库时需确保数据库版本与 GitLab 版本要对应。否则在初始化 GitLab 时候将提示版本不⼀致，⽆法创建成功。
 <table>
 <thead><tr><th>GitLab 版本</th><th>最⼩⽀持的 PostgreSQL 版本</th></tr></thead>

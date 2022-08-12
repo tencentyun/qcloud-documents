@@ -55,7 +55,7 @@
 [](id:step05)
 ### 测试函数功能
 1. 下载 [测试样例](https://main.qcloudimg.com/raw/6e0d4837eefd0ce77dac8a3973acdf39.zip) 中的日志文件，并解压出 demo-scf1.txt，导入至源端CLS服务。
-4. 切换至 [云函数控制台](https://console.cloud.tencent.com/scf/list?rid=8&ns=default)，查看执行结果。
+4. 切换至 [Serverless 控制台](https://console.cloud.tencent.com/scf/list?rid=8&ns=default)，查看执行结果。
 在函数详情页面中选择**日志查询**页签，可以看到打印出的日志信息。如下图所示： 
 ![](https://main.qcloudimg.com/raw/b4d8dd0a4a236ab4cb35f2e7d3160649.png)
 5. 切换至对象存储 COS 控制台，查看数据转储及加工结果。

@@ -6,7 +6,7 @@
 #define TCPOLEN_ADDR 8   /* |opcode|size|ip+port| = 1 + 1 + 6 */
 
 /*
-	* insert client ip in tcp option,now only support IPV4,
+	* insert client ip in tcp option.
 	* must be 4 bytes alignment.
 	*/
 	

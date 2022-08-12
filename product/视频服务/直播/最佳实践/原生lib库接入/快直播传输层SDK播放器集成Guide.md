@@ -6,7 +6,7 @@
 
 - 音视频拉流，兼具优异的低延迟性能和抗弱网能力
 - 视频支持H.264、H.265和 AV1，支持 B 帧，视频输出格式为视频帧裸数据（H.264/H.265为 AnnexB，AV1 为 OBU）
-- 音频支持AAC和OPUS，音频输出格式为音频帧裸数据
+- 音频支持 AAC 和 OPUS，音频输出格式为音频帧裸数据
 - 支持 Android、iOS、Windows、Linux 和 Mac 平台
 
 
@@ -15,28 +15,28 @@
 ### 基础接口说明
 
 - 创建快直播连接
-```
+```java
 LEB_EXPORT_API LebConnectionHandle* OpenLebConnection(void* context, LebLogLevel loglevel);
 ```
 - 注册回调函数
-```
+```java
 LEB_EXPORT_API void RegisterLebCallback(LebConnectionHandle* handle, const LebCallback* callback);
 ```
 -  开始连接拉流
-```
+```java
 LEB_EXPORT_API void StartLebConnection(LebConnectionHandle* handle, LebConfig config);
 ```
 - 停止连接
-```
+```java
 LEB_EXPORT_API void StopLebConnection(LebConnectionHandle* handle);
 ```
 - 关闭连接
-```
+```java
 LEB_EXPORT_API void CloseLebConnection(LebConnectionHandle* handle);
 ```
 
 ### 回调接口说明
-```
+```java
 typedef struct LebCallback {
   // 日志回调
   OnLogInfo onLogInfo;
@@ -71,12 +71,11 @@ typedef struct LebCallback {
 6. **关闭连接**：CloseLebConnection
 
 
-
 ### 接入示例
 本 [示例](https://mp.weixin.qq.com/s/f3ct29ydzAjdJ1fIdOmHmQ) 基于 Android 端使用广泛的具有代表性开源播放器 ijkplayer，介绍接入快直播传输层 SDK 的方法及流程，其他平台可参考进行集成。
 
 ### 最新 SDK 下载
-快直播传输层 libLebConnection SDK 请参见 [SDK 下载](https://github.com/tencentyun/libLebConnectionSDK/tree/main/libs/v1.0.3.2)。
+快直播传输层 libLebConnection SDK 请参见 [SDK 下载](https://github.com/tencentyun/libLebConnectionSDK/tree/main/libs)。
 
 ## 集成常见问题解答
 

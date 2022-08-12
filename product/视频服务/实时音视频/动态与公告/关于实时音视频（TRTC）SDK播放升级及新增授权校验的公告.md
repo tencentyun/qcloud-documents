@@ -20,7 +20,7 @@
 <table>
 <thead>
 <tr>
-<th rowspan="2" width=20%>License 类型</th>
+<th rowspan="2" width="20%">License 类型</th>
 <th colspan="3">解锁的功能模块授权</th>
 <th rowspan="2">License 获取方式</th>
 </tr><tr>
@@ -32,30 +32,30 @@
 <tbody>
 <tr>
 <td>直播 License</td>
-<td>&#10003; </td>
+<td>&#10003;</td>
 <td>-</td>
-<td>&#10003; </td>
+<td>&#10003;</td>
 <td style="text-align: left;"><ul style="margin:0">
-<li><a href="https://buy.cloud.tencent.com/vcube?type=live&pkg-type=10tb">购买</a> 10TB、50TB、200TB、1PB 云直播流量资源包赠送直播 License 一年使用授权</li>
-    <li><a href="https://buy.cloud.tencent.com/vcube?type=live&pkg-type=10tb">购买</a> 独立直播 License 一年使用授权</li></ul></td>
+<li><a href="https://buy.cloud.tencent.com/vcube?type=live&amp;pkg-type=10tb" target="_blank">购买</a> 10TB、50TB、200TB、1PB 云直播流量资源包赠送直播 License 一年使用授权</li>
+    <li><a href="https://buy.cloud.tencent.com/vcube?type=live&amp;pkg-type=10tb" target="_blank">购买</a> 独立直播 License 一年使用授权</li></ul></td>
 </tr>
 <tr>
 <td>短视频 License</td>
 <td>-</td>
-<td>&#10003; </td>
-<td>&#10003; </td>
+<td>&#10003;</td>
+<td>&#10003;</td>
 <td style="text-align: left;"><ul style="margin:0">
-<li><a href="https://buy.cloud.tencent.com/vcube?type=video&pkg-type=10tb">购买</a> 10TB、50TB、200TB、1PB 云点播流量资源包赠送短视频精简版/基础版 License 一年使用授权</li>
-    <li><a href="https://buy.cloud.tencent.com/vcube?type=video&pkg-type=10tb">购买</a> 独立短视频 License 一年使用授权</li></ul></td>
+<li><a href="https://buy.cloud.tencent.com/vcube?type=video&amp;pkg-type=10tb" target="_blank">购买</a> 10TB、50TB、200TB、1PB 云点播流量资源包赠送短视频精简版/基础版 License 一年使用授权</li>
+    <li><a href="https://buy.cloud.tencent.com/vcube?type=video&amp;pkg-type=10tb" target="_blank">购买</a> 独立短视频 License 一年使用授权</li></ul></td>
 </tr>
 <tr>
 <td>视频播放 License</td>
 <td>-</td>
 <td>-</td>
-<td>&#10003; </td>
+<td>&#10003;</td>
 <td style="text-align: left;"><ul style="margin:0">
-<li><a href="https://buy.cloud.tencent.com/vcube">购买</a> 100GB、500GB、1TB、5TB 直播/点播流量资源包赠送视频播放 License 一年使用授权</li>
-    <li><a href="https://buy.cloud.tencent.com/vcube">购买</a> 独立视频播放 License 一年使用授权</li></ul></td>
+<li><a href="https://buy.cloud.tencent.com/vcube" target="_blank">购买</a> 100GB、500GB、1TB、5TB 直播/点播流量资源包赠送视频播放 License 一年使用授权</li>
+    <li><a href="https://buy.cloud.tencent.com/vcube" target="_blank">购买</a> 独立视频播放 License 一年使用授权</li></ul></td>
 </tr>
 </tbody></table>
 

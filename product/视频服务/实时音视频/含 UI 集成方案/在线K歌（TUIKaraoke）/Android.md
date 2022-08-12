@@ -3,20 +3,7 @@ TUIKaraoke 是一个开源的音视频 UI 组件，通过在项目中集成 TUIK
 
 >?TUIKit 系列组件同时使用了腾讯云 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269/42440) 两个基础 PaaS 服务，开通实时音视频后会同步开通即时通信IM服务。即时通信 IM 服务详细计费规则请参见 [即时通信 - 价格说明](https://cloud.tencent.com/document/product/269/11673)，TRTC 开通会默认关联开通 IM SDK 的体验版，仅支持100个 DAU。
 
-<table>
-     <tr>
-         <th width=20%  style="text-align:center">聊天</th>
-         <th width=20%  style="text-align:center">点歌播放</th>
-         <th width=20%  style="text-align:center">音效管理</th>
-         <th width=20%  style="text-align:center">发送礼物</th>
-     </tr>
-<tr>
-<td><img src="https://qcloudimg.tencent-cloud.cn/raw/819e86970cecabcb10143a49a4759b32.png"/></td>
-<td><img src="https://qcloudimg.tencent-cloud.cn/raw/62952ca07b61d39ac57f2e261bfce015.png"/></td>
-<td><img src="https://qcloudimg.tencent-cloud.cn/raw/19a4a38ff7107418d95625016a7beee3.png"/></td>
-<td><img src="https://qcloudimg.tencent-cloud.cn/raw/95dcd260cea4b53d23f9648171df5fe6.png"/></td>
-</tr>
-</table>
+![](https://qcloudimg.tencent-cloud.cn/raw/ac88b8905650c371cfa7d524f95e4e6c.png)
 
 
 ## 组件集成

@@ -9,8 +9,7 @@ TUIPusher & TUIPlayer 的优势：
 + 直接接入腾讯云实时音视频 TRTC、腾讯云即时通信 IM 以及腾讯云超级播放器 TCPlayer 等基础 SDK，方便客户灵活扩展业务功能。
 + Web 端易于用户使用，易于功能迭代的天然优势。
 
-![TUIPusher演示](https://web.sdk.qcloud.com/component/tuiliveroom/assets/pusher.gif)
-![TUIPlayer演示](https://web.sdk.qcloud.com/component/tuiliveroom/assets/player.gif)
+![](https://qcloudimg.tencent-cloud.cn/raw/d36ecef9608d14b1168df3748558d714.png)
 
 ## 快速体验
 

@@ -20,8 +20,9 @@
 - 测速的结果将会用于优化 SDK 接下来的服务器选择策略，因此推荐您在用户首次通话前先进行一次测速，这将有助于我们选择最佳的服务器。同时，如果测试结果非常不理想，您可以通过醒目的 UI 提示用户选择更好的网络。
 - 测速的结果（[TRTCSpeedTestResult](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__ios.html#interfaceTRTCSpeedTestResult)）包含如下几个字段：
 <table>
-<tr><th>字段</th><th>含义</th><th>含义说明</th>
-</tr><tr>
+<thead><tr><th>字段</th><th>含义</th><th>含义说明</th></tr>
+</thead>
+<tr>
 <td>success</td>
 <td>是否成功</td>
 <td>本次测试是否成功</td>

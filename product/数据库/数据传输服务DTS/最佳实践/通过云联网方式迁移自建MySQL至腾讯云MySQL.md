@@ -14,7 +14,7 @@
 
 接入 VPC 、迁移/同步链路的源端在整个 DTS 任务中的网络打通原则如下。
 
-- 迁移/同步链路的源端，为购买任务时选择的源数据地域网络，请见下图。
+- 迁移/同步链路的源端，为购买任务时选择的源数据库地域网络，请见下图。
   购买时选择的源数据库地域需要和接入 VPC 地域相同，否则网络不能互通。如果不相同，DTS 会将购买任务中选择的源数据库地域，改为接入 VPC 地域。
   <img src="https://qcloudimg.tencent-cloud.cn/raw/f19327d93003e8e21f724f4523d3682e.png" style="zoom:50%;" />
 
@@ -52,9 +52,8 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 
 ## 应用限制
 
-- 只支持迁移基础表和视图，不支持迁移函数、触发器、存储过程等对象。
-- 不支持迁移系统库表和用户信息，包括 `information_schema`， `sys`， `performance_schema`，`__cdb_recycle_bin__`， `__recycle_bin__`， `__tencentdb__`， `mysql`。
-- 在导出视图结构时，DTS 会检查源库中 `DEFINER` 对应的 user1（ [DEFINER = user1]）和迁移目标的 user2 是否一致，如果不一致，则会修改 user1 在目标库中的 `SQL SECURITY` 属性，由 `DEFINER` 转换为 `INVOKER`（ [INVOKER = user1]），同时设置目标库中 `DEFINER` 为迁移目标的 user2（[DEFINER = 迁移目标 user2]）。
+- 支持迁移基础表、视图、函数、触发器、存储过程和事件。不支持迁移系统库表，包括 `information_schema`， `sys`， `performance_schema`，`__cdb_recycle_bin__`， `__recycle_bin__`， `__tencentdb__`， `mysql`。
+- 在迁移视图、存储过程和函数时，DTS 会检查源库中 `DEFINER` 对应的 user1（ [DEFINER = user1]）和迁移账号 user2 是否一致，如果不一致，迁移后 DTS 会修改 user1 在目标库中的 `SQL SECURITY` 属性，由 `DEFINER` 转换为 `INVOKER`（ [INVOKER = user1]），同时设置目标库中 `DEFINER` 为迁移账号 user2（[DEFINER = 迁移账号 user2]）。如果源库中视图定义过于复杂，可能会导致任务失败。
 - 源端如果是非 GTID 实例，DTS 不支持源端 HA 切换，一旦源端 MySQL 发生切换可能会导致 DTS 增量同步中断。
 - 只支持迁移 InnoDB、MyISAM、TokuDB 三种数据库引擎，如果存在这三种以外的数据引擎表则默认跳过不进行迁移。
 - 相互关联的数据对象需要同时迁移，否则会导致迁移失败。常见的关联关系：视图引用表、视图引用视图、主外键关联表等。
@@ -106,6 +105,7 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 <li>MySQL 5.6 及以上版本 gtid_mode 变量不为 ON 时会报警告，建议打开 gtid_mode。</li>
 <li>不允许设置 do_db, ignore_db 过滤条件。</li>
 <li>源实例为从库时，log_slave_updates 变量必须设置为 ON。</li>
+   <li>建议源库 Binlog 日志至少保留3天及以上，否则可能会因任务暂停/中断时间大于 Binlog 日志保留时间，造成任务无法续传，进而导致任务失败。</li>
 </ul></li>
 <li>外键依赖：
 <ul>

@@ -8,7 +8,7 @@ Token 鉴权为一种访问控制策略，通过配置鉴权规则进行访问�
 
 ## 操作步骤
 1. 登录 [边缘安全加速平台控制台](https://console.cloud.tencent.com/edgeone)，在左侧菜单栏中，单击**规则引擎**。
-2. 在规则引擎页面，选择所需站点，单击![](https://qcloudimg.tencent-cloud.cn/raw/fe4d4900f8ad69d506adc49bdb70fa32.png)可按需配置 Token 鉴权规则。
+3. 在规则引擎页面，选择所需站点，单击![](https://qcloudimg.tencent-cloud.cn/raw/fe4d4900f8ad69d506adc49bdb70fa32.png)可按需配置 Token 鉴权规则。
 >?目前仅支持匹配条件为全部（任意请求）或 Host 时配置 Token 鉴权操作。
 >
 参数说明：
@@ -21,7 +21,7 @@ Token 鉴权为一种访问控制策略，通过配置鉴权规则进行访问�
 </thead>
 <tbody><tr>
 <td>鉴权方式</td>
-<td>目前支持3种鉴权签名计算方式，请您根据访问 URL 格式选择合适的方式。详情请参见 <a href="#jqfs">鉴权方式</a></td>
+<td>目前支持4种鉴权签名计算方式，请您根据访问 URL 格式选择合适的方式。详情请参见 <a href="#jqfs">鉴权方式</a></td>
 </tr>
 <tr>
 <td>密钥（主）</td>

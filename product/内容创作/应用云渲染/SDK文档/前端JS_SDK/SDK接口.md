@@ -214,12 +214,12 @@ params 对象有效字段描述：
 [](id:TCGSDK.getClientSession())
 ### TCGSDK.getClientSession()
 
-客户端获取 Client 端的会话信息，后续供业务 Server 调用 [CreateSession(ClientSession)](https://cloud.tencent.com/document/product/1162/40740) 使用。
+客户端获取 Client 端的会话信息，后续供业务 Server 调用 [CreateSession(ClientSession)](https://cloud.tencent.com/document/api/1547/72826) 使用。
 
 [](id:TCGSDK.start(serverSession))
 ### TCGSDK.start(serverSession)
 
- 业务 Server 调用 [CreateSession](https://cloud.tencent.com/document/product/1162/40740) 获取到 serversession 后调用该接口启动云应用。
+ 业务 Server 调用 [CreateSession](https://cloud.tencent.com/document/api/1547/72826) 获取到 serversession 后调用该接口启动云应用。
 
 [](id:TCGSDK.destroy(msg))
 ### TCGSDK.destroy(msg)

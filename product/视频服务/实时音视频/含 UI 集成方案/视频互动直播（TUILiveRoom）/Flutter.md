@@ -131,7 +131,7 @@ lib/TRTCLiveRoom/model/
 2. 调用 `registerListener` 函数注册组件的事件通知。
 3. 调用 `login` 函数完成组件的登录，请参考下表填写关键参数：
 <table>
-<tr>
+<thead><tr>
 <th>参数名</th>
 <th>作用</th>
 </tr>

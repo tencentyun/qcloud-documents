@@ -12,7 +12,7 @@
 - **镜像**：建议选择**公共镜像**，公共镜像当中已安装 RDMA 网卡驱动，且支持自动安装 GPU 驱动。若您选择**自定义镜像**，则需要自行安装 RDMA 网卡驱动和 GPU 驱动，请通过 [联系我们](https://cloud.tencent.com/document/product/1573/74090) 获取腾讯云售后支持。
  - 操作系统请使用 CentOS 7.6。
  - 若您选择**公共镜像**，则请勾选“后台自动安装GPU驱动”，实例将在系统启动后预装对应版本驱动。如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/fe4f7bb63002e98787e307bf61756641.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/a2ec816632fb9ac930dd60b2a2897a95.png)
 
 
 ### 安装 nv_peer_mem（可选）[](id:Step2)

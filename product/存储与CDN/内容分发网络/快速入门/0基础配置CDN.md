@@ -119,3 +119,10 @@
 2. 缓存刷新主要应用于用户文件已被节点缓存，有新文件发布或文件违规的情况下，由用户主动触发缓存刷新，删除节点内的缓存资源。详情请参见 [缓存刷新](https://cloud.tencent.com/document/product/228/6299)。
 3. 缓存预热主要应用于用户有大文件或热点文件访问时，可以通过预热将文件提前缓存至腾讯云 CDN 节点内，避免用户访问时需要回源访问，可以有效减少回源流量，同时提升用户的访问体验。详情请参见 [缓存预热](https://cloud.tencent.com/document/product/228/40273)。
 
+## 常见问题
+
+1. `example.com`的域名接入后，`www.example.com`有加速效果吗？
+没有，`example.com`和`www.example.com`分别属于两个域名，需要在控制台上全部接入才会有 CDN 加速效果。
+
+2. `*.example.com`的域名接入后，`example.com`有加速效果吗？
+没有，若您添加了`*.example.com`，只能支持类似`a.example.com`及`a.b.example.com`域名的加速，若`example.com`域名也需要接入 CDN 加速，您需要单独添加`example.com`域名。

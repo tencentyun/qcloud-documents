@@ -97,11 +97,45 @@ contract Token {
 
 ### Token 合约代码说明
 
-- constructor：合约构造函数，在合约部署时被调用，将 `_addressFounder` 的余额设置为 `valueFounder`。
-- transfer：转账函数，该函数具有两个入参，接收者地址 `_to` 和转账金额 `_value`，该函数将调用者 `msg.sender` 的余额减去 `_value`，将接收者的余额加上 `_value`。
-- transferFrom：转账函数，该函数具有三个入参，转账者地址 `_from`，接收者地址 `_to` 和转账金额 `_value`，该函数将转账者 `_from` 的余额减去 `_value`，将接收者的余额加上 `_value`。
-- approve：批准函数，该函数具有两个入参，接收者地址 `_spender` 和 token 数量 `_value`，该函数将接收者 `_spender` 可以从调用者 `msg.sender` 处转出的 token 数量设置为 `_value`。
-- stop：停止函数，该函数执行后，`transfer`，`transferFrom` 和 `approve` 函数将不能再被执行。
-- start：启动函数，该函数执行后，`transfer`，`transferFrom` 和 `approve` 函数将可以再被执行。
-- setName：设置 token 名字函数，该函数具有一个入参 `_name`，将 token 的名字设置为 `_name`。
-- burn：销毁函数，该函数具有一个入参 `_value`，将调用者 `msg.sender` 的余额减去 `_value`。
+<table>
+<thead>
+  <tr>
+    <th>参数名称</th>
+    <th>描述</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>constructor</td>
+    <td>合约构造函数，在合约部署时被调用，将 _addressFounder 的余额设置为 valueFounder。</td>
+  </tr>
+  <tr>
+    <td>transfer</td>
+    <td>转账函数，该函数具有两个入参，接收者地址 _to 和转账金额 _value，该函数将调用者 msg.sender 的余额减去 _value，将接收者的余额加上 _value。</td>
+  </tr>
+  <tr>
+    <td>transferFrom</td>
+    <td>转账函数，该函数具有三个入参，转账者地址 _from，接收者地址 _to 和转账金额 _value，该函数将转账者 _from 的余额减去 _value，将接收者的余额加上 _value。</td>
+  </tr>
+  <tr>
+    <td>approve</td>
+    <td>批准函数，该函数具有两个入参，接收者地址 _spender 和 token 数量 _value，该函数将接收者 _spender 可以从调用者 msg.sender 处转出的 token 数量设置为 _value。</td>
+  </tr>
+  <tr>
+    <td>stop</td>
+    <td>停止函数，该函数执行后，transfer，transferFrom 和 approve 函数将不能再被执行。</td>
+  </tr>
+  <tr>
+    <td>start</td>
+    <td>启动函数，该函数执行后，transfer，transferFrom 和 approve 函数将可以再被执行。</td>
+  </tr>
+  <tr>
+    <td>setName</td>
+    <td>设置 token 名字函数，该函数具有一个入参 _name，将 token 的名字设置为 _name。</td>
+  </tr>
+  <tr>
+    <td>burn</td>
+    <td>销毁函数，该函数具有一个入参 _value，将调用者 msg.sender 的余额减去 _value。</td>
+  </tr>
+</tbody>
+</table>

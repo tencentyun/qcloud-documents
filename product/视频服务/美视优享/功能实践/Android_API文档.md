@@ -24,14 +24,6 @@
 | [setXmagicStreamType](#setxmagicstreamtype)                  | 设置输入数据类型，默认 Android camera 数据流。               |
 | [setXmagicLogLevel](#setxmagicloglevel)                      | 设置 SDK 的 log 等级，建议开发调试时设为 `Log.DEBUG`，正式发布时设置为 `Log.WARN`，如果正式发布设置为 `Log.DEBUG`，大量的日志会影响性能。<br><b>在 new XmagicApi() 之后调用。</b> |
 
-## 静态函数
-
-| API               | 描述         |
-| ----------------- | ---------- |
-| [setLibPathAndLoad](#setlibpathandload) | 设置 libPath。 |
-
-## Public 成员函数说明
-
 ### XmagicApi
 
 构造函数。
@@ -109,6 +101,176 @@ void updateProperty(XmagicProperty<?> p)
 </tbody></table>
 
 ***
+### XmagicProperty
+- 美颜
+<table>
+<thead><tr><th width=15%>属性字段</th><th>说明</th></tr></thead>
+<tbody><tr>
+<td>category</td>
+<td>Category.BEAUTY  </td>
+</tr>
+<tr>
+<td>ID</td>
+<td>null
+<br>特殊情况：<ul style="margin:0">
+<li/>瘦脸中的（自然、女神、英俊） ID 值分别为：<code>BeautyConstant.BEAUTY_FACE_NATURE_ID</code>、 <code>BeautyConstant.BEAUTY_FACE_FEMALE_GOD_ID</code>、<code>BeautyConstant.BEAUTY_FACE_MALE_GOD_ID</code></li>
+<li>口红中的 ID 值为：<code>XmagicConstant.BeautyConstant.BEAUTY_LIPS_LIPS_MASK</code></li>
+<li>腮红中的 ID 值为：<code>XmagicConstant.BeautyConstant.BEAUTY_MAKEUP_MULTIPLY_MULTIPLY_MASK</code></li>
+<li>立体中的 ID 值为：<code>XmagicConstant.BeautyConstant.BEAUTY_SOFTLIGHT_SOFTLIGHT_MASK</code></li>        
+</ul></td>
+</tr>
+<tr>
+<td>resPath</td>
+<td>null<br>特殊情况：口红、腮红、立体的 resPath 是资源图片的路径，具体请参考 Demo 中 XmagicResParser 类的 parseBeauty() 方法 </td>
+</tr>
+<tr>
+<td>effkey</td>
+<td>必填，参考 Demo<br>示例：美白 <code>BeautyConstant.BEAUTY_WHITEN</code></td>
+</tr>
+<tr>
+<td>effValue</td>
+<td>必填，参考 Demo 中 XmagicResParser 类的 parseBeauty() 方法</td>
+</tr>
+</tbody></table>
+- 美体
+<table>
+<thead><tr><th width=15%>属性字段</th><th>说明</th></tr></thead>
+<tbody><tr>
+<td>category</td>
+<td>Category.BODY_BEAUTY</td>
+</tr>
+<tr>
+<td>ID</td><td>null</td>
+</tr>
+<tr>
+<td>resPath</td><td>null</td>
+</tr>
+<tr>
+<td>effkey</td>
+<td>必填，参考 Demo<br>示例：长腿 <code>BeautyConstant.BODY_LEG_STRETCH</code></td>
+</tr>
+<tr>
+<td>effValue</td>
+<td>必填，参考 Demo 中 XmagicResParser 类的 parseBeauty() 方法</td>
+</tr>
+</tbody></table>
+- 滤镜
+<table>
+<thead><tr><th width=15%>属性字段</th><th>说明</th></tr></thead>
+<tbody><tr>
+<td>category</td>
+<td>Category.LUT</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>图片名称，必填
+<ul style="margin:0">
+<li>示例：<code>dongjing_lf.png</code>
+<li>“无” ID 为 <code>XmagicProperty.ID_NONE</code>
+</ul>
+</td>
+</tr>
+<tr>
+<td>resPath</td>
+<td>滤镜图片路径，必填，“无”设置为 null</td>
+</tr>
+<tr>
+<td>effkey</td>
+<td>null</td> 
+</tr>
+<tr>
+<td>effValue</td>
+<td>必填，“无”设置为 null</td>
+</tr>
+</tbody></table>
+- 动效
+<table>
+<thead><tr><th width=15%>属性字段</th><th>说明</th></tr></thead>
+<tbody><tr>
+<td>category</td>
+<td>Category.MOTION</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>资源文件夹名称，必填
+<ul style="margin:0">
+<li>示例：<code>video_lianliancaomei</code>
+<li>“无” ID 为 <code>XmagicProperty.ID_NONE</code>
+</ul>
+</td>
+</tr>
+<tr>
+<td>resPath</td>
+<td>必填，参考 Demo</td>
+</tr>
+<tr>
+<td>effkey</td>
+<td>null</td>
+</tr>
+<tr>
+<td>effValue</td>
+<td>null</td>
+</tr>
+</tbody></table>
+- 美妆
+<table>
+<thead><tr><th width=15%>属性字段</th><th>说明</th></tr></thead>
+<tbody><tr>
+<td>category</td>
+<td>Category.MAKEUP</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>资源文件夹名称，必填
+<ul style="margin:0">
+<li><code>示例：video_xuejiezhuang</code>
+<li>“无” ID 为 <code>XmagicProperty.ID_NONE</code>
+</ul></td>
+</tr>
+<tr>
+<td>resPath</td>
+<td>必填，参考 Demo</td>
+</tr>
+<tr>
+<td>effkey</td>
+<td>必填，取值为：<code>makeup.strength</code>
+	<br>“无”设置为 null</td>
+</tr>
+<tr>
+<td>effValue</td>
+<td>必填，“无”设置为 null</td>
+</tr>
+</tbody></table>
+- 分割
+<table>
+<thead><tr><th width=15%>属性字段</th><th>说明</th></tr></thead>
+<tbody><tr>
+<td>category</td>
+<td>Category.SEGMENTATION</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>资源文件夹名称，必填
+<ul style="margin:0">
+<li>示例：<code>video_segmentation_blur_45</code>
+<li>“无” ID 为 <code>XmagicProperty.ID_NONE</code>
+<li>自定义分割 ID 值必须使用：<code>XmagicConstant.SegmentationId.CUSTOM_SEG_ID</code>
+</ul>
+</td>
+</tr>
+<tr>
+<td>resPath</td>
+<td>必填，参考 Demo</td>
+</tr>
+<tr>
+<td>effkey</td>
+<td>null（自定义背景除外），自定义背景的值为选择的资源路径</td>
+</tr>
+<tr>
+<td>effValue</td>
+<td>null</td>
+</tr>
+</tbody></table>
 
 ### updateProperties
 
@@ -124,11 +286,12 @@ void updateProperties(List<XmagicProperty<?>> properties)
 | ----------------------------------- | ---------------------------- |
 | (List&lt;XmagicProperty&lt;?>> properties | 详见 updateProperty 方法的说明。 |
 
+
 ***
 
 ### setTipsListener
 
-设置动效提示语回调函数，用于将提示语展示到前端页面上。比如某些素材会提示用户点点头、伸出手掌、比心等。
+设置动效提示语回调函数，用于将提示语展示到前端页面上。例如某些素材会提示用户点点头、伸出手掌、比心等。
 
 ```
 void setTipsListener(XmagicApi.XmagicTipsListener effectTipsListener) 
@@ -256,9 +419,9 @@ protected void onDestroy() {
             if (mXmagicApi != null) {
                 mXmagicApi.onPause();
                 mXmagicApi.onDestroy();
-        		}
-    		});
-    		mHandler.waitDone();
+            }
+         });
+         mHandler.waitDone();
     }
 
     XmagicPanelDataManager.getInstance().clearData();
@@ -336,7 +499,7 @@ void isDeviceSupport(List<XmagicProperty<?>> assetsList)
 
 传入一个动效资源列表，返回每一个资源所使用到的 SDK 原子能力列表。
 方法的使用场景为：
-您购买或制作了若干款动效素材，调用这个方法，会返回每一个素材需要使用的原子能力列表。例如素材1需要使用能力 A、B、C，素材2需要使用能力 B、C、D，然后您把这样的能力列表保持在服务器上。之后，当用户要从服务器下载动效素材时，用户先通过 getDeviceAbilities 方法获取他手机具备的原子能力列表（比如这台手机具备能力 A、B、C，但不具备能力 D），把他的能力列表传给服务器，服务器判断该设备不具备能力 D，因此不给该用户下发素材2。
+您购买或制作了若干款动效素材，调用这个方法，会返回每一个素材需要使用的原子能力列表。例如素材1需要使用能力 A、B、C，素材2需要使用能力 B、C、D，然后您把这样的能力列表保持在服务器上。之后，当用户要从服务器下载动效素材时，用户先通过 getDeviceAbilities 方法获取他手机具备的原子能力列表（例如这台手机具备能力 A、B、C，但不具备能力 D），把他的能力列表传给服务器，服务器判断该设备不具备能力 D，因此不给该用户下发素材2。
 
 #### 参数
 
@@ -415,7 +578,11 @@ void setXmagicStreamType(int type)
 
 ------
 
-## 静态函数说明
+## 静态函数
+
+| API               | 描述         |
+| ----------------- | ---------- |
+| [setLibPathAndLoad](#setlibpathandload) | 设置 libPath。 |
 
 ### setLibPathAndLoad
 

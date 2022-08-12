@@ -4,20 +4,7 @@ TUIChorus 是一个开源的音视频 UI 组件，通过在项目中集成 TUICh
 
 >?TUIKit 系列组件同时使用了腾讯云 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269/42440) 两个基础 PaaS 服务，开通实时音视频后会同步开通即时通信IM服务。即时通信 IM 服务详细计费规则请参见 [即时通信 - 价格说明](https://cloud.tencent.com/document/product/269/11673)，TRTC 开通会默认关联开通 IM SDK 的体验版，仅支持100个 DAU。
 
-<table>
-     <tr>
-         <th width=20% style="text-align:center">聊天</th>
-         <th width=20%  style="text-align:center"> 点歌</th>
-         <th width=20%  style="text-align:center">合唱</th>
-         <th width=20%  style="text-align:center">发送礼物</th>
-     </tr>
-<tr>
-<td><img src="https://qcloudimg.tencent-cloud.cn/raw/8ee18ce6d70a4e3f7934f2f8bc24c536.png"/></td>
-<td><img src="https://qcloudimg.tencent-cloud.cn/raw/631d0f2afeac78b2b9dc4cb917c8257b.png"/></td>
-<td><img src="https://qcloudimg.tencent-cloud.cn/raw/75de905499aba15bf8ffefefe550b2ee.png"/></td>
-<td><img src="https://qcloudimg.tencent-cloud.cn/raw/4b43033aba70d894c09ff161ba1ebe07.png"/></td>
-</tr>
-</table>
+![](https://qcloudimg.tencent-cloud.cn/raw/ac88b8905650c371cfa7d524f95e4e6c.png)
 
 ## 组件集成
 ### 步骤一：下载并导入 TUIChorus 组件

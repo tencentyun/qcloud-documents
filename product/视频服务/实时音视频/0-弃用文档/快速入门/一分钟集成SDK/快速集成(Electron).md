@@ -183,7 +183,8 @@ rules: [
 :::
 </dx-codeblock>
 <table>
-<tr><th>参数</th><th>说明</th></tr>
+<thead><tr><th>参数</th><th>说明</th></tr>
+</thead>
 <tr>
 <td>main</td>
 <td>Electron 的入口文件，一般情况下可以自由配置。但如果项目使用 <code>create-react-app</code> 脚手架创建，则入口文件必须配置为 <code>public/electron.js</code></td>

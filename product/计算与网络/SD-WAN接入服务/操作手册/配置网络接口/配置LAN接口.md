@@ -17,6 +17,7 @@ LAN（Local Area Network）即局域网端口，Edge 设备通过 LAN 口连接�
 8. 在**编辑接口**弹窗中，填写以下信息，单击**确定**。
   ![](https://main.qcloudimg.com/raw/82435abfd9519e80ecfd260d4040e449.png)
 >!系统创建的默认逻辑接口不允许更改 DHCP 字段。
+>
 <table>
 <tr>
 <th>字段名称</th>
@@ -28,7 +29,7 @@ LAN（Local Area Network）即局域网端口，Edge 设备通过 LAN 口连接�
 </tr>
 <tr>
 <td>VLAN ID</td>
-<td>物理接口 VLAN ID，默认为1，范围为 [1,4096]。</td>
+<td>物理接口 VLAN ID，默认为1，范围为 [1,4096]；当 VLAN ID 不为1时，需在其对端对接设备上进行配置，可参考如下：<ul><li>华为：<ul><li>`int[接口名称]`</li><li>`port link-type trunk`</li><li>`port trunk allow-pass vlan  [vlanid]`</li></li></ul></ul><ul><li>H3C：<ul><li>`int [接口名称]`</li><li>`port link-type trunk`</li><li>`port trunk permit vlan  [vlanid]`</li></li></ul></ul></td>
 </tr>
 <tr>
 <td>IP 地址</td>

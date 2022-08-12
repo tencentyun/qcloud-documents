@@ -20,7 +20,7 @@ configurations{
 
 [](id:step3)
 ## 步骤三：SDK 接口集成
-可参考 Demo ⼯程的 TCVideoRecoredActivity 类。
+可参考 Demo ⼯程的 TCVideoRecordActivity 类。
 1. **授权：**
 ```java
  //鉴权注意事项及错误码详情，请参考 https://cloud.tencent.com/document/product/616/65891#.E6.AD.A5.E9.AA.A4.E4.B8.80.EF.BC.9A.E9.89.B4.E6.9D.83

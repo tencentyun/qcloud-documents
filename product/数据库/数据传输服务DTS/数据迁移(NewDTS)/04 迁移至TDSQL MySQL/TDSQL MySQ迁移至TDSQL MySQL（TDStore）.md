@@ -75,7 +75,9 @@ GRANT INSERT, UPDATE, DELETE, DROP, SELECT, INDEX, ALTER, CREATE ON `__tencentdb
 <li>源端 binlog_row_image 变量必须设置为 FULL。</li>
 <li>源端 gtid_mode 变量在5.6及以上版本不为 ON 时，会报 WARNING，建议用户打开 gtid_mode。</li>
 <li>不允许设置 do_db, ignore_db。</li>
-<li>对于源实例为从库的情况，log_slave_updates 变量必须设置为 ON。</li></ul></li>
+<li>对于源实例为从库的情况，log_slave_updates 变量必须设置为 ON。</li>
+  <li>建议源库 Binlog 日志至少保留3天及以上，否则可能会因任务暂停/中断时间大于 Binlog 日志保留时间，造成任务无法续传，进而导致任务失败。</li>
+  </ul></li>
 <li>不支持外键依赖。</li>
 </ul></td></tr>
 <tr> 

@@ -126,5 +126,5 @@ INSERT INTO jdbc_upsert_sink_table select * from mysql_cdc_source_table;
 通过设置 sink.buffer-flush 开头的两个参数，可以实现批量写入数据库。建议配合相应底层数据库的参数，以达到更好的批量写入效果，否则底层仍然会一条一条写入，效率不高。
 - 对于 PostgreSQL，建议在 url 连接参数后加入 reWriteBatchedInserts=true 参数。
 ```
-jdbc:postgresql://10.1.28.93:3306/PG?reWriteBatchedInserts=true&?currentSchema=数据库的Schema
+jdbc:postgresql://10.1.28.93:3306/PG?reWriteBatchedInserts=true&currentSchema=数据库的Schema
 ```

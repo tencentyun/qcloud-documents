@@ -140,7 +140,7 @@ COS 始终使用异步调用类型来调用函数，结果不会返回给调用�
 | Records |  列表结构，可能有多条消息合并在列表中。   |
 | event       |  记录事件信息，包括事件版本、事件源、事件名称、时间、队列信息、请求参数、请求 ID。   |
 | cos | 记录事件对应的 COS 信息。   |
-| cosBucket |  记录具体事件发生的 Bucket，包含 Bucket 名称、地域、所属用户 APPID。   |
+| cosBucket |  记录具体事件发生的 Bucket，包含 Bucket 名称、地域、所属用户 APPID。APPID 可前往 [账号信息](https://console.cloud.tencent.com/developer) 页面获取。   |
 | cosObject |  记录具体事件发生的对象，包含对象文件路径、大小、自定义元数据、访问 URL。    |
 
 ## 相关示例

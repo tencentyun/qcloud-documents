@@ -43,6 +43,8 @@
 - 如果您使用的是云数据库，则需要在连接数据库的应用服务器上安装 Agent。
 
 ### Linux 版本
+>! Linux 需在部署 Agent 之前，安装 python2。
+>
 1. 将 `dsaagent_innernet_linux _xxx.zip` 安装包上传到需要安装的机器上，如 /data。
 2. 使用 `unzip dsaagent_innernet_xxx.zip` 命令进行解压，得到 /data/CapAgent 目录。
 3. 执行 `cd CapAgent/bin`，再执行`./start.sh`，结果如下。
