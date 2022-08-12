@@ -485,37 +485,36 @@ declare const Aegis: any;
 [](id:step5)
 ### 步骤五：开发环境运行
 在控制台执行开发环境运行脚本，使用浏览器打开包含 TUIRoom 的页面，即可在页面中使用 TUIRoom 组件。
- 
- <dx-tabs>
- ::: Vue3 + Vite + TS 项目
- 1. 执行开发环境命令。
-		```bash
-		npm run dev
-		```
-	2. 在浏览器中打开页面 `http://localhost:3000/`。
->! 因 TUIRoom 按需引入 element-plus 组件，会导致开发环境路由页面第一次加载时反应较慢，等待 element-plus 按需加载完成即可正常使用。element-plus 按需加载不会影响打包之后的页面加载。
-	3. 体验 TUIRoom 组件功能
- :::
- ::: Vue3 + Webpack + TS 项目
- 1. 执行开发环境命令
-		```bash
-		npm run serve
-		```
- 2. 在浏览器中打开页面 `http://localhost:8080/`
-> ! 运行过程中若 src/TUIRoom 目录中有 eslint 报错，可在 .eslintignore 文件中添加 /src/TUIRoom 路径屏蔽 eslint 检查。
- 3. 体验 TUIRoom 组件功能
- :::
- ::: Vue2 + Webpack + TS 项目
-  1. 执行开发环境命令
-		```bash
-		npm run serve
-		```
- 2. 在浏览器中打开页面 `http://localhost:8080/`
-> ! 运行过程中若 src/TUIRoom 目录中有 eslint 报错，可在 .eslintignore 文件中添加 /src/TUIRoom 路径屏蔽 eslint 检查。
- 3. 体验 TUIRoom 组件功能
 
- :::
- </dx-tabs>
+<dx-tabs>
+::: Vue3 + Vite + TS 项目
+1. 执行开发环境命令。
+```bash
+npm run dev
+```
+2. 在浏览器中打开页面 `http://localhost:3000/`。
+>! 因 TUIRoom 按需引入 element-plus 组件，会导致开发环境路由页面第一次加载时反应较慢，等待 element-plus 按需加载完成即可正常使用。element-plus 按需加载不会影响打包之后的页面加载。
+3. 体验 TUIRoom 组件功能
+:::
+::: Vue3 + Webpack + TS 项目
+1. 执行开发环境命令
+	```bash
+	npm run serve
+	```
+2. 在浏览器中打开页面 `http://localhost:8080/`
+> ! 运行过程中若 src/TUIRoom 目录中有 eslint 报错，可在 .eslintignore 文件中添加 /src/TUIRoom 路径屏蔽 eslint 检查。
+3. 体验 TUIRoom 组件功能
+:::
+::: Vue2 + Webpack + TS 项目
+1. 执行开发环境命令
+	```bash
+	npm run serve
+	```
+2. 在浏览器中打开页面 `http://localhost:8080/`
+> ! 运行过程中若 src/TUIRoom 目录中有 eslint 报错，可在 .eslintignore 文件中添加 /src/TUIRoom 路径屏蔽 eslint 检查。
+3. 体验 TUIRoom 组件功能
+:::
+</dx-tabs>
 
 ## 附录：TUIRoom API
 ### TUIRoom 接口
