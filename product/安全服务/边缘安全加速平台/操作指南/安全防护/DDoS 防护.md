@@ -1,11 +1,11 @@
-本文将介绍 DDoS 防护功能的 DDoS防护等级、IP 黑白名单、区域封禁、协议封禁等功能以及相关配置操作。
+本文将介绍 DDoS 防护功能的 DDoS 防护等级、IP 黑白名单、区域封禁、协议封禁等功能以及相关配置操作。
 >?DDoS 防护功能和相关配置可能根据您选购的 EdgeOne 产品套餐有所不同。
 
 ## 前提条件
-您需要成功 [购买](https://cloud.tencent.com/document/product/1552/70194) 边缘安全加速平台（EdgeOne）产品（企业版），并完成 [企业版 DDoS 防护](https://cloud.tencent.com/document/product/1552/70788) 或 [企业版 DDoS 防护 - 四层代理](https://cloud.tencent.com/document/product/1552/70965)。
+您需要成功 [购买](https://cloud.tencent.com/document/product/1552/70194) 边缘安全加速平台（EdgeOne）产品（企业版），并完成 [接入站点](https://cloud.tencent.com/document/product/1552/70788) 或 [接入四层代理](https://cloud.tencent.com/document/product/1552/70965)。
 
 ## DDoS防护等级
-针对 DDoS 攻击，EdgeOne 提供的不同防护等级的相关操作及应用场景，并为您介绍如何在控制台中设置 DDoS 防护等级。
+针对 DDoS 攻击，EdgeOne 提供不同防护等级的相关操作及应用场景，并为您介绍如何在控制台中设置 DDoS 防护等级。
 
 
 ### 应用场景
@@ -25,7 +25,7 @@ EdgeOne 提供防护策略调整功能，针对 DDoS 攻击提供三种防护等
 
 ### 操作步骤
 1. 登录 [边缘安全加速平台控制台](https://console.cloud.tencent.com/edgeone)，在左侧导航中，单击**安全防护** > **DDoS 防护**。
-2. 在 DDoS 防护页面的左侧，选中防护业务对象，如“站点防护”或“四层代理”实例。
+2. 在 DDoS 防护页面的左侧，选中防护业务对象，如“企业版 DDoS 防护”或“企业版 DDoS 防护 - 四层代理”实例。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d075f6c9ecfa0778ac753f62503dc4f3.png)
 3. 在 DDoS 防护等级卡片中，默认在开启“防护状态”的情况下，业务刚接入的 EdgeOne 站点采用适中防护等级，您可以根据实际业务防护需求自由调整 DDoS 防护等级。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d8d73b53eec2f9f643687369fb4a319f.png)
@@ -38,7 +38,7 @@ EdgeOne 支持通过配置 IP 黑名单和白名单的方式，控制对 EdgeOne
 >- 黑名单中的 IP，访问时请求将被直接丢弃。
 
 1. 登录 [边缘安全加速平台控制台](https://console.cloud.tencent.com/edgeone)，在左侧导航中，单击**安全防护** > **DDoS 防护**。
-2. 在 DDoS 防护页面的左侧，选中防护业务对象，如“站点防护”或“四层代理”实例。
+2. 在 DDoS 防护页面的左侧，选中防护业务对象，如“企业版 DDoS 防护”或“企业版 DDoS 防护 - 四层代理”实例。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d075f6c9ecfa0778ac753f62503dc4f3.png)
 3. 在 IP 黑白名单卡片中，单击**设置**，进入 IP 黑白名单页面。
 ![](https://qcloudimg.tencent-cloud.cn/raw/bd03fd182069203802651f38c2d79885.png)
@@ -53,7 +53,7 @@ EdgeOne 支持通过指定区域列表的方式，禁止源 IP 归属指定区�
 >?在配置了区域封禁后，该区域的攻击流量依然会被平台统计和记录，但不会流入业务源站。
 
 1. 登录 [边缘安全加速平台控制台](https://console.cloud.tencent.com/edgeone)，在左侧导航中，单击**安全防护** > **DDoS 防护**。
-2. 在 DDoS 防护页面的左侧，选中防护业务对象，如“站点防护”或“四层代理”实例。
+2. 在 DDoS 防护页面的左侧，选中防护业务对象，如“企业版 DDoS 防护”或“企业版 DDoS 防护 - 四层代理”实例。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d075f6c9ecfa0778ac753f62503dc4f3.png)
 3. 在区域封禁卡片中，单击**设置**，进入区域封禁页面。
 ![](https://qcloudimg.tencent-cloud.cn/raw/b70df117ad474faec9b5c1daef7c065a.png)
@@ -70,7 +70,7 @@ EdgeOne 支持通过指定区域列表的方式，禁止源 IP 归属指定区�
 EdgeOne 支持通过指定端口和协议的方式，管控客户端访问 EdgeOne 站点。开启端口过滤后，可以根据需求自定义协议类型、源端口范围、目的端口范围的组合，并对匹配中的规则进行设置丢弃、、继续防护的策略动作。端口过滤可以针对源端口的访问流量，进行精准制定防护策略。
 
 1. 登录 [边缘安全加速平台控制台](https://console.cloud.tencent.com/edgeone)，在左侧导航中，单击**安全防护** > **DDoS 防护**。
-2. 在 DDoS 防护页面的左侧，选中防护业务对象，如“站点防护”或“四层代理”实例。
+2. 在 DDoS 防护页面的左侧，选中防护业务对象，如“企业版 DDoS 防护”或“企业版 DDoS 防护 - 四层代理”实例。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d075f6c9ecfa0778ac753f62503dc4f3.png)
 3. 在端口过滤卡片中，单击**设置**，进入端口过滤页面。
 ![](https://qcloudimg.tencent-cloud.cn/raw/2e1b5ad6b92dca4166fc6c315ff45867.png)
@@ -87,7 +87,7 @@ EdgeOne 支持通过指定端口和协议的方式，管控客户端访问 EdgeO
 EdgeOne 支持针对 IP、TCP 及 UDP 报文头或载荷中的特征自定义拦截策略。开启特征过滤后，您可以将源端口、目的端口、报文长度、IP 报文头或荷载的匹配条件进行组合，并对命中条件的请求设置丢弃、放行、丢弃并拉黑、继续防护等策略动作，特征过滤可以精准制定针对业务报文特征或攻击报文特征的防护策略。
 
 1. 登录 [边缘安全加速平台控制台](https://console.cloud.tencent.com/edgeone)，在左侧导航中，单击**安全防护** > **DDoS 防护**。
-2. 在 DDoS 防护页面的左侧，选中防护业务对象，如“站点防护”或“四层代理”实例。
+2. 在 DDoS 防护页面的左侧，选中防护业务对象，如“企业版 DDoS 防护”或“企业版 DDoS 防护 - 四层代理”实例。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d075f6c9ecfa0778ac753f62503dc4f3.png)
 3. 在特征过滤卡片中，单击**设置**，进入特征过滤页面。
 ![](https://qcloudimg.tencent-cloud.cn/raw/a2c0822e31d382c28ec863747712be2d.png)
@@ -101,7 +101,7 @@ EdgeOne 支持针对 IP、TCP 及 UDP 报文头或载荷中的特征自定义拦
 EdgeOne 支持对访问站点的源流量按照协议类型一键封禁。您可配置 ICMP 协议封禁、TCP 协议封禁、UDP 协议封禁和其他协议封禁，配置后相关访问请求会被直接截断。由于 UDP 协议无连接的特点（不像 TCP 具有三次握手过程）具有天然的安全性缺陷。若您没有 UDP 业务，建议封禁 UDP 协议。
 
 1. 登录 [边缘安全加速平台控制台](https://console.cloud.tencent.com/edgeone)，在左侧导航中，单击**安全防护** > **DDoS 防护**。
-2. 在 DDoS 防护页面的左侧，选中防护业务对象，如“站点防护”或“四层代理”实例。
+2. 在 DDoS 防护页面的左侧，选中防护业务对象，如“企业版 DDoS 防护”或“企业版 DDoS 防护 - 四层代理”实例。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d075f6c9ecfa0778ac753f62503dc4f3.png)
 3. 在协议封禁卡片中，单击**设置**，进入协议封禁页面。
 ![](https://qcloudimg.tencent-cloud.cn/raw/5e574dda10c632f1fcdc5213bbde5445.png)
@@ -113,7 +113,7 @@ EdgeOne 支持对访问站点的源流量按照协议类型一键封禁。您可
 EdgeOne 支持当连接类发起异常自动发起禁封惩罚策略。在源 IP 最大异常连接数开启防护后，当边缘安全加速平台检测到同一个源 IP 短时间内频繁发起大量异常连接状态的报文时，会将该源 IP 纳入黑名单中进行封禁惩罚，封禁时间为15分钟，等封禁解除后可恢复访问。
 
 1. 登录 [边缘安全加速平台控制台](https://console.cloud.tencent.com/edgeone)，在左侧导航中，单击**安全防护** > **DDoS 防护**。
-2. 在 DDoS 防护页面的左侧，选中防护业务对象，如“站点防护”或“四层代理”实例。
+2. 在 DDoS 防护页面的左侧，选中防护业务对象，如“企业版 DDoS 防护”或“企业版 DDoS 防护 - 四层代理”实例。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d075f6c9ecfa0778ac753f62503dc4f3.png)
 3. 在连接类攻击防护卡片中，单击**设置**，进入连接类攻击防护页面。
 ![](https://qcloudimg.tencent-cloud.cn/raw/0cb3932a9cae9c79b8bc56a10845057d.png)
