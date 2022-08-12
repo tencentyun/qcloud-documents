@@ -8,28 +8,29 @@
       <th width="15%" style="text-align:center">基础版 License</th>
    </tr>
        <tr>
-      <td rowspan="2">SDK 下载</td>
-      <td>Android</td>
-    <td>短视频 SDK（LiteAVSDK）+ Demo 源代码</td>
-      <td colspan="2" style="text-align:center"> <a onclick="MtaH5.clickStat(&quot;ugc_sdk_download_android_basic&quot;)" href="https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_UGC_Android_latest.zip">Android SDK DOWNLOAD</a> </td>
-   </tr>
-   <tr>
-      <td>iOS</td>
-      <td>短视频 SDK（LiteAVSDK）+ Demo 源代码</td>
-      <td colspan="2" style="text-align:center"> <a onclick="MtaH5.clickStat(&quot;ugc_sdk_download_ios_basic&quot;)" href="https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_UGC_iOS_latest.zip">iOS SDK DOWNLOAD</a> </td>
-   </tr><tr>
-      <td rowspan="3">License</td>
-      <td>License 申请</td>
-      <td>短视频 SDK 需购买 License 后方可使用，不同 License 可解锁的功能不同</td>
-      <td><a href="https://cloud.tencent.com/document/product/584/20333#.E8.B4.AD.E4.B9.B0.E6.AD.A3.E5.BC.8F.E7.89.88-license">精简版 License</a></td>
-      <td><a href="https://cloud.tencent.com/document/product/584/20333#.E8.B4.AD.E4.B9.B0.E6.AD.A3.E5.BC.8F.E7.89.88-license">基础版 License</a></td>
-   </tr>
-   <tr>
-      <td rowspan="2">License 价格</td>
-      <td>购买方式1：<a href="https://cloud.tencent.com/document/product/584/9368#.E8.B5.84.E6.BA.90.E5.8C.85.E4.BB.B7.E6.A0.BC">购买云点播流量资源包赠送 License</a></td>
-      <td>￥1699元/年</td>
-      <td>￥8399元/年</td>
-   </tr>
+			<td rowspan=2>SDK 下载</td>
+			<td>Android</td>
+			<td>短视频 SDK（LiteAVSDK）+ Demo 源代码</td>
+			<td colspan=2><a href="https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_UGC_Android_latest.zip">iOS SDK 下载</a></td>
+			</tr>
+			<tr>
+			<td>iOS</td>
+			<td>短视频 SDK（LiteAVSDK）+ Demo 源代码</td>
+			<td colspan=2><a href="https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_UGC_iOS_latest.zip">Android SDK 下载</a></td>
+			</tr>
+			<tr>
+			<td rowspan=3>License</td>
+			<td>License 申请</td>
+			<td>短视频 SDK 需购买 License 后方可使用，不同 License 可解锁的功能不同</td>
+			<td><a href="https://cloud.tencent.com/document/product/584/20333#.E8.B4.AD.E4.B9.B0.E6.AD.A3.E5.BC.8F.E7.89.88-license">精简版 License</a></td>
+			<td><a href="https://cloud.tencent.com/document/product/584/20333#.E8.B4.AD.E4.B9.B0.E6.AD.A3.E5.BC.8F.E7.89.88-license">基础版 License</a></td>
+			</tr>
+			<tr>
+			<td rowspan=2>License 价格</td>
+			<td>购买方式1：<a href="https://cloud.tencent.com/document/product/584/9368#.E8.B5.84.E6.BA.90.E5.8C.85.E4.BB.B7.E6.A0.BC">购买云点播流量包赠送 License</a></td>
+			<td>￥1699元/年</td>
+			<td>￥8399元/年</td>
+			</tr>
 	    <tr>
 	 		<td>购买方式2：<a href="https://cloud.tencent.com/document/product/584/9368#.E7.8B.AC.E7.AB.8B-license-.E4.BB.B7.E6.A0.BC">直接购买独立 License</a></td>
       <td>￥3299元/年</td>
