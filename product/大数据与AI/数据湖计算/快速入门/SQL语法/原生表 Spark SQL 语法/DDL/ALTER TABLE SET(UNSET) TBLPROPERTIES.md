@@ -1,4 +1,4 @@
-﻿## SET：更新属性配置
+## SET：更新属性配置
 ### 语法
 ```
 ALTER TABLE table_identifier 
