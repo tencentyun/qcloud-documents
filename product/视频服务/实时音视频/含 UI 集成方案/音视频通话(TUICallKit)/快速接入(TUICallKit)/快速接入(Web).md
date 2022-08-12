@@ -380,6 +380,6 @@ tuiCallEngine.setVideoQuality(profile).then( res => {
 
 ## 相关链接
 - [Github Demo 地址](https://github.com/tencentyun/TUICalling)
-- [Web 端常见问题](https://tcloud-doc.isd.com/document/product/647/78769)
-- [TUICallEngine API 概览](https://tcloud-doc.isd.com/document/product/647/78756)
+- [Web 端常见问题](https://cloud.tencent.com/document/product/647/78769)
+- [TUICallEngine API 概览](https://cloud.tencent.com/document/product/647/78756)
 - [TUICallEngine API 文档](https://web.sdk.qcloud.com/component/trtccalling/doc/TUICallEngine/web/TUICallEngine.html)
