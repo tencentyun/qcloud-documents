@@ -362,7 +362,7 @@ ul.rno-tabs-operation {
         <span class="support-platform"><img src="https://qcloudimg.tencent-cloud.cn/raw/584b9e4444422c19af20536317680ed3.svg" class="platform-img">Uni-App</span>
     </div>
     <div class="tab-experience-button"><a href="#demo-card"><button class="tab-experience">立即体验<img src="https://qcloudimg.tencent-cloud.cn/raw/8b41f1a6d19d184c029c6e92e6a01544.svg" class="try-icon" data-nonescope="true"></button></a></div>
-    <div style="text-align:center;">您可以单击 <a href="https://cloud.tencent.com/document/product/647/42042" style="color:#06A4FF;">接入指引</a> 了解如何快速集成，或单击 <a href="https://github.com/tencentyun/TUICalling" style="color:#06A4FF;">源码下载</a> 到 Github 下载最新代码</div>
+    <div style="text-align:center;">您可以单击 <a href="https://cloud.tencent.com/document/product/647/78729" style="color:#06A4FF;">接入指引</a> 了解如何快速集成，或单击 <a href="https://github.com/tencentyun/TUICalling" style="color:#06A4FF;">源码下载</a> 到 Github 下载最新代码</div>
     </div>
 </div>
 :::
@@ -380,7 +380,7 @@ ul.rno-tabs-operation {
         <span class="support-platform"><img src="https://qcloudimg.tencent-cloud.cn/raw/584b9e4444422c19af20536317680ed3.svg" class="platform-img">Uni-App</span>
     </div>
     <div class="tab-experience-button"><a href="#demo-card"><button class="tab-experience">立即体验<img src="https://qcloudimg.tencent-cloud.cn/raw/8b41f1a6d19d184c029c6e92e6a01544.svg" class="try-icon"></button></a></div>
-    <div style="text-align:center;">您可以单击 <a href="https://cloud.tencent.com/document/product/647/42042" style="color:#06A4FF;">接入指引</a> 了解如何快速集成，或单击 <a href="https://github.com/tencentyun/TUICalling" style="color:#06A4FF;">源码下载</a> 到 Github 下载最新代码</div>
+    <div style="text-align:center;">您可以单击 <a href="https://cloud.tencent.com/document/product/647/78729" style="color:#06A4FF;">接入指引</a> 了解如何快速集成，或单击 <a href="https://github.com/tencentyun/TUICalling" style="color:#06A4FF;">源码下载</a> 到 Github 下载最新代码</div>
     </div>
 </div>
 :::
@@ -398,7 +398,7 @@ ul.rno-tabs-operation {
         <span class="support-platform"><img src="https://qcloudimg.tencent-cloud.cn/raw/584b9e4444422c19af20536317680ed3.svg" class="platform-img">Uni-App</span>
     </div>
     <div class="tab-experience-button"><a href="#demo-card"><button class="tab-experience">立即体验<img src="https://qcloudimg.tencent-cloud.cn/raw/8b41f1a6d19d184c029c6e92e6a01544.svg" class="try-icon" data-nonescope="true"></button></a></div>
-    <div style="text-align:center;">您可以单击 <a href="https://cloud.tencent.com/document/product/647/42042" style="color:#06A4FF;">接入指引</a> 了解如何快速集成，或单击 <a href="https://github.com/tencentyun/TUICalling" style="color:#06A4FF;">源码下载</a> 到 Github 下载最新代码</div>
+    <div style="text-align:center;">您可以单击 <a href="https://cloud.tencent.com/document/product/647/78729" style="color:#06A4FF;">接入指引</a> 了解如何快速集成，或单击 <a href="https://github.com/tencentyun/TUICalling" style="color:#06A4FF;">源码下载</a> 到 Github 下载最新代码</div>
     </div>
 </div>
 :::
