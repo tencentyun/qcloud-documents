@@ -2,7 +2,7 @@
 >?DDoS 防护功能和相关配置可能根据您选购的 EdgeOne 产品套餐有所不同。
 
 ## 前提条件
-您需要成功 [购买](https://cloud.tencent.com/document/product/1552/70194) 边缘安全加速平台（EdgeOne）产品（旗舰版），并完成 [接入站点加速](https://cloud.tencent.com/document/product/1552/70788) 或 [接入四层代理](https://cloud.tencent.com/document/product/1552/70965)。
+您需要成功 [购买](https://cloud.tencent.com/document/product/1552/70194) 边缘安全加速平台（EdgeOne）产品（企业版），并完成 [企业版 DDoS 防护](https://cloud.tencent.com/document/product/1552/70788) 或 [企业版 DDoS 防护 - 四层代理](https://cloud.tencent.com/document/product/1552/70965)。
 
 ## DDoS防护等级
 针对 DDoS 攻击，EdgeOne 提供的不同防护等级的相关操作及应用场景，并为您介绍如何在控制台中设置 DDoS 防护等级。
@@ -19,7 +19,8 @@ EdgeOne 提供防护策略调整功能，针对 DDoS 攻击提供三种防护等
 
 >?
 >- 如果您的业务有遭受大规模攻击的历史，或者需要使用 UDP，建议您联系 [腾讯云技术支持](https://cloud.tencent.com/about/connect) 进行策略定制，以免严格模式影响业务流程。
->- 默认情况下，您所购买的 EdgeOne（旗舰版） 采用适中防护等级，您可以根据实际业务情况自由调整 DDoS 防护等级。同时，您还可以自定义设置清洗阈值，当攻击流量超过设置的阈值时，将启动清洗。
+>- 默认情况下，您所购买的 EdgeOne（企业版） 采用适中防护等级，您可以根据实际业务情况自由调整 DDoS 防护等级。
+>- 默认情况下，您所购买的EdgeOne（标准版）采用适中防护等级。
 
 
 ### 操作步骤
