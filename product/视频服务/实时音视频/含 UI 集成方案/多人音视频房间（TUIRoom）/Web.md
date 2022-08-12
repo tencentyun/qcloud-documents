@@ -187,6 +187,7 @@ html, body {
 + 在页面中引用 TUIRoom 组件。例如：在 `App.vue` 组件中引入 TUIRoom 组件。
 	- TUIRoom 组件将用户分为主持人角色及普通成员角色。组件对外提供了 [init](#init)、[createRoom](#createroom)、[enterRoom](#enterroom) 方法。
 	- 主持人及普通成员可通过 [init](#init) 方法向 TUIRoom 组件初始化应用及用户数据，主持人可通过 [createRoom](#createroom) 方法创建并加入房间，普通成员可通过 [enterRoom](#enterroom) 方法加入主持人已经创建好的房间。
+
 ```javascript
 <template>
   <div id="app">
@@ -202,26 +203,26 @@ export default {
   data() {
     return {};
   },
-  async mounted() {
-    // 初始化 TUIRoom 组件
-    // 主持人在创建房间前需要先初始化 TUIRoom 组件
-    // 普通成员在进入房间前需要先初始化 TUIRoom 组件
-    await this.$refs.TUIRoomRef.init({
-        // 获取 sdkAppId 请您参考 步骤一
-        sdkAppId: 1400719585,
-        // 用户在您业务中的唯一标示 Id
-        userId: 'jasper',
-        // 本地开发调试可在 https://console.cloud.tencent.com/trtc/usersigtool 页面快速生成 userSig, 注意 userSig 与 userId 为一一对应关系
-        userSig: 'eJyrVgrxCdYrSy1SslIy0jNQ0gHzM1NS80oy0zLBwlmJxQVABkSmOCU7saAgM0XJytDEwMDc0NLUwhQik1pRkFmUChQ3NTU1MjAwgIiWZOaCxMzMDIyAEsZmUFMy04EGGwTlBgSXFHpUVqSGZYeUphlHhjtHRXi7hYcFhPnF6LulFVj6BOZ4R-qYhbjaKtUCALOkMkA_',
-        // 用户在您业务中使用的昵称
-        userName: 'jasper',
-        // 用户在您业务中使用的头像链接
-        userAvatar: '',
-        // 用户用于屏幕分享的唯一 Id，要求 shareUserId = `share_${userId}`, 无屏幕分享功能需求可不传入
-        shareUserId: '',
-        // 请您参考本文 步骤一 > 第三步 并使用 sdkAppId 及 shareUserId 签发 shareUserSig 
-        shareUserSig: '',
-    })
+	async mounted() {
+		// 初始化 TUIRoom 组件
+		// 主持人在创建房间前需要先初始化 TUIRoom 组件
+		// 普通成员在进入房间前需要先初始化 TUIRoom 组件
+		await this.$refs.TUIRoomRef.init({
+			// 获取 sdkAppId 请您参考 步骤一
+			sdkAppId: 0,
+			// 用户在您业务中的唯一标示 Id
+			userId: '',
+			// 本地开发调试可在 https://console.cloud.tencent.com/trtc/usersigtool 页面快速生成 userSig, 注意 userSig 与 userId 为一一对应关系
+			userSig: '',
+			// 用户在您业务中使用的昵称
+			userName: '',
+			// 用户在您业务中使用的头像链接
+			userAvatar: '',
+			// 用户用于屏幕分享的唯一 Id，要求 shareUserId = `share_${userId}`, 无屏幕分享功能需求可不传入
+			shareUserId: '',
+			// 请您参考本文 步骤一 > 第三步 并使用 sdkAppId 及 shareUserId 签发 shareUserSig 
+			shareUserSig: '',
+		})
       // 默认执行创建房间，实际接入可按需求择机执行 handleCreateRoom 方法
     await this.handleCreateRoom();
   },
