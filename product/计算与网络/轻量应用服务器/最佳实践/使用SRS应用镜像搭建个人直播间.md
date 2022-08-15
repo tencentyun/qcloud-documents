@@ -77,8 +77,11 @@ HLS（全称 HTTP Live Streaming）是 Apple 的动态码率自适应技术，�
 ![](https://qcloudimg.tencent-cloud.cn/raw/1d8051c9e6382f850fd5eb52067e8c26.png)
 9. 单击**确定**上传并开始推流，画面效果如下图所示。您可在 OBS 中右键单击画面，实时调整直播画面（例如大小、方向等）。
 ![](https://qcloudimg.tencent-cloud.cn/raw/30e383f95dbfb24db9308ff26ca32c50.png)
-此时，您已可 [观看直播](#watchLive)，若您有使用多平台转播、云录制、本地录制等需求，请参考下文继续配置。
+此时，您已可 [观看直播](#watchLive)，若您有使用多平台转播、云录制、云点播、本地录制等需求，请参考下文继续配置。
 
+
+
+## 相关操作
 
 ### 多平台转播
 若私人直播间的流量已无法满足您的需求，可参考本步骤使用 SRS 提供的多平台转播功能。
