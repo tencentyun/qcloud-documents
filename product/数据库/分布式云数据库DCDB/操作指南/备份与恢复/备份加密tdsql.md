@@ -3,7 +3,7 @@
 
 数据透明加密（TDE）当前仅支持香港地区的 Percona 5.7 版本，后续将陆续开放。您可以通过在 [TDSQL 控制台](https://console.cloud.tencent.com/tdsqld/instance-tdmysql) 的实例管理页的**数据安全性** > **数据加密**进行访问。
 
-开启数据加密后，暂时不支持用备份文件在本地恢复数据库实例，推荐采用[回档数据库](https://cloud.tencent.com/document/product/557/70277)进行恢复。 
+开启数据加密后，暂时不支持用备份文件在本地恢复数据库实例，推荐采用 [回档数据库](https://cloud.tencent.com/document/product/557/70277) 进行恢复。 
 >?如需使用数据加密功能，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请。
 
 
