@@ -81,7 +81,7 @@ WBH5FaceVerifySDK.getInstance().setWebViewSettings(mWebView,getApplicationContex
       }
         }
 
-     // For Android >= 4.1  录制模式中，录制模式中，点击h5页面的录制按钮后触发的系统方法
+     // For Android >= 4.1  录制模式中，点击h5页面的录制按钮后触发的系统方法
     public void openFileChooser(ValueCallback<Uri> uploadMsg, String acceptType, String capture) {
         if (WBH5FaceVerifySDK.getInstance().isTencentH5FaceVerify(null,null,acceptType)){ //判断是腾讯h5刷脸的域名
             this.uploadMsg=uploadMsg;
