@@ -221,7 +221,6 @@ api project(':tuicallkit')
 	1. 配置 App 的 [离线推送](https://cloud.tencent.com/document/product/269/44516)。
 	2. 集成 TUICallKit 组件。
 	3. 通过 TUICallKit 发起通话邀请的时候，默认会生成一条离线推送消息。
-	4. 接收通话的一方，在收到离线推送的消息时，请参考 App 中 [OfflineMessageDispatcher.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/Demo/app/src/main/java/com/tencent/qcloud/tim/demo/thirdpush/OfflineMessageDispatcher.java) 类里面 `redirect` 方法唤起通话界面。
 
 >? 更多实操教学视频请参见：[极速集成 TUIKit（Android）](https://cloud.tencent.com/edu/learning/course-3130-56399)。
 
