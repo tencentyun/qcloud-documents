@@ -122,6 +122,15 @@ TUICallKit 是基于腾讯云 [即时通信 IM](https://cloud.tencent.com/docume
     - SDKAppID：IM 的应用 ID，用于业务隔离，即不同的 SDKAppID 的通话彼此不能互通；
     - SecretKey：IM 的应用密钥，需要和 SDKAppID 配对使用，用于签出合法使用 IM 服务的鉴权用票据 UserSig，我们会在接下来的步骤五中用到这个 Key。
 
+<dx-alert infotype="alarm" title="<b>友情提示：</b>">
+单击**免费体验**以后，部分之前使用过 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 服务的用户会提示：
+```
+[-100013]:TRTC service is  suspended. Please check if the package balance is 0 or the Tencent Cloud accountis in arrears
+```
+因为新的 IM 音视频通话能力是整合了腾讯云[实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269/42440) 两个基础的 PaaS 服务，所以当 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 的免费额度（10000分钟）已经过期或者耗尽，就会导致开通此项服务失败，这里您可以单击 [TRTC 控制台](https://console.cloud.tencent.com/trtc/app)，找到对应 SDKAppID 的应用管理页，示例如图，开通后付费功能后，再次**启用应用**即可正常体验音视频通话能力。
+<img width=800px src="https://qcloudimg.tencent-cloud.cn/raw/f74a13a7170cf8894195a1cae6c2f153.png" />
+</dx-alert>
+
 
 [](id:step2)
 ## 步骤二：下载并导入 SDK 到项目中
@@ -380,6 +389,6 @@ tuiCallEngine.setVideoQuality(profile).then( res => {
 
 ## 相关链接
 - [Github Demo 地址](https://github.com/tencentyun/TUICalling)
-- [Web 端常见问题](https://tcloud-doc.isd.com/document/product/647/78769)
-- [TUICallEngine API 概览](https://tcloud-doc.isd.com/document/product/647/78756)
+- [Web 端常见问题](https://cloud.tencent.com/document/product/647/78769)
+- [TUICallEngine API 概览](https://cloud.tencent.com/document/product/647/78756)
 - [TUICallEngine API 文档](https://web.sdk.qcloud.com/component/trtccalling/doc/TUICallEngine/web/TUICallEngine.html)

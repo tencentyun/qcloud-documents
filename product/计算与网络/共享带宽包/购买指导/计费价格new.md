@@ -94,7 +94,7 @@
 <td align="left">288</td>
 </tr>
 <tr>
-<td align="left">欧洲（法兰福克、莫斯科）</td>
+<td align="left">欧洲（法兰克福、莫斯科）</td>
 <td align="left">108</td>
 <td align="left">108</td>
 <td align="left">108</td>

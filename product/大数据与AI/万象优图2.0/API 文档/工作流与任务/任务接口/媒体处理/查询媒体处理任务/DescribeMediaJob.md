@@ -18,8 +18,6 @@ DescribeMediaJob 接口用于查询指定的任务。
     </div>
 </div>
 
-
-
 ## 请求
 
 #### 请求示例
@@ -80,7 +78,7 @@ Container 节点 Response 的内容：
 
 对于不同的任务类型，JobsDetail 的内容不同，请参照以下链接：
 - <a href="https://cloud.tencent.com/document/product/460/76913#jobsDetail" target="_blank">音视频转码</a>
-- <a href="https://cloud.tencent.com/document/product/460/xxx#jobsDetail" target="_blank">极速高清转码</a>
+- <a href="https://cloud.tencent.com/document/product/460/78248#jobsDetail" target="_blank">极速高清转码</a>
 - <a href="https://cloud.tencent.com/document/product/460/76900#jobsDetail" target="_blank">视频转动图</a>
 - <a href="https://cloud.tencent.com/document/product/460/76910#jobsDetail" target="_blank">视频截帧</a>
 - <a href="https://cloud.tencent.com/document/product/460/76909#jobsDetail" target="_blank">智能封面</a>
@@ -99,11 +97,6 @@ Container 节点 Response 的内容：
 - <a href="https://cloud.tencent.com/document/product/460/76906#jobsDetail" target="_blank">视频质量分析</a>
 - <a href="https://cloud.tencent.com/document/product/460/76914#jobsDetail" target="_blank">语音合成</a>
 - <a href="https://cloud.tencent.com/document/product/460/76905#jobsDetail" target="_blank">音频降噪</a>
-
-
-
-</br>
-
 
 #### 错误码
 
