@@ -171,7 +171,7 @@ SecretId 及 SecretKey 可前往 [API密钥管理](https://console.cloud.tencent
 此时您的 SRS 实例未设置 HTTPS，在使用浏览器或手机浏览器打开链接时，可能会查看“网站连接不安全”的类似提示。您可参考以下步骤，使用 SRS 提供的自动设置 HTTPS 功能。
 
 <dx-alert infotype="explain" title="">
-使用自动设置 HTTPS 功能前，您需具备域名，并已将域名解析至 SRS 实例。
+使用一键设置 HTTPS 功能前，您需具备域名，并已将域名解析至 SRS 实例。
 </dx-alert>
 
 1.  在 SRS 后台管理页面中，选择**系统配置** > **HTTPS** 页签，在“域名”中输入您的域名。如下图所示：
