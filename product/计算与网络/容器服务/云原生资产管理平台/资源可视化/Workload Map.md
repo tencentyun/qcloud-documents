@@ -42,16 +42,19 @@ Workload Map 分为概览和资源对象热图，如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/257520ec4e93ea7d27af9360bc10c8ae.png)
    
 - **筛选**：根据相关指标筛选得到目标 Workload，若您不选择，则是默认选择了所有的Workload。支持过滤多个属性，取交集。
->? 您可以通过**状态**进行筛选，支持选择**CPU 利用率峰值**和 **CPU 利用率均值**。
+- **聚合**：对筛选出来的 Workload 进行分组，每一组节点在同一个浅色框内，一个框内的每个 Workload 具有相同的属性值。
+- **状态**：您可以通过**状态**进行筛选，支持选择**CPU 利用率峰值、CPU 利用率均值**和 **CPU 装箱率**。
     - CPU 利用率峰值：Workload CPU 均值利用率，分24小时，7天，30天维度。
     - CPU 利用率均值：节点 CPU 峰值利用率，分24小时，7天，30天维度。
-- **聚合**：对筛选出来的 Workload 进行分组，每一组节点在同一个浅色框内，一个框内的每个 Workload 具有相同的属性值。
-- **状态**：对筛选出来的 Workload 进行颜色的区分，工作负载的状态默认为三种，由**绿、蓝、红**三色区分。您可以单击页面右下角的![](https://qcloudimg.tencent-cloud.cn/raw/8268535a09f01a2d60ef381373dc234e.png)，调整三种状态的阈值范围。如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/3503b3fac52ab127a901b51bf303d3ec.png)
+    - CPU 装箱率：节点 CPU 均值装箱率，分24小时，7天，30天维度。
 >! 在工作负载对象热图里的节点，默认按照当前选择的“状态”属性值进行**升序排列**。例如，您选择的工作负载状态是 “24h CPU 利用率均值”，则工作负载对象热图里的工作负载默认是按照工作负载24h CPU 利用率均值升序排列。
+>
+筛选后的 Workload 由**绿、蓝、红**三色区分。您可以单击页面右下角的![](https://qcloudimg.tencent-cloud.cn/raw/8268535a09f01a2d60ef381373dc234e.png)，调整三种状态的阈值范围。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/3503b3fac52ab127a901b51bf303d3ec.png)
 
 
- 
+
+
 
 ### 工作负载操作
 
