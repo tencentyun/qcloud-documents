@@ -70,7 +70,8 @@ HLS（全称 HTTP Live Streaming）是 Apple 的动态码率自适应技术，�
  - **服务器**：输入 [步骤5](#Step5) 中已获取的 OBS 推流地址。
  - **串流密钥**：输入 [步骤5](#Step5) 中已获取的串流密钥。
 5. 单击**确定**。
-6. 在主界面的“媒体源设置”中选择**媒体源**，并单击“直播设置”中的**开始推流**。如下图所示：
+6.  在主界面的“媒体源设置”中，选择 <img src="https://qcloudimg.tencent-cloud.cn/raw/590204a737fb7b1c194c6b44771de307.png" style="margin:-3px 0px"/>，在弹出菜单中，根据直播的内容选择源（本文直播内容以本地视频为例，则选择**媒体源**）。
+7.  单击“直播设置”中的**开始推流**。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/415a1ca1d1e18fb1987c913d8cfe17fb.png)
 7. 在弹出的“创建或选择源”窗口中，按需创建或选择已有源，单击**确定**。
 8. 在弹出“属性 '媒体源'”窗口中，选择要推流（直播）的内容。本文以选择本地的视频资源为例，如下图所示：
@@ -88,7 +89,7 @@ HLS（全称 HTTP Live Streaming）是 Apple 的动态码率自适应技术，�
 
 1. 前往“服务器”页面，进入 SRS 实例详情页。
 2. 选择**应用管理**页签，单击“应用内软件信息”中的“访问地址”，进入 SRS 后台管理页面。
-3. 选择**多平台转播**，选择目标平台，并填写 [步骤5](#Step5) 中已获取的 OBS 推流地址及推流密钥。如下图所示：
+3. 选择**多平台转播**，选择目标平台，并填写从目标平台获取的推流地址及推流密钥。如下图所示：
 <dx-alert infotype="explain" title="">
 您需已在目标直播平台创建直播。
 </dx-alert>
@@ -159,14 +160,14 @@ SecretId 及 SecretKey 可前往 [API密钥管理](https://console.cloud.tencent
 在 SRS 后台管理页中，单击播放的流 HTTP-FLV 流或 HLS 流中的**简易**或**西瓜**，即可进入直播画面。
 ![](https://qcloudimg.tencent-cloud.cn/raw/7fd8f5d7550b16b5e1c55a1430eb51a9.png)
 <dx-alert infotype="explain" title="">
-此时您用浏览器或手机浏览器打开链接时，可能会查看“网站连接不安全”的类似提示。您可参考 [自动设置 HTTPS](#autoHTTPS) 进行处理。
+此时您用浏览器或手机浏览器打开链接时，可能会查看“网站连接不安全”的类似提示。您可参考 [一键设置 HTTPS](#autoHTTPS) 进行处理。
 </dx-alert>
 将链接分享给粉丝和观众后，即可收看您的直播。画面如下图所示：
 <img src="https://qcloudimg.tencent-cloud.cn/raw/d371c2acedf073076166926442768cfe.png"/>
 
 
 
-### 自动设置 HTTPS[](id:autoHTTPS)
+### 一键设置 HTTPS[](id:autoHTTPS)
 此时您的 SRS 实例未设置 HTTPS，在使用浏览器或手机浏览器打开链接时，可能会查看“网站连接不安全”的类似提示。您可参考以下步骤，使用 SRS 提供的自动设置 HTTPS 功能。
 
 <dx-alert infotype="explain" title="">
