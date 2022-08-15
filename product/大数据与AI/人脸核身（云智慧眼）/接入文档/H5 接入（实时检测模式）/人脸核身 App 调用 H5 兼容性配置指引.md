@@ -48,58 +48,61 @@ WBH5FaceVerifySDK.getInstance().setWebViewSettings(mWebView,getApplicationContex
      */
     @Override
     public void onPermissionRequest(PermissionRequest request) {
-        this.request=request;
-        if (activity!=null){ 
-            activity.requestCameraPermission();//申请相机权限，申请权限的代码demo仅供参考，合作方可根据自身业务定制
+       if (request!=null&&request.getOrigin()!=null&&WBH5FaceVerifySDK.getInstance().isTencentH5FaceVerify(request.getOrigin().toString())){  //判断是腾讯h5刷脸的域名
+            Log.d(TAG,"onPermissionRequest 收到腾讯h5刷脸页面的相机授权");
+            this.request=request;
+            if (activity!=null){ 
+				//申请相机权限，申请权限的代码demo仅供参考，合作方可根据自身业务定制
+                activity.requestCameraPermission();
+            }
         }
     }
 
     /**
      * 相机权限申请成功后，拉起TRTC刷脸模式进行实时刷脸验证
      */
-    public void enterTrtcFaceVerify(){
-        if (Build.VERSION.SDK_INT>Build.VERSION_CODES.LOLLIPOP){ // android sdk 21以上
+    if (Build.VERSION.SDK_INT>Build.VERSION_CODES.LOLLIPOP){  // android sdk 21以上
             if (request!=null&&request.getOrigin()!=null){
-                //根据腾讯域名授权，如果合作方对授权域名无限制的话，这个if条件判断可以去掉，直接进行授权即可。
-                if (request.getOrigin().toString().contains("https://kyc.qcloud.com")){
+               if (WBH5FaceVerifySDK.getInstance().isTencentH5FaceVerify(request.getOrigin().toString())){  //判断是腾讯h5刷脸的域名，如果合作方对授权域名无限制的话，这个if条件判断可以去掉，直接进行授权即可。
                     //授权
                     request.grant(request.getResources());
                     request.getOrigin();
                 }
             }else {
                 if (request==null){
+                    Log.d(TAG,"enterTrtcFaceVerify request==null");
                     if (webView!=null&&webView.canGoBack()){
                         webView.goBack();
                     }
-                }else {
                 }
+      }
+        }                           
+
+     // For Android >= 4.1  录制模式中，点击h5页面的录制按钮后触发的系统方法
+    public void openFileChooser(ValueCallback<Uri> uploadMsg, String acceptType, String capture) {
+        if (WBH5FaceVerifySDK.getInstance().isTencentH5FaceVerify(null,null,acceptType)){ //判断是腾讯h5刷脸的域名
+            this.uploadMsg=uploadMsg;
+            this.acceptType=acceptType;
+            if (activity!=null){ 
+                //申请系统的相机、录制、sd卡等权限
+                activity.requestCameraAndSomePermissions(true,false);
             }
         }
     }
 
-                             
-
-     // For Android >= 4.1  录制模式中，收到h5页面发送的录制请求
-    public void openFileChooser(ValueCallback<Uri> uploadMsg, String acceptType, String capture) {
-        this.uploadMsg=uploadMsg;
-        this.acceptType=acceptType;
-        if (activity!=null){
-            activity.requestCameraAndSomePermissions(true);//申请系统的相机、录制和sd卡权限，申请权限的代码demo仅供参考，合作方可根据自身业务定制
-        }
-    }
-
-    // For Lollipop 5.0+ Devices  录制模式中，收到h5页面发送的录制请求
+    // For Lollipop 5.0+ Devices  录制模式中，点击h5页面的录制按钮后触发的系统方法
     @TargetApi(21)
     @Override
-    public boolean onShowFileChooser(WebView webView, ValueCallback<Uri[]> filePathCallback, FileChooserParams fileChooserParams) {
-        this.webView=webView;
-        this.filePathCallback=filePathCallback;
-        this.fileChooserParams=fileChooserParams;
-        if (activity!=null){
-            activity.requestCameraAndSomePermissions(false);//申请系统的相机、录制和sd卡权限，申请权限的代码demo仅供参考，合作方可根据自身业务定制
+    WBH5FaceVerifySDK.getInstance().isTencentH5FaceVerify(webView,fileChooserParams,null)){ //判断是腾讯h5刷脸的域名
+            this.webView=webView;
+            this.filePathCallback=filePathCallback;
+            this.fileChooserParams=fileChooserParams;
+            if (activity!=null){
+ //申请系统的相机、录制、sd卡等权限
+                activity.requestCameraAndSomePermissions(false,false);
+            }
         }
-        return true;
-    }
+        return true;   
 
     //录制模式中，拉起系统相机进行录制视频
     public boolean enterOldModeFaceVerify(boolean belowApi21){
