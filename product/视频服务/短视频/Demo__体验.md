@@ -129,10 +129,10 @@
     </div>
 </div>  
 
-<div class="preview-demo-section" id="demo-card">
-	 <div class="preview-demo-item-cloud">
-	 <div class="demo-item-header">
-            <a style="font-size: 20px;font-weight: bold;">Demo 后台源码</a>
+<div class="preview-demo-section" id="demo-card" >
+	 <div class="preview-demo-item-cloud" >
+	 <div class="demo-item-header" style="margin-top: 13px;">
+            <a style="font-size: 20px;font-weight: bold;" >Demo 后台源码</a>
 </div>
 	 <div class="demo-item-header">
  <a style="font-size: 12px;">小视频 App（Demo）的后台源码</a>
@@ -148,5 +148,3 @@
 
 ## Demo 展示
 <img src="https://main.qcloudimg.com/raw/02c1c4fcbcfb6870d5c2804fb18cfec4.jpg"/>
-
-	 
