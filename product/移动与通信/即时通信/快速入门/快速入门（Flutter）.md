@@ -97,7 +97,7 @@ flutter pub get
 **3. 配置环境变量。**
 
 在右上角运行按钮旁，鼠标hover `main.dart`，配置 `Edit Configurations`。
-![20220803161114](https://tuikit-1251787278.cos.ap-guangzhou.myqcloud.com/20220803161114.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/e2db56849e86dab8f6f0ccb4d3374fce.png)
 
 在弹出窗口中，配置 `Additional run args`，输入环境变量（SDKAPPID等信息）。如：
 
@@ -105,20 +105,20 @@ flutter pub get
 # 请替换SDK_APPID、KEY两个参数
 --dart-define=SDK_APPID={YOUR_SDKAPPID} --dart-define=ISPRODUCT_ENV=false --dart-define=KEY={YOUR_KEY}
 ```
-![](https://qcloudimg.tencent-cloud.cn/raw/b01cfe2b48fa63f79c621bb174029957.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/f022441399d2d6057b86e489593768ad.png)
 
 **4. 创建Android模拟器。**
 
 启动您刚安装好的模拟器，并选中其。
-![20220803161943](https://tuikit-1251787278.cos.ap-guangzhou.myqcloud.com/20220803161943.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/e3aebdd2f6018c8f1fa10d5b5fb62c79.png)
 
-点击界面右上角Device Manager，完成 Create devices，创建模拟器。如果您需要使用Google FCM推送能力，建议最好安装支持Google Play Store的设备。
-![20220803161649](https://tuikit-1251787278.cos.ap-guangzhou.myqcloud.com/20220803161649.png)
+点击界面右上角 Device Manager，完成 Create devices，创建模拟器。如果您需要使用Google FCM推送能力，建议最好安装支持Google Play Store的设备。
+![](https://qcloudimg.tencent-cloud.cn/raw/9db005b86f9ffa1052826fe5e11d219a.png)
 
 **5. 运行项目。**
 
 根据需要，点击下图左侧 Run ，或右侧 Debug，以运行项目。
-![20220803162057](https://tuikit-1251787278.cos.ap-guangzhou.myqcloud.com/20220803162057.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/7b0d4d008f71e1d0d805c9fb3a5de437.png)
 
 >?UI 可能会有部分调整更新，请以最新版为准。
 :::

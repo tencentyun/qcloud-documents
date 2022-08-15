@@ -231,7 +231,6 @@ TUICallKit 是腾讯云推出一款音视频通话 UI 组件，通过集成该�
                 <a style="margin-left: 10px;" href="https://github.com/tencentyun/TUICalling"><b>Github </b></a>
                 <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/78732"><b>快速接入</b></a>
                 <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/78762"><b>API 参考</b></a>
-								<a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/78771"><b>常见问题</b></a>
             </div>
         </div>
 				

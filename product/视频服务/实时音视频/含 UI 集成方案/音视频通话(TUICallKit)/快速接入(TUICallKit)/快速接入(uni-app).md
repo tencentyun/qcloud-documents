@@ -12,12 +12,19 @@ TUICallKit 是基于腾讯云 [即时通信 IM](https://cloud.tencent.com/docume
 
 1. 登录到 [即时通信 IM 控制台](https://console.cloud.tencent.com/im)，单击**创建新应用**，在弹出的对话框中输入您的应用名称，并单击**确定**。
 <img width="640" src="https://qcloudimg.tencent-cloud.cn/raw/1105c3c339be4f71d72800fe2839b113.png">
-
 2. 单击刚刚创建出的应用，进入**基本配置**页面，并在页面的右下角找到**开通腾讯实时音视频服务**功能区，单击**免费体验**即可开通 TUICallKit 的 7 天免费试用服务。
 <img width="640" src="https://qcloudimg.tencent-cloud.cn/raw/99a6a70e64f6877bad9406705cbf7be1.png">
-
 3. 在同一页面找到 **SDKAppID** 和**密钥**并记录下来，它们会在后续的 [步骤四：登录 TUI 组件](#step4) 中被用到。
 <img width="640" src="https://qcloudimg.tencent-cloud.cn/raw/e435332cda8d9ec7fea21bd95f7a0cba.png">
+
+<dx-alert infotype="alarm" title="<b>友情提示：</b>">
+单击**免费体验**以后，部分之前使用过 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 服务的用户会提示：
+```
+[-100013]:TRTC service is  suspended. Please check if the package balance is 0 or the Tencent Cloud accountis in arrears
+```
+因为新的 IM 音视频通话能力是整合了腾讯云[实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269/42440) 两个基础的 PaaS 服务，所以当 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 的免费额度（10000分钟）已经过期或者耗尽，就会导致开通此项服务失败，这里您可以单击 [TRTC 控制台](https://console.cloud.tencent.com/trtc/app)，找到对应 SDKAppID 的应用管理页，示例如图，开通后付费功能后，再次**启用应用**即可正常体验音视频通话能力。
+<img width=800px src="https://qcloudimg.tencent-cloud.cn/raw/f74a13a7170cf8894195a1cae6c2f153.png" />
+</dx-alert>
 
 [](id:step2)
 ## 步骤二：导入插件 
@@ -26,11 +33,11 @@ TUICallKit 是基于腾讯云 [即时通信 IM](https://cloud.tencent.com/docume
 ![](https://qcloudimg.tencent-cloud.cn/raw/d270d9298975ee829ae9c8c405530765.png)
 2. 使用自定义基座打包 uni 原生插件 （**请使用真机运行自定义基座**）
 使用 uni 原生插件必须先提交云端打包才能生效，购买插件后在应用的 `manifest.json` 页面的 **App原生插件配置** 项下单击**选择云端插件**，选择**腾讯云原生音视频插件**。
-![](https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/uni-app-21.png)
+![](https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/TencentCloud-TUICallKit.png)
 直接云端打包后无法打 log，无法排查问题，需要自定义基座调试原生插件。
 >! 
 >- 自定义基座不是正式版，真正发布时，需要再打正式包。使用自定义基座是无法正常升级替换 APK 的。
->- 请尽量不要使用本地插件，插件包超过自定义基座的限制，可能导致调试收费
+>- 请尽量不要使用本地插件，插件包超过自定义基座的限制，可能导致调试收费。
 
 
 [](id:step3)
@@ -138,7 +145,28 @@ const enable = true;
 TUICallKit.enableFloatWindow(enable);
 ```
 
-### 三、自定义铃音
+### 三、通话状态监听
+如果您的业务需要 **监听通话的状态**，例如：异常、通话开始、结束等，可以监听以下事件：
+```javascript
+const TUICallingEvent = uni.requireNativePlugin('globalEvent');
+TUICallingEvent.addEventListener('onError', (res) => {
+  console.log('onError', JSON.stringify(res));
+});
+TUICallingEvent.addEventListener('onCallReceived', (res) => {
+  console.log('onCallReceived', JSON.stringify(res));
+});
+TUICallingEvent.addEventListener('onCallCancelled', (res) => {
+  console.log('onCallCancelled', res);
+});
+TUICallingEvent.addEventListener('onCallBegin', (res) => {
+  console.log('onCallBegin', JSON.stringify(res));
+});
+TUICallingEvent.addEventListener('onCallEnd', (res) => {
+  console.log('onCallEnd', JSON.stringify(res));
+});
+```
+
+### 四、自定义铃音
 如果您需要自定义来电铃音，可以通过如下接口进行设置。
 ```javascript
 const filePath = './**';
@@ -157,7 +185,7 @@ TUICallKit.setCallingBell(filePath, (res) => {
  应该重新提交云端打包（不能勾选“**自定义基座**”）生成正式版本。
 
 ## 实现案例
-我们提供了**在线客服场景**的相关源码，建议您 [下载](Thttps://ext.dcloud.net.cn/plugin?id=721) 并集成体验。该场景提供了示例客服群 + 示例好友的基础模板，实现功能包括：
+我们提供了**在线客服场景**的相关源码，建议您 [下载](https://ext.dcloud.net.cn/plugin?id=721) 并集成体验。该场景提供了示例客服群 + 示例好友的基础模板，实现功能包括：
 - 支持发送文本消息、图片消息、语音消息、视频消息等常见消息。
 - 支持双人语音、视频通话功能
 - 支持创建群聊会话、群成员管理等。
