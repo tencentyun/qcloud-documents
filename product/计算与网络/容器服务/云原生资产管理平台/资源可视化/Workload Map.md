@@ -16,13 +16,13 @@ Workload Map 不支持提供超级节点上的 Pod 推荐值的监控数据。�
 ## Workload Map 功能说明
 
 Workload Map 分为概览和资源对象热图，如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/0bdd372ebcd580606dab2cfa70635b59.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/056bd7b5bb3ca4552ce12424a51650d4.png)
 1. 上半区域是集群里的 Workload 概览。
 2. 下半区域是集群里的每一个 Workload 资源对象。
    
 ### 工作负载概览
 工作负载概览如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/69942eeddf3a3cb1f44f24c45424635b.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/97ebdb63c74ac8029473bf919498e04e.png)
 - **工作负载概览**：展示当前集群中是有推荐 Request 的工作负载的数量和所占比例；展示当前集群节点的总核数和总内存数。
 >! 首先需要打开 Request 推荐功能，才会推荐工作负载调整 Request 数值。更多请参考 [Request 推荐](https://cloud.tencent.com/document/product/457/75471)。
 >  
@@ -38,7 +38,7 @@ Workload Map 分为概览和资源对象热图，如下图所示：
 
 ### 工作负载对象查看
 
-工作负载对象如下图所示，您可以通过节点筛选、分组、状态进行 Workload 的过滤和聚合展示。
+工作负载对象如下图所示，您可以通过工作负载的筛选、聚合、状态进行 Workload 的过滤和聚合展示。
 ![](https://qcloudimg.tencent-cloud.cn/raw/257520ec4e93ea7d27af9360bc10c8ae.png)
    
 - **筛选**：根据相关指标筛选得到目标 Workload，若您不选择，则是默认选择了所有的Workload。支持过滤多个属性，取交集。
