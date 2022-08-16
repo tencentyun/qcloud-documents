@@ -128,7 +128,6 @@ param.token = "";
 ```
 2. 开始录制
 调用 startRecordAndEvaluation() 方法传入 TAIOralEvaluationParam 的 param 参数，并设置回调函数，即可开始录制。
-
 ```
 //开始录制
 this.oral.startRecordAndEvaluation(param, new TAIOralEvaluationCallback() {
