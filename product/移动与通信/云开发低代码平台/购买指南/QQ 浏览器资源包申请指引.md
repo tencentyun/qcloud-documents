@@ -147,7 +147,7 @@
 <td>统一社会信用代码</td>
 <td>（与营业执照上的信息保持一致）</td>
 <td></td>
-<td>91350200664741012F</td>
+<td>913502006647xxxxxx</td>
 <td>必选</td>
 </td>
 </tr>
@@ -186,7 +186,7 @@
 <td>appid</td>
 <td>微信小程序appid <a href="https://kf.qq.com/faq/180725biaAn2180725VnQjYF.html">具体获取方式</a></td>
 <td>appid标准格式，英文字符</td>
-<td>wxe1198b7d6b2082b2</td>
+<td>wxe1198b7d6bxxxxxx</td>
 <td>必选</td>
 </td>
 </tr>
@@ -194,10 +194,10 @@
 <tr>
 <td rowspan="13">企业名片字段</td>
 <td rowspan="5">官网</td>
-<td>官网icon</td>
-<td>公司H5官网logo</td>
-<td>官网icon（logo)原图
-尺寸：146*146px 格式及要求：jpg或png</td>
+<td>官网 icon</td>
+<td>公司 H5 官网 logo</td>
+<td>官网 icon（logo)原图
+尺寸：146*146px 格式及要求：jpg 或 png</td>
 <td>icon.png</td>
 <td>必选</td>
 </td>
@@ -205,7 +205,7 @@
 <tr>
 <tr>
 <td>官网名称</td>
-<td>公司H5官网名称</td>
+<td>公司 H5 官网名称</td>
 <td>中文/英文</td>
 <td>商中在线</td>
 <td>非必选</td>
@@ -214,7 +214,7 @@
 <tr>
 <tr>
 <td>官网链接</td>
-<td>公司官网H5详情页url地址</td>
+<td>公司官网 H5 详情页 URL 地址</td>
 <td>官网详情页</td>
 <td><a href="https://www.baidu.com/">具体获取方式</a></td>
 <td>非必选</td>
@@ -223,21 +223,21 @@
 <tr>
 <tr>
 <td>企业微信</td>
-<td>企业微信id</td>
-<td>企业注册的腾讯企业微信的企业ID，用于企业名片在线客服模块，帮助企业获客以及私域运营 <a href="https:work.weixin.qq.com/api/doc/90000/9135/90665#corp">获取指引</a>
-注：提交ID前需扫码完成对QQ浏览器授权：二维码见sheet2</td>
+<td>企业微信 ID</td>
+<td>企业注册的腾讯企业微信的企业 ID，用于企业名片在线客服模块，帮助企业获客以及私域运营 <a href="https:work.weixin.qq.com/api/doc/90000/9135/90665#corp">获取指引</a>
+注：提交 ID 前需扫码完成对 QQ 浏览器授权：二维码见sheet2</td>
 <td></td>
-<td>wwb2a714863bd892e9</td>
+<td>wwb2a714863bxxxxxx</td>
 <td>非必选</td>
 </td>
 </tr>
 <tr>
 <tr>
-<td rowspan="5">【企业名片服务子链】
+<td rowspan="5"><b>企业名片服务子链</b>
 3条——可选择是否申请</td>
 <td>服务子链标题</td>
-<td>用于企业名片下方tab位置展现区使用，一般为公司主营业务、服务、新品抑或主推业务等</td>
-<td>精准描述服务用途，比如“寄快递”、“话费充值”等，描述仅限4个字</td>
+<td>用于企业名片下方 Tab 位置展现区使用，一般为公司主营业务、服务、新品抑或主推业务等</td>
+<td>精准描述服务用途，例如“寄快递”、“话费充值”等，描述仅限4个字</td>
 <td><li>产品服务</li>
 <li>企业服务</li>
 <li>最新资讯</li></td>
@@ -259,16 +259,16 @@
 <td>服务子链小程序path</td>
 <td>上述服务子链标题点击后，跳转落地页的小程序地址</td>
 <td>链接开头不含“/”，服务的小程序落地页，确保有效、可用，无明显体验问题</td>
-<td><li><a href="pages/services/index.html">产品服务</a>
-<li><a href="pages/servicedetail/index.html?sid=18ed0968619762010621b5165230e911">企业服务</a>
-<li><a href="pages/newlist/index.html">最新资讯</a></td>
+<td><li>产品服务</li>
+<li>企业服务</li>
+<li>最新资讯</li></td>
 <td>非必选</td>
 </td>
 </tr>
 <tr>
 <tr>
 <td rowspan="13">服务窗字段</td>
-<td rowspan="7">【服务窗服务子链】3条
+<td rowspan="7"><b>服务窗服务子链</b>3条
 ——可选择是否申请</td>
 <td>子链搜索服务关键词</td>
 <td>在服务窗准入行业、准入关键词内的预期关键词供审核。如果审核不通过，会被驳回重新提交。</td>
@@ -280,8 +280,8 @@
 <tr>
 <tr>
 <td>服务子链标题</td>
-<td>用于企业名片下方tab位置展现区使用，一般为公司主营业务、服务、新品抑或主推业务等</td>
-<td>精准描述服务用途，比如“寄快递”、“话费充值”等，描述仅限4个字</td>
+<td>用于企业名片下方 Tab 位置展现区使用，一般为公司主营业务、服务、新品抑或主推业务等</td>
+<td>精准描述服务用途，例如“寄快递”、“话费充值”等，描述仅限4个字</td>
 <td><li>产品服务</li>
 <li>企业服务</li>
 <li>最新资讯</li></td>
@@ -300,12 +300,12 @@
 </tr>
 <tr>
 <tr>
-<td>服务子链小程序path</td>
+<td>服务子链小程序 path</td>
 <td>上述服务子链标题点击后，跳转落地页的小程序地址</td>
 <td>链接开头不含“/”，服务的小程序落地页，确保有效、可用，无明显体验问题</td>
-<td><li><a href="pages/services/index.html">产品服务</a>
-<li><a href="pages/servicedetail/index.html?sid=18ed0968619762010621b5165230e911">企业服务</a>
-<li><a href="pages/newlist/index.html">最新资讯</a></td>
+<td><li>产品服务</li>
+<li>企业服务</li>
+<li>最新资讯</li></td>
 <td>非必选</td>
 </td>
 </tr>
