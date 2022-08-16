@@ -55,7 +55,7 @@ Kubernetes 版本：1.10+
 
 
 #### 节点要求
-容器服务控制台中**一键更新 Workload Request** 功能仅支持所有 Pod 都在原生节点上的 Workload，若您的 Workload 下有部分 Pod 不在原生节点上，需要提前准备好足够的原生节点后，将所有 Pod 迁移至原生节点上，才能在控制台使用**一键更新 Workload Request**。
+容器服务控制台中**一键更新 Workload Request** 功能会将工作负载迁移至 [原生节点](https://cloud.tencent.com/document/product/457/78197)，若您的集群原生节点上资源不足，会导致 Pod 发生 Pending。
 
 #### 被控资源要求
 
