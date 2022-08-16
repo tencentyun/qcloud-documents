@@ -1,11 +1,11 @@
-### 开发环境要求
+## 开发环境要求
 - Xcode 10 及以上
 - iOS 9.0 及以上
 
-### CocoaPods 集成
+## CocoaPods 集成
 TUIKit 从 5.7.1435 版本开始支持模块化集成，您可以根据自己的需求选择所需模块集成。
 
-1. 根据实际业务需求在 Podfile 中添加对应的 TUI 组件，比如需要聊天功能，可以添加 `pod 'TUIChat'`；需要会话列表功能，可以添加 `pod 'TUIConversation'`；需要音视频通话功能，可以添加 `pod 'TUICallkit'`。TUI 组件之间相互独立，添加或删除均不影响工程编译。
+1. 根据实际业务需求在 Podfile 中添加对应的 TUI 组件，比如需要聊天功能，可以添加 `pod 'TUIChat'`；需要会话列表功能，可以添加 `pod 'TUIConversation'`；需要音视频通话功能，可以添加 `pod 'TUICallKit'`。TUI 组件之间相互独立，添加或删除均不影响工程编译。
 ```
 # 防止 TUI 组件里的 *.xcassets 与您项目里面冲突。
 install! 'cocoapods', :disable_input_output_paths => true  
