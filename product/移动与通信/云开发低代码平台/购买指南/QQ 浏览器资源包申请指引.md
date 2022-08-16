@@ -226,7 +226,7 @@
 <tr>
 <td>企业微信</td>
 <td>企业微信 ID</td>
-<td>企业注册的腾讯企业微信的企业 ID，用于企业名片在线客服模块，帮助企业获客以及私域运营 <a href="https:work.weixin.qq.com/api/doc/90000/9135/90665#corp">获取指引</a>
+<td>企业注册的腾讯企业微信的企业 ID，用于企业名片在线客服模块，帮助企业获客以及私域运营 <a href="https://developer.work.weixin.qq.com/document/path/90665?version=4.0.12.90612&platform=mac#corp">获取指引</a>
 注：提交 ID 前需扫码完成对 QQ 浏览器授权：<a href = "https://qcloudimg.tencent-cloud.cn/raw/64d6f40f5e928e056547373f4ba3d736.jpg">详情参考</a></td>
 <td>-</td>
 <td>wwb2a714863bxxxxxx</td>
