@@ -41,7 +41,7 @@ WordPress 是一款著名的开源博客框架和内容管理系统，使用它�
 
 方案二：在宝塔 Linux 面板的软件商店中，通过一键部署安装 WordPress，详情如下图。（仅服务器已[安装宝塔面板](https://cloud.tencent.com/document/product/213/45550)时推荐）
 
-![宝塔面板安装 WordPress](https://qcloudimg.tencent-cloud.cn/raw/8a50e5d86d8c9d775db48151abb14f72.png)
+![宝塔面板安装 WordPress](https://qcloudimg.tencent-cloud.cn/raw/47487a10474f6b3e49971cd0e8814fbc.png)
 
 方案三：可在 [WordPress 官网](https://cn.wordpress.org/download/)下载 WordPress 最新版，并参考 [官方安装指南](https://wordpress.org/support/article/how-to-install-wordpress/)手动安装。
 
@@ -53,15 +53,17 @@ WordPress 是一款著名的开源博客框架和内容管理系统，使用它�
 
 方式一：在线安装（推荐）。在搜索框中搜索 **tencentcloud-vod**，然后点 **立即安装 > 启用**。
 
+![在线安装](https://qcloudimg.tencent-cloud.cn/raw/d6f02ad05b6ec492314e315e598b9fb6.png)
+
 方式二：自行下载并安装。您可点此[下载链接](https://github.com/Tencent-Cloud-Plugins/tencentcloud-wordpress-plugin-vod/releases/latest/download/tencentcloud-wordpress-plugin-vod.zip)获取最新版插件的压缩包，然后点击 **上传插件 > 选择文件 > 立即安装 > 启用插件。**
 
-![WordPress 安装点播插件](https://qcloudimg.tencent-cloud.cn/raw/20ffe85b96ed02513c7fb0bb08a0159d.png)
+![手动安装](https://qcloudimg.tencent-cloud.cn/raw/4577370365903872db3a97dfd02a032b.png)
 
 **2. 配置插件**
 
 如下图所示，单击 WordPress 左侧导航栏 **腾讯云设置 > 云点播**，可对点播插件进行配置。
 
-![配置点播插件](https://qcloudimg.tencent-cloud.cn/raw/82a2443061d63a9547716195711cc0dc.png)
+![配置点播插件](https://qcloudimg.tencent-cloud.cn/raw/12e875c706a476ff5d17281626e481cf.png)
 
 配置说明见下表：
 
@@ -80,7 +82,7 @@ WordPress 是一款著名的开源博客框架和内容管理系统，使用它�
 
 以编辑文章时上传为例，如下图所示，在文章中插入“视频区块”，然后单击**上传**按钮，选择视频文件并上传。接着单击文章右上角的**预览**按钮查看文章的预览页面，通过检查视频的网址可以发现，此时使用的已经是云点播上的视频了。
 
-![使用点播插件编写文章](https://qcloudimg.tencent-cloud.cn/raw/23e71a58dae0645ecce533159153af61.jpg)
+![使用点播插件编写文章](https://qcloudimg.tencent-cloud.cn/raw/38d1e64c7013cca0949e3f36d79bb72e.png)
 
 ## 扩展
 
