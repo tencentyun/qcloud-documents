@@ -39,6 +39,9 @@
 <td>开发者不想自己设计 UI，想复用或自定义 UI 的场景，适合初创企业或想快速实现一个互动直播的用户</td>
 </tr>
 </tbody></table>
+
+>? 详细功能请参见 [直播 SDK 功能详情](https://cloud.tencent.com/document/product/454/48438#.E5.8A.9F.E8.83.BD.E8.AF.A6.E6.83.85)。
+
 ## 方案与架构
 
 ### 直播功能快速集成
