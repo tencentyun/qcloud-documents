@@ -61,21 +61,22 @@ WBH5FaceVerifySDK.getInstance().setWebViewSettings(mWebView,getApplicationContex
     /**
      * 相机权限申请成功后，拉起TRTC刷脸模式进行实时刷脸验证
      */
-    if (Build.VERSION.SDK_INT>Build.VERSION_CODES.LOLLIPOP){  // android sdk 21以上
-            if (request!=null&&request.getOrigin()!=null){
-               if (WBH5FaceVerifySDK.getInstance().isTencentH5FaceVerify(request.getOrigin().toString())){  //判断是腾讯h5刷脸的域名，如果合作方对授权域名无限制的话，这个if条件判断可以去掉，直接进行授权即可。
+	public void enterTrtcFaceVerify(){
+		if (Build.VERSION.SDK_INT>Build.VERSION_CODES.LOLLIPOP){  // android sdk 21以上
+			if (request!=null&&request.getOrigin()!=null){
+				if (WBH5FaceVerifySDK.getInstance().isTencentH5FaceVerify(request.getOrigin().toString())){  //判断是腾讯h5刷脸的域名，如果合作方对授权域名无限制的话，这个if条件判断可以去掉，直接进行授权即可。
                     //授权
                     request.grant(request.getResources());
                     request.getOrigin();
-                }
-            }else {
-                if (request==null){
-                    Log.d(TAG,"enterTrtcFaceVerify request==null");
-                    if (webView!=null&&webView.canGoBack()){
-                        webView.goBack();
+				}
+			}else {
+               if (request==null){
+                   Log.d(TAG,"enterTrtcFaceVerify request==null");
+                   if (webView!=null&&webView.canGoBack()){
+                       webView.goBack();
                     }
                 }
-      }
+			}
         }                           
 
      // For Android >= 4.1  录制模式中，点击h5页面的录制按钮后触发的系统方法
@@ -93,11 +94,13 @@ WBH5FaceVerifySDK.getInstance().setWebViewSettings(mWebView,getApplicationContex
     // For Lollipop 5.0+ Devices  录制模式中，点击h5页面的录制按钮后触发的系统方法
     @TargetApi(21)
     @Override
-    WBH5FaceVerifySDK.getInstance().isTencentH5FaceVerify(webView,fileChooserParams,null)){ //判断是腾讯h5刷脸的域名
+		public boolean onShowFileChooser(WebView webView, ValueCallback<Uri[]> filePathCallback, FileChooserParams fileChooserParams) {
+        if (WBH5FaceVerifySDK.getInstance().isTencentH5FaceVerify(webView,fileChooserParams,null)){ //判断是腾讯h5刷脸的域名
             this.webView=webView;
             this.filePathCallback=filePathCallback;
             this.fileChooserParams=fileChooserParams;
             if (activity!=null){
+
  //申请系统的相机、录制、sd卡等权限
                 activity.requestCameraAndSomePermissions(false,false);
             }
