@@ -94,19 +94,19 @@ WBH5FaceVerifySDK.getInstance().setWebViewSettings(mWebView,getApplicationContex
     // For Lollipop 5.0+ Devices  录制模式中，点击h5页面的录制按钮后触发的系统方法
     @TargetApi(21)
     @Override
-		public boolean onShowFileChooser(WebView webView, ValueCallback<Uri[]> filePathCallback, FileChooserParams fileChooserParams) {
+	public boolean onShowFileChooser(WebView webView, ValueCallback<Uri[]> filePathCallback, FileChooserParams fileChooserParams) {
         if (WBH5FaceVerifySDK.getInstance().isTencentH5FaceVerify(webView,fileChooserParams,null)){ //判断是腾讯h5刷脸的域名
             this.webView=webView;
             this.filePathCallback=filePathCallback;
             this.fileChooserParams=fileChooserParams;
             if (activity!=null){
-
- //申请系统的相机、录制、sd卡等权限
+				//申请系统的相机、录制、sd卡等权限
                 activity.requestCameraAndSomePermissions(false,false);
             }
-        }
+		}
         return true;   
-
+	}
+	
     //录制模式中，拉起系统相机进行录制视频
     public boolean enterOldModeFaceVerify(boolean belowApi21){
         if (belowApi21){ // For Android < 5.0
