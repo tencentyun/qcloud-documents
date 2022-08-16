@@ -55,26 +55,26 @@
 
 ## 短视频SDK下载
 <div style="position: relative; box-sizing: border-box;  padding-bottom: 10px; margin-bottom: 10px; overflow:hidden">
-        <div class="card-container">
-            <div class="card">
-                            <img src="https://main.qcloudimg.com/raw/b0211b0870806899009a17a4216ea65c.svg" data-nonescope="true">
-                                <p class="titlename">iOS 短视频 SDK</p>
-                <p style="color:#586376;">提供短视频采集、剪辑、拼接、特效、分享、播放等功能。</p>
-                                <a href="https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_UGC_iOS_latest.zip">ZIP 下载</a>
-                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/584/11638">集成指引</a>
-                                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/584/9457">Demo 源码</a>
-            </div>
-        </div>
-			  <div class="card-container">
-            <div class="card">
-                                <img class="icon" src="https://main.qcloudimg.com/raw/613f2e15bed7c8297110676b52784b71.svg" data-nonescope="true">
-                                <p class="titlename">Android 短视频 SDK</p>
-                <p style="color:#586376;">提供短视频采集、剪辑、拼接、特效、分享、播放等功能。</p>
-                                <a href="https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_UGC_Android_latest.zip">ZIP 下载</a>
-                 <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/584/11631">集成指引</a>
-                                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/584/9457">Demo 源码</a>
-            </div>
-        </div>
+		<div class="card-container">
+				<div class="card">
+						<img src="https://main.qcloudimg.com/raw/b0211b0870806899009a17a4216ea65c.svg" data-nonescope="true">
+						<p class="titlename">iOS 短视频 SDK</p>
+						<p style="color:#586376;">提供短视频采集、剪辑、拼接、特效、分享、播放等功能。</p>
+						<a href="https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_UGC_iOS_latest.zip">ZIP 下载</a>
+						<a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/584/11638">集成指引</a>
+						<a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/584/9457">Demo 源码</a>
+				</div>
+		</div>
+		<div class="card-container">
+				<div class="card">
+						<img class="icon" src="https://main.qcloudimg.com/raw/613f2e15bed7c8297110676b52784b71.svg" data-nonescope="true">
+						<p class="titlename">Android 短视频 SDK</p>
+						<p style="color:#586376;">提供短视频采集、剪辑、拼接、特效、分享、播放等功能。</p>
+						<a href="https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_UGC_Android_latest.zip">ZIP 下载</a>
+						<a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/584/11631">集成指引</a>
+						<a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/584/9457">Demo 源码</a>
+				</div>
+		</div>
 </div>
 
 ## 功能版本详情
@@ -100,7 +100,7 @@
 			<tr>
 			<td>iOS</td>
 			<td>短视频 SDK（LiteAVSDK）+ Demo 源代码</td>
-			<td colspan=2><a href="https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_UGC_iOS_latest.zip">Android SDK 下载</a></td>
+			<td colspan=2><a href="https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_UGC_Android_latest.zip">Android SDK 下载</a></td>
 			</tr>
 			<tr>
 			<td rowspan=3>License</td>
