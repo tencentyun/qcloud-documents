@@ -127,7 +127,8 @@ param.secretKey = "";
 param.token = "";
 ```
 2. 开始录制
-调用 startRecordAndEvaluation（）方法传入步骤4.1.1中设置的 param 参数，并设置回调函数，即可开始录制。
+调用 startRecordAndEvaluation() 方法传入 TAIOralEvaluationParam 的 param 参数，并设置回调函数，即可开始录制。
+
 ```
 //开始录制
 this.oral.startRecordAndEvaluation(param, new TAIOralEvaluationCallback() {
