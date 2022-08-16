@@ -84,6 +84,10 @@ WordPress 是一款著名的开源博客框架和内容管理系统，使用它�
 
 ![使用点播插件编写文章](https://qcloudimg.tencent-cloud.cn/raw/38d1e64c7013cca0949e3f36d79bb72e.png)
 
+如下图所示，左侧使用的是服务器上的视频，而右侧使了云点播。播放服务器上的本地视频会因为带宽限制和没有 CDN 加速服务而频繁卡顿，使用云点播则可以轻松地解决这些问题。
+
+![](https://qcloudimg.tencent-cloud.cn/raw/d67a4db29af914ad331a60aac257971f.gif)
+
 ## 扩展
 
 **1. 使用 HTTPS**
