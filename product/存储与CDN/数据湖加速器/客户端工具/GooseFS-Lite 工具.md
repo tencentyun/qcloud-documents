@@ -33,15 +33,16 @@ yum install -y fuse-devel java-11-openjdk-devel
 
 1. 执行如下命令，获取 GooseFS-Lite 安装包：
 ```
-curl -LO https://cos-data-lake-release-1253960454.cos.ap-guangzhou.myqcloud.com/goosefs-lite/goosefs-lite-1.0.1.tar.gz
+curl -LO https://downloads.tencentgoosefs.cn/goosefs-lite/goosefs-lite-1.0.2.tar.gz
 ```
+
 2. 执行如下命令，获取 GooseFS-Lite 的 Md5 文件：
 ```
-curl -LO https://cos-data-lake-release-1253960454.cos.ap-guangzhou.myqcloud.com/goosefs-lite/goosefs-lite-1.0.1-md5.txt
+curl -LO https://downloads.tencentgoosefs.cn/goosefs-lite/goosefs-lite-1.0.2-md5.txt
 ```
 3. 执行如下命令，验证文件的完整性。
 ```
-md5sum --check goosefs-lite-1.0.1-md5.txt
+md5sum --check goosefs-lite-1.0.2-md5.txt
 ```
 执行以上三步后，当看到如下图所示，则表示文件完整性验证通过。
 ![](https://qcloudimg.tencent-cloud.cn/raw/408ed5acc4d6d0866499f94362fe70aa.png)
