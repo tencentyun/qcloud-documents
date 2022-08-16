@@ -51,7 +51,7 @@ md5sum --check goosefs-lite-1.0.2-md5.txt
 ```
 tar -xvf goosefs-lite-${version}.tar.gz
 ```
-您可以将上述命令中的 ${version} 替换为使用的 GooseFS-Lite 版本，例如 1.0.1。当看到如下图所示，则表示解压成功，并生成了一个 goosefs-lite-${version}的目录。
+您可以将上述命令中的 ${version} 替换为使用的 GooseFS-Lite 版本，例如 1.0.2。当看到如下图所示，则表示解压成功，并生成了一个 goosefs-lite-${version}的目录。
 <img src="https://qcloudimg.tencent-cloud.cn/raw/d9fb1f5c09e49799a31fd63446cd95d8.png" style="width: 70%" />
 
 
