@@ -173,7 +173,7 @@
 
 `点击后续动作`请选择打开应用。
 
-![20220614153143](https://tuikit-1251787278.cos.ap-guangzhou.myqcloud.com/20220614153143.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/c1b3ad943abed93537761cddd22f9de5.png)
 
 #### 魅族
 
