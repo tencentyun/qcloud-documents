@@ -1,9 +1,9 @@
-腾讯云视立方 iOS 超级播放器 Adapter 为云点播提供给客户希望使用第三方播放器或自研播放器开发的对接云 PaaS 资源的播放器插件，常用于有自定义播放器功能需求的用户。
+腾讯云视立方 iOS 播放器组件 Adapter 为云点播提供给客户希望使用第三方播放器或自研播放器开发的对接云 PaaS 资源的播放器插件，常用于有自定义播放器功能需求的用户。
 
 
 
 ## SDK下载
-腾讯云视立方 iOS 超级播放器 Adapter SDK 和 Demo 项目，请参见 [TXCPlayerAdapterSDK_iOS](https://mediacloud-76607.gzc.vod.tencent-cloud.com/TXCPlayerAdapter/Release/1.2.0/TXCPlayerAdapterSDK_1.2.0_iOS.zip)。 
+腾讯云视立方 iOS 播放器组件 Adapter SDK 和 Demo 项目，请参见 [TXCPlayerAdapterSDK_iOS](https://mediacloud-76607.gzc.vod.tencent-cloud.com/TXCPlayerAdapter/Release/1.2.0/TXCPlayerAdapterSDK_1.2.0_iOS.zip)。 
 
 ## 集成指引
 
@@ -36,7 +36,7 @@ fileId 一般是在视频上传后，由服务器返回：
 ```objective-c
 NSInteger appId; ////appid 在腾讯云点播申请
 NSString *fileId;
-//psign 即超级播放器签名，签名介绍和生成方式参见链接：https://cloud.tencent.com/document/product/266/42436
+//psign 即播放器组件签名，签名介绍和生成方式参见链接：https://cloud.tencent.com/document/product/266/42436
 NSString *pSign = self.pSignTextView.text;
     
 TXCPlayerAdapter *adapter = [TXCPlayerAdapter shareAdapterWithAppId:appId];
@@ -119,7 +119,7 @@ appId：填写 appid（如果使用了子应用，则填 subappid）。
 | 参数名 | 类型   | 描述               |
 | :----- | :----- | :----------------- |
 | fileId | String | 要播放的视频 fileId |
-| pSign  | String | 超级播放器签名     |
+| pSign  | String | 播放器组件签名     |
 
 ### 请求视频播放信息
 
