@@ -18,7 +18,7 @@
 申请测试模块。您可以选择**新建测试 License 并申请测试功能模块**或在**已创建的测试应用中申请测试新功能模块**两种方式创建测试 License。
 <dx-tabs>
 ::: 方式一：新建测试 License 并申请测试功能模块
-1. 登录 [**腾讯云视立方控制台 > 移动端 License **](https://console.cloud.tencent.com/vcube)，单击**新建测试 License**。
+1. 登录 [**腾讯云视立方控制台 > 移动端 License**](https://console.cloud.tencent.com/vcube)，单击**新建测试 License**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/4d63d6f14f82ba1775083ed461c5f5db.png)
 2. 根据实际需求填写 `App Name`、`Package Name` 和 `Bundle ID`，勾选功能模块 **高级套餐 S1 - 04**的腾讯特效测试套餐，勾选后准确填写 **公司名称、所属行业类型**，上传**公司营业执照**，单击**确定**提交审核申请，等待人工审核流程。
 ![](https://qcloudimg.tencent-cloud.cn/raw/1e920a18e8e06fafbd9af73c1fff3543.png)
