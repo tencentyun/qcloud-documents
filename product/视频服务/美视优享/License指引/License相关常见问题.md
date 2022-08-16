@@ -23,7 +23,7 @@
 
 [](id:q5)
 ### 腾讯特效 License 支持的包名个数是多少？授权台数是多少？
-单个腾讯特效 License 可以支持绑定移动端或PC端，一经绑定不可更改。绑定移动端，仅支持 Bundle ID 和 Package Name 两个不同的包名。绑定 PC 端，仅支持 WinProcess Name 和 MacBundle ID 两个包名。
+单个腾讯特效 License 可以支持绑定移动端或 PC 端，一经绑定不可更改。绑定移动端，仅支持 Bundle ID 和 Package Name 两个不同的包名。绑定 PC 端，仅支持 WinProcess Name 和 MacBundle ID 两个包名。
 整个账号可以添加的 License 数量是没有限制的。目前 License 对授权终端的台数也是没有限制的。
 
 [](id:q6)
