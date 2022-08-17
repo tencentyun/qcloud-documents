@@ -1,7 +1,7 @@
 腾讯特效 License 提供美颜特效相关能力，购买腾讯特效套餐获得套餐1年使用权限，解锁对应腾讯特效功能。计费购买详情请参见 [价格总览](https://cloud.tencent.com/document/product/616/36807)。
 
-购买后可在 [腾讯云视立方控制台](https://console.cloud.tencent.com/vcube/pc) 对腾讯特效 License 进行新增和续期等操作。腾讯特效 license 可以支持移动端或PC端绑定，一经绑定不可修改。 
-本文将对腾讯特效PC端 License 测试版和正式版的新增和续期等操作进行说明指引。
+购买后可在 [腾讯云视立方控制台](https://console.cloud.tencent.com/vcube/pc) 对腾讯特效 License 进行新增和续期等操作。腾讯特效 License 可以支持移动端或PC端绑定，一经绑定不可修改。 
+本文将对腾讯特效 PC 端 License 测试版和正式版的新增和续期等操作进行说明指引。
 
 [](id:test)
 ## 测试版 License
@@ -27,7 +27,7 @@
 > - 若无 WinProcess Name 或 MacBundle ID，可填写“-”。
 3. 提交审核申请后模块进入**公司资质审核中**，审核时间通常 1-2 个工作日。可单击**查看审核信息**查看提交的审核信息。
 ![](https://qcloudimg.tencent-cloud.cn/raw/322566e2669d5abd2dc028ad0d05658b.png)
-![](https://qcloudimg.tencent-cloud.cn/raw/85f9e8815b949d821bc6f7aed40b3f5d.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/fc365c5572722cc816362223b713ba02.png)
 4. 审核通过后，腾讯特效功能模块状态为**正常**，腾讯特效测试版 License 申请成功，您可开始使用腾讯特效功能模块。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d15a827aa7f3b6da346f353b5d8534f6.png)
 >? **若审核失败**未通过，单击**审核结果**查看审核结果和审核备注，您可根据审核备注知悉审核失败原因，单击**重新发起审核**。更改审核信息并提交，等待人工审核流程。
@@ -60,11 +60,11 @@
 新建正式应用并绑定 License
 1. 进入 [**腾讯云视立方控制台 > PC端 License**](https://console.cloud.tencent.com/vcube/pc)，单击**新建正式 License**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/7d7b23dd672ea2c877eab6beb112ea47.png)
-2. 填写正式应用的 `App Name`、`Package Name` 和 `Bundle ID` 信息，勾选功能模块**腾讯特效**，单击**下一步**。
+2. 填写正式应用的 `App Name`、`WinProcess Name` 和 `MacBundle ID` 信息，勾选功能模块**腾讯特效**，单击**下一步**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/89bebe864ff57bf97ed104c5718847bc.png)
 3. 进入选择资源项并绑定 License 界面，单击**立即绑定** ，选择**未绑定**的腾讯特效套餐包（若没有可绑定的资源包，可前往 [资源包购买页](https://buy.cloud.tencent.com/vcube?type=magic) 购买），并单击**确定**即可同时创建应用并生成正式版 License。
 ![](https://qcloudimg.tencent-cloud.cn/raw/b2eeb18cf4122712126eb335155c582d.png)
-> ?单击**确定**前需要再次确认 Bundle ID 和 Package Name 与业务使用包名信息一致，如与提交到商店的不一致，请在提交前进行修改，**正式版 License 一旦提交成功将无法再修改 License 信息**。
+> ?单击**确定**前需要再次确认 WinProcess Name 和 MacBundle ID 与业务使用包名信息一致，如与提交到商店的不一致，请在提交前进行修改，**正式版 License 一旦提交成功将无法再修改 License 信息**。
 2. 腾讯特效功能模块状态为**正常**，腾讯特效正式版 License 申请成功，您可开始使用腾讯特效功能模块。
 ![](https://qcloudimg.tencent-cloud.cn/raw/bf819ff40fe3d795412bfa24e9258a01.png)
 
