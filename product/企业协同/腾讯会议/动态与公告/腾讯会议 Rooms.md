@@ -8,13 +8,13 @@
 	<tr>
 <td><center>V3.8.10</td>	
 <td>支持 Rooms 中控 API。</td>	
-<td><center>2022-08-10</td>	
+<td><center>2022-08-11</td>	
 	</tr>
 	<tr>
 <td><center>V3.8.0</td>	
 <td>1. 支持 Rooms 会议查看聊天消息。<br>
 2. 支持 Rooms 会中邀请会议室。</td>	
-<td><center>2022-08-10</td>	
+<td><center>2022-07-26</td>	
 	</tr>
 <tr>
 <td><center>V2.12.120</td>	
@@ -92,13 +92,13 @@
 	<tr>
 <td><center>V3.8.10</td>	
 <td>支持 Rooms 中控 API。</td>	
-<td><center>2022-05-20</td>	
+<td><center>2022-08-11</td>	
 	</tr>
 	<tr>
 <td><center>V3.8.0</td>	
 <td>1. 支持 Rooms 会议查看聊天消息。<br>
 2. 支持 Rooms 会中邀请会议室。</td>	
-<td><center>2022-08-10</td>	
+<td><center>2022-07-26</td>	
 	</tr>
 <td><center>V2.12.120</td>	
 <td>优化了会议室管理页问题。<br>

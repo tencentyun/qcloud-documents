@@ -130,7 +130,6 @@ GET index/_search
 ```
 
 ### 使用自定义词典
-QQ 分词插件支持自定义词典的配置，词典上传后会触发集群的滚动重启，请确保集群处于 GREEN 状态，并且没有单副本索引。
 1. 登录 [Elasticsearch Service 控制台](https://console.cloud.tencent.com/es)，在集群列表页，单击集群【ID/名称】进入集群详情页。
 ![](https://main.qcloudimg.com/raw/3a8640bd4e23dfa56ec76eda69fdc33f.png)
 2. 单击【插件列表】，进入插件列表管理页面。

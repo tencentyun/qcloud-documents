@@ -55,7 +55,7 @@ Kubernetes 版本：1.10+
 
 
 #### 节点要求
-容器服务控制台中**一键更新 Workload Request** 功能仅支持所有 Pod 都在原生节点上的 Workload，若您的 Workload 下有部分 Pod 不在原生节点上，需要提前准备好足够的原生节点后，将所有 Pod 迁移至原生节点上，才能在控制台使用**一键更新 Workload Request**。
+容器服务控制台中**一键更新 Workload Request** 功能会将工作负载迁移至 [原生节点](https://cloud.tencent.com/document/product/457/78197)，若您的集群原生节点上资源不足，会导致 Pod 发生 Pending。
 
 #### 被控资源要求
 
@@ -92,7 +92,7 @@ Kubernetes 版本：1.10+
 2. 在左侧选择**云原生资产管理 > Workload Map**。
 >? Workload Map 主要通过可视化的页面展示工作负载的各项状态和指标，帮助用户了解当前工作负载的配置量和实际使用情况，辅助用户分析工作负载可能存在的问题。更多可参考文档 [Workload Map](https://cloud.tencent.com/document/product/457/78330)。
 >
-3. 在 Workload Map 页面，鼠标悬浮到页面下方某一个 Workload 上，单击“推荐”。
+3. 在 Workload Map 页面，鼠标悬浮到页面下方某一个 Workload 上，单击**推荐**。
 3. 在弹窗中，单击**确认**，即可使用推荐的 Request 数值更新原始 Workload 里面的数值。
 
 
