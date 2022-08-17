@@ -16,7 +16,7 @@
 ### 包年包月模式
 
 - 支持调度 1C～8C 标准规格的 Pod。
-- 支持调度 CPU 值大于 1/4 内存值的 Pod。
+- 支持调度 CPU 值大于1/4内存值的 Pod。
 
 节点支持规格列表：
 >! 若为非标准规格，则自动向上转换成标准规格。
@@ -34,7 +34,7 @@
 ### 按量计费模式
 
 - 支持调度0.25C～16C标准规格的 Pod（若为非标准规格，则自动向上转换成标准规格）。
-- 支持调度 CPU 值大于1/8 内存值的 Pod。
+- 支持调度 CPU 值大于1/8内存值的 Pod。
 
 节点支持规格列表：
 >! 若为非标准规格，则自动向上转换成标准规格。
@@ -62,7 +62,7 @@
 >!
 >- 临时镜像存储将于 Pod 生命周期结束时删除，请勿用于存储重要数据。
 >- 由于需存储镜像，实际可用空间小于20GiB。
->- 若需要扩容系统盘资源，可通过 annotation 实现。
+>- 若需要扩容系统盘资源，可通过 Annotation 实现。
 >- 重要数据、超大文件等推荐挂载 Volume 持久化存储。
 
 ### Pod 网络
@@ -103,7 +103,7 @@ Pod 与 Pod、Pod 与其他同 VPC 云产品间可直接通过 VPC 网络通信�
 
 ## 默认配额
 
-购买包年包月的超级节点时，将按照总规格分配默认配额，开通按量计费的超级节点，默认每个集群可将 500 个 Pod 调度到超级节点上。若您需要超过以上配额的资源，可填写提升配额申请，由腾讯云对您的实际需求进行评估，评估通过之后将为您提升配额。
+购买包年包月的超级节点时，将按照总规格分配默认配额，开通按量计费的超级节点，默认每个集群可将500个 Pod 调度到超级节点上。若您需要超过以上配额的资源，可填写提升配额申请，由腾讯云对您的实际需求进行评估，评估通过之后将为您提升配额。
 
 ### 申请提升配额操作指引
 
@@ -123,10 +123,10 @@ DaemonSet 类型工作负载的 Pod 不会调度到超级节点上。
 
 ### Volume 限制
 
-支持 EmptyDir / PVC / Secret / NFS / ConfigMap / DownloadAPI / HostPath 类型的Volume。
+支持 EmptyDir / PVC / Secret / NFS / ConfigMap / DownloadAPI / HostPath 类型的 Volume。
 其中针对 PVC 类型的 Volume：
-1）PV类型：仅支持 NFS / CephFS / HostPath / 静态 cbs 类型，其他的不支持（csi不支持）
-2）Storageclass类型：仅支持用户自定义 /  `cloud.tencent.com/qcloud-cbs`  类型， cfs不支持
+- PV 类型：仅支持 NFS / CephFS / HostPath / 静态 cbs 类型，其他的不支持（csi 不支持）
+- Storageclass 类型：仅支持用户自定义 /`cloud.tencent.com/qcloud-cbs` 类型，cfs 不支持
 
 ### GPU 限制
 
@@ -138,5 +138,5 @@ DaemonSet 类型工作负载的 Pod 不会调度到超级节点上。
 - 开启了 [固定 IP ](https://cloud.tencent.com/document/product/457/34994) 的 Pod 暂不支持调度到超级节点上。
 - 指定了 hostIP 配置的 Pod 默认会把 Pod IP 作为 hostIP。
 - 调度到超级节点上的 Pod 是强隔离的，如果开启了硬反亲和性特性，调度到超级节点上不会生效，会存在调度多个同一工作负载的Pod在同一个超级节点上的情况。
-- tke-eni-ip-webhook 命名空间下的pod不支持调度到超级节点。
+- tke-eni-ip-webhook 命名空间下的 Pod 不支持调度到超级节点。
 - TKE kube-system 下的 Pod 支持调度到包年包月的超级节点，默认不支持调度到按量计费的超级节点。
