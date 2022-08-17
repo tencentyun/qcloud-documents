@@ -112,7 +112,7 @@ WordPress 是一款著名的开源博客框架和内容管理系统，使用它�
 2. 以编辑文章时上传为例，如下图所示，在文章中插入“视频区块”，然后单击**上传**，选择视频文件并上传。接着单击文章右上角的**预览**查看文章的预览页面，通过检查视频的网址可以发现，此时使用的已经是云点播上的视频了。
 ![使用点播插件编写文章](https://qcloudimg.tencent-cloud.cn/raw/38d1e64c7013cca0949e3f36d79bb72e.png)
 3. 如下图所示，左侧使用的是服务器上的视频，而右侧使了云点播。播放服务器上的本地视频会因为带宽限制和没有 CDN 加速服务而频繁卡顿，使用云点播则可以轻松地解决这些问题。
-![](https://qcloudimg.tencent-cloud.cn/raw/d67a4db29af914ad331a60aac257971f.gif)
+![]([https://qcloudimg.tencent-cloud.cn/raw/d67a4db29af914ad331a60aac257971f.gif](https://qcloudimg.tencent-cloud.cn/raw/002da7734ac65e618732036d234bf07c.gif))
 
 ## 扩展
 ### 使用 HTTPS
