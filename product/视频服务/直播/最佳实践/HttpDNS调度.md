@@ -61,3 +61,5 @@ https://server_ip/play_domain/live/ streamname -123.ts?xxxxxxxxxx
 ```
 rtmp://server_ip/play_domain/live/ streamname?xxxxxxxxxx
 ```
+
+>? 由于 HTTPDNS 请求存在小概率失败的情况，当 HTTPDNS 访问超时，或者返回的结果非 IP格式，或者返回为空的时候，请兜底至 LocalDNS 进行域名解析。
