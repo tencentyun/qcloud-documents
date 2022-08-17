@@ -8,8 +8,7 @@ DBbrain 支持 Redis 大 Key 分析，可快速发现实例中的大 Key，动�
 
 1. 登录 [DBbrain 控制台](https://console.cloud.tencent.com/dbbrain)，在左侧导航选择**实例管理**，然后选择对应的实例，在**状态**列单击编辑按钮。
    ![](https://qcloudimg.tencent-cloud.cn/raw/1d3349425e733950bada2cb76cce9e22.png)
-
-2. 在弹窗的对话框中勾选**Top100大Key分析**，然后单击**确定**。
+2. 在弹窗的对话框中勾选 **Top100大Key分析**，然后单击**确定**。<br>
    <img src="https://qcloudimg.tencent-cloud.cn/raw/088a4565067d92a8d2773ac5c75352c6.png" style="zoom:67%;" />
 
 ## 查看大 Key 分析结果
@@ -25,7 +24,7 @@ DBbrain 支持 Redis 大 Key 分析，可快速发现实例中的大 Key，动�
 
 ## 即时大 Key 分析
 
-创建即时大 Key 分析任务后，会立即自动生成一次备份文件，因为获取的是最新的数据，生成的分析结果会回填在第一个页签**大 Key 分析**中。如果之前已经开启了大  Key分析功能，即时大 Key 分析任务结束后，**大 Key 分析**页签下的数据会被更新，如果之前未开启，即时大 Key 分析任务结束后，**大 Key 分析**页签下的数据会首次展示。
+创建即时大 Key 分析任务后，会立即自动生成一次备份文件，因为获取的是最新的数据，生成的分析结果会回填在第一个页签**大 Key 分析**中。如果之前已经开启了大 Key 分析功能，即时大 Key 分析任务结束后，**大 Key 分析**页签下的数据会被更新，如果之前未开启，即时大 Key 分析任务结束后，**大 Key 分析**页签下的数据会首次展示。
 
 1. 登录 [DBbrain 控制台](https://console.cloud.tencent.com/dbbrain)，在左侧导航选择**诊断优化**，在上方选择对应数据库，然后选择**内存分析**页，可以看到**即时大 Key 分析**功能。
 ![](https://main.qcloudimg.com/raw/3e423e9a1b9f23eae36ee451c5e86139.png)
