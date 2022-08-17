@@ -37,7 +37,7 @@
 测试版 License 初次申请默认有效期默认为14天，期满后您可续期**1次**。单击功能模块**腾讯特效**右侧的**续期**，单击**确定续期**即可续期该功能模块14天。
 ![](https://qcloudimg.tencent-cloud.cn/raw/6acba158d0a2b614012285e0488913af.png)
 
-> ?测试版 License 有效期共28天，**只能续期一次**。若您需继续使用，请购买 [正式版 License](https://cloud.tencent.com/document/product/616/65879)。
+> ?测试版 License 有效期共28天，**只能续期一次**。若您需继续使用，请购买 [正式版 License](#formal)。
 
 [](id:upgrade_test)
 ### 升级测试版 License
