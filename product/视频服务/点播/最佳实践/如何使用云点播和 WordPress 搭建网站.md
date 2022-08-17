@@ -54,7 +54,7 @@ WordPress 是一款著名的开源博客框架和内容管理系统，使用它�
 ## 准备工作
 ### 1. 创建点播子应用
 
-点播子应用可帮助您实现资源隔离，例如您可将不同站点的媒体文件划分到不同的子应用下，单独管理。创建方法详见文档 [开通子应用](https://cloud.tencent.com/document/product/266/14574#.E5.BC.80.E9.80.9A.E5.AD.90.E5.BA.94.E7.94.A8)。
+点播子应用可帮助您实现资源隔离，例如您可将不同站点的媒体文件划分到不同的子应用下，单独管理。创建方法详见 [开通子应用](https://cloud.tencent.com/document/product/266/14574#.E5.BC.80.E9.80.9A.E5.AD.90.E5.BA.94.E7.94.A8)。
 
 ### 2. 搭建 WordPress 网站
 您可以根据实际情况选择一种方案来搭建 WordPress 网站：
@@ -68,7 +68,7 @@ WordPress 是一款著名的开源博客框架和内容管理系统，使用它�
 ![宝塔面板安装 WordPress](https://qcloudimg.tencent-cloud.cn/raw/47487a10474f6b3e49971cd0e8814fbc.png)
 :::
 ::: 方案三
-可在 [WordPress 官网](https://cn.wordpress.org/download/)下载 WordPress 最新版，并参考 [官方安装指南](https://wordpress.org/support/article/how-to-install-wordpress/)手动安装。
+可在 [WordPress 官网](https://cn.wordpress.org/download/)下载 WordPress 最新版，并参见 [官方安装指南](https://wordpress.org/support/article/how-to-install-wordpress/)手动安装。
 :::
 </dx-tabs>
 
@@ -84,7 +84,7 @@ WordPress 是一款著名的开源博客框架和内容管理系统，使用它�
 ![在线安装](https://qcloudimg.tencent-cloud.cn/raw/d6f02ad05b6ec492314e315e598b9fb6.png)
 :::
 ::: 方式二
-自行下载并安装。您可点此[下载链接](https://github.com/Tencent-Cloud-Plugins/tencentcloud-wordpress-plugin-vod/releases/latest/download/tencentcloud-wordpress-plugin-vod.zip)获取最新版插件的压缩包，然后点击 **上传插件 > 选择文件 > 立即安装 > 启用插件。**
+自行下载并安装。您可单击 [下载链接](https://github.com/Tencent-Cloud-Plugins/tencentcloud-wordpress-plugin-vod/releases/latest/download/tencentcloud-wordpress-plugin-vod.zip) 获取最新版插件的压缩包，单击 **上传插件 > 选择文件 > 立即安装 > 启用插件。**
 
 ![手动安装](https://qcloudimg.tencent-cloud.cn/raw/4577370365903872db3a97dfd02a032b.png)
 :::
@@ -93,20 +93,19 @@ WordPress 是一款著名的开源博客框架和内容管理系统，使用它�
 
 ### 步骤2：配置插件
 
-如下图所示，单击 WordPress 左侧导航栏 **腾讯云设置 > 云点播**，可对点播插件进行配置。
-
-![配置点播插件](https://qcloudimg.tencent-cloud.cn/raw/12e875c706a476ff5d17281626e481cf.png)
+如下图所示，单击 WordPress 左侧导航栏 **腾讯云设置 > [云点播](https://cloud.tencent.com/document/product/266/36702)**，可对点播插件进行配置。
+![](https://qcloudimg.tencent-cloud.cn/raw/816b6e024800b7004ec0a32fa3ea86c1.png)
 
 配置说明见下表：
 
 | **配置项**           | **说明**                                                     |
 | -------------------- | ------------------------------------------------------------ |
-| 自定义密钥           | 不开启该选项时，插件会使用**腾讯云设置**中配置的密钥，即与其它腾讯云插件共用同一个密钥。开启该选项时，则会使用下方指定的密钥 |
-| SecretId、SecretKey  | 访问密钥信息，可前往 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中创建和获取 |
-| SubAppID             | 云点播的子应用 ID，填上准备工作中创建的子应用 ID 即可，也可在点播 [应用管理](https://console.cloud.tencent.com/vod/app-manage)中查询到 |
-| 是否开启转自适应码流 | 开启后，会在上传时对视频进行转自适应码流。详情见点播 [自适应码流](https://cloud.tencent.com/document/product/266/78292)文档 |
+| 自定义密钥           | 不开启该选项时，插件会使用**腾讯云设置**中配置的密钥，即与其它腾讯云插件共用同一个密钥。开启该选项时，则会使用下方指定的密钥。 |
+| SecretId、SecretKey  | 访问密钥信息，可前往 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中创建和获取。 |
+| SubAppID             | 云点播的子应用 ID，填上准备工作中创建的子应用 ID 即可，也可在点播 [应用管理](https://console.cloud.tencent.com/vod/app-manage)中查询到。 |
+| 是否开启转自适应码流 | 开启后，会在上传时对视频进行转自适应码流。详情见点播 [自适应码流](https://cloud.tencent.com/document/product/266/78292)。 |
 
-配置完成后，点击 **保存设置** 即可。
+配置完成后，单击 **保存设置** 即可。
 
 ### 步骤3：上传并使用点播视频
 1. 开启并配置好点播插件后，在媒资库和编辑文章或页面时上传的视频文件，就会自动上传到云点播。
