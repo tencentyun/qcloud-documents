@@ -4,11 +4,11 @@ DBbrain 支持 Redis 大 Key 分析，可快速发现实例中的大 Key，动�
 
 ## 开启大 Key 分析
 
-首次使用大 Key 分析，需要在实例管理中开启大 Key 分析功能。
+首次使用大 Key 分析，需要在实例管理中开启大 Key 分析功能。开启后，系统会在第二天自动发起大 Key 分析任务，并在**内存分析** > **大 Key 分析**中显示分析结果。后续每天例行进行一次分析任务，并更新数据结果。
 
 1. 登录 [DBbrain 控制台](https://console.cloud.tencent.com/dbbrain)，在左侧导航选择**实例管理**，然后选择对应的实例，在**状态**列单击编辑按钮。
    ![](https://qcloudimg.tencent-cloud.cn/raw/1d3349425e733950bada2cb76cce9e22.png)
-2. 在弹窗的对话框中勾选 **Top100大Key分析**，然后单击**确定**。<br>
+2. 在弹窗的对话框中勾选 **Top100 大 Key 分析**，然后单击**确定**。<br>
    <img src="https://qcloudimg.tencent-cloud.cn/raw/088a4565067d92a8d2773ac5c75352c6.png" style="zoom:67%;" />
 
 ## 查看大 Key 分析结果
