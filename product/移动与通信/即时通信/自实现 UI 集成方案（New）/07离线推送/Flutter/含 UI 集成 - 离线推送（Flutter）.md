@@ -173,13 +173,13 @@
 
 `点击后续动作`请选择打开应用。
 
-![20220614153143](https://tuikit-1251787278.cos.ap-guangzhou.myqcloud.com/20220614153143.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/c1b3ad943abed93537761cddd22f9de5.png)
 
 #### 魅族
 
 ##### 开通服务
 1. 打开 [魅族开放平台官网](https://open.flyme.cn) 进行注册并通过开发者认证。
- >?认证过程大约需要3天左右，请务必提前阅读 [魅族 Flyme 推送接入文档](https://open-wiki.flyme.cn/doc-wiki/index#id?129)，以免影响您的接入进度。
+ >?认证过程大约需要3天左右，请务必提前阅读 [魅族 Flyme 推送接入文档](https://open.flyme.cn/docs?id=129)，以免影响您的接入进度。
 
 2. 登录魅族开放平台的管理控制台，选择**服务**>**集成推送服务**>**推送后台**，创建魅族推送服务应用。
 3. 魅族推送服务应用创建完成后，在应用详情中，您可以查看详细的应用信息。记录**应用包名**、**App ID**、**App Secret**信息。

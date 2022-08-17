@@ -17,7 +17,7 @@ SecretId 和 SecretKey 是使用 SDK 的安全凭证，您可以在访问管理�
 
 ## SDK DEMO 使用流程
 1. 安装依赖环境
-安装PHP 5.6.0 版本及以上
+Go 1.9 版本及以上（如使用 go mod 需要 Go 1.14）。
 
 2. 下载 SDK
 从 github 下载 [tencentcloud-sdk-go](https://github.com/TencentCloud/tencentcloud-sdk-go)。或者在终端输入 git 命令：
@@ -46,9 +46,9 @@ v1.0.170后可以按照产品下载，您只需下载基础包和对应的产品
 ```
 go get -v -u github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common
 ```
-		2. 安装对应的产品包(如soe)：
+		2. 安装对应的产品包(如 soe)：
 ```
-go get -v -u github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/cvm
+go get -v -u github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/soe
 ```
 	- 全部安装
 此模式支持 GOPATH 和 Go Modules。此方式会一次性下载腾讯云所有产品的包：
@@ -409,9 +409,9 @@ func main() {
 
 ```
 
-## 外部签名（不推荐）
+### 外部签名（不推荐）
 使用 [TransmitOralProcessWithInit](https://cloud.tencent.com/document/api/884/32605) 接口演示：
-1.生成 curl
+1. 生成 curl
 ```
 package main
 
