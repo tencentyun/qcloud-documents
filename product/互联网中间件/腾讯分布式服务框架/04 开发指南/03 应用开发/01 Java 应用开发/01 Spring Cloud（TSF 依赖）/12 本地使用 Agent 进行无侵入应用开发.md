@@ -7,12 +7,12 @@
 > ? 同时请确保 SDK 版本高于**2020**。
 
 ## 操作步骤
-如果对 Agent 有疑问，可以先阅读[Agent 插件功能说明](https://github.com/yangjuanying/qcloud-documents/blob/patch-6/product/%E4%BA%92%E8%81%94%E7%BD%91%E4%B8%AD%E9%97%B4%E4%BB%B6/%E8%85%BE%E8%AE%AF%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6/03%20%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/03%20%E5%9C%A8%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%8E%AF%E5%A2%83%E4%B8%AD%E9%83%A8%E7%BD%B2%E5%BE%AE%E6%9C%8D%E5%8A%A1/05%20%E9%83%A8%E7%BD%B2%20Spring%20Cloud%20TSF%20%E5%BA%94%E7%94%A8%EF%BC%88Java%20Agent%E7%89%88%EF%BC%89.md)
+如果对 Agent 有疑问，可以先参见 [Agent 插件功能说明](https://cloud.tencent.com/document/product/649/79177)。
 
 >?[步骤1](#step1) 和 [步骤2](#step2) 与其他模块一样，已经使用过其他模块的可直接跳至 [步骤3](#step3)。
 
 [](id:step1)
-**1. 在本地确保依赖了 2020 相关的SDK依赖。**
+**1. 在本地确保依赖了 2020 相关的 SDK 依赖。**
 在 `pom.xml` 中添加以下代码：
 ```xml
 <dependency>
@@ -44,11 +44,11 @@ public class ProviderApplication {
 
 **[](id:step3)3. 在启动应用时使用服务 Agent：**
 
-下载[service-agent-release.tar](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91/jvm%E7%9B%91%E6%8E%A7/service-agent-release.tar)，并解压。在 IDE 中启动，通过 VM options 配置启动参数`-javaagent:service-agent-release/femas-agent/femas-agent.jar`，通过 main 方法直接启动。
+下载 [service-agent-release.tar](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91/jvm%E7%9B%91%E6%8E%A7/service-agent-release.tar)，并解压。在 IDE 中启动，通过 VM options 配置启动参数`-javaagent:service-agent-release/femas-agent/femas-agent.jar`，通过 main 方法直接启动。
 
 **[](id:step4)4. 在启动应用时使用可观测 Agent：**
 
-下载[ot-agent-release.tar](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91/jvm%E7%9B%91%E6%8E%A7/ot-agent-release.tar)，并解压。在 IDE 中启动，通过 VM options 配置启动参数`-javaagent:ot-agent-release/opentelemetry-javaagent.jar -Dotel.javaagent.extensions=ot-agent-release/femas-trace-opentelemetry.jar`，通过 main 方法直接启动。
+下载 [ot-agent-release.tar](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91/jvm%E7%9B%91%E6%8E%A7/ot-agent-release.tar)，并解压。在 IDE 中启动，通过 VM options 配置启动参数`-javaagent:ot-agent-release/opentelemetry-javaagent.jar -Dotel.javaagent.extensions=ot-agent-release/femas-trace-opentelemetry.jar`，通过 main 方法直接启动。
 
 >!如果想要多个 Agent 一起使用，可以使用命令如：`-javaagent:service-agent-release/femas-agent/femas-agent.jar -javaagent:ot-agent-release/opentelemetry-javaagent.jar -Dotel.javaagent.extensions=ot-agent-release/femas-trace-opentelemetry.jar`
 
