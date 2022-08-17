@@ -68,7 +68,7 @@ WordPress 是一款著名的开源博客框架和内容管理系统，使用它�
 ![宝塔面板安装 WordPress](https://qcloudimg.tencent-cloud.cn/raw/47487a10474f6b3e49971cd0e8814fbc.png)
 :::
 ::: 方案三
-可在 [WordPress 官网](https://cn.wordpress.org/download/)下载 WordPress 最新版，并参见 [官方安装指南](https://wordpress.org/support/article/how-to-install-wordpress/)手动安装。
+可在 [WordPress 官网](https://cn.wordpress.org/download/) 下载 WordPress 最新版，并参见 [官方安装指南](https://wordpress.org/support/article/how-to-install-wordpress/) 手动安装。
 :::
 </dx-tabs>
 
