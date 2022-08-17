@@ -6,7 +6,7 @@
 
 
 <dx-alert infotype="alarm" title=" ">
-如果您无法确定应用场景，可以进入 [自定义 SDK 下载页](http://vcubetest.tencent.com/index.html)，您可以勾选需要的功能，根据勾选结果为您推荐 SDK。
+如果您无法通过应用场景确定您需要的 SDK，可以进入 [自定义 SDK 下载页](https://vcube.cloud.tencent.com/home.html)，勾选您需要的功能，我们将基于勾选结果为您推荐最合适的 SDK。
 </dx-alert>
 
 
