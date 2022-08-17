@@ -51,7 +51,7 @@
 测试版 License 初次申请默认有效期默认为14天，期满后您可续期**1次**。单击功能模块**腾讯特效**右侧的**续期**，单击**确定续期**即可续期该功能模块14天。
 ![](https://qcloudimg.tencent-cloud.cn/raw/5da5f8b6b35cf7afe8ef74a6407e9145.png)
 
-> ?测试版 License 有效期共28天，**只能续期一次**。若您需继续使用，请购买 [正式版 License](https://cloud.tencent.com/document/product/616/79137#create_formal)。
+> ?测试版 License 有效期共28天，**只能续期一次**。若您需继续使用，请购买 [正式版 License](#create_formal)。
 
 [](id:upgrade_test)
 ### 升级测试版 License
@@ -66,7 +66,6 @@
 [](id:create_formal)
 ### 购买正式版 License
 您可根据具体需求场景，在 [音视频终端 SDK 购买页](https://buy.cloud.tencent.com/vcube?type=magic) 选择并购买 SDK 套餐，获得相应的正式版 License 使用授权（有效期 1 年至到期次日00:00:00为止）。各版本 SDK 的功能差异请参见 [计费概述](https://cloud.tencent.com/document/product/616/36807)。
-
 
 具体步骤如下：
 1. 绑定腾讯特效正式版 License。您可以选择**新建正式应用并绑定 License**或在**已创建的应用上解锁腾讯特效正式版模块并绑定 License**两种方式进行正式版 License 绑定。 
