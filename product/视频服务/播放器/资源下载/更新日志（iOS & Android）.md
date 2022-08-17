@@ -111,10 +111,10 @@ Android：修复点播播放器断网后的回调事件逻辑错误的问题。
 - Android&iOS：修复 VodPlayer 播放特定视频 seek 慢的问题。
 - Android&iOS：修复点播暂停播放后，调 seek 设置进度，画面显示慢的问题。
 
-## 超级播放器 Adapter
-### 超级播放器 Adapter 1.2.0 @ 2022.03.10
+## 播放器组件 Adapter
+### 播放器组件 Adapter 1.2.0 @ 2022.03.10
 Android&iOS：支持通过 FileId 播放自适应码流、转码和原始视频。
 
-### 超级播放器 Adapter 发布 @ 2021.07.22
-首次发布 iOS & Android 超级播放器 Adapter。
+### 播放器组件 Adapter 发布 @ 2021.07.22
+首次发布 iOS & Android 播放器组件 Adapter。
 
