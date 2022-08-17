@@ -27,7 +27,6 @@
 > - 若无 WinProcess Name 或 MacBundle ID，可填写“-”。
 3. 提交审核申请后模块进入**公司资质审核中**，审核时间通常 1-2 个工作日。可单击**查看审核信息**查看提交的审核信息。
 ![](https://qcloudimg.tencent-cloud.cn/raw/322566e2669d5abd2dc028ad0d05658b.png)
-![](https://qcloudimg.tencent-cloud.cn/raw/fc365c5572722cc816362223b713ba02.png)
 4. 审核通过后，腾讯特效功能模块状态为**正常**，腾讯特效测试版 License 申请成功，您可开始使用腾讯特效功能模块。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d15a827aa7f3b6da346f353b5d8534f6.png)
 >? **若审核失败**未通过，单击**审核结果**查看审核结果和审核备注，您可根据审核备注知悉审核失败原因，单击**重新发起审核**。更改审核信息并提交，等待人工审核流程。
