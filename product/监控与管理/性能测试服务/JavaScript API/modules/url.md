@@ -1,43 +1,51 @@
-## 目录
-
-### Namespaces（命名空间）
+## Namespaces（命名空间）
 - [&quot;pts/url&quot;](https://cloud.tencent.com/document/product/1484/75837)
 
 ### Interfaces（接口）
 - [URL](https://cloud.tencent.com/document/product/1484/75825)
 - [URLSearchParams](https://cloud.tencent.com/document/product/1484/75827)
 
-### Variables（变量）
-- [URL](#url)
-- [URLSearchParams](#urlsearchparams)
 
 ## Variables（变量）
 
 [](id:url)
 ### URL
-**URL**: `Object`
-```
-Defined in node_modules/typescript/lib/lib.dom.d.ts:14358
-```
+
+URL: { prototype: [URL](https://cloud.tencent.com/document/product/1484/75825); createObjectURL: *any*; revokeObjectURL: *any* }
 
 
 #### Type declaration
-| Name              | Type                                                         |
-| :---------------- | :----------------------------------------------------------- |
-| prototype      | [`URL`](https://cloud.tencent.com/document/product/1484/75838) |
-| createObjectURL | (`obj`: `Blob` \| `MediaSource`) => `string`                 |
-| revokeObjectURL | (`url`: `string`) => `void`                                  |
+
+- ##### prototype: [URL](https://cloud.tencent.com/document/product/1484/75825)
+
+- ##### createObjectURL:function
+- createObjectURL(obj: *Blob* | *MediaSource*): *string* 
+
+ **Parameters**
+
+   - ##### obj: *Blob* | *MediaSource*
+
+  Returns *string*
+
+  ##### revokeObjectURL:function
+
+   - revokeObjectURL(url: *string*): *void*
+  
+ **Parameters**
+
+  - ##### url: *string*
+
+ #### Returns *void*
 
 
-[](id:URLSearchParams)
+
 ### URLSearchParams
-**URLSearchParams**: `Object`
-```
-Defined in node_modules/typescript/lib/lib.dom.d.ts:14387
-```
+URLSearchParams: { prototype: [URLSearchParams](https://cloud.tencent.com/document/product/1484/75827); toString: *any* }
+
 
 #### Type declaration
-| Name        | Type                                                         |
-| :---------- | :----------------------------------------------------------- |
-| prototype | [`URLSearchParams`](https://cloud.tencent.com/document/product/1484/75838#URLSearchParams) |
-| toString  | () => `string`                                               |
+- prototype: [URLSearchParams](https://cloud.tencent.com/document/product/1484/75827)
+- toString:function
+- toString(): *string*
+
+ Returns *string*

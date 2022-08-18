@@ -52,7 +52,7 @@ this.trtcCloud.stopRemoteView(remoteUserId, TRTCVideoStreamType.TRTCVideoStreamT
 
 - **视频状态变化通知（[onUserVideoAvailable](https://web.sdk.qcloud.com/trtc/uniapp/doc/zh-cn/TRTCCallback.html#event:onUserVideoAvailable)）**
 当远端用户开启或者关闭摄像头画面时，您可以通过监听 [onUserVideoAvailable](https://web.sdk.qcloud.com/trtc/uniapp/doc/zh-cn/TRTCCallback.html#event:onUserVideoAvailable) 来感知到这个状态的变化。
-当远端用户开启或关闭屏幕分享画面时，您可以通过监听 [onUserSubStreamAvailable](https://web.sdk.qcloud.com/trtc/uniapp/doc/zh-cn/TRTCCallback.html#event:onUserVideoAvailable) 来感知到这个状态的变化。
+当远端用户开启或关闭屏幕分享画面时，您可以通过监听 [onUserSubStreamAvailable](https://web.sdk.qcloud.com/trtc/uniapp/doc/zh-cn/TRTCCallback.html#event:onUserSubStreamAvailable) 来感知到这个状态的变化。
 
 - **用户进出房间的通知（[onRemoteUserEnterRoom](https://web.sdk.qcloud.com/trtc/uniapp/doc/zh-cn/TRTCCallback.html#event:onRemoteUserEnterRoom)、[onRemoteUserLeaveRoom](https://web.sdk.qcloud.com/trtc/uniapp/doc/zh-cn/TRTCCallback.html#event:onRemoteUserLeaveRoom)）**
 当有远端用户进入当前房间时，您可以通过 [onRemoteUserEnterRoom](https://web.sdk.qcloud.com/trtc/uniapp/doc/zh-cn/TRTCCallback.html#event:onRemoteUserEnterRoom) 来感知到该用户的 `userId`，当有远端用户离开当前方式时，您可以通过 [onRemoteUserLeaveRoom](https://web.sdk.qcloud.com/trtc/uniapp/doc/zh-cn/TRTCCallback.html#event:onRemoteUserLeaveRoom) 来感知到该用户的 `userId`` 以及他/她离开的原因。
@@ -63,10 +63,10 @@ import TrtcCloud from '@/TrtcCloud/lib/index';
 this.trtcCloud = TrtcCloud.createInstance();
 
 this.trtcCloud.on('onRemoteUserEnterRoom', (userId) => {
-	console.log('remote user enter room id ', userId);
+  console.log('remote user enter room id ', userId);
 });
 this.trtcCloud.on('onRemoteUserLeaveRoom', (res) => {
-	const { userId, reason } = res;
-	console.log('remote user leave room ', userId, reason);
+  const { userId, reason } = res;
+  console.log('remote user leave room ', userId, reason);
 });
 ```

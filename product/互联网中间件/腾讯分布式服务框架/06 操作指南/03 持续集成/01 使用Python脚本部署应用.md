@@ -51,7 +51,7 @@ pip install requests cos-python-sdk-v5
 
 ## 容器应用部署准备
 
-1. 保证机器上能够构建、上传镜像（镜像及 Dockerfile 编写参见 [制作容器镜像](https://cloud.tencent.com/document/product/649/73794)，仓库使用请参见 [镜像管理](https://cloud.tencent.com/document/product/649/16695)）。保证 Python 版本不低于2.7.14版本，并已安装 PIP 等 Python 包管理工具。
+1. 保证机器上能够构建、上传镜像（镜像及 Dockerfile 编写参见 [制作容器镜像](https://cloud.tencent.com/document/product/649/50610)，仓库使用请参见 [镜像管理](https://cloud.tencent.com/document/product/649/16695)）。保证 Python 版本不低于2.7.14版本，并已安装 PIP 等 Python 包管理工具。
 2. 从 [GitHub仓库](https://github.com/tencentyun/tsf-snippet/blob/master/upload_container_deploy.py) 下载容器部署 Python 脚本。
 3. 修改脚本中的 secret_id 、secret_key 为腾讯云访问密钥，region 为 TSF 服务所在地域。修改脚本中的 docker_build_command、docker_push_command 为实际的 docker build 和 push 命令。
 <dx-codeblock>
@@ -81,4 +81,4 @@ python2.7.14 upload_container_deploy.py group-zvw397wa v1
 </dx-codeblock>
 
 
-> !docker 相关命令必须按照 [制作容器镜像](https://cloud.tencent.com/document/product/649/73794) 和 [镜像管理](https://cloud.tencent.com/document/product/649/16695) 调整为用户自己的账号和应用名。
+> !docker 相关命令必须按照 [制作容器镜像](https://cloud.tencent.com/document/product/649/50610) 和 [镜像管理](https://cloud.tencent.com/document/product/649/16695) 调整为用户自己的账号和应用名。

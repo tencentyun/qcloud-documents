@@ -1,0 +1,27 @@
+## 写入
+
+| 内部类型 | Iceberg 类型 | 
+|---------|---------|
+| CHAR	| STRING| 
+| VARCHAR	| STRING| 
+| STRING	| STRING| 
+| BOOLEAN| 	BOOLEAN| 
+| BINARY	| FIXED(L)| 
+| VARBINARY	| BINARY| 
+| DECIMAL| 	DECIMAL(P,S)| 
+| TINYINT	| INT| 
+| SMALLINT	| INT| 
+| INTEGER	| INT| 
+| BIGINT| 	LONG| 
+| FLOAT	| FLOAT| 
+| DOUBLE	| DOUBLE| 
+| DATE	| DATE| 
+| TIME	| TIME| 
+| TIMESTAMP| 	TIMESTAMP| 
+| TIMESTAMP_LTZ	| TIMESTAMPTZ| 
+| INTERVAL| 	-| 
+| ARRAY	| LIST| 
+| MULTISET	| MAP| 
+| MAP| 	MAP| 
+| ROW	| STRUCT| 
+| RAW| 	-| 

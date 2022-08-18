@@ -1,4 +1,4 @@
-TRTCMeeting 是基于腾讯云实时音视频（TRTC）和即时通信 IM 服务组合而成的，支持以下功能：
+﻿TRTCMeeting 是基于腾讯云实时音视频（TRTC）和即时通信 IM 服务组合而成的，支持以下功能：
 - 主持人创建会议房间，参会人员输入房间号后进入会议。
 - 参会人员之间进行屏幕分享。
 - 支持发送各种文本消息和自定义消息。
@@ -730,7 +730,7 @@ Future<ActionCallback> sendRoomCustomMsg(String cmd, String message);
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userVolumes | List | 所有正在说话的房间成员的音量，取值范围0 - 100。|
+| userVolumes | List | 所有正在说话的成员的音量，取值范围0 - 100。|
 | totalVolume | int | 所有远端成员的总音量, 取值范围0 - 100。|
 
 ## 成员进出事件回调

@@ -1,4 +1,3 @@
->?TDSQL MySQL版（TDStore 引擎）将于2022年08月08日上午10时结束免费内测，转为正式商业化运营，详情请参见 [TDStore 引擎商业化公告](https://cloud.tencent.com/document/product/557/75932)。
 
 ## 计费方式
 TDSQL MySQL版（TDStore 引擎）提供如下两种计费模式：

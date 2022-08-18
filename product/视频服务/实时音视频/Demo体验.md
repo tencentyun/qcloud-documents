@@ -75,7 +75,7 @@ ul.rno-tabs-operation {
     margin-top: 55px;
 }
 .preview-demo-section .preview-demo-item.style-electron .demo-item-download {
-    margin-top: 25px;
+    margin-top: 46px;
 }
 .preview-demo-section .preview-demo-item.style-electron .demo-item-download-btn:first-child {
     margin-bottom: 10px;
@@ -90,12 +90,19 @@ ul.rno-tabs-operation {
     border-radius: 20px;
     color: #fff;
     font-size: 14px;
-    width: 135px;
+    width: 170px;
     height: 35px;
     line-height: 35px;
     margin: 0 auto;
 }
 .preview-demo-section .preview-demo-item.style-web .demo-item-download .demo-item-download-btn {
+    color: #fff;
+    background-color: #00a4ff;
+    height: 24px;
+    line-height: 24px;
+    margin-bottom: 6px;
+}
+.preview-demo-section .preview-demo-item.style-electron .demo-item-download .demo-item-download-btn {
     color: #fff;
     background-color: #00a4ff;
     height: 24px;
@@ -121,7 +128,7 @@ ul.rno-tabs-operation {
 }
 .tab-bottom{
     width: 100%;
-    height: 172px;
+    height: 180px;
     background: #EDF1F5;
     display:flex;
     justify-content: center;
@@ -298,7 +305,7 @@ ul.rno-tabs-operation {
         </div>
         <div class="demo-item-download">
             <div class="demo-item-download-btn" onclick="window.open('https://web.sdk.qcloud.com/trtc/webrtc/demo/api-sample/login.html');reportEvent({name: 'demo-click-web', ext1: 'api-sample'});">音视频通话</div>
-						<div class="demo-item-download-btn" onclick="window.open('https://sdk-web-1252463788.cos.ap-hongkong.myqcloud.com/trtc/webrtc/test/xinli-test/tuiroom/index.html#/home');reportEvent({name: 'demo-click-web', ext1: 'api-sample'});">多人视频会议</div>
+						<div class="demo-item-download-btn" onclick="window.open('https://web.sdk.qcloud.com/component/tuiroom/index.html');reportEvent({name: 'demo-click-web', ext1: 'api-sample'});">多人视频会议</div>
             <div class="demo-item-download-btn" onclick="window.open('https://web.sdk.qcloud.com/component/tuiliveroom/tuipusher/login.html');reportEvent({name: 'demo-click-web', ext1: 'pusher'});">互动直播推流</div>
             <div class="demo-item-download-btn" onclick="window.open('https://web.sdk.qcloud.com/component/tuiliveroom/tuiplayer/login.html');reportEvent({name: 'demo-click-web', ext1: 'player'});">互动直播拉流</div>
         </div>
@@ -325,11 +332,13 @@ ul.rno-tabs-operation {
             <div class="demo-item-platform">Electron</div>
         </div>
         <div class="demo-item-desc">
-            音视频通话·多人会议<br>屏幕分享等
+           单击即可体验
         </div>
         <div class="demo-item-download">
-            <div class="demo-item-download-btn" onclick="window.open('https://web.sdk.qcloud.com/trtc/electron/download/solution/education-v2/TRTCEducationElectron-windows-latest.zip');reportEvent({name: 'demo-click-electron', ext1: 'windows'});">下载 Windows 版</div>
-            <div class="demo-item-download-btn" onclick="window.open('https://web.sdk.qcloud.com/trtc/electron/download/solution/education-v2/TRTCEducationElectron-mac-latest.zip');reportEvent({name: 'demo-click-electron', ext1: 'mac'});">下载 Mac OS 版</div>
+            <div class="demo-item-download-btn" onclick="window.open('https://web.sdk.qcloud.com/trtc/electron/download/solution/TUIRoom-Electron/TUIRoom-Electron-mac-latest.zip');reportEvent({name: 'demo-click-electron', ext1: 'mac'});">多人视频会议 Mac OS版</div>
+						<div class="demo-item-download-btn" onclick="window.open('https://web.sdk.qcloud.com/trtc/electron/download/solution/TUIRoom-Electron/TUIRoom-Electron-windows-latest.zip');reportEvent({name: 'demo-click-electron', ext1: 'windows'});">多人视频会议 Windows版</div>
+            <div class="demo-item-download-btn" onclick="window.open('https://web.sdk.qcloud.com/trtc/electron/download/solution/education-v2/TRTCEducationElectron-mac-latest.zip');reportEvent({name: 'demo-click-electron', ext1: 'mac'});">教育场景化 Mac OS版</div>
+            <div class="demo-item-download-btn" onclick="window.open('https://web.sdk.qcloud.com/trtc/electron/download/solution/education-v2/TRTCEducationElectron-windows-latest.zip');reportEvent({name: 'demo-click-electron', ext1: 'windows'});">教育场景化 Windows版</div>
         </div>
     </div>
 </div> 
@@ -353,7 +362,7 @@ ul.rno-tabs-operation {
         <span class="support-platform"><img src="https://qcloudimg.tencent-cloud.cn/raw/584b9e4444422c19af20536317680ed3.svg" class="platform-img">Uni-App</span>
     </div>
     <div class="tab-experience-button"><a href="#demo-card"><button class="tab-experience">立即体验<img src="https://qcloudimg.tencent-cloud.cn/raw/8b41f1a6d19d184c029c6e92e6a01544.svg" class="try-icon" data-nonescope="true"></button></a></div>
-    <div style="text-align:center;">您可以单击 <a href="https://cloud.tencent.com/document/product/647/42042" style="color:#06A4FF;">接入指引</a> 了解如何快速集成，或单击 <a href="https://github.com/tencentyun/TUICalling" style="color:#06A4FF;">源码下载</a> 到 Github 下载最新代码</div>
+    <div style="text-align:center;">您可以单击 <a href="https://cloud.tencent.com/document/product/647/78729" style="color:#06A4FF;">接入指引</a> 了解如何快速集成，或单击 <a href="https://github.com/tencentyun/TUICalling" style="color:#06A4FF;">源码下载</a> 到 Github 下载最新代码</div>
     </div>
 </div>
 :::
@@ -371,7 +380,7 @@ ul.rno-tabs-operation {
         <span class="support-platform"><img src="https://qcloudimg.tencent-cloud.cn/raw/584b9e4444422c19af20536317680ed3.svg" class="platform-img">Uni-App</span>
     </div>
     <div class="tab-experience-button"><a href="#demo-card"><button class="tab-experience">立即体验<img src="https://qcloudimg.tencent-cloud.cn/raw/8b41f1a6d19d184c029c6e92e6a01544.svg" class="try-icon"></button></a></div>
-    <div style="text-align:center;">您可以单击 <a href="https://cloud.tencent.com/document/product/647/42042" style="color:#06A4FF;">接入指引</a> 了解如何快速集成，或单击 <a href="https://github.com/tencentyun/TUICalling" style="color:#06A4FF;">源码下载</a> 到 Github 下载最新代码</div>
+    <div style="text-align:center;">您可以单击 <a href="https://cloud.tencent.com/document/product/647/78729" style="color:#06A4FF;">接入指引</a> 了解如何快速集成，或单击 <a href="https://github.com/tencentyun/TUICalling" style="color:#06A4FF;">源码下载</a> 到 Github 下载最新代码</div>
     </div>
 </div>
 :::
@@ -389,7 +398,7 @@ ul.rno-tabs-operation {
         <span class="support-platform"><img src="https://qcloudimg.tencent-cloud.cn/raw/584b9e4444422c19af20536317680ed3.svg" class="platform-img">Uni-App</span>
     </div>
     <div class="tab-experience-button"><a href="#demo-card"><button class="tab-experience">立即体验<img src="https://qcloudimg.tencent-cloud.cn/raw/8b41f1a6d19d184c029c6e92e6a01544.svg" class="try-icon" data-nonescope="true"></button></a></div>
-    <div style="text-align:center;">您可以单击 <a href="https://cloud.tencent.com/document/product/647/42042" style="color:#06A4FF;">接入指引</a> 了解如何快速集成，或单击 <a href="https://github.com/tencentyun/TUICalling" style="color:#06A4FF;">源码下载</a> 到 Github 下载最新代码</div>
+    <div style="text-align:center;">您可以单击 <a href="https://cloud.tencent.com/document/product/647/78729" style="color:#06A4FF;">接入指引</a> 了解如何快速集成，或单击 <a href="https://github.com/tencentyun/TUICalling" style="color:#06A4FF;">源码下载</a> 到 Github 下载最新代码</div>
     </div>
 </div>
 :::
@@ -519,7 +528,7 @@ ul.rno-tabs-operation {
     </div>
 </div>
 :::
-::: Windows & Mac
+::: Windows & Mac & Electron
 <div class="tab-img">
     <img src="https://qcloudimg.tencent-cloud.cn/raw/c5f67e544d2143dcac8a5ffc8645f944.png"/>
 </div>

@@ -3,12 +3,12 @@
 本文档提供关于 SDK 接入以及开启推送服务的示例代码。
 
 ## SDK 组成
-- doc 文件夹：移动推送 TPNS  macOS SDK 开发指南。
-- demo 文件夹：主要包含样例工程，移动推送 TPNS  SDK。
+- doc 文件夹：移动推送 macOS SDK 开发指南。
+- demo 文件夹：主要包含样例工程，移动推送 SDK。
 
 ## 集成步骤
 ### 接入前准备
-1. 登录 [移动推送 TPNS 控制台](https://console.cloud.tencent.com/tpns)，单击左侧菜单栏【产品管理】。
+1. 登录 [移动推送控制台](https://console.cloud.tencent.com/tpns)，单击左侧菜单栏【产品管理】。
 2. 进入产品管理页面，单击【新增产品】。
 3. 进入新增产品页面，填写产品名称、产品详情，选择产品分类，单击【确定】，即可完成产品新增。
 4. 产品创建完成后，选择左侧菜单【配置管理】>【基础配置】，在应用信息一栏中获取应用`AccessID` 和 `AccessKEY`。
@@ -41,8 +41,8 @@ pod 'TPNS-macOS'
 >
 
 ### 接入样例
-调用启动移动推送 TPNS 的 API，并根据需要实现 XGPushDelegate 协议中的方法，开启推送服务。
-1. 启动移动推送 TPNS 服务，以下是在 AppDelegate 中做演示：
+调用启动移动推送的 API，并根据需要实现 XGPushDelegate 协议中的方法，开启推送服务。
+1. 启动移动推送服务，以下是在 AppDelegate 中做演示：
 ```objective-c
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     /// 打开 Debug 模式，即可在终端查看详细的移动推送 TPNS Debug 信息，方便定位问题。

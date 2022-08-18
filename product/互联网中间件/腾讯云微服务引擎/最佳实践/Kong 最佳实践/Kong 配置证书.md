@@ -8,9 +8,9 @@
 
 ## 操作步骤
 ### 步骤1：配置 DNS 解析
-1. 前往 [TSE 控制台](https://console.cloud.tencent.com/tse/kong)，获取 Kong 公网代理地址。
+1. 前往 [TSE 控制台](https://console.cloud.tencent.com/tse/kong)，获取 Kong 公网代理地址中的 IP。
 ![](https://qcloudimg.tencent-cloud.cn/raw/09caa29755ff71ea9ff2f67d4cbb6b96.jpg)
-2. 根据 [快速添加域名解析](https://cloud.tencent.com/document/product/302/3446) 指引，将您的域名解析至 Kong 公网代理地址。
+2. 根据 [快速添加域名解析](https://cloud.tencent.com/document/product/302/3446) 指引，将您的域名解析至 Kong 公网代理地址中的 IP。
 
 ### 步骤2：在 Konga 安装证书
 1. 以腾讯云证书服务为例，登录 [SSL 证书控制台](https://console.cloud.tencent.com/ssl)，进入 “我的证书” 管理页面。
@@ -23,12 +23,12 @@
 5. 进入 Konga 控制台，点击侧边导航栏的 **CERTIFICATES**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/b875fa07dab2047f06bd0ff641c5c476.png)
 >? 若您初次登录管理控制台，需要激活 Connection，[查看指引](https://cloud.tencent.com/document/product/1364/72496)。
-6. 点击 **ADD CERTIFICATE**。
+6. 单击 **ADD CERTIFICATE**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/8f39eec4a0aeb46208d9f47088c665e8.png)
-7. 填写 Certificate、Key 以及域名信息，并单击 SUBMIT CERTIFICATES 提交。
+7. 填写 Certificate、Key，并填写您的域名到 Server Name Indications 中，单击 SUBMIT CERTIFICATES 提交。
 >? Certificate 使用以 `.crt` 为后缀的文件；Key 使用以 `.key` 为后缀的文件。
 >
-![](https://qcloudimg.tencent-cloud.cn/raw/5b865891364fce2ac3e66740f2ca50cf.jpg)
+![](https://qcloudimg.tencent-cloud.cn/raw/03165b3cf88d332149517e3c041bae97.jpg)
 8. 查看安装好的证书。
 ![](https://qcloudimg.tencent-cloud.cn/raw/1fcc5f5ac8ee13421bc5c7be29c8361f.jpg)
 

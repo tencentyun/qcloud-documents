@@ -7,13 +7,13 @@
 >- 本文档以证书名称 `cloud.tencent.com` 为例。
 >- Nginx 版本以 `nginx/1.18.0` 为例。
 >- 当前服务器的操作系统为 CentOS 7，由于操作系统的版本不同，详细操作步骤略有区别。
->- 安装 SSL 证书前，请您在 Nginx 服务器上开启 “443” 端口，避免证书安装后无法启用 HTTPS。具体可参考 [服务器如何开启443端口？](https://cloud.tencent.com/document/product/400/45144)
+>- 安装 SSL 证书前，请您在 Nginx 服务器上开启 HTTPS 默认端口 `443`，避免证书安装后无法启用 HTTPS。具体可参考 [服务器如何开启443端口？](https://cloud.tencent.com/document/product/400/45144)
 >- SSL 证书文件上传至服务器方法可参考 [如何将本地文件拷贝到云服务器](https://cloud.tencent.com/document/product/213/39138)。
 >
 ## 前提条件
 - 已准备文件远程拷贝软件，例如 WinSCP（建议从官方网站获取最新版本）。
 - 已准备远程登录工具，例如 PuTTY 或者 Xshell（建议从官方网站获取最新版本）。
-- 已在当前服务器中安装配置 Nginx 服务。
+- 已在当前服务器中安装配置含有 `http_ssl_module` 模块的 Nginx 服务。
 - 安装 SSL 证书前需准备的数据如下：
 <table>
 <tr>
@@ -62,23 +62,23 @@
 >
 ```
 server {
-        #SSL 访问端口号为 443
+        #SSL 默认访问端口号为 443
         listen 443 ssl; 
-	    #填写绑定证书的域名
+        #请填写绑定证书的域名
         server_name cloud.tencent.com; 
-		#证书文件名称
+        #请填写证书文件的相对路径或绝对路径
         ssl_certificate cloud.tencent.com_bundle.crt; 
-		#私钥文件名称
+        #请填写私钥文件的相对路径或绝对路径
         ssl_certificate_key cloud.tencent.com.key; 
         ssl_session_timeout 5m;
-	    #请按照以下协议配置
+        #请按照以下协议配置
         ssl_protocols TLSv1.2 TLSv1.3; 
-	    #请按照以下套件配置，配置加密套件，写法遵循 openssl 标准。
+        #请按照以下套件配置，配置加密套件，写法遵循 openssl 标准。
         ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE; 
         ssl_prefer_server_ciphers on;
         location / {
-		   #网站主页路径。此路径仅供参考，具体请您按照实际目录操作。
-		   #例如，您的网站运行目录在/etc/www下，则填写/etc/www。
+            #网站主页路径。此路径仅供参考，具体请您按照实际目录操作。
+            #例如，您的网站主页在 Nginx 服务器的 /etc/www 目录下，则请修改 root 后面的 html 为 /etc/www。
             root html; 
             index  index.html index.htm;
         }
@@ -90,8 +90,11 @@ server {
 ```
    - 若存在，请您重新配置或者根据提示修改存在问题。
    - 若不存在，请执行 [步骤8](#step8)。
- [](id:step8)
-8. 重启 Nginx，即可使用 `https://cloud.tencent.com` 进行访问。
+8. [](id:step8)在 Nginx 根目录下，通过执行以下命令重启 Nginx。
+```
+./sbin/nginx -s reload
+```
+9. 重启成功，即可使用 `https://cloud.tencent.com` 进行访问。
 
 ### HTTP 自动跳转 HTTPS 的安全配置（可选）
 如果您需要将 HTTP 请求自动重定向到 HTTPS。您可以通过以下操作设置：
@@ -106,33 +109,46 @@ server {
 >
 ```
 server {
-   listen 443 ssl;
-	#填写绑定证书的域名
+    #SSL 默认访问端口号为 443
+    listen 443 ssl;
+    #请填写绑定证书的域名
     server_name cloud.tencent.com; 
-	#证书文件名称
-	ssl_certificate  cloud.tencent.com_bundle.crt; 
-	#私钥文件名称
+    #请填写证书文件的相对路径或绝对路径
+    ssl_certificate  cloud.tencent.com_bundle.crt; 
+    #请填写私钥文件的相对路径或绝对路径
     ssl_certificate_key cloud.tencent.com.key; 
     ssl_session_timeout 5m;
+    #请按照以下套件配置，配置加密套件，写法遵循 openssl 标准。
     ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;
+    #请按照以下协议配置
     ssl_protocols TLSv1.2 TLSv1.3;
     ssl_prefer_server_ciphers on;
     location / {
-			#网站主页路径。此路径仅供参考，具体请您按照实际目录操作。 
-			#例如，您的网站运行目录在/etc/www下，则填写/etc/www。
-		root html;
+        #网站主页路径。此路径仅供参考，具体请您按照实际目录操作。 
+        #例如，您的网站主页在 Nginx 服务器的 /etc/www 目录下，则请修改 root 后面的 html 为 /etc/www。
+        root html;
         index index.html index.htm;
     }
 }
 server {
     listen 80;
-	#填写绑定证书的域名
+    #请填写绑定证书的域名
     server_name cloud.tencent.com; 
-	#把http的域名请求转成https
+    #把http的域名请求转成https
     return 301 https://$host$request_uri; 
 }
 ``` 
-2. 若修改完成，重启 Nginx。即可使用 `http://cloud.tencent.com` 进行访问。
+2. 在 Nginx 根目录下，通过执行以下命令验证配置文件问题。
+```
+./sbin/nginx -t
+```
+   - 若存在，请您重新配置或者根据提示修改存在问题。
+   - 若不存在，请执行 [步骤3](#step3)。
+3. [](id:step3)在 Nginx 根目录下，通过执行以下命令重启 Nginx。
+```
+./sbin/nginx -s reload
+```
+9. 重启成功，即可使用 `http://cloud.tencent.com` 进行访问。
 
 >!操作过程如果出现问题，请您 [联系我们](https://cloud.tencent.com/document/product/400/35259)。
 
