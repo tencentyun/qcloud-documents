@@ -4,7 +4,7 @@
 - 支持云下自建 PostgreSQL 迁移至腾讯云数据库。
 - 支持其他云的 PostgreSQL 数据库迁移至腾讯云数据库。
 - 支持云上 CVM 或容器等自建的 PostgreSQL 迁移至腾讯云数据库。
-- 支持腾讯云数据库 PostgreSQL 迁移至腾讯云数据库。
+- 支持腾讯云数据库 PostgreSQL 实例间互相迁移。
 - 支持跨账号数据库迁移。
 - 支持 TDSQL-C PostgreSQL 版与云数据库 PostgreSQL 数据互相迁移。
 - 支持 PostgreSQL 10及之后的所有版本互相跨版本迁移，如 PostgreSQL 10迁移至 PostgreSQL 12，PostgreSQL 14迁移至 PostgreSQL 11。
