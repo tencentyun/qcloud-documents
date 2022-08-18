@@ -4,7 +4,7 @@
 
 播放器 SDK 提供测试版 License，**测试版 License 包括视频播放 License 和终端极速高清  License**。
 
-- 您可通过**免费申请**视频播放测试版 License 使用授权来体验**视频播放**功能模块，详情请参见 [免费测试]()；
+- 您可通过**免费申请**视频播放测试版 License 使用授权来体验**视频播放**功能模块，详情请参见 [免费测试](https://cloud.tencent.com/document/product/881/79169)；
 - 也可**免费申请**终端极速高清测试版 License 使用授权来体验**终端极速高清**功能模块，其免费申请和续期操作请参见 [终端极速高清 License](https://cloud.tencent.com/document/product/881/72422)。目前终端极速高清功能模块处于体验期，仅提供测试版 License。
 
 > !10.1 版本起，直播 License 和短视频 License 包含了视频播放 License 全部能力，因此也可用于解锁播放器 SDK 的视频播放功能。直播 License 相关参见[ License 计费购买](https://cloud.tencent.com/document/product/454/8008#sdklicense) 和 [新增与续期](https://cloud.tencent.com/document/product/454/34750)，短视频 License 相关参见 [License 计费购买](https://cloud.tencent.com/document/product/584/9368) 和 [新增与续期](https://cloud.tencent.com/document/product/584/54333)。
@@ -13,8 +13,8 @@
 [](id:creat_formal)
 ## 购买并新建正式版 License
 1. 购买方式：
-	- [**购买**](https://buy.cloud.tencent.com/vcube) 指定规格的 [直播/点播流量资源包]()，获得赠送1年有效期的正式视频播放 License 使用权限（自资源包购买之日起计算，授权有效期至到期次日00:00:00为止）。
-	- [**购买**](https://buy.cloud.tencent.com/vcube) 独立 [视频播放 License]() 获得使用授权（自绑定包名之日起计算，授权有效期为1年后到期次日00:00:00止）。
+	- [**购买**](https://buy.cloud.tencent.com/vcube) 指定规格的 [直播/点播流量资源包](https://cloud.tencent.com/document/product/881/20193)，获得赠送1年有效期的正式视频播放 License 使用权限（自资源包购买之日起计算，授权有效期至到期次日00:00:00为止）。
+	- [**购买**](https://buy.cloud.tencent.com/vcube) 独立 [视频播放 License](https://cloud.tencent.com/document/product/881/20193) 获得使用授权（自绑定包名之日起计算，授权有效期为1年后到期次日00:00:00止）。
 2. 绑定视频播放正式版 License。您可以选择**新建正式应用并绑定 License**或在**已创建的应用上解锁视频播放正式版模块并绑定 License**两种方式进行正式版 License 绑定 。
 <dx-tabs>
 ::: 方式一：新建正式应用并绑定 License
