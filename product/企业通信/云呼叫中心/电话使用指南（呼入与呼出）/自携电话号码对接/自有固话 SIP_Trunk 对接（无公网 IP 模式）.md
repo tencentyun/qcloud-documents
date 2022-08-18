@@ -11,7 +11,7 @@
 - 用户名：gatewayXX
 - 域名：14xxxxx.tccc.qcloud.com (注：14开头的为 tccc 实例 ID）
 - 服务器：sip.tccc.qcloud.com:35090
-- 信令通道：TCP/UDP （推荐使用tcp，udp走公网可能会有设备拦截大包的问题）
+- 信令通道：TCP/UDP （推荐使用 tcp，udp 走公网可能会有设备拦截大包的问题）
 - 信令参考：
 ![](https://qcloudimg.tencent-cloud.cn/raw/062708e2ef3aa304b9d67ff1510c1ba8.png)freeswitch配置参考：
 `/conf/sip_profiles/external/tccc_gw_register.xml`
