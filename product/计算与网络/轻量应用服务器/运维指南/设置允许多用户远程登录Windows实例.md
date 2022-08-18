@@ -10,7 +10,7 @@
 
 ### 添加远程桌面服务
 1. 参考 [使用标准方式（WebRDP）登录 Windows 实例](https://cloud.tencent.com/document/product/1207/75048)，登录 Windows 实例。
-2. 在操作系统界面单击 <img src="https://qcloudimg.tencent-cloud.cn/raw/10c0728e4d194732be4eb6c1a95e0a8c.png" style="margin: -5px 0px;"/>，在弹出的界面中选择 <img src="https://qcloudimg.tencent-cloud.cn/raw/8a27d0993c99b2564c33df6bbabec4f7.png" style="margin: -5px 0px;"/>，打开“服务器管理器”。如下图所示：
+2. 在操作系统界面单击 <img src="https://qcloudimg.tencent-cloud.cn/raw/10c0728e4d194732be4eb6c1a95e0a8c.png" style="margin: -5px 0px;"/>，在弹出的界面中选择 <img src="https://qcloudimg.tencent-cloud.cn/raw/4cee830d425d629700d4569c49d3cb7c.png" style="margin: -5px 0px;"/>，打开“服务器管理器”。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/721212fa585fb945139552aa7bdd1d63.png)
 3. 单击**添加角色和功能**，弹出 “添加角色和功能向导” 窗口。
 4. 在“添加角色和功能向导”窗口中，保持默认参数，连续单击三次**下一步**。
@@ -31,7 +31,7 @@
 
 
 ### 申请多用户登录授权许可证
-1. 在操作系统界面单击 <img src="https://qcloudimg.tencent-cloud.cn/raw/10c0728e4d194732be4eb6c1a95e0a8c.png" style="margin: -5px 0px;"/>，在弹出的界面中选择 <img src="https://qcloudimg.tencent-cloud.cn/raw/8a27d0993c99b2564c33df6bbabec4f7.png" style="margin: -5px 0px;"/>，打开“服务器管理器”。
+1. 在操作系统界面单击 <img src="https://qcloudimg.tencent-cloud.cn/raw/10c0728e4d194732be4eb6c1a95e0a8c.png" style="margin: -5px 0px;"/>，在弹出的界面中选择 <img src="https://qcloudimg.tencent-cloud.cn/raw/4cee830d425d629700d4569c49d3cb7c.png" style="margin: -5px 0px;"/>，打开“服务器管理器”。
 2. 在“服务器管理器”窗口中，选择右上角的**工具** > **Remote Desktop Services** > **远程桌面授权管理器**。
 3. 在弹出的 “RD 授权管理器”窗口中，右键单击服务器所在行，并选择**激活服务器**。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/862ee285c4eca41f300ef4d516eae8ba.png)
@@ -62,7 +62,7 @@
 
 
 ### 激活远程桌面服务许可证服务器
-1. 在操作系统界面单击 <img src="https://qcloudimg.tencent-cloud.cn/raw/10c0728e4d194732be4eb6c1a95e0a8c.png" style="margin: -5px 0px;"/>，在弹出的界面中选择 <img src="https://qcloudimg.tencent-cloud.cn/raw/8a27d0993c99b2564c33df6bbabec4f7.png" style="margin: -5px 0px;"/>，打开“服务器管理器”。
+1. 在操作系统界面单击 <img src="https://qcloudimg.tencent-cloud.cn/raw/10c0728e4d194732be4eb6c1a95e0a8c.png" style="margin: -5px 0px;"/>，在弹出的界面中选择 <img src="https://qcloudimg.tencent-cloud.cn/raw/4cee830d425d629700d4569c49d3cb7c.png" style="margin: -5px 0px;"/>，打开“服务器管理器”。
 2. 在“服务器管理器”窗口中，选择右上角的**工具** > **Remote Desktop Services** > **远程桌面授权管理器**。
 3. 在弹出的 “RD 授权管理器”窗口中，右键单击服务器所在行，并选择**激活服务器**。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/862ee285c4eca41f300ef4d516eae8ba.png)
@@ -85,7 +85,7 @@
 
 
 ### 配置远程桌面会话主机授权服务器
-1. 在操作系统界面单击 <img src="https://qcloudimg.tencent-cloud.cn/raw/10c0728e4d194732be4eb6c1a95e0a8c.png" style="margin: -5px 0px;"/>，在弹出的界面中选择 <img src="https://qcloudimg.tencent-cloud.cn/raw/8a27d0993c99b2564c33df6bbabec4f7.png" style="margin: -5px 0px;"/>，打开“服务器管理器”。
+1. 在操作系统界面单击 <img src="https://qcloudimg.tencent-cloud.cn/raw/10c0728e4d194732be4eb6c1a95e0a8c.png" style="margin: -5px 0px;"/>，在弹出的界面中选择 <img src="https://qcloudimg.tencent-cloud.cn/raw/4cee830d425d629700d4569c49d3cb7c.png" style="margin: -5px 0px;"/>，打开“服务器管理器”。
 2. 在“服务器管理器”窗口中，选择右上角的**工具** > **Remote Desktop Services** > **远程桌面授权诊断程序**。查看当前服务器状态，如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/49243ae49a97444dbabd8aac844cd38b.png)
 3. 在操作系统界面右键单击 <img src="https://qcloudimg.tencent-cloud.cn/raw/10c0728e4d194732be4eb6c1a95e0a8c.png" style="margin: -5px 0px;"/>，在弹出菜单中选择**运行**。
