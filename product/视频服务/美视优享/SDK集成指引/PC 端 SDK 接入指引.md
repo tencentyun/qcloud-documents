@@ -107,7 +107,7 @@ XMAGIC_API void setTELicense(const char* url, const char* key, int (*TELicenseCa
 | -9     | TELicense 字段里的 JSON 字段不对。请联系腾讯云团队处理。  |
 | -10    | 从网络解析的TE授权信息为空。请联系腾讯云团队处理。        |
 | -11    | 把 TE 授权信息写到本地文件时失败，可能是 IO 失败引起。      |
-| -12    | 下载失败，解析本地 asset 也失败。                         |
+| -12    | 下载失败，解析本地 asset 页失败。                         |
 | -13    | 鉴权失败。                                                |
 | 其他   | 请联系腾讯云团队处理。                                    |
 
@@ -147,7 +147,7 @@ virtual void updateProperty(XmagicProperty* property) = 0;
 
 | 参数     | 说明                                                         |
 | -------- | ------------------------------------------------------------ |
-| category | 类型：<ul style="margin:0;"><li>美颜：BEAUTY = 0</li><li>美体：BODY_BEAUTY</li><li>滤镜：LUT</li><li>动效：MOTION</li><li>扣背：SEGMENTATION</li><li>化妆：MAKEUP</li></ul>|
+| category | 美颜类型，包括以下几种：<ul style="margin:0;"><li>美颜：BEAUTY = 0</li><li>美体：BODY_BEAUTY</li><li>滤镜：LUT</li><li>动效：MOTION</li><li>扣背：SEGMENTATION</li><li>化妆：MAKEUP</li></ul>|
 | id       | id                                                           |
 | resPath  | 对应设置资源的地址（如动效、化妆、扣背等）                   |
 | effKey   | 美颜的 key                                                    |
