@@ -2,7 +2,7 @@
 
 腾讯云呼叫中心支持通过 SIP Trunk 的方式与企业自带的固话号码与进行对接，实现使用企业自有号码进行呼入和呼出。对接完成后企业自行与号码所属运营商结算该号码产生的通信费用，腾讯云呼叫中心不收取对接与号码产生的通信费用。
 
-请联系您的号码运营商确认是否支持 SIP 中继，如不支持 SIP 中继，请咨询运营商能否协助变更为 SIP中继方式与腾讯云呼叫中心对接，如无法变更，您可购买网关设备和 SIP 服务搭建一套 SIP 中继服务与腾讯云呼叫中心对接。
+请联系您的号码运营商确认是否支持 SIP 中继，如不支持 SIP 中继，请咨询运营商能否协助变更为 SIP 中继方式与腾讯云呼叫中心对接，如无法变更，您可购买网关设备和 SIP 服务搭建一套 SIP 中继服务与腾讯云呼叫中心对接。
 
 如您的设备无公网 IP，可按照此文档进行 SIP 账号注册模式接入，这里以 freeswitch gateway 接入作为示例。
 
@@ -13,7 +13,8 @@
 - 服务器：sip.tccc.qcloud.com:35090
 - 信令通道：TCP/UDP （推荐使用 tcp，udp 走公网可能会有设备拦截大包的问题）
 - 信令参考：
-![](https://qcloudimg.tencent-cloud.cn/raw/062708e2ef3aa304b9d67ff1510c1ba8.png)freeswitch配置参考：
+![](https://qcloudimg.tencent-cloud.cn/raw/062708e2ef3aa304b9d67ff1510c1ba8.png)
+- freeswitch 配置参考：
 `/conf/sip_profiles/external/tccc_gw_register.xml`
 ```
 <include>
