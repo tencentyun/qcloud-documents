@@ -1,5 +1,5 @@
 ## 使用场景 
-IDC 的资源有限，当需要应对业务突发流量，IDC 内的算力资源不足以应对时，可以选择使用公有云资源应对临时流量。TKE Resilience Chart 利用 <a href="https://cloud.tencent.com/product/eks"> 腾讯云弹性容器服务 EKS</a>，基于自定义的调度策略，通过添加虚拟节点的方式，将用户集群中的工作负载弹性上云，使用户 IDC 集群获得极大的弹性拓展能力，优势如下：
+IDC 的资源有限，当需要应对业务突发流量，IDC 内的算力资源不足以应对时，可以选择使用公有云资源应对临时流量。TKE Resilience Chart 利用 <a href="https://cloud.tencent.com/product/eks"> 腾讯云弹性容器服务 EKS</a>，基于自定义的调度策略，通过添加超级节点的方式，将用户集群中的工作负载弹性上云，使用户 IDC 集群获得极大的弹性拓展能力，优势如下：
 
 1. 用户 IDC / 私有云的硬件和维护成本保持不变。  
 2. 实现了用户 IDC / 私有云和公有云级别的应用高可用。  
@@ -13,13 +13,13 @@ IDC 的资源有限，当需要应对业务突发流量，IDC 内的算力资源
 
 ## TKE Resilience Chart 特性说明
 ### 组件说明
-TKE Resilience Chart 主要是由虚拟节点管理器，调度器，容忍控制器3部分组成，如表格所示：
+TKE Resilience Chart 主要是由超级节点管理器，调度器，容忍控制器3部分组成，如表格所示：
 
 | 简称                 | 组件名称       | 描述                                                                 |
 | -------------------- | -------------- | -------------------------------------------------------------------- |
-| eklet                | 虚拟节点管理器 | 负责 Podsandbox 生命周期的管理，并对外提供原生 kubelet 与节点相关的接口。   |
+| eklet                | 超级节点管理器 | 负责 Podsandbox 生命周期的管理，并对外提供原生 kubelet 与节点相关的接口。   |
 | tke-scheduler        | 调度器         | 负责根据调度策略将 workload 弹性上云，仅会安装在非 TKE 发行版的 K8S 集群上，TKE 发行版集群不会安装此组件。其中 TKE 发行版（TKE Kubernetes Distro）是由腾讯云 TKE 发布的 K8S 发行版本，用于帮助用户创建与云上 TKE 完全一致的 K8S 集群，目前 TKE 发行版集群已经在 GitHub 开源，详情见 <a href="https://github.com/tkestack/tke-K8S-distro" target="_blank">TKE Kubernetes Distro</a>。|
-| admission-controller | 容忍控制器     | 负责为处于 `pending` 状态的 Pod 添加容忍，使其可以调度到虚拟节点上。        |
+| admission-controller | 容忍控制器     | 负责为处于 `pending` 状态的 Pod 添加容忍，使其可以调度到超级节点上。        |
 
 ### 主要特性
 1. 如需要 EKS Pod 和本地集群的 Pod 互通，则要求本地集群是 Underlay 的网络模型（使用 Calico 之类的基于 BGP 路由，而不是 SDN 封装的 CNI 插件），并且需要在腾讯云 VPC 中添加本地 Pod CIDR 的路由信息，详情见 [路由配置](https://cloud.tencent.com/document/product/457/32199)。  
@@ -90,15 +90,15 @@ TKE Resilience Chart 主要是由虚拟节点管理器，调度器，容忍控�
   - TKE 发行版 K8S 会优先缩容腾讯云 EKS 上的实例。  
   - 社区版 K8S 会随机缩容。  
 7. 调度规则的限制条件：
-  - 无法调度 DaemonSet Pod 到虚拟节点，此特性只在 TKE 发行版 K8S 有效，社区版 K8S DaemonSet Pod 会调度到虚拟节点，但会显示 `DaemonsetForbidden`。  
-  - 无法调度 kube-system，tke-eni-ip-webhook 命名空间下的 Pod 到虚拟节点。  
+  - 无法调度 DaemonSet Pod 到超级节点，此特性只在 TKE 发行版 K8S 有效，社区版 K8S DaemonSet Pod 会调度到超级节点，但会显示 `DaemonsetForbidden`。  
+  - 无法调度 kube-system，tke-eni-ip-webhook 命名空间下的 Pod 到超级节点。  
   - 无法调度 securityContext.sysctls ["net.ipv4.ip_local_port_range"] 的值包含61000 - 65534的端口。  
   - 无法调度 Pod.Annotations [tke.cloud.tencent.com/vpc-ip-claim-delete-policy] 的 Pod。  
   - 无法调度 container (initContainer).ports [].containerPort (hostPort) 包含61000 - 65534的端口。  
   - 无法调度 container (initContainer) 中探针指定61000 - 65534的端口。  
   - 无法调度除了 nfs，Cephfs，hostPath，qcloudcbs 以外的 PV。  
-  - 无法调度启用固定 IP 特性的 Pod 到虚拟节点。  
-8. 虚拟节点支持自定义默认 DNS 配置：用户在虚拟节点上新增 `eks.tke.cloud.tencent.com/resolv-conf` 的 annotation 后，生成的 cxm 子机里的 /etc/resolv.conf 就会被更新成用户定义的内容。**注意**：会覆盖原来虚拟节点的 dns 配置，最终以用户的配置为准。  
+  - 无法调度启用固定 IP 特性的 Pod 到超级节点。  
+8. 超级节点支持自定义默认 DNS 配置：用户在超级节点上新增 `eks.tke.cloud.tencent.com/resolv-conf` 的 annotation 后，生成的 cxm 子机里的 /etc/resolv.conf 就会被更新成用户定义的内容。**注意**：会覆盖原来超级节点的 dns 配置，最终以用户的配置为准。  
 ```
 eks.tke.cloud.tencent.com/resolv-conf: |
    nameserver 4.4.4.4
@@ -146,7 +146,7 @@ helm install tke-resilience --namespace kube-system ./tke-resilience --debug
 eklet-tke-resilience-5f9dcd99df-rgsmc           1/1     Running   0          43h
 eks-admission-tke-resilience-5bb588dc44-9hvhs   1/1     Running   0          44h
 ```
-查看集群中已经部署了1个虚拟节点。  
+查看集群中已经部署了1个超级节点。  
 ```bash
 # kubectl get node
 NAME                    STATUS   ROLES    AGE    VERSION

@@ -2,6 +2,13 @@
 
 您可以针对 Topic 设置限流规则，避免单个 Topic 流量过大而影响其他 Topic。
 
+
+<dx-alert infotype="explain" title="">
+只有 broker 版本为 2.4.x 才支持 topic 设置限流规则。
+</dx-alert>
+
+
+
 ## 操作步骤
 
 1. 登录 [CKafka 控制台](https://console.cloud.tencent.com/ckafka)。

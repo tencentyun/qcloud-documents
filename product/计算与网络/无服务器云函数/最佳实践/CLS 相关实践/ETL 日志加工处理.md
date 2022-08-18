@@ -40,7 +40,7 @@
 
 ### 配置 CLS 触发器
 
-1. 登录 [云函数控制台](https://console.cloud.tencent.com/scf/index?rid=1)，选择左侧导航栏中的**函数服务**。
+1. 登录 [Serverless 控制台](https://console.cloud.tencent.com/scf/index?rid=1)，选择左侧导航栏中的**函数服务**。
 2. 在“函数服务”列表页面上方，选择期望配置 CLS 触发器的函数所在的地域及命名空间。
 3. 单击函数名，进入该函数的详情页面。
 4. 在该函数的详情页面，选择左侧的**触发管理**，进入触发器浏览及操作界面，单击**创建触发器**，开始创建一个新的触发器。
@@ -53,7 +53,7 @@
 ### 测试函数功能
 
 1. 下载 [测试样例](https://main.qcloudimg.com/raw/6e0d4837eefd0ce77dac8a3973acdf39.zip) 中的日志文件，并解压出 demo-scf1.txt，导入至源端 CLS 服务。
-2. 切换至 [云函数控制台](https://console.cloud.tencent.com/scf/list?rid=8&ns=default)，查看执行结果。
+2. 切换至 [Serverless 控制台](https://console.cloud.tencent.com/scf/list?rid=8&ns=default)，查看执行结果。
    在函数详情页面中选择**日志查询**页签，可以看到打印出的日志信息。如下图所示： 
    ![](https://main.qcloudimg.com/raw/b4d8dd0a4a236ab4cb35f2e7d3160649.png)
 3. 切换至终端 CLS 日志服务，查看数据加工结果。

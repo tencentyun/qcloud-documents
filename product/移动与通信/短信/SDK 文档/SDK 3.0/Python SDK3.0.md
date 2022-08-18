@@ -19,24 +19,19 @@ SDK 3.0是云 API 3.0平台的配套工具，您可以通过 SDK 使用所有 [�
 
 ## 相关资料
 - 各个接口及其参数的详细介绍请参见 [API 文档](https://cloud.tencent.com/document/product/382/52077)。
-- 下载 SDK 源码请访问 [Python SDK 源码](https://github.com/TencentCloud/tencentcloud-sdk-python)。
+- 下载 SDK 源码请访问 [Github 仓库](https://github.com/tencentcloud/tencentcloud-sdk-python) 或者 [Gitee 仓库](https://gitee.com/tencentcloud/tencentcloud-sdk-python)。
 
 ## 安装 SDK
 
 ### 通过 pip 安装（推荐）
-1. 下载并安装 [pip](https://pip.pypa.io/en/stable/installing/?spm=a3c0i.o32026zh.a3.6.74134958lLSo6o)。
-2. 执行以下命令安装 SDK。
-```bash
-pip install tencentcloud-sdk-python
-```
+
+- Github 仓库参考 [通过 pip 安装（推荐）](https://github.com/tencentcloud/tencentcloud-sdk-python#%E9%80%9A%E8%BF%87-pip-%E5%AE%89%E8%A3%85%E6%8E%A8%E8%8D%90)
+- Gitee 仓库参考 [通过 pip 安装（推荐）](https://gitee.com/tencentcloud/tencentcloud-sdk-python#%E9%80%9A%E8%BF%87-pip-%E5%AE%89%E8%A3%85%E6%8E%A8%E8%8D%90)
 
 ### 通过源码包安装
-1. 前往 [Github 代码托管地址](https://github.com/tencentcloud/tencentcloud-sdk-python) 或 [快速下载地址](https://tencentcloud-sdk-1253896243.file.myqcloud.com/tencentcloud-sdk-python/tencentcloud-sdk-python.zip) 下载最新代码。
-2. 解压后依次执行以下命令安装 SDK。
-```bash
-$ cd tencentcloud-sdk-python
-$ python setup.py install
-```
+
+- Github 仓库参考 [通过源码包安装](https://github.com/tencentcloud/tencentcloud-sdk-python#%E9%80%9A%E8%BF%87%E6%BA%90%E7%A0%81%E5%8C%85%E5%AE%89%E8%A3%85)
+- Gitee 仓库参考 [通过源码包安装](https://gitee.com/tencentcloud/tencentcloud-sdk-python#%E9%80%9A%E8%BF%87%E6%BA%90%E7%A0%81%E5%8C%85%E5%AE%89%E8%A3%85)
 
 ## 示例代码[](id:example)
 >?所有示例代码仅作参考，无法直接编译和运行，需根据实际情况进行修改，您也可以根据实际需求使用 [API 3.0 Explorer](https://console.cloud.tencent.com/api/explorer?Product=sms&Version=2021-01-11&Action=SendSms) 自动化生成 Demo 代码。
@@ -45,7 +40,7 @@ $ python setup.py install
 
 ### 发送短信
 
-```
+```python
 # -*- coding: utf-8 -*-
 from tencentcloud.common import credential
 from tencentcloud.common.exception.tencent_cloud_sdk_exception import TencentCloudSDKException
@@ -141,7 +136,7 @@ except TencentCloudSDKException as err:
 
 ### 拉取短信下发状态
 
-```
+```python
 # -*- coding: utf-8 -*-
 from tencentcloud.common import credential
 from tencentcloud.common.exception.tencent_cloud_sdk_exception import TencentCloudSDKException
@@ -216,7 +211,7 @@ except TencentCloudSDKException as err:
 
 ### 统计短信发送数据
 
-```
+```python
 # -*- coding: utf-8 -*-
 from tencentcloud.common import credential
 from tencentcloud.common.exception.tencent_cloud_sdk_exception import TencentCloudSDKException
@@ -296,7 +291,7 @@ except TencentCloudSDKException as err:
 
 ### 申请短信模板
 
-```
+```python
 # -*- coding: utf-8 -*-
 from tencentcloud.common import credential
 from tencentcloud.common.exception.tencent_cloud_sdk_exception import TencentCloudSDKException

@@ -44,7 +44,7 @@ $cosClient = new Qcloud\Cos\Client(
 try {
     $result = $cosClient->deleteObject(array(
         'Bucket' => 'examplebucket-1250000000', //存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
-        'Key' => 'exampleobject'
+        'Key' => 'exampleobject' //若多路径则写为folder/exampleobject，不要在第一层带/，否则删除会失败
     )); 
     // 请求成功
     print_r($result);
@@ -73,7 +73,7 @@ $cosClient = new Qcloud\Cos\Client(
 try {
     $result = $cosClient->deleteObject(array(
         'Bucket' => 'examplebucket-1250000000', //存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
-        'Key' => 'exampleobject',
+        'Key' => 'exampleobject', //若多路径则写为folder/exampleobject，不要在第一层带/，否则删除会失败
         'VersionId' => 'exampleVersionId' //存储桶未开启版本控制时请勿携带此参数
     )); 
     // 请求成功
@@ -129,7 +129,7 @@ try {
         'Bucket' => 'examplebucket-1250000000', //存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
         'Objects' => array(
             array(
-                'Key' => 'exampleobject',
+                'Key' => 'exampleobject', //若多路径则写为folder/exampleobject，不要在第一层带/，否则删除会失败
             ),  
             // ... repeated
         ),  
@@ -168,7 +168,7 @@ try {
         'Bucket' => 'examplebucket-1250000000', //存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
         'Objects' => array(
             array(
-                'Key' => 'exampleobject',
+                'Key' => 'exampleobject', //若多路径则写为folder/exampleobject，不要在第一层带/，否则删除会失败
                 'VersionId' => 'string' //存储桶未开启版本控制时请勿携带此参数
             ),  
             // ... repeated

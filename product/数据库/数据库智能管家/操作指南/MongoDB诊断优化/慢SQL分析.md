@@ -3,8 +3,7 @@
 慢日志分析对实例中慢日志的记录和执行信息（来源信息、次数、执行时间、返回集合、扫描集合等）进行统计、聚合。
 
 ## 整体概览
-
-![](https://qcloudimg.tencent-cloud.cn/raw/04ef33ac6c575b180b519e0685425d1e.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/b9d9abd64dc63d0f13c457e0827a9882.png)
 
 ## 查看慢 SQL 分析
 1. 登录 [DBbrain 控制台](https://console.cloud.tencent.com/dbbrain/slow-sql)，在左侧导航选择**诊断优化**，在上方选择对应数据库，然后选择**慢 SQL 分析**页签。
@@ -17,7 +16,7 @@
 3. 单击某条聚合的慢日志记录，右侧边会弹出慢日志的统计分析和明细数据。
  - 在统计页，您可查看耗时分布图、总耗时占比、扫描行数占比、平均扫描行数信息。
   ![](https://qcloudimg.tencent-cloud.cn/raw/235fab6999bed8b5b17cdd2130bed503.png)
- - 在明细页，您可查看慢日志的具体信息，包括 SQL 语句、命名空间、执行时间、扫描索引数、返回行数、扫描行数。
+ - 在明细页，可以查看该命令模板对应的明细记录，包括 SQL 语句、命名空间、执行时间、扫描索引数、返回行数、扫描行数等。同时支持根据时间、命名空间、耗时等进行筛选，查询历史 SQL 明细信息。
   明细页可以向左侧拉取，进行横向扩展，也可在首页的明细页签查看放大统计表。
   ![](https://qcloudimg.tencent-cloud.cn/raw/8c8c403c325f4f4e5f6c4a87d8e69c11.png)
 4. 导出慢日志数据。

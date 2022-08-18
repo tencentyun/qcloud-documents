@@ -120,8 +120,7 @@
 ></wj-player>
 ```
 2. 编写回调函数：
-<dx-codeblock>
-::: javascript javascript
+```javascript
 Page({
 	handleClipEdit(e) {
 		let {
@@ -135,11 +134,9 @@ Page({
     }
 	}
 })
-:::
-</dx-codeblock>
+```
 	e.detail 的数据结构如下:
-<dx-codeblock>
-::: javascript javascript
+```javascript
 {
 	clipId, // 编辑的clipId
 	type, // 编辑的clip类型
@@ -154,8 +151,7 @@ Page({
 		rotation, // 旋转角度
 	}
 }
-:::
-</dx-codeblock>
+```
 
 ##### 点击其他按钮
 1. 绑定事件回调：
@@ -165,8 +161,7 @@ Page({
 ></wj-player>
 ```
 2. 处理回调数据：
-<dx-codeblock>
-::: javascript javascript
+```javascript
 handleClipOperation(e) {
   const operation = e.detail.operation;
   switch (key) {
@@ -183,19 +178,16 @@ handleClipOperation(e) {
       break;
   }
 }
-:::
-</dx-codeblock>
+```
 	e.detail 的数据结构如下:
-<dx-codeblock>
-::: javascript javascript
+```javascript
 {
 	clipId: this.container.id,
 	type: this.container.type,
 	trackId: this.container.parent.id,
 	operation: type,
 }
-:::
-</dx-codeblock>
+```
 
 
 
@@ -257,7 +249,6 @@ clip.operations = [
 ]
 ```
 更新数据到播放器，蒙版即生效。
-
 2. 开启播放器的蒙版编辑
 需要编辑蒙版的情况下，调用，即可在播放器内编辑蒙版。
 ```

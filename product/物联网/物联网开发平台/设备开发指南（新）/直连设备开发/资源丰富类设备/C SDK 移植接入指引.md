@@ -6,6 +6,8 @@
 
 SDK 使用 Github 托管，可访问 Github 下载最新版本设备端 [C SDK](https://github.com/tencentyun/qcloud-iot-explorer-sdk-embedded-c/releases)。
 
+
+
 ## 接入指引
 
 非典型平台接入腾讯云物联网开发平台可以分为以下2个步骤。
@@ -187,9 +189,9 @@ SDK 在 [platform/os](https://github.com/tencentyun/qcloud-iot-sdk-embedded-c/tr
 </tbody></table>
 
  <span id="AT_socket"></span>
- 
+
    - 基于 AT_socket 的 HAL 接口
-  通过使能编译宏 **AT_TCP_ENABLED** 选择 AT_socket，则 SDK 将会调用 `network_at_tcp.c` 的 `at_socket` 接口， at_socket 层不需要移植，需要实现 AT 串口驱动及 AT 模组驱动，AT 模组驱动只需要实现 AT 框架中 at_device 的驱动结构体 `at_device_op_t` 的驱动接口即可，详情可参考 [at_device](https://github.com/tencentyun/qcloud-iot-sdk-embedded-c/tree/master/platform/at_device/esp8266) 目录下的已支持的模组。AT 串口驱动需要实现串口的中断接收，然后在中断服务程序中调用回调函数 `at_client_uart_rx_isr_cb` 即可，可以参考 `HAL_AT_UART_freertos.c` 实现目标平台的移植。
+    通过使能编译宏 **AT_TCP_ENABLED** 选择 AT_socket，则 SDK 将会调用 `network_at_tcp.c` 的 `at_socket` 接口， at_socket 层不需要移植，需要实现 AT 串口驱动及 AT 模组驱动，AT 模组驱动只需要实现 AT 框架中 at_device 的驱动结构体 `at_device_op_t` 的驱动接口即可，详情可参考 [at_device](https://github.com/tencentyun/qcloud-iot-sdk-embedded-c/tree/master/platform/at_device/esp8266) 目录下的已支持的模组。AT 串口驱动需要实现串口的中断接收，然后在中断服务程序中调用回调函数 `at_client_uart_rx_isr_cb` 即可，可以参考 `HAL_AT_UART_freertos.c` 实现目标平台的移植。
 <table>
 <thead>
 <tr>

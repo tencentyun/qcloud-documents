@@ -1,22 +1,22 @@
 ## 简介
 
-本文档提供移动推送 TPNS  iOS 应用快速接入指引。使用本地工具无代码集成，一键为您的 iOS 应用配置推送功能。
+本文档提供移动推送 iOS 应用快速接入指引。使用本地工具无代码集成，一键为您的 iOS 应用配置推送功能。
 
->! 为了避免您的 App 被监管部门通报或下架，请您在接入 SDK 之前务必按照 [iOS 合规指南](https://cloud.tencent.com/document/product/548/57362) 在《隐私政策》中增加 TPNS 相关说明，并且在用户同意《隐私政策》后再初始化 TPNS SDK。 
+>! 为了避免您的 App 被监管部门通报或下架，请您在接入 SDK 之前务必按照 [iOS 合规指南](https://cloud.tencent.com/document/product/548/57362) 在《隐私政策》中增加移动推送相关说明，并且在用户同意《隐私政策》后再初始化移动推送SDK。 
 >
 
 ## 接入前准备
 
 ### 创建 iOS 平台应用
 
-1. 接入 SDK 之前，需要您前往 [移动推送 TPNS 控制台](https://console.cloud.tencent.com/tpns) 创建产品和 iOS 应用，详情请参见 [创建产品和应用](https://cloud.tencent.com/document/product/548/37241) 文档。
+1. 接入 SDK 之前，需要您前往 [移动推送控制台](https://console.cloud.tencent.com/tpns) 创建产品和 iOS 应用，详情请参见 [创建产品和应用](https://cloud.tencent.com/document/product/548/37241) 文档。
    ![](https://main.qcloudimg.com/raw/e6e1805c3198704a0d24ed20fe65f25a.png)
 2. 在**配置管理**页面上传推送证书，您可以参考 [证书获取指引](https://cloud.tencent.com/document/product/548/36664) 操作获取推送证书。
    ![](https://main.qcloudimg.com/raw/d7ed258ecf2eda9d32e986039bc9bb3c.png)
    ![](https://main.qcloudimg.com/raw/c4eaeb3f2d9c3fbb42dbb75f2c5c12dc.png)
 3. 完成以上步骤后，单击快速接入，下载快速集成工具。
    ![](https://main.qcloudimg.com/raw/bbe22b0a4ea25ed313c5c3785814f922.png)
-4. 解压缩文件包，双击 TPNS Smart Tool。
+4. 解压缩文件包，双击TPNS Smart Tool。
    ![](https://main.qcloudimg.com/raw/b900deaadd11180abd6918e400ed55b6.png)
 5. 此时会提示“无法打开 TPNS Smart Tool”。
    ![](https://main.qcloudimg.com/raw/67334a5258eb5d879c54663d158029ee.png)
@@ -35,7 +35,7 @@
 
 ### 配置项1、2 - AccessID、AccessKey
 
-登录 [TPNS 控制台](https://console.cloud.tencent.com/tpns)。
+登录 [移动推送控制台](https://console.cloud.tencent.com/tpns)。
 
 1. 产品管理 - 要配置推送能力的产品，选择 iOS 或者 macOS 平台的配置管理。
    ![](https://main.qcloudimg.com/raw/5f812069da22e2c345ef69a4ad1b920c.jpg)
@@ -71,11 +71,11 @@
 3. 将扩展插件的 `Bundle Identifier` 指定为上述申请的 `Bundle Identifier` 并将 `Provisioning Profile` 指定为上述申请的描述文件。
 ![](https://main.qcloudimg.com/raw/eb8edae0c798ac9434c930eba3178fa8.png)
 > ?
->- 若您是**初次集成 TPNS**，建议同时勾选5和6，否则无法获取推送抵达数据且无法下发富媒体推送。
+>- 若您是**初次集成 移动推送**，建议同时勾选5和6，否则无法获取推送抵达数据且无法下发富媒体推送。
 >- 您可以单独集成配置项5或者6，也可以同时集成5和6，请根据您的项目情况自行选择。
 
 
-### 进行 TPNS SDK 集成
+### 进行移动推送 SDK 集成
 
 1. 完成上述6项配置之后，**一键集成**将变成蓝色可单击状态，单击**一键集成**。
   ![](https://main.qcloudimg.com/raw/30059198465ce5fb475e848aa2214372.jpg)

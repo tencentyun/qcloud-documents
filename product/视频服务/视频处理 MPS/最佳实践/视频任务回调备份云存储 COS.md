@@ -1,4 +1,4 @@
-通过视频处理 MPS，将 MPS 产生的回调任务通过 SCF 及时备份至 COS 是一个标准的方案，视频处理 MPS 在云函数 SCF 中配置了模板供用户使用。我们用到了视频处理（MPS）和云函数（SCF）。其中 MPS 主要用于视频处理任务，SCF 提供回调消息处理，COS 主要提供终端永久性存储能力。
+通过媒体处理 MPS，将 MPS 产生的回调任务通过 SCF 及时备份至 COS 是一个标准的方案，媒体处理 MPS 在云函数 SCF 中配置了模板供用户使用。我们用到了媒体处理（MPS）和云函数（SCF）。其中 MPS 主要用于媒体处理任务，SCF 提供回调消息处理，COS 主要提供终端永久性存储能力。
 
 ## 操作步骤
 ### 步骤1：创建 SCF 云函数
@@ -30,7 +30,7 @@
 
 
 ### 步骤3：测试函数功能
-1. 在 **[MPS 控制台](https://console.cloud.tencent.com/mps)** 执行 MPS 的视频处理工作流。
+1. 在 **[MPS 控制台](https://console.cloud.tencent.com/mps)** 执行 MPS 的媒体处理工作流。
 2. 切换至 **[云函数控制台](https://console.cloud.tencent.com/scf/list?rid=8&ns=default)**，查看执行结果。
 在函数详情页面中选择**日志查询**页签，可以看到打印出的日志信息。如下图所示：
 ![](https://main.qcloudimg.com/raw/f5d10848b674f137826689ac1dc28c8a.png)

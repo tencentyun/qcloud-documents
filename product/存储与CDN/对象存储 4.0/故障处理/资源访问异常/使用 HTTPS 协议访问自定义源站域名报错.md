@@ -18,7 +18,6 @@
 详情请参考内容分发网络的 [证书配置](https://cloud.tencent.com/document/product/228/41687#.E8.AF.81.E4.B9.A6.E9.85.8D.E7.BD.AE) 文档。
 5. 等待约5分钟，待 CDN 域名重新完成部署后，即可成功访问 HTTPS 协议。
 
-
 ### 使用 COS 证书 
 
 1. 登录 [对象存储控制台](https://console.cloud.tencent.com/cos5)。
@@ -34,5 +33,4 @@
 ### 使用 CVM 反代理证书 
 
 参考 [配置自定义域名支持 HTTPS 访问](https://cloud.tencent.com/document/product/436/11142)。
-
 

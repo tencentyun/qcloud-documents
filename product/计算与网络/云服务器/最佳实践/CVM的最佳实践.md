@@ -24,3 +24,4 @@
 - **突发请求处理：**使用 [弹性伸缩](https://cloud.tencent.com/document/product/377) 能够保证服务峰值中的云服务器稳定，还能自动替换不健康的实例。
 
 
+

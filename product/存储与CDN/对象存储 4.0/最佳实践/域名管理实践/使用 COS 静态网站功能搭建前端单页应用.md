@@ -6,7 +6,6 @@
 
 本文将使用目前较为热门的2个框架，一步步教您使用**腾讯云对象存储（Cloud Object Storage，COS）**提供的**静态网站**功能快速搭建一个线上可用的单页应用，并提供一些常见问题的解决方案。
 
-
 ## 准备工作
 
 1. 安装 [Node.js](https://nodejs.org/zh-cn/download/) 环境。

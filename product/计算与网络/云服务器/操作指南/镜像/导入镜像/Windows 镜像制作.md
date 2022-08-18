@@ -102,7 +102,7 @@ bootmenupolicy          Standard
 
 
 ### 转换镜像格式（可选）
-参考 [转换镜像镜像](https://cloud.tencent.com/document/product/213/62569#windows)，使用 `qemu-img` 将镜像文件转换为支持的格式。
+参考 [转换镜像格式](https://cloud.tencent.com/document/product/213/62569#windows)，使用 `qemu-img` 将镜像文件转换为支持的格式。
 
 ### 检查镜像
 

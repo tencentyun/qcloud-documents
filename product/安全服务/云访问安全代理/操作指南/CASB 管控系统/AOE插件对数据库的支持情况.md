@@ -1,5 +1,5 @@
 ## 对数据库字段类型的支持
-目前支持的数据库类型为  Mysql 5.6及5.7版本，支持的字段类型如下：
+目前支持的字段类型如下：
 
 | 字段类型    | 支持情况                                                | 可选算法 |
 | ----------- | ------------------------------------------------------- | -------- |
@@ -69,7 +69,7 @@
 | 子查询-子查询中字段作为关联条件                        | 支持                                 | select a.col1 from table_a a  join (select col2,col3,col4 from table_b) t on a.col1=t.col3 where  t.col2='ddd' |
 | 子查询-策略配置在子查询条件字段上                      | 支持                                 | select t.col4 from  table_a a join (select col2,col3,col4 from table_b) t on a.col1=t.col3 where  t.col2='ddd' |
 | 子查询-结果集中带有子查询字段，且配置了策略            | 支持                                 | select t.col4 from  table_a a join (select col2,col3,col4 from table_b) t on a.col1=t.col3 where  t.col2='ddd' |
-| 对 exist 关键字的支持                                  | 支持                                 | select col1,col2,col3  from table_a where exists (select 1 from table_b where col3 = table_a.col1) |
+| 对 exists 关键字的支持                                  | 支持                                 | select col1,col2,col3  from table_a where exists (select 1 from table_b where col3 = table_a.col1) |
 | 对 group by 语法的支持                                 | 支持                                 | select col1, col2 from table_a where col3 = 'bbb' group by col1,col2 |
 | 对数字类型的分组函数                                   | 不支持                               | select  sum(col2),avg(col2),min(col2),max(col2) from table_a where col1='aaa' |
 | 对 order by 的支持                                     | 只支持非加密字段的排序               | select * from table_a order by id desc                       |
@@ -99,7 +99,7 @@
 - `information_schema` 数据库不会应用加密规则。
 - `UNION` 语句使用第一个 `SELECT 子句` 的加解密策略。 
 - 不支持存储过程的加解密。
-- 不支持I `NSERT INTO ... SELECT ...` 等不经过 CASB 处理的数据的加解密。
+- 不支持 `INSERT INTO ... SELECT ...` 等不经过 CASB 处理的数据的加解密。
 - 连接查询时，JOIN 字段需选择同样的密钥，否则密文不一致，无法正确进行连接查询。
 
 ### 协议

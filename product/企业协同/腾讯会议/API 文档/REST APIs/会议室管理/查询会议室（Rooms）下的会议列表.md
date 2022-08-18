@@ -6,8 +6,6 @@
 https://api.meeting.qq.com/v1/meeting-rooms/{operator_id}/meetings
 ```
 
-
-
 ## 输入参数
 HTTP 请求头公共参数请参见签名验证章节的 [公共参数说明](https://cloud.tencent.com/document/product/1095/42413#.E5.85.AC.E5.85.B1.E5.8F.82.E6.95.B0)。
 
@@ -32,23 +30,7 @@ HTTP 请求头公共参数请参见签名验证章节的 [公共参数说明](ht
    <tr>
       <td>instanceid</td>
       <td>是</td>
-      <td>用户的终端设备类型： <br>
-			1：PC。 <br>
-			2：Mac。 <br>
-			3：Android。<br>
-			4：iOS。 <br>
-			5：Web。 <br>
-			6：iPad。 <br>
-			7：Android Pad。 <br>
-			8：小程序。 <br>
-			9：voip、sip 设备。 <br>
-			10：Linux。 <br>
-			20：Rooms for Touch Windows。 <br>
-			21：Rooms for Touch Mac。 <br>
-			22：Rooms for Touch Android。 <br>
-			30：Controller for Touch Windows。 <br>
-			32：Controller for Touch Android。 <br>
-			33：Controller for Touch iPhone。<br>
+      <td>用户的终端设备类型：<br>0：PSTN<br>1：PC<br>2：Mac<br>3：Android<br>4：iOS<br>5：Web<br>6：iPad<br>7：Android Pad<br>8：小程序<br>9：voip、sip 设备<br>10：linux<br>20：Rooms for Touch Windows<br>21：Rooms for Touch MacOS<br>22：Rooms for Touch Android<br>30：Controller for Touch Windows<br>32：Controller for Touch Android<br>33：Controller for Touch iOS
 			</td>
    </tr>
    <tr>
@@ -93,7 +75,7 @@ HTTP 请求头公共参数请参见签名验证章节的 [公共参数说明](ht
 | meeting_code | String  | 有效会议 Code。                                              |
 | subject      | String  | 会议主题。                                                   |
 | status       | String  | 会议状态。                                                   |
-| meeting_type | Integer | 会议类型：<br>0：一次性会议。<br>1：周期性会议。<br>2：微信专属会议。<br>4：rooms 投屏会议。<br>5：个人会议号会议。<br>6：络研讨会（Webinar）。|
+| meeting_type | Integer | 会议类型：<br>0：一次性会议。<br>1：周期性会议。<br>2：微信专属会议。<br>4：rooms 投屏会议。<br>5：个人会议号会议。<br>6：网络研讨会（Webinar）。|
 | start_time   | Integer | 会议预订开始时间（Unix 秒）。                                |
 | end_time     | Integer | 会议预订结束时间（Unix 秒）。                                |
 

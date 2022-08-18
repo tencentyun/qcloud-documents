@@ -38,7 +38,7 @@
 ## 操作步骤
 ### 创建云函数及 Ckafka 触发器
 
-1. 登录 [云函数控制台](https://console.cloud.tencent.com/scf/list?rid=1&ns=default)，单击左侧导航栏的**函数服务**。
+1. 登录 [Serverless 控制台](https://console.cloud.tencent.com/scf/list?rid=1&ns=default)，单击左侧导航栏的**函数服务**。
 2. 在“函数服务”上方选择期望创建函数的地域，并单击**新建**，进入函数创建流程。
 3. 在“新建函数”页面根据以下信息选择函数模板，并单击**下一步**。如下图所示： 
 ![](https://main.qcloudimg.com/raw/bc7d09293dc0df7403b008c4ba20a854.png)

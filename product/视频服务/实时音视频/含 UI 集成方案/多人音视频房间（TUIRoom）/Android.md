@@ -1,30 +1,26 @@
 ## 组件介绍
 TUIRoom 是一个开源的音视频 UI 组件，通过在项目中集成 TUIRoom 组件，您只需要编写几行代码就可以为您的 App 添加屏幕分享、美颜、低延时视频通话等。TUIRoom 同时支持 [iOS](https://cloud.tencent.com/document/product/647/45681)、[Windows](https://cloud.tencent.com/document/product/647/63494)，[Mac](https://cloud.tencent.com/document/product/647/63494) 等平台，基本功能如下图所示：
 
-<table class="tablestyle">
-<tbody><tr>
-<td><img src="https://qcloudimg.tencent-cloud.cn/raw/6edda9960c4f116bc0a513b8254e47ba.jpg" width="250"></td>
-<td><img src="https://qcloudimg.tencent-cloud.cn/raw/3d4e0b6e557177d76724abf7fdcf7748.jpg" width="250"></td>
-<td><img src="https://qcloudimg.tencent-cloud.cn/raw/2e9f739a3a1a1511da693bd453f25061.jpg" width="250"></td>
-</tr>
-</tbody></table>
+>?TUIKit 系列组件同时使用了腾讯云 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269/42440) 两个基础 PaaS 服务，开通实时音视频后会同步开通即时通信IM服务。即时通信 IM 服务详细计费规则请参见 [即时通信 - 价格说明](https://cloud.tencent.com/document/product/269/11673)，TRTC 开通会默认关联开通 IM SDK 的体验版，仅支持100个 DAU。
+
+![](https://qcloudimg.tencent-cloud.cn/raw/fc82f1fa6c4e6841cda00f8ee6578b5d.png)
 
 ## 组件集成
 ### 步骤一：下载并导入 TUIRoom 组件
-单击进入 [Github](https://github.com/tencentyun/TUIRoom) ，选择克隆/下载代码，然后拷贝 Android 下的 tuiroom、debug、tuibeauty 目录到您的工程中，并完成如下导入动作：
-- 在 `setting.gradle` 中完成导入，参考如下：
+单击进入 [Github](https://github.com/tencentyun/TUIRoom)，选择克隆/下载代码，然后拷贝 Android 下的 tuiroom、debug、tuibeauty 目录到您的工程中，并完成如下导入动作：
+1. 在 `setting.gradle` 中完成导入，参考如下：
 ```
 include ':tuiroom'
 include ':debug'
 include ':tuibeauty'
 ```
-- 在 app 的 `build.gradle` 文件中添加对 tuiroom、debug、tuibeauty 的依赖：
+2. 在 app 的 `build.gradle` 文件中添加对 tuiroom、debug、tuibeauty 的依赖：
 ```
 api project(':tuiroom')
 api project(':debug')
 api project(':tuibeauty')
 ```
-- 在根目录的 `build.gradle` 文件中添加 `TRTC SDK` 和 `IM SDK` 的依赖：
+3. 在根目录的 `build.gradle` 文件中添加 `TRTC SDK` 和 `IM SDK` 的依赖：
 ```
 ext {
     liteavSdk = "com.tencent.liteav:LiteAVSDK_TRTC:latest.release"
@@ -80,11 +76,11 @@ TUIRoom tuiRoom = TUIRoom.sharedInstance(this);
 ### 步骤四：实现多人音视频互动
 1. **实现房主创建多人音视频互动房间**。
 ```java
-tuiRoom.createRoom("12345", TUIRoomCoreDef.SpeechMode.FREE_SPEECH, true, true);
+tuiRoom.createRoom(12345, TUIRoomCoreDef.SpeechMode.FREE_SPEECH, true, true);
 ```
 2. **实现其他成员加入音视频房间**。
 ```java
-tuiRoom.enterRoom("12345", true, true);
+tuiRoom.enterRoom(12345, true, true);
 ```
 
 ### 步骤五：房间管理（可选）

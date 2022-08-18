@@ -1,6 +1,5 @@
 在[ NS 接入方式](https://cloud.tencent.com/document/product/1552/70787#NS) 下，支持通过修改 NS 服务器，将 DNS 解析权转移给 EdgeOne，实现稳定专业的解析服务的同时，一键开启 EdgeOne 安全/加速服务。
->?目前边缘安全加速平台控制台仅对部分用户开放，如需访问控制台，请 [联系我们](https://cloud.tencent.com/online-service) 开通权限。
-
+ 
 ## NS 记录[](id:record)
 EdgeOne DNS 支持多种记录类型的智能解析服务，根据用户所在地理位置及运营商智能返回最佳解析线路。
 1. 登录 [边缘安全加速平台控制台](https://console.cloud.tencent.com/edgeone)，在左侧菜单栏中，单击**域名服务**。
@@ -222,15 +221,15 @@ DNSSEC (DNS Security Extension，DNS 安全扩展) 通过数字签名对 DNS 数
  - [name.com](https://www.name.com/support/articles/205439058-Managing-DNSSEC)
  - [Public Domain Registry](http://manage.publicdomainregistry.com/kb/answer/1909)
 
-### 自定义 NS 服务器[](id:customize)
-自定义名称服务器允许您创建自己站点专属的名称服务器，以替代所分配默认名称服务器。创建后 EdgeOne 会自动为自定义 NS 分配对应的 IP 地址。
+### 自定义 NS[](id:customize)
+自定义 NS 允许您创建自己站点专属的名称服务器，以替代所分配默认名称服务器。创建后 EdgeOne 会自动为自定义 NS 分配对应的 IP 地址。
 >?自定义 NS 服务器有如下限制：
 >- 只能以当前站点 (example.com) 的子域名 (ns.example.com) 作为自定义 NS。
 >- 自定义 NS 需至少有 2 个，最多可添加 5 个。
 >- 首次开启需添加两个自定义 NS 域名，自定义名称不能和现有 DNS 记录冲突。
 
-1. 在 [域名服务页面](https://console.cloud.tencent.com/edgeone/dns?tab=config)，选择所需站点，单击**DNS 配置**。
-2. 在 DNS 配置页面，单击自定义 NS 服务模块的![](https://qcloudimg.tencent-cloud.cn/raw/20efaa7f4ecc99b93da623f1c61784ac.png)，输入自定义 NS 域名，单击**添加**。
+1. 在 [域名服务页面](https://console.cloud.tencent.com/edgeone/dns?tab=config)，选择所需站点，单击 **DNS 配置**。
+2. 在 DNS 配置页面，单击自定义 NS 模块的![](https://qcloudimg.tencent-cloud.cn/raw/20efaa7f4ecc99b93da623f1c61784ac.png)，输入自定义 NS 域名，单击**添加**。
 3. 添加成功后，**需要在域名注册商添加该自定义 NS 的胶水记录，才能真正生效**。
 
 ### CNAME 加速[](id:up)

@@ -1,4 +1,4 @@
-使用 Logstash 可以完成同步两个 Elasticsearch 集群中的数据，例如把数据从自建的 Elasticsearch 集群同步到腾讯云上的 Elasticsearch 集群，或者同步两个腾讯云上的 Elasticsearch 集群中的数据。下面介绍如何使用腾讯云 Logstash 同步两个 Elasticsearch 集群中的数据。
+使用 Logstash 可以完成同步两个 Elasticsearch 集群中的数据，例如把数据从自建的 Elasticsearch 集群同步到腾讯云上的 Elasticsearch 集群，或者同步两个腾讯云上的 Elasticsearch 集群中的数据。下面介绍如何使用腾讯云 Logstash 同步两个 Elasticsearch 集群中的数据。  
 
 ## 创建管道
 登录 [Elasticsearch Service 控制台](https://console.cloud.tencent.com/es)，选择需要操作的实例，单击实例 **ID/名称**，进入实例基本信息页面。切换到“管道管理”页签，单击**新建管道**，创建一个管道。

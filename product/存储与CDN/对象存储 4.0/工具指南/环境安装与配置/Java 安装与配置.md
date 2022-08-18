@@ -1,4 +1,4 @@
-JDK 是 Java 软件开发工具包，本文以 JDK 1.7 和 1.8 版本为例，分别介绍了在 Windows 和 Linux 系统下， JDK 的安装与环境配置过程。
+JDK 是 Java 软件开发工具包，本文以 JDK 1.8 版本为例，分别介绍了在 Windows 和 Linux 系统下， JDK 的安装与环境配置过程。
 
 ## Windows
 
@@ -81,3 +81,4 @@ java version "1.8.0_151"
 Java(TM) SE Runtime Environment (build 1.8.0_151-b12)
 Java HotSpot(TM) 64-Bit Server VM (build 25.151-b12, mixed mode)
 ```
+

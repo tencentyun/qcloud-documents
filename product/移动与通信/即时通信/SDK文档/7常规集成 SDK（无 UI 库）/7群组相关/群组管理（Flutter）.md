@@ -82,17 +82,41 @@
 <td>不支持</td>
 </tr>
 <tr>
-<td>是否支持查看入群前消息记录</td>
-<td>不支持</td>
-<td>不支持</td>
-<td>支持</td>
-<td>支持</td>
-<td>不支持</td>
-</tr>
-<tr>
 <td>是否支持云端历史消息存储</td>
 <td colspan="4"><ul style="margin:0;padding-left:10px" ><li>体验版：7天</li><li>专业版 ：默认7天，最高支持 <a href="https://cloud.tencent.com/document/product/269/11673#zz">增值</a> 延长至360天</li><li>旗舰版 ：默认30天，最高支持 <a href="https://cloud.tencent.com/document/product/269/11673#zz">增值</a> 延长至360天</li></ul></td>
 <td>不支持</td>
+</tr>
+<tr>
+<td>是否支持查看入群前漫游消息</td>
+<td>默认关闭查看入群前漫游消息，支持 <a href="https://console.cloud.tencent.com/im/qun-setting">控制台</a> 配置</td>
+<td>默认关闭查看入群前漫游消息，支持 <a href="https://console.cloud.tencent.com/im/qun-setting">控制台</a> 配置</td>
+<td>默认开启查看入群前漫游消息，支持 <a href="https://console.cloud.tencent.com/im/qun-setting">控制台</a> 配置</td>
+<td>默认开启查看入群前漫游消息，支持 <a href="https://console.cloud.tencent.com/im/qun-setting">控制台</a> 配置</td>
+<td>不支持</td>
+</tr>
+
+<tr>
+<td>群成员变更通知</td>
+<td>邀请进群，申请进群，踢人，退群默认下发通知且存漫游，支持 <a href="https://console.cloud.tencent.com/im/qun-setting">控制台</a> 配置</td>
+<td>邀请进群，申请进群，踢人，退群默认下发通知且存漫游，支持 <a href="https://console.cloud.tencent.com/im/qun-setting">控制台</a> 配置</td>
+<td>邀请进群，申请进群，踢人，退群默认关闭通知，支持 <a href="https://console.cloud.tencent.com/im/qun-setting">控制台</a> 配置</td>
+<td>邀请进群，申请进群，踢人，退群默认下发通知且存漫游，支持 <a href="https://console.cloud.tencent.com/im/qun-setting">控制台</a> 配置</td>
+<td>邀请进群，申请进群，踢人，退群下发通知且不存漫游</td>
+</tr>
+<tr>
+<td>群资料变更通知</td>
+<td>群名称，群通知，群简介，群头像，群主变更默认下发通知且存漫游，群禁言，申请加群方式变更默认关闭通知，支持 <a href="https://console.cloud.tencent.com/im/qun-setting" rel="noopener" target="_blank" >控制台</a> 配置</td>
+<td>群名称，群通知，群简介，群头像，群主变更默认下发通知且存漫游，群禁言，申请加群方式变更默认关闭通知，支持 <a href="https://console.cloud.tencent.com/im/qun-setting" rel="noopener" target="_blank" >控制台</a> 配置</td>
+<td>群名称，群通知，群简介，群头像，群主变更默认下发通知且存漫游，群禁言，申请加群方式变更默认关闭通知，支持 <a href="https://console.cloud.tencent.com/im/qun-setting" rel="noopener" target="_blank" >控制台</a> 配置</td>
+<td>群名称，群通知，群简介，群头像，群主变更默认下发通知且存漫游，群禁言变更默认关闭通知，支持 <a href="https://console.cloud.tencent.com/im/qun-setting" rel="noopener" target="_blank" >控制台</a> 配置。社群申请加群方式不支持修改，因此无通知</td>
+<td>群名称，群通知，群简介，群头像，群主变更下发通知且不存漫游，群禁言，申请加群方式变更关闭通知</td>
+</tr><tr>
+<td>群成员资料变更通知</td>
+<td>群成员禁言，群管理员变更默认下发通知且存漫游，支持 <a href="https://console.cloud.tencent.com/im/qun-setting">控制台</a> 配置</td>
+<td>群成员禁言，群管理员变更默认下发通知且存漫游，支持 <a href="https://console.cloud.tencent.com/im/qun-setting">控制台</a> 配置</td>
+<td>群成员禁言，群管理员变更默认关闭通知，支持 <a href="https://console.cloud.tencent.com/im/qun-setting">控制台</a> 配置</td>
+<td>群成员禁言，群管理员变更默认下发通知且存漫游，支持 <a href="https://console.cloud.tencent.com/im/qun-setting">控制台</a> 配置</td>
+<td>群成员禁言，群管理员变更默认关闭通知，支持 <a href="https://console.cloud.tencent.com/im/qun-setting">控制台</a> 配置</td>
 </tr>
 <tr>
 <td>群组数量</td>
@@ -112,7 +136,6 @@
 >- 群组类型有**好友工作群（Work）**、**陌生人社交群（Public）**、**临时会议群（Meeting）、社群（Community）和直播群（AVChatRoom）**五个群组类型。旧版群组类型（Public、Private、ChatRoom、AVChatRoom）中的 Private 类型对应新群组类型 Work（好友工作群），ChatRoom 类型对应新群组类型 Meeting（临时会议群）。
 >- 专业版或旗舰版 SDKAppID 下，所有群类型日净增群组数上限为1万个。免费峰值群组数为10万个/月，超出免费量将产生 <a href="https://cloud.tencent.com/document/product/269/11673#jc">套餐外超量费用</a>。
 >- 社群（Community）功能仅SDK5.8.1668增强版及以上版本支持，需购买旗舰版套餐包并 [申请开通](https://cloud.tencent.com/document/product/269/3916) 后方可使用。
->- 好友工作群（Work）、陌生人社交群（Public）默认不支持查看入群前消息记录。如需使用此功能，请参见 [配置变更需求工单](https://cloud.tencent.com/document/product/269/3916) 指引提交变更申请。
 
 
 ## 群组管理
@@ -363,9 +386,9 @@
 可以继续接收消息，但是直播群（AVChatRoom）中的消息不支持云端存储，因此无法拉取到掉线期间的消息。
 
 ### 2. 为什么群成员进群和退群收不到通知？
-请确认群组类型：
-- 临时会议群（Meeting）不支持群成员变更通知。
-- 直播群（AVChatRoom）消息限制40条/秒，会优先保证高优先级消息的收发，超过限制后会优先丢弃低优先级的消息。
+- 请确保已在 [即时通信 IM 控制台](https://console.cloud.tencent.com/im/qun-setting)“ 群系统通知配置”中，配置群成员变更通知为“下发通知”。
+- 群消息限制40条/秒，会优先保证高优先级消息的收发，超过限制后会优先丢弃低优先级的消息。
+
 
 ### 3. 为什么会议群（Meeting） 中的未读数一直为零?
 临时会议群（Meeting）和直播群（AVChatRoom）分别配合会议和直播的音视频场景，因此这两类群组均不支持未读消息计数。

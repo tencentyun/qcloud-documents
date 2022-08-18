@@ -171,7 +171,6 @@
 :::
 </dx-codeblock>
 
-
 ### 数据加载
 预加载数据只需要使用如下的 yaml 创建一个 resource 即可，yaml 示例如 `kubectl apply -f dataload.yaml`，执行后对应的响应示例如下：
 ```

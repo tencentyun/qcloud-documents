@@ -19,22 +19,18 @@ SDK 3.0是云 API 3.0平台的配套工具，您可以通过 SDK 使用所有 [�
 
 ## 相关资料
 - 各个接口及其参数的详细介绍请参见 [API 文档](https://cloud.tencent.com/document/product/382/52077)。
-- 下载 SDK 源码请访问 [C# SDK 源码](https://github.com/TencentCloud/tencentcloud-sdk-dotnet)。
+- 下载 SDK 源码请访问 [Github 仓库](https://github.com/tencentcloud/tencentcloud-sdk-dotnet) 或者 [Gitee 仓库](https://gitee.com/tencentcloud/tencentcloud-sdk-dotnet)。
 
 ## 安装 SDK
 ### 通过 nuget 安装（推荐）
 
-1. 执行以下安装命令。
-```
-dotnet add package TencentCloudSDK
-```
- 其他信息请通过 [nuget](https://www.nuget.org/packages/TencentCloudSDK/) 获取。
-2. 通过 Visual Studio 添加包。
+- Github 仓库参考 [通过 nuget 安装（推荐）](https://github.com/tencentcloud/tencentcloud-sdk-dotnet#%E9%80%9A%E8%BF%87nuget-%E5%AE%89%E8%A3%85%E6%8E%A8%E8%8D%90)
+- Gitee 仓库参考 [通过 nuget 安装（推荐）](https://gitee.com/tencentcloud/tencentcloud-sdk-dotnet#%E9%80%9A%E8%BF%87nuget-%E5%AE%89%E8%A3%85%E6%8E%A8%E8%8D%90)
 
-### 通过源码包安装
-1. 前往 [Github 代码托管地址](https://github.com/tencentcloud/tencentcloud-sdk-dotnet) 或 [快速下载地址](https://tencentcloud-sdk-1253896243.file.myqcloud.com/tencentcloud-sdk-dotnet/tencentcloud-sdk-dotnet.zip) 下载最新代码。
-2. 解压后将 TencentCloud 文件夹安装到您的工作目录下。
-3. 使用 Visual Studio 2017 打开编译。
+### 通过源码安装
+
+- Github 仓库参考 [通过源码安装](https://github.com/tencentcloud/tencentcloud-sdk-dotnet#%E9%80%9A%E8%BF%87%E6%BA%90%E7%A0%81%E5%AE%89%E8%A3%85)
+- Gitee 仓库参考 [通过源码安装](https://gitee.com/tencentcloud/tencentcloud-sdk-dotnet#%E9%80%9A%E8%BF%87%E6%BA%90%E7%A0%81%E5%AE%89%E8%A3%85)
 
 
 ## 示例代码
@@ -44,7 +40,7 @@ dotnet add package TencentCloudSDK
 
 ### 发送短信
 
-``` C#
+```c#
 using System;
 using System.Threading.Tasks;
 using TencentCloud.Common;
@@ -168,7 +164,7 @@ namespace TencentCloudExamples
 
 ### 拉取回执状态
 
-``` C#
+```c#
 using System;
 using System.Threading.Tasks;
 using TencentCloud.Common;
@@ -256,7 +252,7 @@ namespace TencentCloudExamples
 
 ### 统计短信发送数据
 
-``` C#
+```c#
 using System;
 using System.Threading.Tasks;
 using TencentCloud.Common;
@@ -352,7 +348,7 @@ namespace TencentCloudExamples
 
 ### 申请短信模板
 
-``` C#
+```c#
 using System;
 using System.Threading.Tasks;
 using TencentCloud.Common;

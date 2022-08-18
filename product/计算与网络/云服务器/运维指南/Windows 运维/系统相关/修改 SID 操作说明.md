@@ -24,11 +24,11 @@
 1. [使用 VNC 方式登录云服务器](https://cloud.tencent.com/document/product/213/35704)。
 2. 在操作系统界面，右键单击 <img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin: -3px 0px;"> > **运行**，输入 **cmd**，按 **Enter**，打开管理员命令行工具。
 3. [](id:step_03)在管理员命令行工具中，执行以下命令，保存当前网络配置。
-```
+```shellsession
 ipconfig /all
 ```
 4. 在管理员命令行工具中，执行以下命令，打开 sysprep 工具。
-```
+```shellsession
 C:\Windows\System32\Sysprep\sysprep.exe
 ```
 5. 在打开的 “系统准备工具 3.14” 窗口中，进行以下设置。如下图所示：
@@ -39,7 +39,7 @@ C:\Windows\System32\Sysprep\sysprep.exe
 7. 待完成启动后，按照向导完成配置（选择语言、重设密码等）。
 8. 在操作系统界面，右键单击 <img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin: -3px 0px;"> > **运行**，输入 **cmd**，按 **Enter**，打开管理员命令行工具。
 9. 执行以下命令，验证 SID 是否已修改。
-```
+```shellsession
 whoami /user
 ```
 返回类似如下信息，则表示 SID 已完成修改。
@@ -64,9 +64,10 @@ sidchg 工具下载地址：`http://www.stratesave.com/html/sidchg.html`
 ![](https://main.qcloudimg.com/raw/406a1669402ecc33e85f7c42a51bc25d.png)
 7. 待完成启动后，右键单击 <img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin:-3px 0px;"> > **运行**，输入 **cmd**，按 **Enter**，打开管理员命令行工具。
 8. 执行以下命令，验证 SID 是否已修改。
-```
+```shellsession
 whoami /user
 ```
 返回类似如下信息，则表示 SID 已完成修改。
 ![](https://main.qcloudimg.com/raw/656f5974a213347edc75c49c6e7ec166.png)
+
 

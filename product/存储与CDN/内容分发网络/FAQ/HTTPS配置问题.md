@@ -46,7 +46,7 @@ HTTPS，是指超文本传输安全协议（Hypertext Transfer Protocol Secure�
 CDN 支持 QUIC，如何开启请参考  [QUIC](https://cloud.tencent.com/document/product/228/51800)。
 
 
-###  CDN 是否支持证书证书自动续签？
+###  CDN 是否支持证书自动续签？
  自定义上传证书和您于 SSL 控制台申请的免费证书暂不支持自动续签新的证书，若您于 SSL 控制台购买了多年期证书可实现自动签发第二张证书，详情见 [多年期证书方案说明](https://cloud.tencent.com/document/product/400/72804)。
 
 ###  CDN 支持 HTTP 2.0吗？
@@ -99,3 +99,10 @@ CDN 上的 HTTPS 证书和源站服务器上的 HTTPS 证书两者是独立存�
 - 使用了弱密码加密套件。
 弱密码套件存在较多安全漏洞，这些漏洞存在被攻击的安全风险。
 处理方案：安全加密和身份验证建议您使用128位的 AEC、GCM 配置；密钥交换机制建议使用 ECDHE_RSA。
+
+### 证书过期后怎么办？
+![](https://qcloudimg.tencent-cloud.cn/raw/e870f72db6d3c430c07c9213cf84ca9f.png)
+1. 如果您的证书属于自有证书，您可通过单击**编辑**更新证书和私钥内容，完成更新后，单击**提交**。
+ ![](https://qcloudimg.tencent-cloud.cn/raw/cf359e9e870bd8f9c90c4880ac1ecb0e.png)
+2. 如果您的证书属于已托管证书，您可前往 SSL 控制台更新证书，并更新域名和证书的关联关系。
+![](https://qcloudimg.tencent-cloud.cn/raw/ff4e4e677b138df76293e3a5420b38a1.png)

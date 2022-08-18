@@ -16,8 +16,7 @@
 4. 在实例购买页面，按照实际情况选择地域和规格类型。
 **实例类型**请选择**公网+VPC实例**，按照实际情况选择公网流量大小，其他参数如磁盘类型、磁盘大小可参考 [阿里云 Kafka 文档](https://help.aliyun.com/document_detail/99956.html) 说明，按照业务实际情况选择。
 5. 勾选服务协议后，单击**立即购买**即可完成实例购买。
-![image-20220325113354820](https://qcloudimg.tencent-cloud.cn/raw/de2e9513e154ca76c862328126ee1c32/image-20220325113354820.png)
-
+![](https://qcloudimg.tencent-cloud.cn/raw/6348eb0c447de4eaf4467ced13529264.png)
 
 ### 步骤2：创建资源
 
@@ -70,13 +69,14 @@
 3. 单击右侧的**新建连接器配置**并按照指引填入相关参数。
 ![](https://qcloudimg.tencent-cloud.cn/raw/8112f535875f2cacfdb1fd2bf36fd3f4.png)
 4. 单击**下一步**，以使用 SASL/PlainText 接入点为例，在连接器配置参数中，依次填写如下配置：
+![](https://qcloudimg.tencent-cloud.cn/raw/881dc38b615b872a8f4370c96d9ab0b5.png)
  - 集群地址：填入 Kafka 公网接入域名，此处填写 [接入点信息](#method1) 中网络为公网的域名接入点
- - 集群Kafka版本：根据购买的 Kafka 实例版本选择对应的版本，此处填写 [接入点信息](#method1)中的大版本号
- - SASL安全认证模式：选择SASL/PlainText
- - SASL用户名：此处填写[配置信息](#method2)中的用户名
- - SASL密码：此处填写[配置信息](#method2)中的密码
- - 使能TLS安全传输协议：选择true
+ - 集群Kafka版本：根据购买的 Kafka 实例版本选择对应的版本，此处填写 [接入点信息](#method1) 中的大版本号
+ - SASL安全认证模式：选择 SASL/PlainText
+ - SASL用户名：此处填写 [配置信息](#method2) 中的用户名
+ - SASL密码：此处填写 [配置信息](#method2) 中的密码
+ - 使能TLS安全传输协议：选择 true
+![](https://qcloudimg.tencent-cloud.cn/raw/37b0fedf6d2e8e8562f8f66922335ced.png)
  - 消费者组：填写刚刚创建的 ipaas-consumer
  - 主题：填写刚刚创建的 ipaas-test
-![](https://qcloudimg.tencent-cloud.cn/raw/ae8a9835802014fe2bb75d7b8859a19c.png)
 5.  其他 Kafka 参数请按实际情况填写，也可参考 [Apache Kafka 连接器使用指南](https://cloud.tencent.com/document/product/1270/55465)。

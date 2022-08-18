@@ -36,7 +36,7 @@
 <tr>
 <td>支持 GEO</td><td>不支持</td><td>支持</td><td>支持</td></tr>
 <tr>
-<td>副本数</td><td>0 - 1</td><td>1 - 5</td><td>1 - 5</td></tr>
+<td>副本数</td><td>1</td><td>1 - 5</td><td>1 - 5</td></tr>
 </tbody></table>
 
 

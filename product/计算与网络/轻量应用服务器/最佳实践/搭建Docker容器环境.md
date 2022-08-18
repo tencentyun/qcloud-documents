@@ -1,7 +1,11 @@
 ## 操作场景
 Docker 是目前最流行的开源容器引擎，可以让开发者将应用以及依赖包的形式，简单高效的打包至轻量级、可移植的容器中，实现更快速的应用交付、部署、迁移和扩展。本文介绍如何使用 Docker CE 应用镜像搭建 Docker 容器环境。其中，Docker 镜像源已默认配置为腾讯云 Docker 镜像源，可加速 Docker 镜像下载。
 
->?本文示例 Docker CE 镜像底层基于 CentOS 7.6 64位操作系统。应用镜像会进行不定期更新，请以购买页面实际镜像信息为准。
+<dx-alert infotype="explain" title="">
+本文示例 Docker CE 镜像底层基于 CentOS 7.6 64位操作系统。应用镜像会进行不定期更新，请以购买页面实际镜像信息为准。
+</dx-alert>
+
+
 
 
 ## 操作步骤
@@ -28,7 +32,3 @@ Docker 是目前最流行的开源容器引擎，可以让开发者将应用以�
 
 ### 开启 HTTPS 访问
 可参考 [安装 SSL 证书](https://cloud.tencent.com/document/product/1207/47027) 文档为您的网站安装 SSL 证书并开启 HTTPS 访问。
-
-
-### 使用腾讯云 Docker 镜像源加速镜像下载
-您可通过配置腾讯云 Docker 镜像源，加速镜像下载，详情请参见 [使用腾讯云 Docker 镜像源加速镜像下载](https://cloud.tencent.com/document/product/1207/45596#.E4.BD.BF.E7.94.A8.E8.85.BE.E8.AE.AF.E4.BA.91-docker-.E9.95.9C.E5.83.8F.E6.BA.90.E5.8A.A0.E9.80.9F.E9.95.9C.E5.83.8F.E4.B8.8B.E8.BD.BD)。

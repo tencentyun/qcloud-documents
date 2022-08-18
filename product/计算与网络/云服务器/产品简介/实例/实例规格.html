@@ -108,14 +108,14 @@
 <td>具有最优单位核时性价比，适用于渲染、基因分析、晶体药学等短时频繁使用超大规模计算节点的计算密集型应用</td>
 </tr>
 <tr>
-<td><a href="#CBM">黑石物理服务器2.0</a></td>
+<td><a href="#CBM">裸金属云服务器</a></td>
 <td>-</td>
-<td>黑石物理服务器2.0是基于腾讯云最新虚拟化技术研发的一款拥有超高性能裸金属云服务器。兼具云服务器的灵活弹性和物理机的高稳定、强劲的计算性能。完全无缝和腾讯云全产品融合</td>
+<td>裸金属云服务器是基于腾讯云最新虚拟化技术研发的一款拥有超高性能裸金属云服务器。兼具云服务器的灵活弹性和物理机的高稳定、强劲的计算性能。完全无缝和腾讯云全产品融合</td>
 </tr>
 <tr>
 <td><a href="#H">高性能计算集群</a></td>
 <td>-</td>
-<td>高性能计算集群以黑石物理服务器2.0为节点，通过 RDMA 互联，提供了高带宽和极低延迟的网络服务，能满足大规模高性能计算、人工智能、大数据推荐等应用的并行计算需求</td>
+<td>高性能计算集群以裸金属云服务器为节点，通过 RDMA 互联，提供了高带宽和极低延迟的网络服务，能满足大规模高性能计算、人工智能、大数据推荐等应用的并行计算需求</td>
 </tr>
 </table>
 </div>
@@ -140,6 +140,8 @@
 				</li>
 				<li>
 					<p>多队列技术：虚拟网卡支持多个收发包队列，每个队列中的数据包可同时由不同的 CPU 进行收发处理</p>
+					<blockquote class="doc-tip"><p class="doc-tip-tit"><i class="doc-icon-tip"></i>说明：</p><p><ul><li>如您购买的子机规格较大，建议您使用多队列技术以实现更高性能。如您使用单队列，部分网络指标可能无法达到最高值。</li><li>如需调整网卡队列，可参考“网卡多队列配置错误问题”文档中的 <a href="https://cloud.tencent.com/document/product/213/68396#.E5.A4.84.E7.90.86.E6.AD.A5.E9.AA.A4.3Ca-id.3D.22processingsteps.22.3E.3C.2Fa.3E">处理步骤</a>。</li></p>
+</blockquote>
 				</li>
 				<li>
 					<p>队列数：每个虚拟网卡支持的收发包队列的数量（N 队列表示同时支持 N 个收队列与 N 个发队列）</p>
@@ -1267,7 +1269,7 @@
 												</div>
 											</td>
 										</tr>
-											<tr>
+										<tr>
 											<td class="tableblock halign-left valign-top">
 												<div>
 													<div class="paragraph">
@@ -1336,71 +1338,6 @@
 											<td class="tableblock halign-left valign-top">
 												<div>
 													<div class="paragraph">
-														<p>S6.19XLARGE256</p>
-													</div>
-												</div>
-											</td>
-											<td class="tableblock halign-left valign-top">
-												<div>
-													<div class="paragraph">
-														<p>76</p>
-													</div>
-												</div>
-											</td>
-											<td class="tableblock halign-left valign-top">
-												<div>
-													<div class="paragraph">
-														<p>256</p>
-													</div>
-												</div>
-											</td>
-											<td class="tableblock halign-left valign-top">
-												<div>
-													<div class="paragraph">
-														<p>2500万</p>
-													</div>
-												</div>
-											</td>
-												<td class="tableblock halign-left valign-top">
-												<div>
-													<div class="paragraph">
-														<p>800万</p>
-													</div>
-												</div>
-											</td>
-											<td class="tableblock halign-left valign-top">
-												<div>
-													<div class="paragraph">
-														<p>48</p>
-													</div>
-												</div>
-											</td>
-											<td class="tableblock halign-left valign-top">
-												<div>
-													<div class="paragraph">
-														<p>50</p>
-													</div>
-												</div>
-											</td>
-											<td class="tableblock halign-left valign-top">
-												<div>
-													<div class="paragraph">
-														<p>2.7GHz</p>
-													</div>
-												</div>
-											</td>
-											<td class="tableblock halign-left valign-top">
-												<div>
-													<div class="paragraph">
-														<p>-</p>
-													</div>
-												</div>
-											</td>
-										</tr>
-										<tr>
-											<td class="tableblock halign-left valign-top">
-												<div>
-													<div class="paragraph">
 														<p>S6.31XLARGE432</p>
 													</div>
 												</div>
@@ -1427,71 +1364,6 @@
 												</div>
 											</td>
 											<td class="tableblock halign-left valign-top">
-												<div>
-													<div class="paragraph">
-														<p>1600万</p>
-													</div>
-												</div>
-											</td>
-											<td class="tableblock halign-left valign-top">
-												<div>
-													<div class="paragraph">
-														<p>48</p>
-													</div>
-												</div>
-											</td>
-											<td class="tableblock halign-left valign-top">
-												<div>
-													<div class="paragraph">
-														<p>100</p>
-													</div>
-												</div>
-											</td>
-											<td class="tableblock halign-left valign-top">
-												<div>
-													<div class="paragraph">
-														<p>2.7GHz</p>
-													</div>
-												</div>
-											</td>
-											<td class="tableblock halign-left valign-top">
-												<div>
-													<div class="paragraph">
-														<p>-</p>
-													</div>
-												</div>
-											</td>
-										</tr>
-										<tr>
-											<td class="tableblock halign-left valign-top">
-												<div>
-													<div class="paragraph">
-														<p>S6.38XLARGE512</p>
-													</div>
-												</div>
-											</td>
-											<td class="tableblock halign-left valign-top">
-												<div>
-													<div class="paragraph">
-														<p>152</p>
-													</div>
-												</div>
-											</td>
-											<td class="tableblock halign-left valign-top">
-												<div>
-													<div class="paragraph">
-														<p>512</p>
-													</div>
-												</div>
-											</td>
-											<td class="tableblock halign-left valign-top">
-												<div>
-													<div class="paragraph">
-														<p>5000万</p>
-													</div>
-												</div>
-											</td>
-												<td class="tableblock halign-left valign-top">
 												<div>
 													<div class="paragraph">
 														<p>1600万</p>
@@ -3345,7 +3217,9 @@
 			<h3 id="SR1">标准型 SR1</h3>
 			<div class="paragraph">
 			  <p>标准型 SR1 实例是最新一代的 ARM
-			  标准型实例，基于全新优化虚拟化平台，提供了平衡、稳定的计算、内存和网络资源，是众多应用程序的最佳选择。</p>
+				标准型实例，基于全新优化虚拟化平台，提供了平衡、稳定的计算、内存和网络资源，是众多应用程序的最佳选择。</p>
+				<blockquote class="rno-document-tips rno-document-tips-explain"><p class="doc-tip-tit"><i class="doc-icon-tip"></i>说明：</p><p>目前该机型已在广州六区开放售卖，您可前往 <a href="https://mc.tencent.com/jaclY8Rj">购买页</a> 进行购买。其他地区将陆续开放，请您关注产品动态。</p>
+</blockquote>
 			</div>
 			<div class="sect3">
 			  <h4 id="_实例特点">实例特点</h4>
@@ -3354,7 +3228,7 @@
 				  <li>
 					<p>采用 Ampere
 					<sup>®</sup> Altra
-					<sup>®</sup> 处理器，主频2.8GHz，睿频3.0GHz</p>
+					<sup>®</sup> 处理器，基频2.8GHz，全核一致最大频率3.0GHz</p>
 				  </li>
 				  <li>
 					<p>提供1：2和1：4等多种处理器和内存的配比</p>
@@ -6471,8 +6345,7 @@
 													</div>
 												</div>
 											</td>
-										</tr>
-										<tr>			
+										</tr>	
 </tbody>
 </table></div></td>
 </tr>
@@ -13048,7 +12921,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>MA3.4 XLARGE128</p>
+<p>MA3.4XLARGE128</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>16</p>
@@ -13074,7 +12947,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>MA3.8 XLARGE256</p>
+<p>MA3.8XLARGE256</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>32</p>
@@ -14763,7 +14636,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>MA2. 2XLARGE384</p>
+<p>MA2.2XLARGE384</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>8</p>
@@ -14792,7 +14665,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>MA2.4 XLARGE128</p>
+<p>MA2.4XLARGE128</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>16</p>
@@ -14821,7 +14694,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>MA2.8 XLARGE256</p>
+<p>MA2.8XLARGE256</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>32</p>
@@ -16711,7 +16584,7 @@ IT3 及 IT5 实例的数据盘是本地存储，有丢失数据的风险（例�
 <h4 id="_实例要求_13">实例要求</h4>
 <div class="ulist">
 <ul>
-<li><p>若本地硬盘损坏后，需要您进行云服务器实例关闭操作后，我们才能够进行本地硬盘替换。</p></li>
+<li><p>若本地硬盘损坏，我们支持在线换盘操作。</p></li>
 <li><p>若云服务器实例已经宕机，我们会告知您并进行维修操作。</p></li>
 </li>
 <li><p>IT5 实例未安装监控组件会导致平台无法对实例进行更细致的监控，若实例发生故障则将无法正常通知，可能存在高危风险。请参考 <a href="https://cloud.tencent.com/document/product/248/6211">安装云服务器监控组件</a> 完成监控组件安装。  </p></li>
@@ -16911,7 +16784,7 @@ IT3 及 IT5 实例的数据盘是本地存储，有丢失数据的风险（例�
 <h4 id="_实例要求_13">实例要求</h4>
 <div class="ulist">
 <ul>
-<li><p>若本地硬盘损坏后，需要您进行云服务器实例关闭操作后，我们才能够进行本地硬盘替换。</p></li>
+<li><p>若本地硬盘损坏，我们支持在线换盘操作。</p></li>
 <li><p>若云服务器实例已经宕机，我们会告知您并进行维修操作。</p></li>
 </li>
 <li><p>IT3 实例未安装监控组件会导致平台无法对实例进行更细致的监控，若实例发生故障则将无法正常通知，可能存在高危风险。请参考 <a href="https://cloud.tencent.com/document/product/248/6211">安装云服务器监控组件</a> 完成监控组件安装。  </p></li>
@@ -17129,7 +17002,7 @@ IT3 及 IT5 实例的数据盘是本地存储，有丢失数据的风险（例�
 <div class="ulist">
 <ul>
 <li>
-<p >若本地硬盘损坏后，需要您进行云服务器实例关闭操作后，我们才能够进行本地硬盘替换。</p>
+<p >若本地硬盘损坏，我们支持在线换盘操作。</p>
 </li>
 <li>
 <p>若云服务器实例已经宕机，我们会告知您并进行维修操作。</p>
@@ -17421,7 +17294,7 @@ IT3 及 IT5 实例的数据盘是本地存储，有丢失数据的风险（例�
 <div class="ulist">
 <ul>
 <li>
-<p >若本地硬盘损坏后，需要您进行云服务器实例关闭操作后，我们才能够进行本地硬盘替换。</p>
+<p>若本地硬盘损坏，我们支持在线换盘操作。</p>
 </li>
 <li>
 <p>若云服务器实例已经宕机，我们会告知您并进行维修操作。</p>
@@ -20601,13 +20474,13 @@ IT3 及 IT5 实例的数据盘是本地存储，有丢失数据的风险（例�
 
 
 
-<h2 id="CBM">黑石物理服务器2.0</h2>
+<h2 id="CBM">裸金属云服务器</h2>
 
-黑石物理服务器2.0（Cloud Physical Machine，CPM）是一种兼具虚拟机弹性及物理机性能的裸金属云服务，与腾讯云全产品（如网络、存储、数据库等）无缝融合，能为您提供云端独享的高性能、安全隔离的物理服务器集群。您的业务应用可以直接访问黑石物理服务器2.0的处理器和内存，无任何虚拟化开销。使用该服务，您只需根据业务特性弹性伸缩物理服务器数量，获取物理服务器的时间将被缩短至分钟级。您可将容量管理及运维工作交由腾讯云的专业团队处理，专注于业务创新。
-<br>实例规格请参见 [黑石物理服务器2.0实例规格](https://cloud.tencent.com/document/product/386/63404)。
+裸金属云服务器（Cloud Bare Metal，CBM）是一种兼具虚拟机弹性及物理机性能的裸金属云服务，与腾讯云全产品（如网络、存储、数据库等）无缝融合，能为您提供云端独享的高性能、安全隔离的物理服务器集群。您的业务应用可以直接访问裸金属云服务器的处理器和内存，无任何虚拟化开销。使用该服务，您只需根据业务特性弹性伸缩物理服务器数量，获取物理服务器的时间将被缩短至分钟级。您可将容量管理及运维工作交由腾讯云的专业团队处理，专注于业务创新。
+<br>实例规格请参见 [裸金属云服务器实例规格](https://cloud.tencent.com/document/product/386/63404)。
 
 
 <h2 id="H">高性能计算集群</h2>
-高性能计算集群以黑石物理服务器2.0为节点，通过 RDMA 互联，提供了高带宽和极低延迟的网络服务，能满足大规模高性能计算、人工智能、大数据推荐等应用的并行计算需求。
+高性能计算集群以裸金属云服务器为节点，通过 RDMA 互联，提供了高带宽和极低延迟的网络服务，能满足大规模高性能计算、人工智能、大数据推荐等应用的并行计算需求。
 
 <br>实例规格请参见 [高性能计算集群实例规格](https://cloud.tencent.com/document/product/386/63405)。

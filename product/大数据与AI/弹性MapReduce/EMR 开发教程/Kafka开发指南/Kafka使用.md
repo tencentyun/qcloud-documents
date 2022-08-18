@@ -1,5 +1,5 @@
 ## 生成数据
-### java 代码方式
+### java 代码方式  
 ```
 @Component
 @Slf4j

@@ -23,7 +23,7 @@ ALG（Application Layer Gateway，应用层网关）是由一个扩增防火墙�
 <td>标准型 S5</td>
 </tr>
 <tr>
-<td rowspan="6">黑石物理服务器2.0</td>
+<td rowspan="6">裸金属云服务器</td>
 <td>标准型 BMS4</td>
 </tr>
 <tr>

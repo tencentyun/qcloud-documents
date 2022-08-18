@@ -56,7 +56,7 @@ tag 字段说明：
 </tbody></table>
  - **权重**：不填写，可忽略。
  - **MX 优先级**：不填写，可忽略。
- - **TTL**：默认600秒是最常用的，不用修改。如需修改，可参考 [TTL 如何填写？](https://tcloud-doc.isd.com/document/product/302/3468?!preview&!editLang=zh#ttl-.E5.A6.82.E4.BD.95.E5.A1.AB.E5.86.99.EF.BC.9F)
+ - **TTL**：默认600秒是最常用的，不用修改。如需修改，可参考 [TTL 如何填写？](https://cloud.tencent.com/document/product/302/3468#ttl-.E5.A6.82.E4.BD.95.E5.A1.AB.E5.86.99.EF.BC.9F)
 4. 单击【确定】，完成添加。
 
 

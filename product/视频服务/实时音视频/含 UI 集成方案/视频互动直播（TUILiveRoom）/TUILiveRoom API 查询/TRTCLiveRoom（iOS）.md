@@ -5,6 +5,8 @@ TRTCLiveRoom 是基于腾讯云实时音视频（TRTC）和即时通信 IM 服�
 - 两个不同房间的主播 PK 互动。
 - 支持发送各种文本消息和自定义消息，自定义消息可用于实现弹幕、点赞和礼物。
 
+>?TUIKit 系列组件同时使用了腾讯云 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269/42440) 两个基础 PaaS 服务，开通实时音视频后会同步开通即时通信IM服务。即时通信 IM 服务详细计费规则请参见 [即时通信 - 价格说明](https://cloud.tencent.com/document/product/269/11673)，TRTC 开通会默认关联开通 IM SDK 的体验版，仅支持100个 DAU。
+
 TRTCLiveRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体的实现过程请参见 [视频连麦直播（iOS）](https://cloud.tencent.com/document/product/647/43181)。
 
 - TRTC SDK：使用 [TRTC SDK](https://cloud.tencent.com/document/product/647/32689) 作为低延时直播组件。

@@ -3,10 +3,10 @@
 您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 App 体验语音沙龙的能力，包括语音聊天、上下麦、低延时语音互动等 TRTC 在语音聊天场景下的相关能力。
 
 <table>
-     <tr>
+<thead><tr>
          <th>房主麦位操作</th>  
          <th>听众麦位操作</th>  
-     </tr>
+     </tr></thead>
 <tr>
 <td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/chatsalon_anchor.gif"/ style="max-height:700px;"></td>
 <td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/chatsalon_audicence.gif"/  style="max-height:700px;"></td>
@@ -128,8 +128,8 @@ defaultConfig {
 若您的开发环境访问 Maven 仓库较慢，您可以直接下载 ZIP 包，并按照集成文档手动集成到您的工程中。
 
 <table>
-<tr><th>SDK</th><th>下载页面</th><th>集成指引</th>
-</tr>
+<thead><tr><th>SDK</th><th>下载页面</th><th>集成指引</th>
+</tr></thead>
 <tr>
 <td>TRTC SDK</td>
 <td><a href="https://cloud.tencent.com/document/product/647/32689">DOWNLOAD</a></td>
@@ -185,7 +185,8 @@ Source/src/main/java/com/tencent/liteav/trtcchatsalon/model
 2. 调用 `setDelegate` 函数注册组件的事件通知。
 3. 调用 `login` 函数完成组件的登录，请参考下表填写关键参数：
  <table>
-<tr><th>参数名</th><th>作用</th></tr>
+<thead><tr><th>参数名</th><th>作用</th></tr>
+</thead>
 <tr>
 <td>sdkAppId</td>
 <td>您可以在 <a href="https://console.cloud.tencent.com/trtc/app">实时音视频控制台</a> 中查看 SDKAppID。</td>

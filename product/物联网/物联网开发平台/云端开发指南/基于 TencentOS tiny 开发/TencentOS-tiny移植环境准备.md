@@ -1,5 +1,8 @@
 
 本文为您介绍 TencentOS tiny 接入腾讯物联网开发平台相关的准备工作。 
+
+
+
  ##   步骤一：准备目标硬件（开发板/芯片/模组）
 
 TencentOS tiny 目前主要支持 ARM Cortex M 核芯片的移植，例如 STM32、NXP 芯片支持 Cortex M 核全系列。本教程将使用 TencentOS tiny 官方开发板 EVB_MX_Plus 演示如何移植，其他 ARM Cortex M 系列开发板和芯片移植方法类似。

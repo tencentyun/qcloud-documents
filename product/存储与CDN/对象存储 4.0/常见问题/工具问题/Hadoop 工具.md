@@ -101,7 +101,6 @@ net.ipv4.ip_local_port_range = 1024 65000    #对外连接的端口范围。默�
 net.ipv4.tcp_max_tw_buckets = 10240          #TIME_WAIT 状态 Socket 的数量限制，如果超过了这个数量，新来的 TIME_WAIT 套接字会被直接释放，默认值是180000。适当地降低该参数可以减小处于 TIME_WAIT 状态 Socket 的数量
 ```
 
-
 ### 在上传文件时有异常：java.lang.Thread.State: TIME_WAITING (parking)，具体堆栈包含 org.apache.hadoop.fs.BufferPoll.getBuffer 和 	java.util.concurrent.locks.LinkedBlockingQueue.poll被锁住的情况？
 
 **可能原因**

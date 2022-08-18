@@ -9,13 +9,13 @@ TiKit 是腾讯云 TI 平台 TI-ONE 提供的开源 Python sdk软件包。用户
 ### 安装TiKit
 在腾讯云 TI 平台中，notebook和训练任务的容器里面已经内置了TiKit，不用再安装。
 
-非公有云钛平台的环境，安装方法如下：
+非公有云 TI 平台的环境，安装方法如下：
 
 - 安装依赖：
 ```
 #centos:
 
-sudo yum -y install cyrus-sasl cyrus-sasl-devel cyrus-sasl-lib
+sudo yum -y install cyrus-sasl cyrus-sasl-devel cyrus-sasl-lib gcc-c++ python3-devel
 
 #ubuntu:
 
@@ -51,9 +51,9 @@ client = Client("your_secret_id", "your_secret_key", "<region>")
 client.describe_training_frameworks()
 ```
 在 notebook 环境中，会直接显示 html 的内容，如下图：
-![](https://qcloudimg.tencent-cloud.cn/raw/25abffcff87f62aeee534f4c789ff282.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/9106f645dc71fe987ac1cd17183fa995.png)
 在非 notebook 环境中，可以把结果 print 出来，如下：
-![](https://qcloudimg.tencent-cloud.cn/raw/5a482d23c39a929a5ae1a7c1af60d99a.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/ad25d8403bfa7e36ad4016f990f19407.png)
 3. 查看函数用法
 ```
 help(client.create_image_dataset)

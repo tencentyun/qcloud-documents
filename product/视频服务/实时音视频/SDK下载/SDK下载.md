@@ -61,7 +61,7 @@
   <div class="card-container">
       <div class="card">
         <img src="https://main.qcloudimg.com/raw/7e2651085e3e3c6e32190e401a6dfd32.svg" data-nonescope="true">
-        <p class="titlename">稳定版（TRTC）SDK</p>
+        <p class="titlename">TRTC Web SDK</p>
         <p style="color:#586376;">包含 TRTC 功能，无需安装 App 即可音视频通话，兼容主流的桌面和移动端浏览器。</p>
         <a onclick="reportEvent({name: 'download-click-web', ext1: 'zip'})" target="_blank" href="https://web.sdk.qcloud.com/trtc/webrtc/download/webrtc_latest.zip">ZIP 下载</a>
         <a style="margin-left: 10px;" onclick="reportEvent({name: 'download-click-web', ext1: 'github'})" target="_blank" href="https://github.com/LiteAVSDK/TRTC_Web">GitHub</a>
@@ -92,6 +92,17 @@
                 <p style="color:#586376;">包含 TRTC、直播、短视频、点播等多项功能，功能丰富，SDK 体积较精简版略大。</p>
                                 <a href="https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_Professional_Android_latest.zip">ZIP 下载</a>
                 <a style="margin-left: 10px;" href="https://github.com/tencentyun/LiteAVProfessional_Android">GitHub</a>
+                                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/32175">集成指引</a>
+                                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/32166">运行 Demo</a>
+            </div>
+        </div>
+			  <div class="card-container">
+            <div class="card">
+                            <img src="https://main.qcloudimg.com/raw/b0211b0870806899009a17a4216ea65c.svg" data-nonescope="true">
+                                <p class="titlename">模拟器 专用版 SDK</p>
+                <p style="color:#586376;">支持x86、x86_64架构，适配雷电模拟器等主流模拟器和声卡，音质佳、性能卓越，功能稳定。</p>
+                                <a href="https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_TRTC_Android_Emulator_latest.zip">ZIP 下载</a>
+                <a style="margin-left: 10px;" href="https://github.com/LiteAVSDK/TRTC_Android">GitHub</a>
                                 <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/32175">集成指引</a>
                                 <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/32166">运行 Demo</a>
             </div>
@@ -148,6 +159,17 @@
                 <a style="margin-left: 10px;" href="https://github.com/LiteAVSDK/TRTC_Windows">GitHub</a>
                                 <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/32178">集成指引</a>
                                 <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/71425">运行 Demo</a>
+            </div>
+        </div>
+				        <div class="card-container">
+            <div class="card">
+                                <img src="https://main.qcloudimg.com/raw/104e3aadbd4515f61c3f2f5378948cfb.svg" data-nonescope="true">
+                                <p class="titlename">Windows SDK（ActiveX 版）</p>
+                <p style="color:#586376;">基于 ActiveX 插件封装的 TRTC SDK，让您在 ActiveX 场景下快速便捷的集成实时音视频服务。</p>
+                          <a href="https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_TRTC_Win_ActiveX_latest.zip">ZIP 下载</a>
+                <a style="margin-left: 10px;" href="https://github.com/LiteAVSDK/TRTC_Windows">GitHub</a>
+                                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/76512">集成指引</a>
+                                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/647/76514">运行 Demo</a>
             </div>
         </div>
 </div>
@@ -340,12 +362,12 @@
    <tr>
     <td rowspan='4' style="text-align:center">安装包增量</td>
     <td style="text-align:center">Android</td>
-    <td style="text-align:center">armv7: 3.97M<br>arm64: 4.33M</td>
-    <td style="text-align:center">armv7: 9.15M<br>arm64: 10.4M</td>
+    <td style="text-align:center">armv7：3.97M<br>arm64：4.33M</td>
+    <td style="text-align:center">armv7：9.15M<br>arm64：10.4M</td>
   </tr>
     <tr>
     <td style="text-align:center">iOS</td>
-    <td style="text-align:center">arm64: 3.15M</td>
+    <td style="text-align:center">arm64：3.15M</td>
     <td style="text-align:center">N/A</td>
   </tr>
 </table>

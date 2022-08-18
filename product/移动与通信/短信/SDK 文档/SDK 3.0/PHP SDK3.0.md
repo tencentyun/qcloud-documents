@@ -19,29 +19,15 @@ SDK 3.0是云 API 3.0平台的配套工具，您可以通过 SDK 使用所有 [�
 
 ## 相关资料
 - 各个接口及其参数的详细介绍请参见 [API 文档](https://cloud.tencent.com/document/product/382/52077)。
-- 下载 SDK 源码请访问 [PHP SDK 源码](https://github.com/TencentCloud/tencentcloud-sdk-php)。
+- 下载 SDK 源码请访问 [Github 仓库](https://github.com/tencentcloud/tencentcloud-sdk-php) 或者 [Gitee 仓库](https://gitee.com/tencentcloud/tencentcloud-sdk-php)。
 
 ## 安装 SDK
 
+### 通过 Composer 安装
 
-[Composer](https://www.phpcomposer.com) 是 PHP 的依赖管理工具，支持您项目所需的依赖项，并将其安装到项目中。
-1. 安装 Composer。
- - Windows 环境：请访问 [Composer 官网](https://getcomposer.org/download/) 下载安装包并进行安装。
- - UNIX 环境：执行以下命令安装。
-```
-curl -sS https://getcomposer.org/installer | php
-sudo mv composer.phar /usr/local/bin/composer
-```
-2. 添加依赖。
-```
-composer require tencentcloud/tencentcloud-sdk-php
-```
-3. 在代码中添加以下引用代码。
->!本文仅为示例，composer 会在项目根目录下生成 vendor 目录，`/path/to/`为项目根目录的实际绝对路径，如果是在项目根目录执行，可以省略绝对路径。
->
-```
-require '/path/to/vendor/autoload.php';
-```
+- Github 仓库参考 [通过 Composer 安装](https://github.com/tencentcloud/tencentcloud-sdk-php#%E9%80%9A%E8%BF%87-composer-%E5%AE%89%E8%A3%85)
+- Gitee 仓库参考 [通过 Composer 安装](https://gitee.com/tencentcloud/tencentcloud-sdk-php#%E9%80%9A%E8%BF%87-composer-%E5%AE%89%E8%A3%85)
+
 
 ## 示例代码[](id:example)
 >?所有示例代码仅作参考，无法直接编译和运行，需根据实际情况进行修改，您也可以根据实际需求使用 [API 3.0 Explorer](https://console.cloud.tencent.com/api/explorer?Product=sms&Version=2021-01-11&Action=SendSms) 自动化生成 Demo 代码。
@@ -50,7 +36,7 @@ require '/path/to/vendor/autoload.php';
 
 ### 发送短信
 
-``` php
+```php
 <?php
 require_once '/path/to/vendor/autoload.php';
 // 导入对应产品模块的client
@@ -148,7 +134,7 @@ catch(TencentCloudSDKException $e) {
 ### 拉取回执状态
 
 
-``` php
+```php
 <?php
 require_once '/path/to/vendor/autoload.php';
 // 导入对应产品模块的client
@@ -224,7 +210,7 @@ catch(TencentCloudSDKException $e) {
 
 ### 统计短信发送数据
 
-``` php
+```php
 <?php
 require_once '/path/to/vendor/autoload.php';
 // 导入对应产品模块的client
@@ -305,7 +291,7 @@ catch(TencentCloudSDKException $e) {
 
 ### 申请短信模板
 
-``` php
+```php
 <?php
 require_once '/path/to/vendor/autoload.php';
 // 导入 SMS 模块的 client

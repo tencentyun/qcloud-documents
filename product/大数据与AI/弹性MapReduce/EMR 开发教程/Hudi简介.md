@@ -50,7 +50,7 @@ Hudi 支持以下存储类型：
 >! hudi 组件依赖 hive 和 spark 组件， 如果选择安装 hudi 组件，EMR 将自动安装 hive 和 spark 组件。
 
 ## 使用示例
-可参考 [hudi 官网示例](http://hudi.apache.org/docs/docker_demo.html)：
+以下示例适用于 hudi 0.11.0及以后版本，其它版本示例可参考 [hudi 官网示例](http://hudi.apache.org/docs/docker_demo.html)：
 1. 登录 master 节点，切换为 hadoop 用户。
 2. 加载 spark 配置。
 ```

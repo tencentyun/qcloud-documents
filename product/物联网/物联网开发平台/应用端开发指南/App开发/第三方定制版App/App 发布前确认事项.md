@@ -5,9 +5,11 @@
 * 确认填写用户自己的 Bundle ID 和对应的发布证书。
 * 根据实际情况调整配置文件中的内容，需要配置的内容可参考 [App 参数写入配置文件](https://cloud.tencent.com/document/product/1081/67511#app-.E5.8F.82.E6.95.B0.E5.86.99.E5.85.A5.E9.85.8D.E7.BD.AE.E6.96.87.E4.BB.B6)，获取到相应的 ID 和 key 值替换 App 中的字符串。
 * 如果用户确认接入 Firebase，用户需要使用从 Firebase 官网自建应用获得 **GoogleService-Info.plist**，替换 App 中 [GoogleService-Info.plist](https://github.com/tencentyun/iot-link-ios/blob/master/Source/LinkApp/Supporting%20Files/GoogleService-Info.plist) 文件。  
- 
+
+
 
 ## Android   
+
 1. 请根据实际情况调整 **app-config.json** 中的内容。app-config.json 需要配置的内容，如下所示。
 ```json
 {
@@ -35,7 +37,7 @@ dependencies {
 //        classpath 'com.google.firebase:firebase-crashlytics-gradle:2.1.1'
 //        classpath 'com.google.firebase:perf-plugin:1.3.1'
 }
-```
+ ```
     - 在应用级 [build.gradle](https://github.com/tencentyun/iot-link-android/blob/master/app/build.gradle) 中注释掉以下三个应用插件和三个依赖项。
 ```
 //apply plugin: 'com.google.gms.google-services'

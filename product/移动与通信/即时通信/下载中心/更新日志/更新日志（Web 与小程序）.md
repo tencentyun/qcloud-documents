@@ -1,3 +1,70 @@
+### 2.21.1 @2022.8.3
+
+**修复**
+
+[resendMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#resendMessage) 可能导致的消息重复问题。
+
+### 2.21.0 @2022.7.28
+
+**新增**
+- [setSelfStatus](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#setSelfStatus)，设置自己的自定义状态。
+- [getUserStatus](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getUserStatus)，查询用户状态。
+- [subscribeUserStatus](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#subscribeUserStatus)，订阅用户状态。
+- [unsubscribeUserStatus](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#unsubscribeUserStatus)，取消订阅用户状态。
+- [setMessageRemindType](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#setMessageRemindType) 支持群消息和话题消息的免打扰设置多端、多实例同步。
+- [createFileMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#createFileMessage) 支持手机端微信小程序 和 QQ 小程序发文件消息。
+- [modifyMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#modifyMessage) 支持变更所有类型消息的 cloudCustomData。
+- [Message](https://web.sdk.qcloud.com/im/doc/zh-cn/Message.html) 新增字段 isBroadcastMessage，支持直播群广播消息。
+- 支持加群选项多终端、多实例同步。
+- 支持普通社群和话题@全员以及话题 lastMessage。
+
+**变更**
+
+- 浏览器支持 webworker 时国际站和私有化环境默认开启 webworker。
+
+**修复**
+
+- 收到不更新会话 lastMessage 的消息后，lastMessage.payload 被置为 undefined 的问题。
+- 在线消息引起的群组消息补偿未启动问题。
+- 频繁退群、加群后拉群漫游消息异常。
+- 分页拉取群组列表滞后导致拉取群会话漫游消息为空数组的问题。
+- 话题已知问题。
+
+
+### 2.20.1 @2022.6.27
+
+**变更**
+
+- 退出/被踢出非直播群，或非直播群被解散，只删除群组记录，不删除对应的群会话，体验对齐 native。
+- [deleteMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#deleteMessage) 不支持删除群系统通知，并给出具体错误信息。
+- 私有化部署的富媒体消息支持 HTTP 协议。
+
+**修复**
+
+- 小程序前后台切换等场景下偶现群会话丢失问题。
+- C2C 会话 lastMessage 被异常更新问题。
+
+### 2.20.0 @2022.6.9
+
+**新增**
+
+- [modifyMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#modifyMessage)，支持消息变更。
+- [getMessageListHopping](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getMessageListHopping)，支持根据指定的消息 sequence 或消息时间拉取会话的消息列表。
+- 支持针对单条或多条 C2C 消息发送已读回执（需开通旗舰版）。
+- C2C 会话 lastMessage 新增字段 isPeerRead，用于标识对端是否已读。
+- 支持群提示消息不计入会话未读。
+- 新增类型 [TIM.TYPES.KICKED_OUT_REST_API](https://web.sdk.qcloud.com/im/doc/zh-cn/module-TYPES.html#.KICKED_OUT_REST_API)，支持 REST API [kick](https://cloud.tencent.com/document/product/269/3853)。
+
+**变更**
+
+完善并优化 [getMessageList](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getMessageList) 拉漫游消息的体验。
+
+**修复**
+
+- 传参问题导致的 [deleteMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#deleteMessage) 成功后会话列表未更新。
+- 部分机型真机调试小程序时遇到的 `Cannot add property markTimeline, Object is not extensible` 问题。
+
+
 ### 2.19.1 @2022.5.7
 
 **新增**

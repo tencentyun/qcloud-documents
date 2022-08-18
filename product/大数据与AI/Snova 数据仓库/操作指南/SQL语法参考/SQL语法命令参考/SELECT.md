@@ -95,7 +95,6 @@ SELECT 列表（位于关键词 SELECT 和 FROM 之间）指定构成 SELECT 语
 
 一个 SELECT 列表中的表达式可以为常量值、一个列引用、一个操作符调用、一个函数调用、一个窗口表达式、一个标量子查询（scalar subquery）等。
 
-一些构造可以分类为一个表达式但是不符合通用的语法规则。这些通常有一个操作符或者函数的语义。可以在输出列表中写来取代表达式，它是被选中行的所有列的一种简写方式。还可以写 table_name.，它是只来自那个表的所有列的简写形式。
 
 ### **FROM 子句**
 FROM 子句为 SELECT 指定一个或者更多源表。如果指定了多个源表，结果将是所有源表的笛卡尔积（交叉连接）。但是通常会增加限定条件，来把返回的行限制为该笛卡尔积的一个小子集。FROM 子句可以包含下列元素：
@@ -120,7 +119,7 @@ FROM 子句为 SELECT 指定一个或者更多源表。如果指定了多个源�
 
 对于 INNER 和 OUTER 连接类型，必须指定一个连接条件，即 NATURALON join_condition 或者 USING ( join_column [, ...]) 之一（只能有一种）。其含义见下文。对于 CROSS JOIN，上述子句不能出现。
 
-一个 JOIN 子句联合两个 FROM 项（为方便我们称之为"表"，尽管实际上它们可以是任何类型的 FROM 项）。如有必要可以使用圆括号确定嵌套的顺序。在没有圆括号时，JOIN 会从左至右嵌套。在任何情况下，JOIN 的联合比分隔 JOIN-列表项的逗号更强。
+一个 JOIN 子句联合两个结果表。如有必要可以使用圆括号确定嵌套的顺序。在没有圆括号时，JOIN 会从左至右嵌套。在任何情况下，JOIN 的联合比分隔 JOIN-列表项的逗号更强。
 
 CROSS JOIN 和 INNER JOIN 会产生简单的笛卡尔积，也就是与在 FROM 的顶层列出两个表得到的结果相同，但是要用连接条件（如果有）约束该结果。CROSS JOIN 与 INNER JOIN ON(TRUE) 等效，也就是说条件不会移除任何行。这些连接类型只是一种记号上的方便，因为没有什么是用户用纯粹的 FROM 和 WHERE 能做而它们不能做的。
 
@@ -245,7 +244,7 @@ ROWS | RANGE
 
 **FOLLOWING**：FOLLOWING 子句定义了使用当前行作为参考点的窗口的最后一行。最后一行的表示依据跟在当前行后面的行的行号。例如，在 ROWS 框架中，5 FOLLOWING 设置窗口的结束为止在当前行后的第五个行。在 RANGE 框架中，它设置窗口的结束为按在给定顺序跟在当前行后面的5行。如果指定属性为按照日期的升序，那么最一行为当前行之后5天的行。使用 UNBOUNDED FOLLOWING 设置窗口中的最后一行为分区中的最后一行。
 
-如果没有指定一个 ROW 或者 RANGE 子句，窗口的界会从分区的第一行开始（UNBOUNDED PRECEDING） 同时以当前行为结束（CURRENT ROW），如果使用了 ORDER BY ，ORDER BY 没有指定，那么窗口开始于分区（UNBOUNDED PRECEDING）的第一行同时结束语分区（UNBOUNDED FOLLOWING）的最后一行。
+如果没有指定一个 ROW 或者 RANGE 子句，窗口的界会从分区的第一行开始（UNBOUNDED PRECEDING） 同时以当前行为结束（CURRENT ROW），如果使用了 ORDER BY ，ORDER BY 没有指定，那么窗口开始于分区（UNBOUNDED PRECEDING）的第一行同时结束于分区（UNBOUNDED FOLLOWING）的最后一行。
 
 ### **HAVING 子句**
 可选 HAVING 子句的形式：

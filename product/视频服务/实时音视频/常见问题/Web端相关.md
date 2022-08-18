@@ -107,7 +107,7 @@ Web 端支持发起混流，具体请参见 [如何调用混流转码接口](htt
 
 [](id:o3)
 ### Web 端 SDK 可以获取当前音量大小吗？
-可以通过 [getAudioLevel](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/LocalStream.html#getAudioLevel) 获取当前音量大小，具体请参见 [切换摄像头和麦克风](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/tutorial-13-basic-switch-camera-mic.html) 。
+可以通过 [getAudioLevel](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/LocalStream.html#getAudioLevel) 获取当前音量大小，具体请参见 [音量大小检测](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/tutorial-17-basic-detect-volume.html)。
 
 [](id:o4)
 ### 什么情况会触发 Client.on(‘client-banned’)？

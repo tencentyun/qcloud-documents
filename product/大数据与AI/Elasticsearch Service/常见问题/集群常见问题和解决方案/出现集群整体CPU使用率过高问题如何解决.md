@@ -1,5 +1,5 @@
 ## 问题现象
-集群所有节点 CPU 都很高，但读写都不是很高。具体表现可以从 kibana 端 Stack Monitoring 监控页面看到：
+集群所有节点 CPU 都很高，但读写都不是很高。具体表现可以从 kibana 端 Stack Monitoring 监控页面看到：  
 ![](https://main.qcloudimg.com/raw/3ebd8230d3d8d9dbb92f115f7515c48f.png)
 另外也可以从 [ES 控制台](https://console.cloud.tencent.com/es) UI 的节点监控页面看到各节点的 CPU 使用率情况：
 ![](https://qcloudimg.tencent-cloud.cn/raw/403cdecdc692bd24740b9f1fcae80ad6.png)

@@ -5,8 +5,6 @@
 
 
 ## 安装 NginxIngress 组件[](id:Nginx-ingress)
->? 如果您需要安装 NginxIngress 组件，可通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 来联系我们。
->
 
 
 
@@ -14,7 +12,7 @@
 2. 在“集群管理”页面单击目标集群 ID，进入集群详情页。
 3. 选择左侧菜单栏中的**组件管理**，进入 “组件列表” 页面。
 4. 在“组件列表”页面中选择**新建**，并在“新建组件”页面中勾选 NginxIngress。
-5. 单击**完成**即可安装组件。
+5. 单击**完成**即可安装组件。您可在**服务与路由 > NginxIngress**中查看组件详情。
 
 
 ## 安装方式
