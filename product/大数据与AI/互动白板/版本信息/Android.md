@@ -1,3 +1,21 @@
+### 2.7.6.186 @ 2022-08-16
+* [单击下载 SDK](https://sdk.qcloudtiw.com/android/TEduBoardSdk_2.7.6.186.zip)  
+
+- 新增功能
+  1. 新增数据教具功能，支持直尺，三角形，量角器;
+  2. 新增获取ppt备注功能;
+  
+### 2.7.5.185 @ 2022-08-01
+* [单击下载 SDK](https://sdk.qcloudtiw.com/android/TEduBoardSdk_2.7.5.185.zip)  
+
+- 新增功能
+  1. PPT老版本转码，支持mp3,mp4播放同步;
+  2. PPT新版本转码，支持mp3,mp4播放同步;
+  3. 错误和警告事件增加上报;
+
+- Bug及优化处理
+  1. 修复获取资源的时候Host缺少协议的问题
+  2. 其他已知问题修复。
 ### 2.7.4.184 @ 2022-07-04
 * [单击下载 SDK](https://sdk.qcloudtiw.com/android/TEduBoardSdk_2.7.4.184.zip)  
 

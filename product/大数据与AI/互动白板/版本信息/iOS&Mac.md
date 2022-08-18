@@ -1,4 +1,23 @@
-### 2.7.4.128 @ 2022-07-04
+### 2.7.6.137 @ 2022-08-16
+* [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/2.7.6.137/TEduBoard_2.7.6.137.zip)
+* [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/2.7.6.137/TEduBoard_Mac_2.7.6.137.zip) 
+
+- 新增功能
+  1. 新增数据教具功能，支持直尺，三角形，量角器;
+  2. 新增获取ppt备注功能;
+  
+### 2.7.5.136 @ 2022-08-01
+* [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/2.7.5.136/TEduBoard_2.7.5.136.zip)
+* [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/2.7.5.136/TEduBoard_Mac_2.7.5.136.zip)
+
+- 新增功能
+  1. PPT老版本转码，支持mp3,mp4播放同步;
+  2. PPT新版本转码，支持mp3,mp4播放同步;
+  3. 错误和警告事件增加上报;
+
+- Bug及优化处理
+  1. 修复获取资源的时候Host缺少协议的问题
+  2. 其他已知问题修复。### 2.7.4.128 @ 2022-07-04
 * [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/2.7.4.128/TEduBoard_2.7.4.128.zip)
 * [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/2.7.4.128/TEduBoard_Mac_2.7.4.128.zip)
 
