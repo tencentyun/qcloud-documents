@@ -19,6 +19,7 @@
 - Bug及优化处理
   1. 修复获取资源的时候 Host 缺少协议的问题
   2. 其他已知问题修复。
+
 ### 2.7.4 @ 2022.07.04
 * 链接地址：https://res.qcloudtiw.com/board/2.7.4/TEduBoard.min.js
 
