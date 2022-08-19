@@ -119,6 +119,10 @@ eks.tke.cloud.tencent.com/retain-ip-hours: '48' # 保留 IP 的最大时长（�
 eks.tke.cloud.tencent.com/eip-attributes: '{"InternetMaxBandwidthOut":50, "InternetChargeType":"TRAFFIC_POSTPAID_BY_HOUR"}' # 值可以为空串，表示启用 EIP 并使用默认配置；也可以用创建 EIP 接口的 json 参数，详细参数列表参考 https://cloud.tencent.com/document/api/215/16699#2.-.E8.BE.93.E5.85.A5.E5.8F.82.E6.95.B0，本例中的参数表示 EIP 是按量付费，且带宽上限为 50M。
 ```
 
+>! 非带宽上移的账号（传统账户），不支持绑定 EIP，若您无法确认账户类型，请参见 [判断账户类型](https://cloud.tencent.com/document/product/1199/49090#judge)，若为非带宽上移账户，可 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行账户升级。
+
+
+
 ### StatefulSet 固定 EIP
 如需在 StatefulSet 固定 EIP，可在 Pod 级别添加如下注解：
  
