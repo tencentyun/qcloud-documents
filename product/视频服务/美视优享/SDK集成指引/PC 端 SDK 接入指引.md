@@ -55,7 +55,7 @@ Windows 端 SDK 的集成涉及到的接口如下：
 </tr>
 <tr>
 <td><a href="#setSegmentBg0">setSegmentBg</a></td>
-<td>设置自定扣背接口</td>
+<td>设置自定义人像分割</td>
 </tr>
 <tr>
 <td><a href="#setRenderSize0">setRenderSize</a></td>
@@ -147,9 +147,8 @@ virtual void updateProperty(XmagicProperty* property) = 0;
 
 | 参数     | 说明                                                         |
 | -------- | ------------------------------------------------------------ |
-| category | 美颜类型，包括以下几种：<ul style="margin:0;"><li>美颜：BEAUTY = 0</li><li>美体：BODY_BEAUTY</li><li>滤镜：LUT</li><li>动效：MOTION</li><li>扣背：SEGMENTATION</li><li>化妆：MAKEUP</li></ul>|
-| id       | id                                                           |
-| resPath  | 对应设置资源的地址（如动效、化妆、扣背等）                   |
+| category | 美颜类型，包括以下几种：<ul style="margin:0;"><li>美颜：BEAUTY = 0</li><li>美体：BODY_BEAUTY</li><li>滤镜：LUT</li><li>动效：MOTION</li><li>人像分割：SEGMENTATION</li><li>化妆：MAKEUP</li></ul>|
+| resPath  | 对应设置资源的地址（如动效、化妆、人像分割等）                   |
 | effKey   | 美颜的 key                                                    |
 | effValue | 美颜的值                                                     |
 | isAuth   | 默认 true                                                     |
@@ -212,7 +211,7 @@ virtual int process(int textureId, int width, int height) = 0;
 
 
 [](id:setSegmentBg)
-### 设置自定义扣背景
+### 设置自定义人像分割
 
 ```c++
 virtual void setSegmentBg(std::string &segmentBgName ,int segmentBgType ,int timeOffset) = 0;
@@ -222,8 +221,8 @@ virtual void setSegmentBg(std::string &segmentBgName ,int segmentBgType ,int tim
 
 | 参数          | 说明                             |
 | ------------- | -------------------------------- |
-| segmentBgName | 自定扣背路径                     |
-| segmentBgType | 设置背影类型（0为图片，1是视频） |
+| segmentBgName | 自定义人像分割路径                     |
+| segmentBgType | 设置背影类型（0为图片，1为视频） |
 | timeOffset    | 如果为视频，设置视频播放时长     |
 
 
