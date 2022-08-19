@@ -1,8 +1,15 @@
-音视频终端 SDK（腾讯云视立方）提供多种音视频场景下的终端 SDK，用户可结合自身场景需要选择相应的 SDK 进行下载。
-
 <style>
 .inbuttom{height: 40px;width: 400px;min-width: 24px;padding: 0 20px;background-color: #fff;color: #00a4ff;border: 1px solid #00a4ff;line-height: 30px;text-align: center;cursor: pointer;outline: 0 none;box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;display:block;margin:0  auto;border-radius:100px;font-size:14px}
 </style>
+
+音视频终端 SDK（腾讯云视立方）提供多种音视频场景下的终端 SDK，用户可结合自身场景需要选择相应的 SDK 进行下载。
+
+
+<dx-alert infotype="alarm" title=" ">
+如果您无法通过应用场景确定您需要的 SDK，可以进入 [自定义 SDK 下载页](https://vcube.cloud.tencent.com/home.html)，勾选您需要的功能，我们将基于勾选结果为您推荐最合适的 SDK。
+</dx-alert>
+
+
 
 ## 直播服务类场景
 支持秀场直播、电商直播、赛事直播、新品发布会、路演、在线拍卖等各类高并发大规模直播观看场景。支持直播推流播放、连麦互动、主播跨房 PK 等功能。可选择 iOS、Android、PC、微信小程序、Web 等 SDK 版本进行下载。
@@ -47,7 +54,7 @@
 ## 多场景组合
 支持上述多种音视频终端使用场景组合使用，可下载全功能版 SDK（可选择 iOS 和 Android 版本），仅需集成一个 SDK 便可实现互动直播、短视频、美颜特效、音视频通话等全部音视频终端能力。
 
-![](https://qcloudimg.tencent-cloud.cn/raw/de6821e8bbe0cee0661d0c3283263f7b.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/1dc18a5333b579a7953d0b997902cc90.png)
 
 <input type="button" value="前往下载全功能 SDK 及 Demo 跳转链接" class="inbuttom" onclick="window.open('https://cloud.tencent.com/document/product/454/7873#ALL');reportEvent({name: 'demo-click-web', ext1: 'pusher'});" />
 

@@ -56,7 +56,7 @@ SQL 优化不仅能够为用户提供的专家级别的 SQL 优化建议，同�
    <img src="https://qcloudimg.tencent-cloud.cn/raw/2cae52cfa8ebe60440615f084a1c7f40.png" style="zoom:45%;" />
    - 根据语句执行情况，可以了解到哪些步骤产生了临时表或者文件排序。<br>
    <img src="https://qcloudimg.tencent-cloud.cn/raw/1b79bfbc4396a72c0585c1242b87a027.png" style="zoom:50%;" />
-   - 索引类型，和您所使用的索引，性能的效率程度，会有不同的色阶体现。<br>
+   - 索引类型，根据您所使用的索引性能的效率高低，这里会呈现不同的色阶。<br>
    <img src="https://qcloudimg.tencent-cloud.cn/raw/b5816ba38dc8f77beaf9b9829b2e5f47.png" style="zoom:50%;" />
    - 根据您语句的复杂程度，会出现不同的可视化矩阵效果，如果可视化图形区域内容过多，您可使用比例调节按钮，自由操控显示比例，或全屏。
    ![](https://qcloudimg.tencent-cloud.cn/raw/c070bb729e50e4a12414f2e17d7bdbd1.png)

@@ -52,7 +52,7 @@
 
 | 第三方 SDK 名称 | 第三方 SDK 提供方的公司名称 | 处理的个人信息类型                   | 使用目的                                     | 使用场景                                               | 处理方式 | 第三方 SDK 个人信息保护规则                          | 操作系统 |
 | --------------- | --------------- | --------------- | --------------- | --------------- | -------- | --------------- | -------- |
-| OKhttp | Square，inc.公司 | 仅用于网络请求场景，不涉及个人信息   | 用于简化网络请求                             | 下载美颜License、下载美颜动效资源等 | 不涉及   | [不涉及 SDK 官网](https://github.com/square/OkHttp) | Android  |
+| OKhttp | Square 公司 | 仅用于网络请求场景，不涉及个人信息   | 用于简化网络请求                             | 下载腾讯特效 License、下载美颜动效资源等 | 不涉及   | [不涉及 SDK 官网](https://github.com/square/OkHttp) | Android  |
 | Gson | Google 谷歌公司 | 仅用于 JSON 数据解析，不涉及个人信息 | 解析和封装JSON 数据，简化对 JSON  数据的处理 | 项目中多处需要解析 JSON 文本数据，是必不可少的工具组件 | 不涉及   | [不涉及 SDK 官网](https://github.com/google/gson)   | Android  |
 
 

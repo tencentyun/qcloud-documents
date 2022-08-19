@@ -160,7 +160,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/f8d45066f57190c5dde9ba878bf2861c.png)
 3. 登录腾讯云 Clinet VPN 自主服务门户。
  - 账户密码方式
- 使用 EIAM 创建的用户密码进行登录。
+ 使用 EIAM 创建的用户密码进行登录，本文以此为例。
  ![](https://qcloudimg.tencent-cloud.cn/raw/7da3bbc24a8e84f433ecb8b5830178a4.png)
  - SAML 自动认证方式
  如果您在 EIAM 的用户组中，并在 SSL 访问控制策略中，您还可以直接单击![](https://qcloudimg.tencent-cloud.cn/raw/30a42799e4a89cef711771017807a9de.png)进行 SAML 认证，然后单击**跳转进行认证（SAML）**进行登录。
