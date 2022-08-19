@@ -263,7 +263,7 @@ virtual void onResume() = 0;
 
 
 ## 代码示例
->?以下仅为部分示例代码，详细示例请参考 Demo。
+>?以下仅为部分示例代码。
 
 [](id:setTELicense1)
 ### 鉴权接口
