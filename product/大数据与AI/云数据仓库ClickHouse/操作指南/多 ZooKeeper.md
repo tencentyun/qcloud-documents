@@ -8,7 +8,7 @@
 
 ## 控制台操作步骤
 1. 登录 [CDWCH](https://console.cloud.tencent.com/cdwch) 控制台，在**集群列表**中选择对应的集群，在集群详情页面右下角单击**升级多 ZK** 页面。
-![](https://qcloudimg.tencent-cloud.cn/raw/85f43aec5f954933a4d6874e74f27e4b.jpg)
+![](https://qcloudimg.tencent-cloud.cn/raw/8b19d59bce2146de89f6ed66d0f48411.jpg)
 ![](https://qcloudimg.tencent-cloud.cn/raw/d9d0136abbe06e1f7caf0bb9e4b2bdb5.jpg)
 2. 可在配置文件 config.xml 中查看已经存在的多 Zookeeper 信息。
 ![](https://qcloudimg.tencent-cloud.cn/raw/86a9750bf4b2d172711401dd5e58fe2f.jpg)
