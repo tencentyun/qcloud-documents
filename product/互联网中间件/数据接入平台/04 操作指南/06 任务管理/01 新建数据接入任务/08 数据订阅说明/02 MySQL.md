@@ -134,22 +134,22 @@ CREATE TABLE customers (
 <tbody><tr>
 <td align="left">1</td>
 <td align="left"><code>schema</code></td>
-<td align="left">Schema 描述了 payload 中的结构</td>
+<td align="left">Schema 描述了 payload 中的结构。</td>
 </tr>
 <tr>
 <td align="left">2</td>
 <td align="left"><code>mysql-server-1.inventory.customers.Key</code></td>
-<td align="left">schema 的名称格式为 *connector-name*.*database-name*.*table-name*.<code>Key</code>。在这个例子中: <code>mysql-server-1</code> 是生成事件的connector的名字。<code>inventory</code> 是对应数据库表的名字。 <code>customers</code> 是表的名字.</td>
+<td align="left">schema 的名称格式为 *connector-name*.*database-name*.*table-name*.<code>Key</code>。在这个例子中: <code>mysql-server-1</code> 是生成事件的connector的名字。<code>inventory</code> 是对应数据库的名字。 <code>customers</code> 是表的名字。</td>
 </tr>
 <tr>
 <td align="left">3</td>
 <td align="left"><code>optional</code></td>
-<td align="left">表示字段是否是可选项.</td>
+<td align="left">表示字段是否是可选项。</td>
 </tr>
 <tr>
 <td align="left">4</td>
 <td align="left"><code>fields</code></td>
-<td align="left">列出了所有 <code>payload</code> 中包含的字段及其结构, 包括字段名、字段类型、以及是否可选.</td>
+<td align="left">列出了所有 <code>payload</code> 中包含的字段及其结构, 包括字段名、字段类型、以及是否可选。</td>
 </tr>
 <tr>
 <td align="left">5</td>
