@@ -10,86 +10,61 @@
 ### 导入SDK
 
 您可以选择使用 CocoaPods 方案，或者先将 SDK 下载到本地，再将其手动导入到您当前的项目中。
-
-#### 方案一：使用CocoaPods
-
-1.安装CocoaPods
-
+<dx-tabs>
+::: 使用 CocoaPods
+1. **安装 CocoaPods**
 在终端窗口中输入如下命令（需要提前在 Mac 中安装 Ruby 环境）：
-
 ```
 sudo gem install cocoapods
 ```
-
-2.创建Podfile文件
-
+2. **创建 Podfile 文件**
 进入项目所在路径，输入以下命令行之后项目路径下会出现一个 Podfile 文件。
-
 ```
 pod init
 ```
-
-3.编辑 Profile 文件
-
+3. **编辑 Profile 文件**
 根据您的项目需要选择合适的版本，并编辑 Podfile 文件：
+	- **XMagic 普通版**
+请按如下方式编辑Profile文件：
+```
+platform :ios, '8.0'
 
-- 选项一：XMagic普通版
+target 'App' do
+pod 'XMagic'
+end
+```
+	- **XMagic 精简版**
+安装包体积比普通版小，但仅支持基础版 A1-00、基础版 A1-01、高级版 S1-00，请按如下方式编辑 Profile 文件：
+```
+platform :ios, '8.0'
 
-  请按如下方式编辑Profile文件：
-
-  ```
-  platform :ios, '8.0'
-  
-  target 'App' do
-    pod 'XMagic'
-  end
-  ```
-
-- 选项二：XMagic精简版
-
-  安装包体积比普通版小，但仅支持基础版A1-00、基础版A1-01、高级版S1-00，请按如下方式编辑Profile文件：
-
-  ```
-  platform :ios, '8.0'
-  
-  target 'App' do
-    pod 'XMagic_Smart'
-  end
-  ```
-
-4.更新并安装SDK
-
+target 'App' do
+pod 'XMagic_Smart'
+end
+```
+4. **更新并安装 SDK**
 在终端窗口中输入如下命令以更新本地库文件，并安装 SDK：
-
 ```
 pod install
 ```
-
 pod 命令执行完后，会生成集成了 SDK 的 .xcworkspace 后缀的工程文件，双击打开即可。
-
-5.添加美颜资源到实际项目工程中
-
+5. **添加美颜资源到实际项目工程中**
 下载并解压对应套餐的 [SDK和美颜资源](https://cloud.tencent.com/document/product/616/65876)，将**resources**文件夹下的除**LightCore.bundle**、**Light3DPlugin.bundle**、**LightBodyPlugin.bundle**、**LightHandPlugin.bundle**、**LightSegmentPlugin.bundle**以外的**其它bundle资源**添加到实际工程中。
-
 6.将 Bundle ID 修改成与申请的测试授权一致。
-
-#### 方案二：下载SDK并手动导入
-
-1.下载并解压 [SDK和美颜资源](https://cloud.tencent.com/document/product/616/65876)，frameworks文件夹里面是sdk,resources文件夹里面是美颜的bundle资源。
-
-2.打开您的 Xcode 工程项目，把frameworks文件夹里面的framework添加到实际工程中，选择要运行的 target , 选中 **General** 项，单击 **Frameworks,Libraries,and Embedded Content** 项展开，单击底下的“+”号图标去添加依赖库。依次添加下载的XMagic.framework、YTCommonXMagic.framework、libpag.framework及其所需依赖库MetalPerformanceShaders.framework、CoreTelephony.framework、JavaScriptCore.framework、VideoToolbox.framework、libc++.tbd，根据需要添加其它工具库Masonry.framework（控件布局库）、SSZipArchive（文件解压库）。
-
-![framework](framework.png)
-
-3.把resources夹里面的美颜资源添加到实际工程中。
-
-4.将 Bundle ID 修改成与申请的测试授权一致。
-
-#### 方案三：动态下载集成
-
+:::
+::: 下载 SDK 并手动导入
+1. 下载并解压 [SDK 和美颜资源](https://cloud.tencent.com/document/product/616/65876)，frameworks 文件夹里面是sdk、resources 文件夹里面是美颜的bundle资源。
+2. 打开您的 Xcode 工程项目，把 frameworks 文件夹里面的 framework 添加到实际工程中，选择要运行的 target , 选中 **General** 项，单击 **Frameworks,Libraries,and Embedded Content** 项展开，单击底下的“+”号图标去添加依赖库。依次添加下载的 `XMagic.framework`、`YTCommonXMagic.framework`、`libpag.framework` 及其所需依赖库`MetalPerformanceShaders.framework`、`CoreTelephony.framework`、`JavaScriptCore.framework`、`VideoToolbox.framework`、`libc++.tbd`，根据需要添加其它工具库 `Masonry.framework`（控件布局库）、`SSZipArchive`（文件解压库）。
+![](https://qcloudimg.tencent-cloud.cn/raw/64aacf4305d7adf3a2bbe025920be517.png)
+3. 把 resources 夹里面的美颜资源添加到实际工程中。
+4. 将 Bundle ID 修改成与申请的测试授权一致。
+:::
+::: 动态下载集成
 为了减少包大小，您可以将 SDK 所需的模型资源和动效资源 MotionRes（部分基础版 SDK 无动效资源）改为联网下载。在下载成功后，将上述文件的路径设置给 SDK。
 
 我们建议您复用 Demo 的下载逻辑，当然，也可以使用您已有的下载服务。动态下载的详细指引，请参见 [SDK 包体瘦身（iOS）](https://cloud.tencent.com/document/product/616/76029)。
+:::
+</dx-tabs>
 
 ### 配置权限
 在 Info.plist 文件中添加相应权限的说明，否则程序在 iOS 10 系统上会出现崩溃。请在 Privacy - Camera Usage Description 中开启相机权限，允许 App 使用相机。
