@@ -492,7 +492,7 @@ CREATE TABLE customers (
 :::
 </dx-codeblock>
 
-其中 schema 字段和新增操作的事件相同，而 payload 部分有所不同，删除事件中包含了更新前（before）的数据，但更新后（after）的数据为 null，表示数据已删除。
+其中 schema 字段和新增操作的事件相同，而 payload 部分有所不同，删除事件中包含了修改前（before）的数据，但更新后（after）的数据为 null，表示数据已删除。
 
 ### 更新主键（primary key updates）
 
