@@ -70,11 +70,11 @@ yum install -y python3
 ```
 3. 执行以下命令，获取迁移工具。
 ```shell
-wget http://mirrors.tencent.com/tencentos/2.4/tlinux/x86_64/RPMS/migrate2tencentos-1.0-3.tl2.noarch.rpm
+wget http://mirrors.tencent.com/tencentos/2.4/tlinux/x86_64/RPMS/migrate2tencentos-1.0-4.tl2.noarch.rpm
 ```
 4. 执行以下命令，安装迁移工具。该命令会在 /usr/sbin 下创建 migrate2tencentos.py。
 ```shell
-rpm -ivh migrate2tencentos-1.0-3.tl2.noarch.rpm
+rpm -ivh migrate2tencentos-1.0-4.tl2.noarch.rpm
 ```
 5. 执行以下命令，开始迁移。
 ```shell
@@ -116,11 +116,11 @@ yum install -y python3
 ```
 3. 执行以下命令，获取迁移工具。
 ```shell
-wget http://mirrors.tencent.com/tlinux/3.1/Updates/x86_64/RPMS/migrate2tencentos-1.0-3.tl3.noarch.rpm
+wget http://mirrors.tencent.com/tlinux/3.1/Updates/x86_64/RPMS/migrate2tencentos-1.0-4.tl3.noarch.rpm
 ```
 4. 执行以下命令，安装迁移工具。该命令会在 /usr/sbin 下创建 migrate2tencentos.py。
 ```shell
-rpm -ivh migrate2tencentos-1.0-3.tl3.noarch.rpm
+rpm -ivh migrate2tencentos-1.0-4.tl3.noarch.rpm
 ```
 5. 执行以下命令，开始迁移。
 ```shell
