@@ -102,7 +102,7 @@
 	</tr>
 <td><center>V2.12.120</td>	
 <td>优化了会议室管理页问题。<br>
-<td><center>2022-08-10</td>	
+<td><center>2022-05-20</td>	
 	</tr>
 <tr>
 <td><center>V2.12.110</td>	

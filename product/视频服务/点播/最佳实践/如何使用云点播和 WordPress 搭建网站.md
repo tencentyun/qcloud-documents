@@ -40,7 +40,7 @@ WordPress 是一款著名的开源博客框架和内容管理系统，使用它�
 </tbody>
 </table>
 
- 
+
 除此之外，点播还提供访问控制、媒体处理和智能审核等能力，详情请参见云点播的 [功能概述](https://cloud.tencent.com/document/product/266/78037)。
 
 ### 云点播的 WordPress 插件
@@ -81,7 +81,7 @@ WordPress 是一款著名的开源博客框架和内容管理系统，使用它�
 ::: 方式一
 在线安装（推荐）。在搜索框中搜索 **tencentcloud-vod**，单击 **立即安装 > 启用**。
 
-![在线安装](https://qcloudimg.tencent-cloud.cn/raw/d6f02ad05b6ec492314e315e598b9fb6.png)
+![在线安装](https://qcloudimg.tencent-cloud.cn/raw/92454ee6fd0b72c96c5ff411a035da0e.png)
 :::
 ::: 方式二
 自行下载并安装。您可单击 [下载链接](https://github.com/Tencent-Cloud-Plugins/tencentcloud-wordpress-plugin-vod/releases/latest/download/tencentcloud-wordpress-plugin-vod.zip) 获取最新版插件的压缩包，单击 **上传插件 > 选择文件 > 立即安装 > 启用插件。**
