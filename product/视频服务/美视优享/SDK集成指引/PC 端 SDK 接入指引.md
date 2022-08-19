@@ -1,3 +1,5 @@
+本文为 Windows 端 SDK 的集成指引。
+
 ## 集成准备
 ### 开发者环境要求
 - 开发工具：VS2019（建议）
@@ -178,7 +180,7 @@ struct YTImagePixelData {
 		/// 字段含义：像素格式
 		PixelFormat pixelFormat;
 
-		/// 【字段含义】
+		/// 字段含义
 		uint8_t* data;
 
 		/// 字段含义：数据的长度，单位是字节
