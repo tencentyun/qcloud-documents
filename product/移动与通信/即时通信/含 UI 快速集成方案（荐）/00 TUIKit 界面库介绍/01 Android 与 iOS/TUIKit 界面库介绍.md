@@ -7,7 +7,7 @@ TUIKit 中的组件在实现 UI 功能的同时，会调用 IM SDK 相应的接�
 ## TUIKit 主要功能介绍
 TUIKit 主要分为 TUISearch、TUIConversation、TUIChat、TUICallKit、TUIContact、TUIGroup 和 TUIOfflinePush 几个 UI 子组件，每个 UI 组件负责展示不同的内容。
 界面效果如下图所示：
-<img src="https://qcloudimg.tencent-cloud.cn/raw/ed580d8967b9d205e894f36d8e634369.png" style="zoom:50%;"/>
+<img src="https://qcloudimg.tencent-cloud.cn/raw/62aef6cf20aea982b17970c11b391122.png" style="zoom:50%;"/>
 
 ### TUIChat 重点功能介绍
 TUIChat 主要负责消息界面的展示。您还可以利用它直接发送不同类型的消息、对消息长按点赞/回复/引用、查询消息已读回执详情等。
@@ -52,7 +52,7 @@ TUIContact 主要负责联系人的展示、权限设置等。
     <th style="text-align:center;" width="500px">联系人资料及管理</th>
   </tr>
   <tr>
-    <td><img style="width:500px" src="https://qcloudimg.tencent-cloud.cn/raw/6c84a8e9dd793c52d3cff3ca6ebee80a.png"/></td>
+    <td><img style="width:500px" src="https://qcloudimg.tencent-cloud.cn/raw/518ead4ac8414e54cf29993acfc2835a.png"/></td>
     <td><img style="width:500px" src="https://qcloudimg.tencent-cloud.cn/raw/16965a64aab5e9987ac6e002fa479830.png"/></td>
 	 </tr>
 </table>
@@ -71,7 +71,7 @@ TUIContact 主要负责联系人的展示、权限设置等。
 ### TUIConversation 重点功能介绍
 TUIConversation 主要负责会话列表的展示和编辑。
 界面效果如下图所示：
-<img src="https://qcloudimg.tencent-cloud.cn/raw/b90b81ddce0bee584fb3d7e9470e95b8.png" style="zoom:40%;"/>
+<img src="https://qcloudimg.tencent-cloud.cn/raw/abc6168077ee5f91d109f62617ea8eee.png" style="zoom:40%;"/>
 
 
 ### TUIGroup 重点功能介绍
@@ -102,7 +102,7 @@ TUIGroup 主要负责群资料、群成员、群组权限的管理。
 ### TUISearch 重点功能介绍
 TUISearch 主要负责本地搜索，支持搜索联系人、群聊、聊天记录。
 界面效果如下图所示：
-<img src="https://qcloudimg.tencent-cloud.cn/raw/1e94c5b2c50102c7d3d0c79de9343c07.png" style="zoom:40%;"/>
+<img src="https://qcloudimg.tencent-cloud.cn/raw/b3e2916137e1e7670b71fe09e638d395.png" style="zoom:40%;"/>
 
 
 ### TUICallKit 重点功能介绍
