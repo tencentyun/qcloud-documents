@@ -13,7 +13,7 @@ DIP 支持订阅MongoDB变更数据，免去对基于 CDC 的订阅组件如（C
 
 1. 登录 [DIP 控制台](https://console.cloud.tencent.com/ckafka/datahub-overview)。
 2. 在左侧导航栏单击**任务管理** > **任务列表**，选择好地域后，单击**新建任务**。
-3. 填写任务名称，任务类型选择**数据接入**，数据目标类型选择**MongoDB数据订阅**，单击**下一步**。
+3. 填写任务名称，任务类型选择**数据接入**，数据源类型选择**MongoDB数据订阅**，单击**下一步**。
 4. 填写数据源配置信息，单击下一步。
 ![](https://qcloudimg.tencent-cloud.cn/raw/27caef01f957539f58eb455d5569d93a.png)
     - 数据源：选择提前创建好的 MongoDB 连接。
