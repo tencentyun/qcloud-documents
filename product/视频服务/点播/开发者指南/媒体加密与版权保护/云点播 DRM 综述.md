@@ -22,7 +22,7 @@
 商业级 DRM 能够为视频内容提供高级别的安全保障，但从零接入的门槛很高。因此，云点播提供了集成商业级 DRM 的一站式解决方案，包括 DRM 加密、证书管理、License 派发、解密播放等功能，帮助您轻松集成 DRM 能力。
 
 点播视频 DRM 加密和解密播放的整体架构流程图如下：
-![](https://qcloudimg.tencent-cloud.cn/raw/d05f245304feeee5386c8ef4515fdd18.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/416471d3730afc7449f3afd51ea9b5a8.png)
 
 ## 接入参考
 为了帮助您快速接入点播的 DRM 加密能力，请您 [提交工单](https://console.cloud.tencent.com/workorder/category) 给我们，由云点播帮您对视频进行 DRM 加密，因此会产生视频加密费用。

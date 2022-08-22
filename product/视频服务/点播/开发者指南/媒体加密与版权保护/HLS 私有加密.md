@@ -3,7 +3,7 @@ HLS 私有加密是云点播独创的视频内容加密方案，使用私有协�
 ## 原理架构
 
 HLS 私有加密和解密播放的整体架构流程如下：
-<img src="https://main.qcloudimg.com/raw/8384bbba97c518b62c1b39f7c670d240.png" width="700" />
+<img src="https://qcloudimg.tencent-cloud.cn/raw/81b0a7d51b5f7321fde45e32e3e725b9.png" width="700" />
 1. <b>服务端上传</b>：业务后台通过控制台、服务端 API 等方式，将视频上传到云点播。
 2. <b>触发视频处理</b>：上传视频的同时，指定带加密的转自适应码流。上传后，视频开始加密过程。
 3. <b>获取密钥</b>：转自适应码流并加密，点播从 KMS 模块获取加密视频时使用的密钥。
@@ -27,3 +27,4 @@ HLS 私有加密和解密播放的整体架构流程如下：
 云点播的 [转自适应码流](https://cloud.tencent.com/document/product/266/34071) 功能，可以将视频转成多种分辨率并加密。具体实践方式，请您参见 [接入指引](https://cloud.tencent.com/document/product/266/43633)。
 2. 终端如何播放加密后的视频？
 播放点播加密的视频，您需要在终端集成超级播放器 SDK。同时，您还需要搭建一个签名派发服务。具体实践方式，请您参见 [接入指引](https://cloud.tencent.com/document/product/266/43633)。
+

@@ -139,10 +139,13 @@ param.secretKey = @"";
 param.token = @"";
 ```
 2. 开始录制
-调⽤ startRecordAndEvaluation（）⽅法传⼊步骤3.1.1中设置的 param 参数，并设置回调函数，即可开始录制。
-[self.oralEvaluation startRecordAndEvaluation:param callback:^(TAIError *error) {    
-//结果返回 
+调用 startRecordAndEvaluation() 方法传入 TAIOralEvaluationParam 的 param 参数，并设置回调函数，即可开始录制。
+```
+[self.oralEvaluation startRecordAndEvaluation:param callback:^(TAIError *error) {
+//结果返回
 }];
+```
+
 3. 结束录制
 ```
 [self.oralEvaluation stopRecordAndEvaluation:^(TAIError *error) {    

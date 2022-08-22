@@ -119,6 +119,10 @@ eks.tke.cloud.tencent.com/retain-ip-hours: '48' # 保留 IP 的最大时长（�
 eks.tke.cloud.tencent.com/eip-attributes: '{"InternetMaxBandwidthOut":50, "InternetChargeType":"TRAFFIC_POSTPAID_BY_HOUR"}' # 值可以为空串，表示启用 EIP 并使用默认配置；也可以用创建 EIP 接口的 json 参数，详细参数列表参考 https://cloud.tencent.com/document/api/215/16699#2.-.E8.BE.93.E5.85.A5.E5.8F.82.E6.95.B0，本例中的参数表示 EIP 是按量付费，且带宽上限为 50M。
 ```
 
+>! 非带宽上移的账号（传统账户），不支持绑定 EIP，若您无法确认账户类型，请参见 [判断账户类型](https://cloud.tencent.com/document/product/1199/49090#judge)，若为非带宽上移账户，可 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行账户升级。
+
+
+
 ### StatefulSet 固定 EIP
 如需在 StatefulSet 固定 EIP，可在 Pod 级别添加如下注解：
  
@@ -432,4 +436,12 @@ eks.tke.cloud.tencent.com/ipvs-min-sync-period: '2s' # 规则刷新的最小间�
 适用于希望集群内访问不走 ipvs 而走 clb，通过给 service 上配置该 annotation 后，不会再生成对应的 ipvs 规则：
 ```yaml
 service.cloud.tencent.com/discard-loadbalancer-ip: 'true' # 该 annotation 配置在 service 上，无需重建 Pod 即可即时生效
+```
+
+
+## 自定义 Pod 时区
+
+超级节点上的 Pod 默认为 UTC 时间，若需要调整 Pod 时区为东8区，可添加如下 Annotation：
+```yaml
+eks.tke.cloud.tencent.com/host-timezone: 'Asia/shanghai' # 该 annotation 用于设置 Pod 时区为东8区
 ```

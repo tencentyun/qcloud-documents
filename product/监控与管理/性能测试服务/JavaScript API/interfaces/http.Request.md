@@ -69,7 +69,7 @@ scheme 协议 http/https。
 [](id:contentType)
 ### service
 `Optional` **service**: `string`
-service 在 PTS 中，我们按照 url 来识别不同 service，基于 serivce 纬度生成报表。当 url 中包含参数： `http://demo.com/{id}`，不同的 id 将导致请求在报表中被归类为不同的服务。或者每个 url 含有不同的 ip port 的时候也会被归类为不同的服务。您可通过指定 service，将此类请求在报表中归类到到同一个服务下。
+service 在 PTS 中，我们按照 url 来识别不同 service，基于 serivce 纬度生成报表。当 url 中包含参数： `http://demo.com/{id}`，不同的 id 将导致请求在报表中被归类为不同的服务。或者每个 url 含有不同的 ip port 的时候也会被归类为不同的服务。您可通过指定 service，将此类请求在报表中归类到同一个服务下。
 
 
 [](id:timeout)

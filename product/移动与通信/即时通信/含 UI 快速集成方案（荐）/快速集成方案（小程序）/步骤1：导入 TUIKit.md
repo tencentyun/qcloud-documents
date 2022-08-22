@@ -35,7 +35,7 @@ TUIKit 支持以原生 js 的方式集成。可从 Github 下载 TUIKit 源码�
 ### 步骤3： 集成静态资源文件
 
 在自己的项目中集成静态资源文件（工具、图片等）。
-  <img src="https://qcloudimg.tencent-cloud.cn/raw/35be6307ecd28c97c11d1a3a7f2c0d26.png"   width = "200">
+  <img src="https://qcloudimg.tencent-cloud.cn/raw/1ee51e83e6ec22ce001aa69eeff4a3f9.png"   width = "200">
 
 
 ### 步骤4： 集成所需模块
@@ -47,7 +47,7 @@ TUIKit 支持以原生 js 的方式集成。可从 Github 下载 TUIKit 源码�
 ::: 集成整个分包
 1. 客户自己设置主包的内容并放置在 page 文件夹内，建议主包尽可能的只放首页，减少首屏渲染时间以及主包的体积大小。
 2. 将分包引入，并和主包置于同一层级。分包内部独立并包含整个模块的逻辑。
-  <img src="https://qcloudimg.tencent-cloud.cn/raw/bbefd3eaa58838c9dcb05d29060ba229.png"   width = "200">
+  <img src="https://qcloudimg.tencent-cloud.cn/raw/eaf09b4c20b0f4c7c1467e6735e6fd77.png"   width = "200">
 
  - 在 app.json 中配置分包路径。主包路径为原来的 page 路径不变。
   <dx-codeblock>
@@ -94,7 +94,7 @@ TUIKit 支持以原生 js 的方式集成。可从 Github 下载 TUIKit 源码�
 
   - 引入自己所需的模块
 
-  <img src="https://qcloudimg.tencent-cloud.cn/raw/97c8a36611d8bb230099f4d94f6f999e.png"   width = "200">
+  <img src="https://qcloudimg.tencent-cloud.cn/raw/83faf016c52f172ec418d5799428d42c.png"   width = "200">
 
  - 在 app.json 中配置分包路径。主包路径为原来的 page 路径不变。
     <dx-codeblock>

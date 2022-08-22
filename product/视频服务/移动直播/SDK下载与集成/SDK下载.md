@@ -231,7 +231,7 @@
     <td style="text-align:center">点播播放</td>
     <td style="text-align:center">点播播放</td>
     <td style="text-align:left">用于实现视频点播回放功能。</td>
-    <td style="text-align:center">&#10003;（不支持 FLV 格式）</td>
+    <td style="text-align:center">&#10003;</td>
     <td style="text-align:center">×</td>
     <td style="text-align:center">&#10003;</td>
   </tr>

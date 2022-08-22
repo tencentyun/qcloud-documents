@@ -47,7 +47,7 @@
 
 ## 修改实例
 
-修改实例，修改实例的名称和描述，修改实例的 POSIX 客户端，详见 [管理 GooseFSx 客户端](https://cloud.tencent.com/document/product/1424/77956)；修改实例的关联存储桶和数据流动任务，详见 [数据流动和关联存储桶](https://cloud.tencent.com/document/product/1424/77959) 和 [数据流动任务](https://cloud.tencent.com/document/product/1424/77958)；修改实例的标签，详见 [GooseFSx 标签](https://cloud.tencent.com/document/product/1424/77957)。
+修改实例，修改实例的名称和描述，修改实例的客户端，详见 [管理 GooseFSx 客户端](https://cloud.tencent.com/document/product/1424/77956)；修改实例的关联存储桶和数据流动任务，详见 [数据流动和关联存储桶](https://cloud.tencent.com/document/product/1424/77959) 和 [数据流动任务](https://cloud.tencent.com/document/product/1424/77958)；修改实例的标签，详见 [GooseFSx 标签](https://cloud.tencent.com/document/product/1424/77957)。
 
 ### 前提条件
 
