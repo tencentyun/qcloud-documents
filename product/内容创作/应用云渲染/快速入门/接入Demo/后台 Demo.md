@@ -1,0 +1,1 @@
+应用云渲染提供了 [后台 Demo](https://github.com/tencentyun/car-server-demo) 供参考，可支持包括启动应用、退出应用、用户排队等功能，更多具体接入功能请参见 [基本功能](https://cloud.tencent.com/document/product/1547/78126 ) 和 [进阶功能](https://cloud.tencent.com/document/product/1547/78127)。
