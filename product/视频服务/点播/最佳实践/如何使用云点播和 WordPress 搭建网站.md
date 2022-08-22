@@ -77,19 +77,8 @@ WordPress 是一款著名的开源博客框架和内容管理系统，使用它�
 
 ### 步骤1：安装插件
 
-<dx-tabs>
-::: 方式一
-在线安装（推荐）。在搜索框中搜索 **tencentcloud-vod**，单击 **立即安装 > 启用**。
-
-![在线安装](https://qcloudimg.tencent-cloud.cn/raw/92454ee6fd0b72c96c5ff411a035da0e.png)
-:::
-::: 方式二
-自行下载并安装。您可单击 [下载链接](https://github.com/Tencent-Cloud-Plugins/tencentcloud-wordpress-plugin-vod/releases/latest/download/tencentcloud-wordpress-plugin-vod.zip) 获取最新版插件的压缩包，单击 **上传插件 > 选择文件 > 立即安装 > 启用插件。**
-
+您可单击 [下载链接](https://github.com/Tencent-Cloud-Plugins/tencentcloud-wordpress-plugin-vod/releases/latest/download/tencentcloud-wordpress-plugin-vod.zip) 获取最新版插件的压缩包，然后在 WordPress 管理台的左侧边栏单击 **安装插件 > 上传插件 > 选择文件 > 立即安装 > 启用插件。**
 ![手动安装](https://qcloudimg.tencent-cloud.cn/raw/4577370365903872db3a97dfd02a032b.png)
-:::
-</dx-tabs>
-
 
 ### 步骤2：配置插件
 
