@@ -10,15 +10,15 @@ API 流量分析模块支持自动发现并梳理已接入 Web 应用防火墙�
 1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/tea-overview)，支持通过如下两种方式开启 API 流量分析功能。
 >!公测试用期间内 API 管控-流量分析仅支持开启3个域名。
 >
-  - 在域名列表页面，支持查看当前有哪些域名开启了 API 分析功能，并且可以在对应的 WAF 开关列中，单击![](https://qcloudimg.tencent-cloud.cn/raw/bd4ed4cc49def692d37b93f06a3a9bf6.png)开启对应域名的 API 流量分析开关。
+  - 在[ 域名列表页面](https://console.cloud.tencent.com/guanjia/tea-domain)，支持查看当前有哪些域名开启了 API 分析功能，并且可以在对应的 WAF 开关列中单击![](https://qcloudimg.tencent-cloud.cn/raw/bd4ed4cc49def692d37b93f06a3a9bf6.png)，经二次确认后，即可开启 API 分析开关。
 ![](https://qcloudimg.tencent-cloud.cn/raw/f69470dee19af38f7b385756247345d0.png)
- - 在 API 资产列表页面，选择所需域名，单击 API 防护概览中的开关![](https://qcloudimg.tencent-cloud.cn/raw/fc00324752a7231a4524eefaff6a6116.png)后，API 防护概况会变为 API 资产识别中。
+ - 在 [API 资产列表页面](https://console.cloud.tencent.com/guanjia/tea-apianalysis)，选择所需域名，单击 API 防护概览中的开关![](https://qcloudimg.tencent-cloud.cn/raw/fc00324752a7231a4524eefaff6a6116.png)后，API 防护概况会变为 API 资产识别中。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d97d40364e7992e717acda2ff771afea.png)
 2. 开启对应域名的 API 流量分析开关后，即可对当前域名进行 API 流量的分析。
 
 
 ## 查看 API 资产列表数据
-自开启所选域名的 API 流量分析功能后，API 安全会发现并捕获相关的流量数据，自动对当前业务项进行相关的分析及梳理，并展示在 API 资产列表页面。
+自开启所选域名的 API 流量分析功能后，API 安全会发现并捕获相关的流量数据，自动对当前业务项进行相关的分析及梳理，并展示在 [API 资产列表页面](https://console.cloud.tencent.com/guanjia/tea-apianalysis)。
 - 在 API 概览模块中，展示当前域名下的全部的 API 数量、过去7天内活跃/不活跃的 API 数量以及涉敏的 API 数量。并可以直观的了解到对比上一个7日中的环比数量的增减，清晰的了解到当前线上的 API 的现状。
 ![](https://qcloudimg.tencent-cloud.cn/raw/430cf07ace3aaac382e2ce1e701f71e2.png)
 字段说明
@@ -33,22 +33,22 @@ API 流量分析模块支持自动发现并梳理已接入 Web 应用防火墙�
  - 覆盖场景：指当前 API 管控中，识别出来当前 API 所覆盖的场景类型的数量，该场景数量会随着识别出来的 API 场景增多而增加。
  - 防护建议：指在当前的 API 管控中,识别出来对应场景的防护建议。
  - 分析开关：指当前域名的 API 管控流量分析开关。
-- API 列表中，展示了 API、请求方式，对应域名、覆盖功能场景、是否包含敏感字段、是否活跃，是否存在相关防护建议、以及 API 发现时间、API 参数最近变更时间等。并支持通过单击对应 API 的**查看详情**， 获悉该 API 的相关 API 详情。
+- 在 API 列表中，展示了 API、请求方式，对应域名、覆盖功能场景、是否包含敏感字段、是否活跃，是否存在相关防护建议、以及 API 发现时间、API 参数最近变更时间等。并支持通过单击对应 API 的**查看详情**， 获悉该 API 的相关 API 详情。
 ![](https://qcloudimg.tencent-cloud.cn/raw/15101870488815a48286aa0a1e43cc74.png)
  字段说明
- - API：指经过 API 管控分析后，识别出来的经过数据归一化折叠后的 API 信息，展示当前 API 的经过数据归一化后的 API 的样式，避免由于用户等 id 信息导致 API 散列度过大导致当前 api 观测不准确的问题。
+ - API：指经过 API 管控分析后，识别出来的经过数据归一化折叠后的 API 信息，展示当前 API 的经过数据归一化后的 API 的样式，避免由于用户等 id 信息导致 API 散列度过大导致当前 API 观测不准确的问题。
  - 请求方法：当前 API 的HTTP 请求方法。
  - 所属域名：当前 API 的所属于域名。
- - 功能场景：当前 API 由 API 管控识别出来的相关业务的功能场景、如验证码、回调等，如果识别出的数据不准确， 可以在 API 详情中进行相关修正。
- - 涉敏字段：当前 API 中由 API 管控识别出来的传输参数上存在敏感字段的字段内容，包括但不限于银行卡号、身份证号等数据字段，如果识别出来的数据类型不准确，可以在 API 详情中进行相关修正。
+ - 功能场景：当前 API 由 API 管控识别出来的相关业务的功能场景、如验证码、回调等，如果识别出的数据不准确， 可以在 [API 详情](#xq)v 中进行相关修正。
+ - 涉敏字段：当前 API 中由 API 管控识别出来的传输参数上存在敏感字段的字段内容，包括但不限于银行卡号、身份证号等数据字段，如果识别出来的数据类型不准确，可以在 [API 详情](#xq) 中进行相关修正。
  - 过去7天是否活跃：当前 API 在过去7天内是否由活跃流量。
- - ’最近更新时间：API 管控中最新的更新时间，用于检测当前 API 的相关数据字段是否发生新增等情况。
+ - 最近更新时间：API 管控中最新的更新时间，用于检测当前 API 的相关数据字段是否发生新增等情况。
  - 发现时间：API 管控中，该 API 首次发现分析出来的时间。
  - 查看详情：进入对应 API 的详情页面。
 
 
-## API 详情
-API 详情是经过 API 管控分析之后的单一 API 的相关详情，该详情中包括以下5个部分内容：
+## API 详情[](id:xq)
+在 API 列表中，单击目标 API 操作列的**查看详情**，可以进入 API 详情页面，该页面展示了经过 API 管控分析之后的单一 API 的相关详情，包括如下5个部分内容：
 - API 概要：展示该 API 中所属域名、请求方法、 相关哦功能标签、是否存在敏感字段、是否活跃以及进行数据归一化后的 API 内容。
 ![](https://qcloudimg.tencent-cloud.cn/raw/43a156f21e4155a152d136fb0ea0c302.png)
 - API 概览：展示最近7天内，对应 API 的总请求量及请求趋势，访问的来源分布、访问最多的 URL 及 UA 类型。
