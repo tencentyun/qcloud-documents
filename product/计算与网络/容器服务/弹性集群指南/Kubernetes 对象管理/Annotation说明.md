@@ -437,3 +437,11 @@ eks.tke.cloud.tencent.com/ipvs-min-sync-period: '2s' # 规则刷新的最小间�
 ```yaml
 service.cloud.tencent.com/discard-loadbalancer-ip: 'true' # 该 annotation 配置在 service 上，无需重建 Pod 即可即时生效
 ```
+
+
+## 自定义 Pod 时区
+
+超级节点上的 Pod 默认为 UTC 时间，若需要调整 Pod 时区为东8区，可添加如下 Annotation：
+```yaml
+eks.tke.cloud.tencent.com/host-timezone: 'Asia/shanghai' # 该 annotation 用于设置 Pod 时区为东8区
+```
