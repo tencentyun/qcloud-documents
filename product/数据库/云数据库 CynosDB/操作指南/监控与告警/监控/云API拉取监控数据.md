@@ -17,7 +17,7 @@
 | Namespace | 是 | String | 命名空间，如 QCE/cynosdb_mysql。详细命名空间说明请参阅 [监控指标](https://cloud.tencent.com/document/product/248/45106) |
 | MetricName | 是 | String | 指标名称，如 CPUUsagerate（CPU 利用率），仅支持单指标拉取 |
 | Instances.N | 是 | Array of Instance | 实例对象的维度组合，格式为 key-value 键值对形式的集合。不同类型的实例字段完全不同，TDSQL-C MySQL 版的维度组合请参见 [监控指标](https://cloud.tencent.com/document/product/248/45106) |
-| Period | 否	 | Integer | 监控统计周期，如60。默认为取值为300，单位为s。 |
+| Period | 否	 | Integer | 监控统计周期，如60。默认为取值为300，单位为s |
 | StartTime | 否	 | Timestamp ISO8601 | 起始时间，如2021-07-15T19:51:23+08:00 |
 | EndTime | 否 | Timestamp ISO8601 | 结束时间，如2021-07-15T20:51:23+08:00，默认为当前时间。 EndTime 不能小于 StartTime |
 
