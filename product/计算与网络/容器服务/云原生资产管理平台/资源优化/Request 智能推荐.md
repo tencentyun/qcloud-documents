@@ -93,7 +93,10 @@ Kubernetes 版本：1.10+
 >? Workload Map 主要通过可视化的页面展示工作负载的各项状态和指标，帮助用户了解当前工作负载的配置量和实际使用情况，辅助用户分析工作负载可能存在的问题。更多可参考文档 [Workload Map](https://cloud.tencent.com/document/product/457/78330)。
 >
 3. 在 Workload Map 页面，鼠标悬浮到页面下方某一个 Workload 上，单击**推荐**。
-3. 在弹窗中，单击**确认**，即可使用推荐的 Request 数值更新原始 Workload 里面的数值。
+   ![](https://qcloudimg.tencent-cloud.cn/raw/8688a39b8484f45d501e71ea9ee8ec2b.png)
+4. 在弹窗中，单击**确认**，即可使用推荐的 Request 数值更新原始 Workload 里面的数值。
+>? 容器服务控制台中**一键更新 Workload Request** 功能会将工作负载迁移至 [原生节点](https://cloud.tencent.com/document/product/457/78197)，若您的集群原生节点上资源不足，会导致 Pod 发生 Pending。
+
 
 
 
