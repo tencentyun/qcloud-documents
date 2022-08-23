@@ -11,15 +11,13 @@
 - 相似图像搜索：针对图像元素或主体的搜索。针对输入检索的图片中包含的图案、花纹、logo等图像元素，在用户自建图片库中搜索与之相似的元素图片，并给出相似度打分。
 
 ## 图像搜索相关接口
-| 接口名称                                                     | 接口功能                          |
-| :----------------------------------------------------------- | :-------------------------------- |
-| [CreateGroup](https://cloud.tencent.com/document/api/865/63488) | 创建图片库 |
-| [CreateImage](https://cloud.tencent.com/document/api/865/63487) | 创建图片                  |
-| [DeleteImages](https://cloud.tencent.com/document/api/865/63486) | 删除图片                   |
-| [DescribeGroups](https://cloud.tencent.com/document/api/865/63485) | 查询图片库     |
-| [DescribeImages](https://cloud.tencent.com/document/api/865/63484) | 查询图片信息              |
-| [SearchImage](https://cloud.tencent.com/document/api/865/63483) | 检索图片                 |
 
+- [创建图片库(CreateGroup)](https://cloud.tencent.com/document/api/865/63488)
+- [创建图片(CreateImage) ](https://cloud.tencent.com/document/api/865/63487)
+- [删除图片(DeleteImages)](https://cloud.tencent.com/document/api/865/63486)
+- [查询图片库(DescribeGroups)](https://cloud.tencent.com/document/api/865/63485)
+- [查询图片信息(DescribeImages)](https://cloud.tencent.com/document/api/865/63484)
+- [检索图片(SearchImage)](https://cloud.tencent.com/document/api/865/63483)
 
 
 ## 调用方式
