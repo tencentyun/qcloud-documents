@@ -6,7 +6,7 @@
 - 下载并安装 [.vsix](https://download.qt.io/official_releases/vsaddin/2.7.2/) 插件⽂件，根据官⽹文件命名找对应插件版本安装即可。
 - 打开 VS 并在⼯具栏找到 `QT VS Tools -> Qt Options -> Qt Versions`，add 添加我们⾃⼰的 Qt 编译器 msvc。
 - 需要将 `SDK/CPlusPlus/Win64/lib` 下的所有的 `.dll` ⽂件拷⻉到⼯程⽬录下的 `debug` / `release` ⽂件夹下。
->! `debug/release` ⽂件夹均是在 VS 上的环境配置完后⾃动⽣成。如果是32位程序，则需要拷贝 `SDK/CPlusPlus/Win64/lib` 下的所有 `.dll`到 `debug` / `release` ⽂件夹下。
+>! `debug/release` ⽂件夹均是在 VS 上的环境配置完后⾃动⽣成。如果是32位程序，则需要拷贝 `SDK/CPlusPlus/Win32/lib` 下的所有 `.dll`到 `debug` / `release` ⽂件夹下。
 
 
 ## 前提条件
