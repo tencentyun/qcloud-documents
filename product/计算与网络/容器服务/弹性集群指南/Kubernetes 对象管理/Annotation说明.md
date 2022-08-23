@@ -164,7 +164,7 @@ eks.tke.cloud.tencent.com/registry-http-endpoint: 'harbor.example.com' # 也可�
 
 ### 镜像复用
 
-超级节点上默认会复用系统盘以加快启动速度，复用的是同一工作负载下相同可用区 Pod 且在缓存时间内（销毁后 6 小时内）的系统盘。如需复用不同工作负载的 Pod 的镜像，可以在不同工作负载的 Pod 上打上相同的 `cbs-reuse-key` 的注解：
+超级节点上默认会复用系统盘以加快启动速度，复用的是同一工作负载下相同可用区 Pod 且在缓存时间内（销毁后2小时内）的系统盘。如需复用不同工作负载的 Pod 的镜像，可以在不同工作负载的 Pod 上打上相同的 `cbs-reuse-key` 的注解：
 
 ```yaml
 eks.tke.cloud.tencent.com/cbs-reuse-key: 'image-name'
