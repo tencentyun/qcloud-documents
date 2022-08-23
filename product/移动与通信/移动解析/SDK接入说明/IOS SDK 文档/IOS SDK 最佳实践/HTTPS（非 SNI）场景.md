@@ -5,7 +5,7 @@
 
 ## Demo 示例
 
- - **以 NSURLConnection 接口为例：**
+### NSURLConnection 接口示例
 ```
 #pragma mark - NSURLConnectionDelegate
 - (BOOL)evaluateServerTrust:(SecTrustRef)serverTrust forDomain:(NSString *)domain {
@@ -60,7 +60,9 @@
 	}
 }
 ```
- - **以 NSURLSession 接口为例：**
+
+
+### NSURLSession 接口示例
 ```
  #pragma mark - NSURLSessionDelegate
 - (BOOL)evaluateServerTrust:(SecTrustRef)serverTrust forDomain:(NSString *)domain {
@@ -114,12 +116,13 @@
 	completionHandler(disposition,credential);
 }
 ```
- - **以 Unity 的 WWW 接口为例：**
+
+### Unity 的 WWW 接口示例
 将 Unity 工程导为 Xcode 工程后，打开 Classes/Unity/**WWWConnection.mm** 文件，修改下述代码：
  ```
 //const char* WWWDelegateClassName = "UnityWWWConnectionSelfSignedCertDelegate";
 const char* WWWDelegateClassName = "UnityWWWConnectionDelegate";
- ```
+```
 调整为：
 ```
 const char* WWWDelegateClassName = "UnityWWWConnectionSelfSignedCertDelegate";

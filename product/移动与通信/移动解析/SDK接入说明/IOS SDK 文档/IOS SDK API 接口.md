@@ -44,8 +44,8 @@ typedef struct DnsConfigStruct {
 } DnsConfig;
 ```
 
-### 接口声明
 
+### 接口声明
 ```objc
 /**
  设置业务基本信息（腾讯云业务使用）
@@ -76,7 +76,16 @@ typedef struct DnsConfigStruct {
  * @param domains  域名数组
  */
 - (void) WGSetKeepAliveDomains:(NSArray *)domains;
+
+
+/**
+ * 启用IP优选，设置域名对应的端口号，对域名解析返回的IP列表进行IP探测，对返回的列表进行动态排序，以保证第一个IP是可用性最好的IP
+ */
+- (void) WGSetIPRankData:(NSDictionary *)IPRankData;
+
 ```
+
+
 ### 示例代码
 
 接口调用示例：
@@ -104,6 +113,7 @@ msdkDns?.initConfig(with: [
 ]);
 ```
 
+
 ## 域名解析接口
 
 **获取 IP 共有以下四个接口，**引入头文件，调用相应接口即可。
@@ -130,14 +140,23 @@ msdkDns?.initConfig(with: [
 - **批量查询（返回所有 IP）**：批量查询接口返回 NSDictionary，key 为查询的域名，value 为 NSDictionary，包含两个 key（ipv4、ipv6），对应的 value 为 NSArray 对象，表示所有的ipv4/ipv6 解析结果 IP。以下为返回格式的详细说明：
  返回格式为：{"queryDomain" : { "ipv4": [], "ipv6": []}}。
 
->!
->- 使用 IPv6 地址进行 URL 请求时，需添加方框号[ ]进行处理，例如：`http://[64:ff9b::b6fe:7475]/`。
->- 如 IPv6 地址为0，则直接使用 IPv4 地址连接。
->- 如 IPv4 地址为0，则直接使用 IPv6 地址连接。
->- 如 IPv4 和 IPv6 地址都不为0，则由客户端决定优先使用哪个地址进行连接，但优先地址连接失败时应切换为另一个地址。 
->- 使用 SDK 方式接入 HTTPDNS，若 HTTPDNS 未查询到解析结果，则通过 LocalDNS 进行域名解析，返回 LocalDNS 的解析结果。
 
-### 同步解析接口：WGGetHostByName、WGGetHostsByNames
+
+<dx-alert infotype="notice" title="">
+- 使用 IPv6 地址进行 URL 请求时，需添加方框号[ ]进行处理，例如：`http://[64:ff9b::b6fe:7475]/`。
+- 如 IPv6 地址为0，则直接使用 IPv4 地址连接。
+- 如 IPv4 地址为0，则直接使用 IPv6 地址连接。
+- 如 IPv4 和 IPv6 地址都不为0，则由客户端决定优先使用哪个地址进行连接，但优先地址连接失败时应切换为另一个地址。 
+- 使用 SDK 方式接入 HTTPDNS，若 HTTPDNS 未查询到解析结果，则通过 LocalDNS 进行域名解析，返回 LocalDNS 的解析结果。
+</dx-alert>
+
+
+
+
+### 同步解析接口 
+
+#### 接口名称
+WGGetHostByName、WGGetHostsByNames
 
 #### 接口声明
 
@@ -156,6 +175,7 @@ msdkDns?.initConfig(with: [
  */
 - (NSDictionary *) WGGetHostsByNames:(NSArray *) domains;
 ```
+
 #### 示例代码
 
 接口调用示例：
@@ -190,7 +210,11 @@ if (ips && ips.count > 1) {
 	}
 }
 ```
-### 异步解析接口：WGGetHostByNameAsync、WGGetHostsByNamesAsync
+
+### 异步解析接口
+
+#### 接口名称
+WGGetHostByNameAsync、WGGetHostsByNamesAsync
 
 #### 接口声明
 
@@ -210,16 +234,20 @@ if (ips && ips.count > 1) {
  */
 - (void) WGGetHostsByNamesAsync:(NSArray *) domains returnIps:(void (^)(NSDictionary * ipsDictionary))handler;
 ```
-#### 示例代码
->!业务可根据自身需求，任选一种调用方式。
- - 示例1：
-     - 优点：可保证每次请求都能拿到返回结果进行接下来的连接操作。
-     - 缺点：异步接口的处理较同步接口稍显复杂。
- - 示例2：
-     - 优点：对于解析时间有严格要求的业务，使用本示例，可无需等待，直接拿到缓存结果进行后续的连接操作，完全避免了同步接口中解析耗时可能会超过 100ms 的情况。
-     - 缺点：第一次请求时，result 一定会 nil，需业务增加处理逻辑。
 
-- 接口调用示例1：等待完整解析过程结束后，拿到结果，进行连接操作。
+#### 示例代码
+
+<dx-alert infotype="notice" title="">
+业务可根据自身需求，任选一种调用方式。
+</dx-alert>
+
+<dx-tabs>
+::: 示例1
+等待完整解析过程结束后，拿到结果，进行连接操作。
+ - 优点：可保证每次请求都能拿到返回结果进行接下来的连接操作。
+ - 缺点：异步接口的处理较同步接口稍显复杂。
+
+
 ```objc
 // 单个域名查询
 [[MSDKDns sharedInstance] WGGetHostByNameAsync:@"qq.com" returnIps:^(NSArray *ipsArray) {
@@ -256,7 +284,12 @@ if (ips && ips.count > 1) {
 }];
 ```
 
--  接口调用示例2：无需等待，可直接拿到缓存结果，如无缓存，则 result 为 nil。
+:::
+::: 示例2
+无需等待，可直接拿到缓存结果，如无缓存，则 result 为 nil。
+   - 优点：对于解析时间有严格要求的业务，使用本示例，可无需等待，直接拿到缓存结果进行后续的连接操作，完全避免了同步接口中解析耗时可能会超过 100ms 的情况。
+   - 缺点：第一次请求时，result 一定会 nil，需业务增加处理逻辑。
+
 ```
 __block NSArray* result;
 [[MSDKDns sharedInstance] WGGetHostByNameAsync:domain returnIps:^(NSArray *ipsArray) {
@@ -269,4 +302,5 @@ if (result) {
 	//本次请求无缓存，业务可走原始逻辑
 }
 ```
-
+:::
+</dx-tabs>

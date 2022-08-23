@@ -12,7 +12,7 @@
 ## 1. 申请商户 ID
 1.1 登录腾讯云慧眼 [人脸核身控制台](https://console.cloud.tencent.com/faceid)，单击**自助接入**>**E证通服务**>**申请商户 ID**
 ![](https://main.qcloudimg.com/raw/ee9d314f001f83023b36145271fce756.png)
-1.2 填写完相关申请信息，单击**提交**，审核时间需要3-5天，请您耐心等待。
+1.2 填写完相关申请信息，单击**提交**，审核时间需要1-3个工作日，请您耐心等待。
 ![](https://main.qcloudimg.com/raw/14565c77b200b1be75664b33fc6a84b9.png)
 1.3 审核通过后，可以在自助接入列表页，查看商户 ID，后续需要使用商户 ID 获取E证通服务流程唯一标识 EidToken。 
 

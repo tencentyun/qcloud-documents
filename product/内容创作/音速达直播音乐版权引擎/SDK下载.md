@@ -3,7 +3,7 @@
 </thead>
 <tbody><tr>
 <td>iOS</td>
-<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TXCopyrightedMedia/Release/3.0.0/TXCopyrightedMedia_iOS_YSD_3.0.0.220718.zip">ZIP</a></td>
+<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TXCopyrightedMedia/Release/3.0.0/TXCopyrightedMedia_iOS_YSD_3.0.0.220725.zip">ZIP</a></td>
 <td style="text-align:left" rowspan=2>
 	<li/>上线音速达曲库源和音速达打分
 	<li/>提升了版本稳定性

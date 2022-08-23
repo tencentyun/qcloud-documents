@@ -3,9 +3,7 @@
 ### data
 **data**: `Record`<`string`, `string`\>
 记录数据
-```plaintext
-Defined in typings/dataset.d.ts:9
-```
+
 
 ## Methods（方法）
 [](id:delete)
@@ -15,7 +13,4 @@ Defined in typings/dataset.d.ts:9
 #### Returns
 `void`
 删除数据
-```plaintext
-Defined in typings/dataset.d.ts:14
-```
 

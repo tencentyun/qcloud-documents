@@ -56,7 +56,7 @@ CREATE TABLE `mysql_cdc_source_table` (
 | password                                 | MySQL 数据库服务的密码                          | 是       | -                                            |
 | database-name                 | MySQL 数据库名称     | 是       | 数据库名称支持正则表达式以读取多个数据库的数据               |
 | table-name                               | MySQL 表名                  | 是       | 表名支持正则表达式以读取多个表的数据                         |
-| server-id  | 数据库客户端的一个 ID  | 否       | 该 ID 必须是 MySQL 集群中全局唯一的。建议针对同一个数据库的每个作业都设置不同的 ID 范围值，例如`5400-5405`。默认会随机生成一个5400 - 6400的值 |
+| server-id  | 数据库客户端的一个 ID  | 否       | 该 ID 必须是 MySQL 集群中全局唯一的。建议针对同一个数据库的每个作业都设置不同的 ID 范围值，例如`5400-5405`。默认会随机生成一个6400 - Integer.MAX_VALUE 的值 |
 | server-time-zone                         | 数据库在使用的会话时区                                       | 否       | 例如 Asia/Shanghai，该参数控制了 MySQL 中的 TIMESTAMP 类型如何转成 STRING 类型 |
 | append-mode                              | 开启 append 流模式                                             | 否       | Flink1.13及以上版本支持, 例如：将 mysql-cdc 数据以 append 的方式同步到 hive                |
 | debezium.min.row.count.to.stream.results | 当表的条数大于该值时，会使用分批读取模式                     | 否       | 默认值为1000。Flink 采用以下方式读取 MySQL 源表数据：<li/>全量读取：直接将整个表的数据读取到内存里。优点是速度快，缺点是会消耗对应大小的内存，如果源表数据量非常大，可能会有 OOM 风险<li/>分批读取：分多次读取，每次读取一定数量的行数，直到读取完所有数据。优点是读取数据量比较大的表没有 OOM 风险，缺点是读取速度相对较慢 |

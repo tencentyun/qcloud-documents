@@ -1,7 +1,3 @@
-## 目录
-
-### Variables（变量）
-- [default](#default)
 
 ## Variables（变量）
 
@@ -10,21 +6,12 @@
 
 default: { delete: *any*; get: *any*; set: *any* }
 
-```
-Defined in typings/jsonpath.d.ts:5
-```
-
 
 #### Type declaration
 
 - ##### delete:function
 
 - delete(json: *string*, path: *string*): *string*
-
-```
-Defined in typings/jsonpath.d.ts:120
-```
-
 从 json 字符串中删除值。
 
  ```js
@@ -44,30 +31,20 @@ Defined in typings/jsonpath.d.ts:120
    // {"friends":["Andy"]}
     };
     ```
-
-#### Parameters
-
-    
+**Parameters**  
  - ##### json: *string*
-
       json 字符串
 
  - ##### path: *string*
+  取值路径
 
-      取值路径
+ Returns *string*
 
-#### Returns *string*
+  Json 字符串
 
- Json 字符串
-
-- ##### get:function
+- #### get:function
 
   - get(json: *string*, path: *string*): *string* | *number* | *boolean* | *object*
-
-
-```
- Defined in typings/jsonpath.d.ts:49
-```
 
  从 Json 字符串中取值。
     ```js
@@ -105,29 +82,21 @@ Defined in typings/jsonpath.d.ts:120
         console.log(jsonpath.get(json, 'friends.#(nets.#(=="fb"))#.first')); // Dale,Roger
     };
     ```
+**Parameters**
 
-#### Parameters
+   - ##### json: *string*
+   json 字符串
 
-  - ##### json: *string*
+   - ##### path: *string*
+   取值路径
+    
+	Returns *string* | *number* | *boolean* | *object*
 
-      json 字符串
-
-  - ##### path: *string*
-
-      取值路径
-
-#### Returns *string* | *number* | *boolean* | *object*
-
- 取值数据
+    取值数据
 
 - ##### set:function
 
-- set(json: *string*, path: *string*, value: *string* | *number* | *boolean* | *object*): *string*
-
-```
-Defined in typings/jsonpath.d.ts:93
-```
-
+ - set(json: *string*, path: *string*, value: *string* | *number* | *boolean* | *object*): *string*
 修改 Json 字符串。
 
    ```
@@ -163,22 +132,17 @@ Defined in typings/jsonpath.d.ts:93
         // {"friends":["Andy","Carol",null,null,"Sara"]}
     };
     ```
+**Parameters**
+   - ##### json: *string*
+ Json 字符串
 
-#### Parameters
-
-- ##### json: *string*
-
-  Json 字符串
-
- - ##### path: *string*
+   - ##### path: *string*
 
       修改路径
 
- - ##### value: *string* | *number* | *boolean* | *object*
+   - ##### value: *string* | *number* | *boolean* | *object*
 
       修改值
 
-#### Returns *string*
-
-  Json 字符串
-
+      Returns *string*
+     Json 字符串

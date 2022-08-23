@@ -5,28 +5,18 @@
 - [Socket](https://cloud.tencent.com/document/product/1484/75829)
 
 ### Variables（变量）
-- [default](#default)
 
 ### Const default
 
 default: { connect: *any* }
 
-Defined in typings/ws.d.ts:72
 
 #### Type declaration
 
 - ##### connect:function
-
   - connect(url: *string*, callback: ((socket: [Socket](https://cloud.tencent.com/document/product/1484/75829)) => *void*), headers?: *Record*<*string*, *string*>): [Response](https://cloud.tencent.com/document/product/1484/75828)
-
-
-```
- Defined in typings/ws.d.ts:110
-```
-
 发起 websocket connect 请求。
-
-   ```js
+```js
     import ws from 'pts/ws';
     import { check, sleep } from 'pts';
     
@@ -53,29 +43,26 @@ Defined in typings/ws.d.ts:72
         });
         check('status is 101', () => res.status === 101);
     };
-  ```
+```
+   #### Parameters
 
-#### Parameters
-
-- ##### url: *string*
+    - ##### url: *string*
 
    请求地址
 
- - ##### callback: ((socket: [Socket](https://cloud.tencent.com/document/product/1484/75829)) => *void*)
+   - ##### callback: ((socket: [Socket](https://cloud.tencent.com/document/product/1484/75829)) => *void*)
 
    回调函数
 
       - (socket: [Socket](https://cloud.tencent.com/document/product/1484/75829)): *void*
 
- - #### Parameters
+   - #### Parameters
 
-   - ##### socket: [Socket](https://cloud.tencent.com/document/product/1484/75829)
+     - ##### socket: [Socket](https://cloud.tencent.com/document/product/1484/75829)
 
-    #### Returns *void*
+      Returns *void*
 
-- ##### Optional headers: *Record*<*string*, *string*>
+ - ##### Optional headers: *Record*<*string*, *string*>
 
-     可选。请求头参数
-#### Returns [Response](https://cloud.tencent.com/document/product/1484/75828)
-
+  Returns [Response](https://cloud.tencent.com/document/product/1484/75828)
     响应对象
