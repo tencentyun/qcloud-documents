@@ -36,7 +36,7 @@ Nginx 作为关键的流量接入网关，不建议您将 Nginx 与其他业务�
 3. 在新建的 Nginx Ingress 组件详情页，单击**新增Nginx Ingress实例**（一个集群内可以同时存在多个 Nginx）。
 ![](https://main.qcloudimg.com/raw/75edc57adda78df364f9430a844eb1b5.png)
 4. 在弹出的窗口中，选择部署选项中的**指定DaemonSet节点池部署**，并按需设置其他参数。如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/5d5362f182e555a9657b3b29910d543d.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/629cad10b9c34036f1a2416eff2c520a.png)
  - 节点池：配置节点池。
  - Nginx 配置：Requst 需设置比节点池的机型配置小（节点本身有资源预留）。Limit 可不设置。
  - 镜像版本说明：
