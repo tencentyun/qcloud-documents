@@ -443,5 +443,5 @@ service.cloud.tencent.com/discard-loadbalancer-ip: 'true' # 该 annotation 配�
 
 超级节点上的 Pod 默认为 UTC 时间，若需要调整 Pod 时区为东8区，可添加如下 Annotation：
 ```yaml
-eks.tke.cloud.tencent.com/host-timezone: 'Asia/hanghai' # 该 annotation 用于设置 Pod 时区为东8区
+eks.tke.cloud.tencent.com/host-timezone: 'Asia/Shanghai' # 该 annotation 用于设置 Pod 时区为东8区
 ```
