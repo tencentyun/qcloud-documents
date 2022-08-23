@@ -74,7 +74,7 @@
 <div style="position: relative; box-sizing: border-box;  padding-bottom: 10px; margin-bottom: 10px; overflow:hidden">
         <div class="card-container">
             <div class="card">
-                            <img src="https://main.qcloudimg.com/raw/b0211b0870806899009a17a4216ea65c.svg" data-nonescope="true">
+                            <img src="https://main.qcloudimg.com/raw/613f2e15bed7c8297110676b52784b71.svg" data-nonescope="true">
                                 <p class="titlename">iOS 播放器 SDK</p>
                 <p style="color:#586376;">包含点播播放和直播播放功能，提供常见组件及场景化的 Demo 源码帮助快速搭建应用。</p>
                                 <a href="https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_Player_iOS_latest.zip">ZIP 下载</a>
@@ -84,7 +84,7 @@
         </div>
 			  <div class="card-container">
             <div class="card">
-                                <img class="icon" src="https://main.qcloudimg.com/raw/613f2e15bed7c8297110676b52784b71.svg" data-nonescope="true">
+                                <img class="icon" src="https://main.qcloudimg.com/raw/b0211b0870806899009a17a4216ea65c.svg" data-nonescope="true">
                                 <p class="titlename">Android 播放器 SDK</p>
                 <p style="color:#586376;">包含点播播放和直播播放功能，提供常见组件及场景化的 Demo 源码帮助快速搭建应用。</p>
                                 <a href="https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_Player_Android_latest.zip">ZIP 下载</a>

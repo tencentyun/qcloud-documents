@@ -26,20 +26,19 @@
 >
 >- 消息为 JSON 字符串结构。
 >- 源数据必须为单层 JSON 格式，嵌套 JSON 格式可使用 [数据处理](https://cloud.tencent.com/document/product/1591/77082#3) 进行简单的消息格式转换。 
-   解析完成后，控制台将会出现解析后的消息字段，可以通过修改预览结果中的 type 属性来确定投递到目标对应列的类型。
-   当选择 type 为 `Date` 或 `DateTime` 时，如果源消息格式为整型，将会尝试使用 `unix timestamp` 格式解析；如果源消息格式为字符串，将会尝试用常用的时间格式模式串解析。
-   ![](https://qcloudimg.tencent-cloud.cn/raw/4c238e5b241311845b9f92dacb39ef91.png)
+> 解析完成后，控制台将会出现解析后的消息字段，可以通过修改预览结果中的 type 属性来确定投递到目标对应列的类型。
+>  当选择 type 为 `Date` 或 `DateTime` 时，如果源消息格式为整型，将会尝试使用 `unix timestamp` 格式解析；如果源消息格式为字符串，将会尝试用常用的时间格式模式串解析。
+>  ![](https://qcloudimg.tencent-cloud.cn/raw/4c238e5b241311845b9f92dacb39ef91.png)
 6. （可选）开启数据处理规则，具体配置方法请参见 [简单数据处理](https://cloud.tencent.com/document/product/1591/74495)。
 7. 单击**下一步**，配置数据目标信息。
    ![](https://qcloudimg.tencent-cloud.cn/raw/4f159bc2a6c3a47a2387834d12230103.png)
-   - 源数据：单击拉取源 Topic 数据。源数据必须为单层 JSON 格式，嵌套 JSON 格式可使用 [数据处理](https://cloud.tencent.com/document/product/1591/77082#3) 功能进行转换。
    - 数据目标：选择创建好的 Clickhouse 连接。
    - cluster： ClickHouse 的集群名称（默认为 `default_cluster`）。
    - database：ClickHouse 设置的数据库名称。
    - table：在该数据库内构建的表名称，目前数据流出 ClickHouse 服务不会自动创建表，**需要客户手动创建当前 ClickHouse 目标表**。
-   - 丢弃解析消息：消息解析失败原因一般是消息字段与目标库字段 type 不一致。若不丢弃解析失败消息，则任务异常，转储不再继续。
+   - 源数据：单击拉取源 Topic 数据。源数据必须为单层 JSON 格式，嵌套 JSON 格式可使用 [数据处理](https://cloud.tencent.com/document/product/1591/77082#3) 功能进行转换。
+   - 失败消息处理：选择投递失败的消息的处理方式，支持**丢弃**、**保留**和**投递至 CLS** （需指定投递到的日志集和日志主题并授权访问日志服务 CLS）三种方式。
+     - 保留：适合用于测试环境，任务运行失败时将会终止任务不会重试，并且在事件中心中记录失败原因。
+     - 丢弃：适合用于生产环境，任务运行失败时将会忽略当前失败消息。建议使用 "保留" 模式测试无误后，再将任务编辑成 "丢弃" 模式用于生产。
+     - 投递至 CLS：适合用于严格生产环境，任务运行失败时会将失败消息及元数据和失败原因上传到指定 CLS 主题中。
 8. 单击**提交**，可以在任务列表看到刚刚创建的任务，在状态栏可以查看任务创建进度。
-
-
-
-
