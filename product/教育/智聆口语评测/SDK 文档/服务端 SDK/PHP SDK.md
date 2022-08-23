@@ -14,7 +14,7 @@ SecretId 和 SecretKey 是使用 SDK 的安全凭证，您可以在访问管理�
 2. 设备准备
 准备一台电脑。
 
-## SDK 接入流程
+## SDK DEMO 使用流程
 1. 安装依赖环境
 安装 PHP 5.6.0 版本及以上。
 
@@ -58,7 +58,27 @@ require '/path/to/vendor/autoload.php';
 
 4. 运行项目
 	1. 进入 `examples/soe/v20180903/init_oral_process.php`，填入 SecretId 和 SecretKey。
+```
+// 实例化一个证书对象，入参需要传入腾讯云账户secretId，secretKey
+    $cred = new Credential("", "");
+```
 	2. 填入请求参数，参考 [InitOralProcess](https://cloud.tencent.com/document/product/884/19319)，运行项目，进行评测。
+```
+$client = new SoeClient($cred, "", $clientProfile);
+
+// 实例化一个ecc实例信息查询请求对象,每个接口都会对应一个request对象。
+$req = new InitOralProcessRequest();
+$req->RefText = "since";
+$req->WorkMode = 0;
+$req->EvalMode = 1;
+$req->ScoreCoeff = 3.5;
+$req->SessionId = "stress_test_956938";
+
+$resp = $client->InitOralProcess($req);
+
+// 输出json格式的字符串回包
+print_r($resp->toJsonString());
+```
 	3. 获取评测结果，参考 [数据结构](https://cloud.tencent.com/document/product/884/19320)。
 
 ## SDK 使用方法

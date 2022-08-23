@@ -92,6 +92,7 @@ void call(TUICommonDefine.RoomId roomId, String userId, TUICallDefine.MediaType 
 ```java
 void groupCall(TUICommonDefine.RoomId roomId, String groupId, List<String> userIdList,TUICallDefine.MediaType callMediaType, TUICommonDefine.Callback callback);
 ```
+参数如下表所示：
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
@@ -138,6 +139,7 @@ void hangup(TUICommonDefine.Callback callback);
 ```java
 void inviteUser(List<String> userIdList, TUICommonDefine.ValueCallback callback);
 ```
+参数如下表所示：
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
@@ -151,6 +153,7 @@ void inviteUser(List<String> userIdList, TUICommonDefine.ValueCallback callback)
 ```java
 void joinInGroupCall(TUICommonDefine.RoomId roomId, String groupId, TUICallDefine.MediaType callMediaType, TUICommonDefine.Callback callback);
 ```
+参数如下表所示：
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
@@ -164,6 +167,7 @@ void joinInGroupCall(TUICommonDefine.RoomId roomId, String groupId, TUICallDefin
 ```java
 void switchCallMediaType(TUICallDefine.MediaType callMediaType);
 ```
+参数如下表所示：
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
@@ -174,6 +178,7 @@ void switchCallMediaType(TUICallDefine.MediaType callMediaType);
 ```java
 void startRemoteView(String userId, TUIVideoView videoView, TUICommonDefine.PlayCallback callback);
 ```
+参数如下表所示：
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
@@ -185,6 +190,7 @@ void startRemoteView(String userId, TUIVideoView videoView, TUICommonDefine.Play
 ```java
 void stopRemoteView(String userId);
 ```
+参数如下表所示：
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
@@ -196,6 +202,7 @@ void stopRemoteView(String userId);
 ```java
 void openCamera(TUICommonDefine.Camera camera, TUIVideoView videoView, TUICommonDefine.Callback callback);
 ```
+参数如下表所示：
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
@@ -213,6 +220,7 @@ void closeCamera();
 ```java
 void switchCamera(TUICommonDefine.Camera camera);
 ```
+参数如下表所示：
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
@@ -236,6 +244,7 @@ void closeMicrophone();
 ```java
 void selectAudioPlaybackDevice(TUICommonDefine.AudioPlaybackDevice device);
 ```
+参数如下表所示：
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
@@ -248,6 +257,12 @@ void selectAudioPlaybackDevice(TUICommonDefine.AudioPlaybackDevice device);
 ```java
 void setSelfInfo(String nickname, String avatar, TUICommonDefine.Callback callback);
 ```
+参数如下表所示：
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| nickname | String | 用户昵称 |
+| avatar | String | 用户头像（格式为URL） |
 
 ### enableMultiDeviceAbility
 开启/关闭 TUICallEngine 的多设备登录模式 （尊享版套餐支持）。

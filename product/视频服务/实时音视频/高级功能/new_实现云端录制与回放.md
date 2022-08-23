@@ -1,7 +1,7 @@
 ## 场景说明
 在远程教育、秀场直播、视频会议、远程定损、金融双录、在线医疗等应用场景中，考虑取证、质检、审核、存档和回放等需求，常需要将整个视频通话或互动直播过程录制和存储下来的情况。
 
->? 下文将针对实时音视频最新推出的云端录制能力进行使用说明，如果您当前的TRTC应用（sdkappid）使用的是旧版云端录制，详情请参见 [旧版云端录制](https://cloud.tencent.com/document/product/647/16823)。判断当前应用的云端录制的类型和旧版云端录制能力切换为新版的方式，详情请参见 [控制台>云端录制说明](https://cloud.tencent.com/document/product/647/50768#.E4.BA.91.E7.AB.AF.E5.BD.95.E5.88.B6.E9.85.8D.E7.BD.AE)。
+>? 下文将针对实时音视频最新推出的云端录制能力进行使用说明，如果您当前的 TRTC 应用（sdkappid）使用的是旧版云端录制，详情请参见 [旧版云端录制](https://cloud.tencent.com/document/product/647/16823)。判断当前应用的云端录制的类型和旧版云端录制能力切换为新版的方式，详情请参见 [控制台>云端录制说明](https://cloud.tencent.com/document/product/647/50768#.E4.BA.91.E7.AB.AF.E5.BD.95.E5.88.B6.E9.85.8D.E7.BD.AE)。
 
 ## 功能说明
 通过 TRTC 的云端录制功能，您可以将房间中的每一个用户的音视频流都录制成独立的文件（单流录制），或者把同一个房间的音视频媒体流合流录制成一个文件（合流录制）。
@@ -17,14 +17,14 @@
 - 主播1的一个音视频 MP4 录制文件。
 - 主播2的一个音视频 MP4 录制文件。
 
-录制后台会把这些文件上传到您指定的云点播。为了保证录制文件的高可用，实时录制的格式为 HLS（m3u8+ts）最终录制任务结束时将由录制后台对 HLS 文件进行转封装后进行上传，具体录制流程如下：
-![](https://qcloudimg.tencent-cloud.cn/raw/c603679cf62f13213b5eafe1531b8f9e.png)
+录制后台会把这些文件上传到您指定的 [云点播](https://console.cloud.tencent.com/vod)。具体录制流程如下：
+![](https://qcloudimg.tencent-cloud.cn/raw/cdbc605589bc736c489349f38b490035.png)
 
 #### 合流录制
 如下图所示为合流录制的场景，房间1234里面有主播1和主播2都上行了音视频流，假设您订阅了主播1和主播2的音视频流，设置录制模式为合流录制，录制后台会分别拉取主播1和主播2的音视频流，并把他们的视频流按照您配置多画面模板进行合流，音频流进行混音，最后把媒体流混合成一路媒体文件。包含：合流后的的一个音视频 MP4 录制文件。
 
 录制后台会把这些文件上传到您指定的云点播，您需要通过回调保存对应录制文件的存于云点播的 [媒资信息](https://cloud.tencent.com/document/product/266/36451)。
-![](https://qcloudimg.tencent-cloud.cn/raw/362d6f011622439e5d46a4b6ab808ff7.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/d8b0f3d0e5ecea18b448843324268a10.png)
 
 [](id:mp4_file)
 ### 录制 MP4 文件说明
@@ -53,15 +53,15 @@ TRTC 提供了两种云端录制方案，分别是 API 调用录制和全局自�
 ### 方案一：API 录制
 [](id:action)
 #### 启动录制
-通过您的后台服务调用 REST API （CreateCloudRecording）来启动云端的录制，需要重点关注参数— **任务 ID（TaskId）**；这个参数是本次录制任务的唯一标识，您需要保存下这个任务 ID 作为后续针对这个录制任务接口操作的输入参数。
+通过您的后台服务调用 REST API （[CreateCloudRecording](https://cloud.tencent.com/document/api/647/73786)）来启动云端的录制，需要重点关注参数— **任务 ID（TaskId）**；这个参数是本次录制任务的唯一标识，您需要保存下这个任务 ID 作为后续针对这个录制任务接口操作的输入参数。
 
 [](id:RecordMode)
-#### 录制的模式（RecordMode）
+#### 录制的模式（[RecordMode](https://cloud.tencent.com/document/api/647/44055#RecordParams)）
 - 单流录制，实时录制房间内每个主播的音频视频 HLS 文件，转码后上传每个用户的 MP4 录制文件到云点播。
 - 合流录制，将房间内您所订阅所有主播的音视频流混录成一个 HLS 音视频文件, 转码后上传合流录制 MP4 文件到云点播。
 
 [](id:SubscribeStreamUserIds)
-#### 录制用户的黑白名单（SubscribeStreamUserIds）
+#### 录制用户的黑白名单（[SubscribeStreamUserIds](https://cloud.tencent.com/document/api/647/44055#RecordParams)）
 默认情况下，云端录制会订阅房间内所有的媒体流（最多25路）超过25个用户，默认录制最先进房的25位主播。您也可以通过该参数指定订阅的主播用户的黑白名单信息，当然我们也支持在录制的过程中进行更新操作。单流录制场景，如果房间内主播超过25人，可以通过设置订阅名单发起多次录制任务实现。
 
 [](id:rude)
@@ -124,7 +124,7 @@ TRTC 提供了两种云端录制方案，分别是 API 调用录制和全局自�
 ```
 
 [](id:MixLayoutMode)
-#### 合流录制的布局模式参数（MixLayoutMode）
+#### 合流录制的布局模式参数（[MixLayoutMode](https://cloud.tencent.com/document/api/647/44055#MixLayoutParams)）
 支持 [悬浮布局](#float)、[屏幕分享布局](#share)、[九宫格布局（默认）](#nine) 和 [自定义布局](#customize) 四种布局：
 
 - **悬浮布局**：[](id:float)
@@ -225,7 +225,7 @@ TRTC 提供了两种云端录制方案，分别是 API 调用录制和全局自�
 </tr></table>
 
 - **自定义布局**：[](id:customize)
-根据您的业务需要在 MixLayoutList 内自己定制每个主播画面的布局信息。
+根据您的业务需要在 [MixLayoutList](https://cloud.tencent.com/document/api/647/44055#MixLayoutParams) 内自己定制每个主播画面的布局信息。
 
 [](id:MixWatermark)
 #### 合流录制的水印参数 (MixWatermark)
@@ -240,25 +240,25 @@ TRTC 提供了两种云端录制方案，分别是 API 调用录制和全局自�
 | url    | 水印文件的存储 URL        |
 
 [](id:DescribeCloudRecording)
-#### 查询录制（DescribeCloudRecording）
+#### 查询录制（[DescribeCloudRecording](https://cloud.tencent.com/document/api/647/44055#StorageFile)）
 如果需要，您可以调用该接口查询录制服务的状态。
 >! 
 >- 只有录制任务存在的时候才能查询到信息，如果录制任务已经结束会返回错误。
 >- 如果是上传云点播任务，该接口返回的 StorageFile 为空。
 
 [](id:ModifyCloudRecording)
-#### 更新录制（ModifyCloudRecording）
+#### 更新录制（[ModifyCloudRecording](https://cloud.tencent.com/document/api/647/44055#SubscribeStreamUserIds)）
 如果需要，您可以调用该接口修改录制服务的参数，如订阅黑白名单 SubscribeStreamUserIds（单流和合流录制有效），录制的模板参数 MixLayoutParams（合流录制有效）。
 >! 更新操作是全量覆盖的操作，并不是增量更新的操作，您每次更新都需要携带全量的信息，包括模板参数 MixLayoutParams 和黑白名单 SubscribeStreamUserIds，因此您需要保存之前的启动录制的参数或者重新计算完整的录制相关参数。
 
 [](id:DeleteCloudRecording)
-#### 停止录制（DeleteCloudRecording）
+#### 停止录制（[DeleteCloudRecording](https://cloud.tencent.com/document/api/647/73785)）
 在录制结束之后需要调用停止录制（DeleteCloudRecording）的接口来结束录制任务，否则录制任务会等待到达预设的超时时间 MaxIdleTime 后自动结束。
 >! MaxIdleTime 的定义是房间内持续没有主播的状态超过 MaxIdleTime 的时长，这里如果房间是存在有主播，但是主播没有上行数据是不会进入超时的计时状态的，此时后台录制会持续工作。建议业务在录制结束的时候调用此接口结束录制任务。
 
 [](id:autoRecord)
 ### 方案二：全局自动录制
-要使用该种录制方案，请在控制台中开启云端录制功能，并且选择全局自动录制。
+要使用该种录制方案，请在 [实时音视频控制台 > 应用管理](https://console.cloud.tencent.com/trtc/app) 中开启云端录制功能，并且选择全局自动录制。
 ![](https://qcloudimg.tencent-cloud.cn/raw/468ebc6601ac4e52ce2ea7b7094018f9.png)
 TRTC 房间中的主播上行音视频后将触发启动录制任务，房间内主播都退房后超过设置的 MaxIdleTime（空闲等待时间，默认5s）将触发停止录制任务。
 

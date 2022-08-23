@@ -1,6 +1,6 @@
 
 产品使用攻略、上云技术实践，有奖征集，多重好礼等您带回家～
-![](https://qcloudimg.tencent-cloud.cn/raw/fd69d1cb15dcc66a3b78c9428a3c2c08.jpg)
+![](https://qcloudimg.tencent-cloud.cn/raw/93827060c1a99305044c58ee82e0adf6.jpg)
 
 ## 投稿说明
 1. 文章要求发布在腾讯云开发者社区。

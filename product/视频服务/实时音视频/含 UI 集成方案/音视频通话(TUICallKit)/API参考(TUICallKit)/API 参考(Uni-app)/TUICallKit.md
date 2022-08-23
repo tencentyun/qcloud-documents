@@ -1,6 +1,6 @@
 ## TUICallKit API 简介
 
-TUICallKit API 是音视频通话组件的**含 UI 接口**，使用TUICallKit API，您可以通过简单接口快速实现一个类微信的音视频通话场景，更详细的接入步骤，详情请参见 [快速接入 TUICallKit](https://tcloud-doc.isd.com/document/product/647/78732?!preview)。
+TUICallKit API 是音视频通话组件的**含 UI 接口**，使用TUICallKit API，您可以通过简单接口快速实现一个类微信的音视频通话场景，更详细的接入步骤，详情请参见 [快速接入 TUICallKit](https://cloud.tencent.com/document/product/647/78732?!preview)。
 
 ## API 概览
 
@@ -21,7 +21,7 @@ TUICallKit API 是音视频通话组件的**含 UI 接口**，使用TUICallKit A
 ### login
 登录
 ```javascript
-const TUICallKit = uni.requireNativePlugin('TUICallKit');
+const TUICallKit = uni.requireNativePlugin('TencentCloud-TUICallKit');
 const options = {
   SDKAppID: 0,
   userID: 'chard',
@@ -47,7 +47,7 @@ TUICallKit.login(options, (res) => {
 ### logout
 登出
 ```javascript
-const TUICallKit = uni.requireNativePlugin('TUICallKit');
+const TUICallKit = uni.requireNativePlugin('TencentCloud-TUICallKit');
 TUICallKit.logout((res) => {
   if (res.code === 0) {
     console.log('logout success');
@@ -65,7 +65,7 @@ TUICallKit.logout((res) => {
 设置用户昵称、头像。用户昵称不能超过500字节，用户头像必须是URL格式。
 
 ```javascript
-const TUICallKit = uni.requireNativePlugin('TUICallKit');
+const TUICallKit = uni.requireNativePlugin('TencentCloud-TUICallKit');
 const options = {
   nickName: '',
   avatar: ''
@@ -90,7 +90,7 @@ TUICallKit.setSelfInfo(options, (res) => {
 拨打电话（1v1通话）
 
 ```javascript
-const TUICallKit = uni.requireNativePlugin('TUICallKit');
+const TUICallKit = uni.requireNativePlugin('TencentCloud-TUICallKit');
 const options = { 
   userID: 'chard',
   callMediaType: 1, // 语音通话(callMediaType = 1)、视频通话(callMediaType = 2)
@@ -117,7 +117,7 @@ TUICallKit.call(options, (res) => {
 发起群组通话，注意：使用群组通话前需要创建IM 群组，如果已经创建，请忽略。
 
 ```javascript
-const TUICallKit = uni.requireNativePlugin('TUICallKit');
+const TUICallKit = uni.requireNativePlugin('TencentCloud-TUICallKit');
 const options = {
   groupID: 'myGroup',
   userIDList: ['chard', 'linda', 'rg'],
@@ -144,7 +144,7 @@ TUICallKit.groupCall(options, (res) => {
 发起群组通话，注意：使用群组通话前需要创建IM 群组，如果已经创建，请忽略。
 
 ```javascript
-const TUICallKit = uni.requireNativePlugin('TUICallKit');
+const TUICallKit = uni.requireNativePlugin('TencentCloud-TUICallKit');
 const options = {
   roomID: 9898,
   groupID: 'myGroup',
@@ -171,7 +171,7 @@ TUICallKit.joinInGroupCall(options, (res) => {
 设置自定义来电铃音，这里仅限传入本地文件地址，需要确保该文件目录是应用可以访问的。
 
 ```javascript
-const TUICallKit = uni.requireNativePlugin('TUICallKit');
+const TUICallKit = uni.requireNativePlugin('TencentCloud-TUICallKit');
 const filePath = './**';
 TUICallKit.setCallingBell(filePath, (res) => {
   if (res.code === 0) {
@@ -191,7 +191,7 @@ TUICallKit.setCallingBell(filePath, (res) => {
 开启/关闭静音模式。
 
 ```javascript
-const TUICallKit = uni.requireNativePlugin('TUICallKit');
+const TUICallKit = uni.requireNativePlugin('TencentCloud-TUICallKit');
 const enable = true;
 TUICallKit.enableMuteMode(enable);
 ```
@@ -204,7 +204,7 @@ TUICallKit.enableMuteMode(enable);
 开启/关闭悬浮窗功能，设置为false后，通话界面左上角的悬浮窗按钮会隐藏。
 
 ```javascript
-const TUICallKit = uni.requireNativePlugin('TUICallKit');
+const TUICallKit = uni.requireNativePlugin('TencentCloud-TUICallKit');
 const enable = true;
 TUICallKit.enableFloatWindow(enable);
 ```
