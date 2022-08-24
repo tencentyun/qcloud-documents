@@ -19,12 +19,11 @@ Spring Cloud Tencent 新增了 spring-cloud-tencent-plugin-starts 模块，在�
 ### 1.2 服务路由
 服务路由模型
 服务路由抽象出最简化的模型如下图所示，解决的是 “哪些请求转发到哪些实例” 的问题。细化来看，包含三个问题：1. 如何精确标识请求？2. 如何精确标识实例？3. 如何转发？
-
-（图：服务路由模型示意图）
+<img src="https://qcloudimg.tencent-cloud.cn/raw/99d76ba5df3e6e5e7739336cc81c68a2.png">
 在流量的微观世界里，统一通过标签（属性）来标识一个实体，例如请求有来源调用服务、目标环境标签等，服务实例则有版本号、实例分组、环境分组等标签。服务路由则是将满足标签匹配条件的请求转发到满足匹配条件的服务实例。所以服务路由的模型可拆解出如下的的专业术语：
-● 服务实例染色 （为服务实例设置标签信息）
-● 流量染色（为请求设置标签信息）
-● 服务路由（根据路由策略，把请求转发到目标实例）
+- 服务实例染色 （为服务实例设置标签信息）
+- 流量染色（为请求设置标签信息）
+- 服务路由（根据路由策略，把请求转发到目标实例）
 #### 服务实例标签如何传递到调用方
 服务实例注册到注册中心时，会带上标签信息。服务调用方从注册中心获取到服务实例信息就包含了实例的标签信息。
 #### 标签全链路透传
@@ -35,7 +34,7 @@ Spring Cloud Tencent 新增了 spring-cloud-tencent-plugin-starts 模块，在�
 ## 二、测试环境路由实现原理
 ### 2.1 方案总览 
 测试环境路由的样例实现以下图为例，一共有两个测试环境以及一个基线环境。流量从端到端会依次经过以下组件：App -> 网关 -> 用户中心 -> 积分中心 -> 活动中心。
-<img src="">
+<img src="https://qcloudimg.tencent-cloud.cn/raw/22143ab67b5b55b59585aa8fd6eeef21.png">
 根据上一节服务路由章节所述，为了达到测试环境路由的能力，开发工作需要做三件事情：
 1. 服务实例染色（标识实例属于哪个测试环境）
 2. 流量染色（标识请求应该被转发到哪个测试环境）
@@ -48,7 +47,8 @@ Spring Cloud Tencent 新增了 spring-cloud-tencent-plugin-starts 模块，在�
 在多测试环境的场景中，需要对每个测试环境部署的实例进行区分，因此需要在实例上打<featureenv=测试环境名> 的标签。Spring Cloud Tencent 一共支持三种服务实例染色方式。
 #### 方式一：配置文件
 在 Spring Boot 的 application.yml 配置文件里配置以下内容即可实现染色：
-
+<dx-codeblock>
+:::  plaintext
 spring:
   cloud:
     tencent:
@@ -56,15 +56,16 @@ spring:
         content:
           idc: shanghai
           env: f1
-
+:::
+</dx-codeblock>
 Spring Cloud Tencent 应用在启动时，读取配置文件并解析出 idc=shanghai 和 env=f1 标签信息。
 如果以上配置文件放在项目源码里，要实现不同的实例具有不同的标签值则需要打不同包。可以通过以下两种方式实现同一个运行包设置不同的标签值：
 1. 通过 -D 启动参数覆盖，例如 -Dspring.cloud.tencent.metadata.content.idc=guangzhou
 2. 通过 Spring Boot 标准方式，把 application.yml 外挂本地磁盘上
 #### 方式二：环境变量
 环境变量在容器场景下非常方便，Spring Cloud Tencent 约定了前缀为 SCT_METADATA_CONTENT_ 的环境变量为实例的标签信息，例如：
-● SCT_METADATA_CONTENT_IDC=shanghai
-● SCT_METADATA_CONTENT_ENV=f1
+- SCT_METADATA_CONTENT_IDC=shanghai
+- SCT_METADATA_CONTENT_ENV=f1
 Spring Cloud Tencent 应用在启动时，自动会读取环境变量并解析出 IDC=shanghai 和 ENV=f1 标签信息。
 #### 方式三：自定义实现 SPI
 前面两种方式为 Spring Cloud Tencent 内置的方式，但是不一定符合每个生产项目的规范，因此 Spring Cloud Tencent 还提供了一种允许开发者自定义标签 Provider 的方式。例如以下两种实践场景：
@@ -85,6 +86,8 @@ Spring Cloud Tencent 应用在启动时，自动会读取环境变量并解析�
 #### 方式三：网关流量染色
 网关常常作为流量的入口或者中转站。经过网关的请求，可以根据某些染色规则为请求增加标签信息。例如满足请求参数 uid=1000 请求打上 featureenv=f1 标签。
 网关流量染色是非常实用的能力，在 Spring Cloud Tencent 里实现了非常灵活基于染色规则的 Spring Cloud Gateway 染色插件。例如以下染色规则可以实现为 uid=1000 的请求打上 featureenv=f1 标签、uid=1001 的请求打上 featureenv=f2 标签。更详细的染色规则，可以参考文档。
+<dx-codeblock>
+:::  plaintext
 {
     "rules":[
         {
@@ -119,74 +122,67 @@ Spring Cloud Tencent 应用在启动时，自动会读取环境变量并解析�
         }
     ]
 }
-
+:::
+</dx-codeblock>
 同时 Spring Cloud Tencent 也预留了 TrafficStainer SPI ，用户可以实现自定义流量染色插件。
 ### 2.4 Spring Cloud Tencent 路由功能原理
 北极星提供了非常完善的服务治理能力，上层的服务框架基于北极星原生 SDK 就能快速实现强大的服务治理能力。Spring Cloud Tencent 就是在北极星的基础上实现了服务路由能力。
 北极星服务路由原理
 北极星服务路由实现原理并不复杂，如下图所示，从注册中心获取到所有实例信息，再经过一系列的 RouterFilter 插件过滤出满足条件的实例集合。
-<img src="">
-在多测试环境场景下主要用到了 MetadataRouter （元数据路由）插件，此插件核心能力是根据请求的标签完全匹配服务实例的标签。
+<img src="https://qcloudimg.tencent-cloud.cn/raw/369b6e3f22940236ec0611530af5211b.png">
+在多测试环境场景下主要用到了 MetadataRouter （元数据路由）插件，此插件核心能力是**根据请求的标签完全匹配服务实例的标签**。
 例如请求有两个标签 key1=value1和 key2=value2，MetadataRouter 则会筛选出所有实例中包含同时满足 key1=value1 和 key2=value2 的服务实例。在多测试环境场景下，Spring Cloud Tencent 缺省使用 featureenv 标签，通过 featureenv 标签筛选出属于同一个测试环境的服务实例。
-Spring Cloud Tencent 服务路由原理
+#### Spring Cloud Tencent 服务路由原理
 Spring Cloud Tencent 实现路由核心分成两个部分：
 1. 扩展 RestTemplate 、 Feign、SCG 获取请求的标签信息并塞到 RouterContext （路由信息上下文）里。
 2. 扩展 Spring Cloud 负载均衡组件（Hoxton 版本之前为 Ribbon，2020版本之后为 Spring Cloud LoadBalancer），在扩展的实现里调用北极星的服务路由 API 实现服务实例过滤。
 扩展部分逻辑较为复杂，感兴趣的读者可以参考 spring-cloud-starter-tencent-polaris-router 模块源码。
 
-三、测试环境路由用户操作指引
+## 三、测试环境路由用户操作指引
 在上一节中详细介绍了测试环境路由的实现原理，这一节则详细介绍站在用户的视角需要操作的内容。
 通过 Spring Cloud Tencent 实现流量的测试环境路由非常简单，核心包含三步：
 1. 服务增加测试环境路由插件依赖
 2. 部署的实例打上环境标签
 3. 为请求流量打上环境标签
 完成以上三个步骤即可。
-3.1 添加测试环境路由插件依赖
+### 3.1 添加测试环境路由插件依赖
 Spring Cloud Tencent 中的 spring-cloud-tencent-featureenv-plugin 模块闭环了测试环境路由全部能力，所有服务只需要添加该依赖即可引入测试环境路由能力。
-3.2 服务实例打上环境标签
+### 3.2 服务实例打上环境标签
 spring-cloud-tencent-featureenv-plugin 默认以 featureenv 标签作为匹配标签，用户也可以通过系统内置的 system-feature-env-router-label=custom_feature_env_key 标签来指定测试环境路由使用的标签键。以下三种方式以默认的 featureenv 作为示例。
-方式一：配置文件
+#### 方式一：配置文件
 在服务实例的配置文件中添加配置，如在 bootstrap.yml添加如下所示即可：
+<dx-codeblock>
+:::  plaintext
 spring:
   cloud:
     tencent:
       metadata:
         content:
           featureenv: f1  # f1 替换为测试环境名称
+:::
+</dx-codeblock>
 
-方式二：环境变量
+#### 方式二：环境变量
 在服务实例所在的操作系统中添加环境变量也可进行打标，例如：SCT_METADATA_CONTENT_featureenv=f1 
-方式三：SPI 方式
+#### 方式三：SPI 方式
 自定义实现 InstanceMetadataProvider#getMetadata() 方法的返回值里里包含 featureenv 即可。
-基线环境标签值
+**基线环境标签值**
 注意，基线环境部署的服务实例不需要设置 featureenv 标签，表明其不属于任何测试环境，才可在请求没有匹配到对应测试环境的时候，匹配到基线环境。
-3.3 流量染色
-方式一：客户端染色 （推荐）
+### 3.3 流量染色
+#### 方式一：客户端染色 （推荐）
 如下图所示，在客户端发出的 HTTP 请求里，新增 X-Polaris-Metadata-Transitive-featureenv=f1 请求头即可实现染色。该方式是让开发者在请求创建的时候根据业务逻辑进行流量染色。
-
-（图：客户端染色示意图）
-方式二：网关动态染色（推荐）
+<img src="https://qcloudimg.tencent-cloud.cn/raw/e178587f55e83d06a57b8fddce776692.png">
+#### 方式二：网关动态染色（推荐）
 动态染色是开发者配置一定的染色规则，让流量经过网关时自动染色，使用起来相当方便。例如把 uid=1 用户的请求都转发到 f1 环境，把 uid=0 用户的请求都转发到 f2 环境。只需要配置一条染色规则即可实现。
-
-（图：网关动态染色示意图）
-
+<img src="https://qcloudimg.tencent-cloud.cn/raw/f818e056a147530def0569b513e08131.png">
 Spring Cloud Tencent 通过实现 Spring Cloud Gateway 的 GlobalFilter 来实现流量染色插件，开发者只需要添加 spring-cloud-tencent-gateway-plugin 依赖，并在配置文件中打开染色插件开关（spring.cloud.tencent.plugin.scg.staining.enabled=true）即可引入流量染色能力。
-方式三：网关静态染色
+#### 方式三：网关静态染色
 往请求中加入固定的 Header 是网关最常见的插件，如下图所示。可以在每个环境部署一个网关，所有经过网关的请求都增加 X-Polaris-Metadata-Transitive-featureenv=f1 请求头即可。此种方式需要每个环境部署网关，成本高，所以使用频率相对较低。
-
-（图：网关静态染色示意图）
-完成以上操作步骤即可实现测试环境路由，读者可运行 Spring Cloud Tencent 下 polaris-router-featureenv-example 完整体验。
-四、总结
+<img src="https://qcloudimg.tencent-cloud.cn/raw/15cc31d73fab9ce842647d792343264a.png">
+完成以上操作步骤即可实现测试环境路由，您可运行 Spring Cloud Tencent 下 polaris-router-featureenv-example 完整体验。
+## 四、总结
 测试环境路由在微服务架构系统的开发阶段是非常实用的功能，能够大大降低测试环境的维护成本、资源成本，同时能够极大的提高研发效率。通过操作指引的章节可以看出通过 Spring Cloud Tencent 实现测试环境路由非常简单的，只需要部署的服务实例增加相应的环境标签以及在请求头中增加一个标签即可。
 业界常见的测试环境路由实现方案往往需要下发路由规则给链路上的服务，从而实现路由能力。但是通过北极星的元数据路由能力，整个方案里无需下发任何路由规则，只需要在实例设置相应的标签信息即可，操作成本非常低。
 如果项目刚好使用 Spring Cloud Gateway 作为网关，那么集成 Spring Cloud Tencent 里的网关染色插件能够进一步降低流量染色成本，客户端无需做任何事情，只需要配置网关染色规则即可实现流量染色。
 目前 Spring Cloud Tencent 主要实现了微服务之间调用流量的测试环境路由能力，不涉及消息队列、任务调度的测试环境路由能力。 
 
-五、欢迎共建
-如果您所在项目正在使用 Spring Cloud 框架，并且
-● 沉淀出了非常实用的通用插件能力和场景化解决方案
-● 目前正遇到一些落地难题
-● 对 Spring Cloud Tencent 项目感兴趣
-非常欢迎您跟我们一起打磨更多实用且通用的能力，共建满足各类实际生产场景使用的微服务开发框架。您的一个建议、Issue、Pull Request 甚至只是一个小小的 Star 都是对 Spring Cloud Tencent 社区极大的支持。
-
-Github 地址：https://github.com/Tencent/spring-cloud-tencent
