@@ -27,7 +27,7 @@ BOT 行为管理需要购买 WAF [对应实例的扩展包](https://cloud.tencen
 >
  ![](https://qcloudimg.tencent-cloud.cn/raw/703aa95d487aa7127aa61f5ad914fa5d.png)
 2. 在前端对抗模块，单击**前往设置**，对重点页面进行防护配置。
->?更多操作详情请参见 [BOT 管理 ](https://cloud.tencent.com/document/product/627/65688)。
+>?更多操作详情请参见 [BOT 管理](https://cloud.tencent.com/document/product/627/65688)。
 >
 ![](https://qcloudimg.tencent-cloud.cn/raw/34e0950fcf435f869db31a96c25721e4.png)
 
