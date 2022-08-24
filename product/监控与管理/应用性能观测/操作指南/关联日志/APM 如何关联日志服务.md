@@ -24,7 +24,7 @@
  - 开启关联日志。
  - 选择对应的日志地域、日志集和日志主题。
 3. 配置完后单击**保存**即可。
-![](https://qcloudimg.tencent-cloud.cn/raw/89a01c577a653711a49e5a9601d6da17.png)
+  ![](https://qcloudimg.tencent-cloud.cn/raw/b8ac2e00b1f367aa5be263cedf7acceb.png)
 	 
 ### 步骤3：在链路查询页面查看日志信息
 1. 进入 [应用性能观测控制台-链路查询](https://console.cloud.tencent.com/apm/monitor/span)。
