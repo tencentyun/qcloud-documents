@@ -30,7 +30,7 @@ BOT 管理设置支持配置客户端风险识别（前端对抗）、威胁情�
 有大量机器自动化脚本请求服务，禁止类似 CURL，SOAPUI、JMETER、POSTMAN 访问请求。
 
 1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/tea-botconfig)，在左侧导航栏中，选择**配置中心** > **BOT 与业务安全**。
-2. 在 BOT 与业务安全页面，左上角选择需要防护的域名，单击 **BOT 管理** 。
+2. 在 BOT 与业务安全页面，左上角选择需要防护的域名，单击 **BOT 管理**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/6ebbdba50530929ed734fc9743584008.png)
 2. 在 BOT 管理页面，单击前端对抗模块的**前往配置**。
 3. 在前端对抗页面，单击**编辑**添加防护路径，单击**确定**。
@@ -47,7 +47,7 @@ BOT 管理设置支持配置客户端风险识别（前端对抗）、威胁情�
 ### 案例二：禁止网页调试
 禁止用户打开网页调试，避免针对性爬虫编写。
 1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/tea-botconfig)，在左侧导航栏中，选择**配置中心** > **BOT 与业务安全**。
-2. 在 BOT 与业务安全页面，左上角选择需要防护的域名，单击 **BOT 管理** 。
+2. 在 BOT 与业务安全页面，左上角选择需要防护的域名，单击 **BOT 管理**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/6ebbdba50530929ed734fc9743584008.png)
 2. 在 BOT 管理页面，单击前端对抗模块的**前往配置**。
 3. 在前端对抗页面，单击**编辑**添加防护路径，单击**确定**。
@@ -119,7 +119,7 @@ AI 评估功能基于人工智能技术和腾讯风控实战沉淀，将风控�
 2. 在 BOT 流量详情页面的基础会话信息模块，查看城市和 IP 地区。
 ![](https://qcloudimg.tencent-cloud.cn/raw/198bdeb4fe47d3eff32c8d375aa10d42.png)
 3. 当业务没有该地区的流量时，则表明此处评分为异常，可以自定义动作设置，进行一个更加细化的设置。
-4. 在 BOT 与业务安全页面，左上角选择需要防护的域名，单击 **BOT 管理** 。
+4. 在 BOT 与业务安全页面，左上角选择需要防护的域名，单击 **BOT 管理**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/6ebbdba50530929ed734fc9743584008.png)
 5. 在 BOT 管理页面，单击动作设置模块的**配置动作得分**。
 6. 在动作得分页面，配置相关参数，单击**立即发布**。
@@ -137,7 +137,7 @@ AI 评估功能基于人工智能技术和腾讯风控实战沉淀，将风控�
 ## Token 管理
 用户可通过配置该功能，配置会话 Token 所在的位置，实现在同一 IP 下区分识别不同用户的访问行为，实现不影响其他用户的情况下，精准处置存在异常访问行为的用户。
 1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/tea-botconfig)，在左侧导航栏中，选择**配置中心** > **BOT 与业务安全**。
-2. 在 BOT 与业务安全页面，左上角选择需要防护的域名，单击 **BOT 管理** 。
+2. 在 BOT 与业务安全页面，左上角选择需要防护的域名，单击 **BOT 管理**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/6ebbdba50530929ed734fc9743584008.png)
 2. 在 BOT 管理页面，单击会话管理模块的**前往配置**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/65048874d82d40b61421c247865aafee.png)
@@ -153,7 +153,7 @@ AI 评估功能基于人工智能技术和腾讯风控实战沉淀，将风控�
 ## 合法爬虫
 通过配置合法爬虫（如：搜索引擎、订阅机器人）可以正常获取网站数据，使网站可以正常被索引。
 1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/tea-botconfig)，在左侧导航栏中，选择**配置中心** > **BOT 与业务安全**。
-2. 在 BOT 与业务安全页面，左上角选择需要防护的域名，单击 **BOT 管理** 。
+2. 在 BOT 与业务安全页面，左上角选择需要防护的域名，单击 **BOT 管理**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/6ebbdba50530929ed734fc9743584008.png)
 2. 在 BOT 管理页面，单击合法爬虫模块的**前往配置**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/15936678a07849487d3723014ad582a4.png)
