@@ -64,7 +64,7 @@ rootLogger.appenderRef.rolling.ref=fileLogger
 3. 配置完后，可在 logger 日志文件中查看到 TraceID 与 SpanID，如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/542cf0fda03907e7487baa9131bb478e.png)
 
-### Logback instrumentation 注入
+### Logback instrumentation 注入 TraceID
 1. 添加 logback 工程依赖库到 dependencies 中：
  - Maven projects
 ```
@@ -127,7 +127,7 @@ dependencies {
 ![](https://qcloudimg.tencent-cloud.cn/raw/d5e3299b75c4fe83a7f87fb7f66c7e25.png)
 
 
-### 四、注意事项
+### 注意事项
 因为 spring-boot 会自带 logger 的配置，所以要我们配置的文件生效，需要在引入 spring-boot 依赖示去掉默认的 loger 库：
 ```
 <dependency>
