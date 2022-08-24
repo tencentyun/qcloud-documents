@@ -38,8 +38,6 @@
 </dependency>
 ```
 
-
-
 2. 修改 log4j1.properties 配置 layout。
 
 ```
@@ -55,8 +53,7 @@ log4j.appender.CONSOLE.layout.ConversionPattern=%d [%T] %-5p %c{1}:%L - %m%n
 3. 启动项目，打印结果如下：
 
 假设 TraceID 存在，当你使用`-javaagent`激活 skywalking tracer 后，log4j 将会输出** TraceID **。如果 tracer 未激活，输出将是`TID: N/A`。
-
-![img](https://iwiki.woa.com/download/attachments/1335273297/image2022-1-7_16-51-54.png?version=1&modificationDate=1641545515000&api=v2)
+![](https://qcloudimg.tencent-cloud.cn/raw/36c762433447c7625f44d0b7b1cd560a.png)
 
 ### 配置 log4j-2x 输出 TraceID 
 
@@ -166,5 +163,5 @@ Log4j-2.9 及更高版本需要类路径上使用  disruptor-3.3.4.jar 或更高
 
 3. 启动项目，打印结果如下
 假设 TraceID 存在，当你使用`-javaagent`激活 skywalking tracer 后，log4j 将会输出 **TraceID** 。如果 tracer 未激活，输出将是`TID: N/A`。
-![img](https://iwiki.woa.com/download/attachments/1335273297/image2022-1-7_16-51-54.png?version=1&modificationDate=1641545515000&api=v2)
+![](https://qcloudimg.tencent-cloud.cn/raw/36c762433447c7625f44d0b7b1cd560a.png)
 
