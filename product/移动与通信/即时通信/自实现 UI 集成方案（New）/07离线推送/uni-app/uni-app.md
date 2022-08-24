@@ -1,5 +1,5 @@
 ## 概述
-TUIOfflinePush 是腾讯云即时通信 IM Push 插件。目前 Android 厂商推送支持 华为、小米、oppo、vivo、魅族 和 iOS 推送。
+[TUIOfflinePush](https://ext.dcloud.net.cn/plugin?id=9149) 是 uni-app 平台的腾讯云即时通信 IM Push 插件。目前支持华为、小米、oppo、vivo、魅族等 Android 厂商推送和 iOS 推送。
 >!
 >- 在没有主动退出登录的情况下，应用退后台、手机锁屏、或者应用进程被用户主动杀掉三种场景下，如果想继续接收到 IM 消息提醒，可以接入即时通信 IM 离线推送。
 >- 如果应用主动调用  logout 退出登录，或者多端登录被踢下线，即使接入了 IM 离线推送，也收不到离线推送消息。
