@@ -40,12 +40,12 @@
 ```
 log4j.appender.CONSOLE.layout=org.apache.skywalking.apm.toolkit.log.log4j.v1.x.TraceIdPatternLayout
 ```
-在 `layout.ConversionPattern` 中设置 `%T` （在2.0-2016中，你应该使用%x，[为什么做了修改?](https://github.com/wu-sheng/sky-walking/issues/77) ）。
+在 `layout.ConversionPattern` 中设置 `%T` （在2.0-2016中，您应该使用%x，[为什么做了修改?](https://github.com/wu-sheng/sky-walking/issues/77) ）。
 ```
 log4j.appender.CONSOLE.layout.ConversionPattern=%d [%T] %-5p %c{1}:%L - %m%n
 ```
 3. 启动项目，打印结果如下：
-假设 TraceID 存在，当你使用 `-javaagent` 激活 skywalking tracer 后，log4j 将会输出 **TraceID**。如果 tracer 未激活，输出将是 `TID: N/A`。
+假设 TraceID 存在，当您使用 `-javaagent` 激活 skywalking tracer 后，log4j 将会输出 **TraceID**。如果 tracer 未激活，输出将是 `TID: N/A`。
 ![](https://qcloudimg.tencent-cloud.cn/raw/36c762433447c7625f44d0b7b1cd560a.png)
 
 ### 配置 log4j-2x 输出 TraceID 
@@ -149,6 +149,6 @@ Log4j-2.9 及更高版本需要类路径上使用  disruptor-3.3.4.jar 或更高
     </Configuration>
 ```
 3. 启动项目，打印结果如下
-假设 TraceID 存在，当你使用 `-javaagent` 激活 skywalking tracer 后，log4j 将会输出 **TraceID** 。如果 tracer 未激活，输出将是`TID: N/A`。
+假设 TraceID 存在，当您使用 `-javaagent` 激活 skywalking tracer 后，log4j 将会输出 **TraceID** 。如果 tracer 未激活，输出将是`TID: N/A`。
 ![](https://qcloudimg.tencent-cloud.cn/raw/36c762433447c7625f44d0b7b1cd560a.png)
 
