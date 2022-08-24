@@ -1,4 +1,4 @@
-应用性能观测与腾讯云日志服务（CLS）打通，您可以在日志服务中关联调用链的 TraceID 信息，当应用出现故障时，可以通过调用链的 TraceID 快速关联到业务日志，及时定位分析并解决问题。 
+应用性能观测与腾讯云日志服务（CLS）打通，您可以在 CLS 中关联调用链的 TraceID 信息，当应用出现故障时，可以通过调用链的 TraceID 快速关联到业务日志，及时定位分析并解决问题。 
 
 ## 前提条件
 
@@ -12,7 +12,7 @@
 
 
 ## 操作步骤
-### 步骤1：在日志中关联 TraceID
+### 步骤1：在 CLS 日志中关联 TraceID
 不同语言不同协议注入 TraceID 方式不同，详情请查看以下文档指引，关联 TraceID。
 - [关联 TraceID-skywalking 协议（Java）](https://cloud.tencent.com/document/product/1463/68741)
 - [ 关联 TraceID-TAPM（Java）](https://cloud.tencent.com/document/product/1463/68737)
