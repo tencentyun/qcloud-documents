@@ -183,7 +183,7 @@ CLB 带宽设置，当前仅在创建时支持配置，创建后不支持修改�
 
 ---
 
-### service.cloud.tencent.com/pass-to-target: "true"
+### service.cloud.tencent.com/pass-to-target
 
 **说明：**
 通过该 Annotation 可以为 CLB 类型的 Service 配置安全组默认放通的能力，CLB 和 CVM 之间默认放通，来自 CLB 的流量只需通过 CLB 上安全组的校验。
