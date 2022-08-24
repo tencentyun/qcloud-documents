@@ -29,7 +29,6 @@
 
 ### 配置 log4j-1x 输出 TraceID 
 1. 通过 maven 或 gradle 引入 toolkit 依赖。
-
 ```
 <dependency>
 <groupId>org.apache.skywalking</groupId>
@@ -37,28 +36,20 @@
 <version>{project.release.version}</version>
 </dependency>
 ```
-
 2. 修改 log4j1.properties 配置 layout。
-
 ```
 log4j.appender.CONSOLE.layout=org.apache.skywalking.apm.toolkit.log.log4j.v1.x.TraceIdPatternLayout
 ```
-
-在`layout.ConversionPattern`中设置`%T` (在2.0-2016中，你应该使用%x，[为什么做了修改?](https://github.com/wu-sheng/sky-walking/issues/77) )
-
+在 `layout.ConversionPattern` 中设置 `%T` （在2.0-2016中，你应该使用%x，[为什么做了修改?](https://github.com/wu-sheng/sky-walking/issues/77) ）。
 ```
 log4j.appender.CONSOLE.layout.ConversionPattern=%d [%T] %-5p %c{1}:%L - %m%n
 ```
-
 3. 启动项目，打印结果如下：
-
-假设 TraceID 存在，当你使用`-javaagent`激活 skywalking tracer 后，log4j 将会输出** TraceID **。如果 tracer 未激活，输出将是`TID: N/A`。
+假设 TraceID 存在，当你使用 `-javaagent` 激活 skywalking tracer 后，log4j 将会输出 **TraceID**。如果 tracer 未激活，输出将是 `TID: N/A`。
 ![](https://qcloudimg.tencent-cloud.cn/raw/36c762433447c7625f44d0b7b1cd560a.png)
 
 ### 配置 log4j-2x 输出 TraceID 
-
 1. 使用 maven 或 gradle 引入 toolkit 依赖。
-
 ```
 <dependency>
 <groupId>org.apache.skywalking</groupId>
@@ -66,9 +57,7 @@ log4j.appender.CONSOLE.layout.ConversionPattern=%d [%T] %-5p %c{1}:%L - %m%n
 <version>{project.release.version}</version>
 </dependency>
 ```
- 
 2. 在 log4j2.xml 的 pattern 中配置`[%traceId]`。
-
  - 支持在 log4j2.xml 的 pattern 中配置 [%traceId]。
 ```
 <Appenders>
@@ -77,7 +66,6 @@ log4j.appender.CONSOLE.layout.ConversionPattern=%d [%T] %-5p %c{1}:%L - %m%n
       </Console>
 </Appenders>
 ```
-
  - 支持 log4j2 AsyncRoot，无需其他配置。请参阅下文的 log4j2.xml 演示。有关详细信息：[Log4j2异步记录器](https://logging.apache.org/log4j/2.x/manual/async.html)。
 ```
     <Configuration>
@@ -93,7 +81,6 @@ log4j.appender.CONSOLE.layout.ConversionPattern=%d [%T] %-5p %c{1}:%L - %m%n
         </Loggers>
     </Configuration>
 ```
-
   - 支持 log4j2 AsyncAppender，不需要其他配置。请参阅下文的 log4j2.xml 演示。
 有关详细信息： [All Loggers Async](https://logging.apache.org/log4j/2.x/manual/async.html#AllAsync)
 <dx-alert infotype="explain" title="">
@@ -116,7 +103,8 @@ Log4j-2.9 和更高版本要求在类路径上使用 disruptor-3.3.4.jar 或更�
     </Loggers>
   </Configuration>
   ```
-详细可参考: [Mixed Sync & Async](https://logging.apache.org/log4j/2.x/manual/async.html#MixedSync-Async)
+
+     详细可参见： [Mixed Sync & Async](https://logging.apache.org/log4j/2.x/manual/async.html#MixedSync-Async)
 <dx-alert infotype="explain" title="">
 Log4j-2.9 及更高版本需要类路径上使用  disruptor-3.3.4.jar 或更高版本。在 Log4j-2.9 之前，需要 disruptor-3.0.0.jar 或更高版本。不需要将系统属性 “Log4jContextSelector” 设置为任何值。
 </dx-alert>
@@ -142,7 +130,7 @@ Log4j-2.9 及更高版本需要类路径上使用  disruptor-3.3.4.jar 或更高
     </Loggers>
   </Configuration>
   ```
- - 支持 log4j2 AsyncAppender，有关详细信息： [Log4j2 AsyncAppender](https://logging.apache.org/log4j/2.x/manual/appenders.html)
+ - 支持 log4j2 AsyncAppender，详细信息请参见： [Log4j2 AsyncAppender](https://logging.apache.org/log4j/2.x/manual/appenders.html)
 ```
     <Configuration>
         <Appenders>
@@ -160,8 +148,7 @@ Log4j-2.9 及更高版本需要类路径上使用  disruptor-3.3.4.jar 或更高
         </Loggers>
     </Configuration>
 ```
-
 3. 启动项目，打印结果如下
-假设 TraceID 存在，当你使用`-javaagent`激活 skywalking tracer 后，log4j 将会输出 **TraceID** 。如果 tracer 未激活，输出将是`TID: N/A`。
+假设 TraceID 存在，当你使用 `-javaagent` 激活 skywalking tracer 后，log4j 将会输出 **TraceID** 。如果 tracer 未激活，输出将是`TID: N/A`。
 ![](https://qcloudimg.tencent-cloud.cn/raw/36c762433447c7625f44d0b7b1cd560a.png)
 
