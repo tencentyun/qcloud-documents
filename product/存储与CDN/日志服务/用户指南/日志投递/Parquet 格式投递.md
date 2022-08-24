@@ -69,6 +69,7 @@
    </tr>
 </table>
 5. 单击**下一步**，进入高级配置，选择投递格式为 Parquet，依次填写相关配置参数。
+![](https://qcloudimg.tencent-cloud.cn/raw/6c11a5ec6caab84154a6826fb242251e.png)
 **配置项说明如下：**
 <table>
    <tr>
@@ -96,4 +97,3 @@
       <td>必填</td>
    </tr>
    </table>
-
