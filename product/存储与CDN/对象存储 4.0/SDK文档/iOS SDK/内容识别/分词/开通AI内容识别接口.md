@@ -26,7 +26,7 @@ SDK 所有接口的具体参数与方法说明，请参考 [SDK API](https://cos
 **Objective-C**
 
 ```objective-c
-QCloudOpenWordsGeneralizeRequest * request = [[QCloudOpenWordsGeneralizeRequest alloc]init];
+QCloudOpenAIBucketRequest * request = [[QCloudOpenAIBucketRequest alloc]init];
 
 // 存储桶名称，格式为 BucketName-APPID
 request.bucket = @"examplebucket-1250000000";
@@ -37,7 +37,7 @@ request.regionName = @"regionName";
     // outputObject 详细字段请查看api文档或者SDK源码
     // QCloudOpenAIBucketResult 类；
 }];
-[[QCloudCOSXMLService defaultCOSXML] OpenWordsGeneralize:request];
+[[QCloudCOSXMLService defaultCOSXML] OpenAIBucket:request];
 ```
 
 >? 更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/iOS/Objc/Examples/cases/WordsGeneralizeQueue.m) 查看。
@@ -46,7 +46,7 @@ request.regionName = @"regionName";
 **Swift**
 
 ```swift
-let request = QCloudOpenWordsGeneralizeRequest.init();
+let request = QCloudOpenAIBucketRequest.init();
 
 // 存储桶名称，格式为 BucketName-APPID
 request.bucket = "examplebucket-1250000000";
@@ -57,7 +57,7 @@ request.setFinish { outputObject, error in
     // outputObject 详细字段请查看api文档或者SDK源码
     // QCloudOpenAIBucketResult 类；
 }
-QCloudCOSXMLService.defaultCOSXML().openWordsGeneralize(request);
+QCloudCOSXMLService.defaultCOSXML().openAIBucket(request);
 ```
 
 >? 更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/iOS/Swift/Examples/cases/WordsGeneralizeQueue.swift) 查看。
