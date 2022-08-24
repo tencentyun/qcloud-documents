@@ -3,12 +3,12 @@ Web 应用防火墙提供域名 IPv6接入配置和防护能力，在开启 IPv6
 ## 前提条件
 - SAAS-WAF 开启 IPv6 需要 WAF 版本为企业版及以上版本。
 - CLB-WAF 支持全版本开启 IPv6。
-- 开启 IPV6功能前，请核实**源站业务是否支持 IPv6**，同时源站回源地址也需要新增 IPv6回源。
+- 开启 IPv6功能前，请核实**源站业务是否支持 IPv6**，同时源站回源地址也需要新增 IPv6回源。
 
 
 ## 操作步骤
 1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/tea-overview)，在左侧导航栏选择**域名列表**。
-2. 在域名列表域名，选择要开启 IPV6功能的域名，单击![](https://qcloudimg.tencent-cloud.cn/raw/4c2a6f21d580a298869fd5455dbf46f1.png)。
+2. 在域名列表域名，选择要开启 IPv6功能的域名，单击![](https://qcloudimg.tencent-cloud.cn/raw/4c2a6f21d580a298869fd5455dbf46f1.png)。
 ![](https://qcloudimg.tencent-cloud.cn/raw/246b09ddb9b62b638fc37a7325904adb.png)
 3. 单击**确认**，即可开启 IPv6功能。
 ![](https://qcloudimg.tencent-cloud.cn/raw/b5b8c1db4b8b877679afa34538d92710.png)
