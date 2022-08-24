@@ -225,7 +225,7 @@ Ingress 跨域绑定功能，指定需要接入的 VPC。可以和 `ingress.clou
 
 ---
 
-### ingress.cloud.tencent.com/pass-to-target: "true"
+### ingress.cloud.tencent.com/pass-to-target 
 
 **说明：**
 通过该 Annotation 可以为 CLB 类型的 Ingress 配置安全组默认放通的能力，CLB 和 CVM 之间默认放通，来自 CLB 的流量只需通过 CLB 上安全组的校验。
