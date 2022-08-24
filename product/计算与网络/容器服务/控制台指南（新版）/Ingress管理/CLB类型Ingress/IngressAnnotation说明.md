@@ -210,5 +210,30 @@ Ingress 跨域绑定功能，指定需要接入的 VPC。可以和 `ingress.clou
 **使用示例：**
 仅在直连模式下支持，需要配合使用 `ingress.cloud.tencent.com/direct-access`，使用方式详情见 [Ingress 优雅停机](https://cloud.tencent.com/document/product/457/60065)。
 
+---
+### ingress.cloud.tencent.com/security-groups
 
+**说明：**
+通过该 Annotation 可以为 CLB 类型的 Ingress 绑定安全组，单个 CLB 最多可绑定5个安全组。
 
+**注意：**
+- 请查看 CLB 使用安全组的[使用限制](https://cloud.tencent.com/document/product/214/14733)。
+- 通常需要配合安全组默认放通的能力，CLB 和 CVM 之间默认放通，来自 CLB 的流量只需通过 CLB 上安全组的校验。对应 Annotation 为：`ingress.cloud.tencent.com/pass-to-target`
+
+**使用示例：**
+`ingress.cloud.tencent.com/security-groups: "sg-xxxxxx,sg-xxxxxx"`
+
+---
+
+### ingress.cloud.tencent.com/pass-to-target: "true"
+
+**说明：**
+通过该 Annotation 可以为 CLB 类型的 Ingress 配置安全组默认放通的能力，CLB 和 CVM 之间默认放通，来自 CLB 的流量只需通过 CLB 上安全组的校验。
+
+**注意：**
+
+- 请查看 CLB 使用安全组的[使用限制](https://cloud.tencent.com/document/product/214/14733)。
+- 通常需要配合绑定安全组的能力。对应 Annotation 为：`ingress.cloud.tencent.com/security-groups`
+
+**使用示例：**
+`ingress.cloud.tencent.com/pass-to-target: "true"`
