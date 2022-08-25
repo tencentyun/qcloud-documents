@@ -125,10 +125,20 @@ Service Local 模式下仅绑定有 Pod 存在的节点。
 ---
 ### service.cloud.tencent.com/enable-grace-shutdown
 **说明：**
-支持 CLB 直连模式的优雅停机。
+支持 CLB 直连模式的优雅停机。Pod 被删除，此时 Pod 里有 DeletionTimestamp，且状态置为 Terminating。此时调整 CLB 到该 Pod 的权重为 0。
 
 **使用示例：**
 仅在直连模式下支持，需要配合使用 `service.cloud.tencent.com/direct-access`，使用方式详情见 [Service 优雅停机](https://cloud.tencent.com/document/product/457/60064)。
+
+
+---
+### service.cloud.tencent.com/enable-grace-shutdown-tkex
+**说明：**
+支持 CLB 直连模式的优雅退出。Endpoint 对象中 endpoints 是否 not-ready，将 not-ready 的 CLB 后端置为 0。
+
+**使用示例：**
+仅在直连模式下支持，需要配合使用 `service.cloud.tencent.com/direct-access`，使用方式详情见 [Service 优雅停机](https://cloud.tencent.com/document/product/457/60064)中的相关能力。
+
  
 ---
 ### kubernetes.io/service.internetChargeType
@@ -198,5 +208,6 @@ CLB 带宽设置，当前仅在创建时支持配置，创建后不支持修改�
 
 **使用示例：**
 `service.cloud.tencent.com/pass-to-target: "true"`
+
 
 
