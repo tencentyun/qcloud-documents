@@ -192,8 +192,8 @@ Vue.prototype.TWebLive = TWebLive
 >- 目前桌面端 Chrome 浏览器支持 TRTC Web SDK 的相关特性比较完整，因此建议使用 Chrome 浏览器进行体验。
 >- TWebLive 需要使用摄像头和麦克风采集音视频，在体验过程中您可能会收到来自 Chrome 浏览器的相关提示，单击 **允许** 即可。
 >  ![](https://main.qcloudimg.com/raw/7eb28d195649d6c0027026eaa02fdedd.png)
- :::
- ::: 方式2：基于即时通信\sIM
+:::
+::: 方式2：基于即时通信\sIM
 #### 步骤1：创建即时通信 IM 应用
 1. 登录 [即时通信 IM 控制台](https://console.cloud.tencent.com/im)，单击 **创建新应用** 将弹出对话框。
    ![](https://main.qcloudimg.com/raw/c8d1dc415801404e30e49ddd4e0c0c13.png)
@@ -243,8 +243,8 @@ Vue.prototype.TWebLive = TWebLive
 >- 目前桌面端 Chrome 浏览器支持 TRTC Web SDK 的相关特性比较完整，因此建议使用 Chrome 浏览器进行体验。
 >- TWebLive 需要使用摄像头和麦克风采集音视频，在体验过程中您可能会收到来自 Chrome 浏览器的相关提示，单击 **允许** 即可。
 >  ![](https://main.qcloudimg.com/raw/7eb28d195649d6c0027026eaa02fdedd.png)
- :::
- </dx-tabs>
+:::
+</dx-tabs>
 
 ## 架构与平台支持
 
@@ -280,10 +280,8 @@ Web 推流和 Web 低延时观看用到了 WebRTC 技术。
 |   Android   |  微信内嵌网页（XWEB 内核）   |         -          |     支持     |    不支持    |
 
 >! 由于 H.264 版权限制，华为系统的 Chrome 浏览器和以 Chrome WebView 为内核的浏览器均不支持 TRTC Web SDK 的正常运行。
->[](id:sos)
 
-
-
+[](id:sos)
 ## 常见问题
 <dx-accordion>
 ::: 查看密钥时只能获取公钥和私钥信息，要如何获取密钥？
