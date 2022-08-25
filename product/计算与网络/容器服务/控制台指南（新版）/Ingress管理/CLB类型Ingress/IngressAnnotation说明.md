@@ -205,10 +205,18 @@ Ingress 跨域绑定功能，指定需要接入的 VPC。可以和 `ingress.clou
 ### ingress.cloud.tencent.com/enable-grace-shutdown
    
 **说明：**
-支持 CLB 直连模式的优雅停机。  		 
+支持 CLB 直连模式的优雅停机。Pod 被删除，此时 Pod 里有 DeletionTimestamp，且状态置为 Terminating。此时调整 CLB 到该 Pod 的权重为 0。 
 
 **使用示例：**
 仅在直连模式下支持，需要配合使用 `ingress.cloud.tencent.com/direct-access`，使用方式详情见 [Ingress 优雅停机](https://cloud.tencent.com/document/product/457/60065)。
+
+---
+### ingress.cloud.tencent.com/enable-grace-shutdown-tkex
+**说明：**
+支持 CLB 直连模式的优雅退出。Endpoint 对象中 endpoints 是否 not-ready，将 not-ready 的 CLB 后端权重置为 0。
+
+**使用示例：**
+仅在直连模式下支持，需要配合使用 `ingress.cloud.tencent.com/direct-access`，使用方式详情见 [Ingress 优雅停机](https://cloud.tencent.com/document/product/457/60065)中的相关能力。
 
 ---
 ### ingress.cloud.tencent.com/security-groups
