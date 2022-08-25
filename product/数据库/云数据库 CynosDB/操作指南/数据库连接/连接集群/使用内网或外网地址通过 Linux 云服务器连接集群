@@ -3,7 +3,7 @@
 已创建数据库集群账号，具体请参见 [创建数据库账号](https://cloud.tencent.com/document/product/1003/62730)。
 ## 操作步骤
 1. 登录到 Linux 云服务器，请参见 [快速配置 Linux 云服务器]()。
-2. 以 CentOS 7.2 64 位系统的云服务器为例，执行如下命令安装 MySQL 客户端：
+2. 以 CentOS 7.2 64 位系统的云服务器为例，执行如下命令安装 MySQL 客户端。
 ```
 yum install mysql
 ```
@@ -53,3 +53,5 @@ mysql -h hostname -P port -u username -p
 
 **Q：无法连接集群还与哪些设置有关？**
 **A：**当无法连接集群时，您可以检查云服务器 CVM 和 TDSQL-C MySQL 是否在同一腾讯云账号下，是否处于同一地域，是否为同一 VPC 网络。需确保以上三点设置相同，才可以正常连接集群。
+
+
