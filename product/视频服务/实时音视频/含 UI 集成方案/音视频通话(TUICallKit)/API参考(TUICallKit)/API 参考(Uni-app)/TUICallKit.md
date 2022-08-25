@@ -24,7 +24,7 @@ TUICallKit API 是音视频通话组件的**含 UI 接口**，使用TUICallKit A
 const TUICallKit = uni.requireNativePlugin('TencentCloud-TUICallKit');
 const options = {
   SDKAppID: 0,
-  userID: 'chard',
+  userID: 'mike',
   userSig: '',
 };
 TUICallKit.login(options, (res) => {
@@ -67,8 +67,8 @@ TUICallKit.logout((res) => {
 ```javascript
 const TUICallKit = uni.requireNativePlugin('TencentCloud-TUICallKit');
 const options = {
-  nickName: '',
-  avatar: ''
+  nickName: 'jack',
+  avatar: 'https:/****/user_avatar.png'
 }
 TUICallKit.setSelfInfo(options, (res) => {
   if (res.code === 0) {
@@ -92,7 +92,7 @@ TUICallKit.setSelfInfo(options, (res) => {
 ```javascript
 const TUICallKit = uni.requireNativePlugin('TencentCloud-TUICallKit');
 const options = { 
-  userID: 'chard',
+  userID: 'mike',
   callMediaType: 1, // 语音通话(callMediaType = 1)、视频通话(callMediaType = 2)
 };
 TUICallKit.call(options, (res) => {
@@ -120,7 +120,7 @@ TUICallKit.call(options, (res) => {
 const TUICallKit = uni.requireNativePlugin('TencentCloud-TUICallKit');
 const options = {
   groupID: 'myGroup',
-  userIDList: ['chard', 'linda', 'rg'],
+  userIDList: ['mike', 'tom'],
   callMediaType: 1, // 语音通话(callMediaType = 1)、视频通话(callMediaType = 2)
 };
 TUICallKit.groupCall(options, (res) => {
@@ -172,7 +172,7 @@ TUICallKit.joinInGroupCall(options, (res) => {
 
 ```javascript
 const TUICallKit = uni.requireNativePlugin('TencentCloud-TUICallKit');
-const filePath = './**';
+const filePath = './customBell.mp4';
 TUICallKit.setCallingBell(filePath, (res) => {
   if (res.code === 0) {
     console.log('setCallingBell success');

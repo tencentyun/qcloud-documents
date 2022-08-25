@@ -30,9 +30,9 @@ TUICallKit 是基于腾讯云 [即时通信 IM](https://cloud.tencent.com/docume
 [](id:step2)
 ## 步骤二：导入插件 
 1. **购买 uni-app 原生插件**
-登录 [uni 原生插件市场](https://ext.dcloud.net.cn/plugin?id=9035)，在插件详情页中购买（免费插件也可以在插件市场0元购）。购买后才能够云端打包使用插件。**购买插件时请选择正确的 appid，以及绑定正确包名**。
+登录 uni 原生插件市场，并访问 [TencentCloud-TUICallKit 插件](https://ext.dcloud.net.cn/plugin?id=9035)，在插件详情页中购买（免费插件也可以在插件市场0元购）。购买后才能够云端打包使用插件。**购买插件时请选择正确的 appid，以及绑定正确包名**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d270d9298975ee829ae9c8c405530765.png)
-2. 使用自定义基座打包 uni 原生插件 （**请使用真机运行自定义基座**）
+1. 使用自定义基座打包 uni 原生插件 （**请使用真机运行自定义基座**）
 使用 uni 原生插件必须先提交云端打包才能生效，购买插件后在应用的 `manifest.json` 页面的 **App原生插件配置** 项下单击**选择云端插件**，选择**腾讯云原生音视频插件**。
 ![](https://web.sdk.qcloud.com/component/TUIKit/assets/uni-app/TencentCloud-TUICallKit.png)
 直接云端打包后无法打 log，无法排查问题，需要自定义基座调试原生插件。
@@ -53,9 +53,9 @@ const TUICallKit = uni.requireNativePlugin('TencentCloud-TUICallKit');
 在您的项目中添加如下代码，完成 TUICallKit 组件的登录。这个步骤异常关键，因为只有在登录成功后才能正常使用 TUICallKit 的各项功能，故请您耐心检查相关参数是否配置正确。
 ```javascript
 const options = {
-  SDKAppID: 0,
-  userID: 'your userID',
-  userSig: 'your userSig',
+  SDKAppID: 1400000001,   // 请替换为步骤一取到的 SDKAppID
+  userID: 'denny',        // 请替换为您的 UserID
+  userSig: 'xxxxxxxxxxx', // 您可以在控制台中计算一个 UserSig 并填在这个位置
 };
 TUICallKit.login(options, (res) => {
   if (res.code === 0) {
@@ -75,9 +75,9 @@ TUICallKit.login(options, (res) => {
 
 > !
 - **这个步骤也是目前我们收到的开发者反馈最多的步骤，常见问题如下**：
- - sdkAppId 设置错误，国内站的 SDKAppID 一般是以140开头的10位整数。
- - userSig 被错配成了加密密钥（Secretkey），userSig 是用 SecretKey 把 sdkAppId、userId 以及过期时间等信息加密得来的，而不是直接把 Secretkey 配置成 userSig。
- - userId 被设置成“1”、“123”、“111”等简单字符串，由于 **TRTC 不支持同一个 UserID 多端登录**，所以在多人协作开发时，形如 “1”、“123”、“111” 这样的 userId 很容易被您的同事占用，导致登录失败，因此我们建议您在调试的时候设置一些辨识度高的 userId。
+ - SDKAppID 设置错误，国内站的 SDKAppID 一般是以140开头的10位整数。
+ - userSig 被错配成了加密密钥（Secretkey），userSig 是用 SecretKey 把 SDKAppID、userID 以及过期时间等信息加密得来的，而不是直接把 Secretkey 配置成 userSig。
+ - userID 被设置成“1”、“123”、“111”等简单字符串，由于 **TRTC 不支持同一个 UserID 多端登录**，所以在多人协作开发时，形如 “1”、“123”、“111” 这样的 userID 很容易被您的同事占用，导致登录失败，因此我们建议您在调试的时候设置一些辨识度高的 userID。
 - Github 中的示例代码使用了 genTestUserSig 函数在本地计算 userSig 是为了更快地让您跑通当前的接入流程，但该方案会将您的 SecretKey 暴露在 App 的代码当中，这并不利于您后续升级和保护您的 SecretKey，所以我们强烈建议您将 userSig 的计算逻辑放在服务端进行，并由 App 在每次使用 TUICallKit 组件时向您的服务器请求实时计算出的 userSig。
 
 
@@ -87,7 +87,7 @@ TUICallKit.login(options, (res) => {
 通过调用 TUICallKit 的 call 函数并指定通话类型和被叫方的 userID，就可以发起语音或者视频通话。
 ```javascript
 const options = {
-  userID: 'chard',
+  userID: 'mike',
   callMediaType: 1, // 语音通话(callMediaType = 1)、视频通话(callMediaType = 2)
 };
 TUICallKit.call(options, (res) => {
@@ -104,7 +104,7 @@ TUICallKit.call(options, (res) => {
 ```javascript
 const options = {
   groupID: 'myGroup',
-  userIDList: ['chard', 'linda', 'rg'],
+  userIDList: ['mike', 'tom'],
   callMediaType: 1, // 语音通话(callMediaType = 1)、视频通话(callMediaType = 2)
 };
 TUICallKit.groupCall(options, (res) => {
@@ -126,8 +126,8 @@ TUICallKit.groupCall(options, (res) => {
 如果您需要自定义昵称或头像，可以使用如下接口进行更新。
 ```javascript
 const options = {
-  nickName: '',
-  avatar: ''
+  nickName: 'jack',
+  avatar: 'https:/****/user_avatar.png'
 }
 TUICallKit.setSelfInfo(options, (res) => {
   if (res.code === 0) {
@@ -142,8 +142,7 @@ TUICallKit.setSelfInfo(options, (res) => {
 ### 二、悬浮窗功能
 如果您的业务需要开启悬浮窗功能，您可以在 TUICallKit 组件初始化时调用以下接口开启该功能。
 ```javascript
-const enable = true;
-TUICallKit.enableFloatWindow(enable);
+TUICallKit.enableFloatWindow(true);
 ```
 
 ### 三、通话状态监听
@@ -170,7 +169,7 @@ TUICallingEvent.addEventListener('onCallEnd', (res) => {
 ### 四、自定义铃音
 如果您需要自定义来电铃音，可以通过如下接口进行设置。
 ```javascript
-const filePath = './**';
+const filePath = './customBell.mp4';
 TUICallKit.setCallingBell(filePath, (res) => {
   if (res.code === 0) {
     console.log('setCallingBell success');
@@ -179,11 +178,6 @@ TUICallKit.setCallingBell(filePath, (res) => {
   }
 });
 ```
-
-[](id:step8)
-## 步骤八：本地调试和发布
- 使用自定义基座开发调试 [TencentCloud-TUICallKit 插件](https://ext.dcloud.net.cn/plugin?id=9035) 后，不可直接将自定义基座 APK 作为正式版发布。
- 应该重新提交云端打包（不能勾选“**自定义基座**”）生成正式版本。
 
 ## 实现案例
 我们提供了**在线客服场景**的相关源码，建议您 [下载](https://ext.dcloud.net.cn/plugin?id=721) 并集成体验。该场景提供了示例客服群 + 示例好友的基础模板，实现功能包括：
@@ -208,7 +202,6 @@ TUICallKit.setCallingBell(filePath, (res) => {
 了解更多详情您可 QQ 咨询：**309869925** (技术交流群)
 
 ## 相关文档
-- [uni-app 原生音视频插件示例](https://github.com/tencentyun/TIMSDK/tree/master/uni-app/TUICallKit/TUICallKit-app)
 - [uni-app TUIKit 源码](https://github.com/tencentyun/TIMSDK/tree/master/uni-app)
 - [一分钟跑通 Demo (uni-app)](https://cloud.tencent.com/document/product/269/64506)
 - [快速集成 uni-app TUIKit](https://cloud.tencent.com/document/product/269/64507)
