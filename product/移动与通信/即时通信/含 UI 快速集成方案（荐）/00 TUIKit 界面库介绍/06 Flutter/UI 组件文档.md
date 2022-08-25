@@ -70,6 +70,16 @@ TIMUIKitChat 主要负责消息界面的展示。您还可以利用它直接发�
     <td><img style="width:500px" src="https://qcloudimg.tencent-cloud.cn/raw/26d87e8f2e54cac8de224735a39e6158.png" /></td>
 	 </tr>
 </table>
+<table style="text-align:center; vertical-align:middle; width:1000px">
+  <tr>
+    <th style="text-align:center;" width="300px">链接解析</th>
+    <th style="text-align:center;" width="300px">地理位置解析</th>
+  </tr>
+  <tr>
+    <td><img style="width:500px" src="https://qcloudimg.tencent-cloud.cn/raw/6f9b523937e482c7aa86d30f02cd1739.png" /></td>
+    <td><img style="width:500px" src="https://qcloudimg.tencent-cloud.cn/raw/b012b5a54c59748cb964782e37340495.png" /></td>
+	 </tr>
+</table>
 
 ### 关系链 重点功能介绍
 关系链主要负责当前用户的联系人、群聊、黑名单的信息展示。
