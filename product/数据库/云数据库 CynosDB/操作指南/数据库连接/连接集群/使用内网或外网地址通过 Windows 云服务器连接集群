@@ -16,12 +16,16 @@
 >
 ![](https://main.qcloudimg.com/raw/1af292f989f03f3e02e1200b77cb70c1.png)
 5. 打开 MySQL Workbench，选择 **Database** > **Connect to Database**，输入 TDSQL-C MySQL 数据库集群的内网（或外网）地址和用户名、密码，单击 **OK** 进行登录。
- - Hostname：输入内网（或外网）地址。在 [控制台](https://console.cloud.tencent.com/cynosdb) 的集群详情页可查看到目标数据库的内网（或外网）地址。若为外网地址，请确认是否已开启，请参见 [开启或关闭外网地址]()。
- - Port：内网（或外网）对应端口。
- - Username：填写创建数据库账号时的账号名，此处以默认账号 root 为例。
- - Password：Username 对应的密码。如忘记密码可在 [控制台](https://console.cloud.tencent.com/cynosdb) 进行修改。
 ![](https://main.qcloudimg.com/raw/9c9e5dcc8a2bb9fa15fa4d98a18308f1.png)
-6. 登录成功的页面如图 所示，在此页面上您可以看到数据库的各种模式和对象，您可以开始创建表，进行数据插入和查询等操作。
+
+| 参数 | 说明 | 
+|---------|---------|
+| Hostname | 输入内网（或外网）地址。在 [控制台](https://console.cloud.tencent.com/cynosdb) 的集群详情页可查看到目标数据库的内网（或外网）地址。若为外网地址，请确认是否已开启，请参见 [开启或关闭外网地址]()。 | 
+| Port | 内网（或外网）对应端口。 | 
+| Username | 填写创建数据库账号时的账号名，此处以默认账号 root 为例。 | 
+| Password | Username 对应的密码。如忘记密码可在 [控制台](https://console.cloud.tencent.com/cynosdb) 进行修改。 | 
+
+6. 登录成功的页面如图所示，在此页面上您可以看到数据库的各种模式和对象，您可以开始创建表，进行数据插入和查询等操作。
 ![](https://main.qcloudimg.com/raw/33f081e99c384258bbc5ed3683ed4d7d.png)
 
 ## 常见问题
