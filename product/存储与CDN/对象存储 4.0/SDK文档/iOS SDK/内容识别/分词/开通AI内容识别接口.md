@@ -6,7 +6,7 @@
 
 | API                                                          |  说明                                  |
 | ------------------------------------------------------------ | ----------------------------------------- |
-| [开通AI 内容识别服务并生成队列](https://cloud.tencent.com/document/product/436/47598) |接口用于开通AI 内容识别服务并生成队列。               |
+| [开通AI 内容识别服务并生成队列](https://cloud.tencent.com/document/product/436/79596) |接口用于开通AI 内容识别服务并生成队列。               |
 
 ## SDK API 参考
 
@@ -34,7 +34,7 @@ request.bucket = @"examplebucket-1250000000";
 request.regionName = @"regionName";
 
 [request setFinishBlock:^(QCloudOpenAIBucketResult *  _Nullable result, NSError * _Nullable error) {
-    // outputObject 详细字段请查看api文档或者SDK源码
+    // result 详细字段请查看api文档或者SDK源码
     // QCloudOpenAIBucketResult 类；
 }];
 [[QCloudCOSXMLService defaultCOSXML] OpenAIBucket:request];
