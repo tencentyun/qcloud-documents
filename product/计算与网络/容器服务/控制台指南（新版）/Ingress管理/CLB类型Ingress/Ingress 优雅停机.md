@@ -127,5 +127,5 @@ spec:
 
 优雅停机只是在 Pod 删除时，才把 CLB 后端的权重置为 0。若 Pod 在运行的过程中，出现了不健康的情况，此时将该后端的权重置为 0，可以减少服务不可用的风险。
 您可以使用 Annotation：`ingress.cloud.tencent.com/enable-grace-shutdown-tkex: "true"` 实现这样优雅退出的能力。
-该 Annotation 会根据 Endpoint 对象中 endpoints 是否 not-ready，将 not-ready 的 CLB 后端置为 0。
+该 Annotation 会根据 Endpoint 对象中 endpoints 是否 not-ready，将 not-ready 的 CLB 后端权重置为 0。
 
