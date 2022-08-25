@@ -108,7 +108,8 @@ data:
       "regionId": "ap-shanghai", # 必填项，集群所在地域的 ID
       "secretId": "******",  
       "secretKey": "******",
-      "vpcId": "vpc-******"	# 必填项，集群所在 VPC 的 ID
+      "vpcId": "vpc-******",	# 必填项，集群所在 VPC 的 ID
+      "internetEndpoint": false # 腾讯云API入口。如果需要在非腾讯云的环境部署，改为true，走公网访问。
     }
 ---
 apiVersion: apps/v1
@@ -135,7 +136,7 @@ spec:
         - --policy=sync # 设置“upsert-only”将阻止 ExternalDNS 删除任何记录
         - --tencent-cloud-zone-type=private # 仅管理私有托管区域。设置“public”以使用公网 DNS 服务
         - --tencent-cloud-config-file=/etc/kubernetes/tencent-cloud.json
-        image: ccr.ccs.tencentyun.com/tke-market/external-dns:v1.0.0
+        image: ccr.ccs.tencentyun.com/tke-market/external-dns:v1.1.0
         imagePullPolicy: Always
         name: external-dns
         resources: {}
