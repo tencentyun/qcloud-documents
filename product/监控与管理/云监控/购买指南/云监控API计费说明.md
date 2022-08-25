@@ -9,10 +9,8 @@
 
 ### 计费开通操作
 
-进入 [API 购买页](https://buy.cloud.tencent.com/APIRequestBuy)可手动开通“API 按量付费”，开通后您将可以在免费额度外正常调用 API 接口。也可以到 [资源消耗页](https://console.cloud.tencent.com/monitor/consumer/products)开通“API 按量付费”并查看 API 请求量。
-
+进入 [API 后付费开通页](https://buy.cloud.tencent.com/APIRequestBuy) 可手动开通‘API请求按量付费’，开通后您将可以在免费额度外正常调用 API 接口。。也可以在资源消耗页进行‘API请求按量付费’的开通和关闭操作。同时，您也可在此页面查看 API 请求量。
 ![](https://qcloudimg.tencent-cloud.cn/raw/c8557bad5bb63a9bcd56db7e45aa07e4.png)
-
 
 ### 计费规则
 超过免费额度后，将按照下列模式进行计费。
