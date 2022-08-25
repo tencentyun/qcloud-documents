@@ -18,7 +18,7 @@
   <tr>
 	<th width="17%">功能类型</th>
 	<th>操作场景</th>
-	<th width="20%">相关文档</th>	
+	<th width="30%">相关文档</th>	
   </tr>
   <tr>
 	<td>找回公网 IP 地址</td>
