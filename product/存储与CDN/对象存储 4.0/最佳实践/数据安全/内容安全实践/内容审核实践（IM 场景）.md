@@ -27,7 +27,7 @@
 按照以下文档说明完成**登录**、**获取 SDKAppID 及密钥信息**、**创建应用**、**下载 DEMO 源码**、 **配置密钥**、**编译运行（部分平台需要）**操作。
 
 - 通用 Demo 入门教程，请参见 [一分钟跑通 Demo](https://cloud.tencent.com/document/product/269/36838)。
-- 通用 IM SDK 和 Demo 源码，请参见 [SDK 下载](https://cloud.tencent.com/document/product/269/36887)。
+- 通用即时通讯 SDK 和 Demo 源码，请参见 [SDK 下载](https://cloud.tencent.com/document/product/269/36887)。
 
 本文例子使用 Web&H5，修改`GenerateTestUserSig.js`文件配置密钥后，无需编译，可直接访问`dist/index.html`，例如`http://127.0.0.1/timSdkH5Demo/dist/index.html`替换为服务器地址后可以直接访问，`timSdkH5Demo`为代码目录，可按需修改。
 
