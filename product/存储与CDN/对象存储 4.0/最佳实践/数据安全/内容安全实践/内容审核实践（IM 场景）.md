@@ -8,19 +8,16 @@
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/0577e5fa1b21886947fbb795b38dd0cc.png)
 
-安全管理主要在步骤3、4、5.
-
+安全管理主要在步骤3、4、5。
 - 步骤3表示发送请求对消息内容进行识别。
 - 步骤4表示返回处理结果。
 - 步骤5表示根据结果判断是否发送消息或是否撤回、删除消息。
 
 实际聊天效果如下图：
-
 - 发送端
 ![img](https://main.qcloudimg.com/raw/5bb14cd8a5a044c98a10d18952c31a02.png)
 - 接收端
 ![img](https://main.qcloudimg.com/raw/265483ac6d58db9fee497a89dc748da1.png)
-
 
 
 ## 准备工作
@@ -38,17 +35,13 @@
 
 ![img](https://main.qcloudimg.com/raw/54bc11435128816dfb2dfc1b1ed5086d.png)
 
-
-
 ### 2. 具体配置
 
 （1）每款即时通讯产品都有回调内容的配置，这里需要先进行回调的配置，具体回调参数及说明可以参考 [第三方回调简介](https://cloud.tencent.com/document/product/269/1522)。
 （2）回调事件以“单聊消息”为例，选中“发单聊消息之前回调”，会在发送消息前请求回调 URL，一系列判断后返回回调结果。
 
-
-
->?
-> 这一步需要保证的就是，即时通讯产品可实现消息发送，且在发送消息时触发回调URL的请求，回调接口能够接收到请求数据。
+>? 这一步需要保证的就是，即时通讯产品可实现消息发送，且在发送消息时触发回调URL的请求，回调接口能够接收到请求数据。
+>
 
 ## 图文消息具体配置
 
@@ -81,12 +74,9 @@ PHP SDK地址: https://cloud.tencent.com/document/product/436/12266 (其他语�
 文本、图片
 ```
 
-
-
-#### Step 1 回调请求参数
+#### 步骤1：回调请求参数
 
 相关文档如下：
-
 - [第三方回调简介](https://cloud.tencent.com/document/product/269/1522)
 - [回调参数列表](https://cloud.tencent.com/document/product/269/1523)
 - [消息格式描述](https://cloud.tencent.com/document/product/269/2720)
@@ -219,9 +209,7 @@ Content-Length: 75
 
 为确保回调成功率，第三方 App 应当尽可能加快回调处理速度，例如先发送回调应答，然后再处理具体业务逻辑。
 
-
-
-#### Step 2 获取消息内容
+#### 步骤2：获取消息内容
 
 | 回调类型           | 回调命令字                                                   |
 | ------------------ | ------------------------------------------------------------ |
@@ -278,23 +266,18 @@ public static function cmdC2cMsgBefore($allData) {
 
 接下来对消息内容发送识别请求并获取识别结果。
 
+#### 步骤3：对消息内容进行安全识别，获取识别结果
 
-
-#### Step 3 对消息内容进行安全识别，获取识别结果
-
-相关文档如下：
-
+相关文档如下：:
 - [图片安全识别](https://cloud.tencent.com/document/product/436/45434)
 - [提交文本安全识别任务](https://cloud.tencent.com/document/product/436/56289)
 
 关于安全，为了开发者更方便、更快速地使用数据万象的基础图片处理和媒体处理功能，以及 CDN 的云闪图片分发功能，我们提供了 SDK，开发者可根据具体需求进行选择，详情请参见对应的快速入门文档。对象存储的 SDK 也集成了数据万象的数据处理功能，若您需要使用其他语言的 SDK，例如 C++ 、JavaScript 等，请参见 [COS SDK 概览](https://cloud.tencent.com/document/product/436/6474)。
 
-
-
 (1) 图片安全识别
 
->?
-> 关于图片安全识别的图片限制说明，请参见 [规则与限制](https://cloud.tencent.com/document/product/460/36620)。
+>? 关于图片安全识别的图片限制说明，请参见 [规则与限制](https://cloud.tencent.com/document/product/460/36620)。
+>
 
 以下为 COS PHP SDK 请求示例（sample/getObjectSensitiveContentRecognition.php）：
 
@@ -370,8 +353,6 @@ GuzzleHttp\Command\Result Object
     [Location] => examplebucket-125000000.cos.ap-guangzhou.myqcloud.com//
 )
 ```
-
-
 
 (2) 文本安全识别
 
@@ -480,7 +461,7 @@ GuzzleHttp\Command\Result Object
   )
 ```
 
-#### Step 4  回调请求返回结果
+#### 步骤4：回调请求返回结果
 
 进行到这一步，说明已经对消息内容进行了安全识别并作出了是否违规的判断，接下来就是返回是否违规的结果即可。
 
@@ -508,7 +489,7 @@ Content-Length: 75
 
 ## 语音消息安全识别具体配置
 
-以 Android 端的通信 APP 为例，进行语音消息安全识别。
+以 Android 端的通信 App 为例，进行语音消息安全识别。
 
 Android 端的文本、图片消息和 Web 端请求过程一致，在此不再累述。可参见以下文档：
 
@@ -529,11 +510,11 @@ Android 端的文本、图片消息和 Web 端请求过程一致，在此不再�
 
 下面举例说明部分会以`Step n`来对应上面各点。
 
-#### Step 1 用户发送消息
+#### 步骤1：用户发送消息
 
 ![img](https://main.qcloudimg.com/raw/56071d82a288b6169c5145e1e5c271da.jpeg)
 
-#### Step 2 请求回调 URL 接口，获取到语音消息对应的音频文件
+#### 步骤2：请求回调 URL 接口，获取到语音消息对应的音频文件
 
 和文本、图片获取方式一样，只不过换成了语音消息，参数略有不同。
 
@@ -561,8 +542,6 @@ Android 端的文本、图片消息和 Web 端请求过程一致，在此不再�
 }
 ```
 
-
-
 这里`From_Account`、`To_Account`、`MsgKey`三个字段在消息违规撤回时需要用到。
 
 样例代码是对文本、图片安全识别流程`Step 2`获取消息内容的`ImMsg::cmdC2cMsgBefore`做了补充：
@@ -588,15 +567,11 @@ public static function cmdC2cMsgBefore($allData) {
 
 这一步获取到了语音对应的音频文件地址，即`$msgItem['MsgContent']['Url']`。
 
-
-
-#### Step 3 提交音频安全识别任务
+#### 步骤3：提交音频安全识别任务
 
 和文本、图片安全识别基本一致，只是多了一步回调操作，而不是直接返回结果，在音频识别完成后自动调用回调接口，发送识别结果。相关 API 文档可参见 [提交音频安全识别任务](https://cloud.tencent.com/document/product/436/54063)。
 
 使用 COS PHP SDK 请求示例（sample/detectAudio.php），请求中`Callback`为识别完成后的回调 URL，发送识别结果。
-
-
 
 ```php
 <?php
@@ -633,8 +608,6 @@ try {
 }
 ```
 
-
-
 响应结果：
 
 ```
@@ -656,13 +629,11 @@ GuzzleHttp\Command\Result Object
 )
 ```
 
-
-
-#### Step 4 消息接收方收到消息
+#### 步骤4：消息接收方收到消息
 
 这里以先发后审的形式，在安全识别结果出来之前，默认所有语音消息都正常，允许发送。
 
-#### Step 5 音频安全识别结果
+#### 步骤5：音频安全识别结果
 
 在提交音频安全识别任务后，识别完成会以回调的方式发送识别任务，回调 URL 就是提交检测时`Callback`参数。
 
@@ -692,22 +663,19 @@ GuzzleHttp\Command\Result Object
 }
 ```
 
-
-
 详细参数及含义见 [查询音频安全识别结果](https://cloud.tencent.com/document/product/436/54064)，主动请求返回的是 XML 格式，回调发送的是 json，但参数含义一致。
 
-#### Step 6 若违规，则撤回消息
+#### 步骤6：若违规，则撤回消息
 
 相关文档如下：
 
 - [撤回单聊消息](https://cloud.tencent.com/document/product/269/38980)
 - [生成 UserSig](https://cloud.tencent.com/document/product/269/32688)
 
->!使用该接口撤回单聊消息后，被撤回的消息不能恢复，请谨慎调用该接口。
+>! 使用该接口撤回单聊消息后，被撤回的消息不能恢复，请谨慎调用该接口。
+>
 
 请求示例：
-
-
 
 ```http
 POST https://console.tim.qq.com/v4/openim/admin_msgwithdraw?sdkappid=88888888&identifier=admin&usersig=xxx&random=99999999&contenttype=json HTTP/1.1
@@ -721,11 +689,7 @@ Content-Type: application/json
 }
 ```
 
-
-
 响应体：
-
-
 
 ```json
 // 正常应答
@@ -743,11 +707,7 @@ Content-Type: application/json
 }
 ```
 
-
-
 代码示例：
-
-
 
 ```php
 public static function withdrawC2cMsg($fromAccount, $toAccount, $msgKey) {
@@ -780,10 +740,8 @@ public static function withdrawC2cMsg($fromAccount, $toAccount, $msgKey) {
 }
 ```
 
-
-
 以 PHP 为例，在生成 UserSig 时引入`TLSSigAPIv2.php`即可。其他语言见 [生成 UserSig](https://cloud.tencent.com/document/product/269/32688)。
 
-#### Step 7 违规消息自动撤回，流程结束
+#### 步骤7：违规消息自动撤回，流程结束
 
 ![img](https://main.qcloudimg.com/raw/cb65d0f313ac461e2092477145de62b9.png)
