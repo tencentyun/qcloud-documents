@@ -7,7 +7,6 @@
 - 小程序基础库最低版本要求：2.10.0
 - 由于小程序测试号不具备 &lt;live-pusher> 和 &lt;live-player> 的使用权限，请使用企业小程序账号申请相关权限进行开发。
 - 由于微信开发者工具不支持原生组件（即 &lt;live-pusher> 和 &lt;live-player> 标签），需要在真机上进行运行体验。
-- 不支持 uniapp 等开发框架，请使用原生小程序开发环境。
 
 
 [](id:step1)
@@ -28,10 +27,10 @@ TUICallKit 是基于腾讯云 [即时通信 IM](https://cloud.tencent.com/docume
 ![](https://qcloudimg.tencent-cloud.cn/raw/1105c3c339be4f71d72800fe2839b113.png)
 2. 单击刚刚创建出的应用，进入**基本配置**页面，并在页面的右下角找到**开通腾讯实时音视频服务**功能区，单击**免费体验**即可开通 TUICallKit 的 7 天免费试用服务。
 <img src="https://qcloudimg.tencent-cloud.cn/raw/667633f7addfd0c589bb086b1fc17d30.png" width=640>
-3. 在同一页面找到 **SDKAppID** 和**密钥**并记录下来,它们会在后续的 [步骤四：填写 SDKAPPID 和 SECRETKEY](#step4) 中被用到。
+3. 在同一页面找到 **SDKAppID** 和**密钥**并记录下来。
 ![](https://qcloudimg.tencent-cloud.cn/raw/e435332cda8d9ec7fea21bd95f7a0cba.png)
     - **SDKAppID**：IM 的应用 ID，用于业务隔离，即不同的 SDKAppID 的通话彼此不能互通。
-    - **Secretkey**：IM 的应用密钥，需要和 SDKAppID 配对使用，用于签出合法使用 IM 服务的鉴权用票据 UserSig，我们会在接下来的步骤四中用到这个 Key。
+    - **Secretkey**：IM 的应用密钥，需要和 SDKAppID 配对使用，用于签出合法使用 IM 服务的鉴权用票据 UserSig。
 
 
 [](id:step3)
@@ -44,37 +43,12 @@ git clone https://github.com/TencentCloud/TIMSDK
 //进入 uni-app TUICallKit 项目
 cd TIMSDK/uni-app/TUICallKit/TUICallKit-miniprogram
 ```
-2. 将项目中的 wxcomponents 中的 TUICalling 文件夹复制到自己项目的 wxcomponents 中，以及 debug 文件夹同样需要复制到您工程的根目录下。<br>
-<img src="https://qcloudimg.tencent-cloud.cn/raw/7321ded02e16ae29c711ec06e3952791.png" width=350>
+2. 将项目中的 wxcomponents 中的 TUICallKit 文件夹复制到自己项目的 wxcomponents 中。<br>
+<img src="https://qcloudimg.tencent-cloud.cn/raw/4ee749f6be534c90f39e4e46dafc5fc3.png" width=350>
 
 
 [](id:step4)
-## 步骤四：填写 SDKAPPID 和 SECRETKEY
-打开 debug 文件夹下的 `GenerateTestUserSig.js` 文件。
-```javascript
-/**
- * 腾讯云 SDKAppId，需要替换为您自己账号下的 SDKAppId。
- *
- * 进入腾讯云实时音视频[控制台](https://console.cloud.tencent.com/rav ) 创建应用，即可看到 SDKAppId，
- * 它是腾讯云用于区分客户的唯一标识。
- */
-const SDKAPPID = '';
-
-/**
- * 计算签名用的加密密钥，获取步骤如下：
- *
- * step1. 进入腾讯云实时音视频[控制台](https://console.cloud.tencent.com/rav )，如果还没有应用就创建一个，
- * step2. 单击“应用配置”进入基础配置页面，并进一步找到“帐号体系集成”部分。
- * step3. 点击“查看密钥”按钮，就可以看到计算 UserSig 使用的加密的密钥了，请将其拷贝并复制到如下的变量中
- * 注意：该方案仅适用于调试Demo，正式上线前请将 UserSig 计算代码和密钥迁移到您的后台服务器上，以避免加密密钥泄露导致的流量盗用。
- * 文档：https://cloud.tencent.com/document/product/647/17275#Server
- *  */
-const SECRETKEY = '';
-```
-
-
-[](id:step5)
-## 步骤五：创建并配置组件
+## 步骤四：创建并配置组件
 1. 下载相关依赖：
 ```javascript
 npm install tim-wx-sdk --save
@@ -88,7 +62,7 @@ npm install tim-wx-sdk --save
 			"style": {
 				"navigationBarTitleText": "uni-app",
 				"usingComponents": {
-				       "tuicalling": "/wxcomponents/TUICalling/TUICallKit/TUICallKit"
+				       "tuicallkit": "/wxcomponents/TUICallKit/TUICallKit/TUICallKit"
 				}
 			}
 		}
@@ -98,61 +72,54 @@ npm install tim-wx-sdk --save
 
 
 
-[](id:step6)
-## 步骤六：创建并初始化 TUI 组件库
+[](id:step5)
+## 步骤五：创建并初始化 TUI 组件库
 1. 在需要使用 TUICallKit 的页面中引入组件。
-例如示例代码中的 `uni-app/TUICalling/TUICalling-miniprogram/pages/index/calling.vue`：
+例如示例代码中的 [`uni-app/TUICallKit/TUICallKit-miniprogram/pages/index/calling.vue`](https://github.com/TencentCloud/TIMSDK/blob/master/uni-app/TUICallKit/TUICallKit-miniprogram/pages/index/calling.vue)：
 ```javascript
-  <tuicalling
-   ref="TUICalling"
-   id="TUICalling-component"
+  <tuicallkit
+   ref="TUICallKit"
+   id="TUICallKit-component"
    :config="config">
-   </tuicalling>
+   </tuicallkit>
 ```
 >!组件的名称要与 page.json 中的保持一致，组件名称均是小写字母。
-2. 引入 GenerateTestUserSig.js 文件
-```javascript
-import {genTestUserSig} from '../../debug/GenerateTestUserSig.js'
-```
-3. 在需要使用 TUICallKit 的页面填写 config 配置信息。
-例如示例代码中的 uni-app/TUICalling/TUICalling-miniprogram/pages/index/calling.vue：
+
+2. 在需要使用 TUICallKit 的页面填写 config 配置信息。
+例如示例代码中的 [uni-app/TUICallKit/TUICallKit-miniprogram/pages/index/calling.vue](https://github.com/TencentCloud/TIMSDK/blob/master/uni-app/TUICallKit/TUICallKit-miniprogram/pages/index/calling.vue)：
 ```javascript
 data() {
 	return {
 		config :{
 			    sdkAppID: 0, // 开通实时音视频服务创建应用后分配的 SDKAppID
-				userID: 'user0', // 用户 ID，可以由您的帐号系统指定
+				userID: 'userId', // 用户 ID，可以由您的帐号系统指定
 				userSig: 'xxxxxxxxxxxx', // 身份签名，相当于登录密码的作用
 		}
 	}
 }
 ```
-4. 在生命周期中初始化 TUICallKit 组件。
+
+3. 在生命周期中初始化 TUICallKit 组件。
 ```javascript
 onLoad() {
-  this.config = {
-	 sdkAppID: genTestUserSig('').sdkAppID,
-	 userID: this.userId,
-	 userSig: genTestUserSig(this.userId).userSig
-  }
   this.$nextTick(() => {
-  	 this.$refs.TUICalling.init()
+  	 this.$refs.TUICallKit.init()
   })
 }
 ```
   
-[](id:step7)
-## 步骤七： 进行通话
+[](id:step6)
+## 步骤六： 进行通话
 双人通话
 ```javascript
-this.$refs.TUICalling.call({ userID: 'user1', type:2 })
+this.$refs.TUICallKit.call({ userID: 'user1', type:2 })
 ```
 
-[](id:step8)
-## 步骤八： 回收 TUICallKit
+[](id:step7)
+## 步骤七： 回收 TUICallKit
 ```javascript
 // 回收 TUICallKit
 onUnload() {
-	this.$refs.TUICalling.destroyed();
+	this.$refs.TUICallKit.destroyed();
 }
 ```

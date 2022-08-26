@@ -50,11 +50,11 @@ TUICallKit 是基于腾讯云 [即时通信 IM](https://cloud.tencent.com/docume
 <img width="640" src="https://qcloudimg.tencent-cloud.cn/raw/1105c3c339be4f71d72800fe2839b113.png">
 2. 单击刚刚创建出的应用，进入**基本配置**页面，并在页面的右下角找到**开通腾讯实时音视频服务**功能区，单击**免费体验**即可开通 TUICallKit 的 7 天免费试用服务。
 <img width="640" src="https://qcloudimg.tencent-cloud.cn/raw/99a6a70e64f6877bad9406705cbf7be1.png">
-3. 在同一页面找到 **SDKAppID** 和**密钥**并记录下来，它们会在后续的 [步骤五：填写 SDKAPPID 和 SECRETKEY](#step5)  中被用到。
+3. 在同一页面找到 **SDKAppID** 和**密钥**并记录下来。
 <img width="640" src="https://qcloudimg.tencent-cloud.cn/raw/e435332cda8d9ec7fea21bd95f7a0cba.png">
 
     - **SDKAppID**：IM 的应用 ID，用于业务隔离，即不同的 SDKAppID 的通话彼此不能互通。
-    - **Secretkey**：IM 的应用密钥，需要和 SDKAppID 配对使用，用于签出合法使用 IM 服务的鉴权用票据 UserSig，我们会在接下来的步骤五中用到这个 Key。
+    - **Secretkey**：IM 的应用密钥，需要和 SDKAppID 配对使用，用于签出合法使用 IM 服务的鉴权用票据 UserSig。
 
 <dx-alert infotype="notice" title="<b>音视频通话能力活动特惠</b>：">
 即日起至2022年10月01日0点前，购买音视频通话能力包基础版可获赠解锁相同有效期的小程序端通话功能授权。在活动结束前购买的音视频通话能力包在有效期内不受活动结束影响仍可使用小程序通话功能，活动结束后的新购或续期需选择体验版、进阶版、尊享版来获取小程序通话功能授权，基础版亦可单独加购小程序功能授权进行解锁。
@@ -63,37 +63,14 @@ TUICallKit 是基于腾讯云 [即时通信 IM](https://cloud.tencent.com/docume
 
 [](id:step4)
 ## 步骤四：下载并导入 TUICallKit 组件
-单击进入 [Github](https://github.com/tencentyun/TUICalling)，选择克隆/下载代码，然后拷贝 MiniProgram 下的 debug 目录，lib 目录以及 TUICallKit 和 TUICallEngine 目录到您的工程中。
-<img width="350" src="https://qcloudimg.tencent-cloud.cn/raw/02c1c681bf400de5ce55e8e5eb7efa3a.png">
+单击进入 [Github](https://github.com/tencentyun/TUICalling)，选择克隆/下载代码，然后拷贝 MiniProgram 下的 lib 目录， TUICallKit 和 TUICallEngine 目录到您的工程中。
+<img width="350" src="https://qcloudimg.tencent-cloud.cn/raw/e28659aa4d65a02d9fab3b2a9691db01.png">
 
 	
+
 [](id:step5)
-## 步骤五：填写 SDKAPPID 和 SECRETKEY
-打开 debug 文件夹下的 `GenerateTestUserSig.js` 文件。
-```javascript
-/**
- * 腾讯云 SDKAppId，需要替换为您自己账号下的 SDKAppId。
- *
- * 进入腾讯云实时音视频[控制台](https://console.cloud.tencent.com/rav ) 创建应用，即可看到 SDKAppId，
- * 它是腾讯云用于区分客户的唯一标识。
- */
-const SDKAPPID = '';
-
-/**
- * 计算签名用的加密密钥，获取步骤如下：
- *
- * step1. 进入腾讯云实时音视频[控制台](https://console.cloud.tencent.com/rav )，如果还没有应用就创建一个，
- * step2. 单击“应用配置”进入基础配置页面，并进一步找到“帐号体系集成”部分。
- * step3. 点击“查看密钥”按钮，就可以看到计算 UserSig 使用的加密的密钥了，请将其拷贝并复制到如下的变量中
- * 注意：该方案仅适用于调试Demo，正式上线前请将 UserSig 计算代码和密钥迁移到您的后台服务器上，以避免加密密钥泄露导致的流量盗用。
- * 文档：https://cloud.tencent.com/document/product/647/17275#Server
- *  */
-const SECRETKEY = '';
-```
-
-[](id:step6)
-## 步骤六：创建并初始化 TUI 组件库
-1. **添加组件到需要使用 TUICallKit 的页面**，例如示例代码中的 `MiniProgram/pages/videoCall/videoCall.json`：
+## 步骤五：创建并初始化 TUI 组件库
+1. **添加组件到需要使用 TUICallKit 的页面**，例如示例代码中的 [`MiniProgram/pages/videoCall/videoCall.json`](https://github.com/tencentyun/TUICallKit/blob/main/MiniProgram/pages/videoCall/videoCall.json)：
 ```javascript
 // 可参考 MiniProgram/pages/videoCall/videoCall.json 或 MiniProgram/pages/audioCall/audioCall.json
 {
@@ -102,7 +79,7 @@ const SECRETKEY = '';
     }
 }
 ```
-2. **在 WXML 模板 中添加一个 TUICallKit 组件**，例如示例代码中的 `MiniProgram/pages/videoCall/videoCall.wxml`：
+2. **在 WXML 模板 中添加一个 TUICallKit 组件**，例如示例代码中的 [`MiniProgram/pages/videoCall/videoCall.wxml`](https://github.com/tencentyun/TUICallKit/blob/main/MiniProgram/pages/videoCall/videoCall.wxml)：
 ```javascript
 // 可参考 MiniProgram/pages/videoCall/videoCall.wxml 或 MiniProgram/pages/audioCall/audioCall.wxml
   <TUICallKit
@@ -111,21 +88,17 @@ const SECRETKEY = '';
   ></TUICallKit>
 ```
 3. **用 JS 代码动态设置 config 参数**
-在 JS 逻辑交互例如 `pages/index/index.js` 中填写如下代码，用于设置 wxml 文件中的 {{config}} 变量。这部分工作可参考 `MiniProgram/pages/videoCall/videoCall.js` 或 `MiniProgram/pages/audioCall/audioCall.js` 中的示例代码，如下所示：
+在 JS 逻辑交互例如 `pages/index/index.js` 中填写如下代码，用于设置 wxml 文件中的 {{config}} 变量。这部分工作可参考 [`MiniProgram/pages/videoCall/videoCall.js`](https://github.com/tencentyun/TUICallKit/blob/main/MiniProgram/pages/videoCall/videoCall.js) 或 [`MiniProgram/pages/audioCall/audioCall.js`](https://github.com/tencentyun/TUICallKit/blob/main/MiniProgram/pages/audioCall/audioCall.js) 中的示例代码，如下所示：
 ```javascript
-// 引入 userSig 生成函数
-import { genTestUserSig } from '../../debug/GenerateTestUserSig';
-const userID = 'your userId';
-const Signature = genTestUserSig(userID);
 Page({
     /**
      * 页面的初始数据
      */
     data: {
         config: {
-            sdkAppID: Signature.sdkAppID, // 替换为您自己账号下的 SDKAppId
-            userID: userID,   // 填写当前用的 userID
-            userSig: genTestUserSig(userID).userSig, // 通过 genTestUserSig(userID) 生成
+            sdkAppID: 123, // 替换为您自己账号下的 SDKAppId
+            userID: 'userId',   // 填写当前用的 userID
+            userSig: 'xxxxxxxxxxxx', // 通过 genTestUserSig(userID) 生成
             tim: null,   //  tim 参数适用于业务中已存在 TIM 实例，为保证 TIM 实例唯一性
         }
     }
@@ -138,13 +111,6 @@ Page({
 4. **在生命周期函数中初始化 TUICallKit**
 ```javascript
 onLoad() {
-	const userID = 'your userId';
-	const Signature = genTestUserSig(userID);
-	const config = {
-	sdkAppID: Signature.sdkAppID,
-	userID: userID,
-	userSig: Signature.userSig,
-	};
 	this.setData(
 		{
 			config: { ...this.data.config, ...config },
@@ -163,8 +129,8 @@ onUnload() {
 },
 ```
 
-[](id:step7)
-## 步骤七：发起视频通话请求
+[](id:step6)
+## 步骤六：发起视频通话请求
 在 JS 逻辑交互例如 `pages/index/index.js` 中填写如下代码，就可以实现一对一视频通话。
 ```javascript
 // 发起1对1视频通话，假设被邀请人的userId为: 1111, type 1：语音通话，2：视频通话。
@@ -172,8 +138,8 @@ this.TUICallKit.call({ userID: '1111', type: 2 });
 ```
 
 
-[](id:step8)
-## 步骤八：更多特性
+[](id:step7)
+## 步骤七：更多特性
 ### 设置昵称&头像
 如果您需要自定义昵称或头像，可以使用如下接口进行更新：
 ```javascript
