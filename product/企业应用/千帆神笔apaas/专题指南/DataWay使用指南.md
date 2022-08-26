@@ -36,8 +36,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/e4dc66020d1a2b4c6418355b746e162c.png)
 3. 单击右上角**编辑**，弹出编辑函数弹窗。
 ![](https://qcloudimg.tencent-cloud.cn/raw/53ad7961da16c03e70ccf5f5200dd37c.png)
-4. 修改函数描述信息，并单击**确认**，完成函数基本信息修改。
-<img src="https://qcloudimg.tencent-cloud.cn/raw/8b73cffa4d674b0b2b3f1d0d5ae9b543.png" width="60%">
+4. 修改函数描述信息，并单击**确认**，完成函数基本信息修改。<br><img src="https://qcloudimg.tencent-cloud.cn/raw/8b73cffa4d674b0b2b3f1d0d5ae9b543.png" width="60%">
 
 >?函数基本信息修改目前仅支持对函数描述的修改。
 
