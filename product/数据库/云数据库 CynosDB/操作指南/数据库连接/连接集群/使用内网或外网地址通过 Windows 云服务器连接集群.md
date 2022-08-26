@@ -46,7 +46,7 @@
 需要配置安全组，详细步骤请参见 [配置安全组](https://cloud.tencent.com/document/product/1003/62745)。注意，若开启外网，通过外网连接时，配置的安全组规则需放通内网的访问端口。
 
 #### 如果云服务器实例的安全组规则匹配不当导致无法登录 Linux 实例怎么办？**
-如果云服务器实例的安全组规则匹配不当，比如未放通相应端口导致无法登录 Linux 实例，您可以通过 [安全组（端口）验通工具](https://console.cloud.tencent.com/vpc/helper) 检查实例当前配置的安全组连通性。
+如果云服务器实例的安全组规则匹配不当，如未放通相应端口导致无法登录 Linux 实例，您可以通过 [安全组（端口）验通工具](https://console.cloud.tencent.com/vpc/helper) 检查实例当前配置的安全组连通性。
 ![](https://main.qcloudimg.com/raw/9fc46a7133fdb07b631876cd9fa4c253.png)
 通过一键检测可得知登录失败的可能原因。
 ![](https://qcloudimg.tencent-cloud.cn/raw/f0eccdbd666a04e73de610d42d3e3b49.png)
