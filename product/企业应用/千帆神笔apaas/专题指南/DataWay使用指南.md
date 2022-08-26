@@ -261,8 +261,9 @@ DataWay 单行注释以`#`开头，多行注释则可以用多个`#` 号，或�
 **操作步骤**： 
 
 1. aPaaS 设计态应用中，点击应用设置 \>左侧导航栏中“自定义函数”>自定义函数管理页，点击**新建**，创建自定义函数。![img](https://qcloudimg.tencent-cloud.cn/raw/54647706b99dd1b33fdf7dc0f8a45c5e.png)
-2. 弹出框中，填写函数名称、选择编程语言，点击**确定**创建函数。 ![img](https://qcloudimg.tencent-cloud.cn/raw/341e4f327447eb3caf92d9a18acee0f1.png)
-函数创建成功后，跳转到代码管理页面，区域1 为函数入参设置区域，区域 2 为函数返回值类型设置区域，区域 3 为编辑函数代码的在线 IDE，如下图所示： ![img](https://qcloudimg.tencent-cloud.cn/raw/47fa68b745fe4006ee5d3217254cf8e4.png)
+2. 弹出框中，填写函数名称、选择编程语言，点击**确定**创建函数。 
+![img](https://qcloudimg.tencent-cloud.cn/raw/341e4f327447eb3caf92d9a18acee0f1.png)
+函数创建成功后，跳转到代码管理页面，区域1为函数入参设置区域，区域2为函数返回值类型设置区域，区域3为编辑函数代码的在线 IDE，如下图所示： ![img](https://qcloudimg.tencent-cloud.cn/raw/47fa68b745fe4006ee5d3217254cf8e4.png)
 
 ### 编写代码并测试验证
 
