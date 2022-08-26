@@ -8,8 +8,7 @@
 每个主账号的免费请求额度为100万次/月。超过免费额度后将无法继续使用 [GetMonitorData](https://cloud.tencent.com/document/product/248/31014) 接口请求监控数据。如需继续调用接口需要手动开通“API请求按量付费”。
 
 ### 计费开通操作
-
-进入 [API 后付费开通页](https://buy.cloud.tencent.com/APIRequestBuy) 可手动开通‘API请求按量付费’，开通后您将可以在免费额度外正常调用 API 接。也可以在资源消耗页进行‘API请求按量付费’的开通和关闭操作，或在该页面查看 API 请求量。
+进入 [API 后付费开通页](https://buy.cloud.tencent.com/APIRequestBuy) 可手动开通 **API 请求按量付费**，开通后您将可以在免费额度外正常调用 API 接。也可以在资源消耗页进行 **API 请求按量付费**的开通和关闭操作，或在该页面查看 API 请求量。
 ![](https://qcloudimg.tencent-cloud.cn/raw/c8557bad5bb63a9bcd56db7e45aa07e4.png)
 
 ### 计费规则
