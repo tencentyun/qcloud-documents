@@ -21,6 +21,7 @@
 ### 创建 Hive Catalog
 切换到 `_dc`，单击**新建 Hive Catalog**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/c131d8bae1429ff0549207c14f8ff957.png)
+上传4个配置文件 hive-site.xml ，hdfs-site.xml ，hivemetastore-site.xml ，hiveserver2-site.xml [配置文件下载](https://cloud.tencent.com/document/product/849/55238)，其中 hive-site.xml 中需要添加 urls 的地址。
 
 ### 创建数据库
 在 SQL 作业中可以创建数据库。数据库的写法采用两段式：`catalog_name.database_name`。
