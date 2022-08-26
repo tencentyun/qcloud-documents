@@ -129,7 +129,12 @@ TUICallKit 是基于腾讯云 [即时通信 IM](https://cloud.tencent.com/docume
 
 
 [](id:step2)
-## 步骤二：下载并导入 SDK 到项目中
+## 步骤二：Demo 体验
+ demo体验可以点击 - [Github Demo](https://github.com/tencentyun/TUICallKit/tree/main/Web) 下载 github demo 进行音视频体验。
+
+
+[](id:step3)
+## 步骤三：下载并导入 SDK 到项目中
 要实现视频通话功能，您需要集成腾讯云的几个 web sdk 组件（trtc、im、tsignaling、tuicall-engine-web），您可以使用如下两种集成方式中的任何一种：
 
 ### 集成方式一：NPM 集成
@@ -158,22 +163,22 @@ Script 下载地址：
 
 ```javascript
 // 如果您通过 script 方式使用 tuicall-engine-webrtc.js，需要按顺序先手动引入 trtc.js
-<script src="./trtc.js"></script>
+<script src="./trtc-js-sdk/trtc.js"></script>
 
 // 接着手动引入 tim-js.js
-<script src="./tim-js.js"></script>
+<script src="./tim-js-sdk/tim-js.js"></script>
 
 // 然后手动引入 tsignaling.js
-<script src="./tsignaling.js"></script>
+<script src="./tsignaling/tsignaling-js.js"></script>
 
 // 最后再手动引入 tuicall-engine-webrtc.js
-<script src="./tuicall-engine-webrtc.js"></script>
+<script src="./tuicall-engine-webrtc/tuicallEngineWebrtc.js"></script>
 
 const { TUICallEngine, TUICallEvent } = window['tuicall-engine-webrtc'];
 ```
 
-[](id:step3)
-## 步骤三：创建 TUICallEngine 对象
+[](id:step4)
+## 步骤四：创建 TUICallEngine 对象
 TUICallEngine 是完成音视频通话的核心组件，我们需要先创建出该组件的一个对象。
 在创建组件时，有两个关键参数需要您注意：
 - **SDKAppID**：您会在[步骤一](#step1) 中的最后一步找到这个数字。
@@ -188,8 +193,8 @@ let tuiCallEngine = TUICallEngine.createInstance(options);
 ```
 
 
-[](id:step4)
-## 步骤四：登录组件
+[](id:step5)
+## 步骤五：登录组件
 获得 TUICallEngine 组件实例后，还需要完成组件的登录，才能发起视频通话功能：
 
 ```javascript
@@ -215,8 +220,8 @@ tuiCallEngine.login({
 
 >! Github 中的示例代码使用了 genTestUserSig 函数在本地计算 userSig 是为了更快地让您跑通当前的接入流程，但该方案会将您的 SecretKey 暴露在 Web 的代码当中，这并不利于您后续升级和保护您的 SecretKey，所以我们强烈建议您将 UserSig 的计算逻辑放在服务端进行，并由 Web 在每次使用 TUICallKit 组件时向您的服务器请求实时计算出的 UserSig。
 
-[](id:step5)
-## 步骤五：拨打视频通话
+[](id:step6)
+## 步骤六：拨打视频通话
 **1对1视频通话**：您可以调用 TUICallEngine 中的 **call** 接口拨打1对1视频通话。
 ```javascript
 tuiCallEngine.call({
@@ -257,8 +262,8 @@ tuiCallEngine.groupCall({
 >1. 群组的创建详见：[ IM 群组管理](https://cloud.tencent.com/document/product/269/75394#.E5.88.9B.E5.BB.BA.E7.BE.A4.E7.BB.84) ，或者您也可以直接使用 [IM TUIKit](https://cloud.tencent.com/document/product/269/37059)，一站式集成聊天、通话等场景。
 >2. TUICallKit 目前还不支持发起非群组的多人视频通话，如果您有此类需求，欢迎反馈： [TUICallEngine 需求收集表](https://wj.qq.com/s2/10622244/b9ae/)。
 
-[](id:step6)
-## 步骤六：接听通话
+[](id:step7)
+## 步骤七：接听通话
 通过 TUICallEngine 中的 **on** 接口，可以监听通话相关的事件，并绑定对应的处理函数：
 ```javascript
 tuiCallEngine.on(TUICallEvent.INVITED, () => {   
@@ -282,9 +287,12 @@ tuiCallEngine.accept().then( res => {
 });      
 ```
 
-[](id:step7)
-## 步骤七：显示视频画面
+[](id:step8)
+## 步骤八：显示视频画面
 您可以通过 TUICallEngine 中的 **startLocalView** 接口来显示本地的摄像头画面，示例代码如下：
+```html
+<div id="local-xxx"><div>
+```
 ```javascript
 // 本地视频画面
 tuiCallEngine.startLocalView({
@@ -296,8 +304,17 @@ tuiCallEngine.startLocalView({
     console.warn('startLocalView error:', error);
 })
 ```
+**参数如下表所示：**
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| userID | String | 用户 id |
+| videoViewDomID | String | 该用户数据将渲染到该dom id节点里 |
 
 您可以通过 TUICallEngine 中的 **startRemoteView** 接口来显示远端的视频画面，但请在收到 `TUICallEvent.USER_ENTER` 事件后再调用 **startRemoteView** 比较合适：
+```html
+<div id="remote-xxx"><div>
+```
 ```javascript
 tuiCallEngine.on(TUICallEvent.USER_ENTER, () => {
     // 远端视频画面
@@ -311,9 +328,15 @@ tuiCallEngine.on(TUICallEvent.USER_ENTER, () => {
     })
 })
 ```
+**参数如下表所示：**
 
-[](id:step8)
-## 步骤八：更多特性
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| userID | String | 用户 id |
+| videoViewDomID | String | 该用户数据将渲染到该dom id节点里 |
+
+[](id:step9)
+## 步骤九：更多特性
 
 ### 1. 设置昵称&头像
 如果您需要自定义昵称或头像，可以使用该接口进行更新。
@@ -384,7 +407,7 @@ tuiCallEngine.setVideoQuality(profile).then( res => {
 >! 该方法需在 call、groupCall、accept 之前设置，之后设置不生效。
 
 ## 相关链接
-- [Github Demo 地址](https://github.com/tencentyun/TUICalling)
+- [Github Demo 地址](https://github.com/tencentyun/TUICallKit/tree/main/Web)
 - [Web 端常见问题](https://cloud.tencent.com/document/product/647/78769)
 - [TUICallEngine API 概览](https://cloud.tencent.com/document/product/647/78756)
 - [TUICallEngine API 文档](https://web.sdk.qcloud.com/component/trtccalling/doc/TUICallEngine/web/TUICallEngine.html)
