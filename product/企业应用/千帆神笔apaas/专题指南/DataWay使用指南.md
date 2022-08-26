@@ -15,8 +15,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/c48066021cb56e79a6a0ea42a46cc035.png) 
 
 
-### 创建函数![bf7196b7dcd03a9b5540a5c3052f28b](https://user-images.githubusercontent.com/29879483/186869913-c5e454c3-cc31-4039-86cf-980a42b4217e.jpg)
-
+### 创建函数
 
 1. 在千帆神笔 aPaaS 设计态首页，单击**应用设置** > **自定义函数**。
 2. 在自定义函数管理页面，单击**新建**，在弹出的新建函数表单中填写函数的配置信息。
