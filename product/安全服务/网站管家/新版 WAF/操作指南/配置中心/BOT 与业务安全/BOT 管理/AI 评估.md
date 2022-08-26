@@ -1,7 +1,7 @@
-本文为您介绍 BOT 行为管理的 AI 评估中 AI 评估模块的功能设置。该功能依托腾讯近二十年的网络安全经验和 BOT 对抗经验，基于人工智能技术和腾讯风控实战沉淀，将风控特征和黑灰产对抗经验转化为 AI 评估模型，快速识别恶意访问者。快速识别并处置来自 BOT 对抗经验积累的 BOT、高级持续威胁 BOT、分布式 BOT。
+本文为您介绍 BOT 流量管理的 AI 评估中 AI 评估模块的功能设置。该功能依托腾讯近二十年的网络安全经验和 BOT 对抗经验，基于人工智能技术和腾讯风控实战沉淀，将风控特征和黑灰产对抗经验转化为 AI 评估模型，快速识别恶意访问者。快速识别并处置来自 BOT 对抗经验积累的 BOT、高级持续威胁 BOT、分布式 BOT。
 
 ## 前提条件
-购买  Web 应用防火墙及[ BOT 行为管理拓展包](https://cloud.tencent.com/document/product/627/11730#bot-.E8.A1.8C.E4.B8.BA.E7.AE.A1.E7.90.86.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E)，并且打开已接入 WAF 域名 BOT 分析开关。
+购买  Web 应用防火墙及[ BOT 流量管理拓展包](https://cloud.tencent.com/document/product/627/11730#bot-.E8.A1.8C.E4.B8.BA.E7.AE.A1.E7.90.86.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E)，并且打开已接入 WAF 域名 BOT 分析开关。
 
 ## 防护配置
 1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/tea-botconfig)，在左侧导航栏中，选择**配置中心** > **BOT 与业务安全**。
