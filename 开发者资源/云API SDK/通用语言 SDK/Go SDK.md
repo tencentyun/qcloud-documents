@@ -477,7 +477,7 @@ func (c *Client) DescribeInstances(request *DescribeInstancesRequest) (response 
 
 ### 自定义 Header
 
-[RunInstancesRequest 示例](examples/cvm/v20170312/run_instances.go)
+[RunInstancesRequest 示例](https://github.com/TencentCloud/tencentcloud-sdk-go/blob/master/examples/cvm/v20170312/run_instances.go)
 ```go
     request := cvm.NewRunInstancesRequest()
 	request.SetHeader(map[string]string{
@@ -485,7 +485,7 @@ func (c *Client) DescribeInstances(request *DescribeInstancesRequest) (response 
     })
 ```
 
-[CommonRequest 示例](examples/common/common_client.go)
+[CommonRequest 示例](https://github.com/TencentCloud/tencentcloud-sdk-go/blob/master/examples/common/common_client.go)
 ```go
     request := tchttp.NewCommonRequest("cvm", "2017-03-12", "DescribeZones")
     request.SetHeader(map[string]string{
@@ -494,7 +494,7 @@ func (c *Client) DescribeInstances(request *DescribeInstancesRequest) (response 
 ```
 
 ### HTTP 代理
-[DescribeInstances 示例](examples/cvm/v20170312/describe_instances.go)
+[DescribeInstances 示例](https://github.com/TencentCloud/tencentcloud-sdk-go/blob/master/examples/cvm/v20170312/describe_instances.go)
 ```go
     // with authentication
     clientProfile.HttpProfile.Proxy = "http://username:password@127.0.0.1:1080"
