@@ -9,7 +9,7 @@
 
 ### 查看配置
 
-登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，在左侧菜单栏选择【域名管理】，单击域名操作列的【管理】，进入域名配置页面，切换 Tab 至【缓存配置】，即可找到【访问 URL 重写配置】。
+登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，在左侧菜单栏选择**域名管理**，单击域名操作列的**管理**，进入域名配置页面，切换 Tab 至**缓存配置**，即可找到**访问 URL 重写配置**。
 
 默认情况下，访问 URL 重写配置为关闭状态：
 ![](https://main.qcloudimg.com/raw/d99843ee78a3c4d7a63059ffc7784970.png)
@@ -17,13 +17,13 @@
 
 ### 新增规则
 
-您可按需添加重写规则，单击【新增重写规则】：
-<img src="https://main.qcloudimg.com/raw/189b7ddd0b5767e6d259dce3bfd4db8e.png"  style="height:300px"></img>
+您可按需添加重写规则，单击**新增重写规则**：
+<img src="https://qcloudimg.tencent-cloud.cn/raw/20453fb391dc96c0ee7f4f9d73fca879.png" width="600px">
 
 **配置约束**
 + 单个域名至多可添加100条重写规则。
 + 多条规则支持调整优先级：底部优先级大于顶部。
-+ 待重写 URL：以/开头，支持全路径匹配（例如：/test/a.jpg）和通配符 `*` 匹配（例如：/test/\*/\*.jpg）。若指定文件目录，不能以“/”结尾（例如：/test）。
++ 待重写 URL：以/开头，支持全路径匹配（例如：/test/a.jpg）和通配符 `*` 匹配（例如：/test/\*/\*.jpg），若需全路径匹配需勾选全路径匹配，若指定文件目录，不能以“/”结尾（例如：/test）。
 + 目标 Host：默认为当前域名（默认带http头），可修改为其他域名，必须包含 `http://` 或 `https://` 头。
 + 目标 Path：以/开头（例如：/newtest/b.jpg），通配符 `*` 可通过 `$n` 捕获（n=1,2,3...，例如：/newtest/$1/$2.jpg）。若指定文件目录，不能以“/”结尾（例如：/test）。
 + 通配符 `*` 最多可输入5个，捕获占位符 `$n` 最多可输入10个。
