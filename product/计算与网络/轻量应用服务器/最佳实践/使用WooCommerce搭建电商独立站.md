@@ -12,24 +12,24 @@ WooCommerce 是当前很受欢迎的电商独立站建站工具，具备开源�
 ### 使用 WooCommerce 应用镜像创建实例
 1. 登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse)，在“服务器”页面单击新建。
 2. 在轻量应用服务器购买页面，选择所需配置完成轻量应用服务器购买。
-其中，“镜像”选择为**应用镜像** > **WooCommerce 6.5.1**，其他参数可参考 [购买方式](https://cloud.tencent.com/document/product/1207/44580) 进行选择。
+其中，“镜像”选择为**应用镜像** > **WooCommerce 6.8.2**，其他参数可参考 [购买方式](https://cloud.tencent.com/document/product/1207/44580) 进行选择。
 <dx-alert infotype="explain" title="">
 - 若您想使用已创建的实例搭建直播间，则可使用 WooCommerce 应用镜像 [重装系统](https://cloud.tencent.com/document/product/1207/44576)。
-- 本文以使用应用镜像 WooCommerce 6.5.1 版本为例，镜像可能会进行版本升级与更新，请您以购买页实际版本为准。
+- 本文以使用应用镜像 WooCommerce 6.8.2 版本为例，镜像可能会进行版本升级与更新，请您以购买页实际版本为准。
 </dx-alert>
 
 
 ### 登录网站后台管理页面[](id:login)
 1. 在实例详情页面，选择**应用管理**页签，进入应用管理详情页。
 2. [](id:Step2)在“应用内软件信息”中，单击 <img src="https://main.qcloudimg.com/raw/6603ab4f907562addb1c01596c6296cd.png" style="margin-bottom:-3px 0px">，复制获取管理员帐号及密码的命令。如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/49964533bf999981244387c28bc214f0.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/0474aed37f4bbb4f760a1d1ab6aafeeb.png)
 3. 在“应用内软件信息”中，单击**登录**，或页面右上角的**登录**。
 4. [](id:Step4)在弹出的登录窗口中，粘贴在 [步骤2](#Step2) 中获取的命令，并按 **Enter**。
 即可获取管理员帐号（admin）和对应的密码（wordpress_password）。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/24a91d82cb71b14dff4db24ed0be8aa0.png)
 5. 记录管理员帐号和密码，关闭登录窗口，并返回该实例的应用管理详情页。
 6. 在“应用内软件信息”中，单击“管理员登录地址”。如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/1c2f4974706c282cf4edc71d0cba24f3.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/8df37cd14409531f4678f597e2223b09.png)
 7. 在新打开的浏览器窗口中，输入 [步骤4](#Step4) 记录的账号和密码，单击**登录**。
 8. 选择左侧导航中的 **WooCommerce** > **Home**，进入如下图所示页面，您即可开始配置自己的独立电商站。
 ![](https://qcloudimg.tencent-cloud.cn/raw/c3f958d021128402006e770d6c646252.png)
@@ -38,16 +38,63 @@ WooCommerce 是当前很受欢迎的电商独立站建站工具，具备开源�
 
 ## 相关操作
 
-### 切换 WordPress 管理页面语言
+### 设置语言
+您可根据以下步骤，分别设置站点语言、后台语言及 WooCommerce 插件语言。
 
+<dx-tabs>
+::: 设置站点语言
+通过该步骤设置，您的网站后台页面及访客页面都将显示为设定的语言。
 1. 参考 [登录网站后台管理页面](#login) 步骤1 -  步骤7，登录管理页面。
 2. 选择左侧导航栏中的**设置**，进入“常规选项”页面。
 3. 找到“站点语言”，并按需选择页面语言。本文以选择“简体中文”为例，如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/ad82471b3fa89b3c788d0db21ab5fcac.png)
-5. 拉至页面底部，单击**保存更改**即生效。
+4. 拉至页面底部，单击**保存更改**即生效。
+<dx-alert infotype="explain" title="">
+此时，您的网站后台页面及访客页面都将显示为“简体中文”。若您的网站面向境外，则请将站点语言设置为英语后，参考 [设置后台语言](#backstage) 将后台页面设置为中文。
+</dx-alert>
+
+:::
+::: 设置后台语言[](id:backstage)
 
 
-### 使用 WordPress 主题
+通过该步骤设置，您可指定登录者使用的后台语言。
+
+1. 参考 [登录网站后台管理页面](#login) 步骤1 -  步骤7，登录管理页面。
+2. 选择左侧导航栏中的**用户**，进入所有用户列表页面。
+3. 选择您当前登录用户名下的**编辑**。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/d1d724edba875dd458b1c0c1e56ba1cd.png)
+4. 在用户个人资料页面，找到“语言”，设置该用户登录后台管理页面时使用的语言。
+本文以“简体中文”为例，如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/71b0a0b40c5c5493c0f0b47320d32e25.png)
+5. 拉至页面底部，单击**更新个人资料**即生效。
+
+<dx-alert infotype="explain" title="">
+此时，指定用户的网站后台页面语言为“简体中文”，访客页面语言为“英文”。您可参考 [设置 WooCommerce 插件语言](#wooLan)，将插件语言设置为中文。
+</dx-alert>
+
+
+:::
+::: 设置 WooCommerce 插件语言[](id:wooLan)
+
+
+通过该步骤设置，您可将 WooCommerce 插件语言设置为“简体中文”。
+
+1. 参考 [登录网站后台管理页面](#login) 步骤1 -  步骤7，登录管理页面。
+2. 选择左侧导航栏中的**仪表盘** > **更新**。
+3. 进入 “WordPress更新”页面，拉至页面底部，单击**更新翻译**。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/31de981a34bf3cc0e8f80c89c22f48e4.png)
+4. 待翻译升级成功后，自动进入“更新翻译”页面，单击**转到“WordPress页面”**。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/ac744dc964ca43c0b5cd05a9a3616e89.png)
+5. 待页面刷新后，您即可查看 WooCommerce 已切换为中文版。
+
+
+
+:::
+</dx-tabs>
+
+
+
+### 管理 WordPress 主题
 系统已默认安装了可免费使用的 Kadence 和 Astra 主题，您也可以安装并使用其他的 WordPress 主题。您可通过该步骤，了解如何切换、添加、更新 WordPress 主题。
 
 1. 参考 [登录网站后台管理页面](#login) 步骤1 -  步骤7，登录管理页面。
@@ -62,6 +109,13 @@ WooCommerce 是当前很受欢迎的电商独立站建站工具，具备开源�
 在“主题”页面，您可按需单击**启用**主题，以切换主题。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/25ea1494bfad54db3ab78465b67fcd40.png)
 :::
+::: 设置主题自动更新
+
+ 1. 在“主题”页面，单击您需设置的主题，进入主题详情页面。
+ 2. 本文以默认安装的 Kadence 主题为例，在主题详情页面中，您可单击**启用自动更新**，以启用主题自动更新。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/193078c182aeceb339511d3dcb083faf.png)
+
+::: 
 </dx-tabs>
 
 本文以默认安装的 Kadence 主题为例，介绍如何使用 Kadence 主题中的独立站模板，使店铺变得更美观。操作步骤如下：
@@ -81,9 +135,41 @@ WooCommerce 是当前很受欢迎的电商独立站建站工具，具备开源�
 ![](https://qcloudimg.tencent-cloud.cn/raw/7d158c44d2860a27dbb6301b832653f7.png)
 
 
+### 配置邮件
+WooCommerce 应用镜像考虑到安全性问题，默认未开启 postfix 服务。若您需开启邮件服务，可参考以下步骤进行配置。本文以 WordPress 插件 WP Mail SMTP 为例：
+
+1. 参考 [登录网站后台管理页面](#login) 步骤1 -  步骤7，登录管理页面。
+2. 选择左侧导航栏中的**插件**，进入“插件”页面后，单击**安装插件**。
+3. 在搜索框中输入 “WP Mail SMTP”，找到插件后单击**立即安装**。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/f9f52997cc77552b51f7edcd16baf302.png)
+4. 安装成功后单击**启用**，并在插件配置页面单击 **Let's Get Started**。
+6. 在 “Choose Your SMTP Mailer” 步骤中，选择您需配置的邮箱。本文以配置 QQ 邮箱 SMTP 为例，选择**其他 SMTP**后单击 **Save and Continue**。
+7. 在 “Configure Mailer Settings” 步骤中，参考以下信息配置 SMTP 主机、加密方式、端口及认证信息后，单击 **Save and Continue**。
+主要参数信息如下，其他配置请保持默认。
+ - **SMTP 主机**：填写 `smtp.qq.com`。
+ - **加密**：选择 “SSL”。
+ - **SMTP 端口**：填写 `465`。
+ - **SMTP 用户名**：填写您的邮箱地址。
+ - **SMTP 密码**：填写授权码，不是 QQ 邮箱的密码。
+ - **发件人名称**：可填写您的店铺名称。
+ - **发件人**：可填写管理员的邮件地址。需为为有效的邮件地址，否则会报错。
+8. 在 “Which email features do you want to enable?” 步骤中，保持默认配置，单击 **Save and Continue**。
+9. 在 “Help Improve WP Mail SMTP + Smart Recommendations” 步骤中，单击 **Skip this Step**。
+10. 在 “Enter your WP Mail SMTP License Key” 步骤中，单击 **Skip this Step**。
+11. 至此您已完成邮件基本配置，请继续进行以下步骤，设置站点 URL。
+   1. 选择左侧导航栏中的**设置**，进入“常规选项”页面。
+   2. 找到 “站点地址（URL）”并填写。建议填写店铺的域名，若暂未拥有域名，可先填写实例的 IP 地址，格式如下：
+```shell
+http://实例公网 IP/
+```
+<dx-alert infotype="explain" title="">
+您可登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse/instance/index)，获取实例公网 IP。
+</dx-alert>
 
 
-### 域名与 DNS 解析设置
+
+
+### 设置域名与 DNS 解析
 您可以给自己的 WooCommerce 网站设定一个单独的域名。用户可以使用易记的域名访问您的网站，而不需要使用复杂的 IP 地址。有些用户搭建网站仅用于学习，那么可使用 IP 直接访问网站，但不推荐这样操作。
 
 如果您已有域名或者想要通过域名来访问您的网站，请参考以下步骤：
@@ -91,6 +177,7 @@ WooCommerce 是当前很受欢迎的电商独立站建站工具，具备开源�
 2. 进行 [网站备案](https://cloud.tencent.com/product/ba?from=qcloudHpHeaderBa&fromSource=qcloudHpHeaderBa)。 
 域名指向中国境内服务器的网站，必须进行网站备案。在域名获得备案号之前，网站是无法开通使用的。您可以通过腾讯云免费进行备案，审核时长请参考 [备案审核](https://cloud.tencent.com/document/product/243/19650)。
 3. 通过腾讯云 [DNS解析 DNSPod](https://cloud.tencent.com/product/cns?from=qcloudHpHeaderCns&fromSource=qcloudHpHeaderCns) 配置域名解析。具体操作请参考 [A 记录](https://cloud.tencent.com/document/product/302/3449)，将域名指向一个 IP 地址（外网地址）。
+
 
 ### 开启 HTTPS 访问
 可参考 [安装 SSL 证书](https://cloud.tencent.com/document/product/1207/47027) 文档为您的 WooCommerce 实例安装 SSL 证书并开启 HTTPS 访问。
