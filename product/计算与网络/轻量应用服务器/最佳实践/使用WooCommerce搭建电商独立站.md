@@ -156,9 +156,13 @@ WooCommerce 应用镜像考虑到安全性问题，默认未开启 postfix 服�
 8. 在 “Which email features do you want to enable?” 步骤中，保持默认配置，单击 **Save and Continue**。
 9. 在 “Help Improve WP Mail SMTP + Smart Recommendations” 步骤中，单击 **Skip this Step**。
 10. 在 “Enter your WP Mail SMTP License Key” 步骤中，单击 **Skip this Step**。
-11. 至此您已完成邮件基本配置，请继续进行以下步骤，设置 WordPress 地址 URL。
-   1. 选择左侧导航栏中的**设置**，进入“常规选项”页面。
-   2. 找到 “WordPress地址（URL）”并填写。建议填写店铺的域名，若暂未拥有域名，可先填写实例的 IP 地址，格式如下：
+至此，您已完成邮件基本配置。
+
+
+### 设置 WordPress 地址 URL
+请参考以下步骤，设置 WordPress 地址 URL。若您未配置 WordPress 地址 URL，则发送修改管理员邮箱邮件时会出现链接无法点击的问题。
+1. 选择左侧导航栏中的**设置**，进入“常规选项”页面。
+2. 找到 “WordPress地址（URL）”并填写。建议填写店铺的域名，若暂未拥有域名，可先填写实例的 IP 地址，格式如下：
 ```shell
 http://实例公网 IP/
 ```
