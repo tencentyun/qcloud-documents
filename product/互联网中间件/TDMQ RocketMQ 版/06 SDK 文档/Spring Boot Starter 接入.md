@@ -183,7 +183,7 @@ rocketMQTemplate.syncSend(destination, MessageBuilder.withPayload(message).build
 
 可根据业务需求配置多个消费者。消费者其他配置可根据具体业务需求进行配置。
 
->?完整示例参见 [Demo](https://tdmq-document-1306598660.cos.ap-nanjing.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91demo/rocketmq/tdmq-rocketmq-springboot-demo.zip) 或参见 [RocketMQ Spring](https://github.com/apache/rocketmq-spring)。
+>?完整示例参见 [Demo](https://tdmq-1300957330.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-rocketmq-demo/tdmq-rocketmq-springboot-demo.zip) 或参见 [RocketMQ Spring](https://github.com/apache/rocketmq-spring)。
 
 ### 步骤5：查看消费详情
 
