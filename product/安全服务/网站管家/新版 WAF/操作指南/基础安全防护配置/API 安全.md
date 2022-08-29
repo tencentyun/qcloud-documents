@@ -1,6 +1,6 @@
 本文档将为您介绍如何通过 API 安全功能，添加 API 接口或 API 规则文件，从而进一步保护 API 接口安全。
 ## 背景信息
-通过 API 安全功能，您可以添加 API 接口或 API 规则文件，WAF 将对 API 请求进行安全检查，只有符合定义规范的 API 才能被执行。同时 API 安全防护模块将和 [AI 引擎](https://console.cloud.tencent.com/guanjia/tea-baseconfig) 及 [BOT 行为管理](https://console.cloud.tencent.com/guanjia/tea-botconfig) 进行联动，进行 API 接口保护。
+通过 API 安全功能，您可以添加 API 接口或 API 规则文件，WAF 将对 API 请求进行安全检查，只有符合定义规范的 API 才能被执行。同时 API 安全防护模块将和 [AI 引擎](https://console.cloud.tencent.com/guanjia/tea-baseconfig) 及 [BOT 流量管理](https://console.cloud.tencent.com/guanjia/tea-botconfig) 进行联动，进行 API 接口保护。
 >! API 安全防护当前处于公测阶段，您可以免费使用，正式发布后，将按官网公布刊例价收取费用。
 
 ## 操作步骤
