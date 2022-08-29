@@ -1,3 +1,25 @@
+## TKE kubernetes 1.22.5 revisions
+<table>
+<thead>
+<tr><th width="13%">时间</th><th width="13%">版本</th><th width="74%">更新内容</th></tr>
+</thead>
+  <tbody>
+    <tr><td> 2022-05-07   </td><td> v1.22.5-tke.1</td>
+		<td>
+<li>允许 TKE 托管集群使用的特殊网段。(kube-apiserver)</li>
+<li>还原 pr63066, 修复 LB 健康检查与 IPVS 的问题。(kube-proxy)</li>
+<li>合并 pr90260，修复 containerd 集群网络监控缺失问题。(kubelet)</li>
+<li>修复 ubuntu16 下 lxcfs 升级造成 Pod 退出的问题。(kubelet)</li>
+<li>避免使用了 CBS 的 Pod 调度到外部 CHC 节点。(kube-scheduler)</li>
+<li>支持腾讯云 CBS CSI Migration。(kube-controller-manager,kubelet)</li>
+<li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/106906">pr106906</a>，探测网络存储卷 subpath 是否已经删除，避免 Pod 一直处于 terminating 状态。(kubelet)</li>
+<li>更新以镜像方式运行 kube-proxy 时的启动方式，自动适配所在节点的 iptables 运行模式，以支持默认使用 nf_tables 模式运行 iptables 的操作系统。(kube-proxy)</li>
+</td></tr>
+  </tbody>
+</table>
+
+
+
 ## TKE kubernetes 1.20.6 revisions
 <table>
 <thead>

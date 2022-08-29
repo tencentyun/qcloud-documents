@@ -2,6 +2,17 @@
 
 > ? 全功能版 SDK 是多个基础 SDK 的集合，它包含了直播、短视频、音视频通话（TRTC）和播放器等子产品 SDK 的功能模块。
 
+### Version 10.5 @ 2022.08.23
+#### 功能优化
+- 全平台：优化 qos 策略，提升弱网体验。
+- iOS&Android：全链路降低延迟；优化耳返体验。
+- Android：优化视频解码的内存管理，防止出现内存堆积。
+- Windows：优化内置麦克风的降噪效果，尤其是在音乐模式下，表现更佳。
+- Mac：优化开启麦克风采集时，大概率出现的杂音问题。
+
+#### 缺陷修复
+全平台：修复频繁进退不同房间时，回调事件：[OnUserVideoAvailable](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudListener__android.html#ac1a0222f5b3e56176151eefe851deb05) 和 [OnUserAudioAvailable](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudListener__android.html#ac1a0222f5b3e56176151eefe851deb05) 偶现异常的问题。
+
 ### Version 10.4 @ 2022.07.25
 #### 新特性
 - iOS&Android：自定义视频采集支持 RGBA32 格式，详见：sendCustomVideoData。

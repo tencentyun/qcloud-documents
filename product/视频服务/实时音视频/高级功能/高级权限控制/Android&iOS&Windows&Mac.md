@@ -83,7 +83,8 @@ PrivateMapKey 中的“权限位列表”使用了一个 byte 中的 8 个比特
 #### 方案二：通过实验性接口更新给 SDK
 在直播场景中，往往都会有观众上麦变成主播的连麦场景。当观众变成主播时，TRTC 会再校验一次进房时在进房参数 `TRTCParams` 中携带的 PrivateMapKey，如果您将 PrivateMapKey 的有效期设置得比较短，例如“5分钟”，就会很容易触发校验失败进而导致用户被踢出房间。
 
-要解决这个问题，除了可以延长有效期（例如将“5分钟”改成“6小时”），还可以在观众通过 `switchRole` 将自己的身份切换成主播之前，重新向您的服务器申请一个 privateMapKey，并调用 SDK 的实验性接口 `updatePrivateMapKey` 将其更新到 SDK 中，示例代码如下：
+当 SDK **版本在10.2之前**的客户，要解决这个问题，除了可以延长有效期（例如将“5分钟”改成“6小时”），还可以在观众通过 `switchRole` 将自己的身份切换成主播之前，重新向您的服务器申请一个 privateMapKey，并调用 SDK 的实验性接口 `updatePrivateMapKey` 将其更新到 SDK 中，示例代码如下：
+
 [](id:example_code)
 <dx-codeblock>
 ::: Android java
@@ -115,6 +116,8 @@ std::string api = "{\"api\":\"updatePrivateMapKey\",\"params\":{\"privateMapKey\
 mTRTCCloud.callExperimentalAPI(api);
 :::
 </dx-codeblock>
+
+当 SDK **版本在10.2及之后**，可以直接通过切换角色接口 `switchRole(TRTCRoleType role, const char* privateMapKey)` 设置 privateMapKey，请勿使用上述实验性接口的方式。
 
 ## 常见问题
 [](id:q1)

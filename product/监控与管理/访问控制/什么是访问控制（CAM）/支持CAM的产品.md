@@ -89,7 +89,7 @@
 
 | 产品     | CAM 中简称 | 授权粒度 | 控制台   | 根据标签进行授权 | 服务角色 | 参考文档                                                     |
 | ------------------------------------- -------- | ------------- | -------- | -------- | ---------------- | -------- | ------------------------------------------------------------ |
-| [全球应用加速](https://cloud.tencent.com/document/product/608) | gaap | 资源级   | &#10003; | &#10003;         | -        | -                                                            |
+| [全球应用加速](https://cloud.tencent.com/document/product/608) | gaap | 资源级   | &#10003; | &#10003;         | &#10003;         | -                                                            |
 | [全站加速网络](https://cloud.tencent.com/document/product/570) | ecdn | 资源级   | &#10003; | &#10003;         | -        | [访问管理指南](https://cloud.tencent.com/document/product/570/42271) |
 | [内容分发网络](https://cloud.tencent.com/document/product/228) <sup>1</sup> | cdn | 资源级   | &#10003; | &#10003;         | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/228/12722) |
 

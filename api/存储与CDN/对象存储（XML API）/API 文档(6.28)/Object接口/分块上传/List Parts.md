@@ -45,7 +45,7 @@ Authorization: Auth String
 | ------------------ | ------------------------------------------------------------ | ------ | -------- |
 | UploadId           | 标识本次分块上传的 ID，使用 Initiate Multipart Upload 接口初始化分块上传时得到的 UploadId | string | 是       |
 | encoding-type      | 规定返回值的编码方式                                         | string | 否       |
-| max-parts          | 单次返回最大的条目数量，默认1000                             | string | 否       |
+| max-parts          | 单次返回最大的条目数量，最大值为1000，默认值为1000                             | string | 否       |
 | part-number-marker | 默认以  UTF-8 二进制顺序列出条目，所有列出条目从 marker 开始 | string | 否       |
 
 #### 请求体

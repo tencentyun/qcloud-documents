@@ -19,10 +19,8 @@ TRTC Web SDK 基于 WebRTC 实现，目前支持桌面端和移动端的主流�
 | 本地开发环境 | file:///         | 支持       | 支持       | 支持     |          |
 
 ### 防火墙限制
-TRTC Web SDK 依赖以下端口及域名进行数据传输，请将其加入防火墙白名单。配置完成后，您可以通过访问并体验 [官网 Demo](https://web.sdk.qcloud.com/trtc/webrtc/demo/api-sample/basic-rtc.html) 检查配置是否生效。具体请参见 [应对防火墙限制相关](https://cloud.tencent.com/document/product/647/34399)。
-- TCP 端口：8687
-- UDP 端口：8000，8080，8800，843，443，16285
-- 域名：`*.rtc.qq.com`，`yun.tim.qq.com`
+
+在使用 TRTC Web SDK 时，用户可能因防火墙限制导致无法正常进行音视频通话，请参考 [应对防火墙限制相关](https://cloud.tencent.com/document/product/647/34399) 将相应端口及域名添加至防火墙白名单中。
 
 ## 开始集成
 SDK 提供了 UMD、ES Module 类型的模块，以及 TypeScript Type Definition 文件，满足在不同类型项目中集成。

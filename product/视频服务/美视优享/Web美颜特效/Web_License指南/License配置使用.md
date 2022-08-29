@@ -25,7 +25,7 @@
 
 ### 签名方法
 **鉴权流程**
-![](https://qcloudimg.tencent-cloud.cn/raw/da5ccf517e599d892d68322d3a8792e5.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/f1d9950c0b325edc0611f6946c31af84.jpg)
 
 - **Token**：用于 SDK 接口签名，是您身份的唯一标识。
 - **appid**：即腾讯云控制台 **账号信息** > **[基本信息](https://console.cloud.tencent.com/developer)** 展示的 APPID。
