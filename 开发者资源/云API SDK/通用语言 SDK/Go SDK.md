@@ -68,7 +68,6 @@ go get -v -u github.com/tencentcloud/tencentcloud-sdk-go
 
 下面以云服务器查询实例列表接口为例，介绍 SDK 的基础用法。
 
-## 简化版
 <dx-tabs>
 ::: 简化版
 ```go
