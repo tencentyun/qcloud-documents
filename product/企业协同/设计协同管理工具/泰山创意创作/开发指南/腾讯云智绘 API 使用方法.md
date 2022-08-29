@@ -26,7 +26,7 @@
       <td>secretId</td>
       <td>string</td>
       <td>	是</td>
-      <td>分配的密钥 Id（secretId）。</td>
+      <td>分配的密钥 ID（secretId）。</td>
    </tr>
    <tr>
       <td>sig</td>
