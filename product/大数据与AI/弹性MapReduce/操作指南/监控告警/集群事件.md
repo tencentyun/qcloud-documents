@@ -309,7 +309,7 @@
 </tr>
 <tr>
 <td>NameNode 发生主备切换</td>
-<td>NameNod 发生主备切换</td>
+<td>NameNode 发生主备切换</td>
 <td>排查 NameNode 切换的原因</td>
 <td>-</td>
 <td>严重</td>

@@ -18,7 +18,8 @@ DIP 支持订阅 MySQL 变更数据，免去对基于 CDC 的订阅组件如（C
    ![](https://qcloudimg.tencent-cloud.cn/raw/b50ea29ffbe034f229240b9e54bf0efb.png)
    - 数据源：选择提前创建好的源数据连接。
    - database：选择要监听的数据库，选择全部表示监听所有数据库的变更。
-   - table：选择要监听的表，选择全部表示监听某个数据库的所有表的变更。
+   - 监听全部表：开启后表示监听数据库中全部的表。
+   - table：选择要监听的表。
    - 复制存量数据：根据实际业务需求选择是否复制源 MySQL 的存量数据。
 5. 选择数据目标 Topic，支持选择 **DIP Topic** 或者 **CKafka Topic**。
    - DIP Topic：选择在数据接入平台提前创建好的 Topic，详情参见 [Topic 管理](https://cloud.tencent.com/document/product/1591/77020)。
@@ -26,6 +27,3 @@ DIP 支持订阅 MySQL 变更数据，免去对基于 CDC 的订阅组件如（C
 6. 单击**提交**，可以在任务列表看到刚刚创建的任务，在状态栏可以看到创建进度。
 
    
-
-
-

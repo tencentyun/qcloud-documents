@@ -7,56 +7,71 @@
   - 设备要求：iPhone 5 及以上；iPhone 6 及以下前置摄像头最多支持到 720p，不支持 1080p。
   - 系统要求：iOS 10.0 及以上。
 
-### C/C++层开发环境
+### 导入 SDK
 
-XCode 默认 C++ 环境。
+您可以选择使用 CocoaPods 方案，或者先将 SDK 下载到本地，再将其手动导入到您当前的项目中。
+<dx-tabs>
+::: 使用 CocoaPods
+1. **安装 CocoaPods**
+在终端窗口中输入如下命令（需要提前在 Mac 中安装 Ruby 环境）：
+```
+sudo gem install cocoapods
+```
+2. **创建 Podfile 文件**
+进入项目所在路径，输入以下命令行之后项目路径下会出现一个 Podfile 文件。
+```
+pod init
+```
+3. **编辑 Profile 文件**
+根据您的项目需要选择合适的版本，并编辑 Podfile 文件：
+	- **XMagic 普通版**
+请按如下方式编辑Profile文件：
+```
+platform :ios, '8.0'
 
-<table>
-<tr><th>类型</th><th>依赖库</th></tr>
-<tr>
-<td>系统依赖库</td>
-<td><ul style="margin:0">
-<li/>CoreTelephony
-<li/>JavaScriptCore
-<li/>libc++.tbd
-<li/>MetalPerformanceShaders
-<li/>VideoToolbox
-</ul></td>
-</tr>
-<tr>
-<td>自带的库</td>
-<td><ul style="margin:0">
-<li/>YTCommon（鉴权静态库）
-<li/>XMagic（美颜静态库）
-<li/>libpag（视频解码动态库）
-<li/>Masonry（控件布局库）
-<li/>SSZipArchive（文件解压库）
-</ul></td>
-</tr>
-</table>
+target 'App' do
+pod 'XMagic'
+end
+```
+	- **XMagic 精简版**
+安装包体积比普通版小，但仅支持基础版 A1-00、基础版 A1-01、高级版 S1-00，请按如下方式编辑 Profile 文件：
+```
+platform :ios, '8.0'
 
+target 'App' do
+pod 'XMagic_Smart'
+end
+```
+4. **更新并安装 SDK**
+在终端窗口中输入如下命令以更新本地库文件，并安装 SDK：
+```
+pod install
+```
+pod 命令执行完后，会生成集成了 SDK 的 .xcworkspace 后缀的工程文件，双击打开即可。
+5. **添加美颜资源到实际项目工程中**
+下载并解压对应套餐的 [SDK 和美颜资源](https://cloud.tencent.com/document/product/616/65876)，将 **resources** 文件夹下的除 **LightCore.bundle**、**Light3DPlugin.bundle**、**LightBodyPlugin.bundle**、**LightHandPlugin.bundle**、**LightSegmentPlugin.bundle** 以外的**其它 bundle 资源**添加到实际工程中。
+6. 将 Bundle Identifier 修改成与申请的测试授权一致。
+:::
+::: 下载 SDK 并手动导入
+1. 下载并解压 [SDK 和美颜资源](https://cloud.tencent.com/document/product/616/65876)，frameworks 文件夹里面是sdk、resources 文件夹里面是美颜的bundle资源。
+2. 打开您的 Xcode 工程项目，把 frameworks 文件夹里面的 framework 添加到实际工程中，选择要运行的 target , 选中 **General** 项，单击 **Frameworks,Libraries,and Embedded Content** 项展开，单击底下的“+”号图标去添加依赖库。依次添加下载的 `XMagic.framework`、`YTCommonXMagic.framework`、`libpag.framework` 及其所需依赖库`MetalPerformanceShaders.framework`、`CoreTelephony.framework`、`JavaScriptCore.framework`、`VideoToolbox.framework`、`libc++.tbd`，根据需要添加其它工具库 `Masonry.framework`（控件布局库）、`SSZipArchive`（文件解压库）。
+![](https://qcloudimg.tencent-cloud.cn/raw/64aacf4305d7adf3a2bbe025920be517.png)
+3. 把 resources 夹里面的美颜资源添加到实际工程中。
+4. 将 Bundle Identifier 修改成与申请的测试授权一致。
+:::
+::: 动态下载集成
+为了减少包大小，您可以将 SDK 所需的模型资源和动效资源 MotionRes（部分基础版 SDK 无动效资源）改为联网下载。在下载成功后，将上述文件的路径设置给 SDK。
 
-## 导入资源
-### 资源
-- 必需资源包：`LightCore.bundle`
-- 分割功能包：`LightSegmentPlugin.bundle`
-- 手势功能包：`LightHandPlugin.bundle`
-- 3D 功能包：`Light3DPlugin.bundle`
-
-### 导入方法
-- **方法一**：加入到工程资源中即可。
-- **方法二**：如果需要指定路径 `initWithRenderSize:assetsDict: (XMagic)` 可通过这里的 `assetsDict` 配置每个资源路径。
+我们建议您复用 Demo 的下载逻辑，当然，也可以使用您已有的下载服务。动态下载的详细指引，请参见 [SDK 包体瘦身（iOS）](https://cloud.tencent.com/document/product/616/76029)。
+:::
+</dx-tabs>
 
 ### 配置权限
 在 Info.plist 文件中添加相应权限的说明，否则程序在 iOS 10 系统上会出现崩溃。请在 Privacy - Camera Usage Description 中开启相机权限，允许 App 使用相机。
 
 ## 集成步骤
 
-[](id:step1)
-### 步骤一：签名准备
-framework 签名可以直接在 **General** >**Masonry.framework** 和 **libpag.framework** 选 **Embed & Sign**。
-[](id:step2)
-### 步骤二：鉴权
+### 步骤一：鉴权
 1. 申请授权，得到 LicenseURL 和 LicenseKEY，请参见 [License 指引](https://cloud.tencent.com/document/product/616/65879)。
 > ! 正常情况下，只要 App 成功联网一次，就能完成鉴权流程，因此您**不需要**把 License 文件放到工程的工程目录里。但是如果您的 App 在从未联网的情况下也需要使用 SDK 相关功能，那么您可以把 License 文件下载下来放到工程目录，作为保底方案，此时 License 文件名必须是 `v_cube.license`。
 2. 在相关业务模块的初始化代码中设置 URL 和 KEY，触发 license 下载，避免在使用前才临时去下载。也可以在 AppDelegate 的 didFinishLaunchingWithOptions 方法里触发下载。其中，LicenseURL 和 LicenseKey 是控制台绑定 License 时生成的授权信息。
@@ -124,7 +139,7 @@ framework 签名可以直接在 **General** >**Masonry.framework** 和 **libpag.
 </tbody></table>
 
 [](id:step3)
-### 步骤三：加载 SDK（XMagic.framework）
+### 步骤二：加载 SDK（XMagic.framework）
 使用腾讯特效 SDK 生命周期大致如下：
 1. 加载美颜相关资源。
 ```

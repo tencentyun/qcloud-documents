@@ -192,8 +192,8 @@ Vue.prototype.TWebLive = TWebLive
 >- 目前桌面端 Chrome 浏览器支持 TRTC Web SDK 的相关特性比较完整，因此建议使用 Chrome 浏览器进行体验。
 >- TWebLive 需要使用摄像头和麦克风采集音视频，在体验过程中您可能会收到来自 Chrome 浏览器的相关提示，单击 **允许** 即可。
 >  ![](https://main.qcloudimg.com/raw/7eb28d195649d6c0027026eaa02fdedd.png)
- :::
- ::: 方式2：基于即时通信\sIM
+:::
+::: 方式2：基于即时通信\sIM
 #### 步骤1：创建即时通信 IM 应用
 1. 登录 [即时通信 IM 控制台](https://console.cloud.tencent.com/im)，单击 **创建新应用** 将弹出对话框。
    ![](https://main.qcloudimg.com/raw/c8d1dc415801404e30e49ddd4e0c0c13.png)
@@ -243,8 +243,8 @@ Vue.prototype.TWebLive = TWebLive
 >- 目前桌面端 Chrome 浏览器支持 TRTC Web SDK 的相关特性比较完整，因此建议使用 Chrome 浏览器进行体验。
 >- TWebLive 需要使用摄像头和麦克风采集音视频，在体验过程中您可能会收到来自 Chrome 浏览器的相关提示，单击 **允许** 即可。
 >  ![](https://main.qcloudimg.com/raw/7eb28d195649d6c0027026eaa02fdedd.png)
- :::
- </dx-tabs>
+:::
+</dx-tabs>
 
 ## 架构与平台支持
 
@@ -280,10 +280,8 @@ Web 推流和 Web 低延时观看用到了 WebRTC 技术。
 |   Android   |  微信内嵌网页（XWEB 内核）   |         -          |     支持     |    不支持    |
 
 >! 由于 H.264 版权限制，华为系统的 Chrome 浏览器和以 Chrome WebView 为内核的浏览器均不支持 TRTC Web SDK 的正常运行。
->[](id:sos)
 
-
-
+[](id:sos)
 ## 常见问题
 <dx-accordion>
 ::: 查看密钥时只能获取公钥和私钥信息，要如何获取密钥？
@@ -292,16 +290,10 @@ Web 推流和 Web 低延时观看用到了 WebRTC 技术。
 - IM 升级方法请参见 [基本配置](https://cloud.tencent.com/document/product/269/32578#.E8.8E.B7.E5.8F.96.E5.AF.86.E9.92.A5)。
 :::
 ::: 出现客户端错误：“RtcError: sno valid ice candidate found”该如何处理？
-出现该错误说明 TRTC Web SDK 在 STUN 打洞失败，请根据环境要求检查防火墙配置，配置完成后，您可以通过访问并体验官网 [Demo](https://web.sdk.qcloud.com/component/tweblive/demo/latest/index.html) 检查配置是否生效。
-  - TCP 端口：8687
-  - UDP 端口：8000，8080，8800，843，443，16285
-  - 域名：qcloud.rtc.qq.com
+出现该错误说明 TRTC Web SDK 可能因网络防火墙限制导致无法正常通话，请参考 [应对防火墙限制相关](https://cloud.tencent.com/document/product/647/34399) 将相应端口及域名添加至防火墙白名单中。
 :::
 ::: 出现客户端错误：“RtcError:ICE/DTLS Transport connection failed”或“RtcError:DTLS Transport connection timeout”该如何处理？
-出现该错误说明 TRTC Web SDK 在 STUN 打洞失败，请根据环境要求检查防火墙配置，配置完成后，您可以通过访问并体验官网 [Demo](https://web.sdk.qcloud.com/component/tweblive/demo/latest/index.html) 检查配置是否生效。
-  - TCP 端口：8687
-  - UDP 端口：8000，8080，8800，843，443，16285
-  - 域名：qcloud.rtc.qq.com
+出现该错误说明 TRTC Web SDK 可能因网络防火墙限制导致无法正常通话，请参考 [应对防火墙限制相关](https://cloud.tencent.com/document/product/647/34399) 将相应端口及域名添加至防火墙白名单中。
 :::
 ::: 出现 10006 error 该如何处理？
 如果出现 `"Join room failed result: 10006 error: service is suspended,if charge is overdue,renew it"`。请登录 [实时音视频控制台](https://console.cloud.tencent.com/rav)，单击您创建的应用，单击 **帐号信息**，在帐号信息面板请确认您的实时音视频应用的服务状态是否为可用状态。<img src="https://main.qcloudimg.com/raw/94d3dcd2bbca94d3bcb23e1ef498883a.png">

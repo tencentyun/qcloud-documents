@@ -2,67 +2,19 @@
 
 购买后可在 [腾讯云视立方控制台](https://console.cloud.tencent.com/vcube) 对各 License 进行新增和续期等操作。本文档将对视频播放 License 测试版和正式版的新增与续期等操作进行说明指引。
 
+播放器 SDK 提供测试版 License，**测试版 License 包括视频播放 License 和终端极速高清  License**。
+
+- 您可通过**免费申请**视频播放测试版 License 使用授权来体验**视频播放**功能模块，详情请参见 [免费测试](https://cloud.tencent.com/document/product/881/79169)；
+- 也可**免费申请**终端极速高清测试版 License 使用授权来体验**终端极速高清**功能模块，其免费申请和续期操作请参见 [终端极速高清 License](https://cloud.tencent.com/document/product/881/72422)。目前终端极速高清功能模块处于体验期，仅提供测试版 License。
+
 > !10.1 版本起，直播 License 和短视频 License 包含了视频播放 License 全部能力，因此也可用于解锁播放器 SDK 的视频播放功能。直播 License 相关参见[ License 计费购买](https://cloud.tencent.com/document/product/454/8008#sdklicense) 和 [新增与续期](https://cloud.tencent.com/document/product/454/34750)，短视频 License 相关参见 [License 计费购买](https://cloud.tencent.com/document/product/584/9368) 和 [新增与续期](https://cloud.tencent.com/document/product/584/54333)。
 
-[](id:test)
-## 测试版 License
-
-[](id:creat_test)
-### 申请测试版 License
-
-您可以免费申请视频播放功能模块的测试版 License（免费测试有效期为14天，可续期1次，共28天）体验测试。
-
->!试用期内申请测试续期，则续期到期时间以申请测试时刻为准；若试用期结束后申请测试续期，则续期到期时间以申请测试续期时刻为准。
->
-> - 当申请测试开始时间为  `2022-05-25 11:34:55` ，则14天后到期时间为  `2022-06-09 00:00:00` 。
-> - 免费续期一次时，若在试用期14天内申请续期，则到期时间为  `2022-06-23 00:00:00` ；若在试用期14天结束后申请续期，申请续期的时间为  `2022-07-03 22:26:20` ，则续期的到期时间为  `2022-07-18 00:00:00` 。
-
-申请测试模块时，您可以选择**新建测试 License 并申请测试功能模块**或在**已创建的测试应用中申请测试新功能模块**两种方式创建测试 License。
-<dx-tabs>
-::: 方式一：新建测试 License 并申请测试功能模块
-1. 登录 [**腾讯云视立方控制台 > 终端 License 管理**](https://console.cloud.tencent.com/vcube)，单击**新建测试 License**。
-![](https://qcloudimg.tencent-cloud.cn/raw/4d63d6f14f82ba1775083ed461c5f5db.png)
-2. 根据实际需求填写 `App Name`、`Package Name` 和 `Bundle ID`，勾选功能模块 **视频播放**，单击**确定**。
-![](https://qcloudimg.tencent-cloud.cn/raw/5cbcb932c3adc91a544734b623b82a6f.png)
-3. 测试版 License 成功创建后，页面会显示生成的 License 信息。**在 SDK 初始化配置时需要传入 Key 和 License URL 两个参数，请妥善保存以下信息。**
-![](https://qcloudimg.tencent-cloud.cn/raw/dd744a0bc93b11e78b2e35ab5b94e8c4.png)
-:::
-::: 方法二：已创建的测试应用中申请测试新功能模块
-若您想在已创建的测试应用中申请**视频播放**功能测试模块，步骤如下：
-1. 选择您想测试的应用，单击**测试新功能模块**。
-![](https://qcloudimg.tencent-cloud.cn/raw/6be952eb22fdc3db08c931c250a84e9c.png)
-2. 勾选功能模块 **视频播放**，单击**确定**。
-![](https://qcloudimg.tencent-cloud.cn/raw/11ee4dff2ac3bb1f54eeda1fa4a16190.png)
-:::
-</dx-tabs>
-
->? 
->- 测试版 License 有效期内可单击右侧的 **编辑**，进入修改 Bundle ID 和 Package Name 信息，单击 **确定** 即可保存。
->- 若无 Package Name 或 Bundle Id，可填写“-”。
-
-
-[](id:renew_test)
-### 续期测试版 License
-测试版 License 初次申请默认有效期默认为14天，期满后您可续期**1次**，单击功能模块 **视频播放** 右侧的 **续期**，选择 **确定续期** 即可续期该功能模块14天。
-![](https://qcloudimg.tencent-cloud.cn/raw/18b285cfa67a609ebc3c2930bc806594.png)
->? 测试版 License 有效期共28天，**只能续期一次**。若您需继续使用，请购买 [正式版 License](#formal)。
-
-[](id:up_test)
-### 升级测试版 License
-若您需要将视频播放功能模块的测试版 License 升级成为正式版 License，获得一年的有效期使用期。具体操作如下：
-1. 单击测试版 License 视频播放模块中的 **升级**。
-![](https://qcloudimg.tencent-cloud.cn/raw/4d597ddb02ab4013b8debbae868961b5.png)
-2. 进入升级功能模块界面，点击**立即绑定**，选择需要绑定的云直播/点播流量资源包或独立 License（若没有可绑定的 License 资源，可前往 [音视频终端 SDK 购买页](https://buy.cloud.tencent.com/vcube) 购买），单击**确定**即可升级到视频播放功能模块的正式版 License。
-![](https://qcloudimg.tencent-cloud.cn/raw/4fe6ab5100b60058af34ebc1dfbcf14a.png)
-
-[](id:formal)
-## 正式版 License
 
 [](id:creat_formal)
-### 购买正式版 License
+## 购买并新建正式版 License
 1. 购买方式：
-	- [**购买**](https://buy.cloud.tencent.com/vcube) 指定规格的 [直播/点播流量资源包]()，获得赠送1年有效期的正式视频播放 License 使用权限（自资源包购买之日起计算，授权有效期至到期次日00:00:00为止）。
-	- [**购买**](https://buy.cloud.tencent.com/vcube) 独立 [视频播放 License]() 获得使用授权（自绑定包名之日起计算，授权有效期为1年后到期次日00:00:00止）。
+	- [**购买**](https://buy.cloud.tencent.com/vcube) 指定规格的 [直播/点播流量资源包](https://cloud.tencent.com/document/product/881/20193)，获得赠送1年有效期的正式视频播放 License 使用权限（自资源包购买之日起计算，授权有效期至到期次日00:00:00为止）。
+	- [**购买**](https://buy.cloud.tencent.com/vcube) 独立 [视频播放 License](https://cloud.tencent.com/document/product/881/20193) 获得使用授权（自绑定包名之日起计算，授权有效期为1年后到期次日00:00:00止）。
 2. 绑定视频播放正式版 License。您可以选择**新建正式应用并绑定 License**或在**已创建的应用上解锁视频播放正式版模块并绑定 License**两种方式进行正式版 License 绑定 。
 <dx-tabs>
 ::: 方式一：新建正式应用并绑定 License
@@ -89,7 +41,7 @@
 </dx-tabs>
 
 [](id:update_formal)
-### 更新正式版 License 有效期
+## 更新正式版 License 有效期
 您可以登录 [**腾讯云视立方控制台 > 终端 License 管理**](https://console.cloud.tencent.com/vcube) 页面查看视频播放正式版 License 的有效期，也可通过在 [消息订阅](https://console.cloud.tencent.com/message/subscription) 中订阅音视频终端 SDK，配置**站内信**/**邮件**/**短信**/**微信**/**企微**等消息接收渠道，接收正式版 License 到期提醒。视频播放正式版 License 将在到期时间距离当前时间为30天、15天、7天、1天时各向您发送一次到期提醒，提示您及时续费以免影响正常业务运行。若您的视频播放正式版 License 已到期，可进行如下操作进行续期：
 1. 选择您需要更新有效期的 License，单击直播推流模块内的 **更新有效期**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/8063f52361e98ffbdd904ffa5d640b74.jpg)

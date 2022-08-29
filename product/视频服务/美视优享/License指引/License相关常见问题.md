@@ -6,13 +6,13 @@
 
 [](id:q2)
 ### 如何获取腾讯特效正式版 License？
-若您需要在您的业务中使用腾讯特效 SDK 功能，您可参见计费概述，根据您的需求选择 SDK 套餐进行购买。通过购买相应的 SDK 套餐获取腾讯特效 License 解锁授权，在腾讯云视立方控制台进行绑定，使用相应的功能。具体操作请参见 [购买正式版 License](https://cloud.tencent.com/document/product/616/65879)。
+若您需要在您的业务中使用腾讯特效 SDK 功能，您可参见计费概述，根据您的需求选择 SDK 套餐进行购买。通过购买相应的 SDK 套餐获取腾讯特效 License 解锁授权，在腾讯云视立方控制台进行绑定，使用相应的功能。具体操作请参见 [购买正式版 License](https://cloud.tencent.com/document/product/616/79137#.E8.B4.AD.E4.B9.B0.E6.AD.A3.E5.BC.8F.E7.89.88-license)。
 
 [](id:q3)
 ### 腾讯特效 License 的有效期是多长？过期后如何更新腾讯特效 License？
 - **腾讯特效测试版 License**：的有效期是审批通过后，从签发 License 之日开始往后计算一个月（28天）的时长。比如您在2022年01月01日申请了测试版 License，2022年01月02日申请通过审批并自动签发了 License，测试版 License 将在2022年01月31日的00:00:00过期。
 - **腾讯特效正式版 License**：的有效期是创建成功后，从签发 License 之日开始往后计算一年（365天）的时长。比如您在2022年01月01日申请并创建成功正式版 License，正式版 License 将在2023年01月02日的00:00:00过期。
-正式版 License 过期后需要重新购买新的 License 进行续期，正式版 License 续期指引，请参见 [续期正式 License](https://cloud.tencent.com/document/product/616/65879#renewal)。
+正式版 License 过期后需要重新购买新的 License 进行续期，正式版 License 续期指引，请参见 [续期正式 License](https://cloud.tencent.com/document/product/616/79137#.E6.9B.B4.E6.96.B0.E6.AD.A3.E5.BC.8F.E7.89.88-license-.E6.9C.89.E6.95.88.E6.9C.9F)。
 
 [](id:q4)
 ### 签发后的腾讯特效 License 支持修改包名吗？

@@ -166,3 +166,37 @@ CLB 带宽设置，当前仅在创建时支持配置，创建后不支持修改�
  
 
 
+---
+### service.cloud.tencent.com/security-groups
+
+**说明：**
+通过该 Annotation 可以为 CLB 类型的 Service 绑定安全组，单个 CLB 最多可绑定5个安全组。
+
+**注意：**
+
+- 请查看 CLB 使用安全组的[使用限制](https://cloud.tencent.com/document/product/214/14733)。
+- 通常需要配合安全组默认放通的能力，CLB 和 CVM 之间默认放通，来自 CLB 的流量只需通过 CLB 上安全组的校验。对应 Annotation 为：`service.cloud.tencent.com/pass-to-target`
+- 对于 [Service 使用已有 CLB](https://cloud.tencent.com/document/product/457/45491) 的场景，若多个 Service 声明了不同的安全组，会有逻辑冲突的问题。
+
+**使用示例：**
+`service.cloud.tencent.com/security-groups: "sg-xxxxxx,sg-xxxxxx"`
+
+---
+
+### service.cloud.tencent.com/pass-to-target
+
+**说明：**
+通过该 Annotation 可以为 CLB 类型的 Service 配置安全组默认放通的能力，CLB 和 CVM 之间默认放通，来自 CLB 的流量只需通过 CLB 上安全组的校验。
+
+**注意：**
+
+- 请查看 CLB 使用安全组的[使用限制](https://cloud.tencent.com/document/product/214/14733)。
+- 通常需要配合绑定安全组的能力。对应 Annotation 为：`service.cloud.tencent.com/security-groups`
+- 对于 [Service 使用已有 CLB](https://cloud.tencent.com/document/product/457/45491) 的场景，若多个 Service 声明了不同的放通配置，会有逻辑冲突的问题。
+
+
+
+**使用示例：**
+`service.cloud.tencent.com/pass-to-target: "true"`
+
+

@@ -5,11 +5,13 @@
 | SDK         | 接入文档                                |
 | ----------- | --------------------------------------- |
 | Android SDK | [快速入门](https://cloud.tencent.com/document/product/460/47735) |
+| COS Android SDK | [快速入门](https://cloud.tencent.com/document/product/436/12159) |
 | C SDK | [快速入门](https://cloud.tencent.com/document/product/460/72871) |
 | C++ SDK | [快速入门](https://cloud.tencent.com/document/product/460/72872) |
 | .NET(C#) SDK |[快速入门](https://cloud.tencent.com/document/product/460/72873) |
 | Go SDK | [快速入门](https://cloud.tencent.com/document/product/460/72874) |
 | iOS SDK | [快速入门](https://cloud.tencent.com/document/product/460/47730) |
+| COS iOS SDK | [快速入门](https://cloud.tencent.com/document/product/436/11280) |
 | Java SDK | [快速入门](https://cloud.tencent.com/document/product/460/49286) |
 | JavaScript SDK | [快速入门](https://cloud.tencent.com/document/product/460/72875) |
 | Node.js SDK | [快速入门](https://cloud.tencent.com/document/product/460/72876) |

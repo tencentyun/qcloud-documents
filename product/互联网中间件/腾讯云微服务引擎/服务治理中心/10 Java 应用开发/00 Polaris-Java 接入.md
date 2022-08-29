@@ -92,7 +92,7 @@ ENTRYPOINT  ["java","-jar","/root/app.jar"]
     - 执行 http 调用，其中`${app.port}`替换为 consumer 的监听端口（默认为16011），`${add.address}`则替换为 consumer 暴露的地址。
 <dx-codeblock>
 :::  shell
-    curl -L -X GET 'http://${add.address}:${app.port}/echo?value=hello_world''
+    curl -L -X GET 'http://${add.address}:${app.port}/echo?value=hello_world'
     预期返回值：echo: hello_world
 :::
 </dx-codeblock>   
