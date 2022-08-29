@@ -374,12 +374,12 @@ android {
 打开 `android/app/src/main/AndroidManifest.xml` 文件，在 `<application>` 中，如下添加meta-data。
 
 ```xml
-  <meta-data
-    android:name="com.vivo.push.api_key"
-    android:value="" />
-  <meta-data
-    android:name="com.vivo.push.app_id"
-    android:value="" />
+    <meta-data
+        android:name="com.vivo.push.api_key"
+        android:value="填入您申请的vivo API_KEY" />
+    <meta-data
+        android:name="com.vivo.push.app_id"
+        android:value="填入您申请的vivo API_ID" />
 </application>
 ```
 
