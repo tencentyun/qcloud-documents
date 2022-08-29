@@ -19,8 +19,7 @@ TUIKit 按照功能主要分为**聊天**、**关系链**、**用户或群组资
 | TIMUIKitGroupProfile | 群组信息组件       |
 | TIMUIKitNewContact   | 新的联系人列表组件 |
 | TIMUIKitProfile      | 用户信息组件       |
-| TIMUIKitSearch       | 全局搜索组件           |
-| TIMUIKitSearchMsgDetail  | 会话内搜索组件           |
+| TIMUIKitSearch / TIMUIKitSearchMsgDetail      | 全局搜索/会话内搜索组件           |
 
 
 界面效果如下图所示：
