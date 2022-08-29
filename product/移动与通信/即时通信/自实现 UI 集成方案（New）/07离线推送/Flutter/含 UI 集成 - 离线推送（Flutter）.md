@@ -32,8 +32,8 @@
 | getDevicePushToken | 获取当前厂商的推送Token |
 | getOtherPushType | 获取厂商信息 |
 | getBuzId | 获取当前厂商对应的腾讯云控制台上注册的证书ID |
-| createNotificationChannel | 为Android机型创建通知Channel渠道 |
-| clearAllNotification | 清除通知栏内，当前应用，所有的通知，[详见Google官方文档](https://developer.android.com/training/notify-user/channels) |
+| createNotificationChannel | 为Android机型创建通知Channel渠道，[详见Google官方文档](https://developer.android.com/training/notify-user/channels) |
+| clearAllNotification | 清除通知栏内，当前应用，所有的通知 |
 | displayNotification | 在客户端本地，手动创建一条消息通知 |
 | displayDefaultNotificationForMessage | 在客户端本地，按照默认的规则，自动为一个 `V2TimMessage` 创建一个消息通知 |
 
@@ -188,7 +188,7 @@
 
 ##### 上传证书至控制台
 1. 在 [IM 控制台-基础配置](https://console.cloud.tencent.com/im-detail) 右侧，添加 Android 证书。
-2. 选择华为后，请填写相关信息。**单击后续动作**请选择：**打开应用**。
+2. 选择魅族后，请填写相关信息。**单击后续动作**请选择：**打开应用**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/a24df4cdf8391853e589324a05c45c48.png)
 
 ## 使用插件跑通离线推送（全览 + Android）
