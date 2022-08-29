@@ -177,7 +177,7 @@ flutter pub get
 
 ## 第四部分：含 UI 集成，使用 TUIKit 组件库，半天完成 IM 能力植入
 
-TUIKit 是基于腾讯云 IM SDK 的一款 UI 组件库，它提供了一些通用的 UI 组件，例如会话列表、聊天界面和联系人列表等，开发者可根据实际业务需求通过该组件库快速地搭建自定义 IM 应用。参见 [TUIKit 详细介绍](https://cloud.tencent.com/document/product/269/70746)。
+TUIKit 是基于腾讯云 IM SDK 的一款 UI 组件库，它提供了一些通用的 UI 组件，例如会话列表、聊天界面和联系人列表等，开发者可根据实际业务需求通过该组件库快速地搭建自定义 IM 应用。参见 [TUIKit 介绍](https://cloud.tencent.com/document/product/269/70747)。
 
 ### 前提条件
 
@@ -248,7 +248,7 @@ flutter pub add tim_ui_kit
 #### 初始化
 
 1. 在您应用启动时，初始化 TUIKit。
-2. 请务必保证先执行 `TIMUIKitCore.getInstance()` ，再调用初始化函数 `init()` ，并将您的`sdkAppID`传入。
+2. 请务必保证先执行 [`TIMUIKitCore.getInstance()`](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitCore/getInstance.html) ，再调用初始化函数 [`init()`](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitCore/init.html) ，并将您的`sdkAppID`传入。
 ```dart
 /// main.dart
 import 'package:tim_ui_kit/tim_ui_kit.dart';
@@ -265,9 +265,13 @@ final CoreServicesImpl _coreInstance = TIMUIKitCore.getInstance();
 }
 ```
 
+>?
+>
+> 请在本步骤await初始化完成后，才可执行后续步骤。
+
 #### 登录测试账户
 1. 此时，您可以使用最开始的时候，在控制台生成的测试账户，完成登录验证。
-2. 调用`_coreInstance.login`方法，登录一个测试账户。
+2. 调用 [`_coreInstance.login`](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitCore/login.html) 方法，登录一个测试账户。
 ```dart
 import 'package:tim_ui_kit/tim_ui_kit.dart';
 
@@ -283,7 +287,7 @@ _coreInstance.login(userID: userID, userSig: userSig);
 
 <img style="width:300px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/279da6d5d41ec1ce0b0cf7fca9a697b8.jpg" />
 
-请创建一个 `Conversation` 类，`body` 中使用 `TIMUIKitConversation` 组件，渲染会话列表。
+请创建一个 `Conversation` 类，`body` 中使用 [`TIMUIKitConversation`](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitConversation/) 组件，渲染会话列表。
 
 您仅需传入一个 `onTapItem` 事件的处理函数，用于跳转至具体会话聊天页的导航。关于 `Chat` 类，会在下一步讲解。
 
@@ -323,7 +327,7 @@ return Scaffold(
 该页面由顶部主体聊天历史记录及底部发送消息模块组成。
 <img style="width:300px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/0c361254fa5117f7580f39e8b523e472.png" />
 
-请创建一个 `Chat` 类，`body` 中使用 `TIMUIKitChat` 组件，渲染聊天页面。
+请创建一个 `Chat` 类，`body` 中使用 [`TIMUIKitChat`](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitChat/) 组件，渲染聊天页面。
 
 您最好传入一个 `onTapAvatar` 事件的处理函数，用于跳转至联系人的详细信息页。关于 `UserProfile` 类，会在下一步讲解。
 
@@ -360,9 +364,9 @@ return TIMUIKitChat(
 
 该页面默认，可在只传入一个 `userID` 的情况下，自动根据是否是好友，生成用户详情页。
 
-请创建一个 `UserProfile` 类，`body` 中使用 `TIMUIKitProfile` 组件，渲染用户详情及关系链页面。
+请创建一个 `UserProfile` 类，`body` 中使用 [`TIMUIKitProfile`](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitProfile/) 组件，渲染用户详情及关系链页面。
 
->? 如果您希望自定义该页面，请优先考虑使用 `profileWidgetBuilder` 传入需自定义的profile组件并配合 `profileWidgetsOrder` 确定纵向排列顺序；如果无法满足，才可使用 `builder` 。
+>? 如果您希望自定义该页面，请优先考虑使用 [`profileWidgetBuilder`](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitProfile/ProfileWidgetBuilder.html) 传入需自定义的profile组件并配合 `profileWidgetsOrder` 确定纵向排列顺序；如果无法满足，才可使用 `builder` 。
 
 <img style="width:300px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/5f2e67ffb31adc738165e2c4ce58218c.jpg" />
 
@@ -397,19 +401,19 @@ class UserProfile extends StatelessWidget {
 
 您还可以继续使用以下 TUIKit 插件快速实现完整 IM 功能。
 
-[TIMUIKitContact](https://intl.cloud.tencent.com/document/product/1047/46297#timuikitcontact): 联系人列表页面。
+[TIMUIKitContact](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitContact/): 联系人列表页面。
 
-[TIMUIKitGroupProfile](https://intl.cloud.tencent.com/document/product/1047/46297#timuikitgroupprofile): 群资料页面，使用方式与 `TIMUIKitProfile` 基本一致。
+[TIMUIKitGroupProfile](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitGroupProfile/): 群资料页面，使用方式与 `TIMUIKitProfile` 基本一致。
 
-[TIMUIKitGroup](https://intl.cloud.tencent.com/document/product/1047/46297#timuikitgroup): 群列表界面。
+[TIMUIKitGroup](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitGroup/): 群列表界面。
 
-[TIMUIKitBlackList](https://intl.cloud.tencent.com/document/product/1047/46297#timuikitblacklist): 黑名单列表界面。
+[TIMUIKitBlackList](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitBlackList/): 黑名单列表界面。
 
-[TIMUIKitNewContact](https://intl.cloud.tencent.com/document/product/1047/46297#timuikitnewcontact): 联系人（好友）申请列表。如需在外部显示小红点，可使用 `TIMUIKitUnreadCount` 小红点组件，其会自动挂载监听。
+[TIMUIKitNewContact](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitNewContact/): 联系人（好友）申请列表。如需在外部显示小红点，可使用 `TIMUIKitUnreadCount` 小红点组件，其会自动挂载监听。
 
-[TIMUIKitSearch](https://pub.dev/documentation/tim_ui_kit/latest/ui_views_TIMUIKitSearch_tim_uikit_search/TIMUIKitSearch-class.html): 搜索组件，支持全局搜索联系人/群组/聊天记录，也支持在特定会话中搜索聊天记录。两种模式取决于是否传入 `conversation`。
+[本地搜索](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitSearch/): `TIMUIKitSearch` 全局搜索组件，支持全局搜索联系人/群组/聊天记录，也支持使用 `TIMUIKitSearchMsgDetail` 在特定会话中搜索聊天记录。两种模式取决于是否传入 `conversation`。
 
-详细UI插件指南可参见 [本文档](https://cloud.tencent.com/document/product/269/70747#timuikitcontact) 或 [插件 README](https://pub.dev/packages/tim_ui_kit)。
+UI组件全貌可参见 [本全览文档](https://cloud.tencent.com/document/product/269/70747) 或 [详细文档](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/)。
 
 [](id:part5)
 
