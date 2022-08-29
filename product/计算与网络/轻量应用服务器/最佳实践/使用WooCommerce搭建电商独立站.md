@@ -169,7 +169,7 @@ http://实例公网 IP/
 <dx-alert infotype="explain" title="">
 您可登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse/instance/index)，获取实例公网 IP。
 </dx-alert>
-
+3. 单击页面底部的**保存更改**，配置即可生效。
 
 
 
