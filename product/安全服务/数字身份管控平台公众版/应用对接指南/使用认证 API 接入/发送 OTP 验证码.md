@@ -83,6 +83,18 @@ Host: sample.portal.tencentciam.com
   "phone_number" : "13612345678"
 }
 ```
+- 重置密码场景，发送邮箱验证码。
+```
+POST /otp/send HTTP/1.1
+Content-Type: application/json
+Authorization: Basic Q0xJRU5UXzRfSUQ6Q0xJRU5UXzRfU0VDUkVU
+Host: sample.portal.tencentciam.com
+
+{
+  "usage" : "reset_password",
+  "email" : "MOCK_USERNAME@example.com"
+}
+```
 
 ## 请求头
 | 名称          | 描述                                                         |
@@ -198,3 +210,4 @@ Content-Type: application/json;charset=UTF-8
     "error": "phone_number_is_used"
 }
 ```
+

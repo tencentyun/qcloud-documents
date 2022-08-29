@@ -44,3 +44,4 @@ telnet + 云服务器实例公网 IP 地址 + 端口号
 
 ### 检查 sshd 服务
 当 [使用 SSH 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35700) 时，提示无法连接或者连接失败。可能是由于 sshd 端口未被监听或 sshd 服务未启动引起。请参考 [无法通过 SSH 方式登录 Linux 实例](https://cloud.tencent.com/document/product/213/37925) 进行排查。
+
