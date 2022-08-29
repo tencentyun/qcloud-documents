@@ -102,6 +102,7 @@ dependencies {
   implementation("ch.qos.logback:logback-classic"
 
   implementation("ch.qos.logback:logback-access"
+  }
 ```
 2. 更新 logback.xml 配置文件，下面是一个示例配置：
 ```
