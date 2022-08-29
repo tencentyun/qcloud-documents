@@ -74,7 +74,7 @@ TIMUIKitChat 主要负责消息界面的展示。您可以利用它直接发送�
 <table style="text-align:center; vertical-align:middle; width:1000px">
   <tr>
     <th style="text-align:center;" width="300px">链接解析</th>
-    <th style="text-align:center;" width="300px">地理位置解析</th>
+    <th style="text-align:center;" width="300px">地理位置消息</th>
   </tr>
   <tr>
     <td><img style="width:500px" src="https://qcloudimg.tencent-cloud.cn/raw/6f9b523937e482c7aa86d30f02cd1739.png" /></td>
