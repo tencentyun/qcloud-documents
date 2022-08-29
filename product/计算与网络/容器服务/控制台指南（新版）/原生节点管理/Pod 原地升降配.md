@@ -5,9 +5,9 @@
 ## 前提条件
 - 该功能仅支持原生节点并默认开启。
 - 仅支持 Kubernetes 版本 1.16 及以上版本集群，需要保证小版本为：
-	- kubernetes-v1.16.3-tke.30 及以上。
-	- kubernetes-v1.18.4-tke.28 及以上。
-	- kubernetes-v1.20.6-tke.24 及以上。
+	- kubernetes-v1.16.3-tke.30 及以上
+	- kubernetes-v1.18.4-tke.28 及以上
+	- kubernetes-v1.20.6-tke.24 及以上
 
 ## 适用场景
 #### 1. 应对流量突发，保障业务稳定性
