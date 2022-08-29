@@ -6,16 +6,16 @@ Flutter TUIKit 是基于 Flutter IM SDK 实现的一套 UI 组件，其中包含
 
 目前包含的组件如下：
 
-- [TIMUIKitCore](https://cloud.tencent.com/document/product/269/70747#timuikitcore) 核心
-- [TIMUIKitConversation](https://cloud.tencent.com/document/product/269/70747#timuikitconversation) 会话
-- [TIMUIKitChat](https://cloud.tencent.com/document/product/269/70747#timuikitchat) 聊天
-- [TIMUIKitContact](https://cloud.tencent.com/document/product/269/70747#timuikitcontact) 联系人
-- [TIMUIKitProfile](https://cloud.tencent.com/document/product/269/70747#timuikitprofile) 好友管理
-- [TIMUIKitGroupProfile](https://cloud.tencent.com/document/product/269/70747#timuikitgroupprofile) 群管理
-- [TIMUIKitGroup](https://cloud.tencent.com/document/product/269/70747#timuikitgroup) 我的群聊
-- [TIMUIKitBlackList](https://cloud.tencent.com/document/product/269/70747#timuikitblacklist) 黑名单
-- [TIMUIKitNewContact](https://cloud.tencent.com/document/product/269/70747#timuikitnewcontact) 新的联系人
-- [TIMUIKitSearch](https://pub.dev/documentation/tim_ui_kit/latest/ui_views_TIMUIKitSearch_tim_uikit_search/TIMUIKitSearch-class.html) 本地搜索
+- [TIMUIKitCore](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitCore/) 核心
+- [TIMUIKitConversation](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitConversation/) 会话列表
+- [TIMUIKitChat](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitChat/) 聊天区域，发送消息+历史消息列表
+- [TIMUIKitContact](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitContact/) 联系人列表
+- [TIMUIKitProfile](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitProfile/) 用户资料查看及关系管理
+- [TIMUIKitGroupProfile](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitGroupProfile/) 群资料展示与管理
+- [TIMUIKitGroup](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitGroup/) 我的群聊
+- [TIMUIKitBlackList](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitBlackList/) 黑名单
+- [TIMUIKitNewContact](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitNewContact/) 新的联系人申请
+- [TIMUIKitSearch](https://cloud.tencent.com/document/product/269/79121) 本地搜索
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/f140dd76be01a65abfb7e6ba2bf50ed5.png)
 
