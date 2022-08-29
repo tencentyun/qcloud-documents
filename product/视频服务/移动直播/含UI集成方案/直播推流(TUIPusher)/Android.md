@@ -149,7 +149,7 @@ private void showPKDialog(String userId, final TUIPusherViewListener.ResponseCal
 如果您的应用中无连麦或 `PK` 等互动场景，可以选择标准的 `RMTP` 协议进行推流，具体步骤如下：
 
 - **开始推流**
-基于 RTMP 推流 URL 的生成，可以参考 [示例工程](https://github.com/tencentyun/XiaoZhiBo/blob/main/Android/app/src/main/java/com/tencent/liteav/demo/utils/URLUtils.java#L33) 中封装好的 Utils 方法，基本规则如下图，具体参数信息请参见 [推拉流 URL](https://cloud.tencent.com/document/product/454/7915)。
+基于 RTMP 推流 URL 的生成，可以参考 [示例工程](https://github.com/tencentyun/XiaoZhiBo/blob/main/Android/showlive/src/main/java/com/tencent/liteav/showlive/ui/utils/URLUtils.java) 中封装好的 Utils 方法，基本规则如下图，具体参数信息请参见 [推拉流 URL](https://cloud.tencent.com/document/product/454/7915)。
 ```java
 mTUIPusherView.start(String url);
 ```
