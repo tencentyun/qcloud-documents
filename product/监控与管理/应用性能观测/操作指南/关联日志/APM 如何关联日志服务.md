@@ -8,7 +8,7 @@
 
 **支持上报方式（其它语言和协议将会陆续支持）**
 - [Skywalking 协议上报（Java）](https://cloud.tencent.com/document/product/1463/57870)
-- [ TAPM上报（Java)](https://cloud.tencent.com/document/product/1463/58198)
+- [ TAPM 上报（Java)](https://cloud.tencent.com/document/product/1463/58198)
 - [OpenTelementry 增强探针上报（Java）](https://cloud.tencent.com/document/product/1463/79410)
 
 
@@ -22,7 +22,7 @@
 
 ### 步骤2：在系统配置页面关联日志
 1. 进入 [应用性能观测控制台-系统配置](https://console.cloud.tencent.com/apm/monitor/settings)。
-2. 选择对应的业务系统，在日志关联页面选择“CLS”并配置相关信息。
+2. 选择对应的业务系统，在日志关联页面选择 **CLS** 并配置相关信息。
  - 开启关联日志。
  - 选择对应的日志地域、日志集和日志主题。
 3. 配置完后单击**保存**即可。
