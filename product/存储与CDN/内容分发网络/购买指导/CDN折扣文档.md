@@ -1,7 +1,7 @@
 
 ## 活动1：【免费试用】新用户免费领取 CDN 境内流量
 ### 活动详情
-企业新用户免费领取 CDN 境内流量，企业 500GB/个人100GB，更有新老同享境内流量0.1元/GB起，[立即抢购](https://cloud.tencent.com/act/pro/video_freetrial?from=14867#free)。
+新用户免费领取 CDN 境内流量，企业 500GB/个人100GB，更有新老同享境内流量0.1元/GB起，[立即抢购](https://cloud.tencent.com/act/pro/video_freetrial?from=14867#free)。
 
 ### 活动对象
 腾讯云官网已注册且完成实名认证的国内站用户均可参与（协作者与子用户账号除外）。
