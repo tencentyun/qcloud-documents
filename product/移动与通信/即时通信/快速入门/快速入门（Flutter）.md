@@ -659,8 +659,9 @@ TencentImSDKPlugin.v2TIMManager
 ## 常见问题
 
 ### 支持哪些平台？
-- 目前 [IM SDK(tencent_im_sdk_plugin)](https://cloud.tencent.com/document/product/269/75286) 支持 iOS 、Android 和 Web 三个平台，此外 Windows 和 Mac 版正在开发中，敬请期待。
-- [TUIKit](https://cloud.tencent.com/document/product/269/70746) 及 [配套完整版交互 Demo](https://github.com/TencentCloud/TIMSDK/tree/master/Flutter/Demo/im-flutter-uikit) 支持 iOS 及 Android 两个移动平台。
+- [IM SDK(tencent_im_sdk_plugin)](https://cloud.tencent.com/document/product/269/75286) 支持 iOS 、Android 和 Web 三个平台。（从 tencent_im_sdk_plugin 4.1.1+2 版本起支持WEB）
+- [TUIKit](https://cloud.tencent.com/document/product/269/70746) 及 [配套完整版交互 Demo](https://github.com/TencentCloud/TIMSDK/tree/master/Flutter/Demo/im-flutter-uikit) 支持 iOS 、Android 和 Web 三个平台。（从 tim_ui_kit 0.1.4 版本起支持WEB）
+此外 Windows 和 Mac 版正在开发中，敬请期待。
 
 ### Android 单击 Build And Run 报错找不到可用设备？
 
@@ -709,6 +710,16 @@ defaultConfig {
   targetSdkVersion 30
 }
 ```
+
+### 如何搭建直播间？
+
+欢迎查看[直播间搭建指南](https://cloud.tencent.com/document/product/269/77764#.E7.BE.A4.E7.B1.BB.E5.9E.8B.E9.80.89.E6.8B.A9)，基于腾讯云IM/TRTC/腾讯云直播，搭建一套完整的直播间系统。
+
+### 错误吗如何查询？
+
+- IM SDK的API层面错误码，请查看[该文档](https://cloud.tencent.com/document/product/269/1671)。
+
+- TUIKit的场景码，用于界面弹窗提示，通过[onTUIKitCallbackListener监听](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitCore/init.html)获得。请查看[该文档](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitCore/TIMCallback.html#inforecommendtext)。
 
 ## 联系我们
 如果您在接入使用过程中有任何疑问，请加入 QQ 群：788910197 咨询。
