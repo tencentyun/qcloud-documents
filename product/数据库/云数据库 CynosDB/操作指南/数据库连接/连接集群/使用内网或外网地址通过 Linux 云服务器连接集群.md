@@ -52,7 +52,7 @@ mysql -h hostname -P port -u username -p
 ![](https://main.qcloudimg.com/raw/9fc46a7133fdb07b631876cd9fa4c253.png)
 通过一键检测可得知登录失败的可能原因。
 ![](https://qcloudimg.tencent-cloud.cn/raw/f0eccdbd666a04e73de610d42d3e3b49.png)
-然后在云服务器实例详情页，选择安全组 > 编辑规则，然后放通对应端口，详细操作请参见 [添加安全组规则](https://cloud.tencent.com/document/product/213/39740)。
+然后在云服务器实例详情页，选择**安全组** > **编辑规则**，然后放通对应端口，详细操作请参见 [添加安全组规则](https://cloud.tencent.com/document/product/213/39740)。
 
 #### 无法连接集群还与哪些设置有关？
 当无法连接集群时，您可以检查云服务器 CVM 和 TDSQL-C MySQL 是否在同一腾讯云账号下，是否处于同一地域，是否为同一 VPC 网络。需确保以上三点设置相同，才可以正常连接集群。
