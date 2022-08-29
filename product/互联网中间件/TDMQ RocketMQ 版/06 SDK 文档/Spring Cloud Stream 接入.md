@@ -96,12 +96,12 @@ spring:
 </dx-codeblock>
 <dx-alert infotype="notice" title="">
 1. 目前只有 `2.2.5-RocketMQ-RC1`与 `2.2.5.RocketMQ.RC2` 支持**namespace** 配置，如使用别的版本需要对 topic 和 group 名称进行拼接。
- - 格式如下：
-    - rocketmq-pngrpmk94d5o|stream%topic namespace全称%topic名称
-    - rocketmq-pngrpmk94d5o|stream%group namespace全称%group名称
- -  新的共享版与专享版格式如下：
-    - MQ_INST_rocketmqpj79obd2ew7v_test%topic namespace全称%topic名称
-  	- MQ_INST_rocketmqpj79obd2ew7v_test%group	 	namespace全称%topic名称
+  - 格式如下：
+     - rocketmq-pngrpmk94d5o|stream%topic namespace全称%topic名称
+     - rocketmq-pngrpmk94d5o|stream%group namespace全称%group名称
+  -  新的共享版与专享版格式如下：
+     - MQ_INST_rocketmqpj79obd2ew7v_test%topic namespace全称%topic名称
+     - MQ_INST_rocketmqpj79obd2ew7v_test%group	 	namespace全称%topic名称
 2. 配置方面  `2.2.5-RocketMQ-RC1`与 `2.2.5.RocketMQ.RC2` 的订阅配置项为 `subscription` , 其他版本订阅配置项为 `tags`。
 </dx-alert>
 其他版本完整配置项参考如下：
