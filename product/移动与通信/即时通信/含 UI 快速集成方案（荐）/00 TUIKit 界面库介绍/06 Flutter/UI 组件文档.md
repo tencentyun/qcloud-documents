@@ -1,11 +1,11 @@
-## UIKit 介绍
-UIKit 是基于腾讯云 IM SDK 的一款 UI 组件库，它提供了一些通用的 UI 组件，包含会话、聊天、搜索、关系链、群组、音视频通话等功能。
+## TUIKit 介绍
+TUIKit 是基于腾讯云 IM SDK 的一款 UI 组件库，它提供了一些通用的 UI 组件，包含会话、聊天、搜索、关系链、群组、音视频通话等功能。
 基于 UI 组件您可以像搭积木一样快速搭建起自己的业务逻辑。
-UIKit 中的组件在实现 UI 功能的同时，会调用 IM SDK 相应的接口实现 IM 相关逻辑和数据的处理，因而开发者在使用 UIKit 时只需关注自身业务或个性化扩展即可。
+TUIKit 中的组件在实现 UI 功能的同时，会调用 IM SDK 相应的接口实现 IM 相关逻辑和数据的处理，因而开发者在使用 TUIKit 时只需关注自身业务或个性化扩展即可。
 
 
-## UIKit 主要功能介绍
-UIKit 按照功能主要分为**聊天**、**关系链**、**用户或群组资料**、**搜索**、**语音**几个类型的 UI 子组件，每个类型的 UI 组件负责展示不同的内容。具体的 UI 组件描述如下表所示：
+## TUIKit 主要功能介绍
+TUIKit 按照功能主要分为**聊天**、**关系链**、**用户或群组资料**、**搜索**、**语音**几个类型的 UI 组件，每个类型的 UI 组件负责展示不同的内容。具体的 UI 组件描述如下表所示：
 
 | 组件名               | 组件功能           |
 | -------------------- | ------------------ |
@@ -19,7 +19,8 @@ UIKit 按照功能主要分为**聊天**、**关系链**、**用户或群组资�
 | TIMUIKitGroupProfile | 群组信息组件       |
 | TIMUIKitNewContact   | 新的联系人列表组件 |
 | TIMUIKitProfile      | 用户信息组件       |
-| TIMUIKitSearch       | 搜索组件           |
+| TIMUIKitSearch       | 全局搜索组件           |
+| TIMUIKitSearchMsgDetail  | 会话内搜索组件           |
 
 
 界面效果如下图所示：
@@ -28,7 +29,7 @@ UIKit 按照功能主要分为**聊天**、**关系链**、**用户或群组资�
 <img src="https://qcloudimg.tencent-cloud.cn/raw/51e1a447ea02808f6b6fdea8bd8824d1.png" style="zoom:50%;"/>
 
 ### TIMUIKitChat 重点功能介绍
-TIMUIKitChat 主要负责消息界面的展示。您还可以利用它直接发送不同类型的消息、对消息长按点赞/回复/引用、查询消息已读回执详情等。
+TIMUIKitChat 主要负责消息界面的展示。您可以利用它直接发送不同类型的消息，进行消息表情回应/回复/引用、查询消息已读回执详情等。
 界面效果如下图所示：
 <table style="text-align:center; vertical-align:middle; width:1000px">
   <tr>
@@ -42,7 +43,7 @@ TIMUIKitChat 主要负责消息界面的展示。您还可以利用它直接发�
 </table>
 <table style="text-align:center; vertical-align:middle; width:1000px">
   <tr>
-    <th style="text-align:center;" width="300px">消息点赞/回复/引用</th>
+    <th style="text-align:center;" width="300px">表情回应/回复/引用</th>
     <th style="text-align:center;" width="300px">文件自动匹配icon</th>
   </tr>
   <tr>
@@ -117,8 +118,8 @@ TIMUIKitProfile 主要负责联系人的资料展示与管理。
 <img src="https://qcloudimg.tencent-cloud.cn/raw/e3831ff35e1571c8dbd6b26517cac819.png" style="zoom:40%;"/>
 
 ### 添加用户与群组 功能介绍
-TIMUIKitAddFriend主要负责添加好友页面的展示。
-TIMUIKitAddGroup主要负责添加群组页面的展示。
+TIMUIKitAddFriend为添加好友页面。
+TIMUIKitAddGroup为添加群组页面。
 界面效果如下图所示：
 <table style="text-align:center; vertical-align:middle; width:1000px">
   <tr>
@@ -132,7 +133,7 @@ TIMUIKitAddGroup主要负责添加群组页面的展示。
 </table>
 
 ### TIMUIKitGroupProfile 重点功能介绍
-TIMUIKitGroupProfile 主要负责群资料、群成员、群组权限的管理。
+TIMUIKitGroupProfile 主要负责群资料、群成员、群组权限的展示与管理。
 界面效果如下图所示：
 <table style="text-align:center; vertical-align:middle; width:1000px">
   <tr>
@@ -156,14 +157,15 @@ TIMUIKitGroupProfile 主要负责群资料、群成员、群组权限的管理�
 </table>
 
 
-### TIMUIKitSearch 重点功能介绍
-TIMUIKitSearch 主要负责本地搜索，支持搜索联系人、群聊、聊天记录。
-界面效果如下图所示：
+### 本地搜索 重点功能介绍
+TIMUIKitSearch 为本地全局搜索，支持搜索联系人、群聊、聊天记录。
+TIMUIKitSearchMsgDetail 为会话内聊天历史记录搜索。
+详情[可查看此文档](https://cloud.tencent.com/document/product/269/79121)，界面效果如下图所示：
 <img src="https://qcloudimg.tencent-cloud.cn/raw/199a69d9da6126690a34c7bb01552081.png" style="zoom:40%;"/>
 
 
-### TUICalling 重点功能介绍
-TUICalling 主要负责语音、视频通话。
+### 音视频通话 重点功能介绍
+[TUICalling插件](https://cloud.tencent.com/document/product/269/72485) 主要负责语音、视频通话。
 单聊语音通话示意图：
 <img src="https://qcloudimg.tencent-cloud.cn/raw/1ee168e84c31bcac54e1d5ffb98b4491.png" style="zoom:40%;"/>
 单聊视频通话示意图：
@@ -171,7 +173,7 @@ TUICalling 主要负责语音、视频通话。
 群聊语音与视频通话示意图：
 <img src="https://qcloudimg.tencent-cloud.cn/raw/f00f69d432ce4599b7be643dbf410370.png" style="zoom:40%;"/>
 
-如果您集成了 TIMUIKitChat、TIMUIKitProfile 及 TUICalling，您可以在 TIMUIKitChat 消息页、TIMUIKitProfile 个人资料页启动语音、视频通话。
+您可以在 TIMUIKitChat 消息页、TIMUIKitProfile 个人资料页等页面启动语音、视频通话。
 界面效果如下图所示：
 <table style="text-align:center; vertical-align:middle; width:1000px">
   <tr>
@@ -185,13 +187,11 @@ TUICalling 主要负责语音、视频通话。
 </table>
 
 
-### 离线推送重点功能介绍
-UIKit已经集成了离线推送消息展示。
-离线推送效果如下图所示：
+### 消息推送重点功能介绍
+你可通过我们的[Flutter 推送插件](https://cloud.tencent.com/document/product/269/74605)集成消息推送能力，涵盖离线推送与在线推送。
+消息推送效果如下图所示：
 <img src="https://qcloudimg.tencent-cloud.cn/raw/b2717640d161ea0cea66d509311dc6a7.png" style="zoom:40%;"/>
 
 [](id:feedback)
 ## 交流与反馈
-欢迎加入 QQ 群进行技术交流和反馈问题。
-<img src="https://qcloudimg.tencent-cloud.cn/raw/f351a1640d265047db85ffab1cd086a7.png" style="zoom:20%;"/>
-
+如果您在接入使用过程中有任何疑问，请加入QQ群：788910197 咨询。
