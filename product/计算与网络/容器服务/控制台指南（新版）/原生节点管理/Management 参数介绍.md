@@ -17,7 +17,7 @@ Management 参数为节点常用自定义配置提供了统一的入口，您可
 ### KernelArgs 参数
 下面列出了支持调整的 OS 参数和接受的值。
 
-#### 套接字和网络优化
+#### 套接字和网络优化：
 对于预期会处理大量并发会话的代理节点，您可以使用下面的 TCP 和网络选项调整。
 
 | 编号 | 参数 | 默认值 | 允许的值 / 范围 | 参数类型 | 范围 |
@@ -35,7 +35,7 @@ Management 参数为节点常用自定义配置提供了统一的入口，您可
 | 11 | "net.ipv4.tcp_max_orphans" | 32768 | 4096 - 2147483647 | int | Maximal number of TCP sockets not attached to any user file handle, held by system. Increase this parameter properly to avoid the 'Out of socket memory' error when the load is high. |
 | 12 | "net.ipv4.tcp_max_tw_buckets" | 32768 | 4096 - 2147483647 | int | Maximal number of timewait sockets held by system simultaneously. Increase this parameter properly to avoid \"TCP: time wait bucket table overflow\" error. |
 
-#### 文件句柄限制
+#### 文件句柄限制：
 在为大量流量提供服务时，所服务的流量通常来自大量本地文件。 您可以略微调整以下内核设置和内置限制，以便只占用部分系统内存来处理更大的量。
 
 | 编号 | 参数 | 默认值 | 允许的值 / 范围 | 参数类型 | 范围 |
@@ -44,14 +44,14 @@ Management 参数为节点常用自定义配置提供了统一的入口，您可
 | 2 | "fs.inotify.max_user_instances" | 8192 | 1024 - 2147483647 | int | Limit on the total number of inotify instances. | 
 | 3 | "fs.inotify.max_user_watches" | 524288 | 781250 - 2097152 | int | The total number of inotify watches is limited. Increase this parameter to avoid \"Too many open files\" errors. | 
 
-#### 虚拟内存
-以下设置可用于调整 Linux 内核虚拟内存 (VM) 子系统的操作以及向磁盘进行脏数据的 writeout
+#### 虚拟内存：
+以下设置可用于调整 Linux 内核虚拟内存 (VM) 子系统的操作以及向磁盘进行脏数据的 writeout。
 
 | 编号 | 参数 | 默认值 | 允许的值 / 范围 | 参数类型 | 范围 |
 |---------|---------|---------|---------|---------|---------|
 | 1 | "vm.max_map_count" | 262144 | 65530 - 262144 | int | The maximum number of memory map areas a process may have. |
 
-#### 工作线程限制
+#### 工作线程限制：
 
 | 编号 | 参数 | 默认值 | 允许的值 / 范围 | 参数类型 | 范围 |
 |---------|---------|---------|---------|---------|---------|
