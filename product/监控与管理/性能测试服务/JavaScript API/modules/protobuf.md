@@ -1,141 +1,104 @@
-## 目录
 
-### Variables（变量）
-- [default](#default)
+## Interfaces（接口）
+- [Item](https://cloud.tencent.com/document/product/1484/75805)
 
 ## Variables（变量）
-
 [](id:default)
 
-### Const default
+### default
+**default**:  { add: any; forEach: any; get: any; random: any }
 
-default: { load: *any*; marshal: *any*; unmarshal: *any* }
-
-Defined in typings/protobuf.d.ts:5
-
-#### Type declaration
-
-- ##### load:function 
-
-  - load(importPaths: *string*[], ...filenames: *string*[]): *void*
-
-
+### Type declaration
+#### add:function
+- add(filename: *string*, values: *Record*<*string*, *any*>[]): *void*
+增加一行参数文件。
 ```
-  Defined in typings/protobuf.d.ts:22
-```
-
-加载 pb 文件。
-
-```js
-  import protobuf from 'pts/protobuf';
+ import dataset from 'pts/dataset';
     
-   // 加载协议文件根目录中的 demo.proto
-   protobuf.load([], 'demo.proto');
-    
-  // 加载中协议文件 dirName 目录中的 demo.proto
-   protobuf.load(['dirName'], 'demo.proto');
- ```
-		
-#### Parameters
-
-- ##### importPaths: *string*[]
-
-      用于搜索在 proto 源文件的 import 语句中引用的依赖项的路径。如果没有提供导入路径，则当前目录被假定为唯一的导入路径。
-
- - ##### Rest ...filenames: *string*[]
-
-pb 文件名列表, 支持单个文件名调用
-
-#### Returns *void*
-
-- ##### marshal:function
-
-  - marshal(message: *string*, value: *any*, filename?: *string*): *ArrayBuffer*
-
-```
-Defined in typings/protobuf.d.ts:50
-```
-
-    pb 序列化。
-
-    ```js
-    import protobuf from 'pts/protobuf';
-    
-    // 加载协议文件根目录中的 demo.proto
-    protobuf.load([], 'demo.proto');
-    
-    // 加载中协议文件 dirName 目录中的 demo.proto
-    // protobuf.load(['dirName'], 'demo.proto');
-    
-    export default function () {
-        let data = protobuf.marshal('trpc.wtp.demo.stSayHelloReq', {"msg": "pts"});
-        console.log(data); // [object ArrayBuffer]
-    
-        let value = protobuf.unmarshal('trpc.wtp.demo.stSayHelloReq', data);
-        console.log(JSON.stringify(value)); // {"msg":"pts"}
+  export function setup () {
+  dataset.add("user", [
+           {"id": 1, "name": "zhangsan", "age": 1},
+           {"id": 2, "name": "lisi", "age": 2}
+            ]
+        )
     };
-    ```
-
-#### Parameters
-
- - ##### message: *string*
-
-      结构体名
-
- - ##### value: *any*
-
-      json化的请求体
-
- - ##### Optional filename: *string*
-
-      文件名，可选
-
- #### Returns *ArrayBuffer*
-
-    响应对象
-
-- ##### unmarshal:function
-
-- unmarshal(message: *string*, data: *ArrayBuffer*, filename?: *string*): *any*
-
-- Defined in typings/protobuf.d.ts:78
-
- pb 反序列化。
-
- ```js
-    import protobuf from 'pts/protobuf';
-    
-    // 加载协议文件根目录中的 demo.proto
-    protobuf.load([], 'demo.proto');
-    
-    // 加载中协议文件 dirName 目录中的 demo.proto
-    // protobuf.load(['dirName'], 'demo.proto');
-    
-    export default function () {
-        let data = protobuf.marshal('trpc.wtp.demo.stSayHelloReq', {"msg": "pts"});
-        console.log(data); // [object ArrayBuffer]
-    
-        let value = protobuf.unmarshal('trpc.wtp.demo.stSayHelloReq', data);
-        console.log(JSON.stringify(value)); // {"msg":"pts"}
-    };
-  ```
-
-#### Parameters
-
- - ##### message: *string*
-
-      结构体名
-
+```
+  **Parameters**
+   - ##### filename: *string*
+文件名。
+   - ##### values: *Record*<*string*, *any*>[]
+文件数据。
  
-  - ##### data: *ArrayBuffer*
+ Returns *void*
 
- 二进制请求体
+#### forEach:function
 
-- ##### Optional filename: *string*
+- forEach(fileName: *string*, callback: ((item: [Item](https://cloud.tencent.com/document/product/1484/75805), i?: *number*) => *void*)): *void*
+遍历 csv 文件，支持修改和删除。
+```js
+import dataset from 'pts/dataset';
+    
+export function setup() {
+    dataset.forEach("test.csv", (item) => {
+    item.data.key5 = "555";
+    if (item.data.key1 === "1") {
+          item.delete();
+          }
+         console.log(JSON.stringify(item.data));
+        });
+    }
+ ```
+**Parameters**
+  - ##### fileName: *string*
+  文件名
+ - ##### callback: ((item: [Item](https://cloud.tencent.com/document/product/1484/75805), i?: *number*) => *void*)
+  回调函数
+  (item: [Item](https://cloud.tencent.com/document/product/1484/75805), i?: *number*): *void*
+	
+    **Parameters**
 
-  文件名，可选
+    - ##### item: [Item](https://cloud.tencent.com/document/product/1484/75805)
 
- #### Returns *any*
+   - ##### Optional i: *number*
+   Returns *void*
 
-  响应对象
+ Returns *void*
 
+- #### get:function
+get(key: *string*): *string*
+ 获取 csv 文件的列数据。
+```
+  import http from 'pts/http';
+  import dataset from 'pts/dataset';
+    
+  export default function () {
+  const value = dataset.get('key1');
+  console.log('key1 => '+value)
+   const postResponse = http.post('http://httpbin.org/post', JSON.stringify({data:value}));
+    };
+```
+**Parameters**
+
+ - ##### key: *string*
+列名
+
+ Returns *string*
+ 数据
+
+- ##### random:function
+random(filename: *string*): *Record*<*string*, *any*>
+随机获取参数文件一行。
+```
+  import dataset from 'pts/dataset';
+  export default function () {
+  const record = dataset.random('test.csv');
+  console.log(JSON.stringify(record)); // {"key1":"1","key2":"2","key3":"3","key4":"4"}
+    console.log(record.key1); // 1 
+    };
+ ```
+**Parameters**
+ - ##### filename: *string*
+文件名。
+
+ Returns *Record*<*string*, *any*>
+ 一行数据。

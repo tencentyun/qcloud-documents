@@ -1,5 +1,5 @@
 
-本文档是介绍适用于直播和点播播放的 [Web 超级播放器（ TCPlayer ）](https://cloud.tencent.com/document/product/881/30818)的相关参数以及 API。本文档适合有一定 Javascript 语言基础的开发人员阅读。
+本文档是介绍适用于直播和点播播放的 [Web 播放器（ TCPlayer ）](https://cloud.tencent.com/document/product/881/30818)的相关参数以及 API。本文档适合有一定 Javascript 语言基础的开发人员阅读。
 
 ## 初始化参数
 播放器初始化需要传入两个参数，第一个为播放器容器 ID，第二个为功能参数对象。

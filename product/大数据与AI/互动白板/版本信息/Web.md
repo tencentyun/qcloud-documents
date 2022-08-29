@@ -1,4 +1,26 @@
-## 2.7.4 @ 2022.07.04
+### 2.7.6 @ 2022.08.16
+* 链接地址：https://res.qcloudtiw.com/board/2.7.6/TEduBoard.min.js
+
+- 新增功能
+  1. 新增数据教具功能，支持直尺，三角形，量角器;
+  2. 新增获取 ppt 备注功能;
+
+- Bug 修复
+  1. 其他已知问题修复。
+
+### 2.7.5 @ 2022.08.01
+* 链接地址：https://res.qcloudtiw.com/board/2.7.5/TEduBoard.min.js
+
+- 新增功能
+  1. PPT 老版本转码，支持 mp3,mp4 播放同步;
+  2. PPT 新版本转码，支持 mp3,mp4 播放同步;
+  3. 错误和警告事件增加上报;
+
+- Bug及优化处理
+  1. 修复获取资源的时候 Host 缺少协议的问题
+  2. 其他已知问题修复。
+
+### 2.7.4 @ 2022.07.04
 * 链接地址：https://res.qcloudtiw.com/board/2.7.4/TEduBoard.min.js
 
 - 新增功能

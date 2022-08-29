@@ -57,7 +57,7 @@ IP 地址分为两类：IPv4 地址和 IPv6 地址，IPv4 应用广泛，但网�
 </tr>
 <tr>
 <td colspan="2" >IP 资源费用</td>
-<td>普通公网 IP 不收取 IP资源费用，仅收取 <a href="https://cloud.tencent.com/document/product/1199/51693">公网网络费用</a> 。</td>
+<td>普通公网 IP 不收取 IP资源费用，仅收取 <a href="https://cloud.tencent.com/document/product/1199/51693">公网网络费用</a>。</td>
 <td>IP 资源费用是弹性公网 IP 费用组成的一部分，针对传统账户类型和标准账户类型，不同类型的账户收费情况不同，详情请参见 <a href="https://cloud.tencent.com/document/product/1199/41692#.E8.B4.B9.E7.94.A8.E7.BB.84.E6.88.90">费用组成</a>。</td>
 </tr>
 <tr>
@@ -66,8 +66,7 @@ IP 地址分为两类：IPv4 地址和 IPv6 地址，IPv4 应用广泛，但网�
 <td>每个账户每个地域（Region）可申请：20个。</td>
 </tr>
 <tr>
-<td colspan="2">每台云服务器绑定公网 IP（包括普通公网 IP 和 EIP）数配额请参见 <a href="https://cloud.tencent.com/document/product/1199/41648?!#.E7.BB.91.E5.AE.9A.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8.E9.99.90.E5.88.B6" target="_blank">绑定云服务器限制
-</a>。
+<td colspan="2">每台云服务器绑定公网 IP（包括普通公网 IP 和 EIP）数配额请参见 <a href="https://cloud.tencent.com/document/product/1199/41648?!#.E7.BB.91.E5.AE.9A.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8.E9.99.90.E5.88.B6" target="_blank">绑定云服务器限制</a>。
 </td>
 </tr>
 <tr>
@@ -84,7 +83,7 @@ IP 地址分为两类：IPv4 地址和 IPv6 地址，IPv4 应用广泛，但网�
 </tr>
 <tr>
 <td>释放 IP</td>
-<td>如果您不再需要该公网 IP，可在 <a href="https://console.cloud.tencent.com/cvm" target="_blank">云服务器控制台 </a>的操作栏下，选择【更多】>【IP/网卡】>【退还公网 IP】进行退还。</td>
+<td>如果您不再需要该公网 IP，可在 <a href="https://console.cloud.tencent.com/cvm" target="_blank">云服务器控制台 </a>的操作栏下，选择<b>更多</b> > <b>IP/网卡</b> > <b>退还公网 IP</b> 进行退还。</td>
 <td>可以在弹性公网 IP 控制台释放，详情请参见 <a href="https://cloud.tencent.com/document/product/1199/41704" target="_blank"> 释放 EIP</a>。</td>
 </tr>
 <tr>

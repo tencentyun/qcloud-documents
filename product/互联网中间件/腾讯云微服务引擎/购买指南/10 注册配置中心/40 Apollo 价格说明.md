@@ -177,7 +177,7 @@
 <thead>
 <tr>
 <th>规格</th>
-<th>单价（单位：元/月）</th>
+<th>单价（单位：元/小时）</th>
 </tr>
 </thead>
 <tbody><tr>

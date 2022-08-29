@@ -1,6 +1,6 @@
 ## 功能描述
 
-CancelMediaJob 用于取消一个任务。
+CancelPicJob 用于取消一个任务。
 
 ## 请求
 

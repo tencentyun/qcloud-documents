@@ -78,41 +78,41 @@ bindTRTCRoomEvent() {
     this.TRTC.on(TRTC_EVENT.LOCAL_AUDIO_VOLUME_UPDATE, (event) => {
         console.log('* room LOCAL_AUDIO_VOLUME_UPDATE', event)
     })
-    // 请保持跟 wxml 中绑定的事件名称一致
-    _pusherStateChangeHandler(event) {
-        this.TRTC.pusherEventHandler(event)
-    },
-    _pusherNetStatusHandler(event) {
-        this.TRTC.pusherNetStatusHandler(event)
-    },
-    _pusherErrorHandler(event) {
-        this.TRTC.pusherErrorHandler(event)
-    },
-    _pusherBGMStartHandler(event) {
-        this.TRTC.pusherBGMStartHandler(event)
-    },
-    _pusherBGMProgressHandler(event) {
-        this.TRTC.pusherBGMProgressHandler(event)
-    },
-    _pusherBGMCompleteHandler(event) {
-        this.TRTC.pusherBGMCompleteHandler(event)
-    },
-    _pusherAudioVolumeNotify(event) {
-        this.TRTC.pusherAudioVolumeNotify(event)
-    },
-    _playerStateChange(event) {
-        this.TRTC.playerEventHandler(event)
-    },
-    _playerFullscreenChange(event) {
-        this.TRTC.playerFullscreenChange(event)
-    },
-    _playerNetStatus(event) {
-        this.TRTC.playerNetStatus(event)
-    },
-    _playerAudioVolumeNotify(event) {
-        this.TRTC.playerAudioVolumeNotify(event)
-    },
 },
+// 请保持跟 wxml 中绑定的事件名称一致
+_pusherStateChangeHandler(event) {
+    this.TRTC.pusherEventHandler(event)
+},
+_pusherNetStatusHandler(event) {
+    this.TRTC.pusherNetStatusHandler(event)
+},
+_pusherErrorHandler(event) {
+    this.TRTC.pusherErrorHandler(event)
+},
+_pusherBGMStartHandler(event) {
+    this.TRTC.pusherBGMStartHandler(event)
+},
+_pusherBGMProgressHandler(event) {
+    this.TRTC.pusherBGMProgressHandler(event)
+},
+_pusherBGMCompleteHandler(event) {
+    this.TRTC.pusherBGMCompleteHandler(event)
+},
+_pusherAudioVolumeNotify(event) {
+    this.TRTC.pusherAudioVolumeNotify(event)
+},
+_playerStateChange(event) {
+    this.TRTC.playerEventHandler(event)
+},
+_playerFullscreenChange(event) {
+    this.TRTC.playerFullscreenChange(event)
+},
+_playerNetStatus(event) {
+    this.TRTC.playerNetStatus(event)
+},
+_playerAudioVolumeNotify(event) {
+    this.TRTC.playerAudioVolumeNotify(event)
+}
 ```
 
 [](id:step3)
@@ -133,7 +133,7 @@ init() {
   this.setData({
     pusher: this.TRTC.createPusher(pusherConfig)
   })
-}
+},
 enterRoom(options) {
   const { roomID, sdkAppID, userID, userSig } = options
   this.setData({

@@ -113,7 +113,7 @@ void updateProperty(XmagicProperty<?> p)
 <td>ID</td>
 <td>null
 <br>特殊情况：<ul style="margin:0">
-<li/>瘦脸中的  （自然、女神、英俊） ID 值分别为：<code>XmagicConstant.BeautyConstant.BEAUTY_FACE_NATURE</code>、<code>XmagicConstant.BeautyConstant.BEAUTY_FACE_GODNESS </code>、<code>XmagicConstant.BeautyConstant.BEAUTY_FACE_MALE_GOD</code></li>
+<li/>瘦脸中的（自然、女神、英俊） ID 值分别为：<code>BeautyConstant.BEAUTY_FACE_NATURE_ID</code>、 <code>BeautyConstant.BEAUTY_FACE_FEMALE_GOD_ID</code>、<code>BeautyConstant.BEAUTY_FACE_MALE_GOD_ID</code></li>
 <li>口红中的 ID 值为：<code>XmagicConstant.BeautyConstant.BEAUTY_LIPS_LIPS_MASK</code></li>
 <li>腮红中的 ID 值为：<code>XmagicConstant.BeautyConstant.BEAUTY_MAKEUP_MULTIPLY_MULTIPLY_MASK</code></li>
 <li>立体中的 ID 值为：<code>XmagicConstant.BeautyConstant.BEAUTY_SOFTLIGHT_SOFTLIGHT_MASK</code></li>        

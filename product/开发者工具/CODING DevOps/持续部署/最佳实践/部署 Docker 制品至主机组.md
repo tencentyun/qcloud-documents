@@ -28,14 +28,14 @@ ${trigger["artifacts"].?[name=="jiyunkeji-docker.pkg.coding.net/ccj-demo/test_de
 ```
  -   dockerRepoURL：制品仓库的 URL，一般为 “`CODING 域名 - docker.pkg.coding.net`”，例如 `jiyunkeji-docker.pkg.coding.net`
 其中需将示例 URL：`jiyunkeji-maven.pkg.coding.net/ccj-demo/mvn-test/com.example:spring-boot` 部分替换为实际团队中 docker 镜像的 URL。您可以参见下图进行获取。
-![](https://qcloudimg.tencent-cloud.cn/raw/0d7d2061b114d38df25e0115ec1a90e6.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/a98451643bd56820901f8971324c1c3b.png)
 3. 添加后如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/a87d7299e3f0b18a7f4bd86dcf8a8911.png)
 
 [](id:add-host-stage)
 ## 添加部署（主机组）阶段
 在流程中添加部署（主机组）阶段，选择对应的主机组与服务名称。在阶段中填写后置脚本。其中的 `docker run` 命令需根据团队中的镜像运行命令进行修改。
-![](https://qcloudimg.tencent-cloud.cn/raw/a885fca7d80491a6304c5c0c5f41b2ad.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/5a9a1b3efc6fc016b1d0082948d631e2.png)
 
 [](id:finish)
 ## 执行完成

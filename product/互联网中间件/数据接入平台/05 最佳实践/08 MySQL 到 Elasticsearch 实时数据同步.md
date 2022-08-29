@@ -71,7 +71,7 @@ insert into test values('testname',25);
 <img src="https://qcloudimg.tencent-cloud.cn/raw/77a09f68dbbc077b413d6653aec65d4e.png" width = "40%" height = "40%"> 
 2. 	配置数据源，选择同步了 MySQL 数据的 Topic，这里选择步骤1中的 Topic，选择 **从最开始位置开始消费**。
 <img src="https://qcloudimg.tencent-cloud.cn/raw/3811b240ef7cf8c3ce6c099f762da636.png" width = "40%" height = "40%"> 
-3. 下一步中数据处理可根据实际情况进行配置，这里不仅行相关配置，使用原始消息数据。最后进行 ES 相关配置，其中主键为数据库表的主键名称。
+3. 下一步中数据处理可根据实际情况进行配置，这里不进行相关配置，使用原始消息数据。最后进行 ES 相关配置，其中主键为数据库表的主键名称。
 >!此模式需要开启数据库同步模式，并填写表的主键的列名，如此处主键列名为 **id**。
 >
 <img src="https://qcloudimg.tencent-cloud.cn/raw/8163016b758e79f5a3546c6f5ac6b020.png" width = "60%" height = "60%"> 
