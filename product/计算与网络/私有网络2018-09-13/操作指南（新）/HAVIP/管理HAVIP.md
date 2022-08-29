@@ -3,7 +3,7 @@
 
 
 ## 操作步骤
-1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/)，在左侧导航栏中，选择**IP 与网卡** > **高可用虚拟 IP**。 
+1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/)，在左侧导航栏中，选择 **IP 与网卡** > **高可用虚拟 IP**。 
 2. 在 HAVIP 管理页面，选择所在地域，单击**申请**。
 3. 在弹出的**申请高可用虚拟 IP** 对话框中，配置 HAVIP 的参数。
  + **名称**：填写 HAVIP 的名称。
