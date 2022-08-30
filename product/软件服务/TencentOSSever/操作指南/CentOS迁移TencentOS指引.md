@@ -62,7 +62,7 @@ CentOS 7.2、CentOS 7.3公共镜像可能默认包含了32位的软件包，需�
 
 ### 执行迁移
 <dx-tabs>
-::: 迁移至 TencentOS 2.4（TK4）
+::: CentOS 7系列迁移至 TencentOS 2.4（TK4）
 1. 登录目标云服务器，详情请参见 [使用标准登录方式登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)。
 2. 执行以下命令，安装 Python 3。
 ```shell
@@ -108,7 +108,7 @@ yum makecache
 
 
 :::
-::: 迁移至 TencentOS 3.1（TK4）
+::: CentOS 8系列迁移至 TencentOS 3.1（TK4）
 1. 登录目标云服务器，详情请参见 [使用标准登录方式登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)。
 2. 执行以下命令，安装 Python 3。
 ```shell
