@@ -46,17 +46,6 @@ WordPress 是全球最流行的开源的博客和内容管理网站的建站平�
 成功登录后，您可根据实际需要对 WordPress 进行管理、自定义和配置。
 
 
-### 设置 WordPress 地址 URL
-请参考以下步骤，设置 WordPress 地址 URL。若您未配置 WordPress 地址 URL，则发送修改管理员邮箱邮件时会出现链接无法点击的问题。
-1. 选择左侧导航栏中的**设置** > **常规**，进入“常规选项”页面。
-2. 找到 “WordPress地址（URL）”并填写。建议填写店铺的域名，若暂未拥有域名，可先填写实例的 IP 地址，格式如下：
-```shell
-http://实例公网 IP/
-```
-<dx-alert infotype="explain" title="">
-您可登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse/instance/index)，获取实例公网 IP。
-</dx-alert>
-3. 单击页面底部的**保存更改**，配置即可生效。
 
 ## 相关操作
 ### 更新 WordPress 管理员个人资料
@@ -87,6 +76,21 @@ WordPress 应用镜像集成了宝塔 Linux 面板，可通过宝塔面板直接
 ![](https://main.qcloudimg.com/raw/866b18637a5587cd09b0919e16aa5f0d.png)
 6. 单击**放行**即可放通对应端口。
 
+
+### 设置 WordPress 地址 URL
+
+<dx-alert infotype="notice" title="">
+请参考以下步骤，设置 WordPress 地址 URL。若您未配置 WordPress 地址 URL，则发送修改管理员邮箱邮件时会出现链接无法点击的问题。
+</dx-alert>
+
+
+1. 选择左侧导航栏中的**设置** > **常规**，进入“常规选项”页面。
+2. 找到 “WordPress地址（URL）”并填写。建议填写店铺的域名，若暂未拥有域名，可先填写实例的 IP 地址，格式如下：
+```shell
+http://实例公网 IP/
+```
+您可登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse/instance/index)，获取实例公网 IP。
+3. 单击页面底部的**保存更改**，配置即可生效。
 
 ### 配置邮件
 WordPress 应用镜像 postfix 服务默认未加密。从安全性的角度考虑，建议您参考以下步骤配置加密的邮件服务。本文以 WordPress 插件 WP Mail SMTP 为例：
