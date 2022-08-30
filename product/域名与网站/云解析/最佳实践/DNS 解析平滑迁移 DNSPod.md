@@ -24,7 +24,7 @@ DNSPod 解析仅支持添加二级域名，暂不支持二级域名以下子域�
 </dx-alert>
 <img src="https://qcloudimg.tencent-cloud.cn/raw/fad1648cee45ef98f4e44d5f84ae2259.png"/>
 3. 域名验证后，单击**是的，继续添加**，进入**设置解析记录**页签，单击**下一步**。如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/1bb4eef7cf0f71e3169c6c24fd23a946.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/ea2bf9db8bd83f667158040f86db895f.png)
 4. 添加解析记录后，单击域名进入解析设置**记录管理**页签，选择**更多操作** > **批量导入记录**。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/f579e007cf7826009583010646a109f8.png)
 5. 在**导入记录**页签中，将准备好的解析记录数据，导入至 DNSPod DNS 解析。具体操作请参见 [记录批量导入](https://docs.dnspod.cn/dns/5fb721ba7daf787f4ed520b8/)。如下图所示：
