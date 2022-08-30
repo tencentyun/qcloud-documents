@@ -32,45 +32,45 @@ Windows 端 SDK 的集成涉及到的接口如下：
 </tr>
 </thead>
 <tbody><tr>
-<td><a href="#setTELicense0">setTELicense</a></td>
+<td><a href="#setTELicense">setTELicense</a></td>
 <td>鉴权接口</td>
 <td><a href="#setTELicense1">示例</a></td>
 </tr>
 <tr>
-<td><a href="#createXmagic0">createXmagic</a></td>
+<td><a href="#createXmagic">createXmagic</a></td>
 <td>Xmagic 创建接口</td>
 <td><a href="#createXmagic1">示例</a></td>
 </tr>
 <tr>
-<td><a href="#destroyXmagic0">destroyXmagic</a></td>
+<td><a href="#destroyXmagic">destroyXmagic</a></td>
 <td>Xmagic 销毁接口</td>
 <td><a href="#destroyXmagic1">示例</a></td>
 </tr>
 <tr>
-<td><a href="#updateProperty0">updateProperty</a></td>
+<td><a href="#updateProperty">updateProperty</a></td>
 <td>设置美颜参数（如美颜、动效、化妆等）</td>
 <td rowspan="3"><a href="#updateProperty1">示例</a></td>
 </tr>
 <tr>
-<td><a href="#process0">process</a></td>
+<td><a href="#process">process</a></td>
 <td>处理美颜接口，返回对应的美颜处理数据（如像素、纹理）</td>
 </tr>
 <tr>
-<td><a href="#setSegmentBg0">setSegmentBg</a></td>
+<td><a href="#setSegmentBg">setSegmentBg</a></td>
 <td>设置自定义人像分割</td>
 </tr>
 <tr>
-<td><a href="#setRenderSize0">setRenderSize</a></td>
+<td><a href="#setRenderSize">setRenderSize</a></td>
 <td>重置输入数据大小</td>
 <td>-</td>
 </tr>
 <tr>
-<td><a href="#onPasue0">onPasue</a></td>
+<td><a href="#onPasue">onPasue</a></td>
 <td>暂停美颜</td>
 <td>-</td>
 </tr>
 <tr>
-<td><a href="#onResume0">onResume</a></td>
+<td><a href="#onResume">onResume</a></td>
 <td>开始美颜</td>
 <td>-</td>
 </tr>
