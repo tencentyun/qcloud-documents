@@ -677,7 +677,7 @@ TencentImSDKPlugin.v2TIMManager
 - [tim-js-friendship.js](https://github.com/TencentCloud/TIMSDK/blob/master/Web/IMSDK/tim-js-friendship.js)
 - [将此文件重命名成 tim-upload-plugin.js](https://github.com/TencentCloud/TIMSDK/blob/master/Web/IMSDK/tim-upload-plugin/index.js)
 
-打开 `web/index.html` ，在 `</head> </head>` 间引入这两个JS文件。如下：
+打开 `web/index.html` ，在 `<head> </head>` 间引入这两个JS文件。如下：
 
 ```html
 <script src='./tim-upload-plugin.js'></script>
