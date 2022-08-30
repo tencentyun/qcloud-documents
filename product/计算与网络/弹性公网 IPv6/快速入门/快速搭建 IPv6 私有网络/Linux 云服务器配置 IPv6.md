@@ -608,7 +608,7 @@ PREFIXLEN_2=<子网前缀长度>
       ```plaintext
       default <IPv6网关> - -
       ```
-      3. 重启网络服务：运行`service network restart`或`systemctl restart networking`。
+      3. 重启网络服务：运行 `service network restart` 或 `systemctl restart networking`。
 5. 请参考[ SSH 支持 IPv6 配置](#ssh-ipv6) 开启 SSH 的 IPv6 功能。
 
 ### FreeBSD 11 配置 IPv6[](id:Freebsd11)
