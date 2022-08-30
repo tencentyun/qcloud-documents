@@ -192,6 +192,12 @@ SDK 登录接口 initSDK 方法中需要传入 WBFaceVerifySDKConfig 字段
  */
 @property (nonatomic, assign) BOOL useWindowSecene;
 
+/*
+意愿性表达视频录制参数
+*/
+@property (nonatomic, assign) BOOL recordWillVideo;
+@property (nonatomic, assign) BOOL checkWillVideo;
+
 /**
  默认sdk配置
  */
