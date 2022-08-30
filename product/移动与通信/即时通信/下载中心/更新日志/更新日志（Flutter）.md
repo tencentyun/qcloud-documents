@@ -1,7 +1,7 @@
 >?
 >
 > 下文中，IM Flutter SDK（无 UI）指代 [tencent_im_sdk_plugin](https://pub.dev/packages/tencent_im_sdk_plugin) 包，仅包括所有IM客户端API及监听回调；
-> IM Flutter TUIKit（含UI）指代 [tim_ui_kit](https://pub.dev/packages/tim_ui_kit) 包，在上行基础上，还包括完整 UI 组件库及业务逻辑。
+> IM Flutter TUIKit（含 UI）指代 [tim_ui_kit](https://pub.dev/packages/tim_ui_kit) 包，在上行基础上，还包括完整 UI 组件库及业务逻辑。
 
 ## IM Flutter SDK（无 UI） 4.1.1+2 @2022.08.25
 - 升级底层库版本到6.6.x
@@ -10,7 +10,7 @@
 ## IM Flutter SDK（无 UI） 4.1.0 @2022.08.09
 - 升级底层库版本
 
-## IM Flutter TUIKit（含UI） 0.1.3 @2022.08.03
+## IM Flutter TUIKit（含 UI） 0.1.3 @2022.08.03
 - 新增用户输入中状态
 - 新增消息表情回应能力
 - 新增用户在线状态展示
@@ -25,10 +25,10 @@
 - 支持自定义用户在线状态
 - 升级底层库版本至6.5.x
 
-## IM Flutter TUIKit（含UI） 0.1.2 @2022.07.08
+## IM Flutter TUIKit（含 UI） 0.1.2 @2022.07.08
 - 修复原引用的第三方底层录音库 `flutter_record_plugin_plus` 无法使用问题
 
-## IM Flutter TUIKit（含UI） 0.1.1 @2022.07.07
+## IM Flutter TUIKit（含 UI） 0.1.1 @2022.07.07
 - 优化图片预览逻辑
 - 为各个组件新增生命周期钩子函数 LifeCycle hooks
 - 新增群聊天页新增禁言状态
@@ -49,14 +49,14 @@
 - 支持通过消息类型请求历史消息列表
 - 支持富文本消息发送
 
-## IM Flutter TUIKit（含UI） 0.1.0 @2022.06.10
+## IM Flutter TUIKit（含 UI） 0.1.0 @2022.06.10
 - 新增 `TIMUIKitChat` 组件原子化开发能力，通过各种子组件可自行拼装聊天页面。
 - 支持消息编辑更新UI能力
 - 新增入群申请审批页面组件
 - 国际化语言新增繁体中文
 - 开放更多自定义组件参数
 
-## IM Flutter TUIKit（含UI） 0.0.9 @2022.05.30
+## IM Flutter TUIKit（含 UI） 0.0.9 @2022.05.30
 - 支持离线推送，配合新发布的 [tim_ui_kit_push_plugin](https://pub.dev/packages/tim_ui_kit_push_plugin) 推送插件
 - 支持Flutter 3.0
 - 优化媒体消息本地预览
@@ -72,7 +72,7 @@
 - 升级底层库版本到6.2.x
 - 修复离线推送信息字段
 
-## IM Flutter TUIKit（含UI） 0.0.8 @2022.04.24
+## IM Flutter TUIKit（含 UI） 0.0.8 @2022.04.24
 - 新增群消息已读回执能力
 - 新增聊天区域右下角小舌头，支持返回底部/展示新消息数量/@消息提醒。
 
@@ -86,15 +86,15 @@
  - [getgroupMessageReadMemeberList](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/getGroupMessageReadMemberList.html) 获取自己发送的群消息已读（未读）群成员列表
 - Flutter for Web 完善
 
-## IM Flutter TUIKit（含UI） 0.0.7 @2022.04.13
+## IM Flutter TUIKit（含 UI） 0.0.7 @2022.04.13
 - 体验优化
 
-## IM Flutter TUIKit（含UI） 0.0.6 @2022.04.08
+## IM Flutter TUIKit（含 UI） 0.0.6 @2022.04.08
 - 开放发送消息自动上屏接口，及更多定制化能力参数
 - 用户登录鉴权优化
 - 个保法隐私政策对齐优化
 
-## IM Flutter TUIKit（含UI） 0.0.5 @2022.03.24
+## IM Flutter TUIKit（含 UI） 0.0.5 @2022.03.24
 - 聊天区域组件 `TIMUIKitChat` 开放更多定制化能力
 
 ## IM Flutter SDK（无 UI） 3.9.1 @2022.03.24
@@ -106,12 +106,12 @@
 ## IM Flutter SDK（无 UI） 3.8.9 @2022.03.18
 - 监听注册问题修复
 
-## IM Flutter TUIKit（含UI） 0.0.4 @2022.03.17
+## IM Flutter TUIKit（含 UI） 0.0.4 @2022.03.17
 - 新增支持发送图片及视频
 - 优化主题样式
 - 优化搜索组件
 
-## IM Flutter TUIKit（含UI） 0.0.3 @2022.03.14
+## IM Flutter TUIKit（含 UI） 0.0.3 @2022.03.14
 - 组件细节优化
 - 自动国际化能力完善
 - 新增全局搜索 `TIMUIKitSearch` 组件
@@ -123,11 +123,11 @@
 ## IM Flutter SDK（无 UI） 3.8.4 @2022.03.14
 - 更新 interface
 
-## IM Flutter TUIKit（含UI） 0.0.2 @2022.03.02
+## IM Flutter TUIKit（含 UI） 0.0.2 @2022.03.02
 - 优化 `TIMUIKitChat` 组件
 - 支持国际化语言自动及手动切换，简体中文/英文
 
-## IM Flutter TUIKit（含UI） 0.0.1 @2022.03.01
+## IM Flutter TUIKit（含 UI） 0.0.1 @2022.03.01
 - 腾讯云 IM for Flutter 含 UI 及业务逻辑组件库首发
 - 首批上线七个主组件，涵盖聊天区域/会话列表/联系人及群组资料/联系人列表/黑名单/好友申请列表等
 
