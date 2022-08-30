@@ -687,7 +687,7 @@ TencentImSDKPlugin.v2TIMManager
 ```
 ![](https://qcloudimg.tencent-cloud.cn/raw/f88ddfbdc79fb7492f3ce00c2c583246.png)
 
-### 图片/视频/媒体/文件 上传兼容
+### 图片/视频/文件 上传兼容
 
 由于Web特性，创建媒体及文件消息时，无法直接传入路径至SDK。
 
