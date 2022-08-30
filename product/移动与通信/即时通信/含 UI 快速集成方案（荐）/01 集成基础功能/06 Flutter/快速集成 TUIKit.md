@@ -344,7 +344,7 @@ defaultConfig {
 
 欢迎查看 [直播间搭建指南](https://cloud.tencent.com/document/product/269/77764#.E7.BE.A4.E7.B1.BB.E5.9E.8B.E9.80.89.E6.8B.A9)，基于腾讯云 IM/TRTC/腾讯云直播，搭建一套完整的直播间系统。
 
-### 错误吗如何查询？
+### 错误码如何查询？
 
 - IM SDK 的 API 层面错误码，请查看 [错误码](https://cloud.tencent.com/document/product/269/1671)。
 - TUIKit的场景码，用于界面弹窗提示，通过 [onTUIKitCallbackListener 监听](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitCore/init.html) 获得。请查看 [该文档](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitCore/TIMCallback.html#inforecommendtext)。
