@@ -492,8 +492,6 @@ import 'package:tencent_im_sdk_plugin/tencent_im_sdk_plugin.dart';
 2. 根据其返回值，拿到消息 ID。
 3. 调用 `sendMessage()` 发送该ID的消息。`receiver`可填入您此前创建的另一个测试账户 ID。发送单聊消息无需填入`groupID`。
 
-如果您的项目需要支持Web，[请查看Web兼容说明章节](#web)，发送媒体文件的方式与移动端有不一致之处。
-
 代码示例：
 
 ```dart
@@ -686,98 +684,6 @@ TencentImSDKPlugin.v2TIMManager
 <script src="./tim-js-friendship.js"></script>
 ```
 ![](https://qcloudimg.tencent-cloud.cn/raw/f88ddfbdc79fb7492f3ce00c2c583246.png)
-
-### 图片/视频/文件 上传兼容
-
-由于Web特性，创建媒体及文件消息时，无法直接传入路径至SDK。
-
-需要根据Element ID获取input的DOM节点，将选择文件后的input DOM传入。
-
->?
->
-> 1. 如果您使用含UI的TUIKit，则无需关注本步骤，我们已在TUIKit内部处理。
-
-- 选取媒体建议使用[image_picker](https://pub.dev/packages/image_picker)包。
-
-- 选取文件建议使用[file_picker](https://pub.dev/packages/file_picker)包。
-
-- 示例代码中 `getElementById` 的值，若和F12控制台看到 input 的 id 不一致，请以实际为准。
-
-发送图片：
-```dart
-final ImagePicker _picker = ImagePicker();
-
-_sendImageFileOnWeb() async {
-  final pickedFile = await _picker.pickImage(source: ImageSource.gallery);
-  final imageContent = await pickedFile!.readAsBytes();
-  fileName = pickedFile.name;
-  tempFile = File(pickedFile.path);
-  fileContent = imageContent;
-
-  html.Node? inputElem;
-  inputElem = html.document
-      .getElementById("__image_picker_web-file-input")
-      ?.querySelector("input");
-  final convID = widget.conversationID;
-  final convType =
-  widget.conversationType == 1 ? ConvType.c2c : ConvType.group;
-  final imageMessageInfo = await TencentImSDKPlugin.v2TIMManager
-    .getMessageManager()
-    .createImageMessage(inputElement: inputElement);
-  // 此后步骤和常规发消息一致，根据您的业务，自行补充完整即可
-  }
-```
-
-发送视频：
-```dart
-final ImagePicker _picker = ImagePicker();
-
-_sendVideoFileOnWeb() async {
-  final pickedFile = await _picker.pickVideo(source: ImageSource.gallery);
-  final videoContent = await pickedFile!.readAsBytes();
-  fileName = pickedFile.name ?? "";
-  tempFile = File(pickedFile.path);
-  fileContent = videoContent;
-
-  if(fileName!.split(".")[fileName!.split(".").length - 1] != "mp4"){
-    Toast.showToast("视频消息仅限 mp4 格式", context);
-    return;
-  }
-
-  html.Node? inputElem;
-  inputElem = html.document
-      .getElementById("__image_picker_web-file-input")
-      ?.querySelector("input");
-  final convID = widget.conversationID;
-  final convType =
-  widget.conversationType == 1 ? ConvType.c2c : ConvType.group;
-  final imageMessageInfo = await TencentImSDKPlugin.v2TIMManager
-    .getMessageManager()
-    .createVideoMessage(inputElement: inputElement, videoFilePath: "", type: "", duration: 0, snapshotPath: "");
-  // 此后步骤和常规发消息一致，根据您的业务，自行补充完整即可
-}
-```
-
-发送文件:
-```dart
-_sendFileOnWeb(){
-  final convID = widget.conversationID;
-  final convType =
-      widget.conversationType == 1 ? ConvType.c2c : ConvType.group;
-  FilePickerResult? result = await FilePicker.platform.pickFiles();
-  if (result != null && result.files.isNotEmpty) {
-    html.Node? inputElem;
-    inputElem = html.document
-        .getElementById("__file_picker_web-file-input")
-        ?.querySelector("input");
-    fileName = result.files.single.name;
-    final imageMessageInfo = await TencentImSDKPlugin.v2TIMManager
-        .getMessageManager()
-        .createFileMessage(inputElement: inputElement, filePath: "", fileName: fileName);
-    // 此后步骤和常规发消息一致，根据您的业务，自行补充完整即可
-  }
-}
-```
 
 ## 常见问题
 
