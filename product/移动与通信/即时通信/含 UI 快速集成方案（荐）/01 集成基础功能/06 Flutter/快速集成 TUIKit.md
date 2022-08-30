@@ -262,7 +262,7 @@ UI组件全貌可参见 [本全览文档](https://cloud.tencent.com/document/pro
 
 ## Flutter for Web支持[](id:web)
 
-TUIKit(tim_ui_kit) 从0.1.4，版本后，已可完美兼容Web端。
+TUIKit(tim_ui_kit) 0.1.4版本起，可完美兼容Web端。
 
 相比Android和iOS端，需要一些额外步骤。如下：
 
