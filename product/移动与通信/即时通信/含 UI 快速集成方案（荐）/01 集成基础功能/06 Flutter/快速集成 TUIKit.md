@@ -88,7 +88,7 @@ end
 flutter pub add tim_ui_kit
 ```
 
-如果您的项目需要支持Web，请在执行后续步骤前，[查看Web兼容说明章节](#web)，引入JS文件。
+如果您的项目需要支持 Web，请在执行后续步骤前，[查看 Web 兼容说明章节](#web)，引入JS文件。
 
 ### 步骤2: 初始化
 
@@ -112,7 +112,7 @@ final CoreServicesImpl _coreInstance = TIMUIKitCore.getInstance();
 
 >?
 >
-> 请在本步骤await初始化完成后，才可执行后续步骤。
+> 请在本步骤 await 初始化完成后，才可执行后续步骤。
 
 #### 登录测试账户
 1. 此时，您可以使用最开始的时候，在控制台生成的测试账户，完成登录验证。
@@ -211,7 +211,7 @@ return TIMUIKitChat(
 
 请创建一个 `UserProfile` 类，`body` 中使用 [`TIMUIKitProfile`](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitProfile/) 组件，渲染用户详情及关系链页面。
 
->? 如果您希望自定义该页面，请优先考虑使用 [`profileWidgetBuilder`](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitProfile/ProfileWidgetBuilder.html) 传入需自定义的profile组件并配合 `profileWidgetsOrder` 确定纵向排列顺序；如果无法满足，才可使用 `builder` 。
+>? 如果您希望自定义该页面，请优先考虑使用 [`profileWidgetBuilder`](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitProfile/ProfileWidgetBuilder.html) 传入需自定义的 profile 组件并配合 `profileWidgetsOrder` 确定纵向排列顺序；如果无法满足，才可使用 `builder` 。
 
 <img style="width:300px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/5f2e67ffb31adc738165e2c4ce58218c.jpg" />
 
@@ -262,17 +262,17 @@ UI组件全貌可参见 [本全览文档](https://cloud.tencent.com/document/pro
 
 ## Flutter for Web支持[](id:web)
 
-TUIKit(tim_ui_kit) 从0.1.4，版本后，已可完美兼容Web端。
+TUIKit(tim_ui_kit) 从0.1.4，版本后，已可完美兼容 Web 端。
 
-相比Android和iOS端，需要一些额外步骤。如下：
+相比 Android 和 iOS 端，需要一些额外步骤。如下：
 
 ### 引入JS
 
 >?
 >
-> 如果您现有的Flutter项目不支持Web，请在项目根目录下运行 `flutter create .` 添加Web支持。
+> 如果您现有的 Flutter 项目不支持 Web，请在项目根目录下运行 `flutter create .` 添加 Web 支持。
 
-从GitHub下载下方两个JS文件，放置于项目的 `web` 路径内。
+从 GitHub 下载下方两个 JS 文件，放置于项目的 `web` 路径内。
 
 - [tim-js-friendship.js](https://github.com/TencentCloud/TIMSDK/blob/master/Web/IMSDK/tim-js-friendship.js)
 - [将此文件重命名成 tim-upload-plugin.js](https://github.com/TencentCloud/TIMSDK/blob/master/Web/IMSDK/tim-upload-plugin/index.js)
@@ -306,9 +306,9 @@ TUIKit(tim_ui_kit) 从0.1.4，版本后，已可完美兼容Web端。
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/1ffcfe39a18329c86849d7d3b34b9a0e.png)
 
-请将您的Apple Watch调整至飞行模式，并将iPhone的蓝牙功能通过 `设置 => 蓝牙` 彻底关闭。
+请将您的 Apple Watch 调整至飞行模式，并将 iPhone 的蓝牙功能通过 `设置 => 蓝牙` 彻底关闭。
 
-重新启动Xcode（若打开），并重新 `flutter run` 即可。
+重新启动 Xcode（若打开），并重新 `flutter run` 即可。
 
 ### Flutter 环境问题
 
@@ -342,13 +342,12 @@ defaultConfig {
 
 ### 如何搭建直播间？
 
-欢迎查看[直播间搭建指南](https://cloud.tencent.com/document/product/269/77764#.E7.BE.A4.E7.B1.BB.E5.9E.8B.E9.80.89.E6.8B.A9)，基于腾讯云IM/TRTC/腾讯云直播，搭建一套完整的直播间系统。
+欢迎查看 [直播间搭建指南](https://cloud.tencent.com/document/product/269/77764#.E7.BE.A4.E7.B1.BB.E5.9E.8B.E9.80.89.E6.8B.A9)，基于腾讯云 IM/TRTC/腾讯云直播，搭建一套完整的直播间系统。
 
 ### 错误吗如何查询？
 
-- IM SDK的API层面错误码，请查看[该文档](https://cloud.tencent.com/document/product/269/1671)。
-
-- TUIKit的场景码，用于界面弹窗提示，通过[onTUIKitCallbackListener监听](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitCore/init.html)获得。请查看[该文档](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitCore/TIMCallback.html#inforecommendtext)。
+- IM SDK 的 API 层面错误码，请查看 [错误码](https://cloud.tencent.com/document/product/269/1671)。
+- TUIKit的场景码，用于界面弹窗提示，通过 [onTUIKitCallbackListener 监听](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitCore/init.html) 获得。请查看 [该文档](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitCore/TIMCallback.html#inforecommendtext)。
 
 
 ## 联系我们[](id:contact)
