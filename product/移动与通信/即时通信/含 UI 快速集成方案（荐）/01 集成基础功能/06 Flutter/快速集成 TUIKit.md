@@ -88,6 +88,8 @@ end
 flutter pub add tim_ui_kit
 ```
 
+如果您的项目需要支持Web，请在执行后续步骤前，[查看Web兼容说明章节](#web)，引入JS文件。
+
 ### 步骤2: 初始化
 
 1. 在您应用启动时，初始化 TUIKit。
@@ -257,6 +259,31 @@ class UserProfile extends StatelessWidget {
 [本地搜索](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitSearch/): `TIMUIKitSearch` 全局搜索组件，支持全局搜索联系人/群组/聊天记录，也支持使用 `TIMUIKitSearchMsgDetail` 在特定会话中搜索聊天记录。两种模式取决于是否传入 `conversation`。
 
 UI组件全貌可参见 [本全览文档](https://cloud.tencent.com/document/product/269/70747) 或 [详细文档](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/)。
+
+## Flutter for Web支持[](id:web)
+
+TUIKit(tim_ui_kit) 从0.1.4，版本后，已可完美兼容Web端。
+
+相比Android和iOS端，需要一些额外步骤。如下：
+
+### 引入JS
+
+>?
+>
+> 如果您现有的Flutter项目不支持Web，请在项目根目录下运行 `flutter create .` 添加Web支持。
+
+从GitHub下载下方两个JS文件，放置于项目的 `web` 路径内。
+
+- [tim-js-friendship.js](https://github.com/TencentCloud/TIMSDK/blob/master/Web/IMSDK/tim-js-friendship.js)
+- [将此文件重命名成 tim-upload-plugin.js](https://github.com/TencentCloud/TIMSDK/blob/master/Web/IMSDK/tim-upload-plugin/index.js)
+
+打开 `web/index.html` ，在 `</head> </head>` 间引入这两个JS文件。如下：
+
+```html
+<script src='./tim-upload-plugin.js'></script>
+<script src="./tim-js-friendship.js"></script>
+```
+![](https://qcloudimg.tencent-cloud.cn/raw/f88ddfbdc79fb7492f3ce00c2c583246.png)
 
 ## 常见问题
 
