@@ -26,7 +26,7 @@ dependencies:
 ```
 此时您的 editor 或许会自动 flutter pub get，如果没有请您在命令行中手动输入 flutter pub get。
 
-如果您的项目需要支持Web，请在执行后续步骤前，[查看Web兼容说明章节](#web)，引入JS文件。
+如果您的项目需要支持 Web，请在执行后续步骤前，[查看Web兼容说明章节](#web)，引入JS文件。
 
 
 ### 引入并初始化 SDK
@@ -46,7 +46,7 @@ IM SDK(tencent_im_sdk_plugin) 4.1.1+2版本起，可完美兼容Web端。
 >
 > 如果您现有的Flutter项目不支持Web，请在项目根目录下运行 `flutter create .` 添加Web支持。
 
-从GitHub下载下方两个JS文件，放置于项目的 `web` 路径内。
+从 GitHub 下载下方两个 JS 文件，放置于项目的 `web` 路径内。
 
 - [tim-js-friendship.js](https://github.com/TencentCloud/TIMSDK/blob/master/Web/IMSDK/tim-js-friendship.js)
 - [将此文件重命名成 tim-upload-plugin.js](https://github.com/TencentCloud/TIMSDK/blob/master/Web/IMSDK/tim-upload-plugin/index.js)
