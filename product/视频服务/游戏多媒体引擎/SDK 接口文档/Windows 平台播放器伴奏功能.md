@@ -1,4 +1,4 @@
-为方便开发者调试和接入腾讯云游戏多媒体引擎产品，本文主要为您介绍适用于使用 Windows 平台第三方播放器伴奏功能的相关技术文档。
+为方便开发者调试和接入腾讯云游戏多媒体引擎产品，本文主要为您介绍适用于使用 Windows 平台第三方播放器伴奏功能的相关技术。
 
 
 ## 前提条件
@@ -28,7 +28,10 @@ virtual int StartAccompany(const char* playerPath, int playerPathLength, const c
 | playerPathLength|int|播放器路径长度|
 | mediaFilePath|const char*|音频资源路径，1. 某音频文件，2. 音频文件夹，可以不传（NULL）|
 | mediaFilePathLenght|int|音频资源路径长度|
-| sourceType|GMEAccompany_SourceType|设置采集对象，详细见下表|
+| sourceType|GMEAccompany_SourceType|设置采集对象，详细见 [下表](#sourceType)|
+
+[](id:sourceType)
+sourceType 说明：
 
 |参数     | 类型         |
 | ------------- |:-------------:|
