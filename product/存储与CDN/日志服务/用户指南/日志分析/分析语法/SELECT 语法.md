@@ -47,6 +47,6 @@ SELECT 后面也可以跟算术表达式，如从日志数据中查询下载速�
 日志字段名为`__TIMESTAMP__`，不符合 SQL 列名规范，需使用双引号`""`包裹，同时使用 AS 为该字段指定别名：
 
 ```
-* | SELECT "__TAG__.pod_label_qcloud-app" AS log_time
+* | SELECT "__TIMESTAMP__" AS log_time
 ```
 
