@@ -36,7 +36,7 @@ import 'package:tencent_im_sdk_plugin/tencent_im_sdk_plugin.dart';
 ```
 ## Flutter for Web支持[](id:web)
 
-IM SDK(tencent_im_sdk_plugin) 从4.1.1+2，版本后，已可完美兼容 Web 端。
+IM SDK(tencent_im_sdk_plugin) 4.1.1+2版本起，可完美兼容Web端。
 
 相比Android和iOS端，需要一些额外步骤。如下：
 
@@ -51,7 +51,7 @@ IM SDK(tencent_im_sdk_plugin) 从4.1.1+2，版本后，已可完美兼容 Web �
 - [tim-js-friendship.js](https://github.com/TencentCloud/TIMSDK/blob/master/Web/IMSDK/tim-js-friendship.js)
 - [将此文件重命名成 tim-upload-plugin.js](https://github.com/TencentCloud/TIMSDK/blob/master/Web/IMSDK/tim-upload-plugin/index.js)
 
-打开 `web/index.html` ，在 `</head> </head>` 间引入这两个JS文件。如下：
+打开 `web/index.html` ，在 `<head> </head>` 间引入这两个JS文件。如下：
 
 ```html
 <script src='./tim-upload-plugin.js'></script>
