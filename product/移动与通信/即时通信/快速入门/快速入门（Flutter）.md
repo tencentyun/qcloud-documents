@@ -245,6 +245,8 @@ end
 flutter pub add tim_ui_kit
 ```
 
+如果您的项目需要支持Web，请在执行后续步骤前，[查看Web兼容说明章节](#web)，引入JS文件。
+
 #### 初始化
 
 1. 在您应用启动时，初始化 TUIKit。
@@ -437,6 +439,8 @@ UI组件全貌可参见 [本全览文档](https://cloud.tencent.com/document/pro
 flutter pub add tencent_im_sdk_plugin
 ```
 
+如果您的项目需要支持Web，请在执行后续步骤前，[查看Web兼容说明章节](#web)，引入JS文件。
+
 #### 完成 SDK 初始化
 
 [本节详细文档](https://cloud.tencent.com/document/product/269/75293)
@@ -487,6 +491,8 @@ import 'package:tencent_im_sdk_plugin/tencent_im_sdk_plugin.dart';
 1. 调用 `createTextMessage(String)`创建一个文本消息。
 2. 根据其返回值，拿到消息 ID。
 3. 调用 `sendMessage()` 发送该ID的消息。`receiver`可填入您此前创建的另一个测试账户 ID。发送单聊消息无需填入`groupID`。
+
+如果您的项目需要支持Web，[请查看Web兼容说明章节](#web)，发送媒体文件的方式与移动端有不一致之处。
 
 代码示例：
 
@@ -655,6 +661,123 @@ TencentImSDKPlugin.v2TIMManager
 您可以继续完成 [群组](https://cloud.tencent.com/document/product/269/75697)，[用户资料](https://cloud.tencent.com/document/product/269/75418)，[关系链](https://cloud.tencent.com/document/product/269/75421)，[离线推送](https://cloud.tencent.com/document/product/269/75430)，[本地搜索](https://cloud.tencent.com/document/product/269/75438) 等相关功能开发。
 
 详情可查看 [自实现 UI 集成 SDK 文档](https://cloud.tencent.com/document/product/269/75260)。
+
+## 第六部分：Flutter for Web支持[](id:web)
+
+我们的SDK，TUIKit(tim_ui_kit) 从0.1.4，无UI SDK(tencent_im_sdk_plugin) 从4.1.1+2，版本后，已可完美兼容Web端。
+
+相比Android和iOS端，需要一些额外步骤。如下：
+
+### 引入JS
+
+>?
+>
+> 如果您现有的Flutter项目不支持Web，请在项目根目录下运行 `flutter create .` 添加Web支持。
+
+从GitHub下载下方两个JS文件，放置于项目的 `web` 路径内。
+
+- [tim-js-friendship.js](https://github.com/TencentCloud/TIMSDK/blob/master/Web/IMSDK/tim-js-friendship.js)
+- [将此文件重命名成 tim-upload-plugin.js](https://github.com/TencentCloud/TIMSDK/blob/master/Web/IMSDK/tim-upload-plugin/index.js)
+
+打开 `web/index.html` ，在 `</head> </head>` 间引入这两个JS文件。如下：
+
+```html
+<script src='./tim-upload-plugin.js'></script>
+<script src="./tim-js-friendship.js"></script>
+```
+![](https://qcloudimg.tencent-cloud.cn/raw/f88ddfbdc79fb7492f3ce00c2c583246.png)
+
+### 图片/视频/媒体/文件 上传兼容
+
+由于Web特性，创建媒体及文件消息时，无法直接传入路径至SDK。
+
+需要根据Element ID获取input的DOM节点，将选择文件后的input DOM传入。
+
+>?
+>
+> 1. 如果您使用含UI的TUIKit，则无需关注本步骤，我们已在TUIKit内部处理。
+
+- 选取媒体建议使用[image_picker](https://pub.dev/packages/image_picker)包。
+
+- 选取文件建议使用[file_picker](https://pub.dev/packages/file_picker)包。
+
+- 示例代码中 `getElementById` 的值，若和F12控制台看到 input 的 id 不一致，请以实际为准。
+
+发送图片：
+```dart
+final ImagePicker _picker = ImagePicker();
+
+_sendImageFileOnWeb() async {
+  final pickedFile = await _picker.pickImage(source: ImageSource.gallery);
+  final imageContent = await pickedFile!.readAsBytes();
+  fileName = pickedFile.name;
+  tempFile = File(pickedFile.path);
+  fileContent = imageContent;
+
+  html.Node? inputElem;
+  inputElem = html.document
+      .getElementById("__image_picker_web-file-input")
+      ?.querySelector("input");
+  final convID = widget.conversationID;
+  final convType =
+  widget.conversationType == 1 ? ConvType.c2c : ConvType.group;
+  final imageMessageInfo = await TencentImSDKPlugin.v2TIMManager
+    .getMessageManager()
+    .createImageMessage(inputElement: inputElement);
+  // 此后步骤和常规发消息一致，根据您的业务，自行补充完整即可
+  }
+```
+
+发送视频：
+```dart
+final ImagePicker _picker = ImagePicker();
+
+_sendVideoFileOnWeb() async {
+  final pickedFile = await _picker.pickVideo(source: ImageSource.gallery);
+  final videoContent = await pickedFile!.readAsBytes();
+  fileName = pickedFile.name ?? "";
+  tempFile = File(pickedFile.path);
+  fileContent = videoContent;
+
+  if(fileName!.split(".")[fileName!.split(".").length - 1] != "mp4"){
+    Toast.showToast("视频消息仅限 mp4 格式", context);
+    return;
+  }
+
+  html.Node? inputElem;
+  inputElem = html.document
+      .getElementById("__image_picker_web-file-input")
+      ?.querySelector("input");
+  final convID = widget.conversationID;
+  final convType =
+  widget.conversationType == 1 ? ConvType.c2c : ConvType.group;
+  final imageMessageInfo = await TencentImSDKPlugin.v2TIMManager
+    .getMessageManager()
+    .createVideoMessage(inputElement: inputElement, videoFilePath: "", type: "", duration: 0, snapshotPath: "");
+  // 此后步骤和常规发消息一致，根据您的业务，自行补充完整即可
+}
+```
+
+发送文件:
+```dart
+_sendFileOnWeb(){
+  final convID = widget.conversationID;
+  final convType =
+      widget.conversationType == 1 ? ConvType.c2c : ConvType.group;
+  FilePickerResult? result = await FilePicker.platform.pickFiles();
+  if (result != null && result.files.isNotEmpty) {
+    html.Node? inputElem;
+    inputElem = html.document
+        .getElementById("__file_picker_web-file-input")
+        ?.querySelector("input");
+    fileName = result.files.single.name;
+    final imageMessageInfo = await TencentImSDKPlugin.v2TIMManager
+        .getMessageManager()
+        .createFileMessage(inputElement: inputElement, filePath: "", fileName: fileName);
+    // 此后步骤和常规发消息一致，根据您的业务，自行补充完整即可
+  }
+}
+```
 
 ## 常见问题
 
