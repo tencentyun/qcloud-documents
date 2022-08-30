@@ -1,6 +1,6 @@
 >?
 >
-> 下文中，IM Flutter SDK（无 UI）指代 [tencent_im_sdk_plugin](https://pub.dev/packages/tencent_im_sdk_plugin) 包，仅包括所有IM客户端API及监听回调；
+> 下文中，IM Flutter SDK（无 UI）指代 [tencent_im_sdk_plugin](https://pub.dev/packages/tencent_im_sdk_plugin) 包，仅包括所有 IM 客户端 API 及监听回调；
 > IM Flutter TUIKit（含 UI）指代 [tim_ui_kit](https://pub.dev/packages/tim_ui_kit) 包，在上行基础上，还包括完整 UI 组件库及业务逻辑。
 
 ## IM Flutter SDK（无 UI） 4.1.1+2 @2022.08.25
@@ -19,7 +19,7 @@
 - 新增获取会话列表高级接口，支持按照会话 类型/标签 分组拉取会话列表
 - 新增自定义标记会话接口
 - 新增会话分组能力
-- Dart版本依赖降低至2.0.0
+- Dart 版本依赖降低至2.0.0
 - 支持 Flutter 多引擎
 - 支持Android端离线推送音效配置
 - 支持自定义用户在线状态
