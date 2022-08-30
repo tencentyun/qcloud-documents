@@ -21,8 +21,6 @@ Authorization: Auth String
 
 ## 请求内容
 
-
-
 | 参数名称     | 描述                                                         | 类型   | 是否必选 |
 | :----------- | :----------------------------------------------------------- | :----- | :------- |
 | ObjectKey    | 对象文件名，例如：folder/document.jpg。                      | String | 是       |
@@ -35,21 +33,21 @@ Authorization: Auth String
 > - 通过 detect-url 进行商品抠图，会产生图片所在源站对应的外网流量。
 > 
 
-### 请求头
+#### 请求头
 
 此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/460/42865) 文档。
 
-### 请求体
+#### 请求体
 
 该请求无请求体。
 
 ## 响应
 
-### 响应头
+#### 响应头
 
 此接口仅返回公共响应头部，详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/460/42866) 文档。
 
-### 响应体
+#### 响应体
 
 该响应体返回为 **application/xml** 数据，具体的数据内容如下：
 
