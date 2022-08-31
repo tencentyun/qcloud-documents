@@ -39,7 +39,7 @@ CHDFS-Ranger-Plugin 拓展了 Ranger Admin 控制台上的服务种类， 用户
 
 #### 版本
 
-V1.2版本及以上。
+V1.0 版本及以上。
 
 #### 部署步骤
 
