@@ -1,7 +1,7 @@
 
-在使用 TKE 集群服务的过程中，某些场景下，可能会出现服务访问不通的问题，如果确认后端 Pod 访问正常，则可能是由于 Kube-Proxy 组件版本较低，导致节点上的 iptables 或 ipvs 服务转发规则下发失败。本文档整理了低版本 Kube-Proxy 存在的若干问题，并给出相应的修复指引。若本文档无法解决您所遇到的问题，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 来寻求帮助。
+在使用 TKE 集群服务的过程中，某些场景下，可能会出现服务访问不通的问题，如果确认后端 Pod 访问正常，则可能是由于 kube-proxy 组件版本较低，导致节点上的 iptables 或 ipvs 服务转发规则下发失败。本文档整理了低版本 kube-proxy 存在的若干问题，并给出相应的修复指引。若本文档无法解决您所遇到的问题，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 来寻求帮助。
 
-## Kube-Proxy 报错：Couldn't load target 'KUBE-MARK-DROP'
+## kube-proxy 报错：Couldn't load target 'KUBE-MARK-DROP'
 
 #### 错误信息示例
 ```shell
@@ -9,8 +9,8 @@ Failed to execute iptables-restore: exit status 2 (iptables-restore v1.8.4 (lega
 ```
 
 #### 原因
-1.  Kube-Proxy 在执行 iptables-restore 时，所依赖的 `KUBE-MARK-DROP` 这个 Chain 不存在，导致同步规则失败后退出。 `KUBE-MARK-DROP` Chain 由 kubelet 负责维护。
-2.  一些高版本的 OS 使用的 iptables 后端为 nft，而低版本 Kube-Proxy 使用的 iptables 后端为 legacy，当低版本 Kube-Proxy 运行在高版本 OS 上时，会因为 iptables 后端不匹配而读不到 `KUBE-MARK-DROP` 这个 Chain。这里的高版本 OS 包括：
+1.  kube-proxy 在执行 iptables-restore 时，所依赖的 `KUBE-MARK-DROP` 这个 Chain 不存在，导致同步规则失败后退出。 `KUBE-MARK-DROP` Chain 由 kubelet 负责维护。
+2.  一些高版本的 OS 使用的 iptables 后端为 nft，而低版本 kube-proxy 使用的 iptables 后端为 legacy，当低版本 kube-proxy 运行在高版本 OS 上时，会因为 iptables 后端不匹配而读不到 `KUBE-MARK-DROP` 这个 Chain。这里的高版本 OS 包括：
     -   tlinux2.6 ( tk4 )
     -   tlinux3.1
     -   tlinux3.2
@@ -18,7 +18,7 @@ Failed to execute iptables-restore: exit status 2 (iptables-restore v1.8.4 (lega
     -   Ubuntu20
 
 #### 修复指引
-升级 Kube-Proxy，需要按如下逻辑处理：
+升级 kube-proxy，需要按如下逻辑处理：
 <table>
 <thead>
   <tr>
@@ -33,23 +33,23 @@ Failed to execute iptables-restore: exit status 2 (iptables-restore v1.8.4 (lega
   </tr>
   <tr>
     <td>1.18</td>
-    <td>升级 Kube-Proxy 到 v1.18.4-tke.26 及以上</td>
+    <td>升级 kube-proxy 到 v1.18.4-tke.26 及以上</td>
   </tr>
   <tr>
     <td>1.16</td>
-    <td>升级 Kube-Proxy 到 v1.16.3-tke.28 及以上</td>
+    <td>升级 kube-proxy 到 v1.16.3-tke.28 及以上</td>
   </tr>
   <tr>
     <td>1.14</td>
-    <td>升级 Kube-Proxy 到 v1.14.3-tke.27 及以上</td>
+    <td>升级 kube-proxy 到 v1.14.3-tke.27 及以上</td>
   </tr>
   <tr>
     <td>1.12</td>
-    <td>升级 Kube-Proxy 到 v1.12.4-tke.31 及以上</td>
+    <td>升级 kube-proxy 到 v1.12.4-tke.31 及以上</td>
   </tr>
   <tr>
     <td>1.10</td>
-    <td>升级 Kube-Proxy 到 v1.10.5-tke.20 及以上</td>
+    <td>升级 kube-proxy 到 v1.10.5-tke.20 及以上</td>
   </tr>
 </tbody>
 </table>
@@ -57,9 +57,9 @@ Failed to execute iptables-restore: exit status 2 (iptables-restore v1.8.4 (lega
 >? TKE 最新版本信息，请参见 [TKE Kubernetes Revision 版本历史](https://cloud.tencent.com/document/product/457/9315)。
 
 ---
-## Kube-Proxy 有 iptables 锁相关的报错
+## kube-proxy 有 iptables 锁相关的报错
 
-### Kube-Proxy 报错: iptables-restore: line xxx failed
+### kube-proxy 报错: iptables-restore: line xxx failed
 
 #### 错误信息示例
 ```shell
@@ -68,7 +68,7 @@ Failed to execute iptables-restore: exit status 1 (iptables-restore: line xxx fa
 
 #### 原因
 1.  iptables 相关命令 ( 如 iptables-restore ) 在向内核写入 iptables 规则时，为了避免多个实例并发写入，会利用 file lock 来做同步，linux 下该文件一般为：`/run/xtables.lock`
-2.  对于要调用 iptables 相关命令的 Pod，如 Kube-Proxy, kube-router 以及客户侧的 HostNetwork Pod，如果没有挂载该文件，可能发生如上并发写入的错误。
+2.  对于要调用 iptables 相关命令的 Pod，如 kube-proxy, kube-router 以及客户侧的 HostNetwork Pod，如果没有挂载该文件，可能发生如上并发写入的错误。
 
 #### 修复指引
 对于要调用 iptables 相关命令的 Pod 需要将主机侧 `/run/xtables.lock` 文件挂载到 Pod 中，配置方式如下：
@@ -84,7 +84,7 @@ Failed to execute iptables-restore: exit status 1 (iptables-restore: line xxx fa
         name: xtables-lock
 ```
 
-### Kube-Proxy 报错: Another app is currently holding the xtables lock. Perhaps you want to use the -w option?
+### kube-proxy 报错: Another app is currently holding the xtables lock. Perhaps you want to use the -w option?
 
 #### 错误信息示例
 ```shell
@@ -93,11 +93,11 @@ Failed to execute iptables-restore: exit status 4 (Another app is currently hold
 
 #### 原因
 1.  iptables 相关命令 ( 如 iptables-restore ) 在向内核写入 iptables 规则时，为了避免多个实例并发写入，会利用 file lock 来做同步，iptables-restore 在执行时首先尝试获取 file lock，如果当前有其它进程持有锁，则退出。
-2.  该报错是一个软错误，Kube-Proxy 会在下个同步周期 ( 或下个 Service 相关的事件触发时 ) 再次尝试执行，如果重试多次都获取不到锁，则表现为规则同步时延较大。
+2.  该报错是一个软错误，kube-proxy 会在下个同步周期 ( 或下个 Service 相关的事件触发时 ) 再次尝试执行，如果重试多次都获取不到锁，则表现为规则同步时延较大。
 3.  高版本 iptables-restore 提供了一个 `-w(--wait)` 选项，如设置 -w=5 时，iptables-restore 会在拿锁操作阻塞 5s，这使得 5s 内一旦其它进程释放锁，iptables-restore 可以继续操作。
 
 #### 修复指引
-1.  如果 Kube-Proxy 为节点侧二进制部署，可以通过升级节点 OS 版本来提升 iptables-restore 版本，需要按如下逻辑处理：
+1.  如果 kube-proxy 为节点侧二进制部署，可以通过升级节点 OS 版本来提升 iptables-restore 版本，需要按如下逻辑处理：
 <table>
 <thead>
   <tr>
@@ -120,7 +120,7 @@ Failed to execute iptables-restore: exit status 4 (Another app is currently hold
   </tr>
 </tbody>
 </table>
-2.  如果 Kube-Proxy 为集群内 Daemonset 部署，则可以通过升级 Kube-Proxy 来提升 iptables-restore 版本，需要按如下逻辑处理：
+2.  如果 kube-proxy 为集群内 Daemonset 部署，则可以通过升级 kube-proxy 来提升 iptables-restore 版本，需要按如下逻辑处理：
 <table>
 <thead>
   <tr>
@@ -135,7 +135,7 @@ Failed to execute iptables-restore: exit status 4 (Another app is currently hold
   </tr>
   <tr>
     <td>1.12</td>
-    <td>升级 Kube-Proxy 到 v1.12.4-tke.31 及以上</td>
+    <td>升级 kube-proxy 到 v1.12.4-tke.31 及以上</td>
   </tr>
   <tr>
     <td>&lt; 1.12</td>
@@ -145,7 +145,7 @@ Failed to execute iptables-restore: exit status 4 (Another app is currently hold
 </table>
 >? TKE 最新版本信息，请参见 [TKE Kubernetes Revision 版本历史](https://cloud.tencent.com/document/product/457/9315)。
 
-### Kube-Proxy 报错: Another app is currently holding the xtables lock. Stopped waiting after 5s.
+### kube-proxy 报错: Another app is currently holding the xtables lock. Stopped waiting after 5s.
 
 #### 错误信息示例
 ```shell
@@ -160,17 +160,17 @@ Failed to ensure that filter chain KUBE-SERVICES exists: error creating chain "K
 尽量减小其它组件持有 iptables file lock 的时间，如 TKE 控制台组件管理提供的 NetworkPolicy ( kube-router ) 组件，其低版本持有 iptables 锁的时间较长，可以通过升级来解决，当前最新版为：`v1.3.2`
 
 ---
-## Kube-Proxy 报错: Stream error http2.StreamError{} when reading response body
+## kube-proxy 报错: Stream error http2.StreamError{} when reading response body
 #### 错误信息示例
 ```shell
 Failed to list *core.Endpoints: Stream error http2.StreamError{StreamID:0xea1, Code:0x2, Cause:error(nil)} when reading response body, may be caused by closed connection. Please retry.
 ```
 
 #### 原因
-低版本 Kubernetes 调用 go http2 的包存在一个 bug，该 bug 导致客户端会使用到一个 apiserver 的已经关闭的连接，Kube-Proxy 踩中这个 bug 后，会导致同步规则失败。更多详情可参考 [Issue87615](https://github.com/kubernetes/kubernetes/issues/87615)、[PR95981](https://github.com/kubernetes/kubernetes/pull/95981)。
+低版本 Kubernetes 调用 go http2 的包存在一个 bug，该 bug 导致客户端会使用到一个 apiserver 的已经关闭的连接，kube-proxy 踩中这个 bug 后，会导致同步规则失败。更多详情可参考 [Issue87615](https://github.com/kubernetes/kubernetes/issues/87615)、[PR95981](https://github.com/kubernetes/kubernetes/pull/95981)。
 
 #### 修复指引
-升级 Kube-Proxy，需要按如下逻辑处理：
+升级 kube-proxy，需要按如下逻辑处理：
 <table>
 <thead>
   <tr>
@@ -185,7 +185,7 @@ Failed to list *core.Endpoints: Stream error http2.StreamError{StreamID:0xea1, C
   </tr>
   <tr>
     <td>1.18</td>
-    <td>升级 Kube-Proxy 到 v1.18.4-tke.26 及以上</td>
+    <td>升级 kube-proxy 到 v1.18.4-tke.26 及以上</td>
   </tr>
   <tr>
     <td>&lt; 1.18</td>
@@ -196,7 +196,7 @@ Failed to list *core.Endpoints: Stream error http2.StreamError{StreamID:0xea1, C
 
 >? TKE 最新版本信息，请参见 [TKE Kubernetes Revision 版本历史](https://cloud.tencent.com/document/product/457/9315)。
 
-## Kube-Proxy 首次启动发生 panic: invalid memory address or nil pointer dereference，重启后正常
+## kube-proxy 首次启动发生 panic: invalid memory address or nil pointer dereference，重启后正常
 #### 错误信息示例
 ```
 panic: runtime error: invalid memory address or nil pointer dereference
@@ -204,11 +204,11 @@ panic: runtime error: invalid memory address or nil pointer dereference
 ```
 
 #### 原因
-1.  该版本 Kube-Proxy 社区的代码存在 bug，初始化时统计加载的内核模块有缺失，导致有变量未初始化即使用。
+1.  该版本 kube-proxy 社区的代码存在 bug，初始化时统计加载的内核模块有缺失，导致有变量未初始化即使用。
 2.  日志不够详尽，未输出是否能使用 ipvs 模式的判断结果。更多详情可参考 [Issue89729](https://github.com/kubernetes/kubernetes/issues/89729)、[PR89823](https://github.com/kubernetes/kubernetes/pull/89823)、[PR89785](https://github.com/kubernetes/kubernetes/pull/89785)。
 
 #### 修复指引
-升级 Kube-Proxy，需要按如下逻辑处理：
+升级 kube-proxy，需要按如下逻辑处理：
 <table>
 <thead>
   <tr>
@@ -223,7 +223,7 @@ panic: runtime error: invalid memory address or nil pointer dereference
   </tr>
   <tr>
     <td>1.18</td>
-    <td>升级 Kube-Proxy 到 v1.18.4-tke.26 及以上</td>
+    <td>升级 kube-proxy 到 v1.18.4-tke.26 及以上</td>
   </tr>
   <tr>
     <td>&lt; 1.18</td>
@@ -235,17 +235,17 @@ panic: runtime error: invalid memory address or nil pointer dereference
 >? TKE 最新版本信息，请参见 [TKE Kubernetes Revision 版本历史](https://cloud.tencent.com/document/product/457/9315)。
 
 ---
-## Kube-Proxy 不间断 panic: Observed a panic: "slice bounds out of range"
+## kube-proxy 不间断 panic: Observed a panic: "slice bounds out of range"
 #### 错误信息示例
 ```shell
 Observed a panic: "slice bounds out of range" (runtime error: slice bounds out of range)
 ```
 
 #### 原因
-Kube-Proxy 社区的代码存在 bug，在执行 iptables-save 时将标准输出和标准错误定向到同一个 buffer 中，而这两者的输出先后顺序是不确定的，这导致 buffer 中的数据格式不符合预期，在处理时发生 panic。更多详情可参考 [Issue78443](https://github.com/kubernetes/kubernetes/issues/78443)、[PR78428](https://github.com/kubernetes/kubernetes/pull/78428)。
+kube-proxy 社区的代码存在 bug，在执行 iptables-save 时将标准输出和标准错误定向到同一个 buffer 中，而这两者的输出先后顺序是不确定的，这导致 buffer 中的数据格式不符合预期，在处理时发生 panic。更多详情可参考 [Issue78443](https://github.com/kubernetes/kubernetes/issues/78443)、[PR78428](https://github.com/kubernetes/kubernetes/pull/78428)。
 
 #### 修复指引
- 升级 Kube-Proxy，需要按如下逻辑处理：
+ 升级 kube-proxy，需要按如下逻辑处理：
 <table>
 <thead>
   <tr>
@@ -260,11 +260,11 @@ Kube-Proxy 社区的代码存在 bug，在执行 iptables-save 时将标准输�
   </tr>
   <tr>
     <td>1.14</td>
-    <td>升级 Kube-Proxy 到 v1.14.3-tke.27 及以上</td>
+    <td>升级 kube-proxy 到 v1.14.3-tke.27 及以上</td>
   </tr>
   <tr>
     <td>1.12</td>
-    <td>升级 Kube-Proxy 到 v1.12.4-tke.31 及以上</td>
+    <td>升级 kube-proxy 到 v1.12.4-tke.31 及以上</td>
   </tr>
   <tr>
     <td>&lt; 1.12</td>
@@ -276,20 +276,20 @@ Kube-Proxy 社区的代码存在 bug，在执行 iptables-save 时将标准输�
 >? TKE 最新版本信息，请参见 [TKE Kubernetes Revision 版本历史](https://cloud.tencent.com/document/product/457/9315)。
 ---
 
-## Kube-Proxy IPVS 模式下周期性占用较高 CPU
+## kube-proxy IPVS 模式下周期性占用较高 CPU
 
 #### 原因
-Kube-Proxy 频繁刷新节点 Service 转发规则导致，触发原因：
--   Kube-Proxy 周期性同步规则较为频繁。
+kube-proxy 频繁刷新节点 Service 转发规则导致，触发原因：
+-   kube-proxy 周期性同步规则较为频繁。
 -   业务 Service 或 Pod 变更频繁。
 
 #### 修复指引
-如果是 Kube-Proxy 周期性同步规则较为频繁导致，需要调整其相关参数，旧版本 Kube-Proxy 的参数默认为：
+如果是 kube-proxy 周期性同步规则较为频繁导致，需要调整其相关参数，旧版本 kube-proxy 的参数默认为：
 ```yaml
 --ipvs-min-sync-period=1s（最小刷新间隔1s）
 --ipvs-sync-period=5s（5s周期性刷新）
 ```
-这导致 Kube-Proxy 每 5s 刷新一次节点 iptables 规则，消耗较多 CPU，推荐改为：
+这导致 kube-proxy 每 5s 刷新一次节点 iptables 规则，消耗较多 CPU，推荐改为：
 ```yaml
 --ipvs-min-sync-period=0s（发生事件实时刷新）
 --ipvs-sync-period=30s（30s周期性刷新） 
