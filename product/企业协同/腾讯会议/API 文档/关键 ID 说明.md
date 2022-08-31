@@ -1,3 +1,4 @@
+该部分内容将接口中常见 ID 汇总列出，字段使用条件请详见具体接口字段描述。
 
 | 参数 | 参数描述 | 
 |---------|---------|
@@ -8,7 +9,7 @@
 | rooms_id | 会议室的唯一 ID，对外的会议室唯一标识，可在管理平台 > 会议室管理中查看。 | 
 | meeting_room_id | 会议室的唯一 ID，API 内会议室唯一标识，可通过查询设备列表接口获取。 | 
 | uuid | 用户身份 ID，腾讯会议颁发的用于开放平台的唯一用户 ID（使用创建用户接口时返回的 uuid）。<br><b>注意：</b>即将废弃，推荐使用 ms_open_id | 
-| operator_id_type | 接口操作者 ID 的类型。目前包括以下类型：<br>1：userid<br>2：open_id<br>3：rooms_id<br>4：ms_open_id | 
+| operator_id_type | 接口操作者 ID 的类型。目前包括以下类型：<br>1：userid<br>2：open_id<br>3：rooms_id<br>4：ms_open_id<br>5：meeting_room_id | 
 | operator_id | 接口操作者 ID，与 operator_id_type 配合使用，根据 operator_id_type 的类型不同，operator_id 表示的含义不同。 | 
 | to_operator_id_type | 接口被操作者 ID 的类型。目前包括以下类型：<br>1：userid<br>2：open_id<br>3：rooms_id<br>4：ms_open_id<br>5：meeting_room_id  | 
 | to_operator_id | 接口被操作者 ID，与 to_operator_id_type 配合使用，根据 to_operator_id_type 的类型不同，to_operator_id 表示的含义不同。 | 
