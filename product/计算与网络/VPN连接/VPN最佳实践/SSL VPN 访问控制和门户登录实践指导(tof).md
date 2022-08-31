@@ -5,7 +5,7 @@
 >
 
 ## 流程
-![](https://qcloudimg.tencent-cloud.cn/raw/44e4ff2aef7f140b6569bcab92485a7e.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/9690177612b05331848512cd865202d4.png)
 
 ## EIAM 认证配置
 本节仅介绍 EIAM（即数字身份管控平台）认证配置的主要步骤，其他配置详情请参见[ EIAM 产品文档](https://cloud.tencent.com/document/product/1442)。
@@ -15,15 +15,15 @@
 >1. 本节内容操作时，您已从 Tof SAML 获取了您的 **metadata.xml** 文件。
 >2. 本节操作过程中如果有任何疑问可以 [提交工单](https://console.cloud.tencent.com/workorder/category) 至 EIAM 进行咨询。
 >
-1. 登录 EIAM 平台，在导航栏单击 **Authentication management**，然后在 **Authentication management** 页面单击 **Create authentication source**。
+1. 登录 EIAM 平台，在导航栏单击 **Auth Source Management**，然后在 **Authentication Management** 页面单击 **Create authentication source**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/a9a74b2cd910efde214f60c2c0260a1f.png)
 2. 在 **Create authentication source** 页面选择 **SAML**，然后单击 **Next**。
 <img  src="https://qcloudimg.tencent-cloud.cn/raw/031aad257dcc385b30510ea705cab0c7.png" width="80%"> 
 3. 在 **Edit authentication source information** 页签配置认证参数。
 <img  src="https://qcloudimg.tencent-cloud.cn/raw/d08d69104d5d8a80f930afec66d69f13.png" width="80%">  
- - Jump address：配置 **metadata.xml** 文件中`<SingleSingnOnService></SingleSingnOnService>` 标记对的属性`<Laction>`的 Vlue（即下图中标记 **Tag1** 位置处的 url）。
+ - Jump address：配置 **metadata.xml** 文件中`<SingleSignOnService></SingleSignOnService>` 标记对的属性`<Loction>`的 Vlue（即下图中标记 **Tag1** 位置处的 url）。
  - Third party IDP certificate：配置 **metadata.xml** 文件中`<KeyDescriptor use= "encryption"></KeyDescriptor>`标记对中`<X509Certificate>`的 Vlue（即下图中标记 **Tag2** 位置处的证书）。
-Enable compression encoding：Enable。
+**Enable compression encoding**：Enable。
 ![](https://qcloudimg.tencent-cloud.cn/raw/8114929da3a9dbcc13d4922dd2c9b11d.png)
 4. 单击 **OK** 完成认证源参数配置。[](id:step4)
 ![](https://qcloudimg.tencent-cloud.cn/raw/02d38995680b280a2e05787e05ed6cad.png)
@@ -42,7 +42,7 @@ Tof 处理完成后您可以进行后续操作。
 ![](https://qcloudimg.tencent-cloud.cn/raw/02a5325017e1d30e2efba552bce6ce98.png)
           
 
-### [创建用户组](https://cloud.tencent.com/document/product/1442/55067) 并添加下相应的成员
+### [创建用户组](https://cloud.tencent.com/document/product/1442/55067) 并添加相应的成员
 1. 在导航栏选择**用户管理** > **用户组管理**，在**用户组管理**页面单击**新建用户组**，并依据界面参数填写相应的内容，然后单击**确定**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/1f9657055a4f6b9324d6e6fce494b346.png)
 2. 在创建好的用户组区域单击**添加用户**。
@@ -135,7 +135,7 @@ Tof 处理完成后您可以进行后续操作。
 </tr>
 <tr>
 <td>EIAM 应用</td>
-<td>选择在 EIMA 创建好的应用。</td>
+<td>选择在 EIAM 创建好的应用。</td>
 </tr>
 </table>
 
@@ -151,7 +151,7 @@ Tof 处理完成后您可以进行后续操作。
 </tr>
 <tr>
 <td>目的端</td>
-<td>填写需要本端 IP 网段，即访问云上的 IP 网段。
+<td>填写本端 IP 网段，即访问云上的 IP 网段。
 <dx-alert infotype="explain" title="">
 目的端网段需要与本端网段在同一网段内，若更改本端网段，需主动修改访问控制的目的端地址。
 </dx-alert>
@@ -183,13 +183,13 @@ Tof 处理完成后您可以进行后续操作。
 2. 在 SSL 服务端 ID 所在行的输入框中输入创建好的 SSL 服务端 ID，然后单击**下一步**，进入登录界面。
 ![](https://qcloudimg.tencent-cloud.cn/raw/aff198da084a0a4a4e9939b84504987a.png)
 3. 登录腾讯云 Clinet VPN 自主服务门户。
-在 EIAM 侧为您配置了认证源，同时添加到了允许访问的用户组，您单击![](https://qcloudimg.tencent-cloud.cn/raw/c62aaecd8068c405ad13294eb5f3971a.png)进行 SAML 认证登录，然后单击**跳转进行认证（SAML）**，进入 SSL 客户端配置文件和客户端下载页面。
+在 EIAM 侧为您配置了认证源，同时添加到了允许访问的用户组，您单击<img src="https://qcloudimg.tencent-cloud.cn/raw/c62aaecd8068c405ad13294eb5f3971a.png" width="2%">进行 SAML 认证登录，然后单击**跳转进行认证（SAML）**，进入 SSL 客户端配置文件和客户端下载页面。
 ![](https://qcloudimg.tencent-cloud.cn/raw/7684d3d0ec3f0bc0fc1b7b56669429d9.png)
 4. 在**下载 SSL 客户端配置文件**区域找到您需要下载的客户端配置文件，单击**下载**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/8b706bcfd946b8f15c0820e37d15a1dd.png)
 5. 在**下载 SSL 客户端**区域找到适合您的 SSL 客户端，单击**下载**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/47d85c50879a1617cfd9da6ad3d006f2.png)
-本文已 MAC 为例，单击下载后跳转至 OpenVPN 官网，您可以在官网下载。
+本文以 MAC 为例，单击下载后跳转至 OpenVPN 官网，您可以在官网下载。
 
       
 ### SSL 客户端安装与连接
