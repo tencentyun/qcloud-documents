@@ -1,6 +1,6 @@
 ## 接口描述
-- 描述：对网络研讨会进行 Webinar 进行暖场设置。支持 JWT 鉴权、OAuth2.0 鉴权，权限为：管理会议
-- 接口请求域名
+- **描述：**对网络研讨会进行 Webinar 进行暖场设置。支持 JWT 鉴权、OAuth2.0 鉴权，权限为：管理会议
+- **接口请求域名：**
 ```plaintext
 https://api.meeting.qq.com/v1/webinars/{meeting_id}/warm-up
 ```
