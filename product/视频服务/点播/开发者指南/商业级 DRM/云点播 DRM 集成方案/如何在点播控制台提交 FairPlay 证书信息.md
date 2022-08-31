@@ -5,7 +5,7 @@
 - 私钥密码
 - ASK（Application Secret Key）
 
-如果您还没有申请以上 FairPlay 证书信息，请参考 [如何申请 FairPlay 证书信息]()。
+如果您还没有申请以上 FairPlay 证书信息，请参考 [如何申请 FairPlay 证书信息](https://cloud.tencent.com/document/product/266/79725)。
 
 ## 操作步骤
 1. 登录腾讯云点播控制台。
