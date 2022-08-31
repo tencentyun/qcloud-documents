@@ -344,9 +344,13 @@ defaultConfig {
 }
 ```
 
-### 如何搭建直播间？
+### 如何动态切换TUIKit界面语言？
 
-欢迎查看 [直播间搭建指南](https://cloud.tencent.com/document/product/269/77764#.E7.BE.A4.E7.B1.BB.E5.9E.8B.E9.80.89.E6.8B.A9)，基于腾讯云 IM/TRTC/腾讯云直播，搭建一套完整的直播间系统。
+调用 `I18nUtils(null, language);` 即可。如：
+
+```dart
+I18nUtils(null, LanguageEnum.en);
+```
 
 ### 如何获取API接口调用报错/Flutter层报错/弹窗提示信息？[](id:onTUIKitCallbackListener)
 
