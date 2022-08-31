@@ -1,7 +1,7 @@
 
 在使用 TKE 集群服务的过程中，某些场景下，可能会出现服务访问不通的问题，如果确认后端 Pod 访问正常，则可能是由于 kube-proxy 组件版本较低，导致节点上的 iptables 或 ipvs 服务转发规则下发失败。本文档整理了低版本 kube-proxy 存在的若干问题，并给出相应的修复指引。若本文档无法解决您所遇到的问题，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 来寻求帮助。
 
-## kube-proxy 报错：Couldn't load target 'KUBE-MARK-DROP'
+## kube-proxy 未能正确适配节点 iptables 后端
 
 #### 错误信息示例
 ```shell
@@ -57,9 +57,9 @@ Failed to execute iptables-restore: exit status 2 (iptables-restore v1.8.4 (lega
 >? TKE 最新版本信息，请参见 [TKE Kubernetes Revision 版本历史](https://cloud.tencent.com/document/product/457/9315)。
 
 ---
-## kube-proxy 有 iptables 锁相关的报错
+## kube-proxy 操作 iptables 锁相关的问题
 
-### kube-proxy 报错: iptables-restore: line xxx failed
+### 其它组件未挂载 iptables 锁导致并发写入失败
 
 #### 错误信息示例
 ```shell
@@ -84,7 +84,7 @@ Failed to execute iptables-restore: exit status 1 (iptables-restore: line xxx fa
         name: xtables-lock
 ```
 
-### kube-proxy 报错: Another app is currently holding the xtables lock. Perhaps you want to use the -w option?
+### iptables-restore 版本低导致不支持阻塞写入
 
 #### 错误信息示例
 ```shell
@@ -145,7 +145,7 @@ Failed to execute iptables-restore: exit status 4 (Another app is currently hold
 </table>
 >? TKE 最新版本信息，请参见 [TKE Kubernetes Revision 版本历史](https://cloud.tencent.com/document/product/457/9315)。
 
-### kube-proxy 报错: Another app is currently holding the xtables lock. Stopped waiting after 5s.
+### 其它组件持有 iptables 锁时间过长
 
 #### 错误信息示例
 ```shell
@@ -160,7 +160,8 @@ Failed to ensure that filter chain KUBE-SERVICES exists: error creating chain "K
 尽量减小其它组件持有 iptables file lock 的时间，如 TKE 控制台组件管理提供的 NetworkPolicy ( kube-router ) 组件，其低版本持有 iptables 锁的时间较长，可以通过升级来解决，当前最新版为：`v1.3.2`
 
 ---
-## kube-proxy 报错: Stream error http2.StreamError{} when reading response body
+## kube-proxy 到 kube-apiserver 连接异常
+
 #### 错误信息示例
 ```shell
 Failed to list *core.Endpoints: Stream error http2.StreamError{StreamID:0xea1, Code:0x2, Cause:error(nil)} when reading response body, may be caused by closed connection. Please retry.
@@ -196,7 +197,7 @@ Failed to list *core.Endpoints: Stream error http2.StreamError{StreamID:0xea1, C
 
 >? TKE 最新版本信息，请参见 [TKE Kubernetes Revision 版本历史](https://cloud.tencent.com/document/product/457/9315)。
 
-## kube-proxy 首次启动发生 panic: invalid memory address or nil pointer dereference，重启后正常
+## kube-proxy 首次启动发生 panic，重启后正常
 #### 错误信息示例
 ```
 panic: runtime error: invalid memory address or nil pointer dereference
@@ -235,7 +236,7 @@ panic: runtime error: invalid memory address or nil pointer dereference
 >? TKE 最新版本信息，请参见 [TKE Kubernetes Revision 版本历史](https://cloud.tencent.com/document/product/457/9315)。
 
 ---
-## kube-proxy 不间断 panic: Observed a panic: "slice bounds out of range"
+## kube-proxy 不间断 panic
 #### 错误信息示例
 ```shell
 Observed a panic: "slice bounds out of range" (runtime error: slice bounds out of range)
@@ -276,7 +277,7 @@ kube-proxy 社区的代码存在 bug，在执行 iptables-save 时将标准输�
 >? TKE 最新版本信息，请参见 [TKE Kubernetes Revision 版本历史](https://cloud.tencent.com/document/product/457/9315)。
 ---
 
-## kube-proxy IPVS 模式下周期性占用较高 CPU
+## kube-proxy ipvs 模式下周期性占用较高 CPU
 
 #### 原因
 kube-proxy 频繁刷新节点 Service 转发规则导致，触发原因：
