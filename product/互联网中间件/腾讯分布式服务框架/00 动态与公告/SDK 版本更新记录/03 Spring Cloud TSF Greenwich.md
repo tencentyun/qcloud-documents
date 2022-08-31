@@ -1,5 +1,9 @@
 基于 Spring Cloud Greenwich 版本 SDK，支持 spring boot 2.1.6。
 
+## 1.29.4-Greenwich-RELEASE（2022-08-10）
+### bug 修复
+- 修复status code的获取
+
 ## 1.29.3-Greenwich-RELEASE（2022-07-29）
 ### bug 修复
 - 修复 jdbc postgresql Multi-Hosts 解析失败的问题
