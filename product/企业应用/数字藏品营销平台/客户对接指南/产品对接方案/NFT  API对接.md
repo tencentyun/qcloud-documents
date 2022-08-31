@@ -32,6 +32,7 @@
 <td>2</td>
 <td rowspan="4">用户管理</td>
 <td>发放验证码接口</td>
+<td>-</td>
 </tr>
 <tr>
 <td>3</td>
@@ -52,6 +53,7 @@
 <td>6</td>
 <td rowspan="4">藏品管理</td>
 <td>转移藏品接口</td>
+<td>-</td>
 </tr>
 <tr>
 <td>7</td>
