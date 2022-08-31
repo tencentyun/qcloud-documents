@@ -7,7 +7,7 @@
 ## 流程
 ![](https://qcloudimg.tencent-cloud.cn/raw/44e4ff2aef7f140b6569bcab92485a7e.png)
 
-## EIAM认证配置
+## EIAM 认证配置
 本节仅介绍 EIAM（即数字身份管控平台）认证配置的主要步骤，其他配置详情请参见[ EIAM 产品文档](https://cloud.tencent.com/document/product/1442)。
 
 ### 配置认证源
@@ -42,7 +42,7 @@ Tof 处理完成后您可以进行后续操作。
 ![](https://qcloudimg.tencent-cloud.cn/raw/96907db9f5ecf4e2426d8dabd11c48ce.png)
           
 
-### [创建用户组](https://cloud.tencent.com/document/product/1442/55067)并添加下相应的成员
+### [创建用户组](https://cloud.tencent.com/document/product/1442/55067) 并添加下相应的成员
 1. 在导航栏选择**用户管理** > **用户组管理**，在**用户组管理**页面单击**新建用户组**，并依据界面参数填写相应的内容，然后单击**确定**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/1f9657055a4f6b9324d6e6fce494b346.png)
 2. 在创建好的用户组区域单击**添加用户**。
@@ -172,7 +172,7 @@ Tof 处理完成后您可以进行后续操作。
 </table>
 4. 完成配置后，单击**确定**。
 
-### 创建SSL客户端
+### 创建 SSL 客户端
 1. 在左侧导航栏中选择 **VPN 连接** > **SSL 客户端**，进入管理页。
 2. 在**新建 SSL 客户端**对话框中设置客户端名称和选择待连接的 SSL 服务端，然后单击**确定**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/eb06658315f8231ca0769f3bb35b00d1.png)
@@ -202,7 +202,4 @@ Tof 处理完成后您可以进行后续操作。
 <img src="https://qcloudimg.tencent-cloud.cn/raw/89087fe374c6a4dc912518a0fad6bb18.png" width="50%"> 
 <img src="https://qcloudimg.tencent-cloud.cn/raw/4242b18feefb476f699e752533efa5f9.png" width="50%">  
 <img src="https://qcloudimg.tencent-cloud.cn/raw/a63a8771ac2a538c97a690f6396639f5.png" width="50%"> 
-
-
-
 
