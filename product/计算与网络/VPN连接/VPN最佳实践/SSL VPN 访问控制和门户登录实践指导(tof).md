@@ -73,7 +73,7 @@ Tof 处理完成后您可以进行后续操作。
 ![](https://qcloudimg.tencent-cloud.cn/raw/251ff62e901e05e4b6f6be22d056d370.png)
 3. SSL VPN 网关参数配置完成后单击**创建**。
 
-### 创建 SSL 服务端。
+### 创建 SSL 服务端
 1. 在左侧导航栏中选择 **VPN 连接** > **SSL 服务端**，进入管理页。
 ![](https://qcloudimg.tencent-cloud.cn/raw/db5a77d44a5fbc1faffedb38fd4f70d4.png)
 2. 在 SSL 服务端管理页面，单击**+新建**，在弹出的**新建 SSL 服务端**对话框中依据界面参数配置 SSL 服务端。
