@@ -413,7 +413,7 @@ class UserProfile extends StatelessWidget {
 
 [TIMUIKitNewContact](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitNewContact/): 联系人（好友）申请列表。如需在外部显示小红点，可使用 `TIMUIKitUnreadCount` 小红点组件，其会自动挂载监听。
 
-[本地搜索](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitSearch/): `TIMUIKitSearch` 全局搜索组件，支持全局搜索联系人/群组/聊天记录，也支持使用 `TIMUIKitSearchMsgDetail` 在特定会话中搜索聊天记录。两种模式取决于是否传入 `conversation`。
+[本地搜索](https://cloud.tencent.com/document/product/269/79121): `TIMUIKitSearch` 全局搜索组件，支持全局搜索联系人/群组/聊天记录，也支持使用 `TIMUIKitSearchMsgDetail` 在特定会话中搜索聊天记录。两种模式取决于是否传入 `conversation`。
 
 UI组件全貌可参见 [本全览文档](https://cloud.tencent.com/document/product/269/70747) 或 [详细文档](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/)。
 
