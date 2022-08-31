@@ -154,7 +154,7 @@ cosn-ranger-interface 要求 v1.0.4版本及以上。
            <!-- 上一步部署的 cos ranger server 的地址 -->
            <property>
                <name>qcloud.object.storage.ranger.service.address</name>
-               <value>10.0.0.8:9999,10.0.0.9:2181,10.0.0.10:9999</value>
+               <value>10.0.0.8:9999,10.0.0.10:9999</value>
            </property>
 
            <!--***可选配置****-->           
