@@ -1,6 +1,6 @@
 ## 功能描述
 
-DescribeMediaJobs 用于拉取符合条件的任务。
+DescribePicJobs 用于拉取符合条件的任务。
 
 ## 请求
 

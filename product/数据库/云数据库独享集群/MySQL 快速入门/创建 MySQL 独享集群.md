@@ -1,4 +1,5 @@
 您需要先创建 MySQL 独享集群，才能使用独享集群内的各项功能。
+>?MySQL 独享集群目前内测中，您可通过 [内测申请](https://cloud.tencent.com/apply/p/xugaubtwg9h) 申请开通。
 
 ## 背景信息
 关于独享集群的更多介绍，请参见 [产品概述](https://cloud.tencent.com/document/product/1322/52306)。
@@ -40,3 +41,4 @@
 
 ## 后续操作
 独享集群创建完成后，您需要添加主机，分配实例。具体操作，请参见 [新建 MySQL 独享集群主机](https://cloud.tencent.com/document/product/1322/76527) 和 [分配实例](https://cloud.tencent.com/document/product/1322/76528)。
+

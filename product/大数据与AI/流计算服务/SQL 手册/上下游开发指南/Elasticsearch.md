@@ -1,6 +1,6 @@
 ## 介绍
 
-Elasticsearch Connector 提供了对 Elasticsearch  写入支持。目前 Oceanus 支持 Elasticsearch 6.x 和 7.x 版本提供支持。
+Elasticsearch Connector 提供了对 Elasticsearch 的写入支持。目前 Oceanus 支持 Elasticsearch 6.x 和 7.x 版本。
 
 ## 版本说明
 
@@ -59,6 +59,7 @@ CREATE TABLE elasticsearch7_sink_table (
 | index                               |                 是                 |    无    | 数据要写入的 Index。支持固定 Index（例如 `'myIndex'`），也支持动态 Index（例如`'index-{log_ts\|yyyy-MM-dd}'`）。 |
 | document-type                       | 6.x 版本：必填<br/>7.x 版本：不需要 |    无    | Elasticsearch 文档的 Type 信息。当选择 `elasticsearch-7` 时，不能填写这个字段，否则会报错。 |
 | document-id.key-delimiter           |                 否                 |    _     | 为复合键生成 \_id 时的分隔符 (默认是 "\_")。例如有 a、b、c 三个主键，某条数据的 a 字段为 "1"，b 字段为 "2"，c 字段为 "3"，使用默认分隔符，则最终写入 Elasticsearch 的 \_id 是 "1\_2\_3"。 |
+| drop-delete | 否 | false | 是否过滤上游传来的 DELETE（删除）消息。<br>此外，在多表 LEFT JOIN 且 JOIN Key 非主键的场景下，启用该选项后，可以解决 Elasticsearch 收到较多临时 null 值数据的问题。需要注意的是，JOIN 左右表的字段不能含有 null 值，否则可能会丢失部分数据。 |
 | failure-handler                     |                 否                 |   fail   | 指定请求 Elasticsearch 失败时，错误处理策略。选项为：<li/>`fail`：抛出一个异常。<li/>`ignore`：忽略错误，直接继续。<li/>`retry-rejected`：重试写入该条记录。<br/>另外也支持自定义错误处理器，这里可以填写用户自己编写的 Handler 的类全名（需要上传自定义程序包）。 |
 | sink.flush-on-checkpoint            |                 否                 |   true   | Flink 进行快照时，是否等待现有记录完全写入 Elasticsearch 。如果设置为 false，则可能造成恢复时部分数据丢失或者重复等异常情况，但快照速度会提升。 |
 | sink.bulk-flush.max-actions         |                 否                 |   1000   | 批量写入的最大条数。设置为 `0` 则禁用批量功能。              |

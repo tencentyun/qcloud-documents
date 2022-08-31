@@ -10,4 +10,4 @@
 
 ## 详细了解
 
-[金融云 CDN](http://cloud.tencent.com/product/cdn.html)
+[金融云 CDN](http://cloud.tencent.com/product/cdn)

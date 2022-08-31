@@ -16,7 +16,7 @@ TUIRoom 是一个包含 UI 的开源音视频组件，通过集成 TUIRoom，您
 如需在现有业务中集成 Web 端 TUIRoom 组件，请参考本文档。
 
 ## 组件集成
-TUIRoom 组件使用 Vue3 + TS + Pinia + Element Plus + SCSS 开发，要求接入项目使用 Vue3 + TS 技术栈。
+TUIRoom 组件使用 Vue3 + TS + Pinia + SCSS 开发，要求接入项目使用 Vue3 或 Vue2.7, 支持 typescript。
 
 [](id:step1)
 ### 步骤一： 开通腾讯云实时音视频及即时通信服务
@@ -38,9 +38,9 @@ TUIRoom 基于腾讯云实时音视频和即时通信服务进行开发。
 
 
 [](id:step2)
-### 步骤二：下载并拷贝 TUIRoom 组件
-1. 单击 [Github](https://github.com/tencentyun/TUIRoom) , 克隆或下载 TUIRoom 仓库代码。
-2. 打开业务侧已有 Vue3 + TS 项目，支持使用 Vite 及 Webpack 打包方式。如果无 Vue3 + TS 项目，可选择以下任意一种方式生成模版工程。
+### 步骤二：准备 Vue 工程代码
+
+1. 打开业务侧已有 Vue 项目，支持使用 Vite 及 Webpack 打包方式。如果无 Vue 项目，可选择以下任意一种方式生成模版工程。
 <dx-tabs>
 ::: 生成 Vue3 + Vite + TS 模版工程
 ```bash
@@ -71,15 +71,39 @@ cd TUIRoom-demo
 npm run serve
 ```
 :::
+::: 生成 Vue2 + webpack + js 模版工程
+```bash
+// 安装 vue-cli，注意 Vue CLI 4.x 要求 Node.js 为 v10 以上版本
+npm install -g @vue/cli
+// 创建 Vue2 + Webpack + Js 模版工程
+vue create TUIRoom-demo
+```
+> ! 执行生成模版工程脚本的过程中，生成模版的方式选择 Default ([Vue 2] babel, eslint)。
+> ![](https://qcloudimg.tencent-cloud.cn/raw/8bac0c6fca0d0b60519b7365d7b2d6a6.png)
+>
+
+成功生成 Vue2 + Webpack + JS 模版工程后，执行以下脚本：
+```bash
+cd TUIRoom-demo
+npm run serve
+```
+:::
 </dx-tabs>
-3. 复制 `TUIRoom/Web/src/TUIRoom` 文件夹到已有项目 src/ 目录下。
 
 [](id:step3)
-### 步骤三：引用 TUIRoom 组件
+### 步骤三：下载并引用 TUIRoom 组件
 
-1. 在页面中引用 TUIRoom 组件。例如：在 `App.vue` 组件中引入 TUIRoom 组件。
+1. **下载 TUIRoom 组件代码**
+   单击 [Github](https://github.com/tencentyun/TUIRoom) , 克隆或下载 TUIRoom 仓库代码。
+	 
+2. **引用 TUIRoom 组件**
+<dx-tabs>
+::: Vue3 项目引入 TUIRoom 组件
++ 复制 `TUIRoom/Web/vue3/src/TUIRoom` 文件夹到已有项目 src/ 目录下。
++ 在页面中引用 TUIRoom 组件。例如：在 `App.vue` 组件中引入 TUIRoom 组件。
 	- TUIRoom 组件将用户分为主持人角色及普通成员角色。组件对外提供了 [init](#init)、[createRoom](#createroom)、[enterRoom](#enterroom) 方法。
 	- 主持人及普通成员可通过 [init](#init) 方法向 TUIRoom 组件初始化应用及用户数据，主持人可通过 [createRoom](#createroom) 方法创建并加入房间，普通成员可通过 [enterRoom](#enterroom) 方法加入主持人已经创建好的房间。
+
 ```javascript
 <template>
 	<room ref="TUIRoomRef"></room>
@@ -156,8 +180,98 @@ html, body {
 }
 </style>
 ```
-
 >! 在页面中复制以上代码之后，需要修改 TUIRoom 接口的参数为实际数据。
+:::
+::: Vue2 项目引入 TUIRoom 组件
++ 复制 `TUIRoom/Web/vue2/src/TUIRoom` 文件夹到已有项目 src/ 目录下。
++ 在页面中引用 TUIRoom 组件。例如：在 `App.vue` 组件中引入 TUIRoom 组件。
+	- TUIRoom 组件将用户分为主持人角色及普通成员角色。组件对外提供了 [init](#init)、[createRoom](#createroom)、[enterRoom](#enterroom) 方法。
+	- 主持人及普通成员可通过 [init](#init) 方法向 TUIRoom 组件初始化应用及用户数据，主持人可通过 [createRoom](#createroom) 方法创建并加入房间，普通成员可通过 [enterRoom](#enterroom) 方法加入主持人已经创建好的房间。
+
+```javascript
+<template>
+  <div id="app">
+    <room-container ref="TUIRoomRef"></room-container>
+  </div>
+</template>
+
+<script>
+import RoomContainer from '@/TUIRoom/index.vue';
+export default {
+  name: 'App',
+  components: { RoomContainer },
+  data() {
+    return {};
+  },
+	async mounted() {
+		// 初始化 TUIRoom 组件
+		// 主持人在创建房间前需要先初始化 TUIRoom 组件
+		// 普通成员在进入房间前需要先初始化 TUIRoom 组件
+		await this.$refs.TUIRoomRef.init({
+			// 获取 sdkAppId 请您参考 步骤一
+			sdkAppId: 0,
+			// 用户在您业务中的唯一标示 Id
+			userId: '',
+			// 本地开发调试可在 https://console.cloud.tencent.com/trtc/usersigtool 页面快速生成 userSig, 注意 userSig 与 userId 为一一对应关系
+			userSig: '',
+			// 用户在您业务中使用的昵称
+			userName: '',
+			// 用户在您业务中使用的头像链接
+			userAvatar: '',
+			// 用户用于屏幕分享的唯一 Id，要求 shareUserId = `share_${userId}`, 无屏幕分享功能需求可不传入
+			shareUserId: '',
+			// 请您参考本文 步骤一 > 第三步 并使用 sdkAppId 及 shareUserId 签发 shareUserSig 
+			shareUserSig: '',
+		})
+      // 默认执行创建房间，实际接入可按需求择机执行 handleCreateRoom 方法
+    await this.handleCreateRoom();
+  },
+  methods: {
+    // 主持人创建房间，该方法只在创建房间时调用
+    async handleCreateRoom() {
+      // roomId 为用户进入的房间号, 要求 roomId 类型为 number
+      // roomMode 包含'FreeSpeech'(自由发言模式) 和'ApplySpeech'(举手发言模式) 两种模式，默认为'FreeSpeech'，注意目前仅支持自由发言模式
+      // roomParam 指定了用户进入房间的默认行为（是否默认开启麦克风，是否默认开启摄像头，默认媒体设备Id)
+      const roomId = 123456;
+      const roomMode = 'FreeSpeech';
+      const roomParam = {
+          isOpenCamera: true,
+          isOpenMicrophone: true,
+      }
+      await this.$refs.TUIRoomRef.createRoom(roomId, roomMode, roomParam);
+    },
+    // 普通成员进入房间，该方法在普通成员进入已创建好的房间时调用
+    async handleEnterRoom() {
+        // roomId 为用户进入的房间号, 要求 roomId 类型为 number
+        // roomParam 指定了用户进入房间的默认行为（是否默认开启麦克风，是否默认开启摄像头，默认媒体设备Id)
+        const roomId = 123456;
+        const roomParam = {
+            isOpenCamera: true,
+            isOpenMicrophone: true,
+        }
+        await this.$refs.TUIRoomRef.enterRoom(roomId, roomParam);
+    }
+  },
+};
+
+</script>
+
+<style>
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+}
+</style>
+```
+>! 在页面中复制以上代码之后，需要修改 TUIRoom 接口的参数为实际数据。
+:::
+</dx-tabs>
 
 [](id:step4)
 ### 步骤四：配置开发环境
@@ -307,28 +421,101 @@ declare module 'tim-js-sdk' {
 declare const Aegis: any;
 ```
 :::
+::: 配置 Vue2 + Webpack + TS 项目开发环境
+1. **配置 typescript, 支持 TUIRoom 组件加载**
+   ```
+   vue add typescript
+   ```
+>! 配置 TS 开发环境的选项可参考图片:
+>  ![](https://qcloudimg.tencent-cloud.cn/raw/39dddf5a39d433fb7586faae025d472a.png)
+
+2. **升级 vue 版本为 v2.7, 支持 TUIRoom 组件加载**
+   ```
+   npm install vue@2.7.8
+   ```
+3. **安装依赖**
+   + 安装开发环境依赖：
+     ```bash
+     npm install sass sass-loader @types/events -S -D
+     ```
+   + 安装生产环境依赖：
+     ```bash
+     npm install element-ui pinia rtc-beauty-plugin tim-js-sdk trtc-js-sdk tsignaling events -S
+     ```
+4. **注册 Pinia**
+   TUIRoom 使用 Pinia 进行房间数据管理，您需要在项目入口文件中注册 Pinia，项目入口文件为 `src/main.ts` 或者`src/main.js` 文件。
+   ```javascript
+   import { createPinia, PiniaVuePlugin } from 'pinia';
+   
+   Vue.use(PiniaVuePlugin);
+   const pinia = createPinia();
+   
+   new Vue({
+     pinia,
+     render: h => h(App),
+   }).$mount('#app');
+   ```
+5. **配置 element-ui**
+   为了保证 element-ui 带 UI 组件能够正常显示样式，需要您在入口文件 `src/main.ts` 或`src/main.js`中注册 element-ui 组件并引用其样式文件。
+   ```javascript
+   import ElementUI from 'element-ui';
+   import 'element-ui/lib/theme-chalk/index.css';
+   
+   Vue.use(ElementUI);
+   ```
+6. **配置 ts 声明文件**
+   在 `src/shims-vue.d.ts` 文件中添加以下配置：
+   ```typescript
+   declare module '*'
+   
+   declare module 'tsignaling/tsignaling-js' {
+     import TSignaling from 'tsignaling/tsignaling-js';
+     export default TSignaling;
+   }
+   
+   declare module 'tim-js-sdk' {
+     import TIM from 'tim-js-sdk';
+     export default TIM;
+   }
+   
+   declare const Aegis: any;
+   ```
+:::
 </dx-tabs>
 
 [](id:step5)
 ### 步骤五：开发环境运行
 在控制台执行开发环境运行脚本，使用浏览器打开包含 TUIRoom 的页面，即可在页面中使用 TUIRoom 组件。
 
-- **如果您是使用 [步骤二](#step2) 中的脚本生成 Vue + Vite + TS 项目**，您需要：
-	1. 执行开发环境命令。
+<dx-tabs>
+::: Vue3 + Vite + TS 项目
+1. 执行开发环境命令。
 ```bash
 npm run dev
 ```
-	2. 在浏览器中打开页面 `http://localhost:3000/`。
-	>! 因 TUIRoom 按需引入 element-plus 组件，会导致开发环境路由页面第一次加载时反应较慢，等待 element-plus 按需加载完成即可正常使用。element-plus 按需加载不会影响打包之后的页面加载。
-	3. 体验 TUIRoom 组件功能。
-- **如果您是使用 [步骤二](#step2) 中的脚本生成 Vue + Webpack + TS 项目**，您需要：
-	1. 执行开发环境命令
-```bash
-npm run serve
-```
-	2. 在浏览器中打开页面 `http://localhost:8080/`
-	> ! 运行过程中若 src/TUIRoom 目录中有 eslint 报错，可在 .eslintignore 文件中添加 /src/TUIRoom 路径屏蔽 eslint 检查。
-	3. 体验 TUIRoom 组件功能
+2. 在浏览器中打开页面 `http://localhost:3000/`。
+>! 因 TUIRoom 按需引入 element-plus 组件，会导致开发环境路由页面第一次加载时反应较慢，等待 element-plus 按需加载完成即可正常使用。element-plus 按需加载不会影响打包之后的页面加载。
+3. 体验 TUIRoom 组件功能
+:::
+::: Vue3 + Webpack + TS 项目
+1. 执行开发环境命令
+	```bash
+	npm run serve
+	```
+2. 在浏览器中打开页面 `http://localhost:8080/`
+> ! 运行过程中若 src/TUIRoom 目录中有 eslint 报错，可在 .eslintignore 文件中添加 /src/TUIRoom 路径屏蔽 eslint 检查。
+3. 体验 TUIRoom 组件功能
+:::
+::: Vue2 + Webpack + TS 项目
+1. 执行开发环境命令
+	```bash
+	npm run serve
+	```
+2. 在浏览器中打开页面 `http://localhost:8080/`
+> ! 运行过程中若 src/TUIRoom 目录中有 eslint 报错，可在 .eslintignore 文件中添加 /src/TUIRoom 路径屏蔽 eslint 检查。
+3. 体验 TUIRoom 组件功能
+:::
+</dx-tabs>
 
 ## 附录：TUIRoom API
 ### TUIRoom 接口
@@ -365,7 +552,7 @@ TUIRoomRef.value.createRoom(roomId, roomMode, roomParam);
 | 参数                          | 类型   | 含义                                                         |
 | ----------------------------- | ------ | ------------------------------------------------------------ |
 | roomId                        | number | 房间 ID                                                      |
-| roomMode                      | string | 房间模式，'FreeSpeech'（自由发言模式）和 'ApplySpeech'（举手发言模式），默认为 'FreeSpeech'，注意目前仅支持自由发言模式 |
+| roomMode                      | string | 房间模式，'FreeSpeech'（自由发言模式）和 'ApplySpeech'（举手发言模式），默认为 'FreeSpeech' |
 | roomParam                     | Object | 非必填                                                       |
 | roomParam.isOpenCamera        | string | 非必填，进房是否打开摄像头，默认为关闭                       |
 | roomParam.isOpenMicrophone    | string | 非必填，进房是否打开麦克风，默认为关闭                       |
@@ -394,11 +581,11 @@ TUIRoomRef.value.enterRoom(roomId, roomParam);
 
 ### TUIRoom 事件
 
-#### onRoomCreate
+#### onCreateRoom
 创建房间回调。
 ```javascript
 <template>
-  <room ref="TUIRoomRef" @on-room-create="handleRoomCreate"></room>
+  <room ref="TUIRoomRef" @on-create-room="handleRoomCreate"></room>
 </template>
 
 <script setup lang="ts">
@@ -413,12 +600,12 @@ TUIRoomRef.value.enterRoom(roomId, roomParam);
 </script>
 ```
 
-#### onRoomEnter
+#### onEnterRoom
 
 进入房间回调。
 ```javascript
 <template>
-  <room ref="TUIRoomRef" @on-room-enter="handleRoomEnter"></room>
+  <room ref="TUIRoomRef" @on-enter-room="handleRoomEnter"></room>
 </template>
 
 <script setup lang="ts">
@@ -433,19 +620,19 @@ TUIRoomRef.value.enterRoom(roomId, roomParam);
 </script>
 ```
 
-#### onRoomDestory
+#### onDestroyRoom
 
 主持人销毁房间通知。
 ```javascript
 <template>
-  <room ref="TUIRoomRef" @on-room-destory="handleRoomDestory"></room>
+  <room ref="TUIRoomRef" @on-destroy-room="handleRoomDestroy"></room>
 </template>
 
 <script setup lang="ts">
   // 引入 TUIRoom 组件，注意确认引入路径是否正确
   import Room from './TUIRoom/index.vue';
   
-  function handleRoomDestory(info) {
+  function handleRoomDestroy(info) {
     if (info.code === 0) {
       console.log('主持人销毁成功')
     }
@@ -453,12 +640,12 @@ TUIRoomRef.value.enterRoom(roomId, roomParam);
 </script>
 ```
 
-#### onRoomExit
+#### onExitRoom
 普通成员退出房间通知。
 
 ```javascript
 <template>
-  <room ref="TUIRoomRef" @on-room-exit="handleRoomExit"></room>
+  <room ref="TUIRoomRef" @on-exit-room="handleRoomExit"></room>
 </template>
 
 <script setup lang="ts">

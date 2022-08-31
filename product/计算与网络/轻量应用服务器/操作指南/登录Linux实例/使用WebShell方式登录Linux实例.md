@@ -64,6 +64,54 @@ WebShell 目前具备丰富的功能，希望您在使用过程中拥有满意�
 
 WebShell 功能介绍如下：
 <dx-accordion>
+::: 支持多种快捷键[](id:hotKey)
+
+WebShell 已支持多种快捷键，您可在 WebShell 界面中查看已支持的快捷键。步骤如下：
+1. 参考 [使用 WebShell 方式登录 Linux 实例](https://cloud.tencent.com/document/product/1207/44642)，登录实例。
+2. 在 WebShell 界面中，打开“键盘快捷方式”窗口查看已支持的快捷键。
+  - 本地操作系统为 Mac OS：按 `⌘ + /`。
+  - 本地操作系统为 Windows：按 `Ctrl + /`。
+  本文以 Windows 为例，查看已支持“键盘快捷方式”如下图所示，您可按需使用。
+	![](https://qcloudimg.tencent-cloud.cn/raw/04d1b5c3bca238681fc54bd0873ee366.png)
+
+
+:::
+::: 查看实例监控数据[](id:monitoringData)
+
+您可在 WebShell 界面中查看实例实时监控数据，目前监控数据的刷新粒度为10s。查看步骤如下：
+
+1. 参考 [使用 WebShell 方式登录 Linux 实例](https://cloud.tencent.com/document/product/1207/44642)，登录实例。
+2. 在 WebShell 界面下方，即可查看实例监控数据。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/c9cbc3ab7f54edaf9431621a8cb65e49.png)
+
+
+
+:::
+::: 修改用户名[](id:modifyUsername)
+
+您可在使用 WebShell 登录时，指定需登录的用户。具体步骤如下：
+
+1. 参考 [使用 WebShell 方式登录 Linux 实例](https://cloud.tencent.com/document/product/1207/44642)，登录实例。
+2. 在弹出的“登录”窗口中，用户名默认为 `lighthouse`，您可按需修改。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/e11b7d3f8a2c9c8b20f744bcfcbce64d.png)
+3. 修改完成后，单击**登录**即可。
+
+
+
+:::
+::: 一键安装自动化助手[](id:installTAT)
+
+
+使用 WebShell 一键免密登录方式需自动化助手支持。若您的实例未安装自动化助手，可在登录时选择安装。具体步骤如下：
+
+1. 参考 [使用 WebShell 方式登录 Linux 实例](https://cloud.tencent.com/document/product/1207/44642)，登录实例。
+2. 在弹出的“登录”窗口中，若提示您的实例未安装自动化助手，您可按需选择安装方式。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/e509b7c48e88489a5f53f089a770b1e0.png)
+   - 选择**一键安装(需要重启)**：请阅读注意事项，勾选“安装过程需要您同意强制关机”后，单击**一键安装自动化助手**即可。
+   - 选择**手动安装(不需要重启)**：请参考 [安装自动化助手客户端](https://cloud.tencent.com/document/product/1340/51945) 完成安装。
+3. 安装完成后，即可使用 WebShell 方式一键登录实例。
+
+:::
 ::: 使用命令块模式[](id:block)
 
 您可通过该步骤，在 WebShell 界面中使用命令块模式。开启后，执行的每条命令会以模块进行展示，帮助您便捷使用 WebShell。您也可按需关闭命令块模式。具体操作步骤如下：

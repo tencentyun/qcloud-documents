@@ -6,7 +6,7 @@
 ## Demo 体验
 您可以直接下载我们的 Demo 进行功能体验，包括腾讯特效 TE Demo 工程以及集成了 TE 的 MLVB、UGSV、TRTC Demo 工程，您可以根据当前项目需要进行针对性的调试。
 
->! 腾讯特效 TE iOS 平台 ZIP 包内囊括 **SDK** 和 **Demo 工程**，可前往下载 [iOS 端 ZIP 包](https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.4.2.112/xmagic_res_s104_ios.zip)。
+>! 腾讯特效 TE iOS 平台 ZIP 包内囊括 **SDK** 和 **Demo 工程**，可前往下载 [iOS 端 ZIP 包](https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.4.2.114/xmagic_res_s104_ios.zip)。
 
 <table>
 <thead>
@@ -21,28 +21,28 @@
 <tbody>
 <tr>
 <td>腾讯特效 TE</td>
-<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.4.2.112/demo.zip">ZIP 包</a></td>
-<td align="center"><img src="https://qcloudimg.tencent-cloud.cn/raw/66b0d0f525f082b641f1d3a354d236d8.png" width=120><br><a href="https://dldir1.qq.com/hudongzhibo/xmagic/xmagic-demo-2.4.2.319-signed.apk">单击下载</a></td>
-<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.2.319/xmagic_S1-04_android_2.4.2.319.zip">ZIP 包</a></td>
+<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.4.2.114/demo.zip">ZIP 包</a></td>
+<td align="center"><img src="https://qcloudimg.tencent-cloud.cn/raw/8adf3cfdd109244a90befebfc68d649b.png" width=120><br><a href="https://dldir1.qq.com/hudongzhibo/xmagic/xmagic-demo-2.4.2.322-signed.apk">单击下载</a></td>
+<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.2.322/xmagic_S1-04_android_2.4.2.322.zip">ZIP 包</a></td>
 <td><a href="https://cloud.tencent.com/document/product/616/65894">DOC</a></td></tr>
 <tr>
 <td>直播 MLVB</td>
-<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.4.2.112/MLVB-API-Example.zip">ZIP 包</a></td>
-<td align="center"><img src="https://qcloudimg.tencent-cloud.cn/raw/ac28149e27263bbb42acb784dbe15185.png" width=120><br><a href="https://dldir1.qq.com/hudongzhibo/xmagic/MLVB-APP-2.4.2.319.apk">单击下载</td>
-<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.2.319.vcube/MLVB-API-Example.zip">ZIP 包</a></td>
+<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.4.2.114/MLVB-API-Example.zip">ZIP 包</a></td>
+<td align="center"><img src="https://qcloudimg.tencent-cloud.cn/raw/1d9bf86062ec6398afa2cdc353fa3213.png" width=120><br><a href="https://dldir1.qq.com/hudongzhibo/xmagic/MLVB-APP-2.4.2.322.apk">单击下载</td>
+<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.2.322.vcube/MLVB-API-Example.zip">ZIP 包</a></td>
 <td><a href="https://cloud.tencent.com/document/product/616/65887">DOC</a></td>
 </tr>
 <tr>
 <td>实时音视频 TRTC</td>
-<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.4.2.112/TRTC-API-Example.zip">ZIP 包</a></td>
-<td align="center"><img src="https://qcloudimg.tencent-cloud.cn/raw/694aa69f3bd83724c0d2bab37609d720.png" width=120><br><a href="https://dldir1.qq.com/hudongzhibo/xmagic/TRTC-APP-2.4.2.319.apk">单击下载</td>
-<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.2.319.vcube/TRTC-API-Example.zip">ZIP 包</a></td>
+<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.4.2.114/TRTC-API-Example.zip">ZIP 包</a></td>
+<td align="center"><img src="https://qcloudimg.tencent-cloud.cn/raw/8b4b59e425d8b10977be0023c4af91a6.png" width=120><br><a href="https://dldir1.qq.com/hudongzhibo/xmagic/TRTC-APP-2.4.2.322.apk">单击下载</td>
+<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.2.322.vcube/TRTC-API-Example.zip">ZIP 包</a></td>
 <td><a href="https://cloud.tencent.com/document/product/616/65892">DOC</a></td></tr>
 <tr>
 <td>短视频 UGSV</td>
-<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.4.2.112/UGSV-API-Example.zip">ZIP 包</a></td>
-<td align="center"><img src="https://qcloudimg.tencent-cloud.cn/raw/4e0b5b7391fa66cfd6c7e2e79d24789e.png" width=120><br><a href="https://dldir1.qq.com/hudongzhibo/xmagic/UGSV-APP-2.4.2.319.apk">单击下载</td>
-<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.2.319.vcube/UGSV-API-Example.zip">ZIP 包</a></td>
+<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.4.2.114/UGSV-API-Example.zip">ZIP 包</a></td>
+<td align="center"><img src="https://qcloudimg.tencent-cloud.cn/raw/c580f15cba6c8bebfb1db67848833a9f.png" width=120><br><a href="https://dldir1.qq.com/hudongzhibo/xmagic/UGSV-APP-2.4.2.322.apk">单击下载</td>
+<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.2.322.vcube/UGSV-API-Example.zip">ZIP 包</a></td>
 <td><a href="https://cloud.tencent.com/document/product/616/65893">DOC</a></td></tr>
 </tbody></table>
 

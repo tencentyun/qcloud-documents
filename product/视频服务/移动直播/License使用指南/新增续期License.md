@@ -81,7 +81,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/b536ec77d54bd53f9761cb115ebd4b20.png)
 2. 选择**直播**（直播推流 + 视频播放），单击**下一步**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/39ab8543abac18c47347566498c2ba7a.png)
-3. 进入选择资源项并绑定 License 界面，点击**立即绑定** ，选择**未绑定**的直播流量资源包或独立 License（若没有可绑定的 License 资源，可前往 [音视频终端 SDK 购买页](https://buy.cloud.tencent.com/vcube) 购买），并单击**确定**即可在应用下生成正式版直播功能模块。
+3. 进入选择资源项并绑定 License 界面，单击**立即绑定** ，选择**未绑定**的直播流量资源包或独立 License（若没有可绑定的 License 资源，可前往 [音视频终端 SDK 购买页](https://buy.cloud.tencent.com/vcube) 购买），并单击**确定**即可在应用下生成正式版直播功能模块。
 ![](https://qcloudimg.tencent-cloud.cn/raw/cb9233eac721a33fd0f79e05efca7c4a.png)
 :::
 </dx-tabs>

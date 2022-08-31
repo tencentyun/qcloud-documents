@@ -102,6 +102,9 @@
 | 拉取群历史消息         | [v4/group_open_http_svc/group_msg_get_simple](https://cloud.tencent.com/document/product/269/2738) |
 |获取直播群在线人数|[v4/group_open_http_svc/get_online_member_num](https://cloud.tencent.com/document/product/269/49180)|
 |获取群自定义属性|[v4/group_open_attr_http_svc/get_group_attr](https://cloud.tencent.com/document/product/269/67012)|
+|获取封禁群成员列表|[v4/group_open_http_svc/get_group_ban_member](https://cloud.tencent.com/document/product/269/79248)|
+|群成员封禁|[v4/group_open_http_svc/ban_group_member](https://cloud.tencent.com/document/product/269/79249)|
+|群成员解封|[v4/group_open_http_svc/unban_group_member](https://cloud.tencent.com/document/product/269/79250)|
 |修改群自定义属性|[v4/group_open_http_svc/modify_group_attr](https://cloud.tencent.com/document/product/269/67010)|
 |清空群自定义属性|	[v4/group_open_http_svc/clear_group_attr](https://cloud.tencent.com/document/product/269/67009)|
 |重置群自定义属性|[v4/group_open_http_svc/set_group_attr](https://cloud.tencent.com/document/product/269/67011)|

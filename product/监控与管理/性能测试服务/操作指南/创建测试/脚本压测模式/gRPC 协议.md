@@ -4,7 +4,7 @@
 
 ## 基本用法
 
-使用 [pts/grpc API](https://pts-js-api-1258344701.cos-website.ap-nanjing.myqcloud.com/docs/modules/grpc.html) 提供的接口，您可以创建 gRPC client，发送 gRPC 请求。
+使用 [pts/grpc API](https://cloud.tencent.com/document/product/1484/75805) 提供的接口，您可以创建 gRPC client，发送 gRPC 请求。
 
 ### 协议上传
 

@@ -27,51 +27,56 @@
 ## Call（电话客服和音频客服相关接口函数）
 ### 电话呼出
 **tccc.Call.startOutboundCall(options): Promise<CommonSDKResponse>**
-<table>
-   <tr>
-      <th width="0px" style="text-align:center" colspan="2">参数</td>
-      <th width="0px" style="text-align:center">类型</td>
-      <th width="0px"  style="text-align:center">必填</td>
-      <th width="0px"  style="text-align:center">备注</td>
-   </tr>
-   <tr>
-      <td rowspan='6'>options</td>
-      <td>phoneNumber</td>
-      <td>string</td>
-      <td>是</td>
-      <td>被叫号码</td>
-   </tr>
-   <tr>
-      <td>phoneDesc</td>
-      <td>string</td>
-      <td>否</td>
-      <td>号码备注，可替代号码显示</td>
-   </tr>
-   <tr>
-      <td>uui</td>
-      <td>string</td>
-      <td>否</td>
-      <td>用户自定义数据，传入后可通过 <a href="https://cloud.tencent.com/document/product/679/67257">电话 CDR 事件</a> 推送返回</td>
-   </tr>
-   <tr>
-      <td>skillGroupId</td>
-      <td>string</td>
-      <td>否</td>
-      <td>指定技能组内绑定的外呼号码</td>
-   </tr>
-   <tr>
-      <td>callerPhoneNumber</td>
-      <td>string</td>
-      <td>否</td>
-      <td>指定外呼号码</td>
-   </tr>
-   <tr>
-      <td>servingNumberGroupIds</td>
-      <td>string[]</td>
-      <td>否</td>
-      <td>指定号码 id 列表</td>
-   </tr>
+<table ><tbody ><tr>
+<th width="0px" colspan="2" >参数</th><th width="0px" >类型</th><th width="0px" >必填</th><th width="0px" >备注</th></tr>
+<tr>
+<td rowspan="7" >options<br>
+</td>
+<td>phoneNumber</td>
+<td>string</td>
+<td>是</td>
+<td>被叫号码</td>
+</tr>
+<tr>
+<td>phoneDesc</td>
+<td>string</td>
+<td>否</td>
+<td>号码备注，可替代号码显示</td>
+</tr>
+<tr>
+<td>uui</td>
+<td>string</td>
+<td>否</td>
+<td>用户自定义数据，传入后可通过 <a href="https://cloud.tencent.com/document/product/679/67257" rel="noopener" target="_blank" >电话 CDR 事件</a> 推送返回</td>
+</tr>
+<tr>
+<td>skillGroupId</td>
+<td>string</td>
+<td>否</td>
+<td>指定技能组内绑定的外呼号码</td>
+</tr>
+<tr>
+<td>callerPhoneNumber</td>
+<td>string</td>
+<td>否</td>
+<td>指定外呼号码</td>
+</tr>
+<tr>
+<td>servingNumberGroupIds</td>
+<td>string[]</td>
+<td>否</td>
+<td>指定号码 id 列表</td>
+</tr>
+
+<tr>
+<td>phoneEncodeType</td>
+<td>'number'</td>
+<td>否</td>
+<td>目前仅支持'number'，在开启 <a href="https://cloud.tencent.com/document/product/679/73542#.E7.9C.9F.E5.AE.9E.E5.8F.B7.E7.A0.81.E6.98.A0.E5.B0.84.E4.B8.BA.E7.94.A8.E6.88.B7id.EF.BC.88.E5.9D.90.E5.B8.AD.E7.AB.AF.EF.BC.89" rel="noopener" target="_blank" >号码映射</a> 时强制使用真实号码</td>
+</tr>
+</tbody>
 </table>
+
 
 ### 接听会话
 **tccc.Call.accept(options): Promise<CommonSDKResponse>**
@@ -579,64 +584,85 @@
 - internal: 内线会话
 
 #### 电话会话呼入
-<table>
-   <tr>
-      <th width="0px" style="text-align:center" colspan="2">参数</td>
-      <th width="0px" style="text-align:center">类型</td>
-      <th width="0px"  style="text-align:center">必填</td>
-      <th width="0px"  style="text-align:center">备注</td>
-   </tr>
-   <tr>
-      <td rowspan='8'>options</td>
-      <td>sessionId</td>
-      <td>string</td>
-      <td>是</td>
-      <td>会话 ID</td>
-   </tr>
-   <tr>
-      <td>type</td>
-      <td>'phone'</td>
-      <td>是</td>
-      <td>电话会话类型</td>
-   </tr>
-   <tr>
-      <td>timeout</td>
-      <td>number</td>
-      <td>是</td>
-      <td>会话接入超时时长，0代表不超时</td>
-   </tr>
-   <tr>
-      <td>calleePhoneNumber</td>
-      <td>string</td>
-      <td>是</td>
-      <td>被叫号码</td>
-   </tr>
-   <tr>
-      <td>callerPhoneNumber</td>
-      <td>string</td>
-      <td>否</td>
-      <td>主叫号码</td>
-   </tr>
-   <tr>
-      <td>callerLocation</td>
-      <td>string</td>
-      <td>否</td>
-      <td>主叫号码归属地</td>
-   </tr>
-   <tr>
-      <td>remark</td>
-      <td>string</td>
-      <td>否</td>
-      <td>备注</td>
-   </tr>
-   <tr>
-      <td>ivrPath</td>
-      <td>{key: string, label: string}[]</td>
-      <td>-</td>
-      <td>用户的 IVR 按键路径，key 表示对应按键，label 表示对应的按键标签</td>
-   </tr>
-</table> 
+<table ><tbody ><tr>
+<th width="0px" colspan="2" style="text-align:center" >参数</th><th width="0px" style="text-align:center">类型</th><th width="0px" style="text-align:center">必填</th><th width="0px" style="text-align:center" >备注</th></tr>
 
+<tr>
+<td rowspan="10" >options<br>
+</td>
+<td>sessionId</td>
+<td>string</td>
+<td>是</td>
+<td>会话 ID</td>
+</tr>
+
+<tr>
+<td>type</td>
+<td>'phone'</td>
+<td>是</td>
+<td>电话会话类型</td>
+</tr>
+
+<tr>
+<td>timeout</td>
+<td>number</td>
+<td>是</td>
+<td>会话接入超时时长，0代表不超时</td>
+</tr>
+
+<tr>
+<td>calleePhoneNumber</td>
+<td>string</td>
+<td>是</td>
+<td>被叫号码</td>
+</tr>
+
+<tr>
+<td>callerPhoneNumber</td>
+<td>string</td>
+<td>否</td>
+<td>主叫号码</td>
+</tr>
+
+<tr>
+<td>callerLocation</td>
+<td>string</td>
+<td>否</td>
+<td>主叫号码归属地</td>
+</tr>
+
+<tr>
+<td>remark</td>
+<td>string</td>
+<td>否</td>
+<td>备注</td>
+</tr>
+
+<tr>
+<td>ivrPath</td>
+<td>{key: string, label: string}[]</td>
+<td>-</td>
+<td>用户的 IVR 按键路径，key 表示对应按键，label 表示对应的按键标签</td>
+</tr>
+
+<tr>
+<td>protectedCallee</td>
+<td>string</td>
+<td>否</td>
+<td>在开启号码映射时存在，表示被叫</td>
+</tr>
+
+<tr>
+<td>protectedCaller</td>
+<td>string</td>
+<td>否</td>
+<td>在开启号码映射时存在，表示主叫</td>
+</tr>
+
+</tbody>
+</table>
+
+ 
 #### 在线会话呼入
 <table>
    <tr>
@@ -974,4 +1000,3 @@
       <td>指定会话 ID</td>
    </tr>
 </table>
-

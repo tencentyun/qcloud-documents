@@ -67,6 +67,7 @@ OPTIONS
   -e, --envId                    环境ID，必填
   -s, --serviceName              服务名
   --json                         以 JSON 形式展示结果
+  -r                             地域参数，不填默认操作上海地域环境。可取值：上海（sh）,广州(gz)，北京(bj)
 :::
 </dx-codeblock>
 
@@ -89,6 +90,7 @@ OPTIONS
   --override                       缺省的参数是否沿用旧版本配置
   -e, --envId <envId>              环境 Id，必填
   -s, --serviceName <serviceName>  服务名，必填
+  -r                               地域参数，不填默认操作上海地域环境。可取值：上海（sh）,广州(gz)，北京(bj)
   --path <path>                    本地代码根目录
   --cpu <cpu>                      单一实例cpu规格，默认0.5
   --mem <mem>                      单一实例内存规格，默认1
@@ -126,6 +128,7 @@ OPTIONS
   --override                       缺省的参数是否沿用旧版本配置
   -e, --envId <envId>              环境 Id，必填
   -s, --serviceName <serviceName>  服务名，必填
+  -r                               地域参数，不填默认操作上海地域环境。可取值：上海（sh）,广州(gz)，北京(bj)
   --path <path>                    本地代码根目录
   --cpu <cpu>                      单一实例cpu规格，默认0.5
   --mem <mem>                      单一实例内存规格，默认1
@@ -163,6 +166,7 @@ OPTIONS
   --override                       缺省的参数是否沿用旧版本配置
   -e, --envId <envId>              环境 Id，必填
   -s, --serviceName <serviceName>  服务名，必填
+  -r                               地域参数，不填默认操作上海地域环境。可取值：上海（sh）,广州(gz)，北京(bj)
   --path <path>                    本地代码根目录
   --cpu <cpu>                      单一实例cpu规格，默认0.5
   --mem <mem>                      单一实例内存规格，默认1
@@ -199,6 +203,7 @@ tcb run service:config [OPTIONS]
 OPTIONS
   -e, --envId <envId>              环境 Id，必填
   -s, --serviceName <serviceName>  服务名，必填
+  -r                               地域参数，不填默认操作上海地域环境。可取值：上海（sh）,广州(gz)，北京(bj)
   --cpu <cpu>                      单一实例cpu规格，默认0.5
   --mem <mem>                      单一实例内存规格，默认1
   --minNum <minNum>                最小副本数，默认0

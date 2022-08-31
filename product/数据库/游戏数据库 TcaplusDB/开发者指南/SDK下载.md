@@ -10,13 +10,13 @@
 | ----------- | ------------- | ----------- | ------------ | ------------------------------------------------------------ |
 | Protobuf 表 | 3.36.0.192960 | 2020/04/21  | Linux x86_64 | [下载](https://tcaplusdb-sdk-1301716906.cos.ap-shanghai.myqcloud.com/3.36.0.192960/TcaplusPbApi3.36.0.192960.x86_64_release_20200115.tar.gz) |
 | Protobuf 表 | 3.46.0.199033 | 2020/12/29 | Linux x86_64 | [下载](https://tcaplusdb-sdk-1301716906.cos.ap-shanghai.myqcloud.com/release/3-46/TcaplusPbApi3.46.0.199033.x86_64_release_20201210.tar.gz) |
-| TDR 表      | 3.46.0.199033 | 2020/12/29  | Linux x86_64 | [下载](https://tcaplusdb-sdk-1301716906.cos.ap-shanghai.myqcloud.com/release/3-46/TcaplusServiceApi3.46.0.199033.x86_64_release_20201210.tar.gz) |
+| TDR 表      | 3.55.0.207725 | 2022/06/15  | Linux x86_64 | [下载](https://tcaplusdb-sdk-1301716906.cos.ap-shanghai.myqcloud.com/API/C%2B%2B/Linux/TDR/3.55/TcaplusServiceApi3.55.0.207725.x86_64_release_20220615.tar.gz) |
 
 ## Windows C++ SDK 下载
 | 运行库 | 版本          | 更新时间   | SDK 下载                                                     |
 | ------ | ------------- | ---------- | ------------------------------------------------------------ |
-| MT     | 3.34.0.191456 | 2019/04/21 | [下载](https://main.qcloudimg.com/raw/46cc4f9702373faf164dbae656e9a811/Tcaplus_PbAPI_3.34.0.191456_Win64Vc14MT_Release_20190421.zip) |
-| MD     | 3.34.0.191456 | 2019/04/21 | [下载](https://main.qcloudimg.com/raw/f5e40e65506fc941ea0514ef77ced9a4/Tcaplus_PbAPI_3.34.0.191456_Win64Vc14MD_Release_20190421.zip) |
+| MT     | 3.55.0.207429 | 2022/04/19 | [下载](https://tcaplusdb-sdk-1301716906.cos.ap-shanghai.myqcloud.com/API/C%2B%2B/Windows/TDR/3.55.0/Tcaplus_API_3.55.0.207429_Win64Vc14MT_Release_20211028.zip) |
+| MD     | 3.55.0.207429 | 2022/04/19 | [下载](https://tcaplusdb-sdk-1301716906.cos.ap-shanghai.myqcloud.com/API/C%2B%2B/Windows/TDR/3.55.0/Tcaplus_API_3.55.0.207429_Win64Vc14MD_Release_20220419.zip) |
 
 ### Windows 平台依赖包下载
 >!依赖包是分批压缩后上传的，请用户下载所有分片后再解压缩。
@@ -31,3 +31,4 @@
 | ------ | ------------------------- | ------------ | ------------------------------------------------------------ |
 | v2.6.1 | protobuf-2.6.1.tar.gz     | Linux x86-64 | [下载](https://github.com/protocolbuffers/protobuf/releases/download/v2.6.1/protobuf-2.6.1.tar.gz) |
 | v3.5.0 | protobuf-cpp-3.5.0.tar.gz | Linux x86-64 | [下载](https://github.com/protocolbuffers/protobuf/releases/download/v3.5.0/protobuf-cpp-3.5.0.tar.gz) |
+

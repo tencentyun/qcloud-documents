@@ -1,11 +1,10 @@
 ## 接口描述
-**描述**：通过会议 Code 查询会议嘉宾列表，只有会议创建人才有权限查询。
+- **描述**：通过会议 Code 查询会议嘉宾列表，只有会议创建人才有权限查询。
 <dx-alert infotype="notice" title="">
 只有商业版、企业版或教育版用户可以使用会议嘉宾功能，个人版尚无此功能。
 </dx-alert>
-
-**调用方式**：GET
-**接口请求域名**：
+- **调用方式**：GET
+- **接口请求域名**：
 ```Plaintext
 https://api.meeting.qq.com/v1/guests?meeting_code={meeting_code}&userid={userid}&instanceid={instanceid}
 
@@ -20,7 +19,7 @@ https://api.meeting.qq.com/v1/guests?meeting_code={meeting_code}&userid={userid}
 | ------------ | ---- | -------- | ------------------------------------------------------------ |
 | meeting_code | 是   | String   | 会议 Code。                                                    |
 | userid       | 是   | String   | 用户的 ID（企业内部请使用企业唯一用户标识，OAuth2.0 鉴权用户请使用 openId）。 |
-| instanceid   | 是   | Integer  | 用户的终端设备类型：<br/>1：PC <br/>2：Mac<br/>3：Android <br/>4：iOS <br/>5：Web <br/>6：iPad <br/>7：Android Pad <br/>8：小程序 |
+| instanceid   | 是   | Integer  | 用户的终端设备类型：<br>0：PSTN<br>1：PC<br>2：Mac<br>3：Android<br>4：iOS<br>5：Web<br>6：iPad<br>7：Android Pad<br>8：小程序<br>9：voip、sip 设备<br>10：linux<br>20：Rooms for Touch Windows<br>21：Rooms for Touch MacOS<br>22：Rooms for Touch Android<br>30：Controller for Touch Windows<br>32：Controller for Touch Android<br>33：Controller for Touch iOS |
 
 
 ## 输出参数

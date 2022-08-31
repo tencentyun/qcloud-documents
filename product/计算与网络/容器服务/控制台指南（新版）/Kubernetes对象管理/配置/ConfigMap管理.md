@@ -66,6 +66,9 @@
 
 ## Kubectl 操作 ConfigMap 指引
 
+
+
+[](id:YAMLSample)
 ### YAML 示例
 <dx-codeblock>
 ::: Yaml

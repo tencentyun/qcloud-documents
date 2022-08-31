@@ -205,10 +205,43 @@ Ingress 跨域绑定功能，指定需要接入的 VPC。可以和 `ingress.clou
 ### ingress.cloud.tencent.com/enable-grace-shutdown
    
 **说明：**
-支持 CLB 直连模式的优雅停机。  		 
+支持 CLB 直连模式的优雅停机。Pod 被删除，此时 Pod 里有 DeletionTimestamp，且状态置为 Terminating。此时调整 CLB 到该 Pod 的权重为 0。 
 
 **使用示例：**
 仅在直连模式下支持，需要配合使用 `ingress.cloud.tencent.com/direct-access`，使用方式详情见 [Ingress 优雅停机](https://cloud.tencent.com/document/product/457/60065)。
 
+---
+### ingress.cloud.tencent.com/enable-grace-shutdown-tkex
+**说明：**
+支持 CLB 直连模式的优雅退出。Endpoint 对象中 endpoints 是否 not-ready，将 not-ready 的 CLB 后端权重置为 0。
 
+**使用示例：**
+仅在直连模式下支持，需要配合使用 `ingress.cloud.tencent.com/direct-access`，使用方式详情见 [Ingress 优雅停机](https://cloud.tencent.com/document/product/457/60065)中的相关能力。
 
+---
+### ingress.cloud.tencent.com/security-groups
+
+**说明：**
+通过该 Annotation 可以为 CLB 类型的 Ingress 绑定安全组，单个 CLB 最多可绑定5个安全组。
+
+**注意：**
+- 请查看 CLB 使用安全组的[使用限制](https://cloud.tencent.com/document/product/214/14733)。
+- 通常需要配合安全组默认放通的能力，CLB 和 CVM 之间默认放通，来自 CLB 的流量只需通过 CLB 上安全组的校验。对应 Annotation 为：`ingress.cloud.tencent.com/pass-to-target`
+
+**使用示例：**
+`ingress.cloud.tencent.com/security-groups: "sg-xxxxxx,sg-xxxxxx"`
+
+---
+
+### ingress.cloud.tencent.com/pass-to-target 
+
+**说明：**
+通过该 Annotation 可以为 CLB 类型的 Ingress 配置安全组默认放通的能力，CLB 和 CVM 之间默认放通，来自 CLB 的流量只需通过 CLB 上安全组的校验。
+
+**注意：**
+
+- 请查看 CLB 使用安全组的[使用限制](https://cloud.tencent.com/document/product/214/14733)。
+- 通常需要配合绑定安全组的能力。对应 Annotation 为：`ingress.cloud.tencent.com/security-groups`
+
+**使用示例：**
+`ingress.cloud.tencent.com/pass-to-target: "true"`

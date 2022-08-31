@@ -32,8 +32,8 @@
 | getDevicePushToken | 获取当前厂商的推送Token |
 | getOtherPushType | 获取厂商信息 |
 | getBuzId | 获取当前厂商对应的腾讯云控制台上注册的证书ID |
-| createNotificationChannel | 为Android机型创建通知Channel渠道 |
-| clearAllNotification | 清除通知栏内，当前应用，所有的通知，[详见Google官方文档](https://developer.android.com/training/notify-user/channels) |
+| createNotificationChannel | 为Android机型创建通知Channel渠道，[详见Google官方文档](https://developer.android.com/training/notify-user/channels) |
+| clearAllNotification | 清除通知栏内，当前应用，所有的通知 |
 | displayNotification | 在客户端本地，手动创建一条消息通知 |
 | displayDefaultNotificationForMessage | 在客户端本地，按照默认的规则，自动为一个 `V2TimMessage` 创建一个消息通知 |
 
@@ -173,13 +173,13 @@
 
 `点击后续动作`请选择打开应用。
 
-![20220614153143](https://tuikit-1251787278.cos.ap-guangzhou.myqcloud.com/20220614153143.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/c1b3ad943abed93537761cddd22f9de5.png)
 
 #### 魅族
 
 ##### 开通服务
 1. 打开 [魅族开放平台官网](https://open.flyme.cn) 进行注册并通过开发者认证。
- >?认证过程大约需要3天左右，请务必提前阅读 [魅族 Flyme 推送接入文档](https://open-wiki.flyme.cn/doc-wiki/index#id?129)，以免影响您的接入进度。
+ >?认证过程大约需要3天左右，请务必提前阅读 [魅族 Flyme 推送接入文档](https://open.flyme.cn/docs?id=129)，以免影响您的接入进度。
 
 2. 登录魅族开放平台的管理控制台，选择**服务**>**集成推送服务**>**推送后台**，创建魅族推送服务应用。
 3. 魅族推送服务应用创建完成后，在应用详情中，您可以查看详细的应用信息。记录**应用包名**、**App ID**、**App Secret**信息。
@@ -188,7 +188,7 @@
 
 ##### 上传证书至控制台
 1. 在 [IM 控制台-基础配置](https://console.cloud.tencent.com/im-detail) 右侧，添加 Android 证书。
-2. 选择华为后，请填写相关信息。**单击后续动作**请选择：**打开应用**。
+2. 选择魅族后，请填写相关信息。**单击后续动作**请选择：**打开应用**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/a24df4cdf8391853e589324a05c45c48.png)
 
 ## 使用插件跑通离线推送（全览 + Android）
@@ -374,12 +374,12 @@ android {
 打开 `android/app/src/main/AndroidManifest.xml` 文件，在 `<application>` 中，如下添加meta-data。
 
 ```xml
-  <meta-data
-    android:name="com.vivo.push.api_key"
-    android:value="" />
-  <meta-data
-    android:name="com.vivo.push.app_id"
-    android:value="" />
+    <meta-data
+        android:name="com.vivo.push.api_key"
+        android:value="填入您申请的vivo API_KEY" />
+    <meta-data
+        android:name="com.vivo.push.app_id"
+        android:value="填入您申请的vivo API_ID" />
 </application>
 ```
 
@@ -801,15 +801,12 @@ flutter pub add tim_ui_kit_push_plugin
 #### Android
 
 1. 确保 `@mipmap/ic_launcher` 存在且为您的应用 Icon。完整路径：`android/app/src/main/res/mipmap/ic_launcher.png`
+![](https://qcloudimg.tencent-cloud.cn/raw/c3a5b95e6ffc519890122b7d474101a0.png)
 
-![20220713155110](https://tuikit-1251787278.cos.ap-guangzhou.myqcloud.com/20220713155110.png)
-
-如果不存在，可手动将您的应用Icon复制进去，或通过Android Studio自动创建不同分辨率版本（`mipmap` 目录右键，`New` => `Image Asset`）。
-
-![20220713155548](https://tuikit-1251787278.cos.ap-guangzhou.myqcloud.com/20220713155548.png)
+如果不存在，可手动将您的应用 Icon 复制进去，或通过 Android Studio 自动创建不同分辨率版本（`mipmap` 目录右键，`New` => `Image Asset`）。
+![](https://qcloudimg.tencent-cloud.cn/raw/9641cb0de6a2172f57064d08f32a5a68.png)
 
 2. 打开 `android/app/src/main/AndroidManifest.xml` 文件，在您应用的主 activity 中，添加如下代码。
-
 ```xml
 <activity
     android:showWhenLocked="true"
@@ -872,7 +869,7 @@ TencentImSDKPlugin.v2TIMManager
 
 #### 触发本地消息通知
 
-请从我们提供的两个API中，`displayNotification` 自定义通知，及 `displayDefaultNotificationForMessage` 根据消息生成默认通知，选一个合适的API。
+请从我们提供的两个 API 中，`displayNotification` 自定义通知，及 `displayDefaultNotificationForMessage` 根据消息生成默认通知，选一个合适的API。
 
 对于Android端，这两个API均需传入 `channelID` 及 `channelName`。若还未创建 [Android Push Channel](https://developer.android.com/training/notify-user/channels) ，请使用插件 `createNotificationChannel` API创建。
 
@@ -887,7 +884,7 @@ cPush.createNotificationChannel(
 
 本API需要您提供 `title`, `body`, 及 `ext` 用于点击跳转信息，三个参数。您可以根据需要自行解析收到的 `V2TimMessage`，生成这三个字段。
 
-![20220713163737](https://tuikit-1251787278.cos.ap-guangzhou.myqcloud.com/20220713163737.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/a6038698a5c1f4c12e9b8454ab07ce64.png)
 
 为便于跳转，此处ext的生成规则可查看 `displayDefaultNotificationForMessage` 的代码。
 

@@ -5,7 +5,7 @@
 2. 在左侧导航栏中，单击**文件系统**，选择所需地域，例如广州。
 3. 单击**新建**。
 4. 在弹出的窗口中，输入名称与描述，其他保持默认配置。
-![](https://qcloudimg.tencent-cloud.cn/raw/8e10bda2f67b2034d2b28c02dc4adef4.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/a2a40efa6519eeba1a6a56579e81a966.png)
  - **名称**：文件系统名称，仅支持大小写字母、数字和 - 或 \_ 的组合，长度为4-64的字符。
  - **描述**：文件系统描述信息。
 5. 单击**保存**，即可新建 CHDFS。

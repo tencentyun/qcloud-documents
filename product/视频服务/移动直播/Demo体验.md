@@ -17,8 +17,8 @@
 </tr>
 <tr>
 <td>Android</td>
-<td><a onclick="window.open('https://dldir1.qq.com/hudongzhibo/liteav/xiaozhibo.apk')"><div style="width:130px;height: 130px;background-image:url(https://main.qcloudimg.com/raw/8b235606b3c881da182b2af8d60d90af.png);background-size: cover;margin:auto">
-</div></a></td>
+<td><div style="width:130px;height: 130px;background-image:url(https://main.qcloudimg.com/raw/8a603ced0a61983018c794df842f7029.png);background-size: cover;margin:auto">
+</div></td>
 <td><a href="https://github.com/tencentyun/XiaoZhiBo/tree/main/Android">Github</a></td>
 </tr>
 </table>

@@ -1,17 +1,40 @@
 ## 常规升级步骤
 
 ### 通过 AndroidStudio 自动集成
-若您的工程通过远程拉取依赖集成，如版本不涉及下方具体版本说明的，请直接更换工程中添加的 TPNS SDK 相关依赖版本号为最新版本即可。最新版本号可前往 [Android SDK 发布动态](https://cloud.tencent.com/document/product/548/44520) 查看获取。
+若您的工程通过远程拉取依赖集成，如版本不涉及下方具体版本说明的，请直接更换工程中添加的移动推送SDK 相关依赖版本号为最新版本即可。最新版本号可前往 [Android SDK 发布动态](https://cloud.tencent.com/document/product/548/44520) 查看获取。
 
 >! 
 > - 如您当前使用的版本和最新版本跨度较大，请务必参考下方涉及版本的变更内容进行配置修改。
-> - 如无特殊情况，建议您对来自 TPNS SDK 的各厂商推送 SDK 依赖版本号也同步进行升级修改。
+> - 如无特殊情况，建议您对来自移动推送SDK 的各厂商推送 SDK 依赖版本号也同步进行升级修改。
 
-修改示例如下：
-```groovy
+例如，当前使用的版本号为 1.3.3.3，最新版本号为 1.3.5.0，则将使用的推送 SDK 依赖版本号从 1.3.3.3 修改为 1.3.5.0：
+```
 dependencies {
-    // TPNS 推送依赖，其中 [VERSION] 请替换为最新版本号        
-    implementation 'com.tencent.tpns:tpns:[VERSION]-release' 
+    //移动推送主包
+    implementation "com.tencent.tpns:tpns:1.3.5.0-release"
+
+    // 小米推送依赖包
+    implementation "com.tencent.tpns:xiaomi:1.3.5.0-release"
+
+    // 魅族推送依赖包
+    implementation "com.tencent.tpns:meizu:1.3.5.0-release"
+    
+    // 华为推送依赖包
+    implementation "com.tencent.tpns:huawei:1.3.5.0-release"
+    // 华为推送 HMS Core Push 模块依赖包
+    implementation 'com.huawei.hms:push:6.5.0.300'       
+
+    // OPPO 推送依赖包
+    implementation "com.tencent.tpns:oppo:1.3.5.0-release"
+    // 自 SDK 1.3.2.0 起，需一并加入以下依赖语句，否则可能导致 OPPO 推送注册失败
+    implementation 'com.google.code.gson:gson:2.6.2'
+    implementation 'commons-codec:commons-codec:1.15'
+
+    // vivo 推送依赖包
+    implementation "com.tencent.tpns:vivo:1.3.5.0-release"
+
+    // 荣耀推送依赖包
+    implementation "com.tencent.tpns:honor:1.3.5.0-release"
 }
 ```
 
@@ -23,14 +46,14 @@ dependencies {
 
 >! 
 > - 如您当前使用的版本和最新版本跨度较大，请务必参考下方涉及版本的变更内容进行配置修改。
-> - 如无特殊情况，建议您对来自 TPNS SDK 的各厂商推送 SDK 依赖包也同步进行升级替换。
+> - 如无特殊情况，建议您对来自移动推送 SDK 的各厂商推送 SDK 依赖包也同步进行升级替换。
 
 
 ### 通过其他合集工具包集成
 若您的工程通过其他三方合集工具包集成（如 MSDK、GCloud 等），请优先参考合集工具包提供的升级指南。
 
-## TPNS Android SDK 1.3.2.0
-TPNS 1.3.2.0 升级了各厂商推送依赖版本，版本详情如下：
+## 移动推送 Android SDK 1.3.2.0
+移动推送1.3.2.0 升级了各厂商推送依赖版本，版本详情如下：
 - 华为 : 6.3.0.302
 - 小米 : 4.9.1
 - 魅族 : 4.1.0
@@ -68,7 +91,7 @@ implementation 'commons-codec:commons-codec:1.15'
 package com.meizu.cloud.pushinternal;
 public class R {
     public static final class drawable {
-		    // 资源文件 stat_sys_third_app_notify.png 请从 TPNS SDK 压缩包魅族厂商依赖目录的 flyme-notification-res 文件夹获取，并复制到应用自己的资源目录下
+		    // 资源文件 stat_sys_third_app_notify.png 请从移动推送 SDK 压缩包魅族厂商依赖目录的 flyme-notification-res 文件夹获取，并复制到应用自己的资源目录下
         public static final int stat_sys_third_app_notify = com.tencent.android.tpns.demo.R.drawable.stat_sys_third_app_notify;
     }
 }
@@ -101,7 +124,7 @@ class R {
 }
 ```
 
-2. 请将 TPNS SDK 压缩包 OPPO 厂商依赖目录的 jar 文件 commons-codec-1.15.jar、gson-2.6.2-sources.jar 新增复制到工程 app 模块 libs 目录下并引入工程，否则可能导致 OPPO 推送注册失败：
+2. 请将移动推送 SDK 压缩包 OPPO 厂商依赖目录的 jar 文件 commons-codec-1.15.jar、gson-2.6.2-sources.jar 新增复制到工程 app 模块 libs 目录下并引入工程，否则可能导致 OPPO 推送注册失败：
 ```groovy
 implementation files('libs/gson-2.6.2-sources.jar')
 implementation files('libs/commons-codec-1.15.jar')
@@ -128,7 +151,7 @@ implementation files('libs/commons-codec-1.15.jar')
 
 
 
-## TPNS Android SDK 1.3.1.1
+## 移动推送 Android SDK 1.3.1.1
 ### 通过 Eclipse 集成
 如您的工程通过手动引入 jar 文件集成，请注意以下内容变更。
 
@@ -186,12 +209,12 @@ implementation files('libs/commons-codec-1.15.jar')
     </receiver>
 ```
 
-## TPNS Android SDK 1.2.7.0
+## 移动推送 Android SDK 1.2.7.0
 
 ###  新增应用内消息补推能力
 新增是否允许应用内消息展示接口，请注意高版本 Android 使用 WebView 的兼容性详见 [Android 接口文档](https://cloud.tencent.com/document/product/548/36659#.E5.BA.94.E7.94.A8.E5.86.85.E6.B6.88.E6.81.AF.E5.B1.95.E7.A4.BA)。
 
-## TPNS Android SDK 1.2.5.0
+## 移动推送 Android SDK 1.2.5.0
 
 ###  1. 配置工程依赖环境（可选）
 
@@ -224,14 +247,14 @@ public class MessageReceiver extends XGPushBaseReceiver {
 ```
 
 
-## TPNS Android SDK 1.2.1.3
+## 移动推送 Android SDK 1.2.1.3
 ### 华为推送 SDK 接入变更
 此版本起正式支持华为推送 V5 版本 SDK，请参见 [华为通道 V5 接入](https://cloud.tencent.com/document/product/548/45909) 更新华为推送集成配置。
 
-## TPNS Android SDK 1.2.0.2
+## 移动推送Android SDK 1.2.0.2
 ### 通过 Eclipse 集成
 如您的工程通过手动引入 jar 文件集成，请注意以下内容变更。
-#### TPNS 主包
+#### 移动推送主包
 1. 替换 SDK 压缩包目录 libs 下的各 tpns-.jar 文件；
 2. 替换 SDK 压缩包目录 Other-Platform-SO 下的各平台 so 文件；
 3. 请在 AndroidManifest 文件 application 标签内移除以下节点：

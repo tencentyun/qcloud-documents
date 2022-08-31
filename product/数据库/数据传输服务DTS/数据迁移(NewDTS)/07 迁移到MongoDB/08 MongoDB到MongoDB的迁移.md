@@ -244,7 +244,6 @@ db.createUser({
 如果连通性测试未通过，请参考 [连通性测试不通过](https://cloud.tencent.com/document/product/571/62989) 进行处理。
 ![](https://main.qcloudimg.com/raw/43d1d1717e76331a9d2048428515cf75.png)
 5. 在设置迁移选项及选择迁移对象页面，设置迁移选项和迁移对象（可选择部分库表）。
-<img src="https://main.qcloudimg.com/raw/0392c50e0aa030d890c20f119e714579.png"  style="zoom:80%;">
 <table>
 <thead><tr><th>配置项</th><th>说明</th></tr></thead>
 <tbody><tr>
@@ -268,8 +267,8 @@ db.createUser({
  - 选择**全量 + 增量迁移**：全量迁移完成后会自动进入增量数据同步阶段，增量数据同步不会自动结束，需要您手动单击**完成**结束增量数据同步。
    - 请选择合适时间手动完成增量数据同步，并完成业务切换。
     - 观察迁移阶段为增量同步，并显示无延迟状态，将源库停写几分钟。
-    - 目标与源库数据差距为0MB及目标与源库时间延迟为0秒时，手动完成增量同步。
-![](https://main.qcloudimg.com/raw/2a14237df7258733a5c14ff68fc19cf3.png)
+    - 目标与源库时间延迟为0秒时，手动完成增量同步。
+![](https://qcloudimg.tencent-cloud.cn/raw/3d6347efc8bd83bf3017c9d508d8af69.png)
 8. （可选）如果您需要进行查看任务、删除任务等操作，请单击对应的任务，在**操作**列进行操作，详情可参考 [任务管理](https://cloud.tencent.com/document/product/571/58674)。
 9. 当迁移任务状态变为**任务成功**时，即可对业务进行正式割接，更多详情可参考 [割接说明](https://cloud.tencent.com/document/product/571/58660)。
 

@@ -12,7 +12,7 @@
 |--|--|
 |DomainName|CDN 域名。|
 |Filename|资源访问路径，鉴权时Filename需以正斜线（ `/` ）开头。|
-|timestamp|服务端生成鉴权 URL 的时间，使用十进制整型正数的 Unix 时间戳，是从 UTC 时间1970年01月01日00时00分00秒到现在的总秒数，其定义与所在时区无关。|
+|timestamp|签算服务器生成鉴权 URL 的时间，与有效时间共同控制鉴权 URL 的失效时间，格式为：YYYYMMDDHHMM（时间点取自签算服务器的 UTC+8 时间），如：201807301000。|
 |md5hash|通过 MD 5算法计算出的固定长度为32位的字符串。具体计算公式如下：<br>• md5hash = md5sum(pkeytimestampuri) 参数之间无任何符号 <br>• pkey：自定义密钥：由6 - 40位大小写字母、数字构成，密钥需要严格保密，仅客户端与服务端知晓。 <br>• uri 资源访问路径以正斜线（/）开头。<br>• timestamp：取值为上述中的timestamp。|
 
 - **鉴权逻辑说明**
@@ -28,7 +28,7 @@ CDN 服务器接受到客户请求后，解析出 url 中的 timestamp 参数 + 
 	- 鉴权密钥：dimtm5evg50ijsx2hvuwyfoiu65
 	- 鉴权URL有效时长为：1s   
 	<img src="https://qcloudimg.tencent-cloud.cn/raw/fd8a39902be99d134143d4fb85ac5e89.png" width="60%">
-	-  签算服务器生成鉴权URL的时间：2020年02月27日16:10:32（UTC+8），转换为十进制的整形数值为1582791032(timestamp)
+	-  签算服务器生成鉴权URL的时间：2020年02月27日16:10:32（UTC+8）
 	-  请求源站地址：`http://cloud.tencent.com/test.jpg`
 - **生成过程**
 	-  获取鉴权参数
@@ -45,18 +45,18 @@ CDN 服务器接受到客户请求后，解析出 url 中的 timestamp 参数 + 
 </tr>
 <tr>
 <td>timestamp</td>
-<td>1582791032</td>
+<td>202002271610</td>
 </tr>
 <tr>
 <td>pkey</td>
 <td>dimtm5evg50ijsx2hvuwyfoiu65</td>
 </tr>
 </tbody></table>
-	- 拼接签名串：dimtm5evg50ijsx2hvuwyfoiu651582791032/test.jpg
-	- 计算签名串的md5值：md5hash = md5sum(pkeytimestampuri) =md5sum(dimtm5evg50ijsx2hvuwyfoiu651582791032/test.jpg) = ea68b93ac23ebbc6eebf7f163c6e9c4c
+	- 拼接签名串：dimtm5evg50ijsx2hvuwyfoiu65202002271610/test.jpg
+	- 计算签名串的md5值：md5hash = md5sum(pkeytimestampuri) =md5sum(dimtm5evg50ijsx2hvuwyfoiu65202002271610/test.jpg) = 6064a3e2bf6b4995f53967fa86b19fa1
 - **生成鉴权 URL**
-`http://cloud.tencent.com/1582791032/ea68b93ac23ebbc6eebf7f163c6e9c4c/test.jpg` 
-当客户端通过加密 URL 进行访问时，如果 CDN 服务器计算出来的 md5hash 值与访问请求中带的 md5hash 值相同，都为 ea68b93ac23ebbc6eebf7f163c6e9c4c，则鉴权通过，反之鉴权失败。
+`http://cloud.tencent.com/202002271610/6064a3e2bf6b4995f53967fa86b19fa1/test.jpg` 
+当客户端通过加密 URL 进行访问时，如果 CDN 服务器计算出来的 md5hash 值与访问请求中带的 md5hash 值相同，都为 6064a3e2bf6b4995f53967fa86b19fa1，则鉴权通过，反之鉴权失败。
 
 ## 注意事项 
 

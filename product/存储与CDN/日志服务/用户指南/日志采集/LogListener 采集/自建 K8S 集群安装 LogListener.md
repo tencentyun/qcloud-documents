@@ -28,6 +28,7 @@ chmod 744 tencentcloud-cls-k8s-install.sh
 -	--secretkey：腾讯云账户访问密钥 Key。
 -	--region：CLS 服务地域。
 -	--docker_root：集群 Docker 的根目录，默认是 /var/lib/docker。
+-	--cluster_id：集群 ID。
 >? 
 > - 建议不同的集群使用不同的 cluster_id。
 > - 不同的集群数据可以投递到相同的 topic。

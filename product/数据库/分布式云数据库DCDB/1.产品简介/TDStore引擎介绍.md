@@ -28,7 +28,6 @@ TDStore 以原生分布式的架构完整支持事务 [ACID](https://cloud.tence
 TDStore 存储层基于 LSM-Tree + SSTable 结构存放和管理数据，具有较高的压缩率，能有效降低海量数据规模下的存储成本。对于一些数据行重复度较大的业务场景，对比 InnoDB 存储引擎，TDStore 版最高可实现高达20倍的压缩率，单实例可支撑 EB 级别的存储量。
 
 ## TDStore 引擎架构
-![](https://qcloudimg.tencent-cloud.cn/raw/c88105144930834aa20dac9e21fe2782.png)
 
 ### 计算节点 SQLEngine
 SQLEngine 是计算节点，负责接收和响应客户端的 SQL 请求。SQLEngine 基于 MySQL 8.0 实现，完全兼容原生 MySQL 语法，从原生 MySQL 迁移过来的业务在使用时无须对业务语句进行任何改造。

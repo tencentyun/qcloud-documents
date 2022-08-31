@@ -76,18 +76,59 @@ flutter run --dart-define=SDK_APPID={YOUR_SDKAPPID} --dart-define=ISPRODUCT_ENV=
 
 <dx-tabs>
 ::: Android 平台[](id:android)
-1. 在 Android Studio 打开 discuss/andorid 目录。
-![](https://qcloudimg.tencent-cloud.cn/raw/6516f9b17c58915c4ebc93c5c8829831.png)
-2. 启动一个 Android 的模拟器，单击 **Build And Run**，Demo 可以运行起来。您可以随机输入一个 UserID（数字字母组合）。
+**1. 在 Android Studio 中安装 Flutter 和 Dart 插件。**
+Mac:
+打开插件设置（在 v3.6.3.0 以上的系统打开 Preferences > Plugins）=> 选择 Flutter 插件并点击 安装 => 当弹出安装 Dart 插件提示时，点击 Yes => 当弹出重新启动提示时，点击 Restart。
+
+Linux 或者 Windows 平台:
+打开插件设置 (位于 File > Settings > Plugins)= > 选择 Marketplace (扩展商店)，选择 Flutter plugin 然后点击 Install (安装)。
+![](https://qcloudimg.tencent-cloud.cn/raw/481bc19b55b40051daa8e669325cd123.png)
+
+**2. 打开项目并获取依赖**
+在 Android Studio 中打开 `im-flutter-uikit` 目录。
+![](https://qcloudimg.tencent-cloud.cn/raw/b22a52c14373a222f9bf55e79b04f12b.png)
+
+并在该路径执行命令安装依赖。
+
+```shell
+flutter pub get
+```
+
+**3. 配置环境变量。**
+
+在右上角运行按钮旁，鼠标hover `main.dart`，配置 `Edit Configurations`。
+![](https://qcloudimg.tencent-cloud.cn/raw/e2db56849e86dab8f6f0ccb4d3374fce.png)
+
+在弹出窗口中，配置 `Additional run args`，输入环境变量（SDKAPPID等信息）。如：
+
+```shell
+# 请替换SDK_APPID、KEY两个参数
+--dart-define=SDK_APPID={YOUR_SDKAPPID} --dart-define=ISPRODUCT_ENV=false --dart-define=KEY={YOUR_KEY}
+```
+![](https://qcloudimg.tencent-cloud.cn/raw/f022441399d2d6057b86e489593768ad.png)
+
+**4. 创建Android模拟器。**
+
+启动您刚安装好的模拟器，并选中其。
+![](https://qcloudimg.tencent-cloud.cn/raw/e3aebdd2f6018c8f1fa10d5b5fb62c79.png)
+
+点击界面右上角 Device Manager，完成 Create devices，创建模拟器。如果您需要使用Google FCM推送能力，建议最好安装支持Google Play Store的设备。
+![](https://qcloudimg.tencent-cloud.cn/raw/9db005b86f9ffa1052826fe5e11d219a.png)
+
+**5. 运行项目。**
+
+根据需要，点击下图左侧 Run ，或右侧 Debug，以运行项目。
+![](https://qcloudimg.tencent-cloud.cn/raw/7b0d4d008f71e1d0d805c9fb3a5de437.png)
+
 >?UI 可能会有部分调整更新，请以最新版为准。
 :::
 ::: iOS 平台[](id:ios)
-1. 打开 Xcode，打开文件 discuss/ios/Runner.xcodeproj：
-![](https://qcloudimg.tencent-cloud.cn/raw/6d74814ba9bce54c7439e8b3cea53e73.png)
+1. 在 Xcode 中打开 `im-flutter-uikit/ios`目录。
+![](https://qcloudimg.tencent-cloud.cn/raw/16b555ebe0c2caa77f13ac3b42b20a24.png)
 2. 连接 iPhone 真机，单击 **Build And Run**，iOS 工程等待编译完成，会有新窗口弹出 Xcode 工程。
 3. 打开 iOS 工程，设置主 Target 的 Signing & Capabilities（需要苹果开发者帐号），让项目可以在 iPhone 真机上运行。
 4. 启动项目，在真机上进行 Demo 的调试。
-![](https://qcloudimg.tencent-cloud.cn/raw/3fe6bbac88bb21ad7a7822bb297793b3.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/911935cf419e4298edb45cd93bf10852.png)
 :::
 </dx-tabs>
 
@@ -136,13 +177,64 @@ flutter run --dart-define=SDK_APPID={YOUR_SDKAPPID} --dart-define=ISPRODUCT_ENV=
 
 ## 第四部分：含 UI 集成，使用 TUIKit 组件库，半天完成 IM 能力植入
 
-TUIKit 是基于腾讯云 IM SDK 的一款 UI 组件库，它提供了一些通用的 UI 组件，例如会话列表、聊天界面和联系人列表等，开发者可根据实际业务需求通过该组件库快速地搭建自定义 IM 应用。参见 [TUIKit 详细介绍](https://cloud.tencent.com/document/product/269/70746)。
+TUIKit 是基于腾讯云 IM SDK 的一款 UI 组件库，它提供了一些通用的 UI 组件，例如会话列表、聊天界面和联系人列表等，开发者可根据实际业务需求通过该组件库快速地搭建自定义 IM 应用。参见 [TUIKit 介绍](https://cloud.tencent.com/document/product/269/70747)。
 
 ### 前提条件
 
 您已经完成创建 Flutter 项目，或有可以基于的 Flutter 项目。
 
 ### 接入步骤
+
+#### 配置权限
+
+由于 TUIKit 运行，需要拍摄/相册/录音/网络等权限，需要您在 Native 的文件中手动声明，才可正常使用相关能力。
+
+**Android**
+
+打开 `android/app/src/main/AndroidManifest.xml` ，在 `<manifest></manifest>`中，添加如下权限。
+```xml
+    <uses-permission
+        android:name="android.permission.INTERNET"/>
+    <uses-permission
+        android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission
+        android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission
+        android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission
+        android:name="android.permission.VIBRATE"/>
+    <uses-permission
+        android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission
+        android:name="android.permission.CAMERA"/>
+```
+
+**iOS**
+
+打开 `ios/Podfile` ，在文件末尾新增如下权限代码。
+```
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    flutter_additional_ios_build_settings(target)
+    target.build_configurations.each do |config|
+          config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= [
+            '$(inherited)',
+            'PERMISSION_MICROPHONE=1',
+            'PERMISSION_CAMERA=1',
+            'PERMISSION_PHOTOS=1',
+          ]
+        end
+  end
+end
+```
+
+>?
+> 
+> 如您需要用到推送能力，还需要添加推送相关权限，详情可查看 [Flutter 厂商消息推送插件集成指南](https://cloud.tencent.com/document/product/269/75430)。
 
 #### 安装 IM TUIkit
 
@@ -153,10 +245,12 @@ TUIKit 是基于腾讯云 IM SDK 的一款 UI 组件库，它提供了一些通�
 flutter pub add tim_ui_kit
 ```
 
+如果您的项目需要支持Web，请在执行后续步骤前，[查看Web兼容说明章节](#web)，引入JS文件。
+
 #### 初始化
 
 1. 在您应用启动时，初始化 TUIKit。
-2. 请务必保证先执行 `TIMUIKitCore.getInstance()` ，再调用初始化函数 `init()` ，并将您的`sdkAppID`传入。
+2. 请务必保证先执行 [`TIMUIKitCore.getInstance()`](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitCore/getInstance.html) ，再调用初始化函数 [`init()`](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitCore/init.html) ，并将您的`sdkAppID`传入。
 ```dart
 /// main.dart
 import 'package:tim_ui_kit/tim_ui_kit.dart';
@@ -173,9 +267,13 @@ final CoreServicesImpl _coreInstance = TIMUIKitCore.getInstance();
 }
 ```
 
+>?
+>
+> 请在本步骤await初始化完成后，才可执行后续步骤。
+
 #### 登录测试账户
 1. 此时，您可以使用最开始的时候，在控制台生成的测试账户，完成登录验证。
-2. 调用`_coreInstance.login`方法，登录一个测试账户。
+2. 调用 [`_coreInstance.login`](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitCore/login.html) 方法，登录一个测试账户。
 ```dart
 import 'package:tim_ui_kit/tim_ui_kit.dart';
 
@@ -191,7 +289,7 @@ _coreInstance.login(userID: userID, userSig: userSig);
 
 <img style="width:300px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/279da6d5d41ec1ce0b0cf7fca9a697b8.jpg" />
 
-请创建一个 `Conversation` 类，`body` 中使用 `TIMUIKitConversation` 组件，渲染会话列表。
+请创建一个 `Conversation` 类，`body` 中使用 [`TIMUIKitConversation`](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitConversation/) 组件，渲染会话列表。
 
 您仅需传入一个 `onTapItem` 事件的处理函数，用于跳转至具体会话聊天页的导航。关于 `Chat` 类，会在下一步讲解。
 
@@ -231,7 +329,7 @@ return Scaffold(
 该页面由顶部主体聊天历史记录及底部发送消息模块组成。
 <img style="width:300px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/0c361254fa5117f7580f39e8b523e472.png" />
 
-请创建一个 `Chat` 类，`body` 中使用 `TIMUIKitChat` 组件，渲染聊天页面。
+请创建一个 `Chat` 类，`body` 中使用 [`TIMUIKitChat`](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitChat/) 组件，渲染聊天页面。
 
 您最好传入一个 `onTapAvatar` 事件的处理函数，用于跳转至联系人的详细信息页。关于 `UserProfile` 类，会在下一步讲解。
 
@@ -268,9 +366,9 @@ return TIMUIKitChat(
 
 该页面默认，可在只传入一个 `userID` 的情况下，自动根据是否是好友，生成用户详情页。
 
-请创建一个 `UserProfile` 类，`body` 中使用 `TIMUIKitProfile` 组件，渲染用户详情及关系链页面。
+请创建一个 `UserProfile` 类，`body` 中使用 [`TIMUIKitProfile`](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitProfile/) 组件，渲染用户详情及关系链页面。
 
->? 如果您希望自定义该页面，请优先考虑使用 `profileWidgetBuilder` 传入需自定义的profile组件并配合 `profileWidgetsOrder` 确定纵向排列顺序；如果无法满足，才可使用 `builder` 。
+>? 如果您希望自定义该页面，请优先考虑使用 [`profileWidgetBuilder`](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitProfile/ProfileWidgetBuilder.html) 传入需自定义的profile组件并配合 `profileWidgetsOrder` 确定纵向排列顺序；如果无法满足，才可使用 `builder` 。
 
 <img style="width:300px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/5f2e67ffb31adc738165e2c4ce58218c.jpg" />
 
@@ -305,19 +403,19 @@ class UserProfile extends StatelessWidget {
 
 您还可以继续使用以下 TUIKit 插件快速实现完整 IM 功能。
 
-[TIMUIKitContact](https://intl.cloud.tencent.com/document/product/1047/46297#timuikitcontact): 联系人列表页面。
+[TIMUIKitContact](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitContact/): 联系人列表页面。
 
-[TIMUIKitGroupProfile](https://intl.cloud.tencent.com/document/product/1047/46297#timuikitgroupprofile): 群资料页面，使用方式与 `TIMUIKitProfile` 基本一致。
+[TIMUIKitGroupProfile](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitGroupProfile/): 群资料页面，使用方式与 `TIMUIKitProfile` 基本一致。
 
-[TIMUIKitGroup](https://intl.cloud.tencent.com/document/product/1047/46297#timuikitgroup): 群列表界面。
+[TIMUIKitGroup](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitGroup/): 群列表界面。
 
-[TIMUIKitBlackList](https://intl.cloud.tencent.com/document/product/1047/46297#timuikitblacklist): 黑名单列表界面。
+[TIMUIKitBlackList](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitBlackList/): 黑名单列表界面。
 
-[TIMUIKitNewContact](https://intl.cloud.tencent.com/document/product/1047/46297#timuikitnewcontact): 联系人（好友）申请列表。如需在外部显示小红点，可使用 `TIMUIKitUnreadCount` 小红点组件，其会自动挂载监听。
+[TIMUIKitNewContact](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitNewContact/): 联系人（好友）申请列表。如需在外部显示小红点，可使用 `TIMUIKitUnreadCount` 小红点组件，其会自动挂载监听。
 
-[TIMUIKitSearch](https://pub.dev/documentation/tim_ui_kit/latest/ui_views_TIMUIKitSearch_tim_uikit_search/TIMUIKitSearch-class.html): 搜索组件，支持全局搜索联系人/群组/聊天记录，也支持在特定会话中搜索聊天记录。两种模式取决于是否传入 `conversation`。
+[本地搜索](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitSearch/): `TIMUIKitSearch` 全局搜索组件，支持全局搜索联系人/群组/聊天记录，也支持使用 `TIMUIKitSearchMsgDetail` 在特定会话中搜索聊天记录。两种模式取决于是否传入 `conversation`。
 
-详细UI插件指南可参见 [本文档](https://cloud.tencent.com/document/product/269/70747#timuikitcontact) 或 [插件 README](https://pub.dev/packages/tim_ui_kit)。
+UI组件全貌可参见 [本全览文档](https://cloud.tencent.com/document/product/269/70747) 或 [详细文档](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/)。
 
 [](id:part5)
 
@@ -340,6 +438,8 @@ class UserProfile extends StatelessWidget {
 ```shell
 flutter pub add tencent_im_sdk_plugin
 ```
+
+如果您的项目需要支持Web，请在执行后续步骤前，[查看Web兼容说明章节](#web)，引入JS文件。
 
 #### 完成 SDK 初始化
 
@@ -560,11 +660,37 @@ TencentImSDKPlugin.v2TIMManager
 
 详情可查看 [自实现 UI 集成 SDK 文档](https://cloud.tencent.com/document/product/269/75260)。
 
+## 第六部分：Flutter for Web支持[](id:web)
+
+我们的SDK，TUIKit(tim_ui_kit) 0.1.4版本，无UI SDK(tencent_im_sdk_plugin) 4.1.1+2 版本起，可完美兼容Web端。
+
+相比Android和iOS端，需要一些额外步骤。如下：
+
+### 引入JS
+
+>?
+>
+> 如果您现有的Flutter项目不支持Web，请在项目根目录下运行 `flutter create .` 添加Web支持。
+
+从GitHub下载下方两个JS文件，放置于项目的 `web` 路径内。
+
+- [tim-js-friendship.js](https://github.com/TencentCloud/TIMSDK/blob/master/Web/IMSDK/tim-js-friendship.js)
+- [将此文件重命名成 tim-upload-plugin.js](https://github.com/TencentCloud/TIMSDK/blob/master/Web/IMSDK/tim-upload-plugin/index.js)
+
+打开 `web/index.html` ，在 `<head> </head>` 间引入这两个JS文件。如下：
+
+```html
+<script src='./tim-upload-plugin.js'></script>
+<script src="./tim-js-friendship.js"></script>
+```
+![](https://qcloudimg.tencent-cloud.cn/raw/f88ddfbdc79fb7492f3ce00c2c583246.png)
+
 ## 常见问题
 
 ### 支持哪些平台？
-- 目前 [IM SDK(tencent_im_sdk_plugin)](https://cloud.tencent.com/document/product/269/75286) 支持 iOS 、Android 和 Web 三个平台，此外 Windows 和 Mac 版正在开发中，敬请期待。
-- [TUIKit](https://cloud.tencent.com/document/product/269/70746) 及 [配套完整版交互 Demo](https://github.com/TencentCloud/TIMSDK/tree/master/Flutter/Demo/im-flutter-uikit) 支持 iOS 及 Android 两个移动平台。
+- [IM SDK(tencent_im_sdk_plugin)](https://cloud.tencent.com/document/product/269/75286) 支持 iOS 、Android 和 Web 三个平台。（从 tencent_im_sdk_plugin 4.1.1+2 版本起支持WEB）
+- [TUIKit](https://cloud.tencent.com/document/product/269/70746) 及 [配套完整版交互 Demo](https://github.com/TencentCloud/TIMSDK/tree/master/Flutter/Demo/im-flutter-uikit) 支持 iOS 、Android 和 Web 三个平台。（从 tim_ui_kit 0.1.4 版本起支持WEB）
+此外 Windows 和 Mac 版正在开发中，敬请期待。
 
 ### Android 单击 Build And Run 报错找不到可用设备？
 
@@ -574,11 +700,11 @@ TencentImSDKPlugin.v2TIMManager
 
 配置运行后，如果报错，可以单击 **Product** > **Clean Build Folder**，清除产物后重新 `pod install` 或 `flutter run`。
 
-![20220714152720](https://tuikit-1251787278.cos.ap-guangzhou.myqcloud.com/20220714152720.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/d495b2e8be86dac4b430e8f46a15cef4.png)
 
 ### 佩戴 Apple Watch 时，真机调试 iOS 报错
 
-![20220714152340](https://tuikit-1251787278.cos.ap-guangzhou.myqcloud.com/20220714152340.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/1ffcfe39a18329c86849d7d3b34b9a0e.png)
 
 请将您的Apple Watch调整至飞行模式，并将iPhone的蓝牙功能通过 `设置 => 蓝牙` 彻底关闭。
 
@@ -613,6 +739,16 @@ defaultConfig {
   targetSdkVersion 30
 }
 ```
+
+### 如何搭建直播间？
+
+欢迎查看[直播间搭建指南](https://cloud.tencent.com/document/product/269/77764#.E7.BE.A4.E7.B1.BB.E5.9E.8B.E9.80.89.E6.8B.A9)，基于腾讯云IM/TRTC/腾讯云直播，搭建一套完整的直播间系统。
+
+### 错误吗如何查询？
+
+- IM SDK的API层面错误码，请查看[该文档](https://cloud.tencent.com/document/product/269/1671)。
+
+- TUIKit的场景码，用于界面弹窗提示，通过[onTUIKitCallbackListener监听](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitCore/init.html)获得。请查看[该文档](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitCore/TIMCallback.html#inforecommendtext)。
 
 ## 联系我们
 如果您在接入使用过程中有任何疑问，请加入 QQ 群：788910197 咨询。

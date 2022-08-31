@@ -23,6 +23,8 @@ alter table '表名' REPLICA IDENTITY FULL;
 - 数据消费的地域需要与订阅实例的地域相同。
 - 当前不支持 gtsvector, pg_dependencies, pg_node_tree, pg_ndistinct, xml 相关的数据类型。 
 - 数据订阅源是 TDSQL PostgreSQL 版时，不支持直接执行授权语句授权，所以订阅帐号的权限需要在 [TDSQL 控制台](https://console.cloud.tencent.com/tdsqld) 单击实例 ID，获取实例登录信息后，通过客户端登录数据库进行帐号授权。
+- DTS 订阅 Kafka 的消息投递语义采用的是至少一次（at least once），所以在特殊情况下消费到的数据可能存在重复。如订阅任务发生重启，重启后拉取源端的 Binlog 会从中断的位点往前多拉取一些，导致重复投递消息。控制台修改订阅对象、恢复异常任务等操作都可能会导致消息重复。如果业务对重复数据敏感，需要用户在消费 Demo 中根据业务数据增加去重逻辑。
+
 
 ## 支持订阅的 SQL 操作
 

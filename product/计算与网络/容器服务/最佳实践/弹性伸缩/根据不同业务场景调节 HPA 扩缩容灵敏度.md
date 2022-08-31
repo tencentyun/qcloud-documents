@@ -18,7 +18,7 @@ K8S 设计逻辑导致用户无法自定义 HPA 的扩缩容灵敏度，不同�
 
 ## 使用示例
 
-K8S 1.18在 HPA Spec 下新增了 `behavior` 字段，该字段提供 `scaleUp` 和 `scaleDown` 两个字段分别控制扩容和缩容行为，详情请参见官方 [K8S API](https://v1-18.docs.kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#horizontalpodautoscalerbehavior-v2beta2-autoscaling) 文档。  
+K8S 1.18在 HPA Spec 下新增了 `behavior` 字段，该字段提供 `scaleUp` 和 `scaleDown` 两个字段分别控制扩容和缩容行为，详情请参见官方 [K8S API](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.24/#hpascalingrules-v2beta2-autoscaling) 文档。  
 
 
 

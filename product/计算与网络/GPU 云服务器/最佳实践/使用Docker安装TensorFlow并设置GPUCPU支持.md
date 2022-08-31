@@ -141,7 +141,7 @@ sudo docker run --rm --gpus all nvidia/cuda:11.0.3-base-ubuntu20.04 nvidia-smi
 </thead>
 <tbody><tr>
 <td align="left"><code>tag</code> <code>-gpu</code></td>
-<td align="left">支持 GPU 的指定标记版本，详情请参见 <a href="https://www.tensorflow.org/install/docker#gpu_support">GPU 支持</a>。</td>
+<td align="left">支持 GPU 的指定标记版本。</td>
 </tr>
 <tr>
 <td align="left"><code>tag</code> <code>-jupyter</code></td>
@@ -162,7 +162,7 @@ docker pull tensorflow/tensorflow:latest-gpu-jupyter  # latest release w/ GPU su
 ```shellsession
 docker run [-it] [--rm] [-p hostPort:containerPort] tensorflow/tensorflow[:tag] [command]
 ```
-至此 TensorFlow 已安装完毕，您可参考 [TensorFlow 教程](https://www.tensorflow.org/tutorials) 开始使用。
+
 
 ## 示例
 ### 使用仅支持 CPU 的镜像的示例
