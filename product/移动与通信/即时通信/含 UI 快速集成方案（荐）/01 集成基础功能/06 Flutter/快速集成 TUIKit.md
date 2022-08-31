@@ -94,6 +94,8 @@ flutter pub add tim_ui_kit
 
 1. 在您应用启动时，初始化 TUIKit。
 2. 请务必保证先执行 [`TIMUIKitCore.getInstance()`](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitCore/getInstance.html) ，再调用初始化函数 [`init()`](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitCore/init.html) ，并将您的`sdkAppID`传入。
+3. 为方便您获取API报错及建议提醒用户的提示语，此处建议挂载一个 onTUIKitCallbackListener 监听，[详见此部分](#onTUIKitCallbackListener)。
+
 ```dart
 /// main.dart
 import 'package:tim_ui_kit/tim_ui_kit.dart';
@@ -103,7 +105,9 @@ final CoreServicesImpl _coreInstance = TIMUIKitCore.getInstance();
  void initState() {
    _coreInstance.init(
      sdkAppID: 0, // Replace 0 with the SDKAppID of your IM application when integrating
+     // language: LanguageEnum.en, // 界面语言配置，若不配置，则跟随系统语言
      loglevel: LogLevelEnum.V2TIM_LOG_DEBUG,
+     onTUIKitCallbackListener:  (TIMCallback callbackValue){}, // [建议配置，详见此部分](https://cloud.tencent.com/document/product/269/70746#onTUIKitCallbackListener)
      listener: V2TimSDKListener());    
    super.initState();
  }
@@ -344,11 +348,92 @@ defaultConfig {
 
 欢迎查看 [直播间搭建指南](https://cloud.tencent.com/document/product/269/77764#.E7.BE.A4.E7.B1.BB.E5.9E.8B.E9.80.89.E6.8B.A9)，基于腾讯云 IM/TRTC/腾讯云直播，搭建一套完整的直播间系统。
 
-### 错误码如何查询？
+### 如何获取API接口调用报错/Flutter层报错/弹窗提示信息？[](id:onTUIKitCallbackListener)
 
-- IM SDK 的 API 层面错误码，请查看 [错误码](https://cloud.tencent.com/document/product/269/1671)。
-- TUIKit的场景码，用于界面弹窗提示，通过 [onTUIKitCallbackListener 监听](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitCore/init.html) 获得。请查看 [该文档](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitCore/TIMCallback.html#inforecommendtext)。
+请在初始化TUIKit时，挂载 `onTUIKitCallbackListener` 监听。
 
+该监听用于返回包括：SDK API 错误 / Flutter 报错 / 一些可能需要弹窗提示用户的场景信息。
+
+通过`TIMCallbackType`确定类型。
+
+示例代码如下。您可以根据您的业务需要，修改以下代码，自定义提醒用户的逻辑，包括但不限于弹窗/横幅等。
+
+```dart
+final CoreServicesImpl _coreInstance = TIMUIKitCore.getInstance();
+
+final isInitSuccess = await _coreInstance.init(
+  onTUIKitCallbackListener: (TIMCallback callbackValue){
+    switch(callbackValue.type) {
+      case TIMCallbackType.INFO:
+        // Shows the recommend text for info callback directly
+        Utils.toast(callbackValue.infoRecommendText!);
+        break;
+      case TIMCallbackType.API_ERROR:
+        //Prints the API error to console, and shows the error message.
+        print("Error from TUIKit: ${callbackValue.errorMsg}, Code: ${callbackValue.errorCode}");
+        if (callbackValue.errorCode == 10004 && callbackValue.errorMsg!.contains("not support @all")) {
+            Utils.toast(imt("当前群组不支持@全体成员"));
+        }else if (callbackValue.errorCode == 80001 && callbackValue.errorMsg!.contains("not support @all")) {
+            Utils.toast(imt("发言中有非法语句"));
+        }else{
+          Utils.toast(callbackValue.errorMsg ?? callbackValue.errorCode.toString());
+        }
+        break;
+      case TIMCallbackType.FLUTTER_ERROR:
+      default:
+        // prints the stack trace to console or shows the catch error
+        if(callbackValue.catchError != null){
+          Utils.toast(callbackValue.catchError.toString());
+        }else{
+          print(callbackValue.stackTrace);
+        }
+    }
+  },
+);
+```
+
+下面，分别介绍这三种类型的回调：
+
+#### SDK API 错误（`TIMCallbackType.API_ERROR`）
+
+该场景下，提供 SDK API 原生`errorMsg`及`errorCode`。
+
+[错误码请参考该文档](https://cloud.tencent.com/document/product/269/1671)
+
+#### Flutter 报错（`TIMCallbackType.FLUTTER_ERROR`）
+
+该错误由监听 Flutter 原生抛出异常产生，提供错误发生时的`stackTrace`(来自`FlutterError.onError`)或`catchError`(来自 try-catch)。
+
+#### 场景信息（`TIMCallbackType.INFO`）
+
+建议根据实际情况，将这些信息弹窗提示用户。具体弹窗规则和样式可由您决定。
+
+提供`infoCode`场景码帮助您确定当前的场景，及默认的提示推荐语`infoRecommendText`。
+
+您可直接弹窗我们的推荐语，也可根据场景码自定义推荐语。推荐语语言根据系统语言自适应或您指定的语言，请勿根据推荐语来判断场景。
+
+场景码规则如下：
+
+场景码由七位数组成，前五位数确定场景发生的组件，后两位确定具体的场景表现。
+
+| 场景码开头 | 对应的组件             |
+| ---------- | ---------------------- |
+| 66601      | `TIMUIKitAddFriend`    |
+| 66602      | `TIMUIKitAddGroup`     |
+| 66603      | `TIMUIKitBlackList`    |
+| 66604      | `TIMUIKitChat`         |
+| 66605      | `TIMUIKitContact`      |
+| 66606      | `TIMUIKitConversation` |
+| 66607      | `TIMUIKitGroup`        |
+| 66608      | `TIMUIKitGroupProfile` |
+| 66609      | `TIMUIKitNewContact`   |
+| 66610      | `TIMUIKitGroupProfile` |
+| 66611      | `TIMUIKitNewContact`   |
+| 66612      | `TIMUIKitProfile`      |
+| 66613      | `TIMUIKitSearch`       |
+| 66614      | 通用组件               |
+
+全部场景码及默认提示语，[请参考此文档](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitCore/TIMCallback.html#inforecommendtext)。
 
 ## 联系我们[](id:contact)
 如果您在接入使用过程中有任何疑问，请加入 QQ 群：788910197 咨询。

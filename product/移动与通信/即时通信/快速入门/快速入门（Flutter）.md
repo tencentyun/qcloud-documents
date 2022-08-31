@@ -251,6 +251,8 @@ flutter pub add tim_ui_kit
 
 1. 在您应用启动时，初始化 TUIKit。
 2. 请务必保证先执行 [`TIMUIKitCore.getInstance()`](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitCore/getInstance.html) ，再调用初始化函数 [`init()`](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitCore/init.html) ，并将您的`sdkAppID`传入。
+3. 为方便您获取API报错及建议提醒用户的提示语，此处建议挂载一个 onTUIKitCallbackListener 监听，[详见此部分](https://cloud.tencent.com/document/product/269/70746#onTUIKitCallbackListener)。
+
 ```dart
 /// main.dart
 import 'package:tim_ui_kit/tim_ui_kit.dart';
@@ -260,7 +262,9 @@ final CoreServicesImpl _coreInstance = TIMUIKitCore.getInstance();
  void initState() {
    _coreInstance.init(
      sdkAppID: 0, // Replace 0 with the SDKAppID of your IM application when integrating
+     // language: LanguageEnum.en, // 界面语言配置，若不配置，则跟随系统语言
      loglevel: LogLevelEnum.V2TIM_LOG_DEBUG,
+     onTUIKitCallbackListener:  (TIMCallback callbackValue){}, // [建议配置，详见此部分](https://cloud.tencent.com/document/product/269/70746#onTUIKitCallbackListener)
      listener: V2TimSDKListener());    
    super.initState();
  }
