@@ -1,7 +1,7 @@
-﻿本文介绍如何使用IEAM（即数字身份管控平台）和SSL VPN实现访问控制，提升您业务的安全性。
+本文介绍如何使用 IEAM（即数字身份管控平台）和 SSL VPN 实现访问控制，提升您业务的安全性。
 >?
 >- 目前 SSO 身份认证功能灰度中，当前仅支持新加坡地域，如有需要，请提交 [工单申请](https://console.cloud.tencent.com/workorder/category)。
->- Tof SAML 一键登录门户 portal [仅腾讯境外内部客户使用]()。
+>- Tof SAML 一键登录门户 portal **仅腾讯境外内部客户使用**。
 >
 
 ## 流程
@@ -200,7 +200,7 @@ Tof 处理完成后您可以进行后续操作。
 2. SSL 客户端安装完成后，上传已下载的 SSL 客户端配置文件。
 上传后自动与 SSL 服务端连接。
 <img src="https://qcloudimg.tencent-cloud.cn/raw/89087fe374c6a4dc912518a0fad6bb18.png" width="50%"> 
-<img src="https://qcloudimg.tencent-cloud.cn/raw/4242b18feefb476f699e752533efa5f9.png" width="50%"> 
+<img src="https://qcloudimg.tencent-cloud.cn/raw/4242b18feefb476f699e752533efa5f9.png" width="50%">  
 <img src="https://qcloudimg.tencent-cloud.cn/raw/a63a8771ac2a538c97a690f6396639f5.png" width="50%"> 
 
 
