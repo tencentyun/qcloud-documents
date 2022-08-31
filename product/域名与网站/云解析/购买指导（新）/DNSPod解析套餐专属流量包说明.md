@@ -33,7 +33,7 @@ DNSPod 专属流量包指您 [购买 DNSPod DNS 解析套餐](https://buy.dnspo
 </dx-alert>
 
 ## 使用方法
-DNSPod 专属流量包分以下3种流量包，您可前往对应产品控制台进行使用。使用说明可参见：
+DNSPod 专属流量包包含3种流量包，您可前往对应产品控制台进行使用。使用说明可参见：
 
 - [移动解析 HTTPDNS](https://cloud.tencent.com/document/product/379)
 - [私有域解析 Private DNS](https://cloud.tencent.com/document/product/1338)
