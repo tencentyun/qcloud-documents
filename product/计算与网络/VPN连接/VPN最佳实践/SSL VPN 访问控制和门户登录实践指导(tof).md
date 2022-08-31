@@ -18,9 +18,9 @@
 1. 登录 EIAM 平台，在导航栏单击 **Authentication management**，然后在 **Authentication management** 页面单击 **Create authentication source**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/a9a74b2cd910efde214f60c2c0260a1f.png)
 2. 在 **Create authentication source** 页面选择 **SAML**，然后单击 **Next**。
-![](https://qcloudimg.tencent-cloud.cn/raw/4f1e9f3bc2b246de1ba82d49d97e9781.png)
+<img  src="https://qcloudimg.tencent-cloud.cn/raw/031aad257dcc385b30510ea705cab0c7.png" width="80%"> 
 3. 在 **Edit authentication source information** 页签配置认证参数。
-![](https://qcloudimg.tencent-cloud.cn/raw/b23e030a67d4ff8ec066ffeeb7c88580.png)
+<img  src="https://qcloudimg.tencent-cloud.cn/raw/d08d69104d5d8a80f930afec66d69f13.png" width="80%">  
 Jump address：配置 **metadata.xml** 文件中`<SingleSingnOnService></SingleSingnOnService>` 标记对的属性`<Laction>`的Vlue（即下图中标记 **Tag1** 位置处的url）。
 Third party IDP certificate：配置 **metadata.xml** 文件中`<KeyDescriptor use= "encryption"></KeyDescriptor>`标记对中`<X509Certificate>`的 Vlue（即下图中标记 **Tag2** 位置处的证书）。
 Enable compression encoding：Enable。
@@ -51,7 +51,7 @@ Tof 处理完成后您可以进行后续操作。
 ![](https://qcloudimg.tencent-cloud.cn/raw/b2c11b93aae398fdba77c86cff630029.png)
 
 ###  [创建 EIAM 应用](https://cloud.tencent.com/document/product/1442/55068)
-1. 在导航栏选择**应用管理**，单击**应用市场新建**，在弹出的**应用市场新建**页面选择**Open VPN**，然后单击**下一步：编辑应用信息**。
+1. 在导航栏选择**应用管理**，单击**应用市场新建**，在弹出的**应用市场新建**页面选择 **Open VPN**，然后单击**下一步：编辑应用信息**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d10790541273975f36b031c8f7dcdd5c.png)
 ![](https://qcloudimg.tencent-cloud.cn/raw/c1bc57d91507df08a36accc7ecd2fff0.png)
 2.在**编辑应用信息**页签依据界面提示填写相应的信息，然后单击**下一步：完成**。
@@ -60,7 +60,7 @@ Tof 处理完成后您可以进行后续操作。
 ###  [EIAM 应用授权](https://cloud.tencent.com/document/product/1442/55069)
 1. 在导航栏选择**应用授权**，在**应用授权**页面单击**用户组授权**，然后单击**新增授权**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/96dcab458039c6ed6837a33cf59a6072.png)
-2. 在弹出的**新增授权**页面选择创建好的EIAM应用，然后单击**下一步：选择用户组**。
+2. 在弹出的**新增授权**页面选择创建好的 EIAM 应用，然后单击**下一步：选择用户组**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/fa184ab7e162ea5901f98f9094c651e6.png)
 3. 在**选择用户组**页签勾选待授权的用户组，然后单击**下一步：完成**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/286fc08cc94f9bfd421f31cef3782bea.png)
@@ -76,7 +76,7 @@ Tof 处理完成后您可以进行后续操作。
 ### 创建 SSL 服务端。
 1. 在左侧导航栏中选择 **VPN 连接** > **SSL 服务端**，进入管理页。
 ![](https://qcloudimg.tencent-cloud.cn/raw/db5a77d44a5fbc1faffedb38fd4f70d4.png)
-2. 在 SSL 服务端管理页面，单击**+新建**，在弹出的**新建 SSL 服务端**对话框中依据界面参数配置SSL服务端。
+2. 在 SSL 服务端管理页面，单击**+新建**，在弹出的**新建 SSL 服务端**对话框中依据界面参数配置 SSL 服务端。
 <table>
 <tr>
 <th>参数名称</th>
