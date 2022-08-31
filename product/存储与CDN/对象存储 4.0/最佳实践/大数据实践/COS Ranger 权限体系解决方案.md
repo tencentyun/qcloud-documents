@@ -38,7 +38,7 @@ COS-Ranger-Plugin 拓展了 Ranger Admin 控制台上的服务种类，用户可
 #### 代码地址
 可前往 [Github](https://github.com/tencentyun/cos-ranger-service) 的 ranger-plugin 目录下获取。
 #### 版本
-V1.2 版本及以上。
+V1.0 版本及以上。
 #### 部署步骤
 1. 在 Ranger 的服务定义目录下新建 COS 目录（注意，目录权限需要保证至少有 x 与 r 权限）。
 a. 腾讯云的 EMR 环境，路径是 ranger/ews/webapp/WEB-INF/classes/ranger-plugins。
