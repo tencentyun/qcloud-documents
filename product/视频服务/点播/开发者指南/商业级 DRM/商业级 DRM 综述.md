@@ -32,7 +32,7 @@
 加密和解密播放的整体架构流程图如下：
 ![](https://qcloudimg.tencent-cloud.cn/raw/416471d3730afc7449f3afd51ea9b5a8.png)
 
-为了帮助您快速接入，我们为您提供了 [教程]()，以示例的方式为您讲解接入步骤。
+为了帮助您快速接入，我们为您提供了 [教程](https://cloud.tencent.com/document/product/266/79727)，以示例的方式为您讲解接入步骤。
 
 ## 第三方 DRM 集成方案
 
@@ -43,7 +43,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/abae964d9ee29cfcdcf6b9dc4c7e3dae.png)
 
 
-为了帮助您快速接入，我们为您提供了 [教程]()，以示例的方式为您讲解接入步骤。
+为了帮助您快速接入，我们为您提供了 [教程](https://cloud.tencent.com/document/product/266/79730)，以示例的方式为您讲解接入步骤。
 
 ## 费用相关
 使用商业级 DRM 加密，主要涉及以下费用：
