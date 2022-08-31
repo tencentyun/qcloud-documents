@@ -1,5 +1,4 @@
 
-
 在使用 TKE 集群服务的过程中，某些场景下，可能会出现服务访问不通的问题，如果确认后端 Pod 访问正常，则可能是由于 Kube-Proxy 组件版本较低，导致节点上的 iptables 或 ipvs 服务转发规则下发失败。本文档整理了低版本 Kube-Proxy 存在的若干问题，并给出相应的修复指引。若本文档无法解决您所遇到的问题，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 来寻求帮助。
 
 ## Kube-Proxy 报错：Couldn't load target 'KUBE-MARK-DROP'
@@ -69,7 +68,7 @@ Failed to execute iptables-restore: exit status 1 (iptables-restore: line xxx fa
 
 #### 原因
 1.  iptables 相关命令 ( 如 iptables-restore ) 在向内核写入 iptables 规则时，为了避免多个实例并发写入，会利用 file lock 来做同步，linux 下该文件一般为：`/run/xtables.lock`
-2.  对于要调用 iptables 相关命令的 Pod，比如 Kube-Proxy, kube-router 以及客户侧的 HostNetwork Pod，如果没有挂载该文件，可能发生如上并发写入的错误。
+2.  对于要调用 iptables 相关命令的 Pod，如 Kube-Proxy, kube-router 以及客户侧的 HostNetwork Pod，如果没有挂载该文件，可能发生如上并发写入的错误。
 
 #### 修复指引
 对于要调用 iptables 相关命令的 Pod 需要将主机侧 `/run/xtables.lock` 文件挂载到 Pod 中，配置方式如下：
@@ -95,7 +94,7 @@ Failed to execute iptables-restore: exit status 4 (Another app is currently hold
 #### 原因
 1.  iptables 相关命令 ( 如 iptables-restore ) 在向内核写入 iptables 规则时，为了避免多个实例并发写入，会利用 file lock 来做同步，iptables-restore 在执行时首先尝试获取 file lock，如果当前有其它进程持有锁，则退出。
 2.  该报错是一个软错误，Kube-Proxy 会在下个同步周期 ( 或下个 Service 相关的事件触发时 ) 再次尝试执行，如果重试多次都获取不到锁，则表现为规则同步时延较大。
-3.  高版本 iptables-restore 提供了一个 `-w(--wait)` 选项，比如设置 -w=5 时，iptables-restore 会在拿锁操作阻塞 5s，这使得 5s 内一旦其它进程释放锁，iptables-restore 可以继续操作。
+3.  高版本 iptables-restore 提供了一个 `-w(--wait)` 选项，如设置 -w=5 时，iptables-restore 会在拿锁操作阻塞 5s，这使得 5s 内一旦其它进程释放锁，iptables-restore 可以继续操作。
 
 #### 修复指引
 1.  如果 Kube-Proxy 为节点侧二进制部署，可以通过升级节点 OS 版本来提升 iptables-restore 版本，需要按如下逻辑处理：
@@ -168,10 +167,7 @@ Failed to list *core.Endpoints: Stream error http2.StreamError{StreamID:0xea1, C
 ```
 
 #### 原因
-1.  低版本 Kubernetes 调用 go http2 的包存在一个 bug，该 bug 导致客户端会使用到一个 apiserver 的已经关闭的连接，Kube-Proxy 踩中这个 bug 后，会导致同步规则失败
-2.  更多详情可参考
-Issue: https://github.com/kubernetes/kubernetes/issues/87615
-PR: https://github.com/kubernetes/kubernetes/pull/95981
+低版本 Kubernetes 调用 go http2 的包存在一个 bug，该 bug 导致客户端会使用到一个 apiserver 的已经关闭的连接，Kube-Proxy 踩中这个 bug 后，会导致同步规则失败。更多详情可参考 [Issue87615](https://github.com/kubernetes/kubernetes/issues/87615)、[PR95981](https://github.com/kubernetes/kubernetes/pull/95981)。
 
 #### 修复指引
 升级 Kube-Proxy，需要按如下逻辑处理：
