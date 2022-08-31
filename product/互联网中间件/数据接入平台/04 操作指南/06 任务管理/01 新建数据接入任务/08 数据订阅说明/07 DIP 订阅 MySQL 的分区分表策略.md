@@ -1,4 +1,3 @@
-
 ## 背景
 
 DIP 支持将订阅的多个 Mysql 数据库表的变更消息推送到 Kafka 的 Topic，有两种推送形式：
@@ -16,7 +15,7 @@ DIP 支持将订阅的多个 Mysql 数据库表的变更消息推送到 Kafka �
 手动指定分区策略需要在新建任务-数据源配置步骤设定每个表的分区策略，默认情况下将按照主键作为 key。
 操作步骤如下：
 
-1. 在创建 DIP 任务时，在数据源配置界面可选则需要订阅的多库多表。
+1. 在创建 DIP 任务时，在数据源配置界面可选择需要订阅的多库多表。
 ![](https://qcloudimg.tencent-cloud.cn/raw/87ae1df51b79fe40e276b5bfecc79139.png)
 2. 根据选中的表添加分区策略，可设置表字段将字段值相同的数据变更消息投递到同一分区中。
   ![image](https://qcloudimg.tencent-cloud.cn/raw/b57d8230cdfe7ba48c99145996330a30.png)
