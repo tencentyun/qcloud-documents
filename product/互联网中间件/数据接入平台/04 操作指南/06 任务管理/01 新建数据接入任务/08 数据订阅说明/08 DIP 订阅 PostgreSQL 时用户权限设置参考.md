@@ -10,7 +10,7 @@
 
 ### 使用 decoderbufs 插件时用户权限设置
 
-通过超级用户登陆 PostgreSQL，新建一个角色，给角色赋予至少 `REPLICATION` 和 `LOGIN` 两种权限。
+通过超级用户登录 PostgreSQL，新建一个角色，给角色赋予至少 `REPLICATION` 和 `LOGIN` 两种权限。
 
 赋予权限：
 
@@ -26,7 +26,7 @@
 **第一步：** 验证用户是否拥有超级用户权限
 
 ```
-// 登陆postgresql，执行 \du 命令查看用户权限
+// 登录postgresql，执行 \du 命令查看用户权限
 postgres=# \du
 Role name  | List of roles Attributes
  admin     | Superuser                                                  
