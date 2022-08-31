@@ -16,11 +16,11 @@
 
 ### 申请 FairPlay 证书信息
 
-请参考 [如何申请 FairPlay 证书信息]()。
+请参考 [如何申请 FairPlay 证书信息](https://cloud.tencent.com/document/product/266/79725)。
 
 ### 提交 FairPlay 证书信息
 
-请参考 [如何在点播控制台提交 FairPlay 证书信息]()。
+请参考 [如何在点播控制台提交 FairPlay 证书信息](https://cloud.tencent.com/document/product/266/79728)。
 
 
 ## 步骤1：开启防盗链
