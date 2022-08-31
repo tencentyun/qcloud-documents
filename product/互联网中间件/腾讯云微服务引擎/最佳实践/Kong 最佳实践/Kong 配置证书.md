@@ -20,7 +20,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/d9969a1bcc86b3ab6c1bc3785efb337c.jpg)
 4. 在 [TSE 控制台](https://console.cloud.tencent.com/tse/kong)的**实例详情页** > **配置管理**，获取 Konga 控制台地址与访问方式。
 ![](https://qcloudimg.tencent-cloud.cn/raw/a22a05e28a215030c743c73e38f570bd.jpg)
-5. 进入 Konga 控制台，点击侧边导航栏的 **CERTIFICATES**。
+5. 进入 Konga 控制台，单击侧边导航栏的 **CERTIFICATES**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/b875fa07dab2047f06bd0ff641c5c476.png)
 >? 若您初次登录管理控制台，需要激活 Connection，[查看指引](https://cloud.tencent.com/document/product/1364/72496)。
 6. 单击 **ADD CERTIFICATE**。
