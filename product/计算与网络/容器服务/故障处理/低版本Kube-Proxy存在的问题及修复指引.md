@@ -54,7 +54,7 @@ Failed to execute iptables-restore: exit status 2 (iptables-restore v1.8.4 (lega
 </tbody>
 </table>
 
->? TKE 最新版本信息，请参见 [TKE Kubernetes Revision 版本历史](https://cloud.tencent.com/document/product/457/9315) 。
+>? TKE 最新版本信息，请参见 [TKE Kubernetes Revision 版本历史](https://cloud.tencent.com/document/product/457/9315)。
 
 ---
 ## Kube-Proxy 有 iptables 锁相关的报错
@@ -143,7 +143,7 @@ Failed to execute iptables-restore: exit status 4 (Another app is currently hold
   </tr>
 </tbody>
 </table>
->? TKE 最新版本信息，请参见 [TKE Kubernetes Revision 版本历史](https://cloud.tencent.com/document/product/457/9315) 。
+>? TKE 最新版本信息，请参见 [TKE Kubernetes Revision 版本历史](https://cloud.tencent.com/document/product/457/9315)。
 
 ### Kube-Proxy 报错: Another app is currently holding the xtables lock. Stopped waiting after 5s.
 
@@ -194,7 +194,7 @@ Failed to list *core.Endpoints: Stream error http2.StreamError{StreamID:0xea1, C
 </tbody>
 </table>
 
->? TKE 最新版本信息，请参见 [TKE Kubernetes Revision 版本历史](https://cloud.tencent.com/document/product/457/9315) 。
+>? TKE 最新版本信息，请参见 [TKE Kubernetes Revision 版本历史](https://cloud.tencent.com/document/product/457/9315)。
 
 ## Kube-Proxy 首次启动发生 panic: invalid memory address or nil pointer dereference，重启后正常
 #### 错误信息示例
@@ -205,7 +205,7 @@ panic: runtime error: invalid memory address or nil pointer dereference
 
 #### 原因
 1.  该版本 Kube-Proxy 社区的代码存在 bug，初始化时统计加载的内核模块有缺失，导致有变量未初始化即使用。
-2.  日志不够详尽，未输出是否能使用 ipvs 模式的判断结果。更多详情可参考：[Issue89729](https://github.com/kubernetes/kubernetes/issues/89729)、[PR89823](https://github.com/kubernetes/kubernetes/pull/89823)、[PR89785](https://github.com/kubernetes/kubernetes/pull/89785)。
+2.  日志不够详尽，未输出是否能使用 ipvs 模式的判断结果。更多详情可参考 [Issue89729](https://github.com/kubernetes/kubernetes/issues/89729)、[PR89823](https://github.com/kubernetes/kubernetes/pull/89823)、[PR89785](https://github.com/kubernetes/kubernetes/pull/89785)。
 
 #### 修复指引
 升级 Kube-Proxy，需要按如下逻辑处理：
@@ -232,7 +232,7 @@ panic: runtime error: invalid memory address or nil pointer dereference
 </tbody>
 </table>
 
->? TKE 最新版本信息，请参见 [TKE Kubernetes Revision 版本历史](https://cloud.tencent.com/document/product/457/9315) 。
+>? TKE 最新版本信息，请参见 [TKE Kubernetes Revision 版本历史](https://cloud.tencent.com/document/product/457/9315)。
 
 ---
 ## Kube-Proxy 不间断 panic: Observed a panic: "slice bounds out of range"
@@ -273,7 +273,7 @@ Kube-Proxy 社区的代码存在 bug，在执行 iptables-save 时将标准输�
 </tbody>
 </table>
 
->? TKE 最新版本信息，请参见 [TKE Kubernetes Revision 版本历史](https://cloud.tencent.com/document/product/457/9315) 。
+>? TKE 最新版本信息，请参见 [TKE Kubernetes Revision 版本历史](https://cloud.tencent.com/document/product/457/9315)。
 ---
 
 ## Kube-Proxy IPVS 模式下周期性占用较高 CPU
