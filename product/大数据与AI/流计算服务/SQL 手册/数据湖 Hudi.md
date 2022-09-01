@@ -52,7 +52,7 @@ CREATE TABLE `source`
 ) WITH (
       'connector' = 'hudi'
       , 'path' = 'hdfs://172.28.28.202:4007/path/hudidata'
-      , 'table.type' = 'MERGE_ON_READ'  -- COW 表, 目前无法读取增量数据
+      , 'table.type' = 'MERGE_ON_READ'  -- MOR 表, 目前无法读取增量数据
       , 'read.tasks' = '1'  -- 读task的并行度,默认值为4
       , 'hoodie.datasource.query.type' = 'snapshot' -- 默认值为snapshot, 可选值为 read_optimized, incremental
       , 'read.streaming.enabled' = 'true'  -- this option enable the streaming read
@@ -67,7 +67,7 @@ CREATE TABLE `source`
 
 | 参数值    | 必填 | 默认值 | 描述                                                         |
 | --------- | ---- | ------ | ------------------------------------------------------------ |
-| connector | 是   | 无     | 必须填 Hudi                                                  |
+| connector | 是   | 无     | 必须填 hudi                                                  |
 | path      | 是   | 无     | 数据的存储路径（如果存储到 HDFS，格式为 hdfs://；存储为 COS 为  COSN://$bucket/$path） |
 
 ### 作为 Sink 的参数
