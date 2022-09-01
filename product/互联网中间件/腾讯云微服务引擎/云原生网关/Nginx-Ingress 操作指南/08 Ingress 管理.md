@@ -6,7 +6,7 @@ Ingress 是从 Kubernetes 集群外部访问集群内部服务的入口，您可
 ## 前置条件
 
 1. 已创建容器服务 TKE 集群。相关操作详情请参见 [创建 TKE 集群](https://cloud.tencent.com/document/product/457/54231)。
-2. 已在集群内创建 Deployment 等工作负载，以及 Service 资源。相关操作详情请参见 [Deployment 管理](https://cloud.tencent.com/document/product/457/31705)
+2. 已在集群内创建 Deployment 等工作负载，以及 Service 资源。相关操作详情请参见 [Deployment 管理](https://cloud.tencent.com/document/product/457/31705)。
 3. 已购买 Nginx Ingress 网关实例，相关操作详情请参见 [网关实例管理](https://cloud.tencent.com/document/product/1364/79817)。Nginx Ingress 网关实例必须和后端 TKE 容器集群处于同一地域和同一 VPC 下。
 4. 已添加为 Nginx Ingress 网关实例添加后端服务集群，相关操作详情请参见 [服务管理](https://cloud.tencent.com/document/product/1364/79929)。
 
