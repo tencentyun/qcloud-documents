@@ -1,5 +1,5 @@
 ## 现象描述
-1. 在 [域名查询（WHOIS）](https://whois.cloud.tencent.com/)页面，查询您需要查看的域名，查看域名状态为注册局暂停解析（serverHold）状态如下图所示：
+在 [域名查询（WHOIS）](https://whois.cloud.tencent.com/)页面，查询您需要查看的域名，查看域名状态为注册局暂停解析（serverHold）状态如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/6422a1e9e41224b41dbf11927d03f250.png)
 
 ## 可能原因
