@@ -8,21 +8,18 @@ TSE 服务治理中心用于解决分布式或者微服务架构中的服务注�
 
 ## 前提条件
 
-[已获取访问授权]()
+[已获取访问授权](https://cloud.tencent.com/document/product/1364/56268)
 
 
 
 ## 创建引擎实例
 
 1. 登录 [TSE 控制台](https://console.cloud.tencent.com/tse)。
-
 2. 在**服务治理中心**下的 **polarismesh** 页面，单击**新建**。
-
 3. 在购买页根据自身业务需求选择相关配置。
    <dx-alert infotype="explain" title="">
      TSE 服务治理中心默认支持同城多活高可用架构。
      </dx-alert>  
-
    <table>
    <thead>
    <tr>
@@ -32,7 +29,7 @@ TSE 服务治理中心用于解决分布式或者微服务架构中的服务注�
    </thead>
    <tbody><tr>
    <td>计费模式</td>
-     <td>支持<b>包年包月</b>和<b>按量付费</b>两种计费方式，如果您的服务治理中心使用时间在一个月以上，建议采用预付费（包年包月）模式，具体价格请参考 <a href="https://cloud.tencent.com/document/product/1364/75671">Polarismesh 价格说明</a></td>
+     <td>支持<b>包年包月</b>和<b>按量付费</b>两种计费方式，如果您的服务治理中心使用时间在一个月以上，建议采用预付费（包年包月）模式，具体价格请参见 <a href="https://cloud.tencent.com/document/product/1364/75671">Polarismesh 价格说明</a></td>
    </tr>
    <tr>
    <td>地域</td>
@@ -61,10 +58,9 @@ TSE 服务治理中心用于解决分布式或者微服务架构中的服务注�
    </tr>
    <tr>
    <td>资源标签</td>
-   <td>用于分类管理资源，选填，具体使用方法可参见<a href="https://cloud.tencent.com/document/product/1364/74387">标签管理</a>。</td>
+   <td>用于分类管理资源，选填，具体使用方法可参见 <a href="https://cloud.tencent.com/document/product/1364/74387">标签管理</a>。</td>
    </tr>
    </tbody></table>
-
 4. 单击**立即购买**，在 **polarismesh** 列表页面的状态栏，您可以查看到引擎创建的进度。
 
 

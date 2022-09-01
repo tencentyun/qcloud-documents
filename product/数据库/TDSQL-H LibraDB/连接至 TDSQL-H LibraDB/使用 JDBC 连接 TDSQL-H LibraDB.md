@@ -13,7 +13,6 @@ TDSQL-H LibraDB JDBC 驱动是 TDSQL-H LibraDB 提供的 Java 数据库连接接
     搭建代理的具体操作，请参见 [连接实例分析引擎](https://cloud.tencent.com/document/product/1488/63547) 中的外网连接相关内容。
   - 若使用镜像为 Windows 的 CVM，安装 DBeaver 并连接 TDSQL-H LibraDB 实例，请获取 **TDSQL-H LibraDB 实例的内网 IP**。
     镜像为 Windows 的 CVM 与 TDSQL-H LibraDB 实例必须为相同的 VPC，并确保 CVM 安全组已添加 TCP:8123、TCP:9000 协议端口。
-
 - 已下载并安装 [IntelliJ IDEA](https://www.jetbrains.com.cn/idea/)。
   推荐使用 IntelliJ IDEA 版本 IntelliJ IDEA 2021.3.1，其他版本可能存在兼容性问题。本文中的 IntelliJ IDEA 示例版本为 IntelliJ IDEA 2021.3.1。
 
@@ -29,42 +28,34 @@ TDSQL-H LibraDB JDBC 驱动是 TDSQL-H LibraDB 提供的 Java 数据库连接接
 </dependency>
 ```
 
-
-
 ## 连接 TDSQL-H LibraDB
 
 1. 加载 TDSQL-H LibraDB JDBC 驱动。
-
-   ```java
-   Class.forName("ru.yandex.clickhouse.ClickHouseDriver");
-   ```
-
+```java
+Class.forName("ru.yandex.clickhouse.ClickHouseDriver");
+```
 2. 通过 DriverManager 创建 Connection。
-
-   ```java
-   Connection connection = DriverManager.getConnection(connectionStr, username, password);
-   ```
-
-   - connectionStr：格式为`jdbc:clickhouse://" + url + ":8123`。其中，url 为前提条件获取的 JDBC 连接 TDSQL-H LibraDB 实例时的主机地址。
-   - username：访问 TDSQL-H LibraDB 实例的帐号。
-   - password：访问 TDSQL-H LibraDB 实例帐号对应的密码。
-
+```java
+Connection connection = DriverManager.getConnection(connectionStr, username, password);
+```
+  - connectionStr：格式为 `jdbc:clickhouse://" + url + ":8123`。其中，url 为前提条件获取的 JDBC 连接 TDSQL-H LibraDB 实例时的主机地址。
+  - username：访问 TDSQL-H LibraDB 实例的帐号。
+  - password：访问 TDSQL-H LibraDB 实例帐号对应的密码。
 3. 执行查询。
-
-   ```java
-   Statement stmt = connection.createStatement();
-   ResultSet rs = stmt.executeQuery("SELECT foo FROM bar");
+```java
+Statement stmt = connection.createStatement();
+ResultSet rs = stmt.executeQuery("SELECT foo FROM bar");
        
-   while (rs.next()) {
-       // process the results
-   }
+while (rs.next()) {
+     // process the results
+}
    
-   rs.close();
-   stmt.close();
-   connection.close();
-   ```
+rs.close();
+stmt.close();
+connection.close();
+```
 
-### 示例代码
+#### 示例代码
 
 ```java
 import java.sql.Connection;
