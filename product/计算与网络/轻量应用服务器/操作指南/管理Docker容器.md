@@ -56,7 +56,7 @@
 
 1. 登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse)，选择实例。
 2. 在实例详情页中，选择**容器管理**页签，并单击**新建容器**。如下图所示：
-![](https://main.qcloudimg.com/raw/4f26a9d6aad1ad928a880ac9d6c8c2a9.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/fb82f08317fa55519688aeee5755fe18.png)
 3. 在弹出的“新建容器”窗口中，参考 [容器配置](#containerConfiguration) 信息进行配置。
 4. 单击**确定**即可创建容器。
 :::
@@ -75,7 +75,7 @@
 1. 登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse)，选择实例。
 2. 在实例详情页中，选择**容器管理**页签。
 3. 选择需重建容器所在行右侧的**更多** > **重建**。如下图所示：
-![](https://main.qcloudimg.com/raw/2f5a7bce860497e53d7ce3c3759123d0.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/cfc40e59a0eabc7d7c503f2f1f1f5699.png)
 4. 在弹出的“重建窗口”中，您可选择容器的各项配置为“保持当前配置”或“使用新配置”。如下图所示：
 ![](https://main.qcloudimg.com/raw/952dac3be57129b147b5a411231080f6.png)
  - 若选择“保持当前配置”，则可通过 [查看容器详情](#containerDetails) 获取容器现有配置信息。
