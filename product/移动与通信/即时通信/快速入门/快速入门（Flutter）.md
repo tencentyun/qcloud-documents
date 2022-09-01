@@ -177,7 +177,9 @@ flutter pub get
 
 ## 第四部分：含 UI 集成，使用 TUIKit 组件库，半天完成 IM 能力植入
 
-TUIKit 是基于腾讯云 IM SDK 的一款 UI 组件库，它提供了一些通用的 UI 组件，例如会话列表、聊天界面和联系人列表等，开发者可根据实际业务需求通过该组件库快速地搭建自定义 IM 应用。参见 [TUIKit 介绍](https://cloud.tencent.com/document/product/269/70747)。
+TUIKit 是基于腾讯云 IM SDK 的一款 UI 组件库，它提供了一些通用的 UI 组件，例如会话列表、聊天界面和联系人列表等，开发者可根据实际业务需求通过该组件库快速地搭建自定义 IM 应用。参见 [TUIKit 图文介绍](https://cloud.tencent.com/document/product/269/70747)。
+
+本部分为快速使用TUIKit介绍，详细入门指引可参考 [TUIKit集成基础功能](https://cloud.tencent.com/document/product/269/70746)。
 
 ### 前提条件
 
@@ -419,7 +421,7 @@ class UserProfile extends StatelessWidget {
 
 [本地搜索](https://cloud.tencent.com/document/product/269/79121): `TIMUIKitSearch` 全局搜索组件，支持全局搜索联系人/群组/聊天记录，也支持使用 `TIMUIKitSearchMsgDetail` 在特定会话中搜索聊天记录。两种模式取决于是否传入 `conversation`。
 
-UI组件全貌可参见 [本全览文档](https://cloud.tencent.com/document/product/269/70747) 或 [详细文档](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/)。
+UI组件全貌可参见 [本图文概览](https://cloud.tencent.com/document/product/269/70747) 或 [详细文档](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/)。
 
 [](id:part5)
 

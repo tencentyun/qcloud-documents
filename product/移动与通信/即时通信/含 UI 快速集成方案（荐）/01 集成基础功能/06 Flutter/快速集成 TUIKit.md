@@ -246,6 +246,62 @@ class UserProfile extends StatelessWidget {
 
 此时，您的应用已经可以完成消息收发，管理好友关系，展示用户详情及展示会话列表。
 
+### 步骤6: [选装] 使用 Controller 控制 TUIKit
+
+>?
+>
+>建议在 tim_ui_kit 0.1.4 以后版本使用本功能。
+
+如上述步骤的快速集成，已经可以搭建一套可用的IM模块，如果您有其他额外的控制操作需求，可以使用组件配套的 controller 完成。
+
+使用场景如，在会话列表，您可自定义会话item的侧滑菜单，提供置顶会话/删除会话/删除历史消息等功能；亦或是自定义发送一条消息，通过您的发消息渠道。
+
+目前我们提供三个controller，如下：
+
+| 组件 | 控制器 | 功能 |
+|---------|---------|---------|
+| TIMUIKitChat | TIMUIKitChatController | 刷新历史消息列表/更新单条消息/手动发送额外的消息/为消息设置自定义字段 等 |
+| TIMUIKitConversation | TIMUIKitConversationController | 获取及刷新会话列表/会话置顶/设置会话的草稿/清空会话内所有消息/删除会话 等 |
+| TIMUIKitProfile | TIMUIKitProfileController | 删除联系人好友/置顶当前联系人的会话/将用户加入黑名单/修改被加好友方式/更新联系人备注名/设置联系人消息免打扰/添加联系人好友/更新自己的资料 等 |
+
+他们的使用方式一致，以 `TIMUIKitChatController` 举例用法。完整代码可[参考DEMO](https://github.com/TencentCloud/TIMSDK/blob/master/Flutter/Demo/im-flutter-uikit/lib/src/chat.dart)。
+
+1. 在使用到 TIMUIKitChat 的类中，实例化一个 `TIMUIKitChatController` 对象。
+
+```dart
+final TIMUIKitChatController _chatController = TIMUIKitChatController();
+```
+
+2. 将此对象传入 `TIMUIKitChat` 的 `controller` 参数中。
+
+```dart
+@override
+Widget build(BuildContext context) {
+  return TIMUIKitChat(
+    controller: _chatController,
+		// ...其他参数
+	);
+}
+```
+
+3. 在这个类中，即可使用控制器，完成自定义操作。例如发送一条地理位置消息：
+
+```dart
+_sendLocationMessage(String desc, double longitude, double latitude) async {
+    final locationMessageInfo = await sdkInstance.v2TIMMessageManager
+        .createLocationMessage(
+        desc: desc,
+        longitude: longitude,
+        latitude: latitude);
+    final messageInfo = locationMessageInfo.data!.messageInfo;
+    _chatController.sendMessage(
+        receiverID: _getConvID(),
+        groupID: _getConvID(),
+        convType: _getConvType(),
+        messageInfo: messageInfo);
+}
+```
+
 ### 更多能力
 
 您还可以继续使用以下 TUIKit 插件快速实现完整 IM 功能。
