@@ -55,6 +55,14 @@ DNSPod 各个套餐的 DNS 服务器如下：
 <td>企业 II</td>
 <td>ns1.dnsv4.comns2.dnsv4.com</td>
 </tr>
+<tr>
+<td>企业 III</td>
+<td>ns1.dnsv5.comns2.dnsv5.com</td>
+</tr>
+<tr>
+<td>DNSPod 体验版</td>
+<td>namerich1.dnspod.netnamerich2.dnspod.net</td>
+</tr>
 </tbody></table>
 
 ## 相关问题[](id:faq)
