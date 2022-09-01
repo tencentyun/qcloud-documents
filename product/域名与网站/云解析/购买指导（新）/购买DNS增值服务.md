@@ -1,11 +1,5 @@
 ## 操作场景
 若您需要购买 DNS 增值服务，您可参考本文进行操作。
-<dx-alert infotype="explain" title="">
-- 云解析已正式升级为 DNSPod ，功能更强大、操作更便捷，同时全面适配手机端。账号及数据完全同步，您可前往 DNSPod 控制台直接操作。
-- 以下文档内容将指引您如何在 [DNSPod 控制台](https://console.dnspod.cn/) 完成相关操作。
-</dx-alert>
-
-
 
 
 ## 操作步骤
