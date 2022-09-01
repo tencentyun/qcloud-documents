@@ -13,7 +13,7 @@ TSE 云原生网关提供了产品化的 Nginx Ingress 能力，帮助您一键�
 
 ## 工作原理
 TSE 云原生网关提供的 Nginx Ingress Controller 组件与 Nginx 部署在 TSE 独立的 K8s 集群中，由 TSE 维护组件生命周期管理，支持原生对接到您的后端 K8s 集群，并且支持跨集群流量路由，如下图所示：
-<img src="https://qcloudimg.tencent-cloud.cn/raw/17c8b869e7a9d6270ec3290991f16c1b.png"> 
+<img src="https://qcloudimg.tencent-cloud.cn/raw/3ac3c7549326976aa835c2502a09f986.png"> 
 
 TSE 云原生网关的控制面通过关联的 K8s 集群（支持TKE/EKS）的 API Server 获取 Ingress 资源的变化，然后动态更新 TSE 云原生网关的路由规则。当 TSE 云原生网关收到请求时，匹配 Ingress 转发规则转发请求到后端 Service 所对应的 Pod。
 >! 目前支持 TKE/EKS 的版本：v1.19.0版本以上。
