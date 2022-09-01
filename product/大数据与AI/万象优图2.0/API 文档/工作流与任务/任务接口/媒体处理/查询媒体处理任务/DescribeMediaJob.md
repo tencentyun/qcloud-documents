@@ -1,6 +1,6 @@
 ## 功能描述
 
-DescribeMediaJob 接口用于查询指定的任务。
+查询指定的任务。
 
 <div class="rno-api-explorer">
     <div class="rno-api-explorer-inner">
