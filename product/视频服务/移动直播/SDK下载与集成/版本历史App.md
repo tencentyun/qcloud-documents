@@ -6,7 +6,7 @@
 
 #### 新特性
 
-- iOS&Android&Mac：专业版 TXLivePlayer\V2TXLivePlayer 支持 HLS 播放、自适应播放及多码率无缝切流。
+iOS&Android&Mac：专业版 TXLivePlayer\V2TXLivePlayer 支持 HLS 播放、自适应播放及多码率无缝切流。
 
 #### 功能优化
 
