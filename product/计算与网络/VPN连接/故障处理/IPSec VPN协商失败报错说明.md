@@ -1,4 +1,4 @@
-﻿<table>
+<table>
 <tr>
 <td class="confluenceTd">协商阶段</td>
 <td class="confluenceTd">错误提示信息</td>
