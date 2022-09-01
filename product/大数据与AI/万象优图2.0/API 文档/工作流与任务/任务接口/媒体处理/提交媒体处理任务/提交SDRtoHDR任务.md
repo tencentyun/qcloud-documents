@@ -130,7 +130,7 @@ Container 类型 Transcode 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点                            | 描述                                                         | 类型   | 必选 |
 | ------------------ | :------------------------------ | ------------------------------------------------------------ | ------ | ---- |
-| TimeInterval       | Request.Operation.Transcode     | 同创建转码模板 <a href="https://cloud.tencent.com/document/product/460/77093#TimeInterval " target="_blank">CreateMediaTemplate</a> 接口中的 Request.TimeInterval | Container | 是 | 
+| TimeInterval       | Request.Operation.Transcode     | 同创建转码模板 <a href="https://cloud.tencent.com/document/product/460/77093#TimeInterval " target="_blank">CreateMediaTemplate</a> 接口中的 Request.TimeInterval | Container | 否 | 
 | Container          | Request.Operation.Transcode     | 同创建转码模板 <a href="https://cloud.tencent.com/document/product/460/77093#Container " target="_blank">CreateMediaTemplate</a> 接口中的 Request.Container    | Container | 否 | 
 | Video              | Request.Operation.Transcode     | 同创建转码模板 <a href="https://cloud.tencent.com/document/product/460/77093#Video " target="_blank">CreateMediaTemplate</a> 接口中的 Request.Video        | Container | 否 |
 | Audio              | Request.Operation.Transcode     | 同创建转码模板 <a href="https://cloud.tencent.com/document/product/460/77093#Audio " target="_blank">CreateMediaTemplate</a> 接口中的 Request.Audio        | Container | 否 |
