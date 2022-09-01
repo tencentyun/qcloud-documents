@@ -69,7 +69,7 @@ VPN 网关流控提供 IP-网关 粒度的 “监” 与 “控” 能力，VPN 
 详情请参见：[VPN 通道未联通](https://cloud.tencent.com/document/product/554/53161)。
 
 ### 通道协商失败报错码，如何解析？
-通道协商失败报错码详情请参见 IPSec VPN 协商失败报错说明。
+通道协商失败报错码详情请参见 [IPSec VPN 协商失败报错说明](https://cloud.tencent.com/document/product/554/79960)。
 
 ### 一直使用中，突然中断会是什么原因？
 可能原因：
