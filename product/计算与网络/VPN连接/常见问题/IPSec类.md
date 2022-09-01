@@ -1,4 +1,4 @@
-﻿<dx-tabs>
+<dx-tabs>
 ::: VPN 网关
 ### 网关为什么删除不了？
 删除前需要将其下关联的VPN通道资源删除，详情请参见[删除 SSL VPN 网关](https://cloud.tencent.com/document/product/554/63713)。
