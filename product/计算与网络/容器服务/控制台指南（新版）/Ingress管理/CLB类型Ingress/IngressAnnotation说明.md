@@ -93,6 +93,8 @@ CLB 带宽设置，当前仅在创建时支持配置，创建后不支持修改�
   `kubernetes.io/ingress.extensiveParameters: '{"VipIsp":"CTCC"}'`
 - 指定可用区创建：
   `kubernetes.io/ingress.extensiveParameters: '{"ZoneId":"ap-guangzhou-1"}'`
+- 创建时自定义 CLB 名字：
+  `kubernetes.io/ingress.extensiveParameters: '{"LoadBalancerName":"my_cutom_lb_name"}'`
  
 --- 
 ### kubernetes.io/ingress.subnetId
