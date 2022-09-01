@@ -38,7 +38,7 @@ Class.forName("ru.yandex.clickhouse.ClickHouseDriver");
 ```java
 Connection connection = DriverManager.getConnection(connectionStr, username, password);
 ```
-  - connectionStr：格式为`jdbc:clickhouse://" + url + ":8123`。其中，url 为前提条件获取的 JDBC 连接 TDSQL-H LibraDB 实例时的主机地址。
+  - connectionStr：格式为 `jdbc:clickhouse://" + url + ":8123`。其中，url 为前提条件获取的 JDBC 连接 TDSQL-H LibraDB 实例时的主机地址。
   - username：访问 TDSQL-H LibraDB 实例的帐号。
   - password：访问 TDSQL-H LibraDB 实例帐号对应的密码。
 3. 执行查询。
@@ -55,7 +55,7 @@ stmt.close();
 connection.close();
 ```
 
-### 示例代码
+#### 示例代码
 
 ```java
 import java.sql.Connection;
