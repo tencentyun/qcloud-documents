@@ -431,9 +431,9 @@ defaultConfig {
     <!--魅族 结束-->
 ```
 
-### 步骤3: 应用启动时初始化[](id:step_3)
+### 步骤3: 登录IM成功后初始化[](id:step_3)
 1. 调用插件`init`方法。该步骤会完成初始化各厂商通道。
-2. 该步骤建议在应用启动后就执行调用。
+2. 该步骤请在执行登录IM成功后调用。
 >?由于国内大部分 Android 设备不支持 Google Service, 因此提供一个开关`isUseGoogleFCM`供开发者根据主要用户群体判断，是否启用 Google Firebase Cloud Messaging 推送服务。
 
 ```Dart
@@ -442,7 +442,7 @@ import 'package:tim_ui_kit_push_plugin/tim_ui_kit_push_plugin.dart';
 final TimUiKitPushPlugin cPush = TimUiKitPushPlugin(
   isUseGoogleFCM: bool, // 是否启用Google Firebase Cloud Messaging，默认true启用
 );
-cPush.init(
+await cPush.init(
     pushClickAction: pushClickAction, // 单击通知后的事件回调，会在STEP6讲解
     appInfo: PushConfig.appInfo, // 传入STEP1做的appInfo
 );
@@ -469,7 +469,7 @@ cPush.requireNotificationPermission();
 插件支持自动在appInfo内找到当前厂商的证书ID，并自动完成Token上报。
 
 >?
->- 根据个保法内隐私相关规定，请在用户Login后再调用该方法上报。
+>- 根据个保法内隐私相关规定，请在用户Login及初始化推送插件成功后再调用该方法上报。
 >- Device Token 在同一设备保持一致，仅需在登录时上报一次即可，无需每次启动都上报。
 
 ``` Dart
