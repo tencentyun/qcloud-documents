@@ -470,7 +470,7 @@ cPush.requireNotificationPermission();
 
 >?
 >- 根据个保法内隐私相关规定，请在用户Login及初始化推送插件成功后再调用该方法上报。
->- Device Token 在同一设备保持一致，仅需在登录时上报一次即可，无需每次启动都上报。
+>- 建议初始化推送插件成功后，间隔5秒，再上报Token，以防偶发网络波动导致厂商SDK生成Token延误。
 
 ``` Dart
 import 'package:tim_ui_kit_push_plugin/tim_ui_kit_push_plugin.dart';
@@ -479,7 +479,11 @@ final TimUiKitPushPlugin cPush = TimUiKitPushPlugin(
     isUseGoogleFCM: false,
   );
 
-final bool isUploadSuccess = await cPush.uploadToken(PushConfig.appInfo);
+Future.delayed(const Duration(seconds: 5), () async {
+  final bool isUploadSuccess =
+    await ChannelPush.uploadToken(PushConfig.appInfo);
+  print("Push token upload result: $isUploadSuccess");
+});
 ```
 
 ### 步骤5: 前后台切换监听[](id:step_5)
