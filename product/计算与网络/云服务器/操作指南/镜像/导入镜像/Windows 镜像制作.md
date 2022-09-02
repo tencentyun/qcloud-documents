@@ -68,7 +68,7 @@ bootmenupolicy          Standard
  - Windows Server vNext
 </dx-alert>
 <dx-tabs>
-::: （推荐）安装定制版
+::: （推荐）安装腾讯云定制版
 腾讯云定制版 Virtio 下载地址如下，请对应实际网络环境下载：
 - 公网下载地址：`http://mirrors.tencent.com/install/windows/virtio_64_1.0.9.exe`
 - 内网下载地址：`http://mirrors.tencentyun.com/install/windows/virtio_64_1.0.9.exe`
