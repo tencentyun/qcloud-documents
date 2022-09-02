@@ -20,7 +20,7 @@
 
 ### 提交 FairPlay 证书 信息
 
-请参考 [如何在华曦达控制台提交 FairPlay 证书信息](https://cloud.tencent.com/document/product/266/79728)。
+请参考 [如何在华曦达控制台提交 FairPlay 证书信息](https://cloud.tencent.com/document/product/266/79731)。
 
 ### 设置华曦达用户密钥信息
 
