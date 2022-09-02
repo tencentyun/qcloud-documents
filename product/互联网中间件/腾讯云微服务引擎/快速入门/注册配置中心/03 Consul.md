@@ -109,7 +109,7 @@
 
    
 
-## 步骤3：Spring Cloud 应用接入
+## 步骤3：应用接入
 
 1. 下载 Github 的 [Demo 源码](https://github.com/tencentyun/tse-simple-demo) 到本地并解压。
 2. 打包 demo 源码成 jar 包。在`tse-simple-demo-main`源码根目录下，打开终端窗口，执行 `mvn clean package` 命令，对项目进行打包编译。编译成功后，可以在如下目录看到生成如下表所示的2个 Consul Jar 包。
