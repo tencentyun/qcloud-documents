@@ -73,6 +73,8 @@ CREATE TABLE `jdbc_upsert_sink_table` (
 | sink.buffer-flush.max-rows | 否   | 100    | 批量输出时，缓存中最多缓存多少数据。如果设置为0，表示禁止输出缓存。 |
 | sink.buffer-flush.interval | 否   | 1s     | 批量输出时，每批次最大的间隔（毫秒）。**如果 `'sink.buffer-flush.max-rows'` 设为 `'0'`，而这个选项不为零，则说明启用纯异步输出功能，即数据输出到算子、从算子最终写入数据库这两部分线程完全解耦。** |
 | sink.max-retries           | 否   | 3      | 数据库写入失败时，最多重试的次数。                           |
+|write-mode	|否	|insert	|以 copy 模式写入，可选 insert/copy|
+|copy-delimiter	|否 |	&#x399	|copy 模式下面，字段分割符|
 
 ## 代码示例
 ```
