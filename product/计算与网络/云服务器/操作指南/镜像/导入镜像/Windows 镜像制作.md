@@ -63,8 +63,8 @@ bootmenupolicy          Standard
 - 若没有安装 Virtio 驱动，则需要手动安装。请结合您的实际情况，选择下载版本。
 <dx-alert infotype="explain" title="">
 若您使用以下操作系统，则请下载及安装腾讯云定制版 Virtio。若使用其他版本操作系统，您可安装社区版 virtio。
- - Microsoft Windows Server 2012/2016/2019/2022
- - Windows 10/11
+ - Microsoft Windows Server 2008 R2、2012 R2、2016、2019、2022
+ - Windows 7、8、8.1、10、11
  - Windows Server vNext
 </dx-alert>
 <dx-tabs>
