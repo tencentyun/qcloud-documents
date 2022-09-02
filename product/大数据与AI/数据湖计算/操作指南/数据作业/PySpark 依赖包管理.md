@@ -41,10 +41,11 @@ zip -r ../dep.zip .
 
 ### 步骤二：编辑作业
 在 [数据湖 DLC 控制台](https://console.cloud.tencent.com/dlc) 的数据作业模块中新建作业，参考如下截图操作。
-- 在 --archives  参数填入虚拟环境的完整路径， `#`号后面为解压文件夹名称。
 - 在 --config 参数里加入如下参数。
 ```
 spark.pyspark.python=venv/pyvenv/bin/python3
 ```
+- 在 --archives  参数填入虚拟环境的完整路径， `#`号后面为解压文件夹名称。
+
 ![](https://qcloudimg.tencent-cloud.cn/raw/f1078e28d3c33048ef7f229666a67f99.png)
 >! “#”号用于指定解压目录。
