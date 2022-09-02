@@ -9,7 +9,7 @@
 
 **功能优化:** 
 
-- Android&iOS：fileid播放方式新增雪碧图、url等信息回调
+- Android&iOS：fileid 播放方式新增雪碧图、URL 等信息回调
 - Android&iOS：包体大小优化
 
 **缺陷修复:** 
