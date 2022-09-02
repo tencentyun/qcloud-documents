@@ -497,3 +497,5 @@ final isInitSuccess = await _coreInstance.init(
 
 ## 联系我们[](id:contact)
 如果您在接入使用过程中有任何疑问，请加入 QQ 群：788910197 咨询。
+
+![](https://qcloudimg.tencent-cloud.cn/raw/eacb194c77a76b5361b2ae983ae63260.png)

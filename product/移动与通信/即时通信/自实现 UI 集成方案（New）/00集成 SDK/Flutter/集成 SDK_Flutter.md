@@ -64,3 +64,7 @@ IM SDK(tencent_im_sdk_plugin) 4.1.1+2版本起，可完美兼容Web端。
 ### flutter pub get/add 失败如何解决？
 请参见官网配置 [国内镜像](https://flutter.cn/community/china)。
 
+## 联系我们
+如果您在接入使用过程中有任何疑问，请加入 QQ 群：788910197 咨询。
+
+![](https://qcloudimg.tencent-cloud.cn/raw/eacb194c77a76b5361b2ae983ae63260.png)
