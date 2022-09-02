@@ -23,7 +23,7 @@ Nacos 的核心功能主要是服务注册发现和配置管理，故热迁移�
 ## 前提条件
 1. 登录 [TSE 控制台](https://console.cloud.tencent.com/tse)，新建一个 nacos 实例，并获取客户端访问地址。详细操作请参见 [引擎管理](https://cloud.tencent.com/document/product/1364/63997)。
 ![](https://qcloudimg.tencent-cloud.cn/raw/343ea18a5103e2a7529e1dcc74426d67.png)
-2. 访问 [Github 地址](https://github.com/polarismesh/polaris-java-agent/releases/tag/v1.1.0-beta.0)，下载 Nacos agent zip 包。
+2. 访问 [Github 地址](https://github.com/polarismesh/polaris-java-agent/releases/tag/v1.1.0-beta.0)，下载 Polaris Java Agent（支持 Nacos 双注册双发现）。
 ![](https://qcloudimg.tencent-cloud.cn/raw/53bb8ef2c64e23114e0b86d1c5eb2f35.png)
 
 ## 操作步骤
