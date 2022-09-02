@@ -114,7 +114,7 @@ ffmpeg 命令中的部分参数含义如下表：
 </tr>
 <tr>
 <td><code>-ten264opts crf=26:vbv-maxrate=2000</code></td>
-<td>设置视频编码器的相关参数，各参数含义请参见 <a href="">视频编码器功能清单</a>。</td>
+<td>设置视频编码器的相关参数，各参数含义请参见 <a href="#videoEncoder">视频编码器功能清单</a>。</td>
 </tr>
 <tr>
 <td><code>-y output.mp4</code></td>
@@ -294,7 +294,7 @@ tscsdk-center 包含 Ten264 和 Ten265 两个腾讯自研的视频编码器。�
 <table>
 <thead>
 <tr>
-<th>参数名称</th>
+<th width="15%">参数名称</th>
 <th>参数说明</th>
 </tr>
 </thead>
@@ -356,8 +356,8 @@ tscsdk-center 包含 Ten264 和 Ten265 两个腾讯自研的视频编码器。�
 <table>
 <thead>
 <tr>
-<th><strong>参数名称</strong></th>
-<th><strong>参数说明</strong></th>
+<th width="15%">参数名称</th>
+<th>参数说明</th>
 </tr>
 </thead>
 <tbody><tr>
