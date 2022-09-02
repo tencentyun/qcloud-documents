@@ -48,7 +48,7 @@ API 流量分析功能支持自动发现并梳理已接入 Web 应用防火墙�
 
 ## API 详情[](id:xq)
 在 API 列表中，单击目标 API **操作列**的**查看详情**，可以进入 API 详情页面，该页面展示了经过 API 管控分析之后的单一 API 的相关详情，包括如下5个部分内容：
-- API 概要：展示该 API 中所属域名、请求方法、 相关哦功能标签、是否存在敏感字段、是否活跃以及进行数据归一化后的 API 内容。
+- **API 概要**：展示该 API 中所属域名、请求方法、 相关哦功能标签、是否存在敏感字段、是否活跃以及进行数据归一化后的 API 内容。
 ![](https://qcloudimg.tencent-cloud.cn/raw/43a156f21e4155a152d136fb0ea0c302.png)
 - **API 概览**：展示最近7天内，对应 API 的总请求量及请求趋势，访问的来源分布、访问最多的 URL 及 UA 类型。
 ![](https://qcloudimg.tencent-cloud.cn/raw/80609a6025fa87deb6b49fe0af5a9ccb.png)
