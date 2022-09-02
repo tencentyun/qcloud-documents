@@ -70,7 +70,7 @@
 
 
 
-## 步骤2：Spring Cloud 应用接入
+## 步骤2：应用接入
 
 > ?此处以云服务器 CVM 部署的 Spring Cloud 应用为例介绍接入 TSE Nacos 注册中心实例的流程，其他使用场景如 TKE、TEM 部署请参见 [Spring Cloud 应用接入]()。
 
