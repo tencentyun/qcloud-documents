@@ -125,13 +125,11 @@ ffmpeg 命令中的部分参数含义如下表：
 <dx-tabs>
 ::: output1.mp4
 截图时间：00分13秒
-![](https://qcloudimg.tencent-cloud.cn/raw/a33cb0b00e7a24563322c3c4cf7be7a7.png)
-
+![](https://qcloudimg.tencent-cloud.cn/raw/b2ca277c8c0031d8239fcc8c8d542cdc.png)
 :::
 ::: fast_output1.mp4
 截图时间：00分13秒
-![](https://qcloudimg.tencent-cloud.cn/raw/862ace960228bb3cfc3ed039dfc9ccbb.png)
-
+![](https://qcloudimg.tencent-cloud.cn/raw/594f39b5ef7868d5e1d0a944f3a3b665.png)
 :::
 ::: output2.mp4
 截图时间：00分00秒
