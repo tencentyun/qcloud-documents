@@ -17,7 +17,7 @@ cd dep
 zip -r ../dep.zip .
 ```
 
-2. 在 [数据湖 DLC 控制台]() 的数据作业模块中新建作业。在`--py-files`参数中引入打包好的 dep.zip 文件，该可以通过上传到 cos 或者本地上传的方式引入。
+2. 在 [数据湖 DLC 控制台](https://console.cloud.tencent.com/dlc) 的数据作业模块中新建作业。在`--py-files`参数中引入打包好的 dep.zip 文件，该可以通过上传到 cos 或者本地上传的方式引入。
 ![](https://qcloudimg.tencent-cloud.cn/raw/30880e73e33a3e189afe479bac6b8431.png)
 
 ## 使用虚拟环境  
@@ -40,7 +40,7 @@ zip -r ../dep.zip .
 >! 请使用 tar 命令打包。
 
 ### 步骤二：编辑作业
-在数据湖 DLC 控制台的数据作业模块中新建作业，参考如下截图操作。
+在 [数据湖 DLC 控制台](https://console.cloud.tencent.com/dlc) 的数据作业模块中新建作业，参考如下截图操作。
 - 在 --archives  参数填入虚拟环境的完整路径， `#`号后面为解压文件夹名称。
 - 在 --config 参数里加入如下参数。
 ```
