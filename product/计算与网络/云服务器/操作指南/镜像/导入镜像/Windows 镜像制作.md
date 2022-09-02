@@ -62,10 +62,9 @@ bootmenupolicy          Standard
 ![](https://main.qcloudimg.com/raw/d8b0c17385de25bd41cdfcd291008f5c.png)
 - 若没有安装 Virtio 驱动，则需要手动安装。请结合您的实际情况，选择下载版本。
 <dx-alert infotype="explain" title="">
-若您使用以下操作系统，则请下载及安装腾讯云定制版 Virtio。若使用其他版本操作系统，您可安装社区版 virtio。
- - Microsoft Windows Server 2008 R2、2012 R2、2016、2019、2022
- - Windows 7、8、8.1、10、11
- - Windows Server vNext
+- 腾讯云不支持导入 Windows Server 2003。
+- 若您使用 Windows Server 2008R2/2012R2/2016/2019/2022，请安装腾讯云定制版 VirtIO 驱动。
+- 若您使用其他版本 Windows 操作系统，请先尝试安装使用腾讯云定制版 VirtIO 驱动，如出现不稳定的情况，可尝试社区版 VirtIO 驱动。
 </dx-alert>
 <dx-tabs>
 ::: （推荐）安装腾讯云定制版
@@ -74,7 +73,8 @@ bootmenupolicy          Standard
 - 内网下载地址：`http://mirrors.tencentyun.com/install/windows/virtio_64_1.0.9.exe`
 :::
 ::: 安装社区版
-其他系统版本，请下载 [社区版本 virtio](https://www.linux-kvm.org/page/WindowsGuestDrivers/Download_Drivers)。
+请先尝试安装使用腾讯云定制版 VirtIO 驱动，如出现不稳定的情况，可尝试社区版 VirtIO 驱动。
+[点此下载社区版本 virtio](https://www.linux-kvm.org/page/WindowsGuestDrivers/Download_Drivers)
 :::
 </dx-tabs>
 
