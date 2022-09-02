@@ -1,3 +1,4 @@
+
 ## 带条件删除
 ```
 postgres=# select * from tdsql_pg;
