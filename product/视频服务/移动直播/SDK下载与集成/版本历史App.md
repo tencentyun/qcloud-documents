@@ -108,7 +108,6 @@ Android：修复 TXLivePlayer\V2TXLivePlayer 拉流时，偶现切换到软解�
 #### 新特性
 - 全平台：TXLivePlayer\V2TXLivePlayer 支持播放音频相位相反的直播流。
 - Android：TXLivePusher\V2TXLivePusher 新增 release 方法，支持快速释放资源的能力。
-- iOS：TXLiveBase 支持外部 265 解码器能力。
 
 #### 功能优化
 Android：优化采集延迟，提升耳返体验。
@@ -435,7 +434,6 @@ iOS&Android：直播播放器优化延迟控制算法，避免频繁加减速。
 
 **播放器**
 - iOS&Android：超级播放器重构，支持小窗模式。
-- iOS&Android：点播播放器支持 FLV/HLS 格式265硬解，优化 FileID 文件播放顺序。
 - iOS&Android：点播进度回调时间间隔支持自定义。
 - iOS：iOS 超级播放器支持直播点播播放，支持直播时移播放。
 - Android：点播播放器 Android 版变速支持变速不变调。
@@ -533,7 +531,6 @@ iOS&Android：直播播放器优化延迟控制算法，避免频繁加减速。
 - iOS：Demo 新增点播全功能播放器，几行代码就能让您拥有一个优酷播放器。
 
 ### Version 3.9
-- iOS&Android：新增 H.265 硬解码能力。
 - iOS&Android：Demo 功能全新改版，新增双人、多人实时音视频能力。
 - iOS&Android：动效贴纸大升级，新增 HDR 和高分辨率贴纸特效，贴纸更靓丽。
 - iOS&Android：新增 AI 智能抠背景能力，主播再也不用要绿幕了。
