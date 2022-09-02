@@ -33,7 +33,7 @@
 
 1. 登录云点播控制台，选择【分发播放设置】>[【域名管理】](https://console.cloud.tencent.com/vod/distribute-play/domain)，单击“默认分发域名”的【设置】，单机【访问控制】，进入设置页面。
    <img src="https://qcloudimg.tencent-cloud.cn/raw/9f6529f256a3f74f4c87f6b4c1ab293e.png" width="800" />
-2. 打开【启用 Key 防盗链】，并单击【生成随机 Key】生成一个随机的 Key，本教程为`testtest`，将生成好的 Key 复制下来，然后单击【确定】保存生效。防盗链 Key 可用于后续步骤中生成播放器签名。
+2. 打开【启用 Key 防盗链】，并单击【生成随机 Key】生成一个随机的 Key，本教程为`vodtestkey`，将生成好的 Key 复制下来，然后单击【确定】保存生效。防盗链 Key 可用于后续步骤中生成播放器签名。
    ![image-KEY](https://qcloudimg.tencent-cloud.cn/raw/9e92b38164843a729cf4d64af6dac402.png)
 
 ## 步骤2：对视频进行 DRM 加密
@@ -72,17 +72,13 @@
   "fileId": "387702304941991610",
   "currentTimeStamp": 1661163373,
   "expireTimeStamp": 2648557919,
-  "pcfg": "SDMC-advanceDrmPreset",
-  "urlAccessInfo": {
-    "t": "75356B80",
-    "us": "72d4cd1101"
-  }
+  "pcfg": "SDMC-advanceDrmPreset"
 }
 ```
 
-本教程的 Key 为 `testtest`时，生成的播放器签名（`psign`）如下：
+本教程的 Key 为 `vodtestkey`时，生成的播放器签名（`psign`）如下：
 
-`eyJhbGciOiJIUzI1NiJ9.eyJhcHBJZCI6MTUwMDAxNDU2MSwiZmlsZUlkIjoiMzg3NzAyMzA0OTQxOTkxNjEwIiwiY3VycmVudFRpbWVTdGFtcCI6MTY2MTE2MzM3MywiZXhwaXJlVGltZVN0YW1wIjoyNjQ4NTU3OTE5LCJwY2ZnIjoiU0RNQy1hZHZhbmNlRHJtUHJlc2V0IiwidXJsQWNjZXNzSW5mbyI6eyJ0IjoiNzUzNTZCODAiLCJ1cyI6IjcyZDRjZDExMDEifX0.aXINQ6IUE_UpkA00QSAj468nd_61QlQz3hv8UMKtZ7s`
+`eyJhbGciOiJIUzI1NiJ9.eyJhcHBJZCI6MTUwMDAxNDU2MSwiZmlsZUlkIjoiMzg3NzAyMzA0OTQxOTkxNjEwIiwiY3VycmVudFRpbWVTdGFtcCI6MTY2MTE2MzM3MywiZXhwaXJlVGltZVN0YW1wIjoyNjQ4NTU3OTE5LCJwY2ZnIjoiU0RNQy1hZHZhbmNlRHJtUHJlc2V0In0.BYdxHHEMH0isrta4ERmksGbfu4cLiwl7f1cu04XV890`
 
 
 ## 步骤4：使用播放器播放 DRM 加密视频。
@@ -130,9 +126,9 @@
 
 ```
 var player = TCPlayer('player-container-id', {
-    appID: '1500012416', // 请传入点播账号的appID (必须)
-    fileID: '387702299667618135', // 请传入需要播放的视频filID (必须)
-    psign: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6MTUwMDAxMjQxNiwiZmlsZUlkIjoiMzg3NzAyMjk5NjY3NjE4MTM1IiwiY3VycmVudFRpbWVTdGFtcCI6MTY1MDg4NjE1NiwiZXhwaXJlVGltZVN0YW1wIjoxOTY2NDM1MjAwLCJ1cmxBY2Nlc3NJbmZvIjp7InQiOiI3NTM1NkI4MCIsInVzIjoiNzJkNGNkMTEwMSJ9LCJwY2ZnIjoiYWR2YW5jZURybVByZXNldCJ9.kkyOyscuV3WIlFV0IFPsPPWomZEcuNGclaBzpEO8DEg',
+    appID: '1500014561', // 请传入点播账号的appID (必须)
+    fileID: '387702304941991610', // 请传入需要播放的视频filID (必须)
+    psign: 'eyJhbGciOiJIUzI1NiJ9.eyJhcHBJZCI6MTUwMDAxNDU2MSwiZmlsZUlkIjoiMzg3NzAyMzA0OTQxOTkxNjEwIiwiY3VycmVudFRpbWVTdGFtcCI6MTY2MTE2MzM3MywiZXhwaXJlVGltZVN0YW1wIjoyNjQ4NTU3OTE5LCJwY2ZnIjoiU0RNQy1hZHZhbmNlRHJtUHJlc2V0In0.BYdxHHEMH0isrta4ERmksGbfu4cLiwl7f1cu04XV890',
     // 其他参数请在开发文档中查看 https://cloud.tencent.com/document/product/266/63004
 });
 ```
