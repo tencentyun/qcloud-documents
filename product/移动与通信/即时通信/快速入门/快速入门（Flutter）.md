@@ -459,11 +459,11 @@ flutter pub add tencent_im_sdk_plugin
 import 'package:tencent_im_sdk_plugin/enum/V2TimSDKListener.dart';
 import 'package:tencent_im_sdk_plugin/enum/log_level_enum.dart';
 import 'package:tencent_im_sdk_plugin/tencent_im_sdk_plugin.dart';
-    TencentImSDKPlugin.v2TIMManager.initSDK(
-    sdkAppID: 0, // Replace 0 with the SDKAppID of your IM application when integrating
-    loglevel: LogLevelEnum.V2TIM_LOG_DEBUG, // Log
-    listener: V2TimSDKListener(),
-  );
+TencentImSDKPlugin.v2TIMManager.initSDK(
+  sdkAppID: 0, // Replace 0 with the SDKAppID of your IM application when integrating
+  loglevel: LogLevelEnum.V2TIM_LOG_DEBUG, // Log
+  listener: V2TimSDKListener(),
+);
 ```
 
 在本步骤，你可以针对 IM SDK 挂载一些监听，主要包括网络状态及用户信息变更等，详情可参见 [该文档](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/enum_V2TimSDKListener/V2TimSDKListener-class.html)。
@@ -480,10 +480,10 @@ import 'package:tencent_im_sdk_plugin/tencent_im_sdk_plugin.dart';
 
 ```dart
 import 'package:tencent_im_sdk_plugin/tencent_im_sdk_plugin.dart';
- V2TimCallback res = await TencentImSDKPlugin.v2TIMManager.login(
-    userID: userID,
-    userSig: userSig, 
-  );
+V2TimCallback res = await TencentImSDKPlugin.v2TIMManager.login(
+  userID: userID,
+  userSig: userSig, 
+);
 ```
 
 >? 该账户仅限开发测试使用。应用上线前，正确的 `UserSig` 签发方式是将 `UserSig` 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 `UserSig` 时由您的 App 向业务服务器发起请求获取动态 `UserSig`。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/269/32688#GeneratingdynamicUserSig)。
