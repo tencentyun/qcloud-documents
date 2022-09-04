@@ -750,7 +750,7 @@ defaultConfig {
 
 欢迎查看[直播间搭建指南](https://cloud.tencent.com/document/product/269/77764#.E7.BE.A4.E7.B1.BB.E5.9E.8B.E9.80.89.E6.8B.A9)，基于腾讯云IM/TRTC/腾讯云直播，搭建一套完整的直播间系统。
 
-### 错误吗如何查询？
+### 错误码如何查询？
 
 - IM SDK的API层面错误码，请查看[该文档](https://cloud.tencent.com/document/product/269/1671)。
 
