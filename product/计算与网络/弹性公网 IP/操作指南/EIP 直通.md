@@ -31,7 +31,7 @@ Linux 脚本针对的场景为：内网 IP 和公网 IP 均在主网卡（eth0�
 - **使用 wget 命令下载**
 进入 [云服务器控制台](https://console.cloud.tencent.com/cvm/instance/index?rid=1) 并登录需要 EIP 直通的云服务器，在云服务器中执行以下命令下载：
 ```plaintext
-wget https://eip-direct-1254277469.cos.ap-guangzhou.myqcloud.com/eip_direct.sh
+wget https://network-data-1255486055.cos.ap-guangzhou.myqcloud.com/eip_direct.sh
 ```
 
 ### 步骤二：在控制台配置 EIP 直通

@@ -1,8 +1,8 @@
 
 ## 操作场景
-当用户在生产环境上已经使用了自建的 Nacos 集群，想要将其上已运行的服务迁移到腾讯云的 TSE Nacos 集群上来时，需要保证在迁移过程中不影响现网服务的可用性和稳定性，从而做到平滑迁移，此时就需要使用到 Nacos 热迁移。
+当用户在生产环境上已经使用了自建的 Nacos 集群，想要将其上已运行的服务迁移到腾讯云的 TSE Nacos 集群上来时，需要保证在迁移过程中不影响现网服务的可用性和稳定性，从而做到平滑迁移，此时就需要使用到 **Nacos 双注册双发现迁移工具**。
 
-本文主要介绍 TSE Nacos 热迁移的功能原理，迁移方案和操作方法，帮助您快速平稳地将自建 Nacos 集群迁移到 TSE Nacos 集群。
+本文主要介绍 TSE Nacos 双注册双发现迁移的功能原理，迁移方案和操作方法，帮助您快速平稳地将自建 Nacos 集群迁移到 TSE Nacos 集群。
 
 ## 迁移原理
 Nacos 的核心功能主要是服务注册发现和配置管理，故热迁移需要包含这两种能力的平滑迁移。
@@ -23,7 +23,7 @@ Nacos 的核心功能主要是服务注册发现和配置管理，故热迁移�
 ## 前提条件
 1. 登录 [TSE 控制台](https://console.cloud.tencent.com/tse)，新建一个 nacos 实例，并获取客户端访问地址。详细操作请参见 [引擎管理](https://cloud.tencent.com/document/product/1364/63997)。
 ![](https://qcloudimg.tencent-cloud.cn/raw/343ea18a5103e2a7529e1dcc74426d67.png)
-2. 访问 [Github 地址](https://github.com/polarismesh/polaris-java-agent/releases/tag/v1.1.0-beta.0)，下载 Nacos agent zip 包。
+2. 访问 [Github 地址](https://github.com/polarismesh/polaris-java-agent/releases/tag/v1.1.0-beta.0)，下载 Polaris Java Agent（支持 Nacos 双注册双发现）。
 ![](https://qcloudimg.tencent-cloud.cn/raw/53bb8ef2c64e23114e0b86d1c5eb2f35.png)
 
 ## 操作步骤
