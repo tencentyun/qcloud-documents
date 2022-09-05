@@ -38,7 +38,7 @@ iOS、Android 上的应用可以通过集成腾讯云视立方·直播 SDK 来�
   </tr>
   <tr>
       <td >iOS</td>
-    <td style="text-align:center">iOS 版本正在维护中<br>您可安装 Android 版本体验</td>
+    <td style="text-align:center">维护中</td>
   </tr>
 </table>
 
