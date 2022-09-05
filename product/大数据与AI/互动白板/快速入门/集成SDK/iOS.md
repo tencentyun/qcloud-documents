@@ -128,7 +128,7 @@ config.logLevel = V2TIM_LOG_WARN;
 [[V2TIMManager sharedInstance] addIMSDKListener:listener];
 [[V2TIMManager sharedInstance] addAdvancedMsgListener:self];
 ```
-**以上示例为 TIM V2 版本代码，IM的版本请尽量用新版本，具体请查阅IM的更新日志 https://cloud.tencent.com/document/product/269/1606
+>? 以上示例为 TIM V2 版本代码，IM 的版本请尽量用新版本，具体请查阅 IM 的 [更新日志](https://cloud.tencent.com/document/product/269/1606)。 
 
 如果您有其他业务使用了 IMSDK 并期望 IMSDK 的生命周期与 App 的生命周期保持一致，请在 AppDelegate 的 application:didFinishLaunchingWithOptions 方法中初始化 IMSDK，否则请在登录前初始化 IMSDK，在登出后反初始化 IMSDK。
 步骤2：登录 IMSDK
@@ -139,8 +139,7 @@ config.logLevel = V2TIM_LOG_WARN;
       // 登录 IMSDK 失败
 }];
 ```
-
-**以上示例为 TIM V2 版本代码，IM的版本请尽量用新版本，具体请查阅IM的更新日志 https://cloud.tencent.com/document/product/269/1606
+>? 以上示例为 TIM V2 版本代码，IM 的版本请尽量用新版本，具体请查阅 IM 的 [更新日志](https://cloud.tencent.com/document/product/269/1606)。 
 
 步骤3：加入群组
 
@@ -153,8 +152,7 @@ config.logLevel = V2TIM_LOG_WARN;
     // 加入 IM 群组失败
 }];
 ```
-
-**以上示例为 TIM V2 版本代码，IM的版本请尽量用新版本，具体请查阅IM的更新日志 https://cloud.tencent.com/document/product/269/1606
+>? 以上示例为 TIM V2 版本代码，IM 的版本请尽量用新版本，具体请查阅 IM 的 [更新日志](https://cloud.tencent.com/document/product/269/1606)。 
 
 如果 IM 群组不存在，请先创建群组。
 
@@ -171,10 +169,11 @@ __weak typeof(self) ws = self;
     // 创建 IM 群组失败
 }];
 ```
+>? 以上示例为 TIM V2 版本代码，IM 的版本请尽量用新版本，具体请查阅 IM 的 [更新日志](https://cloud.tencent.com/document/product/269/1606)。 
 
-**以上示例为 TIM V2 版本代码，IM的版本请尽量用新版本，具体请查阅IM的更新日志 https://cloud.tencent.com/document/product/269/1606
-
->!1. 推荐业务后台使用 [IM REST API](https://cloud.tencent.com/document/product/269/1615) 提前创建群组。<br>2. 不同的群组类型，群组功能以及成员数量有所区别，具体请查看 [IM 群组系统](https://cloud.tencent.com/document/product/269/1502)。
+>!
+>- 推荐业务后台使用 [IM REST API](https://cloud.tencent.com/document/product/269/1615) 提前创建群组。
+>- 不同的群组类型，群组功能以及成员数量有所区别，具体请查看 [IM 群组系统](https://cloud.tencent.com/document/product/269/1502)。
 
 #### 6. 销毁白板
 调用 unInit 方法后，内部将彻底销毁白板并停止计费，请您确保此接口的调用。
@@ -190,8 +189,7 @@ __weak typeof(self) ws = self;
     // 登出 IMSDK 失败
 }];
 ```
-
-**以上示例为 TIM V2 版本代码，IM的版本请尽量用新版本，具体请查阅IM的更新日志 https://cloud.tencent.com/document/product/269/1606
+>? 以上示例为 TIM V2 版本代码，IM 的版本请尽量用新版本，具体请查阅 IM 的 [更新日志](https://cloud.tencent.com/document/product/269/1606)。
 
 步骤2：登出 IMSDK
 ```objc
@@ -201,8 +199,7 @@ __weak typeof(self) ws = self;
     // 登出 IMSDK 失败
 }];
 ```
-
-**以上示例为 TIM V2 版本代码，IM的版本请尽量用新版本，具体请查阅IM的更新日志 https://cloud.tencent.com/document/product/269/1606
+>? 以上示例为 TIM V2 版本代码，IM 的版本请尽量用新版本，具体请查阅 IM 的 [更新日志](https://cloud.tencent.com/document/product/269/1606)。
 
 步骤3：反初始化 IMSDK
 ```objc
@@ -210,7 +207,6 @@ __weak typeof(self) ws = self;
 [[V2TIMManager sharedInstance] removeAdvancedMsgListener:self];
 [[V2TIMManager sharedInstance] unInitSDK];
 ```
-
-**以上示例为 TIM V2 版本代码，IM的版本请尽量用新版本，具体请查阅IM的更新日志 https://cloud.tencent.com/document/product/269/1606
+>? 以上示例为 TIM V2 版本代码，IM 的版本请尽量用新版本，具体请查阅 IM 的 [更新日志](https://cloud.tencent.com/document/product/269/1606)。
 
 如果您有其他业务使用了 IMSDK 并期望 IMSDK 的生命周期与 App 的生命周期保持一致，无需调用此接口。
