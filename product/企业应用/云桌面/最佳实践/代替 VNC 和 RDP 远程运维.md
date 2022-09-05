@@ -27,9 +27,9 @@
 
 ### 云桌面连接 CVM 服务器示例
 #### 前提条件
-1. 确保云桌面与对象服务器处于同一 VPC 内或已使用 [云联网](https://cloud.tencent.com/product/ccn) 打通内网。
-2. 已购买并分配云桌面，确保用户可正常登录云桌面，可参见 [云桌面接入指引](https://cloud.tencent.com/document/product/1291/54191)。
-3. 确保服务器安全组已放开云桌面 IP 地址及所需端口，具体端口可参见 [服务器常用端口](https://cloud.tencent.com/document/product/213/12451)。
+- 确保云桌面与对象服务器处于同一 VPC 内或已使用 [云联网](https://cloud.tencent.com/product/ccn) 打通内网。
+- 已购买并分配云桌面，确保用户可正常登录云桌面，可参见 [云桌面接入指引](https://cloud.tencent.com/document/product/1291/54191)。
+- 确保服务器安全组已放开云桌面 IP 地址及所需端口，具体端口可参见 [服务器常用端口](https://cloud.tencent.com/document/product/213/12451)。
 
 
 #### 示例1：云桌面连接 Windows 服务器
@@ -37,3 +37,6 @@
 
 #### 示例2：云桌面连接 Linux 服务器
 ![](https://qcloudimg.tencent-cloud.cn/raw/bd43ba32fa29dda29c4fc26def6077f3.png)
+
+
+
