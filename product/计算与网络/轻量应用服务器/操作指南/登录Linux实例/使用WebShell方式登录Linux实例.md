@@ -26,7 +26,7 @@ Windows，Linux 或者 Mac OS
  - 在服务器列表中的实例卡片上，单击**登录**。
 ![](https://main.qcloudimg.com/raw/ad83b4066ea56c22ca1593a6ab808ff0.png)
  - 单击实例卡片进入服务器详情页，单击“远程登录”中的**登录**，或页面右上角的**登录**。
-![](https://qcloudimg.tencent-cloud.cn/raw/3e8481c4aaffde30c8afb5921dbda1f3.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/239f46c5fe0fc02e0c1d87655acdec5b.png)
  - 使用 [应用镜像](https://cloud.tencent.com/document/product/1207/44361#appOS) 创建的实例，可在实例详情页选择**应用管理**，单击页面右上角的**登录**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/5ce9b1c13518ec9d17b6fa5a79a9f6cd.png)
 登录成功界面如下图所示：

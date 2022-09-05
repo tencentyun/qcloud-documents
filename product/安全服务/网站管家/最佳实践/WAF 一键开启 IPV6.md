@@ -31,4 +31,4 @@ Web 应用防火墙提供域名 IPv6接入配置和防护能力，在开启 IPv6
 当出现异常报错时，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 处理。
 
 ### 开启 IPv6选项后，支持开启单个域名吗?
-目前在开启 IPv6开关后，会开启实例内所有域名的 IPv6，针对单个域名开启还在优化中。
+目前支持单个域名开启 IPv6。

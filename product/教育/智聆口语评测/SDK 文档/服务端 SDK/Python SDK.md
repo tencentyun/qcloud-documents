@@ -8,7 +8,7 @@ Tencent Cound API 3.0 SDK，封装了腾讯云的 SDK，通过集成 SDK，可�
 ## SDK 集成准备
 1. 获取密钥
 SecretId 和 SecretKey 是使用 SDK 的安全凭证，您可以在 访问管理 > 访问密钥 > [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取该凭证。
->! 密钥属于敏感信息，正式密钥仅可在调试使用，线上环境情况下，为了防止他人盗取，推荐使用 [临时签名](https://cloud.tencent.com/document/product/884/31888#:~:text=%E5%88%B0%E5%AE%A2%E6%88%B7%E7%AB%AF%E3%80%82-,%E4%B8%B4%E6%97%B6%E7%AD%BE%E5%90%8D,-policy%20%E7%A4%BA%E4%BE%8B%E5%A6%82%E4%B8%8B)，具体请参考 [签名](https://cloud.tencent.com/document/product/884/31888#5.-.E7.AD.BE.E5.90.8D) 相关内容。
+>! 密钥属于敏感信息，正式密钥仅可在调试使用，线上环境情况下，为了防止他人盗取，推荐使用 [临时签名](https://cloud.tencent.com/document/product/884/31888#SecretKey)，具体请参考 [签名](https://cloud.tencent.com/document/product/884/31888#SecretKey) 相关内容。
 >
 ![](https://qcloudimg.tencent-cloud.cn/raw/c0d190c71c0a47a54e5dbf4b1c6ce150.png)
 2. 设备准备

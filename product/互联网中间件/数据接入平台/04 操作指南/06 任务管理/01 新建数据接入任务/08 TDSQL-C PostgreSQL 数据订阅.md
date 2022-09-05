@@ -18,8 +18,8 @@ DIP 支持订阅 TDSQL-C PostgreSQL 版变更数据，免去对基于 CDC 的订
 2. 在左侧导航栏单击**任务管理** > **任务列表**，选择好地域后，单击**新建任务**。
 3. 填写任务名称，任务类型选择**数据接入**，数据源类型选择 **TDSQL_C 数据订阅**，单击**下一步**。
 4. 填写数据源配置信息，单击下一步。
-   ![](https://qcloudimg.tencent-cloud.cn/raw/0a5d7af7e36653c18d060cc1cdbae326.png)
-   - 源数据类型：支选择 **PostgreSQL**。
+![](https://qcloudimg.tencent-cloud.cn/raw/ee8e73d8f9a10ae6c5b35eae27a0e152.png)
+   - 源数据类型：选择 **PostgreSQL**。
    - 数据源：选择提前创建好的数据库连接。
    - database：选择要监听的数据库。
    - 监听全部表：开后后表示监听数据库中的全部表的变更。

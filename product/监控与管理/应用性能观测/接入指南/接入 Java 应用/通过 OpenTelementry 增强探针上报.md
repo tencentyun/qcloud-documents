@@ -1,4 +1,6 @@
-OpenTelemetry 是工具、API 和 SDK 的集合。使用它来检测、生成、收集和导出遥测数据（指标、日志和跟踪），以帮助您分析软件的性能和行为。OpenTelemetry 社区活跃，技术更迭迅速，广泛兼容主流编程语言、组件与框架，为云原生微服务以及容器架构的链路追踪能力广受欢迎。通过对 Java 字节码的增强技术 OpenTelemetry-java-instrumentation 可以实现自动埋点上报数据,且腾讯云 APM 基于 OpenTelemetry-java-instrumentation 进行二次开发,可以让您拿到更完善的调用琏数据及其对应的行号信息。
+Java Agent 基于字节码增强技术研发，支持自动埋点完成数据上报，Java Agent 包含(并二次分发) opentelemetry-java-instrumentation CNCF 的开源代码，遵循 Apache License 2.0 协议，在 Java Agent 包中对 opentelemetry License 进行了引用。
+
+>?OpenTelemetry 是工具、API 和 SDK 的集合。使用它来检测、生成、收集和导出遥测数据（指标、日志和跟踪），以帮助您分析软件的性能和行为。OpenTelemetry 社区活跃，技术更迭迅速，广泛兼容主流编程语言、组件与框架，为云原生微服务以及容器架构的链路追踪能力广受欢迎。通过对 Java 字节码的增强技术 OpenTelemetry-java-instrumentation 可以实现自动埋点上报数据,且腾讯云 APM 基于 OpenTelemetry-java-instrumentation 进行二次开发,可以让您拿到更完善的调用琏数据及其对应的行号信息。
 
 本文将通过相关操作介绍如何在腾讯云 APM 使用 OpenTelemetry-java-instrumentation 上报 Java 应用数据。
 

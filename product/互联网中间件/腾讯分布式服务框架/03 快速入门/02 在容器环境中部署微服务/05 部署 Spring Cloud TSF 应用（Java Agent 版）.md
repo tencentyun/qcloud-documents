@@ -44,7 +44,7 @@ Java Agent 是 Java 1.5 版本之后引⼊的特性，可以被理解为 JVM 虚
 
 ## 前提条件
 
-1. 已创建好集群并导入云主机，容器场景请参见 [容器集群管理](https://cloud.tencent.com/document/product/649/73965)。
+1. 已创建好集群并导入云主机，容器场景请参见 [容器集群管理](https://cloud.tencent.com/document/product/649/16929)。
 2. 下载 [官方开源 Spring Cloud 2020 Demo](https://github.com/polarismesh/femas/tree/develop/femas-agent/femas-agent-example)，在pom.xml文件所在目录下执行`mvn clean package`将应用程序打包，在`femas-agent-example-springcloud-provider/target/`目录下可以看到打包好的 jar 程序包。
 
 ## 操作步骤

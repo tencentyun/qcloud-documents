@@ -38,7 +38,7 @@ COS-Ranger-Plugin 拓展了 Ranger Admin 控制台上的服务种类，用户可
 #### 代码地址
 可前往 [Github](https://github.com/tencentyun/cos-ranger-service) 的 ranger-plugin 目录下获取。
 #### 版本
-V1.1版本及以上。
+V1.0 版本及以上。
 #### 部署步骤
 1. 在 Ranger 的服务定义目录下新建 COS 目录（注意，目录权限需要保证至少有 x 与 r 权限）。
 a. 腾讯云的 EMR 环境，路径是 ranger/ews/webapp/WEB-INF/classes/ranger-plugins。
@@ -94,7 +94,7 @@ COS Ranger Service 支持一主多备的 HA 部署，DelegationToken 状态持�
 可前往 [Github](https://github.com/tencentyun/cos-ranger-service) 的 cos-ranger-server 目录下获取。
 
 #### 版本
-V5.0.6版本及以上。
+V5.1.2版本及以上。
 
 #### 部署步骤
 1. 将 COS Ranger Service 服务代码拷贝到集群的几台机器上，生产环境建议至少两台机器（一主一备）。因为涉及到敏感信息，建议是堡垒机或者权限严格管控的机器。
@@ -130,10 +130,13 @@ curl -v http://10.xx.xx.xxx:9998/status
 COS Ranger Client 由 hadoop cosn 插件动态加载，并代理访问 COS Ranger Service 的相关请求。例如获取临时密钥、获取 token、鉴权操作等。
 
 #### 代码地址
-可前往 [Github](https://github.com/tencentyun/cos-ranger-service) 的 cos-ranger-client 目录下获取。
+
+可前往 [Github](https://github.com/tencentyun/cos-ranger-service) 的 cos-ranger-client 和 cosn-ranger-interface 目录下获取。
 
 #### 版本
-V3.8版本及以上。
+
+cos-ranger-client 要求V5.0 版本及以上。  
+cosn-ranger-interface 要求 v1.0.4版本及以上。
 
 #### 部署方式
 1. 将 cos-ranger-client jar 包和cosn-ranger-interface jar 包拷贝到与 COSN 同一目录下通常在/usr/local/service/hadoop/share/hadoop/common/lib/目录下；请选择拷贝与自身 hadoop 大版本一致的 jar 包，最后确保 jar 包有可读权限。
@@ -143,10 +146,10 @@ V3.8版本及以上。
 ```
 <configuration>
            <!--*****必须配置********-->
-           <!-- zk 的地址，客户端从 zk 上查询得知 ranger-service 的服务地址 -->
+           <!-- 上一步部署的 cos ranger server 的地址 -->
            <property>
-               <name>qcloud.object.storage.zk.address</name>
-               <value>10.0.0.8:2181,10.0.0.9:2181,10.0.0.10:2181</value>
+               <name>qcloud.object.storage.ranger.service.address</name>
+               <value>10.0.0.8:9999,10.0.0.10:9999</value>
            </property>
 
            <!--***可选配置****-->           
