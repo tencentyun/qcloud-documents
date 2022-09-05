@@ -1,7 +1,5 @@
 DMC（Database Management Console）是腾讯云的一款数据库管理工具，提供库表级操作、实时监控、实例会话管理、SQL 窗口、数据管理为一体的数据库管理服务。
 
-目前支持云数据库 MySQL 、云数据库 MariaDB、云原生数据库 TDSQL-C MySQL 版、云数据库 Redis、TDSQL MySQL 版。
-
 ## 功能介绍
 - **数据管理**
 提供数据库的库表增删、结构修改以及表数据维护等数据库操作。
