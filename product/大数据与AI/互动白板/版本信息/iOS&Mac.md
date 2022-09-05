@@ -1,4 +1,4 @@
-## 2.7.7 @ 2022.08.31
+### 2.7.7 @ 2022.08.31
 * [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/2.7.7.144/TEduBoard_2.7.7.144.zip)
 * [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/2.7.7.144/TEduBoard_Mac_2.7.7.144.zip) 
 
