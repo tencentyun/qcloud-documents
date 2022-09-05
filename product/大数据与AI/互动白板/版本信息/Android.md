@@ -1,4 +1,4 @@
-## 2.7.7 @ 2022.08.31
+### 2.7.7 @ 2022.08.31
 * [单击下载 SDK](https://sdk.qcloudtiw.com/android/TEduBoardSdk_2.7.7.194.zip)  
 
 - 新增接口
