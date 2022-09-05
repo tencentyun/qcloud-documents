@@ -1,6 +1,6 @@
 ## 背景
 
-cos ranger service 一经推出使用后（可查看该文档 [CHDFS Ranger 权限体系解决方案](https://cloud.tencent.com/document/product/1105/53307) ） ，越来越受欢迎，使用的客户越来越多；然而由于客户众多，背景复杂，产生一些问题，现整理相关Ranger 介绍说明、版本细节以及注意事项。
+cos ranger service 是腾讯云存算分离推出大数据权限管控方案，具有细粒度，兼容 Hadoop Ranger、以及可插拔的优势，便于用户统一管理大数据组件和云端托管存储权限，具体架构方案及说明可查看 [CHDFS Ranger 权限体系解决方案](https://cloud.tencent.com/document/product/1105/53307)。cos ranger service 一经推出使用后便得到广泛使用，然而由于客户众多，背景复杂，产生一些问题，现整理相关Ranger 介绍说明、版本细节以及注意事项。
 
 ## 版本介绍
 
@@ -10,18 +10,18 @@ cos ranger service 一经推出使用后（可查看该文档 [CHDFS Ranger 权�
 根据 Ranger 协议(具体可看 [官方文档](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=53741207))提供 Ranger 服务端的服务定义插件。它们提供了 Ranger 侧的 CHDFS 服务描述，部署了该插件后，用户即可在 Ranger 的控制页面上，填写 CHDFS 的权限策略，例如设置 path、mountpoint、user、group 等访问策略。  
 
 #### cos ranger server
-该服务集成了 Ranger 的客户端，周期性从 Ranger 服务端同步权限策略，在收到客户的鉴权请求后，在本地进行权限校验。 同时它提供了 Hadoop 中 DelegationToken 相关的生成，续租等接口  
-最新版本是 V5.1.2(推荐使用)，主流版本是 v5.0.6 - v5.0.9
+该服务集成了 Ranger 的客户端，周期性从 Ranger 服务端同步权限策略，在收到客户的鉴权请求后，在本地进行权限校验。 同时它提供了 Hadoop 中 DelegationToken 相关的生成，续租等接口。  
+EMR 环境中默认安装目录在 /usr/local/service/cosranger/lib 下。例如包名 cos-ranger-service-5.1.2-jar-with-dependencies.jar， 5.1.2 即为 cos ragner server 的版本号
 
 #### cos ranger client
-hadoop sdk 插件通过 core-site.xml 文件中配置对其进行动态加载，把权限校验的请求转发给 cos ranger server  
-最新版本是 v5.0(推荐使用)，主流版本是 v3.8
+hadoop sdk 插件通过 core-site.xml 文件中配置对其进行动态加载，把权限校验的请求转发给 cos ranger server。  
+EMR 环境中默认安装目录在 /usr/local/service/hadoop/share/hadoop/common/lib 下。例如包名 hadoop-ranger-client-for-hadoop-2.8.5-5.0.jar， 2.8.5 是 hadoop 版本号， 5.0 是该包的版本号
 
 #### cosn ranger interface
-cos ranger service 相关数据结构及接口
-最新版本是 v1.0.4(推荐)，主流版本是 v1.0.3
+cos ranger service 相关数据结构及接口。  
+EMR 环境中默认安装目录在 /usr/local/service/hadoop/share/hadoop/common/lib 下。例如包名 cosn-ranger-interface-1.0.4.jar， 1.0.4即为 cosn ranger interface 版本号
 
-以上 jar 包均可可前往 [Github](https://github.com/tencentyun/cos-ranger-service)获取
+以上 jar 包均可可前往 [Github](https://github.com/tencentyun/cos-ranger-service)获取。其他组件例如 impala、presto 等 cos ranger client 包联系 EMR。  
 在 EMR 控制台购买 Ranger 和 cosranger 组件时会自动安装以上组件；如果自行安装，参考 [CHDFS Ranger 权限体系解决方案](https://cloud.tencent.com/document/product/1105/53307)]
 
 ### 版本说明 
@@ -30,8 +30,8 @@ cos ranger service 相关数据结构及接口
 * 如果 cos ranger client 不依赖 zookeeper 去发现 cos ranger server 服务，则需要配置 qcloud.object.storage.ranger.service.address 直接指定 cos ranger server 服务地址，不必去依赖 zookeeper 去发现 cos ranger server服务；这就是***不依赖 zookeeper 版本***的特性
 
 ### 版本对应关系
-| 组件 | 依赖 zookeeper 服务与发现 | 不依赖 zookeeper 服务与发现 |
-| ---- | --- | ---- |
+| 组件 | 依赖 zookeeper 服务与发现 | 不依赖 zookeeper 服务与发现 | 默认安装目录
+| ---- | --- | ---- | ----- |
 |cos ranger server| v5.0.9 及早期版本| v5.1.1 及以上版本|
 |cos ranger client |  v3.9 及早期版本| v4.1 及以上版本|
 |cosn ranger interface | v1.0.3 版本| v1.0.4 版本及以上|
