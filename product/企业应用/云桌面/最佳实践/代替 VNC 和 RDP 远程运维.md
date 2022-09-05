@@ -33,7 +33,7 @@
 
 
 #### 示例1：云桌面连接 Windows 服务器
-![](https://qcloudimg.tencent-cloud.cn/raw/91531958df25b274a1273c8e621a0f8f.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/e3776805217e88ec9a0f1aea30508280.png)
 
 #### 示例2：云桌面连接 Linux 服务器
 ![](https://qcloudimg.tencent-cloud.cn/raw/bd43ba32fa29dda29c4fc26def6077f3.png)
