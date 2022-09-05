@@ -26,7 +26,7 @@
 
 **Mac/iOS**
 
-**以下示例为 TIM V2 版本代码，IM的版本请尽量用新版本，具体请查阅IM的更新日志 https://cloud.tencent.com/document/product/269/1606
+>? 以下示例为 TIM V2 版本代码，IM 的版本请尽量用新版本，具体请查阅 IM 的 [更新日志](https://cloud.tencent.com/document/product/269/1606)。
 
 ```objc
 // 1. 将 TEduBoardInitParam 的 timSync 参数初始为 NO (关闭互动白板内置的信令通道)
@@ -69,7 +69,7 @@ _boardController = [[TEduBoardController alloc] initWithAuthParam:authParam room
 
 **Android**
 
-**以下示例为 TIM V2 版本代码，IM的版本请尽量用新版本，具体请查阅IM的更新日志 https://cloud.tencent.com/document/product/269/1606
+>? 以下示例为 TIM V2 版本代码，IM 的版本请尽量用新版本，具体请查阅 IM 的 [更新日志](https://cloud.tencent.com/document/product/269/1606)。
 
 ```java
 // 1. 将 TEduBoardInitParam 的 timSync 参数初始为 NO (关闭互动白板内置的信令通道)
