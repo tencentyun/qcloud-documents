@@ -1,4 +1,4 @@
-## 2.7.7 @ 2022.08.31
+### 2.7.7 @ 2022.08.31
 * 链接地址：https://res.qcloudtiw.com/board/2.7.7/TEduBoard.min.js
 
 - 新增接口
