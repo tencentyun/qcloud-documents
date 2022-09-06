@@ -173,7 +173,7 @@ spec:
 
 ## 使用 EKS 常见问题
 - 拉取镜像失败：请参见 [镜像仓库](https://cloud.tencent.com/document/product/457/54755)。
-- 域名解析失败：常见于 Pod 镜像拉取失败、投递日志到自建 kafka 失败，请参见 [弹性集群自定义 DNS 服务](https://cloud.tencent.com/document/product/457/63735)。
+- 域名解析失败：常见于 Pod 镜像拉取失败、投递日志到自建 kafka 失败，请参见 [ Serverless 集群自定义 DNS 服务](https://cloud.tencent.com/document/product/457/63735)。
 - 日志投递到 CLS 失败：首次使用 EKS 集群投递日志到 CLS，需要为服务授权，请参见 [首次授权](https://cloud.tencent.com/document/product/457/56751#.E9.A6.96.E6.AC.A1.E6.8E.88.E6.9D.83.3Ca-id.3D.22role.22.3E.3C.2Fa.3E)。
 - 每个集群默认仅可创建 100 个 Pod，若需要创建超过配额的资源，请参见 [默认配额](https://cloud.tencent.com/document/product/457/53030#.E9.BB.98.E8.AE.A4.E9.85.8D.E9.A2.9D)。
 - Pod 频繁被销毁重建，报错 `Timeout to ensure pod sandbox`：EKS Pod 内的组件会与管控面通讯以保持健康检测，当 Pod 创建完后，Pod 持续 6 分钟网络不通，则会被管控面发起销毁重建。此时需检查 Pod 关联的安全组是否放通了 169.254 路由的访问。
