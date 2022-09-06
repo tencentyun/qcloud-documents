@@ -3,7 +3,7 @@
   
 [](id:01)
 ### 网关为什么删除不了？
-删除前需要将其下关联的VPN通道资源删除，详情请参见[删除 SSL VPN 网关](https://cloud.tencent.com/document/product/554/63713)。
+删除前需要将其下关联的 VPN 通道资源删除，详情请参见[ 删除 SSL VPN 网关](https://cloud.tencent.com/document/product/554/63713)。
 
 [](id:02)
 ### 网关规格是50Mbps，它的带宽上限怎么理解？
@@ -38,7 +38,7 @@ VPN 通道在公网中运行，公网网络出现阻塞、抖动、延迟等问�
 
 [](id:09)
 ### 如何查看 VPN 网关详细信息？
-用户可以进入[私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1) 查看 VPN 网关详细信息，详情请参见 [查看 VPN 网关详细信息](https://cloud.tencent.com/document/product/554/18999)。
+用户可以进入[ 私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1) 查看 VPN 网关详细信息，详情请参见 [查看 VPN 网关详细信息](https://cloud.tencent.com/document/product/554/18999)。
 
 
 

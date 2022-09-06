@@ -1,13 +1,13 @@
 <table>
 <tr>
-<td class="confluenceTd">协商阶段</td>
-<td class="confluenceTd">错误提示信息</td>
-<td class="confluenceTd">说明</td>
+<th class="confluenceTd">协商阶段</th>
+<th class="confluenceTd">错误提示信息</th>
+<th class="confluenceTd">说明</th>
 </tr>
 <tr>
 <td rowspan="5" >IKE 协商</td>
 <td colspan="1" >no match proposal</td>
-<td >云侧和客户侧配置的IKE策略一致，请检查。</td>
+<td >云侧和客户侧配置的 IKE 策略一致，请检查。</td>
 </tr>
 <tr>
 <td>DH group not supported</td>
@@ -32,7 +32,7 @@
 </tr>
 <tr>
 <td colspan="1" >reponder no matching CHILD_SA config for TS</td>
-<td>云侧和客户侧配置的ts不一致，请检查。</td>
+<td>云侧和客户侧配置的 ts 不一致，请检查。</td>
 </tr>
 <tr>
 <td colspan="1" >no matching proposal, configured xxx, received xxx</td>
