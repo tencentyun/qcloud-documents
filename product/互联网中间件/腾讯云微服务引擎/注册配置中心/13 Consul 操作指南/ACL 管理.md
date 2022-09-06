@@ -1,5 +1,5 @@
 ## 操作场景
-Consul 引擎支持使用Consul ACLs功能进行访问控制。您可以根据业务场景配置策略和角色，并生成对应的Token进行安全控制访问。
+Consul 引擎支持使用 Consul ACLs 功能进行访问控制。您可以根据业务场景配置策略和角色，并生成对应的 Token 进行安全控制访问。
 
 ## ACL参数配置
 1. 登录 TSE 控制台 。
@@ -7,16 +7,16 @@ Consul 引擎支持使用Consul ACLs功能进行访问控制。您可以根据�
 参数说明如下：
 |参数	|说明|
 |-----|-----|
-|enabled	|是否开启ACL功能|
-|default_policy	|ACL策略，支持allow和deny。allow表示全部允许，此时策略配置为黑名单；deny表示全部拒绝，此时策略配置为白名单|
-|tokens.master	|管理员Token，具备访问所有资源权限，TSE Consul实例创建时默认生成，不可更改|
-|tokens.agent	|Consul Agent Token，用于Consul Agent Client启动时配置Agent所需资源，TSE Consul实例创建时默认生成，不可更改|
-说明：对于新建的 TSE Consul 实例， ACLs默认使用allow策略，无需配置ACL即可使用Consul SDK/HTTP API访问集群资源。
+|enabled	|是否开启 ACL 功能|
+|default_policy	|ACL 策略，支持 allow 和 deny。allow 表示全部允许，此时策略配置为黑名单；deny 表示全部拒绝，此时策略配置为白名单|
+|tokens.master	|管理员 Token，具备访问所有资源权限，TSE Consul 实例创建时默认生成，不可更改|
+|tokens.agent	|Consul Agent Token，用于 Consul Agent Client 启动时配置 Agent 所需资源，TSE Consul 实例创建时默认生成，不可更改|
+说明：对于新建的 TSE Consul 实例， ACLs 默认使用 allow 策略，无需配置 ACL 即可使用 Consul SDK/HTTP API 访问集群资源。
 
 ## 启用ACL
-如果您的Consul Agent Client 已加入Consul集群，线上已有服务注册到Agent Client中，为了避免启用ACL后，Client无法与Server进行通信，推荐使用该方式进行平滑启用ACL功能。
+如果您的Consul Agent Client 已加入 Consul 集群，线上已有服务注册到 Agent Client 中，为了避免启用 ACL 后，Client 无法与 Server 进行通信，推荐使用该方式进行平滑启用 ACL 功能。
 ### 操作步骤
-1、 将token.master添加到业务代码中。
+1、 将 token.master 添加到业务代码中。
 - 如果您使用Spring Cloud，可参考如下示例。
 ```
 spring:
@@ -28,9 +28,9 @@ spring:
         health-check-interval: 15s #consul server端每隔15s请求一次健康检测接口
         register-health-check: true #开启健康检查
 ```
-注意：Spring Cloud Consul默认通过心跳上报的方式维护服务健康状态，由于心跳请求不支持token参数，因此ACL开启后，您需要自行实现一个健康检查的接口，并配置在health-check-path中。
+注意：Spring Cloud Consul 默认通过心跳上报的方式维护服务健康状态，由于心跳请求不支持 token 参数，因此 ACL 开启后，您需要自行实现一个健康检查的接口，并配置在 health-check-path 中。
 
-- 如果您使用Consul HTTP请求，可参考如下示例。
+- 如果您使用 Consul HTTP 请求，可参考如下示例。
 ```
 //Consul Go SDK
 consulClient, err := consul_api.NewClient(&consul_api.Config{
@@ -44,7 +44,7 @@ consulClient, err := consul_api.NewClient(&consul_api.Config{
 )
 ```
 
-- 如果您使用Consul SDK，可参考如下示例。
+- 如果您使用 Consul SDK，可参考如下示例。
 ```
 // Query参数
 curl http://127.0.0.1:8500/v1/agent/members?token="94c45ad9-b344-87dd-05d8-56ad71031a92"
@@ -52,9 +52,9 @@ curl http://127.0.0.1:8500/v1/agent/members?token="94c45ad9-b344-87dd-05d8-56ad7
 curl -H 'X-Consul-Token:94c45ad9-b344-87dd-05d8-56ad71031a92}' http://127.0.0.1:8500/v1/agent/members
 ```
 
-2、 启用Consul Server ACL
+2、 启用 Consul Server ACL
 - (1) 登录 TSE 控制台。
-- (2) 在左侧导航栏单击注册中心，单击目标实例的“ID/名称”，在系统参数 页，选择ACL功能项，点击修改参数，编辑JSON内容，将default_policy配置项设置为deny，点击保存。
+- (2) 在左侧导航栏单击注册中心，单击目标实例的“ID/名称”，在系统参数 页，选择 ACL 功能项，点击修改参数，编辑 JSON 内容，将 default_policy 配置项设置为 deny，点击保存。
 ```
 {
     "enabled": true,
@@ -66,9 +66,9 @@ curl -H 'X-Consul-Token:94c45ad9-b344-87dd-05d8-56ad71031a92}' http://127.0.0.1:
 }
 ```
 
-3、 启用Consul Agent Client ACL
-- (1) 修改Consul Agent Client 配置文件config.json，添加集群 ACL 配置和 tokens.agent。
-- (2) 重启Consul Agent Client，等待重启完毕后，验证Consul Agent Client 是否与集群建立正常通信。
+3、 启用 Consul Agent Client ACL
+- (1) 修改 Consul Agent Client 配置文件 config.json，添加集群 ACL 配置和 tokens.agent。
+- (2) 重启 Consul Agent Client，等待重启完毕后，验证 Consul Agent Client 是否与集群建立正常通信。
 ```
 {
     "acl":{
@@ -82,8 +82,8 @@ curl -H 'X-Consul-Token:94c45ad9-b344-87dd-05d8-56ad71031a92}' http://127.0.0.1:
 ```
 
 ## ACL操作
-Consul ACL包括策略、角色、令牌三种数据模型。令牌可关联多个策略和角色，角色可管理多个策略。令牌具有的权限为直接或间接关联的全部策略的总和。
-开启ACL后，可通过配置策略、角色和令牌进行访问控制。
+Consul ACL 包括策略、角色、令牌三种数据模型。令牌可关联多个策略和角色，角色可管理多个策略。令牌具有的权限为直接或间接关联的全部策略的总和。
+开启 ACL 后，可通过配置策略、角色和令牌进行访问控制。
 
 ### 策略操作
 1. 登录 TSE 控制台 。
