@@ -29,7 +29,7 @@
 </thead>
 <tbody><tr>
 <td>用户认证方式</td>
-<td>目前仅支持 SASL_PLAINTEXT</td>
+<td>目前仅支持 SASL_PLAINTEXT。</td>
 </tr>
 <tr>
 <td>hosts</td>
