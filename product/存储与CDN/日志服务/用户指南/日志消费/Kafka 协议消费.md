@@ -23,13 +23,31 @@
 
 使用 kafka 协议消费日志时，需要配置一下参数：
 
-| 参数 | 说明 |
-|---------|---------|
-| 用户认证方式| 目前仅支持 SASL_PLAINTEXT |
-| hosts | 配置为${region}-producer.cls.tencentyun.com:9095，详细参见 [可用域名- Kafka 消费日志](https://cloud.tencent.com/document/product/614/18940#Kafka_Consume)|
-| topic| 配置为${out-TopicID}。即 out-日志主题ID，例如：out-76c63473-c496-466b-XXXX-XXXXXXXXXXXX。 |
-| username | 配置为${logsetID}，即日志集 ID。  例如：0f8e4b82-8adb-47b1-XXXX-XXXXXXXXXXXX ，在日志主题列表中可以复制日志集 ID。|
-| password | 配置为`${SecretId}#${SecretKey}`。例如：XXXXXXXXXXXXXX#YYYYYYYY，请登录 [腾讯云访问管理](https://console.cloud.tencent.com/cam/capi) ，获取 API 密钥。API 密钥或者项目密钥均可使用，推荐使用后者。 |
+<table>
+<thead>
+<tr><th style="width: 20%">参数</th><th>说明</th></tr>
+</thead>
+<tbody><tr>
+<td>用户认证方式</td>
+<td>目前仅支持 SASL_PLAINTEXT。</td>
+</tr>
+<tr>
+<td>hosts</td>
+<td>配置为${region}-producer.cls.tencentyun.com:9095，详细参见 <a href="https://cloud.tencent.com/document/product/614/18940#Kafka_Consume">可用域名- Kafka 消费日志</a>。</td>
+</tr>
+<tr>
+<td>topic</td>
+<td>配置为${out-TopicID}。即 out-日志主题ID，例如：out-76c63473-c496-466b-XXXX-XXXXXXXXXXXX。</td>
+</tr>
+<tr>
+<td>username</td>
+<td>配置为${logsetID}，即日志集 ID。  例如：0f8e4b82-8adb-47b1-XXXX-XXXXXXXXXXXX ，在日志主题列表中可以复制日志集 ID。</td>
+</tr>
+<tr>
+<td>password</td>
+<td>配置为<code>${SecretId}#${SecretKey}</code>。例如：XXXXXXXXXXXXXX#YYYYYYYY，请登录 <a href="https://console.cloud.tencent.com/cam">腾讯云访问管理</a> ，在左侧导航栏中单击<b>访问密钥</b>，API 密钥或者项目密钥均可使用，推荐使用后者。</td>
+</tr>
+</tbody></table>
 
 ### 内网消费和外网消费说明
 
