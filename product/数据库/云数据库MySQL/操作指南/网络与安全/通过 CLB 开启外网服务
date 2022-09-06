@@ -1,6 +1,7 @@
 云数据库 MySQL 支持内网和外网两种地址类型，默认提供内网地址供您内部访问实例，如果需要使用外网访问，除了开启外网地址后，通过 Linux 或者 Windows 云服务器连接访问实例，也可通过负载均衡 CLB 开启外网服务进行访问，通过 CLB 开启外网服务必须配置安全组规则。
 
 以下为您介绍通过通过 CLB 开启外网服务，并通过 MySQL workbench 连接到实例的方法。
+
 ## 前提条件
 已 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=163&source=14&data_title=%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%20CLB&level3_id=1068&radio_title=%E9%85%8D%E9%A2%9D/%E7%99%BD%E5%90%8D%E5%8D%95&queue=96&scene_code=41669&step=2) 申请使用后端服务功能。
 >?负载均衡 CLB 实例与 MySQL 实例在同一 VPC 网络和非同一  VPC 网络，需要在提单时分别申请不同的功能支持，请根据您的实际场景，在提单时说明需要开通哪种 VPC 场景下的功能支持。
@@ -15,6 +16,7 @@
 
 ## 步骤2：配置负载均衡
 配置负载均衡分为同一 VPC 场景和非同一 VPC 场景，以下分别为您介绍。
+
 ### 场景一：负载均衡实例与 MySQL 实例处于同一 VPC
 1. 打开跨 VPC 访问功能（启用后 CLB 支持绑定其他内网 IP）。
 a. 登录 [负载均衡控制台](https://console.cloud.tencent.com/clb/instance)，选择地域，在实例管理列表，单击实例 ID，进入实例管理页面。
@@ -59,7 +61,7 @@ c. 在弹出的对话框，逐步完成设置，然后单击**提交**即可完�
 2. 在实例管理页面，选择**安全组**页，单击**配置安全组**，配置安全组规则为放通全部端口，确认安全组允许外部 IP 访问，详细配置方法请参见 [配置安全组](https://cloud.tencent.com/document/product/236/9537)。
 ![](https://qcloudimg.tencent-cloud.cn/raw/9e21be547485994b56ee900b9c04fec6.png)
 
-## 步骤5： 通过 MySQL Workbench 客户端连接实例
+## 步骤5：通过 MySQL Workbench 客户端连接实例
 1. 安装 MySQL Workbench，官方下载地址请参见 [MySQL Workbench](https://dev.mysql.com/downloads/) 下载页面。
  1. 进入下载页面后单击 **MySQL Workbench**。
  2. 跳转页面后在 Windows (x86, 64-bit), MSI Installer 后单击 **Downloads**。
@@ -68,16 +70,27 @@ c. 在弹出的对话框，逐步完成设置，然后单击**提交**即可完�
 ![](https://qcloudimg.tencent-cloud.cn/raw/1bdd5024d708284fd8dc06b2177e0ea6.png)
 3. 在弹出的窗口下，完成如下配置后，单击**ok**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/ec8f7b944542bc28721446a1e2dbede5.png)
-
-| 参数 | 说明 | 
-|---------|---------|
-| Connection name | 为此连接命名。 |
-| Connection Method | 连接方法，选择 Standard（TCP/IP）。 |
-| Hostname | 输入负载均衡 CLB 实例的地址。在 CLB 实例详情页的基本信息下可查询 VIP 信息。 |
-| Port | 输入负载均衡 CLB 实例的端口。在 CLB 实例详情页>监控器管理下可查询 TCP 端口号。  |
-| Username | 输入待连接 MySQL 实例的账号名。在实例详情页>数据库管理>账号管理下创建的账号。 |
-| Store in Vault... | 输入待连接 MySQL 实例的账号密码并会保存此密码。Username 填写账号对应的密码。 |
-
+<table>
+<thead><tr><th>参数</th><th>说明</th></tr></thead>
+<tbody><tr>
+<td>Connection name</td>
+<td>为此连接命名。</td></tr>
+<tr>
+<td>Connection Method</td>
+<td>连接方法，选择 Standard（TCP/IP）。</td></tr>
+<tr>
+<td>Hostname</td>
+<td>输入负载均衡 CLB 实例的地址。在 CLB 实例详情页的基本信息下可查询 VIP 信息。</td></tr>
+<tr>
+<td>Port</td>
+<td>输入负载均衡 CLB 实例的端口。在 CLB 实例详情页 &gt; 监控器管理下可查询 TCP 端口号。</td></tr>
+<tr>
+<td>Username</td>
+<td>输入待连接 MySQL 实例的帐号名。在实例管理页 &gt; 数据库管理 &gt; 帐号管理下创建的帐号。</td></tr>
+<tr>
+<td>Store in Vault...</td>
+<td>输入待连接 MySQL 实例的帐号密码并会保存此密码。Username 填写帐号对应的密码。</td></tr>
+</tbody></table>
 4. 返回 MySQL Workbench 首页，单击刚创建的待连接实例信息连接到 MySQL 实例。
 ![](https://qcloudimg.tencent-cloud.cn/raw/04cb6e563f25bedcaad235be50890aec.png)
 5. 成功连接后的界面如下所示。
