@@ -43,9 +43,9 @@
 
 1. 登录日志服务控制台，选择左侧导航栏中的 **[日志主题](https://console.cloud.tencent.com/cls/topic)**。
 2. 在“日志主题”页面，单击需要使用 Kafka 协议消费的日志主题 ID/名称，进入日志主题管理页面。
-3. 在日志主题管理页面中，单击 **Kafka协议消费** 页签。
+3. 在日志主题管理页面中，单击 **Kafka协议消费**页签。
 4. 单击右侧的**编辑**，将“当前状态”的开关按钮设置为打开状态后，单击**确定**。
-5. 控制台给出Topic、host+port的信息。用户可以复制信息，构造消费者SDK。：
+5. 控制台给出 Topic、host+port 的信息。用户可以复制信息，构造消费者 SDK。
 ![](https://qcloudimg.tencent-cloud.cn/raw/51c5dbb6f1f94e1aa5e9f99027a9a6b0.png)
 
 ## Flink 消费 CLS 日志
