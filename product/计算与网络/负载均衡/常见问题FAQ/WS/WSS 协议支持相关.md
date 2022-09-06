@@ -48,8 +48,7 @@ CLB 默认支持 WS/WSS，不收取额外费用。
 
 [](id:5)
 ### 如何在 CLB 上开启 WS/WSS？
-**默认开启，无需额外配置**。
-监听器监听在 HTTP，则默认支持 WS；监听器监听 HTTPS，则默认支持 WSS。
+如需开启，请联系 [在线支持](https://cloud.tencent.com/online-service) 开启。
 使用 WSS 时，CLB 会进行 SSL 卸载。
 [[回到顶部]](#1)
 
