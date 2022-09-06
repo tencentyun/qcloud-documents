@@ -4,7 +4,7 @@
 本文档提供关于文档预览的相关的 API 概览以及 SDK 示例代码。
 | API           |    操作名  |   操作描述               |
 | :--------------- | :------------------ | :--------------------- |
-| [文档转HTML](https://cloud.tencent.com/document/product/460/52518) |   文档转HTML同步请求   |获取文档转HTML的请求URL |
+| [文档转HTML](https://cloud.tencent.com/document/product/436/54059) |   文档转HTML同步请求   |获取文档转HTML的请求URL |
 
 ## 文档转HTML
 
