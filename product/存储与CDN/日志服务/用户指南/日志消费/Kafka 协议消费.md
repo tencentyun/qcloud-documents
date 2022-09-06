@@ -66,6 +66,34 @@
 5. 控制台给出 Topic、host+port 的信息。用户可以复制信息，构造消费者 SDK。
 ![](https://qcloudimg.tencent-cloud.cn/raw/51c5dbb6f1f94e1aa5e9f99027a9a6b0.png)
 
+## Python SDK
+
+```
+import uuid
+from kafka import KafkaConsumer,TopicPartition,OffsetAndMetadata
+consumer = KafkaConsumer(
+#消费主题，用out+日志主题id拼接，例如"out-633a268c-XXXX-4a4c-XXXX-7a9a1a7baXXXX" 
+'${out-TopicID} ',  
+group_id = uuid.uuid4().hex,
+auto_offset_reset='earliest',
+#服务地址+端口，外网端口9096，内网端口9095,例子是内网消费，请根据您的实际情况填写
+bootstrap_servers = ['${region}-producer.cls.tencentyun.com:9095'],
+security_protocol = "SASL_PLAINTEXT",
+sasl_mechanism = 'PLAIN',   
+#用户名是日志集合ID，例如ca5cXXXXdd2e-4ac0af12-92d4b677d2c6  
+sasl_plain_username = "${logsetID}",
+#密码是用户的SecretId#SecretKey组合的字符串，比AKIDWrwkHYYHjvqhz1mHVS8YhXXXX#XXXXuXtymIXT0Lac注意不要丢失#。
+sasl_plain_password = "${SecretId}#${SecretKey}",
+api_version = (1,1,1)
+)
+print('begin')
+for message in consumer:
+    print('begins')
+    print ("Topic:[%s] Partition:[%d] Offset:[%d] Value:[%s]" % (message.topic, message.partition, message.offset, message.value))
+    print('end')
+```
+
+
 ## Flink 消费 CLS 日志
 
 ### 开启日志的 kafka 消费协议
@@ -171,29 +199,3 @@ a1.sources.source_kafka.channels = channel1
 a1.sinks.sink_local.channel = channel1
 ```
 
-## Python SDK
-
-```
-import uuid
-from kafka import KafkaConsumer,TopicPartition,OffsetAndMetadata
-consumer = KafkaConsumer(
-#消费主题，用out+日志主题id拼接，例如"out-633a268c-XXXX-4a4c-XXXX-7a9a1a7baXXXX" 
-'${out-TopicID} ',  
-group_id = uuid.uuid4().hex,
-auto_offset_reset='earliest',
-#服务地址+端口，外网端口9096，内网端口9095,例子是内网消费，请根据您的实际情况填写
-bootstrap_servers = ['${region}-producer.cls.tencentyun.com:9095'],
-security_protocol = "SASL_PLAINTEXT",
-sasl_mechanism = 'PLAIN',   
-#用户名是日志集合ID，例如ca5cXXXXdd2e-4ac0af12-92d4b677d2c6  
-sasl_plain_username = "${logsetID}",
-#密码是用户的SecretId#SecretKey组合的字符串，比AKIDWrwkHYYHjvqhz1mHVS8YhXXXX#XXXXuXtymIXT0Lac注意不要丢失#。
-sasl_plain_password = "${SecretId}#${SecretKey}",
-api_version = (1,1,1)
-)
-print('begin')
-for message in consumer:
-    print('begins')
-    print ("Topic:[%s] Partition:[%d] Offset:[%d] Value:[%s]" % (message.topic, message.partition, message.offset, message.value))
-    print('end')
-```
