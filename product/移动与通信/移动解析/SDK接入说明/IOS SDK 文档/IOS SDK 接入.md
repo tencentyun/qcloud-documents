@@ -26,6 +26,13 @@
 | MSDKDns_C11.xcframework | 适用于该两项配置分别为 **“GNU++11”** 和 **“libc++(LLVM C++ standard library with C++11 support)”** 的工程。 |
 
 
+
+<dx-alert infotype="notice" title="">
+- MSDKDns_C11从V1.6.0版本开始增加本地数据存储，需引入WCDB包。[如何接入WCDB](https://github.com/Tencent/wcdb/wiki#%E5%AE%89%E8%A3%85)。
+- MSDKDns 不支持本地数据持久化功能，如果需要使用该功能，请更换到 MSDKDns_C11。
+</dx-alert>
+
+
 ## SDK 集成
 移动解析 HTTPDNS 提供以下两种集成方式供 IOS 开发者选择：
 - 通过 CocoaPods 集成。
