@@ -17,7 +17,7 @@ Consul 引擎支持使用Gossip Encryption进行通信加密。您可以配置Go
 ### 操作步骤
 1. 登录 TSE 控制台 。
 2. 在左侧导航栏单击注册中心，单击目标实例的“ID/名称”，在系统参数 页，选择Gossip加密功能项，点击修改参数，编辑JSON内容，将encrypt_verify_incoming和encrypt_verify_outgoing修改为true，点击保存。
-
+<img src="https://qcloudimg.tencent-cloud.cn/raw/d05fc4a3235009fe215cbf00469ddff4.png">
 3. 等待Consul Server集群滚动重启，此过程大概需要3-8分钟。
 4. 当实例处于运行中状态，表明重启完毕，您需要在Consul Agent Client的启动配置中添加相同的密钥配置（encrypt），并重启Agent Client。
 ```
