@@ -41,7 +41,7 @@ Spring Cloud Tencent 新增了 spring-cloud-tencent-plugin-starts 模块，在�
 ## 测试环境路由实现原理
 ### 方案总览 
 测试环境路由的样例实现以下图为例，一共有两个测试环境以及一个基线环境。流量从端到端会依次经过以下组件：App > 网关 > 用户中心 > 积分中心 > 活动中心。
-<img src="https://qcloudimg.tencent-cloud.cn/raw/22143ab67b5b55b59585aa8fd6eeef21.png"> 
+<img src="https://qcloudimg.tencent-cloud.cn/raw/22143ab67b5b55b59585aa8fd6eeef21.png" style="width:80%"> 
 根据上一节服务路由章节所述，为了达到测试环境路由的能力，开发工作需要做三件事情：
 1. 服务实例染色（标识实例属于哪个测试环境）
 2. 流量染色（标识请求应该被转发到哪个测试环境）
@@ -149,7 +149,7 @@ Spring Cloud Tencent 应用在启动时，自动会读取环境变量并解析�
 北极星提供了非常完善的服务治理能力，上层的服务框架基于北极星原生 SDK 就能快速实现强大的服务治理能力。Spring Cloud Tencent 就是在北极星的基础上实现了服务路由能力。
 
 北极星服务路由实现原理并不复杂，如下图所示，从注册中心获取到所有实例信息，再经过一系列的 RouterFilter 插件过滤出满足条件的实例集合。
-<img src="https://qcloudimg.tencent-cloud.cn/raw/369b6e3f22940236ec0611530af5211b.png">
+<img src="https://qcloudimg.tencent-cloud.cn/raw/369b6e3f22940236ec0611530af5211b.png"> 
 在多测试环境场景下主要用到了 MetadataRouter （元数据路由）插件，此插件核心能力是**根据请求的标签完全匹配服务实例的标签**。
 例如请求有两个标签 key1=value1和 key2=value2，MetadataRouter 则会筛选出所有实例中包含同时满足 key1=value1 和 key2=value2 的服务实例。在多测试环境场景下，Spring Cloud Tencent 缺省使用 featureenv 标签，通过 featureenv 标签筛选出属于同一个测试环境的服务实例。
 
@@ -197,16 +197,16 @@ spring:
 ### 流量染色
 #### 方式一：客户端染色 （推荐）
 如下图所示，在客户端发出的 HTTP 请求里，新增 X-Polaris-Metadata-Transitive-featureenv=f1 请求头即可实现染色。该方式是让开发者在请求创建的时候根据业务逻辑进行流量染色。
-<img src="https://qcloudimg.tencent-cloud.cn/raw/e178587f55e83d06a57b8fddce776692.png"> 
+<img src="https://qcloudimg.tencent-cloud.cn/raw/e178587f55e83d06a57b8fddce776692.png" style="width:80%"> 
 
 #### 方式二：网关动态染色（推荐）
 动态染色是开发者配置一定的染色规则，让流量经过网关时自动染色，使用起来相当方便。例如把 uid=1 用户的请求都转发到 f1 环境，把 uid=0 用户的请求都转发到 f2 环境。只需要配置一条染色规则即可实现。
-<img src="https://qcloudimg.tencent-cloud.cn/raw/f818e056a147530def0569b513e08131.png"> 
+<img src="https://qcloudimg.tencent-cloud.cn/raw/f818e056a147530def0569b513e08131.png"  style="width:80%">  
 Spring Cloud Tencent 通过实现 Spring Cloud Gateway 的 GlobalFilter 来实现流量染色插件，开发者只需要添加 spring-cloud-tencent-gateway-plugin 依赖，并在配置文件中打开染色插件开关（spring.cloud.tencent.plugin.scg.staining.enabled=true）即可引入流量染色能力。
 
 #### 方式三：网关静态染色
 往请求中加入固定的 Header 是网关最常见的插件，如下图所示。可以在每个环境部署一个网关，所有经过网关的请求都增加 X-Polaris-Metadata-Transitive-featureenv=f1 请求头即可。此种方式需要每个环境部署网关，成本高，所以使用频率相对较低。
-<img src="https://qcloudimg.tencent-cloud.cn/raw/15cc31d73fab9ce842647d792343264a.png">
+<img src="https://qcloudimg.tencent-cloud.cn/raw/15cc31d73fab9ce842647d792343264a.png" style="width:80%"> 
 完成以上操作步骤即可实现测试环境路由，您可运行 Spring Cloud Tencent 下 polaris-router-featureenv-example 完整体验。
 
 ## 总结

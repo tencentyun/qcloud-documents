@@ -11,7 +11,7 @@
 
 ## 前提条件
 - 已准备域名，并完成域名备案。
-	- 若您需要购买自有域名，可前往 [**域名注册**](https://cloud.tencent.com/document/product/242/9595) 完成 [域名购买](https://buy.cloud.tencent.com/domain?from=console)。您也可以前往其它域名服务商进行购买。
+	- 若您需要购买自有域名，可前往[ ](https://cloud.tencent.com/document/product/242/9595) [**域名注册**](https://cloud.tencent.com/document/product/242/9595)[ ](https://cloud.tencent.com/document/product/242/9595)完成 [域名购买](https://buy.cloud.tencent.com/domain?from=console)。您也可以前往其它域名服务商进行购买。
 	- 若您的域名未完成备案，您可前往腾讯云的 [网站备案](https://cloud.tencent.com/product/ba) 完成域名备案。
 - 已在云直播控制台的 **[域名管理](https://console.cloud.tencent.com/live/domainmanage)** 中成功 [添加自有域名](https://cloud.tencent.com/document/product/267/20381)，并验证域名归属权且域名 CNAME 地址状态为![](https://main.qcloudimg.com/raw/ed1ac2f8541f629814a3f2420b1eb79c.png)（CNAME 未配置）。
 
@@ -20,23 +20,18 @@
 ## 配置步骤
 本文以在腾讯云、阿里云、百度云、DNSPod、万网、新网配置 CNAME 域名解析为例。操作步骤仅供参考，如与实际配置不符，请以各自 DNS 服务商的信息为准。域名 CNAME 设置完成后，您可根据 [验证 CNAME 是否生效](#check) 所述方法验证域名是否已 CNAME 成功。
 
-
 [](id:tencent)
 ### 一键配置 CNAME
 域名若是已托管至腾讯云 DNSPod，可一键配置 CNAME。
 1. 登录直播控制台 [域名管理](https://console.cloud.tencent.com/live/domainmanage)，可在以下三种方式中进入一键配置 CNAME 流程。
   - 在域名管理页中，查询域名 CNAME 状态为![](https://main.qcloudimg.com/raw/ed1ac2f8541f629814a3f2420b1eb79c.png)，在提示中单击 **一键配置** 进入。
-  - 在域名管理页中选择需要配置 CNAME 的域名，单击域名地址或管理，进入域名基本信息页，可在基本信息中单击 **一键配置** 进入。
-![](https://qcloudimg.tencent-cloud.cn/raw/dc39aee8b8012199089b3b7df6ba0ed8.png)
-  - 在域名管理页中添加域名，填写完基本配置后可进入CANME 配置流程。
-![](https://qcloudimg.tencent-cloud.cn/raw/1f3eb4be0ea0ad5288758f7e88c5d8b4.png)
+  - 在域名管理页中选择需要配置 CNAME 的域名，单击域名地址或管理，进入域名基本信息页，可在基本信息中单击 **一键配置** 进入。![](https://qcloudimg.tencent-cloud.cn/raw/98adfe18e72ada65d6cb15fe6c43a925.png)
+  - 在域名管理页中添加域名，填写完基本配置后可进入 CANME 配置流程。![](https://qcloudimg.tencent-cloud.cn/raw/5cd5b8102b6d38c1a40f61bd317fa1b2.png)
 2. 域名生效状态为未生效时，可单击一键配置，配置约**15分钟**后生效。
 3. 域名解析记录若是添加失败，可前往腾讯云 [DNSPod](https://console.cloud.tencent.com/cns) 控制台处理。
 
-
-
 ### 腾讯云设置方法
-1. 登录 [DNSPod 控制台](https://console.cloud.tencent.com/cns)。
+1. 登录 [DNSPod控制台](https://console.cloud.tencent.com/cns)。
 2. 选择您需添加 CNAME 的域名，单击 **解析**。
 3. 进入指定域名的域名解析页，单击 **添加记录**。
 4. 在该新增列填写域名 CNAME 记录，具体填写内容如下所示：

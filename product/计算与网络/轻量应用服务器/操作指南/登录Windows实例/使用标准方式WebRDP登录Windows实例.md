@@ -17,8 +17,8 @@
 2. 在服务器列表中找到对应的实例，并根据实际的操作习惯选择不同的方式进行登录。
  - 在服务器列表中的实例卡片上，单击**登录**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/861cc6329d3f3ec63e00035d8c261074.png)
- - 单击实例卡片进入服务器详情页，单击“远程登录”中的**登录**，或页面右上角的**登录**。
-![](https://qcloudimg.tencent-cloud.cn/raw/df600fddf376f19847cee46de95f678e.png)
+ - 单击实例卡片进入服务器详情页，单击“远程登录”中“WebRDP登录”下的**登录**，或页面右上角的**登录**。
+![](https://qcloudimg.tencent-cloud.cn/raw/df767a6523a06d80386a18355477e0e0.png)
  - 使用 [应用镜像](https://cloud.tencent.com/document/product/1207/44361#appOS) 创建的 Windows 实例，可在实例详情页选择应用管理，单击页面右上角的**登录**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/3a9bfb419e85d97f997f7e2ff5941f7b.png)
 3. 在打开的“标准登录 | Windows 实例”窗口中，根据实际情况填写登录信息。如下图所示：

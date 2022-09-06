@@ -1,6 +1,10 @@
 ## QQ 浏览器资源包申请流程
-当您购买完 QQ 浏览器资源包后，您可申请相关资源，申请入口请前往 [腾讯云微搭低代码控制台](https://console.cloud.tencent.com/lowcode/resource/index)。
+由于该资源包总量限制，且当前处于内测期。当您购买完 QQ 浏览器资源包后，您需先填写问卷，将该资源入口开白，才可申请相关资源 [开白地址](https://cloud.tencent.com/apply/p/pvxetw83uy)。
 
+在您的开白申请通过后，您可请前往 [腾讯云微搭低代码控制台](https://console.cloud.tencent.com/lowcode/resource/index) 并单击**提交申请**进行资源申请。
+
+
+![](https://qcloudimg.tencent-cloud.cn/raw/8c0b692659addb684456095d24df0e71.png)
 
 > !
 1. 企业名片和服务窗相关资源依赖微信小程序，请提前开发&发布小程序后，再进行资源申请。
