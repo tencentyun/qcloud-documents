@@ -94,7 +94,9 @@
 :::
 </dx-tabs>
 
-
+<dx-alert infotype="notice" title="">
+V1.6.0版本开始增加本地数据存储，需引入WCDB包，[如何接入](https://github.com/Tencent/wcdb/wiki#%E5%AE%89%E8%A3%85)。
+</dx-alert>
 
 
 ## SDK 初始化
