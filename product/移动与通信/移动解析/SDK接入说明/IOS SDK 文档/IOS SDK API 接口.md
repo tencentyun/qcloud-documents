@@ -64,14 +64,14 @@ typedef struct DnsConfigStruct {
 - (BOOL) initConfigWithDictionary:(NSDictionary *)config;
 
 /**
- * （可选）预解析域名。建议不要设置太多预解析域名，当前限制为最多 8 个域名。仅在初始化时触发。
+ * 预解析域名。建议不要设置太多预解析域名，当前限制为最多 8 个域名。仅在初始化时触发。
  *  示例代码：[[MSDKDns sharedInstance] WGSetPreResolvedDomains:@[@"dnspod.com", @"dnspod.cn"]];
  * @param domains  域名数组
  */
 - (void) WGSetPreResolvedDomains:(NSArray *)domains;
 
 /**
- * （可选）解析缓存自动刷新, 以数组形式进行配置。当前限制为最多 8 个域名。
+ * 解析缓存自动刷新, 以数组形式进行配置。当前限制为最多 8 个域名。
  * 示例代码：[[MSDKDns sharedInstance] WGSetKeepAliveDomains:@[@"dnspod.com", @"dnspod.cn"]];
  * @param domains  域名数组
  */
@@ -82,6 +82,18 @@ typedef struct DnsConfigStruct {
  * 启用IP优选，设置域名对应的端口号，对域名解析返回的IP列表进行IP探测，对返回的列表进行动态排序，以保证第一个IP是可用性最好的IP
  */
 - (void) WGSetIPRankData:(NSDictionary *)IPRankData;
+
+/**
+ * 设置是否允许返回TTL过期域名的IP，默认关闭
+ * 设置为true时，会直接返回缓存的解析结果，没有缓存则返回0。且在无缓存结果或缓存已过期时，会异步发起解析请求更新缓存。因异步接口逻辑在回调中始终返回未过期的解析结果，设置为true时，异步API不可使用。建议使用同步接口。
+ */
+- (void) WGSetExpiredIPEnabled:(BOOL)enable;
+
+/**
+ * 设置是否启用本地持久化缓存功能，默认关闭
+ */
+- (void) WGSetPersistCacheIPEnabled:(BOOL)enable;
+
 
 ```
 
