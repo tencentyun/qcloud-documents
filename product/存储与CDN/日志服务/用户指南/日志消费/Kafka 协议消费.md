@@ -33,7 +33,7 @@
 </tr>
 <tr>
 <td>hosts</td>
-<td>配置为${region}-producer.cls.tencentyun.com:9095，详细参见 <a href="https://cloud.tencent.com/document/product/614/18940#Kafka_Consume">可用域名- Kafka 消费日志</a></td>
+<td>配置为${region}-producer.cls.tencentyun.com:9095，详细参见 <a href="https://cloud.tencent.com/document/product/614/18940#Kafka_Consume">可用域名- Kafka 消费日志</a>。</td>
 </tr>
 <tr>
 <td>topic</td>
