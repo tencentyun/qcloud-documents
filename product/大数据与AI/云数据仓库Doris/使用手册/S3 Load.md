@@ -1,16 +1,15 @@
-﻿从0.14 版本开始，Doris 支持通过 S3协议直接从支持 S3协议的在线存储系统导入数据。
+从0.14 版本开始，Doris 支持通过 S3 协议直接从支持 S3 协议的在线存储系统导入数据。
 
-本文档主要介绍如何导入 AWS S3 中存储的数据。也支持导入其他支持 S3协议的对象存储系统导入，如腾讯云的 COS、百度云的 BOS和阿里云的OSS 等。
+本文档主要介绍如何导入 AWS S3 中存储的数据。也支持导入其他支持 S3 协议的对象存储系统导入，如腾讯云的 COS、百度云的 BOS 和阿里云的 OSS 等。
 
 ## 适用场景
-- 源数据在支持 S3协议的存储系统中，如 COS, S3, BOS 等。
-- 数据量在几十到百GB 级别。
+- 源数据在支持 S3协议的存储系统中，如 COS，S3，BOS 等。
+- 数据量在几十到百GB级别。
 
 ## 准备工作
 1. 准本AK 和 SK。
 首先需要找到或者重新生成 AWS `Access keys`，可以在 AWS console 的 `My Security Credentials` 找到生成方式，如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/ad12121b42ee27ee47a7701615742a27.png)
-
 选择 `Create New Access Key` 注意保存生成 AK 和 SK。
 2. 准备 REGION 和 ENDPOINT。
 REGION 可以在创建桶的时候选择也可以在桶列表中查看到。ENDPOINT 可以通过如下页面通过 REGION 查到 [AWS 文档](https://docs.aws.amazon.com/general/latest/gr/s3.html#s3_region)。其他云存储系统可以相应的文档找到与 S3 兼容的相关信息。
