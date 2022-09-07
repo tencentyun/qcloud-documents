@@ -43,7 +43,7 @@
 > ? 推流成功后，采集预览的状态不支持变更，而且推流可能会产生对应的带宽/流量或其他增值服务费用。
 > 
 ![](https://main.qcloudimg.com/raw/1795b1d211017b79eb7ea855c7a4a276.png)
-	2. 可以单击**开启美颜**，即可开启美颜能力。
+	2. 采集方式为摄像头采集时，单击**开启美颜**，即可开启美颜能力。
 ![](https://qcloudimg.tencent-cloud.cn/raw/eec3cddc8d84e43037d240444a74a138.png)
 	3. 美颜能力模块可以对画面中人物进行美化，增加互动贴纸以及提供美妆、虚拟背景等能力。
 ![](https://qcloudimg.tencent-cloud.cn/raw/8192f858c2a36f3aa86a3ac98b2a6429.png)
