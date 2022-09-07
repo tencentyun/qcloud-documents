@@ -33,6 +33,7 @@ Shipper 基本的使用方法如下：
 ```
 ./clickhouse-shipper  move_ck_data create_process --srcip src-ck-1-1  --targetip dst-ck-1-1  --port 9000 --clustername  default_cluster   --database_cdn  XXXX    -- table_cdn XXXX --partition_cdn  XXXX           
 ```
+
 ### 使用 Shipper 的优点 
 1. 本质问题：给予 part 目录进行迁移，迁移效率高。 
 2. 集群负载：相对较小，大部分在内存消耗。
@@ -57,7 +58,7 @@ ClickHouse-Copier，ClickHouse 官方的数据迁移工具，主要基于分布�
 ClickHouse-Copier 的创建是为了在集群之间移动数据。它运行简单的 INSERT...SELECT 查询，并且可以在具有不 同引擎参数的表之间以及具有不同分片数量的集群之间复制数据。在任务配置文件中，您需要描述源集群和目标集 群的布局，并列出您需要复制的表。您可以复制整个表或特定分区。ClickHouse-Copier 使用临时分布式表从源集 群中选择并插入到目标集群中。 
 Copier 通过配置源端和目标端集群的信息，以及迁移表的分布式逻辑，通过在每个 shard 上，每个 partition 构造迁 移任务，将数据基于一定的规则从每个partition 中读取，然后 insert 到目标集群的临时表中，然后基于 attach partition 将数据挂载到最终表中。而且整个任务的执行情况会保存到 zookeeper 中，可以实现任务的重启、短点续传，以及多个 Copier 进程共同执行一个任务。 
 Copier 作为官方的迁移工具，也是支持 MergeTree 的表引擎，包括复制表和非复制表。 
-![](https://qcloudimg.tencent-cloud.cn/raw/e3e71540a1f8b04d8472e20e63d86cc3.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/f14491c962f44d448d6af87e380bd11e.png)
                     
 ### 使用 Copier 的优点
 1. ClickHouse 社区官方工具，社区一直在维护和改进，包括功能和性能等。           
