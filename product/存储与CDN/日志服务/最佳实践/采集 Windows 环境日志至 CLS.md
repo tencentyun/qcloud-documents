@@ -31,8 +31,7 @@ cd .\winlogbeat-7.6.2-windows-x86_64
 ```
 .\winlogbeat.exe test config -c .\winlogbeat.yml -e
 ```
-如果返回下图结果则表示成功。
-![](https://qcloudimg.tencent-cloud.cn/raw/a19f7ea0c142f4b86974f197a63be631.png)
+如果返回 `config OK` 则表示成功。
 5. 执行如下命令，启动程序。
 ```
 Start-Service winlogbeat

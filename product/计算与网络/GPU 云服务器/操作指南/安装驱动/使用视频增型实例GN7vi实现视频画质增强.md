@@ -86,10 +86,10 @@ export LD_LIBRARY_PATH=./fflib_gpu:$LD_LIBRARY_PATH
 ```
  - 快速处理模型：以下命令使用了 tenfilter 中的去压缩伪影、正常模式下的标准超分辨率模型以及 unsharp 锐化处理。
 ```shell
-./ffmpeg -i ./videos/input1.mp4 -vf tenfilter=af=auto,tenfilter=mag_filter=1:mag_sr=2:mag_sr_stre=normal,unsharp -c:v libten265 -ten265-params crf=26:vbv-maxrate=2000 -y fast_output1.mp4
+./ffmpeg -i ./videos/input1.mp4 -vf tenfilter=af=auto,tenfilter=mag_filter=1:mag_sr=2:mag_sr_stre=normal,unsharp -c:v libten264 -ten264-params crf=26:vbv-maxrate=2000 -y fast_output1.mp4
 ```
 ```shell
-./ffmpeg -i ./videos/input2.mp4 -vf tenfilter=af=auto,tenfilter=mag_filter=1:mag_sr=2:mag_sr_stre=normal,unsharp -c:v libten265 -ten265-params crf=26:vbv-maxrate=2000 -y fast_output2.mp4
+./ffmpeg -i ./videos/input2.mp4 -vf tenfilter=af=auto,tenfilter=mag_filter=1:mag_sr=2:mag_sr_stre=normal,unsharp -c:v libten264 -ten264-params crf=26:vbv-maxrate=2000 -y fast_output2.mp4
 ```
 <dx-alert infotype="explain" title="">
 同一模型的运行速度会受到输入分辨率的影响，分辨率越大运行速度越慢。初次运行特定 AI 模型时，会耗费较长的时间初始化模型，后续重复执行相同命令时速度会有明显提升。如需评估运行速度，请参考重复执行时的结果。
@@ -124,20 +124,20 @@ ffmpeg 命令中的部分参数含义如下表：
 3. 等待程序运行结束后，可将输出视频文件下载到本地进行查看，建议使用 xshell、MobaXterm 等工具。以下为执行上述命令输出的4个视频文件截图，以用作对比验证。
 <dx-tabs>
 ::: output1.mp4
-截图时间：00分13秒
-![](https://qcloudimg.tencent-cloud.cn/raw/b2ca277c8c0031d8239fcc8c8d542cdc.png)
+截图时间：01分15秒
+![](https://qcloudimg.tencent-cloud.cn/raw/9773d6f0790e5e1ceedf3a2bf5c958ee.png)
 :::
 ::: fast_output1.mp4
-截图时间：00分13秒
-![](https://qcloudimg.tencent-cloud.cn/raw/594f39b5ef7868d5e1d0a944f3a3b665.png)
+截图时间：01分15秒
+![](https://qcloudimg.tencent-cloud.cn/raw/12da44d281de1acf74cd823acbcc0f44.png)
 :::
 ::: output2.mp4
-截图时间：00分00秒
-![](https://qcloudimg.tencent-cloud.cn/raw/db1c4a67eb71839c2a7e333be624aa2f.png)
+截图时间：00分10秒
+![](https://qcloudimg.tencent-cloud.cn/raw/891787f7ed4754ee10a97ac74e2d7eba.png)
 :::
 ::: fast_output2.mp4
-截图时间：00分00秒
-![](https://qcloudimg.tencent-cloud.cn/raw/435b0c3f574b4a750d216445c26d9ff1.png)
+截图时间：00分10秒
+![](https://qcloudimg.tencent-cloud.cn/raw/108db7750a9ee26e7661ff621af2b1c5.png)
 :::
 </dx-tabs>
 

@@ -6,11 +6,11 @@ TDSQL MySQL版 提供透明数据加密（Transparent Data Encryption，TDE）�
 ## 限制条件
 - TDE 加密功能当前仅支持 MySQL 8.0.24 版本和香港地区 Percona 5.7 版本。
 >?如需使用 TDE 加密功能，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请。
-- 需开通 [密钥管理服务KMS](https://cloud.tencent.com/document/product/573/38406)。如未开通，请根 TDE 加密功能引导进行开通。
+- 需开通 [密钥管理服务 KMS](https://cloud.tencent.com/document/product/573/38406)。如未开通，请根据 TDE 加密功能引导进行开通。
 - 需获得 KMS 密钥权限。如未开通，请根据 TDE 加密功能引导进行开通。
 
 ## 注意事项
-- 开启 KMS 后，可能产生密钥管理服务（KMS）费用，请参考 [KMS 购买指南](https://cloud.tencent.com/document/product/573/18809)。
+- 开启 KMS 后，可能产生密钥管理服务（KMS）费用，请参见 [KMS 购买指南](https://cloud.tencent.com/document/product/573/18809)。
 - TDE 加密功能开通后无法关闭。
 - 若已开通灾备/只读实例，暂时不支持 TDE 加密功能。
 - 开启 TDE 加密功能后，暂时不支持创建灾备/只读实例。
