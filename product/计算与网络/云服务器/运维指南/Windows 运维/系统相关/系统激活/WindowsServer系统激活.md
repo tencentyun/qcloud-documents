@@ -10,11 +10,12 @@
 
 ## 激活前须知
 
-1. 仅 **Windows Server 2008** 中 SPP Notification Service 用来执行激活相关的服务，需要保证正常运行。如下图所示：
+- 仅 **Windows Server 2008** 中 SPP Notification Service 用来执行激活相关的服务，需要保证正常运行。如下图所示：
    ![](https://main.qcloudimg.com/raw/f8a8aab467f82898d61d7b67fab86c0b.png)
-2. 某些优化软件可能会禁用修改服务相关执行程序的执行权限，例如 sppsvc.exe 进程的执行权限若被修改，会导致服务运行不正常。如下图所示：
+- 某些优化软件可能会禁用修改服务相关执行程序的执行权限，例如 sppsvc.exe 进程的执行权限若被修改，会导致服务运行不正常。如下图所示：
    ![](https://mc.qcloudimg.com/static/img/685fe41ef992f11ba305dfb570cb916c/21.png)
 在尝试激活 Windows 云服务器之前，请确保 Windows 上这个服务和其他基本功能正常。
+- 云服务器需配置腾讯云 [内网 DNS](https://cloud.tencent.com/document/product/213/5225#.E5.86.85.E7.BD.91-dns)，否则可能导致激活失败。
 
 ## 自动激活
 
