@@ -17,7 +17,7 @@ EIP 拥有普通公网 IP 不具备的灵活绑定与解绑能力，若云服务
 >
 ![](https://main.qcloudimg.com/raw/93689324c72948a9746a4ab90223dd12.png)
 3. 在弹出的 “转换为弹性公网 IP” 窗口中，单击**确定**。
-<img src="https://qcloudimg.tencent-cloud.cn/raw/05831183789dc337ee51d3f41ea44881.png" width="65%">
+<img src="https://qcloudimg.tencent-cloud.cn/raw/05831183789dc337ee51d3f41ea44881.png" width="65%"> 
 
 
 ### <span id="step2" />步骤二：云服务器 A 解绑 EIP
