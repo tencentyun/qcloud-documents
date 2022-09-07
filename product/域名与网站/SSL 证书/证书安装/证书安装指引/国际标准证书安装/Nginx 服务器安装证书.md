@@ -94,7 +94,7 @@ server {
 ```
 ./sbin/nginx -s reload
 ```
-9. 重启成功，即可使用 `https://cloud.tencent.com` 进行访问。
+9. 重载成功，即可使用 `https://cloud.tencent.com` 进行访问。
 
 ### HTTP 自动跳转 HTTPS 的安全配置（可选）
 如果您需要将 HTTP 请求自动重定向到 HTTPS。您可以通过以下操作设置：
@@ -148,7 +148,7 @@ server {
 ```
 ./sbin/nginx -s reload
 ```
-9. 重启成功，即可使用 `http://cloud.tencent.com` 进行访问。
+9. 重载成功，即可使用 `http://cloud.tencent.com` 进行访问。
 
 >!操作过程如果出现问题，请您 [联系我们](https://cloud.tencent.com/document/product/400/35259)。
 
