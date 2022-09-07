@@ -1,27 +1,36 @@
 ## 什么是 TUIKit
-Flutter TUIKit 是基于 Flutter IM SDK 实现的一套 UI 组件，其中包含会话、聊天、关系链、群组等功能，基于 UI 组件您可以像搭积木一样快速搭建起自己的业务逻辑。其构架图如下：
-![](https://qcloudimg.tencent-cloud.cn/raw/f704b22c049c9915ffa5ccdca2aeab85.png)
+Flutter TUIKit 是基于 Flutter IM SDK 实现的一套 UI 组件，其中包含会话、聊天、关系链、群组及本地搜索等功能。
 
-本 TUIKit 组件库及配套业务逻辑代码 [im-flutter-uikit](https://github.com/tencentyun/TIMSDK/tree/master/Flutter/Demo/im-flutter-uikit) 已开源，您可引入在线版本，也可 fork 后本地引入使用。
+基于本套UI组件和内置的IM业务逻辑，您可以像搭积木一样，快速地在您APP中，引入即时通信/用户及关系链管理等模块。
 
-目前包含的组件如下：
+> 本含UI的SDK im-flutter-uikit 已开源，您可引入[在线版本](https://pub.dev/packages/tim_ui_kit)，也可 [GitHub fork](https://github.com/tencentyun/TIMSDK/tree/master/Flutter/Demo/im-flutter-uikit) 后本地引入使用。
+
+目前包含的一级组件如下：
 
 - [TIMUIKitCore](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitCore/) 核心
 - [TIMUIKitConversation](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitConversation/) 会话列表
 - [TIMUIKitChat](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitChat/) 聊天区域，发送消息+历史消息列表
 - [TIMUIKitContact](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitContact/) 联系人列表
-- [TIMUIKitProfile](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitProfile/) 用户资料查看及关系管理
+- [TIMUIKitProfile](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitProfile/) 用户资料查看及关系链管理
 - [TIMUIKitGroupProfile](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitGroupProfile/) 群资料展示与管理
 - [TIMUIKitGroup](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitGroup/) 我的群聊
 - [TIMUIKitBlackList](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitBlackList/) 黑名单
 - [TIMUIKitNewContact](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitNewContact/) 新的联系人申请
-- [TIMUIKitSearch](https://cloud.tencent.com/document/product/269/79121) 本地搜索
+- [TIMUIKitSearch](https://cloud.tencent.com/document/product/269/79121) 本地搜索，支持全局搜索及会话内搜索
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/f140dd76be01a65abfb7e6ba2bf50ed5.png)
 
 >?
 >
 > 上图 TUIKit 界面语言支持自动或手动在 **简体中文/繁体中文/英文** 间切换。如有多语言相关咨询，可 [联系我们](#contact)。
+
+## 环境要求
+
+|   | 版本 |
+|---------|---------|
+| Flutter | 最低要求 Flutter 2.10.0 版本。|
+|Android|Android Studio 3.5及以上版本，App 要求 Android 4.1及以上版本设备。|
+|iOS|Xcode 11.0及以上版本，请确保您的项目已设置有效的开发者签名。|
 
 ## 操作步骤
 如下会介绍如何使用 Flutter TUIKit 快速构建一个简单的即时通信应用。
@@ -90,11 +99,13 @@ flutter pub add tim_ui_kit
 
 如果您的项目需要支持 Web，请在执行后续步骤前，[查看 Web 兼容说明章节](#web)，引入JS文件。
 
-### 步骤2: 初始化
+### 步骤2: 初始化[](id:init)
 
 1. 在您应用启动时，初始化 TUIKit。
 2. 请务必保证先执行 [`TIMUIKitCore.getInstance()`](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitCore/getInstance.html) ，再调用初始化函数 [`init()`](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitCore/init.html) ，并将您的`sdkAppID`传入。
-3. 为方便您获取API报错及建议提醒用户的提示语，此处建议挂载一个 onTUIKitCallbackListener 监听，[详见此部分](#onTUIKitCallbackListener)。
+3. 为方便您获取API报错及建议提醒用户的提示语，此处建议挂载一个 onTUIKitCallbackListener 监听，[详见此部分](#callback)。
+
+示例代码如下，[全部初始化参数可参考此文档](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitCore/init.html)。
 
 ```dart
 /// main.dart
@@ -107,14 +118,14 @@ final CoreServicesImpl _coreInstance = TIMUIKitCore.getInstance();
      sdkAppID: 0, // Replace 0 with the SDKAppID of your IM application when integrating
      // language: LanguageEnum.en, // 界面语言配置，若不配置，则跟随系统语言
      loglevel: LogLevelEnum.V2TIM_LOG_DEBUG,
-     onTUIKitCallbackListener:  (TIMCallback callbackValue){}, // [建议配置，详见此部分](https://cloud.tencent.com/document/product/269/70746#onTUIKitCallbackListener)
-     listener: V2TimSDKListener());    
+     onTUIKitCallbackListener:  (TIMCallback callbackValue){}, // [建议配置，详见此部分](https://cloud.tencent.com/document/product/269/70746#callback)
+     listener: V2TimSDKListener());
    super.initState();
  }
 }
 ```
 
->?
+>!
 >
 > 请在本步骤 await 初始化完成后，才可执行后续步骤。
 
@@ -246,11 +257,9 @@ class UserProfile extends StatelessWidget {
 
 此时，您的应用已经可以完成消息收发，管理好友关系，展示用户详情及展示会话列表。
 
-### 步骤6: [选装] 使用 Controller 控制 TUIKit
+### 步骤6: [选装] 使用 Controller 控制 TUIKit[](id:controller)
 
->?
->
->建议在 tim_ui_kit 0.1.4 以后版本使用本功能。
+>建议在 tim_ui_kit 0.1.4 以后版本中使用本功能。
 
 如上述步骤的快速集成，已经可以搭建一套可用的IM模块，如果您有其他额外的控制操作需求，可以使用组件配套的 controller 完成。
 
@@ -260,19 +269,19 @@ class UserProfile extends StatelessWidget {
 
 | 组件 | 控制器 | 功能 |
 |---------|---------|---------|
-| TIMUIKitChat | TIMUIKitChatController | 刷新历史消息列表/更新单条消息/手动发送额外的消息/为消息设置自定义字段 等 |
-| TIMUIKitConversation | TIMUIKitConversationController | 获取及刷新会话列表/会话置顶/设置会话的草稿/清空会话内所有消息/删除会话 等 |
-| TIMUIKitProfile | TIMUIKitProfileController | 删除联系人好友/置顶当前联系人的会话/将用户加入黑名单/修改被加好友方式/更新联系人备注名/设置联系人消息免打扰/添加联系人好友/更新自己的资料 等 |
+| [TIMUIKitChat](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitChat/) | [TIMUIKitChatController](https://pub.dev/documentation/tim_ui_kit/latest/ui_controller_tim_uikit_chat_controller/TIMUIKitChatController-class.html) | 刷新历史消息列表/更新单条消息/手动发送额外的消息/为消息设置自定义字段 等 |
+| [TIMUIKitConversation](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitConversation/) | [TIMUIKitConversationController](https://pub.dev/documentation/tim_ui_kit/latest/ui_controller_tim_uikit_conversation_controller/TIMUIKitConversationController-class.html) | 获取及刷新会话列表/会话置顶/设置会话的草稿/清空会话内所有消息/删除会话 等 |
+| [TIMUIKitProfile](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitProfile/) | [TIMUIKitProfileController](https://pub.dev/documentation/tim_ui_kit/latest/ui_controller_tim_uikit_profile_controller/TIMUIKitProfileController-class.html) | 删除联系人好友/置顶当前联系人的会话/将用户加入黑名单/修改被加好友方式/更新联系人备注名/设置联系人消息免打扰/添加联系人好友/更新自己的资料 等 |
 
-他们的使用方式一致，以 `TIMUIKitChatController` 举例用法。完整代码可[参考DEMO](https://github.com/TencentCloud/TIMSDK/blob/master/Flutter/Demo/im-flutter-uikit/lib/src/chat.dart)。
+他们的使用方式一致，以 [TIMUIKitChatController](https://pub.dev/documentation/tim_ui_kit/latest/ui_controller_tim_uikit_chat_controller/TIMUIKitChatController-class.html) 举例用法。完整代码可[参考DEMO](https://github.com/TencentCloud/TIMSDK/blob/master/Flutter/Demo/im-flutter-uikit/lib/src/chat.dart)。
 
-1. 在使用到 TIMUIKitChat 的类中，实例化一个 `TIMUIKitChatController` 对象。
+1. 在使用到 [TIMUIKitChat](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitChat/) 的类中，实例化一个 [TIMUIKitChatController](https://pub.dev/documentation/tim_ui_kit/latest/ui_controller_tim_uikit_chat_controller/TIMUIKitChatController-class.html) 对象。
 
 ```dart
 final TIMUIKitChatController _chatController = TIMUIKitChatController();
 ```
 
-2. 将此对象传入 `TIMUIKitChat` 的 `controller` 参数中。
+2. 将此对象传入 [TIMUIKitChat](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitChat/)  的 `controller` 参数中。
 
 ```dart
 @override
@@ -408,7 +417,11 @@ defaultConfig {
 I18nUtils(null, LanguageEnum.en);
 ```
 
-### 如何获取API接口调用报错/Flutter层报错/弹窗提示信息？[](id:onTUIKitCallbackListener)
+> ?
+> 
+> 如需固定使用某语言，可在[初始化TUIKit](#init)时，使用language参数传入。
+
+### 如何获取API接口调用报错/Flutter层报错/弹窗提示信息？[](id:callback)
 
 请在初始化TUIKit时，挂载 `onTUIKitCallbackListener` 监听。
 
@@ -466,13 +479,15 @@ final isInitSuccess = await _coreInstance.init(
 
 #### 场景信息（`TIMCallbackType.INFO`）
 
-建议根据实际情况，将这些信息弹窗提示用户。具体弹窗规则和样式可由您决定。
+建议根据实际情况，将这些信息弹窗提示用户。
+
+具体提示规则和弹窗样式可由您决定。
 
 提供`infoCode`场景码帮助您确定当前的场景，及默认的提示推荐语`infoRecommendText`。
 
-您可直接弹窗我们的推荐语，也可根据场景码自定义推荐语。推荐语语言根据系统语言自适应或您指定的语言，请勿根据推荐语来判断场景。
+您可直接弹窗提示我们的推荐语，也可根据场景码自定义推荐语。推荐语语言使用系统语言语言或您指定的语言，请勿根据推荐语来判断场景。
 
-场景码规则如下：
+**场景码规则如下：**
 
 场景码由七位数组成，前五位数确定场景发生的组件，后两位确定具体的场景表现。
 
@@ -493,7 +508,7 @@ final isInitSuccess = await _coreInstance.init(
 | 66613      | `TIMUIKitSearch`       |
 | 66614      | 通用组件               |
 
-全部场景码及默认提示语，[请参考此文档](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitCore/TIMCallback.html#inforecommendtext)。
+**所有场景码及默认提示语，[请查看此文档](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitCore/TIMCallback.html#inforecommendtext)。**
 
 ## 联系我们[](id:contact)
 如果您在接入使用过程中有任何疑问，请加入 QQ 群：788910197 咨询。
