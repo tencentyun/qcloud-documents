@@ -1,4 +1,4 @@
-腾讯云轻量应用服务器计划于2022年09月08日下架 TencentOS Server 3.1（TK4）以及 TencentOS Server 2.4（TK4）系统镜像。
+腾讯云轻量应用服务器计划于2022年10月10日下架 TencentOS Server 3.1（TK4）以及 TencentOS Server 2.4（TK4）系统镜像。
 
 
 ## 说明事项
