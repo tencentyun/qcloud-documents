@@ -123,12 +123,9 @@ ERROR 1064 (HY000): all partitions have no load data. url: http://10.74.167.16:8
 - 如果 `status` 为 `visible`，表示数据导入成功。
 - 如果 `warnings` 大于 0，表示有数据被过滤，可以通过 `show load` 语句获取 url 查看被过滤的行。
 
-	### SHOW LAST INSERT
-
+### SHOW LAST INSERT
 在上一小节中我们介绍了如何根据 insert 操作的返回结果进行后续处理。但一些语言的mysql类库中很难获取返回结果的中的 json 字符串。因此，Doris 还提供了 `SHOW LAST INSERT` 命令来显式的获取最近一次 insert 操作的结果。
-
 当执行完一个 insert 操作后，可以在同一 session 连接中执行 `SHOW LAST INSERT`。该命令会返回最近一次insert 操作的结果，如：
-
 ```sql
 mysql> show last insert\G
 *************************** 1. row ***************************
@@ -140,10 +137,8 @@ TransactionStatus: VISIBLE
        LoadedRows: 2
      FilteredRows: 0
 ```
-
 该命令会返回 insert 以及对应事务的详细信息。因此，用户可以在每次执行完 insert 操作后，继续执行 `show last insert` 命令来获取 insert 的结果。
-
-> 注意：该命令只会返回在同一 session 连接中，最近一次 insert 操作的结果。如果连接断开或更换了新的连接，则将返回空集。
+>! 该命令只会返回在同一 session 连接中，最近一次 insert 操作的结果。如果连接断开或更换了新的连接，则将返回空集。
 
 
 ## 相关系统配置
