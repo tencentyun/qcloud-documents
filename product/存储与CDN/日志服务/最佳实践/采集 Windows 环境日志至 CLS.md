@@ -41,13 +41,12 @@ Start-Service winlogbeat
 
 在 C:\Program Files\Winlogbeat\winlogbeat.yml 文件中，将 output.kafka 修改为如下内容，将日志发送到 CLS。
 ```
-#--------------------------kafka-----------------------------------
 output.kafka:
   enabled: true
   hosts: ["${region}-producer.cls.tencentyun.com:9095"] # TODO 服务地址；外网端口9096，内网端口9095
   topic: "${topicID}" #  TODO topicID
   version: "0.11.0.2"
-  compression: "${compress}"   # TODO 配置压缩方式
+  compression: "${compress}"   # 配置压缩方式，支持gzip，snappy，lz4；例如"lz4"
   username: "${logsetID}"
   password: "${SecurityId}#${SecurityKey}"
 ```
@@ -106,13 +105,12 @@ start-service filebeat
 在 filebeat.yml 文件中，将 output.kafka 修改为如下内容，将日志发送到 CLS。
 
 ```
-#--------------------------kafka-----------------------------------
 output.kafka:
   enabled: true
   hosts: ["${region}-producer.cls.tencentyun.com:9095"] # TODO 服务地址；外网端口9096，内网端口9095
   topic: "${topicID}" #  TODO topicID
   version: "0.11.0.2"
-  compression: "${compress}"   # TODO 配置压缩方式
+  compression: "${compress}"   # 配置压缩方式，支持gzip，snappy，lz4；例如"lz4"
   username: "${logsetID}"
   password: "${SecurityId}#${SecurityKey}"
 ```
@@ -134,4 +132,5 @@ output.kafka:
 	<tr><td>外网</td><td>9096</td><td>gz-producer.cls.tencentcs.com:<b>9096</b></td></tr>
 </table>
 
-
+>! 本文档以广州地域为例，内外网域名需用不同端口标识，其他地域请替换地址前缀。详情请参考 [可用域名-Kafka上传日志](https://cloud.tencent.com/document/product/614/18940#Kafka)。
+>
