@@ -34,11 +34,8 @@
 ## 案例
 
 1. 添加 Set Variable 组件。
-   ![image-20210330173246414](https://qcloudimg.tencent-cloud.cn/raw/94c98067f1bbfbf770b46abade141cb2.png)
-   
+![image-20210330173246414](https://qcloudimg.tencent-cloud.cn/raw/94c98067f1bbfbf770b46abade141cb2.png)
 2. 在”变量名“处填入变量名称，“变量值”处填入要保存的值。
 ![image-20210325155553571](https://qcloudimg.tencent-cloud.cn/raw/335c300d56335bdd782824aa70051469.png)
-
-3. 选择已存在的dict类型的变量”dictVar“，选择追加操作，将键值对追加到”dictVar“中
-
+3. 选择已存在的 dict 类型的变量“dictVar”，选择追加操作，将键值对追加到“dictVar”中。
 ![image-20210325155553571](https://qcloudimg.tencent-cloud.cn/raw/d1ce0a57cd88f69a2fd764491803186f.png)
