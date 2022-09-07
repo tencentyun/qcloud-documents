@@ -90,7 +90,7 @@ server {
 ```
    - 若存在，请您重新配置或者根据提示修改存在问题。
    - 若不存在，请执行 [步骤8](#step8)。
-8. [](id:step8)在 Nginx 根目录下，通过执行以下命令重启 Nginx。
+8. [](id:step8)在 Nginx 根目录下，通过执行以下命令重载 Nginx。
 ```
 ./sbin/nginx -s reload
 ```
