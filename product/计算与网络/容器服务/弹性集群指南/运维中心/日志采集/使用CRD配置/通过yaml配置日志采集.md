@@ -1,4 +1,4 @@
-本文介绍通过 YAML 方式使用 CRD 配置 EKS 集群的日志采集功能。
+本文介绍通过 YAML 方式使用 CRD 配置 TKE Serverless 集群的日志采集功能。
 
 
 ## 前提条件

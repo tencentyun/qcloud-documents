@@ -14,9 +14,9 @@
 ## 操作步骤
 
 
-### 创建 EKS 集群
+### 创建 TKE Serverless 集群
 
-请参见 [创建集群](https://cloud.tencent.com/document/product/457/39813) 文档创建 EKS 集群。  
+请参见 [创建集群](https://cloud.tencent.com/document/product/457/39813) 文档创建 TKE Serverless 集群。  
 >?由于需要运行 GPU 训练任务，在创建集群时，请注意选择的容器网络所在区的支持资源，选择支持 GPU 的可用区，如下图所示：
 ![](https://main.qcloudimg.com/raw/58034799229973690611ef067cec37b5.png)
 

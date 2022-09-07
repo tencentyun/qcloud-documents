@@ -25,7 +25,7 @@
 - 已安装 Prometheus Operator。
 - 已配置 Grafana。
 
-在 EKS 集群中，需要获取以下监控指标：
+在 TKE Serverless 集群中，需要获取以下监控指标：
 
 | 指标类型         | 采集源                | 发现类型            |
 | ---------------- | --------------------- | ------------------- |
@@ -35,7 +35,7 @@
 
 
 #### 监控 k8s 资源指标
-若您希望监控 k8s 的资源指标，可以通过在 EKS 集群内部署 kube-state-metrics 组件及编写 ServiceMonitor 实现。
+若您希望监控 k8s 的资源指标，可以通过在 TKE Serverless 集群内部署 kube-state-metrics 组件及编写 ServiceMonitor 实现。
 <dx-accordion>
 ::: 在\sEKS\s集群内部署\skube-state-metrics\s组件
 如果您在 EKS 的集群内已经部署了 Prometheus Operator 会发现对应的 kube-state-metrics 组件和node exportor的Pod是pending状态，这是因为它们并不适用于EKS集群的场景，node exportor在EKS集群的监控中不需要使用，可以直接删除该pod，同时我们需要重新部署kube-state-metrics组件，具体的部署内容如下所示：
