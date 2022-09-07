@@ -52,6 +52,9 @@ dependencies {
     // ...
 
     implementation(name: 'HTTPDNS_Android_xxxx', ext: 'aar')
+
+    // V4.3.0版本开始增加了本地数据存储，需增加room依赖引入
+    implementation 'android.arch.persistence.room:rxjava2:2.1.1'
 }
 ```
 

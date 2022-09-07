@@ -82,9 +82,9 @@
 - 支持**8.0及以上版本**的数据库, 但不支持此系列版本新增的 SQL 语法。
 - 仅只支持 `utf8` 和 `utf8mb4` 字符集。
 - 数据库、表和字段名不区分大小写。
-- *加密字段长度需预先扩容以支持更长长度的密文。
-- *加密字段需使用区分大小写的 collation，如 `utf8_general_bin`。
-- *`information_schema`，`sys`，`mysql` 等内置数据库 CASB 会自动忽略。
+- 加密字段长度需预先扩容以支持更长长度的密文。
+- 加密字段需使用区分大小写的 collation，如 `utf8_general_bin`。
+- `information_schema`，`sys`，`mysql` 等内置数据库 CASB 会自动忽略。
 
 ### 连接
 - 连接内不允许切换登录用户。
