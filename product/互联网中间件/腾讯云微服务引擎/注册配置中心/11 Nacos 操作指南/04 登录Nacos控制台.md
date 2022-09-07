@@ -10,7 +10,7 @@
 
 1. 登录 [TSE 控制台](https://console.cloud.tencent.com/tse)。
 2. 在左侧导航栏，单击 **nacos**，进入 Nacos 注册中心页面。
-3. 单击目标实例的 ID，从基本信息页中，找到 控制台访问 的公网地址，通过 web 访问 Nacos 原生控制台。
+3. 单击目标实例的 ID，从基本信息页中，找到 控制台访问 的公网地址，通过 Web 访问 Nacos 原生控制台。
 ![](https://qcloudimg.tencent-cloud.cn/raw/40cf753b08f66715fac5e920c88236a4.png)
 
 ## 登录账号
@@ -29,7 +29,6 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/7cbe45e0c80655317edd6e7ff1367bc1.png)
 
 [](id:control)
-
 ## 使用权限控制
 
 1. 管理用户。使用 Nacos 初始账号登录控制台，进入 **权限控制** > **用户列表** > **用户管理**页面，可以进行用户的创建、修改和删除操作。

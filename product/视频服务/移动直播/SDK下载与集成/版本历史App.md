@@ -2,6 +2,24 @@
 
 > ? 全功能版 SDK 是多个基础 SDK 的集合，它包含了直播、短视频、音视频通话（TRTC）和播放器等子产品 SDK 的功能模块。
 
+### Version 10.6 @ 2022.08.31
+
+#### 新特性
+
+iOS&Android&Mac：专业版 TXLivePlayer\V2TXLivePlayer 支持 HLS 播放、自适应播放及多码率无缝切流。
+
+#### 功能优化
+
+- 全平台：优化 Music 音质下音量较小的问题。
+- Android&iOS：优化通话音量时的漏字问题。
+- Android：优化偶现漏回声问题。
+
+#### 缺陷修复
+
+- 全平台：修复 V2TXLivePlayer 在快直播拉流时，从断网状态恢复不会立刻重连的问题。
+- 全平台：修复 V2TXLivePlayer 在快直播拉流时，UDP 请求不通，无法成功降级至 TCP 通道的问题。
+- Mac：修复切换麦克风偶现回声消除失效的问题。
+
 ### Version 10.5 @ 2022.08.16
 
 #### 功能优化
@@ -90,7 +108,6 @@ Android：修复 TXLivePlayer\V2TXLivePlayer 拉流时，偶现切换到软解�
 #### 新特性
 - 全平台：TXLivePlayer\V2TXLivePlayer 支持播放音频相位相反的直播流。
 - Android：TXLivePusher\V2TXLivePusher 新增 release 方法，支持快速释放资源的能力。
-- iOS：TXLiveBase 支持外部 265 解码器能力。
 
 #### 功能优化
 Android：优化采集延迟，提升耳返体验。
@@ -128,13 +145,11 @@ iOS：修复 V2TXLivePusher 推流 RTC 流时，使用外录屏黑屏的问题�
 - iOS：修复快直播播放拉流端停止拉流，再重新拉流观看音画不同步的问题。
 - Android：修复特定情况下出现崩溃的问题。
 - Android：修复 V2 RTMP 推流存在的内存泄漏问题。
-- Android&iOS：修复快直播 H265 流播放失败的问题。
 
 ### Version 9.1 @ 2021.09.02
 - iOS&Android：V2 新增支持设置帧率和码率。
 - iOS&Android：V2 新增拉无效流时失败状态回调。
 - Mac&Windows：V2 新增音视频外设热插拔回调。
-- Android&iOS：移动直播新增支持 H265 编码。
 - Android：优化特定条件下视频画面过曝的问题。
 - iOS：修复快直播多实例播放时音频设置相互影响的问题。
 - 全平台：修复快直播存在的内存泄漏问题。
@@ -419,7 +434,6 @@ iOS&Android：直播播放器优化延迟控制算法，避免频繁加减速。
 
 **播放器**
 - iOS&Android：超级播放器重构，支持小窗模式。
-- iOS&Android：点播播放器支持 FLV/HLS 格式265硬解，优化 FileID 文件播放顺序。
 - iOS&Android：点播进度回调时间间隔支持自定义。
 - iOS：iOS 超级播放器支持直播点播播放，支持直播时移播放。
 - Android：点播播放器 Android 版变速支持变速不变调。
@@ -466,7 +480,6 @@ iOS&Android：直播播放器优化延迟控制算法，避免频繁加减速。
 - Android：优化短视频编辑合成内存占用，降低编辑生成期间内存使用峰值。
 
 ### Version 4.6 @ 2018-05-04
-- iOS&Android：点播支持 MP4 H265 硬解。
 - iOS&Android：推流端新增原始音频数据回调。
 - iOS&Android：Demo 新增主播 PK 功能。
 - Android：优化小文件上传，提升成功率。
@@ -518,7 +531,6 @@ iOS&Android：直播播放器优化延迟控制算法，避免频繁加减速。
 - iOS：Demo 新增点播全功能播放器，几行代码就能让您拥有一个优酷播放器。
 
 ### Version 3.9
-- iOS&Android：新增 H.265 硬解码能力。
 - iOS&Android：Demo 功能全新改版，新增双人、多人实时音视频能力。
 - iOS&Android：动效贴纸大升级，新增 HDR 和高分辨率贴纸特效，贴纸更靓丽。
 - iOS&Android：新增 AI 智能抠背景能力，主播再也不用要绿幕了。
