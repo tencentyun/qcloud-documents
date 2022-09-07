@@ -1,6 +1,6 @@
 ## 背景
 
-COS Ranger Service 是腾讯云存算分离推出的大数据权限管控方案，具有细粒度、兼容 Hadoop Ranger 以及可插拔的优势，便于用户统一管理大数据组件和云端托管存储权限，具体架构方案及说明可查看 [CHDFS Ranger 权限体系解决方案](https://cloud.tencent.com/document/product/1105/53307)。
+COS Ranger Service 是腾讯云存算分离推出的大数据权限管控方案，具有细粒度、兼容 Hadoop Ranger 以及可插拔的优势，便于用户统一管理大数据组件和云端托管存储权限，具体架构方案及说明可查看 [COS Ranger 权限体系解决方案](https://cloud.tencent.com/document/product/436/51125)。
 
 COS Ranger Service 一经推出后便得到广泛使用，然而由于客户业务众多，背景复杂，产生一些问题，现整理相关Ranger 介绍说明、版本细节以及注意事项。
 
@@ -12,7 +12,7 @@ COS Ranger Service 一经推出后便得到广泛使用，然而由于客户业�
 
 #### Ranger-Plugin
 
-根据 Ranger 协议（具体可参见 [Apache 官方文档](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=53741207)）提供 Ranger 服务端的服务定义插件。它们提供了 Ranger 侧的 CHDFS 服务描述，部署了该插件后，用户即可在 Ranger 的控制页面上，填写 CHDFS 的权限策略，例如设置 path、mountpoint、user、group 等访问策略。  
+根据 Ranger 协议（具体可参见 [Apache 官方文档](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=53741207)）提供 Ranger 服务端的服务定义插件。它们提供了 Ranger 侧的 COS 服务描述，部署了该插件后，用户即可在 Ranger 的控制页面上，填写 COS 的权限策略，例如设置 path、bucket、user、group 等访问策略。  
 
 #### COS Ranger Server
 
