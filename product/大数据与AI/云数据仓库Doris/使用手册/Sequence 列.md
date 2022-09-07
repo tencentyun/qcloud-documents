@@ -2,7 +2,10 @@ sequence 列目前只支持 Uniq 模型，Uniq 模型主要针对需要唯一主
 
 为了解决这个问题，Doris 支持了 sequence 列，通过用户在导入时指定 sequence 列，相同 key 列下，REPLACE 聚合类型的列将按照 sequence 列的值进行替换，较大值可以替换较小值，反之则无法替换。该方法将顺序的确定交给了用户，由用户控制替换顺序。
 
-## 原理
+## 适用场景
+Sequence列只能在Uniq数据模型下使用。
+
+## 基本原理
 通过增加一个隐藏列`__DORIS_SEQUENCE_COL__`实现，该列的类型由用户在建表时指定，在导入时确定该列具体值，并依据该值对 REPLACE 列进行替换。
 
 ### 建表
@@ -16,14 +19,12 @@ sequence 列目前只支持 Uniq 模型，Uniq 模型主要针对需要唯一主
 请求包含 value 列时需要需要额外读取`__DORIS_SEQUENCE_COL__`列，该列用于在相同 key 列下，REPLACE 聚合函数替换顺序的依据，较大值可以替换较小值，反之则不能替换。
 
 ### Cumulative Compaction
-
 Cumulative Compaction 时和读取过程原理相同。
 
 ### Base Compaction
-
 Base Compaction 时读取过程原理相同。
 
-### 语法
+### 使用语法
 建表时语法方面在 property 中增加了一个属性，用来标识`__DORIS_SEQUENCE_COL__`的类型
 导入的语法设计方面主要是增加一个从 sequence 列的到其他 column 的映射，各个导入方式设置的将在下面介绍。
 

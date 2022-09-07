@@ -224,6 +224,7 @@ information_schema 中的系统视图表名不区分大小写，当`lower_case_t
 
 - `resource_group`
 暂不使用。
+
 - `send_batch_parallelism`                                                                                                                                                   
 用于设置执行 InsertStmt 操作时发送批处理数据的默认并行度，如果并行度的值超过 BE 配置中的 `max_send_batch_parallelism_per_job`，那么作为协调点的 BE 将使用 `max_send_batch_parallelism_per_job` 的值。 
                                                                                                  
@@ -291,3 +292,50 @@ Doris 在这部分进行了优化处理，如果下层的数据节点过多。ex
 该参数会覆盖 `parallel_fragment_exec_instance_num` 的效果。即假设 `parallel_fragment_exec_instance_num` 设置为4，而该参数设置为2。则单个节点上的4个执行实例会共享最多2个扫描线程。
 该参数会被 user property 中的 `cpu_resource_limit` 配置覆盖。
 默认 -1，即不限制。
+
+- `disable_join_reorder`
+用于关闭所有系统自动的 join reorder 算法。取值有两种：true 和 false。默认行况下关闭，也就是采用系统自动的 join reorder 算法。设置为 true 后，系统会关闭所有自动排序的算法，采用 SQL 原始的表顺序，执行 join
+
+- `return_object_data_as_binary` 
+用于标识是否在select 结果中返回bitmap/hll 结果。在 select into outfile 语句中，如果导出文件格式为csv 则会将 bimap/hll 数据进行base64编码，如果是parquet 文件格式 将会把数据作为byte array 存储
+
+- `block_encryption_mode` 
+可以通过block_encryption_mode参数，控制块加密模式，默认值为：空。当使用AES算法加密时相当于`AES_128_ECB`, 当时用SM3算法加密时相当于`SM3_128_ECB` 可选值：
+
+```text
+  AES_128_ECB,
+  AES_192_ECB,
+  AES_256_ECB,
+  AES_128_CBC,
+  AES_192_CBC,
+  AES_256_CBC,
+  AES_128_CFB,
+  AES_192_CFB,
+  AES_256_CFB,
+  AES_128_CFB1,
+  AES_192_CFB1,
+  AES_256_CFB1,
+  AES_128_CFB8,
+  AES_192_CFB8,
+  AES_256_CFB8,
+  AES_128_CFB128,
+  AES_192_CFB128,
+  AES_256_CFB128,
+  AES_128_CTR,
+  AES_192_CTR,
+  AES_256_CTR,
+  AES_128_OFB,
+  AES_192_OFB,
+  AES_256_OFB,
+  SM4_128_ECB,
+  SM4_128_CBC,
+  SM4_128_CFB128,
+  SM4_128_OFB,
+  SM4_128_CTR,
+```
+
+- `enable_infer_predicate`
+用于控制是否进行谓词推导。取值有两种：true 和 false。默认情况下关闭，系统不在进行谓词推导，采用原始的谓词进行相关操作。设置为 true 后，进行谓词扩展。
+
+- `trim_tailing_spaces_for_external_table_query`
+用于控制查询Hive外表时是否过滤掉字段末尾的空格。默认为false。
