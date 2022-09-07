@@ -1,6 +1,6 @@
 云数据库 MySQL 支持内网和外网两种地址类型，默认提供内网地址供您内部访问实例，如果需要使用外网访问，除了开启外网地址后，通过 Linux 或者 Windows 云服务器连接访问实例，也可通过负载均衡 CLB 开启外网服务进行访问，通过 CLB 开启外网服务必须配置安全组规则。
 
-以下为您介绍通过通过 CLB 开启外网服务，并通过 MySQL workbench 连接到实例的方法。
+以下为您介绍通过 CLB 开启外网服务，并通过 MySQL workbench 连接到实例的方法。
 
 ## 前提条件
 已 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=163&source=14&data_title=%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%20CLB&level3_id=1068&radio_title=%E9%85%8D%E9%A2%9D/%E7%99%BD%E5%90%8D%E5%8D%95&queue=96&scene_code=41669&step=2) 申请使用后端服务功能。
