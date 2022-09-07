@@ -1,11 +1,6 @@
-## Web 端体验
-您可直接在电脑端浏览器访问 [COS 音视频体验馆](https://cloud.tencent.com/act/pro/cos-video)，体验 COS 的音视频处理功能。
+COS 音视频体验馆提供完整的端侧（Web、Android、iOS）体验示例和代码示例，您可以通过以下方式快速体验。
 
-## 移动端体验
-
-![](https://qcloudimg.tencent-cloud.cn/raw/194ca0f27083d4149b1fba194efb4aff.png)
-
-## 示例代码
-
-前往 Github [获取示例代码](https://github.com/tencentyun/cos-demo/tree/main/cos-video)。
-
+|          | Web                                                          | Android                                                      | iOS                                                          |
+| -------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 体验入口 | [COS音视频体验馆](https://cloud.tencent.com/act/pro/cos-video) | ![Android](https://qcloudimg.tencent-cloud.cn/raw/342deb84c801806fc7fa9e742a5e6b79.png) | ![iOS](https://qcloudimg.tencent-cloud.cn/raw/9800b877b7c6d757b2811725da4520b7.png) |
+| 示例代码 | [示例代码](https://github.com/tencentyun/cos-demo/tree/main/cos-video/examples/web) | [示例代码](https://github.com/tencentyun/cos-demo/tree/main/cos-video/examples/android) | [示例代码](https://github.com/tencentyun/cos-demo/tree/main/cos-video/examples/ios) |
