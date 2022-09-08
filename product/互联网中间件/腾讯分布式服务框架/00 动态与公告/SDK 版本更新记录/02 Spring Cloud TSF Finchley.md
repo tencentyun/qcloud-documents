@@ -1,11 +1,18 @@
 基于 Spring Cloud Finchley 版本 SDK，支持 spring boot 2.0.x。
 
 
-# 1.29.15-Finchley-RELEASE（2022-07-29）
+
+# 1.29.17-Finchley-RELEASE
 ### bug 修复
+- 修复实例级熔断 half open 再次进入 open 时的隔离问题
+- 调用链修复status code的获取
+- scg 调用链修复 resultStatus 的获取
 - 修复调用链兼容 ShardingConnection
 - 修复潜在的监控数据http method异常的问题
 - 修复 rocketmq 调用链 NPE 问题
+
+### 优化
+- 优化零实例保护节点的判断
 
 ### 版本建议
 支持向后兼容，建议全量升级。
