@@ -1,7 +1,7 @@
 本文为您介绍 TDSQL-C PostgreSQL 版兼容版本 PostgreSQL 10.17支持的插件情况。
 
 <table>
-<thead><tr><th>插件名</th><th>PostgreSQL 10.17</th></tr></thead>
+<thead><tr><th>插件名</th><th>插件版本</th></tr></thead>
 <tr><td>isn</td><td>1.1</td></tr>
 <tr><td>plpgsql</td><td>1</td></tr>
 <tr><td>pg_stat_log</td><td>1</td></tr>
