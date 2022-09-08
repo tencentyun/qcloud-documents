@@ -1,8 +1,23 @@
 基于 Spring Cloud Greenwich 版本 SDK，支持 spring boot 2.1.6。
 
+## 1.29.5-Greenwich-RELEASE（2022-09-06）
+### bug 修复
+- 修复独立版虚拟机限流不生效的问题
+- 修复实例级熔断 half open 再次进入 open 时的隔离问题
+- 修复调用链 scg resultStatus 获取的问题
+
+### 优化
+- 优化零实例保护节点的判断
+
+### 版本建议
+支持向后兼容，建议全量升级。
+
 ## 1.29.4-Greenwich-RELEASE（2022-08-10）
 ### bug 修复
 - 修复status code的获取
+
+### 版本建议
+存在独立版虚拟机限流不生效的问题，建议升级到 1.29.5-Greenwich-RELEASE 或以上
 
 ## 1.29.3-Greenwich-RELEASE（2022-07-29）
 ### bug 修复
@@ -13,6 +28,9 @@
 - 修复 rocketmq 调用链 NPE 问题
 - 修复潜在的重复bean问题
 - 修复 scg invocation 丢失 tag 的问题
+
+### 版本建议
+存在独立版虚拟机限流不生效的问题，建议升级到 1.29.5-Greenwich-RELEASE 或以上
 
 ## 1.29.1-Greenwich-RELEASE（2022-06-07）
 ### 优化
