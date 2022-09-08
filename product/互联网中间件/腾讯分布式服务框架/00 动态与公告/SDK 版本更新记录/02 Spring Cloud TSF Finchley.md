@@ -2,7 +2,7 @@
 
 
 
-# 1.29.17-Finchley-RELEASE
+# 1.29.17-Finchley-RELEASE（2022-09-06）
 ### bug 修复
 - 修复实例级熔断 half open 再次进入 open 时的隔离问题
 - 调用链修复status code的获取
