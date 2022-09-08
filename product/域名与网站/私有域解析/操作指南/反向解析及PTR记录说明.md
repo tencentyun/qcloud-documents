@@ -27,7 +27,6 @@
 >- 为更好的体验，推荐您创建私有域名并设置解析记录后再关联 VPC。
 >- 若当前可选地域中未显示 VPC，请您前往 [VPC 控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1/) 进行添加。
 >- 若现有的 VPC 不符合您的要求，请您前往 [VPC 控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1/) 进行修改。
->- 当前支持关联的 VPC 区域有北京、上海、成都、重庆、广州、硅谷。
 4. 单击**确定**，即可完成添加反向私有域操作，您可直接进入该域名的解析记录页添加 PTR 记录。如下图所示：
 ![](https://main.qcloudimg.com/raw/ab7cd35f1db5b8e6f393c01449ca384c.png)
 
@@ -45,7 +44,6 @@
 >?
 >
 >- 私有网段详情内容可参考：[网络规划](https://cloud.tencent.com/document/product/215/30313)。
->- 相同网段的反向域名视为相同私有域，相同私有域不允许关联同一 VPC，例如，`2.1.in-addr.arpa` 与 `4.3.1.in-addr.arpa` 不允许关联相同的 VPC。
 >- 在私有域解析 Private DNS 中添加 PTR 记录详情操作请查看 [PTR 记录](https://cloud.tencent.com/document/product/1338/50542)。
 
 
