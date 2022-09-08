@@ -1,14 +1,165 @@
+# Rollup 索引
+
+ROLLUP 在多维分析中是“上卷”的意思，即将数据按某种指定的粒度进行进一步聚合。
+
+## 基本概念
+
+在 Doris 中，我们将用户通过建表语句创建出来的表称为 Base 表（Base Table）。Base 表中保存着按用户建表语句指定的方式存储的基础数据。
+
+在 Base 表之上，我们可以创建任意多个 ROLLUP 表。这些 ROLLUP 的数据是基于 Base 表产生的，并且在物理上是**独立存储**的。
+
+ROLLUP 表的基本作用，在于在 Base 表的基础上，获得更粗粒度的聚合数据。
+
+下面我们用示例详细说明在不同数据模型中的 ROLLUP 表及其作用。
+
+###  Aggregate 和 Unique 模型中的 ROLLUP
+
+因为 Unique 只是 Aggregate 模型的一个特例，所以这里我们不加以区别。
+
+1. 示例1：获得每个用户的总消费
+
+接 **TODO: 数据模型Aggregate 模型 数据开发/建表/Doris 数据表和数据模型.md**小节的**示例2**，Base 表结构如下：
+
+| ColumnName      | Type        | AggregationType | Comment                |
+| --------------- | ----------- | --------------- | ---------------------- |
+| user_id         | LARGEINT    |                 | 用户id                 |
+| date            | DATE        |                 | 数据灌入日期           |
+| timestamp       | DATETIME    |                 | 数据灌入时间，精确到秒 |
+| city            | VARCHAR(20) |                 | 用户所在城市           |
+| age             | SMALLINT    |                 | 用户年龄               |
+| sex             | TINYINT     |                 | 用户性别               |
+| last_visit_date | DATETIME    | REPLACE         | 用户最后一次访问时间   |
+| cost            | BIGINT      | SUM             | 用户总消费             |
+| max_dwell_time  | INT         | MAX             | 用户最大停留时间       |
+| min_dwell_time  | INT         | MIN             | 用户最小停留时间       |
+
+存储的数据如下：
+
+| user_id | date       | timestamp           | city | age  | sex  | last_visit_date     | cost | max_dwell_time | min_dwell_time |
+| ------- | ---------- | ------------------- | ---- | ---- | ---- | ------------------- | ---- | -------------- | -------------- |
+| 10000   | 2017-10-01 | 2017-10-01 08:00:05 | 北京 | 20   | 0    | 2017-10-01 06:00:00 | 20   | 10             | 10             |
+| 10000   | 2017-10-01 | 2017-10-01 09:00:05 | 北京 | 20   | 0    | 2017-10-01 07:00:00 | 15   | 2              | 2              |
+| 10001   | 2017-10-01 | 2017-10-01 18:12:10 | 北京 | 30   | 1    | 2017-10-01 17:05:45 | 2    | 22             | 22             |
+| 10002   | 2017-10-02 | 2017-10-02 13:10:00 | 上海 | 20   | 1    | 2017-10-02 12:59:12 | 200  | 5              | 5              |
+| 10003   | 2017-10-02 | 2017-10-02 13:15:00 | 广州 | 32   | 0    | 2017-10-02 11:20:00 | 30   | 11             | 11             |
+| 10004   | 2017-10-01 | 2017-10-01 12:12:48 | 深圳 | 35   | 0    | 2017-10-01 10:00:15 | 100  | 3              | 3              |
+| 10004   | 2017-10-03 | 2017-10-03 12:38:20 | 深圳 | 35   | 0    | 2017-10-03 10:20:22 | 11   | 6              | 6              |
+
+在此基础上，我们创建一个 ROLLUP：
+
+| ColumnName |
+| ---------- |
+| user_id    |
+| cost       |
+
+该 ROLLUP 只包含两列：user_id 和 cost。则创建完成后，该 ROLLUP 中存储的数据如下：
+
+| user_id | cost |
+| ------- | ---- |
+| 10000   | 35   |
+| 10001   | 2    |
+| 10002   | 200  |
+| 10003   | 30   |
+| 10004   | 111  |
+
+可以看到，ROLLUP 中仅保留了每个 user_id，在 cost 列上的 SUM 的结果。那么当我们进行如下查询时:
+
+```sql
+SELECT user_id, sum(cost) FROM table GROUP BY user_id;
+```
+
+Doris 会自动命中这个 ROLLUP 表，从而只需扫描极少的数据量，即可完成这次聚合查询。
+
+1. 示例2：获得不同城市，不同年龄段用户的总消费、最长和最短页面驻留时间
+
+紧接示例1。我们在 Base 表基础之上，再创建一个 ROLLUP：
+
+| ColumnName     | Type        | AggregationType | Comment          |
+| -------------- | ----------- | --------------- | ---------------- |
+| city           | VARCHAR(20) |                 | 用户所在城市     |
+| age            | SMALLINT    |                 | 用户年龄         |
+| cost           | BIGINT      | SUM             | 用户总消费       |
+| max_dwell_time | INT         | MAX             | 用户最大停留时间 |
+| min_dwell_time | INT         | MIN             | 用户最小停留时间 |
+
+则创建完成后，该 ROLLUP 中存储的数据如下：
+
+| city | age  | cost | max_dwell_time | min_dwell_time |
+| ---- | ---- | ---- | -------------- | -------------- |
+| 北京 | 20   | 35   | 10             | 2              |
+| 北京 | 30   | 2    | 22             | 22             |
+| 上海 | 20   | 200  | 5              | 5              |
+| 广州 | 32   | 30   | 11             | 11             |
+| 深圳 | 35   | 111  | 6              | 3              |
+
+当我们进行如下这些查询时:
+
+```sql
+mysql> SELECT city, age, sum(cost), max(max_dwell_time), min(min_dwell_time) FROM table GROUP BY city, age;
+mysql> SELECT city, sum(cost), max(max_dwell_time), min(min_dwell_time) FROM table GROUP BY city;
+mysql> SELECT city, age, sum(cost), min(min_dwell_time) FROM table GROUP BY city, age;
+```
+
+Doris 会执行这些sql时会自动命中这个 ROLLUP 表。
+
+### Duplicate 模型中的 ROLLUP
+
+因为 Duplicate 模型没有聚合的语意。所以该模型中的 ROLLUP，已经失去了“上卷”这一层含义。而仅仅是作为调整列顺序，以命中前缀索引的作用。我们将在[前缀索引](./index/prefix-index.md)详细介绍前缀索引，以及如何使用ROLLUP改变前缀索引，以获得更好的查询效率。
+
+## ROLLUP 调整前缀索引
+
+因为建表时已经指定了列顺序，所以一个表只有一种前缀索引。这对于使用其他不能命中前缀索引的列作为条件进行的查询来说，效率上可能无法满足需求。因此，我们可以通过创建 ROLLUP 来人为的调整列顺序。举例说明：
+
+Base 表结构如下：
+
+| ColumnName     | Type         |
+| -------------- | ------------ |
+| user_id        | BIGINT       |
+| age            | INT          |
+| message        | VARCHAR(100) |
+| max_dwell_time | DATETIME     |
+| min_dwell_time | DATETIME     |
+
+我们可以在此基础上创建一个 ROLLUP 表：
+
+| ColumnName     | Type         |
+| -------------- | ------------ |
+| age            | INT          |
+| user_id        | BIGINT       |
+| message        | VARCHAR(100) |
+| max_dwell_time | DATETIME     |
+| min_dwell_time | DATETIME     |
+
+可以看到，ROLLUP 和 Base 表的列完全一样，只是将 user_id 和 age 的顺序调换了。那么当我们进行如下查询时：
+
+```sql
+mysql> SELECT * FROM table where age=20 and message LIKE "%error%";
+```
+
+会优先选择 ROLLUP 表，因为 ROLLUP 的前缀索引匹配度更高。
+
+## ROLLUP使用说明
+
+- ROLLUP 最根本的作用是提高某些查询的查询效率（无论是通过聚合来减少数据量，还是修改列顺序以匹配前缀索引）。因此 ROLLUP 的含义已经超出了 “上卷” 的范围。这也是为什么我们在源代码中，将其命名为 Materialized Index（物化索引）的原因。
+- ROLLUP 是附属于 Base 表的，可以看做是 Base 表的一种辅助数据结构。用户可以在 Base 表的基础上，创建或删除 ROLLUP，但是不能在查询中显式的指定查询某 ROLLUP。是否命中 ROLLUP 完全由 Doris 系统自动决定。
+- ROLLUP 的数据是独立物理存储的。因此，创建的 ROLLUP 越多，占用的磁盘空间也就越大。同时对导入速度也会有影响（导入的ETL阶段会自动产生所有 ROLLUP 的数据），但是不会降低查询效率（只会更好）。
+- ROLLUP 的数据更新与 Base 表是完全同步的。用户无需关心这个问题。
+- ROLLUP 中列的聚合方式，与 Base 表完全相同。在创建 ROLLUP 无需指定，也不能修改。
+- 查询能否命中 ROLLUP 的一个必要条件（非充分条件）是，查询所涉及的**所有列**（包括 select list 和 where 中的查询条件列等）都存在于该 ROLLUP 的列中。否则，查询只能命中 Base 表。
+- 某些类型的查询（如 count(*)）在任何条件下，都无法命中 ROLLUP。具体参见接下来的 **聚合模型的局限性** 一节。
+- 可以通过 `EXPLAIN your_sql;` 命令获得查询执行计划，在执行计划中，查看是否命中 ROLLUP。
+- 可以通过 `DESC tbl_name ALL;` 语句显示 Base 表和所有已创建完成的 ROLLUP。
+
+## 查询
+
 在 Doris 里 Rollup 作为一份聚合物化视图，其在查询中可以起到两个作用：
 *	索引
 *	聚合数据（仅用于聚合模型，即aggregate key）
 
 但是为了命中 Rollup 需要满足一定的条件，并且可以通过执行计划中 ScanNode 节点的 PreAggregation 的值来判断是否可以命中 Rollup，以及 Rollup 字段来判断命中的是哪一张 Rollup 表。
 
-## 名词解释
-Base：基表。
-Rollup：一般指基于 Base 表创建的 Rollup 表，但在一些场景包括 Base 以及 Rollup 表。
 
-## 索引
+### 索引
 前面的查询实践中已经介绍过 Doris 的前缀索引，即 Doris 会把 Base/Rollup 表中的前 36 个字节（有 varchar 类型则可能导致前缀索引不满 36 个字节，varchar 会截断前缀索引，并且最多使用 varchar 的 20 个字节）在底层存储引擎单独生成一份排序的稀疏索引数据(数据也是排序的，用索引定位，然后在数据中做二分查找)，然后在查询的时候会根据查询中的条件来匹配每个 Base/Rollup 的前缀索引，并且选择出匹配前缀索引最长的一个 Base/Rollup。
 ```
        -----> 从左到右匹配
@@ -168,7 +319,7 @@ rollup_index4(k4, k6, k5, k1, k2, k3, k7)
 如果稍微修改上面的查询为：`SELECT * FROM test WHERE k4 < 1000 AND k5 = 80 OR k6 >= 10000;`。
 则这里的查询不能命中前缀索引。（甚至 Doris 存储引擎内的任何 Min/Max,BloomFilter 索引都不能起作用)。
 
-## 聚合数据
+### 聚合数据
 当然一般的聚合物化视图其聚合数据的功能是必不可少的，这类物化视图对于聚合类查询或报表类查询都有非常大的帮助，要命中聚合物化视图需要下面一些前提：
 1.	查询或者子查询中涉及的所有列都存在一张独立的 Rollup 中。
 2.	如果查询或者子查询中有 Join，则 Join 的类型需要是 Inner join。

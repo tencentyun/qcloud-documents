@@ -38,6 +38,9 @@
 | 第三方 SDK 名称 | 第三方 SDK 提供方的公司名称 | 处理的个人信息类型 | 使用目的 | 使用场景 | 处理方式 | 第三方 SDK 个人信息保护规则 | 操作系统 |
 | --------------- | --------------- | --------------- | --------------- | --------------- | --------------- | --------------- | -------- |
 | 硬件耳返 | 华为技术有限公司 | 音频数据 | 在华为设备上开启/关闭硬件耳返功能 | 合唱、K 歌中需要听到自己的声音等场景 | 采集华为设备终端的音频信息并在本终端上进行实时播放（仅限连接有耳机时） | [文档](https://developer.huawei.com/consumer/cn/doc/development/Media-Guides/introduction_services-0000001053333356#section4862331393) | Android  |
+| com.google.gson | Google | 信令数据 | 处理 IM 信令信息 | 视频、音频通话场景 | 转换通话中信令消息的格式 | [文档](https://search.maven.org/artifact/com.google.code.gson/gson/2.9.1/jar) | Android  |
+
+
 
 #### (二) 为实现 SDK 产品功能所需的权限
 

@@ -56,7 +56,7 @@ output.kafka:
   hosts: ["${region}-producer.cls.tencentyun.com:9095"] # TODO 服务地址；外网端口9096，内网端口9095
   topic: "${topicID}" #  TODO topicID
   version: "0.11.0.2"
-  compression: "${compress}"   # TODO 配置压缩方式
+  compression: "${compress}"   # 配置压缩方式，支持gzip，snappy，lz4；例如"lz4"
   username: "${logsetID}"
   password: "${SecurityId}#${SecurityKey}"
 ```

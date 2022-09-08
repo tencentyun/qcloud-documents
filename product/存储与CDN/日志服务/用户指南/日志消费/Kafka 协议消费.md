@@ -7,7 +7,7 @@
 ## 前提条件
 
 - 已开通日志服务，创建日志集与日志主题，并成功采集到日志数据。   
-- 确保当前操作账号拥有开通 Kafka 协议消费的权限，权限问题请参见 [自定义权限策略示例](https://cloud.tencent.com/document/product/614/68374)。
+- 确保当前操作账号拥有开通 Kafka 协议消费的权限，权限问题请参见 [自定义权限策略示例](https://cloud.tencent.com/document/product/614/68374#kafka-.E5.8D.8F.E8.AE.AE.E6.B6.88.E8.B4.B9)。
 
 
 ## 相关限制
