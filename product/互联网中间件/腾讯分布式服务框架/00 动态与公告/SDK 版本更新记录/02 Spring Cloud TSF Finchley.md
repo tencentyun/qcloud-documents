@@ -1,6 +1,12 @@
 基于 Spring Cloud Finchley 版本 SDK，支持 spring boot 2.0.x。
 
-
+## 1.40.0-Finchley-RELEASE（2022-09-06）
+### 新特性
+- 支持微服务网关可扩展性。支持使用TSF网关SDK的同时，自定义网关路由策略、支持websocket、支持跨域等原生网关能力。
+- Oauth插件支持第三方鉴权地址为微服务API的能力
+- 支持原生网关使用熔断治理的能力
+- 支持服务监听触发回调
+- 支持查看下发配置
 
 # 1.29.17-Finchley-RELEASE（2022-09-06）
 ### bug 修复
