@@ -134,7 +134,7 @@ MSDKDnsResolver.getInstance().WGSetDnsOpenId("10000");
 
 ### 初始化配置服务（4.0.0版本开始支持）
 <dx-alert infotype="notice" title="">
-- 可选项请根据功能需要进行开启。
+- HTTPDNS SDK 提供多重解析优化策略，建议根据实际情况选配，也可以组合使用，可使得解析成功率达到最优效果。
 - 可以通过配置 `setUseExpiredIpEnable(true)` 和 `setCachedIpEnable(true)` 来实现乐观 DNS 缓存。
   - 该功能旨在提升缓存命中率和首屏加载速度。持久化缓存会将上一次解析结果保持在本地，在 App 启动时，会优先读取到本地缓存解析结果。
   - 存在使用缓存 IP 时为过期 IP（TTL 过期），该功能启用了允许使用过期 IP，乐观的推定 TTL 过期，大多数情况下该 IP 仍能正常使用。优先返回缓存的过期结果，同时异步发起解析服务，更新缓存。
