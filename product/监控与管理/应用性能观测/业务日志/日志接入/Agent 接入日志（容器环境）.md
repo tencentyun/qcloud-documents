@@ -8,7 +8,7 @@
 进入 [应用性能观测控制台](https://console.cloud.tencent.com/apm) **日志分析** > **日志概览**页面，单击**日志接入**。
 接入流程：
 - 首先选择您的上报地域和业务系统。公测期上报地域仅支持广州。
-- 根据您的日志内容，选择适合的日志类型。并选择 **Agent 采集**做为接入方式。
+- 根据您的日志内容，选择适合的日志类型。并选择 **Agent 采集**作为接入方式。
 ![](https://qcloudimg.tencent-cloud.cn/raw/45894cf24afd0d2215db353d0b981255.png)
 
 ### 步骤2：日志采集配置
@@ -28,10 +28,10 @@
  - 找到业务所在服务 Pod 添加该挂载点，指向业务日志目录。
 ![](https://qcloudimg.tencent-cloud.cn/raw/87c1228412209c4c6882fe92f5790ec6.png)
  - Sidecar 方式部署 Agent。
-搜索 Agent 镜像 **[ccr.ccs.tencentyun.com/cmonitor/tccm-agent](http://ccr.ccs.tencentyun.com/cmonitor/tccm-agent)** ，选择**版本1.2.12**并部署。
-![](https://qcloudimg.tencent-cloud.cn/raw/f000aaba49cc467bafbdd1f7c2c44495.png)
+搜索 Agent 镜像 **ccr.ccs.tencentyun.com/cmonitor/tccm-agent** ，选择**版本1.2.12**并部署。
+<img style="width:716px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/6651383e7b2a3da421c3dcd7c57ab3b5.png" />
  - 为 Agent 所在 sidecar 添加日志挂载点。
-![](https://qcloudimg.tencent-cloud.cn/raw/70007553dca94de4eef1c709d82b8ce5.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/e6478aa99cb5fb0d6b19ee8b6d8df6ac.png)
 
 ### 步骤4：配置上报信息
 为 Agent sidecar 中配置如下环境变量。
