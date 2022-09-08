@@ -41,7 +41,12 @@
 172.16.0.0 - 172.31.255.255（掩码范围需在12 - 28之间）
 192.168.0.0 - 192.168.255.255 （掩码范围需在16 - 28之间）
 ```
-如需了解更多信息，请参见  [创建私有网络](https://cloud.tencent.com/document/product/215/36515)。
+相应地，您也可以在这三个地址段范围内创建反向私有域。
+>?
+>
+>- 私有网段详情内容可参考：[网络规划](https://cloud.tencent.com/document/product/215/30313)。
+>- 相同网段的反向域名视为相同私有域，相同私有域不允许关联同一 VPC，例如，`2.1.in-addr.arpa` 与 `4.3.1.in-addr.arpa` 不允许关联相同的 VPC。
+>- 在私有域解析 Private DNS 中添加 PTR 记录详情操作请查看 [PTR 记录](https://cloud.tencent.com/document/product/1338/50542)。
 
 
 
