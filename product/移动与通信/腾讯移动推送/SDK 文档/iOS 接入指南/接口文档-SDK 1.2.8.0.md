@@ -69,6 +69,8 @@
 NSString *token = [[XGPushTokenManager defaultTokenManager] xgTokenString];
 ```
 
+>! token 的获取应该在 xgPushDidRegisteredDeviceToken:error:  返回正确之后被调用。
+
 ### 注册结果回调
 
 #### 接口说明

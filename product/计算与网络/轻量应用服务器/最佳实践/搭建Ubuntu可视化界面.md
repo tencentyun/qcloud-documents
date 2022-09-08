@@ -11,7 +11,7 @@ VNC（Virtual Network Console）是虚拟网络控制台的缩写。它是一款
 
 ### 配置实例防火墙
 VNC 服务使用 TCP 协议，默认使用5901端口。则需在实例防火墙中放通5901端口，即在“入站规则”中添加放通协议端口为 TCP:5901 的规则，具体操作请参见 [添加防火墙规则](https://cloud.tencent.com/document/product/1207/44577#.E6.B7.BB.E5.8A.A0.E9.98.B2.E7.81.AB.E5.A2.99.E8.A7.84.E5.88.99)。添加成功后，如下图所示：
-![](https://main.qcloudimg.com/raw/0adda2c34628d4908464798e22ffb53f.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/fdc213be0b916d4f3ad9c0276daa6a52.png)
 
 
 

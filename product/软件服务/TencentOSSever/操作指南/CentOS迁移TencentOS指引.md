@@ -62,7 +62,7 @@ CentOS 7.2、CentOS 7.3公共镜像可能默认包含了32位的软件包，需�
 
 ### 执行迁移
 <dx-tabs>
-::: 迁移至 TencentOS 2.4（TK4）
+::: CentOS 7系列迁移至 TencentOS 2.4（TK4）
 1. 登录目标云服务器，详情请参见 [使用标准登录方式登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)。
 2. 执行以下命令，安装 Python 3。
 ```shell
@@ -70,11 +70,11 @@ yum install -y python3
 ```
 3. 执行以下命令，获取迁移工具。
 ```shell
-wget http://mirrors.tencent.com/tencentos/2.4/tlinux/x86_64/RPMS/migrate2tencentos-1.0-3.tl2.noarch.rpm
+wget http://mirrors.tencent.com/tencentos/2.4/tlinux/x86_64/RPMS/migrate2tencentos-1.0-4.tl2.noarch.rpm
 ```
 4. 执行以下命令，安装迁移工具。该命令会在 /usr/sbin 下创建 migrate2tencentos.py。
 ```shell
-rpm -ivh migrate2tencentos-1.0-3.tl2.noarch.rpm
+rpm -ivh migrate2tencentos-1.0-4.tl2.noarch.rpm
 ```
 5. 执行以下命令，开始迁移。
 ```shell
@@ -108,7 +108,7 @@ yum makecache
 
 
 :::
-::: 迁移至 TencentOS 3.1（TK4）
+::: CentOS 8系列迁移至 TencentOS 3.1（TK4）
 1. 登录目标云服务器，详情请参见 [使用标准登录方式登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)。
 2. 执行以下命令，安装 Python 3。
 ```shell
@@ -116,15 +116,15 @@ yum install -y python3
 ```
 3. 执行以下命令，获取迁移工具。
 ```shell
-wget http://mirrors.tencent.com/tlinux/3.1/Updates/x86_64/RPMS/migrate2tencentos-1.0-3.tl3.noarch.rpm
+wget http://mirrors.tencent.com/tlinux/3.1/Updates/x86_64/RPMS/migrate2tencentos-1.0-4.tl3.noarch.rpm
 ```
 4. 执行以下命令，安装迁移工具。该命令会在 /usr/sbin 下创建 migrate2tencentos.py。
 ```shell
-rpm -ivh migrate2tencentos-1.0-3.tl3.noarch.rpm
+rpm -ivh migrate2tencentos-1.0-4.tl3.noarch.rpm
 ```
 5. 执行以下命令，开始迁移。
 ```shell
-/usr/sbin/migrate2tencentos.py -v 3.1
+python3 /usr/sbin/migrate2tencentos.py -v 3.1
 ```
 迁移需要一定时间，请耐心等待。脚本执行完成后，输出如下图所示信息，表示已完成迁移。
 ![](https://qcloudimg.tencent-cloud.cn/raw/e272e5f6e5eba50a1e9bc74db536a592.png)

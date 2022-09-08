@@ -36,4 +36,3 @@ VNC 登录是腾讯云为用户提供的一种通过 Web 浏览器远程连接�
 ![](https://main.qcloudimg.com/raw/c80f6463097d758333c443b618560094.png)
 5. 输入登录密码，按 **Enter**，即可登录到 Windows 云服务器。
 
-

@@ -56,7 +56,7 @@ max_wal_senders=10
 ### 步骤3：创建数据流出任务
 
 1. 在左侧导航栏点击**任务管理** > **任务列表**，选择好地域后，点击**新建任务**。
-2. 任务类型选择**数据流出**，接入方式选择**日志服务（CLS）**，点击**下一步**。
+2. 任务类型选择**数据流出**，数据目标选择**日志服务（CLS）**，点击**下一步**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/815e78914effabe23e96e08ffce0dd7f.png)
 3. 填写任务详情，选取与数据接入任务相同的 CKafka 实例和 Topic，保证在消息生产后能直接进行消费。
 ![](https://qcloudimg.tencent-cloud.cn/raw/679da20b4298c4810c24926c6df97338.png)

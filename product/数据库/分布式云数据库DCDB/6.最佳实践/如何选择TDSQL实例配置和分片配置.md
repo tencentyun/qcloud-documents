@@ -1,4 +1,3 @@
-
 ## TDSQL MySQL版 选型概述
 TDSQL MySQL版 由分片（sharding）组成，分片的规格和分片数量决定了 TDSQL MySQL版 实例的处理能力。理论上来讲：
 

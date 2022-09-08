@@ -435,8 +435,7 @@ FLUSH PRIVILEGES;
 
 
 ### 联合主键设置
-例如，下面的 DDL 设置了`index1`、`index2`、`index3`、`index4` 4个字段为联合主键索引，这4个字段必须定义在 DDL 的最前面，而且顺序要和 `PRIMARY KEY` 定义保持一致。
-
+例如，下面的 DDL 设置了`index1`、`index2`、`index3`、`index4` 4个字段为联合主键索引，要和 `PRIMARY KEY` 定义保持一致，顺序不会影响正常的同步。
 ```sql
 CREATE TABLE db_order_dim (
   `index1` STRING,

@@ -101,7 +101,7 @@ GooseFS-FUSE 基于标准的 GooseFS-core-client-fs 进行操作。如果您希�
 
 | **参数**                                    | **默认值**   | **描述**                                                     |
 | ------------------------------------------- | ------------ | ------------------------------------------------------------ |
-| goosefs.fuse.cached.paths.max               | 500          |   定义内部 GooseFS-FUSE 缓存的大小，该缓存维护本地文件系统路径和 Alluxio 文件 URI 之间最常用的转换。                                                           |
+| goosefs.fuse.cached.paths.max               | 500          |   定义内部 GooseFS-FUSE 缓存的大小，该缓存维护本地文件系统路径和 GooseFS 文件路径之间最常用的转换。                                                           |
 | goosefs.fuse.debug.enabled                  | false        | 允许 FUSE 调试输出，该输出会被重定向到 `goosefs.logs.dir` 指定目录中的 `fuse.out` 日志文件。 |
 | goosefs.fuse.fs.name                        | goosefs-fuse | FUSE 挂载文件系统使用的描述性名称。                           |
 | goosefs.fuse.jnifuse.enabled                | true         |   使用 JNI-Fuse 库以获得更好的性能。 如果禁用，将使用 JNR-Fuse。                                                           |

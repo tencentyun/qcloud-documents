@@ -229,4 +229,3 @@ select * from pg_stat_replication;
 ```
 返回如下结果，即表示可成功查看到从库状态。
 ![](https://qcloudimg.tencent-cloud.cn/raw/c38c6faf64af66188df0e944b335353a.png)
-

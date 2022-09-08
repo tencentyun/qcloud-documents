@@ -93,12 +93,12 @@
    </tr>
         <tr>
 			<td rowspan=2>SDK 下载</td>
-			<td>Android</td>
+			<td>iOS</td>
 			<td>短视频 SDK（LiteAVSDK）+ Demo 源代码</td>
-			<td colspan=2 style="text-align:center"><a href="https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_UGC_Android_latest.zip">iOS SDK 下载</a></td>
+			<td colspan=2 style="text-align:center"><a href="https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_UGC_iOS_latest.zip">iOS SDK 下载</a></td>
 			</tr>
 			<tr>
-			<td>iOS</td>
+			<td>Android</td>
 			<td>短视频 SDK（LiteAVSDK）+ Demo 源代码</td>
 			<td colspan=2 style="text-align:center"><a href="https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_UGC_Android_latest.zip">Android SDK 下载</a></td>
 			</tr>

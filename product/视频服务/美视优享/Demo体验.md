@@ -40,9 +40,9 @@
 <td><a href="https://cloud.tencent.com/document/product/616/65892">DOC</a></td></tr>
 <tr>
 <td>短视频 UGSV</td>
-<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.4.2.114/UGSV-API-Example.zip">ZIP 包</a></td>
-<td align="center"><img src="https://qcloudimg.tencent-cloud.cn/raw/c580f15cba6c8bebfb1db67848833a9f.png" width=120><br><a href="https://dldir1.qq.com/hudongzhibo/xmagic/UGSV-APP-2.4.2.322.apk">单击下载</td>
-<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.4.2.322.vcube/UGSV-API-Example.zip">ZIP 包</a></td>
+<td><a href="https://liteav.sdk.qcloud.com/download/latest/XiaoShiPin_UGC_iOS_latest.zip">ZIP 包</a></td>
+<td align="center"><img src="https://qcloudimg.tencent-cloud.cn/raw/df65606ef48891334b0aab8606d87ce6.png" width=120><br><a href="https://dldir1.qq.com/hudongzhibo/liteav/XiaoShiPin.apk">单击下载</td>
+<td><a href="https://liteav.sdk.qcloud.com/download/latest/XiaoShiPin_UGC_Android_latest.zip">ZIP 包</a></td>
 <td><a href="https://cloud.tencent.com/document/product/616/65893">DOC</a></td></tr>
 </tbody></table>
 

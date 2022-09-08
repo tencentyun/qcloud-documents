@@ -1,10 +1,10 @@
-腾讯云视立方 Android 超级播放器 Adapter 为云点播提供给客户希望使用第三方播放器或自研播放器开发的对接云 PaaS 资源的播放器插件，常用于有自定义播放器功能需求的用户。
+第三方播放器 Android 插件为云点播提供给客户希望使用第三方播放器或自研播放器开发的对接云 PaaS 资源的播放器插件，常用于有自定义播放器功能需求的用户。
 
 
 
 ## SDK 下载
 
-腾讯云视立方 Andriod 超级播放器 Adapter SDK 和 Demo 项目下载地址 [TXCPlayerAdapterSDK_Android](https://mediacloud-76607.gzc.vod.tencent-cloud.com/TXCPlayerAdapter/Release/1.2.0/TXCPlayerAdapterSDK_1.2.0_Android.zip)。 
+第三方播放器 Android 插件和 Demo 项目下载地址 [TXCPlayerAdapterSDK_Android](https://mediacloud-76607.gzc.vod.tencent-cloud.com/TXCPlayerAdapter/Release/1.2.0/TXCPlayerAdapterSDK_1.2.0_Android.zip)。 
 
 ## 集成指引
 
@@ -34,7 +34,7 @@ fileId 一般是在视频上传后，由服务器返回：
 如果文件已存在腾讯云，则可以进入 [媒资管理](https://console.cloud.tencent.com/vod/media) ，找到对应的文件。点开后在右侧视频详情中，可以看到相关参数。
 
 ```java
-//psign 即超级播放器签名，签名介绍和生成方式参见链接：https://cloud.tencent.com/document/product/266/42436
+//psign 即播放器签名，签名介绍和生成方式参见链接：https://cloud.tencent.com/document/product/266/42436
 private String mFileId, mPSign;
 ITXCPlayerAssistor mPlayerAssistor = TXCPlayerAdapter.createPlayerAssistor(mFileId, mPSign);
 ```
@@ -139,7 +139,7 @@ ITXCPlayerAssistor playerAssistor = TXCPlayerAdapter.createPlayerAssistor(String
 | 参数名 | 类型   | 描述                |
 | ------ | ------ | ------------------- |
 | fileId | String | 要播放的视频 fileId |
-| pSign  | String | 超级播放器签名      |
+| pSign  | String | 播放器签名      |
 
 
 
