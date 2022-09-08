@@ -15,8 +15,8 @@ ROLLUP 在多维分析中是“上卷”的意思，即将数据按某种指定�
 | ColumnName      | Type        | AggregationType | Comment                |
 | --------------- | ----------- | --------------- | ---------------------- |
 | user_id         | LARGEINT    |           -      | 用户 ID                 |
-| date            | DATE        |             -    | 数据灌入日期           |
-| timestamp       | DATETIME    |      -           | 数据灌入时间，精确到秒 |
+| date            | DATE        |             -    | 数据导入日期           |
+| timestamp       | DATETIME    |      -           | 数据导入时间，精确到秒 |
 | city            | VARCHAR(20) |         -        | 用户所在城市           |
 | age             | SMALLINT    |       -          | 用户年龄               |
 | sex             | TINYINT     |        -         | 用户性别               |
@@ -262,7 +262,7 @@ rollup_index4(k4, k6, k5, k1, k2, k3, k7)
 |      tuple ids: 0
 ```
 现在我们尝试匹配含有 varchar 列上的条件，如下：`SELECT * FROM test WHERE k9 IN ("xxx", "yyyy") AND k1 = 10;`。
-	有 k9 以及 k1 两个条件，rollup_index1 以及 rollup_index2 的第一列都含有 k9，按理说这里选择这两个 rollup 都可以命中前缀索引并且效果是一样的随机选择一个即可（因为这里 varchar 刚好20个字节，前缀索引不足36个字节被截断），但是当前策略这里还会继续匹配 k1，因为 rollup_index1 的第二列为 k1，所以选择了 rollup_index1，其实后面的 k1 条件并不会起到加速的作用。(如果对于前缀索引外的条件需要其可以起到加速查询的目的，可以通过建立 Bloom Filter 过滤器加速。一般对于字符串类型建立即可，因为 Doris 针对列存在 Block 级别对于整形、日期已经有 Min/Max 索引) 以下是 explain 的结果。
+    有 k9 以及 k1 两个条件，rollup_index1 以及 rollup_index2 的第一列都含有 k9，按理说这里选择这两个 rollup 都可以命中前缀索引并且效果是一样的随机选择一个即可（因为这里 varchar 刚好20个字节，前缀索引不足36个字节被截断），但是当前策略这里还会继续匹配 k1，因为 rollup_index1 的第二列为 k1，所以选择了 rollup_index1，其实后面的 k1 条件并不会起到加速的作用。(如果对于前缀索引外的条件需要其可以起到加速查询的目的，可以通过建立 Bloom Filter 过滤器加速。一般对于字符串类型建立即可，因为 Doris 针对列存在 Block 级别对于整形、日期已经有 Min/Max 索引) 以下是 explain 的结果。
 ```
 |   0:OlapScanNode                                                                                                                                                                                                                                                                                                                                                                                                  
 |      TABLE: test                                                                                                                                                                                                                                                                                                                                                                                                  
@@ -296,8 +296,8 @@ rollup_index4(k4, k6, k5, k1, k2, k3, k7)
 
 ### 聚合数据
 当然一般的聚合物化视图其聚合数据的功能是必不可少的，这类物化视图对于聚合类查询或报表类查询都有非常大的帮助，要命中聚合物化视图需要下面一些前提：
-1.	查询或者子查询中涉及的所有列都存在一张独立的 Rollup 中。
-2.	如果查询或者子查询中有 Join，则 Join 的类型需要是 Inner join。
+1.  查询或者子查询中涉及的所有列都存在一张独立的 Rollup 中。
+2.  如果查询或者子查询中有 Join，则 Join 的类型需要是 Inner join。
 
 以下是可以命中 Rollup 的一些聚合查询的种类。
 
@@ -345,7 +345,7 @@ rollup_index4(k4, k6, k5, k1, k2, k3, k7)
 |             | k11   | FLOAT        | Yes  | false | N/A     | SUM   |
 +-------------+-------+--------------+------+-------+---------+-------+
 ```
-	
+    
 看以下查询：`SELECT SUM(k11) FROM test_rollup WHERE k1 = 10 AND k2 > 200 AND k3 in (1,2,3);`。
 首先判断查询是否可以命中聚合的 Rollup表，经过查上面的图是可以的，然后条件中含有 k1，k2，k3 三个条件，这三个条件 test_rollup、rollup1、rollup2 的前三列都含有，所以前缀索引长度一致，然后比较行数显然 rollup2 的聚合程度最高行数最少所以选取 rollup2。
 ```
