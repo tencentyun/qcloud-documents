@@ -105,7 +105,7 @@
         </div>
 				<div class="demo-item-link-2">
 					<a href="https://cloud.tencent.com/document/product/584/11638">集成指引</a>
-				<a  style="margin-left: 20px;" href="https://liteav.sdk.qcloud.com/download/ugc/TXXiaoShiPinDemo_ios.zip">源码 ZIP</a>
+				<a  style="margin-left: 20px;" href="https://liteav.sdk.qcloud.com/download/latest/XiaoShiPin_UGC_iOS_latest.zip">源码 ZIP</a>
 				  </div>
     </div>
     <div class="preview-demo-item style-qrcode" style="margin-left:0">
@@ -122,7 +122,7 @@
         </div>
 					<div class="demo-item-link">
 					  	<a href="https://cloud.tencent.com/document/product/584/11631">集成指引</a>
-				<a style="margin-left: 20px;" href="https://liteav.sdk.qcloud.com/download/ugc/XiaoShiPin_Professional_Android.zip">源码 ZIP</a>
+				<a style="margin-left: 20px;" href="https://liteav.sdk.qcloud.com/download/latest/XiaoShiPin_UGC_Android_latest.zip">源码 ZIP</a>
         </div>
 				 </div>		
     </div>
