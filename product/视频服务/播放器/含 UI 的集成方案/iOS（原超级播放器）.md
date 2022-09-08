@@ -160,16 +160,17 @@ model.videoId.fileId = @"5285890799710173650"; // 配置 FileId
 </dx-codeblock>
 :::
 ::: 使用 URL 播放[](id:url)
-```java
+```objective-c
 SuperPlayerModel *model = [[SuperPlayerModel alloc] init];
 model.videoURL = @"http://your_video_url.mp4";   // 配置您的播放视频url
-[_playerView playWithModel:model];
+[_playerView playWithModel:model]; // 3.6.8版本废弃掉
+[_playerView playWithModelNeedLicence:model]; // 3.6.8版本开始使用，依赖TXLiteAVSDK10.7
 ```
 :::
 </dx-tabs>
 - **退出播放：**[](id:exitPlayer)
 当不需要播放器时，调用 `resetPlayer` 清理播放器内部状态，释放内存。
-```java
+```objective-c
 [_playerView resetPlayer];
 ```
 
@@ -291,7 +292,8 @@ model.videoId = videoId;
 model.action  = PLAY_ACTION_MANUAL_PLAY; 
 //设定封面的地址为网络url地址，如果coverPictureUrl不设定，那么就会自动使用云点播控制台设置的封面
 model.customCoverImageUrl = @"http://1500005830.vod2.myqcloud.com/6c9a5118vodcq1500005830/cc1e28208602268011087336518/MXUW1a5I9TsA.png"; 
-[self.playerView playWithModel:model] 
+[self.playerView playWithModel:model]; // 3.6.8版本废弃掉
+[self.playerView playWithModelNeedLicence:model]; // 3.6.8版本开始使用，依赖TXLiteAVSDK10.7
 ```
 
 ### 4、视频列表轮播
@@ -323,11 +325,13 @@ model.videoId = videoId;
 [modelArray addObject:model];
 
 //步骤2：调用 SuperPlayerView 的轮播接口
-[self.playerView playWithModelList:modelArray isLoopPlayList:YES startIndex:0];
+[self.playerView playWithModelList:modelArray isLoopPlayList:YES startIndex:0]; // 3.6.8版本废弃掉
+[self.playerView playWithModelListNeedLicence:modelArray isLoopPlayList:YES startIndex:0]; // 3.6.8版本开始使用，依赖TXLiteAVSDK10.7
 ```
 
 ```objective-c
-(void)playWithModelList:(NSArray *)playModelList isLoopPlayList:(BOOL)isLoop startIndex:(NSInteger)index;
+(void)playWithModelList:(NSArray *)playModelList isLoopPlayList:(BOOL)isLoop startIndex:(NSInteger)index;// 3.6.8版本废弃掉
+(void)playWithModelListNeedLicence:(NSArray *)playModelList isLoopPlayList:(BOOL)isLoop startIndex:(NSInteger)index;// 3.6.8版本开始使用，依赖TXLiteAVSDK10.7
 ```
 
 接口参数说明
@@ -404,7 +408,8 @@ model.textFont = 30;
 model.textColor = [UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:0.8];
 playermodel.dynamicWaterModel = model;
 //步骤4：调用方法展示动态水印
-[self.playerView playWithModel:playermodel];
+[self.playerView playWithModel:playermodel];// 3.6.8版本废弃掉
+[self.playerView playWithModelNeedLicence:playermodel];// 3.6.8版本开始使用，依赖TXLiteAVSDK10.7
 ```
 
 DynamicWaterModel 类参数说明：
