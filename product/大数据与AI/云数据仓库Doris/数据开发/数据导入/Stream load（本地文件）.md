@@ -212,7 +212,7 @@ curl -X PUT --location-trusted -u user:passwd  -H "txn_id:18037" -H "txn_operati
 
 ### 查看 Stream Load
 用户可以通过 `show stream load` 来查看已经完成的 stream load 任务。
-默认 BE 是不记录 Stream Load 的记录，如果您要查看需要在 BE 上启用记录，配置参数是：`enable_stream_load_record=true` ，具体怎么配置请参照 [BE 配置项](https://doris.apache.org/zh-CN/docs/admin-manual/config/be-config)
+默认 BE 是不记录 Stream Load 的记录，如果您要查看需要在 BE 上启用记录，配置参数是：`enable_stream_load_record=true` ，具体配置请参见 [BE 配置项](https://cloud.tencent.com/document/product/1387/70761)。
 
 ## 相关系统配置
 ### FE 配置
@@ -287,4 +287,4 @@ Stream load 的 Label 重复排查步骤如下：
 ```
 
 ## 更多帮助
-关于 Stream Load 使用的更多详细语法及最佳实践，请参阅 [Stream Load](../../../sql-manual/sql-reference/Data-Manipulation-Statements/Load/STREAM-LOAD.md) 命令手册，您也可以在 MySql 客户端命令行下输入 `HELP STREAM LOAD` 获取更多帮助信息。
+关于 Stream Load 使用的更多详细语法及最佳实践，请参阅 [Stream Load](https://doris.apache.org/zh-CN/docs/data-operate/import/import-way/stream-load-manual) 命令手册，您也可以在 MySql 客户端命令行下输入 `HELP STREAM LOAD` 获取更多帮助信息。
