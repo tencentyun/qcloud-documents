@@ -8,7 +8,7 @@
 - 支持服务监听触发回调
 - 支持查看下发配置
 
-# 1.29.17-Finchley-RELEASE（2022-09-06）
+## 1.29.17-Finchley-RELEASE（2022-09-06）
 ### bug 修复
 - 修复实例级熔断 half open 再次进入 open 时的隔离问题
 - 调用链修复status code的获取
@@ -23,7 +23,7 @@
 ### 版本建议
 支持向后兼容，建议全量升级。
 
-# 1.29.14-Finchley-RELEASE（2022-06-24）
+## 1.29.14-Finchley-RELEASE（2022-06-24）
 ### Bug 修复
 - 修复潜在的 CacheClient bean 重复问题
 - 修复invocation AggregatedStat 数据合并的问题
