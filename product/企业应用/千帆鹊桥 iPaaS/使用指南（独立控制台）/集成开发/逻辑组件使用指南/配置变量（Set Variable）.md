@@ -41,7 +41,7 @@
 ### 数据预览
 <img src="https://qcloudimg.tencent-cloud.cn/raw/2692c10c80d8f86ee29b69f3505f6f44.png" alt="https://qcloudimg.tencent-cloud.cn/raw/2692c10c80d8f86ee29b69f3505f6f44.png" style="zoom:50%;" />
 
-## 案例
+### 案例
 
 1. 添加 Set Variable 组件。
 ![image-20210330173246414](https://qcloudimg.tencent-cloud.cn/raw/94c98067f1bbfbf770b46abade141cb2.png)
