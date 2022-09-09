@@ -4,18 +4,6 @@
 <tr><th width="13%">时间</th><th width="13%">版本</th><th width="74%">更新内容</th></tr>
 </thead>
   <tbody>
-	    <tr><td> 2022-09-07   </td><td> v1.22.5-tke.3</td>
-		<td>
-<li>缩容时支持指定 Pod。(kube-controller-manager)</li>
-<li>优化 daemonset Pod 调度性能，只处理分配到的节点。(kube-scheduler)</li>
-<li>设置 CBS CSI Migration 为完成状态。(kube-controller-manager)</li>
-<li>支持扩展调度器 Prebind 及 Unreserve 操作。(kube-scheduler)</li>
-<li>优化超级节点 HPA。(kube-controller-manager)</li>
-<li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/110294">PR110294</a>，修复 Job activeDeadlineSeconds 设置不生效的问题。(kube-controller-manager)</li>
-<li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/111773">PR111773</a>，修复调度器抢占时的内存泄漏问题。(kube-scheduler)</li>
-<li>支持 containerd 磁盘指标。(kubelet)</li>
-<li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/108831">PR108831</a>，修复同时创建多个 Pod 导致 kubelet panic。(kubelet)</li>
-</td></tr>
     <tr><td> 2022-05-07   </td><td> v1.22.5-tke.1</td>
 		<td>
 <li>允许 TKE 托管集群使用的特殊网段。(kube-apiserver)</li>
