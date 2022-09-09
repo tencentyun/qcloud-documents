@@ -36,7 +36,7 @@
       <td class="div-td-2 div-td-el">DDoSAbnormalFlow</td>
       <td class="div-td-3">异常<br>事件</td>
       <td class="div-td-4">高防包实例维度</td>
-      <td class="div-td-5">无</td>
+      <td class="div-td-5">有</td>
       <td class="div-td-6"> - </td>
 			<td class="div-td-7"> <a href="https://console.cloud.tencent.com/workorder/category">提交工单</a> 联系我们</td>
     </tr>
@@ -47,7 +47,7 @@
       <td class="div-td-2 div-td-el">DDoSAlaram</td>
       <td class="div-td-3">异常<br>事件</td>
       <td class="div-td-4">高防包实例维度</td>
-      <td class="div-td-5">无</td>
+      <td class="div-td-5">有</td>
       <td class="div-td-6"> - </td>
 			<td class="div-td-7"> <a href="https://console.cloud.tencent.com/workorder/category">提交工单</a> 联系我们</td>
     </tr>
@@ -58,7 +58,7 @@
       <td class="div-td-2 div-td-el">DDoSBlock</td>
       <td class="div-td-3">异常<br>事件</td>
       <td class="div-td-4">高防包实例维度</td>
-      <td class="div-td-5">无</td>
+      <td class="div-td-5">有</td>
       <td class="div-td-6"> - </td>
 			<td class="div-td-7"> <a href="https://console.cloud.tencent.com/workorder/category">提交工单</a> 联系我们</td>
     </tr>
@@ -69,7 +69,7 @@
       <td class="div-td-2 div-td-el">CCAlaram</td>
       <td class="div-td-3">异常<br>事件</td>
       <td class="div-td-4">高防包实例维度</td>
-      <td class="div-td-5">无</td>
+      <td class="div-td-5">有</td>
       <td class="div-td-6"> - </td>
 			<td class="div-td-7"> <a href="https://console.cloud.tencent.com/workorder/category">提交工单</a> 联系我们</td>
     </tr>
