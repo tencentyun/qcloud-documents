@@ -1,4 +1,4 @@
-**## 前提条件
+## 前提条件
 客户端接入前，需完成新建验证，并在**验证列表**获取所需的 CaptchaAppId 以及 AppSecretKey。步骤如下：
 
 1. 登录 [验证码控制台](https://console.cloud.tencent.com/captcha/graphical) ，左侧导航栏选择**图形验证** > **验证管理**，进入验证管理页面。
