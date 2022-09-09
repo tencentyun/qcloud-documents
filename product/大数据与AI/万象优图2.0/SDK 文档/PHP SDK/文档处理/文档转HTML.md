@@ -31,7 +31,7 @@ $cosClient = new Qcloud\Cos\Client(
             'secretKey' => $secretKey)));
 try {
     // 2. 文档转HTML https://cloud.tencent.com/document/product/460/52518
-    $bucket = 'examplebucket-125000000';
+    $bucket = 'examplebucket-1250000000';
     $key = 'exampleobject';
     $url = $cosClient->getObjectUrl($bucket, $key, "+30 minutes");
     $params = array(
