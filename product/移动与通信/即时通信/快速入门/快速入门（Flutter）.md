@@ -12,7 +12,7 @@
 ## 支持平台
 
 
-| 平台 | 无UI SDK(tencent_im_sdk_plugin) | 含UI及基础业务逻辑 TUIKit (tim_ui_kit) |
+| 平台 | 无UI SDK (tencent_im_sdk_plugin) | 含UI及基础业务逻辑 TUIKit (tim_ui_kit) |
 |---------|---------|---------|
 | iOS | 支持 | 支持 |
 | Android | 支持 | 支持 |
