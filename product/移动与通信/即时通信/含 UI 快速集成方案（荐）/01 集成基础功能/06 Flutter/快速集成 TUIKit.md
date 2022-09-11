@@ -32,6 +32,18 @@ Flutter TUIKit 是基于 Flutter IM SDK 实现的一套 UI 组件，其中包含
 |Android|Android Studio 3.5及以上版本，App 要求 Android 4.1及以上版本设备。|
 |iOS|Xcode 11.0及以上版本，请确保您的项目已设置有效的开发者签名。|
 
+## 支持平台
+
+| 平台  | 支持状态 |
+|---------|---------|
+| iOS  | 支持 |
+| Android  | 支持 |
+| [Web](#web)  | 支持，0.1.4版本起 |
+| macOS  | 开发中，敬请期待 |
+| Windows  | 开发中，敬请期待 |
+
+> 我们致力于打造一套支持 Flutter 全平台的即时通信IM SDK及TUIKit，帮助您一套代码，全平台运行。
+
 ## 操作步骤
 如下会介绍如何使用 Flutter TUIKit 快速构建一个简单的即时通信应用。
 

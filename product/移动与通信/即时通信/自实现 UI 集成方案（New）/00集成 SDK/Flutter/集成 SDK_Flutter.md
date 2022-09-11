@@ -8,6 +8,18 @@
 |Android|Android Studio 3.5及以上版本，App 要求 Android 4.1及以上版本设备。|
 |iOS|Xcode 11.0及以上版本，真机调试请确保您的项目已设置有效的开发者签名。|
 
+## 支持平台
+
+
+| 平台 | 支持状态|
+|---------|---------|
+| iOS | 支持 |
+| Android | 支持 |
+| [Web](#web) | 支持，4.1.1+2版本起 |
+| macOS | 即将上线 |
+| Windows | 即将上线 |
+
+> 我们致力于打造一套支持 Flutter 全平台的即时通信IM SDK及TUIKit，帮助您一套代码，全平台运行。
 
 ## 集成 IM SDK
 您可以通过 [pub add](https://pub.dev/packages/tencent_im_sdk_plugin) 的方式直接集成腾讯云 IM SDK（Flutter），或者在 pubspec.yaml 中写入 IM SDK 的方式来集成。
