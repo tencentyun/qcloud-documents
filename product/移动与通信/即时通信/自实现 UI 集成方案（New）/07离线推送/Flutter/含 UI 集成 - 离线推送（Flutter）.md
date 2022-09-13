@@ -432,9 +432,12 @@ defaultConfig {
     <!--魅族 结束-->
 ```
 
-### 步骤3: 登录IM成功后初始化[](id:step_3)
-1. 调用插件`init`方法。该步骤会完成初始化各厂商通道。
-2. 该步骤请在执行登录IM成功后调用。
+### 步骤3: IM初始化成功后初始化本推送插件
+
+调用插件`init`方法。该步骤会完成初始化各厂商通道，并申请厂商通知权限。
+
+请确保IM SDK初始化成功后，才可初始化本插件。
+
 >?由于国内大部分 Android 设备不支持 Google Service, 因此提供一个开关`isUseGoogleFCM`供开发者根据主要用户群体判断，是否启用 Google Firebase Cloud Messaging 推送服务。
 
 ```Dart
