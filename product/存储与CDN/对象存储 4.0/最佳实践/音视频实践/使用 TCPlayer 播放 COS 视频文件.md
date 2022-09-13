@@ -117,7 +117,7 @@ player.src("https://<BucketName-APPID>.cos.<Region>.myqcloud.com/xxx.m3u8"); // 
 - [播放 HLS 加密视频示例代码](https://github.com/tencentyun/cos-demo/blob/main/cos-video/examples/web/tcplayer/m3u8.html)
 
 ### 切换清晰度
-数据万象 [自适应码流](https://cloud.tencent.com/document/product/460/58430) 功能，可以将视频文件转码并打包生成自适应码流输出文件，帮助用户在不同网络情况下快速分发视频内容，播放器能够根据当前带宽，动态选择最合适的码率播放，详情可参考 [COS 音视频实践 ｜ 数据工作流助你播放多清晰度视频](https://mp.weixin.qq.com/s/THUhur1FV_55T9zzqT2MFQ)。
+数据万象 [自适应码流](https://cloud.tencent.com/document/product/460/58430) 功能，可以将视频文件转码并打包生成自适应码流输出文件，帮助用户在不同网络情况下快速分发视频内容，播放器能够根据当前带宽，动态选择最合适的码率播放，详情可参见 [COS 音视频实践 ｜ 数据工作流助你播放多清晰度视频](https://mp.weixin.qq.com/s/THUhur1FV_55T9zzqT2MFQ)。
 操作步骤如下：
 1. 通过 数据万象 [自适应码流]() 功能，生成多码率自适应的 HLS 或 DASH 目标文件。
 2. 初始化播放器并传入视频对象地址。
@@ -130,7 +130,7 @@ player.src("https://<BucketName-APPID>.cos.<Region>.myqcloud.com/xxx.m3u8"); // 
 - [切换清晰度示例代码](https://github.com/tencentyun/cos-demo/blob/main/cos-video/examples/web/tcplayer/multiDefinition.html)
 
 ### 设置动态水印
-播放器支持为视频添加位置与速度产生变换的水印。在使用动态水印功能时，播放器对象的引用不能暴露到全局环境，否则动态水印可以轻易去除，数据万象也支持在云端对视频进行添加动态水印等操作，详情可参考 [水印模板接口](https://cloud.tencent.com/document/product/460/77715)。
+播放器支持为视频添加位置与速度产生变换的水印。在使用动态水印功能时，播放器对象的引用不能暴露到全局环境，否则动态水印可以轻易去除，数据万象也支持在云端对视频进行添加动态水印等操作，详情可参见 [水印模板接口](https://cloud.tencent.com/document/product/460/77715)。
 ```
 var player = TCPlayer("player-container-id", {
     plugins:{
