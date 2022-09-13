@@ -1,12 +1,13 @@
-腾讯云视立方·播放器 SDK 移动端（Android & iOS & Flutter）10.1 版本后的 SDK 视频播放能力获得全面优化升级，同时新增了对视频播放功能的授权校验。
+播放器 SDK 预计在2022年9月14日发布10.7版本，在该版本中接口 `startPlay` 的名称将做出变更。
 
-**播放器 SDK 移动端10.1及更高版本的视频播放功能，需购买直播 License、短视频 License 和视频播放 License中任意一款 License 获得授权后方可正常使用，否则将无法正常使用 SDK 视频播放功能**。
+`startPlay` 接口在配置 SDK 播放功能时使用，代表开始播放。具体变更如下：
 
-相关内容已在10.1版本发布上线时做出公告说明，详情参见2022年5月31日发布的公告：[关于腾讯云视立方·播放器 SDK 升级及新增授权校验的公告](https://cloud.tencent.com/document/product/881/74199)。
+1. 点播播放接口 `TXVodPlayer` 的开始播放接口名由 `startPlay` 变更为 `startVodPlay`，详情参见 [API-iOS-点播播放](https://cloud.tencent.com/document/product/881/67109#.E6.92.AD.E6.94.BE.E5.9F.BA.E7.A1.80.E6.8E.A5.E5.8F.A3)，[API-Android-点播播放](https://cloud.tencent.com/document/product/881/67113#.E6.92.AD.E6.94.BE.E5.9F.BA.E7.A1.80.E6.8E.A5.E5.8F.A3)，[API-Flutter-点播播放](https://cloud.tencent.com/document/product/881/60729#.E7.82.B9.E6.92.AD.E6.92.AD.E6.94.BE.E5.99.A8.E4.BD.BF.E7.94.A8)。
+2. 直播播放接口 `TXLivePlayer` 的开始播放接口名由 `startPlay` 变更为 `startLivePlay`*，*详情参见 [API-iOS-直播播放](https://cloud.tencent.com/document/product/881/67108#.E6.92.AD.E6.94.BE.E5.9F.BA.E7.A1.80.E6.8E.A5.E5.8F.A3)，[API-Android-直播播放](https://cloud.tencent.com/document/product/881/67111#.E6.92.AD.E6.94.BE.E5.9F.BA.E7.A1.80.E6.8E.A5.E5.8F.A3)。
 
-若您正在使用本产品，请务必关注相关内容。若您因未取得 License 授权导致 SDK 无法正常使用及其他后果，腾讯云不承担责任。
+若您在10.7以下版本的 SDK 中使用该接口，将不受本次变更影响；若您在10.7及其更高版本的 SDK 中使用该接口，则需关注此次变更。
 
-若您有任何疑问，欢迎随时 [联系我们](https://cloud.tencent.com/document/product/1449/56948)。衷心感谢各位用户对腾讯云视立方产品的信赖与支持！
+若您有任何疑问，欢迎随时 [联系我们](https://cloud.tencent.com/document/product/1449/56948)。衷心感谢各位用户对腾讯视立方产品的信赖与支持！
 
 2022-09-13
 
