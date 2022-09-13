@@ -11,6 +11,7 @@
 
 ## 前提条件
 - 已准备文件远程拷贝软件，例如 WinSCP（建议从官方网站获取最新版本）。
+若您需部署到腾讯云云服务器，建议使用云服务器的文件上传功能。详情请参见 [上传文件到云服务器](https://cloud.tencent.com/document/product/1340/72845)。
 - 已准备远程登录工具，例如 PuTTY 或者 Xshell（建议从官方网站获取最新版本）。
 - 已在当前服务器中安装配置 Tomcat 服务。
 - 安装 SSL 证书前需准备的数据如下：
@@ -49,6 +50,9 @@
      - `cloud.tencent.com.pfx` 证书文件
      - `keystorePass.txt` 密码文件（若已设置私钥密码，则无 `keystorePass.txt` 密码文件）
 3. 使用 “WinSCP” （即本地与远程计算机间的复制文件工具）登录 Tomcat 服务器。
+>?
+>- WinSCP 上传文件操作可参考 [通过 WinSCP 上传文件到 Linux 云服务器](https://cloud.tencent.com/document/product/213/2131)。
+>- 若您需部署到腾讯云云服务器，建议使用云服务器的文件上传功能。详情请参见 [上传文件到云服务器](https://cloud.tencent.com/document/product/1340/72845)。
 4. 将已获取到的 `cloud.tencent.com.pfx` 证书文件从本地目录拷贝至 `/usr/*/conf` 目录下。
 5. 远程登录 Tomcat  服务器。例如，使用 [“PuTTY” 工具](https://cloud.tencent.com/document/product/213/35699#.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4) 登录。
 6. 编辑在 `/usr/*/conf` 目录下的 `server.xml` 文件。并根据实际需求从以下方式中选择一种进行操作：
