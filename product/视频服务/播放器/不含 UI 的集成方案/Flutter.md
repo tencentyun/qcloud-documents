@@ -126,7 +126,7 @@ class _TestState extends State<Test> {
 
   Future<void> initPlayer() async {
     await _controller.initialize();
-    await _controller.startPlay(_url);
+    await _controller.startVodPlay(_url);
   }
 
   @override
@@ -246,7 +246,7 @@ class _DemoSuperplayerState extends State<DemoSuperplayer> {
   }
 
   void playCurrentModel(SuperPlayerModel model) {
-    _controller.playWithModel(model);
+    _controller.playWithModelNeedLicence(model);
   }
 
   void initData() async {
@@ -254,7 +254,7 @@ class _DemoSuperplayerState extends State<DemoSuperplayer> {
     model.videoURL = "http://1500005830.vod2.myqcloud.com/6c9a5118vodcq1500005830/48d0f1f9387702299774251236/gZyqjgaZmnwA.m4v";
     model.playAction = SuperPlayerModel.PLAY_ACTION_AUTO_PLAY;
     model.title = "腾讯云音视频";
-    _controller.playWithModel(model);
+    _controller.playWithModelNeedLicence(model);
   }
   
   @override
