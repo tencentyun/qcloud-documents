@@ -69,7 +69,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/b536ec77d54bd53f9761cb115ebd4b20.png)
 2. 选择**视频播放**，单击**下一步**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/46e2161b443c62b0bd9c56a513cbb9ab.png)
-3. 进入选择资源项并绑定 License 界面，点击**立即绑定** ，选择**未绑定**的视频播放 License（（若没有可绑定的 License 资源，可参考[购买视频播放License] (https://tcloud-doc.isd.com/document/product/881/74588?!editLang=zh&!preview#.E8.B4.AD.E4.B9.B0.E5.B9.B6.E6.96.B0.E5.BB.BA.E6.AD.A3.E5.BC.8F.E7.89.88-license)）），并单击**确定**即可在应用下生成正式版视频播放功能模块。
+3. 进入选择资源项并绑定 License 界面，点击**立即绑定** ，选择**未绑定**的视频播放 License（若没有可绑定的 License 资源，可参考 [购买视频播放 License](https://tcloud-doc.isd.com/document/product/881/74588?!editLang=zh&!preview#.E8.B4.AD.E4.B9.B0.E5.B9.B6.E6.96.B0.E5.BB.BA.E6.AD.A3.E5.BC.8F.E7.89.88-license))，并单击**确定**即可在应用下生成正式版视频播放功能模块。
 ![](https://qcloudimg.tencent-cloud.cn/raw/9c12544f9ec5ff259f12af38fb02988c.png)
 :::
 </dx-tabs>
