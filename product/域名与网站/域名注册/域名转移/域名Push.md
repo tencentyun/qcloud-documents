@@ -49,7 +49,7 @@
 ### 发起 Push
 1. 登录腾讯云域名注册控制台，选择左侧导航栏中的 **[域名 Push](https://console.cloud.tencent.com/domain/push)**。
 2. 在“域名 Push”页面中，单击**我要 Push**。
-3. 在“我要 Push”页面中，输入需 Push 的域名（最多一次可发起4000个域名 Push），输入并确认域名接收方的腾讯云账号ID，并选择重置 DNS 解析、输入附言后，单击**下一步**。如下图所示：
+3. 在“我要 Push”页面中，输入需 Push 的域名（最多一次可发起4000个域名 Push），输入并确认域名接收方的腾讯云账号 ID，并选择重置 DNS 解析、输入附言后，单击**下一步**。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/cda60164c89fda08437529ef49720177.png)
 4. 核实域名情况确认无误后，单击**确认**即成功发起 Push。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/2b6ce513c1c9a01effa44cb75bb07a6a.png)
