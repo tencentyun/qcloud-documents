@@ -16,9 +16,9 @@
 
 
 ## 步骤3：使用插件
-1. 在构建计划中新增阶段，选择**安全**-**二进制软件成分分析**。
+1. 在构建计划中新增阶段，选择**安全** > **二进制软件成分分析**。
  ![构建计划选择插件.png](https://qcloudimg.tencent-cloud.cn/raw/a036f5eb3701da073cfb59de1d1d62e7.png)	 
-2. 填写参数，示例如下：
+2. 在对话框中，填写参数，示例如下：
  ![插件参数.png](https://qcloudimg.tencent-cloud.cn/raw/3795bc5d7ac6c8f382d87e90fd9cf5c7.png) 
 **参数说明**： 
  - SecretId：腾讯云 API SecretId，用于标识 API 调用者的身份，可在腾讯云平台的 **[访问管理](https://console.cloud.tencent.com/cam/capi)** > **访问密钥** > **API 密钥管理**中获取。**建议配置环境变量并加密，防止 SecretId 泄露**。 
