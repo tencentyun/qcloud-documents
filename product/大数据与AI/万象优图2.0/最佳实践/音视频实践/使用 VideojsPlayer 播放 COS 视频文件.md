@@ -2,6 +2,7 @@
 本文将介绍如何使用 [VideojsPlayer](https://videojs.com/) 并结合 [腾讯云数据万象(CI)](https://cloud.tencent.com/document/product/460/47503) 所提供的丰富的音视频能力，实现在 Web 浏览器播放 COS 视频文件。
 
 ## 集成指引
+[](id:1)
 #### 步骤1：在页面中引入播放器样式文件及脚本文件
 ```
 <!-- 播放器样式文件 -->
@@ -12,6 +13,7 @@
 
 >?建议在正式使用播放器时，自行部署以上相关静态资源。
 
+[](id:2)
 #### 步骤2：设置播放器容器节点
 
 在需要展示播放器的页面位置加入播放器容器。例如，在 index.html 中加入如下代码（容器 ID 以及宽高都可以自定义）。
@@ -28,6 +30,7 @@
 ></video>
 ```
 
+[](id:3)
 #### 步骤3：获取视频文件对象地址
 1. [创建一个存储桶](https://cloud.tencent.com/document/product/436/13309)。
 2. [上传视频文件](https://cloud.tencent.com/document/product/436/13321)。
@@ -37,6 +40,7 @@
 > - 若存在跨域问题，则需要进行存储桶跨域访问 CORS 设置，详情请参见 [设置跨域访问](https://cloud.tencent.com/document/product/436/13318)。
 > - 若存储桶为私有读写，则对象地址需要携带签名，详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778)。
 
+[](id:4)
 #### 步骤4：在播放器容器内设置视频地址，传入 COS 视频文件对象地址 URL
 ```
 <video
