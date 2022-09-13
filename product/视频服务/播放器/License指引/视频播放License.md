@@ -55,7 +55,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/7d7b23dd672ea2c877eab6beb112ea47.png)
 2. 填写正式应用的 `App Name`、`Package Name` 和 `Bundle ID` 信息，勾选功能模块**视频播放**，单击**下一步**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/71c662c0faf0e4255e1da3bc1f01a8ff.png)
-3. 进入选择资源项并绑定 License 界面，点击**立即绑定** ，选择**未绑定**的直播/点播流量资源包或独立 License（若没有可绑定的 License 资源，可前往 [音视频终端 SDK 购买页](https://buy.cloud.tencent.com/vcube) 购买），并单击**确定**即可创建应用并生成正式版 License。
+3. 进入选择资源项并绑定 License 界面，点击**立即绑定** ，选择**未绑定**的直播/点播流量资源包或独立 License（若没有可绑定的 License 资源，可参考 [购买视频播放 License](https://tcloud-doc.isd.com/document/product/881/74588?!editLang=zh&!preview#.E8.B4.AD.E4.B9.B0.E5.B9.B6.E6.96.B0.E5.BB.BA.E6.AD.A3.E5.BC.8F.E7.89.88-license))，并单击**确定**即可创建应用并生成正式版 License。
 ![](https://qcloudimg.tencent-cloud.cn/raw/259253529372b59a45bb751aa507d9bf.png)
 
 > ?
