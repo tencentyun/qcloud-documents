@@ -26,7 +26,7 @@
 1. 主账号（或具备 CAM 管理权限的用户）在 [策略](https://console.cloud.tencent.com/cam/policy) 页面，单击**新建自定义策略**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/5c831d7359a8b15a16123b7bdad1a426.png)
 2. 在弹出的窗口中，单击**按策略语法创建**。
-3. 在选择策略模板页面，选择**空白模版**，单击**下一步**。
+3. 在选择策略模板页面，选择**空白模板**，单击**下一步**。
 4. 在编辑策略页面，设置策略名称，输入策略内容，策略内容可从 [CLS权限策略](https://cloud.tencent.com/document/product/614/68374) 中进行复制。例如：需要给子账号赋权 Loglistener 的使用权限，就拷贝如下图所示的策略：
 ![](https://qcloudimg.tencent-cloud.cn/raw/772f8319c0c86b08765337097cc65d18.png)
 ![](https://qcloudimg.tencent-cloud.cn/raw/8b3c4e727b5308cb28c7ae860d103a03.png)
