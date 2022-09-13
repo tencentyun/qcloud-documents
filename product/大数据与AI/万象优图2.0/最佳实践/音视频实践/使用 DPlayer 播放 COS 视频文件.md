@@ -4,20 +4,20 @@
 
 ## 集成指引
 
-### 步骤1：在页面中引入播放器脚本文件以及按需引入部分依赖文件
+#### 步骤1：在页面中引入播放器脚本文件以及按需引入部分依赖文件
 ```
 <!-- 播放器脚本文件 -->
 <script src="https://cdn.jsdelivr.net/npm/dplayer@1.26.0/dist/DPlayer.min.js"></script>
 ```
 >?建议在正式使用播放器时，自行部署以上相关静态资源。
 
-### 步骤2：设置播放器容器节点
+#### 步骤2：设置播放器容器节点
 在需要展示播放器的页面位置加入播放器容器。例如，在 index.html 中加入如下代码（容器 ID 以及宽高都可以自定义）。
 ```
 <div id="dplayer" style="width: 100%; height: 100%"></div>
 ```
 
-### 步骤3：获取视频文件对象地址
+#### 步骤3：获取视频文件对象地址
 1. [创建一个存储桶](https://cloud.tencent.com/document/product/436/13309)
 2. [上传视频文件](https://cloud.tencent.com/document/product/436/13321)
 3. 获取视频文件对象地址，格式为：`https://<BucketName-APPID>.cos.<Region>.myqcloud.com/xxx.<视频格式>`。
@@ -26,7 +26,7 @@
 > - 若存在跨域问题，则需要进行存储桶跨域访问 CORS 设置，详情请参见 [设置跨域访问](https://cloud.tencent.com/document/product/436/13318)。
 > - 若存储桶为私有读写，则对象地址需要携带签名，详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778)。
 
-### 步骤4：初始化播放器，并传入 COS 视频文件对象地址 URL
+#### 步骤4：初始化播放器，并传入 COS 视频文件对象地址 URL
 ```
 const dp = new DPlayer({
   container: document.getElementById('dplayer'),
