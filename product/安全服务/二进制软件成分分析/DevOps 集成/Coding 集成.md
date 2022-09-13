@@ -5,7 +5,7 @@
 访问 [BSCA Coding Plugin](https://bsca-production-1251316161.cos.ap-guangzhou.myqcloud.com/coding-plugin/BSCACoding.zip) 下载插件压缩包。 
 
 ## 步骤2：发布插件 
-1. 进入**团队设置中心** > **功能设置** > **持续集成** > **构建插件**。
+1. 登录 [Coding 平台](https://coding.net/)，进入**团队设置中心** > **功能设置** > **持续集成** > **构建插件**。
 ![构建插件入口](https://qcloudimg.tencent-cloud.cn/raw/06b69b9f9d6342d470e4d563c06c4e41.png)
 2. 单击右上角**新建构建插件**：
  ![新建构建插件.png](https://qcloudimg.tencent-cloud.cn/raw/be38579ab27abfcde8ef248928833726.png) 
