@@ -23,7 +23,7 @@
 <tbody><tr>
 <td colspan=2>价格（元/月）</td><td>0（免费体验）</td>
 <td>1,499</td>
-<td>2,499</td>
+<td>1,999</td>
 <td>4,499</td>
 </tr>
 <tr>
