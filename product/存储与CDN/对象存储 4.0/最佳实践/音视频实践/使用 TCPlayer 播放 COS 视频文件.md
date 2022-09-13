@@ -1,6 +1,7 @@
 ## 简介
 本文将介绍如何使用音视频终端 SDK（腾讯云视立方）集成的 [ TCPlayer](https://cloud.tencent.com/document/product/881/30818) 并结合 [腾讯云数据万象(CI)](https://cloud.tencent.com/document/product/460/47503) 所提供的丰富的音视频能力，实现在 Web 浏览器播放 COS 视频文件。
 
+[](id:IntegrationGuidelines)
 ## 集成指引
 #### 步骤1：在页面中引入播放器样式文件及脚本文件
 ```
