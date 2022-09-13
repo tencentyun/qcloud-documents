@@ -57,7 +57,7 @@
 >- 域名 Push 一旦发起成功，发起方无法撤回，请谨慎操作。
 >- 可前往 [账号信息页面](https://console.cloud.tencent.com/developer) 获取接收方的账号 ID。
 5. 当接收方成功接收后，在**发起的请求**页签中，域名状态将会显示"已被接收"，域名即已成功完成 Push。如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/4c81c8537a33884e8f76a54247b2f7d7.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/b2467c733eee5a9e188553d71e9a261e.png)
 
 
 ### 接收 Push
