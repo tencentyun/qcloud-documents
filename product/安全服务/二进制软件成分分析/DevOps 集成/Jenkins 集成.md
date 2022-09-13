@@ -24,5 +24,5 @@
  -  分析项类型：创建分析的类型，与文件类型直接相关。目前支持 RTOS 固件、Docker 镜像、其他制品文件（各类二进制构建产物），默认为“其他制品文件”。
  - 分析参数：分析项参数，目前**仅 RTOS 固件类型**的分析需要，包括 bin、s19、hex。 
 3. 参数填写完成后，单击**立即构建**运行构建任务。
-4. 任务结束后可前往 可前往 [二进制软件成分分析控制台](https://console.cloud.tencent.com/bsca/sca/index) 查看插件创建的分析。
+4. 任务结束后可前往 [二进制软件成分分析控制台](https://console.cloud.tencent.com/bsca/sca/index) 查看插件创建的分析。
  ![示例分析](https://qcloudimg.tencent-cloud.cn/raw/16f6e5cd83992900b1a478d2c5dc3acd.png)
