@@ -9,6 +9,7 @@
 
 ## 前提条件
 - 已准备文件远程拷贝软件，例如 WinSCP（建议从官方网站获取最新版本）。
+若您需部署到腾讯云云服务器，建议使用云服务器的文件上传功能。详情请参见 [上传文件到云服务器](https://cloud.tencent.com/document/product/1340/72845)。
 - 已准备远程登录工具，例如 PuTTY 或者 Xshell（建议从官方网站获取最新版本）。
 - 已在当前服务器中安装配置 GlassFish 服务。
 - 安装 SSL 证书前需准备的数据如下：
@@ -57,6 +58,9 @@
 >
 5. 在 `/usr/share` 目录下执行命令 `mkdir temp` 创建 temp 文件夹。
 6.  使用 “WinSCP” （即本地与远程计算机间的复制文件工具）登录 GlassFish 服务器，将 `cloud.tencent.com.crt` 证书文件、`cloud.tencent.com.key` 私钥文件从本地目录拷贝至 temp 文件夹。
+>?
+>- WinSCP 上传文件操作可参考 [通过 WinSCP 上传文件到 Linux 云服务器](https://cloud.tencent.com/document/product/213/2131)。
+>- 若您需部署到腾讯云云服务器，建议使用云服务器的文件上传功能。详情请参见 [上传文件到云服务器](https://cloud.tencent.com/document/product/1340/72845)。
 7. 在 temp 目录执行以下命令生成 PKCS12 文件，并提示输入密码，请输入新设置的密码，即私钥密码。如下所示：
 ```
 openssl pkcs12 -export -in cloud.tencent.com.crt -inkey cloud.tencent.com.key -out mycert.p12 -name s1as

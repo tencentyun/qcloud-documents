@@ -98,7 +98,7 @@ func main() {
     config.Net.SASL.Password = "${SecurityId}#${SecurityKey}"   // TODO 格式为 ${SecurityId}#${SecurityKey}
     config.Producer.Return.Successes = true
     config.Producer.RequiredAcks = ${acks}                      // TODO 根据使用场景选择acks的值
-    config.Version = sarama.V0_11_0_0
+    config.Version = sarama.V1_1_0_0
     config.Producer.Compression = ${compress}                   // TODO 配置压缩方式
 
     // TODO 服务地址；外网端口9096，内网端口9095

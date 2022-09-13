@@ -15,11 +15,11 @@ Doris 的数据模型主要分为3类：Aggregate、Unique 和 Duplicate。
 
 | ColumnName      | Type        | AggregationType | Comment              |
 | --------------- | ----------- | --------------- | -------------------- |
-| user_id         | LARGEINT    |                 | 用户id               |
-| date            | DATE        |                 | 数据灌入日期         |
-| city            | VARCHAR(20) |                 | 用户所在城市         |
-| age             | SMALLINT    |                 | 用户年龄             |
-| sex             | TINYINT     |                 | 用户性别             |
+| user_id         | LARGEINT    |        -         | 用户 ID               |
+| date            | DATE        |         -        | 数据导入日期         |
+| city            | VARCHAR(20) |        -         | 用户所在城市         |
+| age             | SMALLINT    |         -        | 用户年龄             |
+| sex             | TINYINT     |          -       | 用户性别             |
 | last_visit_date | DATETIME    | REPLACE         | 用户最后一次访问时间 |
 | cost            | BIGINT      | SUM             | 用户总消费           |
 | max_dwell_time  | INT         | MAX             | 用户最大停留时间     |
@@ -30,7 +30,7 @@ Doris 的数据模型主要分为3类：Aggregate、Unique 和 Duplicate。
 CREATE TABLE IF NOT EXISTS example_db.expamle_tbl
 (
     `user_id` LARGEINT NOT NULL COMMENT "用户id",
-    `date` DATE NOT NULL COMMENT "数据灌入日期时间",
+    `date` DATE NOT NULL COMMENT "数据导入日期时间",
     `city` VARCHAR(20) COMMENT "用户所在城市",
     `age` SMALLINT COMMENT "用户年龄",
     `sex` TINYINT COMMENT "用户性别",
@@ -106,18 +106,18 @@ PROPERTIES (
 
 | ColumnName      | Type        | AggregationType | Comment                |
 | --------------- | ----------- | --------------- | ---------------------- |
-| user_id         | LARGEINT    |                 | 用户 ID                  |
-| date            | DATE        |                 | 数据灌入日期           |
-| timestamp       | DATETIME    |                 | 数据灌入时间，精确到秒 |
-| city            | VARCHAR(20) |                 | 用户所在城市           |
-| age             | SMALLINT    |                 | 用户年龄               |
-| sex             | TINYINT     |                 | 用户性别               |
+| user_id         | LARGEINT    |       -          | 用户 ID                  |
+| date            | DATE        |        -         | 数据导入日期           |
+| timestamp       | DATETIME    |         -        | 数据导入时间，精确到秒 |
+| city            | VARCHAR(20) |         -        | 用户所在城市           |
+| age             | SMALLINT    |        -         | 用户年龄               |
+| sex             | TINYINT     |        -         | 用户性别               |
 | last_visit_date | DATETIME    | REPLACE         | 用户最后一次访问时间   |
 | cost            | BIGINT      | SUM             | 用户总消费             |
 | max_dwell_time  | INT         | MAX             | 用户最大停留时间       |
 | min_dwell_time  | INT         | MIN             | 用户最小停留时间       |
 
-即增加了一列 `timestamp`，记录精确到秒的数据灌入时间。
+即增加了一列 `timestamp`，记录精确到秒的数据导入时间。
 同时，将`AGGREGATE KEY`设置为`AGGREGATE KEY(user_id, date, timestamp, city, age, sex)`
 
 导入数据如下：
@@ -223,8 +223,8 @@ PROPERTIES (
 
 | ColumnName    | Type         | AggregationType | Comment      |
 | ------------- | ------------ | --------------- | ------------ |
-| user_id       | BIGINT       |                 | 用户id       |
-| username      | VARCHAR(50)  |                 | 用户昵称     |
+| user_id       | BIGINT       |         -        | 用户 ID       |
+| username      | VARCHAR(50)  |      -           | 用户昵称     |
 | city          | VARCHAR(20)  | REPLACE         | 用户所在城市 |
 | age           | SMALLINT     | REPLACE         | 用户年龄     |
 | sex           | TINYINT      | REPLACE         | 用户性别     |
@@ -284,9 +284,9 @@ PROPERTIES (
 "replication_allocation" = "tag.location.default: 1"
 );
 ```
-这种数据模型区别于 Aggregate 和 Unique 模型。数据完全按照导入文件中的数据进行存储，不会有任何聚合。即使两行数据完全相同，也都会保留。 而在建表语句中指定的 DUPLICATE KEY，只是用来指明底层数据按照那些列进行`排序`。（更贴切的名称应该为 “Sorted Column”，这里取名 “DUPLICATE KEY” 只是用以明确表示所用的数据模型。关于 “Sorted Column”的更多解释，可以参阅[前缀索引](./index/prefix-index.md)）。在 DUPLICATE KEY 的选择上，我们建议适当的选择前 2-4 列就可以。
+这种数据模型区别于 Aggregate 和 Unique 模型。数据完全按照导入文件中的数据进行存储，不会有任何聚合。即使两行数据完全相同，也都会保留。 而在建表语句中指定的 DUPLICATE KEY，只是用来指明底层数据按照那些列进行`排序`。（更贴切的名称应该为 “Sorted Column”，这里取名 “DUPLICATE KEY” 只是用以明确表示所用的数据模型。关于 “Sorted Column”的更多解释，请参见 [前缀索引](https://cloud.tencent.com/document/product/1387/80214)）。在 DUPLICATE KEY 的选择上，我们建议适当的选择前 2-4 列就可以。
 
-这种数据模型适用于既没有聚合需求，又没有主键唯一性约束的原始数据的存储。更多使用场景，可参阅下面**聚合模型的局限性**小节。
+这种数据模型适用于既没有聚合需求，又没有主键唯一性约束的原始数据的存储。更多使用场景，可参见**聚合模型的局限性**。
 
 ### 聚合模型的局限性
 #### Aggregate 模型 & Unique 模型
@@ -296,8 +296,8 @@ PROPERTIES (
 
 | ColumnName | Type     | AggregationType | Comment      |
 | ---------- | -------- | --------------- | ------------ |
-| user_id    | LARGEINT |                 | 用户id       |
-| date       | DATE     |                 | 数据灌入日期 |
+| user_id    | LARGEINT |     -            | 用户 ID       |
+| date       | DATE     |          -       | 数据导入日期 |
 | cost       | BIGINT   | SUM             | 用户总消费   |
 
 假设存储引擎中有如下两个已经导入完成的批次的数据：
@@ -379,8 +379,8 @@ SELECT COUNT(*) FROM table;
 
 | ColumnName | Type   | AggregateType | Comment       |
 | ---------- | ------ | ------------- | ------------- |
-| user_id    | BIGINT |               | 用户 ID        |
-| date       | DATE   |               | 数据灌入日期  |
+| user_id    | BIGINT |      -         | 用户 ID        |
+| date       | DATE   |         -      | 数据导入日期  |
 | cost       | BIGINT | SUM           | 用户总消费    |
 | count      | BIGINT | SUM           | 用于计算 count |
 

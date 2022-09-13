@@ -2,7 +2,7 @@ Spark load 通过外部的 Spark 计算资源实现对导入数据的预处理�
 
 Spark load 是利用了 spark 集群的资源对要导入的数据的进行了排序，Doris be 直接写文件，这样能大大降低 Doris 集群的资源使用，对于历史海量数据迁移降低 Doris 集群资源使用及负载有很好的效果。
 
-如果用户在没有 Spark 集群这种资源的情况下，又想方便、快速的完成外部存储历史数据的迁移，可以使用 [Broker load](https://iwiki.woa.com/pages/viewpage.action?pageId=4006764696) 。相对于 Spark load 导入， Broker load 对 Doris 集群的资源占用会更高。
+如果用户在没有 Spark 集群这种资源的情况下，又想方便、快速的完成外部存储历史数据的迁移，可以使用 [Broker load](https://cloud.tencent.com/document/product/1387/70831)。相对于 Spark load 导入， Broker load 对 Doris 集群的资源占用会更高。
 
 Spark load 是一种异步导入方式，用户需要通过 MySQL 协议创建 Spark 类型导入任务，并通过 `SHOW LOAD` 查看导入结果。
 
@@ -112,7 +112,7 @@ REVOKE USAGE_PRIV ON RESOURCE resource_name FROM ROLE role_name
   - `spark.submit.deployMode`：Spark 程序的部署模式，必填，支持 cluster，client 两种。
   - `spark.hadoop.yarn.resourcemanager.address`：master 为 yarn 时必填。
   - `spark.hadoop.fs.defaultFS`：master 为 yarn 时必填。
-  - 其他参数为可选，参考 http://spark.apache.org/docs/latest/configuration.html
+  - 其他参数为可选，参见 [Spark Configuration](http://spark.apache.org/docs/latest/configuration.html)。
 - `working_dir`: ETL 使用的目录。spark 作为 ETL 资源使用时必填。例如：hdfs://host:port/tmp/doris。
 - `hadoop.security.authentication`：指定认证方式为 kerberos。
 - `kerberos_principal`：指定 kerberos 的 principal。
@@ -270,7 +270,6 @@ LOAD LABEL load_label
 * resource_properties:
     (key2=value2, ...)
 ```
-
 示例1：上游数据源为 hdfs 文件的情况
 ```sql
 LOAD LABEL db1.label1
@@ -300,7 +299,6 @@ PROPERTIES
     "timeout" = "3600"
 );
 ```
-
 示例2：上游数据源是 hive 表的情况
 ```sql
 step 1:新建 hive 外部表
@@ -339,7 +337,6 @@ PROPERTIES
     "timeout" = "3600"
 );
 ```
-
 示例3：上游数据源是 hive binary 类型情况
 ```sql
 step 1:新建 hive 外部表
@@ -378,7 +375,6 @@ PROPERTIES
     "timeout" = "3600"
 );
 ```
-
 示例4： 导入 hive 分区表的数据
 ```sql
 --hive 建表语句
@@ -444,18 +440,17 @@ PROPERTIES
     "timeout" = "3600"
 );
 ```
-
 创建导入的详细语法执行 `HELP SPARK LOAD` 查看语法帮助。这里主要介绍 Spark load 的创建导入语法中参数意义和注意事项。
 
 #### Label
-导入任务的标识。每个导入任务，都有一个在单 database 内部唯一的 Label。具体规则与 [`Broker Load`](https://iwiki.woa.com/pages/viewpage.action?pageId=4006764696) 一致。
+导入任务的标识。每个导入任务，都有一个在单 database 内部唯一的 Label。具体规则与 [Broker Load](https://cloud.tencent.com/document/product/1387/70831) 一致。
 
 #### 数据描述类参数
 
-目前支持的数据源有 CSV 和 hive table。其他规则与 [`Broker Load`](https://iwiki.woa.com/pages/viewpage.action?pageId=4006764696) 一致。
+目前支持的数据源有 CSV 和 hive table。其他规则与 [Broker Load](https://cloud.tencent.com/document/product/1387/70831) 一致。
 
 #### 导入作业参数
-导入作业参数主要指的是 Spark load 创建导入语句中的属于 `opt_properties` 部分的参数。导入作业参数是作用于整个导入作业的。规则与 [`Broker Load`](https://iwiki.woa.com/pages/viewpage.action?pageId=4006764696) 一致。
+导入作业参数主要指的是 Spark load 创建导入语句中的属于 `opt_properties` 部分的参数。导入作业参数是作用于整个导入作业的。规则与 [Broker Load](https://cloud.tencent.com/document/product/1387/70831) 一致。
 
 #### Spark 资源参数
 Spark 资源需要提前配置到 Doris 系统中并且赋予用户 USAGE_PRIV 权限后才能使用 Spark load。
@@ -500,8 +495,7 @@ LoadFinishTime: 2019-07-27 11:50:16
     JobDetails: {"ScannedRows":28133395,"TaskNumber":1,"FileNumber":1,"FileSize":200000}
 ```
 
-返回结果集中参数意义可以参考 [Broker Load](https://iwiki.woa.com/pages/viewpage.action?pageId=4006764696)。不同点如下：
-
+返回结果集中参数意义可参见 [Broker Load](https://cloud.tencent.com/document/product/1387/70831)。不同点如下：
 - State
 导入任务当前所处的阶段。任务提交之后状态为 PENDING，提交 Spark ETL 之后状态变为 ETL，ETL 完成之后 FE 调度 BE 执行 push 操作状态变为 LOADING，push 完成并且版本生效后状态变为 FINISHED。
 导入任务的最终阶段有两个：CANCELLED 和 FINISHED，当 Load job 处于这两个阶段时导入完成。其中 CANCELLED 为导入失败，FINISHED 为导入成功。
@@ -558,7 +552,7 @@ yarn 配置文件生成路径 (`fe/lib/yarn-config`) 。
 
 ## 最佳实践
 ### 应用场景
-使用 Spark Load 最适合的场景就是原始数据在文件系统（HDFS）中，数据量在 几十 GB 到 TB 级别。小数据量还是建议使用  [Stream Load](https://iwiki.woa.com/pages/viewpage.action?pageId=4006764357) 或者 [Broker Load](https://iwiki.woa.com/pages/viewpage.action?pageId=4006764696)。
+使用 Spark Load 最适合的场景就是原始数据在文件系统（HDFS）中，数据量在 几十 GB 到 TB 级别。小数据量还是建议使用  [Stream Load](https://cloud.tencent.com/document/product/1387/70832) 或者 [Broker Load](https://cloud.tencent.com/document/product/1387/70831)。
 
 ## 常见问题
 - 现在Spark load 还不支持 Doris 表字段是String类型的导入，如果您的表字段有String类型的请改成varchar类型，不然会导入失败，提示 `type:ETL_QUALITY_UNSATISFIED; msg:quality not good enough to cancel`
@@ -579,4 +573,4 @@ yarn 配置文件生成路径 (`fe/lib/yarn-config`) 。
 
 ## 更多帮助
 
-关于**Spark Load** 使用的更多详细语法，可以在Mysql客户端命令行下输入 `HELP SPARK LOAD` 获取更多帮助信息。
+关于**Spark Load** 使用的更多详细语法，可以在 Mysql 客户端命令行下输入 `HELP SPARK LOAD` 获取更多帮助信息。

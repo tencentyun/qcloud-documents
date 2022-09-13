@@ -34,12 +34,12 @@ sudo apt install gnome-panel gnome-settings-daemon metacity nautilus gnome-termi
 ### 配置 VNC
 1. 按照实际情况选择执行以下命令，安装 VNC。
 <dx-tabs>
-::: <b>Ubuntu 18.04</b>
+::: Ubuntu 18.04
 ```
 sudo apt-get install vnc4server
 ```
 :::
-::: <b>Ubuntu 20.04</b>
+::: Ubuntu 20.04
 ```
 sudo apt-get install tightvncserver
 ```

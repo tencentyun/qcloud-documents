@@ -45,7 +45,9 @@
     - `cloud.tencent.com.csr` CSR 文件
 >?CSR 文件是申请证书时由您上传或系统在线生成的，提供给 CA 机构。安装时可忽略该文件。
 3. 通过 RDP 登录 Apache 服务器。
->?上传操作可参考：[通过 RDP 方式上传文件到云服务器](https://cloud.tencent.com/document/product/213/39101)。
+>? 
+>- 通过 RDP 上传文件可参考 [通过 RDP 方式上传文件到云服务器](https://cloud.tencent.com/document/product/213/39101)。
+>- 若您需部署到腾讯云云服务器，建议使用云服务器的文件上传功能。详情请参见 [上传文件到云服务器](https://cloud.tencent.com/document/product/1340/72845)。
 >
 4. 将已获取到的 `root_bundle.crt` 证书文件、`cloud.tencent.com.crt` 证书文件以及 `cloud.tencent.com.key` 私钥文件从本地目录拷贝到 Apache 服务器目录的 `\conf` 目录的下的 `ssl.crt` 与 `ssl.key` 文件夹。对应文件目录如下图所示：
  ![](https://main.qcloudimg.com/raw/ef118dd35480d06baf340a39183a87d5.png)

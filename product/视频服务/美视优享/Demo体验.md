@@ -40,9 +40,9 @@
 <td><a href="https://cloud.tencent.com/document/product/616/65892">DOC</a></td></tr>
 <tr>
 <td>短视频 UGSV</td>
-<td><a href="https://liteav.sdk.qcloud.com/download/ugc/TXXiaoShiPinDemo_ios.zip">ZIP 包</a></td>
+<td><a href="https://liteav.sdk.qcloud.com/download/latest/XiaoShiPin_UGC_iOS_latest.zip">ZIP 包</a></td>
 <td align="center"><img src="https://qcloudimg.tencent-cloud.cn/raw/df65606ef48891334b0aab8606d87ce6.png" width=120><br><a href="https://dldir1.qq.com/hudongzhibo/liteav/XiaoShiPin.apk">单击下载</td>
-<td><a href="https://liteav.sdk.qcloud.com/download/ugc/XiaoShiPin_Professional_Android.zip  ">ZIP 包</a></td>
+<td><a href="https://liteav.sdk.qcloud.com/download/latest/XiaoShiPin_UGC_Android_latest.zip">ZIP 包</a></td>
 <td><a href="https://cloud.tencent.com/document/product/616/65893">DOC</a></td></tr>
 </tbody></table>
 
