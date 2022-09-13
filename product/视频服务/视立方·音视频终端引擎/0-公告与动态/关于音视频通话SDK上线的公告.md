@@ -13,8 +13,8 @@
 <table>
 <thead>
 <tr>
-<th>功能</th>
-<th>功能点</th>
+<th width=10%>功能</th>
+<th width=40%>功能点</th>
 <th>体验版</th>
 <th>基础版</th>
 <th>进阶版</th>
