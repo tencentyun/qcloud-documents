@@ -107,7 +107,7 @@ const dp = new DPlayer({
 ### 播放 HLS 加密视频
 为了保障视频内容安全，防止视频被非法下载和传播，数据万象提供了对 HLS 视频内容进行加密的功能，拥有相比于私有读文件更高的安全级别。加密后的视频，无法分发给无访问权限的用户观看。即使视频被下载到本地，视频本身也是被加密的，无法恶意二次分发，从而保障您的视频版权不受到非法侵犯。
 操作步骤如下：
-1. 参见 [播放 HLS 加密视频](https://cloud.tencent.com/document/product/436/63989) 和 [COS 音视频实践 | 给您的视频加把锁](https://mp.weixin.qq.com/s/4f-GKyAG0S-FcZ2BZCn7jA) 流程，生成加密视频。
+1. 参见 [播放 HLS 加密视频](https://cloud.tencent.com/document/product/436/63989) 和 [COS 音视频实践 | 给你的视频加把锁](https://mp.weixin.qq.com/s/4f-GKyAG0S-FcZ2BZCn7jA) 流程，生成加密视频。
 2. 初始化播放器并传入视频对象地址。
 ```
  const dp = new DPlayer({
@@ -124,7 +124,7 @@ const dp = new DPlayer({
 
 ### 切换多清晰度
 
-数据万象 [自适应码流](https://cloud.tencent.com/document/product/460/58430) 功能，可以将视频文件转码并打包生成自适应码流输出文件，帮助用户在不同网络情况下快速分发视频内容，播放器能够根据当前带宽，动态选择最合适的码率播放，详情可参见 [COS 音视频实践 ｜ 数据工作流助您播放多清晰度视频](https://mp.weixin.qq.com/s/THUhur1FV_55T9zzqT2MFQ)。
+数据万象 [自适应码流](https://cloud.tencent.com/document/product/460/58430) 功能，可以将视频文件转码并打包生成自适应码流输出文件，帮助用户在不同网络情况下快速分发视频内容，播放器能够根据当前带宽，动态选择最合适的码率播放，详情可参见 [COS 音视频实践 ｜ 数据工作流助你播放多清晰度视频](https://mp.weixin.qq.com/s/THUhur1FV_55T9zzqT2MFQ)。
 
 操作步骤如下：
 1. 通过 数据万象 [自适应码流](https://cloud.tencent.com/document/product/460/58430) 功能，生成多码率自适应的 HLS 或 DASH 目标文件。
