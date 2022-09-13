@@ -38,6 +38,7 @@ const dp = new DPlayer({
 
 ## 功能指引
 
+[](id:1)
 ### 播放不同格式的视频文件
 
 1. 获取 COS 存储桶上的视频文件对象地址。
@@ -73,6 +74,7 @@ const dp = new DPlayer({
 - [播放 HLS 示例代码](https://github.com/tencentyun/cos-demo/blob/main/cos-video/examples/web/dplayer/m3u8.html)
 - [播放 DASH 示例代码](https://github.com/tencentyun/cos-demo/blob/main/cos-video/examples/web/dplayer/dash.html)
 
+[](id:2)
 ### 播放 PM3U8 视频
 PM3U8 是指私有的 M3U8 视频文件，COS 提供用于获取私有 M3U8 TS 资源的下载授权 API，可参见 [私有 M3U8 接口](https://cloud.tencent.com/document/product/436/73189)。
 ```
@@ -87,6 +89,7 @@ PM3U8 是指私有的 M3U8 视频文件，COS 提供用于获取私有 M3U8 TS �
 获取示例代码：
 [播放 PM3U8 示例代码](https://github.com/tencentyun/cos-demo/blob/main/cos-video/examples/web/dplayer/pm3u8.html)
 
+[](id:3)
 ### 设置封面图
 1. 获取 COS 存储桶上的封面图对象地址。
 >!通过数据万象 [智能封面](https://cloud.tencent.com/document/product/460/47508) 能力，提取最优帧生成截图作为封面，可提升内容吸引力。
@@ -104,6 +107,7 @@ const dp = new DPlayer({
 获取示例代码：
 [设置封面图示例代码](https://github.com/tencentyun/cos-demo/blob/main/cos-video/examples/web/dplayer/poster.html)
 
+[](id:4)
 ### 播放 HLS 加密视频
 为了保障视频内容安全，防止视频被非法下载和传播，数据万象提供了对 HLS 视频内容进行加密的功能，拥有相比于私有读文件更高的安全级别。加密后的视频，无法分发给无访问权限的用户观看。即使视频被下载到本地，视频本身也是被加密的，无法恶意二次分发，从而保障您的视频版权不受到非法侵犯。
 操作步骤如下：
@@ -122,6 +126,7 @@ const dp = new DPlayer({
 获取示例代码：
 - [播放 HLS 加密视频示例代码](https://github.com/tencentyun/cos-demo/blob/main/cos-video/examples/web/dplayer/m3u8.html)
 
+[](id:5)
 ### 切换多清晰度
 
 数据万象 [自适应码流](https://cloud.tencent.com/document/product/460/58430) 功能，可以将视频文件转码并打包生成自适应码流输出文件，帮助用户在不同网络情况下快速分发视频内容，播放器能够根据当前带宽，动态选择最合适的码率播放，详情可参见 [COS 音视频实践 ｜ 数据工作流助你播放多清晰度视频](https://mp.weixin.qq.com/s/THUhur1FV_55T9zzqT2MFQ)。
@@ -141,6 +146,7 @@ const dp = new DPlayer({
 获取示例代码：
 - [切换清晰度示例代码](https://github.com/tencentyun/cos-demo/blob/main/cos-video/examples/web/dplayer/multiDefinition.html)
 
+[](id:6)
 ### 设置左上角 LOGO
 播放器支持在左上角设置 LOGO。
 操作步骤如下：
