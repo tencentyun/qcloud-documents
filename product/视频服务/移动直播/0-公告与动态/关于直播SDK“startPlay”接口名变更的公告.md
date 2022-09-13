@@ -5,7 +5,9 @@
 - 直播播放新版接口 `V2TXLivePlayer` 的开始播放接口名由 `startPlay` 变更为 `startLivePlay`，详情参见 [API-iOS-拉流](https://cloud.tencent.com/document/product/454/56044#startplay)、[API-Android-拉流](https://cloud.tencent.com/document/product/454/56045#startplay)、[API-Flutter-拉流](https://cloud.tencent.com/document/product/454/71600#startplay)。
 - 直播播放旧版接口 `TXLivePlayer` 的开始播放接口名由 `startPlay` 变更为 `startLivePlay`，详情参见 [API-iOS-拉流](https://cloud.tencent.com/document/product/454/34762#startplay)、[API-Android-拉流](https://cloud.tencent.com/document/product/454/34775#startplay)。
 
-若您在10.7以下版本的 SDK 中使用该接口，将不受本次变更影响；若您在10.7及其更高版本的 SDK 中使用该接口，则需关注此次变更。
+>?
+>- 若您在10.7以下版本的 SDK 中使用该接口，将不受本次变更影响。
+>- 若您在10.7及其更高版本的 SDK 中使用该接口，则需关注此次变更。
 
 若您有任何疑问，欢迎随时 [联系我们](https://cloud.tencent.com/document/product/1449/56948)。衷心感谢各位用户对腾讯视立方产品的信赖与支持！
 2022-09-13
