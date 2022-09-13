@@ -4,7 +4,7 @@
 访问 [BSCA Jenkins Plugin](https://bsca-production-1251316161.cos.ap-guangzhou.myqcloud.com/jenkins-plugin/BSCAJenkins.hpi) 下载插件。 
 
 ## 步骤2：发布插件 
-1. 进入**系统管理** > **插件管理** > **高级** > **Deploy Plugin**，在**选择文件**中选择下载的插件，并单击**Deploy**。
+1. 登录 Jenkins 系统，进入**系统管理** > **插件管理** > **高级** > **Deploy Plugin**，在**选择文件**中选择下载的插件，并单击 **Deploy**。
 ![安装插件.png](https://qcloudimg.tencent-cloud.cn/raw/478cdf4f07a00e8c690a78222ee96581.png) 
 2. 此时插件正在安装。等待片刻后，若提示安装完成，则单击**返回首页**即可。若提示需要重启，请重启 Jenkins 以确保安装生效。
  ![安装完成.png](https://qcloudimg.tencent-cloud.cn/raw/c1c8ad3d38229e9ba85817a38884ef13.png) 
