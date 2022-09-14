@@ -103,27 +103,27 @@ NSString *pushURLB = @"trtc://cloud.tencent.com/push/streamid?sdkappid=140018888
 // 主播A
 V2TXLivePlayer player = new V2TXLivePlayerImpl(mContext);
 playURLB = "trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&userId=A&usersig=xxx&appscene=live"
-player.startPlay(playURLB);
+player.startLivePlay(playURLB);
 ...
 
 // 主播B
 V2TXLivePlayer player = new V2TXLivePlayerImpl(mContext);
 playURLA= "trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&userId=B&usersig=xxx&appscene=live"
-player.startPlay(playURLA);
+player.startLivePlay(playURLA);
 :::
 ::: Objective-C ObjectiveC
 // 主播A
 V2TXLivePlayer *player = [[V2TXLivePlayer alloc] init];
 NSString *playURLB = "trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&userId=A&usersig=xxx&appscene=live"
 [player setRenderView:view];
-[player startPlay:playURLB];
+[player startLivePlay:playURLB];
 ...
 
 // 主播B
 V2TXLivePlayer *player = [[V2TXLivePlayer alloc] init];
  NSString *playURLA = "trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&userId=B&usersig=xxx&appscene=live"
 [player setRenderView:view];
-[player startPlay:playURLA];
+[player startLivePlay:playURLA];
 :::
 </dx-codeblock>
 
