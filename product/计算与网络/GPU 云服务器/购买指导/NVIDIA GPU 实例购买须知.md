@@ -70,3 +70,9 @@ GPU 云服务器支持四种镜像类型：公共镜像、自定义镜像、共�
 支付成功后，进入控制台，待实例创建启动完毕，即可进行登录操作。
 
 
+## 附录
+### GPU 驱动预装说明[](id:PreloadGPUDrive)
+GPU 云服务器支持部分 Linux 公共镜像通过后台自动安装 GPU 驱动。实例初次启动时，会根据所选版本自动安装 GPU 驱动、CUDA 及 cuDNN 库，耗时约15 - 20分钟。详情请参见 [各实例支持的 GPU 驱动版本及安装方式](https://cloud.tencent.com/document/product/560/76423#supportList)。
+
+
+
