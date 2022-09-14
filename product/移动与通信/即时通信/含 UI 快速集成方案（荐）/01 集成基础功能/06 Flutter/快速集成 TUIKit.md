@@ -1,9 +1,9 @@
 ## 什么是 TUIKit
 Flutter TUIKit 是基于 Flutter IM SDK 实现的一套 UI 组件，其中包含会话、聊天、关系链、群组及本地搜索等功能。
 
-基于本套UI组件和内置的IM业务逻辑，您可以像搭积木一样，快速地在您APP中，引入即时通信/用户及关系链管理等模块。
+基于本套UI组件和内置的IM业务逻辑，您可以像搭积木一样，快速地在您APP中，引入即时通信及用户关系链管理等模块。
 
-> 本含UI的SDK im-flutter-uikit 已开源，您可引入[在线版本](https://pub.dev/packages/tim_ui_kit)，也可 [GitHub fork](https://github.com/tencentyun/TIMSDK/tree/master/Flutter/Demo/im-flutter-uikit) 后本地引入使用。
+> 本含UI的SDK tim_ui_kit 已开源，您可引入[在线版本](https://pub.dev/packages/tim_ui_kit)，也可 [GitHub fork](https://github.com/tencentyun/TIMSDK/tree/master/Flutter/Demo/im-flutter-uikit) 后本地引入使用。
 
 目前包含的一级组件如下：
 
@@ -273,9 +273,9 @@ class UserProfile extends StatelessWidget {
 
 >建议在 tim_ui_kit 0.1.4 以后版本中使用本功能。
 
-如上述步骤的快速集成，已经可以搭建一套可用的IM模块，如果您有其他额外的控制操作需求，可以使用组件配套的 controller 完成。
+通过上述步骤的快速集成，您已经可以搭建一套可用的IM模块。如果您有其他额外的控制操作需求，可以使用组件配套的 controller 完成。
 
-使用场景如，在会话列表，您可自定义会话item的侧滑菜单，提供置顶会话/删除会话/删除历史消息等功能；亦或是自定义发送一条消息，通过您的发消息渠道。
+使用场景如，在会话列表页面中，您可自定义会话item的侧滑菜单，提供置顶会话/删除会话/删除历史消息等功能；亦或是发送消息，满足您的额外消息发送需求，例如通过您自行开发的送礼界面发送一条礼物消息。
 
 目前我们提供三个controller，如下：
 
