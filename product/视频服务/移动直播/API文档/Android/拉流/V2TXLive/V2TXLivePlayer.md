@@ -92,12 +92,14 @@ public abstract int setRenderView(TextureView view);
 
 ***
 
-### startPlay
+### startLivePlay
 
 开始播放音视频流。
 ```
-public abstract int startPlay(String url);
+public abstract int startLivePlay(String url);
 ```
+
+>? 10.7 版本开始，`startPlay` 变更为 `startLivePlay`，需要通过 `V2TXLivePremier#setLicence` 或者 `TXLiveBase#setLicence` 设置 Licence 后方可成功播放，否则将播放失败（黑屏），全局仅设置一次即可。直播 Licence、短视频 Licence 和视频播放 Licence 均可使用，若您暂未获取上述 Licence ，可[快速免费申请测试版 Licence](https://cloud.tencent.com/act/event/License) 以正常播放，正式版 License 需[购买](https://cloud.tencent.com/document/product/454/34750)。
 
 #### 参数
 
