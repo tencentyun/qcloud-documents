@@ -1,5 +1,9 @@
 本文将为您介绍跨云（其它云厂商） K8s 如何接入 Prometheus 监控服务。
 
+>?1. 若您使用了腾讯云的容器服务，可无缝衔接 Prometheus 监控服务，控制台直接关联集群，获取监控数据，可参考 [集成容器服务](https://cloud.tencent.com/document/product/1416/72037)。
+>2. 若您自建了 K8s 集群，可以借助 [云原生分布式云中心](https://cloud.tencent.com/apply/p/897g10ltlv6) 的集群管理的能力，一键快速接入 Prometheus 监控服务。
+>3. 若您自建 K8s 集群，也可以按照开源社区的使用方式，像接入自建Prometheus一样接入Prometheus 监控服务。
+
 ##  前提条件
 申请 [云原生分布式云中心](https://cloud.tencent.com/apply/p/897g10ltlv6) 使用权限。
 
