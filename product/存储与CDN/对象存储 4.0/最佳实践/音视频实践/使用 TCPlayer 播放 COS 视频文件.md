@@ -6,9 +6,9 @@
 #### 步骤1：在页面中引入播放器样式文件及脚本文件
 ```
 <!--播放器样式文件-->
-<link href="https://web.sdk.qcloud.com/player/tcplayer/release/v4.2.2/tcplayer.min.css" rel="stylesheet"/>
+<link href="https://web.sdk.qcloud.com/player/tcplayer/release/v4.2.1/tcplayer.min.css" rel="stylesheet">
 <!--播放器脚本文件-->
-<script src="https://web.sdk.qcloud.com/player/tcplayer/release/v4.2.2/tcplayer.v4.2.2.min.js"></script>
+<script src="https://web.sdk.qcloud.com/player/tcplayer/release/v4.5.0/tcplayer.v4.5.0.min.js"></script>
 ```
 >?
 >- 建议在正式使用播放器 SDK 时，自行部署以上相关静态资源，[单击下载播放器资源](https://web.sdk.qcloud.com/player/tcplayer/release/v4.2.2/release.zip)。
