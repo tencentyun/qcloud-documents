@@ -176,5 +176,5 @@ tencentcloud_teo_zone.zone: Creation complete after 4s [id=zone-28jw59kum911]
 Apply complete! Resources: 2 added, 0 changed, 0 destroyed.
 ```
 6. 执行完毕后，可以登录 [边缘安全加速平台控制台](https://console.cloud.tencent.com/edgeone) 查看创建的站点和配置，并根据提示修改 NS 服务器地址，修改后单击**完成**即可开启 EdgeOne 安全加速服务。
-
+![](https://qcloudimg.tencent-cloud.cn/raw/25c401d0261cd6e4ed587dfe538f543b.png)
 
