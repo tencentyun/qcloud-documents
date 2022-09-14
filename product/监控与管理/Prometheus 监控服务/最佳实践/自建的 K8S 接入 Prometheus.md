@@ -1,10 +1,18 @@
 本文将为您介绍自建的 K8s 如何接入 Prometheus 监控服务。
 
+>?1. 若您使用了腾讯云的容器服务，可无缝衔接 Prometheus 监控服务，控制台直接关联集群，获取监控数据，可参考 [集成容器服务](https://cloud.tencent.com/document/product/1416/72037)。
+>2. 若您自建了 K8s 集群，可以借助 [云原生分布式云中心](https://cloud.tencent.com/apply/p/897g10ltlv6) 的集群管理的能力，一键快速接入 Prometheus 监控服务。
+>3. 若您自建 K8s 集群，也可以按照开源社区的使用方式，像接入自建Prometheus一样接入Prometheus 监控服务。
+
 ##  前提条件
 申请 [云原生分布式云中心](https://cloud.tencent.com/apply/p/897g10ltlv6) 使用权限。
 
+
 ## 操作步骤
 ### 步骤1：申请注册集群功能
+
+3 用户完全搭建自己的k8s和prometheus，这个和外部社区是一样的。
+
 1. 登录 [容器服务控制台-注册集群](https://console.cloud.tencent.com/tke2/external)。
 2. 在页面中单击 **开通服务**。
 3. 在跳转页面中填写相关网络配置、开通地域等信息。填写完后单击 **完成** 即可。
