@@ -82,7 +82,7 @@ protocol="HTTP/1.1"
     protocol="org.apache.coyote.http11.Http11NioProtocol"
     port="443" maxThreads="200"
     scheme="https" secure="true" SSLEnabled="true"
-    keystoreFile="/usr/*/conf/cloud.tencent.com.pfx" keystorePass="证书密码" #pfx替换为证书保存的路径、证书密码请替换为 keystorePass.txt 密码文件中的内容。
+    keystoreFile="/usr/*/conf/cloud.tencent.com.pfx" keystorePass="证书密码" <! --pfx替换为证书保存的路径、证书密码请替换为 keystorePass.txt 密码文件中的内容。-->
     clientAuth="false" sslProtocol="TLS"/>
 ```
 :::
