@@ -9,6 +9,7 @@
 
 ## 前提条件
 - 已准备远程文件拷贝软件，例如 WinSCP（建议从官方网站获取最新版本）。
+若您需部署到腾讯云云服务器，建议使用云服务器的文件上传功能。详情请参见 [上传文件到云服务器](https://cloud.tencent.com/document/product/1340/72845)。
 - 已准备远程登录工具，例如 PuTTY 或者 Xshell（建议从官方网站获取最新版本）。
 - 已购买国密标准（SM2）SSL 证书。
 - 安装 SSL 证书前需准备的数据如下：
@@ -103,6 +104,9 @@ CORE_LIBS="$CORE_LIBS $OPENSSL/lib/libcrypto.a"
 >?CSR 文件是申请证书时由您上传或系统在线生成的，提供给 CA 机构。安装时可忽略该文件。
 >
 2. 使用 “WinSCP”（即本地与远程计算机间的复制文件工具）登录 Nginx 服务器。
+>?
+>- WinSCP 上传文件操作可参考 [通过 WinSCP 上传文件到 Linux 云服务器](https://cloud.tencent.com/document/product/213/2131)。
+>- 若您需部署到腾讯云云服务器，建议使用云服务器的文件上传功能。详情请参见 [上传文件到云服务器](https://cloud.tencent.com/document/product/1340/72845)。
 3. 进入 `/usr/local/nginx/conf` 目录，新建 `sm2` 目录，将已获取到的 `1_cloud.tencent.com_sign_bundle.crt` 证书文件、`2_cloud.tencent.com_encrypt_bundle.crt` 证书文件、`3_cloud.tencent.com.key` 私钥文件从本地目录拷贝到该 `sm2` 目录下。
 4. 进入`/usr/local/nginx/conf` 目录，编辑 `nginx.conf` 文件，添加如下配置：
 ```
@@ -139,6 +143,9 @@ location / {
 >?腾讯云提供免费的 DV 型 SSL 证书以供购买了国密标准 DNSPod 证书的用户顺利解决浏览器兼容问题。申请证书请查看 [域名型（DV）免费 SSL 证书](https://cloud.tencent.com/document/product/400/8422)。
 >
 1. 使用 “WinSCP”（即本地与远程计算机间的复制文件工具），将已获取到的国际标准证书压缩包中 Nginx 文件夹的 `1_root_bundle.crt` 证书文件、`2_cloud.tencent.com.key` 私钥文件从本地目录拷贝到 Nginx 服务器的`/usr/local/nginx/conf/sm2` 目录下。 
+>?
+>- WinSCP 上传文件操作可参考 [通过 WinSCP 上传文件到 Linux 云服务器](https://cloud.tencent.com/document/product/213/2131)。
+>- 若您需部署到腾讯云云服务器，建议使用云服务器的文件上传功能。详情请参见 [上传文件到云服务器](https://cloud.tencent.com/document/product/1340/72845)。
 2. 编辑 `/usr/local/nginx/conf` 目录下的 `ssl.conf` 文件。
 3. 请在 `server_name cloud.tencent.com` 下面换行，并添加如下内容：
 ```
