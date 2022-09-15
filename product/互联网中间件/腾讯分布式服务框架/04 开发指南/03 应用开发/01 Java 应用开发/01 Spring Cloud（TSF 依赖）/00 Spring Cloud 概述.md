@@ -16,7 +16,7 @@ TSF 长期维护 LTS (Long Term Support) 版本，SDK 的第三位版本号会�
 
 |SDK 版本号|新增特性|
 |----|----|
-|1.40.x|<li>支持微服务网关可扩展性。支持使用TSF网关SDK的同时，自定义网关路由策略、支持websocket、支持跨域等原生网关能力。</li><li>Oauth插件支持第三方鉴权地址为微服务API的能力</li><li>支持原生网关使用熔断治理的能力</li><li>支持服务监听触发回调</li><li>支持查看下发配置</li> |
+|1.40.x|<li>支持微服务网关可扩展性。支持使用 TSF 网关 SDK 的同时，自定义网关路由策略、支持 websocket、支持跨域等原生网关能力</li><li>Oauth 插件支持第三方鉴权地址为微服务 API 的能力</li><li>支持原生网关使用熔断治理的能力</li><li>支持服务监听触发回调</li><li>支持查看下发配置</li> |
 |1.29.x|<li>微服务网关增加单元化功能</li><li>微服务网关增加 Alibaba Dubbo 协议转换功能</li><li>补齐 Spring Cloud Gateway 网关的服务治理能力</li><li>微服务网关支持托管外部 API</li><li>支持云上 Spring Cloud 应用平滑迁移 TSF</li> <li>调用链支持 CMQ、PostgreSQL</li> |
 |1.23.x|<li>新增 spring cloud gateway 微服务网关，链路追踪和调用监控</li><li>微服务网关路径重写配置和微信小程序登录插件</li> <li>调用链支持 RocketMQ</li> |
 |1.21.x|<li>支持服务熔断</li><li>支持服务容错</li><li>支持全链路灰度发布</li>|
