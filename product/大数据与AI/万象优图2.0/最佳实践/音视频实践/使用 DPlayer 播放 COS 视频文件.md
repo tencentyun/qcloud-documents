@@ -68,7 +68,6 @@ const dp = new DPlayer({
 ```
 
 获取示例代码：
-
 - [播放 MP4 示例代码](https://github.com/tencentyun/cos-demo/blob/main/cos-video/examples/web/dplayer/mp4.html)
 - [播放 FLV 示例代码](https://github.com/tencentyun/cos-demo/blob/main/cos-video/examples/web/dplayer/flv.html)
 - [播放 HLS 示例代码](https://github.com/tencentyun/cos-demo/blob/main/cos-video/examples/web/dplayer/m3u8.html)
@@ -87,7 +86,7 @@ PM3U8 是指私有的 M3U8 视频文件，COS 提供用于获取私有 M3U8 TS �
  });
 ```
 获取示例代码：
-[播放 PM3U8 示例代码](https://github.com/tencentyun/cos-demo/blob/main/cos-video/examples/web/dplayer/pm3u8.html)
+- [播放 PM3U8 示例代码](https://github.com/tencentyun/cos-demo/blob/main/cos-video/examples/web/dplayer/pm3u8.html)
 
 [](id:3)
 ### 设置封面图
@@ -105,7 +104,7 @@ const dp = new DPlayer({
 ```
 
 获取示例代码：
-[设置封面图示例代码](https://github.com/tencentyun/cos-demo/blob/main/cos-video/examples/web/dplayer/poster.html)
+- [设置封面图示例代码](https://github.com/tencentyun/cos-demo/blob/main/cos-video/examples/web/dplayer/poster.html)
 
 [](id:4)
 ### 播放 HLS 加密视频

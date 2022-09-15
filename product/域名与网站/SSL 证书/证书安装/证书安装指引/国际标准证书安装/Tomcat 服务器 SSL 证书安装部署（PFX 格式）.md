@@ -60,7 +60,7 @@
 >
 <dx-tabs>
 ::: 方式1：自动选择 SSL
-修改 `server.xml` 文件 `Connector`的属性为以下内容：
+修改 `server.xml` 文件，添加 Connector 属性，内容如下：
 ```
 <Connector port="443"  
 protocol="HTTP/1.1"
@@ -76,7 +76,7 @@ protocol="HTTP/1.1"
 ```
 :::
 ::: 方式2：手动选择 SSL 
-修改 `server.xml` 文件 `Connector` 的属性为以下内容：
+修改 `server.xml` 文件，添加 Connector 属性，内容如下：
 ```
 <Connector
     protocol="org.apache.coyote.http11.Http11NioProtocol"
