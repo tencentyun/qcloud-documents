@@ -36,7 +36,7 @@ resource "tencentcloud_teo_dns_record" "dns_record" {
 ```
 
 ### 执行计划
-Terraform 具备 “Planning” 步骤，执行 terraform plan 命令后Terraform 会生成执行计划。执行计划会显示当调用 apply 时 Terraform 的状态，您可通过该能力在 Terraform 操作基础设施时避免任何意外。示例如下：
+Terraform 具备 “Planning” 步骤，执行 terraform plan 命令后 Terraform 会生成执行计划。执行计划会显示当调用 apply 时 Terraform 的状态，您可通过该能力在 Terraform 操作基础设施时避免任何意外。示例如下：
 ```
 Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
   + create
