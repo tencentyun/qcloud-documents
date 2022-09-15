@@ -3,7 +3,7 @@
 ## 操作指南
 1. 登录 [云防火墙控制台](https://console.cloud.tencent.com/cfw/ac/internet)，在左侧导航栏中，选择**访问控制** > **NAT 边界规则**。
 2. 在 NAT 边界规则界面，选择一个地域，单击**入向规则**，进入入向规则界面。
-<img src="https://qcloudimg.tencent-cloud.cn/raw/4868e54225ad4fbdd5255737e10d3d73.png" width=800px>
+<img src="https://qcloudimg.tencent-cloud.cn/raw/07cdb5c80120c22dba0c6bb6a09f3ac9.png" width=800px>
 3. 在入向规则界面，可选择不同地域来创建访问控制规则，以及查看规则列表（入站规则、出站规则已使用的额度以及规则列表总的配额）、最近操作记录和访问控制规则详情。最近操作记录展示了用户最近对规则列表进行的操作：
    - 单击**详情**可查看该条操作记录详情。
    - 单击**查看操作日志**，可查看详细操作记录。
