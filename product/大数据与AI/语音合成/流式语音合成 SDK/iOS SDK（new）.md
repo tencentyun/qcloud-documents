@@ -1,3 +1,8 @@
+>? 
+>- 当前页面为新版（V2.0.0及以上）SDK 开发文档。新客户可直接按当前文档接入新版 SDK。
+>- 旧版（V1.5.1版本及以下）开发文档已于2022年9月5日下线。正在使用旧版 SDK 的客户，可前往 [控制台](https://console.cloud.tencent.com/tts/download)  查看开发文档。
+>- 新版 SDK 在稳定性、功能健全性、接口自由度等方面都有所优化。我们将继续支持旧版（V1.5.1版本及以下）SDK，但建议正在使用旧版 SDK 的客户及时升级到新版，以获取更好的使用体验。
+
 ## 开发相关
 ### 开发准备
 - 支持 iOS 9.0 及以上版本，不支持 bitcode 版本。
@@ -63,7 +68,7 @@ QCloudTTSEngine *ttsEngine = [QCloudTTSEngine getShareInstance];
 
 | 接口                                                         | 说明                                                         |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| -(TtsError *_Nullable) synthesize:(NSString *_Nonnull)text UtteranceId:(NSString *_Nullable)utteranceId; | text 为需要合成的文本；utteranceId 为标记该文本的 ID，将随合成结果返回宿主层，业务不需要可传 nil |
+| -(TtsError *_Nullable) synthesize:(NSString *_Nonnull)text UtteranceId:(NSString *_Nullable)utteranceId; | text 为需要合成的文本；utteranceId 为标记该文本的 ID，将随合成结果返回宿主层，业务不需要可传 nil |
 
 **示例**
 
@@ -83,14 +88,14 @@ error = [ttsEngine synthesize:@"腾讯云".text UtteranceId:nil];
 
 | 接口                                                         | 说明                                                         |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| setOnlineAuthParam:(NSInteger)appId SecretId:(NSString* _Nonnull)secretId SecretKey:(NSString* _Nonnull)secretKey Token:(NSString* _Nullable)token | appid：配置腾讯云 appid、SecretId、SecretKey、Token（ token，可为空，如果使用 [STS 临时证书](https://cloud.tencent.com/document/product/598/33416) 鉴权，secretId 和 secretKey 均入参临时的，同时需要入参对应的 token ） |
-| setOnlineVoiceSpeed:(float)voiceSpeed;                       | 设置在线所合成音频的语速，语速范围：[-2，2]，分别对应不同语速：分别对应不同语速：0.6倍、0.8倍、1.0倍、1.2倍、1.5倍，默认为0<br>如果需要更细化的语速，可以保留小数点后一位，例如0.5、1.1、1.8等。 |
+| setOnlineAuthParam:(NSInteger)appId SecretId:(NSString* _Nonnull)secretId SecretKey:(NSString* _Nonnull)secretKey Token:(NSString* _Nullable)token | appid：配置腾讯云 appid、SecretId、SecretKey、Token（ token，可为空，如果使用 [STS 临时证书](https://cloud.tencent.com/document/product/598/33416) 鉴权，secretId 和 secretKey 均入参临时的，同时需要入参对应的 token ） |
+| setOnlineVoiceSpeed:(float)voiceSpeed;                       | 设置在线所合成音频的语速，语速范围：[-2，2]，分别对应不同语速：0.6倍、0.8倍、1.0倍、1.2倍、1.5倍，默认为0<br>如果需要更细化的语速，可以保留小数点后一位，例如0.5、1.1、1.8等。  |
 | setOnlineVoiceVolume:(float)voiceVolume;                     | 设置在线所合成音频的音量，默认0                              |
 | setOnlineVoiceLanguage:(int)primaryLanguage;                 | 主语言类型：1-中文（默认）2-英文                             |
-| setOnlineCodec:(NSString* _Nonnull) code;                    | 在线模式编码格式，**非业务必要不建议更改：默认 mp3**，目前支持 mp3、wav、pcm，如更改为 pcm 不支持播放 |
+| setOnlineCodec:(NSString* _Nonnull) code;                    | 在线模式编码格式，**非业务必要不建议更改：默认 mp3**，目前支持 mp3、wav、pcm，如更改为 pcm 不支持播放 |
 | setOnlineVoiceType:(int)voiceType;                           | 设置在线所合成音频的音色 ID，完整的音色 ID 列表参见 [基础语音合成](https://cloud.tencent.com/document/product/1073/37995) |
 | setTimeoutIntervalForRequest:(int)timeout;                   | 连接超时，范围：[500,30000]，单位ms，默认15000ms              |
-| setTimeoutIntervalForResource:(int) timeout;                 | 读取超时，范围：[2200,60000]，单位ms ，默认30000ms      |
+| setTimeoutIntervalForResource:(int) timeout;                 | 读取超时，范围：[2200,60000]，单位ms ，默认30000ms      |
 
 **示例**
 ```java
@@ -181,6 +186,6 @@ QCPlayerError err = [_player enqueueWithFile:url Text:text UtteranceId:utterance
 ```
 
 ### 服务端错误码
-请参考 [语音合成 API 文档](https://cloud.tencent.com/document/product/1073/37995#6.-.E9.94.99.E8.AF.AF.E7.A0.81)。
+请参考 [语音合成 API 文档](https://cloud.tencent.com/document/product/1073/37995)。
 
  
