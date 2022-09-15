@@ -1,5 +1,40 @@
 基于 Spring Cloud Hoxton SR9 版本 SDK，支持 spring boot 2.3.1。
 
+
+## 1.29.11-Hoxton-Higher-RELEASE（2022-09-08）
+
+### bug 修复
+- 修复 controller 的 scope 是其他类型的，上报 api 报错的问题
+- 修复调用链 scg resultStatus 获取的问题
+- 修复实例级熔断 half open 再次进入 open 时的隔离问题
+
+### 优化
+- 支持 http 请求的 ip 鉴权
+- 优化零实例保护节点的判断
+
+
+## 1.29.9-Hoxton-Higher-RELEASE（2022-07-21）
+
+### bug 修复
+- 修复 rocketmq 调用链 npe 问题
+
+## 1.29.8-Hoxton-Higher-RELEASE（2022-07-15）
+
+### 优化
+- scg 兼容 ribbon 的 WeightedResponseTimeRule 策略
+
+## 1.29.7-Hoxton-Higher-RELEASE（2022-07-06）
+
+### 优化
+- TracingFeignClient 支持 resttemplate 的传递
+
+### bug 修复
+- 调用链修复 jdbc postgresql Multi-Hosts 解析失败的问题
+- 修复 invocation AggregatedStat 数据合并的问题
+- 修复潜在的重复bean问题
+- 修复潜在的监控数据http method异常的问题
+- mysql 调用链兼容 ShardingConnection
+
 ## 1.29.5-Hoxton-Higher-RELEASE（2022-06-07）
 
 ### 优化
