@@ -54,7 +54,7 @@
    >?
    >- WinSCP 上传文件操作可参考 通过 WinSCP [上传文件到云服务器](https://cloud.tencent.com/document/product/1340/72845)。
    >- 若您需部署到腾讯云云服务器，建议使用云服务器的文件上传功能。详情请参考 [上传文件到云服务器](https://cloud.tencent.com/document/product/1340/72845)。
-4. 远程登录 Tomcat 服务器。编辑在 `/usr/Tomcat-9.0.56/conf` 目录下的 `server.xml` 文件。添加如下内容：
+4. 参考一下步骤编辑在 `/usr/Tomcat-9.0.56/conf` 目录下的 `server.xml` 文件。添加如下内容：
 ```
 <Connector port="443" protocol="HTTP/1.1" SSLEnabled="true"
   maxThreads="150" scheme="https" secure="true"
