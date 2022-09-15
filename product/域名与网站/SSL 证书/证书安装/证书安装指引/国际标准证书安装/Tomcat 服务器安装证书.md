@@ -52,7 +52,7 @@
       - `keystorePass.txt` 密码文件（若已设置私钥密码，则无 `keystorePass.txt` 密码文件）
 3. 使用 WinSCP（即本地与远程计算机间的复制文件工具）登录 Tomcat 服务器。将已获取到的 `cloud.tencent.com.jks` 密钥库文件从本地目录拷贝至 Tomcat 配置文件目录 `/usr/Tomcat-9.0.56/conf`。
    >?
-   >- WinSCP 上传文件操作可参考 通过 WinSCP [通过 WinSCP 上传文件到 Linux 云服务器](https://cloud.tencent.com/document/product/213/2131)。
+   >- WinSCP 上传文件操作可参考 [通过 WinSCP 上传文件到 Linux 云服务器](https://cloud.tencent.com/document/product/213/2131)。
    >- 若您需部署到腾讯云云服务器，建议使用云服务器的文件上传功能。详情请参考 [上传文件到云服务器](https://cloud.tencent.com/document/product/1340/72845)。
 4. 编辑在 `/usr/Tomcat-9.0.56/conf` 目录下的 `server.xml` 文件。添加如下内容：
 ```
