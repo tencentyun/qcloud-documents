@@ -767,7 +767,7 @@ defaultConfig {
 
 - IM SDK的API层面错误码，请查看[该文档](https://cloud.tencent.com/document/product/269/1671)。
 
-- TUIKit的场景码，用于界面弹窗提示，通过[onTUIKitCallbackListener监听](https://cloud.tencent.com/document/product/269/70746#callback)获得。请查看[该文档](https://cloud.tencent.com/document/product/269/70746#infoCode)。
+- TUIKit的场景码，用于界面弹窗提示，通过[onTUIKitCallbackListener监听](https://cloud.tencent.com/document/product/269/70746#callback)获得。全部场景码清单，请查看[该文档](https://cloud.tencent.com/document/product/269/70746#infoCode)。
 
 ## 联系我们
 如果您在接入使用过程中有任何疑问，请加入 QQ 群：788910197 咨询。
