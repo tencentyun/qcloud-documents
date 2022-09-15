@@ -65,6 +65,11 @@
   clientAuth="false"/>
 ```
 详细 `server.xml` 文件请参考如下内容：
+配置文件的主要参数说明如下：
+ - **keystoreFile**：密钥库文件的存放位置，可以指定绝对路径，也可以指定相对于 &lt;CATALINA_HOME&gt; （Tomcat 安装目录）环境变量的相对路径。如果此项没有设定，默认情况下，Tomcat 将从当前操作系统用户的用户目录下读取名为 “.keystore” 的文件。
+ - **keystorePass**：密钥库密码，指定 keystore 的密码。申请证书时若设置了私钥密码，请填写私钥密码；若申请证书时未设置私钥密码，请填写 Tomcat 文件夹中 keystorePass.txt 文件的密码。
+ - **clientAuth**：如果设为 true，表示 Tomcat 要求所有的 SSL 客户出示安全证书，对 SSL 客户进行身份验证。
+
 >!不建议您直接复制 server.xml 文件内容，避免格式有误。
 >
 ```
@@ -106,12 +111,8 @@
   </Service>
 </Server>
 ```
-配置文件的主要参数说明如下：
- - **keystoreFile**：密钥库文件的存放位置，可以指定绝对路径，也可以指定相对于 &lt;CATALINA_HOME&gt; （Tomcat 安装目录）环境变量的相对路径。如果此项没有设定，默认情况下，Tomcat 将从当前操作系统用户的用户目录下读取名为 “.keystore” 的文件。
- - **keystorePass**：密钥库密码，指定 keystore 的密码。申请证书时若设置了私钥密码，请填写私钥密码；若申请证书时未设置私钥密码，请填写 Tomcat 文件夹中 keystorePass.txt 文件的密码。
- - **clientAuth**：如果设为 true，表示 Tomcat 要求所有的 SSL 客户出示安全证书，对 SSL 客户进行身份验证。
 5. 确认 Tomcat 服务器是否启动。
-   - 若已启动，您需要在 Tomcat 安装目录 'bin' 目录下（例如：`/usr/Tomcat-9.0.56/bin`）依次执行以下命令，关闭和重启 Tomcat 服务。。
+   - 若已启动，您需要在 Tomcat 安装目录 `bin` 目录下（例如：`/usr/Tomcat-9.0.56/bin`）依次执行以下命令，关闭和重启 Tomcat 服务。
 ```
 ./shutdown.sh (关闭 Tomcat 服务)
 ./startup.sh (启动 Tomcat 服务)
@@ -144,7 +145,7 @@
    </user-data-constraint>
 </security-constraint>
 ```
-3. 编辑 Tomcat 安装目录 `conf` 目录下（例如：`/usr/Tomcat-9.0.56/conf`）的 `server.xml` 文件，将 `redirectPort` 参数修改为 SSL 的 connector 的端口，即443端口。如下所示：如下所示：
+3. 编辑 Tomcat 安装目录 `conf` 目录下（例如：`/usr/Tomcat-9.0.56/conf`）的 `server.xml` 文件，将 `redirectPort` 参数修改为 SSL 的 connector 的端口，即443端口。如下所示：
 ```
 <Connector port="80" protocol="HTTP/1.1"
   connectionTimeout="20000"
