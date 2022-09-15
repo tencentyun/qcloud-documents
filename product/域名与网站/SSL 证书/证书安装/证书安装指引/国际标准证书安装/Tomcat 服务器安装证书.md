@@ -64,12 +64,12 @@
   keystorePass="******"
   clientAuth="false"/>
 ```
-详细 `server.xml` 文件请参考如下内容：
 配置文件的主要参数说明如下：
  - **keystoreFile**：密钥库文件的存放位置，可以指定绝对路径，也可以指定相对于 &lt;CATALINA_HOME&gt; （Tomcat 安装目录）环境变量的相对路径。如果此项没有设定，默认情况下，Tomcat 将从当前操作系统用户的用户目录下读取名为 “.keystore” 的文件。
  - **keystorePass**：密钥库密码，指定 keystore 的密码。申请证书时若设置了私钥密码，请填写私钥密码；若申请证书时未设置私钥密码，请填写 Tomcat 文件夹中 keystorePass.txt 文件的密码。
  - **clientAuth**：如果设为 true，表示 Tomcat 要求所有的 SSL 客户出示安全证书，对 SSL 客户进行身份验证。
 
+详细 `server.xml` 文件请参考如下内容：
 >!不建议您直接复制 server.xml 文件内容，避免格式有误。
 >
 ```
