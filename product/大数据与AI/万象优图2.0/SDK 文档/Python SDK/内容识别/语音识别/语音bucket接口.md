@@ -4,7 +4,7 @@
 
 | API  |	说明  |
 |----|-----|
-|  [查询语音识别开通状态](https://cloud.tencent.com/document/product/460/46232)  |用于查询存储桶是否已开通语音识别功能  | 
+|  [查询语音识别开通状态](https://cloud.tencent.com/document/product/436/47598)  |用于查询存储桶是否已开通语音识别功能  | 
 
 
 ## 查询语音识别开通状态
