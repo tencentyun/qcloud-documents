@@ -1,7 +1,7 @@
 本文介绍如何使用 Terraform 快速创建 EdgeOne 站点，并添加一个域名及功能配置。开始操作前，请确认已完成 [安装和配置 Terraform](https://cloud.tencent.com/document/product/1552/80472)。
 
 ## 操作步骤
-1.创建 `provider.tf` 文件，指定 provider 配置信息。
+1. 创建 `provider.tf` 文件，指定 provider 配置信息。
 ```
 terraform {
   required_providers {
@@ -40,7 +40,7 @@ resource "tencentcloud_teo_dns_record" "dns_record" {
   ttl         = 80
 }
 ```
-3. 执行以下命令，初始化工作目录并下载插件。Terraform 会自动检测 .tf 文件中的provider字段，然后通过Terraform官方GitHub下载最新版本相关资源的模块和插件。
+3. 执行以下命令，初始化工作目录并下载插件。Terraform 会自动检测 .tf 文件中的 provider 字段，然后通过 Terraform 官方 GitHub 下载最新版本相关资源的模块和插件。
 ```
 terraform init
 ```
