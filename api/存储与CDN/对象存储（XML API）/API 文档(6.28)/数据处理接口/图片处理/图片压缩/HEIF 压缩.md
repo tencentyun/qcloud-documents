@@ -79,8 +79,7 @@ Pic-Operations:
 >? 
 > - Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 > - 通过子账号使用时，需要授予相关的权限，详情请参见 [授权粒度详情](https://cloud.tencent.com/document/product/460/41741) 文档。
-> 本篇文档中的实际案例仅包含**下载时处理**，该类处理不会保存处理后的图片至存储桶。如有保存需求，请使用**上传时处理**或**云上数据处理**方式。
->
+> 
 
 ## 处理参数说明
 
@@ -90,6 +89,8 @@ Pic-Operations:
 | /format/&lt;Format> | 压缩格式，此处为 heif。                                       |
 
 ## 实际案例
+
+>? 本篇文档中的实际案例仅包含**下载时处理**，该类处理不会保存处理后的图片至存储桶。如有保存需求，请使用**上传时处理**或**云上数据处理**方式。
 
 假设原图格式为 png，图片大小为1335.2KB，如下图所示。
 ![img](https://example-1258125638.cos.ap-shanghai.myqcloud.com/sample.png)
