@@ -10,14 +10,12 @@
 <table>
 <thead>
 <tr>
-<th><strong>镜像名称</strong></th>
-<th><strong>更新特性</strong></th>
+<th width="60%"><strong>更新特性</strong></th>
 <th><strong>更新日期</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>OpenCloudOS  Server 8</td>
 <td>
 <ul class="params">
 <li>更新内核至 5.4.119-19.0010</li>
@@ -28,9 +26,10 @@
 <td>2022-07-27</td>
 </tr>
 <tr>
-<td>OpenCloudOS 8.5</td>
 <td>
-OpenCloudOS 8.5上线公有云
+<ul class="params">
+<li>OpenCloudOS 8.5上线公有云</li>
+</ul>
 </td>
 <td>2022-03-04</td>
 </tr>
