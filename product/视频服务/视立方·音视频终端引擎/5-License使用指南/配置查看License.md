@@ -106,7 +106,7 @@ public class MApplication extends Application {
 }
 ```
 
->? 直播 Licence、短视频 Licence 和视频播放 Licence ，若 licenceURL 一样，全局仅设置一次即可，无需重复设置。若您暂未获取上述 Licence ，可[快速免费申请测试版 Licence](https://cloud.tencent.com/act/event/License) 以正常播放，正式版 License 需[购买](https://cloud.tencent.com/document/product/454/34750)。
+>? 直播 License、短视频 License 和视频播放 License ，若 licenceURL 一样，全局仅设置一次即可，无需重复设置。若您暂未获取上述 License ，可 [快速免费申请测试版 License](https://cloud.tencent.com/act/event/License) 以正常播放，正式版 License 需 [购买](https://cloud.tencent.com/document/product/454/34750)。
 
 ### 查看方法
 
