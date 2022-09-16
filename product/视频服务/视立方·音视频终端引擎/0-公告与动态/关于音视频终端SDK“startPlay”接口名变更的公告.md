@@ -12,5 +12,5 @@
 音视频终端 SDK 所有包含上述接口用法的所有子产品都将做出变更，涉及的子产品包含：[直播 SDK](https://cloud.tencent.com/document/product/454/80423)、[短视频 SDK](https://cloud.tencent.com/document/product/584/80425)、[实时音视频（TRTC）SDK](https://cloud.tencent.com/document/product/647/80427)、[播放器 SDK](https://cloud.tencent.com/document/product/881/80419)、[全功能版 SDK](https://cloud.tencent.com/document/product/1449/80420)，您可单击对应子产品公告查看详情。
 
 若您有任何疑问，欢迎随时 [联系我们](https://cloud.tencent.com/document/product/1449/56948)。衷心感谢各位用户对腾讯视立方产品的信赖与支持！
-2022-09-13
+2022-09-19
 腾讯云
