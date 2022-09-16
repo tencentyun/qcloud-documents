@@ -114,7 +114,7 @@
 ### DNSPod 设置方法
 若您的 DNS 服务商为 DNSPod，您可通过如下步骤添加 CNAME 记录。
 1. 登录 [DNSPod 域名服务控制台](https://console.dnspod.cn/dns/list)。
-2. 在列表中，找到需要添加 CNAME 记录的域名所在行，单击对应域名名称，跳转至“添加记录”界面。
+2. 在列表中，找到需要添加 CNAME 记录的域名所在行，单击对应域名名称，跳转至**记录管理**页。单击**添加记录**。
 3. 通过如下步骤添加 CNAME 记录：
   1. 主机记录处填子域名（例如需要添加`www.123.com`的解析，只需要在主机记录处填写`www`即可。如果只是想添加`123.com`的解析，主机记录直接留空，系统会自动填一个“@”到输入框内，@的 CNAME 会影响到 MX 记录的正常解析，添加时慎重考虑）。
   2. 记录类型为 CNAME。
@@ -145,10 +145,11 @@
 别名记录允许将多个名字映射到同一台计算机。通常用于同时提供 WWW 和 MAIL 服务的计算机。例如，有一台计算机名为`host.mydomain.com`（A记录）。它同时提供 WWW 和 MAIL 服务，为了便于用户访问服务。可以为该计算机设置两个别名（CNAME）：WWW 和 MAIL 。如下图：
 ![](https://main.qcloudimg.com/raw/48a5cb7a7301e49edb85edbc19e1bcbd.png)
 
+进入云直播控制台的域名管理，
 [](id:check)
 ## 验证 CNAME 是否生效
 不同的 DNS 服务商，CNAME 生效的时间略有不同，一般会在半个小时之内生效。您可通过以下方式查询 CNAME 是否配置生效。
-- **方法1：**进入云直播控制台的 **[域名管理](https://console.cloud.tencent.com/live/domainmanage)** 查询后缀为`.myqcloud.com`的域名状态符号是否变成![](https://main.qcloudimg.com/raw/0fc346399ae095d69113d4944e511a20.png)表明 CNAME 已成功。
+- **方法1：**进入云直播控制台的 **[域名管理](https://console.cloud.tencent.com/live/domainmanage)** 查询域名状态符号是否变成![](https://main.qcloudimg.com/raw/0fc346399ae095d69113d4944e511a20.png)表明 CNAME 已成功。
 ![](https://main.qcloudimg.com/raw/b5150f5442f48a38bf9a972a84f43122.png)
 - **方法2：**进入云直播控制台的 [域名管理](https://console.cloud.tencent.com/live/domainmanage) 添加域名，配置基本配置后，可在CNAME配置中查询CNAME状态。
 - **方法3：**Linux/Mac 系统下，通过 dig 命令查看，命令格式为：`dig 自有域名`。若第一行显示解析到云直播提供的目标域名，表明 CNAME 已成功。 

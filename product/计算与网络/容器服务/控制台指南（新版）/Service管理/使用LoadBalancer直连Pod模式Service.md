@@ -1,6 +1,6 @@
 ## 操作场景
 
-原生 LoadBalancer 模式 Servcie 可自动创建负载均衡 CLB，并通过集群的 Nodeport 转发至集群内，再通过 iptable 或 ipvs 进行二次转发。该模式下的 Service 能满足大部分使用场景 ，但在以下场景中更推荐使用**直连 Pod 模式 Service**：
+原生 LoadBalancer 模式 Service 可自动创建负载均衡 CLB，并通过集群的 Nodeport 转发至集群内，再通过 iptable 或 ipvs 进行二次转发。该模式下的 Service 能满足大部分使用场景 ，但在以下场景中更推荐使用**直连 Pod 模式 Service**：
 
 - 有获取来源 IP 需求时（非直连模式必须另外开启 Local 转发）。
 - 要求具备更高转发性能时（非直连模式下 CLB 和 Service 本身存在两层 CLB，性能有一定损失）。

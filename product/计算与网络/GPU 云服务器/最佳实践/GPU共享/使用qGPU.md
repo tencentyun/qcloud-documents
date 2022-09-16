@@ -51,7 +51,7 @@
 设置镜像并选择机型后, 可以根据需求选择 GPU 驱动的版本、CUDA 版本、cuDNN 版本。其余参数配置可参见 [创建节点池](https://cloud.tencent.com/document/product/457/43735)。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/da65a4caee330fb630e7e1f4b0809b62.png)
 <dx-alert infotype="explain" title="">
-- 勾选“后台自动安装 GPU 驱动”后，将在系统启动时进行自动安装，预计耗时15 - 25分钟。支持的驱动版本由 OS 以及 GPU 机型共同决定，详情可参见 [GPU 驱动预装信息](https://cloud.tencent.com/document/product/560/30211#PreloadGPUDrive)。
+- 勾选“后台自动安装 GPU 驱动”后，将在系统启动时进行自动安装，预计耗时15 - 25分钟。支持的驱动版本由 OS 以及 GPU 机型共同决定，详情可参见 [各实例支持的 GPU 驱动版本及安装方式](https://cloud.tencent.com/document/product/560/76423#supportList)。
 - 若您未勾选“后台自动安装 GPU 驱动”，为了保证 GPU 机型的正常使用，针对某些低版本 OS，将会为您默认安装 GPU 驱动，完整的默认驱动版本信息可参考下表：
 <table><thead><tr><th>OS 名称</th><th>默认安装驱动版本</th></tr></thead><tbody><tr><td>CentOS 7.6、Ubuntu 18、Tencent Linux2.4</td><td>450</td></tr><tr><td>Centos 7.2（不推荐）</td><td>384.111</td></tr><tr><td>Ubuntu 16（不推荐）</td><td>410.79</td></tr></tbody></table>
 </dx-alert>
