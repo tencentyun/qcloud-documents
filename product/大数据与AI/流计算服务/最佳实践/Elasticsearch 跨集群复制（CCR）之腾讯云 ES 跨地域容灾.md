@@ -43,7 +43,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/410486692f16501b32f4c0cb3c14c7e6.png)
 3. 在 Follower 上海集群的 kibana 中进行如下配置：
 ![](https://qcloudimg.tencent-cloud.cn/raw/5eb2fbaf4ac7592679a35379160bea8f.png)
-4. 主要是配置刚刚设置的 Remote Cluster的name，以及 Leader Index 和本地集群需要 Follower的index。 
+4. 主要是配置前面设置的 Remote Cluster的name，以及 Leader Index 和本地集群需要 Follower的index。 
 配置完成后得到如下的列表： 
 ![](https://qcloudimg.tencent-cloud.cn/raw/8cba351c0de9e820cca4e25d1d10665a.png)
 5. 查看索引管理，发现已经在上海的集群中创建了一个 follower index：
