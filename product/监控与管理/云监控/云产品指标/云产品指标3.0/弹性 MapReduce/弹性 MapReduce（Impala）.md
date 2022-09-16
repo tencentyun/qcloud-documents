@@ -168,13 +168,13 @@ Namespace=QCE/TXMR_IMPALA
 | Instances.N.Dimensions.0.Name  | host4impalacatalog    | EMR 实例中节点 IP 的维度名称 | 输入 String 类型维度名称：host4impalacatalog                 |
 | Instances.N.Dimensions.0.Value | host4impalacatalog    | EMR 实例中具体节点 IP        | 输入具体节点  IP ，可从控制台获取，登录<b> [腾讯云 MapReduce 控制台](https://console.cloud.tencent.com/emr) > 单击实例 > 集群资源 > 资源管理 > 节点内网 IP</b>。也可通过 [查询节点信息](https://cloud.tencent.com/document/product/589/41707) API 获取。 |
 | Instances.N.Dimensions.1.Name  | id4impalacatalog      | EMR 实例 ID 的维度名称       | 输入 String 类型维度名称：id4impalacatalog                   |
-| Instances.N.Dimensions.1.Value | id4impalacatalog      | EMR 实例中节点 IP 的维度名称 | 输入 EMR 具体实例 ID，例如：emr-mm8bs222                     |
-| Instances.N.Dimensions.0.Name  | host4impalastatestore | EMR 实例 ID 的维度名称       | 输入 String 类型维度名称：host4impalastatestore              |
-| Instances.N.Dimensions.0.Value | host4impalastatestore | EMR 实例具体 ID              | 输入具体节点  IP ，可从控制台获取，登录 <b>[腾讯云 MapReduce 控制台](https://console.cloud.tencent.com/emr) > 单击实例 > 集群资源 > 资源管理 > 节点内网 IP</b>。也可通过 [查询节点信息](https://cloud.tencent.com/document/product/589/41707) API 获取。 |
+| Instances.N.Dimensions.1.Value | id4impalacatalog      | EMR 实例 ID 的维度名称| 输入 EMR 具体实例 ID，例如：emr-mm8bs222                     |
+| Instances.N.Dimensions.0.Name  | host4impalastatestore | EMR 实例中节点 IP 的维度名称       | 输入 String 类型维度名称：host4impalastatestore              |
+| Instances.N.Dimensions.0.Value | host4impalastatestore | EMR 实例中具体节点 IP            | 输入具体节点  IP ，可从控制台获取，登录 <b>[腾讯云 MapReduce 控制台](https://console.cloud.tencent.com/emr) > 单击实例 > 集群资源 > 资源管理 > 节点内网 IP</b>。也可通过 [查询节点信息](https://cloud.tencent.com/document/product/589/41707) API 获取。 |
 | Instances.N.Dimensions.1.Name  | id4impalastatestore   | EMR 实例 ID 的维度名称       | 输入 String 类型维度名称：id4impalastatestore                |
 | Instances.N.Dimensions.1.Value | id4impalastatestore   | EMR 实例 ID 的维度名称       | 输入 EMR 具体实例 ID，例如：emr-mm8bs222                     |
-| Instances.N.Dimensions.0.Name  | host4impaladaemon     | EMR 实例 ID 的维度名称       | 输入 String 类型维度名称：host4impaladaemon                  |
-| Instances.N.Dimensions.0.Value | host4impaladaemon     | EMR 实例具体 ID              | 输入具体节点  IP ，可从控制台获取，登录<b> [腾讯云 MapReduce 控制台](https://console.cloud.tencent.com/emr) > 单击实例 > 集群资源 > 资源管理 > 节点内网 IP</b>。也可通过 [查询节点信息](https://cloud.tencent.com/document/product/589/41707) API 获取。 |
+| Instances.N.Dimensions.0.Name  | host4impaladaemon     | EMR 实例中节点 IP 的维度名称     | 输入 String 类型维度名称：host4impaladaemon                  |
+| Instances.N.Dimensions.0.Value | host4impaladaemon     |  EMR 实例中具体节点 IP           | 输入具体节点  IP ，可从控制台获取，登录<b> [腾讯云 MapReduce 控制台](https://console.cloud.tencent.com/emr) > 单击实例 > 集群资源 > 资源管理 > 节点内网 IP</b>。也可通过 [查询节点信息](https://cloud.tencent.com/document/product/589/41707) API 获取。 |
 | Instances.N.Dimensions.1.Name  | id4impaladaemon       | EMR 实例 ID 的维度名称       | 输入 String 类型维度名称：id4impaladaemon                    |
 | Instances.N.Dimensions.1.Value | id4impaladaemon       | EMR 实例 ID 的维度名称       | 输入 EMR 具体实例 ID，例如：emr-mm8bs222                     |
 
