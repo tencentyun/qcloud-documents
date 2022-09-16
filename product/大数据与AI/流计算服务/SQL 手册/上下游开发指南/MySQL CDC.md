@@ -202,12 +202,12 @@ MySQL 的 CDC 和 Flink 字段类型对应关系如下：
 <tr>
 <td>TINYINT</td>
 <td>TINYINT</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>SMALLINT<br>TINYINT UNSIGNED</td>
 <td>SMALLINT</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>
@@ -215,19 +215,19 @@ INT<br>
 MEDIUMINT<br>
 SMALLINT UNSIGNED</td>
 <td>INT</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>
 BIGINT<br>
 INT UNSIGNED</td>
 <td>BIGINT</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>BIGINT UNSIGNED</td>
 <td>DECIMAL(20, 0)</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>
@@ -235,14 +235,14 @@ REAL<br>
 FLOAT<br>
 </td>
 <td>FLOAT</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>
 DOUBLE
 </td>
 <td>DOUBLE</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>
@@ -251,7 +251,7 @@ DECIMAL(p, s)<br>
 where p <= 38<br>
 </td>
 <td>DECIMAL(p, s)</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>
@@ -269,17 +269,17 @@ TINYINT(1)<br>
 BIT(1)
 </td>
 <td>BOOLEAN</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>DATE</td>
 <td>DATE</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>TIME [(p)]</td>
 <td>TIME [(p)]</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>TIMESTAMP [(p)]<br>
@@ -287,42 +287,42 @@ DATETIME [(p)]
 </td>
 <td>TIMESTAMP [(p)]
 </td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>
 CHAR(n)
 </td>
 <td>CHAR(n)</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>
 VARCHAR(n)
 </td>
 <td>VARCHAR(n)</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>
 BIT(n)
 </td>
 <td>BINARY(⌈n/8⌉)</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>
 BINARY(n)
 </td>
 <td>BINARY(n)</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>
 VARBINARY(N)
 </td>
 <td>VARBINARY(N)</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>
@@ -332,7 +332,7 @@ MEDIUMTEXT<br>
 LONGTEXT<br>
 </td>
 <td>STRING</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>
@@ -349,14 +349,14 @@ LONGBLOB<br>
 YEAR
 </td>
 <td>INT</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>
 ENUM
 </td>
 <td>STRING</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>
