@@ -28,7 +28,7 @@ GPU 云服务器支持四种镜像类型：公共镜像、自定义镜像、共�
 ![](https://qcloudimg.tencent-cloud.cn/raw/57e36543e247aff4be3f67489a782ff0.png)
 <dx-alert infotype="notice" title="">
 **GPU 云服务器必须具备相应的 GPU 驱动才能正常运行。** 您可通过以下4种方式，安装相应驱动：
- - 若选择**公共镜像**，则勾选**后台自动安装GPU驱动**即可预装相应版本驱动，建议您选择该方式。该方式仅支持部分 Linux 公共镜像，详情请参见 [GPU 驱动预装信息](#PreloadGPUDrive)。
+ - 若选择**公共镜像**，则勾选**后台自动安装GPU驱动**即可预装相应版本驱动，建议您选择该方式。该方式仅支持部分 Linux 公共镜像，详情请参见 [各实例支持的 GPU 驱动版本及安装方式](https://cloud.tencent.com/document/product/560/76423#supportList)。
  - 若选择**公有镜像**，则在 GPU 实例创建成功后，可参照 [安装 NVIDIA 驱动指引](https://cloud.tencent.com/document/product/560/8048) 手动安装相应驱动。
  - 若选择**镜像市场**，则可选择预装了 GPU 驱动的镜像，详情请参见 [使用预装 GPU 驱动的镜像](https://cloud.tencent.com/document/product/560/30129)。
  - 若您购买的是 vGPU 实例，则可选择已预装了 GRID 驱动的公共镜像，无需单独安装驱动。
@@ -71,28 +71,8 @@ GPU 云服务器支持四种镜像类型：公共镜像、自定义镜像、共�
 
 
 ## 附录
-### GPU 驱动预装信息[](id:PreloadGPUDrive)
-GPU 云服务器支持部分 Linux 公共镜像通过后台自动安装 GPU 驱动。实例初次启动时，会根据所选版本自动安装 GPU 驱动、CUDA 及 cuDNN 库，耗时约15 - 20分钟。详细信息如下表：
-<table>
-        <thead>
-        <tr>
-            <th width="15%">GPU 驱动</th>
-            <th width="15%">CUDA 版本</th>
-            <th width="15%">cuDNN 版本</th>
-            <th width="30%">支持的公共镜像版本</th>
-            <th style="width: 26%;">支持的实例类型</th>
-        </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td >450.102.04</td>
-                <td>11.0.3</td>
-                <td>8.1.0<br>8.0.5</td> 
-                <td>CentOS 7.x<br>Ubuntu 18.04及以上</td>
-                <td>GT4<br>GN10Xp<br>GN10X<br>GN8<br>GN7<br>GN6S</td>
-            </tr>
-        </tbody>
-</table>
+### GPU 驱动预装说明[](id:PreloadGPUDrive)
+GPU 云服务器支持部分 Linux 公共镜像通过后台自动安装 GPU 驱动。实例初次启动时，会根据所选版本自动安装 GPU 驱动、CUDA 及 cuDNN 库，耗时约15 - 20分钟。详情请参见 [各实例支持的 GPU 驱动版本及安装方式](https://cloud.tencent.com/document/product/560/76423#supportList)。
 
 
 

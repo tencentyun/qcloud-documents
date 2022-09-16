@@ -218,7 +218,7 @@ defaultConfig {
 
 [](id:module)
 ## 快速接入短视频功能模块
-下述内容主要讲解如何在已有的项目中快速集成短视频 SDK，完成从录制，编辑，合成的完整过程。文中所需要的代码及资源文件均在 [资源下载](https://cloud.tencent.com/document/product/584/9366) 中 SDK 的压缩包中以及 [短视频 Demo ](https://github.com/tencentyun/UGSVSDK) 提供。
+下述内容主要讲解如何在已有的项目中快速集成短视频 SDK，完成从录制，编辑，合成的完整过程。文中所需要的代码及资源文件均在 [资源下载](https://cloud.tencent.com/document/product/584/9366) 中 SDK 的压缩包中以及 [短视频 Demo ](https://github.com/LiteAVSDK/UGSV_Android) 提供。
 
 [](id:integrated)
 ### 集成 UGCKit
