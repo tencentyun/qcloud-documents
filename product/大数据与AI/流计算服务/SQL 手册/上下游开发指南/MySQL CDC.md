@@ -182,7 +182,7 @@ CREATE TABLE `mysql_cdc_source_table` (
 
 如果 MySQL 是一个分库分表的数据库，分成了 A_1、 A_2、A_3 ...等多个表，**且所有表的 schema 一致**，则可以通过 table-name 选项，指定一个正则表达式来匹配读取多张表，例如设置 table-name 为 **A\_.\*** ，监控所有 **A\_** 前缀的表。**database-name 选项也支持该功能**。
 
->? 如果 database-name 设置为正则匹配的话，需要使用`()`把正则式包围起来。 
+>? 如果 database-name 和 table-name 设置为正则匹配的话，需要使用`()`把正则式包围起来。 
 
 
 ## 类型映射
