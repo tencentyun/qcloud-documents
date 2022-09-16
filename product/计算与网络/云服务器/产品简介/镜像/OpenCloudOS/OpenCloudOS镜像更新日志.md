@@ -17,6 +17,17 @@
 </thead>
 <tbody>
 <tr>
+<td>OpenCloudOS  Server 8</td>
+<td>
+<ul class="params">
+<li>更新内核至 5.4.119-19.0010</li>
+<li>更新其他用户态软件</li>
+<li>更新镜像时间戳</li>
+</ul>
+</td>
+<td>2022-07-27</td>
+</tr>
+<tr>
 <td>OpenCloudOS 8.5</td>
 <td>
 OpenCloudOS 8.5上线公有云
