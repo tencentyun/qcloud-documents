@@ -32,8 +32,8 @@ Pod 安全组将腾讯云 CVM 安全组与 Kubernetes Pod 集成。您可以使�
     a. 检索集群的 VPC 和集群安全组的 ID。您在使用时可替换`my-cluster`。
     ```shell
     my_cluster_name=my-cluster
-    my_cluster_vpc_id=$(tccli tke DescribeClusters --cli-unfold-argument --ClusterIds cls-7d7w**** --filter Clusters[0].ClusterNetworkSettings.VpcId | sed 's/\"//g')
-    my_cluster_security_group_id=$(tccli vpc DescribeSecurityGroups --cli-unfold-argument --Filters.0.Name security-group-name --Filters.0.Values tke-worker-security-for-cls-7d7w**** --filter SecurityGroupSet[0].SecurityGroupId | sed 's/\"//g')
+    my_cluster_vpc_id=$(tccli tke DescribeClusters --cli-unfold-argument --ClusterIds my-cluster --filter Clusters[0].ClusterNetworkSettings.VpcId | sed 's/\"//g')
+    my_cluster_security_group_id=$(tccli vpc DescribeSecurityGroups --cli-unfold-argument --Filters.0.Name security-group-name --Filters.0.Values tke-worker-security-for-my-cluster --filter SecurityGroupSet[0].SecurityGroupId | sed 's/\"//g')
     ```
     b. 为您的 Pod 创建安全组。您在使用时可替换`my-pod-security-group`。记下运行命令后输出中返回的安全组 ID，您将在后面的步骤中使用它。
     ```shell
