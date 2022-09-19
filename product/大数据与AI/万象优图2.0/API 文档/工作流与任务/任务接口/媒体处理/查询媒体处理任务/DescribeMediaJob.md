@@ -1,6 +1,6 @@
 ## 功能描述
 
-DescribeMediaJob 接口用于查询指定的任务。
+查询指定的任务。
 
 <div class="rno-api-explorer">
     <div class="rno-api-explorer-inner">
@@ -17,6 +17,8 @@ DescribeMediaJob 接口用于查询指定的任务。
         </div>
     </div>
 </div>
+
+
 
 ## 请求
 
@@ -110,7 +112,7 @@ Container 节点 Response 的内容：
 GET /jobs/j8d121820f5e411ec926ef19d53ba9c6f HTTP/1.1
 Accept: */*
 Authorization: q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0ea057
-Host: examplebucket-1250000000.ci.ap-beijing.myqcloud.com
+Host: test-1234567890.ci.ap-chongqing.myqcloud.com
 ```
 
 #### 响应
@@ -122,7 +124,7 @@ Content-Length: 666
 Connection: keep-alive
 Date: Mon, 28 Jun 2022 15:23:12 GMT
 Server: tencent-ci
-x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
+x-ci-request-id: NjMxMDJhYTNfMThhYTk0MGFfYmU1OV8zZjc=
 
 <Response>
     <JobsDetail>
@@ -177,7 +179,7 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
 GET /jobs/j9c0a4726f6ac11ec96aaa9b64ab18d00 HTTP/1.1
 Accept: */*
 Authorization: q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0ea057
-Host: examplebucket-1250000000.ci.ap-beijing.myqcloud.com
+Host: test-1234567890.ci.ap-chongqing.myqcloud.com
 ```
 
 #### 响应
@@ -189,7 +191,7 @@ Content-Length: 666
 Connection: keep-alive
 Date: Mon, 28 Jun 2022 15:25:22 GMT
 Server: tencent-ci
-x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
+x-ci-request-id: NjMxMDJhYTNfMThhYTk0MGFfYmU1OV8zZjY=
 
 <Response>
     <JobsDetail>

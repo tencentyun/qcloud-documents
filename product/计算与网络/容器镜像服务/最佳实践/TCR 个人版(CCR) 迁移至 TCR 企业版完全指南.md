@@ -54,7 +54,7 @@ docker run --network=host --rm ccr.ccs.tencentyun.com/tcrimages/image-transfer:c
 |---------|---------|
 | tcrName | 目标迁移企业版实例的名称 |
 | ccrRegionName、ccrRegionName | 实例地域，ccr 国内默认为 ap-guangzhou, tcr 需按照实际地域填写，例如 ap-shanghai |
-| ccrAuth、tcrAuth | 镜像仓库访问凭证，格式：username:password |
+| ccrAuth、tcrAuth | 镜像仓库访问凭证，格式：username:password,如 username、password 中包含特殊字符，需要进行转义处理，如 ? 应写为 \\? |
 | ccrSecretId、ccrSecretKey、tcrSecretId、tcrSecretKey | 腾讯云 API 调用密钥，如果是同账号下迁移，ccr 及 tcr 调用密钥相同 |
 | tagNum | 指定仅迁移镜像仓库内最新 N 个版本镜像 |
 

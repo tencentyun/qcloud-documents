@@ -1,6 +1,6 @@
 
 
-本文介绍超级节点特有的 Annotation 与示例，该 Annotation 针对 TKE 集群和 EKS 集群内超级节点上运行的 Pod 生效。
+本文介绍超级节点特有的 Annotation 与示例，该 Annotation 针对 TKE 标准集群和 TKE Serverless 集群内超级节点上运行的 Pod 生效。
 
 ## Annotation 使用方法
 ### 工作负载里添加 Pod 注解

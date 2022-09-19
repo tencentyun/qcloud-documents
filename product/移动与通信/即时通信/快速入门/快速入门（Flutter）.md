@@ -9,6 +9,19 @@
 |Android|Android Studio 3.5及以上版本，App 要求 Android 4.1及以上版本设备。|
 |iOS|Xcode 11.0及以上版本，请确保您的项目已设置有效的开发者签名。|
 
+## 支持平台
+
+
+| 平台 | 无UI SDK (tencent_im_sdk_plugin) | 含UI及基础业务逻辑 TUIKit (tim_ui_kit) |
+|---------|---------|---------|
+| iOS | 支持 | 支持 |
+| Android | 支持 | 支持 |
+| [Web](#web) | 支持，4.1.1+2版本起 | 支持，0.1.4版本起 |
+| macOS | 即将上线 | 开发中 |
+| Windows | 即将上线 | 开发中 |
+
+> 我们致力于打造一套支持 Flutter 全平台的即时通信IM SDK及TUIKit，帮助您一套代码，全平台运行。
+
 ## 前提条件
 
 1. 您已 [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 帐号，并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
@@ -177,7 +190,9 @@ flutter pub get
 
 ## 第四部分：含 UI 集成，使用 TUIKit 组件库，半天完成 IM 能力植入
 
-TUIKit 是基于腾讯云 IM SDK 的一款 UI 组件库，它提供了一些通用的 UI 组件，例如会话列表、聊天界面和联系人列表等，开发者可根据实际业务需求通过该组件库快速地搭建自定义 IM 应用。参见 [TUIKit 介绍](https://cloud.tencent.com/document/product/269/70747)。
+TUIKit 是基于腾讯云 IM SDK 的一款 UI 组件库，它提供了一些通用的 UI 组件，例如会话列表、聊天界面和联系人列表等，开发者可根据实际业务需求通过该组件库快速地搭建自定义 IM 应用。参见 [TUIKit 图文介绍](https://cloud.tencent.com/document/product/269/70747)。
+
+本部分为快速使用TUIKit介绍，详细入门指引可参考 [TUIKit集成基础功能](https://cloud.tencent.com/document/product/269/70746)。
 
 ### 前提条件
 
@@ -251,6 +266,8 @@ flutter pub add tim_ui_kit
 
 1. 在您应用启动时，初始化 TUIKit。
 2. 请务必保证先执行 [`TIMUIKitCore.getInstance()`](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitCore/getInstance.html) ，再调用初始化函数 [`init()`](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitCore/init.html) ，并将您的`sdkAppID`传入。
+3. 为方便您获取API报错及建议提醒用户的提示语，此处建议挂载一个 onTUIKitCallbackListener 监听，[详见此部分](https://cloud.tencent.com/document/product/269/70746#onTUIKitCallbackListener)。
+
 ```dart
 /// main.dart
 import 'package:tim_ui_kit/tim_ui_kit.dart';
@@ -260,7 +277,9 @@ final CoreServicesImpl _coreInstance = TIMUIKitCore.getInstance();
  void initState() {
    _coreInstance.init(
      sdkAppID: 0, // Replace 0 with the SDKAppID of your IM application when integrating
+     // language: LanguageEnum.en, // 界面语言配置，若不配置，则跟随系统语言
      loglevel: LogLevelEnum.V2TIM_LOG_DEBUG,
+     onTUIKitCallbackListener:  (TIMCallback callbackValue){}, // [建议配置，详见此部分](https://cloud.tencent.com/document/product/269/70746#onTUIKitCallbackListener)
      listener: V2TimSDKListener());    
    super.initState();
  }
@@ -413,9 +432,9 @@ class UserProfile extends StatelessWidget {
 
 [TIMUIKitNewContact](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitNewContact/): 联系人（好友）申请列表。如需在外部显示小红点，可使用 `TIMUIKitUnreadCount` 小红点组件，其会自动挂载监听。
 
-[本地搜索](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitSearch/): `TIMUIKitSearch` 全局搜索组件，支持全局搜索联系人/群组/聊天记录，也支持使用 `TIMUIKitSearchMsgDetail` 在特定会话中搜索聊天记录。两种模式取决于是否传入 `conversation`。
+[本地搜索](https://cloud.tencent.com/document/product/269/79121): `TIMUIKitSearch` 全局搜索组件，支持全局搜索联系人/群组/聊天记录，也支持使用 `TIMUIKitSearchMsgDetail` 在特定会话中搜索聊天记录。两种模式取决于是否传入 `conversation`。
 
-UI组件全貌可参见 [本全览文档](https://cloud.tencent.com/document/product/269/70747) 或 [详细文档](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/)。
+UI组件全貌可参见 [本图文概览](https://cloud.tencent.com/document/product/269/70747) 或 [详细文档](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/)。
 
 [](id:part5)
 
@@ -453,11 +472,11 @@ flutter pub add tencent_im_sdk_plugin
 import 'package:tencent_im_sdk_plugin/enum/V2TimSDKListener.dart';
 import 'package:tencent_im_sdk_plugin/enum/log_level_enum.dart';
 import 'package:tencent_im_sdk_plugin/tencent_im_sdk_plugin.dart';
-    TencentImSDKPlugin.v2TIMManager.initSDK(
-    sdkAppID: 0, // Replace 0 with the SDKAppID of your IM application when integrating
-    loglevel: LogLevelEnum.V2TIM_LOG_DEBUG, // Log
-    listener: V2TimSDKListener(),
-  );
+TencentImSDKPlugin.v2TIMManager.initSDK(
+  sdkAppID: 0, // Replace 0 with the SDKAppID of your IM application when integrating
+  loglevel: LogLevelEnum.V2TIM_LOG_DEBUG, // Log
+  listener: V2TimSDKListener(),
+);
 ```
 
 在本步骤，你可以针对 IM SDK 挂载一些监听，主要包括网络状态及用户信息变更等，详情可参见 [该文档](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/enum_V2TimSDKListener/V2TimSDKListener-class.html)。
@@ -474,10 +493,10 @@ import 'package:tencent_im_sdk_plugin/tencent_im_sdk_plugin.dart';
 
 ```dart
 import 'package:tencent_im_sdk_plugin/tencent_im_sdk_plugin.dart';
- V2TimCallback res = await TencentImSDKPlugin.v2TIMManager.login(
-    userID: userID,
-    userSig: userSig, 
-  );
+V2TimCallback res = await TencentImSDKPlugin.v2TIMManager.login(
+  userID: userID,
+  userSig: userSig, 
+);
 ```
 
 >? 该账户仅限开发测试使用。应用上线前，正确的 `UserSig` 签发方式是将 `UserSig` 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 `UserSig` 时由您的 App 向业务服务器发起请求获取动态 `UserSig`。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/269/32688#GeneratingdynamicUserSig)。
@@ -744,11 +763,13 @@ defaultConfig {
 
 欢迎查看[直播间搭建指南](https://cloud.tencent.com/document/product/269/77764#.E7.BE.A4.E7.B1.BB.E5.9E.8B.E9.80.89.E6.8B.A9)，基于腾讯云IM/TRTC/腾讯云直播，搭建一套完整的直播间系统。
 
-### 错误吗如何查询？
+### 错误码如何查询？
 
 - IM SDK的API层面错误码，请查看[该文档](https://cloud.tencent.com/document/product/269/1671)。
 
-- TUIKit的场景码，用于界面弹窗提示，通过[onTUIKitCallbackListener监听](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitCore/init.html)获得。请查看[该文档](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitCore/TIMCallback.html#inforecommendtext)。
+- TUIKit的场景码，用于界面弹窗提示，通过[onTUIKitCallbackListener监听](https://cloud.tencent.com/document/product/269/70746#callback)获得。请查看[该文档](https://cloud.tencent.com/document/product/269/70746#infoCode)。
 
 ## 联系我们
 如果您在接入使用过程中有任何疑问，请加入 QQ 群：788910197 咨询。
+
+![](https://qcloudimg.tencent-cloud.cn/raw/eacb194c77a76b5361b2ae983ae63260.png)

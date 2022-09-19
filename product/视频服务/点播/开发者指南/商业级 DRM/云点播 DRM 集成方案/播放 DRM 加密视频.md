@@ -30,12 +30,12 @@
 
 1. 登录云点播控制台，选择【分发播放设置】>[【域名管理】](https://console.cloud.tencent.com/vod/distribute-play/domain)，单击“默认分发域名”的【设置】，单机【访问控制】，进入设置页面。
    <img src="https://qcloudimg.tencent-cloud.cn/raw/9f6529f256a3f74f4c87f6b4c1ab293e.png" width="800" />
-2. 打开【启用 Key 防盗链】，并单击【生成随机 Key】生成一个随机的 Key，本教程为`testtest`，将生成好的 Key 复制下来，然后单击【确定】保存生效。防盗链 Key 可用于后续步骤中生成播放器签名。
+2. 打开【启用 Key 防盗链】，并单击【生成随机 Key】生成一个随机的 Key，本教程为`vodtestkey`，将生成好的 Key 复制下来，然后单击【确定】保存生效。防盗链 Key 可用于后续步骤中生成播放器签名。
    ![image-KEY](https://qcloudimg.tencent-cloud.cn/raw/9e92b38164843a729cf4d64af6dac402.png)
 
 ## 步骤2：对视频进行 DRM 加密
 
-1. 登录云点播控制台，选择 **媒资管理**>[**视频管理**](https://console.cloud.tencent.com/vod/media)，勾选要处理的视频（FileId 为387702299667618135），单击 **视频处理**。
+1. 登录云点播控制台，选择 **媒资管理**>[**视频管理**](https://console.cloud.tencent.com/vod/media)，勾选要处理的视频（FileId 为387702304941991610），单击 **视频处理**。
 
    ![image-20220426211316803](https://qcloudimg.tencent-cloud.cn/raw/3566b9d58047da7a212b8275673d461c.png)
 
@@ -65,21 +65,17 @@
 
 ```json
 {
-  "appId": 1500012416,
-  "fileId": "387702299667618135",
-  "currentTimeStamp": 1650886156,
-  "expireTimeStamp": 1966435200,
-  "urlAccessInfo": {
-    "t": "75356B80",
-    "us": "72d4cd1101"
-  },
+  "appId": 1500014561,
+  "fileId": "387702304941991610",
+  "currentTimeStamp": 1661163373,
+  "expireTimeStamp": 2648557919,
   "pcfg":"advanceDrmPreset"
 }
 ```
 
-本教程的 Key 为 `testtest`时，生成的播放器签名（`psign`）如下：
+本教程的 Key 为 `vodtestkey`时，生成的播放器签名（`psign`）如下：
 
-`eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6MTUwMDAxMjQxNiwiZmlsZUlkIjoiMzg3NzAyMjk5NjY3NjE4MTM1IiwiY3VycmVudFRpbWVTdGFtcCI6MTY1MDg4NjE1NiwiZXhwaXJlVGltZVN0YW1wIjoxOTY2NDM1MjAwLCJ1cmxBY2Nlc3NJbmZvIjp7InQiOiI3NTM1NkI4MCIsInVzIjoiNzJkNGNkMTEwMSJ9LCJwY2ZnIjoiYWR2YW5jZURybVByZXNldCJ9.kkyOyscuV3WIlFV0IFPsPPWomZEcuNGclaBzpEO8DEg`
+`eyJhbGciOiJIUzI1NiJ9.eyJhcHBJZCI6MTUwMDAxNDU2MSwiZmlsZUlkIjoiMzg3NzAyMzA0OTQxOTkxNjEwIiwiY3VycmVudFRpbWVTdGFtcCI6MTY2MTE2MzM3MywiZXhwaXJlVGltZVN0YW1wIjoyNjQ4NTU3OTE5LCJwY2ZnIjoiYWR2YW5jZURybVByZXNldCJ9.rEZLhjgsoLc2htIUI_HckxvhVmdBhQyf5d-2Kku1JeA`
 
 ## 步骤4：使用播放器播放 DRM 加密视频。
 
@@ -122,30 +118,30 @@
 
 #### step 3：初始化代码
 
-在页面初始化的代码中加入以下初始化脚本，传入必须的初始化参数，代码如下：
+在页面初始化的代码中加入以下初始化脚本，传入必须的初始化参数（其中包含步骤3中生成的播放器签名`psign`），代码如下：
 
 ```
 var player = TCPlayer('player-container-id', {
-    appID: '1500012416', // 请传入点播账号的appID (必须)
-    fileID: '387702299667618135', // 请传入需要播放的视频filID (必须)
-    psign: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6MTUwMDAxMjQxNiwiZmlsZUlkIjoiMzg3NzAyMjk5NjY3NjE4MTM1IiwiY3VycmVudFRpbWVTdGFtcCI6MTY1MDg4NjE1NiwiZXhwaXJlVGltZVN0YW1wIjoxOTY2NDM1MjAwLCJ1cmxBY2Nlc3NJbmZvIjp7InQiOiI3NTM1NkI4MCIsInVzIjoiNzJkNGNkMTEwMSJ9LCJwY2ZnIjoiYWR2YW5jZURybVByZXNldCJ9.kkyOyscuV3WIlFV0IFPsPPWomZEcuNGclaBzpEO8DEg',
-    // 其他参数请在开发文档中查看 https://intl.cloud.tencent.com/document/product/266/39105
+    appID: '1500014561', // 请传入点播账号的appID (必须)
+    fileID: '387702304941991610', // 请传入需要播放的视频filID (必须)
+    psign: 'eyJhbGciOiJIUzI1NiJ9.eyJhcHBJZCI6MTUwMDAxNDU2MSwiZmlsZUlkIjoiMzg3NzAyMzA0OTQxOTkxNjEwIiwiY3VycmVudFRpbWVTdGFtcCI6MTY2MTE2MzM3MywiZXhwaXJlVGltZVN0YW1wIjoyNjQ4NTU3OTE5LCJwY2ZnIjoiYWR2YW5jZURybVByZXNldCJ9.rEZLhjgsoLc2htIUI_HckxvhVmdBhQyf5d-2Kku1JeA',
+    // 其他参数请在开发文档中查看 https://cloud.tencent.com/document/product/266/63004
 });
 ```
 
 ### iOS 端
 
-请参考 [接入指引](https://cloud.tencent.com/document/product/266/73872#.E6.AD.A5.E9.AA.A45.EF.BC.9A.E5.90.AF.E5.8A.A8.E6.92.AD.E6.94.BE) 中 `通过 FileId 方式` 的使用方式播放 DRM 加密视频。
+请参考 [接入指引](https://cloud.tencent.com/document/product/266/73872#.E6.AD.A5.E9.AA.A45.EF.BC.9A.E5.90.AF.E5.8A.A8.E6.92.AD.E6.94.BE)（通过 FileId 方式）播放 DRM 加密视频。其中，这一过程中需要使用到步骤3中生成的播放器签名`psign`。
 
-> ? 在接入前，请您提交工单联系我们获取支持 DRM 功能的 SDK 。
+> ? 在接入前，请您提交工单[联系我们](https://console.cloud.tencent.com/workorder/category)获取支持 DRM 功能的 SDK 。
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/28a39832d9f3247c40dd37c3b3c668ae.png)
 
 ### Android 端
 
-请参考 [接入指引](https://cloud.tencent.com/document/product/266/73865#.E6.AD.A5.E9.AA.A45.EF.BC.9A.E5.90.AF.E5.8A.A8.E6.92.AD.E6.94.BE) 中 `通过 FileId 方式` 的使用方式播放 DRM 加密视频。
+请参考 [接入指引](https://cloud.tencent.com/document/product/266/73865#.E6.AD.A5.E9.AA.A45.EF.BC.9A.E5.90.AF.E5.8A.A8.E6.92.AD.E6.94.BE) （通过 FileId 方式）播放 DRM 加密视频。其中，这一过程中需要使用到步骤3中生成的播放器签名`psign`。
 
-> ? 在接入前，请您提交工单联系我们获取支持 DRM 功能的 SDK 。
+> ? 在接入前，请您提交工单[联系我们](https://console.cloud.tencent.com/workorder/category)获取支持 DRM 功能的 SDK 。
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/a431cfa2a3ce7b4035703c4da984ff5c.png)
 
@@ -153,4 +149,4 @@ var player = TCPlayer('player-container-id', {
 
 学习本教程后，您已经掌握如何对视频进行 DRM 加密，并使用播放器播放加密后的视频。
 
-> ? 在您对接 DRM 或者华曦达的过程中的任何问题，都可以提工单 [联系我们](https://console.cloud.tencent.com/workorder/category)，我们全程负责帮您解决。
+> ? 在您对接 DRM 或者华曦达的过程中的任何问题，都可以提工单[联系我们](https://console.cloud.tencent.com/workorder/category)，我们全程负责帮您解决。

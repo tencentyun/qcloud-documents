@@ -1,11 +1,11 @@
 ## 背景信息
-BOT 流量分析通过采集 BOT 行为管理中的数据，可以快速了解选中并开启了 BOT 流量分析的域名受 BOT 影响的情况，快速得知当前域名的 BOT 分类趋势、处置趋势、BOT 得分分布、请求量 TOP 统计以及 URL 易受侵害的资产 URL 列表，并可以通过单击**查看详情**，查看对应访问源的 BOT 详情，发现对应访问源的访问特征，以及访问源 BOT 异常的情况。
+BOT 流量分析通过采集 BOT 流量管理中的数据，可以快速了解选中并开启了 BOT 流量分析的域名受 BOT 影响的情况，快速得知当前域名的 BOT 分类趋势、处置趋势、BOT 得分分布、请求量 TOP 统计以及 URL 易受侵害的资产 URL 列表，并可以通过单击**查看详情**，查看对应访问源的 BOT 详情，发现对应访问源的访问特征，以及访问源 BOT 异常的情况。
 
 在 BOT 流量详情中，可以快速发现已开启 BOT 流量分析功能中，流量 TOP10的访问源，如果配置了会话设置，还可以查看到访问流量 TOP10 的会话访问信息，快速查看选中访问源的详情与日志。同时，可以通过定向检索对应的访问源/IP 的信息。
 
 
 ## 前提条件
-购买 WAF 并购买 [BOT 行为管理扩展包](https://cloud.tencent.com/document/product/627/11730#bot-.E8.A1.8C.E4.B8.BA.E7.AE.A1.E7.90.86.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E) 后，开启 BOT 流量分析。
+购买 WAF 并购买 [BOT 流量管理扩展包](https://cloud.tencent.com/document/product/627/11730#bot-.E8.A1.8C.E4.B8.BA.E7.AE.A1.E7.90.86.E4.BB.B7.E6.A0.BC.E8.AF.B4.E6.98.8E) 后，开启 BOT 流量分析。
 
 ## 操作步骤
 1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/tea-flowanalysis)，在左侧导航栏中选择 **BOT 流量分析** > **BOT 流量详情**。
