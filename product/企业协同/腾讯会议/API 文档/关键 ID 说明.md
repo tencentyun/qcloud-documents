@@ -15,7 +15,3 @@
 | to_operator_id | 接口被操作者 ID，与 to_operator_id_type 配合使用，根据 to_operator_id_type 的类型不同，to_operator_id 表示的含义不同。 | 
 
 
-
-
-
-| ms_open_id | 会议中为每个参会成员授予的临时 ID，以会议为维度，表示同一场会议内用户的唯一标识，不同会议间 ms_open_id 隔离。<br>ms_open_id 可通过 [获取参会成员列表](https://cloud.tencent.com/document/product/1095/42701)、[查询实时会中成员列表](https://cloud.tencent.com/document/product/1095/72810)、[查询等候室成员记录](https://cloud.tencent.com/document/product/1095/80579)、[查询 ms_open_id-API](https://cloud.tencent.com/document/product/1095/74998) 等接口获取，PSTN 接通的用户可通过 查询 PSTN 的 ms_open_id 接口获取。 | 
