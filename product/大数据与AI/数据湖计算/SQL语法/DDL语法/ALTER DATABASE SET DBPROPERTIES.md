@@ -1,16 +1,16 @@
-增加一个或更多属性给数据库。
-## 语法
+## 说明
+- 支持内核：Presto、SparkSQL。
+- 用途：为数据库添加一个或多个属性，如果属性相同则会进行覆盖。
+
+## 标准语法
 ```
-ALTER DATABASE database_name
-  SET DBPROPERTIES ('property_name'='property_value' [, ...]);
+ALTER (DATABASE|SCHEMA) database_name SET DBPROPERTIES (property_name=property_value, ...)
 ```
 ## 参数
-```
-SET DBPROPERTIES ('property_name'='property_value' [, ...])
-```
-为数据库增加一个属性或者修改某个属性，如果属性相同会覆盖。
+`database_name`：数据库名称。
 
 ## 示例
 ```
-ALTER DATABASE db1 SET DBPROPERTIES ('key' = 'value')
+-- Alters the database to set properties `author`.
+ALTER DATABASE product SET DBPROPERTIES ('author' = 'allen');
 ```
