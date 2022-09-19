@@ -1,20 +1,18 @@
-## 概述
-
 腾讯云即时通信 IM 的终端用户需要随时都能够得知最新的消息，而由于移动端设备的性能与电量有限，当 App 处于后台时，为了避免维持长连接而导致的过多资源消耗，腾讯云即时通信 IM 推荐您使用各厂商提供的系统级推送通道来进行消息通知，系统级的推送通道相比第三方推送拥有更稳定的系统级长连接，可以做到随时接受推送消息，且资源消耗大幅降低。
 
 >?
 >- 在没有主动退出登录的情况下，应用退后台、手机锁屏、或者应用进程被用户主动杀掉三种场景下，如果想继续接收到 IM 消息提醒，可以接入即时通信 IM 离线推送。
 >- 如果应用主动调用  logout 退出登录，或者多端登录被踢下线，即使接入了 IM 离线推送，也收不到离线推送消息。
 
-使用腾讯云IM厂商推送Flutter集成插件的离线推送能力，可快速接入主流厂商（苹果iOS/Google FCM/OPPO/VIVO/华为/小米/魅族）的离线推送。
+使用腾讯云 IM 厂商推送 Flutter 集成插件的离线推送能力，可快速接入主流厂商（苹果iOS/Google FCM/OPPO/VIVO/华为/小米/魅族）的离线推送。
 
 本教程含接入腾讯云即时通信 IM 离线推送全流程。插件已封装上述厂商的 SDK，使用时仅需简单改造调用即可。
 
-如果您的应用不需要离线推送，或场景不满足离线推送的需求，请直接看本文最后一节 [“在线推送-在本地创建新消息通知”](#online_push) 在线推送部分。
+![](https://qcloudimg.tencent-cloud.cn/raw/58f36a132a9fa46b84b12070777b8e9b.png)
 
-![](https://qcloudimg.tencent-cloud.cn/raw/2ed516e8c5a960fb03abcbc351d8a066.png)
-
-如果您的应用已经自行完成厂商离线推送，仅需查看本教程 [第一步](#step_1) 和 [第五步](#step_5)，在控制台内录入厂商信息，并在应用登录后，上报证书 ID 即可。
+>  - 如果您的应用已经自行完成厂商离线推送，仅需查看本教程 [第一步](#step_1) 和 [第五步](#step_5)，在控制台内录入厂商信息，并在应用登录后，上报证书 ID 即可。
+>  - 如果您的应用有其他内容的消息需要推送，包括运营消息等，或在接入其他第三方推送SDK报错冲突，[可参考本部分，使用全员推送，解决问题](#push_to_all)。
+>  - 如果您的应用不需要离线推送，或场景不满足离线推送的需求，请直接看本文最后一节 [“在线推送-在本地创建新消息通知”](#online_push) 在线推送部分。
 
 ## 插件API概览
 
@@ -179,7 +177,7 @@
 
 ##### 开通服务
 1. 打开 [魅族开放平台官网](https://open.flyme.cn) 进行注册并通过开发者认证。
- >?认证过程大约需要3天左右，请务必提前阅读 [魅族 Flyme 推送接入文档](https://open.flyme.cn/docs?id=129)，以免影响您的接入进度。
+ >?认证过程大约需要3天左右，请务必提前阅读 [魅族 Flyme 推送接入文档](https://open.flyme.cn/)，以免影响您的接入进度。
 
 2. 登录魅族开放平台的管理控制台，选择**服务**>**集成推送服务**>**推送后台**，创建魅族推送服务应用。
 3. 魅族推送服务应用创建完成后，在应用详情中，您可以查看详细的应用信息。记录**应用包名**、**App ID**、**App Secret**信息。
@@ -356,15 +354,18 @@ android {
 #### vivo
 
 ##### 配置 APPID 及 APPKey
-打开 `android/app/build.gradle` 文件，如下配置 vivo 的 **APPID** 和 **App_Key**。
+
+AppID 及 AppKey 来自vivo开放平台-推送运营平台。
+
+打开 `android/app/build.gradle` 文件，如下配置 vivo 的 **APPID** 和 **AppKey**。
 
 ```
       android: {
         defaultConfig {
           manifestPlaceholders = [
             ....
-            vivo_APPID: "vivo的APPID"
-            vivo_APPKEY:"vivo的APP_Key",
+            vivo_APPID: "填入您申请的vivo AppKey"
+            vivo_APPKEY:"填入您申请的vivo AppID",
             .....
           ]
         }
@@ -376,10 +377,10 @@ android {
 ```xml
     <meta-data
         android:name="com.vivo.push.api_key"
-        android:value="填入您申请的vivo API_KEY" />
+        android:value="填入您申请的vivo AppKey" />
     <meta-data
         android:name="com.vivo.push.app_id"
-        android:value="填入您申请的vivo API_ID" />
+        android:value="填入您申请的vivo AppID" />
 </application>
 ```
 
@@ -431,9 +432,12 @@ defaultConfig {
     <!--魅族 结束-->
 ```
 
-### 步骤3: 应用启动时初始化[](id:step_3)
-1. 调用插件`init`方法。该步骤会完成初始化各厂商通道。
-2. 该步骤建议在应用启动后就执行调用。
+### 步骤3: IM初始化成功后初始化本推送插件
+
+调用插件`init`方法。该步骤会完成初始化各厂商通道，并申请厂商通知权限。
+
+请确保IM SDK初始化成功后，才可初始化本插件。
+
 >?由于国内大部分 Android 设备不支持 Google Service, 因此提供一个开关`isUseGoogleFCM`供开发者根据主要用户群体判断，是否启用 Google Firebase Cloud Messaging 推送服务。
 
 ```Dart
@@ -442,7 +446,7 @@ import 'package:tim_ui_kit_push_plugin/tim_ui_kit_push_plugin.dart';
 final TimUiKitPushPlugin cPush = TimUiKitPushPlugin(
   isUseGoogleFCM: bool, // 是否启用Google Firebase Cloud Messaging，默认true启用
 );
-cPush.init(
+await cPush.init(
     pushClickAction: pushClickAction, // 单击通知后的事件回调，会在STEP6讲解
     appInfo: PushConfig.appInfo, // 传入STEP1做的appInfo
 );
@@ -469,8 +473,8 @@ cPush.requireNotificationPermission();
 插件支持自动在appInfo内找到当前厂商的证书ID，并自动完成Token上报。
 
 >?
->- 根据个保法内隐私相关规定，请在用户Login后再调用该方法上报。
->- Device Token 在同一设备保持一致，仅需在登录时上报一次即可，无需每次启动都上报。
+>- 根据个保法内隐私相关规定，请在用户Login及初始化推送插件成功后再调用该方法上报。
+>- 建议初始化推送插件成功后，间隔5秒，再上报Token，以防偶发网络波动导致厂商SDK生成Token延误。
 
 ``` Dart
 import 'package:tim_ui_kit_push_plugin/tim_ui_kit_push_plugin.dart';
@@ -479,7 +483,11 @@ final TimUiKitPushPlugin cPush = TimUiKitPushPlugin(
     isUseGoogleFCM: false,
   );
 
-final bool isUploadSuccess = await cPush.uploadToken(PushConfig.appInfo);
+Future.delayed(const Duration(seconds: 5), () async {
+  final bool isUploadSuccess =
+    await ChannelPush.uploadToken(PushConfig.appInfo);
+  print("Push token upload result: $isUploadSuccess");
+});
 ```
 
 ### 步骤5: 前后台切换监听[](id:step_5)
@@ -705,6 +713,57 @@ TIMUIKitChat(
             notificationIOSSound: "", // iOS离线推送声音设置， 当 iOSSound = kIOSOfflinePushNoSound，表示接收时不会播放声音。 当 iOSSound = kIOSOfflinePushDefaultSound，表示接收时播放系统声音。 如果要自定义 iOSSound，需要先把语音文件链接进 Xcode 工程，然后把语音文件名（带后缀）设置给 iOSSound。
         )
 )
+```
+
+## 推送您的其他业务消息[](id:push_to_all)
+
+如果您的业务中，有其他运营通知/订单通知等消息，需要推送，您可以参考本部分，使用服务端推送能力。
+
+> ?
+> 
+> 如果您在项目中，使用了其他推送SDK，如TPNS，会导致多个厂商底层SDK冲突，使得编译不通过。因此建议仅安装我们的推送插件即可，使用我们的服务端推送能力，下发IM消息和您的其他推送消息。
+
+1. 全员推送：可参考[本文档](https://cloud.tencent.com/document/product/269/45933)，使用服务端请求腾讯云IM的API，完成全员推送。此方案，还可自动按标签/属性等内容，精细化推送。
+2. 【无需旗舰版】针对特定成员的推送：可参考[本文档](https://cloud.tencent.com/document/product/269/1612)，使用服务端，请求腾讯云IM的API，以批量发单聊消息的形式，给固定的用户ID列表，下发消息推送。该API上限500个用户，如果待发用户超过500人，可循环多次调用本API。
+
+> 此处实际是向用户们发送了一条消息，消息内容不重要，如果您不希望这条消息呈现给用户，可在渲染会话列表的时候，过滤掉同此管理员账号的会话，仅使用其推送和跳转能力。
+
+无论何种方案发送消息，建议  `From_Account` 使用单独配置的管理员账号，并透传[离线推送信息](https://cloud.tencent.com/document/product/269/2720#.E7.A6.BB.E7.BA.BF.E6.8E.A8.E9.80.81-offlinepushinfo-.E8.AF.B4.E6.98.8E)，即可在客户端上，触发消息推送。
+
+`OfflinePushInfo` 的 `ext` 字段，同上文[步骤6](#step_6)所述，建议配置成，您可以解析的，用于点击通知跳转的内容。建议使用JSON格式字符串。OfflinePushInfo详细字段[请参考本文档](https://cloud.tencent.com/document/product/269/2720#.E7.A6.BB.E7.BA.BF.E6.8E.A8.E9.80.81-offlinepushinfo-.E8.AF.B4.E6.98.8E)。
+
+以全员推送的包体JSON举例：
+
+```json
+{
+    "From_Account": "xiaoming",
+    "MsgRandom": 3674128,
+    "MsgLifeTime": 120,
+    "MsgBody": [
+        {
+            "MsgType": "TIMTextElem",
+            "MsgContent": {
+                "Text": "Push Test"
+            }
+        }
+    ],
+    "OfflinePushInfo": {
+        "PushFlag": 0,
+				"Title": "推送信息的标题",
+        "Desc": "离线推送内容",
+        "Ext": "这是透传的内容，会通过点击回调的方式，使您拿到，您可用于自定义跳转等操作。请使用JSON格式",
+        "AndroidInfo": {
+            "Sound": "android.mp3"
+        },
+        "ApnsInfo": {
+            "Sound": "apns.mp3",
+            "BadgeMode": 1, // 这个字段缺省或者为 0 表示需要计数，为 1 表示本条消息不需要计数，即右上角图标数字不增加
+            "Title":"apns title", // apns title
+            "SubTitle":"apns subtitle", // apns subtitle
+            "Image":"www.image.com" // image url
+        }
+    }
+}
 ```
 
 

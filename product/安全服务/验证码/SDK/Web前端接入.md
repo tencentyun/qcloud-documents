@@ -54,7 +54,7 @@
             ipt.select();
             document.execCommand("Copy");
             document.body.removeChild(ipt);
-            alert('1. 返回结果（randstr、ticket）已复制到剪切板，ctrl+v 查看。\n2. 打开浏览器控制台，查看完整返回结果。');
+            alert('1. 返回结果（randstr、ticket）已复制到剪切板，ctrl+v 查看。2. 打开浏览器控制台，查看完整返回结果。');
         }
     }
 
@@ -66,7 +66,7 @@
       callback({
         ret: 0,
         randstr: '@'+ Math.random().toString(36).substr(2),
-        ticket,
+        ticket:ticket,
         errorCode: 1001,
         errorMessage: 'jsload_error',
       });
@@ -240,7 +240,7 @@ function loadErrorCallback() {
 	callback({
 		ret: 0,
         randstr: '@'+ Math.random().toString(36).substr(2),
-        ticket,
+        ticket:ticket,
         errorCode: 1001,
         errorMessage: 'jsload_error',
 	});
@@ -284,3 +284,4 @@ function callback(res) {
 ## 更多信息
 
 您可以登录 [验证码控制台](https://console.cloud.tencent.com/captcha/graphical) ，在页面右上角单击**快速咨询**，了解更多详细信息。
+
