@@ -31,15 +31,15 @@ Pod 安全组将腾讯云 CVM 安全组与 Kubernetes Pod 集成。您可以使�
 1.  创建一个安全组以与您的 Pod 一起使用。以下步骤可帮助您创建一个简单的安全组，仅用于说明目的。在生产集群中，您的规则可能会有所不同。
     a. 检索集群的 VPC 和集群安全组的 ID。您在使用时可替换`my-cluster`。
     ```shell
-    my_cluster_name=cls-7d7wz8z6
-    my_cluster_vpc_id=$ ( tccli tke DescribeClusters --cli-unfold-argument --ClusterIds cls-7d7wz8z6 --filter Clusters [0].ClusterNetworkSettings.VpcId | sed 's/\"//g' )
-    my_cluster_security_group_id=$ ( tccli vpc DescribeSecurityGroups --cli-unfold-argument --Filters.0.Name security-group-name --Filters.0.Values tke-worker-security-for-cls-7d7wz8z6 --filter SecurityGroupSet [0].SecurityGroupId | sed 's/\"//g' )
+    my_cluster_name=my-cluster
+    my_cluster_vpc_id=$(tccli tke DescribeClusters --cli-unfold-argument --ClusterIds cls-7d7w**** --filter Clusters[0].ClusterNetworkSettings.VpcId | sed 's/\"//g')
+    my_cluster_security_group_id=$(tccli vpc DescribeSecurityGroups --cli-unfold-argument --Filters.0.Name security-group-name --Filters.0.Values tke-worker-security-for-cls-7d7w**** --filter SecurityGroupSet[0].SecurityGroupId | sed 's/\"//g')
     ```
     b. 为您的 Pod 创建安全组。您在使用时可替换`my-pod-security-group`。记下运行命令后输出中返回的安全组 ID，您将在后面的步骤中使用它。
     ```shell
     my_pod_security_group_name=my-pod-security-group
     tccli vpc CreateSecurityGroup --GroupName "my-pod-security-group" --GroupDescription "My pod security group"
-    my_pod_security_group_id=$ ( tccli vpc DescribeSecurityGroups --cli-unfold-argument --Filters.0.Name security-group-name --Filters.0.Values my-pod-security-group --filter SecurityGroupSet [0].SecurityGroupId | sed 's/\"//g' )
+    my_pod_security_group_id=$(tccli vpc DescribeSecurityGroups --cli-unfold-argument --Filters.0.Name security-group-name --Filters.0.Values my-pod-security-group --filter SecurityGroupSet[0].SecurityGroupId | sed 's/\"//g')
     echo $my_pod_security_group_id
     ```
     c. 允许您上一步中创建的 Pod 安全组到集群安全组的 TCP 和 UDP 端口53流量，以允许部署示例中 Pod 可以通过域名访问应用程序。
@@ -67,12 +67,12 @@ Pod 安全组将腾讯云 CVM 安全组与 Kubernetes Pod 集成。您可以使�
       name: my-security-group-policy
       namespace: my-namespace
     spec:
-      podSelector:
+      podSelector: 
         matchLabels:
           app: my-app
       securityGroups:
         groupIds:
-          -   $my_pod_security_group_id
+          - $my_pod_security_group_id
     ```
 <dx-alert infotype="notice" title="">
 您为 Pod 指定的一个或多个安全组必须满足以下条件：
@@ -110,14 +110,14 @@ Pod 安全组将腾讯云 CVM 安全组与 Kubernetes Pod 集成。您可以使�
         spec:
           terminationGracePeriodSeconds: 120
           containers:
-          -   name: nginx
-            image: nginx: latest
+          - name: nginx
+            image: nginx:latest
             ports:
-            -   containerPort: 80
+            - containerPort: 80
           nodeSelector:
             node.kubernetes.io/instance-type: eklet
-          tolerations:
-          -   effect: NoSchedule
+          tolerations: 
+          - effect: NoSchedule
             key: eks.tke.cloud.tencent.com/eklet
             operator: Exists
     ---
@@ -132,7 +132,7 @@ Pod 安全组将腾讯云 CVM 安全组与 Kubernetes Pod 集成。您可以使�
       selector:
         app: my-app
       ports:
-        -   protocol: TCP
+        - protocol: TCP
           port: 80
           targetPort: 80
     ```
@@ -163,7 +163,7 @@ Pod 安全组将腾讯云 CVM 安全组与 Kubernetes Pod 集成。您可以使�
   ```shell
   curl my-app
   ```
-  示例输出如下：
+  示例输出如下。
   ```html
   <!DOCTYPE html>
   <html>
