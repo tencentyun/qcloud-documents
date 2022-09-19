@@ -143,7 +143,7 @@ Pod 安全组将腾讯云 CVM 安全组与 Kubernetes Pod 集成。您可以使�
     ```
 >! 如果您没有使用 nodeSelector 优先调度到超级节点，当 Pod 调度到其他节点的时候，安全组是不生效的并且 `kubectl describe pod` 会输出 `security groups is only support super node, node 10.0.0.1 is not super node`。
 >
-5.  查看使用示例应用程序部署的 Pod。截止现在为止此终端称为 `TerminalA`
+5.  查看使用示例应用程序部署的 Pod。截止现在为止此终端称为 `TerminalA`。
   ```shell
   kubectl get pods -n my-namespace -o wide
   ```
@@ -154,7 +154,7 @@ Pod 安全组将腾讯云 CVM 安全组与 Kubernetes Pod 集成。您可以使�
   my-deployment-866ffd8886-b7gzb   1/1     Running   0          85s   10.0.64.3    eklet-subnet-q21rasu6-8bpgyx9r   <none>           <none>
   ```
 
-6.  在另一个终端中进入任意 Pod，此终端称为 `TerminalB`。替换为上一步输出中返回的 Pod ID
+6.  在另一个终端中进入任意 Pod，此终端称为 `TerminalB`。替换为上一步输出中返回的 Pod ID。
   ```shell
   kubectl exec -it -n my-namespace my-deployment-866ffd8886-9zfrp -- /bin/bash
   ```
@@ -163,7 +163,7 @@ Pod 安全组将腾讯云 CVM 安全组与 Kubernetes Pod 集成。您可以使�
   ```shell
   curl my-app
   ```
-  示例输出如下。
+  示例输出如下：
   ```html
   <!DOCTYPE html>
   <html>
