@@ -3,14 +3,14 @@
 - 适用表范围：原生 Iceberg 表、外部表。
 - 用途：支持将在源表上运行的 SELECT 查询结果作为新行插入到目标表中。
 
-### 语法
+## 语法
 ```
 [ WITH with_query [ , ... ] ]
 INSERT {INTO [<TABLE>]| TABLE} table_identifier [ partition_spec ] [ ( column_list ) ]
     { VALUES ( { value | NULL } [ , ... ] ) [ , ( ... ) ] | query }
 ```
 
-### 参数
+## 参数
 - `table_identifier`：指定表名，支持三段式，例如：`catalog.database.table`。
 - `partition_spec`：分区列和值。例如 dt='2021-06-01'。
 - `column_list`：列的所有。
@@ -18,7 +18,7 @@ INSERT {INTO [<TABLE>]| TABLE} table_identifier [ partition_spec ] [ ( column_li
 	1. `a SELECT statement`     
 	2. `a TABLE statement`
 
-### 示例
+## 示例
 ```
 INSERT INTO orders SELECT * FROM new_orders;
 INSERT INTO cities VALUES (1, 'China');
