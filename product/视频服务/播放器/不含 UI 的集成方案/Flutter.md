@@ -98,7 +98,7 @@ SuperPlayerPlugin.setGlobalLicense(licenceURL, licenceKey);
 
 ## 点播播放器使用
 点播播放器核心类`TXVodPlayerController`，详细 Demo 可参见`DemoTXVodPlayer`。
-10.7 版本开始，需要通过`SuperPlayerPlugin#setGlobalLicense`设置 Licence 后方可成功播放，否则将播放失败（黑屏），全局仅设置一次即可。 直播 Licence、短视频 Licence 和视频播放 Licence 均可使用，若您暂未获取上述 Licence，可[快速免费申请 Licence](https://cloud.tencent.com/act/event/License)以正常播放，正式版 License 需[购买](https://cloud.tencent.com/document/product/881/74588#.E8.B4.AD.E4.B9.B0.E5.B9.B6.E6.96.B0.E5.BB.BA.E6.AD.A3.E5.BC.8F.E7.89.88-license)。
+10.7 版本开始，需要通过`SuperPlayerPlugin#setGlobalLicense`设置 Licence 后方可成功播放，否则将播放失败（黑屏），全局仅设置一次即可。 直播 Licence、短视频 Licence 和视频播放 Licence 均可使用，若您暂未获取上述 Licence，可 [快速免费申请 Licence](https://cloud.tencent.com/act/event/License) 以正常播放，正式版 License 需 [购买](https://cloud.tencent.com/document/product/881/74588#.E8.B4.AD.E4.B9.B0.E5.B9.B6.E6.96.B0.E5.BB.BA.E6.AD.A3.E5.BC.8F.E7.89.88-license)。
 
 ```dart
 import 'package:flutter/material.dart';
