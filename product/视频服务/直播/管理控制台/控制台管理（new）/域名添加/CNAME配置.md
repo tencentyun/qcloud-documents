@@ -26,7 +26,7 @@
 1. 登录直播控制台 [域名管理](https://console.cloud.tencent.com/live/domainmanage)，可在以下三种方式中进入一键配置 CNAME 流程。
   - 在域名管理页中，查询域名 CNAME 状态为![](https://main.qcloudimg.com/raw/ed1ac2f8541f629814a3f2420b1eb79c.png)，在提示中单击 **一键配置** 进入。
   - 在域名管理页中选择需要配置 CNAME 的域名，单击域名地址或管理，进入域名基本信息页，可在基本信息中单击 **一键配置** 进入。![](https://qcloudimg.tencent-cloud.cn/raw/98adfe18e72ada65d6cb15fe6c43a925.png)
-  - 在域名管理页中添加域名，填写完基本配置后可进入 CANME 配置流程。![](https://qcloudimg.tencent-cloud.cn/raw/5cd5b8102b6d38c1a40f61bd317fa1b2.png)
+  - 在域名管理页中添加域名，填写完基本配置后可进入 CNAME 配置流程。![](https://qcloudimg.tencent-cloud.cn/raw/5cd5b8102b6d38c1a40f61bd317fa1b2.png)
 2. 域名生效状态为未生效时，可单击一键配置，配置约**15分钟**后生效。
 3. 域名解析记录若是添加失败，可前往腾讯云 [DNSPod](https://console.cloud.tencent.com/cns) 控制台处理。
 
