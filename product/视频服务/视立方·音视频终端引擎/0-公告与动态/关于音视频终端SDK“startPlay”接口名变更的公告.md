@@ -1,4 +1,4 @@
-音视频终端 SDK 预计在2022年09月14日发布移动端10.7版本，在该版本中接口 `startPlay` 的名称将做出变更。
+音视频终端 SDK 预计在2022年09月19日发布移动端10.7版本，在该版本中接口 `startPlay` 的名称将做出变更。
 
 `startPlay` 接口在配置 SDK 播放功能时使用，代表开始播放。具体变更如下：
 -  直播播放新版接口 `V2TXLivePlayer` 的开始播放接口名由 `startPlay` 变更为 `startLivePlay`，详情参见 [API-iOS-拉流](https://cloud.tencent.com/document/product/454/56044#startplay)、[API-Android-拉流](https://cloud.tencent.com/document/product/454/56045#startplay)、[API-Flutter-拉流](https://cloud.tencent.com/document/product/454/71600#startplay)。
