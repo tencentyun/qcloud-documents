@@ -50,7 +50,7 @@ Pod 安全组将腾讯云 CVM 安全组与 Kubernetes Pod 集成。您可以使�
     d. 需要允许任何协议和端口从安全组关联的 Pod 到任意安全组关联的 Pod 的入站流量。并且允许安全组关联的 Pod 的任何协议和端口的出站流量。
     ```shell
     tccli vpc CreateSecurityGroupPolicies --cli-unfold-argument --SecurityGroupId $my_pod_security_group_id --SecurityGroupPolicySet.Ingress.0.Protocol ALL --SecurityGroupPolicySet.Ingress.0.Port ALL --SecurityGroupPolicySet.Ingress.0.SecurityGroupId $my_pod_security_group_id --SecurityGroupPolicySet.Ingress.0.Action ACCEPT
-    tccli vpc CreateSecurityGroupPolicies --cli-unfold-argument --SecurityGroupId sg-m32knm0b --SecurityGroupPolicySet.Egress.0.Protocol ALL --SecurityGroupPolicySet.Egress.0.Port ALL --SecurityGroupPolicySet.Egress.0.Action ACCEPT
+    tccli vpc CreateSecurityGroupPolicies --cli-unfold-argument --SecurityGroupId $my_pod_security_group_id --SecurityGroupPolicySet.Egress.0.Protocol ALL --SecurityGroupPolicySet.Egress.0.Port ALL --SecurityGroupPolicySet.Egress.0.Action ACCEPT
     ```
 
 2.  创建一个 Kubernetes 命名空间来部署资源。
