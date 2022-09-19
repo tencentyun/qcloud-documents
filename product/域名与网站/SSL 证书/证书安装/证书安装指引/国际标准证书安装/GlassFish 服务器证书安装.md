@@ -9,6 +9,7 @@
 
 ## 前提条件
 - 已准备文件远程拷贝软件，例如 WinSCP（建议从官方网站获取最新版本）。
+若您需部署到腾讯云云服务器，建议使用云服务器的文件上传功能。详情请参见 [上传文件到云服务器](https://cloud.tencent.com/document/product/1340/72845)。
 - 已准备远程登录工具，例如 PuTTY 或者 Xshell（建议从官方网站获取最新版本）。
 - 已在当前服务器中安装配置 GlassFish 服务。
 - 安装 SSL 证书前需准备的数据如下：
@@ -57,6 +58,9 @@
 >
 5. 在 `/usr/share` 目录下执行命令 `mkdir temp` 创建 temp 文件夹。
 6.  使用 “WinSCP” （即本地与远程计算机间的复制文件工具）登录 GlassFish 服务器，将 `cloud.tencent.com.crt` 证书文件、`cloud.tencent.com.key` 私钥文件从本地目录拷贝至 temp 文件夹。
+>?
+>- WinSCP 上传文件操作可参考 [通过 WinSCP 上传文件到 Linux 云服务器](https://cloud.tencent.com/document/product/213/2131)。
+>- 若您需部署到腾讯云云服务器，建议使用云服务器的文件上传功能。详情请参见 [上传文件到云服务器](https://cloud.tencent.com/document/product/1340/72845)。
 7. 在 temp 目录执行以下命令生成 PKCS12 文件，并提示输入密码，请输入新设置的密码，即私钥密码。如下所示：
 ```
 openssl pkcs12 -export -in cloud.tencent.com.crt -inkey cloud.tencent.com.key -out mycert.p12 -name s1as
@@ -83,6 +87,15 @@ keytool -importcert -trustcacerts -destkeystore cacerts.jks -file cloud.tencent.
 ```
 13. 启动 GlassFish 服务器，即可使用 `https://cloud.tencent.com` 进行访问。如下图所示：
 ![](https://main.qcloudimg.com/raw/fcdf919a22f0c9b07bc837e4d9a5e269.png)
+ - 如果浏览器地址栏显示安全锁标识，则说明证书安装成功。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/45d7e33dd41abb06087edda4871222b5.png)
+ - 如果网站访问异常，可参考以下常见问题解决方案进行处理：
+     - [无法使用 HTTPS 访问网站](https://cloud.tencent.com/document/product/400/53650)
+     - [部署 SSL 证书后，浏览器提示 “网站连接不安全”](https://cloud.tencent.com/document/product/400/56830)
+     - [访问站点提示连接不安全？](https://cloud.tencent.com/document/product/400/5366)
+     - [SSL 证书过期后重新申请部署依然提示 HTTPS 不安全？](https://cloud.tencent.com/document/product/400/65727)
+     - [在服务器上部署 SSL 证书后访问资源出现 404 报错](https://cloud.tencent.com/document/product/400/53651)
+
 
 >!操作过程如果出现问题，请您 [联系我们](https://cloud.tencent.com/document/product/400/35259)。
 

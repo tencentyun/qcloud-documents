@@ -19,7 +19,7 @@ function loadErrorCallback() {
 	callback({
 		ret: 0,
         randstr: '@'+ Math.random().toString(36).substr(2),
-        ticket,
+        ticket:ticket,
         errorCode: 1001,
         errorMessage: 'jsload_error',
 	});

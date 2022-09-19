@@ -150,7 +150,7 @@ player.on('error', function(error) {
 
 ### WebrtcEvent 列表
 
-播放器可以通过 webrtcevent 获取播发 webrtc 过程中的所有事件，示例：
+播放器可以通过 webrtcevent 获取播放 webrtc 过程中的所有事件，示例：
 ```
 var player = TCPlayer('player-container-id', options);
 player.on('webrtcevent', function(event) {

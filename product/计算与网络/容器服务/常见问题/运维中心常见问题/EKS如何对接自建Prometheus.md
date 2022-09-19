@@ -10,7 +10,7 @@
 4. 在监控实例详情页，选择“关联集群”页签。
 5. 单击**关联集群**。如下图所示：
 ![](https://main.qcloudimg.com/raw/cb00ca575ec1af802e7384bf66802e60.png)
- - **集群类型**：选择“弹性集群”。
+ - **集群类型**：选择“ Serverless 集群”。
  - **集群**：勾选当前 VPC 下需要关联的集群。
 6. 单击**确定**完成关联集群。
 7. 在“关联集群”页签中，单击集群 ID 右侧的**数据采集配置**，完成数据采集规则配置。操作详情请参见 [数据采集配置](https://cloud.tencent.com/document/product/457/49891#.E9.85.8D.E7.BD.AE.E6.95.B0.E6.8D.AE.E9.87.87.E9.9B.86)。
@@ -25,7 +25,7 @@
 - 已安装 Prometheus Operator。
 - 已配置 Grafana。
 
-在 EKS 集群中，需要获取以下监控指标：
+在 TKE Serverless 集群中，需要获取以下监控指标：
 
 | 指标类型         | 采集源                | 发现类型            |
 | ---------------- | --------------------- | ------------------- |
@@ -35,7 +35,7 @@
 
 
 #### 监控 k8s 资源指标
-若您希望监控 k8s 的资源指标，可以通过在 EKS 集群内部署 kube-state-metrics 组件及编写 ServiceMonitor 实现。
+若您希望监控 k8s 的资源指标，可以通过在 TKE Serverless 集群内部署 kube-state-metrics 组件及编写 ServiceMonitor 实现。
 <dx-accordion>
 ::: 在\sEKS\s集群内部署\skube-state-metrics\s组件
 如果您在 EKS 的集群内已经部署了 Prometheus Operator 会发现对应的 kube-state-metrics 组件和node exportor的Pod是pending状态，这是因为它们并不适用于EKS集群的场景，node exportor在EKS集群的监控中不需要使用，可以直接删除该pod，同时我们需要重新部署kube-state-metrics组件，具体的部署内容如下所示：

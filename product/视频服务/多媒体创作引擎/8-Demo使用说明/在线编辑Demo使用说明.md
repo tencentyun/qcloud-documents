@@ -10,7 +10,7 @@
 
 <img src="https://qcloudimg.tencent-cloud.cn/raw/83a7f4235f00cf2b2a85fe56989d2578.png" width="960">
 
-整个业务系统涉及五部分，包括**多媒体创作引擎前端**、**业务前端**、**业务后端**、**多媒体创作引擎后端** 以及 **素材存储**。其中**多媒体创作引擎前端**与**业务前端**使用 Javascript API 进行通信，**多媒体创作引擎后端**与**业务后端**以云 API 进行通信。
+整个业务系统涉及五部分，包括**智能创作前端**、**业务前端**、**业务后端**、**智能创作后端** 以及 **素材存储**。其中**智能创作前端**与**业务前端**使用 Javascript API 进行通信，**智能创作后端**与**业务后端**以云 API 进行通信。
 
 具体业务流程：
 1. 将待编辑的视频、音频、图片等媒体上传到腾讯云 VOD，前端拉取到待剪辑的音频、图片 。
@@ -55,7 +55,7 @@
 
 >?若已开通云点播服务，请忽略此步骤。
 
-### 步骤2：创建多媒体创作引擎平台
+### 步骤2：创建智能创作平台
 
 请参见 [管理端使用指南 - 创建开发型平台](https://cloud.tencent.com/document/product/1156/64111) 创建平台，并拿到平台 ID。
 
@@ -78,7 +78,7 @@
 <img src="https://qcloudimg.tencent-cloud.cn/raw/caf66537d817ce90e1e75bd1eed4b1d2.png" width="960">
 
 >!
->- 上传视频及图片时，请注意一定要上传到创建多媒体创作引擎平台所使用的云点播子应用下。同时上传视频及图片时请选择**步骤1**创建的分类名称。
+>- 上传视频及图片时，请注意一定要上传到创建智能创作平台所使用的云点播子应用下。同时上传视频及图片时请选择**步骤1**创建的分类名称。
 >- 这里上传视频及图片指定分类，主要是为了 Demo 能在前端拉取到待剪辑的媒体，实际应用中是非必要步骤。
 
 
@@ -91,7 +91,7 @@ const config = {
     port: 9090,  // demo 端口号，开发者可以替换为自己的端口号
     secretId: "You SecretId",  // 配置准备工作中 步骤3 获取到的 SecretId 
     secretKey: "You SecretKey",  // 配置准备工作中 步骤3 获取到的 SecretKey
-    vodSubAppId: 140****274 ,  // 配置创建多媒体创作引擎平台时使用的云点播子应用 Id
+    vodSubAppId: 140****274 ,  // 配置创建智能创作平台时使用的云点播子应用 Id
     platform: "14****274 ",  // 配置准备工作中 步骤2 创建的平台 Id 
     vodFileClassId: 8****1  // 云点播的媒资分类Id
 }
@@ -174,21 +174,21 @@ npm -v
 >?业务实现时，前端选择待编辑的媒体由业务自行决定，该接口是非必须的，也可以由业务后台直接指定待剪辑的媒体列表。
 
 - **创建项目接口（CreateProject）** [](id:CreateProject)
-本接口实现获取从前端传过来的项目名称、待剪辑的媒体列表等参数。调用多媒体创作引擎的 [创建项目](https://cloud.tencent.com/document/product/1156/40350) 接口创建项目，同时将待剪辑的媒体调用多媒体创作引擎的 [在项目中导入媒体](https://cloud.tencent.com/document/product/1156/40352) 接口导入到项目中，返回前端项目 ID 及打开项目的签名。
+本接口实现获取从前端传过来的项目名称、待剪辑的媒体列表等参数。调用智能创作的 [创建项目](https://cloud.tencent.com/document/product/1156/40350) 接口创建项目，同时将待剪辑的媒体调用智能创作的 [在项目中导入媒体](https://cloud.tencent.com/document/product/1156/40352) 接口导入到项目中，返回前端项目 ID 及打开项目的签名。
 >?本 Demo 将创建项目及导入媒体到项目操作在一个接口实现，业务可以选择先创建项目，再分次导入媒体到项目中。
 
 - **导出视频接口（ExportVideo）** [](id:ExportVideo)
-本接口实现调用多媒体创作引擎的 [导出视频编辑项目](https://cloud.tencent.com/document/product/1156/40353) 接口导出视频，获取到任务 ID。
+本接口实现调用智能创作的 [导出视频编辑项目](https://cloud.tencent.com/document/product/1156/40353) 接口导出视频，获取到任务 ID。
 
 - **查看导出结果接口（GetTaskInfo）** [](id:GetTaskInfo)
-本接口实现调用多媒体创作引擎的 [获取任务详情](https://cloud.tencent.com/document/product/1156/40359) 接口获取任务状态，如果任务成功，则可获取到导出的视频 URL 及云点播 FileId。
->!因云创多媒体引擎暂时未提供导出任务回调的功能，发起导出任务后，依赖业务轮询任务状态来获取到最终的导出结果。
+本接口实现调用智能创作的 [获取任务详情](https://cloud.tencent.com/document/product/1156/40359) 接口获取任务状态，如果任务成功，则可获取到导出的视频 URL 及云点播 FileId。
+>!因智能创作暂时未提供导出任务回调的功能，发起导出任务后，依赖业务轮询任务状态来获取到最终的导出结果。
 
 -  **获取项目列表接口（DescribeProjects）**[](id:DescribeProjects)
-本接口实现调用多媒体创作引擎的 [获取项目列表](https://cloud.tencent.com/document/product/1156/40348) 接口获取到项目详情及打开剪辑项目的签名，方便实现用户登录后获取到历史创建的项目功能。
+本接口实现调用智能创作的 [获取项目列表](https://cloud.tencent.com/document/product/1156/40348) 接口获取到项目详情及打开剪辑项目的签名，方便实现用户登录后获取到历史创建的项目功能。
 
 - **导入媒体到项目接口（ImportMediaToProject）** [](id:ImportMediaToProject)
-本接口实现调用多媒体创作引擎的 [在项目中导入媒体](https://cloud.tencent.com/document/product/1156/40352) 接口，将云点播媒体导入到剪辑项目中。
+本接口实现调用智能创作的 [在项目中导入媒体](https://cloud.tencent.com/document/product/1156/40352) 接口，将云点播媒体导入到剪辑项目中。
 
 - **申请上传签名接口（ApplyUploadSign）**[](id:ApplyUploadSign)
 本接口实现生成到云点播上传媒体的签名，前端直接上传媒体到云点播中。用于在剪辑过程中上传新的媒体到项目中。
@@ -199,4 +199,4 @@ npm -v
 业务前端主要完成以下三部分工作：
 - 实现用户交互。
 - 调用后端接口完成操作。
-- 调用 jssd，监听事件与云创 iframe 交互，重点参考 editor.ts 文件内 CMD 相关事件注册。
+- 调用 jssd，监听事件与智能创作 iframe 交互，重点参考 editor.ts 文件内 CMD 相关事件注册。

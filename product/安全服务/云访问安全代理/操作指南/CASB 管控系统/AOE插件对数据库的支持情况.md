@@ -82,6 +82,9 @@
 - 支持**8.0及以上版本**的数据库, 但不支持此系列版本新增的 SQL 语法。
 - 仅只支持 `utf8` 和 `utf8mb4` 字符集。
 - 数据库、表和字段名不区分大小写。
+- 加密字段长度需预先扩容以支持更长长度的密文。
+- 加密字段需使用区分大小写的 collation，如 `utf8_general_bin`。
+- `information_schema`，`sys`，`mysql` 等内置数据库 CASB 会自动忽略。
 
 ### 连接
 - 连接内不允许切换登录用户。
@@ -96,7 +99,6 @@
 - 支持 `SELECT`, `INSERT`, `REPLACE`, `UPDATE`, `DELETE` 语句中  `WHERE、ON、IN、INSERT VALUE、SET` 等各字段中非表达式的值加解密。
 - 支持 `ROW` 条件中非表达式的值加解密，如支持 ` where (id, 'n2' , addr)=(2, name,'a2')` 中的字段加解密。
 - 支持 `table references` 和 `where condition` 中的子查询字段中非表达式的值加解密。
-- `information_schema` 数据库不会应用加密规则。
 - `UNION` 语句使用第一个 `SELECT 子句` 的加解密策略。 
 - 不支持存储过程的加解密。
 - 不支持 `INSERT INTO ... SELECT ...` 等不经过 CASB 处理的数据的加解密。

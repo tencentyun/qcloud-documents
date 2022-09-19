@@ -1,5 +1,5 @@
 ## 操作场景
-本文档旨在帮助大家了解如何快速创建一个容器集群内的 Hello World 的 Node.js 版的服务。更多关于如何构建 Docker 镜像的教程可参阅 [如何构建 docker 镜像](https://cloud.tencent.com/document/product/457/9115)。
+本文档旨在帮助您了解如何快速创建一个容器集群内的 Hello World 的 Node.js 版的服务。更多关于如何构建 Docker 镜像的教程可参阅 [如何构建 docker 镜像](https://cloud.tencent.com/document/product/457/9115)。
 
 ## 前提条件
 
@@ -113,7 +113,7 @@ sudo docker push ccr.ccs.tencentyun.com/命名空间/helloworld:v1
  - **标签**：key = value 键值对，本例中标签默认值为 k8s-app = **helloworld**。
  - **命名空间**：根据实际需求进行选择。
  - **类型**：根据实际需求进行选择。
- - **数据卷**：根据实需求设置工作负载的挂载卷，详情请参见 [Volumne 管理](https://cloud.tencent.com/document/product/457/31713)。
+ - **数据卷**：根据实际需求设置工作负载的挂载卷，详情请参见 [Volumne 管理](https://cloud.tencent.com/document/product/457/31713)。
 4. 参考以下信息设置“实例内容器”。如下图所示：
 输入实例内容器名称，本文以 helloworld 为例
 ![](https://main.qcloudimg.com/raw/483f16423c0119de4f8f7a24699acdca.png)

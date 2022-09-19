@@ -3,7 +3,7 @@
 支持的源数据库部署类型如下：
 
 - 自建 MariaDB、腾讯云数据库 MariaDB。
-- 自建 Percone。
+- 自建 Percona。
 
 
 > ?腾讯云数据库 MariaDB 支持三种内核 MariaDB、Percona 和 MySQL，用户在使用时不需要区分哪种内核，如果源数据库为腾讯云 MariaDB，不论源数据库的内核是 MariaDB、Percona 还是 MySQL，在设置源数据库或目标数据库的类型时，都选择 MariaDB。

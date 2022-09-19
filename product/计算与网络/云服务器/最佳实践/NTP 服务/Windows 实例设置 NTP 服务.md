@@ -18,3 +18,4 @@ Windows 时间服务（Windows Time service，W32Time）用于本地系统与时
 您可填写 `（可选 time1\time2\time3\time4\time5）.tencentyun.com`，例如 `time4.tencentyun.com`。
 8. 单击**确定**，完成设置。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/896c3601906eb6ddf1240bb717112c9d.png)
+

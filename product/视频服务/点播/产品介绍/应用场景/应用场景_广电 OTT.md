@@ -108,7 +108,7 @@
 					<a href="https://cloud.tencent.com/document/product/266/78308" title="盗录追溯" target="_blank">盗录追溯</a></br>支持普通图文水印、播放端浮动水印和溯源水印，实现对盗录者的追踪溯源。
 				</li>
 				<li>
-					<a href="https://cloud.tencent.com/document/product/266/78307M" title="加密与 DRM" target="_blank">加密与 DRM</a></br>支持 HLS 私有加密和商业级 DRM，均能有效防范各类破解行为，为媒体版权保驾护航。
+					<a href="https://cloud.tencent.com/document/product/266/78307" title="加密与 DRM" target="_blank">加密与 DRM</a></br>支持 HLS 私有加密和商业级 DRM，均能有效防范各类破解行为，为媒体版权保驾护航。
 				</li>
         </td>
 	</tr>

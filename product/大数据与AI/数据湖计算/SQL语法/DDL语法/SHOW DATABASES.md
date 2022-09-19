@@ -1,4 +1,7 @@
-列出所有在该元数据中定义的所有数据库，可使用 DATABASES 或者 SCHEMAS 做相同的查询。
+## 说明
+- 支持内核：Presto、SparkSQL。
+- 用途：列出所有在该元数据中定义的所有数据库，可使用 DATABASES 或者 SCHEMAS 做相同的查询。
+
 ## 语法
 ```
 SHOW {DATABASES | SCHEMAS} [IN catalog_name] [LIKE 'regular_expression']

@@ -1,14 +1,3 @@
-## 什么是小程序 TUIKit？
-
-小程序 TUIKit 是基于 IM SDK 实现的一套 UI 组件，其包含会话、聊天、群组管理等功能，基于 UI 组件您可以快速的搭建属于自己的业务逻辑。
-目前我们推出了在线客服场景并提供了示例客服群、示例好友的基础模板，在线客服场景包括：
-- 支持发送文本消息、图片消息、语音消息、视频消息等常见消息。
-- 支持常用语、订单、服务评价等自定义消息。
-- 支持创建群聊会话、群成员管理等。
-
-## 效果展示 
-  <img src="https://sdk-web-1252463788.cos.ap-hongkong.myqcloud.com/component/TUIKit/assets/tuikit-github-1.gif"  height = "400" width = "200">
-
 ## 如何集成 TUIKit ？
 
 ### 步骤1： 下载源码
@@ -30,7 +19,13 @@ TUIKit 支持以原生 js 的方式集成。可从 Github 下载 TUIKit 源码�
 </dx-codeblock>
 
 找到并打开 `TUIKit/miniprogram/debug/GenerateTestUserSig.js` 文件，并填写 SDKAppID 以及 SECRETKEY (默认为空字符串，请设置为实际的密钥信息。)
-![](https://qcloudimg.tencent-cloud.cn/raw/3f7f6fe1e88e4f01fc0bb3d44b2c8735.png)
+<dx-codeblock>
+  :::  js
+import LibGenerateTestUserSig from './lib-generate-test-usersig-es.min.js';
+const SDKAPPID = 0;
+const SECRETKEY = "";
+  :::
+</dx-codeblock>
 
 ### 步骤3： 集成静态资源文件
 
