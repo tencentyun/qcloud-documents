@@ -3,8 +3,12 @@
 腾讯云数据万象通过 **imageAve** 接口获取图片主色调信息。处理图片原图大小不超过32MB、宽高不超过30000像素且总像素不超过2.5亿像素，处理结果图宽高设置不超过9999像素；针对动图，原图宽 x 高 x 帧数不超过2.5亿像素。
 
 ## 接口示例
-```
-download_url?imageAve
+
+```plaintext
+GET /<ObjectKey>?imageAve HTTP/1.1
+Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
+Date: <GMT Date>
+Authorization: <Auth String>
 ```
 
 ## 参数说明
@@ -13,7 +17,7 @@ download_url?imageAve
 
 | 参数         | 含义                                                         |
 | ------------ | ------------------------------------------------------------ |
-| download_url | 文件的访问链接，具体构成为&lt;BucketName-APPID>.cos.&lt;Region>.myqcloud.com/&lt;picture name>，<br>例如 `examplebucket-1250000000.cos.ap-shanghai.myqcloud.com/picture.jpeg` |
+| ObjectKey  | 对象文件名，例如 folder/sample.jpg。                           | 
 
 
 ## 实际案例
