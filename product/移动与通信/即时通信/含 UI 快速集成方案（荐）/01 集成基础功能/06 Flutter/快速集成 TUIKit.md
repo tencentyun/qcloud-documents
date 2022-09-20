@@ -1,9 +1,9 @@
 ## 什么是 TUIKit
 Flutter TUIKit 是基于 Flutter IM SDK 实现的一套 UI 组件，其中包含会话、聊天、关系链、群组及本地搜索等功能。
 
-基于本套UI组件和内置的IM业务逻辑，您可以像搭积木一样，快速地在您APP中，引入即时通信及用户关系链管理等模块。
+基于本套 UI 组件和内置的 IM 业务逻辑，您可以像搭积木一样，快速地在您 App 中，引入即时通信及用户关系链管理等模块。
 
-> 本含UI的SDK tim_ui_kit 已开源，您可引入[在线版本](https://pub.dev/packages/tim_ui_kit)，也可 [GitHub fork](https://github.com/tencentyun/TIMSDK/tree/master/Flutter/Demo/im-flutter-uikit) 后本地引入使用。
+>? 本含 UI 的 SDK tim_ui_kit 已开源，您可引入[在线版本](https://pub.dev/packages/tim_ui_kit)，也可 [GitHub fork](https://github.com/tencentyun/TIMSDK/tree/master/Flutter/Demo/im-flutter-uikit) 后本地引入使用。
 
 目前包含的一级组件如下：
 
@@ -42,12 +42,12 @@ Flutter TUIKit 是基于 Flutter IM SDK 实现的一套 UI 组件，其中包含
 | macOS       | 开发中，敬请期待  |
 | Windows     | 开发中，敬请期待  |
 
-> 我们致力于打造一套支持 Flutter 全平台的即时通信IM SDK及TUIKit，帮助您一套代码，全平台运行。
+>? 我们致力于打造一套支持 Flutter 全平台的即时通信 IM SDK 及TUIKit，帮助您一套代码，全平台运行。
 
 ## 操作步骤
 如下会介绍如何使用 Flutter TUIKit 快速构建一个简单的即时通信应用。
 
-### 步骤1: 创建 Flutter 应用并添加权限
+### 步骤1：创建 Flutter 应用并添加权限
 请参见 [Flutter 文档](https://flutter.cn/docs/get-started/test-drive?tab=terminal) 快速创建一个 Flutter 应用。
 #### 配置权限[](id:permission)
 
@@ -96,9 +96,7 @@ post_install do |installer|
 end
 ```
 
->?
-> 
-> 如您需要用到推送能力，还需要添加推送相关权限，详情可查看 [Flutter 厂商消息推送插件集成指南](https://cloud.tencent.com/document/product/269/75430)。
+>?如您需要用到推送能力，还需要添加推送相关权限，详情可查看 [Flutter 厂商消息推送插件集成指南](https://cloud.tencent.com/document/product/269/75430)。
 
 #### 安装 IM TUIkit
 
@@ -111,7 +109,7 @@ flutter pub add tim_ui_kit
 
 如果您的项目需要支持 Web，请在执行后续步骤前，[查看 Web 兼容说明章节](#web)，引入JS文件。
 
-### 步骤2: 初始化[](id:init)
+### 步骤2：初始化[](id:init)
 
 1. 在您应用启动时，初始化 TUIKit。
 2. 请务必保证先执行 [`TIMUIKitCore.getInstance()`](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitCore/getInstance.html) ，再调用初始化函数 [`init()`](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitCore/init.html) ，并将您的`sdkAppID`传入。
@@ -137,9 +135,7 @@ final CoreServicesImpl _coreInstance = TIMUIKitCore.getInstance();
 }
 ```
 
->!
->
-> 请在本步骤 await 初始化完成后，才可执行后续步骤。
+>!请在本步骤 await 初始化完成后，才可执行后续步骤。
 
 #### 登录测试账户
 1. 此时，您可以使用最开始的时候，在控制台生成的测试账户，完成登录验证。
@@ -153,7 +149,7 @@ _coreInstance.login(userID: userID, userSig: userSig);
 
 >? 该账户仅限开发测试使用。应用上线前，正确的 `UserSig` 签发方式是由服务器端生成，并提供面向 App 的接口，在需要 `UserSig` 时由 App 向业务服务器发起请求获取动态 `UserSig`。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/269/32688#GeneratingdynamicUserSig)。
 
-### 步骤3: 实现 - 会话列表页面
+### 步骤3：实现 - 会话列表页面
 
 您可以以会话列表作为您的 IM 功能首页，其涵盖了与所有有聊天记录的用户及群聊的会话。
 
@@ -194,7 +190,7 @@ return Scaffold(
 }
 ```
 
-### 步骤4: 实现 - 会话聊天页面
+### 步骤4：实现 - 会话聊天页面
 
 该页面由顶部主体聊天历史记录及底部发送消息模块组成。
 <img style="width:300px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/0c361254fa5117f7580f39e8b523e472.png" />
@@ -232,7 +228,7 @@ return TIMUIKitChat(
 }
 ```
 
-### 步骤5: 实现 - 用户详情页面
+### 步骤5：实现 - 用户详情页面
 
 该页面默认，可在只传入一个 `userID` 的情况下，自动根据是否是好友，生成用户详情页。
 
@@ -269,13 +265,13 @@ class UserProfile extends StatelessWidget {
 
 此时，您的应用已经可以完成消息收发，管理好友关系，展示用户详情及展示会话列表。
 
-### 步骤6: [选装] 使用 Controller 控制 TUIKit[](id:controller)
+### 步骤6：[选装] 使用 Controller 控制 TUIKit[](id:controller)
 
->建议在 tim_ui_kit 0.1.4 以后版本中使用本功能。
+>?建议在 tim_ui_kit 0.1.4 以后版本中使用本功能。
 
 通过上述步骤的快速集成，您已经可以搭建一套可用的IM模块。如果您有其他额外的控制操作需求，可以使用组件配套的 controller 完成。
 
-使用场景如，在会话列表页面中，您可自定义会话item的侧滑菜单，提供置顶会话/删除会话/删除历史消息等功能；亦或是发送消息，满足您的额外消息发送需求，例如通过您自行开发的送礼界面发送一条礼物消息。
+使用场景如，在会话列表页面中，您可自定义会话item的侧滑菜单，提供置顶会话/删除会话/删除历史消息等功能；抑或是发送消息，满足您的额外消息发送需求，例如通过您自行开发的送礼界面发送一条礼物消息。
 
 目前我们提供三个controller，如下：
 
@@ -288,14 +284,14 @@ class UserProfile extends StatelessWidget {
 他们的使用方式一致，以 [TIMUIKitChatController](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitChat/TIMUIKitChatController.html) 举例用法。完整代码可[参考DEMO](https://github.com/TencentCloud/TIMSDK/blob/master/Flutter/Demo/im-flutter-uikit/lib/src/chat.dart)。
 
 1. 在使用到 [TIMUIKitChat](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitChat/TIMUIKitChat-Implementation.html) 的类中，实例化一个 [TIMUIKitChatController](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitChat/TIMUIKitChatController.html) 对象。
-
-```dart
+<dx-codeblock>
+:::  dart
 final TIMUIKitChatController _chatController = TIMUIKitChatController();
-```
-
+:::
+</dx-codeblock>
 2. 将此对象传入 [TIMUIKitChat](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitChat/TIMUIKitChat-Implementation.html)  的 `controller` 参数中。
-
-```dart
+<dx-codeblock>
+:::  dart
 @override
 Widget build(BuildContext context) {
   return TIMUIKitChat(
@@ -303,11 +299,11 @@ Widget build(BuildContext context) {
 		// ...其他参数
 	);
 }
-```
-
+:::
+</dx-codeblock>
 3. 在这个类中，即可使用控制器，完成自定义操作。例如发送一条地理位置消息：
-
-```dart
+<dx-codeblock>
+:::  dart
 _sendLocationMessage(String desc, double longitude, double latitude) async {
     final locationMessageInfo = await sdkInstance.v2TIMMessageManager
         .createLocationMessage(
@@ -321,25 +317,22 @@ _sendLocationMessage(String desc, double longitude, double latitude) async {
         convType: _getConvType(),
         messageInfo: messageInfo);
 }
-```
+:::
+</dx-codeblock>
+
 
 ### 更多能力
 
 您还可以继续使用以下 TUIKit 插件快速实现完整 IM 功能。
 
-[TIMUIKitContact](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitContact/TIMUIKitContact-Implementation.html): 联系人列表页面。
+- [TIMUIKitContact](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitContact/TIMUIKitContact-Implementation.html)：联系人列表页面。
+- [TIMUIKitGroupProfile](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitGroupProfile/TIMUIKitGroupProfile-Implementation.html)：群资料页面，使用方式与 `TIMUIKitProfile` 基本一致。
+- [TIMUIKitGroup](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitGroup/TIMUIKitGroup-Implementation.html)：群列表界面。
+- [TIMUIKitBlackList](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitBlackList/TIMUIKitBlackList-Implementation.html)：黑名单列表界面。
+- [TIMUIKitNewContact](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitNewContact/TIMUIKitNewContact-Implementation.html)：联系人（好友）申请列表。如需在外部显示小红点，可使用 `TIMUIKitUnreadCount` 小红点组件，其会自动挂载监听。
+- [本地搜索](https://cloud.tencent.com/document/product/269/79121)：`TIMUIKitSearch` 全局搜索组件，支持全局搜索联系人/群组/聊天记录，也支持使用 `TIMUIKitSearchMsgDetail` 在特定会话中搜索聊天记录。两种模式取决于是否传入 `conversation`。
 
-[TIMUIKitGroupProfile](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitGroupProfile/TIMUIKitGroupProfile-Implementation.html): 群资料页面，使用方式与 `TIMUIKitProfile` 基本一致。
-
-[TIMUIKitGroup](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitGroup/TIMUIKitGroup-Implementation.html): 群列表界面。
-
-[TIMUIKitBlackList](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitBlackList/TIMUIKitBlackList-Implementation.html): 黑名单列表界面。
-
-[TIMUIKitNewContact](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitNewContact/TIMUIKitNewContact-Implementation.html): 联系人（好友）申请列表。如需在外部显示小红点，可使用 `TIMUIKitUnreadCount` 小红点组件，其会自动挂载监听。
-
-[本地搜索](https://cloud.tencent.com/document/product/269/79121): `TIMUIKitSearch` 全局搜索组件，支持全局搜索联系人/群组/聊天记录，也支持使用 `TIMUIKitSearchMsgDetail` 在特定会话中搜索聊天记录。两种模式取决于是否传入 `conversation`。
-
-UI组件全貌可参见 [本全览文档](https://cloud.tencent.com/document/product/269/70747) 或 [详细文档](https://comm.qq.com/im/doc/flutter/zh/TUIKit/readme.html)。
+UI 组件全貌可参见 [本全览文档](https://cloud.tencent.com/document/product/269/70747) 或 [详细文档](https://comm.qq.com/im/doc/flutter/zh/TUIKit/readme.html)。
 
 ## Flutter for Web支持[](id:web)
 
@@ -349,9 +342,7 @@ TUIKit(tim_ui_kit) 0.1.4版本起，可完美兼容Web端。
 
 ### 引入JS
 
->?
->
-> 如果您现有的 Flutter 项目不支持 Web，请在项目根目录下运行 `flutter create .` 添加 Web 支持。
+>?如果您现有的 Flutter 项目不支持 Web，请在项目根目录下运行 `flutter create .` 添加 Web 支持。
 
 从 GitHub 下载下方两个 JS 文件，放置于项目的 `web` 路径内。
 
@@ -400,7 +391,8 @@ TUIKit(tim_ui_kit) 0.1.4版本起，可完美兼容Web端。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d95efdd4ae50f13f38f4c383ca755ae7.png)
 
 1. 打开 `android\app\src\main\AndroidManifest.xml`，根据如下，补全 `xmlns:tools="http://schemas.android.com/tools"` / `android:label="@string/android_label"` 及 `tools:replace="android:label"`。
-```xml
+<dx-codeblock>
+:::  xml
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="替换成您的 Android 端包名"
     xmlns:tools="http://schemas.android.com/tools">
@@ -410,16 +402,19 @@ TUIKit(tim_ui_kit) 0.1.4版本起，可完美兼容Web端。
         android:icon="@mipmap/ic_launcher" // 指定一个 icon 路径
         android:usesCleartextTraffic="true"
         android:requestLegacyExternalStorage="true">
-``` 
-
+:::
+</dx-codeblock>
 2. 打开 `android\app\build.gradle`，补全 `defaultConfig` 中 `minSdkVersion` 及 `targetSdkVersion`。
-```gradle
+<dx-codeblock>
+:::  gradle
 defaultConfig {
   applicationId "" // 替换成您的Android端包名
   minSdkVersion 21
   targetSdkVersion 30
 }
-```
+:::
+</dx-codeblock>
+
 
 ### 如何动态切换TUIKit界面语言？
 
@@ -429,9 +424,7 @@ defaultConfig {
 I18nUtils(null, LanguageEnum.en);
 ```
 
-> ?
-> 
-> 如需固定使用某语言，可在[初始化TUIKit](#init)时，使用language参数传入。
+> ?如需固定使用某语言，可在 [初始化TUIKit](#init) 时，使用 language 参数传入。
 
 ### 如何获取API接口调用报错/Flutter层报错/弹窗提示信息？[](id:callback)
 

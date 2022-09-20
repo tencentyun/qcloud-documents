@@ -1,3 +1,19 @@
+### 2.7.8 @ 2022.09.20
+* [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/2.7.8.146/TEduBoard_2.7.8.147.zip)
+* [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/2.7.8.146/TEduBoard_Mac_2.7.8.147.zip) 
+
+- 新增接口
+  1. 开启多点触控 enableMultiTouch
+  2. 设置元修改信令同步频率，该值的允许范围为 [5, 20]素样式 setSyncFps
+
+- 更新接口
+  1. updateElementById 更新元素新增位置偏移类型 TEduElementOperatorType.CHANGE_POSITION
+  2. setToolType 接口增加类型：坐标系TEDU_BOARD_TOOL_TYPE_COORDINATE
+
+- Bug及优化处理
+  1. 优化圆规操作
+  2. 其他已知问题优化
+
 ### 2.7.7 @ 2022.08.31
 * [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/2.7.7.144/TEduBoard_2.7.7.144.zip)
 * [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/2.7.7.144/TEduBoard_Mac_2.7.7.144.zip) 
