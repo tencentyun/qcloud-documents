@@ -6,8 +6,8 @@
   2. 设置元修改信令同步频率，该值的允许范围为[5, 20] setSyncFps
 
 - 更新接口
-  1. updateElementById更新元素新增位置偏移类型TEduElementOperatorType.CHANGE_POSITION
-  2. setToolType接口增加类型：坐标系TEDU_BOARD_TOOL_TYPE_COORDINATE
+  1. updateElementById 更新元素新增位置偏移类型 TEduElementOperatorType.CHANGE_POSITION
+  2. setToolType 接口增加类型：坐标系TEDU_BOARD_TOOL_TYPE_COORDINATE
 
 - Bug及优化处理
   1. 优化圆规操作
