@@ -54,7 +54,7 @@ Namespace=QCE/TXMR_HIVE
 | HiveH2OsCpuLoadProcesscpuload            | CPU利用率_ProcessCpuLoad             | %               | CPU利用率                               | host4hivehiveserver2、<br>id4hivehiveserver2 |
 | HiveH2OpenConnectionsNumopenconnections  | 进程打开连接数_NumOpenConnections    | 个              | 进程打开连接数                          | host4hivehiveserver2、<br>id4hivehiveserver2 |
 | HiveH2JvmPauseExtrasleeptime             | GC额外每秒睡眠时间_ExtraSleepTime    | ms              | GC额外每秒睡眠时间                      | host4hivehiveserver2、<br>id4hivehiveserver2 |
-| HiveH2JvmMemStatUsedRatioMemheapusedrate | JVM堆内存使用率_MemHeapUsedRate      | %               |                                         | host4hivehiveserver2、<br>id4hivehiveserver2 |
+| HiveH2JvmMemStatUsedRatioMemheapusedrate | JVM堆内存使用率_MemHeapUsedRate      | %               |                   JVM 堆内存使用率                      | host4hivehiveserver2、<br>id4hivehiveserver2 |
 | HiveH2JvmMemMemnonheapusedm              | JVM内存_MemNonHeapUsedM              | MB              | JVM 当前已经使用的 NonHeapMemory 的数量 | host4hivehiveserver2、<br>id4hivehiveserver2 |
 | HiveH2JvmMemMemnonheapinitm              | JVM内存_MemNonHeapInitM              | MB              | JVM 初始 NonHeapMem 的数量              | host4hivehiveserver2、<br>id4hivehiveserver2 |
 | HiveH2JvmMemMemnonheapcommittedm         | JVM内存_MemNonHeapCommittedM         | MB              | JVM 当前已经提交的 NonHeapMemory 的数量 | host4hivehiveserver2、<br>id4hivehiveserver2 |
