@@ -14,7 +14,7 @@
 
 - 支持 Kafka 协议版本为：1.1.1及更早的版本。
 - 支持压缩方式：snappy，lz4。
-- 用户认证方式： SASL_PLAINTEXT。
+- 用户认证方式：SASL_PLAINTEXT。
 - 目前仅支持当前数据消费，不支持历史数据的消费。
 - Topic 中的数据保留时间为2小时。
 
@@ -94,7 +94,8 @@ for message in consumer:
 ```
 
 ## 腾讯云Oceanus消费 CLS 日志
-在Oceanus控制台新建作业。如下图
+在 Oceanus 控制台新建作业。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/5318b551bc537acb4bff0904361a2f6b.png)
 
 ```
 CREATE TABLE `nginx_source`
