@@ -1,7 +1,7 @@
 ## 什么是 TUIKit
 Flutter TUIKit 是基于 Flutter IM SDK 实现的一套 UI 组件，其中包含会话、聊天、关系链、群组及本地搜索等功能。
 
-基于本套UI组件和内置的IM业务逻辑，您可以像搭积木一样，快速地在您APP中，引入即时通信及用户关系链管理等模块。
+基于本套 UI 组件和内置的 IM 业务逻辑，您可以像搭积木一样，快速地在您 App 中，引入即时通信及用户关系链管理等模块。
 
 >? 本含 UI 的 SDK tim_ui_kit 已开源，您可引入[在线版本](https://pub.dev/packages/tim_ui_kit)，也可 [GitHub fork](https://github.com/tencentyun/TIMSDK/tree/master/Flutter/Demo/im-flutter-uikit) 后本地引入使用。
 
