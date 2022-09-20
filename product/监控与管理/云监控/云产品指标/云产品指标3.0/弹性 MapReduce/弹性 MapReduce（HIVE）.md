@@ -29,7 +29,7 @@ Namespace=QCE/TXMR_HIVE
 | HiveHmsJvmPauseExtrasleeptime            | GC额外每秒睡眠时间_ExtraSleepTime    | ms   | GC 额外睡眠时间                         | id4hivehivemetastore、<br>host4hivemetastore |
 | HiveHmsOpenConnectionsNumopenconnections | 进程打开连接数_NumOpenConnections    | 个   | 进程打开连接数                          | id4hivehivemetastore、<br>host4hivemetastore |
 | HiveHmsOsCpuLoadProcesscpuload           | CPU利用率_ProcessCpuLoad             | %    | 进程 CPU 利用率                         | id4hivehivemetastore、<br>host4hivemetastore |
-| HiveHmsOsCpuLoad<Systemcpuload           | CPU利用率_SystemCpuLoad              | %    | 系统 CPU 利用率                         | id4hivehivemetastore、<br>host4hivemetastore |
+| HiveHmsOsCpuLoadSystemcpuload           | CPU利用率_SystemCpuLoad              | %    | 系统 CPU 利用率                         | id4hivehivemetastore、<br>host4hivemetastore |
 | HiveHmsOsCpuTimeProcesscputime           | CPU累计使用时间_ProcessCpuTime       | ms   | CPU累计使用时间                         | id4hivehivemetastore、<br>host4hivemetastore |
 | HiveHmsRtUptimeUptime                    | 进程运行时长_Uptime                  | s    | 进程运行时长                            | id4hivehivemetastore、<br>host4hivemetastore |
 | HiveHmsThreadCountDaemonthreadcount      | 工作线程数_DaemonThreadCount         | 个   | 守护线程数                              | id4hivehivemetastore、<br>host4hivemetastore |
