@@ -40,7 +40,7 @@ https://api.meeting.qq.com/v1/meetings/{meetingId}/phone/ms-open-id
    </tr>
 </table>
 
-**外呼的电话号码对象列表**
+**外呼的电话号码对象**
 <table>
    <tr>
       <th width="20%" >参数名称</td>
@@ -87,7 +87,7 @@ https://api.meeting.qq.com/v1/meetings/{meetingId}/phone/ms-open-id
 </table>
 
 
-**返回的 ms_open_id 对象列表**
+**返回的 ms_open_id 对象**
 <table>
    <tr>
       <th width="20%" >参数名称</td>
