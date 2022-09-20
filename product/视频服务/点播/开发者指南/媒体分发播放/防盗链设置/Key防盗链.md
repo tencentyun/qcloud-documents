@@ -28,7 +28,7 @@ http://example.vod2.myqcloud.com/dir1/dir2/myVideo.mp4?t=[t]&exper=[exper]&rlimi
 | `exper`  | 否   | <li>试看时长，单位为秒，以十进制表示，不填或者填0表示不试看（即返回完整视频）<br><li>试看时长不要超过视频原始时长，否则可能导致播放失败 |
 | `rlimit` | 否   | <li>最多允许多少个不同 IP 的终端播放，以十进制表示，最大值为9，不填表示不做限制<br><li>当限制 URL 只能被1个人播放时，建议 rlimit 不要严格限制成1（例如可设置为3），因为移动端断网后重连 IP 可能改变 |
 | `us`     | 否   | <li>链接标识，用于随机化一个防盗链 URL，增强链接的唯一性<br><li>建议每次生成防盗链 URL 时，指定一个随机的 us 值|
-| `uid` | 否   | 播放者的 ID，以十六进制表示，共8位。该参数用于 [溯源水印](https://cloud.tencent.com/document/product/266/75789) 使用场景|
+| `uv` | 否   | 播放者 ID，以十六进制表示，共6位。该参数用于 [溯源水印](https://cloud.tencent.com/document/product/266/75789) 场景|
 | `sign`   | 是   | <li>防盗链签名，以32个字符长的十六进制数表示，用于校验防盗链 URL 的合法性<br><li>签名校验失败将返回403响应码。下面将介绍 [签名计算公式](#formula) |
 
 
