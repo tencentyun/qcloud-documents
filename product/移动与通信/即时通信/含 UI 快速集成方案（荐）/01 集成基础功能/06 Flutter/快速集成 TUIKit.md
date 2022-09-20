@@ -47,7 +47,7 @@ Flutter TUIKit 是基于 Flutter IM SDK 实现的一套 UI 组件，其中包含
 ## 操作步骤
 如下会介绍如何使用 Flutter TUIKit 快速构建一个简单的即时通信应用。
 
-### 步骤1: 创建 Flutter 应用并添加权限
+### 步骤1：创建 Flutter 应用并添加权限
 请参见 [Flutter 文档](https://flutter.cn/docs/get-started/test-drive?tab=terminal) 快速创建一个 Flutter 应用。
 #### 配置权限[](id:permission)
 
@@ -109,7 +109,7 @@ flutter pub add tim_ui_kit
 
 如果您的项目需要支持 Web，请在执行后续步骤前，[查看 Web 兼容说明章节](#web)，引入JS文件。
 
-### 步骤2: 初始化[](id:init)
+### 步骤2：初始化[](id:init)
 
 1. 在您应用启动时，初始化 TUIKit。
 2. 请务必保证先执行 [`TIMUIKitCore.getInstance()`](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitCore/getInstance.html) ，再调用初始化函数 [`init()`](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitCore/init.html) ，并将您的`sdkAppID`传入。
@@ -149,7 +149,7 @@ _coreInstance.login(userID: userID, userSig: userSig);
 
 >? 该账户仅限开发测试使用。应用上线前，正确的 `UserSig` 签发方式是由服务器端生成，并提供面向 App 的接口，在需要 `UserSig` 时由 App 向业务服务器发起请求获取动态 `UserSig`。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/269/32688#GeneratingdynamicUserSig)。
 
-### 步骤3: 实现 - 会话列表页面
+### 步骤3：实现 - 会话列表页面
 
 您可以以会话列表作为您的 IM 功能首页，其涵盖了与所有有聊天记录的用户及群聊的会话。
 
@@ -190,7 +190,7 @@ return Scaffold(
 }
 ```
 
-### 步骤4: 实现 - 会话聊天页面
+### 步骤4：实现 - 会话聊天页面
 
 该页面由顶部主体聊天历史记录及底部发送消息模块组成。
 <img style="width:300px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/0c361254fa5117f7580f39e8b523e472.png" />
@@ -228,7 +228,7 @@ return TIMUIKitChat(
 }
 ```
 
-### 步骤5: 实现 - 用户详情页面
+### 步骤5：实现 - 用户详情页面
 
 该页面默认，可在只传入一个 `userID` 的情况下，自动根据是否是好友，生成用户详情页。
 
@@ -265,7 +265,7 @@ class UserProfile extends StatelessWidget {
 
 此时，您的应用已经可以完成消息收发，管理好友关系，展示用户详情及展示会话列表。
 
-### 步骤6: [选装] 使用 Controller 控制 TUIKit[](id:controller)
+### 步骤6：[选装] 使用 Controller 控制 TUIKit[](id:controller)
 
 >?建议在 tim_ui_kit 0.1.4 以后版本中使用本功能。
 
