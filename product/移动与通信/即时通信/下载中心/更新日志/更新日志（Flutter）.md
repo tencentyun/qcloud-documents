@@ -320,3 +320,8 @@ add web support
 ## IM Flutter SDK（无 UI） 0.0.1-1.0.2 @2020.12.01
 - Flutter SDK 首发
 - 邀请用户参与内测
+
+## 联系我们[](id:contact)
+如果您在接入使用过程中有任何疑问，请加入 QQ 群：788910197 咨询。
+
+![](https://qcloudimg.tencent-cloud.cn/raw/eacb194c77a76b5361b2ae983ae63260.png)

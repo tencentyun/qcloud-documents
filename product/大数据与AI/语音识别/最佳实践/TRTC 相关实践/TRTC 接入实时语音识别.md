@@ -73,7 +73,6 @@ QCloudRealTimeRecognizer *realTimeRecognizer = [[QCloudRealTimeRecognizer alloc]
 1. 首先需要 [接入 TRTC](https://cloud.tencent.com/document/product/647/32221)，跑通流程。
 2. 根据实时语音识别 [音频流格式要求](https://cloud.tencent.com/document/product/1093/35799)，参考 [TRTC 技术文档](https://cloud.tencent.com/document/product/647/32258) 设置音频流格式。
 3. 在 [TRTC 接口协议](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudListener__android.html) 里设置音频源代理，并设置 ASR 读取音频源。
-TRTC 音频源接入 ASR 协议如下，[TRTC 协议详情](http://doc.qcloudtrtc.com/group__TRTCCloudListener__android.html)。
 ```java
 //1.TRTCCloudListener.TRTCAudioFrameListener 是 TRTC 获取本地麦克风采集到的音频数据回调  由于 ASR 识别16k或8k采样率的音频数据，所以需要设置 setAudioQuality 为 TRTCCloudDef#TRTC_AUDIO_QUALITY_SPEECH （流畅：采样率：16k；单声道；音频裸码率：16kbps）
 void onCapturedRawAudioFrame(TRTCCloudDef.TRTCAudioFrame trtcAudioFrame) {

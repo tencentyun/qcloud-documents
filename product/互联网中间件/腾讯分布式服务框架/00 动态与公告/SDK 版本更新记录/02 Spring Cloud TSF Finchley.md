@@ -1,5 +1,36 @@
 基于 Spring Cloud Finchley 版本 SDK，支持 spring boot 2.0.x。
 
+## 1.40.0-Finchley-RELEASE（2022-09-06）
+### 新特性
+- 支持微服务网关可扩展性。支持使用 TSF 网关 SDK 的同时，自定义网关路由策略、支持 websocket、支持跨域等原生网关能力。
+- Oauth 插件支持第三方鉴权地址为微服务 API 的能力。
+- 支持原生网关使用熔断治理的能力。
+- 支持服务监听触发回调。
+- 支持查看下发配置。
+
+## 1.29.17-Finchley-RELEASE（2022-09-06）
+### Bug 修复
+- 修复实例级熔断 half open 再次进入 open 时的隔离问题。
+- 调用链修复 status code 的获取。
+- scg 调用链修复 resultStatus 的获取。
+- 修复调用链兼容 ShardingConnection。
+- 修复潜在的监控数据 http method 异常的问题。
+- 修复 rocketmq 调用链 NPE 问题。
+
+### 优化
+优化零实例保护节点的判断。
+
+### 版本建议
+支持向后兼容，建议全量升级。
+
+## 1.29.14-Finchley-RELEASE（2022-06-24）
+### Bug 修复
+- 修复潜在的 CacheClient bean 重复问题。
+- 修复 invocation AggregatedStat 数据合并的问题。
+
+### 版本建议
+部分场景可能因为 ShardingConnection 而启动失败，建议升级到 1.29.15-Finchley-RELEASE。
+
 ## 1.29.13-Finchley-RELEASE（2022-06-07）
 ### Bug 修复
 - 修复 consul actuator 因为不兼容而导致down的问题。
@@ -35,27 +66,27 @@
 ## 1.29.10-Finchley-RELEASE（2022-03-25）
 
 ### Bug 修复
-- 修复 feign url 调用时，调用链报错的问题。
+修复 feign url 调用时，调用链报错的问题。
 
 ### 版本建议
 支持向后兼容，建议全量升级。
 
 ## 1.29.9-Finchley-RELEASE（2022-03-11）
 ### 优化
-- zuul 默认关闭掉 hystrix 熔断
-- 升级 dubbo 依赖版本至 2.6.12
+- zuul 默认关闭掉 hystrix 熔断。
+- 升级 dubbo 依赖版本至 2.6.12。
 
 ### Bug 修复
-- 修复 1.29.5-Finchley-RELEASE 优化 spring-cloud-openfeign-core 依赖而造成的 feign 服务名相关治理功能失效的问题
-- 修复实例熔断超过阈值时，对应实例的熔断事件依旧上报的问题
-- 修复熔断规则变化时，后续熔断事件没有上报的问题
+- 修复 1.29.5-Finchley-RELEASE 优化 spring-cloud-openfeign-core 依赖而造成的 feign 服务名相关治理功能失效的问题。
+- 修复实例熔断超过阈值时，对应实例的熔断事件依旧上报的问题。
+- 修复熔断规则变化时，后续熔断事件没有上报的问题。
 
 ### 版本建议
 支持向后兼容，建议全量升级。
 
 ## 1.29.8-Finchley-RELEASE（2022-02-28）
 ### 优化
-- 支持通过设置 tsf.feign.eager-load.enabled=true 打开应用 feign 预热。
+支持通过设置 tsf.feign.eager-load.enabled=true 打开应用 feign 预热。
 
 ### 版本建议
 如果有使用 feign 服务治理功能，建议使用 1.29.10-Finchley-RELEASE 及之后的版本。
@@ -85,7 +116,7 @@
 - spring-cloud-tsf-sleuth 兼容 mysql-connector-java 8.x。
 
 ### Bug 修复
-- 修复 feign 和 httpclient 拦截的冲突导致重复生成 client span 的问题。
+修复 feign 和 httpclient 拦截的冲突导致重复生成 client span 的问题。
 
 ## 1.29.4-Finchley-RELEASE（2021-10-18）
 ### 优化
@@ -139,7 +170,7 @@
 
 ## 1.23.14-Finchley-RELEASE（2022-05-30）
 ### 优化
- - 修改默认输出日志文件配置。
+修改默认输出日志文件配置。
 
 ### Bug 修复
  - 修复 springcloud gateway 漏洞。
@@ -160,7 +191,7 @@
 
 ## 1.23.12-Finchley-RELEASE（2022-01-13）
 ### Bug 修复
-- 修复泳道规则排序问题。
+修复泳道规则排序问题。
 
 ### 优化
 - 修复零实例保护而导致的，服务发现时无本地缓存文件导致延迟。
@@ -172,12 +203,12 @@
 
 ## 1.23.11-Finchley-RELEASE（2021-09-28）
 ### Bug 修复
-- 修复 SDK 调用链数据 输出 log4j 组件重复初始化导致写入多个文件的问题
+修复 SDK 调用链数据 输出 log4j 组件重复初始化导致写入多个文件的问题。
 
 ### 优化
-- 优化零实例保护优化引起的，服务发现实例为空时的 warn 提示
-- 优化 TSF 加密判断逻辑，只有配置了 TSF 密钥才对 ENC 配置进行解析
-- 增加 catalog 内存 cache 的优化
+- 优化零实例保护优化引起的，服务发现实例为空时的 warn 提示。
+- 优化 TSF 加密判断逻辑，只有配置了 TSF 密钥才对 ENC 配置进行解析。
+- 增加 catalog 内存 cache 的优化。
 - consul 异常时，避免一直刷日志。
 
 ### 版本建议

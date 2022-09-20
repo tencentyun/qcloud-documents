@@ -42,14 +42,14 @@
   <tr>
     <td>iOS 端源代码</td>
     <td><a onclick=MtaH5.clickStat("ugc_sdk_download_ios_xsp_src_code") href="https://liteav.sdk.qcloud.com/download/latest/XiaoShiPin_UGC_iOS_latest.zip">DOWNLOAD</a></td>
-    <td><a href="https://github.com/tencentyun/UGSVSDK">Github</a></td>
-    <td><a href="https://gitee.com/cloudtencent/UGSVSDK">Gitee</a></td>
+    <td><a href="https://github.com/LiteAVSDK/UGSV_iOS">Github</a></td>
+    <td><a href="https://gitee.com/liteavsdk/UGSV_iOS">Gitee</a></td>
   </tr>
   <tr>
     <td>Android 端源代码</td>
     <td><a onclick=MtaH5.clickStat("ugc_sdk_download_android_xsp_src_code") href="https://liteav.sdk.qcloud.com/download/latest/XiaoShiPin_UGC_Android_latest.zip">DOWNLOAD</a></td>
-    <td><a href="https://github.com/tencentyun/UGSVSDK">Github</a></td>
-    <td><a href="https://gitee.com/cloudtencent/UGSVSDK">Gitee</a></td>
+    <td><a href="https://github.com/LiteAVSDK/UGSV_Android">Github</a></td>
+    <td><a href="https://gitee.com/liteavsdk/UGSV_Android">Gitee</a></td>
   </tr>
   <tr>
     <td>后台源代码</td>

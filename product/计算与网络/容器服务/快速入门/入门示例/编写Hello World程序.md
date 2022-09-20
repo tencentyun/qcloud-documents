@@ -1,5 +1,5 @@
 ## 操作场景
-本文档旨在帮助大家了解如何快速创建一个容器集群内的 Hello World 的 Node.js 版的服务。更多关于如何构建 Docker 镜像的教程可参阅 [如何构建 docker 镜像](https://cloud.tencent.com/document/product/457/9115)。
+本文档旨在帮助您了解如何快速创建一个容器集群内的 Hello World 的 Node.js 版的服务。更多关于如何构建 Docker 镜像的教程可参阅 [如何构建 docker 镜像](https://cloud.tencent.com/document/product/457/9115)。
 
 ## 前提条件
 

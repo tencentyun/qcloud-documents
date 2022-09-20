@@ -103,7 +103,7 @@ SDK 支持 iOS 8.0 以上系统。
 ## 快速接入功能模块
 为了方便您快速集成 SDK 各项功能，我们提供了 UGCKit。UGCKit 是在短视频 SDK 基础上构建的一套 UI 组件库。
 
-您可以通过 [GitHub](https://github.com/tencentyun/UGSVSDK/tree/master/iOS) 或 [资源下载](https://cloud.tencent.com/document/product/584/9366) 中提供的 SDK 压缩包获取 UGCKit。UGCKit 位于压缩包 Demo/TXLiteAVDemo/UGC/UGCKit 目录下。
+您可以通过 [GitHub](https://github.com/LiteAVSDK/UGSV_iOS) 或 [资源下载](https://cloud.tencent.com/document/product/584/9366) 中提供的 SDK 压缩包获取 UGCKit。UGCKit 位于压缩包 Demo/TXLiteAVDemo/UGC/UGCKit 目录下。
 
 ### UGCKit 开发环境要求
 - Xcode 10 及以上。

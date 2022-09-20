@@ -155,7 +155,7 @@ model.videoId = [[SuperPlayerVideoId alloc] init];
 model.videoId.fileId = @"5285890799710173650"; // 配置 FileId
 //私有加密播放需填写 psign， psign 即播放器组件签名，签名介绍和生成方式参见链接：https://cloud.tencent.com/document/product/266/42436
 //model.videoId.pSign = @"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6MTQwMDMyOTA3MSwiZmlsZUlkIjoiNTI4NTg5MDc5OTcxMDE3MzY1MCIsImN1cnJlbnRUaW1lU3RhbXAiOjEsImV4cGlyZVRpbWVTdGFtcCI6MjE0NzQ4MzY0NywidXJsQWNjZXNzSW5mbyI6eyJ0IjoiN2ZmZmZmZmYifSwiZHJtTGljZW5zZUluZm8iOnsiZXhwaXJlVGltZVN0YW1wIjoyMTQ3NDgzNjQ3fX0.yJxpnQ2Evp5KZQFfuBBK05BoPpQAzYAWo6liXws-LzU"; 
-[_playerView playWithModel:model];
+[_playerView playWithModelNeedLicence:model];
 :::
 </dx-codeblock>
 :::
@@ -163,7 +163,7 @@ model.videoId.fileId = @"5285890799710173650"; // 配置 FileId
 ```java
 SuperPlayerModel *model = [[SuperPlayerModel alloc] init];
 model.videoURL = @"http://your_video_url.mp4";   // 配置您的播放视频url
-[_playerView playWithModel:model];
+[_playerView playWithModelNeedLicence:model];
 ```
 :::
 </dx-tabs>
@@ -291,7 +291,7 @@ model.videoId = videoId;
 model.action  = PLAY_ACTION_MANUAL_PLAY; 
 //设定封面的地址为网络url地址，如果coverPictureUrl不设定，那么就会自动使用云点播控制台设置的封面
 model.customCoverImageUrl = @"http://1500005830.vod2.myqcloud.com/6c9a5118vodcq1500005830/cc1e28208602268011087336518/MXUW1a5I9TsA.png"; 
-[self.playerView playWithModel:model] 
+[self.playerView playWithModelNeedLicence:model];
 ```
 
 ### 4、视频列表轮播
@@ -323,11 +323,11 @@ model.videoId = videoId;
 [modelArray addObject:model];
 
 //步骤2：调用 SuperPlayerView 的轮播接口
-[self.playerView playWithModelList:modelArray isLoopPlayList:YES startIndex:0];
+[self.playerView playWithModelListNeedLicence:modelArray isLoopPlayList:YES startIndex:0];
 ```
 
 ```objective-c
-(void)playWithModelList:(NSArray *)playModelList isLoopPlayList:(BOOL)isLoop startIndex:(NSInteger)index;
+(void)playWithModelListNeedLicence:(NSArray *)playModelList isLoopPlayList:(BOOL)isLoop startIndex:(NSInteger)index;
 ```
 
 接口参数说明
@@ -404,7 +404,7 @@ model.textFont = 30;
 model.textColor = [UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:0.8];
 playermodel.dynamicWaterModel = model;
 //步骤4：调用方法展示动态水印
-[self.playerView playWithModel:playermodel];
+[self.playerView playWithModelNeedLicence:playermodel];
 ```
 
 DynamicWaterModel 类参数说明：
