@@ -7,7 +7,7 @@
 <tbody><tr>
 <td>iOS</td>
 <td style="text-align:left">
-	<li/>修复若干crash问题
+	<li/>修复若干 crash 问题
 	<li/>优化程序稳定性
 </td>
 <td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TXCopyrightedMedia/Release/3.0.0/TXCopyrightedMedia_iOS_YJX_3.0.0.220725.zip">ZIP</a></td>
