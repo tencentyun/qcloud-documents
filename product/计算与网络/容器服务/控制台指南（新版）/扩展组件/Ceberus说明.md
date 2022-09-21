@@ -20,7 +20,7 @@ Ceberus 组件支持对签名镜像进行可信验证，确保在 TKE 集群中�
 
 ## 限制条件
 - TKE 集群版本 = 1.18。
-- 开通并使用 TCR高级版 [容器镜像签名](https://cloud.tencent.com/document/product/1141/80862) 功能后，才可在 TKE 集群中为已加签的镜像进行验签。
+- 开通并使用 TCR 高级版 [容器镜像签名](https://cloud.tencent.com/document/product/1141/80862) 功能后，才可在 TKE 集群中为已加签的镜像进行验签。
 - 验签需要提前授权容器服务角色拥有使用 TCR 接口的权限。
 
 
