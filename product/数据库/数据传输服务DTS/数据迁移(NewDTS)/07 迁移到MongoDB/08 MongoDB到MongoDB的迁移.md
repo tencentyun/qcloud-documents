@@ -244,6 +244,7 @@ db.createUser({
 如果连通性测试未通过，请参考 [连通性测试不通过](https://cloud.tencent.com/document/product/571/62989) 进行处理。
 ![](https://main.qcloudimg.com/raw/43d1d1717e76331a9d2048428515cf75.png)
 5. 在设置迁移选项及选择迁移对象页面，设置迁移选项和迁移对象（可选择部分库表）。
+![](https://qcloudimg.tencent-cloud.cn/raw/c9780fe45a035d45d71c42c959585ae4.png)
 <table>
 <thead><tr><th>配置项</th><th>说明</th></tr></thead>
 <tbody><tr>
