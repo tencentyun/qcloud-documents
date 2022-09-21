@@ -18,13 +18,39 @@
 
 5. 在作业列表中单击**更多 > 任务信息**，查看作业的任务列表、Hosts 对比及任务的运行日志。
 ![](https://qcloudimg.tencent-cloud.cn/raw/2b9ae779edd5e9e1586bc67866d9dde7.png)
-
-
-| 作业类型 | 任务信息 | Hosts 对比 |任务日志|
-|---------|---------|---------|---------|
-| MR	| 支持| 	支持	| 支持| 
-| Spark	| 支持	| 不支持	| 支持| 
-| Tez| 	支持	| 支持| 	不支持| 
-| 其他	| 不支持	| 不支持| 	不支持| 
+<table>
+<thead>
+<tr>
+<th>作业类型</th>
+<th>任务信息</th>
+<th>Hosts 对比</th>
+<th>任务日志</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>MR</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>Spark</td>
+<td>支持</td>
+<td>不支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>Tez</td>
+<td>支持</td>
+<td>支持</td>
+<td>不支持</td>
+</tr>
+<tr>
+<td>其他</td>
+<td>不支持</td>
+<td>不支持</td>
+<td>不支持</td>
+</tr>
+</tbody></table>
 
 
