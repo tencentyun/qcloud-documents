@@ -135,7 +135,7 @@ OPPO 安装应用通知栏显示默认关闭，需要确认下开关状态。
 - 魅族：推送消息数量有限制。
 具体请参见 [厂商描述](http://open.res.flyme.cn/fileserver/upload/file/202201/85079f02ac0841da859c1da0ef351970.pdf)。
 - FCM：推送上行消息频率有限制。
-具体请参见 [厂商描述](https://firebase.google.com/docs/cloud-messaging/concept-options?hl=zh-cn#upstream_throttling)。
+<!--具体请参见 [厂商描述](https://firebase.google.com/docs/cloud-messaging/concept-options?hl=zh-cn#upstream_throttling)。-->
 
 
 ## 交流与反馈
