@@ -47,7 +47,7 @@
 
 ### 教育场景中老师邀请学生举手发言
 该场景为老师先让同学们举手，再从举手的同学中选一个同学进行发言。详细流程如下：
-1. 老师调用 [inviteInGroup](https://comm.qq.com/im/doc/flutter/zh/SDKAPI/Api/V2TIMSignalingManager/inviteInGroup.html) 接口邀请同学们举手，自定义 `data` 中填入“举手操作”，同学们收到 [onReceiveNewInvitation](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMSignalingListener.html#aecc2341ca87eb58be37fdadf7a58c014) 回调。
+1. 老师调用 [inviteInGroup](https://comm.qq.com/im/doc/flutter/zh/SDKAPI/Api/V2TIMSignalingManager/inviteInGroup.html) 接口邀请同学们举手，自定义 `data` 中填入“举手操作”，同学们收到 [onReceiveNewInvitation](https://comm.qq.com/im/doc/flutter/zh/SDKAPI/Callback/OnReceiveNewInvitationCallback.html) 回调。
 2. 同学们根据 [onReceiveNewInvitation](https://comm.qq.com/im/doc/flutter/zh/SDKAPI/Callback/OnReceiveNewInvitationCallback.html) 中的 `inviteeList` 和 `data` 字段判断被邀请者里有自己且是举手操作，那么调用  [accept](https://comm.qq.com/im/doc/flutter/zh/SDKAPI/Api/V2TIMSignalingManager/accept.html) 接口举手。
 3. 如果有学生举手，所有人都可以收到 [onInviteeAccepted](https://comm.qq.com/im/doc/flutter/zh/SDKAPI/Callback/OnInviteeAcceptedCallback.html) 回调，判断 `data` 中的字段为“举手操作”，展示举手学生列表。
 4. 老师从举手成员列表中邀请某个同学进行发言，调用  [inviteInGroup](https://comm.qq.com/im/doc/flutter/zh/SDKAPI/Api/V2TIMSignalingManager/inviteInGroup.html) 接口，此时自定义 `data` 中填入“发言操作”，学生们都收到 [onReceiveNewInvitation](https://comm.qq.com/im/doc/flutter/zh/SDKAPI/Callback/OnReceiveNewInvitationCallback.html) 回调。
