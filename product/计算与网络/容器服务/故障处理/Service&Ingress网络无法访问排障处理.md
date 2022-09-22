@@ -1,4 +1,4 @@
-## Service 提供公网或者内网服务无法访问
+## Service 提供公网或内网服务无法访问
 提供公网服务或者内网服务的 Service，如果出现无法访问或者 CLB 端口状态异常的情况，建议您进行如下检查：
 1. 参考 [查看节点安全组配置](https://cloud.tencent.com/document/product/457/40332#config) 检查集群中节点的安全组是否正确放通30000-32768端口区间。
 - 如果是公网服务，则进一步检查节点是否有公网带宽（仅针对 [传统账户类型](https://cloud.tencent.com/document/product/1199/49090#judge)）。
