@@ -34,13 +34,14 @@ Flutter TUIKit 是基于 Flutter IM SDK 实现的一套 UI 组件，其中包含
 
 ## 支持平台
 
-| 平台        | 支持状态          |
-| ----------- | ----------------- |
-| iOS         | 支持              |
-| Android     | 支持              |
-| [Web](#web) | 支持，0.1.4版本起 |
-| macOS       | 开发中，敬请期待  |
-| Windows     | 开发中，敬请期待  |
+| 平台  | 支持状态 |
+|---------|---------|
+| iOS  | 支持 |
+| Android  | 支持 |
+| [Web](#web)  | 支持，0.1.5版本起 |
+| macOS  | 开发中，敬请期待 |
+| Windows  | 开发中，敬请期待 |
+
 
 >? 我们致力于打造一套支持 Flutter 全平台的即时通信 IM SDK 及TUIKit，帮助您一套代码，全平台运行。
 
@@ -267,7 +268,9 @@ class UserProfile extends StatelessWidget {
 
 ### 步骤6：[选装] 使用 Controller 控制 TUIKit[](id:controller)
 
->?建议在 tim_ui_kit 0.1.4 以后版本中使用本功能。
+
+>?建议在 tim_ui_kit 0.1.5 以后版本中使用本功能。
+
 
 通过上述步骤的快速集成，您已经可以搭建一套可用的IM模块。如果您有其他额外的控制操作需求，可以使用组件配套的 controller 完成。
 
@@ -336,7 +339,7 @@ UI 组件全貌可参见 [本全览文档](https://cloud.tencent.com/document/pr
 
 ## Flutter for Web支持[](id:web)
 
-TUIKit(tim_ui_kit) 0.1.4版本起，可完美兼容Web端。
+TUIKit(tim_ui_kit) 0.1.5版本起，可完美兼容Web端。
 
 相比 Android 和 iOS 端，需要一些额外步骤。如下：
 
@@ -359,20 +362,57 @@ TUIKit(tim_ui_kit) 0.1.4版本起，可完美兼容Web端。
 
 ## 常见问题
 
-### 支持哪些平台？
-- [IM SDK(tencent_im_sdk_plugin)](https://cloud.tencent.com/document/product/269/75286) 支持 iOS 、Android 和 Web 三个平台。（从 tencent_im_sdk_plugin 4.1.1+2 版本起支持WEB）
-- [TUIKit](https://cloud.tencent.com/document/product/269/70746) 及 [配套完整版交互 Demo](https://github.com/TencentCloud/TIMSDK/tree/master/Flutter/Demo/im-flutter-uikit) 支持 iOS 、Android 和 Web 三个平台。（从 tim_ui_kit 0.1.4 版本起支持WEB）
-此外 Windows 和 Mac 版正在开发中，敬请期待。
+### Android端报错 `compileSdkVersion` 不合适怎么办？
 
-### Android 单击 Build And Run 报错找不到可用设备？
+1. 请在您项目的 `pubspec.yaml` 文件中，指定确保如下两个插件的版本。
 
-确保设备没被其他资源占用，或单击 **Build** 生成 APK 包，再拖动进模拟器里运行。
+```yaml
+  video_thumbnail: ^0.5.3
+  permission_handler: ^10.0.0
+  flutter_local_notifications: 9.7.0
+```
 
-### iOS 第一次运行报错？
+2. 修改 `android/app/build.gradle` 文件，保证 `android => compileSdkVersion 33`。
 
-配置运行后，如果报错，可以单击 **Product** > **Clean Build Folder**，清除产物后重新 `pod install` 或 `flutter run`。
+```gradle
+android {
+  compileSdkVersion 33
+  ...
+}
+```
+
+3. 执行如下命令，重新安装Android端依赖。
+
+```shell
+flutter pub cache clean
+flutter pub get
+```
+
+### iOS端 Pods 依赖无法安装成功。
+
+#### **尝试方案一：**配置运行后，如果报错，可以单击 **Product** > **Clean Build Folder**，清除产物后重新 `pod install` 或 `flutter run`。
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/d495b2e8be86dac4b430e8f46a15cef4.png)
+
+#### **尝试方案二：**手动删除 `ios/Pods` 文件夹，及 `ios/Podfile.lock` 文件，并执行如下命令，重新安装依赖。
+
+1. 搭载新款 Apple Silicon 的Mac设备，如M1。
+
+![](https://qcloudimg.tencent-cloud.cn/raw/dd87d8ff05aec0ecad461f12ef6c3020.png)
+
+```shell
+cd ios
+sudo arch -x86_64 gem install ffi
+arch -x86_64 pod install --repo-update
+```
+
+2. 搭载老款 Intel 芯片 的Mac设备。
+
+```shell
+cd ios
+sudo gem install ffi
+pod install --repo-update
+```
 
 ### 佩戴 Apple Watch 时，真机调试 iOS 报错
 

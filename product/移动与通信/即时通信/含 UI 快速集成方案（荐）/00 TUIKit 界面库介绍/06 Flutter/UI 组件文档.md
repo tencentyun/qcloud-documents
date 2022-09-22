@@ -9,7 +9,7 @@ TUIKit 中的组件在实现 UI 功能的同时，会调用 IM SDK 相应的接�
 |---------|---------|
 | iOS  | 支持 |
 | Android  | 支持 |
-| [Web](#web)  | 支持，0.1.4版本起 |
+| [Web](#web)  | 支持，0.1.5版本起 |
 | macOS  | 开发中，敬请期待 |
 | Windows  | 开发中，敬请期待 |
 
@@ -28,7 +28,7 @@ TUIKit 按照功能主要分为**聊天**、**关系链**、**用户或群组资
 | [TIMUIKitProfile](#TIMUIKitProfile) / [TIMUIKitGroupProfile](#TIMUIKitGroupProfile) | 用户信息 及 群组信息 组件       |
 | [TIMUIKitSearch / TIMUIKitSearchMsgDetail](#search)      | 全局搜索/会话内搜索组件           |
 | [音视频通话插件](#calling)      | 单聊or群聊 的 语音通话&视频通话       |
-| [本地推送插件](#push)      | 接入厂商的离线推送 & 本地在线推送       |
+| [消息推送插件](#push)      | 接入厂商的离线推送 & 本地在线推送       |
 
 
 界面效果如下图所示：
