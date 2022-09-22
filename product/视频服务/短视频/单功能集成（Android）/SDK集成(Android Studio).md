@@ -17,59 +17,48 @@ SDK建议使用Android 5.0（API Level 21）及以上系统
 <dx-tabs>
 ::: aar 方式集成
 1. **新建工程**
-    ![](https://qcloudimg.tencent-cloud.cn/raw/7d1f4c5d67fe1ad180cd1c959f3b301a.png)
-
+![](https://qcloudimg.tencent-cloud.cn/raw/7d1f4c5d67fe1ad180cd1c959f3b301a.png)
 2. **工程配置**
-
    -  在工程 App 目录下的 build.gradle 中，添加引用 aar 包的代码：
-
-      dependencies {
-          compile fileTree(dir: 'libs', include: ['*.jar'])
-          // 导入短视频 SDK aar，LiteAVSDK_UGC_x.y.zzzz 请自行修改为最新版本号
-          compile(name: 'LiteAVSDK_UGC_10.7.1136', ext: 'aar')
-          ...
-      }
-
+```java
+dependencies {
+		compile fileTree(dir: 'libs', include: ['*.jar'])
+		// 导入短视频 SDK aar，LiteAVSDK_UGC_x.y.zzzz 请自行修改为最新版本号
+		compile(name: 'LiteAVSDK_UGC_10.7.1136', ext: 'aar')
+		...
+}
+```
    - 在工程目录下的 build.gradle 中，添加 flatDir，指定本地仓库：
-
+```java
+allprojects {
+	repositories {
+			jcenter()
+			flatDir {
+					dirs 'libs'
+			}
+	}
+}
       ```
-      allprojects {
-        repositories {
-            jcenter()
-            flatDir {
-                dirs 'libs'
-            }
-        }
-      }
-      ```
-
    - 在 App 工程目录下的 build.gradle 的 defaultConfig 里面，指定 ndk 兼容的架构：
-
-      ```
-      defaultConfig {
-          ...
-          ndk {
-              abiFilters "armeabi-v7a", "arm64-v8a"
-          }
-      }
-      ```
-
+```java
+defaultConfig {
+		...
+		ndk {
+				abiFilters "armeabi-v7a", "arm64-v8a"
+		}
+}
+```
    - 最后单击 **Sync Now**，编译工程。
-   
-
 :::
 ::: jar+so 方式集成
-
 1. **库说明**
-
 解压 zip 压缩包后得到 libs 目录，里面主要包含 jar 文件和两种架构的 so 文件，文件如下图：  ![](https://qcloudimg.tencent-cloud.cn/raw/7f073e4db38562c284f3e406eba43b04.png)
-
 2. **拷贝文件**
     如果您的工程之前没有指定过 jni 的加载路径，推荐您将刚才得到的 jar 包和 对应架构so 库拷贝到 **Demo\app\src\main\jniLibs** 目录下，这是 Android Studio 默认的 jni 加载目录。jar文件放置在libs文件夹下。
 3. 如果您购买了腾讯特效，那么还需要按照腾讯特效的方案集成[腾讯特效](https://cloud.tencent.com/document/product/616/65890)模块
 4. **工程配置**
     在工程 App 目录下的 build.gradle 中，添加引用 jar 包和 so 库的代码。
-```
+```java
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     // 导入腾讯云短视频SDK jar
@@ -79,46 +68,32 @@ dependencies {
 ```
 4. **减少 APK 体积**
     整个 SDK 的体积主要来自于 so 文件，这些 so 文件是 SDK 正常运行所依赖的音视频编解码库、图像处理库以及声学处理组件，如果短视频 SDK 的功能不是 App 的核心功能，您可以考虑采用在线加载的方式减少最终 apk 安装包的大小。
-
   集成了腾讯特效功能可以参考[腾讯特效减少包体积](https://cloud.tencent.com/document/product/616/73016)
-
   5. **上传 so 文件**
-
     将 SDK 压缩包中的 so 文件上传到 COS，并记录下载地址，例如 `http://xxx-appid.cossh.myqcloud.com/so_files.zip`。
-
   6. **启动准备**
-
     在用户启动 SDK 相关功能前，例如开始播放视频之前，先用 loading 动画提示用户“正在加载相关的功能模块”。
-
   7. **下载 so 文件**
-
     在用户等待过程中，App 就可以到 `http://xxx-appid.cossh.myqcloud.com/so_files.zip` 下载 so 文件，并存入应用目录下（例如应用根目录下的 files 文件夹），为了确保这个过程不受运营商 DNS 拦截的影响，请在文件下载完成后校验 so 文件的完整性。
-
   8. **加载 so 文件**
-
     等待所有 so 文件就位以后，调用 TXLiveBase 的 setLibraryPath 将下载的目标 path 设置给 SDK， 然后再调用 SDK 的相关功能。之后，SDK 会到这些路径下加载需要的 so 文件并启动相关功能。
-
-
 :::
 ::: gradle 集成方式
-
 1. 在 dependencies 中添加 LiteAVSDK_UGC 的依赖。
-
-  - 若使用3.x版本的 com.android.tools.build:gradle 工具，请执行以下命令：
-```
+若使用3.x版本的 com.android.tools.build:gradle 工具，请执行以下命令：
+```java
 dependencies {
    implementation 'com.tencent.liteav:LiteAVSDK_UGC:latest.release'
 }
 ```
 - 若使用2.x版本的 `com.android.tools.build:gradle` 工具，请执行以下命令：
-
-```
+```java
 dependencies {
    compile 'com.tencent.liteav:LiteAVSDK_UGC:latest.release'
 }
 ```
 2. 在 defaultConfig 中，指定 App 使用的 CPU 架构。
-```
+```java
 defaultConfig {
    ndk {
        abiFilters "armeabi-v7a", "arm64-v8a"
@@ -134,8 +109,7 @@ defaultConfig {
 ### 步骤2：配置 App 权限
 
 在 AndroidManifest.xml 中配置 App 的权限，音视频类 App 一般需要以下权限：
-
-```
+```java
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -184,7 +158,6 @@ TXLiveBase.setLogLevel(TXLiveConstants.LOG_LEVEL_DEBUG);
 ### 步骤5：编译运行
 
 在工程中调用 SDK 接口，获取 SDK 版本信息，以验证工程配置是否正确。
-
 1. **引用 SDK**：
 在 MainActivity.java 中引用 SDK 的 class：
 ```
@@ -235,10 +208,9 @@ defaultConfig {
 [](id:integrated)
 ### 集成 UGCKit
 
-[](id:UGCKit_step1)
-#### 步骤1：新建工程（Empty Activity）
-1. 创建一个空的 Android Studio 工程，工程名可以为 `ugc`，包名可自定义，保证新建的空工程编译通过。
-2. 配置 Project 的 `build.gradle`。
+1. **新建工程（Empty Activity）**[](id:UGCKit_step1)
+	1. 创建一个空的 Android Studio 工程，工程名可以为 `ugc`，包名可自定义，保证新建的空工程编译通过。
+	2. 配置 Project 的 `build.gradle`。
 ```
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
@@ -290,7 +262,7 @@ ext {
 }
 # 拷贝结束
 ```
-3. 配置 app 的 build.gradle 。
+	3. 配置 app 的 build.gradle 。
 ```
 plugins {
     id 'com.android.application'
@@ -350,64 +322,52 @@ dependencies {
     # 拷贝结束
 }
 ```
-4. 配置 Gradle 版本：
+	4. 配置 Gradle 版本：
 ```
 distributionUrl=https\://services.gradle.org/distributions/gradle-5.6.4-bin.zip
 ```
-
-
-
-[](id:UGCKit_step2)
-#### 步骤2：导入相关 module
-1. 拷贝 `ugckit module` 到 您新建的工程 ugc 目录下。
-2. 如何集成基础美颜，拷贝 `beautysettingkit module` 到您新建的工程 ugc 目录下。
-3. 如何集成腾讯特效，拷贝 `xmagickit module` 到您新建的工程 ugc 目录下，[参考文档](https://cloud.tencent.com/document/product/584/72742)。
-4. 在工程的 `settings.gradle`中导入 ugckit。
-5. 在新建的工程 `UGC/settings.gradle` 下指明引入这几个 module：
+2. **导入相关 module**[](id:UGCKit_step2)
+	1. 拷贝 `ugckit module` 到 您新建的工程 ugc 目录下。
+	2. 如何集成基础美颜，拷贝 `beautysettingkit module` 到您新建的工程 ugc 目录下。
+	3. 如何集成腾讯特效，拷贝 `xmagickit module` 到您新建的工程 ugc 目录下，[参考文档](https://cloud.tencent.com/document/product/584/72742)。
+	4. 在工程的 `settings.gradle`中导入 ugckit。
+	5. 在新建的工程 `UGC/settings.gradle` 下指明引入这几个 module：
 ```
 include ':ugckit'
 include ':beautysettingkit'
 include ':xmagickit'
 ```
-5. 在工程 app module 中依赖 UGCKit module：
+	5. 在工程 app module 中依赖 UGCKit module：
 ```
 implementation project(':ugckit')
 ```
-
-[](id:UGCKit_step3)
-#### 步骤3：申请 Licence
+3. **申请 Licence**[](id:UGCKit_step3)
 在使用 UGCKit 之前要先设置 License，License 的获取方法请参见 [License 申请](https://cloud.tencent.com/document/product/584/54333)。
 
 
 [](id:fun)
-
 ### 实现录制、导入、裁剪、特效编辑功能
-
-[](id:initialize)
-#### 1. 设置 Licence，初始化 UGCKit
+1. **设置 Licence，初始化 UGCKit**[](id:initialize)
 在您使用短视频功能之前尽可能早的设置 Licence，初始化 UGCKit。
-
 ```
 // 设置Licence
 TXUGCBase.getInstance().setLicence(this, ugcLicenceUrl, ugcKey);
 // 初始化UGCKit
 UGCKit.init(this);
 ```
-
-[](id:record)
-#### 2. 视频录制
-1. 新建录制 xml， 加入如下配置：
+2. **视频录制**[](id:record)
+	1. 新建录制 xml， 加入如下配置：
 ``` xml
 <com.tencent.qcloud.ugckit.UGCKitVideoRecord
     android:id="@+id/video_record_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent" />
 ```
-2. 在 `res/values/styles.xml`中新建空的录制主题，继承 UGCKit 默认录制主题。
+	2. 在 `res/values/styles.xml`中新建空的录制主题，继承 UGCKit 默认录制主题。
 ```
 <style name="RecordActivityTheme" parent="UGCKitRecordStyle"/>
 ```
-3. 新建录制 Activity ，继承 `FragmentActivity`，实现接口 `ActivityCompat.OnRequestPermissionsResultCallback`，获取 UGCKitVideoRecord 对象并设置回调方法。
+	3. 新建录制 Activity ，继承 `FragmentActivity`，实现接口 `ActivityCompat.OnRequestPermissionsResultCallback`，获取 UGCKitVideoRecord 对象并设置回调方法。
 ```
 @Override
 protected void onCreate(Bundle savedInstanceState) {
@@ -448,24 +408,21 @@ public void onRequestPermissionsResult(int requestCode, @NonNull String[] permis
     }
 }
 ```
-
 **效果如下**：
 ![图片描述](https://main.qcloudimg.com/raw/6d2996c86edf6a796b681580f3c1fb05.png)
-
-[](id:v_import)
-####  3. 视频导入
-1. 新建 xml，加入如下配置：
+3. **视频导入**[](id:v_import)
+	1. 新建 xml，加入如下配置：
 ```xml
  <com.tencent.qcloud.ugckit.UGCKitVideoPicker
         android:id="@+id/video_picker"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 ```
-2. 在 `res/values/styles.xml` 中新建空的主题，继承 UGCKit 默认视频导入主题。
+	2. 在 `res/values/styles.xml` 中新建空的主题，继承 UGCKit 默认视频导入主题。
 ```
 <style name="PickerActivityTheme" parent="UGCKitPickerStyle"/>
 ```
-3. 新建 activity，继承 Activity，获取 UGCKitVideoPicker 对象，设置对象回调。
+	3. 新建 activity，继承 Activity，获取 UGCKitVideoPicker 对象，设置对象回调。
 ``` java
 @Override
 public void onCreate(Bundle icicle) {
@@ -484,24 +441,21 @@ public void onCreate(Bundle icicle) {
     });
 }
 ```
-
 **效果如下**：
 ![图片描述](https://main.qcloudimg.com/raw/a06caa5a974ff7b129255710840148e1.png)
-
-[](id:v_cut)
-#### 4. 视频裁剪
-1. 新建 xml ，加入如下配置：
+4. **视频裁剪**[](id:v_cut)
+	1. 新建 xml ，加入如下配置：
 ```xml
 <com.tencent.qcloud.ugckit.UGCKitVideoCut
         android:id="@+id/video_cutter"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 ```
-2. 在 `res/values/styles.xml` 中新建空的主题，继承 UGCKit 默认编辑主题。
+	2. 在 `res/values/styles.xml` 中新建空的主题，继承 UGCKit 默认编辑主题。
 ```
 <style name="EditerActivityTheme" parent="UGCKitEditerStyle"/>
 ```
-3. 新建 Activity ，实现接口 `FragmentActivity`，获取 UGCKitVideoCut 对象，并设置回调方法。
+	3. 新建 Activity ，实现接口 `FragmentActivity`，获取 UGCKitVideoCut 对象，并设置回调方法。
 ```java
 @Override
 protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -536,20 +490,17 @@ protected void onResume() {
     mUGCKitVideoCut.startPlay();
 }
 ```
-
 **效果如下**：
 ![图片描述](https://main.qcloudimg.com/raw/b7ada99f174e21e09e7b9c78e96c1858.png)
-
-[](id:v_effect_edit)
-#### 5. 视频特效编辑
-1. 在编辑 activity 的 xml 中加入如下配置：
+5. 视频特效编辑[](id:v_effect_edit)
+	1. 在编辑 activity 的 xml 中加入如下配置：
 ``` xml
 <com.tencent.qcloud.ugckit.UGCKitVideoEdit
         android:id="@+id/video_edit"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 ```
-2. 新建编辑 Activity ，继承 `FragmentActivity`，获取 UGCKitVideoEdit 对象并设置回调方法 。
+	2. 新建编辑 Activity ，继承 `FragmentActivity`，获取 UGCKitVideoEdit 对象并设置回调方法 。
 ```java
 @Override
 protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -585,12 +536,10 @@ protected void onResume() {
     mUGCKitVideoEdit.start();
 }
 ```
-
 **效果如下**：
 ![图片描述](https://main.qcloudimg.com/raw/dbe2669117f1015bf994705cc76deed8.jpg)
 
 ### 详细介绍
-
 以下为各模块的详细说明：
 - [视频录制](https://cloud.tencent.com/document/product/584/9369)
 - [视频编辑](https://cloud.tencent.com/document/product/584/9502)
@@ -600,11 +549,9 @@ protected void onResume() {
 
 
 [](id:que2)
-
 ## 常见问题
 
 [](id:que2_1)
-
 ### 是否支持 AndroidX？
 UGCKit 最新版本已经使用了AndroidX，如果您使用的还是基于Support包的UGCKit，可以更新到最新版本，也可以按照以下步骤切换到AndroidX：为了方便说明，以腾讯云 UGSVSDK 为例，此 Demo 中同样使用了 UGCKit 模块。
 
@@ -618,12 +565,11 @@ UGCKit 最新版本已经使用了AndroidX，如果您使用的还是基于Suppo
 2. **开启迁移：**
 	1. 使用 Android Studio 导入项目后，从菜单栏中依次选择 **Refactor > Migrate to AndroidX**。
 	<img src="https://main.qcloudimg.com/raw/2df246f4fcbb616aca744c8ad65877ff.png" width="700">
-	2. 单击 **Migrate**，即可将现 有项目迁移到 AndroidX。
+	2. 单击 **Migrate**，即可将现 有项目迁移到 AndroidX。<br>
 	<img src="https://main.qcloudimg.com/raw/aefcbe1331037db4e0bea585c090cf1c.png" width="700">
 
 [](id:que2_2)
 ### UGCKit 编译版本错误？
-
 - **报错信息**：
 ```
 ERROR: Unable to find method 'org.gradle.api.tasks.compile.CompileOptions.setBootClasspath(Ljava/lang/String;)V'.
