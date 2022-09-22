@@ -192,7 +192,7 @@ flutter pub get
 
 TUIKit 是基于腾讯云 IM SDK 的一款 UI 组件库，它提供了一些通用的 UI 组件，例如会话列表、聊天界面和联系人列表等，开发者可根据实际业务需求通过该组件库快速地搭建自定义 IM 应用。参见 [TUIKit 图文介绍](https://cloud.tencent.com/document/product/269/70747)。
 
-本部分为快速使用TUIKit介绍，详细入门指引可参考 [TUIKit集成基础功能](https://cloud.tencent.com/document/product/269/70746)。
+本部分为快速使用TUIKit介绍，详细入门指引可参见 [TUIKit 集成基础功能](https://cloud.tencent.com/document/product/269/70746)。
 
 ### 前提条件
 
@@ -260,7 +260,7 @@ end
 flutter pub add tim_ui_kit
 ```
 
-如果您的项目需要支持Web，请在执行后续步骤前，[查看Web兼容说明章节](#web)，引入JS文件。
+如果您的项目需要支持Web，请在执行后续步骤前，[查看 Web 兼容说明章节](#web)，引入JS文件。
 
 #### 初始化
 
@@ -458,7 +458,7 @@ UI组件全貌可参见 [本图文概览](https://cloud.tencent.com/document/pro
 flutter pub add tencent_im_sdk_plugin
 ```
 
-如果您的项目需要支持Web，请在执行后续步骤前，[查看Web兼容说明章节](#web)，引入JS文件。
+如果您的项目需要支持Web，请在执行后续步骤前，[查看 Web 兼容说明章节](#web)，引入 JS 文件。
 
 #### 完成 SDK 初始化
 
@@ -479,7 +479,7 @@ TencentImSDKPlugin.v2TIMManager.initSDK(
 );
 ```
 
-在本步骤，你可以针对 IM SDK 挂载一些监听，主要包括网络状态及用户信息变更等，详情可参见 [该文档](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/enum_V2TimSDKListener/V2TimSDKListener-class.html)。
+在本步骤，您可以针对 IM SDK 挂载一些监听，主要包括网络状态及用户信息变更等，详情可参见 [该文档](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/enum_V2TimSDKListener/V2TimSDKListener-class.html)。
 
 #### 登录测试账户
 
@@ -572,7 +572,7 @@ getConversationList() async {
 }
 ```
 
-此时，你可以看到您在上一步中，使用另一个测试账号，发来消息的会话。
+此时，您可以看到您在上一步中，使用另一个测试账号，发来消息的会话。
 
 ##### 监听长链接实时获取会话列表
 
@@ -591,7 +591,6 @@ await TencentImSDKPlugin.v2TIMManager
             _onConversationListChanged(list);
     },
 ```
-
 2. 处理回调事件，将最新的会话列表展示在界面上。
 ```dart
 import 'package:tencent_im_sdk_plugin/tencent_im_sdk_plugin.dart';
@@ -715,17 +714,13 @@ TencentImSDKPlugin.v2TIMManager
 #### **尝试方案二：**手动删除 `ios/Pods` 文件夹，及 `ios/Podfile.lock` 文件，并执行如下命令，重新安装依赖。
 
 1. 搭载新款 Apple Silicon 的Mac设备，如M1。
-
 ![](https://qcloudimg.tencent-cloud.cn/raw/dd87d8ff05aec0ecad461f12ef6c3020.png)
-
 ```shell
 cd ios
 sudo arch -x86_64 gem install ffi
 arch -x86_64 pod install --repo-update
 ```
-
 2. 搭载老款 Intel 芯片 的Mac设备。
-
 ```shell
 cd ios
 sudo gem install ffi
@@ -760,7 +755,6 @@ pod install --repo-update
         android:usesCleartextTraffic="true"
         android:requestLegacyExternalStorage="true">
 ``` 
-
 2. 打开 `android\app\build.gradle`，补全 `defaultConfig` 中 `minSdkVersion` 及 `targetSdkVersion`。
 ```gradle
 defaultConfig {
@@ -772,13 +766,12 @@ defaultConfig {
 
 ### 如何搭建直播间？
 
-欢迎查看[直播间搭建指南](https://cloud.tencent.com/document/product/269/77764#.E7.BE.A4.E7.B1.BB.E5.9E.8B.E9.80.89.E6.8B.A9)，基于腾讯云IM/TRTC/腾讯云直播，搭建一套完整的直播间系统。
+欢迎查看 [直播间搭建指南](https://cloud.tencent.com/document/product/269/77764#.E7.BE.A4.E7.B1.BB.E5.9E.8B.E9.80.89.E6.8B.A9)，基于腾讯云IM/TRTC/腾讯云直播，搭建一套完整的直播间系统。
 
 ### 错误码如何查询？
 
-- IM SDK的API层面错误码，请查看[该文档](https://cloud.tencent.com/document/product/269/1671)。
-
-- TUIKit的场景码，用于界面弹窗提示，通过[onTUIKitCallbackListener监听](https://cloud.tencent.com/document/product/269/70746#callback)获得。全部场景码清单，请查看[该文档](https://cloud.tencent.com/document/product/269/70746#infoCode)。
+- IM SDK的API层面错误码，请查看 [该文档](https://cloud.tencent.com/document/product/269/1671)。
+- TUIKit的场景码，用于界面弹窗提示，通过 [onTUIKitCallbackListener监听](https://cloud.tencent.com/document/product/269/70746#callback) 获得。全部场景码清单，请查看 [该文档](https://cloud.tencent.com/document/product/269/70746#infoCode)。
 
 ## 联系我们
 如果您在接入使用过程中有任何疑问，请加入 QQ 群：788910197 咨询。
