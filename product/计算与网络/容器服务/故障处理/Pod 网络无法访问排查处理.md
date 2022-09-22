@@ -1,20 +1,18 @@
-本文档介绍 TKE 集群中多场景下可能发生的常见网络问题，并给出对应的排查思路。当遇到此类问题时，建议您首先按照下文中的检查建议进行排查，若确认检查项无误后仍不能正常访问，请您及时 [在线咨询](https://cloud.tencent.com/online-service?from=doc_457) 与我们联系。
+本文档介绍 TKE 集群中多场景下可能发生的常见网络问题，并给出对应的排查思路。当遇到此类问题时，建议您首先按照下文中的检查建议进行排查，若确认检查项无误后仍不能正常访问，请您 [联系我们](https://cloud.tencent.com/document/product/457/59560) 寻求帮助。
 
-## 现象描述及排查步骤
-
-### 集群中不同节点上的容器（Pod）无法互访[](id:PodsOnDifferentNodes) 
+## 集群中不同节点上的容器（Pod）无法互访[](id:PodsOnDifferentNodes) 
 同一集群中不同节点上的 Pod 可以直接互访，当出现一个节点上 Pod 无法访问其他节点上 Pod 时，建议您进行如下检查：
 1. 检查上述不同节点间是否可以互访。
 2. 检查节点安全组是否正确放通容器网段和对端节点所在的 VPC 网段或 VPC 子网网段。
 
 
-### 同一个 VPC 内的节点与容器（Pod）无法互访
+## 同一个 VPC 内的节点与容器（Pod）无法互访
 同一个 VPC 内的节点和 Pod 可以直接互访，当出现无法互访的情况时，建议您进行如下检查：
 1. 检查对端节点和 Pod 所在节点是否可以互访。
 - Pod 所在节点的安全组是否正确放通对端节点所在的 VPC 子网网段。
 - 对端节点的安全组是否正确放通容器网段。
 
-### 不同 VPC 内的节点与容器（Pod）或容器（Pod）与容器（Pod）间无法互访
+## 不同 VPC 内的节点与容器（Pod）或容器（Pod）与容器（Pod）间无法互访
 不同 VPC 间的互访需要先通过 [云联网](https://cloud.tencent.com/document/product/877/18768) 或 [对等连接](https://cloud.tencent.com/document/product/553/18836) 完成打通。如果打通之后仍出现无法互访的情况，建议您进行如下检查：
 1. 检查节点与节点是否可以互访。
 - 检查对端节点的安全组是否正确放通 VPC 网段和容器网段。
@@ -30,7 +28,7 @@ kubectl -n kube-system edit configmap ip-masq-agent-config
 
 
 
-### IDC 与容器（Pod）无法访问
+## IDC 与容器（Pod）无法访问
 IDC 与 Pod 互访需要先通过 [云联网](https://cloud.tencent.com/document/product/877/18768) 或 [专线网关](https://cloud.tencent.com/document/product/216/19255) 完成打通。如果打通之后仍出现无法互访的情况，建议您进行如下检查：
  1. IDC 防火墙是否放通容器网段和 CVM 网段。
  - CVM 安全组是否放通 IDC 网段。
