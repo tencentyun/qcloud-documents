@@ -115,7 +115,7 @@
 
 <div>
 <h3> 小程序 Demo</h3>
-<div style="position: relative; box-sizing: border-box;  padding-bottom: 10px; margin-bottom: 10px; overflow:hidden">
+<div style="position: relative; box-sizing: border-box;  padding-bottom: 10px; margin-bottom: 10px; overflow:hidden;display: flex">
         <div class="card-container">
             <div class="card">
                             <img src="https://qcloudimg.tencent-cloud.cn/raw/af07e321883032c9796848d189a80f5e.png" data-nonescope="true">
@@ -124,12 +124,13 @@
                                 <a href="https://cloud.tencent.com/document/product/269/68376">快速入门</a>
             </div>
         </div>
+				
 </div>
 </div>
 </div>
 <div style="padding-top: 10px;">
 <h3 style="font-size:22px">Flutter Demo: <span style="color: #006eff">一套代码，全平台运行<span></h3>
-<div style="position: relative; box-sizing: border-box;  padding-bottom: 10px; margin-bottom: 10px; overflow:hidden">
+<div style="display:flex; position: relative; box-sizing: border-box;  padding-bottom: 10px; margin-bottom: 10px; overflow:hidden">
         <div class="card-container">
             <div class="card">
                             <img src="https://main.qcloudimg.com/raw/98394fa5d669de7fb7a187565d138cdb.svg" data-nonescope="true">
@@ -139,8 +140,7 @@
             </div>
 </div>
 
-<div style="position: relative; box-sizing: border-box;  padding-bottom: 10px; margin-bottom: 10px; overflow:hidden">
-        <div class="card-container">
+<div class="card-container">
             <div class="card">
                             <img src="https://main.qcloudimg.com/raw/b0211b0870806899009a17a4216ea65c.svg" data-nonescope="true">
                                 <p class="titlename">Android</p>
@@ -148,7 +148,6 @@
                                 <a href="https://cloud.tencent.com/document/product/269/68823">快速入门</a>
             </div>
 </div>
-
 <div class="card-container">
             <div class="card">
                             <img src="https://main.qcloudimg.com/raw/613f2e15bed7c8297110676b52784b71.svg" data-nonescope="true">
@@ -157,14 +156,17 @@
                                 <a href="https://cloud.tencent.com/document/product/269/68823">快速入门</a>
             </div>
 </div>
-<div style="position: relative; box-sizing: border-box;  padding-bottom: 10px; margin-bottom: 10px; overflow:hidden">
-        <div class="card-container">
+<div class="card-container">
             <div class="card">
                             <img src="https://main.qcloudimg.com/raw/98394fa5d669de7fb7a187565d138cdb.svg" data-nonescope="true">
                                 <p class="titlename">桌面端</p>
-                                <p style="margin-top: 50px">即将上线，敬请期待</p>
+                <p class="titlename" style="margin-top: 16px"><input type="button" value="Windows" style="height: 30px;width: 100px;min-width: 24px;background-color: grey;
+    color: #fff;border: 1px solid grey;line-height: 30px;text-align: center;display: inline-block;cursor: not-allowed;outline: 0 none;
+    box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;border-radius: 15px;" /><br><br><input type="button" value="Mac OS" style="height: 30px;width: 100px;margin-top: -10px;min-width: 24px;background-color: grey;color: #fff; line-height: 30px;text-align: center;display: inline-block;cursor: not-allowed; border: 1px solid grey; outline: 0 none;box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;border-radius: 15px;" /></p>
+                                <p style="margin-top: 20px">即将上线，尽请期待！</p>
             </div>
 </div>
+
 </div>
 </div>
 <div style="display: flex;padding-top: 10px;">
@@ -202,4 +204,3 @@
 </div>
 </div>
 </div>
-
