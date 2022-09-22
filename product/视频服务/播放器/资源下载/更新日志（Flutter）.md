@@ -19,3 +19,4 @@ Android&iOS 端新增画中画（PIP) 功能。
 
 ## 播放器SDK Flutter 端发布 @ 2021.7.16
 首次发布 Flutter 端播放器 SDK。
+
