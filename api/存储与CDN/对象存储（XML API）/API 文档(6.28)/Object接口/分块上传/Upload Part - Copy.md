@@ -30,7 +30,7 @@ Upload Part - Copy  请求用于实现将一个对象的分块内容从源路径
 #### 请求示例
 
 ```http
-PUT /examplebucket?partNumber=PartNumber&uploadId=UploadId  HTTP/1.1
+PUT /exampleobject?partNumber=PartNumber&uploadId=UploadId  HTTP/1.1
 Host: <Bucketname-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
