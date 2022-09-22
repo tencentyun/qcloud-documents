@@ -65,7 +65,7 @@ TXLiveBase.getInstance().setLicence(context, LicenceUrl, Key);
 ### Step3. 购买连麦套餐包
 由于连麦功能会使用到高速专线来降低音视频传输延迟，这部分功能需要额外购买套餐包才能开通，否则直播 SDK 的各端 SDK 只能使用云直播的普通服务（推流和拉流），并不能开启连麦功能。
 
-- 仅限老用户前往 **云直播控制台** > **直播 SDK** > [**直播连麦**](https://console.cloud.tencent.com/live/liveroom)，单击**购买连麦包**
+- 仅限老用户前往 [**云直播控制台**](https://console.cloud.tencent.com/live/livestat) > **直播 SDK** > **直播连麦**，单击**购买连麦包**
 - [移动直播连麦计费说明](https://cloud.tencent.com/document/product/454/70298)
 
 >! 
@@ -79,7 +79,7 @@ TXLiveBase.getInstance().setLicence(context, LicenceUrl, Key);
 
 [](id:Step4)
 ### Step4. 在应用管理中添加一个新的应用
-进入**云直播控制台** > **直播SDK**>[**应用管理**](https://console.cloud.tencent.com/live/license/appmanage)，单击**创建应用**。待应用创建完成后，记录其 SDKAPPID 信息。
+进入[**云直播控制台**](https://console.cloud.tencent.com/live/livestat) > **直播SDK**>**应用管理**，单击**创建应用**。待应用创建完成后，记录其 SDKAPPID 信息。
 
 >?该操作的目的是创建一个即时通信 IM 应用，并将当前直播账号和该即时通信 IM 应用绑定起来。即时通信 IM 应用能为小直播 App 提供聊天室和连麦互动的能力。
 
