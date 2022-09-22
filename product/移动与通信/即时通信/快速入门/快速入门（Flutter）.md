@@ -16,7 +16,7 @@
 |---------|---------|---------|
 | iOS | 支持 | 支持 |
 | Android | 支持 | 支持 |
-| [Web](#web) | 支持，4.1.1+2版本起 | 支持，0.1.4版本起 |
+| [Web](#web) | 支持，4.1.1+2版本起 | 支持，0.1.5版本起 |
 | macOS | 即将上线 | 开发中 |
 | Windows | 即将上线 | 开发中 |
 
@@ -681,7 +681,7 @@ TencentImSDKPlugin.v2TIMManager
 
 ## 第六部分：Flutter for Web支持[](id:web)
 
-我们的SDK，TUIKit(tim_ui_kit) 0.1.4版本，无UI SDK(tencent_im_sdk_plugin) 4.1.1+2 版本起，可完美兼容Web端。
+我们的SDK，TUIKit(tim_ui_kit) 0.1.5版本，无UI SDK(tencent_im_sdk_plugin) 4.1.1+2 版本起，可完美兼容Web端。
 
 相比Android和iOS端，需要一些额外步骤。如下：
 

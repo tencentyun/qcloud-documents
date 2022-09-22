@@ -38,7 +38,7 @@ Flutter TUIKit 是基于 Flutter IM SDK 实现的一套 UI 组件，其中包含
 |---------|---------|
 | iOS  | 支持 |
 | Android  | 支持 |
-| [Web](#web)  | 支持，0.1.4版本起 |
+| [Web](#web)  | 支持，0.1.5版本起 |
 | macOS  | 开发中，敬请期待 |
 | Windows  | 开发中，敬请期待 |
 
@@ -271,7 +271,7 @@ class UserProfile extends StatelessWidget {
 
 ### 步骤6: [选装] 使用 Controller 控制 TUIKit[](id:controller)
 
->建议在 tim_ui_kit 0.1.4 以后版本中使用本功能。
+>建议在 tim_ui_kit 0.1.5 以后版本中使用本功能。
 
 通过上述步骤的快速集成，您已经可以搭建一套可用的IM模块。如果您有其他额外的控制操作需求，可以使用组件配套的 controller 完成。
 
@@ -343,7 +343,7 @@ UI组件全貌可参见 [本全览文档](https://cloud.tencent.com/document/pro
 
 ## Flutter for Web支持[](id:web)
 
-TUIKit(tim_ui_kit) 0.1.4版本起，可完美兼容Web端。
+TUIKit(tim_ui_kit) 0.1.5版本起，可完美兼容Web端。
 
 相比 Android 和 iOS 端，需要一些额外步骤。如下：
 
