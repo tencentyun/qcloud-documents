@@ -2,7 +2,7 @@
 ## 步骤一：解压 Demo 工程
 1. 下载集成了腾讯特效 TE 的 [UGSV Demo](https://cloud.tencent.com/document/product/616/65875) 工程。本 Demo 基于腾讯特效 SDK S1-04 套餐构建。
 2. 替换资源：由于本 Demo 工程使用的 SDK 套餐未必与您实际的套餐一致，因此要将本 Demo 中的相关 SDK 文件替换为您实际使用的套餐的 SDK 文件。具体操作如下：
-   - 在xmagickit module的build.gradle文件找到
+   - 在 `xmagickit module` 的 `build.gradle` 文件找到
 ```groovy
 api 'com.tencent.mediacloud:TencentEffect_S1-04:latest.release'
 ```
