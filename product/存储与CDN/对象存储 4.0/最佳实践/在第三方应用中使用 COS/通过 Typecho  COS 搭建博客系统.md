@@ -25,7 +25,7 @@
 ```
 git clone https://github.com/cnhongv/typecho-cos-plugin
 ```
-2. 复制 TypechoCosPlugin 文件夹到 Typecho 安装路径/usr/plugins/内。
+2. 复制 TypechoCosPlugin 文件夹到 Typecho 安装路径 /usr/plugins/ 内。
 3. 在 Typecho 的后台页面启用插件。
 4. 启用插件后，设置插件相关参数以便关联到 COS，配置信息如下：
  - 基础设置
@@ -68,7 +68,7 @@ git clone https://github.com/cnhongv/typecho-cos-plugin
    </tr>
    <tr>
       <td>使用签名链接</td>
-      <td>若您所创建的存储桶的访问权限为**私有读写**，则开启该项才可正常访问文件。详情可参见 <a href="https://cloud.tencent.com/document/product/436/13324#.E8.AE.BF.E9.97.AE.E6.9D.83.E9.99.90.E7.B1.BB.E5.9E.8B">访问权限类型</a>。</td>
+      <td>若您所创建的存储桶的访问权限为<b>私有读写</b>，则开启该项才可正常访问文件。详情可参见 <a href="https://cloud.tencent.com/document/product/436/13324#.E8.AE.BF.E9.97.AE.E6.9D.83.E9.99.90.E7.B1.BB.E5.9E.8B">访问权限类型</a>。</td>
    </tr>
    <tr>
       <td>本地删除同步删除 COS 文件</td>
