@@ -229,5 +229,15 @@ Java SDK 默认使用长连接。
 2. 高级接口封装类的 TransferManager 中也使用了 COSClient，建议在程序全部结束退出时再调用 TransferManager.shutdownNow(false)。
 此外，如果在创建 TransferManager 实例时复用了其他 COSClient，请在关闭时加入参数 false（即 TransferManager.shutdownNow(false)），避免关闭复用的 COSClient，导致其他使用 COSClient 的地方报错。
 
+### 签名过期
 
+1. 问题：
+
+   使用java sdk时出现异常，并且报错信息为：
+
+   Caused by: com.qcloud.cos.exception.CosServiceException: Request has expired (Status Code: 403; Error Code: AccessDenied; Request ID: ........)
+
+2. 原因及解决方案：
+
+   由于签名过期导致，重新生成签名即可解决；若重新生成签名仍报相同的错误，可以再检查机器的本地时间是否为标准的北京时间。
 
