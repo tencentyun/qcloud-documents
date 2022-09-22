@@ -28,33 +28,7 @@ kubectl -n kube-system edit configmap ip-masq-agent-config
 ```
 
 
-### 开启内网访问后无法访问
-您可以直接在 TKE 控制台上 [开启内网访问](https://cloud.tencent.com/document/product/457/32191#.E9.85.8D.E7.BD.AE-kubeconfig)。如果开启内网访问之后仍出现无法访问的情况，建议您对应集群类型进行如下检查：
 
-#### 托管集群[](id:ManagedCluste)
-参考 [查看节点安全组配置](#config) 检查集群中节点的安全组是否正确放通30000 - 32768端口区间。
-
-#### 独立集群
-1. 参考 [查看节点安全组配置](#config) 检查集群中节点的安全组是否正确放通30000 - 32768端口区间。
-- 开启内网访问时，您已通过控制台设置了 VPC 子网网段，请检查集群中 Master 节点是否正确放通该 VPC 子网网段。
-- 检查集群中 Master 节点的安全组是否正确放通 Master 节点所在的 VPC 网段或 VPC 子网网段。
-
-### 开启公网访问后无法访问
-您可以直接在 TKE 控制台上 [开启公网访问](https://cloud.tencent.com/document/product/457/32191#.E9.85.8D.E7.BD.AE-kubeconfig)。如果开启公网访问之后仍出现无法访问的情况，建议您对应集群类型进行如下检查：
-
-#### 托管集群
-检查安全组来源 CIDR 是否正确设置，或将来源 `0.0.0.0/0` 设置为全放通之后，再进行公网访问测试。
-
-####  独立集群
-独立集群开启公网访问之后，会在集群中自动创建 `default/kubelb-internet` Service 对象。该 Service 会自动绑定一个公网类型的 CLB，默认不会为该 CLB 绑定安全组（即全放通），且 EXTERNAL-IP 字段显示即为此 CLB 的 VIP。如下所示：
-```
-$ kubectl get service kubelb-internet
-NAME              TYPE           CLUSTER-IP      EXTERNAL-IP    PORT(S)         AGE
-kubelb-internet   LoadBalancer   172.16.252.94   152.136.8.98   443:32750/TCP   3m4s
-```
-1. 检查 `default/kubelb-internet` Service 对象已绑定的 CLB 是否设置了安全组，并且安全组是否正确配置。
-- 参考 [查看节点安全组配置](#config) 检查集群中 Master 节点的安全组是否正确放通30000 - 32768端口区间。
-- 检查集群中 Master 节点的安全组是否正确放通 Master 节点所在的 VPC 网段或 VPC 子网网段。
 
 ### IDC 与容器（Pod）无法访问
 IDC 与 Pod 互访需要先通过 [云联网](https://cloud.tencent.com/document/product/877/18768) 或 [专线网关](https://cloud.tencent.com/document/product/216/19255) 完成打通。如果打通之后仍出现无法互访的情况，建议您进行如下检查：
@@ -69,36 +43,9 @@ IDC 与 Pod 互访需要先通过 [云联网](https://cloud.tencent.com/document
 > - 默认情况下，除 VPC 之外的包会经过 SNAT 处理转换为 NodeIP。放通 IDC 网段时需配置为不经过 SNAT 处理。
 > - 放通 IDC 网段的方法为：执行命令 `kubectl -n kube-system edit configmap ip-masq-agent-config `，修改 ip-masq-agent 配置，并将 IDC 网段添加到 NonMasqueradeCIDRs 列表中。
 
-### Service 提供公网或者内网服务无法访问
-提供公网服务或者内网服务的 Service，如果出现无法访问或者 CLB 端口状态异常的情况，建议您进行如下检查：
-1. 参考 [查看节点安全组配置](#config) 检查集群中节点的安全组是否正确放通30000 - 32768端口区间。
-- 如果是公网服务，则进一步检查节点是否有公网带宽（仅针对 [传统账户类型](https://cloud.tencent.com/document/product/1199/49090#judge)）。
-- 如果 Service 的 type 为 loadbalancer 类型，可忽略 CLB，直接检查 NodeIP + NodePort 是否可以访问。
-- 检查 Service 是否可以在集群中正常访问。
-
-### Ingress 提供公网服务无法访问
-提供公网服务的 Ingress 如果出现无法访问的情况，建议您进行如下检查：
-1. 若请求返回504，请参考 [查看节点安全组配置](#config) 检查集群中节点的安全组是否正确放通30000 - 32768端口区间。
-- 检查 Ingress 绑定的 CLB 是否设置了未放通443端口的安全组。
-- 检查 Ingress 后端服务 Service 是否可以在集群中正常访问。
-- 若请求返回404，请检查 Ingress 转发规则是否正确设置。
 
 
-### 集群内 DNS 解析错误[](id:DNS)
-在 TKE 集群内，主要是通过集群中的 kube-dns 或者 CoreDNS 服务来提供域名解析功能，如果在 Pod 内发生域名无法解析的情况，建议您进行如下检查：
-1. 执行以下命令，测试 kube-dns 服务的53端口是否开通。
-```
-telnet <kube-dns service ip> 53
-```
-- 测试 kube-dns 服务 Endpoint 的53端口是否开通，若端口不通，可参考 [集群中不同节点上的容器（Pod）无法互访](#PodsOnDifferentNodes) 进一步检查。
-- 检查当前 Pod 所在节点上的 iptables 或者 ipvs 转发规则是否完整。
 
-### 集群内 Service 无法访问
-在 TKE 集群内，Pod 之间一般是通过 Service 的 DNS 名称 `my-svc.my-namespace.svc.cluster.local` 来进行互访，如果在 Pod 内发生 Service 无法访问的情况，建议您进行如下检查：
-1. 检查 Service 的 `spec.ports` 字段是否正确。
-- 测试 Service 的 ClusterIP 是否可通。若可通，则说明集群内 DNS 解析存在问题，可参考 [集群内 DNS 解析错误](#DNS) 进一步检查。
-- 测试 Service 的 Endpoint 是否可通。若不通，可参考 [集群中不同节点上的容器（Pod）无法互访](#PodsOnDifferentNodes) 进一步检查。
-- 检查当前 Pod 所在节点上的 iptables 或者 ipvs 转发规则是否完整。
 
 ## 相关操作
 
@@ -129,8 +76,7 @@ tcpdump -nn -vv -i eth0 port <请求的端口号>
 ```
 
 ### 容器内抓包定位网络问题
-在使用 Kubernetes 运行应用的时候，可能会遇到一些网络问题，其中比较常见的是服务端无响应（超时）及回包内容不正常。如果您无法在相关配置上定位到问题点，则需要确认数据包最终是否被路由到容器里，或者报文到达容器的内容和出容器的内容是否符合预期，并通过分析报文进一步缩小问题范围。
-本文提供脚本，可一键进入容器网络命名空间（netns），并使用宿主机上的 tcpdump 进行抓包。
+在使用 Kubernetes 运行应用的时候，可能会遇到一些网络问题，其中比较常见的是服务端无响应（超时）及回包内容不正常。如果您无法在相关配置上定位到问题点，则需要确认数据包最终是否被路由到容器里，或者报文到达容器的内容和出容器的内容是否符合预期，并通过分析报文进一步缩小问题范围。本文提供脚本，可一键进入容器网络命名空间（netns），并使用宿主机上的 tcpdump 进行抓包。
 
 #### 使用脚本一键进入 Pod netns 抓包
 当发现某个服务不通时，建议将其副本数调为1，并按照以下步骤进行抓包。
@@ -190,19 +136,19 @@ kubectl describe pod <pod> -n mservice
 ```
 docker inspect -f {{.State.Pid}} <container>
 ```	
--  进入该容器的 network namespace。`
+-  进入该容器的 network namespace。
 ```
 nsenter -n --target <PID>
 ```
 上述脚本依赖的宿主机命名包含有：kubectl、docker、nsenter、grep、head、sed。
 
 ### 查看节点安全组配置[](id:config)
-1. 登录 容器服务控制台 ，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
-2. 选择集群 ID，进入集群 “Deployment” 列表页面。
+1. 登录容器服务控制台 ，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
+2. 选择集群 ID，进入集群详情页。
 3. 选择左侧导航栏中的**节点管理** > **节点**。
 4. 在“节点列表”页面，选择需查看安全组的节点 ID。
 5. 在节点管理页面，选择**详情**页签，并单击“主机信息”中的节点 ID。如下图所示：
 ![](https://main.qcloudimg.com/raw/daf3eef9a726083c3495300161df8bae.png)
-6. 在节点“基本信息”页面中，选择**安全组**页签，并在页面中查看该节点的安全组是否正确放通30000 - 32768端口区间。如下图所示：
+6. 在节点“基本信息”页面中，选择**安全组**页签，并在页面中查看该节点的安全组是否正确放通30000-32768端口区间。如下图所示：
 ![](https://main.qcloudimg.com/raw/7936719a74fa84eb6665aab4ef98ab71.png)
 
