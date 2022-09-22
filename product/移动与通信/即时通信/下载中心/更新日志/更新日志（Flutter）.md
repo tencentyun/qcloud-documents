@@ -3,6 +3,21 @@
 > 下文中，IM Flutter SDK（无 UI）指代 [tencent_im_sdk_plugin](https://pub.dev/packages/tencent_im_sdk_plugin) 包，仅包括所有 IM 客户端 API 及监听回调；
 > IM Flutter TUIKit（含 UI）指代 [tim_ui_kit](https://pub.dev/packages/tim_ui_kit) 包，在上行基础上，还包括完整 UI 组件库及业务逻辑。
 
+## IM Flutter TUIKit（含 UI） 0.1.5 @2022.09.22
+* 添加：Web支持。现在，你可以在iOS/Android/Web平台上实现TUIKit。
+* 新增：登录后检查磁盘存储，控制在`init`的`config`中。
+* 新增：在`TIMUIKitChatConfig`中添加：`timeDividerConfig`、`通知androidSound`、`isSupportMarkdown ForTextMessage`、`onTapLink`。
+* 移除：默认Emoji列表，由于版权问题。您可以通过[tim_ui_kit_sticker_plugin](https://pub.dev/packages/tim_ui_kit_sticker_plugin)向TUIKit提供您自己的表情列表。
+* 优化：您现在可以选择禁用文本消息的Markdown解析。
+* 优化：您现在可以选择禁用对话列表中 @消息 的显示。
+* 优化：您现在可以在`TIMUIKitChatConfig`和`MessageItemBuilder`中返回`通知扩展`/`通知主体`的`null`，在特定的情况下可以根据需要使用默认值，这意味着您可以根据提供的情况控制是否使用自定义设置，而不需要重新定义代码中与TUIKit相同的逻辑。
+* 优化：支持文本消息多行。
+* 优化：对`TIMUIKitChat`的体验进行改造和提升。另外，如需使用`TIMUIKitChatController`，需要传入`controler`，就像我们在[教程](https://cloud.tencent.com/document/product/269/70746#.E6.AD.A5.E9.AA.A46.EF.BC.9A.5B.E9.80.89.E8.A3.85.5D-.E4.BD.BF.E7.94.A8-controller-.E6.8E.A7.E5.88.B6-tuikit.3Ca-id.3D.22controller.22.3E.3C.2Fa.3E)中显示的那样。
+* 修复：几个错误。
+
+## IM Flutter SDK（无 UI） 4.1.3 @2022.09.21
+- 解决一些Web端的问题
+
 ## IM Flutter SDK（无 UI） 4.1.1+2 @2022.08.25
 - 升级底层库版本到6.6.x
 - 全面支持 Flutter Web
