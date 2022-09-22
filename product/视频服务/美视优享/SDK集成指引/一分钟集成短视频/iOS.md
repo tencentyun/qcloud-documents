@@ -1,6 +1,6 @@
 ## 集成准备[](id:ready)
 
-1. 下载并解压 [Demo 包](https://cloud.tencent.com/document/product/616/65875)，将 Demo 工程中demo/XiaoShiPin/目录下的xmagickit文件夹拷贝到您的工程podfile文件的同一级目录下。
+1. 下载并解压 [Demo 包](https://cloud.tencent.com/document/product/616/65875)，将 Demo 工程中 `demo/XiaoShiPin/` 目录下的 xmagickit 文件夹拷贝到您的工程 podfile 文件的同一级目录下。
 2. 在您的 Podfile 文件中添加以下依赖，之后执行 `pod install` 命令，完成导入。
 ```
 pod 'xmagickit', :path => 'xmagickit/xmagickit.podspec'
