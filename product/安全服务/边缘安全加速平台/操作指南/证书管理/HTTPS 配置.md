@@ -1,6 +1,6 @@
 
 1. 登录 [边缘安全加速平台控制台](https://console.cloud.tencent.com/edgeone)，在左侧菜单栏中，单击**证书管理** > **HTTPS 配置**。
-3. 在 HTTPS 配置页面，选择所需站点，可为站点加速提供如下一系列 HTTPS 配置选项：
+3. 在 HTTPS 配置页面，选择所需站点，可为站点加速提供如下一系列 HTTPS 配置选项：         
 
 ### 强制 HTTPS[](id:QZ)
 在强制 HTTPS 模块中，单击![](https://qcloudimg.tencent-cloud.cn/raw/4f521701c30f8f3f7ca4b577e00b62b9.png)强制将所有边缘 HTTP 请求通过301/302重定向至 HTTPS。默认不开启。
