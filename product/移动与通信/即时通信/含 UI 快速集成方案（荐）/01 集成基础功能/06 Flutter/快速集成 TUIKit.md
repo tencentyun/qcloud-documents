@@ -388,7 +388,7 @@ flutter pub cache clean
 flutter pub get
 ```
 
-### iOS端 Pods 依赖无法安装成功。
+### iOS端 Pods 依赖无法安装成功怎么办？
 
 #### **尝试方案一：**配置运行后，如果报错，可以单击 **Product** > **Clean Build Folder**，清除产物后重新 `pod install` 或 `flutter run`。
 
