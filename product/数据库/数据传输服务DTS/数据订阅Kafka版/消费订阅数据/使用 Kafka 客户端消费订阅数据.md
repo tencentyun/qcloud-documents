@@ -114,7 +114,7 @@ message Event {
     DDLEvent        ddlEvent        = 4;  //binlog 中的 ddl 事件
     RollbackEvent   rollbackEvent   = 5;  //rollback 事件，当前版本无意义
     HeartbeatEvent  heartbeatEvent  = 6;  //源库定时发送的心跳事件
-    CheckpointEvent checkpointEvent = 7;  //订阅后台添加的 checkpoint 事件，用于 Kafka 的 checkpoint 机制
+    CheckpointEvent checkpointEvent = 7;  //订阅后台添加的 checkpoint 事件，每10秒自动生成一个，用于 Kafka 生产和消费位点管理
     repeated KVPair properties      = 15;
 }
 ```
@@ -169,6 +169,7 @@ message Envelope {
 
 ```
 7. 对 Entries.items 依次处理，打印原始 Entry 结构或者转化为 SQL 语句。
+8. 当消费到 Checkpoint 消息时，做一次 Kafka 位点提交。Checkpoint 消息是订阅后台定时写入 Kafka 的特殊消息，每10秒一个。 
 
 ## 数据库字段映射和存储
 

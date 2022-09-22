@@ -117,8 +117,8 @@ Container 节点 Response 的内容：
 | PageSize           | Response | 每页个数，同请求中的 pageSize    | Int       |
 | TemplateList       | Response | 模板数组                        | Container 数组 |
 
-对于不同的模板类型，TemplateList 内容同创建模板接口的Response，请参照以下链接：
-- <a href="https://cloud.tencent.com/document/product/460/xxx#Response" target="_blank">语音识别</a>
+对于不同的模板类型，TemplateList 内容同创建模板接口的 Response，请参照以下链接：
+- <a href="https://cloud.tencent.com/document/product/460/78939#Response" target="_blank">语音识别</a>
 
 
 #### 错误码

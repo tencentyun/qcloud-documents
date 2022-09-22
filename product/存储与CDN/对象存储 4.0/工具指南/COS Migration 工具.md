@@ -10,7 +10,7 @@ COS Migration 是一个集成了 COS 数据迁移功能的一体化工具。通�
 >- COS Migration 的编码格式只支持 UTF-8 格式。
 >- 使用该工具上传同名文件，默认会覆盖较旧的同名文件，需要额外设置以跳过同名文件。
 >- 除本地数据迁移之外的场景请优先使用 [迁移服务平台](https://cloud.tencent.com/document/product/659/13908)。
->
+>- COS Migration 是用来做**一次性**迁移服务的，不适合于持续同步的场景。例如本地每天新增文件，需要持续同步至 COS 中，COS Migration 为了避免重复迁移任务，会保存迁移成功的记录，持续同步后，扫描记录时间会持续增大。此种场景建议使用 [文件同步](https://cloud.tencent.com/document/product/436/38103#synchronization)。
 
 ## 使用环境
 #### 系统环境

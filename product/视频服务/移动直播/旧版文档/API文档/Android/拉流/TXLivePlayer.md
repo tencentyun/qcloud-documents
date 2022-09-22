@@ -77,11 +77,11 @@ __参数__
 
 ***
 
-### startPlay
+### startLivePlay
 
 播放器开始播放。
 ```
-int startPlay(String playUrl, int playType)
+int startLivePlay(String playUrl, int playType)
 ```
 
 __参数__
@@ -93,7 +93,7 @@ __参数__
 
 __返回__
 
-是否成功启动播放， 0：成功；-1：失败，playUrl 为空；-2：失败，playUrl 非法；-3：失败，playType 非法。
+是否成功启动播放， 0：成功；-1：失败，playUrl 为空；-2：失败，playUrl 非法；-3：失败，playType 非法；-5：licence 校验失败。
 
 __介绍__
 
@@ -101,6 +101,8 @@ __介绍__
 - RTMP 直播流：PLAY_TYPE_LIVE_RTMP。
 - FLV 直播流：PLAY_TYPE_LIVE_FLV。
 - RTMP 加速流，用于连麦：PLAY_TYPE_LIVE_RTMP_ACC。
+
+>? 在 `startLivePlay` 之前，需要通过 `V2TXLivePremier#setLicence` 或者 `TXLiveBase#setLicence` 设置 License 后方可成功播放，否则将播放失败（黑屏），全局仅设置一次即可。直播 License、短视频 License 和视频播放 License 均可使用，若您暂未获取上述 License ，可 [快速免费申请测试版 License](https://cloud.tencent.com/act/event/License) 以正常播放，正式版 License 需 [购买](https://cloud.tencent.com/document/product/454/34750)。
 
 ***
 

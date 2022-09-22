@@ -150,4 +150,4 @@ Web 端播放器支持 PC 端和移动端的浏览器视频播放，Web 端 提�
 * 在 **超级播放器**中，您可以体验到常见的长视频播放场景样式，以及视频试看、视频列表、自定义封面等常见视频功能。
 * 在 **短视频播放**中，您可以体验到类似“腾讯微视”的沉浸式短视频播放场景。
 * 在 **Feed 流播放**中，您可以体验到类似“腾讯新闻”的 Feed 流播放场景。
-![image](https://user-images.githubusercontent.com/88317062/150530734-74c4762c-2c12-4527-b5ff-d01d094c2cec.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/5ec7064dc90e12124a4221647b2881ca.png)

@@ -81,11 +81,15 @@ CAA 记录的格式为：`[flag] [tag] [value]`，是由一个标志字节的 `[
 
 
 ## 添加 CAA 记录
->? 以腾讯云免费证书为例，为域名添加对应 issue 和 issuewild 记录。
->
+
+<dx-alert infotype="explain" title="">
+以腾讯云免费证书为例，为域名添加对应 issue 和 issuewild 记录。
+</dx-alert>
+
+
 1. 登录 [DNSPod 管理控制台](https://console.dnspod.cn/dns/list)。
-2. 在 “域名解析列表” 中，选择并单击需要添加 CAA 记录的域名，进入该域名的 DNS 解析记录管理页面。如下图所示：
-![](https://main.qcloudimg.com/raw/74d113969f06f1f2d01f58b7af0a07bf.png)
+2. 在“我的域名”中，选择并单击需要添加 CAA 记录的域名，进入该域名的 DNS 解析记录管理页面。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/f93bc3718eeacd35b8ce821dd9c35555.png)
 3. 单击**添加记录**，填写以下记录信息。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/3690b1f101e1cc92f6489d2c6458f85a.png)
  - **主机记录**：填写子域名。例如为 `www.dnspod.cn`  添加 CAA 记录，您在 “主机记录” 处填写 “www” 即可。如果想添加 `dnspod.cn` 的 CAA 记录，您在 “主机记录” 处选择 “@” 即可。
@@ -95,7 +99,7 @@ CAA 记录的格式为：`[flag] [tag] [value]`，是由一个标志字节的 `[
  - **权重**：不填写，可忽略。
  - **MX 优先级**：不填写，可忽略。
  - **TTL**：缓存的生存时间，默认600秒。如需修改，可参考 [TTL 如何填写？](https://cloud.tencent.com/document/product/302/3468#ttl-.E5.A6.82.E4.BD.95.E5.A1.AB.E5.86.99.EF.BC.9F)
-4. 单击【确定】，完成添加。
+4. 单击**确定**，完成添加。
 
 
 ## 检查 CAA 记录
@@ -110,8 +114,11 @@ dig 域名名称 CAA
 ### DNS 诊断工具
 前往 [DNS 诊断工具](https://myssl.com/dns_check.html?checking=caa#dns_check)，输入主域名并选择 CAA 记录后点击检测，返回值为空或包含 `0 issuewild "sectigo.com"` 和 `0 issue "sectigo.com"` 即为正常。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/97efadf3a79cf636da56baf2dabb22cb.png)
->? 若出现检测失败或只有部分地区可以正常检测的情况，请检查域名 DNS 解析设置。
->
+<dx-alert infotype="explain" title="">
+若出现检测失败或只有部分地区可以正常检测的情况，请检查域名 DNS 解析设置。
+</dx-alert>
+
+
 
 
 

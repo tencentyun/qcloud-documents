@@ -1,3 +1,47 @@
+### 2.23.0 @2022.9.16
+
+**新增**
+
+- SDK 支持海外环境。
+- [getTotalUnreadMessageCount](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getTotalUnreadMessageCount)，支持获取会话未读总数。
+- [TOTAL_UNREAD_MESSAGE_COUNT_UPDATED](https://web.sdk.qcloud.com/im/doc/zh-cn/module-EVENT.html#.TOTAL_UNREAD_MESSAGE_COUNT_UPDATED)，接入侧监听此事件，可获取会话未读总数变更的通知。
+- [markGroupMemberList](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#markGroupMemberList)，支持标记直播群群成员（需开通旗舰版）。
+- 群成员被踢出群，或者群被解散，SDK 同步更新此群会话所在的会话分组。
+- 支持小程序独立分包。
+- Web 多实例登录场景下，断网重连后 SDK 主动恢复最近联系人的消息记录，保障消息可靠性。
+
+**修复**
+
+- Web 多实例登录场景下可能出现的会话 lastMessage 撤回状态不同步问题。
+- 同步最近联系人时会话置顶问题。
+
+### 2.22.0 @2022.8.18
+
+**新增**
+
+- 支持 uni-app 打包到 native app 使用离线推送，请参见 [registerPlugin](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#registerPlugin)。
+- 支持获取直播群在线成员列表，请参见 [getGroupMemberList](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getGroupMemberList) （需开通旗舰版）。
+- 支持直播群封禁成员，请参见 [deleteGroupMember](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#deleteGroupMember)（需开通旗舰版）。
+- [setConversationCustomData](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#setConversationCustomData) 设置会话自定义数据。
+- [markConversation](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#markConversation) 标记会话（需开通旗舰版）。
+- [getConversationGroupList](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getConversationGroupList) 获取会话分组列表（需开通旗舰版）。
+- [createConversationGroup](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#createConversationGroup) 创建会话分组（需开通旗舰版）。
+- [deleteConversationGroup](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#deleteConversationGroup) 删除会话分组（需开通旗舰版）。
+- [renameConversationGroup](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#renameConversationGroup) 重命名会话分组（需开通旗舰版）。
+- [addConversationsToGroup](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#addConversationsToGroup) 添加会话到一个会话分组（需开通旗舰版）。
+- [deleteConversationsFromGroup](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#deleteConversationsFromGroup) 从一个会话分组中删除会话（需开通旗舰版）。
+
+**修复**
+
+- 收到话题消息被撤回的通知后，话题未读数未更新的问题。
+
+### 2.21.2 @2022.8.8
+
+**新增**
+
+- 支持 Web 端创建和发送语音消息。
+- [createMergerMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#createMergerMessage) 创建合并消息，被合并的消息新增 ID 字段。
+
 ### 2.21.1 @2022.8.3
 
 **修复**
@@ -18,8 +62,8 @@
 - 支持加群选项多终端、多实例同步。
 - 支持普通社群和话题@全员以及话题 lastMessage。
 
-**变更**
 
+**变更**
 - 浏览器支持 webworker 时国际站和私有化环境默认开启 webworker。
 
 **修复**

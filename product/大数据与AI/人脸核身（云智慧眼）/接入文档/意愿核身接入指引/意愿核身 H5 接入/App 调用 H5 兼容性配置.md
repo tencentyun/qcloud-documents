@@ -22,6 +22,7 @@ config.allowsInlineMediaPlayback = YES;
 <uses-permission android:name="android.permission.CAMERA" />
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.RECORD_AUDIO" />
+<uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
 ```
 动态申请权限：
 	- 如果第三方编译的 targetSdkVersion >= 23，则需要动态申请权限。
@@ -41,7 +42,7 @@ WBH5FaceVerifySDK.getInstance().setWebViewSettings(mWebView,getApplicationContex
 ```
 
 4. 重写 WebChromeClient
-调用 WebView.loadUrl(String url) 前，WebView 必须调用 setWebChromeClient(WebChromeClient webChromeClient)，并重写 WebChromeClient 的如下5个函数：
+调用 WebView.loadUrl(String url) 前，WebView 必须调用 setWebChromeClient(WebChromeClient webChromeClient)，并重写 WebChromeClient 的如下2个函数：
 ```
 /**
      *TRTC 刷脸模式配置，这里负责处理来自H5页面发出的相机权限申请
@@ -49,80 +50,35 @@ WBH5FaceVerifySDK.getInstance().setWebViewSettings(mWebView,getApplicationContex
      */
     @Override
     public void onPermissionRequest(PermissionRequest request) {
-       if (request!=null&&request.getOrigin()!=null&&WBH5FaceVerifySDK.getInstance().isTencentH5FaceVerify(request.getOrigin().toString())){  //判断是腾讯h5刷脸的域名
-            Log.d(TAG,"onPermissionRequest 收到腾讯h5刷脸页面的相机授权");
-            this.request=request;
-            if (activity!=null){ 
-			//申请相机权限，申请权限的代码demo仅供参考，合作方可根据自身业务定制
-         activity.requestCameraPermission();
-
-            }
-
+        this.request=request;
+        if (activity!=null){
+            activity.requestCameraAndRecordPermissions(false,true);//申请相机和录音权限，申请权限的代码demo仅供参考，合作方可根据自身业务定制
         }
     }
 
     /**
-     * 相机权限申请成功后，拉起TRTC刷脸模式进行实时刷脸验证
+     * 相机权限申请成功后，拉起H5意愿刷脸模式进行实时刷脸验证
      */
-   if (Build.VERSION.SDK_INT>Build.VERSION_CODES.LOLLIPOP){  // android sdk 21以上
+    public void enterWillFaceVerify(){
+       if (Build.VERSION.SDK_INT>Build.VERSION_CODES.LOLLIPOP){ // android sdk 21以上
             if (request!=null&&request.getOrigin()!=null){
-               if (WBH5FaceVerifySDK.getInstance().isTencentH5FaceVerify(request.getOrigin().toString())){  //判断是腾讯h5刷脸的域名，如果合作方对授权域名无限制的话，这个if条件判断可以去掉，直接进行授权即可。
+                //根据腾讯域名授权，如果合作方对授权域名无限制的话，这个if条件判断可以去掉，直接进行授权即可。
+                Log.d(TAG,"enterTrtcFaceVerify getOrigin()!=null");
+                if (WBH5FaceVerifySDK.getInstance().isTencentH5FaceVerify(request.getOrigin().toString())){
                     //授权
                     request.grant(request.getResources());
                     request.getOrigin();
-                }
-            }else {
-                if (request==null){
+                 }
+              }else {
+                 if (request==null){
                     Log.d(TAG,"enterTrtcFaceVerify request==null");
                     if (webView!=null&&webView.canGoBack()){
                         webView.goBack();
                     }
-                }
-      }
-        }
-
-     // For Android >= 4.1  录制模式中，点击h5页面的录制按钮后触发的系统方法
-    public void openFileChooser(ValueCallback<Uri> uploadMsg, String acceptType, String capture) {
-        if (WBH5FaceVerifySDK.getInstance().isTencentH5FaceVerify(null,null,acceptType)){ //判断是腾讯h5刷脸的域名
-            this.uploadMsg=uploadMsg;
-            this.acceptType=acceptType;
-            if (activity!=null){ 
-                //申请系统的相机、录制、sd卡等权限
-                activity.requestCameraAndSomePermissions(true,false);
-            }
-        }
+                 }
+              }
+         }
     }
-		
-    // For Lollipop 5.0+ Devices  录制模式中，点击h5页面的录制按钮后触发的系统方法
-    @TargetApi(21)
-    @Override
-    public boolean onShowFileChooser(WebView webView, ValueCallback<Uri[]> filePathCallback, FileChooserParams fileChooserParams) {
-        WBH5FaceVerifySDK.getInstance().isTencentH5FaceVerify(webView,fileChooserParams,null)){ //判断是腾讯h5刷脸的域名
-            this.webView=webView;
-            this.filePathCallback=filePathCallback;
-            this.fileChooserParams=fileChooserParams;
-            if (activity!=null){
-			 //申请系统的相机、录制、sd卡等权限
-                activity.requestCameraAndSomePermissions(false,false);
-            }
-        }
-        return true;   
-    }
-
-    //录制模式中，拉起系统相机进行录制视频
-    public boolean enterOldModeFaceVerify(boolean belowApi21){
-        if (belowApi21){ // For Android < 5.0
-            if (WBH5FaceVerifySDK.getInstance().recordVideoForApiBelow21(uploadMsg, acceptType, activity)) {
-                return true;
-            }
-        }else { // For Android >= 5.0
-            if (WBH5FaceVerifySDK.getInstance().recordVideoForApi21(webView, filePathCallback, activity,fileChooserParams)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
 ```
 >! 
 >- 如果第三方已重写以上函数，只要将如上述所示的函数体内容添加至第三方的对应函数体首行即可。
@@ -140,14 +96,8 @@ Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         Log.d(TAG, "onActivityResult --------"+requestCode);
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == VIDEO_REQUEST) {//录制模式中，调用系统相机录制完视频后再回到当前app页面
-            if (WBH5FaceVerifySDK.getInstance().receiveH5FaceVerifyResult(requestCode, resultCode, data)) {
-                return;
-            }
-        }else if (requestCode==PERMISSION_QUEST_TRTC_CAMERA_VERIFY){ //trtc模式中，申请相机权限时，从系统设置页面跳转回当前app页面的处理。由于权限申请逻辑demo仅供参考，合作方自己处理即可。
-            requestCameraPermission();
-        }else if (requestCode==PERMISSION_QUEST_CAMERA_RECORD_VERIFY){//录制模式中，申请权限时，从系统设置页面跳转回当前app页面的处理。由于权限申请逻辑demo仅供参考，合作方自己处理即可。
-            requestCameraAndSomePermissions(false);
-        }
+         if (requestCode==PERMISSION_QUEST_CAMERA_RECORD_VERIFY){//录制模式中，申请权限时，从系统设置页面跳转回当前app页面的处理。由于权限申请逻辑demo仅供参考，合作方自己处理即可。
+            requestCameraAndRecordPermissions(false,true);  
+          }
     }
 ```

@@ -124,7 +124,7 @@ CREATE TABLE customers (
 <tr>
 <td align="left">2</td>
 <td align="left"><code>PostgreSQL_server.inventory.customers.Key</code></td>
-<td align="left">schema 的名称格式为 *connector-name*.*database-name*.*table-name*.<code>Key</code>。在这个例子中: <code>PostgreSQL_server</code> 是生成事件的 connector 的名字。 <code>inventory</code> 是对应数据库表的名字。 <code>customers</code> 是表的名字。</td>
+<td align="left">schema 的名称格式为 *connector-name*.*database-name*.*table-name*.<code>Key</code>。在这个例子中: <code>PostgreSQL_server</code> 是生成事件的 connector 的名字。 <code>inventory</code> 是对应数据库的名字。 <code>customers</code> 是表的名字。</td>
 </tr>
 <tr>
 <td align="left">3</td>
@@ -535,7 +535,7 @@ CREATE TABLE customers (
 :::
 </dx-codeblock>
 
-其中 schema 字段和创建操作的事件相同，而 payload 部分有所不同，删除事件中包含了更新前（before）的数据，但更新后（after）的数据为 null，表示数据已删除。
+其中 schema 字段和创建操作的事件相同，而 payload 部分有所不同，删除事件中包含了修改前（before）的数据，但更新后（after）的数据为 null，表示数据已删除。
 
 ### 更新主键（primary key events）
 

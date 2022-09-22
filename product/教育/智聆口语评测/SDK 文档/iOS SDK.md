@@ -139,10 +139,13 @@ param.secretKey = @"";
 param.token = @"";
 ```
 2. 开始录制
-调⽤ startRecordAndEvaluation（）⽅法传⼊步骤3.1.1中设置的 param 参数，并设置回调函数，即可开始录制。
-[self.oralEvaluation startRecordAndEvaluation:param callback:^(TAIError *error) {    
-//结果返回 
+调用 startRecordAndEvaluation() 方法传入 TAIOralEvaluationParam 的 param 参数，并设置回调函数，即可开始录制。
+```
+[self.oralEvaluation startRecordAndEvaluation:param callback:^(TAIError *error) {
+//结果返回
 }];
+```
+
 3. 结束录制
 ```
 [self.oralEvaluation stopRecordAndEvaluation:^(TAIError *error) {    
@@ -189,7 +192,7 @@ __weak typeof(self) ws = self;
 
 >! 外部录制三种格式（mp3，wav，raw/pcm）目前仅支持16k 采样率16bit 编码单声道，如果有不一致可能会导致评估不准确或失败。
 
-### 签名
+### 签名  [](id:SecretKey)
 #### 临时签名（推荐）
 SecretKey 属于安全敏感参数，线上版本一般由业务后台生成 [临时 SecretKey](https://cloud.tencent.com/document/product/1312/48195) 或者 SDK 外部签名返回到客户端。
 智聆口语评测 [获取联合身份临时访问凭证](https://cloud.tencent.com/document/product/1312/48195) 请求参数参考：

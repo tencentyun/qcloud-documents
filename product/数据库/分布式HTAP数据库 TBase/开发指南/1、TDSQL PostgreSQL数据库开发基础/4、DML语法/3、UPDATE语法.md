@@ -1,3 +1,4 @@
+
 ## 单表更新
 ```
 postgres=# update tdsql_pg set nickname ='Hello tdsql_pg' where id=1;

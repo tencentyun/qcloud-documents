@@ -1,6 +1,6 @@
 ## 操作场景
-腾讯云 Kubernetes 集群实现蓝绿发布或灰度发布通常需向集群额外部署其他开源工具，例如 Nginx Ingress、Traefik 或将业务部署至服务网格 Service Mesh，利用服务网格的能力实现。这些方案均具有一定难度，若您的蓝绿发布或灰度需求不复杂，且不期望集群引入过多的组件或复杂的用法，则可参考本文利用 Kubernetes 原生的特性以及腾讯云容器服务 TKE、弹性容器服务 EKS 集群自带的 LB 插件实现简单的蓝绿发布和灰度发布。  
->!本文仅适用于 TKE 集群及 EKS 集群。  
+腾讯云 Kubernetes 集群实现蓝绿发布或灰度发布通常需向集群额外部署其他开源工具，例如 Nginx Ingress、Traefik 或将业务部署至服务网格 Service Mesh，利用服务网格的能力实现。这些方案均具有一定难度，若您的蓝绿发布或灰度需求不复杂，且不期望集群引入过多的组件或复杂的用法，则可参考本文利用 Kubernetes 原生的特性以及腾讯云容器服务 TKE、弹性容器服务 TKE Serverless 集群自带的 LB 插件实现简单的蓝绿发布和灰度发布。  
+>!本文仅适用于 TKE 集群及 TKE Serverless 集群。  
 
 ## 原理介绍
 用户通常使用 Deployment、StatefulSet 等 Kubernetes 自带的工作负载来部署业务，每个工作负载管理一组 Pod。以 Deployment 为例，示意图如下：
@@ -19,7 +19,7 @@
 ## 操作步骤
 ### 使用 YAML 创建资源
 本文提供以下两种方式使用 YAML 部署工作负载及创建 Servcie：
- - 方式1：单击 TKE 或 EKS 集群详情页右上角的**YAML创建资源**，并将本文示例的 YAML 文件内容输入编辑界面。  
+ - 方式1：单击 TKE 或 TKE Serverless 集群详情页右上角的**YAML创建资源**，并将本文示例的 YAML 文件内容输入编辑界面。  
  - 方式2：将示例 YAML 保存为文件，再使用 kubectl 指定 YAML 文件进行创建。例如 `kubectl apply -f xx.yaml`。  
 
 

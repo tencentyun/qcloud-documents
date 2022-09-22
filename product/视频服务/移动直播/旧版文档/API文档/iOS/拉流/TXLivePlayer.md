@@ -57,7 +57,7 @@ __介绍__
 
 ### isAutoPlay
 
-startPlay 后是否立即播放，默认 YES，只有点播有效。
+startLivePlay 后是否立即播放，默认 YES，只有点播有效。
 ```
 @property (nonatomic, ) BOOL isAutoPlay
 ```
@@ -94,11 +94,11 @@ __介绍__
 
 
 
-### startPlay
+### startLivePlay
 
 启动从指定 URL 播放 RTMP 音视频流。
 ```
-- (int)startPlay:(NSString *)url type:(TX_Enum_PlayType)playType 
+- (int)startLivePlay:(NSString *)url type:(TX_Enum_PlayType)playType 
 ```
 
 __参数__
@@ -110,7 +110,9 @@ __参数__
 
 __返回__
 
-0表示成功，其它为失败。
+0表示成功，其它为失败；
+
+>? 10.7 版本开始，`startPlay` 变更为 `startLivePlay`，需要通过 `V2TXLivePremier#setLicence` 或者 `TXLiveBase#setLicence` 设置 License 后方可成功播放，否则将播放失败（黑屏），全局仅设置一次即可。直播 License、短视频 License 和视频播放 License 均可使用，若您暂未获取上述 License ，可[快速免费申请测试版 License](https://cloud.tencent.com/act/event/License) 以正常播放，正式版 License 需[购买](https://cloud.tencent.com/document/product/454/34750)。
 
 
 

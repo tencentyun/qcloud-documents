@@ -1,9 +1,9 @@
-本文介绍通过 YAML 方式使用 CRD 配置 EKS 集群的日志采集功能。
+本文介绍通过 YAML 方式使用 CRD 配置 TKE Serverless 集群的日志采集功能。
 
 
 ## 前提条件
 
-登录 [弹性容器服务控制台 ](https://console.cloud.tencent.com/tke2/ops/list?rid=8)，并为弹性集群开启日志采集功能。操作详情请参见 [开启日志采集](https://cloud.tencent.com/document/product/457/56751#.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4)。
+登录 [容器服务控制台](https://console.cloud.tencent.com/tke2/cluster?rid=1)，并为 Serverless 集群开启日志采集功能。操作详情请参见 [开启日志采集](https://cloud.tencent.com/document/product/457/56751#.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4)。
 
 
 

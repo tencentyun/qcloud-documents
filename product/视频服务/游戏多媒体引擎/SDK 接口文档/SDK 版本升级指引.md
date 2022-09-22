@@ -1,6 +1,10 @@
-
-
 本文主要介绍适用于开发的接口升级技术文档。方便您调试和接入腾讯云游戏多媒体引擎 API。
+## 前提条件
+
+- 已经开通并使用 GME 服务，需要升级到最新版本。
+- 如无法判断是否需要升级到最新版本，可以 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=438&level2_id=445&source=0&data_title=%E6%B8%B8%E6%88%8F%E5%A4%9A%E5%AA%92%E4%BD%93%E5%BC%95%E6%93%8EGME&step=1) 联系开发者。
+
+
 ## GME 2.x 升级 GME 2.9
 
 ### SDK 更新动态
