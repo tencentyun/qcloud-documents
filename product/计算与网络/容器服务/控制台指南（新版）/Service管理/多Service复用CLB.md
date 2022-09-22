@@ -14,7 +14,7 @@
 	2. CLB 购买成功后，需要在 Service 里添加两个 Annotation：
 		- service.kubernetes.io/qcloud-share-existed-lb:"true"
 		- service.kubernetes.io/tke-existed-lbid:lb-xxx
-
+- Service 和 CLB 之间配置的管理和同步是由以 CLB ID 为名字的 LoadBalancerResource 类型的资源对象，请勿对该 CRD 进行任何操作，否则容易导致 Service 失效。
 
 
 ## 使用限制
