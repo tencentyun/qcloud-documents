@@ -60,6 +60,7 @@ spec:
   - **NodePort**：使用节点的端口映射到后端 Service，集群外可以通过节点 `IP:NodePort` 访问。
   - **LoadBalancer**：使用腾讯云提供的负载均衡器公开服务，默认创建公网负载均衡，指定 annotations 可创建内网负载均衡。
 	- 默认用户可以创建的内网或外网的 CLB 数量分别是 100 个，如果您需要使用的数量超过 100 时，可通过 [在线咨询](https://cloud.tencent.com/online-service?from=doc_457) 提升负载均衡 CLB 的配额。
+	- Service 和 CLB 之间配置的管理和同步是由以 CLB ID 为名字的 LoadBalancerResource 类型的资源对象，请勿对该 CRD 进行任何操作，否则容易导致 Service 失效。
   - **ExternalName**：将服务映射到 DNS，仅适用于 kube-dns1.7及更高版本。
 
 
