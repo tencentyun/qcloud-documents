@@ -339,7 +339,7 @@ UI 组件全貌可参见 [本全览文档](https://cloud.tencent.com/document/pr
 
 ## Flutter for Web 支持[](id:web)
 
-TUIKit(tim_ui_kit) 0.1.5版本起，可完美兼容Web端。
+TUIKit(tim_ui_kit) 0.1.5版本起，可完美兼容 Web 端。
 
 相比 Android 和 iOS 端，需要一些额外步骤。如下：
 
@@ -391,14 +391,14 @@ flutter pub get
 
 #### **尝试方案二：**手动删除 `ios/Pods` 文件夹，及 `ios/Podfile.lock` 文件，并执行如下命令，重新安装依赖。
 
-1. 搭载新款 Apple Silicon 的Mac设备，如M1。
+1. 搭载新款 Apple Silicon 的Mac设备，如 M1。
 ![](https://qcloudimg.tencent-cloud.cn/raw/dd87d8ff05aec0ecad461f12ef6c3020.png)
 ```shell
 cd ios
 sudo arch -x86_64 gem install ffi
 arch -x86_64 pod install --repo-update
 ```
-2. 搭载老款 Intel 芯片 的Mac设备。
+2. 搭载老款 Intel 芯片的 Mac 设备。
 ```shell
 cd ios
 sudo gem install ffi
