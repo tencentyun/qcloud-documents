@@ -5,7 +5,7 @@
 工程共包含四个模块，[app](#app)、[ugckit](#ugckit)、[xmagickit](#xmagickit)、[beautysettingkit](#beautysettingkit)
 
 ## app 模块[](id:app)
-
+### 目录介绍
 <img src="https://qcloudimg.tencent-cloud.cn/raw/94254bf5017089b5cfe0a2de144dd419.png" width=500>
 
 | 文件/目录    | 说明                                                         |
@@ -148,8 +148,7 @@
 <img src="https://qcloudimg.tencent-cloud.cn/raw/be809606cec3c56ed629a05736c292aa.png" width=500>
 
 此模块主要是对短视频 SDK 的高级封装（包含了 UI），方便快速接入。
-
-### 各个目录简介
+### 目录介绍
 
 | 文件/目录                    | 说明                                                         |
 | ---------------------------- | ------------------------------------------------------------ |
@@ -173,7 +172,7 @@
 ## xmagickit[](id:xmagickit)
 <img src="https://qcloudimg.tencent-cloud.cn/raw/5142c8534c29f9af2b43a8d2aa68d12a.png" width=500>
 
-此模块用于快速接入腾讯特效，主要是对腾讯特效的封装，方便快速接入
+此模块用于快速接入腾讯特效，主要是对腾讯特效的封装，方便快速接入。
 
 | 文件/目录  | 说明                                                         |
 | ---------- | ------------------------------------------------------------ |
@@ -189,7 +188,7 @@
 
 <img src="https://qcloudimg.tencent-cloud.cn/raw/7b3306355b0354522f0ae11f432b2184.png" width=500>
 
-此模块是短视频中的基础美颜模块，如果客户选择使用基础美颜，则可以使用此模块进行快速集成
+此模块是短视频中的基础美颜模块，如果客户选择使用基础美颜，则可以使用此模块进行快速集成。
 
 | 文件/目录    | 说明               |
 | ------------ | ------------------ |
