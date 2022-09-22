@@ -4,7 +4,7 @@
 
 工程共包含四个模块，[app](#app)、[ugckit](#ugckit)、[xmagickit](#xmagickit)、[beautysettingkit](#beautysettingkit)
 
-## app 模块[](id:app)
+## app[](id:app)
 ### 目录介绍
 <img src="https://qcloudimg.tencent-cloud.cn/raw/94254bf5017089b5cfe0a2de144dd419.png" width=500>
 
