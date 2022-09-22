@@ -1,8 +1,8 @@
 ## 播放器 SDK Flutter 端 V10.7.0 @ 2022.09.20
 
-- 点播播放 startPlay 接口变更为 startVodPlay
-- 直播播放 startPlay 接口变更为 startLivePlay
-- 播放器组件 playWithModel 接口变更为 playWithModelNeedLicence
+- 点播播放 startPlay 接口变更为 startVodPlay。
+- 直播播放 startPlay 接口变更为 startLivePlay。
+- 播放器组件 playWithModel 接口变更为 playWithModelNeedLicence。
 
 
 ## 播放器 SDK Flutter 端 V1.0.3 @ 2022.7.5
