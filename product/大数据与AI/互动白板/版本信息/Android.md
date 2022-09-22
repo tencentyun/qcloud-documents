@@ -1,8 +1,50 @@
+### 2.7.8 @ 2022.09.20
+* [单击下载 SDK](https://sdk.qcloudtiw.com/android/TEduBoardSdk_2.7.8.199.zip)  
+
+- 新增接口
+  1. 开启多点触控 enableMultiTouch
+  2. 设置元修改信令同步频率，该值的允许范围为 [5, 20]素样式 setSyncFps
+
+- 更新接口
+  1. updateElementById 更新元素新增位置偏移类型 TEduElementOperatorType.CHANGE_POSITION
+  2. setToolType 接口增加类型：坐标系 TEDU_BOARD_TOOL_TYPE_COORDINATE
+
+- Bug及优化处理
+  1. 优化圆规操作
+  2. 图形拟合优化
+  3. 其他已知问题优化
+
+### 2.7.7 @ 2022.08.31
+* [单击下载 SDK](https://sdk.qcloudtiw.com/android/TEduBoardSdk_2.7.7.194.zip)  
+
+- 新增接口
+  1. 开启单实例模式setSingleMode，默认开启(当创建第2个白板实例时，sdk会自动会回收旧的实例)，设置为false则容许多实例
+  2. 获取元素信息 getElementById
+  3. 设置元素样式 updateElementById
+  4. 设置荧光笔颜色，画笔颜色用于所有荧光笔绘制 setHighlighterColor
+  5. 获取荧光笔颜色 getHighlighterColor
+  6. 开启绘制涂鸦过程中自动拟合图形 enablePenAutoFit
+  7. 设置图形样式 setGraphStyle
+  8. 获取图形样式 getGraphStyle
+
+- 废弃接口：
+  1. 废弃setLineStyle，请使用setGraphStyle
+  2. 废弃getLineStyle，请使用getGraphStyle
+
+- 新增功能
+  1. 增加数学教具圆规
+  2. 新增几何图形（直角三角形，等腰三角形，平行四边形，立方体，圆柱体，圆锥）
+  3. 其他功能
+
+- Bug及优化处理
+  1. PPT翻页优化
+  2. 其他已知问题优化
+
 ### 2.7.6.186 @ 2022-08-16
 * [单击下载 SDK](https://sdk.qcloudtiw.com/android/TEduBoardSdk_2.7.6.186.zip)  
 
 - 新增功能
-  1. 新增数据教具功能，支持直尺，三角形，量角器;
+  1. 新增数学教具功能，支持直尺，三角形，量角器;
   2. 新增获取 PPT 备注功能;
   
 ### 2.7.5.185 @ 2022-08-01

@@ -120,6 +120,9 @@ Service Local 模式下仅绑定有 Pod 存在的节点。
  service.kubernetes.io/service.extensiveParameters: '{"AddressIPVersion":"IPV6"}' 
 - 购买电信负载均衡：
   service.kubernetes.io/service.extensiveParameters: '{"VipIsp":"CTCC"}'
+- 创建时自定义 CLB 名字：
+  service.kubernetes.io/service.extensiveParameters: '{"LoadBalancerName":"my_cutom_lb_name"}'
+
 
  
 ---

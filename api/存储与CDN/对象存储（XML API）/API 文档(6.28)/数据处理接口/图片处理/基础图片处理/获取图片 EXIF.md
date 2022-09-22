@@ -9,8 +9,16 @@ EXIF（Exchangeable Image File）全称为可交换图像文件，可记录数�
 ## 接口示例
 
 ```plaintext
-download_url?exif
+GET /<ObjectKey>?exif HTTP/1.1
+Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
+Date: <GMT Date>
+Authorization: <Auth String>
 ```
+
+>? 
+> - Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+> - 通过子账号使用时，需要授予相关的权限，详情请参见 [授权粒度详情](https://cloud.tencent.com/document/product/460/41741) 文档。
+> 
 
 ## 处理参数说明
 
@@ -18,7 +26,7 @@ download_url?exif
 
 | 参数         | 含义                                                         |
 | ------------ | ------------------------------------------------------------ |
-| download_url | 文件的访问链接，具体构成为&lt;BucketName-APPID>.cos.&lt;Region>.myqcloud.com/&lt;picture name>，<br>例如 `examplebucket-1250000000.cos.ap-shanghai.myqcloud.com/picture.jpeg`。 |
+| ObjectKey  | 对象文件名，例如 folder/sample.jpg。                           | 
 
 
 ## 实际案例

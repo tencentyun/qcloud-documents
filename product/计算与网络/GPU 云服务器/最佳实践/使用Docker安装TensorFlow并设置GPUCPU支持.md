@@ -13,7 +13,7 @@
 - 本文操作步骤以 Ubuntu 20.04 操作系统的 GPU 云服务器为例。
 - 您的 GPU 云服务器实例需已安装 GPU 驱动。
 <dx-alert infotype="explain" title="">
-建议使用公共镜像创建 GPU 云服务器。若选择公共镜像，则勾选“后台自动安装GPU驱动”即可预装相应版本驱动。该方式仅支持部分 Linux 公共镜像，详情请参见 [GPU 驱动预装信息](https://cloud.tencent.com/document/product/560/30211#PreloadGPUDrive)。
+建议使用公共镜像创建 GPU 云服务器。若选择公共镜像，则勾选“后台自动安装GPU驱动”即可预装相应版本驱动。该方式仅支持部分 Linux 公共镜像，详情请参见 [各实例支持的 GPU 驱动版本及安装方式](https://cloud.tencent.com/document/product/560/76423#supportList)。
 </dx-alert>
 
 

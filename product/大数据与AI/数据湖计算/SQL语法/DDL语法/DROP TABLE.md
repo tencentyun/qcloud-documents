@@ -1,4 +1,8 @@
-移除表定义为`table_name`的元数据表。
+## 说明
+- 支持内核：Presto、SparkSQL。
+- 适用表范围：原生表、外部表。
+- 用途：移除元数据表。
+
 ## 语法
 ```
 DROP TABLE [IF EXISTS] table_name；

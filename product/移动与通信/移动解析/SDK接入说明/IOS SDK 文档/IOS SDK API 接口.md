@@ -64,14 +64,14 @@ typedef struct DnsConfigStruct {
 - (BOOL) initConfigWithDictionary:(NSDictionary *)config;
 
 /**
- * （可选）预解析域名。建议不要设置太多预解析域名，当前限制为最多 8 个域名。仅在初始化时触发。
+ * 预解析域名。建议不要设置太多预解析域名，当前限制为最多 8 个域名。仅在初始化时触发。
  *  示例代码：[[MSDKDns sharedInstance] WGSetPreResolvedDomains:@[@"dnspod.com", @"dnspod.cn"]];
  * @param domains  域名数组
  */
 - (void) WGSetPreResolvedDomains:(NSArray *)domains;
 
 /**
- * （可选）解析缓存自动刷新, 以数组形式进行配置。当前限制为最多 8 个域名。
+ * 解析缓存自动刷新, 以数组形式进行配置。当前限制为最多 8 个域名。
  * 示例代码：[[MSDKDns sharedInstance] WGSetKeepAliveDomains:@[@"dnspod.com", @"dnspod.cn"]];
  * @param domains  域名数组
  */
@@ -83,7 +83,26 @@ typedef struct DnsConfigStruct {
  */
 - (void) WGSetIPRankData:(NSDictionary *)IPRankData;
 
+/**
+ * 设置是否允许返回TTL过期域名的IP，默认关闭
+ * 设置为true时，会直接返回缓存的解析结果，没有缓存则返回0。且在无缓存结果或缓存已过期时，会异步发起解析请求更新缓存。因异步接口逻辑在回调中始终返回未过期的解析结果，设置为true时，异步API不可使用。建议使用同步接口。
+ */
+- (void) WGSetExpiredIPEnabled:(BOOL)enable;
+
+/**
+ * 设置是否启用本地持久化缓存功能，默认关闭
+ * 如果需要开启此功能，需要使用MSDKDns_C11包，并且需要引入WCDB包
+ */
+- (void) WGSetPersistCacheIPEnabled:(BOOL)enable;
 ```
+<dx-alert infotype="notice" title="">
+- HTTPDNS SDK 提供多重解析优化策略，建议根据实际情况选配，也可以组合使用，可使得解析成功率达到最优效果。
+- 可以通过配置 `(void) WGSetExpiredIPEnabled:(true)enable;` 和 `(void) WGSetPersistCacheIPEnabled:(true)enable;` 来实现乐观 DNS 缓存。
+  - 该功能旨在提升缓存命中率和首屏加载速度。持久化缓存会将上一次解析结果保持在本地，在 App 启动时，会优先读取到本地缓存解析结果。
+  - 存在使用缓存 IP 时为过期 IP（TTL 过期），该功能启用了允许使用过期 IP，乐观的推定 TTL 过期，大多数情况下该 IP 仍能正常使用。优先返回缓存的过期结果，同时异步发起解析服务，更新缓存。
+  - 乐观 DNS 缓存在首次解析域名（无缓存）时，无法命中缓存，返回0;0，同时也会异步发起解析服务，更新缓存。在启用该功能后需自行 LocalDNS 兜底。核心域名建议配置预解析服务 `(void) WGSetPreResolvedDomains:(NSArray *)domains;`。
+  - 如果业务服务器 IP 变化比较频繁，务必启用缓存自动刷新 `(void) WGSetKeepAliveDomains:(NSArray *)domains;`、预解析能力 `(void) WGSetPreResolvedDomains:(NSArray *)domains;`，以确保解析结果的准确性。
+</dx-alert>
 
 
 ### 示例代码

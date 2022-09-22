@@ -1,5 +1,9 @@
-对 Iceberg 表的分区字段信息进行删除操作。
-## 语法
+## 说明
+- 支持内核：Presto、SparkSQL。
+- 适用表范围：原生 Iceberg 表、外部表。
+- 用途：删除数据表的某个分区字段。
+
+## 标准语法
 ```
 ALTER TABLE table_name ADD PARTITION partition_column | hidden_partition_spec
 
@@ -26,7 +30,6 @@ ALTER TABLE prod.db.sample DROP PARTITION FIELD bucket(16, id)
 ALTER TABLE prod.db.sample DROP PARTITION FIELD truncate(data, 4)
 ALTER TABLE prod.db.sample DROP PARTITION FIELD years(ts)
 ALTER TABLE prod.db.sample DROP PARTITION FIELD shard
-
 ```
 
 

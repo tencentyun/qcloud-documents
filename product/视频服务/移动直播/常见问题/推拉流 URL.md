@@ -4,10 +4,12 @@
 - 已在**云直播控制台**>**[域名管理](https://console.cloud.tencent.com/live/domainmanage)**中添加推流/播放域名，具体操作请参见 [添加自有域名](https://cloud.tencent.com/document/product/267/20381)。
 - 成功 [配置域名 CNAME](https://cloud.tencent.com/document/product/267/19908)。
 
-## RTMP 协议推流（不支持连麦）[](id:manual)
+[](id:manual)
+## RTMP 协议推流（不支持连麦）
 直播 SDK 支持 RTMP（不支持连麦） 和 RTC（支持连麦） 两种推流协议，本章节介绍 RTMP 推拉流 URL 的生成。
 
-### 控制台生成推流 URL[](id:console)
+[](id:console)
+### 控制台生成推流 URL
 1. 登录云直播控制台。  
 2. 选择进入**直播工具箱** > [**地址生成器**](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator)，进入如下配置：
 	- 按需选择生成类型。
@@ -21,7 +23,8 @@
 >- AppName 可自定义，仅支持英文字母、数字和符号。
 >- 除上述方法，您还可以在云直播控制台的**[域名管理](https://console.cloud.tencent.com/live/domainmanage)**中，选择推流域名单击**管理**，选择**推流配置**，输入推流地址的过期时间和自定义的流名称 StreamName，单击**生成推流地址**即可生成推流地址。
 
-### 推流 URL 拼接规则 [](id:assemble_push) [](id:push)
+[](id:assemble_push) [](id:push)
+### 推流 URL 拼接规则 
 实际产品中，当直播间较多时，您不可能为每一个主播手工创建推流和播放 URL，您可通过服务器**自行拼装**推流和播放地址，只要符合腾讯云标准规范的 URL 就可以用来推流，如下是一条标准的推流 URL，它由四个部分组成：
 ![](https://main.qcloudimg.com/raw/095b7c120b62ac8a171603d4fff67cb2.png)
 - **Domain**
@@ -39,10 +42,12 @@
  - **txSecret（防盗链签名）**
 用以防止攻击者伪造您的后台生成推流 URL，计算方法参见 [最佳实践-防盗链计算](https://cloud.tencent.com/document/product/267/32735)。
 
-### 查看推流地址示例代码 [](id:example)
+[](id:example)
+### 查看推流地址示例代码 
 进入**云直播控制台**>[**域名管理**](https://console.cloud.tencent.com/live/domainmanage)，选中事先配置的推流域名，**管理**>**推流配置**页面下半部分有**推流地址示例代码**（PHP 和 Java 两个版本）演示如何生成防盗链地址。更多详情操作请参见 [推流配置](https://cloud.tencent.com/document/product/267/32833#.E6.8E.A8.E6.B5.81.E5.9C.B0.E5.9D.80.E7.A4.BA.E4.BE.8B.E4.BB.A3.E7.A0.81)。
 
-### 播放 URL 拼接规则 [](id:rtmp_play)
+[](id:rtmp_play)
+### 播放 URL 拼接规则 
 播放地址主要由播放前缀、播放域名（domain）、应用名称（AppName）、流名称（StreamName）、播放协议后缀、鉴权参数以及其他自定义参数组成。例如： 
 
 ``` 
@@ -86,11 +91,12 @@ http://domain/AppName/StreamName.m3u8?txSecret=Md5(key+StreamName+hex(time))&txT
  - **txSecret（防盗链签名）：**用以防止攻击者伪造您的后台生成播放 URL，计算方法参见 [最佳实践-防盗链计算](https://cloud.tencent.com/document/product/267/32735)。
 
 [](id:rtc)
-##  RTC 协议推流（支持连麦）[](id:rtc)
+##  RTC 协议推流（支持连麦）
 直播 SDK 支持 RTMP（不支持连麦） 和 RTC（支持连麦） 两种推流协议，本章节介绍 RTC 推拉流 URL 的生成。
 如果您有 [观众连麦](https://cloud.tencent.com/document/product/454/52751#step_live1) 或者 [直播 PK](https://cloud.tencent.com/document/product/454/60980#step1) 的需求，需要使用支持更低延迟、更好弱网抗性的 RTC 协议进行推拉流。
 
-### 控制台生成推流 URL [](id:rtc_push_manual)
+[](id:rtc_push_manual)
+### 控制台生成推流 URL 
 1. 登录云直播控制台。  
 2. 选择进入**连麦管理**>[**地址生成器**](https://console.cloud.tencent.com/live/micro/address)，进入如下配置：
 	- 按需选择连麦应用。如果您当前没有连麦应用，可以在 [连麦应用](https://console.cloud.tencent.com/live/micro/appmanage) > **新建连麦应用**新建一个。
@@ -102,7 +108,8 @@ http://domain/AppName/StreamName.m3u8?txSecret=Md5(key+StreamName+hex(time))&txT
 3. 单击**生成地址**即可生成您需要的推流/播放地址。
 >? 更多使用手动生成 URL 的介绍请参见 [控制台指南](https://cloud.tencent.com/document/product/1449/68081#.E7.94.9F.E6.88.90.E5.9C.B0.E5.9D.80)。
 
-### 推流 URL 拼接规则 [](id:rtc_push)
+[](id:rtc_push)
+### 推流 URL 拼接规则 
 实际产品中，当直播间较多时，您不可能为每一个主播手工创建推流和播放 URL，您可以按照如下规范在工程代码中自动拼接 URL，如下是一条标准的推流 URL，示例如下：
 ```http
 trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&userId=A&usersig=xxxxx
@@ -132,8 +139,8 @@ trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&userId=A&usersig=xxxx
 <td>由 <a href="https://cloud.tencent.com/document/product/454/60985#step41">服务开通</a> 一节中获取的密钥计算得出</td>
 </tr></table>
 
-[](id:assemble_play)[](id:play)
-### 播放 URL 拼接规则 [](id:rtc_play)
+[](id:assemble_play)[](id:rtc_play)
+### 播放 URL 拼接规则
 - 在连麦过程中，主播与连麦者相互之间的观看都要用 RTC来播放，播放的 URL 字符串与推流 URL 只有一个字段的差别，把 `push` 换成 `play` 即可，示例如下：
 ```http
 trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&userId=A&usersig=xxxxx
@@ -163,4 +170,4 @@ trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&userId=A&usersig=xxxx
 <td>usersig</td>
 <td>由 <a href="https://cloud.tencent.com/document/product/454/60985#step41">服务开通</a> 一节中获取的密钥计算得出</td>
 </tr></table>
-- CDN 的观看地址与前文中的 [播放 URL](#id:rtmp_play) 规则一致。
+- CDN 的观看地址与前文中的 [播放 URL](#rtmp_play) 规则一致。

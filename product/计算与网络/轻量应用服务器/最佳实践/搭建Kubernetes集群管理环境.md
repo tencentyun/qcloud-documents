@@ -26,7 +26,7 @@ K3s 是开源、极轻量的 Kubernetes 发行版，目前为 CNCF 云原生计�
 <dx-alert infotype="explain" title="">
 Kubernetes Dashboard 默认端口为9090。
 </dx-alert>
-<img src="https://main.qcloudimg.com/raw/6286b5633ff774117c266a78bd951fea.png"/>
+<img src="https://qcloudimg.tencent-cloud.cn/raw/b7d8837d810eed4d4e6d8dc70c5e91c4.png"/>
 
 
 ### 登录 Kubernetes Dashboard
