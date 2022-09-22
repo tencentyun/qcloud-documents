@@ -337,13 +337,13 @@ _sendLocationMessage(String desc, double longitude, double latitude) async {
 
 UI 组件全貌可参见 [本全览文档](https://cloud.tencent.com/document/product/269/70747) 或 [详细文档](https://comm.qq.com/im/doc/flutter/zh/TUIKit/readme.html)。
 
-## Flutter for Web支持[](id:web)
+## Flutter for Web 支持[](id:web)
 
 TUIKit(tim_ui_kit) 0.1.5版本起，可完美兼容Web端。
 
 相比 Android 和 iOS 端，需要一些额外步骤。如下：
 
-### 引入JS
+### 引入 JS
 
 >?如果您现有的 Flutter 项目不支持 Web，请在项目根目录下运行 `flutter create .` 添加 Web 支持。
 
@@ -362,7 +362,7 @@ TUIKit(tim_ui_kit) 0.1.5版本起，可完美兼容Web端。
 
 ## 常见问题
 
-### Android端报错 `compileSdkVersion` 不合适怎么办？
+### Android 端报错 `compileSdkVersion` 不合适怎么办？
 
 1. 请在您项目的 `pubspec.yaml` 文件中，指定确保如下两个插件的版本。
 ```yaml
@@ -377,13 +377,13 @@ android {
   ...
 }
 ```
-3. 执行如下命令，重新安装Android端依赖。
+3. 执行如下命令，重新安装 Android 端依赖。
 ```shell
 flutter pub cache clean
 flutter pub get
 ```
 
-### iOS端 Pods 依赖无法安装成功怎么办？
+### iOS 端 Pods 依赖无法安装成功怎么办？
 
 #### **尝试方案一：**配置运行后，如果报错，可以单击 **Product** > **Clean Build Folder**，清除产物后重新 `pod install` 或 `flutter run`。
 
@@ -417,7 +417,7 @@ pod install --repo-update
 
 如您需得知 Flutter 的环境是否存在问题，请运行 Flutter doctor 检测 Flutter 环境是否装好。
 
-### 使用 Flutter 自动生成的项目，引入TUIKit 后，运行 Android 端报错
+### 使用 Flutter 自动生成的项目，引入 TUIKit 后，运行 Android 端报错
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/d95efdd4ae50f13f38f4c383ca755ae7.png)
 
@@ -447,7 +447,7 @@ defaultConfig {
 </dx-codeblock>
 
 
-### 如何动态切换TUIKit界面语言？
+### 如何动态切换 TUIKit 界面语言？
 
 调用 `I18nUtils(null, language);` 即可。如：
 
@@ -455,11 +455,11 @@ defaultConfig {
 I18nUtils(null, LanguageEnum.en);
 ```
 
-> ?如需固定使用某语言，可在 [初始化TUIKit](#init) 时，使用 language 参数传入。
+> ?如需固定使用某语言，可在 [初始化 TUIKit](#init) 时，使用 language 参数传入。
 
-### 如何获取API接口调用报错/Flutter层报错/弹窗提示信息？[](id:callback)
+### 如何获取 API 接口调用报错/Flutter 层报错/弹窗提示信息？[](id:callback)
 
-请在初始化TUIKit时，挂载 `onTUIKitCallbackListener` 监听。
+请在初始化 TUIKit 时，挂载 `onTUIKitCallbackListener` 监听。
 
 该监听用于返回包括：SDK API 错误 / Flutter 报错 / 一些可能需要弹窗提示用户的场景信息。
 
