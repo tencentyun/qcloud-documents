@@ -3,7 +3,7 @@ Flutter TUIKit 是基于 Flutter IM SDK 实现的一套 UI 组件，其中包含
 
 基于本套 UI 组件和内置的 IM 业务逻辑，您可以像搭积木一样，快速地在您 App 中，引入即时通信及用户关系链管理等模块。
 
->? 本含 UI 的 SDK tim_ui_kit 已开源，您可引入[在线版本](https://pub.dev/packages/tim_ui_kit)，也可 [GitHub fork](https://github.com/tencentyun/TIMSDK/tree/master/Flutter/Demo/im-flutter-uikit) 后本地引入使用。
+>? 本含 UI 的 SDK tim_ui_kit 已开源，您可引入 [在线版本](https://pub.dev/packages/tim_ui_kit)，也可 [GitHub fork](https://github.com/tencentyun/TIMSDK/tree/master/Flutter/Demo/im-flutter-uikit) 后本地引入使用。
 
 目前包含的一级组件如下：
 
@@ -272,11 +272,11 @@ class UserProfile extends StatelessWidget {
 >?建议在 tim_ui_kit 0.1.5 以后版本中使用本功能。
 
 
-通过上述步骤的快速集成，您已经可以搭建一套可用的IM模块。如果您有其他额外的控制操作需求，可以使用组件配套的 controller 完成。
+通过上述步骤的快速集成，您已经可以搭建一套可用的 IM 模块。如果您有其他额外的控制操作需求，可以使用组件配套的 controller 完成。
 
-使用场景如，在会话列表页面中，您可自定义会话item的侧滑菜单，提供置顶会话/删除会话/删除历史消息等功能；抑或是发送消息，满足您的额外消息发送需求，例如通过您自行开发的送礼界面发送一条礼物消息。
+使用场景如，在会话列表页面中，您可自定义会话 item 的侧滑菜单，提供置顶会话/删除会话/删除历史消息等功能；抑或是发送消息，满足您的额外消息发送需求，例如通过您自行开发的送礼界面发送一条礼物消息。
 
-目前我们提供三个controller，如下：
+目前我们提供三个 controller，如下：
 
 | 组件                                                                                                                               | 控制器                                                                                                                                  | 功能                                                                                                                                         |
 | ---------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -365,24 +365,19 @@ TUIKit(tim_ui_kit) 0.1.5版本起，可完美兼容Web端。
 ### Android端报错 `compileSdkVersion` 不合适怎么办？
 
 1. 请在您项目的 `pubspec.yaml` 文件中，指定确保如下两个插件的版本。
-
 ```yaml
   video_thumbnail: ^0.5.3
   permission_handler: ^10.0.0
   flutter_local_notifications: 9.7.0
 ```
-
 2. 修改 `android/app/build.gradle` 文件，保证 `android => compileSdkVersion 33`。
-
 ```gradle
 android {
   compileSdkVersion 33
   ...
 }
 ```
-
 3. 执行如下命令，重新安装Android端依赖。
-
 ```shell
 flutter pub cache clean
 flutter pub get
@@ -397,17 +392,13 @@ flutter pub get
 #### **尝试方案二：**手动删除 `ios/Pods` 文件夹，及 `ios/Podfile.lock` 文件，并执行如下命令，重新安装依赖。
 
 1. 搭载新款 Apple Silicon 的Mac设备，如M1。
-
 ![](https://qcloudimg.tencent-cloud.cn/raw/dd87d8ff05aec0ecad461f12ef6c3020.png)
-
 ```shell
 cd ios
 sudo arch -x86_64 gem install ffi
 arch -x86_64 pod install --repo-update
 ```
-
 2. 搭载老款 Intel 芯片 的Mac设备。
-
 ```shell
 cd ios
 sudo gem install ffi
