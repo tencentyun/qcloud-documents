@@ -2,13 +2,12 @@
 本文档介绍如何在客户端集成 c++ 版本的 SDK。
 
 ## 操作步骤
-### 新建 SDK 实时同步任务
-#### 步骤一：引入 c++ SDK
+### 步骤一：引入 c++ SDK
 需要在项目中包含 SDK 的头文件和库，进行 SDK 的使用。头文件和库提供以下两种获取方式：
 1. 获取源码自行编译，请参见 [SDK 编译使用](https://github.com/apache/inlong/tree/release-1.3.0/inlong-sdk/dataproxy-sdk-twins/dataproxy-sdk-cpp)。
 2. 直接使用现有的头文件和库，[点击前往下载](https://inlong-resource-1312784730.cos-website.ap-guangzhou.myqcloud.com/download/index.html)。
 
-#### 步骤二：数据上报流程
+### 步骤二：数据上报流程
 引入 SDK 后，可以通过调用 SDK 的 `send` 相关接口进行单条（批量）数据的上报，发送 demo 可参考 [send_demo.cc](https://github.com/apache/inlong/blob/release-1.3.0/inlong-sdk/dataproxy-sdk-twins/dataproxy-sdk-cpp/release/demo/send_demo.cc)。整体流程包括以下三个步骤：
 1. 初始化 SDK
 SDK 支持对象实例化和配置文件初始化两种方式（二选一即可）：
