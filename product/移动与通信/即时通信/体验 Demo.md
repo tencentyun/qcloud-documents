@@ -128,7 +128,17 @@
 </div>
 </div>
 <div style="padding-top: 10px;">
-<h3> Flutter Demo </h3>
+<h3 style="font-size:22px">Flutter Demo: <span style="color: #006eff">一套代码，全平台运行<span></h3>
+<div style="position: relative; box-sizing: border-box;  padding-bottom: 10px; margin-bottom: 10px; overflow:hidden">
+        <div class="card-container">
+            <div class="card">
+                            <img src="https://main.qcloudimg.com/raw/98394fa5d669de7fb7a187565d138cdb.svg" data-nonescope="true">
+                                <p class="titlename">Web</p>
+                <p style="color:#586376;"><img style="width:100px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/3c79e8bb16dd0eeab35e894a690e0444.png" /></p>
+                                <a href="https://cloud.tencent.com/document/product/269/68823">快速入门</a>
+            </div>
+</div>
+
 <div style="position: relative; box-sizing: border-box;  padding-bottom: 10px; margin-bottom: 10px; overflow:hidden">
         <div class="card-container">
             <div class="card">
@@ -145,6 +155,14 @@
                                 <p class="titlename">iOS</p>
                 <p style="color:#586376;"><img style="width:100px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/455db8a485d2a12ba2a405f329666c7d.png" /></p>
                                 <a href="https://cloud.tencent.com/document/product/269/68823">快速入门</a>
+            </div>
+</div>
+<div style="position: relative; box-sizing: border-box;  padding-bottom: 10px; margin-bottom: 10px; overflow:hidden">
+        <div class="card-container">
+            <div class="card">
+                            <img src="https://main.qcloudimg.com/raw/98394fa5d669de7fb7a187565d138cdb.svg" data-nonescope="true">
+                                <p class="titlename">桌面端</p>
+                                <p style="margin-top: 50px">即将上线，敬请期待</p>
             </div>
 </div>
 </div>
