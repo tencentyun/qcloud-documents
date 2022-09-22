@@ -1,15 +1,15 @@
 ## Android 工程配置
 ### 系统要求
-SDK 支持 在 Android 4.0.3（API 15）及以上系统上运行，但只有（Android 4.3）API 18 以上的系统才能开启硬件编码。
+SDK建议使用Android 5.0（API Level 21）及以上系统
 
 ### 开发环境
 以下是 SDK 的开发环境，App 开发环境不需要与 SDK 一致，但要保证兼容：
 
 - Android NDK：android-ndk-r12b
 - Android SDK Tools：android-sdk_25.0.2
-- minSdkVersion：15
+- minSdkVersion：21
 - targetSdkVersion：26
-- Android Studio（推荐您也使用 Android Studio，当然您也可以使用 Eclipse + ADT）
+- Android Studio（推荐您使用 Android Studio）
 
 
 [](id:step1)
@@ -17,59 +17,58 @@ SDK 支持 在 Android 4.0.3（API 15）及以上系统上运行，但只有（A
 <dx-tabs>
 ::: aar 方式集成
 1. **新建工程**
-![](https://main.qcloudimg.com/raw/ca473c3bf484da3d7d959dbb83b192b1.png)
+    ![](https://qcloudimg.tencent-cloud.cn/raw/7d1f4c5d67fe1ad180cd1c959f3b301a.png)
+
 2. **工程配置**
-  1. 在工程 App 目录下的 build.gradle 中，添加引用 aar 包的代码：
-```
-dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    // 导入短视频 SDK aar，LiteAVSDK_UGC_x.y.zzzz 请自行修改为最新版本号
-    compile(name: 'LiteAVSDK_UGC_7.4.9211', ext: 'aar')
-    ...
-}
-```
-  2. 在工程目录下的 build.gradle 中，添加 flatDir，指定本地仓库：
-```
-allprojects {
-  repositories {
-      jcenter()
-      flatDir {
-          dirs 'libs'
+
+   -  在工程 App 目录下的 build.gradle 中，添加引用 aar 包的代码：
+
+      dependencies {
+          compile fileTree(dir: 'libs', include: ['*.jar'])
+          // 导入短视频 SDK aar，LiteAVSDK_UGC_x.y.zzzz 请自行修改为最新版本号
+          compile(name: 'LiteAVSDK_UGC_10.7.1136', ext: 'aar')
+          ...
       }
-  }
-}
-```
-  3. 在 App 工程目录下的 build.gradle 的 defaultConfig 里面，指定 ndk 兼容的架构：
-```
-defaultConfig {
-    ...
-    ndk {
-        abiFilters "armeabi", "armeabi-v7a"
-    }
-}
-```
-  4. 最后单击 **Sync Now**，编译工程。
+
+   - 在工程目录下的 build.gradle 中，添加 flatDir，指定本地仓库：
+
+      ```
+      allprojects {
+        repositories {
+            jcenter()
+            flatDir {
+                dirs 'libs'
+            }
+        }
+      }
+      ```
+
+   - 在 App 工程目录下的 build.gradle 的 defaultConfig 里面，指定 ndk 兼容的架构：
+
+      ```
+      defaultConfig {
+          ...
+          ndk {
+              abiFilters "armeabi-v7a", "arm64-v8a"
+          }
+      }
+      ```
+
+   - 最后单击 **Sync Now**，编译工程。
+   
+
 :::
 ::: jar+so 方式集成
+
 1. **库说明**
-解压 zip 压缩包后得到 libs 目录，里面主要包含 jar 文件和 so 文件，文件清单如下：
-<table>
-<tr><th>jar 文件</th><th>说明</th></tr>
-<tr><td>liteavsdk.jar </td><td >短视频 SDK Android 核心库 </td>
-</tr></tbody>
-</table>
-<table>
-<tr><th>so 文件  </th><th>说明</th></tr>
-<tr><td> libliteavsdk.so</td><td >短视频 SDK 核心组件 </td></tr>
-<tr><td>libtxffmpeg.so</td><td >ffmpeg 基础库（ijk 版本），用于点播播放功能，解决一些视频格式的兼容问题  </td>
-</tr><tr><td>libtxplayer.so</td><td >ijkplayer 开源库，用于点播播放功能，解决一些视频格式的兼容问题   </td>
-</tr><tr><td>  libtxsdl.so</td><td > ijkplayer 开源库，用于点播播放功能，解决一些视频格式的兼容问题 </td>
-</tr></table>
+
+解压 zip 压缩包后得到 libs 目录，里面主要包含 jar 文件和两种架构的 so 文件，文件如下图：  ![](https://qcloudimg.tencent-cloud.cn/raw/7f073e4db38562c284f3e406eba43b04.png)
+
 2. **拷贝文件**
-    如果您的工程之前没有指定过 jni 的加载路径，推荐您将刚才得到的 jar 包和 so 库拷贝到 **Demo\app\src\main\jniLibs** 目录下，这是 Android Studio 默认的 jni 加载目录。
-    如果您使用的是企业版，那么解压 zip 包后，除了 jar 包和 so 库增加了以外，还多了 assets 目录下的文件，这些是动效所需要的，需要全部拷贝到工程的 assets 目录下，请参见 [动效变脸 - 工程配置](https://cloud.tencent.com/document/product/584/13510#.E5.B7.A5.E7.A8.8B.E8.AE.BE.E7.BD.AE)。
-3. **工程配置**
-在工程 App 目录下的 build.gradle 中，添加引用 jar 包和 so 库的代码。
+    如果您的工程之前没有指定过 jni 的加载路径，推荐您将刚才得到的 jar 包和 对应架构so 库拷贝到 **Demo\app\src\main\jniLibs** 目录下，这是 Android Studio 默认的 jni 加载目录。jar文件放置在libs文件夹下。
+3. 如果您购买了腾讯特效，那么还需要按照腾讯特效的方案集成[腾讯特效](https://cloud.tencent.com/document/product/616/65890)模块
+4. **工程配置**
+    在工程 App 目录下的 build.gradle 中，添加引用 jar 包和 so 库的代码。
 ```
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
@@ -79,25 +78,40 @@ dependencies {
 }
 ```
 4. **减少 APK 体积**
-整个 SDK 的体积主要来自于 so 文件，这些 so 文件是 SDK 正常运行所依赖的音视频编解码库、图像处理库以及声学处理组件，如果短视频 SDK 的功能不是 App 的核心功能，您可以考虑采用在线加载的方式减少最终 apk 安装包的大小。
-  1. **上传 so 文件**
-将 SDK 压缩包中的 so 文件上传到 COS，并记录下载地址，例如 `http://xxx-appid.cossh.myqcloud.com/so_files.zip`。
-  2. **启动准备**
-在用户启动 SDK 相关功能前，例如开始播放视频之前，先用 loading 动画提示用户“正在加载相关的功能模块”。
-  3. **下载 so 文件**
-在用户等待过程中，App 就可以到 `http://xxx-appid.cossh.myqcloud.com/so_files.zip` 下载 so 文件，并存入应用目录下（例如应用根目录下的 files 文件夹），为了确保这个过程不受运营商 DNS 拦截的影响，请在文件下载完成后校验 so 文件的完整性。
-  4. **加载 so 文件**
-等待所有 so 文件就位以后，调用 TXLiveBase 的 setLibraryPath 将下载的目标 path 设置给 SDK， 然后再调用 SDK 的相关功能。之后，SDK 会到这些路径下加载需要的 so 文件并启动相关功能。
+    整个 SDK 的体积主要来自于 so 文件，这些 so 文件是 SDK 正常运行所依赖的音视频编解码库、图像处理库以及声学处理组件，如果短视频 SDK 的功能不是 App 的核心功能，您可以考虑采用在线加载的方式减少最终 apk 安装包的大小。
+
+  集成了腾讯特效功能可以参考[腾讯特效减少包体积](https://cloud.tencent.com/document/product/616/73016)
+
+  5. **上传 so 文件**
+
+    将 SDK 压缩包中的 so 文件上传到 COS，并记录下载地址，例如 `http://xxx-appid.cossh.myqcloud.com/so_files.zip`。
+
+  6. **启动准备**
+
+    在用户启动 SDK 相关功能前，例如开始播放视频之前，先用 loading 动画提示用户“正在加载相关的功能模块”。
+
+  7. **下载 so 文件**
+
+    在用户等待过程中，App 就可以到 `http://xxx-appid.cossh.myqcloud.com/so_files.zip` 下载 so 文件，并存入应用目录下（例如应用根目录下的 files 文件夹），为了确保这个过程不受运营商 DNS 拦截的影响，请在文件下载完成后校验 so 文件的完整性。
+
+  8. **加载 so 文件**
+
+    等待所有 so 文件就位以后，调用 TXLiveBase 的 setLibraryPath 将下载的目标 path 设置给 SDK， 然后再调用 SDK 的相关功能。之后，SDK 会到这些路径下加载需要的 so 文件并启动相关功能。
+
+
 :::
 ::: gradle 集成方式
+
 1. 在 dependencies 中添加 LiteAVSDK_UGC 的依赖。
-	- 若使用3.x版本的 com.android.tools.build:gradle 工具，请执行以下命令：
+
+  - 若使用3.x版本的 com.android.tools.build:gradle 工具，请执行以下命令：
 ```
 dependencies {
    implementation 'com.tencent.liteav:LiteAVSDK_UGC:latest.release'
 }
 ```
-	- 若使用2.x版本的 `com.android.tools.build:gradle` 工具，请执行以下命令：
+- 若使用2.x版本的 `com.android.tools.build:gradle` 工具，请执行以下命令：
+
 ```
 dependencies {
    compile 'com.tencent.liteav:LiteAVSDK_UGC:latest.release'
@@ -107,11 +121,11 @@ dependencies {
 ```
 defaultConfig {
    ndk {
-       abiFilters "armeabi", "armeabi-v7a"
+       abiFilters "armeabi-v7a", "arm64-v8a"
    }
 }
 ```
->?目前 SDK 支持 armeabi、armeabi-v7a 和 arm64-v8a。
+>?目前 SDK 支持 armeabi-v7a 和 arm64-v8a。
 3. 单击 **Sync Now**，自动下载 SDK 并集成到工程里。
 :::
 </dx-tabs>
@@ -160,9 +174,7 @@ public class DemoApplication extends Application {
 - **setConsoleEnabled**
 设置是否在 Android Studio 的控制台打印 SDK 的相关输出。
 - **setLogLevel**
-设置是否允许 SDK 打印本地 log，SDK 默认会将 log 写到 sdcard 上，**Android/data/com.tencent.liteav.demo/files/log/tencent/liteav** 文件夹下。如果您需要我们的技术支持，建议将此开关打开，在重现问题后提供 log 文件，非常感谢您的支持。
-- **log 文件的查看**
-小直播 SDK 为了减少 log 的存储体积，对本地存储的 log 文件做了加密，并且限制了 log 数量的大小，所以要查看 log 的文本内容，需要使用 log [解压缩工具](http://dldir1.qq.com/hudongzhibo/log_tool/decode_mars_log_file.py)。
+设置是否允许 SDK 打印本地 log，SDK 默认会将 log 写到 sdcard 上，**Android/data/应用包名/files/log/tencent/liteav** 文件夹下。如果您需要我们的技术支持，建议将此开关打开，在重现问题后提供 log 文件，非常感谢您的支持。
 ```
 TXLiveBase.setConsoleEnabled(true);
 TXLiveBase.setLogLevel(TXLiveConstants.LOG_LEVEL_DEBUG);
@@ -200,12 +212,12 @@ Binary XML file #14:Error inflating class com.tencent.rtmp.ui.TXCloudVideoView
 可以按照以下流程来排查问题：
 
 1. 确认是否已经将 SDK 中的 jar 包和 so 库放在 jniLibs目录下。
-2. 如果您使用 aar 集成方式的完整版本，在工程目录下的 build.gradle 的 defaultConfig 里面确认下是否将 x64 架构的 so 库过滤掉。因为完整版本中连麦功能所使用的声学组件库暂时不支持 x64 架构的手机。
+2. 如果您使用 aar 集成方式的完整版本，在工程目录下的 build.gradle 的 defaultConfig 里面确认下是否将 x64 架构的 so 库过滤掉。
 ```
 defaultConfig {
     ...   
     ndk {
-        abiFilters "armeabi", "armeabi-v7a"
+        abiFilters "armeabi-v7a", "arm64-v8a"
     }
 }
 ```
@@ -264,20 +276,17 @@ task clean(type: Delete) {
 
 # 拷贝开始
 ext {
-    compileSdkVersion = 25
-    buildToolsVersion = "25.0.2"
-    supportSdkVersion = "25.4.0"
-    minSdkVersion = 16
-    targetSdkVersion = 23
+    compileSdkVersion = 29
+    buildToolsVersion = "29.0.2"
+    supportSdkVersion = "26.1.0"
+    minSdkVersion = 21
+    targetSdkVersion = 26
     versionCode = 1
-    versionName = "v1.0"
+    versionName = "v1.1"
     proguard = true
     rootPrj = "$projectDir/.."
     ndkAbi = 'armeabi-v7a'
-    noffmpeg = false
-    noijkplay = false
-    aekit_version = '1.0.16-cloud'
-    liteavSdk="com.tencent.liteav:LiteAVSDK_Professional:latest.release"
+    liteavSdk = "com.tencent.liteav:LiteAVSDK_UGC:latest.release"
 }
 # 拷贝结束
 ```
@@ -323,16 +332,21 @@ android {
 
 dependencies {
     # 拷贝开始
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile fileTree(include: ['*.jar'], dir: 'src/main/jniLibs')
-    compile 'com.mcxiaoke.volley:library:1.0.19'
-    compile 'com.android.support:design:25.3.1'
-    compile 'com.android.support:recyclerview-v7:25.3.1'
-    compile 'com.google.code.gson:gson:2.3.1'
-    compile 'com.github.bumptech.glide:glide:3.7.0'
-    compile 'com.github.ctiao:dfm:0.4.4'
-    compile project(':ugckit')
-    compile 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'com.google.code.gson:gson:2.3.1'
+    implementation 'com.tencent.rqd:crashreport:3.4.4'
+    implementation 'com.tencent.rqd:nativecrashreport:3.9.2'
+    implementation 'com.github.castorflex.verticalviewpager:library:19.0.1'
+    implementation 'com.squareup.okhttp3:okhttp:3.11.0'
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+    implementation rootProject.ext.liteavSdk
+    implementation project(':ugckit')
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
+    implementation('com.blankj:utilcode:1.25.9', {
+        exclude group: 'com.google.code.gson', module: 'gson'
+    })
     # 拷贝结束
 }
 ```
@@ -346,16 +360,18 @@ distributionUrl=https\://services.gradle.org/distributions/gradle-5.6.4-bin.zip
 [](id:UGCKit_step2)
 #### 步骤2：导入相关 module
 1. 拷贝 `ugckit module` 到 您新建的工程 ugc 目录下。
-2. 拷贝 `beautysettingkit module` 到 您新建的工程 ugc 目录下。
-3. 在工程的 `settings.gradle`中导入 ugckit。
-4. 在新建的工程 `UGC/settings.gradle` 下指明引入这几个 module：
+2. 如何集成基础美颜，拷贝 `beautysettingkit module` 到您新建的工程 ugc 目录下。
+3. 如何集成腾讯特效，拷贝 `xmagickit module` 到您新建的工程 ugc 目录下，[参考文档](https://cloud.tencent.com/document/product/584/72742)。
+4. 在工程的 `settings.gradle`中导入 ugckit。
+5. 在新建的工程 `UGC/settings.gradle` 下指明引入这几个 module：
 ```
 include ':ugckit'
 include ':beautysettingkit'
+include ':xmagickit'
 ```
 5. 在工程 app module 中依赖 UGCKit module：
 ```
-compile project(':ugckit')
+implementation project(':ugckit')
 ```
 
 [](id:UGCKit_step3)
@@ -369,7 +385,7 @@ compile project(':ugckit')
 
 [](id:initialize)
 #### 1. 设置 Licence，初始化 UGCKit
-在 `Application.java` 中设置 Licence，初始化 UGCKit。
+在您使用短视频功能之前尽可能早的设置 Licence，初始化 UGCKit。
 
 ```
 // 设置Licence
@@ -590,9 +606,8 @@ protected void onResume() {
 [](id:que2_1)
 
 ### 是否支持 AndroidX？
- 因为服务客户较多，且大部分客户的工程中目前仍在使用 support 包，基于此，目前 UGCKit 暂时还是基于 support 包。但是考虑到客户对 Androidx 的需求，现提供 UGCKit 迁移 Androidx 方案文档。
+UGCKit 最新版本已经使用了AndroidX，如果您使用的还是基于Support包的UGCKit，可以更新到最新版本，也可以按照以下步骤切换到AndroidX：为了方便说明，以腾讯云 UGSVSDK 为例，此 Demo 中同样使用了 UGCKit 模块。
 
-为了方便说明，以腾讯云 UGSVSDK 为例，此 Demo 中同样使用了 UGCKit 模块。
 1. **前提准备：**
 	- 将Android Studio更新至 Android Studio 3.2及以上。
 	- Gradle 插件版本改为 4.6及以上。
@@ -602,9 +617,9 @@ protected void onResume() {
 	<img src="https://main.qcloudimg.com/raw/9a31ee56da63f6ca397a8ec2aae6564d.png" width="700">
 2. **开启迁移：**
 	1. 使用 Android Studio 导入项目后，从菜单栏中依次选择 **Refactor > Migrate to AndroidX**。
-<img src="https://main.qcloudimg.com/raw/2df246f4fcbb616aca744c8ad65877ff.png" width="700">
+	<img src="https://main.qcloudimg.com/raw/2df246f4fcbb616aca744c8ad65877ff.png" width="700">
 	2. 单击 **Migrate**，即可将现 有项目迁移到 AndroidX。
-<img src="https://main.qcloudimg.com/raw/aefcbe1331037db4e0bea585c090cf1c.png" width="700">
+	<img src="https://main.qcloudimg.com/raw/aefcbe1331037db4e0bea585c090cf1c.png" width="700">
 
 [](id:que2_2)
 ### UGCKit 编译版本错误？
