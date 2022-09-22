@@ -119,24 +119,17 @@ SDK 支持 iOS 8.0 以上系统。
 ```
 pod 'UGCKit', :path => 'UGCKit/UGCKit.podspec', :subspecs => ["UGC"]   #subspecs 根据SDK来选择
 ```
-
-
 3. 如果集成基础美颜，把**BeautySettingKit**文件夹拷贝到项目根目录下（Podfile 同级目录），并且在Podfile文件中，增加：
-
 ```
 pod 'BeautySettingKit', :path => 'BeautySettingKit/BeautySettingKit.podspec'
 ```
-
 4. 如果集成腾讯特效，把**xmagickit**文件夹拷贝到项目根目录下（Podfile 同级目录），并且在Podfile文件中增加：
-
 ```
 pod 'xmagickit', :path => 'xmagickit/xmagickit.podspec'
 ```
-
 5. 执行 **pod install**，并打开 `项目名.xcworkspace`，可以看到在 `Pods/Development Pods` 目录下已有 `UGCKit BeautySettingKit x magickit`。
 
 [](id:UGCKit_step2)
-
 ### 步骤2：使用 UGCKit
 1. **录制**
 `UGCKitRecordViewController`提供了完整的录制功能，您只需实例化这个控制器后展现在界面中即可。
