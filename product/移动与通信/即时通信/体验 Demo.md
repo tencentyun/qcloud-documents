@@ -163,7 +163,7 @@
                 <p class="titlename" style="margin-top: 16px"><input type="button" value="Windows" style="height: 30px;width: 100px;min-width: 24px;background-color: grey;
     color: #fff;border: 1px solid grey;line-height: 30px;text-align: center;display: inline-block;cursor: not-allowed;outline: 0 none;
     box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;border-radius: 15px;" /><br><br><input type="button" value="Mac OS" style="height: 30px;width: 100px;margin-top: -10px;min-width: 24px;background-color: grey;color: #fff; line-height: 30px;text-align: center;display: inline-block;cursor: not-allowed; border: 1px solid grey; outline: 0 none;box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;border-radius: 15px;" /></p>
-                                <p style="margin-top: 20px">即将上线，尽请期待！</p>
+                                <p style="margin-top: 20px">即将上线，敬请期待！</p>
             </div>
 </div>
 
