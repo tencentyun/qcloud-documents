@@ -3,7 +3,7 @@
 本文为您介绍如何从零开始，以最简单的方式搭建一个 Windows 云服务器。您可按照以下文档，购买和配置您的第一台云服务器。若想了解搭建 Linux 云服务器的入门教程，可以参考 [快速配置 Linux 云服务器](https://cloud.tencent.com/document/product/1003/79661)。
 
 ## 前提条件
-已注册腾讯云账号，详细方法请参见 [注册腾讯云账号](https://cloud.tencent.com/document/product/378/17985)。
+已注册腾讯云账号，详细方法请参见 [注册腾讯云账号](https://cloud.tencent.com/document/product/1003/79164)。
 
 ## 配置 Windows 云服务器
 >!为确保成功连接到 TDSQL-C MySQL 版，建议购买的云服务器 CVM 与 TDSQL-C MySQL 版满足以下几点：
