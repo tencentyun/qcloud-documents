@@ -13,13 +13,12 @@
 ### step3. 准备调试环境
 #### iOS 平台
 - XCode 9 或更高版本
-- OS X 10.10 或更高版本
+- iOS12 或更高版本
 
 #### Android 平台
-- Android NDK：android-ndk-r12b
 - Android SDK Tools：android-sdk_26.0.2
-  - minSdkVersion：15
-  - targetSdkVersion：21
+  - minSdkVersion：21
+  - targetSdkVersion：26
 
 ### step4. 编译运行
 单击 XCode 或 Android Studio 的 Build 按钮，即可完成编译和运行工作，源码中默认配置了腾讯云提供的测试服务器地址 `http://demo.vod2.myqcloud.com/lite/`，以便您快速在调试环境中运行我们的 App。
