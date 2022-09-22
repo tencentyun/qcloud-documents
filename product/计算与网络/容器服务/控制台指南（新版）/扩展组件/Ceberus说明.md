@@ -60,10 +60,11 @@ Ceberus 组件支持对签名镜像进行可信验证，确保在 TKE 集群中�
 ![](https://qcloudimg.tencent-cloud.cn/raw/c15e50d4e2239aa394ee6d7e2fd0a55d.png)
 5. 单击**完成**创建工作负载部署。若签名验证通过，则 Pod 将正常部署；若签名验证不通过，则 Pod 部署将被阻断，相关 event 信息展示如下图所示：
 	- 若拉取镜像所在 TCR 仓库实例下未开启镜像签名特性，则报错如下：
-	![](https://qcloudimg.tencent-cloud.cn/raw/3129fa03b63b7486b2bb223b3eb627eb.png)
+	![](https://qcloudimg.tencent-cloud.cn/raw/c28630dd9e6cd578d1fc850537e151d0.png)
+	- 若拉取镜像没有签名信息，则报错如下：
+	![](https://qcloudimg.tencent-cloud.cn/raw/fd1b8bb3e49a4aebc757e9317bff13c6.png)
 	- 若拉取镜像的签名信息验证不通过，则报错如下：
-	![](https://qcloudimg.tencent-cloud.cn/raw/8cf6c46cb2e850db4aaedd7861e8626c.png)
+	![](https://qcloudimg.tencent-cloud.cn/raw/94d4cf0013d981e8139153afb1ab75a6.png)
 >? 镜像签名验证目前只支持使用 digest 格式的镜像，否则会验证不通过。
 >
-
 
