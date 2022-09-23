@@ -50,7 +50,7 @@
         }
 </style>
 <div style="background: #f5f7fa">
-<h3 style="padding: 10px; padding-left: 20px; font-size:20px; padding-bottom: 10px; background-color: #edf1f5"> 终端原生开发 Demo </h3>
+<h3 style="padding: 10px; padding-left: 20px; font-size:20px; padding-bottom: 10px; background-color: #edf1f5"> 各端原生开发 Demo </h3>
 <div style="position: relative; box-sizing: border-box;  padding-bottom: 10px; margin-bottom: 10px; overflow:hidden;display: flex">
         <div class="card-container">
             <div class="card">
