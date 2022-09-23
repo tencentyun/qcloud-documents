@@ -19,9 +19,9 @@ CDN API 2.0下线通知：基于 API 2.0 接口访问时延较高和使用复杂
 | [AddCdnOvHost](https://cloud.tencent.com/document/api/228/9814)      | [AddCdnDomain](https://cloud.tencent.com/document/product/228/41123)    |
 | AddYYCdnHost                  | [AddCdnDomain](https://cloud.tencent.com/document/product/228/41123)                                           |
 | [CdnOverseaPushser](https://cloud.tencent.com/document/api/228/7359)      | [PushUrlsCache](https://cloud.tencent.com/document/product/228/37869) |
-| CdnPusher                           | [PushUrlsCache](https://cloud.tencent.com/document/product/228/37870)、[PushUrlsCache](https://cloud.tencent.com/document/product/228/37869)|
-| [CdnPusherV2 ](https://cloud.tencent.com/document/product/228/15164)  | [PushUrlsCache](https://cloud.tencent.com/document/product/228/37871)、[PushUrlsCache](https://cloud.tencent.com/document/product/228/37869)|
-| [CdnUrlPusher ](https://cloud.tencent.com/document/product/228/12839)  | [PushUrlsCache](https://cloud.tencent.com/document/product/228/37872)、[PushUrlsCache](https://cloud.tencent.com/document/product/228/37869)|
+| CdnPusher                           | [PushUrlsCache](https://cloud.tencent.com/document/product/228/37870),[PushUrlsCache](https://cloud.tencent.com/document/product/228/37869)|
+| [CdnPusherV2 ](https://cloud.tencent.com/document/product/228/15164)  | [PushUrlsCache](https://cloud.tencent.com/document/product/228/37871),[PushUrlsCache](https://cloud.tencent.com/document/product/228/37869)|
+| [CdnUrlPusher ](https://cloud.tencent.com/document/product/228/12839)  | [PushUrlsCache](https://cloud.tencent.com/document/product/228/37872),[PushUrlsCache](https://cloud.tencent.com/document/product/228/37869)|
 | [CheckOvHost](https://cloud.tencent.com/document/api/228/10948)     | CheckDomain                                                  | 
 | [DeleteCdnHost  ](https://cloud.tencent.com/document/product/228/1396)  | [DeleteCdnDomain](https://cloud.tencent.com/document/product/228/41122)                                                       |
 | [DeleteCdnOvHost](https://cloud.tencent.com/document/api/228/10946)     | [DeleteCdnDomain](https://cloud.tencent.com/document/product/228/41122)                                                      |
