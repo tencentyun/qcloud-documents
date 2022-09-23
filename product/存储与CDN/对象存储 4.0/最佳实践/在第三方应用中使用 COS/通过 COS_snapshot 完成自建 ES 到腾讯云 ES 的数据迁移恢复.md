@@ -1,3 +1,4 @@
+
 ## 简介
 
 腾讯云 Elasticsearch Service（ES）是基于开源搜索引擎 Elasticsearch 打造的高可用、可伸缩的云端全托管的 Elasticsearch 服务，包含 Kibana 及常用插件，并集成了安全、SQL、机器学习、告警、监控等高级特性（X-Pack）。使用腾讯云 ES，您可以快速部署、轻松管理、按需扩展您的集群，简化复杂运维操作，快速构建日志分析、异常监控、网站搜索、企业搜索、BI 分析等各类业务。 
@@ -6,14 +7,13 @@
 
 通过腾讯云 ES，您可以快速构建海量数据存储搜索、实时日志分析等应用，例如网站搜索导航、企业级搜索、服务日志异常监控、点击流分析等。
 
-ES 与对象存储（Cloud Object Storage，COS）之间的使用场景主要体现在数据迁移、数据恢复备份这几个方面。其原理就是通过 COS 将源 ES 数据中间存储，然后再将存储的数据进行目标 ES 集群异步恢复的过程。
+ES 与 COS 之间的使用场景主要体现在数据迁移、数据恢复备份这几个方面。其原理就是通过 COS 将源 ES 数据中间存储，然后再将存储的数据进行目标 ES 集群异步恢复的过程。
 
 ## 准备工作
 
 创建一个**公有读私有写**的存储桶，创建详情请参见 [创建存储桶](https://cloud.tencent.com/document/product/436/13309) 文档。
 
->! COS bucket 的地域一定要与 ES 在同一地域。
->
+>!COS bucket 的地域一定要与 ES 在同一地域。
 
 ## 安装 COS 插件
 
@@ -34,16 +34,13 @@ ES 与对象存储（Cloud Object Storage，COS）之间的使用场景主要体
 1. 获取对应 ES 版本的插件。
 2. 授权 ES 启动账号 elastic 对该插件文件的所有权限。
 ![](https://qcloudimg.tencent-cloud.cn/raw/ac4d492b482dc76cf851b770e111c22f.png)
-3. 切换到普通用户下，执行如下命令，安装插件，重启 ES 服务。
->! 集群每个节点都要进行此操作。
->
+3. 切换到普通用户下，安装插件，重启 ES 服务。注意：集群每个节点都要操作。执行命令如下：
 ```
 bin/elasticsearch-plugin install file:///path/repository-cos.zip
 ```
 如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/53a223c9d494fed3f7708c2f4adad419.png)
-4. 执行完成后，可以在 kibana 上通过 `get _cat/plugins` 确认是否安装完成。
-得到如下结果，则表示安装成功。
+4. 执行完成后，可以在 kibana 上通过 `get _cat/plugins` 确认是否安装完成，得到如下结果则表示安装成功。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d94b098c6e90f83cc8eb98009eeab5e1.png)
 
 ## 使用 COS 实现自建 ES 与腾讯云 ES 的数据迁移
@@ -65,36 +62,19 @@ PUT _snapshot/my_cos_backup
     }
 }
 ```
+
 执行这条指令会在 COS 对应的 bucket 中的 base_path 目录下创建一个名为 my_cos_backup 的仓库。
+
 参数说明如下：
-<table>
-<thead>
-<tr>
-<th>参数名</th>
-<th>参数说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>access_key_id，access_key_secret</td>
-<td>访问密钥信息，可前往 <a href="https://console.cloud.tencent.com/capi">云 API 密钥</a> 中创建和获取。</td>
-</tr>
-<tr>
-<td>bucket</td>
-<td>存储桶名称，注意不要带 appid。</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>APPID 是在成功申请腾讯云账户后，系统分配的账户标识之一，可通过 <a href="https://console.cloud.tencent.com/developer">腾讯云控制台</a> <strong>账号信息</strong>中查看。</td>
-</tr>
-<tr>
-<td>region</td>
-<td>桶所在的地域，COS 地域的简称请参照 <a href="https://www.qcloud.com/document/product/436/6224">地域和访问域名</a>。</td>
-</tr>
-<tr>
-<td>base_path</td>
-<td>备份目录，形如/dir1/dir2/dir3，需要写最开头的<code>/</code>，目录最后不需要<code>/</code>。</td>
-</tr>
-</tbody></table>
+
+| 参数名                           | 参数说明                                                     |
+| -------------------------------- | ------------------------------------------------------------ |
+| access_key_id，access_key_secret | 访问密钥信息，可前往 [云 API 密钥](https://console.cloud.tencent.com/capi) 中创建和获取。 |
+| bucket                           | 存储桶名称，注意不要带 appid。                                        |
+| app_id                           | APPID 是在成功申请腾讯云账户后，系统分配的账户标识之一，可通过 [腾讯云控制台](https://console.cloud.tencent.com/developer) 【账号信息】中查看。 |
+| region                           | 桶所在的地域，COS 地域的简称请参照 [地域和访问域名](https://www.qcloud.com/document/product/436/6224)。 |
+| base_path                        | 备份目录，形如/dir1/dir2/dir3，需要写最开头的`/`，目录最后不需要`/`。 |
+
 2. 在本地仓库创建快照文件，快照文件会自动上传至 COS 的指定仓库中去，可以使用 `put _snapshot/仓库名/快照名` 的方式执行快照。
 3. 在腾讯云 ES 上同样注册一个仓库，仓库名可以不一样。
 ```
@@ -117,7 +97,7 @@ PUT _snapshot/my_cos_backup
 ```
 POST _snapshot/仓库名/快照名/_restore
 ```
->! 这里恢复的快照名是您之前在源集群创建的快照名。
+>!这里恢复的快照名是您之前在源集群创建的快照名。
 >
 
 

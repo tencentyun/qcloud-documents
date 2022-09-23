@@ -33,23 +33,23 @@ try {
     // 2. 文档转HTML https://cloud.tencent.com/document/product/460/52518
     $bucket = 'examplebucket-1250000000';
     $key = 'exampleobject';
-    $url = $cosClient->getObjectUrl($bucket, $key, "+30 minutes", array(
-        'Params' => array(
-            'ci-process' => 'doc-preview',
-//            'srcType' => '',
-            'dstType' => 'html',
-//            'sign' => '',
-//            'copyable' => '',
-//            'htmlParams' => '',
-//            'htmlwaterword' => '',
-//            'htmlfillstyle' => '',
-//            'htmlfront' => '',
-//            'htmlrotate' => '',
-//            'htmlhorizontal' => '',
-//            'htmlvertical' => '',
-        ), // Params中可以传自定义querystring
-    ));
-    echo $url; // 生成的可访问链接
+    $url = $cosClient->getObjectUrl($bucket, $key, "+30 minutes");
+    $params = array(
+        'ci-process' => 'doc-preview',
+//        'srcType' => '',
+        'dstType' => 'html',
+//        'sign' => '',
+//        'copyable' => '',
+//        'htmlParams' => '',
+//        'htmlwaterword' => '',
+//        'htmlfillstyle' => '',
+//        'htmlfront' => '',
+//        'htmlrotate' => '',
+//        'htmlhorizontal' => '',
+//        'htmlvertical' => '',
+    );
+    $query = http_build_query($params);
+    echo $url . $query; // 生成的可访问链接
 } catch (\Exception $e) {
     // 请求失败
     echo($e);
