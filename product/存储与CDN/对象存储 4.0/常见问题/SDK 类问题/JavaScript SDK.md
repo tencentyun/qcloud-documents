@@ -1,7 +1,7 @@
-### 跨域报错
-上传时报错cors error，原因是存储桶没有设置好跨域访问，请[参考文档](https://cloud.tencent.com/document/product/436/11488)进行跨域设置
-报错如图：
+### 上传时报错 cors error，该如何处理？
+报错如下图：
 ![](https://qcloudimg.tencent-cloud.cn/raw/47bdd8a90f724d577a60f7b8dcb894e4.png)
+原因是存储桶的跨域访问没有正确设置，请 [参考文档](https://cloud.tencent.com/document/product/436/11488) 进行跨域设置。
 
 ### 使用临时密钥操作时报错403，该如何处理？
 
