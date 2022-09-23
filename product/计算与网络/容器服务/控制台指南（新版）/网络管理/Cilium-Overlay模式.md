@@ -16,6 +16,8 @@ Cilium-Overlay 网络模式是容器服务 TKE 基于 Cilium VXLan 实现的容�
 - 使用 Cilium VXLan 隧道封装协议，有10%以内的性能损耗。
 - Pod IP 在集群外不能直接访问。
 - 需从指定子网获取 2 个 IP 创建内网负载均衡，满足 IDC 中第三方节点访问 APIServer 和云上公共服务。
+- 集群网络和容器网络网段不能重叠。
+- 不支持固定 Pod IP。
 
 
 ## 容器 IP 分配机制

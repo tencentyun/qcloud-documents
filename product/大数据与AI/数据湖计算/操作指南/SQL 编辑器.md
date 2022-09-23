@@ -55,37 +55,37 @@ SQL 编辑器支持多个 Session 进行数据查询，每个 Session 内的配�
 <td rowspan="5">SparkSQL</td>
 <td>spark.sql.files.maxRecordsPerFile</td>
 <td>0</td>
-<td >写入单个文件的最大记录数<br>如果该值为零或为负，则没有限制</td>
+<td >写入单个文件的最大记录数。<br>如果该值为零或为负，则没有限制。</td>
 </tr><tr>
 <td>spark.sql.autoBroadcastJoinThreshold</td>
 <td>10MB</td>
-<td >配置执行连接时显示所有工作节点的表的最大字节大小<br>通过将此值设置为“-1”，可以禁用显示</td>
+<td >配置执行连接时显示所有工作节点的表的最大字节大小。<br>通过将此值设置为“-1”，可以禁用显示。</td>
 </tr><tr>
 <td>spark.sql.shuffle.partitions</td>
 <td>200</td>
-<td >默认分区数</td>
+<td >默认分区数。</td>
 </tr><tr>
-<td>spark.sql.sources.partitionOverwriteMode</td>
-<td>false</td>
-<td >该值为 false 时，在执行覆盖写操作之前，会删除所有符合条件的分区<br>举例说明：分区表中有一个“2022-01”的分区，当使用 INSERT OVERWRITE 语句向表中写入“2022-02”这个分区的数据时，会把“2021-01”的分区数据也覆盖掉<br>当该值为 true 时，不会提前删除分区，而是在运行时覆盖那些有数据写入的分区</td>
+<td>spark.sql.dynamicPartitionOverwrite.enabled</td>
+<td>static</td>
+<td >该值为 static 时，在执行覆盖写操作之前，会删除所有符合条件的分区。<br>举例说明：分区表中有一个“2022-01”的分区，当使用 INSERT OVERWRITE 语句向表中写入“2022-02”这个分区的数据时，会把“2021-01”的分区数据也覆盖掉。<br>当该值为 dynamic 时，不会提前删除分区，而是在运行时覆盖那些有数据写入的分区。</td>
 </tr><tr>
 <td>spark.sql.files.maxPartitionBytes</td>
 <td>128MB</td>
-<td >读取文件时要打包到单个分区中的最大字节数</td>
+<td >读取文件时要打包到单个分区中的最大字节数。</td>
 </tr>
 <tr>
 <td rowspan="3">Presto</td>
 <td>use_mark_distinct</td>
 <td>true</td>
-<td >决定引擎在执行 distinct 函数时是否进行数据重分布<br>如果查询中多次调用 distinct 函数，推荐将改参数设置为 false</td>
+<td >决定引擎在执行 distinct 函数时是否进行数据重分布<br>如果查询中多次调用 distinct 函数，推荐将改参数设置为 false。</td>
 </tr><tr>
 <td>USEHIVEFUNCTION</td>
 <td>true</td>
-<td >执行查询时是否使用 Hive 函数；如需使用 presto 原生函数，请将参数设置为 false</td>
+<td >执行查询时是否使用 Hive 函数；如需使用 presto 原生函数，请将参数设置为 false。</td>
 </tr><tr>
 <td>query_max_execution_time</td>
 <td>-</td>
-<td >用于设置查询超时，在查询执行的时间超过设置的时间后，查询会被终止<br>单位支持 d-天,h-小时,m-分钟,s-秒,ms-毫秒（举例：1d 代表1天，3m 代表3分钟）</td>
+<td >用于设置查询超时，在查询执行的时间超过设置的时间后，查询会被终止。<br>单位支持 d-天,h-小时,m-分钟,s-秒,ms-毫秒（举例：1d 代表1天，3m 代表3分钟）。</td>
 </tr>
 </tbody>
 </table>

@@ -29,7 +29,7 @@
 **接口请求方法**：GET
 **接口请求域名**：
 ```Plaintext
-https://meeting.tencent.com/authorize.html?corp_id={corpId}&sdk_id={sdkId}&redirect_uri={redirect_uri}&state={state}
+https://meeting.tencent.com/marketplace/authorize.html?corp_id={corpId}&sdk_id={sdkId}&redirect_uri={redirect_uri}&state={state}
 ```
 **Header 参数：**不需要。
 

@@ -355,5 +355,5 @@ curl -XDELETE 'http://10.0.0.2:9200/china/_doc?pretty' -H 'Content-Type: applica
 
 ### 删除索引
 ```
-curl -XDELETE 'http://10.0.0.2:9200/china?pretty' -H 'Content-Type: application
+curl -XDELETE 'http://10.0.0.2:9200/china?pretty' -H 'Content-Type: application'
 ```

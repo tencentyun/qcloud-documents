@@ -1,4 +1,67 @@
-## 2.7.4 @ 2022.07.04
+### 2.7.8 @ 2022.09.20
+* 链接地址：https://res.qcloudtiw.com/board/2.7.8/TEduBoard.min.js
+
+- 新增接口
+  1. 开启多点触控 enableMultiTouch
+  2. 设置元修改信令同步频率，该值的允许范围为[5, 20] setSyncFps
+
+- 更新接口
+  1. updateElementById 更新元素新增位置偏移类型 TEduElementOperatorType.CHANGE_POSITION
+  2. setToolType 接口增加类型：坐标系TEDU_BOARD_TOOL_TYPE_COORDINATE
+
+- Bug及优化处理
+  1. 优化圆规操作
+  2. 图形拟合优化
+  3. 其他已知问题优化
+
+### 2.7.7 @ 2022.08.31
+* 链接地址：https://res.qcloudtiw.com/board/2.7.7/TEduBoard.min.js
+
+- 新增接口
+  1. 获取元素信息 getElementById
+  2. 设置元素样式 updateElementById
+  3. 设置荧光笔颜色，画笔颜色用于所有荧光笔绘制 setHighlighterColor
+  4. 获取荧光笔颜色 getHighlighterColor
+  5. 开启绘制涂鸦过程中自动拟合图形 enablePenAutoFit
+  6. 设置图形样式 setGraphStyle
+  7. 获取图形样式 getGraphStyle
+
+- 废弃接口：
+  1. 废弃setLineStyle，请使用setGraphStyle
+  2. 废弃getLineStyle，请使用getGraphStyle
+
+- 新增功能
+  1. 增加数学教具圆规
+  2. 新增几何图形（直角三角形，等腰三角形，平行四边形，立方体，圆柱体，圆锥）
+  3. 其他功能
+
+- Bug及优化处理
+  1. PPT翻页优化
+  2. 其他已知问题优化
+
+### 2.7.6 @ 2022.08.16
+* 链接地址：https://res.qcloudtiw.com/board/2.7.6/TEduBoard.min.js
+
+- 新增功能
+  1. 新增数学教具功能，支持直尺，三角形，量角器;
+  2. 新增获取 ppt 备注功能;
+
+- Bug 修复
+  1. 其他已知问题修复。
+
+### 2.7.5 @ 2022.08.01
+* 链接地址：https://res.qcloudtiw.com/board/2.7.5/TEduBoard.min.js
+
+- 新增功能
+  1. PPT 老版本转码，支持 mp3,mp4 播放同步;
+  2. PPT 新版本转码，支持 mp3,mp4 播放同步;
+  3. 错误和警告事件增加上报;
+
+- Bug及优化处理
+  1. 修复获取资源的时候 Host 缺少协议的问题
+  2. 其他已知问题修复。
+
+### 2.7.4 @ 2022.07.04
 * 链接地址：https://res.qcloudtiw.com/board/2.7.4/TEduBoard.min.js
 
 - 新增功能

@@ -5,7 +5,7 @@
 
 ## 前提条件
 - 已开通腾讯云直播服务，并添加 [播放域名](https://cloud.tencent.com/document/product/267/20381)。
-- 已在 [华曦达 SDMC DRM 服务](https://www.xmediacloud.com/contact-us/) 创建服务账号并设置访问密钥。
+- 已在 [华曦达 SDMC DRM 服务](https://console.multidrm.tv/setting/drm/index) 创建服务账号并设置访问密钥。
 
 ## 控制台配置
 [](id:step1)
@@ -45,6 +45,6 @@
 使用直播 DRM 加密功能对播放器有一定要求：
 - 播放器需要与 [华曦达（SDMC）](https://www.xmediacloud.com/contact-us/) 做对接，实现通过视频信息获取 License 并解密的能力。
 - iOS 平台支持 Fairplay ，Android 平台支持 WideVine 及 NomalAES。
-- iOS 平台需要申请证书并上传至 [华曦达（SDMC）平台](https://www.xmediacloud.com/contact-us/)。
+- iOS 平台需要申请证书并上传至 [华曦达（SDMC）平台](https://console.multidrm.tv/licenses/drm/index)。
 
->? 在您对接 DRM 或者华曦达的过程中的任何问题，都可以提工单 [联系我们](https://console.cloud.tencent.com/workorder/category)，我们全程负责帮您解决。
+>? 在华曦达（SDMC）平台操作，需要先进行注册并获取账号，注册方式可以参考 [获取用户密钥](https://cloud.tencent.com/document/product/267/75689)的操作指引。在您对接 DRM 或者华曦达的过程中的任何问题，都可以提工单 [联系我们](https://console.cloud.tencent.com/workorder/category)，我们全程负责帮您解决。

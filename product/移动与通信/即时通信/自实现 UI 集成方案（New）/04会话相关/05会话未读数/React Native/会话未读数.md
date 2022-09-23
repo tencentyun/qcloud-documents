@@ -1,4 +1,4 @@
-# 功能描述
+## 功能描述
 
 用户的会话列表中一般会有若干个会话，如果某个会话收到了新消息，通常需要在列表的 cell 中以小红点或者数字角标的方式，向用户展示该会话的未读消息数，提醒用户尚未阅读。
 用户点击进入该会话后退回到会话列表，未读消息数被清空，小红点消失。
@@ -74,17 +74,17 @@ TencentImSDKPlugin.v2TIMManager
 示例代码如下：
 
 ```javascript
-// 自己
+// 发送端
 conversationManager.addConversationListener({
   onConversationChanged: (conversationList) => {
     // 变更后的最新会话
   },
 });
 
-// 对端
+// 接收端
 TencentImSDKPlugin.v2TIMManager.getMessageManager().addAdvancedMsgListener({
   onRecvC2CReadReceipt: (receiptList) => {
-    // 消息被对方已读
+    // 消息被对端已读
   },
 });
 ```

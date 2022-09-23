@@ -1,5 +1,8 @@
-支持对数据表进行统计。
-### 语法
+## 说明
+- 支持内核：Presto、SparkSQL。
+- 用途：支持对数据库表进行统计。
+
+## 语法
 ```
 ANALYZE TABLES [ { FROM | IN } database_name ] COMPUTE STATISTICS [ NOSCAN ]
 
@@ -8,13 +11,14 @@ ANALYZE TABLE table_identifier
 COMPUTE STATISTICS [ NOSCAN | FOR COLUMNS col [ , ... ] | FOR ALL COLUMNS ]
 ```
 
-### 参数
+## 参数
 - `database_name`：需要计算统计信息的表所在的数据库。
 - `table_identifier`：需要计算统计信息的表名。
 - `partition_col_name`：需要计算统计信息的分区列名。
 - `partition_col_value`：需要计算统计信息的分区列的值。
 
-### 示例
+
+## 示例
 ```
 ANALYZE TABLE students COMPUTE STATISTICS
 ANALYZE TABLE students COMPUTE STATISTICS FOR COLUMNS name

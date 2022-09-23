@@ -13,7 +13,7 @@
 - 本文操作步骤以 Ubuntu 20.04 操作系统的 GPU 云服务器为例。
 - 您的 GPU 云服务器实例需已安装 GPU 驱动。
 <dx-alert infotype="explain" title="">
-建议使用公共镜像创建 GPU 云服务器。若选择公共镜像，则勾选“后台自动安装GPU驱动”即可预装相应版本驱动。该方式仅支持部分 Linux 公共镜像，详情请参见 [GPU 驱动预装信息](https://cloud.tencent.com/document/product/560/30211#PreloadGPUDrive)。
+建议使用公共镜像创建 GPU 云服务器。若选择公共镜像，则勾选“后台自动安装GPU驱动”即可预装相应版本驱动。该方式仅支持部分 Linux 公共镜像，详情请参见 [各实例支持的 GPU 驱动版本及安装方式](https://cloud.tencent.com/document/product/560/76423#supportList)。
 </dx-alert>
 
 
@@ -141,7 +141,7 @@ sudo docker run --rm --gpus all nvidia/cuda:11.0.3-base-ubuntu20.04 nvidia-smi
 </thead>
 <tbody><tr>
 <td align="left"><code>tag</code> <code>-gpu</code></td>
-<td align="left">支持 GPU 的指定标记版本，详情请参见 <a href="https://www.tensorflow.org/install/docker#gpu_support">GPU 支持</a>。</td>
+<td align="left">支持 GPU 的指定标记版本。</td>
 </tr>
 <tr>
 <td align="left"><code>tag</code> <code>-jupyter</code></td>
@@ -162,7 +162,7 @@ docker pull tensorflow/tensorflow:latest-gpu-jupyter  # latest release w/ GPU su
 ```shellsession
 docker run [-it] [--rm] [-p hostPort:containerPort] tensorflow/tensorflow[:tag] [command]
 ```
-至此 TensorFlow 已安装完毕，您可参考 [TensorFlow 教程](https://www.tensorflow.org/tutorials) 开始使用。
+
 
 ## 示例
 ### 使用仅支持 CPU 的镜像的示例

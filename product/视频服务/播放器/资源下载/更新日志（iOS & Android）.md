@@ -4,6 +4,31 @@
 
 
 ## 播放器 SDK
+
+### 播放器 SDK 10.7 @ 2022.09.20
+
+**功能优化:**
+
+- Android&iOS：点播播放 startPlay 接口变更为 startVodPlay
+- Android&iOS： 直播播放 startPlay 接口变更为 startLivePlay
+- iOS：修复长时间退到后台，返回播放器，无法继续播放的问题
+- Android： 修复低版本 Android 系统部分视频播放失败问题
+
+### 播放器 SDK 10.6 @ 2022.08.31
+
+**功能优化:** 
+
+- Android&iOS：fileid 播放方式新增雪碧图、URL 等信息回调
+- Android&iOS：包体大小优化
+
+**缺陷修复:** 
+
+-  iOS：修复部分场景下私有加密视频离线下载播放失败问题
+
+### 播放器 SDK 10.5 @ 2022.08.12
+**缺陷修复**: 
+- Android&iOS：修复播放失败不带视频格式后缀短链异常
+
 ### 播放器 SDK 10.4.0 @ 2022.07.21
 
 **功能优化:** 
@@ -106,10 +131,10 @@ Android：修复点播播放器断网后的回调事件逻辑错误的问题。
 - Android&iOS：修复 VodPlayer 播放特定视频 seek 慢的问题。
 - Android&iOS：修复点播暂停播放后，调 seek 设置进度，画面显示慢的问题。
 
-## 超级播放器 Adapter
-### 超级播放器 Adapter 1.2.0 @ 2022.03.10
+## 播放器 Adapter
+### 播放器 Adapter 1.2.0 @ 2022.03.10
 Android&iOS：支持通过 FileId 播放自适应码流、转码和原始视频。
 
-### 超级播放器 Adapter 发布 @ 2021.07.22
-首次发布 iOS & Android 超级播放器 Adapter。
+### 播放器 Adapter 发布 @ 2021.07.22
+首次发布 iOS & Android 播放器组件 Adapter。
 

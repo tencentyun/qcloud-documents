@@ -6,7 +6,7 @@
 ## 工具及版本说明
 
 - 迁移工具：[Siphon](https://github.com/imneov/ssdb-port)，适用于所有 SSDB 内核版本。
-- 若 SSDB 涉及大 Key 或者过亿级别的 Key，请使用已改造过的版本 [Siphon-V2](https://tendis-public-1258272208.cos.ap-guangzhou.myqcloud.com/siphon_v2?_ga=1.232745567.178482833.1609230100)，提升数据同步效率。
+- 若 SSDB 涉及大 Key 或者过亿级别的 Key，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请已改造过的版本 Siphon-V2，提升数据同步效率。
 
 > ?改造后的工具解决了原生版本存在同步效率低下问题，尤其是大 Key 同步，像 hash 数据和 zset 这类数据，大概提升12倍的同步效率。
 

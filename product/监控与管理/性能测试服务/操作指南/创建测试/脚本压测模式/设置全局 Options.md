@@ -1,7 +1,7 @@
 用户通过全局 Options 可控制压测引擎默认行为。
 >?Options 可配置选项文档请参见 [Global Options](https://cloud.tencent.com/document/product/1484/75812)。
 
-### 设置 http 默认参数
+### 设置 HTTP 默认参数
 
 ```
 import http from 'pts/http';

@@ -1,4 +1,3 @@
-
 Oracle 兼容语法说明针对的是 TDSQL PostgreSQL版（Oracle 兼容版）。
 
 ## Oracle GUC 参数配置

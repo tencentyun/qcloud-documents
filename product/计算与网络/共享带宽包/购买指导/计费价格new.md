@@ -18,6 +18,38 @@
 </table>
 
 ## [常规 BGP 带宽包](id:bgp)
+>? 目前仅标准账户类型支持预付费带宽包，传统账户类型需升级后才能使用，升级详情请参见  [账户类型升级说明](https://cloud.tencent.com/document/product/1199/49090#judge)。
+### 预付费带宽包
+<table>
+<thead>
+<tr>
+<th align="left">地域</th>
+<th align="left" width="35%">单价（元/Mbps/月）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">中国大陆
+</td>
+<td align="left">80</td>
+</tr>
+<tr>
+<td align="left">东京、新加坡、曼谷、雅加达、孟买、法兰克福
+</td>
+<td align="left">80</td>
+</tr>
+<tr>
+<td align="left">硅谷、弗吉尼亚
+</td>
+<td align="left">90</td>
+</tr>
+<tr>
+<td align="left">中国香港、中国台北、首尔、莫斯科、圣保罗、多伦多
+</td>
+<td align="left">100</td>
+</tr>
+</tbody></table>
+
+### 后付费带宽包
 <table>
 <thead>
 <tr>
@@ -76,18 +108,45 @@
 ## [Anycast 加速 BGP 带宽包](id:anycast)
 >?计费详情请参见 [Anycast 公网加速购买指南](https://cloud.tencent.com/document/product/644/12617)。
 <table>
-<thead>
 <tr>
-<th align="left">地域</th>
-<th align="left" width="35%">单价（元/Mbps/月）</th>
+<th align="left"rowspan="2">Anycast EIP 所属地域</th>
+<th align="left" width="35%" colspan="4">加速地域（单价：元/Mbps/月）</th>
 </tr>
-</thead>
-<tbody><tr>
-<td align="left">中国香港、新加坡、曼谷、孟买、首尔、东京、硅谷、法兰克福、莫斯科
-</td>
+<tr>
+<td align="left">亚太</td>
+<td align="left">欧洲</td>
+<td align="left">北美</td>
+<td align="left">南美</td>
+</tr>
+<tr>
+<td align="left">亚太（中国香港、新加坡、曼谷、孟买、首尔、东京）</td>
 <td align="left">108</td>
+<td align="left">108</td>
+<td align="left">108</td>
+<td align="left">288</td>
 </tr>
-</tbody></table>
+<tr>
+<td align="left">欧洲（法兰克福、莫斯科）</td>
+<td align="left">108</td>
+<td align="left">108</td>
+<td align="left">108</td>
+<td align="left">168</td>
+</tr>
+<tr>
+<td align="left">北美（硅谷）</td>
+<td align="left">108</td>
+<td align="left">108</td>
+<td align="left">108</td>
+<td align="left">168</td>
+</tr>
+<tr>
+<td align="left">南美（圣保罗）</td>
+<td align="left">288</td>
+<td align="left">168</td>
+<td align="left">168</td>
+<td align="left">138</td>
+</tr>
+</table>
 
 ## [移动/联通/电信带宽包](id:singleip)
 >?

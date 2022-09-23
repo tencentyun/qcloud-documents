@@ -27,7 +27,7 @@
 | [弹性伸缩](https://cloud.tencent.com/document/product/377)   | as |资源级   | &#10003; | &#10003;         | &#10003; | -                                                            |
 | [批量计算](https://cloud.tencent.com/document/product/599)   | batch | 资源级   | &#10003; | &#10003;         | -        | [访问管理指南](https://cloud.tencent.com/document/product/599/40011) |
 | [边缘计算机器](https://cloud.tencent.com/document/product/1108) | ecm | 资源级   | &#10003; | &#10003;         | -        | -                                                            |
-| [	轻量应用服务器](https://cloud.tencent.com/document/product/1207) | lighthouse | 资源级   | &#10003; | &#10003;         | -        | -                                                            |
+| [	轻量应用服务器](https://cloud.tencent.com/document/product/1207) | lighthouse | 资源级   | &#10003; |-        | -        | -                                                            |
 | [本地专用集群](https://cloud.tencent.com/document/product/1346) | cdc | 资源级   | &#10003; | &#10003;         | -        | -     |
 | [自动化助手](https://cloud.tencent.com/document/product/1340) | tat |资源级   | &#10003; | -                | -        | [访问管理指南](https://cloud.tencent.com/document/product/1340/56294) |
 
@@ -89,7 +89,7 @@
 
 | 产品     | CAM 中简称 | 授权粒度 | 控制台   | 根据标签进行授权 | 服务角色 | 参考文档                                                     |
 | ------------------------------------- -------- | ------------- | -------- | -------- | ---------------- | -------- | ------------------------------------------------------------ |
-| [全球应用加速](https://cloud.tencent.com/document/product/608) | gaap | 资源级   | &#10003; | &#10003;         | -        | -                                                            |
+| [全球应用加速](https://cloud.tencent.com/document/product/608) | gaap | 资源级   | &#10003; | &#10003;         | &#10003;         | -                                                            |
 | [全站加速网络](https://cloud.tencent.com/document/product/570) | ecdn | 资源级   | &#10003; | &#10003;         | -        | [访问管理指南](https://cloud.tencent.com/document/product/570/42271) |
 | [内容分发网络](https://cloud.tencent.com/document/product/228) <sup>1</sup> | cdn | 资源级   | &#10003; | &#10003;         | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/228/12722) |
 
@@ -115,7 +115,7 @@
 | [TDSQL PostgreSQL 版](https://cloud.tencent.com/document/product/1129) | tbase | 资源级   | &#10003; | &#10003;         | -        | [访问管理指南](https://cloud.tencent.com/document/product/1129/39783) |
 | [数据库管理](https://cloud.tencent.com/document/product/1130/40879) | dmc | 资源级   | &#10003; | -                | -        | [访问管理指南](https://cloud.tencent.com/document/product/1130/45992) |
 | [TDSQL-A PostgreSQL 版](https://cloud.tencent.com/document/product/1378) | tdapg | 资源级   | &#10003; | &#10003;         | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/1378/54476) |
-| [TDSQL-A ClickHouse 版](https://cloud.tencent.com/document/product/1307) | tdach | 资源级   | &#10003; | -                | -        | -                                                            |
+| [TDSQL-H LibraDB](https://cloud.tencent.com/document/product/1488) | tdach | 资源级   | &#10003; | &#10003;             |   -     | [访问管理指南](https://cloud.tencent.com/document/product/1488/78776)                                                           |
 
 
 ## Serverless 
