@@ -11,6 +11,7 @@
 >?
 > - 如何使生成的对象URL在浏览器中打开是预览，而不是下载：在获取的url后拼接参数 response-content-disposition=inline
 > - 如何使生成的对象URL在浏览器中打开是下载，而不是预览：在获取的url后拼接参数 response-content-disposition=attachment
+> - 下载时如何重命名文件：在获取的url后拼接参数 filename=这里填自定义的文件名
 
 #### 使用示例
 
