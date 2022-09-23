@@ -1,4 +1,4 @@
-## 录制预处理回调 
+## 录制预处理回调  
 <dx-codeblock>
 ::: objc objc
 /**
@@ -10,13 +10,6 @@
  * 说明：SDK 回调出来的纹理类型是 GL_TEXTURE_2D，接口返回给 SDK 的纹理类型也必须是 GL_TEXTURE_2D; 该回调在 SDK 美颜之后. 纹理格式为 GL_RGBA
  */
 - (GLuint)onPreProcessTexture:(GLuint)texture width:(CGFloat)width height:(CGFloat)height;
-
-/**
- * 五官位置回调（企业版接口）
- * @prama points 五官坐标
- * 说明：使用了挂件的相关功能如动效贴纸、大眼或者瘦脸等。此回调在 onPreProcessTexture:width:height: 之前会被调用
- */
-- (void)onDetectFacePoints:(NSArray *)points;
 
 /**
  * 在 OpenGL 线程中回调，可以在这里释放创建的 OpenGL 资源

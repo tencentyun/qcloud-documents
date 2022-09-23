@@ -24,7 +24,7 @@ SDK 所有接口的具体参数与方法说明，请参考 [SDK API](https://cos
 ```objective-c
 QCloudPutBucketLifecycleRequest* request = [QCloudPutBucketLifecycleRequest new];
 
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 request.bucket = @"examplebucket-1250000000";
 __block QCloudLifecycleConfiguration* lifecycleConfiguration =
 [[QCloudLifecycleConfiguration alloc] init];
@@ -77,7 +77,7 @@ request.lifeCycle.rules = @[rule];
 ```swift
 let putBucketLifecycleReq = QCloudPutBucketLifecycleRequest.init();
 
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 putBucketLifecycleReq.bucket = "examplebucket-1250000000";
 
 let config = QCloudLifecycleConfiguration.init();
@@ -142,7 +142,7 @@ QCloudCOSXMLService.defaultCOSXML().putBucketLifecycle(putBucketLifecycleReq);
 ```objective-c
 QCloudGetBucketLifecycleRequest* request = [QCloudGetBucketLifecycleRequest new];
 
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 request.bucket = @"examplebucket-1250000000";
 [request setFinishBlock:^(QCloudLifecycleConfiguration* result,NSError* error) {
     // 可以从 result 中获取返回信息
@@ -188,7 +188,7 @@ QCloudCOSXMLService.defaultCOSXML().getBucketLifecycle(getBucketLifeCycle);
 QCloudDeleteBucketLifeCycleRequest* request =
 [[QCloudDeleteBucketLifeCycleRequest alloc ] init];
 
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 request.bucket = @"examplebucket-1250000000";
 
 [request setFinishBlock:^(QCloudLifecycleConfiguration* deleteResult, NSError* error) {

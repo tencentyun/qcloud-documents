@@ -1,0 +1,1 @@
+﻿私有连接 API 文档请参见 [私有连接相关接口](https://cloud.tencent.com/document/product/215/54671)。

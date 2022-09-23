@@ -1,5 +1,5 @@
 ## 命名空间
-Namespace=QCE/TCAPLUS
+Namespace = QCE/TCAPLUS
 
 ## 监控指标
 | 指标英文名       | 指标中文名 | 指标含义 | 单位   | 维度 |
@@ -32,3 +32,5 @@ Namespace=QCE/TCAPLUS
 &Instances.N.Dimensions.0.Value=数据库的具体 ID
 &Instances.N.Dimensions.1.Name=ClusterId
 &Instances.N.Dimensions.1.Value=具体集群 ID
+
+

@@ -1,3 +1,4 @@
+
 Linux 内核在监听套接字收到三次握手的 ACK 包之后，会从 SYN_REVC 状态进入到 TCP_ESTABLISHED 状态。此时内核会调用 tcp_v4_syn_recv_sock 函数。
 Hook 函数 tcp_v4_syn_recv_sock_toa 首先调用原有的 tcp_v4_syn_recv_sock 函数，然后调用 get_toa_data 函数从 TCP OPTION 中提取出 TOA OPTION，并存储在 sk_user_data 字段中。
 

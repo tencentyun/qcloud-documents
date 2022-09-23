@@ -39,7 +39,7 @@ loggingEnabled.targetPrefix = @"mylogs";
 status.loggingEnabled = loggingEnabled;
 request.bucketLoggingStatus = status;
 
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 request.bucket = @"examplebucket-1250000000";
 
 [request setFinishBlock:^(id outputObject, NSError *error) {
@@ -64,7 +64,7 @@ let status = QCloudBucketLoggingStatus.init();
 let loggingEnabled = QCloudLoggingEnabled.init();
 
 // 存放日志的目标存储桶，可以是同一个存储桶（但不推荐），或同一账户下、同一地域的存储桶
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 loggingEnabled.targetBucket = "examplebucket-1250000000";
 
 // 日志存放在目标存储桶的指定路径
@@ -73,7 +73,7 @@ loggingEnabled.targetPrefix = "logs/";
 status.loggingEnabled = loggingEnabled;
 req.bucketLoggingStatus = status;
 
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 req.bucket = "examplebucket-1250000000";
 req.finishBlock = {(result,error) in
     if let result = result {
@@ -101,7 +101,7 @@ GET Bucket logging 用于查询指定存储桶的日志配置信息。
 ```objective-c
 QCloudGetBucketLoggingRequest *getReq = [QCloudGetBucketLoggingRequest new];
 
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 getReq.bucket = @"examplebucket-1250000000";
 
 [getReq setFinishBlock:^(QCloudBucketLoggingStatus * _Nonnull result,
@@ -120,7 +120,7 @@ getReq.bucket = @"examplebucket-1250000000";
 ```swift
 let req = QCloudGetBucketLoggingRequest.init();
 
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 req.bucket = "examplebucket-1250000000";
 req.setFinish { (result, error) in
     if let result = result {

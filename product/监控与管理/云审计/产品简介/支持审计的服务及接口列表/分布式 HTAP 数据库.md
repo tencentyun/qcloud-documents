@@ -28,3 +28,5 @@
 | 重启云数据库实例      | tbase | RestartInstance                 |
 | 设置云数据库实例备份规则  | tbase | SetBackupRules                  |
 
+
+

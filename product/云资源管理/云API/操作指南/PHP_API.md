@@ -9,7 +9,13 @@
 
 API 支持就近地域接入（例如：cvm 产品域名为 `cvm.tencentcloudapi.com`），也支持指定地域域名访问（例如：广州地域的域名为 `cvm.ap-guangzhou.tencentcloudapi.com`），各地域参数见下文公共参数中的地域列表，详情请参见各产品的“请求结构”文档说明判断是否支持该地域。
 
->!对时延敏感的业务，建议指定带地域的域名。
+
+
+<dx-alert infotype="notice" title="">
+对时延敏感的业务，建议指定带地域的域名。
+</dx-alert>
+
+
 
 ### 2. 通信协议
 
@@ -36,7 +42,9 @@ GET 请求的请求包大小不得超过32KB。POST 请求使用签名方法 v1�
 
 ## 公共参数
 
->?公共参数是用于标识用户和接口签名的参数，每次请求均需要携带这些参数，才能正常发起请求。 
+<dx-alert infotype="explain" title="">
+公共参数是用于标识用户和接口签名的参数，每次请求均需要携带这些参数，才能正常发起请求。 
+</dx-alert>
 
 ### 签名方法 V3 公共参数
 
@@ -86,7 +94,9 @@ GET 请求的请求包大小不得超过32KB。POST 请求使用签名方法 v1�
 * SecretId：用于标识 API 调用者身份，可以简单类比为用户名。
 * SecretKey：用于验证 API 调用者的身份，可以简单类比为密码。
 
->! 用户必须严格保管安全凭证，避免泄露，否则将危及财产安全。如已泄漏，请立刻禁用该安全凭证。
+<dx-alert infotype="notice" title="">
+用户必须严格保管安全凭证，避免泄露，否则将危及财产安全。如已泄漏，请立刻禁用该安全凭证。
+</dx-alert>
 
  假设用户的 SecretId 和 SecretKey 分别是：`AKIDz8krbsJ5**********mLPx3EXAMPLE` 和 `Gu5t9xGAR***********EXAMPLE`。用户想查看广州区云服务器名为“未命名”的主机状态，只返回一条数据。则请求可能为： 
 
@@ -101,7 +111,13 @@ GET 请求的请求包大小不得超过32KB。POST 请求使用签名方法 v1�
 
 
 
->!  首次接触，建议使用 [API Explorer](https://console.cloud.tencent.com/api/explorer) 中的“签名串生成”功能，选择签名版本为“API 3.0 签名 v3”，可以生成签名过程进行验证，也可直接生成 SDK 代码。推荐使用腾讯云 API 配套的 7 种常见的编程语言 SDK，已经封装了签名和请求过程，均已开源，支持 [Python](https://github.com/TencentCloud/tencentcloud-sdk-python)、[Java](https://github.com/TencentCloud/tencentcloud-sdk-java)、[PHP](https://github.com/TencentCloud/tencentcloud-sdk-php)、[Go](https://github.com/TencentCloud/tencentcloud-sdk-go)、[NodeJS](https://github.com/TencentCloud/tencentcloud-sdk-nodejs)、[.NET](https://github.com/TencentCloud/tencentcloud-sdk-dotnet)、[C++](https://github.com/TencentCloud/tencentcloud-sdk-cpp)。
+
+
+<dx-alert infotype="notice" title="">
+首次接触，建议使用 [API Explorer](https://console.cloud.tencent.com/api/explorer) 中的“签名串生成”功能，选择签名版本为“API 3.0 签名 v3”，可以生成签名过程进行验证，也可直接生成 SDK 代码。推荐使用腾讯云 API 配套的 7 种常见的编程语言 SDK，已经封装了签名和请求过程，均已开源，支持 [Python](https://github.com/TencentCloud/tencentcloud-sdk-python)、[Java](https://github.com/TencentCloud/tencentcloud-sdk-java)、[PHP](https://github.com/TencentCloud/tencentcloud-sdk-php)、[Go](https://github.com/TencentCloud/tencentcloud-sdk-go)、[NodeJS](https://github.com/TencentCloud/tencentcloud-sdk-nodejs)、[.NET](https://github.com/TencentCloud/tencentcloud-sdk-dotnet)、[C++](https://github.com/TencentCloud/tencentcloud-sdk-cpp)。
+</dx-alert>
+
+ 
 
 
 
@@ -168,9 +184,13 @@ StringToSign =
 
 
 
->! 
-1. Date 必须从时间戳 X-TC-Timestamp 计算得到，且时区为 UTC+0。如果加入系统本地时区信息，例如东八区，将导致白天和晚上调用成功，但是凌晨时调用必定失败。假设时间戳为 1551113065，在东八区的时间是 2019-02-26 00:44:25，但是计算得到的 Date 取 UTC+0 的日期应为 2019-02-25，而不是 2019-02-26。
-2. Timestamp 必须是当前系统时间，且需确保系统时间和标准时间是同步的，如果相差超过五分钟则必定失败。如果长时间不和标准时间同步，可能导致运行一段时间后，请求必定失败，返回签名过期错误。
+<dx-alert infotype="notice" title="">
+- Date 必须从时间戳 X-TC-Timestamp 计算得到，且时区为 UTC+0。如果加入系统本地时区信息，例如东八区，将导致白天和晚上调用成功，但是凌晨时调用必定失败。假设时间戳为 1551113065，在东八区的时间是 2019-02-26 00:44:25，但是计算得到的 Date 取 UTC+0 的日期应为 2019-02-25，而不是 2019-02-26。
+- Timestamp 必须是当前系统时间，且需确保系统时间和标准时间是同步的，如果相差超过五分钟则必定失败。如果长时间不和标准时间同步，可能导致运行一段时间后，请求必定失败，返回签名过期错误。
+</dx-alert>
+
+
+
 
  根据以上规则，示例中得到的待签名字符串如下： 
 
@@ -314,7 +334,13 @@ echo $curl.PHP_EOL;
 
 签名方法 v1 简单易用，但是功能和安全性都不如签名方法 v3，推荐使用签名方法 v3。
 
->! 首次接触，建议使用 [API Explorer](https://console.cloud.tencent.com/api/explorer) 中的“签名串生成”功能，选择签名版本为“API 3.0 签名 v1”，可以生成签名过程进行验证，并提供了部分编程语言的签名示例，也可直接生成 SDK 代码。推荐使用腾讯云 API 配套的 7 种常见的编程语言 SDK，已经封装了签名和请求过程，均已开源，支持 [Python](https://github.com/TencentCloud/tencentcloud-sdk-python)、[Java](https://github.com/TencentCloud/tencentcloud-sdk-java)、[PHP](https://github.com/TencentCloud/tencentcloud-sdk-php)、[Go](https://github.com/TencentCloud/tencentcloud-sdk-go)、[NodeJS](https://github.com/TencentCloud/tencentcloud-sdk-nodejs)、[.NET](https://github.com/TencentCloud/tencentcloud-sdk-dotnet)、[C++](https://github.com/TencentCloud/tencentcloud-sdk-cpp)。
+
+
+<dx-alert infotype="notice" title="">
+首次接触，建议使用 [API Explorer](https://console.cloud.tencent.com/api/explorer) 中的“签名串生成”功能，选择签名版本为“API 3.0 签名 v1”，可以生成签名过程进行验证，并提供了部分编程语言的签名示例，也可直接生成 SDK 代码。推荐使用腾讯云 API 配套的 7 种常见的编程语言 SDK，已经封装了签名和请求过程，均已开源，支持 [Python](https://github.com/TencentCloud/tencentcloud-sdk-python)、[Java](https://github.com/TencentCloud/tencentcloud-sdk-java)、[PHP](https://github.com/TencentCloud/tencentcloud-sdk-php)、[Go](https://github.com/TencentCloud/tencentcloud-sdk-go)、[NodeJS](https://github.com/TencentCloud/tencentcloud-sdk-nodejs)、[.NET](https://github.com/TencentCloud/tencentcloud-sdk-dotnet)、[C++](https://github.com/TencentCloud/tencentcloud-sdk-cpp)。
+</dx-alert>
+
+
 
 以云服务器查看实例列表(DescribeInstances)请求为例，当用户调用这一接口时，其请求参数可能如下:
 
@@ -333,9 +359,12 @@ echo $curl.PHP_EOL;
 #### 1. 对参数排序
 
 首先对所有请求参数按参数名的字典序（ ASCII 码）升序排序。
->! 
-1. 只按参数名进行排序，参数值保持对应即可，不参与比大小。
-2. 按 ASCII 码比大小，如 InstanceIds.2 要排在 InstanceIds.12 后面，不是按字母表，也不是按数值。用户可以借助编程语言中的相关排序函数来实现这一功能，如 PHP 中的 ksort 函数。
+
+
+<dx-alert infotype="notice" title="">
+- 只按参数名进行排序，参数值保持对应即可，不参与比大小。
+- 按 ASCII 码比大小，如 InstanceIds.2 要排在 InstanceIds.12 后面，不是按字母表，也不是按数值。用户可以借助编程语言中的相关排序函数来实现这一功能，如 PHP 中的 ksort 函数。
+</dx-alert>
 
 上述示例参数的排序结果如下：
 
@@ -401,12 +430,12 @@ EliP9YW3pW28FpsEdkXt/+WcGeI=
 
  #### 5. 获取调用信息并发送请求
 
-  ```python
+```python
 # 实际调用，成功后可能如果是消费接口会产生计费(此处以Python语言为例发送get请求)
 resp = requests.get("https://" + endpoint, params=data)
 # 打印发送请求的请求串
 print(resp.url)
-  ```
+```
 
 ```
 最终得到的请求串为
@@ -418,7 +447,13 @@ https://cvm.tencentcloudapi.com/?Action=DescribeInstances&InstanceIds.0=ins-09dx
 | endpoint | 服务地址， 例如：`cvm.tencentcloudapi.com`                   |
 | data     | API 3.0 签名 V1 所举示例接口参数，**注意这里需要将计算的签名已键值对的形式加入 data 中**  |
 
->! 由于示例中的密钥是虚构的，时间戳也不是系统当前时间，因此如果将此 url 在浏览器中打开或者用 curl 等命令调用时会返回鉴权错误：签名过期。为了得到一个可以正常返回的 url ，需要修改示例中的 SecretId 和 SecretKey 为真实的密钥，并使用系统当前时间戳作为 Timestamp 。 
+
+
+<dx-alert infotype="notice" title="">
+由于示例中的密钥是虚构的，时间戳也不是系统当前时间，因此如果将此 url 在浏览器中打开或者用 curl 等命令调用时会返回鉴权错误：签名过期。为了得到一个可以正常返回的 url ，需要修改示例中的 SecretId 和 SecretKey 为真实的密钥，并使用系统当前时间戳作为 Timestamp 。 
+</dx-alert>
+
+
 
 为了更清楚的解释签名过程，下面以 PHP 语言为例，将上述的签名过程具体实现。请求的域名、调用的接口和参数的取值都以上述签名过程为准，代码只为解释签名过程，并不具备通用性，实际开发请尽量使用 SDK 。
 
@@ -428,10 +463,16 @@ https://cvm.tencentcloudapi.com/?Action=DescribeInstances&InstanceIds.0=ins-09dx
 
 如上一步生成的签名串为  ` Eli*****************cGeI= ` ，最终得到的签名串请求参数（Signature）为：`EliP***********************eI%3D`，它将用于生成最终的请求 URL。
 
->! 
+
+<dx-alert infotype="notice" title="">
 - 如果用户的请求方法是 GET，或者请求方法为 POST 同时 Content-Type 为 application/x-www-form-urlencoded，则发送请求时所有请求参数的值均需要做 URL 编码，参数键和=符号不需要编码。非 ASCII 字符在 URL 编码前需要先以 UTF-8 进行编码。
 - 有些编程语言的网络库会自动为所有参数进行 urlencode，在这种情况下，就不需要对签名串进行 URL 编码了，否则两次 URL 编码会导致签名失败。
 - 其他参数值也需要进行编码，编码采用 [RFC 3986](http://tools.ietf.org/html/rfc3986)。使用 %XY 对特殊字符例如汉字进行百分比编码，其中“X”和“Y”为十六进制字符（0-9 和大写字母 A-F），使用小写将引发错误。
+
+</dx-alert>
+
+
+
 
 #### 7. API 3.0 签名 V1示例
 

@@ -24,7 +24,7 @@ PUT Bucket domain 用于为存储桶配置自定义域名。
 ```objective-c
 QCloudPutBucketDomainRequest *req = [QCloudPutBucketDomainRequest new];
 
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 req.bucket = @"examplebucket-1250000000";
 
 QCloudDomainConfiguration *config = [QCloudDomainConfiguration new];
@@ -61,7 +61,7 @@ req.domain  = config;
 ```swift
 let req = QCloudPutBucketDomainRequest.init();
 
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 req.bucket = "examplebucket-1250000000";
 
 let config = QCloudDomainConfiguration.init();
@@ -113,7 +113,7 @@ GET Bucket domain 用于查询存储桶的自定义域名信息。
 ```objective-c
 QCloudGetBucketDomainRequest *getReq =  [QCloudGetBucketDomainRequest new];
 
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 getReq.bucket = @"examplebucket-1250000000";
 
 [getReq setFinishBlock:^(QCloudDomainConfiguration * _Nonnull result,
@@ -133,7 +133,7 @@ getReq.bucket = @"examplebucket-1250000000";
 ```swift
 let req = QCloudGetBucketDomainRequest.init();
 
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 req.bucket = "examplebucket-1250000000";
 
 req.finishBlock = {(result,error) in

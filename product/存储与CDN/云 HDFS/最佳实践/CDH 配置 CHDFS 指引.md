@@ -97,9 +97,9 @@ cp chdfs_hadoop_plugin_network-2.0.jar /opt/cloudera/parcels/CDH-5.16.1-1.cdh5.1
 下面以 Hadoop 标准测试中的 TeraGen 和 TeraSort 为例：
 
 ```
-hadoop jar ./hadoop-mapreduce-examples-2.7.3.jar teragen -Dmapred.map.tasks=4 1099 cosn://examplebucket-1250000000/teragen_5/
+hadoop jar ./hadoop-mapreduce-examples-2.7.3.jar teragen -Dmapred.map.tasks=4 1099 ofs://examplebucket-1250000000/teragen_5/
 
-hadoop jar ./hadoop-mapreduce-examples-2.7.3.jar terasort  -Dmapred.map.tasks=4 cosn://examplebucket-1250000000/teragen_5/ cosn://examplebucket-1250000000/result14
+hadoop jar ./hadoop-mapreduce-examples-2.7.3.jar terasort  -Dmapred.map.tasks=4 ofs://examplebucket-1250000000/teragen_5/ ofs://examplebucket-1250000000/result14
 ```
 
 >?`ofs://     schema`后面请替换为用户 CHDFS 的挂载点路径。
@@ -149,7 +149,7 @@ STORED AS INPUTFORMAT
 	OUTPUTFORMAT
   'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
 LOCATION
-  'cosn://examplebucket-1250000000/user/hive/warehouse/report.db/report_o2o_pid_credit_detail_grant_daily'
+  'ofs://examplebucket-1250000000/user/hive/warehouse/report.db/report_o2o_pid_credit_detail_grant_daily'
 TBLPROPERTIES (
   'last_modified_by'='work',
   'last_modified_time'='1589310646',
@@ -188,7 +188,7 @@ Tez 引擎需要将 CHDFS 的 jar 包导入到 Tez 的压缩包内，下面以 a
 以 CHDFS 进行 Spark example word count 测试为例。
 
 ```
-spark-submit  --class org.apache.spark.examples.JavaWordCount --executor-memory 4g --executor-cores 4  ./spark-examples-1.6.0-cdh5.16.1-hadoop2.6.0-cdh5.16.1.jar cosn://examplebucket-1250000000/wordcount
+spark-submit  --class org.apache.spark.examples.JavaWordCount --executor-memory 4g --executor-cores 4  ./spark-examples-1.6.0-cdh5.16.1-hadoop2.6.0-cdh5.16.1.jar ofs://examplebucket-1250000000/wordcount
 ```
 
 执行结果如下：
@@ -210,7 +210,7 @@ spark-submit  --class org.apache.spark.examples.JavaWordCount --executor-memory 
 以导出 MYSQL 表到 CHDFS 为例，可参考 [关系型数据库和 HDFS 的导入导出](https://cloud.tencent.com/document/product/589/19053)  文档进行测试。
 
 ```
-sqoop import --connect "jdbc:mysql://IP:PORT/mysql" --table sqoop_test --username root --password 123  --target-dir cosn://examplebucket-1250000000/sqoop_test
+sqoop import --connect "jdbc:mysql://IP:PORT/mysql" --table sqoop_test --username root --password 123  --target-dir ofs://examplebucket-1250000000/sqoop_test
 ```
 
 执行结果如下：

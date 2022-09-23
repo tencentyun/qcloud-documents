@@ -27,7 +27,7 @@
 打开 Visual Studio，新建一个名为 IMDemo 的 MFC 应用程序，如下图所示：
 ![](https://main.qcloudimg.com/raw/0968bf8f93c69212760bd4651839d29f.png)
 
-为了便于快速集成，在向导的【应用程序类型】页面，请选择比较简单的【基于对话框】类型，其他的向导配置，请选择默认的配置即可。如下图所示：
+为了便于快速集成，在向导的**应用程序类型**页面，请选择比较简单的**基于对话框**类型，其他的向导配置，请选择默认的配置即可。如下图所示：
 ![](https://main.qcloudimg.com/raw/8a6372d71853148fe6a6c5073f1512b3.png)
 
 
@@ -37,46 +37,46 @@
 
 ### 步骤4. 修改工程配置
 
-IM SDK 提供了 **Debug** 和 **Release** 两种编译生成的静态库，针对这两种有些地方要专门配置。打开 IMDemo 属性页，在【解决方案资源管理器】>【IMDemo工程的右键菜单】>【属性】。
+IM SDK 提供了 **Debug** 和 **Release** 两种编译生成的静态库，针对这两种有些地方要专门配置。打开 IMDemo 属性页，在**解决方案资源管理器**>**IMDemo工程的右键菜单**>**属性**。
 
 以**32位 Debug 模式**为例，请按照以下步骤进行配置：
 
 1. 添加包含目录
-  在 【C/C++】>【常规】>【附件包含目录】，添加 IM SDK 头文件目录 $(ProjectDir)ImSDK\includes，如下图所示：
+  在 **C/C++**>**常规**>**附件包含目录**，添加 IM SDK 头文件目录 $(ProjectDir)ImSDK\includes，如下图所示：
   ![](https://main.qcloudimg.com/raw/7b3dddadf6d3993ab3f83522e7e1f869.png)
 2. 添加库目录
-  在 【链接器】>【常规】>【附加库目录】，添加 IM SDK 库目录 $(ProjectDir)ImSDK\lib\Win32\Debug 
+  在 **链接器**>**常规**>**附加库目录**，添加 IM SDK 库目录 $(ProjectDir)ImSDK\lib\Win32\Debug 
   ![](https://main.qcloudimg.com/raw/57929e1a13b50d9f0c3e9af7c54edf83.png)
 3.  添加库文件
-  在 【链接器】>【输入】>【附加依赖项】，添加 IM SDK 库文件 imsdk.lib ，如下图所示：
+  在 **链接器**>**输入**>**附加依赖项**，添加 IM SDK 库文件 imsdk.lib ，如下图所示：
   ![](https://main.qcloudimg.com/raw/e4e180c8867bb4ad6e7fa09f69c2ff0e.png)
 4.  拷贝 DLL 到执行目录
-  在【生成事件】>【预先生成事件】>【命令行】，输入 `xcopy /E /Y "$(ProjectDir)ImSDK\lib\Win32\Debug" "$(OutDir)"`，拷贝 imsdk.dll 动态库文件到程序生成目录，如下图所示：
+  在**生成事件**>**预先生成事件**>**命令行**，输入 `xcopy /E /Y "$(ProjectDir)ImSDK\lib\Win32\Debug" "$(OutDir)"`，拷贝 imsdk.dll 动态库文件到程序生成目录，如下图所示：
   ![](https://main.qcloudimg.com/raw/621b9fe04315985a274316b5215c944d.png)
 5. 指定源文件的编码格式
   由于 IM SDK 的头文件采用 UTF-8 编码格式，部分编译器按默认系统编码格式编译源文件，可能导致编译无法通过，设置此参数可指定编译器按照 UTF-8 的编码格式编译源文件。
-  在 【C/C++】>【命令行】>【其他选项】，输入`/source-charset:.65001`，如下图所示：
+  在 **C/C++**>**命令行**>**其他选项**，输入`/source-charset:.65001`，如下图所示：
   ![](https://main.qcloudimg.com/raw/0c9ab7746d643594fa7cf20e93c60860.png)
 
 **Release 模式**具体设置如下：
 1. 添加库目录
-  在 【链接器】>【常规】>【附加库目录】，添加 IM SDK 库目录 $(ProjectDir)ImSDK\lib\Win32\Release，如下图所示：
+  在 **链接器**>**常规**>**附加库目录**，添加 IM SDK 库目录 $(ProjectDir)ImSDK\lib\Win32\Release，如下图所示：
   ![](https://main.qcloudimg.com/raw/c393f464e5d74825eeeb9630b7d2e8eb.png)
 2.  拷贝 DLL 到执行目录 
-  在【生成事件】 >【预先生成事件】>【命令行】，输入 `xcopy /E /Y "$(ProjectDir)ImSDK\lib\Win32\Release" "$(OutDir)"`，拷贝 imsdk.dll 动态库文件到程序生成目录，如下图所示：
+  在**生成事件** >**预先生成事件**>**命令行**，输入 `xcopy /E /Y "$(ProjectDir)ImSDK\lib\Win32\Release" "$(OutDir)"`，拷贝 imsdk.dll 动态库文件到程序生成目录，如下图所示：
   ![](https://main.qcloudimg.com/raw/c48481f2b7ae9a2d87fb405167e097d4.png)
 
 
 **64位 Debug/Release** 与 **32位** 的设置也大部分相同，不同在于 IM SDK 的库目录。具体如下
 1. 添加库目录
-  - **Debug 模式** 在 【链接器】>【常规】>【附加库目录】，添加 IM SDK 库目录 $(ProjectDir)ImSDK\lib\Win64\Debug，如下图所示：
+  - **Debug 模式** 在 **链接器**>**常规**>**附加库目录**，添加 IM SDK 库目录 $(ProjectDir)ImSDK\lib\Win64\Debug，如下图所示：
   ![](https://main.qcloudimg.com/raw/2099cc0be32fdc78e066ad370bc0f931.png)
-   - **Release 模式** 在 【链接器】>【常规】>【附加库目录】，添加 IM SDK 库目录 $(ProjectDir)ImSDK\lib\Win64\Release，如下图所示：
+   - **Release 模式** 在 **链接器**>**常规**>**附加库目录**，添加 IM SDK 库目录 $(ProjectDir)ImSDK\lib\Win64\Release，如下图所示：
   ![](https://main.qcloudimg.com/raw/b6a07c37033f9a6a19ceac0569b7d301.png)
 2. 拷贝 DLL 到执行目录
-  - **Debug 模式** 在【生成事件】 >【预先生成事件】>【命令行】，输入 `xcopy /E /Y "$(ProjectDir)ImSDK\lib\Win64\Debug" "$(OutDir)"`，拷贝 imsdk.dll 动态库文件到程序生成目录，如下图所示：
+  - **Debug 模式** 在**生成事件** >**预先生成事件**>**命令行**，输入 `xcopy /E /Y "$(ProjectDir)ImSDK\lib\Win64\Debug" "$(OutDir)"`，拷贝 imsdk.dll 动态库文件到程序生成目录，如下图所示：
   ![](https://main.qcloudimg.com/raw/68f3986dbc865a863487cacfa91b2b67.png)
- - **Release 模式** 在【生成事件】 >【预先生成事件】>【命令行】，输入 `xcopy /E /Y "$(ProjectDir)ImSDK\lib\Win64\Release" "$(OutDir)"`，拷贝 imsdk.dll 动态库文件到程序生成目录，如下图所示：
+ - **Release 模式** 在**生成事件** >**预先生成事件**>**命令行**，输入 `xcopy /E /Y "$(ProjectDir)ImSDK\lib\Win64\Release" "$(OutDir)"`，拷贝 imsdk.dll 动态库文件到程序生成目录，如下图所示：
   ![](https://main.qcloudimg.com/raw/f75a203a1e576102ea01391d39995bec.png)
 
 

@@ -6,12 +6,17 @@
       <version>4.8.1-HBase-1.2</version>
  </dependency>
 ```
+
+
 ## 创建 JDBC 连接对象
 ```c++
 Class.forName("org.apache.phoenix.jdbc.PhoenixDriver");
         // Connect to the database
     connection = DriverManager.getConnection("jdbc:phoenix:10.0.0.3:2181,10.0.0.5:2181,10.0.0.8:2181");
 ```
+
+
+
 ## 执行查询
 ```c++
 private static void instertPhoenix(Connection connection)throws Exception{

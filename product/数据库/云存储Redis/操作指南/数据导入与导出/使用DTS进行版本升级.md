@@ -1,4 +1,3 @@
-
 ## 操作场景
 云数据库 Redis [4.0、5.0 内存版（标准架构）](https://cloud.tencent.com/document/product/239/36151) 和 [4.0、5.0 内存版（集群架构）](https://cloud.tencent.com/document/product/239/18336) 提供更灵活的规格配置、更高的性能及更完善的功能。如果您使用的 Redis 版本较低，为保证更好的云数据库服务体验，建议您升级至 Redis 4.0、5.0 版本。
 
@@ -11,46 +10,18 @@
 
 #### 支持版本
 <table>
-    <tr>
-    <td rowspan=2 align=center>源实例版本</td>
-    <td colspan=4 align=center>目标实例版本</td>
-    </tr>
-    <tr>
-    <td>4.0内存版（标准架构）</td>
-		<td>4.0内存版（集群架构）</td>
-		<td>5.0内存版（标准架构）</td>
-		<td>5.0内存版（集群架构）</td>
-    </tr>
-    <tr>
-    <td>2.8内存版（标准架构）</td>
-    <td>✓</td>
-    <td>✓</td>
-		<td>✓</td>
-    <td>✓</td>
-    </tr>
-    <tr>
-    <td>4.0内存版（标准架构）</td>
-    <td>-</td>
-    <td>✓</td>
-	  <td>✓</td>
-		<td>✓</td>
-    </tr>
-		<tr>
-    <td>4.0内存版（集群架构）</td>
-    <td>-</td>
-		<td>-</td>
-    <td>✓</td>
-		<td>✓</td>
-    </tr>
-		<tr>
-    <td>5.0内存版（标准架构）</td>
-    <td>-</td>
-		<td>-</td>
-		<td>-</td>
-    <td>✓</td>
-    </tr>
+<tr><td rowspan=2 align=center>源实例版本</td><td colspan=4 align=center>目标实例版本</td></tr>
+<tr>
+<td>4.0内存版（标准架构）</td><td>4.0内存版（集群架构）</td><td>5.0内存版（标准架构）</td><td>5.0内存版（集群架构）</td></tr>
+<tr>
+<td>2.8内存版（标准架构）</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
+<tr>
+<td>4.0内存版（标准架构）</td><td>-</td><td>✓</td><td>✓</td><td>✓</td></tr>
+<tr>
+<td>4.0内存版（集群架构）</td><td>-</td><td>-</td><td>✓</td><td>✓</td></tr>
+<tr>
+<td>5.0内存版（标准架构）</td><td>-</td><td>-</td><td>-</td><td>✓</td></tr>
 </table>
-
 
 ## 前提条件
 - 需是正常运行状态下的 Redis 源实例。

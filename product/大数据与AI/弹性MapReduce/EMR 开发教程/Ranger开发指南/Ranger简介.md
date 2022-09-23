@@ -1,4 +1,4 @@
-## Ranger 简介
+## Ranger 简介  
 Ranger 是大数据领域的一个集中式安全管理框架，实现对 Hadoop 生态组件的集中式安全管理。用户可以通过 Ranger 实现对集群中数据的安全访问，它主要是对 Hadoop 平台组件进行监管、启动服务以及资源访问进行控制，其核心思想为：
 - 用户可以使用 Ranger 提供的 REST API 或者使用 Ranger 提供 Web UI 对大数据组件进行集中化管理。
 - 可以针对大数据组件进行基于角色、属性进行授权。
@@ -22,5 +22,5 @@ Ranger 主要是由 Ranger Admin、Ranger UserSync、Ranger Plugin 三个组件�
 | Yarn        | ResourceManager      | EMR-V 2.0.1 及以上版本 |
 | Presto      | All Coordinator      | EMR-V 2.0.1 及以上版本 |
 | Impala      | All Daemon           | EMR-V 2.2.0 及以上版本 |
-| Kudu        | All Master           | EMR-V 3.1.0 版本      |
+| Kudu        | All Master           | EMR-V 3.2.0 版本      |
 

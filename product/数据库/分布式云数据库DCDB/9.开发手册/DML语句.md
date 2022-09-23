@@ -1,4 +1,3 @@
-
 ## select
 建议带上 shardkey 字段，proxy 根据该字段的 hash 值直接将 SQL 请求路由至对应的数据库实例进行处理；否则就需要发送给集群中所有的数据库实例执行，然后 proxy 根据数据库返回的结果集进行聚合，影响执行效率：
 ```
@@ -24,7 +23,7 @@ Query OK, 1 row affected (0.01 sec)
 ```
 
 ## delete/update
-为安全考虑，执行该类 SQL 时，必须带有 where 条件，否则拒绝执行该 SQL 命令：
+使用分表时，为安全考虑，执行该类 SQL 时，必须带有 where 条件，否则拒绝执行该 SQL 命令：
 ```
 mysql> delete from test1;
 ERROR 810 (HY000): Proxy ERROR:sql is too complex,need to send to only noshard table.

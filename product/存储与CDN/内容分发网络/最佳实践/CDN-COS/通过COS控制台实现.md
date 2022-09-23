@@ -4,9 +4,7 @@
 1. 完成腾讯云账号注册、实名认证。
 2. 开启 CDN 服务，详情请参见 [CDN 快速入门](https://cloud.tencent.com/document/product/228/3149)。
 
-
 ## 操作指南
-
 ### 创建存储桶
 创建存储桶的操作流程与方法，请参见 [创建存储桶](https://cloud.tencent.com/document/product/436/13309)。
 
@@ -15,7 +13,7 @@
 2. 开启**默认 CDN 加速**
 **默认 CDN 加速**是由系统默认生成的，经由 CDN 加速节点的域名，用户可选择开启或关闭。
 (1) 在默认 CDN 加速模块下，单击【编辑】，手动开启当前状态，进入默认 CDN 加速的配置
-![](https://main.qcloudimg.com/raw/1259f6760e8794f23e3ded2856db95f0.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/b39e765bef5d1bf7bde99202d2769dc2.png)
 (2) 默认 CDN 加速的配置：
 ![](https://main.qcloudimg.com/raw/74642378de3e3f16c7d5b85703242362.png)
 **源站类型**：通常默认为**默认源站**，如果作为源站的存储桶开启了静态网站，并且希望为静态网站加速，则选择为**静态网站源站**。
@@ -44,3 +42,9 @@
 **CDN 鉴权：**开启时间戳鉴权配置，可防止恶意用户盗取内容，需在添加完域名后进行设置。
 
 关于在 COS 控制台实现 CDN 加速 COS 的更多内容，请参见 [COS 域名管理概述](https://cloud.tencent.com/document/product/436/18424)。
+
+
+## 建议配置
+1. 配置完成后，前往 [CDN 控制台](https://console.cloud.tencent.com/cdn)为 COS 下的资源文件做好预热。提前将静态资源预热至 CDN 加速节点，降低源站压力，提高响应与下载速度。详情可见 [缓存预热](https://cloud.tencent.com/document/product/228/40273)。
+2. 配置好跨域的头部参数。解决资源的跨域权限问题，详情可见 [HTTP 响应头配置](https://cloud.tencent.com/document/product/228/41737#.E5.A4.B4.E9.83.A8.E5.8F.82.E6.95.B0)。
+3. 若客户源站的资源已修改，建议刷新缓存后再重新进行预热。详情可见 [缓存刷新](https://cloud.tencent.com/document/product/228/6299)。

@@ -1,4 +1,4 @@
-当前 EMR-V2.1.0及以后的版本都支持 kerberos 创建安全类型集群，即集群中除 alluxio、zepplin、kylin 外所有已支持的开源组件以 Kerberos 的安全模式启动，在这种安全环境下只有经过认证的客户端（Client）才能访问集群的服务（Service，例如 HDFS）。
+当前 EMR-V2.1.0及以后的版本都支持 kerberos 创建安全类型集群，即集群中除 alluxio、zepplin、kylin 外所有已支持的开源组件以 Kerberos 的安全模式启动，在这种安全环境下，只有经过认证的客户端（Client）才能访问集群的服务（Service，例如 HDFS）。
 
 >!impala 服务组件仅支持 EMR-V3.1.0 及以后的版本，以 kerberos 的安全模式启动。
 

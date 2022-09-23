@@ -1,5 +1,4 @@
 
-
 ## 配置场景
 
 HSTS 即 HTTP Strict Transport Security，是国际互联网工程组织 IETE 推行的 Web 安全协议，通过强制客户端（浏览器等）使用 HTTPS 与服务器创建链接，帮助网站进行全局加密。

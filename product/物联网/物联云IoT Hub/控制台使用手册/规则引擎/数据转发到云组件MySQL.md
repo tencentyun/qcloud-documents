@@ -1,18 +1,20 @@
 
+
 ## 概述
+
 规则引擎支持用户配置转发规则，将符合条件的设备上报数据转发到云组件 MySQL ，您可以在 [MySQL 控制台](https://console.cloud.tencent.com/cdb) 或者使用云 API 创建 MySQL 实例和表后，即可将设备消息中的指定字段写入到对应的 MySQL 表中。
 
 下图展示了规则引擎将数据转发给 MySQL 的整个过程：
 ![](https://main.qcloudimg.com/raw/9012b5275680b170ec6cc8b69358664f.png)
 
 ## 配置
-1. 登录 [物联网通信控制台](https://console.cloud.tencent.com/iotcloud)，单击左侧菜单【规则引擎】。
+1. 登录 [物联网通信控制台](https://console.cloud.tencent.com/iotcloud)，单击左侧菜单**规则引擎**。
 2. 进入规则引擎页面，单击需要配置的规则。
-3. 在规则详情页面，单击【添加行为操作】。
->?第一次使用时会提示用户授权访问 MySQL，您需单击【立即授权】才能继续创建。
+3. 在规则详情页面，单击**添加行为操作**。
+>?第一次使用时会提示用户授权访问 MySQL，您需单击**立即授权**才能继续创建。
 ![](https://main.qcloudimg.com/raw/610ffda13c4d723d1da5e89fd96593ab.png)
-4. 在弹出的“添加规则”窗口，选择“数据转发到云数据库（MySQL）选项”，授权成功后，需要配置 MySQL 实例信息和写入的字段信息，如下图所示。配置完成后单击【保存】即可。
-![](https://main.qcloudimg.com/raw/06f8ee3fc006896d15e443f828874bf3.png)
+4. 在弹出的“添加规则”窗口，选择“数据转发到云数据库（MySQL）选项”，授权成功后，需要配置 MySQL 实例信息和写入的字段信息，如下图所示。配置完成后单击**保存**即可。
+![](https://qcloudimg.tencent-cloud.cn/raw/c8d58d9fc2f67bdb6f2df55b7cd9d918.png)
 转发成功后,MySQL 中显示的信息如下图所示:
 ![](https://main.qcloudimg.com/raw/85fe76843afc299408448a10e6a78930.png)
 

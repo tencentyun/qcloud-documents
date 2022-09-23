@@ -1,3 +1,4 @@
+
 <table>
   <tbody><tr>
     <th style="text-align:center;" width="150px"><b>Android<br></b>使用摄像机扫码</th>
@@ -20,17 +21,17 @@
 
 ### 登录
 
-输入 UserId，单击【Login】，系统则会使用设置的 UserId 进行登录。登录后，界面将会新增【Voice Chat】和【Voice Message】两个按钮。
+输入 UserId，单击 **Login**，系统则会使用设置的 UserId 进行登录。登录后，界面将会新增 **Voice Chat** 和 **Voice Message** 两个按钮。
 <img src="https://main.qcloudimg.com/raw/dbacd4455622253ddb07d53e1bc785b8.png"  width="80%" /></img><br>
-- 单击【Voice Chat】，将会进入 [语音聊天](#test1) 功能。
-- 单击【Voice Message】，将会进入 [语音消息](#test2) 功能。
+- 单击 **Voice Chat**，将会进入 [语音聊天](#test1) 功能。
+- 单击 **Voice Message**，将会进入 [语音消息](#test2) 功能。
 
 <span id="test1"></span>
 
 ### 语音聊天
 
 
-1. [登录](#test) 之后，单击【Voice Chat】进入语音聊天界面：
+1. [登录](#test) 之后，单击 **Voice Chat** 进入语音聊天界面：
 <img src="https://gme-public-1256590279.cos.ap-nanjing.myqcloud.com/GMEResource/IMB_KuI8ov.gif"    width="80%"/></img><br>
  - RoomId：房间号 ID，房间号相同的成员会进入同一个房间。
  - RoomType：用于控制语音质量。
@@ -39,7 +40,7 @@
     - Hign Quality：高清音质。超高音质，延时相对较大，适用于音乐舞蹈类游戏以及语音社交类 App；适用于播放音乐、线上 K 歌等有高音质要求的场景。
 
 
-2. 在语音聊天界面，单击【JoinRoom】进入房间：
+2. 在语音聊天界面，单击 **JoinRoom** 进入房间：
 <img src="https://gme-public-1256590279.cos.ap-nanjing.myqcloud.com/GMEResource/IMB_8zP4w2.gif"  width="80%"/><br>
  - Talking Members：房间内正在说话的成员，界面将会显示正在说话的成员 ID。
  - Mic：麦克风，勾选表示打开。 
@@ -59,11 +60,11 @@
 
 ### 使用语音消息转文本
 
-[登录](#test) 之后，单击【Voice Message】进入语言消息界面：
+[登录](#test) 之后，单击 **Voice Message** 进入语言消息界面：
 <img src="https://gme-public-1256590279.cos.ap-nanjing.myqcloud.com/GMEResource/IMB_DsvaLv.gif"  width="80%"/></img><br>
 - Language：使用的语言。
 - Audio：录制的语音消息和语音时长。单击<img src="https://main.qcloudimg.com/raw/7d268c4b1bb7e1998792b19a23e7bb63.png" width="3%"></img>播放录音，播放过程中再次单击，结束播放。
-- Audio-to-Text：语音转换成的文字，鼠标单击长按【Push To Talk】，开始录制；鼠标松开【Push To Talk】，结束录制。
+- Audio-to-Text：语音转换成的文字，鼠标单击长按 **Push To Talk**，开始录制；鼠标松开 **Push To Talk**，结束录制。
 
 
 ## Windows 平台 3D 语音体验 Demo
@@ -73,6 +74,7 @@
 - 此演示程序需要在 Windows 平台运行。
 - 演示程序需要在同一机器上双开程序，或者同一局域网下的两台机器分别开一个程序。
 - 请确保电脑耳机及麦克风是可用状态。
+- 请提前申请开通 GME 实时语音服务。
 
 ### 1. 下载
 
@@ -80,21 +82,26 @@
 
 ### 2. 打开 Demo
 
-双击打开标题为【GMEDemo.exe】的可执行文件，即 Demo 程序。可在同一机器上同时打开两个演示程序。
+双击打开标题为**GMEDemo.exe**的可执行文件，即 Demo 程序。可在同一机器上同时打开两个演示程序。
 
 ### 3. 初始化
 
 初始化程序需要填入 [游戏多媒体引擎控制台](https://console.cloud.tencent.com/gamegme/detail/1400391524) 服务管理中的 AppID 以及权限密钥。申请 GME 服务，详情请参见 [接入指引](https://cloud.tencent.com/document/product/607/10782)。**appId 对应控制台的 AppID，authKey 对应控制台的权限密钥。**
->!
->- 请务必注意保存 AppID 以及权限密钥不被泄露。
->- 请注意此时的 userId 数字，请确保打开的另一个演示程序中的 userId 与此 userId 不同。
->
+
+
+<dx-alert infotype="explain" title="">
+- 请务必注意保存 AppID 以及权限密钥不被泄露。
+- 请注意此时的 userId 数字，请确保打开的另一个演示程序中的 userId 与此 userId 不同。
+</dx-alert>
+
+
+
 <img src="https://main.qcloudimg.com/raw/33540519cd5c2bdde6139f8a4af537a6.png"  width="80%"><br>
-填写完成后单击【初始化】>【实时语音】，进入实时语音房间填写界面。
+填写完成后单击**初始化**>**实时语音**，进入实时语音房间填写界面。
 
 ### 4. 进入语音房间
 
-此时进入语音房间选择界面，可以填写进入的房间号。如果此时打开了另一个演示程序，也请填写相同的房间号，单击【JoinRoom】进入**同一语音房间**。
+此时进入语音房间选择界面，可以填写进入的房间号。如果此时打开了另一个演示程序，也请填写相同的房间号，单击 **JoinRoom** 进入**同一语音房间**。
 
 <img src="https://main.qcloudimg.com/raw/7393dbb31007299894586205cb8b6f9c.jpg"  width="80%">
 
@@ -114,11 +121,11 @@
 **此演示程序需要本地局域网连接基础**。
 <img src="https://main.qcloudimg.com/raw/670b24a1133dc07bdc9892ffa12b159f.png" width="80%" /></img>
 - 第一个进房间的人
-第一个进房间的人是需要作为网络连接的 Host，所以需要单击【LAN Host(H)】。单击之后会将人物生成在金币旁边。
+第一个进房间的人是需要作为网络连接的 Host，所以需要单击 **LAN Host(H)**。单击之后会将人物生成在金币旁边。
 <img src="https://gme-public-1256590279.cos.ap-nanjing.myqcloud.com/GMEResource/master.gif"  width="80%"/></img>
 
 - 非首位进房间的人
-非首位进房间的人需要与 Host 连通，所以需要单击【LAN Client(C)】。单击之后会将人物生成在金币旁边，此时可以见到第一个进入房间的人。
+非首位进房间的人需要与 Host 连通，所以需要单击 **LAN Client(C)**。单击之后会将人物生成在金币旁边，此时可以见到第一个进入房间的人。
 <img src="https://gme-public-1256590279.cos.ap-nanjing.myqcloud.com/GMEResource/client.gif"  width="80%"/></img>
 
 ### 7. 打开麦克风
@@ -136,3 +143,50 @@
 <img src="https://gme-public-1256590279.cos.ap-nanjing.myqcloud.com/GMEResource/yuan.gif"  width="80%"/></img>
 
 
+## 高级变声音效体验
+
+使用 GME 高级变声效果，可以在游戏语音聊天时自由变换您的声音，携带各种各样的音效。
+
+### 前提条件
+- 此演示程序需要在 Windows 平台运行。
+- 请确保电脑耳机及麦克风是可用状态。
+- 请提前申请开通 GME 实时语音服务。
+
+### 打开程序
+
+单击下载 [高级变声音效体验程序](https://dldir1.qq.com/hudongzhibo/QCloud_TGP/GME/pubilc/GMEDemoWithVoicemod_1.0.zip)，下载完后进行解压。双击打开标题为 **TMGSDK_For_Audio_ApiExample.exe** 的可执行文件，运行程序。
+
+### 运行界面
+
+<img src="https://qcloudimg.tencent-cloud.cn/raw/b4e2a3c8ef86b7ce8a8750adbc21cae8.png" width=80%/><img>
+
+### 1. 填入 AppID 以及 Key
+
+初始化程序需要填入 [游戏多媒体引擎控制台](https://console.cloud.tencent.com/gamegme/detail/1400391524) 服务管理中的 AppID 以及权限密钥。申请 GME 服务，详情请参见 [接入指引](https://cloud.tencent.com/document/product/607/10782)。**AppID 对应控制台的 AppID，Key 对应控制台的权限密钥。**
+
+
+<dx-alert infotype="explain" title="">
+- 请务必注意保存 AppID 以及权限密钥不被泄露。
+- 请注意此时的 userId 数字，请确保打开的另一个演示程序中的 userId 与此 userId 不同。
+</dx-alert>
+
+### 2. 初始化
+单击 **Init** 按钮进行初始化。
+
+### 3. 进房
+单击 **EnterRoom** 进入语音房间。
+
+### 4. 打开设备
+
+单击 **EnableMic**、**EnableSpeaker**、**EnableLoopback**，打开设备及耳返。
+
+### 5. 体验
+
+对着麦克风说话，体验变声效果。
+
+变声效果配置说明：
+
+<img src="https://qcloudimg.tencent-cloud.cn/raw/dc5f3b8312cc4cab666c2d43719f79cc.png" width=80%/><img>
+
+### 6. 退出房间
+测试完成后请单击 **ExitRoom** 退出房间，避免产生额外费用。

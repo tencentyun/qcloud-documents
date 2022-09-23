@@ -1,5 +1,7 @@
 
 
+
+
 腾讯云容器服务 TKE 具备通过 `service.kubernetes.io/tke-existed-lbid: <LoadBalanceId>` 注解实现使用已有负载均衡的功能，您可使用该注解指定集群 Service 资源关联的负载均衡实例。还提供了 **Service 负载均衡复用**功能，即指定多个 Service 使用同一个已有负载均衡，您可参考本文进行设置。
 
 ## 使用已有负载均衡的同步行为
@@ -55,7 +57,7 @@ spec:
 >- 请注意 Service 的类型，需设置为 `LoadBalancer` 类型。
 
 
-## 使用场景示例
+## 使用场景 示例
 ### 使用包年包月的负载均衡对外提供服务
 Service Controller 组件管理负载均衡生命周期时，仅支持购买按量计费的负载均衡资源。当用户需要长时间使用负载均衡时，包年包月计费模式在价格上有一定的优势。在此类场景下，用户就可以独立购买和管理负载均衡，再通过注解控制 Service 使用已有负载均衡，并将负载均衡的生命周期管理从 Service Controller 组件中剥离。
 
@@ -95,3 +97,12 @@ spec:
     app: game
   type: LoadBalancer
 ```
+
+
+
+
+
+
+
+
+

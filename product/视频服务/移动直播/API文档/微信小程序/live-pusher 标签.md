@@ -209,9 +209,9 @@ pusher.start({
 | 3001 |PUSH_WARNING_DNS_FAIL                |  DNS 解析失败，启动重试流程     |
 | 3002 |PUSH_WARNING_SEVER_CONN_FAIL |  服务器连接失败，启动重试流程  |
 | 3003 |PUSH_WARNING_SHAKE_FAIL            |  服务器握手失败，启动重试流程  |
-| 3004 |PUSH_WARNING_SERVER_DISCONNECT   |  服务器主动断开连接，启动重试流程 |
-| 3005 |PUSH_WARNING_SERVER_DISCONNECT   |  socket 链路异常断开 ，启动重试流程 |
-| 5000 | PUSH_WARNING_HANDUP_STOP  |  小程序被用户挂起 | 
+| 3004	| PUSH_WARNING_SERVER_DISCONNECT	| RTMP 服务器主动断开，请检查推流地址的合法性或防盗链有效期 |
+| 3005	| PUSH_WARNING_READ_WRITE_FAIL	| RTMP 读/写失败，将会断开连接 |
+| 5000 | PUSH_WARNING_HANDUP_STOP  |  小程序被用户挂起，停止推流 | 
 
 
 #### 4. 示例代码

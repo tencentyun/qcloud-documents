@@ -25,7 +25,7 @@ SDK 所有接口的具体参数与方法说明，请参考 [SDK API](https://cos
 // 开启版本控制
 QCloudPutBucketVersioningRequest* request = [[QCloudPutBucketVersioningRequest alloc] init];
 
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 request.bucket =@"examplebucket-1250000000";
 
 // 说明版本控制的具体信息
@@ -54,7 +54,7 @@ versioningConfiguration.status = QCloudCOSBucketVersioningStatusEnabled;
 // 开启版本控制
 let putBucketVersioning = QCloudPutBucketVersioningRequest.init();
 
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 putBucketVersioning.bucket = "examplebucket-1250000000";
 
 // 说明版本控制的具体信息
@@ -94,7 +94,7 @@ QCloudCOSXMLService.defaultCOSXML().putBucketVersioning(putBucketVersioning);
 QCloudGetBucketVersioningRequest* request =
                             [[QCloudGetBucketVersioningRequest alloc] init];
 
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 request.bucket = @"examplebucket-1250000000";
 
 [request setFinishBlock:^(QCloudBucketVersioningConfiguration* result,
@@ -114,7 +114,7 @@ request.bucket = @"examplebucket-1250000000";
 ```swift
 let getBucketVersioning = QCloudGetBucketVersioningRequest.init();
 
-// 存储桶名称，格式为 BucketName-APPID
+// 存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
 getBucketVersioning.bucket = "examplebucket-1250000000";
 
 getBucketVersioning.setFinish { (config, error) in

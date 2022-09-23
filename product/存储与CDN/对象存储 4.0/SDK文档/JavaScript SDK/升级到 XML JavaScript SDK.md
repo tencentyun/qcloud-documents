@@ -124,7 +124,7 @@ var cos = new COS({
             callback({
                 TmpSecretId: data.TmpSecretId,
                 TmpSecretKey: data.TmpSecretKey,
-                XCosSecurityToken: data.XCosSecurityToken,
+                SecurityToken: data.SecurityToken,
                 ExpiredTime: data.ExpiredTime, // SDK 在 ExpiredTime 时间前，不会再次调用 getAuthorization
             });
         });

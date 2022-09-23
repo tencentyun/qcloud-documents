@@ -9,7 +9,7 @@
 ## 前提条件
 
 - 在 Prometheus 实例对应地域及私有网络 VPC 下，创建腾讯云容器服务 [托管版集群](https://cloud.tencent.com/document/product/457/32189#TemplateCreation)，并为集群创建 [命名空间](https://cloud.tencent.com/document/product/1141/41803)。
-- 在【[云监控 Prometheus 控制台](https://console.cloud.tencent.com/monitor/prometheus)】 >【选择“对应的 Prometheus 实例”】 >【集成容器服务】中找到对应容器集群完成集成操作，详情请参见 [Agent 管理](https://cloud.tencent.com/document/product/248/48859)。
+- 在**[云监控 Prometheus 控制台](https://console.cloud.tencent.com/monitor/prometheus)** >**选择“对应的 Prometheus 实例”** >**集成容器服务**中找到对应容器集群完成集成操作，详情请参见 [Agent 管理](https://cloud.tencent.com/document/product/248/48859)。
 
 
 ## 操作步骤
@@ -19,8 +19,8 @@
 
 1. 登录 [容器服务](https://console.cloud.tencent.com/tke2/cluster) 控制台。
 2. 单击需要获取集群访问凭证的集群 ID/名称，进入该集群的管理页面。
-3. 在左侧菜单中选择【工作负载】>【Deployment】，进入 Deployment 页面。
-4. 在 Deployment 管理页面，单击【新建】，选择对应的**命名空间**来进行部署服务。可以通过控制台的方式创建，如下以 YAML 的方式部署 Exporter，YAML 配置示例如下：
+3. 在左侧菜单中选择**工作负载** > **Deployment**，进入 Deployment 页面。
+4. 在 Deployment 管理页面，单击**新建**，选择对应的**命名空间**来进行部署服务。可以通过控制台的方式创建，如下以 YAML 的方式部署 Exporter，YAML 配置示例如下：
 
 ```yaml
 apiVersion: apps/v1
@@ -70,7 +70,7 @@ spec:
 ### 添加采取任务
 
 1. 登录 [云监控 Prometheus 控制台](https://console.cloud.tencent.com/monitor/prometheus)，选择对应 Prometheus 实例进入管理页面。
-2. 通过集成容器服务列表点击【集群 ID】进入到容器服务集成管理页面。
+2. 通过集成容器服务列表单击**集群 ID**进入到容器服务集成管理页面。
 3. 通过服务发现添加 `Pod Monitor` 来定义 Prometheus 抓取任务，YAML 配置示例如下：
 
 ```yaml
@@ -110,7 +110,7 @@ spec:
 ### 查看监控
 
 1. 登录 [云监控 Prometheus 控制台](https://console.cloud.tencent.com/monitor/prometheus)，选择对应 Prometheus 实例进入管理页面。
-2. 单击【集成中心】，进入集成中心页面。找到 kafka 监控，安装对应的 Grafana Dashboard 即可开启 kafaka 监控大盘，查看实例相关的监控数据，如下图所示：
+2. 单击**集成中心**，进入集成中心页面。找到 kafka 监控，安装对应的 Grafana Dashboard 即可开启 kafaka 监控大盘，查看实例相关的监控数据，如下图所示：
 ![](https://main.qcloudimg.com/raw/9eac552bd9fda6604c9d845604dd5ef0.png)
 
 

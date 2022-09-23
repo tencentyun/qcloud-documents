@@ -1,3 +1,5 @@
+
+
 腾讯云物联网设备端 Andriod SDK 依靠安全且性能强大的数据通道，为物联网领域开发人员提供设备端快速接入云端，并和云端进行双向通信的能力。开发人员只需完成工程的相应配置即可完成设备的接入。
 
 ## 前提条件
@@ -5,26 +7,20 @@
 
 ## 引用方式
 ####  集成 SDK 方式
-若不需要将 IoT SDK 运行在 service 组件中，则只需要依赖 [iot_core](https://github.com/tencentyun/iot-device-java/tree/master/hub/hub-device-android/iot_core)。
+
  - 依赖 maven 远程构建，示例如下：
 ```gr
 dependencies {
-			implementation 'com.tencent.iot.hub:hub-device-android-core:x.x.x'
-			implementation 'com.tencent.iot.hub:hub-device-android-service:x.x.x'
+			implementation 'com.tencent.iot.hub:hub-device-android:x.x.x'
 }
-  ```
->?
->- 用户可根据 [版本说明](https://cloud.tencent.com/document/product/634/48712) 把上述x.x.x设置成最新版本。
-- 若不需要将 IoT SDK 运行在 service 组件中，则只需要依赖 iot_core。
-- 若需要将 IoT SDK 运行在 service 组件中，则只需依赖 iot_service。
+```
+>?用户可根据 [版本说明](https://cloud.tencent.com/document/product/634/48712) 把上述x.x.x设置成最新版本。
 >
-
  - 依赖本地 SDK 源码构建：
-   修改应用模块的 [build.gradle](https://github.com/tencentyun/iot-device-java/blob/master/hub/hub-android-demo/build.gradle)，使应用模块依赖 [iot_core](https://github.com/tencentyun/iot-device-java/tree/master/hub/hub-device-android/iot_service) 和 [iot_service](https://github.com/tencentyun/iot-device-java/tree/master/hub/hub-device-android/iot_service) 源码，示例如下：
+    修改应用模块的 [build.gradle](https://github.com/tencentyun/iot-device-java/blob/master/hub/hub-android-demo/build.gradle)，使应用模块依赖源码，示例如下：
 ```gr
 dependencies {
-			implementation project(':hub:hub-device-android:iot_core')
-			implementation project(':hub:hub-device-android:iot_service')
+			implementation project(':hub:hub-device-android')
 }
 ```
 

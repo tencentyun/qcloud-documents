@@ -1,3 +1,4 @@
+
 为方便开发者调试和接入腾讯云游戏多媒体引擎产品 API，这里向您介绍游戏多媒体引擎实时语音 K 歌功能的接入技术文档。
 
 
@@ -209,6 +210,7 @@ int ResumePreview()
 ```
 int SetPreviewTimeByMs(int time)
 ```
+
 |参数     | 类型         |意义|
 | ------------- |:-------------:|-------------
 | time    		|int |预览文件的时间点，单位毫秒。|
@@ -281,6 +283,7 @@ int SetMixWieghts(float mic, float acc)
 ```
 int AdjustAudioTimeByMs(int time)
 ```
+
 |参数     | 类型         |意义|
 | ------------- |:-------------:|-------------
 | time    		|int |人声相对于伴奏的偏移时间，单位ms。大于0为向后移动，小于0为向前移动。|

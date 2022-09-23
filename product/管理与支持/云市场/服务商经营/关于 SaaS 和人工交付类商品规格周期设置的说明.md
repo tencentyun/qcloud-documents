@@ -3,10 +3,10 @@
 
 ## 操作步骤
 ### SaaS 类
-1. 登录 [云市场服务商管理控制台](https://console.cloud.tencent.com/serviceprovider)，选择左侧菜单栏【商品管理】>【商品列表】。
-2. 进入商品列表页面，单击【新建商品】，更多新建 SaaS 商品的操作信息可参见 [SaaS服务](https://cloud.tencent.com/document/product/306/3030)。
+1. 登录 [云市场服务商管理控制台](https://console.cloud.tencent.com/serviceprovider)，选择左侧菜单栏**商品管理 > 商品列表**。
+2. 进入商品列表页面，单击**新建商品**，更多新建 SaaS 商品的操作信息可参见 [SaaS服务](https://cloud.tencent.com/document/product/306/3030)。
 3. 填写商品相关信息，每个商品可以输入多个规格。
-4. 如需删除规格信息或各规格中的售卖周期信息，单击对应位置右侧的【删除】即可。
+4. 如需删除规格信息或各规格中的售卖周期信息，单击对应位置右侧的**删除**即可。
 5. 上架状态：如开启，则用户可在购买页面查看该规格信息，如未开启，则用户无法查看。
 6. 针对单个规格：
  - 设置多个新购价格，单位可以是 “日”、“月”、“年”。
@@ -16,8 +16,8 @@
 
 
 ### 人工交付类
-1. 登录 [云市场服务商管理控制台](https://console.cloud.tencent.com/serviceprovider)，选择左侧菜单栏【商品管理】>【商品列表】。
-2. 进入商品列表页面，单击【新建商品】，更多新建人工服务商品的操作信息可参见 [人工服务](https://cloud.tencent.com/document/product/306/3029)。
+1. 登录 [云市场服务商管理控制台](https://console.cloud.tencent.com/serviceprovider)，选择左侧菜单栏**商品管理 > 商品列表**。
+2. 进入商品列表页面，单击**新建商品**，更多新建人工服务商品的操作信息可参见 [人工服务](https://cloud.tencent.com/document/product/306/3029)。
 3. 在填写商品相关信息时，可以分别按照周期或次数设置商品。
 4. 按周期设置
  - 每个商品可以输入多个规格。

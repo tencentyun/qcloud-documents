@@ -2,7 +2,7 @@
 
 [&lt;mlvb-live-room&gt;](https://github.com/tencentyun/MLVBSDK/tree/master/WXMini/pages/components/mlvb-live-room) 组件包含如下属性：
 
-| 属性      | 类型    | 值           | 说明       |
+| 属性      | 类型    | 值           | 说明       | 
 |:---------:|:---------:|:---------:|--------------|
 | template  | String  | 'float'  | 必要，标识组件使用的界面模版。 |
 | roomID    | String  | 自定义               | 可选，房间号（role = audience 时，roomID 不能为空）。    |
@@ -57,13 +57,14 @@ liveroom.pause();
 
 // Page.wxml 文件
 <mlvb-live-room id="id_liveroom"
-	roomID="{{roomID}}"
-	roomName="{{roomName}}"
-	template="float"
-	beauty="{{beauty}}"
-	muted="{{muted}}"
-	debug="{{debug}}"
-	bindRoomEvent="onRoomEvent">
+		roomID="{{roomID}}"
+		roomName="{{roomName}}"
+		template="float"
+		beauty="{{beauty}}"
+		muted="{{muted}}"
+		role="{{role}}"
+		debug="{{debug}}"
+		bindRoomEvent="onRoomEvent">
 </mlvb-live-room>
 
 
@@ -71,6 +72,7 @@ liveroom.pause();
 Page({
     data: {
     	//...
+        role: 'anchor', // 角色视您的业务场景而定
         roomID: '',
         roomName: '',
         beauty: 3,

@@ -1,0 +1,9 @@
+在用户中心页面可以获取用户的相关信息，查看用户积分信息，可根据用户的活动行为进行灵活增减积分数量。
+
+
+## 操作步骤
+1. 登录 [腾讯安心用户运营平台控制台](https://console.cloud.tencent.com/smop/data/mallUser)，在左侧导览中，选择**商品管理** > **任务列表**。
+2. 在任务列表页面，左上角选择所需项目，可以根据账号 id 和手机号，获取用户的相关信息。
+![](https://qcloudimg.tencent-cloud.cn/raw/98c28e60a2655ff3d14d15189a053dca.png)
+3. 单击**增减积分**，选择操作方式和积分数，单击**确定**即可修改当前用户的积分数量。
+![](https://qcloudimg.tencent-cloud.cn/raw/faa7d32ebd991eae11f83c9cc0c87e93.png)

@@ -5,12 +5,12 @@
 ## 创建角色
 
 1. 登录 [访问管理](https://console.cloud.tencent.com/cam/role) 控制台。
-2. 单击【新建角色】，选择角色载体类别为【腾讯云产品服务】。
-3. 指定角色的实例载体为【云服务器】或【黑色物理服务器1.0】，单击【下一步】。
+2. 单击**新建角色**，选择角色载体类别为**腾讯云产品服务**。
+3. 指定角色的实例载体为**云服务器**或**黑色物理服务器1.0**，单击**下一步**。
    ![](https://main.qcloudimg.com/raw/ae804f5c09faeaf117f3513c8c0c5ae3.png)
-4. 搜索并勾选 COS 存储桶的全读写访问策略 QcloudCOSFullAccess，为角色赋予权限，单击【下一步】。
+4. 搜索并勾选 COS 存储桶的全读写访问策略 QcloudCOSFullAccess，为角色赋予权限，单击**下一步**。
    ![](https://main.qcloudimg.com/raw/ddcf92bae85927721f2941b7840db7c7.png)
-5. 输入自定义指定角色名，单击【完成】，即可完成角色的创建。
+5. 输入自定义指定角色名，单击**完成**，即可完成角色的创建。
    ![](https://main.qcloudimg.com/raw/48a97e242246c30a5eeb85cafc1b589e.png)
 
 ## 角色绑定实例
@@ -20,10 +20,10 @@
 ### 将角色绑定到 CPM 实例
 
 1. 进入 [云 API](https://console.cloud.tencent.com/api/explorer) 页面。
-2. 选择【黑石物理服务器】>【黑石物理服务器接口】> 【服务器绑定 CAM 角色】，然后依次填入 secretId，secretKey，以及待绑定的实例 ID、地域和角色名称。
+2. 选择**黑石物理服务器 > 黑石物理服务器接口 > 服务器绑定 CAM 角色**，然后依次填入 secretId，secretKey，以及待绑定的实例 ID、地域和角色名称。
 ![](https://main.qcloudimg.com/raw/c9a491a19ff10e3d213d8485f452c957.png)
-3. 在右侧单击【在线调用】页签，进入在线调用页面。
-4. 单击【发送请求】，即可绑定成功。
+3. 在右侧单击**在线调用**页签，进入在线调用页面。
+4. 单击**发送请求**，即可绑定成功。
 
 #### 验证角色绑定结果
 

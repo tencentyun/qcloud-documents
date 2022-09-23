@@ -13,7 +13,6 @@
 - 暂时只能支持一个 MySQL 集群和一个云数据仓库 PostgreSQL 集群的同步。
 
 ## 部署实时同步步骤
-**建议的同步方式：**
 1. 迁移历史数据。在迁移历史数据时，需要首先进行停服操作。停服后，记录下目前的 binlog 信息，可以用如下命令进行查询。
 ```
 show master status;
@@ -148,4 +147,4 @@ crontab -e
 ```
 
 ## 日志查错
-在部署路径中有一个 sync.log 文件会实时打印程序执行的步骤，当进程出错退出时，可用于定位问题，日志中 ERROR 等级日志用于错误定位，如果定位有困难可以 [提交工单](https://console.cloud.tencent.com/workorder/category) 咨询。
+在部署路径中有一个 sync.log 文件会实时打印程序执行的步骤，当进程出错退出时，可用于定位问题，日志中 ERROR 等级日志用于错误定位，如果定位有困难可通过 [售后支持](https://cloud.tencent.com/online-service?from=connect-us) 咨询。

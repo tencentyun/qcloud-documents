@@ -1,8 +1,6 @@
 ## Hadoop 命令
 ### 未获取 ticket
-当已启用 kerberos 时，执行 hadoop 命令时都需要提前获取 ticket。
-
-如果没有获取 ticket，则会出现如下错误信息：
+当已启用 kerberos 时，执行 hadoop 命令时都需要提前获取 ticket。如果没有获取 ticket，则会出现如下错误信息：
 ```
 hadoop fs -ls /
 19/04/19 19:59:03 WARN ipc.Client: Exception encountered while connecting to the server : javax.security.sasl.SaslException: GSS initiate failed [Caused by GSSException: No valid credentials provided (Mechanism level: Failed to find any Kerberos tgt)]

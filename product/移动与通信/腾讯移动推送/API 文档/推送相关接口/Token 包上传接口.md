@@ -1,4 +1,3 @@
-
 ## 接口说明
 
 **请求方式**：POST。
@@ -58,5 +57,6 @@ response = requests.request("POST", url, data=upload_data, headers=headers, file
 print(response.text.encode('utf-8'))
 ```
 
->!应用的认证信息，请参见 [Basic Auth 认证](https://cloud.tencent.com/document/product/548/39062) 文档。
+>! 应用的认证信息，请参见 [Basic Auth 认证](https://cloud.tencent.com/document/product/548/39062) 文档。
+>
 

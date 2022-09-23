@@ -1,7 +1,7 @@
 ## 环境依赖
 
-- [CHDFS_JAR](https://github.com/tencentyun/chdfs-hadoop-plugin)。
-- Druid 版本：Druid-0.12.1。
+- [CHDFS_JAR](https://github.com/tencentyun/chdfs-hadoop-plugin)
+- Druid 版本：Druid-0.12.1
 
 ## 下载与安装
 

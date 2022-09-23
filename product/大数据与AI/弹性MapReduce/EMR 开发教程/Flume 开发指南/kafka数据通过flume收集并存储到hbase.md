@@ -9,7 +9,7 @@
 首先需要查看 CKafka 的内网 IP 和端口号。登录消息队列 CKafka 的控制台，选择您要使用的 CKafka 实例，在基本消息中查看其内网 IP 为 $kafkaIP，而端口号一般默认为9092。在 topic 管理界面新建一个 topic 为 kafka_test。
 
 ## 配置 flume
-1. 创建 flume 的配置文件`hbase_kafka.properties`
+1. 创建 flume 的配置文件 `hbase_kafka.properties`
 ```
 vim hbase_kafka.properties
 agent.sources = kafka_source

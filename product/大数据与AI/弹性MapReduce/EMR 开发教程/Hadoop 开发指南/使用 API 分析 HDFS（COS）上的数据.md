@@ -2,13 +2,12 @@
 
 ## 1. 开发准备
 - 由于任务中需要访问腾讯云对象存储（COS），所以需要在 COS 中先 [创建一个存储桶（Bucket）](https://cloud.tencent.com/document/product/436/13309)。
-
-- 确认您已经开通了腾讯云，并且创建了一个 EMR 集群。在创建 EMR 集群的时候在基础配置页面勾选“开启 COS”，并在下方填写自己的 SecretId 和 SecretKey。SecretId 和 SecretKey 可以在 [API 密钥管理界面](https://console.cloud.tencent.com/cam/capi) 查看。如果还没有密钥，请单击【新建密钥】建立一个新的密钥。
+- 确认您已经开通了腾讯云，并且创建了一个 EMR 集群。在创建 EMR 集群的时候需要选择包含 HDFS 的集群类型，并在基础配置页面开启对象存储的授权。
 
 ## 2. 登录 EMR 服务器
 在做相关操作前需要登录到 EMR 集群中的任意一个机器，最好是登录到 Master 节点。EMR 是建立在 Linux 操作系统的腾讯云服务器 CVM 上的，所以在命令行模式下使用 EMR 需要登录 CVM 服务器。
 
-EMR 集群创建后，在控制台中选择弹性 MapReduce，在集群列表中找到刚创建的集群，选择右侧【详情】>【集群资源】>【资源管理】>【Master 节点】中活跃的 Master 节点的 CVM ID，即可进入云服务器控制台并且找到 EMR 对应的云服务器。
+EMR 集群创建后，在控制台中选择弹性 MapReduce，在集群列表中找到刚创建的集群，选择右侧**详情 > 集群资源 > 资源管理 > Master 节点**中活跃的 Master 节点的 CVM ID，即可进入云服务器控制台并且找到 EMR 对应的云服务器。
 
 登录 CVM 的方法请参考 [登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)。这里我们可以选择使用 WebShell 登录。单击对应云服务器右侧的登录，进入登录界面，用户名默认为 root，密码为创建 EMR 时用户自己输入的密码。
 

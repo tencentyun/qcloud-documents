@@ -15,7 +15,7 @@
 8. 成功激活后即可使用腾讯会议 Rooms 服务。
 
 
-
+ 
 ## 专款设备开机和激活流程
 1. 开机大屏：将自动启动腾讯会议 Rooms 应用。
 2. 网络配置：开机后您可选择需要连接的网络，连接成功后 Rooms 将展示绑定二维码。
@@ -26,7 +26,7 @@
 4. 账号选择：进入账号选择页，可将 Rooms 设备选择绑定至个人版、商业版或企业版账号。
 >?扫码后，账号列表仅呈现具备管理权限的账号，商业版和企业版仅管理员才能绑定至企业账号下。
 ![img](https://dldir1.qq.com/download/support-center/image/rooms/spc_bind_account.png)
-5. 完善会议室信息：选择绑定的账号后，需完成会议室信息填写，单击【下一步】，即可完成绑定。
+5. 完善会议室信息：选择绑定的账号后，需完成会议室信息填写，单击**下一步**，即可完成绑定。
 ![img](https://dldir1.qq.com/download/support-center/image/rooms/spc_bind_set.png)
 6. 激活设备：完成绑定后，Rooms 将进入激活页面，您可选择一键激活或激活码激活两种方式激活。
 ![](https://main.qcloudimg.com/raw/89fd4f9704d53fcdfd9a528ecb405045.png)

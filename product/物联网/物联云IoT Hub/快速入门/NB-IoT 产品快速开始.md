@@ -1,6 +1,9 @@
 >?NB-IoT 产品与普通产品的区别，请参考 [产品类型](https://cloud.tencent.com/document/product/634/18348)。
 
+
+
 ## 操作场景
+
 - 用户拥有电信 NB-IoT 模组，实现终端到应用平台的上报数据和下发数据，查询数据最后上报时间。 用户仅需在腾讯物联网通信配置（无需在电信 NB-IoT 平台配置），即可完成上述功能。   
 - 用户通过终端串口命令设置 NB-IoT 模组连接运营商网络后，通过 AT 命令上报数据到运营商 NB-IoT 平台，运营商通过回调，将数据发送到物联网通信平台，结合用户配置的规则，转发到用户平台，或者转发到腾讯云组件、云存储等。同理，用户平台调用物联网通信平台 RestAPI，即可将数据下发到终端。
 - 对于移动/联通的 NB-IoT 产品其接入方式与 WIFI/2G/3G/4G 等普通产品相同，在控制台创建普通产品类型即可。
@@ -35,7 +38,7 @@
 
 ### 创建规则引擎
 本示例是将上报的数据转发到用户的应用平台，采用 HTTP POST 请求推送，包体为 JSON。规则引擎同时还支持转发腾讯云存储组件，消息队列等。 
- 
+
 具体步骤请参见 [规则引擎详情](https://cloud.tencent.com/document/product/634/14446)。
 
 ### 下载 NB-IoT SDK
@@ -50,11 +53,11 @@ samples/nbiot/nbiot_sample.c 是上传数据编码和下发数据解码的示例
 接口介绍  
 ```int IOT_NB_setMessage(unsigned char* msg, unsigned int* length, NBIoTSetMessage* nbiotMsg);```  
 
-| 参数名称 | 描述 | 
+| 参数名称 | 描述 |
 |---------|---------|
-| msg | 生成的十六进制上行消息编码 | 
-| length | 十六进制上行消息的长度，以字节为单位 | 
-| nbiotMsg | nbiot 终端发送消息的结构体，包括 address、 version、签名类型、过期时间、传输质量、topic、payload、key 等信息  | 
+| msg | 生成的十六进制上行消息编码 |
+| length | 十六进制上行消息的长度，以字节为单位 |
+| nbiotMsg | nbiot 终端发送消息的结构体，包括 address、 version、签名类型、过期时间、传输质量、topic、payload、key 等信息  |
 
 
 #### 下发数据解码
@@ -62,9 +65,9 @@ samples/nbiot/nbiot_sample.c 是上传数据编码和下发数据解码的示例
 
 ```int IOT_NB_getMessage(NBIoTGetMessage* nbiotMsg, unsigned char* msg);``` 
 
-| 参数名称| 描述 | 
+| 参数名称| 描述 |
 |---------|---------|
-| nbiotMsg | nbiot 终端解析出来的消息内容结构体，包括 address、version、签名类型、过期时间、传输质量、topic、payload 等信息  | 
+| nbiotMsg | nbiot 终端解析出来的消息内容结构体，包括 address、version、签名类型、过期时间、传输质量、topic、payload 等信息  |
 |msg | nbiot 平台发送到设备端的十六进制下行消息编码  |
 
 
@@ -100,10 +103,10 @@ len，data 由 [配置 C-SDK 示例程序](https://cloud.tencent.com/document/pr
 应用平台收到 HTTP POST 推送数据，body 内容示例如下：
 ```
 {"payload":xxxx, "seq":12345, "timestamp":140000245, "topic":"/xx/xx/xx", "devicename":"xx", "productid":"xx"}
-```  
+```
 5. 下发数据   
 通过 RestAPI 接口下发数据到设备 [发布消息](https://cloud.tencent.com/document/product/634/12278)，RestAPI 发布消息后，终端会收到串口 TTL 返回的数据，如果没有及时收到，原因是 NB-IoT 模组与平台不是长连接，平台不能感知 NB-IoT 模组是否在线，终端主动上报一次数据，下发的消息就会立刻返回。 
- 
+
 ### 状态查询
 物联网通信提供 [查询设备状态](https://cloud.tencent.com/document/product/634/18341) 接口，可以查询设备最后一次上报数据的时间，用户可以根据当前时间对比来判断设备状态。  
 例如，用户 NB-IoT 设备上报数据时间间隔为20小时，拉取最后上报数据的时间已经过去三天，即可判断设备状态异常。  

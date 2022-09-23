@@ -1,3 +1,5 @@
+>!由于产品逻辑已无法满足游戏行业技术发展，游戏联机对战引擎 MGOBE 将于2022年6月1日下线，请您在2022年5月31日前完成服务迁移。
+
 ## 操作场景
 本文档指导您如何初始化 SDK。
 
@@ -25,9 +27,9 @@ import "./view/GameView.js";
 const gameInfo = {
     // 随机生成 玩家 ID
     openId: Util.mockOpenId(),
-    // 替换 为控制台上的“游戏ID”
+    // 替换 为控制台上的“游戏 ID”
     gameId: "xxxxxx",
-    // 替换 为控制台上的“游戏Key”
+    // 替换 为控制台上的“游戏 Key”
     secretKey: 'xxxxxxxxxxxxxxxxxxx',
 };
 

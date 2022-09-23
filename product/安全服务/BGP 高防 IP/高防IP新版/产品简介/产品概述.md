@@ -9,13 +9,13 @@ DDoS高防IP使用公网代理的接入方式，支持 TCP、UDP、HTTP、HTTPS 
 | ------------------ | ------------------------------------------------------------ |
 | 畸形报文过滤       | 过滤 frag flood，smurf，stream   flood，land flood 攻击，过滤 IP 畸形包、TCP 畸形包、UDP 畸形包 |
 | 网络层 DDoS 攻击防护 | 过滤UDP Flood、SYN Flood、TCP Flood、ICMP Flood、ACK Flood、FIN Flood、RST Flood、DNS/NTP/SSDP 等反射攻击、空连接 |
-| 应用层 DDoS 攻击防护 | 过滤 CC 攻击和 HTTP 慢速攻击，支持 HTTP 自定义特征过滤如 host 过滤、user-agent 过滤、referer 过滤 |
+| 应用层 DDoS 攻击防护 | 过滤 CC 攻击，支持 HTTP 自定义特征过滤如 host 过滤、user-agent 过滤、referer 过滤 |
 
 ### 安全防护策略
 DDoS 高防 IP 默认提供基础安全策略，策略基于 IP 画像、行为模式分析、AI 智能识别等防护算法，有效应对常见 DDoS 攻击行为，同时提供灵活防护策略，您可针对自身业务需求配置，提供针对性防护。
 
 ### 清洗模式自定义
-DDoS 高防 IP 支持多种防护等级，提供自定义清洗阈值，用户可根据攻击情况灵活调整，对不同类型的DDoS攻击快速响应，充分匹配不同用户不同业务类型。
+DDoS 高防 IP 支持多种防护等级，提供自定义清洗阈值，用户可根据攻击情况灵活调整，对不同类型的 DDoS 攻击快速响应，充分匹配不同用户不同业务类型。
 
 ### 封堵自助解除 
 当攻击流量突发或 DDoS 高防 IP 防护带宽较小，造成高防 IP 被封堵，您可在控制台安全防护概览界面进行自助解除。

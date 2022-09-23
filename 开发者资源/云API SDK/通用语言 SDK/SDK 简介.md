@@ -45,8 +45,8 @@ SDK 3.0支持全部 API 3.0下的云产品，本列表可能滞后于实际代�
 | [腾讯云搜](https://cloud.tencent.com/document/api/270/42321) | Tencent  Cloud Search，TCS                                   | yunsou       |
 | [自然语言处理](https://cloud.tencent.com/document/api/271/35484) | Natural  Language Process，NLP                               | nlp          |
 | [机器翻译](https://cloud.tencent.com/document/api/551/15612) | Tencent  Machine Translation，TMT                            | tmt          |
-| [智能钛弹性模型服务](https://cloud.tencent.com/document/api/1120/37543) | Tencent  Intelligence Elastic Model Service，TI-EMS          | tiems        |
-| [智能钛机器学习平台](https://cloud.tencent.com/document/api/851/42530) | Tencent Intelligence One-Stop Machine Learning Platfoem，TI-ONE | tione        |
+| [腾讯云 TI 平台 TI-EMS ](https://cloud.tencent.com/document/api/1120/37543) | TencentCloud TI Platform TI-EMS          | tiems        |
+| [腾讯云 TI 平台 TI-ONE ](https://cloud.tencent.com/document/api/851/42530) | TencentCloud TI Platform TI-ONE | tione        |
 | [金融联络机器人](https://cloud.tencent.com/document/api/656/18281) | Finance  Communication Robot，FCR                            | cr           |
 | [游戏多媒体引擎](https://cloud.tencent.com/document/api/607/35364) | Game  Multimedia Engine，GME                                 | gme          |
 | [智聆口语评测](https://cloud.tencent.com/document/api/884/19310) | Smart Oral  Evaluation，SOE                                  | soe          |
@@ -109,8 +109,8 @@ SDK 3.0支持全部 API 3.0下的云产品，本列表可能滞后于实际代�
 | [Elasticsearch Service](https://cloud.tencent.com/document/api/845/30620) | Elasticsearch  Service，ES                                   | es           |
 | [样本智能分析平台](https://cloud.tencent.com/document/product/1012)      | -                                | habo         |
 | [腾讯知识图谱](https://cloud.tencent.com/document/product/677)             | Tencent  Knowledge Graph，TKG                                | tkgdq        |
-| [文本内容安全](https://cloud.tencent.com/document/product/1124/38207) | Text  Moderation System，TMS                                 | cms          |
-| [图片内容安全](https://cloud.tencent.com/document/product/1125/38206) | Image  Moderation System，IMS                                | cms          |
+| [文本内容安全](https://cloud.tencent.com/document/product/1124/38207) | Text  Moderation System，TMS                                 | tms          |
+| [图片内容安全](https://cloud.tencent.com/document/product/1125/38206) | Image  Moderation System，IMS                                | ims          |
 | [电子合同服务](https://cloud.tencent.com/document/product/869/17778) | Digital  Contract                                            | ds           |
 | [腾讯智学课堂分析](https://cloud.tencent.com/document/product/1059/35988) | Tencent  Classroom Intellisense                              | tci          |
 | [活动防刷](https://cloud.tencent.com/document/product/1189)         | - | aa         |
@@ -151,7 +151,6 @@ SDK 3.0支持全部 API 3.0下的云产品，本列表可能滞后于实际代�
 | [文件检测](https://cloud.tencent.com/document/product)              | - | tav        |
 | [腾讯云释义](https://cloud.tencent.com/document/product/1266)        | Tencent Cloud Explanation | tcex       |
 | [分布式消息队列](https://cloud.tencent.com/document/product/1179)      | Tencent Distributed Message Queue | tdmq       |
-| [智能钛机器学习](https://cloud.tencent.com/document/product)           | - | tia        |
 | [腾讯云IaC平台](https://cloud.tencent.com/document/product/1213)     | - | tic        |
 | [智能鉴黄](https://cloud.tencent.com/document/product/864)          | - | ticm       |
 | [文本内容安全](https://cloud.tencent.com/document/product/1124)       | Text Moderation System | tms        |
@@ -160,6 +159,15 @@ SDK 3.0支持全部 API 3.0下的云产品，本列表可能滞后于实际代�
 | [语音消息](https://cloud.tencent.com/document/product/1128)         | Voice Message Service | vms        |
 | [SSL证书管理服务](https://cloud.tencent.com/document/product)         | - | wss        |
 | [珠玑](https://cloud.tencent.com/document/product)                | - | zj         |
+| [区块链可信取证](https://cloud.tencent.com/document/product/1259)           | Blockchain Trusted Obtain Evidence，BTOE | btoe             |
+| [数据湖计算](https://cloud.tencent.com/document/product/1342)             | Data Lake Compute，DLC | dlc              |
+| [DNSPod](https://cloud.tencent.com/document/product/1427)            | DNSPod | dnspod           |
+| [物联网智能视频服务（行业版）](https://cloud.tencent.com/document/product/1361)    | Internet of Things Video，IoT Video（Industry Version） | iotvideoindustry |
+| [移动网络加速](https://cloud.tencent.com/document/product/1385)            | Mobile Network Acceleration | mna              |
+| [医疗报告结构化](https://cloud.tencent.com/document/product/1314)           | Automatic Structuring of Medical Reports | mrs              |
+| [私有域解析 Private DNS](https://cloud.tencent.com/document/product/1338) | Private DNS | privatedns       |
+| [弹性微服务](https://cloud.tencent.com/document/product/1371)             | Tencent Cloud Elastic Microservice，TEM | tem              |
+| [腾讯云微服务引擎](https://cloud.tencent.com/document/product/1364)          | Tencent Cloud Service Engine，TSE | tse              |
 
 ## API Explorer
 [API Explorer](https://console.cloud.tencent.com/api/explorer) 提供了在线调用、签名验证、 SDK 代码生成和快速检索接口等能力，能显著降低使用云 API 的难度。

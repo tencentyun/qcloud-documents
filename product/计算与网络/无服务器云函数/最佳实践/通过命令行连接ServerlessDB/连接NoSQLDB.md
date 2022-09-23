@@ -93,7 +93,7 @@ exports.main = async (event, context) => {
 }
 ```
 5. 完成业务代码编写后，创建 `serverless.yml` 文件，并在环境变量中填写您的 **SecretId** 和 **SecretKey**。
->!若使用如下配置，则会创建免费云开发环境。如您已具备免费云开发环境，请将云开发环境 ID 填入 `MongoId` 中，否则会出现报错。 
+>!若使用如下配置，则会创建免费云开发环境。如您已具备免费云开发环境，请将云开发环境 ID 填入 `MongoId` 中，否则会出现报错。   
 >
 ```
 component: scf
@@ -138,7 +138,7 @@ mongoDBDemoSCF:
        MemorySize:   128
 25s › tcbdemo › Success
 ```
-2. 部署成功后，您可通过 [云函数控制台](https://console.cloud.tencent.com/scf/index?rid=1)，查看并进行函数调试。测试步骤请参见 [云端测试](https://cloud.tencent.com/document/product/583/37509#.E4.BA.91.E7.AB.AF.E6.B5.8B.E8.AF.95)，测试成功如下图所示：
+2. 部署成功后，您可通过 [Serverless 控制台](https://console.cloud.tencent.com/scf/index?rid=1)，查看并进行函数调试。测试步骤请参见 [云端测试](https://cloud.tencent.com/document/product/583/37509#.E4.BA.91.E7.AB.AF.E6.B5.8B.E8.AF.95)，测试成功如下图所示：
 ![](https://main.qcloudimg.com/raw/46a5f3397cdaac7c6790a5b096cc7c36.png)
 >?您还可通过 [Serverless Dashboard](https://serverless.cloud.tencent.com/)，松实现部署项目的实时监控。
 >

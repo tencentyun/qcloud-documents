@@ -13,42 +13,42 @@ ClickHouse 支持整数、浮点数、字符型、日期、枚举值和数组等
       <td rowspan="8">整数</td>
       <td>单字节整数</td>
       <td>Int8</td>
-			<td>-128 - 127</td>
+			<td>[-128，127]</td>
    </tr>
 	 <tr>
       <td>双字节整数</td>
       <td>Int16</td>
-			<td>-32768 - 32767</td>
+			<td>[-32768，32767]</td>
    </tr>
 	 <tr>
       <td>四字节整数</td>
       <td>Int32</td>
-			<td>-2147483648 - 2147483647</td>
+			<td>[-2147483648，2147483647]</td>
    </tr>
 	 <tr>
       <td>八字节整数</td>
       <td>Int64</td>
-			<td>-9223372036854775808 - 9223372036854775807</td>
+			<td>[-9223372036854775808，9223372036854775807]</td>
    </tr>
 	 <tr>
       <td>无符号单字节整数</td>
       <td>UInt8</td>
-			<td>0 - 255</td>
+			<td>[0，255]</td>
    </tr>
    <tr>
       <td>无符号双字节整数</td>
       <td>UInt16</td>
-			<td>0 - 65535</td>
+			<td>[0，65535]</td>
    </tr>
 	 <tr>
       <td>无符号四字节整数</td>
       <td>UInt32</td>
-			<td>0 - 4294967295</td>
+			<td>[0，4294967295]</td>
    </tr>
 	 <tr>
       <td>无符号八字节整数</td>
       <td>UInt64</td>
-			<td>0 - 18446744073709551615</td>
+			<td>[0，18446744073709551615]</td>
    </tr>
 	 <tr>
       <td rowspan="5">浮点数</td>
@@ -64,15 +64,15 @@ ClickHouse 支持整数、浮点数、字符型、日期、枚举值和数组等
 	 <tr>
       <td rowspan="3">自定义浮点</td>
       <td>Decimal32(S)</td>
-			<td>浮点数有效数字 S，S 取值范围1 - 9</td>
+			<td>浮点数有效数字 S，S 取值范围[1，9]</td>
    </tr>
 	 <tr>
       <td>Decimal64(S)</td>
-      <td>浮点数有效数字 S，S 取值范围10 - 18</td>
+      <td>浮点数有效数字 S，S 取值范围[10，18]</td>
    </tr>
 	 <tr>
       <td>Decimal128(S)</td>
-      <td>浮点数有效数字 S，S 取值范围19 - 38</td>
+      <td>浮点数有效数字 S，S 取值范围[19，38]</td>
    </tr>
 	 <tr>
       <td rowspan="3">字符型</td>
@@ -110,12 +110,12 @@ ClickHouse 支持整数、浮点数、字符型、日期、枚举值和数组等
       <td rowspan="2">枚举类型</td>
       <td>单字节枚举</td>
       <td>Enum8</td>
-			<td>提供-128 - 127共256个值</td>
+			<td>提供[-128，127]共256个值</td>
    </tr>
    <tr>
       <td>双字节枚举</td>
       <td>Enum16</td>
-			<td>提供-32768 - 32767 共65536个值</td>
+			<td>提供[-32768，32767]共65536个值</td>
    </tr>
 	 <tr>
 	    <td>数组类型</td>
@@ -129,7 +129,6 @@ ClickHouse 支持整数、浮点数、字符型、日期、枚举值和数组等
 - [其他数据类型官方文档](https://clickhouse.tech/)。
 
 ### 使用举例
-
 #### 枚举类型应用
 存储某站点用户的性别信息。
 ```
@@ -193,9 +192,7 @@ CREATE TABLE [IF NOT EXISTS] [db.]table_name [ON CLUSTER cluster]
 相关官方文档 [CREATE Queries](https://clickhouse.tech/docs/en/query_language/create/)。
 
 ## 查询
-
 ClickHouse 使用 SELECT 语句来完成数据查询。
-
 ```
 SELECT [DISTINCT] expr_list
 [FROM [db.]table | (subquery) | table_function] [FINAL]
@@ -216,7 +213,6 @@ SELECT [DISTINCT] expr_list
 相关官方文档 [SELECT Queries Syntax](https://clickhouse.tech/docs/en/query_language/select/)。
 
 ## 批量写入
-
 ClickHouse 使用 INSERT INTO 语句来完成数据写入。
 
 ```
@@ -239,9 +235,7 @@ TRUNCATE TABLE [IF EXISTS] [db.]name [ON CLUSTER cluster]
 ```
 
 ## 修改表结构
-
 ClickHouse 使用 ALTER 语句来完成表结构修改。
-
 ```
 # 对表的列操作
 ALTER TABLE [db].name [ON CLUSTER cluster] ADD COLUMN [IF NOT EXISTS] name [type] [default_expr] [codec] [AFTER name_after]
@@ -278,11 +272,9 @@ DESC|DESCRIBE TABLE [db.]table [INTO OUTFILE filename] [FORMAT format]
 ```
 
 ## 函数
-
 ClickHouse 函数有两种类型：常规函数和聚合函数，区别是常规函数可以通过一行数据产生结果，聚合函数则需要一组数据来产生结果。
 
 ### 常规函数
-
 #### 算数函数
 
 数据表中各字段参与数学计算函数。
@@ -334,25 +326,21 @@ ClickHouse 函数有两种类型：常规函数和聚合函数，区别是常规
 相关官方文档 [Type Conversion Functions](https://clickhouse.tech/docs/en/query_language/functions/type_conversion_functions/)。
 
 #### 日期函数
-
 相关官方文档 [Functions for working with dates and times](https://clickhouse.tech/docs/en/query_language/functions/date_time_functions/)。
 
 #### 字符串函数
-
 相关官方文档 [Functions for working with strings](https://clickhouse.tech/docs/en/query_language/functions/string_functions/)。
 
 #### UUID
-
 相关官方文档 [Functions for working with UUID](https://clickhouse.tech/docs/en/query_language/functions/uuid_functions/)。
 
 #### JSON 处理函数
-
 相关官方文档 [Functions for working with JSON](https://clickhouse.tech/docs/en/query_language/functions/json_functions/)。
 
 ### 聚合函数
 
-| 函数名称                                                     | 用途                                                         | 使用场景                                                     |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 函数名称                | 用途                                     | 使用场景                                  |
+| -------------------------------- | -------------------------------------- | --------------------------------------------- |
 | count                                                        | 统计行数或者非 NULL 值个数                                     | count(expr)、COUNT(DISTINCT expr)、count()、count(\*)         |
 | [any(x)](https://clickhouse.tech/docs/en/query_language/agg_functions/reference/#agg_function-any) | 返回第一个遇到的值，结果不确定                               | any(column)                                                  |
 | [anyHeavy(x)](https://clickhouse.tech/docs/en/query_language/agg_functions/reference/#anyheavyx) | 基于 heavy hitters 算法，返回经常出现的值。通常结果不确定 | anyHeavy(column)                                             |
@@ -413,16 +401,11 @@ ClickHouse 函数有两种类型：常规函数和聚合函数，区别是常规
 | [groupBitmapXor](https://clickhouse.tech/docs/en/query_language/agg_functions/reference/#groupbitmapxor) | -                                                            | -                                                            |
 
 ## 字典
-
-一个字典是一个映射（key -> attributes），能够作为函数被用于查询，相比引用（reference）表`JOIN`的方式更简单和高效。
-
-数据字典有两种，一个是内置字典，另一个是外置字典。
+一个字典是一个映射（key -> attributes），能够作为函数被用于查询，相比引用（reference）表`JOIN`的方式更简单和高效。数据字典有两种，一个是内置字典，另一个是外置字典。
 
 ### 内置字典
-
 ClickHouse 支持一种 [内置字典](https://clickhouse.tech/docs/en/query_language/dicts/internal_dicts/) geobase，支持的函数可参考 [Functions for working with Yandex.Metrica dictionaries](https://clickhouse.tech/docs/en/query_language/functions/ym_dict_functions/)。
 
 ### 外置字典
-
 ClickHouse 可以从多个数据源添加 [外置字典](https://clickhouse.tech/docs/en/query_language/dicts/external_dicts/)，支持的数据源可参考 [Sources Of External Dictionaries](https://clickhouse.tech/docs/en/query_language/dicts/external_dicts_dict_sources/)。
 

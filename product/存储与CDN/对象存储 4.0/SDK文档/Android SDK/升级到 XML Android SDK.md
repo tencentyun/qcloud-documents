@@ -18,7 +18,7 @@
 
 **1. 更新 Android SDK**
 
-COS XML Android SDK Android SDK 发布在 [Bintray](https://bintray.com) 的 maven 包管理平台，推荐您使用自动集成方式进行更新。
+COS XML Android SDK Android SDK 发布在 [MavenCentral](https://search.maven.org/search?q=com.qcloud.cos) 的 maven 包管理平台，推荐您使用自动集成方式进行更新。
 
 在应用的根目录下的 build.gradle 中添加依赖，代码如下：
 
@@ -26,7 +26,7 @@ COS XML Android SDK Android SDK 发布在 [Bintray](https://bintray.com) 的 mav
 dependencies {
 	...
     // 增加这行
-    compile 'com.tencent.qcloud:cosxml:5.4.+'
+    compile 'com.qcloud.cos:cos-android:5.6.+'
 }
 ```
 
@@ -266,4 +266,5 @@ XML Android SDK 新增 API，您可根据需求进行调用。包括：
 * 存储桶生命周期的操作，如 PutBucketLifecycleRequest、GetBucketLifecycleRequest 等。
 
 具体请参考我们的 [Android SDK 快速入门](https://cloud.tencent.com/document/product/436/12159) 文档。
+
 

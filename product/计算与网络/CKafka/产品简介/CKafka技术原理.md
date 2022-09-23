@@ -4,7 +4,7 @@
 - 集群通过 Zookeeper 管理集群配置，进行 leader 选举，故障容错等。
 - 消费者 Consumer 被划分为若干个 Consumer Group。消费者通过 pull 模式从 Broker 中消费消息。
 
-消息队列 CKafka 相比于自建开源 Apache Kafka 所具备的优势请参考 [产品优势](https://cloud.tencent.com/document/product/597/37142)。
+消息队列 CKafka 相比于自建开源 Apache Kafka 所具备的优势请参见 [产品优势](https://cloud.tencent.com/document/product/597/37142)。
 
 ## 高吞吐
 消息队列 CKafka 中存在大量的网络数据持久化到磁盘和磁盘文件通过网络发送的过程。这一过程的性能直接影响 Kafka 的整体吞吐量，主要通过以下几点实现：
@@ -31,7 +31,7 @@
 - Producer 负责将消息均衡分配到对应的 Partition。
 - Partition 内消息是有序的。 
 
-## Consumer Group
+## 消费者分组（Consumer Group）
 - 消息队列 CKafka 不删除已消费的消息。
 - 任何 Consumer 必须属于一个 Group。
 - 同一 Consumer Group 中的多个 Consumer 不同时消费同一个 Partition。
@@ -46,7 +46,7 @@ Replica 均匀分布到整个集群，Replica 的算法如下：
 
 ## Leader Election 选举机制
 消息队列 CKafka 在 ZooKeeper 中动态维护了一个 ISR（in-sync replicas），ISR 里的所有 Replica 都跟上了 Leader。只有 ISR 里的成员才有被选为 Leader 的可能。
-- ISR 中 f + 1个 Replica，一个 Partition 能在保证不丢失已 commit 的消息的前提下
+- 假设 ISR 中 f + 1个 Replica，一个 Partition 能在保证不丢失已 commit 的消息的前提下
 容忍 f 个 Replica 的失败。
-- 共有 2f + 1个 Replica（包含 Leader 和 Follower），commit 之前必须保证有 f + 1个
+- 假设共有 2f + 1个 Replica（包含 Leader 和 Follower），commit 之前必须保证有 f + 1个
  Replica 复制完消息，为了保证正确选出新的 Leader，fail 的 Replica 不能超过 f 个。

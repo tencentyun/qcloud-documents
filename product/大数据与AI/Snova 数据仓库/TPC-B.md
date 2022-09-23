@@ -7,14 +7,14 @@
 Greenplum 官方采用 [TPC-B](http://www.tpc.org/tpcb/) 测试 6.x 的 OLTP 能力，因此云数据仓库 PostgreSQL 也采用此 benchmark 进行测试。
 
 ## 测试环境
-云数据仓库 PostgreSQL 分为**计算密集型**和**存储密集型**2类机型，简单区别如下：
+云数据仓库 PostgreSQL 分为**计算密集型**和**存储密集型**，其简单区别如下：
 - 计算密集型：底层硬件为 SSD 盘，随机读写能力强，适合进行热数据分析，以及带有混合负载的场景。
 - 存储密集型：底层硬件为 HDD 盘，随机读写能力一般，但是磁盘容量较大，适合存储分析较大规模的历史数据。
 
 综上，测试 TPC-B，需要选择**计算密集型**机型，我们选择2个节点的 nc2.large，可直接在 [购买页](https://buy.cloud.tencent.com/snova#/) 购买。
 
 ## 测试工具
-使用 PostgreSQL 自带的 pgbench 工具进行测试
+使用 PostgreSQL 自带的 pgbench 工具进行测试。
 1. 如果测试环境是 CentOS 7.X，可以直接在此处下载已经编译好的工具 [pgbench](https://packagedown-online-1256722404.cos.ap-guangzhou.myqcloud.com/pgbench/pgbench)。
 2. 其它环境可以自行编译 PostgreSQL 或者直接安装二进制包，为了更好的兼容性，建议采用 PostgreSQL9.4 版本。
 

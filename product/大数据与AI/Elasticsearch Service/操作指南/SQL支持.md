@@ -1,4 +1,4 @@
-腾讯云 Elasticsearch 支持使用 SQL 代替 DSL 查询语言。对于从事产品运营、数据分析等工作以及初次接触 ES 的人，使用 SQL 语言进行查询，将会降低他们使用 ES 的学习成本。
+腾讯云 Elasticsearch Service 支持使用 SQL 代替 DSL 查询语言。对于从事产品运营、数据分析等工作以及初次接触 ES 的人，使用 SQL 语言进行查询，将会降低他们使用 ES 的学习成本。
 
 ES 提供了两种 SQL 解析器。ES 所有的开源版本，均预装了开源社区提供的 SQL 解析插件。ES 6.4.3及以上版本，包括基础版和白金版，支持使用 ES 原生的 SQL 解析器。
 
@@ -13,7 +13,7 @@ POST /_xpack/sql?format=txt
 更多原生 SQL 解析器的 API 及使用方法请参见 [官方文档](https://www.elastic.co/guide/en/elasticsearch/reference/6.4/sql-rest.html)。
  
 ### 开源 SQL 解析插件
-- 7.5.1版本：
+- 7.5.1及以上版本：
 ```
 POST /_nlpcn/sql 
 {

@@ -65,7 +65,7 @@ Mysql> exit;
 [hadoop@172 sqoop]$ bin/sqoop-import --connect jdbc:mysql://$mysqlIP/test --username root 
 -P --table sqoop_test --target-dir /sqoop
 ```
-其中 --connect 用于连接 MySQL 数据库，test 也可以换成您的数据库名字，-P 表示之后需要输入密码，--table 为您想要导出的数据库的名字，--target-dir 为导出到 HDFS 中的路径。**`/sqoop`文件夹在执行命令之前并未创建，如果文件夹已经存在会出错。**
+其中 --connect 用于连接 MySQL 数据库，test 也可以换成您的数据库名字，-P 表示之后需要输入密码，--table 为您想要导出的数据库的名字，--target-dir 为导出到 HDFS 中的路径。**`/sqoop`文件夹在执行命令之前并未创建，如果文件夹已经存在则会出错。**
 
 回车后需要您输入密码，密码为您创建 EMR 时设置的密码。
 
@@ -108,7 +108,7 @@ root -P --table sqoop_test_back --export-dir /sqoop
 ```
 参数和 sqoop-import 类似，只不过变成了 --export-dir，该参数为 HDFS 中的存放数据的路径。回车后也需要输入密码。
 
-执行成功后可以验证数据库 sqoop_test_back 中的数据：
+执行成功后，即可验证数据库 sqoop_test_back 中的数据：
 ```
 [hadoop@172 sqoop]$ mysql -h $mysqlIP –p
 Enter password:

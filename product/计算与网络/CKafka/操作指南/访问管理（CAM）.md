@@ -29,7 +29,7 @@
 
 ### CKafka 全读写策略
 授权一个子用户以 CKafka 服务的完全管理权限（创建、管理等全部操作）。
-```
+```json
 {
   "version": "2.0",
   "statement": [
@@ -47,17 +47,17 @@
 
 您也可以通过设置系统的 [全读写策略](https://console.cloud.tencent.com/cam/policy/createV2) 支持。
 1. 登录 [访问管理控制台](https://console.cloud.tencent.com/cam/overview) 
-2. 在左侧菜单栏中，单击【[策略](https://console.cloud.tencent.com/cam/policy)】。
-3. 在策略列表中，单击【新建自定义策略】。
-4. 在选择创建策略方式的弹窗中，选择【按策略语法创建】。
-5. 在模板类型中，搜索“CKafka”，选择消息服务（CKafka）全读写访问权限【QcloudCKafkaFullAccess】，单击【下一步】。
-6. 单击【创建策略】。
+2. 在左侧菜单栏中，单击 **[策略](https://console.cloud.tencent.com/cam/policy)**。
+3. 在策略列表中，单击**新建自定义策略**。
+4. 在选择创建策略方式的弹窗中，选择**按策略语法创建**。
+5. 在模板类型中，搜索“CKafka”，选择消息服务（CKafka）全读写访问权限 [QcloudCKafkaFullAccess]，单击**下一步**。
+6. 单击**创建策略**。
 
 
 
 ### CKafka 实例只读策略
 1. 按照策略生成器创建，授权列表类权限和产品监控权限。
-```
+```json
 {
     "version": "2.0",
     "statement": [
@@ -78,7 +78,7 @@
 2. 授权单实例只读权限
 >!List* 接口不支持资源粒度的鉴权。
 
- ```
+ ```json
 {
     "version": "2.0",
     "statement": [
@@ -98,10 +98,10 @@
 
 您也可以通过设置系统的 [只读策略](https://console.cloud.tencent.com/cam/policy/createV2) 支持。
 1. 登录 [访问管理控制台](https://console.cloud.tencent.com/cam/overview) 
-2. 在左侧菜单栏中，单击【[策略](https://console.cloud.tencent.com/cam/policy)】。
-3. 在策略列表中，单击【新建自定义策略】。
-4. 在选择创建策略方式的弹窗中，选择【按策略语法创建】。
-5. 在模板类型中，搜索“CKafka”，选择消息服务（CKafka）只读访问策略【QcloudCkafkaReadOnlyAccess】，单击【下一步】。
-6. 单击【创建策略】。
+2. 在左侧菜单栏中，单击 **[策略](https://console.cloud.tencent.com/cam/policy)**。
+3. 在策略列表中，单击**新建自定义策略**。
+4. 在选择创建策略方式的弹窗中，选择**按策略语法创建**。
+5. 在模板类型中，搜索“CKafka”，选择消息服务（CKafka）只读访问策略 [QcloudCkafkaReadOnlyAccess]，单击**下一步**。
+6. 单击**创建策略**。
 
 

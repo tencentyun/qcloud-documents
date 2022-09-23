@@ -6,7 +6,7 @@
 - JDK 版本：JDK 1.8.0_201
 
 ## 安装JDK
-购买负载均衡服务后，在云服务器的详情页面，单击【登录】，可以直接登录云服务器，输入自己的用户名密码后，开始搭建 Java Web 环境。有关如何创建云服务器实例，请参见 [云服务器-创建实例](https://cloud.tencent.com/document/product/213/4855)。
+购买负载均衡服务后，在云服务器的详情页面，单击**登录**，可以直接登录云服务器，输入自己的用户名密码后，开始搭建 Java Web 环境。有关如何创建云服务器实例，请参见 [云服务器-创建实例](https://cloud.tencent.com/document/product/213/4855)。
 
 ### 下载 JDK
 输入如下命令：
@@ -50,6 +50,7 @@ source /etc/profile
 ![](https://main.qcloudimg.com/raw/6d3531f4d466e5428885ec38a3542c2e.png)
 
 ## 安装 Tomcat
+
 ### 下载 Tomcat
 输入如下命令：
 ```
@@ -65,10 +66,11 @@ mv apache-tomcat-8.5.39 /usr/local/tomcat/
 - logs：存放 Tomcat 执行时的日志文件。
 
 >!如果下载链接失效，请替换为 [Tomcat 官网](https://tomcat.apache.org/download-80.cgi ) 的最新下载链接。
+>
 
 ### 添加用户
 ```
-# 创建一般用户 www来运行Tomcat
+# 创建一般用户 www来运行 Tomcat
 useradd www
 # 创建网站根目录
 mkdir -p /data/wwwroot/default
@@ -193,5 +195,3 @@ chmod -R 777 tomcat
 ### 配置安全组
 如果访问不通，请检查安全组。如上示例中 server.xml 中的 connector port 是8080，因此需在对应的云服务器所绑定的安全组上放通 TCP:8080，详情请参见 [添加安全组规则](https://cloud.tencent.com/document/product/215/39790)。
 ![](https://main.qcloudimg.com/raw/966d10d1b63663af4d056854a7123c33.png)
-
-

@@ -1,7 +1,7 @@
 ## 操作场景
 
 您可通过 API 文档功能把托管在 API 网关上的 API 生成一份精美的 API 文档，以提供给第三方调用您的 API。
->?API 文档功能完全免费，由 CODING DevOps 提供技术支持，点击 [了解 CODING 的更多能力](https://coding.net/)。
+>?API 文档功能完全免费，由 CODING DevOps 提供技术支持，单击 [了解 CODING 的更多能力](https://coding.net/)。
 
 ## 前提条件
 
@@ -10,9 +10,9 @@
 ## 操作步骤
 ### 创建文档
 
-1. 登录 [API 网关控制台](https://console.cloud.tencent.com/apigateway/index?rid=1)，在左侧导航栏单击【工具】>【API 文档】。
+1. 登录 [API 网关控制台](https://console.cloud.tencent.com/apigateway/index?rid=1)，在左侧导航栏单击**工具** > **API 文档**。
    ![](https://main.qcloudimg.com/raw/c2df5fec87cd2f29a4f27d540bd4abe7.png)
-2. 在 API 文档页面，单击【立即创建】，在弹窗中填写文档名称，选择环境、服务、API 后单击【提交】。
+2. 在 API 文档页面，单击**立即创建**，在弹窗中填写文档名称，选择环境、服务、API 后单击**提交**。
    ![](https://main.qcloudimg.com/raw/7959f140dacae6911eedab4f0c397a4f.png)
 3. 耐心等待 API 文档构建完成即可。
 
@@ -43,18 +43,18 @@
 ### 更新文档
 
 编辑生成文档的 API 后，API 文档不会同步触发更新，使用“更新文档”功能可以保证 API 文档与生成文档的 API 信息一致。操作步骤如下：
-1. 在文档详情页右上角单击【更新】。
-2. 在确认弹窗中单击【确认】，等待文档构建完成即可。
+1. 在文档详情页右上角单击**更新**。
+2. 在确认弹窗中单击**确认**，等待文档构建完成即可。
 ![](https://main.qcloudimg.com/raw/a7ec27c117b42b9a49aa33c1b6faa9ba.png)
 
 ### 重置密码
 
 重置密码后会生成新的 API 文档密码，用户只能用新密码访问文档，旧密码将无法使用。操作步骤如下：
-1. 单击 API 文档密码后的【重置】。
-2. 在确认弹窗中单击【确认】，即可生成新的 API 文档密码。
+1. 单击 API 文档密码后的**重置**。
+2. 在确认弹窗中单击**确认**，即可生成新的 API 文档密码。
 ![](https://main.qcloudimg.com/raw/7f044807940c26b5835b0f4cf510e7b2.png)
 
 ### 删除文档
 
-1. 在文档详情页右上角单击【删除】。
-2. 在确认弹窗中单击【确认】，即可完成 API 文档的删除。
+1. 在文档详情页右上角单击**删除**。
+2. 在确认弹窗中单击**确认**，即可完成 API 文档的删除。

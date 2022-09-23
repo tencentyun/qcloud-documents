@@ -30,7 +30,7 @@
 | Namespace   | 是       | String                                                       | 命名空间，每个云产品会有一个命名空间，API 3.0接口版本的必须是大写，如：QCE/REDIS |
 | MetricName  | 是       | String                                                       | 指标名称，具体名称见2.2                                      |
 | Instances.N | 是       | Array of [Instance](https://cloud.tencent.com/document/product/248/30354) | 实例对象的维度组合                                           |
-| Period      | 否       | Integer                                                      | 监控统计周期。默认为取值为300，单位为s                       |
+| Period      | 否       | Integer                                                      | 监控统计粒度。默认为取值为300，单位为s                       |
 | StartTime   | 否       | Timestamp                                                    | 起始时间，如"2016-01-01 10:25:00"。 默认时间为当天的”00:00:00” |
 | EndTime     | 否       | Timestamp                                                    | 结束时间，默认为当前时间。 endTime 不能小于 startTime        |
 
@@ -120,7 +120,7 @@
 | MetricName | String                | 监控指标                                                     |
 | StartTime  | Timestamp             | 数据点起始时间                                               |
 | EndTime    | Timestamp             | 数据点结束时间                                               |
-| Period     | Integer               | 数据统计周期                                                 |
+| Period     | Integer               | 数据统计粒度                                                 |
 | DataPoints | Array of PointsObject | 监控数据列表                                                 |
 | RequestId  | String                | 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 |
 
@@ -139,7 +139,7 @@
 
 ### 示例1 拉取单个云数据库 REDIS 的 get 命令数监控数据示例
 
-拉取某个云数据库 REDIS 某段时间内统计周期为60秒的 get 命令数监控数据。
+拉取某个云数据库 REDIS 某段时间内统计粒度为60秒的 get 命令数监控数据。
 
 #### 输入示例
 
@@ -197,7 +197,7 @@ https://monitor.tencentcloudapi.com/?Action=GetMonitorData
 
 ### 示例2 拉取多个云数据库 REDIS 的数据 get 命令数监控数据示例
 
-拉取多个云数据库 REDIS 某段时间内统计周期为60秒的 get 命令数监控数据。
+拉取多个云数据库 REDIS 某段时间内统计粒度为60秒的 get 命令数监控数据。
 
 #### 输入示例
 
@@ -281,7 +281,7 @@ https://monitor.tencentcloudapi.com/?Action=GetMonitorData
 
 ### 示例3 拉取单个云数据库 REDIS 的实例分片信息 get 命令数监控数据示例
 
-拉取某个云数据库 REDIS 实例分片信息某段时间内统计周期为60秒的 get 命令数监控数据。
+拉取某个云数据库 REDIS 实例分片信息某段时间内统计粒度为60秒的 get 命令数监控数据。
 
 #### 输入示例
 
@@ -344,7 +344,7 @@ https://monitor.tencentcloudapi.com/?Action=GetMonitorData
 
 ### 示例4 拉取多个云数据库 REDIS 的实例分片信息数据 get 命令数监控数据示例
 
-拉取多个云数据库 REDIS 实例分片信息某段时间内统计周期为60秒的 get 命令数监控数据。
+拉取多个云数据库 REDIS 实例分片信息某段时间内统计粒度为60秒的 get 命令数监控数据。
 
 #### 输入示例
 

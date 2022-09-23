@@ -1,0 +1,14 @@
+新建集群任务使用用户账户下现有集群运行计算任务，主要有**软件选择**、**输入参数**和**确认提交**三个步骤。
+
+1. 进入[ 集群管理 ](https://console.cloud.tencent.com/cloudsim/cluster)页面，选择拟提交计算任务的集群，继续选择侧栏的集群任务，单击【新建集群任务】。
+![](https://main.qcloudimg.com/raw/5fad4666943093e2e7a23c852588f999.png)
+2. 按照页面内容提示，选择相应软件，在右侧的**版本**中选择软件版本，并选择所需**许可证选项**选项。
+![](https://main.qcloudimg.com/raw/dcedcd4f5d22f587ddc0a9f40aa2629b.png)
+3. 单击【下一步：输入参数】，进入输入参数页面。
+4. 在“输入参数”标题下，单击【选择】，选择计算需要的输入文件。
+![](https://main.qcloudimg.com/raw/7f48f4b365a8187461ecb86295a2b016.png)
+5. 在“资源配置”标题下“**关联队列**”中，搜索/选择拟提交计算任务队列，设置最大任务时间。确认无误后，单击【下一步：确认提交】。
+![](https://main.qcloudimg.com/raw/9fe79e661e2a688dc81600e07fa43931.png)
+6. 在“确认提交”页面，核对上述信息确认无误后，单击【确认提交】。
+7. 任务提交后，可在[ 集群任务管理 ](https://console.cloud.tencent.com/cloudsim/cluster)页面查看相应任务的信息。单击右侧【详情】，可在弹出框查看任务的详细信息。
+![](https://main.qcloudimg.com/raw/acc38fd32a7e0ed68c2a46cf56a3423d.png)

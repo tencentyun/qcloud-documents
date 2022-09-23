@@ -9,3 +9,4 @@
 | 创建实例     | memcached | CreateInstance  |
 | 删除实例     | memcached | DestroyInstance |
 | 修改实例后台属性 | memcached | ModifyInstance  |
+

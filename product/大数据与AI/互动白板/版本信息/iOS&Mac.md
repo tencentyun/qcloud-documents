@@ -1,3 +1,446 @@
+### 2.7.8 @ 2022.09.20
+* [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/2.7.8.146/TEduBoard_2.7.8.147.zip)
+* [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/2.7.8.146/TEduBoard_Mac_2.7.8.147.zip) 
+
+- 新增接口
+  1. 开启多点触控 enableMultiTouch
+  2. 设置元修改信令同步频率，该值的允许范围为 [5, 20]素样式 setSyncFps
+
+- 更新接口
+  1. updateElementById 更新元素新增位置偏移类型 TEduElementOperatorType.CHANGE_POSITION
+  2. setToolType 接口增加类型：坐标系TEDU_BOARD_TOOL_TYPE_COORDINATE
+
+- Bug及优化处理
+  1. 优化圆规操作
+  2. 其他已知问题优化
+
+### 2.7.7 @ 2022.08.31
+* [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/2.7.7.144/TEduBoard_2.7.7.144.zip)
+* [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/2.7.7.144/TEduBoard_Mac_2.7.7.144.zip) 
+
+- 新增接口
+  1. 开启单实例模式setSingleMode，默认开启(当创建第2个白板实例时，sdk会自动会回收旧的实例)，设置为false则容许多实例
+  2. 获取元素信息 getElementById
+  3. 设置元素样式 updateElementById
+  4. 设置荧光笔颜色，画笔颜色用于所有荧光笔绘制 setHighlighterColor
+  5. 获取荧光笔颜色 getHighlighterColor
+  6. 开启绘制涂鸦过程中自动拟合图形 enablePenAutoFit
+  7. 设置图形样式 setGraphStyle
+  8. 获取图形样式 getGraphStyle
+
+- 废弃接口：
+  1. 废弃setLineStyle，请使用setGraphStyle
+  2. 废弃getLineStyle，请使用getGraphStyle
+
+- 新增功能
+  1. 增加数学教具圆规
+  2. 新增几何图形（直角三角形，等腰三角形，平行四边形，立方体，圆柱体，圆锥）
+  3. 其他功能
+
+- Bug及优化处理
+  1. PPT翻页优化
+  2. 其他已知问题优化
+
+### 2.7.6.137 @ 2022-08-16
+* [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/2.7.6.137/TEduBoard_2.7.6.137.zip)
+* [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/2.7.6.137/TEduBoard_Mac_2.7.6.137.zip) 
+
+- 新增功能
+  1. 新增数学教具功能，支持直尺，三角形，量角器;
+  2. 新增获取 PPT 备注功能;
+  
+### 2.7.5.136 @ 2022-08-01
+* [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/2.7.5.136/TEduBoard_2.7.5.136.zip)
+* [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/2.7.5.136/TEduBoard_Mac_2.7.5.136.zip)
+
+- 新增功能
+  1. PPT 老版本转码，支持 mp3,mp4 播放同步;
+  2. PPT 新版本转码，支持 mp3,mp4 播放同步;
+  3. 错误和警告事件增加上报;
+
+- Bug及优化处理
+  1. 修复获取资源的时候 Host 缺少协议的问题
+  2. 其他已知问题修复。
+
+### 2.7.4.128 @ 2022-07-04
+* [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/2.7.4.128/TEduBoard_2.7.4.128.zip)
+* [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/2.7.4.128/TEduBoard_Mac_2.7.4.128.zip)
+
+- 接口调整
+    1. 课件/自定义资源加载 loadResource/loadCustomResource 接口，增加 callback 返回加载进度
+  
+- 调整全局变量
+    1. 白板错误码 增加 TEDU_BOARD_WARNING_IMAGE_MEDIA_BITRATE_TOO_LARGE 多媒体资源码率过大
+
+- Bug 修复
+  1. 橡皮擦除在移动快的时候会导致擦除不干净的情况，会漏掉一些点；
+  2. ppt 转码问题，转码文件被系统认为了是 pad，只响应滑动翻页，不响应点击事件了；
+  3. 其他已知问题修复。
+  
+### 2.7.3.120 @ 2022-06-10
+* [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/2.7.3.120/TEduBoard_2.7.3.120.zip)
+* [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/2.7.3.120/TEduBoard_Mac_2.7.3.120.zip)
+
+- 调整初始化参数
+    1. 权限配置下,新增 customCursorIcon 参数：是否自定义鼠标样式，默认 false 显示系统自带样式, true时需要根据返回的鼠标位置, 自定义鼠标样式
+  
+- 调整事件
+    1. 自定义鼠标样式时,坐标位置回调(TEB_BOARD_CURSOR_POSITION),用户根据位置，自定义鼠标样式
+
+- 新增接口
+    1. 是否本地显示自己的别名(setOwnerNickNameVisible),设置为false时，画笔部分不显示自己的 NickName
+  
+- 优化历史数据拉取
+    1. 首帧渲染只拉取活跃白板的历史数据
+    2. 用户翻页的时候会由操作者拉取，对应白板页的历史数据，然后广播给房间内其他用户
+
+- Bug 修复
+    1. 其他已知问题修复。
+
+### 2.7.2.106 @ 2022-04-06
+* [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/2.7.2.106/TEduBoard_2.7.2.106.zip)
+* [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/2.7.2.106/TEduBoard_Mac_2.7.2.106.zip)
+
+- 调整全局变量
+    1. 白板错误码 增加TEDU_BOARD_ERROR_MAX_BOARD_LIMITED 单课堂内白板页数已经到达上限
+    
+- 功能优化
+     1. 白板SDK升级
+     2. 已知问题处理及优化
+
+### 2.7.1.101 @ 2022-03-15
+* [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/2.7.1.101/TEduBoard_2.7.1.101.zip)
+* [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/2.7.1.101/TEduBoard_Mac_2.7.1.101.zip)
+
+- 新增类  
+  1. TEduBoardResourceController 支持资源预加载，loadResource:缓存课件资源包 ; preloadFile:缓存单个文件  
+- 新增接口  
+  1. loadCustomResource 加载自定义资源  
+- 接口调整  
+  1. setSyncVideoStatusEnable 新增参数isAppActiveChange:只有在移动端在app切换前后台的时候需要调用。
+
+### 2.7.0.105 @ 2022-04-06
+* [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/2.7.0.105/TEduBoard_2.7.0.105.zip)
+* [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/2.7.0.105/TEduBoard_Mac_2.7.0.105.zip)
+
+- 功能优化
+    1. 优化iOS视频播放前后台切换的暂停/恢复
+
+### 2.6.9.92 @ 2021-12-10
+* [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/TEduBoard_2.6.9.92.zip)
+* [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/TEduBoard_Mac_2.6.9.92.zip)
+
+- 新增接口
+    1. 支持 PPT 课件进行静音操作(soundMuteForPPT)
+    2. 课件资源预加载，支持课前和课中加载，具体请参考 [课件预加载文档](https://cloud.tencent.com/document/product/1137/67344)
+- 功能优化
+    1. 优化课件加载
+    2. 截图功能在异常 dpr 中丢失几个像素的问题
+
+### 2.6.8.87 @ 2021-12-10
+* [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/TEduBoard_2.6.8.87.zip)
+* [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/TEduBoard_Mac_2.6.8.87.zip)
+
+- 新增接口
+    1.跳转到指定动画步数(gotoStep)
+    2.获取白板滚动位置(getBoardScroll) 
+    3.设置分段擦除模式是否开启(setPiecewiseErasureEnable)
+    4.获取分段擦除模式开启状态(isPiecewiseErasureEnable)
+    5.设置橡皮擦大小(setEraserSize)
+    6.获取橡皮擦大小(getEraserSize)
+    7.设置全局背景图(setGlobalBackgroundPic)
+    8.获取全局背景图(getGlobalBackgroundPic)
+  
+- 调整接口
+    1. 添加白板元素(addTextElement) 支持添加文本元素
+
+- 新增事件
+    1. 白板移动回调(onTEBBoardScrollChanged)
+
+- 调整事件
+    1. 框选工具选中元素回调(onTEBSelectedElements) 新增元素位置、宽高、包围盒大小等返回字段
+
+- 新增初始化参数
+    1. 全局背景图(globalBackgroundPic)
+
+- 功能优化
+    1. 优化图片资源加载逻辑
+    2. 添加图片元素在低版本上进行旋转校正
+    3. 添加图片元素支持自定义大小
+    4. 支持画线涂鸦分段擦除
+
+- Bug 修复
+    1. 在不同缩放比下添加白板元素大小显示不一致
+    2. 若干已知问题修复
+
+### 2.6.7.84 @ 2021-11-04
+* [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/TEduBoard_2.6.7.84.zip)
+* [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/TEduBoard_Mac_2.6.7.84.zip)
+
+- Bug 修复
+  1.Mac SDK 在低版本系统中加载白板自定义协议出现的询问弹窗
+
+### 2.6.7.82 @ 2021-10-29
+* [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/TEduBoard_2.6.7.82.zip)
+* [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/TEduBoard_Mac_2.6.7.82.zip)
+
+- 新增接口
+  1.设置自定义字体(setTextFontFamily)
+  2.添加自定义字体(addTextFontFamily) 
+  3.获取当前使用字体(getTextFontFamily)
+    
+- 调整初始化参数
+  1.画笔模式下远端画笔是否显示(remoteCursorVisible) 
+    
+- 调整接口
+  1.设置远端画笔在本地是否可见(setRemoteCursorVisible)
+    
+- 调整全局变量
+  1.白板警告码(TEduBoardWarningCode)，新增静态 ppt 重复的告警码
+    
+- 功能优化
+  1.弱网环境下涂鸦同步
+  2.优化涂鸦显示效果
+
+- Bug 修复
+  1.若干已知问题修复
+
+### 2.6.6.78 @ 2021-10-12
+* [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/TEduBoard_2.6.6.78.zip)
+* [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/TEduBoard_Mac_2.6.6.78.zip)
+
+- 新增接口  
+  1. 设置白板滚动条是否可见(setScrollBarVisible)    
+- 接口调整  
+  1. addImagesFile(urls, title, needSwitch) 支持 title，needSwitch
+  2. addH5File(url, title, needSwitch) 支持 title，needSwitch
+  3. addVideoFile(url, title, needSwitch) 支持 title，needSwitch
+- 实体类调整  
+  1. TEduBoardFileInfo，新增 fileType 字段
+
+### 2.6.5.75 @ 2021-09-01
+* [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/TEduBoard_2.6.5.75.zip)
+* [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/TEduBoard_Mac_2.6.5.75.zip)
+
+- 新增接口  
+  1. 设置输出日志级别(setLogLevel)  
+- 调整全局变量
+  1. 几何元素类型(TEduBoardMathGraphType)  
+  2. 日志级别(TEduBoardLogLevel)  
+- 当前版本废弃的接口与事件
+  1. SDK 接口：发起文件转码请求(applyFileTranscode)  
+  2. 回调事件：转码进度回调(TEB_TRANSCODEPROGRESS)  
+  3. 全局常量：文件转码状态(TEduBoardTranscodeFileStatus)  
+- 功能优化  
+  1. 几何画板新增多种几何图形支持  
+- Bug 修复  
+  1. 若干已知问题修复  
+
+### 2.6.4.69 @ 2021-08-25
+* [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/TEduBoard_2.6.4.66.zip)
+* [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/TEduBoard_Mac_2.6.4.66.zip)
+
+Bug 修复
+解决互动白板加载 h5 课件加载异常的问题
+
+### 2.6.4.61 @ 2021-08-16
+* [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/TEduBoard_2.6.4.61.zip)
+* [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/TEduBoard_Mac_2.6.4.61.zip)
+
+- 新增接口
+    1. 增加白板(addBoard)，可选择不跳转到新增的白板
+    2. 分组模式功能
+        1. 开启分组模式(setClassGroupEnable)
+        2. 设置分组(setClassGroup)
+        3. 设置分组标题(setClassGroupTitle)
+        4. 重置所有分组(resetClassGroup)
+        5. 获取所有分组ID(getAllClassGroupIds)
+        6. 获取分组模式状态(getClassGroupEnable)
+        7. 获取用户所在的分组(getClassGroupIdByUserId)
+        8. 获取分组信息(getClassGroupInfoByGroupId)
+        9. 从分组中移除白板(removeBoardInClassGroup)
+        10. 从分组中移除用户(removeUserInClassGroup)
+        11. 删除分组(removeClassGroup)
+        12. 添加白板到分组(addBoardToClassGroup)
+        13. 添加用户到分组(addUserToClassGroup)
+        14. 分组内跳转(gotoClassGroupBoard)
+
+### 2.6.4.57 @ 2021-08-06
+* [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/TEduBoard_2.6.4.57.zip)
+* [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/TEduBoard_Mac_2.6.4.57.zip)
+
+
+- 新增接口
+    1.设置几何图形类型(setMathGraphType)，可用于几何画板绘制几何图形
+    2.鼠标模式下的操作权限(setMouseToolBehavior)
+    3.设置白板备注信息(setBoardRemark)
+    4.获取白板备注信息(getBoardRemark)
+    
+- 新增初始化参数
+    1.鼠标模式下的操作权限(mouseToolBehavior)
+    2.开启公式元素支持(formulaEnable)
+    
+- 新增元素类型
+    1.公式元素(TEDU_BOARD_ELEMENT_FORMULA)，此功能需要设置开启公式元素支持(formulaEnable)为true。
+
+- 新增全局变量
+    1.几何元素类型(TEduBoardMathGraphType)
+    
+- 功能优化
+    1.几何画板新增多种几何图形支持
+    2.新增公式元素的支持
+    3.优化视频加载播放逻辑
+    4.图形涂鸦绘制实时同步显示
+    5.优化 ppt 资源加载重试逻辑
+    6.添加本地缓存，提高资源加载速度
+    
+- Bug 修复
+    1.互动白板宽高变化时滚动条抖动
+    2.删除文件时远端 ppt 动画步数重置
+    3.自定义图形高度为0时远端图形显示错误
+    4.若干已知问题修复
+
+### 2.6.3.42 @ 2021-07-05
+* [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/TEduBoard_2.6.3.42.zip)
+* [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/TEduBoard_Mac_2.6.3.42.zip)
+
+- 新增接口：
+    1.设置画笔自动拟合模式(setPenAutoFittingMode)
+    2.设置白板父容器的背景色(setBoardContainerColor)
+    3.在后台生成当前白板的板书内容(addSnapshotMark)
+    
+- 调整接口：
+    1.添加白板(addBoard)，支持新增白板直接设置背景H5
+
+- 新增初始化参数：
+    1.白板离线告警时间间隔(offlineWarningTimeout)
+    
+- 新增事件：
+    1.白板离线告警(onTEBOfflineWarning)
+
+- 调整事件：
+    1.增加元素回调(onTEBAddElement)，返回值新增元素类型type
+
+- 优化：
+    1.魔法笔功能
+    2.支持直接创建H5背景白板
+    3.支持白板离线检测
+    4.支持生成板书
+    
+### 2.6.2.41 @ 2021-06-30
+* [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/TEduBoard_2.6.2.41.zip)
+* [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/TEduBoard_Mac_2.6.2.41.zip)
+
+- 调整接口
+    1.设置工具的提示语(setToolTypeTitle)
+    2.设置允许操作哪些用户绘制的图形(setAccessibleUsers)
+    3.设置用户信息(setUserInfo)
+    4.添加白板元素(addElement)
+    
+- 废除接口
+    1.废除添加图片元素(addImageElement)，请使用添加白板元素(addElement)
+    
+- 调整初始化参数：
+    1.优化初始化参数结构
+    2.初始化权限参数 mathGraphEnable，预加载数学函数图像库
+    3.初始化配置参数 scaleRange，白板缩放范围
+    
+- 新增事件：
+    1.文本组件状态回调(onTEBTextElementStatusChanged)
+    2.图片元素加载状态(onTEBImageElementStatusChanged)
+    3.白板文字工具异常警告(onTEBTextElemenWarning)
+    4.框选工具选中元素回调(onTEBSelectedElements)，原有的回调事件(onTEBRectSelected)弃用
+    5.数学函数图像工具事件回调(onTEBMathGraphEvent)
+    6.远端白板缩放移动状态回调(onTEBZoomDragStatus)
+    
+- 优化：
+    1.涂鸦支持缩放旋转
+    2.文本支持等比例缩放
+    3.优化用户权限控制
+    4.支持显示远端操作元素
+    5.支持显示白板元素操作者或创造者信息
+    6.支持自动隐藏静止的远端画笔
+    7.优化低版本背景图显示
+    8.支持数学函数图像显示
+    9.支持H5元素移动、缩放、旋转
+    10.添加元素支持自定义位置，目前支持图片元素，H5元素，数学函数图像
+    11.移动端支持在任意工具下双指缩放白板
+    
+- Bug 修复
+    若干已知问题
+
+
+- 优化：
+    1. 涂鸦绘制性能优化
+    2. 涂鸦旋转移动性能优化
+    3. 激光笔移动性能优化
+    4. 激光笔多端同步效果优化
+    5. PPT、图片元素加载
+    6. 涂鸦超出白板区域时框选范围错误
+    7. 优化白板渲染时的重排、重绘操作
+- Bug 修复
+    1. 截图时文本元素被 iframe 元素遮挡
+    2. 直线碰撞检测计算错误
+    3. 其他若干已知问题
+    
+### 2.6.0.37 @ 2021-05-07
+* [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/TEduBoard_2.6.0.37.zip)
+* [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/TEduBoard_Mac_2.6.0.37.zip)
+
+- 重要特性：
+    1. 支持最新的转码方案，具体请看 [新文档转码](https://cloud.tencent.com/document/product/1137/55888)
+
+- 新增接口
+    1. 新增限制橡皮擦单次擦除图层数量接口(setEraseLayerLimit)
+    2. 新增限制橡皮擦可擦除的数据类型接口(setEraseLayerType)
+    3. 新增删除元素接口(removeElement)
+  
+- 新增初始化参数
+    1. syncFps：信令同步频率
+
+- 优化：
+    1. 涂鸦绘制性能优化
+    2. 涂鸦旋转移动性能优化
+    3. 激光笔移动性能优化
+    4. 激光笔多端同步效果优化
+    5. PPT、图片元素加载
+    6. 涂鸦超出白板区域时框选范围错误
+    7. 优化白板渲染时的重排、重绘操作
+- Bug 修复
+    1. 截图时文本元素被iframe元素遮挡
+    2. 直线碰撞检测计算错误
+    3. 其他若干已知问题
+    
+### 2.5.7.34 @ 2021.02.02
+* [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/TEduBoard_2.5.7.34.zip)
+* [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/TEduBoard_Mac_2.5.7.34.zip)
+- 新增接口：
+    1. 增加移动白板接口(setScaleAnchor)
+    2. 增加是否在画线过程中显示远端画笔接口(setRemoteCursorVisible)
+    3. 音频元素-设置音量大小(setAudioVolume)
+    4. 音频元素-获取音量大小(getAudioVolume)
+    5. 增加设置缩放工具的缩放比例(setScaleToolRatio)
+    6. 增加添加资源主备域名映射(addBackupDomain)
+    7. 增加删除资源主备域名映射(removeBackupDomain)
+- 新增事件：
+    1. 删除元素事件 onTEBRemoveElement
+    1. 增加元素事件 onTEBAddElement
+- 新增初始化参数：
+    1. 增加初始化参数，关闭移动工具的缩放功能 enableScaleTool
+- 优化：
+    1. 添加 H5PPT，图片元素(imageElement)/图片文件(imagesFile)，背景图片，视频等资源支持指定主备 URL，需要配合增加备用域名接口使用。
+    2. 静态 PPT 翻页交互效果优化
+    3. 调整点选框样式
+    4. 激光笔功能性能优化
+- Bug 修复
+    1. 图片旋转后缩放比例不对的问题
+    2. Chrome 88版本纵向滚动条缺失
+    3. 滚动条触发异常滚动问题
+    4. 添加自定义元素时点选框范围错误
+    5. 文本工具相关问题
+    6. 其他若干已知问题
+    7. 修复 setToolTypeTitle 设置衍射不生效问题
+    
 ### 2.5.6.27 @ 2020.12.14
 * [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/TEduBoard_2.5.6.27.zip)
 * [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/TEduBoard_Mac_2.5.6.27.zip)
@@ -81,7 +524,7 @@
 - bug fix
     - 修复涂鸦过程中擦除涂鸦导致涂鸦不同步问题
     - 修复视频文件在特定场景下新增多余白板问题
-    - 修复iOS8播放视频失败问题
+    - 修复 iOS8 播放视频失败问题
 - 性能优化
 
 ### 2.4.9.7 @ 2020.06.10
@@ -218,7 +661,7 @@
 - 增加接口
     - setAccessibleUsers 设置允许操作特定用户绘制的图形
     - clearBackground:andSelected 删除选中涂鸦
-    - setCursorIcon:cursorIcon;自定义鼠标样式
+    - setCursorIcon:cursorIcon 自定义鼠标样式
 
 ### 2.3.6 @ 2019.11.18
 
@@ -298,7 +741,7 @@
 ### 2.2.1 @ 2019.06.21
 回调接口修改
 - onTEBAddBoard 回调 boardId 数组
-- onTEBDeleteBoard 回调 boardId数组
+- onTEBDeleteBoard 回调 boardId 数组
 
 ### 2.2.0 @ 2019.06.20
 新增接口
@@ -390,4 +833,4 @@
     - 背景色、背景图
     - 点选、框选、移动涂鸦、撤销、重做
     - 白板缩放、移动
-    - 文件展示（静态：支持PPT、PDF、WORD、EXCEL）、多文件支持
+    - 文件展示（静态：支持 PPT、PDF、WORD、EXCEL）、多文件支持

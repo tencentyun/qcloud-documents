@@ -38,8 +38,10 @@ COS 是具有地域属性的，需确保您的 Batch 作业和 COS Bucket 在同
 
 ### 前缀需要以 cfs:// 或 nfs:// 开头
 已获取 CFS 路径，例如 `10.66.xxx.xxx`。在 Batch 的路径填写里，需以 `cfs://` 或者 `nfs://` 开头，具体形式如下：
->!需要以`/`结尾，并且确保您的 CFS/NAS 和 Batch 作业配置在同一网络内。
->
+
+<dx-alert infotype="notice" title="">
+需要以`/`结尾，并且确保您的 CFS/NAS 和 Batch 作业配置在同一网络内。
+</dx-alert>
 ``` 
 cfs://10.66.xxx.xxx/ 
 ```

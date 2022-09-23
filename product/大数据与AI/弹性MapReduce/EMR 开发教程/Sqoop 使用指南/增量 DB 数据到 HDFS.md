@@ -4,11 +4,12 @@ Sqoop 是一款开源的工具，主要用于在 Hadoop 和传统数据库（MyS
 
 ## 1. 开发准备
 - 确认您已经开通了腾讯云，并且创建了一个 EMR 集群。在创建 EMR 集群的时候需要在软件配置界面选择 Sqoop 组件。 
-- Sqoop 等相关软件安装在路径 EMR 云服务器的`/usr/local/service/`路径下。
+- Sqoop 等相关软件安装在路径 EMR 云服务器的 `/usr/local/service/` 路径下。
 
 ## 2. 使用 append 模式 
 本节将继续使用上一节的用例。
-进入 EMR 控制台，复制目标集群的实例 ID，即集群的名字。再进入关系型数据库控制台，使用 Ctrl+F 进行搜索，找到集群对应的 MySQL 数据库，查看该数据库的内网地址 $mysqlIP。
+
+进入 [EMR 控制台](https://console.cloud.tencent.com/emr)，复制目标集群的实例 ID，即集群的名字。再进入关系型数据库控制台，使用 Ctrl+F 进行搜索，找到集群对应的 MySQL 数据库，查看该数据库的内网地址 $mysqlIP。
 
 登录 EMR 集群中的任意机器，最好是登录到 Master 节点。登录 EMR 的方式请参考 [登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)。这里我们可以选择使用 WebShell 登录。单击对应云服务器右侧的登录，进入登录界面，用户名默认为 root，密码为创建 EMR 时用户自己输入的密码。输入正确后，即可进入命令行界面。
 

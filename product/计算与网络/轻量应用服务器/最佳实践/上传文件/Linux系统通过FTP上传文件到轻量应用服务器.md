@@ -10,13 +10,14 @@
 
 ### Linux 系统使用 FTP 服务
 1. 执行以下命令，安装 ftp。
->? 若 Linux 系统的本地机器已安装了 ftp，请跳过此步骤，执行下一步。
->
-```
+<dx-alert infotype="explain" title="">
+若 Linux 系统的本地机器已安装了 ftp，请跳过此步骤，执行下一步。
+</dx-alert>
+```shellsession
 yum -y install ftp
 ```
 2. 执行以下命令，在本地机器上连接轻量应用服务器，并根据界面提示，输入 FTP 服务的用户名和密码。
-```
+```shellsession
 ftp 轻量应用服务器的 IP 地址
 ```
 进入如下界面，即表示连接成功。
@@ -26,29 +27,31 @@ ftp 轻量应用服务器的 IP 地址
 <dx-tabs>
 ::: 上传文件
 执行以下命令，将本地文件上传至轻量应用服务器中。
-```
+```shellsession
 put local-file [remote-file]
-```例如，将本地文件 `/home/1.txt` 上传到轻量应用服务器。
 ```
+例如，将本地文件 `/home/1.txt` 上传到轻量应用服务器。
+```shellsession
 put /home/1.txt 1.txt
 ```
 :::
 ::: 下载文件
 执行以下命令，将轻量应用服务器中的文件下载至本地。
-```
+```shellsession
 get [remote-file] [local-file]
-```例如，将轻量应用服务器中的 `A.txt` 文件下载到本地的 `/home` 目录下。
 ```
+例如，将轻量应用服务器中的 `A.txt` 文件下载到本地的 `/home` 目录下。
+```shellsession
 get A.txt /home/A.txt
 ```
 :::
 </dx-tabs>
 
 ### Mac OS 系统使用 FTP 服务
-1. 单击左下角的 <img src="https://main.qcloudimg.com/raw/992cc18057d7ab31bcc0c01cb571d395.png" style="margin:-5px 0px; width:4%">，在右上角菜单栏中选择【前往】>【连接服务器...】。
-2. 在“连接服务器”窗口中输入 `ftp://轻量应用服务器的 IP 地址`，并单击【连接】。如下图所示：
+1. 单击左下角的 <img src="https://main.qcloudimg.com/raw/992cc18057d7ab31bcc0c01cb571d395.png" style="margin:-5px 0px; width:4%">，在右上角菜单栏中选择**前往** > **连接服务器...**。
+2. 在“连接服务器”窗口中输入 `ftp://轻量应用服务器的 IP 地址`，并单击**连接**。如下图所示：
 ![](https://main.qcloudimg.com/raw/0cb8e99214441e8ea93db3cf25867cd5.png)
-3. 在弹出的窗口中选择“注册用户”，输入 ftp 服务的用户名和密码后单击【连接】。
+3. 在弹出的窗口中选择“注册用户”，输入 ftp 服务的用户名和密码后单击**连接**。
 进入如下界面，即表示连接成功。
 ![](https://main.qcloudimg.com/raw/9551fbefacded0216cf55b6fe69e2762.png)
 

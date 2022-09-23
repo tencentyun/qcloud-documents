@@ -28,10 +28,10 @@
 ## 安装流程
 
 1. 登录 [云开发控制台](https://console.cloud.tencent.com/tcb/env/index)。
-2. 单击【新建环境】，新建一个按量计费环境，详情可参见 [开通环境](https://cloud.tencent.com/document/product/876/41391) 文档。
-3. 环境创建完后，单击【环境卡片】，进入环境管理页面。
-4. 单击左侧导航栏底部的 [【扩展应用】](https://console.cloud.tencent.com/tcb/extensions/index)，在更多扩展能力中，可以看到 Wordpress 应用。
-5. 在 Wordpress 应用中，单击【安装】，进入扩展安装流程。
+2. 单击**新建环境**，新建一个按量计费环境，详情可参见 [开通环境](https://cloud.tencent.com/document/product/876/41391) 文档。
+3. 环境创建完后，单击**环境卡片**，进入环境管理页面。
+4. 单击左侧导航栏底部的 [**扩展应用**](https://console.cloud.tencent.com/tcb/extensions/index)，在更多扩展能力中，可以看到 Wordpress 应用。
+5. 在 Wordpress 应用中，单击**安装**，进入扩展安装流程。
 	- 确认应用相关资源。
 	- 授予云开发相关资源的操作权限。
 	- 扩展云资源准备，声明会依赖的2个资源（文件存储、云数据库）。

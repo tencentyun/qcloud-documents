@@ -4,62 +4,89 @@
 
 | 操作名称                | 资源类型 | 事件名称                           |
 |---------------------|------|--------------------------------|
-| Bot\_V2 获取 bot 开关     | waf  | BotV2GetSwitchStat             |
-| Waf CC V2 Query 接口   | waf  | DescirbeCCRule                 |
-| 获取访问日志游标            | waf  | DescribeAccessCursor           |
-| 查询访问日志下载任务          | waf  | DescribeAccessDownloadRecords  |
-| 查询满足搜索条件的访问日志数量     | waf  | DescribeAccessLogCount         |
-| 查询访问日志              | waf  | DescribeAccessLogs             |
-| Waf IP 状态统一查询接口      | waf  | DescribeActionedIp             |
-| 获取 ai 模型状态            | waf  | DescribeAIModelStatus          |
-| waf ai 在线验证          | waf  | DescribeAIVerifyResult         |
-| 获取防篡改 url            | waf  | DescribeAntiFakeUrl            |
-| 获取信息防泄漏规则列表         | waf  | DescribeAntiInfoLeakRules      |
-| 获取地域封禁配置            | waf  | DescribeAreaBanAreas           |
-| 获取 WAF 地域封禁支持的地域列表    | waf  | DescribeAreaBanSupportAreas    |
-| 获取攻击日志详情            | waf  | DescribeAttackDetail           |
-| 查询攻击日志的下载记录         | waf  | DescribeAttackDownloadRecords  |
-| 查询攻击日志数量            | waf  | DescribeAttackLogCount         |
-| 攻击城市分布              | waf  | DescribeAttackWorldMap         |
-| Bot\_V2 获取 bot 动作统计   | waf  | DescribeBotActionStat          |
-| Bot\_V2 域名 bot 统计     | waf  | DescribeBotAggregateDomainStat |
-| bot 详情               | waf  | DescribeBotRecordDetail        |
-| Bot\_V2 bot 记录访问详情   | waf  | DescribeBotRecordItems         |
-| bot 记录访问趋势图          | waf  | DescribeBotRecordPoints        |
-| Bot\_V2 bot 地理纬度统计   | waf  | DescribeBotRegionsStat         |
-| Bot\_V2 Bot 流量统计     | waf  | DescribeBotStatisticPoints     |
-| Bot\_V2 获取 bot 开关     | waf  | DescribeBotStatus              |
-| Bot\_V2 获取 TCB 类型 Bots | waf  | DescribeBotTCBRecords          |
-| Bot\_V2 获取 TCB 规则     | waf  | DescribeBotTCBRule             |
-| Bot\_V2 Bot 类别统计     | waf  | DescribeBotTypeStat            |
-| Bot\_V2 获取 UB 类型 Bots  | waf  | DescribeBotUBRecords           |
-| Bot\_V2 获取 UCB 自定义策略  | waf  | DescribeBotUCBFeatureRule      |
-| Bot\_V2 获取 UCB 预设策略   | waf  | DescribeBotUCBPreinstallRule   |
-| Bot\_V2 获取 UCB 类型 Bots | waf  | DescribeBotUCBRecords          |
-| Waf 斯巴达版本查询 cc 自动封堵状态 | waf  | DescribeCCAutoStatus           |
-| 查询日志服务使用状况          | waf  | DescribeCLS                    |
-| 查询自定义 payload 列表      | waf  | DescribeCustomPayloads         |
-| 获取 DNS 劫持检测的被劫持用户数的数据 | waf  | DescribeDNSDetectDataChart     |
-| DNS 劫持\-获取地图数据       | waf  | DescribeDNSDetectDataMap       |
-| 获取 DNS 劫持检测的域名列表      | waf  | DescribeDNSDetectDomainList    |
-| 获取 DNS 劫持检测的劫持记录      | waf  | DescribeDNSDetectHijackData    |
-| Waf IP 黑白名单查询        | waf  | DescribeIpAccessControl        |
-| Waf IP 封堵状态查询        | waf  | DescribeIpHitItems             |
-| 查询业务和攻击概要趋势         | waf  | DescribePeakPoints             |
-| 获取业务和攻击概览峰值         | waf  | DescribePeakValue              |
-| 获取客户产品信息            | waf  | DescribeProductInfo            |
-| 获取指定时间段内请求总数        | waf  | DescribeRequestCount           |
-| Waf 会话定义查询接口        | waf  | DescribeSession                |
-| 查询用户信息              | waf  | DescribeSpartUserInfo          |
-| 拉取攻击类型统计数据          | waf  | DescribeStatisticTypes         |
-| 批量下载访问日志            | waf  | ExportAccessLogs               |
-| 查询 waf 的价格            | waf  | InquiryPriceWafInstance        |
-| 日志使用情况              | waf  | WafClsOverview                 |
-| 下载查询日志              | waf  | WafDownloadlogs                |
-| 查询下载记录              | waf  | WafDownloadRecords             |
-| 获取 ai 模型状态            | waf  | WafGetAIModelStatus            |
-| waf ai 在线验证          | waf  | WafGetAIVerifyResult           |
-| 查询自定义 payload 列表      | waf  | WafGetCustomPayloads           |
-| 获取非标端口              | waf  | WafGetPort                     |
-| WAF 通用接口             | waf  | WafInterface                   |
-| 查询全量日志              | waf  | WafSearchLogs                  |
+| 添加防篡改 url  | waf  | AddAntiFakeUrl         |
+| 添加信息防泄漏规则 | waf  | AddAntiInfoLeakRules                 |
+| 添加一条 api 规则         | waf  | AddApiRule           |
+| 添加封禁地域          | waf  | AddAreaBanAreas  |
+| 添加自定义拦截页面   | waf  | AddBlockPage         |
+| 添加自定义载荷              | waf  | AddCustomPayload             |
+| 增加自定义策略    | waf  | AddCustomRule             |
+| 增加域名规则白名单         | waf  | AddDomainWhiteRule          |
+|添加 Spart 防护域名        | waf  | AddSpartaProtection         |
+| 给域名应用自定义拦截页面           | waf  | ApplyBlockPage            |
+| Bot_V2 TCB 策略域名拷贝        | waf  | CopyBotTCBRule      |
+| Bot_V2 UCB 自定义策略拷贝          | waf  | CopyBotUCBFeatureRules           |
+| Bot_V2 UCB 预设策略拷贝   | waf  | CopyBotUCBPreinstallRule    |
+| waf 斯巴达-添加缓存路径           | waf  | CreateCachePath           |
+| 后付费创建日志服务         | waf  | CreateClsForAfterpay  |
+| 复制地域封禁到其他域名            | waf  | CreateCopyAreaBan         |
+| 复制自定义规则到其他域名              | waf  | CreateCopyCustomRule         |
+| 添加 DNS 劫持检测的域名   | waf  | CreateDNSDetectDomain          |
+| 添加防护域名    | waf  | CreateHost |
+| 新增业务白名单             | waf  | CreateWhiteList        |
+| 删除防篡改 url  | waf  | DeleteAntiFakeUrl         |
+| 信息防泄漏删除规则       | waf  | DeleteAntiInfoLeakRule        |
+| 删除攻击日志下载任务记录   | waf  | DeleteAttackDownloadRecord         |
+| 删除自定义拦截页面    | waf  | DeleteBlockPage     |
+| Waf CC V2 Delete接口     | waf  | DeleteCCRule              |
+| waf 斯巴达-删除缓存路径 | waf  | DeleteCachePath          |
+| 删除自定义 payload    | waf  | DeleteCustomPayloads             |
+| 删除自定义规则     | waf  | DeleteCustomRule            |
+|  删除DNS劫持检测的域名 | waf  | DeleteDNSDetectDomain  |
+| 删除域名规则白名单  | waf  |  DeleteDomainWhiteRules |
+|  删除访问日志下载记录 | waf  | DeleteDownloadRecord  |
+|  删除 CLB-WAF 防护域名 | waf  | DeleteHost  |
+|  Waf IP黑白名单 Delete 接口 | waf  |  DeleteIpAccessControl |
+|   删除 CC 攻击的 session 设置 | waf  | DeleteSession  |
+|  waf 斯巴达-删除防护域名 | waf  | DeleteSpartaProtection  |
+|  删除业务白名单 | waf  |  DeleteWhiteList  |
+|  刷新防篡改 url | waf  | FreshAntiFakeUrl  |
+| 用户手动导入 api 规则  | waf  | ImportApiRules  |
+| 模型训练  | waf  | ModifyAIModelai  |
+|  编辑防篡改 url | waf  | ModifyAntiFakeUrl  |
+|  切换防篡改开关 | waf  |  ModifyAntiFakeUrlStatus |
+| 信息防泄漏切换规则开关  | waf  |  ModifyAntiInfoLeakRuleStatus |
+| 编辑信息防泄漏规则  | waf  |  ModifyAntiInfoLeakRules |
+| 修改地域封禁中地域信息  | waf  | ModifyAreaBanAreas|
+|  修改地域封禁状态 | waf  |  ModifyAreaBanStatus |
+|  Bot_V2 bot 开关更新 | waf  | ModifyBotStatus  |
+|  Bot_V2 TCB 策略更新 | waf  | ModifyBotTCBRule  |
+|  Bot_V2 UCB 预设规则更新 | waf  |  ModifyBotUCBPreinstallRule |
+|  waf 斯巴达-编辑缓存路径  | waf  |  ModifyCachePath |
+|  编辑自定义规则 | waf  | ModifyCustomRule  |
+|  开启或禁用自定义策略 | waf  | ModifyCustomRuleStatus  |
+|  编辑 DNS 劫持检测的域名 | waf  |  ModifyDNSDetectDomain |
+|  更改某一条规则 | waf  | ModifyDomainWhiteRule  |
+|  修改域名列表的访问日志开关 | waf  |  ModifyDomainsCLSStatus |
+|  修改域名列表的 WAF 开关 | waf  |  ModifyDomainsStatus |
+| 编辑防护域名  | waf  | ModifyHost  |
+|  设置域名访问日志开关 | waf  | ModifyHostAccessLogStatus  |
+| 设置防护域名的流量模式  | waf  | ModifyHostFlowMode  |
+|   设置防护域名防护状态 | waf  |  ModifyHostMode |
+| 设置防护域名 WAF 开关  | waf  | ModifyHostStatus  |
+|  修改实例的 QPS 弹性计费开关 | waf  |  ModifyInstanceElasticMode |
+|  修改实例的自动续费开关 | waf  | ModifyInstanceRenewFlag  |
+|  更新前端对抗规则 | waf  | ModifyJsInjectRule  |
+| 更新前端对抗规则的状态  | waf  | ModifyJsInjectRuleStatus  |
+|  设置套餐自动续费 | waf  |  ModifyPackageRenew  |
+| 更改防护等级  | waf  | ModifyProtectionLevel  |
+| 斯巴达-waf 开关  | waf  |  ModifyProtectionStatuswaf  |
+|   版本 WAF 自动续费开关设置 | waf  | ModifySpartaPackageRenewSparta  |
+| 修改域名配置  | waf  |  ModifySpartaProtection  |
+| 设置 waf 防护状态  | waf  | ModifySpartaProtectionMode  |
+|  设置 webshell 状态 | waf  |  ModifyWebshellStatus |
+|  更新业务白名单 | waf  |  ModifyWhiteList |
+|  创建搜索下载攻击日志任务 | waf  | PostAttackDownloadTask  |
+|  刷新接入检查的结果 | waf  | RefreshAccessCheckResult  |
+| 启用或者停用 Api 规则  | waf  | SwitchApiRules  |
+| 切换域名的规则开关  | waf  |  SwitchDomainRules |
+| 切换域名白名单的开关  | waf  |  SwitchDomainWhiteRules  |
+|  切换弹性 QPS 的开关 | waf  | SwitchElasticMode  |
+| Bot_V2 UCB 策略更新  | waf  | UpsertBotUCBFeatureRule   |
+|   Waf 斯巴达版本更新 cc 自动封堵状态 | waf  | UpsertCCAutoStatus  |
+|  Waf CC V2 Upsert 接口 | waf  |  UpsertCCRule |
+| 是否透传客户端的 IP 和端口  | waf  | UpsertClientMsg  |
+|  Waf IP 黑白名单 Upsert 接口 | waf  | UpsertIpAccessControl  |
+|  会话定义 Upsert 接口  | waf  |  UpsertSessionWaf |
+|  查询下载记录 | waf  | WafDownloadRecords  |
+| 下载查询日志  | waf  |  WafDownloadlogs |

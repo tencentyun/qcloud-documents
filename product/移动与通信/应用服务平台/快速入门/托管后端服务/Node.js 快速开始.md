@@ -100,8 +100,10 @@ REPOSITORY     TAG       IMAGE ID         CREATED          SIZE
 helloworld   latest    1c8dfb88c823     8 seconds ago      146MB
 ```
 
-随后您可以将此镜像上传至您的镜像仓库。
+随后您可以将此镜像上传至您的镜像仓库，详情请参见 [安装 docker](https://docs.docker.com/get-docker/)。
 
 ## 步骤4：部署到 CloudBase 云托管
 
 请参考 [部署服务](https://cloud.tencent.com/document/product/1243/46127) 与 [版本配置说明](https://cloud.tencent.com/document/product/1243/49177)。
+
+

@@ -31,6 +31,6 @@
 	- 校验失败示例：
 	![](https://main.qcloudimg.com/raw/0b32a98cad31330a56e5b2f3fa4e282c.png)
 
-
+ 
 ## 相关文档
 更多 UserSig 相关问题，请参见 [UserSig 相关问题](https://cloud.tencent.com/document/product/647/17275)。

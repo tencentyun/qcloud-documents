@@ -1,12 +1,12 @@
 ## 命名空间
 
-Namespace=QCE/LOADBALANCE
+Namespace = QCE/LOADBALANCE
 
 
 
 ## 监控指标
 
-| 指标英文名          | 指标中文名   | 指标含义     | 单位  | 维度                                     | 统计周期 |
+| 指标英文名          | 指标中文名   | 指标含义     | 单位  | 维度                                     | 统计粒度 |
 | ------------------- | ------------ | ------------ | ----- | ---------------------------------------- | -------- |
 | QPS                 | 每秒请求数   | 每秒请求数   | 个    | domain、loadBalancerPort、protocol、url、vip | 60s、300s |
 | ResponseTimeoutNum  | 响应超时个数 | 响应超时个数 | 个    | domain、loadBalancerPort、protocol、url、vip | 60s、300s |

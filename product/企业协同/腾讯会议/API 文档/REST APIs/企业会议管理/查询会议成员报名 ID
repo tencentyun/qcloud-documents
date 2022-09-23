@@ -1,0 +1,69 @@
+## 接口描述
+- 描述：  支持查询会议中已报名成员的报名 ID，仅会议创建者可查询。
+ - 可通过会中成员的 ms_open_id 查询到对应的报名 ID，成员的 ms_open_id 可通过 [获取参会成员列表](https://cloud.tencent.com/document/product/1095/42701) 接口获取。
+ - 成员的报名 ID 每场会议是唯一的，可以通过 [查询会议报名信息](https://cloud.tencent.com/document/product/1095/64011) 接口匹配其对应的报名信息。
+ - 如果传入的成员没有报名，则不会返回该成员的 ms_open_id 和报名 ID。
+ - 企业 secret 鉴权用户可查询任何该企业该用户创建的有效会议，OAuth2.0 鉴权用户只能查询通过 OAuth2.0 鉴权创建的有效会议。
+- 请求方式：POST
+- 接口请求域名：
+```plaintext
+https://api.meeting.qq.com/v1/meetings/{meeting_id}/enroll/ids
+```
+
+## 输入参数
+|参数名称|	是否必须	|参数类型	|参数描述|
+|-----|-----|----|----|
+| operator_id              |   否    | String   |     操作者 ID。会议创建者可以导入报名信息。<br />operator_id 必须与 operator_id_type 配合使用。根据 operator_id_type 的值，operator_id 代表不同类型。<br />operator_id_type=2，operator_id 必须和公共参数的 openid 一致。<br />operator_id 和 userid 至少填写一个，两个参数如果都传了以 operator_id 为准。<br />使用 OAuth 公参鉴权后不能使用 userid 为入参。                                                     |
+| operator_id_type              |    否   |  String  | 	操作者 ID 的类型：<br />1：userid<br />2：open_id<br />如果 operator_id 和 userid 具有值，则以 operator_id 为准。                                     |
+|meeting_id|	是|	String	|会议 ID。|
+| userid              |     否  | String  |  	会议创建者的用户 ID。为了防止现网应用报错，此参数实则仍然兼容 openid，如无 oauth 应用使用报名接口则也可做成不兼容变更。  |
+|instanceid	|是|	Integer|	用户的终端设备类型：<br>0：PSTN<br>1：PC<br>2：Mac<br>3：Android<br>4：iOS<br>5：Web<br>6：iPad<br>7：Android Pad<br>8：小程序<br>9：voip、sip 设备<br>10：linux<br>20：Rooms for Touch Windows<br>21：Rooms for Touch MacOS<br>22：Rooms for Touch Android<br>30：Controller for Touch Windows<br>32：Controller for Touch Android<br>33：Controller for Touch iOS|
+|sorting_rules|	否|	Integer|	查询报名 ID 的排序规则。当该账号存在多条报名记录（手机号导入、手动报名等）时，该接口返回的顺序。<br>1：优先查询手机号导入报名，再查询用户手动报名，默认值。<br>2：优先查询用户手动报名，再查手机号导入。|
+|ms_open_id_list|	是|	String 数组|	当场会议的用户临时 ID（适用于所有用户）数组，单次最多支持500条。|
+
+## 输出参数
+|参数名称	|参数类型	|参数描述|
+|-----|-----|----|
+|meeting_id|	String|	会议 ID。|
+|enroll_id_list|	对象数组|	成员报名 ID 数组，仅返回已报名成员的报名 ID，若传入的用户无人报名，则无该字段。|
+
+
+**成员报名 ID 对象**
+
+|参数名称	|参数类型|	参数描述|
+|-----|-----|----|
+|ms_open_id	|String|	当场会议的用户临时 ID，适用于所有用户。|
+|enroll_id|	Integer|	报名 ID。|
+
+
+## 示例
+### 输入示例
+```plaintext
+POST https://api.meeting.qq.com/v1/meetings/545613049490456875/enroll/ids
+{
+    "userid": "john117",
+    "instanceid": 2,
+    "ms_open_id_list": ["agaqwwgdkkddd","ahfsdugkjsdg","jhgsddgskjh"]
+}
+```
+
+### 输出示例
+```plaintext
+{
+        "meeting_id": "545613049490456875",
+        "enroll_id_list": [
+              {
+                  "ms_open_id": "agaqwwgdkkddd",
+                  "enroll_id": 1386442
+              }，
+			  {
+                  "ms_open_id": "ahfsdugkjsdg",
+                  "enroll_id": 9896426
+              }，
+              {
+                  "ms_open_id": "jhgsddgskjh",
+                  "enroll_id": 6983563
+             }
+         ]
+}
+```

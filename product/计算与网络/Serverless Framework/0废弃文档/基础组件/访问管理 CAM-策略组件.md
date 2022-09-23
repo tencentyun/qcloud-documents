@@ -32,7 +32,7 @@ TENCENT_APP_ID=123
 
 >?
 > - 如果没有腾讯云账号，请先 [注册新账号](https://cloud.tencent.com/register)。
-> - 如果已有腾讯云账号，可以在 [API密钥管理
+> - 如果已有腾讯云账号，可以在 [API 密钥管理
 ](https://console.cloud.tencent.com/cam/capi) 中获取 APPID、SecretId 和 SecretKey。
 
 #### 配置
@@ -57,10 +57,9 @@ myPolicy:
 ```
  [查看详细配置文档>>](https://github.com/serverless-tencent/tencent-cam-policy/blob/master/docs/configure.md)
 
-
 #### 部署
 
-通过如下命令进行部署，并查看部署过程中的信息:
+通过如下命令进行部署，并查看部署过程中的信息：
 ```console
 $ sls --debug
 
@@ -78,7 +77,6 @@ $ sls --debug
   7s › myPolicy › done
 ```
 
-
 #### 移除
 ```console
 $ sls remove --debug
@@ -86,6 +84,5 @@ $ sls remove --debug
   DEBUG ─ Flushing template state and removing all components.
 
   1s › myPolicy › done
-
 
 ```

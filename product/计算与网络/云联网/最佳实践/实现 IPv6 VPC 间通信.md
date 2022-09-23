@@ -115,7 +115,7 @@
 ![](https://main.qcloudimg.com/raw/66f8f143e4baac4b65fd31ba91d051d2.png)
 - **设置跨地域带宽限制（仅月95后付费云联网实例适用）**
   若您创建的月95后付费云联网实例，可以按需配置跨地域带宽上限，有以下两种方式：
-  > ?默认带宽上限为 1Gbps，如需更大默认带宽，请提 [工单申请](https://console.cloud.tencent.com/workorder/category)。
+  > ?默认带宽上限为 1Gbps，如需更大默认带宽，请 [在线咨询](https://cloud.tencent.com/online-service?from=sales&source=PRESALE)。
   > 
 	- **设置地域间带宽限速**
 	 1. 在 [云联网列表](https://console.cloud.tencent.com/vpc/ccn) 中，单击目标云联网实例 ID（限速方式为地域间限速）。

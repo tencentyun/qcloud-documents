@@ -62,7 +62,7 @@ uptime -s
 ## 修复措施
 ### 可能影响说明
 - 在执行脚本修复的过程中，被修复的节点可能会短时间进入 NotReady 状态，但很快会恢复。在此期间该节点上运行的应用容器及其提供的服务不受影响。
-- 如果您在修复过程中遇到问题，可以拨打 95716 或 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=350&source=0&data_title=%E5%AE%B9%E5%99%A8%E6%9C%8D%E5%8A%A1TKE&step=1) 反馈给我们，我们将尽快为您核实处理。
+- 如果您在修复过程中遇到问题，可以拨打 95716 或 [在线咨询](https://cloud.tencent.com/online-service?from=doc_457) 反馈给我们，我们将尽快为您核实处理。
 
 ### 具体修复步骤[](id:repair)
 1. 在需修复的节点上下载修复脚本，下载地址为：`https://lxcfs-1251707795.cos.ap-chengdu.myqcloud.com/upgrade-lxcfs.zip`。

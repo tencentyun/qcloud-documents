@@ -5,18 +5,21 @@
 
 通过对用户请求端 IP 配置访问控制策略，可以有效限制访问来源，阻拦恶意 IP 盗刷、攻击等问题。
 
+>? 若您的业务已迁移至 CDN 控制台，请参考 [CDN 产品文档](https://cloud.tencent.com/document/product/228)，前往 CDN 控制台进行操作。
+
+
 ## 配置指南
 
 ### 查看配置
 
-登录 [ECDN 控制台](https://console.cloud.tencent.com/ecdn)，在菜单栏里选择【域名管理】，单击域名右侧【管理】，即可进入域名配置页面，【访问配置】中可看到 IP 黑白名单配置：
+登录 [ECDN 控制台](https://console.cloud.tencent.com/ecdn)，在菜单栏里选择**域名管理**，单击域名右侧**管理**，即可进入域名配置页面，**访问配置**中可看到 IP 黑白名单配置：
 ![](https://main.qcloudimg.com/raw/232a95e0cfc751ef39e5ef426644b177.png)
 
 ### 修改配置
 
 #### 1. 修改配置
 
-单击【编辑】，选择黑名单/白名单，并填入 IP 或 IP 段列表并单击【确认】，即可启用 IP 黑/白名单配置：
+单击**编辑**，选择黑名单/白名单，并填入 IP 或 IP 段列表并单击**确认**，即可启用 IP 黑/白名单配置：
 ![](https://main.qcloudimg.com/raw/2ad85f101e207b9ef1adadeb4a487bd7.png)
 **IP 黑名单**
 用户端 IP 匹配黑名单中的 IP 或 IP 段时 ，访问 ECDN 节点时将直接返回403状态码。

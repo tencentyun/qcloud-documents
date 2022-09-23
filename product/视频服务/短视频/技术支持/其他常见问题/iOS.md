@@ -5,27 +5,23 @@
 
 [](id:que3)
 ### Xcode 中直接运行 Demo 报错？
-需要选择对应的 Target，如下图：
-![](https://main.qcloudimg.com/raw/bafe4d2c775330a29b4478be270022fc.jpg)
-
+- 报错信息：
+<img src="https://qcloudimg.tencent-cloud.cn/raw/263b4c298b2d0999617b7032c7fedba8.png" width=740>
+- 解决方法：执行 pod install。
 
 [](id:que4)
 ### 连接 Xcode 调试，短视频录制报错？
 连接 Xcode 调试，短视频录制报错，报错信息：`Main Thread Checker: UI API called on a background thread`
 ![](https://main.qcloudimg.com/raw/04b272c456b0e69239c0867a8e964d7a.jpg)
-原因是某些 API（一般是 UI 相关的）需要在主线程调用，如果在非主线程调用，同时有勾选`Main Thread Checker`的话，就会报错。
-
-解决办法：`Product`>`Scheme`>`Edit Scheme`>`Run`>`Diagnostics`，取消勾选`Main Thread Checker`。
+- 原因：某些 API（一般是 UI 相关的）需要在主线程调用，如果在非主线程调用，同时有勾选`Main Thread Checker`的话，就会报错。
+- 解决办法：`Product`>`Scheme`>`Edit Scheme`>`Run`>`Diagnostics`，取消勾选`Main Thread Checker`。
 >?该问题在4.9版本已经修复。
 
 
 [](id:que5)
 ### 使用 SDK 时报找不到头文件？
-- 在`Build Settings`>`Search Paths`>`Header Search Paths`中添加头文件搜索路径。
-- 使用`"TXLiteAVSDK_UGC/XXX.h"`方式引用 SDK 的头文件。
-- 使用`@import TXLiteAVSDK_UGC;`方式引用 SDK (5.0及之后的版本)。
+执行 pod install 即可。
 
-以上几种方法选其一。
 
 [](id:que6)
 ### 运行工程时报找不到类别方法或者 crash？

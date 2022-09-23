@@ -1,6 +1,7 @@
-1. 登录 [商业智能分析控制台](https://console.cloud.tencent.com/bi)，在添加数据源首页单击【Hive 数据库】，进入新建页面。新建的页面如下：
+在添加 Hive 数据库前，请先将商业智能分析 BI 的 IP 地址添加至数据库安全组，详见 [数据库连接方式概览](https://cloud.tencent.com/document/product/590/19294)。
+1. 登录 [商业智能分析 BI 控制台](https://console.cloud.tencent.com/bi)，在添加数据源首页单击 **Hive 数据库**，进入新建页面。新建的页面如下：
    ![](https://main.qcloudimg.com/raw/cd2e0b6e54a7b041cc26b51ba0dfd56a.png)
-2. 填写相应的 Hive 数据库连接信息。选择【服务器登录】为 Kerberos 登录方式，界面展示如下： ![](https://main.qcloudimg.com/raw/9aaa97118466f490dfdfe53afd767700.png)
+2. 填写相应的 Hive 数据库连接信息。选择**服务器登录**为 Kerberos 登录方式，界面展示如下： ![](https://main.qcloudimg.com/raw/9aaa97118466f490dfdfe53afd767700.png)
 <table>
 <thead>
 <tr>
@@ -70,5 +71,5 @@
 <td>控制数据源下展示的表结构模式。当选择一个表结构模式，数据源下就只展示指定的这一个，如果此处不做指定，那将显示所有的表结构模式。</td>
 </tr>
 </tbody></table>
-2. 单击【测试连接】，提示“测试成功”，即该数据源成功连接到相应数据库。
-3. 单击菜单栏【保存】，保存该数据源。创建数据集和制作报告模块都可以使用已保存的数据源。
+2. 单击**测试连接**，提示“测试成功”，即该数据源成功连接到相应数据库。
+3. 单击菜单栏**保存**，保存该数据源。创建数据集和制作报告模块都可以使用已保存的数据源。

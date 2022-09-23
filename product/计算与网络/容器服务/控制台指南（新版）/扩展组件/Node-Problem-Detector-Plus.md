@@ -1,10 +1,10 @@
-## 简介
+## 简介 
 
 ### 组件介绍
 
 Node-Problem-Detector-Plus 是 Kubernetes 集群节点的健康监测组件。在容器服务 TKE 环境中以 DaemonSet 方式运行，帮助用户实时检测节点上的各种异常情况，并将检测结果报告给上游的 Kube-apiserver。
 
-### 在 Kubernetes 集群创建的资源
+### 部署在集群内的 Kubernetes 对象
 
 
 
@@ -15,7 +15,7 @@ Node-Problem-Detector-Plus 是 Kubernetes 集群节点的健康监测组件。�
 | node-problem-detector | ClusterRole        | -            | -               |
 | node-problem-detector | ClusterRoleBinding | -            | -               |
 
-## 使用场景
+## 使用场景 
 
 使用 Node-Problem-Detector-Plus 组件可以监控节点的工作状态，包括内核死锁、OOM、系统线程数压力、系统文件描述符压力等指标，通过 Node Condition 和 Event 的形式上报给 Apiserver。
 您可以通过检测相应的指标，提前预知节点的资源压力，可以在节点开始驱逐 Pod 之前手动释放或扩容节点资源压力，防止 Kubenetes 进行资源回收或节点不可用可能带来的损失。
@@ -27,11 +27,11 @@ Node-Problem-Detector-Plus 是 Kubernetes 集群节点的健康监测组件。�
 ## 使用方法
 
 
-1. 登录 [容器服务控制台](https://console.qcloud.com/tke2)，在左侧导航栏中选择【集群】。
+1. 登录 [容器服务控制台 ](https://console.qcloud.com/tke2)，在左侧导航栏中选择**集群**。
 2. 在“集群管理”页面单击目标集群 ID，进入集群详情页。
-3. 选择左侧菜单栏中的【组件管理】，进入 “组件列表” 页面。
-4. 在“组件列表”页面中选择【新建】，并在“新建组件”页面中勾选 Node-Problem-Detector-Plus。
-5. 单击【完成】即可创建组件。安装成功后，您的集群中会有对应的 node-problem-detector 资源，在 Node 的 Condition 中也会增加相应的条目。
+3. 选择左侧菜单栏中的**组件管理**，进入 “组件列表” 页面。
+4. 在“组件列表”页面中选择**新建**，并在“新建组件”页面中勾选 Node-Problem-Detector-Plus。
+5. 单击**完成**即可创建组件。安装成功后，您的集群中会有对应的 node-problem-detector 资源，在 Node 的 Condition 中也会增加相应的条目。
 
 
 

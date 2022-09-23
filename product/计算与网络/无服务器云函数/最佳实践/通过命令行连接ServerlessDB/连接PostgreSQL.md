@@ -26,7 +26,7 @@ Components: 2.30.1
 
 
 ### 配置身份信息
-1. 在本地建立目录，用于存放代码及依赖模块。本文以 `test-postgreSQL` 为例。 
+1. 在本地建立目录，用于存放代码及依赖模块。本文以 `test-postgreSQL` 为例。   
 2. 在 `test-postgreSQL` 下创建 `.env` 文件，并按照以下格式在文件中配置您的腾讯云 SecretId、SecretKey、地域和可用区信息。
 ```text
  # .env
@@ -38,7 +38,7 @@ Components: 2.30.1
 ```
 >?
 > - 如果没有腾讯云账号，请 [注册新账号](https://cloud.tencent.com/register)。
-> - 如果已有腾讯云账号，请确保您的账号已经授权了 `AdministratorAccess` 权限。 同时，您可在 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取 SecretId 和 SecretKey。
+> - 如果已有腾讯云账号，请确保您的账号已经授权了 `AdministratorAccess` 权限。   同时，您可在 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取 SecretId 和 SecretKey。
 >
 
 ### 配置私有网络
@@ -172,7 +172,7 @@ fullstack-serverless-db:
   MemorySize:   128
 25s › fullstack-serverless-db › Success
 ```
-2. 部署成功后，您可登录 [云函数控制台](https://console.cloud.tencent.com/scf/index?rid=1) 查看函数并进行调试。测试步骤请参见 [云端测试](https://cloud.tencent.com/document/product/583/37509#.E4.BA.91.E7.AB.AF.E6.B5.8B.E8.AF.95)，测试成功如下图所示：
+2. 部署成功后，您可登录 [Serverless 控制台](https://console.cloud.tencent.com/scf/index?rid=1) 查看函数并进行调试。测试步骤请参见 [云端测试](https://cloud.tencent.com/document/product/583/37509#.E4.BA.91.E7.AB.AF.E6.B5.8B.E8.AF.95)，测试成功如下图所示：
 ![](https://main.qcloudimg.com/raw/46a5f3397cdaac7c6790a5b096cc7c36.png)
 >?您还可通过 [Serverless Dashboard](https://serverless.cloud.tencent.com/)，轻松实现已部署项目的实时监控。
 >

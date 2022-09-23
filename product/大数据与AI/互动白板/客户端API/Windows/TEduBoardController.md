@@ -1,3 +1,7 @@
+## 互动白板控制器
+
+互动白板控制器，请参考 [互动白板控制器](https://doc.qcloudtiw.com/win32/latest/class_t_edu_board_controller.html) 文档
+
 ## 创建销毁实例
 
 ### CreateTEduBoardController
@@ -23,7 +27,7 @@ EDUSDK_API TEduBoardController* CreateTEduBoardController(bool disableCefInit=fa
 > 	- 令 disableCefInit = false，cefRenderPath 指向您自己的 Render 进程
 > 	- 令 disableCefInit = true，自行实现 CEF 初始化
 > 2. 按下面说明，在您的 Render 进程内调用 SDK 的 RenderProcessHandler
-> 	- Render 进程启动后调用接口获取一个 sdkHandler 实例，CefRefPtr<CefRenderProcessHandler> sdkHandler = (CefRenderProcessHandler*)GetTEduBoardRenderProcessHandler();
+> 	- Render 进程启动后调用接口获取一个 sdkHandler 实例，CefRefPtr&lt; CefRenderProcessHandler&gt; sdkHandler = (CefRenderProcessHandler * )GetTEduBoardRenderProcessHandler();
 > 	- 在 Render 进程的 CefApp 中重写 GetRenderProcessHandler 方法，每次都返回以上 sdkHandler
 > 	- 若您需要自定义 CefRenderProcessHandler，第二步可返回自定义 Handler，然后在自定义 Handler 的下面几个方法中，调用 sdkHandler 的对应方法
 > 		- OnBrowserCreated
@@ -46,13 +50,24 @@ EDUSDK_API void DestroyTEduBoardController(TEduBoardController **ppBoardControll
 ppBoardController 指针会被自动置空 
 
 
+### ClearTEduBoardSDKEnv
+清理白板 SDK 环境，在不使用白板后调用以释放资源 
+``` C++
+EDUSDK_API void ClearTEduBoardSDKEnv()
+```
+#### 警告
+该接口必须在主线程调用 
+
+>?请在确保不再使用白板功能时才调用该接口（建议在应用程序退出前调用），调用了该接口之后，CreateTEduBoardController 接口不再有效。 
+
+
 
 ## 日志相关接口
 
 ### GetTEduBoardVersion
 获取 SDK 版本号 
 ``` C++
-const EDUSDK_API char* GetTEduBoardVersion()
+EDUSDK_API const char* GetTEduBoardVersion()
 ```
 #### 返回
 SDK 版本号
@@ -61,27 +76,39 @@ SDK 版本号
 返回值内存由 SDK 内部管理，用户不需要自己释放 
 
 
-### SetTEduBoardLogFilePath
-设置白板日志文件路径 
+### SetTEduBoardLogFileDir
+设置白板日志文件存储目录路径 
 ``` C++
-EDUSDK_API bool SetTEduBoardLogFilePath(const char *logFilePath)
+EDUSDK_API bool SetTEduBoardLogFileDir(const char *logDir)
 ```
 #### 参数
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| logFilePath | const char * | 要设置的白板日志文件路径，包含文件名及文件后缀，UTF8 编码，为空或 nullptr 表示使用默认路径  |
+| logDir | const char * | 要设置的白板日志文件存储目录路径，UTF8 编码，为空或 nullptr 表示使用默认路径  |
+
+### SetLogLevel
+设置输出日志级别 
+``` C++
+EDUSDK_API bool SetLogLevel(const uint32_t *level)
+```
+
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| SetLogLevel | const uint32_t * | 日志级别  |
 
 #### 返回
-设置白板日志文件路径是否成功 
+设置白板日志文件存储目录是否成功 
 
 #### 警告
 该接口必须要在第一次调用 CreateTEduBoardController 之前调用才有效，否则将会失败
 
 #### 介绍
 
-- 默认路径，Windows下为："%AppData%/../Local/TEduBoard/teduboard.log"
-- 默认路径，Linux下为："~/TEduBoard/teduboard.log" 
+- 默认路径，Windows下为："%AppData%/../Local/TEduBoard"
+- 默认路径，Linux下为："~/TEduBoard" 
 
 
 
@@ -90,7 +117,7 @@ EDUSDK_API bool SetTEduBoardLogFilePath(const char *logFilePath)
 ### EnableTEduBoardOffscreenRender
 启用白板离屏渲染 
 ``` C++
-EDUSDK_API bool EnableTEduBoardOffscreenRender(uint32_t maxFps = 30)
+EDUSDK_API bool EnableTEduBoardOffscreenRender(uint32_t maxFps=30)
 ```
 #### 参数
 
@@ -171,14 +198,12 @@ virtual void RemoveCallback(TEduBoardCallback *callback)=0
 ### Init
 初始化白板 
 ``` C++
-virtual void Init(const TEduBoardAuthParam &authParam, uint32_t roomId, const TEduBoardInitParam &initParam=TEduBoardInitParam())=0
+virtual void Init(const TEduBoardInitParam &initParam=TEduBoardInitParam())=0
 ```
 #### 参数
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| authParam | const TEduBoardAuthParam & | 授权参数  |
-| roomId | uint32_t | 课堂 ID，32位整型，取值范围[1, 4294967294]  |
 | initParam | const TEduBoardInitParam & | 可选参数，指定用于初始化白板的一系列属性值  |
 
 #### 警告
@@ -215,7 +240,9 @@ virtual void SyncAndReload()=0
 Reload 等同于重新加载历史数据，会触发白板初始化时除 onTEBInit 之外的所有回调。 
 
 #### 介绍
-接口用途：此接口主要用于网络恢复后，同步本地数据到远端，拉取远端数据到本地 调用时机：在网络恢复后调用 使用限制：如果历史数据还没有加载完成，则不允许重复调用，否则回调告警 TEDU_BOARD_WARNING_ILLEGAL_OPERATION 
+- 接口用途：此接口主要用于网络恢复后，同步本地数据到远端，拉取远端数据到本地 
+- 调用时机：在网络恢复后调用 
+- 使用限制：如果历史数据还没有加载完成，则不允许重复调用，否则回调告警 TEDU_BOARD_WARNING_ILLEGAL_OPERATION 
 
 
 ### AddSyncData
@@ -306,6 +333,63 @@ virtual void SyncRemoteTime(const char *userId, uint64_t timestamp)=0
 | timestamp | uint64_t | 远端用户毫秒级同步时间戳  |
 
 
+### SetSystemCursorEnable
+是否启用原生系统光标 
+``` C++
+virtual void SetSystemCursorEnable(bool enable)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| enable | bool | 启用或禁用，默认禁用  |
+
+
+### AddBackupDomain
+添加备用域名 
+``` C++
+virtual void AddBackupDomain(const char *domain, const char *backup, uint32_t priority=0)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| domain | const char * | 要添加备用域名的主域名  |
+| backup | const char * | 要添加的备用域名  |
+| priority | uint32_t | 备用域名优先级，数字越大优先级越高 |
+
+#### 介绍
+主备域名均需要包含协议类型（支持 http/https） 当使用主域名访问资源超时后，按优先级逐个尝试使用备用域名去访问，资源访问超时时间默认为5秒 多次调用此接口，可以为同一个主域名添加多个备用域名，重复添加相同的备用域名会被忽略 
+
+
+### RemoveBackupDomain
+删除备用域名 
+``` C++
+virtual void RemoveBackupDomain(const char *domain, const char *backup)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| domain | const char * | 要删除备用域名的主域名  |
+| backup | const char * | 要删除的备用域名，nullptr 或空字符串表示删除主域名对应的所有备用域名  |
+
+
+### SetProxyServer
+设置服务的代理服务器 
+``` C++
+virtual void SetProxyServer(const char *settingStr)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| settingStr | const char * | 代理服务器配置字符串，字符串内容为一个 JSON 对象，格式参考如下：介绍 |
+
+#### 介绍
+{ '服务类型': '代理服务器地址', ... }
+
+
 ### CallExperimentalAPI
 调用白板实验性接口 
 ``` C++
@@ -329,6 +413,7 @@ JS 执行后的返回值转换而来的字符串
 ``` C++
 virtual void SendKeyEvent(const TEduBoardKeyEvent &event)=0
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -341,6 +426,7 @@ virtual void SendKeyEvent(const TEduBoardKeyEvent &event)=0
 ``` C++
 virtual void SendMouseClickEvent(const TEduBoardMouseEvent &event, TEduBoardMouseButtonType type, bool mouseUp, int clickCount)=0
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -356,6 +442,7 @@ virtual void SendMouseClickEvent(const TEduBoardMouseEvent &event, TEduBoardMous
 ``` C++
 virtual void SendMouseMoveEvent(const TEduBoardMouseEvent &event, bool mouseLeave)=0
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -369,6 +456,7 @@ virtual void SendMouseMoveEvent(const TEduBoardMouseEvent &event, bool mouseLeav
 ``` C++
 virtual void SendMouseWheelEvent(const TEduBoardMouseEvent &event, int deltaX, int deltaY)=0
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -441,73 +529,47 @@ virtual bool IsHandwritingEnable()=0
 是否开启笔锋特性 
 
 
+### SetEraseLayerLimit
+设置橡皮擦单次擦除图层数量 
+``` C++
+virtual void SetEraseLayerLimit(uint32_t limit=0)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| limit | uint32_t | 擦除图层数量，默认为0，即不限制图层数量 |
+
+#### 介绍
+单次擦除：鼠标/手指按下 > 鼠标/手指移动 > 鼠标/手指抬起。 
+
+
+### SetEraseLayerType
+限制橡皮擦可擦除的白板元素类型 
+``` C++
+virtual void SetEraseLayerType(const TEduBoardErasableElementType *typeArr=nullptr, uint32_t typeArrCount=0)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| typeArr | const TEduBoardErasableElementType * | 限制可擦除的白板元素类型数组，默认为 nullptr 则不限制元素类型  |
+| typeArrCount | uint32_t | 要限制的可擦除的白板元素类型数量  |
+
+
 ### SetAccessibleUsers
 设置允许操作哪些用户绘制的图形 
 ``` C++
-virtual void SetAccessibleUsers(const char **users, uint32_t userCount)=0
+virtual void SetAccessibleUsers(char **users, uint32_t userCount, TEduBoardAccessibleOperation *operatorType, uint32_t typeCount)=0
 ```
 #### 参数
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| users | const char ** | 指定允许操作的用户集，为 nullptr 表示不加限制  |
-| userCount | uint32_t | 指定 users 参数包含的用户个数 |
-
-#### 介绍
-该接口会产生以下影响：
-1. ERASER 工具只能擦除 users 参数列出的用户绘制的涂鸦，无法擦除其他人绘制的涂鸦
-2. POINTSELECT、SELECT 工具只能选中 users 参数列出的用户绘制的涂鸦，无法选中其他人绘制的涂鸦
-3. clear 接口只能用于清空选中涂鸦以及 users 参数列出的用户绘制的涂鸦，无法清空背景及其他人绘制的涂鸦
-4. 白板包含的其他功能未在本列表明确列出者都可以确定不受本接口影响 
-
-
-### SetGlobalBackgroundColor
-设置所有白板的背景色 
-``` C++
-virtual void SetGlobalBackgroundColor(const TEduBoardColor &color)=0
-```
-#### 参数
-
-| 参数 | 类型 | 含义 |
-| --- | --- | --- |
-| color | const TEduBoardColor & | 要设置的全局背景色 |
-
-#### 介绍
-调用该接口将导致所有白板的背景色发生改变 新创建白板的默认背景色取全局背景色 
-
-
-### GetGlobalBackgroundColor
-获取白板全局背景色 
-``` C++
-virtual TEduBoardColor GetGlobalBackgroundColor()=0
-```
-#### 返回
-全局背景色 
-
-
-### SetBackgroundColor
-设置当前白板页的背景色 
-``` C++
-virtual void SetBackgroundColor(const TEduBoardColor &color)=0
-```
-#### 参数
-
-| 参数 | 类型 | 含义 |
-| --- | --- | --- |
-| color | const TEduBoardColor & | 要设置的背景色 |
-
-#### 介绍
-白板页创建以后的默认背景色由 SetDefaultBackgroundColor 接口设定 
-
-
-### GetBackgroundColor
-获取当前白板页的背景色 
-``` C++
-virtual TEduBoardColor GetBackgroundColor()=0
-```
-#### 返回
-当前白板页的背景色 
-
+| users | char ** | 指定允许操作的用户集，为 nullptr 表示不加限制  |
+| userCount | uint32_t | 指定 users 参数包含的用户个数  |
+| operatorType | TEduBoardAccessibleOperation * | 用户操作类型  |
+| typeCount | uint32_t | 操作类型个数 该接口会产生以下影响：<br>1. ERASER 工具只能擦除 users 参数列出的用户绘制的涂鸦，无法擦除其他人绘制的涂鸦<br>2. POINTSELECT、SELECT 工具只能选中 users 参数列出的用户绘制的涂鸦，无法选中其他人绘制的涂鸦<br>3. clear 接口只能用于清空选中涂鸦以及 users 参数列出的用户绘制的涂鸦，无法清空背景及其他人绘制的涂鸦<br>4. 白板包含的其他功能未在本列表明确列出者都可以确定不受本接口影响  |
 
 ### SetToolType
 设置要使用的白板工具 
@@ -526,8 +588,24 @@ virtual void SetToolType(TEduBoardToolType type)=0
 ``` C++
 virtual TEduBoardToolType GetToolType()=0
 ```
+
 #### 返回
 正在使用的白板工具 
+
+
+### SetToolTypeTitle
+设置画笔和激光笔工具提示语 
+``` C++
+virtual void SetToolTypeTitle(const char *title, const TEduBoardToolTypeTitleStyle *style, TEduBoardToolType type)=0
+```
+
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| title | const char * | 提示语  |
+| style | const TEduBoardToolTypeTitleStyle * | 提示语样式，如果为 nullptr，则使用默认样式  |
+| type | TEduBoardToolType |  |
 
 
 ### SetCursorIcon
@@ -535,6 +613,7 @@ virtual TEduBoardToolType GetToolType()=0
 ``` C++
 virtual void SetCursorIcon(TEduBoardToolType type, const TEduBoardCursorIcon &icon)=0
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -548,6 +627,7 @@ virtual void SetCursorIcon(TEduBoardToolType type, const TEduBoardCursorIcon &ic
 ``` C++
 virtual void SetBrushColor(const TEduBoardColor &color)=0
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -563,6 +643,7 @@ virtual void SetBrushColor(const TEduBoardColor &color)=0
 ``` C++
 virtual TEduBoardColor GetBrushColor()=0
 ```
+
 #### 返回
 画笔颜色 
 
@@ -572,6 +653,7 @@ virtual TEduBoardColor GetBrushColor()=0
 ``` C++
 virtual void SetBrushThin(uint32_t thin)=0
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -587,6 +669,7 @@ virtual void SetBrushThin(uint32_t thin)=0
 ``` C++
 virtual uint32_t GetBrushThin()=0
 ```
+
 #### 返回
 画笔粗细 
 
@@ -608,6 +691,7 @@ virtual void SetTextColor(const TEduBoardColor &color)=0
 ``` C++
 virtual TEduBoardColor GetTextColor()=0
 ```
+
 #### 返回
 文本颜色 
 
@@ -617,6 +701,7 @@ virtual TEduBoardColor GetTextColor()=0
 ``` C++
 virtual void SetTextSize(uint32_t size)=0
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -714,38 +799,6 @@ virtual void Clear(bool clearBackground=false, bool clearSelectedOnly=false)=0
 #### 警告
 目前不支持清除选中部分的同时清除背景 
 
-
-### SetBackgroundImage
-设置当前白板页的背景图片 
-``` C++
-virtual void SetBackgroundImage(const char *url, TEduBoardImageFitMode mode)=0
-```
-#### 参数
-
-| 参数 | 类型 | 含义 |
-| --- | --- | --- |
-| url | const char * | 要设置的背景图片 URL，编码格式为 UTF8  |
-| mode | TEduBoardImageFitMode | 要使用的图片填充对齐模式 |
-
-#### 介绍
-当 URL 是一个有效的本地文件地址时，该文件会被自动上传到 COS 
-
-
-### SetBackgroundH5
-设置当前白板页的背景 H5 页面 
-``` C++
-virtual void SetBackgroundH5(const char *url)=0
-```
-#### 参数
-
-| 参数 | 类型 | 含义 |
-| --- | --- | --- |
-| url | const char * | 要设置的背景 H5 页面 URL |
-
-#### 介绍
-该接口与 SetBackgroundImage 接口互斥 
-
-
 ### Undo
 撤销当前白板页上一次动作 
 ``` C++
@@ -759,27 +812,116 @@ virtual void Redo()=0
 ```
 
 
-## 白板页操作接口
-
-### AddBoard
-增加一页白板 
+### setScrollBarVisible
+设置白板滚动条是否可见 
 ``` C++
-virtual const char* AddBoard(const char *url=nullptr)=0
+virtual void setScrollBarVisible(bool enable)=0
 ```
 #### 参数
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| url | const char * | 要使用的背景图片 URL，编码格式为 UTF8，为 nullptr 表示不指定背景图片  |
+| enable | bool | true 显示滚动条 false 不显示滚动条 |
+
+
+### setTextFontFamily
+设置自定义字体
+``` C++
+virtual void setTextFontFamily(const char * fontFace)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| fontFace	 | const char * | 设置自定义字体名称 |
+
+### addTextFontFamily
+设置自定义字体
+建议在创建白板实例后立刻调用；本地端和远端都需要设置字体样式，否则可能出现两端字体显示样式不同步
+``` C++
+virtual void AddTextFontFamily(const char * 	fontFace, const char * 	fontUrl)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| fontFace	 | const char * | 字体样式名称 |
+| fontUrl	 | const char * | 字体资源链接 |
+
+### GetTextFontFamily
+获取当前使用字体
+
+``` C++
+virtual void GetTextFontFamily()
+```
+#### 返回
+当前使用字体
+
+### setPiecewiseErasureEnable
+是否启用点擦（分段擦除）功能
+
+``` C++
+virtual void setPiecewiseErasureEnable(bool enable)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| enable	 | bool | enable	: true 启用；false 不启用 |
+
+### isPiecewiseErasureEnable
+获取分段擦除模式开启状态
+
+``` C++
+virtual void isPiecewiseErasureEnable()
+```
+#### 返回
+true 已开启； false 未开启
+
+### setEraserSize
+获取分段擦除模式开启状态
+
+``` C++
+virtual void setEraserSize(uint32_t 	radius)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| radius	 | uint32_t | radius	橡皮擦擦除半径，单位：像素，默认16px |
+
+### getEraserSize
+获取橡皮擦大小
+
+``` C++
+virtual void getEraserSize()
+```
+#### 返回
+橡皮擦大小，单位：像素
+
+--------
+
+## 白板页操作接口
+
+### AddBoard
+增加一页白板 
+``` C++
+virtual const char* AddBoard(const char *url=nullptr, const TEduBoardImageFitMode mode=TEDU_BOARD_IMAGE_FIT_MODE_CENTER, const TEduBoardBackgroundType type=TEDU_BOARD_BACKGROUND_IMAGE, bool needSwitch=true)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| url | const char * | 要使用的背景图片 URL，编码格式为 UTF8，为 nullptr 表示不指定背景图片，只支持 https 协议的图片 URL  |
+| mode | const TEduBoardImageFitMode | 要使用的图片填充对齐模式，当设置 URL 时有效 TEduBoardImageFitMode  |
+| type | const TEduBoardBackgroundType | 背景类型 TEduBoardBackgroundType  |
+| needSwitch | bool | 是否切换到添加的白板页 |
 
 #### 返回
 白板 ID 
 
 #### 警告
-白板页会被添加到默认文件（文件 ID 为::DEFAULT)，自行上传的文件无法添加白板页
-
-#### 介绍
-返回值内存由SDK内部管理，用户不需要自己释放 
+白板页会被添加到默认文件（文件 ID 为::DEFAULT)，自行上传的文件无法添加白板页 触发 TEduBoard.EVEN.TEB_ADDBOARD 事件 返回值内存由 SDK 内部管理，用户不需要自己释放 
 
 
 ### AddImageElement
@@ -800,20 +942,23 @@ virtual void AddImageElement(const char *url)=0
 ### AddElement
 添加白板元素 
 ``` C++
-virtual const char* AddElement(TEduBoardElementType type, const char *url)=0
+virtual const char* AddElement(TEduBoardElementType type, TEduAddBoardBase *pTag, const TEduBoardElementOptions &options=TEduBoardElementOptions())=0
 ```
 #### 参数
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| type | TEduBoardElementType | 白板元素类型  |
-| url | const char * | 要使用的元素 URL，编码格式为 UTF8，为 nullptr 表示不指定 URL  |
+| type | TEduBoardElementType | 元素类型，当设置 TEDU_BOARD_ELEMENT_IMAGE 时，等价于 addImageElement 方法  |
+| pTag | TEduAddBoardBase * | 网页或者图片的 URL，只支持 https 协议的网址或者图片 URL，编码格式为 UTF8，为 nullptr 表示不指定 URL  |
+| options | const TEduBoardElementOptions & | 元素参数  |
 
 #### 返回
-元素 ID，用于后续删除操作
+元素 ID 
 
-#### 介绍
-添加到白板的元素浮动在白板背景之上，支持拖动、缩放、删除 
+#### 警告
+（1）当 type = TEDU_BOARD_ELEMENT_IMAGE，支持 png、jpg、gif、svg 格式的本地和网络图片，当 URL 是一个有效的本地文件地址时，该文件会被自动上传到 COS，上传进度回调 onTEBFileUploadStatus 
+（2）当 type = TEDU_BOARD_ELEMENT_CUSTOM_GRAPH，仅支持网络 URL，请与自定义图形工具 TEDU_BOARD_TOOL_TYPE_BOARD_CUSTOM_GRAPH 配合使用 
+（3）当 type = TEDU_BOARD_ELEMENT_AUDIO 或 TEDU_BOARD_ELEMENT_GLOBAL_AUDIO，仅支持网络 URL 对应类型和子类对象的匹配：TEDU_BOARD_ELEMENT_MATH_GRAPH --> TEduAddBoardElementMathGraph TEDU_BOARD_ELEMENT_MATH_BOARD --> TEduAddBoardElementMathBoard 其他类型暂时对应-> TEduAddBoardElementUrl 
 
 
 ### RemoveElement
@@ -829,6 +974,21 @@ virtual bool RemoveElement(const char *elementId)=0
 
 #### 返回
 删除操作是否成功 
+
+
+### GetBoardElementList
+获取白板中所有元素 
+``` C++
+virtual TEduBoardElementInfoList* GetBoardElementList(const char *boardId)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| boardId | const char * | 白板 ID，如果为空则获取当前白板所有元素  |
+
+#### 返回
+白板元素列表 
 
 
 ### DeleteBoard
@@ -979,6 +1139,62 @@ virtual uint32_t GetBoardScale()=0
 白板缩放比例，格式与 SetBoardScale 接口参数格式一致 
 
 
+### SetFileScale
+设置文件缩放比例 
+``` C++
+virtual void SetFileScale(const char *fileId, uint32_t scale)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| fileId | const char * | 文件ID  |
+| scale | uint32_t | 要设置的文件缩放比例 |
+
+#### 介绍
+支持范围: [100，1600]，实际缩放比为: scale/100 
+
+
+### GetFileScale
+获取文件缩放比例 
+``` C++
+virtual uint32_t GetFileScale(const char *fileId)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| fileId | const char * | 文件ID  |
+
+#### 返回
+文件缩放比例，格式与 SetFileScale 接口参数格式一致 
+
+
+### SetScaleToolRatio
+设置白板缩放工具的缩放比例 
+``` C++
+virtual void SetScaleToolRatio(uint32_t scale)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| scale | uint32_t | 如果设置为50，则每次滚轮滚动（或鼠标点击），缩放会在原来基础上进行50的缩放。 等价于 teduBoard.setBoardScale(teduBoard.getBoardScale() + 50) 或 teduBoard.setBoardScale(teduBoard.getBoardScale() - 50)  |
+
+
+### SetScaleAnchor
+移动当前白板缩放展示位置 
+``` C++
+virtual void SetScaleAnchor(double xRatio, double yRation)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| xRatio | double | 白板左上角X坐标，取值[0, 1]  |
+| yRation | double | 白板左上角Y坐标，取值[0, 1]  |
+
+
 ### SetBoardContentFitMode
 设置白板内容自适应模式 
 ``` C++
@@ -1041,6 +1257,35 @@ virtual void SetZoomCursorIcon(const TEduBoardCursorIcon &zoomIn, const TEduBoar
 | zoomOut | const TEduBoardCursorIcon & | 缩小工具图标  |
 
 
+### SetRemoteCursorVisible
+设置远端画笔在本地是否可见 
+``` C++
+virtual void SetRemoteCursorVisible(bool visible)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| visible | bool | 远端画笔在本地是否可见  |
+
+### gotoStep
+跳转到指定动画步数 
+``` C++
+virtual void gotoStep(bool visible)
+```
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| boardId | const char * | 白板 ID  |
+| step | uint32_t | 动画步数 |
+
+### getBoardScroll
+获取白板滚动位置 
+``` C++
+virtual void gotoStep(bool visible)
+```
+#### 返回
+白板滚动位置 scrollLeft, scrollTop 以百分比形式展示，范围在 [0,1]
 
 ## 文件操作接口
 
@@ -1115,7 +1360,7 @@ virtual const char* AddImagesFile(const char **urls, uint32_t urlCount)=0
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| urls | const char ** | 要使用的图片 UR L列表，编码格式为 UTF8，不允许为 nullptr  |
+| urls | const char ** | 要使用的图片 URL 列表，编码格式为 UTF8，不允许为 nullptr  |
 | urlCount | uint32_t | 图片 URL 个数  |
 
 #### 返回
@@ -1159,7 +1404,7 @@ virtual void ShowVideoControl(bool show)=0
 | show | bool | 是否显示  |
 
 #### 警告
-全局控制项，对所有视频文件有效 隐藏和显示默认视频控制栏，默认显示系统自带的 video 控制栏，不同平台界面UI样式不同 
+全局控制项，对所有视频文件有效 隐藏和显示默认视频控制栏，默认显示系统自带的 video 控制栏，不同平台界面 UI 样式不同 
 
 
 ### PlayVideo
@@ -1247,6 +1492,95 @@ virtual void StopSyncVideoStatus()=0
 ```
 #### 警告
 只对当前文件有效 
+
+
+### EnableAudioControl
+是否启用音频控制面板 
+``` C++
+virtual void EnableAudioControl(bool enable)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| enable | bool | 启用或禁止  |
+
+#### 警告
+禁止控制面板后，不能通过界面交互方式操作音频元素 
+
+
+### PlayAudio
+播放音频 
+``` C++
+virtual void PlayAudio(const char *elementId)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| elementId | const char * | 调用 addElement 方法返回的元素 ID |
+
+#### 介绍
+触发状态改变回调 onTEBAudioStatusChange 
+
+
+### PauseAudio
+暂停音频 
+``` C++
+virtual void PauseAudio(const char *elementId)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| elementId | const char * | 调用 addElement 方法返回的元素 ID |
+
+#### 介绍
+触发状态改变回调 onTEBAudioStatusChange 
+
+
+### SeekAudio
+跳转 
+``` C++
+virtual void SeekAudio(const char *elementId, double time)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| elementId | const char * | 调用 addElement 方法返回的元素 ID  |
+| time | double | 播放进度，单位秒 |
+
+#### 介绍
+触发状态改变回调 onTEBAudioStatusChange 
+
+
+### SetAudioVolume
+设置音频播放音量 
+``` C++
+virtual void SetAudioVolume(const char *elementId, double volume)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| elementId | const char * | 调用 addElement 返回的元素 ID  |
+| volume | double | 音频音量，取值范围[0-1]  |
+
+
+### GetAudioVolume
+获取音频播放音量 
+``` C++
+virtual double GetAudioVolume(const char *elementId)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| elementId | const char * | 调用 addElement 返回的元素 ID  |
+
+#### 返回
+当前音量 
 
 
 ### AddH5File
@@ -1371,7 +1705,7 @@ virtual TEduBoardStringList* GetThumbnailImages(const char *fileId)=0
 #### 返回
 缩略图 URL 列表 
 
->? 用户在调用 rest api 请求转码时，需要带上 "thumbnail_resolution" 参数，开启缩略图功能，否则返回的缩略图 url 无效 
+>? 用户在调用 rest api 请求转码时，需要带上 "thumbnail_resolution" 参数，开启缩略图功能，否则返回的缩略图 URL 无效 
 
 
 ### ClearFileDraws
@@ -1386,6 +1720,382 @@ virtual void ClearFileDraws(const char *fileId)=0
 | fileId | const char * | 文件 ID  |
 
 
+### SetUserInfo
+设置用户信息 
+``` C++
+virtual void SetUserInfo(const TEduUserInfo &userInfo)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| userInfo | const TEduUserInfo & | 用户信息  |
 
 
+### SetPenAutoFittingMode
+设置画笔自动拟合模式 
+``` C++
+virtual void SetPenAutoFittingMode(const TEduBoardPenFittingMode &penMode)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| penMode | const TEduBoardPenFittingMode & | 画笔自动拟合模式 TEduBoardPenFittingMode  |
+
+
+### AddSnapshotMark
+生成板书图片 调用此接口可在后台生成当前白板的板书内容 
+``` C++
+virtual void AddSnapshotMark()=0
+```
+
+### SetMouseToolBehavior
+设置鼠标工具行为 调用此接口设置鼠标工具行为 
+``` C++
+virtual void SetMouseToolBehavior(const TEduMouseToolBehavior &turnPage)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| turnPage | const TEduMouseToolBehavior & |  |
+
+
+### SetMathGraphType
+设置几何画板元素调用此接口设置几何画板元素 
+``` C++
+virtual void SetMathGraphType(const TEduBoardMathGraphType &graphType, bool setMouseToolopt=true)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| graphType | const TEduBoardMathGraphType & | 几何图形类型  |
+| setMouseToolopt | bool | 是否切换到鼠标工具 默认为 true  |
+
+
+### SetBoardRemark
+设置白板备注 为某个白板设置备注, 当前白板可省略 boardId 参数 
+``` C++
+virtual void SetBoardRemark(const char *boardId, const char *remark)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| boardId | const char * | 白板 ID  |
+| remark | const char * | 对应白板备注  |
+
+
+### GetBoardRemark
+获取白板备注 
+``` C++
+virtual TEduBoardReMarkInfoList* GetBoardRemark(const char *boardId=nullptr)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| boardId | const char * | 为空时，获取所有设置过白板备注  |
+
+#### 返回
+返回白板备注列表 
+
+
+### SetClassGroupEnable
+开启分组模式 
+``` C++
+virtual void SetClassGroupEnable(bool enable)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| enable | bool | 是否启用  |
+
+
+### GetClassGroupEnable
+获取分组模式状态 
+``` C++
+virtual bool GetClassGroupEnable()=0
+```
+#### 返回
+true: 开启 false: 未开启 
+
+
+### SetClassGroup
+添加分组 
+``` C++
+virtual void SetClassGroup(const char *groudId, char **boards, uint32_t boardCount, char **users, uint32_t userCount, const char *titleId, const char *currentBoardId=nullptr)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| groudId | const char * | 分组 ID  |
+| boards | char ** | 分组白板列表  |
+| boardCount | uint32_t | 分组白板个数  |
+| users | char ** | 分组用户列表   |
+| userCount | uint32_t | 分组用户个数   |
+| titleId | const char * | 分组标题  |
+| currentBoardId | const char * | 分组初始白板  |
+
+
+### ResetClassGroup
+重置所有分组 
+``` C++
+virtual void ResetClassGroup()=0
+```
+
+### RemoveClassGroup
+删除分组 
+``` C++
+virtual void RemoveClassGroup(const char *groudId)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| groudId | const char * | 分组 ID  |
+
+
+### GetClassGroupInfoByGroupId
+获取分组信息 
+``` C++
+virtual TEduBoardClassGroupInfo GetClassGroupInfoByGroupId(const char *groupId)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| groupId | const char * | 分组 ID  |
+
+#### 返回
+分组信息 
+
+
+### GetClassGroupIdByUserId
+获取用户所在的分组 
+``` C++
+virtual TEduBoardStringList* GetClassGroupIdByUserId(const char *userId)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| userId | const char * | 用户 ID  |
+
+
+### RemoveUserInClassGroup
+从分组中删除用户 
+``` C++
+virtual void RemoveUserInClassGroup(const char *group, const char *userId)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| group | const char * | 分组 ID  |
+| userId | const char * | 用户 ID  |
+
+
+### RemoveBoardInClassGroup
+从分组中删除白板 
+``` C++
+virtual void RemoveBoardInClassGroup(const char *group, const char *boardId)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| group | const char * | 分组 ID  |
+| boardId | const char * | 白板 ID  |
+
+
+### GotoClassGroupBoard
+分组内跳转 分组模式下切换白板只能通过此方法进行，必须知道需要跳转的白板 ID 
+``` C++
+virtual void GotoClassGroupBoard(const char *boardId)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| boardId | const char * | 白板id  |
+
+
+### SetClassGroupTitle
+设置分组标题 
+``` C++
+virtual void SetClassGroupTitle(const char *groupId, const char *title)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| groupId | const char * | 分组 ID  |
+| title | const char * | 分组标题  |
+
+
+### AddBoardToClassGroup
+新增白板 ID 
+``` C++
+virtual void AddBoardToClassGroup(const char *groupId, const char *boardId)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| groupId | const char * | 分组 ID  |
+| boardId | const char * | 白板 ID  |
+
+
+### AddUserToClassGroup
+添加用户到分组 
+``` C++
+virtual void AddUserToClassGroup(const char *groupId, const char *userId)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| groupId | const char * | 分组 ID  |
+| userId | const char * | 用户 ID  |
+
+
+### GetAllClassGroupIds
+获取所有分组 ID 
+``` C++
+virtual TEduBoardStringList* GetAllClassGroupIds()=0
+```
+#### 返回
+分组列表 
+
+
+## 背景接口
+
+
+
+### SetGlobalBackgroundColor
+设置所有白板的背景色 
+``` C++
+virtual void SetGlobalBackgroundColor(const TEduBoardColor &color)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| color | const TEduBoardColor & | 要设置的全局背景色 |
+
+#### 介绍
+调用该接口将导致所有白板的背景色发生改变 新创建白板的默认背景色取全局背景色 
+
+
+### GetGlobalBackgroundColor
+获取白板全局背景色 
+``` C++
+virtual TEduBoardColor GetGlobalBackgroundColor()=0
+```
+
+#### 返回
+全局背景色 
+
+
+### SetBackgroundColor
+设置当前白板页的背景色 
+``` C++
+virtual void SetBackgroundColor(const TEduBoardColor &color)=0
+```
+
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| color | const TEduBoardColor & | 要设置的背景色 |
+
+#### 介绍
+白板页创建以后的默认背景色由 SetDefaultBackgroundColor 接口设定 
+
+
+### GetBackgroundColor
+获取当前白板页的背景色 
+``` C++
+virtual TEduBoardColor GetBackgroundColor()=0
+```
+
+#### 返回
+当前白板页的背景色 
+
+
+### SetBackgroundImage
+设置当前白板页的背景图片 
+``` C++
+virtual void SetBackgroundImage(const char *url, TEduBoardImageFitMode mode)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| url | const char * | 要设置的背景图片 URL，编码格式为 UTF8  |
+| mode | TEduBoardImageFitMode | 要使用的图片填充对齐模式 |
+
+#### 介绍
+当 URL 是一个有效的本地文件地址时，该文件会被自动上传到 COS 
+
+
+### SetBackgroundH5
+设置当前白板页的背景 H5 页面 
+``` C++
+virtual void SetBackgroundH5(const char *url)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| url | const char * | 要设置的背景 H5 页面 URL |
+
+#### 介绍
+该接口与 SetBackgroundImage 接口互斥 
+
+### setGlobalBackgroundPic
+跳转到指定动画步数 
+``` C++
+virtual void setGlobalBackgroundPic(const char * 	url, const TEduBoardImageFitMode 	mode, int 	type)
+```
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| url | const char * | 资源链接  |
+| mode | TEduBoardImageFitMode | 图片填充对齐模式 |
+| type | int | 背景类型（0: 背景图 1：H5） |
+
+### getGlobalBackgroundPic
+跳转到指定动画步数 
+``` C++
+virtual void getGlobalBackgroundPic()
+```
+#### 返回
+TEduScrollPosition白板背景图结构
+
+### LoadTeduBoardResource
+预加载资源接口 
+``` C++
+EDUSDK_API void LoadTeduBoardResource(const char * 	fileUrl)	
+```
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| fileUrl | const char * | fileUrl	预加载文件的url路径 |
+
+### SetTeduBoardResourceConfig
+预加载资源接口配置信息
+``` C++
+EDUSDK_API void SetTeduBoardResourceConfig(unsigned int sdkAppId, const char * 	userId)	
+```
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| sdkAppId | unsigned int | 互动白板应用id |
+| userId | const char * |	用户id |
 

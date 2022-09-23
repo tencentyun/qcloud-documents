@@ -1,7 +1,7 @@
 [Apache Airflow](https://airflow.apache.org/) 是一款开源的工作流管理系统，集成了编排、调度、监控以及图形化展示等功能。在数据仓库场景，Airflow 则可以应用于 ETL 任务的管理。本文主要介绍如何在云端服务器上搭建 Airflow。
 
 ## Airflow 默认安装
-1. 购买 [云服务器](https://buy.cloud.tencent.com/cvm?tab=custom&step=1&devPayMode=monthly&regionId=1&zoneId=100003&instanceType=SA2.SMALL1&vpcId=vpc-qhnt5wsl&subnetId=subnet-lfpz8i7u&platform=CentOS&systemDiskType=CLOUD_PREMIUM&systemDiskSize=50&bandwidthType=BANDWIDTH_PREPAID&bandwidth=1)。
+1. 购买 [云服务器](https://buy.cloud.tencent.com/cvm)。
 >!本文以 CentOS 8.0 为例。
 >
 ![](https://main.qcloudimg.com/raw/5a57589b7785d168698ee0083edd2897.png)
@@ -18,7 +18,7 @@ dnf update gcc annobin -y
 mkdir -p /usr/local/services/airflow
 export AIRFLOW_HOME=/usr/local/services/airflow
 ```
-AIRFLOW_HOME 变量可以配置到`/etc/profile`文件中。
+AIRFLOW_HOME 变量可以配置到 `/etc/profile` 文件中。
 4. 安装 Airflow
 ```
 pip install apache-airflow[mysql]
@@ -111,7 +111,7 @@ create user 'airflowuser'@'%' identified by 'pwd123';
 grant all on airflow.* to 'airflowuser'@'%';
 flush privileges;
 ```
-4. 修改 `{AIRFLOW_HOME}/airflow.cfg` 中配置
+4. 修改 `{AIRFLOW_HOME}/airflow.cfg` 中的配置
 ```
 sql_alchemy_conn = sqlite:////usr/local/services/airflow/airflow.db
 修改为

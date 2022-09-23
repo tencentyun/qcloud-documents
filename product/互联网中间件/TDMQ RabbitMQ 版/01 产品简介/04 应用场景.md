@@ -1,0 +1,11 @@
+## 秒杀系统流量削峰
+
+秒杀系统可能因瞬时流量过大导致系统“宕机”，TDMQ RabbitMQ 版缓冲上游的流量压力，保证消息系统的稳定运行。
+
+![](https://main.qcloudimg.com/raw/038b68e5fdb74d4a5fd9e2c01615a06b.svg)
+
+## 业务系统异步解耦
+
+交易系统的订单数据涉及下游上百个业务系统，如发货、物流、订单等。TDMQ RabbitMQ 版可以实现系统间的异步通信和服务解耦，减轻不同服务之间的依赖，提升处理效率，保证系统稳定性。
+
+![](https://main.qcloudimg.com/raw/f298ddad8957c4ab5b2066fdfb5d51d4.svg)

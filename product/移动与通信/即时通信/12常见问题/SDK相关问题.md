@@ -61,10 +61,10 @@ TUIKit 最新源码已经支持 Androidx。
 ### 上架 App Store 时，出现 x86_64, i386 架构错误该如何解决？
 该问题是由于 App Store 不支持 x86_64, i386 架构引起的，具体解决方法如下：
 1. 清空项目编译缓存：
- 选择【Product】>【clean】，按住Alt变成 clean build Folder...，等待操作完成。
+ 选择**Product**>**clean**，按住Alt变成 clean build Folder...，等待操作完成。
 2. 剔除 App Store 不支持的 x86_64 和 i386 架构：
- a. 选择【TARGETS】>【Build Phases】。
- b. 单击加号，选择【New Run Script Phase】。
+ a. 选择**TARGETS**>**Build Phases**。
+ b. 单击加号，选择**New Run Script Phase**。
  c. 添加如下代码：
  
 ```
@@ -103,3 +103,4 @@ APP_PATH="${TARGET_BUILD_DIR}/${WRAPPER_NAME}"
  ![](https://main.qcloudimg.com/raw/f343cb4d7674d58623dfa0097d2c6484.png)
 
 3. 重新打包上传。
+

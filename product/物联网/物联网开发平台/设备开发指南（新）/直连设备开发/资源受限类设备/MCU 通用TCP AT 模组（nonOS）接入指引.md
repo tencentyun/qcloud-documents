@@ -3,6 +3,8 @@
 
 相较于有 RTOS 场景，AT-socket 网络接收数据的处理会有差异，应用层需要周期性的调用 **IOT_MQTT_Yield** 来接收服务端下行数据，错过接收窗口则会存在数据丢失的情况，所以在业务逻辑较为复杂的场景建议使用 RTOS，通过配置 `FEATURE_AT_OS_USED = OFF` 选择无 OS 方式。
 
+
+
 ## SDK 获取
 
 SDK 使用 Github 托管，可访问 Github 下载最新版本设备端 [C SDK](https://github.com/tencentyun/qcloud-iot-explorer-sdk-embedded-c/releases)。

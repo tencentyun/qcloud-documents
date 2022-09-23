@@ -1,16 +1,17 @@
 ## 命名空间
 
-Namespace=QCE/VPNGW
+Namespace = QCE/VPNGW
 
 
 ## 监控指标
 
 | 指标英文名 | 指标中文名 | 指标含义                  | 单位  | 维度    |
 | ---------- | ---------- | --------------------- | ----- | ------- |
-| Intraffic  | 外网入带宽 | VPN 网关平均每秒入流量 | Mbps  | vpnGwId |
-| Outtraffic | 外网出带宽 | VPN 网关平均每秒出流量 | Mbps  | vpnGwId |
+| InBandwidth  | 外网入带宽 | VPN 网关平均每秒入流量 | Mbps  | vpnGwId |
+| OutBandwidth | 外网出带宽 | VPN 网关平均每秒出流量 | Mbps  | vpnGwId |
 | Inpkg      | 入包量     | VPN 网关平均每秒入包量 | 个/秒 | vpnGwId |
 | Outpkg     | 出包量     | VPN 网关平均每秒出包量 | 个/秒 | vpnGwId |
+| VpnBandwidthUsageRate    | VPN 带宽利用率     |  VPN 带宽利用率  | %| vpnGwId |
 
 
 > ?每个指标对应的统计粒度（Period）可取值不一定相同，可通过 [DescribeBaseMetrics](https://cloud.tencent.com/document/product/248/30351) 接口获取每个指标支持的统计粒度。
