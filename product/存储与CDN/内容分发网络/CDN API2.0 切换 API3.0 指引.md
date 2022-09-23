@@ -19,9 +19,9 @@ CDN API 2.0下线通知：基于 API 2.0 接口访问时延较高和使用复杂
 | [AddCdnOvHost](https://cloud.tencent.com/document/api/228/9814)      | [AddCdnDomain](https://cloud.tencent.com/document/product/228/41123)    |
 | AddYYCdnHost                  | [AddCdnDomain](https://cloud.tencent.com/document/product/228/41123)                                           |
 | [CdnOverseaPushser](https://cloud.tencent.com/document/api/228/7359)      | [PushUrlsCache](https://cloud.tencent.com/document/product/228/37869) |
-| CdnPusher                           | [PushUrlsCache](https://cloud.tencent.com/document/product/228/37870)|
-| [CdnPusherV2 ](https://cloud.tencent.com/document/product/228/15164)  | [PushUrlsCache](https://cloud.tencent.com/document/product/228/37871)|
-| [CdnUrlPusher ](https://cloud.tencent.com/document/product/228/12839)  | [PushUrlsCache](https://cloud.tencent.com/document/product/228/37872) |
+| CdnPusher                           | [PushUrlsCache](https://cloud.tencent.com/document/product/228/37870)、[PushUrlsCache](https://cloud.tencent.com/document/product/228/37869)|
+| [CdnPusherV2 ](https://cloud.tencent.com/document/product/228/15164)  | [PushUrlsCache](https://cloud.tencent.com/document/product/228/37871)、[PushUrlsCache](https://cloud.tencent.com/document/product/228/37869)|
+| [CdnUrlPusher ](https://cloud.tencent.com/document/product/228/12839)  | [PushUrlsCache](https://cloud.tencent.com/document/product/228/37872)、[PushUrlsCache](https://cloud.tencent.com/document/product/228/37869)|
 | [CheckOvHost](https://cloud.tencent.com/document/api/228/10948)     | CheckDomain                                                  | 
 | [DeleteCdnHost  ](https://cloud.tencent.com/document/product/228/1396)  | [DeleteCdnDomain](https://cloud.tencent.com/document/product/228/41122)                                                       |
 | [DeleteCdnOvHost](https://cloud.tencent.com/document/api/228/10946)     | [DeleteCdnDomain](https://cloud.tencent.com/document/product/228/41122)                                                      |
@@ -59,7 +59,7 @@ CDN API 2.0下线通知：基于 API 2.0 接口访问时延较高和使用复杂
 | [GetCdnRefreshLog          ](https://cloud.tencent.com/doc/api/231/3948)           | [DescribePurgeTasks](https://cloud.tencent.com/document/product/228/37873)                                                       |
 | [GetCdnStatTop             ](https://cloud.tencent.com/document/api/228/18004)     | [ListTopData](https://cloud.tencent.com/document/product/228/30983)                                                       |
 | GetCdnStatusCode                                                            | [DescribeCdnData ](https://cloud.tencent.com/document/product/228/30986)                                                       |
-| [GetCertificates           ](https://cloud.tencent.com/document/api/228/10938)     | [DescribeCertificates                                         | 
+| [GetCertificates           ](https://cloud.tencent.com/document/api/228/10938)     | DescribeCertificates                                         | 
 | GetFlushQuota                                                                  | [DescribePurgeQuota ](https://cloud.tencent.com/document/product/228/41956)                                                       |
 | [GetHostCertList           ](https://cloud.tencent.com/document/api/228/12543)     | DescribeCertificates                                         | 
 | [GetHostInfoByHost         ](https://cloud.tencent.com/document/product/228/3938)  | [DescribeDomains](https://cloud.tencent.com/document/product/228/41118)                                                       |
