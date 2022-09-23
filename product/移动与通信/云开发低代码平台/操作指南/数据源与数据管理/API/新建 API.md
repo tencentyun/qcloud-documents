@@ -1,9 +1,9 @@
-腾讯云微搭低代码最新上线连接器能力，可以打通外部应用数据或调用外部应用开放的服务。本文介绍如何创建连接器。
+腾讯云微搭低代码最新上线 API 能力，可以打通外部应用数据或调用外部应用开放的服务。本文介绍如何创建 API。
 
 下面将以 **腾讯文档** 作为示例：
 
 ## 操作步骤
-### 步骤1：选择要创建的连接器
+### 步骤1：选择要创建的 API
 这里选择 **腾讯文档**：
 
 <img src="https://qcloudimg.tencent-cloud.cn/raw/cc3c321cced66e30eca41c1bd99d853b.png" style="width:80%"> 
@@ -18,10 +18,10 @@
 2. 登录成功后，需要同意授权腾讯云微搭应用使用腾讯云文档权限。
 <img src="https://qcloudimg.tencent-cloud.cn/raw/919b363e88f5378072332a00bfc83b21.png" style="width:80%">
 
-### 步骤4：填写连接器配置
+### 步骤4：填写 API 配置
 
 <img src="https://qcloudimg.tencent-cloud.cn/raw/e5a02b8a30fde4491c9efe23ef54b6fd.png" style="width:80%">
 
->? 标识为连接器唯一标识，在微搭应用编辑器、自定义代码中均需要借助这个标识来使用。
+>? 标识为 API 唯一标识，在微搭应用编辑器、自定义代码中均需要借助这个标识来使用。
 
 
