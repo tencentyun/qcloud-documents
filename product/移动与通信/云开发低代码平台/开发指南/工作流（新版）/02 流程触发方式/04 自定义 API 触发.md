@@ -1,6 +1,6 @@
 
 ## 功能简介
-自定义连接器的自定义代码可以触发流程实例。
+自定义 API 的自定义代码可以触发流程实例。
 
 
 ## 场景示例
@@ -9,9 +9,9 @@
  <img src = "https://qcloudimg.tencent-cloud.cn/raw/75ed865affaac3853107b400495b5d03.png" style = "width:80%"> 
  >
  <img src = "https://qcloudimg.tencent-cloud.cn/raw/75c3e4a1967101fe208f29d5eff6380a.png" style = "width:80%"> 
-2. **配置自定义连接器**。
+2. **配置自定义 API **。
  <img src = "https://qcloudimg.tencent-cloud.cn/raw/d1a2b839c2fd084f70c1685d18f46c00.png" style = "width:80%"> 
-**按照下面的代码即可触发流程，可以通过方法测试验证，验证后通过“出参映射”可以快速配置连接器的出参。**
+**按照下面的代码即可触发流程，可以通过方法测试验证，验证后通过“出参映射”可以快速配置 API 的出参。**
 <dx-codeblock>
 :::  js
 /**
@@ -29,7 +29,7 @@ module.exports = async function (params, context) {
  * 1. 使用 node-fetch 通过 HTTP 方式请求外部数据，并对获取的数据进行加工；
  * 2. 使用 context.database API 来直接操作云开发云数据库；
  * 3. 使用 context.callModel 来操作其他数据模型数据；
- * 4. 使用 context.callConnector 来使用连接器；
+ * 4. 使用 context.callConnector 来使用 API ；
  * 5. 使用 context.app.callFunction 来调用同环境的云开发云函数；
  */
   const response = await context.callWorkflow({action: 'StartProcessWithParams', data: {
@@ -56,10 +56,10 @@ module.exports = async function (params, context) {
 };
 :::
 </dx-codeblock>
-3. **应用中使用自定义连接器**
-自定义连接器发布后，在应用编辑器中可以配置表单容器。
+3. **应用中使用自定义 API **
+自定义 API 发布后，在应用编辑器中可以配置表单容器。
  <img src = "https://qcloudimg.tencent-cloud.cn/raw/d9743711ae8f33dc67a037413af68b21.png" style = "width:80%"> 
- 选择配置好的连接器方法，单击**提交**即可触发流程。
+ 选择配置好的 API 方法，单击**提交**即可触发流程。
  <img src = "https://qcloudimg.tencent-cloud.cn/raw/4c27249e99d480f4e4a69e2f90ac8f2e.png" style = "width:80%">  
 如果需要在自定义应用中使用，需要先配置登录组件：单击**提交**即可触发流程。
  <img src = "https://qcloudimg.tencent-cloud.cn/raw/20170ab808bcbedaefe176c7ee5c441f.png" style = "width:80%"> 
