@@ -8,7 +8,7 @@
 
 ## 准备工作
 1. 准备 AWS_ACCESS_KEY 和 AWS_SECRET_KEY。
-首先需要找到或者添加腾讯云的访问秘钥。路径是：在腾讯云搜索访问秘钥，使用已有秘钥或单击**新建秘钥**。然后获取其中的 SecretId，SecretKey，如下图所示：
+首先需要找到或者添加腾讯云的访问密钥。路径是：在腾讯云搜索访问密钥，使用已有密钥或单击**新建密钥**。然后获取其中的 SecretId，SecretKey，如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/b2eb378ff371e2f93d08b3bbeff538c0.png)
 
 2. 准备 REGION 和 ENDPOINT。
