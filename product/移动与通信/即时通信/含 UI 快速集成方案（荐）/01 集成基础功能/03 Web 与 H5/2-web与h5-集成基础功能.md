@@ -188,11 +188,11 @@ UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并
   <dx-codeblock>
   :::  shell
   module.exports = {
-  ...
-  rules: {
-   ...
-   'vue/multi-word-component-names': 'warn',
-  },
+    ...
+    rules: {
+      ...
+      'vue/multi-word-component-names': 'warn',
+    },
   };
   :::
   </dx-codeblock>
