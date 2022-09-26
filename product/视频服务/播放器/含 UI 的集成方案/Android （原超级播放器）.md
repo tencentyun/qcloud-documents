@@ -13,7 +13,7 @@
 1. 如何集成腾讯云视立方 Android 播放器组件
 2. 如何创建和使用播放器
 
-
+ 
 ## 集成准备
 ### 步骤1：项目下载
 腾讯云视立方 Android 播放器组件的项目地址是 [SuperPlayer_Android](https://github.com/LiteAVSDK/Player_Android)。
