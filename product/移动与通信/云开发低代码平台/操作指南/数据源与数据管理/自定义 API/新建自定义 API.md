@@ -2,7 +2,7 @@
 
 ## 操作步骤
 ### 步骤1：填写基础信息
-进入**微搭控制台** > [**自定义 API **](https://console.cloud.tencent.com/lowcode/datasource/custom-connector) 页面，单击**新建自定义 API **。
+进入**微搭控制台** > **[自定义 API ](https://console.cloud.tencent.com/lowcode/datasource/custom-connector)** 页面，单击**新建自定义 API**。
 <img src="https://qcloudimg.tencent-cloud.cn/raw/6b51b3692c4d6945123889f16c52de2f.png" style="width:80%">
 
 >!标识为自定义 API 的唯一标识，在微搭应用编辑器、自定义代码中均需要借助这个标识来使用。
