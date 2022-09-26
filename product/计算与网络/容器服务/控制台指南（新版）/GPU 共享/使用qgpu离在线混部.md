@@ -275,7 +275,7 @@ subjects:
 <dx-tabs>
 ::: 离线 Pod
 通过`tke.cloud.tencent.com/app-class: offline`标识是一个离线 Pod，通过`tke.cloud.tencent.com/qgpu-core-greedy`申请离线算力，需要注意的是，离线 Pod 不支持多卡，申请的算力必须小于等于100。
-```
+```yaml
 apiVersion: v1
 kind: Pod
 annotations:
@@ -291,7 +291,7 @@ annotations:
 :::
 ::: 在线 Pod
 通过`tke.cloud.tencent.com/app-class: online`标识是一个在线 Pod，不需要申请算力，只需要申请显存。
-```
+```yaml
 apiVersion: v1
 kind: Pod
 annotations:
@@ -306,7 +306,7 @@ annotations:
 :::
 ::: 普通 Pod
 没有`tke.cloud.tencent.com/app-class`这个 Annotation，普通 Pod 支持多卡。
-```
+```yaml
 apiVersion: v1
 kind: Pod
 spec:
