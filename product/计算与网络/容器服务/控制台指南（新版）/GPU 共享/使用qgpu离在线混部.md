@@ -272,7 +272,8 @@ subjects:
 集群里的所有 qGPU 节点上都会自动打上 label："qgpu-device-enable=enable"。除此之外，对于期望开启了离在线功能的节点，需要您额外打上离在线 Label："mixed-qgpu-enable=enable"。
 
 ## 步骤3：配置业务属性
-### 离线 Pod
+<dx-tabs>
+::: 离线 Pod
 通过`tke.cloud.tencent.com/app-class: offline`标识是一个离线 Pod，通过`tke.cloud.tencent.com/qgpu-core-greedy`申请离线算力，需要注意的是，离线 Pod 不支持多卡，申请的算力必须小于等于100。
 ```
 apiVersion: v1
@@ -287,8 +288,8 @@ annotations:
 	   tke.cloud.tencent.com/qgpu-core-greedy: xx // 离线算力
        tke.cloud.tencent.com/qgpu-memory: xx
 ```
-
-### 在线 Pod
+:::
+::: 在线 Pod
 通过`tke.cloud.tencent.com/app-class: online`标识是一个在线 Pod，不需要申请算力，只需要申请显存。
 ```
 apiVersion: v1
@@ -302,8 +303,8 @@ annotations:
       requests:
 	     tke.cloud.tencent.com/qgpu-memory: xx
 ```
-
-### 普通 Pod
+:::
+::: 普通 Pod
 没有`tke.cloud.tencent.com/app-class`这个 Annotation，普通 Pod 支持多卡。
 ```
 apiVersion: v1
@@ -314,4 +315,10 @@ spec:
     resources:
       requests:
        tke.cloud.tencent.com/qgpu-core: xx    
-       tke.cloud.tencent.com/qgpu-memory: xx                                       ```              
+       tke.cloud.tencent.com/qgpu-memory: xx                                       
+```              
+
+:::
+</dx-tabs>
+
+ 
