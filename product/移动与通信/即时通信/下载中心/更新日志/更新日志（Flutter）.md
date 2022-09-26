@@ -3,6 +3,20 @@
 > 下文中，IM Flutter SDK（无 UI）指代 [tencent_im_sdk_plugin](https://pub.dev/packages/tencent_im_sdk_plugin) 包，仅包括所有 IM 客户端 API 及监听回调；
 > IM Flutter TUIKit（含 UI）指代 [tim_ui_kit](https://pub.dev/packages/tim_ui_kit) 包，在上行基础上，还包括完整 UI 组件库及业务逻辑。
 
+## IM Flutter TUIKit（含 UI） 0.1.5 @2022.09.22
+* 添加：Web支持。现在，您可以在 iOS/Android/Web 平台上实现 TUIKit。
+* 新增：登录后检查磁盘存储，控制在`init`的`config`中。
+* 新增：在`TIMUIKitChatConfig`中添加：`timeDividerConfig`、`notificationAndroidSound` 华为 Google 推送声音配置、`isSupportMarkdown` 文本消息是否支持 Markdown 解析 、`onTapLink`。
+* 移除：默认 Emoji 列表，由于版权问题。您可以通过 [tim_ui_kit_sticker_plugin](https://pub.dev/packages/tim_ui_kit_sticker_plugin) 向 TUIKit 提供您自己的表情列表。
+* 优化：您现在可以选择禁用对话列表中 @消息 的显示。
+* 优化：您现在可以在`TIMUIKitChatConfig`和`MessageItemBuilder`中返回`notificationExt`/`notificationBody`为`null`，在特定的情况下可以根据需要使用默认值，这意味着您可以根据提供的情况控制是否使用自定义设置，而不需要重新定义代码中与 TUIKit 相同的逻辑。
+* 优化：支持文本消息多行。
+* 优化：对`TIMUIKitChat`的体验进行改造和提升。另外，如需使用`TIMUIKitChatController`，需要传入`controler`，就像我们在 [教程](https://cloud.tencent.com/document/product/269/70746#.E6.AD.A5.E9.AA.A46.EF.BC.9A.5B.E9.80.89.E8.A3.85.5D-.E4.BD.BF.E7.94.A8-controller-.E6.8E.A7.E5.88.B6-tuikit.3Ca-id.3D.22controller.22.3E.3C.2Fa.3E) 中显示的那样。
+
+
+## IM Flutter SDK（无 UI） 4.1.3 @2022.09.21
+- 解决一些 Web 端的问题
+
 ## IM Flutter SDK（无 UI） 4.1.1+2 @2022.08.25
 - 升级底层库版本到6.6.x
 - 全面支持 Flutter Web
@@ -21,7 +35,7 @@
 - 新增会话分组能力
 - Dart 版本依赖降低至2.0.0
 - 支持 Flutter 多引擎
-- 支持Android端离线推送音效配置
+- 支持 Android 端离线推送音效配置
 - 支持自定义用户在线状态
 - 升级底层库版本至6.5.x
 
@@ -37,7 +51,7 @@
 - 重构 `TUIKitGroupProfile`群资料 组件及 `TUIKitProfile`用户资料 组件，简化用法，超快速接入
 
 ## IM Flutter SDK（无 UI） 4.0.7 @2022.07.07
-- iOS支持自定义角标数字
+- iOS 支持自定义角标数字
 - 优化入群申请逻辑
 
 ## IM Flutter SDK（无 UI） 4.0.6 @2022.07.04
@@ -58,7 +72,7 @@
 
 ## IM Flutter TUIKit（含 UI） 0.0.9 @2022.05.30
 - 支持离线推送，配合新发布的 [tim_ui_kit_push_plugin](https://pub.dev/packages/tim_ui_kit_push_plugin) 推送插件
-- 支持Flutter 3.0
+- 支持 Flutter 3.0
 - 优化媒体消息本地预览
 
 ## IM Flutter SDK（无 UI） 4.0.2 @2022.05.27

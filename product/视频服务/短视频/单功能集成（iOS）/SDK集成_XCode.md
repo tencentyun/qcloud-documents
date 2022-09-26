@@ -3,7 +3,7 @@ SDK 支持 iOS 8.0 以上系统。
 
 ## 开发环境
 + Xcode 9 或更高版本。
-+ OS X 10.10 或更高版本。
++ iOS12.0及以上系统。
 
 ## 设置步骤
 [](id:step1)
@@ -103,7 +103,7 @@ SDK 支持 iOS 8.0 以上系统。
 ## 快速接入功能模块
 为了方便您快速集成 SDK 各项功能，我们提供了 UGCKit。UGCKit 是在短视频 SDK 基础上构建的一套 UI 组件库。
 
-您可以通过 [GitHub](https://github.com/LiteAVSDK/UGSV_iOS) 或 [资源下载](https://cloud.tencent.com/document/product/584/9366) 中提供的 SDK 压缩包获取 UGCKit。UGCKit 位于压缩包 Demo/TXLiteAVDemo/UGC/UGCKit 目录下。
+您可以通过 [GitHub](https://github.com/tencentyun/UGSVSDK/tree/master/iOS) 或 [资源下载](https://cloud.tencent.com/document/product/584/9366) 中提供的 SDK 压缩包获取 UGCKit。UGCKit 位于压缩包 Demo/TXLiteAVDemo/UGC/UGCKit 目录下。
 
 ### UGCKit 开发环境要求
 - Xcode 10 及以上。
@@ -114,13 +114,20 @@ SDK 支持 iOS 8.0 以上系统。
 
 1. 项目中使用 cocoapods，根据实际情况选择其中一种操作：
   - 在项目根目录，执行 `pod init && pod install`，可得到 Podfile 文件。
-  - 把 **BeautySettingKit** 和 **UGCKit** 文件夹拷贝到项目根目录下（Podfile 同级目录）。
+  - 把 **UGCKit** 文件夹拷贝到项目根目录下（Podfile 同级目录）。
 2. 打开 Podfile 文件，增加：
 ```
-pod 'BeautySettingKit', :path => 'BeautySettingKit/BeautySettingKit.podspec'
 pod 'UGCKit', :path => 'UGCKit/UGCKit.podspec', :subspecs => ["UGC"]   #subspecs 根据SDK来选择
 ```
-3. 执行 **pod install**，并打开 `项目名.xcworkspace`，可以看到在 `Pods/Development Pods` 目录下已有 `UGCKit BeautySettingKit`。
+3. 如果集成基础美颜，把**BeautySettingKit**文件夹拷贝到项目根目录下（Podfile 同级目录），并且在Podfile文件中，增加：
+```
+pod 'BeautySettingKit', :path => 'BeautySettingKit/BeautySettingKit.podspec'
+```
+4. 如果集成腾讯特效，把**xmagickit**文件夹拷贝到项目根目录下（Podfile 同级目录），并且在Podfile文件中增加：
+```
+pod 'xmagickit', :path => 'xmagickit/xmagickit.podspec'
+```
+5. 执行 **pod install**，并打开 `项目名.xcworkspace`，可以看到在 `Pods/Development Pods` 目录下已有 `UGCKit BeautySettingKit x magickit`。
 
 [](id:UGCKit_step2)
 ### 步骤2：使用 UGCKit
@@ -217,7 +224,7 @@ cutViewController.completion = ^(UGCKitResult *result) {
 }
 [self.navigationController pushViewController: cutViewController]
 ```
-   
+
 
 ## 详细介绍
 以下为 SDK 各模块的详细说明：

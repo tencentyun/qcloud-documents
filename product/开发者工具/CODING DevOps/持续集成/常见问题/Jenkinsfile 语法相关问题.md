@@ -110,7 +110,7 @@ environment {
   }
 ```
 ![](https://help-assets.codehub.cn/enterprise/20220919160125.png)
--  在全局/局部中使用变量
+-  在全局或局部中使用变量
 在全局中使用变量：
 ```bash
 script {
@@ -126,7 +126,7 @@ script {
 
 ### 远程 SSH 执行命令时环境变量不生效怎么办？
 由于在使用构建机连接远程 SSH 时使用了“非交互非登录式”连接，因此无法引用远程机器的 `/etc/profile` 、 `~/.bashrc` 等文件配置中的环境变量。
-您可以参考以下示例，使用 export 命令再设置变量且用 `&&` 符号连续输入命令。
+您可以参见以下示例，使用 export 命令再设置变量且用 `&&` 符号连续输入命令。
 ```bash
 export PATH=/opt/jdk1.8.0_281/bin:$PATH && java -version
 ```

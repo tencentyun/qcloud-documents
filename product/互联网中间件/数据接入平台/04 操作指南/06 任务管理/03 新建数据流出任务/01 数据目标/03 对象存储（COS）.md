@@ -13,7 +13,7 @@
 
 1. 登录 [DIP 控制台](https://console.cloud.tencent.com/ckafka/datahub-overview)。
 2. 在左侧导航栏单击**任务管理** > **任务列表**，选择好地域后，单击**新建任务**。
-3. 填写任务名称，任务类型选择**数据流出**，数据目标类型选择 **日志服务（CLS）**，单击**下一步**。
+3. 填写任务名称，任务类型选择**数据流出**，数据目标类型选择 **对象存储（COS）**，单击**下一步**。
 4. 配置数据源信息。
    ![](https://qcloudimg.tencent-cloud.cn/raw/f8b47026ccb8b0982605b59d7b926f5b.png)
    - 源 Topic 类型：选择数据源 Topic
