@@ -202,7 +202,7 @@ Content-Type: application/json;charset=UTF-8
 ```
 - 向单个手机号发送短信频率超限。
   - 如果使用的是自购短信服务，可自行到 [短信控制台](https://console.cloud.tencent.com/smsv2) 调整短信频率限制策略。
-  - 如果使用的是免费短信额度，频率限制为：i) 对同一手机号，每个自然日内发送短信条数不超过50条；ii) 相同内容短信对同一手机号，30秒内发送短信条数不超过1条。
+  - 如果使用的是免费短信额度，频率限制为：对同一手机号，每个自然日内发送短信条数不超过50条；相同内容短信对同一手机号，30秒内发送短信条数不超过1条。
 ```
 HTTP/1.1 400 Bad Request
 Content-Type: application/json;charset=UTF-8
