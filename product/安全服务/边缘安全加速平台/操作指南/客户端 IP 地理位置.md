@@ -1,6 +1,6 @@
 ## 功能简介
 自定义头部携带客户端 IP 地理位置信息回源站。
->?国家/地区维度，值采用两位字母国家/地区代码：[ISO 3166-1 alpha-2 codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)。
+>?国家/地区维度，值采用两位字母国家/地区代码：ISO 3166-1 alpha-2 codes。
 
 ## 操作步骤
 1. 登录 [边缘安全加速平台控制台](https://console.cloud.tencent.com/edgeone)，在左侧菜单栏中，单击**站点加速** > **网络优化**。
