@@ -7,8 +7,10 @@
 在导出 SVG 之前，先按照以下三个原则对图标进行处理：
 - 闭合：图标路径锚点要处于封闭状态。
 <img src="https://cdn.codesign.qq.com/hcimages/202111/6b178251-d2cb-4bc5-a255-ddb8c5aa8838.png" width="60%">
+
 - 合并：如果有多个图形进行组合，要对图形合并扩展。
 <img src="https://cdn.codesign.qq.com/hcimages/202111/28a97f40-5edd-4612-9e67-1e1fbbde9e49.png" width="60%">
+
 - 轮廓化：要将描边转化为闭合图形，填充颜色。
 <img src="https://cdn.codesign.qq.com/hcimages/202111/37914696-6026-4ae1-a814-2ff647a7b929.png" width="60%">
 
@@ -91,7 +93,7 @@ Sketch 中已经默认对 SVG 做了一些设置，只要格式选择 SVG ，即
 上传后在图标预览区确认上传的图标是否出现异常情况，如果发生图标变形错位，需要检查一下图标的路径锚点和导出设置是否符合「闭合」、「合并」、「轮廓化」。
 
 同时确认一下要上传到的图标库是否符合预期，根据情况可以选择：
-
 - 去除颜色上传 - 图标将被统一填充为 `#000000`
 - 保留颜色上传 - 将保留图标的原始配色
+
 <img src="https://cdn.codesign.qq.com/hcimages/202111/763fe9ff-86c8-4c70-8a9a-5816060470f8.png" width="60%">
