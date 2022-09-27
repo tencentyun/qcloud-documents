@@ -144,7 +144,7 @@ Record 中的字段类型解释如下：
 | syncedGtid               | 已解析 GTID 集合。                                           |
 | fakeGtid                 | 是否为构造的假 GTID。                                        |
 | pkNames                  | 主键字段。只有 DML 可能有值。                                  |
-| readerTimestamp          | 后台处理这条数据的时间，单位为毫秒数。                       |
+| readerTimestamp          | 后台处理这条数据的时间，单位为毫秒。                       |
 | tags                     | 一些附加的字段。                                             |
 | tags.lowerCaseTableNames | 表名大小写敏感。                                             |
 | total                    | 如果消息分片，记录分片总数。当前版本 (version=1) 无意义，预留扩展。 |
