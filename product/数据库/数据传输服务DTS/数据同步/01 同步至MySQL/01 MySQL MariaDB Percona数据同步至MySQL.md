@@ -299,8 +299,8 @@ FLUSH PRIVILEGES;
 <td>已选对象</td><td><ul><li>支持库表映射（库表重命名），将鼠标悬浮在库名、表名上即显示编辑按钮，单击后可在弹窗中填写新的名称。</li><li>选择高级对象进行同步时，建议不要进行库表重命名操作，否则可能会导致高级对象同步失败。</li></ul></td></tr>
 <tr>
 <td>是否同步 Online DDL 临时表</td>
-<td>如果使用 gh-ost、pt-osc 工具对源库中的表执行 Online DDL 操作，DTS 支持将 Online DDL 变更产生的临时表迁移到目标库。<ul><li>勾选 pt-osc，DTS 会将 gh-ost 工具产生的临时表名（`_表名_ghc`、`_表名_gho`、`_表名_del`）迁移到目标库。</li>
-<li>勾选 gh-ost， DTS 会将 gh-ost 工具产生的临时表名（`_表名_new`、 `_表名_old`）迁移到目标库。</li></ul>更多详情请参考 <a href="https://cloud.tencent.com/document/product/571/75890">同步 Online DDL 临时表</a>。</td></tr>
+<td>如果使用 gh-ost、pt-osc 工具对源库中的表执行 Online DDL 操作，DTS 支持将 Online DDL 变更产生的临时表迁移到目标库。<ul><li>勾选 gh-ost，DTS 会将 gh-ost 工具产生的临时表名（`_表名_ghc`、`_表名_gho`、`_表名_del`）迁移到目标库。</li>
+<li>勾选 pt-osc， DTS 会将 pt-osc 工具产生的临时表名（`_表名_new`、 `_表名_old`）迁移到目标库。</li></ul>更多详情请参考 <a href="https://cloud.tencent.com/document/product/571/75890">同步 Online DDL 临时表</a>。</td></tr>
 </tbody></table>
 6. 在校验任务页面，完成校验并全部校验项通过后，单击**启动任务**。
     如果校验任务不通过，可以参考 [校验不通过处理方法](https://cloud.tencent.com/document/product/571/61639) 修复问题后重新发起校验任务。
