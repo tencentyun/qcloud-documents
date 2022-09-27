@@ -8,7 +8,7 @@
 
 ## TUIKit 源码集成
 
-### 步骤 1：创建项目
+### 步骤1：创建项目
 
 推荐使用 vue-cli 方式创建项目， 配置 Vue3 + TypeScript + sass。
 如果您尚未安装 vue-cli ，可以在 terminal 或 cmd 中采用如下方式进行安装：
@@ -27,7 +27,7 @@ vue create chat-example && cd chat-example
 
 <img style="width:800px;" src="https://qcloudimg.tencent-cloud.cn/raw/f65d2a15cde0c0baba9a24a5ba845f26.jpg">
 
-### 步骤 2：下载 TUIKit 组件
+### 步骤2：下载 TUIKit 组件
 
 通过 [npm](https://www.npmjs.com/package/@tencentcloud/chat-uikit-vue) 方式下载 TUIKit 组件，为了方便您后续的拓展，建议您将 TUIKit 组件复制到自己工程的 src 目录下：
 <dx-tabs>
@@ -51,7 +51,7 @@ npm i @tencentcloud/chat-uikit-vue && xcopy .\node_modules\@tencentcloud\chat-ui
 成功后目录结构如图所示：  
 <img style="width:300px;" src="https://qcloudimg.tencent-cloud.cn/raw/ced7ede80ab9d24b28787dd80182da7f.png">
 
-### 步骤 3：引入 TUIKit 组件
+### 步骤3：引入 TUIKit 组件
 
 在 main.ts 中，引入 TUIKit，并注册到 Vue 项目实例中：
 <dx-codeblock>
@@ -88,14 +88,14 @@ createApp(App).use(TUIKit).mount('#app');
 
 [](id:step4)
 
-### 步骤 4： 获取 SDKAppID 、密钥与 userID
+### 步骤4： 获取 SDKAppID 、密钥与 userID
 
 设置 main.ts 文件示例代码中的相关参数 SDKAppID、secretKey 以及 userID ，其中 SDKAppID 和密钥等信息，可通过 [即时通信 IM 控制台](https://console.cloud.tencent.com/im) 获取，单击目标应用卡片，进入应用的基础配置页面。例如：
 ![](https://qcloudimg.tencent-cloud.cn/raw/480455e5b4a2a1d4d67ffb2e445452a6.png)
 userID 信息，可通过 [即时通信 IM 控制台](https://console.cloud.tencent.com/im) 进行创建和获取，单击目标应用卡片，进入应用的账号管理页面，即可创建账号并获取 userID。例如：
 ![](https://qcloudimg.tencent-cloud.cn/raw/93a2fc5728845138eb5cf167e7722c66.png)
 
-### 步骤 5：调用 TUIKit 组件
+### 步骤5：调用 TUIKit 组件
 
 在需要展示的页面，调用 TUIKit 的组件即可使用。
 例如：在 App.vue 页面中，使用 TUIConversation、TUIChat、TUISearch 快速搭建聊天界面。
@@ -164,7 +164,7 @@ export default defineComponent({
 :::
 </dx-codeblock>
 
-### 步骤 6：启动项目
+### 步骤6：启动项目
 
 执行以下命令启动项目：
 <dx-codeblock>
@@ -173,10 +173,10 @@ npm run serve
 :::
 </dx-codeblock>
 
-### 步骤 7：发送您的第一条消息
+### 步骤7：发送您的第一条消息
 
 1. 项目启动之后单击左上角**发起单聊**。
-2. 进入**发起单聊**弹窗。在搜索栏输入 [步骤 4](#step4) 中创建的 userID，选中后单击**完成**。
+2. 进入**发起单聊**弹窗。在搜索栏输入 [步骤4](#step4) 中创建的 userID，选中后单击**完成**。
 3. 在输入框中输入消息并单击**发送**。
    ![](https://qcloudimg.tencent-cloud.cn/raw/b111b422237771635d8a8fe4826e5738.png)
 
