@@ -1,8 +1,6 @@
 ## 操作场景
 
-本文将详细介绍如何通过 URL 列表，配置 agent 方式实现数据迁移。MSP 将通过公网拉取 URL 中的数据保存到腾讯云对象存储，源厂商会产生 CDN 流量费用，具体费用需要参考源厂商的定价。
-
-
+本文将详细介绍如何通过 URL 列表，配置 Agent 半托管方式实现数据迁移。
 
 
 ## 准备工作
@@ -43,12 +41,19 @@
    更准确的填写任务规模，以便我们更好的准备相关资源，非必填
 
 4. 设置要迁移的文件来源。
-   此处迁移源服务提供商应选择阿里云 OSS，并在下方 AccessKey，SecretKey 文本框中输入先前新建用于迁移的阿里云子账号 AccessKeyID 和 AccessKeySecret。填入密钥后，单击“迁移桶名称”下拉框右侧的**刷新**按钮，即可获取源对象存储桶列表。
-   ![](https://qcloudimg.tencent-cloud.cn/raw/ac870f4d1f5b1d230020faf13576130c.png)
+   此处迁移源服务提供商应选择`URL列表`，按说明准备好URL列表的文本文件后，上传到一个可以通过http协议访问到此文件的地方，把此文件的http的访问链接输入到下面的输入框即可。
 
-   也可以选择手动输入源桶名称
+   >!
+   >
+   >- 无论是要迁移的文件源服务还是URL列表文件服务，都要支持http分块下载
+   >- 待迁移文件http地址带有特殊字符的最好做urlencode编码处理
+   >- 一个比较好的建议是直接将URL列表文件上传到目标COS桶，将文件设置为公有读，然后把文件的COS访问链接贴到此处，待迁移任务完成后再删除。
 
-   ![](https://qcloudimg.tencent-cloud.cn/raw/c02287da7cb5f8c121c2cb14a7090283.png)
+   
+
+   ![](https://qcloudimg.tencent-cloud.cn/raw/49a273923048a94eaf2215a1342b6c57.png)
+
+   
 
 5. 选择 Header 方式。
    如果源桶中的文件设定了 Header/Tag 并且需要在迁移后保留，请选择保留或设置替换规则。
@@ -67,7 +72,7 @@
     ![](https://qcloudimg.tencent-cloud.cn/raw/65f77fa2c28058f8b704991c0afee014.png)
 
 9. 设定执行速度。
-   各公有云厂商的对象存储都有速度限制。为确保业务稳定，请在迁移前与源厂商（阿里云 OSS）确认并设置最高迁移可用 Mbps。
+   各公有云厂商的对象存储都有速度限制。为确保业务稳定，请在迁移前与源厂商确认并设置最高迁移可用 Mbps。
    ![](https://qcloudimg.tencent-cloud.cn/raw/1a50bcfbfe4dfc0a6487f4d8834b1acb.png)
 
 10. 选择要迁移到的目标位置。
@@ -95,15 +100,11 @@
 
 12. 选择迁移模式
 
-     - 新建迁移任务后立即启动全托管迁移：选择托管迁移，用户单击“新建并启动”后 MSP 服务将通过公网访问源存储进行迁移。
-
-       ![](https://qcloudimg.tencent-cloud.cn/raw/9c9591c252be2d19c67ca994dc745c23.png)
-
      - 新建迁移任务后手动下载 Agent 启动迁移：选择 Agent 模式迁移，用户在单击“新建并启动”后，将仅创建任务配置，需要用户手动下载 Agent 在迁移源一侧的服务器上部署之后才会正式启动迁移。迁移Agent部署参考文档
 
        [半托管迁移Agent的]: 
 
-       ![](https://qcloudimg.tencent-cloud.cn/raw/1cf17dbd3078237e54d5d878c2af73e1.png)
+       ![](https://qcloudimg.tencent-cloud.cn/raw/96421d8d4ca6878fb4e90181aaa29f35.png)
 
     
 

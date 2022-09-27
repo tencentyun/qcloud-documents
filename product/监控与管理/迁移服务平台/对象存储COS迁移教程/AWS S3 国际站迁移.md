@@ -5,20 +5,20 @@
 下文将详细介绍当源对象存储部署在 AWS S3 国际站时，如何配置 Agent 半托管迁移任务，实现数据迁移。
 
 >?“AWS 海外站迁移”，需要登录国际站控制台。
+>
+>AWS S3国际站只支持半托管迁移。
 
 
 
 ## 准备工作
 #### AWS S3
-1. 专线准备确认：
-Agent 半托管模式如果是通过专线迁移，需要确保AWS云侧主机上使用的 COS SDK，可经过专线访问 COS，迁移前请与商务经理确认。
-2. 创建 AWS IAM 账号并授予相关权限：
-	1.	登录 AWS 控制台。
-	2.	在导航窗格中，选择用户，然后选择添加用户。为新用户键入用户名。
-	3.	选择此组用户将拥有的访问权限类型。选择以编程方式访问和访问 AWS 管理控制台。
-	4.	单击**Next: Permissions**（下一步：权限）。在 Set permissions 页面上，指定您要向新用户分配权限的方式。授予IAM账号存储空间读写权限。
-	5.	单击**Create user**。
-	6.	要查看用户的访问密钥（访问密钥 ID 和秘密访问密钥），请选择您要查看的每个密码和访问密钥旁边的显示。要保存访问密钥，请选择下载` .csv`，获取 AccessKeyID 和 AccessKeySecret。
+创建 AWS IAM 账号并授予相关权限：
+1.	登录 AWS 控制台。
+2.	在导航窗格中，选择用户，然后选择添加用户。为新用户键入用户名。
+3.	选择此组用户将拥有的访问权限类型。选择以编程方式访问和访问 AWS 管理控制台。
+4.	单击**Next: Permissions**（下一步：权限）。在 Set permissions 页面上，指定您要向新用户分配权限的方式。授予IAM账号存储空间读写权限。
+5.	单击**Create user**。
+6.	要查看用户的访问密钥（访问密钥 ID 和秘密访问密钥），请选择您要查看的每个密码和访问密钥旁边的显示。要保存访问密钥，请选择下载` .csv`，获取 AccessKeyID 和 AccessKeySecret。
 
 #### 腾讯云对象存储 COS
 1. 创建目标存储空间：
@@ -59,12 +59,12 @@ Agent 半托管模式如果是通过专线迁移，需要确保AWS云侧主机�
    更准确的填写任务规模，以便我们更好的准备相关资源，非必填
 
 4. 设置要迁移的文件来源。
-   此处迁移源服务提供商应选择阿里云 OSS，并在下方 AccessKey，SecretKey 文本框中输入先前新建用于迁移的阿里云子账号 AccessKeyID 和 AccessKeySecret。填入密钥后，单击“迁移桶名称”下拉框右侧的**刷新**按钮，即可获取源对象存储桶列表。
-   ![](https://qcloudimg.tencent-cloud.cn/raw/ac870f4d1f5b1d230020faf13576130c.png)
+   此处迁移源服务提供商应选择`AWS S3国际站`，并在下方 AccessKey，SecretKey 文本框中输入先前新建用于迁移的AWS子账号 AccessKeyID 和 AccessKeySecret。填入密钥后，单击“迁移桶名称”下拉框右侧的**刷新**按钮，即可获取源对象存储桶列表。
+   ![](https://qcloudimg.tencent-cloud.cn/raw/bb68d004fd7057cebe9ba4ccd30fc5f7.png)
 
    也可以选择手动输入源桶名称
 
-   ![](https://qcloudimg.tencent-cloud.cn/raw/c02287da7cb5f8c121c2cb14a7090283.png)
+   ![](https://qcloudimg.tencent-cloud.cn/raw/6a290c3f6463b0f8dfe5996fa3bffe34.png)
 
 5. 选择 Header 方式。
    如果源桶中的文件设定了 Header/Tag 并且需要在迁移后保留，请选择保留或设置替换规则。
@@ -83,7 +83,7 @@ Agent 半托管模式如果是通过专线迁移，需要确保AWS云侧主机�
     ![](https://qcloudimg.tencent-cloud.cn/raw/65f77fa2c28058f8b704991c0afee014.png)
 
 9. 设定执行速度。
-   各公有云厂商的对象存储都有速度限制。为确保业务稳定，请在迁移前与源厂商（阿里云 OSS）确认并设置最高迁移可用 Mbps。
+   各公有云厂商的对象存储都有速度限制。为确保业务稳定，请在迁移前与源厂商确认并设置最高迁移可用 Mbps。
    ![](https://qcloudimg.tencent-cloud.cn/raw/1a50bcfbfe4dfc0a6487f4d8834b1acb.png)
 
 10. 选择要迁移到的目标位置。
@@ -111,15 +111,11 @@ Agent 半托管模式如果是通过专线迁移，需要确保AWS云侧主机�
 
 12. 选择迁移模式
 
-     - 新建迁移任务后立即启动全托管迁移：选择托管迁移，用户单击“新建并启动”后 MSP 服务将通过公网访问源存储进行迁移。
-
-       ![](https://qcloudimg.tencent-cloud.cn/raw/9c9591c252be2d19c67ca994dc745c23.png)
-
      - 新建迁移任务后手动下载 Agent 启动迁移：选择 Agent 模式迁移，用户在单击“新建并启动”后，将仅创建任务配置，需要用户手动下载 Agent 在迁移源一侧的服务器上部署之后才会正式启动迁移。迁移Agent部署参考文档
 
        [半托管迁移Agent的]: 
 
-       ![](https://qcloudimg.tencent-cloud.cn/raw/1cf17dbd3078237e54d5d878c2af73e1.png)
+       ![](https://qcloudimg.tencent-cloud.cn/raw/96421d8d4ca6878fb4e90181aaa29f35.png)
 
     
 

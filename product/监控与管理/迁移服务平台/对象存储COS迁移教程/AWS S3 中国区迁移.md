@@ -1,9 +1,7 @@
 
 ## 操作场景
 
-Agent 半托管迁移模式中，用户需要手工在源数据云厂商的服务上部署 Agent，Agent 通过内网拉取源数据，并推送到腾讯云对象存储 COS。
-如果源数据厂商与腾讯云 COS 间已经拉通专线，Agent 半托管迁移模式不会产生出流量费用，因此建议已经部署了专线的用户采用此模式进行迁移。
-下文将详细介绍当源对象存储部署在 AWS S3 时，如何配置 Agent 半托管迁移任务，实现数据迁移。
+下文将详细介绍当源对象存储部署在 AWS S3中国区 时，如何配置全托管迁移任务和半托管迁移任务，实现数据迁移。
 
 >?“AWS 海外站迁移”，需要登录国际站控制台。
 
@@ -60,12 +58,12 @@ Agent 半托管模式如果是通过专线迁移，需要确保AWS云侧主机�
    更准确的填写任务规模，以便我们更好的准备相关资源，非必填
 
 4. 设置要迁移的文件来源。
-   此处迁移源服务提供商应选择阿里云 OSS，并在下方 AccessKey，SecretKey 文本框中输入先前新建用于迁移的阿里云子账号 AccessKeyID 和 AccessKeySecret。填入密钥后，单击“迁移桶名称”下拉框右侧的**刷新**按钮，即可获取源对象存储桶列表。
-   ![](https://qcloudimg.tencent-cloud.cn/raw/ac870f4d1f5b1d230020faf13576130c.png)
+   此处迁移源服务提供商应选择`AWS S3中国区`，并在下方 AccessKey，SecretKey 文本框中输入先前新建用于迁移的AWS子账号 AccessKeyID 和 AccessKeySecret。填入密钥后，单击“迁移桶名称”下拉框右侧的**刷新**按钮，即可获取源对象存储桶列表。
+   ![](https://qcloudimg.tencent-cloud.cn/raw/e9943ed2c06e91bf792cac8d67e253ce.png)
 
    也可以选择手动输入源桶名称
 
-   ![](https://qcloudimg.tencent-cloud.cn/raw/c02287da7cb5f8c121c2cb14a7090283.png)
+   ![](https://qcloudimg.tencent-cloud.cn/raw/cb3ca85be233b5377ef557a109944f85.png)
 
 5. 选择 Header 方式。
    如果源桶中的文件设定了 Header/Tag 并且需要在迁移后保留，请选择保留或设置替换规则。
@@ -84,7 +82,7 @@ Agent 半托管模式如果是通过专线迁移，需要确保AWS云侧主机�
     ![](https://qcloudimg.tencent-cloud.cn/raw/65f77fa2c28058f8b704991c0afee014.png)
 
 9. 设定执行速度。
-   各公有云厂商的对象存储都有速度限制。为确保业务稳定，请在迁移前与源厂商（阿里云 OSS）确认并设置最高迁移可用 Mbps。
+   各公有云厂商的对象存储都有速度限制。为确保业务稳定，请在迁移前与源厂商确认并设置最高迁移可用 Mbps。
    ![](https://qcloudimg.tencent-cloud.cn/raw/1a50bcfbfe4dfc0a6487f4d8834b1acb.png)
 
 10. 选择要迁移到的目标位置。

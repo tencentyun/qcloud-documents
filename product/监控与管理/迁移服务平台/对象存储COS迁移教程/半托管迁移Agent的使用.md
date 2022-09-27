@@ -1,110 +1,119 @@
+## 概述
 
+msp-agent是一款将数据迁移至COS的工具。您可以将msp-agent部署在机房服务器或者云上服务器，它将执行您在msp控制台创建的半托管迁移任务，轻松将云存储数据迁移至COS。
 
-## 操作场景
-Agent 半托管迁移模式中，用户需要手工在源数据云厂商的服务上部署 Agent，Agent 通过内网拉取源数据，并推送到腾讯云对象存储 COS。
-如果源数据厂商与腾讯云 COS 间已经拉通专线，Agent 半托管迁移模式不会产生流量费用，因此建议已经部署了专线的用户采用此模式进行迁移。
+## 支持特性
 
-下文将详细介绍当源对象存储部署在阿里云 OSS 时，如何配置 Agent 半托管迁移任务，实现数据迁移。
+- 支持丰富的数据源，所有控制台支持录入的源服务商均支持
+- 主从结构，支持分布式模式，部署简单，支持大规模数据高效迁移。
+- 支持断点续传。
+- 支持流量控制。
+- 支持控制台可录入的所有特性，与全托管服务特性保持一致。
 
+## 运行环境
 
-## 准备工作
-#### 阿里云对象存储 OSS
-1. 专线准备确认（如无专线环境，通过公网迁移可忽略此步骤）：
-Agent 半托管模式如果是通过专线迁移，需要确保阿里云侧主机上使用的 COS SDK，可经过专线访问 COS，迁移前请与商务经理确认。
-2. 创建 RAM 子账号并授予相关权限：
-	1. 登录 RAM 控制台。
-	2. 选择**人员管理** > **用户** > **新建用户**。
-	3. 勾选控制台密码登录和编程访问，之后填写用户账号信息。
-	4. 保存生成的账号、密码、AccessKeyID 和 AccessKeySecret。
-	5. 勾选用户登录名称，单击**添加权限**，授予子账号存储空间读写权限（AliyunOSSFullAccess）。
+Linux系统
 
-#### 腾讯云对象存储 COS
-1. 创建目标存储空间，用于存放迁移的数据，详情请参见 [创建存储桶](https://cloud.tencent.com/document/product/436/13309)。
-2. 创建用于迁移的子用户并授予相关权限：
-	1.	登录腾讯云 [访问管理控制台](https://console.cloud.tencent.com/cam/overview)。
-	2.	在左导航栏中选择**用户** > **用户列表**，进入用户列表页面。
-	3.	新建子用户，勾选编程访问及腾讯云控制台访问。
-	4.	搜索并勾选 QcloudCOSAccessForMSPRole 及 QcloudCOSFullAccess 策略。
-	5.	完成子用户创建并保存子用户名，访问登录密码，SecretId，SecretKey。
-- 单击 [这里](https://migrate-1256125716.cos.ap-guangzhou.myqcloud.com/agent/agent.zip) 下载 Agent。
+## 系统部署方法
 
->?迁移服务也可以使用主账号操作，但是出于安全考虑，建议新建子账号并使用子账号 API 密钥进行迁移，迁移完成后删除。
+### 安装
 
-## 迁移限速
-MSP 迁移工具提供了限制 QPS（对象存储模式）和带宽限速（URL 列表模式）。用户在使用 Agent 迁移的情况下，也可以在迁移服务器上进行限速操作，同时在 MSP 中创建任务时选择“不限速”。
-1.	执行如下命令，查看网卡序列号。
-```
-[root@VM_10_12_centos ~]# ifconfig
-```
-2.	执行如下命令，测试限速前的下载速度。
-```
-[root@VM_10_12_centos ~]# wget https://msp-test-src-1200000000.cos.ap-guangzhou.myqcloud.com/bkce_src-5.0.2.tar.gz
-```
-3.	执行如下命令，安装 iproute 工具（默认 Centos 7.x 已安装，此步可跳过）。
-```
-[root@VM_10_12_centos ~]# yum -y install iproute
-```
-4.	执行如下命令，将 eth0 网卡限速为50kbit。
-```
-[root@VM_10_12_centos ~]# /sbin/tc qdisc add dev eth0 root tbf rate 50kbit latency 50ms burst 1000
-```
->?
->- eth0 为网卡序号，由第1步查看网卡获取。
->- 如果需要限速10M，则将50kbit改为10Mbit。
-5.	限速后测试，执行如下命令，验证下载速度是否已被限制。
-```
-[root@VM_10_12_centos ~]# wget https://msp-test-src-1200000000.cos.ap-guangzhou.myqcloud.com/bkce_src-5.0.2.tar.gz
-```
-6.	若您需要解除限速，则可以执行如下命令，即可解除限速。
-```
-[root@VM_10_12_centos ~]# /sbin/tc qdisc del dev eth0 root tbf
-```
+msp-agent安装包下载地址：
 
-## 实施迁移
-1.	建立用于迁移的临时服务器（主控服务器）。
-因为建立迁移任务时需要填写 Agent 主控服务器的 IP 地址（内网 IP 地址，用于与迁移集群中的 Worker 服务器通信），因此在建立迁移任务之前，需先准备一台操作系统为 CentOS 7.x 64位的云服务器。
->?
->- 如果通过专线迁移，建议服务器在迁移源侧。
->- 如果通过公网迁移，建议服务器使用腾讯云 [CVM](https://cloud.tencent.com/document/product/213)。
-2.	在腾讯云 MSP 中建立迁移任务。
-i.	在“选择迁移模式”中的“模式选择”部分，选择“新建迁移任务后手动下载 Agent 启动迁移”。
-ii.	在“主节点内网 IP”部分，填写阿里云上创建的服务器内网 IP 地址（例如 172.XXX.XXX.94）。
-iii.	在“OSS内网EndPoint”部分，填写阿里云对象存储桶的“EndPoint（地域节点）”。
-![](https://main.qcloudimg.com/raw/e1b2cc7d0ff4a584587ea8dacd8173d3.jpg)
->!
->- 若迁移源与目标源有内容不同，名称相同的文件，建议在**同名文件**配置处选择**跳过（保留目标桶中已有的同名文件）**，系统默认选择**覆盖（源桶中的文件会覆盖目标桶中的同名文件）**。
->- 若在迁移过程中对象（文件）内容有变化，需要进行二次迁移。
-3.	所有参数填写完毕后，单击**新建并启动**。需要注意的是，在 Agent 模式下，此时任务虽已创建成功但并未运行，需要按以下步骤在阿里云主控服务器上手工启动 Agent。
-4.	在主控服务器上部署和启动 Agent。
-i.	解压 Agent 工具包（目录无特殊要求）。
-ii.	修改配置文件。
-```
-./agent/conf/agent.toml
-# 此处填写腾讯云用于迁移的云 API 密钥对
-secret_id = '此处填写腾讯云 API 密钥 AccessKey'
-secret_key = '此处填写腾讯云 API 密钥 SecretKey'
-```
-iii.	启动 Agent。
-```
-# chmod +x ./agent/bin/agent
-# cd agent/bin  //必须在 bin 目录中启动 agent 程序（否则会找不到配置文件）
-#./agent
-Agent 会定时自动从 MSP 平台获取任务的详细配置信息，如果创建多个迁移任务无需重复启动 Agent。
-```
-5.	扩充迁移集群（增加 Worker 服务器）。
-Agent 模式支持分布式迁移（多服务器协同），如果希望进一步提高迁移速度，在有可用带宽的情况下可以增加 Worker 服务器加入到迁移：
- - Worker 服务器必须与 master 服务器互通。
- - 如果使用专线迁移，需要确保 Worker 服务器可通过专线直接访问 COS。
-Worker 服务器可以是任意配置，但建议与 master 保持一致。部署和启动 Agent 的方式与 master 服务器完全相同（同样需要修改 agent.toml 中的 secret_id 和 secret_key），因新建任务的时候已经指定了 master 服务器，新加入的 agent 均被作为 Worker 节点与 master 服务器通信获得任务。
-Worker 服务器可以随时加入迁移集群，但建议创建任务之前将所有的 Worker 服务器与 master 一同创建并配置和启动 Agent，以便 master 启动任务时可以更有效的进行分片调度。
-
-## 查看迁移状态和进度
-在文件迁移工具主界面中，可以查看所有文件迁移任务的状态和进度：
- - “任务完成”状态，绿色是任务完成并且所有文件都迁移成功，黄色是迁移任务完成但部分文件迁移失败。
- - 单击“重试失败任务”链接后，该任务中失败的文件将会重试迁移，已经成功迁移的文件不会重传。
- - 单击“导出”链接可以导出迁移过程中失败的文件列表。
+[msp-agent]: https://msp-agent-1258344699.cos.ap-beijing.myqcloud.com/msp-agent-latest.zip
 
 
 
+下载后进行解压，msp-agent安装包解压后的目录结构:
 
+`.
+├── master
+│   ├── bin
+│   │   ├── msp-master
+│   │   ├── start.sh
+│   │   └── stop.sh
+│   └── configs
+│       ├── app_logger_config.yaml
+│       ├── pl_config.yaml
+│       └── query_logger_config.yaml
+└── worker
+    ├── bin
+    │   ├── msp-worker
+    │   ├── start.sh
+    │   └── stop.sh
+    └── configs
+        ├── app_logger_config.yaml
+        ├── pl_config.yaml
+        └── query_logger_config.yaml`
+
+msp-agent是采用master-worker的分布式架构，一台master一般对应一到多台worker。
+
+master目录即为master, worker目录即为worker; 
+
+如果需要部署多个worker, 把worker目录整体拷贝，然后修改相应参数后，按下面的启动方式启动即可；
+
+单个服务器可以启动多个worker进程，但需要注意按下面参数说明修改相应参数，以防止端口冲突。
+
+### 启动
+
+启动master：
+
+cd <path>/msp-agent/master && ./bin/start.sh
+
+启动worker:
+
+cd <path>/msp-agent/worker && ./bin/start.sh
+
+### 配置参数说明
+
+master和worker目录下都有相同的configs结构
+
+`configs
+        ├── app_logger_config.yaml
+        ├── pl_config.yaml
+        └── query_logger_config.yaml`
+
+其中pl_config.yaml配置了进程运行的主要参数；app_logger_config.yaml配置了应用运行日志格式；query_logger_config.yaml配置了主从rpc通信记录日志格式。
+
+#### 日志配置
+
+日志部分基本采用默认的参数即可。但需要注意日志滚动部分配置：如果磁盘空间有限而任务规模巨大，则需要调节一下日志配置以节省磁盘空间（迁移只有存储日志部分使用到磁盘，实际的文件迁移是不使用磁盘的）。
+
+`lumberjackConfig:       
+  compress: false       # 是否做日志压缩
+  maxsize: 1024         # 单个日志文件触发滚动或者压缩的大小，单位MB
+  maxage: 7             # 日志最大保留天数
+  localtime: true       # 是否基于本地时间
+  maxbackups: 10        # 最大保留滚动日志文件数`               
+
+#### Master配置
+
+| 参数               | 含义                             | 说明                                                         |
+| ------------------ | -------------------------------- | ------------------------------------------------------------ |
+| "*.*.*.*.gRPCPort" | master监听gRpc端口               | 用于接收worker上报信息，master机器此端口一定要向worker机器开放 |
+| failFilePartSize   | 记录失败文件的文件分块大小       | 用于记录失败文件的文件分块，乘以10000即为最大失败文件记录大小，默认10485760Byte, 即可记录100GB大小的失败文件；如果待迁移文件特别多，失败的也特别多，比如超过2亿，则此处可往上调。 |
+| fragMaxSize        | 分发任务单个分片包含文件大小     | 为了降低主从通信压力，master派发给worker的子任务是将多个文件路径打包成一个**分片**后派发，此处fragMaxSize即为单个分片能打包的文件最大总字节数。此处设置太小会使主从通信压力加大，浪费服务器资源，太大会使worker上报分片完成时间拉长，不够及时，同时会造成worker负载不均衡。默认值是10737418240，即为100GB。打包时满足fragMaxSize或者fragMaxNum其中一个即停止加更多文件。 |
+| fragMaxNum         | 分发任务单个分片最大包含文件个数 | 为了降低主从通信压力，master派发给worker的子任务是将多个文件路径打包成一个**分片**后派发，此处fragMaxNum即为单个分片能打包的文件最大个数。此处设置太小会使主从通信压力加大，浪费服务器资源，太大会使worker上报分片完成时间拉长，不够及时，同时会造成worker负载不均衡。默认值是1000。打包时满足fragMaxSize或者fragMaxNum其中一个即停止加更多文件。 |
+| secretId           | 用于请求MSP云API的密钥SecretId   | Master进程需要请求msp云API，以获取用户在控制台创建的任务，因此此处需要填入用户的密钥，此处填密钥中的secretId。**注意此处密钥是指创建MSP任务的用户密钥，与源桶和目标桶的密钥完全无关。** |
+| secretKey          | 用于请求MSP云API的密钥SecretKey  | Master进程需要请求msp云API，以获取用户在控制台创建的任务，因此此处需要填入用户的密钥，此处填密钥中的secretKey。**注意此处密钥是指创建MSP任务的用户密钥，与源桶和目标桶的密钥完全无关。** |
+| listerIp           | 部署Master进程的服务器内网IP     | 客户可能创建多个任务，而且希望多个任务运行到不同集群，因此此处需要填入部署Master进程的服务器的内网IP，这样此Master就只会运行在控制台创建任务时分配到这个服务器IP的任务。控制台创建任务时**主节点内网IP**表单即输入与本配置相同的IP。![](https://qcloudimg.tencent-cloud.cn/raw/9120edae88ad48d18df39e655b70a5b6.png) |
+
+
+
+#### Worker配置
+
+| 参数                           | 含义                     | 说明                                                         |
+| ------------------------------ | ------------------------ | ------------------------------------------------------------ |
+| "*.*.*.*.gRPCPort"             | Worker监听gRpc端口       | 用于接收master调度信息，worker机器此端口一定要向worker机器开放。如果单个服务器启动多个worker进程的话，需要修改此处配置与其他worker不同，防止端口冲突而造成的进程启动失败。 |
+| fileMigrateTryTimes            | 重试次数                 | 单个文件失败后的重试次数                                     |
+| goroutineConcurrentNum         | 协程并发数               | 并发协程数，也可以理解为并发迁移文件数。跟两个因素有直接关系，一是机器配置大小，机器核数越高，此值可设的越大；二是平均文件大小，单个文件平均越大，此值可设的越小，因为较小的并发协程即可达成较大的带宽占用，单个文件越小，越要增大并发以增大总体带宽。 |
+| baseWorkerMaxConcurrentFileNum | 缓存的待迁移文件队列     | 为了加快分布式任务派发效率，每个worker都会缓存一些待迁移文件分片，当需要迁移的文件较小，即迁移更高的qps时，此值可设置的越大，这样缓存就会缓解worker消费的饥饿情形。负面影响是此处缓存越大，master需要保存的状态数据就越大，会造成master负载加大与不稳定。因此此数值需要折中设置。 |
+| partSize                       | 分块大小                 | 迁移大文件时分块上传的默认分块大小。                         |
+| downloadPartTimeout            | 下载超时时间             | 下载文件的超时时间，单位：秒                                 |
+| uploadPartTimeout              | 上传超时时间             | 上传文件的超时时间，单位：秒                                 |
+| perHostMaxIdle                 | http client并发设置      | 每个host的连接池大小，一般与goroutineConcurrentNum一致即可。 |
+| addr                           | 对应的master内网通信地址 | 配置worker对应的master通信地址，这样worker就会像master注册，从而组成集群。例如master的listerIp是10.0.0.1，master配置里监听的grpc端口是22011，则此处addr填入`10.0.0.1:22011` |
+| sample                         | 是否做抽样检测           | 在概述中说明了迁移后数据一致性校验的几种情况，对于源文件没有内容签名Content-MD5或者crc64的文件，是无法直接做一致性检验的，所以只能通过抽样检测来降低不一致概率。如果打开此配置为true, 则对于源文件没有内容签名Content-MD5或者crc64的文件, 会做抽样检测。 |
+| sampleTimes                    | 单个文件抽样片段数       | 对单个文件的抽样片段数，每一个抽样片段均会多一次下载请求，也意味着会多一部分下载流量。 |
+| sampleByte                     | 抽样片段字节数           | 每个抽样片段的大小，越大意味着抽样占用的带宽越大。           |
 

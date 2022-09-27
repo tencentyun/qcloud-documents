@@ -40,7 +40,7 @@
    更准确的填写任务规模，以便我们更好的准备相关资源，非必填
 
 4. 设置要迁移的文件来源。
-   此处迁移源服务提供商应选择腾讯云COS，并在下方 AccessKey，SecretKey 文本框中输入先前新建用于迁移的子账号 AccessKeyID 和 AccessKeySecret。填入密钥后，单击“迁移桶名称”下拉框右侧的**刷新**按钮，即可获取源对象存储桶列表。
+   此处迁移源服务提供商应选择`腾讯云COS`，并在下方 AccessKey，SecretKey 文本框中输入先前新建用于迁移的子账号 AccessKeyID 和 AccessKeySecret。填入密钥后，单击“迁移桶名称”下拉框右侧的**刷新**按钮，即可获取源对象存储桶列表。
    ![](https://qcloudimg.tencent-cloud.cn/raw/219d6bbdd48c976499c302cab3487ca6.png)
 
    也可以选择手动输入源桶名称

@@ -1,10 +1,6 @@
 
 ## 操作场景
-全托管公网迁移模式中，无需自主部署 Agent，任务创建之后自动化执行。MSP 将通过公网拉取源站的数据保存到腾讯云对象存储，源对象存储会产生出流量费用，具体费用需要参考源存储云厂商的定价。
-
-下文将详细介绍当源对象存储部署在 UCLOUD UFile 时，如何配置全托管公网迁移任务，实现数据迁移。
-
-
+下文将详细介绍当源对象存储部署在 UCLOUD UFile 时，如何配置全托管迁移任务和半托管迁移任务，实现数据迁移。
 
 
 ## 准备工作
@@ -50,12 +46,12 @@
    更准确的填写任务规模，以便我们更好的准备相关资源，非必填
 
 4. 设置要迁移的文件来源。
-   此处迁移源服务提供商应选择阿里云 OSS，并在下方 AccessKey，SecretKey 文本框中输入先前新建用于迁移的阿里云子账号 AccessKeyID 和 AccessKeySecret。填入密钥后，单击“迁移桶名称”下拉框右侧的**刷新**按钮，即可获取源对象存储桶列表。
-   ![](https://qcloudimg.tencent-cloud.cn/raw/ac870f4d1f5b1d230020faf13576130c.png)
+   此处迁移源服务提供商应选择`UCloud UFile`，并在下方 AccessKey，SecretKey 文本框中输入先前新建用于迁移的账号 AccessKeyID 和 AccessKeySecret。填入密钥后，单击“迁移桶名称”下拉框右侧的**刷新**按钮，即可获取源对象存储桶列表。
+   ![](https://qcloudimg.tencent-cloud.cn/raw/be77bb55c71743044a66ed8b245c399b.png)
 
    也可以选择手动输入源桶名称
 
-   ![](https://qcloudimg.tencent-cloud.cn/raw/c02287da7cb5f8c121c2cb14a7090283.png)
+   ![](https://qcloudimg.tencent-cloud.cn/raw/e1c8cbe3400131460a9b78957bd77c4d.png)
 
 5. 选择 Header 方式。
    如果源桶中的文件设定了 Header/Tag 并且需要在迁移后保留，请选择保留或设置替换规则。
@@ -74,7 +70,7 @@
     ![](https://qcloudimg.tencent-cloud.cn/raw/65f77fa2c28058f8b704991c0afee014.png)
 
 9. 设定执行速度。
-   各公有云厂商的对象存储都有速度限制。为确保业务稳定，请在迁移前与源厂商（阿里云 OSS）确认并设置最高迁移可用 Mbps。
+   各公有云厂商的对象存储都有速度限制。为确保业务稳定，请在迁移前与源厂商确认并设置最高迁移可用 Mbps。
    ![](https://qcloudimg.tencent-cloud.cn/raw/1a50bcfbfe4dfc0a6487f4d8834b1acb.png)
 
 10. 选择要迁移到的目标位置。

@@ -44,7 +44,7 @@
    更准确的填写任务规模，以便我们更好的准备相关资源，非必填
 
 4. 设置要迁移的文件来源。
-   此处迁移源服务提供商应选择又拍云USS，并在下方 AccessKey，SecretKey 文本框中输入先前新建用于迁移的账号 AccessKeyID 和 AccessKeySecret。接着填入待迁移桶名称和对应绑定的加速域名。
+   此处迁移源服务提供商应选择`又拍云USS`，并在下方 AccessKey，SecretKey 文本框中输入先前新建用于迁移的账号 AccessKeyID 和 AccessKeySecret。接着填入待迁移桶名称和对应绑定的加速域名。
    ![](https://qcloudimg.tencent-cloud.cn/raw/008d54d04712088e78b15e782a586078.png)
 
    
