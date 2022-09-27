@@ -249,6 +249,7 @@ ndk {
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 ```
 
+
 ### 步骤4：设置混淆规则
 在 proguard-rules.pro 文件，将 TRTC SDK 相关类加入不混淆名单：
 ```xml
