@@ -3,7 +3,7 @@
 - Vue 3
 - TypeScript
 - sass（sass-loader 版本 ≤ 10.1.1）
-- node（12.13.0 ≤ node版本 ≤ 17.0.0, 推荐使用 Node.js 官方 LTS 版本 16.17.0）
+- node（12.13.0 ≤ node 版本 ≤ 17.0.0, 推荐使用 Node.js 官方 LTS 版本 16.17.0）
 - npm（版本请与 node 版本匹配）
 
 ## TUIKit 源码集成
@@ -21,12 +21,11 @@ npm install -g @vue/cli@4.5.0 sass sass-loader@10.1.1
 通过 vue-cli 创建项目，并选择下图中所选配置项。
 <dx-codeblock>
 ::: shell
-vue create chat-example
-cd chat-example
+vue create chat-example && cd chat-example
 :::
 </dx-codeblock>
 
-<img style="width:800px;" src="https://qcloudimg.tencent-cloud.cn/raw/ac877020ff69dbb11ea9dd9e7ee865a7.jpg">
+<img style="width:800px;" src="https://qcloudimg.tencent-cloud.cn/raw/f65d2a15cde0c0baba9a24a5ba845f26.jpg"> 
 
 ### 步骤2：下载 TUIKit 组件
 
@@ -43,15 +42,14 @@ mkdir -p ./src/TUIKit && cp -r ./node_modules/@tencentcloud/chat-uikit-vue/ ./sr
 ::: Windows\s端
 <dx-codeblock>
 ::: shell
-npm i @tencentcloud/chat-uikit-vue
-xcopy .\node_modules\@tencentcloud\chat-uikit-vue .\src\TUIKit /i /e
+npm i @tencentcloud/chat-uikit-vue && xcopy .\node_modules\@tencentcloud\chat-uikit-vue .\src\TUIKit /i /e
 :::
 </dx-codeblock>
 :::
 </dx-tabs>
 
 成功后目录结构如图所示：  
-<img style="width:300px;" src="https://qcloudimg.tencent-cloud.cn/raw/ced7ede80ab9d24b28787dd80182da7f.png">
+<img style="width:300px;" src="https://qcloudimg.tencent-cloud.cn/raw/ced7ede80ab9d24b28787dd80182da7f.png"> 
 
 ### 步骤3：引入 TUIKit 组件
 
@@ -87,12 +85,13 @@ createApp(App).use(TUIKit).mount('#app');
 :::
 </dx-codeblock>
 
+[](id:step4)
 ### 步骤4： 获取 SDKAppID 、密钥与 userID
 
 设置 main.ts 文件示例代码中的相关参数 SDKAppID、secretKey 以及 userID ，其中 SDKAppID 和密钥等信息，可通过 [即时通信 IM 控制台](https://console.cloud.tencent.com/im) 获取，单击目标应用卡片，进入应用的基础配置页面。例如：
 ![](https://qcloudimg.tencent-cloud.cn/raw/480455e5b4a2a1d4d67ffb2e445452a6.png)
 userID 信息，可通过 [即时通信 IM 控制台](https://console.cloud.tencent.com/im) 进行创建和获取，单击目标应用卡片，进入应用的账号管理页面，即可创建账号并获取 userID。例如：
-![](https://qcloudimg.tencent-cloud.cn/raw/c6e76f750f11023d13b01ba8c2279a0e.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/93a2fc5728845138eb5cf167e7722c66.png)
 
 ### 步骤5：调用 TUIKit 组件
 
@@ -158,7 +157,7 @@ export default defineComponent({
 </dx-codeblock>
 
 ### 步骤6：启动项目
-
+执行以下命令启动项目：
 <dx-codeblock>
 :::  shell
 npm run serve
@@ -166,8 +165,10 @@ npm run serve
 </dx-codeblock>
 
 ### 步骤7：发送您的第一条消息
-
-![](https://qcloudimg.tencent-cloud.cn/raw/340d81cc1db6323d395bd23b647dbd43.png)
+1. 项目启动之后单击左上角**发起单聊**。
+2. 进入**发起单聊**弹窗。在搜索栏输入 [步骤4](#step4) 中创建的 userID，选中后单击**完成**。
+3. 在输入框中输入消息并单击**发送**。
+![](https://qcloudimg.tencent-cloud.cn/raw/b111b422237771635d8a8fe4826e5738.png)
 
 ## 常见问题
 
@@ -185,8 +186,8 @@ UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并
 
 - IM TUIKit web 所使用的 ESLint 版本为 v6.7.2 ，对于模块名的驼峰式格式并不进行严格校验。
 - 如果您出现此问题，您可以在 `.eslintrc.js` 文件中进行如下配置：
-  <dx-codeblock>
-  :::  shell
+<dx-codeblock>
+:::  shell
   module.exports = {
     ...
     rules: {
@@ -194,5 +195,5 @@ UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并
       'vue/multi-word-component-names': 'warn',
     },
   };
-  :::
-  </dx-codeblock>
+:::
+</dx-codeblock>
