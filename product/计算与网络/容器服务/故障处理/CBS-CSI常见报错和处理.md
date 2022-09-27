@@ -1,4 +1,3 @@
- 
 
 ## cbs 盘创建相关问题
 
@@ -82,8 +81,8 @@ MountVolume.MountDevice，driver name com.tencent.cloud.csi.cbs not found in the
 3. csi-cbs-node 获取节点 instanceid 为空。
 
 **排查思路：**
-1. 登陆集群，通过 `kubectl get pod -nkube-system |grep cbs` 查看是否已安装 cbs 组件。
-2. 查看报错的 Pod 在哪个节点，登陆节点，通过 `ps -ef |grep kubelet ` 查看 kubelet 进程有无 rootdir 参数，有且不为默认值，则为原因 2。
+1. 登录集群，通过 `kubectl get pod -nkube-system |grep cbs` 查看是否已安装 cbs 组件。
+2. 查看报错的 Pod 位置，登录节点，通过 `ps -ef |grep kubelet ` 查看 kubelet 进程有无 rootdir 参数，有且不为默认值，则为原因 2。
 3. csi-cbs-node driver-registrar 容器日志中查看 driverNodeID must not be empty 报错信息。
 
 **解决措施：**
