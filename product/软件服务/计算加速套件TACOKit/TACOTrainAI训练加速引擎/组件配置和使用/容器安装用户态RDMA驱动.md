@@ -16,7 +16,7 @@ wget https://www.mellanox.com/downloads/ofed/MLNX_OFED-5.4-3.1.0.0/MLNX_OFED_LIN
 ```
 若您使用了其他版本操作系统，则请访问 [Linux InfiniBand Drivers](https://network.nvidia.com/products/infiniband-drivers/linux/mlnx_ofed/) 下载对应的版本。选择步骤如下图所示：
 <dx-alert infotype="notice" title="">
-OFED版本选择`5.0-2.1.8.0`。
+OFED 版本选择`5.4-3.1.0.0`。
 </dx-alert>
 <img src="https://qcloudimg.tencent-cloud.cn/raw/ee47027a8c0e7a25e1ef29c69c4cc2ed.png" width="918px"/>
 2. 依次执行以下命令，进行解压及安装。
