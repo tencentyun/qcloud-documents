@@ -58,7 +58,7 @@ npm i @tencentcloud/chat-uikit-vue && xcopy .\node_modules\@tencentcloud\chat-ui
 :::  js
 import { createApp } from 'vue';
 import App from './App.vue';
-import { TUIComponents, TUICore, genTestUserSig } from './TUIKit';
+import {TUIComponents, TUICore, genTestUserSig} from './TUIKit';
 
 const SDKAppID = 0; // Your SDKAppID
 const secretKey = ''; //Your secretKey
@@ -114,49 +114,54 @@ userID 信息，可通过 [即时通信 IM 控制台](https://console.cloud.tenc
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, toRefs } from 'vue';
-import { TUIEnv } from './TUIKit/TUIPlugin';
-export default defineComponent({
-  name: 'App',
-  setup() {
-    const data = reactive({
-      env: TUIEnv(),
-      currentModel: 'conversation',
+    import {defineComponent, reactive, toRefs} from 'vue';
+    import {TUIEnv} from './TUIKit/TUIPlugin';
+
+    export default defineComponent({
+        name: 'App',
+        setup() {
+            const data = reactive({
+                env: TUIEnv(),
+                currentModel: 'conversation',
+            });
+            const handleCurrentConversation = (value: string) => {
+                data.currentModel = value ? 'message' : 'conversation';
+            };
+            return {
+                ...toRefs(data),
+                handleCurrentConversation,
+            };
+        },
     });
-    const handleCurrentConversation = (value: string) => {
-      data.currentModel = value ? 'message' : 'conversation';
-    };
-    return {
-      ...toRefs(data),
-      handleCurrentConversation,
-    };
-  },
-});
 </script>
 
 <style scoped>
-.home-TUIKit-main {
-  display: flex;
-  height: 100vh;
-  overflow: hidden;
-}
-.search {
-  padding: 12px;
-}
-.conversation {
-  min-width: 285px;
-  flex: 0 0 24%;
-  border-right: 1px solid #f4f5f9;
-}
-.conversation-h5 {
-  flex: 1;
-  border-right: 1px solid #f4f5f9;
-}
-.chat {
-  flex: 1;
-  height: 100%;
-  position: relative;
-}
+    .home-TUIKit-main {
+        display: flex;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .search {
+        padding: 12px;
+    }
+
+    .conversation {
+        min -width: 285px;
+        flex: 0 0 24%;
+        border-right: 1px solid #f4f5f9;
+    }
+
+    .conversation-h5 {
+        flex: 1;
+        border-right: 1px solid #f4f5f9;
+    }
+
+    .chat {
+        flex: 1;
+        height: 100%;
+        position: relative;
+    }
 </style>
 
 :::
