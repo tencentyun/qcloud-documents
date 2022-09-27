@@ -29,7 +29,7 @@
 运行环境：腾讯云服务器（需要与订阅实例相同地域，才能够访问到 Kafka 服务器的内网地址），安装 JRE8。
 操作步骤：
 
-1. 下载 Java Flink Demo ，然后解压该文件。
+1. 下载 Java Flink Demo，然后解压该文件。
 2.  进入解压后的目录，为方便使用，目录下分别放置了 Maven 模型文件、pom.xml 文件，用户根据需要选用。 
 `java -jar avro-tools-1.8.2.jar compile -string schema Record.avsc` ：代码生成路径。    
 3. 在  pom.xml 文件中修改 Flink 的版本，如下代码中的 version 需要与客户使用的 Flink 版本保持一致。   
