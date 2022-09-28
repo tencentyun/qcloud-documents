@@ -38,8 +38,8 @@
 1. 在对象存储迁移页面，单击**新建任务**，进入对象存储迁移任务配置页面，进行迁移参数的设置。
 
 2. 设置迁移任务名称。
-  ![](https://main.qcloudimg.com/raw/5094fb4a8b2e20e3400c9388d6eeeadb.jpg)
-  任务名称：字符长度为1至60个字符，允许的字符为中文、英文、0-9、\_、-。此处设置的名称，将用于在任务列表中查看迁移状态和迁移进度。
+    ![](https://main.qcloudimg.com/raw/5094fb4a8b2e20e3400c9388d6eeeadb.jpg)
+    任务名称：字符长度为1至60个字符，允许的字符为中文、英文、0-9、\_、-。此处设置的名称，将用于在任务列表中查看迁移状态和迁移进度。
 
 3. 预估任务规模。
 
@@ -48,36 +48,36 @@
   更准确的填写任务规模，以便我们更好的准备相关资源，非必填
 
 4. 设置要迁移的文件来源。
-  此处迁移源服务提供商应选择`阿里云 OSS`，并在下方 AccessKey，SecretKey 文本框中输入先前新建用于迁移的阿里云子账号 AccessKeyID 和 AccessKeySecret。填入密钥后，单击“迁移桶名称”下拉框右侧的**刷新**按钮，即可获取源对象存储桶列表。
-  ![](https://qcloudimg.tencent-cloud.cn/raw/ac870f4d1f5b1d230020faf13576130c.png)
+    此处迁移源服务提供商应选择`阿里云 OSS`，并在下方 AccessKey，SecretKey 文本框中输入先前新建用于迁移的阿里云子账号 AccessKeyID 和 AccessKeySecret。填入密钥后，单击“迁移桶名称”下拉框右侧的**刷新**按钮，即可获取源对象存储桶列表。
+    ![](https://qcloudimg.tencent-cloud.cn/raw/ac870f4d1f5b1d230020faf13576130c.png)
 
   也可以选择手动输入源桶名称
 
   ![](https://qcloudimg.tencent-cloud.cn/raw/c02287da7cb5f8c121c2cb14a7090283.png)
 
 5. 选择 Header 方式。
-  如果源桶中的文件设定了 Header/Tag 并且需要在迁移后保留，请选择保留或设置替换规则。
-  ![](https://main.qcloudimg.com/raw/2673cf039f0fa4c36651ddb63dff171d.jpg)
+    如果源桶中的文件设定了 Header/Tag 并且需要在迁移后保留，请选择保留或设置替换规则。
+    ![](https://main.qcloudimg.com/raw/2673cf039f0fa4c36651ddb63dff171d.jpg)
 
 6. 设定迁移规则。
-  选择对指定桶中的全部文件进行迁移，或仅迁移指定前缀的文件。
-  ![](https://main.qcloudimg.com/raw/50d5e4c411e5a31dd4f0969c9fe7f0c4.jpg)
+    选择对指定桶中的全部文件进行迁移，或仅迁移指定前缀的文件。
+    ![](https://main.qcloudimg.com/raw/50d5e4c411e5a31dd4f0969c9fe7f0c4.jpg)
 
 7. 设定时间范围。
-  开启时间范围，只迁移指定时间范围内新增或变更的文件。
-  ![](https://main.qcloudimg.com/raw/94fce7cc7c9b2402d0e28babc0050e9a.jpg)
+    开启时间范围，只迁移指定时间范围内新增或变更的文件。
+    ![](https://main.qcloudimg.com/raw/94fce7cc7c9b2402d0e28babc0050e9a.jpg)
 
 8. 选择文件存储方式。
-  根据迁移的需求，设定迁移后文件的存储方式，可以选择：标准存储、低频存储、保持原存储属性、归档存储。
+    根据迁移的需求，设定迁移后文件的存储方式，可以选择：标准存储、低频存储、保持原存储属性、归档存储。
    ![](https://qcloudimg.tencent-cloud.cn/raw/65f77fa2c28058f8b704991c0afee014.png)
 
 9. 设定执行速度。
-  各公有云厂商的对象存储都有速度限制。为确保业务稳定，请在迁移前与源厂商确认并设置最高迁移可用 Mbps。
-  ![](https://qcloudimg.tencent-cloud.cn/raw/1a50bcfbfe4dfc0a6487f4d8834b1acb.png)
+    各公有云厂商的对象存储都有速度限制。为确保业务稳定，请在迁移前与源厂商确认并设置最高迁移可用 Mbps。
+    ![](https://qcloudimg.tencent-cloud.cn/raw/1a50bcfbfe4dfc0a6487f4d8834b1acb.png)
 
 10. 选择要迁移到的目标位置。
-  在迁移目标信息中，输入用于迁移的腾讯云子用户 SecretId，SecretKey。填入密钥后，单击“迁移桶名称”下拉框右侧的**刷新**按钮，即可获取目标对象存储桶列表。
-  ![](https://main.qcloudimg.com/raw/0b92939c9a50636395da7e4713dbded9.jpg)
+    在迁移目标信息中，输入用于迁移的腾讯云子用户 SecretId，SecretKey。填入密钥后，单击“迁移桶名称”下拉框右侧的**刷新**按钮，即可获取目标对象存储桶列表。
+    ![](https://main.qcloudimg.com/raw/0b92939c9a50636395da7e4713dbded9.jpg)
 
 11. 指定迁移到目标桶的指定目录和同名文件处理方式。
 
@@ -106,7 +106,7 @@
 
      - 新建迁移任务后手动下载 Agent 启动迁移：选择 Agent 模式迁移，用户在单击“新建并启动”后，将仅创建任务配置，需要用户手动下载 Agent 在迁移源一侧的服务器上部署之后才会正式启动迁移。迁移Agent部署参考文档
 
-       [半托管迁移Agent的]: 
+       [半托管迁移Agent的使用说明]()
 
        ![](https://qcloudimg.tencent-cloud.cn/raw/005ec79a1357ada1dee09941cd864c46.png)
 

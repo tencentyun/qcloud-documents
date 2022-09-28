@@ -18,11 +18,7 @@ Linux系统
 
 ### 安装
 
-msp-agent安装包下载地址：
-
-[msp-agent]: https://msp-agent-1258344699.cos.ap-beijing.myqcloud.com/msp-agent-latest.zip
-
-
+msp-agent安装包下载  [msp-agent](https://msp-agent-1258344699.cos.ap-beijing.myqcloud.com/msp-agent-latest.zip)
 
 下载后进行解压，msp-agent安装包解压后的目录结构:
 

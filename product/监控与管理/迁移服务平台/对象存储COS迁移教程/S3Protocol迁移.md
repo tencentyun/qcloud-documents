@@ -98,7 +98,7 @@
 
      - 新建迁移任务后手动下载 Agent 启动迁移：选择 Agent 模式迁移，用户在单击“新建并启动”后，将仅创建任务配置，需要用户手动下载 Agent 在迁移源一侧的服务器上部署之后才会正式启动迁移。迁移Agent部署参考文档
 
-       [半托管迁移Agent的]: 
+       [半托管迁移Agent的使用说明]() 
 
        ![](https://qcloudimg.tencent-cloud.cn/raw/1cf17dbd3078237e54d5d878c2af73e1.png)
 
