@@ -26,25 +26,7 @@ msp-agent安装包下载地址：
 
 下载后进行解压，msp-agent安装包解压后的目录结构:
 
-`.
-├── master
-│   ├── bin
-│   │   ├── msp-master
-│   │   ├── start.sh
-│   │   └── stop.sh
-│   └── configs
-│       ├── app_logger_config.yaml
-│       ├── pl_config.yaml
-│       └── query_logger_config.yaml
-└── worker
-    ├── bin
-    │   ├── msp-worker
-    │   ├── start.sh
-    │   └── stop.sh
-    └── configs
-        ├── app_logger_config.yaml
-        ├── pl_config.yaml
-        └── query_logger_config.yaml`
+![](https://qcloudimg.tencent-cloud.cn/raw/f208f788bb8d20cbc192e02b73460ead.png)
 
 msp-agent是采用master-worker的分布式架构，一台master一般对应一到多台worker。
 
@@ -68,10 +50,7 @@ cd <path>/msp-agent/worker && ./bin/start.sh
 
 master和worker目录下都有相同的configs结构
 
-`configs
-        ├── app_logger_config.yaml
-        ├── pl_config.yaml
-        └── query_logger_config.yaml`
+![](https://qcloudimg.tencent-cloud.cn/raw/6e6e0a1baf256531101e627e491cf8df.png)
 
 其中pl_config.yaml配置了进程运行的主要参数；app_logger_config.yaml配置了应用运行日志格式；query_logger_config.yaml配置了主从rpc通信记录日志格式。
 
