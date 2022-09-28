@@ -63,7 +63,7 @@ CREATE TABLE dempts(
 USING iceberg
 COMMENT 'table documentation' 
 PARTITIONED BY (bucket(16,id), years(ts_year), months(date_month), identity(bno),  bucket(3,num),  truncate(10,data))
-LOCATION '/warehouse/db_001/dempts'
+LOCATION 'cosn://rickytest-1305424723/channing-test/loc'
 TBLPROPERTIES ('write.format.default'='orc');
 ```
 
@@ -102,8 +102,8 @@ CREATE TABLE dempts_copy
 USING iceberg
 COMMENT 'table create as select' 
 PARTITIONED BY (eno, dno) 
+LOCATION 'cosn://rickytest-1305424723/channing-test/loc'
 TBLPROPERTIES ('write.format.default'='avro') 
-LOCATION '/warehouse/db_001/dempts_copy'
 AS SELECT * from dempts;
 
 ```
@@ -143,8 +143,8 @@ CREATE OR REPLACE TABLE dempts_replace
 USING iceberg
 COMMENT 'table create as replace' 
 PARTITIONED BY (eno, dno) 
+LOCATION 'cosn://rickytest-1305424723/channing-test/loc'
 TBLPROPERTIES ('write.format.default'='avro') 
-LOCATION '/warehouse/db_001/dempts_replace'
 AS SELECT * from dempts;
 ```
 
