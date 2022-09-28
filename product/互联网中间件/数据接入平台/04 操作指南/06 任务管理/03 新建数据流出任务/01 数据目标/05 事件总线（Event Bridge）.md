@@ -17,7 +17,6 @@
 4. 配置数据源信息。
    ![](https://qcloudimg.tencent-cloud.cn/raw/fe8388925ab1276671f1940943a1144b.png)
    - 源 Topic 类型：只支持 CKafka Topic 类型。
-     - DIP Topic：选择在数据接入平台提前创建好的 Topic，详情参见 [Topic 管理](https://cloud.tencent.com/document/product/1591/77020)。
      - CKafka Topic：选择在 CKafka 创建好的实例和 Topic，一条数据流出任务最多支持选择 5 个源 Topic，选中的 Topic 内的数据格式需要保持一致方可转储成功。详情参见 [Topic 管理](https://cloud.tencent.com/document/product/597/73566)。
    - 起始位置：选择转储时历史消息的处理方式，topic offset 设置。
 5. 设置上述信息后，单击**下一步**，单击**预览 Topic 数据**，将会选取**源 Topic** 中的第一条消息进行解析。
