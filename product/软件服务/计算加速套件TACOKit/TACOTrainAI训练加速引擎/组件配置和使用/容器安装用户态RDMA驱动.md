@@ -12,19 +12,19 @@
 
 1. 执行以下命令，下载对应容器中的 OS 版本的 MLNX OFED 驱动。
 ```plaintext
-wget https://www.mellanox.com/downloads/ofed/MLNX_OFED-5.1-2.5.8.0/MLNX_OFED_LINUX-5.1-2.5.8.0-ubuntu20.04-x86_64.tgz
+wget https://www.mellanox.com/downloads/ofed/MLNX_OFED-5.4-3.1.0.0/MLNX_OFED_LINUX-5.4-3.1.0.0-ubuntu20.04-x86_64.tgz
 ```
 若您使用了其他版本操作系统，则请访问 [Linux InfiniBand Drivers](https://network.nvidia.com/products/infiniband-drivers/linux/mlnx_ofed/) 下载对应的版本。选择步骤如下图所示：
 <dx-alert infotype="notice" title="">
-OFED版本选择`5.0-2.1.8.0`。
+OFED 版本选择`5.4-3.1.0.0`。
 </dx-alert>
-<img src="https://qcloudimg.tencent-cloud.cn/raw/071a3cc234ba48e9635e9238813939a1.png" width="918px"/>
+<img src="https://qcloudimg.tencent-cloud.cn/raw/ee47027a8c0e7a25e1ef29c69c4cc2ed.png" width="918px"/>
 2. 依次执行以下命令，进行解压及安装。
 ```plaintext
-tar xf MLNX_OFED_LINUX-5.1-2.5.8.0-ubuntu20.04-x86_64.tgz
+tar xf MLNX_OFED_LINUX-5.4-3.1.0.0-ubuntu20.04-x86_64.tgz
 ```
 ```plaintext
-cd MLNX_OFED_LINUX-5.1-2.5.8.0-ubuntu20.04-x86_64
+cd MLNX_OFED_LINUX-5.4-3.1.0.0-ubuntu20.04-x86_64
 ```
 ```plaintext
 ./mlnxofedinstall --user-space-only --without-fw-update --force

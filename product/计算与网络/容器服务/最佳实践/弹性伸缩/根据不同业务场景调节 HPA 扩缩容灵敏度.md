@@ -6,7 +6,7 @@
 - 对于缩容，由 `kube-controller-manager` 的 `--horizontal-pod-autoscaler-downscale-stabilization-window` 参数控制缩容时间窗口，默认 5 分钟，即负载减小后至少需要等 5 分钟才会缩容。
 - 对于扩容，由 hpa controller 固定的算法、硬编码的常量因子来控制扩容速度，无法自定义。
 
-这样的设计逻辑导致用户无法自定义 HPA 的扩缩容速率，而不同的业务场景对于扩容容灵敏度要求可能是不一样的，如：
+这样的设计逻辑导致用户无法自定义 HPA 的扩缩容速率，而不同的业务场景对于扩容灵敏度要求可能是不一样的，如：
 
 1. 对于有流量突发的关键业务，在需要的时候应该快速扩容（即便可能不需要，以防万一），但缩容要慢（防止另一个流量高峰）。
 2. 处理关键数据的应用，数据量飙升时它们应该尽快扩容以减少数据处理时间，数据量降低时应尽快缩小规模以降低成本，数据量的短暂抖动导致不必要的频繁扩缩是可以接受的。
@@ -209,9 +209,10 @@ autoscaling/v2beta2
 
 如果是用 kubectl 获取，kubectl 在进行 API discovery 时，会缓存 apiserver 返回的各种资源与版本信息，有些资源存在多个版本，在 get 时如果不指定版本，会使用默认版本获取，对于 HPA，默认是 v1。如果是通过一些平台的界面获取，取决于平台的实现方式，若用腾讯云容器服务控制台，默认用 v2beta1版本展示：
 
-![](https://image-host-1251893006.cos.ap-chengdu.myqcloud.com/20220728152913.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/6c6ff39ce8b11c9b9e10e0472a5671b6.png)
 
-### 如何使用 v2beta2版本获取或编辑？指定包含版本信息的完整资源名即可：
+### 如何使用 v2beta2版本获取或编辑？
+指定包含版本信息的完整资源名即可：
 
 ```bash
 kubectl get horizontalpodautoscaler.v2beta2.autoscaling php-apache -o yaml

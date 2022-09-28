@@ -1,63 +1,26 @@
 ## 集成准备[](id:ready)
 
-1. 下载并解压 [Demo 包](https://cloud.tencent.com/document/product/616/65875)，将 Demo 工程中的 xmagic 模块（bundle，XmagicIconRes 两个文件夹下面的文件，**Record** > **View** 文件夹下面的文件）导入到实际项目工程中。
-2. 导入 lib 目录中的 `libpag.framework`、`Masonry.framework`、`XMagic.framework` 和 `YTCommonXMagic.framework`。
-3. framework 签名 **General--> Masonry.framework** 和 **libpag.framework** 选 **Embed & Sign**。
-4. 将 Bundle ID 修改成与申请的测试授权一致。
+1. 下载并解压 [Demo 包](https://cloud.tencent.com/document/product/616/65875)，将 Demo 工程中 `demo/XiaoShiPin/` 目录下的 xmagickit 文件夹拷贝到您的工程 podfile 文件的同一级目录下。
+2. 在您的 Podfile 文件中添加以下依赖，之后执行 `pod install` 命令，完成导入。
+```
+pod 'xmagickit', :path => 'xmagickit/xmagickit.podspec'
+```
+3. 将 Bundle ID 修改成与申请的测试授权一致。
 
 ### 开发者环境要求
-
 - 开发工具 XCode 11 及以上：App Store 或单击 [下载地址](https://developer.apple.com/xcode/resources/)。
 - 建议运行环境：
   - 设备要求：iPhone 5 及以上；iPhone 6 及以下前置摄像头最多支持到 720p，不支持 1080p。
-  - 系统要求：iOS 10.0 及以上。
+  - 系统要求：iOS 12.0 及以上。
 
-### C/C++层开发环境
-
-XCode 默认 C++ 环境。
-
-<table>
-<tr><th>类型</th><th>依赖库</th></tr>
-<tr>
-<td>系统依赖库</td>
-<td><ul style="margin:0">
-<li/>Accelerate
-<li/>AssetsLibrary
-<li/>AVFoundation
-<li/>CoreFoundation
-<li/>CoreML
-<li/>JavaScriptCore
-<li/>libc++.tbd
-<li/>libmtasdk.a
-<li/>libresolv.tbd
-<li/>libsqlite3.tbd
-<li/>MetalPerformanceShaders
-</ul></td>
-</tr>
-<tr>
-<td>自带的库</td>
-<td><ul style="margin:0">
-<li/>YTCommon（鉴权静态库）
-<li/>XMagic（美颜静态库）
-<li/>libpag（视频解码动态库）
-<li/>Masonry（控件布局库）
-<li/>QCloudCore（对象存储库）
-<li/>QCloudCosXML（对象存储库）
-</ul></td>
-</tr>
-</table>
 
 ## SDK 接口集成 [](id:step)
-
-- [步骤一](#step1) 和 [步骤二](#step2) 可参考 Demo 工程中，UGCKitRecordViewController 类 viewDidLoad，buildBeautySDK 方法。
-- [步骤四](#step4) 至 [步骤七](#step7) 可参考 Demo 工程的 UGCKitRecordViewController，BeautyView 类相关实例代码。
-
 ### 步骤一：初始化授权 [](id:step1)
 在工程 AppDelegate 的 didFinishLaunchingWithOptions 中添加如下代码，其中 LicenseURL，LicenseKey 为腾讯云官网申请到授权信息，请参见 [License 指引](https://cloud.tencent.com/document/product/616/65879)：
 ```objectivec
 [TXUGCBase setLicenceURL:LicenseURL key:LicenseKey];
 
-[TELicenseCheck setTELicense:@"https://license.vod2.myqcloud.com/license/v2/1258289294_1/v_cube.license" key:@"3c16909893f53b9600bc63941162cea3" completion:^(NSInteger authresult, NSString * _Nonnull errorMsg) {
+[TELicenseCheck setTELicense:LicenseURLkey:LicenseKey completion:^(NSInteger authresult, NSString * _Nonnull errorMsg) {
               if (authresult == TELicenseCheckOk) {
                    NSLog(@"鉴权成功");
                } else {
@@ -79,7 +42,7 @@ XCode 默认 C++ 环境。
 | -8     | 解密失败。请联系腾讯云团队处理                          |
 | -9     | TELicense 字段里的 JSON 字段不对。请联系腾讯云团队处理  |
 | -10    | 从网络解析的 TE 授权信息为空。请联系腾讯云团队处理      |
-| -11    | 把TE授权信息写到本地文件时失败，可能是 IO 失败引起      |
+| -11    | 把 TE 授权信息写到本地文件时失败，可能是 IO 失败引起      |
 | -12    | 下载失败，解析本地 asset 也失败                         |
 | -13    | 鉴权失败                                                |
 | 其他   | 请联系腾讯云团队处理                                    |

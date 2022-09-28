@@ -8,7 +8,7 @@
 ```
 CREATE TABLE [ IF NOT EXISTS ] table_identifier
     ( col_name[:] col_type [ COMMENT col_comment ], ... )
-USING iceberg
+USING data_source
     [ COMMENT table_comment ]
     [ PARTITIONED BY ( col_name1, transform(col_name2), ... ) ]
     [ LOCATION path ]
@@ -16,6 +16,7 @@ USING iceberg
 ```
 
 ### 参数
+`USING data_source`：建表时，数据的输入类型，目前有：CSV，ORC，PARQUET，ICEBERG 等。
 `table_identifier`：指定表名，支持三段式，例如：catalog.database.table。
 `COMMENT`：表的描述信息
 `PARTITIONED BY`：基于指定的列创建分区。

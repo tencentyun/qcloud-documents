@@ -181,16 +181,6 @@ Content-Type: application/json;charset=UTF-8
   "error_description" : "Failed to send OTP. Please try again later."
 }
 ```
-- 重置密码暂不支持短信验证方式。
-```
-HTTP/1.1 400 Bad Request
-Content-Type: application/json;charset=UTF-8
-
-{
-    "error": "invalid_request",
-    "error_description": "Resetting password by SMS is not supported yet."
-}
-```
 - 注册场景，邮箱被使用。
 ```
 HTTP/1.1 400 Bad Request
@@ -210,4 +200,15 @@ Content-Type: application/json;charset=UTF-8
     "error": "phone_number_is_used"
 }
 ```
+- 向单个手机号发送短信频率超限。
+  - 如果使用的是自购短信服务，可自行到 [短信控制台](https://console.cloud.tencent.com/smsv2) 调整短信频率限制策略。
+  - 如果使用的是免费短信额度，频率限制为：对同一手机号，每个自然日内发送短信条数不超过50条；相同内容短信对同一手机号，30秒内发送短信条数不超过1条。
+```
+HTTP/1.1 400 Bad Request
+Content-Type: application/json;charset=UTF-8
 
+{
+  "error" : "sms_rate_limit_exceeded",
+  "error_description" : "SMS rate limit exceeded for same phone number"
+}
+```

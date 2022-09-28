@@ -8,7 +8,7 @@
 - 方案2：通过外网连接，可在控制台 [开启外网地址](#kqwwdz) 或 [绑定 CLB 开启外网服务](#CLBKQWW)。
 - 方案3：借助 [具有外网 IP 的 Linux 云服务器进行端口映射](#WWIPLJSL)。
 
-若从本地连接基础版 SQL Server 实例，可通过以下2种方案进行连接。
+若从本地连接基础版 SQL Server 实例，可通过以下3种方案进行连接。
 - 方案1：通过 [VPN](https://cloud.tencent.com/document/product/554/18980) 或 [专线](https://cloud.tencent.com/document/product/216/7557) 或 [云联网](https://cloud.tencent.com/document/product/877/18768) 连接，更安全更稳定。
 - 方案2：通过外网连接，可在控制台 [开启外网地址](#kqwwdz)。
 - 方案3：借助 [具有外网 IP 的 Linux 云服务器进行端口映射](https://cloud.tencent.com/document/product/238/11627#WWIPLJSL)。
@@ -25,7 +25,7 @@
 2. 选择地域，在实例列表单击需要开启外网的实例 ID 或**操作**列的**管理**。
 3. 在**实例详情**页的**基本信息** > **外网地址**后，单击**开通**。
 4. 在开通外网设置窗口阅读并勾选提示，单击**确定**。
-5. 开通成功后，在实例详情页基本信息下查询示例的外网 IP 地址和端口号。
+5. 开通成功后，在实例详情页基本信息下查询实例的外网 IP 地址和端口号。
 >?关于开启外网详细的注意事项和步骤，可参见 [开启外网地址](https://cloud.tencent.com/document/product/238/77966)。
 
 ### 步骤2：通过外网连接 SQL Server 实例
@@ -130,3 +130,5 @@ select @@VERSION
 ```
 运行查询，SQL Server Management Studio 会返回 SQL Server 版的腾讯云云数据库实例。
 ![](https://qcloudimg.tencent-cloud.cn/raw/620a6143d5687581e9f2892e3fb76130.png)
+
+

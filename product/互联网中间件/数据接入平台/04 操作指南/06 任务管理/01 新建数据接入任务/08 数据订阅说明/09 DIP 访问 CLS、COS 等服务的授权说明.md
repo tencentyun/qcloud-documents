@@ -14,8 +14,9 @@
 
 ## 授权步骤
 
-如果您创建 DIP 任务的子账号不具备访问管理的策略权限（QcloudCamRoleFullAccess），可能会遇到缺少 CreateRole 或 AttachRolePolicy 权限的提示。如果您的账号下还没有 Datahub_QcsRole 角色，参考**创建角色**进行授权。如果账号已经拥有 Datahub_QcsRole 角色，可参考**授权角色**进行授权。
+如果您创建 DIP 任务的子账号不具备访问管理的策略权限（QcloudCamRoleFullAccess），可能会遇到缺少 CreateRole 或 AttachRolePolicy 权限的提示。如果您的账号下还没有 Datahub_QcsRole 角色，参见 [**创建角色**](#CreateRole) 进行授权。如果账号已经拥有 Datahub_QcsRole 角色，可参见 [**授权角色**](#AttachRolePolicy) 进行授权。
 
+[](id:CreateRole)
 ### 创建角色
 
 1. 如果提示缺少 CreateRole 策略权限，需要有管理员权限（AdministratorAccess）的用户进入 **[访问管理](https://console.cloud.tencent.com/cam/role)** 控制台，角色页面，单击 **新建角色**。
@@ -31,9 +32,10 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/f9d4c8fcb03d87973d0891de06870174.png)
 创建角色成功后，子账号即可进行相应的 DIP 任务创建。
 
+[](id:AttachRolePolicy)
 ### 授权角色
 
-1. 如果提示缺少 AttachRolePolicy 策略权限，需要有管理员权限（AdministratorAccess）的用户进入**[访问管理](https://console.cloud.tencent.com/cam/role)**控制台，角色页面，找到服务对应的角色，此处以 Datahub_QcsRole 角色为例。
+1. 如果提示缺少 AttachRolePolicy 策略权限，需要有管理员权限（AdministratorAccess）的用户进入 **[访问管理](https://console.cloud.tencent.com/cam/role)** 控制台，角色页面，找到服务对应的角色，此处以 Datahub_QcsRole 角色为例。
 ![](https://qcloudimg.tencent-cloud.cn/raw/8cb46590c4a889b0da91b439c7bcb14c.png)
 2. 单击角色名称，进入角色管理详情页面，在 **权限** 一栏单击 **关联策略**：
 ![](https://qcloudimg.tencent-cloud.cn/raw/ff25bac71afbf31e53b342fdcf5a9e42.png)

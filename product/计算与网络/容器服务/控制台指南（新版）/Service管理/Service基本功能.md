@@ -3,7 +3,7 @@
 
 ### 创建 Service
 
-1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的**集群**。
+1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的**集群**。
 2. 在“集群管理”页面单击需要创建 Service 的集群 ID，进入待创建 Service 的集群管理页面。
 4. 选择**服务与路由** > **Service**，进入 “Service” 管理页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/c7ac45e1efc03a0cdbd937a35ade9037.png)
@@ -59,6 +59,8 @@ spec:
   - **ClusterIP**：在集群内部公开服务，可用于集群内部访问。
   - **NodePort**：使用节点的端口映射到后端 Service，集群外可以通过节点 `IP:NodePort` 访问。
   - **LoadBalancer**：使用腾讯云提供的负载均衡器公开服务，默认创建公网负载均衡，指定 annotations 可创建内网负载均衡。
+	- 默认用户可以创建的内网或外网的 CLB 数量分别是100个，如果您需要使用的数量超过100时，可通过 [在线咨询](https://cloud.tencent.com/online-service?from=doc_457) 提升负载均衡 CLB 的配额。
+	- Service 和 CLB 之间配置的管理和同步是由以 CLB ID 为名字的 LoadBalancerResource 类型的资源对象，请勿对该 CRD 进行任何操作，否则容易导致 Service 失效。
   - **ExternalName**：将服务映射到 DNS，仅适用于 kube-dns1.7及更高版本。
 
 
