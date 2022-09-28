@@ -13,7 +13,7 @@
 1. 如何集成腾讯云视立方 Android 播放器组件
 2. 如何创建和使用播放器
 
-
+ 
 ## 集成准备
 ### 步骤1：项目下载
 腾讯云视立方 Android 播放器组件的项目地址是 [SuperPlayer_Android](https://github.com/LiteAVSDK/Player_Android)。
@@ -51,8 +51,8 @@ remote: Total 2637 (delta 227), reused 524 (delta 170), pack-reused 1993
 | common                      | 工具类模块                                                   |
 | SDK                         | 视立方播放器 SDK，包括：LiteAVSDK_Player_x.x.x.aar，aar 格式提供的 SDK；LiteAVSDK_Player_x.x.x.zip，lib 和 jar 格式提供的 SDK |
 | Player说明文档(Android).pdf | 播放器组件使用文档                                           |
-|:::||
-|</dx-tabs>||
+:::
+</dx-tabs>
 
 ### 步骤2：集成指引
 本步骤可指导您如何集成播放器，您可选择使用 Gradle 自动加载的方式，手动下载 aar 再将其导入到您当前的工程或导入 jar 和 so 库的方式集成项目。
@@ -249,6 +249,7 @@ ndk {
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 ```
 
+
 ### 步骤4：设置混淆规则
 在 proguard-rules.pro 文件，将 TRTC SDK 相关类加入不混淆名单：
 ```xml
@@ -302,7 +303,7 @@ URL可以是点播文件播放地址，也可以是直播拉流地址，传入�
 SuperPlayerModel model = new SuperPlayerModel();
 model.appId = 1400329073; // 配置 AppId
 model.url = "http://your_video_url.mp4";   // 配置您的播放视频url
-mSuperPlayerView.playWithModel(model);
+mSuperPlayerView.playWithModelNeedLicence(model);
 ```
 :::
 ::: 通过 FileID 播放（点播）[](id:fileid)
@@ -326,7 +327,7 @@ model.videoId = [[SuperPlayerVideoId alloc] init];
 model.videoId.fileId = @"5285890799710173650"; // 配置 FileId
 //私有加密播放需填写 psign， psign 即播放器组件签名，签名介绍和生成方式参见链接：https://cloud.tencent.com/document/product/266/42436
 //model.videoId.pSign = @"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6MTQwMDMyOTA3MSwiZmlsZUlkIjoiNTI4NTg5MDc5OTcxMDE3MzY1MCIsImN1cnJlbnRUaW1lU3RhbXAiOjEsImV4cGlyZVRpbWVTdGFtcCI6MjE0NzQ4MzY0NywidXJsQWNjZXNzSW5mbyI6eyJ0IjoiN2ZmZmZmZmYifSwiZHJtTGljZW5zZUluZm8iOnsiZXhwaXJlVGltZVN0YW1wIjoyMTQ3NDgzNjQ3fX0.yJxpnQ2Evp5KZQFfuBBK05BoPpQAzYAWo6liXws-LzU"; 
-[_playerView playWithModel:model];
+[_playerView playWithModelNeedLicence:model];
 :::
 </dx-codeblock>
 :::
@@ -449,7 +450,7 @@ model.videoId.fileId = "您的fileId";
 model.playAction = PLAY_ACTION_MANUAL_PLAY;
 //设定封面的地址为网络url地址，如果coverPictureUrl不设定，那么就会自动使用云点播控制台设置的封面
 model.coverPictureUrl = "http://1500005830.vod2.myqcloud.com/6c9a5118vodcq1500005830/cc1e28208602268011087336518/MXUW1a5I9TsA.png" 
-mSuperPlayerView.playWithModel(model);
+mSuperPlayerView.playWithModelNeedLicence(model);
 ```
 
 ### 4、视频列表轮播
@@ -479,11 +480,11 @@ model.appid = 1252463788;
 model.videoId.fileId = "4564972819219071679"；
 list.add(model);
 //步骤2：调用轮播接口
-mSuperPlayerView.playWithModelList(list, true, 0);
+mSuperPlayerView.playWithModelListNeedLicence(list, true, 0);
 ```
 
 ```java
-public void playWithModelList(List<SuperPlayerModel> models, boolean isLoopPlayList, int index);
+public void playWithModelListNeedLicence(List<SuperPlayerModel> models, boolean isLoopPlayList, int index);
 ```
 
 接口参数说明
@@ -511,7 +512,7 @@ public void playWithModelList(List<SuperPlayerModel> models, boolean isLoopPlayL
  VipWatchModel vipWatchModel = new VipWatchModel("可试看%ss，开通 VIP 观看完整视频",15);
  mode.vipWatchMode = vipWatchModel;
  //步骤3：调用播放视频方法
- mSuperPlayerView.playWithModel(mode);
+ mSuperPlayerView.playWithModelNeedLicence(mode);
 
  方法二：
  //步骤1：创建试看信息 mode
@@ -546,7 +547,7 @@ VipWatchModel 接口参数说明：
  DynamicWaterConfig dynamicWaterConfig = new DynamicWaterConfig("shipinyun", 30, Color.parseColor("#80FFFFFF"));
  mode.dynamicWaterConfig = dynamicWaterConfig;
  //步骤3：调用播放视频方法
- mSuperPlayerView.playWithModel(mode);
+ mSuperPlayerView.playWithModelNeedLicence(mode);
 
  方法二：
  //步骤1：创建水印信息mode

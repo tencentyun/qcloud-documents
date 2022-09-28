@@ -2,12 +2,12 @@
 分片集群实例开通 Mongos 访问地址之后，您可以通过 Mongos 地址访问实例，在**实例详情**页您可以看到 Mongos 的访问连接串（提供 Mongos 内网访问地址）。
 
 ## 使用须知
-- 在实例当前的 VIP 下面，将给不同的 Mongos 节点绑定不同的 VPORT。Mongos 故障后系统将重新绑定新的 Mongos 进程，VIP 和 VPORT 地址不会变化。
+- 在实例当前的 VIP 下面，将给不同的 Mongos 节点绑定不同的 VPORT。
 - Mongos 故障后系统将重新绑定新的 Mongos 进程，VIP 和 VPORT 地址不会变化。
 - 开通 Mongos 访问地址不影响原有的负载均衡访问地址。
 
 ## 版本说明
-MongoDB 4.0、4.2版本支持开通 Mongos 访问地址。
+MongoDB 4.4、4.2、4.0版本支持开通 Mongos 访问地址。
 
 ## 前提条件
 - 实例类型：分片实例。

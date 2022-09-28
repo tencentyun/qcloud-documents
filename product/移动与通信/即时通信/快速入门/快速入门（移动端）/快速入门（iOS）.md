@@ -43,23 +43,44 @@
 可参见 [步骤3](#step3) 克隆的 Demo 工程中对应目录下的`README.md`文件。
 
 1. 终端执行以下命令，检查 pod 版本。
-```
+```sh
 pod --version
 ```
 若提示 pod 不存在，或 pod 版本小于 1.7.5，请执行以下命令安装最新 pod。
-```
-//更换 gem 源
+<dx-tabs>
+::: 更换 gem 源
+
+<dx-codeblock>
+:::  sh
 gem sources --remove https://rubygems.org/
 gem sources --add https://gems.ruby-china.com/
-//安装 pod
+:::
+</dx-codeblock>
+
+:::
+::: 安装 pod
+<dx-codeblock>
+:::  sh
 sudo gem install cocoapods -n /usr/local/bin
-//如果安装了多个 Xcode ，请使用下面的命令选择 Xcode 版本（一般选择最新的 Xcode 版本）
+:::
+</dx-codeblock>
+如果安装了多个 Xcode ，请使用下面的命令选择 Xcode 版本（一般选择最新的 Xcode 版本）。
+<dx-codeblock>
+:::  sh
 sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
-//更新 pod 本地库
+:::
+</dx-codeblock>
+:::
+::: 更新 pod 本地库
+<dx-codeblock>
+:::  sh
 pod setup
-```
+:::
+</dx-codeblock>
+:::
+</dx-tabs>
 2. 终端执行以下命令，安装依赖库。
-```
+```sh
 //iOS
 cd iOS/TUIKitDemo
 pod install
@@ -74,7 +95,6 @@ pod install
 3. 编译运行：
  - iOS 进入 iOS/TUIKitDemo 文件夹，打开`TUIKitDemo.xcworkspace`编译运行。
  - Mac 进入Mac/TUIKitDemo 文件夹，打开`TUIKitDemo.xcworkspace`编译运行。
-
 >!Demo 默认集成了音视频通话功能，由于该功能依赖的音视频 SDK 暂不支持模拟器，请使用真机调试或者运行 Demo。
 
 

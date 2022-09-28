@@ -1,3 +1,20 @@
+### 2.23.0 @2022.9.16
+
+**新增**
+
+- SDK 支持海外环境。
+- [getTotalUnreadMessageCount](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getTotalUnreadMessageCount)，支持获取会话未读总数。
+- [TOTAL_UNREAD_MESSAGE_COUNT_UPDATED](https://web.sdk.qcloud.com/im/doc/zh-cn/module-EVENT.html#.TOTAL_UNREAD_MESSAGE_COUNT_UPDATED)，接入侧监听此事件，可获取会话未读总数变更的通知。
+- [markGroupMemberList](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#markGroupMemberList)，支持标记直播群群成员（需开通旗舰版）。
+- 群成员被踢出群，或者群被解散，SDK 同步更新此群会话所在的会话分组。
+- 支持小程序独立分包。
+- Web 多实例登录场景下，断网重连后 SDK 主动恢复最近联系人的消息记录，保障消息可靠性。
+
+**修复**
+
+- Web 多实例登录场景下可能出现的会话 lastMessage 撤回状态不同步问题。
+- 同步最近联系人时会话置顶问题。
+
 ### 2.22.0 @2022.8.18
 
 **新增**

@@ -6,7 +6,7 @@
         padding-left: 15px;
         padding-right: 15px;
         box-sizing: border-box;
-    }
+    } 
 
     .card {
         border-radius: 10px;
