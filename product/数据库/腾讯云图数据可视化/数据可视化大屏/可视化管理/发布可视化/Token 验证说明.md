@@ -112,6 +112,35 @@ public class TcvTokenSignClientDemo {
 }
 ```
 
+Go 生成签名示例：
+
+```go
+import (
+    "crypto/hmac"
+    "crypto/sha256"
+    "encoding/base64"
+    "fmt"
+    "math/rand"
+    "net/url"
+    "strconv"
+    "time"
+)
+
+func Sign() string {
+    accessId := "c96073b5xxxxxxxxxxx2fd4bd"
+    token := "BIFbxxxxxxxxZ5mM4kUqZuT"
+    timestamp := strconv.FormatInt(time.Now().Unix(), 10)
+    nonce := strconv.FormatInt(int64(rand.Intn(99999)), 10)
+    signStr := fmt.Sprintf("%s,%s,%s", accessId, timestamp, nonce)
+
+    h := hmac.New(sha256.New, []byte(token))
+    h.Write([]byte(signStr))
+    sign := url.QueryEscape(base64.StdEncoding.EncodeToString(h.Sum(nil)))
+
+    return "https://v.yuntus.com/tcv/" + accessId + "?signature=" + sign + "&timestamp=" + timestamp + "&nonce=" + nonce
+}
+```
+
 ### 生成地址说明
 
 ![访问地址](https://qcloudimg.tencent-cloud.cn/raw/345b4275c8b6596964c49c25acb82a33.png)
