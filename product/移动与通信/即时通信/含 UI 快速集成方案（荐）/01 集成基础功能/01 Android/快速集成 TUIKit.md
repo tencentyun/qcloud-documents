@@ -292,4 +292,4 @@ public class MyApplication extends SomeOtherApplication {
 
 ## 交流与反馈
 欢迎加入 QQ 群进行技术交流和反馈问题。
-<img src="https://qcloudimg.tencent-cloud.cn/raw/f459c7c733e2d0646f3e9623c8be7afb.jpg" style="zoom:50%;"/> 
+<img src="https://im.sdk.qcloud.com/tools/resource/officialwebsite/pictures/doc_tuikit_qq_group.jpg" style="zoom:50%;"/> 
