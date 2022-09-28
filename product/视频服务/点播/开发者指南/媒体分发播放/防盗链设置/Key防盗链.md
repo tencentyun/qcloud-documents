@@ -15,7 +15,7 @@
 
 防盗链 URL 的生成规则是在原始 URL 尾部，以 QueryString 的方式加入防盗链参数，形如：
 ```
-http://example.vod2.myqcloud.com/dir1/dir2/myVideo.mp4?t=[t]&exper=[exper]&rlimit=[rlimit]&us=[us]&uid=[uid]&sign=[sign]
+http://example.vod2.myqcloud.com/dir1/dir2/myVideo.mp4?t=[t]&exper=[exper]&rlimit=[rlimit]&us=[us]&uv=[uv]&sign=[sign]
 ```
 下面详细介绍防盗链 URL 中各个参数的含义和取值方法。
 
@@ -34,7 +34,7 @@ http://example.vod2.myqcloud.com/dir1/dir2/myVideo.mp4?t=[t]&exper=[exper]&rlimi
 
 #### [](id:formula)签名计算公式
 ```
-sign = md5(KEY + Dir + t + exper + rlimit + us + uid)
+sign = md5(KEY + Dir + t + exper + rlimit + us + uv)
 ```
 
 公式中的`+`代表字符串拼接，选填参数可以为空字符串。
