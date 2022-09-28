@@ -58,12 +58,7 @@ master和worker目录下都有相同的configs结构
 
 日志部分基本采用默认的参数即可。但需要注意日志滚动部分配置：如果磁盘空间有限而任务规模巨大，则需要调节一下日志配置以节省磁盘空间（迁移只有存储日志部分使用到磁盘，实际的文件迁移是不使用磁盘的）。
 
-`lumberjackConfig:       
-  compress: false       # 是否做日志压缩
-  maxsize: 1024         # 单个日志文件触发滚动或者压缩的大小，单位MB
-  maxage: 7             # 日志最大保留天数
-  localtime: true       # 是否基于本地时间
-  maxbackups: 10        # 最大保留滚动日志文件数`               
+![](https://qcloudimg.tencent-cloud.cn/raw/16464c28d210bf69eadcfd65ff8e6c7f.png)             
 
 #### Master配置
 
