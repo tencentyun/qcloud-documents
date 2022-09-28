@@ -96,7 +96,7 @@ pod install
 }
 @end
 ```
-`TUIC2CChatViewController` 会自动拉取该用户的历史消息并展示出来。
+>?`TUIC2CChatViewController` 会自动拉取该用户的历史消息并展示出来。
 
 ### 步骤4：构建通讯录界面
 通讯录界面不需要其它依赖，只需创建对象并显示出来即可。
