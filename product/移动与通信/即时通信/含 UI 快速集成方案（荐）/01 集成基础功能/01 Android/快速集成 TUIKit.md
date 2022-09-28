@@ -290,6 +290,9 @@ public class MyApplication extends SomeOtherApplication {
 }
 ```
 
+4. 集成 `TUIKit` 编译时发现找不到资源文件，例如代码中调用了 `getString(R.string.sure)` ，编译时报错 “找不到 `sure` 符号”，该如何处理？
+新版的 `Android Studio` 和高版本的 `Gradle Android` 插件，在创建工程时默认在 `gradle.properties` 文件中添加了配置 `android.nonTransitiveRClass=true`，改成 `android.nonTransitiveRClass=false` 即可。
+
 ## 交流与反馈
 欢迎加入 QQ 群进行技术交流和反馈问题。
-<img src="https://qcloudimg.tencent-cloud.cn/raw/4aa5a014edb22d6da621a7d6a3a8e58d.jpg" style="zoom:50%;"/>
+<img src="https://im.sdk.qcloud.com/tools/resource/officialwebsite/pictures/doc_tuikit_qq_group.jpg" style="zoom:50%;"/>
