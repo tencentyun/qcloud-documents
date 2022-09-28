@@ -182,17 +182,17 @@ npm run serve
 
 ## 常见问题
 
-### 1. 什么是 UserSig？
+#### 什么是 UserSig？
 
 UserSig 是用户登录即时通信 IM 的密码，其本质是对 UserID 等信息加密后得到的密文。
 
-### 2. 如何生成 UserSig？
+#### 如何生成 UserSig？
 
 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向项目的接口，在需要 UserSig 时由您的项目向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/269/32688#GeneratingdynamicUserSig)。
 
 > !本文示例代码采用的获取 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通功能调试**。 正确的 UserSig 签发方式请参见上文。
 
-### 3. Component name "XXXX" should always be multi-word
+#### Component name "XXXX" should always be multi-word
 
 - IM TUIKit web 所使用的 ESLint 版本为 v6.7.2 ，对于模块名的驼峰式格式并不进行严格校验。
 - 如果您出现此问题，您可以在 `.eslintrc.js` 文件中进行如下配置：
