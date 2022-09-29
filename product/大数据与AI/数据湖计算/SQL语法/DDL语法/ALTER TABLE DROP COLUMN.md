@@ -10,8 +10,8 @@ ALTER TABLE table_name DROP COLUMN column_name
 
 
 ## 参数
-- table_name：需要修改的表名字。
-- column_name: 需要删除的列名称。
+- `table_name`：需要修改的表名字。
+- `column_name`: 需要删除的列名称。
 
 ## 示例
 ```
