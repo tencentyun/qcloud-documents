@@ -65,7 +65,7 @@ eks.tke.cloud.tencent.com/mem: '16Gi' # 内存一定要以 Gi 为单位，以 G 
 ```yaml
 eks.tke.cloud.tencent.com/root-cbs-size: '50'  # 指定系统盘大小，超过20 Gi 额外计费
 ```
-
+>? 若使用镜像缓存时需要调整盘大小，请参考 [镜像缓存Annotation](https://cloud.tencent.com/document/product/457/44173#.E9.95.9C.E5.83.8F.E7.BC.93.E5.AD.98)。
 
 ### 规格自动升配
 

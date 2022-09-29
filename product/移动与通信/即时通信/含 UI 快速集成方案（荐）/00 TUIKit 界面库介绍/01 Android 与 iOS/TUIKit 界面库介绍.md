@@ -153,4 +153,4 @@ TUIOfflinePush 主要负责离线推送消息展示。
 [](id:feedback)
 ## 交流与反馈
 欢迎加入 QQ 群进行技术交流和反馈问题。
-<img src="https://qcloudimg.tencent-cloud.cn/raw/4aa5a014edb22d6da621a7d6a3a8e58d.jpg" style="zoom:50%;"/>
+<img src="https://qcloudimg.tencent-cloud.cn/raw/f459c7c733e2d0646f3e9623c8be7afb.jpg" style="zoom:50%;"/> 

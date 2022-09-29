@@ -4,6 +4,7 @@ Broker load 是一个异步的导入方式，支持的数据源取决于 Broker 
 
 用户需要通过 MySQL 协议 创建 [Broker load](https://doris.apache.org/zh-CN/docs/dev/data-operate/import/import-way/broker-load-manual) 导入，并通过查看导入命令检查导入结果。
 
+
 ## 适用场景
 - 源数据在 Broker 可以访问的存储系统中，如 HDFS。
 - 数据量在几十到百 GB 级别。
@@ -46,6 +47,7 @@ BE 在执行的过程中会从 Broker 拉取数据，在对数据 transform 之�
 
 ## 开始导入
 下面我们通过几个实际的场景示例来看 Broker Load 的使用
+
 
 ### Hive 分区表的数据导入
 1. 创建 Hive 表。
@@ -110,6 +112,7 @@ PROPERTIES (
 ```
 3. 开始导入数据。
 具体语法参照： [Broker Load](https://doris.apache.org/zh-CN/docs/dev/sql-manual/sql-reference/Data-Manipulation-Statements/Load/BROKER-LOAD) 。
+
 ```sql
 LOAD LABEL broker_load_2022_03_23
 (
@@ -207,6 +210,7 @@ LOAD LABEL demo.label_20220402
             "max_filter_ratio"="0.1"
         );
 ```
+
 这里的具体 参数可以参照：  [Broker](https://doris.apache.org/zh-CN/docs/dev/advanced/broker)  及 [Broker Load](https://doris.apache.org/zh-CN/docs/dev/sql-manual/sql-reference/Data-Manipulation-Statements/Load/BROKER-LOAD) 文档
 
 ## 查看导入状态
