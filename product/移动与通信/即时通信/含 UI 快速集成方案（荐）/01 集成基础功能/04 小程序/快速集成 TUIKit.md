@@ -64,7 +64,7 @@ xcopy node_modules\@tencentcloud\chat-uikit-wechat .\TUIKit /i /e
 在 page 页面引用 TUIKit 组件，为此您需要分别修改 index.wxml 、index.js 和 index.json。
 <dx-tabs>
 ::: wxml 文件
-<img  src="https://qcloudimg.tencent-cloud.cn/raw/9816f2a2141357fbaced7e77929392f8.png"/>
+<img  src="https://qcloudimg.tencent-cloud.cn/raw/9816f2a2141357fbaced7e77929392f8.png"  style = "width:300px;">
 <dx-codeblock>
        :::  js
         <view class="container">
@@ -74,7 +74,7 @@ xcopy node_modules\@tencentcloud\chat-uikit-wechat .\TUIKit /i /e
 </dx-codeblock>
 :::
 ::: js 文件
-<img  src="https://qcloudimg.tencent-cloud.cn/raw/b9c02ec038b4b397f175591c7b5ef876.png"/>
+<img  src="https://qcloudimg.tencent-cloud.cn/raw/b9c02ec038b4b397f175591c7b5ef876.png"  style = "width:300px;">
  <dx-codeblock>
     :::  js
     const TIM = require('../../TUIKit/lib/tim-wx-sdk')
@@ -126,7 +126,7 @@ Page({
 </dx-codeblock>
 :::
 ::: json 文件
-<img  src="https://qcloudimg.tencent-cloud.cn/raw/866e12c4bf19e08c71c233158cc19106.png"/>
+<img  src="https://qcloudimg.tencent-cloud.cn/raw/866e12c4bf19e08c71c233158cc19106.png"  style = "width:300px;">
  <dx-codeblock>
     :::  js
 {
@@ -154,7 +154,7 @@ userID 信息，可通过 [即时通信 IM 控制台](https://console.cloud.tenc
 ### 步骤5：编译小程序
 
 1. 请在本地设置里面勾选上“不校验合法域名、web-view (业务域名)、 TLS 版本以及 HTTPS 证书”。
-<img src="https://qcloudimg.tencent-cloud.cn/raw/e32530c238362d5bb597c1171f6646ff.png" style = "width:300px;"> 
+<img src="https://qcloudimg.tencent-cloud.cn/raw/e32530c238362d5bb597c1171f6646ff.png" style = "width:300px;">  
 2. 单击**清缓存** > **全部清除**。避免开发者工具的缓存造成渲染异常。
 ![](https://qcloudimg.tencent-cloud.cn/raw/2c68432c6e3399df21517e521c356299.png)
 3. 单击**编译**。
