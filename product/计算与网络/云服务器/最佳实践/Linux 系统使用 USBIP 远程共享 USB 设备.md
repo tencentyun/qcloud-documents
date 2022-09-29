@@ -14,7 +14,7 @@ USB Server：Debian 操作系统的本地计算机
 
 1. 在本地计算机上，依次执行以下命令，安装 USB/IP 并加载相关的内核模块。
 ```shell
-sudo apt-get install usbip
+sudo apt-get install usbip -y
 sudo modprobe usbip-core
 sudo modprobe vhci-hcd
 sudo modprobe usbip_host
