@@ -1,6 +1,6 @@
 ## 功能描述
 
-ModifyM3U8Token 接口用于在加密 M3U8 的 key uri中增加token。
+ModifyM3U8Token 接口用于在加密 M3U8 的 key uri 中增加 Token。
 
 ## 请求
 
