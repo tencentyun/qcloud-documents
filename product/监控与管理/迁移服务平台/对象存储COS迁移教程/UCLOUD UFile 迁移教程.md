@@ -89,9 +89,9 @@
     >!
     >
     >- 若同名文件选择**覆盖**，则迁移时会直接覆盖掉同名文件
-    >- 若同名文件选择**跳过**，会基于文件最后修改时间LastModified判断，即
-    >  - 如果源地址中文件的LastModified晚于或者等于目的地址中文件的LastModified，则执行覆盖。
-    >  - 如果源地址中文件的LastModified早于目的地址中文件的LastModified，则执行跳过。
+    >- 若同名文件选择**跳过**，会基于文件最后修改时间 LastModified 判断，即
+    >  - 如果源地址中文件的 LastModified 晚于或者等于目的地址中文件的 LastModified，则执行覆盖。
+    >  - 如果源地址中文件的 LastModified 早于目的地址中文件的 LastModified，则执行跳过。
     >- 若在迁移过程中对象（文件）内容有变化，需要进行二次迁移。
 
     
