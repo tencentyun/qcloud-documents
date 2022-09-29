@@ -14,15 +14,15 @@ DNSPod 各个套餐的 DNS 服务器如下：
 </tr>
 <tr>
 <td>专业版</td>
-<td>ns3.dnsv2.comns4.dnsv2.com</td>
+<td><ul><li>ns3.dnsv2.com</li><li>ns4.dnsv2.com</li></ul></td>
 </tr>
 <tr>
 <td>企业版</td>
-<td>ns3.dnsv4.comns4.dnsv4.com</td>
+<td><ul><li>ns3.dnsv4.com</li><li>ns4.dnsv4.com</li></ul></td>
 </tr>
 <tr>
 <td>尊享版</td>
-<td>ns3.dnsv5.comns4.dnsv5.com</td>
+<td><ul><li>ns3.dnsv5.com</li><li>ns4.dnsv5.com</li></ul></td>
 </tr>
 </tbody></table>
 
