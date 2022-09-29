@@ -211,10 +211,10 @@ LOAD LABEL demo.label_20220402
         );
 ```
 
-这里的具体 参数可以参照：  [Broker](https://doris.apache.org/zh-CN/docs/dev/advanced/broker)  及 [Broker Load](https://doris.apache.org/zh-CN/docs/dev/sql-manual/sql-reference/Data-Manipulation-Statements/Load/BROKER-LOAD) 文档
+这里的具体 参数可以参照：  [Broker](https://doris.apache.org/zh-CN/docs/dev/advanced/broker)  及 [Broker Load](https://doris.apache.org/zh-CN/docs/dev/sql-manual/sql-reference/Data-Manipulation-Statements/Load/BROKER-LOAD) 文档。
 
 ## 查看导入状态
-我们可以通过下面的命令查看上面导入任务的状态信息，具体的查看导入状态的语法参考 [SHOW LOAD](https://doris.apache.org/zh-CN/docs/dev/sql-manual/sql-reference/Show-Statements/SHOW-LOAD)
+我们可以通过下面的命令查看上面导入任务的状态信息，具体的查看导入状态的语法参考 [SHOW LOAD](https://doris.apache.org/zh-CN/docs/dev/sql-manual/sql-reference/Show-Statements/SHOW-LOAD)。
 ```sql
 mysql> show load order by createtime desc limit 1\G;
 *************************** 1. row ***************************
