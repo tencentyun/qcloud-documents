@@ -57,7 +57,7 @@ PROPERTIES (
 ```
 
 2. 创建一个 Iceberg 数据库，用于挂载远端对应 Iceberg 数据库，同时挂载该 database 下的所有 table。  
-具体相关语法，可以通过[CREATE DATABASE](https://doris.apache.org/zh-CN/docs/dev/sql-manual/sql-reference/Data-Definition-Statements/Create/CREATE-DATABASE) 查看。
+具体相关语法，可以通过 [CREATE DATABASE](https://doris.apache.org/zh-CN/docs/dev/sql-manual/sql-reference/Data-Definition-Statements/Create/CREATE-DATABASE) 查看。
 ```sql
 -- 语法
 CREATE DATABASE db_name 
