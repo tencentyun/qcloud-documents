@@ -31,7 +31,7 @@ Drupal 是使用 PHP 语言编写的开源内容管理框架（CMF），由内�
 cd /var/www/html
 ```
 ```shellsession
-wget wget http://ftp.drupal.org/files/projects/drupal-8.1.1.zip
+wget http://ftp.drupal.org/files/projects/drupal-8.1.1.zip
 ```
 2. 依次执行以下命令，解压安装包并重命名。
 ```shellsession
