@@ -2,7 +2,8 @@ Broker load 是一个异步的导入方式，支持的数据源取决于 Broker 
 
 因为 Doris 表里的数据是有序的，所以 Broker load 在导入数据的时是要利用doris 集群资源对数据进行排序，相对于 Spark load 来完成海量历史数据迁移，对 Doris 的集群资源占用要比较大，这种方式是在用户没有 Spark 这种计算资源的情况下才使用，如果有 Spark 计算资源建议使用   [Spark load](https://cloud.tencent.com/document/product/1387/80265)。
 
-用户需要通过 MySQL 协议 创建 [Broker load](https://doris.apache.org/zh-CN/docs/sql-manual/sql-reference/Data-Manipulation-Statements/Load/BROKER-LOAD/) 导入，并通过查看导入命令检查导入结果。
+用户需要通过 MySQL 协议 创建 [Broker load](https://doris.apache.org/zh-CN/docs/dev/data-operate/import/import-way/broker-load-manual) 导入，并通过查看导入命令检查导入结果。
+
 
 ## 适用场景
 - 源数据在 Broker 可以访问的存储系统中，如 HDFS。
@@ -45,7 +46,8 @@ BE 在执行的过程中会从 Broker 拉取数据，在对数据 transform 之�
 ```
 
 ## 开始导入
-下面我们通过几个实际的场景示例来看 [Broker Load](https://doris.apache.org/zh-CN/docs/sql-manual/sql-reference/Data-Manipulation-Statements/Load/BROKER-LOAD/) 的使用
+下面我们通过几个实际的场景示例来看 Broker Load 的使用
+
 
 ### Hive 分区表的数据导入
 1. 创建 Hive 表。
@@ -74,7 +76,7 @@ lines terminated by '\n'
 load data local inpath '/opt/custorm' into table ods_demo_detail;
 ```
 
-2. 创建 Doris 表，具体建表语法参照：[CREATE TABLE](../../../sql-manual/sql-reference/Data-Definition-Statements/Create/CREATE-TABLE.md)。
+2. 创建 Doris 表，具体建表语法参照：[CREATE TABLE](https://doris.apache.org/zh-CN/docs/dev/sql-manual/sql-reference/Data-Definition-Statements/Create/CREATE-TABLE)。
 ```
 CREATE TABLE `doris_ods_test_detail` (
   `rq` date NULL,
@@ -109,7 +111,8 @@ PROPERTIES (
 );
 ```
 3. 开始导入数据。
-具体语法参照： [Broker Load](https://doris.apache.org/zh-CN/docs/sql-manual/sql-reference/Data-Manipulation-Statements/Load/BROKER-LOAD/) 。
+具体语法参照： [Broker Load](https://doris.apache.org/zh-CN/docs/dev/sql-manual/sql-reference/Data-Manipulation-Statements/Load/BROKER-LOAD) 。
+
 ```sql
 LOAD LABEL broker_load_2022_03_23
 (
@@ -207,10 +210,11 @@ LOAD LABEL demo.label_20220402
             "max_filter_ratio"="0.1"
         );
 ```
-这里的具体参数可参考 [Broker Load](https://doris.apache.org/zh-CN/docs/sql-manual/sql-reference/Data-Manipulation-Statements/Load/BROKER-LOAD/) 文档。
+
+这里的具体 参数可以参照：  [Broker](https://doris.apache.org/zh-CN/docs/dev/advanced/broker)  及 [Broker Load](https://doris.apache.org/zh-CN/docs/dev/sql-manual/sql-reference/Data-Manipulation-Statements/Load/BROKER-LOAD) 文档。
 
 ## 查看导入状态
-我们可以通过下面的命令查看上面导入任务的状态信息，具体的查看导入状态的语法参考 [SHOW LOAD](../../../sql-manual/sql-reference/Show-Statements/SHOW-LOAD.md)
+我们可以通过下面的命令查看上面导入任务的状态信息，具体的查看导入状态的语法参考 [SHOW LOAD](https://doris.apache.org/zh-CN/docs/dev/sql-manual/sql-reference/Show-Statements/SHOW-LOAD)。
 ```sql
 mysql> show load order by createtime desc limit 1\G;
 *************************** 1. row ***************************
@@ -233,7 +237,7 @@ LoadFinishTime: 2022-04-01 18:59:11
 ```
 
 ## 取消导入
-当 Broker load 作业状态不为 CANCELLED 或 FINISHED 时，可以被用户手动取消。取消时需要指定待取消导入任务的 Label 。取消导入命令语法可执行 [CANCEL LOAD](../../../sql-manual/sql-reference/Data-Manipulation-Statements/Load/CANCEL-LOAD.md) 查看。
+当 Broker load 作业状态不为 CANCELLED 或 FINISHED 时，可以被用户手动取消。取消时需要指定待取消导入任务的 Label 。取消导入命令语法可执行 [CANCEL LOAD](https://doris.apache.org/zh-CN/docs/dev/sql-manual/sql-reference/Data-Manipulation-Statements/Load/CANCEL-LOAD) 查看。
 例如：撤销数据库 demo 上， label 为 broker_load_2022_03_23 的导入作业：
 ```sql
 CANCEL LOAD FROM demo WHERE LABEL = "broker_load_2022_03_23";
@@ -241,7 +245,7 @@ CANCEL LOAD FROM demo WHERE LABEL = "broker_load_2022_03_23";
 
 ## 相关系统配置
 ###  Broker 参数
-Broker Load 需要借助 Broker 进程访问远端存储，不同的 Broker 需要提供不同的参数，具体请参阅 [Broker文档](../../../advanced/broker.md) 。
+Broker Load 需要借助 Broker 进程访问远端存储，不同的 Broker 需要提供不同的参数，具体请参阅 [Broker文档](https://doris.apache.org/zh-CN/docs/dev/advanced/broker) 。
 
 ### FE 配置
 下面几个配置属于 Broker load 的系统级别配置，也就是作用于所有 Broker load 导入任务的配置。主要通过修改 `fe.conf`来调整配置值。
@@ -312,7 +316,7 @@ FE 的配置参数 `async_pending_load_task_pool_size` 用于限制同时运行�
 FE 的配置参数 `async_loading_load_task_pool_size` 用于限制同时运行的 loading task 的任务数量。一个 Broker Load 作业会有 1 个 pending task 和多个 loading task （等于 LOAD 语句中 DATA INFILE 子句的个数）。所以 `async_loading_load_task_pool_size` 应该大于等于 `async_pending_load_task_pool_size`。
 
 ### 性能分析
-可以在提交 LOAD 作业前，先执行 `set enable_profile=true` 打开会话变量。然后提交导入作业。待导入作业完成后，可以在 FE 的 web 页面的 `Queris` 标签中查看到导入作业的 Profile。可以查看 [SHOW LOAD PROFILE](../../../sql-manual/sql-reference/Show-Statements/SHOW-LOAD-PROFILE.md) 帮助文档，获取更多使用帮助信息。
+可以在提交 LOAD 作业前，先执行 `set enable_profile=true` 打开会话变量。然后提交导入作业。待导入作业完成后，可以在 FE 的 web 页面的 `Queris` 标签中查看到导入作业的 Profile。可以查看 [SHOW LOAD PROFILE](https://doris.apache.org/zh-CN/docs/dev/sql-manual/sql-reference/Show-Statements/SHOW-LOAD-PROFILE) 帮助文档，获取更多使用帮助信息。
 这个 Profile 可以帮助分析导入作业的运行状态。当前只有作业成功执行后，才能查看 Profile。
 
 ## 常见问题
