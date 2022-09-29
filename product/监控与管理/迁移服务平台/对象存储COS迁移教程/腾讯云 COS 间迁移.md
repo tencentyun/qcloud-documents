@@ -83,9 +83,9 @@
     >!
     >
     >- 若同名文件选择**覆盖**，则迁移时会直接覆盖掉同名文件
-    >- 若同名文件选择**跳过**，会基于文件最后修改时间LastModified判断，即
-    >  - 如果源地址中文件的LastModified晚于或者等于目的地址中文件的LastModified，则执行覆盖。
-    >  - 如果源地址中文件的LastModified早于目的地址中文件的LastModified，则执行跳过。
+    >- 若同名文件选择**跳过**，会基于文件最后修改时间 LastModified 判断，即
+    >  - 如果源地址中文件的 LastModified 晚于或者等于目的地址中文件的 LastModified，则执行覆盖。
+    >  - 如果源地址中文件的 LastModified 早于目的地址中文件的 LastModified，则执行跳过。
     >- 若在迁移过程中对象（文件）内容有变化，需要进行二次迁移。
 
     
@@ -96,10 +96,7 @@
 
        ![](https://qcloudimg.tencent-cloud.cn/raw/9c9591c252be2d19c67ca994dc745c23.png)
 
-     - 新建迁移任务后手动下载 Agent 启动迁移：选择 Agent 模式迁移，用户在单击“新建并启动”后，将仅创建任务配置，需要用户手动下载 Agent 在迁移源一侧的服务器上部署之后才会正式启动迁移。迁移Agent部署参考文档
-
-       [半托管迁移Agent的使用说明]()
-
+     - 新建迁移任务后手动下载 Agent 启动迁移：选择 Agent 模式迁移，用户在单击“新建并启动”后，将仅创建任务配置，需要用户手动下载 Agent 在迁移源一侧的服务器上部署之后才会正式启动迁移。迁移 Agent 部署参考文档：[半托管迁移 Agent 的使用说明](https://cloud.tencent.com/document/product/659/81158)。
        ![](https://qcloudimg.tencent-cloud.cn/raw/1cf17dbd3078237e54d5d878c2af73e1.png)
 
     
