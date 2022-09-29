@@ -12,7 +12,7 @@
 在微信开发者工具上创建一个小程序项目，选择不使用模板。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d75ae9e06615aa7ac68d18e46b137528.png)
 
-## 步骤2：下载 TUIKit 组件
+### 步骤2：下载 TUIKit 组件
 
 微信开发者工具创建的小程序不会默认创建 package.json 文件，因此您需要先创建 package.json 文件。新建终端，如下：
 
@@ -59,7 +59,7 @@ xcopy node_modules\@tencentcloud\chat-uikit-wechat .\TUIKit /i /e
 
 
 [](id:step3)
-## 步骤3：引入 TUIKit 组件
+### 步骤3：引入 TUIKit 组件
 
 在 page 页面引用 TUIKit 组件，为此您需要分别修改 index.wxml 、index.js 和 index.json。
 <dx-tabs>
