@@ -44,7 +44,7 @@ DLC 支持的语法如下表所示：
 | 对数据表进行统计	|[ ANALYZE TABLES](https://cloud.tencent.com/document/product/1342/71414) | 
 | 删除指定数据	| [DELETE STATEMENT](https://cloud.tencent.com/document/product/1342/61763) | 
 | 插入一行数据	| [INSERT STATEMENT ](https://cloud.tencent.com/document/product/1342/61988)| 
-| 替换一行数据| [INSERT OVERWRITE STATEMENT](https://cloud.tencent.com/document/product/1342/61990)	| 
+| 替换一行数据| [INSERT OVERWRITE](https://cloud.tencent.com/document/product/1342/61990)	| 
 |行级数据更新操作，可用于替换 INSERT OVERWRITE 操作	|[MERGE INTO](https://cloud.tencent.com/document/product/1342/81178)|
 | 数据查询| [SELECT STATEMENT](https://cloud.tencent.com/document/product/1342/61991)	| 
 | 将查询结果插入数据表| [INSERT INTO](https://cloud.tencent.com/document/product/1342/73084)	| 
