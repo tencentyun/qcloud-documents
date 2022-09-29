@@ -13,7 +13,7 @@
 
 1. 登录 [DIP 控制台](https://console.cloud.tencent.com/ckafka/datahub-overview)。
 2. 在左侧导航栏单击**任务管理** > **任务列表**，选择好地域后，单击**新建任务**。
-3. 填写任务名称，任务类型选择**数据接入**，数据目标类型选择**数据上报（HTTP）**，单击**下一步**。
+3. 填写任务名称，任务类型选择**数据接入**，数据源类型选择**数据上报（HTTP）**，单击**下一步**。
 4. 选择是否**是否对上报数据进行格式校验**，选择绑定的 Schema 后，将会按该 Schema 对所有流入的数据进行格式校验。
    ![](https://qcloudimg.tencent-cloud.cn/raw/0f912ad283e90bd19bb39d45eb188c1b.png)
 5. 单击**下一步**，选择数据目标 Topic，支持选择 **DIP Topic** 或者 **CKafka Topic**。

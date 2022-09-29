@@ -52,6 +52,9 @@ dependencies {
     // ...
 
     implementation(name: 'HTTPDNS_Android_xxxx', ext: 'aar')
+
+    // V4.3.0版本开始增加了本地数据存储，需增加room依赖引入
+    implementation 'android.arch.persistence.room:rxjava2:2.1.1'
 }
 ```
 
@@ -131,7 +134,12 @@ MSDKDnsResolver.getInstance().WGSetDnsOpenId("10000");
 
 ### 初始化配置服务（4.0.0版本开始支持）
 <dx-alert infotype="notice" title="">
-可选项请根据功能需要进行开启。
+- HTTPDNS SDK 提供多重解析优化策略，建议根据实际情况选配，也可以组合使用，可使得解析成功率达到最优效果。
+- 可以通过配置 `setUseExpiredIpEnable(true)` 和 `setCachedIpEnable(true)` 来实现乐观 DNS 缓存。
+  - 该功能旨在提升缓存命中率和首屏加载速度。持久化缓存会将上一次解析结果保持在本地，在 App 启动时，会优先读取到本地缓存解析结果。
+  - 存在使用缓存 IP 时为过期 IP（TTL 过期），该功能启用了允许使用过期 IP，乐观的推定 TTL 过期，大多数情况下该 IP 仍能正常使用。优先返回缓存的过期结果，同时异步发起解析服务，更新缓存。
+  - 乐观 DNS 缓存在首次解析域名（无缓存）时，无法命中缓存，返回0;0，同时也会异步发起解析服务，更新缓存。在启用该功能后需自行 LocalDNS 兜底。核心域名建议配置预解析服务 `preLookupDomains(String... domainList)`。
+  - 如果业务服务器 IP 变化比较频繁，务必启用缓存自动刷新 `persistentCacheDomains(String... domainList)`、预解析能力 `preLookupDomains(String... domainList)`，以确保解析结果的准确性。
 </dx-alert>
 在获取服务实例之前，可通过初始化配置，设置服务的一些属性在 SDK 初始化时进行配置项传入。
 ```Java
@@ -152,8 +160,15 @@ DnsConfig dnsConfigBuilder = DnsConfig.Builder()
     .preLookupDomains("baidu.com", "qq.com")
     //（可选）解析缓存自动刷新, 以域名形式进行配置，填写形式："baidu.com", "qq.com"。配置的域名会在 TTL * 75% 时自动发起解析请求更新缓存，实现配置域名解析时始终命中缓存。此项建议不要设置太多域名，当前限制为最多 10 个域名。与预解析分开独立配置。
     .persistentCacheDomains("baidu.com", "qq.com")
+    // (可选) IP 优选，以 IpRankItem(hostname, port) 组成的 List 配置, port（可选）默认值为 8080。例如：IpRankItem("qq.com", 443)。sdk 会根据配置项进行 socket 连接测速情况对解析 IP 进行排序，IP 优选不阻塞当前解析，在下次解析时生效。当前限制为最多 10 项。
+    .ipRankItems(ipRankItemList)
     //（可选）手动指定网络栈支持情况，仅进行 IPv4 解析传 1，仅进行 IPv6 解析传 2，进行 IPv4、IPv6 双栈解析传 3。默认为根据客户端本地网络栈支持情况发起对应的解析请求。
     .setCustomNetStack(3)
+    //（可选）设置是否允许使用过期缓存，默认false，解析时先取未过期的缓存结果，不满足则等待解析请求完成后返回解析结果。
+    // 设置为true时，会直接返回缓存的解析结果，没有缓存则返回0;0，用户可使用localdns（InetAddress）进行兜底。且在无缓存结果或缓存已过期时，会异步发起解析请求更新缓存。因异步API（getAddrByNameAsync，getAddrsByNameAsync）逻辑在回调中始终返回未过期的解析结果，设置为true时，异步API不可使用。建议使用同步API （getAddrByName，getAddrsByName）。
+    .setUseExpiredIpEnable(true)
+    //（可选）设置是否启用本地缓存（Room），默认false
+    .setCachedIpEnable(true)
     //（可选）设置域名解析请求超时时间，默认为1000ms
     .timeoutMills(1000)
     //（可选）是否开启解析异常上报，默认false，不上报

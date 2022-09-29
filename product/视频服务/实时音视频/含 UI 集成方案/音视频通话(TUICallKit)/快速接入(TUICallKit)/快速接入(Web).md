@@ -46,13 +46,8 @@
 
 
 ### 2. 对网络环境的要求
-本文档所对接的组件依赖以下端口进行音视频数据的传输，如您当前所使用的网络环境有访问外网的限制，需要先联系网络管理员将如下域名和端口加入防火墙的白名单当中，或者使用 4G 或 5G 蜂窝网络绕开限制。
- - **TCP 端口**：8687
- - **UDP 端口**：8000，8080，8800，843，443，16285
- - **域名**：qcloud.rtc.qq.com，具体请参见 [应对防火墙限制相关](https://cloud.tencent.com/document/product/647/34399)
- - **平台支持**：目前该方案支持平台具体如上 [对浏览器版本要求](#bversion) 所示
 
-
+在使用 TUICallKit 时，用户可能因防火墙限制导致无法正常进行音视频通话，请参考 [应对防火墙限制相关](https://cloud.tencent.com/document/product/647/34399) 将相应端口及域名添加至防火墙白名单中。
 
 ### 3. 对网站域名协议的要求
 出于对用户安全、隐私等问题的考虑，浏览器限制网页在 HTTPS 协议下才能正常使用本文档中所对接组件的全部功能。为确保生产环境中的用户能够顺畅体验产品功能，请将您的网站部署在 **https://** 协议的域名下。
@@ -115,12 +110,22 @@ TUICallKit 是基于腾讯云 [即时通信 IM](https://cloud.tencent.com/docume
 
 1. 登录到 [即时通信 IM 控制台](https://console.cloud.tencent.com/im)，单击**创建新应用**，在弹出的对话框中输入您的应用名称，并单击**确定**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/1105c3c339be4f71d72800fe2839b113.png)
-2. 单击刚刚创建出的应用，进入**基本配置**页面，并在页面的右下角找到**开通腾讯实时音视频服务**功能区，单击**免费体验**即可开通 TUICallKit 的 7 天免费试用服务。
-![](https://qcloudimg.tencent-cloud.cn/raw/c16d91a3bc942a6ed58526ebe309799f.png)
-1. 在同一页面找到 **SDKAppID** 和**密钥**并记录下来，它们会在后续中被用到。
+2. 单击刚刚创建出的应用，进入**基本配置**页面，并在页面的右下角找到**开通腾讯实时音视频服务**功能区，单击**免费体验**即可开通 TUICallKit 的 7 天免费试用服务。如果需要正式应用上线，可以单击 [**前往加购**](https://buy.cloud.tencent.com/avc) 即可进入购买页面。
+<img width="640" src="https://qcloudimg.tencent-cloud.cn/raw/99a6a70e64f6877bad9406705cbf7be1.png">
+>? IM 音视频通话能力针对不同的业务需求提供了差异化的付费版本供您选择，您可以在 [IM 购买页](https://buy.cloud.tencent.com/avc) 了解包含功能并选购您适合的版本。
+3. 在同一页面找到 **SDKAppID** 和**密钥**并记录下来，它们会在后续中被用到。
 ![](https://qcloudimg.tencent-cloud.cn/raw/e435332cda8d9ec7fea21bd95f7a0cba.png)
     - SDKAppID：IM 的应用 ID，用于业务隔离，即不同的 SDKAppID 的通话彼此不能互通；
     - SecretKey：IM 的应用密钥，需要和 SDKAppID 配对使用，用于签出合法使用 IM 服务的鉴权用票据 UserSig，我们会在接下来的步骤五中用到这个 Key。
+
+<dx-alert infotype="alarm" title="<b>友情提示：</b>">
+单击**免费体验**以后，部分之前使用过 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 服务的用户会提示：
+```
+[-100013]:TRTC service is  suspended. Please check if the package balance is 0 or the Tencent Cloud accountis in arrears
+```
+因为新的 IM 音视频通话能力是整合了腾讯云[实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269/42440) 两个基础的 PaaS 服务，所以当 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 的免费额度（10000分钟）已经过期或者耗尽，就会导致开通此项服务失败，这里您可以单击 [TRTC 控制台](https://console.cloud.tencent.com/trtc/app)，找到对应 SDKAppID 的应用管理页，示例如图，开通后付费功能后，再次**启用应用**即可正常体验音视频通话能力。
+<img width=800px src="https://qcloudimg.tencent-cloud.cn/raw/f74a13a7170cf8894195a1cae6c2f153.png" />
+</dx-alert>
 
 
 [](id:step2)
@@ -380,6 +385,6 @@ tuiCallEngine.setVideoQuality(profile).then( res => {
 
 ## 相关链接
 - [Github Demo 地址](https://github.com/tencentyun/TUICalling)
-- [Web 端常见问题](https://tcloud-doc.isd.com/document/product/647/78769)
-- [TUICallEngine API 概览](https://tcloud-doc.isd.com/document/product/647/78756)
+- [Web 端常见问题](https://cloud.tencent.com/document/product/647/78769)
+- [TUICallEngine API 概览](https://cloud.tencent.com/document/product/647/78756)
 - [TUICallEngine API 文档](https://web.sdk.qcloud.com/component/trtccalling/doc/TUICallEngine/web/TUICallEngine.html)

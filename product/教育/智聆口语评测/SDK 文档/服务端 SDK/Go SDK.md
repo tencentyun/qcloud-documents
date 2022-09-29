@@ -8,7 +8,7 @@ Tencent Cound API 3.0 SDK，封装了腾讯云的 SDK，通过集成SDK，可以
 ## SDK 集成准备
 1. 获取密钥
 SecretId 和 SecretKey 是使用 SDK 的安全凭证，您可以在访问管理 > 访问密钥 > [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取该凭证。
->! 密钥属于敏感信息，正式密钥仅可在调试使用，线上环境情况下，为了防止他人盗取，推荐使用 [临时签名](https://cloud.tencent.com/document/product/884/31888#:~:text=%E5%88%B0%E5%AE%A2%E6%88%B7%E7%AB%AF%E3%80%82-,%E4%B8%B4%E6%97%B6%E7%AD%BE%E5%90%8D,-policy%20%E7%A4%BA%E4%BE%8B%E5%A6%82%E4%B8%8B)，具体请参考 [签名](https://cloud.tencent.com/document/product/884/31888#5.-.E7.AD.BE.E5.90.8D) 相关内容。
+>! 密钥属于敏感信息，正式密钥仅可在调试使用，线上环境情况下，为了防止他人盗取，推荐使用 [临时签名](https://cloud.tencent.com/document/product/884/31888#SecretKey)，具体请参考 [签名](https://cloud.tencent.com/document/product/884/31888#SecretKey) 相关内容。
 >
 ![](https://qcloudimg.tencent-cloud.cn/raw/3049463174ada47857762086690e7c26.png)
 2. 设备准备
@@ -17,7 +17,7 @@ SecretId 和 SecretKey 是使用 SDK 的安全凭证，您可以在访问管理�
 
 ## SDK DEMO 使用流程
 1. 安装依赖环境
-安装PHP 5.6.0 版本及以上
+Go 1.9 版本及以上（如使用 go mod 需要 Go 1.14）。
 
 2. 下载 SDK
 从 github 下载 [tencentcloud-sdk-go](https://github.com/TencentCloud/tencentcloud-sdk-go)。或者在终端输入 git 命令：
@@ -46,9 +46,9 @@ v1.0.170后可以按照产品下载，您只需下载基础包和对应的产品
 ```
 go get -v -u github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common
 ```
-		2. 安装对应的产品包(如soe)：
+		2. 安装对应的产品包(如 soe)：
 ```
-go get -v -u github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/cvm
+go get -v -u github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/soe
 ```
 	- 全部安装
 此模式支持 GOPATH 和 Go Modules。此方式会一次性下载腾讯云所有产品的包：
@@ -409,9 +409,9 @@ func main() {
 
 ```
 
-## 外部签名（不推荐）
+### 外部签名（不推荐）
 使用 [TransmitOralProcessWithInit](https://cloud.tencent.com/document/api/884/32605) 接口演示：
-1.生成 curl
+1. 生成 curl
 ```
 package main
 

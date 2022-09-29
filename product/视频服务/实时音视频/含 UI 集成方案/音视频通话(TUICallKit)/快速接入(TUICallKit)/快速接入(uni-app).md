@@ -12,12 +12,20 @@ TUICallKit 是基于腾讯云 [即时通信 IM](https://cloud.tencent.com/docume
 
 1. 登录到 [即时通信 IM 控制台](https://console.cloud.tencent.com/im)，单击**创建新应用**，在弹出的对话框中输入您的应用名称，并单击**确定**。
 <img width="640" src="https://qcloudimg.tencent-cloud.cn/raw/1105c3c339be4f71d72800fe2839b113.png">
-
-2. 单击刚刚创建出的应用，进入**基本配置**页面，并在页面的右下角找到**开通腾讯实时音视频服务**功能区，单击**免费体验**即可开通 TUICallKit 的 7 天免费试用服务。
+2. 单击刚刚创建出的应用，进入**基本配置**页面，并在页面的右下角找到**开通腾讯实时音视频服务**功能区，单击**免费体验**即可开通 TUICallKit 的 7 天免费试用服务。如果需要正式应用上线，可以单击 [**前往加购**](https://buy.cloud.tencent.com/avc) 即可进入购买页面。
 <img width="640" src="https://qcloudimg.tencent-cloud.cn/raw/99a6a70e64f6877bad9406705cbf7be1.png">
-
+>? IM 音视频通话能力针对不同的业务需求提供了差异化的付费版本供您选择，您可以在 [IM 购买页](https://buy.cloud.tencent.com/avc) 了解包含功能并选购您适合的版本。
 3. 在同一页面找到 **SDKAppID** 和**密钥**并记录下来，它们会在后续的 [步骤四：登录 TUI 组件](#step4) 中被用到。
 <img width="640" src="https://qcloudimg.tencent-cloud.cn/raw/e435332cda8d9ec7fea21bd95f7a0cba.png">
+
+<dx-alert infotype="alarm" title="<b>友情提示：</b>">
+单击**免费体验**以后，部分之前使用过 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 服务的用户会提示：
+```
+[-100013]:TRTC service is  suspended. Please check if the package balance is 0 or the Tencent Cloud accountis in arrears
+```
+因为新的 IM 音视频通话能力是整合了腾讯云[实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269/42440) 两个基础的 PaaS 服务，所以当 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 的免费额度（10000分钟）已经过期或者耗尽，就会导致开通此项服务失败，这里您可以单击 [TRTC 控制台](https://console.cloud.tencent.com/trtc/app)，找到对应 SDKAppID 的应用管理页，示例如图，开通后付费功能后，再次**启用应用**即可正常体验音视频通话能力。
+<img width=800px src="https://qcloudimg.tencent-cloud.cn/raw/f74a13a7170cf8894195a1cae6c2f153.png" />
+</dx-alert>
 
 [](id:step2)
 ## 步骤二：导入插件 
@@ -178,7 +186,7 @@ TUICallKit.setCallingBell(filePath, (res) => {
  应该重新提交云端打包（不能勾选“**自定义基座**”）生成正式版本。
 
 ## 实现案例
-我们提供了**在线客服场景**的相关源码，建议您 [下载](Thttps://ext.dcloud.net.cn/plugin?id=721) 并集成体验。该场景提供了示例客服群 + 示例好友的基础模板，实现功能包括：
+我们提供了**在线客服场景**的相关源码，建议您 [下载](https://ext.dcloud.net.cn/plugin?id=721) 并集成体验。该场景提供了示例客服群 + 示例好友的基础模板，实现功能包括：
 - 支持发送文本消息、图片消息、语音消息、视频消息等常见消息。
 - 支持双人语音、视频通话功能
 - 支持创建群聊会话、群成员管理等。

@@ -36,9 +36,15 @@ Nginx 作为关键的流量接入网关，不建议您将 Nginx 与其他业务�
 3. 在新建的 Nginx Ingress 组件详情页，单击**新增Nginx Ingress实例**（一个集群内可以同时存在多个 Nginx）。
 ![](https://main.qcloudimg.com/raw/75edc57adda78df364f9430a844eb1b5.png)
 4. 在弹出的窗口中，选择部署选项中的**指定DaemonSet节点池部署**，并按需设置其他参数。如下图所示：
-![](https://main.qcloudimg.com/raw/d640a06f25185e3a37d546533442e118.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/629cad10b9c34036f1a2416eff2c520a.png)
  - 节点池：配置节点池。
  - Nginx 配置：Requst 需设置比节点池的机型配置小（节点本身有资源预留）。Limit 可不设置。
+ - 镜像版本说明：
+     - Kubernetes 为 1.20 及以下版本的集群，Nginx Ingress 组件版本为 1.0.0，Nginx 实例的镜像版本只能选择 v41.0。
+     - Kubernetes 为 1.20 及以下版本的集群，Nginx Ingress 组件版本为 1.1.0，Nginx 实例的镜像版本只能选择 v41.0, v49.3。
+     - Kubernetes 大于等于 1.22 版本的集群，Nginx Ingress 组件版本只支持 1.1.0, Nginx 实例的镜像版本只能选择 v1.1.3。
+>? Nginx 实例的版本说明可参考 [ingress-nginx 文档](https://github.com/kubernetes/ingress-nginx)。升级集群可参考 [升级集群操作步骤](https://cloud.tencent.com/document/product/457/32192)。升级 Nginx Ingress 组件可参考 [组件升级操作步骤](https://cloud.tencent.com/document/product/457/49442)。
+>
 4. 单击**确定**即可完成安装。
 
 
@@ -53,9 +59,15 @@ Nginx 作为关键的流量接入网关，不建议您将 Nginx 与其他业务�
 2. 在集群中 [安装 NginxIngress 组件](#Nginx-ingress)。
 3. 在新建的 Nginx Ingress 组件详情页，单击**新增Nginx Ingress实例**（一个集群内可以同时存在多个 Nginx）。
 4. 在弹出的窗口中，选择部署选项中的**自定义Deployment+HPA 部署**，并按需设置其他参数。如下图所示：
-![](https://main.qcloudimg.com/raw/650626808a60e00fc989a09e8a5477bd.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/dc5d5ec9d0f1f41c95348753a6a424d2.png)
  - 节点调度策略：需自行指定。
  - Nginx 配置：Requst 需设置比节点池的机型配置小（节点本身有资源预留）。Limit 可不设置。
+ - 镜像版本说明：
+     - Kubernetes 为 1.20 及以下版本的集群，Nginx Ingress 组件版本为 1.0.0，Nginx 实例的镜像版本只能选择 v41.0。
+     - Kubernetes 为 1.20 及以下版本的集群，Nginx Ingress 组件版本为 1.1.0，Nginx 实例的镜像版本只能选择 v41.0, v49.3。
+     - Kubernetes 大于等于 1.22 版本的集群，Nginx Ingress 组件版本只支持 1.1.0, Nginx 实例的镜像版本只能选择 v1.1.3。
+>? Nginx 实例的版本说明可参考 [ingress-nginx 文档](https://github.com/kubernetes/ingress-nginx)。升级集群可参考 [升级集群操作步骤](https://cloud.tencent.com/document/product/457/32192)。升级 Nginx Ingress 组件可参考 [组件升级操作步骤](https://cloud.tencent.com/document/product/457/49442)。
+>
 5. 单击**确定**即可完成安装。
 
 

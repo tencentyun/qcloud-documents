@@ -18,6 +18,7 @@ https://api.meeting.qq.com/v1/meetings/{meeting_id}/enroll/ids
 |meeting_id|	是|	String	|会议 ID。|
 | userid              |     否  | String  |  	会议创建者的用户 ID。为了防止现网应用报错，此参数实则仍然兼容 openid，如无 oauth 应用使用报名接口则也可做成不兼容变更。  |
 |instanceid	|是|	Integer|	用户的终端设备类型：<br>0：PSTN<br>1：PC<br>2：Mac<br>3：Android<br>4：iOS<br>5：Web<br>6：iPad<br>7：Android Pad<br>8：小程序<br>9：voip、sip 设备<br>10：linux<br>20：Rooms for Touch Windows<br>21：Rooms for Touch MacOS<br>22：Rooms for Touch Android<br>30：Controller for Touch Windows<br>32：Controller for Touch Android<br>33：Controller for Touch iOS|
+|sorting_rules|	否|	Integer|	查询报名 ID 的排序规则。当该账号存在多条报名记录（手机号导入、手动报名等）时，该接口返回的顺序。<br>1：优先查询手机号导入报名，再查询用户手动报名，默认值。<br>2：优先查询用户手动报名，再查手机号导入。|
 |ms_open_id_list|	是|	String 数组|	当场会议的用户临时 ID（适用于所有用户）数组，单次最多支持500条。|
 
 ## 输出参数
@@ -36,8 +37,6 @@ https://api.meeting.qq.com/v1/meetings/{meeting_id}/enroll/ids
 
 
 ## 示例
-
-
 ### 输入示例
 ```plaintext
 POST https://api.meeting.qq.com/v1/meetings/545613049490456875/enroll/ids

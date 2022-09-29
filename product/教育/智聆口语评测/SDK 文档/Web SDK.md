@@ -16,7 +16,7 @@
 
 >! 用户必须要严格保管安全凭证，避免泄露。
 >
-有了安全凭证 SecretId 和 SecretKey 后，可以生成鉴权凭证来使用小程序插件： 后端获取授权凭证请参考[服务端 SDK](https://cloud.tencent.com/document/product/884/78785)。
+有了安全凭证 SecretId 和 SecretKey 后，可以生成鉴权凭证来使用 Web SDK： 后端获取授权凭证请参考[服务端 SDK](https://cloud.tencent.com/document/product/884/78785)。
 ![](https://qcloudimg.tencent-cloud.cn/raw/5479ee8b864859845a11679ddb5c06bf.png)
 
 ## SDK DEMO 使用流程
@@ -31,7 +31,7 @@
 
 
 ## SDK 使用方法
-[使用示例](https://test-v.campus.qq.com/aiedu/soe/demo/soe_web.html)。
+[使用示例](https://test-v.campus.qq.com/aiedu/soe/demo/soe_websdk_develop.html)。
 ### SDK 引入
 在您的 Web 页面中添加如下 Web SDK 依赖：
 ```
@@ -294,7 +294,7 @@ let recorder = new TencentSOE({
 
 ### TransInitUrl 参数说明
 接口方法为 POST，需要对前端传来的参数进行签名，再调用云 API 的 TransmitOralProcessWithInit （发音数据传输接口附带初始化过程）接口，返回的数据格式不必再做封装，透传云 API 返回的数据即可，成功返回：`{"Response":{"RequestId": "xxx"...}}`，
-失败返回：`{"Response":{"RequestId":"xxx","Error":{"xxx":"xxx"}...}}`，详情请参见 [Tencent Cloud API 3.0 SDK](https://cloud.tencent.com/document/product/884/32828)。
+失败返回：`{"Response":{"RequestId":"xxx","Error":{"xxx":"xxx"}...}}`，详情请参见 [Tencent Cloud API 3.0 SDK](https://cloud.tencent.com/document/product/884/78785)。
 
 ## 错误码
 |   code   | 错误说明                  |

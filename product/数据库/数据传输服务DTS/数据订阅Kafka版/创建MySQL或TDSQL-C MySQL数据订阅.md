@@ -46,7 +46,7 @@ flush privileges;
     - 全实例：包括该订阅实例的全部对象的数据更新和结构更新。
  - 订阅数据格式：支持 ProtoBuf、Avro 和 Json 三种格式。 ProtoBuf 和 Avro 采用二进制格式，消费效率更高，Json 采用轻量级的文本格式，更加简单易用。
  - Kafka 分区策略：选择按表名分区，按表名+主键分区。
- - 使用自定义分区策略：用户根据自己的需求自定义分区，详情内容请参考 [设置自定义分区策略](https://cloud.tencent.com/document/product/571/78161)。
+ - 使用自定义分区策略：用户根据自己的需求自定义分区，详情内容请参考 [设置分区策略](https://cloud.tencent.com/document/product/571/78161)。
 ![](https://qcloudimg.tencent-cloud.cn/raw/b5364aa79598fb8e6046e2a60c686fda.png)
 6. 在预校验页面，预校验任务预计会运行2分钟 - 3分钟，预校验通过后，单击**启动**完成数据订阅任务配置。
 >?如果校验失败，请 [校验不通过处理方法](https://cloud.tencent.com/document/product/571/58685) 进行修正，并重新进行校验。

@@ -1,9 +1,46 @@
+## TKE kubernetes 1.22.5 revisions
+<table>
+<thead>
+<tr><th width="13%">时间</th><th width="13%">版本</th><th width="74%">更新内容</th></tr>
+</thead>
+  <tbody>
+    <tr><td> 2022-05-07   </td><td> v1.22.5-tke.1</td>
+		<td>
+<li>允许 TKE 托管集群使用的特殊网段。(kube-apiserver)</li>
+<li>还原 <a href="https://github.com/kubernetes/kubernetes/pull/63066">pr63066</a>, 修复 LB 健康检查与 IPVS 的问题。(kube-proxy)</li>
+<li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/90260">pr90260</a>，修复 containerd 集群网络监控缺失问题。(kubelet)</li>
+<li>修复 ubuntu16 下 lxcfs 升级造成 Pod 退出的问题。(kubelet)</li>
+<li>避免使用了 CBS 的 Pod 调度到外部 CHC 节点。(kube-scheduler)</li>
+<li>支持腾讯云 CBS CSI Migration。(kube-controller-manager,kubelet)</li>
+<li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/106906">pr106906</a>，探测网络存储卷 subpath 是否已经删除，避免 Pod 一直处于 terminating 状态。(kubelet)</li>
+<li>更新以镜像方式运行 kube-proxy 时的启动方式，自动适配所在节点的 iptables 运行模式，以支持默认使用 nf_tables 模式运行 iptables 的操作系统。(kube-proxy)</li>
+</td></tr>
+  </tbody>
+</table>
+
+
+
 ## TKE kubernetes 1.20.6 revisions
 <table>
 <thead>
 <tr><th width="13%">时间</th><th width="13%">版本</th><th width="74%">更新内容</th></tr>
 </thead>
   <tbody>
+		   <tr>
+    <td>2022-09-07</td>
+    <td>v1.20.6-tke.24</td>
+    <td><li>优化调度器抢占，避免 crash。(kube-scheduler)</li>
+<li>优化超级节点调度。(kube-scheduler)</li>
+<li>支持 Pod 资源原地更新。(kube-apiserver,kubelet)</li>
+<li>支持 kube-system 下的 Pod 调度到预付费超级节点。(kube-scheduler)</li>
+<li>优化超级节点 HPA。(kube-controller-manager)</li>
+<li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/110294">PR110294</a>，修复 Job activeDeadlineSeconds 设置不生效的问题。(kube-controller-manager)</li>
+<li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/111773">PR111773</a>，修复调度器抢占时的内存泄漏问题。(kube-scheduler)</li>
+<li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/97348">PR97348</a>，修复 HPA 在设置了 StabilizationWindowSeconds 时扩缩容数量不正确的问题。(kube-controller-manager)</li>
+<li>优化包年包月超级节点调度。</li>
+<li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/108831">PR108831</a>, 修复同时创建多个 Pod 导致 kubelet panic。(kubelet)</li>
+<li>修复 cronjob 的 Pod name/uid 为空时 Pod 创建失败。(kube-controller-manager)</li></td>
+  </tr>
 	   <tr>
     <td>2022-07-27</td>
     <td>v1.20.6-tke.21</td>
@@ -55,12 +92,25 @@
 </table>
 
 
+
 ## TKE kubernetes 1.18.4 revisions
 
 <table><thead>
 <tr><th width="13%">时间</th><th width="13%">版本</th><th width="74%">更新内容</th></tr>
 </thead>
 <tbody>
+	 <tr>
+    <td>2022-09-07</td>
+    <td>v1.18.4-tke.28</td>
+    <td><li>优化大规模集群时的 List 性能。(kube-apiserver)</li>
+<li>优化超级节点调度。(kube-scheduler)</li>
+<li>支持 kube-system 下的 Pod 调度到预付费超级节点。(kube-scheduler)</li>
+<li>优化超级节点 HPA。(kube-controller-manager)</li>
+<li>支持 Pod 资源原地更新。(kube-apiserver,kubelet)</li>
+<li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/97348">PR97348</a>，修复 HPA 在设置了 StabilizationWindowSeconds 时扩缩容数量不正确的问题。(kube-controller-manager)</li>
+<li>优化包年包月超级节点调度。</li>
+<li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/108831">PR108831</a>, 修复同时创建多个 Pod 导致 kubelet panic。(kubelet)</li></td>
+  </tr>
 	 <tr>
     <td>2022-07-27</td>
     <td>v1.18.4-tke.26</td>

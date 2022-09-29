@@ -25,7 +25,7 @@
 Apple 的 deviceToken 与当前编译环境有关。如果 [登录 IMSDK 后上传 deviceToken 到腾讯云 ](#uploadDeviceToken) 所使用的证书ID 和 token 不一致，就会报错。
 
 - 如果使用的是 Release 环境编译，则 `- application:didRegisterForRemoteNotificationsWithDeviceToken:`  回调返回的是发布环境的 token，此时 businessID 需要设置生产环境的 [证书ID](#businessid :缺少内容)。
-- 如果使用的是 Debug 环境编译，则 `- application:didRegisterForRemoteNotificationsWithDeviceToken:`  回调返回的是开发环境的 token，此时 businessID 需要设置开发环境的 [证书ID](#businessid  :缺少内容)。
+- 如果使用的是 Debug 环境编译，则 `- application:didRegisterForRemoteNotificationsWithDeviceToken:`  回调返回的是开发环境的 token，此时 businessID 需要设置开发环境的证书 ID。
 
 ```
 V2TIMAPNSConfig *confg = [[V2TIMAPNSConfig alloc] init];

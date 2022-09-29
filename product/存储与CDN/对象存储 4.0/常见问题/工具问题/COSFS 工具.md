@@ -280,3 +280,5 @@ COSFS 不是基于硬盘的文件系统，所以不会有 inode。
 ### SUSE 12 SP3安装依赖包报"No provider of xxx found."错误，怎么办？
 请参考 [SUSE系统无法安装COSFS的解决方案](https://cloud.tencent.com/developer/article/1868019)。
 
+### COSFS 每天在某个时间段里 CPU 使用率较高，且向 COS 发出大量 Head、List 请求，该怎么处理？
+这通常是由于您机器上存在定时扫盘任务导致的，Linux 系统上常见的扫盘程序是 updatedb，您可以将 COSFS 挂载点目录，添加到 updatedb 的配置文件 /etc/updatedb.conf 文件的 PRUNEPATHS 配置项中，避免该程序的扫盘行为。

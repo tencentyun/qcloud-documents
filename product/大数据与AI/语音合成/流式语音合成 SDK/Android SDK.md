@@ -1,5 +1,5 @@
+>? 当前文档适用于 V1.5.3版本及以下 SDK。建议正在使用旧版 SDK 的客户及时升级到 [新版 SDK](https://cloud.tencent.com/document/product/1073/80487)，以获取更好的使用体验。
 ## 开发相关
-
 ### 开发准备
 
 - 支持 Android 4.0 以上版本 API LEVEL 16，支持手机与平板。

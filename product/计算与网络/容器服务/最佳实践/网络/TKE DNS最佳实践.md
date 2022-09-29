@@ -4,7 +4,7 @@ DNS 作为 Kubernetes 集群中服务访问的第一环节，其稳定性和性�
 
 ## 选择最佳 CoreDNS 版本
 
-CoreDNS 和 TKE 版本的兼容性列表如下所示：
+下表列出了随各个版本 TKE 集群默认部署的 CoreDNS 版本：
 
 | TKE Version | CoreDNS version |
 | :------------------: | :------------------: |
@@ -14,8 +14,7 @@ CoreDNS 和 TKE 版本的兼容性列表如下所示：
 | v1.16 |  [v1.6.2](https://github.com/coredns/coredns/releases/tag/v1.6.2) |
 | v1.14 |  [v1.6.2](https://github.com/coredns/coredns/releases/tag/v1.6.2) |
 
-目前所有版本 TKE 集群默认安装 [v1.6.2](https://github.com/coredns/coredns/releases/tag/v1.6.2) 版本，后续将按照以上列表安装对应的版本。如果当前 CoreDNS 版本不满足需求，可以按如下指引手动升级：
-
+由于历史原因，可能会有 v1.18 及以上版本的集群仍然部署 v1.6.2 版本的 CoreDNS，如果当前 CoreDNS 版本不满足需求，可以按如下指引手动升级：
 - [升级到1.7.0](#1.7.0)
 - [升级到1.8.4](#1.8.4)
 

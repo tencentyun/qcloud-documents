@@ -5,7 +5,24 @@
 WebShell 目前具备丰富的功能，希望您在使用过程中拥有满意的体验。欢迎您参与 [WebShell 使用满意度调研](https://wj.qq.com/s2/10389082/ca3a/) 来提出更多建议或反馈，我们将会不断改进，使您拥有更好的产品体验！
 </dx-alert>
 
+## 2022年09月16日
+#### 新特性
+- **支持实时监控**
+通过 WebShell 界面右下角弹窗提示安装脚本后，即可在界面中显示机器的实时数据。
 
+## 2022年08月12日
+
+#### 新特性
+- **支持多种快捷键**
+您可在 WebShell 界面中使用快捷键进行便捷操作。请参考 [支持多种快捷键](https://cloud.tencent.com/document/product/1207/44642#hotKey) 查看已支持的快捷键。
+- **检测是否安装 vim 插件**
+解决在 WebShell 界面中使用 Vim 时，可能发生被某些插件拦截 Esc 按键问题。
+- **调整监控数据的刷新粒度为10s**
+您可在 WebShell 界面中查看实例实时监控数据，目前监控数据的刷新粒度为10s。详情请参见 [查看实例监控数据](https://cloud.tencent.com/document/product/1207/44642#monitoringData)。
+- **一键登录支持修改用户名**
+您可在 WebShell 界面中指定用户名进行登录。详情请参见 [修改用户名](https://cloud.tencent.com/document/product/1207/44642#modifyUsername)。
+- **支持一键安装自动化助手**
+使用 WebShell 一键免密登录方式需自动化助手支持。若您的实例未安装自动化助手，可在登录时进行一键安装。详情请参见 [一键安装自动化助手](https://cloud.tencent.com/document/product/1207/44642#installTAT)。
 
 
 ## 2022年07月15日

@@ -127,7 +127,7 @@ param.secretKey = "";
 param.token = "";
 ```
 2. 开始录制
-调用 startRecordAndEvaluation（）方法传入步骤4.1.1中设置的 param 参数，并设置回调函数，即可开始录制。
+调用 startRecordAndEvaluation() 方法传入 TAIOralEvaluationParam 的 param 参数，并设置回调函数，即可开始录制。
 ```
 //开始录制
 this.oral.startRecordAndEvaluation(param, new TAIOralEvaluationCallback() {
@@ -324,4 +324,13 @@ public String getStringToSign(long timestamp);
 
 
 ## 常见问题
-**关于混淆规则**：SDK 内部有做混淆规则，不需要再次混淆。暂不提供混淆方法。
+### 关于混淆规则
+SDK 内部有做混淆规则，不需要再次混淆。暂不提供混淆方法。
+
+### 使用 AndroidSDK 出现内存溢出的问题?	
+设备内存不足，可以尝试使用分片传输。
+
+### Android 端报 java.security.cert.CertPathValidatorException：Trustanchorforcertificationpathnotfound？	
+1. 如果在请求服务器签名证书的阶段网络不稳定会导致 tls 连接失败。
+2. 是否设置了代理，设置了代理会导致出现这个问题。
+

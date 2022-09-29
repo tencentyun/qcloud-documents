@@ -8,7 +8,7 @@ Tencent Cound API 3.0 SDK，封装了腾讯云的 SDK，通过集成 SDK，可�
 ## SDK 集成准备
 1. 获取密钥
 SecretId 和 SecretKey 是使用 SDK 的安全凭证，您可以在 访问管理 > 访问密钥 > [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取该凭证。
->! 密钥属于敏感信息，正式密钥仅可在调试使用，线上环境情况下，为了防止他人盗取，推荐使用 [临时签名](https://cloud.tencent.com/document/product/884/31888#:~:text=%E5%88%B0%E5%AE%A2%E6%88%B7%E7%AB%AF%E3%80%82-,%E4%B8%B4%E6%97%B6%E7%AD%BE%E5%90%8D,-policy%20%E7%A4%BA%E4%BE%8B%E5%A6%82%E4%B8%8B)，具体请参考 [签名](https://cloud.tencent.com/document/product/884/31888#5.-.E7.AD.BE.E5.90.8D) 相关内容。
+>! 密钥属于敏感信息，正式密钥仅可在调试使用，线上环境情况下，为了防止他人盗取，推荐使用 [临时签名](https://cloud.tencent.com/document/product/884/31888#SecretKey)，具体请参考 [签名](https://cloud.tencent.com/document/product/884/31888#SecretKey) 相关内容。
 >
 ![](https://qcloudimg.tencent-cloud.cn/raw/c0d190c71c0a47a54e5dbf4b1c6ce150.png)
 2. 设备准备
@@ -468,6 +468,149 @@ print(response.text)
 ## 常见问题
 参考 [常见问题](https://cloud.tencent.com/document/product/884/32593)。 
 
+## 附录
+Web SDK 和 Python SDK 交互使用。使用 flask 框架演示。
+使用依赖：
+```
+tencentcloud-sdk-python
+flask
+flask_cors
+gevent
+```
+
+### TransInitUrl 接口
+```
+import json
+from flask import Flask, request, render_template
+from flask_cors import CORS
+from gevent import pywsgi
+
+from tencentcloud.common import credential
+from tencentcloud.common.profile.client_profile import ClientProfile
+from tencentcloud.common.profile.http_profile import HttpProfile
+from tencentcloud.common.exception.tencent_cloud_sdk_exception import TencentCloudSDKException
+
+app = Flask(__name__)
+
+CORS(app)  # 允许跨域
+
+
+@app.route("/TransInitUrl", methods=["POST"])
+def TransInitUrl():
+    request_json = request.json
+
+    try:
+        # 实例化一个认证对象，入参需要传入腾讯云账户secretId，secretKey
+        cred = credential.Credential("", "")
+
+        # 实例化一个http选项，可选的，没有特殊需求可以跳过。
+        httpProfile = HttpProfile()
+        httpProfile.reqMethod = "POST"  # post请求(默认为post请求)
+        httpProfile.reqTimeout = 30  # 请求超时时间，单位为秒(默认60秒)
+        httpProfile.endpoint = "soe.tencentcloudapi.com"  # 指定接入地域域名(默认就近接入)
+
+        # 实例化一个client选项，可选的，没有特殊r需求可以跳过。
+        clientProfile = ClientProfile()
+        clientProfile.signMethod = "TC3-HMAC-SHA256"  # 指定签名算法(默认为HmacSHA256)
+        clientProfile.unsignedPayload = True
+        clientProfile.httpProfile = httpProfile
+
+        from tencentcloud.soe.v20180724 import soe_client, models
+        client = soe_client.SoeClient(cred, "", clientProfile)
+
+        req = models.TransmitOralProcessWithInitRequest()
+        req.SeqId = request_json['SeqId']
+        req.IsEnd = request_json['IsEnd']
+        req.VoiceFileType = request_json['VoiceFileType']
+        req.VoiceEncodeType = request_json['VoiceEncodeType']
+        req.UserVoiceData = request_json['UserVoiceData']
+        req.RefText = request_json['RefText']
+        req.WorkMode = request_json['WorkMode']
+        req.EvalMode = request_json['EvalMode']
+        req.ScoreCoeff = request_json['ScoreCoeff']
+        req.SessionId = request_json['SessionId']
+        req.ServerType = request_json['ServerType']
+        req.TextMode = request_json['TextMode']
+
+        # 请求服务，获取结果
+        resp = client.TransmitOralProcessWithInit(req)
+        json_resp = resp.to_json_string()
+
+        json_load = json.loads(json_resp)
+        # SDK 封装了返回结果。此处需要加上Response
+        new_dict = {
+        "Response": json_load
+        }
+        json_dumps = json.dumps(new_dict)
+
+        return json_dumps
+
+    except TencentCloudSDKException as err:
+        return err
+
+if __name__ == '__main__':
+    server = pywsgi.WSGIServer(('0.0.0.0', 9000), app)
+    server.serve_forever()
+```
+
+
+### getAuthorization 接口
+```
+import json
+from flask import Flask, request, render_template
+from flask_cors import CORS
+from gevent import pywsgi
+
+from tencentcloud.common import credential
+from tencentcloud.common.profile.client_profile import ClientProfile
+from tencentcloud.common.profile.http_profile import HttpProfile
+from tencentcloud.common.exception.tencent_cloud_sdk_exception import TencentCloudSDKException
+
+app = Flask(__name__)
+
+CORS(app)  # 允许跨域
+
+@app.route("/getAuthorization", methods=["GET"])
+def getAuthorization():
+    try:
+        # 实例化一个认证对象，入参需要传入腾讯云账户secretId，secretKey
+        cred = credential.Credential("", "")
+
+        # 实例化一个http选项，可选的，没有特殊需求可以跳过。
+        httpProfile = HttpProfile()
+        httpProfile.reqMethod = "POST"  # post请求(默认为post请求)
+        httpProfile.reqTimeout = 30  # 请求超时时间，单位为秒(默认60秒)
+        httpProfile.endpoint = "sts.tencentcloudapi.com"  # 指定接入地域域名(默认就近接入)
+
+        # 实例化一个client选项，可选的，没有特殊r需求可以跳过。
+        clientProfile = ClientProfile()
+        clientProfile.signMethod = "TC3-HMAC-SHA256"  # 指定签名算法(默认为HmacSHA256)
+        clientProfile.unsignedPayload = True
+        clientProfile.httpProfile = httpProfile
+
+        from tencentcloud.sts.v20180813 import sts_client, models
+        client = sts_client.StsClient(cred, "ap-guangzhou", clientProfile)
+
+        req = models.GetFederationTokenRequest()
+        req.Name = "soe"
+        req.Policy = "{\"version\": \"2.0\",\"statement\": {\"effect\": \"allow\",\"action\": [\"soe:TransmitOralProcessWithInit\"],\"resource\": \"*\"}}"
+        # req.DurationSeconds = 10
+        # 请求服务，获取结果
+        resp = client.GetFederationToken(req)
+        json_resp = resp.to_json_string()
+        json_loads = json.loads(json_resp)
+        # json_dumps = json.dumps(json_loads)
+
+        return json_loads
+
+    except TencentCloudSDKException as err:
+        return err
+
+if __name__ == '__main__':
+    server = pywsgi.WSGIServer(('0.0.0.0', 9000), app)
+    server.serve_forever()
+
+```
 
 
 

@@ -1,7 +1,7 @@
 
 ## 功能简介
 支持自定义变更/增加/删除 HTTP 请求头（从节点向源站请求回源时的 HTTP 请求头）。
->?EdgeOne 默认支持携带 X-Forwarded-For（真实客户端 IP）和 X-Forwarded-Proto（真实客户端请求协议），您无需再配置。
+>?EdgeOne 默认支持携带 X-Forwarded-For 和 X-Forwarded-Proto 回源，您无需再配置。
 >
 
 ## 操作指南

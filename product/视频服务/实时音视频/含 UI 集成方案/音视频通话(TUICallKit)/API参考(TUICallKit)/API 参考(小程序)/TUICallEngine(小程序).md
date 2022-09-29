@@ -1,7 +1,7 @@
 ## TUICallEngine API 简介
 
 TUICallEngine API 是音视频通话组件的**无 UI 接口**，如果 TUICallKit 的交互并不满足您的需求，您可以使用这套接口自己封装交互。
-由于小程序开发的限制，需要先给live-pusher[绑定事件](#bind)，具体可以参照[TUICallkit](https://tcloud-doc.isd.com/document/product/647/78760?!preview)。
+由于小程序开发的限制，需要先给live-pusher[绑定事件](#bind)，具体可以参照[TUICallkit](https://cloud.tencent.com/document/product/647/78760?!preview)。
 
 [](id:TUICallEngine)
 ## API 概览

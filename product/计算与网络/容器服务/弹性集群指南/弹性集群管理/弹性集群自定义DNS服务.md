@@ -7,13 +7,13 @@
 本文主要介绍如何通过修改 CoreDNS 配置文件，更改集群的 DNS 服务。
 
 ## 操作前提
-已经 [创建弹性集群](https://cloud.tencent.com/document/product/457/39813)，创建时需要在高级配置中选择**部署CoreDNS支持集群内服务发现**，以支持集群内服务发现。
+已经 [创建 Serverless 集群](https://cloud.tencent.com/document/product/457/39813)，创建时需要在高级配置中选择**部署 CoreDNS 支持集群内服务发现**，以支持集群内服务发现。
 
 ## 操作指引
 
 ### 默认 Corefile 配置说明
 
-在弹性集群中，部署 CoreDNS 会默认挂载一个 Configmap 作为 CoreDNS 的配置文件，即 Corefile。
+在 Serverless 集群中，部署 CoreDNS 会默认挂载一个 Configmap 作为 CoreDNS 的配置文件，即 Corefile。
 CoreDNS 安装时默认的 Corefile 配置如下：
 
 ```

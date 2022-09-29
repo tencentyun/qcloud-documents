@@ -39,7 +39,22 @@ Doris 从0.12版本开始支持 Json 格式的数据导入。
 { "id": 123, "city" : { "name" : "beijing", "region" : "haidian" }}
 ```
 这种方式通常用于 Routine Load 导入方式，如表示 Kafka 中的一条消息，即一行数据。
-        
+
+3. 以固定分隔符分隔的多行 Object 数据。
+Object 表示的一行数据即表示要导入的一行数据，示例如下：
+```json
+{ "id": 123, "city" : "beijing"}
+{ "id": 456, "city" : "shanghai"}
+...
+```
+这种方式通常用于 Stream Load 导入方式，以便在一批导入数据中表示多行数据。
+这种方式必须配合设置 `read_json_by_line=true` 使用，特殊分隔符还需要指定`line_delimiter`参数，默认`\n`。Doris 在解析时会按照分隔符分隔，然后解析其中的每一行 Object 作为一行数据。
+
+### fuzzy_parse 参数
+在 [STREAM LOAD](https://cloud.tencent.com/document/product/1387/70832) 中，可以添加 `fuzzy_parse` 参数来加速 JSON 数据的导入效率。
+这个参数通常用于导入 **以 Array 表示的多行数据** 这种格式，所以一般要配合 `strip_outer_array=true` 使用。
+这个功能要求 Array 中的每行数据的**字段顺序完全一致**。Doris 仅会根据第一行的字段顺序做解析，然后以下标的形式访问之后的数据。该方式可以提升 3-5X 的导入效率。
+
 ## Json Path
 Doris 支持通过 Json Path 抽取 Json 中指定的数据。
 

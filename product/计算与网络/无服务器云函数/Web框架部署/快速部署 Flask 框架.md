@@ -73,7 +73,7 @@ $ python3 app.py
 
 
 1. **安装依赖包**
- 1. 由于 SCF 云上标准环境内未提供 Flask 依赖库，此处您必须将依赖文件安装完成后，与项目代码一起打包上传。请先新建 `requirements.txt` 文件，文件内容如下：
+ 1. 由于 SCF 云上标准环境内未提供 Flask 依赖库，此处您必须将依赖文件安装完成后，与项目代码一起打包上传。请先在本地新建 `requirements.txt` 文件，文件内容如下：
 ```txt
 #requirements.txt
 Flask==1.0.2

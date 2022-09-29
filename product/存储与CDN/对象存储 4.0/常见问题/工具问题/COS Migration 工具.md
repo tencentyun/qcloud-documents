@@ -16,7 +16,7 @@
 
 ### 迁移失败，日志显示503 Slow Down，该如何处理？
 
-这是触发频控所导致，COS 目前对一个账号具有每秒30000QPS 的操作限制。建议调小配置中小文件的并发度,，并重新运行工具，则会将失败的重新运行。
+这是触发频控所导致，COS 目前对一个账号具有每秒30000QPS的操作限制。建议调小配置中小文件的并发度，并重新运行工具，则会将失败的重新运行。
 
 ### 迁移失败，日志显示404 NoSuchBucket，该如何处理？
 
@@ -25,7 +25,7 @@
 ### 运行异常，显示如下的信息该怎么办?
 
 ![img](https://main.qcloudimg.com/raw/9fdac231af66c991c13fe0440e8d7366.png)
-此问题是因为工具使用了 rocksdb，需要使用64位的 JDK，请检查 JDK 版本是 X64的 JDK 。
+此问题是因为工具使用了 rocksdb，需要使用64位的 JDK，请检查 JDK 版本是 X64 的 JDK。
 
 ### 在 Windows 环境下报找不到 rocksdb 的 jni 库，该如何处理？
 在 Windows 环境下，工具需要在 Microsoft Visual Studio 2015环境下编译。若出现以上报错，需安装 [Visual C++ Redistributable for Visual Studio 2015](https://www.microsoft.com/zh-CN/download/details.aspx?id=48145)。
@@ -34,7 +34,7 @@
 修改文件 src/main/resources/log4j.properties，把 log4j.rootLogger 的值复制为对应的日志级别，如 DEBUG、INFO、ERROR。
 
 ### 在 Linux 环境下，报 /tmp/librocksdbjnixxx.so: ELF file OS ABI invalid 的错误，该如何处理？
-在 Linux 环境下，工具需要 IFUNC 支持，请检查并确保运行环境的 binutils 版本大于 2.20。
+在 Linux 环境下，工具需要 IFUNC 支持，请检查并确保运行环境的 binutils 版本大于2.20。
 
 如遇其他问题，请您尝试重新运行迁移工具。若仍然失败，请将配置信息（密钥信息请隐藏）与 log 目录打包后 [联系我们](https://cloud.tencent.com/document/product/436/37708)。
 

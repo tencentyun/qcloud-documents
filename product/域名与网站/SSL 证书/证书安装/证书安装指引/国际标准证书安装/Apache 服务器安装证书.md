@@ -9,6 +9,7 @@
 
 ## 前提条件
 - 已准备远程文件拷贝软件，例如 WinSCP（建议从官方网站获取最新版本）。
+若您部署到腾讯云云服务器，建议使用云服务器的文件上传功能。详情请参见 [上传文件到云服务器](https://cloud.tencent.com/document/product/1340/72845)。
 - 已准备远程登录工具，例如 PuTTY 或者 Xshell（建议从官方网站获取最新版本）。
 - 已在当前服务器中安装配置 Apache 服务。
 - 安装 SSL 证书前需准备的数据如下：
@@ -47,6 +48,9 @@
   - **CSR 文件内容**：	`cloud.tencent.com.csr` 文件
 >?CSR 文件是申请证书时由您上传或系统在线生成的，提供给 CA 机构。安装时可忽略该文件。
 3. 使用 “WinSCP”（即本地与远程计算机间的复制文件工具）登录 Apache 服务器。
+>?
+>- WinSCP 上传文件操作可参考 [通过 WinSCP 上传文件到 Linux 云服务器](https://cloud.tencent.com/document/product/213/2131)。
+>- 若您需部署到腾讯云云服务器，建议使用云服务器的文件上传功能。详情请参见 [上传文件到云服务器](https://cloud.tencent.com/document/product/1340/72845)。
 4. 将已获取到的 `root_bundle.crt` 证书文件、`cloud.tencent.com.crt` 证书文件以及 `cloud.tencent.com.key` 私钥文件从本地目录拷贝到 Apache 服务器的 `/etc/httpd/ssl` 目录下。
 >? 若无 `/etc/httpd/ssl` 目录，可通过 `mkdir /etc/httpd/ssl` 命令行创建。
 5. 远程登录 Apache 服务器。例如，使用 [“PuTTY” 工具](https://cloud.tencent.com/document/product/213/35699#.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4) 登录。
@@ -72,6 +76,15 @@
 </VirtualHost>
 ```
 9. 重新启动 Apache 服务器，即可使用 `https://cloud.tencent.com` 进行访问。
+ - 如果浏览器地址栏显示安全锁标识，则说明证书安装成功。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/45d7e33dd41abb06087edda4871222b5.png)
+ - 如果网站访问异常，可参考以下常见问题解决方案进行处理：
+    - [无法使用 HTTPS 访问网站](https://cloud.tencent.com/document/product/400/53650)
+    - [部署 SSL 证书后，浏览器提示 “网站连接不安全”](https://cloud.tencent.com/document/product/400/56830)
+    - [访问站点提示连接不安全？](https://cloud.tencent.com/document/product/400/5366)
+    - [SSL 证书过期后重新申请部署依然提示 HTTPS 不安全？](https://cloud.tencent.com/document/product/400/65727)
+    - [在服务器上部署 SSL 证书后访问资源出现 404 报错](https://cloud.tencent.com/document/product/400/53651)
+
 
 ### HTTP 自动跳转 HTTPS 的安全配置（可选）
 如果您需要将 HTTP 请求自动重定向到 HTTPS。您可以通过以下操作设置：
