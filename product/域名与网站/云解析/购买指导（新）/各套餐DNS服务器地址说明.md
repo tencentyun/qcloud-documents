@@ -41,7 +41,7 @@ DNSPod 各个套餐的 DNS 服务器如下：
 </thead>
 <tbody><tr>
 <td>企业基础版</td>
-<td>ns3.dnsv3.comns4.dnsv3.com</td>
+<td><ul><li>ns3.dnsv3.com</li><li>ns4.dnsv3.com</li></ul></td>
 </tr>
 <tr>
 <td>个人豪华版</td>
