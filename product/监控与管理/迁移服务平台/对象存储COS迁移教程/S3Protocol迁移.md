@@ -44,7 +44,7 @@
    更准确的填写任务规模，以便我们更好的准备相关资源，非必填
 
 4. 设置要迁移的文件来源。
-   此处迁移源服务提供商应选择支持`S3协议的源站`，并在下方 AccessKey，SecretKey 文本框中输入用于迁移的账号 AccessKey 和 SecretKey。接着填入待迁移桶名称和访问源桶的S3的**完整空间域名**（可以带上http或者https协议，不带则默认走https）。对于S3系统里需要鉴定地域的，需要填入源桶地域；如果不鉴定则不需要填。
+   此处迁移源服务提供商应选择支持`S3协议的源站`，并在下方 AccessKey，SecretKey 文本框中输入用于迁移的账号 AccessKey 和 SecretKey。接着填入待迁移桶名称和访问源桶的 S3 的**完整空间域名**（可以带上 http 或者 https 协议，不带则默认走 https）。对于S3系统里需要鉴定地域的，需要填入源桶地域；如果不鉴定则不需要填。
    ![](https://qcloudimg.tencent-cloud.cn/raw/38e1972ce5658a87d3084827610a9543.png)
 
 5. 选择 Header 方式。
