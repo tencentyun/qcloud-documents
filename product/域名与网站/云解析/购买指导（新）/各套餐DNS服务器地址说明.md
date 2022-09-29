@@ -45,23 +45,23 @@ DNSPod 各个套餐的 DNS 服务器如下：
 </tr>
 <tr>
 <td>个人豪华版</td>
-<td>ns1.dnsv2.comns2.dnsv2.com</td>
+<td><ul><li>ns1.dnsv2.com</li><li>ns2.dnsv2.com</li></ul></td>
 </tr>
 <tr>
 <td>企业 I</td>
-<td>ns1.dnsv3.comns2.dnsv3.com</td>
+<td><ul><li>ns1.dnsv3.com</li><li>ns2.dnsv3.com</li></ul></td>
 </tr>
 <tr>
 <td>企业 II</td>
-<td>ns1.dnsv4.comns2.dnsv4.com</td>
+<td><ul><li>ns1.dnsv4.com</li><li>ns2.dnsv4.com</li></ul></td>
 </tr>
 <tr>
 <td>企业 III</td>
-<td>ns1.dnsv5.comns2.dnsv5.com</td>
+<td><ul><li>ns1.dnsv5.com</li><li>ns2.dnsv5.com</li></ul></td>
 </tr>
 <tr>
 <td>DNSPod 体验版</td>
-<td>namerich1.dnspod.netnamerich2.dnspod.net</td>
+<td><ul><li>namerich1.dnspod.net</li><li>namerich2.dnspod.net</li></ul></td>
 </tr>
 </tbody></table>
 
