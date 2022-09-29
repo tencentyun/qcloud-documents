@@ -10,12 +10,12 @@
 ## 准备工作
 #### AWS S3
 1. 专线准备确认：
-Agent 半托管模式如果是通过专线迁移，需要确保AWS云侧主机上使用的 COS SDK，可经过专线访问 COS，迁移前请与商务经理确认。
+Agent 半托管模式如果是通过专线迁移，需要确保 AWS 云侧主机上使用的 COS SDK，可经过专线访问 COS，迁移前请与商务经理确认。
 2. 创建 AWS IAM 账号并授予相关权限：
 	1.	登录 AWS 控制台。
 	2.	在导航窗格中，选择用户，然后选择添加用户。为新用户键入用户名。
 	3.	选择此组用户将拥有的访问权限类型。选择以编程方式访问和访问 AWS 管理控制台。
-	4.	单击**Next: Permissions**（下一步：权限）。在 Set permissions 页面上，指定您要向新用户分配权限的方式。授予IAM账号存储空间读写权限。
+	4.	单击**Next: Permissions**（下一步：权限）。在 Set permissions 页面上，指定您要向新用户分配权限的方式。授予 IAM 账号存储空间读写权限。
 	5.	单击**Create user**。
 	6.	要查看用户的访问密钥（访问密钥 ID 和秘密访问密钥），请选择您要查看的每个密码和访问密钥旁边的显示。要保存访问密钥，请选择下载` .csv`，获取 AccessKeyID 和 AccessKeySecret。
 
@@ -55,10 +55,10 @@ Agent 半托管模式如果是通过专线迁移，需要确保AWS云侧主机�
 
    ![](https://qcloudimg.tencent-cloud.cn/raw/f97b88b85b49b4565dfd30f1f251d881.png)
 
-   更准确的填写任务规模，以便我们更好的准备相关资源，非必填
+   更准确的填写任务规模，以便我们更好的准备相关资源，非必填。
 
 4. 设置要迁移的文件来源。
-   此处迁移源服务提供商应选择`AWS S3中国区`，并在下方 AccessKey，SecretKey 文本框中输入先前新建用于迁移的AWS子账号 AccessKeyID 和 AccessKeySecret。填入密钥后，单击“迁移桶名称”下拉框右侧的**刷新**按钮，即可获取源对象存储桶列表。
+   此处迁移源服务提供商应选择`AWS S3中国区`，并在下方 AccessKey，SecretKey 文本框中输入先前新建用于迁移的 AWS 子账号 AccessKeyID 和 AccessKeySecret。填入密钥后，单击“迁移桶名称”下拉框右侧的**刷新**按钮，即可获取源对象存储桶列表。
    ![](https://qcloudimg.tencent-cloud.cn/raw/e9943ed2c06e91bf792cac8d67e253ce.png)
 
    也可以选择手动输入源桶名称
@@ -111,13 +111,9 @@ Agent 半托管模式如果是通过专线迁移，需要确保AWS云侧主机�
 12. 选择迁移模式
 
      - 新建迁移任务后立即启动全托管迁移：选择托管迁移，用户单击“新建并启动”后 MSP 服务将通过公网访问源存储进行迁移。
-
        ![](https://qcloudimg.tencent-cloud.cn/raw/9c9591c252be2d19c67ca994dc745c23.png)
 
-     - 新建迁移任务后手动下载 Agent 启动迁移：选择 Agent 模式迁移，用户在单击“新建并启动”后，将仅创建任务配置，需要用户手动下载 Agent 在迁移源一侧的服务器上部署之后才会正式启动迁移。迁移Agent部署参考文档
-
-       [半托管迁移Agent的使用说明]()
-
+     - 新建迁移任务后手动下载 Agent 启动迁移：选择 Agent 模式迁移，用户在单击“新建并启动”后，将仅创建任务配置，需要用户手动下载 Agent 在迁移源一侧的服务器上部署之后才会正式启动迁移。迁移 Agent 部署参考文档：[半托管迁移 Agent 的使用说明](https://cloud.tencent.com/document/product/659/81158)
        ![](https://qcloudimg.tencent-cloud.cn/raw/1cf17dbd3078237e54d5d878c2af73e1.png)
 
     
@@ -125,13 +121,11 @@ Agent 半托管模式如果是通过专线迁移，需要确保AWS云侧主机�
 13. 定时任务设置
 
     定时任务可以重复运行任务，可以对源桶中的增量文件做出同步。除了第一次任务是立即执行，之后会根据定时设置在固定间隔时间之后或者Cron设定的定时规则时触发再次运行。再次运行时“同名文件”会变为“跳过（保留目标桶中已有的同名文件）”，即只同步增量文件。
-
     ![](https://qcloudimg.tencent-cloud.cn/raw/3c222b9c970209607b81e0fc40d48118.png)
 
     
 
 14. 单击**新建并启动**，即可启动迁移任务。
-
 ![](https://qcloudimg.tencent-cloud.cn/raw/5dabf24cdbbef293f85c7fa10c4816de.png)
 
 
@@ -154,5 +148,4 @@ Agent 半托管模式如果是通过专线迁移，需要确保AWS云侧主机�
 | 迁入目标位置的写入速度 | 腾讯云对象存储 COS：默认写入传输速度15000Mbps，写入QPS 3000 - 30000之间。 |
 
 
-​	
 
