@@ -13,7 +13,7 @@ ODBC External Table Of Doris 提供了 Doris 通过数据库访问的标准接�
 
 ## 使用方法
 ### Doris 中创建 ODBC 的外表
-具体建表语法参照： [CREATE TABLE](https://doris.apache.org/zh-CN/docs/dev/sql-manual/sql-reference/Data-Definition-Statements/Create/CREATE-TABLE)
+具体建表语法参照 [CREATE TABLE](https://doris.apache.org/zh-CN/docs/dev/sql-manual/sql-reference/Data-Definition-Statements/Create/CREATE-TABLE)。
 
 #### 不使用 Resource 创建 ODBC 的外表
 ```sql
