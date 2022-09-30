@@ -33,7 +33,7 @@
 ## 获取 HLS 自适应播放地址
 
 1. 通过 [地址生成器](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator)，选择创建的自适应码率模板，单击**生成**。
- <img src="https://qcloudimg.tencent-cloud.cn/raw/e3aaf471bbfe5947ef41c28b099a2d89.jpg" width="600">
+ <img src="https://qcloudimg.tencent-cloud.cn/raw/8ce6df1097cc472e18cb6e57c9d3e779.jpg" width="600">
 2. 通过自适应模板的名称，来拼接地址。HLS 自适应播放的格式为：
 ```http
 http://{Domain}/{AppName}/{StreamName}_{AdaptiveTemplate}.m3u8
