@@ -128,7 +128,7 @@ V2TXLivePlayer player = new V2TXLivePlayerImpl(mContext);
 player.setObserver(new MyPlayerObserver(playerView));
 player.setRenderView(mSurfaceView);
 // 传⼊互动直播播放协议地址，即可开始播放，streamid对应推流时设置的streamid，比如12345687；
-player.startPlay("https://3891.liveplay.myqcloud.com/live/streamid.flv");
+player.startLivePlay("https://3891.liveplay.myqcloud.com/live/streamid.flv");
 ```
 
 [](id:step4)
@@ -155,7 +155,7 @@ V2TXLivePlayer playerA = new V2TXLivePlayerImpl(mContext);
  * playURLA= "http://3891.liveplay.myqcloud.com/live/streamidA.hls";
  * playURLA= "webrtc://3891.liveplay.myqcloud.com/live/streamidA"
  */
-playerA.startPlay(playURLA);
+playerA.startLivePlay(playURLA);
 ```
 -  **观众发起连麦：**
 其中观众 B 调用 `V2TXLivePusher` 发起推流（后续会称呼为连麦观众 B）。
@@ -175,7 +175,7 @@ V2TXLivePlayer playerB = new V2TXLivePlayerImpl(mContext);
 /**
  * playURLB= "trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&userId=A&usersig=xxx";
  */
-playerB.startPlay(playURLB);
+playerB.startLivePlay(playURLB);
 ```
 同时，**连麦观众 B** 调用 `V2TXLivePlayer` 切换至 RTC 协议，开始播放主播 A 的流。
 ```java
@@ -184,7 +184,7 @@ V2TXLivePlayer playerA = new V2TXLivePlayerImpl(mContext);
 /**
  *playURLA= "trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&userId=B&usersig=xxx";
  */
-playerA.startPlay(playURLA);
+playerA.startLivePlay(playURLA);
 ```
 此时主播 A 和**连麦观众 B** 即可进入超低延时的实时互动场景中。
 -  **连麦成功后，进行混流：**
@@ -278,7 +278,7 @@ V2TXLivePlayer playerA = new V2TXLivePlayerImpl(mContext);
  * playURLA= "http://3891.liveplay.myqcloud.com/live/streamidB.hls";
  * playURLA= "webrtc://3891.liveplay.myqcloud.com/live/streamidB"
  */
-playerA.startPlay(playURLA);
+playerA.startLivePlay(playURLA);
 
 V2TXLivePlayer playerB = new V2TXLivePlayerImpl(mContext);
 ...
@@ -288,7 +288,7 @@ V2TXLivePlayer playerB = new V2TXLivePlayerImpl(mContext);
  * playURLB= "http://3891.liveplay.myqcloud.com/live/streamidA.hls";
  * playURLB= "webrtc://3891.liveplay.myqcloud.com/live/streamidA"
  */
-playerB.startPlay(playURLB);
+playerB.startLivePlay(playURLB);
 :::
 </dx-codeblock>
 4. **PK 成功后**，主播 A 和主播 B 的观众各自调用 `V2TXLivePlayer` 开始播放另外一名主播的推流内容。

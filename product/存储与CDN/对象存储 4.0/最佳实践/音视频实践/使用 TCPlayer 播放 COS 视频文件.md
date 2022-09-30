@@ -1,14 +1,14 @@
 ## 简介
 本文将介绍如何使用音视频终端 SDK（腾讯云视立方）集成的 [ TCPlayer](https://cloud.tencent.com/document/product/881/30818) 并结合 [腾讯云数据万象(CI)](https://cloud.tencent.com/document/product/460/47503) 所提供的丰富的音视频能力，实现在 Web 浏览器播放 COS 视频文件。
 
-[](id:IntegrationGuidelines)
+
 ## 集成指引
 #### 步骤1：在页面中引入播放器样式文件及脚本文件
 ```
 <!--播放器样式文件-->
-<link href="https://web.sdk.qcloud.com/player/tcplayer/release/v4.2.2/tcplayer.min.css" rel="stylesheet"/>
+<link href="https://web.sdk.qcloud.com/player/tcplayer/release/v4.2.1/tcplayer.min.css" rel="stylesheet">
 <!--播放器脚本文件-->
-<script src="https://web.sdk.qcloud.com/player/tcplayer/release/v4.2.2/tcplayer.v4.2.2.min.js"></script>
+<script src="https://web.sdk.qcloud.com/player/tcplayer/release/v4.5.0/tcplayer.v4.5.0.min.js"></script>
 ```
 >?
 >- 建议在正式使用播放器 SDK 时，自行部署以上相关静态资源，[单击下载播放器资源](https://web.sdk.qcloud.com/player/tcplayer/release/v4.2.2/release.zip)。
@@ -46,7 +46,7 @@ player.src("https://<BucketName-APPID>.cos.<Region>.myqcloud.com/xxx.mp4"); // C
 ```
 
 ## 功能指引
-
+[](id:1)
 ### 播放不同格式的视频文件
 1. 获取 COS 存储桶上的视频文件对象地址。
 >? 未经转码的源视频在播放时有可能出现不兼容的情况，建议您使用转码后的视频进行播放，通过数据万象 [音视频转码处理](https://cloud.tencent.com/document/product/460/47509)，获取不同格式视频文件。
@@ -77,7 +77,7 @@ player.src("https://<BucketName-APPID>.cos.<Region>.myqcloud.com/xxx.mp4"); // C
 - [播放 DASH 示例代码](https://github.com/tencentyun/cos-demo/blob/main/cos-video/examples/web/tcplayer/dash.html)
 
 
-
+[](id:2)
 ### 播放 PM3U8 视频
 PM3U8 是指私有的 M3U8 视频文件，COS 提供用于获取私有 M3U8 TS 资源的下载授权API，可参见 [私有 M3U8 接口](https://cloud.tencent.com/document/product/436/73189)。
 ```
@@ -89,6 +89,7 @@ var player = TCPlayer("player-container-id", {
 获取示例代码：
 - [播放 PM3U8 示例代码](https://github.com/tencentyun/cos-demo/blob/main/cos-video/examples/web/tcplayer/pm3u8.html)
 
+[](id:3)
 ### 设置封面图
 1. 获取 COS 存储桶上的封面图对象地址。
 >!通过数据万象 [智能封面](https://cloud.tencent.com/document/product/460/47508) 能力，提取最优帧生成截图作为封面，可提升内容吸引力。
@@ -102,6 +103,7 @@ var player = TCPlayer("player-container-id", {
 获取示例代码：
 - [设置封面图示例代码](https://github.com/tencentyun/cos-demo/blob/main/cos-video/examples/web/tcplayer/poster.html)
 
+[](id:4)
 ### 播放 HLS 加密视频
 为了保障视频内容安全，防止视频被非法下载和传播，数据万象提供了对 HLS 视频内容进行加密的功能，拥有相比于私有读文件更高的安全级别。加密后的视频，无法分发给无访问权限的用户观看。即使视频被下载到本地，视频本身也是被加密的，无法恶意二次分发，从而保障您的视频版权不受到非法侵犯。
 
@@ -116,6 +118,7 @@ player.src("https://<BucketName-APPID>.cos.<Region>.myqcloud.com/xxx.m3u8"); // 
 获取示例代码：
 - [播放 HLS 加密视频示例代码](https://github.com/tencentyun/cos-demo/blob/main/cos-video/examples/web/tcplayer/m3u8.html)
 
+[](id:5)
 ### 切换清晰度
 数据万象 [自适应码流](https://cloud.tencent.com/document/product/460/58430) 功能，可以将视频文件转码并打包生成自适应码流输出文件，帮助用户在不同网络情况下快速分发视频内容，播放器能够根据当前带宽，动态选择最合适的码率播放，详情可参见 [COS 音视频实践 ｜ 数据工作流助你播放多清晰度视频](https://mp.weixin.qq.com/s/THUhur1FV_55T9zzqT2MFQ)。
 操作步骤如下：
@@ -129,6 +132,7 @@ player.src("https://<BucketName-APPID>.cos.<Region>.myqcloud.com/xxx.m3u8"); // 
 获取示例代码：
 - [切换清晰度示例代码](https://github.com/tencentyun/cos-demo/blob/main/cos-video/examples/web/tcplayer/multiDefinition.html)
 
+[](id:6)
 ### 设置动态水印
 播放器支持为视频添加位置与速度产生变换的水印。在使用动态水印功能时，播放器对象的引用不能暴露到全局环境，否则动态水印可以轻易去除，数据万象也支持在云端对视频进行添加动态水印等操作，详情可参见 [水印模板接口](https://cloud.tencent.com/document/product/460/77715)。
 ```
@@ -146,6 +150,7 @@ var player = TCPlayer("player-container-id", {
 获取示例代码：
 - [设置动态水印](https://github.com/tencentyun/cos-demo/blob/main/cos-video/examples/web/tcplayer/dynamicWatermark.html)
 
+[](id:7)
 ### 设置贴片广告
 操作步骤如下：
 1. 准备视频广告封面图以及广告链接。
@@ -179,6 +184,7 @@ player.posterImage.el_.appendChild(adCloseIconNode);
 获取示例代码：
 - [设置贴片广告示例代码](https://github.com/tencentyun/cos-demo/blob/main/cos-video/examples/web/tcplayer/advertise.html)
 
+[](id:8)
 ### 设置视频进度图
 操作步骤如下：
 1. 通过数据万象 [视频截帧](https://cloud.tencent.com/document/product/460/47505) 并生成雪碧图。
@@ -198,6 +204,7 @@ player.src('https://<BucketName-APPID>.cos.<Region>.myqcloud.com/xxx.mp4');
 获取示例代码：
 - [设置视频进度图示例代码](https://github.com/tencentyun/cos-demo/blob/main/cos-video/examples/web/tcplayer/preview.html)
 
+[](id:9)
 ### 设置视频字幕
 操作步骤如下：
 1. 通过数据万象 [语音识别](https://cloud.tencent.com/document/product/460/47492) 并生成字幕文件。
@@ -221,6 +228,7 @@ player.on('ready', function () {
 获取示例代码：
 - [设置视频字幕示例代码](https://github.com/tencentyun/cos-demo/blob/main/cos-video/examples/web/tcplayer/subtitle.html)
 
+[](id:10)
 ### 设置视频多语言字幕
 操作步骤如下：
 1. 通过数据万象 [语音识别](https://cloud.tencent.com/document/product/460/47492) 生成字幕文件，并同时翻译成多种语言。

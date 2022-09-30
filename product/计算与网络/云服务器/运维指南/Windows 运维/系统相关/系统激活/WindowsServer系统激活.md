@@ -49,3 +49,4 @@ w32tm /resync
 cscript /nologo %windir%/system32/slmgr.vbs -skms kms.tencentyun.com:1688
 cscript /nologo %windir%/system32/slmgr.vbs -ato
 ```
+

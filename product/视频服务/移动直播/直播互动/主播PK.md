@@ -103,27 +103,27 @@ NSString *pushURLB = @"trtc://cloud.tencent.com/push/streamid?sdkappid=140018888
 // 主播A
 V2TXLivePlayer player = new V2TXLivePlayerImpl(mContext);
 playURLB = "trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&userId=A&usersig=xxx&appscene=live"
-player.startPlay(playURLB);
+player.startLivePlay(playURLB);
 ...
 
 // 主播B
 V2TXLivePlayer player = new V2TXLivePlayerImpl(mContext);
 playURLA= "trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&userId=B&usersig=xxx&appscene=live"
-player.startPlay(playURLA);
+player.startLivePlay(playURLA);
 :::
 ::: Objective-C ObjectiveC
 // 主播A
 V2TXLivePlayer *player = [[V2TXLivePlayer alloc] init];
 NSString *playURLB = "trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&userId=A&usersig=xxx&appscene=live"
 [player setRenderView:view];
-[player startPlay:playURLB];
+[player startLivePlay:playURLB];
 ...
 
 // 主播B
 V2TXLivePlayer *player = [[V2TXLivePlayer alloc] init];
  NSString *playURLA = "trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&userId=B&usersig=xxx&appscene=live"
 [player setRenderView:view];
-[player startPlay:playURLA];
+[player startLivePlay:playURLA];
 :::
 </dx-codeblock>
 
@@ -310,8 +310,8 @@ pusher.setMixTranscodingConfig(config);
 我们有提供对应的音质和画质的设置接口，具体请参见 [设置画面质量](https://cloud.tencent.com/document/product/454/56600)。
 
 [](id:que3)
-#### 3. `V2TXLivePusher#startPush` 收到错误码：`-5` 代表什么意思？
-`-5` 表示由于许可证无效，因此无法调用API，对应的枚举值为：[V2TXLIVE_ERROR_INVALID_LICENSE](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLiveCode__ios.html)，更多错误码请参见 [API 状态码](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLiveCode__ios.html)。
+#### 3. `V2TXLivePusher#startPush` 或 `V2TXLivePlayer#startLivePlay` 收到错误码：`-5` 代表什么意思？
+`-5` 表示由于许可证无效，因此无法调用API，对应的枚举值为：[V2TXLIVE_ERROR_INVALID_LICENSE](https://cloud.tencent.com/document/product/454/56612)。
 
 [](id:que4)
 #### 4. RTC连麦方案的时延性有可以参考的数据吗？

@@ -60,7 +60,7 @@
 >
 <dx-tabs>
 ::: 方式1：自动选择 SSL
-修改 `server.xml` 文件 `Connector`的属性为以下内容：
+修改 `server.xml` 文件，添加 Connector 属性，内容如下：
 ```
 <Connector port="443"  
 protocol="HTTP/1.1"
@@ -76,7 +76,7 @@ protocol="HTTP/1.1"
 ```
 :::
 ::: 方式2：手动选择 SSL 
-修改 `server.xml` 文件 `Connector` 的属性为以下内容：
+修改 `server.xml` 文件，添加 Connector 属性，内容如下：
 ```
 <Connector
     protocol="org.apache.coyote.http11.Http11NioProtocol"
@@ -104,6 +104,15 @@ protocol="HTTP/1.1"
 ./startup.sh
 ```
 8. 若启动成功，即可使用 `https://cloud.tencent.com` 进行访问。
+ - 如果浏览器地址栏显示安全锁标识，则说明证书安装成功。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/45d7e33dd41abb06087edda4871222b5.png)
+ - 如果网站访问异常，可参考以下常见问题解决方案进行处理：
+    - [无法使用 HTTPS 访问网站](https://cloud.tencent.com/document/product/400/53650)
+    - [部署 SSL 证书后，浏览器提示 “网站连接不安全”](https://cloud.tencent.com/document/product/400/56830)
+    - [访问站点提示连接不安全？](https://cloud.tencent.com/document/product/400/5366)
+    - [SSL 证书过期后重新申请部署依然提示 HTTPS 不安全？](https://cloud.tencent.com/document/product/400/65727)
+    - [在服务器上部署 SSL 证书后访问资源出现 404 报错](https://cloud.tencent.com/document/product/400/53651)
+
 
 ### HTTP 自动跳转 HTTPS 的安全配置（可选）
 如果您需要将 HTTP 请求自动重定向到 HTTPS。您可以通过以下操作设置：
