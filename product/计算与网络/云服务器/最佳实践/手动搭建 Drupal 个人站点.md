@@ -124,7 +124,7 @@ ALTER USER root@localhost IDENTIFIED VIA mysql_native_password USING PASSWORD('�
 ```shellsession
 http://云服务器公网IP/drupal
 ```
-2. 单击 **Save and continue**，选择语言为简体中文。如下图所示：
+2. 选择语言为简体中文后单击 **Save and continue**。如下图所示：
 ![](https://main.qcloudimg.com/raw/89587cec77324a8f689e229487b48239.png)
 3. 选择标准安装方式后单击**保存并继续**，。如下图所示：
 ![](https://main.qcloudimg.com/raw/5a0588602fa79024567cfdcc32342906.png)
