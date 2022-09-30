@@ -1,7 +1,7 @@
 ## 操作场景
 Ghost 是使用 Node.js 语言编写的开源博客平台，您可使用 Ghost 快速搭建博客，简化在线出版过程。本文档介绍如何在腾讯云云服务器（CVM）上手动搭建 Ghost 个人网站。
 
-进行 Ghost 网站搭建，您需要熟悉 Liunx 操作系统及命令，例如 [Ubuntu 环境下通过 Apt-get 安装软件](https://cloud.tencent.com/document/product/213/2123) 等常用命令。
+进行 Ghost 网站搭建，您需要熟悉 Linux 操作系统及命令，例如 [Ubuntu 环境下通过 Apt-get 安装软件](https://cloud.tencent.com/document/product/213/2123) 等常用命令。
 
 ## 示例软件版本
 本文搭建 Ghost 博客使用的操作系统及软件版本及说明如下：
