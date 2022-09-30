@@ -10,7 +10,7 @@ dependencies {
       implementation 'com.tencent.mediacloud:TencentEffect_S1-04:latest.release'
    }
 ```
-**各套餐对应的 maven 地址，请参见[参考文档](https://cloud.tencent.com/document/product/616/65891)**。
+**各套餐对应的 maven 地址，请参见[文档](https://cloud.tencent.com/document/product/616/65891)**。
 2. 在 app 模块下找到 src/main/assets 文件夹，如果没有则创建，检查下载的 SDK 包中是否有 MotionRes 文件夹，如果有则将此文件夹拷贝到 `../src/main/assets` 目录下。
 3. 在 app 模块下找到 AndroidManifest.xml 文件，在 application 表填内添加如下标签
 ```xml
