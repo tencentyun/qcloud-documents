@@ -30,7 +30,7 @@
 >? **配置自适应码率模板的详细参数**，请参见 [直播自适应码率](https://cloud.tencent.com/document/product/267/78369)
 
 
-## 获取HLS自适应播放地址
+## 获取 HLS 自适应播放地址
 
 1. 通过 [地址生成器](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator)，选择创建的自适应码率模板，单击**生成**。
  <img src="https://qcloudimg.tencent-cloud.cn/raw/e3aaf471bbfe5947ef41c28b099a2d89.jpg" width="600">
