@@ -1,9 +1,7 @@
 ## 步骤1：美颜资源下载与集成
 
-根据您购买的套餐[下载SDK](https://cloud.tencent.com/document/product/616/65876)。
-
-添加文件到自己的工程中：
-
+1. 根据您购买的套餐 [下载 SDK](https://cloud.tencent.com/document/product/616/65876)。
+2. 添加文件到自己的工程中：
 <dx-tabs>
 ::: Android
 1. 在 app 模块下找到 build.gradle 文件，添加您对应套餐的 maven 引用地址，例如您选择的是S1-04套餐，则添加如下：
