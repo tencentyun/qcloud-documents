@@ -25,9 +25,8 @@ uni-app TUIKit 是基于 IM SDK 实现的一套 UI 组件，其包含会话、�
 - iOS
 - 微信小程序
 
-## 如何集成 TUIKit？
 
-## 快速搭建
+## 集成 TUIKit 操作步骤
 
 ### 步骤1：安装依赖
 1. uni-app TUIKit 支持源码集成，下载 [uni-app TUIKit 源码](https://github.com/tencentyun/TIMSDK/tree/master)。将 TUIKit 文件夹与自己的工程文件夹置于同级，例如：
@@ -53,12 +52,11 @@ uni-app TUIKit 是基于 IM SDK 实现的一套 UI 组件，其包含会话、�
  
 ### 步骤5：更新路由
 
-根据页面更新路由：更新 pages.json  中的 pages 路由。
+根据页面更新路由：更新 pages.json 中的 pages 路由。
 ![](https://qcloudimg.tencent-cloud.cn/raw/40afe0526582a95c7d08008552534936.png)
 
 ### 步骤6：获取签名和登录
->! 
->- 正确的 `UserSig` 签发方式是将 `UserSig` 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 `UserSig` 时由您的 App 向业务服务器发起请求获取动态 `UserSig`。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/647/17275#Server)。
+>! 正确的 `UserSig` 签发方式是将 `UserSig` 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 `UserSig` 时由您的 App 向业务服务器发起请求获取动态 `UserSig`。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/647/17275#Server)。
 
 <dx-codeblock>
 :::  js
@@ -83,7 +81,7 @@ uni.$TUIKit.login({userID: 'your userID', userSig: 'your userSig'})
 
 ## 常见问题
 [](id:Q1)
-### 1. uni-app  同时支持 Android，iOS， 微信小程序平台，IM SDK 如何选择？
+#### uni-app  同时支持 Android，iOS， 微信小程序平台，IM SDK 如何选择？
 请选择 `tim-wx-sdk` ，npm 安装或者静态引入：
 <dx-codeblock>
 :::  js
@@ -113,18 +111,16 @@ uni.$TUIKit.login({userID: 'your userID', userSig: 'your userSig'})
 >- **为了 uni-app 更好地接入使用 tim，快速定位和解决问题，请勿修改 uni.$TUIKit 命名，如果您已经接入 tim ，请将 uni.tim 修改为 uni.$TUIKit。**
 >- 请将 IM SDK 升级到 [2.15.0](https://cloud.tencent.com/document/product/269/38492)，该版本支持了 iOS 语音播放。
 >- 若同步依赖过程中出现问题，请切换 npm 源后再次重试。
+>
+切换 cnpm 源：
 <dx-codeblock>
-:::  js
-
-	切换 cnpm 源
-	>npm config set registry http://r.cnpmjs.org/
-	>
-	>
+:::  js	
+npm config set registry http://r.cnpmjs.org/
 :::
 </dx-codeblock>
 
 [](id:Q2)
-### 2. 如何上传图片、视频、语音消息等富媒体消息？
+#### 如何上传图片、视频、语音消息等富媒体消息？
 请使用 `cos-wx-sdk-v5`：
 <dx-codeblock>
 :::  js
@@ -140,11 +136,11 @@ uni.$TUIKit.login({userID: 'your userID', userSig: 'your userSig'})
 </dx-codeblock>
 
 [](id:Q3)
-### 3. uni-app  打包 iOS 语音消息无法播放怎么办？
+#### uni-app  打包 iOS 语音消息无法播放怎么办？
   请将 IM SDK 升级到 [2.15.0](https://cloud.tencent.com/document/product/269/38492)，该版本支持了 iOS 语音消息播放。
 
 [](id:Q4)
-### 4. uni-app  打包 app 发送语音消息时间显示错误怎么办？
+#### uni-app  打包 app 发送语音消息时间显示错误怎么办？
    uni-app 打包 app，`recorderManager.onStop` 回调中没有 `duration` 和 `fileSize`，需要用户自己补充 duration 和 fileSize。
 - **通过本地起定时器记录时间，计算出 duration。**
 - **本地计算文件大小，fileSize ＝ (音频码率) x 时间长度(单位:秒) / 8，粗略估算。**
@@ -152,60 +148,123 @@ uni.$TUIKit.login({userID: 'your userID', userSig: 'your userSig'})
 >!语音消息对象中必须包括 `duration` 和 `fileSize`，如果没有 `fileSize`，语音消息时长是一串错误的数字
 
 [](id:Q5)
-### 5. video 视频消息层级过高无法滑动怎么办？
+#### video 视频消息层级过高无法滑动怎么办？
  在项目中通过视频图片代替，没有直接渲染 `video`，在播放时渲染的方式规避了层级过高问题。
  - 详细代码请参见 [uni-app TUIKit](https://github.com/tencentyun/TIMSDK/tree/master/uni-app)。
  - 请参见官方 [原生组件说明](https://uniapp.dcloud.io/component/native-component)。
 
 [](id:Q6)
-### 6. 微信小程序环境，真机预览，报系统错误，体积过大怎么办？
+#### 微信小程序环境，真机预览，报系统错误，体积过大怎么办？
 运行时请勾选代码压缩，运行到小程序模拟器>运行时是否压缩代码。
 
 [](id:Q7)
-### 7. 引入原生音视频插件报以下错怎么办？
+#### 引入原生音视频插件报以下错怎么办？
 ![](https://qcloudimg.tencent-cloud.cn/raw/1ca0dd341e8258236a9265a9ba23f780.png)
 根据 uni-app [原生插件调试](https://ask.dcloud.net.cn/article/35412)制作[自定义基座](https://ask.dcloud.net.cn/article/35115)
 ![](https://qcloudimg.tencent-cloud.cn/raw/5957ce797f77f3101156cb63c3622633.png)
 
 [](id:Q8)
-### 8. 微信小程序如果需要上线或者部署正式环境怎么办？
-请在**微信公众平台**>**开发**>**开发设置**>**服务器域名**中进行域名配置：
+#### 微信小程序如果需要上线或者部署正式环境怎么办？
+请在**微信公众平台** > **开发** > **开发设置** > **服务器域名**中进行域名配置。将以下域名添加到 **request 合法域名**：
 
-将以下域名添加到 **request 合法域名**：
-
-从v2.11.2起 SDK 支持了 WebSocket，WebSocket 版本须添加以下域名：
-
-| 域名 | 说明 |  是否必须 |
-|:-------:|---------|----|
-|`wss://wss.im.qcloud.com`| Web IM 业务域名 | 必须|
-|`wss://wss.tim.qq.com`| Web IM 业务域名 | 必须|
-|`https://web.sdk.qcloud.com`| Web IM 业务域名 | 必须|
-|`https://webim.tim.qq.com` | Web IM 业务域名 | 必须|
-
-v2.10.2及以下版本使用 HTTP，HTTP 版本须添加以下域名：
-
-| 域名 | 说明 |  是否必须 |
-|:-------:|---------|----|
-|`https://webim.tim.qq.com` | Web IM 业务域名 | 必须|
-|`https://yun.tim.qq.com` | Web IM 业务域名 | 必须|
-|`https://events.tim.qq.com` | Web IM 业务域名 | 必须|
-|`https://grouptalk.c2c.qq.com`| Web IM 业务域名 | 必须|
-|`https://pingtas.qq.com` | Web IM 统计域名 | 必须|
-
-将以下域名添加到 **uploadFile 合法域名**：
-
-| 域名 | 说明 |  是否必须 |
-|:-------:|---------|----|
-|`https://cos.ap-shanghai.myqcloud.com` | 文件上传域名 | 必须|
-
-将以下域名添加到 **downloadFile 合法域名**：
-
-| 域名 | 说明 |  是否必须 |
-|:-------:|---------|----|
-|`https://cos.ap-shanghai.myqcloud.com` | 文件下载域名 | 必须|
+- 从v2.11.2起 SDK 支持了 WebSocket，WebSocket 版本须添加以下域名：
+<table>
+<thead>
+<tr>
+<th align="center">域名</th>
+<th>说明</th>
+<th>是否必须</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>wss://wss.im.qcloud.com</code></td>
+<td>Web IM 业务域名</td>
+<td>必须</td>
+</tr>
+<tr>
+<td align="center"><code>wss://wss.tim.qq.com</code></td>
+<td>Web IM 业务域名</td>
+<td>必须</td>
+</tr>
+<tr>
+<td align="center"><code>https://web.sdk.qcloud.com</code></td>
+<td>Web IM 业务域名</td>
+<td>必须</td>
+</tr>
+<tr>
+<td align="center"><code>https://webim.tim.qq.com</code></td>
+<td>Web IM 业务域名</td>
+<td>必须</td>
+</tr>
+</tbody></table>
+- v2.10.2及以下版本使用 HTTP，HTTP 版本须添加以下域名：
+<table>
+<thead>
+<tr>
+<th align="center">域名</th>
+<th>说明</th>
+<th>是否必须</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>https://webim.tim.qq.com</code></td>
+<td>Web IM 业务域名</td>
+<td>必须</td>
+</tr>
+<tr>
+<td align="center"><code>https://yun.tim.qq.com</code></td>
+<td>Web IM 业务域名</td>
+<td>必须</td>
+</tr>
+<tr>
+<td align="center"><code>https://events.tim.qq.com</code></td>
+<td>Web IM 业务域名</td>
+<td>必须</td>
+</tr>
+<tr>
+<td align="center"><code>https://grouptalk.c2c.qq.com</code></td>
+<td>Web IM 业务域名</td>
+<td>必须</td>
+</tr>
+<tr>
+<td align="center"><code>https://pingtas.qq.com</code></td>
+<td>Web IM 统计域名</td>
+<td>必须</td>
+</tr>
+</tbody></table>
+- 将以下域名添加到 **uploadFile 合法域名**：
+<table>
+<thead>
+<tr>
+<th align="center">域名</th>
+<th>说明</th>
+<th>是否必须</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>https://cos.ap-shanghai.myqcloud.com</code></td>
+<td>文件上传域名</td>
+<td>必须</td>
+</tr>
+</tbody></table>
+- 将以下域名添加到 **downloadFile 合法域名**：
+<table>
+<thead>
+<tr>
+<th align="center">域名</th>
+<th>说明</th>
+<th>是否必须</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>https://cos.ap-shanghai.myqcloud.com</code></td>
+<td>文件下载域名</td>
+<td>必须</td>
+</tr>
+</tbody></table>
 
 [](id:Q9)
-### 9. uni-app 是否支持离线推送？
+#### uni-app 是否支持离线推送？
 目前官方暂未提供 uni-app 离线推送方法。
 推荐方案：
 - 方案一：将消息通过 [第三方回调给您的服务器](https://cloud.tencent.com/document/product/269/1523)  ，再使用 [ UniPush](https://ask.dcloud.net.cn/article/35622) 完成离线推送。
