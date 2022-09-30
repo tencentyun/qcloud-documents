@@ -19,7 +19,7 @@
 >- 自适应播放会在创建的自适应模板模板中，通过当前网络带宽来选择一个子流进行播放
 >- 在使用自适应码率功能时，会产生模板中**所有子流**的 [转码费用](https://cloud.tencent.com/document/product/267/39889)。
 
-### 创建自适应码率模板
+#### 创建自适应码率模板
 1. 登录 [云直播控制台](https://console.cloud.tencent.com/live/config/transcode)，选择**功能配置** > **直播自适应码率**，创建自适应码率模板。如下图所示：
 <img src="https://qcloudimg.tencent-cloud.cn/raw/844beca297d7a2beb0204f970187e75d.png" width="900">
 3. **配置子流**：至少应该配置两个子流。
@@ -52,7 +52,7 @@ http://{Domain}/{AppName}/{StreamName}_{AdaptiveTemplate}.m3u8
 </tr>
 <tr>
 <td>Domain</td>
-<td>HLS直播播放域名</td>
+<td>HLS 直播播放域名</td>
 </tr>
 <tr>
 <td>AppName</td>
@@ -67,7 +67,7 @@ http://{Domain}/{AppName}/{StreamName}_{AdaptiveTemplate}.m3u8
 <td>自适应码率模板名称，表明使用哪一个配置模板</td>
 </tr>
 </tbody></table>
-URL地址样例（hlsAutoTest为自适应码率模板名称）：
+URL 地址样例（hlsAutoTest 为自适应码率模板名称）：
 <table>
 <thead>
 <tr>
@@ -89,7 +89,7 @@ URL地址样例（hlsAutoTest为自适应码率模板名称）：
 
 使用 `V2TXLivePlayer` 对象可以使用 HLS 自适应播放，具体做法如下（传入正确的 URL 是关键）：
 
-### 示例代码
+#### 示例代码
 <dx-codeblock>
 ::: Android java
 // 创建⼀个 V2TXLivePlayer 对象；
