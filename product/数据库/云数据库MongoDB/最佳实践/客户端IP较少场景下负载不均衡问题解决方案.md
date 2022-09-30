@@ -32,7 +32,7 @@ MongoDB 在 4.2 版本支持了分布式事务，用户可以连接 Mongos 节�
 如果您不想使用默认的云数据库 MongoDB 的负载均衡策略，可开通 Mongos 访问地址。在实例当前的 VIP 下面，系统将给不同的 Mongos 节点绑定不同的 VPORT，用户可灵活控制 Mongos 的请求分配。并且，Mongos 故障后系统将重新绑定新的 Mongos 进程，VIP 和 VPORT 地址不会变化，不影响原有的负载均衡访问地址。 具体操作，请参见 [开通 Mongos 访问地址](https://cloud.tencent.com/document/product/240/75180)。
 
 - 开通之后， 在控制台**实例详情**页面的**网络配置**区域的**访问地址**中，可查看 Mongos 访问地址，展示不同连接类型的连接串。每一个连接串中配置了实例所有 Mongos 节点，通过参数 authSource、 readPreference 与  readPreferenceTags 控制访问节点类型，如下图所示。  
-  ![img](https://qcloudimg.tencent-cloud.cn/raw/7d5250bd32c27f6d74bc90dbacf59a50.png)
+	![](https://qcloudimg.tencent-cloud.cn/raw/682e5fbd19922b76201f96e9e535ad93.png)
 
 - 您可根据均衡分流的需求，直接复制连接串，在客户端连接数据库 SDK 程序中配置连接串，访问对应的 Mongos 节点。具体连接方式，请参见 [连接 MongoDB 实例](https://cloud.tencent.com/document/product/240/7092)。然而，连接串较长，请仔细操作。
 
