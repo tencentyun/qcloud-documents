@@ -9,7 +9,7 @@ Ghost 是使用 Node.js 语言编写的开源博客平台，您可使用 Ghost �
 - Nginx：Web 服务器，本文以 Nginx 1.18.0 为例。
 - MySQL：数据库，本文以 MySQL 8.0.25 为例。
 - Node.js：运行环境，本文以 Node.js 14.17.0 版本为例。
-- Ghost：开源博客本台，本文以 Ghost 4.6.4 版本为例。
+- Ghost：开源博客平台，本文以 Ghost 4.6.4 版本为例。
 
 
 ## 前提条件
