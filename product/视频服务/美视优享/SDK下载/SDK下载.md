@@ -1,6 +1,6 @@
 腾讯特效 SDK 提供了 11 种版本的 SDK，分别为 6 种基础版 SDK 和 5 种高级版 SDK。了解 11 个版本 SDK 的关系和各版本功能差异请参见 [计费概述](https://cloud.tencent.com/document/product/616/36807)。
 
-## 移动端SDK
+## 移动端 SDK
 
 > ! 腾讯特效 SDK 下载 iOS 平台 ZIP 包内囊括 SDK 和 Demo工程，若需使用 iOS 端口的 Demo 工程，可在此下载 iOS 端 ZIP 包。
 
@@ -149,7 +149,7 @@ S 系列高级套餐提供高级美型功能，适用于对脸部美颜调整需
 > ! 包体大小瘦身，请参见 [SDK 包体瘦身（Android）](https://cloud.tencent.com/document/product/616/73016)、[SDK 包体瘦身（iOS）](https://cloud.tencent.com/document/product/616/76029)。
 
 
-## PC端SDK
+## PC 端 SDK
 
 | 平台 | SDK下载 | 集成指引 | 
 |---------|---------|--------|
