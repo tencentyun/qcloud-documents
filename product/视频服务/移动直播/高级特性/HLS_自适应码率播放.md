@@ -85,9 +85,9 @@ URL地址样例（hlsAutoTest为自适应码率模板名称）：
 </tr>
 </tbody></table>
 
-## 实现HLS自适应播放
+## 实现 HLS 自适应播放
 
-使用 `V2TXLivePlayer` 对象可以使用HLS自适应播放，具体做法如下（传入正确的 URL 是关键）：
+使用 `V2TXLivePlayer` 对象可以使用 HLS 自适应播放，具体做法如下（传入正确的 URL 是关键）：
 
 ### 示例代码
 <dx-codeblock>
@@ -110,7 +110,7 @@ V2TXLivePlayer *player = [[V2TXLivePlayer alloc] init];
 </dx-codeblock>
 
 
-## 实现HLS无缝切流
+## 实现 HLS 无缝切流
 
 使用 `V2TXLivePlayer` 对象可以使用 HLS 无缝切流，具体做法如下：
 1. **播放自适应地址，并且设置 Observer 回调**
