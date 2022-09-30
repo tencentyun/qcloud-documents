@@ -1,3 +1,18 @@
+### 2.7.8.283 @ 2022-09-20
+* [单击下载 SDK](https://sdk.qcloudtiw.com/win32/sdk_bin_2.7.8.283.zip)
+- 新增接口
+  1. 开启多点触控 EnableMultiTouch
+  2. 设置元修改信令同步频率，该值的允许范围为[5, 20] SetSyncFps
+
+- 更新接口
+  1. updateElementById 更新元素新增位置偏移类型 TEduElementOperatorType.CHANGE_POSITION
+  2. setToolType 接口增加类型：坐标系 TEDU_BOARD_TOOL_TYPE_COORDINATE
+
+- Bug及优化处理
+  1. 优化圆规操作
+  2. 图形拟合优化
+  3. 其他已知问题优化
+
 ### 2.7.7.278 @ 2022-09-01
 * [单击下载 SDK](https://sdk.qcloudtiw.com/win32/sdk_bin_2.7.7.278.zip)
 - 新增接口

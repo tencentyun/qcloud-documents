@@ -1,4 +1,8 @@
->? 该语法仅支持通过 spark 引擎在 Iceberg 表上执行。
+## 说明
+- 支持内核：SparkSQL。
+- 适用表范围：原生 Iceberg 表。
+- 用途：删除数据表中的指定行。
+
 ## 语法
 ```
 DELETE FROM table_name [ [ AS ] alias ]
@@ -7,7 +11,8 @@ DELETE FROM table_name [ [ AS ] alias ]
 
 
 ## 参数说明
-`table_identifier`：指定表名，支持三段式，例如：catalog.database.table。
+`table_identifier`：指定表名，支持三段式，例如：catalog.database.table
+
 
 ## 示例
 ```

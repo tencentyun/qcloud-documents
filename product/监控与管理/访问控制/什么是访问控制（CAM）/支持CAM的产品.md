@@ -27,7 +27,7 @@
 | [弹性伸缩](https://cloud.tencent.com/document/product/377)   | as |资源级   | &#10003; | &#10003;         | &#10003; | -                                                            |
 | [批量计算](https://cloud.tencent.com/document/product/599)   | batch | 资源级   | &#10003; | &#10003;         | -        | [访问管理指南](https://cloud.tencent.com/document/product/599/40011) |
 | [边缘计算机器](https://cloud.tencent.com/document/product/1108) | ecm | 资源级   | &#10003; | &#10003;         | -        | -                                                            |
-| [	轻量应用服务器](https://cloud.tencent.com/document/product/1207) | lighthouse | 资源级   | &#10003; | &#10003;         | -        | -                                                            |
+| [	轻量应用服务器](https://cloud.tencent.com/document/product/1207) | lighthouse | 资源级   | &#10003; |-        | -        | -                                                            |
 | [本地专用集群](https://cloud.tencent.com/document/product/1346) | cdc | 资源级   | &#10003; | &#10003;         | -        | -     |
 | [自动化助手](https://cloud.tencent.com/document/product/1340) | tat |资源级   | &#10003; | -                | -        | [访问管理指南](https://cloud.tencent.com/document/product/1340/56294) |
 
