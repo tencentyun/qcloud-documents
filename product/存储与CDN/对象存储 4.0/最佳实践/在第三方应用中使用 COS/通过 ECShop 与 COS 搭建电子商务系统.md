@@ -34,7 +34,7 @@ yum install -y wget && wget -O install.sh http://download.bt.cn/install/install_
 3. 执行中会出现如下信息，直接输入 y 回车即可。
 ![img](https://qcloudimg.tencent-cloud.cn/raw/164affb276edefaad6265e0438c197ad.png)
 执行成功后，会生成网站账号（需记录保存），如下所示：
-![img](https://qcloudimg.tencent-cloud.cn/raw/6b12cfe7b0b28497a272ea6027cf40b3.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/2a4a8cb983ba22d6148b3985343df773.png)
 
 #### 通过宝塔安装 ECShop
 
