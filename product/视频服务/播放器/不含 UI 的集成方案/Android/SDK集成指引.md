@@ -20,13 +20,12 @@ repositories {
 ```
 
 2. 打开 app 下的 build.gradle，在 dependencies 中添加 LiteAVSDK_Player 的依赖。
-
 ```
 dependencies {
   // 此配置默认集成 LiteAVSDK_Player 最新版本
 	implementation 'com.tencent.liteav:LiteAVSDK_Player:latest.release'
-	// 集成历史版，如：10.7.0.13038 版本，可通过下面方式集成
-	// implementation 'com.tencent.liteav:LiteAVSDK_Player:10.7.0.13038'
+  // 集成历史版，如：10.7.0.13038 版本，可通过下面方式集成
+  // implementation 'com.tencent.liteav:LiteAVSDK_Player:10.7.0.13038'
 }
 ```
 3. 在 defaultConfig 中，指定 App 使用的 CPU 架构（目前 LiteAVSDK_Player 支持 armeabi 、 armeabi-v7a  和 arm64-v8a）。
