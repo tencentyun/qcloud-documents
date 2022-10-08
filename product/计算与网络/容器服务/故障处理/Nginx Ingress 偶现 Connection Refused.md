@@ -57,4 +57,4 @@ spec:
               - /wait-shutdown      # 在这一行前，添加 sleep 时间
 ```
 
-更多内容请参考 [Service 优雅停机](https://cloud.tencent.com/document/product/457/60064)。如果通过以上步骤仍无法解决您的问题，您可以 [联系我们]([https://cloud.tencent.com/online-service?source=PRESALE&from=doc_457](https://cloud.tencent.com/document/product/457/59560)) 反馈和解决问题。
+更多内容请参考 [Service 优雅停机](https://cloud.tencent.com/document/product/457/60064)。如果通过以上步骤仍无法解决您的问题，您可以 [联系我们](https://cloud.tencent.com/document/product/457/59560) 反馈和解决问题。

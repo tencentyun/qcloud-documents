@@ -15,7 +15,7 @@
 - 默认采用无锁迁移来实现，迁移过程中对源库不加全局锁（FTWRL），仅对无主键的表加表锁，其他不加锁。
 - [创建数据一致性校验](https://cloud.tencent.com/document/product/571/62564) 时，DTS 会使用执行迁移任务的账号在源库中写入系统库`__tencentdb__`，用于记录迁移任务过程中的数据对比信息。
   - 为保证后续数据对比问题可定位，迁移任务结束后不会删除源库中的`__tencentdb__`。
-  - `__tencentdb__`系统库占用空间非常小，约为源库存储空间的千分之一到万分之一（例如源库为50G，则`__tencentdb__`系统库约为 5K-50K） ，并且采用单线程，等待连接机制，所以对源库的性能几乎无影响，也不会抢占资源。 
+  - `__tencentdb__`系统库占用空间非常小，约为源库存储空间的千分之一到万分之一（例如源库为50GB，则`__tencentdb__`系统库约为5MB - 50MB），并且采用单线程，等待连接机制，所以对源库的性能几乎无影响，也不会抢占资源。 
 
 ## 前提条件
 
@@ -230,7 +230,11 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 </li>更多详情，请参考 <a href="https://cloud.tencent.com/document/product/571/74624">迁移高级对象</a>。</ul></td></tr>
 <tr>
 <td>已选对象</td>
-<td><ul><li>支持库表映射（库表重命名），将鼠标悬浮在库名、表名上即显示编辑按钮，单击后可在弹窗中填写新的名称。</li><li>选择高级对象进行迁移时，建议不要进行库表重命名操作，否则可能会导致高级对象迁移失败。</li><li>支持迁移 Online DDL 临时表（使用 gh-ost、 pt-online-schema-change 工具），单击表的编辑按钮，在弹窗中即可选择临时表名。更多详情请参考 <a href="https://cloud.tencent.com/document/product/571/75889">迁移 Online DDL 临时表</a>。</li></ul></td></tr>
+<td><ul><li>支持库表映射（库表重命名），将鼠标悬浮在库名、表名上即显示编辑按钮，单击后可在弹窗中填写新的名称。</li><li>选择高级对象进行迁移时，建议不要进行库表重命名操作，否则可能会导致高级对象迁移失败。</li></ul></td></tr>
+    <tr>
+<td>是否同步 Online DDL 临时表</td>
+<td>如果使用 gh-ost、pt-osc 工具对源库中的表执行 Online DDL 操作，DTS 支持将 Online DDL 变更产生的临时表迁移到目标库。<ul><li>勾选 gh-ost，DTS 会将 gh-ost 工具产生的临时表名（`_表名_ghc`、`_表名_gho`、`_表名_del`）迁移到目标库。</li>
+<li>勾选 pt-osc， DTS 会将 pt-osc 工具产生的临时表名（`_表名_new`、 `_表名_old`）迁移到目标库。</li></ul>更多详情请参考 <a href="https://cloud.tencent.com/document/product/571/75889">迁移 Online DDL 临时表</a>。</td></tr>
 </tbody></table>
 5. 在校验任务页面，进行校验，校验任务通过后，单击**启动任务**。
  - 如果校验任务不通过，可以参考 [校验不通过处理方法](https://cloud.tencent.com/document/product/571/61639) 修复问题后重新发起校验任务。

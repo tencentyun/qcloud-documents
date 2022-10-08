@@ -74,7 +74,7 @@ allprojects {
 ## 快速搭建
 常用的聊天软件都是由会话列表、聊天窗口、好友列表、音视频通话等几个基本的界面组成，参考下面步骤，您仅需几行代码即可在项目中快速搭建这些 UI 界面。
 
-### 步骤一：组件登录
+### 步骤1：组件登录
 
 ```java
 // 在用户 UI 点击登录的时候调用
@@ -90,7 +90,7 @@ TUILogin.login(context, sdkAppID, userID, userSig, new TUICallback() {
 ```
 >! context 必须传 Application 对象，否则部分图片无法加载。
 
-### 步骤二：创建 viewPager
+### 步骤2：创建 viewPager
 1. 在 activity_main.xml 中添加界面布局：
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -155,7 +155,7 @@ public class FragmentAdapter extends FragmentStateAdapter {
 }
 ```
 
-### 步骤三：构建核心 Fragment
+### 步骤3：构建核心 Fragment
 
 会话列表 `TUIConversationFragment` 以及联系人列表 `TUIContactFragment` 界面数据的获取、同步、展示以及交互均已在组件内部封装，UI 的使用与 Android 的普通 Fragment 一样方便。
 
@@ -174,7 +174,7 @@ mainViewPager.setAdapter(fragmentAdapter);
 mainViewPager.setCurrentItem(0, false);
 ```
 
-### 步骤四：构建音视频通话功能
+### 步骤4：构建音视频通话功能
 TUI 组件支持在聊天界面对用户发起音视频通话，仅需要简单几步就可以快速集成：
 
 <table style="text-align:center;vertical-align:middle;width: 800px">
@@ -192,13 +192,11 @@ TUI 组件支持在聊天界面对用户发起音视频通话，仅需要简单�
 	1. 登录 [即时通信 IM 控制台](https://console.cloud.tencent.com/im) ，单击目标应用卡片，进入应用的基础配置页面。
 	2. 在开通腾讯实时音视频服务功能区，单击**免费体验**即可开通 TUICallKit 的 7 天免费试用服务。
 	3. 在弹出的开通实时音视频 TRTC 服务对话框中，单击确认，系统将为您在 [实时音视频控制台](https://console.cloud.tencent.com/trtc) 创建一个与当前 IM 应用相同 SDKAppID 的实时音视频应用，二者帐号与鉴权可复用。
-
 2. **集成 TUICallKit 组件**
 在 APP 的 build.gradle 文件中添加对 `tuicallkit` 的依赖：
 ```groovy
 api project(':tuicallkit')
 ```
-
 3. **发起和接收视频或语音通话**
 <table style="text-align:center;vertical-align:middle;width: 800px">
   <tr>
@@ -210,12 +208,11 @@ api project(':tuicallkit')
     <td><img style="width:400px" src="https://qcloudimg.tencent-cloud.cn/raw/31fd1d8fb263e953825cf5531a24ffca.png"  />    </td>
      </tr>
 </table>
-
-	- 集成 TUICallKit 组件后，聊天界面和联系人资料界面默认会显示 “视频通话” 和 “语音通话” 两个按钮，当用户点击按钮时，TUIKit 会自动展示通话邀请 UI，并给对方发起通话邀请请求。
-	- 当用户**在线并且应用在前台时**收到通话邀请时，TUIKit 会自动展示通话接收 UI，用户可以选择同意或则拒绝通话。
-	- 当用户**离线**收到通话邀请时，如需唤起 App 通话，需要使用离线推送能力。离线推送的实现请参考下一步。
-
-
+<ul>
+<li>集成 TUICallKit 组件后，聊天界面和联系人资料界面默认会显示 “视频通话” 和 “语音通话” 两个按钮，当用户点击按钮时，TUIKit 会自动展示通话邀请 UI，并给对方发起通话邀请请求。</li>
+<li>当用户<strong>在线并且应用在前台时</strong>收到通话邀请时，TUIKit 会自动展示通话接收 UI，用户可以选择同意或则拒绝通话。</li>
+<li>当用户<strong>离线</strong>收到通话邀请时，如需唤起 App 通话，需要使用离线推送能力。离线推送的实现请参考下一步。</li>
+</ul>
 4. **添加离线推送：**[](id:Step5)
 实现音视频通话的离线推送，请参考以下几个步骤：
 	1. 配置 App 的 [离线推送](https://cloud.tencent.com/document/product/269/44516)。
@@ -225,7 +222,7 @@ api project(':tuicallkit')
 >? 更多实操教学视频请参见：[极速集成 TUIKit（Android）](https://cloud.tencent.com/edu/learning/course-3130-56399)。
 
 ## 常见问题
-1. 提示 "Manifest merger failed : Attribute application@allowBackup value=(true) from AndroidManifest.xml" 如何处理？
+#### 提示 "Manifest merger failed : Attribute application@allowBackup value=(true) from AndroidManifest.xml" 如何处理？
 IM SDK 中默认 `allowBackup` 的值为 `false` ，表示关闭应用的备份和恢复功能。
 您可以在您的 `AndroidManifest.xml` 文件中删除 `allowBackup` 属性，表示关闭备份和恢复功能；也可以在 `AndroidManifest.xml` 文件的 application 节点中添加 `tools:replace="android:allowBackup"` 表示覆盖 IM SDK 的设置，使用您自己的设置。 
 
@@ -256,14 +253,14 @@ IM SDK 中默认 `allowBackup` 的值为 `false` ，表示关闭应用的备份�
 </manifest>
 ```
 
-2. 提示 "NDK at /Users/***/Library/Android/sdk/ndk-bundle did not have a source.properties file" 如何处理？
+#### 提示 "NDK at /Users/***/Library/Android/sdk/ndk-bundle did not have a source.properties file" 如何处理？
 出现此问题可能是您使用了较高版本的 Gradle 和 Gradle 插件，您可以使用推荐的版本：
 <img style="width:600px" src="https://qcloudimg.tencent-cloud.cn/raw/ae3416874722fb086abcdfc8e2ed8a39.png" />
 
 此外，您也可以继续使用您当前版本的 Gradle，只需要在 local.properties 文件中加入您的 NDK 路径，例如：
 `ndk.dir=/Users/***/Library/Android/sdk/ndk/16.1.4479499`
 
-3. 提示 "Cannot fit requested classes in a single dex file" 如何处理？
+#### 提示 "Cannot fit requested classes in a single dex file" 如何处理？
 出现此问题可能是您的 API 级别设置比较低，需要在 App 的 build.gradle 文件中开启 `MultiDex` 支持, 添加 `multiDexEnabled true` 和对应依赖：
 ```groovy
 android {
@@ -290,6 +287,9 @@ public class MyApplication extends SomeOtherApplication {
 }
 ```
 
+#### 集成 `TUIKit` 编译时发现找不到资源文件，例如代码中调用了 `getString(R.string.sure)` ，编译时报错 “找不到 `sure` 符号”，该如何处理？
+新版的 `Android Studio` 和高版本的 `Gradle Android` 插件，在创建工程时默认在 `gradle.properties` 文件中添加了配置 `android.nonTransitiveRClass=true`，改成 `android.nonTransitiveRClass=false` 即可。
+
 ## 交流与反馈
 欢迎加入 QQ 群进行技术交流和反馈问题。
-<img src="https://qcloudimg.tencent-cloud.cn/raw/4aa5a014edb22d6da621a7d6a3a8e58d.jpg" style="zoom:50%;"/>
+<img src="https://im.sdk.qcloud.com/tools/resource/officialwebsite/pictures/doc_tuikit_qq_group.jpg" style="zoom:50%;"/> 
