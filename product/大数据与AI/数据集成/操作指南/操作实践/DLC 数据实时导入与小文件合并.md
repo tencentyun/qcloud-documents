@@ -66,7 +66,7 @@ ALTER TABLE `db_name`.`table_name` SET TBLPROPERTIES ('write.upsert.enabled'='tr
 </tr>
 <tr>
 <td>成员角色</td>
-<td>批量为项目成员配置角色（此处默认为前面添加的成员添加统一的角色，后续可**项目管理**模块修改）</td>
+<td>批量为项目成员配置角色（此处默认为前面添加的成员添加统一的角色，后续可<b>项目管理</b>模块修改）</td>
 </tr>
 </tbody></table>
 
