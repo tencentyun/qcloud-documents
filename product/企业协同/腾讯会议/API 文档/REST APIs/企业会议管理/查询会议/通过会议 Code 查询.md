@@ -61,8 +61,8 @@ https://api.meeting.qq.com/v1/meetings?meeting_code={meetingCode}&userid={userid
 |enable_host_key   | Boolean     | 是否开启主持人密钥。<br>true：开启<br>false：关闭                                                    |
 |host_key   | String     | 主持人密钥，仅支持6位数字（会议创建人才有权限查询）。<br>如开启主持人密钥后没有填写此项，将自动分配一个6位数字的密钥。                                                    |
 |sync_to_wework   |Boolean    |会议是否同步至企业微信，该字段仅支持创建会议时设置，创建后无法修改。该配置仅支持与企业微信关联的企业。 <br>true：同步，默认同步 <br>false：不同步| 
-|time_zone | 否 |String |	时区，可参见 [Oracle-TimeZone 标准](https://docs.oracle.com/middleware/1221/wcs/tag-ref/MISC/TimeZones.html)。 |
-|location | 否 |String |会议地点。 |
+|time_zone | String |	时区，可参见 [Oracle-TimeZone 标准](https://docs.oracle.com/middleware/1221/wcs/tag-ref/MISC/TimeZones.html)。 |
+|location | String |会议地点。 |
 
 
 **用户对象**
