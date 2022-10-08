@@ -8,12 +8,11 @@
 您可以选择使用 Gradle 自动加载的方式，或者手动下载 aar 再将其导入到您当前的工程项目中。
 
 ### 方法一：自动加载（aar） 
-播放器SDK已经发布到[mavenCentral 库](https://repo1.maven.org/maven2/com/tencent/liteav/LiteAVSDK_Player/)，您可以通过在 gradle 配置 mavenCentral 库，自动下载更新 LiteAVSDK_Player。
+播放器 SDK 已经发布到 [mavenCentral 库](https://repo1.maven.org/maven2/com/tencent/liteav/LiteAVSDK_Player/)，您可以通过在 gradle 配置 mavenCentral 库，自动下载更新 LiteAVSDK_Player。
 只需要用 Android Studio 打开需要集成 SDK 的工程，然后通过简单的四个步骤修改 `build.gradle` 文件，就可以完成 SDK 集成：
-![](./aar_mavencentral.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/7de67c57e87f2803217b77ed308d537d.png)
 
-1. 打开 工程根目录下的 build.gradle，添加mavenCentral库。
-
+1. 打开工程根目录下的 build.gradle，添加mavenCentral库。
 ```xml
 repositories {
     mavenCentral()
@@ -31,7 +30,6 @@ dependencies {
 }
 ```
 3. 在 defaultConfig 中，指定 App 使用的 CPU 架构（目前 LiteAVSDK_Player 支持 armeabi 、 armeabi-v7a  和 arm64-v8a）。
-
 ```
 defaultConfig {
 	ndk {
@@ -43,14 +41,13 @@ defaultConfig {
 
 ### 方法二：手动下载（aar）
 如果您的网络连接 mavenCentral 有问题，也可以手动下载 SDK 集成到工程里：
-
 1. 下载 [LiteAVSDK_Player](https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_Player_Android_latest.zip) ，下载完成后进行解压。
 2. 将下载文件解压之后 SDK 目录下的 aar 文件拷贝到工程的 **app/libs** 目录下：
-    ![](./app_libs.png)
+    ![](https://qcloudimg.tencent-cloud.cn/raw/ab00ad0f12a271750d6f84f7333f8cd3.png)
 3. 在工程根目录下的 build.gradle 中，添加 **flatDir**，指定本地仓库路径。
     ![](https://main.qcloudimg.com/raw/726771558714a2b4fae8dc1a59c33ffc.png) 
 4. 添加 LiteAVSDK_Player 依赖，在 app/build.gradle 中，添加引用 aar 包的代码。
-    ![](./aar_local.png)
+    ![](https://qcloudimg.tencent-cloud.cn/raw/ac9ab42dda8992d435832c605f1e6798.png)
 ```
 implementation(name:'LiteAVSDK_Player_10.7.0.13038', ext:'aar')
 ```
@@ -68,15 +65,14 @@ defaultConfig {
 如果您不想集成 aar 库，也可以通过导入 jar 和 so 库的方式集成 LiteAVSDK：
 
 1. 下载  [LiteAVSDK_Player](https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_Player_Android_latest.zip) ，下载完成后进行解压。在 SDK 目录下找到 `LiteAVSDK_Player_xxx.zip`（其中 `xxx` 为 LiteAVSDK 的版本号），解压后得到 libs 目录，里面主要包含 jar 文件和 so 文件夹，文件清单如下：
-    ![](./jar.png)
+    ![](https://qcloudimg.tencent-cloud.cn/raw/fce689e5b968323c6f75a7f3ce08b488.png)
 
-​       如果你还需要 armeabi 架构so，复制一份armeabi-v7a 目录，重命名为armeabi 即可。
+  如果你还需要 armeabi 架构 so，复制一份 armeabi-v7a 目录，重命名为 armeabi 即可。
 
 2. 将解压得到的 jar文件和 armeabi、armeabi-v7a、arm64-v8a 文件夹拷贝到 `app/libs` 目录下。
     ![](https://main.qcloudimg.com/raw/d9b6339cb52fb85afda42de6001be337.png)
 3. 在 `app/build.gradle` 中，添加引用 jar 库的代码。
     ![](https://main.qcloudimg.com/raw/695520309d9a01b19ce2f50439a42890.png)      
-
 ```
 dependencies{
 	implementation fileTree(dir:'libs',include:['*.jar'])
