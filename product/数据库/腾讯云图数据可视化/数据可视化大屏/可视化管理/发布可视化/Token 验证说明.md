@@ -28,10 +28,10 @@
 | 参数名称 | 中文 | 参数值 | 说明 |
 | --- | --- | --- | --- |
 |accessId|访问 ID|81a663dbaaab055xxxxxxxxxxxxx4a56| 大屏的访问 ID |
-|timestamp|当前时间戳|1647247729|返回当前时间的秒数|
-|nonce|随机正整数|12979| |
-|token|签名密钥|c6v9aw4gpRo1yn6DlIxxxxxxxxxxxxxK| |
-|signature|签名结果| |
+|timestamp|当前时间戳|1647247729|返回当前时间的秒数| 
+|nonce|随机正整数|12979|- |
+|token|签名密钥|c6v9aw4gpRo1yn6DlIxxxxxxxxxxxxxK| - |
+|signature|签名结果| - |- |
 
 #### 签名示例
 
@@ -109,6 +109,35 @@ public class TcvTokenSignClientDemo {
         String url = "https://v.yuntus.com/tcv/" + accessId + "?signature=" + signRet + "&timestamp=" + timestamp + "&nonce=" + nonce;
         System.out.println(url);
     }
+}
+```
+
+Go 生成签名示例：
+
+```go
+import (
+    "crypto/hmac"
+    "crypto/sha256"
+    "encoding/base64"
+    "fmt"
+    "math/rand"
+    "net/url"
+    "strconv"
+    "time"
+)
+
+func Sign() string {
+    accessId := "c96073b5xxxxxxxxxxx2fd4bd"
+    token := "BIFbxxxxxxxxZ5mM4kUqZuT"
+    timestamp := strconv.FormatInt(time.Now().Unix(), 10)
+    nonce := strconv.FormatInt(int64(rand.Intn(99999)), 10)
+    signStr := fmt.Sprintf("%s,%s,%s", accessId, timestamp, nonce)
+
+    h := hmac.New(sha256.New, []byte(token))
+    h.Write([]byte(signStr))
+    sign := url.QueryEscape(base64.StdEncoding.EncodeToString(h.Sum(nil)))
+
+    return "https://v.yuntus.com/tcv/" + accessId + "?signature=" + sign + "&timestamp=" + timestamp + "&nonce=" + nonce
 }
 ```
 

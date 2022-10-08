@@ -31,7 +31,7 @@ ADMIN SET FRONTEND CONFIG ("fe_config_name" = "fe_config_value");
 更多该命令的帮助，可以通过 `HELP ADMIN SET CONFIG;` 命令查看。
 
 3. 通过 HTTP 协议动态配置
-具体请参阅 [Set Config Action](../http-actions/fe/set-config-action.md)。该方式也可以持久化修改后的配置项。配置项将持久化在 `fe_custom.conf` 文件中，在 FE 重启后仍会生效。
+具体请参阅 [Set Config Action](https://doris.apache.org/zh-CN/docs/admin-manual/http-actions/fe/set-config-action)。该方式也可以持久化修改后的配置项。配置项将持久化在 `fe_custom.conf` 文件中，在 FE 重启后仍会生效。
 
 ## 应用举例
 1. 修改 `async_pending_load_task_pool_size`
@@ -166,7 +166,7 @@ show data （其他用法：HELP SHOW DATA）
 - 默认值：3000。
 - 是否可以动态配置：true。
 - 是否为 Master FE 节点独有的配置项：false。
-- 设置可以缓存的最大行数，详细的原理可以参考 [分区缓存](https://cloud.tencent.com/document/product/1387/80304)。
+- 设置可以缓存的最大行数，详细的原理可以参考 操作手册->分区缓存。
 
 ### `cache_last_version_interval_second`
 - 默认值：900。

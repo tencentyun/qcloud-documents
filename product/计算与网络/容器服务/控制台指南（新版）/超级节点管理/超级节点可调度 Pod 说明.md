@@ -123,14 +123,14 @@ DaemonSet 类型工作负载的 Pod 不会调度到超级节点上。
 
 ### Volume 限制
 
-支持 EmptyDir / PVC / Secret / NFS / ConfigMap / DownloadAPI / HostPath 类型的 Volume。
+支持 EmptyDir / PVC / Secret / NFS / ConfigMap / Downward API / HostPath 类型的 Volume。
 其中针对 PVC 类型的 Volume：
 - PV 类型：仅支持 NFS / CephFS / HostPath / 静态 cbs 类型，其他的不支持（csi 不支持）
 - Storageclass 类型：仅支持用户自定义 /`cloud.tencent.com/qcloud-cbs` 类型，cfs 不支持
 
 ### GPU 限制
 
-必须在 annotation 中指定 gpu-type 字段，否则不支持调度到超级节点上；不同 type 的 GPU Pod 对应的 cpu、mem 规格是固定的，可不指定 cpu、mem 大小，若需要指定大小，则必须与 GPU Pod 支持的规格完全一致，否则将调度失败。
+必须在 Annotation 中指定 gpu-type 字段，否则不支持调度到超级节点上；不同 type 的 GPU Pod 对应的 cpu、mem 规格是固定的，可不指定 cpu、mem 大小，若需要指定大小，则必须与 GPU Pod 支持的规格完全一致，否则将调度失败。
 
 ### 其他限制
 

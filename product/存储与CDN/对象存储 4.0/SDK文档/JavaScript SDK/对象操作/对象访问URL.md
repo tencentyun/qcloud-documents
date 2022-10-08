@@ -9,12 +9,13 @@
 查询对象访问的 URL，该接口不会判断对象是否真实存在。
 
 >?
-> - 如何使生成的对象URL在浏览器中打开是预览，而不是下载：在获取的url后拼接参数 response-content-disposition=inline
-> - 如何使生成的对象URL在浏览器中打开是下载，而不是预览：在获取的url后拼接参数 response-content-disposition=attachment
+> - 如何使生成的对象 URL 在浏览器中打开是预览，而不是下载：在获取的 URL 后拼接参数 response-content-disposition=inline
+> - 如何使生成的对象 URL 在浏览器中打开是下载，而不是预览：在获取的 URL 后拼接参数 response-content-disposition=attachment
+> - 下载时如何重命名文件：在获取的 URL 后拼接参数 filename=这里填自定义的文件名
 
 #### 使用示例
 
-获取在浏览器默认下载的url：
+获取在浏览器默认下载的 URL：
 
 [//]: # (.cssg-snippet-get-presign-download-url)
 ```js

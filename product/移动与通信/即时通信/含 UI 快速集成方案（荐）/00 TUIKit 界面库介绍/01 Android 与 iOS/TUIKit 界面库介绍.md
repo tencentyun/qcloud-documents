@@ -7,7 +7,7 @@ TUIKit 中的组件在实现 UI 功能的同时，会调用 IM SDK 相应的接�
 ## TUIKit 主要功能介绍
 TUIKit 主要分为 TUISearch、TUIConversation、TUIChat、TUICallKit、TUIContact、TUIGroup 和 TUIOfflinePush 几个 UI 子组件，每个 UI 组件负责展示不同的内容。
 界面效果如下图所示：
-<img src="https://qcloudimg.tencent-cloud.cn/raw/62aef6cf20aea982b17970c11b391122.png" style="zoom:50%;"/>
+<img src="https://qcloudimg.tencent-cloud.cn/raw/40795a52d2df3d6c1f9ed41a51638da5.png" style="zoom:50%;"/>
 
 ### TUIChat 重点功能介绍
 TUIChat 主要负责消息界面的展示。您还可以利用它直接发送不同类型的消息、对消息长按点赞/回复/引用、查询消息已读回执详情等。
@@ -153,4 +153,4 @@ TUIOfflinePush 主要负责离线推送消息展示。
 [](id:feedback)
 ## 交流与反馈
 欢迎加入 QQ 群进行技术交流和反馈问题。
-<img src="https://qcloudimg.tencent-cloud.cn/raw/4aa5a014edb22d6da621a7d6a3a8e58d.jpg" style="zoom:50%;"/>
+<img src="https://qcloudimg.tencent-cloud.cn/raw/f459c7c733e2d0646f3e9623c8be7afb.jpg" style="zoom:50%;"/> 

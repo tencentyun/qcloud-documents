@@ -10,7 +10,7 @@
 - **于2020年8月17日起创建的 TKE 集群，默认关闭多 Service 复用相同 CLB 的功能。**
 关闭复用功能的集群，其中 Service 创建的 CLB 将默认配置 `tke-lb-serviceuuid:<serviceUUID>` ，`tke-createdBy-flag:yes`，`tke-clusterId:集群ID`这三个标签。所有 Service 使用同一批标签 Key，标签 Key 数量可控。您可通过 [在线咨询](https://cloud.tencent.com/online-service?from=doc_457) 联系我们开启需要使用多个 Service 复用相同 CLB 的功能。
 - **如果您的集群是 TKE Serverless 集群，集群默认已开启了 CLB 复用能力，但需要注意以下内容：**
-	1. 用于复用的 CLB 必须为用户手动购买，而非 EKS 自动购买。EKS 自动购买的 CLB 在复用时会报错，是为了保护复用 CLB 的 Service 的 CLB 不被 EKS 回收。
+	1. 用于复用的 CLB 必须为用户手动购买，而非 Serverless 集群自动购买。Serverless 集群自动购买的 CLB 在复用时会报错，是为了保护复用 CLB 的 Service 的 CLB 不被 Serverless 集群回收。
 	2. CLB 购买成功后，需要在 Service 里添加两个 Annotation：
 		- service.kubernetes.io/qcloud-share-existed-lb:"true"
 		- service.kubernetes.io/tke-existed-lbid:lb-xxx
