@@ -21,12 +21,13 @@
 #### 事务操作问题
 MongoDB 在 4.2 版本支持了分布式事务，用户可以连接 Mongos 节点发起事务操作。在 startTransaction 和 commitTransaction/abortTransaction 之间可以执行多次 [读写操作](https://www.mongodb.com/docs/manual/core/transactions-operations/)，Mongos 在内存中记录了事务中每次请求携带的 logicalSessionId 和 txnId 等元数据来维护上下文关系。因此，[MongoDB 的设计](https://github.com/mongodb/mongo/blob/master/src/mongo/db/s/README.md#transactions) 决定了需要保证事务中的每个操作都发到同一个 Mongos 上执行。
 
-#### 腾讯云数据库 MongoDB 方案
-基于批量扫描 getMore 问题及其事务操作问题的考虑，云数据库 MongoDB 负载均衡 Hash 策略根据访问端（一般是 CVM）IP 信息来均衡分流， 同一个请求源 IP 都会落到一个 Mongos 上，保证 getMore() 和事务操作都能在同一个上下文进行。
+#### 云数据库 MongoDB 负载均衡策略
 
-一般生产环境下，访问端 IP 较多场景下，这种处理没有任何影响。但是当访问端 IP 较少的情况下，容易引起 Mongos 负载不均衡的问题。
+基于批量扫描 getMore 问题及其事务操作问题的考虑，云数据库 MongoDB 负载均衡 Hash 策略根据访问端（一般是 CVM）IP 信息来均衡分流：一个源 IP 的请求都会落在同一个 Mongos 上，保证 getMore() 和事务操作在同一个上下文进行。
 
-## 解决方案
+一般生产环境中访问端 IP 较多，这种策略效果较好。但是当访问端 IP 较少的情况下，特别是在压测场景下，容易引起 Mongos 负载不均衡的问题。
+
+## Mongos 负载不均解决方案
 
 如果您不想使用默认的云数据库 MongoDB 的负载均衡策略，可开通 Mongos 访问地址。在实例当前的 VIP 下面，系统将给不同的 Mongos 节点绑定不同的 VPORT，用户可灵活控制 Mongos 的请求分配。并且，Mongos 故障后系统将重新绑定新的 Mongos 进程，VIP 和 VPORT 地址不会变化，不影响原有的负载均衡访问地址。具体操作，请参见 [开通 Mongos 访问地址](https://cloud.tencent.com/document/product/240/75180)。
 
