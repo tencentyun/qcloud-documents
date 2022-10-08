@@ -2,6 +2,24 @@
 
 > ? 全功能版 SDK 是多个基础 SDK 的集合，它包含了直播、短视频、音视频通话（TRTC）和播放器等子产品 SDK 的功能模块。
 
+### Version 10.7 @ 2022.10.8
+
+#### 新特性
+
+- iOS&Android：TXLivePlayer\V2TXLivePlayer 的 startPlay 方法名变更为 startLivePlay，强制开启 license 校验。License 申请见：[播放器 SDK 视频播放 License-License 指引-文档中心-腾讯云](https://cloud.tencent.com/document/product/881/74588#.E8.B4.AD.E4.B9.B0.E5.B9.B6.E6.96.B0.E5.BB.BA.E6.AD.A3.E5.BC.8F.E7.89.88-license)
+
+#### 功能优化
+
+- 全平台：优化 AudioJitterBuffer 缓存策略。
+
+#### 缺陷修复
+
+- 全平台：修复 V2TXLivePlayer 在快直播拉流时，播放 hev2 音频格式声音异常问题。
+- 全平台：修复 TXLivePusher\V2TXLivePusher 在 rtmp 推流时，使用 IP 推流异常的问题。
+- Windows：修复 C# 找不到 V2TXLivePlayerStatistics 构造函数，导致编译失败的问题。
+- iOS：修复 iPad 部分设备采集音量较小的问题。
+- Android：修复偶现连接蓝牙耳机但是声音外放的问题。
+
 ### Version 10.6 @ 2022.08.31
 
 #### 新特性
