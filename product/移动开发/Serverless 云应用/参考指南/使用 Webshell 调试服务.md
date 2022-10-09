@@ -1,4 +1,4 @@
-本文为您介绍云托管的 Webshell 功能，以及如何使用 Webshell 完成基本的运维需求。
+>!**本篇文档仅适用于云开发中的云托管，不适用于云托管独立控制台。**
 
 ## 操作背景
 
@@ -11,7 +11,7 @@
 
 ## 步骤1：登录控制台
 
-登录 [云托管控制台](https://console.cloud.tencent.com/tcb/service)，再按需要切换到指定的环境。
+登录 [云开发中的云托管控制台](https://console.cloud.tencent.com/tcb/service)，再按需要切换到指定的环境。
 ![](https://main.qcloudimg.com/raw/23c6ea9af428c46e0f9011d7264b04ad.png)
 
 ## 步骤2：进入服务详情页面
@@ -39,4 +39,5 @@
 ## 步骤6：调试
 
 您可以开始对自己的服务进行调试。
+
 

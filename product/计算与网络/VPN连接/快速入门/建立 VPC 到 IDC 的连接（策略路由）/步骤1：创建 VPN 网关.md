@@ -9,10 +9,10 @@
 >
 4. 填写 VPN 网关名称（如 TomVPNGw），选择关联网络、所属网络、带宽上限、标签、计费方式，单击**创建**即可。VPN 网关创建完成后，系统随机分配公网 IP，如：`203.195.147.82`。
 >?
->- 200MB、500MB和1000MB带宽目前仅华北地区（北京）、华东地区（上海）、华南地区（广州）、西南地区（成都）、港澳台地区（香港）、华东地区（南京）和华北地区（北京金融）等可用区开放，如需请 <a href="https://console.cloud.tencent.com/workorder/category">提交工单</a>。
->- 200MB、500MB和1000MB带宽仅支持新建网关，存量网关暂不支持。
->- 如果 VPN 网关使用200MB、500MB和1000MB规格的带宽，VPN 通道加密协议建议使用 AES128+MD5。
+>- 200Mbps、500Mbps、1000Mbps和3000Mbps带宽目前仅华北地区（北京）、华东地区（上海）、华南地区（广州）、西南地区（成都）、港澳台地区（香港）、华东地区（南京）和华北地区（北京金融）等可用区开放，如需请 <a href="https://console.cloud.tencent.com/workorder/category">提交工单</a>。
+>- 200Mbps、500Mbps、1000Mbps和3000Mbps带宽仅支持新建网关，存量网关暂不支持。
+>- 如果 VPN 网关使用200Mbps、500Mbps、1000Mbps和3000Mbps规格的带宽，VPN 通道加密协议建议使用 AES128+MD5。
 >
-<img src="https://qcloudimg.tencent-cloud.cn/raw/a48d642ae8bd7b03c02be02922767da2.png" width="70%">
+<img src="https://qcloudimg.tencent-cloud.cn/raw/ef90c5804e09c2c5bb76f562a2026253.png" width="70%">
 >?标签为选配，请保持默认。
 >

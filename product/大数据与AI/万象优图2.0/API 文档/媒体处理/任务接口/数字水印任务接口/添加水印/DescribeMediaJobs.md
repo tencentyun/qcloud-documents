@@ -14,8 +14,12 @@ Authorization: <Auth String>
 
 ```
 
->? Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
->
+
+>? 
+> - Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+> - 通过子账号使用时，需要授予相关的权限，详情请参见 [授权粒度详情](https://cloud.tencent.com/document/product/460/41741) 文档。
+> 
+
 
 
 #### 请求头
@@ -37,8 +41,8 @@ Authorization: <Auth String>
 | nextToken |无| 请求的上下文，用于翻页。上次返回的值 | String |否|
 | size |无| 拉取的最大任务数。默认为10。最大为100 | Integer |否|
 | states |无| 拉取该状态的任务，以,分割支持多状态 <br> All，Submitted，Running，Success，Failed，Pause，Cancel。默认为 All | String |否|
-| startCreationTime |无| 拉取创建时间大于该时间的任务。格式为：`%Y-%m-%dT%H:%m:%S%z` | String |否|
-| endCreationTime |无| 拉取创建时间小于该时间的任务。格式为：`%Y-%m-%dT%H:%m:%S%z` | String |否|
+| startCreationTime |无| 拉取创建时间大于等于该时间的任务。格式为：`%Y-%m-%dT%H:%m:%S%z` | String |否|
+| endCreationTime |无| 拉取创建时间小于等于该时间的任务。格式为：`%Y-%m-%dT%H:%m:%S%z` | String |否|
 
 ## 响应
 
@@ -112,21 +116,16 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzh****=
       <Object>test.mp4</Object>
     </Input>
     <Operation>
+      <DigitalWatermark>
+        <Type>Text</Type>
+        <Message>123456789ab</Message>
+        <Version>V1</Version>
+      </DigitalWatermark>
       <Output>
         <Region>ap-beijing</Region>
-        <Bucket>abc-1250000000</Bucket>
-        <Object>my-new.mp4</Object>
-      </Output>
-      <DigitalWatermark>
-        <Type>Image</Type>
-        <Image>
-          <Region>ap-beijing</Region>
-          <Bucket>abc-1250000000</Bucket>
-          <Object>watermark.jpg</Object>
-        </Image>
-        <Level>1</Level>
-        <Version>1.0</Version>
-      </DigitalWatermark>    
+        <Bucket>bucket-1250000000</Bucket>
+        <Object>testout.mp4</Object>
+      </Output> 
     </Operation>
   </JobsDetail>
 </Response>

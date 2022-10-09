@@ -26,7 +26,7 @@ NTP 时钟上游为北斗时间源。
 ### 云下机器是否可与云上机器共用一个 NTP？是否可提供 NTP 同步地址？
 内网 NTP 仅腾讯云上实例可用。若云下机器支持外网，则可通过配置外网 NTP 源实现同步。地址如下：
 - 内网 NTP 服务器
-```
+```plaintext
 time1.tencentyun.com
 time2.tencentyun.com
 time3.tencentyun.com
@@ -34,7 +34,17 @@ time4.tencentyun.com
 time5.tencentyun.com
 ```
 - 外网 NTP 服务器
+```plaintext
+ntp.tencent.com
+ntp1.tencent.com
+ntp2.tencent.com
+ntp3.tencent.com
+ntp4.tencent.com
+ntp5.tencent.com
 ```
+以下为旧外网 NTP 服务器地址，旧地址仍可使用，但建议您配置使用新的外网 NTP 服务器地址。
+```plaintext
+time.cloud.tencent.com
 time1.cloud.tencent.com 
 time2.cloud.tencent.com 
 time3.cloud.tencent.com
@@ -47,8 +57,7 @@ time5.cloud.tencent.com
  - [Linux 实例：配置 NTP 服务](https://cloud.tencent.com/document/product/213/30393)
  - [Windows 实例：配置 NTP 服务](https://cloud.tencent.com/document/product/213/30394)
 
-### 云服务器无法 ping 通 NTP 服务器，是否影响 NTP 同步？
-不影响。NTP 域名禁止 ping，仅需确保您的 NTP 服务正常访问即可。
+
 
 ### 为什么使用自定义镜像创建的云服务器 ntp.conf 内容被还原了？
 系统内 Cloud-Init 初始化导致，请您在制作自定义镜像前删除 `/etc/cloud/cloud.cfg` 中 NTP 相关配置。详情请参见 [Cloud-Init 和 Cloudbase-Init 问题](https://cloud.tencent.com/document/product/213/19670)。

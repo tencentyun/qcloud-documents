@@ -118,7 +118,7 @@ chmod +x ./config_ipv6.sh  # 赋予执行权限
 # 示例 1：./config_ipv6.sh eth0
 # 示例 2：./config_ipv6.sh eth1
 ```
- ![](https://main.qcloudimg.com/raw/2763e0e1cc85ece1ca63afa62226f90c.png)
+ ![](https://qcloudimg.tencent-cloud.cn/raw/fca150f96713bf049e3083a80b77b7d7.png)
 3. 执行 `ifconfig` 查询 IPv6 地址的配置情况，出现如下所示报文表示配置成功。
   <img src="https://main.qcloudimg.com/raw/b6c466912558224a5543caaa72af668a.png" width="50%" />
 4. （此步骤仅适用于 CoreOS 操作系统）重启云服务器，使上述配置生效。
@@ -477,12 +477,12 @@ net.ipv6.conf.default.disable_ipv6 = 0
 net.ipv6.conf.lo.disable_ipv6 = 0
 ```
 4. 运行`sysctl -p`使配置生效。
-5. 配置 IPv6，OpenSUSE 42镜像类型的云服务器 IPv6 操作步骤有[ 脚本方式 ](#jbfs)和[ 手动方式 ](#sdfs)。请根据实际情况选择配置方式。[](id:opensusestep4)
+5. 配置 IPv6，OpenSUSE 42镜像类型的云服务器 IPv6 操作步骤有[ 脚本方式 ](#jbfs)和[ 手动方式](#sdfs)。请根据实际情况选择配置方式。[](id:opensusestep4)
  -  **脚本方式**[](id:jbfs)
-    1. 将如下脚本拷贝到 shell 文件中，这里以 test.sh 为例。
+    1. 将如下脚本拷贝到 Shell 文件中，这里以 test.sh 为例。
 		 + dev表示网卡设备名，例如 eth0、eth1。
-		 + index 表示这是第几个 ipv6 地址，从0开始计数。
-		 + ip6 表示本机的 ipv6 地址，例如2607:f0d0:1002:0011:0000:0000:0000:0002。
+		 + index 表示这是第几个 IPv6 地址，从0开始计数。
+		 + ip6 表示本机的 IPv6 地址，例如2607:f0d0:1002:0011:0000:0000:0000:0002。
 		 + prefix_len 表示子网前缀长度，例如64。
 ```plaintext
 	dev=$1
@@ -533,7 +533,7 @@ PREFIXLEN_2=<子网前缀长度>
 ```plaintext
 default <IPv6网关> - -
 ```
-    3. 重启网络服务：运行`service network restart`或`systemctl restart networking`。
+    3. 重启网络服务：运行 `service network restart` 或 `systemctl restart networking`。
 6. 请参考[ SSH 支持 IPv6 配置 ](#ssh-ipv6)开启 SSH 的 IPv6 功能。
 
 
@@ -556,10 +556,10 @@ net.ipv6.conf.lo.disable_ipv6 = 0
 3. 运行`sysctl -p`使配置生效。
 4. 配置 IPv6，SUSE 10镜像类型的云服务器 IPv6 操作步骤有 [脚本方式](#jbfs1) 和 [手动方式](#sdfs1)。请根据实际情况选择配置方式。
  - **脚本方式**[](id:jbfs1)
-      1. 将如下脚本拷贝到 shell 文件中，这里以 test.sh 为例。
+      1. 将如下脚本拷贝到 Shell 文件中，这里以 test.sh 为例。
 	 + dev 表示网卡设备名，例如 eth0、eth1。
-	 + index 表示这是第几个 ipv6 地址，从0开始计数。
-	 + ip6 表示本机的 ipv6 地址，例如2607:f0d0:1002:0011:0000:0000:0000:0002。
+	 + index 表示这是第几个 IPv6 地址，从0开始计数。
+	 + ip6 表示本机的 IPv6 地址，例如2607:f0d0:1002:0011:0000:0000:0000:0002。
 	 + prefix_len 表示子网前缀长度，例如64。
 ```plaintext
 dev=$1
@@ -608,7 +608,7 @@ PREFIXLEN_2=<子网前缀长度>
       ```plaintext
       default <IPv6网关> - -
       ```
-      3. 重启网络服务：运行`service network restart`或`systemctl restart networking`。
+      3. 重启网络服务：运行 `service network restart` 或 `systemctl restart networking`。
 5. 请参考[ SSH 支持 IPv6 配置](#ssh-ipv6) 开启 SSH 的 IPv6 功能。
 
 ### FreeBSD 11 配置 IPv6[](id:Freebsd11)
@@ -620,7 +620,7 @@ FreeBSD 11 配置 IPv6 有 [脚本方式](#jbfs2) 和 [手动方式](#sdfs2)，�
 1. 远程连接实例，具体操作请参见 [登录及远程连接](https://cloud.tencent.com/document/product/213/35701)。
 2. 将如下脚本拷贝到 shell 文件中，这里以“test.sh”为例。
        + dev 表示网卡设备名，例如 eth0、eth1。
-       + ip6 表示本机的 ipv6 地址，例如 2607:f0d0:1002:0011:0000:0000:0000:0002。
+       + ip6 表示本机的 IPv6 地址，例如 2607:f0d0:1002:0011:0000:0000:0000:0002。
        + prefix_len 表示子网前缀长度，例如 64。
 ```plaintext
 key_value_editer() 
@@ -664,7 +664,7 @@ sh ./test.sh vtnet0 2402:4e00:1000:4200:0:8f0c:d527:b985 64
 #### 手动方式[](id:sdfs2)
 1. 远程连接实例，具体操作请参见 [登录及远程连接](https://cloud.tencent.com/document/product/213/35701)。
 2. 运行`vi /etc/rc.conf`命令。
-3. 删除`ipv6_network_interfaces='none'` ，并修改`ipv6_activate_all_interfaces='NO'`为`ipv6_activate_all_interfaces='YES'`后保存退出。
+3. 删除`ipv6_network_interfaces='none'`，并修改`ipv6_activate_all_interfaces='NO'`为`ipv6_activate_all_interfaces='YES'`后保存退出。
 4. 运行`/etc/netstart restart`重启网络。
 5. 运行`vi /etc/rc.conf`打开网卡配置文件，`vtnet0`为网卡标识符，您需要修改成实际的标识符。在文件中根据实际信息添加以下配置：
 >?为区分单个 IPv6 与多个 IPv6 地址，您只需在同一网卡标识符的基础上重复添加地址信息即可。
@@ -683,11 +683,10 @@ ipv6_defaultrouter="<IPv6网关>"
 6. 运行 `/etc/netstart restart` 重启网络服务，使配置生效。
 7. 请参考[ SSH 支持 IPv6 配置 ](#ssh-ipv6)开启 SSH 的 IPv6 功能。
 
-
 ## 附录[](id:ssh-ipv6)
 
 ### SSH 支持 IPv6 配置
-> !如果需要使用 IPv6 地址远程连接，则需要开启 ssh 的 IPv6 支持。
+> !如果需要使用 IPv6 地址远程连接，则需要开启 SSH 的 IPv6 支持。
 > 
 1. 执行如下命令，打开 `/etc/ssh/`文件夹下的`sshd_config`文件。
 ```plaintext

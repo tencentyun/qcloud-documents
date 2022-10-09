@@ -32,3 +32,4 @@ iOS 及 Android 设备
  - **密码**：输入实例登录密码。
 6. 单击**继续**，若显示如下图所示界面，则表示已成功登录 Windows 实例。
  ![](https://main.qcloudimg.com/raw/60abc6a9f51ae33ea95aa11edc53e009.jpg)
+ 

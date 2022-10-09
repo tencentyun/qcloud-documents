@@ -3,14 +3,17 @@
 
 
 ## 使用须知
-- TKE 版本限制：需 ≥ v1.14.x。
-- 操作系统限制：仅支持特定的 TencentOS 3.1 镜像。
-- 机型限制：目前仅支持使用 V100 和 T4 卡的 CVM 机型。
-- 目前支持的 NVIDIA Tesla 驱动版本最新至450.102.04，CUDA 版本11.3。为保证兼容性，强烈建议用户使用 node 上自带的 UMD，无需在 POD 内部重复安装 UMD。
-- qGPU 粒度：一个 GPU 上最多分配的 qGPU 个数（Pod 个数）= GPU 显存数 / 4。
- 例如，32G 显存，最多可以分配8个 qGPU，每个 qGPU 最小分配 1G 显存。
-- 开启了 qGPU 能力的节点无法作为常规的 GPU 节点使用，即不能使用整卡的资源。建议通过 TKE 的节点池能力来区分规划资源。
-- 如需升级 Kubernetes Master 版本，请注意：
+- **TKE 版本支持**：需 ≥ v1.14.x。
+- **操作系统支持**：请参见 [TKE 支持的公共镜像列表](https://cloud.tencent.com/document/product/457/68289#tke-.E6.94.AF.E6.8C.81.E7.9A.84.E5.85.AC.E5.85.B1.E9.95.9C.E5.83.8F.E5.88.97.E8.A1.A8)。推荐使用 TencentOS Server 3.1 (TK4) ，公共镜像为更稳定、高效、易维护的使用方式。不推荐您使用市场镜像。
+- **GPU 卡架构**：支持 Volta（如 V100）、Turing（如 T4）、Ampere（如 A100、A10)。
+- **驱动版本**：支持驱动版本由镜像和机型所共同决定，具体可参考 [准备 GPU 资源](#Step3)。
+<dx-alert infotype="explain" title="">
+为保证兼容性，推荐您在节点上安装 NVIDIA 驱动，无需在 POD 内部重复安装。
+</dx-alert>
+- **共享粒度**：每个 qGPU 最小分配1G显存，精度单位是1G。算力最小分配5（代表一张卡的5%），最大100（代表一张卡），精度单位是5（即5、10、15、20 ... 100）。
+- **整卡分配**：开启了 qGPU 能力的节点可按照 `tke.cloud.tencent.com/qgpu-core: 100 | 200 | ...`（N * 100，N 是整卡个数）的方式分配整卡。建议通过 TKE 的节点池能力来区分 NVIDIA 分配方式或转换到 qGPU 使用方式。
+- **个数限制**：一个 GPU 上最多可创建16个 qGPU 设备。建议按照容器申请的显存大小确定单个 GPU 卡可共享部署的 qGPU 个数。
+- **升级须知**：如需升级 Kubernetes Master 版本，请注意：
   - 对于托管集群，无需重新设置本插件。
   - 对于独立集群，master 版本升级会重置 master 上所有组件的配置，会影响 qgpu-scheduler 插件作为 Scheduler Extender 的配置，因此 qGPU 插件需要卸载后再重新安装。
 
@@ -34,13 +37,23 @@
 6. 单击**完成**即可创建组件。
 安装成功后，需要为集群准备 GPU 资源。
 
-### 准备 GPU 资源
+### 开启集群 qGPU 共享
+1. 单击目标集群 ID，进入集群详情页。
+2. 单击 qGPU 共享右侧的 <img src="https://qcloudimg.tencent-cloud.cn/raw/16189529aacf0f86bdab015237dbbcec.png" style="margin:-3px 0px">，开启 qGPU 共享。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/acfa23ad1de99652ae1b99b5ba1d42b3.png)
+开启后，**集群中所有新增 GPU 节点**默认开启 GPU 共享能力。您可以在 [准备 GPU 资源](#Step3) 中通过 Label 控制是否开启隔离能力。
+
+
+### 准备 GPU 资源[](id:Step3)
 1. 在集群管理页面中，选择左侧工具栏中的**节点管理** > **节点池**。
 2. 在“节点池列表”页面中，单击**新建节点池**。
-3. 在创建节点池页面中，“镜像提供方”请选择**市场镜像**，“操作系统”请选择 **TencentOS Server 3.1(TK4)**，其余参数配置可参见 [创建节点池](https://cloud.tencent.com/document/product/457/43735)。如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/65d9285b9b4d8cc3e93987932ccdae67.png)
+3. 在创建节点池页面中，选择支持的镜像，例如 **TencentOS Server 3.1 (TK4)** 并设置相关驱动。
+设置镜像并选择机型后, 可以根据需求选择 GPU 驱动的版本、CUDA 版本、cuDNN 版本。其余参数配置可参见 [创建节点池](https://cloud.tencent.com/document/product/457/43735)。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/da65a4caee330fb630e7e1f4b0809b62.png)
 <dx-alert infotype="explain" title="">
-使用 qGPU 指定的镜像创建节点后，TKE 后台会自动给节点添加 `label qgpu-device-enable:"enable"`，设置了该 label 后，DaemonSet qgpu-manager 会调度到对应节点上，并自动进行 qGPU 相关的设置。
+- 勾选“后台自动安装 GPU 驱动”后，将在系统启动时进行自动安装，预计耗时15 - 25分钟。支持的驱动版本由 OS 以及 GPU 机型共同决定，详情可参见 [各实例支持的 GPU 驱动版本及安装方式](https://cloud.tencent.com/document/product/560/76423#supportList)。
+- 若您未勾选“后台自动安装 GPU 驱动”，为了保证 GPU 机型的正常使用，针对某些低版本 OS，将会为您默认安装 GPU 驱动，完整的默认驱动版本信息可参考下表：
+<table><thead><tr><th>OS 名称</th><th>默认安装驱动版本</th></tr></thead><tbody><tr><td>CentOS 7.6、Ubuntu 18、Tencent Linux2.4</td><td>450</td></tr><tr><td>Centos 7.2（不推荐）</td><td>384.111</td></tr><tr><td>Ubuntu 16（不推荐）</td><td>410.79</td></tr></tbody></table>
 </dx-alert>
 4. 在创建节点池页面中展开**更多设置**，通过高级配置设置 Label，指定 qGPU 隔离策略 。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/1adefcd6698d483726ef2dd218f21ec8.png)
@@ -80,8 +93,13 @@
 </tr>
 </tbody></table>
 5. 单击**创建节点池**即可。
-6. 为应用分配 GPU 资源。
+
+### 给应用分配共享 GPU 资源
 通过给容器设置 qGPU 对应资源允许 Pod 使用 qGPU，您可以通过控制台或者 YAML 方式来设置：
+<dx-alert infotype="explain" title="">
+- 若应用需使用整数卡资源，只需填写卡数，无需填写显存（自动使用分配的 GPU 卡上全部显存）。
+- 若应用需要使用小数卡资源（即和其他应用共享同一张卡），需同时填写卡数和显存。
+</dx-alert>
 <dx-tabs>
 ::: 通过控制台设置
 在“新建Workload” 页面，填写 “GPU 资源”。如下图所示：

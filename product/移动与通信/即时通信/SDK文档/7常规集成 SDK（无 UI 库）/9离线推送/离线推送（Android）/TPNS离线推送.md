@@ -410,7 +410,7 @@ OPPO 手机收不到推送一般有以下几种情况：
 
 ### 收不到离线推送消息?
 按照文档指引流程执行后，离线推送功能即可正常运行。如果遇到收不到离线消息，可能存在如下情况：
-- 首先在 IM 控制台通过 [离线测试工具](https://console.cloud.tencent.com/im-detail/tool-push-check)，或者 TPNS 控制台 [推送任务](https://console.cloud.tencent.com/tpns/push) 新建推送测试，自测下是否可以正常推送。
+- 首先在 IM 控制台通过 [离线测试工具](https://console.cloud.tencent.com/im/tool-push-check)，或者 TPNS 控制台 [推送任务](https://console.cloud.tencent.com/tpns/push) 新建推送测试，自测下是否可以正常推送。
 推送异常情况，设备状态异常，需要检查下 IM 控制台配置各项参数是否正确，再者需要检查下代码初始化注册逻辑，包括厂商推送服务注册和 IM 设置离线推送配置相关逻辑是否正确设置。
 推送异常情况，设备状态正常，需要看下是否需要正确填写 channelID 或者后台服务是否正常。
 

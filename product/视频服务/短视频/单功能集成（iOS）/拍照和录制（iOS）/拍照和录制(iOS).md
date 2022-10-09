@@ -20,8 +20,7 @@
 4. 完成录制。
 
 示例
-<dx-codeblock>
-::: ios objcect-c
+```objectivec
 @interface VideoRecordViewController <TXUGCRecordListener> {
    UIView *_videoRecordView;
 }
@@ -80,14 +79,12 @@
     [alert show];
 }
 @end
-:::
-</dx-codeblock>
+```
 
 ## 画面预览
 TXUGCRecord（位于 TXUGCRecord.h）负责小视频的录制功能，我们的第一个工作是先把预览功能实现。startCameraSimplePreview 函数用于启动预览。由于启动预览要打开摄像头和麦克风，所以这里可能会有权限申请的提示窗。
 ### 1. 启动预览
-<dx-codeblock>
-::: ios objcect-c
+```objectivec
 TXUGCRecord *record = [TXUGCRecord sharedInstance];
 record.recordDelegate = self; //设置录制回调, 回调方法见 TXUGCRecordListener
 
@@ -106,15 +103,11 @@ param.enableBFrame = YES; // 开启B帧，相同码率下能获得更好的画�
 
 //结束画面预览
 [[TXUGCRecord shareInstance] stopCameraPreview];
-:::
-</dx-codeblock>
+```
 
 ### 2. 调整预览参数
-
 如果在相机启动后，可以通过以下方法修改：
-
-<dx-codeblock>
-::: ios objcect-c
+```objectivec
 // 切换视频录制分辨率到540p
 [recorder setVideoResolution: VIDEO_RESOLUTION_540_960];
 
@@ -132,13 +125,11 @@ param.enableBFrame = YES; // 开启B帧，相同码率下能获得更好的画�
 
 // 设置自定义图像处理回调
 recorder.videoProcessDelegate = delegate;
-:::
-</dx-codeblock>
+```
 
 ## 录制过程控制
 ### 录制的开始、暂停与恢复
-<dx-codeblock>
-::: ios objcect-c
+```objectivec
 // 开始录制
 [recorder startRecord];
 
@@ -156,12 +147,10 @@ recorder.videoProcessDelegate = delegate;
 
 // 结束录制
 [recorder stopRecord];
-:::
-</dx-codeblock>
-
+```
 录制的过程和结果是通过 TXUGCRecordListener（位于 TXUGCRecordListener.h 中定义）协议进行回调：
 - onRecordProgress 用于反馈录制的进度，参数 millisecond 表示录制时长，单位毫秒。
-```
+```objectivec
   @optional
    (void)onRecordProgress:(NSInteger)milliSecond;
 ```
@@ -178,7 +167,7 @@ recorder.videoProcessDelegate = delegate;
 
 ## 录制属性设置
 ### 1. 画面设置
-```objc
+```objectivec
 // 设置横竖屏录制
 [recorder setHomeOrientation:VIDOE_HOME_ORIENTATION_RIGHT];
 
@@ -195,7 +184,7 @@ recorder.videoProcessDelegate = delegate;
 [recorder setAspectRatio:VIDEO_ASPECT_RATIO_9_16];
 ```
 ### 2. 速度设置
-```
+```objectivec
 // 设置视频录制速率
 //    VIDEO_RECORD_SPEED_SLOWEST,       极慢速
 //   VIDEO_RECORD_SPEED_SLOW,           慢速
@@ -206,20 +195,17 @@ recorder.videoProcessDelegate = delegate;
 ```
 
 ### 3. 声音设置
-<dx-codeblock>
-::: ios objcect-c
+```objectivec
 // 设置麦克风的音量大小，播放背景音混音时使用，用来控制麦克风音量大小
 // 音量大小,1为正常音量,建议值为0-2,如果需要调大音量可以设置更大的值.
 [recorder setMicVolume:volume];
 
 // 设置录制是否静音 参数 isMute 代表是否静音，默认不静音
 [recorder setMute:isMute];
-:::
-</dx-codeblock>
+```
 
 ## 拍照
-
-```objc
+```objectivec
 // 截图/拍照，startCameraSimplePreview 或者 startCameraCustomPreview 之后调用有效
 [recorder snapshot:^(UIImage *image) {
     // image 为截图结果
@@ -230,7 +216,7 @@ recorder.videoProcessDelegate = delegate;
 
 在视频录制的过程中，您可以给录制视频的画面设置各种特效。
 ### 1. 水印效果
-```objc
+```objectivec
 // 设置全局水印
 // normalizationFrame : 水印相对于视频图像的归一化值，sdk 内部会根据水印宽高比自动计算 height
 // 例如视频图像大小为（540，960）  frame 设置为（0.1，0.1，0.1, 0）
@@ -240,9 +226,7 @@ recorder.videoProcessDelegate = delegate;
 ```
 
 ### 2. 滤镜效果
-
-<dx-codeblock>
-::: ios objcect-c
+```objectivec
 //设置风格滤镜
 // 设置颜色滤镜：浪漫、清新、唯美、粉嫩、怀旧...
 // filterImage : 指定滤镜用的颜色查找表。注意：一定要用 png 格式
@@ -257,28 +241,26 @@ recorder.videoProcessDelegate = delegate;
 // leftIntensity   左侧滤镜强度
 // mRightBitmap     右侧滤镜
 // rightIntensity  右侧滤镜强度
-// leftRadio       左侧图片占的比例大小
+// leftRatio       左侧图片占的比例大小
 // 可以此接口实现滑动切换滤镜的效果，详见 demo。
 [recorder setFilter:leftFilterImgage leftIntensity:leftIntensity rightFilter:rightFilterImgage rightIntensity:rightIntensity leftRatio:leftRatio];
-:::
-</dx-codeblock>
+```
 
 ### 3. 美颜效果
-```
+```objectivec
 // 设置美颜风格、级别、美白及红润的级别
 // beautyStyle的定义如下:
 // typedef NS_ENUM(NSInteger, TXVideoBeautyStyle) {
 //    VIDOE_BEAUTY_STYLE_SMOOTH     = 0,    // 光滑
 //    VIDOE_BEAUTY_STYLE_NATURE     = 1,    // 自然
-//    VIDOE_BEAUTY_STYLE_PITU       = 2,    // pitu 美颜, 需要购买企业版
 // };
 // 级别的范围为0-9 0为关闭， 1-9值越大，效果越明显
 [recorder setBeautyStyle:beautyStyle beautyLevel:beautyLevel whitenessLevel:whitenessLevel ruddinessLevel:ruddinessLevel];
 ```
 
 ## 高级功能
-[多段录制](https://cloud.tencent.com/document/product/584/20317)
-[录制草稿箱](https://cloud.tencent.com/document/product/584/20319)
-[添加背景音乐](https://cloud.tencent.com/document/product/584/20315)
-[变声和混响](https://cloud.tencent.com/document/product/584/20321)
-[定制视频数据](https://cloud.tencent.com/document/product/584/20331)
+- [多段录制](https://cloud.tencent.com/document/product/584/20317)
+- [录制草稿箱](https://cloud.tencent.com/document/product/584/20319)
+- [添加背景音乐](https://cloud.tencent.com/document/product/584/20315)
+- [变声和混响](https://cloud.tencent.com/document/product/584/20321)
+- [定制视频数据](https://cloud.tencent.com/document/product/584/20331)

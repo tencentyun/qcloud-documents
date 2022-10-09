@@ -1,6 +1,6 @@
 ## 开发准备
 ### SDK 下载
-录音文件识别 Android SDK 及 Demo 下载地址：[Android SDK](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/realtime/QCloudSDK_Android_v2.6.7.zip)。
+录音文件识别 Android SDK 及 Demo 下载地址：[接入 SDK 下载](https://console.cloud.tencent.com/asr/download)。
 
 ### 接入须知
 - 开发者使用录音文件极速版识别功能前，需要先在 [腾讯云控制台](https://console.cloud.tencent.com/) 注册账号，并获得 AppID、SecretId 和 SecretKey 信息。
@@ -8,20 +8,25 @@
 3. 支持 **Android 5.0** 及其以上版本。
 
 ### 运行环境配置
-1. 添加录音文件识别 SDK aar，将 **speech_release.aar** 放在 libs 目录下，在 App 的 build.gradle 文件中添加。
+1. 添加录音文件识别 SDK aar，将 **asr-file-recognize-release.aar** 放在 libs 目录下，在 App 的 build.gradle 文件中添加。
 ```
-  implementation(name: 'speech_release', ext: 'aar')
+  implementation(name: 'asr-file-recognize-release', ext: 'aar')
 ```
 2. 添加其他依赖，在 App 的 build.gradle 文件中添加。
 ```
  implementation 'com.google.code.gson:gson:2.8.5'
- implementation 'com.squareup.okhttp3:okhttp:4.2.2'
- implementation 'com.squareup.okio:okio:1.11.0'
- implementation 'org.slf4j:slf4j-api:1.7.25'
 ```
 3. 在 AndroidManifest.xml 添加如下权限。
 ```
 < uses-permission android:name="android.permission.INTERNET"/>
+```
+
+### 混淆规则
+```
+-keepclasseswithmembernames class * { # 保持 native 方法不被混淆
+native <methods>;
+}
+-keep public class com.tencent.cloud.qcloudasrsdk.*
 ```
 
 ## 快速接入
@@ -88,9 +93,9 @@ public QCloudFlashRecognizer(String appId, String secretId, String secretKey);
  */
 public long recognize(QCloudFlashRecognitionParams params) throws Exception;
 ```
-**QCloudFlasheRecognizerListener**：识别结果回调
+**QCloudFlashRecognizerListener**：识别结果回调
 ```
-public interface QCloudFileRecognizerListener {
+public interface QCloudFlashRecognizerListener {
     /**
      * 识别结果回调
      * @param recognizer 录音文件识别实例

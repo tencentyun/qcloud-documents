@@ -1,4 +1,4 @@
-本文主要介绍如何快速集成腾讯云 IM Demo（Flutter）。
+本文主要介绍如何快速集成腾讯云 IM SDK（Flutter）。
 
 ## 环境要求
 

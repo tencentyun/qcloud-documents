@@ -127,7 +127,10 @@ cos.getObjectUrl({
 }, function (err, data) {
     if (err) return console.log(err);
     var downloadUrl = data.Url + (data.Url.indexOf('?') > -1 ? '&' : '?') + 'response-content-disposition=attachment'; // 补充强制下载的参数
-    window.open(downloadUrl); // 这里是新窗口打开 url，如果需要在当前窗口打开，可以使用隐藏的 iframe 下载，或使用 a 标签 download 属性协助下载
+    /* 可拼接filename来实现下载时重命名 */
+    /* downloadUrl += ';filename=myname'; */
+    // （推荐使用window.open()方式）这里是新窗口打开 url，如果需要在当前窗口打开，可以使用隐藏的 iframe 下载，或使用 a 标签 download 属性协助下载
+    window.open(downloadUrl);
 });
 ```
 
@@ -169,16 +172,16 @@ cos.getObjectUrl({
     if (err) return console.log(err);
     console.log(data.Url);
     
-    // 获取到 Url 后，前端可以这样 ajax 上传
+    /* 获取到 Url 后，前端可以这样 ajax 上传 */
     var xhr = new XMLHttpRequest();
-    xhr.open('PUT', data.Url, true);
+    xhr.open('PUT', data.Url, true); /* PUT和getObjectUrl填写的Method对应 */
     xhr.onload = function (e) {
         console.log('上传成功', xhr.status, xhr.statusText);
     };
     xhr.onerror = function (e) {
         console.log('上传出错', xhr.status, xhr.statusText);
     };
-    xhr.send(file); // file 是要上传的文件对象
+    xhr.send(file); /* file 是要上传的文件对象 */
 });
 ```
 

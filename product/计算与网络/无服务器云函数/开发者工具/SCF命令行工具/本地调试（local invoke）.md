@@ -11,22 +11,22 @@ SCF CLI 通过 `local invoke` 子命令完成本地触发运行。SCF 命令行�
 
 | 参数                  | 必填 | 描述                                                         | 示例                           |
 | --------------------- | ---- | ------------------------------------------------------------ | ------------------------------ |
-| event                 | 否   | 模拟测试事件的文件来源，文件内容必须为 JSON 格式。             | event.json                     |
-| template              | 否   | 项目描述配置文件的路径或文件名，默认为 template.yaml。         | template.yaml                  |
-| env-vars              | 否   | 函数运行时的环境变量配置，需要指定环境变量配置文件，内容必须为 JSON 格式。 | env.json                       |
-| debug-port            | 否   | 函数运行时暴露的端口。在指定端口后，容器运行时将以 debug 模式启动并暴露指定端口。 | 3366                           |
-| debugger-path         | 否   | 本机中的调试器路径。在指定路径后，容器运行时将会把调试器挂载到容器中。 | /root/debugger/pydev           |
-| debug-args            | 否   | 本机中的调试器启动参数。在指定参数后，调试器启动时将传递指定参数。 |   无                             |
-| docker-volume-basedir | 否   | 指定挂载到容器中的路径。                                       | /User/xxx/code/project         |
-| docker-network        | 否   | 指定容器使用的网络，默认使用 bridge 模式。                     | bridge                         |
-| log-file              | 否   | 指定输出日志到文件。                                           | /User/xxx/code/project/log.txt |
-| skip-pull-image       | 否   | 跳过检查和拉取新的容器镜像。                                   |   无                             |
+| event                 | 否   | 模拟测试事件的文件来源，文件内容必须为 JSON 格式。               | event.json                     |
+| template              | 否   | 项目描述配置文件的路径或文件名，默认为 template.yaml。           | template.yaml                  |
+| env-vars              | 否   | 函数运行时的环境变量配置，需要指定环境变量配置文件，内容必须为 JSON 格式。   | env.json                       |
+| debug-port            | 否   | 函数运行时暴露的端口。在指定端口后，容器运行时将以 debug 模式启动并暴露指定端口。   | 3366                           |
+| debugger-path         | 否   | 本机中的调试器路径。在指定路径后，容器运行时将会把调试器挂载到容器中。   | /root/debugger/pydev           |
+| debug-args            | 否   | 本机中的调试器启动参数。在指定参数后，调试器启动时将传递指定参数。   |   无                             |
+| docker-volume-basedir | 否   | 指定挂载到容器中的路径。                                         | /User/xxx/code/project         |
+| docker-network        | 否   | 指定容器使用的网络，默认使用 bridge 模式。                       | bridge                         |
+| log-file              | 否   | 指定输出日志到文件。                                             | /User/xxx/code/project/log.txt |
+| skip-pull-image       | 否   | 跳过检查和拉取新的容器镜像。                                     |   无                             |
 
 支持选项 FUNCTION_IDENTIFIER 说明如下：
 
 | 参数                | 必填 | 描述                                                         | 示例        |
 | ------------------- | ---- | ------------------------------------------------------------ | ----------- |
-| FUNCTION_IDENTIFIER | 否   | 指明函数的标识、名称；在项目描述配置文件中如果有多个函数描述，可以通过此参数指定需要调试的函数。 | hello_world |
+| FUNCTION_IDENTIFIER | 否   | 指明函数的标识、名称；在项目描述配置文件中如果有多个函数描述，可以通过此参数指定需要调试的函数。   | hello_world |
 
 
 ### 测试模拟事件
@@ -34,7 +34,7 @@ SCF CLI 通过 `local invoke` 子命令完成本地触发运行。SCF 命令行�
 - **通过命令管道传递：** `scf local invoke` 命令支持从命令行管道中接收事件。
  - 可通过执行 `scf local generate-event` 命令生成事件并传递，形成例如 `scf local generate-event cos post | scf local invoke` 的调试命令。
  - 也可以自行构造输出 JSON 格式内容并传递给 `scf local invoke` 命令，形成例如 `echo '{"test":"value"}' | scf local invoke` 的调试命令。
-- **通过文件传递：**通过使用 `scf local invoke` 命令的 `--event` 参数，指定包含有测试模拟事件内容的文件。文件内容必须为 JSON 数据结构，形成例如 `scf local invoke --event event.json` 的调试命令。 
+- **通过文件传递：**通过使用 `scf local invoke` 命令的 `--event` 参数，指定包含有测试模拟事件内容的文件。文件内容必须为 JSON 数据结构，形成例如 `scf local invoke --event event.json` 的调试命令。   
 
 ### 使用示例
 在通过 `scf init` 初始化得到的示例项目中，均带有已准备好的代码文件及模板配置文件。以该示例项目为例，假定在环境为 Python 2.7 下，`/Users/xxx/code/scf` 目录中创建了一个 testproject 项目。

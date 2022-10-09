@@ -1,3 +1,131 @@
+### 2.7.8.283 @ 2022-09-20
+* [单击下载 SDK](https://sdk.qcloudtiw.com/win32/sdk_bin_2.7.8.283.zip)
+- 新增接口
+  1. 开启多点触控 EnableMultiTouch
+  2. 设置元修改信令同步频率，该值的允许范围为[5, 20] SetSyncFps
+
+- 更新接口
+  1. updateElementById 更新元素新增位置偏移类型 TEduElementOperatorType.CHANGE_POSITION
+  2. setToolType 接口增加类型：坐标系 TEDU_BOARD_TOOL_TYPE_COORDINATE
+
+- Bug及优化处理
+  1. 优化圆规操作
+  2. 图形拟合优化
+  3. 其他已知问题优化
+
+### 2.7.7.278 @ 2022-09-01
+* [单击下载 SDK](https://sdk.qcloudtiw.com/win32/sdk_bin_2.7.7.278.zip)
+- 新增接口
+  1. 获取元素信息 GetElementById
+  2. 设置元素样式 UpdateElementById
+  3. 设置荧光笔颜色，画笔颜色用于所有荧光笔绘制 SetHighlighterColor
+  4. 获取荧光笔颜色 GetHighlighterColor
+  5. 开启绘制涂鸦过程中自动拟合图形 EnablePenAutoFit
+  6. 设置图形样式 SetGraphStyle
+  7. 获取图形样式 GetGraphStyle
+
+- 新增错误回调
+  1. 新增错误回调枚举值TEDU_BOARD_ERROR_SIGNATURE_EXPIRED(白板签名过期)
+
+- 废弃接口
+  1. 废弃SetLineStyle，请使用SetGraphStyle
+  2. 废弃GetLineStyle，请使用GetGraphStyle
+
+- 新增功能
+  1. 增加数学教具圆规
+  2. 新增几何图形（直角三角形，等腰三角形，平行四边形，立方体，圆柱体，圆锥）
+  3. 其他功能
+
+- Bug及优化处理
+  1. PPT翻页优化
+  2. 其他已知问题优化
+
+### 2.7.6 @ 2022.08.16
+* [单击下载 SDK](https://sdk.qcloudtiw.com/win32/sdk_bin_2.7.6.274.zip)
+
+- 新增功能
+  1. 新增数学教具功能，支持直尺，三角形，量角器;
+  2. 新增获取 ppt 备注功能;
+
+- Bug 修复
+  1. 其他已知问题修复。
+
+### 2.7.5 @ 2022.08.01
+* [单击下载 SDK](https://sdk.qcloudtiw.com/win32/sdk_bin_2.7.5.273.zip)
+
+- 新增功能
+  1. PPT 老版本转码，支持 mp3,mp4 播放同步;
+  2. PPT 新版本转码，支持 mp3,mp4 播放同步;
+  3. 错误和警告事件增加上报;
+
+- Bug 及优化处理
+  1. 修复获取资源的时候Host缺少协议的问题
+  2. 其他已知问题修复。
+
+### 2.7.4.261 @ 2022-07-04
+* [单击下载 SDK](https://sdk.qcloudtiw.com/win32/sdk_bin_2.7.4.261.zip)
+
+- 新增功能
+  1. 在小程序的 webview 版本中支持 mp3、mp4 播放；
+  2. 课件预加载时回调，返回预加载的进度值；
+
+- 调整事件
+  1. 添加多媒体资源码率过高告警回调类型(TEDU_BOARD_WARNING_IMAGE_MEDIA_BITRATE_TOO_LARGE);
+
+- Bug 修复
+  1. 橡皮擦除在移动快的时候会导致擦除不干净的情况，会漏掉一些点；
+  2. ppt 转码问题，转码文件被系统认为了是 pad，只响应滑动翻页，不响应点击事件了；
+  3. 其他已知问题修复。
+
+### 2.7.3.258 @ 2022-06-07
+* [单击下载 SDK](https://sdk.qcloudtiw.com/win32/sdk_bin_2.7.3.258.zip)
+
+- 调整初始化参数
+    1. 权限配置下，新增 customCursorIcon 参数：是否自定义鼠标样式，默认 false 显示系统自带样式，true 时需要根据返回的鼠标位置,自定义鼠标样式
+  
+- 调整事件
+    1. 自定义鼠标样式时,坐标位置回调(TEB_BOARD_CURSOR_POSITION)，用户根据位置，自定义鼠标样式
+
+- 新增接口
+    1. 是否本地显示自己的别名(setOwnerNickNameVisible)，设置为 false 时，画笔部分不显示自己的 NickName
+  
+- 优化历史数据拉取
+    1. 首帧渲染只拉取活跃白板的历史数据
+    2. 用户翻页的时候会由操作者拉取，对应白板页的历史数据，然后广播给房间内其他用户
+
+- Bug 修复
+    1. 其他已知问题修复。
+    
+### 2.7.2.243 @ 2022-04-02
+* [单击下载 SDK](https://sdk.qcloudtiw.com/win32/sdk_bin_2.7.2.243.zip)
+
+- 调整全局变量
+    1. 白板错误码 增加TEDU_BOARD_ERROR_MAX_BOARD_LIMITED 单课堂内白板页数已经到达上限
+    
+- 功能优化
+     1. 白板SDK升级
+     2. 已知问题处理及优化
+
+### 2.7.1.242 @ 2022-02-25
+* [单击下载 SDK](https://sdk.qcloudtiw.com/win32/sdk_bin_2.7.1.242.zip)
+
+- 新增接口
+    1. LoadCustomResource自定义资源预加载，支持课前和课中加载
+    
+- 修改接口
+    1. LoadTeduBoardResource增加课件资源保留时间
+
+- 功能优化
+    1. 白板SDK升级
+    2. 已知问题处理及优化
+
+### 2.7.0.241 @ 2022-01-23
+* [单击下载 SDK](https://sdk.qcloudtiw.com/win32/sdk_bin_2.7.0.241.zip)
+
+- 功能优化
+    1. 白板SDK升级
+    2. 已知问题处理及优化
+
 ### 2.6.9.240 @ 2021-12-31
 * [单击下载 SDK](https://sdk.qcloudtiw.com/win32/sdk_bin_2.6.9.240.zip)
 
@@ -8,6 +136,7 @@
 - 功能优化
     1. 优化课件加载
     2. 截图功能在异常 dpr 中丢失几个像素的问题
+
 ### 2.6.8.236 @ 2021-12-13
 * [单击下载 SDK](https://sdk.qcloudtiw.com/win32/sdk_bin_2.6.8.236.zip)
 
@@ -69,6 +198,7 @@
 
 - Bug 修复
     若干已知问题修复
+
 ### 2.6.6.232 @ 2021-10-12
 * [单击下载 SDK](https://sdk.qcloudtiw.com/win32/sdk_bin_2.6.6.232.zip)
 
@@ -677,5 +807,4 @@
 - 文件展示（静态：支持PPT、PDF、WORD、EXCEL）、多文件支持
 
         
-
 

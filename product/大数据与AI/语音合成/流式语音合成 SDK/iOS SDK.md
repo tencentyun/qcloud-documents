@@ -1,8 +1,9 @@
+>? 当前文档适用于 V1.5.1版本及以下 SDK。建议正在使用旧版 SDK 的客户及时升级到 [新版 SDK](https://cloud.tencent.com/document/product/1073/80488)，以获取更好的使用体验。
 ## 开发相关
 ### 开发准备
 - 支持 iOS 8.0 及以上版本，不支持 bitcode 版本。
 - 合成实时流式语音，需要手机能够连接网络（3/4/5G 或 Wi-Fi 网络等）。
-- 语音合成 iOS SDK [下载地址](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/tts/tts_sdk_ios_v1.5.0.zip)。
+- 语音合成 [iOS SDK ](https://console.cloud.tencent.com/tts/download)。
 - 服务端 [API 文档](https://cloud.tencent.com/document/product/1073/37995)。
 
 ### 导入 SDK
@@ -117,10 +118,12 @@ config.language = PrimaryChinese;
 
 语音合成有两个接口，基于基础语音合成接口封装，支持不限字数长文本入参，SDK内部会将文本切分为短句多次请求合成，也支持入参切分好的句子集合  ，支持播放暂停与恢复，适合实时播放场景。
 
-合成接口1：直接入参文本段落，使用SDK内部的规则切分文本，如果sdk的切分规则不符合您的业务需求，您可以选用合成接口2。
+合成接口1：直接入参文本段落，使用 SDK 内部的规则切分文本，如果 sdk 的切分规则不符合您的业务需求，您可以选用合成接口2。
 
-合成接口2：入参切分好的句子集合，您需要确保列表内每句话长度不超过后端接口最大字符限制，建议文本中第一句话不要设的太长，demo工程内附带了一份文本切分示例代码。长度限制详见[语音合成 API 文档](https://cloud.tencent.com/document/product/1073/37995)。
+合成接口2：入参切分好的句子集合，您需要确保列表内每句话长度不超过后端接口最大字符限制，建议文本中第一句话不要设的太长， demo 工程内附带了一份文本切分示例代码。长度限制详见 [语音合成 API 文档](https://cloud.tencent.com/document/product/1073/37995)。
 
+>! 如果要使用 SSML 标记语言，请选择使用合成接口2，并确保入参列表中每一个元素不能超过150中文字符（不包括 SSML 标签）。如果选择合成接口1，入参 SSML 标签会被切分导致 SSML 标签无效，具体使用可以参考 demo，SSML 语法详见 [SSML 标记语言](https://cloud.tencent.com/document/product/1073/49575)。
+>
 ```
 合成接口1：直接入参文本段落:
 (BOOL)startTTS:(NSString * )text fail:(TTSExceptionHandler)fail;
@@ -168,5 +171,3 @@ _apiObj.ttsDelegate = self;
 
 ### 错误码
 请参考 [语音合成 API 文档](https://cloud.tencent.com/document/product/1073/37995)。
-
- 

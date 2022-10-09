@@ -45,9 +45,11 @@
 
 ### 域名 DNS 未修改
 DNS 地址未修改会影响解析生效，请前往域名注册商处修改 DNS 服务器，如您的域名在腾讯云注册，可参考 [修改域名 DNS 服务器](https://cloud.tencent.com/document/product/302/5518) 进行调整。
+若您已设置为 DNS 解析 DNSPod 服务器，依旧提示域名 DNS 未修改，请检查您的域名是否为 OK 状态。若非 OK 状态，请联系您的域名注册商进行解决。
 
 ### 待添加解析记录
 解析记录中，无解析记录值。需对域名添加正确且有效的解析记录，才可以正常使用。设置解析记录请参考 [各记录类型说明及规则](https://cloud.tencent.com/document/product/302/38661)。
 
 ### 已封禁
 该域名已被举报封禁，如有问题，可加入 [DNSPod 官方用户群](https://cloud.tencent.com/document/product/242/57608#DNSPod) 进行咨询。
+

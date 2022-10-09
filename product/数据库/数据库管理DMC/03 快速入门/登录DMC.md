@@ -8,5 +8,6 @@
 ## 登录企业版 DMC 
 在 [腾讯云控制台](https://console.cloud.tencent.com/) 首页，搜索选择**数据库管理**，即可查看实例列表。
 
-不同角色进入显示的界面有差异，普通用户进入后需要申请对应权限才可访问相应的数据库内容。
-![](https://qcloudimg.tencent-cloud.cn/raw/f520a459c34b917e33395e25a79855da.png)
+>?不同角色进入显示的界面有差异，普通用户进入后需要申请对应权限才可访问相应的数据库内容。
+
+![](https://qcloudimg.tencent-cloud.cn/raw/afa94229a78008cc60a22874102cfa6f.png)

@@ -32,9 +32,6 @@
 
 ```JavaScript
 //获取到该人员的部门的部门名
-
-// getObjectByID(dept,id = user.DeptID).name
-
 repo.getObjectByID(context.data.DeptID).name
 
 // 如果人员的雇佣日期在今天之前，创建人员
@@ -44,8 +41,7 @@ if (context.data.hiredate - today() <= 0) {
 }
 
 // 如果人员的邮箱包含tencent，不进行更新操作
-
-if (context.data.email contain("tencent")) {
+if (context.data.email.contain("tencent")) {
     repo.abort("UPDATE");
     return context;
 }

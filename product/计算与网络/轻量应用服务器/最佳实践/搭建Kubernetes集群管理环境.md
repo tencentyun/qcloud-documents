@@ -11,7 +11,7 @@ K3s 是开源、极轻量的 Kubernetes 发行版，目前为 CNCF 云原生计�
 
 ## 操作步骤
 ### 使用 K3s 镜像创建实例
-1. 登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse)。配置如下图所示参数：
+1. 登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse)。配置如下参数：
  - **地域、可用区**：建议选择靠近目标客户的地域及可用区，降低网络延迟、提高您的客户的访问速度。例如目标客户在 “深圳”，地域选择 “广州”。
  - **镜像**：选择 “K3s” 应用镜像。
  - **实例套餐**：按照所需的服务器配置（CPU、内存、系统盘、峰值带宽、每月流量），选择一种实例套餐。
@@ -26,14 +26,14 @@ K3s 是开源、极轻量的 Kubernetes 发行版，目前为 CNCF 云原生计�
 <dx-alert infotype="explain" title="">
 Kubernetes Dashboard 默认端口为9090。
 </dx-alert>
-<img src="https://main.qcloudimg.com/raw/6286b5633ff774117c266a78bd951fea.png"/>
+<img src="https://qcloudimg.tencent-cloud.cn/raw/b7d8837d810eed4d4e6d8dc70c5e91c4.png"/>
 
 
 ### 登录 Kubernetes Dashboard
 1.  在“服务器”页面中，选择并进入实例详情页。
 2. 选择**应用管理**页签，进入应用管理详情页。您可以在此页面查看应用的各项配置信息。
 3. [](id:Step3)在“应用内软件信息”栏中，单击 <img src="https://main.qcloudimg.com/raw/6603ab4f907562addb1c01596c6296cd.png" style="margin:-3px 0px">，复制 Kubernetes Dashboard 的管理员 TOKEN。如下图所示：
- ![](https://main.qcloudimg.com/raw/4c6d21f54dab5b3f027d09a6536951d9.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/46116280da7801b3c2ec452c35a0756d.png)
 4. 在“应用内软件信息”栏中，单击**登录**。
 5. 在弹出的登录窗口中，粘贴并执行 [步骤3](#Step3) 获取的命令，按 **Enter**。
 6. [](id:Step6)记录返回结果 TOKEN 值。如下图所示：
@@ -48,16 +48,17 @@ Kubernetes Dashboard 默认端口为9090。
 ### 增加集群节点
 使用 K3s 应用镜像创建的实例即为集群 Master 节点。您可参考本步骤，向集群中增加其他 Node 节点。
 
-1. 进入实例详情页，选择**防火墙**页签，参考 [配置轻量应用服务器网络防火墙](#configFirewall) 步骤放通 `TCP:6443` 端口。
+1. [](id:Step1)进入实例详情页，选择**防火墙**页签，参考 [配置轻量应用服务器网络防火墙](#configFirewall) 步骤放通 `TCP:6443`、`UDP:8472` 及 `TCP:10250（用于获取 Node 节点的监控信息）` 端口。
 2. 在“应用内软件信息”栏中，单击**登录**。
 3. 在弹出的登录窗口中，执行以下命令，加入集群节点 IP。
 ```
 k3s-add-node {node-ip}
 ```
 <dx-alert infotype="explain" title="">
-- Master 节点操作系统为 CentOS 8.2，建议您添加同地域同可用区下的其他轻量应用服务器实例作为集群 Node 节点。您可先使用 CentOS 8.2 系统镜像参考 [快速创建 Linux 实例](https://cloud.tencent.com/document/product/1207/44548) 创建实例，再通过以上命令将实例加入集群作为 Node 节点。
+- Master 节点操作系统为 CentOS 8.2，建议您添加同地域、同可用区及同系列操作系统的其他轻量应用服务器实例作为集群 Node 节点。您可先使用 CentOS 8.2 系统镜像参考 [快速创建 Linux 实例](https://cloud.tencent.com/document/product/1207/44548) 创建实例，再通过以上命令将实例加入集群作为 Node 节点。
 - Node 节点需与 Master 节点内网互通。
-同账号下同一地域内的不同轻量应用服务器默认内网互通。更多轻量应用服务器内网连通能力介绍，请参见 [内网连通性说明](https://cloud.tencent.com/document/product/1207/50103#IntranetUnicom)。
+  - 同账号下同一地域内的不同轻量应用服务器默认内网互通。更多轻量应用服务器内网连通能力介绍，请参见 [内网连通性说明](https://cloud.tencent.com/document/product/1207/50103#IntranetUnicom)。
+  - 实例间的网络访问受到防火墙的控制，`TCP:6443`、`UDP:8472`及 `TCP:10250` 端口默认未在防火墙中放通，您需按照 [步骤1](#Step1) 放通端口。
 </dx-alert>
 示例命令如下：
 ```
@@ -68,9 +69,9 @@ k3s-add-node {node-ip}
 Please ensure firewall rule(TCP:6443) of master node has been allowed!
 root@10.0.5.158's password:
 ```
-4. 输入待加入节点的 `root` 账户密码，并按 **Enter**。待节点初始化结束后，将会加入集群。
+4. 输入待加入节点的 `root` 用户密码，并按 **Enter**。待节点初始化结束后，将会加入集群。
 <dx-alert infotype="explain" title="">
-若您未设置或忘记 `root` 账户密码，可参考 [重置密码](https://cloud.tencent.com/document/product/1207/44575) 进行设置。
+若您未设置或忘记 `root` 用户密码，可参考 [重置密码](https://cloud.tencent.com/document/product/1207/44575) 进行设置。
 </dx-alert>
 
 
@@ -90,7 +91,7 @@ ExecStart=/usr/local/bin/k3s server --write-kubeconfig-mode=644 --service-node-p
 修改完成后，如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/f2942d70f5499b99eb1b93f26a2a2f3f.png)
 5. 按 **Esc** 输入 **:wq** 保存修改并退出编辑模式。
-6. 执行以下命令，并输入 `root` 账户密码重启 K3s 服务，使配置生效。
+6. 执行以下命令，并输入 `root` 用户密码重启 K3s 服务，使配置生效。
 ```shell
 systemctl daemon-reload && systemctl restart k3s
 ```

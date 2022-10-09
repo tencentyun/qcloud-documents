@@ -64,3 +64,4 @@
 - 离开腾讯会议：在遥控器上按“挂断”，即可离开会议。
 ![](https://main.qcloudimg.com/raw/c6f5958d7e8e7d2f2dc73d5a756d6389.png)
 
+ 

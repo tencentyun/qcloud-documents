@@ -2,14 +2,14 @@
 
 >! **应用控制台部署与函数直接部署有什么区别？**
 通过应用部署或函数部署，均可以基于 Web 函数，快速部署常见 Web 框架。
-- 如果您只关注代码逻辑开发，无需额外资源创建，可以通过 SCF 云函数控制台，完成快速部署。
+- 如果您只关注代码逻辑开发，无需额外资源创建，可以通过 Serverless 控制台，完成快速部署。
 - 如果除了代码部署外，您还需要更多能力或资源创建，如自动创建层托管依赖、一键实现静态资源分离、支持代码仓库直接拉取等，可以通过应用控制台，完成 Web 应用的创建工作。
 
 本篇文档为您介绍应用控制台的部署方案，您也可以通过命令行完成部署，具体操作请参考 [产品文档](https://cloud.tencent.com/document/product/583/58183)。
 
 ## 模板部署 -- 部署 Egg 示例代码
-1. 登录 [Serverless 应用控制台](https://console.cloud.tencent.com/sls)。
-2. 选择**Web 应用>Egg 框架**，如下图所示：
+1. 登录 [Serverless 控制台](https://console.cloud.tencent.com/sls)。
+2. 单击**新建应用**，选择**Web 应用 > Egg 框架**，如下图所示：
 ![](https://main.qcloudimg.com/raw/379ce45910fccfa28f3e8c50de0fa00d.png)
 3. 单击“下一步”，完成基础配置选择。
 ![](https://main.qcloudimg.com/raw/9f22f8c1e5426b5d3d54631caabde012.png)
@@ -47,7 +47,7 @@ open http://localhost:7001
 - 修改写入路径，serverless 环境下只有 `/tmp` 目录可读写。
 - 新增 `scf_bootstrap` 启动文件。
 
-**1. (可选)配置 scf_bootstrap 启动文件**
+**1. （可选）配置 scf_bootstrap 启动文件**
 
 >? 您也可以在控制台完成该模块配置。
 >
@@ -88,7 +88,7 @@ app.listen(9000, '0.0.0.0', () => {
 });
 ```
 
-新建完成后，还需执行以下命令修改文件可执行权限，默认需要 `777` 或 `755` 权限才可正常启动。示例如下：
+新建完成后，还需执行以下命令修改文件可执行权限，默认需要 `777` 或 `755` 权限才可正常启动。示例如下： 
 ```sh
 chmod 777 scf_bootstrap
 ```
@@ -97,7 +97,7 @@ chmod 777 scf_bootstrap
 **2. 控制台上传**
 
 
-登录 [Serverless 应用控制台](https://console.cloud.tencent.com/sls)，选择**Web 应用>Egg 框架**，上传方式可以选择**本地上传**或**代码仓库拉取**。
+登录 [Serverless 控制台](https://console.cloud.tencent.com/sls)，选择**Web 应用 > Egg 框架**，上传方式可以选择**本地上传**或**代码仓库拉取**。
 
 您可以在控制台完成启动文件 `scf_bootstrap` 内容配置，配置完成后，控制台将为您自动生成 启动文件，和项目代码一起打包部署。
 >! 启动文件以项目内文件为准，如果您的项目里已经包含 `scf_bootstrap` 文件，将不会覆盖该内容。

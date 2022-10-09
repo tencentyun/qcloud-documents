@@ -4,27 +4,36 @@
 ## 前提条件
 - 源数源数据库符合备份功能和版本要求，请参见 [备份和恢复能力汇总](https://cloud.tencent.com/document/product/1513/64026) 进行核对。
 - 已完成 [准备工作](https://cloud.tencent.com/document/product/1513/64040)。
-- 备份账号需要具备源数据库的相关权限，如下为全量和增量备份的授权，如果仅全量，无增量备份，则不需要 REPLICATION CLIENT、REPLICATION SLAVE 和 `__tencentdb__` 的授权。
+- 备份账号需要具备源数据库的相关权限，如下为全量和增量备份的授权，如果仅全量，无增量备份，则不需要 REPLICATION CLIENT、REPLICATION SLAVE 的授权。
   - “整个实例”备份：
 ```
 CREATE USER '帐号'@'%' IDENTIFIED BY '密码';  
-GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO '帐号'@'%';  //源库为阿里云数据库时，不需要授权 SHOW DATABASES，其他场景则需要授权。阿里云数据库授权，请参考 https://help.aliyun.com/document_detail/96101.html
-GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '迁移帐号'@'%'; //如果源端为腾讯云数据库需要授予`__tencentdb__`权限  
+GRANT LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO '帐号'@'%';  //源库为阿里云数据库时，不需要授权 SHOW DATABASES，其他场景则需要授权。阿里云数据库授权，请参考 https://help.aliyun.com/document_detail/96101.html  
 GRANT SELECT ON *.* TO '帐号';
 ```
   - “指定对象”备份：
 ```
 CREATE USER '帐号'@'%' IDENTIFIED BY '密码';  
-GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO '帐号'@'%';  //源库为阿里云数据库时，不需要授权 SHOW DATABASES，其他场景则需要授权。阿里云数据库授权，请参考 https://help.aliyun.com/document_detail/96101.html  
-GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '迁移帐号'@'%'; //如果源端为腾讯云数据库需要授予`__tencentdb__`权限  
+GRANT LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO '帐号'@'%';  //源库为阿里云数据库时，不需要授权 SHOW DATABASES，其他场景则需要授权。阿里云数据库授权，请参考 https://help.aliyun.com/document_detail/96101.html    
 GRANT SELECT ON `mysql`.* TO '帐号'@'%';
 GRANT SELECT ON 待备份的库.* TO '帐号';
 ```
 
 ## 约束限制
-逻辑备份的对象仅支持库、表、索引、视图，不支持用户数据、存储过程、Function 等。
+- 逻辑备份的对象仅支持库、表、索引、视图，不支持用户数据、存储过程、Function 等。
+- 不支持 GIS 地理类型的数据备份。
+- 只支持备份 InnoDB、MyISAM、TokuDB 三种数据库引擎，如果存在这三种以外的数据引擎表则默认跳过不进行备份。
+- 全量备份阶段，源库不能进行 DDL 操作，否则任务报错，增量备份阶段可以进行 DDL 操作。  
+
+## 支持的 SQL 操作
+
+| 操作类型 | 支持的 SQL 操作                                              |
+| -------- | ------------------------------------------------------------ |
+| DML      | INSERT、UPDATE、DELETE、REPLACE                              |
+| DDL      | TABLE：CREATE TABLE、ALTER TABLE、DROP TABLE、TRUNCATE TABLE、RENAEM TABLE  VIEW：CREATE VIEW、DROP VIEW INDEX：CREATE INDEX、DROP INDEX  DATABASE：CREATE DATABASE、ALTER DATABASE、DROP DATABASE |
 
 ## 操作步骤
+
 ### 购买备份计划
 登录 [DBS 控制台](https://console.cloud.tencent.com/dbs)，在左侧导航选择**备份计划**页，单击**新建备份计划**，跳转到购买备份计划页面，根据实际需求选择各项配置信息，确认无误后，单击**立即购买**。
 - **商品类型**：备份计划实例。
@@ -39,8 +48,8 @@ GRANT SELECT ON 待备份的库.* TO '帐号';
 1. 登录 [DBS 控制台](https://console.cloud.tencent.com/dbs)，在左侧导航选择**备份计划**页，然后在右侧选择已购买的备份计划，单击**配置**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/c8febe50a84a788546ca461860150b34.png)
 2. 在**设置备份源**页面配置备份计划和数据源，单击**测试连通性**，通过后进入**下一步**。
-   如果连通性测试失败，请参考 [连通性测试不通过处理方法](https://cloud.tencent.com/document/product/1513/64057) 进行处理。
-![](https://qcloudimg.tencent-cloud.cn/raw/ad89d7899a6fa05f7c2680e8b3548a17.png)
+如果连通性测试失败，请参考 [连通性测试不通过处理方法](https://cloud.tencent.com/document/product/1513/64057) 进行处理。
+![](https://qcloudimg.tencent-cloud.cn/raw/c83d0a6990031fcda067d7f9f70bed5e.png)
 <table>
 <thead><tr><th width="10%">设置类型</th><th width="20%">配置项</th><th width="70%">说明</th></tr></thead>
 <tbody>
@@ -52,7 +61,7 @@ GRANT SELECT ON 待备份的库.* TO '帐号';
 <td>全量备份并行数上限</td>
 <td>该上限与用户购买的备份计划规格中的上限一致。</td></tr>
 <tr>
-<td rowspan=8>源实例设置</td>
+<td rowspan=10>源实例设置</td>
 <td>数据库类型</td><td>选择“MySQL”。</td></tr>
 <tr>
 <td>服务提供商</td><td>如果源数据库为自建数据库（包括腾讯云 CVM 上自建）、腾讯云数据库，请选择“普通”，如果是第三方云厂商，选择对应的服务提供商。</td></tr>
@@ -74,11 +83,15 @@ GRANT SELECT ON 待备份的库.* TO '帐号';
 <tr>
 <td>帐号</td><td>源库 MySQL 的数据库帐号，帐号权限需要满足要求。</td></tr>
 <tr>
-<td>密码</td><td>源库 MySQL 的数据库帐号的密码。</td></tr></tbody></table>
+<td>密码</td><td>源库 MySQL 的数据库帐号的密码。</td></tr>
+<tr>
+<td>连接方式</td><td><ul><li>非加密方式：DBS 与源数据库的连接不加密。</li><li>SSL 安全连接：DBS 与源数据库通过 SSL（Secure socket layer）安全连接，对传输链路进行加密。</li></ul><dx-alert infotype="explain" title="说明">选择 SSL 安全连接可能会增加源库的连接响应时间，一般腾讯云内网链路相对较安全，无需开启 SSL 安全连接，采用公网/专线等传输方式，并且对数据安全要求较高的场景，需要开启 SSL 安全连接。<br>选择<b> SSL 安全连接</b> 前，请先在源数据库中开启 SSL 加密。如果源库为腾讯云数据库，可参考 <a href="https://cloud.tencent.com/document/product/237/33944">开启 SSL 加密</a>。</dx-alert></td></tr>
+<tr>
+<td>CA 根证书</td><td>可选，上传 CA 证书后，DBS 会校验传输目标服务器的身份，使传输链路更加安全。</td></tr></tbody></table>
 3. 在**设置备份对象**页面，选择备份对象后，单击**下一步**。
 备份对象：
-   - 整个实例：备份整个实例，当前仅支持备份库、表和视图，暂不支持备份用户权限、存储过程、Function等。  
-   - 指定对象：备份指定对象，然后在下面的界面中选择需要备份的指定库、表等。
+   - 整个实例：备份整个实例，当前仅支持备份库、表和视图，暂不支持备份用户权限、存储过程、Function等。选择整个实例，后续源库新增的对象会同步到备份集中，恢复任务中可以恢复新增的对象。  
+   - 指定对象：备份指定对象，然后在下面的界面中选择需要备份的指定库、表等。选择指定对象，则仅同步指定对象到备份集中，后续恢复任务中不能恢复新增的对象。
 ![](https://qcloudimg.tencent-cloud.cn/raw/069c3df7c09a9b5f97a2c597053176b0.png)
 4. 在**选择备份策略**页面，选择策略模板、备份方式、备份频率、备份周期等，单击**下一步**。
 <img src="https://qcloudimg.tencent-cloud.cn/raw/2e55da1199d1137fbb9f73b3f1d8e328.png" style="zoom:67%;" />

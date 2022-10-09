@@ -1,16 +1,17 @@
 ## 操作场景
 
-原生 LoadBalancer 模式 Servcie 可自动创建负载均衡 CLB，并通过集群的 Nodeport 转发至集群内，再通过 iptable 或 ipvs 进行二次转发。该模式下的 Service 能满足大部分使用场景，但在以下场景中更推荐使用**直连 Pod 模式 Service**：
+原生 LoadBalancer 模式 Service 可自动创建负载均衡 CLB，并通过集群的 Nodeport 转发至集群内，再通过 iptable 或 ipvs 进行二次转发。该模式下的 Service 能满足大部分使用场景 ，但在以下场景中更推荐使用**直连 Pod 模式 Service**：
 
 - 有获取来源 IP 需求时（非直连模式必须另外开启 Local 转发）。
 - 要求具备更高转发性能时（非直连模式下 CLB 和 Service 本身存在两层 CLB，性能有一定损失）。
 - 需使用完整的健康检查和会话保持到 Pod 层级时（非直连模式下 CLB 和 Service 本身存在两层 CLB，健康检查及会话保持功能较难配置）。
 
+<dx-alert infotype="explain" title="">
+- 若您的集群是 EKS ，则默认为直连 Pod 模式，您无需任何操作。
+- 当前 GlobalRouter 和 VPC-CNI 容器网络模式均支持直连 Pod 模式，您可以在 [集群列表](https://console.cloud.tencent.com/tke2/cluster?rid=1) 中单击集群 ID 进入集群详情页面，在集群的“基本信息”页面中查看当前集群使用的网络插件。
+</dx-alert>
 
-
-> ? 当前 GlobalRouter 和 VPC-CNI 容器网络模式均支持直连 Pod 模式，您可以在 [集群列表](https://console.cloud.tencent.com/tke2/cluster?rid=1) 中单击集群 ID 进入集群详情页面，在集群的“基本信息”页面中查看当前集群使用的网络插件。
->
-
+ 
 
 ## 容器网络模式为 VPC-CNI
 
@@ -28,14 +29,14 @@
 
 <dx-tabs>
 ::: 控制台操作指引
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
+1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)。
 2. 参考 [控制台创建 Service](https://cloud.tencent.com/document/product/457/45489#.E5.88.9B.E5.BB.BA-service) 步骤，进入 “新建Service” 页面，根据实际需求设置 Service 参数。
     其中，部分关键参数信息需进行如下设置，如下图所示：
 ![](https://main.qcloudimg.com/raw/5190f97b699f9d0d856aeb0412a9428f.png)
  - **服务访问方式**：选择为**公网LB访问**或**内网LB访问**。
  - **网络模式**：勾选**采用负载均衡直连Pod模式**。
  - **Workload绑定**：选择**引用Workload**。
-3. 单击**创建服务**，完成创建。 
+3. 单击**创建服务**，完成创建。  
 		
 :::
 ::: YAML\s操作指引
@@ -125,7 +126,7 @@ Kubernetes 集群提供了服务注册的机制，只需要将您的服务以 `M
 - 默认 CLB 的后端数量限制是 200 个，如果您绑定的工作负载的副本数超过 200 时，可通过 [在线咨询](https://cloud.tencent.com/online-service?from=doc_457) 提升负载均衡 CLB 的配额。
 - 使用 CLB 直连 Pod，需注意网络链路受云服务器的安全组限制，确认安全组配置是否放开对应的协议和端口，**需要开启 CVM 上工作负载对应的端口**。
 - 开启直连后，默认将启用 [ReadinessGate](https://cloud.tencent.com/document/product/457/48768#.E5.BC.95.E5.85.A5-readinessgate) 就绪检查，将会在 Pod 滚动更新时检查来自负载均衡的流量是否正常，需要为业务方配置正确的健康检查配置，详情可参见 [TkeServiceConfig 介绍](https://cloud.tencent.com/document/product/457/41895)。
-- 直连 Globalrouter 模式下的 Pod 为内测功能，您可通过以下两种方式进行使用：
+- 直连 Globalrouter 模式下的 Pod，您可通过以下两种方式进行使用：
  - **通过 [云联网](https://cloud.tencent.com/document/product/877) 使用。**推荐使用该方式，云联网可以校验绑定的 IP 地址，防止出现绑定出错、地址回环等 IP 绑定常见问题。操作步骤如下：
    1. 创建云联网实例。详情可参见 [新建云联网实例](https://cloud.tencent.com/document/product/877/18752)。
    2. 将集群所在 VPC 添加至已创建的云联网实例中。
@@ -134,30 +135,11 @@ Kubernetes 集群提供了服务注册的机制，只需要将您的服务以 `M
  - **您可通过 [在线咨询](https://cloud.tencent.com/online-service?from=doc_457) 进行申请。**此方式缺少云联网的 IP 校验功能，不推荐使用。
 
 
-### 操作步骤
-
-<dx-tabs>
-::: 控制台操作指引
-**前置使用条件**
-<li>在 `kube-system/tke-service-controller-config` ConfigMap 中新增 `GlobalRouteDirectAccess: "true"` 以开启 GlobalRoute 直连能力。</li>
-<li>该功能需要开通 CLB SNAT Pro 的白名单，您可通过 <a href="https://cloud.tencent.com/online-service?from=doc_457">在线咨询</a> 进行申请。</li>
-<br>
-
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
-2. 参考 [控制台创建 Service](https://cloud.tencent.com/document/product/457/45489#.E5.88.9B.E5.BB.BA-service) 步骤，进入 “新建Service” 页面，根据实际需求设置 Service 参数。
-    其中，部分关键参数信息需进行如下设置，如下图所示：
-![](https://main.qcloudimg.com/raw/5190f97b699f9d0d856aeb0412a9428f.png)
- - **服务访问方式**：选择为**公网LB访问**或**内网LB访问**。
- - **网络模式**：勾选**采用负载均衡直连Pod模式**。
- - **Workload绑定**：选择**引用Workload**。
-3. 单击**创建服务**，完成创建。 
-:::
-::: YAML\s操作指引
+### YAML 操作指引
 直连 Pod 模式 Service 的 YAML 配置与普通 Service YAML 配置相同，示例中的 annotation 即代表是否开启直连 Pod 模式。
 
 **前置使用条件**
 <li>在 `kube-system/tke-service-controller-config` ConfigMap 中新增 `GlobalRouteDirectAccess: "true"` 以开启 GlobalRoute 直连能力。</li>
-<li>该功能需要开通 CLB SNAT Pro 的白名单，您可通过 <a href="https://cloud.tencent.com/online-service?from=doc_457">在线咨询</a> 进行申请。</li>
 <br>
 
 **在 Service YAML 里开启直连模式**
@@ -187,10 +169,6 @@ spec:
 ```
 service.cloud.tencent.com/tke-service-config: [tke-service-configName]
 ```
-
-
-
-:::
-</dx-tabs>
+ 
 
 

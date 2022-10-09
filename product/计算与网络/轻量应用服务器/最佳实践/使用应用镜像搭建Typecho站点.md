@@ -4,7 +4,7 @@ Typecho 是开源的博客建站平台，具有轻量、高效、稳定等特点
 ## 操作步骤
 1. 登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse)，在“服务器”页面单击**新建**。
 2. 在轻量应用服务器购买页面，选择所需配置完成轻量应用服务器购买。
-其中，“镜像”选择为**应用镜像** > **Typecho 1.1.0**，其他参数可参考 [购买方式](https://cloud.tencent.com/document/product/1207/44580) 进行选择。
+其中，“镜像”选择为**应用镜像** > **Typecho 1.2.0**，其他参数可参考 [购买方式](https://cloud.tencent.com/document/product/1207/44580) 进行选择。
 3. 返回轻量应用服务器控制台，待实例创建完成后，在服务器列表中，选择并进入该实例的详情页。
 您可以在此页面查看 Typecho 应用的各项配置信息。
 4. 选择**应用管理**页签，进入应用管理详情页。
@@ -13,11 +13,11 @@ Typecho 是开源的博客建站平台，具有轻量、高效、稳定等特点
 <dx-alert infotype="explain" title="">
 在应用管理详情页中，除了可以查看 Typecho 的配置信息，还可以查看其他配置信息。例如首页地址、 Nginx 主配置文件保存路径、 MariaDB 数据库管理员密码、实例中各个软件的安装路径等。
 </dx-alert>
-<img src="https://qcloudimg.tencent-cloud.cn/raw/82aeb32c830dea2ed5adae48f8398df5.png"/>
+<img src="https://qcloudimg.tencent-cloud.cn/raw/524dda455dd4fdedb7075ae3c4aa4a1a.png"/>
 7. [](id:Step7)在弹出的登录窗口中，粘贴在 [步骤5](#Step5) 中获取的命令，并按 **Enter**。
 即可获取 Typecho 管理员帐号（admin ）和对应的密码。
 8. 在“应用内软件信息”栏中，单击 Typecho 的**管理员登录地址**。如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/e440df875da2724a11b0946813a2d4a3.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/245473d9948dcd6b5ed89f8da9fb1513.png)
 9. 在新打开的浏览器窗口中，输入 [步骤7](#Step7) 记录的帐号和密码，单击**登录**。如下图所示：
 ![](https://main.qcloudimg.com/raw/b6b9a13700780ee4b4039a3166260795.png)
 成功登录后，您可根据实际需要对 Typecho 进行管理、自定义和配置。
@@ -28,29 +28,28 @@ Typecho 是开源的博客建站平台，具有轻量、高效、稳定等特点
 1. 在实例的详情页中，选择**应用管理**页签。
 2. [](id:Step2)在应用管理详情页的“应用内软件信息”栏中，选择 <img src="https://main.qcloudimg.com/raw/6603ab4f907562addb1c01596c6296cd.png" style="margin:-3px 0px">，复制获取 MariaDB 管理员帐号及密码的命令。
 3. 单击**登录**。如下图所示：
-![](https://main.qcloudimg.com/raw/ec988d321e6cac648014f840712139f2.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/60d55c9abc40f8510131357ea0ec2cf1.png)
 4. [](id:Step4)在弹出的登录窗口中，执行在 [步骤2](#Step2) 中获取的命令。获取并记录 MariaDB 管理员密码。
 5. 选择以下方式，登录 MariaDB 数据库。
  - 方式1（推荐）：直接执行以下命令，登录 MariaDB 数据库。
- ```
+```shellsession
 mysql -u root -h 127.0.0.1 -p
 ```
  - 方式2：关闭 Systemd 安全 Tmp 功能，步骤如下：
     1. 将 `/usr/lib/systemd/system/mariadb.service` 中的 `PrivateTmp` 值修改为 `false`。
     2. 依次执行以下命令，使配置生效。
-   ```
-	 systemctl daemon-reload
+   ```shellsession
+	 sudo systemctl daemon-reload
 	 ```
-	 ```
-	 systemctl restart mariadb
+	 ```shellsession
+	 sudo systemctl restart mariadb
 	 ```
 	 3. 执行以下命令，登录 MariaDB 数据库。
-   ```
+   ```shellsession
 	 mysql -u root -p
 	 ```
 6. 在弹出的登录窗口中，粘贴在 [步骤4](#Step4) 中获取的 MariaDB 管理员密码（密码默认不显示），并按 **Enter**。
-返回结果如下图所示，表示已成功登录 MariaDB。
-![](https://main.qcloudimg.com/raw/e70612aea8d9b7cc5ac5af653b5e7aae.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/237e48345de4a5d26c5af29b17fd6b23.png)
 
 
 ### 域名与 DNS 解析设置

@@ -1,10 +1,10 @@
 ## 效果展示
 您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 App 体验实时视频通话的效果。
 <table>
-<tr>
+<thead><tr>
    <th>主动呼叫</th>
    <th>被叫接听</th>
- </tr>
+ </tr></thead>
 <tr>
 <td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/video1.gif"/></td>
 <td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/video2.gif"/></td>
@@ -178,7 +178,8 @@ Source/src/main/java/com/tencent/liteav/trtccalling/model
 1. 调用 `TRTCCallingImpl.sharedInstance(context)` 获取组件实例。
 2. 调用 `login(SDKAppID, userId, userSig, callback)` 完成组件的登录，其中几个关键参数的填写请参考下表：
  <table>
-<tr><th>参数名</th><th>作用</th></tr>
+<thead><tr><th>参数名</th><th>作用</th></tr>
+</thead>
 <tr>
 <td>SDKAppID</td>
 <td>您可以在 <a href="https://console.cloud.tencent.com/trtc/app">实时音视频控制台</a> 中查看 SDKAppID。</td>

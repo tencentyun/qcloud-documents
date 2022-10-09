@@ -1,6 +1,6 @@
 ## 功能概述
 
-COS FTP Server 支持通过 FTP 协议直接操作 COS 中的对象和目录，包括上传文件、下载文件、删除文件以及创建文件夹等。FTP Server 工具使用 Python 实现，使安装更加简单。
+COS FTP Server 支持通过 FTP 协议直接操作对象存储（Cloud Object Storage，COS）中的对象和目录，包括上传文件、下载文件、删除文件以及创建文件夹等。FTP Server 工具使用 Python 实现，使安装更加简单。
 
 ## 功能说明
 
@@ -8,13 +8,14 @@ COS FTP Server 支持通过 FTP 协议直接操作 COS 中的对象和目录，�
 **下载机制**：直接流式返回给客户端。
 **目录机制**：bucket 作为整个 FTP Server 的根目录，bucket 下面可以建立若干个子目录。
 **多 bucket 绑定**：支持同时绑定多个 bucket。
->?多 bucket 绑定：通过不同的 FTP Server 工作路径（home_dir）来实现，因此，指定不同的 bucket 和用户信息时必须保证 home_dir 不同。
-
+>? 多 bucket 绑定：通过不同的 FTP Server 工作路径（home_dir）来实现，因此，指定不同的 bucket 和用户信息时必须保证 home_dir 不同。
+>
 **删除操作限制**：在新的 FTP Server 中可以针对每个 ftp 用户配置 delete_enable 选项，以标识是否允许该 FTP 用户删除文件。
 **支持的 FTP 命令：**put、mput、get、rename、delete、mkdir、ls、cd、bye、quite、size。
 **不支持的 FTP 命令：**append、mget （不支持原生的 mget 命令，但在某些 Windows 客户端下，仍然可以批量下载，例如 FileZilla 客户端。）
 
->?FTP Server 工具暂时不支持断点续传功能。
+>? FTP Server 工具暂时不支持断点续传功能。
+>
 
 ## 开始使用
 
@@ -82,9 +83,9 @@ cos_bucket = examplebucket-1250000000
 cos_region = region   # 替换为您的存储桶地域
 cos_protocol = https
 #cos_endpoint = region.myqcloud.com
-home_dir = /home/user0
-ftp_login_user_name=user0   #替换为用户自定义的账号
-ftp_login_user_password=pass0   #替换为用户自定义的密码
+home_dir = /home/user0      # 替换为您希望FTP挂载到的本地路径（需设置为机器上实际存在的路径，不支持软链接）
+ftp_login_user_name=user0   # 替换为用户自定义的账号
+ftp_login_user_password=pass0   # 替换为用户自定义的密码
 authority=RW                # 设置该用户的读写权限，R 表示读权限，W 表示写权限，RW 表示同时具备读写权限
 delete_enable=true		 # true 为允许该 ftp 用户进行删除操作（默认），false 为禁止该用户进行删除操作
 
@@ -95,8 +96,8 @@ cos_bucket = examplebucket-1250000000
 cos_region = region   # 替换为您的存储桶地域
 cos_protocol = https
 #cos_endpoint = region.myqcloud.com
-home_dir = /home/user1
-ftp_login_user_name=user1   #替换为用户自定义的账号
+home_dir = /home/user1     # 替换为您希望FTP挂载到的本地路径（需设置为机器上实际存在的路径，不支持软链接）
+ftp_login_user_name=user1  # 替换为用户自定义的账号
 ftp_login_user_password=pass1   #替换为用户自定义的密码
 authority=RW               # 设置该用户的读写权限，R 表示读权限，W 表示写权限，RW 表示同时具备读写权限
 delete_enable=false        # true 为允许该 ftp 用户进行删除操作（默认），false 为禁止该用户进行删除操作
@@ -154,7 +155,7 @@ ftp 192.xxx.xx.103 2121
 ### 使用 FileZilla 访问 COS FTP Server
 
 1. 下载 [FileZilla 客户端](https://filezilla-project.org/) 并安装。
-2. 在 FileZilla 客户端配置 COS FTP Server 的访问信息后，单击【快速连接】。
+2. 在 FileZilla 客户端配置 COS FTP Server 的访问信息后，单击**快速连接**。
  - **主机 (H)：**对应配置示例文件 conf/vsftpd.conf.example 中 **masquerade_address** 配置项。在本例中ip设置为192.xxx.xx.103。
 >!如果 COS FTP Server 处于某个网关或 NAT 后，可以通过该配置项将网关的 IP 地址或域名指定给 COS FTP Server 。
  - **用户名 (U)：**对应配置示例文件`conf/vsftpd.conf.example`中的 **ftp_login_user_name** 配置项 （需要进行配置）。

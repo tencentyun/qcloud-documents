@@ -45,7 +45,7 @@ inputs:
   region: ap-guangzhou
 
 ```
-[查看详细配置文档 >>]( https://github.com/serverless-components/tencent-cos/blob/master/docs/configure.md )
+[查看详细配置文档 >>](https://github.com/serverless-components/tencent-cos/blob/master/docs/configure.md)
 
 
 ### 部署

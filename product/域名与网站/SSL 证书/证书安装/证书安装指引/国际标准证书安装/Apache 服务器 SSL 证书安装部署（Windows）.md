@@ -2,7 +2,7 @@
 本文档指导您如何在 Apache 服务器中安装 SSL 证书。
 >?
 >- 本文档以证书名称 `cloud.tencent.com` 为例。
->- Apache 版本以 `Apache/2.4.51` 为例。默认端口为 `80`。您可前往 [Apache 官网](https://httpd.apache.org/download.cgi/) 进行下载，若您需要采用其余版本，请您 [联系我们](https://cloud.tencent.com/document/product/400/35259)。
+>- Apache 版本以 `Apache/2.4.53` 为例。默认端口为 `80`。您可前往 [Apache 官网](https://httpd.apache.org/download.cgi/) 进行下载，若您需要采用其余版本，请您 [联系我们](https://cloud.tencent.com/document/product/400/35259)。
 >- 当前服务器的操作系统为 Windows Server 2012 R2，由于操作系统的版本不同，详细操作步骤略有区别。
 >- 安装 SSL 证书前，请您在 Apache 服务器上开启 “443” 端口，避免证书安装后无法启用 HTTPS。具体可参考 [服务器如何开启443端口？](https://cloud.tencent.com/document/product/400/45144)
 >- SSL 证书文件上传至服务器方法可参考 [如何将本地文件拷贝到云服务器](https://cloud.tencent.com/document/product/213/39138)。
@@ -45,7 +45,9 @@
     - `cloud.tencent.com.csr` CSR 文件
 >?CSR 文件是申请证书时由您上传或系统在线生成的，提供给 CA 机构。安装时可忽略该文件。
 3. 通过 RDP 登录 Apache 服务器。
->?上传操作可参考：[通过 RDP 方式上传文件到云服务器](https://cloud.tencent.com/document/product/213/39101)。
+>? 
+>- 通过 RDP 上传文件可参考 [通过 RDP 方式上传文件到云服务器](https://cloud.tencent.com/document/product/213/39101)。
+>- 若您需部署到腾讯云云服务器，建议使用云服务器的文件上传功能。详情请参见 [上传文件到云服务器](https://cloud.tencent.com/document/product/1340/72845)。
 >
 4. 将已获取到的 `root_bundle.crt` 证书文件、`cloud.tencent.com.crt` 证书文件以及 `cloud.tencent.com.key` 私钥文件从本地目录拷贝到 Apache 服务器目录的 `\conf` 目录的下的 `ssl.crt` 与 `ssl.key` 文件夹。对应文件目录如下图所示：
  ![](https://main.qcloudimg.com/raw/ef118dd35480d06baf340a39183a87d5.png)
@@ -85,9 +87,18 @@
 ```java
 SSLCertificateFile "C:/apache/conf/ssl.crt/cloud.tencent.com.crt"
 SSLCertificateKeyFile "C:/apache/conf/ssl.key/cloud.tencent.com.key"
-SSLCertificateChainFile "C:/apache/conf/ssl.crt/root_bundle.crt"
+SSLCACertificateFile "C:/apache/conf/ssl.crt/root_bundle.crt"
 ```
 4. 重新启动 Apache 服务器，即可使用 `https://cloud.tencent.com` 进行访问。
+ - 如果浏览器地址栏显示安全锁标识，则说明证书安装成功。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/45d7e33dd41abb06087edda4871222b5.png)
+ - 如果网站访问异常，可参考以下常见问题解决方案进行处理：
+    - [无法使用 HTTPS 访问网站](https://cloud.tencent.com/document/product/400/53650)
+    - [部署 SSL 证书后，浏览器提示 “网站连接不安全”](https://cloud.tencent.com/document/product/400/56830)
+    - [访问站点提示连接不安全？](https://cloud.tencent.com/document/product/400/5366)
+    - [SSL 证书过期后重新申请部署依然提示 HTTPS 不安全？](https://cloud.tencent.com/document/product/400/65727)
+    - [在服务器上部署 SSL 证书后访问资源出现 404 报错](https://cloud.tencent.com/document/product/400/53651)
+
 
 ### HTTP 自动跳转 HTTPS 的安全配置（可选）
 

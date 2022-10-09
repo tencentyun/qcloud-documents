@@ -20,8 +20,8 @@ OAuth2.0 有以下四个角色：
 （B）：资源所有者同意授权。
 （C）：客户端获得了资源所有者的授权之后，向授权服务器申请授权令牌。
 （D）：授权服务器验证客户端无误后发放授权令牌。
-（E）：客户端拿到授权令牌之后请求资源服务器发送用户信息。
-（F）：资源服务器验证令牌无误后将用户信息发放给客户端。
+（E）：客户端拿到授权令牌之后请求资源服务器。
+（F）：资源服务器验证令牌无误后将资源信息发放给客户端。
 
 ## 前提条件
  - 准备分发 token 的授权服务器（您需要自建授权服务器，API 网关提供了 [Python3 Demo](https://github.com/TencentCloud/apigateway-demo/tree/master/apigateway-oauth-python-demo) 和 [Golang Demo](https://github.com/TencentCloud/apigateway-demo/tree/master/apigateway-oauth-golang-demo/AS) 供您参考）。

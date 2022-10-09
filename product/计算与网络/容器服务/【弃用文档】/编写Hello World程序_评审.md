@@ -82,7 +82,7 @@ v1: digest: sha256:38b194feeee09abf8ee45e7abca82b9fe494b18b953c771ce8ebefa387107
 2. 一个创建好的集群。有关如何创建集群的详细信息，参见 [新建集群](https://cloud.tencent.com/document/product/457/9091) 。
 
 ### 操作步骤
-1) 登录 [腾讯云容器服务控制台](https://console.cloud.tencent.com/ccs) 。
+1) 登录 [腾讯云容器服务控制台 ](https://console.cloud.tencent.com/ccs) 。
 2) 单击左侧导航栏中的**服务**，单击服务列表页的**+ 新建**。
 ![](//mc.qcloudimg.com/static/img/11f7f75d7b051a815da8bfe1e744a8e8/image.png)
 3) 设置服务的基本信息。
@@ -106,9 +106,9 @@ v1: digest: sha256:38b194feeee09abf8ee45e7abca82b9fe494b18b953c771ce8ebefa387107
 
 ## 访问 Hello World 服务
 1) 提供三种方式访问 Hello World 服务。
- - 通过**负载均衡 IP**来访问 Hello World 服务。单击服务页面的**服务信息**查看负载均衡 IP和负载均衡ID。 
+ - 通过**负载均衡 IP**来访问 Hello World 服务。单击服务页面的**服务信息**查看负载均衡 IP和负载均衡ID。  
 ![](//mc.qcloudimg.com/static/img/7891c817f167f7726b67615696cfff08/image.png)
- - 通过 **域名** 来访问 Hello World 服务。在容器服务控制台左侧导航栏中，单击**负载均衡**，单击**TCP/UDP**，找到对应的负载均衡ID，复制域名访问服务。
+ - 通过 **域名** 来访问 Hello World 服务。在容器服务控制台 左侧导航栏中，单击**负载均衡**，单击**TCP/UDP**，找到对应的负载均衡ID，复制域名访问服务。
  - 集群内的其他服务或容器可以直接通过服务名称访问。
  
 2) 进入 Hello World 服务器的默认欢迎页。

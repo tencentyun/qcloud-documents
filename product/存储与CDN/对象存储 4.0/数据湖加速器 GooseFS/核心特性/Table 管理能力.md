@@ -98,7 +98,6 @@ $ goosefs table load test_db web_page
 Asynchronous job submitted successfully, jobId: 1615966078836
 ```
 
-
 ### 4. 查看 Table 预热情况
 
 通过 `job stat` 指令可以查看预热 Table 作业的执行进度。当状态为 COMPLETED 时，整个预热过程完成，如果状态为 FAILED，可以在 master.log 文件中查看日志记录，排查预热错误的原因：
@@ -115,7 +114,6 @@ $ goosefs table stat test_db web_page
 detail
 ```
 
-
 ### 5. 释放 Table
 
 通过以下指令可以从 GooseFS 中释放指定 Table 数据缓存：
@@ -124,7 +122,6 @@ detail
 $ goosefs table free test_db web_page
 detail
 ```
-
 
 ### 6. 卸载 DB
 

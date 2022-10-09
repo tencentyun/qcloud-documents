@@ -79,7 +79,7 @@ GRANT ALL ON PROTOCOL protocolname TO username
 
 ## 参数
 SELECT
-允许从指定表、视图或序列的任何列或者列出的特定列进行 SELECT，还允许使用 COPY TO。对于序列，这个特权也允许使用 ccurrval 函数。
+允许从指定表、视图或序列的任何列或者列出的特定列进行 SELECT，还允许使用 COPY TO。对于序列，这个特权也允许使用 currval 函数。
 
 INSERT
 允许 INSERT 一个新行到指定表中。还允许 COPY FROM。

@@ -29,7 +29,7 @@
    // 创建pulsar客户端
    client, err := pulsar.NewClient(pulsar.ClientOptions{
        // 服务接入地址
-       URL: setviceUrl,
+       URL: serviceUrl,
        // 授权角色密钥
        Authentication:    pulsar.NewAuthenticationToken(authentication),
        OperationTimeout:  30 * time.Second,
@@ -52,7 +52,7 @@
     </thead>
     <tbody>
     <tr>
-        <td style='text-align:left;'>setviceUrl</td>
+        <td style='text-align:left;'>serviceUrl</td>
         <td style='text-align:left;'>集群接入地址，可以在控制台 <a
                 href='https://console.cloud.tencent.com/tdmq/cluster'><strong>集群管理</strong></a> 页面查看并复制。<br><img
                 src="https://qcloudimg.tencent-cloud.cn/raw/1221f6b1be8ad150a6544a3f9394a8eb.png"

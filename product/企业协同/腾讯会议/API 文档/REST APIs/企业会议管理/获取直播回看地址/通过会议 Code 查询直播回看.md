@@ -1,11 +1,10 @@
 ## 接口描述
-**描述**：通过会议 Code 查询直播回看信息，企业 secret 鉴权用户（会议创建者）可查看任何该企业该用户创建的会议中的直播回看，目前暂不支持 OAuth2.0 鉴权访问。
-**调用方式**：GET
-**接口请求域名**：
+- **描述**：通过会议 Code 查询直播回看信息，企业 secret 鉴权用户（会议创建者）可查看任何该企业该用户创建的会议中的直播回看，目前暂不支持 OAuth2.0 鉴权访问。
+- **调用方式**：GET
+- **接口请求域名**：
 ```plaintext
 https://api.meeting.qq.com/v1/meetings/live_play/replays?meeting_code={meetingCode}&userid={userid}&instanceid={instanceid}
 ```
-
 
 ## 输入参数
 HTTP 请求头公共参数参考签名验证章节里的 [公共参数说明](https://cloud.tencent.com/document/product/1095/42413#.E5.85.AC.E5.85.B1.E5.8F.82.E6.95.B0)。
@@ -14,7 +13,7 @@ HTTP 请求头公共参数参考签名验证章节里的 [公共参数说明](ht
 | ----------- | ---- | -------- | ------------------ |
 | meetingCode | 是   | String   | 有效的会议 Code。     |
 | userid      | 是   | String   | 调用 API 的用户 ID。    |
-| instanceid  | 是   | Integer  | 用户的终端设备类型： <br>1：PC <br>2：Mac<br>3：Android <br>4：iOS <br>5：Web <br>6：iPad <br>7：Android Pad <br>8：小程序 |
+| instanceid  | 是   | Integer  | 用户的终端设备类型：<br>0：PSTN<br>1：PC<br>2：Mac<br>3：Android<br>4：iOS<br>5：Web<br>6：iPad<br>7：Android Pad<br>8：小程序<br>9：voip、sip 设备<br>10：linux<br>20：Rooms for Touch Windows<br>21：Rooms for Touch MacOS<br>22：Rooms for Touch Android<br>30：Controller for Touch Windows<br>32：Controller for Touch Android<br>33：Controller for Touch iOS |
 
 ## 输出参数
 

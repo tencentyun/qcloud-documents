@@ -9,7 +9,7 @@
 - 如果您需要快速实现第三方 Web 播放器与云点播能力的结合，可使用 Web 超级播放器 Adapter，集成方式参见 [Web 超级播放器 Adapter](https://cloud.tencent.com/document/product/1449/57089)。
 
 ## WebRTC 集成方式
-
+ 
 ### 支持的平台
 
 WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器、桌面版 Edge 浏览器、桌面版 Firefox 浏览器、桌面版 Safari 浏览器以及移动版的 Safari 浏览器上有较为完整的支持，其他平台（例如 Android 平台的浏览器）支持情况均比较差。

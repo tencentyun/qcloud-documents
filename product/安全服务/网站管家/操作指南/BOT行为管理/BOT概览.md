@@ -3,7 +3,7 @@ WAF 的 BOT 行为管理能够对友好及恶意机器人程序进行甄别分�
 
 通过 BOT 概览页面，可以快速了解 BOT 记录域名 TOP5 - 10 的情况。通过缩略图查看域名 BOT 类型、BOT 动作和 BOT 请求趋势,了解各个域名 BOT 访问占比和趋势概况。
 ## 使用说明
-1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/bot2/overview)，在左侧导航栏中，选择【BOT 行为管理】>【BOT 概览】，查看 BOT 行为概况。
+1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/tea-overview)，在左侧导航栏中，选择【BOT 行为管理】>【BOT 概览】，查看 BOT 行为概况。
 2. 概览页默认提供 TOP5 域名的 BOT 记录概览，如用户需要查看更多域名概览，可以在页面右上角单击排名下拉框，查看 TOP10 的 BOT 记录概览。
 ![](https://main.qcloudimg.com/raw/668fadc23e7d3b23e7ba23fb55c25800.png)
 **统计项说明：**

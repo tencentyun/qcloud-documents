@@ -2,7 +2,13 @@
 LAMP 环境是指 Linux 系统下，由 Apache  + MariaDB + PHP 及其它相关辅助组件组成的网站服务器架构。本文本文档介绍如何在腾讯云云服务器（CVM）上手动搭建 LAMP 环境。
 
 进行手动搭建 LAMP 环境，您需要熟悉 Linux 命令，例如  [CentOS 环境下通过 YUM 安装软件](https://cloud.tencent.com/document/product/213/2046) 等常用命令，并对所安装软件使用的版本特性比较了解。
->!腾讯云建议您可以通过云市场的镜像部署 LAMP 环境，手动搭建 LAMP 环境可能需要较长时间。具体步骤可参考 [镜像部署 LAMP 环境](https://cloud.tencent.com/document/product/213/38364)。
+
+
+<dx-alert infotype="notice" title="">
+腾讯云建议您可以通过云市场的镜像部署 LAMP 环境，手动搭建 LAMP 环境可能需要较长时间。具体步骤可参考 [镜像部署 LAMP 环境](https://cloud.tencent.com/document/product/213/38364)。
+</dx-alert>
+
+
 
 ## 示例软件版本
 本文档搭建 LAMP 环境组成及使用版本说明如下：
@@ -22,18 +28,18 @@ LAMP 环境是指 Linux 系统下，由 Apache  + MariaDB + PHP 及其它相关�
 
 ### 步骤2：安装 Apache
 1. 执行以下命令，安装 Apache。
-```
+```shellsession
 yum install httpd -y
 ```
 2. 依次执行以下命令，启动 Apache 并设置为开机自启动。
-```
+```shellsession
 systemctl start httpd
 ```
-```
+```shellsession
 systemctl enable httpd
 ```
 3. 在本地浏览器中访问以下地址，查看 Apache 服务是否正常运行。
-```
+```shellsession
 http://云服务器实例的公网 IP
 ```
 显示如下，则说明 Apache 安装成功。
@@ -42,21 +48,21 @@ http://云服务器实例的公网 IP
 
 ### 步骤3：安装配置 MariaDB
 1. 执行以下命令，查看系统中是否已安装 MariaDB。
-```
+```shellsession
 rpm -qa | grep -i mariadb
 ```
  - 返回结果类似如下内容，则表示已存在 MariaDB。
  ![](https://main.qcloudimg.com/raw/6fa7fb51de4a61f4da08eb036b6c3e85.png)
 为避免安装版本不同造成冲突，请执行下面命令移除已安装的 MariaDB。
-```
+```shellsession
 yum -y remove 包名
 ```
  - 若返回结果为空，则说明未预先安装，则执行下一步。
 2. 执行以下命令，在 `/etc/yum.repos.d/` 下创建 `MariaDB.repo` 文件。 
-```
+```shellsession
 vi /etc/yum.repos.d/MariaDB.repo
 ```
-3. 按 “**i**” 切换至编辑模式，并写入以下内容。
+3. 按 **i** 切换至编辑模式，并写入以下内容。
 ```
 # MariaDB 10.4 CentOS repository list - created 2019-11-05 11:56 UTC
 # http://downloads.mariadb.org/mariadb/repositories/
@@ -66,76 +72,77 @@ baseurl = http://yum.mariadb.org/10.4/centos7-amd64
 gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
 gpgcheck=1
 ```
->?您可前往 [MariaDB 官网](https://downloads.mariadb.org/) 获取其他版本操作系统的安装信息。
->
-5.  按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
+<dx-alert infotype="explain" title="">
+您可前往 [MariaDB 官网](https://downloads.mariadb.org/) 获取其他版本操作系统的安装信息。
+</dx-alert>
+5.  按 **Esc**，输入 **:wq**，保存文件并返回。
 6.  执行以下命令，安装 MariaDB。
-```
+```shellsession
 yum -y install MariaDB-client MariaDB-server
 ```
 7. 依次执行以下命令，启动 MariaDB 服务，并设置为开机自启动。
-```
+```shellsession
 systemctl start mariadb
 ```
-```
+```shellsession
 systemctl enable mariadb
 ```
 8. 执行以下命令，验证 MariaDB 是否安装成功。
-```
+```shellsession
 mysql
 ```
 显示结果如下，则成功安装。
 ![](https://main.qcloudimg.com/raw/bfe9a604457f6de09933206c21fde13b.png)
 9. 执行以下命令，退出 MariaDB。
-```
+```shellsession
 \q
 ```
 
 ### 步骤4：安装配置 PHP
 1. 依次执行以下命令，更新 yum 中 PHP 的软件源。
-```
+```shellsession
 rpm -Uvh https://mirrors.cloud.tencent.com/epel/epel-release-latest-7.noarch.rpm 
 ```
-```
+```shellsession
 rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
 ```
 2. 执行以下命令，安装 PHP 7.0.33 所需要的包。
-```
+```shellsession
 yum -y install php70w php70w-opcache php70w-mbstring php70w-gd php70w-xml php70w-pear php70w-fpm php70w-mysql php70w-pdo
 ```
 3. 执行以下命令，修改 Apache 配置文件。
-```
+```shellsession
 vi /etc/httpd/conf/httpd.conf
 ```
-4. 按 “**i**” 切换至编辑模式，并依次修改为如下图所示的内容。
+4. 按 **i** 切换至编辑模式，并依次修改为如下图所示的内容。
 ![](https://main.qcloudimg.com/raw/0b478ca5aa21124a531cfd5c8860cb70.png)
 ![](https://main.qcloudimg.com/raw/aeeb6fff1af9cf71735cae558455ee94.png)
 ![](https://main.qcloudimg.com/raw/cc840587150c3282c972a6b23e0c1a68.png)
 ![](https://main.qcloudimg.com/raw/de36e94d0e4791d1d84f141120125456.png)
  1. 在 `ServerName www.example.com:80` 下另起一行，输入以下内容：
- ```
+```shellsession
 ServerName localhost:80
 ```
  2. 将 `<Directory>` 中的 `Require all denied` 修改为 `Require all granted`。
  3. 将 `<IfModule dir_module>` 中内容替换为 `DirectoryIndex index.php index.html`。
  4. 在 `AddType application/x-gzip .gz .tgz` 下另起一行，输入以下内容：
-```
+```shellsession
 AddType application/x-httpd-php .php
 AddType application/x-httpd-php-source .phps
 ```
-5. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
+5. 按 **Esc**，输入 **:wq**，保存文件并返回。
 6. 执行以下命令，重启 Apache 服务。
-```
+```shellsession
 systemctl restart httpd
 ```
 
 ## 验证环境配置
 1. 执行以下命令，创建测试文件。
-```
+```shellsession
 echo "<?php phpinfo(); ?>" >> /var/www/html/index.php
 ```
 2. 在本地浏览中访问以下地址，查看环境配置是否成功。
-```
+```shellsession
 http://云服务器实例的公网 IP/index.php
 ```
 显示结果如下，则说明 LAMP 环境配置成功。

@@ -7,15 +7,15 @@ hash 命令用于计算本地文件的哈希值或获取对象存储（Cloud Obj
 ./coscli hash <object-name> [flag]
 ```
 
->? 有关 bucketAlias 的说明，请参见 [配置](https://cloud.tencent.com/document/product/436/63144#alias)。
+>? 
+>- 有关 bucketAlias 的说明，请参见 [下载与安装配置](https://cloud.tencent.com/document/product/436/63144#alias)。
+>- 关于此命令的其他通用选项（例如切换存储桶、切换用户账号等），请参见 [通用选项](https://cloud.tencent.com/document/product/436/71763) 文档。
 >
 
 hash 命令包含以下可选 flag：
 
 | flag 简写 | flag 全称     | flag 用途                              |
 | --------- | ------------- | -------------------------------------- |
-| -h        | --help        | 输出帮助信息                           |
-| -c        | --config-path | 指定要使用的配置文件路径               |
 |     无      | --type        | 哈希类型（md5 或 crc64，默认为 crc64） |
 
 ## 操作示例

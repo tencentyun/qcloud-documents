@@ -1,14 +1,5 @@
 本文主要介绍如何快速地在 Flutter 端将腾讯云视立方 SDK 集成到您的项目中，主要包含超级播放器和音视频通话 TRTC 版本下的集成方式。按照如下步骤进行配置，就可以完成 SDK 在 Flutter 端的集成工作。
 
-## 版本支持
-本页文档所描述功能，在腾讯云视立方中支持情况如下：
-
-| 版本名称 | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 播放器 Player | 全功能 |
-| -------- | -------- | -------- | -------- | -------- | -------- | -------- |
-| 支持情况 | - | - | - | &#10003; | &#10003; | - |
-| SDK 下载 <div style="width: 90px"/>  | [下载](https://vcube.cloud.tencent.com/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=allPart) |
-
-不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
 
 ## Flutter 超级播放器集成方式
 腾讯云视立方 Flutter 超级播放器是基于超级播放器的一个 Flutter 插件，同时支持 Android 和 iOS 两个平台。完全免费开源，不对播放地址来源做限制，可放心使用。Flutter 超级播放器具体集成方式参见 [Flutter 超级播放器](https://cloud.tencent.com/document/product/1449/57091)。

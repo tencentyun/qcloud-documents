@@ -1,4 +1,4 @@
-## 简介
+## 简介 
 
 [PyTorch-Operator](https://github.com/kubeflow/pytorch-operator) 是 [Kubeflow](https://www.kubeflow.org) 社区开发，用于支持在 Kubernetes 上执行 [PyTorch](https://pytorch.org) DDP（[distributed data parallel](https://pytorch.org/tutorials/intermediate/ddp_tutorial.html)）模式分布式训练任务的组件。
 

@@ -142,7 +142,7 @@ inputs:
 ```bash
 sls deploy
 ```
- >?
+>?
 >- 部署时需要扫码授权，如果没有腾讯云账号，请先 [注册新账号](https://cloud.tencent.com/register)。
 >- 如果是子账号，请参考 [子账号权限配置](https://cloud.tencent.com/document/product/1154/43006#.E5.AD.90.E8.B4.A6.E5.8F.B7.E6.9D.83.E9.99.90.E9.85.8D.E7.BD.AE.3Ca-id.3D.22rightsprofile.22.3E.3C.2Fa.3E) 完成授权。
 
@@ -437,3 +437,14 @@ def main_handler(event, context):
         print(x)
 :::
 </dx-codeblock>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

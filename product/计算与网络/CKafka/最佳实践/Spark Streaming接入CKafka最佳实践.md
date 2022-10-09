@@ -29,13 +29,13 @@ Spark Streaming 将连续数据抽象成 DStream（Discretized Stream），而 D
 1. 登录 [CKafka 控制台](https://console.cloud.tencent.com/ckafka)。
 2. 在左侧导航栏选择**实例列表**，单击实例的“ID”，进入实例基本信息页面。
 3. 在实例的基本信息页面的**接入方式**模块，可获取实例的接入地址，接入地址是生产消费需要用到的 bootstrap-server。
-   ![](https://main.qcloudimg.com/raw/a28b5599889166095c168510ce1f5e89.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/386613653b45b767b0a6f7853f45fa8e.png)
 
 ### 步骤2：创建 Topic
 
 1. 在实例基本信息页面，选择顶部**Topic管理**页签。
 2. 在 Topic 管理页面，单击**新建**，创建一个名为 test 的 Topic，接下来将以该 Topic 为例介绍如何生产消费。
-   ![](https://main.qcloudimg.com/raw/3576875138eb4447622571433312907f.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/ef40cf732d70f72ec3b62999a5200d69.png)
 
 
 
@@ -107,19 +107,21 @@ libraryDependencies += "org.apache.kafka" % "kafka-clients" % "0.10.2.1"
 #### DirectStream
 
 1. 在 `build.sbt` 添加依赖：
-
-```scala
+<dx-codeblock>
+:::  scala
 name := "Consumer Example"
 version := "1.0"
 scalaVersion := "2.11.8"
 libraryDependencies += "org.apache.spark" %% "spark-core" % "2.1.0"
 libraryDependencies += "org.apache.spark" %% "spark-streaming" % "2.1.0"
 libraryDependencies += "org.apache.spark" %% "spark-streaming-kafka-0-10" % "2.1.0"
-```
+:::
+</dx-codeblock>
+
 
 2. 配置 `DirectStream_example.scala`：
-
-```scala
+<dx-codeblock>
+:::  scala
 import org.apache.kafka.clients.consumer.ConsumerRecord
 import org.apache.kafka.common.serialization.StringDeserializer
 import org.apache.kafka.common.TopicPartition
@@ -181,15 +183,16 @@ object Kafka {
         ssc.awaitTermination()
     }
 }
-```
+:::
+</dx-codeblock>
 
 
 #### RDD
 
 1. 配置`build.sbt`（配置同上，[单击查看](#build.sbt)）。
 2. 配置`RDD_example`：
-
-```scala
+<dx-codeblock>
+:::  scala
 import org.apache.kafka.clients.consumer.ConsumerRecord
 import org.apache.kafka.common.serialization.StringDeserializer
 import org.apache.spark.streaming.kafka010._
@@ -230,7 +233,9 @@ object Kafka {
         sc.stop()
     }
 }
-```
+:::
+</dx-codeblock>
+
 
 更多 `kafkaParams` 用法参见 [kafkaParams](http://kafka.apache.org/documentation.html#newconsumerconfigs) 文档。
 
@@ -244,101 +249,119 @@ object Kafka {
 
 1. 在 [sbt 官网](http://www.scala-sbt.org/download.html) 上下载 sbt 包。
 2. 解压后在 sbt 的目录下创建一个 sbt_run.sh 脚本并增加可执行权限，脚本内容如下：
-```bash
+<dx-codeblock>
+:::  bash
 #!/bin/bash
 SBT_OPTS="-Xms512M -Xmx1536M -Xss1M -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=256M"
 java $SBT_OPTS -jar `dirname $0`/bin/sbt-launch.jar "$@"
-```
- ```bash
+:::
+</dx-codeblock>
+<dx-codeblock>
+:::  bash
 chmod u+x ./sbt_run.sh
- ```
- 
+:::
+</dx-codeblock>
 3. 执行以下命令。
-```bash
+<dx-codeblock>
+:::  bash
 ./sbt-run.sh sbt-version
-```
-
+:::
+</dx-codeblock>
 若能看到 sbt 版本说明可以正常运行。
 
 #### 安装 protobuf
 
 1. 下载 [protobuf](https://github.com/google/protobuf/releases) 相应版本。
 2. 解压后进入目录。
-```bash
+<dx-codeblock>
+:::  bash
 ./configure
 make && make install
-```
+:::
+</dx-codeblock>
  需要预先安装 gcc-g++，执行中可能需要 root 权限。
-
 3. 重新登录，在命令行中输入下述内容。
-```bash
+<dx-codeblock>
+:::  bash
 protoc --version
-```
-
+:::
+</dx-codeblock>
 4. 若能看到 protobuf 版本说明可以正常运行。
 
 #### 安装 Hadoop
 
 1. 访问 [Hadoop 官网](http://hadoop.apache.org/releases.html) 下载所需要的版本。
 2. 增加 Hadoop 用户。
-```bash
+<dx-codeblock>
+:::  bash
 useradd -m hadoop -s /bin/bash
-```
-
+:::
+</dx-codeblock>
 3. 增加管理员权限。
-```bash
+<dx-codeblock>
+:::  bash
 visudo
-```
-
+:::
+</dx-codeblock>
 4. 在`root ALL=(ALL) ALL`下增加一行。
    `hadoop ALL=(ALL) ALL`
    保存退出。
 5. 使用 Hadoop 进行操作。
-```bash
+<dx-codeblock>
+:::  bash
 su hadoop
-```
-
+:::
+</dx-codeblock>
 6. SSH 无密码登录。
-```bash
+<dx-codeblock>
+:::  bash
 cd ~/.ssh/                     # 若没有该目录，请先执行一次ssh localhost
 ssh-keygen -t rsa              # 会有提示，都按回车就可以
 cat id_rsa.pub >> authorized_keys  # 加入授权
 chmod 600 ./authorized_keys    # 修改文件权限
-```
-
+:::
+</dx-codeblock>
 7. 安装 Java。
-```bash
+<dx-codeblock>
+:::  bash
 sudo yum install java-1.8.0-openjdk java-1.8.0-openjdk-devel
-```
-
+:::
+</dx-codeblock>
 8. 配置 ${JAVA_HOME}。
-```bash
+<dx-codeblock>
+:::  bash
 vim /etc/profile
-```
+:::
+</dx-codeblock>
  在文末加上下述内容：
-```vim
+<dx-codeblock>
+:::  vim
 export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.121-0.b13.el6_8.x86_64/jre
 export PATH=$PATH:$JAVA_HOME
-```
+:::
+</dx-codeblock>
  根据安装情况修改对应路径。
-
 9. 解压 Hadoop，进入目录。
-```bash
+<dx-codeblock>
+:::  bash
 ./bin/hadoop version
-```
+:::
+</dx-codeblock>
  若能显示版本信息说明能正常运行。
-
 10. 配置单机伪分布式（可根据需要搭建不同形式的集群）。
-```bash
+<dx-codeblock>
+:::  bash
 vim /etc/profile
-```
+:::
+</dx-codeblock>
  在文末加上下述内容：
-```vim
+ <dx-codeblock>
+:::  vim
 export HADOOP_HOME=/usr/local/hadoop
 export PATH=$HADOOP_HOME/bin:$PATH
-```
+:::
+</dx-codeblock>
  根据安装情况修改对应路径。
-
 11. 修改 `/etc/hadoop/core-site.xml`。
 <dx-codeblock>
 :::  xml
@@ -355,8 +378,6 @@ export PATH=$HADOOP_HOME/bin:$PATH
 </configuration>
 :::
 </dx-codeblock>
-
-
 12. 修改 `/etc/hadoop/hdfs-site.xml`。
 <dx-codeblock>
 :::  xml
@@ -376,47 +397,53 @@ export PATH=$HADOOP_HOME/bin:$PATH
 </configuration>
 :::
 </dx-codeblock>
-
-
 13. 修改 `/etc/hadoop/hadoop-env.sh` 中的 JAVA_HOME 为 Java 的路径。
-```vim
+ <dx-codeblock>
+:::  vim
 export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.121-0.b13.el6_8.x86_64/jre
-```
-
+:::
+</dx-codeblock>
 14. 执行 NameNode 格式化。
-```bash
+ <dx-codeblock>
+:::  bash
 ./bin/hdfs namenode -format
-```
+:::
+</dx-codeblock>
  显示`Exitting with status 0`则表示成功。
-
 15. 启动 Hadoop。
-```bash
+ <dx-codeblock>
+:::  bash
 ./sbin/start-dfs.sh
-```
+:::
+</dx-codeblock>
 成功启动会存在 `NameNode` 进程，`DataNode` 进程，`SecondaryNameNode` 进程。
 
 #### 安装 Spark
 
 访问 [Spark 官网](http://spark.apache.org/downloads.html) 下载所需要的版本。
-因为之前安装了 Hadoop，所以选择使用 *Pre-build with user-provided Apache Hadoop*。
+因为之前安装了 Hadoop，所以选择使用 `Pre-build with user-provided Apache Hadoop`。
 >?本示例同样使用 `hadoop` 用户进行操作。
 
 1. 解压进入目录。
 2. 修改配置文件。
-```bash
+ <dx-codeblock>
+:::  bash
 cp ./conf/spark-env.sh.template ./conf/spark-env.sh
 vim ./conf/spark-env.sh
-```
+:::
+</dx-codeblock>
  在第一行添加下述内容：
-```vim
+ <dx-codeblock>
+:::  vim
 export SPARK_DIST_CLASSPATH=$(/usr/local/hadoop/bin/hadoop classpath)
-```
+:::
+</dx-codeblock>
  根据 hadoop 安装情况修改路径。
-
 3. 运行示例。
-```bash
+ <dx-codeblock>
+:::  bash
 bin/run-example SparkPi
-```
-
+:::
+</dx-codeblock>
  若成功安装可以看到程序输出 π 的近似值。
 

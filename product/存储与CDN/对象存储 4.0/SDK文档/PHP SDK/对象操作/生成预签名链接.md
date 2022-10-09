@@ -25,7 +25,7 @@ $cosClient = new Qcloud\Cos\Client(
     array(
         'region' => $region,
         'schema' => 'https', //协议头部，默认为http
-        'signHost' => 'true', //默认签入Header Host；您也可以选择不签入Header Host，但可能导致请求失败或安全漏洞,若不签入host则填false
+        'signHost' => true, //默认签入Header Host；您也可以选择不签入Header Host，但可能导致请求失败或安全漏洞,若不签入host则填false
         'credentials'=> array(
             'secretId'  => $secretId ,
             'secretKey' => $secretKey)));
@@ -60,7 +60,7 @@ $cosClient = new Qcloud\Cos\Client(
     array(
         'region' => $region,
         'schema' => 'https', //协议头部，默认为http
-        'signHost' => 'true', //默认签入Header Host；您也可以选择不签入Header Host，但可能导致请求失败或安全漏洞,若不签入host则填false
+        'signHost' => true, //默认签入Header Host；您也可以选择不签入Header Host，但可能导致请求失败或安全漏洞,若不签入host则填false
         'credentials'=> array(
             'secretId'  => $secretId ,
             'secretKey' => $secretKey)));
@@ -99,7 +99,7 @@ $cosClient = new Qcloud\Cos\Client(
     array(
         'region' => $region,
         'schema' => 'https', //协议头部，默认为http
-        'signHost' => 'true', //默认签入Header Host；您也可以选择不签入Header Host，但可能导致请求失败或安全漏洞,若不签入host则填false
+        'signHost' => true, //默认签入Header Host；您也可以选择不签入Header Host，但可能导致请求失败或安全漏洞,若不签入host则填false
         'credentials'=> array(
             'secretId'  => $secretId ,
             'secretKey' => $secretKey)));
@@ -132,7 +132,7 @@ $cosClient = new Qcloud\Cos\Client(
     array(
         'region' => $region,
         'schema' => 'https', //协议头部，默认为http
-        'signHost' => 'true', //默认签入Header Host；您也可以选择不签入Header Host，但可能导致请求失败或安全漏洞,若不签入host则填false
+        'signHost' => true, //默认签入Header Host；您也可以选择不签入Header Host，但可能导致请求失败或安全漏洞,若不签入host则填false
         'credentials'=> array(
             'secretId'  => $secretId ,
             'secretKey' => $secretKey)));
@@ -168,7 +168,7 @@ $cosClient = new Qcloud\Cos\Client(
     array(
         'region' => $region,
         'schema' => 'https', //协议头部，默认为 http
-        'signHost' => 'true', //默认签入Header Host；您也可以选择不签入Header Host，但可能导致请求失败或安全漏洞,若不签入host则填false
+        'signHost' => true, //默认签入Header Host；您也可以选择不签入Header Host，但可能导致请求失败或安全漏洞,若不签入host则填false
         'credentials'=> array(
             'secretId'  => $tmpSecretId,
             'secretKey' => $tmpSecretKey,
@@ -204,7 +204,7 @@ $cosClient = new Qcloud\Cos\Client(
     array(
         'region' => $region,
         'schema' => 'https', //协议头部，默认为 http
-        'signHost' => 'true', //默认签入Header Host；您也可以选择不签入Header Host，但可能导致请求失败或安全漏洞,若不签入host则填false
+        'signHost' => true, //默认签入Header Host；您也可以选择不签入Header Host，但可能导致请求失败或安全漏洞,若不签入host则填false
         'credentials'=> array(
             'secretId'  => $tmpSecretId,
             'secretKey' => $tmpSecretKey,
@@ -245,7 +245,7 @@ $cosClient = new Qcloud\Cos\Client(
     array(
         'region' => $region,
         'schema' => 'https', //协议头部，默认为 http
-        'signHost' => 'true', //默认签入Header Host；您也可以选择不签入Header Host，但可能导致请求失败或安全漏洞,若不签入host则填false
+        'signHost' => true, //默认签入Header Host；您也可以选择不签入Header Host，但可能导致请求失败或安全漏洞,若不签入host则填false
         'credentials'=> array(
             'secretId'  => $tmpSecretId,
             'secretKey' => $tmpSecretKey,

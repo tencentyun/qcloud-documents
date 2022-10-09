@@ -65,6 +65,7 @@ i. 修改以下配置参数，设置匿名用户和本地用户的登录权限�
 ```
 anonymous_enable=NO
 local_enable=YES
+write_enable=YES
 chroot_local_user=YES
 chroot_list_enable=YES
 chroot_list_file=/etc/vsftpd/chroot_list
@@ -89,7 +90,7 @@ pasv_max_port=45000
 vim /etc/vsftpd/chroot_list
 ```
 9. 按 **i** 进入编辑模式，输入用户名，一个用户名占据一行，设置完成后按 **Esc** 并输入 **:wq** 保存后退出。
-设置的用户将不会被锁定在主目录，您若没有设置例外用户的需求，可跳过此步骤，输入 **:wq** 退出文件。
+设置的用户将会被锁定在主目录，您若没有设置例外用户的需求，可跳过此步骤，输入 **:q** 退出文件。
 10. 执行以下命令，重启 FTP 服务。
 ```
 systemctl restart vsftpd
@@ -166,3 +167,4 @@ chmod +w /home/test
 ls -l /home/test   
 # /home/test 为 FTP 目录，请修改为您实际的 FTP 目录。
 ``` 
+

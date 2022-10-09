@@ -1,16 +1,16 @@
-## 操作场景
+## 操作场景 
 
 
 您可以通过配置 TDMQ 连接器来消费 TDMQ 消息队列的内容。TDMQ 连接器实现方式为 **Pull 模型**，事件连接器会主动拉取 TDMQ 内容，并将相关事件通过事件规则路由到更多服务。本文为您介绍如何创建 TDMQ 连接器和 TDMQ 连接器生成的事件结构。
+>! 目前 TDMQ 连接器只支持消费 TDMQ-Pulsar 版本队列信息。
 
-
-## 前提条件
+## 前提条件 
 
 已 [创建事件集](https://cloud.tencent.com/document/product/1359/56080)。
 
 
 
-## 操作步骤
+## 操作步骤 
 
 
 1. 登录 [事件总线控制台](https://console.cloud.tencent.com/eb/)，选择左侧导航栏中的**事件集**。
@@ -57,18 +57,18 @@
 }
 ```
 
-参数说明如下：
+参数说明如下： 
 
 | 参数             | 描述                                                         |
 | ---------------- | ------------------------------------------------------------ |
-| topic            | Topic 完整路径 `persistent://appid/namespace/topic-1`。      |
-| tags             | TDMQ 标签。                                                  |
-| topictype        | topic 类型描述：<br><li>0：普通消息。<br><li>1：全局顺序消息。<br><li>2：局部顺序消息。<br><li>3：重试队列。<br><li>4：死信队列。 |
-| subscriptionName | 订阅名称。                                                   |
-| timestamp        | 时间戳，精确到毫秒。                                         |
+| topic            | Topic 完整路径 `persistent://appid/namespace/topic-1`。       |
+| tags             | TDMQ 标签。                                                   |
+| topictype        | topic 类型描述：<br><li>0：普通消息。<br><li>1：全局顺序消息。<br><li>2：局部顺序消息。<br><li>3：重试队列。<br><li>4：死信队列。  |
+| subscriptionName | 订阅名称。                                                    |
+| timestamp        | 时间戳，精确到毫秒。                                          |
 |partitions|TMDQ 队列消费的 partition。|
-| msgId            | TDMQ 消息 ID。                                               |
-| msgBody          | TDMQ 消息体。                                                |
+| msgId            | TDMQ 消息 ID。                                                |
+| msgBody          | TDMQ 消息体。                                                 |
 
 
 

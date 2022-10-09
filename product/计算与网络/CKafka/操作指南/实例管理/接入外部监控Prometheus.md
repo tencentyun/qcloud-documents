@@ -9,12 +9,11 @@
 
 1. 登录 [CKafka 控制台](https://console.cloud.tencent.com/ckafka)。
 2. 在左侧导航栏选择**实例列表**，单击目标实例的“ID”，进入实例基本信息页面。
-3. 在**使用Prometheus监控**模块单击右上角的**获取监控目标**，选择 VPC 和子网。
-![](https://qcloudimg.tencent-cloud.cn/raw/38ced4a030cd8e901e5c5f89b7da92fc.png)
+3. 在**使用 Prometheus 监控**模块单击右上角的**获取监控目标**，选择 VPC 和子网。
+![](https://qcloudimg.tencent-cloud.cn/raw/017a4683d3ac2d6439839e4c5e756c4c.png)
 4. 单击**提交**，获取一组监控目标。
-![](https://qcloudimg.tencent-cloud.cn/raw/971340b51689204493944646283efc21.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/f1dd1da69ae1bfc8e30ead96a9e75aa0.png)
 5. 下载 [Prometheus](https://prometheus.io/download/)，并配置监控抓取地址。
-
    1. 进入 Prometheus 程序包所在目录，执行如下命令，解压 Prometheus 程序包。
    ```bash
    tar -vxf prometheus-2.30.3.linux-amd64.tar.gz
@@ -52,9 +51,8 @@
    4. 打开 Prometheus 提供的 UI 界面查看接入的 Targets 状态是否正常，如在浏览器输入 `http://localhost:9090`。
 	 ![](https://qcloudimg.tencent-cloud.cn/raw/3d7fcddaa58fb897aaa597e3f6a6588f.png)
    5. 检查 Targets 状态都是 `UP`。
-   ![](https://qcloudimg.tencent-cloud.cn/raw/e54ab826f80668233e3cd3e90b1927f4.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/6f9bce90bce83259f0853ae6744e0f1d.png)
 	如果 Targets 状态为 `DOWN` 则需要检查网络访问是否可达，或根据状态栏最后的 Error 选项查看原因。
-
 6. 查询监控指标数据。
    单击 Graph 选项输入查询的指标名称即可看到相应的监控数据，例如输入`node_memory_MemAvailable_bytes` ，单击**execute**。
-	 ![](https://qcloudimg.tencent-cloud.cn/raw/118a8acfadc562a83f0ebc621eaf79fe.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/01c7f9bac44dbc9f446049f429e599a2.png)

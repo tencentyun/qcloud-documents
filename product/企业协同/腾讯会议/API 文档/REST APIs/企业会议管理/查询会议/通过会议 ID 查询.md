@@ -2,13 +2,12 @@
 - **描述**：通过会议 ID 查询会议详情。
  - 企业 secret 鉴权用户可查询到任何该用户创建的企业下的会议，OAuth2.0 鉴权用户只能查询到通过 OAuth2.0 鉴权创建的会议。
  - 本接口的邀请参会成员限制调整至300人。
+ - 当会议为周期性会议时，主持人密钥每场会议固定，但单场会议只能获取一次。支持查询周期性会议的主持人密钥。
 - **调用方式**：GET
 - **接口请求域名**：
 ```plaintext
 https://api.meeting.qq.com/v1/meetings/{meetingId}?userid={userid}&instanceid={instanceid}
 ```
-
-
 
 ## 输入参数
 以下请求参数列表仅列出了接口请求参数，HTTP 请求头公共参数请参见签名验证章节的 [公共参数说明](https://cloud.tencent.com/document/product/1095/42413#.E5.85.AC.E5.85.B1.E5.8F.82.E6.95.B0)。
@@ -19,18 +18,14 @@ https://api.meeting.qq.com/v1/meetings/{meetingId}?userid={userid}&instanceid={i
 | operator_id      | 否   | String   | 操作者 ID。operator_id 必须与 operator_id_type 配合使用。根据 operator_id_type 的值，operator_id 代表不同类型。<br>**说明**：userid 字段和 operator_id 字段二者必填一项。若两者都填，以 operator_id 字段为准。 |
 | operator_id_type | 否   | Integer  | 操作者 ID 的类型：<br>3. rooms_id<br>**说明**：当前仅支持 rooms_id。如操作者为企业内 userid 或 openId，请使用 userid 字段。 |
 | userid |否 | String| 调用方用于标示用户的唯一 ID（企业内部请使用企业唯一用户标识；OAuth2.0 鉴权用户请使用 openId）。<br>企业唯一用户标识说明：<br>1. 企业对接 SSO 时使用的员工唯一标识 ID；<br>2. 企业调用创建用户接口时传递的 userid 参数。  |
-| instanceid | 是 | Integer|用户的终端设备类型： <br>1：PC <br>2：Mac<br>3：Android <br>4：iOS <br>5：Web <br>6：iPad <br>7：Android Pad <br>8：小程序 |
+| instanceid | 是 | Integer|用户的终端设备类型：<br>0：PSTN<br>1：PC<br>2：Mac<br>3：Android<br>4：iOS<br>5：Web<br>6：iPad<br>7：Android Pad<br>8：小程序<br>9：voip、sip 设备<br>10：linux<br>20：Rooms for Touch Windows<br>21：Rooms for Touch MacOS<br>22：Rooms for Touch Android<br>30：Controller for Touch Windows<br>32：Controller for Touch Android<br>33：Controller for Touch iOS |
 
-
-               
 
 ## 输出参数
 | 参数名称 |参数类型 | 参数描述 |
 |---------|---------|---------|
 | meeting_number | Integer | 会议数量。  |
 |meeting_info_list  |Array| 会议列表。 |
-
-
 
 
 **会议对象**
@@ -64,6 +59,11 @@ https://api.meeting.qq.com/v1/meetings/{meetingId}?userid={userid}&instanceid={i
 |guests   | Guest 数组     | 会议嘉宾列表（会议创建人才有权限查询）。                                                 |
 |has_vote   | Boolean     | 是否有投票（会议创建人和主持人才有权限查询）。                                                     |
 |enable_enroll   | Boolean     | 是否激活报名。                                                     |
+|enable_host_key   | Boolean     | 是否开启主持人密钥。<br>true：开启<br>false：关闭                                                     |
+|host_key   | Boolean     | 主持人密钥，仅支持6位数字（会议创建人才有权限查询）。<br>如开启主持人密钥后没有填写此项，将自动分配一个6位数字的密钥。                                                    |
+|sync_to_wework  |Boolean    |会议是否同步至企业微信，该字段仅支持创建会议时设置，创建后无法修改。该配置仅支持与企业微信关联的企业。 <br>true：同步，默认同步<br>false：不同步| 
+|time_zone | String |	时区，可参见 [Oracle-TimeZone 标准](https://docs.oracle.com/middleware/1221/wcs/tag-ref/MISC/TimeZones.html)。 |
+|location | String |会议地点。 |
 
 
 
@@ -81,9 +81,10 @@ https://api.meeting.qq.com/v1/meetings/{meetingId}?userid={userid}&instanceid={i
 
 | 参数名称                        | 参数类型 | 参数描述                                                     |
 | ------------------------------- | -------- | ------------------------------------------------------------ |
-| mute_enable_join                | Boolean     | 加入静音状态，默认值为true。<br>true：开启<br>false：关闭                                                 |
-| allow_unmute_self               | Boolean     | 是否允许参会者取消静音，默认值为true。<br>true：开启<br>false：关闭                                              |
-| allow_in_before_host            | Boolean     | 是否允许成员在主持人进会前加入会议，默认值为 true。<br>true：允许<br>false：不允许                            |
+| mute_enable_type_join                | Integer     | 成员入会时静音选项。<br>当同时返回“mute_enable_join”和“mute_enable_type_join”时，请以“mute_enable_type_join”的结果为准。<br>0：关闭<br>1：开启<br>2：超过6人后自动开启       |
+| mute_enable_join                | Boolean     | 加入静音状态，默认值为true。<br>true：开启<br>false：关闭       |
+| allow_unmute_self               | Boolean     | 是否允许参会者取消静音，默认值为true。<br>true：开启<br>false：关闭        |
+| allow_in_before_host            | Boolean     | 是否允许成员在主持人进会前加入会议，默认值为 true。<br>true：允许<br>false：不允许          |
 | auto_in_waiting_room            | Boolean     | 是否开启等候室，默认值为 false。<br>true：开启<br>false：不开启                   |
 | allow_screen_shared_watermark   | Boolean     | 是否开启屏幕共享水印，默认值为 false。<br>true： 开启<br>false：不开启               |
 | water_mark_type | Integer | 水印样式，默认为单排：<br> 0：单排<br>  1：多排<br>  |
@@ -105,10 +106,13 @@ https://api.meeting.qq.com/v1/meetings/{meetingId}?userid={userid}&instanceid={i
 
 | 参数名称       | 必选 | 参数类型 | 参数描述                                                     |
 | -------------- | ---- | -------- | ------------------------------------------------------------ |
-| recurring_type | 否   | Integer  | 周期性会议频率，默认值为0。<br>0：每天<br> 1：每周一至周五<br>2：每周<br>3：每两周<br>4：每月<br> |
+| recurring_type | 否   | Integer  | 重复类型，默认值为0。<br>0：每天<br> 1：每周一至周五<br>2：每周<br>3：每两周<br>4：每月<br> 5：自定义，示例请参见 [自定义周期规则 API 调用示例](https://cloud.tencent.com/document/product/1095/81181)|
 | until_type     | 否   | Integer | 结束重复类型，默认值为0。<br>0：按日期结束重复<br>1：按次数结束重复 |
 | until_date     | 否   | Integer | 结束日期时间戳，默认值为当前日期 + 7天。                             |
 | until_count    | 否   |Integer| 限定会议次数（1-50次），默认值为7次。                              |
+| customized_recurring_type    | 否   | Integer  | 自定义周期性会议的循环类型。<br>0：按天。<br>1：按周。<br>2：按月，以周为粒度重复。例如：每3个月的第二周的周四。<br>3：按月，以日期为粒度重复。例如：每3个月的16日。<br>按周；按月、以周为粒度； 按月、以日期为粒度时，需要包含会议开始时间所在的日期。   |
+| customized_recurring_step    | 否   | Integer  | 每[n]（天、周、月）重复，使用自定义周期性会议时传入。<br>例如：customized_recurring_type=0 && customized_recurring_step=5 表示每5天重复一次。<br>customized_recurring_type=2 && customized_recurring_step=3 表示每3个月重复一次，重复的时间依赖于 customized_recurring_days 字段。  |
+| customized_recurring_days    | 否   | Integer  | 哪些天重复。根据 customized_recurring_type 和 customized_recurring_step 的不同，该字段可取值与表达含义不同。如需选择多个日期，加和即可。<br>customized_recurring_type = 0 时，传入该字段将被忽略。<br>详细请参见 [自定义周期规则 API 调用示例](https://cloud.tencent.com/document/product/1095/81181)    |
 
 **直播信息对象**
 
@@ -148,7 +152,6 @@ GET https://api.meeting.qq.com/v1/meetings/7567173273889276131?userid=tester1&in
 ```
 
 #### 输出示例（普通会议）
-
 ```plaintext
 {  
   "meeting_number": 1,  
@@ -175,13 +178,13 @@ GET https://api.meeting.qq.com/v1/meetings/7567173273889276131?userid=tester1&in
       "join_url": "https://wemeet.qq.com/w/5NmV29k",
       "meeting_type": 0,      
       "settings": {        
-        "mute_enable_join": true,        
+        "mute_enable_type_join": 2,        
         "allow_unmute_self": false,
         "play_ivr_on_leave": false,
         "allow_in_before_host": true,
-	    "auto_in_waiting_room": false,
-	    "allow_screen_shared_watermark": true,
-	    "only_allow_enterprise_user_join": false       
+        "auto_in_waiting_room": false,
+        "allow_screen_shared_watermark": true,
+        "only_allow_enterprise_user_join": false       
       },
        "enable_live":true,
         "live_config":{
@@ -201,12 +204,12 @@ GET https://api.meeting.qq.com/v1/meetings/7567173273889276131?userid=tester1&in
                 "phone_number":"xxxxxxxxx",
                 "guest_name":"xxxx"
             }
-        ]   
+        ],
+		"enable_host_key":true,
+        "host_key":"191810"
     }  
   ]
 }
-
-
 ```
 #### 输出示例（周期性会议）
 ```plaintext
@@ -227,7 +230,7 @@ GET https://api.meeting.qq.com/v1/meetings/7567173273889276131?userid=tester1&in
       ],
       "join_url": "https://meeting.tencent.com/s/iY4GQ2HkQQGL",
       "settings": {
-        "mute_enable_join": true,
+        "mute_enable_type_join": 2,
         "allow_unmute_self": false,
         "allow_in_before_host": true,
         "auto_in_waiting_room": true,
@@ -283,7 +286,9 @@ GET https://api.meeting.qq.com/v1/meetings/7567173273889276131?userid=tester1&in
             "enable_live_im":true,
             "enable_live_replay":true,
             "live_addr":"https://meeting.tencent.com/l/xxxx"
-        }
+        },
+		"enable_host_key":true,
+        "host_key":"191810"
     }
   ]
 }

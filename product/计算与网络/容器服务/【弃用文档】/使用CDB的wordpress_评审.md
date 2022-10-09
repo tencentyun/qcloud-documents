@@ -1,4 +1,4 @@
-在 [单实例版 WordPress](/doc/product/457/7205) 示例中我们介绍了如何快速创建 WordPress 服务。 单实例版 WordPress 的数据是写到同一个容器运行的 MySQL 数据库中，虽然这样的配置可以快速启动，但它也存在一个问题：如果容器因某种原因停止，数据库和存储类的文件将会丢失。
+在 [单实例版 WordPress](/doc/product/457/7205) 示例中我们介绍了如何快速创建 WordPress 服务。  单实例版 WordPress 的数据是写到同一个容器运行的 MySQL 数据库中，虽然这样的配置可以快速启动，但它也存在一个问题：如果容器因某种原因停止，数据库和存储类的文件将会丢失。
 
 本文档旨在介绍如何设置 MySQL 数据库，它将在实例/容器重新启动后继续存在。通过使用 [云数据库CDB](https://cloud.tencent.com/product/cdb-overview) 可以实现永久存储。
 
@@ -31,7 +31,7 @@
 ![](//mc.qcloudimg.com/static/img/c285fb82e354ba127cd0cce01804a197/image.png)
 
 ### 第二步：创建使用 CDB 的 WordPress 服务
-1) 登录 [腾讯云容器服务控制台](https://console.cloud.tencent.com/ccs) 。
+1) 登录 [腾讯云容器服务控制台 ](https://console.cloud.tencent.com/ccs) 。
 2) 单击左侧导航栏中的**服务**，单击服务列表页的**+ 新建**。
 ![](//mc.qcloudimg.com/static/img/11f7f75d7b051a815da8bfe1e744a8e8/image.png)
 3) 设置服务的基本信息。
@@ -61,9 +61,9 @@ WORDPRESS_DB_PASSWORD = 初始化时填写的密码
 
 ## 访问 WordPress 服务
 1) 提供三种方式访问 WordPress 服务。
- - 通过**负载均衡 IP**来访问 WordPress 服务。单击服务页面的**服务信息**查看负载均衡 IP和负载均衡ID。 
+ - 通过**负载均衡 IP**来访问 WordPress 服务。单击服务页面的**服务信息**查看负载均衡 IP和负载均衡ID。  
 ![](//mc.qcloudimg.com/static/img/f92f30a3360c46ac0e6e76d045f4484f/image.png) 
- - 通过 **域名** 来访问 WordPress 服务。在容器服务控制台左侧导航栏中，单击**负载均衡**，单击**TCP/UDP**，找到对应的负载均衡ID，复制域名访问服务。
+ - 通过 **域名** 来访问 WordPress 服务。在容器服务控制台 左侧导航栏中，单击**负载均衡**，单击**TCP/UDP**，找到对应的负载均衡ID，复制域名访问服务。
  - 集群内的其他服务或容器可以直接通过服务名称访问。
  
 2) 进入 WordPress 服务器的默认欢迎页。

@@ -1,4 +1,4 @@
-对比 [云服务器 CVM](https://cloud.tencent.com/document/product/213/495)，轻量应用服务器 TencentCloud Lighthouse 更聚焦于中小企业、开发者、云计算入门者、学生等用户群体。相比云服务器 CVM 更加简单易用，精简了云服务器 CVM 的高阶概念及功能，提供高带宽流量包并以高性价比的套餐形式整体售卖基础云资源，将热门开源软件融合打包实现一键构建应用，更适合于支撑中小型网站、Web 应用、博客、论坛、小程序/小游戏、电商、云盘/图床、云端开发测试和学习环境等轻量级、低负载且访问量适中的应用场景。
+对比 [云服务器 CVM](https://cloud.tencent.com/document/product/213/495)，轻量应用服务器 TencentCloud Lighthouse 更聚焦于中小企业、开发者、云计算入门者、学生等用户群体。相比云服务器 CVM 更加简单易用，精简了云服务器 CVM 的高阶概念及功能，提供高带宽流量包并以高性价比的套餐形式整体售卖基础云资源，将热门开源软件融合打包实现一键构建应用，更适合于支撑中小型网站、Web 应用、博客、论坛、小程序/小游戏、电商、云盘/图床、云端开发测试和学习环境等轻量级、中低负载且访问量适中的应用场景。
 
 <dx-alert infotype="explain" title="">
 - 创建轻量应用服务器时不支持指定底层物理服务器的 CPU 型号，腾讯云将随机分配满足套餐规格的物理 CPU 型号。
@@ -8,16 +8,16 @@
 
 
 轻量应用服务器相比云服务器 CVM 的主要区别和优势请参考下表：
-<table style="width:908px;">
+<table style="width:978px;">
 <tr>
-<th style="width:95px;height:45px;position:relative;font-weight:700;" valign="top" colspan="2"><div style="position:absolute;width:1px;height: 244px;top:0;left:0;background-color: #d9d9d9;transform: rotate(-76deg);transform-origin:top;"></div><div style="position:relative;left:150px">产品</div>优势</th>
+<th style="width:95px;height:45px;position:relative;font-weight:700;" valign="top" colspan="2"><div style="position:absolute;width:1px;height: 245px;top:0;left:0;background-color: #d9d9d9;transform: rotate(-75deg);transform-origin:top;"></div><div style="position:relative;left:150px">产品</div>优势</th>
 <th style="font-weight:700;">轻量应用服务器 TencentCloud Lighthouse</th>
 <th style="font-weight:700;">云服务器 CVM</th>
 </tr>
 <tr>
 <th style="font-weight:700;" colspan=2>更聚焦的用户群体</th>
 <td>中小企业、开发者</td>
-<td>面向所有上云用户</td>
+<td>更适合中大型企业用户</td>
 </tr>
 <tr>
 <th style="font-weight:700;" colspan=2>更轻量的业务场景</th>
@@ -65,7 +65,7 @@
 <td>
 <ul style="margin:-3px 0px">
 <li>开箱即用的优质官方应用镜像，预置应用系统所需的软件栈最优组合</li>
-<li>30s 一键构建应用，自动完成应用软件、依赖的运行环境安装和初始化配置</li>
+<li>1分钟内一键构建应用，自动完成应用软件、依赖的运行环境安装和初始化配置</li>
 </ul>
 </td>
 <td>用户需自行搭建应用</td>
@@ -81,8 +81,7 @@
 
 <dx-alert infotype="explain" title="">
 - 轻量应用服务器相比云服务器 CVM 在功能层面的主要限制包括：
-  - 实例创建完成后，不支持更换公网 IP 地址。
-  - 实例支持以套餐为单位进行配置（计算、存储和网络）的整体升级，但不支持降级套餐。详情请参见 [升级实例套餐](https://cloud.tencent.com/document/product/1207/51730)。
+ 实例支持以套餐为单位进行配置（计算、存储和网络）的整体升级，但不支持降级套餐。详情请参见 [升级实例套餐](https://cloud.tencent.com/document/product/1207/51730)。
  轻量应用服务器具体使用限制说明，请参见 [使用限制](https://cloud.tencent.com/document/product/1207/44376)。
 - 轻量应用服务器在内网连通性上也存在一定限制，详情请参见 [地域与网络连通性](https://cloud.tencent.com/document/product/1207/50103)。
 - 轻量应用服务器的 [云硬盘](https://cloud.tencent.com/document/product/1207/63920) 和云服务器 CVM 的 [云硬盘](https://cloud.tencent.com/document/product/213/4953) 相互独立。轻量应用服务器的云硬盘仅支持挂载至轻量应用服务器实例，无法挂载至云服务器 CVM。

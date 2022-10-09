@@ -2,6 +2,9 @@
 
 本文为您介绍如何开启默认 CDN 加速域名。
 
+>!自2022年5月9日起，对象存储（Cloud Object Storage，COS）服务将不再支持新增默认 CDN 加速域名。您已开启、或曾经开启的默认 CDN 加速域名不会受到影响，可以继续使用，但建议您使用自定义 CDN 加速域名代替默认 CDN 加速域名。关于自定义 CDN 加速域名的操作指引，请参见 [开启自定义 CDN 加速域名](https://cloud.tencent.com/document/product/436/36637) 文档。
+
+
 ## 操作步骤
 
 1. 登录 [对象存储控制台](https://console.cloud.tencent.com/cos5)。

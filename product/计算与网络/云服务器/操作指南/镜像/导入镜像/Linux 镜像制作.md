@@ -55,7 +55,7 @@ vi /etc/fstab
     4. 按 **i** 进入编辑模式。
     5. 将光标移至文件末尾，按 **Enter**，添加如下内容。结合前文示例则添加：
 ```
-UUID=d489ca1c-xxxx-4536-81cb-ceb2847f9954 /data  ext4 defaults     0   0
+UUID=d489ca1c-xxxx-4536-81cb-ceb2847f9954 / ext4 defaults     0   0
 ```
     6. 按 **Esc**，输入 **:wq**，按 **Enter**。保存设置并退出编辑器。
 - `/etc/fstab`：请勿挂载其它硬盘，迁移后可能会由于磁盘缺失导致系统无法启动。
@@ -161,7 +161,7 @@ sudo qemu-img convert -f raw -O qcow2 /dev/sda /mnt/sdb/test.qcow2
 <table>
 	<tr><th>参数值</th><th>含义</th></tr>
 	<tr><td>qcow2</td><td>qcow2 格式</td></tr>
-	<tr><td>vpc</td><td>vhd 格式</td></tr>
+	<tr><td>vhd</td><td>vhd 格式</td></tr>
 	<tr><td>vmdk</td><td>vmdk 格式</td></tr>
 	<tr><td>raw</td><td>无格式</td></tr>
 </table>

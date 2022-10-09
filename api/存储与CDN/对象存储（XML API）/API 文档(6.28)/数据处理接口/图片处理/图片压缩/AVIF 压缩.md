@@ -13,8 +13,7 @@
 
 ## 前提条件
 
-- 目前 AVIF 压缩属于内测功能，仅支持北京、上海、广州地域的存储桶，使用前请先 [申请开通 AVIF 功能内测](https://cloud.tencent.com/apply/p/igpvms3gjcn)。
-- 使用 AVIF 压缩，需要先开通存储桶的图片高级压缩功能，您需要在相应的存储桶配置页中通过开关按钮开启功能，详情请参见 [设置图片高级压缩](https://cloud.tencent.com/document/product/436/48981)。
+使用 AVIF 压缩，需要先开通存储桶的图片高级压缩功能，您需要在相应的存储桶配置页中通过开关按钮开启功能，详情请参见 [设置图片高级压缩](https://cloud.tencent.com/document/product/436/48981)。
 
 ## 使用方式
 
@@ -34,12 +33,15 @@ COS 通过数据万象 imageMogr2 接口提供 avif 压缩功能。
 #### 1. 下载时处理
 
 ```plaintext
-download_url?imageMogr2/format/avif
+GET /<ObjectKey>?imageMogr2/format/avif HTTP/1.1
+Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
+Date: <GMT Date>
+Authorization: <Auth String>
 ```
 
 #### 2. 上传时处理
 
-```http
+```plaintext
 PUT /<ObjectKey> HTTP/1.1
 Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
@@ -54,9 +56,12 @@ Pic-Operations:
 }
 ```
 
+>? Pic-Operations 为 json 格式的字符串，具体参数信息可参考 [图片持久化处理](https://cloud.tencent.com/document/product/460/18147)。
+>
+
 #### 3. 云上数据处理
 
-```http
+```plaintext
 POST /<ObjectKey>?image_process HTTP/1.1
 Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
@@ -72,17 +77,23 @@ Pic-Operations:
 }
 ```
 
->? 本篇文档中的实际案例仅包含**下载时处理**，该类处理不会保存处理后的图片至存储桶。如有保存需求，请使用**上传时处理**或**云上数据处理**方式。
->
+>? 
+> - Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+> - 通过子账号使用时，需要授予相关的权限，详情请参见 [授权粒度详情](https://cloud.tencent.com/document/product/460/41741) 文档。
+> 
+
 
 ## 处理参数说明
 
 | 参数             | 含义                                                         |
 | :--------------- | :----------------------------------------------------------- |
-| download_url     | 文件的访问链接，具体构成为&lt;BucketName-APPID>.cos.&lt;Region>.myqcloud.com/&lt;picture name>， 例如`examplebucket-1250000000.cos.ap-shanghai.myqcloud.com/picture.jpeg`。 |
+| ObjectKey  | 对象文件名，例如 folder/sample.jpg。                           |
 | /format/&lt;Format> | 压缩格式，此处为 avif。                                       |
 
 ## 实际案例
+
+>? 本篇文档中的实际案例仅包含**下载时处理**，该类处理不会保存处理后的图片至存储桶。如有保存需求，请使用**上传时处理**或**云上数据处理**方式。
+>
 
 假设原图格式为 png，图片大小为1335.2KB，如下图所示：
 ![img](https://example-1258125638.cos.ap-shanghai.myqcloud.com/sample.png)

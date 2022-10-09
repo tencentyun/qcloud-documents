@@ -260,3 +260,4 @@ JVM 信息包括以下内容：
 | pools.Compressed-Class-Space.used | Used memory of collection usage from the pool from which memory is use for class metadata |
 | pools.PS-Eden-Space.used          | Used memory of collection usage from the pool from which memory is initially allocated for most objects |
 | pools.PS-Survivor-Space.used      | Used memory of collection usage from the pool containing objects that have survived the garbage collection of the Eden spac |
+

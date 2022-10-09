@@ -1,18 +1,10 @@
-## 版本支持
-本页文档所描述功能，在腾讯云视立方中支持情况如下：
 
-| 版本名称 | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 播放器 Player | 全功能 |
-| -------- | -------- | -------- | -------- | -------- | -------- | -------- |
-| 支持情况 | -  | -  | &#10003;  | -  | -  | &#10003;  |
-| SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=allPart) |
-
-不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
 
 [](id:structure)
 
 ## 工程结构
 ![](https://qcloudimg.tencent-cloud.cn/raw/d58cd35e0289a415d8bd7b1a0c3d84c1.png)
-小视频主要集成了 UGCKit 作为核心功能库。集成方式参见 [UGCKit](https://github.com/tencentyun/UGSVSDK/tree/master/iOS)（主要负责播放录制）。
+小视频主要集成了 UGCKit 作为核心功能库。集成方式参见 [UGCKit](https://github.com/LiteAVSDK/UGSV_iOS)（主要负责播放录制）。
 小视频的美颜功能，主要集成 BeautySettingkit 实现。集成方式请参见 [类抖音特效](https://cloud.tencent.com/document/product/1449/57050)、[动效变脸](https://cloud.tencent.com/document/product/1449/57135) 文档，相关代码都可以在 BeautySettingKit 目录下找到。
 
 [](id:function)

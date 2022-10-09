@@ -1,209 +1,577 @@
 <style>
-.markdown-text-box table th,.markdown-text-box table td{text-align: center;}
-.inbuttom{height: 30px;width: 150px;min-width: 24px;padding: 0 20px;background-color: #00a4ff;color: #fff;border: 1px solid #00a4ff;line-height: 30px;text-align: center;display: inline-block;cursor: pointer;outline: 0 none;box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;}
+.markdown-text-box table th,.markdown-text-box table td{
+    text-align: center;
+}
+.inbuttom{
+    height: 30px;
+    width: 150px;
+    min-width: 24px;
+    padding: 0 20px;
+    background-color: #00a4ff;
+    color: #fff;
+    border: 1px solid #00a4ff;
+    line-height: 30px;
+    text-align: center;
+    display: inline-block;
+    cursor: pointer;
+    outline: 0 none;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-size: 12px;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+ul.rno-tabs-operation {
+    border-bottom: #E5E8ED 1px solid;
+    position: relative;
+    padding-left: 0;
+    font-size: 0;
+    margin-bottom: 0;
+    height: 40px;
+    background-color: #F4F7FA;
+}
+.preview-demo-section .preview-demo-item {
+    display: inline-block;
+    width: 226px;
+    height: 300px;
+    background: #fff;
+    box-shadow: 0 1px 8px 0 rgb(156 175 204 / 25%);
+    border-radius: 1px;
+    text-align: center;
+    padding: 0 15px;
+    margin: 10px 13px 10px 7px;
+    vertical-align: top;
+}
+
+.preview-demo-section .preview-demo-item .demo-item-header {
+    margin-top: 30px;
+}
+.preview-demo-section .preview-demo-item .demo-item-desc {
+    font-size: 12px;
+}
+
+.preview-demo-section .preview-demo-item .demo-item-platform {
+    font-size: 20px;
+    font-weight: bold;
+}
+.preview-demo-section .preview-demo-item .demo-logo-wrapper {
+    line-height: 1;
+}
+.preview-demo-section .preview-demo-item .demo-item-header img {
+    box-shadow: none;
+    width: 40px;
+    height: 40px;
+}
+.preview-demo-section .preview-demo-item.style-qrcode .demo-item-download {
+    margin-top: 15px;
+}
+.preview-demo-section .preview-demo-item.style-web .demo-item-download {
+    margin-top: 46px;
+}
+.preview-demo-section .preview-demo-item.style-single-download-btn .demo-item-download {
+    margin-top: 50px;
+}
+.preview-demo-section .preview-demo-item.style-flutter .demo-item-download {
+    margin-top: 55px;
+}
+.preview-demo-section .preview-demo-item.style-electron .demo-item-download {
+    margin-top: 46px;
+}
+.preview-demo-section .preview-demo-item.style-electron .demo-item-download-btn:first-child {
+    margin-bottom: 10px;
+}
+.preview-demo-section .preview-demo-item .demo-item-download img {
+    box-shadow: none;
+    width: 110px;
+    height: 110px;
+}
+.preview-demo-section .preview-demo-item .demo-item-download .demo-item-download-btn {
+    background-color: #00a4ff;
+    border-radius: 20px;
+    color: #fff;
+    font-size: 14px;
+    width: 170px;
+    height: 35px;
+    line-height: 35px;
+    margin: 0 auto;
+}
+.preview-demo-section .preview-demo-item.style-web .demo-item-download .demo-item-download-btn {
+    color: #fff;
+    background-color: #00a4ff;
+    height: 24px;
+    line-height: 24px;
+    margin-bottom: 6px;
+}
+.preview-demo-section .preview-demo-item.style-electron .demo-item-download .demo-item-download-btn {
+    color: #fff;
+    background-color: #00a4ff;
+    height: 24px;
+    line-height: 24px;
+    margin-bottom: 6px;
+}
+.preview-demo-section .preview-demo-item .demo-item-download .demo-item-download-btn:hover {
+    cursor: pointer;
+}
+.markdown-text-box img {
+        box-shadow: none;
+        background:0;
+}
+.support-platform{
+    width: 56px;
+    height: 24px;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    font-size: 14px;
+    color: #333333;
+    letter-spacing: 0;
+    line-height: 24px;
+}
+.tab-bottom{
+    width: 100%;
+    height: 180px;
+    background: #EDF1F5;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.tab-bottom .platform-icon{
+    text-align:center;
+}
+.tab-support{
+    height:24px;
+    text-align:center;
+    padding: 24px 0 0 0;
+}
+.platform-img{
+    width: 18px;
+    height: 18px;
+    box-shadow: 0 0 0 0 #FFFFFF;
+    vertical-align:-4px;
+    padding:0 8px;
+}
+.try-icon{
+    width: 16px;
+    height: 16px !important;
+    margin-left: 5px !important;
+    vertical-align: -3px !important;
+}
+.tab-experience{
+    width: 150px;
+    height: 40px;
+    background: #FFFFFF;
+    box-shadow: 0 2px 4px 0 rgba(215,226,236,0.40);
+    border-radius: 20px;
+    border:0;
+    color:#06A4FF;
+    line-height:40px;
+}
+.tab-img {
+    width: 100%;
+    background-color: #F4F7FA;
+    padding: 0 0 50px 0;
+}
+.tab-experience-button{
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.rno-tabs-operation-bd {
+    padding: 50px 0 0 0;
+    background-color: #F4F7FA;
+}
+.markdown-text-box .rno-tabs-operation {
+    margin: 0;
+    padding-top: 8px;
+    height: 38px;
+}
+ul.rno-tabs-operation {
+    border-bottom: #E5E8ED 1px solid;
+    position: relative;
+    padding-left: 0;
+    font-size: 0;
+    height: 58px;
+    background-color: #F4F7FA;
+}
+.markdown-text-box .rno-tabs-operation {
+    margin: 0px;
+    padding-top: 0;
+}
+.rno-tabs-operation-item.active {
+    border-bottom-color: #06A4FF;
+		top: -11px;
+}
+.rno-tabs-operation-item {
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    padding-bottom: 4px;
+    overflow: hidden;
+    vertical-align: bottom;
+    margin-bottom: -1px;
+    margin-right: 20px;
+    border-bottom: 2px solid transparent;
+    height: 31px;
+    margin-top: 19px;
+		top: -11px;
+}
+.rno-tabs-operation-item.active>a {
+    color: #00a4ff;
+}
 </style>
 
-## Native Demo
-<table>
-<tr>
-<th>iOS</th><th>Android</th><th>Windows</th><th >Mac OS</th>
-</tr>
-<tr>
-<td><img style="width:150px;" src="https://main.qcloudimg.com/raw/a1a6fd4a9bc3ad2b5fe60e31202c8fda.png" data-nonescope="true"></td>
-<td><a onclick="window.open('https://dldir1.qq.com/hudongzhibo/liteav/TRTCDemo.apk');reportEvent({name: 'demo-click-native', ext1: 'android'});"><button style="width:150px;height: 150px;border:none;background-image:url(https://main.qcloudimg.com/raw/8a603ced0a61983018c794df842f7029.png);background-size: cover;">
-</button></a></td>
-<td><a onclick="window.open('https://liteav.sdk.qcloud.com/app/install/TXLiteAVSDK_Win_Demo.exe');reportEvent({name: 'demo-click-native', ext1: 'windows'});"><button style="width:150px;height: 150px;border:none;background-image:url(https://main.qcloudimg.com/raw/e80b8f4462e2904b31dcdcaabe71c484.png);background-size: cover;">
-</button></a></td>
-<td><a onclick="window.open('https://liteav.sdk.qcloud.com/app/install/TXLiteAVSDK_Mac_Demo.tar.bz2');reportEvent({name: 'demo-click-native', ext1: 'mac'});"><button style="width:150px;height: 150px;border:none;background-image:url(https://main.qcloudimg.com/raw/e80b8f4462e2904b31dcdcaabe71c484.png);background-size: cover;">
-</button></a></td>
-</tr>
-</table>
+<div class="preview-demo-section" id="demo-card">
+    <div class="preview-demo-item style-qrcode" style="margin-left:0">
+        <div class="demo-item-header">
+            <div class="demo-logo-wrapper">
+                <img src="https://qcloudimg.tencent-cloud.cn/raw/53be7f245c4d11d3aefcb6dc53918757.svg" data-nonescope="true">
+            </div>
+            <div class="demo-item-platform">Android</div>
+        </div>
+        <div class="demo-item-desc">
+            音视频通话·多人会议<br>KTV 语音聊天·互动直播等
+        </div>
+        <div class="demo-item-download">
+            <img src="https://main.qcloudimg.com/raw/8a603ced0a61983018c794df842f7029.png">
+        </div>
+    </div>
+    <div class="preview-demo-item style-qrcode">
+        <div class="demo-item-header">
+            <div class="demo-logo-wrapper">
+                <img src="https://qcloudimg.tencent-cloud.cn/raw/36154dc8bb7c93826dbdc6fdcec4e194.svg" data-nonescope="true">
+            </div>
+            <div class="demo-item-platform">iOS</div>
+        </div>
+        <div class="demo-item-desc">
+            音视频通话·多人会议<br>KTV 语音聊天·互动直播等
+        </div>
+        <div class="demo-item-download">
+            <img src="https://qcloudimg.tencent-cloud.cn/raw/6e810724c1102666fcf7cf274c8776b0.png">
+        </div>
+    </div>
+    <div class="preview-demo-item style-single-download-btn">
+        <div class="demo-item-header">
+            <div class="demo-logo-wrapper">
+                <img src="https://qcloudimg.tencent-cloud.cn/raw/7622934bfd307936181d3a57ed69706d.svg" data-nonescope="true">
+            </div>
+            <div class="demo-item-platform">Windows</div>
+        </div>
+        <div class="demo-item-desc">
+            音视频通话·多人会议<br>语音聊天室
+        </div>
+        <div class="demo-item-download">
+            <div class="demo-item-download-btn" onclick="window.open('https://liteav.sdk.qcloud.com/app/install/TXLiteAVSDK_Win_Demo.exe');reportEvent({name: 'demo-click-native', ext1: 'windows'});">立即下载</div>
+        </div>
+    </div>
+    <div class="preview-demo-item style-single-download-btn" style="margin-right:0">
+        <div class="demo-item-header">
+            <div class="demo-logo-wrapper">
+                <img src="https://qcloudimg.tencent-cloud.cn/raw/2f867a868913c590fbb2929b8b240f45.svg" data-nonescope="true">
+            </div>
+            <div class="demo-item-platform">Mac OS</div>
+        </div>
+        <div class="demo-item-desc">
+            音视频通话·多人会议<br>语音聊天室
+        </div>
+        <div class="demo-item-download">
+            <div class="demo-item-download-btn" onclick="window.open('https://liteav.sdk.qcloud.com/app/install/TXLiteAVSDK_Mac_Demo.tar.bz2');reportEvent({name: 'demo-click-native', ext1: 'windows'});">立即下载</div>
+        </div>
+    </div>
+          <div class="preview-demo-item style-qrcode" style="margin-left:0">
+        <div class="demo-item-header">
+            <div class="demo-logo-wrapper">
+                <img src="https://qcloudimg.tencent-cloud.cn/raw/f86154130067ff386c90306fd71dfdce.svg" data-nonescope="true">
+            </div>
+            <div class="demo-item-platform">小程序</div>
+        </div>
+        <div class="demo-item-desc">
+            音视频通话·多人会议<br>语音聊天室等
+        </div>
+        <div class="demo-item-download">
+            <img src="https://qcloudimg.tencent-cloud.cn/raw/e0ffb1aeaf0ff8761277c78597aad01f.png" data-nonescope="true">
+        </div>
+    </div>
+    <div class="preview-demo-item style-web">
+        <div class="demo-item-header">
+            <div class="demo-logo-wrapper">
+                <img src="https://qcloudimg.tencent-cloud.cn/raw/ff4dc34a1c72fdb26fc41c1268898025.svg" data-nonescope="true">
+            </div>
+            <div class="demo-item-platform">Web</div>
+        </div>
+        <div class="demo-item-desc">
+           单击即可体验
+        </div>
+        <div class="demo-item-download">
+            <div class="demo-item-download-btn" onclick="window.open('https://web.sdk.qcloud.com/trtc/webrtc/demo/api-sample/login.html');reportEvent({name: 'demo-click-web', ext1: 'api-sample'});">音视频通话</div>
+						<div class="demo-item-download-btn" onclick="window.open('https://web.sdk.qcloud.com/component/tuiroom/index.html');reportEvent({name: 'demo-click-web', ext1: 'api-sample'});">多人视频会议</div>
+            <div class="demo-item-download-btn" onclick="window.open('https://web.sdk.qcloud.com/component/tuiliveroom/tuipusher/login.html');reportEvent({name: 'demo-click-web', ext1: 'pusher'});">互动直播推流</div>
+            <div class="demo-item-download-btn" onclick="window.open('https://web.sdk.qcloud.com/component/tuiliveroom/tuiplayer/login.html');reportEvent({name: 'demo-click-web', ext1: 'player'});">互动直播拉流</div>
+        </div>
+    </div>
+    <div class="preview-demo-item style-flutter">
+        <div class="demo-item-header">
+            <div class="demo-logo-wrapper">
+                <img src="https://qcloudimg.tencent-cloud.cn/raw/0fae0aca728ba2ce98e66d1b9641aa56.svg" data-nonescope="true">
+            </div>
+            <div class="demo-item-platform">Flutter</div>
+        </div>
+        <div class="demo-item-desc">
+            音视频通话 多人会议等
+        </div>
+        <div class="demo-item-download">
+            <div class="demo-item-download-btn" onclick="window.open('https://comm.qq.com/im_demo_download/trtc_flutter_demo.apk');reportEvent({name: 'demo-click-flutter', ext1: 'android'});">立即下载</div>
+        </div>
+    </div>
+    <div class="preview-demo-item style-electron" style="margin-right:0">
+        <div class="demo-item-header">
+            <div class="demo-logo-wrapper">
+                <img src="https://qcloudimg.tencent-cloud.cn/raw/96a6b7e86eb8d7a93f830d3686d3164c.svg" data-nonescope="true">
+            </div>
+            <div class="demo-item-platform">Electron</div>
+        </div>
+        <div class="demo-item-desc">
+           单击即可体验
+        </div>
+        <div class="demo-item-download">
+            <div class="demo-item-download-btn" onclick="window.open('https://web.sdk.qcloud.com/trtc/electron/download/solution/TUIRoom-Electron/TUIRoom-Electron-mac-latest.zip');reportEvent({name: 'demo-click-electron', ext1: 'mac'});">多人视频会议 Mac OS版</div>
+						<div class="demo-item-download-btn" onclick="window.open('https://web.sdk.qcloud.com/trtc/electron/download/solution/TUIRoom-Electron/TUIRoom-Electron-windows-latest.zip');reportEvent({name: 'demo-click-electron', ext1: 'windows'});">多人视频会议 Windows版</div>
+            <div class="demo-item-download-btn" onclick="window.open('https://web.sdk.qcloud.com/trtc/electron/download/solution/education-v2/TRTCEducationElectron-mac-latest.zip');reportEvent({name: 'demo-click-electron', ext1: 'mac'});">教育场景化 Mac OS版</div>
+            <div class="demo-item-download-btn" onclick="window.open('https://web.sdk.qcloud.com/trtc/electron/download/solution/education-v2/TRTCEducationElectron-windows-latest.zip');reportEvent({name: 'demo-click-electron', ext1: 'windows'});">教育场景化 Windows版</div>
+        </div>
+    </div>
+</div> 
 
 
-## 跨平台 Demo
-<table>
-<tr>
-<th>微信小程序</th><th>Web</th><th>Flutter </th><th>Electron</th>
-</tr>
-<tr>
-</div></a></td>
-<td><div style="width:150px;height: 150px;background-image:url(https://main.qcloudimg.com/raw/4cfc59a1b60c02fc975c8b3e23169fc7.png);background-size: cover;">
-</div>git 
-</td>
-<td>
-<input type="button" value="视频通话" class="inbuttom" onclick="window.open('https://web.sdk.qcloud.com/trtc/webrtc/demo/api-sample/basic-rtc.html');reportEvent({name: 'demo-click-web', ext1: 'api-example'});" /><br><br>
-<input type="button" value="互动直播推流端" class="inbuttom" onclick="window.open('https://web.sdk.qcloud.com/component/tuiliveroom/tuipusher/pusher.html');reportEvent({name: 'demo-click-web', ext1: 'pusher'});" /><br><br>
-<input type="button" value="互动直播拉流端" class="inbuttom" onclick="window.open('https://web.sdk.qcloud.com/component/tuiliveroom/tuiplayer/player.html');reportEvent({name: 'demo-click-web', ext1: 'player'});" /><br><br>
-<input type="button" value="1V1音视频通话" class="inbuttom" onclick="window.open('https://web.sdk.qcloud.com/component/trtccalling/demo/web/latest/index.html');reportEvent({name: 'demo-click-web', ext1: 'calling'});" />
-</td>
-<td>
-<a onclick="window.open('https://www.pgyer.com/TtEk');reportEvent({name: 'demo-click-flutter', ext1: 'ios'});" value="Flutter_ios_版">
-	<button style="width:150px;height: 83px;border:none;background-image:url(https://main.qcloudimg.com/raw/a3b7ef0199988c33850eeeb186c8d26f.png);background-size: cover;">
-</button>
-</a>
-<br>
-<a onclick="window.open('https://comm.qq.com/im_demo_download/trtc_flutter_demo.apk');reportEvent({name: 'demo-click-flutter', ext1: 'android'});" value="Flutter_android_版"> 
-	<button style="width:150px;height: 83px;border:none;background-image:url(https://main.qcloudimg.com/raw/f53741b9ad7567c475841e68cc65dbc3.png);background-size: cover;">
-</button>
-</a></td>
-<td>
-<input type="button" value="Windows 版" style="height: 30px;width: 150px;min-width: 24px;padding: 0 20px;background-color: #00a4ff;color: #fff;border: 1px solid #00a4ff;line-height: 30px;text-align: center;display: inline-block;cursor: pointer;outline: 0 none;box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;"  onclick="window.open('https://web.sdk.qcloud.com/trtc/electron/download/solution/education-v2/TRTCEducationElectron-windows-latest.zip');reportEvent({name: 'demo-click-electron', ext1: 'windows'});" /><br><br>
-<input type="button" value="MacOS 版" style="height: 30px;width: 150px;min-width: 24px;padding: 0 20px;background-color: #00a4ff;color: #fff;border: 1px solid #00a4ff;line-height: 30px;text-align: center;display: inline-block;cursor: pointer;outline: 0 none;box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;" onclick="window.open('https://web.sdk.qcloud.com/trtc/electron/download/solution/education-v2/TRTCEducationElectron-mac-latest.zip');reportEvent({name: 'demo-click-electron', ext1: 'mac'});" /></td>
-</tr>
-</table>
-
-
-
-
-
-## 视频通话场景
-视频通话场景即两人或多人视频通话，支持 720P、1080P 高清画质；单个房间最多支持300人同时在线，最多支持50人同时开启摄像头。常见应用场景有1对1视频通话、300人视频会议、在线问诊、视频聊天、视频客服、视频面审、视频双录、在线理赔、视频狼人杀等。
->?作为腾讯云推出的音视频解决方案，微信小程序和其他端都能互通，您可以在微信小程序内获得媲美 iOS/Android 的绝佳体验，欢迎使用。
+## 音视频通话场景
 
 <dx-tabs>
 ::: iOS&Android
-<table>
-<tr>
-   <th>主动呼叫</th>
-   <th>被叫接听</th>
- </tr>
-<tr>
-<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/group-call.gif"/></td>
-<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/group-recv.gif"/></td>
-</tr>
-</table>
-:::
-::: 小程序
-<table>
-<tr><th>主动呼叫</th><th>被叫接听</th> </tr>
-<tr>
-<td><img src="https://webim-1252463788.cos.ap-shanghai.myqcloud.com/trtc-calling-doc-assets/videocall.gif"/></td>
-<td><img src="https://webim-1252463788.cos.ap-shanghai.myqcloud.com/trtc-calling-doc-assets/videoaccept.gif"/></td>
-</tr>
-</table>
-:::
-::: Flutter\s(iOS/Android)
-![](https://imgcache.qq.com/operation/dianshi/other/8d81a52d-ffd3-4bbd-bd09-1a1648569b2d.453825bf12c01b9fe937ca8d7291f3c44b48cced.gif)
-:::
-::: Windows & Mac
-![](https://qcloudimg.tencent-cloud.cn/raw/0f663092120f8f8f3673bc5d8f444516.gif)
+<div class="tab-img">
+    <img src="https://qcloudimg.tencent-cloud.cn/raw/55e49f7fbefcc17a8a9e9685d841365c.png"/>
+</div>
+<div class="tab-bottom">
+    <div>
+    <div class="platform-icon">
+        <span class="support-platform">Demo 支持平台</span>
+        <span class="support-platform"><img src="https://qcloudimg.tencent-cloud.cn/raw/7adfb7daedcc48ead500f1ddf6bdb237.svg" class="platform-img">Web</span>
+        <span class="support-platform"><img src="https://qcloudimg.tencent-cloud.cn/raw/901d05fdb42e3ac74f4a1521c119b320.svg" class="platform-img">Android</span>
+        <span class="support-platform"><img src="https://qcloudimg.tencent-cloud.cn/raw/8aef65529388017d7f9a46a24085d15a.svg" class="platform-img">iOS</span>
+                 <span class="support-platform"><img src="https://qcloudimg.tencent-cloud.cn/raw/232c7d2d022d0fead3da024086557e11.png" class="platform-img">小程序</span>
+        <span class="support-platform"><img src="https://qcloudimg.tencent-cloud.cn/raw/584b9e4444422c19af20536317680ed3.svg" class="platform-img">Uni-App</span>
+    </div>
+    <div class="tab-experience-button"><a href="#demo-card"><button class="tab-experience">立即体验<img src="https://qcloudimg.tencent-cloud.cn/raw/8b41f1a6d19d184c029c6e92e6a01544.svg" class="try-icon" data-nonescope="true"></button></a></div>
+    <div style="text-align:center;">您可以单击 <a href="https://cloud.tencent.com/document/product/647/78729" style="color:#06A4FF;">接入指引</a> 了解如何快速集成，或单击 <a href="https://github.com/tencentyun/TUICalling" style="color:#06A4FF;">源码下载</a> 到 Github 下载最新代码</div>
+    </div>
+</div>
 :::
 ::: Web
-![](https://imgcache.qq.com/operation/dianshi/other/webrtc-sdk-demo.140bfaedb71e65ca221c1338281492622950ecd6.gif)
+<div class="tab-img">
+    <img src="https://qcloudimg.tencent-cloud.cn/raw/d1ebc0f76b824d4a65a895aee4ab6931.png"/>
+</div>
+<div class="tab-bottom">
+    <div>
+    <div class="platform-icon">
+        <span class="support-platform">Demo 支持平台</span>
+        <span class="support-platform"><img src="https://qcloudimg.tencent-cloud.cn/raw/7adfb7daedcc48ead500f1ddf6bdb237.svg" class="platform-img">Web</span>
+        <span class="support-platform"><img src="https://qcloudimg.tencent-cloud.cn/raw/901d05fdb42e3ac74f4a1521c119b320.svg" class="platform-img">Android</span>
+        <span class="support-platform"><img src="https://qcloudimg.tencent-cloud.cn/raw/8aef65529388017d7f9a46a24085d15a.svg" class="platform-img">iOS</span>
+        <span class="support-platform"><img src="https://qcloudimg.tencent-cloud.cn/raw/584b9e4444422c19af20536317680ed3.svg" class="platform-img">Uni-App</span>
+    </div>
+    <div class="tab-experience-button"><a href="#demo-card"><button class="tab-experience">立即体验<img src="https://qcloudimg.tencent-cloud.cn/raw/8b41f1a6d19d184c029c6e92e6a01544.svg" class="try-icon"></button></a></div>
+    <div style="text-align:center;">您可以单击 <a href="https://cloud.tencent.com/document/product/647/78729" style="color:#06A4FF;">接入指引</a> 了解如何快速集成，或单击 <a href="https://github.com/tencentyun/TUICalling" style="color:#06A4FF;">源码下载</a> 到 Github 下载最新代码</div>
+    </div>
+</div>
+:::
+::: 小程序
+<div class="tab-img">
+    <img src="https://qcloudimg.tencent-cloud.cn/raw/d05db03536a2e3035f59246810f4fe41.png"/>
+</div>
+<div class="tab-bottom">
+    <div>
+    <div class="platform-icon">
+        <span class="support-platform">Demo 支持平台</span>
+        <span class="support-platform"><img src="https://qcloudimg.tencent-cloud.cn/raw/7adfb7daedcc48ead500f1ddf6bdb237.svg" class="platform-img">Web</span>
+        <span class="support-platform"><img src="https://qcloudimg.tencent-cloud.cn/raw/901d05fdb42e3ac74f4a1521c119b320.svg" class="platform-img">Android</span>
+        <span class="support-platform"><img src="https://qcloudimg.tencent-cloud.cn/raw/8aef65529388017d7f9a46a24085d15a.svg" class="platform-img">iOS</span>
+        <span class="support-platform"><img src="https://qcloudimg.tencent-cloud.cn/raw/584b9e4444422c19af20536317680ed3.svg" class="platform-img">Uni-App</span>
+    </div>
+    <div class="tab-experience-button"><a href="#demo-card"><button class="tab-experience">立即体验<img src="https://qcloudimg.tencent-cloud.cn/raw/8b41f1a6d19d184c029c6e92e6a01544.svg" class="try-icon" data-nonescope="true"></button></a></div>
+    <div style="text-align:center;">您可以单击 <a href="https://cloud.tencent.com/document/product/647/78729" style="color:#06A4FF;">接入指引</a> 了解如何快速集成，或单击 <a href="https://github.com/tencentyun/TUICalling" style="color:#06A4FF;">源码下载</a> 到 Github 下载最新代码</div>
+    </div>
+</div>
 :::
 </dx-tabs>
 
-## 语音通话场景
-语音通话场景即两人或多人语音通话，支持 48kHz，支持双声道；单个房间最多支持300人同时在线，最多支持50人同时开启麦克风。常见应用场景有1对1语音通话、多人语音通话、语音聊天、语音会议、语音客服、狼人杀等。
-<dx-tabs>
-::: iOS&Android
-<table>
-<tr>
-   <th>主动呼叫</th>
-   <th>被叫接听</th>
- </tr>
-<tr>
-<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/call.gif"/></td>
-<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/recv.gif"/></td>
-</tr>
-</table>
-:::
-::: 小程序
-<table>
-<tr><th>主动呼叫</th><th>被叫接听</th></tr>
-<tr>
-<td><img src="https://webim-1252463788.cos.ap-shanghai.myqcloud.com/trtc-calling-doc-assets/audiocall.gif"/></td>
-<td><img src="https://webim-1252463788.cos.ap-shanghai.myqcloud.com/trtc-calling-doc-assets/audioaccept.gif"/></td>
-</tr>
-</table>
-:::
-</dx-tabs>
 
 ## 视频互动直播场景
-视频互动直播场景支持主播与观众视频连麦互动；支持主播跨房间（跨直播间）PK；支持平滑上下麦，切换过程无需等待，主播延时小于300ms；单个房间可连麦人数无限制，最多支持50人同时连麦；低延时直播模式下，支持10万观众同时播放，播放延时低至1000ms；CDN 旁路直播模式下，观众数量无限制。常见应用场景有视频低延时直播、十万人互动课堂、视频直播 PK、视频相亲房、互动课堂、远程培训、大型会议等。
 <dx-tabs>
 ::: iOS&Android
-<table>
-<tr>
-<td><img width="260" height="561" src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/beauty.gif"/></td>
-<td><img width="260" height="561" src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/join.gif"/></td>
-<td><img width="260" height="561" src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/msg.gif"/></td>
-<td><img width="260" height="561" src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/pk.gif"/></td>
-</tr>
-</table>
+<div class="tab-img">
+    <img src="https://qcloudimg.tencent-cloud.cn/raw/f4386698a3457904a88b06673aced475.png"/>
+</div>
+<div class="tab-bottom">
+    <div>
+    <div class="platform-icon">
+        <span class="support-platform">Demo 支持平台</span>
+         <span class="support-platform"><img src="https://qcloudimg.tencent-cloud.cn/raw/7adfb7daedcc48ead500f1ddf6bdb237.svg" class="platform-img">Web</span>
+        <span class="support-platform"><img src="https://qcloudimg.tencent-cloud.cn/raw/901d05fdb42e3ac74f4a1521c119b320.svg" class="platform-img">Android</span>
+        <span class="support-platform"><img src="https://qcloudimg.tencent-cloud.cn/raw/8aef65529388017d7f9a46a24085d15a.svg" class="platform-img">iOS</span>
+        <span class="support-platform"><img src="https://qcloudimg.tencent-cloud.cn/raw/4dcbeb0def10b73f0ce7bee9609054a4.svg" class="platform-img">H5</span>
+    </div>
+    <div class="tab-experience-button"><a href="#demo-card"><button class="tab-experience">立即体验<img src="https://qcloudimg.tencent-cloud.cn/raw/8b41f1a6d19d184c029c6e92e6a01544.svg" class="try-icon" data-nonescope="true"></button></a></div>
+    <div style="text-align:center;">您可以单击 <a href="https://cloud.tencent.com/document/product/647/43180" style="color:#06A4FF;">接入指引</a> 了解如何快速集成，或单击 <a href="https://github.com/tencentyun/TUILiveRoom" style="color:#06A4FF;">源码下载</a> 到 Github 下载最新代码</div>
+    </div>
+</div>
 :::
 ::: Web
-![](https://webim-1252463788.cos.ap-shanghai.myqcloud.com/tweblivedemo/doc-assets/demo-official-website.gif)
+<div class="tab-img">
+    <img src="https://qcloudimg.tencent-cloud.cn/raw/0b75ece13658346006f6bd421e55c97a.png"/>
+</div>
+<div class="tab-bottom">
+    <div>
+    <div class="platform-icon">
+        <span class="support-platform">Demo 支持平台</span>
+         <span class="support-platform"><img src="https://qcloudimg.tencent-cloud.cn/raw/7adfb7daedcc48ead500f1ddf6bdb237.svg" class="platform-img">Web</span>
+        <span class="support-platform"><img src="https://qcloudimg.tencent-cloud.cn/raw/901d05fdb42e3ac74f4a1521c119b320.svg" class="platform-img">Android</span>
+        <span class="support-platform"><img src="https://qcloudimg.tencent-cloud.cn/raw/8aef65529388017d7f9a46a24085d15a.svg" class="platform-img">iOS</span>
+        <span class="support-platform"><img src="https://qcloudimg.tencent-cloud.cn/raw/4dcbeb0def10b73f0ce7bee9609054a4.svg" class="platform-img">H5</span>
+    </div>
+    <div class="tab-experience-button"><a href="#demo-card"><button class="tab-experience">立即体验<img src="https://qcloudimg.tencent-cloud.cn/raw/8b41f1a6d19d184c029c6e92e6a01544.svg" class="try-icon" data-nonescope="true"></button></a></div>
+    <div style="text-align:center;">您可以单击 <a href="https://cloud.tencent.com/document/product/647/43180" style="color:#06A4FF;">接入指引</a> 了解如何快速集成，或单击 <a href="https://github.com/tencentyun/TUILiveRoom" style="color:#06A4FF;">源码下载</a> 到 Github 下载最新代码</div>
+    </div>
+</div>
 :::
 </dx-tabs>
 
+
 ## 语音互动直播场景
-语音互动直播场景支持主播与观众语音连麦互动；支持主播跨房间（跨直播间）PK；支持平滑上下麦，切换过程无需等待，主播延时小于300ms；单个房间可连麦人数无限制，最多支持50人同时连麦；低延时直播模式下，支持10万观众同时播放，播放延时低至1000ms；CDN 旁路直播模式下，观众数量无限制。常见应用场景有语音低延时直播、语音直播连麦、语音直播 PK、语聊房、语音相亲房、K 歌房、FM 电台等。
-<table>
-     <tr>
-         <th>主播麦位操作</th>  
-         <th>观众麦位操作</th>  
-     </tr>
-<tr>
-<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/voiceroom_pick_seat.gif"/></td>
-<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/voiceroom_enter_seat.gif"/></td>
-</tr>
-</table>
+<dx-tabs>
+::: iOS&Android
+<div class="tab-img">
+    <img src="https://qcloudimg.tencent-cloud.cn/raw/1d18841399850926793fbe5406eabcc8.png"/>
+</div>
+<div class="tab-bottom">
+    <div>
+    <div class="platform-icon">
+        <span class="support-platform">Demo 支持平台</span>
+        <span class="support-platform"><img src="https://qcloudimg.tencent-cloud.cn/raw/901d05fdb42e3ac74f4a1521c119b320.svg" class="platform-img">Android</span>
+        <span class="support-platform"><img src="https://qcloudimg.tencent-cloud.cn/raw/8aef65529388017d7f9a46a24085d15a.svg" class="platform-img">iOS</span>
+    </div>
+    <div class="tab-experience-button"><a href="#demo-card"><button class="tab-experience">立即体验<img src="https://qcloudimg.tencent-cloud.cn/raw/8b41f1a6d19d184c029c6e92e6a01544.svg" class="try-icon" data-nonescope="true"></button></a></div>
+    <div style="text-align:center;">您可以单击 <a href="https://cloud.tencent.com/document/product/647/45736" style="color:#06A4FF;">接入指引</a> 了解如何快速集成，或单击 <a href="https://github.com/tencentyun/TUIVoiceRoom" style="color:#06A4FF;">源码下载</a> 到 Github 下载最新代码</div>
+    </div>
+</div>
+:::
+</dx-tabs>
 
 
 ## 视频会议场景
-视频会议场景支持 支持1080p高清画质与48kHz高音质，音视频时延低于300ms，畅享流畅高清的会议体验；支持屏幕分享、文件分享，让会议更高效；并结合即时通信，支持文字图片等多种形式辅助讨论，不干扰会议进程。常见的应用场景有全媒体客服、在线会议、政企业直播等。
-<table>
-     <tr>
-         <th>进入会议</th>  
-         <th>屏幕分享</th>  
-     </tr>
-<tr>
-<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/enterroom.gif"/></td>
-<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/enterroom.gif"/></td>
-</tr>
-</table>
+<dx-tabs>
+::: iOS&Android
+<div class="tab-img">
+    <img src="https://qcloudimg.tencent-cloud.cn/raw/9d68584d0fba88dc740ae70e5cdc41e5.png"/>
+</div>
+<div class="tab-bottom">
+    <div>
+    <div class="platform-icon">
+        <span class="support-platform">Demo 支持平台</span>
+        <span class="support-platform"><img src="https://qcloudimg.tencent-cloud.cn/raw/cf4c9ee1645ee381b7fec591223b8f75.svg" class="platform-img">Web</span>
+        <span class="support-platform"><img src="https://qcloudimg.tencent-cloud.cn/raw/901d05fdb42e3ac74f4a1521c119b320.svg" class="platform-img">Android</span>
+        <span class="support-platform"><img src="https://qcloudimg.tencent-cloud.cn/raw/8aef65529388017d7f9a46a24085d15a.svg" class="platform-img">iOS</span>
+                 <span class="support-platform"><img src="https://qcloudimg.tencent-cloud.cn/raw/232c7d2d022d0fead3da024086557e11.png" class="platform-img">小程序</span>
+        <span class="support-platform"><img src="https://qcloudimg.tencent-cloud.cn/raw/864f8562e1b7780e6f23e1f2987f9ff9.svg" class="platform-img">Flutter</span>
+        <span class="support-platform"><img src="https://qcloudimg.tencent-cloud.cn/raw/71cd4ae02a39a0a8345dee11737e717a.svg" class="platform-img">Windows</span>
+        <span class="support-platform"><img src="https://qcloudimg.tencent-cloud.cn/raw/5300d0170d592174fc94411d162a09a1.svg" class="platform-img">Mac OS</span>
+    </div>
+    <div class="tab-experience-button"><a href="#demo-card"><button class="tab-experience">立即体验<img src="https://qcloudimg.tencent-cloud.cn/raw/8b41f1a6d19d184c029c6e92e6a01544.svg" class="try-icon" data-nonescope="true"></button></a></div>
+    <div style="text-align:center;">您可以单击 <a href="https://cloud.tencent.com/document/product/647/45666" style="color:#06A4FF;">接入指引</a> 了解如何快速集成，或单击 <a href="https://github.com/tencentyun/TUIRoom" style="color:#06A4FF;">源码下载</a> 到 Github 下载最新代码</div>
+    </div>
+</div>
+:::
+::: Web
+<div class="tab-img">
+    <img src="https://qcloudimg.tencent-cloud.cn/raw/6b6bf774e10964ae3e4d4589b58a776c.png"/>
+</div>
+<div class="tab-bottom">
+    <div>
+    <div class="platform-icon">
+        <span class="support-platform">Demo 支持平台</span>
+        <span class="support-platform"><img src="https://qcloudimg.tencent-cloud.cn/raw/cf4c9ee1645ee381b7fec591223b8f75.svg" class="platform-img">Web</span>
+        <span class="support-platform"><img src="https://qcloudimg.tencent-cloud.cn/raw/901d05fdb42e3ac74f4a1521c119b320.svg" class="platform-img">Android</span>
+        <span class="support-platform"><img src="https://qcloudimg.tencent-cloud.cn/raw/8aef65529388017d7f9a46a24085d15a.svg" class="platform-img">iOS</span>
+        <span class="support-platform"><img src="https://qcloudimg.tencent-cloud.cn/raw/864f8562e1b7780e6f23e1f2987f9ff9.svg" class="platform-img">Flutter</span>
+        <span class="support-platform"><img src="https://qcloudimg.tencent-cloud.cn/raw/71cd4ae02a39a0a8345dee11737e717a.svg" class="platform-img">Windows</span>
+        <span class="support-platform"><img src="https://qcloudimg.tencent-cloud.cn/raw/5300d0170d592174fc94411d162a09a1.svg" class="platform-img">Mac OS</span>
+    </div>
+    <div class="tab-experience-button"><a href="#demo-card"><button class="tab-experience">立即体验<img src="https://qcloudimg.tencent-cloud.cn/raw/8b41f1a6d19d184c029c6e92e6a01544.svg" class="try-icon" data-nonescope="true"></button></a></div>
+    <div style="text-align:center;">您可以单击 <a href="https://cloud.tencent.com/document/product/647/45666" style="color:#06A4FF;">接入指引</a> 了解如何快速集成，或单击 <a href="https://github.com/tencentyun/TUIRoom" style="color:#06A4FF;">源码下载</a> 到 Github 下载最新代码</div>
+    </div>
+</div>
+:::
+::: 小程序
+<div class="tab-img">
+    <img src="https://qcloudimg.tencent-cloud.cn/raw/069c36bfdfc339583255c9ad04ddec22.png"/>
+</div>
+<div class="tab-bottom">
+    <div>
+    <div class="platform-icon">
+        <span class="support-platform">Demo 支持平台</span>
+        <span class="support-platform"><img src="https://qcloudimg.tencent-cloud.cn/raw/7adfb7daedcc48ead500f1ddf6bdb237.svg" class="platform-img">Web</span>
+        <span class="support-platform"><img src="https://qcloudimg.tencent-cloud.cn/raw/901d05fdb42e3ac74f4a1521c119b320.svg" class="platform-img">Android</span>
+        <span class="support-platform"><img src="https://qcloudimg.tencent-cloud.cn/raw/8aef65529388017d7f9a46a24085d15a.svg" class="platform-img">iOS</span>
+        <span class="support-platform"><img src="https://qcloudimg.tencent-cloud.cn/raw/584b9e4444422c19af20536317680ed3.svg" class="platform-img">Uni-App</span>
+    </div>
+    <div class="tab-experience-button"><a href="#demo-card"><button class="tab-experience">立即体验<img src="https://qcloudimg.tencent-cloud.cn/raw/8b41f1a6d19d184c029c6e92e6a01544.svg" class="try-icon" data-nonescope="true"></button></a></div>
+    <div style="text-align:center;">您可以单击 <a href="https://cloud.tencent.com/document/product/647/45666" style="color:#06A4FF;">接入指引</a> 了解如何快速集成，或单击 <a href="https://github.com/tencentyun/TUICalling" style="color:#06A4FF;">源码下载</a> 到 Github 下载最新代码</div>
+    </div>
+</div>
+:::
+::: Windows & Mac & Electron
+<div class="tab-img">
+    <img src="https://qcloudimg.tencent-cloud.cn/raw/c5f67e544d2143dcac8a5ffc8645f944.png"/>
+</div>
+<div class="tab-bottom">
+    <div>
+    <div class="platform-icon">
+        <span class="support-platform">Demo 支持平台</span>
+        <span class="support-platform"><img src="https://qcloudimg.tencent-cloud.cn/raw/cf4c9ee1645ee381b7fec591223b8f75.svg" class="platform-img">Web</span>
+        <span class="support-platform"><img src="https://qcloudimg.tencent-cloud.cn/raw/901d05fdb42e3ac74f4a1521c119b320.svg" class="platform-img">Android</span>
+        <span class="support-platform"><img src="https://qcloudimg.tencent-cloud.cn/raw/8aef65529388017d7f9a46a24085d15a.svg" class="platform-img">iOS</span>
+        <span class="support-platform"><img src="https://qcloudimg.tencent-cloud.cn/raw/864f8562e1b7780e6f23e1f2987f9ff9.svg" class="platform-img">Flutter</span>
+        <span class="support-platform"><img src="https://qcloudimg.tencent-cloud.cn/raw/71cd4ae02a39a0a8345dee11737e717a.svg" class="platform-img">Windows</span>
+        <span class="support-platform"><img src="https://qcloudimg.tencent-cloud.cn/raw/5300d0170d592174fc94411d162a09a1.svg" class="platform-img">Mac OS</span>
+    </div>
+    <div class="tab-experience-button"><a href="#demo-card"><button class="tab-experience">立即体验<img src="https://qcloudimg.tencent-cloud.cn/raw/8b41f1a6d19d184c029c6e92e6a01544.svg" class="try-icon" data-nonescope="true"></button></a></div>
+    <div style="text-align:center;">您可以单击 <a href="https://cloud.tencent.com/document/product/647/45666" style="color:#06A4FF;">接入指引</a> 了解如何快速集成，或单击 <a href="https://github.com/tencentyun/TUIRoom" style="color:#06A4FF;">源码下载</a> 到 Github 下载最新代码</div>
+    </div>
+</div>
+:::
+</dx-tabs>
 
-## 互动课堂场景
-[互动课堂](https://cloud.tencent.com/document/product/647/45465) 场景支持老师和学生互动连麦，最多支持50人同时连麦，平滑上下麦，切换过程无需等待，沟通时延低于300ms；低延时直播模式下，支持10万学生同时观看，观看时延低至1000ms，CDN 旁路直播下，观众人数无限制；支持屏幕共享、互动白板、录制回放、举手、点名签到、全员禁麦等多种课堂应用功能，打造形式更加丰富的线上教学。常见业务场景有大班课、小班课、超级小班课、AI课堂、招生课、内训直播课、1V1在线教育等。
-<table>
-     <tr>
-         <th>老师端（Electron）</th>  
-         <th>学生端（Electron）</th>  
-     </tr>
-<tr>
-<td><img src="https://web.sdk.qcloud.com/trtc/electron/download/resources/education-v2/preview-teacher.gif"/></td>
-<td><img src="https://web.sdk.qcloud.com/trtc/electron/download/resources/education-v2/preview-student.gif"/></td>
-</tr>
-</table>
 
-## 在线 K 歌（KTV 场景）
-KTV 场景支持主播与观众上麦唱歌；支持平滑上下麦，切换过程无需等待，主播延时小于300ms；单个房间可连麦人数无限制，最多支持50人同时连麦；低延时直播模式下，支持10万观众同时播放，播放延时低至1000ms；CDN 旁路直播模式下，观众数量无限制。常见应用场景有语音低延时直播、语音直播连麦、语音直播 PK、语聊房、语音相亲房、K 歌房、FM 电台等。
-<table>
-     <tr>
-         <th>房主点歌操作</th>  
-         <th>观众点歌操作</th>  
-     </tr>
-<tr>
-<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/ktv_demo_experience_owner.gif"/></td>
-<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/ktv_demo_experience_audience.gif"/></td>
-</tr>
-</table>
+## 在线 K 歌场景
+<dx-tabs>
+::: iOS&Android
+<div class="tab-img">
+    <img src="https://qcloudimg.tencent-cloud.cn/raw/9d5e3e1001eee2dbcd35ddd1f9e01883.png"/>
+</div>
+<div class="tab-bottom">
+    <div>
+    <div class="platform-icon">
+        <span class="support-platform">Demo 支持平台</span>
+        <span class="support-platform"><img src="https://qcloudimg.tencent-cloud.cn/raw/901d05fdb42e3ac74f4a1521c119b320.svg" class="platform-img">Android</span>
+        <span class="support-platform"><img src="https://qcloudimg.tencent-cloud.cn/raw/8aef65529388017d7f9a46a24085d15a.svg" class="platform-img">iOS</span>
+    </div>
+    <div class="tab-experience-button"><a href="#demo-card"><button class="tab-experience">立即体验<img src="https://qcloudimg.tencent-cloud.cn/raw/8b41f1a6d19d184c029c6e92e6a01544.svg" class="try-icon" data-nonescope="true"></button></a></div>
+    <div style="text-align:center;">您可以单击 <a href="https://cloud.tencent.com/document/product/647/59401" style="color:#06A4FF;">接入指引</a> 了解如何快速集成，或单击 <a href="https://github.com/tencentyun/TUIKaraoke" style="color:#06A4FF;">源码下载</a> 到 Github 下载最新代码</div>
+    </div>
+</div>
 
-## 实时合唱（Chorus 场景）
+:::
+</dx-tabs>
 
-Chorus 场景支持房主主唱与一名观众上麦唱歌；支持平滑上下麦，切换过程无需等待，主播延时小于100ms；低延时直播模式下，支持10万观众同时播放，播放延时低至1000ms；CDN 旁路直播模式下，观众数量无限制。常见应用场景有双人合唱、K 歌房、FM 电台等。
-
-<table>
-     <tr>
-         <th style="text-align:center;width:50%">房主点歌操作</th>  
-         <th style="text-align:center">副唱查看歌单操作</th>  
-     </tr>
-<tr>
-<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/Chorus_Anchor.gif"/></td>
-<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/Chorus_Chorus.gif"/></td>
-</tr>
-</table>
 
 <script src="https://cdn-go.cn/aegis/aegis-sdk/latest/aegis.min.js"></script>
 <script>

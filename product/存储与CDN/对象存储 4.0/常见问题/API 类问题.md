@@ -119,3 +119,4 @@ COS API 仅支持删除单个文件，如需删除整个目录，需要使用 [G
 
 错误码 ERROR_CGI_URL_NOTMATCH 的意思是 url 参数解析不匹配。详情请参见 [CGI 错误码](https://cloud.tencent.com/document/product/436/6059#cgi-.E9.94.99.E8.AF.AF.E7.A0.81)。
 
+

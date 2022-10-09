@@ -3,6 +3,8 @@
 >- 免费证书仅支持申请单域名类型，不支持泛域名、多域名。
 >- 单域名、多域名是指您在 [SSL 证书购买页](https://buy.cloud.tencent.com/ssl?fromSource=ssl) 选择的域名类型。
 >- `-` 符号表示该类型证书在腾讯云暂无售卖。
+>- 私有 CA 可以绑定内网 IP，免费证书和标准付费证书均不能绑定内网 IP。
+
 <table>
 <thead>
   <tr>
@@ -62,12 +64,21 @@
     <td>-</td>
   </tr>
   <tr>
-    <td>DNSPod </td>
+    <td>DNSPod （国密）</td>
     <td><b>单域名/多域名支持</b><br>其余域名类型不支持</td>
     <td>-</td>
     <td>-</td>
     <td>-</td>
     <td><b>单域名/多域名支持</b><br>其余域名类型不支持</td>
+    <td>-</td>
+  </tr>
+	  <tr>
+    <td>DNSPod  （标准）</td>
+    <td><b>单域名/多域名支持</b><br>其余域名类型不支持</td>
+    <td>-</td>
+    <td><b>单域名/多域名支持</b><br>其余域名类型不支持</td>
+    <td>-</td>
+    <td><b>不支持</td>
     <td>-</td>
   </tr>
 </tbody>

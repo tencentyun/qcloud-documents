@@ -10,8 +10,8 @@
 
 | 消息分类 | API 关键词 | 说明 |
 |---------|---------|---------|
-| 文本消息 | TextElem | 即普通的文字消息，该类消息会经过即时通信 IM 的敏感词过滤，发送包含的敏感词消息时会报80001错误码。 |
-| 自定义消息 | CustomElem | 即一段二进制 buffer，通常用于传输您应用中的自定义信令，内容不会经过敏感词过滤。 |
+| 文本消息 | TextElem | 即普通的文字消息。 |
+| 自定义消息 | CustomElem | 即一段二进制 buffer，通常用于传输您应用中的自定义信令。 |
 | 图片消息 | ImageElem | SDK 会在发送原始图片的同时，自动生成两种不同尺寸的缩略图，三张图分别被称为原图、大图、微缩图。 |
 | 视频消息 | VideoElem | 一条视频消息包含一个视频文件和一张配套的缩略图。 |
 | 语音消息 | SoundElem | 支持语音是否播放红点展示。 |
@@ -52,7 +52,7 @@
 ```
 在createMessage后，会返回一个消息创建 id，将消息创建 id 传递给 sendMessage 即可将消息发送出去。sendMessage 方法为所有消息发送的通用方法 receiver、groupID 二选一填写，另一个传递空字符串即可。
 
->!发送文本消息，其中文本消息会经过即时通信 IM 的敏感词过滤，包含的敏感词消息在发送时会报80001错误码。调用 createMessage 再调用 sendMessage 可以发送 C2C 自定义（信令）消息，自定义消息本质是一段二进制 buffer，通常用于传输您应用中的自定义信令，内容不会经过敏感词过滤。此外 Flutter IM SDK 额外封装了一个信令供您调用（将在下方介绍）。
+>!调用 createMessage 再调用 sendMessage 可以发送 C2C 自定义（信令）消息，自定义消息本质是一段二进制 buffer，通常用于传输您应用中的自定义信令。此外 Flutter IM SDK 额外封装了一个信令供您调用（将在下方介绍）。
 
 ### 接收文本和信令消息
 通过  [addSimpleMsgListener](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_manager/V2TIMManager/addSimpleMsgListener.html) 可以监听简单的文本和信令消息，复杂的图片、视频、语音消息则需要通过 v2TIMManager.getMessageManager() 中定义的 [addAdvancedMsgListener](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/addAdvancedMsgListener.html) 实现。
@@ -154,7 +154,7 @@
 
 ### 接收群 @ 消息
 1. 在加载和更新会话处，需要监听 [V2TIMConversation](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/models_v2_tim_conversation/V2TimConversation-class.html) 的 [OnConversationChangedCallback](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/enum_callbacks/OnConversationChangedCallback.html) 回调来获取会话的@列表，将来会提供方法`getGroupAtInfoList`手动获取 atInfoList。
-2. 通过列表中 [V2TIMGroupAtInfo](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/models_v2_tim_group_at_info/V2TimGroupAtInfo-class.html) 对象的 [atType](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/models_v2_tim_group_at_info/V2TimGroupAtInfo/atType.html) 接口获取 @ 数据类型，并更新到当前会话的 @ 信息。
+2. 在返回列表中找到 [V2TIMGroupAtInfo](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/models_v2_tim_group_at_info/V2TimGroupAtInfo-class.html) 对象，其中有一个 [atType](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/models_v2_tim_group_at_info/V2TimGroupAtInfo/atType.html) 字段来获取 @ 数据类型，并更新到当前会话的 @ 信息。
 
 ### 经典示例：收发群 @ 消息
 - **发送群 @ 消息**：
@@ -557,10 +557,6 @@ SDK 默认不限制非好友之间收发消息。如果您希望仅允许好友�
 
 调用 [setGroupReceiveMessageOpt](https://pub.dev/documentation/tencent_im_sdk_plugin_platform_interface/latest/im_flutter_plugin_platform_interface/ImFlutterPlatform/setGroupReceiveMessageOpt.html) 接口，设置消息接收选项为 `ReceiveMsgOptEnum.V2TIM_NOT_RECEIVE_MESSAGE` 状态。
 其他 SDK 版本，请调用 `setReceiveMessageOpt` 接口，设置群消息接收选项为 `ReceiveMsgOptEnum.V2TIM_GROUP_NOT_RECEIVE_MESSAGE` 状态。
-
-## 敏感词过滤
-SDK 发送的文本消息默认会经过即时通信 IM 的敏感词过滤，如果发送者在发送的文本消息中包含敏感词，SDK 会报 80001 错误码。
-![](https://main.qcloudimg.com/raw/63625c5252348205993ec5f33b087dec.png)
 
 ## 常见问题
 ### 1. 为什么会收到重复的消息？

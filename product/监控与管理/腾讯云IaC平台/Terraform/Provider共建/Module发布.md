@@ -31,4 +31,60 @@ Module 可以使用个人 GitHub 仓库发布。若仓库名称符合 `terraform
 </dx-alert>
 3. 勾选 “ I agree to the Terms of Use.”后，单击 **PUBLISH MODULE**。
 4. 该仓库将会在几分钟后，自动同步到 terraform registry 中。如下图所示：
-<img src="https://qcloudimg.tencent-cloud.cn/raw/e5e707b20faade78c25833dd9597097f.png" style="width:60%"/>
+<img src="https://qcloudimg.tencent-cloud.cn/raw/ee190688dfae59967dd84f22450eee4c.png" style="width:60%"/>
+
+
+### 添加仓库合并检查（可选）
+若您的 Module 涉及多人协作，则可以借助 GitHub Action 对请求合并的代码做初步检查。
+本文以 [terraform-tencentcloud-vpc](https://github.com/terraform-tencentcloud-modules/terraform-tencentcloud-vpc) 为例，在仓库根目录下新建 `.github/workflow` 目录，创建 `pull-request.yml` 文件。示例代码如下：
+```yaml
+name: MR_CHECK
+
+on:
+  pull_request:
+    branches: [ master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: hashicorp/setup-terraform@v1
+      - name: Module Files Checking
+        run: |
+          files=(
+            LICENSE
+            main.tf
+            version.tf
+            variables.tf
+            outputs.tf
+            README.md
+          )
+
+          test -d examples || echo "[WARN] Missing ./examples in modules directory, we strongly recommend you to provide example usage of this module."
+
+          for i in ${files[@]} ; do
+            fileCount=$(find ./ -name $i | wc -l)
+            if [[ $fileCount -gt 0 ]]; then
+              echo "[INFO] File: $i exist."
+            else
+              echo "[ERROR] Missing $i, a recommend module should include these files:\n ${files[@]}"
+              exit -1
+            fi
+          done
+      - name: Terraform Validate
+        run: |
+          terraform init
+          terraform validate
+
+      - name: Terraform Format Check
+        run: |
+          terraform fmt -diff -check -recursive
+
+```
+
+说明如下：
+- `Module Files Checking`：检查该目录下是否包含上文中需要的文件。
+- `Terraform Validate`：进行 Module 参数检查。
+- `Terraform Format Check`：校验 Module 中的 tf 代码格式。

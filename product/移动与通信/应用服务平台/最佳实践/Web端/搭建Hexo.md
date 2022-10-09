@@ -113,3 +113,4 @@ jobs:
 
 ### 更多扩展玩法
 云开发 [Tencent CloudBase Github Action](https://github.com/marketplace/actions/tencent-cloudbase-github-action) 扩展可将 Github 项目自动部署到云开发环境，目前支持静态托管功能，后续将支持其他资源的部署，可以将 Node.js 、 Java、PHP 等语言开发的服务端项目一键部署到云开发，来获得 Serverless 化的动态网站服务，或者自动化部署带有数据库、前端、后端的全栈应用。
+

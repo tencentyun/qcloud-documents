@@ -35,58 +35,60 @@
 9. 保持默认配置，连续单击6次**下一步**。
 10. 确认安装信息，单击**安装**。
 11. 待完成安装后，重启云服务器。
-12. 在操作系统界面，单击 <img src="https://main.qcloudimg.com/raw/f779581f1ce3edfead8c725ce1504009.png" style="margin: 0;"></img>，打开服务器管理器。
-13. 在服务器管理器窗口中，单击 <img src="https://main.qcloudimg.com/raw/b7b26ebdfecb3b158adac1a37d7a23f3.png" style="margin: 0;"></img>，选择**将此服务器提升为域控制器**。如下图所示：
-![](https://main.qcloudimg.com/raw/03def6c00f1bed979c9dde28ebbd2202.png)
-14. [](id:step14)在打开的 “Active Directory 域服务配置向导” 窗口中，将 “选择部署操作” 设置为**添加新林**，输入根域名，单击**下一步**。如下图所示：
-![](https://main.qcloudimg.com/raw/adb2e7cbed1580eebeb201d837f41efa.png)
-15. [](id:step15)设置目录服务还原模式（DSRM）密码，单击**下一步**。如下图所示：
-![](https://main.qcloudimg.com/raw/dc24edd5f6d194cacc7b6ff8511417b7.png)
-16. 保持默认配置，连续单击4次**下一步**。
-17. 单击**安装**。
-18. 在操作系统界面，单击 <img src="https://main.qcloudimg.com/raw/f779581f1ce3edfead8c725ce1504009.png" style="margin: 0;"></img>，打开服务器管理器。
-19. 在服务器管理器窗口中，单击 <img src="https://main.qcloudimg.com/raw/b7b26ebdfecb3b158adac1a37d7a23f3.png" style="margin: 0;"></img>，选择**完成 DHCP 配置**。如下图所示：
-![](https://main.qcloudimg.com/raw/132eb061b6fd53da22b6211fd2411537.png)
-20. 在打开的 “DHCP 安装后配置向导” 窗口中，单击**下一步**。
-21. 保持默认配置，单击**提交**，完成安装配置。如下图所示：
-![](https://main.qcloudimg.com/raw/6dab6c5968282757ff2e146c74765772.png)
-22. 单击**关闭**，关闭向导窗口。
 
-### 步骤3：安装数据库 SQL Server 2014
+
+### 步骤3：配置 AD 服务
+1. 在操作系统界面，单击 <img src="https://main.qcloudimg.com/raw/f779581f1ce3edfead8c725ce1504009.png" style="margin: 0;"></img>，打开服务器管理器。
+2. 在服务器管理器窗口中，单击 <img src="https://main.qcloudimg.com/raw/b7b26ebdfecb3b158adac1a37d7a23f3.png" style="margin: 0;"></img>，选择**将此服务器提升为域控制器**。如下图所示：
+![](https://main.qcloudimg.com/raw/03def6c00f1bed979c9dde28ebbd2202.png)
+3. [](id:step14)在打开的 “Active Directory 域服务配置向导” 窗口中，将 “选择部署操作” 设置为**添加新林**，输入根域名，单击**下一步**。如下图所示：
+![](https://main.qcloudimg.com/raw/adb2e7cbed1580eebeb201d837f41efa.png)
+4. [](id:step15)设置目录服务还原模式（DSRM）密码，单击**下一步**。如下图所示：
+![](https://main.qcloudimg.com/raw/dc24edd5f6d194cacc7b6ff8511417b7.png)
+5. 保持默认配置，连续单击4次**下一步**。
+6. 单击**安装**。
+
+### 步骤4：配置 DHCP 服务
+1. 在操作系统界面，单击 <img src="https://main.qcloudimg.com/raw/f779581f1ce3edfead8c725ce1504009.png" style="margin: 0;"></img>，打开服务器管理器。
+2. 在服务器管理器窗口中，单击 <img src="https://main.qcloudimg.com/raw/b7b26ebdfecb3b158adac1a37d7a23f3.png" style="margin: 0;"></img>，选择**完成 DHCP 配置**。如下图所示：
+![](https://main.qcloudimg.com/raw/132eb061b6fd53da22b6211fd2411537.png)
+3. 在打开的 “DHCP 安装后配置向导” 窗口中，单击**下一步**。
+4. 保持默认配置，单击**提交**，完成安装配置。如下图所示：
+![](https://main.qcloudimg.com/raw/6dab6c5968282757ff2e146c74765772.png)
+5. 单击**关闭**，关闭向导窗口。
+
+### 步骤5：安装数据库 SQL Server 2014
 
 1. 在云服务器中打开浏览器，并访问 SQL Server 2014 官网下载 SQL Server 2014 安装包。
 <dx-alert infotype="explain" title="">
 您也可以通过第三方网站或其他合法渠道获取 SQL Server 2014 安装包。
 </dx-alert>
-2. 双击打开 “Setup.exe” 文件，打开 SQL Server 安装向导，并进入安装选项卡界面。如下图所示：
+2. 双击打开 “Setup.exe” 文件打开 SQL Server 安装向导，进入安装选项卡界面，单击**全新 SQL Server 独立安装或向现有安装添加功能**。如下图所示：
 ![](https://main.qcloudimg.com/raw/66c2d6df469197d5550ce2fbae3cc5c9.png)
-3. 单击**全新 SQL Server 独立安装或向现有安装添加功能**。
-4. 输入产品密钥，单击**下一步**。
-5. 勾选“我接受许可条款”，单击**下一步**。
-6. 保持默认配置，单击**下一步**。
-7. 完成安装检查，单击**下一步**。
-8. 保持默认配置，单击**下一步**。
-9. 在 “功能选择” 界面，单击**全选**，选中全部功能，单击**下一步**。如下图所示：
+3. 输入产品密钥，单击**下一步**。
+4. 勾选“我接受许可条款”，单击**下一步**。
+5. 保持默认配置，单击**下一步**。
+6. 完成安装检查，单击**下一步**。
+7. 保持默认配置，单击**下一步**。
+8. 在 “功能选择” 界面，单击**全选**，选中全部功能，单击**下一步**。如下图所示：
 ![](https://main.qcloudimg.com/raw/15bb32c2d2121aadc092428911cefc16.png)
-10. 在 “实例配置” 界面，选择**默认实例**，单击**下一步**。如下图所示：
+9. 在 “实例配置” 界面，选择**默认实例**，单击**下一步**。如下图所示：
 ![](https://main.qcloudimg.com/raw/3663ca417620325c7b45bc8c60996db7.png)
-11. 在 “服务器配置” 界面，配置 SQL Server 数据库引擎服务和 SQL Server Analysis Services 服务的帐号和密码，单击**下一步**。如下图所示：
+10. 在 “服务器配置” 界面，配置 SQL Server 数据库引擎服务和 SQL Server Analysis Services 服务的帐号和密码，单击**下一步**。如下图所示：
 ![](https://main.qcloudimg.com/raw/c0bb2b960115d66eda4e38b40a56fc78.png)
  - 将 “SQL Server 数据库引擎” 的帐户名设置为 “NT AUTHORITY\NETWORK SERVICE”。
  - 将 “SQL Server Analysis Services” 的帐户名和密码设置为 [步骤2：添加 AD、DHCP、DNS、IIS 服务](#AddAD_DHCP_DNS_IIS) 中 [14](#step14) - [15](#step15) 设置的域账户及密码。
-12. 在 “数据库引擎” 界面，单击**添加当前用户**，将当前帐号作为 SQL Server 的管理员帐号，单击**下一步**。如下图所示：
+11. 在 “数据库引擎” 界面，单击**添加当前用户**，将当前帐号作为 SQL Server 的管理员帐号，单击**下一步**。如下图所示：
 ![](https://main.qcloudimg.com/raw/c0218409bfb7044221cb6c0fe1862588.png)
-13. 在 “Analysis Services 配置” 界面，单击**添加当前用户**，为当前帐号添加 Analysis Services 的管理员权限，单击**下一步**。如下图所示：
+12. 在 “Analysis Services 配置” 界面，单击**添加当前用户**，为当前帐号添加 Analysis Services 的管理员权限，单击**下一步**。如下图所示：
 ![](https://main.qcloudimg.com/raw/43243a387cc67f20ea125fb2491df24d.png)
-14. 保持默认配置，单击**下一步**。
-15. 在 “Distributed Replay 控制器” 界面，单击**添加当前用户**，为当前帐号添加 Distributed Replay 控制器的权限，单击**下一步**。如下图所示：
+13. 保持默认配置，单击**下一步**。
+14. 在 “Distributed Replay 控制器” 界面，单击**添加当前用户**，为当前帐号添加 Distributed Replay 控制器的权限，单击**下一步**。如下图所示：
 ![](https://main.qcloudimg.com/raw/46158b2f9a6e5f802c2ae27a2f5f0970.png)
-16. 保持默认配置，单击**下一步**。
-17. 确认 SQL Server 配置，单击**安装**。
-18. 待 SQL Server 安装完成后，单击**关闭**。
+15. 保持默认配置，单击**下一步**直至安装完成。
 
 
-### 步骤4：安装 SharePoint 2016
+### 步骤6：安装 SharePoint 2016
 
 1. 在云服务器中打开浏览器，并访问 Microsoft SharePoint 2016 官网下载 Microsoft SharePoint 2016 安装包。
 2. 打开 Microsoft SharePoint 2016 镜像文件，双击准备工具的可执行文件 `prerequisiteinstaller.exe`，安装 Microsoft SharePoint 2016 准备工具。如下图所示：
@@ -105,7 +107,7 @@
 10. 待安装完成后，勾选“立即运行 SharePoint 产品配置向导”，单击**关闭**。如下图所示：
 ![](https://main.qcloudimg.com/raw/3fa47faa1f8bed1a8ec478260ee64481.png)
 
-### 步骤5：配置 SharePoint 2016
+### 步骤7：配置 SharePoint 2016
 
 1. 在运行的 SharePoint 产品配置向导中，单击**下一步**。如下图所示：
 ![](https://main.qcloudimg.com/raw/3e8d015ab34ab8de8172838dd21d31ac.png)
@@ -123,8 +125,5 @@
 8. 查看并确认 Sharepoint 配置，单击**下一步**。如下图所示：
 ![](https://main.qcloudimg.com/raw/a0e8ee05fcc2fc4b6f717bb0e03287af.png)
 9. 待 Sharepoint 完成配置后，单击**完成**。
-
-
-
 
 

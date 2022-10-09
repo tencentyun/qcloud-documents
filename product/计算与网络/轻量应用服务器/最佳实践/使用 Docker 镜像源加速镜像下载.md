@@ -6,11 +6,30 @@
 ### 在轻量应用服务器中安装 Docker
 请根据实例的操作系统类型，参考相应的文档进行安装。
 
-| 操作系统 | 说明 |
-|---------|---------|
-| CentOS | 参考 [Docker 官方文档 - 在 CentOS 中安装 Docker](https://docs.docker.com/engine/install/centos/) 进行安装。 |
-| Ubuntu | 参考 [Docker 官方文档 - 在 Ubuntu 中安装 Docker](https://docs.docker.com/engine/install/ubuntu/) 进行安装。 |
-| Windows | 参考 [Docker 官方文档 - 在 Windows 中安装 Docker](https://docs.docker.com/docker-for-windows/install/) 进行安装，仅支持使用 Windows Server 2019 镜像的实例安装。 |
+<table>
+<thead>
+<tr>
+<th width="25%">操作系统</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>TencentOS Server</td>
+<td>参考 <a href="https://cloud.tencent.com/document/product/213/46000">搭建 Docker</a> 进行安装。</td>
+</tr>
+<tr>
+<td>CentOS</td>
+<td>参考 <a href="https://docs.docker.com/engine/install/centos/">Docker 官方文档 - 在 CentOS 中安装 Docker</a> 进行安装。</td>
+</tr>
+<tr>
+<td>Ubuntu</td>
+<td>参考 <a href="https://docs.docker.com/engine/install/ubuntu/">Docker 官方文档 - 在 Ubuntu 中安装 Docker</a> 进行安装。</td>
+</tr>
+<tr>
+<td>Windows</td>
+<td>参考 <a href="https://docs.docker.com/docker-for-windows/install/">Docker 官方文档 - 在 Windows 中安装 Docker</a> 进行安装，仅支持使用 Windows Server 2019 镜像的实例安装。</td>
+</tr>
+</tbody></table>
 
 ### 使用腾讯云 Docker 镜像源加速镜像下载
 

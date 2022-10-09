@@ -21,42 +21,42 @@ Wasm 是 WebAssembly 的缩写，可以编写二进制形式的指令加载到 e
    ```
 4. 创建 envoyfilter，将 wasm filter 添加到对应工作负载的 envoy filter chain 中，使其生效。
    ```yaml
-   apiVersion: networking.istio.io/v1alpha3
-   kind: EnvoyFilter
-   metadata:
-     name: frontpage-v1-examplefilter
-     namespace: foo
-   spec:
-     configPatches:
-     - applyTo: HTTP_FILTER
-       match:
-         context: SIDECAR_INBOUND
-         listener:
-           filterChain:
-             filter:
-               name: envoy.http_connection_manager
-               subFilter:
-                 name: envoy.router
-       patch:
-         operation: INSERT_BEFORE
-         value:
-           config:
-             config:
-               name: example-filter
-               rootId: my_root_id
-               vmConfig:
-                 code:
-                   local:
-                     filename: /var/local/lib/wasm-filters/example-filter.wasm
-                 runtime: envoy.wasm.runtime.v8
-                 vmId: example-filter
-                 allow_precompiled: true
-           name: envoy.filters.http.wasm
-     workloadSelector:
-       labels:
-         app: frontpage
-         version: v1
-   EOF
+    apiVersion: networking.istio.io/v1alpha3
+    kind: EnvoyFilter
+    metadata:
+      name: frontpage-v1-examplefilter
+      namespace: foo
+    spec:
+      configPatches:
+      - applyTo: HTTP_FILTER
+        match:
+          listener:
+            filterChain:
+              filter:
+                name: envoy.http_connection_manager
+                subFilter:
+                  name: envoy.router
+        patch:
+          operation: INSERT_BEFORE
+          value:
+            name: envoy.filters.http.wasm
+            typed_config:
+              '@type': type.googleapis.com/envoy.extensions.filters.http.wasm.v3.Wasm
+              config:
+                name: example-filter
+                root_id: my_root_id
+                vm_config:
+                  code:
+                    local:
+                      filename: /var/local/lib/wasm-filters/example-filter.wasm
+                  runtime: envoy.wasm.runtime.v8
+                  vm_id: example-filter
+                  allow_precompiled: true 
+      workloadSelector:
+        labels:
+          app: frontpage
+          version: v1
+
    ```
 
 

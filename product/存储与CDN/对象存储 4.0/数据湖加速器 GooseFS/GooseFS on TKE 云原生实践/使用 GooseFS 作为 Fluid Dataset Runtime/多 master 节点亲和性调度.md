@@ -108,3 +108,4 @@ hbase-worker-l62m4   2/2     Running   0          104s   192.168.1.146   192.168
 ```
 
 在此处可以看到，master 成功启动并且运行在具有指定标签（即`hbase-cache=true`）的结点之上。
+

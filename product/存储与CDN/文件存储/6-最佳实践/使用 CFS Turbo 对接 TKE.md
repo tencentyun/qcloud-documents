@@ -37,15 +37,15 @@ kubectl get node
 
 
 
-### 通过yaml文件创建挂载 Turbo 的 POD
+### 通过 yaml 文件创建挂载 Turbo 的 POD
 
 1. 阅读 [TKE Turbo 插件的说明文档](https://github.com/TencentCloud/kubernetes-csi-tencentcloud/blob/master/docs/README_CFSTURBO.md)，并 [下载](https://github.com/TencentCloud/kubernetes-csi-tencentcloud) 脚本文件。
-2. 进入 `kubernetes-csi-tencentcloud/deploy/cfsturbo/kubernetes/` 目录，分别将 csi-node-rbac.yaml、csi-node.yaml 和 csidriver-new.yaml 文件上传至 kubectl管理节点。
-3. 进入 `kubernetes-csi-tencentcloud/deploy/cfsturbo/examples/` 目录，下载pv.yaml、pvc.yaml、 
-pod.yaml这三个示例文件。
+2. 进入 `kubernetes-csi-tencentcloud/deploy/cfsturbo/kubernetes/` 目录，分别将 csi-node-rbac.yaml、csi-node.yaml 和 csidriver-new.yaml 文件上传至 kubectl 管理节点。
+3. 进入 `kubernetes-csi-tencentcloud/deploy/cfsturbo/examples/` 目录，下载 pv.yaml、pvc.yaml、 
+pod.yaml 这三个示例文件。
 4. 根据实际 PV、PVC、POD 的相关属性（如名称、镜像地址等），修改 pv.yaml、pvc.yaml、 
 pod.yaml 文件。
-yaml示例如下：
+yaml 示例如下：
 ```
 apiVersion: v1
 kind: PersistentVolume
@@ -116,20 +116,16 @@ spec:
             # Replaced by your pvc name.
             claimName: csi-cfsturbo-pvc
 ```
-关键参数说明：
-以此挂载指令为例
+以此挂载指令为例：
 ```
 sudo mount.lustre -o sync,user_xattr 10.0.1.16@tcp0:/d3dcc487/cfs /path/to/mount
 ```
-a.proto:lustre, 请保持此参数不要进行修改。
-b.roodir:/cfs，请保持此参数不要进行修改。
-c fsid:d3dcc487，注意这里不是CFSID，需要填写挂载路径里的信息。
-d.host:10.0.1.16，挂载点IP
-e.path 可根据实际需要挂载的子目录进行调整，若直接挂载根目录则填写"/"
-
-
-其中，host为：10.0.1.16,Fsid为：d3dcc487。
-修改完成的yaml示例如下：
+关键参数说明如下：
+ - proto:lustre, 请保持此参数不要进行修改。
+ - roodir:/cfs，请保持此参数不要进行修改。
+ - fsid:d3dcc487，此处的 fsid 不是 CFSID，需要填写挂载路径里的信息。
+ - host:10.0.1.16，挂载点 IP。
+ - path 可根据实际需要挂载的子目录进行调整，若直接挂载根目录则填写"/"。
 5. 在上传脚本文件的目录下，依次执行如下命令。
  - 配置 RBAC。
 ```

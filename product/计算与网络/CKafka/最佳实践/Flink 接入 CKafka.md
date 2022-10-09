@@ -5,7 +5,7 @@ Apache Flink 是一个可以处理流数据的实时处理框架，用于在无�
 
 Apache Flink 擅长处理无界和有界数据集。Flink runtime 能够通过对时间和状态的精确控制处理无界数据流，也能够使用为固定大小数据集设计的算法和数据结构对有界数据集进行处理，并达到出色的性能。
 
-应用程序可能会使用来自各种数据源（如消息队列或分布式日志，如 Apache Kafka 或 Kinesis）的实时数据。Flink 提供了 Apache Kafka 连接器，用于从 Kafka topic 中读取或者向其中写入数据，可提供精确一次的处理语义。
+应用程序可能会使用来自各种数据源（如消息队列或分布式日志，如 Apache Kafka 或 Kinesis）的实时数据。Flink 提供了 Apache Kafka 连接器，用于从 Kafka topic 中读取或者向其中写入数据，可提供一次精确的处理语义。
 
 ## 操作步骤
 
@@ -14,13 +14,13 @@ Apache Flink 擅长处理无界和有界数据集。Flink runtime 能够通过�
 1. 登录 [CKafka 控制台](https://console.cloud.tencent.com/ckafka)。
 2. 在左侧导航栏选择**实例列表**，单击实例的“ID”，进入实例基本信息页面。
 3. 在实例的基本信息页面的**接入方式**模块，可获取实例的接入地址，接入地址是生产消费需要用到的 bootstrap-server。
-   ![](https://main.qcloudimg.com/raw/a28b5599889166095c168510ce1f5e89.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/aee316ca3b052f7b8e16e51e67f8f004.png)
 
 ### 步骤2：创建 Topic
 
 1. 在实例基本信息页面，选择顶部**Topic管理**页签。
 2. 在 Topic 管理页面，单击**新建**，创建一个名为 test 的 Topic，接下来将以该 Topic 为例介绍如何消费。
-   ![](https://main.qcloudimg.com/raw/3576875138eb4447622571433312907f.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/0214d01b423117bd1ce6c00a8e8052bb.png)
 
 ### 步骤3：添加 Maven 依赖
 

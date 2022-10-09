@@ -1,3 +1,131 @@
+### 2.7.8 @ 2022.09.20
+* [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/2.7.8.146/TEduBoard_2.7.8.147.zip)
+* [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/2.7.8.146/TEduBoard_Mac_2.7.8.147.zip) 
+
+- 新增接口
+  1. 开启多点触控 enableMultiTouch
+  2. 设置元修改信令同步频率，该值的允许范围为 [5, 20]素样式 setSyncFps
+
+- 更新接口
+  1. updateElementById 更新元素新增位置偏移类型 TEduElementOperatorType.CHANGE_POSITION
+  2. setToolType 接口增加类型：坐标系TEDU_BOARD_TOOL_TYPE_COORDINATE
+
+- Bug及优化处理
+  1. 优化圆规操作
+  2. 其他已知问题优化
+
+### 2.7.7 @ 2022.08.31
+* [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/2.7.7.144/TEduBoard_2.7.7.144.zip)
+* [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/2.7.7.144/TEduBoard_Mac_2.7.7.144.zip) 
+
+- 新增接口
+  1. 开启单实例模式setSingleMode，默认开启(当创建第2个白板实例时，sdk会自动会回收旧的实例)，设置为false则容许多实例
+  2. 获取元素信息 getElementById
+  3. 设置元素样式 updateElementById
+  4. 设置荧光笔颜色，画笔颜色用于所有荧光笔绘制 setHighlighterColor
+  5. 获取荧光笔颜色 getHighlighterColor
+  6. 开启绘制涂鸦过程中自动拟合图形 enablePenAutoFit
+  7. 设置图形样式 setGraphStyle
+  8. 获取图形样式 getGraphStyle
+
+- 废弃接口：
+  1. 废弃setLineStyle，请使用setGraphStyle
+  2. 废弃getLineStyle，请使用getGraphStyle
+
+- 新增功能
+  1. 增加数学教具圆规
+  2. 新增几何图形（直角三角形，等腰三角形，平行四边形，立方体，圆柱体，圆锥）
+  3. 其他功能
+
+- Bug及优化处理
+  1. PPT翻页优化
+  2. 其他已知问题优化
+
+### 2.7.6.137 @ 2022-08-16
+* [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/2.7.6.137/TEduBoard_2.7.6.137.zip)
+* [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/2.7.6.137/TEduBoard_Mac_2.7.6.137.zip) 
+
+- 新增功能
+  1. 新增数学教具功能，支持直尺，三角形，量角器;
+  2. 新增获取 PPT 备注功能;
+  
+### 2.7.5.136 @ 2022-08-01
+* [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/2.7.5.136/TEduBoard_2.7.5.136.zip)
+* [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/2.7.5.136/TEduBoard_Mac_2.7.5.136.zip)
+
+- 新增功能
+  1. PPT 老版本转码，支持 mp3,mp4 播放同步;
+  2. PPT 新版本转码，支持 mp3,mp4 播放同步;
+  3. 错误和警告事件增加上报;
+
+- Bug及优化处理
+  1. 修复获取资源的时候 Host 缺少协议的问题
+  2. 其他已知问题修复。
+
+### 2.7.4.128 @ 2022-07-04
+* [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/2.7.4.128/TEduBoard_2.7.4.128.zip)
+* [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/2.7.4.128/TEduBoard_Mac_2.7.4.128.zip)
+
+- 接口调整
+    1. 课件/自定义资源加载 loadResource/loadCustomResource 接口，增加 callback 返回加载进度
+  
+- 调整全局变量
+    1. 白板错误码 增加 TEDU_BOARD_WARNING_IMAGE_MEDIA_BITRATE_TOO_LARGE 多媒体资源码率过大
+
+- Bug 修复
+  1. 橡皮擦除在移动快的时候会导致擦除不干净的情况，会漏掉一些点；
+  2. ppt 转码问题，转码文件被系统认为了是 pad，只响应滑动翻页，不响应点击事件了；
+  3. 其他已知问题修复。
+  
+### 2.7.3.120 @ 2022-06-10
+* [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/2.7.3.120/TEduBoard_2.7.3.120.zip)
+* [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/2.7.3.120/TEduBoard_Mac_2.7.3.120.zip)
+
+- 调整初始化参数
+    1. 权限配置下,新增 customCursorIcon 参数：是否自定义鼠标样式，默认 false 显示系统自带样式, true时需要根据返回的鼠标位置, 自定义鼠标样式
+  
+- 调整事件
+    1. 自定义鼠标样式时,坐标位置回调(TEB_BOARD_CURSOR_POSITION),用户根据位置，自定义鼠标样式
+
+- 新增接口
+    1. 是否本地显示自己的别名(setOwnerNickNameVisible),设置为false时，画笔部分不显示自己的 NickName
+  
+- 优化历史数据拉取
+    1. 首帧渲染只拉取活跃白板的历史数据
+    2. 用户翻页的时候会由操作者拉取，对应白板页的历史数据，然后广播给房间内其他用户
+
+- Bug 修复
+    1. 其他已知问题修复。
+
+### 2.7.2.106 @ 2022-04-06
+* [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/2.7.2.106/TEduBoard_2.7.2.106.zip)
+* [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/2.7.2.106/TEduBoard_Mac_2.7.2.106.zip)
+
+- 调整全局变量
+    1. 白板错误码 增加TEDU_BOARD_ERROR_MAX_BOARD_LIMITED 单课堂内白板页数已经到达上限
+    
+- 功能优化
+     1. 白板SDK升级
+     2. 已知问题处理及优化
+
+### 2.7.1.101 @ 2022-03-15
+* [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/2.7.1.101/TEduBoard_2.7.1.101.zip)
+* [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/2.7.1.101/TEduBoard_Mac_2.7.1.101.zip)
+
+- 新增类  
+  1. TEduBoardResourceController 支持资源预加载，loadResource:缓存课件资源包 ; preloadFile:缓存单个文件  
+- 新增接口  
+  1. loadCustomResource 加载自定义资源  
+- 接口调整  
+  1. setSyncVideoStatusEnable 新增参数isAppActiveChange:只有在移动端在app切换前后台的时候需要调用。
+
+### 2.7.0.105 @ 2022-04-06
+* [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/2.7.0.105/TEduBoard_2.7.0.105.zip)
+* [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/2.7.0.105/TEduBoard_Mac_2.7.0.105.zip)
+
+- 功能优化
+    1. 优化iOS视频播放前后台切换的暂停/恢复
+
 ### 2.6.9.92 @ 2021-12-10
 * [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/TEduBoard_2.6.9.92.zip)
 * [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/TEduBoard_Mac_2.6.9.92.zip)

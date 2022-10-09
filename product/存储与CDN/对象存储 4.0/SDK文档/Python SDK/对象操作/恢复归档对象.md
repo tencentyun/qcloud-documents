@@ -75,7 +75,7 @@ response = client.restore_object(
 |RestoreRequest| 描述取回的临时对象的规则| Dict|是|
 |Days| 描述临时对象的过期时间| Int|是|
 |CASJobParameters| 描述恢复类型的配置信息| Dict|否|
-|Tier| 描述恢复对象的模式，若需恢复归档存储类型的数据，可选值为 Expedited、Standard、Bulk，分别对应极速、标准以及批量这三种模式。若需恢复深度归档存储类型的数据，则可选值为 Standard、Bulk| String|否|
+|Tier| 描述恢复对象的模式，若需恢复归档存储类型的数据，可选值为 Expedited、Standard、Bulk，分别对应快速取回、标准取回以及批量取回这三种模式。若需恢复深度归档存储类型的数据，则可选值为 Standard、Bulk| String|否|
 
 #### 返回结果说明
 该方法返回值为 None。

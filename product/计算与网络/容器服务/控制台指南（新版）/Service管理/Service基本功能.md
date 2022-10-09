@@ -11,7 +11,7 @@
 根据实际需求，设置 Service 参数。关键参数信息如下：
    - **服务名称**：自定义。
    - **命名空间**：根据实际需求进行选择。
-   - **访问设置**：请参考 [概述](https://cloud.tencent.com/document/product/457/45487) 并根据实际需求进行设置。
+   - **访问设置**：请参考 [概述 ](https://cloud.tencent.com/document/product/457/45487) 并根据实际需求进行设置。
 >?
 >- 如需使用已有负载均衡器，请参考 [使用已有 CLB](https://cloud.tencent.com/document/product/457/45491)。
 >- 由于4层 CLB 仅限制 **CLB VIP + 监听器协议 + 后端 RS VIP + 后端 RS 端口4元组唯一**，且未包含 CLB 监控端口。因此不支持 CLB 监听端口不同，协议及 RS 相同的场景。容器服务也不支持同一个业务对外开放相同协议的不同端口。
@@ -24,7 +24,7 @@
 #### 更新 YAML
 
 
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的**集群**。
+1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的**集群**。
 2. 在“集群管理”页面中，选择需要更新 YAML 的集群 ID，进入待更新 YAML 的集群管理页面。
 3. 选择**服务与路由** > **Service**，进入 Service 信息页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/c7ac45e1efc03a0cdbd937a35ade9037.png)
@@ -59,6 +59,8 @@ spec:
   - **ClusterIP**：在集群内部公开服务，可用于集群内部访问。
   - **NodePort**：使用节点的端口映射到后端 Service，集群外可以通过节点 `IP:NodePort` 访问。
   - **LoadBalancer**：使用腾讯云提供的负载均衡器公开服务，默认创建公网负载均衡，指定 annotations 可创建内网负载均衡。
+	- 默认用户可以创建的内网或外网的 CLB 数量分别是100个，如果您需要使用的数量超过100时，可通过 [在线咨询](https://cloud.tencent.com/online-service?from=doc_457) 提升负载均衡 CLB 的配额。
+	- Service 和 CLB 之间配置的管理和同步是由以 CLB ID 为名字的 LoadBalancerResource 类型的资源对象，请勿对该 CRD 进行任何操作，否则容易导致 Service 失效。
   - **ExternalName**：将服务映射到 DNS，仅适用于 kube-dns1.7及更高版本。
 
 

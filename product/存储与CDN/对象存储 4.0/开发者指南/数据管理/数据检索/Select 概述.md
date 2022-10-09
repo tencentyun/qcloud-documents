@@ -7,8 +7,8 @@ COS Select 功能目前支持检索以 CSV、JSON 和 Parquet 格式存储的对
 您可以使用 COS 控制台、API、SDK、COSCMD 等方式执行 SQL 查询。需要注意，使用 COS 控制台进行文件检索存在一定限制：最大支持检索128M文件，返回的数据量限定为40MB。若需检索更多数据，请使用其他方式进行。
 
 >?
->- COS Select 所支持的数据类型和当前的保留字段，请参见 [数据类型](https://cloud.tencent.com/document/product/436/37639) 和 [保留字段](https://cloud.tencent.com/document/product/436/37638) 了解详情。
->- 目前检索功能仅支持中国大陆公有云地域，其他地域暂不支持此功能。
+> - COS Select 所支持的数据类型和当前的保留字段，请参见 [数据类型](https://cloud.tencent.com/document/product/436/37639) 和 [保留字段](https://cloud.tencent.com/document/product/436/37638) 了解详情。
+> - 目前检索功能仅支持中国大陆公有云地域，其他地域暂不支持此功能。
 >
 
 ## 使用限制
@@ -27,7 +27,8 @@ COS Select 功能目前支持的 SQL 子句：
 - WHERE 子句
 - LIMIT 子句
 
->?有关 SQL 子句的详细信息，请参见 [Select 命令](https://cloud.tencent.com/document/product/436/37636)。
+>? 有关 SQL 子句的详细信息，请参见 [Select 命令](https://cloud.tencent.com/document/product/436/37636)。
+>
 
 COS Select 目前支持的函数例如下：
 
@@ -37,7 +38,8 @@ COS Select 目前支持的函数例如下：
 - 日期函数：例如 DATE_ADD 函数、DATE_DIFF 函数、EXTRACT 函数、TO_STRING 函数、TO_TIMESTAMP 函数、UTCNOW 函数。
 - 字符串函数：例如 CHAR_LENGTH 函数、CHARACTER_LENGTH 函数、LOWER 函数、SUBSTRING 函数、TRIM 函数、UPPER 函数。
 
->?有关 SQL 函数的详细信息，请参见 [SQL 函数](https://cloud.tencent.com/document/product/436/37637)。
+>? 有关 SQL 函数的详细信息，请参见 [SQL 函数](https://cloud.tencent.com/document/product/436/37637)。
+>
 
 COS Select 目前支持以下运算符：
 

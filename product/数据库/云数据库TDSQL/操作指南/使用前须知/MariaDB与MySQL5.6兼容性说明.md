@@ -1,3 +1,4 @@
+
 ## MariaDB 和开源 MariaDB 的兼容性
 完全兼容 MariaDB。
 
@@ -16,13 +17,13 @@ MariaDB 的 GTID 和 MySQL 5.6 的 GTID 不兼容，即 MySQL 不能作为 Maria
 ### 2. Binlog 默认配置不同
 MariaDB 的 Binlog 默认采用 row 格式，而原生 MySQL 5.6 和原生 MariaDB 10.2.3 之前的版本，都默认采用 statement 格式。
 
-### 3. CREAT TABLE ... SELECT 命令在基于行模式复制和基于命令模式复制
-为使 CREAT TABLE ... SELECT 命令在基于行模式复制和基于命令模式复制的情况下都能正常工作，MariaDB 中的 CREAT TABLE ... SELECT 命令在从库上将会被转化为 CREAT OR RPLACE 命令执行，好处是即使从库中途宕机恢复后仍然能够正常工作。
+### 3. CREATE TABLE ... SELECT 命令在基于行模式复制和基于命令模式复制
+为使 CREATE TABLE ... SELECT 命令在基于行模式复制和基于命令模式复制的情况下都能正常工作，MariaDB 中的 CREATE TABLE ... SELECT 命令在从库上将会被转化为 CREATE OR RPLACE 命令执行，好处是即使从库中途宕机恢复后仍然能够正常工作。
 
 #### 3.1 默认值推导
 Create table ... Select from 语句建表时，varchar(N) 类型的字段的缺省值的区别：
 - MariaDB 10.1 没有默认值。
-- MySQL 5.7 的默认值是NULL。
+- MySQL 5.7 的默认值是 NULL。
 - MySQL 5.5、5.6 的默认值是空串 ‘’。
 
 decimal 列的默认值：MySQL 5.5、5.6 把推导为0.00，MariaDB 10.1 推导为 NULL。

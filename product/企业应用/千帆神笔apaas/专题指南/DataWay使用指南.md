@@ -35,8 +35,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/e4dc66020d1a2b4c6418355b746e162c.png)
 3. 单击右上角**编辑**，弹出编辑函数弹窗。
 ![](https://qcloudimg.tencent-cloud.cn/raw/53ad7961da16c03e70ccf5f5200dd37c.png)
-4. 修改函数描述信息，并单击**确认**，完成函数基本信息修改。
-<img src="https://qcloudimg.tencent-cloud.cn/raw/8b73cffa4d674b0b2b3f1d0d5ae9b543.png" width="60%">
+4. 修改函数描述信息，并单击**确认**，完成函数基本信息修改。<br><img src="https://qcloudimg.tencent-cloud.cn/raw/8b73cffa4d674b0b2b3f1d0d5ae9b543.png" width="60%">
 
 >?函数基本信息修改目前仅支持对函数描述的修改。
 
@@ -82,7 +81,7 @@
 5. 编写函数内容。
 ![](https://qcloudimg.tencent-cloud.cn/raw/fad95c23f45761e19976f1c0fcb61ddb.png)
 
-6. 单击右上方 Dubag，设置测试变量值，测试函数功能，功能测试无误后，即可使用此函数。
+6. 单击右上方 Debug 图标，设置测试变量值，测试函数功能，功能测试无误后，即可使用此函数。
 ![](https://qcloudimg.tencent-cloud.cn/raw/e853eed0f8fee4c9b615fc594860d16e.png)
 设置测试变量：
 <img src="https://qcloudimg.tencent-cloud.cn/raw/a3512e5d5a6d3d3f24ab67fcabaa96fd.png" width="70%"/><br>
@@ -200,7 +199,7 @@ DataWay 单行注释以`#`开头，多行注释则可以用多个`#` 号，或�
 | 函数名 | 函数功能 | 
 |---------|---------|
 | abs()  |  求数值绝对值
-|  all()  |  判断序列（集合、列表、元组、dict) 中所有元素是否满足给定条件
+|  all()  |  判断序列（集合、列表、元组、dict）中所有元素是否满足给定条件
 | any()  |  判断集合中是否存在元素满足给定条件
 | bool()  |  构造布尔值
 | bytearray()  |  构造字节数组
@@ -262,8 +261,9 @@ DataWay 单行注释以`#`开头，多行注释则可以用多个`#` 号，或�
 **操作步骤**： 
 
 1. aPaaS 设计态应用中，点击应用设置 \>左侧导航栏中“自定义函数”>自定义函数管理页，点击**新建**，创建自定义函数。![img](https://qcloudimg.tencent-cloud.cn/raw/54647706b99dd1b33fdf7dc0f8a45c5e.png)
-2. 弹出框中，填写函数名称、选择编程语言，点击**确定**创建函数。 ![img](https://qcloudimg.tencent-cloud.cn/raw/341e4f327447eb3caf92d9a18acee0f1.png)
-函数创建成功后，跳转到代码管理页面，区域1 为函数入参设置区域，区域 2 为函数返回值类型设置区域，区域 3 为编辑函数代码的在线 IDE，如下图所示： ![img](https://qcloudimg.tencent-cloud.cn/raw/47fa68b745fe4006ee5d3217254cf8e4.png)
+2. 弹出框中，填写函数名称、选择编程语言，点击**确定**创建函数。 
+![img](https://qcloudimg.tencent-cloud.cn/raw/341e4f327447eb3caf92d9a18acee0f1.png)
+函数创建成功后，跳转到代码管理页面，区域1为函数入参设置区域，区域2为函数返回值类型设置区域，区域3为编辑函数代码的在线 IDE，如下图所示： ![img](https://qcloudimg.tencent-cloud.cn/raw/47fa68b745fe4006ee5d3217254cf8e4.png)
 
 ### 编写代码并测试验证
 
@@ -294,7 +294,7 @@ cloud.staff()
 #staff.name
 ```
 ![img](https://qcloudimg.tencent-cloud.cn/raw/b849facf6356c344ee1b4f2c1c5b468f.png)
-4. 添加“更新变量节点，并设置赋值，选择上一节点表达式输出变量，更新员工邮箱信息。
+4. 添加更新变量节点，并设置赋值，选择上一节点表达式输出变量，更新员工邮箱信息。
 ![img](https://qcloudimg.tencent-cloud.cn/raw/129f6a63285d9d9ecf3ef094bbef5eab.png)
 设置赋值：
 ![img](https://qcloudimg.tencent-cloud.cn/raw/c33feb631bb648dcfc9db95cd9f07006.png)
@@ -312,3 +312,4 @@ aPaaS设计态应用中，点击“对象建模”，勾选定位对象，设置
 ![img](https://qcloudimg.tencent-cloud.cn/raw/089f583ba30d59179996d6f46dcede8e.png)
 3. 员工信息列表页即可测试查看到表达式设置的个人邮箱信息。
 ![img](https://qcloudimg.tencent-cloud.cn/raw/089b02014cdf6adf45f0b11aaf3b95e3.png)
+

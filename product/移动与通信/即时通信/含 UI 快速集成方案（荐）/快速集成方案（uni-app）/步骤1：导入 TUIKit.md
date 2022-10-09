@@ -204,6 +204,14 @@ v2.10.2及以下版本使用 HTTP，HTTP 版本须添加以下域名：
 |:-------:|---------|----|
 |`https://cos.ap-shanghai.myqcloud.com` | 文件下载域名 | 必须|
 
+[](id:Q9)
+### 9. uni-app 是否支持离线推送？
+目前官方暂未提供 uni-app 离线推送方法。
+推荐方案：
+- 方案一：将消息通过 [第三方回调给您的服务器](https://cloud.tencent.com/document/product/269/1523)  ，再使用 [ UniPush](https://ask.dcloud.net.cn/article/35622) 完成离线推送。
+- 方案二：使用第三方插件库相关的 [离线推送插件](https://ext.dcloud.net.cn/plugin?id=3899)（非官方插件）。
+
+
 [](id:QQ)
 ## 技术咨询
 了解更多详情您可 QQ 咨询：<dx-tag-link link="#QQ" tag="技术交流群">309869925</dx-tag-link>

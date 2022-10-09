@@ -10,10 +10,12 @@
 在官方 Github 上下载 [HADOOP-COS](https://github.com/tencentyun/hadoop-cos)。
 
 #### 安装 HADOOP-COS
+
 Druid 使用 COS 作为 Deep Storage，需要借助 Druid-hdfs-extension 实现：
 下载 HADOOP-COS 后，将 dep 目录下对应需要的版本`hadoop-cos-2.x.x.jar`拷贝到 Druid 安装路径`extensions/druid-hdfs-storage`以及`hadoop-dependencies/hadoop-client/2.x.x`下。因为 Druid 访问 COS 利用 HDFS 的 plugin，所以版本需要跟 Druid 里 HDFS 的 plugin 的版本一致。
 
 ## 使用方法
+
 #### 配置修改
 
 1. 修改 Druid 安装路径的`conf/druid/_common/common.runtime.properties`文件，将 hdfs 的 extension 加入到`druid.extensions.loadList`中，同时指定 hdfs 为 Druid 的 deep storage，而路径则填写为 cosn 的路径：

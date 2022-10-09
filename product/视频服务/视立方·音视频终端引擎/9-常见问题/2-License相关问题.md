@@ -1,111 +1,176 @@
-[](id:que1)
+[](id:q1)
 ### 腾讯云视立方 License 是必须购买的吗？
+若您下载的腾讯云视立方功能模块中，包含直播推流（主播开播和主播观众连麦/主播跨房 PK）、短视频（视频录制编辑/视频上传发布）、终端极速高清和腾讯特效功能模块，应通过购买对应的云服务的资源包免费获取 License 进行解锁。功能模块解锁详情请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
 
-若您下载的腾讯云视立方版本中，包含直播推流（主播开播和主播观众连麦/主播跨房 PK）或短视频（视频录制编辑/视频上传发布）功能模块，应通过购买对应的云服务的资源包免费获取 License 进行解锁。功能模块解锁详情请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
-
-[](id:que2)
+[](id:q2)
 ### 腾讯云视立方 License 有单独购买入口吗？
+- 解锁**直播推流**、**短视频制作**和**视频播放**功能模块可**通过购买相应云服务的资源包免费赠送**直播 License、短视频 License 和视频播放 License 的1年有效期（购买日起算1年有效期），或者**购买独立**直播 License、短视频 License 和视频播放 License。相关 License 计费详情参见 [腾讯云视立方价格总览](https://cloud.tencent.com/document/product/1449/56972)，单击 [立即购买](https://buy.cloud.tencent.com/vcube)。
+- **终端极速高清**模块处于体验期，暂无正式版 License，无需购买，如有需求可使用 [测试版 License](https://cloud.tencent.com/document/product/1449/56981#test)。
+- 解锁**腾讯特效**功能模块需购买腾讯特效 SDK 套餐包，获取套餐包相应的 [腾讯特效 License](https://cloud.tencent.com/document/product/1449/56972#.E5.A2.9E.E5.80.BC.E6.9C.8D.E5.8A.A1.E8.B4.B9.E7.94.A8)  使用授权（有效期 1 年至到期次日00:00:00为止），单击前往  [腾讯特效 SDK 购买页](https://buy.cloud.tencent.com/vcube?type=magic) 购买。
 
-不支持单独购买。需购买相应云服务的资源包免费获取 [直播推流 License](https://cloud.tencent.com/document/product/1449/56973#live) 或者 [短视频 License](https://cloud.tencent.com/document/product/1449/56973#video) 的1年有效期（购买日起算1年有效期）。
+[](id:q3)
 
-
-[](id:que3)
 ### 腾讯云视立方 License 和功能模块 License 有什么区别？
+![](https://qcloudimg.tencent-cloud.cn/raw/4693835ca4a19907cf74ef6262b00dde.png)
+<table>
+<thead>
+<tr>
+<th width=20%> 类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>腾讯云视立方 License</td>
+<td>通过一组 License URL 和 Key 来获取并校验一个应用下功能模块的授权，管理此应用下的直播 License、短视频 License（精简版和基础版）和视频播放 License 功能模块解锁使用。</td>
+</tr>
+<tr>
+<td>功能模块 License</td>
+<td>包含<strong>直播 License</strong>、<strong>短视频 License</strong> 和<strong>视频播放 License</strong>，是购买相应云服务资源包免费获取 License 授权1年使用有效期并解锁功能模块授权，或购买独立 License 授权。</td>
+</tr>
+<tr>
+<td>直播推流 License</td>
+<td>（ RTMP 推流 + RTC 推流）可用于开启直播推流（主播开播和主播观众连麦/主播跨房 PK）功能模块，短视频 License（精简版/基础版）可用于开启短视频（视频录制编辑/视频上传发布）功能模块。</td>
+</tr>
+</tbody></table>
 
-![](https://main.qcloudimg.com/raw/26c0c8235ae57714ffd008db8be33397.png)
-
-- 腾讯云视立方 License 通过一组 License URL 和 Key 来获取并校验一个应用下功能模块的授权，管理此应用下的直播推流 License（ RTMP 推流和 RTC 推流）和短视频 License（精简版和基础版）功能模块解锁使用。
-- 功能模块 License 包含**直播推流 License** 和**短视频 License**，是购买相应云服务资源包免费获取1年使用有效期并解锁功能模块授权。
-
-直播推流 License（ RTMP 推流 + RTC 推流）可用于开启直播推流（主播开播和主播观众连麦/主播跨房 PK）功能模块，短视频 License（精简版/基础版）可用于开启短视频（视频录制编辑/视频上传发布）功能模块。
-
-[](id:que4)
+[](id:q4)
 ### 短视频精简版 License 和短视频基础版 License 有什么区别？
 
 短视频 License 包括精简版 License 和基础版 License。
-
 - 精简版 License支持视频生成、上传、处理、分发和播放多种功能。
 - 基础版 License 在精简版基础上增加滤镜、特效和转场等能力，快速轻松实现基于移动端的短视频应用。
 
->?
->- 更多功能支持详细说明，请参见 [短视频 License 功能详情](https://cloud.tencent.com/document/product/1449/56980#UGSV_detail)。
->- 美颜特效更多高级美颜、动效贴纸、AI 抠图和绿幕抠图的功能能力暂通过原（移动直播/短视频）企业版 SDK 对外售卖，通过购买原移动直播企业版License、短视频企业版 License 或者短视频企业版 Pro License 后，使用对应的功能。详情请参见 [美颜特效功能概述](https://cloud.tencent.com/document/product/1449/58916)。
+>?更多功能支持详细说明，请参见 [短视频 License 功能详情](https://cloud.tencent.com/document/product/1449/56980#UGSV_detail)。
 
-[](id:que5)
+[](id:q5)
 ### 一个账号下能创建多个腾讯云视立方 License 吗？
-
-一个腾讯云视立方·音视频终端引擎项目整体视作一个 License 进行应用管理，一个腾讯云视立方 License 对应一个 Bundle ID 和 Package Name，管理此应用下的直播推流（RTMP 推流 + RTC 推流）和短视频（精简版/基础版）功能模块。
+一个音视频终端 SDK（腾讯云视立方）项目整体视作一个 License 进行应用管理，一个腾讯云视立方 License 对应一个 Bundle ID 和 Package Name，管理此应用下的直播推流、短视频制作（精简版/基础版）、视频播放、终端极速高清和腾讯特效功能模块。
 
 同一个账号下创建腾讯云视立方 License 的数量没有限制，可管理多个应用项目。为了方便用户管理，相同包名的腾讯云视立方 License 建议通过续期的方式延长有效时间。
 
-> ! **Package Name** 为 Android 的包名，**Bundle Id** 为 iOS 的包名。
+>! **Package Name** 为 Android 的包名，**Bundle Id** 为 iOS 的包名。
 
-
-[](id:que6)
+[](id:q6)
 ### 相同包名可以创建多个腾讯云视立方 License 吗？
-
 可以，多个腾讯云视立方 License 填写相同的包名不会影响使用，一般不建议创建多个相同包名的 License。
 
-[](id:que7)
+[](id:q7)
 ### 腾讯云视立方 License 可以修改 Bundle ID 和 Package Name 吗？
-
 腾讯云视立方正式版 License 包名信息不支持修改，腾讯云视立方测试版 License 可编辑更改包名。请您在添加腾讯云视立方正式版 License 先核对包名在应用商店里是否被占用，提交后不支持修改和替换。
 
-[](id:que8)
+[](id:q8)
 ### 腾讯云视立方 License 何时过期？
-- **正式版 License** 的过期时间取决于其绑定的功能模块 License 有效期，任一绑定的功能模块 License 最晚有效期即为正式版 License 的有效期。功能模块 License 的有效期自资源包购买之日计算，1年后到期次日00:00:00止。
-- **测试版 License** 每个功能模块只可申请一次测试 License，其中终端极速高清不支持续期，其余功能模块均可免费续期1次，长期使用建议购买正式 License。试用期内申请测试续期，则续期到期时间以申请测试时刻为准；若试用期结束后申请测试续期，则续期到期时间以申请测试续期时刻为准。
-<dx-alert infotype="explain" title="示例：">
-- 当申请测试开始时间为 `2021-08-12 10:28:41`，则14天后到期时间为 `2021-08-26 10:28:41`。
-- 免费续期一次时，若在试用期14天内申请续期，则到期时间为 `2021-09-09 10:28:41`；若在试用期14天结束后申请续期，申请续期的时间为 `2021-08-30 22:26:20`，则续期的到期时间为 `2021-09-13 22:26:20`。
+
+- **关于直播 License、短视频 License 和视频播放 License**：
+	- **正式版 License：** 过期时间取决于其绑定的功能模块 License 有效期，任一绑定的功能模块 License 最晚有效期即为正式版 License 的有效期。
+		- 若绑定的是购买资源包赠送的功能模块 License，**自资源包购买之日计算**，授权有效期为1年后到期次日00:00:00止。
+		- 若绑定的是独立 License，独立腾讯云视立方 License 绑定包名后激活有效期。**自绑定包名起计算**，授权有效期为1年后到期次日00:00:00止。
+	- **测试版 License：** 每个功能模块只可申请一次测试 License，每个功能模块均可免费续期1次（其中终端极速高清不支持自助续期，如需修改有效期请联系商务或 [提交工单](https://console.cloud.tencent.com/workorder/category)），长期使用建议购买正式 License。试用期内申请测试续期，则续期到期时间以申请测试时刻为准；若试用期结束后申请测试续期，则续期到期时间以申请测试续期时刻为准。
+<dx-alert infotype="explain" title="<b>示例：</b>">
+- 当申请测试开始时间为  `2021-08-12 10:28:41` ，则14天后到期时间为  `2021-08-26 10:28:41` 。
+- 免费续期一次时，若在试用期14天内申请续期，则到期时间为  `2021-09-09 10:28:41` ；若在试用期14天结束后申请续期，申请续期的时间为  `2021-08-30 22:26:20` ，则续期的到期时间为  `2021-09-13 22:26:20` 。
+</dx-alert>
+- **关于腾讯特效 License**（**腾讯特效功能模块需要通过审核后才能签发授权**）：
+	- **正式版 License：** 授权到期时间从审核通过时间计算，1年后到期次日00:00:00止。
+	- **测试版 License：** 授权到期时间以审核通过时刻为准；若试用期结束后申请测试续期，则续期到期时间以申请测试续期时刻为准。
+<dx-alert infotype="explain" title="<b>示例：</b>">
+- **正式版 License** ：当创建 License、提交腾讯特效功能模块正式版审核信息后，进入**审核中状态**，审核时间通常 1个 - 2 个工作日。提交审核信息时间为 `2022-05-24 12:34:11`，审核通过时间为 `2022-05-25 17:56:24`，则开始时间为 `2022-05-25 17:56:24`，1 年后到期时间为 `2023-05-26 00:00:00`。
+- **测试版 License** ：
+		- 当提交腾讯特效功能模块测试版审核信息后，进入**审核中状态**，审核时间通常 1-2 个工作日。提交审核信息时间为 `2022-05-24 12:47:33`，审核通过时间为 `2022-05-24 15:23:46`，则开始时间为 `2022-05-24 15:23:46`，14天后到期时间为 `2022-06-09 00:00:00`。
+		- 免费续期一次时，若在试用期14天内申请续期，则到期时间为 `2022-06-23 00:00:00`；若在试用期14天结束后申请续期，申请续期的时间为 `2022-08-06 22:26:20`，则续期的到期时间为 `2022-08-22 00:00:00`。
 </dx-alert>
 
 
-[](id:que9)
+[](id:q9)
 ### 创建了多个腾讯云视立方 License， License URL 和 License Key 一样吗？
-
 一样。同一个账户下的腾讯云视立方 License 为方便维护和管理，默认 License URL 和 License Key 是一样的。
 
-[](id:que10)
+[](id:q10)
 ### 关联 License 的资源包是不是只能这个 License 使用？
 
 该账号下的直播播放域名产生的日结流量后付费消耗均可抵扣。资源包关联只是用于同步有效期，里面的流量不限于 License 使用（流量用尽也不影响 License 的使用）。
 **例如：**
 用户甲是日结流量后付费计费，购买了一个 10TB 直播流量资源包和 50TB 直播流量资源包，分别创建了 License A 和 License B：
 
-- License A 对应的 App 使用的是 `abc.com` 域名播放，产生了 20TB 的播放流量。
-- License B 对应的 App 使用的是 `def.com` 域名播放，产生了 30TB 的播放流量。
+- License A 对应的 App 使用的是  `abc.com`  域名播放，产生了 20TB 的播放流量。
+- License B 对应的 App 使用的是  `def.com`  域名播放，产生了 30TB 的播放流量。
 
-只要 `abc.com` 和 `def.com` 这两个是属于用户甲云直播账号下直播的播放域名，则可以使用购买的 10TB + 50TB 资源包进行抵扣，抵扣后用户甲的直播流量资源包剩余 10TB 流量。  
+只要  `abc.com`  和  `def.com`  这两个是属于用户甲云直播账号下直播的播放域名，则可以使用购买的 10TB + 50TB 资源包进行抵扣，抵扣后用户甲的直播流量资源包剩余 10TB 流量。  
 
-[](id:que11)
-### 购买直播推流 License 可以用于小程序直播吗？
+[](id:q11)
+### 购买直播 License 可以用于小程序直播吗？
+不支持，直播 License 仅支持 iOS 和 Android 端的 App 在使用直播推流（主播开播和主播观众连麦/主播跨房 PK）功能模块时使用。小程序端接入直播功能需要先具备对应的服务类目，详情参见 [方案选择](https://cloud.tencent.com/document/product/1078/37707)。  
 
-不支持，直播推流 License 仅支持 iOS 和 Android 端的 App 在使用直播推流（主播开播和主播观众连麦/主播跨房 PK）功能模块时使用。小程序端接入直播功能需要先具备对应的服务类目，详情参见 [方案选择](https://cloud.tencent.com/document/product/1078/37707)。  
-
-[](id:que12)
+[](id:q12)
 ### 为什么新版 License 升级后，少了一个 License，多了一个可用资源包？
 
-新版 License 增加了重复包名校验逻辑，当多个同类型的 License 绑定了同一组包名（ Bundle ID 和 Package Name ），此时实际上仅一个 License 会生效；我们会解除无效且有效期较短的 License 绑定关系，为您释放无效绑定的资源包，并且被释放的资源包可以绑定新的 License 使用。
+新版 License 增加了重复包名校验逻辑，当多个同类型的 License 绑定了同一组包名（ Bundle ID 和 Package Name ），此时实际上仅一个 License 会生效；我们会解除无效且有效期较短的 License 绑定关系，为您释放无效绑定的资源包，并且被释放的资源包可以绑定新的 License 使用。
 
-示例：
-用户 A 以前购买了两个 10 TB 的直播流量资源包（有效期截止时间不同），获赠两个移动直播 License，并分两次绑定了同一组包名（实际上仅一个 License 有效）。在升级为腾讯云视立方 License 后，仅保留了有效期较长的 License 的绑定；另一个有效期较短的 License 被解除绑定关系，10TB 资源包被释放，用户 A 可以再次进行新的 License 绑定。
+**示例**：
+用户 A 以前购买了两个 10 TB 的直播流量资源包（有效期截止时间不同），获赠两个直播 License，并分两次绑定了同一组包名（实际上仅一个 License 有效）。在升级为腾讯云视立方 License 后，仅保留了有效期较长的 License 的绑定；另一个有效期较短的 License 被解除绑定关系，10TB 资源包被释放，用户 A 可以再次进行新的 License 绑定。
 
-[](id:que13)
-### 为什么子账户打开腾讯云视立方·音视频终端引擎控制台提示未授权？
-#### 问题截图：
-<img src="https://main.qcloudimg.com/raw/7423d2e7912de344052c7891629d528b.png" width=400px>
+[](id:q13)
 
-#### 问题解析：
-音视频终端引擎控制台需要主账号为子账号独立进行授权策略后方可访问控制台页面。
-- 若您仅需要提供子账号访问音视频终端引擎控制台只读的权限，请授权 QcloudVCUBEReadOnlyAccess 策略。
-- 若您需要提供子账访问音视频终端引擎号所有操作权限，请授权 QcloudVCUBEFullAccess 策略。
+### 为什么子账户打开音视频终端 SDK（腾讯云视立方）控制台提示未授权？
+
+- **问题截图**：
+![image](https://main.qcloudimg.com/raw/7423d2e7912de344052c7891629d528b.png)
+- **问题解析**：
+腾讯云视立方控制台需要主账号为子账号独立进行授权策略后方可访问控制台页面。
+   - 若您仅需要提供子账号访问音视频终端 SDK 控制台只读的权限，请授权 QcloudVCUBEReadOnlyAccess 策略。
+   - 若您需要提供子账号访问音视频终端 SDK 所有操作权限，请授权 QcloudVCUBEFullAccess 策略。
 为用户/用户组关联策略以授权相关操作权限的关联指引请参见 [策略授权管理](https://cloud.tencent.com/document/product/598/10602)。
+- **相关问题**：
+   - [子账户为什么无法访问直播控制台 License 相关界面？](https://cloud.tencent.com/document/product/454/43500#que16)
+   - [子账户为什么无法访问点播控制台 License 相关界面？](https://cloud.tencent.com/document/product/266/50296#que12)
 
-#### 相关问题：
-- [子账户为什么无法访问直播控制台 License 相关界面？](https://cloud.tencent.com/document/product/454/43500#que16)
-- [子账户为什么无法访问点播控制台 License 相关界面？](https://cloud.tencent.com/document/product/266/50296#que12)
+[](id:q14)
+### 为什么接收不到音视频终端 SDK 产品和 License 相关消息通知？
 
-[](id:que14)
-### 为什么接收不到音视频终端引擎产品和 License 相关消息通知？
-您可以通过在 [消息订阅](https://console.cloud.tencent.com/message/subscription) 中订阅音视频终端引擎，配置**站内信**/**邮件**/**短信**/**微信**/**企微**等消息接收渠道，接收正式版 License 到期提醒。正式版 License 将在到期时间距离当前时间为30天、15天、7天、1天时各向您发送一次到期提醒，提示您及时续费以免影响正常业务运行。
+您可以通过在 [消息订阅](https://console.cloud.tencent.com/message/subscription) 中订阅音视频终端 SDK，配置**站内信**/**邮件**/**短信**/**微信**/**企微**等消息接收渠道，接收正式版 License 到期提醒。正式版 License 将在到期时间距离当前时间为30天、15天、7天、1天时各向您发送一次到期提醒，提示您及时续费以免影响正常业务运行。
+
+### 为什么直播 License 也可以解锁视频播放功能模块？
+
+10.1 版本（2022年05月底上线）后，直播 License（原直播推流 License）、短视频 License 和视频播放 License **均可**授权解锁新版本 SDK 的**视频播放**功能模块，您只需购买其中的**任意一种** License，即可正常使用新版 SDK 中的直播和点播播放功能。各 License 授权解锁详情如下：
+
+<table>
+<thead>
+<tr>
+<th rowspan="2" width=20%>License 类型</th>
+<th colspan="3">解锁的功能模块授权</th>
+<th rowspan="2">License 获取方式</th>
+</tr><tr>
+<th>直播推流</th>
+<th>短视频制作</th>
+<th>视频播放</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>直播 License</td>
+<td>&#10003; </td>
+<td>-</td>
+<td>&#10003; </td>
+<td><ul style="margin:0">
+    <li>购买 10TB、50TB、200TB、1PB 云直播流量资源包赠送直播 License 一年使用授权</li>
+    <li>购买独立直播 License 一年使用授权</li></ul></td>
+</tr>
+<tr>
+<td>短视频 License</td>
+<td>-</td>
+<td>&#10003; </td>
+<td>&#10003; </td>
+<td><ul style="margin:0">
+    <li>购买 10TB、50TB、200TB、1PB 云点播流量资源包赠送短视频精简版/基础版 License 一年使用授权</li>
+    <li>购买独立短视频 License 一年使用授权</li></ul></td>
+</tr>
+<tr>
+<td>视频播放 License</td>
+<td>-</td>
+<td>-</td>
+<td>&#10003; </td>
+<td><ul style="margin:0">
+    <li>购买 100GB、500GB、1TB、5TB 直播/点播流量资源包赠送视频播放 License 一年使用授权</li>
+    <li>购买独立视频播放 License 一年使用授权</li></ul></td>
+</tr>
+</tbody></table>

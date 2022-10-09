@@ -23,7 +23,7 @@ SSL 证书的核心功能是保护服务器-客户端通信。数据通过 SSL �
 在**用户管理**页面新建角色，设置密码。
 ![](https://qcloudimg.tencent-cloud.cn/raw/fb78b8290232e6342397a30a4c554ef9.png)
 3. 创建 Topic。
-在控制台 **topic 管理**页面新建 Topic（参见 [创建 Topic](https://cloud.tencent.com/document/product/597/20247#.E5.88.9B.E5.BB.BA-topic)）。
+在控制台 **topic 管理**页面新建 Topic（参见 [创建 Topic](https://cloud.tencent.com/document/product/597/73566#.E6.AD.A5.E9.AA.A41.EF.BC.9A.E5.88.9B.E5.BB.BA-topic)）。
 
 
 ### 步骤2：添加配置文件
@@ -31,7 +31,7 @@ SSL 证书的核心功能是保护服务器-客户端通信。数据通过 SSL �
 1. 在 pom.xml 中添加以下依赖。
 <dx-codeblock>
 :::  xml
-<dependency>
+<dependencies>
    <dependency>
       <groupId>org.apache.kafka</groupId>
       <artifactId>kafka-clients</artifactId>
@@ -47,7 +47,7 @@ SSL 证书的核心功能是保护服务器-客户端通信。数据通过 SSL �
       <artifactId>slf4j-simple</artifactId>
       <version>1.6.4</version>
    </dependency>
-</dependency>
+</dependencies>
 :::
 </dx-codeblock>
 2. 创建 JAAS 配置文件 `ckafka_client_jaas.conf`，使用**用户管理**界面创建的用户进行修改。

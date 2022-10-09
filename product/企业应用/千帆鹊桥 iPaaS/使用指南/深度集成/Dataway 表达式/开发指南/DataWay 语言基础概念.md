@@ -1,4 +1,4 @@
-DataWay 语言是一门在千帆鹊桥 iPaaS 中用于对数据进行自定义转换与处理的表达式脚本语言。使用 DataWay 可以编写出强大和复杂的数据转换程序，在此之前需要先了解 DataWay 中的核心概念和功能。
+DataWay 语言是一门在腾讯云数据连接器中用于对数据进行自定义转换与处理的表达式脚本语言。使用 DataWay 可以编写出强大和复杂的数据转换程序，在此之前需要先了解 DataWay 中的核心概念和功能。
 
 
 ## 脚本结构
@@ -15,7 +15,7 @@ def func(x):
     return x*x
 ```
 
-- dw_process 入口函数仅接受一个参数 msg，该参数代表当前表达式需要处理的千帆鹊桥 iPaaS 消息，dw_process 的返回值即是表达式的返回值。
+- dw_process 入口函数仅接受一个参数 msg，该参数代表当前表达式需要处理的腾讯云数据连接器消息，dw_process 的返回值即是表达式的返回值。
 - 内置的 Entity.from_value 函数用于为构造 Entity 类型的返回值，可以指定序列化参数，例如：mime_type、encoding 等。
 - 在 Set Payload 组件中输入上述表达式，假设该组件的输入消息为 json 结构的数据`{"realData": 123}`，经过 DataWay 表达式的计算，得到的输出结果如下：
 ```json
@@ -177,7 +177,7 @@ Dataway Hello World!
 ## dw_process 入口函数
 - dw_process 是 DataWay 的主入口函数，其作用相当于 C/C++语言中的 main 函数。
 - dw_process 仅接受一个类型为 [Message](#message-explain) 的参数，而其返回值就是该 DataWay 表达式最终的输出值。
-- 作为 千帆鹊桥iPaaS 数据处理流程的一个环节，dw_process 函数的返回值目前支持的类型有：str/None/bool/float/int/list/dict/Entity/MultiMap/FormDataParts/Message 等。
+- 作为腾讯云数据连接器数据处理流程的一个环节，dw_process 函数的返回值目前支持的类型有：str/None/bool/float/int/list/dict/Entity/MultiMap/FormDataParts/Message 等。
 - 关于 DataWay 中数据类型及返回值的详细介绍，可参考 [DataWay 数据类型系统](#dataway-types)。
 
 ## DataWay 数据类型系统[](id:dataway-types)
@@ -193,10 +193,10 @@ Dataway Hello World!
 | set               | 集合，即 Python 集合类型set                                  | 否                        | {1,2,3}                                                      |
 | list              | 列表，序列类型容器，即 Python 原生 list 类型                 | 否                        | [1,2,3]                                                      |
 | dict              | 字典，kv 类型容器，即 Python 原生 dict 类型                  | 否                        | {1:1, 'key': 'value'}                                        |
-| Entity      | 即 千帆鹊桥iPaaS 中的实体数据，用于代表一个二进制对象，在 DataWay 中以 Entity 类型进行访问，包括blob、mime_type、encoding 等信息 | 是 | HTTP-listener 构造消息中的 payload，如 msg.payload            |
+| Entity      | 即腾讯云数据连接器中的实体数据，用于代表一个二进制对象，在 DataWay 中以 Entity 类型进行访问，包括blob、mime_type、encoding 等信息 | 是 | HTTP-listener 构造消息中的 payload，如 msg.payload            |
 | MultiMap      | 多值 map，类似于 xml 而与 dict 不同，该类型可以支持重复的 key。 |是| application/www-form-urlencoded 格式的数据解析之后得到的对象 |
 |FormDataParts | 数组+列表的数据结构，类似于 Python 中的 orderDict 结构       | 是 | multipart/form-data 格式的数据解析后得到的对象               |
-| Message       | 即 千帆鹊桥iPaaS 中的消息，在 dataWay 中以 Message 进行访问            |是| dw_process 入口函数中的 msg 参数                             |
+| Message       | 即腾讯云数据连接器中的消息，在 dataWay 中以 Message 进行访问            |是| dw_process 入口函数中的 msg 参数                             |
 
 >!
 >- 上述类型可以在 DataWay 表达式中使用，但 **dw_process 函数的返回值的类型为其中的 str/None/ bool/float/int/list/ dict/Entity/MultiMap/FormDataParts/Message 之一**。
@@ -204,7 +204,7 @@ Dataway Hello World!
 
 ## Message 类型及预定义属性
 
-Message 类型是 DataWay 用于表示一条 千帆鹊桥iPaaS 消息的数据类型，其中包含 payload、vars、attrs 等属性，称之为**预定义属性（Predefined Properties）**。这些属性是由系统根据当前运行信息及处理的消息生成的，用于在 DataWay 中通过程序化的方式获取上下文信息。
+Message 类型是 DataWay 用于表示一条腾讯云数据连接器消息的数据类型，其中包含 payload、vars、attrs 等属性，称之为**预定义属性（Predefined Properties）**。这些属性是由系统根据当前运行信息及处理的消息生成的，用于在 DataWay 中通过程序化的方式获取上下文信息。
 
 **目前 Message 中包含的属性及其说明如下：**
 
@@ -218,7 +218,7 @@ Message 类型是 DataWay 用于表示一条 千帆鹊桥iPaaS 消息的数据�
 | msg.error   | 当前处理上下文中的错误信息                       | dict 类型，键为 str，代表错误属性名；值为 str，代表属性值    | 包含的内容有：msg.error['code']：错误类型；msg.error['desc']：错误描述字符串 |
 
 ## DataWay IDE 使用
-在 千帆鹊桥iPaaS 系统新建一个 Set Variable 组件，单击变量值文本框进入 DataWay 脚本编辑器，该编辑器提供语法检查、格式化、脚本调试、自动联想、代码高亮等类 IDE 功能。
+在腾讯云数据连接器系统新建一个 Set Variable 组件，单击变量值文本框进入 DataWay 脚本编辑器，该编辑器提供语法检查、格式化、脚本调试、自动联想、代码高亮等类 IDE 功能。
 <img src="https://main.qcloudimg.com/raw/27cb6a575cbd1bdac914981679ff2bc2/ide-%E6%95%B4%E4%BD%93%E9%A1%B5%E9%9D%A2.png" alt="ide-整体页面" style="zoom: 50%;" />
 
 ### 语法检查

@@ -3,5 +3,4 @@
 3. 单击需要查看的 VPN 网关 ID，即可进入 VPN 网关详情页。
  ![](https://main.qcloudimg.com/raw/7611f0cd898d16f84831423dbe9c140c.png)
 4. 在该页面中，您可以看到 VPN 网关的详细信息。
-![](https://main.qcloudimg.com/raw/531603c8d19a4f7b3a532b2c869fd4f7.png)
-
+![](https://qcloudimg.tencent-cloud.cn/raw/ee9be271754a2656fd9fc8e651205dac.png)

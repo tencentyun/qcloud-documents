@@ -6,7 +6,7 @@
 ## 前提条件
 
 1. 购买的腾讯云弹性 MapReduce（以下简称 EMR）产品包含 Flink 组件，并在实例上跑 Flink 任务。
-2. 使用与 MER 相同的地域及私有网络 VPC 购买腾讯云 [Prometheus 实例](https://cloud.tencent.com/document/product/1416/55763)。
+2. 使用与 EMR 相同的地域及私有网络 VPC 购买腾讯云 [Prometheus 实例](https://cloud.tencent.com/document/product/1416/55763)。
 
 
 ## 操作步骤

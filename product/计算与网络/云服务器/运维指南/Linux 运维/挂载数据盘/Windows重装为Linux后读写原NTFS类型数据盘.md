@@ -8,29 +8,35 @@ Windows 的文件系统通常使用 NTFS 或者 FAT32 格式，Linux 的文件�
 
 1. 登录重装系统后的 Linux 云服务器。
 2. 执行以下命令，安装 ntfsprogs 软件，使得 Linux 云服务器支持访问 NTFS 文件系统。
->?本文以 CentOS 系统为例。不同类型的 Linux 系统安装命令有一定区别，请使用对应的安装命令进行安装。
->
-```
+<dx-alert infotype="explain" title="">
+本文以 CentOS 系统为例。不同类型的 Linux 系统安装命令有一定区别，请使用对应的安装命令进行安装。
+</dx-alert>
+```shellsession
 yum install ntfsprogs
 ```
 
 
 ###  将 Windows 云服务器下的数据盘挂载至 Linux 云服务器
 
->? 若您 Windows 云服务器下的数据盘已挂载至 Linux 云服务器，则可跳过此操作。
->
+
+
+<dx-alert infotype="explain" title="">
+若您 Windows 云服务器下的数据盘已挂载至 Linux 云服务器，则可跳过此操作。
+</dx-alert>
+
+
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)。
-2. 在左侧导航栏中，单击【[云硬盘](https://console.cloud.tencent.com/cvm/cbs)】，进入云硬盘管理页面。
-3. 选择需要进行挂载的 Windows 数据盘，单击【更多】>【挂载】。如下图所示：
+2. 在左侧导航栏中，单击 **[云硬盘](https://console.cloud.tencent.com/cvm/cbs)**，进入云硬盘管理页面。
+3. 选择需要进行挂载的 Windows 数据盘，单击**更多** > **挂载**。如下图所示：
 ![](https://main.qcloudimg.com/raw/d227d87d0b750ddaf38295b2e20ccb39.png)
-4. 在弹出的 “挂载到实例” 窗口中，选择需要挂载至的 Linux 云服务器，单击【确定】。
+4. 在弹出的 “挂载到实例” 窗口中，选择需要挂载至的 Linux 云服务器，单击**确定**。
 5. 登录已挂载 Windows 数据盘的 Linux 云服务器。
 6. 执行以下命令，查看从 Windows 云服务器中挂载过来的数据盘。
-```
+```shellsession
 parted -l
 ```
 返回类似如下信息：
-```
+```shellsession
 Model: Virtio Block Device (virtblk)
 Disk /dev/vdb: 53.7GB
 Sector size (logical/physical): 512B/512B
@@ -41,11 +47,11 @@ Number  Start   End     Size    File system  Name                          Flags
  2      135MB   53.7GB  53.6GB  ntfs         Basic data partition
 ```
 7. 执行以下命令，挂载数据盘。
-```
+```shellsession
 mount -t ntfs-3g 数据盘路径 挂载点
 ```
 例如，您需要将路径为 `/dev/vdb2` 的数据盘挂载至 `/mnt`，则执行以下命令：
-```
+```shellsession
 mount -t ntfs-3g /dev/vdb2 /mnt
 ```
 由于此时的文件系统可识别，挂载的数据盘可直接被 Linux 系统读写。

@@ -1,4 +1,4 @@
-## 简介[](id:Introduction)
+## 简介 [](id:Introduction)
 Service 定义访问后端 Pod 的访问方式，并提供固定的虚拟访问 IP。您可以在 Service 中通过设置来访问后端的 Pod，不同访问方式的服务可提供不同网络能力。
 腾讯云容器服务（TKE）提供以下四种服务访问方式：
 
@@ -66,7 +66,7 @@ Service 定义访问后端 Pod 的访问方式，并提供固定的虚拟访问 
 
 ### 创建 Service
 
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
+1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)。
 2. 在左侧导航栏中，单击**集群**，进入集群管理页面。
 3. 单击需要创建 Service 的集群 ID，进入待创建 Service 的集群管理页面。
 4. 选择 “服务” > “Service”，进入 Service 信息页面。如下图所示：
@@ -76,14 +76,14 @@ Service 定义访问后端 Pod 的访问方式，并提供固定的虚拟访问 
 6. 根据实际需求，设置 Service 参数。关键参数信息如下：
    - 服务名称：自定义。
    - 命名空间：根据实际需求进行选择。
-   - 访问设置：请参考 [简介](#Introduction) 并根据实际需求进行设置。
+   - 访问设置：请参考 [简介 ](#Introduction) 并根据实际需求进行设置。
 7. 单击**创建服务**，完成创建。
 
 ### 更新 Service
 
 #### 更新 YAML
 
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
+1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)。
 2. 在左侧导航栏中，单击**集群**，进入集群管理页面。
 3. 单击需要更新 YAML 的集群 ID，进入待更新 YAML 的集群管理页面。
 4. 选择 “服务” > “Service”，进入 Service 信息页面。如下图所示：

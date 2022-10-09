@@ -7,15 +7,15 @@ restore 命令用于取回归档文件。
 ./coscli restore cos://<bucketAlias>[/prefix/] [flag]
 ```
 
->? 有关 bucketAlias 的说明，请参见 [配置](https://cloud.tencent.com/document/product/436/63144#alias)。
+>? 
+>- 有关 bucketAlias 的说明，请参见 [下载与安装配置](https://cloud.tencent.com/document/product/436/63144#alias)。
+>- 关于此命令的其他通用选项（例如切换存储桶、切换用户账号等），请参见 [通用选项](https://cloud.tencent.com/document/product/436/71763) 文档。
 >
 
 restore 命令包含以下可选 flag：
 
 | flag 简写 | flag 全称     | flag 用途                         |
 | --------- | ------------- | --------------------------------- |
-| -h        | --help        | 输出帮助信息                      |
-| -c        | --config-path | 指定要使用的配置文件路径          |
 |     无      | --include     | 包含特定模式的文件                |
 |     无      | --exclude     | 排除特定模式的文件                |
 | -d        | --days        | 指定临时文件过期时间（默认为3天） |
@@ -31,13 +31,13 @@ restore 命令包含以下可选 flag：
 
 ## 操作示例
 
-### 以标准模式取回 bucket1 桶内的归档文件
+### 以标准取回模式取回 bucket1 桶内的归档文件
 
 ```plaintext
 ./coscli restore cos://bucket1/pictrue.jpg
 ```
 
-### 以极速模式取回 bucket1 桶内 pictrue 文件夹下的所有归档文件
+### 以快速取回模式取回 bucket1 桶内 pictrue 文件夹下的所有归档文件
 
 ```plaintext
 ./coscli restore cos://bucket1/pictrue/ -r --mode Expedited

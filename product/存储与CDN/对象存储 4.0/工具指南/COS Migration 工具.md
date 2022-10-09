@@ -1,11 +1,6 @@
 
 ## 功能说明
-COS Migration 是一个集成了 COS 数据迁移功能的一体化工具。通过简单的配置操作，用户可以将源地址数据快速迁移至 COS 中，它具有以下特点：
-- 丰富的数据源：
-   - 本地数据：将本地存储的数据迁移到 COS。
-   - 其他云存储：目前支持 AWS S3，阿里云 OSS，七牛存储迁移至 COS，后续会不断扩展。
-   - URL 列表：根据指定的 URL 下载列表进行下载迁移到 COS。
-   - Bucket 相互复制：COS 的 Bucket 数据相互复制，支持跨账号跨地域的数据复制。
+COS Migration 是一个集成了 COS 数据迁移功能的一体化工具。通过简单的配置操作，用户可以将本地数据迁移至 COS 中，它具有以下特点：
 - 断点续传：工具支持上传时断点续传。对于一些大文件，如果中途退出或者因为服务故障，可重新运行工具，会对未上传完成的文件进行续传。
 - 分块上传：将对象按照分块的方式上传到 COS。
 - 并行上传：支持多个对象同时上传。
@@ -14,6 +9,8 @@ COS Migration 是一个集成了 COS 数据迁移功能的一体化工具。通�
 >!
 >- COS Migration 的编码格式只支持 UTF-8 格式。
 >- 使用该工具上传同名文件，默认会覆盖较旧的同名文件，需要额外设置以跳过同名文件。
+>- 除本地数据迁移之外的场景请优先使用 [迁移服务平台](https://cloud.tencent.com/document/product/659/13908)。
+>- COS Migration 是用来做**一次性**迁移服务的，不适合于持续同步的场景。例如本地每天新增文件，需要持续同步至 COS 中，COS Migration 为了避免重复迁移任务，会保存迁移成功的记录，持续同步后，扫描记录时间会持续增大。此种场景建议使用 [文件同步](https://cloud.tencent.com/document/product/436/38103#synchronization)。
 
 ## 使用环境
 #### 系统环境
@@ -77,15 +74,8 @@ type=migrateLocal
 | migrateType | 描述 |
 | ------| ------ |
 | migrateLocal| 从本地迁移至 COS |
-| migrateAws| 从 AWS S3 迁移至 COS |
-| migrateAli| 从阿里  OSS  迁移至 COS |
-| migrateQiniu| 从七牛迁移至 COS |
-| migrateUrl| 下载 URL 迁移到 COS |
-| migrateBucketCopy| 从源 Bucket 复制到目标 Bucket|
-|migrateUpyun  | 从又拍云迁移到 COS |
 
->? 如果想从上述未提及的源站进行迁移，若源站兼容 AWS S3 的API，即可使用 AWS 的配置进行迁移。
->
+
 
 #### 3.2 配置迁移任务
 用户根据实际的迁移需求进行相关配置，主要包括迁移至目标 COS 信息配置及迁移任务相关配置。
@@ -149,150 +139,11 @@ ignoreModifiedTimeLessThanSeconds=
 
 | 配置项 | 描述 |
 | ------| ------ |
-|localPath|本地目录，要求格式为绝对路径：<ul  style="margin: 0;"><li>Linux 下分隔符为单斜杠，例如`/a/b/c` </li><li>Windows 下分隔符为两个反斜杠，例如`E:\\a\\b\\c`</li></ul>|
+|localPath|本地目录，要求格式为绝对路径：<ul  style="margin: 0;"><li>Linux 下分隔符为单斜杠，例如`/a/b/c` </li><li>Windows 下分隔符为两个反斜杠，例如`E:\\a\\b\\c`</li> </ul>注意：此参数只能填目录的路径，不能填具体文件的路径，否则会导致目标对象名解析错误，在 cosPath=/ 情况下，还会错误地解析成创桶请求|
 |excludes| 要排除的目录或者文件的绝对路径，表示将 localPath 下面某些目录或者文件不进行迁移，多个绝对路径之前用分号分割，不填表示 localPath 下面的全部迁移|
 |ignoreModifiedTimeLessThanSeconds| 排除更新时间与当前时间相差不足一定时间段的文件，单位为秒，默认不设置，表示不根据 lastmodified 时间进行筛选，适用于客户在更新文件的同时又在运行迁移工具，并要求不把正在更新的文件迁移上传到 COS，例如设置为300，表示只上传更新了5分钟以上的文件|
 
-**3.3.2 配置阿里 OSS 数据源 migrateAli**
 
-若从阿里云 OSS 迁移至 COS，则进行该部分配置，具体配置项及说明如下：
-```plaintext
-# 从阿里 OSS 迁移到 COS 配置分节
-[migrateAli]
-bucket=bucket-aliyun
-accessKeyId=yourAccessKeyId
-accessKeySecret=yourAccessKeySecret
-endPoint= oss-cn-hangzhou.aliyuncs.com
-prefix=
-proxyHost=
-proxyPort=
-```
-
-| 配置项 | 描述 |
-| ------| ------ |
-|bucket|阿里云 OSS  Bucket 名称|
-|accessKeyId|将 yourAccessKeyId 替换为用户的密钥 |
-|accessKeySecret| 将 yourAccessKeySecret 替换为用户的密钥|
-|endPoint|阿里云 endpoint 地址|
-|prefix|要迁移的路径的前缀，如果是迁移 Bucket 下所有的数据, 则 prefix 为空|
-|proxyHost|如果要使用代理进行访问，则填写代理 IP 地址|
-|proxyPort|代理的端口|
-
-**3.3.3 配置 AWS 数据源 migrateAws**
-
-若从 AWS 迁移至 COS，则进行该部分配置，具体配置项及说明如下：
-```plaintext
-# 从 AWS 迁移到 COS 配置分节
-[migrateAws]
-bucket=bucket-aws
-accessKeyId=AccessKeyId
-accessKeySecret=SecretAccessKey
-endPoint=s3.us-east-1.amazonaws.com
-prefix=
-proxyHost=
-proxyPort=
-```
-
-| 配置项 | 描述 |
-| ------| ------ |
-|bucket| AWS 对象存储 Bucket 名称|
-|accessKeyId|将 AccessKeyId 替换为用户的密钥|
-|accessKeySecret| 将 SecretAccessKey 替换为用户的密钥|
-|endPoint|AWS 的 endpoint 地址，必须使用域名，不能使用 region|
-|prefix|要迁移的路径的前缀，如果是迁移 Bucket 下所有的数据，则 prefix 为空|
-|proxyHost|如果要使用代理进行访问，则填写代理 IP 地址|
-|proxyPort|代理的端口|
-
- 
-**3.3.4 配置七牛数据源 migrateQiniu**
-
-若从七牛迁移至 COS，则进行该部分配置，具体配置项及说明如下：
-```plaintext
-# 从七牛迁移到COS配置分节
-[migrateQiniu]
-bucket=bucket-qiniu
-accessKeyId=AccessKey
-accessKeySecret=SecretKey
-endPoint=www.bkt.clouddn.com
-prefix=
-proxyHost=
-proxyPort=
-```
-
-| 配置项 | 描述 |
-| ------| ------ |
-|bucket|七牛对象存储 Bucket 名称|
-|accessKeyId|将 AccessKey 替换为用户的密钥 |
-|accessKeySecret| 将 SecretKey 替换为用户的密钥|
-|endPoint|七牛下载地址，对应 downloadDomain|
-|prefix|要迁移的路径的前缀，如果是迁移 Bucket 下所有的数据，则 prefix 为空|
-|proxyHost|如果要使用代理进行访问，则填写代理 IP 地址|
-|proxyPort|代理的端口|
-
- 
-**3.3.5 配置 URL 列表数据源 migrateUrl**
-
-若从指定 URL 列表迁移至 COS，则进行该部分配置，具体配置项及说明如下：
-```plaintext
-# 从 URL 列表下载迁移到 COS 配置分节
-[migrateUrl]
-urllistPath=D:\\folder\\urllist.txt
-```
-     
-| 配置项 | 描述 |
-| ------| ------ |
-|urllistPath|URL 列表的地址，内容为 URL 文本，一行一条 URL 原始地址（例如`http://aaa.bbb.com/yyy/zzz.txt`，无需添加任何双引号或其他符号）。URL 列表的地址要求为绝对路径：<ul  style="margin: 0;"><li>Linux 下分隔符为单斜杠，例如`/a/b/c.txt` </li><li>Windows  下分隔符为两个反斜杠，例如`E:\\a\\b\\c.txt`<br>如果填写的是目录，则会将该目录下的所有文件视为 urllist 文件去扫描迁移</li></ul>|
-
- 
-**3.3.6 配置 Bucket 相互复制 migrateBucketCopy**
-
-若从 COS 的一个指定 Bucket 迁移至另一个 Bucket，则进行该部分配置，具体配置项及说明如下：
->!发起迁移的账号，需具备源读权限、目的写权限。
-
-```plaintext
-# 从源 Bucket 迁移到目标 Bucket 配置分节
-[migrateBucketCopy]
-srcRegion=ap-shanghai
-srcBucketName=examplebucket-1250000000
-srcSecretId=COS_SECRETID
-srcSecretKey=COS_SECRETKEY
-srcCosPath=/
-```
-
-| 配置项 | 描述 |
-| ------| ------ |
-|srcRegion|源 Bucket 的 Region 信息，请参照 [可用地域](https://cloud.tencent.com/document/product/436/6224)|
-|srcBucketName|源 Bucket 的名称，命名格式为 `<BucketName-APPID>`，即 Bucket 名必须包含 APPID，例如 examplebucket-1250000000|
-|srcSecretId|源 Bucket 隶属的用户的密钥 SecretId，可在 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 查看。如果是同一用户的数据，则 srcSecretId 和 common 中的 SecretId 相同，否则是跨账号 Bucket 拷贝|
-|srcSecretKey|源 Bucket 隶属的用户的密钥 secret_key，可在 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 查看。如果是同一用户的数据，则 srcSecretKey 和 common 中的 secretKey 相同，否则是跨账号 Bucket 拷贝|
-|srcCosPath|要迁移的 COS 路径，表示该路径下的文件要迁移至目标 Bucket|
-
-**3.3.7 配置又拍云数据源 migrateUpyun**
-若从又拍云迁移至 COS，则进行该部分配置，具体配置项及说明如下：
-
-```plaintext
-[migrateUpyun]
-# 从又拍迁移
-bucket=xxx
-#又拍云操作员的 ID
-accessKeyId=xxx
-#又拍云操作员的密码     
-accessKeySecret=xxx       
-prefix=
-
-#又拍云 sdk 限制，这个 proxy 会被设置成全局的 proxy
-proxyHost=
-proxyPort=
-```
-
-| 配置项 | 描述 |
-| ------| ------ |
-|bucket|又拍云 USS Bucket 名称|
-|accessKeyId|替换为又拍云操作员的 ID|
-|accessKeySecret| 替换为又拍云操作员的密码|
-|prefix|要迁移的路径的前缀，如果是迁移 Bucket 下所有的数据，则 prefix 为空|
-|proxyHost|如果要使用代理进行访问，则填写代理 IP 地址|
-|proxyPort|代理的端口|
 
 ### 4. 运行迁移工具
 #### Windows
@@ -324,7 +175,7 @@ COS 迁移工具是有状态的，已经迁移成功的会记录在 db 目录下
 
 1. 读取配置文件，根据迁移 type，读取相应的配置分节，并执行参数的检查。
 2. 根据指定的迁移类型，扫描对比 db 下对所要迁移文件的标识，判断是否允许上传。
-3. 迁移执行过程中会打印执行结果，其中 inprogress 表示迁移中，skip 表示跳过，fail 表示失败，ok 表示成功， condition_not_match 表示因为表示因不满足迁移条件而跳过的文件（如 lastmodifed 和 excludes）。失败的详细信息可以在 log 的 error 日志中查看。执行过程示意图如下图所示：
+3. 迁移执行过程中会打印执行结果，其中 inprogress 表示迁移中，skip 表示跳过，fail 表示失败，ok 表示成功， condition_not_match 表示因不满足迁移条件而跳过的文件（如 lastmodifed 和 excludes）。失败的详细信息可以在 log 的 error 日志中查看。执行过程示意图如下图所示：
  ![](https://main.qcloudimg.com/raw/7561d07ea315c9bacbb228b36d6ad6d6.png)
 4. 整个迁移结束后会打印统计信息，包括累积的迁移成功量，失败量，跳过量，耗时。对于失败的情况，请查看 error 日志，或重新运行，因为迁移工具会跳过已迁移成功的，对未成功的会重新迁移。运行完成结果示意图如下图所示：
 ![](https://main.qcloudimg.com/raw/2534fd390218db29bb03f301ed2620c8.png)

@@ -1,5 +1,6 @@
 格式：输入（选择指定产品和设备所产生的消息）-> 过滤/计算（采用表达式对消息进行判断）-> 输出（处理过后的消息输出到数据源），其中 lua 脚本中的 \_filter 代表一条流计算对象。
 
+
 例如：
 ``` 
 fn = function(result)
@@ -102,7 +103,7 @@ _filter:input("AVH61RXGPP",{"device01"},{"ProductID","DeviceName","Timestamp","2
 | ------ | ------ |
 |result | 处理结果，userdata 类型 |
 
-### 连续小于比较函数
+### 结果合并函数
 \_filter:merge(result1,result2)
 输入参数：
 

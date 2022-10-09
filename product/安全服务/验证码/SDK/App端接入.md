@@ -1,21 +1,24 @@
-
-
-
-
 ## 前提条件
-接入验证码前，进入[图形验证](https://console.cloud.tencent.com/captcha/graphical)  页完成新建验证。可在**验证列表**查看 验证码接入所需的 CaptchaAppId 及 AppSecretKey。
-![](https://main.qcloudimg.com/raw/a15105526bbcf8c0b51b5cdafeefb92c.png)
+
+客户端接入前，需完成新建验证，并在**验证列表**获取所需的 CaptchaAppId 以及 AppSecretKey。步骤如下：
+
+1. 登录 [验证码控制台](https://console.cloud.tencent.com/captcha/graphical) ，左侧导航栏选择**图形验证** > **验证管理**，进入验证管理页面。
+2. 单击**新建验证**，根据业务场景需求，设置验证名称、客户端类型、验证方式等参数。
+3. 单击**确定**，完成新建验证，即可在验证列表中查看验证码 CaptchaAppId 及 AppSecretKey。
 
 ## 接入步骤
-以下为 App 端接入流程，适用于每次都需要进行人机验证的场景（如登录、注册、下发短信、活动等），App（iOS 和 Android） 皆使用 Web 前端 H5 方式进行接入。
+> !App 客户端（Android/iOS）当前仅支持通过 Webview 引入 H5页面进行接入。
+>
 
 ### Android 接入
-#### **Android 接入主要流程如下：**
-1. 在 Android 端利用 WebView 加载，需要接入滑动验证码组件的页面。
-2. 通过 JS 调用代码，并把验证码 SDK 返回的参数值传到 Android App 的业务端。
-3. Android 代码中获取票据后，把相关数据传入业务侧后端服务进行验证。
+#### **Android 接入主要流程**
+<dx-steps>
+-在 Android 端利用 WebView 引入 H5页面。H5 页面接入验证码，详情请参见  [Web 客户端接入](https://cloud.tencent.com/document/product/1110/36841)。
+- 在 H5 页面中，通过调用验证码 JS，渲染验证页面，并将 JS 返回的参数值传到 Android App 业务端。
+-Android App 业务端把相关参数（票据 ticket、随机数等）传入业务侧后端服务进行票据验证，详情请参见 [接入票据校验(Web及App)](https://cloud.tencent.com/document/product/1110/75489)。
+</dx-steps>
 
-#### **Android 接入的详细操作步骤如下：**
+#### **Android 接入详细步骤**
 1. 在项目的工程中，新建一个 Activity 并导入 WebView 组件所需的包。
 ```
 import android.webkit.WebView;
@@ -81,63 +84,22 @@ webview.loadUrl("https://x.x.x/x/");
 }
 }
 ```
-6. 在 H5 业务页面中，集成验证码 SDK，并通过 JS 调用 SDK 获取验证码相关数据，最后使用 JSBridge 传回数据给具体业务端。
->!如需隐藏验证码帮助按钮等功能，请参见 [Web 前端接入](https://cloud.tencent.com/document/product/1110/36841) 文档。
->
-```
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web 前端接入示例</title>
-    <!-- 验证码程序依赖(必须)。请勿修改以下程序依赖，如使用本地缓存，或通过其他手段规避加载，会影响程序的正常使用。 -->
-    <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
-</head>
-
-<body>
-    <!--点击此元素会自动激活验证码, 此例使用的button元素, 也可以使用div、span等-->
-    <!--id :            (不可变) 元素的 ID, 值必须是 'TencentCaptcha'-->
-    <!--data-appid :    (必须) 验证码CaptchaAppId, 从腾讯云的验证码控制台中获取, 验证码控制台页面内【图形验证】>【验证列表】进行查看 。如果未新建验证，请根据业务需求选择适合的验证渠道、验证场景进行新建-->
-    <!--data-cbfn :     (必须) 回调函数名, 函数名要与 data-cbfn 相同-->
-    <!--data-biz-state :(可选) 业务自定义透传参数, 会在回调函数内获取到 （res.bizState）-->
-    <button id="TencentCaptcha" data-appid="你的验证码CaptchaAppId" data-cbfn="callbackName" data-biz-state="data-biz-state"
-        type="button">验证</button>
-</body>
-
-<script>
-    // 回调函数需要放在全局对象window下
-    window.callbackName = function (res) {
-        // 返回结果
-        // ret         Int       验证结果，0：验证成功。2：用户主动关闭验证码。
-        // ticket	  String	验证成功的票据，当且仅当 ret = 0 时 ticket 有值。
-        // CaptchaAppId	   String	验证码应用ID。
-        // bizState	Any	   自定义透传参数。
-        // randstr	 String	本次验证的随机串，请求后台接口时需带上。
-        console.log('callback:', res);
-
-
-        // res（用户主动关闭验证码）= {ret: 2, ticket: null}
-        // res（验证成功） = {ret: 0, ticket: "String", randstr: "String"}
-        if (res.ret === 0) {
-                // 获取票据、随机数并调用App端注入的方法传入票据、随机数，进行后台票据校验
-                var result = { randstr:res.randstr, ticket:res.ticket };
-                window.jsBridge.getData(JSON.stringify(result));
-        }
-    }
-</script>
-</html>
-```
+6. 在 H5 业务页面中接入验证码，详情请参见 [Web 客户端接入](https://cloud.tencent.com/document/product/1110/36841) 文档，并使用 JSBridge 传回验证数据给具体业务端。
+> !业务客户端完成验证码接入后，服务端需二次核查验证码票据结果（未接入票据校验，会导致黑产轻易伪造验证结果，失去验证码人机对抗效果），详情参见 [接入票据校验 （Web 及 App）](https://cloud.tencent.com/document/product/1110/75489)。
 
 
 ### iOS 接入
-#### **iOS 接入主要流程如下：**
-1. 在 iOS 中打开 WebView，通过 JSBridge 触发 HTML 页面 ，同时注入方法，供 HTML 调用传入票据结果。
-2. 在 HTML 页面中，接入示例代码，滑动验证码后，需要在回调函数中判断票据，并调用 iOS 注入的方法传入票据结果。
-3. 需要回调数据通过 JSBridge 返回到 iOS，需要把票据传入业务侧后端服务。
 
-#### **iOS 接入的详细操作步骤如下：**
+#### **iOS 接入主要流程**
+
+<dx-steps>
+-在 iOS 中打开 WebView，通过 JSBridge 触发 HTML 页面 ，同时注入方法，供 HTML 调用传入验证结果。
+-在 HTML 页面中接入验证码，详细请参见 [Web 客户端接入](https://cloud.tencent.com/document/product/1110/36841)，通过调用验证码 JS，渲染验证页面，并调用 iOS 注入的方法传入验证结果。
+- 通过 JSBridge 将验证结果返回到 iOS，并把相关参数（票据 ticket、随机数等）传入业务侧后端服务进行票据验证，详情请参见 [接入票据校验(Web及App)](https://cloud.tencent.com/document/product/1110/75489)。
+</dx-steps>
+
+
+#### **iOS 接入的详细操作步骤**
 1. 在控制器或 view 中导入 WebKit 库。
 ```
 #import <WebKit/WebKit.h>
@@ -208,11 +170,9 @@ window.webkit.messageHandlers.jsToOcWithPrams.postMessage({"params":"res.randstr
 }
 ```
 5. 将渲染好的 WebView 展示在视图上，调用验证码服务，将数据传给客户端。
->!如需隐藏验证码帮助按钮等功能，请参见 [Web 前端接入](https://cloud.tencent.com/document/product/1110/36841#.E9.85.8D.E7.BD.AE.E5.8F.82.E6.95.B0) 文档。
->
 ```
 -(void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message{
-此处message.body即传给客户端的json数据
+//此处message.body即传给客户端的json数据
 //用message.body获得JS传出的参数体
 NSDictionary * parameter = message.body;
 //JS调用OC
@@ -222,30 +182,12 @@ parameter[@"params"]
 }
 }
 ```
->!验证码客户端接入完成后，验证码后台需二次核查验证码票据结果，请进行 [后台 API 接入](https://console.cloud.tencent.com/api/explorer?Product=captcha&Version=2019-07-22&Action=DescribeCaptchaResult&SignVersion=) 操作，确保验证安全性。更多详情请参见 [核查验证码票据文档](https://cloud.tencent.com/document/product/1110/36926) 。
+> !业务客户端完成验证码接入后，服务端需二次核查验证码票据结果（未接入票据校验，会导致黑产轻易伪造验证结果，失去验证码人机对抗效果），详情请参见 [接入票据校验（Web 及 App）](https://cloud.tencent.com/document/product/1110/75489)。
 
+## 常见问题
 
-## 热点问题
-#### Android 使用 Web 前端 H5 方式进行接入，调试过程中先弹出空白背景，后弹出验证码页面如何调整？
-- 调试过程中，正常情况下会首先调起 webview 加载网页，然后弹出验证码页面。
-- 如果出现先弹出空白背景，后弹出图形验证页面的现象。形成原因如下：
-    - 加载验证码 js 的时间导致白屏。
-    - 空白层形成原因是页面没有内容时，加载的 webview 就显示出来，需要等待 ready 事件触发后再进行 webview 展示。
-- 因此，Android 需要先加载页面但不进行展示，等待 ready 回调后，再通知 Android 进行展示。ready 配置说明，请参见 [Web 前端接入-配置参数](https://cloud.tencent.com/document/product/1110/36841#.3Ca-id.3D.22pzcs.22.3E.E9.85.8D.E7.BD.AE.E5.8F.82.E6.95.B0.3C.2Fa.3E) 文档。
-```
-options={ready: function(size){
-  // 与Android通信
-}}
-new TencentCaptcha(appId, callback, options);
-```
-
-####  App 端接入验证码显示不完整如何调整？
-验证码根据容器宽高进行居中显示，验证码显示不完整可能由于容器本身设置较宽，导致展示的验证码被截断，该情况需要对客户端的弹框进行调整。此外随意加载其他 webview 都可能会出现截断的情况。
-
-####  验证码是否支持使用 uni-app 原生插件进行接入？
-验证码 App 端（iOS 和 Android）皆使用 Web 前端 H5 方式进行接入，暂不支持使用 uni-app 原生插件进行接入。
-
+详情参见 [接入相关问题](https://cloud.tencent.com/document/product/1110/36828)。
 
 ## 更多信息
-您可以登录 [验证码控制台](https://console.cloud.tencent.com/captcha/graphical) ，在页面右上角单击**快速咨询**，了解更多详细信息。
 
+您可以登录 [验证码控制台](https://console.cloud.tencent.com/captcha/graphical) ，在页面右上角单击**快速咨询**，了解更多详细信息。

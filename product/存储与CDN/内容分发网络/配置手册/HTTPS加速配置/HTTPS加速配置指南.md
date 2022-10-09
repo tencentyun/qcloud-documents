@@ -4,6 +4,10 @@
 
 ## 配置指南
 
+### 配置须知
+
+配置过程中，若您需要了解证书和密钥的格式要求以及如何补齐证书链，请参考  [HTTPS 配置须知](https://cloud.tencent.com/document/product/228/41686)  的相关内容。
+
 ### 查看配置
 
 登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，在菜单栏里选择**域名管理**，单击域名右侧**管理**，即可进入域名配置页面 **Https 配置**中，查看指定域名的 HTTPS 配置情况：

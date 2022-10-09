@@ -1,4 +1,97 @@
 
+## 2022年07月
+
+<table>
+	<tr>
+		<th width=20%>动态名称</th>
+    <th width=44%>动态描述</th>
+    <th width=16%>发布时间</th>
+    <th width=20%>相关文档</th>
+	</tr>
+	<tr>
+        <td>SDK 1.3.5.0 版本发布</td>
+	<td>
+		<li>修复：调整荣耀手机选择执行厂商通道的策略</li>
+		<li>优化：改善 SDK 内部通信机制，提高通信效率</li>
+		<li>优化：调整 SDK 内部上报机制，节省流量消耗</li>
+		</td>
+        <td>2022-07-06</td><td>
+		<li><a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</a></li>
+		<li><a href="https://cloud.tencent.com/document/product/548/56364">Android SDK 升级指南</a></li>
+</td>
+    </tr>
+<tr>
+</table>
+
+## 2022年06月
+
+<table>
+	<tr>
+		<th width=20%>动态名称</th>
+    <th width=44%>动态描述</th>
+    <th width=16%>发布时间</th>
+    <th width=20%>相关文档</th>
+	</tr>
+	<tr>
+        <td>SDK 1.3.4.3 版本发布</td>
+	<td>
+		<li>新增：新增接口 XGPushConfig.enableAutoStart 配置是否开启自启动，默认关闭</li>
+		</td>
+        <td>2022-06-07</td><td>
+		<li><a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</a></li>
+		<li><a href="https://cloud.tencent.com/document/product/548/56364">Android SDK 升级指南</a></li>
+</td>
+    </tr>
+<tr>
+</table>
+
+## 2022年05月
+
+<table>
+	<tr>
+		<th width=20%>动态名称</th>
+    <th width=44%>动态描述</th>
+    <th width=16%>发布时间</th>
+    <th width=20%>相关文档</th>
+	</tr>
+	<tr>
+        <td>SDK 1.3.4.1 版本发布</td>
+	<td>
+		<li>新增：支持在 meta-data 中的默认通知小图标配置</li>
+		<li>优化：调整使用显示 PendingIntent</li>
+		<li>修复：不再判断设备是否存在光线传感器</li>
+		<li>修复：其他已知问题</li>
+		</td>
+        <td>2022-05-31</td><td>
+		<li><a href="https://cloud.tencent.com/document/product/548/56364">Android SDK 升级指南</a></li>
+</td>
+    </tr>
+<tr>
+</table>
+
+## 2022年04月
+
+<table>
+	<tr>
+		<th width=20%>动态名称</th>
+    <th width=44%>动态描述</th>
+    <th width=16%>发布时间</th>
+    <th width=20%>相关文档</th>
+	</tr>
+	<tr>
+        <td>SDK 1.3.3.3 版本发布</td>
+	<td>
+		<li>优化：支持搭载 EMUI 系统的设备使用华为推送通道</li>
+		<li>修复：偶现长连接重试时间间隔不准确的问题</li>
+		<li>新增：支持荣耀厂商推送通道，请参考文档<a href="https://cloud.tencent.com/document/product/548/74465">荣耀通道接入 SDK</a></li>
+		</td>
+        <td>2022-04-25</td><td>
+		<a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</a>
+</td>
+    </tr>
+<tr>
+</table>
+
 ## 2022年02月
 
 <table>
@@ -11,16 +104,14 @@
 	<tr>
         <td>SDK 1.3.2.0 版本发布</td>
 	<td>
-		<li>优化：升级小米推送 SDK 4.9.1</li>
-		<li>优化：升级 vivo 推送 SDK 3.0.0.4</li>
-		<li>优化：升级魅族推送SDK 4.1.0</li>
-		<li>优化：升级 OPPO 推送 SDK 3.0.0</li>
+		<li>优化：升级封装的小米、魅族、OPPO、vivo 厂商推送 SDK 版本</li>
 		<li>新增：提供接口方便在推送目标页面内获取随推送下发的自定义参数 customContent</li>
 		<li> 修复：其他已知问题</li>
 		</td>
         <td>2022-02-23</td><td>
 		<li><a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</a></li>
 		<li>获取随推送下发的 custom_content 请参见 <a href="https://cloud.tencent.com/document/product/548/48572#.E5.AE.A2.E6.88.B7.E7.AB.AF.E8.8E.B7.E5.8F.96.E5.8F.82.E6.95.B0">通知点击跳转 > 客户端获取参数</a></li>
+		<li><a href="https://cloud.tencent.com/document/product/548/56364">Android SDK 升级指南</a></li>
 </td>
     </tr>
 <tr>
@@ -102,7 +193,7 @@
 	</tr>
 	<tr>
         <td>SDK 1.2.6.0 版本发布</td><td><li> 新增：接口调用 API 支持限频
-<li>  新增：FCM 前台通知、TPNS 本地通知支持通知渠道配置
+<li>  新增：FCM 前台通知、移动推送本地通知支持通知渠道配置
 <li>  优化：优化长连接重连策略
 <li>  优化：优化日活，启动上报
 <li>  优化：SDK 日志放置在隐藏目录下
@@ -191,7 +282,7 @@
 </tr>
 <tr>
         <td>SDK 1.2.2.0 版本发布</td>
-       <td><li> 优化：统一账号、标签操作接口命名<li> 优化：优化 SDK 内部错误码上报<li> 优化：FCM 通道协议升级，FCM 通道通知弹出支持 FCM 系统接管<li> 新增：支持 TPNS 通道通知小图标染色<li> 新增：网络通信支持 GZIP 压缩<li>修复：多线程环境下可能出现的 Service 解绑异常</td>
+       <td><li> 优化：统一账号、标签操作接口命名<li> 优化：优化 SDK 内部错误码上报<li> 优化：FCM 通道协议升级，FCM 通道通知弹出支持 FCM 系统接管<li> 新增：支持移动推送自建通道通知小图标染色<li> 新增：网络通信支持 GZIP 压缩<li>修复：多线程环境下可能出现的 Service 解绑异常</td>
         <td>2020-11-26</td>
         <td>-</td>
     </tr>

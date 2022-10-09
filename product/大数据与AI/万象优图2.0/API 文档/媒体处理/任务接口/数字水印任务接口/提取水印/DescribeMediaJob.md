@@ -14,8 +14,11 @@ Authorization: <Auth String>
 
 ```
 
->? Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
->
+
+>? 
+> - Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+> - 通过子账号使用时，需要授予相关的权限，详情请参见 [授权粒度详情](https://cloud.tencent.com/document/product/460/41741) 文档。
+> 
 
 
 #### 请求头
@@ -99,14 +102,10 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzh****=
       <Object>test.mp4</Object>
     </Input>
     <Operation>
-      <Output>
-        <Region>ap-beijing</Region>
-        <Bucket>abc-1250000000</Bucket>
-        <Object>watermark.jpg</Object>
-      </Output>
       <ExtractDigitalWatermark>
-        <Type>Image</Type>
-        <Version>1.0</Version>
+        <Type>Text</Type>
+        <Message>123456789ab</Message>
+        <Version>V1</Version>
       </ExtractDigitalWatermark> 
     </Operation>
   </JobsDetail>

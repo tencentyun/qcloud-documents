@@ -182,7 +182,7 @@ copyrightedMedia.preloadMusic(String musicId, String bitrateDefinition, String p
 </tr><tr>
 <td>bitrateDefinition</td>
 <td>String</td>
-<td>码率描述（audio/mi：64，audio/lo：128，audio/hi：320）</td>
+<td>码率描述，从服务器歌曲详情获取（audio/mi：代表64kbps码率，audio/lo：代表128kbps码率，audio/hi：代表320kbps码率）</td>
 </tr><tr>
 <td>playToken</td>
 <td>String</td>
@@ -261,7 +261,7 @@ copyrightedMedia.cancelPreloadMusic(String musicId, String bitrateDefinition);
 </tr><tr>
 <td>bitrateDefinition</td>
 <td>String</td>
-<td>码率描述（audio/mi：64，audio/lo：128，audio/hi：320）</td>
+<td>码率描述，从服务器歌曲详情获取（audio/mi：代表64kbps码率，audio/lo：代表128kbps码率，audio/hi：代表320kbps码率）</td>
 </tr>
 </tbody></table>
 - **检测是否已预加载 Music 数据**
@@ -278,7 +278,7 @@ boolean isPreloaded = copyrightedMedia.isMusicPreloaded(String musicId, String b
 </tr><tr>
 <td>bitrateDefinition</td>
 <td>String</td>
-<td>码率描述（audio/mi：64，audio/lo：128，audio/hi：320）</td>
+<td>码率描述，从服务器歌曲详情获取（audio/mi：代表64kbps码率，audio/lo：代表128kbps码率，audio/hi：代表320kbps码率）</td>
 </tr>
 </tbody></table>
 - **生成 Music URI**
@@ -300,7 +300,7 @@ String MusicUri = TXCopyrightedMedia.genMusicURI(String musicId，int musicType,
 </tr><tr>
 <td>bitrateDefinition</td>
 <td>String</td>
-<td>码率描述（audio/mi：64，audio/lo：128，audio/hi：320）</td>
+<td>码率描述，从服务器歌曲详情获取（audio/mi：代表64kbps码率，audio/lo：代表128kbps码率，audio/hi：代表320kbps码率）</td>
 </tr>
 </tbody></table>
 返回说明：
@@ -383,20 +383,23 @@ void startPlayMusic(){
       new TXAudioEffectManager.AudioMusicParam(originMusicId, origintUri);
     TXAudioEffectManager.AudioMusicParam accompMusicParam = 
       new TXAudioEffectManager.AudioMusicParam(accompMusicId, accompUri);
+  
+   TXAudioEffectManager audioEffectManager = 
+      TRTCCloud.sharedInstance(this).getAudioEffectManager();
     // 播放原唱和伴奏
-    TRTCCloud.sharedInstance(this).startPlayMusic(originMusicParam);
-    TRTCCloud.sharedInstance(this).startPlayMusic(accompMusicParam);
+    audioEffectManager.startPlayMusic(originMusicParam);
+    audioEffectManager.startPlayMusic(accompMusicParam);
   
     //调用以下代码会播放并上行伴奏：
-    TXAudioEffectManager.setMusicPlayoutVolume(originMusicId,0);
-    TXAudioEffectManager.setMusicPlayoutVolume(accompMusicId,100);
-    TXAudioEffectManager.setMusicPublishVolume(originMusicId,0);
-    TXAudioEffectManager.setMusicPublishVolume(accompMusicId,100);
+    audioEffectManager.setMusicPlayoutVolume(originMusicId,0);
+    audioEffectManager.setMusicPlayoutVolume(accompMusicId,100);
+    audioEffectManager.setMusicPublishVolume(originMusicId,0);
+    audioEffectManager.setMusicPublishVolume(accompMusicId,100);
 
     //调用以下代码会播放并上行原唱：
-    TXAudioEffectManager.setMusicPlayoutVolume(originMusicId,100);
-    TXAudioEffectManager.setMusicPlayoutVolume(accompMusicId,0);
-    TXAudioEffectManager.setMusicPublishVolume(originMusicId,100);
-    TXAudioEffectManager.setMusicPublishVolume(accompMusicId,0);
+    audioEffectManager.setMusicPlayoutVolume(originMusicId,100);
+    audioEffectManager.setMusicPlayoutVolume(accompMusicId,0);
+    audioEffectManager.setMusicPublishVolume(originMusicId,100);
+    audioEffectManager.setMusicPublishVolume(accompMusicId,0);
 }
 ```

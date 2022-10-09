@@ -151,6 +151,8 @@ ip rule add from 192.168.1.62 table 20     #IP 请替换为辅助网卡上的 IP
 7. 配置完成后，可用同一个子网下的 CVM，来 Ping 内网地址，能 Ping 通即说明配置成功。如无其他 CVM，可以给辅助网卡的内网 IP 绑定公网 IP，Ping 该公网 IP 来验证。
 
 ## Ubuntu 云服务器 配置弹性网卡[](id:ubuntu)
+>?以 ubuntu 16.04举例。
+>
 1. 以管理员身份[ 登录云服务器](https://cloud.tencent.com/document/product/213/35700)，执行如下命令，查看需配置（未显示 IP）的网卡信息，如图所示，需配置的网卡名称为 `eth1`：
 ```plaintext
 ip addr

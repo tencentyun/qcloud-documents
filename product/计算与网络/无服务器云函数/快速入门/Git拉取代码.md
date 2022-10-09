@@ -19,19 +19,19 @@
 **密码：**Git 帐户的私人令牌或者密码。
 
 #### 获取 Github 私人令牌
-1. 进入 [Github tokens](https://github.com/settings/tokens) 页面，勾选 repo 获取仓库的读/写权限。如下图所示：
+1. 进入 [Github tokens](https://github.com/settings/tokens) 页面，勾选 repo 获取仓库的读/写权限。如下图所示： 
 ![](https://main.qcloudimg.com/raw/6e12bcb45bbd998d80440a0e0849f035.png)
 2. 单击页面下方的**Generate token**，即可看到生成的私人令牌。
 
 [](id:coding)
 ### Coding 认证信息
-**用户名：** 登录 Coding 并进入个人首页，记录浏览器地址栏 `/u/` 后的内容作为用户名。如下图所示：
+**用户名：** 登录 Coding 并进入个人首页，记录浏览器地址栏 `/u/` 后的内容作为用户名。如下图所示： 
 ![](https://main.qcloudimg.com/raw/966071a6c017ae3ca337cfed7b302f77.png)
 **密码：**Coding 帐户的私人令牌。
 
 #### 获取 Coding 私人令牌
-请参考 [Coding 私人令牌](https://open.coding.net/personal-access-token/#%E5%88%9B%E5%BB%BA%E4%B8%AA%E4%BA%BA%E8%AE%BF%E9%97%AE%E4%BB%A4%E7%89%8C) 文档获取。 
-设置令牌时，请勾选 `project:depot` 获取仓库的读/写权限。如下图所示：
+请参考 [Coding 私人令牌](https://open.coding.net/personal-access-token/#%E5%88%9B%E5%BB%BA%E4%B8%AA%E4%BA%BA%E8%AE%BF%E9%97%AE%E4%BB%A4%E7%89%8C) 文档获取。   
+设置令牌时，请勾选 `project:depot` 获取仓库的读/写权限。如下图所示： 
 ![](https://main.qcloudimg.com/raw/2a221caac37be9b91767c8ef1065371a.png)
 
 [](id:yun)
@@ -41,16 +41,16 @@
 
 #### 获取码云私人令牌
 1. 进入 [码云私人令牌设置](https://gitee.com/profile/personal_access_tokens) 页面，单击页面右上角的**生成私人令牌**。
-2. 在私人令牌配置页面，勾选 `projects` 后单击**提交**，即可在弹出页面看到生成的私人令牌。如下图所示：
+2. 在私人令牌配置页面，勾选 `projects` 后单击**提交**，即可在弹出页面看到生成的私人令牌。如下图所示： 
 ![](https://main.qcloudimg.com/raw/4ecc29dd0cc3b3a5137f92bd90b84813.png)
 
 ## 操作步骤
 1.登录 [SCF 控制台](https://console.cloud.tencent.com/scf/index)，选择**广州**。
 >!Git 拉取代码功能目前仅支持**北京**和**广州**。
 >
-2. 选择左侧导航栏**函数服务**，单击**新建**。如下图所示：
+2. 选择左侧导航栏**函数服务**，单击**新建**。如下图所示： 
 ![](https://main.qcloudimg.com/raw/3edbe1d2a74e21a2800bd21b08741f50.png)
-3. 在“新建函数”页面，填写函数信息，单击**下一步**。如下图所示：
+3. 在“新建函数”页面，填写函数信息，单击**下一步**。如下图所示： 
  - **函数类型**：选择“事件”。
  - **函数名称**：可根据您的实际需求填写，本文以 “hello” 为例。
  - **运行环境**：选择 “Node.js 8.9”。

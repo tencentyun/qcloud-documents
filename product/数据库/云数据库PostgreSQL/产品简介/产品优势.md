@@ -2,7 +2,7 @@
 ## 功能强大
 过去的几年，PostgreSQL 已成为商用的首选开源关系数据库。
 
-- PostgreSQL 遵循 BSD 协议，这意味着使用 PostgreSQL 无任何限制。
+- PostgreSQL 基于 PostgreSQL License 完全开源，类似于 BSD 与 MIT 开源协议。可用于众多商业用途，分发以及基于 PostgreSQL 进行二次开发。这意味着使用 PostgreSQL 没有限制。
 - 可支持 C、C++、Java、PHP、Python 及 Perl 等，使您的业务开发更简单更易用。
 - PostgreSQL 是架构、语法、数据类型等与 Oracle 最接近的开源数据库。
 - 兼容 SQL 标准：SQL2003，支持 SQL2011 的主要特性。

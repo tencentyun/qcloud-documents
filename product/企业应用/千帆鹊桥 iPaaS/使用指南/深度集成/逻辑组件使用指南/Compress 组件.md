@@ -1,6 +1,6 @@
 
 ## 简介
-iPaaS Compress 组件可对数据进行压缩和解压，支持的压缩和解压方式有：DEFLATE、GZIP、ZLIB。
+Compress 组件可对数据进行压缩和解压，支持的压缩和解压方式有：DEFLATE、GZIP、ZLIB。
 
 ## 操作说明
 ### 压缩操作

@@ -6,7 +6,7 @@
 
 ### 1. 软件配置
 **地域**：地域（Region）是指物理的数据中心的地理区域，支持地域有：广州、上海、北京、新加坡、硅谷、成都、南京、孟买等；不同地域的云产品之间内网不互通。
-**集群类型**：EMR 目前支持五种集群部署方式，分别为 Hadoop 集群、ClickHouse 集群、Druid 集群、Doris 集群、Kafka 集群；需根据实际业务需要选择集群类型进行部署。
+**集群类型**：EMR 目前支持六种集群部署方式，分别为 Hadoop 集群、ClickHouse 集群、Druid 集群、Doris 集群、Kafka 集群、StarRocks 集群；需根据实际业务需要选择集群类型进行部署。
 **应用场景**：基于 Hadoop 集群类型支持五种应用场景，分别为：默认场景、zookeeper、HBase、Presto、Kudu；根据实际业务需要选择相应的应用场景进行部署。
 **产品版本和部署组件**：EMR 推荐了一些常用的 Hadoop 组件搭配，您也可以根据自身需求组合各组件。
 **Kerberos 安全集群**：是否开启集群的 Kerberos 认证功能，一般的个人用户集群无需该功能，默认关闭。
@@ -17,19 +17,21 @@
 **计费模式**：支持包年包月和按量计费两种模式。
 - 包年包月：提前预付 N 个月的产品费用，相比按量付费价格更低。
 - 按量计费：按照使用时长付费，需对账户进行实名认证，在开通时需冻结1小时的费用（代金券不可用作冻结凭证），销毁时退还冻结资源费用。
+
 **可用区**：同一地域下不同可用区支持机型规格不同，建议选择最新可用区；处在不同地域的云产品内网不通，购买后不能更换。建议选择靠近业务数据的地域可用区，以降低访问延迟、提高下载速度。
 **集群网络**：为保证EMR集群的安全性，我们会将集群各节点放入一个私有网络中，您需要设置一个私有网络以保证 EMR 集群的正确创建。
 **安全组**：安全组具有防火墙功能，用于设置云服务器 CVM 的网络访问控制。如果没有安全组，EMR 会自动帮您新建一个安全组。若已经有在使用的安全组可以直接选择使用。若安全组数量已达到上限无法新建，可删除部分不再使用的安全组。查看已在使用的安全组。
 - 创建安全组：EMR 帮助用户创建一个安全组，开启22和30001端口及必要的内网通信网段。
 - 已有EMR安全组：选择已创建的 EMR 安全组作为当前实例的安全组，开启22和30001端口及必要的内网通信网段。
+
 **远程登录**：22端口常用于远程登录，新建安全组将默认开启，您可以根据业务需要关闭该端口。
-高可用（HA）：默认启动高可用，不同集群类型和应用场景在 HA 或非 HA 场景下，不同节点类型部署数量不同，详见：集群类型。
-节点配置：EMR提供了多种节点类型，可以根据业务需要为不同节点类型选择合适机型配置。
+高可用（HA）：默认启动高可用，不同集群类型和应用场景在 HA 或非 HA 场景下，不同节点类型部署数量不同，详见 [集群类型](https://cloud.tencent.com/document/product/589/14624)。
+**节点配置**：EMR提供了多种节点类型，可以根据业务需要为不同节点类型选择合适机型配置。
 
 >?目前支持 Core 节点、Task 节点和 Router 节点挂载多种云盘类型（每种云盘类型最多只能选择1次）和多块云盘（最多15块）。
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/84be2a0af0c645d5b40c7d188d6a681a.png)
-![](https://qcloudimg.tencent-cloud.cn/raw/7e73d3fda1e98a890506e7bfefb88a45.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/04fd650c32541d90a1fbd7b47cca9ed9.png)
 ![](https://qcloudimg.tencent-cloud.cn/raw/fd90ac61f4f3b428e9ff51c2e243c76e.png)
 
 **置放群组**：放置群组是云服务器实例在底层硬件上分布放置的策略，可参考 置放群组。
@@ -39,8 +41,9 @@
 **所属项目**：将当前集群分配给不同的项目组，如果您要将实例分配至新的项目，请先新建项目。具体操作请参考新建项目
 **集群名称**：通过设置集群名称，来区分不同的EMR集群。
 **登录方式**：目前 EMR 提供两种登录集群服务、节点、MetaDB 的方式，自定义设置密码方式和关联密钥方式；SSH 密钥仅用于 EMR-UI 快捷入口登录。其中，用户名默认为“root”，superset 组件 webUI 快捷入口的用户名为“admin”。
-**添加引导操作**：引导脚本操作方便您在创建集群的过程中执行自定义脚本，以便您修改集群环境、安装第三方软件和使用自有数据。
-**标签**：您在创建时对集群或节点资源添加标签，以便于管理集群和节点资源，最多可绑定5条，标签键不可重复。
+**高级设置**：
+- **引导操作**：引导脚本操作方便您在创建集群的过程中执行自定义脚本，以便您修改集群环境、安装第三方软件和使用自有数据。
+- **标签**：您在创建时对集群或节点资源添加标签，以便于管理集群和节点资源，最多可绑定5条，标签键不可重复。
 ![](https://qcloudimg.tencent-cloud.cn/raw/facb574907c2a6649e4f39997788eb76.png)
 
 ### 4. 确认配置信息
@@ -48,10 +51,10 @@
 完成以上配置后，单击购买进行支付，支付成功后EMR集群进入创建过程，大约10分钟后即可在EMR控制台中找到新建的集群。
 ![](https://qcloudimg.tencent-cloud.cn/raw/e2b880720188bd9aaf796590e63ac123.png)
 
->! 您可以在 CVM 控制台中查看各节点的实例信息，为保证EMR集群的正常运行，请不要在 CVM 控制台中更改这些实例的配置信息。
+>! 您可以在 CVM 控制台中查看各节点的实例信息，为保证 EMR 集群的正常运行，请不要在 CVM 控制台中更改这些实例的配置信息。
 
 ### 后续步骤
 集群创建成功后，您可根据自身情况登录集群后，对集群进行进一步的配置等操作，具体操作可参考如下文档：
-- [登录集群](https://tcloud-doc.isd.com/document/product/589/34358)
-- **配置集群**：[软件配置](https://tcloud-doc.isd.com/document/product/589/35655)、[挂载 CHDFS](https://tcloud-doc.isd.com/document/product/589/40541)、[统一 HIVE 元数据](https://tcloud-doc.isd.com/document/product/589/44835)
-- **管理集群**：[设置标签](https://tcloud-doc.isd.com/document/product/589/39085)、[设置引导操作](https://tcloud-doc.isd.com/document/product/589/35656)、[集群销毁](https://tcloud-doc.isd.com/document/product/589/34370)
+- [登录集群](https://cloud.tencent.com/document/product/589/34358)
+- **配置集群**：[软件配置](https://cloud.tencent.com/document/product/589/35655)、[挂载 CHDFS](https://cloud.tencent.com/document/product/589/40541)、[统一 HIVE 元数据](https://cloud.tencent.com/document/product/589/44835)
+- **管理集群**：[设置标签](https://cloud.tencent.com/document/product/589/39085)、[设置引导操作](https://cloud.tencent.com/document/product/589/35656)、[集群销毁](https://cloud.tencent.com/document/product/589/34370)

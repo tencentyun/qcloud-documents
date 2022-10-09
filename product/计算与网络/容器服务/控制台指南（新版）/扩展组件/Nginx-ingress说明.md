@@ -1,4 +1,4 @@
-## 简介
+## 简介 
 ### 组件介绍
 Nginx 可以用作反向代理、负载平衡器和 HTTP 缓存。Nginx-ingress 组件是使用 Nginx 作为反向代理和负载平衡器的 Kubernetes 的 Ingress 控制器。您可以部署 Nginx-ingress 组件，在集群中使用 Nginx-ingress。
 
@@ -14,7 +14,7 @@ Nginx 可以用作反向代理、负载平衡器和 HTTP 缓存。Nginx-ingress 
 | ingress-nginx-controller-hpa | HPA |  -| kube-system |
 
 ## 前提条件
-- Kubernetes 版本建议在1.12版本及以上。
+- Kubernetes 版本建议在1.16版本及以上。
 - 建议您使用 TKE [节点池功能](https://cloud.tencent.com/document/product/457/43719)。
 - 建议您使用 TKE 云原生监控功能。
 - 建议您使用 [腾讯云日志服务 CLS](https://cloud.tencent.com/document/product/614)。
@@ -24,7 +24,7 @@ Nginx 可以用作反向代理、负载平衡器和 HTTP 缓存。Nginx-ingress 
  
 
 ## 使用方法
-- [Nginx-ingress 概述](https://cloud.tencent.com/document/product/457/50502)
+- [Nginx-ingress 概述 ](https://cloud.tencent.com/document/product/457/50502)
 - [Nginx-ingress 安装](https://cloud.tencent.com/document/product/457/50503)
 - [使用 Nginx-ingress 对象接入集群外部流量 ](https://cloud.tencent.com/document/product/457/50504)
 - [Nginx-ingress 监控配置](https://cloud.tencent.com/document/product/457/50506)

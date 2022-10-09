@@ -10,9 +10,9 @@
 | **参数名称**    | **类型** | **必选** | **描述**                                                     |
 | --------------- | -------- | -------- | ------------------------------------------------------------ |
 |Content-Type|String|是|内容类型，传入格式必须为 application/json。|
-| X-TC-Action     | String   | 否       | 操作的接口名称。取值参考接口文档中输入参数公共参数 Action 的说明，例如云服务器的查询实例列表接口，取值为 DescribeInstances。 |
-| X-TC-Region     | String   | 否       | 地域参数，用来标识希望操作哪个地域的数据。接口接受的地域取值参考接口文档中输入参数公共参数 Region 的说明。<br>注意：某些接口不需要传递该参数，接口文档中会对此特别说明，此时即使传递该参数也不会生效。 |
-| X-TC-Timestamp  |  String   | 是       | 此参数参与签名计算。当前 UNIX 时间戳，可记录发起 API 请求的时间。例如1529223702，单位为秒。<br>注意：如果与服务器时间相差超过5分钟，会引起签名过期错误。 |
+| X-TC-Action | String| 否 |操作的接口名称。**注意：某些接口不需要传递该参数，接口文档中会对此特别说明，此时即使传递该参数也不会生效。** |
+| X-TC-Region | String| 否 |地域参数，用来标识希望操作哪个地域的数据。**注意：某些接口不需要传递该参数，接口文档中会对此特别说明，此时即使传递该参数也不会生效**。 |
+| X-TC-Timestamp  |  String   | 是       | 此参数参与签名计算。当前 UNIX 时间戳，可记录发起 API 请求的时间。例如1529223702，单位为秒。<br>**注意：如果与服务器时间相差超过5分钟，会引起签名过期错误。** |
 | X-TC-Nonce      |  String  | 是       | 此参数参与签名计算，随机正整数。                               |
 | X-TC-Version    | String   | 否       | 应用 App 的版本号，建议设置，以便灰度和查找问题。通过设置该字段，API 会把该版本信息传递给会议后台, 以控制一些和 App 版本有关的特性。 |
 | AccessToken      | String   | 是       | OAuth2.0 鉴权成功后返回的 token 信息。                            |
@@ -22,14 +22,16 @@
 >!构造请求头的时候，需注意自定义字段名的大小写。服务器端读取字段值时对大小写敏感。
 
 ## 授权方式
-下面将为您介绍 OAuth 2.0的授权步骤，**步骤中包含的接口均无需公共参数**，按照步骤中描述的请求参数调用接口即可。具体如下：
+下面将为您介绍 OAuth2.0 的授权步骤，按照步骤中描述的请求参数调用接口即可。具体如下：
+
 ### 步骤一：用户同意授权，获取 auth_code
 **接口描述**：用户同意授权。
 **接口请求方法**：GET
 **接口请求域名**：
 ```Plaintext
-https://meeting.tencent.com/authorize.html?corp_id={corpId}&sdk_id={sdkId}&redirect_uri={redirect_uri}&state={state}
+https://meeting.tencent.com/marketplace/authorize.html?corp_id={corpId}&sdk_id={sdkId}&redirect_uri={redirect_uri}&state={state}
 ```
+**Header 参数：**不需要。
 
 #### 输入参数 
 
@@ -77,6 +79,12 @@ https://meeting.tencent.com/wemeet-webapi/v2/oauth2/oauth/access_token
 ```
 
 >!由于授权的 secret 和获取到的 access_token 安全级别都非常高，必须只保存在服务器，不允许传给客户端。后续刷新 access_token、通过 access_token 获取用户信息等步骤时，也必须从服务器发起。
+
+**Header 参数：**统一放到 HTTP Header 请求头部中。
+
+| 参数名称| 类型 | 必选 |描述 |
+|---------|---------|---------|---------|
+| Content-Type | String | 是 |内容类型，传入格式必须为 application/json。 |
 
 
 #### 输入参数
@@ -138,6 +146,11 @@ https://meeting.tencent.com/wemeet-webapi/v2/oauth2/oauth/access_token
 ```Plaintext
 https://meeting.tencent.com/wemeet-webapi/v2/oauth2/oauth/refresh_token
 ```
+**Header 参数：**统一放到 HTTP Header 请求头部中。
+
+| 参数名称| 类型 | 必选 |描述 |
+|---------|---------|---------|---------|
+| Content-Type | String | 是 |内容类型，传入格式必须为 application/json。 |
 
 #### 输入参数
 
@@ -153,7 +166,7 @@ https://meeting.tencent.com/wemeet-webapi/v2/oauth2/oauth/refresh_token
 | 参数名称      | 参数类型  | 参数描述                                            |
 | ------------- | --------- | --------------------------------------------------- |
 | access_token  | string    | 访问凭证（有效期6小时）。                           |
-| refresh_token | string    | 用户刷新 access_token 凭证（有效期30天）。          |
+| refresh_token | string    | 用户刷新 access_token 凭证（有效期30天），刷新 access_token 时将同时自动续期30天。          |
 | expires       | int       | access_token 过期时间，时间戳（单位秒）。           |
 | open_id       | string    | 用户唯一标识（同一 OAuth 应用，同一用户，值唯一）。 |
 | scopes        | string | 用户授权的权限作用域，字符串数组。                  |
@@ -201,7 +214,11 @@ https://meeting.tencent.com/wemeet-webapi/v2/oauth2/oauth/refresh_token
 ```Plaintext
 https://meeting.tencent.com/wemeet-webapi/v2/oauth2/oauth/user_info
 ```
+**Header 参数：**统一放到 HTTP Header 请求头部中。
 
+| 参数名称| 类型 | 必选 |描述 |
+|---------|---------|---------|---------|
+| Content-Type | String | 是 |内容类型，传入格式必须为 application/json。 |
 
 #### 输入参数
 

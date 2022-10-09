@@ -6,7 +6,7 @@ iOS SDK 接入请观看视频：
 
 ### SDK 获取
 
-录音文件识别的 iOS SDK 以及 Demo 的下载地址：[QCloud SDK](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/realtime/QCloudSDK_IOS_v2.6.4.zip)。
+录音文件识别的 iOS SDK 以及 Demo 的下载地址：[联系我们](https://cloud.tencent.com/act/event/connect-service#/)。
 
 ### 使用须知
 
@@ -16,7 +16,9 @@ iOS SDK 接入请观看视频：
 
 ### SDK 导入
 
-下载并解压 iOS SDK 压缩包，压缩包中包含 Sample Code 和 QCloudSDK。
+1. 下载并解压 iOS SDK 压缩包，压缩包中包含 Sample Code 和 QCloudSDK。
+2. XcodeFile > Add Files to "Your Project"，在弹出 Panel 选中所下载组件包 > Add（选中“Copy items if needed”）。
+![](https://qcloudimg.tencent-cloud.cn/raw/70347c715d9a38107704eb96b0d2f6d9.png)
 
 ### 工程配置
 
@@ -55,11 +57,11 @@ iOS SDK 接入请观看视频：
    + AVFoundation.framework
    + AudioToolbox.framework
    + QCloudSDK.framework
-   + CoreTelephony.framework
    + libWXVoiceSpeex.a
-
+   + libc++.tbd
 添加完如图所示。
-![](https://main.qcloudimg.com/raw/17ff6f4f4a27e0843de528eb070c2f32.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/8feb0ec44c7800adc9967e2ea929c964.png)
+4. **在 Build Settings 下的 other Linker Flags 中不能有 -all_load。**
 
 ### 类说明
 

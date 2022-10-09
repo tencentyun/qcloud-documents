@@ -41,6 +41,7 @@
 ### 步骤4：编译运行
 用 Android Studio 导入工程直接编译运行即可。
 更多详情可参见 [步骤3](#step3) 克隆的 Demo 工程中对应目录下的`README.md`文件。
+>!Demo 默认集成了音视频通话功能，由于该功能依赖的音视频 SDK 暂不支持模拟器，请使用真机调试或者运行 Demo。
 ## 进阶功能
 - [UI 界面库](https://cloud.tencent.com/document/product/269/37190)
 - [开启视频通话](https://cloud.tencent.com/document/product/269/46141)

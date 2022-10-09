@@ -14,16 +14,16 @@
 ## 方式一：为单实例配置访问日志
 ### 步骤一：开启访问日志存入 CLS
 1. 登录 [负载均衡控制台](https://console.cloud.tencent.com/clb/index?rid=1&type=2%2C3)，单击左侧导航栏的**实例管理**。
-2. 在“实例管理”页面，单击目标负载均衡 ID。
-3. 在“基本信息”页面的“访问日志（七层）”模块，单击铅笔图标。
+2. 在**实例管理**页面，单击目标负载均衡 ID。
+3. 在**基本信息**页面的“访问日志（七层）”模块，单击铅笔图标。
 ![](https://main.qcloudimg.com/raw/5c6ff27e1e5f4d839ea61def06457ae3.png)
-4. 在弹出的“修改 CLS 日志存放位置”对话框中，开启“启用日志”，并选择存储访问日志的日志集和日志主题，单击**提交**。若您没有创建日志集或日志主题，请 [新建相关资源](https://console.cloud.tencent.com/cls/logset) 后，再选取具体的存储位置。
+4. 在弹出的**修改 CLS 日志存放位置**对话框中，开启**启用日志**，并选择存储访问日志的日志集和日志主题，单击**提交**。若您没有创建日志集或日志主题，请 [新建相关资源](https://console.cloud.tencent.com/cls/logset) 后，再选取具体的存储位置。
 ![](https://main.qcloudimg.com/raw/33ccb8c1bcf3b200716a4a2f1751f0c1.png)
->?建议选择 clb_logset 日志集下带“CLB”标识的日志主题。带“CLB”标识的日志主题和普通日志主题的差异在于：
->- 带“CLB”标识的日志主题默认自动创建索引；普通日志主题需手动创建索引，否则不支持检索。
->- 带“CLB”标识的日志主题默认支持仪表盘；普通日志主题需手动配置仪表盘。
+>?建议选择 clb_logset 日志集下带 **CLB** 标识的日志主题。带 **CLB** 标识的日志主题和普通日志主题的差异在于：
+>- 带 **CLB** 标识的日志主题默认自动创建索引；普通日志主题需手动创建索引，否则不支持检索。
+>- 带 **CLB** 标识的日志主题默认支持仪表盘；普通日志主题需手动配置仪表盘。
 6. 配置完成后单击日志集或日志主题即可跳转到 CLS 控制台的检索分析页面。
-7. （可选）若想关闭访问日志，可再次单击铅笔图标，在弹出的“修改 CLS 日志存放位置”对话框中进行关闭并提交即可。
+7. （可选）若想关闭访问日志，可再次单击铅笔图标，在弹出的**修改 CLS 日志存放位置**对话框中进行关闭并提交即可。
 
 ### 步骤二：配置日志主题的索引
 >?为单实例配置的访问日志的日志主题必须配置索引，否则检索不到日志。
@@ -40,7 +40,7 @@
 
 具体操作如下：
 1. 登录 [日志服务控制台](https://console.cloud.tencent.com/cls)，在左侧导航栏单击**日志主题**。
-2. 在“日志主题”页面，单击目标日志主题 ID。
+2. 在**日志主题**页面，单击目标日志主题 ID。
 3. 在日志主题详情页，单击**索引配置**页签，单击右上角的**编辑**，即可添加索引。索引字段配置说明请参见 [开启索引](https://cloud.tencent.com/document/product/614/16981)。
 ![](https://main.qcloudimg.com/raw/59262eff6c7f55929aa2b6ad652ec60c.png)
 4. 索引配置完成后结果如下图所示。
@@ -48,7 +48,7 @@
 
 ### 步骤三：查看访问日志
 1. 登录 [日志服务控制台](https://console.cloud.tencent.com/cls)，单击左侧导航栏的**检索分析**。
-3. 在“检索分析 ”页面中，选择日志集、日志主题和时间范围，单击**检索分析**，即可检索 CLB 上报到 CLS 的访问日志。检索语法详情请参见 [语法与规则](https://cloud.tencent.com/document/product/614/16982)。
+3. 在**检索分析**页面中，选择日志集、日志主题和时间范围，单击**检索分析**，即可检索 CLB 上报到 CLS 的访问日志。检索语法详情请参见 [语法与规则](https://cloud.tencent.com/document/product/614/16982)。
 ![](https://main.qcloudimg.com/raw/1be3bc335e74f30538453133c34349db.png)
 
 ## 方式二：批量配置访问日志
@@ -57,23 +57,26 @@
 若您需要配置访问日志到日志服务 CLS 中，则需先创建日志集和日志主题。
 若已有日志集和日志主题，则可直接跳转至 [步骤二](#step3) 开始操作。
 1. 登录 [负载均衡控制台](https://console.cloud.tencent.com/clb)，单击左侧导航栏的**访问日志**。
-2. 在“访问日志”页面左上角选择所属地域，在“日志集信息”区域，单击**创建日志集**。
-3. 在弹出的“创建日志集”对话框中，设置保存时间，单击**保存**。
+2. 在**访问日志**页面左上角选择所属地域，在**日志集信息**区域，单击**创建日志集**。
+3. 在弹出的**创建日志集**对话框中，设置保存时间，单击**保存**。
 >?每个地域仅支持创建一个日志集，日志集名称为“clb_logset”。
-4. 在“访问日志”页面的“日志主题”区域，单击**新建日志主题**。
-5. 在弹出的“新增日志主题”对话框，选择左侧的负载均衡实例添加至右侧列表中，单击**保存**。
->?
->- 新建日志主题时，可选择添加、或不添加负载均衡实例。在日志主题列表的右侧“操作”列中，单击**管理**可重新添加负载均衡实例。每个负载均衡实例仅限添加至一个日志主题中。
->- 一个日志集中可创建多个日志主题（Topic），您可将不同的 CLB 日志放在不同的日志主题中，这些日志主题默认会带“CLB”标识。
 >
-![](https://main.qcloudimg.com/raw/375049a83cf4d1b734058fab4ee7755a.png)
-6. （可选）若需关闭访问日志，在日志主题列表的右侧“操作”列中，单击**停止**停止投递日志即可。
+4. 在**访问日志**页面的**日志主题**区域，单击**新建日志主题**。
+5. 在弹出的**新增日志主题**对话框，选择存储类型和日志保存时间后，选择左侧的负载均衡实例添加至右侧列表中，单击**保存**。
+>?
+>- 存储类型分为标准存储和低频存储，详情请参见 [存储类型概述](https://cloud.tencent.com/document/product/614/60019?from_cn_redirect=1)。
+>- 日志保存支持永久保存和按固定时长保存。
+>- 新建日志主题时，可选择添加、或不添加负载均衡实例。在日志主题列表的右侧**操作**列中，单击**管理**可重新添加负载均衡实例。每个负载均衡实例仅限添加至一个日志主题中。
+>- 一个日志集中可创建多个日志主题（Topic），您可将不同的 CLB 日志放在不同的日志主题中，这些日志主题默认会带 **CLB** 标识。
+>
+![](https://qcloudimg.tencent-cloud.cn/raw/bbca8587899b1c721be6aa5695f02d95.png)
+6. （可选）若需关闭访问日志，在日志主题列表的右侧**操作**列中，单击**停止**停止投递日志即可。
 
 ### 步骤二：查看访问日志[](id:step3)
 负载均衡已自动配置以访问日志的变量为关键值的索引，您无需手动配置索引，可直接通过检索分析来查询访问日志。
 1. 登录 [负载均衡控制台](https://console.cloud.tencent.com/clb)，单击左侧导航栏的**访问日志**。
-2. 单击目标日志主题右侧“操作”列的**检索**，跳转至 [日志服务控制台](https://console.cloud.tencent.com/cls/search) 的“检索分析”页面。
-3. 在“检索分析”页面的输入框中输入检索分析语句，选择时间范围，单击**检索分析**即可检索 CLB 上报到 CLS 的访问日志。
+2. 单击目标日志主题右侧**操作**列的**检索**，跳转至 [日志服务控制台](https://console.cloud.tencent.com/cls/search) 的“检索分析”页面。
+3. 在**检索分析**页面的输入框中输入检索分析语句，选择时间范围，单击**检索分析**即可检索 CLB 上报到 CLS 的访问日志。
 >?检索语法详情请参见 [语法与规则](https://cloud.tencent.com/document/product/614/47044)。
 >
 
@@ -120,11 +123,19 @@
 <tr><td>tcpinfo_rtt</td><td> TCP 连接的 RTT。 </td><td>long</td></tr>
 <tr><td>connection</td><td> 连接 ID。 </td><td>long</td></tr>
 <tr><td>connection_requests</td><td> 连接上的请求个数。 </td><td>long</td></tr>
-<tr><td>ssl_handshake_time</td><td> SSL 握手所花费时间。 </td><td>double</td></tr>
+<tr><td>ssl_handshake_time</td><td>记录 SSL 握手各阶段耗时，格式：x:x:x:x:x:x:x。其中
+<ul><li>第1个字段表示是否 SSL 会话复用。</li>
+<li>第2个字段表示完整的握手时间。</li>
+<li>3~7表示 SSL 各阶段耗时。</li>
+<li>第3个字段表示 CLB 从收到 client hello  到发送 server hell done 的时间。</li>
+<li>第4个字段表示 CLB 从发送 server 证书开始到发送 server 证书完成的时间。</li>
+<li>第5个字段表示 CLB 从计算签名到发送 server key exchange 完成的时间。</li>
+<li>第6个字段表示 CLB 从收到 client key exchange 开始到收完 client key exchange 的时间。</li>
+<li>第7个字段表示 CLB 从收到 client key exchange 到发送 server finished 的时间。</li></ul></td><td>text</td></tr>
 <tr><td>ssl_cipher</td><td> SSL 加密套件。</td><td>text</td></tr>
 <tr><td>ssl_protocol</td><td> SSL 协议版本。</td><td>text</td></tr>
 <tr><td>vip_vpcid</td><td>负载均衡 VIP 的所属私有网络 ID，公网 CLB 的 vip_vpcid 为-1。</td><td>long</td></tr>
-<tr><td>request</td><td> 请求方式，支持 POST 和 GET 请求。</td><td>text</td></tr>
+<tr><td>request_method</td><td> 请求方式，支持 POST 和 GET 请求。</td><td>text</td></tr>
 <tr><td>uri</td><td> 资源标识符。</td><td>text</td></tr>
 <tr><td>server_protocol</td><td>CLB 的协议。</td><td>text</td></tr>
 </tbody></table>

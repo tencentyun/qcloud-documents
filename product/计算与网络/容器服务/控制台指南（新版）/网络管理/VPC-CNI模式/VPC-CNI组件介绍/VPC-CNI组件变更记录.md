@@ -1,5 +1,5 @@
 
-VPC-CNI 组件总共包括3个 kubernetes 集群组件，分别是 `tke-eni-agent`、`tke-eni-ipamd` 和 `tke-eni-ip-scheduler`。一般情况下，三个组件版本相同，但`tke-eni-ip-scheduler` 组件变更较少，版本可能会稍微落后。
+VPC-CNI 组件包含3个 kubernetes 集群组件，分别是 `tke-eni-agent`、`tke-eni-ipamd` 和 `tke-eni-ip-scheduler`。一般情况下，三个组件版本相同，但 `tke-eni-ip-scheduler` 组件变更较少，版本可能会稍微落后。
 
 ## 查看当前组件的版本信息
 

@@ -1,12 +1,12 @@
 ## 适用场景
 
-您可以直接发起请求获取 COS 中的对象，获取对象支持以下功能：
+您可以直接发起请求获取对象存储（Cloud Object Storage，COS）中的对象，获取对象支持以下功能：
 
 - 获取完整的单个对象：直接发起 GET 请求即可获取完整的对象数据。
 - 获取单个对象的部分内容：可在 GET 请求中传入 Range 请求头部，支持检索一个特定的字节范围，不支持检索多个范围。
 
 对象的元数据将会作为 HTTP 响应头部随对象内容一同返回，GET 请求支持使用 URL 参数的方式覆盖响应的部分元数据值。
-例如 Content-Dispositon 的响应值。支持修改的响应头部包括：
+例如 Content-Disposition 的响应值。支持修改的响应头部包括：
 - Content-Type
 - Content-Language
 - Expires

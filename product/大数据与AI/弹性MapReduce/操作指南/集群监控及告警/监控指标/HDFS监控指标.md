@@ -1139,8 +1139,29 @@
 <td >次/s </td>
 <td >包传输操作 QPS </td>
 </tr>
+<tr>
+<td >Block 数量</td>
+<td >跟盘信息相关例如：/data/qcloud/data/hdfs</td>
+<td >个</td>
+<td >Block 数量</td>
+</tr><tr>
+<td >使用磁盘容量</td>
+<td >跟盘信息相关例如：/data/qcloud/data/hdfs</td>
+<td >GB</td>
+<td >使用磁盘容量</td>
+</tr><tr>
+<td >空闲磁盘容量</td>
+<td >跟盘信息相关例如：/data/qcloud/data/hdfs</td>
+<td >GB</td>
+<td >空闲磁盘容量</td>
+</tr><tr>
+<td >预留磁盘容量</td>
+<td >跟盘信息相关例如：/data/qcloud/data/hdfs</td>
+<td >GB</td>
+<td >预留磁盘容量</td>
+</tr>			
 </table>
-
+			
 ### HDFS-JournalNode
 <table>
 <tr>

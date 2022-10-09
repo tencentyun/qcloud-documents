@@ -1,7 +1,7 @@
 Auditbeat 是轻量的审计数据采集器，能够收集和监控腾讯云 CVM Linux 审计框架数据，并基于 Kibana 实现可视化分析。
 
 ## 应用场景
-Auditbeat 可用于审核 Linux 系统上用户和进程的活动，例如，可以使用 AuditBeat 从 Linux Audit Framework 采集并集中审核事件，也可以使用 Auditbeat 来检测对二进制文件或者配置文件的修改，并发现潜在的安全策略冲突。
+Auditbeat 可用于审核 Linux 系统上用户和进程的活动，例如，可以使用 AuditBeat 从 Linux Audit Framework 采集并集中审核事件，也可以使用 Auditbeat 来检测对二进制文件或者配置文件的修改，并发现潜在的安全策略冲突。  
 
 Auditbeat 目前有两种模块：
 - auditd：auditd 模块用于接收来自 Linux 审计框架的审计事件。审计框架是 Linux 内核的一部分，该模块建立对内核事件的订阅，使得在事件发生时可以接收到通知。如果使用 auditd 模块，部分系统中其他的监控工具可能会干扰 Auditbeat，例如，在服务器中启用 audit 进程来从 Linux 审计框架中接收数据，此时 Auditbeat 的运行会收到影响，需要先通过执行`service auditd stop`命令来关闭 auditd 进程。关于该模块更详细的介绍请参考官方文档 [Auditd Module](https://www.elastic.co/guide/en/beats/auditbeat/7.15/auditbeat-module-auditd.html)。

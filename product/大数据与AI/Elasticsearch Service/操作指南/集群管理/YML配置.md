@@ -22,11 +22,6 @@
 | indices.fielddata.cache.size        | 指定分配到字段数据的 Java 堆空间的百分比   | 15%    |
 | indices.query.bool.max_clause_count | 指定 Lucene 布尔查询中允许的子句的最大数量 | 1024   |
 
-## 支持的热更参数
-
-| 参数                             | 说明                           | 取值范围                       |
-| -------------------------------- | ------------------------------ | ------------------------------ |
-| action.destructive_requires_name | 删除索引时是否需要明确索引名称 | true 或者 false，默认值为 true |
 
 ## 配置 reindex 白名单
 

@@ -1,9 +1,9 @@
 ## 效果展示
 您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 App 体验实时语音通话的效果。<table>
-<tr>
+<thead><tr>
    <th>主动呼叫</th>
    <th>被叫接听</th>
- </tr>
+ </tr></thead>
 <tr>
 <td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/audio1.gif"/></td>
 <td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/zh-cn/audio2.gif"/></td>
@@ -20,9 +20,9 @@
 
 [](id:ui.step1)
 ### 步骤1：创建新的应用
-1. 登录实时音视频控制台，选择【开发辅助】>【[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)】。
-2. 输入应用名称，例如 `TestVideoCall` ，单击【创建】。
-3. 单击【已下载，下一步】，跳过此步骤。
+1. 登录实时音视频控制台，选择**开发辅助** > **[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)**。
+2. 输入应用名称，例如 `TestVideoCall` ，单击**创建**。
+3. 单击**已下载，下一步**，跳过此步骤。
 
 ![](https://main.qcloudimg.com/raw/a4f5a2ac1f49d67b4c6968d8b22cdeb0.png)
 >! 本功能同时使用了腾讯云 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269) 两个基础 PAAS 服务，开通实时音视频后会同步开通即时通信 IM 服务。 即时通信 IM 属于增值服务，详细计费规则请参见 [即时通信 IM 价格说明](https://cloud.tencent.com/document/product/269/11673)。
@@ -39,8 +39,8 @@
 <ul style="margin:0"><li/>SDKAPPID：默认为0，请设置为实际的 SDKAppID。
 <li/>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</ul>
 <img src="https://main.qcloudimg.com/raw/a226f5713e06e014515debd5a701fb63.png">
-4. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
-5. 编译完成后，单击【回到控制台概览】即可。
+4. 粘贴完成后，单击**已复制粘贴，下一步**即创建成功。
+5. 编译完成后，单击**回到控制台概览**即可。
 
 >!
 >- 本文提到的生成 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 App 和功能调试**。
@@ -49,7 +49,7 @@
 [](id:ui.step4)
 ### 步骤4：运行 App
 
-使用 Xcode（11.0及以上的版本）打开源码工程 `TUICalling/TUICallingApp.xcworkspace`，单击【运行】即可开始调试本 App。
+使用 Xcode（11.0及以上的版本）打开源码工程 `TUICalling/TUICallingApp.xcworkspace`，单击**运行**即可开始调试本 App。
 
 [](id:ui.step5)
 ### 步骤5：修改 App 源代码
@@ -67,9 +67,9 @@
 ### 用户 A
 1. 输入用户名（**请确保用户名唯一性，不能与其他用户重复**）并登录，如图示：
 ![](https://main.qcloudimg.com/raw/aacadc7ee6d1267f334fd1d155dcf415.png)
-2. 输入要拨打的用户名，单击【搜索】，如下图示：
+2. 输入要拨打的用户名，单击**搜索**，如下图示：
 ![](https://main.qcloudimg.com/raw/f3d2976b053d5233e26e9b93fa8af959.png)
-3. 单击【呼叫】，选择拨打【语音通话】（**请确保被叫方保持在应用内，否则可能会拨打失败**）。
+3. 单击**呼叫**，选择拨打**语音通话**（**请确保被叫方保持在应用内，否则可能会拨打失败**）。
 ![](https://main.qcloudimg.com/raw/1758cbd381a0efe45cfabbdf69cdcf30.png)
 
 ### 用户 B
@@ -102,7 +102,8 @@
 - **方法二：通过本地依赖**
   如果您的开发环境访问 cocoapods 仓库较慢，可以直接下载 ZIP 包，并按照集成文档手动集成到您的工程中。
 <table>
-<tr><th>SDK</th><th>下载页面</th><th>集成指引</th></tr>
+<thead><tr><th>SDK</th><th>下载页面</th><th>集成指引</th></tr>
+</thead>
 <tr>
 <td>TRTC SDK</td>
 <td><a href="https://cloud.tencent.com/document/product/647/32689">DOWNLOAD</a></td>
@@ -144,7 +145,8 @@
 </dx-codeblock>
 2. 调用 `login(sdkAppID: UInt32, user: String, userSig: String, success: @escaping (() -> Void), failed: @escaping ((_ code: Int, _ message: String) -> Void))` 完成组件的登录，其中几个关键参数的填写请参考下表：
  <table>
-<tr><th>参数名</th><th>作用</th></tr>
+<thead><tr><th>参数名</th><th>作用</th></tr>
+</thead>
 <tr>
 <td>SDKAppID</td>
 <td>您可以在 <a href="https://console.cloud.tencent.com/trtc/app">实时音视频控制台</a> 中查看 SDKAppID。</td>

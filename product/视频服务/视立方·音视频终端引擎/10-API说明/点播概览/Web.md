@@ -1,152 +1,236 @@
+## TXVodPlayer
 
-本文档是介绍适用于点播播放的 Web 超级播放器（ TCPlayer ）的相关参数以及 API，需结合 [超级播放器](https://cloud.tencent.com/document/product/1449/57088) 使用。本文档适合有一定 Javascript 语言基础的开发人员阅读。
+### 点播播放器
 
-## 初始化参数
-播放器初始化需要传入两个参数，第一个为播放器容器 ID，第二个为功能参数对象。
-```
-var player = TCPlayer('player-container-id', options);
-```
+请参见 [TXVodPlayer](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html)。
+主要负责从指定的点播流地址拉取音视频数据，并进行解码和本地渲染播放。
+播放器包含如下能力：
 
-### options 参数列表
-options 对象可配置的参数：
+- 支持 FLV、MP4 及 HLS 多种播放格式，支持 基础播放（URL 播放） 和 点播播放（Fileid 播放）两种播放方式 。
+- 屏幕截图，可以截取当前播放流的视频画面。
+- 通过手势操作，调节亮度、声音、进度等。
+- 可以手动切换不同的清晰度，也可根据网络带宽自适应选择清晰度。
+- 可以指定不同倍速播放，并开启镜像和硬件加速。
+- 完整能力，请参见 [点播超级播放器 - 能力清单](https://cloud.tencent.com/document/product/266/45539#.E8.B6.85.E7.BA.A7.E6.92.AD.E6.94.BE.E5.99.A8)。
 
-| 名称    | 类型                      | 默认值                        |说明 |
-|------------|-----------------------------------|-----------------------------------|---------------------------------------|
-|  appID|  String |   无 |必选。|
-|  fileID|  String|无|必选。|
-|  width|  String/Number|  无| 播放器区域宽度，单位像素，按需设置，可通过 CSS 控制播放器尺寸。|
-|  height |  String/Number|  无|  播放器区域高度，单位像素，按需设置，可通过 CSS 控制播放器尺寸。|
-|  controls|  Boolean|  true|  是否显示播放器的控制栏。|
-|  poster|  String|  无|  设置封面图片完整地址（如果上传的视频已生成封面图，优先使用生成的封面图，详细请参见 [云点播 - 管理视频](https://cloud.tencent.com/document/product/266/36452)）。|
-|  autoplay|  Boolean|  false|  是否自动播放。|
-|  playbackRates|  Array| [0.5，1，1.25，1.5，2]|  设置变速播放倍率选项，仅 HTML5 播放模式有效。|
-|  loop|Boolean|  false|  是否循环播放。|
-|  muted|  Boolean|  false|  是否静音播放。|
-|  preload|  String|  auto|  是否需要预加载，有3个属性"auto"，"meta"和"none" ，移动端由于系统限制，设置 auto 无效。|
-|  swf|  String|  无|  Flash 播放器 swf 文件的 URL。|
-|  posterImage|  Boolean|  true|  是否显示封面。|
-|  bigPlayButton|  Boolean|  true|  是否显示居中的播放按钮（浏览器劫持嵌入的播放按钮无法去除）。|
-|  language|  String|  "zh-CN" |  设置语言，可选值为 "zh-CN"/"en" |
-|  languages|  Object|  无|  设置多语言词典。|
-|  controlBar|  Object|  无|  设置控制栏属性的参数组合，后面有详细介绍。|
-|  plugins|  Object|  无|  设置插件功能属性的参数组合，后面有详细介绍。|
-|  hlsConfig|  Object|  无|  hls.js 的启动配置，详细内容请参见官方文档 [hls.js](https://github.com/video-dev/hls.js/blob/master/docs/API.md#fine-tuning)。|
+### 播放器配置接口
 
->! controls、playbackRates、loop、preload、posterImage 这些参数在浏览器劫持播放的状态下将无效（[什么是劫持播放？](https://cloud.tencent.com/document/product/881/20219#.E6.B5.8F.E8.A7.88.E5.99.A8.E5.8A.AB.E6.8C.81.E8.A7.86.E9.A2.91.E6.92.AD.E6.94.BE)）。
+| API                                                          | 描述                                                         |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| [setConfig](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#ae69bc2dd060217e595c38f0dc819290a) | 设置播放器配置信息，配置信息请参见 [TXVodPlayConfig](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayConfig__android.html) 。|
+| [setPlayerView](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#a64eefab5bdb76cef17f609560eec5830) | 设置播放器的视频渲染 TXCloudVideoView。                        |
+| [setPlayerView](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#aeb2f15f370d50b6261b7832f02a0f411) | 设置播放器的视频渲染 TextureView。                             |
+| [setSurface](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#ac06d94f1ed4ec1441c075e4ba556eb37) | 设置播放器的视频渲染 SurfaceView。                             |
+| setStringOption                                              | 设置播放器业务参数，参数格式为`<String,Object>`。                |
 
-#### controlBar 参数列表
-controlBar 参数可以配置播放器控制栏的功能，支持的属性有：
+### 播放基础接口  
+| API                                                          | 描述                        |
+| ------------------------------------------------------------ | --------------------------- |
+| [startPlay](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#a32fe5a77dedc7fc903345f00e6c47c3a) | 播放 HTTP URL 形式地址。 |
+| startPlay | 以 fileId 形式播放，传入TXPlayInfoParams参数。 |
+| [ stopPlay](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#a6abf34bf566c275476b1706593cb0fe1) | 停止播放。 |
+| [isPlaying](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#ac651fc45a9f04e4db6f258f8cdd7bbcf) | 是否正在播放。      |
+| [pause](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#a7167f5c196fc5e167bfabde1a730e81d) | 暂停播放，停止获取流数据,保留最后一帧画面。 |
+| [resume](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#a41de8150eff044a237990c271d57ea27) | 恢复播放，重新获取流数据。 |
+| [seek](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#a914c54a0122cba5ad78d84f893df8578) | 跳转到视频流指定时间点，单位秒。 |
+| [seek](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#aa5d7fcf690ac3a1102ffa3c02192674d) | 跳转到视频流指定时间点，单位毫秒。 |
+| [getCurrentPlaybackTime](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#a128b89dd39053d6d19d262a5f45110cd) | 获取当前播放位置，单位秒。 |
+| [getBufferDuration](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#acebd6ae9dd87e10c8959a24d3b6d5e7f) | 获取缓存的总时长，单位秒。 |
+| [getDuration](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#a83ee44393f1e0db930be75b73ff47812) | 获取总时长，单位秒。 |
+| [getPlayableDuration](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#a37cb584556d48d043b93dfec33c40a97) | 获取可播放时长，单位秒。 |
+| [getWidth](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#a67a0997183f24da19b776d96c1052998) | 获取视频宽度。 |
+| [getHeight](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#a07efb2a4e9a982688c8bb3c3f21d1092) | 获取视频高度。 |
+| [setAutoPlay](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#a5e0e3d950eb3f525634adc7a9f60eab7) | 设置点播是否 startPlay 后自动开始播放，默认自动播放。 |
+| [setStartTime](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#a8f767f79fb69496cdbc532fced5dff33) | 设置播放开始时间。 |
+| [setToken](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#a5f9eadc88ca97238f84226462f095536) | 加密 HLS 的 token。 |
+| [setLoop](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#a3f5ae863c82509d1ed266503e8138781) | 设置是否循环播放。 |
+| [isLoop](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#aaa3fcc823e0fce316dea1cc9162f1c8e) | 返回是否循环播放状态。 |
 
-| 名称    | 类型                      | 默认值                        |说明 |
-|------------|-----------------------------------|-----------------------------------|---------------------------------------|
-|  playToggle| Boolean|  true|  是否显示播放、暂停切换按钮。|
-|  progressControl|  Boolean| true|  是否显示播放进度条。|
-|  volumePanel|  Boolean|  true|  是否显示音量控制。|
-|  currentTimeDisplay|  Boolean|  true|  是否显示视频当前时间。|
-|  durationDisplay|  Boolean|  true|  是否显示视频时长。|
-|  timeDivider|  Boolean|  true|  是否显示时间分割符。|
-|  playbackRateMenuButton|  Boolean|  true|  是否显示播放速率选择按钮。|
-|  fullscreenToggle|  Boolean|  true|  是否显示全屏按钮。|
-|  QualitySwitcherMenuButton|  Boolean|  true|  是否显示清晰度切换菜单。|
+### 视频相关接口
 
->! controlBar 参数在浏览器劫持播放的状态下将无效（[什么是劫持播放？](https://cloud.tencent.com/document/product/881/20219#.E6.B5.8F.E8.A7.88.E5.99.A8.E5.8A.AB.E6.8C.81.E8.A7.86.E9.A2.91.E6.92.AD.E6.94.BE)）。
+| API                                                          | 描述                                                         |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| [enableHardwareDecode](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#a33b092e7e79aab66b494e7034021b2f9) | 启用或禁用视频硬解码。                                       |
+| [snapshot](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#a6f1c0c128052960f084ef6d1d7a77b09) | 获取当前视频帧图像。<br>**注意：由于获取当前帧图像是比较耗时的操作，所以截图会通过异步回调出来。** |
+| [setMirror](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#a4add579d2ec825502c5e3832aced5bc1) | 设置镜像。                                                   |
+| [setRate](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#add2bcd36c051900d697853155494865b) | 设置点播的播放速率，默认1.0。                                |
+| [getBitrateIndex](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#af6f9e1e680baa611642fb168007b1c45) | 返回当前播放的码率索引。                                     |
+| [setBitrateIndex](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#a61f524a6ed275edaf9e9a0997f64d491) | 设置当前正在播放的码率索引，无缝切换清晰度。清晰度切换可能需要等待一小段时间。 |
+| [setRenderMode](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#a6e1e1e12120b92f4884d3ea1a8e2cc94) | 设置 [图像平铺模式](https://liteav.sdk.qcloud.com/doc/api/zh-cn/classcom_1_1tencent_1_1rtmp_1_1TXLiveConstants.html#a0645160ad90c67581f7f226a6c0c46ae)。 |
+| [setRenderRotation](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#a1ae55363f74a78d935d63ea7b44130a8) | 设置 [图像渲染角度](https://liteav.sdk.qcloud.com/doc/api/zh-cn/classcom_1_1tencent_1_1rtmp_1_1TXLiveConstants.html#ad00f3ee125e574cab63d955e03f5f23f)。 |
 
-#### plugins 插件参数列表
-plugins 参数可以配置播放器插件的功能，支持的属性有：
+### 音频相关接口
 
-| 名称    | 类型                      | 默认值                        |说明 |
-|------------|-----------------------------------|-----------------------------------|---------------------------------------|
-|  ContinuePlay|  Object|  无|  控制续播功能，支持的属性如下：<br><li>auto: Boolean 是否在播放时自动续播<br><li>text: String 提示文案<br><li>btnText: String 按钮文案|
-| VttThumbnail | Object | 无 | 控制缩略图显示，支持的属性如下：<br><li>vttUrl: String vtt文件绝对地址，必传<br><li>basePath: String 图片路径，非必须，不传时使用 vttUrl 的 path<br><li>imgUrl: String 图片绝对地址，非必须 |
-| ProgressMarker | Boolean | 无 | 控制进度条显示 |
-| DynamicWatermark | Object | 无 | 控制动态水印显示，支持的属性如下：<br><li>content: String 文字水印内容，必传<br><li>speed: Number 水印移动速度，取值范围 0-1, 非必须 |
-| ContextMenu | Object | 无 | 可选值如下：<br><li>mirror: Boolean 控制是否支持镜像显示<br><li>statistic: Boolean 控制是否支持显示数据面板<br><li>levelSwitch: Object 控制切换清晰度时的文案提示<br><li>&emsp;{<br><li>&emsp;&emsp;open: Boolean 是否开启提示<br><li>&emsp;&emsp;switchingText: String, 开始切换清晰度时的提示文案<br><li>&emsp;&emsp;switchedText: String, 切换成功时的提示文案<br><li>&emsp;&emsp;switchErrorText: String, 切换失败时的提示文案<br><li>&emsp;}|
+| API                                                          | 描述                                    |
+| ------------------------------------------------------------ | --------------------------------------- |
+| [setMute](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#a85d2bb3409165c1b7b2c53f8d61a03e2) | 设置是否静音播放。                      |
+| [setAudioPlayoutVolume](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#a9b8946403b8b3ac8e11f3a78e9d531ca) | 设置音量大小，范围：0 - 100。           |
+| [setRequestAudioFocus](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#a676f0935eca038719f58100d31f169b1) | 设置是否自动获取音频焦点 默认自动获取。 |
+
+### 事件通知接口
+
+| API                    | 描述                   |
+| ---------------------- | ---------------------- |
+| [setPlayListener](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#a0735b006fe8c56875665cb66881af144) | 设置播放器的回调（已弃用，建议使用 [setVodListener](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#adb0e51670b947f15cca9a98d7d804e61)）。 |
+| [setVodListener](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#adb0e51670b947f15cca9a98d7d804e61) | 设置播放器的回调。                                 |
+| [onNotifyEvent](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#a1e4be8c3cfef68a8909d66a9243b6ec5) | 点播播放事件通知。                                 |
+| [onNetSuccess](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#ae6febac01c1cba85f8fe387a0c14d9d0) | 点播播放网络状态通知。                             |
+| [onNetFailed](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#a74942758292eb41138c7a01ed9056da2) | 播放 fileId 网络异常通知。                         |
+
+### TRTC 相关接口
+
+通过以下接口，可以把点播播放器的音视频流通过 TRTC  进行推送，更多 TRTC 服务请参见 [TRTC 产品概述](https://cloud.tencent.com/document/product/647/16788)。
+
+| API                                                          | 描述                                                         |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| [attachTRTC](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#ad6bd04b37a89012102e7bb71ea5554a6) | 点播绑定到 [TRTC](https://cloud.tencent.com/document/product/647/16788) 服务。 |
+| [detachTRTC](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#a5b947acf9f4fc992f0f02f8d87de3334) | 点播解绑 [TRTC](https://cloud.tencent.com/document/product/647/16788) 服务。 |
+| [publishVideo](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#a8298f704cb659c725da28a27e08afbed) | 开始推送视频流。                                             |
+| [unpublishVideo](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#aaa6ecf72bfa9e35078561dd98d62be0c) | 取消推送视频流。                                             |
+| [ publishAudio](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#a7f1b46c4ae27f86188dc29f0f5d64b95) | 开始推送音频流。                                             |
+| [unpublishAudio](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__android.html#a206d786a74ae3b71766755135161773e) | 取消推送音频流。                                             |
+
+## ITXVodPlayListener
+
+腾讯云点播回调通知。
+### SDK 基础回调
+
+| API                                                          | 描述                                                         |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| [onPlayEvent](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__ITXVodPlayListener__android.html#aad1d875808cd4a68d429762e492aad05) | 点播播放事件通知，请参见 [播放事件列表](https://liteav.sdk.qcloud.com/doc/api/zh-cn/classcom_1_1tencent_1_1rtmp_1_1TXLiveConstants.html#a3c3fa833bb8585df2f362da5b70c610a)、[事件参数](https://liteav.sdk.qcloud.com/doc/api/zh-cn/classcom_1_1tencent_1_1rtmp_1_1TXLiveConstants.html#a5cb5e37938b510270847d4f5c751a594)。 |
+| [onNetStatus](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__ITXVodPlayListener__android.html#a2be0a0294ae21e68e736ac8fa4d3085d) | 点播播放器 [网络状态通知](https://liteav.sdk.qcloud.com/doc/api/zh-cn/classcom_1_1tencent_1_1rtmp_1_1TXLiveConstants.html#aa7190fc964cf23a567b56d9793ad5737)。 |
+
+## TXVodPlayConfig
+
+点播播放器配置类。
+
+### 基础配置接口
+
+| API                                                          | 描述                                                         |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| [setConnectRetryCount](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayConfig__android.html#a30911117043dc5b3f559abf5eb1e9ce9) | 设置播放器重连次数。                                         |
+| [setConnectRetryInterval](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayConfig__android.html#a5f3b8315c6276bd1c03c999ce01e4f8f) | 设置播放器重连间隔，单位秒。                                 |
+| [setTimeout](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayConfig__android.html#ae44a6096c42cdb61adc10370ca2a42b6) | 设置播放器连接超时时间，单位秒。                             |
+| [setCacheFolderPath](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayConfig__android.html#a6ad0d546e6da3abacd5d4ea8bd6f94de) | 设置点播缓存目录，点播 MP4、HLS 有效。                       |
+| [setMaxCacheItems](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayConfig__android.html#acc2f17764df9bb52163dac9faf81f11e) | 设置缓存文件个数。接口废弃，请使用TXPlayerGlobalSetting#setMaxCacheSize 进行全局配置。 |
+| [setPlayerType](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayConfig__android.html#a3594024855210dc07f50a6d7c5f8b088) | 设置播放器类型。                                             |
+| [setHeaders](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayConfig__android.html#a9ca40412371b505f9d52fbe95fdbaa6f) | 设置自定义 HTTP headers。                                    |
+| [setEnableAccurateSeek](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayConfig__android.html#a3caff179964976945f3754f1ec48a42b) | 设置是否精确 seek，默认 true。                               |
+| [setAutoRotate](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayConfig__android.html#ab360b681c220c2adb57de2758916b227) | 播放 MP4 文件时，若设为 YES 则根据文件中的旋转角度自动旋转。<br>旋转角度可在 PLAY_EVT_CHANGE_ROTATION 事件中获得。默认 YES。 |
+| [setSmoothSwitchBitrate](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayConfig__android.html#a23fb393011e4663d0dfa765b72665a46) | 平滑切换多码率 HLS，默认 false。                             |
+| [setCacheMp4ExtName](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayConfig__android.html#aaeccb662be133d4ded4fc17df29b94b5) | 缓存 MP4 文件扩展名。                                        |
+| [setProgressInterval](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayConfig__android.html#a01a46ce89e4979a6397b6deb2525007c) | 设置进度回调间隔，单位毫秒。                                 |
+| [setMaxBufferSize](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayConfig__android.html#a2705841bfedb3c44839cc355eaad26dc) | 最大预加载大小，单位 MB。                                    |
+| setMaxPreloadSize                                            | 设置预加载最大缓冲大小，单位：MB。                           |
+| setExtInfo                                                   | 设置拓展信息。                                               |
+| setPreferredResolution                                       | 播放 HLS 有多条码流时，根据设定的 preferredResolution 选最优的码流进行起播，preferredResolution 是宽高的乘积（width * height）， 启播前设置才有效。 |
+
+## TXPlayerGlobalSetting
+
+点播播放器全局配置类
+
+| API                | 描述                                                         |
+| ------------------ | ------------------------------------------------------------ |
+| setCacheFolderPath | 设置播放引擎的cache目录。设置后，离线下载，预下载，播放器等会优先从此目录读取和存储 |
+| setMaxCacheSize    | 设置播放引擎的最大缓存大小。设置后会根据设定值自动清理Cache目录的文件。单位MB。 |
+
+## TXVodPreloadManager
+
+点播播放器预下载接口类
+
+| API          | 描述                                                         |
+| ------------ | ------------------------------------------------------------ |
+| getInstance  | 获取 TXVodPreloadManager 实例对象，单例模式。                    |
+| startPreload | 启动预下载前，请先设置好播放引擎的缓存目录。 TXPlayerGlobalSetting#setCacheFolderPath 和缓存大小。TXPlayerGlobalSetting#setMaxCacheSize。 |
+| stopPreload  | 停止预下载。                                                   |
+
+## TXVodDownloadManager 
+
+点播播放器视频下载接口类。当前只支持下载非嵌套 m3u8 视频源，对 simpleAES 加密视频源将进行腾讯云私有加密算法加密以提升安全性。
+
+| API                      | 描述                                                         |
+| ------------------------ | ------------------------------------------------------------ |
+| getInstance              | 获取 TXVodDownloadManager 实例对象，单例模式。                   |
+| setHeaders               | 设置下载 HTTP 头。                                               |
+| setListener              | 设置下载回调方法，下载前必须设好。                             |
+| startDownloadUrl         | 以 URL 方式开始下载。                                          |
+| startDownload            | 以 fileid 方式开始下载。                                         |
+| stopDownload             | 停止下载，ITXVodDownloadListener.onDownloadStop 回调时停止成功。 |
+| deleteDownloadMediaInfo  | 删除下载信息。                                                 |
+| getDownloadMediaInfoList | 获取所有用户的下载列表信息。                                   |
+| getDownloadMediaInfo     | 获取下载信息。                                   |
+
+## ITXVodDownloadListener
+
+腾讯云视频下载回调通知。
+
+| API                | 描述                                         |
+| ------------------ | -------------------------------------------- |
+| onDownloadStart    | 下载开始                                     |
+| onDownloadProgress | 下载进度更新                                 |
+| onDownloadStop     | 下载停止                                     |
+| onDownloadFinish   | 下载结束                                     |
+| onDownloadError    | 下载过程中遇到错误                           |
 
 
-<br>
+## TXVodDownloadDataSource
 
-## 对象方法
-初始化播放器返回对象的方法列表：
+腾讯云视频fildid下载源，下载时作为参数传入。
 
-| 名称    | 参数及类型                 | 返回值及类型                        |说明 |
-|------------|-----------------------------------|-----------------------------------|---------------------------------------|
-|  ready(function)|  (Function)|  无|  设置播放器初始化完成后的回调。|
-|  play()|  无|  无|  播放以及恢复播放。|
-|  pause()|  无|  无|  暂停播放。|
-|  currentTime(seconds)|  (Number)|  (Number)|  获取当前播放时间点，或者设置播放时间点，该时间点不能超过视频时长。|
-|  duration()|  无|  (Number)|  获取视频时长。|
-|  volume(percent)|  (Number)[0，1][可选]|  (Number)/设置时无返回|  获取或设置播放器音量。|
-|  poster(src)|  (String)|  (String)/设置时无返回|  获取或设置播放器封面。|
-|  requestFullscreen()|  无|  无|  进入全屏模式。|
-|  exitFullscreen()|  无|  无|  退出全屏模式。|
-|  isFullscreen()|  无|  Boolean|  返回是否进入了全屏模式。|
-|  on(type，listener)|  (String, Function)|  无|  监听事件。|
-|  one(type，listener)|  (String, Function)|  无|  监听事件，事件处理函数最多只执行1次。|
-|  off(type，listener)|  (String, Function)|  无|  解绑事件监听。|
-|  buffered()|  无|  TimeRanges|  返回视频缓冲区间。|
-|  bufferedPercent()|  无|  值范围[0，1]|  返回缓冲长度占视频时长的百分比。|
-|  width()|  (Number)[可选]|  (Number)/设置时无返回|  获取或设置播放器区域宽度，如果通过 CSS 设置播放器尺寸，该方法将无效。|
-|  height()|  (Number)[可选]|  (Number)/设置时无返回|  获取或设置播放器区域高度，如果通过 CSS 设置播放器尺寸，该方法将无效。|
-|  videoWidth()|  无|  (Number)|  获取视频分辨率的宽度。|
-|  videoHeight()|  无|  (Number)|  获取视频分辨率的高度。|
-|  dispose()|  无|  无|  销毁播放器。|
+| API                        | 描述                                         |
+| ------------------         | -------------------------------------------- |
+| TXVodDownloadDataSource    | 构造函数，传入 appid，fileid，quality，pSign，username 等参数                                    |
+| getAppId  | 获取传入的 appid                                |
+| getFileId  | 获取传入的 fileid                                |
+| getPSign     | 获取传入的 psign                                     |
+| getQuality   | 获取传入的 quality                                     |
+| getUserName    | 获取传入的 userName，默认“default”                          |
 
->! 对象方法不能同步调用，需要在相应的事件（如 loadedmetadata）触发后才可以调用，除了 ready、on、one 以及 off。
 
-## 事件
-播放器可以通过初始化返回的对象进行事件监听，示例：
-```
-var player = TCPlayer('player-container-id', options);
-// player.on(type, function);
-player.on('error', function(error) {
-   // 做一些处理
-});
-```
-其中 type 为事件类型，支持的事件有：
+## TXVodDownloadMediaInfo
 
-| 名称    | 介绍                    |
-|------------|---------------------------------|
-|  play|  已经开始播放，调用 play() 方法或者设置了 autoplay 为 true 且生效时触发，这时 paused 属性为 false。|
-|  playing|  因缓冲而暂停或停止后恢复播放时触发，paused 属性为 false 。通常用这个事件来标记视频真正播放，play 事件只是开始播放，画面并没有开始渲染。|
-|  loadstart|  开始加载数据时触发。|
-|  durationchange|  视频的时长数据发生变化时触发。|
-|  loadedmetadata|  已加载视频的 metadata。|
-|  loadeddata|  当前帧的数据已加载，但没有足够的数据来播放视频的下一帧时，触发该事件。|
-|  progress|  在获取到媒体数据时触发。|
-|  canplay|  当播放器能够开始播放视频时触发。|
-|  canplaythrough|  当播放器预计能够在不停下来进行缓冲的情况下持续播放指定的视频时触发。|
-|  error|  视频播放出现错误时触发。|
-|  pause|  暂停时触发。|
-|  ratechange|  播放速率变更时触发。|
-|  seeked|  搜寻指定播放位置结束时触发。|
-|  seeking|  搜寻指定播放位置开始时触发。|
-|  timeupdate|  当前播放位置有变更，可以理解为 currentTime 有变更。|
-|  volumechange|  设置音量或者 muted 属性值变更时触发。|
-|  waiting|  播放停止，下一帧内容不可用时触发。|
-|  ended|  视频播放已结束时触发。此时 currentTime 值等于媒体资源最大值。|
-|  resolutionswitching|  清晰度切换进行中。|
-|  resolutionswitched|  清晰度切换完毕。|
-|  fullscreenchange| 全屏状态切换时触发。|
+腾讯云视频下载信息，可获取下载进度，播放链接等信息
 
-## 错误码
-当播放器触发 error 事件时，监听函数会返回错误码，其中3位数以上的错误码为媒体数据接口错误码。错误码列表：
+| API                        | 描述                                         |
+| ------------------         | -------------------------------------------- |
+| getDataSource    | fileid下载时获取传入的 fileid 下载源                                    |
+| getDuration  | 获取下载的总时长                                |
+| getPlayableDuration  | 获取已下载的可播放时长                                |
+| getSize     | 获取下载文件总大小，只针对 fileid 下载源有效           |
+| getDownloadSize   | 获取已下载文件大小，只针对 fileid 下载源有效                                    |
+| getProgress    | 获取当前下载进度                         |
+| getPlayPath    | 获取当前播放路径，可传给 TXVodPlayer 播放                         |
+| getDownloadState    | 获取下载状态                       |
+| isDownloadFinished    | 判断是否下载完成                       |
 
-| 名称 | 描述                                           |
-|------|----------------------------------------------|
-| -1   | 播放器没有检测到可用的视频地址。                  |
-| -2   | 获取视频数据超时。                               |
-| 1    | 视频数据加载过程中被中断。<br>可能原因：<br><li> 网络中断。<br><li> 浏览器异常中断。<br>解决方案：<br><li> 查看浏览器控制台网络请求信息，确认网络请求是否正常。<br><li>重新进行播放流程。                             |
-| 2    | 由于网络问题造成加载视频失败。<br>可能原因：网络中断。<br>解决方案:<br><li> 查看浏览器控制台网络请求信息，确认网络请求是否正常。<br><li> 重新进行播放流程。                     |
-| 3    | 视频解码时发生错误。<br>可能原因：视频数据异常，解码器解码失败。<br>解决方案：<br><li> 尝试重新转码再进行播放，排除由于转码流程引入的问题。<br><li> 确认原始视频是否正常。 <br><li> 请联系技术客服并提供播放参数进行定位排查。                                |
-| 4    | 视频因格式不支持或者服务器或网络的问题无法加载。<br>可能原因：<br><li> 获取不到视频数据，CDN 资源不存在或者没有返回视频数据。<br><li> 当前播放环境不支持播放该视频格式。<br>解决方案：<br><li> 查看浏览器控制台网络请求信息，确认视频数据请求是否正常。<br><li> 确认是否按照使用文档加载了对应视频格式的播放脚本。<br><li> 确认当前浏览器和页面环境是否支持将要播放的视频格式。 <br><li> 请联系技术客服并提供播放参数进行定位排查。     |
-| 5    | 视频解密时发生错误。<br>可能原因：<br><li> 解密用的密钥不正确。<br><li> 请求密钥接口返回异常。<br><li> 当前播放环境不支持视频解密功能。<br>解决方案：<br><li> 确认密钥是否正确，以及密钥接口是否返回正常。<br><li> 请联系技术客服并提供播放参数进行定位排查。<br>                                  |
-| 10   | 点播媒体数据接口请求超时。在获取媒体数据时，播放器重试3次后仍没有任何响应，会抛出该错误。<br>可能原因：<br><li> 当前网络环境无法连接到媒体数据接口，或者媒体数据接口被劫持。<br><li> 媒体数据接口异常。<br>解决方案：<br><li> 尝试打开我们提供的 Demo 页面看是否可以正常播放。 <br><li>请联系技术客服并提供播放参数进行定位排查。<br>                           |
-| 11   | 点播媒体数据接口没有返回数据。在获取媒体数据时，播放器重试3次后仍没有数据返回，会抛出该错误。<br>可能原因：<br><li> 当前网络环境无法连接到媒体数据接口，或者媒体数据接口被劫持。<br><li> 媒体数据接口异常。<br>解决方案：<br><li> 尝试打开我们提供的 Demo 页面看是否可以正常播放。 <br><li> 请联系技术客服并提供播放参数进行定位排查。<br>                        |
-| 12   | 点播媒体数据接口返回异常数据。在获取媒体数据时，播放器重试3次后仍返回无法解析的数据，会抛出该错误。<br>可能原因：<br><li> 当前网络环境无法连接到媒体数据接口，或者媒体数据接口被劫持。<br><li> 播放参数有误，媒体数据接口无法处理。<br><li> 媒体数据接口异常。 <br>解决方案：<br><li> 尝试打开我们提供的 Demo 页面看是否可以正常播放。 <br><li> 请联系技术客服并提供播放参数进行定位排查。<br>                   |
-| 13   | 播放器没有检测到可以在当前播放器播放的视频数据，请对该视频进行转码操作。 |
-| 14   | HTML5 + hls.js 模式下播放 hls 出现网络异常，异常详情可在 event.source 中查看，详细介绍请看 hls.js 的官方文档 [Network Errors](https://github.com/video-dev/hls.js/blob/master/docs/API.md#network-errors)。 |
-| 15   | HTML5 + hls.js 模式下播放 hls 出现多媒体异常，异常详情可在 event.source 中查看，详细介绍请看 hls.js 的官方文档 [Media Errors](https://github.com/video-dev/hls.js/blob/master/docs/API.md#media-errors)。   |
-| 16   | HTML5 + hls.js 模式下播放 hls 出现多路复用异常，异常详情可在 event.source 中查看，详细介绍请看 hls.js 的官方文档 [Mux Errors](https://github.com/video-dev/hls.js/blob/master/docs/API.md#mux-errors)。     |
-| 17   | HTML5 + hls.js 模式下播放 hls 出现其他异常，异常详情可在 event.source 中查看，详细介绍请看 hls.js 的官方文档 [Other Errors](https://github.com/video-dev/hls.js/blob/master/docs/API.md#other-errors)。     |
-| 10008| 媒体数据服务没有找到对应播放参数的媒体数据，请确认请求参数 appID fileID 是否正确，以及对应的媒体数据是否已经被删除。 |
 
+## 错误码表
+
+### 常规事件
+
+| code | 事件定义                   | 含义说明                                                    |
+| ---- | -------------------------- | ----------------------------------------------------------- |
+| 2004 | PLAY_EVT_PLAY_BEGIN        | 视频播放开始（若有转菊花效果，此时将停止）。                |
+| 2005 | PLAY_EVT_PLAY_PROGRESS     | 视频播放进度，会通知当前播放进度、加载进度和总体时长。      |
+| 2007 | PLAY_EVT_PLAY_LOADING      | 视频播放 loading，如果能够恢复，之后会有 LOADING_END 事件。 |
+| 2014 | PLAY_EVT_VOD_LOADING_END   | 视频播放 loading 结束，视频继续播放。                       |
+| 2006 | PLAY_EVT_PLAY_END          | 视频播放结束。                                              |
+| 2013 | PLAY_EVT_VOD_PLAY_PREPARED | 播放器已准备完成，可以播放。                                |
+| 2003 | PLAY_EVT_RCV_FIRST_I_FRAME | 网络接收到首个可渲染的视频数据包（IDR）。                   |
+| 2009 | PLAY_EVT_CHANGE_RESOLUTION | 视频分辨率改变。                                            |
+| 2011 | PLAY_EVT_CHANGE_ROTATION   | MP4 视频旋转角度。                                          |
+
+
+
+### 警告事件
+
+| code   | 事件定义                                  | 含义说明                                                    |
+| ------ | ------------------------------------- | ------------------------------------------------------- |
+| \-2301 | PLAY\_ERR\_NET\_DISCONNECT            | 网络断连，且经多次重连亦不能恢复，更多重试请自行重启播放。                           |
+| \-2305 | PLAY\_ERR\_HLS\_KEY                   | HLS 解密 key 获取失败。                                        |
+| 2101   | PLAY\_WARNING\_VIDEO\_DECODE\_FAIL    | 当前视频帧解码失败。                                              |
+| 2102   | PLAY\_WARNING\_AUDIO\_DECODE\_FAIL    | 当前音频帧解码失败                                               |
+| 2103   | PLAY\_WARNING\_RECONNECT              | 网络断连, 已启动自动重连 (重连超过三次就直接抛送 PLAY\_ERR\_NET\_DISCONNECT)。 |
+| 2106   | PLAY\_WARNING\_HW\_ACCELERATION\_FAIL | 硬解启动失败，采用软解。                                            |
+| \-2304 | PLAY\_ERR\_HEVC\_DECODE\_FAIL         | H265 解码失败。                                              |
+| \-2303 | PLAY\_ERR\_FILE\_NOT\_FOUND           | 播放的文件不存在。                                               |

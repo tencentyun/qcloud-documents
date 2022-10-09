@@ -1,11 +1,10 @@
 ## 接口描述
-**描述**：用会议 Code 修改直播信息，企业 secret 鉴权用户（会议创建者）可修改任何该企业该用户创建的会议中的直播配置，目前暂不支持 OAuth2.0 鉴权访问。
-**调用方式**：PUT
-**接口请求域名**：
+- **描述**：用会议 Code 修改直播信息，企业 secret 鉴权用户（会议创建者）可修改任何该企业该用户创建的会议中的直播配置，目前暂不支持 OAuth2.0 鉴权访问。
+- **调用方式**：PUT
+- **接口请求域名**：
 ```plaintext
 https://api.meeting.qq.com/v1/meetings/live_play/config
 ```
-
 
 ## 输入参数
 HTTP 请求头公共参数参考签名验证章节里的 [公共参数说明](https://cloud.tencent.com/document/product/1095/42413#.E5.85.AC.E5.85.B1.E5.8F.82.E6.95.B0)。
@@ -14,7 +13,7 @@ HTTP 请求头公共参数参考签名验证章节里的 [公共参数说明](ht
 | ------------ | ---- | -------- | ------------------ |
 | meeting_code | 是   | String   | 会议号码。           |
 | userid       | 是   | String   | 调用API的用户 ID。    |
-| instanceid   | 是   | Integer  | 用户的终端设备类型： <br>1：PC <br>2：Mac<br>3：Android <br>4：iOS <br>5：Web <br>6：iPad <br>7：Android Pad <br>8：小程序 |
+| instanceid   | 是   | Integer  | 用户的终端设备类型：<br>0：PSTN<br>1：PC<br>2：Mac<br>3：Android<br>4：iOS<br>5：Web<br>6：iPad<br>7：Android Pad<br>8：小程序<br>9：voip、sip 设备<br>10：linux<br>20：Rooms for Touch Windows<br>21：Rooms for Touch MacOS<br>22：Rooms for Touch Android<br>30：Controller for Touch Windows<br>32：Controller for Touch Android<br>33：Controller for Touch iOS |
 | live_config  | 是   | Object   | 直播配置。           |
 
 #### 直播配置对象

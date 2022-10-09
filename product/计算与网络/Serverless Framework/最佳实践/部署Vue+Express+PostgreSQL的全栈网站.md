@@ -56,9 +56,9 @@ TENCENT_SECRET_KEY=xxx // 您账号的 SecretKey
 REGION=ap-guangzhou //资源部署区，该项目中指云函数与静态页面部署区
 ZONE=ap-guangzhou-2 //资源部署可用区 ，该项目中指 DB 部署所在的可用区
 ```
- >?
+>?
 >- 如果没有腾讯云账号，请先 [注册新账号](https://cloud.tencent.com/register)。
->- 如果已有腾讯云账号，请保证您的账号已经授权了 AdministratorAccess 权限。 您可以在 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取 SecretId 和 SecretKey。
+>- 如果已有腾讯云账号，请保证您的账号已经授权了 AdministratorAccess 权限。  您可以在 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取 SecretId 和 SecretKey。
 >- ZONE 目前只支持 ap-beijing-3 、ap-guangzhou-2、ap-shanghai-2。
 
 3. 通过执行以下命令，安装所需依赖：

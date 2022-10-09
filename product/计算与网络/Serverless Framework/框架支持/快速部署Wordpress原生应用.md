@@ -5,9 +5,9 @@
 
 | 模块 | 说明 | 
 |---------|---------|
-| 云函数 SCF | 负责 Serverless WordPress 的接入层实现，从而运行 WordPress。 |
-| API 网关| WordPress 的对外入口，实现了 RESTful API。 |
-| 文件储存 CFS  | WordPress 的 Serverless 存储仓库。 |
+| 云函数 SCF | 负责 Serverless WordPress 的接入层实现，从而运行 WordPress。  |
+| API 网关| WordPress 的对外入口，实现了 RESTful API。  |
+| 文件储存 CFS  | WordPress 的 Serverless 存储仓库。  |
 | <nobr>云原生数据库 TDSQL-C</nobr> <br>（可选）| 通过创建 TDSQL-C（原 CynosDB）的 MySQL 类型数据库，实现数据库按量计费，自动扩缩容。<br>您可以选择不使用默认数据库，连接自建的 MySQL 类型数据库。|
 | 私有网络 VPC <br>（默认 VPC）| 内网打通云函数 SCF、CFS、TDSQL-C Serverless 之间的网络，保障网络隔离。<br>您也可以选择不使用默认VPC，连接自己指定的VPC。|
 
@@ -19,7 +19,7 @@
   计算层使用 Serverless 资源，真正做到按量计费，弹性伸缩，极大节省成本。
   
 - **部署步骤简单**
-  通过 Serverless 应用控制台， 仅需几步配置，即可快速完成 WordPress 应用部署，极大降低部署门槛。
+  通过 Serverless 控制台， 仅需几步配置，即可快速完成 WordPress 应用部署，极大降低部署门槛。
 
 ## 部署步骤
 您可以通过**控制台**快速完成 Serverless WordPress 部署，步骤如下：
@@ -32,9 +32,9 @@
 ### 控制台部署
 >!目前只支持北京、上海、广州三个地域。其中广州四区为默认区域。
 
-1. 登录[ Serverless 应用控制台](https://console.cloud.tencent.com/sls?from=wpdocs), 单击**新建应用**。
-2. 选择**应用模板** > **快速部署一个WordPress框架**，单击**下一步**。
-![](https://main.qcloudimg.com/raw/69c8613f66c793d53afb879e5e11e4ae.png)
+1. 登录[ Serverless 控制台](https://console.cloud.tencent.com/sls?from=wpdocs), 单击**新建应用**。
+2. 单击**新建应用**，选择**应用模板** > **快速部署一个WordPress框架**，单击**下一步**。
+![](https://qcloudimg.tencent-cloud.cn/raw/b53a4169ed75189b61e06612b6de40e4.png)
 3. 输入应用名。您可以选择使用默认的或连接自建数据库和指定私有网络。
 <dx-tabs>
 ::: 选择使用默认的数据库和私有网络
@@ -48,15 +48,14 @@
 </dx-tabs>
 4. 在 Serverless 应用页，单击**访问应用**，即可访问您的 WordPress 项目。
 ![](https://main.qcloudimg.com/raw/90d900584c4a1da68d356c1fc5adb75a.png)
-您也可以单击您的应用名称，查看资源列表和部署日志。在资源列表页，您可以单机**新增**配置您的自定义域名。
-![](https://main.qcloudimg.com/raw/55218c4f1a6f83f3a1e1ff58a2f15006.png)
+您也可以单击您的应用名称，查看资源列表和部署日志。在资源列表页，您可以单击**新增**配置您的自定义域名。
+![](https://qcloudimg.tencent-cloud.cn/raw/86977296f19974d94381fda3db466142.png)
 
 ### 版本升级
    Serverless Wordpress 应用的旧版部署架构中，存在访问速度慢的问题。为此 Serverless 应用开发团队针对此问题进行了 Serverless Wordpress 应用的优化工作，改进了部署架构，大幅提升了站点的访问速度。本指引仅适用于 Serverless Wordpress 应用旧版本的部署升级。
->? 您可通过如下方法确认您的应用是否需要升级：如您的站点可正常访问并且 Wordpress 云函数代码中仅包含一个 'scf_bootstrap' 文件，则可进行升级。
+>? 您可通过如下方法确认您的应用是否需要升级：如您的站点可正常访问并且 **Wordpress 云函数代码中**仅包含一个 'scf_bootstrap' 文件，则可进行升级。
 >
-![](https://qcloudimg.tencent-cloud.cn/raw/e8900e455a4b37af87e0d4762933a7f2.png)
-   
+![](https://qcloudimg.tencent-cloud.cn/raw/c8412afff57ea15d2b576a6b10928bfc.png)
    
 #### 前期准备 
    您已经部署了 Serverless Wordpress 应用，站点所对应的云函数前缀为 wp-server-*。
@@ -65,23 +64,27 @@
 >! 请严格按照如下步骤升级您的站点，并使用本指引中提供的 Wordpress 源码包进行代码更新。
 
 1. 发布函数版本和流量切换
-  为了确保升级操作期间您的站点的正常访问，请首先为 wp-server-* 发布一个版本。
-  ![](https://qcloudimg.tencent-cloud.cn/raw/d6e6e9427c239136198148addbe98f0b.png)
-  发布版本后，将函数的默认流量配置到新版本。
-  ![](https://qcloudimg.tencent-cloud.cn/raw/6e9382de942e9f68849ad2e11b6fe9cb.png)
+  为了确保升级操作期间您的站点的正常访问，请首先为 wp-server-* 发布一个版本。操作详情见 [发布版本](https://cloud.tencent.com/document/product/583/15371)。
+ ![](https://qcloudimg.tencent-cloud.cn/raw/11387b1104c86545562d38cda2ee1571.png)
+  发布版本后，将函数的默认流量配置到新版本。操作详情见 [流量路由配置](https://cloud.tencent.com/document/product/583/43716)。
+ ![](https://qcloudimg.tencent-cloud.cn/raw/258b95d11b81d88942d8e3f447af84d2.png)
 
 2. 更新 $LATEST 版本的函数代码
   下载 wordpress 源码包（[source.zip](https://docs.qq.com/scenario/link.html?url=https%3A%2F%2Fserverless-template-1300862921.cos.ap-guangzhou.myqcloud.com%2Fwp-deploy-update%2Fsource.zip&pid=300000000$cSeVtSLsJmVv&cid=159036837884)），并上传更新函数代码。
 >! 切勿轻易修改代码中的 handler.php 和 wp-config.php 文件，否则将导致您的站点访问异常。
-
-![](https://qcloudimg.tencent-cloud.cn/raw/f906cb0252baea977d6461fe4a69c88c.png)
+>
+![](https://qcloudimg.tencent-cloud.cn/raw/20cdb3b7791b2d7ccd8eb57028ceb77c.png)
 
 3. 更新 Php 版本（可选）
-    
-   此步骤为可选，Serverless Wordpress 应用站点的 Php 依赖位于函数的挂载 Layer 中，您可以选择是否升级站点的 Php Runtime 环境，升级后的 Php Runtime 版本为 php 7.4.25。在此版本中，使用了 Php Opcache 功能，在函数实例预置场景下，可进一步提高您的站点访问速度。下载 Php Runtime 源码包（php74.zip），并上传更新函数的 Layer。更新完成后，直接解绑老版本的 Layer 即可。
+此步骤为可选，Serverless Wordpress 应用站点的 Php 依赖位于函数的挂载 Layer 中，您可以选择是否升级站点的 Php Runtime 环境，升级后的 Php Runtime 版本为 php 7.4.25。在此版本中，使用了 Php Opcache 功能，在函数实例预置场景下，可进一步提高您的站点访问速度。操作步骤如下：
+	1. 下载 Php Runtime 源码包（[php74.zip](https://www.php.net/downloads.php)）。
+	2. 在 [Serverless 控制台](https://console.cloud.tencent.com/scf/layer?rid=1) 新建层。详情见 [创建层](https://cloud.tencent.com/document/product/583/45760#.E5.88.9B.E5.BB.BA.E5.B1.82.3Ca-id.3D.22create.22.3E.3C.2Fa.3E)。
+	![](https://qcloudimg.tencent-cloud.cn/raw/3c5f104366cf9a1da486a00ab60f21af.png)
+	3. 在 [函数服务](https://console.cloud.tencent.com/scf/list?rid=1&ns=default) 中绑定层。详情见 [云函数绑定层](https://cloud.tencent.com/document/product/583/45760#.E4.BA.91.E5.87.BD.E6.95.B0.E7.BB.91.E5.AE.9A.E5.B1.82.3Ca-id.3D.22bind.22.3E.3C.2Fa.3E)。
+	![](https://qcloudimg.tencent-cloud.cn/raw/ab0d5c59d98430b7855b3942ad3d18df.png)
+	4. 更新完成后，解绑老版本的 Layer 即可。
+ 
 
-![](https://qcloudimg.tencent-cloud.cn/raw/475cfd1618350d3f164b5d77bdc5473a.png)
-![](https://qcloudimg.tencent-cloud.cn/raw/e5e1d9a200510be895849d804eadb603.png)
 
 
 4. 流量切换
@@ -125,6 +128,4 @@ php -d extension_dir=/opt/lib/php/modules/ sl_handler.php 1>&2
 函数目前只支持最大**6MB**的事件上传，超过该大小文件不支持上传。
 目前 API 网关 base 64转码会将用户本身代码大小扩大1.5倍左右，因此上传文件时，建议文件大小控制在**3.5MB**以内。<br/>
 
-#### 如何修改 WordPress 根目录文件？
-目前文件挂载在文件存储 CFS 上，无法直接修改，建议通过安装 File Manager 插件管理根目录文件。
 

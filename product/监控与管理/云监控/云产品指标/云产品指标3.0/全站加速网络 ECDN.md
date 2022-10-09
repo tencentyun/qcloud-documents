@@ -2,7 +2,7 @@
 
 ## 命名空间
 
-Namespace=QCE/DSA
+Namespace = QCE/DSA
 
 ## 监控指标
 

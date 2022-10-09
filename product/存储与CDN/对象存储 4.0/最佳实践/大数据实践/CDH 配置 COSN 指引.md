@@ -2,7 +2,8 @@
 
 CDH（Cloudera's Distribution, including Apache Hadoop）是业界流行的 Hadoop 发行版本。本文指导如何在 CDH 环境下使用 COSN 存储服务，以实现大数据计算与存储分离，提供灵活及低成本的大数据解决方案。
 
->?COSN 是 Hadoop-COS 文件系统的简称。
+>? COSN 是 Hadoop-COS 文件系统的简称。
+>
 
 COSN 大数据组件支持情况如下：
 
@@ -37,7 +38,6 @@ COSN 大数据组件支持情况如下：
 2. 在系统主页，选择**配置** > **服务范围** > **高级**，进入高级配置代码段页面，如下图所示：
    ![](https://main.qcloudimg.com/raw/95a05ec2090a84861c99222c9d26d4df.png)
 3. 在 Cluster-wide Advanced Configuration Snippet(Safety Valve) for core-site.xml 的代码框中，填入 COSN 配置。
-
 ```
 <property>
 <name>fs.cosn.userinfo.secretId</name>
@@ -60,28 +60,48 @@ COSN 大数据组件支持情况如下：
 <value>ap-shanghai</value>
 </property>
 ```
-
 以下为必选的 COSN 配置项（需添加到 core-site.xml 中），COSN 其他配置可参见 [Hadoop 工具](https://cloud.tencent.com/document/product/436/6884) 文档。
-
-| COSN 配置项                     | 值                                 | 含义                                                         |
-| ------------------------------- | ---------------------------------- | ------------------------------------------------------------ |
-| fs.cosn.userinfo.secretId       | AKxxxx                             | 账户的 API 密钥信息                                          |
-| fs.cosn.userinfo.secretKey      | Wpxxxx                             | 账户的 API 密钥信息                                          |
-| fs.cosn.bucket.region           | ap-shanghai                        | 用户存储桶所在地域                                           |
-| fs.cosn.impl                    | org.apache.hadoop.fs.CosFileSystem | cosn 对 FileSystem 的实现类，固定为 org.apache.hadoop.fs.CosFileSystem |
-| fs.AbstractFileSystem.cosn.impl | org.apache.hadoop.fs.CosN          | cosn 对 AbstractFileSystem 的实现类，固定为 org.apache.hadoop.fs.CosN |
-
+<table>
+<thead>
+<tr><th>COSN 配置项</th><th>值</th><th>含义</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>fs.cosn.userinfo.secretId</td>
+<td>AKxxxx</td>
+<td>账户的 API 密钥信息</td>
+</tr>
+<tr>
+<td>fs.cosn.userinfo.secretKey</td>
+<td>Wpxxxx</td>
+<td>账户的 API 密钥信息</td>
+</tr>
+<tr>
+<td>fs.cosn.bucket.region</td>
+<td>ap-shanghai</td>
+<td>用户存储桶所在地域</td>
+</tr>
+<tr>
+<td>fs.cosn.impl</td>
+<td>org.apache.hadoop.fs.CosFileSystem</td>
+<td>cosn 对 FileSystem 的实现类，固定为 org.apache.hadoop.fs.CosFileSystem</td>
+</tr>
+<tr>
+<td>fs.AbstractFileSystem.cosn.impl</td>
+<td>org.apache.hadoop.fs.CosN</td>
+<td>cosn 对 AbstractFileSystem 的实现类，固定为 org.apache.hadoop.fs.CosN</td>
+</tr>
+</tbody>
+</table>
 4. 对 HDFS 服务进行操作，单击部署客户端配置，此时以上 core-site.xml 配置会更新到集群里的机器上。
 5. 将 COSN 最新的 SDK 包，放置到 CDH HDFS 服务的 jar 包路径下，请根据实际值进行替换，示例如下：
-
 ```
 cp hadoop-cos-2.7.3-shaded.jar /opt/cloudera/parcels/CDH-5.16.1-1.cdh5.16.1.p0.3/lib/hadoop-hdfs/
 ```
+>! 在集群中的每台机器都需要在相同的位置放置 SDK 包。
+>
 
->!在集群中的每台机器都需要在相同的位置放置 SDK 包。
-
-
-<span id=1>
+<span id=1></span>
 
 ### 数据迁移
 

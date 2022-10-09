@@ -42,7 +42,8 @@
 2. 在公网 IP 页面顶部，选择需要绑定云资源的 EIP 的地域，并在对应 EIP 的操作栏下，单击**更多** > **绑定**。
 > ? 若绑定时，EIP 已绑定云资源，请先解绑，例如，需更换故障 CVM 实例的 EIP 到健康的 CVM 实例上。
 > 
-3. 在弹出的“绑定资源”窗口中，选择 EIP 要绑定的云资源，单击**确定**。
+3. 在弹出的“绑定资源”窗口中，选择 EIP 要绑定的云资源，单击**确定**。 
+<img src="https://qcloudimg.tencent-cloud.cn/raw/49e4da2a04866b60d857c6492cc855b5.png" width="90%">
 <table>
 <thead>
 <tr>
@@ -78,7 +79,6 @@
 </tr>
 </tbody>
 </table>
-<img src="https://main.qcloudimg.com/raw/a68a2aa1e681dd3bed4c054942aba27a.png" /></br>
 4. 在弹出的“确认绑定”提示框中，单击<b>确定</b>，即可完成与云资源的绑定。
 
 ## 后续步骤

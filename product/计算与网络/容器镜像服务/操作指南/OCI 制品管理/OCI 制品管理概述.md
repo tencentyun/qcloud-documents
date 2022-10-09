@@ -1,11 +1,11 @@
-## 操作场景
+## 操作场景 
 腾讯云容器镜像服务（Tencent Container Registry，TCR）兼容 OCI 标准，支持托管包含 Docker Image 在内的多种云原生制品（Artifacts），满足进阶用户对 Helm Chart，CNAB 及自定义的 OCI Artifacts 托管，分发的需求。
 
 目前仅企业版及个人版实例均支持托管 OCI 制品，可直接推送 OCI 制品至镜像仓库内，并查看制品类型，或取拉取指令。
 
 如需了解 OCI 制品及使用方式，请参考 GitHub 上官方项目 [opencontainers/artifacts](https://github.com/opencontainers/artifacts)。
 
-## 前提条件
+## 前提条件 
 在上传并管理 TCR 实例内的 OCI 制品前，您需要完成以下准备工作：
 - 已成功 [购买企业版实例](https://cloud.tencent.com/document/product/1141/51110)，或初始化个人版。
 - 如使用子账号进行操作，请参考 [企业版授权方案示例](https://cloud.tencent.com/document/product/1141/41417) 提前为子账号授予对应实例的操作权限。

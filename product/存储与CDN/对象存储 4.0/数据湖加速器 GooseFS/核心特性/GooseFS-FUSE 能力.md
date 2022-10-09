@@ -68,7 +68,7 @@ conf 目录下：
 - workers：worker 服务器的 IP 配置文件
 - goosefs-site.properties：goosefs 配置文件
 - libexec：goosefs-fuse 运行依赖的 lib 库文件
-- goosefs-fuse-1.2.0：goosefs-fuse 后台运行的 jar 包
+- goosefs-fuse-1.3.0：goosefs-fuse 后台运行的 jar 包
 - log：日志目录
 
 ## 可选配置
@@ -84,10 +84,13 @@ GooseFS-FUSE 基于标准的 GooseFS-core-client-fs 进行操作。如果您希�
 ## 局限性
 
 目前，GooseFS-FUSE 支持大多数基本文件系统的操作。然而，由于 GooseFS 某些内在的特性，您需要注意以下几点：
-
--  文件只能顺序地写入一次，并且无法修改。这意味着如果要修改一个文件，您需要先删除该文件，然后再重新创建。例如当目标文件存在时，拷贝命令 cp 会失败。
--  GooseFS 没有 hard-link 和 soft-link 的概念，所以不支持与之相关的命令，例如 ln。此外关于 hard-link 的信息也不在 ll 的输出中显示。
--  只有当 GooseFS 的 GooseFS.security.group.mapping.class 选项设置为ShellBasedUnixGroupsMapping 的值时，文件的用户与分组信息才与 Unix 系统的用户分组对应。否则 chown 与 chgrp 的操作不生效，而 ll 返回的用户与分组为启动 GooseFS-FUSE 进程的用户与分组信息。
+- 不支持对文件进行随机写入和追加写入操作。
+- 文件只能顺序地写入一次，并且无法修改。这意味着如果要修改一个文件，您需要先删除该文件，或者 open 操作时，携带 O_TRUNC 标志符，将文件长度置为0。
+- 不支持读取挂载点中正在写入的文件。
+- 不支持对文件长度进行 truncate 操作。
+- 不支持 soft/hard link；GooseFS 没有 hard-link 和 soft-link 的概念，所以不支持与之相关的命令，例如 ln。此外关于 hard-link 的信息也不在 ll 的输出中显示。
+- 以对象存储作为底层存储时，Rename 操作非原子。
+- 只有当 GooseFS 的 GooseFS.security.group.mapping.class 选项设置为ShellBasedUnixGroupsMapping 的值时，文件的用户与分组信息才与 Unix 系统的用户分组对应。否则 chown 与 chgrp 的操作不生效，而 ll 返回的用户与分组为启动 GooseFS-FUSE 进程的用户与分组信息。
 
 ## 性能考虑
 
@@ -112,7 +115,8 @@ GooseFS-FUSE 基于标准的 GooseFS-core-client-fs 进行操作。如果您希�
 
 ## 常见问题
 
-缺少 libfuse 库文件，需要安装 libfuse。
+#### 缺少 libfuse 库文件
+在您执行 GooseFS-Fuse 挂载之前，需要安装 libfuse。
 ![](https://qcloudimg.tencent-cloud.cn/raw/7a535eed0fac0da06f530fb04ca9702b.png)
 - **方式一**
 安装命令：
@@ -153,7 +157,6 @@ rm -f /usr/lib64/libfuse.so.2
 ln -s /usr/lib64/libfuse.so.2.9.7 /usr/lib64/libfuse.so
 ln -s /usr/lib64/libfuse.so.2.9.7 /usr/lib64/libfuse.so.2
 ```
- 
 
- 
-
+#### VIM 编辑挂载点中的文件报错 Write error in swap file？
+您可以通过更改 VIM 的配置，使用 VIM 7.4 及之前的版本，对 GooseFS-Fuse 挂载点中的文件进行编辑。VIM 的 swap 文件用于暂存用户对文件的修改内容，方便 VIM 在机器宕掉重启后，可以根据 swap 文件，对未保存的修改内容进行恢复。上面的报错是由于 VIM 对 swap 文件，涉及随机写入操作，而 GooseFS 不支持对文件的随机写入。解决方法：您可以通过在 VIM 编辑窗口中，执行如下的 VIM 命令关闭 swap 文件生成，`:set noswapfile`，或者在配置文件 ~/.vimrc 中添加配置行 `set noswapfile`。

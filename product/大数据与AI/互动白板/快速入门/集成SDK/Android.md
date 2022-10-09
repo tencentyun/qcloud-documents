@@ -35,7 +35,7 @@ dependencies {
 
 #### 1. 下载 SDK
 
-单击下载最新版 [TEduBaord SDK](https://tic-res-1259648581.cos.ap-shanghai.myqcloud.com/sdk/Android.zip) 。前往 [即时通信 IM](https://cloud.tencent.com/document/product/269/36887) 下载 TIMSDK。
+单击下载最新版 [TEduBaord SDK](https://cloud.tencent.com/document/product/1137/43150) 。前往 [即时通信 IM](https://cloud.tencent.com/document/product/269/36887) 下载 TIMSDK。
 
 #### 2. 导入 SDK
 
@@ -54,8 +54,9 @@ dependencies {
 ```java
 dependencies {
     implementation (name: "TEduBoardSdk-release", ext: "aar")
-    implementation (name: "imsdk-4.6.1", ext: "aar")  
-    implementation 'com.tencent.edu:TIWLogger:1.0.1.29'
+    implementation (name: "imsdk-plus-6.6.3002", ext: "aar") // IM的版本请尽量用新版本，具体请查阅IM的更新日志 https://cloud.tencent.com/document/product/269/1606
+    implementation 'com.tencent.edu:TIWLogger:1.0.1.76'
+    implementation 'com.tencent.edu:TIWCache:1.0.0.91'
 }
 ```
 
@@ -64,47 +65,6 @@ dependencies {
 #### 5. 同步 SDK
 
 单击 Sync Now，完成 TEduBoard SDK 集成。
-
-
-### Google Play 境外版本集成方式
-互动白板默认使用了腾讯浏览服务提供的 TBS SDK 。为了 apk 包大小增量，及时动态发版解决安全隐患，TBS SDK 采用了后台动态下发内核的方案。由于 Google Play 禁止任何二进制代码的下发（包括 so、dex、jar ）和插件化技术的使用，如果您有多渠道打包能力，您可以在境外版本须接入仅保留接口的 TBS SDK ，保证编译通过。
-
-集成方法如下：
-
-#### 1.下载并导入精简版 TBS SDK
-[下载地址](https://sdk-1259648581.cos.ap-nanjing.myqcloud.com/android/tbs/tbs_sdk_noimpl_43799.jar) TBS SDK 的 jar 文件并拷贝到工程的 app/libs 目录下。
-
-![](https://main.qcloudimg.com/raw/a3a00d36964e50f3ec4605900d9c8ab1.png)
-
-#### 2. 指定本地仓库路径
-
-在工程 app/build.gradle 中，添加 flatDir 配置，指定本地仓库路径。
-
-```grovy
-    sourceSets {
-        main {
-            jniLibs.srcDirs = ['libs']
-        }
-    }
-```
-![](https://main.qcloudimg.com/raw/79dd734da4ab48a503a11765cf128894.png)
-
-#### 3.  添加 SDK 依赖
-
-在 app/build.gradle 中，添加引用 jar 包以及不带 TBS 模块的白板 SDK。
-
-```grovy
-dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation ('com.tencent.teduboard:TEduBoardSdk:latest.release'){
-        exclude group: 'com.tencent.tbs.tbssdk', module: 'sdk'
-    }
-    ...
-}
-```
-![](https://main.qcloudimg.com/raw/233c90a563a5288e1654eb6e459f313a.png)
-
->!这种情况下不能依赖带 TBS 模块的白板 SDK，否则会导致依赖冲突，无法编译通过。
 
 ## 配置 App 权限
 
@@ -200,13 +160,11 @@ SDK 所有回调都在主线程内执行，因此可以在回调里直接执行 
 步骤1：初始化 IMSDK
 
 ```java
-TIMSdkConfig timSdkConfig = new TIMSdkConfig(appId)
-    .enableLogPrint(true)
-    .setLogLevel(TIMLogLevel.DEBUG); 
-    //TODO::在正式发布时，设TIMLogLevel.OFF
-TIMManager.getInstance().init(context, timSdkConfig);
+
+V2TIMSDKConfig timSdkConfig = new V2TIMSDKConfig();
+boolean result = V2TIMManager.getInstance().initSDK(context, sdkAppID, timSdkConfig);
+
 ```
-**以上示例为 TIM V1 版本代码，如果您接入的是 TIM V2 版本，请参考 [TIM V2](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMManager.html#ac905c315726b517ba62421471bbecf56)**。
 
 如果您有其他业务使用了 IMSDK 并期望 IMSDK 的生命周期与 App 的生命周期保持一致，请在 Application 的 onCreate 方法中初始化 IMSDK，否则请在登录前初始化 IMSDK，在登出后反初始化 IMSDK 。
 
@@ -216,52 +174,62 @@ TIMManager.getInstance().init(context, timSdkConfig);
 TIMGroupManager.getInstance().login(userId, userSig, new TIMCallBack() {
       @Override
       public void onSuccess(String s) {
-        // 创建 IM 群组成功
+        
       }
 
       @Override
       public void onError(int errCode, String errMsg) {
         // 创建 IM 群组失败        
 });
-```
 
-**以上示例为 TIM V1 版本代码，如果您接入的是 TIM V2 版本，请参考 [TIM V2](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMManager.html#a73fc0e14c5f2f5fc06a80081479fb416)**
+V2TIMManager.getInstance().login(userId, userSig, new V2TIMCallback() {
+    @Override
+    public void onSuccess() {
+      // 登录成功
+    }
+
+    @Override
+    public void onError(int errCode, String errMsg) {
+      // 登录失败
+    }
+});
+
+```
 
 步骤3：加入群组
 
 登录 IMSDK 成功后加入白板所在的群组。
 
 ```java
-TIMGroupManager.getInstance().applyJoinGroup(groupId, desc + groupId, new TIMCallBack() {
-      @Override
-      public void onSuccess(String s) {
-        // 加入 IM 群组成功
-        // 此时可以调用白板初始化接口创建白板
-      }
+V2TIMManager.getInstance().joinGroup(classId, "board group" + classId, new V2TIMCallback() {
+    @Override
+    public void onSuccess() {
+      // 加群成功
+    }
 
-      @Override
-      public void onError(int errCode, String errMsg) {
-        // 加入 IM 群组失败 
+    @Override
+    public void onError(int i, String s) {
+      // 加群失败
+    }
 });
 ```
-
-**以上示例为 TIM V1 版本代码，如果您接入的是 TIM V2 版本，请参考 [TIM V2](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMManager.html#ad64a09bea508672d6d5a402b3455b564)**。
 
 如果 IM 群组不存在，请先创建群组。
 
 ```java
-TIMGroupManager.getInstance().createGroup(param, new TIMValueCallBack<String>() {
-      @Override
-      public void onSuccess(String s) {
-        // 创建 IM 群组成功
-      }
+V2TIMManager.getGroupManager().createGroup(groupInfo, null, new V2TIMValueCallback<String>() {
+    @Override
+    public void onError(int errCode, String errMsg) {
+        
+    }
 
-      @Override
-      public void onError(int errCode, String errMsg) {
-        // 创建 IM 群组失败        
+    @Override
+    public void onSuccess(String s) {
+        
+    }
 });
 ```
-**以上示例为 TIM V1 版本代码，如果您接入的是 TIM V2 版本，请参考 [TIM V2](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMManager.html#af836e4912f668dddf6cc679233cfb0bb)**。
+
 >!1. 推荐业务后台使用 [IM REST API](https://cloud.tencent.com/document/product/269/1615) 提前创建群组。<br>2. 不同的群组类型，群组功能以及成员数量有所区别，具体请查看 [IM 群组系统](https://cloud.tencent.com/document/product/269/1502)。
 
 
@@ -278,45 +246,43 @@ mBoard.uninit();
 步骤1：退出群组
 
 ```java
-TIMGroupManager.getInstance().quitGroup(groupId, new TIMCallBack() {//NOTE:在被挤下线时，不会回调
-    @Override
-    public void onSuccess() {
-      // 退出 IM 群组成功
-    }
-    @Override
-    public void onError(int errorCode, String errInfo) {
-      // 退出 IM 群组成功
-    }
+V2TIMManager.getInstance().quitGroup(classId, new V2TIMCallback() {
+  @Override
+  public void onSuccess() {
+      
+  }
 
+  @Override
+  public void onError(int i, String s) {
+      
+  }
 });
 ```
-
-**以上示例为 TIM V1 版本代码，如果您接入的是 TIM V2 版本，请参考 [TIM V2](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMManager.html#a6d140dbeb44906de9cb69f69c2ce5919)**。
 
 步骤2：登出 IMSDK
 
 ```java
-TIMManager.getInstance().logout(new TIMCallBack() {
-    @Override
-    public void onSuccess() {
-      // 登出 IMSDK 成功
-    }
-    @Override
-    public void onError(int errorCode, String errInfo) {
-      // 登出 IMSDK 失败
-    }
-});
-```
+// IM登出
+public void logout(final IMCallBack callBack) {
+    V2TIMManager.getInstance().logout(new V2TIMCallback(){
+        @Override
+        public void onSuccess() {
+            
+        }
 
-**以上示例为 TIM V1 版本代码，如果您接入的是 TIM V2 版本，请参考 [TIM V2](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMManager.html#a0398924fa1b62a8f5cc9b51673273b48)**。
+        @Override
+        public void onError(int errCode, String errMsg) {
+            
+        }
+    });
+}
+```
 
 步骤3：反初始化 IMSDK
 
 ```java
-TIMManager.getInstance().unInit();
+V2TIMManager.getInstance().unInitSDK();
 ```
-
-**以上示例为 TIM V1 版本代码，如果您接入的是 TIM V2 版本，请参考 [TIM V2](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMManager.html#a8ac73b4f71f9d9a1ca01551c919d3cdd)**。
 
 如果您有其他业务使用了 IMSDK 并期望 IMSDK 的生命周期与 App 的生命周期保持一致，无需调用此接口。
 

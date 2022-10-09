@@ -23,6 +23,7 @@
 | 撤回单聊消息 | [v4/openim/admin_msgwithdraw](https://cloud.tencent.com/document/product/269/38980) |
 |设置单聊消息已读|[v4/openim/admin_set_msg_read](https://cloud.tencent.com/document/product/269/50349)|
 |查询单聊未读消息计数|[v4/openim/get_c2c_unread_msg_num](https://cloud.tencent.com/document/product/269/56043)|
+|修改单聊历史消息|[v4/openim/modify_c2c_msg](https://cloud.tencent.com/document/product/269/74740)|
 
 ## 全员推送
 
@@ -101,9 +102,14 @@
 | 拉取群历史消息         | [v4/group_open_http_svc/group_msg_get_simple](https://cloud.tencent.com/document/product/269/2738) |
 |获取直播群在线人数|[v4/group_open_http_svc/get_online_member_num](https://cloud.tencent.com/document/product/269/49180)|
 |获取群自定义属性|[v4/group_open_attr_http_svc/get_group_attr](https://cloud.tencent.com/document/product/269/67012)|
+|获取封禁群成员列表|[v4/group_open_http_svc/get_group_ban_member](https://cloud.tencent.com/document/product/269/79248)|
+|群成员封禁|[v4/group_open_http_svc/ban_group_member](https://cloud.tencent.com/document/product/269/79249)|
+|群成员解封|[v4/group_open_http_svc/unban_group_member](https://cloud.tencent.com/document/product/269/79250)|
 |修改群自定义属性|[v4/group_open_http_svc/modify_group_attr](https://cloud.tencent.com/document/product/269/67010)|
 |清空群自定义属性|	[v4/group_open_http_svc/clear_group_attr](https://cloud.tencent.com/document/product/269/67009)|
 |重置群自定义属性|[v4/group_open_http_svc/set_group_attr](https://cloud.tencent.com/document/product/269/67011)|
+|修改群聊历史消息|[v4/openim/modify_group_msg](https://cloud.tencent.com/document/product/269/74741)|
+|直播群广播消息|[v4/group_open_http_svc/send_broadcast_msg](https://cloud.tencent.com/document/product/269/77402)|
 
 ## 全局禁言管理
 | 功能说明 |接口 |
@@ -120,3 +126,6 @@
 | 拉取运营数据  |[v4/openconfigsvr/getappinfo](https://cloud.tencent.com/document/product/269/4193) |
 | 下载消息记录  |[v4/open_msg_svc/get_history](https://cloud.tencent.com/document/product/269/1650) |
 | 获取服务器 IP 地址  |[v4/ConfigSvc/GetIPList](https://cloud.tencent.com/document/product/269/45438) |
+|聊天文件封禁|[v4/im_cos_msg/forbid_illegal_object](https://cloud.tencent.com/document/product/269/74775)|
+|聊天文件解封|[v4/im_cos_msg/allow_banned_object](https://cloud.tencent.com/document/product/269/74776)|
+|聊天文件签名|[v4/im_cos_msg/get_cos_sig](https://cloud.tencent.com/document/product/269/74777)|

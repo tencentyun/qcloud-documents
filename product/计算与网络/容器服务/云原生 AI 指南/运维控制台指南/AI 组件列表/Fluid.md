@@ -1,4 +1,4 @@
-## 简介
+## 简介 
 
 [Fluid](https://github.com/fluid-cloudnative/fluid) 是一个开源的 Kubernetes 原生分布式数据集编排和加速引擎，目前它由云原生计算基金会 [CNCF](https://www.cncf.io/sandbox-projects/) 作为 Sandbox 项目托管。主要服务于云原生场景下的数据密集型应用，例如大数据应用、AI 应用等。通过定义数据集资源的抽象，实现如下功能：
 
@@ -69,4 +69,4 @@
 
 ## 最佳实践
 
-请参见 Alluxio [使用文档](https://github.com/fluid-cloudnative/fluid/blob/master/docs/zh/TOC.md)。
+请参见 Fluid [使用文档](https://github.com/fluid-cloudnative/fluid/blob/master/docs/zh/TOC.md)。

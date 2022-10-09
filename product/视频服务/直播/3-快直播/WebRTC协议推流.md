@@ -1,5 +1,5 @@
-TXLivePusher 推流 SDK 主要用于视频云的快直播（超低延时直播）推流，负责将浏览器采集的音视频画面通过 WebRTC 推送到直播服务器。目前支持摄像头推流、屏幕录制推流和本地媒体文件推流。
->! 使用 WebRTC 协议推流，每个推流域名默认限制**100路并发**推流数，如您需要超过此推流限制，可通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 的方式联系我们进行申请。
+TXLivePusher 直播 SDK 主要用于视频云的快直播（超低延时直播）推流，负责将浏览器采集的音视频画面通过 WebRTC 推送到直播服务器。目前支持摄像头推流、屏幕录制推流和本地媒体文件推流。
+>! 使用 WebRTC 协议推流，每个推流域名默认限制**1000路并发**推流数，如您需要超过此推流限制，可通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 的方式联系我们进行申请。
 
 ## 基础知识
 
@@ -17,9 +17,9 @@ TXLivePusher 推流 SDK 主要用于视频云的快直播（超低延时直播�
 
 快直播推流基于 WebRTC 实现，依赖于操作系统和浏览器对于 WebRTC 的支持。
 
-除此以外，浏览器采集音视频画面的功能在移动端支持较差，例如移动端浏览器不支持屏幕录制，iOS 14.3及以上版本才支持获取用户摄像头设备。因此推流 SDK 主要适用于桌面端浏览器，目前最新版本的 chrome、Firefox 和 Safari 浏览器都是支持快直播推流的。
+除此以外，浏览器采集音视频画面的功能在移动端支持较差，例如移动端浏览器不支持屏幕录制，iOS 14.3及以上版本才支持获取用户摄像头设备。因此 TXLivePusher 主要适用于桌面端浏览器，目前最新版本的 chrome、Firefox 和 Safari 浏览器都是支持快直播推流的。
 
-移动端建议使用 [移动直播 SDK](https://cloud.tencent.com/document/product/454/56591) 进行推流。
+移动端建议使用 [腾讯云视立方·直播 SDK](https://cloud.tencent.com/document/product/454/56591) 进行推流。
 
 ## 对接攻略
 
@@ -28,15 +28,9 @@ TXLivePusher 推流 SDK 主要用于视频云的快直播（超低延时直播�
 在需要直播推流的页面（桌面端）中引入初始化脚本。
 
 ```html
-<script src="https://imgcache.qq.com/open/qcloud/live/webrtc/js/TXLivePusher-1.0.2.min.js" charset="utf-8"></script>
+<script src="https://video.sdk.qcloudecdn.com/web/TXLivePusher-2.0.1.min.js" charset="utf-8"></script>
 ```
 >? 需要在 HTML 的 body 部分引入脚本，如果在 head 部分引入会报错。
-
-如果在域名限制区域，可以引入以下链接：
-
-```html
-<script src="https://cloudcache.tencent-cloud.com/open/qcloud/live/webrtc/js/TXLivePusher-1.0.2.min.js" charset="utf-8"></script>
-```
 
 ### 步骤2：在 HTML 中放置容器
 
@@ -84,26 +78,21 @@ livePusher.startMicrophone();
 ```javascript
 livePusher.startPush('webrtc://domain/AppName/StreamName?txSecret=xxx&txTime=xxx');
 ```
->?推流之前要保证已经采集到了音视频流，否则推流接口会调用失败，如果要实现采集到音视频流之后自动推流，可以通过回调事件通知，当收到采集首帧成功的通知后，再进行推流。如果同时采集了视频流和音频流，需要在视频首帧和音频首帧的采集成功回调通知都收到后再发起推流。
+>?推流之前要保证已经采集到了音视频流，否则推流接口会调用失败。如果要实现采集到音视频流之后自动推流，可以等待视频流和音频流采集成功之后，再进行推流。
 ```javascript
-var hasVideo = false;
-var hasAudio = false;
-var isPush = false;
-livePusher.setObserver({
-    onCaptureFirstAudioFrame: function() {
-      hasAudio = true;
-      if (hasVideo && !isPush) {
-        isPush = true;
-        livePusher.startPush('webrtc://domain/AppName/StreamName?txSecret=xxx&txTime=xxx');
-      }
-    },
-    onCaptureFirstVideoFrame: function() {
-      hasVideo = true;
-      if (hasAudio && !isPush) {
-        isPush = true;
-        livePusher.startPush('webrtc://domain/AppName/StreamName?txSecret=xxx&txTime=xxx');
-      }
-    }
+// 采集完摄像头画面后自动推流
+livePusher.startCamera()
+.then(function () {
+	livePusher.startPush('webrtc://domain/AppName/StreamName?txSecret=xxx&txTime=xxx');
+})
+.catch(function (error) {
+	console.log('打开摄像头失败: '+ error.toString());
+});
+
+// 采集完摄像头和麦克风之后自动推流
+Promise.all([livePusher.startCamera(), livePusher.startMicrophone()])
+.then(function() {
+	livePusher.startPush('webrtc://domain/AppName/StreamName?txSecret=xxx&txTime=xxx');
 });
 ```
 </dx-codeblock>
@@ -183,7 +172,7 @@ deviceManager.switchCamera('camera_device_id');
 
 ### WebRTC 推流相关接口
 
-WebRTC 推流相关接口说明，请参见 [API 概览](https://cloud.tencent.com/document/product/454/56498)。
+WebRTC 推流相关接口说明，请参见 [API 概览](https://webrtc-demo.myqcloud.com/push-sdk/v2/docs/TXLivePusher.html)。
 
 
 

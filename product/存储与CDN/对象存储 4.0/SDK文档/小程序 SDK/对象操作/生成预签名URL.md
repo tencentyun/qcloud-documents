@@ -176,16 +176,21 @@ cos.getObjectUrl({
     if (err) return console.log(err);
     console.log(data.Url);
     
-    // 获取到 Url 后，前端可以这样 ajax 上传
-    var xhr = new XMLHttpRequest();
-    xhr.open('PUT', data.Url, true);
-    xhr.onload = function (e) {
-        console.log('上传成功', xhr.status, xhr.statusText);
-    };
-    xhr.onerror = function (e) {
-        console.log('上传出错', xhr.status, xhr.statusText);
-    };
-    xhr.send(file); // file 是要上传的文件对象
+    // 获取到 Url 后，小程序可以这样发起上传
+    wx.request({
+        url: data.Url, /* 预签名url */
+        method: 'PUT', /* PUT和getObjectUrl填写的Method对应 */
+        header: {},
+        dataType: 'text',
+        /* 可参考demo里的putObject方法获取file https://github.com/tencentyun/cos-wx-sdk-v5/blob/master/demo/demo-sdk.js */
+        data: file, /* 小程序里选择的上传文件 */
+        success: function (response) {
+            console.log('上传成功', response);
+        },
+        fail: function (response) {
+            console.log('上传出错', response);
+        }
+    });
 });
 ```
 

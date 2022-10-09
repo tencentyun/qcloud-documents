@@ -149,7 +149,7 @@ ALTER TABLE 更改一个表的定义。下文描述了几种形式：
 设置后续的每列统计收集目标 ANALYZE 操作。目标可以设置在0到1000之间，或者设置为-1，以恢复为使用系统默认的统计目标（default_statistics_target）。
 
 **ADD** table_constraint 
-使用与之相同的语法将新的约束添加到表（而不仅仅是分区）。CREATE TABLE
+使用与 CREATE TABLE 相同的语法将新的约束添加到表（而不仅仅是分区）。
 
 **DROP CONSTRAINT** 
 在表上删除指定的约束。

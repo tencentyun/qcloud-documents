@@ -14,7 +14,7 @@ Web 应用分为以下两部分：
 
 ## 操作步骤
 ### 创建 redis-master 服务
-1. 登录容器服务控制台，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
+1. 登录容器服务控制台 ，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
 2. 单击需要创建应用的集群 ID，进入工作负载 Deployment 详情页，选择**新建**。如下图所示：
 ![](https://main.qcloudimg.com/raw/43b6b4dde7a18b9721c1f1ccd57b1cf2.png)
 3. 在“新建Workload”页面，根据以下提示，设置工作负载基本信息。如下图所示：
@@ -45,11 +45,11 @@ Web 应用分为以下两部分：
  - **Service**：勾选“启用”。
  - **服务访问方式**：选择“仅在集群内访问”。
  - **负载均衡器**：根据实际需求进行选择。
- - **端口映射**：选择 TCP 协议，并将服务端口和容器端口都设置为6379。 其它服务可以通过服务名称 redis-master 以及端口6379访问到 master 容器。
+ - **端口映射**：选择 TCP 协议，并将服务端口和容器端口都设置为6379。  其它服务可以通过服务名称 redis-master 以及端口6379访问到 master 容器。
 8. 单击**创建Workload**，完成 redis-master 服务的创建。
 
 ### 创建 redis-slave 服务
-1. 登录容器服务控制台，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
+1. 登录容器服务控制台 ，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
 2. 单击需要创建服务的集群 ID，进入工作负载 Deployment 详情页，选择**新建**。如下图所示：
 ![](https://main.qcloudimg.com/raw/e7e626eab53919b49fa7afbf0f79dd85.png)
 3. 在“新建Workload”页面，根据以下提示，设置工作负载基本信息。如下图所示：
@@ -78,11 +78,11 @@ GET_HOSTS_FROM = dns
  - **Service**：勾选“启用”。
  - **服务访问方式**：选择“仅在集群内访问”。
  - **负载均衡器**：根据实际需求进行选择。
- - **端口映射**：选择 TCP 协议，并将服务端口和容器端口都设置为6379。 其它服务可以通过服务名称 redis-master 以及端口6379访问到 master 容器。
+ - **端口映射**：选择 TCP 协议，并将服务端口和容器端口都设置为6379。  其它服务可以通过服务名称 redis-master 以及端口6379访问到 master 容器。
 7. 单击**创建Workload**，完成 redis-slave 服务的创建。
 
 ### 创建 frontend 服务
-1. 登录容器服务控制台，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
+1. 登录容器服务控制台 ，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
 2. 单击需要创建应用的集群 ID，进入工作负载 Deployment 详情页，选择**新建**。如下图所示：
 ![](https://main.qcloudimg.com/raw/eb39a8ddb8768270901d0f821e5b915d.png)
 3. 在“新建 Workload”页面，根据以下提示，设置工作负载基本信息。如下图所示：

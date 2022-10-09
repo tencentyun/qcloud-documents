@@ -19,13 +19,14 @@
 
 [](id:step2)
 ### 步骤二：配置 License
-
-1. 登录云直播控制台，在左侧菜单中选择 **直播SDK** > [**License管理**](https://console.cloud.tencent.com/live/license)，单击 **创建测试License**。 
-![#500px](https://main.qcloudimg.com/raw/a623b59b4989ef4d713fc5a2e13927c1.png)
-2. 根据实际需求填写 `App Name`、`Package Name` 和 `Bundle ID`，勾选功能模块 **直播推流**，单击 **确定**。
-<img src="https://main.qcloudimg.com/raw/b471d5f1b85b292de034fde0a5b6650f.png" width=600px>
-3. License 成功创建后，页面会显示生成的 License 信息。
-<img src="https://main.qcloudimg.com/raw/53635bb1119911b9a17bea79ab327283.png" width=600px>
+1. 登录 [云直播控制台](https://console.cloud.tencent.com/live/livestat)，在左侧菜单中选择 **直播 SDK** >[ **License管理**](https://console.cloud.tencent.com/live/license)，单击 **新建测试 License**。
+ ![](https://qcloudimg.tencent-cloud.cn/raw/4d63d6f14f82ba1775083ed461c5f5db.png) 
+2. 根据实际需求填写 `App Name`、`Package Name` 和 `Bundle ID`，勾选功能模块 **直播**（直播推流 + 视频播放），单击**确定**。
+  - **Package Name**：请在App目录下的 **build.gradle** 文件查看 **applicationId** 。
+  - **Bundle ID**：请在 **xcode** 中查看项目的 **Bundle Identifier** 。
+<img src="https://main.qcloudimg.com/raw/1ff37a853c8dd26d05419af4f5340661.png">
+3. 测试版 License 成功创建后，页面会显示生成的 License 信息。**在 SDK 初始化配置时需要传入 Key 和 License URL 两个参数，请妥善保存以下信息。**
+<img src="https://main.qcloudimg.com/raw/709cf255601e5edd6913f7f8742cbfdd.png" width=800>
 4. 打开 `LiteAVSDK_Professional_iOS_版本号/MLVB-API-Example-OC/Debug/GenerateTestUserSig.h` 文件。
 设置 `GenerateTestUserSig.h` 文件中的相关参数：
     - LICENSEURL：默认为空，请设置为您的下载 Licence url。
@@ -38,13 +39,16 @@
 1. 已在 [域名注册](https://dnspod.cloud.tencent.com/?from=qcloudProductDns) 申请域名，并备案成功。
 2. 已在 **云直播控制台** > **[域名管理](https://console.cloud.tencent.com/live/domainmanage)** 中添加推流/播放域名，具体操作请参见 [添加自有域名](https://cloud.tencent.com/document/product/267/20381)。
 3. 成功 [配置域名 CNAME](https://cloud.tencent.com/document/product/267/19908)。
-4. 配置好推流/播放域名后，在推流/播放域名的 **基本信息** 页面可以获得 `CNAME` 和 `API Key` 两个信息。
-<img src="https://main.qcloudimg.com/raw/479d9da3f5da8068431beb796609d932.png" width=500px>
+4. 配置好推流/播放域名后，在推流/播放域名的 **基本信息** 页面可以获得 `CNAME` 信息。
+<img src="https://qcloudimg.tencent-cloud.cn/raw/0a789d4495f4c35d55ed57749d48acbd.png
+" width=500px>
 5. 打开 `LiteAVSDK_Professional_iOS_版本号/MLVB-API-Example-OC/Debug/GenerateTestUserSig.h` 文件。
 设置 `GenerateTestUserSig.h` 文件中的相关参数：
-  - PUSH_DOMAIN 中推流地址请设置为您的推流域名的 `CNAME`。
-  - PLAY_DOMAIN 中拉流地址请设置为您的播放域名的 `CNAME`。
-  - LIVE_URL_KEY：非必需，用于生成 txSecret 等鉴权信息，具体计算请参见 [推拉流 URL](https://cloud.tencent.com/document/product/454/7915)。
+  - **PUSH_DOMAIN**：请设置为您的 [推流域名](https://console.cloud.tencent.com/live/domainmanage)。
+  - **PLAY_DOMAIN**：请设置为您的 [播放域名](https://console.cloud.tencent.com/live/domainmanage)。
+  - **LIVE_URL_KEY**：非必需，用于生成 txSecret 等鉴权信息，具体计算请参见 [推拉流 URL](https://cloud.tencent.com/document/product/454/7915)，查询步骤参见  [域名页面](https://console.cloud.tencent.com/live/domainmanage) > **管理** > **推流配置** > **鉴权配置**。<br>
+<img src="https://qcloudimg.tencent-cloud.cn/raw/2e577f071ebd7ee0637d946bfee4bc00.png" width=700px>
+
 
 [](id:step4)
 ### 步骤四：配置连麦或 PK 能力/服务开通

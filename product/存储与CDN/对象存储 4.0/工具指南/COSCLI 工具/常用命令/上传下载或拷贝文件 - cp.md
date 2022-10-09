@@ -7,15 +7,15 @@ cp 命令用于上传、下载或拷贝文件。
 ./coscli cp <source_path> <destination_path> [flags]
 ```
 
->? 有关 bucketAlias 的说明，请参见 [配置](https://cloud.tencent.com/document/product/436/63144#alias)。
+>? 
+>- 有关 bucketAlias 的说明，请参见 [下载与安装配置](https://cloud.tencent.com/document/product/436/63144#alias)。
+>- 关于此命令的其他通用选项（例如切换存储桶、切换用户账号等），请参见 [通用选项](https://cloud.tencent.com/document/product/436/71763) 文档。
 >
 
 cp 命令包含以下可选 flag：
 
 | flag 简写 | flag 全称       | flag 用途                            |
 | --------- | --------------- | ------------------------------------ |
-| -h        | --help          | 输出帮助信息                         |
-| -c        | --config-path   | 指定要使用的配置文件路径             |
 |   无       | --include       | 包含特定模式的文件                   |
 |   无       | --exclude       | 排除特定模式的文件                   |
 | -r        | --recursive     | 是否递归遍历文件夹下所有文件       |
@@ -23,6 +23,7 @@ cp 命令包含以下可选 flag：
 |   无       | --part-size     | 文件分块大小（默认32MB）     |
 |   无       | --thread-num    | 并发线程数（默认并发5）      |
 |   无       | --rate-limiting | 单链接速率限制（0.1~100MB/s）       |
+| 无 | --meta | 上传文件的元信息。包括部分 HTTP 标准属性（HTTP Header）以及以`x-cos-meta-`开头的用户自定义元数据（User Meta）。文件元信息格式为`header:value#header:value`，示例为`Expires:2022-10-12T00:00:00.000Z#Cache-Control:no-cache#Content-Encoding:gzip#x-cos-meta-x:x`。 |
 
 
 >?
@@ -33,7 +34,7 @@ cp 命令包含以下可选 flag：
 > - `--include` 和 `--exclude` 支持标准正则表达式的语法，您可以使用它来过滤出符合特定条件的文件。
 > - 使用 zsh 时，您可能需要在 pattern 串的两端加上双引号。
 ```
-./coscli cp ~/test/ cos://bucket1/example/ -r --include ".*.mp4"
+./coscli cp ~/test/ cos://bucket1/example/ -r --include ".*.txt" --meta=x-cos-meta-a:a#ContentType:text#Expires:2022-10-12T00:00:00.000Z
 ```
 
 ## 操作示例

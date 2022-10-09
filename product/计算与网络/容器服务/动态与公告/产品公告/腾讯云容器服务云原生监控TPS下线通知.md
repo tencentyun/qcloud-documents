@@ -1,0 +1,3 @@
+感谢您对腾讯云原生监控 TPS 的认可与信赖，为提供更优质的服务和更强大的产品能力，TPS 与原腾讯云 Prometheus 监控服务进行融合和升级，升级为 [TMP](https://cloud.tencent.com/document/product/457/71896)。TMP 支持跨地域跨 VPC 监控，支持统一 Grafana 面板对接多监控实例实现统一查看。TMP 计费详情见 [按量计费](https://cloud.tencent.com/document/product/1416/65379)，相关云资源使用详情见 [计费方式和资源使用](https://cloud.tencent.com/document/product/457/71905)。若您只使用基础监控的 [免费指标](https://cloud.tencent.com/document/product/457/72136)，TMP 不会收取任何指标费用。
+
+TMP 已正式发布，欢迎 [了解试用](https://console.cloud.tencent.com/tke2/prometheus2)。TPS 已不支持创建新实例，存量实例将于2022年5月16日统一下线，届时相关资源将被删除。我们提供一键 [迁移工具](https://cloud.tencent.com/document/product/457/72487)，帮您一键将 TPS 实例迁移到 TMP，迁移前请 [精简监控指标](https://cloud.tencent.com/document/product/457/72482) 或降低采集频率，否则可能产生较高费用，再次感谢您对 TPS 的支持和信任。

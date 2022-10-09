@@ -6,8 +6,9 @@
 
 `TKE Service Controller` 默认不会将以下节点作为负载均衡后端：
 - Master 节点（不允许 Master 节点参与网络接入层的负载）。
-- 节点状态为 NotReady 或节点被设置为 Unschedulable（节点不健康或不可调度）。
+- 节点状态为 NotReady （节点不健康）。
 
+>! `TKE Service Controller` 可以绑定状态为 Unschedulable 的节点。Unschedulable 的节点也可以作为流量的入口，因为流量进入到节点之后，会再做一层容器网络里的流量转发，流量在 Unschedulable 的节点里面不会被丢弃，如上图所示。
 
 
 ## 指定接入层后端
@@ -23,7 +24,7 @@
 - 新增符合要求的节点或变更存量节点也会触发 controller 更新。
 
 
-### 使用场景
+### 使用场景 
 #### 大规模集群下的测试应用
 在一个大规模集群下，部署一个仅包含一两个 Pod 的测试应用。通过 Service 进行服务暴露时，负载均衡将对所有的后端 NodePort 进行健康检查，此健康检查的请求量对测试应用有很大影响。此时可以在集群中通过 Label 指定一小部分节点作为后端，缓解健康检查带来的压力。详情请参见 [关于健康检查探测频率过高的说明](https://cloud.tencent.com/document/product/214/3394#.E5.81.A5.E5.BA.B7.E6.A3.80.E6.9F.A5.E6.8E.A2.E6.B5.8B.E9.A2.91.E7.8E.87.E8.BF.87.E9.AB.98)。
 

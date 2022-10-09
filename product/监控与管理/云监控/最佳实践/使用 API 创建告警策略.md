@@ -88,8 +88,7 @@
 2. 单击右侧**在线调用** > **发送请求**，获取响应结果。返回结果中 Response.Metrics.N 即该策略类型下的所有告警指标。如下图为获取云服务器指标列表：
  ![](https://main.qcloudimg.com/raw/da93d3e304a016a3ce7c7e4081835426.png)
 :::
-::: 准备事件列表
-通过 <dx-tag-link link="https://cloud.tencent.com/document/product/248/51284" tag="API">查询告警事件列表</dx-tag-link> 可以查询到策略类型下的所有告警指标。
+
 
 1. 进入 [API Explorer 在线调用控制台](https://console.cloud.tencent.com/api/explorer?Product=monitor&Version=2018-07-24&Action=DescribeAlarmEvents&SignVersion=)，参考下表填写输入参数。
 <table>
@@ -114,7 +113,7 @@
 		<td>填写“准备告警策略类型”步骤获取的告警策略类型，即返回结果中的 Response.QceNamespacesNew.N.Id</td>
 	</tr>
 </table>
-2. 单击**在线调用** > **发送请求**，获取响应结果。返回结果 Response.Events.N.EventName 即告警策略需要的 EventName。
+2. 单击**在线调用** > **发送请求**，获取响应结果。
   ![](https://main.qcloudimg.com/raw/de44fb8113250229bfbf5d7985b381da.png)
    :::
 </dx-tabs>
@@ -156,18 +155,16 @@
 <td>告警触发条件列表。可参考在线调用 AlarmPolicyRule 参数说明进行配置<ul><li> <strong>MetricName</strong>：填写 <a href="#preparationsteps">准备指标列表</a> 步骤返回中的 MetricName（Metrics.N.MetricName）</li><li><strong>Period</strong>：填写 <a href="#preparationsteps">准备指标列表</a> 步骤返回中的 Period（Metrics.N.MetricConfig.Period）</li><li><strong>Operator</strong>：填写 <a href="#preparationsteps">准备指标列表</a> 步骤返回中的 Operator（Metrics.N.MetricConfig.Operator）</li><li><strong>Value</strong>：填写阈值，不需要填写单位，例如80</li><li><strong>ContinuePeriod</strong>：填写 <a href="#preparationsteps">准备指标列表</a> 步骤返回中的 ContinuePeriod（Metrics.N.MetricConfig.ContinuePeriod）</li><li><strong>NoticeFrequency</strong>：告警频率（按秒计算）。参数说明：告警间隔，0=不重复 ；300=每5分钟告警一次； 600=每10分钟告警一次 ；900=每15分钟告警一次 1800=每30分钟告警一次；3600=每1小时告警一次； 7200=每2小时告警一次 ；10800=每3小时告警一次； 21600=每6小时告警一次； 43200=每12小时告警一次 ；86400=每1天告警一次</li><li><strong>IsPowerNotice</strong>：告警频率是否指数增长，0=否，1=是</li><li>其他参数无需填写</li></ul></td>
 </tr>
 </tbody></table>
-8. 如需触发事件告警，需要填 EventCondition 参数。在 EventCondition 下，**仅需要**在 Rules.N.MetricName 中填写 <a href="#preparationsteps">准备事件列表</a> 步骤获得的 **EventName**，其他参数可不填。
-9. 在 NoticeIds.N 填写告警通知模板 Id ，例如 notice-qvq836vc。可通过 <dx-tag-link link="https://cloud.tencent.com/document/product/248/51280" tag="API">查询通知模板列表</dx-tag-link> 获得。
-10. 填写完以上参数后，单击**在线调用** > **发送请求**，如下图为成功创建云服务器—基础监控告警策略。
+8. 在 NoticeIds.N 填写告警通知模板 Id ，例如 notice-qvq836vc。可通过 <dx-tag-link link="https://cloud.tencent.com/document/product/248/51280" tag="API">查询通知模板列表</dx-tag-link> 获得。
+9. 填写完以上参数后，单击**在线调用** > **发送请求**，如下图为成功创建云服务器—基础监控告警策略。
 ![](https://main.qcloudimg.com/raw/c671b947114a3058b57918b7b1a44d01.png)
-11. 创建成功后，即可在云监控控制台 [告警策略](https://console.cloud.tencent.com/monitor/alarm2/policy) 页面查看该告警策略。
+10. 创建成功后，即可在云监控控制台 [告警策略](https://console.cloud.tencent.com/monitor/alarm2/policy) 页面查看该告警策略。
 ![](https://main.qcloudimg.com/raw/f40337bf7649bc856c56dc76893f4c39.png)
 
 
 
 
 ### 绑定告警对象
-
 1. 登录 [API Explorer 在线调试控制台](https://console.cloud.tencent.com/api/explorer?Product=monitor&Version=2018-07-24&Action=BindingPolicyObject&SignVersion=)。
 2. 将 [准备好的个人密钥](#spreparationsteps) 对应复制到对应的 SecretId、SecretKey 文本框。
 3. 在**输入参数**配置项找到 Region，选择相关地域。

@@ -1,8 +1,11 @@
 ## 接口描述
-**描述**：在指定会议中导入报名信息，支持手机号和同企业内 userid 两种方式。
-商业版单场会议导入上限1000条，企业版单场会议导入上限4000条。如需提升，请 [联系我们](https://cloud.tencent.com/document/product/1095/35658)。
-**请求方式**：POST
-**接口请求域名**：
+- **描述**：
+ - 指定会议中导入报名信息。
+ - 企业 secret 鉴权用户可通过同企业下用户 userid 和手机号导入报名信息，OAuth2.0 鉴权用户能通过用户 open_id，与应用同企业下的 userid 以及手机号导入报名信息。
+ - 用户必须是注册用户，请求头部 X-TC-Registered 字段必须传入为1。
+ - 商业版单场会议导入上限1000条，企业版单场会议导入上限4000条。如需提升，请 [联系我们](https://cloud.tencent.com/document/product/1095/35658)。
+- **请求方式**：POST
+- **接口请求域名**：
 ```plaintext
 https://api.meeting.qq.com/v1/meetings/{meeting_id}/enroll/import
 ```
@@ -10,9 +13,9 @@ https://api.meeting.qq.com/v1/meetings/{meeting_id}/enroll/import
 ## 输入参数
 | 名称             | 类型         | 是否必须 | 备注                                                         |
 | ---------------- | ------------ | -------- | ------------------------------------------------------------ |
-| operator_id      | String       | 必须     | 操作者 ID。会议创建者可以导入报名信息。<br />operator_id 必须与 operator_id_type 配合使用。根据 operator_id_type 的值，operator_id 代表不同类型。 |
-| operator_id_type | Integer      | 必须     | 操作者 ID 的类型： <br />1：企业内用户 userid。                |
-| instanceid       | Integer      | 必须     | 用户的终端设备类型：<br/> 1：PC。<br/> 2：Mac。 <br/>3：Android。 <br/>4：iOS。 <br/>5：Web。 <br/>6：iPad。 <br/>7：Android Pad。 <br/>8：小程序。 |
+| operator_id      | String       | 必须     | 操作者 ID。会议创建者可以导入报名信息。<br />operator_id 必须与 operator_id_type 配合使用。根据 operator_id_type 的值，operator_id 代表不同类型。<br>当 operator_id_type=2，operator_id 必须和公共参数的 openid 一致。<br>使用 OAuth 公参鉴权后不能使用 userid 为入参。 |
+| operator_id_type | Integer      | 必须     | 操作者 ID 的类型： <br />1：userid。<br />2：open_id            |
+| instanceid       | Integer      | 必须     | 用户的终端设备类型：<br>0：PSTN<br>1：PC<br>2：Mac<br>3：Android<br>4：iOS<br>5：Web<br>6：iPad<br>7：Android Pad<br>8：小程序<br>9：voip、sip 设备<br>10：linux<br>20：Rooms for Touch Windows<br>21：Rooms for Touch MacOS<br>22：Rooms for Touch Android<br>30：Controller for Touch Windows<br>32：Controller for Touch Android<br>33：Controller for Touch iOS |
 | enroll_list      | 报名对象列表 | 必须     | 报名对象列表。                                                 |
 
 
@@ -21,9 +24,10 @@ https://api.meeting.qq.com/v1/meetings/{meeting_id}/enroll/import
 
 | 名称         | 类型   | 是否必须 | 备注                                                         |
 | ------------ | ------ | -------- | ------------------------------------------------------------ |
-| userid       | String | 非必须   | 企业内的用户的唯一 ID。<br />导入报名支持本企业内 userid 的形式或 phone_number 的形式，二者必填其一。 |
+| open_id       | String | 非必须   | <br>OAuth 授权用户 ID。<br>导入报名对象支持本企业（JWT 模式）或应用同企业（OAuth 模式）内 userid、授权用户的 openid、phone_number 三种形式，三者必填其一。<br>如果都传了以 openid 为准（优先级为：openid > userid > phone_number）。<br>JWT 鉴权方式无法使用 open_id 导入报名。 |
+| userid       | String | 非必须   | 企业内的用户的唯一 ID。<br />导入报名对象支持本企业（JWT 模式）或应用同企业（OAuth 模式）内 userid、授权用户的 openid、phone_number 三种形式，三者必填其一。 |
 | area         | String | 非必须   | 国家/地区代码。若使用 phone_number 的方式导入，该字段必填（例如：中国传86，不是+86）。 |
-| phone_number | String | 非必须   | 手机号。<br />导入报名支持本企业内 userid 的形式或 phone_number 的形式，二者必填其一。 |
+| phone_number | String | 非必须   | 手机号。<br />导入报名对象支持本企业（JWT 模式）或应用同企业（OAuth 模式）内 userid、授权用户的 openid、phone_number 三种形式，三者必填其一。 |
 | nick_name    | String | 非必须   | 报名的昵称。此处的修改不会影响会中展示的昵称，仅展示在导出的报名信息。 |
 
 ## 输出参数
@@ -40,8 +44,9 @@ https://api.meeting.qq.com/v1/meetings/{meeting_id}/enroll/import
 | 名称         | 类型    | 备注                                                         |
 | ------------ | ------- | ------------------------------------------------------------ |
 | enroll_id    | Integer | 报名 ID。                                                       |
-| userid       | String  | 企业内的用户的唯一 ID。<br />导入报名支持本企业内 userid 的形式或 phone_number 的形式，二者必填其一。 |
+| open_id       | String   | OAuth 授权用户 ID。<br>导入报名对象支持本企业（JWT 模式）或应用同企业（OAuth 模式）内 userid、授权用户的 openid、phone_number 三种形式，三者必填其一。 |
+| userid       | String  | 企业内的用户的唯一 ID。<br />导入报名对象支持本企业（JWT 模式）或应用同企业（OAuth 模式）内 userid、授权用户的 openid、phone_number 三种形式，三者必填其一。 |
 | area         | String  | 国家/地区代码。若使用 phone_number 的方式导入，该字段必填（例如：中国传86，不是+86）。 |
-| phone_number | String  | 手机号。<br />导入报名支持本企业内 userid 的形式或 phone_number 的形式，二者必填其一。 |
+| phone_number | String  | 手机号。<br />导入报名对象支持本企业（JWT 模式）或应用同企业（OAuth 模式）内 userid、授权用户的 openid、phone_number 三种形式，三者必填其一。 |
 | nick_name    | String  | 报名的昵称。                                                 |
 

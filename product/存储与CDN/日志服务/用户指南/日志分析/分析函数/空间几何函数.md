@@ -88,7 +88,7 @@
 | ST_Length(SphericalGeography)                       | double     | 在球面几何中，计算一个线段或者多条线段的长度。              |
 | ST_XMax(Geometry)                                   | double     | 返回几何体边框的 X 最大值。                                 |
 | ST_YMax(Geometry)                                   | double     | 返回几何体边框的 Y 最大值。                                 |
-| T_XMin(Geometry)                                    | double     | 返回几何体边框的 X 最小值。                                 |
+| ST_XMin(Geometry)                                   | double     | 返回几何体边框的 X 最小值。                                 |
 | ST_YMin(Geometry)                                   | double     | 返回几何体边框的 Y 最小值。                                 |
 | ST_StartPoint(Geometry)                             | point      | 返回线段类型几何体的第一个点。                              |
 | ST_EndPoint(Geometry)                               | point      | 返回线段类型几何体的最后一个点。                            |

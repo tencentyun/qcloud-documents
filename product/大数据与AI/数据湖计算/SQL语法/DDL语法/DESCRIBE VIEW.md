@@ -1,7 +1,10 @@
-展示视图的所有列信息。
+## 说明
+- 支持内核：Presto、SparkSQL。
+- 用途：查看视图属性。
+
 ## 语法
 ```
-DESCRIBE [view_name];
+DESCRIBE [view_name]
 ```
 ## 参数
 view_name：视图名。

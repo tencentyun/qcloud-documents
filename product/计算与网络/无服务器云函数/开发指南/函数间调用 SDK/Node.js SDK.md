@@ -11,6 +11,8 @@ Tencentcloud-Serverless-Nodejs SDK 的功能特性可分为以下几点：
 * 支持 keepalive 能力。
 * 支持跨地域函数调用。
 
+>? 函数间调用 SDK 仅适用于事件函数，Web 函数可通过在函数代码中请求 Web 函数对应路径的方式发起调用。
+
 
 ## 快速开始
 ### 开发准备
@@ -99,7 +101,7 @@ exports.main_handler = async (event, context) => {
  - 代码提交方式：选择**本地上传 zip 包**。
     将 `testNodejsSDK` 目录下的所有文件压缩为 zip 格式，并上传到云端。
 4. 
-在 [云函数控制台](https://console.cloud.tencent.com/scf/list) 中的函数详情页面，通过进入函数代码子页面，单击**运行**，测试运行函数。输出结果如下：
+在 [Serverless 控制台](https://console.cloud.tencent.com/scf/list) 中的函数详情页面，通过进入函数代码子页面，单击**运行**，测试运行函数。输出结果如下：
 ```shell
 "Already invoked a function!"
 ```

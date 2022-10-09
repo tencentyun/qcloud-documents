@@ -1,7 +1,7 @@
 腾讯云云游戏提供 JS SDK，可支持包括 PC 浏览器、移动端 H5 页面以及小程序内嵌 WebView 等多种落地场景。本文将通过 Web 端程序入门 Demo 演示如何快速搭建 Web Demo 并部署运行。
 
 ## 步骤1：下载 Demo[](id:step1)
-单击 [下载](https://github.com/tencentyun/cloudgame-js-sdk/tree/master/demo) Web 端程序 Demo 工程。
+单击 [下载](https://github.com/tencentyun/cloudgame-js-sdk/tree/master/samples) Web 端程序 Demo 工程。
 
 ## 步骤2：配置文件[](id:step2)
 解压 Demo 工程文件，打开 `demo` 目录下 `demo.html` 文件。

@@ -2,25 +2,24 @@
 
 该任务指导您在购买 TDMQ Pulsar 版服务和腾讯云服务器后，下载 Demo 并进行简单的测试，了解运行一个客户端的操作步骤。
 
+<dx-alert infotype="explain" title="">
+本示例以 Java 客户端为例说明，其他语言客户端请参见 [SDK 文档](https://cloud.tencent.com/document/product/1179/48553)。
+</dx-alert>
+
 ## 前提条件
 
-- 已 [注册腾讯云账号](https://cloud.tencent.com/document/product/378/17985)
-- 已 [购买云服务器](https://buy.cloud.tencent.com/cvm)
+已 [购买云服务器](https://buy.cloud.tencent.com/cvm)。
 
 ## 操作步骤
 
-<dx-alert infotype="explain" title="">
-以 Java 客户端为例说明，其他语言客户端请参见 [SDK 文档](https://cloud.tencent.com/document/product/1179/66699)。
-</dx-alert>
-
-1. 下载 Demo（[Demo下载地址](https://tdmq-document-1306598660.cos.ap-nanjing.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91demo/pulsar/tdmq-java-client.zip
+1. 下载 Demo（[Demo 下载地址](https://tdmq-document-1306598660.cos.ap-nanjing.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91demo/pulsar/tdmq-java-client.zip
 )），并配置相关参数。
    **关于 Maven 依赖**
 pom.xml 文件中的依赖是按照 Pulsar 的官方依赖进行配置的，详情可以参见 [其官方文档](https://pulsar.apache.org/docs/en/client-libraries-java/)。
 <dx-codeblock>
 :::  xml
 
-```xml
+
 <!-- in your <properties> block -->
 <pulsar.version>2.7.1</pulsar.version>
 <!-- in your <dependencies> block -->
@@ -29,7 +28,6 @@ pom.xml 文件中的依赖是按照 Pulsar 的官方依赖进行配置的，详�
 	<artifactId>pulsar-client</artifactId>
 	<version>${pulsar.version}</version>
 </dependency>
-```
 
 :::
 </dx-codeblock>
@@ -55,13 +53,9 @@ System.out.println(">> pulsar client created.");
 
 :::
 </dx-codeblock>
-
 - serviceUrl 即接入地址，可以在控制台 **[集群管理](https://console.cloud.tencent.com/tdmq/cluster)** 页面查看并复制。
-
-  ![](https://main.qcloudimg.com/raw/a1bbc4b3857903e04f16fc46d9194c57.png)
-
+![](https://qcloudimg.tencent-cloud.cn/raw/5bd5bfc4c6db2ce15c199ba51c8edf88.png)
 - token 即角色的密钥，角色密钥可以在**角色管理**中复制。
-
 <dx-alert infotype="notice" title="">
 密钥泄露很可能导致您的数据泄露，请妥善保管您的密钥。
 </dx-alert>
@@ -84,8 +78,8 @@ System.out.println(">> pulsar client created.");
 </dx-codeblock>
 
 - serviceUrl 即接入地址，可以在控制台 **[集群管理](https://console.cloud.tencent.com/tdmq/cluster)** 接入点页面查看并复制。
-- listenerName即 “custom:” 拼接路由ID（NetModel），路由ID可以在控制台 **[集群管理](https://console.cloud.tencent.com/tdmq/cluster)** 接入点页面查看并复制。
-  ![](https://main.qcloudimg.com/raw/521d7585bb872e8150fc0277da1fe894.png)
+- listenerName 即 “custom:” 拼接路由ID（NetModel），路由ID可以在控制台 **[集群管理](https://console.cloud.tencent.com/tdmq/cluster)** 接入点页面查看并复制。
+![](https://qcloudimg.tencent-cloud.cn/raw/f1fad00ed5be05a6aad1aa2822d999ca.png)
 - token 即角色的密钥，角色密钥可以在**角色管理**中复制。
 
 
@@ -112,9 +106,9 @@ Consumer<byte[]> consumer = client.newConsumer()
 :::
 </dx-codeblock>
 <dx-alert infotype="explain" title="">
-- Topic 名称需要填入完整路径，即“persistent://clusterid/namespace/Topic”，clusterid/namespace/topic 的部分可以从控制台上 **[Topic管理](https://console.cloud.tencent.com/tdmq/topic)** 页面直接复制。
-  ![](https://main.qcloudimg.com/raw/a2e32b311b825df9798b8c98df7c3416.png)
-- subscriptionName需要写入订阅名，可在**消费管理**界面查看。
+- Topic 名称需要填入完整路径，即“persistent://clusterid/namespace/Topic”，clusterid/namespace/topic 的部分可以从控制台上 **[Topic 管理](https://console.cloud.tencent.com/tdmq/topic)** 页面直接复制。
+![](https://qcloudimg.tencent-cloud.cn/raw/e391fcde54f18545de2f53c8e74e85ff.png)
+- subscriptionName 需要写入订阅名，可在**消费管理**界面查看。
 </dx-alert>
 <b>创建生产者进程</b>
 <dx-codeblock>
@@ -127,7 +121,7 @@ Producer<byte[]> producer = client.newProducer()
 :::
 </dx-codeblock>
 <dx-alert infotype="explain" title="">
-Topic 名称需要填入完整路径，即“persistent://clusterid/namespace/Topic”，clusterid/namespace/topic 的部分可以从控制台上 **[Topic管理](https://console.cloud.tencent.com/tdmq/topic)** 页面直接复制。
+Topic 名称需要填入完整路径，即“persistent://clusterid/namespace/Topic”，clusterid/namespace/topic 的部分可以从控制台上 **[Topic 管理](https://console.cloud.tencent.com/tdmq/topic)** 页面直接复制。
 </dx-alert>
 <b>生产消息</b>
 <dx-codeblock>
@@ -158,14 +152,14 @@ for (int i = 0; i < 5; i++) {
 </dx-codeblock>
 2. 在 `pom.xml` 所在目录执行命令 `mvn clean package`，或者通过 IDE 自带的功能打包整个工程，在 target 目录下生成一个可运行的 jar 文件。
    <img src="https://main.qcloudimg.com/raw/8a4808ea722fe0b19ad1cd91666088c7.png" width="450px"> 
-3. 运行成功后将 jar 文件上传到云服务器，具体操作参考 [如何将本地文件拷贝到云服务器](https://cloud.tencent.com/document/product/213/39138)。
-4. 登录云服务器，进入到刚刚上传jar文件所在的目录，可看到文件已上传到云服务器。
-   ![](https://main.qcloudimg.com/raw/677e840a8f28802d217b38acc9745d85.png)
+3. 运行成功后将 jar 文件上传到云服务器，具体操作参见 [如何将本地文件拷贝到云服务器](https://cloud.tencent.com/document/product/213/39138)。
+4. 登录云服务器，进入到刚刚上传 jar 文件所在的目录，可看到文件已上传到云服务器。
+![](https://qcloudimg.tencent-cloud.cn/raw/b56b5be33f0b9b02dda231663f8450b7.png)
    执行命令 `java -jar tdmq-demo-1.0.0.jar`，运行 Demo，可查看运行日志。
    ![](https://main.qcloudimg.com/raw/cd31ccff67fe1f5fa926e383151c5aae.png)
-5. 登录 [TDMQ Pulsar 版控制台](https://console.cloud.tencent.com/tdmq)，依次点击 **Topic管理** > **Topic名称**进入消费管理页面，点开订阅名下方右三角号，可查看生产消费记录。
-   ![](https://main.qcloudimg.com/raw/da7ce2bc5ac606c91982efecdb3b53bb.png)
+5. 登录 [TDMQ Pulsar 版控制台](https://console.cloud.tencent.com/tdmq)，依次点击 **Topic 管理** > **Topic 名称**进入消费管理页面，点开订阅名下方右三角号，可查看生产消费记录。
+   ![](https://qcloudimg.tencent-cloud.cn/raw/f1d8a389185ef98bc68e734dedea120a.png)
 6. 进入 **[消息查询](https://console.cloud.tencent.com/tdmq/message)** 页面，可查看 Demo 运行后的消息轨迹。
-	 ![](https://qcloudimg.tencent-cloud.cn/raw/6178970f9e7395b8e7430275fc039d47.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/9df6e467fe7a12fb5a1f19c465f093f5.png)
    消息轨迹如下：
-   ![](https://main.qcloudimg.com/raw/eaa0125f6dcd7675e367c4e3e069c915.png)
+   ![](https://qcloudimg.tencent-cloud.cn/raw/10745bd8606719efe12e56143c4ec55a.png)

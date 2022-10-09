@@ -1,3 +1,4 @@
+
 ## 现象描述
 连接云数据库 MySQL 实例时，提示“ERROR 1045 (28000): Access denied for user ‘XXX’@’XXX’”报错信息。
 ![](https://main.qcloudimg.com/raw/3283ffcec33f4bdf02aa6ed8cf48ea48.png)

@@ -948,7 +948,7 @@ response = client.put_bucket_policy(
                 ],
                 "Resource": [
                     "qcs::cos:ap-guangzhou:uid/1250000000:examplebucket-1250000000/*"
-                ]
+                ],
                 "condition": {
                     "ip_equal": {
                     "qcs:ip": "10.121.2.10/24"
@@ -998,6 +998,7 @@ from qcloud_cos import CosConfig
 from qcloud_cos import CosS3Client
 import sys
 import logging
+import json
 
 # 正常情况日志级别使用INFO，需要定位时可以修改为DEBUG，此时SDK会打印和服务端的通信信息
 logging.basicConfig(level=logging.INFO, stream=sys.stdout)
@@ -1016,6 +1017,7 @@ client = CosS3Client(config)
 response = client.get_bucket_policy(
     Bucket='examplebucket-1250000000',
 )
+policy = json.loads(response['Policy'])
 ```
 #### 参数说明
 
@@ -1026,7 +1028,7 @@ response = client.get_bucket_policy(
 
 #### 返回结果说明
 
-Bucket 权限策略规则，类型为 dict。
+Bucket 权限策略规则，类型为 dict，该 dict 包含一条 key-value 对，其中 key 是字符串`'Policy'`, value 是表示具体权限策略规则的 JSON 字符串，可以使用`json.loads()`将其转换为 dict：
 ```python
 {
     "Statement": [
@@ -1042,7 +1044,7 @@ Bucket 权限策略规则，类型为 dict。
             ],
             "Resource": [
                 "qcs::cos:ap-guangzhou:uid/1250000000:examplebucket-1250000000/*"
-            ]
+            ],
             "condition": {
                 "ip_equal": {
                 "qcs:ip": "10.121.2.10/24"

@@ -7,13 +7,13 @@
 ## 配置指南
 
 ### 查看配置
-登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，在菜单栏里选择【域名管理】，单击域名右侧【管理】，即可进入域名配置页面，第二栏【访问控制】中可看到 IP 黑白名单配置，默认情况下为关闭状态：
+登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，在菜单栏里选择**域名管理**，单击域名右侧**管理**，即可进入域名配置页面，第二栏**访问控制**中可看到 IP 黑白名单配置，默认情况下为关闭状态：
 ![](https://main.qcloudimg.com/raw/d6f183e43bc1c025abe0d293a410630b.png)
 
 ### 开启配置
 
-单击开关，选择黑名单 / 白名单，并填入 IP 或 IP 段列表并单击【确认】，即可启用 IP 黑 / 白名单配置：
-![](https://main.qcloudimg.com/raw/f8bcab96331c8e166f0daebc8cbf4ac6.png)
+单击开关，选择黑名单 / 白名单，并填入 IP 或 IP 段列表并单击**确认**，即可启用 IP 黑 / 白名单配置：
+<img src="https://qcloudimg.tencent-cloud.cn/raw/f20840d78b837d952f9e2aa4f7c3d31e.png" width="600px">
 **IP 黑名单**
 用户端 IP 匹配黑名单中的 IP 或 IP 段时 ，访问 CDN 节点时将直接返回403状态码。
 **IP 白名单**
@@ -21,8 +21,10 @@
 **配置约束**
 - IP 黑名单与 IP 白名单二选一，不可同时配置。
 - IP 黑白名单各至多可输入200个。
-- IP 段仅支持 /8、/16、/24 网段，不支持其他网段。
-- 不支持`IP:端口`形式的黑白名单。
+- IPv4仅支持 /8、/16、/24 网段，不支持其他网段；IPv6支持全网段。
+- 不支持IP:端口形式的黑白名单。
+- 不支持配置 IPV4 及 IPV6 保留地址及网段作为 IP 黑白名单。
+
 
 ### 关闭配置
 您可以通过 IP 黑白名单配置开关进行一键关闭，开关为关闭状态时，即便下方存在已有配置，仍不会现网生效，下次单击开启时，会先行进行配置的二次确认，不会立即发布至全网生效：
@@ -32,9 +34,15 @@
 
 ## 配置示例
 
-若加速域名`www.test.com`的 IP 黑白名单配置如下：
-![](https://main.qcloudimg.com/raw/0fc7f674d500609ebae87873b3791724.png)
+若加速域名 `www.test.com` 的 IP 白名单配置如下：
+![](https://qcloudimg.tencent-cloud.cn/raw/a1f4e9d3ef474635d93693ef761d13a3.png)
 则实际访问情况如下：
-1. 用户端 IP 为`1.1.1.1`的用户访问资源`http://www.test.com/test.txt`，匹配白名单，正常返回内容。
-2. 用户端 IP 为`2.1.1.1`的用户访问资源`http://www.test.com/test.txt`，未匹配白名单，返回403。
+1. 用户端 IP 为1.1.1.1的用户访问资源 `http://www.test.com/test.txt`，匹配白名单1.0.0.0/8，正常返回内容。
+2. 用户端 IP 为2.1.1.1的用户访问资源 `http://www.test.com/test.txt`，未匹配白名单，返回403。
+
+若加速域名 `www.test.com` 的 IP 黑名单配置如下：
+![](https://qcloudimg.tencent-cloud.cn/raw/a0bd155807084516b72fd0ae764290dd.png)
+则实际访问情况如下：
+1. 用户端 IP 为1.1.1.1的用户访问资源 `http://www.test.com/test.txt`，匹配黑名单1.0.0.0/8，返回403。
+2. 用户端 IP 为2.1.1.1的用户访问资源 `http://www.test.com/test.txt`，未匹配黑名单，正常返回内容。
 

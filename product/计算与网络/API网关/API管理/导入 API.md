@@ -15,11 +15,21 @@
 ![](https://main.qcloudimg.com/raw/b1ee822a7519f9452b73d99077fa27e4.png)
 
 ## 注意事项
-- 目前只支持导入后端为 Mock 的 API，您可以在导入成功后通过编辑 API 来修改 API 的后端配置。
+
 - 导入 API 支持 OpenAPI 3.0.0 标准的 API 定义，支持 YAML 和 JSON 格式的描述文件。
 - 单次不能同时导入超过10个API。
 - 上传 API 描述文件时，文件后缀名必须为 .yaml 或 .json；单次上传的 API 描述文件不能超过 100KB；上传的描述文件会覆盖代码编辑器里的内容。
 - 创建成功的 API 将不会自动发布，需要您手动发布后方可生效。
+- 从标准 OpenAPI3.0 描述文件导入 API，需要手动添加 servers 字段，用来定义 API 访问的后端地址，例如：
+<dx-codeblock>
+:::  YAML
+servers:
+  - url: 'http://localhost:8080'
+    description: Generated server url
+:::
+</dx-codeblock>
+
+
 
 >?
 >- OpenAPI 规范和 API 网关的映射关系请参见 [定义 API](https://cloud.tencent.com/document/product/628/43135)。

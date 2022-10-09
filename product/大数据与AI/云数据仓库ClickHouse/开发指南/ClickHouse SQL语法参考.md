@@ -126,8 +126,8 @@ ClickHouse 支持整数、浮点数、字符型、日期、枚举值、数组等
 </table>
 
 >?
-- 可以使用 UInt8 来存储布尔类型，将取值限制为0或1。
-- [其他数据类型官方文档](https://clickhouse.tech/)。
+>- 可以使用 UInt8 来存储布尔类型，将取值限制为0或1。
+>- [其他数据类型官方文档](https://clickhouse.tech/)。
 
 ### 使用举例
 #### 枚举类型应用
@@ -382,3 +382,4 @@ ClickHouse 支持一种 [内置字典](https://clickhouse.tech/docs/en/query_lan
 
 ### 外置字典
 ClickHouse 可以从多个数据源添加 [外置字典](https://clickhouse.tech/docs/en/query_language/dicts/external_dicts/)，支持的数据源可参考 [Sources Of External Dictionaries](https://clickhouse.tech/docs/en/query_language/dicts/external_dicts_dict_sources/)。
+   

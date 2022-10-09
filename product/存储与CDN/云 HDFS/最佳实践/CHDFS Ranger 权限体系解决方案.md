@@ -39,7 +39,7 @@ CHDFS-Ranger-Plugin 拓展了 Ranger Admin 控制台上的服务种类， 用户
 
 #### 版本
 
-V1.2版本及以上。
+V1.0 版本及以上。
 
 #### 部署步骤
 
@@ -100,7 +100,7 @@ COS-Ranger-Service 支持一主多备的 HA 部署，DelegationToken 状态持�
 
 #### 版本
 
-V5.0.6版本及以上。
+V5.1.2 版本及以上。
 
 #### 部署步骤
 
@@ -131,16 +131,17 @@ curl -v http://10.xx.xx.xxx:9998/status
  - 如果部署了多个 cos ranger service 节点，会在上述接口响应中看到其他节点成为 leader，完成全部节点重启后，会看到最早完成重启的节点成为 leader。
 
 :::
-::: 部署COS-Ranger-Client
+::: 部署 COS-Ranger-Client 和 COSN-Ranger-Interface
 COS-Ranger-Client 由 hadoop chdfs 插件动态加载，并代理访问 COS-Ranger-Service 的相关请求。例如获取 token、鉴权操作等。
 
 #### 代码地址
 
-可前往 [Github](https://github.com/tencentyun/cos-ranger-service) 的 cos-ranger-client 目录下获取。
+可前往 [Github](https://github.com/tencentyun/cos-ranger-service) 的 cos-ranger-client 和 cosn-ranger-interface 目录下获取。
 
 #### 版本
 
-V3.8版本及以上。
+cos-ranger-client 要求V5.0 版本及以上。  
+cosn-ranger-interface 要求 v1.0.4版本及以上。
 
 #### 部署方式
 1. 将 cos-ranger-client jar 包和cosn-ranger-interface jar 包拷贝到与 CHDFS 插件同一目录下（通常在/usr/local/service/hadoop/share/hadoop/common/lib/目录下；请选择拷贝与自身 hadoop 大版本一致的 jar 包，最后确保 jar 包有可读权限）。
@@ -150,10 +151,10 @@ V3.8版本及以上。
 ```
 <configuration>
            <!--*****必须配置********-->
-           <!-- zk 的地址，客户端从 zk 上查询得知 cos-ranger-service 的服务地址 -->
+           <!-- 上一步部署的 cos ranger server 的地址 -->
            <property>
-               <name>qcloud.object.storage.zk.address</name>
-               <value>10.0.0.8:2181,10.0.0.9:2181,10.0.0.10:2181</value>
+               <name>qcloud.object.storage.ranger.service.address</name>
+               <value>10.0.0.8:9999,10.0.0.10:9999</value>
            </property>
 
            <!--***可选配置****-->           
@@ -183,7 +184,7 @@ V3.8版本及以上。
 
 #### 版本
 
-V2.1版本及以上。
+V2.8 版本及以上。
 
 #### 部署方式
 
@@ -232,6 +233,6 @@ hadoop fs -rm ofs://f4mxxxxyyyy-zzzz.chdfs.ap-guangzhou.myqcloud.com/exampleobje
 
 Ranger 鉴权是在客户端环境进行的，经过 ranger 鉴权的请求，会发给 CHDFS 服务端，服务端默认会进行 POSIX 鉴权。因此如果权限都在 Ranger 端进行控制，请在 CHDFS 控制台关闭 POSIX 权限。
 
-### 在 ranger 页面更改了 Policy 未生效怎么办？
+#### 在 ranger 页面更改了 Policy 未生效怎么办？
 请修改 cos-ranger-service 服务目录 conf 下的 ranger-chdfs-security.xml 文件的配置项：ranger.plugin.chdfs.policy.pollIntervalMs，调小该配置项（单位为毫秒），然后重启 cos-ranger-service 服务。Policy 相关测试结束后，建议修改回原来值（时间间隔太小导致轮训频率高，从而导致 CPU 利用率高企）。
 

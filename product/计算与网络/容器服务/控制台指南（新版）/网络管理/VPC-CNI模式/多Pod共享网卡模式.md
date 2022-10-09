@@ -72,7 +72,7 @@ sysctl -w net.ipv4.conf.eth0.rp_filter=0
 
 #### 创建集群时开启 VPC-CNI
 
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，单击左侧导航栏中**集群**。
+1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)，单击左侧导航栏中**集群**。
 2. 在“集群管理”页面，单击集群列表上方的**新建**。
 3. 在“创建集群”页面，在容器网络插件中选择 “VPC-CNI”。如下图所示：
 ![](https://main.qcloudimg.com/raw/d3d84cfc2ede5be4c67d698c03b18c6a.png)
@@ -84,7 +84,7 @@ sysctl -w net.ipv4.conf.eth0.rp_filter=0
 
 #### 为已有集群开启 VPC-CNI
 创建集群时选择 Global Router 网络插件，后续在集群基本信息页面开启 VPC-CNI 模式（两种默认混用）。
-1. 登录 [容器服务控制台](https://console.qcloud.com/tke2)，单击左侧导航栏中**集群**。
+1. 登录 [容器服务控制台 ](https://console.qcloud.com/tke2)，单击左侧导航栏中**集群**。
 2. 在“集群管理”页面，选择需开启 VPC-CNI 的集群 ID，进入集群详情页。
 3. 在集群详情页面，选择左侧**基本信息**。
 4. 在集群“基本信息”页面的集群信息模块，在 VPC-CNI 字段中单击开启。
@@ -96,7 +96,7 @@ sysctl -w net.ipv4.conf.eth0.rp_filter=0
 6. 单击**提交**，即可完成为已有集群开启 VPC-CNI。
 
 ### 关闭 VPC-CNI
-1. 登录 [容器服务控制台](https://console.qcloud.com/tke2)，单击左侧导航栏中**集群**。
+1. 登录 [容器服务控制台 ](https://console.qcloud.com/tke2)，单击左侧导航栏中**集群**。
 2. 在“集群管理”页面，选择需开启 VPC-CNI 的集群 ID，进入集群详情页。
 3. 在集群详情页面，选择左侧**基本信息**。
 4. 在集群“基本信息”页面的集群信息模块，在 VPC-CNI 字段中单击关闭。

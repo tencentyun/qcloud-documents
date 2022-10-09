@@ -23,7 +23,7 @@
 ### 任务提交
 
 1. 准备一个 PyTorchJob 的 [YAML 文件](https://raw.githubusercontent.com/kubeflow/pytorch-operator/master/examples/mnist/v1/pytorch_job_mnist_nccl.yaml)，定义1个 Master Worker 和1个 Worker。
-<dx-alert infotype="notice" title="">
+<dx-alert infotype="notice" title=" ">
 - 用户需要用上传后的训练镜像地址替换  `<训练镜像>` 所在占位。
 - 由于在资源配置中设置了 GPU 资源，在 `args` 为训练配置的 `backend` 为 `"nccl"`；在未使用 （Nvidia）GPU 的任务中，请使用其他（例如 gloo）backend。
 </dx-alert>

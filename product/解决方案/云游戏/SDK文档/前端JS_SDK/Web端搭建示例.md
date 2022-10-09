@@ -1,4 +1,4 @@
-云游戏提供了相关 Web 端搭建 Demo，详情请参见 [demo](https://github.com/tencentyun/cloudgame-js-sdk/tree/master/demo)。
+云游戏提供了相关 Web 端搭建 Demo，详情请参见 [Demo](https://github.com/tencentyun/cloudgame-js-sdk/tree/master/samples)。
 
 [](id:web)
 ## Web 端搭建示例（H5）

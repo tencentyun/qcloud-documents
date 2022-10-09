@@ -42,16 +42,17 @@ width: 300px;
 | [DeleteRocketMQGroup](https://cloud.tencent.com/document/api/1179/63424) | 删除 RocketMQ 消费组     |
 | [DescribeRocketMQGroups](https://cloud.tencent.com/document/api/1179/63420) | 获取 RocketMQ 消费组列表 |
 | [CreateRocketMQGroup](https://cloud.tencent.com/document/api/1179/63428) | 创建 RocketMQ 消费组     |
+| [ResetRocketMQConsumerOffSet](https://cloud.tencent.com/document/api/1179/71662) | 重置 RocketMQ 消费位点     |
 
 ## 角色相关接口
 
 | 接口名称                                                     | 接口功能         |
 | :----------------------------------------------------------- | :--------------- |
-| [CreateRole](https://cloud.tencent.com/document/product/1179/62401) | 创建角色         |
-| [ModifyRole](https://cloud.tencent.com/document/product/1179/62397) | 角色修改         |
-| [DescribeRoles](https://cloud.tencent.com/document/product/1179/62398) | 修改环境角色授权 |
-| [CreateRocketMQGroup](https://cloud.tencent.com/document/product/1179/62399) | 获取角色列表     |
-| [DeleteEnvironmentRoles](https://cloud.tencent.com/document/product/1179/62400) | 删除环境角色授权 |
-| [CreateEnvironmentRole](https://cloud.tencent.com/document/product/1179/62402) | 创建环境角色授权 |
-| [DeleteRoles](https://cloud.tencent.com/document/product/1179/62403) | 删除角色         |
+| [CreateRole](https://cloud.tencent.com/document/api/1179/62401) | 创建角色         |
+| [ModifyRole](https://cloud.tencent.com/document/api/1179/62397) | 角色修改         |
+| [DescribeRoles](https://cloud.tencent.com/document/api/1179/62398) | 修改环境角色授权 |
+| [CreateRocketMQGroup](https://cloud.tencent.com/document/api/1179/62399) | 获取角色列表     |
+| [DeleteEnvironmentRoles](https://cloud.tencent.com/document/api/1179/62400) | 删除环境角色授权 |
+| [CreateEnvironmentRole](https://cloud.tencent.com/document/api/1179/62402) | 创建环境角色授权 |
+| [DeleteRoles](https://cloud.tencent.com/document/api/1179/62403) | 删除角色         |
 

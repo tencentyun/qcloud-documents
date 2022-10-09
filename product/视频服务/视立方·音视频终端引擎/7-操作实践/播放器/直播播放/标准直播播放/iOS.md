@@ -1,13 +1,4 @@
 本文主要介绍腾讯云视立方 SDK 的直播播放功能。
-## 版本支持
-本页文档所描述功能，在腾讯云视立方中支持情况如下：
-
-| 版本名称 | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 播放器 Player | 全功能 |
-| -------- | -------- | -------- | -------- | -------- | -------- | -------- |
-| 支持情况 | &#10003;  | &#10003;                                                            | -  | -  | &#10003;  | &#10003;                                                            |
-| SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=allPart) |
-
-不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
 
 
 ## 示例代码
@@ -53,7 +44,7 @@ TXLivePlayer _txLivePlayer = [[TXLivePlayer alloc] init];
 ###  步骤4: 启动播放
 ```objectivec
 NSString* flvUrl = @"http://2157.liveplay.myqcloud.com/live/2157_xxxx.flv";
-[_txLivePlayer startPlay:flvUrl type:PLAY_TYPE_LIVE_FLV];
+[_txLivePlayer startLivePlay:flvUrl type:PLAY_TYPE_LIVE_FLV];
 ```
 
 | 可选值 | 枚举值 | 含义 |
@@ -63,10 +54,8 @@ NSString* flvUrl = @"http://2157.liveplay.myqcloud.com/live/2157_xxxx.flv";
 | PLAY_TYPE_LIVE_RTMP_ACC | 5 | 低延迟链路地址（仅适合于连麦场景） |
 | PLAY_TYPE_VOD_HLS | 3 | 传入的 URL 为 HLS（m3u8） 播放地址 |
 
-
-<dx-alert infotype="explain" title="关于 HLS（m3u8）">
-在 App 上我们不推荐使用 HLS 这种播放协议播放直播视频源（虽然它很适合用来做点播），因为延迟太高，在 App 上推荐使用 LIVE_FLV 或者 LIVE_RTMP 播放协议。
-</dx-alert>
+>? 1、关于 HLS（m3u8），在 App 上我们不推荐使用 HLS 这种播放协议播放直播视频源（虽然它很适合用来做点播），因为延迟太高，在 App 上推荐使用 LIVE_FLV 或者 LIVE_RTMP 播放协议；
+2、在 `startLivePlay` 之前，需要通过 `V2TXLivePremier#setLicence` 或者 `TXLiveBase#setLicence` 设置 License 后方可成功播放，否则将播放失败（黑屏），全局仅设置一次即可。直播 License、短视频 License 和视频播放 License 均可使用，若您暂未获取上述 License ，可 [快速免费申请测试版 License](https://cloud.tencent.com/act/event/License) 以正常播放，正式版 License 需 [购买](https://cloud.tencent.com/document/product/1449/56981)。
 
 ###  步骤5: 画面调整
 
@@ -198,7 +187,7 @@ _txLivePlayer.recordDelegate = recordListener;
 时移功能是腾讯云推出的特色能力，可以在直播过程中，随时观看回退到任意直播历史时间点，并能在此时间点一直观看直播。非常适合游戏、球赛等互动性不高，但观看连续性较强的场景。
 
 ```objectivec
-// 设置直播回看前，先调用 startPlay
+// 设置直播回看前，先调用 startLivePlay
 // 开始播放 ...
 [TXLiveBase setAppID:@"1253131631"]; // 配置 appId
 [_txLivePlayer prepareLiveSeek];     // 后台请求直播起始时间
@@ -285,7 +274,7 @@ _config.cacheTime              = 5;
 播放 URL 不能用普通的 CDN URL， 必须要带防盗链签名，防盗链签名的计算方法见 [txTime&txSecret](https://cloud.tencent.com/document/product/267/32735)。
 
 - **播放类型需要指定 ACC**
-在调用 startPlay 函数时，需要指定 type 为 **PLAY_TYPE_LIVE_RTMP_ACC**，SDK 会使用 RTMP-UDP 协议拉取直播流。
+在调用 startLivePlay 函数时，需要指定 type 为 **PLAY_TYPE_LIVE_RTMP_ACC**，SDK 会使用 RTMP-UDP 协议拉取直播流。
 
 - **该功能有并发播放限制**
 目前最多同时10路并发播放，设置这个限制的原因并非是技术能力限制，而是希望您只考虑在互动场景中使用（例如连麦时只给主播使用， 或者夹娃娃直播中只给操控娃娃机的玩家使用），避免因为盲目追求低延时而产生不必要的费用损失（低延迟线路的价格要贵于 CDN 线路）。

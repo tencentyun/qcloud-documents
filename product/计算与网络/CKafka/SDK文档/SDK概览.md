@@ -5,13 +5,36 @@
 | 协议 | <li>PLAINTEXT</li><li>SASL_PLAINTEXT</li><li>SASL_SSL（专业版支持）</li> | <li>SASL_PLAINTEXT</li><li>SASL_SSL（专业版支持）</li> |
 
 各语言 SDK 的使用方式如下：
-
-| SDK 类型    | 文档                                                         |
-| ----------- | ------------------------------------------------------------ |
-| Java SDK    | <li>[VPC 网络接入](https://cloud.tencent.com/document/product/597/54825)</li><li>[公网 SASL_PLAINTEXT 方式接入](https://cloud.tencent.com/document/product/597/63531)</li><li>[公网 SASL_SSL 方式接入](https://cloud.tencent.com/document/product/597/54826)</li> |
-| Python SDK  | <li>[VPC 网络接入](https://cloud.tencent.com/document/product/597/55034)</li><li>[公网 SASL_PLAINTEXT 方式接入](https://cloud.tencent.com/document/product/597/63537)</li><li>[公网 SASL_SSL 方式接入](https://cloud.tencent.com/document/product/597/55035)</li> |
-| Go SDK      | <li>[VPC 网络接入](https://cloud.tencent.com/document/product/597/54822)</li><li>[公网 SASL_PLAINTEXT 方式接入](https://cloud.tencent.com/document/product/597/54819)</li> |
-| PHP SDK     | <li>[VPC 网络接入](https://cloud.tencent.com/document/product/597/54829)</li><li>[公网 SASL_PLAINTEXT 方式接入](https://cloud.tencent.com/document/product/597/54830)</li> |
-| C++ SDK     | <li>[VPC 网络接入](https://cloud.tencent.com/document/product/597/54866)</li><li>[公网 SASL_PLAINTEXT 方式接入](https://cloud.tencent.com/document/product/597/54867)</li> |
-| Node.js SDK | <li>[VPC 网络接入](https://cloud.tencent.com/document/product/597/55484)</li><li>[公网 SASL_PLAINTEXT 方式接入](https://cloud.tencent.com/document/product/597/55485)</li> |
-
+<table>
+<thead>
+<tr>
+<th>SDK 类型</th>
+<th>文档</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Java SDK</td>
+<td><li><a href="https://cloud.tencent.com/document/product/597/54825">VPC 网络接入</a></li><li><a href="https://cloud.tencent.com/document/product/597/63531">公网 SASL_PLAINTEXT 方式接入</a></li><li><a href="https://cloud.tencent.com/document/product/597/54826">公网 SASL_SSL 方式接入</a></li>
+<li><a href="https://cloud.tencent.com/document/product/597/70211">VPC 网络 SASL_SCRAM 方式接入</a></li></td>
+</tr>
+<tr>
+<td>Python SDK</td>
+<td><li><a href="https://cloud.tencent.com/document/product/597/55034">VPC 网络接入</a></li><li><a href="https://cloud.tencent.com/document/product/597/63537">公网 SASL_PLAINTEXT 方式接入</a></li><li><a href="https://cloud.tencent.com/document/product/597/55035">公网 SASL_SSL 方式接入</a></li></td>
+</tr>
+<tr>
+<td>Go SDK</td>
+<td><li><a href="https://cloud.tencent.com/document/product/597/54822">VPC 网络接入</a></li><li><a href="https://cloud.tencent.com/document/product/597/54819">公网 SASL_PLAINTEXT 方式接入</a></li></td>
+</tr>
+<tr>
+<td>PHP SDK</td>
+<td><li><a href="https://cloud.tencent.com/document/product/597/54829">VPC 网络接入</a></li><li><a href="https://cloud.tencent.com/document/product/597/54830">公网 SASL_PLAINTEXT 方式接入</a></li></td>
+</tr>
+<tr>
+<td>C++ SDK</td>
+<td><li><a href="https://cloud.tencent.com/document/product/597/54866">VPC 网络接入</a></li><li><a href="https://cloud.tencent.com/document/product/597/54867">公网 SASL_PLAINTEXT 方式接入</a></li></td>
+</tr>
+<tr>
+<td>Node.js SDK</td>
+<td><li><a href="https://cloud.tencent.com/document/product/597/55484">VPC 网络接入</a></li><li><a href="https://cloud.tencent.com/document/product/597/55485">公网 SASL_PLAINTEXT 方式接入</a></li></td>
+</tr>
+</tbody></table>

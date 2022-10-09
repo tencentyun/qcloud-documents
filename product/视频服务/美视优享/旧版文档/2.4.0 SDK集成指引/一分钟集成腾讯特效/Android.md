@@ -39,11 +39,11 @@ dependencies{
 }
 ```
 
-## 动态下载 assets、so、动效资源指引
+## 包体大小瘦身：动态下载 assets、so、动效资源指引
 
 为了减少包大小，您可以将 SDK 所需的 assets 资源、so 库、以及动效资源 MotionRes（部分基础版 SDK 无动效资源）改为联网下载。在下载成功后，将上述文件的路径设置给 SDK。
 
-我们建议您复用 Demo 的下载逻辑，当然，也可以使用您已有的下载服务。动态下载的详细指引，请参见 [腾讯特效 SDK 资源动态下载说明（Android）](https://docs.qq.com/doc/DWHRlU0dlcHlGR3V4)。 
+我们建议您复用 Demo 的下载逻辑，当然，也可以使用您已有的下载服务。动态下载的详细指引，请参见  [SDK 包体瘦身（Android）](https://cloud.tencent.com/document/product/616/73016)。
 
 ## 整体流程
 

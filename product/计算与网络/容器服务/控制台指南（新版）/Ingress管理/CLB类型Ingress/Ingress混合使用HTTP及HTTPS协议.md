@@ -56,3 +56,5 @@ spec:
 - 描述了默认证书，证书 ID 应该存在于名为 `tencent-com-cert` 的 Secret 资源中。
 - 开启了混合协议，并在 `kubernetes.io/ingress.http-rules` 及 `kubernetes.io/ingress.https-rules` 中都描述了 `ingress.spec.rule` 中描述的转发规则。
 3. 此时负载均衡会同时在 HTTP、HTTPS 中配置转发规则对外暴露服务。
+
+

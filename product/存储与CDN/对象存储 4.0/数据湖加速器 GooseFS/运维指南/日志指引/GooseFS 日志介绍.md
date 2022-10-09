@@ -80,7 +80,6 @@ usage: logLevel [--level <arg>] --logName <arg> [--target <arg>]
     --target <arg>    <master|workers|host:webPort>. A list of targets separated by, can be specified. host:webPort pair must be one of workers. Default target is master and all workers
 ```
 
-
 各项配置的详细说明如下：
 
 - level：日志级别，支持 TRACE、DEBUG、INFO、WARN、ERROR 五种级别。

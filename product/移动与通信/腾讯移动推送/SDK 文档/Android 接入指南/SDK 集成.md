@@ -1,8 +1,8 @@
 ## 简介
 
-本文内容引导集成 TPNS SDK 在线通道推送能力，提供 AndroidStudio Gradle 自动集成和 Android Studio 手动集成两种方式指引。如需在应用进程被杀时也能收到推送，请在完成本文的集成操作后，参考 [厂商通道接入指南](https://cloud.tencent.com/document/product/548/61135) 文档，完成各厂商通道的接入。
+本文内容引导集成移动推送 SDK 在线通道推送能力，提供 AndroidStudio Gradle 自动集成和 Android Studio 手动集成两种方式指引。如需在应用进程被杀时也能收到推送，请在完成本文的集成操作后，参考 [厂商通道接入指南](https://cloud.tencent.com/document/product/548/61135) 文档，完成各厂商通道的接入。
 
->! 为了避免您的 App 被监管部门通报或下架，请您在接入 SDK 之前务必按照 [Android 合规指南](https://cloud.tencent.com/document/product/548/57361) 在《隐私政策》中增加 TPNS 相关说明，并且在用户同意《隐私政策》后再初始化 TPNS SDK。
+>! 为了避免您的 App 被监管部门通报或下架，请您在接入 SDK 之前务必按照 [Android 合规指南](https://cloud.tencent.com/document/product/548/57361) 在《隐私政策》中增加移动推送相关说明，并且在用户同意《隐私政策》后再初始化移动推送SDK。
 >
 
 ## SDK 集成（二选一）
@@ -14,7 +14,7 @@
 >! 在配置 SDK 前，确保已创建 Android 平台的应用。
 >
 
-1. 登录 [移动推送 TPNS 控制台](https://console.cloud.tencent.com/tpns)，在**产品管理**>**配置管理**页面获取应用的 AccessID、AccessKey。
+1. 登录 [移动推送控制台](https://console.cloud.tencent.com/tpns)，在**产品管理**>**配置管理**页面获取应用的 AccessID、AccessKey。
 2. 在 [SDK 下载](https://console.cloud.tencent.com/tpns/sdkdownload) 页面，获取当前最新版本号。
 ![](https://main.qcloudimg.com/raw/37b19f4e6c8dba5084c052f7e442be7f.png)
 3. 在 app build.gradle 文件下，配置以下内容：
@@ -101,14 +101,14 @@ dependencies {
 将 SDK 导入到工程的步骤为：
 
 1. 创建或打开 Android 工程。
-2. 将移动推送 TPNS  SDK 目录下的 libs 目录所有 .jar 文件拷贝到工程的 libs（或 lib）目录下。
-3. .so 文件是移动推送 TPNS 必须的组件，支持 armeabi、armeabi-v7a、arm64-v8a、mips、mips64、x86、x86_64平台，请根据自己当前 .so 支持的平台添加
+2. 将移动推送 SDK 目录下的 libs 目录所有 .jar 文件拷贝到工程的 libs（或 lib）目录下。
+3. .so 文件是移动推送必须的组件，支持 armeabi、armeabi-v7a、arm64-v8a、mips、mips64、x86、x86_64平台，请根据自己当前 .so 支持的平台添加
 4. 打开 AndroidManifest.xml，添加以下配置（建议参考下载包 Demo 中的 Merged Manifest 修改），其中 “APP的AccessId ” 和 “APP的AccessKey” 替换为 App 对应的 AccessId 和 AccessKey，请确保按照要求配置，否则可能导致服务不能正常使用。
 
 
 #### 权限配置
 
-移动推送 TPNS  SDK 正常运行所需要的权限。示例代码如下：
+移动推送 SDK 正常运行所需要的权限。示例代码如下：
 
 ```xml
 <!-- 【必须】 移动推送 TPNS SDK VIP版本所需权限 -->
@@ -121,6 +121,7 @@ dependencies {
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+<uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
 
 <!-- 【常用】 移动推送 TPNS SDK所需权限 -->
 <uses-permission android:name="android.permission.WAKE_LOCK" />
@@ -135,9 +136,9 @@ dependencies {
 | android.permission.INTERNET               | 必选 | 允许程序访问网络连接，可能产生 GPRS 流量              |
 | android.permission.ACCESS_WIFI_STATE      | 必选 | 允许程序获取当前 Wi-Fi 接入的状态以及 WLAN 热点的信息 |
 | android.permission.ACCESS_NETWORK_STATE   | 必选 | 允许程序获取网络信息状态                              |
-| android.permission.WAKE_LOCK              | 可选     | 允许程序在手机屏幕关闭后，后台进程仍然运行            |
+| android.permission.WAKE_LOCK              | 必选     | 允许程序在手机屏幕关闭后，后台进程仍然运行            |
+| android.permission.SCHEDULE_EXACT_ALARM             | 必选     | 允许定时广播            |
 | android.permission.VIBRATE                | 可选     | 允许应用震动                                          |
-| android.permission.READ_PHONE_STATE       | 可选     | 允许应用访问手机状态                                  |
 | android.permission.RECEIVE_USER_PRESENT   | 可选     | 允许应用可以接收点亮屏幕或解锁广播                    |
 | android.permission.WRITE_EXTERNAL_STORAGE | 可选     | 允许程序写入外部存储                                  |
 | android.permission.RESTART_PACKAGES       | 可选     | 允许程序结束任务                                      |
@@ -147,7 +148,7 @@ dependencies {
 
 #### 组件和应用信息配置
 
->! TPNS Android SDK 1.1.6.3 及之前版本请参考文档 [1.1.6.3 及之前版本组件和应用信息配置](https://cloud.tencent.com/document/product/548/46005) 。
+>! 移动推送 Android SDK 1.1.6.3 及之前版本请参考文档 [1.1.6.3 及之前版本组件和应用信息配置](https://cloud.tencent.com/document/product/548/46005) 。
 
 ```xml
 <application>
@@ -217,9 +218,10 @@ dependencies {
     <!-- 【必须】移动推送 TPNS service -->
     <service
         android:name="com.tencent.android.tpush.service.XGVipPushService"
-        android:persistent="true"
-        android:process=":xg_vip_service"></service>
-
+        android:exported="false"
+        android:process=":xg_vip_service">
+    </service>
+	
     <!-- 【必须】通知 service ，android:name 部分改为包名.XGVIP_PUSH_ACTION -->
         <service android:name="com.tencent.android.tpush.rpc.XGRemoteService"
             android:exported="false">
@@ -247,7 +249,8 @@ dependencies {
 
     <!-- 【可选】APP实现的Receiver，用于接收消息透传和操作结果的回调，请根据需要添加 -->
     <!-- YOUR_PACKAGE_PATH.CustomPushReceiver需要改为自己的Receiver： -->
-    <receiver android:name="应用包名.MessageReceiver">
+    <receiver android:name="应用包名.MessageReceiver"
+        android:exported="false">
         <intent-filter>
             <!-- 接收消息透传 -->
             <action android:name="com.tencent.android.xg.vip.action.PUSH_MESSAGE" />
@@ -355,7 +358,7 @@ XGPushManager.registerPush(this, new XGIOperateCallback() {
 TPNS register push success with token : 6ed8af8d7b18049d9fed116a9db9c71ab44d5565
 ```
 ### 关闭日志打印
-调用 XGPushConfig.enableDebug(context, false) 关闭 SDK debug 日志开关时，SDK 默认仍会打印部分日常运行日志（包含 TPNS Token）。
+调用 XGPushConfig.enableDebug(context, false) 关闭 SDK debug 日志开关时，SDK 默认仍会打印部分日常运行日志（包含移动推送 Token）。
 
 您可以通过在 Application.onCreate 内调用如下方法，来关闭这些日常运行日志在控制台的输出打印：
 ```java
@@ -364,7 +367,7 @@ new XGPushConfig.Build(context).setLogLevel(Log.ERROR);
 
 ## 代码混淆
 
-如果您的项目中使用 proguard 等工具，已做代码混淆，请保留以下选项，否则将导致移动推送 TPNS 服务不可用：
+如果您的项目中使用 proguard 等工具，已做代码混淆，请保留以下选项，否则将导致移动推送服务不可用：
 
 ```xml
 -keep public class * extends android.app.Service
@@ -378,7 +381,7 @@ new XGPushConfig.Build(context).setLogLevel(Log.ERROR);
 -keep class com.tencent.bigdata.mqttchannel.** {*;}  // 1.2.0.1 及以上版本不需要此条配置
 ```
 
->!如果 TPNS SDK 被包含在 App 的公共 SDK 里，即使公共 SDK 有增加配置混淆规则，主工程 App 也必须要同时增加配置混淆规则。
+>!如果移动推送 SDK 被包含在 App 的公共 SDK 里，即使公共 SDK 有增加配置混淆规则，主工程 App 也必须要同时增加配置混淆规则。
 
 ## 高级配置（可选）
 
@@ -409,7 +412,9 @@ new XGPushConfig.Build(context).setLogLevel(Log.ERROR);
 ### 关闭联合保活
 
 如需关闭联合保活功能，请在应用初始化的时候，例如 Application 或 LauncherActivity 的 onCreate 中调用如下接口，并传递 false 值：
->! 仅 1.1.6.0 之后版本支持关闭联合保活功能，1.1.6.0之前版本TPNS 默认开启联合保活能力，且不可关闭。
+>! 
+>- 仅 1.1.6.0 之后版本支持关闭联合保活功能，1.1.6.0之前版本移动推送默认开启联合保活能力，且不可关闭。
+>- 1.2.6.0 起默认关闭联合保活功能，可不再调用此接口。
 >
 
 ```java
@@ -429,9 +434,9 @@ XGPushConfig.enablePullUpOtherApp(Context context, boolean pullUp);
 
 若控制台有以下日志打印，则表明联合保活功能已经关闭：`I/TPush: [ServiceUtil] disable pull up other app`。
 
-### 获取 TPNS Token 交互建议
+### 获取移动推送 Token 交互建议
 
-建议您完成 SDK 集成后，在 App 的【关于】、【意见反馈】等比较不常用的 UI 中，通过手势或者其他方式显示 TPNS Token，控制台和 Restful API 推送需要根据 TPNS Token 进行 Token 推送，后续问题排查也需要根据 TPNS Token 进行定位。
+建议您完成 SDK 集成后，在 App 的【关于】、【意见反馈】等比较不常用的 UI 中，通过手势或者其他方式显示移动推送Token，控制台和 Restful API 推送需要根据移动推送Token 进行 Token 推送，后续问题排查也需要根据移动推送Token 进行定位。
 示例代码如下：
 
 ```java
@@ -441,7 +446,7 @@ XGPushConfig.getToken(getApplicationContext());
 
 ![](https://main.qcloudimg.com/raw/854020af14428df9972629e7dbbee55f.png)
 
-### 获取 TPNS 运行日志交互建议
+### 获取移动推送运行日志交互建议
 
 SDK 提供日志上报接口。如用户在应用上线后遇到推送相关问题，可以通过引导用户操作触发此接口，上传 SDK 运行日志并获取回调返回的日志文件下载地址，方便问题排查。详情参考 [日志上报接口](https://cloud.tencent.com/document/product/548/36659#.E6.96.B0.E5.A2.9E.E6.97.A5.E5.BF.97.E4.B8.8A.E6.8A.A5.E6.8E.A5.E5.8F.A3)。
 
@@ -470,6 +475,5 @@ XGPushManager.uploadLogFile(context, new HttpRequestCallback() {
 </pre>
 
 其中上述声明授权的两个链接如下：
-- 腾讯云移动推送 TPNS ：`https://cloud.tencent.com/product/tpns`
+- 腾讯云移动推送：`https://cloud.tencent.com/product/tpns`
 - 腾讯 SDK 隐私协议：`https://cloud.tencent.com/document/product/548/50955`
-

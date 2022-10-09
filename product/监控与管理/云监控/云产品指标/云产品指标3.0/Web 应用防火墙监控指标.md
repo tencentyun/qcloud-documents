@@ -25,6 +25,9 @@ Namespace=QCE/WAF
 | RatioAttack | Web 攻击占比    |  %    | domain、edition |
 | RatioBot    | BOT 攻击占比    |  %    | domain、edition |
 | RatioCc     | CC 攻击占比     |   %   | domain、edition |
+| InBandwidth   | 入带宽    |  MB   | domain、edition |
+| OutBandwidth     | 出带宽    |  MB | domain、edition |
+|MetricnameCustomSecurity|自定义策略攻击数|个|domain、edition |
 
 ## 各维度对应参数总览
 
@@ -32,18 +35,15 @@ Namespace=QCE/WAF
 | ------------------------------ | -------- | ----------------------------- | ------------------------------------------------------- |
 | Instances.N.Dimensions.0.Name  | domain   | 客户端攻击的域名维度名称      | 输入 String 类型维度名称：domain                        |
 | Instances.N.Dimensions.0.Value | domain   | 客户端攻击的具体域名          | 输入客户端攻击的具体域名，例如：`www.cloud.tencent.com`          |
-| Instances.N.Dimensions.0.Name  | edition  | Web 应用防火墙实例类型维度名称 | 输入 String 类型维度名称：edition                       |
-| Instances.N.Dimensions.0.Value | edition  | Web 应用防火墙实例具体类型     | 输入 Web 应用防火墙实例具体类型，例如：SaaS WAF（入参值为0）或 CLB WAF（入参值为1） |
+| Instances.N.Dimensions.1.Name  | edition  | Web 应用防火墙实例类型维度名称 | 输入 String 类型维度名称：edition                       |
+| Instances.N.Dimensions.1.Value | edition  | Web 应用防火墙实例具体类型     | 输入 Web 应用防火墙实例具体类型，例如：SaaS WAF（入参值为0）或 CLB WAF（入参值为1） |
 
 ## 入参说明
 
-**按客户端攻击的域名查询监控数据，入参取值如下：**
+**拉取 Web 应用防火墙监控数据，入参取值如下：**
 &Namespace=QCE/WAF
 &Instances.N.Dimensions.0.Name=domain
 &Instances.N.Dimensions.0.Value=客户端攻击的具体域名
-
-**按Web应用防火墙实例查询监控数据，入参取值如下：**
-&Namespace=QCE/WAF
-&Instances.N.Dimensions.0.Name=edition
-&Instances.N.Dimensions.0.Value=Web应用防火墙实例具体类型
+&Instances.N.Dimensions.1.Name=edition
+&Instances.N.Dimensions.1.Value=Web应用防火墙实例具体类型
 

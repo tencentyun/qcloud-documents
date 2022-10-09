@@ -255,6 +255,7 @@ uint32_t CreateSDKBuffFromStr(char *pSDKinfo, uint8_t *buffer, char* uDstIp, uin
 <td>服务器端口</td>
 </tr>
 </table>
+
 >!水印结果保存在参数 buffer 中，取20字节。
 
 

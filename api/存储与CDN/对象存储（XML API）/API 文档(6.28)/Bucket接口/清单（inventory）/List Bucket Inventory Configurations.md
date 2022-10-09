@@ -171,13 +171,13 @@ Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 - 分析存储桶 examplebucket-1250000000 中前缀为 myPrefix 的对象及其所有版本。
 - 分析频次为每天一次。
 - 分析维度包括 Size、LastModifiedDate、StorageClass、ETag、IsMultipartUploaded、ReplicationStatus。
-- 分析结果将以 CSV 格式文件存储在存储桶 examplebucket-1250000000 中，文件添加前缀 list1 且用 SSE-COS 加密。  
+- 分析结果将以 CSV 格式文件存储在存储桶 inventorybucket-1250000000 中，文件添加前缀 list1 且用 SSE-COS 加密。
 
 **清单任务 list2**
 
-- 分析存储桶 examplebucket-1250000000 中前缀为 myPrefix2 的对象及其所有版本。
-- 分析频次为每周一次；分析的维度包括 Size ， LastModifiedDate ，  StorageClass ， ETag。
-- 分析结果将以 CSV 格式文件存储在存储桶 examplebucket-1250000000 中，文件添加前缀 list2 且用 SSE-COS 加密。  
+- 分析存储桶 examplebucket-1250000000 中前缀为 myPrefix2 ，且含有对象标签{age:18}的对象及其所有版本。
+- 分析频次为每周一次；分析的维度包括 Size ， LastModifiedDate ，  StorageClass ， ETag， Tag。
+- 分析结果将以 CSV 格式文件存储在存储桶 inventorybucket-1250000000 中。  
 
 假设本页有100条清单任务，当 IsTruncated 为 true 时，COS 将会进一步返回 NextContinuationToken ，其中的值可作为 GET 请求中 continuation-token 的参数，以获取下一页信息。
 
@@ -197,7 +197,7 @@ x-cos-request-id: NTlhMzg1ZWVfMjQ4OGY3MGFfMWE1NF8****
             <COSBucketDestination>
                 <Format>CSV</Format>
                 <AccountId>1250000000</AccountId>
-                <Bucket>qcs::cos:ap-beijing::examplebucket-1250000000</Bucket>
+                <Bucket>qcs::cos:ap-beijing::inventorybucket-1250000000</Bucket>
                 <Prefix>list1</Prefix>
                 <SSE-COS></SSE-COS>
             </COSBucketDestination>
@@ -225,23 +225,28 @@ x-cos-request-id: NTlhMzg1ZWVfMjQ4OGY3MGFfMWE1NF8****
             <COSBucketDestination>
                 <Format>CSV</Format>
                 <AccountId>1250000000</AccountId>
-                <Bucket>qcs::cos:ap-beijing::examplebucket-1250000000</Bucket>
-                <Prefix>list2</Prefix>
-                <SSE-COS></SSE-COS>
+                <Bucket>qcs::cos:ap-beijing::inventorybucket-1250000000</Bucket>
             </COSBucketDestination>
         </Destination>
         <Schedule>
             <Frequency>Weekly</Frequency>
         </Schedule>
         <Filter>
-            <Prefix>myPrefix2</Prefix>
+            <And>
+                <Prefix>myPrefix2</Prefix>
+                <Tag>
+                    <Key>age</Key>
+                    <Value>18</Value>
+                </Tag>
+            </And>
         </Filter>
         <IncludedObjectVersions>All</IncludedObjectVersions>
         <OptionalFields>
             <Field>Size</Field>
             <Field>LastModifiedDate</Field>
-            <Field>ETag</Field>
             <Field>StorageClass</Field>
+            <Field>ETag</Field>
+            <Field>Tag</Field>
         </OptionalFields>
     </InventoryConfiguration>
     <IsTruncated>false</IsTruncated>

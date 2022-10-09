@@ -10,9 +10,9 @@
 4. 输入通道名称（如：TomVPNConn），选择 VPN 网关`TomVPNGw`与对端网关`TomVPNUserGw`，并输入预共享密钥（如：`123456`），单击**下一步**。
 >?标签为选配，请保持默认。
 >
-![](https://qcloudimg.tencent-cloud.cn/raw/c12452118aec122cdad0faf112006710.png)
-5. 输入 SPD 策略来限制本端哪些网段和对端哪些网段通信，在本例中本端网段即为子网 A 的网段`192.168.1.0/24`，对端网段为`10.0.1.0/24`，单击**下一步**。
-![](https://qcloudimg.tencent-cloud.cn/raw/00d73a84392d517bd88f0659d558a749.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/0a0f25810d4d5a0c26529cc0f320775f.png)
+5. 选择通信模式，并输入 SPD 策略来限制本端哪些网段和对端哪些网段通信，在本例中本端网段即为子网 A 的网段`192.168.1.0/24`，对端网段为`10.0.1.0/24`，单击**下一步**。
+![](https://qcloudimg.tencent-cloud.cn/raw/0a9b332c3936725cc0a1bbf9e238f311.png)
 6. （可选）配置 IKE 参数，如果不需要高级配置，可直接单击**下一步**。
  ![](https://main.qcloudimg.com/raw/c370884071d8dd5424be80bbef1e9aec.png)
 7. （可选）配置 IPsec 参数，如果不需要配置，可直接单击**完成**。

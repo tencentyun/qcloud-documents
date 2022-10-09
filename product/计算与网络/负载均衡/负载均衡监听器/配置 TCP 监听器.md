@@ -9,7 +9,7 @@
 2. 在 CLB 实例列表页面左上角选择地域，在实例列表右侧的操作列中单击**配置监听器**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/2c0b7f73cd81582c7ace11dbfe7d6c18.png)
 3. 在 TCP/UDP/TCP SSL/QUIC 监听器下，单击**新建**，在弹出的“创建监听器”对话框中配置 TCP 监听器。
-  **a. 基本配置**
+  **1. 基本配置**
 <table>
 <thead>
 <tr>
@@ -45,9 +45,9 @@
 </tr>
 </tbody>
 </table>	
- <b>b. 健康检查</b></br>
+ <b>2. 健康检查</b></br>
 健康检查详情请参见<a href="https://cloud.tencent.com/document/product/214/50011#tcp"> TCP 健康检查</a>。</br>
-<b>c. 会话保持</b>
+<b>3. 会话保持</b>
 <table>
 <tr>
 <th width="15%">会话保持配置</th>
@@ -79,6 +79,3 @@
 
 ### 步骤四：修改/删除监听器（可选）
 如果您需要修改或删除已创建的监听器，请在“监听器管理”页面，单击已创建完毕的监听器，单击![](https://qcloudimg.tencent-cloud.cn/raw/4ab10b98316964812832043bbfd99df6.svg)图标修改或![](https://qcloudimg.tencent-cloud.cn/raw/e863cc51c29790d665d53feba800fd90.svg)图标删除。
-
-
-

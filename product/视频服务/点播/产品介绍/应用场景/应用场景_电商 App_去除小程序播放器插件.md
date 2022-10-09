@@ -1,0 +1,152 @@
+## 场景描述
+电商 App 是为企业或个人提供网上交易洽谈的平台，商家为更好地展示商品，一般都会制作上传推广的商品图片、视频。消费者可以上传商品体验视频用于购物分享，或者商品评论，供其他消费者参考。该场景一般有以下核心诉求：
+<table>
+    <tr>
+        <th>
+            核心诉求              
+        </th>
+				<th>
+           说明
+        </th>
+    </tr>
+		<tr>
+        <td>
+            多清晰度智能切换
+        </td>
+				<td>
+			 播放时基于用户网络环境变化智能选择合适清晰度的视频，提供流畅的播放体验。
+        </td>
+	</tr>
+		<tr>
+        <td>
+            多种截图
+        </td>
+				<td>
+				平台需要提供给商家多样化的商品展示方式，以此吸引商家入驻，例如支持视频截图，用作主页的静态封面，支持转动图用于视频预览的动态封面，更快速直观展示商品内容。
+        </td>
+	</tr>
+	<tr>
+        <td>
+            高画质低码率
+        </td>
+				<td>
+				商家希望媒体播放画面高清、加载迅速，更好更快地展示自家的商品，吸引更多消费者观看和购买。
+        </td>
+	</tr>
+ <tr>
+        <td>
+           高质量客户端上传
+        </td>
+				<td>
+消费者可能使用多种移动终端，希望上传视频速度够快，即使网络不佳时也能较为顺畅地上传，较差的上传体验可能会让用户放弃上传，对平台产生负面评价，有损平台形象。
+        </td>
+	</tr>
+	<tr>
+        <td>
+            时移回看
+        </td>
+				<td>
+				顾客直播中途进入电商卖货直播间，错过当前商品前段介绍，想从前一段时间开始看，了解更完整的商品信息。
+        </td>
+	</tr>
+	<tr>
+        <td>
+            智能推荐商品
+        </td>
+				<td>
+				基于用户商品视频点击率智能推荐具有相同标签或分类的商品，提高购买率。
+        </td>
+	</tr>
+	<tr>
+        <td>
+            降低成本
+        </td>
+				<td>
+				电商直播录制视频大多仅用于有关部门的审查，部分录像不会（或极少）被回看，这部分占据较多的存储成本。
+        </td>
+	</tr>
+</table>
+
+## 解决方案
+<table>
+    <tr>
+        <th>
+            核心诉求              
+        </th>
+				<th>
+           云点播推荐功能
+        </th>
+    </tr>
+		<tr>
+        <td>
+           多清晰度智能切换
+        </td>
+				<td>
+				<li><a href="https://cloud.tencent.com/document/product/266/78296" title="多码率智能切换" target="_blank">多码率智能切换</a></br>一进多出生成多路码流，满足买家不同网络条件下的播放需求。</li>
+        </td>
+	</tr>
+ <tr>
+        <td>
+           多种截图
+        </td>
+				<td>
+				<li><a href="https://cloud.tencent.com/document/product/266/78291" title="视频截图" target="_blank">视频截图</a></br>商家可以进行指定时间点截图、采样截图、封面截图、雪碧图和转动图等多种截图，用多种方式更好地展示商品。</li>
+        </td>
+	</tr>
+	<tr>
+        <td>
+            高画质低码率
+        </td>
+				<td>
+				<li>
+					<a href="https://cloud.tencent.com/document/product/266/78315" title="极速高清" target="_blank">极速高清</a></br>通过使用云点播极速高清，顾客可以体验到十分流畅、画质清晰的视频播放。
+				</li>
+        </td>
+	</tr>
+	<tr>
+        <td>
+            高质量客户端上传
+        </td>
+				<td>
+				<li>
+					<a href="https://cloud.tencent.com/document/product/266/78288" title="多端上传" target="_blank">多端上传</a></br>支持 Android/iOS/Web 等多种客户端上传。
+				</li>
+				<li>
+					<a href="https://cloud.tencent.com/document/product/266/78038" title="上传加速" target="_blank">上传加速</a></br>云点播通过调度优化等一系列技术手段实现领先业界的上传质量（上传成功率达 99.5%+），优秀的上传体验让顾客热于分享，也为平台口碑加分。
+				</li>
+        </td>
+	</tr>
+	<tr>
+        <td>
+            时移回看
+        </td>
+				<td>
+				<li>
+					<a href="https://cloud.tencent.com/document/product/266/78310" title="时移回看" target="_blank">时移回看</a></br>电商直播进行中，中途进入直播间的顾客可以手动进度条查看前一段时间的直播内容，更全面地了解商品信息。
+				</li>
+        </td>
+	</tr>
+	<tr>
+        <td>
+            智能推荐商品
+        </td>
+				<td>
+				<li>
+					<a href="https://cloud.tencent.com/document/product/266/78302" title="标签分类" target="_blank">标签分类</a></br>云点播智能标签分类功能提供对视频自动打标签、分类，平台可基于用户的商品视频点击、完播率等维度，向顾客智能推荐相关的商品，提升商品推广的精准度。
+				</li>
+        </td>
+	</tr>
+	<tr>
+        <td>
+            降低成本
+        </td>
+				<td>
+				<li>
+					<a href="https://cloud.tencent.com/document/product/266/78314" title="智能降冷" target="_blank">智能降冷</a></br>对主要用于有关部门的审查、极少查看的直播录制视频，配置智能降冷策略，可以有效帮助客户降低存储成本。
+				</li>
+				<li>
+					<a href="https://cloud.tencent.com/document/product/266/78313" title="媒体删除" target="_blank">媒体删除</a></br>对仅用于有关部门的审查的直播录制视频，配置录制生成的文件过期时间，过期自动删除媒体文件，可以有效帮助客户降低存储成本。
+				</li>
+        </td>
+	</tr>
+</table>

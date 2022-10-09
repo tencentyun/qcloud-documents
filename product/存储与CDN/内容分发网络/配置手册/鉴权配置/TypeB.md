@@ -1,40 +1,72 @@
-## 算法说明
-**访问 URL 格式**
-`http://DomainName/timestamp/md5hash/FileName`
+为保护您的站点资源不被非法站点下载盗用，您可按需选择 Type ABCD 四种鉴权方式的某一种，本文为您详细介绍 Type B 的的各个参数字段和原理。
 
+## 算法说明
+
+- **访问 URL 格式**
+`http://DomainName/timestamp/md5hash/FileName`
 >! 访问 URL 中不能包含中文。
 
+- **鉴权字段说明**
 
-**算法说明**
-- timestamp：格式为 YYYYMMDDHHMM。
-- md5hash：MD5（自定义密钥 + timestamp + 文件路径）。
+|字段|说明|
+|--|--|
+|DomainName|CDN 域名。|
+|Filename|资源访问路径，鉴权时Filename需以正斜线（ `/` ）开头。|
+|timestamp|签算服务器生成鉴权 URL 的时间，与有效时间共同控制鉴权 URL 的失效时间，格式为：YYYYMMDDHHMM（时间点取自签算服务器的 UTC+8 时间），如：201807301000。|
+|md5hash|通过 MD 5算法计算出的固定长度为32位的字符串。具体计算公式如下：<br>• md5hash = md5sum(pkeytimestampuri) 参数之间无任何符号 <br>• pkey：自定义密钥：由6 - 40位大小写字母、数字构成，密钥需要严格保密，仅客户端与服务端知晓。 <br>• uri 资源访问路径以正斜线（/）开头。<br>• timestamp：取值为上述中的timestamp。|
 
-**请求示例**
-`http://cloud.tencent.com/202003032017/b91bad39a0f9c885ddebd6b6164de3c4/test.jpg`
+- **鉴权逻辑说明**
+CDN 服务器接受到客户请求后，解析出 url 中的 timestamp 参数 + 鉴权 URL 有效时长与当前时间比较。
+	1. 如果 timestamp + 鉴权 URL 有效时长小于当前时间，则服务器判定过期失效，并返回 HTTP 403错误。
+	2. 如果 timestamp + 鉴权 URL 有效时长大于当前时间，则使用 MD5 算法算出 md5hash 的值，再比较计算出来的 md5hash 值与 url 中传入的 md5hash 值，如果一致则放过，不一致则返回 HTTP 403错误。
 
-> !计算 MD5 时，若请求路径为`http://cloud.tencent.com/test.jpg`，则计算 MD5 时路径为`/test.jpg`。
+## 配置指南 
 
-## 配置指南
+**以 Type-B 鉴权的配置为例，参数和控制台配置如下：**
 
-### 参数说明
-TypeB 所需配置如下：
-![](https://main.qcloudimg.com/raw/441063186fa0c0d2e4ed2480dc940d28.png)
-**自定义鉴权密钥：**由6 - 40位大小写字母、数字构成，密钥需要严格保密，仅用户端与服务端知晓。
-**自定义有效时间：**通过请求路径中 timestamp 值，加上配置的有效时间，与当前时间进行对比，判定请求是否过期，若过期则直接返回403，有效时间单位为秒，最大可设置为630720000秒。
+- **字段配置**
+	- 鉴权密钥：dimtm5evg50ijsx2hvuwyfoiu65
+	- 鉴权URL有效时长为：1s   
+	<img src="https://qcloudimg.tencent-cloud.cn/raw/fd8a39902be99d134143d4fb85ac5e89.png" width="60%">
+	-  签算服务器生成鉴权URL的时间：2020年02月27日16:10:32（UTC+8）
+	-  请求源站地址：`http://cloud.tencent.com/test.jpg`
+- **生成过程**
+	-  获取鉴权参数
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>uri</td>
+<td>资源访问路径为 /test.jpg</td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td>202002271610</td>
+</tr>
+<tr>
+<td>pkey</td>
+<td>dimtm5evg50ijsx2hvuwyfoiu65</td>
+</tr>
+</tbody></table>
+	- 拼接签名串：dimtm5evg50ijsx2hvuwyfoiu65202002271610/test.jpg
+	- 计算签名串的md5值：md5hash = md5sum(pkeytimestampuri) =md5sum(dimtm5evg50ijsx2hvuwyfoiu65202002271610/test.jpg) = 6064a3e2bf6b4995f53967fa86b19fa1
+- **生成鉴权 URL**
+`http://cloud.tencent.com/202002271610/6064a3e2bf6b4995f53967fa86b19fa1/test.jpg` 
+当客户端通过加密 URL 进行访问时，如果 CDN 服务器计算出来的 md5hash 值与访问请求中带的 md5hash 值相同，都为 6064a3e2bf6b4995f53967fa86b19fa1，则鉴权通过，反之鉴权失败。
 
-### 生效对象
-配置好密钥、参数名及过期时间后，可按需指定鉴权对象，支持以下三种模式：
-![](https://main.qcloudimg.com/raw/a366e4c7069060810c83a92ab1c5a3b3.png)
-- 支持指定域名下所有文件均需要鉴权校验。
-- 支持指定类型文件不做鉴权，其他均需要做鉴权校验。
-- 支持指定类型文件做鉴权校验。
+## 注意事项 
 
-## 注意事项
 **缓存命中率**
+
 开启了 TypeB 鉴权模式的域名，访问 URL 路径中会携带签名及时间戳，在 CDN 节点进行资源缓存时，会自动忽略路径中的字段进行缓存，不会影响域名缓存命中率。
+
 **回源策略**
+
 开启了 TypeB 鉴权模式的域名，访问格式为：
-`http://DomainName/timestamp/md5hash/FileName`
+ `http://DomainName/timestamp/md5hash/FileName` 
 
 鉴权通过后，若未命中 CDN 节点，节点会发起回源请求，**回源请求会去掉路径中的 md5hash 及 timestamp**，源站无需做特殊处理。
-

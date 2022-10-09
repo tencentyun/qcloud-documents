@@ -1,4 +1,4 @@
-完成采集器安装后，可通过 Beats 管理功能，查看和管理采集器下发的全部 CVM 实例。
+完成采集器安装后，可通过 Beats 管理功能，查看和管理采集器下发的全部 CVM 实例。  
 
 ## 操作步骤
 1. 登录 [Elasticsearch Service 控制台](https://console.cloud.tencent.com/es/beats) Beats 管理，确保已经创建 Beats 采集器。

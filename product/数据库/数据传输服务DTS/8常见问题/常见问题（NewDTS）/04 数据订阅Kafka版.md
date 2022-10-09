@@ -14,4 +14,6 @@
 首先请将 Kafka 的 enable_auto_commit 参数设置为 false，以关闭自动 commit。生产者会在消息序列中的合适位置插入 Checkpoint 消息，消费者消费到 Checkpoint 消息后进行 commit，这样有利于保证消息的完整性。
 
 ### 服务端消息保留多久，如何设置消费 offset？
-服务端消息保留1天。可以根据需要配置 Kafka 的 auto_offset_reset 参数为 earliest 或者 latest。如果需要从具体的 offset 开始消费，则可以利用 Kafka Client 提供的 seek 功能，重新设置消费 offset。
+数据订阅 Kafka 服务端消息保留1天。
+- 在 Kafka Client 修改 offset。根据需要配置 Kafka 的 auto_offset_reset 参数为 earliest 或者 latest。如果需要从具体的 offset 开始消费，则可以利用 Kafka Client 提供的 seek 功能，重新设置消费 offset。
+- 在 DTS 数据订阅任务界面修改 offset。具体请参考 [修改消费位点](https://cloud.tencent.com/document/product/571/65365)。 

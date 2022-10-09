@@ -1,12 +1,4 @@
-## 版本支持
-本页文档所描述功能，在腾讯云视立方中支持情况如下：
 
-| 版本名称 | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 播放器 Player | 全功能 |
-| -------- | -------- | -------- | -------- | -------- | -------- | -------- |
-| 支持情况 | &#10003;  | &#10003;                                                            | -  | -  | -  | &#10003;  |
-| SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=allPart) |
-
-不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
 >! 旧版移动直播连麦资源包已下线，仅限连麦老用户购买。
 
 ## 功能介绍
@@ -71,7 +63,7 @@ TXLiveBase.getInstance().setLicence(context, LicenceUrl, Key);
 ### Step3. 购买连麦套餐包
 由于连麦功能会使用到高速专线来降低音视频传输延迟，这部分功能需要额外购买套餐包才能开通，否则移动直播的各端 SDK 只能使用云直播的普通服务（推流和拉流），并不能开启连麦功能。
 
-- 仅限老用户前往 **云直播控制台** > **资源包/插件管理** > **[连麦包](https://console.cloud.tencent.com/live/resources/liveroom)**，单击**购买连麦包**
+- 仅限老用户前往 [**云直播控制台**](https://console.cloud.tencent.com/live/livestat) > **直播 SDK** > **直播连麦**，单击**购买连麦包**
 - [移动直播连麦计费说明](https://cloud.tencent.com/document/product/454/70298)
 
 >!
@@ -85,7 +77,7 @@ TXLiveBase.getInstance().setLicence(context, LicenceUrl, Key);
 
 [](id:step4)
 ### Step4. 在应用管理中添加一个新的应用
-进入**云直播控制台** > **直播 SDK**>[**应用管理**](https://console.cloud.tencent.com/live/license/appmanage)，单击**创建应用**。待应用创建完成后，记录其 SDKAPPID 信息。
+进入 [**云直播控制台**](https://console.cloud.tencent.com/live/livestat) > **直播 SDK**>**应用管理**，单击**创建应用**。待应用创建完成后，记录其 SDKAPPID 信息。
 
 >?该操作的目的是创建一个即时通信 IM 应用，并将当前直播账号和该即时通信 IM 应用绑定起来。即时通信 IM 应用能为小直播 App 提供聊天室和连麦互动的能力。
 
@@ -179,8 +171,8 @@ MLVBLiveRoom 包装了 TIMSDK 的消息发送接口，您可以通过 **sendRoom
 ![](https://main.qcloudimg.com/raw/5d906e44288028ee8fc929b719ea3884.png)
 
 
-|     通道     |                           直播通道                           |                           连麦通道                           |
-| :----------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
+|     通道     |   直播通道  |  连麦通道  |
+| :----------: | -----------------------: |-----------------------------: |
 |   通讯延迟   |                             ≥ 3s                             |                           ≤ 500ms                            |
 |   底层协议   |                        HTTP-FLV 协议                         |                           UDP 协议                            |
 |  价格/费用   | [按带宽计费](https://cloud.tencent.com/document/product/454/8008#LVB) | [按时长计费](https://cloud.tencent.com/document/product/454/8008#ACC) |

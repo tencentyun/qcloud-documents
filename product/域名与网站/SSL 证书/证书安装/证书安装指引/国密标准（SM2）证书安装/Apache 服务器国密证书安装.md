@@ -10,6 +10,7 @@
 
 ## 前提条件
 - 已准备远程文件拷贝软件，例如 WinSCP（建议从官方网站获取最新版本）。
+若您需部署到腾讯云云服务器，建议使用云服务器的文件上传功能。详情请参见 [上传文件到云服务器](https://cloud.tencent.com/document/product/1340/72845)。
 - 已准备远程登录工具，例如 PuTTY 或者 Xshell（建议从官方网站获取最新版本）。
 - 已购买国密标准（SM2）SSL 证书。
 - 安装 SSL 证书前需准备的数据如下：
@@ -134,6 +135,9 @@ make && make install
 >?CSR 文件是申请证书时由您上传或系统在线生成的，提供给 CA 机构。安装时可忽略该文件。
 >
 2. 使用 “WinSCP”（即本地与远程计算机间的复制文件工具）登录 Apache 服务器。
+>?
+>- WinSCP 上传文件操作可参考 [通过 WinSCP 上传文件到 Linux 云服务器](https://cloud.tencent.com/document/product/213/2131)。
+>- 若您需部署到腾讯云云服务器，建议使用云服务器的文件上传功能。详情请参见 [上传文件到云服务器](https://cloud.tencent.com/document/product/1340/72845)。
 3. 进入 `/usr/local/httpd/conf` 目录，新建 `cert` 目录，将已获取到的 `1_root_sign_bundle.crt` 证书文件、`2_root_encrypt_bundle.crt` 证书文件、`3_cloud.tencent.com_sign.crt` 证书文件、`4_cloud.tencent.com_encrypt.crt` 证书文件以及 `5_cloud.tencent.com.key` 私钥文件从本地目录拷贝到 Apache 服务器的 `/usr/local/httpd/conf/cert` 目录下。
 4. 进入 `/usr/local/httpd/conf` 目录，按照以下步骤编辑 `httpd.conf` 文件：
    1. 请在 `#ServerName www.example.com:80` 下增加 `ServerName（您的域名）:80`。
@@ -184,6 +188,14 @@ Require all granted
 ```
 /usr/local/httpd/bin/httpd -k restart
 ```
+ - 如果浏览器地址栏显示安全锁标识，则说明证书安装成功。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/45d7e33dd41abb06087edda4871222b5.png)
+ - 如果网站访问异常，可参考以下常见问题解决方案进行处理：
+    - [无法使用 HTTPS 访问网站](https://cloud.tencent.com/document/product/400/53650)
+    - [部署 SSL 证书后，浏览器提示 “网站连接不安全”](https://cloud.tencent.com/document/product/400/56830)
+    - [访问站点提示连接不安全？](https://cloud.tencent.com/document/product/400/5366)
+    - [SSL 证书过期后重新申请部署依然提示 HTTPS 不安全？](https://cloud.tencent.com/document/product/400/65727)
+    - [在服务器上部署 SSL 证书后访问资源出现 404 报错](https://cloud.tencent.com/document/product/400/53651)
 
 
 ### 国际标准证书与国密标准证书双安装（可选）
@@ -191,6 +203,9 @@ Require all granted
 >?腾讯云提供免费的 DV 型 SSL 证书以供购买了国密标准 DNSPod 证书的用户顺利解决浏览器兼容问题。申请证书请查看 [域名型（DV）免费 SSL 证书](https://cloud.tencent.com/document/product/400/8422)。
 >
 1. 使用 “WinSCP”（即本地与远程计算机间的复制文件工具），将已获取到的国际标准证书中的 `1_root_bundle.crt` 证书文件、`2_cloud.tencent.com.crt` 证书文件以及 `3_cloud.tencent.com.key` 私钥文件从本地目录拷贝到 Apache 服务器的 `/usr/local/httpd/conf` 目录下。 
+>?
+>- WinSCP 上传文件操作可参考 [通过 WinSCP 上传文件到 Linux 云服务器](https://cloud.tencent.com/document/product/213/2131)。
+>- 若您需部署到腾讯云云服务器，建议使用云服务器的文件上传功能。详情请参见 [上传文件到云服务器](https://cloud.tencent.com/document/product/1340/72845)。
 2. 编辑 `/usr/local/httpd/conf` 目录下的 `ssl.conf` 文件。
 3. 请在 `SSLEngine on` 下面换行，并添加如下内容：
 ```

@@ -3,7 +3,7 @@
 
 ## 操作步骤
 1. 执行以下命令，确认云硬盘的文件系统类型。
-```
+```shellsession
 df -ihT
 ```
  - 返回结果如下图所示，则文件系统类型为 EXT。
@@ -19,7 +19,7 @@ EXT 文件系统具备以下容量限制：
  <dx-tabs>
 ::: 扩容 EXT 文件系统
 执行以下命令扩容 EXT 文件系统（以 `/dev/vdb` 为例）。
-```
+```shellsession
 resize2fs /dev/vdb
 ```
 执行结果如下图所示，则扩容成功。
@@ -28,7 +28,7 @@ resize2fs /dev/vdb
 :::
 ::: 扩容 XFS 文件系统
 执行以下命令扩容 XFS 文件系统（以 `/dev/vdc` 为例）。
-```
+```shellsession
 xfs_growfs /dev/vdc
 ```
 执行结果如下图所示，则扩容成功。
@@ -38,6 +38,6 @@ xfs_growfs /dev/vdc
 </dx-tabs>
 
 3. 执行以下命令，查看文件系统的硬盘空间情况。
-```
+```shellsession
 df -h
 ```

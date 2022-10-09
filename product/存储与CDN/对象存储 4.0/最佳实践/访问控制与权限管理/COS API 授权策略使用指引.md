@@ -1,8 +1,10 @@
->!在给子用户或协作者授予 API 操作权限时，请务必根据业务需要，按照最小权限原则进行授权。如果您直接授予子用户或者协作者所有资源`(resource:*)`，或所有操作`(action:*)`权限，则存在由于权限范围过大导致数据安全风险。
+>! 在给子用户或协作者授予 API 操作权限时，请务必根据业务需要，按照最小权限原则进行授权。如果您直接授予子用户或者协作者所有资源`(resource:*)`，或所有操作`(action:*)`权限，则存在由于权限范围过大导致数据安全风险。
+>
 
 
 ## 概述
-对象存储 COS 使用临时密钥服务时，不同的 COS API 操作需要不同的操作权限，而且可以同时指定一个操作或一序列操作。
+
+对象存储（Cloud Object Storage，COS）使用临时密钥服务时，不同的 COS API 操作需要不同的操作权限，而且可以同时指定一个操作或一序列操作。
 
 COS API 授权策略（policy）是一种 JSON 字符串。例如，授予 APPID 为1250000000，地域为 ap-beijing，存储桶为 examplebucket-1250000000 ，路径前缀为 doc 的上传操作（包括简单上传、表单上传、分块上传等操作）的权限，路径前缀为 doc2 的下载操作权限的策略内容如下所示：
 ```shell
@@ -52,11 +54,11 @@ COS API 授权策略（policy）是一种 JSON 字符串。例如，授予 APPID
 
 | 名称     | 描述                                                         |
 | -------- | ------------------------------------------------------------ |
-| version  | 策略语法版本，默认为2.0                                      |
-| effect   | 有 allow （允许）和 deny （显式拒绝）两种情况                |
-| resource | 授权操作的具体数据，可以是任意资源、指定路径前缀的资源、指定绝对路径的资源或它们的组合 |
-| action   | 此处是指 COS API，根据需求指定一个或者一序列操作的组合或所有操作(`*`)，例如 action 为 `name/cos:GetService`，**请注意区分英文大小写**       |
-|condition|约束条件，可以不填，具体说明请参见 [condition](https://cloud.tencent.com/document/product/598/10603#6.-.E7.94.9F.E6.95.88.E6.9D.A1.E4.BB.B6.EF.BC.88condition.EF.BC.89) 说明  |
+| version  | 策略语法版本，默认为2.0。                                      |
+| effect   | 有 allow （允许）和 deny （显式拒绝）两种情况。                |
+| resource | 授权操作的具体数据，可以是任意资源、指定路径前缀的资源、指定绝对路径的资源或它们的组合。<br><b>注意：</b>若路径为中文，则保持中文输入即可。例如`examplebucket-1250000000/文件夹/文件名.txt`。 |
+| action   | 此处是指 COS API，根据需求指定一个或者一序列操作的组合或所有操作(`*`)，例如 action 为 `name/cos:GetService`，**请注意区分英文大小写**。       |
+|condition|约束条件，可以不填，具体说明请参见 [condition](https://cloud.tencent.com/document/product/598/10603#6.-.E7.94.9F.E6.95.88.E6.9D.A1.E4.BB.B6.EF.BC.88condition.EF.BC.89) 说明。  |
 
 下面列出了各 COS API 设置授权策略的示例。
 
@@ -93,12 +95,10 @@ Bucket API 策略的 resource 可以归纳为以下几种情况：
 
 - 操作全部地域的存储桶
 则策略的 resource 为`*`，**该策略限定的资源范围，存在由于权限范围过大导致数据安全风险，请谨慎配置**。
-
 - 仅允许操作指定地域的存储桶
-例如只允许操作 APPID 为1250000000，地域归属于北京（ap-beijing）的存储桶 examplebucket-1250000000，则策略的 resource 为`qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/*`。
-
+例如只允许操作 APPID 为1250000000，地域归属于北京（ap-beijing）的存储桶 examplebucket-1250000000，则策略的 resource 为`qcs::cos:ap-beijing:uid/1250000000:*`。
 - 仅允许操作指定地域且指定名称的存储桶
-例如只可操作 APPID 为1250000000，地域为 ap-beijing 且名称为 examplebucket-1250000000 的存储桶，则策略的 resource 为`qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/`。
+例如只可操作 APPID 为1250000000，地域为 ap-beijing 且名称为 examplebucket-1250000000 的存储桶，则策略的 resource 为`qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/*`。
 
 Bucket API 策略的 action 则因操作不同而取值不同，以下列举部分 Bucket API 授权策略，其他 Bucket API 授权策略可作参照。
 
@@ -127,7 +127,8 @@ API 接口为 PUT Bucket，若授予其操作权限，则策略的 action 为 na
 }
 ```
 
->?存储桶名称需符合命名规范，详情请参见 [存储桶命名规范](https://cloud.tencent.com/document/product/436/13312#.E5.AD.98.E5.82.A8.E6.A1.B6.E5.91.BD.E5.90.8D.E8.A7.84.E8.8C.83)。
+>? 存储桶名称需符合命名规范，详情请参见 [存储桶命名规范](https://cloud.tencent.com/document/product/436/13312#.E5.AD.98.E5.82.A8.E6.A1.B6.E5.91.BD.E5.90.8D.E8.A7.84.E8.8C.83)。
+>
 
 ### 检索存储桶及其权限  
 

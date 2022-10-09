@@ -10,7 +10,7 @@
  - [通过应用或 Kubectl 命令创建](#appOrKubectlCreate)
 
 ## 前提条件
-已登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
+已登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)。
 
 ## 注意事项
 - 仅在集群 Kubernetes 版本大于**1.8.\***时，支持使用 GPU 调度。
@@ -34,7 +34,7 @@
 3. 在 “选择机型” 页面，将 “实例族” 设置为 “**GPU机型**”，并选择 GPU 计算型的实例类型。如下图所示：
 ![](https://main.qcloudimg.com/raw/b87afa4e56553e00d4f77ac59a0cdb45.png)
 4. 按照页面提示逐步操作，完成创建。
->? 在进行 “云服务器配置” 时，TKE 将自动根据选择的机型进行 GPU 的驱动安装等初始流程，您无需关心基础镜像。 
+>? 在进行 “云服务器配置” 时，TKE 将自动根据选择的机型进行 GPU 的驱动安装等初始流程，您无需关心基础镜像。  
 
 [](id:addGPUServer)
 #### 添加已有 GPU 云服务器

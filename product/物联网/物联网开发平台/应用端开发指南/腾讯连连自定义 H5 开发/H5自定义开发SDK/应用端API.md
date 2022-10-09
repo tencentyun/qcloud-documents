@@ -1,3 +1,5 @@
+在开发 H5 面板的过程中，我们需要获取产品信息，设备信息，或者获取设备在线状态，控制设备，这些能力都通过应用端 API 来提供，完整的 API 列表可以参考 [应用端 API](https://cloud.tencent.com/document/product/1081/40772)。H5 自定义开发 SDK 对调用应用端 API 的过程进行了封装，从而方便开发者进行调用。
+
 ## 调用应用端 API
 
 H5 SDK 对应用端 API 的调用过程进行了封装，发送请求时会自动带上公共参数 `AccessToken` 与 `RequestId`

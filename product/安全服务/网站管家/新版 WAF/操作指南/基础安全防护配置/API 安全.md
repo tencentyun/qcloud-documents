@@ -1,21 +1,20 @@
 本文档将为您介绍如何通过 API 安全功能，添加 API 接口或 API 规则文件，从而进一步保护 API 接口安全。
 ## 背景信息
-通过 API 安全功能，您可以添加 API 接口或 API 规则文件，WAF 将对 API 请求进行安全检查，只有符合定义规范的 API 才能被执行。同时 API 安全防护模块将和 [AI 引擎](https://console.cloud.tencent.com/guanjia/waf/ai) 及 [BOT 行为管理](https://console.cloud.tencent.com/guanjia/bot2/overview) 进行联动，进行 API 接口保护。
+通过 API 安全功能，您可以添加 API 接口或 API 规则文件，WAF 将对 API 请求进行安全检查，只有符合定义规范的 API 才能被执行。同时 API 安全防护模块将和 [AI 引擎](https://console.cloud.tencent.com/guanjia/tea-baseconfig) 及 [BOT 流量管理](https://console.cloud.tencent.com/guanjia/tea-botconfig) 进行联动，进行 API 接口保护。
 >! API 安全防护当前处于公测阶段，您可以免费使用，正式发布后，将按官网公布刊例价收取费用。
 
 ## 操作步骤
-1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/tea-baseconfig)，在左侧导航栏中，选择**配置中心** > **基础安全**，进入基础安全页面。
+1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/tea-overview)，在左侧导航栏中，选择**配置中心** > **基础安全**，进入基础安全页面。
 2. 在基础安全页面，左上角选择需要防护的域名，单击 **API 安全**，进入 API 安全页面。
 3. 在 API 安全页面，添加 API 防护规则，目前支持通过 [导入 API](#import) 和 [ 添加 API](#add) 两种方式进行增加 API 规则。 
->?
->- 导入 API（推荐）：根据获取的 API 文档，直接导入文件进行解析。
->- 添加 API：用户根据网站的路径接口，手动添加需要防护的 API 路径。
+ - 导入 API（推荐）：根据获取的 API 文档，直接导入文件进行解析。
+ - 添加 API：用户根据网站的路径接口，手动添加需要防护的 API 路径。
 
 [](id:import)
 ### 导入 API（推荐）
 1. 在 **[基础安全](https://console.cloud.tencent.com/guanjia/tea-baseconfig)** > **API 安全**页面，单击**导入 API**，弹出导入API 接口弹窗。
 2. 在导入 API 接口弹窗中，选择上传文件类型，单击**点击上传**，传入 API 文件即可。
->?目前 WAF 支持两种 swagger2.0 文件的解析，分别是： yml 文件和 json 文件。导入规则说明：
+>?目前 WAF 支持两种 swagger2.0 文件的解析，分别是： YML 文件和 JOSN 文件。导入规则说明：
 >- 格式：导入 API 描述文件，文件后缀名必须为 .yml 或 .json，单次上传的 API 描述文件不超过100KB。
 >- 数量：每次最多可上传创建20条 API，导入已经存在的 API 会默认跳过。
 >- 导入创建成功的 API ，可进行编辑，请根据实际情况进行接口确认。
@@ -41,11 +40,11 @@
 3.	添加完后，即可将 API 接口添加至 API 安全防护配置列表中。
 ![](https://qcloudimg.tencent-cloud.cn/raw/0e7f0b4424c501963599afe23475654c.png)
 **字段说明：**
-	- **规则 ID**：添加成功一条 API 规则后，会自动生成一个对应的规则 ID，该 ID 在 API 安全模块具有唯一性，您可根据此 ID 在 [攻击日志](https://console.cloud.tencent.com/guanjia/tea-attacklog) 中，查找对应的日志。
+	- **规则 ID**：成功添加一条 API 规则后，会自动生成一个对应的规则 ID，该 ID 在 API 安全模块具有唯一性，您可根据此 ID 在 [攻击日志](https://console.cloud.tencent.com/guanjia/tea-attacklog) 中，查找对应的日志。
 	- **接口名称/描述**：显示配置的 API 名称和描述，API 名称为 API 的实际路径，请按照实际防御域名的路径填写。
 	- **来源**：来源分为两种，文件解析和手动添加。如果是导入的 API，则显示为文件解析，如果是手动添加的 API，则显示为手动添加。
 	- **请求方法**：您配置的请求方法，分为 GET、POST、PUT 及 DELETE 四种。
-	- **API 参数**：配置的 API 具体的参数列表，最多支持30个。
+	- **API 参数**：配置的 API 的参数列表，最多支持30个。
 	- **动作**：分为观察和拦截两种。
 	- **开关**：API 规则的启用状态，若关闭开关，则表示不启用。如需同时开启或关闭多个开关，可选择多个 API 规则，在列表上方，单击**批量启用**或**批量禁用**，进行批量操作。
 	- **修改时间**：API 防护规则最新更新的时间。

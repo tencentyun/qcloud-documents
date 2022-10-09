@@ -261,7 +261,7 @@ public  abstract int ForbidUserOperation(boolean isEnabled,String receiverID);
 
 | 参数       | 类型      | 含义                                                        |
 | ---------- | --------- | ----------------------------------------------------------- |
-| enable     | BOOL      | YES：允许某用户操作设备，NO：禁止某用户操作设备 |
+| enable     | BOOL      | YES：禁止某用户操作设备，NO：允许某用户操作设备 |
 | receiverID | NSString* | 填入目标用户 OpenId                                         |
 
 #### 回调
@@ -293,9 +293,9 @@ public  abstract int ForbidUserOperation(boolean isEnabled,String receiverID);
 | 3    | ITMG_ROOM_MANAGEMENT_AUDIO_REC_OP      | 控制下行回调               |
 | 4    | ITMG_ROOM_MANAGEMENT_MIC_OP            | 控制麦克风回调             |
 | 5    | ITMG_ROOM_MANAGEMENT_PLAY_OP           | 控制扬声器回调             |
-| 7    | ITMG_ROOM_MANAGEMENT_GET_MIC_STATE     | 获取麦克风状态             |
-| 8    | ITMG_ROOM_MANAGEMENT_GET_SPEAKER_STATE | 获取扬声器状态             |
-| 9    | ITMG_ROOM_MANAGERMENT_FOBIN_OP         | 禁止操作麦克风及扬声器事件 |
+| 6    | ITMG_ROOM_MANAGEMENT_GET_MIC_STATE     | 获取麦克风状态             |
+| 7    | ITMG_ROOM_MANAGEMENT_GET_SPEAKER_STATE | 获取扬声器状态             |
+| 8    | ITMG_ROOM_MANAGERMENT_FOBIN_OP         | 禁止操作麦克风及扬声器事件 |
 
 #### OperateValue
 

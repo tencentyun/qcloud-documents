@@ -17,7 +17,6 @@ NAT 防火墙 DNS 开关开启后，系统会修改所接入 VPC 的 DNS 解析�
 ## 步骤1：创建 NAT 防火墙[](id:step1)
 1. 登录 [云防火墙控制台](https://console.cloud.tencent.com/cfw/asset)，在左侧导航中，单击**防火墙开关** > **NAT 边界开关** > **网络拓扑**。
 2. 在网络拓扑页面，单击**创建实例**，选择所需地域。
-![](https://qcloudimg.tencent-cloud.cn/raw/52ddea2afea3ed5f3cc6efaeaf0b43d0.png)
 3. 在新建 NAT 边界防火墙弹窗中，配置相关参数，单击**下一步**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/c5b25f65243eb0f72e86f0ec1720ba0e.png)
 	**字段说明：**
@@ -32,28 +31,27 @@ NAT 防火墙 DNS 开关开启后，系统会修改所接入 VPC 的 DNS 解析�
 		- **接入模式**：若当前地域已有 NAT 网关，或者希望公网对外的出口 IP 保持不变，接入模式可以将 NAT 边界防火墙平滑接入到 NAT 网关与 CVM 实例之间。
 	- **弹性 IP**：若选择新建弹性 IP，系统会自动为用户申请一个弹性 IP，用户也可从所有闲置的弹性 IP 中选择一个进行绑定。
 4. 选择需要接入的 VPC，单击**创建**，等待若干分钟后，即可在防火墙实例列表中，查看刚刚创建的实例。
-![](https://qcloudimg.tencent-cloud.cn/raw/b6656b22872bb4e84573fb083e50b19c.png)
 
 
 ## 步骤2：开启防火墙开关
 在 [NAT 边界开关页面](https://console.cloud.tencent.com/cfw/switch/nat?tab=switch)，单击**防火墙开关** ，根据实际需求选择数据库所在的子网，单击![](https://qcloudimg.tencent-cloud.cn/raw/9345ed8d746cbba9548277c2a156c95b.png)开启防火墙开关。
-![](https://qcloudimg.tencent-cloud.cn/raw/3830acc3569c4f40e7e717be0deb105a.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/7cdf98ac29caf4ec1a8c33d759069c39.png)
 
 
 ## 步骤3：开启和验证 DNS 
 1. 在 [NAT 边界开关页面](https://console.cloud.tencent.com/cfw/switch/nat?tab=switch)，单击**防火墙实例** ，选择 [步骤1](#step1) 创建的防火墙实例，单击**实例配置**。
-![](https://qcloudimg.tencent-cloud.cn/raw/6620a08c6cbe1af8a9a697344353033a.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/b64f6c312382ec1afe7b41e03a1b208d.png)
 2. 在接入 VPC 与公网 IP 页面，选择所需 ID，单击![](https://qcloudimg.tencent-cloud.cn/raw/c69a24ce06731d4a9ee567c815e80bd3.png)开启 DNS 流量。
-![](https://qcloudimg.tencent-cloud.cn/raw/2184523886f230aa78b0f9e5fb5c0e5a.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/2cf0d8ac880bb7a5477f74c8670c4f32.png)
 3. 通过 `ipconfig /release Ipconfig /renew` 刷新 DNS 获取地址。
 ![](https://qcloudimg.tencent-cloud.cn/raw/2614729ca469a64c5e23cff791d076aa.png)
 
 
 ## 步骤4：限制 DNS 解析
-1. 在 [NAT 边界规则页面](https://console.cloud.tencent.com/cfw/ac/nat)，选择所需地域，单击**出向规则** > **添加规格**。
-![](https://qcloudimg.tencent-cloud.cn/raw/242d7c09e239ea59777b010399403bf6.png)
+1. 在 [NAT 边界规则页面](https://console.cloud.tencent.com/cfw/ac/nat)，选择所需地域，单击**出向规则** > **添加规则**。
+![](https://qcloudimg.tencent-cloud.cn/raw/527e798916625d92f5d077d5ea7fc113.png)
 2. 在添加出向规则弹窗中，配置相关参数，单击**确定**。
-![](https://qcloudimg.tencent-cloud.cn/raw/d5d00718805d9eadb1c8f43c01f30922.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/9302a1adf511ff0b3a1b5c16f2403d4b.png)
 **字段说明**：
      - 执行顺序：访问控制规则的执行顺序，出站规则和入站规则的执行顺序互不影响，执行顺序较高的规则被优先匹配，命中某条规则后，不再匹配后序规则。当您修改某条规则的执行顺序时，原本该位置的规则的执行顺序+1，以此类推。当您删除某条规则时，后序所有规则的执行顺序-1。
      - 访问源：出向规则访问源仅对当前地域内的所有内网资产生效，支持 IP 和 CIDR。

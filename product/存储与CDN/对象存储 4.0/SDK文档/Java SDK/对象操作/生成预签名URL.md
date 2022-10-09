@@ -5,7 +5,7 @@
 关于使用预签名 url 上传的说明详见文档 [预签名授权上传](https://cloud.tencent.com/document/product/436/14114)， 使用预签名 url 下载的说明详见文档 [预签名授权下载](https://cloud.tencent.com/document/product/436/14116)。
 
 >?
-> - 建议用户[使用临时密钥](https://cloud.tencent.com/document/product/436/14048)生成预签名，通过临时授权的方式进一步提高预签名上传、下载等请求的安全性。申请临时密钥时，请遵循 [最小权限指引原则](https://cloud.tencent.com/document/product/436/38618)，防止泄漏目标存储桶或对象之外的资源。
+> - 建议用户 [使用临时密钥](https://cloud.tencent.com/document/product/436/14048) 生成预签名，通过临时授权的方式进一步提高预签名上传、下载等请求的安全性。申请临时密钥时，请遵循 [最小权限指引原则](https://cloud.tencent.com/document/product/436/38618)，防止泄漏目标存储桶或对象之外的资源。
 > - 如果您一定要使用永久密钥来生成预签名，建议永久密钥的权限范围仅限于上传或下载操作，以规避风险。
 > - 获取签名/预签名函数，默认签入 Header Host；您也可以选择不签入 Header Host，但可能导致请求失败或安全漏洞。
 > 
@@ -209,7 +209,7 @@ req.addRequestParameter("param1", "value1");
 req.putCustomRequestHeader(Headers.HOST, cosClient.getClientConfig().getEndpointBuilder().buildGeneralApiEndpoint(bucketName));
 req.putCustomRequestHeader("header1", "value1");
 
-URL url = cosclient.generatePresignedUrl(req);
+URL url = cosClient.generatePresignedUrl(req);
 System.out.println(url.toString());
 
 // 确认本进程不再使用 cosClient 实例之后，关闭之
@@ -255,6 +255,8 @@ COSCredentials cred = new BasicSessionCredentials(tmpSecretId, tmpSecretKey, ses
 String bucketName = "examplebucket-1250000000";
 // 对象键(Key)是对象在存储桶中的唯一标识。详情请参见 [对象键](https://cloud.tencent.com/document/product/436/13324)
 String key = "exampleobject";
+//若key不是以“/”开头，则需要在key的开头加上“/”，否则直接resource_path=key
+String resource_path="/" + key;
 
 ClientConfig clientConfig = new ClientConfig(new Region("ap-beijing-1"));
 
@@ -271,13 +273,13 @@ params.put("param1", "value1");
 // 填写本次请求的头部
 Map<String, String> headers = new HashMap<String, String>();
 // host 必填
-headers.put(Headers.HOST, clientConfig.getEndpointBuilder().buildGeneralApiEndpoint(bucketName))
+headers.put(Headers.HOST, clientConfig.getEndpointBuilder().buildGeneralApiEndpoint(bucketName));
 headers.put("header1", "value1");
 
 // 请求的 HTTP 方法，上传请求用 PUT，下载请求用 GET，删除请求用 DELETE
 HttpMethodName method = HttpMethodName.GET;
 
-String sign = signer.buildAuthorizationStr(method, key, headers, params, cred, expirationDate, true);
+String sign = signer.buildAuthorizationStr(method, resource_path, headers, params, cred, expirationDate, true);
 ```
 
 ### 使用永久密钥
@@ -293,6 +295,8 @@ COSCredentials cred = new BasicCOSCredentials(secretId, secretKey);
 String bucketName = "examplebucket-1250000000";
 // 对象键(Key)是对象在存储桶中的唯一标识。详情请参见 [对象键](https://cloud.tencent.com/document/product/436/13324)
 String key = "exampleobject";
+//若key不是以“/”开头，则需要在key的开头加上“/”，否则直接resource_path=key
+String resource_path="/" + key;
 
 ClientConfig clientConfig = new ClientConfig(new Region("ap-beijing-1"));
 
@@ -309,11 +313,57 @@ params.put("param1", "value1");
 // 填写本次请求的头部
 Map<String, String> headers = new HashMap<String, String>();
 // host 必填
-headers.put(Headers.HOST, clientConfig.getEndpointBuilder().buildGeneralApiEndpoint(bucketName))
+headers.put(Headers.HOST, clientConfig.getEndpointBuilder().buildGeneralApiEndpoint(bucketName));
 headers.put("header1", "value1");
 
 // 请求的 HTTP 方法，上传请求用 PUT，下载请求用 GET，删除请求用 DELETE
 HttpMethodName method = HttpMethodName.GET;
 
-String sign = signer.buildAuthorizationStr(method, key, headers, params, cred, expirationDate, true);
+String sign = signer.buildAuthorizationStr(method, resource_path, headers, params, cred, expirationDate, true);
 ```
+
+### 生成限速的预签名下载 URL
+
+关于限速的使用说明，可参见 [单链接限速](https://cloud.tencent.com/document/product/436/40140)。
+
+#### 请求示例
+
+以生成限速的预签名下载 URL 为例：
+
+```
+public static void GenerateSimplePresignedDownloadUrl() {
+        // 1 初始化用户身份信息(secretId, secretKey)
+        COSCredentials cred = new BasicCOSCredentials("secretId", "secretKey");
+        // 2 设置bucket的区域, COS地域的简称请参照 https://www.qcloud.com/document/product/436/6224
+        ClientConfig clientConfig = new ClientConfig(new Region("COS_REGION"));
+        // 如果要获取 https 的 url 则在此设置，否则默认获取的是 http url
+        clientConfig.setHttpProtocol(HttpProtocol.https);
+        // 3 生成cos客户端
+        COSClient cosclient = new COSClient(cred, clientConfig);
+        // bucket名需包含appid
+        String bucketName = "examplebucket-1250000000";
+        
+        String key = "exampleobject";
+        GeneratePresignedUrlRequest req =
+                new GeneratePresignedUrlRequest(bucketName, key, HttpMethodName.GET);
+        // 设置签名过期时间(可选), 若未进行设置则默认使用ClientConfig中的签名过期时间(1小时)
+        // 这里设置签名在半个小时后过期
+        Date expirationDate = new Date(System.currentTimeMillis() + 30 * 60 * 1000);
+        req.setExpiration(expirationDate);
+
+        // 填写本次请求的参数
+        // 设定限速值，例如128KB/s
+        req.addRequestParameter("x-cos-traffic-limit", "1048576");
+
+        // 填写本次请求的头部。Host 必填
+        req.putCustomRequestHeader(Headers.HOST,
+        cosclient.getClientConfig().getEndpointBuilder().buildGeneralApiEndpoint(bucketName));
+        //req.putCustomRequestHeader("header1", "value1");
+
+        URL url = cosclient.generatePresignedUrl(req);
+        System.out.println(url.toString());
+
+        cosclient.shutdown();
+    }
+```
+

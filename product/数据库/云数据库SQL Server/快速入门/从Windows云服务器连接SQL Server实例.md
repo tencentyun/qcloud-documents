@@ -1,4 +1,3 @@
-
 ## 操作场景
 本文介绍在 Windows 云服务器中通过 SQL Server Management Studio（SSMS）连接到 SQL Server 实例，并运行简单查询的操作。
 >?
@@ -24,5 +23,4 @@
 select @@VERSION
 ```
 运行查询，SQL Server Management Studio 会返回 SQL Server 版的腾讯云云数据库实例。
-![](//mc.qcloudimg.com/static/img/fbf64c03c7addda9c80fdd3dac7bbebb/image.png)
-
+![](https://qcloudimg.tencent-cloud.cn/raw/d90bfce08de4fa93a6f1fa3de21d17d3.png)

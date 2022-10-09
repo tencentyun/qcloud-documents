@@ -76,9 +76,9 @@ client
   });
 ```
 
-4. 远端流通过监听事件[Client.on('stream-added')](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/module-Event.html#.STREAM_ADDED)获取，收到该事件后，通过 [Client.subscribe()](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/Client.html#subscribe) 订阅远端音视频流。
+4. 远端流通过监听事件[Client.on('stream-added')](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/module-ClientEvent.html#.STREAM_ADDED)获取，收到该事件后，通过 [Client.subscribe()](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/Client.html#subscribe) 订阅远端音视频流。
 >?
->- 请在 [Client.join()](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/Client.html#join) 进房前注册 [Client.on('stream-added')](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/module-Event.html#.STREAM_ADDED) 事件以确保您不会错过远端用户进房通知。
+>- 请在 [Client.join()](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/Client.html#join) 进房前注册 [Client.on('stream-added')](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/module-ClientEvent.html#.STREAM_ADDED) 事件以确保您不会错过远端用户进房通知。
 >- 远端流离开等其他事件可以在 [API 详细文档](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/module-Event.html) 中查看。
 ```javascript
 client.on('stream-added', event => {

@@ -11,7 +11,7 @@ Open Broadcaster Software（简称 OBS）是一款好用的第三方开源程序
 [](id:step0)
 ## 获取推流地址
 1. 登录云直播控制台，进入 [**地址生成器**](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator)，进行如下配置：
-   1. 选择生成类型为**推流域名**或**播放域名**。
+   1. 选择生成类型为**推流域名**。
    2. 选择您已添加到域名管理里对应的域名。
    3. AppName 为区分同一个域名下多个 App 的地址路径，默认为 live。
    4. 填写自定义的流名称 StreamName，例如：`live`。
@@ -23,7 +23,7 @@ Open Broadcaster Software（简称 OBS）是一款好用的第三方开源程序
 [](id:normal)
 ## OBS 在线推流
 ### 步骤一：设置推流地址[](id:step1)
-1. 打开 OBS，您可通过底部工具栏的 **控件>设置** 按钮进入设置界面。
+1. 打开 OBS，您可通过底部工具栏的 **控件 > 设置** 按钮进入设置界面。
 ![](https://main.qcloudimg.com/raw/56e4c19f24d08df7b8f8815f1ffb6857.png)
 2. 单击 **推流** 进入流设置页签，选择服务类型为自定义流媒体服务器。
 3. 将获取所得的 [推流地址](#step0) 填写到服务器和串流密码中。
@@ -83,7 +83,7 @@ Open Broadcaster Software（简称 OBS）是一款好用的第三方开源程序
 
 >? 
 >- 底部出现![](https://main.qcloudimg.com/raw/a10bafc9eb0895dc4c6b542b61217253.png)绿灯，表示推流成功。
->- 若需停止推流，单击 **停止推流 > 停止推流** 即可。
+>- 若需停止推流，单击 **停止推流** 即可。
 
 ## 其他推流相关配置
 ### 影响直播延迟相关设置
@@ -149,11 +149,12 @@ Open Broadcaster Software（简称 OBS）是一款好用的第三方开源程序
     ![](https://main.qcloudimg.com/raw/d0b59b014734921a58b771ff9ce66391.png)
 
 ## 拉流
-推流完成后，您可通过以下方式拉流播放来验证流是否推成功：
+推流完成后，您可生成与推流地址相同的 StreamName 的播放地址，通过以下方式拉流播放来验证流是否推成功：
 - PC 端：支持使用 [VLC 播放器](https://cloud.tencent.com/document/product/267/32727) 进行拉流。
-- 移动端：支持通过集成 [移动直播 ](https://cloud.tencent.com/document/product/454/) SDK 来实现播放。
->?移动直播 SDK 是云直播服务（LVB）在移动场景的延伸。相比于主要面向云对接的直播（LVB） 服务，移动直播既提供了基于 RTMP SDK 的“快速集成方案”，也提供了集标准直播（LVB）、快直播（LEB）、云点播（VOD）、即时通信（IM） 和对象存储（COS） 等多云端服务的“一体化解决方案”。
-其中， [快直播](https://cloud.tencent.com/document/product/454/55880) （Live Event Broadcasting，LEB）（超低延迟直播）是标准直播在超低延迟播放场景下的延伸，比传统直播协议延迟更低，为观众提供毫秒级的直播观看体验。 能够满足一些对延迟性能要求更高的特定场景需求，例如在线教育、体育赛事直播、在线答题等。
+- 移动端：支持通过集成 [腾讯云视立方·直播 SDK](https://cloud.tencent.com/document/product/454/) 来实现播放。
+>? 腾讯云视立方·直播 SDK 是云直播服务（CSS）在移动场景的延伸。相比于主要面向云对接的直播（CSS） 服务，直播 SDK 既提供了基于 RTMP SDK 的“快速集成方案”，也提供了集标准直播（LVB）、快直播（LEB）、云点播（VOD）、即时通信（IM） 和对象存储（COS） 等多云端服务的“一体化解决方案”。
+其中， [快直播](https://cloud.tencent.com/document/product/454/55880) （Live Event Broadcasting，LEB）（超低延时直播）是标准直播在超低延时播放场景下的延伸，比传统直播协议延时更低，为观众提供毫秒级的直播观看体验。 能够满足一些对延迟性能要求更高的特定场景需求，例如在线教育、体育赛事直播、在线答题等。
+
 
 
 

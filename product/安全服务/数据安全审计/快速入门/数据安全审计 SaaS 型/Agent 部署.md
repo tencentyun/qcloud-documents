@@ -1,4 +1,4 @@
-数据安全审计部署的核心目标是把 Agent 安装到数据库服务器或访问数据库的应用服务器中。Agent 部署流程如下图所示：
+数据安全审计部署的核心目标是把 Agent 安装到数据库服务器或访问数据库的应用服务器中。Agent 部署流程如下所示：
 <dx-steps>
 -配置数据资产实例，操作详情请参见 [管理自建数据库](https://cloud.tencent.com/document/product/856/66075#since)。
 -开启审计权限，操作详情请参见 [管理云数据库](https://cloud.tencent.com/document/product/856/66075#cloud)。
@@ -20,6 +20,7 @@
  
 ## 部署 Agent
 ### 在线部署
+1. 登录 [数据安全审计控制台](https://console.cloud.tencent.com/dsaudit)，在左侧导航栏中，单击**配置管理** > **Agent 管理** > **Agent 部署**，进入 Agent 部署页面。
 1. 在 Agent 部署页面，单击 **Linux 在线部署**。
 2. 在 Agent 在线部署页面，选择 CVM 所在的地域和 VPC ，在需要部署 Agent 的 CVM 后单击**部署**，即可自动部署 Agent 。已经部署的 Agent ，可执行卸载操作（即使 Agent 未连接，在此也可以在线卸载）。还可以选中多个 CVM ，进行批量部署。
 >!
@@ -42,12 +43,14 @@
 - 如果您使用的是云数据库，则需要在连接数据库的应用服务器上安装 Agent。
 
 ### Linux 版本
+>! Linux 需在部署 Agent 之前，安装 python2。
+>
 1. 将 `dsaagent_innernet_linux _xxx.zip` 安装包上传到需要安装的机器上，如 /data。
 2. 使用 `unzip dsaagent_innernet_xxx.zip` 命令进行解压，得到 /data/CapAgent 目录。
 3. 执行 `cd CapAgent/bin`，再执行`./start.sh`，结果如下。
 ![](https://qcloudimg.tencent-cloud.cn/raw/81b0f1add2be91ed9930ced33b975d39.png)
 4. 在命令行，执行 `netstat -ano | grep 7000` 如下图即确认连接成功。
-![](https://qcloudimg.tencent-cloud.cn/raw/cb7d4975c71891640172832428d420d7.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/d65b0aa4dd658b6708907e344a8f1391.png)
 
 ### Windows 版本
 数据安全审计 Agent Windows 版本只支持 Windows vista/2008 及以上版本。

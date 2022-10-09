@@ -1,3 +1,5 @@
+
+
 ## Linux（Ubuntu）环境
 
 >?本文演示使用 Ubuntu 的版本为16.04。
@@ -73,7 +75,7 @@ set(FEATURE_DEBUG_DEV_INFO_USED  OFF)
     
    set(COMPILE_TOOLS "MSVC") 
    set(PLATFORM 	  "windows")
-```	 
+```
 4. Visual Studio 会自动生成 cmake 缓存，请等待 cmake 缓存生成完毕。
 ![](https://main.qcloudimg.com/raw/52f0f35974ad0503b6f45a09f69420ac.jpg)
 5. 缓存生成完毕后，选择【生成】>【全部生成】。

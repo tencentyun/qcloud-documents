@@ -53,8 +53,8 @@ Namespace=QCE/SQLSERVER
 ## 入参说明
 
 查询云数据库 SQL Server监控数据，入参取值如下：
-&Namespace=QCE/SQLSERVER
-&Instances.N.Dimensions.0.Name=resourceId
+&Namespace = QCE/SQLSERVER
+&Instances.N.Dimensions.0.Name = resourceId
 &Instances.N.Dimensions.0.Value 为实例的资源 ID 
 
 

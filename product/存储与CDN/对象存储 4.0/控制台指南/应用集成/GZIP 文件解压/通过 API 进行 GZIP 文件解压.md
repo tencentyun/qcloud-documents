@@ -5,7 +5,6 @@
  - 对于选择云函数鉴权的函数，需要调用 SCF 提供的 [运行函数（Invoke）接口 ](https://cloud.tencent.com/document/api/583/17243) 来运行云函数，其中的 ClientContext 参数以 JSON 格式传入，请参见 [函数参数配置示例](#1)。
  - 对于选择免鉴权的函数，则可以直接向对应的 API 网关发起 HTTP 请求来调用函数。
 
-
 <span id=1></span>
 ## 函数参数配置示例
 

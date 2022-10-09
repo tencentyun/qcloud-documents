@@ -9,7 +9,7 @@
 
 | 内容 | 说明 |
 |---------|---------|
-| 语言种类 | 中文普通话、英文、粤语、韩语、日语、泰语、上海话方言。可通过接口参数 engine_model_type 设置对应引擎类型。若有四川话、南京话、南昌话需求，可填写 [表单](https://cloud.tencent.com/apply/p/75h8nunsh9) 申请|
+| 语言种类 | 支持中文普通话、英语、粤语、韩语、日语、泰语、上海话、四川话、武汉话、贵阳话、昆明话、西安话、郑州话、太原话、兰州话、银川话、西宁话、南京话、合肥话、南昌话、长沙话、苏州话、杭州话、济南话、天津话、石家庄话、黑龙江话、吉林话、辽宁话。可通过接口参数 engine_model_type 设置对应语言类型|
 | 支持行业 | 通用、金融、游戏、教育、医疗 |
 | 音频属性 | 采样率：16000Hz或8000Hz<br>采样精度：16bits<br>声道：单声道（mono） |
 | 音频格式 | pcm、wav、opus、speex、silk、mp3、m4a、aac |
@@ -17,32 +17,32 @@
 | 请求地址 | wss://asr.cloud.tencent.com/asr/v2/&lt;appid&gt;?{请求参数} |
 | 接口鉴权 | 签名鉴权机制，详见 [签名生成](#sign) |
 | 响应格式 | 统一采用 JSON 格式 |
-| 数据发送 | 建议每200ms 发送200ms 时长（即1:1实时率）的数据包，对应 pcm 大小为：8k 采样率3200字节，16k 采样率6400字节。<br>音频发送速率过快超过1:1实时率或者音频数据包之间发送间隔超过6秒，可能导致引擎出错，后台将返回错误并主动断开连接。 |
-| 并发限制 | 默认单账号限制并发连接数为50路，如您有提高并发限制的需求，[请提工单](https://console.cloud.tencent.com/workorder/category) 进行咨询。 |
+| 数据发送 | 建议每40ms 发送40ms 时长（即1:1实时率）的数据包，对应 pcm 大小为：8k 采样率640字节，16k 采样率1280字节<br>音频发送速率过快超过1:1实时率或者音频数据包之间发送间隔超过6秒，可能导致引擎出错，后台将返回错误并主动断开连接 |
+| 并发限制 | 默认单账号限制并发连接数为50路，如您有提高并发限制的需求，[请提工单](https://console.cloud.tencent.com/workorder/category) 进行咨询 |
 
 ## 接口调用流程
 接口调用流程分为两个阶段：握手阶段和识别阶段。两阶段后台均返回 text message，内容为 json 序列化字符串，以下是格式说明：
 
 | 字段名 | 类型 | 描述 |
 |---------|---------|---------|
-| code | Integer | 状态码，0代表正常，非0值表示发生错误。 |
-| message | String | 错误说明，发生错误时显示这个错误发生的具体原因，随着业务发展或体验优化，此文本可能会经常保持变更或更新。 |
-| voice_id | String | 音频流唯一 id，由客户端在握手阶段生成并赋值在调用参数中。 |
-| message_id | String | 本 message 唯一 id。 |
-| result | Result | 最新语音识别结果。 |
-| final | Integer | 该字段返回1时表示音频流全部识别结束。 |
+| code | Integer | 状态码，0代表正常，非0值表示发生错误|
+| message | String | 错误说明，发生错误时显示这个错误发生的具体原因，随着业务发展或体验优化，此文本可能会经常保持变更或更新 |
+| voice_id | String | 音频流唯一 id，由客户端在握手阶段生成并赋值在调用参数中|
+| message_id | String | 本 message 唯一 id |
+| result | Result | 最新语音识别结果 |
+| final | Integer | 该字段返回1时表示音频流全部识别结束|
 
 其中识别结果 Result 结构体格式为：
 
 | 字段名 | 类型 | 描述 |
 |---------|---------|---------|
-| slice_type | Integer | 识别结果类型，0：一段话开始识别；1：一段话识别中，voice_text_str 为非稳态结果(该段识别结果还可能变化) ；2：一段话识别结束，voice_text_str 为稳态结果(该段识别结果不再变化)。<br>根据发送的音频情况，识别过程中可能返回的 slice_type 序列有：<br>0-1-2：一段话开始识别、识别中(可能有多次1返回)、识别结束。<br>0-2:  一段话开始识别、识别结束。<br> 2:  直接返回一段话完整的识别结果。|
-| index | Integer | 当前一段话结果在整个音频流中的序号，从0开始逐句递增。 |
-| start_time | Integer | 当前一段话结果在整个音频流中的起始时间。 |
-| end_time | Integer | 当前一段话结果在整个音频流中的结束时间。 |
-| voice_text_str | String | 当前一段话文本结果，编码为 UTF8。 |
-| word_size | Integer | 当前一段话的词结果个数。 |
-| word_list | Word Array | 当前一段话的词列表，Word 结构体格式为：<br>word：String 类型，该词的内容；<br>start_time：Integer 类型，该词在整个音频流中的起始时间；<br>end_time：Integer 类型，该词在整个音频流中的结束时间；<br>stable_flag：Integer 类型，该词的稳态结果，0表示该词在后续识别中可能发生变化，1表示该词在后续识别过程中不会变化。 |
+| slice_type | Integer | 识别结果类型：<li>0：一段话开始识别<li>1：一段话识别中，voice_text_str 为非稳态结果(该段识别结果还可能变化) <li>2：一段话识别结束，voice_text_str 为稳态结果(该段识别结果不再变化)<br>根据发送的音频情况，识别过程中可能返回的 slice_type 序列有：<br><li>0-1-2：一段话开始识别、识别中(可能有多次1返回)、识别结束<br><li>0-2：一段话开始识别、识别结束<br> <li>2：直接返回一段话完整的识别结果|
+| index | Integer | 当前一段话结果在整个音频流中的序号，从0开始逐句递增 |
+| start_time | Integer | 当前一段话结果在整个音频流中的起始时间 |
+| end_time | Integer | 当前一段话结果在整个音频流中的结束时间 |
+| voice_text_str | String | 当前一段话文本结果，编码为 UTF8 |
+| word_size | Integer | 当前一段话的词结果个数 |
+| word_list | Word Array | 当前一段话的词列表，Word 结构体格式为：<br>word：String 类型，该词的内容<br>start_time：Integer 类型，该词在整个音频流中的起始时间<br>end_time：Integer 类型，该词在整个音频流中的结束时间<br>stable_flag：Integer 类型，该词的稳态结果，0表示该词在后续识别中可能发生变化，1表示该词在后续识别过程中不会变化 |
 
 ### 握手阶段
 #### 请求格式
@@ -59,25 +59,25 @@ key1=value2&key2=value2...(key 和 value 都需要进行 urlencode)
 
 | 参数名称 | 必填 | 类型 | 描述 |
 |---------|---------|---------|---------|
-| secretid | 是 | String | 腾讯云注册账号的密钥 SecretId，可通过 [API 密钥管理页面](https://console.cloud.tencent.com/cam/capi) 获取。 |
-| timestamp | 是 | Integer | 当前 UNIX 时间戳，单位为秒。如果与当前时间相差过大，会引起签名过期错误。 |
-| expired | 是 | Integer | 签名的有效期截止时间 UNIX 时间戳，单位为秒。expired 必须大于 timestamp 且 expired - timestamp 小于90天。 |
-| nonce | 是 | Integer | 随机正整数。用户需自行生成，最长10位。 |
-| engine_model_type | 是 | String | 引擎模型类型。<br>电话场景：<br>• 8k_en：电话 8k 英语；<br>• 8k_zh：电话 8k 中文普通话通用；<br>• 8k_zh_finance：电话 8k 金融领域模型；<br>非电话场景：<br>• 16k_zh：16k 中文普通话通用；<br>• 16k_en：16k 英语；<br>• 16k_ca：16k 粤语；<br>• 16k_ko：16k 韩语；<br>• 16k_zh-TW：16k 中文普通话繁体；<br>• 16k_ja：16k 日语；<br>• 16k_wuu-SH：16k 上海话方言；<br>• 16k_zh_medical 医疗；<br>• 16k_en_game 英文游戏；<br>• 16k_zh_court 法庭；<br>• 16k_en_edu 英文教育；<br>• 16k_zh_edu 中文教育；<br>• 16k_th 泰语。 |
-| voice_id | 是 | String | 16位 String 串作为每个音频的唯一标识，用户自己生成。 |
-| voice_format | 否 | Int | 语音编码方式，可选，默认值为4。1：pcm；4：speex(sp)；6：silk；8：mp3；10：opus（[opus 格式音频流封装说明](#jump)）；12：wav；14：m4a（每个分片须是一个完整的 m4a 音频）；16：aac。|
-| needvad | 否 | Integer | 0：关闭 vad，1：开启 vad。<br>如果语音分片长度超过60秒，用户需开启 vad（人声检测切分功能）。 |
-| hotword_id | 否 | String | 热词 id。用于调用对应的热词表，如果在调用语音识别服务时，不进行单独的热词 id 设置，自动生效默认热词；如果进行了单独的热词 id 设置，那么将生效单独设置的热词 id。 |
-| customization_id | 否 | String | 自学习模型 id。用于调用对应的自学习模型，如果在调用语音识别服务时，不进行单独的自学习模型 id 设置，自动生效默认自学习模型；如果进行了单独的自学习模型 id 设置，那么将生效单独设置的自学习模型 id。|
-| filter_dirty | 否 | Integer | 是否过滤脏词（目前支持中文普通话引擎）。默认为0。0：不过滤脏词；1：过滤脏词；2：将脏词替换为 * 。 |
-| filter_modal | 否 | Integer | 是否过语气词（目前支持中文普通话引擎）。默认为0。0：不过滤语气词；1：部分过滤；2：严格过滤 。 |
-| filter_punc | 否 | Integer | 是否过滤句末的句号（目前支持中文普通话引擎）。默认为0。0：不过滤句末的句号；1：过滤句末的句号。 |
-| convert_num_mode | 否 | Integer | 是否进行阿拉伯数字智能转换（目前支持中文普通话引擎）。0：不转换，直接输出中文数字，1：根据场景智能转换为阿拉伯数字，3: 打开数学相关数字转换。默认值为1。 |
-| word_info | 否 | Int | 是否显示词级别时间戳。0：不显示；1：显示，不包含标点时间戳，2：显示，包含标点时间戳。支持引擎 8k_en、8k_zh、8k_zh_finance、16k_zh、16k_en、16k_ca、16k_zh-TW、16k_ja、16k_wuu-SH，默认为0。|
-| vad_silence_time | 否 | Integer | 语音断句检测阈值，静音时长超过该阈值会被认为断句（多用在智能客服场景，需配合 needvad = 1 使用），取值范围：240-2000，单位 ms，此参数建议不要随意调整，可能会影响识别效果，目前仅支持 8k_zh、8k_zh_finance、16k_zh 引擎模型。 |
-| signature | 是 | String | 接口签名参数。 |
+| secretid | 是 | String | 腾讯云注册账号的密钥 SecretId，可通过 [API 密钥管理页面](https://console.cloud.tencent.com/cam/capi) 获取 |
+| timestamp | 是 | Integer | 当前 UNIX 时间戳，单位为秒。如果与当前时间相差过大，会引起签名过期错误 |
+| expired | 是 | Integer | 签名的有效期截止时间 UNIX 时间戳，单位为秒。expired 必须大于 timestamp 且 expired - timestamp 小于90天 |
+| nonce | 是 | Integer | 随机正整数。用户需自行生成，最长10位 |
+| engine_model_type | 是 | String | 引擎模型类型<br>电话场景：<br>• 8k_en：电话 8k 英语；<br>• 8k_zh：电话 8k 中文普通话通用；<br>• 8k_zh_finance：电话 8k 金融领域模型；<br>非电话场景：<br>• 16k_zh：16k 中文普通话通用；<br>• 16k_en：16k 英语；<br>• 16k_ca：16k 粤语；<br>• 16k_ko：16k 韩语；<br>• 16k_zh-TW：16k 中文普通话繁体；<br>• 16k_ja：16k 日语；<br>• 16k_wuu-SH：16k 上海话方言；<br>• 16k_zh_medical 医疗；<br>• 16k_en_game 英文游戏；<br>• 16k_zh_court 法庭；<br>• 16k_en_edu 英文教育；<br>• 16k_zh_edu 中文教育；<br>• 16k_th 泰语。 |
+| voice_id | 是 | String | 16位 String 串作为每个音频的唯一标识，用户自己生成 |
+| voice_format | 否 | Int | 语音编码方式，可选，默认值为4。1：pcm；4：speex(sp)；6：silk；8：mp3；10：opus（[opus 格式音频流封装说明](#jump)）；12：wav；14：m4a（每个分片须是一个完整的 m4a 音频）；16：aac|
+| needvad | 否 | Integer | 0：关闭 vad，1：开启 vad<br>如果语音分片长度超过60秒，用户需开启 vad（人声检测切分功能） |
+| hotword_id | 否 | String | 热词表 id。如不设置该参数，自动生效默认热词表；如果设置了该参数，那么将生效对应的热词表 |
+| customization_id | 否 | String | 自学习模型 id。如设置了该参数，将生效对应的自学习模型|
+| filter_dirty | 否 | Integer | 是否过滤脏词（目前支持中文普通话引擎）。默认为0。0：不过滤脏词；1：过滤脏词；2：将脏词替换为“ * ”   |
+| filter_modal | 否 | Integer | 是否过语气词（目前支持中文普通话引擎）。默认为0。0：不过滤语气词；1：部分过滤；2：严格过滤  |
+| filter_punc | 否 | Integer | 是否过滤句末的句号（目前支持中文普通话引擎）。默认为0。0：不过滤句末的句号；1：过滤句末的句号 |
+| convert_num_mode | 否 | Integer | 是否进行阿拉伯数字智能转换（目前支持中文普通话引擎）。0：不转换，直接输出中文数字，1：根据场景智能转换为阿拉伯数字，3: 打开数学相关数字转换。默认值为1 |
+| word_info | 否 | Int | 是否显示词级别时间戳。0：不显示；1：显示，不包含标点时间戳，2：显示，包含标点时间戳。支持引擎 8k_en、8k_zh、8k_zh_finance、16k_zh、16k_en、16k_ca、16k_zh-TW、16k_ja、16k_wuu-SH，默认为0|
+| vad_silence_time | 否 | Integer | 语音断句检测阈值，静音时长超过该阈值会被认为断句（多用在智能客服场景，需配合 needvad = 1 使用），取值范围：240-2000，单位 ms，此参数建议不要随意调整，可能会影响识别效果，目前仅支持 8k_zh、8k_zh_finance、16k_zh 引擎模型 |
+| signature | 是 | String | 接口签名参数|
 
-**signature 签名生成**
+**signature 签名生成** [](id:sign)
 1. 对除 signature 之外的所有参数按字典序进行排序，拼接请求 URL 作为签名原文，这里以 Appid=1259228442, SecretId=AKIDoQq1zhZMN8dv0psmvud6OUKuGPO7pu0r 为例拼接签名原文，则拼接的签名原文为：
 ```
 asr.cloud.tencent.com/asr/v2/1259228442?engine_model_type=16k_zh&expired=1592380492&filter_dirty=1&filter_modal=1&filter_punc=1&needvad=1&nonce=1592294092123&secretid=AKIDoQq1zhZMN8dv0psmvud6OUKuGPO7pu0r&timestamp=1592294092&voice_format=1&voice_id=RnKu9FODFHK5FPpsrN
@@ -95,9 +95,10 @@ HepdTRX6u155qIPKNKC+3U0j1N0=
 wss://asr.cloud.tencent.com/asr/v2/1259228442?engine_model_type=16k_zh&expired=1592380492&filter_dirty=1&filter_modal=1&filter_punc=1&needvad=1&nonce=1592294092123&secretid=AKIDoQq1zhZMN8dv0psmvud6OUKuGPO7pu0r&timestamp=1592294092&voice_format=1&voice_id=RnKu9FODFHK5FPpsrN&signature=HepdTRX6u155qIPKNKC%2B3U0j1N0%3D
 ```
 
-#### Opus 音频流封装说明
+#### Opus 音频流封装说明  [](id:jump)
 压缩 FrameSize 固定640，即一次压缩640 short，否则解压会失败。传到服务端可以是多帧的拼接组合，每一帧需满足下面格式。
 每一帧压缩数据封装如下：
+
 | OpusHead（4字节） | 帧数据长度（2字节） | Opus 一帧压缩数据 |
 |---------|---------|---------|
 | opus | 长度 len | 对应 len 长的 opus decode data |
@@ -112,7 +113,7 @@ wss://asr.cloud.tencent.com/asr/v2/1259228442?engine_model_type=16k_zh&expired=1
 握手成功之后，进入识别阶段，客户端上传语音数据并接收识别结果消息。
 
 #### 上传数据
-在识别过程中，客户端持续上传 binary message 到后台，内容为音频流二进制数据。建议每200ms发送200ms时长（即1:1实时率）的数据包，对应pcm 大小为：8k采样率3200字节，16k采样率6400字节。音频发送速率过快超过1:1实时率或者音频数据包之间发送间隔超过6秒，可能导致引擎出错，后台将返回错误并主动断开连接。
+在识别过程中，客户端持续上传 binary message 到后台，内容为音频流二进制数据。建议每40ms 发送40ms 时长（即1:1实时率）的数据包，对应 pcm 大小为：8k 采样率640字节，16k 采样率1280字节。音频发送速率过快超过1:1实时率或者音频数据包之间发送间隔超过6秒，可能导致引擎出错，后台将返回错误并主动断开连接。
 音频流上传完成之后，客户端需发送以下内容的 text message，通知后台结束识别。
 ```
 {"type": "end"}

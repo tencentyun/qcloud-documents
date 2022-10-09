@@ -1,7 +1,7 @@
-## 简介
+## 简介 
 
 
-<dx-alert infotype="alarm" title="">
+<dx-alert infotype="alarm" title=" ">
 该组件目前已不再维护，若需要使用事件存储能力，请参考 [事件存储](https://cloud.tencent.com/document/product/457/32091) 文档。日志服务 CLS 新版事件存储提供免费服务，并预置可视化 [事件仪表盘](https://cloud.tencent.com/document/product/457/50512)。
 </dx-alert>
 
@@ -20,7 +20,7 @@ Kubernetes Events 包括了 Kubernetes 集群的运行和各类资源的调度�
 | -------------------- | ---------- | --------------- | ------------ |
 | tke-persistent-event | deployment | 0.2核 CPU，100MB内存 | kube-system  |
 
-## 使用场景
+## 使用场景 
 
 Kubernetes 事件是集群内部资源生命周期、资源调度、异常告警等情况产生的记录，可以通过事件深入了解集群内部发生的事情，例如调度程序做出的决策或者分析某些 Pod 从节点中被逐出的原因。
 
@@ -33,7 +33,7 @@ Kubernetes 默认仅提供保留一个小时的 Kubernetes 事件。而 Persiste
 ## 使用方法
 
 ### 安装并设置存储端
-1. 登录 [容器服务控制台](https://console.qcloud.com/tke2)，选择左侧导航栏中的**集群**。
+1. 登录 [容器服务控制台 ](https://console.qcloud.com/tke2)，选择左侧导航栏中的**集群**。
 2. 在“集群管理”页面上方选择目标集群所在地域下的集群 ID，进入集群详情页。
 3. 选择左侧菜单栏中的**组件管理**，进入“组件列表”页面。
 4. 在“组件列表”页面中选择**新建**，并在“新建组件”页面中勾选 PersistentEvent，并配置事件持久化存储端，单击**完成**即可安装成功。

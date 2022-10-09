@@ -15,6 +15,7 @@ CLS 支持您使用各类 Kafka producer SDK 采集日志，并通过 Kafka 协�
 - 支持 Kafka 协议版本为：0.11.0.X，1.0.X，1.1.X，2.0.X，2.1.X，2.2.X，2.3.X，2.4.X，2.5.X，2.6.X，2.7.X，2.8.X
 - 支持压缩方式：gzip，snappy，lz4
 - 当前使用 SASL_PLAINTEXT 认证。
+- 使用 Kafka 协议上传需要配置 RealtimeProducer 权限，详情请参考 [自定义权限策略示例](https://cloud.tencent.com/document/product/614/68374)。
 
 
 ## 配置方式
@@ -47,17 +48,33 @@ CLS 支持您使用各类 Kafka producer SDK 采集日志，并通过 Kafka 协�
 ### Agent 调用示例
 
 <span id="filebeat"></span>
-#### filebeat 配置
+#### filebeat/winlogbeat 配置
 
 ```filebeat
 output.kafka:
   enabled: true
-  hosts: ["${region}-producer.cls.tencentyun.com:9096"] # TODO 服务地址；公网端口9096，内网端口9095
+  hosts: ["${region}-producer.cls.tencentyun.com:9095"] # TODO 服务地址；外网端口9096，内网端口9095
   topic: "${topicID}" #  TODO topicID
   version: "0.11.0.2"
-  compression: "${compress}"   # TODO 配置压缩方式
+  compression: "${compress}"   # 配置压缩方式，支持gzip，snappy，lz4；例如"lz4"
   username: "${logsetID}"
   password: "${SecurityId}#${SecurityKey}"
+```
+
+<span id="logstash"></span>
+#### logstash 示例
+
+```logstash
+output {
+  kafka {
+    topic_id => "${topicID}"
+    bootstrap_servers => "${region}-producer.cls.tencentyun.com:${port}"
+    sasl_mechanism => "PLAIN"
+    security_protocol => "SASL_PLAINTEXT"
+    compression_type => "${compress}"
+    sasl_jaas_config => "org.apache.kafka.common.security.plain.PlainLoginModule required username='${logsetID}' password='${securityID}#${securityKEY}';"
+  }
+}
 ```
 
 <span id="SDKSample"></span>
@@ -81,11 +98,11 @@ func main() {
     config.Net.SASL.Password = "${SecurityId}#${SecurityKey}"   // TODO 格式为 ${SecurityId}#${SecurityKey}
     config.Producer.Return.Successes = true
     config.Producer.RequiredAcks = ${acks}                      // TODO 根据使用场景选择acks的值
-    config.Version = sarama.V0_11_0_0
+    config.Version = sarama.V1_1_0_0
     config.Producer.Compression = ${compress}                   // TODO 配置压缩方式
 
-    // TODO 服务地址；公网端口9096，内网端口9095
-    producer, err := sarama.NewSyncProducer([]string{"${region}-producer.cls.tencentyun.com:9096"}, config)
+    // TODO 服务地址；外网端口9096，内网端口9095
+    producer, err := sarama.NewSyncProducer([]string{"${region}-producer.cls.tencentyun.com:9095"}, config)
     if err != nil {
         panic(err)
     }
@@ -115,8 +132,8 @@ from kafka import KafkaProducer
 
 if __name__ == '__main__':
     produce = KafkaProducer(
-        # TODO 服务地址；公网端口9096，内网端口9095
-        bootstrap_servers=["${region}-producer.cls.tencentyun.com:9096"],
+        # TODO 服务地址；外网端口9096，内网端口9095
+        bootstrap_servers=["${region}-producer.cls.tencentyun.com:9095"],
         security_protocol='SASL_PLAINTEXT',
         sasl_mechanism='PLAIN',
         # TODO 日志集 ID
@@ -164,7 +181,7 @@ public class ProducerDemo {
         // 0.配置一系列参数
         Properties props = new Properties();
         // TODO 使用时
-        props.put("bootstrap.servers", "${region}-producer.cls.tencentyun.com:9096");
+        props.put("bootstrap.servers", "${region}-producer.cls.tencentyun.com:9095");
         // TODO 以下值根据业务场景设置 
         props.put("acks", ${acks});
         props.put("retries", ${retries});
@@ -195,5 +212,185 @@ public class ProducerDemo {
 }
 ```
 
+#### C SDK 调用示例
+
+```
+// https://github.com/edenhill/librdkafka - master
+#include <iostream>
+#include <librdkafka/rdkafka.h>
+#include <string>
+#include <unistd.h>
+
+#define BOOTSTRAP_SERVER "${region}-producer.cls.tencentyun.com:${port}"
+#define USERNAME "${logsetID}"
+#define PASSWORD "${SecurityId}#${SecurityKey}"
+#define TOPIC "${topicID}"
+#define ACKS "${acks}"
+#define COMPRESS_TYPE "${compress_type}"
+
+static void dr_msg_cb(rd_kafka_t *rk, const rd_kafka_message_t *rkmessage, void *opaque) {
+    if (rkmessage->err) {
+        fprintf(stdout, "%% Message delivery failed : %s\n", rd_kafka_err2str(rkmessage->err));
+    } else {
+        fprintf(stdout, "%% Message delivery successful %zu:%d\n", rkmessage->len, rkmessage->partition);
+    }
+}
+
+int main(int argc, char **argv) {
+    // 1. 初始化配置
+    rd_kafka_conf_t *conf = rd_kafka_conf_new();
+
+    rd_kafka_conf_set_dr_msg_cb(conf, dr_msg_cb);
+
+    char errstr[512];
+    if (rd_kafka_conf_set(conf, "bootstrap.servers", BOOTSTRAP_SERVER, errstr, sizeof(errstr)) != RD_KAFKA_CONF_OK) {
+        rd_kafka_conf_destroy(conf);
+        fprintf(stdout, "%s\n", errstr);
+        return -1;
+    }
+
+    if (rd_kafka_conf_set(conf, "acks", ACKS, errstr, sizeof(errstr)) != RD_KAFKA_CONF_OK) {
+        rd_kafka_conf_destroy(conf);
+        fprintf(stdout, "%s\n", errstr);
+        return -1;
+    }
+
+    if (rd_kafka_conf_set(conf, "compression.codec", COMPRESS_TYPE, errstr, sizeof(errstr)) != RD_KAFKA_CONF_OK) {
+        rd_kafka_conf_destroy(conf);
+        fprintf(stdout, "%s\n", errstr);
+        return -1;
+    }
+
+    // 设置认证方式
+    if (rd_kafka_conf_set(conf, "security.protocol", "sasl_plaintext", errstr, sizeof(errstr)) != RD_KAFKA_CONF_OK) {
+        rd_kafka_conf_destroy(conf);
+        fprintf(stdout, "%s\n", errstr);
+        return -1;
+    }
+    if (rd_kafka_conf_set(conf, "sasl.mechanisms", "PLAIN", errstr, sizeof(errstr)) != RD_KAFKA_CONF_OK) {
+        rd_kafka_conf_destroy(conf);
+        fprintf(stdout, "%s\n", errstr);
+        return -1;
+    }
+    if (rd_kafka_conf_set(conf, "sasl.username", USERNAME, errstr, sizeof(errstr)) != RD_KAFKA_CONF_OK) {
+        rd_kafka_conf_destroy(conf);
+        fprintf(stdout, "%s\n", errstr);
+        return -1;
+
+    }
+    if (rd_kafka_conf_set(conf, "sasl.password", PASSWORD, errstr, sizeof(errstr)) != RD_KAFKA_CONF_OK) {
+        rd_kafka_conf_destroy(conf);
+        fprintf(stdout, "%s\n", errstr);
+        return -1;
+    }
+
+    // 2. 创建 handler
+    rd_kafka_t *rk = rd_kafka_new(RD_KAFKA_PRODUCER, conf, errstr, sizeof(errstr));
+    if (!rk) {
+        rd_kafka_conf_destroy(conf);
+        fprintf(stdout, "create produce handler failed: %s\n", errstr);
+        return -1;
+    }
+
+    // 3. 发送数据
+    std::string value = "test lib kafka ---- ";
+    for (int i = 0; i < 100; ++i) {
+        retry:
+        rd_kafka_resp_err_t err = rd_kafka_producev(
+                rk, RD_KAFKA_V_TOPIC(TOPIC),
+                RD_KAFKA_V_MSGFLAGS(RD_KAFKA_MSG_F_COPY),
+                RD_KAFKA_V_VALUE((void *) value.c_str(), value.size()),
+                RD_KAFKA_V_OPAQUE(nullptr), RD_KAFKA_V_END);
+
+        if (err) {
+            fprintf(stdout, "Failed to produce to topic : %s, error : %s", TOPIC, rd_kafka_err2str(err));
+            if (err == RD_KAFKA_RESP_ERR__QUEUE_FULL) {
+                rd_kafka_poll(rk, 1000);
+                goto retry;
+            }
+        } else {
+            fprintf(stdout, "send message to topic successful : %s\n", TOPIC);
+        }
+
+        rd_kafka_poll(rk, 0);
+    }
+
+    std::cout << "message flush final" << std::endl;
+    rd_kafka_flush(rk, 10 * 1000);
+
+    if (rd_kafka_outq_len(rk) > 0) {
+        fprintf(stdout, "%d message were not deliverer\n", rd_kafka_outq_len(rk));
+    }
+
+    rd_kafka_destroy(rk);
+
+    return 0;
+}
+
+```
+
+#### C# SDK 调用示例
+
+```
+/*
+ * 该demo只提供了最简单的使用方法，具体生产还需要结合调用放来实现
+ * 在使用过程中，demo中留的todo项需要替换使用
+ *
+ * 注意：
+ *  1. 该Demo基于Confluent.Kafka/1.8.2版本验证通过
+ *  2. MessageMaxBytes最大值不能超过5M
+ *  3. 该demo使用同步的方式生产，在使用时也可根据业务场景调整为异步的方式
+ *  4. 其他参数在使用过程中可以根据业务参考文档自己调整：https://docs.confluent.io/platform/current/clients/confluent-kafka-dotnet/_site/api/Confluent.Kafka.ProducerConfig.html
+ *
+ * Confluent.Kafka 参考文档：https://docs.confluent.io/platform/current/clients/confluent-kafka-dotnet/_site/api/Confluent.Kafka.html
+ */
 
 
+using Confluent.Kafka;
+
+namespace Producer
+{
+    class Producer
+    {
+        private static void Main(string[] args)
+        {
+            var config = new ProducerConfig
+            {
+                // todo 域名参考 https://cloud.tencent.com/document/product/614/18940#Kafka 填写，注意内网端口9095，公网端口9096
+                BootstrapServers = "${domain}:${port}", 
+                SaslMechanism = SaslMechanism.Plain,
+                SaslUsername = "${logsetID}", // todo topic所属日志集ID
+                SaslPassword = "${SecurityId}#${SecurityKey}", // todo topic所属uin的密钥
+                SecurityProtocol = SecurityProtocol.SaslPlaintext,
+                Acks         = Acks.None, // todo 根据实际使用场景赋值。可取值: Acks.None、Acks.Leader、Acks.All
+                MessageMaxBytes = 5242880 // todo 请求消息的最大大小，最大不能超过5M
+            };
+
+            // deliveryHandler
+            Action<DeliveryReport<Null, string>> handler =
+                r => Console.WriteLine(!r.Error.IsError ? $"Delivered message to {r.TopicPartitionOffset}" : $"Delivery Error: {r.Error.Reason}");
+
+
+            using (var produce = new ProducerBuilder<Null, string>(config).Build())
+            {
+                try
+                {
+                    // todo 测试验证代码
+                    for (var i = 0; i < 100; i++)
+                    {
+                        // todo 替换日志主题ID
+                        produce.Produce("${topicID}", new Message<Null, string> { Value = "C# demo value" }, handler);
+                    }
+                    produce.Flush(TimeSpan.FromSeconds(10));
+
+                }
+                catch (ProduceException<Null, string> pe)
+                {
+                    Console.WriteLine($"send message receiver error : {pe.Error.Reason}");
+                }
+            }
+        }
+    }
+}
+
+```

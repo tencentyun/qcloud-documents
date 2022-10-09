@@ -16,3 +16,4 @@
 ![](https://main.qcloudimg.com/raw/4dbff0e8fc1b50ef1f888fbf8c2e6341.png)
 4. 单击**确定**，等待配置成功后，您可以前往 [DDoS 防护管理控制台](https://console.cloud.tencent.com/ddos/) 查看详情。如下图所示：
 ![](https://main.qcloudimg.com/raw/d060a9c4c296f7ec970a427dced6a873.png)
+

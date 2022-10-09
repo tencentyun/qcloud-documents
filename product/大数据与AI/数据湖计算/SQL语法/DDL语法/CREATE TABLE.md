@@ -1,53 +1,119 @@
-创建一个表同时带一些属性。
-## 语法
+## 说明
+- 支持内核：Presto、SparkSQL。
+- 适用表范围：原生 Iceberg 表、外部表。
+- 用途：创建一个表同时带一些属性，支持使用 CREATE TABLE AS 语法。
+
+## 外部表语法
+### 语法
 ```
-CREATE [ EXTERNAL ] TABLE [ IF NOT EXISTS ] table_identifier
-    [ ( col_name1[:] col_type1 [ COMMENT col_comment1 ], ... ) ]
+CREATE TABLE [ IF NOT EXISTS ] table_identifier
+    ( col_name[:] col_type [ COMMENT col_comment ], ... )
+USING data_source
     [ COMMENT table_comment ]
-    [ PARTITIONED BY ( col_name2[:] col_type2 [ COMMENT col_comment2 ], ... ) 
-        | ( col_name1, col_name2, ... ) ]
-    [ CLUSTERED BY ( col_name1, col_name2, ...) 
-        [ SORTED BY ( col_name1 [ ASC | DESC ], col_name2 [ ASC | DESC ], ... ) ] 
-        INTO num_buckets BUCKETS ]
-    [ ROW FORMAT row_format ]
-    [ STORED AS file_format ]
+    [ PARTITIONED BY ( col_name1, transform(col_name2), ... ) ]
     [ LOCATION path ]
-    [ TBLPROPERTIES ( key1=val1, key2=val2, ... ) ]
+    [ TBLPROPERTIES ( property_name=property_value, ... ) ]
 ```
-## 参数
-- `[IF NOT EXISTS]`：如果存在执行将不报错。
-- `[COMMENT database_comment]`：数据表指定注释。
-- `[LOCATION 'cosn://bucket_name/[folder]/']`：指定数据表的存储位置。例如指定腾讯云 COS：cosn://bucket_id。
-- `[WITH DBPROPERTIES ('property_name' = 'property_value') [, ...] ]`：允许针对数据表的属性元数据信息进行指定。
 
-#### 限制
-- OpenCSVSerde 限制
-如果使用该 OpenCSVSerde 作为 row format 时，创建表的时候如果指定了该格式的时候，那么创建列的所有类型是 String 类型，这里可能会和实际创建表产生歧义，尽量如果都是 String 类型的时候使用，如果有特殊类型的时候不推荐使用。
-- JSONSerde 限制
-使用 JSONSerde 创建表时，不支持增加、修改、删除列。如果要使用 JSONSerde 创建表，需元数据不会发生改变或者创建时，可以预留出字段。
+### 参数
+`USING data_source`：建表时，数据的输入类型，目前有：CSV，ORC，PARQUET，ICEBERG 等。
+`table_identifier`：指定表名，支持三段式，例如：catalog.database.table。
+`COMMENT`：表的描述信息
+`PARTITIONED BY`：基于指定的列创建分区。
+`LOCATION path`：数据表存储路径。
+`TBLPROPERTIES`：一组 k-v 值，用于指定表的参数。
 
-## 示例
-创建表：
+### 示例
 ```
-CREATE DATABASE db 
-COMMENT 'db1_name' 
-LOCATION 'cosn://path/to/db1' 
-WITH DBPROPERTIES('k1' = 'v1','k2' = 'v2');
+CREATE TABLE dempts(
+    id bigint COMMENT 'id number',
+    num int,
+    eno float,
+    dno double,
+    cno decimal(9,3),
+    flag  boolean,
+    data string,
+    ts_year timestamp,
+    date_month date,
+    bno binary,
+    point struct<x: double, y: double>,
+    points array<struct<x: double, y: double>>,
+    pointmaps map<struct<x: int>, struct<a: int>> 
+    )
+USING iceberg
+COMMENT 'table documentation' 
+PARTITIONED BY (bucket(16,id), years(ts_year), months(date_month), identity(bno),  bucket(3,num),  truncate(10,data))
+LOCATION '/warehouse/db_001/dempts'
+TBLPROPERTIES ('write.format.default'='orc');
 ```
-复杂创建方式： 
+
+## 原生表 Iceberg 语法
+>! 该语法仅支持创建原生表。
+
+### 语法
 ```
-CREATE TABLE t1 (
-       ID  INTEGER
-       NAME  STRING,
-       HOBBY  ARRAY< STRING >,
-       ADD  MAP< STRING, STRING >
-)
-ROW FORMAT DELIMITED
-FIELDS TERMINATED BY ','
-COLLECTION ITEMS TERMINATED BY '-'
-MAP KEYS TERMINATED BY ':'
-COMMENT 'db1_name' 
-LOCATION 'cosn://path/to/db1' 
-WITH DBPROPERTIES('k1' = 'v1','k2' = 'v2');
+CREATE TABLE [ IF NOT EXISTS ] table_identifier
+    ( col_name[:] col_type [ COMMENT col_comment ], ... )
+[ COMMENT table_comment ]
+[ PARTITIONED BY ( col_name1, transform(col_name2), ... ) ]
+```
+
+### 参数
+`table_identifier`：支持三段式，catalog.db.name
+Schemas and Data Types
+```
+col_type
+  : primitive_type
+  | nested_type
+
+primitive_type
+  : boolean
+  | int/integer
+  | long/bigint
+  | float
+  | double
+  | decimal(p,s)，p=最大位数，s=最大小数点位数, s<=p<=38
+  | date
+  | timestamp，timestamp with timezone，不支持time和without timezone
+  | string，也可对应Iceberg uuid类型
+  | binary，也可对应Iceberg fixed类型
+
+nested_type
+  : struct
+  | list
+  | map
+```
+Partition Transforms
+```
+transform
+  : identity，支持任意类型, DLC不支持该转换
+  | bucket[N]，hash mod N分桶，支持col_type: int,long, decimal, date, timestamp, string, binary
+  | truncate[L]，L截取分桶，支持col_type: int,long,decimal,string
+  | years，年份，支持col_type: date,timestamp
+  | months，月份，支持col_type: date,timestamp
+  | days/date，日期，支持col_type: date,timestamp
+  | hours/date_hour，小时，支持col_type: timestamp
+```
+
+
+### 示例
+```
+CREATE TABLE dempts(
+    id bigint COMMENT 'id number',
+    num int,
+    eno float,
+    dno double,
+    cno decimal(9,3),
+    flag  boolean,
+    data string,
+    ts_year timestamp,
+    date_month date,
+    bno binary,
+    point struct<x: double, y: double>,
+    points array<struct<x: double, y: double>>,
+    pointmaps map<struct<x: int>, struct<a: int>> 
+    )
+COMMENT 'table documentation' 
+PARTITIONED BY (bucket(16,id), years(ts_year), months(date_month), identity(bno),  bucket(3,num),  truncate(10,data));
 ```
 
