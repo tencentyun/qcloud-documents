@@ -1,42 +1,92 @@
-WordPress 是一种使用 PHP 语言开发的平台，用户可以在支持 PHP 和 MySQL 数据库的服务器上架设 WordPress。可以搭建独立博客，也可以作为内容管理系统（CMS），或者是用来构建门户网站。
+## 前言
+平时写博客记笔记大都是使用 markdown 编辑器 ，插入图片时默认保存在电脑本地磁盘。如果需要在多个平台上发布文章，就要分别多次上传图片，非常繁琐。所以需要一种更好的图片管理方案，就是使用图床服务。将图片文件上传到图床并得到一个 url 地址，就可以方便的分享图片了。
 
-虽然 WordPress 已经占据全球 Web 的45%以上的份额，但拥有丰富强大功能的同时也造成了程序本身过于臃肿的问题，在服务器带宽不足、配置低的情况下，图片、视频等大型媒体文件会严重拖慢网站访问速度。此时我们可以使用腾讯云对象存储来存放网站中的图片、视频或者其他静态文件，减轻服务器压力，提高网站访问速度，示意图如下：
-![](https://qcloudimg.tencent-cloud.cn/raw/67c6850cad068b091609766ee70cdb14.png)
-## 创建存储桶
-首先登陆腾讯云对象存储控制台新建一个存储桶，存储桶就是存放文件的容器。
-![](https://qcloudimg.tencent-cloud.cn/raw/cb465036f339785391888bae4d72f37f.jpeg)
-- 存储痛地域根据实际情况选择，越靠近用户体验越好。
-- 访问权限可以选择**私有读写**通过鉴权访问文件，或者**公有读私有写**配合黑白名单、refer 头控制访问。
-其他配置可以暂时选择默认选项。
+市面上有一些免费的图床服务。如果仅仅是临时分享，可以使用。如果有大量的图片资源需要保存，最好还是购买图床服务，或者自建图床。本文将以腾讯云对象存储 COS 为例，结合 PicGo，演示如何搭建一个属于自己的图床服务。
 
-创建好存储桶后进入WordPress网站后台，安装腾讯云对象存储（COS）插件。该插件基于腾讯云对象存储 COS，将网站静态资源与后台应用分离，用户访问网页的请求由应用后台响应，并直接返回动态html内容，减轻服务器带宽和存储压力；静态资源存放在 COS 上，和云服务器内网高速互通，不仅访问速度快，相较磁盘存储成本更低。并且可配合内容分发网络 [CDN](https://cloud.tencent.com/product/cdn?from=10680) 进一步提升用户访问静态资源的速度，让你的网站速度更快一步。
-![](https://qcloudimg.tencent-cloud.cn/raw/27bbcdb2f8ddaf8f3b9943dc64175813.jpeg)
-安装好后启用插件，在腾讯云设置（全局）中填入密钥。
+## 环境准备
+PicGo：用于压缩、上传图片
+腾讯云对象存储 COS：用于存储图片并提供在线访问
 
-## 获取 API 密钥管理
-在腾讯云访问管理控制台获取 API 密钥管理。
-![](https://qcloudimg.tencent-cloud.cn/raw/0b327756b85c6aee1cbefe44a583b5b7.png)
-依次填入地域、空间名称、访问域名，建议开启自动重命名。
-![](https://qcloudimg.tencent-cloud.cn/raw/ece4de06a25c3b8ca4933216eaa43009.jpeg)
-![](https://qcloudimg.tencent-cloud.cn/raw/c83918fe0f38a4e31d71f67057ed43e7.jpeg)
-![](https://qcloudimg.tencent-cloud.cn/raw/0bcf04101f32790125e7a6cfbe4eb77b.jpeg)
-单击**保存配置**，提示保存成功即可。
-![](https://qcloudimg.tencent-cloud.cn/raw/8c313f895ba06b6d9f26497d15eedae6.png)
-然后单击附件同步，等待插件将文件同步到 COS 桶中。
-![](https://qcloudimg.tencent-cloud.cn/raw/76f9bd3a4af4898c4c852dc9a61b8c27.png)
-同步完成后点击**一键替换**，将网站内容中所有静态文件地址替换为腾讯云 COS 文件地址。
+## 操作步骤
+### 安装 PicGo
+PicGo 是一个用于快速上传图片并获取图片 URL 链接的工具，支持腾讯云COS、七牛图床、Github 图床、又拍云图床、SM.SM 等。
 
-访问网站[ 48zhai.cn](https://48zhai.cn/) 发现缺失了部分图片。
-![](https://qcloudimg.tencent-cloud.cn/raw/c5312338585b2edf0bb853fa2556cf69.png)
-查看控制台发现部分图片404了，通过状态码结合 xml 返回的错误信息可以知道存储桶中没有该文件，可能是同步未完成。
-![](https://qcloudimg.tencent-cloud.cn/raw/a7f47727e2cf0deb7938d9a8622e4de9.png)
-等待同步完成后再次点击替换，完成后通过控制台看到文件地址都已经改为 COS 默认域名。
-![](https://qcloudimg.tencent-cloud.cn/raw/ac3e5a402af4e7ccc617f004d0bef7f9.png)
-如果你觉得这个域名太长不美观，你可以为每个 COS 存储桶添加一个或多个自定义域名，你添加的自定义域名需要解析到腾讯云对象存储提供的 CNAME上，同时如果需要对资源开启 HTTPS 访问还需要上传相关域名的证书文件。
-![](https://qcloudimg.tencent-cloud.cn/raw/4694358e382050810038bcb8686e882e.png)
-如果你认为访问存储桶内的资源速度不理想或者延迟过大，你也可以对存储桶开启 CDN 加速，并且添加加速域名，同样的需要添加解析和上传证书文件，并等待 CDN 生效。
-![](https://qcloudimg.tencent-cloud.cn/raw/b12efebddb1c253601f358caf9293074.png)
-使用 COS 的时候你可以在安全管理下配置防盗链设置白名单，防止 COS 流量被盗刷。
-![](https://qcloudimg.tencent-cloud.cn/raw/219774d398ab0b8036c29c7941f483fc.png)
-验证规则是否生效，图片在网站中可以正常显示，直接访问触发了防盗链规则。
-![](https://qcloudimg.tencent-cloud.cn/raw/ba26de1d14e906459eb163379e6eeebc.png)
+我们以 Windows 为例，首先访问 Github 仓库去下载（点击跳转）客户端安装包，找到 2.3.0 正式版，找到对应平台的安装包，点击下载：
+![](https://qcloudimg.tencent-cloud.cn/raw/0055fd83ed41dbc2880cf8f7e0de9ae8.jfif)
+下载完成之后，正常安装即可。
+
+### 安装 webp 插件
+PicGo 有一系列好用的插件，帮助扩展功能，比如压缩图片、添加水印等等。本文将以 webp 插件为例，演示如何在 PicGo 中使用插件。
+
+webp 插件会在图片上传前将图片转为 .webp 格式，它相比于传统的 .jpg、.png 等格式，同等体积质量更高，同等质量体积更小。图片经过压缩之后再上传至 COS，对于节省存储空间，节省流量都很有帮助。如果对图片格式有特殊要求，不希望转换格式，可以省略这一步。
+
+打开 PicGo，进入插件设置，在搜索栏输入插件名字即可搜索并安装，非常方便：
+![](https://qcloudimg.tencent-cloud.cn/raw/f8b7b3956b4d61fbcde451a899c3e04d.jfif)
+
+## COS 对象存储
+COS（Cloud Object Storage，对象存储）是由腾讯云推出的一种分布式存储服务。它的特点是无目录层次结构、无数据格式限制，可容纳海量数据，支持 HTTP/HTTPS 协议访问。腾讯云 COS 的存储桶空间无容量上限，无需分区管理，适用于 CDN 数据分发、[数据万象](https://cloud.tencent.com/product/ci?from=10680) 处理或大数据计算与分析的数据湖等多种场景。
+
+对于 [实名认证](https://cloud.tencent.com/solution/face-recognition?from=10680) 的新用户，腾讯云 COS 提供了六个月的免费体验服务（50GB 存储空间），[点此访问](https://cloud.tencent.com/act/free?from=10680)。
+![](https://qcloudimg.tencent-cloud.cn/raw/15751362b0e98d8e7fd10300afba81be.jfif)
+
+
+### 开通 COS
+官网提供了非常友好的新手引导服务，可根据引导快捷开通和使用存储服务。
+![](https://qcloudimg.tencent-cloud.cn/raw/fcfcc1c5b3e955ed431591365b9d33d1.jfif)
+### 创建存储桶
+按需要填写各项即可，需要注意的地方是访问权限的选择，默认是**私有读写**，适合**存储隐私机密文件**；本文选择了**公有读私有写**，是因为这个存储桶主要是做图床服务，用来**存储图片，并能对外提供公开访问**。
+![](https://qcloudimg.tencent-cloud.cn/raw/c5e88caf41e848e906d8c2cdfe148dcb.jfif)
+然后一直点下一步，创建即可。
+
+创建成功后，来到存储桶列表，记录下存储桶的名称，和所属地域的代号，如图示例，也就是 ap-beijing。
+![](https://qcloudimg.tencent-cloud.cn/raw/7223e3b5d152ca6cfe1c88d5ea71e4de.jfif)
+
+### 创建 API 秘钥
+进入 **访问管理** - **访问秘钥** - [**API 秘钥管理**](https://console.cloud.tencent.com/cam/capi)，会提示是否使用子账号管理，可根据实际需要进行选择，这里我们直接使用主账号进行创建。
+![](https://qcloudimg.tencent-cloud.cn/raw/ed5a357845ffbc36919919ee3ba4ba2a.jfif)
+创建成功，将 **APPID**，**SecretId**，**SecretKey** 保存下来，非常重要，谨防外泄。
+![](https://qcloudimg.tencent-cloud.cn/raw/2028b6934b743d007b781e1df51fb386.jfif)
+### 答题领流量
+新手有一次答题 [领取流量](https://console.cloud.tencent.com/cos) 的机会。题目很简单，全部回答正确以后，可以免费领取3个月的流量包。
+![](https://qcloudimg.tencent-cloud.cn/raw/3962bf73ccc45e08c9b66a7257d1dbd0.jfif)
+
+## 配置 PicGo 图床服务
+打开安装好的 PicGo 客户端，进入【图床设置】 - 【腾讯云 COS】，将上面保存的内容填写到配置中：
+![](https://qcloudimg.tencent-cloud.cn/raw/3d3d363b7abe15a9322a16c203bc38cf.jfif)
+存储路径，也就是图片上传后在存储桶内的目录结构，可根据需要填写。如果填写，存储桶会自动创建出对应的目录结构。注意要以 / 结尾。
+
+然后点击确定，并设为默认图床。
+
+然后，进入【PicGo 设置】，将【上传前重命名】、【时间戳重命名】打开，这样可以防止图片重名。
+![](https://qcloudimg.tencent-cloud.cn/raw/240e185c08ee5cd83b91bf5fa630d393.jfif)
+
+## 测试
+打开 PicGo 上传区，选择本地的一张图片，然后上传。上传前会自动根据时间戳进行重命名，也可以自己修改：
+![](https://qcloudimg.tencent-cloud.cn/raw/42b703bce00f7372e09f245dd095b024.jfif)
+点击确定，图片就会进行上传了。
+
+PicGo 的相册功能，会展示已经上传的图片，并提供了复制图片 url，编辑图片 url 和移除相册的基础操作。需要注意的是，仅仅是删除本地的数据，云端的图片不会受影响。
+![](https://qcloudimg.tencent-cloud.cn/raw/2d8705f48f2dba79b55fa85eaa6d3aea.jfif)
+来到腾讯云 COS 控制台，进入对应的存储桶中，可以发现图片已经上传成功了：
+![](https://qcloudimg.tencent-cloud.cn/raw/80b8da463adfb89ccae1ba5f0f43b38d.jfif)
+存储桶内的每个文件都会有一个唯一的访问地址，点击【详情】查看：
+![](https://qcloudimg.tencent-cloud.cn/raw/6bd850708beb5bb1a15b0ab682a2d662.png)
+使用图床：在 Typora 粘贴图片时自动上传
+打开 Typora ，进入【文件】- 【偏好设置】- 【图像设置】，进行三个设置：
+
+1. 插入图片时，执行上传图片操作
+2. 上传服务采用 PicGo(app)
+3. 设置 PicGo 程序的安装路径
+![](https://qcloudimg.tencent-cloud.cn/raw/b5083516ccfe46410c188fa3bdd91c25.jfif)
+
+之后，当我们使用 typora 编写 md 文档，在插入图片时，会自动唤起 PicGo 客户端，并上传图片到目标平台。
+
+## 总结
+到此，一个基于腾讯云 COS + PicGo 搭建的图床服务就完成了。总结一下整个流程：
+
+实名注册腾讯云账号，并开通 COS
+创建存储桶，创建 API 密钥
+本地安装 PicGo 客户端工具，并根据需要配置插件
+在图床设置中，将各项配置都填写正确
+如有需要，还可以结合自己常用的其他工具，比如 Typora 等使用图床服务
+有需要图床服务的朋友们，快快去尝试一下吧。
