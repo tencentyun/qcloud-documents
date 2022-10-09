@@ -1,6 +1,6 @@
 ## 概述
 
-[TUIOfflinePush](https://ext.dcloud.net.cn/plugin?id=9149) 是腾讯云即时通信 IM Push 插件。目前离线推送支持安卓和 iOS 平台，设备有：华为、小米、OPPO、vivo、魅族 和 苹果手机。
+[TUIOfflinePush](https://ext.dcloud.net.cn/plugin?id=9149) 是腾讯云即时通信 IM Push 插件。目前离线推送支持 Android 和 iOS 平台，设备有：华为、小米、OPPO、vivo、魅族 和 苹果手机。
 
 > !
 > 
@@ -27,7 +27,7 @@
 | vivo | 否   | 需要注册企业开发者账号 |
 | OPPO | 是   | 需要注册企业开发者账号 |
 
-## 安卓配置
+## Android 配置
 
 
 登录腾讯云 [即时通信 IM 控制台](https://console.qcloud.com/avc) ，添加各个厂商推送证书，并将您获取的各厂商的 AppID、AppKey、AppSecret 等参数配置给 IM 控制台的推送证书。
