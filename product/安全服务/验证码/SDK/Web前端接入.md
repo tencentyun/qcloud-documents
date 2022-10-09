@@ -54,7 +54,7 @@
             ipt.select();
             document.execCommand("Copy");
             document.body.removeChild(ipt);
-            alert('1. 返回结果（randstr、ticket）已复制到剪切板，ctrl+v 查看。\n2. 打开浏览器控制台，查看完整返回结果。');
+            alert('1. 返回结果（randstr、ticket）已复制到剪切板，ctrl+v 查看。2. 打开浏览器控制台，查看完整返回结果。');
         }
     }
 
@@ -66,7 +66,7 @@
       callback({
         ret: 0,
         randstr: '@'+ Math.random().toString(36).substr(2),
-        ticket,
+        ticket:ticket,
         errorCode: 1001,
         errorMessage: 'jsload_error',
       });
@@ -177,12 +177,12 @@ options 参数用于对验证码进行定制外观设置，默认可以设置为
 | 配置名         | 值类型                | 说明                                                         |
 | :------------- | :-------------------- | :----------------------------------------------------------- |
 | bizState       | Any                   | 自定义透传参数，业务可用该字段传递少量数据，该字段的内容会被带入 callback 回调的对象中。 |
-| enableDarkMode | Boolean &#124; String | 开启自适应深夜模式或强制深夜模式。（VTT空间语义验证暂不支持该功能）<li>开启自适应深夜模式: {"enableDarkMode": true}</li><li>强制深夜模式: {"enableDarkMode": 'force'}</li> |
+| enableDarkMode | Boolean &#124; String | 开启自适应深夜模式或强制深夜模式。（**VTT 空间语义验证暂不支持该功能**）<li>开启自适应深夜模式: {"enableDarkMode": true}</li><li>强制深夜模式: {"enableDarkMode": 'force'}</li> |
 | sdkOpts        | Object                | 示例 {"width": 140, "height": 140}<br>仅支持移动端原生 webview 调用时传入，用来设置验证码loading加载弹窗的大小（**注意，并非验证码弹窗大小**）。 |
 | ready          | Function              | 验证码加载完成的回调，回调参数为验证码实际的宽高：<br>{"sdkView": {<br>"width": number,<br>"height": number<br>}}<br>该参数仅为查看验证码宽高使用，**请勿使用此参数直接设定宽高**。 |
 | needFeedBack   | Boolean &#124; String | 隐藏帮助按钮或自定义帮助按钮链接。（**VTT 空间语义验证暂不支持自定义链接**） <br>隐藏帮助按钮: {"needFeedBack": false }<br>自定义帮助链接: {"needFeedBack": 'url地址' } |
 |loading|Boolean|是否在验证码加载过程中显示loading框。不指定该参数时，默认显示loading框。<li>显示loading框: {"loading": true}</li><li>不显示loading框: {"loading": false}</li>|
-| userLanguage   | String                | 指定验证码提示文案的语言，优先级高于控制台配置。（**VTT 空间语义验证暂不支持语言配置**）<br/>支持传入值同 navigator.language 用户首选语言，大小写不敏感。<br/>详情参见 [userLanguage 配置参数](#userLanguage)。 |
+| userLanguage   | String                | 指定验证码提示文案的语言，优先级高于控制台配置。（**VTT 空间语义、文字点选验证暂不支持语言配置**）<br/>支持传入值同 navigator.language 用户首选语言，大小写不敏感。<br/>详情参见 [userLanguage 配置参数](#userLanguage)。 |
 | type           | String                | 定义验证码展示方式。<li>popup（默认）弹出式，以浮层形式居中弹出展示验证码。</li><li>embed 嵌入式，以嵌入指定容器元素中的方式展示验证码。</li> |
 
 [](id:userLanguage)
@@ -209,11 +209,13 @@ options 参数用于对验证码进行定制外观设置，默认可以设置为
 | ms     | 马来语               |
 | pl     | 波兰语               |
 | pt     | 葡萄牙语             |
-| ru     | 俄语                 |
-| es     | 西班牙语             |
-| th     | 泰语                 |
-| tr     | 土耳其语             |
-| vi     | 越南语               |
+| ru     |俄语                 |
+| es     |西班牙语             |
+| th     |泰语                 |
+| tr     |土耳其语             |
+| vi     |越南语               |
+| fil	     |菲律宾语               |
+| ur	     |乌尔都语               |
 
 ### 步骤3：调用验证码实例方法
 
@@ -240,7 +242,7 @@ function loadErrorCallback() {
 	callback({
 		ret: 0,
         randstr: '@'+ Math.random().toString(36).substr(2),
-        ticket,
+        ticket:ticket,
         errorCode: 1001,
         errorMessage: 'jsload_error',
 	});

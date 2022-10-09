@@ -98,6 +98,33 @@ tim.setLogLevel(0); // 普通级别，日志量较多，接入时建议使用
 // 注册腾讯云即时通信 IM 上传插件
 tim.registerPlugin({'tim-upload-plugin': TIMUploadPlugin});
 
+// v2.22.0 起支持 uni-app 打包 native app 时使用离线推送插件
+// 请注意！应合规要求，在用户同意隐私协议的前提下，登录成功后 SDK 会通过推送插件获取推送 token，并将推送 token 传递至后台（若获取 token 失败则会导致离线推送无法正常使用）
+const TUIOfflinePush = uni.requireNativePlugin("TencentCloud-TUIOfflinePush");
+tim.registerPlugin({
+  'tim-offline-push-plugin': TUIOfflinePush,
+  'offlinePushConfig': {
+    // huawei
+    'huaweiBusinessID': '', // 在腾讯云控制台上传第三方推送证书后分配的证书 ID
+    // xiaomi
+    'xiaomiBusinessID': '', // 在腾讯云控制台上传第三方推送证书后分配的证书 ID
+    'xiaomiAppID': '', // 小米开放平台分配的应用 APPID
+    'xiaomiAppKey': '', // 小米开放平台分配的应用 APPKEY
+    // meizu
+    'meizuBusinessID': '', // 在腾讯云控制台上传第三方推送证书后分配的证书 ID
+    'meizuAppID': '', // 魅族开放平台分配的应用 APPID
+    'meizuAppKey': '', // 魅族开放平台分配的应用 APPKEY
+    // vivo
+    'vivoBusinessID': '', // 在腾讯云控制台上传第三方推送证书后分配的证书 ID
+    // oppo
+    'oppoBusinessID': '', // 在腾讯云控制台上传第三方推送证书后分配的证书 ID
+    'oppoAppKey': '', // oppo 开放平台分配的应用 APPID
+    'oppoAppSecret': '', // oppo 开放平台分配的应用 Secret
+    // ios
+    'iosBusinessID': '', // 在腾讯云控制台上传第三方推送证书后分配的证书 ID
+  }
+});
+
 :::
 </dx-codeblock>
 

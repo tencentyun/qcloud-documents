@@ -1,7 +1,7 @@
 ## 产品概述
-腾讯云视立方 Android 超级播放器是腾讯云开源的一款播放器组件，集质量监控、视频加密、极速高清、清晰度切换、小窗播放等功能于一体，适用于所有点播、直播播放场景。封装了完整功能并提供上层 UI，可帮助您在短时间内，打造一个媲美市面上各种流行视频 App 的播放软件。
+腾讯云视立方 Android 播放器组件是腾讯云开源的一款播放器组件，集质量监控、视频加密、极速高清、清晰度切换、小窗播放等功能于一体，适用于所有点播、直播播放场景。封装了完整功能并提供上层 UI，可帮助您在短时间内，打造一个媲美市面上各种流行视频 App 的播放软件。
 
-若超级播放器组件满足不了您的业务的个性化需求，且您具有一定的开发经验，可以集成 [视立方播放器 SDK](https://cloud.tencent.com/document/product/881/20216)，自定义开发播放器界面和播放功能。
+若播放器组件满足不了您的业务的个性化需求，且您具有一定的开发经验，可以集成 [视立方播放器 SDK](https://cloud.tencent.com/document/product/881/20216)，自定义开发播放器界面和播放功能。
 
 
 
@@ -10,15 +10,15 @@
 2. 下载 Android Studio，您可以进入 [Android Studio 官网](https://developer.android.com/studio) 下载安装，如已下载可略过该步骤。
 
 ## 通过本文您可以学会
-1. 如何集成腾讯云视立方 Android 超级播放器
+1. 如何集成腾讯云视立方 Android 播放器组件
 2. 如何创建和使用播放器
 
-
+ 
 ## 集成准备
 ### 步骤1：项目下载
-腾讯云视立方 Android 超级播放器的项目地址是 [SuperPlayer_Android](https://github.com/LiteAVSDK/Player_Android)。
+腾讯云视立方 Android 播放器组件的项目地址是 [SuperPlayer_Android](https://github.com/LiteAVSDK/Player_Android)。
 
-您可通过 **[下载播放器组件 ZIP 包](#zip)** 或 **[Git 命令下载](#git)** 的方式下载腾讯云视立方 Android 超级播放器项目工程。
+您可通过 **[下载播放器组件 ZIP 包](#zip)** 或 **[Git 命令下载](#git)** 的方式下载腾讯云视立方 Android 播放器组件项目工程。
 <dx-tabs>
 ::: 下载播放器组件 ZIP 包[](id:zip)
 您可以直接下面播放器组件 ZIP包，单击页面的 **Code** > **Download ZIP** 下载。
@@ -26,7 +26,7 @@
 :::
 ::: Git 命令下载[](id:git)
 1. 首先确认您的电脑上安装了 Git，如果没有安装，可以参见 [Git 安装教程](https://git-scm.com/downloads) 进行安装。
-2. 执行下面的命令把超级播放器组件工程代码 clone 到本地。
+2. 执行下面的命令把播放器组件组件工程代码 clone 到本地。
 ```shell
 git clone git@github.com:tencentyun/SuperPlayer_Android.git
 ```
@@ -44,13 +44,13 @@ remote: Total 2637 (delta 227), reused 524 (delta 170), pack-reused 1993
 
 | 文件名                      | 作用                                                         |
 | --------------------------- | ------------------------------------------------------------ |
-| LiteAVDemo(Player)          | 超级播放器 Demo 工程，导入到 Android Studio 后可以直接运行   |
+| LiteAVDemo(Player)          | 播放器组件 Demo 工程，导入到 Android Studio 后可以直接运行   |
 | app                         | 主界面入口                                                   |
-| superplayerkit              | 超级播放器组件（SuperPlayerView），具备播放、暂停、手势控制等常见功能 |
-| superplayerdemo             | 超级播放器 Demo 代码                                         |
+| superplayerkit              | 播放器组件（SuperPlayerView），具备播放、暂停、手势控制等常见功能 |
+| superplayerdemo             | 播放器组件 Demo 代码                                         |
 | common                      | 工具类模块                                                   |
 | SDK                         | 视立方播放器 SDK，包括：LiteAVSDK_Player_x.x.x.aar，aar 格式提供的 SDK；LiteAVSDK_Player_x.x.x.zip，lib 和 jar 格式提供的 SDK |
-| Player说明文档(Android).pdf | 超级播放器使用文档                                           |
+| Player说明文档(Android).pdf | 播放器组件使用文档                                           |
 :::
 </dx-tabs>
 
@@ -80,7 +80,7 @@ remote: Total 2637 (delta 227), reused 524 (delta 170), pack-reused 1993
        implementation 'com.tencent.liteav:LiteAVSDK_Player:latest.release'
    }
    ```
-请参见上面的步骤，把`common`模块导入到项目，并进行配置。
+   请参见上面的步骤，把`common`模块导入到项目，并进行配置。
 3. 通过在 gradle 配置 mavenCentral 库，自动下载更新 LiteAVSDK，打开`app/build.gradle`，进行下面的配置：
    ![](https://main.qcloudimg.com/raw/65439d399ec584871a7a9bc88ccaef46.png)
    1. 在 dependencies 中添加 LiteAVSDK_Player 的依赖。
@@ -88,7 +88,7 @@ remote: Total 2637 (delta 227), reused 524 (delta 170), pack-reused 1993
 dependencies {
 	 implementation 'com.tencent.liteav:LiteAVSDK_Player:latest.release'
 	 implementation project(':superplayerkit')
-	 // 超级播放器弹幕集成的第三方库
+	 // 播放器组件弹幕集成的第三方库
 	 implementation 'com.github.ctiao:DanmakuFlameMaster:0.5.3'
 }
 ```
@@ -156,7 +156,7 @@ repositories {
 ```xml
 compile(name:'LiteAVSDK_Player_8.9.10349', ext:'aar')
 implementation project(':superplayerkit')
-// 超级播放器弹幕集成的第三方库
+// 播放器组件弹幕集成的第三方库
 implementation 'com.github.ctiao:DanmakuFlameMaster:0.5.3'
 ```
 6. 在项目`build.gradle`中添加：
@@ -183,7 +183,7 @@ packagingOptions {
 	exclude "lib/arm64-v8a/libijkhlscache-master.so"
 }
 ```
-8. 单击 Sync Now 按钮同步 SDK，完成超级播放器的集成工作。
+8. 单击 Sync Now 按钮同步 SDK，完成播放器组件的集成工作。
 :::
 ::: 集成 SDK（jar+so）
 如果您不想集成 aar 库，也可以通过导入 jar 和 so 库的方式集成 LiteAVSDK：
@@ -229,10 +229,10 @@ ndk {
 	 abiFilters "armeabi", "armeabi-v7a", "arm64-v8a"
 }
 ```
-6. 单击 Sync Now 按钮同步 SDK，完成 超级播放器的集成工作。
+6. 单击 Sync Now 按钮同步 SDK，完成 播放器组件的集成工作。
 :::
 </dx-tabs>
-您已经完成了腾讯云视立方 Android 超级播放器项目集成的步骤。
+您已经完成了腾讯云视立方 Android 播放器组件项目集成的步骤。
 
 ### 步骤3：配置 App 权限
 在 AndroidManifest.xml 中配置 App 的权限，LiteAVSDK 需要以下权限：
@@ -249,19 +249,20 @@ ndk {
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 ```
 
+
 ### 步骤4：设置混淆规则
 在 proguard-rules.pro 文件，将 TRTC SDK 相关类加入不混淆名单：
 ```xml
 -keep class com.tencent.** { *; }
 ```
-您已经完成了腾讯云视立方 Android 超级播放器 app 权限配置的步骤。
+您已经完成了腾讯云视立方 Android 播放器组件 app 权限配置的步骤。
 
 ### 步骤5：使用播放器功能
 本步骤，用于指导用户创建和使用播放器，并使用播放器进行视频播放。
 1. **创建播放器**[](id:usePlayer)
 播放器主类为`SuperPlayerView`，创建后即可播放视频， 支持集成 FileID 或者 URL 进行播放。在布局文件创建 SuperPlayerView：
 ```xml
-<!-- 超级播放器-->
+<!-- 播放器组件-->
 <com.tencent.liteav.demo.superplayer.SuperPlayerView
     android:id="@+id/superVodPlayerView"
     android:layout_width="match_parent"
@@ -292,9 +293,9 @@ public class MApplication extends Application {
 ```
 
 3. **播放视频**[](id:playe)
-本步骤用于指导用户播放视频。腾讯云视立方 Android 超级播放器可用于直播和点播两种播放场景，具体如下：
-	- 点播播放：超级播放器支持两种点播播放方式，可以 [通过 FileID 播放](#fileid) 腾讯云点播媒体资源，也可以直接使用 [URL 播放](#url) 地址进行播放。
-	- 直播播放：超级播放器可使用 [URL 播放 ](#url)的方式实现直播播放。通过传入 URL 地址，即可拉取直播音视频流进行直播播放。腾讯云直播URL生成方式可参见 [自主拼装直播 URL](https://cloud.tencent.com/document/product/267/32720)。
+本步骤用于指导用户播放视频。腾讯云视立方 Android 播放器组件可用于直播和点播两种播放场景，具体如下：
+	- 点播播放：播放器组件支持两种点播播放方式，可以 [通过 FileID 播放](#fileid) 腾讯云点播媒体资源，也可以直接使用 [URL 播放](#url) 地址进行播放。
+	- 直播播放：播放器组件可使用 [URL 播放 ](#url)的方式实现直播播放。通过传入 URL 地址，即可拉取直播音视频流进行直播播放。腾讯云直播URL生成方式可参见 [自主拼装直播 URL](https://cloud.tencent.com/document/product/267/32720)。
 <dx-tabs>
 ::: 通过 URL 播放（直播、点播）[](id:url)
 URL可以是点播文件播放地址，也可以是直播拉流地址，传入相应 URL 即可播放相应视频文件。
@@ -302,7 +303,7 @@ URL可以是点播文件播放地址，也可以是直播拉流地址，传入�
 SuperPlayerModel model = new SuperPlayerModel();
 model.appId = 1400329073; // 配置 AppId
 model.url = "http://your_video_url.mp4";   // 配置您的播放视频url
-mSuperPlayerView.playWithModel(model);
+mSuperPlayerView.playWithModelNeedLicence(model);
 ```
 :::
 ::: 通过 FileID 播放（点播）[](id:fileid)
@@ -313,7 +314,7 @@ mSuperPlayerView.playWithModel(model);
 如果文件已存在腾讯云，则可以进入 [媒资管理](https://console.cloud.tencent.com/vod/media) ，找到对应的文件，查看 FileId。如下图所示，ID 即表示 FileId：
 ![](https://main.qcloudimg.com/raw/1a3677d5fe618227a117d7502be42793.png)
 >!
->- 通过 FileID 播放时，需要首先使用 Adaptive-HLS(10) 转码模板对视频进行转码，或者使用超级播放器签名 psign 指定播放的视频，否则可能导致视频播放失败。转码教程和说明可参见 [用超级播放器播放视频](https://cloud.tencent.com/document/product/266/46217)，psign 生成教程可参见 [psign 教程](https://cloud.tencent.com/document/product/266/42436)。
+>- 通过 FileID 播放时，需要首先使用 Adaptive-HLS(10) 转码模板对视频进行转码，或者使用播放器组件签名 psign 指定播放的视频，否则可能导致视频播放失败。转码教程和说明可参见 [用播放器组件播放视频](https://cloud.tencent.com/document/product/266/46217)，psign 生成教程可参见 [psign 教程](https://cloud.tencent.com/document/product/266/42436)。
 >- 若您在通过 FileID 播放时出现“no v4 play info”异常，则说明您可能存在上述问题，建议您根据上述教程调整。同时您也可以直接获取源视频播放链接，[通过 URL 播放](#url) 的方式实现播放。
 >- **未经转码的源视频在播放时有可能出现不兼容的情况，建议您使用转码后的视频进行播放。**
 <dx-codeblock>
@@ -324,9 +325,9 @@ SuperPlayerModel *model = [[SuperPlayerModel alloc] init];
 model.appId = 1400329071;// 配置 AppId
 model.videoId = [[SuperPlayerVideoId alloc] init];
 model.videoId.fileId = @"5285890799710173650"; // 配置 FileId
-//私有加密播放需填写 psign， psign 即超级播放器签名，签名介绍和生成方式参见链接：https://cloud.tencent.com/document/product/266/42436
+//私有加密播放需填写 psign， psign 即播放器组件签名，签名介绍和生成方式参见链接：https://cloud.tencent.com/document/product/266/42436
 //model.videoId.pSign = @"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6MTQwMDMyOTA3MSwiZmlsZUlkIjoiNTI4NTg5MDc5OTcxMDE3MzY1MCIsImN1cnJlbnRUaW1lU3RhbXAiOjEsImV4cGlyZVRpbWVTdGFtcCI6MjE0NzQ4MzY0NywidXJsQWNjZXNzSW5mbyI6eyJ0IjoiN2ZmZmZmZmYifSwiZHJtTGljZW5zZUluZm8iOnsiZXhwaXJlVGltZVN0YW1wIjoyMTQ3NDgzNjQ3fX0.yJxpnQ2Evp5KZQFfuBBK05BoPpQAzYAWo6liXws-LzU"; 
-[_playerView playWithModel:model];
+[_playerView playWithModelNeedLicence:model];
 :::
 </dx-codeblock>
 :::
@@ -337,15 +338,15 @@ model.videoId.fileId = @"5285890799710173650"; // 配置 FileId
 mSuperPlayerView.resetPlayer();
 ```
 
-至此，您已经完成了腾讯云视立方 Android 超级播放器创建、播放视频和退出播放的能力即成。
+至此，您已经完成了腾讯云视立方 Android 播放器组件创建、播放视频和退出播放的能力即成。
 
 ## 功能使用[](id:moreFeature)
 
-本章将为您介绍几种常见的播放器功能使用方式，更为完整的功能使用方式可参见 [Demo 体验](#demo)，超级播放器支持的功能可参见 [能力清单](https://cloud.tencent.com/document/product/881/61375)。
+本章将为您介绍几种常见的播放器功能使用方式，更为完整的功能使用方式可参见 [Demo 体验](#demo)，播放器组件支持的功能可参见 [能力清单](https://cloud.tencent.com/document/product/881/61375)。
 
 ### 1、全屏播放
 
-超级播放器支持全屏播放，在全屏播放场景内，同时支持锁屏、手势控制音量和亮度、弹幕、截屏、清晰度切换等功能设置。功能效果可在 **[腾讯云视立方 App](#qrcode) > 播放器 > 超级播放器** 中体验，单击界面右下角即可进入全屏播放界面。
+播放器组件支持全屏播放，在全屏播放场景内，同时支持锁屏、手势控制音量和亮度、弹幕、截屏、清晰度切换等功能设置。功能效果可在 **[腾讯云视立方 App](#qrcode) > 播放器 > 播放器组件** 中体验，单击界面右下角即可进入全屏播放界面。
 <img src="https://qcloudimg.tencent-cloud.cn/raw/410b336e51508737958966e2fce62575.png" style="zoom:25%;" />
 在窗口播放模式下，可通过调用下述接口进入全屏播放模式：
 ```java
@@ -380,7 +381,7 @@ toggleBarrage();
 ```
 :::
 ::: 截屏[](id:screenshot)
-超级播放器提供播放过程中截取当前视频帧功能，您可以把图片保存起来进行分享。单击图片4处按钮可以截屏，您可以在 mSuperPlayer.snapshot 接口进行保存截取的图片。
+播放器组件提供播放过程中截取当前视频帧功能，您可以把图片保存起来进行分享。单击图片4处按钮可以截屏，您可以在 mSuperPlayer.snapshot 接口进行保存截取的图片。
 ```java
 mSuperPlayer.snapshot(new TXLivePlayer.ITXSnapshotListener() {
   @Override
@@ -416,7 +417,7 @@ public void onQualityChange(VideoQuality quality) {
 
 
 ### 2、悬浮窗播放
-超级播放器支持悬浮窗小窗口播放，可在切换到其它应用时，不打断视频播放功能。功能效果可在 [**腾讯云视立方 App**](#qrcode) > **播放器** > **超级播放器** 中体验，单击界面左上角**返回**，即可体验悬浮窗播放功能。
+播放器组件支持悬浮窗小窗口播放，可在切换到其它应用时，不打断视频播放功能。功能效果可在 [**腾讯云视立方 App**](#qrcode) > **播放器** > **播放器组件** 中体验，单击界面左上角**返回**，即可体验悬浮窗播放功能。
 <img src="https://qcloudimg.tencent-cloud.cn/raw/0a985d2089cee621885759453182bbc6.png" style="zoom:25%;" />
 悬浮窗播放依赖于 AndroidManifest 中的以下权限：
 ```java
@@ -431,12 +432,12 @@ mControllerCallback.onSwitchPlayMode(SuperPlayerDef.PlayerMode.WINDOW);
 
 ### 3、视频封面
 
-超级播放器支持用户自定义视频封面，用于在视频接收到首帧画面播放回调前展示。功能效果可在 [**腾讯云视立方 App** ](#qrcode)> **播放器** > **超级播放器** > **自定义封面演示** 视频中体验。
+播放器组件支持用户自定义视频封面，用于在视频接收到首帧画面播放回调前展示。功能效果可在 [**腾讯云视立方 App** ](#qrcode)> **播放器** > **播放器组件** > **自定义封面演示** 视频中体验。
 
 <img src="https://qcloudimg.tencent-cloud.cn/raw/37075aaca891c0db91a57e2ee7f6a940.png" style="zoom:15%;" />
 
-* 当超级播放器设置为自动播放模式`PLAY_ACTION_AUTO_PLAY`时，视频自动播放，此时将在视频首帧加载出来之前展示封面；
-* 当超级播放器设置为手动播放模式`PLAY_ACTION_MANUAL_PLAY`时，需用户单击**播放**后视频才开始播放。在单击**播放**前将展示封面；在单击**播放**后到视频首帧加载出来前也将展示封面。
+* 当播放器组件设置为自动播放模式`PLAY_ACTION_AUTO_PLAY`时，视频自动播放，此时将在视频首帧加载出来之前展示封面；
+* 当播放器组件设置为手动播放模式`PLAY_ACTION_MANUAL_PLAY`时，需用户单击**播放**后视频才开始播放。在单击**播放**前将展示封面；在单击**播放**后到视频首帧加载出来前也将展示封面。
 
 视频封面支持使用网络 URL 地址或本地 File 地址，使用方式可参见下述指引。若您通过 FileID 的方式播放视频，则可直接在云点播内配置视频封面。
 
@@ -449,17 +450,17 @@ model.videoId.fileId = "您的fileId";
 model.playAction = PLAY_ACTION_MANUAL_PLAY;
 //设定封面的地址为网络url地址，如果coverPictureUrl不设定，那么就会自动使用云点播控制台设置的封面
 model.coverPictureUrl = "http://1500005830.vod2.myqcloud.com/6c9a5118vodcq1500005830/cc1e28208602268011087336518/MXUW1a5I9TsA.png" 
-mSuperPlayerView.playWithModel(model);
+mSuperPlayerView.playWithModelNeedLicence(model);
 ```
 
 ### 4、视频列表轮播
 
-超级播放器支持视频列表轮播，即在给定一个视频列表后：
+播放器组件支持视频列表轮播，即在给定一个视频列表后：
 
 * 支持按顺序循环播放列表中的视频，播放过程中支持自动播放下一集也支持手动切换到下一个视频。
 * 列表中最后一个视频播放完成后将自动开始播放列表中的第一个视频。
 
-功能效果可在 [**腾讯云视立方 App**](#qrcode)> **播放器** > **超级播放器** > **视频列表轮播演示**视频中体验。
+功能效果可在 [**腾讯云视立方 App**](#qrcode)> **播放器** > **播放器组件** > **视频列表轮播演示**视频中体验。
 
 <img src="https://qcloudimg.tencent-cloud.cn/raw/6d00357d02c0b5a56000d94e0c832922.png" style="zoom:25%;" />
 
@@ -479,11 +480,11 @@ model.appid = 1252463788;
 model.videoId.fileId = "4564972819219071679"；
 list.add(model);
 //步骤2：调用轮播接口
-mSuperPlayerView.playWithModelList(list, true, 0);
+mSuperPlayerView.playWithModelListNeedLicence(list, true, 0);
 ```
 
 ```java
-public void playWithModelList(List<SuperPlayerModel> models, boolean isLoopPlayList, int index);
+public void playWithModelListNeedLicence(List<SuperPlayerModel> models, boolean isLoopPlayList, int index);
 ```
 
 接口参数说明
@@ -496,7 +497,7 @@ public void playWithModelList(List<SuperPlayerModel> models, boolean isLoopPlayL
 
 ### 5、视频试看
 
-超级播放器支持视频试看功能，可以适用于非 VIP 试看等场景，开发者可以传入不同的参数来控制视频试看时长、提示信息、试看结束界面等。功能效果可在 [**腾讯云视立方 App**](#qrcode)> **播放器** > **超级播放器** > **试看功能演示** 视频中体验。
+播放器组件支持视频试看功能，可以适用于非 VIP 试看等场景，开发者可以传入不同的参数来控制视频试看时长、提示信息、试看结束界面等。功能效果可在 [**腾讯云视立方 App**](#qrcode)> **播放器** > **播放器组件** > **试看功能演示** 视频中体验。
 
 ![shikan1.png](https://qcloudimg.tencent-cloud.cn/raw/710f8e0df61888b1a3a783dbc67cc78f.png)
 
@@ -511,7 +512,7 @@ public void playWithModelList(List<SuperPlayerModel> models, boolean isLoopPlayL
  VipWatchModel vipWatchModel = new VipWatchModel("可试看%ss，开通 VIP 观看完整视频",15);
  mode.vipWatchMode = vipWatchModel;
  //步骤3：调用播放视频方法
- mSuperPlayerView.playWithModel(mode);
+ mSuperPlayerView.playWithModelNeedLicence(mode);
 
  方法二：
  //步骤1：创建试看信息 mode
@@ -533,7 +534,7 @@ VipWatchModel 接口参数说明：
 
 ### 6、动态水印
 
-超级播放器支持在播放界面添加不规则跑动的文字水印，有效防盗录。全屏播放模式和窗口播放模式均可展示水印，开发者可修改水印文本、文字大小、颜色。功能效果可在 [**腾讯云视立方 App** ](#qrcode)> **播放器** > **超级播放器** > **动态水印** 演示视频中体验。
+播放器组件支持在播放界面添加不规则跑动的文字水印，有效防盗录。全屏播放模式和窗口播放模式均可展示水印，开发者可修改水印文本、文字大小、颜色。功能效果可在 [**腾讯云视立方 App** ](#qrcode)> **播放器** > **播放器组件** > **动态水印** 演示视频中体验。
 
 ![shuiyin.png](https://qcloudimg.tencent-cloud.cn/raw/4e40e3158546049ae70590b6d4071be6.png)
 
@@ -546,7 +547,7 @@ VipWatchModel 接口参数说明：
  DynamicWaterConfig dynamicWaterConfig = new DynamicWaterConfig("shipinyun", 30, Color.parseColor("#80FFFFFF"));
  mode.dynamicWaterConfig = dynamicWaterConfig;
  //步骤3：调用播放视频方法
- mSuperPlayerView.playWithModel(mode);
+ mSuperPlayerView.playWithModelNeedLicence(mode);
 
  方法二：
  //步骤1：创建水印信息mode
@@ -575,9 +576,9 @@ public DynamicWaterConfig(String dynamicWatermarkTip, int tipTextSize, int tipTe
 ### 运行工程 Demo
 
 1. 在 Android Studio 的导航栏选择 **File** > **Open**，在弹框中选择 **Demo** 工程目录： `$SuperPlayer_Android/Demo`，待成功导入 Demo 工程后，单击 **Run app**，即可成功运行 Demo 。
-2. 成功运行 Demo 后如下图，进入**播放器** > **超级播放器**，可体验播放器功能。
+2. 成功运行 Demo 后如下图，进入**播放器** > **播放器组件**，可体验播放器功能。
 
 [](id:qrcode)
 ### 腾讯云视立方 App
-在 **腾讯云视立方 App** > **播放器** 中可体验更多超级播放器功能。
+在 **腾讯云视立方 App** > **播放器** 中可体验更多播放器组件功能。
 <img src="https://main.qcloudimg.com/raw/6790ddaf4ffe4afd0ceb96b309a16496.png" width="150">

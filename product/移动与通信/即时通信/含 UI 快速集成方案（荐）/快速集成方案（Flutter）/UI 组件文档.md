@@ -75,7 +75,7 @@ _coreInstance.setTheme(TUITheme theme: theme) // 设置主题色
 - **TIMUIKitCore.getInstance()**：
 返回 `CoreServicesImpl` 实例
 - **TIMUIKitCore.getSDKInstance()**：
-返回为 `V2TIMManager` 为 SDK 实例，具体使用方式请参见 [Flutter IM SDK 文档](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_manager/V2TIMManager/initSDK.html)
+返回为 `V2TIMManager` 为 SDK 实例，具体使用方式请参见 [Flutter IM SDK 文档](https://comm.qq.com/im/doc/flutter/zh/SDKAPI/Api/V2TIMManager/readme.html)
 
 
 [](id:timuikitconversation)

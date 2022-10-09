@@ -414,6 +414,308 @@ path 里的参数（name，phone）均使用 `~${base64url(value)}` 统一编码
 ### 为什么客户收到 FlowCallbackStatus 为4（已签署）的回调通知后，又收到了 FlowCallbackStatus 为1（待签署）的通知？  
 以单方签署的合同为例，FlowCallbackStatus 状态变化一般是由1变为4。少量回调可能因状态变化间隔比较短、重发、或者网络传输等原因，小几率出现到达顺序不一致，建议开发者从代码层面进行适当控制，例如状态更新为4后不能再更新为1。
 
+### 回调样例
+回调请求包：
+```plaintext
+POST /callback HTTP/1.1
+Host: www.esstest.com
+User-Agent: Go-http-client/1.1
+Content-Length: 1088
+Content-Type: text/plain
+Accept-Encoding: gzip
+
+YyYyLZonMceFMFFi5jRnnOWrOasvzmKtGAvRPq1IzuYma88UvTqyZy8QpNVMKxvJY3Sp+NJW6mgTfU35u7SbUon+QCjul1P9P6mcVRuVvYrM2DoFBDgjLURfX+CWnZ9m967nNqiubw9vj9ToysJDZyr0zo4NN1CCfvsyxnVNKhSNbRAy74x4SlLscZ/wcFwdy55S2rBxbjLCqViIj6llQFo74mLHJ8oumngBD1WJZ5ginDNEScPB7+cIHeKF5w3UvUpDqDIUjAj7KFUmIQM8/zY8EafhgCNhWRaGxuFxGF+iMqwC+HJYosbBmrKZ44+8xwL5WlXLx/Cf8bK7J4mJIWbKyul8PBE9Xh8lL/d0Ufnf4sUB0ypbdy/KIr+XQJgFjR2AQGENXvxxlCfdVY5svGfXYaaSSyDND1u9C8kMxQRfNHJye7ulTprROYTtq4GJ8UJQbJbuHvTcppGyMbGO2AvgXcoSogM0JuZzLK/gcPFIWIf9oFTg47M62sLf9YY7UASVITfA5LnE+/1clN4vn748wjS4tdxCL8wjWanPOONTPCMrwH0wsZ86xEf7aLl0/qBWGF13VYh4C4XgiDLtaOs6DdlzMz5EszWISpRRzfJLxcBnhHL9sQu7YWLZzRL6vmP1qtdWZbUYt4Z/eKff5gfmmDGHOxVjd3XhxhfHSdW3a8LzlMT3n69CPBEiOjXA4abshkiT6+hOlJ8uCws+ja2BSmwruqpUn4tq7Je91cT0AhGHuvq9s1VCB7vw8KsVimRHrC6eOa1rgm6qgQNP0fMgGRe+qu4BtfND1a/j9BBuIHQSjLSn2JB2P/EAvbb5J2iPVZj3SppgzhwVCgYUu+osA3LNC4NsYxm/yMs8mq7nOCIZd6D/BM9py5WKS6//e4mM6sY3/S2wOr8snkUsEuu5M35zyRcrCjIaRzV9OKZjP+aqkk2GcF/Figd3N/zCZ+WjC+L9r/ELHn64qEJxZDvXKXVE3dUOchbUPelCb3YO+Mub+76bnvt8IQ2MRf9NaFO7cWlh9mDWkZMXxmOTlxOxQtOeTrW+QywTkZaDGkP83HRjqXd7bn3YBcdFiOy/
+```
+此处使用 CallbackUrlKey:"TencentEssEncryptTestKey12345678" 解密后可获取以下明文：
+>!该 CallbackUrlKey 仅用于此处测试样例。
+
+```plaintext
+{
+  "FlowId": "yDRtrAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+  "DocumentId": "yDRtrBBBBBBBBBBBBBBBBBBBBBBBBBB",
+  "CallbackType": "sign",
+  "FlowName": "测试流程",
+  "FlowDescription": "",
+  "FlowType": "",
+  "FlowCallbackStatus": 4,
+  "Unordered": true,
+  "CreateOn": 1658892449,
+  "UpdatedOn": 1659604019,
+  "DeadLine": 1661615999,
+  "UserId": "",
+  "RecipientId": "yDRtrCCCCCCCCCCCCCCCCCCCCCCCCCCC",
+  "Operate": "sign",
+  "UserData": "",
+  "Approvers": [
+    {
+      "UserId": "yDRtrDDDDDDDDDDDDDDDDDDDDDDDDDDD",
+      "RecipientId": "yDRtrCCCCCCCCCCCCCCCCCCCCCCCCCCC",
+      "ApproverType": 1,
+      "OrganizationName": "",
+      "Required": true,
+      "ApproverName": "张三",
+      "ApproverMobile": "15912345678",
+      "ApproverIdCardType": "ID_CARD",
+      "ApproverIdCardNumber": "440300200101010001",
+      "ApproveCallbackStatus": 3,
+      "ApproveMessage": "",
+      "ApproveTime": 1659604019,
+      "VerifyChannel": "WEIXINAPP"
+    }
+  ],
+  "CallbackUrl": "https://www.esstest.com"
+}
+```
+
+### 回调解密 demo
+<dx-tabs>
+::: Java
+```plaintext
+import javax.crypto.Cipher;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
+import java.nio.charset.StandardCharsets;
+import java.util.Base64;
+
+
+public class CallbackAes {
+
+    public static byte[] pkcs7Padding(byte[] ciphertext, int blockSize) {
+        int padding = blockSize - ciphertext.length % blockSize;
+        byte[] padtext = repeat((byte) padding, padding);
+        ciphertext = append(ciphertext, padtext);
+        return ciphertext;
+    }
+
+    public static byte[] repeat(byte val, int count) {
+        byte[] result = new byte[count];
+        for (int i = 0; i < count; i++) {
+            result[i] = val;
+        }
+        return result;
+    }
+
+    public static byte[] append(byte[] a, byte[] b) {
+        byte[] result = new byte[a.length + b.length];
+        System.arraycopy(a, 0, result, 0, a.length);
+        System.arraycopy(b, 0, result, a.length, b.length);
+        return result;
+    }
+
+    public static byte[] pkcs7UnPadding(byte[] origData) {
+        int length = origData.length;
+        int unpadding = origData[length - 1];
+        byte[] result = new byte[length - unpadding];
+        System.arraycopy(origData, 0, result, 0, result.length);
+        return result;
+    }
+
+    public static byte[] aesEncrypt(byte[] origData, byte[] key) throws Exception {
+        Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
+        int blockSize = cipher.getBlockSize();
+        origData = pkcs7Padding(origData, blockSize);
+        SecretKeySpec keyspec = new SecretKeySpec(key, "AES");
+        byte[] iv = new byte[blockSize];
+        System.arraycopy(key, 0, iv, 0, iv.length);
+        IvParameterSpec ivspec = new IvParameterSpec(iv);
+        cipher.init(Cipher.ENCRYPT_MODE, keyspec, ivspec);
+        byte[] encrypted = cipher.doFinal(origData);
+        return Base64.getEncoder().encode(encrypted);
+    }
+
+    public static byte[] aesDecrypt(byte[] crypted, byte[] key) throws Exception {
+        byte[] decoded = Base64.getDecoder().decode(crypted);
+        Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
+        int blockSize = cipher.getBlockSize();
+        SecretKeySpec keyspec = new SecretKeySpec(key, "AES");
+        byte[] iv = new byte[blockSize];
+        System.arraycopy(key, 0, iv, 0, iv.length);
+        IvParameterSpec ivspec = new IvParameterSpec(iv);
+        cipher.init(Cipher.DECRYPT_MODE, keyspec, ivspec);
+        byte[] origData = cipher.doFinal(decoded);
+        return pkcs7UnPadding(origData);
+    }
+
+    public static void main(String[] args) throws Exception {
+        // 传入CallbackUrlKey
+        byte[] key = "***************".getBytes();
+        // 传入密文
+        byte[] origData = aesDecrypt("****************".getBytes(StandardCharsets.UTF_8), key);
+        // 打印解密后的内容，格式为json
+        System.out.println(new String(origData, StandardCharsets.UTF_8));
+    }
+}
+```
+:::
+::: PHP
+```plaintext
+<?php
+require_once __DIR__.'/../../../vendor/autoload.php';
+
+class Aes
+{
+    public $key = '';
+    public $iv = '';
+
+    public function __construct($config)
+    {
+        foreach($config as $k => $v){
+            $this->$k = $v;
+        }
+    }
+
+    //解密
+    public function aesDe($data){
+        return openssl_decrypt(base64_decode($data),  $this->method, $this->key, OPENSSL_RAW_DATA, $this->key);
+    }
+}
+
+$config = [
+    'key' =>  '********************', // 此处填入CallbackUrlKey
+    'method'  => 'AES-256-CBC' //加密方式
+];
+
+$obj = new Aes($config);
+
+// 此处填入收到的密文
+$data = '*****************************';
+
+echo $obj->aesDe($data);//解密
+
+```
+:::
+::: Golang
+```plaintext
+package v20201111
+
+import (
+	"crypto/aes"
+	"crypto/cipher"
+	"encoding/base64"
+	"fmt"
+	"testing"
+)
+
+func AesDecrypt(crypted, key []byte) ([]byte, error) {
+	block, err := aes.NewCipher(key)
+	if err != nil {
+		return nil, err
+	}
+	blockSize := block.BlockSize()
+	blockMode := cipher.NewCBCDecrypter(block, key[:blockSize])
+	origData := make([]byte, len(crypted))
+	blockMode.CryptBlocks(origData, crypted)
+	origData = PKCS7UnPadding(origData)
+	return origData, nil
+}
+
+// PKCS7UnPadding 去除填充
+func PKCS7UnPadding(origData []byte) []byte {
+	length := len(origData)
+	unPadding := int(origData[length-1])
+	return origData[:(length - unPadding)]
+}
+
+func TestDecrypt(t *testing.T) {
+	// 传入CallbackUrlKey
+	key := "***********"
+	// 传入密文
+	content := "***********"
+
+	// base64解密
+	crypted, err := base64.StdEncoding.DecodeString(content)
+	if err != nil {
+		fmt.Printf("base64 DecodeString returned: %s", err)
+		return
+	}
+
+	origData, err := AesDecrypt(crypted, []byte(key))
+	if err != nil {
+		fmt.Printf("AesDecrypt returned: %s", err)
+		return
+	}
+	fmt.Printf("%s", string(origData))
+}
+```
+:::
+::: Python
+```plaintext
+# -*- coding: utf-8 -*-
+import base64
+
+from Cryptodome.Cipher import AES
+
+
+def decode_aes256(data, encryption_key):
+    iv = encryption_key[0:16]
+    aes = AES.new(encryption_key, AES.MODE_CBC, iv)
+    d = aes.decrypt(data)
+    unpad = lambda s: s[0:-ord(d[-1:])]
+    return unpad(d)
+
+# 此处传入密文
+data = '**************************************************'
+data = base64.b64decode(data)
+# 此处传入CallbackUrlKey
+e = decode_aes256(data, bytes('**************************************************', encoding="utf8"))
+print(type(e))
+print(str(e, encoding="utf8"))
+```
+:::
+::: C#
+```plaintext
+using System;
+using System.Security.Cryptography;
+using System.Text;
+namespace TencentCloudExamples
+{
+
+    class EssCallback
+    {
+
+        static void Main1(string[] args)
+        {
+            try
+            {
+                // 传入CallbackUrlKey
+                String key = "*************";
+                // 传入密文
+                String content = ""*************";";
+
+                String plaintext = AESDecrypt(content, Encoding.ASCII.GetBytes(key));
+
+                Console.WriteLine(plaintext);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+            Console.Read();
+
+        }
+
+        public static string AESDecrypt(string encryptStr, byte[] key)
+        {
+            byte[] toEncryptArray = Convert.FromBase64String(encryptStr);
+            RijndaelManaged rDel = new RijndaelManaged();
+            rDel.Key = key;
+            byte[] iv = new byte[16];
+            Array.Copy(key, iv, iv.Length);
+            rDel.IV = iv;
+            rDel.Mode = CipherMode.CBC;
+            rDel.Padding = PaddingMode.PKCS7;
+            ICryptoTransform cTransform = rDel.CreateDecryptor();
+            byte[] resultArray = cTransform.TransformFinalBlock(toEncryptArray, 0, toEncryptArray.Length);
+            return UTF8Encoding.UTF8.GetString(resultArray);
+        }
+
+    }
+
+}
+```
+:::
+</dx-tabs>
+
 
 ## 短信相关
 ### 为什么客户收不到短信通知？  

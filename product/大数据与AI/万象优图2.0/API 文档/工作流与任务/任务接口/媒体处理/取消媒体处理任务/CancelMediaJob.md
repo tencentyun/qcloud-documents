@@ -1,6 +1,6 @@
 ## 功能描述
 
-CancelMediaJob 用于取消一个任务，只有未执行的任务才可以被取消。
+取消一个任务，只有未执行的任务才可以被取消。
 
 <div class="rno-api-explorer">
     <div class="rno-api-explorer-inner">
@@ -66,9 +66,9 @@ Authorization: <Auth String>
 #### 请求
 
 ```shell
-PUT /jobs/j-xxx-xxx-xxx-xxxx?cancel HTTP/1.1
+PUT /jobs/jb57da17e29c111eda218713081fe2b05?cancel HTTP/1.1
 Authorization: q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0ea057
-Host: examplebucket-1250000000.ci.ap-beijing.myqcloud.com
+Host: test-1234567890.ci.ap-chongqing.myqcloud.com
 
 ```
 
@@ -80,6 +80,6 @@ Content-Length: 0
 Connection: keep-alive
 Date: Mon, 28 Jun 2022 15:23:12 GMT
 Server: tencent-ci
-x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
+x-ci-request-id: NjMxMDJhYTNfMThhYTk0MGFfYmU1OV8zZjY=
 
 ```

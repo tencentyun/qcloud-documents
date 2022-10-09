@@ -48,7 +48,7 @@ CLB 默认支持 WS/WSS，不收取额外费用。
 
 [](id:5)
 ### 如何在 CLB 上开启 WS/WSS？
-**默认开启，无需额外配置**。
+**CLB 默认开启 WS/WSS**。如果连接空闲超过60s时，则需要进行个性化配置，配置`proxy_read_timeout`参数，建议参数值小于900s，配置方式请参见 [七层个性化配置](https://cloud.tencent.com/document/product/214/15171)。
 监听器监听在 HTTP，则默认支持 WS；监听器监听 HTTPS，则默认支持 WSS。
 使用 WSS 时，CLB 会进行 SSL 卸载。
 [[回到顶部]](#1)

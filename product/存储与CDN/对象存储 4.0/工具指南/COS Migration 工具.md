@@ -10,7 +10,7 @@ COS Migration 是一个集成了 COS 数据迁移功能的一体化工具。通�
 >- COS Migration 的编码格式只支持 UTF-8 格式。
 >- 使用该工具上传同名文件，默认会覆盖较旧的同名文件，需要额外设置以跳过同名文件。
 >- 除本地数据迁移之外的场景请优先使用 [迁移服务平台](https://cloud.tencent.com/document/product/659/13908)。
->
+>- COS Migration 是用来做**一次性**迁移服务的，不适合于持续同步的场景。例如本地每天新增文件，需要持续同步至 COS 中，COS Migration 为了避免重复迁移任务，会保存迁移成功的记录，持续同步后，扫描记录时间会持续增大。此种场景建议使用 [文件同步](https://cloud.tencent.com/document/product/436/38103#synchronization)。
 
 ## 使用环境
 #### 系统环境
@@ -139,7 +139,7 @@ ignoreModifiedTimeLessThanSeconds=
 
 | 配置项 | 描述 |
 | ------| ------ |
-|localPath|本地目录，要求格式为绝对路径：<ul  style="margin: 0;"><li>Linux 下分隔符为单斜杠，例如`/a/b/c` </li><li>Windows 下分隔符为两个反斜杠，例如`E:\\a\\b\\c`</li></ul>|
+|localPath|本地目录，要求格式为绝对路径：<ul  style="margin: 0;"><li>Linux 下分隔符为单斜杠，例如`/a/b/c` </li><li>Windows 下分隔符为两个反斜杠，例如`E:\\a\\b\\c`</li> </ul>注意：此参数只能填目录的路径，不能填具体文件的路径，否则会导致目标对象名解析错误，在 cosPath=/ 情况下，还会错误地解析成创桶请求|
 |excludes| 要排除的目录或者文件的绝对路径，表示将 localPath 下面某些目录或者文件不进行迁移，多个绝对路径之前用分号分割，不填表示 localPath 下面的全部迁移|
 |ignoreModifiedTimeLessThanSeconds| 排除更新时间与当前时间相差不足一定时间段的文件，单位为秒，默认不设置，表示不根据 lastmodified 时间进行筛选，适用于客户在更新文件的同时又在运行迁移工具，并要求不把正在更新的文件迁移上传到 COS，例如设置为300，表示只上传更新了5分钟以上的文件|
 

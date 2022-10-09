@@ -3,14 +3,13 @@
 ## 操作指南
 1. 登录 [云防火墙控制台](https://console.cloud.tencent.com/cfw/ac/internet)，在左侧导航栏中，选择**访问控制** > **NAT 边界规则**。
 2. 在 NAT 边界规则界面，选择一个地域，单击**入向规则**，进入入向规则界面。
-![](https://qcloudimg.tencent-cloud.cn/raw/c128cdead90e138f74f6093029ea4943.png)
+<img src="https://qcloudimg.tencent-cloud.cn/raw/07cdb5c80120c22dba0c6bb6a09f3ac9.png" width=800px>
 3. 在入向规则界面，可选择不同地域来创建访问控制规则，以及查看规则列表（入站规则、出站规则已使用的额度以及规则列表总的配额）、最近操作记录和访问控制规则详情。最近操作记录展示了用户最近对规则列表进行的操作：
    - 单击**详情**可查看该条操作记录详情。
    - 单击**查看操作日志**，可查看详细操作记录。
 ![](https://qcloudimg.tencent-cloud.cn/raw/ae25fa34578476875f9f67ebb61c76b3.png)
 4. 添加规则，在入向规则页面，可进行规则的配置，以添加入向规则为例进行说明。
    i. 在入向规则页面，单击**添加规则**，将弹出“添加入向规则”的弹窗。
-	 ![](https://qcloudimg.tencent-cloud.cn/raw/4e39f62964a909c417444390e9b70f5c.png)
    ii. 在“添加入站规则”的弹窗中，可进行规则的配置。访问源类型可选 IP 地址、地理位置、云厂商及 [地址模板](https://cloud.tencent.com/document/product/1132/49443#IP)，访问目的类型可选 IP 地址、资产实例、资源标签、地址模板及资产分组，并根据规则重要性来勾选最先或者最后执行。填写好访问源和访问目的之后，再填写目的端口，选择对应的协议和要执行的策略等信息，并在描述一栏做好备注，单击**确定**，即可完成规则的配置。
 >?
 >- 访问目的区域： 指云上实例所在的地域
@@ -107,6 +106,6 @@
 
 ## 相关信息
 - 如需在云防火墙控制台对互联网边界的入向与出向流量进行管控，请参见 [互联网边界规则](https://cloud.tencent.com/document/product/1132/46932)。
-- 如需在云防火墙控制台设置 VPC 间规则，请参见 [VPC 间规则](https://cloud.tencent.com/document/product/1132/46934)。
+- 如需在云防火墙控制台设置内网间规则，请参见 [内网间规则](https://cloud.tencent.com/document/product/1132/46934)。
 - 如需了解云防火墙的访问控制功能的特殊应用场景，请参见 [特殊应用场景](https://cloud.tencent.com/document/product/1132/46935)。
 - 如遇到 NAT 边界规则相关问题，可参见 [NAT 边界防火墙](https://cloud.tencent.com/document/product/1132/56868)。

@@ -105,6 +105,59 @@ TUIKitDemo 已经按照如下步骤接入了离线推送功能，文档中已有
 
 <img src="https://qcloudimg.tencent-cloud.cn/raw/7e6b56b3bb60bc9ccf7d5d0179eb51ea.png" style="zoom:30%;" />
 
+**1、如果集成了 TUIOfflinePush 组件：**
+推荐按照下图进行配置，点击后续动作推荐选择 ”打开应用内指定界面” ；应用内指定界面推荐选择 ”使用推送组件回调跳转”。
+<img src="https://qcloudimg.tencent-cloud.cn/raw/f5a09f1ac37072b2f2a7f00233d2342a.png" alt="592465424" style="zoom:80%;" />
+当收到推送时候，点击通知栏的点击事件，组件会以回调或者广播形式通知应用，应用在回调中配置 App 的跳转页面即可。
+
+回调方式如下：
+```java
+TUICore.registerEvent(TUIConstants.TUIOfflinePush.EVENT_NOTIFY,
+    TUIConstants.TUIOfflinePush.EVENT_NOTIFY_NOTIFICATION, new ITUINotification() {
+        @Override
+        public void onNotifyEvent(String key, String subKey, Map<String, Object> param) {
+            Log.d(TAG, "onNotifyEvent key = " + key + "subKey = " + subKey);
+            if (TUIConstants.TUIOfflinePush.EVENT_NOTIFY.equals(key)) {
+                if (TUIConstants.TUIOfflinePush.EVENT_NOTIFY_NOTIFICATION.equals(subKey)) {
+                    if (param != null) {
+                        String extString = (String)param.get(TUIConstants.TUIOfflinePush.NOTIFICATION_EXT_KEY);
+                        TUIUtils.handleOfflinePush(extString, null);
+                    }
+                }
+            }
+        }
+    });
+```
+广播方式如下：
+```java
+// 动态注册广播
+IntentFilter intentFilter = new IntentFilter();
+intentFilter.addAction(TUIConstants.TUIOfflinePush.NOTIFICATION_BROADCAST_ACTION);
+LocalBroadcastManager.getInstance(context).registerReceiver(localReceiver, intentFilter);
+
+//广播接收者
+public class OfflinePushLocalReceiver extends BroadcastReceiver {
+    public static final String TAG = OfflinePushLocalReceiver.class.getSimpleName();
+
+    @Override
+    public void onReceive(Context context, Intent intent) {
+        DemoLog.d(TAG, "BROADCAST_PUSH_RECEIVER intent = " + intent);
+        if (intent != null) {
+            String ext = intent.getStringExtra(TUIConstants.TUIOfflinePush.NOTIFICATION_EXT_KEY);
+            TUIUtils.handleOfflinePush(ext, null);
+        } else {
+            DemoLog.e(TAG, "onReceive ext is null");
+        }
+    }
+}
+```
+
+<dx-alert infotype="notice" title="">
+”使用推送组件回调跳转” 需要使用 6.6.3002 及以上版本。
+</dx-alert>
+
+**2、如果没有集成 TUIOfflinePush 组件，或者集成了 TUIOfflinePush 组件不选择 “使用组件推送回调跳转” ，需要按照如下步骤配置：**
+
 - **控制台配置**
 各个厂商的跳转界面配置方式有所不同，具体如下：
 <table> 
@@ -160,8 +213,10 @@ TUIKitDemo 已经按照如下步骤接入了离线推送功能，文档中已有
         android:windowSoftInputMode="adjustResize|stateHidden">
 
         <!-- 离线推送打开应用内页面 -->
-        <intent-filter>
-            <action android:name="android.intent.a和Google FCmo配置的是：pushscheme://com.tencent.qcloud/detail -->
+         <intent-filter>
+            <action android:name="android.intent.action.VIEW" />
+            <category android:name="android.intent.category.DEFAULT" />
+            <!-- TUIKitDemo 配置的是：pushscheme://com.tencent.qcloud/detail -->
                 <data
                     android:host="您配置的 hostname"
                     android:path="您配置的 path"
@@ -552,7 +607,7 @@ public void init() {
                     DemoLog.i(TAG, "huawei get token:" + token);
                     if(!TextUtils.isEmpty(token)) {
                         // 该 token 需要保存并调用 setOfflinePushConfig 接口上报 IMSDK
-                        String token = (String) o;
+                        String pushToken = token;
                     }
                 } catch (ApiException e) {
                     DemoLog.e(TAG, "huawei get token failed, " + e);
@@ -574,8 +629,8 @@ public void init() {
                     String regId = PushClient.getInstance(getApplicationContext()).getRegId();
                     DemoLog.i(TAG, "vivopush open vivo push success regId = " + regId);
                        
-					// // 该 token 需要保存并调用 setOfflinePushConfig 接口上报 IMSDK
-					String token = (String) o;
+    				// 该 token 需要保存并调用 setOfflinePushConfig 接口上报 IMSDK
+    				String pushToken = token;
                 } else {
                     // 根据vivo推送文档说明，state = 101 表示该vivo机型或者版本不支持vivo推送，链接：https://dev.vivo.com.cn/documentCenter/doc/156
                     DemoLog.i(TAG, "vivopush open vivo push fail state = " + state);
@@ -604,7 +659,7 @@ public void init() {
                         DemoLog.i(TAG, "google fcm getToken = " + token);
                         
                         // 该 token 需要保存并调用 setOfflinePushConfig 接口上报 IMSDK
-                        String token = (String) o;
+                        String pushToken = token;
                     }
                 });
     }
@@ -822,4 +877,5 @@ OPPO 手机收不到推送一般有以下几种情况：
 
 ## 交流与反馈
 欢迎加入 QQ 群进行技术交流和反馈问题。
-<img src="https://qcloudimg.tencent-cloud.cn/raw/960ce9d76ea2cebffcb7629741279b90.png" alt="" style="zoom:50%;"/>
+<img src="https://qcloudimg.tencent-cloud.cn/raw/e2050d5b5c894c7da725f8e25c5bfe82.jpg" style="zoom:20%;"/>
+

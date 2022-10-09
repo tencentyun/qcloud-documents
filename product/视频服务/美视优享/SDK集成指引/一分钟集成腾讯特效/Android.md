@@ -12,14 +12,14 @@
 </tr></tbody></table>
 
 ## 导入资源
-
-### 资源
-
+<dx-tabs>
+::: 手动集成
+#### 集成
 - 添加上述文件准备的全部 `.aar` 文件到 app 工程 `libs` 目录下。
 - 将 SDK 包内的 assets/ 目录下的全部资源拷贝到 `../src/main/assets` 目录下，如果 SDK 包中的 MotionRes 文件夹内有资源，将此文件夹也拷贝到 `../src/main/assets` 目录下 。
 - 将 jniLibs 文件夹拷贝到工程的 `../src/main/jniLibs` 目录下。
 
-### 导入方法
+#### 导入方法
 打开 app 模块的 `build.gradle` 添加依赖引用：
 
 ```groovy
@@ -39,13 +39,61 @@ dependencies{
     compile fileTree(dir: 'libs', include: ['*.jar','*.aar'])//添加 *.aar
 }
 ```
+>! 如果项目中没有集成 Google 的 Gson 库则还需添加如下依赖：
+```groovy
+dependencies{
+    implementation 'com.google.code.gson:gson:2.8.2'
+}
+```
+:::
+::: Maven 集成
+腾讯特效 SDK 已经发布到 mavenCentral 库，您可以通过配置 gradle 自动下载更新。
 
-[](id:download)
-## 包体大小瘦身：动态下载 assets、so、动效资源指引
+1. 在 dependencies 中添加腾讯特效 SDK 的依赖。
+```groovy
+dependencies {
+	//例如：S1-04套餐如下
+	implementation 'com.tencent.mediacloud:TencentEffect_S1-04:latest.release'
+}
+```
+2. 在 defaultConfig 中，指定 App 使用的 CPU 架构。
+```
+defaultConfig {
+	ndk {
+		abiFilters "armeabi-v7a", "arm64-v8a"
+	}
+}
+```
+>? 目前 特效 SDK 支持 armeabi-v7a 和 arm64-v8a。
+3. 单击![img](https://main.qcloudimg.com/raw/d6b018054b535424bb23e42d33744d03.png)**Sync Now**，自动下载 SDK 并集成到工程里。
+4. 如果您的套餐包含动效和滤镜功能，那么需要在 [SDK 下载页面](https://cloud.tencent.com/document/product/616/65876) 下载对应的资源，将动效和滤镜素材放置在您工程下的如下目录：
+	- 动效：`../assets/MotionRes`      
+	- 滤镜：`../assets/lut`
 
+#### 各套餐对应的 Maven 地址
+
+| 版本    | Maven 地址                                                    | 
+| ------- | ------------------------------------------------------------ |
+| A1 - 01 | implementation 'com.tencent.mediacloud:TencentEffect_A1-01:latest.release' |
+| A1 - 02 | implementation 'com.tencent.mediacloud:TencentEffect_A1-02:latest.release' | 
+| A1 - 03 | implementation 'com.tencent.mediacloud:TencentEffect_A1-03:latest.release' |
+| A1 - 04 | implementation 'com.tencent.mediacloud:TencentEffect_A1-04:latest.release' |
+| A1 - 05 | implementation 'com.tencent.mediacloud:TencentEffect_A1-05:latest.release' |
+| A1 - 06 | implementation 'com.tencent.mediacloud:TencentEffect_A1-06:latest.release' |
+| S1 - 00 | implementation 'com.tencent.mediacloud:TencentEffect_S1-00:latest.release' |
+| S1 - 01 | implementation 'com.tencent.mediacloud:TencentEffect_S1-01:latest.release' |
+| S1 - 02 | implementation 'com.tencent.mediacloud:TencentEffect_S1-02:latest.release' |
+| S1 - 03 | implementation 'com.tencent.mediacloud:TencentEffect_S1-03:latest.release' |
+| S1 - 04 | implementation 'com.tencent.mediacloud:TencentEffect_S1-04:latest.release' |
+:::
+::: 动态下载集成
+#### 动态下载 assets、so、动效资源指引
 为了减少包大小，您可以将 SDK 所需的 assets 资源、so 库、以及动效资源 MotionRes（部分基础版 SDK 无动效资源）改为联网下载。在下载成功后，将上述文件的路径设置给 SDK。
 
 我们建议您复用 Demo 的下载逻辑，当然，也可以使用您已有的下载服务。动态下载的详细指引，请参见 [SDK 包体瘦身（Android）](https://cloud.tencent.com/document/product/616/73016)。
+:::
+</dx-tabs>
+
 
 ## 整体流程
 
@@ -215,38 +263,7 @@ mXmagicApi = new XmagicApi(this, XmagicResParser.getResPath(),new XmagicApi.OnXm
  <td>OnXmagicPropertyErrorListener errorListener</td><td>回调函数实现类</td>
  </tr></table>
 	- **返回**
- 错误码含义对照表：
- <table>
- <tr><th>错误码</th><th>含义</th></tr><tr>
- <td>-1</td><td>未知错误</td>
- </tr><tr>
- <td>-100</td><td>3D 引擎资源初始化失败</td>
- </tr><tr>
- <td>-200</td><td>不支持 GAN 素材</td>
- </tr><tr>
- <td>-300</td><td>设备不支持此素材组件</td>
- </tr><tr>
- <td>-400</td><td>模板 JSON 内容为空</td>
- </tr><tr>
- <td>-500</td><td>SDK版本过低</td>
- </tr><tr>
- <td>-600</td><td>不支持分割</td>
- </tr><tr>
- <td>-700</td><td>不支持 OpenGL</td>
- </tr><tr>
- <td>-800</td><td>不支持脚本</td>
- </tr><tr>
- <td>5000</td><td>分割背景图片分辨率超过2160*3840</td>
- </tr><tr>
- <td>5001</td><td>分割背景图片所需内存不足</td>
- </tr><tr>
- <td>5002</td><td>分割背景视频解析失败</td>
- </tr><tr>
- <td>5003</td><td>分割背景视频超过200秒</td>
- </tr><tr>
- <td>5004</td><td>分割背景视频格式不支持</td>
- </tr>
- </tbody></table>
+ 错误码含义请参见 [API 文档](https://cloud.tencent.com/document/product/616/65896#xmagicapi)。
 5. 添加素材提示语回调函数（方法回调有可能运行在子线程），部分素材会提示用户：点点头、伸出手掌、比心，这个回调就是用于展示类似的提示语。
 ```
 mXmagicApi.setTipsListener(new XmagicTipsListener() {

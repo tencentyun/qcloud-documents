@@ -12,7 +12,7 @@
 （此接口为 SDK 1.2.7.2版本新增，1.2.7.1及之前版本请参考 SDK 包内 XGPush.h 文件`startXGWithAppID` 接口）。
 
 ```objective-c
-/// @note移动推送SDK1.2.7.2+
+/// @note TPNS SDK1.2.7.2+
 - (void)startXGWithAccessID:(uint32_t)accessID accessKey:(nonnull NSString *)accessKey delegate:(nullable id<XGPushDelegate>)delegate；
 ```
 
@@ -51,9 +51,9 @@
 
 
 
-##移动推送Token 及注册结果
+## 移动推送 Token 及注册结果
 
-### 查询移动推送Token
+### 查询移动推送 Token
 
 #### 接口说明
 
@@ -68,6 +68,8 @@
 ```objective-c
 NSString *token = [[XGPushTokenManager defaultTokenManager] xgTokenString];
 ```
+
+>! token 的获取应该在 xgPushDidRegisteredDeviceToken:error:  返回正确之后被调用。
 
 ### 注册结果回调
 
@@ -92,7 +94,7 @@ SDK 启动之后，通过此方法回调来返回注册结果及 Token。
 SDK 1.2.7.2 新增，当注册推送服务失败会走此回调。
 
 ```objective-c
-/// @note移动推送SDK1.2.7.2+
+/// @note TPNS SDK1.2.7.2+
 - (void)xgPushDidFailToRegisterDeviceTokenWithError:(nullable NSError *)error
 ```
 
@@ -120,7 +122,7 @@ SDK 1.3.1.0 新增，通知弹窗授权的结果会走此回调。
 
 #### 接口说明
 
-若原来没有该类型账号，则添加；若原来有，则覆盖。（移动推送SDK1.2.9.0+ 新增）
+若原来没有该类型账号，则添加；若原来有，则覆盖。（移动推送 SDK1.2.9.0+ 新增）
 
 ```Objective-C
 - (void)upsertAccountsByDict:(nonnull NSDictionary<NSNumber *, NSString *> *)accountsDict;
@@ -156,7 +158,7 @@ NSString *account = @"account";
 添加或更新用户手机号，等于调用`upsertAccountsByDict:@{@(1002):@"具体手机号"}`。
 
 ```objective-c
-/// @note移动推送SDK1.3.2.0+
+/// @note TPNS SDK1.3.2.0+
 - (void)upsertPhoneNumber:(nonnull NSString *)phoneNumber;
 ```
 
@@ -178,7 +180,7 @@ NSString *account = @"account";
 
 #### 接口说明
 
-接口说明：删除指定账号类型下的所有账号。（移动推送SDK1.2.9.0+ 新增）
+接口说明：删除指定账号类型下的所有账号。（移动推送 SDK1.2.9.0+ 新增）
 
 ```Objective-C
 - (void)delAccountsByKeys:(nonnull NSSet<NSNumber *> *)accountsKeys;
@@ -493,7 +495,7 @@ badgeNumber：应用的角标数。
 #### 示例代码
 
 ```Objective-C
-/// 移动推送网络连接成功
+/// TPNS网络连接成功
 /// _launchTag清零标识，比如冷启动/热启动时将此tag设置为YES
 - (void)xgPushNetworkConnected {
     if (_launchTag) {
@@ -581,7 +583,7 @@ handler：查询结果的返回方法。
 开发者如果发现推送相关功能异常，可以调用该接口，触发本地 push 日志的上报，通过联系 [在线客服](https://cloud.tencent.com/act/event/Online_service) 反馈问题时，请将文件地址提供给我们，便于排查问题。
 
 ```
-/// @note移动推送SDK1.2.4.1+
+/// @note TPNS SDK1.2.4.1+
 - (void)uploadLogCompletionHandler:(nullable void(^)(BOOL result,  NSString * _Nullable errorMessage))handler;
 
 ```
@@ -598,7 +600,7 @@ handler：查询结果的返回方法。
 
 ```
 
-##移动推送日志托管
+## 移动推送日志托管
 
 #### 接口说明
 

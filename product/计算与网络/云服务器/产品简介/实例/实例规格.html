@@ -140,6 +140,8 @@
 				</li>
 				<li>
 					<p>多队列技术：虚拟网卡支持多个收发包队列，每个队列中的数据包可同时由不同的 CPU 进行收发处理</p>
+					<blockquote class="doc-tip"><p class="doc-tip-tit"><i class="doc-icon-tip"></i>说明：</p><p><ul><li>如您购买的子机规格较大，建议您使用多队列技术以实现更高性能。如您使用单队列，部分网络指标可能无法达到最高值。</li><li>如需调整网卡队列，可参考“网卡多队列配置错误问题”文档中的 <a href="https://cloud.tencent.com/document/product/213/68396#.E5.A4.84.E7.90.86.E6.AD.A5.E9.AA.A4.3Ca-id.3D.22processingsteps.22.3E.3C.2Fa.3E">处理步骤</a>。</li></p>
+</blockquote>
 				</li>
 				<li>
 					<p>队列数：每个虚拟网卡支持的收发包队列的数量（N 队列表示同时支持 N 个收队列与 N 个发队列）</p>
@@ -16616,7 +16618,8 @@ IT3 及 IT5 实例的数据盘是本地存储，有丢失数据的风险（例�
 <col style="width: 10%;">
 <col style="width: 10%;">
 <col style="width: 10%;">
-<col style="width: 20%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
 </colgroup>
 <tbody>
 <tr>
@@ -16632,6 +16635,9 @@ IT3 及 IT5 实例的数据盘是本地存储，有丢失数据的风险（例�
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>网络收发包（pps）（出+入）</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>连接数</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>队列数</p>
@@ -16660,6 +16666,9 @@ IT3 及 IT5 实例的数据盘是本地存储，有丢失数据的风险（例�
 <p>150万</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>400万</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>4</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
@@ -16686,6 +16695,9 @@ IT3 及 IT5 实例的数据盘是本地存储，有丢失数据的风险（例�
 <p>250万</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>400万</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>8</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
@@ -16710,6 +16722,9 @@ IT3 及 IT5 实例的数据盘是本地存储，有丢失数据的风险（例�
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>500万</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>400万</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>16</p>

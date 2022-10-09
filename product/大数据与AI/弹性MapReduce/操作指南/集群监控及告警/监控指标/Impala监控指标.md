@@ -111,11 +111,7 @@
 <td >个</td>
 <td >Daemon 线程数</td>
 </tr><tr>
-<td rowspan=2>CPU 利用率</td>
-<td >ProcessCpuLoad</td>
-<td >%</td>
-<td >进程 CPU 利用率</td>
-</tr><tr>
+<td rowspan=1>CPU 利用率</td>
 <td >SystemCpuLoad</td>
 <td >个</td>
 <td >系统 CPU 利用率</td>
@@ -252,11 +248,7 @@
 <td >个</td>
 <td >已打开文件描述符数</td>
 </tr><tr>
-<td rowspan=2>CPU 利用率</td>
-<td >ProcessCpuLoad</td>
-<td >%</td>
-<td >进程 CPU 利用率</td>
-</tr><tr>
+<td rowspan=1>CPU 利用率</td>
 <td >SystemCpuLoad</td>
 <td >个</td>
 <td >系统 CPU 利用率</td>
@@ -675,12 +667,3 @@
 <td >IO 管理器读取的本地字节数</td>
 </tr>
 </table>
-
-
-	
-	
-	
-	
-
-			
-			

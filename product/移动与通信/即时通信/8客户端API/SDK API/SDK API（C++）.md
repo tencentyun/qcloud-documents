@@ -109,6 +109,7 @@
 | [MuteGroupMember](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMGroupManager.html#ab19d433e5552205fcba61627e54f7569) | 禁言                                                       |
 | [KickGroupMember](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMGroupManager.html#ad2e4f74f4e26fb0db455d8e92f774032) | 踢人                                                       |
 | [SetGroupMemberRole](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMGroupManager.html#ab429c1ded6aa3ae27bb0917be6f71dd3) | 切换群成员的角色                                           |
+| [markGroupMemberList](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMGroupManager.html#abda7d60a02581930b2071cac01d41cfd) | 标记群成员                                                |
 | [TransferGroupOwner](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMGroupManager.html#a2fedff98e2e41e9d30f7a49f5c7adc8f) | 转让群主                                                   |
 | [InviteUserToGroup](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMGroupManager.html#a46fecb95bf66ccc3023201fb3737c423) | 邀请他人入群                                               |
 | [GetGroupApplicationList](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMGroupManager.html#a4609879f4c67fde60a6fa4f707987143) | 获取加群的申请列表                                         |

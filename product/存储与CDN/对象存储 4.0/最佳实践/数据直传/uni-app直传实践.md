@@ -100,7 +100,7 @@
                   'q-signature': opt.qSignature,
                };
                // 如果服务端用了临时密钥计算，需要传 x-cos-security-token
-               if (opt.securityToken) formData['x-cos-security-token'] = formData.securityToken;
+               if (opt.securityToken) formData['x-cos-security-token'] = opt.securityToken;
                uni.uploadFile({
                   url: 'https://' + opt.cosHost, //仅为示例，非真实的接口地址
                   filePath: opt.filePath,

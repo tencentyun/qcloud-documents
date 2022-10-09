@@ -25,6 +25,7 @@
    - [退还公网 IP](#thgw)：操作后，公网 IP 状态流转为“已退还”。
 4. [找回公网 IP](#refound)：状态为“已退还”的公网 IP，在8天内可以找回，找回后的公网 IP 经系统重新分配，状态为“使用中”。
 
+>?计费详情请参见 [互联网通道计费概述](https://cloud.tencent.com/document/product/216/64505)。
 ## 前提条件
 在控制台申请互联网通道，具体操作请参见[ 申请公网互联网通道](https://cloud.tencent.com/document/product/216/50985)。
 

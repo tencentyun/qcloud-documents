@@ -48,7 +48,8 @@
 </tr>
 <tr>
 <td>SSL 连接数</td>
-<td>连接客户端的数量。</td>
+<td>连接客户端的数量，一个 SSL 客户端仅允许一个用户连接，不支持一个 SSL 客户端连接多个客户。
+</td>
 </tr>
 <tr>
 <td>计费方式</td>
@@ -151,13 +152,13 @@
 
 
 ### Windows 客户端
-1. 首先在 [OpenVPN 官方下载页面 ](https://openvpn.net/vpn-client/)下载并安装 OpenVPN Connect。
+1. 首先在 OpenVPN 官方下载页面下载并安装 OpenVPN Connect。
 ![](https://qcloudimg.tencent-cloud.cn/raw/949a9e0031b880397bca986ac8eedfff.png)
 2. SSL 客户端安装完成后，选择 “Import Profile” 菜单中的 “FILE” 页面，上传 [步骤3](#step3) 已下载的 SSL 客户端配置文件（.ovpn 格式）。
 ![](https://qcloudimg.tencent-cloud.cn/raw/f55cc9eebb56b47511a063eb1135556a.png)
 
 ### MAC 客户端
-1. 首先在[ OpenVPN 官方下载页面 ](https://openvpn.net/vpn-client/)下载并安装 OpenVPN Connect。 
+1. 首先在 OpenVPN 官方下载页面下载并安装 OpenVPN Connect。 
 ![](https://qcloudimg.tencent-cloud.cn/raw/d08446a7176b855c0e19a77dd95cfdc3.png)
 2. SSL 客户端安装完成后，选择 “Import Profile” 菜单中的 “FILE” 页面，上传 [步骤3](#step3) 已下载的 SSL 客户端配置文件（.ovpn 格式）。
 ![](https://qcloudimg.tencent-cloud.cn/raw/efade3f1b6290cae59a337e0927fe7c5.png)

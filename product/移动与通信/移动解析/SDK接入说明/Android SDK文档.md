@@ -373,7 +373,7 @@ if (null != host && null != port) {
 
 ### OkHttp
 
-OkHttp 提供了 DNS 接口，用于向 OkHttp 注入 DNS 实现。得益于 OkHttp 的良好设计，使用 OkHttp 进行网络访问时，实现 DNS 接口即可接入 HTTPDNS 进行域名解析，在较复杂场景（HTTP/HTTPS + SNI）下也不需要做额外处理，侵入性极小。示例如下：
+OkHttp 提供了 DNS 接口，用于向 OkHttp 注入 DNS 实现。得益于 OkHttp 的良好设计，使用 OkHttp 进行网络访问时，实现 DNS 接口即可接入 HTTPDNS 进行域名解析，在较复杂场景（HTTP/HTTPS/WebSocket + SNI）下也不需要做额外处理，侵入性极小。示例如下：
 
 ```Java
 mOkHttpClient =
@@ -420,6 +420,8 @@ mRetrofit =
 ### WebView
 
 Android 系统提供了 API 以实现 WebView 中的网络请求拦截与自定义逻辑注入。我们可以通过该 API 拦截 WebView 的各类网络请求，截取 URL 请求的 HOST，调用 HTTPDNS 解析该 HOST，通过得到的 IP 组成新的 URL 来进行网络请求。示例如下：
+>! 由于 shouldInterceptRequest(WebView view, WebResourceRequest request) 中 WebResourceRequest 没有提供请求 body 信息，所以只能成功拦截 get 请求，无法拦截 post 请求 。
+
 ```Java
 mWebView.setWebViewClient(new WebViewClient() {
     // API 21及之后使用此方法
@@ -493,7 +495,7 @@ mWebView.loadUrl(targetUrl);
 
 ### HttpURLConnection
 
-- HTTPS 示例如下：
+- HTTPS 证书校验示例如下：
 ```Java
  // 以域名为 www.qq.com，HTTPDNS 解析得到的 IP 为192.168.0.1为例
 String url = "https://192.168.0.1/"; // 业务自己的请求连接

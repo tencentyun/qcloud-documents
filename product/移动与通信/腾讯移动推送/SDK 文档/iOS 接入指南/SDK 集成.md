@@ -5,12 +5,12 @@
 >
 
 ## SDK 组成
-- doc 文件夹：腾讯移动推送iOS SDK 开发指南。
+- doc 文件夹：腾讯移动推送 iOS SDK 开发指南。
 - demo 文件夹：包含样例工程，腾讯移动推送SDK（仅包含 OC demo，Swift Demo 请前往 [腾讯工蜂](https://git.code.tencent.com/tpns/XG-Demo-Swift) 进行下载）。 
 
 ## SDK 集成
 ### 接入前准备
-1. 接入 SDK 之前，请前往移动推送 [控制台](https://console.cloud.tencent.com/tpns) 创建产品和 iOS 应用，详细操作可参考 [创建产品和应用](https://cloud.tencent.com/document/product/548/37241)。
+1. 接入 SDK 之前，请前往 [移动推送控制台](https://console.cloud.tencent.com/tpns) 创建产品和 iOS 应用，详细操作可参考 [创建产品和应用](https://cloud.tencent.com/document/product/548/37241)。
    ![](https://main.qcloudimg.com/raw/47d9802945ecc9d4c84a2c1f3d45d40b.png)
 2. 单击**配置管理**，进入管理页面。
    ![](https://main.qcloudimg.com/raw/30da757263936244ba3967f280202ab9.png)
@@ -22,19 +22,19 @@
 #### 方式一：Cocoapods 导入
 通过 Cocoapods 下载地址：
 ``` 
-pod '移动推送-iOS', '~> 版本'  // 如果不指定版本则默认为本地 pod 移动推送-iOS 最新版本
+pod 'TPNS-iOS', '~> 版本'  // 如果不指定版本则默认为本地 pod TPNS-iOS 最新版本
 ```
 >?
 > - 首次下载需要登录 [仓库地址](https://git.code.tencent.com/users/sign_in)，并在**账户**菜单栏中 [设置用户名和密码](https://code.tencent.com/help/productionDoc/profile#password)。设置成功后，在 Terminal 输入对应的用户名和密码，后续即可正常使用，当前 PC 不需要再次登录。
-> - 由于仓库地址变更，如果 pod 提示 `Unable to find a specification for '移动推送-iOS'`，那么需要执行以下命令，并更新仓库确认版本：
+> - 由于仓库地址变更，如果 pod 提示 `Unable to find a specification for 'TPNS-iOS'`，那么需要执行以下命令，并更新仓库确认版本：
 >	``` 
 	pod repo update
-	pod search 移动推送-iOS
+	pod search TPNS-iOS
 	pod install //安装 SDK 
 ``` 
 
 #### 方式二：手动导入
-1. 进入腾讯移动推送[控制台](https://console.cloud.tencent.com/tpns)，单击左侧菜单栏**[SDK 下载](https://console.cloud.tencent.com/tpns/sdkdownload)**，进入下载页面，选择需要下载的 SDK 版本，单击操作栏中**下载**即可。
+1. 进入腾讯移动推送 [控制台](https://console.cloud.tencent.com/tpns)，单击左侧菜单栏**[SDK 下载](https://console.cloud.tencent.com/tpns/sdkdownload)**，进入下载页面，选择需要下载的 SDK 版本，单击操作栏中**下载**即可。
 2. 打开 demo 目录下的 SDK 文件夹，将 XGPush.h 及 libXG-SDK-Cloud.a 添加到工程，打开 XGPushStatistics 文件夹，获取 XGMTACloud.framework。
 3. 将 InAppMessage 文件夹导入到工程并在**Build Setting**>**Framework Search Paths** 添加查找路径（若您 SDK 版本低于1.2.8.0，则可以忽略此步骤）。
 4. 在 Build Phases 下，添加以下 Framework：
@@ -66,31 +66,31 @@ pod '移动推送-iOS', '~> 版本'  // 如果不指定版本则默认为本地 
 >
 
 如果您的应用服务接入点为上海、新加坡或者中国香港，请按照下文步骤完成其他服务接入点域名配置。
-1. 解压 SDK 文件包，将 SDK 目录下的 XGPushPrivate.h 文件添加到工程中。
+1. 解压 SDK 文件包，将 SDK 目录下的 XGPushPrivate.h 文件添加到工程中并在需要配置域名的类中引用(#import "XGPushPrivate.h")。
 2. 在`startXGWithAccessID:accessKey:delegate:`方法之前调用头文件中的配置`域名`接口：
 
 如需接入上海服务接入点，则将域名设置为 `tpns.sh.tencent.com`。
 **示例**
 ``` object-c
-/// @note移动推送SDK1.2.7.1+
+/// @note TPNS SDK1.2.7.1+
 [[XGPush defaultManager] configureClusterDomainName:@"tpns.sh.tencent.com"];
 ```
 如需接入新加坡服务接入点，则将域名设置为 `tpns.sgp.tencent.com`。
 **示例**
 ``` object-c
-/// @note移动推送SDK1.2.7.1+
+/// @note TPNS SDK1.2.7.1+
 [[XGPush defaultManager] configureClusterDomainName:@"tpns.sgp.tencent.com"];
 ```
 如需接入中国香港服务接入点，则将域名设置为 `tpns.hk.tencent.com`。
 **示例**
 ``` object-c
-/// @note移动推送SDK1.2.7.1+
+/// @note TPNS SDK1.2.7.1+
 [[XGPush defaultManager] configureClusterDomainName:@"tpns.hk.tencent.com"];
 ```
 如需接入中国广州服务接入点，则将域名设置为 `tpns.tencent.com`。
 **示例**
 ```
-/// @note移动推送SDK1.2.7.1+
+/// @note TPNS SDK1.2.7.1+
 [[XGPush defaultManager] configureClusterDomainName:@"tpns.tencent.com"];
 ```
 
@@ -104,8 +104,8 @@ pod '移动推送-iOS', '~> 版本'  // 如果不指定版本则默认为本地 
 @interface AppDelegate () <XGPushDelegate>
 @end 
 /**
-@param AccessID  通过移动推送管理台申请的 AccessID
-@param AccessKey  通过移动推送管理台申请的 AccessKey
+@param AccessID  通过 TPNS 管理台申请的 AccessID
+@param AccessKey  通过 TPNS 管理台申请的 AccessKey
 @param delegate 回调对象
 **/
 -(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions 
@@ -150,7 +150,7 @@ SDK 提供了 Service Extension 接口，可供客户端调用，从而可以使
 
 ## 调试方法
 #### 开启 Debug 模式
-打开 Debug 模式，即可在终端查看详细的腾讯移动推送Debug 信息，方便定位问题。
+打开 Debug 模式，即可在终端查看详细的腾讯移动推送 Debug 信息，方便定位问题。
 
 #### 示例代码
 ```
@@ -164,15 +164,15 @@ SDK 提供了 Service Extension 接口，可供客户端调用，从而可以使
 /**
 @brief 注册推送服务回调
 @param deviceToken APNs 生成的 Device Token
-@param xgToken移动推送生成的 Token，推送消息时需要使用此值。移动推送维护此值与 APNs 的 Device Token 的映射关系
+@param xgToken TPNS 生成的 Token，推送消息时需要使用此值。TPNS 维护此值与 APNs 的 Device Token 的映射关系
 @param error 错误信息，若 error 为 nil 则注册推送服务成功
-@note移动推送SDK1.2.6.0+
+@note TPNS SDK1.2.6.0+
 */
 - (void)xgPushDidRegisteredDeviceToken:(nullable NSString *)deviceToken xgToken:(nullable NSString *)xgToken error:(nullable NSError *)error;
 
 /// 注册推送服务失败回调
 /// @param error 注册失败错误信息
-/// @note移动推送SDK1.2.7.1+
+/// @note TPNS SDK1.2.7.1+
 - (void)xgPushDidFailToRegisterDeviceTokenWithError:(nullable NSError *)error {
 }
 ```
@@ -181,13 +181,13 @@ SDK 提供了 Service Extension 接口，可供客户端调用，从而可以使
 如果 Xcode 控制台，显示如下相似日志，表明客户端已经正确集成 SDK。
 
 ```javascript
-[移动推送] Current device token is 9298da5605c3b242261b57****376e409f826c2caf87aa0e6112f944
-[移动推送] Current移动推送token is 00c30e0aeddff1270d8****dc594606dc184  
+[TPNS] Current device token is 9298da5605c3b242261b57****376e409f826c2caf87aa0e6112f944
+[TPNS] Current TPNS token is 00c30e0aeddff1270d8****dc594606dc184  
 ```
->!在推送单个目标设备时请使用移动推送36位的 Token。
+>!在推送单个目标设备时请使用 TPNS 36位的 Token。
 
 ## 统一接收消息及点击消息回调说明
-移动推送及 APNs 通道统一接收消息回调，当应用在前台收到通知消息，以及所有状态（前台、后台、关闭）下收到静默消息会走此回调。
+移动推送自建通道及 APNs 通道统一接收消息回调，当应用在前台收到通知消息，以及所有状态（前台、后台、关闭）下收到静默消息会走此回调。
 ```objective-c
 - (void)xgPushDidReceiveRemoteNotification:(nonnull id)notification withCompletionHandler:(nullable void (^)(NSUInteger))completionHandler;
 ```
@@ -208,7 +208,7 @@ if (msgType.integerValue == 1) {
     } else if (msgType.integerValue == 2) {
         /// 收到静默消息
     } else if (msgType.integerValue == 9) {
-        /// 收到本地通知（移动推送本地通知）
+        /// 收到本地通知（TPNS本地通知）
     }
 ```
 
@@ -216,7 +216,7 @@ if (msgType.integerValue == 1) {
 ```objective-c
 /// 统一点击回调
 /// @param response 如果 iOS 10+/macOS 10.14+ 则为 UNNotificationResponse，低于目标版本则为 NSDictionary
-/// @note移动推送SDK1.2.7.1+
+/// @note TPNS SDK1.2.7.1+
 - (void)xgPushDidReceiveNotificationResponse:(nonnull id)response withCompletionHandler:(nonnull void (^)(void))completionHandler;
 ```
 
@@ -233,12 +233,12 @@ if (msgType.integerValue == 1) {
 ## 高级配置（可选）
 
 <span id="QHToken"></span>
-### 获取移动推送Token 交互建议
+### 获取移动推送 Token 交互建议
 建议您完成 SDK 集成后，在 App 的**关于**、**意见反馈**等比较不常用的 UI 中，通过手势或者其他方式显示移动推送Token，控制台和 Restful API 推送需要根据移动推送Token 进行 Token 推送，后续问题排查也需要根据移动推送Token 进行定位。
 
 #### 示例代码
 ```objective-c
-//获取移动推送生成的 Token
+//获取 TPNS 生成的 Token
 [[XGPushTokenManager defaultTokenManager] xgTokenString];
 ```
 ![](https://main.qcloudimg.com/raw/f6ff84d3a50630bb4e8a0ab6fd090798.png)
@@ -256,7 +256,7 @@ if (result && errorMessage.length>0) {
 UIPasteboard *pasteboard = [UIPasteboardgeneralPasteboard];
 pasteboard.string = errorMessage;
 }
-[移动推送CommonMethodshowAlert:title message:errorMessage viewController:selfcompletion:nil];
+[TPNSCommonMethodshowAlert:title message:errorMessage viewController:selfcompletion:nil];
 }];
 
 ```
@@ -267,10 +267,9 @@ pasteboard.string = errorMessage;
 您可在申请 App 权限使用时，使用以下内容声明授权的用途：
 
 <pre>
-我们使用 <a href="https://cloud.tencent.com/product/tpns">腾讯云移动推送</a> 用于实现产品信息的推送，在您授权我们“访问网络连接”和“访问网络状态”权限后，表示您同意 <a href="https://cloud.tencent.com/document/product/548/50955">腾讯 SDK 隐私协议</a>。您可以通过关闭终端设备中的通知选项来拒绝接受此 SDK 推送服务。
+我们使用 <a href="https://cloud.tencent.com/product/tpns">腾讯云移动推送 TPNS</a> 用于实现产品信息的推送，在您授权我们“访问网络连接”和“访问网络状态”权限后，表示您同意 <a href="https://cloud.tencent.com/document/product/548/50955">腾讯 SDK 隐私协议</a>。您可以通过关闭终端设备中的通知选项来拒绝接受此 SDK 推送服务。
 </pre>
 
 其中上述声明授权的两个链接如下：
-- 腾讯云移动推送：`https://cloud.tencent.com/product/tpns`
+- 腾讯云移动推送 ：`https://cloud.tencent.com/product/tpns`
 - 腾讯 SDK 隐私协议：`https://cloud.tencent.com/document/product/548/50955`
-

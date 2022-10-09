@@ -54,7 +54,7 @@
 <img src="https://qcloudimg.tencent-cloud.cn/raw/646afa6211d9ed9309ad2eddeb9a6299.png" width = "50%" height = "50%"> 
 2. 单击**下一步**，填写数据源配置信息：
 <img src="https://qcloudimg.tencent-cloud.cn/raw/8e1b5c35f131390ae8e191374c4a0999.png" width = "50%" height = "50%"> 
-3. 继续单击**下一步**，选择数据目标信息，即同步 MySQL 数据的 Topic，根据实际情况选择 DIP Topic 或 CKafka Topic 即可，此处选择 **步骤1 **中创建的 DIP topic：
+3. 继续单击**下一步**，选择数据目标信息，即同步 MySQL 数据的 Topic，根据实际情况选择 DIP Topic 或 CKafka Topic 即可，此处选择 [步骤2](#step2) 中创建的 DIP topic：
 <img src="https://qcloudimg.tencent-cloud.cn/raw/3f3254a4a710938b3c57b860d1c1fe30.png" width = "50%" height = "50%"> 
 4. 任务创建成功后，在任务详情 - 查看消息可以看到订阅的数据信息：
 <img src="https://qcloudimg.tencent-cloud.cn/raw/89e7d0075042d218298c98ec6a6e0394.jpg" width = "60%" height = "60%"> 
@@ -71,7 +71,7 @@ insert into test values('testname',25);
 <img src="https://qcloudimg.tencent-cloud.cn/raw/77a09f68dbbc077b413d6653aec65d4e.png" width = "40%" height = "40%"> 
 2. 	配置数据源，选择同步了 MySQL 数据的 Topic，这里选择步骤1中的 Topic，选择 **从最开始位置开始消费**。
 <img src="https://qcloudimg.tencent-cloud.cn/raw/3811b240ef7cf8c3ce6c099f762da636.png" width = "40%" height = "40%"> 
-3. 下一步中数据处理可根据实际情况进行配置，这里不仅行相关配置，使用原始消息数据。最后进行 ES 相关配置，其中主键为数据库表的主键名称。
+3. 下一步中数据处理可根据实际情况进行配置，这里不进行相关配置，使用原始消息数据。最后进行 ES 相关配置，其中主键为数据库表的主键名称。
 >!此模式需要开启数据库同步模式，并填写表的主键的列名，如此处主键列名为 **id**。
 >
 <img src="https://qcloudimg.tencent-cloud.cn/raw/8163016b758e79f5a3546c6f5ac6b020.png" width = "60%" height = "60%"> 

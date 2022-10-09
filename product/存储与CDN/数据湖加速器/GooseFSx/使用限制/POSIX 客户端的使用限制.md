@@ -1,15 +1,8 @@
-本文主要介绍数据加速器 GooseFSx POSIX 客户端的使用限制。
-
-## POSIX 客户端规格
-
-| **项目**                          | **规格** | **说明**                                                     |
-| --------------------------------- | -------- | ------------------------------------------------------------ |
-| 单 POSIX 客户端挂载 GooseFSx 实例个数 | 1        | 一个 POSIX 客户端只能挂载一个 GooseFSx 实例。                      |
-| 单 GooseFSx 实例支持 POSIX 客户端个数 | 256      | 256个 POSIX 客户端可同时挂载一个 GooseFSx 实例；若您有其他需求，您可咨询 [在线客服](https://cloud.tencent.com/act/event/Online_service?from=doc_582) 寻求帮助。 |
+本文主要介绍数据加速器 GooseFSx 客户端的使用限制。
 
 ## 适用的操作系统
 
-GooseFSx 的 POSIX 客户端支持 Linux 和 Windows 操作系统，推荐的操作系统版本如下表所示：
+GooseFSx 的客户端支持 Linux 和 Windows 操作系统，推荐的操作系统版本如下表所示：
 
 <table>
    <tr>
@@ -100,3 +93,17 @@ GooseFSx 的 POSIX 客户端支持 Linux 和 Windows 操作系统，推荐的操
 
 >? 若您的操作系统版本不在此表中，您可咨询 [在线客服](https://cloud.tencent.com/act/event/Online_service?from=doc_582) 寻求帮助。
 >
+
+## 客户端规格
+
+| **项目**                          | **规格** | **说明**                                                     |
+| --------------------------------- | -------- | ------------------------------------------------------------ |
+| 单 GooseFSx 实例支持客户端个数 | 256        | 256个客户端可同时挂载一个 GooseFSx 实例。                      |
+| 单客户端挂载 GooseFSx 实例个数 | 1      | 一个客户端只能挂载一个 GooseFSx 实例。 |
+| 客户端最小配置 | 4核8GB        | 客户端推荐最小配置4核8GB内存。                      |
+| 客户端开放端口 | 22        | 客户端开放22端口，与客户端管理节点建立连接。                      |
+
+>? 
+> - 若在此表不能满足您的需求，或您有其他需求，您可咨询 [在线客服](https://cloud.tencent.com/act/event/Online_service?from=doc_582) 寻求帮助。
+> - 请勿删除或覆盖客户端的 authorized_keys 文件，建议使用 `ssh copy` 命令追加写文件 authorized_keys，请勿使用 `scp` 命令覆盖写文件 authorized_keys。
+> 

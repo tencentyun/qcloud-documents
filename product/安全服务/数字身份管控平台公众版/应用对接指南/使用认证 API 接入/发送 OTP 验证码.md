@@ -83,6 +83,18 @@ Host: sample.portal.tencentciam.com
   "phone_number" : "13612345678"
 }
 ```
+- 重置密码场景，发送邮箱验证码。
+```
+POST /otp/send HTTP/1.1
+Content-Type: application/json
+Authorization: Basic Q0xJRU5UXzRfSUQ6Q0xJRU5UXzRfU0VDUkVU
+Host: sample.portal.tencentciam.com
+
+{
+  "usage" : "reset_password",
+  "email" : "MOCK_USERNAME@example.com"
+}
+```
 
 ## 请求头
 | 名称          | 描述                                                         |
@@ -92,13 +104,13 @@ Host: sample.portal.tencentciam.com
 ## 请求体 JSON 参数
 | JSON 路径      | 数据类型 | 描述                                                         |
 | :------------- | :------- | :----------------------------------------------------------- |
-| usage          | String   | OTP 验证码的使用场景。<li>短信和邮箱 OTP 登录场景输入 `login`</li><li>用户注册场景输入 `signup`</li><li>更新用户信息场景输入 `update_userinfo`</li>如果不填，默认代表登录场景。 |
+	| usage          | String   |OTP 验证码的使用场景。<li>短信和邮箱 OTP 登录场景输入 `login`。</li><li>用户注册场景输入 `signup`。</li><li>更新用户信息场景输入 `update_userinfo`。</li><li>重置用户密码场景输入 `reset_password`。</li><li>如果没有输入参数，默认代表登录场景。</li> |
 | phone_number   | String   | 用户的手机号，限国内三大运营商11位手机号。发送短信 OTP 验证码时传递此参数。 |
 | email          | String   | 用户的邮箱地址。发送邮箱 OTP 验证码时传递此参数。            |
 | auth_source_id | String   | 短信 OTP 或邮箱 OTP 认证源 ID。可在控制台的通用认证源列表页面查看。短信和邮箱 OTP 登录场景传递此参数，系统将使用认证源配置的验证码长度和有效期。其他场景不传递此参数，系统默认使用6位数字验证码，有效期60秒。 |
 
 ## 正常响应示例
-验证码发送成功
+验证码发送成功。
 ```
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -167,5 +179,36 @@ Content-Type: application/json;charset=UTF-8
 {
   "error" : "temporarily_unavailable",
   "error_description" : "Failed to send OTP. Please try again later."
+}
+```
+- 注册场景，邮箱被使用。
+```
+HTTP/1.1 400 Bad Request
+Content-Type: application/json;charset=UTF-8
+
+{
+    "error": "email_is_used"
+}
+```
+- 注册场景，手机号被使用。
+```
+HTTP/1.1 400 Bad Request
+Content-Type: application/json;charset=UTF-8
+
+
+{
+    "error": "phone_number_is_used"
+}
+```
+- 向单个手机号发送短信频率超限。
+  - 如果使用的是自购短信服务，可自行到 [短信控制台](https://console.cloud.tencent.com/smsv2) 调整短信频率限制策略。
+  - 如果使用的是免费短信额度，频率限制为：对同一手机号，每个自然日内发送短信条数不超过50条；相同内容短信对同一手机号，30秒内发送短信条数不超过1条。
+```
+HTTP/1.1 400 Bad Request
+Content-Type: application/json;charset=UTF-8
+
+{
+  "error" : "sms_rate_limit_exceeded",
+  "error_description" : "SMS rate limit exceeded for same phone number"
 }
 ```

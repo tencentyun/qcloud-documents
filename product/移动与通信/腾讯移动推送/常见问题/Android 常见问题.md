@@ -31,7 +31,7 @@ XGPushConfig.enablePullUpOtherApp(Context context, boolean pullUp);
 若您使用 gradle 自动集成方式，请在自身应用的 AndroidManifest.xml 文件 &lt;application&gt; 标签下配置如下结点，其中 `xxx` 为任意自定义名称；如果使用手动集成方式，请修改如下节点属性：
 ```xml
 <!-- 在自身应用的AndroidManifest.xml文件中添加如下结点，其中 xxx 为任意自定义名称: -->     
-<!-- 关闭与移动推送应用的联合保活功能，请配置 -->
+<!-- 关闭与 TPNS 应用的联合保活功能，请配置 -->
 <provider
 		 android:name="com.tencent.android.tpush.XGPushProvider"
 		 tools:replace="android:authorities"
@@ -59,7 +59,7 @@ android:value="true" />
 
 | 厂商 | 是否需要上架应用市场 |
 |---------|---------|
-| 小米 | 否，个人开发者账号即可 [开通小米平台推送服务](https://dev.mi.com/console/doc/detail?pId=68) | 
+| 小米 | 是，且需要企业开发者账号可 [开通小米平台推送服务](https://dev.mi.com/console/doc/detail?pId=68) | 
 | 魅族 | 否，个人开发者账号即可 [开通魅族平台推送服务](http://open.res.flyme.cn/fileserver/upload/file/201709/a271468fe23b47408fc2ec1e282f851f.pdf)| 
 | FCM | 否，个人开发者账号即可开通 FCM 推送服务 |
 | 华为 | 否，个人开发者账号即可 [开通华为平台推送服务](https://developer.huawei.com/consumer/cn/doc/distribution/app/agc-enable_service#enable-service) | 
@@ -163,18 +163,6 @@ android:value="true" />
 
 表示您的应用注册该厂商通道失败，您可以通过获取厂商通道注册失败的返回码来进行问题定位和排查，详情请参见 [厂商通道注册失败排查指南](https://cloud.tencent.com/document/product/548/45659)。
 
-### 同时集成了即时通信 IM 和 移动推送，存在大量的厂商类冲突，该如何解决？
-
-目前 IM 已使用移动推送提供的厂商 jar 包，请按照下方表格替换相关依赖包，替换后即可解决。
-
- | 推送通道 | 系统要求 | 条件说明 |
- | --------------- | ------| -------------------------------------------- | 
- | 小米推送| MIUI|使用小米推送，添加依赖：`implementation 'com.tencent.tpns:xiaomi:1.2.1.3-release'`|
- | 华为推送| EMUI|使用华为推送，添加依赖：<li>`implementation 'com.tencent.tpns:huawei:1.2.1.3-release'`</li><li>`implementation 'com.huawei.hms:push:5.0.2.300'`</li>| 
-| Google FCM 推送| Android 4.1及以上|手机端需安装 Google Play Services 且在中国大陆地区以外使用。添加依赖：`implementation 'com.google.firebase:firebase-messaging:20.2.3'`| 
-| 魅族推送 | Flyme| 使用魅族推送，添加依赖：`implementation 'com.tencent.tpns:meizu:1.2.1.3-release'` | 
-| OPPO 推送| ColorOS |并非所有 OPPO 机型和版本都支持使用 OPPO 推送，使用 OPPO 推送，添加依赖：`implementation 'com.tencent.tpns:oppo:1.2.1.3-release'`| 
-| vivo 推送| FuntouchOS|并非所有 vivo 机型和版本都支持使用 vivo 推送，使用 vivo 推送，添加依赖：`implementation 'com.tencent.tpns:vivo:1.2.1.3-release'`|
 
 ### 如何适配 small icon 小图标？
 
@@ -264,4 +252,4 @@ android.useAndroidX=trueandroid.enableJetifier=true
 不可以，Google 服务和一个可以正常访问 Google 的网是可以使用 FCM 的必要条件。
 
 ### FCM 通道适用哪个集群
-FCM 需要国外网络，适用于境外香港和新加坡集群。
+FCM 需要国外网络，适用于境外中国香港和新加坡集群。

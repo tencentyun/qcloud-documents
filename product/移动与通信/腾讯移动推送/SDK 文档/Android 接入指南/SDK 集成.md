@@ -218,9 +218,10 @@ dependencies {
     <!-- 【必须】移动推送 TPNS service -->
     <service
         android:name="com.tencent.android.tpush.service.XGVipPushService"
-        android:persistent="true"
-        android:process=":xg_vip_service"></service>
-
+        android:exported="false"
+        android:process=":xg_vip_service">
+    </service>
+	
     <!-- 【必须】通知 service ，android:name 部分改为包名.XGVIP_PUSH_ACTION -->
         <service android:name="com.tencent.android.tpush.rpc.XGRemoteService"
             android:exported="false">
@@ -248,7 +249,8 @@ dependencies {
 
     <!-- 【可选】APP实现的Receiver，用于接收消息透传和操作结果的回调，请根据需要添加 -->
     <!-- YOUR_PACKAGE_PATH.CustomPushReceiver需要改为自己的Receiver： -->
-    <receiver android:name="应用包名.MessageReceiver">
+    <receiver android:name="应用包名.MessageReceiver"
+        android:exported="false">
         <intent-filter>
             <!-- 接收消息透传 -->
             <action android:name="com.tencent.android.xg.vip.action.PUSH_MESSAGE" />

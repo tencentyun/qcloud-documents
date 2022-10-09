@@ -1,6 +1,6 @@
 
 
-容器服务 TKE 通过集成日志服务 CLS，提供了全套完整的产品化能力，实现 Nginx-ingress 日志采集、消费能力。更多请查看 [Nginx-ingress 日志配置](https://cloud.tencent.com/document/product/457/50505)。若默认的日志索引不符合您的日志需求，您需要自定义日志索引，则可参考本文更新 Nginx Ingress 的日志索引。
+容器服务 TKE 通过集成日志服务 CLS，提供了全套完整的产品化能力，实现 Nginx-ingress 日志采集、消费能力。更多请查看 [Nginx-ingress 日志配置](https://cloud.tencent.com/document/product/457/50505)。若默认的日志索引不符合您的日志需求，您可以自定义日志索引，本文向您介绍如何更新 Nginx Ingress 的日志索引。
 
 ## 前提条件
 
@@ -12,7 +12,7 @@
 
 ## 操作步骤
 
->! 修改日志结构需要了解 Nginx Ingress 的日志流，如日志的输出、日志的采集、日志的索引，需注意其中任何一个步骤缺失或配置出错，都会导致日志修改失败。
+>! 修改日志结构需要了解 Nginx Ingress 的日志流，如日志的输出、日志的采集、日志的索引的配置，其中日志输出和采集缺失或配置出错，都会导致日志修改失败。 
 
 
 [](id:step1)
@@ -34,9 +34,9 @@ Nginx Ingress 实例的日志配置在该实例的主配置 ConfigMap 中。Conf
 
 需要修改字段包括：
 
-* beginningRegex：日志开始的正则表达式
-* keys：日志的字段
-* logRegex：日志结束的正则表达式
+- beginningRegex：日志开始的正则表达式
+- keys：日志的字段
+- logRegex：日志结束的正则表达式
 
 正则和 Nginx 的日志行格式匹配。建议在 Nginx 已有日志格式后面追加字段，同时声明在 keys 的末尾。并追加该字段的正则解析到 beginningRegex、logRegex 的末尾。
 
@@ -47,10 +47,11 @@ Nginx Ingress 实例的日志配置在该实例的主配置 ConfigMap 中。Conf
 
 ### （可选）步骤3：修改 CLS 的日志索引格式 
 
-如果需要检索该字段的能力，则需要在对应日志主题中，添加新字段的索引。您可以在日志服务控制台操作，操作完成之后所有采集到的日志都可以通过索引进行检索。操作详情见 [创建 CRD 投递日志到 CLS](https://cloud.tencent.com/document/product/457/48425)。
+如果需要检索该字段的能力，则需要在对应日志主题中，添加新字段的索引。您可以在日志服务控制台操作，操作完成之后所有采集到的日志都可以通过索引进行检索。操作详情见 [配置索引](https://cloud.tencent.com/document/product/614/50922)。
  
 
-
+![](https://qcloudimg.tencent-cloud.cn/raw/cafd4249ccd0602a8a2d19fa71e61943.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/b0e2684e118ab2eb159e25e9a0c395cd.png)
 
 ## 恢复初始设置
 

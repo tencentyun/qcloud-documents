@@ -36,18 +36,10 @@ console.log(a.OPENID);
 ### 场景二：在生命周期中获取 openid
 
 1. 我们同样可以通过在生命周期中实现当页面加载时获取 openid 的效果，代码示例如下：
-![](https://qcloudimg.tencent-cloud.cn/raw/9764b4fd2393d5ab8698c0532681c473.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/ef75b839810e13e7161f9ce29222d915.png)
 <dx-codeblock>
 :::  js
-export default {
-
- async onPageLoad(query) {
-
-  var a=await app.utils.getWXContext()
-
-   console.log(a.OPENID);
-
- }
+app.auth.currentUser.openId
 :::
 </dx-codeblock>
 2. 将应用发布为小程序，打开调试模式并刷新页面，可以看到当页面加载时 openid 已经成功输出。

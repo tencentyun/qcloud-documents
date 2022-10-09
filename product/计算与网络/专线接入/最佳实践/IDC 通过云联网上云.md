@@ -3,9 +3,9 @@
 
 ## 步骤1：创建云联网类型的专线网关
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)，在左侧目录中，单击**专线网关**，进入管理页面。
-2. 单击**新建**。
+2. 单击**+新建**。
 3. 在弹出框中，填写网关名称，关联网络选择**云联网**，云联网实例选择**暂不关联**，单击**确定**。
- ![](https://main.qcloudimg.com/raw/779d51771344c0bad90b5a76a0154879.png)
+ ![](https://qcloudimg.tencent-cloud.cn/raw/a1495bfc73c01d1e57490317ededdde3.png)
  
 ## 步骤2：专线网关添加发布网段
 1. 在专线网关列表中，找到需要调整的实例“dcg-\***”，单击其 ID，进入详情页。
