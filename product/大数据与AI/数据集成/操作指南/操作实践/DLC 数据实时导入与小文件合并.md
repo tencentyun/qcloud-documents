@@ -44,9 +44,9 @@ ALTER TABLE `db_name`.`table_name` SET TBLPROPERTIES ('write.upsert.enabled'='tr
 >? 实时导入数据会导致海量小文件产生，小文件会多了之后查询效率会恶化的非常严重，周期性的合并小文件能保证表的查询效率。小文件合并开启之后，实时导入任务会在指定次数的 CheckPoint 之后，下发一条合并指令到 DLC，该指令使用用户配置的 DLC 数据源的引擎执行。
 
 ### 配置项目空间
+>? 若您使用的是 WeData 产品，配置项目空间操作请参见 [WeData-项目列表](https://cloud.tencent.com/document/product/1267/72614)。
+
 1. 进入 [DataInLong 控制台](https://console.cloud.tencent.com/datainlong/projectlist)，单击**项目列表 > 新建**，新建项目空间。
->? 若已建项目或使用默认项目，可忽略此步骤。
->
 ![](https://qcloudimg.tencent-cloud.cn/raw/2ca4d56831f6d5c4143e487310fb04e1.png)
 2. 配置项目空间信息
 <table>
@@ -73,6 +73,7 @@ ALTER TABLE `db_name`.`table_name` SET TBLPROPERTIES ('write.upsert.enabled'='tr
 ### 配置集成资源组 [](id:配置集成资源组)
 1. 进入 [DataInLong 控制台](https://console.cloud.tencent.com/datainlong/projectlist) 选择**集成资源**并单击**创建**，进入集成资源组购买页。
 ![](https://qcloudimg.tencent-cloud.cn/raw/02dcb0c5748c4ce2dc1c944f47bfe049.png)
+>? 若您使用的是 WeData 产品，请点击进入 [WeData 控制台](https://console.cloud.tencent.com/wedata/fusion/executorResource)。
 2. 购买集成资源组。
 ![](https://qcloudimg.tencent-cloud.cn/raw/8f7529a64cf1eaf9648f48b1a47d8965.png)
 >? 
