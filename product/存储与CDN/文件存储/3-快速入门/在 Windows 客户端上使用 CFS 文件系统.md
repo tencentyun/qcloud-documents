@@ -14,13 +14,13 @@
 如需使用其他登录方式，请参见 [登录 Windows 实例](https://cloud.tencent.com/document/product/213/35697) 文档。
 2. 验证网络通信。
 挂载前，需要确认客户端与文件系统的网络可达性（需要在 Windows 客户端启用 Telnet 服务）。可以通过 telnet 命令验证（例如 telnet 192.168.1.1 445），具体各个协议及客户端要求开放端口信息如下：
->?Windows 暂时不支持使用 NFSV4 挂载。
 <table>
 	<tr><th>文件系统协议</th><th>客户端开放端口</th><th>确认网络联通性</th></tr>
 	<tr><td>NFS 3.0</td><td>111，892，2049</td><td>telnet 111，892和2049</td></tr>
 	<tr><td>CIFS/SMB</td><td>445</td><td>telnet 445</td></tr>
 </table>
 
+>?Windows 暂时不支持使用 NFSV4 挂载。
 
 ## 步骤3：挂载文件系统
 
