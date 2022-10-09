@@ -385,7 +385,7 @@ tim.sendMessage(message, {
 TUIOfflinePush.setOfflinePushListener((data) => {
     // 透传 entity 中的内容，不包含推送的 Message
     console.log('setOfflinePushListener', data);
-    const {nick, userID} = ret.data.notification.entity;
+    const {nick, userID} = data.notification.entity;
     // 跳转到应用内指定界面
     uni.navigateTo({
         url: "/pages/xxx/xxx",
