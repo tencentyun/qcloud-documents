@@ -4,6 +4,8 @@ SSL VPN 网关创建完成后，需要在腾讯云侧创建 SSL 服务端，为�
 ## 操作步骤
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。
 2. 在左侧目录中单击 **VPN 连接** > **SSL 服务端**，进入管理页面。
+>?一个 VPN 网关仅支持关联一个 SSL 服务端，详情请参见 [使用限制](https://cloud.tencent.com/document/product/554/18982)。
+>
 3. 在 SSL 服务端管理页面，单击**+新建**。
 4. 在弹出的 **新建 SSL 服务端**对话框中，配置如下参数。
 <img src="https://qcloudimg.tencent-cloud.cn/raw/bb5b9f270dd1c95248a29a4874e95e32.png" width="70%">
