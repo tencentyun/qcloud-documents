@@ -29,7 +29,6 @@
 
 ## 安卓配置
 
-### 步骤1：注册应用到厂商推送平台并在 IM 控制台配置
 
 登录腾讯云 [即时通信 IM 控制台](https://console.qcloud.com/avc) ，添加各个厂商推送证书，并将您获取的各厂商的 AppID、AppKey、AppSecret 等参数配置给 IM 控制台的推送证书。
 <dx-alert infotype="notice" title="">
