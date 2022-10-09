@@ -32,7 +32,7 @@ Consul 引擎支持使用 Gossip Encryption 进行通信加密。您可以配置
 
 ### 操作步骤
 1. 登录 [TSE 控制台](https://console.cloud.tencent.com/tse)。
-2. 在左侧导航栏单击注册中心，单击目标实例的“ID/名称”，在系统参数页，选择 Gossip 加密功能项，单击**修改参数**，编辑 JSON 内容，将 encrypt_verify_incoming 和 encrypt_verify_outgoing 修改为 true，单击**保存**。
+2. 在左侧导航栏单击**注册配置中心** > **consul**，单击目标实例的“ID/名称”，在系统参数页，选择 Gossip 加密功能项，单击**修改参数**，编辑 JSON 内容，将 encrypt_verify_incoming 和 encrypt_verify_outgoing 修改为 true，单击**保存**。
 <img src="https://qcloudimg.tencent-cloud.cn/raw/ecb7b408f23a45b4eeae90134d998620.jpg">
 3. 等待 Consul Server 集群滚动重启，此过程大概需要3-8分钟。
 4. 当实例处于运行中状态，表明重启完毕，您需要在 Consul Agent Client 的启动配置中添加相同的密钥配置（encrypt），并重启 Agent Client。
@@ -50,7 +50,7 @@ Consul 引擎支持使用 Gossip Encryption 进行通信加密。您可以配置
 
 ### 操作步骤
 1. 登录 [TSE 控制台](https://console.cloud.tencent.com/tse)。
-2. 在左侧导航栏单击注册中心，单击目标实例的“ID/名称”，在系统参数 页，选择 Gossip 加密功能项，单击**修改参数**，编辑 JSON 内容，将 encrypt_verify_incoming 和 encrypt_verify_outgoing 设置为 false，单击**保存**。
+2. 在左侧导航栏单击**注册配置中心** > **consul**，单击目标实例的“ID/名称”，在系统参数页，选择 Gossip 加密功能项，单击**修改参数**，编辑 JSON 内容，将 encrypt_verify_incoming 和 encrypt_verify_outgoing 设置为 false，单击**保存**。
 3. 等待 Consul Server 滚动重启完毕，修改已经启动的 Consul Agent Client 配置，使之保持与 Consul Server 配置一致，并进行滚动重启。
 >!由于 encrypt_verify_incoming 设置为 false，此时流入流量不会进行加密校验。
 >
