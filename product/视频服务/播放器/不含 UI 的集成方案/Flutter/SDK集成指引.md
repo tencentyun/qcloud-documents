@@ -17,7 +17,7 @@
 
 ### 在项目的 pubspec.yaml 中添加依赖
 
-支持基于LiteAVSDK Player 或 Professional 版本集成，你可以根据项目需要进行集成。
+支持基于 LiteAVSDK Player 或 Professional 版本集成，你可以根据项目需要进行集成。
 
 1. 集成 LiteAVSDK_Player 版本最新版本，默认情况下也是集成此版本。在`pubspec.yaml`中增加配置：
 ```yaml
