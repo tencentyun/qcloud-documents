@@ -159,10 +159,8 @@
 
 若您对本次升级有疑问，请参见以下常见问题或 [联系我们](https://cloud.tencent.com/document/product/436/37708)，我们将为您解答。
 
-- [如何查看账单的统计周期？]()
-- [什么是按扣费周期出账、什么是按计费周期出账？]()
-- [计费模式与账单统计周期的关系是什么？]()
-- [COS 由按月结算升级为按日结算后，为什么升级后第一个月的账单（按扣费周期出账）费用比升级前费用“上涨”？]()
-- [COS 由按月结算升级为按日结算后，为什么升级后的L3-明细账单（按扣费周期出账）与用量明细账单中的存储容量“不同”？]()
-
-
+- [如何查看账单的统计周期？](https://cloud.tencent.com/document/product/436/30747#period)
+- [什么是按扣费周期出账、什么是按计费周期出账？](https://cloud.tencent.com/document/product/436/30747#charge)
+- [计费模式与账单统计周期的关系是什么？](https://cloud.tencent.com/document/product/436/30747#relationship)
+- [COS 由按月结算升级为按日结算后，为什么升级后第一个月的账单（按扣费周期出账）费用比升级前费用“上涨”？](https://cloud.tencent.com/document/product/436/30747#costMore)
+- [COS 由按月结算升级为按日结算后，为什么升级后的L3-明细账单（按扣费周期出账）与用量明细账单中的存储容量“不同”？](https://cloud.tencent.com/document/product/436/30747#storage)
