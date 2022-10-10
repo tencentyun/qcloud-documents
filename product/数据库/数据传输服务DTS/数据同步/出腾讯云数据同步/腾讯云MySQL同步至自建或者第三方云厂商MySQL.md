@@ -64,7 +64,7 @@ FLUSH PRIVILEGES;
 <li>实例参数要求：
 <ul>
 <li>源库 server_id 参数需要手动设置，且值不能设置为0。</li>
-<li>源库表的 row_format 不能设置为 FIXDE。</li>
+<li>源库表的 row_format 不能设置为 FIXED。</li>
 <li>源库和目标库 lower_case_table_names 变量必须设置一致。</li>
 <li>源库变量 connect_timeout设置数值必须大于10。</li></ul></li>
 <li>Binlog 参数要求：
