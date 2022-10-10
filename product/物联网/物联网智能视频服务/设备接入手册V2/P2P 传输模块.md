@@ -442,7 +442,7 @@ typedef struct iv_avt_init_parm_s {
 
 ## 示例代码
 
-1. P2P 初始化
+### 1. P2P 初始化
 ```
     iv_p2p_parm_s p2p_param = {0};
 
@@ -474,11 +474,13 @@ typedef struct iv_avt_init_parm_s {
     iv_avt_p2p_set_buf_watermark(200 * 1024, 400 * 1024, 500 * 1024);
 #endif
 ```
-2. 配置拥塞控制参数
+
+### 2. 配置拥塞控制参数
 ```
 iv_avt_p2p_set_buf_watermark(200 * 1024, 400 * 1024, 500 * 1024);
 ```
-3. p2p 退出
+
+### 3. p2p 退出
 
 ```
 void p2p_sample_exit(void)
