@@ -230,9 +230,9 @@ _controller.playWithModelNeedLicence(model);
 
 3. playAction
 
-* PLAY_ACTION_AUTO_PLAY : 调用 playWithModel 之后，会自动开始播放视频。
-* PLAY_ACTION_MANUAL_PLAY : 调用 playWithModel 之后，需要手动播放，并且播放器实质上并未加载视频，只会显示封面图，相对于PLAY_ACTION_PRELOAD没有任何视频播放资源消耗。
-* PLAY_ACTION_PRELOAD : 调用 playWithModel 之后，会显示封面图，不会开始播放视频，不过播放器实质上已经加载了视频，相对于PLAY_ACTION_MANUAL_PLAY，起播速度会更快。
+ -  PLAY_ACTION_AUTO_PLAY : 调用 playWithModel 之后，会自动开始播放视频。
+ -  PLAY_ACTION_MANUAL_PLAY : 调用 playWithModel 之后，需要手动播放，并且播放器实质上并未加载视频，只会显示封面图，相对于 PLAY_ACTION_PRELOAD 没有任何视频播放资源消耗。
+ -  PLAY_ACTION_PRELOAD : 调用 playWithModel 之后，会显示封面图，不会开始播放视频，不过播放器实质上已经加载了视频，相对于 PLAY_ACTION_MANUAL_PLAY，起播速度会更快。
 
 ### 2、暂停播放
 
