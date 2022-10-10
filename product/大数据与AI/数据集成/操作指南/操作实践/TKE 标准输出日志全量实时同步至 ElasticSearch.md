@@ -41,7 +41,14 @@
      - TKE 日志采集是通过主动上报方式同步数据，在配置资源时候场景方案**离线+实时同步（含队列）**方案。选择后，系统将为资源组内置共享队列。
      - 离线资源包与实时资源包可根据实际数据情况配置规格、以及数量。
      - 资源组网络建议选择 TKE 集群和 ElasticSearch 数据源所在网络；若 TKE 集群和 ElasticSearch 不在一个 VPC 环境，可为 VPC 配置开通公网，详细操作参见 [资源组配置公网](https://cloud.tencent.com/document/product/1580/81042)。
-3. 购买完成后返回控制台，配置 DataProxy。[](id:配置DataProxy)
+3. 购买完成后返回控制台。[](id:配置DataProxy)
+单击资源组名称，在右侧的弹窗抽屉内**离线资源包使用概况 > DataProxy规格及数量**单击**编辑**按钮，开启并配置 DataProxy 的数量。
+![](https://qcloudimg.tencent-cloud.cn/raw/41adf36a0f1b1c32693a4717c0da9190.png)
+配置后单击击**确定**即完成 DataProxy 的配置。
+![](https://qcloudimg.tencent-cloud.cn/raw/0d1aea93f5683c7bebd41d42737b27c5.png)
+>? 
+>- 集成资源组需包含实时资源包才可成功配置 DataProxy。
+>- DataProxy 不可超过离线包的1/2。
 
 4. 关联资源组与项目空间
 >? 若在购买页面内已经关联资源组与项目空间，可忽略此步骤。
