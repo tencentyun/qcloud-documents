@@ -1,4 +1,4 @@
-云数据仓库 ClickHouse 支持通过ClickHouse-Shipper、ClickHouse-Copler 实现集群迁移。
+云数据仓库 ClickHouse 支持通过ClickHouse-Copler 实现集群迁移。
 
 ## 通过 ClickHouse-Shipper 实现集群迁移
 ClickHouse-Shipper，CDWCH 团队开发的集群迁移工具，主要基于 Part 迁移的能力和方式实现集群的迁移。 
