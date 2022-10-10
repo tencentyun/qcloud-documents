@@ -48,7 +48,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/0d1aea93f5683c7bebd41d42737b27c5.png)
 >? 
 >- 集成资源组需包含实时资源包才可成功配置 DataProxy。
->- DataProxy 不可超过离线包的1/2。
+>- DataProxy 总规格不可超过离线包规格的1/2。
 
 4. 关联资源组与项目空间
 >? 若在购买页面内已经关联资源组与项目空间，可忽略此步骤。
