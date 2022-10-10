@@ -4,9 +4,9 @@
 
 **说明**
 
-设置license
+设置 License
 
-申请到license后，通过下面的接口初始化license，建议在启动的时候进行，如果没有设置license，将会播放视频失败。
+申请到 License 后，通过下面的接口初始化 License，建议在启动的时候进行，如果没有设置 License，将会播放视频失败。
 
 **接口**
 
@@ -30,7 +30,7 @@ static Future<void> setGlobalLicense(String licenceUrl, String licenceKey) async
 
 **说明**
 
-创建原生层的点播播放器实例，如果使用`TXVodPlayerController`，其中已经集成，不需要额外创建
+创建原生层的点播播放器实例，如果使用`TXVodPlayerController`，其中已经集成，不需要额外创建。
 
 **接口**
 
@@ -76,7 +76,7 @@ static Future<int?> createLivePlayer() async;
 
 **说明**
 
-打开或关闭播放器原生log输出
+打开或关闭播放器原生 log 输出
 
 **接口**
 
@@ -88,7 +88,7 @@ static Future<int?> setConsoleEnabled() async;
 
 | 参数名 | 类型   | 描述               |
 | ------ | ------ | ------------------ |
-| enabled | bool | 开启或关闭播放器log |
+| enabled | bool | 开启或关闭播放器 log |
 
 **返回值**
 
@@ -99,7 +99,7 @@ static Future<int?> setConsoleEnabled() async;
 
 **说明**
 
-释放对应播放器的资源
+释放对应播放器的资源。
 
 **接口**
 
@@ -120,7 +120,7 @@ static Future<int?> releasePlayer(int? playerId) async;
 
 **说明**
 
-设置播放引擎的最大缓存大小。设置后会根据设定值自动清理Cache目录的文件
+设置播放引擎的最大缓存大小。设置后会根据设定值自动清理 Cache 目录的文件
 
 **接口**
 
@@ -143,7 +143,7 @@ static Future<void> setGlobalMaxCacheSize(int size) async;
 
 **说明**
 
-该缓存路径默认设置到app沙盒目录下，参数只需要传递相对缓存目录即可，不需要传递整个绝对路径。
+该缓存路径默认设置到 App 沙盒目录下，参数只需要传递相对缓存目录即可，不需要传递整个绝对路径。
 
 **接口**
 
@@ -155,7 +155,7 @@ static Future<bool> setGlobalCacheFolderPath(String postfixPath) async;
 
 | 参数名 | 类型   | 描述               |
 | ------ | ------ | ------------------ |
-| postfixPath | String | 缓存目录,该缓存路径默认设置到app沙盒目录下，postfixPath只需要传递相对缓存目录即可，不需要传递整个绝对路径。Android 平台：视频将会缓存到sdcard的Android/data/your-pkg-name/files/testCache 目录。iOS 平台：视频将会缓存到沙盒的Documents/testCache 目录。 |
+| postfixPath | String | 缓存目录,该缓存路径默认设置到 app 沙盒目录下，postfixPath 只需要传递相对缓存目录即可，不需要传递整个绝对路径。Android 平台：视频将会缓存到 sdcard的Android/data/your-pkg-name/files/testCache 目录。iOS 平台视频将会缓存到沙盒的 Documents/testCache 目录。 |
 
 **返回值**
 
@@ -178,7 +178,7 @@ static Future<void> setLogLevel(int logLevel) async;
 
 | 参数名 | 类型   | 描述               |
 | ------ | ------ | ------------------ |
-| logLevel | int | 0:输出所有级别的log </br> 1:输出 DEBUG,INFO,WARNING,ERROR 和 FATAL 级别的log </br> 2:输出 INFO,WARNNING,ERROR 和 FATAL 级别的log </br> 3:输出WARNNING,ERROR 和 FATAL 级别的log </br> 4:输出ERROR 和 FATAL 级别的log </br> 5:只输出FATAL 级别的log </br> 6:不输出任何sdk log|
+| logLevel | int | 0:输出所有级别的 log </br> 1:输出 DEBUG,INFO,WARNING,ERROR 和 FATAL 级别的 log </br> 2:输出 INFO,WARNNING,ERROR 和 FATAL 级别的 log </br> 3:输出 WARNNING,ERROR 和 FATAL 级别的log </br> 4:输出 ERROR 和 FATAL 级别的log </br> 5:只输出 FATAL 级别的log </br> 6:不输出任何 sdk log|
 
 **返回值**
 
@@ -189,7 +189,7 @@ static Future<void> setLogLevel(int logLevel) async;
 
 **说明**
 
-设置亮度，仅适用于当前app
+设置亮度，仅适用于当前 app
 
 **接口**
 
@@ -212,7 +212,7 @@ static Future<void> setBrightness(double brightness) async;
 
 **说明**
 
-恢复界面亮度，仅适用于当前app
+恢复界面亮度，仅适用于当前 app
 
 **接口**
 
@@ -367,7 +367,7 @@ static Future<int> isDeviceSupportPip() async;
 
 **说明**
 
-获得当前原生层播放器SDK的版本号
+获得当前原生层播放器 SDK 的版本号
 
 **接口**
 
@@ -383,7 +383,7 @@ static Future<String?> getLiteAVSDKVersion() async;
 
 | 参数名 | 类型   | 描述               |
 | ------ | ------ | ------------------ |
-| sdkVersion | String | 当前播放器SDK版本 |
+| sdkVersion | String | 当前播放器 SDK 版本 |
 
 
 ### setGlobalEnv
@@ -424,7 +424,7 @@ static Future<int> setGlobalEnv(String envConfig) async;
 
 **说明**
 
-初始化controller，请求分配共享纹理
+初始化 controller，请求分配共享纹理
 
 **接口**
 
@@ -447,7 +447,7 @@ Future<void> initialize({bool? onlyAudio}) async;
 
 **注意**
 
-10.7版本开始，startPlay变更为startVodPlay，需要通过 {@link SuperPlayerPlugin#setGlobalLicense} 设置 Licence 后方可成功播放， 否则将播放失败（黑屏），全局仅设置一次即可。直播 Licence、短视频 Licence 和视频播放 Licence 均可使用，若您暂未获取上述 Licence ，可[快速免费申请测试版 Licence](https://cloud.tencent.com/act/event/License) 以正常播放，正式版 License 需[购买](https://cloud.tencent.com/document/product/881/74588#.E8.B4.AD.E4.B9.B0.E5.B9.B6.E6.96.B0.E5.BB.BA.E6.AD.A3.E5.BC.8F.E7.89.88-license)。
+10.7版本开始，startPlay 变更为 startVodPlay，需要通过 {@link SuperPlayerPlugin#setGlobalLicense} 设置 Licence 后方可成功播放， 否则将播放失败（黑屏），全局仅设置一次即可。直播 Licence、短视频 Licence 和视频播放 Licence 均可使用，若您暂未获取上述 Licence ，可[快速免费申请测试版 Licence](https://cloud.tencent.com/act/event/License) 以正常播放，正式版 License 需[购买](https://cloud.tencent.com/document/product/881/74588#.E8.B4.AD.E4.B9.B0.E5.B9.B6.E6.96.B0.E5.BB.BA.E6.AD.A3.E5.BC.8F.E7.89.88-license)。
 
 **说明**
 
@@ -476,11 +476,11 @@ Future<bool> startVodPlay(String url) async;
 
 **注意**
 
-10.7版本开始，startPlay变更为startVodPlay，需要通过 {@link SuperPlayerPlugin#setGlobalLicense} 设置 Licence 后方可成功播放， 否则将播放失败（黑屏），全局仅设置一次即可。直播 Licence、短视频 Licence 和视频播放 Licence 均可使用，若您暂未获取上述 Licence ，可[快速免费申请测试版 Licence](https://cloud.tencent.com/act/event/License) 以正常播放，正式版 License 需[购买](https://cloud.tencent.com/document/product/881/74588#.E8.B4.AD.E4.B9.B0.E5.B9.B6.E6.96.B0.E5.BB.BA.E6.AD.A3.E5.BC.8F.E7.89.88-license)。
+10.7版本开始，startPlay 变更为 startVodPlay，需要通过 {@link SuperPlayerPlugin#setGlobalLicense} 设置 Licence 后方可成功播放， 否则将播放失败（黑屏），全局仅设置一次即可。直播 Licence、短视频 Licence 和视频播放 Licence 均可使用，若您暂未获取上述 Licence ，可[快速免费申请测试版 Licence](https://cloud.tencent.com/act/event/License) 以正常播放，正式版 License 需[购买](https://cloud.tencent.com/document/product/881/74588#.E8.B4.AD.E4.B9.B0.E5.B9.B6.E6.96.B0.E5.BB.BA.E6.AD.A3.E5.BC.8F.E7.89.88-license)。
 
 **说明**
 
-通过视频field进行播放。
+通过视频 field 进行播放。
 
 **接口**
 
@@ -492,13 +492,13 @@ Future<void> startVodPlayWithParams(TXPlayInfoParams params) async;
 
 | 参数名 | 类型   | 描述               |
 | ------ | ------ | ------------------ |
-| appId | int | 应用appId。必填 |
-| fileId | String | 文件id。必填 |
+| appId | int | 应用 appId。必填 |
+| fileId | String | 文件 id。必填 |
 | timeout | String | 加密链接超时时间戳，转换为16进制小写字符串，腾讯云 CDN 服务器会根据该时间判断该链接是否有效 |
 | exper | String | 试看时长，单位：秒 |
 | us | String | 唯一标识请求，增加链接唯一性 |
 | sign | String | 防盗链签名，参考防盗链产品文档: https://cloud.tencent.com/document/product/266/11243 |
-| https | String | 是否用https请求。默认false |
+| https | String | 是否用 https 请求。默认 false |
 
 **返回值说明**
 
@@ -575,7 +575,7 @@ Future<bool> stop({bool isNeedClear = false}) async;
 
 **说明**
 
-设置即将播放的视频，在startVodPlay加载视频地址之后，是否直接自动播放
+设置即将播放的视频，在 startVodPlay 加载视频地址之后，是否直接自动播放
 
 **接口**
 
@@ -1119,21 +1119,21 @@ Future<int> enterPictureInPictureMode({String? backIconForAndroid, String? playI
 
 **参数说明**
 
-该参数只适用于android平台
+该参数只适用于 android 平台
 
 | 参数名 | 类型   | 描述               |
 | ------ | ------ | ------------------ |
-| backIcon | String | 回退按钮图标，由于android平台限制，图标大小不得超过1M，可不传，不传则使用系统自带图标 |
-| playIcon | String | 播放按钮图标，由于android平台限制，图标大小不得超过1M，可不传，不传则使用系统自带图标 |
-| pauseIcon | String | 暂停按钮图标，由于android平台限制，图标大小不得超过1M，可不传，不传则使用系统自带图标 |
-| forwardIcon | String | 快进按钮图标，由于android平台限制，图标大小不得超过1M，可不传，不传则使用系统自带图标 |
+| backIcon | String | 回退按钮图标，由于 android 平台限制，图标大小不得超过1M，可不传，不传则使用系统自带图标 |
+| playIcon | String | 播放按钮图标，由于 android 平台限制，图标大小不得超过1M，可不传，不传则使用系统自带图标 |
+| pauseIcon | String | 暂停按钮图标，由于 android 平台限制，图标大小不得超过1M，可不传，不传则使用系统自带图标 |
+| forwardIcon | String | 快进按钮图标，由于 android 平台限制，图标大小不得超过1M，可不传，不传则使用系统自带图标 |
 
 **返回值说明**
 
 | 参数名 | 值   | 描述               |
 | ------ | ------ | ------------------ |
 | NO_ERROR | 0 | 启动成功，没有错误 |
-| ERROR_PIP_LOWER_VERSION | -101 | android版本过低，不支持画中画模式 |
+| ERROR_PIP_LOWER_VERSION | -101 | android 版本过低，不支持画中画模式 |
 | ERROR_PIP_DENIED_PERMISSION | -102 | 画中画模式权限未打开，或者当前设备不支持画中画 |
 | ERROR_PIP_ACTIVITY_DESTROYED | -103 | 当前界面已经销毁 |
 | ERROR_IOS_PIP_DEVICE_NOT_SUPPORT | -104 | 设备或系统版本不支持（iPad iOS9+ 才支持PIP），只适用于 iOS
@@ -1154,22 +1154,22 @@ Future<int> enterPictureInPictureMode({String? backIconForAndroid, String? playI
 
 | 参数名 | 类型   | 描述               |
 | ------ | ------ | ------------------ |
-| connectRetryCount | int | 播放器重连次数，当SDK与服务器异常断开连接时,SDK会尝试与服务器重连.通过该值设置SDK重连次数 |
-| connectRetryInterval | int | 播放器重连间隔，当SDK与服务器异常断开连接时,SDK会尝试与服务器重连.通过该值设置两次重连间隔时间 |
+| connectRetryCount | int | 播放器重连次数，当 SDK 与服务器异常断开连接时,SDK 会尝试与服务器重连.通过该值设置 SDK 重连次数 |
+| connectRetryInterval | int | 播放器重连间隔，当 SDK 与服务器异常断开连接时,SDK 会尝试与服务器重连.通过该值设置两次重连间隔时间 |
 | timeout | int | 播放器连接超时时间 |
 | playerType | int | 播放器类型,0 点播，1 直播，2 直播回看 |
-| headers | Map | 自定义http headers |
-| enableAccurateSeek | bool | 是否精确seek，默认true |
-| autoRotate | bool | 播放mp4文件时，若设为true则根据文件中的旋转角度自动旋转。旋转角度可在PLAY_EVT_CHANGE_ROTATION事件中获得。默认true |
-| smoothSwitchBitrate | bool | 平滑切换多码率HLS，默认false。设为false时，可提高多码率地址打开速度; 设为true，在IDR对齐时可平滑切换码率 |
-| cacheMp4ExtName | String | 缓存mp4文件扩展名,默认mp4 |
-| progressInterval | int | 设置进度回调间隔,若不设置，SDK默认间隔0.5秒回调一次,单位毫秒 |
-| maxBufferSize | int | 最大播放缓冲大小，单位 MB。此设置会影响playableDuration，设置越大，提前缓存的越多|
+| headers | Map | 自定义 http headers |
+| enableAccurateSeek | bool | 是否精确 seek，默认 true |
+| autoRotate | bool | 播放mp4文件时，若设为 true 则根据文件中的旋转角度自动旋转。旋转角度可在 PLAY_EVT_CHANGE_ROTATION 事件中获得。默认 true |
+| smoothSwitchBitrate | bool | 平滑切换多码率HLS，默认 false。设为 false时，可提高多码率地址打开速度; 设为 true，在 IDR 对齐时可平滑切换码率 |
+| cacheMp4ExtName | String | 缓存 mp4文件扩展名,默认mp4 |
+| progressInterval | int | 设置进度回调间隔,若不设置，SDK 默认间隔0.5秒回调一次,单位毫秒 |
+| maxBufferSize | int | 最大播放缓冲大小，单位 MB。此设置会影响 playableDuration，设置越大，提前缓存的越多|
 | maxPreloadSize | int | 预加载最大缓冲大小，单位：MB|
 | firstStartPlayBufferTime | int | 首缓需要加载的数据时长，单位ms，默认值为100ms|
 | nextStartPlayBufferTime | int | 缓冲时（缓冲数据不够引起的二次缓冲，或者seek引起的拖动缓冲）最少要缓存多长的数据才能结束缓冲，单位ms，默认值为250ms|
-| overlayKey | String | HLS安全加固加解密key|
-| overlayIv | String | HLS安全加固加解密Iv|
+| overlayKey | String | HLS安全加固加解密 key|
+| overlayIv | String | HLS安全加固加解密 Iv|
 | extInfoMap | Map | 一些不必周知的特殊配置|
 | enableRenderProcess | bool | 是否允许加载后渲染后处理服务,默认开启，开启后超分插件如果存在，默认加载|
 | preferredResolution | int | 优先播放的分辨率，preferredResolution = width * height|
@@ -1182,7 +1182,7 @@ Future<int> enterPictureInPictureMode({String? backIconForAndroid, String? playI
 
 **说明**
 
-初始化controller，请求分配共享纹理
+初始化 controller，请求分配共享纹理
 
 **接口**
 
@@ -1302,7 +1302,7 @@ Future<bool> stop({bool isNeedClear = false}) async;
 
 **说明**
 
-设置即将播放的视频，在startVodPlay加载视频地址之后，是否直接自动播放
+设置即将播放的视频，在 startVodPlay 加载视频地址之后，是否直接自动播放
 
 **接口**
 
@@ -1511,7 +1511,7 @@ Future<bool> enableHardwareDecode(bool enable);
 
 **说明**
 
-进入画中画模式，仅支持Android端，IOS端直播目前暂不支持画中画模式
+进入画中画模式，仅支持 Android 端，iOS 端直播目前暂不支持画中画模式
 
 **接口**
 
@@ -1521,14 +1521,14 @@ Future<int> enterPictureInPictureMode({String? backIconForAndroid, String? playI
 
 **参数说明**
 
-该参数只适用于android平台
+该参数只适用于 android 平台
 
 | 参数名 | 类型   | 描述               |
 | ------ | ------ | ------------------ |
-| backIcon | String | 回退按钮图标，由于android平台限制，图标大小不得超过1M，可不传，不传则使用系统自带图标 |
-| playIcon | String | 播放按钮图标，由于android平台限制，图标大小不得超过1M，可不传，不传则使用系统自带图标 |
-| pauseIcon | String | 暂停按钮图标，由于android平台限制，图标大小不得超过1M，可不传，不传则使用系统自带图标 |
-| forwardIcon | String | 快进按钮图标，由于android平台限制，图标大小不得超过1M，可不传，不传则使用系统自带图标 |
+| backIcon | String | 回退按钮图标，由于 android 平台限制，图标大小不得超过1M，可不传，不传则使用系统自带图标 |
+| playIcon | String | 播放按钮图标，由于 android 平台限制，图标大小不得超过1M，可不传，不传则使用系统自带图标 |
+| pauseIcon | String | 暂停按钮图标，由于 android 平台限制，图标大小不得超过1M，可不传，不传则使用系统自带图标 |
+| forwardIcon | String | 快进按钮图标，由于 android 平台限制，图标大小不得超过1M，可不传，不传则使用系统自带图标 |
 
 **返回值说明**
 
@@ -1552,7 +1552,7 @@ Future<int> enterPictureInPictureMode({String? backIconForAndroid, String? playI
 
 **说明**
 
-销毁controller，调用该方法会销毁掉所有通知事件，释放掉播放器
+销毁 controller，调用该方法会销毁掉所有通知事件，释放掉播放器
 
 **接口**
 
