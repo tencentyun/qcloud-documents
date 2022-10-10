@@ -178,7 +178,7 @@ pod update
 
 你可以通过运行项目中的 example 体验完整功能，example 运行指引。
 
-播放器SDK官网提供了 iOS、Android 和 Web 端的 Demo 体验，[请单击这里](https://cloud.tencent.com/document/product/881/20204) 。
+播放器 SDK 官网提供了 iOS、Android 和 Web 端的 Demo 体验，[请单击这里](https://cloud.tencent.com/document/product/881/20204) 。
 
 
 
