@@ -55,7 +55,7 @@ Accelerate.framework
 WebKit.framework
 libc++.tbd
 libz.tbd
-framework：videoToolbox.framework
+videoToolbox.framework
 ```
 3. SDK 需要使用相机权限，请在 info.plist 中添加：
 ```
