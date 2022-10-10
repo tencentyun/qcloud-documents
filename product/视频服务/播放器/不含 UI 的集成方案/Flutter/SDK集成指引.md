@@ -144,24 +144,21 @@ SuperPlayerPlugin.setGlobalLicense(licenceURL, licenceKey);
 
 ## 常见问题
 
-1. iOS端运行，出现 `No visible @interface for 'TXLivePlayer' declares the selector 'startLivePlay:type:'`等类似找不到接口错误。
-
-		可以使用如下命令，更新 iOS SDK：
-
+1. iOS 端运行，出现 `No visible @interface for 'TXLivePlayer' declares the selector 'startLivePlay:type:'`等类似找不到接口错误。
+可以使用如下命令，更新 iOS SDK：
 ```shell
 rm -rf Pods
 rm -rf Podfile.lock
 pod update
 ```
 
-2. 同时集成 tencent_trtc_cloud 和 flutter 播放器出现 SDK 或 符号冲突。
+2. 同时集成 tencent_trtc_cloud 和 Flutter 播放器出现 SDK 或 符号冲突。
 
    常见异常日志：`java. lang.RuntimeException: Duplicate class com.tencent.liteav.TXLiteAVCode found in modules classes.jar`
 
    此时需要集成flutter 播放器的 Professional 版本，让tencent_trtc_cloud 和 flutter 播放器共同依赖于同一个版的 LiteAVSDK_Professional。注意确保依赖的LiteAVSDK_Professional 的版本必须一样。
 
    如：依赖 Android 端 TXLiteAVSDK_Professional_10.3.0.11196  和 iOS 端TXLiteAVSDK_Professional to 10.3.12231 版本，依赖声明如下：
-
    ```xml
    tencent_trtc_cloud：2.3.8
    
@@ -171,15 +168,11 @@ pod update
        path: Flutter
        ref: release_pro_v1.0.3.11196_12231
    ```
-
 3. 需要同时使用多个播放器实例的时候，频繁切换播放视频，画面呈现模糊。
-
 	在每个播放器组件容器销毁的时候，调用播放器的`dispose`方法，将播放器释放。
-
 4. 其余通用 Flutter 依赖问题：
-
-- 执行`flutter doctor`命令检查运行环境，直到出现”No issues found!“。
-- 执行`flutter pub get`确保所有依赖的组件都已更新成功。
+ - 执行`flutter doctor`命令检查运行环境，直到出现”No issues found!“。
+ - 执行`flutter pub get`确保所有依赖的组件都已更新成功。
 
 ## 更多功能
 
