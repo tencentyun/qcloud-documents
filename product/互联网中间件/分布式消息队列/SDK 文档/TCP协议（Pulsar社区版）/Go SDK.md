@@ -185,7 +185,6 @@ func New() *Logger {
 Go SDK 在 Client 侧暴露了一个 logger 的接口，可以支持用户自定义自己的 log 输出的格式以及位置等功能，同时也支持使用 logrus 以及 zab 等不同的日志 lib，具体参数如下：
 
 1. 自定义 log lib 实现 Pulsar Go SDK 提供的 log.Logger 的接口：
-
 <dx-codeblock>
 :::  go
 
@@ -200,11 +199,7 @@ type ClientOptions struct {
 
 :::
 </dx-codeblock>
-
-
 所以用户在使用 Go SDK 时，可以通过自定义 `logger` 接口的形式，自定义 `log lib`，来达到将日志重定向到指定位置的目的。下面以 `logrus` 为例，自定义一个 `log lib`，将 Go SDK 的日志输出到指定文件：
-
-
 <dx-codeblock>
 :::  go
 
@@ -346,10 +341,7 @@ func (l logrusEntry) Errorf(format string, args ...interface{}) {
 
 :::
 </dx-codeblock>
-
-
-2. 在创建 client 的时候，指定自定义的 log lib
-
+2. 在创建 client 的时候，指定自定义的 log lib。
 <dx-codeblock>
 :::  go
 
@@ -361,6 +353,5 @@ func (l logrusEntry) Errorf(format string, args ...interface{}) {
 
 :::
 </dx-codeblock>
-
 通过上述 Demo 示例，即可将 Pulsar Go SDK 的日志文件重定向到了当前目录的 test.log 的文件中，用户可以根据自己的需要将日志文件重定向到指定的位置。
 
