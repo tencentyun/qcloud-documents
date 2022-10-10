@@ -6,7 +6,7 @@
   - App 要求 Android 4.1及以上版本设备。
 - iOS 端开发：
   - Xcode 11.0及以上版本。
-  - osx 系统版本要求 10.11 及以上版本
+  - OSX 系统版本要求 10.11 及以上版本
   - 请确保您的项目已设置有效的开发者签名。
 
 ## SDK 下载
@@ -17,7 +17,7 @@
 
 ### 在项目的 pubspec.yaml 中添加依赖
 
-支持基于LiteAVSDK Player 或Professional 版本集成，你可以根据项目需要进行集成。
+支持基于LiteAVSDK Player 或 Professional 版本集成，你可以根据项目需要进行集成。
 
 1. 集成 LiteAVSDK_Player 版本最新版本，默认情况下也是集成此版本。在`pubspec.yaml`中增加配置：
 ```yaml
@@ -27,7 +27,6 @@ super_player:
     path: Flutter
 ```
 集成 LiteAVSDK_Professional 最新版本，则`pubspec.yaml`中配置改为：
-
 ```yaml
 super_player:
   git:
@@ -35,8 +34,7 @@ super_player:
     path: Flutter
     ref: Professional
 ```
-如果需要集成指定播放器版本的SDK，可以指定通过ref 依赖的tag来指定到对应版本，如下所示：
-
+如果需要集成指定播放器版本的 SDK，可以指定通过 ref 依赖的 tag 来指定到对应版本，如下所示：
 ```yaml
 super_player:
   git:
@@ -44,18 +42,18 @@ super_player:
     path: Flutter
     ref: release_player_v1.0.6 
 
-# release_player_v1.0.6 表示将集成Android端TXLiteAVSDK_Player_10.6.0.11182 版本，iOS端集成TXLiteAVSDK_Player_10.6.11821版本
+# release_player_v1.0.6 表示将集成Android端TXLiteAVSDK_Player_10.6.0.11182 版本，iOS 端集成 TXLiteAVSDK_Player_10.6.11821 版本
 ```
 
-更多归档的tag请参考 [release列表](https://github.com/LiteAVSDK/Player_Flutter/releases) 。
+更多归档的 tag 请参考 [release 列表](https://github.com/LiteAVSDK/Player_Flutter/releases) 。
 
-2. 集成之后，可以通过代码编辑器自带的UI界面来获取flutter依赖，也可以直接使用如下命令获取
+2. 集成之后，可以通过代码编辑器自带的 UI 界面来获取 Flutter 依赖，也可以直接使用如下命令获取
 
 ```yaml
 flutter packages get
 ```
 
-3. 使用过程中，可以通过以下命令来更新现有flutter依赖：
+3. 使用过程中，可以通过以下命令来更新现有 Flutter 依赖：
 
 ```dart
 flutter pub upgrade
@@ -75,21 +73,19 @@ flutter pub upgrade
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 ```
 
-2. 确保 Android 目录下的 `build.gradle` 使用了mavenCenter，能够成功下载到依赖
-
+2. 确保 Android 目录下的 `build.gradle` 使用了 mavenCenter，能够成功下载到依赖
 ```groovy
 repositories {
   mavenCentral()
 }
 ```
 
-3. 如果需要更新原生SDK依赖版本，可手动删除 Android 目录下的 `build` 文件夹，也可以使用如下命令强制刷新
-
+3. 如果需要更新原生 SDK 依赖版本，可手动删除 Android 目录下的 `build` 文件夹，也可以使用如下命令强制刷新。
 ```shell
 ./gradlew build
 ```
 
-4. 如果需要使用 Android 画中画功能，需要集成 example 组件内 android 目录下的 `FTXFlutterPipActivity.java`，以确保画中画能力正常使用
+4. 如果需要使用 Android 画中画功能，需要集成 example 组件内 android 目录下的 `FTXFlutterPipActivity.java`，以确保画中画能力正常使用。
 
 
 #### iOS 端配置
@@ -109,15 +105,13 @@ repositories {
 pod 'TXLiteAVSDK_Player'	        //Player版
 ```
  Professional 版 SDK 集成：
-
 ```
 pod 'TXLiteAVSDK_Professional' 	//Professional版
 ```
 
 如果不指定版本，默认会安装最新的`TXLiteAVSDK_Player`最新版本。
 
-3. 部分情况下（如：发布了新版本），需要强制更新iOS播放器依赖，可以在iOS目录下使用如下命令进行更新：
-
+3. 部分情况下（如：发布了新版本），需要强制更新 iOS 播放器依赖，可以在 iOS 目录下使用如下命令进行更新：
 ```shell
 rm -rf Pods
 rm -rf Podfile.lock
@@ -152,7 +146,7 @@ SuperPlayerPlugin.setGlobalLicense(licenceURL, licenceKey);
 
 1. iOS端运行，出现 `No visible @interface for 'TXLivePlayer' declares the selector 'startLivePlay:type:'`等类似找不到接口错误。
 
-​		可以使用如下命令，更新IOS SDK：
+		可以使用如下命令，更新 iOS SDK：
 
 ```shell
 rm -rf Pods
@@ -160,13 +154,13 @@ rm -rf Podfile.lock
 pod update
 ```
 
-2. 同时集成tencent_trtc_cloud 和 flutter 播放器出现SDK 或 符号冲突
+2. 同时集成 tencent_trtc_cloud 和 flutter 播放器出现 SDK 或 符号冲突。
 
    常见异常日志：`java. lang.RuntimeException: Duplicate class com.tencent.liteav.TXLiteAVCode found in modules classes.jar`
 
    此时需要集成flutter 播放器的 Professional 版本，让tencent_trtc_cloud 和 flutter 播放器共同依赖于同一个版的 LiteAVSDK_Professional。注意确保依赖的LiteAVSDK_Professional 的版本必须一样。
 
-   如：依赖Android 端TXLiteAVSDK_Professional_10.3.0.11196  和 iOS 端TXLiteAVSDK_Professional to 10.3.12231 版本，依赖声明如下：
+   如：依赖 Android 端 TXLiteAVSDK_Professional_10.3.0.11196  和 iOS 端TXLiteAVSDK_Professional to 10.3.12231 版本，依赖声明如下：
 
    ```xml
    tencent_trtc_cloud：2.3.8
@@ -180,18 +174,18 @@ pod update
 
 3. 需要同时使用多个播放器实例的时候，频繁切换播放视频，画面呈现模糊。
 
-​	在每个播放器组件容器销毁的时候，调用播放器的`dispose`方法，将播放器释放
+	在每个播放器组件容器销毁的时候，调用播放器的`dispose`方法，将播放器释放。
 
-4. 其余通用flutter依赖问题
+4. 其余通用 Flutter 依赖问题：
 
 - 执行`flutter doctor`命令检查运行环境，直到出现”No issues found!“。
 - 执行`flutter pub get`确保所有依赖的组件都已更新成功。
 
 ## 更多功能
 
-你可以通过运行项目中的example体验完整功能，example运行指引。
+你可以通过运行项目中的 example 体验完整功能，example 运行指引。
 
-播放器SDK官网提供了iOS、Android和Web 端的Demo体验，[请点击这里](https://cloud.tencent.com/document/product/881/20204) 。
+播放器SDK官网提供了 iOS、Android 和 Web 端的 Demo 体验，[请单击这里](https://cloud.tencent.com/document/product/881/20204) 。
 
 
 
