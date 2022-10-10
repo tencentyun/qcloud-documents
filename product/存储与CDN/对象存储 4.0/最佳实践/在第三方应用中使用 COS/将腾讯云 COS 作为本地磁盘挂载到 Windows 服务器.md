@@ -3,18 +3,19 @@
 
 而对于喜欢使用 Windows 服务器的用户，使用 COSBrowser 工具大多只能当做网盘，对服务器上的直接使用程序或者操作并不友好。本文将介绍如何使存储价格低廉的对象存储挂载到 Windows 服务器上映射为本地磁盘。
 
->? 本案例实践适用于 Windows 7/Windows Server 2012 及以上版本操作系统。
+>? 本案例实践适用于 Windows 7/Windows Server 2012/2016/2019，Windows Server 2022或更高版本的系统可自行尝试。
 >
 
 ## 操作步骤
 ### 下载与安装
 
-提供了如下安装方法，您可根据自己所使用的系统进行选择：
-- 前往 [Github](https://github.com/billziss-gh/winfsp/releases) 下载 Winfsp。
+本案例实践使用到以下三种软件，您可选择安装适用于自己所使用系统的软件版本：
+1. 前往 [Github](https://github.com/billziss-gh/winfsp/releases) 下载 Winfsp。
 待下载完成后，按步骤默认安装即可。
-- 前往 [Git 官网](https://gitforwindows.org/) 或者 [Github](https://github.com/git-for-windows/git/releases/) 下载 Git 工具。
+>?Windows Server 2012 R2 不适用于 Winfsp 1.12.22242版本，可适用于 Winfsp 1.11.22176版本。
+2. 前往 [Git 官网](https://gitforwindows.org/) 或者 [Github](https://github.com/git-for-windows/git/releases/) 下载 Git 工具。
 本实践下载的版本为 Git-2.31.1-64-bit.exe，下载完成后，按步骤默认安装即可。
-- 前往 [Rclone 官网](https://rclone.org/downloads/) 或者 [Github](https://github.com/rclone/rclone/releases) 下载 Rclone 工具。
+3. 前往 [Rclone 官网](https://rclone.org/downloads/) 或者 [Github](https://github.com/rclone/rclone/releases) 下载 Rclone 工具。
 本实践下载的版本是 rclone-v1.55.0-windows-amd64.zip，该软件无需安装，下载后，只需解压到任意一个英文目录下即可（如果解压到的路径含有中文将有可能会报错）。本实践案例路径举例为 E:\AutoRclone。
 
 >? Github 下载速度可能比较慢甚至打不开，可自行在其他官方渠道进行下载。
@@ -55,12 +56,12 @@
 
 ### 修改配置文件
 
-以上步骤配置完成后，在 `C:\Users\用户名\.config\rclone` 文件夹下，即可看到一个名称为 rclone.conf 的文件，该文件为 rclone 的配置文件。如果您想要修改 rclone 的配置，可直接对其进行修改。
-
+以上步骤配置完成后，将会生成一个名称为 rclone.conf 的配置文件，一般位于 `C:\Users\用户名\.config\rclone` 文件夹下。如果您想要修改 rclone 的配置，可直接对其进行修改。
+>?想要查询配置文件的位置，可执行`rclone config file`进行查询。
 
 ### 挂载 COS 为本地磁盘
 
-1. 打开已安装的 Git CMD，并在命令行工具中输入执行命令。此处提供了两种使用场景（二选一），您可根据实际需求选择其中一种。
+1. 打开已安装的 Git CMD，并输入执行命令。此处提供了两种使用场景（二选一），您可根据实际需求选择其中一种。
 <ul>
 <li>如果映射为局域网共享驱动器（推荐），则执行命令如下：
 <pre>
@@ -74,7 +75,7 @@
 	<ul>
 		<li>myCOS：替换为用户自定义的磁盘名称。</li>
 		<li>Y：替换为您想要挂载后，硬盘的盘符名称即可，请不要与本地的 C、D、E 盘等重复。</li>
-		<li>E:\temp 为本地缓存目录，可自行设置。</li>
+		<li>E:\temp 为本地缓存目录，可自行设置。注意：需确保用户拥有目录权限。</li>
 	</ul>
 </li>
 </ul>
@@ -94,6 +95,7 @@
 由于如上操作在电脑重启后，映射的磁盘将会消失，需要再次手工操作。因此，我们可以设置自启动装置，让服务器每次重启后都自动挂载磁盘。
 
 1. 在 Rclone 安装目录 E:\AutoRclone 下，分别新建 startup_rclone.vbs 和 startup_rclone.bat 文件。
+>?Powershell 创建文本文件时需要注意编码，否则生成的.bat、 .vbs 等文本文件无法执行。
 2. 在 startup_rclone.bat 中，写入如下挂载命令：
  - 如果映射为局域网共享驱动器，输入如下命令：
 ```plaintext
@@ -111,6 +113,9 @@ CreateObject("WScript.Shell").Run "cmd /c E:\AutoRclone\startup_rclone.bat",0
 >
 4. 将 startup_rclone.vbs 文件剪切到 %USERPROFILE%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup 文件夹下。
 5. 重启服务器。
+>?自动挂载配置后并重启服务器，通常情况下需要等待十几秒才能看到挂载成功。
+
+
 
 ## 相关操作
 
