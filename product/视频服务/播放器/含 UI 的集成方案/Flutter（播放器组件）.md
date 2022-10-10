@@ -50,7 +50,7 @@ import 'superplayer/demo_superplayer_lib.dart';
 
 ### 步骤1：申请视频播放能力 License 和集成[](id:step1)
 
-集成播放器前，需要[注册腾讯云账户](https://cloud.tencent.com/login)，注册成功后申请视频播放能力 License， 然后通过下面方式集成，建议在应用启动时进行。
+集成播放器前，需要 [注册腾讯云账户](https://cloud.tencent.com/login)，注册成功后申请视频播放能力 License， 然后通过下面方式集成，建议在应用启动时进行。
  
 如果没有集成 License，播放过程中可能会出现异常。
 
