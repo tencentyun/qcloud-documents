@@ -1,4 +1,4 @@
-云监控将计划于**2022年11月15日下线云数据库 Redis 1分钟粒度策略。可参考下文了解相关迁移步骤和说明。
+云监控将计划于**2022年11月15日下线云数据库 Redis 1分钟粒度策略**。可参考下文了解相关迁移步骤和说明。
 
 **各模块影响说明：**
 
@@ -195,9 +195,9 @@
 <td>次</td>
 <td>读请求 Key 存在的个数，对应 info 命令输出的 keyspace_hits 指标</td></tr>
 <tr>
-<td>读请求Miss</td>
+<td>读请求 Miss</td>
 <td>stat_missed_min</td>    
-<td>读请求Miss</td>    
+<td>读请求 Miss</td>    
 <td>cmd_miss</td>
 <td>次</td>
 <td>读请求 Key 不存在的个数，对应 info 命令输出的 keyspace_misses 指标</td></tr>
@@ -207,7 +207,7 @@
 <td>执行错误</td>   
 <td>cmd_err</td>
 <td>次</td>
-<td>命令执行错误的次数，例如命令不存在、参数错误等情况</td></tr>
+<td>命令执行错误的次数，例如：命令不存在、参数错误等情况</td></tr>
 <tr>
 <td>读请求命中率</td> 
 <td>cache_hit_ratio_min</td>      
@@ -233,9 +233,9 @@
 <td>%</td>
 <td>平均 CPU 使用率</td></tr>
 <tr>
-<td>分片最大CPU使用率</td>
+<td>分片最大 CPU 使用率</td>
 <td>cpu_max_us_min</td>    
-<td>节点最大CPU使用率</td>
+<td>节点最大 CPU 使用率</td>
 <td>cpu_max_util</td>
 <td>%</td>
 <td>实例中节点（分片或者副本）最大 CPU 使用率</td></tr>    
@@ -310,16 +310,16 @@
 <td>次</td>
 <td>执行时延大于 slowlog - log - slower - than 配置的命令次数</td></tr>
 <tr>
-<td>Key总数</td>
+<td>Key 总数</td>
 <td>keys_min</td>    
-<td>Key总个数</td>
+<td>Key 总个数</td>
 <td>keys</td>
 <td>个</td>
 <td>实例存储的总 Key 个数（一级 Key）</td></tr>
 <tr>
 <td>key过期数</td>
 <td>expired_keys_min</td>   
-<td>key过期数</td>
+<td>key 过期数</td>
 <td>expired</td>
 <td>个</td>
 <td>时间窗内被淘汰的 Key 个数，对应 info 命令输出的 expired_keys</td></tr>
@@ -428,31 +428,31 @@
 <td>cmdstat_mget_min</td>
 </tr>
 <tr>      
-<td>mset请求数</td>    
+<td>mset 请求数</td>    
 <td>cmdstat_mset_min</td>
 </tr>
 <tr>      
-<td>msetnx请求数</td>    
+<td>msetnx 请求数</td>    
 <td>cmdstat_msetnx_min</td>
 </tr>
 <tr>      
-<td>set请求数</td>    
+<td>set 请求数</td>    
 <td>cmdstat_set_min</td>
 </tr>
 <tr>      
-<td>setbit请求数</td>    
+<td>setbit 请求数</td>    
 <td>cmdstat_setbit_min</td>
 </tr>
 <tr>      
-<td>setex请求数</td>    
+<td>setex 请求数</td>    
 <td>cmdstat_setex_min</td>
 </tr>
 <tr>      
-<td>setnx请求数</td>    
+<td>setnx 请求数</td>    
 <td>cmdstat_setnx_min</td>
 </tr>
 <tr>      
-<td>setrange请求数</td>    
+<td>setrange 请求数</td>    
 <td>cmdstat_setnx_min</td>
 </tr>
 <tr>
@@ -470,9 +470,9 @@
 <td>次</td>
 <td>读请求 Key 存在的个数，对应 info 命令输出的 keyspace_hits 指标</td></tr>
 <tr>
-<td>读请求Miss</td>
+<td>读请求 Miss</td>
 <td>stat_missed_min</td>    
-<td>读请求Miss</td>    
+<td>读请求 Miss</td>    
 <td>cmd_miss</td>
 <td>次</td>
 <td>读请求 Key 不存在的个数，对应 info 命令输出的 keyspace_misses 指标</td></tr>
@@ -482,7 +482,7 @@
 <td>执行错误</td>   
 <td>cmd_err</td>
 <td>次</td>
-<td>命令执行错误的次数，例如命令不存在、参数错误等情况</td></tr>
+<td>命令执行错误的次数，例如：命令不存在、参数错误等情况</td></tr>
 <tr>
 <td>读请求命中率</td> 
 <td>cache_hit_ratio_min</td>      
