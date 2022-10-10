@@ -2,7 +2,7 @@
 
 ## 背景信息
 本文以下图场景为例，为您介绍 Windows、MAC 和 Linux 客户端如何使用 SSL VPN 连接VPC。
-![](https://qcloudimg.tencent-cloud.cn/raw/0cc54e2b71e8fef7756811538afc2243.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/37c49a85bc549c51f1b61af94cb0470b.png)
 
 ## 配置流程
 客户端通过 SSL VPN 连接 VPC 流程图如下所示：
