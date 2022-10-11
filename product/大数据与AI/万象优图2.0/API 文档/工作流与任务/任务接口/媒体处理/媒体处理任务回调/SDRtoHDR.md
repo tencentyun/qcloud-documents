@@ -125,7 +125,7 @@ Container 节点 Response 的内容：
 | 节点名称（关键字） | 父节点   | 描述           | 类型      |
 | :----------------- | :------- | :------------- | :-------- |
 | EventName          | Response | 固定值，为 TaskFinish    | String |
-| JobsDetail         | Response | 任务的详细信息           | Container |
+| JobsDetail         | Response | 任务的详细信息           | Container数组 |
 
 Container 节点 JobsDetail 的内容：
 <a href="https://cloud.tencent.com/document/product/460/76907#jobsDetail" target="_blank">同提交SDR to HDR任务接口中的 Response.JobsDetail</a>
@@ -399,7 +399,7 @@ Container 节点 Workflow 的内容：
 ```plaintext
 {
     "EventName": "TaskFinish",
-    "JobsDetail": {
+    "JobsDetail": [{
         "Code": "Success",
         "CreationTime": "2022-06-30T19:20:45+0800",
         "EndTime": "2022-06-30T19:21:06+0800",
@@ -522,6 +522,6 @@ Container 节点 Workflow 的内容：
             "WorkflowId": "web6ac56c1ef54dbfa44d7f4103203be9",
             "WorkflowName": "workflow-test"
         }
-    }
+    }]
 }
 ```
