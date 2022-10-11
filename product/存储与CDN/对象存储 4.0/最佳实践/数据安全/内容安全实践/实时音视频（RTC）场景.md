@@ -8,7 +8,7 @@
 
 以腾讯云实时音视频产品（Tencent Real-Time Communication，TRTC）为例，整体审核流程如下图所示：
 
-![](https://qcloudimg.tencent-cloud.cn/raw/0d2d7e6e092d76474b4317c310da1b50.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/d4aad5897e217133ee01da1399033126.png)
 
 流程如下：
 
@@ -21,10 +21,8 @@
 ## 实践步骤
 
 ### 1. 创建存储桶
-
-如果您已创建存储桶，可跳过该步骤。
-
-如果您是首次使用 COS 控制台，可参考 [创建存储桶](https://cloud.tencent.com/document/product/436/13309) 进行操作。
+- 如果您已创建存储桶，可跳过该步骤。
+- 如果您是首次使用 COS 控制台，可参考 [创建存储桶](https://cloud.tencent.com/document/product/436/13309) 进行操作。
 
 
 
@@ -32,13 +30,13 @@
 
 如果您已创建 TRTC 应用，且能够使用 TRTC 相关功能时，可直接跳转到 [步骤4. 开启旁路推流](#4)。
 
-（1）登录 [TRTC 控制台](https://console.cloud.tencent.com/trtc)，单击**应用管理**，可以看到应用列表，单击**创建应用**，相关说明可参见 [创建应用](https://cloud.tencent.com/document/product/647/50493)。
+1. 登录 [TRTC 控制台](https://console.cloud.tencent.com/trtc)，单击**应用管理**，可以看到应用列表，单击**创建应用**，相关说明可参见 [创建应用](https://cloud.tencent.com/document/product/647/50493)。
   ![](https://qcloudimg.tencent-cloud.cn/raw/136541b1d562d4f221ec9be857f61e78.png)
-（2）创建应用后，单击右侧的**配置管理**，可以看到应用概览，其中`SDKAppID`、`appid`、`bizid`需要在后续流程中用到，可以先记录下来。
+2. 创建应用后，单击右侧的**配置管理**，可以看到应用概览，其中`SDKAppID`、`appid`、`bizid`需要在后续流程中用到，可以先记录下来。
   ![](https://qcloudimg.tencent-cloud.cn/raw/65da6d2bd9fba3cdc18ffe4ce636135d.png)
-（3）单击左侧导航栏的**快速上手**，能够看到签发 UserSig 的密钥信息，复制保存下来，待后续使用。
+3. 单击左侧导航栏的**快速上手**，能够看到签发 UserSig 的密钥信息，复制保存下来，待后续使用。
   ![](https://qcloudimg.tencent-cloud.cn/raw/c2f1d34a393b26884f2cb338e39518b9.png)
-（4）完成以上步骤，我们已经知道了`SDKAppID`、`appid`、`bizid`、`密钥`这四个重要数据，切记不要泄漏这些数据。接下来可以开始对 TRTC DEMO 进行搭建了。
+4. 完成以上步骤，我们已经知道了`SDKAppID`、`appid`、`bizid`、`密钥`这四个重要数据，切记不要泄漏这些数据。接下来可以开始对 TRTC DEMO 进行搭建了。
 
 
 
@@ -46,22 +44,19 @@
 
 本 DEMO 目的是使客户快速了解直播流程，客户业务需求的具体实现可参考 [TRTC 官网使用文档](https://cloud.tencent.com/document/product/647)。流程如下：
 
-（1）下载所需平台的 [SDK&Demo 源码](https://console.cloud.tencent.com/trtc/helpcenter)，直接下载 ZIP 包即可，本次示例使用的是 Android 平台。
+1. 下载所需平台的 [SDK&Demo 源码](https://console.cloud.tencent.com/trtc/helpcenter)，直接下载 ZIP 包即可，本次示例使用的是 Android 平台。
 ![](https://qcloudimg.tencent-cloud.cn/raw/4b0b6b3a718ed47f87da912d4e27e128.png)
-
-（2）配置 TRTC-API-Example 工程文件。找到并打开 `LiteAVSDK_TRTC_Android版本号/TRTC-API-Example/Debug/src/main/java/com/tencent/trtc/debug/GenerateTestUserSig.java` 文件。设置 `GenerateTestUserSig.java` 文件中的相关参数：
+2. 配置 TRTC-API-Example 工程文件。找到并打开 `LiteAVSDK_TRTC_Android版本号/TRTC-API-Example/Debug/src/main/java/com/tencent/trtc/debug/GenerateTestUserSig.java` 文件。设置 `GenerateTestUserSig.java` 文件中的相关参数：
  - SDKAPPID：默认为 PLACEHOLDER ，请设置为实际的 SDKAppID。
  - SECRETKEY：默认为 PLACEHOLDER ，请设置为实际的密钥信息。
  - BIZID：默认为 PLACEHOLDER ，请设置为实际的 bizid。
  - APPID：默认为 PLACEHOLDER ，请设置为实际的 appid。
-![](https://qcloudimg.tencent-cloud.cn/raw/4fbf3547ccb1ed2f60b8fd89c0ce236e.png)
-
-（3）编译运行。使用 Android Studio（3.5及以上的版本）打开源码工程 TRTC-API-Example，单击**运行**即可。运行成功后页面如下图所示，TRTC DEMO 提供视频通话、录屏直播等多种功能示例。
-
-<img src="https://qcloudimg.tencent-cloud.cn/raw/39e35346a1072f30e6736800ba1c0159.png" width="400px"/>
+<img style="width:518px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/4fbf3547ccb1ed2f60b8fd89c0ce236e.png" />
+3. 编译运行。使用 Android Studio（3.5及以上的版本）打开源码工程 TRTC-API-Example，单击**运行**即可。运行成功后页面如下图所示，TRTC DEMO 提供视频通话、录屏直播等多种功能示例。
+<img style="width:518px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/39e35346a1072f30e6736800ba1c0159.png" />
 
 
-<span id=4></span>
+[](id:4)
 
 ### 4. 开启旁路推流
 
