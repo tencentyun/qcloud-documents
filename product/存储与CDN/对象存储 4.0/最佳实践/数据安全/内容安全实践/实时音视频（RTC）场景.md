@@ -52,7 +52,7 @@
  - BIZID：默认为 PLACEHOLDER ，请设置为实际的 bizid。
  - APPID：默认为 PLACEHOLDER ，请设置为实际的 appid。
 <img style="width:518px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/4fbf3547ccb1ed2f60b8fd89c0ce236e.png" />
-3. 编译运行。使用 Android Studio（3.5及以上的版本）打开源码工程 TRTC-API-Example，单击**运行**即可。运行成功后页面如下图所示，TRTC DEMO 提供视频通话、录屏直播等多种功能示例。
+3. 编译运行。使用 Android Studio（3.5及以上的版本）打开源码工程 TRTC-API-Example，单击**运行**即可。运行成功后页面如下图所示，TRTC DEMO 提供视频通话、录屏直播等多种功能示例。<br>
 <img style="width:518px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/39e35346a1072f30e6736800ba1c0159.png" />
 
 
