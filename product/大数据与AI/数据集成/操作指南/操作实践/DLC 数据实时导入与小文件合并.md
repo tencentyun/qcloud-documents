@@ -44,9 +44,9 @@ ALTER TABLE `db_name`.`table_name` SET TBLPROPERTIES ('write.upsert.enabled'='tr
 >? 实时导入数据会导致海量小文件产生，小文件会多了之后查询效率会恶化的非常严重，周期性的合并小文件能保证表的查询效率。小文件合并开启之后，实时导入任务会在指定次数的 CheckPoint 之后，下发一条合并指令到 DLC，该指令使用用户配置的 DLC 数据源的引擎执行。
 
 ### 配置项目空间
+>? 若您使用的是 WeData 产品，配置项目空间操作请参见 [WeData-项目列表](https://cloud.tencent.com/document/product/1267/72614)。
+
 1. 进入 [DataInLong 控制台](https://console.cloud.tencent.com/datainlong/projectlist)，单击**项目列表 > 新建**，新建项目空间。
->? 若已建项目或使用默认项目，可忽略此步骤。
->
 ![](https://qcloudimg.tencent-cloud.cn/raw/2ca4d56831f6d5c4143e487310fb04e1.png)
 2. 配置项目空间信息
 <table>
@@ -66,18 +66,18 @@ ALTER TABLE `db_name`.`table_name` SET TBLPROPERTIES ('write.upsert.enabled'='tr
 </tr>
 <tr>
 <td>成员角色</td>
-<td>批量为项目成员配置角色（此处默认为前面添加的成员添加统一的角色，后续可**项目管理**模块修改）</td>
+<td>批量为项目成员配置角色（此处默认为前面添加的成员添加统一的角色，后续可<b>项目管理</b>模块修改）</td>
 </tr>
 </tbody></table>
 
 ### 配置集成资源组 [](id:配置集成资源组)
 1. 进入 [DataInLong 控制台](https://console.cloud.tencent.com/datainlong/projectlist) 选择**集成资源**并单击**创建**，进入集成资源组购买页。
 ![](https://qcloudimg.tencent-cloud.cn/raw/02dcb0c5748c4ce2dc1c944f47bfe049.png)
+>? 若您使用的是 WeData 产品，请点击进入 [WeData 控制台](https://console.cloud.tencent.com/wedata/fusion/executorResource)。
 2. 购买集成资源组。
-![](https://qcloudimg.tencent-cloud.cn/raw/8f7529a64cf1eaf9648f48b1a47d8965.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/88cb92b047b01a366fa76376655d497b.png)
 >? 
->- 为了运行实时同步任务，请在为集成资源组开启**实时同步**配置**增强资源包**。
->- 基础资源包与增强资源包可根据实际数据情况配置规格、以及数量。
+>- 离线资源包与实时资源包可根据实际数据情况配置规格、以及数量。
 >- 资源组网络建议选择 MySQL 和 DLC 所在网络；若 MySQL和 DLC 不在一个 VPC 环境，可为 VPC 配置开通公网，详细操作参见 [资源组配置公网](https://cloud.tencent.com/document/product/1580/81042)。
 3. 购买完成后，返回控制台并关联资源组与项目空间。
 >? 若在购买页面内已经关联资源组与项目空间，可忽略此步骤。
@@ -103,7 +103,7 @@ ALTER TABLE `db_name`.`table_name` SET TBLPROPERTIES ('write.upsert.enabled'='tr
 <td>格式参考`：jdbc:dlc:dlc.internal.tencentcloudapi.com?task_type=SparkSQLTask&amp;database_name=&amp;datasource_connection_name=DataLakeCatalog®ion=ap-beijing&amp;data_engine_name=test_engine`<br>若需要使用小文件合并，数据源的访问域名必须使用 dlc.internal.tencentcloudapi.com，task_type 必须使用 SparkSQLTask，data_engine_name 指定的引擎会用于实时同步后的小文件合并。<br>注意：小文件合并会使用此处配置的 DLC 数据引擎并在合并的时候占用部分资源，请合理配置资源，如果不启动小文件合并，该 DLC 引擎不会被使用</td>
 </tr>
 <tr>
-<td>secretID/secretID</td>
+<td>secretId/secretKey</td>
 <td>填写拥有引擎和 SQL 执行权限的账号或者子账号的密钥。<br>可在 <a href="https://console.cloud.tencent.com/cam/capi" >API 密钥管理</a> 中查看</td>
 </tr>
 </tbody></table>
@@ -111,7 +111,7 @@ ALTER TABLE `db_name`.`table_name` SET TBLPROPERTIES ('write.upsert.enabled'='tr
 ### 配置实时同步任务
 1. 创建任务。
 进入数据集成模块，创建**实时同步任务**，在弹出的提示框中输入任务名称和备注，选择**画布模式**或**表单模式**并单击完成。本介绍以画布模式为例。
-![](https://qcloudimg.tencent-cloud.cn/raw/4b6dce83783730ae92feef363862c889.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/b881284b34a034a0201aea10a058cda8.png)
 2. 编辑任务。
 单击新建的实时同步任务名称，进入任务编辑界面，通过拖拽分别新建读取数据源和写入数据源，并通过连线指定数据流向：
 ![](https://qcloudimg.tencent-cloud.cn/raw/f8930c217349efbc0fb6a44c548e668f.png)

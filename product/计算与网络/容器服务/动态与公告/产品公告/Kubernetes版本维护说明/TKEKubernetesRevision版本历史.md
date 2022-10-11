@@ -374,7 +374,7 @@ TKE 支持混合云节点。(kube-controller-manager)</td>
 </tr>
 </tbody></table>
 
-## TKE kubernetes 1.14.3 revisions
+## 【停止维护】TKE kubernetes 1.14.3 revisions
 <table>
 <thead>
 <tr><th width="13%">时间</th><th width="13%">版本</th><th width="74%">更新内容</th></tr>
@@ -510,7 +510,7 @@ TKE 支持混合云节点。(kube-controller-manager)</td>
 </tr>
 </tbody></table>
 
-## TKE kubernetes 1.12.4 revisions
+## 【停止维护】TKE kubernetes 1.12.4 revisions
 
 <table>
 <thead>
@@ -657,7 +657,7 @@ TKE 支持混合云节点。(kube-controller-manager)</td>
 </tr>
 </tbody></table>
 
-## TKE kubernetes 1.10.5 revisions
+## 【停止维护】TKE kubernetes 1.10.5 revisions
 
 <table>
 <thead>
@@ -770,7 +770,7 @@ TKE 支持混合云节点。(kube-controller-manager)</td>
 </tr>
 </tbody></table>                                                
 
-## TKE kubernetes 1.8.13 revisions
+## 【停止维护】TKE kubernetes 1.8.13 revisions
 
 <table>
 <thead>
@@ -809,7 +809,7 @@ TKE 支持混合云节点。(kube-controller-manager)</td>
 </tbody></table>
 
 
-## TKE kubernetes 1.7.8 revisions
+## 【停止维护】TKE kubernetes 1.7.8 revisions
 
 <table>
 <thead>
