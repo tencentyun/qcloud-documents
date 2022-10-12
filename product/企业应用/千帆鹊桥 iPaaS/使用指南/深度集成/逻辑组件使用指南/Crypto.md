@@ -90,8 +90,8 @@ Crypto 组件目前支持对称加密、对称解密、非对称加密、非对�
 **CBC 加密模式**
 选择 CBC 加密模式时，随机向量必填，长度跟 [密钥长度](#1) 一致，再填写明文和填充模式即可。
 ![](https://qcloudimg.tencent-cloud.cn/raw/79d632a96d9f33ee1e07aa2dc4db8c98.png)
-- 增加 Java 代码实现方式：
-```plaintext
+- Java 代码实现方式：
+```
 public static String encrypt(String value) {
  try {
  IvParameterSpec iv = new IvParameterSpec(initVector.getBytes("UTF-8"));
@@ -108,8 +108,8 @@ public static String encrypt(String value) {
  return null;
 }
 ```
-- 增加 Python 代码实现方式：
-```plaintext
+- Python 代码实现方式：
+```
     def encryt(str, key, iv):
         cipher = AES.new(key, AES.MODE_CBC,iv)
         x = AESUtil.__BLOCK_SIZE_16 - (len(str) % AESUtil.__BLOCK_SIZE_16)
@@ -125,8 +125,8 @@ public static String encrypt(String value) {
 **ECB 加密模式**
 当选择 ECB 加密模式时，只需填写明文和填充模式，无其他配置项。
 ![](https://qcloudimg.tencent-cloud.cn/raw/05b1bb3365935092ca11541555f7b74c.png)
-- 增加 Java 代码实现方式：
-```plaintext
+- Java 代码实现方式：
+```
 public static String Encrypt(String sSrc, String sKey) throws Exception {
         if (sKey == null) {
             System.out.print("Key为空null");
@@ -146,8 +146,8 @@ public static String Encrypt(String sSrc, String sKey) throws Exception {
         return new Base64().encodeToString(encrypted);//此处使用BASE64做转码功能，同时能起到2次加密的作用。
     }
 ```
-- 增加 Python 代码实现方式：
-```plaintext
+- Python 代码实现方式：
+```
 def encrypt_oracle(text):
     # 秘钥
     key = 'VW1lMjAxMlRyaXAwMzA5AA=='
@@ -204,7 +204,7 @@ def dw_process(msg):
 **CBC 加密模式**
 选择 CBC 加密模式时，随机向量必填，长度跟 [密钥长度](#1) 一致，再填写明文和填充模式即可。
 ![](https://qcloudimg.tencent-cloud.cn/raw/79d632a96d9f33ee1e07aa2dc4db8c98.png)
-- 增加 Java 代码实现方式：
+- Java 代码实现方式：
 ```
 public static String decrypt(String encrypted) {
 	try {
@@ -222,7 +222,7 @@ public static String decrypt(String encrypted) {
  
 	return null;
 ```
-- 增加 Python 代码实现方式：
+- Python 代码实现方式：
 ```
     def decrypt(enStr, key, iv):
         cipher = AES.new(key, AES.MODE_CBC, iv)
@@ -237,8 +237,8 @@ public static String decrypt(String encrypted) {
 **ECB 加密模式**
 当选择 ECB 加密模式时，只需填写明文和填充模式，无其他配置项。
 ![](https://qcloudimg.tencent-cloud.cn/raw/05b1bb3365935092ca11541555f7b74c.png)
-- 增加 Java 代码实现方式：
-```plaintext
+- Java 代码实现方式：
+```
   public String aesEcbPkcsNPaddingDecrypt(String password, String content,
       String cipherMode) {
     try {
@@ -256,8 +256,8 @@ public static String decrypt(String encrypted) {
     return null;
   }
 ```
-- 增加 Python 代码实现方式：
-```plaintext
+- Python 代码实现方式：
+```
 def decrypt_oralce(text):
     # 秘钥
     key = 'VW1lMjAxMlRyaXAwMzA5AA=='
@@ -319,8 +319,8 @@ def dw_process(msg):
 内容填充模式选择“RSA_PKCS1_PADDING”时，无其他配置。
 ![](https://qcloudimg.tencent-cloud.cn/raw/fbb86919cad6c088ffd6468f1ce43746.png)
 
-- 增加 Java 代码实现方式：
-```plaintext
+- Java 代码实现方式：
+```
 public static String encrypt(String str,String publicKey) throws Exception {
         //base64编码的公钥
         byte[] decoded = Base64.decodeBase64(publicKey);
@@ -331,8 +331,8 @@ public static String encrypt(String str,String publicKey) throws Exception {
         String outStr=Base64.encodeBase64String(cipher.doFinal(str.getBytes("UTF-8")));
         return outStr;
 ```
-- 增加 Python 代码实现方式：
-```plaintext
+- Python 代码实现方式：
+```
 def encryption(text: str, public_key: bytes):
 	# 字符串指定编码（转为bytes）
 	text = text.encode('utf-8')
@@ -391,8 +391,8 @@ def dw_process(msg):
 内容填充模式选择“RSA_PKCS1_PADDING”时, 无其他配置。
 ![](https://qcloudimg.tencent-cloud.cn/raw/28c6bfaf11dd05f7c84562cd9f03944f.png)
 
-- 增加 Java 代码实现方式：
-```plaintext
+- Java 代码实现方式：
+```
 public static String decrypt(String str,String privateKey) throws Exception {
         //Base64解码加密后的字符串
         byte[] inputByte = Base64.decodeBase64(str.getBytes("UTF-8"));
@@ -405,8 +405,8 @@ public static String decrypt(String str,String privateKey) throws Exception {
         String outStr=new String(cipher.doFinal(inputByte));
         return outStr;
 ```
-- 增加 Python 代码实现方式：
-```plaintext
+- Python 代码实现方式：
+```
 def decryption(text_encrypted_base64: str, private_key: bytes):
 	# 字符串指定编码（转为bytes）
 	text_encrypted_base64 = text_encrypted_base64.encode('utf-8')
