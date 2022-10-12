@@ -80,7 +80,7 @@ eks.tke.cloud.tencent.com/spec-auto-upgrade: 'true' # 遇到资源不足时，�
 如需指定 GPU，可在 Pod 上添加如下注解：
 
 ```yaml
-eks.tke.cloud.tencent.com/gpu-type: 'T4,V100' # 指定 GPU 型号，支持优先级顺序写法。
+eks.tke.cloud.tencent.com/gpu-type: 'T4,V100' # 指定 GPU 型号，支持优先级顺序写法，若使用1/4卡的 T4 vGPU 则指定 GPU 型号为1/4*T4。
 ```
 >? GPU 的卡数和规格需要您在 Request 和 Limit 中自行设置，建议参考对应型号的 GPU 规格设置合适的值。GPU 规格详情可参考 [资源规格](https://cloud.tencent.com/document/product/457/39808#gpu-.E8.A7.84.E6.A0.BC)。
 
