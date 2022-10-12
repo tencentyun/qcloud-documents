@@ -302,7 +302,7 @@ static Future<double> getSystemVolume() async;
 
 **说明**
 
-释放音频焦点，仅适用于安卓
+释放音频焦点，仅适用于Android
 
 **接口**
 
@@ -323,7 +323,7 @@ static Future<double> abandonAudioFocus() async;
 
 **说明**
 
-请求获取音频焦点，仅适用于安卓
+请求获取音频焦点，仅适用于Android
 
 **接口**
 
