@@ -1,14 +1,14 @@
 微信小程序从基础库 [2.19.2](https://developers.weixin.qq.com/miniprogram/dev/framework/compatibility.html) 开始支持HttpDNS。接入HttpDNS可以有效避免小程序因 Local DNS 造成的域名劫持和跨网访问问题，更有效地保障您的小程序业务正常，避免移动互联网中的劫持、跨网域名解析错误等问题。
 
-- 微信小程序接入移动解析HttpDNS，参见[移动解析HttpDNS](https://developers.weixin.qq.com/miniprogram/dev/framework/ability/HTTPDNS.html)。
-- 微信小程序购买移动解析HttpDNS服务，参见[购买HttpDNS](https://fuwu.weixin.qq.com/service/detail/00022476b70ac08df25cfcefc57015)。
+- 微信小程序接入移动解析HttpDNS，参见 [移动解析HttpDNS](https://developers.weixin.qq.com/miniprogram/dev/framework/ability/HTTPDNS.html)。
+- 微信小程序购买移动解析HttpDNS服务，参见 [购买HttpDNS](https://fuwu.weixin.qq.com/service/detail/00022476b70ac08df25cfcefc57015)。
 
 
 开发者调用 [wx.request](https://developers.weixin.qq.com/miniprogram/dev/api/network/request/wx.request.html) 时，可以开启移动解析 HttpDNS 服务。 该服务基于 HTTP 协议向服务商的 DNS 服务器发送域名解析请求，替代了基于 DNS 协议向运营商Local DNS发起解析请求的传统方式，可以避免Local DNS造成的域名劫持和跨网访问问题，解决移动互联网服务中域名解析异常带来的困扰。
 
 ## 小程序开发者使用移动解析说明
 
-1. 前往 [微信服务市场](https://fuwu.weixin.qq.com/) 选购 HttpDNS 资源，并在【服务详情页 - 接入文档】获取Service ID。
+1. 前往 [微信服务市场](https://fuwu.weixin.qq.com/) 选购 HttpDNS 资源，并在 [HttpDNS 接入文档](https://fuwu.weixin.qq.com/service/detail/00022476b70ac08df25cfcefc57015) 获取Service ID。
 2. 小程序调用 [wx.request](https://developers.weixin.qq.com/miniprogram/dev/api/network/request/wx.request.html)，将 `enableHttpDNS` 参数设置为 `true`，并在 `httpDNSServiceId` 参数中填入选用的服务商 `Service ID`。
 
 ### **代码示例**
