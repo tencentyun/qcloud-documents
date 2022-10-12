@@ -8,8 +8,7 @@
 - 如需完成实名认证：
 <div style="background-color:#00A4FF; width: 170px; height: 35px; line-height:35px; text-align:center;"><a href="https://console.cloud.tencent.com/developer" target="_blank"  style="color: white; font-size:16px;"  hotrep="document.guide.3128.btn2">点此完成实名认证</a></div>
 
-## 操作步骤
-### 购买双节点、三节点实例
+## 购买双节点、三节点实例
 1. 登录 [MySQL 购买页](https://buy.cloud.tencent.com/cdb)，根据实际需求选择各项配置信息，确认无误后，单击**立即购买**。
  - **计费模式**：支持包年包月和按量计费。
     - 若业务量有较稳定的长期需求，建议选择包年包月。
@@ -48,7 +47,9 @@
  - **服务条款**：[云数据库服务条款](https://cloud.tencent.com/document/product/236/39102)。
 2. 支付完成后，返回实例列表，会看到实例显示**发货中**（大概需要3min - 5min中，请耐心等待），待实例状态变为**运行中**，即可进行正常操作。
 
-### 购买单节点实例
+## 购买单节点实例
+>?单节点云盘版实例目前在内测阶段，如需购买，请提交 [内测申请](https://cloud.tencent.com/apply/p/gl91we71qxc)。
+>
 1. 登录 [MySQL 购买页](https://buy.cloud.tencent.com/cdb)，根据实际需求选择各项配置信息，确认无误后，单击**立即购买**。
  - **计费模式**：支持包年包月和按量计费。
     - 若业务量有较稳定的长期需求，建议选择包年包月。
@@ -61,11 +62,10 @@
  - **硬盘类型**：云盘。了解硬盘类型请参见 [硬盘类型](https://cloud.tencent.com/document/product/362/2353)。
  - **可用区**：选择实例部署可用区。处于同一私有网络下不同可用区的云产品内网互通；例如，相同私有网络下的上海二区的云服务器可以通过内网访问上海三区的 MySQL。
  - **实例规格**：根据业务需要选择对应规格。
- - **硬盘**：硬盘空间用于存放 MySQL 运行时所必须文件。支持选择硬盘为 SSD 云硬盘和增强型 SSD 云硬盘，了解硬盘类型请参见 [硬盘类型](https://cloud.tencent.com/document/product/362/2353)。可选硬盘容量：20 - 32000GB。
+ - **硬盘**：硬盘空间用于存放 MySQL 运行时所必须文件。支持选择硬盘为 SSD 云硬盘和增强型 SSD 云硬盘，了解硬盘类型请参见 [硬盘类型](https://cloud.tencent.com/document/product/362/2353)。可选硬盘容量：20GB - 32000GB。
  ![](https://qcloudimg.tencent-cloud.cn/raw/5cb60f2880dc3a2ae9f5d3692e53098a.png)
 >?后续的配置步骤与购买双节点、三节点实例一致，请参见 [后续步骤](https://cloud.tencent.com/document/product/236/5160#HXBZ)。
-
-2. 支付完成后，返回实例列表，会看到实例显示发货中（大概需要3min - 5min中，请耐心等待），待实例状态变为运行中，即可进行正常操作。
+2. 支付完成后，返回实例列表，会看到实例显示**发货中**（大概需要3min - 5min中，请耐心等待），待实例状态变为**运行中**，即可进行正常操作。
 ![](https://qcloudimg.tencent-cloud.cn/raw/35e6e0a371d82923a09aa731826c243b.png)
 
 ## 后续操作
