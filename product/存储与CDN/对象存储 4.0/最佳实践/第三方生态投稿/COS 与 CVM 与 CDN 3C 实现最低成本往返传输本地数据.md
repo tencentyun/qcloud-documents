@@ -188,6 +188,6 @@ Linux 系统建议直接使用 [COSFS](https://cloud.tencent.com/document/produc
 
 通过 CDN，能让在 COS 里的数据更快速稳定地传输到本地，同时也能节省直接从 COS 下载的流量费用，一举两得的好方法，随着流量的增多，节省的费用将会越来越多，如下为理论上能够节省的费用
 
-数据量 GB	CVM流量费用	CDN 流量费用	CDN 节省率。
+数据量 GB CVM 流量费用	CDN 流量费用	CDN 节省率。
 ![](https://qcloudimg.tencent-cloud.cn/raw/2ce358c4b4724b976073af5eeaaed5b2.png)
 可以看到，CDN+COS 对比直接从 CVM 出网，能节省50%以上的费用。
