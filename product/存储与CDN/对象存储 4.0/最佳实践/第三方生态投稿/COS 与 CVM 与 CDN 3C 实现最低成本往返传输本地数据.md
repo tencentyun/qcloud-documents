@@ -27,7 +27,7 @@
 ### 稳定性
 如上文所述，遇到不可抗力因素的时候，不支持断点续传分片传输的话，就只能从0开始，既浪费时间又浪费流量。
 
-如果文件量大的，建议使用对象存储COS，支持到50T的分片上传，并且最好走内网，提高效率。
+如果文件量大的，建议使用对象存储 COS，支持到50T的分片上传，并且最好走内网，提高效率。
 
 ### 生态
 - COS，CDN，CVM 统一使用腾讯云的产品，在同一个账户下1控制台可以直接管理，免去了切换平台切换账号之间的麻烦。
@@ -144,14 +144,14 @@ CVM 按带宽计算计费价格公式：数据量*1024/(带宽/8)/3600*带宽费
 进入对象存储 COS，云服务器 CVM，内容分发网络 CDN 控制台，首次打开会要求开通授权，根据指引操作即可。
 
 ### 创建存储桶
-可参考 [创建存储桶](https://cloud.tencent.com/document/product/436/13309)。
+可参见 [创建存储桶](https://cloud.tencent.com/document/product/436/13309)。
 
 >?创建存储桶时，地域要与 CVM 所在地域一致，否则将会通过公网收取费用。
 
 存储桶权限建议设置为私有读写。
 
 ### 创建 CDN 服务
-可参考 [从零开始配置 CDN](https://cloud.tencent.com/document/product/228/3149)。
+可参见 [从零开始配置 CDN](https://cloud.tencent.com/document/product/228/3149)。
 
 >?CDN 源站选择 COS 源，建议选择 https 回源，开启私有存储桶访问保证安全。加速类型选择大文件下载或根据业务场景选择。
 
@@ -172,7 +172,7 @@ Linux 系统建议直接使用 [COSFS](https://cloud.tencent.com/document/produc
 对象存储上传会分片上传，极大提升了稳定性，减少了资源内存的占用，而且相较于 FTP，对象存储支持断点续传，即使遇到断网的情况，恢复网络后依然能继续上传。
 
 ### CVM 上传数据至对象存储
-参考 COSCMD 操作，[控制台操作](https://cloud.tencent.com/document/product/436/13321) 
+参见 COSCMD 操作，[控制台操作](https://cloud.tencent.com/document/product/436/13321) 
 
 若使用 Windows 服务器，可以安装图形化管理软件 COSBrowser。
 ![](https://qcloudimg.tencent-cloud.cn/raw/cddabe2ff044c4939b7aeb8982d2c708.png)
