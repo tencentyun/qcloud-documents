@@ -1,5 +1,3 @@
-# 微信小程序接入HttpDNS
-
 微信小程序从基础库 [2.19.2](https://developers.weixin.qq.com/miniprogram/dev/framework/compatibility.html) 开始支持HttpDNS。接入HttpDNS可以有效避免小程序因 Local DNS 造成的域名劫持和跨网访问问题，更有效地保障您的小程序业务正常，避免移动互联网中的劫持、跨网域名解析错误等问题。
 
 - 微信小程序接入移动解析HttpDNS，参见[移动解析HttpDNS](https://developers.weixin.qq.com/miniprogram/dev/framework/ability/HTTPDNS.html)。
