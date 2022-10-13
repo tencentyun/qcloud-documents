@@ -32,7 +32,7 @@ SQL 窗口还支持以下功能：
 3. 搜索并选择数据库实例和库。
 4. 在 SQL 语句执行区域输入 SQL 语句，单击**执行**。
 > ? 可在右侧<b>系统模板</b>区域选择模板SQL语句并进行修改后，单击<b>执行</b>。
-5. （可选）单击**保存**，可将当前的 SQL 语句保存至**我的模板**。
-<img src="https://qcloudimg.tencent-cloud.cn/raw/af72ab58db36e5174d6f6b781abdaae8.png" style="zoom: 50%;" />
+5. （可选）单击**保存**，可将当前的 SQL 语句保存至**我的模板**。<br>
+<img src="https://qcloudimg.tencent-cloud.cn/raw/af72ab58db36e5174d6f6b781abdaae8.png" style="zoom: 60%;" />
    
    
