@@ -323,6 +323,17 @@ _sendLocationMessage(String desc, double longitude, double latitude) async {
 :::
 </dx-codeblock>
 
+### 步骤7：[选装] 使用更多插件丰富TUIKit使用体验
+
+除TUIKit本体基础功能外，我们还提供了四个选装插件，帮助您丰富IM能力。
+
+- [消息推送插件](https://cloud.tencent.com/document/product/269/74605): 支持厂商原生离线推送能力及在线推送能力，并支持推送您的其他业务消息，帮助您提高消息触达率。
+- [音视频通话插件](https://cloud.tencent.com/document/product/269/72485): 支持类似微信的 一对一/群组 音视频 通话。
+- [位置消息插件](https://cloud.tencent.com/document/product/269/80881): 提供选取位置/发送位置及解析展示位置消息的能力。
+- [自定义表情插件](https://cloud.tencent.com/document/product/269/80882): 0.1.5版本后，TUIKit无自带表情包，需要使用此插件，快速简便集成表情能力。支持emoji unicode编码及自定义图片表情。集成过程可参考我们的 [Demo](https://github.com/TencentCloud/TIMSDK/blob/master/Flutter/Demo/im-flutter-uikit/lib/src/pages/app.dart).
+
+...更多实用的插件正在开发中，如果您有好的想法及建议，欢迎随时联系我们。
+
 
 ### 更多能力
 
@@ -482,8 +493,6 @@ final isInitSuccess = await _coreInstance.init(
         print("Error from TUIKit: ${callbackValue.errorMsg}, Code: ${callbackValue.errorCode}");
         if (callbackValue.errorCode == 10004 && callbackValue.errorMsg!.contains("not support @all")) {
             Utils.toast(imt("当前群组不支持@全体成员"));
-        }else if (callbackValue.errorCode == 80001 && callbackValue.errorMsg!.contains("not support @all")) {
-            Utils.toast(imt("发言中有非法语句"));
         }else{
           Utils.toast(callbackValue.errorMsg ?? callbackValue.errorCode.toString());
         }
