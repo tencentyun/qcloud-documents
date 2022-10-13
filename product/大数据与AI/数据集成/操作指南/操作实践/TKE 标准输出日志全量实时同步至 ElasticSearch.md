@@ -44,7 +44,7 @@
 3. 购买完成后返回控制台。[](id:配置DataProxy)
 单击资源组名称，在右侧的弹窗抽屉内**离线资源包使用概况 > DataProxy规格及数量**单击**编辑**按钮，开启并配置 DataProxy 的数量。
 ![](https://qcloudimg.tencent-cloud.cn/raw/41adf36a0f1b1c32693a4717c0da9190.png)
-配置后单击击**确定**即完成 DataProxy 的配置。
+配置后单击**确定**即完成 DataProxy 的配置。
 ![](https://qcloudimg.tencent-cloud.cn/raw/0d1aea93f5683c7bebd41d42737b27c5.png)
 >? 
 >- 集成资源组需包含实时资源包才可成功配置 DataProxy。
@@ -100,7 +100,7 @@
 双击 TKE 读取节点，可在右侧抽屉弹窗中如下图所示配置需要读取的节点信息，完成后单击保存。
 ![](https://qcloudimg.tencent-cloud.cn/raw/c6b12987d1c95f0c1550d5a3318871aa.png)
     - 日志类型：选择**标准输出**，将默认采集 TKE 集群下任意服务的 stderr、stdout 的容器日志。
-    - 命名空间：可根据具体需采集命名空间对象指定。为为保障使用性能，建议单个 Agent 采集命名空间不超过15个文件。
+    - 命名空间：可根据具体需采集命名空间对象指定。为保障使用性能，建议单个 Agent 采集命名空间不超过15个文件。
     - 内容提取模式：选择**全内容**将默认将每条日志记录默认解析为名称为“__ CONTENT __”的完全字符串。
 3. 配置写入节点。
 双击 ElasticSearch 写入节点，可在右侧抽屉弹窗中配置需要写入的节点信息。
