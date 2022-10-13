@@ -28,10 +28,10 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/deae2e0228beb46cd9939c9b1cd977ec.png)
 
 ### 步骤3：配置腾讯云 COS 存储桶
-1. 单击**基础配置** - **静态网站**，将静态网站功能打开，一般来说默认即可，也可以按需配置
+1. 单击**基础配置** - **静态网站**，将静态网站功能打开，一般来说默认即可，也可以按需配置。
 ![](https://qcloudimg.tencent-cloud.cn/raw/6493c313794183a9c4f00333e51af73c.png)
 2. 我们复制上图中的访问节点进行访问，如果您存储桶选择的是公有读私有写，那么您已经能访问到您的网站内容了，如果您选择的是私有读写，那么由于您使用浏览器的访问不属于 “ 3. 有相应权限的账号 ” ，所以您的访问会被拒绝，状态码为403，如下图所示。
-![](https://qcloudimg.tencent-cloud.cn/raw/7fac27bf148b733174289b0fe368e0c9.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/751cb35e4c1f82c31547762c7bcc25a6.png)
 
 ### 步骤4：添加腾讯云 CDN 服务（二选一）
 
@@ -42,7 +42,7 @@
 
 输入域名，加速地域按需选择，源站类型选择静态网站源站，如果是私有读写存储桶的话开启回源鉴权，强烈建议配置HTTPS证书，单击**保存**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/0b752378b9467a14bde9860618f68040.png)
-在 DNSPod 控制台 https://console.dnspod.cn/dns/list 给域名添加 CNAME 解析，记录值为上图中的 CNAME。
+在[ DNSPod 控制台 ](https://console.dnspod.cn/dns/list )给域名添加 CNAME 解析，记录值为上图中的 CNAME。
 ![](https://qcloudimg.tencent-cloud.cn/raw/29f0a89f70db96cab0d14d735466885c.png)
 这时我们发现提醒：当前存在域名开启了回源鉴权，但该存储桶未开启 CDN 服务授权，单击**添加 CDN 服务授权**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/a8e8df5e87715d871104b6f3d6636061.png)
@@ -70,10 +70,12 @@
 </dx-tabs>
 
 ### 步骤5：配置腾讯云 CDN 服务
+<dx-tabs>
+::: 配置证书
 单击**管理**
 ![](https://qcloudimg.tencent-cloud.cn/raw/83ae785e62b129e3436dd690640df17f.png)
 5.1 配置 SSL 证书  并开启强制跳转 （强制跳转按需开启，通常建议开启 HTTP --> HTTPS ）
-强烈建议网站配置 HTTPS
+>?强烈建议网站配置 HTTPS。
 
 首先单击 HTTPS 配置，配置证书。
 ![](https://qcloudimg.tencent-cloud.cn/raw/8cd2f91e3db605d3ec1880bd1a6cfc6e.png)
@@ -83,9 +85,8 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/dc9c65833c6f61d6176a6a6685492fd0.png)
 然后开启强制跳转，跳转类型设置为 HTTP -> HTTPS ，跳转方式选择301跳转，携带头部为 是（可选）。
 ![](https://qcloudimg.tencent-cloud.cn/raw/edbc9dbae3ffee84543f95d9dca69ae7.png)
-
-
-5.2 节点缓存过期配置
+:::
+::: 节点缓存过期配置
 首先单击缓存配置，进行节点缓存过期配置
 ![](https://qcloudimg.tencent-cloud.cn/raw/4ad1ecab3c8019c6cc7454dc41ece180.png)
 由于我们托管的是静态网站，所以应该配置所有的动态文件不缓存。
@@ -104,7 +105,10 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/e2584f774edab47b783254cb6085c4e6.png)
 比如我配置的规则如下：
 ![](https://qcloudimg.tencent-cloud.cn/raw/163be1d64d683c5692d9a3d155e98b5d.png)
-一般只需配置上述两项即可，如有更多需求请自行按需配置
+一般只需配置上述两项即可，如有更多需求请自行按需配置。
+:::
+</dx-tabs>
+
 
 ### 步骤6：访问网站
 现在访问您的 CDN 域名，您就能访问到属于自己的网站。
