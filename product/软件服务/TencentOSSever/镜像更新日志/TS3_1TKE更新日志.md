@@ -27,15 +27,6 @@
 <tr>
 <td>
 <ul class="params">
-<li>安装 java-8-konajdk-8.0.8-1.1.312.x86_64</li>
-<li>更新 polkit 至0.112-26.tl.1</li>
-</ul>
-</td>
-<td>2022-02-23</td>
-</tr>
-<tr>
-<td>
-<ul class="params">
 <li>升级博通网卡驱动至1.10.2-218.1.182.18</li>
 </ul>
 </td>
