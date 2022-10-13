@@ -16,6 +16,10 @@ Kong 通过 Ingress Controller 实现为 Kubernetes Service 配置插件、健�
 5. 单击当前状态后的**编辑**， 选择对接集群类型和集群信息，单击**确定**，即启用 Kong Ingress Controller。
 6. 确认当前状态变更为**已开启**，同时展示选择的容器集群信息。
 7. 修改 Kubernetes Ingress 资源中的 ingress.class 为 kong，创建对应 Ingress 规则。
+<dx-alert infotype="notice" title="">
+对于 apiVersion 为 v1beta1 和 v1 版本的 Ingress 资源，配置方式有所不同，请参考如下示例进行配置。有关不同版本的详细区别，请参见 [Kong 官方文档说明](https://docs.konghq.com/kubernetes-ingress-controller/latest/concepts/ingress-versions/)。
+</dx-alert>
+<ul><li>对于 apiVersion 为 v1beta1 版本的 Ingress 资源，请参考如下示例进行配置：</li>
 <dx-codeblock>
 :::  yaml
 apiVersion: extensions/v1beta1
@@ -35,6 +39,31 @@ spec:
 
 :::
 </dx-codeblock>
+<li>对于 apiVersion 为 v1 版本的 Ingress 资源，请参考如下示例进行配置：</li>
+<dx-codeblock>
+:::  yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: demo-v1
+  annotations:
+    konghq.com/plugins: "httpbin-auth"
+spec:
+  ingressClassName: kong
+  rules:
+  - http:
+      paths:
+      - path: /demo-v1
+        pathType: Prefix
+        backend:
+          service:
+           name: nginx
+           port:
+             number: 80
+
+:::
+</dx-codeblock>
+</ul>
 8. 单击实例 访问控制 页，登录 Konga 控制台，查看是否已生成对应的 Upstream 和 Service。
 ![](https://qcloudimg.tencent-cloud.cn/raw/092ed94196871086361d09ce22a3d1f3.png)
 ![](https://qcloudimg.tencent-cloud.cn/raw/6c68bb4c7300042bb61b84ca751e9c3d.png)
