@@ -281,9 +281,7 @@ UI 组件全貌可参见 [本全览文档](https://cloud.tencent.com/document/pr
 
 ### 附加2: [选装] 使用 Controller 控制 TUIKit[](id:controller)
 
-
->?建议在 tim_ui_kit 0.1.5 以后版本中使用本功能。
-
+>? 建议在 tim_ui_kit 0.1.5 及以后版本中使用本功能。
 
 通过上述步骤的快速集成，您已经可以搭建一套可用的 IM 模块。如果您有其他额外的控制操作需求，可以使用组件配套的 controller 完成。
 
@@ -345,7 +343,8 @@ _sendLocationMessage(String desc, double longitude, double latitude) async {
 - [位置消息插件](https://cloud.tencent.com/document/product/269/80881): 提供选取位置/发送位置及解析展示位置消息的能力。
 - [自定义表情插件](https://cloud.tencent.com/document/product/269/80882): 0.1.5版本后，TUIKit无自带表情包，需要使用此插件，快速简便集成表情能力。支持emoji unicode编码及自定义图片表情。集成过程可参考我们的 [Demo](https://github.com/TencentCloud/TIMSDK/blob/master/Flutter/Demo/im-flutter-uikit/lib/src/pages/app.dart).
 
-...更多实用的插件正在开发中，如果您有好的想法及建议，欢迎随时联系我们。
+更多实用的插件正在开发中...
+如果您有好的想法及建议，欢迎随时联系我们。
 
 ## Flutter for Web 支持[](id:web)
 
@@ -393,7 +392,7 @@ flutter pub cache clean
 flutter pub get
 ```
 
-### 在 Flutter 2.x 上，Android 构建报错 `Codepoint 984472 not found in font, aborting.` 怎么办
+### 在 Flutter 2.x 上，Android 构建报错 `Codepoint 984472 not found in font, aborting.` 怎么办？
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/017362112bb49e5ac2d94d76699b068a.png)
 
@@ -425,7 +424,7 @@ sudo gem install ffi
 pod install --repo-update
 ```
 
-### 佩戴 Apple Watch 时，真机调试 iOS 报错
+### 佩戴 Apple Watch 时，真机调试 iOS 报错怎么办？
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/1ffcfe39a18329c86849d7d3b34b9a0e.png)
 
@@ -433,11 +432,11 @@ pod install --repo-update
 
 重新启动 Xcode（若打开），并重新 `flutter run` 即可。
 
-### Flutter 环境问题
+### Flutter 环境问题如何确认？
 
 如您需得知 Flutter 的环境是否存在问题，请运行 Flutter doctor 检测 Flutter 环境是否装好。
 
-### 使用 Flutter 自动生成的项目，引入 TUIKit 后，运行 Android 端报错
+### 使用 Flutter 自动生成的项目，引入 TUIKit 后，运行 Android 端报错怎么办？
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/d95efdd4ae50f13f38f4c383ca755ae7.png)
 
