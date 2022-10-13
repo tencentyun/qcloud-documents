@@ -266,7 +266,20 @@ class UserProfile extends StatelessWidget {
 
 此时，您的应用已经可以完成消息收发，管理好友关系，展示用户详情及展示会话列表。
 
-### 步骤6：[选装] 使用 Controller 控制 TUIKit[](id:controller)
+### 附加1: TUIKit的更多能力
+
+您还可以继续使用以下 TUIKit 组件快速实现完整 IM 功能。
+
+- [TIMUIKitContact](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitContact/TIMUIKitContact-Implementation.html)：联系人列表页面。
+- [TIMUIKitGroupProfile](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitGroupProfile/TIMUIKitGroupProfile-Implementation.html)：群资料页面，使用方式与 `TIMUIKitProfile` 基本一致。
+- [TIMUIKitGroup](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitGroup/TIMUIKitGroup-Implementation.html)：群列表界面。
+- [TIMUIKitBlackList](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitBlackList/TIMUIKitBlackList-Implementation.html)：黑名单列表界面。
+- [TIMUIKitNewContact](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitNewContact/TIMUIKitNewContact-Implementation.html)：联系人（好友）申请列表。如需在外部显示小红点，可使用 `TIMUIKitUnreadCount` 小红点组件，其会自动挂载监听。
+- [本地搜索](https://cloud.tencent.com/document/product/269/79121)：`TIMUIKitSearch` 全局搜索组件，支持全局搜索联系人/群组/聊天记录，也支持使用 `TIMUIKitSearchMsgDetail` 在特定会话中搜索聊天记录。两种模式取决于是否传入 `conversation`。
+
+UI 组件全貌可参见 [本全览文档](https://cloud.tencent.com/document/product/269/70747) 或 [详细文档](https://comm.qq.com/im/doc/flutter/zh/TUIKit/readme.html)。
+
+### 附加2: [选装] 使用 Controller 控制 TUIKit[](id:controller)
 
 
 >?建议在 tim_ui_kit 0.1.5 以后版本中使用本功能。
@@ -323,7 +336,7 @@ _sendLocationMessage(String desc, double longitude, double latitude) async {
 :::
 </dx-codeblock>
 
-### 步骤7：[选装] 使用更多插件丰富TUIKit使用体验
+### 附加3: [选装] 使用更多插件丰富TUIKit使用体验
 
 除TUIKit本体基础功能外，我们还提供了四个选装插件，帮助您丰富IM能力。
 
@@ -333,20 +346,6 @@ _sendLocationMessage(String desc, double longitude, double latitude) async {
 - [自定义表情插件](https://cloud.tencent.com/document/product/269/80882): 0.1.5版本后，TUIKit无自带表情包，需要使用此插件，快速简便集成表情能力。支持emoji unicode编码及自定义图片表情。集成过程可参考我们的 [Demo](https://github.com/TencentCloud/TIMSDK/blob/master/Flutter/Demo/im-flutter-uikit/lib/src/pages/app.dart).
 
 ...更多实用的插件正在开发中，如果您有好的想法及建议，欢迎随时联系我们。
-
-
-### 更多能力
-
-您还可以继续使用以下 TUIKit 插件快速实现完整 IM 功能。
-
-- [TIMUIKitContact](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitContact/TIMUIKitContact-Implementation.html)：联系人列表页面。
-- [TIMUIKitGroupProfile](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitGroupProfile/TIMUIKitGroupProfile-Implementation.html)：群资料页面，使用方式与 `TIMUIKitProfile` 基本一致。
-- [TIMUIKitGroup](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitGroup/TIMUIKitGroup-Implementation.html)：群列表界面。
-- [TIMUIKitBlackList](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitBlackList/TIMUIKitBlackList-Implementation.html)：黑名单列表界面。
-- [TIMUIKitNewContact](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitNewContact/TIMUIKitNewContact-Implementation.html)：联系人（好友）申请列表。如需在外部显示小红点，可使用 `TIMUIKitUnreadCount` 小红点组件，其会自动挂载监听。
-- [本地搜索](https://cloud.tencent.com/document/product/269/79121)：`TIMUIKitSearch` 全局搜索组件，支持全局搜索联系人/群组/聊天记录，也支持使用 `TIMUIKitSearchMsgDetail` 在特定会话中搜索聊天记录。两种模式取决于是否传入 `conversation`。
-
-UI 组件全貌可参见 [本全览文档](https://cloud.tencent.com/document/product/269/70747) 或 [详细文档](https://comm.qq.com/im/doc/flutter/zh/TUIKit/readme.html)。
 
 ## Flutter for Web 支持[](id:web)
 
@@ -392,6 +391,16 @@ android {
 ```shell
 flutter pub cache clean
 flutter pub get
+```
+
+### 在 Flutter 2.x 上，Android 构建报错 `Codepoint 984472 not found in font, aborting.` 怎么办
+
+![](https://qcloudimg.tencent-cloud.cn/raw/017362112bb49e5ac2d94d76699b068a.png)
+
+在您的编译命令中，加入 `--no-tree-shake-icons`。如：
+
+```shell
+flutter build apk --no-tree-shake-icons --dart-define=SDK_APPID={您的SDKAPPID}
 ```
 
 ### iOS 端 Pods 依赖无法安装成功怎么办？
