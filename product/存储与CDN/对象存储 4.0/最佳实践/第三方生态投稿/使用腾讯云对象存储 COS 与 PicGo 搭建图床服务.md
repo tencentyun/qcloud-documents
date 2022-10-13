@@ -1,5 +1,5 @@
 ## 前言
-平时写博客记笔记大都是使用 markdown 编辑器 ，插入图片时默认保存在电脑本地磁盘。如果需要在多个平台上发布文章，就要分别多次上传图片，非常繁琐。所以需要一种更好的图片管理方案，就是使用图床服务。将图片文件上传到图床并得到一个 url 地址，就可以方便的分享图片了。
+平时写博客记笔记大都是使用 Markdown 编辑器 ，插入图片时默认保存在电脑本地磁盘。如果需要在多个平台上发布文章，就要分别多次上传图片，非常繁琐。所以需要一种更好的图片管理方案，就是使用图床服务。将图片文件上传到图床并得到一个 URL 地址，就可以方便的分享图片了。
 
 市面上有一些免费的图床服务。如果仅仅是临时分享，可以使用。如果有大量的图片资源需要保存，最好还是购买图床服务，或者自建图床。本文将以腾讯云对象存储 COS 为例，结合 PicGo，演示如何搭建一个属于自己的图床服务。
 
@@ -35,10 +35,10 @@ COS（Cloud Object Storage，对象存储）是由腾讯云推出的一种分布
 ![](https://qcloudimg.tencent-cloud.cn/raw/fcfcc1c5b3e955ed431591365b9d33d1.jfif)
 ### 创建存储桶
 1. 按需要填写各项即可，需要注意的地方是访问权限的选择，默认是**私有读写**，适合**存储隐私机密文件**；本文选择了**公有读私有写**，是因为这个存储桶主要是做图床服务，用来**存储图片，并能对外提供公开访问**。
-![](https://qcloudimg.tencent-cloud.cn/raw/c5e88caf41e848e906d8c2cdfe148dcb.jfif)
+![](https://qcloudimg.tencent-cloud.cn/raw/7938b0bfd221b3a88fb4640a7fd06387.jfif)
 2. 单击**下一步**创建即可。
 3. 创建成功后，来到存储桶列表，记录下存储桶的名称，和所属地域的代号，如图示例，也就是 ap-beijing。
-![](https://qcloudimg.tencent-cloud.cn/raw/7223e3b5d152ca6cfe1c88d5ea71e4de.jfif)
+![](https://qcloudimg.tencent-cloud.cn/raw/61a91029c34f2e222903ab063570fbee.jfif)
 
 ### 创建 API 秘钥
 1. 进入 **访问管理** - **访问秘钥** - [**API 秘钥管理**](https://console.cloud.tencent.com/cam/capi)，会提示是否使用子账号管理，可根据实际需要进行选择，这里我们直接使用主账号进行创建。
@@ -51,7 +51,7 @@ COS（Cloud Object Storage，对象存储）是由腾讯云推出的一种分布
 
 ## 配置 PicGo 图床服务
 1. 打开安装好的 PicGo 客户端，进入**图床设置** - **腾讯云 COS**，将上面保存的内容填写到配置中：
-![](https://qcloudimg.tencent-cloud.cn/raw/3d3d363b7abe15a9322a16c203bc38cf.jfif)
+![](https://qcloudimg.tencent-cloud.cn/raw/24357488e9042eab84699e4085779176.jfif)
 2. 存储路径，也就是图片上传后在存储桶内的目录结构，可根据需要填写。如果填写，存储桶会自动创建出对应的目录结构。注意要以 / 结尾。然后单击确定，并设为默认图床。
 3. 进入**PicGo 设置**，将**上传前重命名**、**时间戳重命名**打开，这样可以防止图片重名。
 ![](https://qcloudimg.tencent-cloud.cn/raw/240e185c08ee5cd83b91bf5fa630d393.jfif)
@@ -61,14 +61,13 @@ COS（Cloud Object Storage，对象存储）是由腾讯云推出的一种分布
 ![](https://qcloudimg.tencent-cloud.cn/raw/42b703bce00f7372e09f245dd095b024.jfif)
 2. 单击确定，图片就会进行上传了。
 3. PicGo 的相册功能，会展示已经上传的图片，并提供了复制图片 url，编辑图片 url 和移除相册的基础操作。需要注意的是，仅仅是删除本地的数据，云端的图片不会受影响。
-![](https://qcloudimg.tencent-cloud.cn/raw/2d8705f48f2dba79b55fa85eaa6d3aea.jfif)
-4. 来到腾讯云 COS 控制台，进入对应的存储桶中，可以发现图片已经上传成功了：
+![](https://qcloudimg.tencent-cloud.cn/raw/ebb42a8dc7749cc1afb31337685ddbdc.jfif)
+4. 来到 [腾讯云 COS 控制台](https://console.cloud.tencent.com/cos5)，进入对应的存储桶中，可以发现图片已经上传成功了：
 ![](https://qcloudimg.tencent-cloud.cn/raw/80b8da463adfb89ccae1ba5f0f43b38d.jfif)
 5. 存储桶内的每个文件都会有一个唯一的访问地址，单击**详情**查看：
 ![](https://qcloudimg.tencent-cloud.cn/raw/6bd850708beb5bb1a15b0ab682a2d662.png)
-使用图床：在 Typora 粘贴图片时自动上传
+使用图床：在 Typora 粘贴图片时自动上传。
 打开 Typora ，进入**文件**- **偏好设置**- **图像设置**，进行三个设置：
-
  1. 插入图片时，执行上传图片操作
  2. 上传服务采用 PicGo(app)
  3. 设置 PicGo 程序的安装路径
