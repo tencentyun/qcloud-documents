@@ -9,24 +9,20 @@
 
 ## 操作步骤
 ### 安装 PicGo
-PicGo 是一个用于快速上传图片并获取图片 URL 链接的工具，支持腾讯云COS、七牛图床、Github 图床、又拍云图床等。
-
-我们以 Windows 为例，首先访问 Github 仓库去 [下载](https://github.com/Molunerfinn/PicGo/releases) 客户端安装包，找到 2.3.0 正式版，找到对应平台的安装包，单击下载：
+1. PicGo 是一个用于快速上传图片并获取图片 URL 链接的工具，支持腾讯云COS、七牛图床、Github 图床、又拍云图床等。
+2. 我们以 Windows 为例，首先访问 Github 仓库去 [下载](https://github.com/Molunerfinn/PicGo/releases) 客户端安装包，找到 2.3.0 正式版，找到对应平台的安装包，单击下载：
 ![](https://qcloudimg.tencent-cloud.cn/raw/0055fd83ed41dbc2880cf8f7e0de9ae8.jfif)
 下载完成之后，正常安装即可。 
 
 ### 安装 webp 插件
-PicGo 有一系列好用的插件，帮助扩展功能，比如压缩图片、添加水印等等。本文将以 webp 插件为例，演示如何在 PicGo 中使用插件。
-
-webp 插件会在图片上传前将图片转为 .webp 格式，它相比于传统的 .jpg、.png 等格式，同等体积质量更高，同等质量体积更小。图片经过压缩之后再上传至 COS，对于节省存储空间，节省流量都很有帮助。如果对图片格式有特殊要求，不希望转换格式，可以省略这一步。
-
-打开 PicGo，进入插件设置，在搜索栏输入插件名字即可搜索并安装，非常方便：
+1. PicGo 有一系列好用的插件，帮助扩展功能，比如压缩图片、添加水印等等。本文将以 webp 插件为例，演示如何在 PicGo 中使用插件。
+2. webp 插件会在图片上传前将图片转为 .webp 格式，它相比于传统的 .jpg、.png 等格式，同等体积质量更高，同等质量体积更小。图片经过压缩之后再上传至 COS，对于节省存储空间，节省流量都很有帮助。如果对图片格式有特殊要求，不希望转换格式，可以省略这一步。
+3. 打开 PicGo，进入插件设置，在搜索栏输入插件名字即可搜索并安装，非常方便：
 ![](https://qcloudimg.tencent-cloud.cn/raw/f8b7b3956b4d61fbcde451a899c3e04d.jfif)
 
 ## COS 对象存储
-COS（Cloud Object Storage，对象存储）是由腾讯云推出的一种分布式存储服务。它的特点是无目录层次结构、无数据格式限制，可容纳海量数据，支持 HTTP/HTTPS 协议访问。腾讯云 COS 的存储桶空间无容量上限，无需分区管理，适用于 CDN 数据分发、[数据万象](https://cloud.tencent.com/product/ci?from=10680) 处理或大数据计算与分析的数据湖等多种场景。
-
-对于 [实名认证](https://cloud.tencent.com/solution/face-recognition?from=10680) 的新用户，腾讯云 COS 提供了六个月的免费体验服务（50GB 存储空间），[单击此处访问](https://cloud.tencent.com/act/free?from=10680)。
+1. COS（Cloud Object Storage，对象存储）是由腾讯云推出的一种分布式存储服务。它的特点是无目录层次结构、无数据格式限制，可容纳海量数据，支持 HTTP/HTTPS 协议访问。腾讯云 COS 的存储桶空间无容量上限，无需分区管理，适用于 CDN 数据分发、[数据万象](https://cloud.tencent.com/product/ci?from=10680) 处理或大数据计算与分析的数据湖等多种场景。
+2. 对于 [实名认证](https://cloud.tencent.com/solution/face-recognition?from=10680) 的新用户，腾讯云 COS 提供了六个月的免费体验服务（50GB 存储空间），[单击此处访问](https://cloud.tencent.com/act/free?from=10680)。
 ![](https://qcloudimg.tencent-cloud.cn/raw/15751362b0e98d8e7fd10300afba81be.jfif)
 
 
