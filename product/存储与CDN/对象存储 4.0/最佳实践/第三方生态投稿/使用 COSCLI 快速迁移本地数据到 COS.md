@@ -1,4 +1,4 @@
-在 GitHub 或者 Gitee 等其他地方“白嫖“存储难免会遇到无法访问的时候，例如前段时间 jsDelivr 就因为被 DNS 污染导致无法访问、Gitee 公开仓库私有...
+在 GitHub 或者 Gitee 等其他地方“白嫖“存储难免会遇到无法访问的时候，例如前段时间 jsDelivr 就因为被 DNS 污染导致无法访问、Gitee 公开仓库私有等问题。
 
 而这两种情况还好，可以使用 git 获取到数据，能拉取到本地，对于有服务器的同学，重新放到本地，替换一下访问链接就可以继续访问了。没有服务器或者没有任何备份程序的就很不友好了，可能会出现数据丢失的问题。
 
@@ -49,11 +49,11 @@ chmod 755 /usr/local/bin/coscli
 $ coscli -v
 coscli version v0.11.1-beta
 ```
-看到了version的输出表示安装成功。
+看到了 version 的输出表示安装成功。
 
 在 macOS 系统下使用 COSCLI 时，若弹出无法打开“coscli”，因为无法验证开发者的提示，可以前往**设置** > **安全性与隐私** > **通用**中选择仍要打开 coscli，之后即可正常使用 COSCLI。
 
-可以使用coscli --help命令来快速查看 COSCLI 的使用方法。在第一次使用时，执行coscli命令，会进行初始化配置，需要输入Secret ID等信息，按步骤填写完成后，COSCLI 会默认在~/.cos.yaml的位置生成配置文件。
+可以使用 coscli --help 命令来快速查看 COSCLI 的使用方法。在第一次使用时，执行coscli命令，会进行初始化配置，需要输入Secret ID等信息，按步骤填写完成后，COSCLI 会默认在~/.cos.yaml的位置生成配置文件。
 ```
 $ coscli
 2022/08/06 17:11:46 Welcome to coscli!
@@ -62,7 +62,7 @@ The path of the configuration file: /Users/lufei/.cos.yaml
 Input Your Secret ID:
 ```
 
-后期也可以使用coscli config init命令在其他位置为 COSCLI 交互式地生成配置文件，或者可以直接手动编写 COSCLI 的配置文件。
+后期也可以使用 coscli config init 命令在其他位置为 COSCLI 交互式地生成配置文件，或者可以直接手动编写 COSCLI 的配置文件。
 
 配置文件中各配置项的说明如下：
 
@@ -94,7 +94,7 @@ cos:
 ```
 >?secretid/secretkey/sessiontoken 均为加密后的字符串，不是明文配置的值。
 
-如果需要支持多个存储桶，可以使用coscli config add命令添加存储桶配置。
+如果需要支持多个存储桶，可以使用 coscli config add 命令添加存储桶配置。
 
 ## 使用
 COSCLI 支持以下命令：
@@ -134,11 +134,11 @@ Flags:
 
 Use "coscli [command] --help" for more information about a command.
 ```
-这里介绍一下cp和sync命令
+这里介绍一下 cp 和 sync 命令：
 
-cp 命令用于上传、下载或拷贝文件。
-sync 命令用于同步上传、下载或拷贝文件。
-与 cp 命令不同的是：sync 命令首先会对比同名文件的 crc64，如果 crc64 值相同则不进行传输。
+- cp 命令用于上传、下载或拷贝文件。
+- sync 命令用于同步上传、下载或拷贝文件。
+- 与 cp 命令不同的是：sync 命令首先会对比同名文件的 crc64，如果 crc64 值相同则不进行传输。
 
 这两个命令在上传和下载大文件时会自动启用并发上传/下载。当以分块形式上传/下载文件时，会默认开启断点续传。
 
@@ -160,7 +160,7 @@ coscli cp /yourpath/wp-content/uploads/ cos://bucket1/wp-content/uploads/ -r --e
 
 
 ### 二次上传
-如果出现了某些异常，或者手动停止掉后，想要重新上传，可以使用sync，该命令会对比同名文件的 crc64，如果 crc64 值相同则不进行传输。
+如果出现了某些异常，或者手动停止掉后，想要重新上传，可以使用 Sync，该命令会对比同名文件的 crc64，如果 crc64 值相同则不进行传输。
 ```
 coscli sync /yourpath/wp-content/uploads/ cos://bucket1/wp-content/uploads/ -r
 ```
