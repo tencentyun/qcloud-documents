@@ -11,12 +11,12 @@ CentOS 官方已停止维护 CentOS 8，具体情况如下表所示。如需了�
 ## 版本说明
 **源端主机支持操作系统版本：**
 - 支持 CentOS 8系列操作系统版本：
-CentOS 8.0 64位、CentOS 8.2 64位、CentOS 8.3 64位、CentOS 8.4 64位
+CentOS 8.0 64位、CentOS 8.2 64位、CentOS 8.3 64位、CentOS 8.4 64位、CentOS 8.2 ARM 64位
 
 **目标主机建议操作系统版本：**
 - CentOS 8系列建议迁移至 OpenCloudOS Server 8。
 
->!CentOS stream 8公共镜像和 ARM 版本暂时不支持迁移操作。
+>!CentOS stream 8公共镜像暂时不支持迁移操作。
 
 
 ## 注意事项
@@ -72,12 +72,16 @@ CentOS 8迁移至 OpenCloudOS8 的步骤如下：
 yum install -y python3
 ```
 3. 执行以下命令，下载安装迁移工具。
-```shell
-wget https://mirrors.opencloudos.tech/opencloudos/8.6/AppStream/x86_64/os/Packages/migrate2opencloudos-1.0-0.oc8.noarch.rpm
+```
+#x86版本
+wget https://mirrors.opencloudos.tech/opencloudos/8.6/AppStream/x86_64/os/Packages/migrate2opencloudos-1.0-1.oc8.noarch.rpm
+#arm版本
+wget https://mirrors.opencloudos.tech/opencloudos/8/AppStream/aarch64/os/Packages/migrate2opencloudos-1.0-1.oc8.noarch.rpm 
+
 ```
 4. 执行以下命令安装迁移工具,该命令会在 /usr/sbin下创建 migrate2opencloudos.py。
 ```shell
-rpm -ivh migrate2opencloudos-1.0-0.oc8.noarch.rpm
+rpm -ivh migrate2opencloudos-1.0-1.oc8.noarch.rpm
 ```
 5. 执行以下命令，开始迁移。
 ```shell
