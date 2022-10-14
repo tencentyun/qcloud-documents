@@ -3,6 +3,15 @@
 > 下文中，IM Flutter SDK（无 UI）指代 [tencent_im_sdk_plugin](https://pub.dev/packages/tencent_im_sdk_plugin) 包，仅包括所有 IM 客户端 API 及监听回调；
 > IM Flutter TUIKit（含 UI）指代 [tim_ui_kit](https://pub.dev/packages/tim_ui_kit) 包，在上行基础上，还包括完整 UI 组件库及业务逻辑。
 
+## IM Flutter TUIKit（含 UI） 0.1.6 @2022.10.14
+
+* 新增: 支持大图片和RAW图片，特别是那些从最新版本的iOS和iPhone 14 Pro系列捕获的图片，在自动发送前压缩和格式化。
+* 优化: 性能和稳定性，特别是历史消息列表和启动。
+* 优化: 使初始化' TIMUIKitChat '为幂等操作。
+* 优化: 当滚动回底部时加载最新的消息。
+* 优化: 优化支持 Flutter 2.x和 3.x 系列。
+* 修复: 几个bug。
+
 ## IM Flutter TUIKit（含 UI） 0.1.5 @2022.09.22
 * 添加：Web支持。现在，您可以在 iOS/Android/Web 平台上实现 TUIKit。
 * 新增：登录后检查磁盘存储，控制在`init`的`config`中。
