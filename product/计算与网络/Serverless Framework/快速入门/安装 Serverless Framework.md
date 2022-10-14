@@ -32,9 +32,9 @@ npm update -g serverless-cloud-framework
 ```
 
 #### 查看版本信息
-安装完毕后，通过运行`serverless -v`命令，查看 Serverless Cloud Framework 的版本信息：
+安装完毕后，通过运行`serverless-cloud-framework -v`命令，查看 Serverless Cloud Framework 的版本信息：
 ```sh
-serverless -v
+serverless-cloud-framework -v
 ```
 
 
@@ -52,7 +52,7 @@ curl -o- -L https://slss.io/install | bash
 
 如果之前您已经安装过二进制版本，可以通过下列命令进行升级：
 ```sh
-serverless upgrade
+serverless-cloud-framework upgrade
 ```
 
 #### Windows 系统 
@@ -69,9 +69,9 @@ choco upgrade serverless
 
 
 #### 查看版本信息
-安装完毕后，通过运行 `serverless -v` 命令，查看 Serverless Cloud Framework 的版本信息：
+安装完毕后，通过运行 `serverless-cloud-framework -v` 命令，查看 Serverless Cloud Framework 的版本信息：
 ```sh
-serverless -v
+serverless-cloud-framework -v
 ```
 
 ## 相关操作

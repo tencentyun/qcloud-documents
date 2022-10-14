@@ -35,9 +35,9 @@ x.x.x
 npm install -g serverless
 ```
 
-- 安装完毕后，通过运行 `serverless -v` 命令，查看 Serverless Framework CLI 的版本信息。
+- 安装完毕后，通过运行 `serverless-cloud-framework -v` 命令，查看 Serverless Framework CLI 的版本信息。
 ```sh
-$ serverless -v
+$ serverless-cloud-framework -v
 x.x.x
 ```
 

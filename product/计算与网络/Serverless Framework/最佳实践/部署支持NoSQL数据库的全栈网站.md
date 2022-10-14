@@ -25,9 +25,9 @@ $ npm install -g serverless-cloud-framework
 $ npm update -g serverless-cloud-framework
 ```
 
-安装完毕后，通过运行`serverless -v`命令，查看 Serverless Cloud Framework 的版本信息，确保版本信息不低于以下版本：
+安装完毕后，通过运行`serverless-cloud-framework -v`命令，查看 Serverless Cloud Framework 的版本信息，确保版本信息不低于以下版本：
 ```bash
-$ serverless –v
+$ serverless-cloud-framework –v
 Framework Core: 1.68.0
 Plugin: 3.6.6
 SDK: 2.3.0

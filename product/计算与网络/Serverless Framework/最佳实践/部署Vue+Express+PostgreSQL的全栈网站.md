@@ -29,10 +29,10 @@ npm install -g serverless-cloud-framework
 npm update -g serverless-cloud-framework
 ```
 
-安装完毕后，通过运行 serverless -v 命令，查看 Serverless Cloud Framework 的版本信息，确保版本信息不低于以下版本。返回结果如下所示：
+安装完毕后，通过运行 serverless-cloud-framework -v 命令，查看 Serverless Cloud Framework 的版本信息，确保版本信息不低于以下版本。返回结果如下所示：
 
 ```shell
-$ serverless –v
+$ serverless-cloud-framework –v
 Framework Core: 1.74.1 (standalone)
 Plugin: 3.6.14
 SDK: 2.3.1
@@ -43,7 +43,7 @@ Components: 2.31.6
 
 1. 新建一个本地文件夹，使用 `serverless init` 命令，下载相关 template。
 ```console
-serverless init fullstack
+serverless-cloud-framework init fullstack
 ```
 
 2. 在项目根目录下新建 .env 文件，并在其中配置对应的腾讯云 SecretId、SecretKey、地域和可用区信息。
