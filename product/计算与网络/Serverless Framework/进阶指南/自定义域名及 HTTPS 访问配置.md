@@ -48,7 +48,7 @@ inputs:
 再次通过 `scf deploy` 命令进行部署，并可以添加 `--debug` 参数查看部署过程中的信息。
 
 如您的账号未 [登录](https://cloud.tencent.com/login) 或 [注册](https://cloud.tencent.com/register) 腾讯云，您可以直接通过**微信**扫描命令行中的二维码进行授权登录和注册。
->?`scf` 是 `serverless` 命令的简写。
+>?`scf` 是 `serverless-cloud-framework` 命令的简写。
 
 ```bash
 $ scf deploy 
