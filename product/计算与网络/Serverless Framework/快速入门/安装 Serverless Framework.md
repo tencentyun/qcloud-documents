@@ -1,5 +1,5 @@
 ## 操作场景
-您可以通过 [NPM 安装](#npm) 或 [二进制安装](#binary) 的方式，快速安装 Serverless Framework。
+您可以通过 [NPM 安装](#npm) 或 [二进制安装](#binary) 的方式，快速安装 Serverless Cloud Framework。
 
 
 ## 安装方式
@@ -22,17 +22,17 @@ $ npm -v
 
 在命令行中运行如下命令：
 ```sh
-npm install -g serverless
+npm install -g serverless-cloud-framework
 ```
->?如 MacOS 提示无权限，则需要运行`sudo npm install -g serverless`进行安装。
+>?如 MacOS 提示无权限，则需要运行`sudo npm install -g serverless-cloud-framework`进行安装。
 
-如果之前您已经安装过 Serverless Framework，可以通过以下命令升级到最新版。
+如果之前您已经安装过 Serverless Cloud Framework，可以通过以下命令升级到最新版。
 ```sh
-npm update -g serverless
+npm update -g serverless-cloud-framework
 ```
 
 #### 查看版本信息
-安装完毕后，通过运行`serverless -v`命令，查看 Serverless Framework 的版本信息：
+安装完毕后，通过运行`serverless -v`命令，查看 Serverless Cloud Framework 的版本信息：
 ```sh
 serverless -v
 ```
@@ -69,7 +69,7 @@ choco upgrade serverless
 
 
 #### 查看版本信息
-安装完毕后，通过运行 `serverless -v` 命令，查看 Serverless Framework 的版本信息：
+安装完毕后，通过运行 `serverless -v` 命令，查看 Serverless Cloud Framework 的版本信息：
 ```sh
 serverless -v
 ```
@@ -78,5 +78,4 @@ serverless -v
 下一步：快速开始
  - [快速部署函数模板](https://cloud.tencent.com/document/product/1154/50938)
  - [快速创建应用模板](https://cloud.tencent.com/document/product/1154/50933)
-
 

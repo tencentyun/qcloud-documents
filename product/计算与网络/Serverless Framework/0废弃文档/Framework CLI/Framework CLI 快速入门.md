@@ -51,7 +51,7 @@ x.x.x
 通过运行如下命令进行创建，`--path`可以指定服务的路径：
 ```sh
 # 创建一个serverless服务
-$ serverless create --template tencent-nodejs --path my-service
+$ serverless-cloud-framework create --template tencent-nodejs --path my-service
 ```
 2. 安装依赖。
 进入服务所在路径，运行如下命令安装依赖：

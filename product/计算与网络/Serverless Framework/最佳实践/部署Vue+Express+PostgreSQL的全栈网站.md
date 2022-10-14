@@ -17,19 +17,19 @@
 
 ### 安装
 
-通过 npm 全局安装 [Serverless Framework](https://github.com/serverless/serverless)：
+通过 npm 全局安装 [Serverless Cloud Framework](https://github.com/serverless/serverless)：
 
 ```shell
-npm install -g serverless
+npm install -g serverless-cloud-framework
 ```
 
-如果之前您已经安装过 Serverless Framework，可以通过下列命令升级到最新版：
+如果之前您已经安装过 Serverless Cloud Framework，可以通过下列命令升级到最新版：
 
 ```shell
-npm update -g serverless
+npm update -g serverless-cloud-framework
 ```
 
-安装完毕后，通过运行 serverless -v 命令，查看 Serverless Framework 的版本信息，确保版本信息不低于以下版本。返回结果如下所示：
+安装完毕后，通过运行 serverless -v 命令，查看 Serverless Cloud Framework 的版本信息，确保版本信息不低于以下版本。返回结果如下所示：
 
 ```shell
 $ serverless –v
@@ -68,12 +68,12 @@ npm run bootstrap
 
 ### 部署
 
-1. 执行 `sls deploy --all` 命令进行部署。返回信息如下所示：
+1. 执行 `scf deploy --all` 命令进行部署。返回信息如下所示：
 <dx-codeblock>
 :::  console
-$ sls deploy --all
+$ scf deploy --all
 
-serverless ⚡ framework
+serverless-cloud-framework
 
 serverlessVpc:
   region:     ap-guangzhou
@@ -121,11 +121,11 @@ fullstack-frontend:
  部署成功后，您可以使用浏览器访问项目产生的 website 链接，即可看到生成的网站。
 >?本项目云函数因 VPC，导致无法直接访问外网，如需访问外网请参考 [云函数网络配置]( https://cloud.tencent.com/document/product/583/38202 )。
 
-2. 执行 `sls remove --all`，可移除项目。返回信息如下所示：
+2. 执行 `scf remove --all`，可移除项目。返回信息如下所示：
 ```bash
-$  sls remove --all
+$  scf remove --all
 
-serverless ⚡ framework
+serverless-cloud-framework
 
 38s › tencent-fullstack › Success
 ```

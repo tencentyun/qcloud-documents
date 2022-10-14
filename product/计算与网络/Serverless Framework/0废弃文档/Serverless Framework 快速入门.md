@@ -27,7 +27,7 @@ Please scan QR code login from wechat.
 Wait login...
 Login successful for TencentCloud. 
 
-serverless ⚡ framework
+serverless-cloud-framework
 Action: "deploy" - Stage: "dev" - App: "scfApp" - Instance: "scfdemo"
 
 FunctionName: scfFunctionName
@@ -74,7 +74,7 @@ $ sls dev
 $ cd express-app #进入项目目录
 $ sls remove
 
-serverless ⚡ framework
+serverless-cloud-framework
 Action: "remove" - Stage: "dev" - App: "scfApp" - Instance: "scfdemo"
 
 6s › scfdemo › Success
