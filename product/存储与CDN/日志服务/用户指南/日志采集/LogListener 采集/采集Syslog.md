@@ -26,7 +26,7 @@ Syslog常被称为系统日志或系统记录，是一种用来在因特网协�
 例如以下配置表示将所有的日志都通过TCP转发至127.0.0.1:1000，配置文件详细说明请参见 [RSyslog Documentation](https://www.rsyslog.com/doc/v8-stable/configuration/index.html)。
 
 ```
-@@127.0.0.1:1000
+*.* @@127.0.0.1:1000
 ```
 
 执行以下命令重启rsyslog，使日志转发规则生效。
