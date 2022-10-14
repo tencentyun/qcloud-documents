@@ -28,7 +28,7 @@ Database 连接器目前支持查询、插入、更新、删除、批量插入�
 ### 查询操作
 <dx-tabs>
 
-::: SQL模式
+::: SQL 模式
 
 #### 参数配置
 
@@ -38,7 +38,7 @@ Database 连接器目前支持查询、插入、更新、删除、批量插入�
 | 参数     | 数据类型 | 描述                                                         | **是否必填** | **默认值** |
 | -------- | -------- | ------------------------------------------------------------ | ------------ | ---------- |
 | 操作模式 | enum     | 操作模式，支持简单模式-单表查询、简单模式-多表查询和 SQL 模式 | 是           | SQL 模式    |
-| 查询语句 | string   | SQL 模式参数，SQL 语句，支持两种写法：<br>1. 原生 SQL。例如："select * from p where age=12" <br> 2. 嵌入占位符的 SQL，使用参数化输入（冒号+参数），可防止 SQL 注入。例如："select * from p where age = :age"，在“输入参数”中，填入变量名 key 为"age"，value 值为"12"，此时待执行的查询语句为“select * from p where age=12” | 是           |      -      |
+| 查询语句 | string   | SQL 模式参数，SQL 语句，支持两种写法：<li>原生 SQL。例如："select * from p where age=12" <li> 嵌入占位符的 SQL，使用参数化输入（冒号+参数），可防止 SQL 注入。例如："select * from p where age = :age"，在“输入参数”中，填入变量名 key 为"age"，value 值为"12"，此时待执行的查询语句为“select * from p where age=12” | 是           |      -      |
 | 输入参数 | dict     | SQL 模式参数，输入参数列表，列表元素为字典，key 对应“查询语句”中的参数化变量名，key 值需要与参数化变量名一致，value 为该变量的值 | 否           |    -        |
 
 
@@ -106,8 +106,7 @@ Database 连接器目前支持查询、插入、更新、删除、批量插入�
 #### 参数配置
 **查询逻辑配置**
 
-
-| 参数     | 数据类型 | 描述                                                         | **是否必填** | **默认值** |
+| 参数     | 数据类型 | 描述                                                         | 是否必填 | 默认值 |
 | -------- | -------- | ------------------------------------------------------------ | ------------ | ---------- |
 | 操作模式 | enum     | 操作模式，支持支持支持简单模式-单表查询、简单模式-多表查询和 SQL 模式 | 是           | SQL 模式    |
 | 表选择   | enum     | 简单模式-单表查询参数，待查询的数据表                        | 是           |      -      |
@@ -117,8 +116,7 @@ Database 连接器目前支持查询、插入、更新、删除、批量插入�
 
 **输出配置**
 
-
-| 参数     | 数据类型 | 描述                                                         | **是否必填** | **默认值** |
+| 参数     | 数据类型 | 描述                                                         | 是否必填 | 默认值 |
 | -------- | -------- | ------------------------------------------------------------ | ------------ | ---------- |
 | 输出模式 | enum     | 查询所得数据的输出模式，支持普通模式和 RecordSet 模式          | 是           | 普通模式   |
 | 是否缓存 | bool     | 输出模式为 RecordSet 模式时的参数，输出的 RecordSet 数据是否支持缓存 | 否           | false      |
@@ -126,11 +124,8 @@ Database 连接器目前支持查询、插入、更新、删除、批量插入�
 
 
 #### 输出
-
 查询操作执行成功后，输出结果会保存在 Message 消息体的 payload；执行失败后，错误信息会保存在 Message 消息体的 error。
-
 组件输出的 message 信息如下：
-
 
 | message 属性 | 值                                                           |
 | ----------- | ------------------------------------------------------------ |
@@ -153,17 +148,13 @@ Database 连接器目前支持查询、插入、更新、删除、批量插入�
 ::: 简单模式-多表查询
 
 #### 参数配置
-
 **通用**：
-
 
 | 参数     | 数据类型 | 描述                                                         | **是否必填** | **默认值** |
 | -------- | -------- | ------------------------------------------------------------ | ------------ | ---------- |
 | 操作模式 | enum     | 操作模式，支持支持支持简单模式-单表查询、简单模式-多表查询和 SQL 模式 | 是           | SQL 模式    |
 
-
 **查询逻辑配置**：
-
 
 | 参数     | 数据类型 | 描述                                                         | **是否必填** | **默认值** |
 | -------- | -------- | ------------------------------------------------------------ | ------------ | ---------- |
@@ -175,7 +166,6 @@ Database 连接器目前支持查询、插入、更新、删除、批量插入�
 
 **输出配置**：
 
-
 | 参数     | 数据类型 | 描述                                                         | **是否必填** | **默认值** |
 | -------- | -------- | ------------------------------------------------------------ | ------------ | ---------- |
 | 输出模式 | enum     | 查询所得数据的输出模式，支持普通模式和 RecordSet 模式          | 是           | 普通模式   |
@@ -184,11 +174,8 @@ Database 连接器目前支持查询、插入、更新、删除、批量插入�
 
 
 #### 输出
-
 查询操作执行成功后，输出结果会保存在 Message 消息体的 payload；执行失败后，错误信息会保存在 Message 消息体的 error。
-
 组件输出的 message 信息如下：
-
 
 | message 属性 | 值                                                           |
 | ----------- | ------------------------------------------------------------ |
@@ -212,11 +199,8 @@ Database 连接器目前支持查询、插入、更新、删除、批量插入�
 :::  Recordset 输出模式
 
 #### 输出
-
 查询操作执行成功后，输出结果会保存在 Message 消息体的 payload；执行失败后，错误信息会保存在 Message 消息体的 error。
-
 组件输出的 message 信息如下：
-
 
 | message属性 | 值                                                           |
 | ----------- | ------------------------------------------------------------ |
@@ -260,11 +244,8 @@ Database 连接器目前支持查询、插入、更新、删除、批量插入�
 ![image-20210706154015476](https://main.qcloudimg.com/raw/d70e2efcf5dd0a659cfd4f17d86154b7/database40.png)
 
 ####  输出
-
 操作执行成功后，输出结果会保存在 message 消息体的 payload；执行失败后，错误信息会保存在 message 消息体的 error。
-
 组件输出的 message 信息如下：
-
 
 | message 属性 | 值                                                           |
 | ----------- | ------------------------------------------------------------ |
@@ -275,16 +256,13 @@ Database 连接器目前支持查询、插入、更新、删除、批量插入�
 
 
 例如：MySQL 数据库的插入操作，执行成功后，message payload 值如下：
-
 ```json
 {
     "lastId": 1,
     "rowsAffected": 1
 }
 ```
-
 执行失败后，message error 值如下：
-
 ```json
 {
     "Code": "CORE:RUNTIME",
@@ -294,19 +272,17 @@ Database 连接器目前支持查询、插入、更新、删除、批量插入�
 
 
 ### 案例
-
 1. 添加 Database 连接器组件，选择插入操作。
 2. 新建连接器或选择已创建的连接器。
 3. 在通用配置中，填入 SQL 语句及输入参数。例如：“插入语句”为`insert into books (book_auth, book_name, book_price) values (:book_auth, :book_name, :book_price)`，输入参数使用 Dataway 格式编写。
-   ```python
+```python
    def dw_process(msg):
    	return {
    	'book_auth': 'test',
    	'book_name': 'ipaas',
    	'book_price': 100,
    	}
-   ```
-
+```
 4. 插入结果：
   - 插入成功后，message payload 中包含了执行结果：
 ![image-20210323113311938](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/img/Database/database15.png)
@@ -317,30 +293,22 @@ Database 连接器目前支持查询、插入、更新、删除、批量插入�
 ::: 简单模式
 
 #### 参数配置
-
 **通用**：
-
 
 | 参数     | 数据类型 | 描述                                                         | **是否必填** | **默认值** |
 | -------- | -------- | ------------------------------------------------------------ | ------------ | ---------- |
 | 操作模式 | enum     | 支持简单模式和 SQL 模式；简单模式可辅助编写操作语句，SQL 模式下可编写结构化 SQL 语句" | 是           | SQL 模式    |
 
-
 **插入逻辑配置**：
-
 
 | 参数     | 数据类型 | 描述                                                 | **是否必填** | **默认值** |
 | -------- | -------- | ---------------------------------------------------- | ------------ | ---------- |
 | 表选择   | enum     | 简单模式参数，待操作的数据表                         | 是           |      -      |
 | 字段配置 | list     | 简单模式参数，待插入的字段信息，包括字段名称和字段值 | 是           |        -    |
 
-
 ####  输出
-
 操作执行成功后，输出结果会保存在 message 消息体的 payload；执行失败后，错误信息会保存在 message 消息体的 error。
-
 组件输出的 message 信息如下：
-
 
 | message 属性 | 值                                                           |
 | ----------- | ------------------------------------------------------------ |
@@ -351,7 +319,6 @@ Database 连接器目前支持查询、插入、更新、删除、批量插入�
 
 
 #### 案例
-
 1. 添加 Database 连接器组件，选择插入操作。
 2. 新建连接器配置或选择已创建的连接器配置。
 3. 在配置中填写如下配置：
@@ -624,17 +591,17 @@ Database 连接器目前支持查询、插入、更新、删除、批量插入�
 3. 通过“RecordSet Encoder”生成 RecordSet 类型的数据，在 “Encoder” 组件中设置如下 Schema：
    ![image-20210624201918451](https://main.qcloudimg.com/raw/6ce16796b5196581f86ea7111b03abf4/database45.png)
 4. 在 “Encoder” 组件选择 “Set Payload” 组件，按如下配置设置：
-   ```python
+```python
    def dw_process(msg):
        return [['xiaomi',66.66,'e'], ['xiaoming',66.66,'f'], ['xiaohua',66.66,'g']]
-   ```
+```
 5. 测试组件如下：
    ![image-20210624203014745](https://main.qcloudimg.com/raw/cd186c63ddaf9b8f1d553dd25ed6967b/database47.png)
 6. 构造好 RecordSet 数据后，输入数据集如下：
-   ```python
+```python
    def dw_process(msg):
        return msg.payload
-   ```
+```
 7. Database组件通过数据表字段和 RecordSet 数据字段的映射关系来构造插入的数据信息，配置如下：
    ![image-20210701152327985](https://main.qcloudimg.com/raw/20a7b1987e7c9f977ca15db377e7bc10/database34.png)
 8. 批量插入成功后，message 的 error 信息为空。
@@ -712,7 +679,7 @@ Database 连接器目前支持查询、插入、更新、删除、批量插入�
 
 1. 新建连接器或选择已创建的连接器。
 2. 通过“RecordSet Encoder”组件生成 RecordSet 类型的数据。
-3. 构造好RecordSet数据后，添加 Database 组件的“批量删除”操作，数据表字段和 RecordSe t数据字段的关系构成了合并的过滤条件，Database 组件配置如下：
+3. 构造好 RecordSet 数据后，添加 Database 组件的“批量删除”操作，数据表字段和 RecordSe t数据字段的关系构成了合并的过滤条件，Database 组件配置如下：
    ![image-20210706154654745](https://main.qcloudimg.com/raw/2e836137fa273cb7a2c9f665a918ef02/database46.png)
 4. 组件如下：
 ![image-20210624204634109](https://main.qcloudimg.com/raw/2fde49c668ea4697ba65011105e15444/database50.png)
@@ -769,26 +736,25 @@ Database 连接器目前支持查询、插入、更新、删除、批量插入�
 
 
 #### 案例
-
 1. 添加 Database 连接器组件，选择存储过程操作。
 ![image-20210323144706499](https://main.qcloudimg.com/raw/8b0dc537e9ff2ce516d5e232aa2a24c8/database23.png)
 2. 新建连接器或选择已创建的连接器。
 3. 在通用配置中，填入参数信息。例如：“存储过程”为 getBookId，输入参数 dataway 表达式如下：
-   ```python
+```python
    def dw_process(msg):
    	return {
    	'name': 'aaa',
    	'price': 0,
    	}
-   ```
+```
  - 输出参数表达式如下：
-   ```python
+```python
    def dw_process(msg):
    	return [
    	{'fieldName':'id', 'fieldType':'INT'}, 
    	{'fieldName':'book_name', 'fieldType':'VARCHAR'}
    	]
-   ```
+```
  - 界面如图：
    ![image-20210323145420670](https://main.qcloudimg.com/raw/ac839855a3c756a59cf0efa8d008934b/database6.png)
 4. 执行结果：
@@ -797,3 +763,66 @@ Database 连接器目前支持查询、插入、更新、删除、批量插入�
  - 若执行过程中出现错误，message error 中会包含错误信息：
 ![image-20210323145701162](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/img/Database/database26.png)
 
+## 附录
+iPaaS Database 连接器会根据数据库字段类型将数据库字段值转换为数据连接器的核心类型：
+MySQL 数据库与数据连接器的字段映射：
+
+| MySQL 字段    | iPaaS 数据类型 |
+| ---------- | --------- |
+| TINYINT    | 整数        |
+| SMALLINT   | 整数        |
+| MEDIUMINT  | 整数        |
+| INT        | 整数        |
+| BIGINT     | 整数        |
+| DECIMAL    | 十进制       |
+| NUMERIC    | 十进制       |
+| FLOAT      | 浮点数       |
+| DOUBLE     | 浮点数       |
+| BIT        | 整数        |
+| DATE       | 日期        |
+| TIME       | 时间        |
+| DATETIME   | 时刻        |
+| TIMESTAMP  | 时刻        |
+| YEAR       | 整数        |
+| CHAR       | 字符串       |
+| VARCHAR    | 字符串       |
+| BINARY     | 字节数组      |
+| VARBINARY  | 字节数组      |
+| TINYBLOB   | 字节数组      |
+| MEDIUMBLOB | 字节数组      |
+| BLOB       | 字节数组      |
+| LONGBLOB   | 字节数组      |
+| TINYTEXT   | 字符串       |
+| MEDIUMTEXT | 字符串       |
+| TEXT       | 字符串       |
+| LONGTEXT   | 字符串       |
+| JSON       | 字符串       |
+
+iPaaS Database 连接器不支持 MySQL 的空间数据类型、ENUM 类型、SET 类型的处理，对于不支持的 MySQL 字段类型统一按照字符串类型进行映射。
+Oracle 数据库与数据连接器的字段映射：
+
+| Oracle 字段                       | iPaaS 数据类型 |
+| ------------------------------ | --------- |
+| CHAR                           | 字符串       |
+| NCHAR                          | 字符串       |
+| VARCHAR                        | 字符串       |
+| VARCHAR2                       | 字符串       |
+| NVARCHAR2                      | 字符串       |
+| LONG                           | 字符串       |
+| NUMBER                         | 十进制       |
+| DECIMAL                        | 十进制       |
+| FLOAT                          | 浮点数       |
+| BINARY_FLOAT                   | 浮点数       |
+| BINARY_DOUBLE                  | 浮点数       |
+| DATE                           | 日期        |
+| TIMESTAMP                      | 时刻        |
+| TIMESTAMP WITH TIME ZONE       | 时刻        |
+| TIMESTAMP WITH LOCAL TIME ZONE | 时刻        |
+| BLOB                           | 字节数组      |
+| CLOB                           | 字节数组      |
+| NCLOB                          | 字节数组      |
+| BFILE                          | 字节数组      |
+| RAW                            | 字节数组      |
+| LONG RAW                       | 字节数组      |
+
+iPaaS Database 连接器不支持 Oracle 的 INTERVAL DAY TO SECOND 类型、INTERVAL YEAR TO MONTH 类型、ROWID 类型、UROWID 类型、ANSI, DB2 和 SQL/DS 数据类型、用户自定义等数据类型的处理，对于不支持的 Oracle 字段类型统一按照字符串类型进行映射。
