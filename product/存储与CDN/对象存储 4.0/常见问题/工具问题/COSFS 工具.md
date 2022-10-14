@@ -267,6 +267,52 @@ rpm -ivh cosfs-1.0.19-centos7.0.x86_64.rpm --force
 
 COSFS 需要有根目录的 GetBucket 权限，因此您需要加上根目录的 GetBucket 权限以及对应目录的读权限授权，这样可以列出其它目录但是没有操作权限。
 
+### COSFS 每天在某个时间段里 CPU 使用率较高，且向 COS 发出大量 Head、List 请求，产生大量请求次数费用，该怎么处理？
+这通常是由于您机器上存在定时扫盘任务导致的，Linux 系统上常见的扫盘程序是 updatedb，您可以将 COSFS 挂载点目录，添加到 updatedb 的配置文件 /etc/updatedb.conf 文件的 PRUNEPATHS 配置项中，避免该程序的扫盘行为。此外，您可以使用 Linux 工具 auditd，查找访问 COSFS 挂载点的程序：
+
+第一步，安装 auditd：
+
+Ubuntu:
+
+```
+ap-get install auditd -y
+```
+
+CentOS：
+
+```
+ yum install audit audit-libs
+```
+
+第二步，启动 auditd 服务：
+
+```
+systemctl start auditd
+systemctl enable auditd
+```
+
+第三步，监控挂载目录，其中 -w 指定 COSFS 挂载目录，-k 为输出在 audit 日志中的 key：
+
+```
+auditctl -w /usr/local/service/mnt/ -k cosfs_mnt
+```
+
+第四步，根据日志确定访问程序：
+
+audit 的日志目录： /var/log/audit，查询命令：
+
+```
+ausearch -i|grep 'cosfs_mnt'
+```
+
+第五步，停止 auditd 服务：
+如果您需要停止 auditd 服务，可以使用如下命令：
+
+```
+/sbin/service auditd stop
+```
+
+注意：如果访问挂载点的程序一直在运行，新启动的 auditd，并不会监控到该程序的访问行为；程序中关于挂载目录的多次调用，只会记录第一次。
 
 ### 为什么执行 df 显示 COSFS 的 Size 和 Available 为256T？
 COS 存储桶的空间是无限大的，这里的 Available 为256T，仅作为展示 df 结果，实际上 COS 存储桶能存储的数据量远不止256T。
@@ -280,5 +326,3 @@ COSFS 不是基于硬盘的文件系统，所以不会有 inode。
 ### SUSE 12 SP3安装依赖包报"No provider of xxx found."错误，怎么办？
 请参考 [SUSE系统无法安装COSFS的解决方案](https://cloud.tencent.com/developer/article/1868019)。
 
-### COSFS 每天在某个时间段里 CPU 使用率较高，且向 COS 发出大量 Head、List 请求，该怎么处理？
-这通常是由于您机器上存在定时扫盘任务导致的，Linux 系统上常见的扫盘程序是 updatedb，您可以将 COSFS 挂载点目录，添加到 updatedb 的配置文件 /etc/updatedb.conf 文件的 PRUNEPATHS 配置项中，避免该程序的扫盘行为。
