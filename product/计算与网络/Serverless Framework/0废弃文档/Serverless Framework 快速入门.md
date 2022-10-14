@@ -55,7 +55,7 @@ Triggers:
 $ cd express-app #进入项目目录
 $ sls info
 ```
->?sls 是 serverless 命令的简写。
+>?sls 是 serverless-cloud-framework 命令的简写。
 
 ### 开发调试
 
