@@ -303,7 +303,8 @@ TKE 支持混合云节点。(kube-controller-manager)</td>
 <li>忽略 TKEDefaultQuota 冲突时的错误，增加 worker 数量解决 resource quota evaluates timeout 错误。(kube-apiserver)</li>
 <li>CPU Manager 处理 Pod 时先清理已终止的容器，避免 CPU 分配失败。(kubelet) </li>
 <li>为 CBS 磁盘增加 StatusDetaching 状态。(kube-controller-manager)</li>
-<li>Serverless 集群支持 daemonset。(kube-apiserver)</td>
+<li>Serverless 集群支持 daemonset。(kube-apiserver)</li>
+		  <li>支持 Pod 资源原地更新。(kube-apiserver,kubelet)</li></td>
   </tr>
 	 <tr>
     <td>2022-07-27</td>
