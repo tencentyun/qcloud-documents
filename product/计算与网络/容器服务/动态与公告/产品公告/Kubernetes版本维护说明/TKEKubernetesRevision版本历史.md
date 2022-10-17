@@ -5,7 +5,7 @@
 </thead>
   <tbody>
 	    <tr>
-    <td>2022.10.13</td>
+    <td>2022-10-13</td>
     <td>v1.22.5-tke.5</td>
 		<td>
 <li>Serverless 集群支持 daemonset。(kube-apiserver)</li>
@@ -45,7 +45,7 @@
 </thead>
   <tbody>
 	    <tr>
-    <td>2022.10.13</td>
+    <td>2022-10-13</td>
     <td>v1.20.6-tke.27</td>
     <td>
 <li>针对超级节点 IP 管理的调度策略优化。(kube-scheduler)</li>
@@ -135,7 +135,7 @@
 </thead>
 <tbody>
 	  <tr>
-    <td>2022.10.13</td>
+    <td>2022-10-13</td>
     <td>	v1.18.4-tke.30</td>
     <td>
 <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/112299">PR112299</a>，优化 apiserver gzip 压缩级别。(kube-apiserver)</li>
@@ -294,7 +294,7 @@ TKE 支持混合云节点。(kube-controller-manager)</td>
 </thead>
 <tbody>
 	  <tr>
-    <td>2022.10.13</td>
+    <td>2022-10-13</td>
     <td>		v1.16.3-tke.32</td>
     <td>
 <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/112299">PR112299</a>，优化 apiserver gzip 压缩级别。(kube-apiserver)</li>
