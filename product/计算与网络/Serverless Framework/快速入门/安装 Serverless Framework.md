@@ -5,7 +5,7 @@
 ## 安装方式
 
 [](id:npm)
-### 方式1：NPM 安装
+### NPM 安装
 #### 安装前提
 使用 npm 安装前，需要确保您的环境中已安装好了 Node（**版本需要 > 12**）以及 npm（查看 [Node.js 安装指南](https://nodejs.org/zh-cn/download/)）。
 ```sh
@@ -39,40 +39,9 @@ serverless-cloud-framework -v
 
 
 [](id:binary)
-### 方式2：二进制安装
-
-如果您的本地环境没有安装 Node.js，您可以直接使用二进制的方式进行安装：
-
-#### MacOS/Linux 系统 
-
-打开命令行，输入以下命令：
-```sh
-curl -o- -L https://slss.io/install | bash
-```
-
-如果之前您已经安装过二进制版本，可以通过下列命令进行升级：
-```sh
-serverless-cloud-framework upgrade
-```
-
-#### Windows 系统 
-
-Windows 系统支持通过 [chocolatey](https://chocolatey.org/) 进行安装。打开命令行，输入以下命令：
-
-```sh
-choco install serverless
-```
-如果之前您已经安装过二进制版本，可以通过下列命令进行升级：
-```sh
-choco upgrade serverless
-```
 
 
-#### 查看版本信息
-安装完毕后，通过运行 `serverless-cloud-framework -v` 命令，查看 Serverless Cloud Framework 的版本信息：
-```sh
-serverless-cloud-framework -v
-```
+
 
 ## 相关操作
 下一步：快速开始
