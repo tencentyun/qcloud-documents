@@ -10,7 +10,7 @@
 		<td>
 <li>Serverless 集群支持 daemonset。(kube-apiserver)</li>
 <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/112299">PR112299</a>，优化 apiserver gzip 压缩级别。(kube-apiserver)</li>
-<li>修复 CVE-2022-3172。(kube-apiserver</li>
+<li>修复 CVE-2022-3172。(kube-apiserver)</li>
 <li>增加 calling_webhook_timeout_error 指标。(kube-apiserver)</li>
 <li>忽略 TKEDefaultQuota 冲突时的错误，增加 worker 数量解决 resource quota evaluates timeout 错误。(kube-apiserver)</li>
 <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/110294">PR110294</a>，修复 Job activeDeadlineSeconds 设置不生效的问题。</a>(kube-controller-manager)</li>
