@@ -4,21 +4,21 @@
 > IM Flutter TUIKit（含 UI）指代 [tim_ui_kit](https://pub.dev/packages/tim_ui_kit) 包，在上行基础上，还包括完整 UI 组件库及业务逻辑。
 
 ## IM Flutter SDK（无 UI） 4.1.4 @2022.10.17
-- 新增: 支持PC平台，包含 macOS 与 Windows
-- 新增: 消息扩展
-- 新增: 信令编辑
-- 优化: 升级底层SDK
-- 修复: 高版本jdk转换问题
-- 修复: 若干问题
+- 新增：支持 PC 平台，包含 macOS 与 Windows
+- 新增：消息扩展
+- 新增：信令编辑
+- 优化：升级底层 SDK
+- 修复：高版本 JDK 转换问题
+- 修复：若干问题
 
 ## IM Flutter TUIKit（含 UI） 0.1.7 @2022.10.17
-* 新增: 支持大图片和RAW图片，特别是那些从最新版本的iOS和iPhone 14 Pro系列捕获的图片，在自动发送前压缩和格式化
-* 优化: 性能和稳定性，特别是历史消息列表和启动
-* 优化: 使初始化' TIMUIKitChat '为幂等操作
-* 优化: 当滚动回底部时加载最新的消息
-* 优化: 优化支持 Flutter 2.x和 3.x 系列
-* 修复: iOS相册，仅允许部分图片，权限支持
-* 修复: 几个bug
+* 新增: 支持大图片和 RAW 图片，特别是那些从最新版本的 iOS 和 iPhone 14 Pro 系列捕获的图片，在自动发送前压缩和格式化
+* 优化：性能和稳定性，特别是历史消息列表和启动
+* 优化：使初始化' TIMUIKitChat '为幂等操作
+* 优化：当滚动回底部时加载最新的消息
+* 优化：优化支持 Flutter 2.x和 3.x 系列
+* 修复：iOS 相册，仅允许部分图片，权限支持
+* 修复：几个 bug
 
 ## IM Flutter TUIKit（含 UI） 0.1.5 @2022.09.22
 * 新增：Web支持。现在，您可以在 iOS/Android/Web 平台上实现 TUIKit
