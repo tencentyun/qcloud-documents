@@ -7,6 +7,7 @@
 	    <tr>
     <td>2022.10.13</td>
     <td>v1.22.5-tke.5</td>
+		<td>
 <li>Serverless 集群支持 daemonset。(kube-apiserver)</li>
 <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/112299">PR112299</a>，优化 apiserver gzip 压缩级别。(kube-apiserver)</li>
 <li>修复 CVE-2022-3172。(kube-apiserver</li>
@@ -20,8 +21,8 @@
 <li>优化 daemonset pod 调度性能，只处理分配到的节点。(kube-scheduler)</li>
 <li>设置 CBS CSI Migration 为完成状态。(kube-controller-manager)</li>
 <li>支持扩展调度器 Prebind 及 Unreserve 操作。(kube-scheduler)</li>
-<li>优化 Serverless 集群虚拟节点 HPA。(kube-controller-manager)</td>
-    <tr><td> 2022-05-07   </td><td> v1.22.5-tke.1</td>
+<li>优化 Serverless 集群虚拟节点 HPA。(kube-controller-manager)</li></td>
+<tr><td> 2022-05-07   </td><td> v1.22.5-tke.1</td>
 		<td>
 <li>允许 TKE 托管集群使用的特殊网段。(kube-apiserver)</li>
 <li>还原 <a href="https://github.com/kubernetes/kubernetes/pull/63066">pr63066</a>, 修复 LB 健康检查与 IPVS 的问题。(kube-proxy)</li>
@@ -58,7 +59,7 @@
 <li>合并<a href="https://github.com/kubernetes/kubernetes/pull/101155">PR101155</a>，支持设置多个 ServiceAccount 令牌颁发者。(kube-apiserver)</li>
 <li>为 CBS 磁盘增加 StatusDetaching 状态。(kube-controller-manager)</li>
 <li> 延长超级节点调度静态 IP 时更新资源的超时时间，避免大规模并发时更新失败。(kube-scheduler)</li>
-<li>Serverless 集群支持 daemonset。(kube-apiserver)</td>
+<li>Serverless 集群支持 daemonset。(kube-apiserver)</li></td>
   </tr>
 		   <tr>
     <td>2022-09-07</td>
@@ -142,7 +143,7 @@
 <li> 增加 calling_webhook_timeout_error 指标。(kube-apiserver)</li>
 <li>忽略 TKEDefaultQuota 冲突时的错误，增加 worker 数量解决 resource quota evaluates timeout 错误。(kube-apiserver)</li>
 <li>为 CBS 磁盘增加 StatusDetaching 状态。(kube-controller-manager)</li>
-<li>Serverless 集群支持 daemonset。(kube-apiserver)</td>
+<li>Serverless 集群支持 daemonset。(kube-apiserver)</li></td>
   </tr>
 	 <tr>
     <td>2022-09-07</td>
