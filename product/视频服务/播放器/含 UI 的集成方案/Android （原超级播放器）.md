@@ -13,7 +13,7 @@
 1. 如何集成腾讯云视立方 Android 播放器组件
 2. 如何创建和使用播放器
 
-
+ 
 ## 集成准备
 ### 步骤1：项目下载
 腾讯云视立方 Android 播放器组件的项目地址是 [SuperPlayer_Android](https://github.com/LiteAVSDK/Player_Android)。
@@ -51,8 +51,8 @@ remote: Total 2637 (delta 227), reused 524 (delta 170), pack-reused 1993
 | common                      | 工具类模块                                                   |
 | SDK                         | 视立方播放器 SDK，包括：LiteAVSDK_Player_x.x.x.aar，aar 格式提供的 SDK；LiteAVSDK_Player_x.x.x.zip，lib 和 jar 格式提供的 SDK |
 | Player说明文档(Android).pdf | 播放器组件使用文档                                           |
-|:::||
-|</dx-tabs>||
+:::
+</dx-tabs>
 
 ### 步骤2：集成指引
 本步骤可指导您如何集成播放器，您可选择使用 Gradle 自动加载的方式，手动下载 aar 再将其导入到您当前的工程或导入 jar 和 so 库的方式集成项目。
@@ -248,6 +248,7 @@ ndk {
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 ```
+
 
 ### 步骤4：设置混淆规则
 在 proguard-rules.pro 文件，将 TRTC SDK 相关类加入不混淆名单：

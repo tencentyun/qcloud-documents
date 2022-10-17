@@ -18,11 +18,21 @@
  CREATE ROLE userName REPLICATION LOGIN;
 ```
 
-说明： 超级用户默认拥有必要的权限，如果是超级用户，大部分无需赋予上面权限。但出于安全考虑不建议使用超级用户。
+<dx-alert infotype="explain" title="">
+超级用户默认拥有必要的权限，如果是超级用户，大部分无需赋予上面权限。但出于安全考虑不建议使用超级用户。
+</dx-alert>
+
+
 
 ### 使用 pgoutput 插件时用户权限设置
 
-**注意：** pgoutput 插件需要连接管理配置的用户拥有超级用户权限
+
+
+<dx-alert infotype="notice" title="">
+pgoutput 插件需要连接管理配置的用户拥有超级用户权限。
+</dx-alert>
+
+
 **第一步：** 验证用户是否拥有超级用户权限
 
 ```
@@ -64,7 +74,7 @@ GRANT SELECT ON TABLE tableName TO userName;
 
 ## 主机访问权限设置（自建集群需要配置）
 
-您需要配置数据库允许 connector 的主机访问，通过配置 `pg_hba.conf` 文件来设置相应的策略, `pg_hba.conf` 详细介绍可参考[pg_hba.conf](https://www.postgresql.org/docs/10/auth-pg-hba-conf.html)。配置文件格式如下：
+您需要配置数据库允许 connector 的主机访问，通过配置 `pg_hba.conf` 文件来设置相应的策略, `pg_hba.conf` 详细介绍可参见 [pg_hba.conf](https://www.postgresql.org/docs/10/auth-pg-hba-conf.html)。配置文件格式如下：
 
 ```
 host    databaseName    userName     11.163.0.0/16         md5

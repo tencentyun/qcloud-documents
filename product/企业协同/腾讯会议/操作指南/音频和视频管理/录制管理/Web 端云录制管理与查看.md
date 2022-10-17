@@ -70,7 +70,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/41b629776599d582adfbda1e7cfd06a5.png)
 
 ## 注意事项
-- [升级会员可享受20G超大云录制空间，点击前往了解会员版](https://meeting.tencent.com/buy?mid=web.p.topdh.djygm)。
+- [升级会员可享受20G超大云录制空间，点击前往了解会员版](https://meeting.tencent.com/buy.html?open-vip=1&mid=p.help.wz)。
 - 商业版或企业版账户到期后，云录制文件无法查看，但可以在后台自动保存90天。
 - 90天内，用户成功续费，则云录制文件可以重新查看、下载、共享。
 - 超过90天，如果用户仍未续费，则云录制文件将无法访问。
