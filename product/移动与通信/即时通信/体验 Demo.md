@@ -1,11 +1,6 @@
 
 
 
-<dx-alert infotype="notice" title="">
-为提供更好的产品服务，即时通信 IM 相关 Demo 将于2022年10月15日至2022年10月17日进行停机维护。维护期间给您带来的不便，敬请谅解。
-</dx-alert>
-
-
 
 <style>
     .card-container {
