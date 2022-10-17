@@ -17,21 +17,17 @@
 
 通过 npm 全局安装 [Serverless CLI](https://github.com/serverless/serverless)：
 ```bash
-$ npm install -g serverless-cloud-framework
+$ npm install -g scf
 ```
 
 如果之前您已经安装过 Serverless Cloud Framework，可以通过下列命令升级到最新版：
 ```bash
-$ npm update -g serverless-cloud-framework
+$ npm update -g scf
 ```
 
-安装完毕后，通过运行`serverless-cloud-framework -v`命令，查看 Serverless Cloud Framework 的版本信息，确保版本信息不低于以下版本：
+安装完毕后，通过运行`scf -v`命令，查看 Serverless Cloud Framework 的版本信息，确保版本信息不低于1.0.2版本：
 ```bash
-$ serverless-cloud-framework –v
-Framework Core: 1.68.0
-Plugin: 3.6.6
-SDK: 2.3.0
-Components: 2.30.1
+$ scf –v
 ```
 
 ### 配置
