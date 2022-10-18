@@ -6,7 +6,7 @@
 
 ## 云桌面访问其他 VPC 资源
 ### 对等链接
-您可以通过 [对等链接](https://cloud.tencent.com/document/product/553)（Peering Connection）实现云桌面访问另**一个 VPC**，对等连接支持同账号 VPC 互通和跨账号 VPC 互通，可以参见以下链接为您的云桌面创建对等连接。
+您可以通过 [对等连接](https://cloud.tencent.com/document/product/553)（Peering Connection）实现云桌面访问另**一个 VPC**，对等连接支持同账号 VPC 互通和跨账号 VPC 互通，可以参见以下链接为您的云桌面创建对等连接。
 - [同账号创建对等连接通信](https://cloud.tencent.com/document/product/877/30804)
 - [跨账号创建对等连接通信](https://cloud.tencent.com/document/product/553/18837)
 
