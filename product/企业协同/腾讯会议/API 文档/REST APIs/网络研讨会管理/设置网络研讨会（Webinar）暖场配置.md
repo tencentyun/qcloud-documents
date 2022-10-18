@@ -2,7 +2,6 @@
 - **描述：**
  - 对网络研讨会进行 Webinar 进行暖场设置。
  - 支持 JWT 鉴权、OAuth2.0 鉴权，权限为：管理会议。
- - 可订阅网络研讨会暖场上传结果事件用于获得上传结果，请参见 [网络研讨会（Webinar）暖场上传结果](https://cloud.tencent.com/document/product/1095/79826) 。
 - **调用方式：**POST
 - **接口请求域名：**
 ```plaintext

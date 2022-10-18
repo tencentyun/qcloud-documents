@@ -328,7 +328,7 @@ Android8。0系统以上通知栏消息增加了 channelid 的设置，目前 op
 | kTIMMsgIsFormSelf | bool | 读写（选填） | 消息是否来自自己 |
 | kTIMMsgPlatform | bool | 读写（选填） | 发送消息的平台 |
 | kTIMMsgIsRead | bool | 读写（选填） | 消息是否已读 |
-| kTIMMsgIsOnlineMsg | bool | 读写（选填） | 消息是否是在线消息，false 表示普通消息，true 表示在线消息，默认为 false |
+| kTIMMsgIsOnlineMsg | bool | 读写（选填） | 消息是否是在线消息，false 表示普通消息，true 表示阅后即焚消息，默认为 false |
 | kTIMMsgIsPeerRead | bool | 只读 | 消息是否被会话对方已读 |
 | kTIMMsgStatus | uint [TIMMsgStatus](#timmsgstatus) | 读写（选填） | 消息当前状态 |
 | kTIMMsgUniqueId | uint64 | 只读 | 消息的唯一标识，推荐使用 kTIMMsgMsgId |
@@ -350,8 +350,8 @@ Android8。0系统以上通知栏消息增加了 channelid 的设置，目前 op
 目前文件和语音 Elem 不一定会按照添加顺序传输，其他 Elem 按照顺序，不过建议不要过于依赖 Elem 顺序进行处理，应该逐个按照 Elem 类型处理，防止异常情况下进程 Crash。
 - 针对群组的红包和点赞消息。
 对于直播场景，会有点赞和发红包功能，点赞相对优先级较低，红包消息优先级较高，具体消息内容可以使用自定义消息 [CustomElem](#customelem) 进行定义，发送消息时，可通过`kTIMMsgPriority`定义消息优先级。
-- 在线消息。
-开发者通过设置`kTIMMsgIsOnlineMsg`字段为 true 时，表示发送在线消息，该消息有如下特性。
+- 阅后即焚消息。
+开发者通过设置`kTIMMsgIsOnlineMsg`字段为 true 时，表示发送阅后即焚消息，该消息有如下特性。
  - C2C 会话，当此消息发送时，只有对方在线，对方才会收到。如果当时离线，后续再登录也收不到此消息。
  - 群会话，当此消息发送时，只有群里在线的成员才会收到。如果当时离线，后续再登录也收不到此消息。
  - 此消息服务器不会保存。

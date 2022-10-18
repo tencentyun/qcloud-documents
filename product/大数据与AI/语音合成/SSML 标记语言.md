@@ -1700,21 +1700,3 @@ SSML 是一种基于 XML 的语音合成标记语言。使用 SSML 可以更加�
 ```
 音频效果：[say-as-measure.wav](https://ssml-demo-1300466766.cos.ap-guangzhou.myqcloud.com/say-as-measure.wav)
 
-### &lt;word&gt;
-#### 描述
-用于表示文本的词语结构，该标签是可选标签。英文文本通常采用空格来进行分词，一般无需使用此标签。<word>标签内部必须是一个独立的词或短语，这个词或短语只能包含纯中文或纯英文，不能中英混合。
-
-#### 语法
-```
-<word>文本</word>
-```
-
-#### 标签关系
-`<word>`标签仅包括文本。
-
-#### 示例
-
-```
-<speak>广州市长<word>隆马戏</word>欢迎您。</speak>
-```
-音频效果：[SSML-word.wav](https://ssml-demo-1300466766.cos.ap-guangzhou.myqcloud.com/SSML-word.wav)

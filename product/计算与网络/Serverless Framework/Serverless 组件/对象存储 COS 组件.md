@@ -11,16 +11,16 @@
 
 ### 安装
 
-通过 npm 安装 Serverless Cloud Framework：
+通过 npm 安装 Serverless：
 
 ```console
-npm install -g serverless-cloud-framework
+npm install -g serverless
 ```
 
-如果之前您已经安装过 Serverless Cloud Framework，可以通过下列命令升级到最新版： 
+如果之前您已经安装过 Serverless Framework，可以通过下列命令升级到最新版： 
 
 ```console
-npm update -g serverless-cloud-framework
+npm update -g serverless
 ```
 
 ###  配置
@@ -53,9 +53,9 @@ inputs:
 执行以下命令进行部署，返回信息如下： 
 
 ```console
-[root@iZh8dhuyhmexn3Z demo]# scf deploy
+[root@iZh8dhuyhmexn3Z demo]# sls deploy
 
-serverless-cloud-framework
+serverless ⚡ framework
 Action: "deploy" - Stage: "dev" - App: "appDemo" - Instance: "cosDemo"
 
 region: ap-guangzhou
@@ -72,12 +72,12 @@ Full details: https://serverless.cloud.tencent.com/instances/appDemo%3Adev%3Acos
 
 ### 移除
 
-执行`scf remove`命令移除部署的存储桶，返回信息如下：
+执行`sls remove`命令移除部署的存储桶，返回信息如下：
 
 ```
-[root@iZh8dhuyhmexn3Z demo]# scf remove
+[root@iZh8dhuyhmexn3Z demo]# sls remove
 
-serverless-cloud-framework
+serverless ⚡ framework
 Action: "remove" - Stage: "dev" - App: "appDemo" - Instance: "cosDemo"
 
 3s › cosDemo › Success

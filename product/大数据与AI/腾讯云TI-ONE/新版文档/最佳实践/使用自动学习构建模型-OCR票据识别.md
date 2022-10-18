@@ -1,13 +1,9 @@
 ## 操作背景
 -  腾讯 TI 平台 TI-ONE 自动学习模块内置了常见深度学习场景，例如图片分类、目标检测、杯盘检测以及 OCR。使用户仅需通过简单的配置即可完成深度学习模型构建、评测、发布等模型生命周期全流程工作。
--  为了方便您有效地使用腾讯 TI 平台 TI-ONE 的自动学习，本文将通过一个 OCR 识别案例向您演示使用流程。
+-  为了方便您有效地使用腾讯 TI 平台 TI-ONE 的自动学习，本文将通过一 OCR 识别案例向您演示使用流程。
 
 ## 前提条件
-- 完成腾讯云 TI 平台 TI-ONE 服务注册与开通，请参考 [账号和权限说明](https://cloud.tencent.com/document/product/851/74113)。  
-- 开通 [对象存储 COS ](https://console.cloud.tencent.com/cos)服务并完成 [存储桶创建](https://cloud.tencent.com/document/product/436/13309)。
-- 在数据中心 [上传](https://cloud.tencent.com/document/product/851/74157) 带有标注标签的数据或对数据进行 [标注](https://cloud.tencent.com/document/product/851/74156)。
-- 使用后付费类型资源会预先冻结所选配置2个小时的使用费用，若您的现金账户余额不足，请先进行充值。
-
+完成腾讯云 TI 平台 TI-ONE 服务注册与开通，请参考 [账号和权限说明](https://cloud.tencent.com/document/product/851/74113)。
 
 ## 使用自动学习进行OCR模型训练
 ### 步骤1：新建任务

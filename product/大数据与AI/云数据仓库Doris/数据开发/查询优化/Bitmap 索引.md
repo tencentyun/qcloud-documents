@@ -13,7 +13,7 @@ bitmap 索引：用位图表示的索引，对索引列的每个键值建立一�
 - 当执行 select count(xx) 时，可以直接访问索引就快速得出统计数据。
 
 ## 语法
-创建和删除本质上是一个 schema change 的作业，具体细节可以参照 [Schema Change](https://doris.apache.org/zh-CN/docs/dev/advanced/alter-table/schema-change)。
+创建和删除本质上是一个 schema change 的作业，具体细节可以参照 TODO: [Schema Change](../../advanced/alter-table/schema-change.md)。
 
 ### 创建索引
 在 table1 上为 siteid 创建 bitmap 索引：

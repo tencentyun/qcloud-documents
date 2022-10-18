@@ -47,7 +47,7 @@ Mesh 应用支持 Go/Python/C++ 等不同编程语言，通过 Service Mesh 技�
    - 程序包类型：选择程序包名称为`userService.tar.gz`的程序包。
    - 启动参数：选填。
    - 更新方式：选择立即更新。
-   - 健康检查：可选。详情参见 [健康检查](https://cloud.tencent.com/document/product/649/15525)。
+   - 健康检查：可选。详情参见 [健康检查](https://cloud.tencent.com/document/product/649/52359)。
    - 描述：可选。
 8. 单击**完成**，应用部署成功后，部署组中**已启动/总机器数**的数值发生变化。
 ![](https://qcloudimg.tencent-cloud.cn/raw/4159482c90ce7f47c6419369d0c44cea.png)

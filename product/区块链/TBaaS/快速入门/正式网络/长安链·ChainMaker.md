@@ -56,7 +56,7 @@
 
 ### 步骤4：申请并下载证书[](id:cert)
 
-TBaaS 支持通过长安链 SDK、云 API 两种方式进行对接上链，若使用云 API 方式上链，则本步骤可直接跳过。详细的对接流程请见 [步骤5](#app)。
+TBaaS 平台支持通过长安链 SDK、云 API 两种方式进行对接上链，若使用云 API 方式上链，则本步骤可直接跳过。详细的对接流程请见 [步骤5](#app)。
 1. 在 TBaaS 控制台中，选择左侧导航中的**长安链** > **[区块链网络](https://console.cloud.tencent.com/tbaas/chainmaker/chain)**，单击对应的卡片进入网络详情页。
 2. 在网络详情页面中，单击顶部菜单栏的**证书管理**页签，进入对应页面后点击**申请证书**，在弹窗中填写证书标识并上传用户证书及 TLS 证书的 CSR 文件，确认后即生成证书，在证书列表中可下载证书。CSR 文件的生成方法请参考 [证书申请 CSR 生成指南](https://cloud.tencent.com/document/product/663/60114)。
 ![](https://main.qcloudimg.com/raw/4db7df54c5bfd5d13628baab50b88347.png)
@@ -65,13 +65,13 @@ TBaaS 支持通过长安链 SDK、云 API 两种方式进行对接上链，若�
 
 ### 步骤5：应用开发与对接[](id:app)
 
-TBaaS 支持通过长安链 SDK、云 API 两种方式进行对接上链，详细的对接开发流程请参考开发指南 [对接说明](https://cloud.tencent.com/document/product/663/47512) 章节。
+TBaaS 平台支持通过长安链 SDK、云 API 两种方式进行对接上链，详细的对接开发流程请参考开发指南 [对接说明](https://cloud.tencent.com/document/product/663/47512) 章节。
 
 
 
 ### 步骤6：通过浏览器查看链上数据[](id:data)
 
-TBaaS 提供区块链浏览器，便于用户实时查看或检索链上的数据，操作方式如下：
+TBaaS 平台提供区块链浏览器，便于用户实时查看或检索链上的数据，操作方式如下：
 
 1. 在 [TBaaS 控制台](https://console.cloud.tencent.com/tbaas) 中，选择左侧导航中的**长安链** > **[区块链网络](https://console.cloud.tencent.com/tbaas/chainmaker/chain)**，单击对应的卡片进入网络详情页。
 2. 在网络详情页面中，点击顶部菜单栏的**区块链浏览器**页签，进入对应页面即可实时查看或检索区块信息、交易信息、链上指标等数据。如下图所示： 

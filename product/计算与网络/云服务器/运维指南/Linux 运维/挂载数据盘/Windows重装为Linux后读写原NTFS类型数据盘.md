@@ -20,9 +20,9 @@ yum install ntfsprogs
 
 
 
->?
->- 您 Windows 云服务器下的数据盘已挂载至 Linux 云服务器，则可跳过此操作。
->- 若您需要在重装后的 Linux 云服务器下挂载一个新的数据盘，需要 [初始化云硬盘](https://cloud.tencent.com/document/product/362/6734#Linux)。
+<dx-alert infotype="explain" title="">
+若您 Windows 云服务器下的数据盘已挂载至 Linux 云服务器，则可跳过此操作。
+</dx-alert>
 
 
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)。

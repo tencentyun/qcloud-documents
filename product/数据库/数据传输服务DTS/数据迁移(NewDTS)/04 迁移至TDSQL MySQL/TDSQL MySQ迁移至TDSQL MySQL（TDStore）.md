@@ -78,8 +78,8 @@ GRANT INSERT, UPDATE, DELETE, DROP, SELECT, INDEX, ALTER, CREATE ON `__tencentdb
 <li>对于源实例为从库的情况，log_slave_updates 变量必须设置为 ON。</li>
   <li>建议源库 Binlog 日志至少保留3天及以上，否则可能会因任务暂停/中断时间大于 Binlog 日志保留时间，造成任务无法续传，进而导致任务失败。</li>
   </ul></li>
-<li>不支持外键依赖。</li></ul>
-  <li>环境变量 innodb_stats_on_metadata 必须设置为 OFF。</li></td></tr>
+<li>不支持外键依赖。</li>
+</ul></td></tr>
 <tr> 
 <td>目标数据库要求</td>
 <td>
@@ -88,6 +88,9 @@ GRANT INSERT, UPDATE, DELETE, DROP, SELECT, INDEX, ALTER, CREATE ON `__tencentdb
 <li>目标库的空间大小须是源库待迁移库表空间的1.2倍以上。</li>
 <li>目标库不能有和源库冲突的库表。</li> 
 </td></tr>
+<tr> 
+<td>其他要求</td>
+<td>环境变量 innodb_stats_on_metadata 必须设置为 off。</td></tr>
 </table>
 
 ## 操作步骤

@@ -144,7 +144,7 @@ COMMIT/*!*/;
 gtid-mode=on // 开启gtid模式
 enforce-gtid-consistency=1 // 强制gtid和事务的一致性
 ```
-在 GTID 模式下，主服务器可以不需要 Binlog 的文件名和偏移量，就能很方便的索引事务、恢复数据、复制副本。
+在 GTID 模式下，主服务器可以不需要 Binlog 的文件名和偏移量，就能很方便的追踪事务、恢复数据、复制副本。
 在 GTID 模式下，由于 GTID 的全局有效性，从节点将不再需要通过保存文件名和偏移量来定位主节点上的 Binlog 位置，而通过数据本身就可以定位了。在进行数据同步中，从节点会跳过执行任意被识别为已执行的 GTID 事务。
 GTID 的表现形式为一对坐标, `source_id`标识出主节点，`transaction_id`表示此事务在主节点上执行的顺序（最大263-1）。
 ```text
@@ -363,7 +363,7 @@ binlog_desc
 #### CANAL 配置
 下面配置属于 canal 端的配置，主要通过修改 conf 目录下的 canal.properties 调整配置值。
 - `canal.ip`
-canal server 的 IP 地址。
+canal server 的 ip 地址。
 
 - `canal.port`
 canal server 的端口。

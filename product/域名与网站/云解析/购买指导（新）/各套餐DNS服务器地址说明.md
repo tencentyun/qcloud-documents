@@ -14,15 +14,15 @@ DNSPod 各个套餐的 DNS 服务器如下：
 </tr>
 <tr>
 <td>专业版</td>
-<td><ul><li>ns3.dnsv2.com</li><li>ns4.dnsv2.com</li></ul></td>
+<td>ns3.dnsv2.comns4.dnsv2.com</td>
 </tr>
 <tr>
 <td>企业版</td>
-<td><ul><li>ns3.dnsv4.com</li><li>ns4.dnsv4.com</li></ul></td>
+<td>ns3.dnsv4.comns4.dnsv4.com</td>
 </tr>
 <tr>
 <td>尊享版</td>
-<td><ul><li>ns3.dnsv5.com</li><li>ns4.dnsv5.com</li></ul></td>
+<td>ns3.dnsv5.comns4.dnsv5.com</td>
 </tr>
 </tbody></table>
 
@@ -41,27 +41,27 @@ DNSPod 各个套餐的 DNS 服务器如下：
 </thead>
 <tbody><tr>
 <td>企业基础版</td>
-<td><ul><li>ns3.dnsv3.com</li><li>ns4.dnsv3.com</li></ul></td>
+<td>ns3.dnsv3.comns4.dnsv3.com</td>
 </tr>
 <tr>
 <td>个人豪华版</td>
-<td><ul><li>ns1.dnsv2.com</li><li>ns2.dnsv2.com</li></ul></td>
+<td>ns1.dnsv2.comns2.dnsv2.com</td>
 </tr>
 <tr>
 <td>企业 I</td>
-<td><ul><li>ns1.dnsv3.com</li><li>ns2.dnsv3.com</li></ul></td>
+<td>ns1.dnsv3.comns2.dnsv3.com</td>
 </tr>
 <tr>
 <td>企业 II</td>
-<td><ul><li>ns1.dnsv4.com</li><li>ns2.dnsv4.com</li></ul></td>
+<td>ns1.dnsv4.comns2.dnsv4.com</td>
 </tr>
 <tr>
 <td>企业 III</td>
-<td><ul><li>ns1.dnsv5.com</li><li>ns2.dnsv5.com</li></ul></td>
+<td>ns1.dnsv5.comns2.dnsv5.com</td>
 </tr>
 <tr>
 <td>DNSPod 体验版</td>
-<td><ul><li>namerich1.dnspod.net</li><li>namerich2.dnspod.net</li></ul></td>
+<td>namerich1.dnspod.netnamerich2.dnspod.net</td>
 </tr>
 </tbody></table>
 

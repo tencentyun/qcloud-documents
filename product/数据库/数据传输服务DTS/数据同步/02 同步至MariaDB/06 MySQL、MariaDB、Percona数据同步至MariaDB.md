@@ -65,7 +65,7 @@ FLUSH PRIVILEGES;
 <li>实例参数要求：
 <ul>
 <li>源库 server_id 参数需要手动设置，且值不能设置为0。</li>
-<li>源库表的 row_format 不能设置为 FIXED。</li>
+<li>源库表的 row_format 不能设置为 FIXDE。</li>
 <li>源库和目标库 lower_case_table_names 变量必须设置一致。</li>
 <li>源库变量 connect_timeout设置数值必须大于10。</li></ul></li>
 <li>Binlog 参数要求：
@@ -81,8 +81,7 @@ FLUSH PRIVILEGES;
 <li>外键依赖：
 <ul>
 <li>外键依赖只能设置为 NO ACTION，RESTRICT 两种类型。</li>
-<li>部分库表同步时，有外键依赖的表必须齐全。</li></ul></li>
-  <li>环境变量 innodb_stats_on_metadata 必须设置为 OFF。</li></td></tr>
+<li>部分库表同步时，有外键依赖的表必须齐全。</li></ul></li></td></tr>
 <tr> 
 <td>目标数据库要求</td>
 <td>
@@ -90,6 +89,9 @@ FLUSH PRIVILEGES;
 <li>目标库需要有足够的存储空间，如果初始类型选择“全量数据初始化”，则目标库的空间大小须是源库待同步库表空间的1.2倍以上。</li>
 <li>目标库不能有和源库同名的表、视图等同步对象。</li>
 <li>目标库 max_allowed_packet 参数设置数值至少为4M。</li></td></tr>
+<tr> 
+<td>其他要求</td>
+<td>环境变量 innodb_stats_on_metadata 必须设置为 OFF。</td></tr>
 </table>
 
 ## 操作步骤

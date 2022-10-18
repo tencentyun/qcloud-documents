@@ -165,6 +165,7 @@
                                 <p class="titlename">Unity SDK</p>
                 <p style="color:#586376;">包含 IM 主要功能</p>
                     <div style="margin-top: 13px;" >
+                        <a  href="https://comm.qq.com/im/sdk/unity_plus/im_unity_sdk_plus_v1.6.0.unitypackage">Unity Package</a>
                                 <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/269/75289">集成指引</a>
                                 <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/269/56150">更新日志</a>
                     </div>

@@ -30,8 +30,8 @@ curl -X POST http://{be_ip}:{be_http_port}/api/update_config?streaming_load_max_
 返回值如下，则说明设置成功。
 ```
 {
-    "status": "OK",
-    "msg": ""
+	"status": "OK",
+	"msg": ""
 }
 ```
 BE 重启后该配置将失效。如果想持久化修改结果，使用如下命令：
@@ -1212,7 +1212,7 @@ Stream Load 一般适用于导入几个 GB 以内的数据，不适合导入过�
 
 ### `max_sub_cache_file_size`
 * 类型：int64。
-* 描述：缓存文件使用 sub_file_cache 时，切分文件的最大值，单位B。
+* 描述：缓存文件使用 sub_file_cache 时，切分文件的最大大小，单位B。
 * 默认值：104857600（100MB）。
 
 ### `file_cache_alive_time_sec`

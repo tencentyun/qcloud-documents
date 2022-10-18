@@ -14,7 +14,7 @@
 5. 将默认 CDN 加速域名的当前状态设置为开启，并配置如下选项：
  - **加速地域**：支持中国境内、中国境外以及全球加速，其中全球加速指支持所有地域之间的存储桶加速。
  - **源站类型**：通常默认为**默认源站**，如果作为源站的存储桶开启了静态网站，并且希望为静态网站加速，则选择为**静态网站源站**。
-![](https://qcloudimg.tencent-cloud.cn/raw/e495e4aa7a99dc978a0cacc796f6124a.png)
+![](https://main.qcloudimg.com/raw/c43e080f732fa5ec7a79c086e7abc187.png)
  - **回源鉴权**：当存储桶为公有读时，则不需要开启回源鉴权。当存储桶为私有读时，需要 [开启回源鉴权](#step1)（在已添加 CDN 服务授权前提下）。
 >? 如果在之前从未使用过腾讯云 CDN 服务，则无法进入**域名管理**，需先进入 [CDN 控制台](https://console.cloud.tencent.com/cdn) 开启 CDN 服务。
 >
@@ -29,9 +29,9 @@
 当存储桶为私有读时，需要对 CDN 服务添加授权并开启回源鉴权。
 
 1. 在默认 CDN 加速域名配置页面，单击**添加 CDN 服务授权**，按照指引完成添加 CDN 服务授权操作。
-![](https://qcloudimg.tencent-cloud.cn/raw/e495e4aa7a99dc978a0cacc796f6124a.png)
+![](https://main.qcloudimg.com/raw/c43e080f732fa5ec7a79c086e7abc187.png)
 2. 单击**回源鉴权**开启按钮，为存储桶开启回源鉴权。
 3. 单击**保存**，即可开启 CDN 加速。
 保存之后，即可看到默认加速域名在部署中。同时，下方会出现 **CDN 鉴权**的状态提示，单击**鉴权配置**开始配置 CDN 鉴权。
-![](https://qcloudimg.tencent-cloud.cn/raw/132f9e16f6970118ccedf78884187037.png)
+![](https://main.qcloudimg.com/raw/cee346395cf67cf16edee87f4d3a7e97.png)
 配置 CDN 鉴权相关操作，请参见 [配置说明](https://cloud.tencent.com/document/product/228/41622) 文档中的鉴权配置部分。

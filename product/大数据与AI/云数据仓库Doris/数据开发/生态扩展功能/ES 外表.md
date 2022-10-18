@@ -71,7 +71,7 @@ POST /_bulk
 ```
 
 ### Doris 中创建 ES 外表
-具体建表语法参照 [CREATE TABLE](https://doris.apache.org/zh-CN/docs/dev/sql-manual/sql-reference/Data-Definition-Statements/Create/CREATE-TABLE)。
+具体建表语法参照：[CREATE TABLE](../../sql-manual/sql-reference/Data-Definition-Statements/Create/CREATE-TABLE.md)
 ```sql
 CREATE EXTERNAL TABLE `test` // 不指定schema，自动拉取es mapping进行建表 
 ENGINE=ELASTICSEARCH 

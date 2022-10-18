@@ -1,10 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="5acb267f-ed35-4816-ac3b-fec514ff8ecb" name="Default Changelist" comment="" />
+    <list default="true" id="5acb267f-ed35-4816-ac3b-fec514ff8ecb" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/04 开发指南/00 应用开发指引.md" beforeDir="false" afterPath="$PROJECT_DIR$/04 开发指南/00 应用开发指引.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04 开发指南/01 下载 Maven.md" beforeDir="false" afterPath="$PROJECT_DIR$/04 开发指南/01 下载 Maven.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04 开发指南/02 技术栈选型.md" beforeDir="false" afterPath="$PROJECT_DIR$/04 开发指南/02 技术栈选型.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04 开发指南/03 应用开发/00 应用开发概述.md" beforeDir="false" afterPath="$PROJECT_DIR$/04 开发指南/03 应用开发/00 应用开发概述.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04 开发指南/03 应用开发/01 Java 应用开发/01 Spring Cloud（TSF 依赖）/00 Spring Cloud 概述.md" beforeDir="false" afterPath="$PROJECT_DIR$/04 开发指南/03 应用开发/01 Java 应用开发/01 Spring Cloud（TSF 依赖）/00 Spring Cloud 概述.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04 开发指南/03 应用开发/01 Java 应用开发/01 Spring Cloud（TSF 依赖）/01 Demo工程概述.md" beforeDir="false" afterPath="$PROJECT_DIR$/04 开发指南/03 应用开发/01 Java 应用开发/01 Spring Cloud（TSF 依赖）/01 Demo工程概述.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04 开发指南/03 应用开发/01 Java 应用开发/01 Spring Cloud（TSF 依赖）/02 服务注册与发现.md" beforeDir="false" afterPath="$PROJECT_DIR$/04 开发指南/03 应用开发/01 Java 应用开发/01 Spring Cloud（TSF 依赖）/02 服务注册与发现.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04 开发指南/03 应用开发/01 Java 应用开发/01 Spring Cloud（TSF 依赖）/03 配置管理.md" beforeDir="false" afterPath="$PROJECT_DIR$/04 开发指南/03 应用开发/01 Java 应用开发/01 Spring Cloud（TSF 依赖）/03 配置管理.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04 开发指南/03 应用开发/01 Java 应用开发/01 Spring Cloud（TSF 依赖）/04 调用链/00 调用链快速入门.md" beforeDir="false" afterPath="$PROJECT_DIR$/04 开发指南/03 应用开发/01 Java 应用开发/01 Spring Cloud（TSF 依赖）/04 调用链/00 调用链快速入门.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04 开发指南/03 应用开发/01 Java 应用开发/01 Spring Cloud（TSF 依赖）/04 调用链/01 Redis 链路追踪.md" beforeDir="false" afterPath="$PROJECT_DIR$/04 开发指南/03 应用开发/01 Java 应用开发/01 Spring Cloud（TSF 依赖）/04 调用链/01 Redis 链路追踪.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04 开发指南/03 应用开发/01 Java 应用开发/01 Spring Cloud（TSF 依赖）/04 调用链/02 MySQL 链路追踪.md" beforeDir="false" afterPath="$PROJECT_DIR$/04 开发指南/03 应用开发/01 Java 应用开发/01 Spring Cloud（TSF 依赖）/04 调用链/02 MySQL 链路追踪.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04 开发指南/03 应用开发/01 Java 应用开发/01 Spring Cloud（TSF 依赖）/04 调用链/03 MongoDB 链路追踪.md" beforeDir="false" afterPath="$PROJECT_DIR$/04 开发指南/03 应用开发/01 Java 应用开发/01 Spring Cloud（TSF 依赖）/04 调用链/03 MongoDB 链路追踪.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04 开发指南/03 应用开发/01 Java 应用开发/01 Spring Cloud（TSF 依赖）/04 调用链/04 Kafka 链路追踪.md" beforeDir="false" afterPath="$PROJECT_DIR$/04 开发指南/03 应用开发/01 Java 应用开发/01 Spring Cloud（TSF 依赖）/04 调用链/04 Kafka 链路追踪.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04 开发指南/03 应用开发/01 Java 应用开发/01 Spring Cloud（TSF 依赖）/04 调用链/05 RocketMQ 链路追踪.md" beforeDir="false" afterPath="$PROJECT_DIR$/04 开发指南/03 应用开发/01 Java 应用开发/01 Spring Cloud（TSF 依赖）/04 调用链/05 RocketMQ 链路追踪.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04 开发指南/03 应用开发/01 Java 应用开发/01 Spring Cloud（TSF 依赖）/04 调用链/CMQ 链路追踪（下线）.md" beforeDir="false" afterPath="$PROJECT_DIR$/04 开发指南/03 应用开发/01 Java 应用开发/01 Spring Cloud（TSF 依赖）/04 调用链/CMQ 链路追踪（下线）.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04 开发指南/03 应用开发/01 Java 应用开发/01 Spring Cloud（TSF 依赖）/05 服务治理.md" beforeDir="false" afterPath="$PROJECT_DIR$/04 开发指南/03 应用开发/01 Java 应用开发/01 Spring Cloud（TSF 依赖）/05 服务治理.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04 开发指南/03 应用开发/01 Java 应用开发/01 Spring Cloud（TSF 依赖）/06 参数传递.md" beforeDir="false" afterPath="$PROJECT_DIR$/04 开发指南/03 应用开发/01 Java 应用开发/01 Spring Cloud（TSF 依赖）/06 参数传递.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04 开发指南/03 应用开发/01 Java 应用开发/01 Spring Cloud（TSF 依赖）/07 API 注册.md" beforeDir="false" afterPath="$PROJECT_DIR$/04 开发指南/03 应用开发/01 Java 应用开发/01 Spring Cloud（TSF 依赖）/07 API 注册.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04 开发指南/03 应用开发/01 Java 应用开发/01 Spring Cloud（TSF 依赖）/08 服务监控.md" beforeDir="false" afterPath="$PROJECT_DIR$/04 开发指南/03 应用开发/01 Java 应用开发/01 Spring Cloud（TSF 依赖）/08 服务监控.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04 开发指南/03 应用开发/01 Java 应用开发/01 Spring Cloud（TSF 依赖）/09 服务容错.md" beforeDir="false" afterPath="$PROJECT_DIR$/04 开发指南/03 应用开发/01 Java 应用开发/01 Spring Cloud（TSF 依赖）/09 服务容错.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04 开发指南/03 应用开发/01 Java 应用开发/01 Spring Cloud（TSF 依赖）/10 服务监听触发回调.md" beforeDir="false" afterPath="$PROJECT_DIR$/04 开发指南/03 应用开发/01 Java 应用开发/01 Spring Cloud（TSF 依赖）/10 服务监听触发回调.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04 开发指南/03 应用开发/01 Java 应用开发/01 Spring Cloud（TSF 依赖）/11 HTTP2 应用开发.md" beforeDir="false" afterPath="$PROJECT_DIR$/04 开发指南/03 应用开发/01 Java 应用开发/01 Spring Cloud（TSF 依赖）/11 HTTP2 应用开发.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04 开发指南/03 应用开发/01 Java 应用开发/01 Spring Cloud（TSF 依赖）/Spring Cloud TSF SDK 历史版本使用方法.md" beforeDir="false" afterPath="$PROJECT_DIR$/04 开发指南/03 应用开发/01 Java 应用开发/01 Spring Cloud（TSF 依赖）/Spring Cloud TSF SDK 历史版本使用方法.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04 开发指南/03 应用开发/01 Java 应用开发/02 Spring Cloud（原生依赖）/01 原生应用概述.md" beforeDir="false" afterPath="$PROJECT_DIR$/04 开发指南/03 应用开发/01 Java 应用开发/02 Spring Cloud（原生依赖）/01 原生应用概述.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04 开发指南/03 应用开发/01 Java 应用开发/02 Spring Cloud（原生依赖）/02 Demo 工程概述.md" beforeDir="false" afterPath="$PROJECT_DIR$/04 开发指南/03 应用开发/01 Java 应用开发/02 Spring Cloud（原生依赖）/02 Demo 工程概述.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04 开发指南/03 应用开发/01 Java 应用开发/02 Spring Cloud（原生依赖）/03 关闭服务熔断和限流规则.md" beforeDir="false" afterPath="$PROJECT_DIR$/04 开发指南/03 应用开发/01 Java 应用开发/02 Spring Cloud（原生依赖）/03 关闭服务熔断和限流规则.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04 开发指南/03 应用开发/01 Java 应用开发/02 Spring Cloud（原生依赖）/04 使用调用链.md" beforeDir="false" afterPath="$PROJECT_DIR$/04 开发指南/03 应用开发/01 Java 应用开发/02 Spring Cloud（原生依赖）/04 使用调用链.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04 开发指南/03 应用开发/01 Java 应用开发/02 Spring Cloud（原生依赖）/05 容器托管应用.md" beforeDir="false" afterPath="$PROJECT_DIR$/04 开发指南/03 应用开发/01 Java 应用开发/02 Spring Cloud（原生依赖）/05 容器托管应用.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04 开发指南/03 应用开发/01 Java 应用开发/02 Spring Cloud（原生依赖）/06 虚拟机托管应用.md" beforeDir="false" afterPath="$PROJECT_DIR$/04 开发指南/03 应用开发/01 Java 应用开发/02 Spring Cloud（原生依赖）/06 虚拟机托管应用.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04 开发指南/03 应用开发/01 Java 应用开发/03 Dubbo 应用接入/01 Dubbo Demo 工程概述.md" beforeDir="false" afterPath="$PROJECT_DIR$/04 开发指南/03 应用开发/01 Java 应用开发/03 Dubbo 应用接入/01 Dubbo Demo 工程概述.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04 开发指南/03 应用开发/01 Java 应用开发/03 Dubbo 应用接入/02 Dubbo 应用接入TSF.md" beforeDir="false" afterPath="$PROJECT_DIR$/04 开发指南/03 应用开发/01 Java 应用开发/03 Dubbo 应用接入/02 Dubbo 应用接入TSF.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04 开发指南/03 应用开发/01 Java 应用开发/03 Dubbo 应用接入/03 Dubbo 应用接入Mesh.md" beforeDir="false" afterPath="$PROJECT_DIR$/04 开发指南/03 应用开发/01 Java 应用开发/03 Dubbo 应用接入/03 Dubbo 应用接入Mesh.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04 开发指南/03 应用开发/02 Go 应用开发/Kratos/Go 应用接入TSF.md" beforeDir="false" afterPath="$PROJECT_DIR$/04 开发指南/03 应用开发/02 Go 应用开发/Kratos/Go 应用接入TSF.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04 开发指南/03 应用开发/03 Mesh 应用开发/00 TSF Mesh 概述.md" beforeDir="false" afterPath="$PROJECT_DIR$/04 开发指南/03 应用开发/03 Mesh 应用开发/00 TSF Mesh 概述.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04 开发指南/03 应用开发/03 Mesh 应用开发/01 Demo工程概述.md" beforeDir="false" afterPath="$PROJECT_DIR$/04 开发指南/03 应用开发/03 Mesh 应用开发/01 Demo工程概述.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04 开发指南/03 应用开发/03 Mesh 应用开发/02 Mesh 应用开发.md" beforeDir="false" afterPath="$PROJECT_DIR$/04 开发指南/03 应用开发/03 Mesh 应用开发/02 Mesh 应用开发.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04 开发指南/03 应用开发/03 Mesh 应用开发/03 Mesh 运维接口说明.md" beforeDir="false" afterPath="$PROJECT_DIR$/04 开发指南/03 应用开发/03 Mesh 应用开发/03 Mesh 运维接口说明.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04 开发指南/03 应用开发/03 Mesh 应用开发/04 容器托管应用.md" beforeDir="false" afterPath="$PROJECT_DIR$/04 开发指南/03 应用开发/03 Mesh 应用开发/04 容器托管应用.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04 开发指南/03 应用开发/03 Mesh 应用开发/05 虚拟机托管应用.md" beforeDir="false" afterPath="$PROJECT_DIR$/04 开发指南/03 应用开发/03 Mesh 应用开发/05 虚拟机托管应用.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04 开发指南/03 应用开发/03 Mesh 应用开发/06 查看SideCar监控信息.md" beforeDir="false" afterPath="$PROJECT_DIR$/04 开发指南/03 应用开发/03 Mesh 应用开发/06 查看SideCar监控信息.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04 开发指南/03 应用开发/03 Mesh 应用开发/07 配置 Sidecar 过滤器.md" beforeDir="false" afterPath="$PROJECT_DIR$/04 开发指南/03 应用开发/03 Mesh 应用开发/07 配置 Sidecar 过滤器.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04 开发指南/03 应用开发/03 Mesh 应用开发/08 更新服务配置.md" beforeDir="false" afterPath="$PROJECT_DIR$/04 开发指南/03 应用开发/03 Mesh 应用开发/08 更新服务配置.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04 开发指南/04 组件开发/01 微服务网关/01 微服务网关开发.md" beforeDir="false" afterPath="$PROJECT_DIR$/04 开发指南/04 组件开发/01 微服务网关/01 微服务网关开发.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04 开发指南/04 组件开发/01 微服务网关/02 配置兼容开源网关功能.md" beforeDir="false" afterPath="$PROJECT_DIR$/04 开发指南/04 组件开发/01 微服务网关/02 配置兼容开源网关功能.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04 开发指南/04 组件开发/01 微服务网关/03 配置单元化功能.md" beforeDir="false" afterPath="$PROJECT_DIR$/04 开发指南/04 组件开发/01 微服务网关/03 配置单元化功能.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04 开发指南/04 组件开发/01 微服务网关/04 密钥对鉴权使用说明.md" beforeDir="false" afterPath="$PROJECT_DIR$/04 开发指南/04 组件开发/01 微服务网关/04 密钥对鉴权使用说明.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04 开发指南/04 组件开发/01 微服务网关/05 配置HTTPS.md" beforeDir="false" afterPath="$PROJECT_DIR$/04 开发指南/04 组件开发/01 微服务网关/05 配置HTTPS.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04 开发指南/04 组件开发/02 任务调度开发.md" beforeDir="false" afterPath="$PROJECT_DIR$/04 开发指南/04 组件开发/02 任务调度开发.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04 开发指南/05 测试联调/01 轻量级服务注册中心.md" beforeDir="false" afterPath="$PROJECT_DIR$/04 开发指南/05 测试联调/01 轻量级服务注册中心.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04 开发指南/05 测试联调/02 本地开发联调.md" beforeDir="false" afterPath="$PROJECT_DIR$/04 开发指南/05 测试联调/02 本地开发联调.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04 开发指南/05 测试联调/03 端云联调.md" beforeDir="false" afterPath="$PROJECT_DIR$/04 开发指南/05 测试联调/03 端云联调.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04 开发指南/06 应用打包/01 制作应用程序包.md" beforeDir="false" afterPath="$PROJECT_DIR$/04 开发指南/06 应用打包/01 制作应用程序包.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04 开发指南/06 应用打包/02 制作容器镜像.md" beforeDir="false" afterPath="$PROJECT_DIR$/04 开发指南/06 应用打包/02 制作容器镜像.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/04 开发指南/06 应用打包/YAML 格式介绍.md" beforeDir="false" afterPath="$PROJECT_DIR$/04 开发指南/06 应用打包/YAML 格式介绍.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,28 +65,21 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
   </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
   <component name="ProjectId" id="29gsPTviLuNMMasbhZra1AQUxSC" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/origin/qcloud-documents/product/互联网中间件/腾讯分布式服务框架",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)"
-  }
-}]]></component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../数据接入平台" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -46,23 +91,8 @@
       <option name="presentableId" value="Default" />
       <updated>1653546038620</updated>
       <workItem from="1653546041782" duration="28000" />
-      <workItem from="1664263980891" duration="844000" />
     </task>
     <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
   <component name="WindowStateProjectService">
     <state x="427" y="455" key="FileChooserDialogImpl" timestamp="1653546068152">
