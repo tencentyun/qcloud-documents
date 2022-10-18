@@ -71,7 +71,7 @@ label 的另一个作用，是防止用户重复导入相同的数据。**强烈
 如果用户希望忽略错误的行，可以通过设置这个参数大于 0，来保证导入可以成功。
 计算公式为：
 `(dpp.abnorm.ALL / (dpp.abnorm.ALL + dpp.norm.ALL ) ) > max_filter_ratio`
-`dpp.abnorm.ALL` 表示数据质量不合格的行数。如类型不匹配，列数不匹配，长度不匹配等。
+`dpp.abnorm.ALL` 表示数据质量不合格的行数。如类型不匹配，列数不匹配，长度不匹配等等。
 `dpp.norm.ALL` 指的是导入过程中正确数据的条数。可以通过 `SHOW LOAD` 命令查询导入任务的正确数据量。
 原始文件的行数 = `dpp.abnorm.ALL + dpp.norm.ALL`
 
@@ -276,8 +276,8 @@ Stream load 的 Label 重复排查步骤如下：
  建议用户根据当前请求的数据量，计算出大致导入的时间，并根据导入超时时间，将 Client 端的请求超时间改成大于导入超时时间的值，避免请求被 Client 端多次提交。
 
 3. Connection reset 异常
-在社区版 0.14.0 及之前的版本在启用 HTTP V2之后出现 connection reset 异常，因为 Web 容器内置的是 tomcat，Tomcat 在 307 (Temporary Redirect) 是有坑的，对这个协议实现是有问题的，所有在使用 Stream load 导入大数据量的情况下会出现 connect reset 异常，这个是因为 tomcat 在做307跳转之前就开始了数据传输，这样就造成了 BE 收到的数据请求的时候缺少了认证信息，之后将内置容器改成了 Jetty 解决了这个问题，如果您遇到这个问题，请升级您的 Doris 或者禁用 HTTP V2（`enable_http_server_v2=false`）。
-升级以后同时升级您程序的 httpclient 版本到 `4.5.13`，在您的 pom.xml 文件中引入下面的依赖：
+在社区版 0.14.0 及之前的版本在启用 Http V2之后出现 connection reset 异常，因为 Web 容器内置的是 tomcat，Tomcat 在 307 (Temporary Redirect) 是有坑的，对这个协议实现是有问题的，所有在使用 Stream load 导入大数据量的情况下会出现 connect reset 异常，这个是因为 tomcat 在做307跳转之前就开始了数据传输，这样就造成了 BE 收到的数据请求的时候缺少了认证信息，之后将内置容器改成了 Jetty 解决了这个问题，如果您遇到这个问题，请升级您的 Doris 或者禁用 Http V2（`enable_http_server_v2=false`）。
+升级以后同时升级您程序的 http client 版本到 `4.5.13`，在您的 pom.xml 文件中引入下面的依赖：
 ```xml
      <dependency>
          <groupId>org.apache.httpcomponents</groupId>

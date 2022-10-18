@@ -85,8 +85,7 @@ GRANT INSERT, UPDATE, DELETE, DROP, SELECT, INDEX, ALTER, CREATE ON `__tencentdb
 <li>外键依赖：
 <ul>
 <li>外键依赖只能设置为 no action 和 restrict 两种类型。</li>
-<li>部分库表迁移时，有外键依赖的表必须齐全。</li></ul></li>
-  <li>环境变量 innodb_stats_on_metadata 必须设置为 OFF。</li></td></tr>
+<li>部分库表迁移时，有外键依赖的表必须齐全。</li></ul></li></td></tr>
 <tr> 
 <td>目标数据库要求</td>
 <td>
@@ -94,6 +93,9 @@ GRANT INSERT, UPDATE, DELETE, DROP, SELECT, INDEX, ALTER, CREATE ON `__tencentdb
 <li>目标库的空间大小须是源库待迁移库表空间的1.2倍以上。</li>
 <li>目标库不能有和源库冲突的库表。</li>
 </td></tr>
+<tr> 
+<td>其他要求</td>
+<td>环境变量 innodb_stats_on_metadata 必须设置为 off。</td></tr>
 </table>
 
 ## 操作步骤

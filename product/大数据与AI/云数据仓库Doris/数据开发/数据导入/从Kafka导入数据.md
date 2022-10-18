@@ -14,7 +14,7 @@ Doris 自身能够保证不丢不重的订阅 Kafka 中的消息，即 `Exactly-
 
 ### 访问 SSL 认证的 Kafka 集群
 例行导入功能支持无认证的 Kafka 集群，以及通过 SSL 认证的 Kafka 集群。
-访问 SSL 认证的 Kafka 集群需要用户提供用于认证 Kafka Broker 公钥的证书文件（ca.pem）。如果 Kafka 集群同时开启了客户端认证，则还需提供客户端的公钥（client.pem）、密钥文件（client.key），以及密钥密码。这里所需的文件需要先通过 `CREAE FILE` 命令上传到 Plao 中，并且 catalog 名称为 `kafka`。`CREATE FILE` 命令的具体帮助可以参见：[CREATE FILE](https://doris.apache.org/zh-CN/docs/dev/sql-manual/sql-reference/Data-Definition-Statements/Create/CREATE-FILE) 命令手册。这里给出示例：
+访问 SSL 认证的 Kafka 集群需要用户提供用于认证 Kafka Broker 公钥的证书文件（ca.pem）。如果 Kafka 集群同时开启了客户端认证，则还需提供客户端的公钥（client.pem）、密钥文件（client.key），以及密钥密码。这里所需的文件需要先通过 `CREAE FILE` 命令上传到 Plao 中，并且 catalog 名称为 `kafka`。`CREATE FILE` 命令的具体帮助可以参见 TODO: [CREATE FILE](../../../sql-manual/sql-reference/Data-Definition-Statements/Create/CREATE-FILE.md) 命令手册。这里给出示例：
 #### 上传文件
 ```sql
 CREATE FILE "ca.pem" PROPERTIES("url" = "https://example_url/kafka-key/ca.pem", "catalog" = "kafka");
@@ -25,7 +25,7 @@ CREATE FILE "client.pem" PROPERTIES("url" = "https://example_url/kafka-key/clien
 
 ### 创建例行导入作业
 创建例行导入任务的具体命令，请参阅 `ROUTINE LOAD` 命令手册。这里给出示例：
-1. 访问无认证的 Kafka 集群。
+1. 访问无认证的 Kafka 集群
 ```sql
 CREATE ROUTINE LOAD demo.my_first_routine_load_job ON test_1
 COLUMNS TERMINATED BY ","
@@ -46,7 +46,7 @@ FROM KAFKA
 ```
  `max_batch_interval/max_batch_rows/max_batch_size` 用于控制一个子任务的运行周期。一个子任务的运行周期由最长运行时间、最多消费行数和最大消费数据量共同决定。
 
-2. 访问 SSL 认证的 Kafka 集群。
+2. 访问 SSL 认证的 Kafka 集群
 ```sql
 CREATE ROUTINE LOAD demo.my_first_routine_load_job ON test_1
 COLUMNS TERMINATED BY ",",
@@ -69,16 +69,16 @@ FROM KAFKA
 ```
 
 ### 查看导入作业状态
-- 查看**作业**状态的具体命令和示例请参阅 [SHOW ROUTINE LOAD](https://cloud.tencent.com/document/product/1387/80258) 命令文档。
-- 查看某个作业的**任务**运行状态的具体命令和示例请参阅 [SHOW ROUTINE LOAD TASK](https://doris.apache.org/zh-CN/docs/dev/sql-manual/sql-reference/Show-Statements/SHOW-ROUTINE-LOAD) 命令文档。
+- 查看**作业**状态的具体命令和示例请参阅 [SHOW ROUTINE LOAD](https://cloud.tencent.com/document/product/1387/80258) 命令文档。- 
+- 查看某个作业的**任务**运行状态的具体命令和示例请参阅 TODO: [SHOW ROUTINE LOAD TASK](../../../sql-manual/sql-reference/Show-Statements/SHOW-ROUTINE-LOAD-TASK.md) 命令文档。
 - 只能查看当前正在运行中的任务，已结束和未开始的任务无法查看。
 
 ### 修改作业属性
-用户可以修改已经创建的作业的部分属性。具体说明请参阅 [ALTER ROUTINE LOAD](https://doris.apache.org/zh-CN/docs/dev/sql-manual/sql-reference/Data-Manipulation-Statements/Load/ALTER-ROUTINE-LOAD) 命令手册。
+用户可以修改已经创建的作业的部分属性。具体说明请参阅 TODO: [ALTER ROUTINE LOAD](../../../sql-manual/sql-reference/Data-Manipulation-Statements/Load/ALTER-ROUTINE-LOAD.md) 命令手册。
 
 ### 作业控制
 用户可以通过 `STOP/PAUSE/RESUME` 三个命令来控制作业的停止，暂停和重启。
-具体命令请参阅：[STOP ROUTINE LOAD](https://doris.apache.org/zh-CN/docs/dev/sql-manual/sql-reference/Data-Manipulation-Statements/Load/STOP-ROUTINE-LOAD)、 [PAUSE ROUTINE LOAD](https://doris.apache.org/zh-CN/docs/dev/sql-manual/sql-reference/Data-Manipulation-Statements/Load/PAUSE-ROUTINE-LOAD) 和 [RESUME ROUTINE LOAD](https://doris.apache.org/zh-CN/docs/dev/sql-manual/sql-reference/Data-Manipulation-Statements/Load/RESUME-ROUTINE-LOAD) 命令文档。
+具体命令请参阅 TODO: [STOP ROUTINE LOAD](../../../sql-manual/sql-reference/Data-Manipulation-Statements/Load/STOP-ROUTINE-LOAD.md)，TODO: [PAUSE ROUTINE LOAD](../../../sql-manual/sql-reference/Data-Manipulation-Statements/Load/PAUSE-ROUTINE-LOAD.md)，TODO: [RESUME ROUTINE LOAD](../../../sql-manual/sql-reference/Data-Manipulation-Statements/Load/RESUME-ROUTINE-LOAD.md) 命令文档。
 
 ## 更多帮助
-关于 ROUTINE LOAD 的更多详细语法和最佳实践，请参阅 [ROUTINE LOAD](https://doris.apache.org/zh-CN/docs/dev/data-operate/import/import-way/routine-load-manual) 命令手册。
+关于 ROUTINE LOAD 的更多详细语法和最佳实践，请参阅TODO:  [ROUTINE LOAD](../../../sql-manual/sql-reference/Data-Manipulation-Statements/Load/CREATE-ROUTINE-LOAD.md) 命令手册。

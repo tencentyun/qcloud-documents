@@ -13,7 +13,7 @@ ODBC External Table Of Doris 提供了 Doris 通过数据库访问的标准接�
 
 ## 使用方法
 ### Doris 中创建 ODBC 的外表
-具体建表语法参照 [CREATE TABLE](https://doris.apache.org/zh-CN/docs/dev/sql-manual/sql-reference/Data-Definition-Statements/Create/CREATE-TABLE)。
+具体建表语法参照：TODO: 语法参考手册/DDL语法/CREATE语法/[创建表]().md
 
 #### 不使用 Resource 创建 ODBC 的外表
 ```sql
@@ -266,7 +266,7 @@ sudo alien -i  oracle-instantclient19.13-sqlplus-19.13.0.0.0-2.x86_64.rpm
 
 ## 最佳实践
 适用于少数据量的同步。
-例如 Mysql 中一张表有100万数据，想同步到 doris，就可以采用 ODBC 的方式将数据映射过来，在使用 [INSERT](https://doris.apache.org/zh-CN/docs/dev/sql-manual/sql-reference/Data-Manipulation-Statements/Manipulation/INSERT) 方式将数据同步到 Doris 中，如果想同步大批量数据，可以分批次使用  [INSERT](https://doris.apache.org/zh-CN/docs/dev/sql-manual/sql-reference/Data-Manipulation-Statements/Manipulation/INSERT) 同步（不建议使用）。
+例如 Mysql 中一张表有100万数据，想同步到 doris，就可以采用 ODBC 的方式将数据映射过来，在使用 TODO: 语法参考手册/DDL语法/[INSERT语句]().md 方式将数据同步到 Doris 中，如果想同步大批量数据，可以分批次使用 TODO: 语法参考手册/DDL语法/[INSERT语句]().md 同步（不建议使用）。
 
 ## 常见问题
 1. 与原先的 MySQL 外表的关系。

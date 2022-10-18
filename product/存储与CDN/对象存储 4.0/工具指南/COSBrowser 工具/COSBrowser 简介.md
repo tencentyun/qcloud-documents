@@ -1,4 +1,4 @@
-COSBrowser 是腾讯云对象存储 COS 推出的可视化界面工具，让您可以使用更简单的交互轻松实现对 COS 资源的查看、传输和管理。若迁移数据，或批量上传数据，请使用 [迁移服务平台（Migration Service Platform，MSP）](https://cloud.tencent.com/product/msp)。目前 COSBrowser 有桌面端和移动端两种，详情可参见：
+COSBrowser 是腾讯云对象存储 COS 推出的可视化界面工具，让您可以使用更简单的交互轻松实现对 COS 资源的查看、传输和管理。目前 COSBrowser 有桌面端和移动端两种，详情可参见：
 
 - [桌面端使用说明](https://cloud.tencent.com/document/product/436/38103)
 - [移动端使用说明](https://cloud.tencent.com/document/product/436/38105)
@@ -69,8 +69,8 @@ COSBrowser 桌面端支持以下功能：
 | [权限管理](https://cloud.tencent.com/document/product/436/38103#viewbucket) | 支持修改存储桶、对象的相关权限                               |
 | [设置版本控制](https://cloud.tencent.com/document/product/436/38103#viewbucket) | 支持开启、暂停存储桶版本控制                                 |
 | [添加访问路径](https://cloud.tencent.com/document/product/436/38103#addaccess) | 支持添加访问路径                                             |
-| [上传文件/文件夹](https://cloud.tencent.com/document/product/436/38103#upload) | 支持单个上传、批量上传、增量上传文件或文件夹至存储桶<br><br>注意：<br>1. 批量上传文件不要超过10万个<br>2. 不支持断点续传<br>3. 若迁移数据，或批量上传数据，请使用 [迁移服务平台 MSP](https://cloud.tencent.com/product/msp)     |
-| [下载文件/文件夹 ](https://cloud.tencent.com/document/product/436/38103#download) | 支持单个下载、批量下载、增量下载文件或文件夹至本地 <br><br>注意：<br>1. 批量下载文件不要超过10万个<br>2. 不支持断点续传          |
+| [上传文件/文件夹](https://cloud.tencent.com/document/product/436/38103#upload) | 支持单个上传、批量上传、增量上传文件或文件夹至存储桶         |
+| [下载文件/文件夹 ](https://cloud.tencent.com/document/product/436/38103#download) | 支持单个下载、批量下载、增量下载文件或文件夹至本地           |
 | [删除文件/文件夹](https://cloud.tencent.com/document/product/436/38103#delete) | 支持单个删除、批量删除存储桶中的文件或文件夹                 |
 | [文件同步](https://cloud.tencent.com/document/product/436/38103#synchronization) | 支持将本地文件实时同步至存储桶中                             |
 | [复制粘贴文件](https://cloud.tencent.com/document/product/436/38103#copy) | 支持单个复制、批量复制一个目录下的文件或文件夹至另一个目录   |

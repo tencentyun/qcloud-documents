@@ -17,7 +17,6 @@
 	<li style="list-style-type:none;"><a href="https://cloud.tencent.com/document/product/1424/77957">管理 GooseFSx 标签</a></li>
 	<li style="list-style-type:none;"><a href="https://cloud.tencent.com/document/product/1424/77959">管理 GooseFSx 数据流动和关联存储桶</a></li>
 	<li style="list-style-type:none;"><a href="https://cloud.tencent.com/document/product/1424/77958">管理 GooseFSx 数据流动任务</a></li>
-		<li style="list-style-type:none;"><a href="https://cloud.tencent.com/document/product/1424/81101">在容器 TKE 上使用 GooseFSx</a></li>
 	</ul>
 </dx-fold-block>
 </li>

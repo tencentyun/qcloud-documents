@@ -90,80 +90,9 @@ Crypto 组件目前支持对称加密、对称解密、非对称加密、非对�
 **CBC 加密模式**
 选择 CBC 加密模式时，随机向量必填，长度跟 [密钥长度](#1) 一致，再填写明文和填充模式即可。
 ![](https://qcloudimg.tencent-cloud.cn/raw/79d632a96d9f33ee1e07aa2dc4db8c98.png)
-- Java 代码实现方式：
-```Java
-public static String encrypt(String value) {
- try {
- IvParameterSpec iv = new IvParameterSpec(initVector.getBytes("UTF-8"));
- SecretKeySpec skeySpec = new SecretKeySpec(key.getBytes("UTF-8"), "AES");
- 
- Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5PADDING");
- cipher.init(Cipher.ENCRYPT_MODE, skeySpec, iv);
- 
- byte[] encrypted = cipher.doFinal(value.getBytes());
- return Base64.encodeBase64String(encrypted);
- } catch (Exception ex) {
- ex.printStackTrace();
- }
- return null;
-}
-```
-- Python 代码实现方式：
-```Python
-    def encryt(str, key, iv):
-        cipher = AES.new(key, AES.MODE_CBC,iv)
-        x = AESUtil.__BLOCK_SIZE_16 - (len(str) % AESUtil.__BLOCK_SIZE_16)
-        if x != 0:
-            str = str + chr(x)*x
-        msg = cipher.encrypt(str)
-        # msg = base64.urlsafe_b64encode(msg).replace('=', '')
-        msg = base64.b64encode(msg)
-        return msg
-```
-
-
 **ECB 加密模式**
 当选择 ECB 加密模式时，只需填写明文和填充模式，无其他配置项。
 ![](https://qcloudimg.tencent-cloud.cn/raw/05b1bb3365935092ca11541555f7b74c.png)
-- Java 代码实现方式：
-```Java
-public static String Encrypt(String sSrc, String sKey) throws Exception {
-        if (sKey == null) {
-            System.out.print("Key为空null");
-            return null;
-        }
-        // 判断Key是否为16位
-        if (sKey.length() != 16) {
-            System.out.print("Key长度不是16位");
-            return null;
-        }
-        byte[] raw = sKey.getBytes("utf-8");
-        SecretKeySpec skeySpec = new SecretKeySpec(raw, "AES");
-        Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");//"算法/模式/补码方式"
-        cipher.init(Cipher.ENCRYPT_MODE, skeySpec);
-        byte[] encrypted = cipher.doFinal(sSrc.getBytes("utf-8"));
-
-        return new Base64().encodeToString(encrypted);//此处使用BASE64做转码功能，同时能起到2次加密的作用。
-    }
-```
-- Python 代码实现方式：
-```Python
-def encrypt_oracle(text):
-    # 秘钥
-    key = 'VW1lMjAxMlRyaXAwMzA5AA=='
-    # 待加密文本
-    # 初始化加密器
-    aes = AES.new(add_to_16(key), AES.MODE_ECB)
-    #先进行aes加密
-    encrypt_aes = aes.encrypt(add_to_16(text))
-    #用base64转成字符串形式
-    encrypted_text = str(base64.encodebytes(encrypt_aes), encoding='utf-8')  # 执行加密并转码返回bytes
-    print(encrypted_text)
-    return encrypted_text
-```
-
-
-
 ####  输出
 操作执行成功后，输出结果会保存在 Message 消息体的 payload；执行失败后，错误信息会保存在 Message 消息体的 error。
 
@@ -204,74 +133,9 @@ def dw_process(msg):
 **CBC 加密模式**
 选择 CBC 加密模式时，随机向量必填，长度跟 [密钥长度](#1) 一致，再填写明文和填充模式即可。
 ![](https://qcloudimg.tencent-cloud.cn/raw/79d632a96d9f33ee1e07aa2dc4db8c98.png)
-- Java 代码实现方式：
-```Java
-public static String decrypt(String encrypted) {
-	try {
-		IvParameterSpec iv = new IvParameterSpec(initVector.getBytes("UTF-8"));
-		SecretKeySpec skeySpec = new SecretKeySpec(key.getBytes("UTF-8"), "AES");
- 
-		Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5PADDING");
-		cipher.init(Cipher.DECRYPT_MODE, skeySpec, iv);
-		byte[] original = cipher.doFinal(Base64.decodeBase64(encrypted));
- 
-		return new String(original);
-	} catch (Exception ex) {
-		ex.printStackTrace();
-	}
- 
-	return null;
-```
-- Python 代码实现方式：
-```Python
-    def decrypt(enStr, key, iv):
-        cipher = AES.new(key, AES.MODE_CBC, iv)
-        # enStr += (len(enStr) % 4)*"="
-        # decryptByts = base64.urlsafe_b64decode(enStr)
-        decryptByts = base64.b64decode(enStr)
-        msg = cipher.decrypt(decryptByts)
-        paddingLen = ord(msg[len(msg)-1])
-        return msg[0:-paddingLen]
-```
-
 **ECB 加密模式**
 当选择 ECB 加密模式时，只需填写明文和填充模式，无其他配置项。
 ![](https://qcloudimg.tencent-cloud.cn/raw/05b1bb3365935092ca11541555f7b74c.png)
-- Java 代码实现方式：
-```Java
-  public String aesEcbPkcsNPaddingDecrypt(String password, String content,
-      String cipherMode) {
-    try {
-      // 根据指定算法AES自成密码器
-      Cipher cipher = Cipher.getInstance(cipherMode);
-      // 初始化密码器，第一个参数为加密(Encrypt_mode)或者解密(Decrypt_mode)操作，第二个参数为使用的KEY
-      cipher.init(Cipher.DECRYPT_MODE, passwordKeyBytes(password));
-      // 将加密并编码后的内容解码成字节数组
-      byte[] bs = Base64.decodeBase64(content);
-      byte[] byteDecode = cipher.doFinal(bs);
-      return new String(byteDecode, StandardCharsets.UTF_8);
-    } catch (Exception e) {
-      e.printStackTrace();
-    }
-    return null;
-  }
-```
-- Python 代码实现方式：
-```Python
-def decrypt_oralce(text):
-    # 秘钥
-    key = 'VW1lMjAxMlRyaXAwMzA5AA=='
-    # 密文
-    # 初始化加密器
-    aes = AES.new(add_to_16(key), AES.MODE_ECB)
-    #优先逆向解密base64成bytes
-    base64_decrypted = base64.decodebytes(text.encode(encoding='utf-8'))
-    #执行解密密并转码返回str
-    decrypted_text = str(aes.decrypt(base64_decrypted),encoding='utf-8').replace('\0','')
-    print('decrypted_text',decrypted_text)
-    return decrypted_text
-```
-
 ####  输出
 操作执行成功后，输出结果会保存在 Message 消息体的 payload；执行失败后，错误信息会保存在 Message 消息体的 error。
 组件输出的 message 信息如下：
@@ -318,32 +182,6 @@ def dw_process(msg):
 **RSA_PKCS1_PADDING 模式**
 内容填充模式选择“RSA_PKCS1_PADDING”时，无其他配置。
 ![](https://qcloudimg.tencent-cloud.cn/raw/fbb86919cad6c088ffd6468f1ce43746.png)
-
-- Java 代码实现方式：
-```Java
-public static String encrypt(String str,String publicKey) throws Exception {
-        //base64编码的公钥
-        byte[] decoded = Base64.decodeBase64(publicKey);
-        RSAPublicKey pubKey= (RSAPublicKey) KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(decoded));
-        //RAS加密
-        Cipher cipher = Cipher.getInstance("RSA");
-        cipher.init(Cipher.ENCRYPT_MODE,pubKey);
-        String outStr=Base64.encodeBase64String(cipher.doFinal(str.getBytes("UTF-8")));
-        return outStr;
-```
-- Python 代码实现方式：
-```Python
-def encryption(text: str, public_key: bytes):
-	# 字符串指定编码（转为bytes）
-	text = text.encode('utf-8')
-	# 构建公钥对象
-	cipher_public = PKCS1_v1_5.new(RSA.importKey(public_key))
-	# 加密（bytes）
-	text_encrypted = cipher_public.encrypt(text) 
-	# base64编码，并转为字符串
-	text_encrypted_base64 = base64.b64encode(text_encrypted ).decode()
-	return text_encrypted_base64
-```
 ####  输出
 操作执行成功后，输出结果会保存在 Message 消息体的 payload；执行失败后，错误信息会保存在 Message 消息体的 error。
 
@@ -390,36 +228,6 @@ def dw_process(msg):
 **RSA_PKCS1_PADDING 模式**
 内容填充模式选择“RSA_PKCS1_PADDING”时, 无其他配置。
 ![](https://qcloudimg.tencent-cloud.cn/raw/28c6bfaf11dd05f7c84562cd9f03944f.png)
-
-- Java 代码实现方式：
-```Java
-public static String decrypt(String str,String privateKey) throws Exception {
-        //Base64解码加密后的字符串
-        byte[] inputByte = Base64.decodeBase64(str.getBytes("UTF-8"));
-        //Base64编码的私钥
-        byte[] decoded = Base64.decodeBase64(privateKey);
-        PrivateKey priKey = KeyFactory.getInstance("RSA").generatePrivate(new PKCS8EncodedKeySpec(decoded));
-        //RSA解密
-        Cipher cipher = Cipher.getInstance("RSA");
-        cipher.init(Cipher.DECRYPT_MODE,priKey);
-        String outStr=new String(cipher.doFinal(inputByte));
-        return outStr;
-```
-- Python 代码实现方式：
-```Python
-def decryption(text_encrypted_base64: str, private_key: bytes):
-	# 字符串指定编码（转为bytes）
-	text_encrypted_base64 = text_encrypted_base64.encode('utf-8')
-	# base64解码
-	text_encrypted = base64.b64decode(text_encrypted_base64 )
-	# 构建私钥对象
-	cipher_private = PKCS1_v1_5.new(RSA.importKey(private_key))
-	# 解密（bytes）
-	text_decrypted = cipher_private.decrypt(text_encrypted , Random.new().read)
-	# 解码为字符串
-	text_decrypted = text_decrypted.decode()
-	return text_decrypted
-```
 
 ####  输出
 操作执行成功后，输出结果会保存在 Message 消息体的 payload；执行失败后，错误信息会保存在 Message 消息体的 error。

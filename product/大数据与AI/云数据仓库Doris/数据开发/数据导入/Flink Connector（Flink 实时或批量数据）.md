@@ -1,5 +1,5 @@
 ## 基于 Flink Connector 实现数据实时或批量导入 Doris
->? 本文档适用于 flink-doris-connector 1.1.0之后的版本，1.1.0之前的版本参考 [这里](https://doris.apache.org/zh-CN/docs/0.15/extending-doris/flink-doris-connector/)。
+>? 本文档适用于 flink-doris-connector 1.1.0之后的版本，1.1.0之前的版本参考[这里](https://doris.apache.org/zh-CN/docs/1.0/extending-doris/flink-doris-connector)。
 
 ### 基本介绍
 Flink Doris Connector 支持通过 Flink 操作（读取、插入、修改、删除） Doris 中存储的数据。不只是导入。由于 Flink 是批流一体的计算引擎，因此实时的增量数据和存量的批量数据都可通过 Flink Doris Connector 导入 Doris。

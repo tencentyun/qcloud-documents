@@ -113,7 +113,7 @@ git config --global user.email "xxx@example.com"
 ```
 3. 执行以下命令，克隆项目。其中“项目地址”请替换为已在 [步骤5](#Step5) 中获取的项目地址。
 ```
-git clone "项目地址"
+git clone “项目地址”
 ```
 克隆项目成功后，会在本地生成同名目录且包含项目中所有文件。
 

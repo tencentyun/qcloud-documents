@@ -15,7 +15,7 @@ Iceberg External Table of Doris 提供了 Doris 直接访问 Iceberg 外部表�
 ### Doris 中创建 Iceberg 的外表
 可以通过以下两种方式在 Doris 中创建 Iceberg 外表。建外表时无需声明表的列定义，Doris 可以根据 Iceberg 中表的列定义自动转换。
 1. 创建一个单独的外表，用于挂载 Iceberg 表。  
-具体相关语法，可以通过 [CREATE TABLE](https://doris.apache.org/zh-CN/docs/dev/sql-manual/sql-reference/Data-Definition-Statements/Create/CREATE-TABLE) 查看。
+具体相关语法，可以通过 TODO: 语法参考手册/DDL语法/CREATE语法/[创建表]().md 查看。
 ```sql
 -- 语法
 CREATE [EXTERNAL] TABLE table_name 
@@ -57,7 +57,7 @@ PROPERTIES (
 ```
 
 2. 创建一个 Iceberg 数据库，用于挂载远端对应 Iceberg 数据库，同时挂载该 database 下的所有 table。  
-具体相关语法，可以通过 [CREATE DATABASE](https://doris.apache.org/zh-CN/docs/dev/sql-manual/sql-reference/Data-Definition-Statements/Create/CREATE-DATABASE) 查看。
+具体相关语法，可以通过TODO: 语法参考手册/DDL语法/CREATE语法/[创建数据库]().md 查看。
 ```sql
 -- 语法
 CREATE DATABASE db_name 

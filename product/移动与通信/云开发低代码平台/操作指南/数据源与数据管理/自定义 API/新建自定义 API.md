@@ -16,7 +16,7 @@
 - **Postman**：通过 Postman 导出的 Collection v2.1 文件, 生成包含对应 HTTP 方法的自定义 API 。
 
 ### 步骤3：实现 API 方法
-目前自定义 API 支持三种方式来实现自定义业务逻辑：
+目前自定义 API 支持两种方式来实现自定义业务逻辑：
 
 - **HTTP 请求**：使用 HTTP 方式调用外部服务，通过简单的配置 HTTP 请求地址、方法、参数等即可完成方法的配置。
 - **自定义代码**：集成了常用 NPM 包、数据模型、 API 等 API，只支持 JS 开发语言，可以用来实现自定义业务逻辑，具体参见 [自定义代码](https://cloud.tencent.com/document/product/1301/68440)。

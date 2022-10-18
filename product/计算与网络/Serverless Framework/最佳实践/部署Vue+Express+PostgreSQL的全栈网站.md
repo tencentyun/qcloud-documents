@@ -17,29 +17,33 @@
 
 ### 安装
 
-通过 npm 全局安装 [Serverless Cloud Framework](https://github.com/serverless/serverless)：
+通过 npm 全局安装 [Serverless Framework](https://github.com/serverless/serverless)：
 
 ```shell
-npm install -g scf
+npm install -g serverless
 ```
 
-如果之前您已经安装过 Serverless Cloud Framework，可以通过下列命令升级到最新版：
+如果之前您已经安装过 Serverless Framework，可以通过下列命令升级到最新版：
 
 ```shell
-npm update -g scf
+npm update -g serverless
 ```
 
-安装完毕后，通过运行 scf -v 命令，查看 Serverless Cloud Framework 的版本信息，确保版本信息不低于1.0.2版本。
+安装完毕后，通过运行 serverless -v 命令，查看 Serverless Framework 的版本信息，确保版本信息不低于以下版本。返回结果如下所示：
 
 ```shell
-$ scf –v
+$ serverless –v
+Framework Core: 1.74.1 (standalone)
+Plugin: 3.6.14
+SDK: 2.3.1
+Components: 2.31.6
 ```
 
 ### 配置
 
-1. 新建一个本地文件夹，使用 `scf init` 命令，下载相关 template。
+1. 新建一个本地文件夹，使用 `serverless init` 命令，下载相关 template。
 ```console
-scf init fullstack
+serverless init fullstack
 ```
 
 2. 在项目根目录下新建 .env 文件，并在其中配置对应的腾讯云 SecretId、SecretKey、地域和可用区信息。
@@ -64,12 +68,12 @@ npm run bootstrap
 
 ### 部署
 
-1. 执行 `scf deploy --all` 命令进行部署。返回信息如下所示：
+1. 执行 `sls deploy --all` 命令进行部署。返回信息如下所示：
 <dx-codeblock>
 :::  console
-$ scf deploy --all
+$ sls deploy --all
 
-serverless-cloud-framework
+serverless ⚡ framework
 
 serverlessVpc:
   region:     ap-guangzhou
@@ -117,11 +121,11 @@ fullstack-frontend:
  部署成功后，您可以使用浏览器访问项目产生的 website 链接，即可看到生成的网站。
 >?本项目云函数因 VPC，导致无法直接访问外网，如需访问外网请参考 [云函数网络配置]( https://cloud.tencent.com/document/product/583/38202 )。
 
-2. 执行 `scf remove --all`，可移除项目。返回信息如下所示：
+2. 执行 `sls remove --all`，可移除项目。返回信息如下所示：
 ```bash
-$  scf remove --all
+$  sls remove --all
 
-serverless-cloud-framework
+serverless ⚡ framework
 
 38s › tencent-fullstack › Success
 ```

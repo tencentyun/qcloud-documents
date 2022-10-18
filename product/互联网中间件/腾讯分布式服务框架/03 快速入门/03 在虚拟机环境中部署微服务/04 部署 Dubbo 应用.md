@@ -46,7 +46,7 @@ Dubbo 应用使用 TSF Atom-SDK 框架接入，支持 TSF 全栈服务治理、�
    - 程序包类型：选择程序包名称为`atom-example-apache-dubbo-provider-1.0.1-RELEASE.jar`的程序包。
    - 启动参数：选填。
    - 更新方式：选择立即更新。
-   - 健康检查：可选。详情参见 [健康检查](https://cloud.tencent.com/document/product/649/15525)。
+   - 健康检查：可选。详情参见 [健康检查](https://cloud.tencent.com/document/product/649/52359)。
    - 描述：可选。
 8. 单击**完成**，应用部署成功后，部署组中**已启动/总机器数**的数值发生变化。
 ![](https://qcloudimg.tencent-cloud.cn/raw/bda38a3164d322af7661bb55058c6149.png)

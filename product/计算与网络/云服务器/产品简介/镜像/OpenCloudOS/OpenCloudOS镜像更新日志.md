@@ -18,21 +18,6 @@
 <tr>
 <td>
 <ul class="params">
-<li>禁用 firewalld\sssd\rngd 服务</li>
-<li>卸载 microcode_ctl/nss-softokn/avahi 软件包</li>
-<li>设置 keymap</li>
-<li>设置 timezone</li>
-<li>设置 kdump 启动依赖 cloudinit.target</li>
-<li>repo 中配置 mirrors.tencentyun.com 为第一 url</li>
-<li>/etc/rc.d/rc.local 文件权限修改为755</li>
-<li>修复 /var/lib/ 下部分目录权限错误的问题</li>
-</ul>
-</td>
-<td>2022-09-16</td>
-</tr>
-<tr>
-<td>
-<ul class="params">
 <li>更新内核至 5.4.119-19.0010</li>
 <li>更新其他用户态软件</li>
 <li>更新镜像时间戳</li>

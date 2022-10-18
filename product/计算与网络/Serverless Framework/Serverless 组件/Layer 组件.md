@@ -14,13 +14,13 @@ Layer 组件是 serverless-tencent 组件库中的基础组件之一。  您可�
 通过 npm 安装 Serverless：
 
 ```console
-npm install -g serverless-cloud-framework
+npm install -g serverless
 ```
 
-如果之前您已经安装过 Serverless Cloud Framework，可以通过下列命令升级到最新版： 
+如果之前您已经安装过 Serverless Framework，可以通过下列命令升级到最新版： 
 
 ```console
-npm update -g serverless-cloud-framework
+npm update -g serverless
 ```
 
 ###  配置
@@ -55,7 +55,7 @@ inputs:
  执行以下命令进行扫码授权部署： 
 
 ```console
-scf deploy
+sls deploy
 ```
 
 >?微信扫码授权部署有过期时间，如果想要持久授权，请参考 [账号配置](#account)。
@@ -65,7 +65,7 @@ scf deploy
  执行以下命令移除部署的服务： 
 
 ```
-scf remove
+sls remove
 ```
 
 <span id="account"></span>

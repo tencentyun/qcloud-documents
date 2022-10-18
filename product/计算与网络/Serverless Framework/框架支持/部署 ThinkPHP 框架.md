@@ -17,7 +17,7 @@ composer create-project topthink/think serverless-thinkphp
 通过 npm 全局安装 [Serverless CLI](https://github.com/serverless/serverless)：
 
 ```bash
-npm install -g serverless-cloud-framework
+npm install -g serverless
 ```
 
 ### 2. 配置
@@ -56,9 +56,9 @@ inputs:
 
 如您的账号未 [登录](https://cloud.tencent.com/login) 或 [注册](https://cloud.tencent.com/register) 腾讯云，您可以直接通过**微信**扫描命令行中的二维码进行授权登录和注册。
 
-通过 `scf` 命令进行部署，并可以添加 `--debug` 参数查看部署过程中的信息：
+通过 `sls` 命令进行部署，并可以添加 `--debug` 参数查看部署过程中的信息：
 ```bash
-$ scf deploy --debug
+$ sls deploy --debug
 ```
 
 ### 4. 移除
@@ -66,7 +66,7 @@ $ scf deploy --debug
 通过以下命令移除部署的 ThinkPHP 项目：
 
 ```bash
-$ scf remove --debug
+$ sls remove --debug
 ```
 
 ### 账号配置（可选）

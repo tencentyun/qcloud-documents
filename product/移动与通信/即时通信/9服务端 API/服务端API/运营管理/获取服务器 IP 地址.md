@@ -59,4 +59,4 @@ https://console.tim.qq.com/v4/ConfigSvc/GetIPList?sdkappid=88888888&identifier=a
 
 ## 接口调试工具
 
-通过 [REST API 在线调试工具](https://tcc.tencentcs.com/im-api-tool/index.html#/v4/ConfigSvc/GetIPList)调试本接口。
+通过 [REST API 在线调试工具](https://29294-22989-29805-29810.cdn-go.cn/api-test.html#v4/ConfigSvc/GetIPList)调试本接口。

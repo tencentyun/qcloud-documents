@@ -104,7 +104,7 @@
 									<p class="titlename">Flutter 播放器 SDK</p>
                 <p style="color:#586376;">基于 Flutter 框架封装的播放器 SDK，让您用一套代码快速构建出能够运行于各平台的 App。</p>
 								<a href="https://github.com/LiteAVSDK/Player_Flutter">ZIP 下载</a>
-								<a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/881/81252">集成指引</a>
+								<a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/881/60729">集成指引</a>
                 <a style="margin-left: 10px;" href="https://github.com/LiteAVSDK/Player_Flutter">GitHub</a>
             </div>
         </div>

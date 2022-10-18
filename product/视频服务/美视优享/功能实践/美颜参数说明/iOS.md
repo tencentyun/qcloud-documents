@@ -69,7 +69,7 @@
 | propertyType  | beauty   |
 | propertyName  | beauty.thin.face1 |
 | propertyValue | 30       |
-| extraInfo     | @{@"reshape.basicFaceSubType":@"nature"} |
+| extraInfo     | nil      |
 
 ### 瘦脸/女神
 
@@ -78,7 +78,7 @@
 | propertyType  | beauty   |
 | propertyName  | beauty.thin.face2 |
 | propertyValue | 30       |
-| extraInfo     | @{@"reshape.basicFaceSubType":@"femaleGod"} |
+| extraInfo     | nil      |
 
 ### 瘦脸/英俊
 
@@ -87,7 +87,7 @@
 | propertyType  | beauty   |
 | propertyName  | beauty.thin.face3 |
 | propertyValue | 30       |
-| extraInfo     | @{@"reshape.basicFaceSubType":@"maleGod"} |
+| extraInfo     | nil      |
 
 ### V 脸
 

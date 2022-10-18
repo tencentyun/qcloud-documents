@@ -28,7 +28,7 @@ Namespace=QCE/CYNOSDB_MYSQL
 | UndoVolumeAllocate            | undo表空间分配量                                             | GB    | InstanceId            | 5s、60s、300s、3600s、86400s |
 | UndoVolumeUsage               | undo表空间使用量                                             | GB    | InstanceId            | 5s、60s、300s、3600s、86400s |
 | CreatedTmpTables              | 创建临时表的数量                                             | 个    | InstanceId            | 5s、60s、300s、3600s、86400s |
-| InnodbCacheHitRate            | 查询时间超过long_query_time秒的查询个数                      | 个   | InstanceId            | 5s、60s、300s、3600s、86400s |
+| InnodbCacheHitRate            | 查询时间超过long_query_time秒的查询个数                      | %     | InstanceId            | 5s、60s、300s、3600s、86400s |
 | InnodbCacheUseRate            | InnoDB引擎的缓存使用率                                       | %     | InstanceId            | 5s、60s、300s、3600s、86400s |
 | SlowQueries                   | 查询时间超过long_query_time秒的查询个数                      | 个    | InstanceId            | 5s、60s、300s、3600s、86400s |
 | ThreadsRunning                | 激活的线程数                                                 | 个    | InstanceId            | 5s、60s、300s、3600s、86400s |

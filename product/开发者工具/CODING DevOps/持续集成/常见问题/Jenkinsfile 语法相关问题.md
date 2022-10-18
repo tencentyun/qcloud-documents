@@ -99,7 +99,7 @@ pipeline {
 
 ### 如何查看工作空间目录？
 在持续集成的部署流程中添加“执行 Shell 脚本”步骤，并在其中添加 `pwd` 命令。持续集成运行后将输出工作空间目录。
-![](https://qcloudimg.tencent-cloud.cn/raw/03b42fc6a269b8f192a99f5eb5cd040a.png)
+![](https://help-assets.codehub.cn/enterprise/20220113161425.png)
 
 ### 如何自定义环境变量？
 -  使用 enviroment 语法创建变量
@@ -109,20 +109,20 @@ environment {
     DATE2 = sh(returnStdout: true, script: 'date +%Y%m').trim()
   }
 ```
-![](https://qcloudimg.tencent-cloud.cn/raw/5f7a0560be9d91d09330fa33607bb7c9.png)
+![](https://help-assets.codehub.cn/enterprise/20220919160125.png)
 -  在全局或局部中使用变量
 在全局中使用变量：
 ```bash
 script {
           env.cusversionall=sh(returnStdout: true, script: 'date +%Y%m').trim()          echo "${cusversionall}"}
 ```
-![](https://qcloudimg.tencent-cloud.cn/raw/79985f7ec7dbd186009479de12722139.png)
+![](https://help-assets.codehub.cn/enterprise/20220919160258.png)
 仅在局部（某项步骤中）使用变量：
 ```bash
 script {
           def cusversion=sh(returnStdout: true, script: 'date +%Y%m').trim()          echo "${cusversion}"}
 ```
-![](https://qcloudimg.tencent-cloud.cn/raw/550e7e156d8f6c2947573977f0346d78.png)
+![](https://help-assets.codehub.cn/enterprise/20220919160327.png)
 
 ### 远程 SSH 执行命令时环境变量不生效怎么办？
 由于在使用构建机连接远程 SSH 时使用了“非交互非登录式”连接，因此无法引用远程机器的 `/etc/profile` 、 `~/.bashrc` 等文件配置中的环境变量。
