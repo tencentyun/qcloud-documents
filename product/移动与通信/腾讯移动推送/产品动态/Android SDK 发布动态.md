@@ -69,7 +69,6 @@
 		<li><a href="https://cloud.tencent.com/document/product/548/56364">Android SDK 升级指南</a></li>
 </td>
     </tr>
-<tr>
 </table>
 
 ## 2022年05月
@@ -93,7 +92,6 @@
 		<li><a href="https://cloud.tencent.com/document/product/548/56364">Android SDK 升级指南</a></li>
 </td>
     </tr>
-<tr>
 </table>
 
 ## 2022年04月
@@ -116,7 +114,6 @@
 		<a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</a>
 </td>
     </tr>
-<tr>
 </table>
 
 ## 2022年02月
@@ -141,7 +138,6 @@
 		<li><a href="https://cloud.tencent.com/document/product/548/56364">Android SDK 升级指南</a></li>
 </td>
     </tr>
-<tr>
 </table>
 
 ## 2022年01月
@@ -167,7 +163,6 @@
 <a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</a>
 </td>
     </tr>
-<tr>
 </table>
 
 ## 2021年09月
@@ -186,7 +181,6 @@
 <li><a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</a></li>
 <li><a href="https://cloud.tencent.com/document/product/548/56364">Android SDK 升级指南</a></li></td>
     </tr>
-<tr>
 </table>
 
 ## 2021年08月
@@ -206,7 +200,6 @@
         <td>2021-08-27</td><td><li>使用新增的应用内消息能力时，请注意高版本 Android 使用 WebView 的兼容性，参考 <a href="https://cloud.tencent.com/document/product/548/36659#.E5.BA.94.E7.94.A8.E5.86.85.E6.B6.88.E6.81.AF.E5.B1.95.E7.A4.BA">Android 接口文档</a></li>
 <li><a href="https://cloud.tencent.com/document/product/548/56364">Android SDK 升级指南</a></li></td>
     </tr>
-<tr>
 </table>
 
 ## 2021年07月
@@ -230,7 +223,6 @@
 <a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</a></li>
 <li><a href="https://cloud.tencent.com/document/product/548/36674">Android 常见问题</a></li></td>
     </tr>
-<tr>
 </table>
 
 ## 2021年05月
@@ -252,7 +244,6 @@
         <td>2021-05-26</td><td><li> 由于 Jcenter 下线，您可能遇到 SDK 依赖拉取问题，请参考 <a href="https://cloud.tencent.com/document/product/548/56364">Android SDK 升级指南</a> 配置依赖仓库镜像源</li>
 <li> 新增的标签查询接口，需要注意在继承 <code>XGPushBaseReceiver</code> 的实现类中增加实现方法 <code>onQueryTagsResult</code></li></td>
     </tr>
-<tr>
 </table>
 
 ## 2021年02月
@@ -268,7 +259,6 @@
         <td>SDK 1.2.3.1 版本发布</td><td>修复：修复华为禁用组件逻辑错误</td>
         <td>2021-02-04</td><td>-</td>
     </tr>
-<tr>
 </table>
 
 ## 2021年01月
