@@ -12,14 +12,14 @@
 ### 创建函数
 执行以下命令，快速创建一个开发语言为 Node.js 的函数示例。   
 ```
-sls init scf-demo
+scf init scf-demo
 ```
 >?命令中的 scf-demo 默认为 nodejs 模板，您也可以替换为其它语言的函数模板：`scf-golang`，`scf-php`，`scf-python`。
 
 ### 部署函数
 在 `scf-demo` 目录下执行以下命令，进行函数部署。
 ```
-sls deploy
+scf deploy
 ```
 将会弹出二维码，请直接扫码授权开始部署。部署成功后，会自动创建云函数资源。
 >?如果鉴权失败，请参考 [权限配置](https://cloud.tencent.com/document/product/1154/43006) 进行授权。
@@ -27,13 +27,13 @@ sls deploy
 ### 查看函数信息
 执行以下命令，查看已部署云函数资源信息。
 ```
-sls info
+scf info
 ```
 
 ### 移除函数
 执行以下命令，移除已经部署云函数资源。
 ```
-sls remove
+scf remove
 ```
 
 ## 相关功能

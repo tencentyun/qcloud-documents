@@ -135,7 +135,7 @@ inputs:
 ### 部署与调试
 1. 使用命令行在 `test-postgreSQL` 下，执行以下命令进行部署。
 ```
-sls deploy --all
+scf deploy --all
 ```
 返回结果如下，即为部署成功。
 ```bash
@@ -179,7 +179,7 @@ fullstack-serverless-db:
 ### 移除项目
 在 `test-postgreSQL` 目录下，执行以下命令可移除项目。
 ```bash
-sls remove --all
+scf remove --all
 ```
 返回结果如下，即为成功移除。
 ```
@@ -293,7 +293,7 @@ inputs:
 ### 部署与调试
 1. 使用命令行在 `test-NoSQL` 下，执行以下命令进行部署。
 ```bash
-sls deploy --all
+scf deploy --all
 ```
 返回结果如下所示，即为部署成功。
 ```
@@ -320,7 +320,7 @@ mongoDBDemoSCF:
 ### 移除项目
 在 `test-NoSQL` 目录下，执行以下命令可移除项目。
 ```
-sls remove --all
+scf remove --all
 ```
 返回如下结果，即为成功移除。
 ```

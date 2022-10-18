@@ -148,7 +148,7 @@ inputs:
 4. 只使用 bonree component 便可以完成层的创建。在云函数中配置 layers 参数可以完成绑定操作，您也可以选择在云函数控制台手动绑定层。
 5. 在根目录下执行以下命令，进行应用部署。
 ```bash
-sls deploy
+scf deploy
 ```
 
 

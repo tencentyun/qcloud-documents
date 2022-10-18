@@ -142,7 +142,7 @@ $ zip demo.zip index.sh bootstrap
 ```
 >? SCF 组件的详细配置，请参见 [全量配置文档](https://github.com/serverless-components/tencent-scf/blob/master/docs/configure.md)。   
 >
-3. 执行 `sls deploy` 命令创建云函数，创建成功则返回结果如下：
+3. 执行 `scf deploy` 命令创建云函数，创建成功则返回结果如下：
 ```
    serverless ⚡framework
    Action: "deploy" - Stage: "dev" - App: "ap-guangzhou_default_helloworld" - Instance: "ap-guangzhou_default_helloworld"   
