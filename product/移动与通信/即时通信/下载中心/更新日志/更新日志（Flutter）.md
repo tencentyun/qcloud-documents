@@ -1,40 +1,24 @@
-# 平台支持版本
-
-我们致力于打造一套支持 Flutter 全平台的即时通信 IM SDK 及 TUIKit，帮助您一套代码，全平台运行。
-
-| 平台 | 无 UI SDK (tencent_im_sdk_plugin) | 含 UI 及基础业务逻辑 TUIKit (tim_ui_kit) |
-|---------|---------|---------|
-| iOS | 所有版本支持 | 所有版本支持 |
-| Android | 所有版本支持 | 所有版本支持 |
-| [Web](https://cloud.tencent.com/document/product/269/68823#web) | 4.1.1+2版本起支持 | 0.1.5版本起支持 |
-| [macOS](https://cloud.tencent.com/document/product/269/68823#pc) | 4.1.8版本起支持 | 即将上线 |
-| [Windows](https://cloud.tencent.com/document/product/269/68823#pc) | 4.1.8版本起支持 | 即将上线 |
-
->? Web/macOS/Windows 平台需要简单的几步额外引入，详情请查看[Web兼容](https://cloud.tencent.com/document/product/269/68823#web)和[Desktop兼容](https://cloud.tencent.com/document/product/269/68823#pc)指引.
-
-# 更新日志
-
 >?
 >
-> IM Flutter SDK（无 UI）指代 [tencent_im_sdk_plugin](https://pub.dev/packages/tencent_im_sdk_plugin) 包，仅包括所有 IM 客户端 API 及监听回调；
-> IM Flutter TUIKit（含 UI）指代 [tim_ui_kit](https://pub.dev/packages/tim_ui_kit) 包，在无UI SDK基础上，还包括完整 UI 组件库及业务逻辑。
+> 下文中，IM Flutter SDK（无 UI）指代 [tencent_im_sdk_plugin](https://pub.dev/packages/tencent_im_sdk_plugin) 包，仅包括所有 IM 客户端 API 及监听回调；
+> IM Flutter TUIKit（含 UI）指代 [tim_ui_kit](https://pub.dev/packages/tim_ui_kit) 包，在上行基础上，还包括完整 UI 组件库及业务逻辑。
 
-## IM Flutter SDK（无 UI） 4.1.8 @2022.10.18
-- 新增: 支持PC平台，包含 macOS 与 Windows
-- 新增: 消息扩展
-- 新增: 信令编辑
-- 优化: 升级底层SDK
-- 修复: 高版本jdk转换问题
-- 修复: 若干问题
+## IM Flutter SDK（无 UI） 4.1.4 @2022.10.17
+- 新增：支持 PC 平台，包含 macOS 与 Windows
+- 新增：消息扩展
+- 新增：信令编辑
+- 优化：升级底层 SDK
+- 修复：高版本 JDK 转换问题
+- 修复：若干问题
 
-## IM Flutter TUIKit（含 UI） 0.1.7 @2022.10.18
-* 新增: 支持大图片和RAW图片，特别是那些从最新版本的iOS和iPhone 14 Pro系列捕获的图片，在自动发送前压缩和格式化
-* 优化: 性能和稳定性，特别是历史消息列表和启动
-* 优化: 使初始化' TIMUIKitChat '为幂等操作
-* 优化: 当滚动回底部时加载最新的消息
-* 优化: 优化支持 Flutter 2.x和 3.x 系列
-* 修复: iOS相册，仅允许部分图片，权限支持
-* 修复: 几个bug
+## IM Flutter TUIKit（含 UI） 0.1.7 @2022.10.17
+* 新增: 支持大图片和 RAW 图片，特别是那些从最新版本的 iOS 和 iPhone 14 Pro 系列捕获的图片，在自动发送前压缩和格式化
+* 优化：性能和稳定性，特别是历史消息列表和启动
+* 优化：使初始化' TIMUIKitChat '为幂等操作
+* 优化：当滚动回底部时加载最新的消息
+* 优化：优化支持 Flutter 2.x和 3.x 系列
+* 修复：iOS 相册，仅允许部分图片，权限支持
+* 修复：几个 bug
 
 ## IM Flutter TUIKit（含 UI） 0.1.5 @2022.09.22
 * 新增：Web支持。现在，您可以在 iOS/Android/Web 平台上实现 TUIKit

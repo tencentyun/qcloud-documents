@@ -342,7 +342,7 @@ _sendLocationMessage(String desc, double longitude, double latitude) async {
 - [消息推送插件](https://cloud.tencent.com/document/product/269/74605)：支持厂商原生离线推送能力及在线推送能力，并支持推送您的其他业务消息，帮助您提高消息触达率。
 - [音视频通话插件](https://cloud.tencent.com/document/product/269/72485)：支持类似微信的 一对一/群组 音视频 通话。
 - [位置消息插件](https://cloud.tencent.com/document/product/269/80881)：提供选取位置/发送位置及解析展示位置消息的能力。
-- [自定义表情插件](https://cloud.tencent.com/document/product/269/80882)：0.1.5版本后， TUIKit 无自带表情包，需要使用此插件，快速简便集成表情能力。支持 emoji unicode 编码及自定义图片表情。集成代码可参考我们的 [Demo](https://github.com/TencentCloud/TIMSDK/blob/master/Flutter/Demo/im-flutter-uikit/lib/src/pages/app.dart)。
+- [自定义表情插件](https://cloud.tencent.com/document/product/269/80882)：0.1.5版本后， TUIKit 无自带表情包，需要使用此插件，快速简便集成表情能力。支持 emoji unicode 编码及自定义图片表情。集成过程可参考我们的 [Demo](https://github.com/TencentCloud/TIMSDK/blob/master/Flutter/Demo/im-flutter-uikit/lib/src/pages/app.dart)。
 
 >?更多实用的插件正在开发中，如果您有好的想法及建议，欢迎随时 [联系我们](https://cloud.tencent.com/online-service?from=doc_269&source=PRESALE)。
 
@@ -392,7 +392,7 @@ flutter pub cache clean
 flutter pub get
 ```
 
-### 在 Flutter 2.x 上，构建报错 `Codepoint 984472 not found in font, aborting.` 怎么办？
+### 在 Flutter 2.x 上，Android 构建报错 `Codepoint 984472 not found in font, aborting.` 怎么办？
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/017362112bb49e5ac2d94d76699b068a.png)
 
