@@ -10,16 +10,18 @@
 
 ## 支持平台
 
+我们致力于打造一套支持 Flutter 全平台的即时通信IM SDK及TUIKit，帮助您一套代码，全平台运行。
+
 
 | 平台 | 支持状态|
 |---------|---------|
 | iOS | 支持 |
 | Android | 支持 |
 | [Web](#web) | 支持，4.1.1+2版本起 |
-| [macOS](#pc) | 支持，4.1.4版本起 |
-| [Windows](#pc) | 支持，4.1.4版本起 |
+| [macOS](#pc) | 支持，4.1.8版本起 |
+| [Windows](#pc) | 支持，4.1.8版本起 |
 
-> 我们致力于打造一套支持 Flutter 全平台的即时通信IM SDK及TUIKit，帮助您一套代码，全平台运行。
+> Web/macOS/Windows 平台需要简单的几步额外引入，详情请查看本文[Web兼容](#web)和[Desktop兼容](#pc)部分.
 
 ## 集成 IM SDK
 您可以通过 [pub add](https://pub.dev/packages/tencent_im_sdk_plugin) 的方式直接集成腾讯云 IM SDK（Flutter），或者在 pubspec.yaml 中写入 IM SDK 的方式来集成。
