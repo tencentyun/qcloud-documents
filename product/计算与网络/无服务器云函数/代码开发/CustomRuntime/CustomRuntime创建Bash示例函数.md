@@ -144,7 +144,7 @@ $ zip demo.zip index.sh bootstrap
 >
 3. 执行 `scf deploy` 命令创建云函数，创建成功则返回结果如下：
 ```
-   serverless ⚡framework
+   serverless-cloud-framework
    Action: "deploy" - Stage: "dev" - App: "ap-guangzhou_default_helloworld" - Instance: "ap-guangzhou_default_helloworld"   
    functionName: helloworld
    description:  helloworld blank template function.
