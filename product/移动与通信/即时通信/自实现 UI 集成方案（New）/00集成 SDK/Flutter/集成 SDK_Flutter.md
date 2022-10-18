@@ -16,8 +16,8 @@
 | iOS | 支持 |
 | Android | 支持 |
 | [Web](#web) | 支持，4.1.1+2版本起 |
-| macOS | 支持，4.1.4版本起 |
-| Windows | 支持，4.1.4版本起 |
+| [macOS](#pc) | 支持，4.1.4版本起 |
+| [Windows](#pc) | 支持，4.1.4版本起 |
 
 > 我们致力于打造一套支持 Flutter 全平台的即时通信IM SDK及TUIKit，帮助您一套代码，全平台运行。
 
@@ -52,6 +52,11 @@ IM SDK(tencent_im_sdk_plugin) 4.1.1+2版本起，可完美兼容Web端。
 
 相比Android和iOS端，需要一些额外步骤。如下：
 
+
+### 升级 Flutter 3.x 版本
+
+Flutter 3.x 版本 针对 Web 性能做了较多优化，强烈建议您使用其来开发 Flutter Web 项目。
+
 ### 引入JS
 
 >?
@@ -70,6 +75,22 @@ IM SDK(tencent_im_sdk_plugin) 4.1.1+2版本起，可完美兼容Web端。
 <script src="./tim-js-friendship.js"></script>
 ```
 ![](https://qcloudimg.tencent-cloud.cn/raw/f88ddfbdc79fb7492f3ce00c2c583246.png)
+
+## Flutter for Desktop(PC) 支持[](id:pc)
+
+我们的无 UI SDK(tencent_im_sdk_plugin) 4.1.8 版本起，可完美兼容 macOS、Windows 端。
+
+相比 Android 和 iOS 端，需要一些额外步骤。如下：
+
+### 升级 Flutter 3.x 版本
+
+从 Flutter 3.0 版本起，才可完美兼容 desktop 端，因此，如需使用，请升级至 Flutter 3.x 版本。
+
+### 引入 Flutter for Desktop 增补SDK
+
+```dart
+flutter pub add tencent_im_sdk_plugin_desktop
+```
 
 ## 常见问题
 
