@@ -716,7 +716,6 @@ flutter pub add tencent_im_sdk_plugin_web
 <script src="./tim-js-friendship.js"></script>
 ```
 ![](https://qcloudimg.tencent-cloud.cn/raw/f88ddfbdc79fb7492f3ce00c2c583246.png)
-
 ## 第八部分：Flutter for Desktop(PC) 支持[](id:pc)
 
 我们的无 UI SDK(tencent_im_sdk_plugin) 4.1.8 版本起，可完美兼容 macOS、Windows 端。

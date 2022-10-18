@@ -1,7 +1,23 @@
+# 平台支持版本
+
+我们致力于打造一套支持 Flutter 全平台的即时通信 IM SDK 及 TUIKit，帮助您一套代码，全平台运行。
+
+| 平台 | 无 UI SDK (tencent_im_sdk_plugin) | 含 UI 及基础业务逻辑 TUIKit (tim_ui_kit) |
+|---------|---------|---------|
+| iOS | 所有版本支持 | 所有版本支持 |
+| Android | 所有版本支持 | 所有版本支持 |
+| [Web](https://cloud.tencent.com/document/product/269/68823#web) | 4.1.1+2版本起支持 | 0.1.5版本起支持 |
+| [macOS](https://cloud.tencent.com/document/product/269/68823#pc) | 4.1.8版本起支持 | 即将上线 |
+| [Windows](https://cloud.tencent.com/document/product/269/68823#pc) | 4.1.8版本起支持 | 即将上线 |
+
+>? Web/macOS/Windows 平台需要简单的几步额外引入，详情请查看[Web兼容](https://cloud.tencent.com/document/product/269/68823#web)和[Desktop兼容](https://cloud.tencent.com/document/product/269/68823#pc)指引.
+
+# 更新日志
+
 >?
 >
-> 下文中，IM Flutter SDK（无 UI）指代 [tencent_im_sdk_plugin](https://pub.dev/packages/tencent_im_sdk_plugin) 包，仅包括所有 IM 客户端 API 及监听回调；
-> IM Flutter TUIKit（含 UI）指代 [tim_ui_kit](https://pub.dev/packages/tim_ui_kit) 包，在上行基础上，还包括完整 UI 组件库及业务逻辑。
+> IM Flutter SDK（无 UI）指代 [tencent_im_sdk_plugin](https://pub.dev/packages/tencent_im_sdk_plugin) 包，仅包括所有 IM 客户端 API 及监听回调；
+> IM Flutter TUIKit（含 UI）指代 [tim_ui_kit](https://pub.dev/packages/tim_ui_kit) 包，在无UI SDK基础上，还包括完整 UI 组件库及业务逻辑。
 
 ## IM Flutter SDK（无 UI） 4.1.8 @2022.10.18
 - 新增: 支持PC平台，包含 macOS 与 Windows
