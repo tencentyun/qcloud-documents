@@ -1,11 +1,11 @@
 ## 操作场景
-通过 [Serverless Cloud Framework 组件](https://cloud.tencent.com/document/product/1154/39270)，您可轻松完成 Serverless DB 的创建部署管理，并通过 SDK 在云函数中轻松完成数据库的连接访问，基于云上 Serverless 服务，实现“0”配置，极速部署，便捷开发，助力业务实现。
+通过 [Serverless Framework 组件](https://cloud.tencent.com/document/product/1154/39270)，您可轻松完成 Serverless DB 的创建部署管理，并通过 SDK 在云函数中轻松完成数据库的连接访问，基于云上 Serverless 服务，实现“0”配置，极速部署，便捷开发，助力业务实现。
 
-Serverless Cloud Framework 目前支持 **PostgreSQL** 与 **NoSQL** 两个类型数据库的部署连接，本文介绍如何使用云函数连接 PostgreSQL。
+Serverless Framework 目前支持 **PostgreSQL** 与 **NoSQL** 两个类型数据库的部署连接，本文介绍如何使用云函数连接 PostgreSQL。
 
 
 ## 前提条件
-- 已安装 Serverless Cloud Framework，且不低于以下版本。如未安装，请参考 [安装 Serverless Cloud Framework](https://cloud.tencent.com/document/product/583/44753) 完成安装。
+- 已安装 Serverless Framework，且不低于以下版本。如未安装，请参考 [安装 Serverless Framework](https://cloud.tencent.com/document/product/583/44753) 完成安装。
 ```
 Framework Core: 1.67.3
 Plugin: 3.6.6
@@ -16,13 +16,13 @@ Components: 2.30.1
 
 
 ## 操作步骤
-本文以 Node.js 开发语言的函数为例，介绍如何通过 Serverless Cloud Framework 组件编写创建函数，并访问 PostgreSQL 数据库。配置流程如下：
+本文以 Node.js 开发语言的函数为例，介绍如何通过 Serverless Framework 组件编写创建函数，并访问 PostgreSQL 数据库。配置流程如下：
 1. **配置身份信息**：在本地配置腾讯云账户信息。
-1. **配置私有网络**：通过 [Serverless Cloud Framework VPC 组件](https://cloud.tencent.com/document/product/1154/43005) 创建 **VPC** 和 **子网**，支持云函数和数据库的网络打通和使用。
-2. **配置 Serverless DB**：通过 [Serverless Cloud Framework PostgreSQL 组件](https://cloud.tencent.com/document/product/1154/43004 ) 创建 PostgreSQL 实例，为云函数项目提供数据库服务。
+1. **配置私有网络**：通过 [Serverless Framework VPC 组件](https://cloud.tencent.com/document/product/1154/43005) 创建 **VPC** 和 **子网**，支持云函数和数据库的网络打通和使用。
+2. **配置 Serverless DB**：通过 [Serverless Framework PostgreSQL 组件](https://cloud.tencent.com/document/product/1154/43004 ) 创建 PostgreSQL 实例，为云函数项目提供数据库服务。
 3. **编写业务代码**：通过 Serverless DB SDK 调用数据库，云函数支持直接调用 Serverless DB SDK，连接 PostgreSQL 数据库进行管理操作。
-4. **部署与调试**：通过 Serverless Cloud Framework 部署项目至云端，并通过云函数控制台进行测试。
-5. **移除项目**：可通过 Serverless Cloud Framework 移除项目。
+4. **部署与调试**：通过 Serverless Framework 部署项目至云端，并通过云函数控制台进行测试。
+5. **移除项目**：可通过 Serverless Framework 移除项目。
 
 
 ### 配置身份信息
@@ -136,7 +136,7 @@ inputs:
 ### 部署与调试
 1. 通过命令行，在 `test-postgreSQL` 目录下，执行以下命令进行部署。
 ```
-scf deploy --all
+sls deploy --all
 ```
 返回结果如下，即为部署成功。
 ```bash
@@ -180,7 +180,7 @@ fullstack-serverless-db:
 ### 移除项目
 在 `test-postgreSQL` 目录下，执行以下命令可移除项目。
 ```bash
-scf remove --all
+sls remove --all
 ```
 返回结果如下，即为成功移除。
 ```

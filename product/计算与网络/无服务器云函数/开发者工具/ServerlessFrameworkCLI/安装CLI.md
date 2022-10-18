@@ -15,18 +15,18 @@ curl -o- -L https://slss.io/install | bash
 ```
 如果您已经安装过二进制版本，则可以通过执行以下命令进行升级。
 ```sh
-serverless upgrade
+serverless-cloud-framework upgrade
 ```
 
 #### Windows 系统 
 
 Windows 系统支持通过 [chocolatey](https://chocolatey.org/) 进行安装。在命令行中，执行以下命令。
 ```sh
-choco install serverless
+choco install serverless-cloud-framework
 ```
 如果您已经安装过二进制版本，则可以通过执行以下命令进行升级。
 ```sh
-choco upgrade serverless
+choco upgrade serverless-cloud-framework
 ```
 
 [](id:npm)
@@ -35,19 +35,19 @@ choco upgrade serverless
 >
 在命令行中，执行以下命令。
 ```sh
-npm install -g serverless
+npm install -g serverless-cloud-framework
 ```
 若 MacOS 或 Linux 系统提示无权限，则需执行 `sudo npm install -g serverless` 命令进行安装。
 如果之前您已经安装过 Serverless Cloud Framework，可以通过下列命令升级到最新版：
 ```sh
-npm update -g serverless
+npm update -g serverless-cloud-framework
 ```
 
 
 ### 安装验证
 安装完毕后，在命令行中执行以下命令，查看 Serverless Cloud Framework 的版本信息。
 ```sh
-serverless -v
+serverless-cloud-framework -v
 ```
 返回类似如下信息，则表示安装成功。
 ```
@@ -56,5 +56,4 @@ Plugin: 3.6.12
 SDK: 2.3.0
 Components: 2.30.11
 ```
-
 

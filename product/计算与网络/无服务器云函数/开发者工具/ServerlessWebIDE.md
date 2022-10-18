@@ -76,7 +76,7 @@ Serverless Web IDE 提供手动部署和自动部署两种函数部署方式，�
 
 在资源管理器函数文件上单击右键展开的列表中，包含了函数相关的全部操作。除部署、测试、新增测试模板等操作外，还提供以下内容：
 
-- **生成 serverless.yml**：将函数当前的配置写入配置文件 serverless.yml，可以使用 Serverless Cloud Framework 命令行工具进行二次开发；
+- **生成 serverless.yml**：将函数当前的配置写入配置文件 serverless.yml，可以使用 Serverless Framework 命令行工具进行二次开发；
 - **丢弃当前修改**：重新拉取云端已经部署的函数覆盖当前工作区。
 
 ## IDE 操作
@@ -209,7 +209,7 @@ Serverless Web IDE 中常用命令、运行环境和预置的扩展版本如下�
 <td style="text-align:center">1.9.5</td>
 </tr>
 <tr>
-<td style="text-align:center"><a href="https://cloud.tencent.com/document/product/583/44751">Serverless Cloud Framework CLI</a></td>
+<td style="text-align:center"><a href="https://cloud.tencent.com/document/product/583/44751">Serverless Framework CLI</a></td>
 <td style="text-align:center">3.2.1</td>
 </tr>
 </tbody>

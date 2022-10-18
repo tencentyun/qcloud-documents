@@ -5,8 +5,8 @@
 /*后台源码的卡片*/
 .preview-demo-section .preview-demo-item-cloud {
     display: inline-block;
-    width: 489px;
-    height: 100px;
+    width: 657px;
+    height: 113px;
     background: #fff;
     box-shadow: 0 1px 8px 0 rgb(156 175 204 / 25%);
     border-radius: 1px;
@@ -23,7 +23,7 @@
 /*小卡片*/
 .preview-demo-section .preview-demo-item {
     display: inline-block;
-    width: 236px;
+    width: 320px;
     height: 300px;
     background: #fff;
     box-shadow: 0 1px 8px 0 rgb(156 175 204 / 25%);
@@ -56,7 +56,7 @@
 /*iOS底部链接*/
 .preview-demo-section .preview-demo-item .demo-item-link-2 {
     font-size: 14px;
-	  margin-top: 40px;
+	  margin-top: 63px;
 		white-space: nowrap;
 }
 /*卡片标题*/
@@ -106,6 +106,8 @@
 				<div class="demo-item-link-2">
 					<a href="https://cloud.tencent.com/document/product/584/11638">集成指引</a>
 				<a  style="margin-left: 20px;" href="https://liteav.sdk.qcloud.com/download/latest/XiaoShiPin_UGC_iOS_latest.zip">源码 ZIP</a>
+				<a style="margin-left: 15px;" href="https://github.com/LiteAVSDK/UGSV_iOS">GitHub</a>
+				 <a style="margin-left: 15px;" href="https://gitee.com/liteavsdk/UGSV_iOS">Gitee</a>
 				  </div>
     </div>
     <div class="preview-demo-item style-qrcode" style="margin-left:0">
@@ -123,6 +125,8 @@
 					<div class="demo-item-link">
 					  	<a href="https://cloud.tencent.com/document/product/584/11631">集成指引</a>
 				<a style="margin-left: 20px;" href="https://liteav.sdk.qcloud.com/download/latest/XiaoShiPin_UGC_Android_latest.zip">源码 ZIP</a>
+				<a style="margin-left: 15px;" href="https://github.com/LiteAVSDK/UGSV_Android">GitHub</a>
+				 <a style="margin-left: 15px;" href="https://gitee.com/liteavsdk/UGSV_Android">Gitee</a>
         </div>
 				 </div>		
     </div>
@@ -131,18 +135,19 @@
 
 <div class="preview-demo-section" id="demo-card" >
 	 <div class="preview-demo-item-cloud" >
-	 <div class="demo-item-header" style="margin-top: 13px;">
+			 <div class="demo-item-header" style="margin-top: 13px;">
             <a style="font-size: 20px;font-weight: bold;" >Demo 后台源码</a>
-</div>
-	 <div class="demo-item-header">
- <a style="font-size: 12px;">小视频 App（Demo）的后台源码</a>
- </div>
+				</div>
+		 <div class="demo-item-header">
+					 <a style="font-size: 12px;">小视频 App（Demo）的后台源码</a>
+		 </div>
+		 <div class="demo-item-link">
        	<a href="https://cloud.tencent.com/document/product/584/9371">集成指引</a>
 				<a style="margin-left: 15px;" href="https://liteav.sdk.qcloud.com/download/ugc/vod-xiaoshipin-server-master.zip">源码 ZIP</a>
 				 <a style="margin-left: 15px;" href="https://github.com/tencentyun/vod-xiaoshipin-server">GitHub</a>
 				 <a style="margin-left: 15px;" href="https://gitee.com/cloudtencent/vod-xiaoshipin-server">Gitee</a>
       </div>
-	     </div>
+	   </div>
 </div>  
 
 

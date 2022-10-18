@@ -28,7 +28,6 @@ CREATE TABLE elasticsearch6_sink_table (
     'hosts' = 'http://10.28.28.94:9200',   -- Elasticsearch 的连接地址
     'index' = 'my-index',                  -- Elasticsearch 的 Index 名
     'document-type' = '_doc',              -- Elasticsearch 的 Document 类型
-    'sink.bulk-flush.max-actions' = '1',   -- 每条数据都刷新
     'format' = 'json'                      -- 输出数据格式，目前只支持 'json'
 );
 ```
@@ -43,7 +42,6 @@ CREATE TABLE elasticsearch7_sink_table (
     'password' = '$password',              -- 选填 密码
     'hosts' = 'http://10.28.28.94:9200',   -- Elasticsearch 的连接地址
     'index' = 'my-index',                  -- Elasticsearch 的 Index 名
-    'sink.bulk-flush.max-actions' = '1',   -- 每条数据都刷新
     'format' = 'json'                      -- 输出数据格式，目前只支持 'json'
 );
 ```

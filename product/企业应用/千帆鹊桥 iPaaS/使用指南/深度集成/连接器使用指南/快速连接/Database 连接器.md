@@ -624,17 +624,17 @@ Database 连接器目前支持查询、插入、更新、删除、批量插入�
 3. 通过“RecordSet Encoder”生成 RecordSet 类型的数据，在 “Encoder” 组件中设置如下 Schema：
    ![image-20210624201918451](https://main.qcloudimg.com/raw/6ce16796b5196581f86ea7111b03abf4/database45.png)
 4. 在 “Encoder” 组件选择 “Set Payload” 组件，按如下配置设置：
-   ```python
+```python
    def dw_process(msg):
        return [['xiaomi',66.66,'e'], ['xiaoming',66.66,'f'], ['xiaohua',66.66,'g']]
-   ```
+```
 5. 测试组件如下：
    ![image-20210624203014745](https://main.qcloudimg.com/raw/cd186c63ddaf9b8f1d553dd25ed6967b/database47.png)
 6. 构造好 RecordSet 数据后，输入数据集如下：
-   ```python
+```python
    def dw_process(msg):
        return msg.payload
-   ```
+```
 7. Database组件通过数据表字段和 RecordSet 数据字段的映射关系来构造插入的数据信息，配置如下：
    ![image-20210701152327985](https://main.qcloudimg.com/raw/20a7b1987e7c9f977ca15db377e7bc10/database34.png)
 8. 批量插入成功后，message 的 error 信息为空。
@@ -774,21 +774,21 @@ Database 连接器目前支持查询、插入、更新、删除、批量插入�
 ![image-20210323144706499](https://main.qcloudimg.com/raw/8b0dc537e9ff2ce516d5e232aa2a24c8/database23.png)
 2. 新建连接器或选择已创建的连接器。
 3. 在通用配置中，填入参数信息。例如：“存储过程”为 getBookId，输入参数 dataway 表达式如下：
-   ```python
+```python
    def dw_process(msg):
    	return {
    	'name': 'aaa',
    	'price': 0,
    	}
-   ```
+```
  - 输出参数表达式如下：
-   ```python
+```python
    def dw_process(msg):
    	return [
    	{'fieldName':'id', 'fieldType':'INT'}, 
    	{'fieldName':'book_name', 'fieldType':'VARCHAR'}
    	]
-   ```
+```
  - 界面如图：
    ![image-20210323145420670](https://main.qcloudimg.com/raw/ac839855a3c756a59cf0efa8d008934b/database6.png)
 4. 执行结果：
@@ -797,3 +797,67 @@ Database 连接器目前支持查询、插入、更新、删除、批量插入�
  - 若执行过程中出现错误，message error 中会包含错误信息：
 ![image-20210323145701162](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/img/Database/database26.png)
 
+
+## 附录
+iPaaS Database 连接器会根据数据库字段类型将数据库字段值转换为数据连接器的 [核心类型](https://cloud.tencent.com/document/product/1270/73950#core-types)：
+MySQL 数据库与数据连接器的字段映射：
+
+| MySQL 字段    | iPaaS 数据类型 |
+| ---------- | --------- |
+| TINYINT    | 整数        |
+| SMALLINT   | 整数        |
+| MEDIUMINT  | 整数        |
+| INT        | 整数        |
+| BIGINT     | 整数        |
+| DECIMAL    | 十进制       |
+| NUMERIC    | 十进制       |
+| FLOAT      | 浮点数       |
+| DOUBLE     | 浮点数       |
+| BIT        | 整数        |
+| DATE       | 日期        |
+| TIME       | 时间        |
+| DATETIME   | 时刻        |
+| TIMESTAMP  | 时刻        |
+| YEAR       | 整数        |
+| CHAR       | 字符串       |
+| VARCHAR    | 字符串       |
+| BINARY     | 字节数组      |
+| VARBINARY  | 字节数组      |
+| TINYBLOB   | 字节数组      |
+| MEDIUMBLOB | 字节数组      |
+| BLOB       | 字节数组      |
+| LONGBLOB   | 字节数组      |
+| TINYTEXT   | 字符串       |
+| MEDIUMTEXT | 字符串       |
+| TEXT       | 字符串       |
+| LONGTEXT   | 字符串       |
+| JSON       | 字符串       |
+
+iPaaS Database 连接器不支持 MySQL 的空间数据类型、ENUM 类型、SET 类型的处理，对于不支持的 MySQL 字段类型统一按照字符串类型进行映射。
+Oracle 数据库与数据连接器的字段映射：
+
+| Oracle 字段                       | iPaaS 数据类型 |
+| ------------------------------ | --------- |
+| CHAR                           | 字符串       |
+| NCHAR                          | 字符串       |
+| VARCHAR                        | 字符串       |
+| VARCHAR2                       | 字符串       |
+| NVARCHAR2                      | 字符串       |
+| LONG                           | 字符串       |
+| NUMBER                         | 十进制       |
+| DECIMAL                        | 十进制       |
+| FLOAT                          | 浮点数       |
+| BINARY_FLOAT                   | 浮点数       |
+| BINARY_DOUBLE                  | 浮点数       |
+| DATE                           | 日期        |
+| TIMESTAMP                      | 时刻        |
+| TIMESTAMP WITH TIME ZONE       | 时刻        |
+| TIMESTAMP WITH LOCAL TIME ZONE | 时刻        |
+| BLOB                           | 字节数组      |
+| CLOB                           | 字节数组      |
+| NCLOB                          | 字节数组      |
+| BFILE                          | 字节数组      |
+| RAW                            | 字节数组      |
+| LONG RAW                       | 字节数组      |
+
+iPaaS Database 连接器不支持 Oracle 的 INTERVAL DAY TO SECOND 类型、INTERVAL YEAR TO MONTH 类型、ROWID 类型、UROWID 类型、ANSI, DB2 和 SQL/DS 数据类型、用户自定义等数据类型的处理，对于不支持的 Oracle 字段类型统一按照字符串类型进行映射。

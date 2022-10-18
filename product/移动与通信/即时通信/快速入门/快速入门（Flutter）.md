@@ -17,8 +17,8 @@
 | iOS | 支持 | 支持 |
 | Android | 支持 | 支持 |
 | [Web](#web) | 支持，4.1.1+2版本起 | 支持，0.1.5版本起 |
-| macOS | 即将上线 | 开发中 |
-| Windows | 即将上线 | 开发中 |
+| macOS | 支持，4.1.4版本起 | 即将上线 |
+| Windows | 支持，4.1.4版本起 | 即将上线 |
 
 >? 我们致力于打造一套支持 Flutter 全平台的即时通信 IM SDK 及 TUIKit，帮助您一套代码，全平台运行。
 
@@ -693,6 +693,17 @@ TencentImSDKPlugin.v2TIMManager
 <script src="./tim-js-friendship.js"></script>
 ```
 ![](https://qcloudimg.tencent-cloud.cn/raw/f88ddfbdc79fb7492f3ce00c2c583246.png)
+
+## 第七部分：使用更多插件丰富 Flutter IM 使用体验
+
+除SDK及TUIKit本体基础功能外，我们还提供了四个选装插件，帮助您丰富IM能力。
+
+- [消息推送插件](https://cloud.tencent.com/document/product/269/74605)：支持厂商原生离线推送能力及在线推送能力，并支持推送您的其他业务消息，帮助您提高消息触达率。
+- [音视频通话插件](https://cloud.tencent.com/document/product/269/72485)：支持类似微信的 一对一/群组 音视频 通话。
+- [地理位置消息插件](https://cloud.tencent.com/document/product/269/80881)：提供选取位置/发送位置及解析展示位置消息的能力。
+- [自定义表情插件](https://cloud.tencent.com/document/product/269/80882)：TUIKit0.1.5版本后，无自带表情包，需要使用此插件，快速简便集成表情能力。支持Emoji Unicode 编码及自定义图片表情。集成代码可参考我们的 [Demo](https://github.com/TencentCloud/TIMSDK/blob/master/Flutter/Demo/im-flutter-uikit/lib/src/pages/app.dart)。
+
+>?如果您有好的想法及建议，欢迎随时 [联系我们](https://cloud.tencent.com/online-service?from=doc_269&source=PRESALE)。
 
 ## 常见问题
 

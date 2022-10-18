@@ -1,6 +1,10 @@
 
 
-本文介绍使用 DTS 数据迁移功能从 MySQL 迁移数据至腾讯云数据库 MySQL 的操作指导。支持源数据库为自建、第三方云厂商、腾讯云数据库的部署形式。
+本文介绍使用 DTS 数据迁移功能从 MySQL 迁移数据至腾讯云数据库 MySQL 的操作指导。
+源数据库支持的部署类型如下：
+- 自建 MySQL。
+- 云数据库 MySQL。
+- 第三方云厂商 MySQL：阿里云 RDS、阿里云 PolarDB、AWS RDS、AWS Aurora。
 
 ## 注意事项 
 - DTS 在执行全量数据迁移时，会占用一定源端实例资源，可能会导致源实例负载上升，增加数据库自身压力。如果您的数据库配置过低，建议您在业务低峰期进行迁移。
@@ -104,6 +108,7 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
  </ul>
 </li>
 <li>DTS 对数据类型为 FLOAT 的迁移精度为38位，对数据类型为 DOUBLE 的迁移精度为308位，需要确认是否符合预期。</li>
+<li>环境变量 innodb_stats_on_metadata 必须设置为 OFF。</li>
 </ul></td></tr>
 <tr> 
 <td>目标数据库要求</td>
@@ -112,9 +117,6 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 <li>目标库的空间大小须是源库待迁移库表空间的1.2倍以上。（全量数据迁移会并发执行 INSERT 操作，导致目标数据库的表产生碎片，因此全量迁移完成后目标数据库的表存储空间很可能会比源实例的表存储空间大）</li>
 <li>目标库不能有和源库同名的表、视图等迁移对象。</li>
 <li>目标库 max_allowed_packet 参数设置数值至少为4M。</li></td></tr>
-<tr> 
-<td>其他要求</td>
-<td>环境变量 innodb_stats_on_metadata 必须设置为 OFF。</td></tr>
 </table>
 
 ## 操作步骤
@@ -329,8 +331,8 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 <td><ul><li>支持库表映射（库表重命名），将鼠标悬浮在库名、表名上即显示编辑按钮，单击后可在弹窗中填写新的名称。</li><li>选择高级对象进行迁移时，建议不要进行库表重命名操作，否则可能会导致高级对象迁移失败。</li><ul></td></tr>
 <tr>
 <td>是否同步 Online DDL 临时表</td>
-<td>如果使用 gh-ost、pt-osc 工具对源库中的表执行 Online DDL 操作，DTS 支持将 Online DDL 变更产生的临时表迁移到目标库。<ul><li>勾选 pt-osc，DTS 会将 gh-ost 工具产生的临时表名（`_表名_ghc`、`_表名_gho`、`_表名_del`）迁移到目标库。</li>
-<li>勾选 gh-ost， DTS 会将 gh-ost 工具产生的临时表名（`_表名_new`、 `_表名_old`）迁移到目标库。</li></ul>更多详情请参考 <a href="https://cloud.tencent.com/document/product/571/75889">迁移 Online DDL 临时表</a>。</td></tr><tr>
+<td>如果使用 gh-ost、pt-osc 工具对源库中的表执行 Online DDL 操作，DTS 支持将 Online DDL 变更产生的临时表迁移到目标库。<ul><li>勾选 gh-ost，DTS 会将 gh-ost 工具产生的临时表名（`_表名_ghc`、`_表名_gho`、`_表名_del`）迁移到目标库。</li>
+<li>勾选 pt-osc， DTS 会将 pt-osc 工具产生的临时表名（`_表名_new`、 `_表名_old`）迁移到目标库。</li></ul>更多详情请参考 <a href="https://cloud.tencent.com/document/product/571/75889">迁移 Online DDL 临时表</a>。</td></tr><tr>
 </tbody></table>
 5. 在校验任务页面，进行校验，校验任务通过后，单击**启动任务**。
  - 如果校验任务不通过，可以参考 [校验不通过处理方法](https://cloud.tencent.com/document/product/571/61639) 修复问题后重新发起校验任务。部分检查支持跳过，可在校验失败后进行屏蔽，屏蔽后需要重新进行校验才可以继续任务。

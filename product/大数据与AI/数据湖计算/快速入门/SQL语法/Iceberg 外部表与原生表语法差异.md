@@ -1,4 +1,4 @@
-数据湖计算 DLC 使用的 Iceberg 语法版本为1.13.1，详情语法说明可参考 [Iceberg 官网文档]()。
+数据湖计算 DLC 使用的 Iceberg 语法版本为1.13.1，详情语法说明可参考 [Iceberg 官网文档](https://iceberg.apache.org/docs/latest/)。
 
 当您在使用 Iceberg 外部表时，SQL 语法与 Iceberg 原生表存在以下差异。
 ## CREATE TABLE
@@ -63,7 +63,7 @@ CREATE TABLE dempts(
 USING iceberg
 COMMENT 'table documentation' 
 PARTITIONED BY (bucket(16,id), years(ts_year), months(date_month), identity(bno),  bucket(3,num),  truncate(10,data))
-LOCATION '/warehouse/db_001/dempts'
+LOCATION 'cosn://rickytest-1305424723/channing-test/loc'
 TBLPROPERTIES ('write.format.default'='orc');
 ```
 
@@ -102,8 +102,8 @@ CREATE TABLE dempts_copy
 USING iceberg
 COMMENT 'table create as select' 
 PARTITIONED BY (eno, dno) 
+LOCATION 'cosn://rickytest-1305424723/channing-test/loc'
 TBLPROPERTIES ('write.format.default'='avro') 
-LOCATION '/warehouse/db_001/dempts_copy'
 AS SELECT * from dempts;
 
 ```
@@ -143,8 +143,8 @@ CREATE OR REPLACE TABLE dempts_replace
 USING iceberg
 COMMENT 'table create as replace' 
 PARTITIONED BY (eno, dno) 
+LOCATION 'cosn://rickytest-1305424723/channing-test/loc'
 TBLPROPERTIES ('write.format.default'='avro') 
-LOCATION '/warehouse/db_001/dempts_replace'
 AS SELECT * from dempts;
 ```
 
