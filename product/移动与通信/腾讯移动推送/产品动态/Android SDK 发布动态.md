@@ -1,4 +1,32 @@
 
+## 2022年09月
+
+<table>
+	<tr>
+		<th width=20%>动态名称</th>
+    <th width=44%>动态描述</th>
+    <th width=16%>发布时间</th>
+    <th width=20%>相关文档</th>
+	</tr>
+	<tr>
+        <td>SDK 1.3.6.1 版本发布</td>
+	<td>
+		<li>升级：OPPO 推送 SDK 3.1.0</li>
+		<li>升级：小米推送 SDK 5.0.8</li>
+		<li>优化：在线通道下发通知的图片加载策略</li>
+		<li>优化：支持魅蓝手机使用魅族推送通道</li>
+		<li>优化：兼容 Android 13</li>
+		<li>修复：使用通知自定义铃声时可能出现的重复通知渠道问题</li>
+		</td>
+        <td>2022-09-01</td><td>
+		<li><a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</a></li>
+		<li><a href="https://cloud.tencent.com/document/product/548/56364">Android SDK 升级指南</a></li>
+</td>
+    </tr>
+<tr>
+</table>
+
+
 ## 2022年07月
 
 <table>
