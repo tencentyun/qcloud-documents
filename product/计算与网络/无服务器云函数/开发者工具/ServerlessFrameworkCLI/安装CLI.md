@@ -1,5 +1,5 @@
 ## 操作场景
-本文介绍通过 [二进制安装](#binary) 或 [NPM 安装](#npm) 的方式，快速安装 Serverless Framework。
+本文介绍通过 [二进制安装](#binary) 或 [NPM 安装](#npm) 的方式，快速安装 Serverless Cloud Framework。
 
 
 ## 操作步骤
@@ -38,14 +38,14 @@ choco upgrade serverless
 npm install -g serverless
 ```
 若 MacOS 或 Linux 系统提示无权限，则需执行 `sudo npm install -g serverless` 命令进行安装。
-如果之前您已经安装过 Serverless Framework，可以通过下列命令升级到最新版：
+如果之前您已经安装过 Serverless Cloud Framework，可以通过下列命令升级到最新版：
 ```sh
 npm update -g serverless
 ```
 
 
 ### 安装验证
-安装完毕后，在命令行中执行以下命令，查看 Serverless Framework 的版本信息。
+安装完毕后，在命令行中执行以下命令，查看 Serverless Cloud Framework 的版本信息。
 ```sh
 serverless -v
 ```

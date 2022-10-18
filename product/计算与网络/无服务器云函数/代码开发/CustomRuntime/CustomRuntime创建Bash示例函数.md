@@ -103,7 +103,7 @@ function main_handler () {
 ```
 $ chmod 755 index.sh bootstrap
 ```
-3. 使用 [Serverless Framework](#Serverless) 创建和发布函数。或执行以下命令，打包生成 zip 包，通过 [SDK](#SDK) 或 [Serverless 控制台](#KZT) 来创建和发布函数。
+3. 使用 [Serverless Cloud Framework](#Serverless) 创建和发布函数。或执行以下命令，打包生成 zip 包，通过 [SDK](#SDK) 或 [Serverless 控制台](#KZT) 来创建和发布函数。
 ```
 $ zip demo.zip index.sh bootstrap
    adding: index.sh (deflated 23%)
@@ -112,11 +112,11 @@ $ zip demo.zip index.sh bootstrap
 
    
 
-### 使用 Serverless Framework 创建及发布函数[](id:Serverless)
+### 使用 Serverless Cloud Framework 创建及发布函数[](id:Serverless)
 
 #### 创建函数
 
-1. 安装 [Serverless Framework](https://cloud.tencent.com/document/product/1154/42990)。
+1. 安装 [Serverless Cloud Framework](https://cloud.tencent.com/document/product/1154/42990)。
 2. 在 [bootstrap](#bootstrap) 目录下配置 Serverless.yml 文件，创建 dotnet 函数：
 ```
    #组件信息
