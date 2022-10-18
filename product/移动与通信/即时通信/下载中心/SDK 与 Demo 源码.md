@@ -151,7 +151,7 @@
             <div class="card">
                                 <img class="icon" src="https://main.qcloudimg.com/raw/98394fa5d669de7fb7a187565d138cdb.svg" data-nonescope="true">
                                 <p class="titlename">Flutter SDK</p>
-                <p style="color:#586376;">全平台支持iOS/Android/Web/macOS/Windows</p>
+                <p style="color:#586376;">全平台支持 iOS/Android/Web/macOS/Windows</p>
                     <div style="margin-top: 13px;" >
                         <a  href="https://cloud.tencent.com/document/product/269/75286">SDK</a>
                         <a  style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/269/70747">TUIKit</a>
