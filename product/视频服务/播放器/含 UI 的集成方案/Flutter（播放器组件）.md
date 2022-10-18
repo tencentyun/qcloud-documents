@@ -535,7 +535,7 @@ loader.getVideoData(model, (resultModel) {
 
 ### 2、画中画模式的使用
 
-#### 1、安卓平台配置
+#### 1、Android 平台配置
 
 1.1 在自己项目的android包下，找到 AndroidManifest.xml ，在项目入口activity节点下，增加如下配置
 

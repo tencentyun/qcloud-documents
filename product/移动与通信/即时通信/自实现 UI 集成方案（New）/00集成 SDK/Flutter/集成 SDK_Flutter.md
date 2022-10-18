@@ -16,8 +16,8 @@
 | iOS | 支持 |
 | Android | 支持 |
 | [Web](#web) | 支持，4.1.1+2版本起 |
-| macOS | 即将上线 |
-| Windows | 即将上线 |
+| macOS | 支持，4.1.4版本起 |
+| Windows | 支持，4.1.4版本起 |
 
 > 我们致力于打造一套支持 Flutter 全平台的即时通信IM SDK及TUIKit，帮助您一套代码，全平台运行。
 
