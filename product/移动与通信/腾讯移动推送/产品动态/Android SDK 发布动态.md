@@ -47,8 +47,7 @@
 		<li><a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</a></li>
 		<li><a href="https://cloud.tencent.com/document/product/548/56364">Android SDK 升级指南</a></li>
 </td>
-    </tr>
-<tr>
+</tr>
 </table>
 
 ## 2022年06月
