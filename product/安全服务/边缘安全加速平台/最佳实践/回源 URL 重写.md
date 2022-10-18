@@ -1,8 +1,7 @@
 ## 功能简介
 
 将从节点向源站发起回源请求时的 回源 URL 重写到目标 URL，不影响节点的缓存标识（Cache Key）。
->?目前边缘安全加速平台控制台仅对部分用户开放，如需访问控制台，请 [联系我们](https://cloud.tencent.com/online-service) 开通权限。
->
+
 
 ## 操作步骤
 1. 登录 [边缘安全加速平台控制台](https://console.cloud.tencent.com/edgeone)，在左侧菜单栏中，单击**规则引擎**。

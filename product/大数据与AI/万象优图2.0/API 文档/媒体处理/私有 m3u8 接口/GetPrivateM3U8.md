@@ -7,7 +7,7 @@ GetPrivateM3U8 接口用于获取私有 M3U8 ts 资源的下载授权。（此�
 #### 请求示例
 
 ```plaintext
-GET /for-test.m3u8?ci-process=pm3u8&expires= HTTP/1.1
+GET /<ObjectKey>?ci-process=pm3u8&expires= HTTP/1.1
 Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: <GMT Date>
 Authorization: <Auth String>

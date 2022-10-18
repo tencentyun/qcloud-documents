@@ -17,6 +17,7 @@ Namespace=QCE/CDB
 | MemoryUseRate | 内存利用率   | 允许闲时超用，内存利用率可能大于100%                         | %     | InstanceId、InstanceType（选填） | 5s、60s、300s、3600s、86400s |
 | RealCapacity  | 数据使用空间 | 仅包括 MySQL 数据目录，不含  binlog、relaylog、undolog、errorlog、slowlog 日志空间 | MB    | InstanceId、InstanceType（选填） | 5s、60s、300s、3600s、86400s |
 | VolumeRate    | 磁盘利用率   | 磁盘使用空间/实例购买空间                                    | %     | InstanceId、InstanceType（选填） | 5s、60s、300s、3600s、86400s |
+|IopsUseRate  | IOPS 利用率   | 磁盘 IOPS 利用率                                  | %     | InstanceId、InstanceType（选填） | 5s、60s、300s、3600s、86400s |
 
 ### 引擎监控（普通）- MyISAM
 
@@ -171,9 +172,8 @@ Namespace=QCE/CDB
 | Instances.N.Dimensions.1.Value | InstanceType（选填） | 数据库实例类型，默认取值为1，详细取值如下：<br><li>取值为1：表示拉取实例主机的监控数据<br><li>取值为2：表示拉取实例从机的监控数据（仅支持单节点和双节点）<br><li>取值为3：表示拉取只读实例的监控数据（InstanceId 需入参为只读实例 ID，否则仍默认取值为1）<br><li>取值为4：表示拉取实例第二从机（仅金融版实例有第二从机）的监控数据 | 输入实例类型，可不入参，默认取值为1          |
 
 > ? InstanceType 说明：
->
-> - 假设 InstanceId 入参值为主实例的ID，仅 InstanceType 支持拉取主机（取值为1）、从机（取值为2）、只读实例（取值为3）、第二从机（取值为4）的监控数据。
-> - 假设 InstanceId 入参值为主实例的ID，InstanceType入参为 2 （从机），且该主实例是三节点（一主两从）。由于拉取从机监控数据仅支持单节点和双节点，会导致缺少一个监控节点数据。
+> - 假设 InstanceId 入参值为主实例的 ID，仅 InstanceType 支持拉取主机（取值为1）、从机（取值为2）、只读实例（取值为3）、第二从机（取值为4）的监控数据。
+> - 假设 InstanceId 入参值为主实例的 ID，InstanceType 入参为 2 （从机），且该主实例是三节点（一主两从）。由于拉取从机监控数据仅支持单节点和双节点，会导致缺少一个监控节点数据。
 > - 若需要拉取只读实例监控数据，InstanceId 需入参为只读实例 ID。
 
 

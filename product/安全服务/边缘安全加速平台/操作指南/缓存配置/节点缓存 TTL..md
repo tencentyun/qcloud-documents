@@ -1,6 +1,5 @@
 ## 功能简介
 通过调整资源在节点中缓存的时间长短，优化节点缓存，提升请求资源的加载速度，及时淘汰旧资源。
->?目前边缘安全加速平台控制台仅对部分用户开放，如需访问控制台，请 [联系我们](https://cloud.tencent.com/online-service) 开通权限。
 
 
 ## 操作步骤
@@ -15,5 +14,5 @@
     - 自定义时间：自定义资源缓存时长。
 
 附：整体缓存策略内容如下：
-![](https://qcloudimg.tencent-cloud.cn/raw/132c955ae3a0d7564417a82e6a492fc1.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/89f2fc4aa8e41ceb6057cc55dffb277c.png)
 >?强制缓存：自定义时间式，站点默认启用了“强制缓存”，节点缓存 TTL 按照此处配置的时间，即使源站的 `Cache-Control` 为 `no-cache/no-store/private`。若您需要关闭“强制缓存”，即当源站的 `Cache-Control` 为 `no-cache/no-store/private` 时，即使此处配置了自定义节点缓存 TTL，节点仍不缓存资源，遵循源站的不缓存头，可前往 [规则引擎](https://cloud.tencent.com/document/product/1552/70901) 自定义配置节点缓存 TTL 规则。

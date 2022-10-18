@@ -34,12 +34,11 @@ localStream.initialize().then(() => {
 ```javascript
 // 检测您当前的浏览器是否支持从 video 元素采集 stream
 const isVideoCapturingSupported = () => {
-	['captureStream', 'mozCaptureStream', 'webkitCaptureStream'].forEach((item) => {
-		if (item in document.createElement('video')) {
-			return true;
-		}
-	});
-	return false;
+	if (typeof document === 'undefined') {
+		return false;
+	}
+	const videoElement = document.createElement('video');
+	return ['captureStream', 'mozCaptureStream', 'webkitCaptureStream'].some(item => item in videoElement);
 };
 
 // 检测您当前的浏览器是否支持从 video 元素采集 stream
@@ -69,12 +68,11 @@ localStream.initialize().then(() => {
 ```javascript
 // 检测您当前的浏览器是否支持从 canvas 元素采集 stream
 const isCanvasCapturingSupported = () => {
-	['captureStream', 'mozCaptureStream', 'webkitCaptureStream'].forEach((item) => {
-		if (item in document.createElement('canvas')) {
-			return true;
-		}
-	});
-	return false;
+	if (typeof document === 'undefined') {
+		return false;
+	}
+	const canvasElement = document.createElement('canvas');
+	return ['captureStream', 'mozCaptureStream', 'webkitCaptureStream'].some(item => item in canvasElement);
 };
 
 // 检测您当前的浏览器是否支持从 canvas 元素采集 stream

@@ -26,7 +26,7 @@
 
 **Mac/iOS**
 
-以下示例代码为 TIM V1 版本代码，如果您接入的是 TIM V2 版本，请参考 [TIM V2 创建自定义消息](https://im.sdk.qcloud.com/doc/zh-cn/categoryV2TIMManager_07Message_08.html#ab0aa735c735cf82a593707b296d2a060)，[TIM V2 消息发送](https://im.sdk.qcloud.com/doc/zh-cn/categoryV2TIMManager_07Message_08.html#a3694cd507a21c7cfdf7dfafdb0959e56)，[TIM V2 消息回调](https://im.sdk.qcloud.com/doc/zh-cn/protocolV2TIMSimpleMsgListener-p.html)，按以下步骤进行接入。
+>? 以下示例为 TIM V2 版本代码，IM 的版本请尽量用新版本，具体请查阅 IM 的 [更新日志](https://cloud.tencent.com/document/product/269/1606)。
 
 ```objc
 // 1. 将 TEduBoardInitParam 的 timSync 参数初始为 NO (关闭互动白板内置的信令通道)
@@ -36,31 +36,30 @@ _boardController = [[TEduBoardController alloc] initWithAuthParam:authParam room
 
 // 2. 监听白板信令数据回调 onTEBSyncData，将数据发送给其他白板用户
 - (void)onTEBSyncData:(NSString *)data {
-  NSString *groupId = @"课堂id";
-  NSString *message = @"白板数据";
-  NSString *ext = @"TXWhiteBoardExt";  //扩展字段信息
-  TIMMessage *msg = [[TIMMessage alloc] init];
-  [msg setPriority:1];
-  TIMCustomElem *customElem = [[TIMCustomElem alloc] init];
-  customElem.data = message;
-  customElem.ext = ext;
-  [msg addElem:customElem];
-  TIMOfflinePushInfo *info = [[TIMOfflinePushInfo alloc] init];
-  info.ext = ext;
-  [msg setOfflinePushInfo:info];
+    V2TIMMessage *message = [[V2TIMManager sharedInstance] createCustomMessage:data desc:nil extension:@"TXWhiteBoardExt"];
+    if (message.customElem) {
+        message.customElem.extension = @"TXWhiteBoardExt";
+    }
+    [[V2TIMManager sharedInstance] getConversation:@"groupid" succ:^(V2TIMConversation *conv) {
+    if ([conv type] == V2TIM_GROUP) {
+        BOOL onlineUserOnly = ![[conv.groupType lowercaseString] isEqualToString:@"avchatroom"];
+        [[V2TIMManager sharedInstance] sendMessage: message
+                                          receiver: nil
+                                           groupID: conv.groupID
+                                          priority: V2TIM_PRIORITY_HIGH
+                                    onlineUserOnly:onlineUserOnly
+                                   offlinePushInfo:nil
+                                          progress:nil succ:^{
+            // 发送 IM 消息成功
+        } fail:^(int code, NSString *desc) {
+            // 发送 IM 消息失败，建议进行重试
+        }];
+    }
+
+    } fail:^(int code, NSString *desc) {
+    // 获取回话失败
+    }];
           
-  TIMConversation *conv = [[TIMManager shareInstance] getConversation:TEDUIM_GROUP receiver:groupId];
-  if (conv) {
-      [conv sendMessage:msg callback:^(int code, NSString *desc) {
-          if(code == 0){
-              //发送 IM 消息成功
-              //信令发送成功后调用互动白板 addAckData(data)，确认数据发送状态
-          }
-          else {
-              //发送 IM 消息失败，建议进行重试
-          }
-      }];
-  }
 }
 
 // 3. 监听IM的消息回调，在收到其他用户的白板信令时，将消息传递给白板
@@ -70,7 +69,7 @@ _boardController = [[TEduBoardController alloc] initWithAuthParam:authParam room
 
 **Android**
 
-以下示例代码为 TIM V1 版本代码，如果您接入的是 TIM V2 版本，请参考 [TIM V2 创建自定义消息](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMMessageManager.html#a313b1ea616f082f535946c83edd2cc7f)，[TIM V2 消息发送](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMMessageManager.html#a28e01403acd422e53e999f21ec064795)，[TIM V2 消息回调](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMManager.html#afd96fd1591e41f031421c0655d8e5d6b)，按以下步骤进行接入。
+>? 以下示例为 TIM V2 版本代码，IM 的版本请尽量用新版本，具体请查阅 IM 的 [更新日志](https://cloud.tencent.com/document/product/269/1606)。
 
 ```java
 // 1. 将 TEduBoardInitParam 的 timSync 参数初始为 NO (关闭互动白板内置的信令通道)
@@ -80,37 +79,37 @@ initParam.timSync = false; // 关闭互动白板内置的信令通道（一定�
 // 2. 监听白板信令回调 onTEBSyncData，将信令发送给其他白板用户
  @Override
   public void onTEBSyncData(String data) {
-    // 创建同步白板信令自定义消息
-    String groupId = "课堂id";
-    String message = data;
-    String ext = "TXWhiteBoardExt"; //扩展字段信息
-
-    byte[] data = message.getBytes();
-    int length = data.length;
-
-    TIMMessageOfflinePushSettings timMessageOfflinePushSettings = new TIMMessageOfflinePushSettings();
-    timMessageOfflinePushSettings.setExt(ext.getBytes());
-
-    TIMMessage timMessage = new TIMMessage();
-    timMessage.setOfflinePushSettings(timMessageOfflinePushSettings);
-    timMessage.setPriority(TIMMessagePriority.High);
-
-    TIMCustomElem timCustomElem = new TIMCustomElem();
-    timCustomElem.setData(data);
-    timCustomElem.setExt(ext.getBytes());
-    timMessage.addElement(timCustomElem);
-
-    TIMManager timManager = TIMManager.getInstance();
-    TIMConversation timConversation = timManager.getConversation(TIMConversationType.Group, groupId);
-    timConversation.sendMessage(timMessage, new TIMValueCallBack<TIMMessage>() {
+    final V2TIMMessage message = V2TIMManager.getMessageManager().createCustomMessage(data.getBytes(), "", "TXWhiteBoardExt".getBytes());
+    if (message.getCustomElem() != null) {
+        message.getCustomElem().setExtension("TXWhiteBoardExt".getBytes());
+    }
+    V2TIMManager.getConversationManager().getConversation("groupid", new V2TIMValueCallback<V2TIMConversation>() {
         @Override
-        public void onError(int i, String s) {
-          // 信令发送失败，建议进行重试
+        public void onSuccess(V2TIMConversation v2TIMConversation) {
+            if (v2TIMConversation.getType() == V2TIMConversation.V2TIM_GROUP) {
+                boolean onlineUserOnly = !(v2TIMConversation.getGroupType().toLowerCase().equals("avchatroom"));
+                V2TIMManager.getMessageManager().sendMessage(message, null, "groupid", 1, onlineUserOnly, null,  new V2TIMSendCallback<V2TIMMessage>() {
+                    @Override
+                    public void onSuccess(V2TIMMessage v2TIMMessage) {
+                        // 发送 IM 消息成功
+                    }
+
+                    @Override
+                    public void onError(int i, String s) {
+                        // 发送 IM 消息失败，建议进行重试
+                    }
+
+                    @Override
+                    public void onProgress(int i) {
+
+                    }
+                });
+            }
         }
 
         @Override
-        public void onSuccess(TIMMessage timMessage) {
-          //信令发送成功后调用 addAckData(data)，确认数据发送状态
+        public void onError(int i, String s) {
+            // 获取回话失败
         }
     });
   }

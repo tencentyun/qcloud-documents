@@ -21,40 +21,53 @@ MongoDB 的数据流入配置项可参见官方 [MongoDB Kafka source connector]
 
 ## 操作步骤
 
-### 步骤1：创建数据接入任务
+### 步骤1：创建数据接入连接
 
 1. 登录 [DIP 控制台](https://console.cloud.tencent.com/ckafka/datahub-overview)。
-2. 在左侧导航栏单击**数据流入**，选择好地域后，单击**新建任务**。
-3. 在弹窗中数据源类型选择 **异步拉取** > **MongoDB**。
-![](https://qcloudimg.tencent-cloud.cn/raw/2733ca5e5b966bac82f1858962cc960c.png)
-4. 单击**下一步**，填写任务详情。
-![](https://qcloudimg.tencent-cloud.cn/raw/a5647a8d101714a982858ff81c827f10.png)
-5. 单击**提交**，等待任务显示健康，即表示创建成功。
-![](https://qcloudimg.tencent-cloud.cn/raw/c3de44cecf13ba331b78914ebb100f53.png)
-6. 当 MongoDB 数据发生变更时，可以看到选中的 CKafka 实例的 Topic 有新增的消息。
-![](https://qcloudimg.tencent-cloud.cn/raw/94494e70d68682da95a83a3c3f56d124.png)
-
-### 步骤2：创建数据流出任务
-
-1. 登录 [DIP 控制台](https://console.cloud.tencent.com/ckafka/datahub-overview)。
-2. 在左侧导航栏单击**数据流出**，选择好地域后，单击**新建任务**。
-3. 目标类型选择**日志服务（CLS）**，单击**下一步**。
-![](https://qcloudimg.tencent-cloud.cn/raw/49edecde6642832c3d7c2d57322ed672.png)
-4. 填写任务详情，选取与数据接入任务相同的 CKafka 实例和 Topic，保证在消息生产后能直接进行消费。
-![](https://qcloudimg.tencent-cloud.cn/raw/3d0e8a13995fcd325cf8e32a9b8dbbda.png)
-5. 单击**提交**，等待任务显示健康，即表示创建成功。
-![](https://qcloudimg.tencent-cloud.cn/raw/8f4ff805167b1b84d7dacc8c8dc4a333.png)
-<dx-alert infotype="explain" title="">
-当任务在健康的状态时， Topic 有新增的消息写入，会直接被消费到指定的 CLS 日志主题中。
-</dx-alert>
+2. 在左侧导航栏点击**连接列表**，选择好地域后，点击**新建连接**。
+3. 连接类型选择 **MongoDB**，然后点击**下一步**。
+   ![](https://qcloudimg.tencent-cloud.cn/raw/4b8841a7138191fbe58a597966db2821.png)
+4. 填写 MongoDB 连接配置，然后单击**下一步**。
+   ![](https://qcloudimg.tencent-cloud.cn/raw/4ff6606cac6117c885019319eab85d97.png)
+5. 等待连接校验成功后，可以在连接列表看到创建好的连接。
 
 
 
-### 步骤3：查看流出数据
+
+
+### 步骤2：创建数据接入任务
+
+1. 在左侧导航栏单击**任务管理** > **任务列表**，选择好地域后，单击**新建任务**。
+2. 任务类型选择**数据接入**，接入方式选择 **MongoDB数据订阅**，单击**下一步**。
+   ![](https://qcloudimg.tencent-cloud.cn/raw/5306577955f25ada475ae97b056119c4.png)
+3. **数据源**选择刚刚新建的 **MySQL 连接**。`database` 留空表示监听所有数据库的变更。`table` 留空表示监听某个数据库的所有表的变更。`复制存量数据`可以根据业务需求选择是否打开，然后单击**下一步**。
+   ![](https://qcloudimg.tencent-cloud.cn/raw/bb1711c9d78553b7e885f7bd58d5afea.png)
+4. 根据业务需求配置数据目标然后点击**提交**。等待任务显示健康，即表示创建成功。
+   ![](https://qcloudimg.tencent-cloud.cn/raw/c3de44cecf13ba331b78914ebb100f53.png)
+5. 当 MongoDB 数据发生变更时，可以在目标 Topic 中查看到新增的消息。![](https://qcloudimg.tencent-cloud.cn/raw/c73d9875d7762718d76cabee72152da6.png)
+   - 数据目标为 CKafka 实例的 Topic，可以在侧边栏点击**消息查询**进行查看；
+   - 数据目标为单独 Topic 时，可以在侧边栏点击 **Topic 列表**，然后点击 Topic 进入详情页，再点击**查看消息**。
+
+
+
+### 步骤3：创建数据流出任务
+
+1. 在左侧导航栏点击**任务管理** > **任务列表**，选择好地域后，点击**新建任务**。
+2. 任务类型选择**数据流出**，数据目标选择**日志服务（CLS）**，点击**下一步**。
+   ![](https://qcloudimg.tencent-cloud.cn/raw/815e78914effabe23e96e08ffce0dd7f.png)
+3. 填写任务详情，选取与数据接入任务相同的 CKafka 实例和 Topic，保证在消息生产后能直接进行消费。
+   ![](https://qcloudimg.tencent-cloud.cn/raw/679da20b4298c4810c24926c6df97338.png)
+4. 单击**提交**，等待任务显示健康，即表示创建成功。
+   <dx-alert infotype="explain" title="">
+   当任务在健康的状态时， Topic 有新增的消息写入，会直接被消费到指定的 CLS 日志主题中。
+   </dx-alert>
+
+
+
+### 步骤4：查看流出数据
 
 1. 登录 [日志服务](https://console.cloud.tencent.com/cls/overview?region=ap-guangzhou) 控制台。
 2. 在左侧导航栏选择**检索分析**，选择流出时填写的日志集与日志主题的“ID”，即可看到 MongoDB 的变更记录。
 ![](https://qcloudimg.tencent-cloud.cn/raw/bb814dba5eac4aa46e9ad3f8732a7951.png)
 3. 通过关键字检索等操作，能直观得到所需要的记录。
 ![](https://qcloudimg.tencent-cloud.cn/raw/f4d1f65187e45a9c40d92f590d192029.png)
-

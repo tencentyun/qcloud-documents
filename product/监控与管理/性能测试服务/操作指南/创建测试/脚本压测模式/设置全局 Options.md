@@ -1,7 +1,7 @@
 用户通过全局 Options 可控制压测引擎默认行为。
->?Options 可配置选项文档请参考 [Global Options](https://pts-js-api-1258344701.cos-website.ap-nanjing.myqcloud.com/docs/interfaces/global.Option.html)。
+>?Options 可配置选项文档请参见 [Global Options](https://cloud.tencent.com/document/product/1484/75812)。
 
-### 设置 http 默认参数
+### 设置 HTTP 默认参数
 
 ```
 import http from 'pts/http';
@@ -36,39 +36,4 @@ export default function () {
 }
 ```
 
-### 设置 Trpc 默认参数
-
-```
-// TRPC API
-import trpc from 'pts/trpc';
-
-export const option = {
-    // trpc default configs
-    trpc: {
-        env: "formal",
-        namespace: "Production",
-    }
-}
-
-const client = new trpc.Client();
-
-export default function () {
-  const res = client.invoke(
-    '/trpc.wtp.demo.demo/SayHello',
-    {
-      msg: 'pts',
-    },
-    {
-      env: 'test',
-      serviceName: 'trpc.wtp.demo.trpc',
-      metaData: {
-        person_id: '123456',
-      },
-      serializationType: 2,
-    }
-  );
-  console.log(JSON.stringify(res));
-}
-
-```
 

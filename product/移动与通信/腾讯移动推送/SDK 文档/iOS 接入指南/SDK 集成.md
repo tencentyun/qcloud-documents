@@ -1,16 +1,16 @@
 ## 简介
 本文档提供关于 SDK 接入以及开启推送服务的示例代码（SDK 版本：V1.0+ 版本）。
 
->! 为了避免您的 App 被监管部门通报或下架，请您在接入 SDK 之前务必按照 [iOS 合规指南](https://cloud.tencent.com/document/product/548/57362) 在《隐私政策》中增加 TPNS 相关说明，并且在用户同意《隐私政策》后再初始化 TPNS SDK。
+>! 为了避免您的 App 被监管部门通报或下架，请您在接入 SDK 之前务必按照 [iOS 合规指南](https://cloud.tencent.com/document/product/548/57362) 在《隐私政策》中增加移动推送相关说明，并且在用户同意《隐私政策》后再初始化移动推送SDK。
 >
 
 ## SDK 组成
 - doc 文件夹：腾讯移动推送 iOS SDK 开发指南。
-- demo 文件夹：包含样例工程，腾讯移动推送 SDK（仅包含 OC demo，Swift Demo 请前往 [腾讯工蜂](https://git.code.tencent.com/tpns/XG-Demo-Swift) 进行下载）。 
+- demo 文件夹：包含样例工程，腾讯移动推送SDK（仅包含 OC demo，Swift Demo 请前往 [腾讯工蜂](https://git.code.tencent.com/tpns/XG-Demo-Swift) 进行下载）。 
 
 ## SDK 集成
 ### 接入前准备
-1. 接入 SDK 之前，请前往移动推送 TPNS  [控制台](https://console.cloud.tencent.com/tpns) 创建产品和 iOS 应用，详细操作可参考 [创建产品和应用](https://cloud.tencent.com/document/product/548/37241)。
+1. 接入 SDK 之前，请前往 [移动推送控制台](https://console.cloud.tencent.com/tpns) 创建产品和 iOS 应用，详细操作可参考 [创建产品和应用](https://cloud.tencent.com/document/product/548/37241)。
    ![](https://main.qcloudimg.com/raw/47d9802945ecc9d4c84a2c1f3d45d40b.png)
 2. 单击**配置管理**，进入管理页面。
    ![](https://main.qcloudimg.com/raw/30da757263936244ba3967f280202ab9.png)
@@ -66,7 +66,7 @@ pod 'TPNS-iOS', '~> 版本'  // 如果不指定版本则默认为本地 pod TPNS
 >
 
 如果您的应用服务接入点为上海、新加坡或者中国香港，请按照下文步骤完成其他服务接入点域名配置。
-1. 解压 SDK 文件包，将 SDK 目录下的 XGPushPrivate.h 文件添加到工程中。
+1. 解压 SDK 文件包，将 SDK 目录下的 XGPushPrivate.h 文件添加到工程中并在需要配置域名的类中引用(#import "XGPushPrivate.h")。
 2. 在`startXGWithAccessID:accessKey:delegate:`方法之前调用头文件中的配置`域名`接口：
 
 如需接入上海服务接入点，则将域名设置为 `tpns.sh.tencent.com`。
@@ -187,7 +187,7 @@ SDK 提供了 Service Extension 接口，可供客户端调用，从而可以使
 >!在推送单个目标设备时请使用 TPNS 36位的 Token。
 
 ## 统一接收消息及点击消息回调说明
-TPNS 及 APNs 通道统一接收消息回调，当应用在前台收到通知消息，以及所有状态（前台、后台、关闭）下收到静默消息会走此回调。
+移动推送自建通道及 APNs 通道统一接收消息回调，当应用在前台收到通知消息，以及所有状态（前台、后台、关闭）下收到静默消息会走此回调。
 ```objective-c
 - (void)xgPushDidReceiveRemoteNotification:(nonnull id)notification withCompletionHandler:(nullable void (^)(NSUInteger))completionHandler;
 ```
@@ -221,10 +221,10 @@ if (msgType.integerValue == 1) {
 ```
 
 >!
->- TPNS 统一消息回调 `xgPushDidReceiveRemoteNotification` 会处理消息接收，并自动后续调用 `application:didReceiveRemoteNotification:fetchCompletionHandler` 方法。然而，该方法也可能被其他 SDK 也进行 hook 调用。
-- 如果您只集成了 TPNS 推送平台，我们不推荐再去实现系统通知回调方法，请统一在 TPNS 通知回调中进行处理。
+>-移动推送统一消息回调 `xgPushDidReceiveRemoteNotification` 会处理消息接收，并自动后续调用 `application:didReceiveRemoteNotification:fetchCompletionHandler` 方法。然而，该方法也可能被其他 SDK 也进行 hook 调用。
+- 如果您只集成了移动推送推送平台，我们不推荐再去实现系统通知回调方法，请统一在移动推送通知回调中进行处理。
 - 如果您集成了多推送平台，并且需要在 `application:didReceiveRemoteNotification:fetchCompletionHandler` 方法处理其他推送平台的业务，请参照如下指引，避免业务重复：
- - 您需要区分平台消息，在两个消息回调方法中分别拿到消息字典后通过“xg”字段来区分是否是 TPNS 平台的消息，如果是 TPNS 的消息则在 `xgPushDidReceiveRemoteNotification` 方法进行处理，非 TPNS 消息请统一在 `application:didReceiveRemoteNotification:fetchCompletionHandler` 方法处理
+ - 您需要区分平台消息，在两个消息回调方法中分别拿到消息字典后通过“xg”字段来区分是否是移动推送平台的消息，如果是移动推送的消息则在 `xgPushDidReceiveRemoteNotification` 方法进行处理，非移动推送消息请统一在 `application:didReceiveRemoteNotification:fetchCompletionHandler` 方法处理
  - `xgPushDidReceiveRemoteNotification` 和 `application:didReceiveRemoteNotification:fetchCompletionHandler` 如果都执行，总共只需要调用一次 `completionHandler`。如果其他 SDK 也调用 `completionHandler`，确保整体的 `completionHandler` 只调用一次。这样可以防止由于多次 `completionHandler` 而引起的 crash。
 
 
@@ -233,8 +233,8 @@ if (msgType.integerValue == 1) {
 ## 高级配置（可选）
 
 <span id="QHToken"></span>
-### 获取 TPNS Token 交互建议
-建议您完成 SDK 集成后，在 App 的**关于**、**意见反馈**等比较不常用的 UI 中，通过手势或者其他方式显示 TPNS Token，控制台和 Restful API 推送需要根据 TPNS Token 进行 Token 推送，后续问题排查也需要根据 TPNS Token 进行定位。
+### 获取移动推送 Token 交互建议
+建议您完成 SDK 集成后，在 App 的**关于**、**意见反馈**等比较不常用的 UI 中，通过手势或者其他方式显示移动推送Token，控制台和 Restful API 推送需要根据移动推送Token 进行 Token 推送，后续问题排查也需要根据移动推送Token 进行定位。
 
 #### 示例代码
 ```objective-c
@@ -243,8 +243,8 @@ if (msgType.integerValue == 1) {
 ```
 ![](https://main.qcloudimg.com/raw/f6ff84d3a50630bb4e8a0ab6fd090798.png)
 
-### 获取 "TPNS运行日志" 交互建议
-建议您完成 SDK 集成后，在 App 的**关于**、**意见反馈**等比较不常用的 UI 中，通过手势或者其他方式显示"TPNS运行日志"，方便后续问题排查。
+### 获取 "移动推送运行日志" 交互建议
+建议您完成 SDK 集成后，在 App 的**关于**、**意见反馈**等比较不常用的 UI 中，通过手势或者其他方式显示"移动推送运行日志"，方便后续问题排查。
 
 效果如下图所示：
 ![](https://main.qcloudimg.com/raw/8eaaba4bedf0a541ed7f077d2e374ca3.png)![](https://main.qcloudimg.com/raw/5c28586161aefb3c47c5cdb7e23ed57b.png)
@@ -271,6 +271,5 @@ pasteboard.string = errorMessage;
 </pre>
 
 其中上述声明授权的两个链接如下：
-- 腾讯云移动推送 TPNS ：`https://cloud.tencent.com/product/tpns`
+- 腾讯云移动推送 ：`https://cloud.tencent.com/product/tpns`
 - 腾讯 SDK 隐私协议：`https://cloud.tencent.com/document/product/548/50955`
-

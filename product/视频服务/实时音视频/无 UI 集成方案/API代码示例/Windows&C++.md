@@ -6,7 +6,7 @@
 - 下载并安装 [.vsix](https://download.qt.io/official_releases/vsaddin/2.7.2/) 插件⽂件，根据官⽹文件命名找对应插件版本安装即可。
 - 打开 VS 并在⼯具栏找到 `QT VS Tools -> Qt Options -> Qt Versions`，add 添加我们⾃⼰的 Qt 编译器 msvc。
 - 需要将 `SDK/CPlusPlus/Win64/lib` 下的所有的 `.dll` ⽂件拷⻉到⼯程⽬录下的 `debug` / `release` ⽂件夹下。
->! `debug/release` ⽂件夹均是在 VS 上的环境配置完后⾃动⽣成。如果是32位程序，则需要拷贝 `SDK/CPlusPlus/Win64/lib` 下的所有 `.dll`到 `debug` / `release` ⽂件夹下。
+>! `debug/release` ⽂件夹均是在 VS 上的环境配置完后⾃动⽣成。如果是32位程序，则需要拷贝 `SDK/CPlusPlus/Win32/lib` 下的所有 `.dll`到 `debug` / `release` ⽂件夹下。
 
 
 ## 前提条件
@@ -75,13 +75,11 @@ TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256�
 升级/切换操作：
  1. 登录 [实时音视频控制台](https://console.cloud.tencent.com/trtc)。
  2. 在左侧导航栏选择**应用管理**，单击目标应用所在行的**应用信息**。
- 3. 选择**快速上手**页签，单击**第二步 获取签发UserSig的密钥**区域的**点此升级**、**非对称式加密**或**HMAC-SHA256**。
-  - 升级：
-      ![](https://main.qcloudimg.com/raw/69bd0957c99e6a6764368d7f13c6a257.png)
+ 3. 选择**快速上手**页签，单击**第二步 获取签发UserSig的密钥**区域的 **HMAC-SHA256**。
   - 切换回老版本算法 ECDSA-SHA256：
-      ![](https://main.qcloudimg.com/raw/f89c00f4a98f3493ecc1fe89bea02230.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/ba76b709e17c100798810e38c94c9f9d.png)
   - 切换为新版本算法 HMAC-SHA256：
-      ![](https://main.qcloudimg.com/raw/b0412153935704abc9e286868ad8a916.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/73d25cffe81af56353db4a874255f1bc.png)
 
 ### 2. 两台设备同时运行 Demo，为什么看不到彼此的画面？
 请确保两台设备在运行 Demo 时使用的是不同的 UserID，TRTC 不支持同一个 UserID （除非 SDKAppID 不同）在两个设备同时使用。

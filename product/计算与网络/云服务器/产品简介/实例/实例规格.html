@@ -140,6 +140,8 @@
 				</li>
 				<li>
 					<p>多队列技术：虚拟网卡支持多个收发包队列，每个队列中的数据包可同时由不同的 CPU 进行收发处理</p>
+					<blockquote class="doc-tip"><p class="doc-tip-tit"><i class="doc-icon-tip"></i>说明：</p><p><ul><li>如您购买的子机规格较大，建议您使用多队列技术以实现更高性能。如您使用单队列，部分网络指标可能无法达到最高值。</li><li>如需调整网卡队列，可参考“网卡多队列配置错误问题”文档中的 <a href="https://cloud.tencent.com/document/product/213/68396#.E5.A4.84.E7.90.86.E6.AD.A5.E9.AA.A4.3Ca-id.3D.22processingsteps.22.3E.3C.2Fa.3E">处理步骤</a>。</li></p>
+</blockquote>
 				</li>
 				<li>
 					<p>队列数：每个虚拟网卡支持的收发包队列的数量（N 队列表示同时支持 N 个收队列与 N 个发队列）</p>
@@ -217,7 +219,7 @@
 													<p>最高可支持100G内网带宽，超高网络收发包能力，满足超高的内网传输需求</p>
 												</li>
 												<li>
-													<p>实例网络性能与规格对应，规格越高网络转发性能强，内网带宽上限越高</p>
+													<p>实例网络性能与规格对应，规格越高网络转发性能越强，内网带宽上限越高</p>
 												</li>
 												<li>
 													<p>支持关闭或开启超线程配置</p>
@@ -16582,7 +16584,7 @@ IT3 及 IT5 实例的数据盘是本地存储，有丢失数据的风险（例�
 <h4 id="_实例要求_13">实例要求</h4>
 <div class="ulist">
 <ul>
-<li><p>若本地硬盘损坏后，需要您进行云服务器实例关闭操作后，我们才能够进行本地硬盘替换。</p></li>
+<li><p>若本地硬盘损坏，我们支持在线换盘操作。</p></li>
 <li><p>若云服务器实例已经宕机，我们会告知您并进行维修操作。</p></li>
 </li>
 <li><p>IT5 实例未安装监控组件会导致平台无法对实例进行更细致的监控，若实例发生故障则将无法正常通知，可能存在高危风险。请参考 <a href="https://cloud.tencent.com/document/product/248/6211">安装云服务器监控组件</a> 完成监控组件安装。  </p></li>
@@ -16616,7 +16618,8 @@ IT3 及 IT5 实例的数据盘是本地存储，有丢失数据的风险（例�
 <col style="width: 10%;">
 <col style="width: 10%;">
 <col style="width: 10%;">
-<col style="width: 20%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
 </colgroup>
 <tbody>
 <tr>
@@ -16632,6 +16635,9 @@ IT3 及 IT5 实例的数据盘是本地存储，有丢失数据的风险（例�
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>网络收发包（pps）（出+入）</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>连接数</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>队列数</p>
@@ -16660,6 +16666,9 @@ IT3 及 IT5 实例的数据盘是本地存储，有丢失数据的风险（例�
 <p>150万</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>400万</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>4</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
@@ -16686,6 +16695,9 @@ IT3 及 IT5 实例的数据盘是本地存储，有丢失数据的风险（例�
 <p>250万</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>400万</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>8</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
@@ -16710,6 +16722,9 @@ IT3 及 IT5 实例的数据盘是本地存储，有丢失数据的风险（例�
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>500万</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>400万</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
 <p>16</p>
@@ -16782,7 +16797,7 @@ IT3 及 IT5 实例的数据盘是本地存储，有丢失数据的风险（例�
 <h4 id="_实例要求_13">实例要求</h4>
 <div class="ulist">
 <ul>
-<li><p>若本地硬盘损坏后，需要您进行云服务器实例关闭操作后，我们才能够进行本地硬盘替换。</p></li>
+<li><p>若本地硬盘损坏，我们支持在线换盘操作。</p></li>
 <li><p>若云服务器实例已经宕机，我们会告知您并进行维修操作。</p></li>
 </li>
 <li><p>IT3 实例未安装监控组件会导致平台无法对实例进行更细致的监控，若实例发生故障则将无法正常通知，可能存在高危风险。请参考 <a href="https://cloud.tencent.com/document/product/248/6211">安装云服务器监控组件</a> 完成监控组件安装。  </p></li>
@@ -17000,7 +17015,7 @@ IT3 及 IT5 实例的数据盘是本地存储，有丢失数据的风险（例�
 <div class="ulist">
 <ul>
 <li>
-<p >若本地硬盘损坏后，需要您进行云服务器实例关闭操作后，我们才能够进行本地硬盘替换。</p>
+<p >若本地硬盘损坏，我们支持在线换盘操作。</p>
 </li>
 <li>
 <p>若云服务器实例已经宕机，我们会告知您并进行维修操作。</p>
@@ -17292,7 +17307,7 @@ IT3 及 IT5 实例的数据盘是本地存储，有丢失数据的风险（例�
 <div class="ulist">
 <ul>
 <li>
-<p >若本地硬盘损坏后，需要您进行云服务器实例关闭操作后，我们才能够进行本地硬盘替换。</p>
+<p>若本地硬盘损坏，我们支持在线换盘操作。</p>
 </li>
 <li>
 <p>若云服务器实例已经宕机，我们会告知您并进行维修操作。</p>

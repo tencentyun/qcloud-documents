@@ -32,7 +32,10 @@
 #### 1. 下载时处理
 
 ```plaintext
-download_url?imageMogr2/format/webp
+GET /<ObjectKey>?imageMogr2/format/webp HTTP/1.1
+Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
+Date: <GMT Date>
+Authorization: <Auth String>
 ```
 
 #### 2. 上传时处理
@@ -82,7 +85,7 @@ Pic-Operations:
 
 | 参数             | 含义                                                         |
 | :--------------- | :----------------------------------------------------------- |
-| download_url     | 文件的访问链接，具体构成为&lt;BucketName-APPID>.cos.&lt;Region>.myqcloud.com/&lt;picture name>， 例如`examplebucket-1250000000.cos.ap-shanghai.myqcloud.com/picture.jpeg`。 |
+| ObjectKey  | 对象文件名，例如 folder/sample.jpg。                           | 
 | /format/&lt;Format> | 压缩格式，此处为 webp。                                       |
 
 ## 实际案例

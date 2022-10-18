@@ -46,7 +46,7 @@ Spring Cloud 普通应用使用 TSF SDK 接入，支持 TSF 全栈服务治理�
    - 程序包类型：选择名称为`provider-demo-1.29.0-Finchley-RELEASE.jar`  的程序包。
    - 启动参数：选填。
    - 更新方式：选择立即更新。
-   - 健康检查：可选。详情参见 [健康检查](https://cloud.tencent.com/document/product/649/52359)。
+   - 健康检查：可选。详情参见 [健康检查](https://cloud.tencent.com/document/product/649/15525)。
    - 描述：可选。
 8. 单击**完成**，应用部署成功后，部署组中**已启动/总机器数**的数值发生变化。
 ![](https://qcloudimg.tencent-cloud.cn/raw/29cde72f3f5ec99d78c3de15f8041ee7.png)

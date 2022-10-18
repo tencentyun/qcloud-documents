@@ -40,3 +40,4 @@ chroot /mnt/vm1 /bin/bash
 ```
 无报错信息，则说明软链接已成功修复。
 5. 参考 [使用救援模式](https://cloud.tencent.com/document/product/213/66678)，退出救援模式，启动系统。
+

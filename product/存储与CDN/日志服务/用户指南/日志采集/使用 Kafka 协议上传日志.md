@@ -15,6 +15,7 @@ CLS 支持您使用各类 Kafka producer SDK 采集日志，并通过 Kafka 协�
 - 支持 Kafka 协议版本为：0.11.0.X，1.0.X，1.1.X，2.0.X，2.1.X，2.2.X，2.3.X，2.4.X，2.5.X，2.6.X，2.7.X，2.8.X
 - 支持压缩方式：gzip，snappy，lz4
 - 当前使用 SASL_PLAINTEXT 认证。
+- 使用 Kafka 协议上传需要配置 RealtimeProducer 权限，详情请参考 [自定义权限策略示例](https://cloud.tencent.com/document/product/614/68374)。
 
 
 ## 配置方式
@@ -55,7 +56,7 @@ output.kafka:
   hosts: ["${region}-producer.cls.tencentyun.com:9095"] # TODO 服务地址；外网端口9096，内网端口9095
   topic: "${topicID}" #  TODO topicID
   version: "0.11.0.2"
-  compression: "${compress}"   # TODO 配置压缩方式
+  compression: "${compress}"   # 配置压缩方式，支持gzip，snappy，lz4；例如"lz4"
   username: "${logsetID}"
   password: "${SecurityId}#${SecurityKey}"
 ```
@@ -97,11 +98,11 @@ func main() {
     config.Net.SASL.Password = "${SecurityId}#${SecurityKey}"   // TODO 格式为 ${SecurityId}#${SecurityKey}
     config.Producer.Return.Successes = true
     config.Producer.RequiredAcks = ${acks}                      // TODO 根据使用场景选择acks的值
-    config.Version = sarama.V0_11_0_0
+    config.Version = sarama.V1_1_0_0
     config.Producer.Compression = ${compress}                   // TODO 配置压缩方式
 
     // TODO 服务地址；外网端口9096，内网端口9095
-    producer, err := sarama.NewSyncProducer([]string{"${region}-producer.cls.tencentyun.com:9096"}, config)
+    producer, err := sarama.NewSyncProducer([]string{"${region}-producer.cls.tencentyun.com:9095"}, config)
     if err != nil {
         panic(err)
     }
@@ -132,7 +133,7 @@ from kafka import KafkaProducer
 if __name__ == '__main__':
     produce = KafkaProducer(
         # TODO 服务地址；外网端口9096，内网端口9095
-        bootstrap_servers=["${region}-producer.cls.tencentyun.com:9096"],
+        bootstrap_servers=["${region}-producer.cls.tencentyun.com:9095"],
         security_protocol='SASL_PLAINTEXT',
         sasl_mechanism='PLAIN',
         # TODO 日志集 ID
@@ -180,7 +181,7 @@ public class ProducerDemo {
         // 0.配置一系列参数
         Properties props = new Properties();
         // TODO 使用时
-        props.put("bootstrap.servers", "${region}-producer.cls.tencentyun.com:9096");
+        props.put("bootstrap.servers", "${region}-producer.cls.tencentyun.com:9095");
         // TODO 以下值根据业务场景设置 
         props.put("acks", ${acks});
         props.put("retries", ${retries});
@@ -328,3 +329,68 @@ int main(int argc, char **argv) {
 
 ```
 
+#### C# SDK 调用示例
+
+```
+/*
+ * 该demo只提供了最简单的使用方法，具体生产还需要结合调用放来实现
+ * 在使用过程中，demo中留的todo项需要替换使用
+ *
+ * 注意：
+ *  1. 该Demo基于Confluent.Kafka/1.8.2版本验证通过
+ *  2. MessageMaxBytes最大值不能超过5M
+ *  3. 该demo使用同步的方式生产，在使用时也可根据业务场景调整为异步的方式
+ *  4. 其他参数在使用过程中可以根据业务参考文档自己调整：https://docs.confluent.io/platform/current/clients/confluent-kafka-dotnet/_site/api/Confluent.Kafka.ProducerConfig.html
+ *
+ * Confluent.Kafka 参考文档：https://docs.confluent.io/platform/current/clients/confluent-kafka-dotnet/_site/api/Confluent.Kafka.html
+ */
+
+
+using Confluent.Kafka;
+
+namespace Producer
+{
+    class Producer
+    {
+        private static void Main(string[] args)
+        {
+            var config = new ProducerConfig
+            {
+                // todo 域名参考 https://cloud.tencent.com/document/product/614/18940#Kafka 填写，注意内网端口9095，公网端口9096
+                BootstrapServers = "${domain}:${port}", 
+                SaslMechanism = SaslMechanism.Plain,
+                SaslUsername = "${logsetID}", // todo topic所属日志集ID
+                SaslPassword = "${SecurityId}#${SecurityKey}", // todo topic所属uin的密钥
+                SecurityProtocol = SecurityProtocol.SaslPlaintext,
+                Acks         = Acks.None, // todo 根据实际使用场景赋值。可取值: Acks.None、Acks.Leader、Acks.All
+                MessageMaxBytes = 5242880 // todo 请求消息的最大大小，最大不能超过5M
+            };
+
+            // deliveryHandler
+            Action<DeliveryReport<Null, string>> handler =
+                r => Console.WriteLine(!r.Error.IsError ? $"Delivered message to {r.TopicPartitionOffset}" : $"Delivery Error: {r.Error.Reason}");
+
+
+            using (var produce = new ProducerBuilder<Null, string>(config).Build())
+            {
+                try
+                {
+                    // todo 测试验证代码
+                    for (var i = 0; i < 100; i++)
+                    {
+                        // todo 替换日志主题ID
+                        produce.Produce("${topicID}", new Message<Null, string> { Value = "C# demo value" }, handler);
+                    }
+                    produce.Flush(TimeSpan.FromSeconds(10));
+
+                }
+                catch (ProduceException<Null, string> pe)
+                {
+                    Console.WriteLine($"send message receiver error : {pe.Error.Reason}");
+                }
+            }
+        }
+    }
+}
+
+```

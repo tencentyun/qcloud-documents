@@ -29,7 +29,7 @@ Event 是 Kubernetes 中众多资源对象中的一员，通常用来记录集�
 ### 场景1：一台 Node 节点出现异常，定位原因
 
 1. 登录 [TKE 控制台](https://console.cloud.tencent.com/tke2/cluster?rid=1)。
-2. 在左侧导航栏中，单击**集群运维** > **事件检索**。
+2. 在左侧导航栏中，单击**日志管理** > **事件日志**。
 3. 在事件检索页面，选择**事件总览**页签，并在过滤项中输入异常节点名称。
 ![img](https://main.qcloudimg.com/raw/b61b2b0ba24676d1d70b725e7819dbf9.png)
 查询结果显示，有一条`节点磁盘空间不足`的事件记录查询结果如下图：
@@ -43,7 +43,7 @@ Event 是 Kubernetes 中众多资源对象中的一员，通常用来记录集�
 
 开启 [节点池](https://cloud.tencent.com/document/product/457/43719)「弹性伸缩」的集群，CA（cluster-autoscler）组件会根据负载状况自动对集群中节点数量进行增减。如果集群中的节点发生了自动扩（缩）容，用户可通过事件检索对整个扩（缩）容过程进行回溯。
 1. 登录 [TKE 控制台](https://console.cloud.tencent.com/tke2/cluster?rid=1)。
-2. 在左侧导航栏中，单击**集群运维** > **事件检索**。
+2. 在左侧导航栏中，单击**日志管理** > **事件日志**。
 3. 在事件检索页面，单击**全局检索**页签，并输入以下检索命令：
 ```
 event.source.component : "cluster-autoscaler"

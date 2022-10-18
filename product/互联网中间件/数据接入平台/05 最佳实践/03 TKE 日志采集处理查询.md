@@ -7,12 +7,12 @@
 3. **SSH 终端** 登录集群节点，查询挂载在宿主机上的日志，或使用 Kubectl 登录容器查询日志。
 4. 使用 **CLS 采集器** 采集日志，并在 [日志服务](https://console.cloud.tencent.com/cls) 的控制台查询。
 
-与以上方法相比，采用 Kafka 采集器采集日志消息投递到 CKafka，进而对消息使用数据接入平台 DIP 进行数据处理后，投递到 Elasticsearch Service 进行日志解析的方法，具有以下显著优势：
+与以上方法相比，采用 Kafka 采集器采集日志消息投递到 CKafka，进而对消息使用 DataHub 进行数据处理后，投递到 Elasticsearch Service 进行日志解析的方法，具有以下显著优势：
 
 - 多点灾备：Kafka 原生提供数据持久化及灾备能力，不会因单节点宕机导致日志丢失。
 - 日志区分：在每条日志消息中添加 [Metadata 信息](https://cloud.tencent.com/document/product/457/36771) ，增加解析信息能力。
-- 精细解析：数据接入平台 DIP 提供 [数据处理](https://console.cloud.tencent.com/ckafka/datahub-process) 功能，能够结构化精细解析原始日志数据。
-- 多元输出：数据接入平台 DIP 提供多种输出目标源，例如可以将 CKafka 的消息同时投递至 ElasticSearch 及 MongoDB，冷热数据分离节约成本。
+- 精细解析：DataHub 提供 [数据处理](https://console.cloud.tencent.com/ckafka/datahub-process) 功能，能够结构化精细解析原始日志数据。
+- 多元输出：DataHub 提供多种输出目标源，例如可以将 CKafka 的消息同时投递至 ElasticSearch 及 MongoDB，冷热数据分离节约成本。
 
 ## 运行原理
 
@@ -36,8 +36,8 @@
 #### 启用日志采集
 
 1. 登录 [TKE 控制台](https://console.cloud.tencent.com/tke2/cluster)。
-2. 在左侧导航栏选择 **运维功能管理**，单击目标实例操作栏的**设置**按钮。
-3. 勾选 **开启日志采集**，启用日志采集功能后确认。具体操作步骤可参见 [配置日志采集文档](https://cloud.tencent.com/document/product/457/36771)。
+2. 在左侧导航栏选择 **运维功能管理**，点击目标实例操作栏的**设置**按钮。
+3. 勾选 **开启日志采集**，启用日志采集功能后确认。具体操作步骤可参见[配置日志采集文档](https://cloud.tencent.com/document/product/457/36771)。
    ![](https://qcloudimg.tencent-cloud.cn/raw/7e8c996db32b82e0f6f11a7c219b9049.png)
 > ?
 >
@@ -47,9 +47,9 @@
 #### 创建日志规则
 
 1. 在控制台选择左侧导航栏中的**运维功能管理** > **日志规则**。
-2. 在**日志采集**页面上方选择地域和需要配置日志采集规则的集群，单击**新建**，随后进行日志规则的配置。
+2. 在**日志规则**页面上方选择地域和需要配置日志采集规则的集群，单击**新建**，随后进行日志规则的配置。
 >?以容器内文件日志为例，下图表示创建了一个采集 nginx 容器中，路径为 `/var/log/test` 的文件夹下，所有后缀为 `.log` 的采集配置。
-![](https://qcloudimg.tencent-cloud.cn/raw/fa548e5e10177b3f89b0c301c788cced.png)
+>![](https://qcloudimg.tencent-cloud.cn/raw/fa548e5e10177b3f89b0c301c788cced.png)
 3. 编辑采集配置后，选择投递到 Kafka 相应的实例及主题即可。
 
 #### 查看采集结果
@@ -63,17 +63,18 @@
 3. 查看 CKafka 的目标主题 offset，可以得到当前消息投递的总数量。
 ![](https://qcloudimg.tencent-cloud.cn/raw/09bf73a61f8a8bc5ff78db1168c21615.png)
 4. 在 CKafka 的 [消息查询](https://console.cloud.tencent.com/ckafka/message) 界面，输入主题的分区数和时间，得到完整的日志采集消息，可以发现消息中已添加关于集群的 Metadata 信息。
-![](https://qcloudimg.tencent-cloud.cn/raw/6de44da536ee3b827abdb327d6a2fc4e.png)
-	 
+	![](https://qcloudimg.tencent-cloud.cn/raw/6de44da536ee3b827abdb327d6a2fc4e.png)
+	
 
 ### 步骤2：DIP 数据简单处理
 
 #### 创建数据处理
 
-数据接入平台 DIP 能够涵盖绝大部分的数据处理场景，由于数据处理方式取决于采集的源消息格式，因此此处仅使用简单的数据处理进行展示。
+数据接入平台能够涵盖绝大部分的数据处理场景，由于数据处理方式取决于采集的源消息格式，因此此处仅使用简单的数据处理进行展示。
 
-1. 登录 [CKafka 控制台](https://console.cloud.tencent.com/ckafka/)。
-2. 在左侧导航栏选择 **数据处理**，单击 **新建任务**，在任务界面选择 **Json 解析模式**，将所需的嵌套 Metadata 信息转换为单层 Json 格式。
+1. 登录 [DIP 控制台](https://console.cloud.tencent.com/ckafka/datahub-overview)。
+2. 在左侧导航栏选择**任务管理** >  **任务列表**，单击 **新建任务**，任务类型选择**数据处理**。
+2. 在数据处理规则界面选择 **Json 解析模式**，将所需的嵌套 Metadata 信息转换为单层 Json 格式。
    ![](https://qcloudimg.tencent-cloud.cn/raw/26b40b081c3104d42d27c42e518e3a32.png)
 3. 创建后，当数据处理概览页面中显示当前任务为健康状态时，代表数据处理处理正常。
 ![](https://qcloudimg.tencent-cloud.cn/raw/1a6fccc04d047ed4d933cc6b3901eccf.png)
@@ -89,12 +90,15 @@
 
 ### 步骤3：DIP 数据投递
 
-1. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka/) 左侧导航栏选择 **数据流出**。
-2. 单击**新建任务**，目标类型选择 **Elasticsearch Service**，随后填写投递实例名称等信息。
-3. 创建完成后，在数据流出任务列表如下图所示数据流出状态为健康时，代表任务创建成功。
-![](https://qcloudimg.tencent-cloud.cn/raw/e8718cfa182e1f825b6fda29c6b4a5e9.png)
-4. 在数据流出任务监控界面，可以获取当前投递到 Elasticsearch 的速度。
-![](https://qcloudimg.tencent-cloud.cn/raw/0381fbb848c8ab931d3b580534c284f4.png)
+1. 登录 [DIP 控制台](https://console.cloud.tencent.com/ckafka/datahub-overview)。
+2. 在左侧导航栏选择**任务管理** >  **任务列表**，单击 **新建任务**。
+3. 任务类型选择**数据流出**，目标类型选择 **Elasticsearch Service**，随后填写投递目标连接等信息。
+4. 创建完成后，在数据流出任务列表如下图所示数据流出状态为健康时，代表任务创建成功。
+    ![](https://qcloudimg.tencent-cloud.cn/raw/e8718cfa182e1f825b6fda29c6b4a5e9.png)
+5. 在数据流出任务监控界面，可以获取当前投递到 Elasticsearch 的速度。
+    ![](https://qcloudimg.tencent-cloud.cn/raw/0381fbb848c8ab931d3b580534c284f4.png)
+
+
 
 ### 步骤4：Elasticsearch 日志解析
 

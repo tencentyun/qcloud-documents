@@ -17,7 +17,7 @@ INCLUDING { ALL TABLES | TABLE 'table_name' }
 -- EXCLUDING TABLE 'table' 表示不同步数据库中特定的表，支持正则表达式，如 'order_.*';
 -- 排除多张表时，可以写成 EXCLUDING TABLE 'tableA|tableB|tableC'的格式
 [/*+ OPTIONS(key1=val1, key2=val2, ... ) */] 
--- （可选，指明读取source的参数，如指定source serverId的范围等等）
+-- （可选，指明读取source的参数，如指定source serverId的范围，解析debezium时间戳字段类型等）
 ```
 
 参数说明：
@@ -43,7 +43,8 @@ with (
   'table.identifier' = 'db1.$tableName_doris'
   ...
 ) 
-including all tables;
+including all tables
+/*+ `OPTIONS`('server-time-zone' = 'Asia/Shanghai') */; -- 声明解析timestamp字段的时区类型
 ```
 
 
@@ -79,7 +80,8 @@ with (
 'connector' = 'hudi',
 'path' = 'hdfs://namenode:8020/user/hive/warehouse/$tableName_mor'
 ) as database `my_mysql`.`trade_log`
-including all tables;
+including all tables
+/*+ `OPTIONS`('server-time-zone' = 'Asia/Shanghai') */; -- 声明解析timestamp字段的时区类型
 ```
 
 ### 同步到 Doris 示例
@@ -104,8 +106,8 @@ comment 'test_sink'  with (
 'sink.batch.interval' = '1s',
 'fenodes' = 'ip:port'
 ) as database `my_mysql`.`trade_log`
-including all tables;
-
+including all tables
+/*+ `OPTIONS`('server-time-zone' = 'Asia/Shanghai') */; -- 声明解析timestamp字段的时区类型
 ```
 
 
@@ -131,16 +133,11 @@ comment 'test_sink'  with (
 'sink.partition-commit.policy.kind' = 'metastore'
 ) as database `my_mysql`.`trade_log`
 including all tables
-/*+ `OPTIONS`('append-mode' = 'true') */;  
+/*+ `OPTIONS`('append-mode' = 'true', 'server-time-zone' = 'Asia/Shanghai') */;  
 -- 因为hive sink不支持变更数据，此处的hint会把原始cdc的变更数据转成成append流下发
 ```
-
-
-
 作业运行拓扑图展开后如下：
 ![](https://qcloudimg.tencent-cloud.cn/raw/bf442eaef6fb0702161fdcdafab8ed78.png)
-
-
 
 ## 使用提醒
 1. 目前只支持同步 Mysql 类型数据库作为整库同步的源表。
@@ -148,10 +145,9 @@ including all tables
 3. 推荐搭配 Mysql CDC Source 复用功能开启，一起使用，可以降低对 DB 的压力。
 4. CDAS 语法没有限制下游输出的类型，理论上可以同步到**任意的**下游类型。
 5. 当同步的表的数量非常多的时候，flink 生成的单个 task 的 name 会非常长，导致 metric 系统占用大量的内存，影响作业稳定性，Oceanus 针对这种情况引入了 `pipeline.task-name-length` 参数来限制 taskName 的长度，能极大的提高作业稳定性和日志可读性。（适用 Flink 1.13 和1.14版本）。
-可以在作业的高级参数中配置生效：
-   ```yaml
-   pipeline.task-name-length: 80
-   ```
+可以在作业的中配置生效：
+```sql
+set pipeline.task-name-length=80;
+```
 
    
-

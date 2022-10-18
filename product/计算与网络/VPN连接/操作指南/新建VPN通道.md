@@ -103,7 +103,7 @@ VPN 通道的建立包括以下配置信息：
  - 目的路由
 本通信通过路由策略指定 VPN 网关所属网络可以和 IDC 中哪些网段通信，创建通道完成后需在 VPN 网关的路由表中配置对应路由策略，详情请参见 [配置 VPN 网关路由](https://cloud.tencent.com/document/product/554/52860) 。
 ![](https://qcloudimg.tencent-cloud.cn/raw/bb0d4c807a0d5ccda1e9a60e411ea03b.png)
- - SPD 策略。
+ - SPD 策略。[](id:ipsecvpnspd)
 >?
 >+ SPD（Security Policy Database）策略由一系列 SPD 规则组成，用于指定 VPC 或云联网内哪些网段可以和 IDC 内哪些网段通信。每条 SPD 规则包括一个本端网段 CIDR，和至少一个对端网段 CIDR。一个本端网段 CIDR 和一个对端网段 CIDR 构成一组匹配关系。一个 SPD 规则下可以有多组**匹配关系**。
 >+ 腾讯云 VPN 网关会按照**匹配关系**依次和对端网关设备进行协商，您需要确保您的对端网关设备支持按照匹配关系进行协商，例如在 StrongSwan 配置中使用 also 关键字。

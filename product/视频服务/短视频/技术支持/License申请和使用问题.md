@@ -1,6 +1,6 @@
 [](id:que0)
 ### 关于 License 版本问题？
-短视频 SDK 分精简版和基础版，从4.5版本开始需要 License，基础版需要短视频的 License（TXUgcSDK.licence），把 License 放到工程目录，并修改为对应的名字即可。
+短视频 SDK 分精简版和基础版，从4.5版本开始需要 License，基础版需要短视频的 License（TXUgcSDK.licence），把 License 放到工程目录，并修改为“TXUgcSDK.licence”即可。
 
 4.9版本开始 License 使用方式有改变，可以选择是否把 License 打包到项目中。使用时需要调用 `setLicenceURL：` 和 `key：` 接口设置 License 的 URL 和 key。
 

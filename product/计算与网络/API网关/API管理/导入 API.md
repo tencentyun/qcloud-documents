@@ -20,6 +20,16 @@
 - 单次不能同时导入超过10个API。
 - 上传 API 描述文件时，文件后缀名必须为 .yaml 或 .json；单次上传的 API 描述文件不能超过 100KB；上传的描述文件会覆盖代码编辑器里的内容。
 - 创建成功的 API 将不会自动发布，需要您手动发布后方可生效。
+- 从标准 OpenAPI3.0 描述文件导入 API，需要手动添加 servers 字段，用来定义 API 访问的后端地址，例如：
+<dx-codeblock>
+:::  YAML
+servers:
+  - url: 'http://localhost:8080'
+    description: Generated server url
+:::
+</dx-codeblock>
+
+
 
 >?
 >- OpenAPI 规范和 API 网关的映射关系请参见 [定义 API](https://cloud.tencent.com/document/product/628/43135)。

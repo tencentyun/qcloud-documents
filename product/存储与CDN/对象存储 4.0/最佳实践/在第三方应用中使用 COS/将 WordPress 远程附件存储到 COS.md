@@ -93,7 +93,7 @@ COS 具有高扩展性、低成本、可靠和安全等特点，将媒体库附�
 3. 设置跨域访问
 在文章中引用对应的资源链接，控制台会提示跨域的错误`No 'Access-Control-Allow-Origin' header is present on the requested resource`。原因是没有添加 header。您需要在跨域访问 CORS 设置中添加 HTTP Header 配置。下面提供两种途径进行配置：
  - 在 COS 控制台上配置
-![](https://main.qcloudimg.com/raw/ec11051c0737ca9b66710d368106cbd6.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/ce036cd84c9b898df2befebb19ff2933.png)
 >? 关于跨域配置操作步骤，请参见 [设置跨域访问](https://cloud.tencent.com/document/product/436/13318) 文档。
 >
  - 在 CDN 控制台上配置
@@ -105,10 +105,7 @@ Access-Control-Allow-Origin: *
 ```plaintext
 Access-Control-Allow-Origin: https://example.com
 ```
-
 <span id=1></span>
-
 4. 设置回源
 如果您不在 WordPress 后台媒体库中上传资源，建议开启回源设置，详细步骤请参见 [设置回源](https://cloud.tencent.com/document/product/436/13310) 文档。
-开启回源设置后，当客户端首次访问 COS 源文件时，COS 发现无法命中对象，对客户端返回 302 HTTP 状态码并跳转至回源地址对应的地址，此时对象由源站提供给客户端，从而保证访问。同时 COS 从源站复制该文件并保存至存储桶对应的目录中；第二次访问时，COS 直接命中对象并返回给客户端。
-
+开启回源设置后，当客户端首次访问 COS 源文件时，COS 发现无法命中对象，对客户端返回 302 HTTP 状态码并跳转至回源地址所对应的地址，此时对象由源站提供给客户端，从而保证访问。同时 COS 从源站复制该文件并保存至存储桶对应的目录中；第二次访问时，COS 直接命中对象并返回给客户端。

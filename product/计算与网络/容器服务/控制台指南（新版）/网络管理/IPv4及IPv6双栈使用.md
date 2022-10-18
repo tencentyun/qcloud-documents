@@ -1,14 +1,17 @@
 
 ## 概述
 TKE IPv4/IPv6 双栈基于集群维度，即需要先创建一个 TKE IPv4/IPv6 双栈集群。已创建的双栈集群，其 Pod 会自动分配 IPv4/IPv6 双栈地址，其 Servcie 也支持 IPv4/IPv6 双栈。
->? TKE IPv4/IPv6 双栈目前正在内测中，如需使用可 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=350&source=14&data_title=%E5%AE%B9%E5%99%A8%E6%9C%8D%E5%8A%A1%20TKE&step=1) 申请。
+>? 
+>- TKE IPv4/IPv6 双栈目前正在内测中，如需使用可 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=350&source=14&data_title=%E5%AE%B9%E5%99%A8%E6%9C%8D%E5%8A%A1%20TKE&step=1) 申请。
+>- TKE IPv4/IPv6 双栈依赖于 IPv4/IPv6 双栈 VPC 和 IPv6 CLB，当前 IPv4/IPv6 双栈 VPC 和 IPv6 CLB 都在内测中，因此开通 TKE IPv4/IPv6 双栈将同时开通 IPv4/IPv6 双栈 VPC 和 IPv6  CLB。
+>
 
 ## 前提条件
 1. 创建 IPv4/IPv6 双栈类型的 VPC，具体方式为先创建 IPv4 类型 VPC，然后再开启 IPv6，操作详情见 [搭建 IPv6 私有网络](https://cloud.tencent.com/document/product/215/47557)。
 2. 在 IPv4/IPv6 双栈类型的 VPC 中创建 IPv4/IPv6 双栈类型子网，具体方式先创建 IPv4 类型子网，然后再开启 IPv6，操作详情见 [搭建 IPv6 私有网络](https://cloud.tencent.com/document/product/215/47557)。
 
 ## 相关约束
-- 目前支持地域为北京、上海、广州、上海金融、深圳金融、北京金融、成都、重庆、南京、香港、新加坡、弗吉尼亚。
+- 目前支持地域为北京、上海、广州、上海金融、深圳金融、北京金融、成都、重庆、南京、中国香港、新加坡、弗吉尼亚。
 - 目前仅支持 IPv4/IPv6 双栈类型 Service，暂不支持 IPv4/IPv6 双栈类型 Ingress。
 
 ## 操作步骤

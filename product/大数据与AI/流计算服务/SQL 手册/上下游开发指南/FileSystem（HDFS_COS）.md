@@ -98,9 +98,7 @@ fs.cosn.userinfo.appid: COS 所属用户的 appid
 [](id:jump)
 ## 手动上传对应 Jar 包
 1. 先下载对应 Jar 包到本地。
- - Avro：[Jar 包下载地址](https://repo.maven.apache.org/maven2/org/apache/flink/flink-avro/1.11.2/flink-avro-1.11.2-sql-jar.jar)
- - Parquet：[Jar 包下载地址](https://repo.maven.apache.org/maven2/org/apache/flink/flink-sql-parquet_2.11/1.11.2/flink-sql-parquet_2.11-1.11.2.jar)
- - Orc：[Jar 包下载地址](https://repo.maven.apache.org/maven2/org/apache/flink/flink-sql-orc_2.11/1.11.2/flink-sql-orc_2.11-1.11.2.jar)
+不同 Flink 版本下载地址：[Flink 1.11](https://nightlies.apache.org/flink/flink-docs-release-1.11/dev/table/connectors/formats/) ，[Flink 1.13](https://nightlies.apache.org/flink/flink-docs-release-1.13/docs/connectors/table/formats/overview/)，[Flink 1.14](https://nightlies.apache.org/flink/flink-docs-release-1.14/docs/connectors/table/formats/overview/)  。 
 2. 在 Oceanus 的程序包管理上传对应 Jar 包，详情可参见 [程序包管理](https://cloud.tencent.com/document/product/849/48295)。
 3. 进入对应作业的开发调试界面，打开作业参数侧栏。
    ![](https://main.qcloudimg.com/raw/74fa13f156b114df80fd84aac4bf0554.png)

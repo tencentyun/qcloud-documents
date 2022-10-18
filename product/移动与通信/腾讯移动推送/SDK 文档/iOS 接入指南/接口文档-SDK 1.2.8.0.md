@@ -51,9 +51,9 @@
 
 
 
-## TPNS Token 及注册结果
+## 移动推送 Token 及注册结果
 
-### 查询 TPNS Token
+### 查询移动推送 Token
 
 #### 接口说明
 
@@ -69,6 +69,8 @@
 NSString *token = [[XGPushTokenManager defaultTokenManager] xgTokenString];
 ```
 
+>! token 的获取应该在 xgPushDidRegisteredDeviceToken:error:  返回正确之后被调用。
+
 ### 注册结果回调
 
 #### 接口说明
@@ -82,7 +84,7 @@ SDK 启动之后，通过此方法回调来返回注册结果及 Token。
 #### 返回参数说明
 
 - deviceToken：APNs 生成的 Device Token。
-- xgToken：TPNS 生成的 Token，推送消息时需要使用此值。TPNS 维护此值与 APNs 的 Device Token 的映射关系。
+- xgToken：移动推送生成的 Token，推送消息时需要使用此值。移动推送维护此值与 APNs 的 Device Token 的映射关系。
 - error：错误信息，若 error 为 nil，则注册推送服务成功。
 
 ### 注册失败回调
@@ -120,7 +122,7 @@ SDK 1.3.1.0 新增，通知弹窗授权的结果会走此回调。
 
 #### 接口说明
 
-若原来没有该类型账号，则添加；若原来有，则覆盖。（TPNS SDK1.2.9.0+ 新增）
+若原来没有该类型账号，则添加；若原来有，则覆盖。（移动推送 SDK1.2.9.0+ 新增）
 
 ```Objective-C
 - (void)upsertAccountsByDict:(nonnull NSDictionary<NSNumber *, NSString *> *)accountsDict;
@@ -178,7 +180,7 @@ NSString *account = @"account";
 
 #### 接口说明
 
-接口说明：删除指定账号类型下的所有账号。（TPNS SDK1.2.9.0+ 新增）
+接口说明：删除指定账号类型下的所有账号。（移动推送 SDK1.2.9.0+ 新增）
 
 ```Objective-C
 - (void)delAccountsByKeys:(nonnull NSSet<NSNumber *> *)accountsKeys;
@@ -477,7 +479,7 @@ attributeKeys：用户属性 key 组成的集合，字符串不允许有空格�
 
 #### 接口说明
 
-当应用本地角标值更改后，需调用此接口将角标值同步到 TPNS 服务器，下次推送时以此值为基准，此功能在管理台位置（【新建推送】>【高级设置】>【角标数字】）。
+当应用本地角标值更改后，需调用此接口将角标值同步到移动推送服务器，下次推送时以此值为基准，此功能在管理台位置（【新建推送】>【高级设置】>【角标数字】）。
 
 ```objective-c
 - (void)setBadge:(NSInteger)badgeNumber;
@@ -488,23 +490,19 @@ attributeKeys：用户属性 key 组成的集合，字符串不允许有空格�
 
 badgeNumber：应用的角标数。
 
-> ! 当本地应用角标设置后需调用此接口同步角标值到 TPNS 服务器，并在下次推送时生效，此接口必须在 TPNS 注册成功后调用（xgPushDidRegisteredDeviceToken）。
+> ! 当本地应用角标设置后需调用此接口同步角标值到移动推送服务器，并在下次推送时生效，此接口必须在移动推送长链接建立后调用（xgPushNetworkConnected）。
 
 #### 示例代码
 
 ```Objective-C
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    /// 每次启动 App 应用角标清零（本地应用角标设置需要在主线程执行）
-    if ([XGPush defaultManager].xgApplicationBadgeNumber > 0) {
-        [XGPush defaultManager].xgApplicationBadgeNumber = 0;
-    }
-    return YES;
-}
-
-- (void)xgPushDidRegisteredDeviceToken:(nullable NSString *)deviceToken xgToken:(nullable NSString *)xgToken error:(nullable NSError *)error {
-    /// 在注册完成后同步角标数到TPNS
-    if (!error) {
+/// TPNS网络连接成功
+/// _launchTag清零标识，比如冷启动/热启动时将此tag设置为YES
+- (void)xgPushNetworkConnected {
+    if (_launchTag) {
+        /// -1不清空通知栏，0清空通知栏
+        [XGPush defaultManager].xgApplicationBadgeNumber = -1;
         [[XGPush defaultManager] setBadge:0];
+        _launchTag = NO;
     }
 }
 
@@ -602,11 +600,11 @@ handler：查询结果的返回方法。
 
 ```
 
-## TPNS 日志托管
+## 移动推送日志托管
 
 #### 接口说明
 
-可以在此方法获取 TPNS 的 log 日志。此方法和 XGPush > enableDebug 无关。
+可以在此方法获取移动推送的 log 日志。此方法和 XGPush > enableDebug 无关。
 
 #### 参数说明
 

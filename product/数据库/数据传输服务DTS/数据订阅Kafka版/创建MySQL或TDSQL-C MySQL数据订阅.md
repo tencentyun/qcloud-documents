@@ -1,7 +1,7 @@
-本场景介绍使用 DTS 创建腾讯云数据库 MySQL 或 MariaDB 的数据订阅任务操作指导。
+本场景介绍使用 DTS 创建腾讯云数据库 MySQL 或 TDSQL-C MySQL 的数据订阅任务操作指导。
 
 ## 前提条件
-- 已准备好待订阅的腾讯云数据库，并且各数据库版本符合要求，请参见 [数据订阅支持的数据库](https://cloud.tencent.com/document/product/571/59965)。
+- 已准备好待订阅的腾讯云数据库，并且数据库版本符合要求，请参见 [数据订阅支持的数据库](https://cloud.tencent.com/document/product/571/59965)。
 - 已在源端实例中开启 binlog。
 - 已在源端实例中创建订阅帐号，需要帐号权限如下：REPLICATION CLIENT、REPLICATION SLAVE、PROCESS 和全部对象的 SELECT 权限。
 具体授权语句如下：
@@ -15,6 +15,8 @@ flush privileges;
 - 订阅的消息内容目前默认保存时间为最近1天，超过保存时间的数据会被清除，请用户及时消费，避免数据在消费完之前就被清除。
 - 数据消费的地域需要与订阅实例的地域相同。
 - 当前不支持 geometry 相关的数据类型。 
+- DTS 订阅 Kafka 的消息投递语义采用的是至少一次（at least once），所以在特殊情况下消费到的数据可能存在重复。如订阅任务发生重启，重启后拉取源端的 Binlog 会从中断的位点往前多拉取一些，导致重复投递消息。控制台修改订阅对象、恢复异常任务等操作都可能会导致消息重复。如果业务对重复数据敏感，需要用户在消费 Demo 中根据业务数据增加去重逻辑。
+
 
 ## 支持订阅的 SQL 操作
 |  操作类型 | 支持的 SQL 操作 |
@@ -42,9 +44,9 @@ flush privileges;
     - 数据更新：订阅选择对象的数据更新，包括数据 INSERT、UPDATE、DELETE 操作。
     - 结构更新：订阅实例中全部对象的结构创建、修改和删除。
     - 全实例：包括该订阅实例的全部对象的数据更新和结构更新。
- - 订阅数据格式：支持 ProtoBuf、Avro 和 Json 三种格式。 ProtoBuf 和 Avro 采用二级制格式，消费效率更高，Json 采用轻量级的文本格式，更加简单易用。
+ - 订阅数据格式：支持 ProtoBuf、Avro 和 Json 三种格式。 ProtoBuf 和 Avro 采用二进制格式，消费效率更高，Json 采用轻量级的文本格式，更加简单易用。
  - Kafka 分区策略：选择按表名分区，按表名+主键分区。
- - 使用自定义分区策略：用户根据自己的需求自定义分区。
+ - 使用自定义分区策略：用户根据自己的需求自定义分区，详情内容请参考 [设置分区策略](https://cloud.tencent.com/document/product/571/78161)。
 ![](https://qcloudimg.tencent-cloud.cn/raw/b5364aa79598fb8e6046e2a60c686fda.png)
 6. 在预校验页面，预校验任务预计会运行2分钟 - 3分钟，预校验通过后，单击**启动**完成数据订阅任务配置。
 >?如果校验失败，请 [校验不通过处理方法](https://cloud.tencent.com/document/product/571/58685) 进行修正，并重新进行校验。

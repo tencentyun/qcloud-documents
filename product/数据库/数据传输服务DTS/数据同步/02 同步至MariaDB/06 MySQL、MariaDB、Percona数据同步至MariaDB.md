@@ -8,15 +8,13 @@
 
 因为 MySQL、MariaDB、Percona 同步至腾讯云数据库 MariaDB，三种场景的同步要求和操作步骤基本一致，本章节仅以 MariaDB 到 MariaDB 的数据同步为例进行介绍，其他场景请参考相关内容。
 
-> ?当前如果用户需要使用 MariaDB/Percona 同步到 MySQL 的链路功能，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行申请。
-
 ## 注意事项
 - DTS 在执行全量数据同步时，会占用一定源端实例资源，可能会导致源实例负载上升，增加数据库自身压力。如果您数据库配置过低，建议您在业务低峰期进行。
 - 为了避免数据重复，请确保需要同步的表具有主键或者非空唯一键。
 - 默认采用无锁方式，同步过程中对源库不加全局锁（FTWRL），仅对无主键的表加表锁，其他不加锁。
 - 数据同步时，DTS 会使用执行同步任务的账号在源库中写入系统库`__tencentdb__`，用于记录同步任务过程中的数据对比信息。
   - 为保证后续数据对比问题可定位，同步任务结束后不会删除源库中的`__tencentdb__`。
-  - `__tencentdb__`系统库占用空间非常小，约为源库存储空间的千分之一到万分之一（例如源库为50G，则`__tencentdb__`系统库约为 5K-50K） ，并且采用单线程，等待连接机制，所以对源库的性能几乎无影响，也不会抢占资源。 
+  - `__tencentdb__`系统库占用空间非常小，约为源库存储空间的千分之一到万分之一（例如源库为50GB，则`__tencentdb__`系统库约为5MB - 50MB），并且采用单线程，等待连接机制，所以对源库的性能几乎无影响，也不会抢占资源。 
 
 ## [前提条件](id:qttj)
 - 源数据库和目标数据库符合同步功能和版本要求，请参考 [数据同步支持的数据库](https://cloud.tencent.com/document/product/571/58672) 进行核对。
@@ -67,7 +65,7 @@ FLUSH PRIVILEGES;
 <li>实例参数要求：
 <ul>
 <li>源库 server_id 参数需要手动设置，且值不能设置为0。</li>
-<li>源库表的 row_format 不能设置为 FIXDE。</li>
+<li>源库表的 row_format 不能设置为 FIXED。</li>
 <li>源库和目标库 lower_case_table_names 变量必须设置一致。</li>
 <li>源库变量 connect_timeout设置数值必须大于10。</li></ul></li>
 <li>Binlog 参数要求：
@@ -77,11 +75,14 @@ FLUSH PRIVILEGES;
 <li>源端 binlog_row_image 变量必须设置为 FULL。</li>
 <li>MySQL 5.6 及以上版本 gtid_mode 变量不为 ON 时会报警告，建议打开 gtid_mode。</li>
 <li>不允许设置 do_db, ignore_db。</li>
-<li>源实例为从库时，log_slave_updates 变量必须设置为 ON。</li></ul></li>
+<li>源实例为从库时，log_slave_updates 变量必须设置为 ON。</li>
+   <li>建议源库 Binlog 日志至少保留3天及以上，否则可能会因任务暂停/中断时间大于 Binlog 日志保留时间，造成任务无法续传，进而导致任务失败。</li>
+  </ul></li>
 <li>外键依赖：
 <ul>
 <li>外键依赖只能设置为 NO ACTION，RESTRICT 两种类型。</li>
-<li>部分库表同步时，有外键依赖的表必须齐全。</li></ul></li></td></tr>
+<li>部分库表同步时，有外键依赖的表必须齐全。</li></ul></li>
+  <li>环境变量 innodb_stats_on_metadata 必须设置为 OFF。</li></td></tr>
 <tr> 
 <td>目标数据库要求</td>
 <td>
@@ -89,9 +90,6 @@ FLUSH PRIVILEGES;
 <li>目标库需要有足够的存储空间，如果初始类型选择“全量数据初始化”，则目标库的空间大小须是源库待同步库表空间的1.2倍以上。</li>
 <li>目标库不能有和源库同名的表、视图等同步对象。</li>
 <li>目标库 max_allowed_packet 参数设置数值至少为4M。</li></td></tr>
-<tr> 
-<td>其他要求</td>
-<td>环境变量 innodb_stats_on_metadata 必须设置为 OFF。</td></tr>
 </table>
 
 ## 操作步骤

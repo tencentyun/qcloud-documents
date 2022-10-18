@@ -8,9 +8,9 @@
 
 
 轻量应用服务器相比云服务器 CVM 的主要区别和优势请参考下表：
-<table style="width:908px;">
+<table style="width:978px;">
 <tr>
-<th style="width:95px;height:45px;position:relative;font-weight:700;" valign="top" colspan="2"><div style="position:absolute;width:1px;height: 244px;top:0;left:0;background-color: #d9d9d9;transform: rotate(-76deg);transform-origin:top;"></div><div style="position:relative;left:150px">产品</div>优势</th>
+<th style="width:95px;height:45px;position:relative;font-weight:700;" valign="top" colspan="2"><div style="position:absolute;width:1px;height: 245px;top:0;left:0;background-color: #d9d9d9;transform: rotate(-75deg);transform-origin:top;"></div><div style="position:relative;left:150px">产品</div>优势</th>
 <th style="font-weight:700;">轻量应用服务器 TencentCloud Lighthouse</th>
 <th style="font-weight:700;">云服务器 CVM</th>
 </tr>

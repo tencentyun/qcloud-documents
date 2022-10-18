@@ -109,7 +109,7 @@ apiVersion: v1
 kind: Service
 metadata:
   annotations:
-      service.cloud.tencent.com/direct-access: "true"  #EKS 集群默认是直连模式，TKE 集群请务必先参照文档开启直连模式。
+      service.cloud.tencent.com/direct-access: "true"  #TKE Serverless 集群默认是直连模式，TKE 集群请务必先参照文档开启直连模式。
       service.cloud.tencent.com/specify-protocol: '{"80":{"protocol":["TCP"]},"8080":{"protocol":["UDP"]}}'   # 指定 80 端口 TCP 协议，8080 端口 UDP 协议。
   name: nginx
 spec:

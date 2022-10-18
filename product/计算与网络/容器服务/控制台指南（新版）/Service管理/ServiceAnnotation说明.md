@@ -120,15 +120,28 @@ Service Local 模式下仅绑定有 Pod 存在的节点。
  service.kubernetes.io/service.extensiveParameters: '{"AddressIPVersion":"IPV6"}' 
 - 购买电信负载均衡：
   service.kubernetes.io/service.extensiveParameters: '{"VipIsp":"CTCC"}'
+- 创建时自定义 CLB 名字：
+  service.kubernetes.io/service.extensiveParameters: '{"LoadBalancerName":"my_cutom_lb_name"}'
+
 
  
 ---
 ### service.cloud.tencent.com/enable-grace-shutdown
 **说明：**
-支持 CLB 直连模式的优雅停机。
+支持 CLB 直连模式的优雅停机。Pod 被删除，此时 Pod 里有 DeletionTimestamp，且状态置为 Terminating。此时调整 CLB 到该 Pod 的权重为 0。
 
 **使用示例：**
 仅在直连模式下支持，需要配合使用 `service.cloud.tencent.com/direct-access`，使用方式详情见 [Service 优雅停机](https://cloud.tencent.com/document/product/457/60064)。
+
+
+---
+### service.cloud.tencent.com/enable-grace-shutdown-tkex
+**说明：**
+支持 CLB 直连模式的优雅退出。Endpoint 对象中 endpoints 是否 not-ready，将 not-ready 的 CLB 后端权重置为 0。
+
+**使用示例：**
+仅在直连模式下支持，需要配合使用 `service.cloud.tencent.com/direct-access`，使用方式详情见 [Service 优雅停机](https://cloud.tencent.com/document/product/457/60064)中的相关能力。
+
  
 ---
 ### kubernetes.io/service.internetChargeType
@@ -164,5 +177,40 @@ CLB 带宽设置，当前仅在创建时支持配置，创建后不支持修改�
 **使用示例：**
 `kubernetes.io/service.internetMaxBandwidthOut: "2048"`
  
+
+
+---
+### service.cloud.tencent.com/security-groups
+
+**说明：**
+通过该 Annotation 可以为 CLB 类型的 Service 绑定安全组，单个 CLB 最多可绑定5个安全组。
+
+**注意：**
+
+- 请查看 CLB 使用安全组的[使用限制](https://cloud.tencent.com/document/product/214/14733)。
+- 通常需要配合安全组默认放通的能力，CLB 和 CVM 之间默认放通，来自 CLB 的流量只需通过 CLB 上安全组的校验。对应 Annotation 为：`service.cloud.tencent.com/pass-to-target`
+- 对于 [Service 使用已有 CLB](https://cloud.tencent.com/document/product/457/45491) 的场景，若多个 Service 声明了不同的安全组，会有逻辑冲突的问题。
+
+**使用示例：**
+`service.cloud.tencent.com/security-groups: "sg-xxxxxx,sg-xxxxxx"`
+
+---
+
+### service.cloud.tencent.com/pass-to-target
+
+**说明：**
+通过该 Annotation 可以为 CLB 类型的 Service 配置安全组默认放通的能力，CLB 和 CVM 之间默认放通，来自 CLB 的流量只需通过 CLB 上安全组的校验。
+
+**注意：**
+
+- 请查看 CLB 使用安全组的[使用限制](https://cloud.tencent.com/document/product/214/14733)。
+- 通常需要配合绑定安全组的能力。对应 Annotation 为：`service.cloud.tencent.com/security-groups`
+- 对于 [Service 使用已有 CLB](https://cloud.tencent.com/document/product/457/45491) 的场景，若多个 Service 声明了不同的放通配置，会有逻辑冲突的问题。
+
+
+
+**使用示例：**
+`service.cloud.tencent.com/pass-to-target: "true"`
+
 
 

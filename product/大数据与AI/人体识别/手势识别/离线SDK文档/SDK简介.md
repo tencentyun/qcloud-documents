@@ -1,4 +1,4 @@
- 腾讯云神图·手势识别离线 SDK，是基于腾讯音视频实验室推出的新一代人机交互技术，支持移动端（Android）快速接入，具有静态手势识别、关键点识别、指尖识别等多种功能，为开发者和企业提供高性能高可用的手势识别服务。 腾讯云神图·手势识别离线 SDK，可用于互动娱乐、智能家居、VR/AR、智能车载、智慧商超、工业质检等多个行业。如果想要试用，请扫下方 QQ 二维码或 [点击链接](https://webpage.qidian.qq.com/2/chat/pc/index.html?linkType=1&env=ol&kfuin=2885733993&fid=412&key=a9afb2d57a71085911a6626e3acbf279&cate=1&source=0&isLBS=0&isCustomEntry=0&type=16&ftype=1&_type=wpa&qidian=true&waitTime=8189&clickid=tzz58b.il0w5u.kk80baog&callImType=2&delayTime=10&roleValue=0&roleData=3006001490&translateSwitch=0) 与小助手沟通申请。
+ 腾讯云神图·手势识别离线 SDK，是基于腾讯音视频实验室推出的新一代人机交互技术，支持移动端（Android）快速接入，具有静态手势识别、关键点识别、指尖识别等多种功能，为开发者和企业提供高性能高可用的手势识别服务。 腾讯云神图·手势识别离线 SDK，可用于互动娱乐、智能家居、VR/AR、智能车载、智慧商超、工业质检等多个行业。如果想要试用，请扫下方 QQ 二维码或 [点击链接](https://cloud.tencent.com/online-service?from=doc_1101) 与小助手沟通申请。
  ![](https://main.qcloudimg.com/raw/1bfd4ac8482ddbad1fa2095b5f391be6.png)
  
 ##  产品特性

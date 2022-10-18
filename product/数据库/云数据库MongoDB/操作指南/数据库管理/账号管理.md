@@ -2,13 +2,13 @@
 云数据库 MongoDB 控制台支持创建账号、设置账号权限、更改账号密码信息，方便您管理数据库的访问权限。 
 
 ## 背景信息
-- 云数据库 MongoDB 包含 rwuser 和 mongouser 两个默认用户。3.2版本系统默认支持 rwuser 和 mongouser 用户，而3.6、4.0、4.2版本系统默认为 mongouser 用户。
+- 云数据库 MongoDB 包含 rwuser 和 mongouser 两个默认用户。3.2版本系统默认支持 rwuser 和 mongouser 用户，而3.6、4.0、4.2、4.4版本系统默认为 mongouser 用户。
   - **rwuser** 是唯一使用 MONGODB-CR 认证的用户。
   - **mongouser** 以及在 [MongoDB 控制台](https://console.cloud.tencent.com/mongodb) 创建的用户均是使用 SCRAM-SHA-1 认证的用户。
 - 设置多个账号，并赋予每个账号访问不同数据库的读写权限，可以更细粒度地访问数据库，保证数据的安全性。
 
 ## 版本说明
-当前 MongoDB 4.2、4.0、3.6和3.2版本均支持对数据库账号进行管理。
+当前 MongoDB 4.4、4.2、4.0、3.6和3.2版本均支持对数据库账号进行管理。
 
 ## 使用须知
 -  创建账号并给账号赋予访问权限，系统需要2分钟进行后台配置才能生效。

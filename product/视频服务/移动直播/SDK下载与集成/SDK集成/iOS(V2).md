@@ -55,35 +55,38 @@ pod 命令执行完后，会生成集成了 SDK 的 `.xcworkspace` 后缀的工�
 ### 手动集成
 1. 下载 [LiveAVSDK](https://cloud.tencent.com/document/product/454/7873) ，下载完成后进行解压。
 2. 打开您的 Xcode 工程项目，选择要运行的 target , 选中 **Build Phases** 项。
-![](https://qcloudimg.tencent-cloud.cn/raw/be1dada9803b1bfd26c0feddb2f1cbb5.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/db2f2f8d061a20af01a16c0dde7c8247.png)
 3. 单击 **Link Binary with Libraries** 项展开，单击底下的 **+** 添加依赖库。
-![](https://qcloudimg.tencent-cloud.cn/raw/3b10bf93bef29868b611bb0095fb63c5.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/625efe18420f8f4c01af264007e942d7.png)
 4. 依次添加所下载的 `TXLiteAVSDK_Professional.framework` 、`TXFFmpeg.xcframework`、`TXSoundTouch.xcframework` 及其所需依赖库：
-```
-GLKit.framework
-AssetsLibrary.framework
-SystemConfiguration.framework
-libsqlite3.0.tbd
-CoreTelephony.framework
+```node
 AVFoundation.framework
+VideoToolbox.framework
+libz.tbd
 OpenGLES.framework
 Accelerate.framework
+libsqlite3.0.tbd
 MetalKit.framework
+CoreTelephony.framework
 libresolv.tbd
-MobileCoreServices.framework
+GLKit.framework
+Foundation.framework
+SystemConfiguration.framework
+AssetsLibrary.framework
 libc++.tbd
+CoreServices.framework
 CoreMedia.framework
 ```
-![](https://qcloudimg.tencent-cloud.cn/raw/85974527c721e13dd88e37ffa8a217bc.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/2cad68ebf4de0faba9fad17c8cf769e7.png)
 5. 选中 Build Settings 项，搜索 `Other Linker Flags`。添加 `-ObjC`。
-![](https://qcloudimg.tencent-cloud.cn/raw/7d6812ebcc37d330b0c1a84979ccef67.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/c4709ea5f04ab51f6f2ce454ba1c1275.png)
 
 ## 授权摄像头和麦克风使用权限
 使用 SDK 的音视频功能，需要授权麦克风和摄像头的使用权限。在 App 的 Info.plist 中添加以下两项，分别对应麦克风和摄像头在系统弹出授权对话框时的提示信息。
 - **Privacy - Microphone Usage Description**，并填入麦克风使用目的提示语。
 - **Privacy - Camera Usage Description**，并填入摄像头使用目的提示语。
 
-![](https://qcloudimg.tencent-cloud.cn/raw/c814236b930d5a908122b4a60a13d327.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/9c5f126ece7c31723545a137b38268c6.png)
 
 ## 在工程中引入 SDK
 项目代码中使用 SDK 有两种方式：
@@ -97,11 +100,8 @@ CoreMedia.framework
 ```
 
 ## 给 SDK 配置 License 授权
-
-单击 [License 申请](https://console.cloud.tencent.com/live/license) 获取测试用 License，您会获得两个字符串：一个字符串是 licenseURL，另一个字符串是解密 key。
-
-在您的 App 调用 LiteAVSDK 的相关功能之前（建议在 `- [AppDelegate application:didFinishLaunchingWithOptions:]` 中）进行如下设置：
-
+1. 单击 [License 申请](https://console.cloud.tencent.com/live/license) 获取测试用 License，您会获得两个字符串：一个字符串是 licenseURL，另一个字符串是解密 key。
+2. 在您的 App 调用 LiteAVSDK 的相关功能之前（建议在 `- [AppDelegate application:didFinishLaunchingWithOptions:]` 中）进行如下设置：
 ```objc
 @import TXLiteAVSDK_Professional;
 @implementation AppDelegate
@@ -119,8 +119,14 @@ CoreMedia.framework
 [](id:faq)
 ## 常见问题
 ### 1. LiteAVSDK 是否支持后台运行？
-**支持**，如需要进入后台仍然运行相关功能，可选中当前工程项目，在 **Capabilities** 下设置  **Background Modes** 为 **ON**，并勾选 **Audio，AirPlay and Picture in Picture** ，如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/57ee6aa850d7d73c3b67d8d1942c2b47.png)
+**支持**，如需要进入后台仍然运行相关功能，操作如下：
+1. 选中当前工程项目，选择 **Signing&Capabilities** ，单击左上角**+**，如图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/d06bbd6669a4d60bbf2c217b0a8cc961.png)
+2. 选择 **Background Modes**。
+![](https://qcloudimg.tencent-cloud.cn/raw/d43e735cb3450fe10c3327803904c0b2.png)
+3. 在 **Background Modes**中勾选 **Audio，AirPlay and Picture in Picture** ，如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/e37c5de253b07f27de0a6554ba3a6311.png)
 
 ### 2. 项目里面同时集成了直播 SDK/实时音视频/播放器等 LiteAVSDK 系列的多个 SDK 报符号冲突问题怎么解决？
 如果集成了2个或以上产品（直播、播放器、TRTC、短视频）的 LiteAVSDK 版本，编译时会出现库冲突问题，因为有些 SDK 底层库有相同符号文件，这里建议只集成一个全功能版 SDK 可以解决，直播、播放器、TRTC、短视频这些都包含在一个 SDK 里面。具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/454/7873)。
+

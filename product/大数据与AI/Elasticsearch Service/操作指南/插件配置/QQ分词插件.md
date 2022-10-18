@@ -15,6 +15,9 @@ qq_max 会对文本做最细粒度的拆分，qq_smart 会对文本做最粗粒�
 >- ner 是什么？为什么 ner 功能要独立一个分词器？
 ner 是 Named Entity Recognition（命名实体识别）的简称，可以识别文本中具有特定意义的实体，主要包括人名、地名、机构名、专有名词等。对于这一类专有名词，不需要用户上传自定义词库。将 ner 功能单独保证为一个分词器，主要是因为 ner 功能需要加载一个模型，首次加载时间比较长。
 
+>! QQ 分词插件现无法识别中文、英文以外的词，如上传的文件中包含其他语言的内容，分词结果会过滤这些内容，类似于过滤标点符号。
+
+
 ### 使用步骤
 1. 登录已安装 QQ 分词插件的集群对应的 Kibana 控制台。登录控制台的具体步骤请参考 [通过 Kibana 访问集群](https://cloud.tencent.com/document/product/845/19541)。
 2. 单击左侧导航栏的 Dev Tools。
@@ -127,7 +130,6 @@ GET index/_search
 ```
 
 ### 使用自定义词典
-QQ 分词插件支持自定义词典的配置，词典上传后会触发集群的滚动重启，请确保集群处于 GREEN 状态，并且没有单副本索引。
 1. 登录 [Elasticsearch Service 控制台](https://console.cloud.tencent.com/es)，在集群列表页，单击集群【ID/名称】进入集群详情页。
 ![](https://main.qcloudimg.com/raw/3a8640bd4e23dfa56ec76eda69fdc33f.png)
 2. 单击【插件列表】，进入插件列表管理页面。

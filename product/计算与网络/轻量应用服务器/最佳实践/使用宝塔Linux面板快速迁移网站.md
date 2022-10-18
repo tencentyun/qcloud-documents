@@ -25,9 +25,9 @@
 ### 迁入服务器操作
 1. 登录迁入服务器的宝塔 Linux 面板，详情请参见 [安装和配置宝塔 Linux 面板腾讯云专享版](https://cloud.tencent.com/document/product/1207/54078)。
 2. 选择左侧菜单栏中的**面板设置**，并在设置页面中开启 API 接口。如下图所示：
-![](https://main.qcloudimg.com/raw/70a639b2ce0d33ba48ccc2c0b9f3bcf6.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/6e3ec76469899819046cb005e588cc09.png)
 3. [](id:Step3)在弹出的“配置面板API” 窗口中，参考以下信息进行配置。如下图所示：
-![](https://main.qcloudimg.com/raw/7214435d8d0a8dc957845e876ea0a7db.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/fd25d6ec6df2d810c8ce95328f317747.png)
    - **接口密钥**：记录接口密钥。
    - **IP白名单**：将需迁出服务器的公网 IP 地址加入 IP 白名单中、
 4. 单击**保存**。
@@ -42,19 +42,19 @@
 <img src="https://main.qcloudimg.com/raw/6f5f396912e78e102e25b8117550575b.png"/>
 3. 安装成功后，单击插件所在行右侧的**设置**。
 4. 在弹出的“宝塔一键迁移API版本”窗口中，参考以下信息填写接受数据的**迁入服务器**信息。如下图所示：
-![](https://main.qcloudimg.com/raw/ecb1a2a0557b8cd8c4de4857d4bed92c.png)
-   - **面板地址**：填写迁入服务器的面板地址。例如，`http://公网 IP:8888`。
-   - **API密钥**：填写在迁入服务器操作的 [步骤3](#Step3) 中已获取的 API 接口密钥。
+![](https://qcloudimg.tencent-cloud.cn/raw/8c7db576aff596e5cebeebc57bdad4c6.png)
+   - **接收数据的面板地址**：填写迁入服务器的面板地址。例如，`http://公网 IP:8888`。
+   - **接收数据的面板API**：填写在迁入服务器操作的 [步骤3](#Step3) 中已获取的 API 接口密钥。
 5. 选择**下一步**，在弹出提示窗口中单击**已添加，继续操作**进入检测环境步骤。
 6. 在检测环境步骤中，宝塔面板将对远程接收数据的迁入服务器进行环境检测，查看是否已安装相关软件及运行环境。其中包含网站服务、MySQL 数据库、FTP、PHP、可用磁盘容量。
 若检测失败，并提示远程迁入服务器中未安装某个软件（例如 PHP、MySQL 等）则需登录迁入服务器面板，前往**软件商店**安装对应版本软件，直至检测全部通过后，单击**下一步**。如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/43c81101859e4427c954cecb078458e8.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/1b364ea989b65672b7aa1b5c1021e043.png)
 7. 在选择数据步骤中，按需选择需迁移的数据，并单击**一键迁移**。如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/f255bebf266adb1f0295193e0b0e4ad8.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/677a3e6290da1905e285bf2235cf05d3.png)
 等待数据迁移完成，若提示迁移失败，则建议您查看迁移日志，并参考提示信息处理对应问题。问题解决后，再重新执行迁移步骤。迁移成功如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/1847a0eaa13983e0e605b517ba00992e.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/105fb8a8b7d96658f1b0d10fb5e38604.png)
 
 ### 访问迁移后的网站
-1. 修改迁出服务器中网站的域名解析，将 DNS 解析的记录值修改为迁入服务器的公网 IP 地址。
+1. 修改迁出服务器中网站的域名解析，将 DNS 解析的记录值修改为迁入服务器的公网 IP 地址。具体操作请参见 [快速添加域名解析](https://cloud.tencent.com/document/product/302/3446)。
 2. 等待新的 DNS 解析生效后，使用浏览器访问网站域名，即可访问完成迁移后的网站。
 

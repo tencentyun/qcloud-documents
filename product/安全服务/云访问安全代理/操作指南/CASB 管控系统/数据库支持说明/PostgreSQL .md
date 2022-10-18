@@ -107,7 +107,7 @@
 | 子查询-简单语法子查询，策略在子查询条件语句上          | 支持                     | select * from table_a t1 where t1.col2 in (select col2 from table_a) and t1.id = 1; |
 | 子查询-子查询中策略字段作为关联条件或条件字段          | 支持                     | select t1.id, t1.col1, t1.col2, t1.col3 from table_a t1 inner join table_b t2 on t1.id = t2.id and t1.col2 = t2.col2 where t1.id = 1 and t2.col2 = 'n1'; |
 | 子查询-结果集带有子查询字段并是策略字段                | 支持                     | select t1.id, t1.col1, t1.col2, t2.col3 from table_a t1 inner join table_b t2 on t1.id = t2.id and t1.col2 = t2.col2 where t1.id = 1 and t2.col2 = 'n1'; |
-| 对 exist 关键字的支持                                  | 支持                     | select * from table_a tft  where exists (select 1 from table_b tft2 where tft2.id = tft.id and tft2.col2='n1'); |
+| 对 exists 关键字的支持                                  | 支持                     | select * from table_a tft  where exists (select 1 from table_b tft2 where tft2.id = tft.id and tft2.col2='n1'); |
 | 对 group by 语法的支持                                 | 支持                     | select col2, count(1) from table_a tft group by col2;        |
 | 对 Union 关键字的支持                                  | 支持 策略字段 按照基础表 | select id, col1 from public.table_a ta  union select id, col1 from public.table_b tb ; |
 | 对 order by 的支持                                     | 支持非加解密字段         | select id, col2 from table_a tft order by id desc limit 1;<br>select id, col2 from table_a tft order by lower(col2); |

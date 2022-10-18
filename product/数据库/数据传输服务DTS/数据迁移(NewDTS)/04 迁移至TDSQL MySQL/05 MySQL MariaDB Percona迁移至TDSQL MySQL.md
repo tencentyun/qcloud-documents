@@ -16,7 +16,7 @@
 - 在全量迁移过程通过有锁迁移来实现，锁表过程中会短暂阻塞写入操作。
 - [创建数据一致性校验](https://cloud.tencent.com/document/product/571/62564) 时，DTS 会使用执行迁移任务的账号在源库中写入系统库`__tencentdb__`，用于记录迁移任务过程中的数据对比信息。
   - 为保证后续数据对比问题可定位，迁移任务结束后不会删除源库中的`__tencentdb__`。
-  - `__tencentdb__`系统库占用空间非常小，约为源库存储空间的千分之一到万分之一（例如源库为50G，则`__tencentdb__`系统库约为 5K-50K） ，并且采用单线程，等待连接机制，所以对源库的性能几乎无影响，也不会抢占资源。 
+  - `__tencentdb__`系统库占用空间非常小，约为源库存储空间的千分之一到万分之一（例如源库为50GB，则`__tencentdb__`系统库约为5MB - 50MB），并且采用单线程，等待连接机制，所以对源库的性能几乎无影响，也不会抢占资源。 
 
 ## 前提条件
 - 已 [创建分布式数据库 TDSQL MySQL版](https://cloud.tencent.com/document/product/557/10236)。
@@ -79,11 +79,14 @@ GRANT INSERT, UPDATE, DELETE, DROP, SELECT, INDEX, ALTER, CREATE ON `__tencentdb
 <li>源端 binlog_row_image 变量必须设置为 FULL。</li>
 <li>源端 gtid_mode 变量在5.6及以上版本不为 ON 时，会报 WARNING，建议用户打开 gtid_mode。</li>
 <li>不允许设置 do_db, ignore_db。</li>
-<li>对于源实例为从库的情况，log_slave_updates 变量必须设置为 ON。</li></ul></li>
+<li>对于源实例为从库的情况，log_slave_updates 变量必须设置为 ON。</li>
+<li>建议源库 Binlog 日志至少保留3天及以上，否则可能会因任务暂停/中断时间大于 Binlog 日志保留时间，造成任务无法续传，进而导致任务失败。</li>
+</ul></li>
 <li>外键依赖：
 <ul>
 <li>外键依赖只能设置为 no action 和 restrict 两种类型。</li>
-<li>部分库表迁移时，有外键依赖的表必须齐全。</li></ul></li></td></tr>
+<li>部分库表迁移时，有外键依赖的表必须齐全。</li></ul></li>
+  <li>环境变量 innodb_stats_on_metadata 必须设置为 OFF。</li></td></tr>
 <tr> 
 <td>目标数据库要求</td>
 <td>
@@ -91,9 +94,6 @@ GRANT INSERT, UPDATE, DELETE, DROP, SELECT, INDEX, ALTER, CREATE ON `__tencentdb
 <li>目标库的空间大小须是源库待迁移库表空间的1.2倍以上。</li>
 <li>目标库不能有和源库冲突的库表。</li>
 </td></tr>
-<tr> 
-<td>其他要求</td>
-<td>环境变量 innodb_stats_on_metadata 必须设置为 off。</td></tr>
 </table>
 
 ## 操作步骤

@@ -1,6 +1,6 @@
 
 
-本文介绍超级节点特有的 Annotation 与示例，该 Annotation 针对 TKE 集群和 EKS 集群内超级节点上运行的 Pod 生效。
+本文介绍超级节点特有的 Annotation 与示例，该 Annotation 针对 TKE 标准集群和 TKE Serverless 集群内超级节点上运行的 Pod 生效。
 
 ## Annotation 使用方法
 ### 工作负载里添加 Pod 注解
@@ -58,6 +58,15 @@ eks.tke.cloud.tencent.com/cpu: '8'
 eks.tke.cloud.tencent.com/mem: '16Gi' # 内存一定要以 Gi 为单位，以 G 为单位则会报参数错误
 ```
 
+
+### 指定系统盘大小
+
+超级节点上运行的 Pod 默认免费提供20G系统盘，系统盘生命周期与 Pod 的生命周期一致，可满足通用场景的系统盘资源诉求，若特殊场景下用户需要额外扩容系统盘大小，支持通过 Annotation 来声明所需系统盘的大小，注意，此时超过20G的部分将按照 CBS 高性能云盘按量计费的刊例价进行计费，计费详情见 [云硬盘定价说明](https://buy.cloud.tencent.com/price/cbs)。系统盘大小注解示例如下：
+```yaml
+eks.tke.cloud.tencent.com/root-cbs-size: '50'  # 指定系统盘大小，超过20 Gi 额外计费
+```
+>? 若使用镜像缓存时需要调整盘大小，请参考 [镜像缓存Annotation](https://cloud.tencent.com/document/product/457/44173#.E9.95.9C.E5.83.8F.E7.BC.93.E5.AD.98)。
+
 ### 规格自动升配
 
 超级节点上运行的 Pod 会按照 request 与 limit 自动计算出匹配的底层资源规格。如果对应的规格底层无相应资源，则会创建失败并在事件中提示资源不足 (insufficient resource)。如果用户接受使用更高规格的资源来创建 Pod，则可在 Pod 添加如下注解，开启自动升配，计费将按照升配后的规格计算。
@@ -71,9 +80,10 @@ eks.tke.cloud.tencent.com/spec-auto-upgrade: 'true' # 遇到资源不足时，�
 如需指定 GPU，可在 Pod 上添加如下注解：
 
 ```yaml
-eks.tke.cloud.tencent.com/gpu-count: '1' # 指定 GPU 卡数。
-eks.tke.cloud.tencent.com/gpu-type: 'T4,V100' # 指定 GPU 型号，支持优先级顺序写法。
+eks.tke.cloud.tencent.com/gpu-type: 'T4,V100' # 指定 GPU 型号，支持优先级顺序写法，若使用1/4卡的 T4 vGPU 则指定 GPU 型号为1/4*T4。
 ```
+>? GPU 的卡数和规格需要您在 Request 和 Limit 中自行设置，建议参考对应型号的 GPU 规格设置合适的值。GPU 规格详情可参考 [资源规格](https://cloud.tencent.com/document/product/457/39808#gpu-.E8.A7.84.E6.A0.BC)。
+
 
 ### 指定 CPU 类型
 如需指定 CPU 类型，可在 Pod 上添加如下注解：
@@ -109,6 +119,10 @@ eks.tke.cloud.tencent.com/retain-ip-hours: '48' # 保留 IP 的最大时长（�
 ```yaml
 eks.tke.cloud.tencent.com/eip-attributes: '{"InternetMaxBandwidthOut":50, "InternetChargeType":"TRAFFIC_POSTPAID_BY_HOUR"}' # 值可以为空串，表示启用 EIP 并使用默认配置；也可以用创建 EIP 接口的 json 参数，详细参数列表参考 https://cloud.tencent.com/document/api/215/16699#2.-.E8.BE.93.E5.85.A5.E5.8F.82.E6.95.B0，本例中的参数表示 EIP 是按量付费，且带宽上限为 50M。
 ```
+
+>! 非带宽上移的账号（传统账户），不支持绑定 EIP，若您无法确认账户类型，请参见 [判断账户类型](https://cloud.tencent.com/document/product/1199/49090#judge)，若为非带宽上移账户，可 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行账户升级。
+
+
 
 ### StatefulSet 固定 EIP
 如需在 StatefulSet 固定 EIP，可在 Pod 级别添加如下注解：
@@ -151,7 +165,7 @@ eks.tke.cloud.tencent.com/registry-http-endpoint: 'harbor.example.com' # 也可�
 
 ### 镜像复用
 
-超级节点上默认会复用系统盘以加快启动速度，复用的是同一工作负载下相同可用区 Pod 且在缓存时间内（销毁后 6 小时内）的系统盘。如需复用不同工作负载的 Pod 的镜像，可以在不同工作负载的 Pod 上打上相同的 `cbs-reuse-key` 的注解：
+超级节点上默认会复用系统盘以加快启动速度，复用的是同一工作负载下相同可用区 Pod 且在缓存时间内（销毁后2小时内）的系统盘。如需复用不同工作负载的 Pod 的镜像，可以在不同工作负载的 Pod 上打上相同的 `cbs-reuse-key` 的注解：
 
 ```yaml
 eks.tke.cloud.tencent.com/cbs-reuse-key: 'image-name'
@@ -165,6 +179,19 @@ eks.tke.cloud.tencent.com/cbs-reuse-key: 'image-name'
 
 ```yaml
 eks.tke.cloud.tencent.com/use-image-cache: 'auto'
+```
+ 
+指定镜像缓存创建出来的盘类型：
+
+```yaml
+eks.tke.cloud.tencent.com/image-cache-disk-type: 'CLOUD_SSD'  # 指定镜像缓存创建出来的盘类型，可取值如下：CLOUD_BASIC为普通云硬盘，CLOUD_PREMIUM为高性能云硬盘（默认），CLOUD_SSD为SSD云硬盘，CLOUD_HSSD为增强型SSD云硬盘，CLOUD_TSSD为极速型SSD云硬盘
+```
+
+
+指定镜像缓存创建出来的盘的大小：
+
+```yaml
+eks.tke.cloud.tencent.com/image-cache-disk-size: '50' # 指定镜像缓存创建出来的盘的大小，默认是镜像缓存创建时设置的大小，可以调大，不能调小
 ```
 
 用户也可以手动指定镜像缓存实例，不使用自动匹配：
@@ -216,7 +243,7 @@ eks.tke.cloud.tencent.com/host-modprobe: 'toa'
 
 超级节点所在集群虚拟机内的 agent 会上报心跳给控制面，如果上报超时（默认 5min)，一般说明 Pod 内进程已经无法正常工作了，故障原因通常是高负载，这时集群默认会自动迁移虚拟机（对当前虚拟机关机并自动创建新虚拟机，让 Pod 迁移到新虚拟机里去运行），从而实现自愈。
 
-如果用户不希望自动重建（比如用于保留现场），可以在 Pod 上添加如下注解：
+如果用户不希望自动重建（如用于保留现场），可以在 Pod 上添加如下注解：
 
 ```yaml
 eks.tke.cloud.tencent.com/recreate-node-lost-pod: "false"
@@ -403,4 +430,19 @@ eks.tke.cloud.tencent.com/ipvs-scheduler: 'sh' # 调度算法，sh 是 source ha
 eks.tke.cloud.tencent.com/ipvs-sh-port: "true" # 按端口进行 source hash，仅在 ipvs-scheduler 为 sh 有效。
 eks.tke.cloud.tencent.com/ipvs-sync-period: '30s' # 规则刷新的最大间隔，默认 30s 刷新一次。
 eks.tke.cloud.tencent.com/ipvs-min-sync-period: '2s' # 规则刷新的最小间隔，默认 service 一有变更就刷新。调整此参数可避免刷新过于频繁。
+```
+
+
+- 设置集群内访问 CLB 的 VIP 时流量不走 IPVS
+适用于希望集群内访问不走 ipvs 而走 clb，通过给 service 上配置该 annotation 后，不会再生成对应的 ipvs 规则：
+```yaml
+service.cloud.tencent.com/discard-loadbalancer-ip: 'true' # 该 annotation 配置在 service 上，无需重建 Pod 即可即时生效
+```
+
+
+## 自定义 Pod 时区
+
+超级节点上的 Pod 默认为 UTC 时间，若需要调整 Pod 时区为东8区，可添加如下 Annotation：
+```yaml
+eks.tke.cloud.tencent.com/host-timezone: 'Asia/Shanghai' # 该 annotation 用于设置 Pod 时区为东8区
 ```

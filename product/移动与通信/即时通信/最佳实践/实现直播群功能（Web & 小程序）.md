@@ -1,18 +1,8 @@
 本文将为您介绍即时通信 IM 实现直播群功能的操作解析，以下为视频介绍：
-<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2768-53360?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
-
-即时通信 IM 的直播群（AVChatRoom）有以下特点：
-- **无人数限制，可实现千万级的互动直播场景**。
-- 支持向全体在线用户推送消息（群系统通知）。
-- 申请加群后，无需管理员审批，直接加入。
 
 >?本文以 Web 和微信小程序端 SDK 为例，其他端 SDK 实现流程相同，操作略有差异。
 
 ## 适用场景
-
-#### 直播弹幕
- AVChatRoom 支持弹幕、 送礼和点赞等多消息类型，轻松打造良好的直播聊天互动体验。
-![](https://imgcache.qq.com/open_proj/proj_qcloud_v2/gateway/product/im-new/css/img/scenes/function2.gif)
 #### 网红带货
  AVChatRoom 与商业直播相结合，通过提供点赞、询价、购物券等特定消息类型，帮助直播客户实现流量变现。
  ![](https://imgcache.qq.com/open_proj/proj_qcloud_v2/gateway/product/im-new/css/img/scenes/function3.gif)
@@ -249,47 +239,4 @@ promise.then(<span class="hljs-function"><span class="hljs-keyword">function</sp
   <span class="hljs-comment">// 发送失败</span>
   <span class="hljs-built_in">console</span>.warn(<span class="hljs-string">'sendMessage error:'</span>, imError)
 })</code></pre>
-
-
-## 常见问题
-
-### 1. 自己发送的消息 `Message.nick` 和 `Message.avatar` 都是空的，该怎么处理才能在界面上正常展示昵称和头像？
-
-可以通过调用 [getMyProfile](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getMyProfile) 获取自己的昵称和头像。
-
-### 2. 如何在直播群中实现禁言功能？
-
-可以将禁言功能通过自定义消息实现，自定义消息中需包含被禁言者的 Members_Account 与禁言时间，通过 [群内发言之前回调](https://cloud.tencent.com/document/product/269/1619) 将该自定义消息抄送至业务后台，业务后台调用 [批量禁言和取消禁言](https://cloud.tencent.com/document/product/269/1627) 接口即可实现针对指定用户的禁言功能。
-
-### 3. 如何在直播群中实现踢人功能？
-
-可以将踢人功能通过自定义消息实现，自定义消息中需包含被踢者的 Members_Account，通过将该消息优先级设置为 High 避免因40条/秒消息限频后被后台抛弃，被踢者的 SDK 收到该消息后，调用 [退出群组](https://cloud.tencent.com/document/product/269/44498#.E7.BE.A4.E7.BB.84.E7.9B.B8.E5.85.B3.E6.8E.A5.E5.8F.A3) 接口即可在直播群中实现踢人功能。
-
-### 4. 为什么会丢消息？
-
-出现丢消息的可能原因如下：
-
-- 直播群有40条/秒的频率限制，可通过消息发送前回调与消息发送后回调进行判断，若丢失的消息有收到消息发送前回调，未收到消息发送后回调，则该消息被限频。
-- 可参考 [常见问题4](#p4)，判断是否因为小程序/Web 端退出时，导致 Android/iOS/PC 同步退出。
-- 如果是小程序/Web 出现问题，请确认您使用的 SDK 版本是否早于V2.7.6，如果是，请升级最新版。
-
-如果您已排除以上可能性，您可以提交工单联系我们。
-
-### 5. 如何实现点赞/关注数量统计？
-
-先通过自定义消息构建点赞/关注消息类型，当用户在前端点击点赞/关注 icon 触发自定义消息下发后，将点赞/关注消息通过 [群内发言之前回调](https://cloud.tencent.com/document/product/269/1619) 抄送到业务侧，业务侧根据收到的点赞/关注消息数进行数量统计，每3秒 - 5秒可通过 [修改群基础资料接口](https://cloud.tencent.com/document/product/269/1620) 将该数据更新进群资料字段中，SDK 通过 [拉取群资料接口](https://cloud.tencent.com/document/product/269/44498#.E7.BE.A4.E7.BB.84.E7.9B.B8.E5.85.B3.E6.8E.A5.E5.8F.A3) 即可实现点赞/关注数量统计。
-
-### 6. 如何设置消息优先级更为合理？
-
-为避免重要消息被抛弃，直播间针对所有消息提供3种优先级选择，SDK 获取消息时将会优先获取高优先级消息，针对自定义消息优先级设置建议如下：
-
-- High：红包、礼物、踢人消息。
-- Normal：普通文本消息。
-- Low：点赞、关注消息。
-
-### 7. 有没有开源的直播组件，可以直接看视频和聊天互动？
-
-有的，且代码开源，详情请参考 [腾讯云 Web 直播互动组件](https://github.com/tencentyun/TWebLive)。
-您也可以直接扫码体验腾讯云 Web 直播互动组件：
-<img src="https://main.qcloudimg.com/raw/7ebc3e270add5ec6d62f6f8972c61249.png" width="150">
 

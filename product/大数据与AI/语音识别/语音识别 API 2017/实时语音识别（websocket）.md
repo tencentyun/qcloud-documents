@@ -63,12 +63,12 @@ key1=value2&key2=value2...(key 和 value 都需要进行 urlencode)
 | timestamp | 是 | Integer | 当前 UNIX 时间戳，单位为秒。如果与当前时间相差过大，会引起签名过期错误 |
 | expired | 是 | Integer | 签名的有效期截止时间 UNIX 时间戳，单位为秒。expired 必须大于 timestamp 且 expired - timestamp 小于90天 |
 | nonce | 是 | Integer | 随机正整数。用户需自行生成，最长10位 |
-| engine_model_type | 是 | String | 引擎模型类型<br>电话场景：<br>• 8k_en：电话 8k 英语；<br>• 8k_zh：电话 8k 中文普通话通用；<br>• 8k_zh_finance：电话 8k 金融领域模型；<br>非电话场景：<br>• 16k_zh：16k 中文普通话通用；<br>• 16k_en：16k 英语；<br>• 16k_ca：16k 粤语；<br>• 16k_ko：16k 韩语；<br>• 16k_zh-TW：16k 中文普通话繁体；<br>• 16k_ja：16k 日语；<br>• 16k_wuu-SH：16k 上海话方言；<br>• 16k_zh_medical 医疗；<br>• 16k_en_game 英文游戏；<br>• 16k_zh_court 法庭；<br>• 16k_en_edu 英文教育；<br>• 16k_zh_edu 中文教育；<br>• 16k_th 泰语；<br>• 16k_zh_dialect：多方言，支持23种方言 |
+| engine_model_type | 是 | String | 引擎模型类型<br>电话场景：<br>• 8k_en：电话 8k 英语；<br>• 8k_zh：电话 8k 中文普通话通用；<br>• 8k_zh_finance：电话 8k 金融领域模型；<br>非电话场景：<br>• 16k_zh：16k 中文普通话通用；<br>• 16k_en：16k 英语；<br>• 16k_ca：16k 粤语；<br>• 16k_ko：16k 韩语；<br>• 16k_zh-TW：16k 中文普通话繁体；<br>• 16k_ja：16k 日语；<br>• 16k_wuu-SH：16k 上海话方言；<br>• 16k_zh_medical 医疗；<br>• 16k_en_game 英文游戏；<br>• 16k_zh_court 法庭；<br>• 16k_en_edu 英文教育；<br>• 16k_zh_edu 中文教育；<br>• 16k_th 泰语。 |
 | voice_id | 是 | String | 16位 String 串作为每个音频的唯一标识，用户自己生成 |
 | voice_format | 否 | Int | 语音编码方式，可选，默认值为4。1：pcm；4：speex(sp)；6：silk；8：mp3；10：opus（[opus 格式音频流封装说明](#jump)）；12：wav；14：m4a（每个分片须是一个完整的 m4a 音频）；16：aac|
 | needvad | 否 | Integer | 0：关闭 vad，1：开启 vad<br>如果语音分片长度超过60秒，用户需开启 vad（人声检测切分功能） |
 | hotword_id | 否 | String | 热词表 id。如不设置该参数，自动生效默认热词表；如果设置了该参数，那么将生效对应的热词表 |
-| customization_id | 否 | String | 自学习模型 id。如不设置该参数，自动生效最后一次上线的自学习模型；如果设置了该参数，那么将生效对应的自学习模型|
+| customization_id | 否 | String | 自学习模型 id。如设置了该参数，将生效对应的自学习模型|
 | filter_dirty | 否 | Integer | 是否过滤脏词（目前支持中文普通话引擎）。默认为0。0：不过滤脏词；1：过滤脏词；2：将脏词替换为“ * ”   |
 | filter_modal | 否 | Integer | 是否过语气词（目前支持中文普通话引擎）。默认为0。0：不过滤语气词；1：部分过滤；2：严格过滤  |
 | filter_punc | 否 | Integer | 是否过滤句末的句号（目前支持中文普通话引擎）。默认为0。0：不过滤句末的句号；1：过滤句末的句号 |

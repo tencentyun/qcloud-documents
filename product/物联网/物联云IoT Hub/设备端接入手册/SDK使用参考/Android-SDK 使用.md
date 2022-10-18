@@ -1,6 +1,9 @@
 
 
+
+
 对设备端 SDK 的使用分以下两种情况：   
+
 - 若 App 与 IoT-SDK 在同一进程中运行，则 App 只需依赖 iot_core 模块即可。
 - 若 App 与 IoT-SDK 需运行在不同进程，则 App 只需依赖 iot_service 模块即可。
 

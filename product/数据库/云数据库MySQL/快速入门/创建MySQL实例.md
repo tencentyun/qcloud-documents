@@ -8,7 +8,7 @@
 - 如需完成实名认证：
 <div style="background-color:#00A4FF; width: 170px; height: 35px; line-height:35px; text-align:center;"><a href="https://console.cloud.tencent.com/developer" target="_blank"  style="color: white; font-size:16px;"  hotrep="document.guide.3128.btn2">点此完成实名认证</a></div>
 
-## 操作步骤
+## 购买双节点、三节点实例
 1. 登录 [MySQL 购买页](https://buy.cloud.tencent.com/cdb)，根据实际需求选择各项配置信息，确认无误后，单击**立即购买**。
  - **计费模式**：支持包年包月和按量计费。
     - 若业务量有较稳定的长期需求，建议选择包年包月。
@@ -35,6 +35,7 @@
  - **参数模板**：除提供的系统参数模板外，您也可以创建自定义参数模板，请参见 [使用参数模板](https://cloud.tencent.com/document/product/236/30304)。
   - **字符集**：支持 LATIN1 、GBK、UTF8 、UTF8MB4 字符集，默认字符集编码格式是 UTF8。购买完成后，亦可在控制台实例详情页修改字符集，更多说明请参见 [字符集说明](https://cloud.tencent.com/document/product/236/7259#.E5.AD.97.E7.AC.A6.E9.9B.86.E8.AF.B4.E6.98.8E)。
  - **表名大小写敏感**：表名是否大小写敏感，默认为开启。
+ - **密码复杂度**：支持设置密码复杂度以提升数据库安全性，默认为关闭。更多说明请参见 [设置密码复杂度](https://cloud.tencent.com/document/product/236/77620)。
  - **root密码**：新创建的 MySQL 数据库的用户名默认为 root，此处用来设置该 root 帐号的密码。选择**创建后设置**时，可在创建完实例后再 [重置密码](https://cloud.tencent.com/document/product/236/10305)。
  - **告警策略**：创建告警用于在云产品状态改变时触发警报并发送相关消息，请参见 [告警策略](https://cloud.tencent.com/document/product/236/8457)。
  - **指定项目**：选择数据库实例所属的项目，缺省设置为默认项目。
@@ -45,6 +46,27 @@
  - **自动续费**：在包年包月计费模式下，账户余额足够时，设备到期后按月自动续费。
  - **服务条款**：[云数据库服务条款](https://cloud.tencent.com/document/product/236/39102)。
 2. 支付完成后，返回实例列表，会看到实例显示**发货中**（大概需要3min - 5min中，请耐心等待），待实例状态变为**运行中**，即可进行正常操作。
+
+## 购买单节点实例
+>?单节点云盘版实例目前在内测阶段，如需购买，请提交 [内测申请](https://cloud.tencent.com/apply/p/gl91we71qxc)。
+>
+1. 登录 [MySQL 购买页](https://buy.cloud.tencent.com/cdb)，根据实际需求选择各项配置信息，确认无误后，单击**立即购买**。
+ - **计费模式**：支持包年包月和按量计费。
+    - 若业务量有较稳定的长期需求，建议选择包年包月。
+    - 若业务量有瞬间大幅波动场景，建议选择按量计费。
+ - **地域**：选择您业务需要部署 MySQL 的地域，目前支持上海，其他地域后续陆续开放。建议您选择与云服务器同一个地域，不同地域的云产品内网不通，购买后不能更换。
+ - **数据库版本**：单节点架构下，云数据库 MySQL 目前支持以下版本：MySQL 8.0、MySQL 5.7，各个版本相关特性，请参见 [官方文档](https://dev.mysql.com/doc/refman/5.7/en/)。
+ - **引擎**：默认为 InnoDB 引擎。是最常用的 OLTP 存储引擎，拥有完整的事务支持与强大的读写高并发能力。
+ - **架构**：选择单节点。
+ >!基础版故障恢复时间较长，生产环境推荐使用双节点或三节点版本，提供最高99.99%可用性保障。
+ - **硬盘类型**：云盘。了解硬盘类型请参见 [硬盘类型](https://cloud.tencent.com/document/product/362/2353)。
+ - **可用区**：选择实例部署可用区。处于同一私有网络下不同可用区的云产品内网互通；例如，相同私有网络下的上海二区的云服务器可以通过内网访问上海三区的 MySQL。
+ - **实例规格**：根据业务需要选择对应规格。
+ - **硬盘**：硬盘空间用于存放 MySQL 运行时所必须文件。支持选择硬盘为 SSD 云硬盘和增强型 SSD 云硬盘，了解硬盘类型请参见 [硬盘类型](https://cloud.tencent.com/document/product/362/2353)。可选硬盘容量：20GB - 32000GB。
+ ![](https://qcloudimg.tencent-cloud.cn/raw/5cb60f2880dc3a2ae9f5d3692e53098a.png)
+>?后续的配置步骤与购买双节点、三节点实例一致，请参见 [后续步骤](https://cloud.tencent.com/document/product/236/5160#HXBZ)。
+2. 支付完成后，返回实例列表，会看到实例显示**发货中**（大概需要3min - 5min中，请耐心等待），待实例状态变为**运行中**，即可进行正常操作。
+![](https://qcloudimg.tencent-cloud.cn/raw/35e6e0a371d82923a09aa731826c243b.png)
 
 ## 后续操作
 通过 Windows 云服务器或 Linux 云服务器，以内外网两种不同的方式连接云数据库 MySQL，请参见 [连接 MySQL 实例](https://cloud.tencent.com/document/product/236/3130)。

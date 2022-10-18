@@ -47,8 +47,8 @@ DIP 控制台支持手动发送消息，在控制台进行相应的操作即可�
 1. 在 [Topic 列表](https://console.cloud.tencent.com/ckafka/datahub-topic) 中，找到需要发送消息的 Topic ，单击操作列中的**发送消息**。
 2. 在弹出的对话框中输入消息内容和消息 key，同时您也可以将消息发送到指定分区。
    ![](https://qcloudimg.tencent-cloud.cn/raw/a10f1d3217c8ac24346b17ecd8747711.png)
-3. 单击**提交**，完成消息的发送。消息发送后即可被 Topic 下的任意订阅者消费。DIP Topic 创建完成后，可以连接本地客户端并收发消息。详情操作请参见 [SDK 文档](https://cloud.tencent.com/document/product/597/76568)。
-
+3. 单击**提交**，完成消息的发送。消息发送后即可被 Topic 下的任意订阅者消费。
+>?DIP Topic 创建完成后，可以连接本地客户端并收发消息。详情操作请参见 [SDK 文档](https://cloud.tencent.com/document/product/597/76568)。
 
 [](id:new_subscription)
 ### 新增订阅

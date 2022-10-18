@@ -6,8 +6,8 @@
 | API           |  操作描述               |
 | :--------------- | :------------------ |
 | [开通 Guetzli 压缩](https://cloud.tencent.com/document/product/460/30112) | 对 Bucket 开通 Guetzli 压缩功能   |
-| [查询 Guetzli 状态](https://cloud.tencent.com/document/product/460/30111) |用于查询 Guetzli 压缩功能是否开启 |
-|[关闭 Guetzli 压缩](https://cloud.tencent.com/document/product/460/30113)  |   用于关闭 Guetzli 压缩功能   |
+| [查询 Guetzli 状态](https://cloud.tencent.com/document/product/460/30111) | 用于查询 Guetzli 压缩功能是否开启 |
+| [关闭 Guetzli 压缩](https://cloud.tencent.com/document/product/460/30113) | 用于关闭 Guetzli 压缩功能   |
 
 
 ## 开通 Guetzli 压缩
@@ -85,6 +85,8 @@ type GetGuetzliResult struct {
 | GuetzliStatus | 是否开启 Guetzli 压缩功能，拥有 `on` 与 `off` 两种状态。 | String |
 
 ## 关闭 Guetzli 压缩
+
+#### 功能说明
 
 用于关闭 Guetzli 压缩功能。
 

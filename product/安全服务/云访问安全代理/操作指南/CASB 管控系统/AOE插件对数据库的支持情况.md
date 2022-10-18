@@ -69,7 +69,7 @@
 | 子查询-子查询中字段作为关联条件                        | 支持                                 | select a.col1 from table_a a  join (select col2,col3,col4 from table_b) t on a.col1=t.col3 where  t.col2='ddd' |
 | 子查询-策略配置在子查询条件字段上                      | 支持                                 | select t.col4 from  table_a a join (select col2,col3,col4 from table_b) t on a.col1=t.col3 where  t.col2='ddd' |
 | 子查询-结果集中带有子查询字段，且配置了策略            | 支持                                 | select t.col4 from  table_a a join (select col2,col3,col4 from table_b) t on a.col1=t.col3 where  t.col2='ddd' |
-| 对 exist 关键字的支持                                  | 支持                                 | select col1,col2,col3  from table_a where exists (select 1 from table_b where col3 = table_a.col1) |
+| 对 exists 关键字的支持                                  | 支持                                 | select col1,col2,col3  from table_a where exists (select 1 from table_b where col3 = table_a.col1) |
 | 对 group by 语法的支持                                 | 支持                                 | select col1, col2 from table_a where col3 = 'bbb' group by col1,col2 |
 | 对数字类型的分组函数                                   | 不支持                               | select  sum(col2),avg(col2),min(col2),max(col2) from table_a where col1='aaa' |
 | 对 order by 的支持                                     | 只支持非加密字段的排序               | select * from table_a order by id desc                       |
@@ -82,6 +82,9 @@
 - 支持**8.0及以上版本**的数据库, 但不支持此系列版本新增的 SQL 语法。
 - 仅只支持 `utf8` 和 `utf8mb4` 字符集。
 - 数据库、表和字段名不区分大小写。
+- 加密字段长度需预先扩容以支持更长长度的密文。
+- 加密字段需使用区分大小写的 collation，如 `utf8_general_bin`。
+- `information_schema`，`sys`，`mysql` 等内置数据库 CASB 会自动忽略。
 
 ### 连接
 - 连接内不允许切换登录用户。
@@ -96,10 +99,9 @@
 - 支持 `SELECT`, `INSERT`, `REPLACE`, `UPDATE`, `DELETE` 语句中  `WHERE、ON、IN、INSERT VALUE、SET` 等各字段中非表达式的值加解密。
 - 支持 `ROW` 条件中非表达式的值加解密，如支持 ` where (id, 'n2' , addr)=(2, name,'a2')` 中的字段加解密。
 - 支持 `table references` 和 `where condition` 中的子查询字段中非表达式的值加解密。
-- `information_schema` 数据库不会应用加密规则。
 - `UNION` 语句使用第一个 `SELECT 子句` 的加解密策略。 
 - 不支持存储过程的加解密。
-- 不支持I `NSERT INTO ... SELECT ...` 等不经过 CASB 处理的数据的加解密。
+- 不支持 `INSERT INTO ... SELECT ...` 等不经过 CASB 处理的数据的加解密。
 - 连接查询时，JOIN 字段需选择同样的密钥，否则密文不一致，无法正确进行连接查询。
 
 ### 协议

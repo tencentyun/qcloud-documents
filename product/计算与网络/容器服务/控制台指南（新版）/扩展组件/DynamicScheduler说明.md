@@ -1,3 +1,10 @@
+<dx-alert infotype="alarm" title="温馨提示">
+腾讯云原生监控 TPS 已于2022年5月16日下线，详情见 [公告](https://cloud.tencent.com/document/product/457/72632)。新的 Prometheus 服务由[TMP](https://cloud.tencent.com/document/product/457/71896) 提供。<br>
+   若您的 Dynamic Scheduler 之前使用 TPS 作为数据源并没有调整，调度器将失效。若您需要使用 TMP 作为数据源，由于 TMP 新增了对接口的鉴权能力，您需要[升级](https://cloud.tencent.com/document/product/457/49442#.E7.BB.84.E4.BB.B6.E5.8D.87.E7.BA.A7)调度器才能关联 TMP 实例。
+   若您的 Dynamic Scheduler 使用的是自建 Prometheus 服务，TPS 下线对您的组件没有影响，但需要自行保证自建 Prometheus 的稳定性和可靠性。
+   
+</dx-alert>
+
 
 ## 简介 
 ### 组件介绍
@@ -198,9 +205,9 @@ rule_files:
 >?通常情况下，上述 Prometheus 配置文件和 rules 配置文件都是通过 configmap 存储，再挂载到 Prometheus server 容器，因此修改相应的 configmap 即可。
 
 :::
-::: 云原生监控 Prometheus
-1. 登录容器服务控制台 ，在左侧菜单栏中选择 **[云原生监控](https://console.cloud.tencent.com/tke2/prometheus)**，进入“云原生监控”页面。
-2. 创建与 Cluster 处于同一 VPC 下的 [云原生监控 Prometheus 实例](https://cloud.tencent.com/document/product/457/49889#.E5.88.9B.E5.BB.BA.E7.9B.91.E6.8E.A7.E5.AE.9E.E4.BE.8B)，并 [关联用户集群](https://cloud.tencent.com/document/product/457/49890)。如下图所示：
+::: Prometheus 监控服务
+1. 登录容器服务控制台 ，在左侧菜单栏中选择 **[Prometheus 监控](https://console.cloud.tencent.com/tke2/prometheus2)**，进入“Prometheus 监控”页面。
+2. 创建与 Cluster 处于同一 VPC 下的 [Prometheus 实例](https://cloud.tencent.com/document/product/457/71897)，并 [关联集群](https://cloud.tencent.com/document/product/457/71898)。如下图所示：
 	 ![](https://main.qcloudimg.com/raw/bafb027663fbb3f2a5063531743c2e97.jpg)
 2. 与原生托管集群关联后，可以在用户集群查看到每个节点都已安装 node-exporter。如下图所示：
    ![](https://main.qcloudimg.com/raw/e35d4af7eeba15f6d9da62ce79176904.png)

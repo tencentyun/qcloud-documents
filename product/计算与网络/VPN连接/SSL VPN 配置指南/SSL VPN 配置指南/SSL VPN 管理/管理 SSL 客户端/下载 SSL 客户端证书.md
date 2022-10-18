@@ -21,7 +21,7 @@
 
 ### 操作步骤
 以下步骤由移动终端的用户（例如您公司的员工）自助进行。
-1. 登录[ 腾讯云 Clinet VPN 自主服务门户](http://self-service-test.vpn.woa.com/)。
+1. 登录[ 腾讯云 Clinet VPN 自主服务门户](https://self-service.vpnconnection.tencent.com/)。
 >?建议使用 Chrome 浏览器最新版本。
 >
   1. 在 SSL 服务端 ID 所在行的输入框中输入前述管理员分发的 SSL 服务端实例 ID，然后单击**下一步**，进入登录界面。

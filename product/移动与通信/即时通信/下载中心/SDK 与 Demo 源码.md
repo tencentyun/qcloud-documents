@@ -151,7 +151,7 @@
             <div class="card">
                                 <img class="icon" src="https://main.qcloudimg.com/raw/98394fa5d669de7fb7a187565d138cdb.svg" data-nonescope="true">
                                 <p class="titlename">Flutter SDK</p>
-                <p style="color:#586376;">包含 IM 主要功能</p>
+                <p style="color:#586376;">包含 IM 主要功能，支持iOS/Android/Web</p>
                     <div style="margin-top: 13px;" >
                         <a  href="https://pub.dev/packages/tencent_im_sdk_plugin">Github 下载</a>
                                 <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/269/68823">集成指引</a>
@@ -165,7 +165,6 @@
                                 <p class="titlename">Unity SDK</p>
                 <p style="color:#586376;">包含 IM 主要功能</p>
                     <div style="margin-top: 13px;" >
-                        <a  href="https://comm.qq.com/im/sdk/unity_plus/im_unity_sdk_plus_v1.6.0.unitypackage">Unity Package</a>
                                 <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/269/75289">集成指引</a>
                                 <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/269/56150">更新日志</a>
                     </div>
@@ -180,6 +179,18 @@
                         <a  href="https://www.npmjs.com/package/im_electron_sdk">NPM 下载</a>
                                 <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/269/63007">集成指引</a>
                                 <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/269/63009">更新日志</a>
+                    </div>
+            </div>
+        </div>
+        <div class="card-container">
+            <div class="card">
+                                <img class="icon" src="https://main.qcloudimg.com/raw/98394fa5d669de7fb7a187565d138cdb.svg" data-nonescope="true">
+                                <p class="titlename">React Native SDK</p>
+                 <p style="color:#586376;">包含 IM 主要功能</p>
+                    <div style="margin-top: 13px;" >
+                        <a  href="https://www.npmjs.com/package/react-native-tim-js">NPM 下载</a>
+                                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/269/77272">集成指引</a>
+                                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/269/77271">更新日志</a>
                     </div>
             </div>
         </div>
@@ -252,7 +263,7 @@
             <div class="card">
                                 <img src="https://main.qcloudimg.com/raw/98394fa5d669de7fb7a187565d138cdb.svg" data-nonescope="true">
                                 <p class="titlename"> IM Demo （Flutter）</p>
-                <p style="color:#586376;">包含 IM 主要功能</p>
+                <p style="color:#586376;">包含 IM 主要功能，支持iOS/Android/Web</p>
                      <div style="margin-top: 13px; " >
                     <a href="https://github.com/tencentyun/TIMSDK/tree/master/Flutter/Demo/im-flutter-uikit">Github 下载</a>
                      <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/269/75286">集成指引</a></div>

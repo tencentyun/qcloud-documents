@@ -43,7 +43,7 @@ JVM 监控功能用于监控重要的 JVM 指标，包含已用堆内存（MB）
 
 堆内存的 **max** 展示的是堆内存真实可用的最大值（会扣除 to_space 内存），而不是配置的 xmx 参数；JDK1.8版本部分 GC 算法（如 G1GC 的 Survivor space），其 max 值会设置为 max_int 值，此时值会显示为-1。
 
-  ![](https://main.qcloudimg.com/raw/74a13ceea3c30a5de276aa74b12548d9.png)
+  ![](https://qcloudimg.tencent-cloud.cn/raw/0045319a6f4847311c830fa88a58b1f9.png)
 
 您还可以通过单击图片卡片右上方的放大图标<img src="https://main.qcloudimg.com/raw/c9a7b0fb759613666b13ece6cb9f32c3.png" style="margin:0;"> ，放大当前图片；或通过单击下载图标<img src="https://main.qcloudimg.com/raw/e5689012a21e45ac1170e916a2b63c63.png" style="margin:0;"> ，将当前图片下载到本地（.png格式）。
 
@@ -61,16 +61,30 @@ JVM 监控功能用于监控重要的 JVM 指标，包含已用堆内存（MB）
 - 您可通过列表上方的搜索框，快速查找感兴趣的线程。
 - 单击某线程行所在区域，可在下方的展开区域中，查看到所选线程的详细信息。
 
-所展示的线程列表为进入页面时刻获取的数据，您可通过单击卡片右上方的刷新按钮，拉取当前的最新数据。![](https://main.qcloudimg.com/raw/563edbf3f11700af6d5aaef8914dc980.png)
+所展示的线程列表为进入页面时刻获取的数据，您可通过单击卡片右上方的刷新按钮，拉取当前的最新数据。![](https://qcloudimg.tencent-cloud.cn/raw/6fd4b6218dedf41026f10e2692d76bcf.png)
 :::
 ::: 死锁检测
 在线程详情卡片中，单击**死锁检测**tab 卡片页中的**检测死锁**，实时检测当前进程中存在的死锁线程。
 
-![](https://main.qcloudimg.com/raw/d52be0c6edde1b0d3d7682fcbc6de66e.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/be013c95e07312660968da2ac53d31c2.png)
 
 <dx-alert infotype="explain" title="">
 死锁检测目前的实现，是可以打印互相死锁的线程栈；多个线程等待同一个死锁的情况下，并不能检测出全部的死锁线程，只能找到死锁的根源；建议修复死锁后，重复检测以确认不出现嵌套死锁。
 </dx-alert>
+
+:::
+
+::: 线程分析
+
+线程分析功能提供详细的每类线程数量统计、栈帧统计和函数分布，帮助您快速定位线程问题。
+
+在线程详情卡片中，单击**线程分析**页签，您可以查看线程分析结果。
+
+
+
+![](https://qcloudimg.tencent-cloud.cn/raw/f048db3c96a3c200f95a48b95d17a276.png)
+
+
 
 :::
 ::: 线程数
@@ -98,7 +112,13 @@ JVM 监控功能用于监控重要的 JVM 指标，包含已用堆内存（MB）
 
 ![](https://main.qcloudimg.com/raw/1056b0dd4ea9e128483c83323c9e9e8e.png)
 
+### 查看 GC 日志分析
 
+您可在**GC 日志分析**标签页中，输入 GC 日志路径，点击**开始分析**，查看 GC 日志分析结果，定位问题。
+
+
+
+![](https://qcloudimg.tencent-cloud.cn/raw/67cdd378a46779c6fa9652556c6525fc.png)
 
 
 
@@ -108,4 +128,3 @@ JVM 监控功能用于监控重要的 JVM 指标，包含已用堆内存（MB）
 - [JVM 如何升级 tsf-agent？](https://cloud.tencent.com/document/product/649/42891#jvm-.E5.A6.82.E4.BD.95.E5.8D.87.E7.BA.A7-tsf-agent.EF.BC.9F)
 - [火焰图采集失败如何处理？](https://cloud.tencent.com/document/product/649/42891#.E7.81.AB.E7.84.B0.E5.9B.BE.E9.87.87.E9.9B.86.E5.A4.B1.E8.B4.A5.E5.A6.82.E4.BD.95.E5.A4.84.E7.90.86.EF.BC.9F)
 - [为何无法查看 JVM 日志？](https://cloud.tencent.com/document/product/649/42891#.E4.B8.BA.E4.BD.95.E6.97.A0.E6.B3.95.E6.9F.A5.E7.9C.8B-jvm-.E6.97.A5.E5.BF.97.EF.BC.9F)
-

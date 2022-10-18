@@ -1,6 +1,5 @@
 在 [CNAME 接入方式](https://cloud.tencent.com/document/product/1552/70787#CNAME) 下，用户无需将 DNS 解析权转移给 EdgeOne，只需添加记录（子域名）并开启代理，在 DNS 解析商处添加指定的 CNAME 记录，即可接入 EdgeOne 安全/加速服务。
->?目前边缘安全加速平台控制台仅对部分用户开放，如需访问控制台，请 [联系我们](https://cloud.tencent.com/online-service) 开通权限。
-
+ 
 
 ## 添加记录（子域名接入）[](id:add)
 在CNAME 接入方式下，通过添加记录来为该站点的子域名接入相应的服务。

@@ -22,10 +22,8 @@ TRTC Web SDK 基于 WebRTC 实现，目前支持桌面端和移动端的主流�
 | 本地开发环境 | file:///         | 支持       | 支持       | 支持     |     -     |
 
 ### 防火墙限制
-TRTC Web SDK 依赖以下端口及域名进行数据传输，请将其加入防火墙白名单。配置完成后，您可以通过访问并体验 [官网 Demo](https://web.sdk.qcloud.com/trtc/webrtc/demo/api-sample/basic-rtc.html) 检查配置是否生效。具体请参见 [应对防火墙限制相关](https://cloud.tencent.com/document/product/647/34399)。
-- TCP 端口：8687
-- UDP 端口：8000，8080，8800，843，443，16285
-- 域名：`*.rtc.qq.com`，`yun.tim.qq.com`
+
+在使用 TRTC Web SDK 时，用户可能因防火墙限制导致无法正常进行音视频通话，请参考 [应对防火墙限制相关](https://cloud.tencent.com/document/product/647/34399) 将相应端口及域名添加至防火墙白名单中。
 
 
 ## 前提条件
@@ -178,13 +176,11 @@ TRTC SDK 6.6（Web SDK 4.0）版本（2019年08月）开始启用新的签名算
 升级/切换操作：
  1. 登录 [实时音视频控制台](https://console.cloud.tencent.com/trtc)。
  2. 在左侧导航栏选择 **应用管理**，单击目标应用所在行的 **应用信息**。
- 3. 选择 **快速上手** 页签，单击 **第二步 获取签发UserSig的密钥** 区域的 **点此升级** 、 **非对称式加密** 或 **HMAC-SHA256**。
-  - 升级：
-  ![](https://qcloudimg.tencent-cloud.cn/raw/8cc65ddd7101486fda684e990acd4626.png)
+ 3. 选择**快速上手**页签，单击**第二步 获取签发UserSig的密钥**区域的 **HMAC-SHA256**。
   - 切换回老版本算法 ECDSA-SHA256：
- ![](https://qcloudimg.tencent-cloud.cn/raw/7650c896868586c96623145bafe8a209.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/ba76b709e17c100798810e38c94c9f9d.png)
   - 切换为新版本算法 HMAC-SHA256：
- ![](https://qcloudimg.tencent-cloud.cn/raw/2796b694419cc7f2aaabf4efe79704da.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/73d25cffe81af56353db4a874255f1bc.png)
 
 ### 2. 出现客户端错误：“RtcError: no valid ice candidate found”该如何处理？
 出现该错误说明 TRTC Web SDK 在 STUN 打洞失败，请根据 [环境要求](#requirements) 检查防火墙配置。
