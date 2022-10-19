@@ -4,7 +4,7 @@ Namespace=QCE/CYNOSDB_POSTGRES
 
 ## 监控指标
 
-| 指标英文名      | 指标中文名   | 单位  | 维度       | 统计周期                          |
+| 指标英文名      | 指标中文名   | 单位  | 维度       | 统计粒度                       |
 | --------------- | ------------ | ----- | ---------- | --------------------------------- |
 | CacheHitRate    | 缓存命中率   | %     | InstanceId | 5s、10s、60s、300s、3600s、86400s |
 | Memoryusagerate | 内存使用率   | %     | InstanceId | 5s、60s、300s、3600ss、86400s     |
@@ -25,7 +25,7 @@ Namespace=QCE/CYNOSDB_POSTGRES
 
 ## 入参说明
 
-**查询云服务器监控数据，入参取值如下：**
+**查询 TDSQL-C PostgreSQL 版监控数据，入参取值如下：**
 &Namespace=QCE/CYNOSDB_POSTGRES
 &Instances.N.Dimensions.0.Name=InstanceId
 &Instances.N.Dimensions.0.Value= TDSQL-C PostgreSQL 的实例 ID
