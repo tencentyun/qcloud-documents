@@ -16,8 +16,8 @@
 | iOS | 支持 |
 | Android | 支持 |
 | [Web](#web) | 支持，4.1.1+2版本起 |
-| [macOS](#pc) | 支持，4.1.8版本起 |
-| [Windows](#pc) | 支持，4.1.8版本起 |
+| [macOS](#pc) | 支持，4.1.9版本起 |
+| [Windows](#pc) | 支持，4.1.9版本起 |
 
 >? Web/macOS/Windows 平台需要简单的几步额外引入，详情请查看本文 [Web 兼容](#web) 和 [Desktop兼容](#pc) 部分。
 
@@ -74,7 +74,7 @@ Flutter 3.x 版本 针对 Web 性能做了较多优化，强烈建议您使用�
 
 ## Flutter for Desktop(PC) 支持[](id:pc)
 
-我们的无 UI SDK(tencent_im_sdk_plugin) 4.1.8 版本起，可完美兼容 macOS、Windows 端。
+我们的无 UI SDK(tencent_im_sdk_plugin) 4.1.9 版本起，可完美兼容 macOS、Windows 端。
 
 相比 Android 和 iOS 端，需要一些额外步骤。如下：
 
