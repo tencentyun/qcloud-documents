@@ -6,4 +6,4 @@ Serverless Cloud Framework 是业界非常受欢迎的无服务器应用框架�
 |------------------------|------|--------------------|
 | 获取 Component 的 Instance 信息 | sls | GetInstance |
 | 运行一个 Component 实例 | sls | RunComponent |
-| 运行完成 Componen 实例 | sls | RunFinishComponent |
+| 运行完成 Component 实例 | sls | RunFinishComponent |
