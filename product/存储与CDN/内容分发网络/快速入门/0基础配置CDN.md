@@ -4,7 +4,7 @@
 2. 开通 CDN/ECDN 服务；
 腾讯云 CDN 支持中国境内和中国境外两个服务区域，目前默认提供按流量小时计费方式。有关计费规则的更多说明，请参考 [计费说明](https://cloud.tencent.com/document/product/228/2949)。
 勾选统一服务条款后，单击开通服务，即可成功开通并开始使用 CDN/ECDN 服务。
-![](https://qcloudimg.tencent-cloud.cn/raw/4a7a2c068ed5dea63182bf86f902ba3f.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/271c328c6b39a49c91790d4ae5043d97.png)
 3. 已有一个自有域名和可访问的站点；
 
 

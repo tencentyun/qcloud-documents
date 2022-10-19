@@ -6,7 +6,7 @@
 
 您可以直接下载我们的 Demo 进行功能体验。此外，还提供了美颜Demo工程以及场景化Demo工程，您可以根据当前项目需要进行针对性的调试。
 
->! 腾讯特效 TE iOS 平台 ZIP 包内囊括 **SDK** 和 **Demo 工程**，可前往下载 [iOS 端 ZIP 包](https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.4.2.114/xmagic_res_s104_ios.zip)。
+>! 腾讯特效 TE iOS 平台 ZIP 包内囊括 **SDK** 和 **Demo 工程**，可前往下载 [iOS 端 ZIP 包](https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.4.2.114/demo.zip)。
 
 ### 美颜Demo 展示
 
@@ -23,7 +23,7 @@
 <tr>
 <td>iOS</td>
 <td>升级维护中</a></td>
-<td> <a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.4.2.114/xmagic_res_s104_ios.zip">ZIP 包</a></td>
+<td> <a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.4.2.114/demo.zip">ZIP 包</a></td>
 <td><a href="https://cloud.tencent.com/document/product/616/65894">DOC</a></td></tr>
 <tr>
 <td>Andriod</td>

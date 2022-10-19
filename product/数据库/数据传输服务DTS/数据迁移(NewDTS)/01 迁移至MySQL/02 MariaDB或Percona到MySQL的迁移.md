@@ -122,7 +122,8 @@ MariaDB 迁移到 MySQL，由于不同的数据库类型之间功能有略微差
 <li>外键依赖只能设置为 NO ACTION，RESTRICT 两种类型。</li>
 <li>部分库表迁移时，有外键依赖的表必须齐全。</li>
 </ul></li>
-<li>DTS 对数据类型为 FLOAT 的迁移精度为38位，对数据类型为 DOUBLE 的迁移精度为308位，需要确认是否符合预期。</li></ul></td></tr>
+<li>DTS 对数据类型为 FLOAT 的迁移精度为38位，对数据类型为 DOUBLE 的迁移精度为308位，需要确认是否符合预期。</li>
+<li>环境变量 innodb_stats_on_metadata 必须设置为 OFF。</li></ul></td></tr>
 <tr> 
 <td>目标数据库要求</td>
 <td>
@@ -130,9 +131,6 @@ MariaDB 迁移到 MySQL，由于不同的数据库类型之间功能有略微差
 <li>目标库的空间大小须是源库待迁移库表空间的1.2倍以上。（全量数据迁移会并发执行 INSERT 操作，导致目标数据库的表产生碎片，因此全量迁移完成后目标数据库的表存储空间很可能会比源实例的表存储空间大）</li>
 <li>目标库不能有和源库同名的表、视图等迁移对象。</li>
 <li>目标库 max_allowed_packet 参数设置数值至少为4M。</li></td></tr>
-<tr> 
-<td>其他要求</td>
-<td>环境变量 innodb_stats_on_metadata 必须设置为 OFF。</td></tr>
 </table>
 
 ## 操作步骤

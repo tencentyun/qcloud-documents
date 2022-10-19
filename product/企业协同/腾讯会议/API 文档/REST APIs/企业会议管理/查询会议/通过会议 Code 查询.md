@@ -3,6 +3,7 @@
  - 企业 secret 鉴权用户可查询到任何该用户创建的企业下的会议，OAuth2.0 鉴权用户只能查询到通过 OAuth2.0 鉴权创建的会议。
  - 本接口的邀请参会成员限制调整至300人。
  - 当会议为周期性会议时，主持人密钥每场会议固定，但单场会议只能获取一次。支持查询周期性会议的主持人密钥。
+ - 支持查询 MRA 当前所在会议信息。
 - **调用方式**：GET
 - **接口请求域名**：
 ```plaintext
@@ -62,7 +63,7 @@ https://api.meeting.qq.com/v1/meetings?meeting_code={meetingCode}&userid={userid
 |host_key   | String     | 主持人密钥，仅支持6位数字（会议创建人才有权限查询）。<br>如开启主持人密钥后没有填写此项，将自动分配一个6位数字的密钥。                                                    |
 |sync_to_wework   |Boolean    |会议是否同步至企业微信，该字段仅支持创建会议时设置，创建后无法修改。该配置仅支持与企业微信关联的企业。 <br>true：同步，默认同步 <br>false：不同步| 
 |time_zone | String |	时区，可参见 [Oracle-TimeZone 标准](https://docs.oracle.com/middleware/1221/wcs/tag-ref/MISC/TimeZones.html)。 |
-|location | String |会议地点。 |
+|location | String |会议地点。最长支持18个汉字或36个英文字母。 |
 
 
 **用户对象**
