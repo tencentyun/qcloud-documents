@@ -1,6 +1,6 @@
 Serverless Cloud Framework 是业界非常受欢迎的无服务器应用框架，开发者无需关心底层资源即可部署完整可用的 Serverless 应用架构。Serverless Cloud Framework 具有资源编排、自动伸缩、事件驱动等能力，覆盖编码、调试、测试、部署等全生命周期，帮助开发者通过联动云资源，迅速构建 Serverless 应用。
 
-下表为云审计支持的 Serverless Framework 操作列表：
+下表为云审计支持的 Serverless Cloud Framework 操作列表：
 
 | 操作名称 | 资源类型 | 事件名称 |
 |------------------------|------|--------------------|
