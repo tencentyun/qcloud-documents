@@ -93,7 +93,7 @@ Terraform will perform the following actions:
       + type                    = (known after apply)
       + vanity_name_servers_ips = (known after apply)
       + zone_id                 = (known after apply)
-      + zone_name               = "sfurnace.online"
+      + zone_name               = "example.com"
     }
 
 Plan: 1 to add, 0 to change, 0 to destroy.
@@ -134,7 +134,7 @@ Terraform will perform the following actions:
       + type                    = (known after apply)
       + vanity_name_servers_ips = (known after apply)
       + zone_id                 = (known after apply)
-      + zone_name               = "sfurnace.online"
+      + zone_name               = "example.com"
     }
 
 Plan: 1 to add, 0 to change, 0 to destroy.
