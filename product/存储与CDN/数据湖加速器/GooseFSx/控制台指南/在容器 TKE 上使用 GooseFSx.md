@@ -30,7 +30,7 @@ Kubernetes 抽象 PV（PersistentVolume）和 PVC（PersistentVolumeClaim）来�
 >!请将里面的 local: path 更换成 GooseFSx 在宿主机上的挂载目录。
 
 
-```
+```yaml
 apiVersion: v1
 kind: PersistentVolume
 metadata:
@@ -72,7 +72,7 @@ spec:
 
 ### 2. 定义 PVC 持久化卷申领的 yaml 文件样例`local_goosefsx_pvc.yaml`
 
-```
+```yaml
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -100,7 +100,7 @@ spec:
 
 ### 3. 定义 StorageClass 存储类的 yaml 文件样例`local_goosefsx_storageclass.yaml`
 
-```
+```yaml
 kind: StorageClass
 apiVersion: storage.k8s.io/v1
 metadata:
@@ -123,7 +123,7 @@ volumeBindingMode: WaitForFirstConsumer
 
 执行如下命令创建 StorageClass：
 
-```
+```yaml
 kubectl apply -f local_goosefsx_storageclass.yaml
 ```
 
@@ -131,7 +131,7 @@ kubectl apply -f local_goosefsx_storageclass.yaml
 
 执行如下命令创建 PV：
 
-```
+```yaml
 kubectl apply -f local_goosefsx_pv.yaml
 ```
 
@@ -139,7 +139,7 @@ kubectl apply -f local_goosefsx_pv.yaml
 
 执行如下命令创建 PVC：
 
-```
+```yaml
 kubectl apply -f local_goosefsx_pvc.yaml
 ```
 
@@ -150,7 +150,7 @@ kubectl apply -f local_goosefsx_pvc.yaml
 
 挂载该 PVC 的 Pod 的 yaml 文件样例 `local_goosefsx_pod.yaml` 如下：
 
-```
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -182,7 +182,7 @@ spec:
 
 部署 Pod：
 
-```
+```yaml
 kubectl apply -f local_goosefsx_pod.yaml
 ```
 
@@ -190,7 +190,7 @@ kubectl apply -f local_goosefsx_pod.yaml
 
 查看 Pod 是否处于 ready 状态：
 
-```
+```yaml
 kubectl get pod
 ```
 
@@ -198,7 +198,7 @@ kubectl get pod
 
 登录到 Pod，查看挂载点是否正确，查看挂载点是否在线：
 
-```
+```yaml
 kubectl exec -ti local-goosefsx-dp-7fb9b9f877-fcttx   -- /bin/sh
 ```
 
@@ -217,7 +217,7 @@ kubectl exec -ti local-goosefsx-dp-7fb9b9f877-fcttx   -- /bin/sh
 ### 1. 定义 PV 的 yaml 文件
 
 定义 PV 的 yaml 文件样例 `pv.yaml` ：
-```
+```yaml
 apiVersion: v1
 kind: PersistentVolume
 metadata:
@@ -238,7 +238,7 @@ spec:
 
 定义 PVC 的 yaml 文件样例 `pvc.yaml` ：
 
-```
+```yaml
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -260,7 +260,7 @@ spec:
 ### 3. 定义 CSI driver 的 yaml 文件
 
 定义  CSI driver 的 yaml 文件样例 `csi-driver.yaml` ：
-```
+```yaml
 apiVersion: storage.k8s.io/v1
 kind: CSIDriver
 metadata:
@@ -279,7 +279,7 @@ spec:
 
 >!请将里面的 fileSystemId 更换成宿主机挂载的文件系统 ID。
 
-```
+```yaml
 kind: DaemonSet
 apiVersion: apps/v1
 metadata:
@@ -376,7 +376,7 @@ spec:
 
 定义 CSI rbac 的 yaml 文件样例 `csi-rbac.yaml` ：
 
-```
+```yaml
 apiVersion: v1
 kind: ServiceAccount
 metadata:
@@ -432,7 +432,7 @@ roleRef:
 
 执行如下命令配置 rbac、driver 和 node：
 
-```
+```yaml
 kubectl apply -f csi-rbac.yaml
 kubectl apply -f csi-driver.yaml
 kubectl apply -f csi-node.yaml
@@ -440,13 +440,13 @@ kubectl apply -f csi-node.yaml
 
 执行如下命令查看工作是否正常：
 
-```
+```yaml
 kubectl get ds -n kube-system
 ```
 
 执行如下命令创建 PV 和 PVC：
 
-```
+```yaml
 kubectl apply -f pv.yaml
 kubectl apply -f pvc.yaml
 ```
@@ -459,7 +459,7 @@ Pod 挂载该 PVC 的 `pod.yaml` 文件，样例如下：
 >!将里面的 claimName 替换相应的 PVC 名称，即定义 PVC 的 yaml 文件（例如，pvc.yaml 文件样例）的 name: csi-goosefsx-pvc 。
 
 
-```
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -492,14 +492,13 @@ spec:
 部署 Pod：
 
 
-```
+```yaml
 kubectl apply -f pod.yaml
 ```
 
 
 查看 Pod 是否处于 ready 状态：
 
-```
+```yaml
 kubectl get pod
 ```
-
