@@ -19,7 +19,6 @@
 <td>
 <ul class="params">
 <li>更新用户态软件</li>
-<li>更新内核至5.4.119-19-0009.6</li>
 <li>新增默认安装 scl、devtoolset-8、devtoolset-9 组件</li>
 </ul>
 </td>
