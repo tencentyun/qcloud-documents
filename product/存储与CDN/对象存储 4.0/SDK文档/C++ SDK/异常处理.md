@@ -40,10 +40,6 @@ CosResult 封装了请求出错时返回的错误码和对应错误信息，详�
       <td>当请求出错时，服务端将会自动为这个错误生成一个唯一的 ID，trace-id 与 request-id 一一对应。使用遇到问题时，trace-id 能更快地协助 COS 定位问题</td>
    </tr>
    <tr>
-      <td>string GetErrorInfo()</td>
-      <td>获取 SDK 内部错误信息</td>
-   </tr>
-   <tr>
       <td>int GetHttpStatus()</td>
       <td>获取 HTTP 状态码</td>
    </tr>
