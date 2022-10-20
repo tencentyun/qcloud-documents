@@ -94,4 +94,4 @@ App 热启动（App 在后台，单击 App 图标启动）时，不管是单聊�
 ## 交流&反馈
 
 欢迎加入 QQ 群进行技术交流和反馈问题。
-<img src="https://sdk-im-1252463788.cos.ap-hongkong.myqcloud.com/tools/resource/officialwebsite/pictures/doc_sdk_qq_group.jpg" style="zoom:20%;"/>
+<img src="https://qcloudimg.tencent-cloud.cn/raw/e2050d5b5c894c7da725f8e25c5bfe82.jpg" style="zoom:20%;"/>

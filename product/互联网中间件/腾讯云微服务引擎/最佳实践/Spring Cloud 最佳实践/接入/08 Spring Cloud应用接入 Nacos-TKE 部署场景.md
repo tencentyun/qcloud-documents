@@ -30,13 +30,13 @@
 </tr>
 </thead>
 <tbody><tr>
-<td align="left">\tse-simple-demo-main\nacos-spring-cloud-provider-example\target</td>
-<td align="left">nacos-provider-demo.jar</td>
+<td align="left">tse-nacos-spring-cloud-provider-demo\target</td>
+<td align="left">tse-nacos-spring-cloud-provider-demo-2.0.1.RELEASE.jar</td>
 <td align="left">服务生产者</td>
 </tr>
 <tr>
-<td align="left">\tse-simple-demo-main\nacos-spring-cloud-consumer-example\target</td>
-<td align="left">nacos-consumer-demo.jar</td>
+<td align="left">tse-nacos-spring-cloud-consumer-demo\target</td>
+<td align="left">tse-nacos-spring-cloud-consumer-demo-2.0.1.RELEASE.jar</td>
 <td align="left">服务消费者</td>
 </tr>
 </tbody></table>

@@ -93,7 +93,7 @@ TDMQ RabbitMQ 暂不支持 “/” 字符，但您无需自行修改元数据，
 | 任务类型                         | 集群迁移                                                     | 导入 Vhost                                                   |
 | :------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | 文件格式                         | json                                                         | json                                                         |
-| 字段要求                         | 数据中必须包含 "vhosts" 列表，且 exchanges、queues、bindings 列表中需包含"vhost"字段 |                                                              |
+| 字段要求                         | 数据中必须包含 "vhosts" 列表，且 exchanges、queues、bindings 列表中需包含"vhost"字段 |            -                                                  |
 | 命名规范                         | Vhosts、exchanges、queues、bindings 命名规则需符合 TDMQ RabbitMQ 命名规则限制，详情见[使用限制](https://cloud.tencent.com/document/product/1495/61823) | exchanges、queues、bindings 命名规则需符合 TDMQ RabbitMQ 命名规则限制，详情见[使用限制](https://cloud.tencent.com/document/product/1495/61823) |
 | 开源 RabbitMQ 元数据文件导出方式 | 在开源 RabbitMQ 控制台的 Overview 界面，使用 Export definitions 功能，将 Virtual host 选为 All，导出 All Vhost 的元数据。若您想删除某些 Vhost 不予导入，请您在"vhosts"列表中删除某些 Vhost 名称后再进行集群迁移 | 在开源 RabbitMQ 控制台的 Overview 界面，使用 Export definitions 功能，Virtual host 处选择导出某一 Vhost 的元数据 |
 

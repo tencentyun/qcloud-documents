@@ -1,0 +1,32 @@
+腾讯云 TDSQL-C MySQL 版提供数据库审计能力，记录对数据库的访问及 SQL 语句执行情况，帮助企业进行风险控制，提高数据安全等级。  
+
+## 开通 SQL 审计服务
+1. 登录 [TDSQL-C MySQL 版控制台](https://console.cloud.tencent.com/dls/cynosdb/instance)，在左侧导航选择**数据库审计**页，在上方选择地域后，在**审计实例**页，单击**未开启**过滤出未开启审计的实例。
+![](https://main.qcloudimg.com/raw/da248852896346436e0669bf289002ec.png)
+>?或在**审计日志**页的审计实例处，直接搜索未开通的实例进行开通。
+>![](https://main.qcloudimg.com/raw/1ca4ee44a8286b230c55013e5fbc3769.png)
+2. 在**审计实例**页，单击需要开通审计的实例 ID 进入开通页面，完成如下配置，单击**立即开通**。
+![](https://qcloudimg.tencent-cloud.cn/raw/3a65583d9109e496668d6817bf17cae0.png)
+<table>
+<thead><tr><th>参数</th><th>说明</th></tr></thead>
+<tbody><tr>
+<td>开通范围</td>
+<td>选择开通的范围，支持开通当前实例或者整个集群的数据库审计功能。</td></tr>
+<tr>
+<td>日志保存时长（天）</td>
+<td>设置审计日志保存的时长。</td></tr>
+<tr>
+<td>高频存储时长（天）</td>
+<td>设置高频存储保存的时长，设置后低频存储保存的时长会根据日志保存时长自动核算。</td></tr>
+<tr>
+<td>腾讯云服务协议</td>
+<td>阅读并勾选腾讯云服务协议。</td></tr>
+</tbody></table>
+>?
+>- 审计日志保存时长支持选择7天、30天、3个月、6个月、1年、3年、5年。开通完后也可在控制台修改保存时长，请参见 [修改日志保存时长](https://cloud.tencent.com/document/product/1003/80442)。
+>- 为保证满足安全合规性对 SQL 日志保留时长的要求，建议用户选择180天及以上的保存时长。
+
+## 相关操作
+开通数据库审计后，可在审计日志页查看对应的数据库审计日志，或者修改日志保存时长。
+- [查看审计日志](https://cloud.tencent.com/document/product/1003/80441)
+- [修改日志保存时长](https://cloud.tencent.com/document/product/1003/80442)

@@ -101,17 +101,22 @@ bootmenupolicy          Standard
 :::
 ::: 使用\sdisk2vhd\s导出镜像[](id:Usedisk2vhd)
 当您的需要导出物理机上的系统或者不想使用平台工具导出时，可以使用 disk2vhd 工具进行导出。
-1. 安装并打开 disk2vhd 工具。
-[点此下载 disk2vhd 工具 >>](https://download.sysinternals.com/files/Disk2vhd.zip)
-2. 选择需要导出的镜像存放路径，勾选需要复制的卷，单击 **Create**。如下图所示：
+1. [点此下载](https://download.sysinternals.com/files/Disk2vhd.zip) disk2vhd 工具。
+2. 安装并运行 disk2vhd 工具。
 <dx-alert infotype="notice" title="">
-- disk2vhd 需要 Windows 预装 VSS（卷影拷贝服务）功能后才能运行。关于 VSS 功能的更多信息请参见 [Volume Shadow Copy Service](https://docs.microsoft.com/zh-cn/windows/win32/vss/volume-shadow-copy-service-portal?redirectedfrom=MSDN)。
-- 请勿勾选 “Use Vhdx”，目前系统不支持 vhdx 格式的镜像。
-- 建议勾选 “Use volume Shadow Copy”，使用卷影复制功能，将能更好地保证数据完整性。
-- 导出镜像要求导出整块系统盘，**请勾选您的系统盘所有分区**，否则在导入镜像时会产生无法进入系统的错误。
-系统盘分区通常为 C:\ 分区及其之前的启动引导分区、recovery 分区，数量通常为2 - 3个。下图所示为启动引导分区及 C 盘分区，需全部勾选。
-<img src="https://qcloudimg.tencent-cloud.cn/raw/3650329a69de87a323487098bc8f9e69.png"/>
+ - 请在非系统盘上安装并运行 disk2vhd 工具。
+ - disk2vhd 需要 Windows 预装 VSS（卷影拷贝服务）功能后才能运行。关于 VSS 功能的更多信息请参见 [Volume Shadow Copy Service](https://docs.microsoft.com/zh-cn/windows/win32/vss/volume-shadow-copy-service-portal?redirectedfrom=MSDN)。
 </dx-alert>
+3. 在打开的 disk2vhd 工具中，请根据以下信息进行配置后，单击 **Create** 导出镜像。
+ - **Use Vhdx**：请勿勾选，目前系统不支持 vhdx 格式的镜像。
+ - **Use volume Shadow Copy**：建议勾选 ，使用卷影复制功能，将能更好地保证数据完整性。
+ - **VHD File name**：生成 .vhd 文件的保存位置，请选择非系统盘。
+ - **Volume to include**：导出镜像要求导出整块系统盘，**请勾选您的系统盘所有分区**，否则在导入镜像时会产生无法进入系统的错误。
+系统盘分区通常为 C:\ 分区及其之前的启动引导分区、recovery 分区，数量通常为2 - 3个，需全部勾选。
+**配置示例**
+如下图所示，在 E 盘中运行 disk2vhd 工具后，勾选系统盘的所有分区（启动引导分区及 C:\ 分区），勾选 “Use volume Shadow Copy”，取消勾选 “Use Vhdx”。导出镜像后，生成的 .vhd 文件将保存至 E 盘。
+![](https://qcloudimg.tencent-cloud.cn/raw/390005b9633ee088af4566cba16a0d51.png)
+
 
 :::
 </dx-tabs>

@@ -252,9 +252,18 @@ virtual int TextToSpeech(const char* text, const char* voiceName,const char* lan
 | 参数         | 类型        | 含义                                           |
 | ------------ | ----------- | ---------------------------------------------- |
 | text         | const char* | 原始文本，不可为空，最大长度5000字符            |
-| voiceName    | const char* | 指定待翻译文本的语言，可为空，后台自动检测语音 |
+| voiceName    | const char* | 声音类型，提供英语及普通话的示例，如需其他语言请 [提交工单](https://console.cloud.tencent.com/workorder/category) 咨询 |
 | languageCode | const char* | 指定目标语言。不可为空                         |
 | speakingRate | float       | 音频语速，取值范围 [0.6-1.5]，1代表正常速度     |
+
+voiceName 说明如下：
+
+| 声音类型 | 性别 | 语言 |
+|---------|---------|---------|
+| cmn-CN-Standard-A | 女声 | 普通话 |
+| cmn-CN-Standard-B | 男声 | 普通话 |
+| en-US-Neural2-A | 女声 | 英语 |
+| en-US-Neural2-B | 男声 | 英语 |
 
 语言参数参考 [语言参数列表](https://cloud.tencent.com/document/product/607/30282)。
 

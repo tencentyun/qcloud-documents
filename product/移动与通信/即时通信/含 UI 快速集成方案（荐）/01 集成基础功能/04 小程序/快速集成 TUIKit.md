@@ -1,171 +1,297 @@
-## 如何集成 TUIKit ？
+## 开发环境要求
 
-### 步骤1： 下载源码
+- 微信开发者工具
+- JavaScript
+- node（12.13.0 <= node版本 <= 17.0.0, 推荐使用 Node.js 官方 LTS 版本 16.17.0）
+- npm（版本请与 node 版本匹配）
 
-TUIKit 支持以原生 js 的方式集成。可从 Github 下载 TUIKit 源码。命令行执行：
+## TUIKit 源码集成
+
+### 步骤1：创建项目
+
+在微信开发者工具上创建一个小程序项目，选择不使用模板。
+![](https://qcloudimg.tencent-cloud.cn/raw/d75ae9e06615aa7ac68d18e46b137528.png)
+
+### 步骤2：下载 TUIKit 组件
+
+微信开发者工具创建的小程序不会默认创建 package.json 文件，因此您需要先创建 package.json 文件。新建终端，如下：
+
+![](https://qcloudimg.tencent-cloud.cn/raw/6735b8ead18ffa7c80f2e16cebbdc9d1.png)
+
+输入：
 
 <dx-codeblock>
-:::  js
- git clone https://github.com/tencentyun/TIMSDK.git
-:::
+   :::  js
+    npm init
+   :::
 </dx-codeblock>
 
-### 步骤2： 初始化 TUIKit
-
-<dx-codeblock>
-  :::  js
-  cd TIMSDK/MiniProgram/TUIKit
-  :::
-</dx-codeblock>
-
-找到并打开 `TUIKit/miniprogram/debug/GenerateTestUserSig.js` 文件，并填写 SDKAppID 以及 SECRETKEY (默认为空字符串，请设置为实际的密钥信息。)
-<dx-codeblock>
-  :::  js
-import LibGenerateTestUserSig from './lib-generate-test-usersig-es.min.js';
-const SDKAPPID = 0;
-const SECRETKEY = "";
-  :::
-</dx-codeblock>
-
-### 步骤3： 集成静态资源文件
-
-在自己的项目中集成静态资源文件（工具、图片等）。
-  <img src="https://qcloudimg.tencent-cloud.cn/raw/35be6307ecd28c97c11d1a3a7f2c0d26.png"   width = "200">
-
-
-### 步骤4： 集成所需模块
-
-由于微信对于小程序的主包体积要求不得超过2M，所以 TUIKit 推出分包的解决方案，为客户解决体积超出这一问题。
-
-
+然后通过 npm 方式下载 TUIKit 组件， 为了方便您后续的拓展，建议您将 TUIKit 组件复制到自己的小程序目录下：
 <dx-tabs>
-::: 集成整个分包
-1. 客户自己设置主包的内容并放置在 page 文件夹内，建议主包尽可能的只放首页，减少首屏渲染时间以及主包的体积大小。
-2. 将分包引入，并和主包置于同一层级。分包内部独立并包含整个模块的逻辑。
-  <img src="https://qcloudimg.tencent-cloud.cn/raw/bbefd3eaa58838c9dcb05d29060ba229.png"   width = "200">
-
- - 在 app.json 中配置分包路径。主包路径为原来的 page 路径不变。
-  <dx-codeblock>
-  :::  js
-   "subPackages":[
-    {
-      "root":"TUI-CustomerService",
-      "name": "TUI-CustomerService",
-      "pages": [
-         "pages/TUI-Conversation/conversation/conversation",
-         "pages/TUI-Chat/chat",
-         "pages/TUI-Conversation/create-conversation/create",
-         "pages/TUI-Group/create-group/create",
-         "pages/TUI-Group/join-group/join",
-         "pages/TUI-Group/memberprofile-group/memberprofile"
-      ],
-      "independent": false
-    }
-  ],
-  :::
+::: macOS\s端
+<dx-codeblock>
+::: shell
+npm i @tencentcloud/chat-uikit-wechat
+:::
 </dx-codeblock>
-
- - 是否启用预加载（启用后，在进入主包后就会预加载分包内的资源，否则，进入分包后才会加载分包内的资源）。
-    <dx-codeblock>
-  :::  js
-   "preloadRule": {
-    "pages/TUI-Index/index" :{  
-      "network": "all",
-      "packages": [
-        "TUI-CustomerService"
-      ]
-    }
-  },
-  :::
+<dx-codeblock>
+::: shell
+mkdir -p ./TUIKit && cp -r node_modules/@tencentcloud/chat-uikit-wechat/ ./TUIKit
+:::
 </dx-codeblock>
 :::
-::: 只集成目标模块
-1. 客户自己设置主包的内容并放置在 page 文件夹内，建议主包尽可能的只放首页，减少首屏渲染时间以及主包的体积大小。
-2. 将引入的模块设置为分包，并和主包置于同一层级。分包内部独立并包含整个模块的逻辑。
-
-  - 引入模块所需静态资源
-
-  <img src=" https://qcloudimg.tencent-cloud.cn/raw/0b750acf1e04d282e35055fa9125a29f.png"   width = "200">
-
-  - 引入自己所需的模块
-
-  <img src="https://qcloudimg.tencent-cloud.cn/raw/97c8a36611d8bb230099f4d94f6f999e.png"   width = "200">
-
- - 在 app.json 中配置分包路径。主包路径为原来的 page 路径不变。
-    <dx-codeblock>
-  :::  js
-   "subPackages":[
-    {
-      "root":"TUI-CustomerService",
-      "name": "TUI-CustomerService",
-      "pages": [
-         "pages/TUI-Conversation/conversation/conversation",
-         "pages/TUI-Chat/chat",
-         "pages/TUI-Conversation/create-conversation/create"
-      ],
-      "independent": false
-    }
-  ],
-  :::
+::: Windows\s端 
+<dx-codeblock>
+::: shell
+npm i @tencentcloud/chat-uikit-wechat
+:::
 </dx-codeblock>
-
- - 是否启用预加载（启用后，在进入主包后就会预加载分包内的资源，否则，进入分包后才会加载分包内的资源）。
-    <dx-codeblock>
-  :::  js
-   "preloadRule": {
-    "pages/TUI-Index/index" :{  
-      "network": "all",
-      "packages": [
-        "TUI-CustomerService"
-      ]
-    }
-  },
-  :::
+<dx-codeblock>
+::: shell
+xcopy node_modules\@tencentcloud\chat-uikit-wechat .\TUIKit /i /e
+:::
 </dx-codeblock>
 :::
 </dx-tabs>
 
- 
+成功后目录结构如图所示：
+<img src="https://qcloudimg.tencent-cloud.cn/raw/8f0b5274acd80602f2a431313034a2b9.png" style = "width:300px;"> 
+
+
+[](id:step3)
+### 步骤3：引入 TUIKit 组件
+
+在 page 页面引用 TUIKit 组件，为此您需要分别修改 index.wxml 、index.js 和 index.json。
+<dx-tabs>
+::: wxml 文件
+<img  src="https://qcloudimg.tencent-cloud.cn/raw/9816f2a2141357fbaced7e77929392f8.png"  style = "width:300px;">
+<dx-codeblock>
+       :::  js
+        <view class="container">
+            <TUIKit config="{{config}}" id="TUIKit"></TUIKit>
+        </view>
+       :::
+</dx-codeblock>
+:::
+::: js 文件
+<img  src="https://qcloudimg.tencent-cloud.cn/raw/b9c02ec038b4b397f175591c7b5ef876.png"  style = "width:300px;">
+ <dx-codeblock>
+    :::  js
+    const TIM = require('../../TUIKit/lib/tim-wx-sdk')
+    import { genTestUserSig }  from '../../TUIKit/debug/GenerateTestUserSig'
+    import TIMUploadPlugin from '../../TUIKit/lib/tim-upload-plugin'
+
+```
+Page({
+    data: {
+        config: {
+            userID: '', //User ID
+            SDKAPPID: 0, // Your SDKAppID
+            SECRETKEY: '', // Your secretKey
+            EXPIRETIME: 604800,
+        }
+    },
+
+    onLoad() {
+        const userSig = genTestUserSig(this.data.config).userSig 
+        wx.$TUIKit = TIM.create({
+            SDKAppID: this.data.config.SDKAPPID
+        })
+        wx.$chat_SDKAppID = this.data.config.SDKAPPID;
+        wx.$chat_userID = this.data.config.userID;
+        wx.$chat_userSig = userSig;
+        wx.$TUIKitTIM = TIM;
+        wx.$TUIKit.registerPlugin({ 'tim-upload-plugin': TIMUploadPlugin });            
+        wx.$TUIKit.login({
+            userID: this.data.config.userID,
+            userSig
+        });
+        wx.setStorage({
+            key: 'currentUserID',
+            data: [],
+        });
+        wx.$TUIKit.on(wx.$TUIKitTIM.EVENT.SDK_READY, this.onSDKReady,this);
+    },
+    onUnload() {
+        wx.$TUIKit.off(wx.$TUIKitTIM.EVENT.SDK_READY, this.onSDKReady,this);
+    },
+    onSDKReady() {
+        const TUIKit = this.selectComponent('#TUIKit');
+        TUIKit.init();
+    }
+});
+```
+
+:::
+</dx-codeblock>
+:::
+::: json 文件
+<img  src="https://qcloudimg.tencent-cloud.cn/raw/866e12c4bf19e08c71c233158cc19106.png"  style = "width:300px;">
+ <dx-codeblock>
+    :::  js
+{
+  "usingComponents": {
+    "TUIKit": "../../TUIKit/index"
+  }
+    "navigationStyle": "custom"
+}
+   :::
+</dx-codeblock>
+:::
+</dx-tabs>
+
+
+
+
+
+### 步骤4：获取 SDKAppID 、密钥与 userID
+
+设置 [步骤3](#step3) 示例代码中的相关参数 SDKAPPID、SECRETKEY 以及 userID ，其中 SDKAppID 和密钥等信息，可通过 [即时通信 IM 控制台](https://console.cloud.tencent.com/im) 获取，单击目标应用卡片，进入应用的基础配置页面。例如：
+![](https://qcloudimg.tencent-cloud.cn/raw/480455e5b4a2a1d4d67ffb2e445452a6.png)
+userID 信息，可通过 [即时通信 IM 控制台](https://console.cloud.tencent.com/im) 进行创建和获取，单击目标应用卡片，进入应用的账号管理页面，即可创建账号并获取 userID。例如：
+![](https://qcloudimg.tencent-cloud.cn/raw/c6e76f750f11023d13b01ba8c2279a0e.png)
+
+### 步骤5：编译小程序
+
+1. 请在本地设置里面勾选上“不校验合法域名、web-view (业务域名)、 TLS 版本以及 HTTPS 证书”。
+<img src="https://qcloudimg.tencent-cloud.cn/raw/e32530c238362d5bb597c1171f6646ff.png" style = "width:300px;">  
+2. 单击**清缓存** > **全部清除**。避免开发者工具的缓存造成渲染异常。
+![](https://qcloudimg.tencent-cloud.cn/raw/2c68432c6e3399df21517e521c356299.png)
+3. 单击**编译**。
+![](https://qcloudimg.tencent-cloud.cn/raw/b98aebdadf932e036e9900aea5651c1e.png)
+
+### 步骤6：发送您的第一条消息
+
+<table style="text-align:center;vertical-align:middle;width:1000px">
+<tr>
+    <td><img style="width:500px" src="https://qcloudimg.tencent-cloud.cn/raw/4673f24d0fc8319c4788d505d9fde774.png" />     </td>
+    <td><img style="width:500px" src="https://qcloudimg.tencent-cloud.cn/raw/02eb06fbc13cdf27664fe55eb2e10b49.png"  />    </td>
+     </tr>
+</table>
 
 ## 常见问题
 
-**1. 小程序如果需要上线或者部署正式环境怎么办？**
-请在**微信公众平台**>**开发**>**开发设置**>**服务器域名**中进行域名配置：
+#### 什么是 UserSig？
 
-将以下域名添加到 **request 合法域名**：
+UserSig 是用户登录即时通信 IM 的密码，其本质是对 UserID 等信息加密后得到的密文。
 
-从v2.11.2起 SDK 支持了 WebSocket，WebSocket 版本须添加以下域名：
+#### 如何生成 UserSig？
 
-| 域名 | 说明 |  是否必须 |
-|:-------:|---------|----|
-|`wss://wss.im.qcloud.com`| Web IM 业务域名 | 必须|
-|`wss://wss.tim.qq.com`| Web IM 业务域名 | 必须|
-|`https://web.sdk.qcloud.com`| Web IM 业务域名 | 必须|
-|`https://webim.tim.qq.com` | Web IM 业务域名 | 必须|
+UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向项目的接口，在需要 UserSig 时由您的项目向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/269/32688#GeneratingdynamicUserSig)。
 
-v2.10.2及以下版本使用 HTTP，HTTP 版本须添加以下域名：
+> !本文示例代码采用的获取 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通功能调试**。 正确的 UserSig 签发方式请参见上文。
 
-| 域名 | 说明 |  是否必须 |
-|:-------:|---------|----|
-|`https://webim.tim.qq.com` | Web IM 业务域名 | 必须|
-|`https://yun.tim.qq.com` | Web IM 业务域名 | 必须|
-|`https://events.tim.qq.com` | Web IM 业务域名 | 必须|
-|`https://grouptalk.c2c.qq.com`| Web IM 业务域名 | 必须|
-|`https://pingtas.qq.com` | Web IM 统计域名 | 必须|
-|`https://aegis.qq.com` | Web IM 统计域名 | 必须|
+#### 小程序如果需要上线或者部署正式环境怎么办？
 
-将以下域名添加到 **uploadFile 合法域名**：
+请在**微信公众平台** > **开发** > **开发管理** > **开发设置** > **服务器域名**中进行域名配置：
 
-| 域名 | 说明 |  是否必须 |
-|:-------:|---------|----|
-|`https://cos.ap-shanghai.myqcloud.com` | 文件上传域名 | 必须|
-
-将以下域名添加到 **downloadFile 合法域名**：
-
-| 域名 | 说明 |  是否必须 |
-|:-------:|---------|----|
-|`https://cos.ap-shanghai.myqcloud.com` | 文件下载域名 | 必须|
-
-## 文档
-- [SDK API 手册](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html)
-- [SDK 更新日志](https://cloud.tencent.com/document/product/269/38492)
+- 从v2.11.2起 SDK 支持了 WebSocket，WebSocket 版本须添加以下域名到 **socket 合法域名**：
+<table>
+<thead>
+<tr>
+<th>域名</th>
+<th>说明</th>
+<th>是否必须</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>wss://wss.im.qcloud.com</code></td>
+<td>Web IM 业务域名</td>
+<td>必须</td>
+</tr>
+<tr>
+<td><code>wss://wss.tim.qq.com</code></td>
+<td>Web IM 业务域名</td>
+<td>必须</td>
+</tr>
+</tbody></table>
+- 将以下域名添加到 **request 合法域名**：
+<table>
+<thead>
+<tr>
+<th>域名</th>
+<th>说明</th>
+<th>是否必须</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>https://web.sdk.qcloud.com</code></td>
+<td>Web IM 业务域名</td>
+<td>必须</td>
+</tr>
+<tr>
+<td><code>https://webim.tim.qq.com</code></td>
+<td>Web IM 业务域名</td>
+<td>必须</td>
+</tr>
+<tr>
+<td><code>https://api.im.qcloud.com</code></td>
+<td>Web IM 业务域名</td>
+<td>必须</td>
+</tr>
+</tbody></table>
+- v2.10.2及以下版本使用 HTTP，HTTP 版本须添加以下域名到 **request 合法域名**：
+<table>
+<thead>
+<tr>
+<th>域名</th>
+<th>说明</th>
+<th>是否必须</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>https://webim.tim.qq.com</code></td>
+<td>Web IM 业务域名</td>
+<td>必须</td>
+</tr>
+<tr>
+<td><code>https://yun.tim.qq.com</code></td>
+<td>Web IM 业务域名</td>
+<td>必须</td>
+</tr>
+<tr>
+<td><code>https://events.tim.qq.com</code></td>
+<td>Web IM 业务域名</td>
+<td>必须</td>
+</tr>
+<tr>
+<td><code>https://grouptalk.c2c.qq.com</code></td>
+<td>Web IM 业务域名</td>
+<td>必须</td>
+</tr>
+<tr>
+<td><code>https://pingtas.qq.com</code></td>
+<td>Web IM 统计域名</td>
+<td>必须</td>
+</tr>
+</tbody></table>
+- 将以下域名添加到 **uploadFile 合法域名**：
+<table>
+<thead>
+<tr>
+<th>域名</th>
+<th>说明</th>
+<th>是否必须</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>https://cos.ap-shanghai.myqcloud.com</code></td>
+<td>文件上传域名</td>
+<td>必须</td>
+</tr>
+</tbody></table>
+- 将以下域名添加到 **downloadFile 合法域名**：
+<table>
+<thead>
+<tr>
+<th>域名</th>
+<th>说明</th>
+<th>是否必须</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>https://cos.ap-shanghai.myqcloud.com</code></td>
+<td>文件下载域名</td>
+<td>必须</td>
+</tr>
+</tbody></table>

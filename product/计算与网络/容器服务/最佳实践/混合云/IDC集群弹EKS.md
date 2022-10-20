@@ -1,12 +1,12 @@
 ## 使用场景 
-IDC 的资源有限，当需要应对业务突发流量，IDC 内的算力资源不足以应对时，可以选择使用公有云资源应对临时流量。TKE Resilience Chart 利用 <a href="https://cloud.tencent.com/product/eks"> 腾讯云弹性容器服务 EKS</a>，基于自定义的调度策略，通过添加超级节点的方式，将用户集群中的工作负载弹性上云，使用户 IDC 集群获得极大的弹性拓展能力，优势如下：
+IDC 的资源有限，当需要应对业务突发流量，IDC 内的算力资源不足以应对时，可以选择使用公有云资源应对临时流量。TKE Resilience Chart 利用 <a href="https://cloud.tencent.com/product/eks">TKE Serverless 容器服务</a>，基于自定义的调度策略，通过添加超级节点的方式，将用户集群中的工作负载弹性上云，使用户 IDC 集群获得极大的弹性拓展能力，优势如下：
 
 1. 用户 IDC / 私有云的硬件和维护成本保持不变。  
 2. 实现了用户 IDC / 私有云和公有云级别的应用高可用。  
 3. 用户按需使用公有云的资源，按需付费。  
 
 ## 使用须知
-1. 已开通 [弹性容器服务 EKS](https://console.cloud.tencent.com/tke2/ecluster/startUp?rid=1)。  
+1. 已开通 [TKE Serverless 集群](https://console.cloud.tencent.com/tke2/ecluster/startUp?rid=1)。  
 2. 用户 IDC 与腾讯云 VPC 通过专线内网互联。  
 3. IDC 集群的 API Server 地址，腾讯云 VPC 网络可达。  
 4. 用户自有 IDC 集群可以访问公网，需要通过公网调用云 API。  
@@ -22,7 +22,7 @@ TKE Resilience Chart 主要是由超级节点管理器，调度器，容忍控�
 | admission-controller | 容忍控制器     | 负责为处于 `pending` 状态的 Pod 添加容忍，使其可以调度到超级节点上。        |
 
 ### 主要特性
-1. 如需要 EKS Pod 和本地集群的 Pod 互通，则要求本地集群是 Underlay 的网络模型（使用 Calico 之类的基于 BGP 路由，而不是 SDN 封装的 CNI 插件），并且需要在腾讯云 VPC 中添加本地 Pod CIDR 的路由信息，详情见 [路由配置](https://cloud.tencent.com/document/product/457/32199)。  
+1. 如需要 TKE Serverless Pod 和本地集群的 Pod 互通，则要求本地集群是 Underlay 的网络模型（使用 Calico 之类的基于 BGP 路由，而不是 SDN 封装的 CNI 插件），并且需要在腾讯云 VPC 中添加本地 Pod CIDR 的路由信息，详情见 [路由配置](https://cloud.tencent.com/document/product/457/32199)。  
 2. Workload resilience 特性控制开关 `AUTO_SCALE_EKS=true|false` 分为全局开关和局部开关，用来控制 workload 在 `pending` 的情况下是否弹性调度到腾讯云 EKS，如表格所示：
  - 全局开关：`kubectl get cm -n kube-system eks-config` 中 `AUTO_SCALE_EKS`，默认开启。  
  - 局部开关：`spec.template.metadata.annotations ['AUTO_SCALE_EKS']`
@@ -80,14 +80,13 @@ TKE Resilience Chart 主要是由超级节点管理器，调度器，容忍控�
 <td> 调度成功 </td>
 </tr>
 </tbody></table>
-
 3. 当使用社区版 K8S 的时候，需要在 workload 中指定调度器为 `tke-scheduler`，TKE 发行版 K8S 则不需要指定调度器。  
 4. Workload 设定本地集群保留副本数量 `LOCAL_REPLICAS: N`。  
 5. Workload 扩容：
   - 当本地集群资源不足，并满足全局和局部开关中**调度成功**的行为设定，`pending` 的 workload 将扩容到腾讯云 EKS。  
-  - 当实际创建 workload 副本数量达到 N 后，并满足全局和局部开关中**调度成功**的行为设定，`pending` 的 workload 将扩容到腾讯云 EKS。  
+  - 当实际创建 workload 副本数量达到 N 后，并满足全局和局部开关中**调度成功**的行为设定，`pending` 的 workload 将扩容到 TKE Serverless 集群。  
 6. Workload 缩容：
-  - TKE 发行版 K8S 会优先缩容腾讯云 EKS 上的实例。  
+  - TKE 发行版 K8S 会优先缩容 TKE Serverless 集群上的实例。  
   - 社区版 K8S 会随机缩容。  
 7. 调度规则的限制条件：
   - 无法调度 DaemonSet Pod 到超级节点，此特性只在 TKE 发行版 K8S 有效，社区版 K8S DaemonSet Pod 会调度到超级节点，但会显示 `DaemonsetForbidden`。  
@@ -98,7 +97,9 @@ TKE Resilience Chart 主要是由超级节点管理器，调度器，容忍控�
   - 无法调度 container (initContainer) 中探针指定61000 - 65534的端口。  
   - 无法调度除了 nfs，Cephfs，hostPath，qcloudcbs 以外的 PV。  
   - 无法调度启用固定 IP 特性的 Pod 到超级节点。  
-8. 超级节点支持自定义默认 DNS 配置：用户在超级节点上新增 `eks.tke.cloud.tencent.com/resolv-conf` 的 annotation 后，生成的 cxm 子机里的 /etc/resolv.conf 就会被更新成用户定义的内容。**注意**：会覆盖原来超级节点的 dns 配置，最终以用户的配置为准。  
+8. 超级节点支持自定义默认 DNS 配置：用户在超级节点上新增 `eks.tke.cloud.tencent.com/resolv-conf` 的 annotation 后，生成的 cxm 子机里的 /etc/resolv.conf 就会被更新成用户定义的内容。
+>! 会覆盖原来超级节点的 dns 配置，最终以用户的配置为准。  
+>
 ```
 eks.tke.cloud.tencent.com/resolv-conf: |
    nameserver 4.4.4.4
@@ -110,7 +111,7 @@ eks.tke.cloud.tencent.com/resolv-conf: |
 
 ### 获取 tke-resilience helm chart
 ```bash
- git clone https://github.com/tkestack/charts.git
+git clone https://github.com/tkestack/charts.git
 ```
 
 ### 配置相关信息
@@ -131,7 +132,7 @@ cloud:
 eklet:
   PodUsedApiserver: "{当前集群的 API Server 地址}"
 ```
->? 弹性容器服务支持售卖的地域和可用区请参见 [地域和可用区](https://cloud.tencent.com/document/product/457/58172)。  
+>? TKE Serverless 容器服务支持售卖的地域和可用区请参见 [地域和可用区](https://cloud.tencent.com/document/product/457/58172)。  
 
 ### 安装 TKE Resilience Chart
 您可通过 [本地 Helm 客户端连接集群](https://cloud.tencent.com/document/product/457/32731)。  
@@ -156,7 +157,7 @@ eklet-subnet-xxxxxxxx   Ready    <none>   43h    v2.4.6
 ```
 
 ### 创建测试用例
-创建 demo 应用 `nginx-deployment`，该应用有4个副本，其中3个在腾讯云 EKS，1个在本地集群，Yaml 示例如下：
+创建 demo 应用 `nginx-deployment`，该应用有4个副本，其中3个在 TKE Serverless 集群，1个在本地集群，Yaml 示例如下：
 ```bash
 apiVersion: apps/v1
 kind: Deployment
@@ -195,7 +196,7 @@ nginx-deployment-77b9b9bc97-sd4z5   1/1     Running   0          27s   10.0.1.7 
 nginx-deployment-77b9b9bc97-z86tx   1/1     Running   0          27s   10.0.1.133    eklet-subnet-xxxxxxxx   <none>           <none>
 ```
 
-并验证缩容的特性，由于使用的是 TKE 发行版的集群，会优先缩容腾讯云 EKS 的实例。这里应用的副本数从4调整为3。  
+并验证缩容的特性，由于使用的是 TKE 发行版的集群，会优先缩容 TKE Serverless 集群的实例。这里应用的副本数从4调整为3。  
 ```bash
 # kubectl scale deployment nginx-deployment --replicas=3
 ```

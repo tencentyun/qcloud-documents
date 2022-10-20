@@ -1,4 +1,7 @@
-创建一个数据库，也可以通过指定和改变表或者分区表的存储位置。
+## 说明
+- 支持内核：Presto、SparkSQL。
+- 用途：创建一个数据库，也可以通过指定和改变表或者分区表的存储位置。
+
 ## 语法
 ```
 CREATE {DATABASE|SCHEMA} [IF NOT EXISTS] database_name

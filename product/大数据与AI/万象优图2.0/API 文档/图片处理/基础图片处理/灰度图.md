@@ -7,7 +7,10 @@
 #### 1. 下载时处理
 
 ```plaintext
-download_url?imageMogr2/grayscale/<value>
+GET /<ObjectKey>?imageMogr2/grayscale/<value> HTTP/1.1
+Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
+Date: <GMT Date>
+Authorization: <Auth String>
 ```
 
 #### 2. 上传时处理
@@ -54,7 +57,7 @@ Pic-Operations:
 
 | 参数                  | 含义                                                         |
 | --------------------- | ------------------------------------------------------------ |
-| download_url          | 文件的访问链接，具体构成为&lt;BucketName-APPID>.cos.&lt;Region>.myqcloud.com/&lt;picture name>，<br>例如 `examplebucket-1250000000.cos.ap-shanghai.myqcloud.com/picture.jpeg`。 |
+| ObjectKey  | 对象文件名，例如 folder/sample.jpg。                           | 
 | /grayscale/&lt;value> | 将图片设置为灰度图。<br>value 取值为0表示不改变图片。value 取值为1表示将图片变为灰度图。 |
 | /ignore-error/1       | 当处理参数中携带此参数时，针对文件过大、参数超限等导致处理失败的场景，会直接返回原图而不报错。 |
 

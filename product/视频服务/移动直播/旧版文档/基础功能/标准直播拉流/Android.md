@@ -86,7 +86,7 @@ mLivePlayer.setPlayerView(mView);
 ### step 5：启动播放
 ```java
 String flvUrl = "http://2157.liveplay.myqcloud.com/live/2157_xxxx.flv";
-mLivePlayer.startPlay(flvUrl, TXLivePlayer.PLAY_TYPE_LIVE_FLV); //推荐 FLV
+mLivePlayer.startLivePlay(flvUrl, TXLivePlayer.PLAY_TYPE_LIVE_FLV); //推荐 FLV
 ```
 
 | 可选值 | 枚举值 | 含义 |
@@ -148,7 +148,7 @@ mLivePlayer.resume();
 
 [](id:step_8)
 ### step 8：结束播放
-结束播放时**记得销毁 view 控件**，尤其是在下次 startPlay 之前，否则会产生大量的内存泄露以及闪屏问题。
+结束播放时**记得销毁 view 控件**，尤其是在下次 startLivePlay 之前，否则会产生大量的内存泄露以及闪屏问题。
 同时，在退出播放界面时，记得一定要调用渲染 View 的 `onDestroy()` 函数，否则可能会产生内存泄露和“Receiver not registered”报警。
 ```java
 @Override
@@ -254,7 +254,7 @@ mLivePlayer.switchStream("http://5815.liveplay.myqcloud.com/live/5815_62fe94d692
 时移功能是腾讯云推出的特色能力，可以在直播过程中，随时观看回退到任意直播历史时间点，并能在此时间点一直观看直播。非常适合游戏、球赛等互动性不高，但观看连续性较强的场景。
 
 ```java
-// 设置直播回看前，先调用startPlay
+// 设置直播回看前，先调用startLivePlay
 // 开始播放 ...
 TXLiveBase.setAppID("1253131631"); // 配置appId
 mLivePlayer.prepareLiveSeek();     // 后台请求直播起始时间
@@ -342,7 +342,7 @@ bizid 的获取需要进入 [域名管理](https://console.cloud.tencent.com/liv
 `rtmp://domain/live/test?txTime=5c2acacc&txSecret=b77e812107e1d8b8f247885a46e1bd34&bizid=2157`
 >? 防盗链计算默认使用推流防盗链 Key。
 - **播放类型需要指定 ACC**
-在调用 startPlay 函数时，需要指定 type 为 **PLAY_TYPE_LIVE_RTMP_ACC**，SDK 会使用 RTMP-UDP 协议拉取直播流。
+在调用 startLivePlay 函数时，需要指定 type 为 **PLAY_TYPE_LIVE_RTMP_ACC**，SDK 会使用 RTMP-UDP 协议拉取直播流。
 - **该功能有并发播放限制**
 目前最多同时10路并发播放，设置这个限制的原因并非是技术能力限制，而是希望您只考虑在互动场景中使用（例如连麦时只给主播使用，或者夹娃娃直播中只给操控娃娃机的玩家使用），避免因为盲目追求低延时而产生不必要的费用损失（低延迟线路的价格要贵于 CDN 线路）。
 - **Obs 的延时是不达标的**

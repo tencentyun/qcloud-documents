@@ -214,7 +214,7 @@ spec:
       storage: 10Gi
   storageClassName: cfs
   volumeMode: Filesystem
-  volumeName: XXX
+  volumeName: XXX  #动态创建无需填写，静态创建需要在该字段中指定 pv 实例 id 
 ```
 
 | 参数 | 是否可选 | 描述 |

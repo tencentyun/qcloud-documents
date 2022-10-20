@@ -1,215 +1,266 @@
->? 
->- 旧版（V1.5.3版本以前）文档已于2022年9月5日下线。在2022年9月5日前接入的客户，可前往 [控制台](https://console.cloud.tencent.com/tts/download) 查看旧版 SDK 文档。
->- 旧版（V1.5.3版本以前）SDK 客户可以继续使用，但新 iOS/Android SDK 在版本稳定性、功能健全性、接入便捷性上都有所提升，建议正在使用旧版（V1.5.3版本以前）SDK 的客户及时升级。
-
+>? 当前文档适用于 V1.5.3版本及以下 SDK。建议正在使用旧版 SDK 的客户及时升级到 [新版 SDK](https://cloud.tencent.com/document/product/1073/80487)，以获取更好的使用体验。
 ## 开发相关
 ### 开发准备
-- 支持 Android 4.1 以上版本 API LEVEL 16，支持手机与平板。
+
+- 支持 Android 4.0 以上版本 API LEVEL 16，支持手机与平板。
 - 合成实时流式语音，需要手机能够连接网络（3/4/5G 或 Wi-Fi 网络等）。
 - 建议使用最新版本 Android Studio 进行开发。
 - 服务端 [API 文档](https://cloud.tencent.com/document/product/1073/37995)。
 
 ### 下载安装 SDK
 - 语音合成 [Android SDK](https://console.cloud.tencent.com/tts/download)。
-- 解压后即是示例代码工程，目录 `sdk` 下的 aar 文件即 SDK 包。
+- 解压后即是示例代码工程，工程目录 `libqcloudtts-demo/libs` 下的 aar 文件即 SDK 包。
 - 用 Android Studio 打开此工程查看语音合成示例代码。
+- 文本合成接口：基于基础语音合成接口封装，支持不限字数长文本入参，SDK内部会将文本切分为短句多次请求合成，也支持入参切分好的句子集合  ，支持播放暂停与恢复，适合实时播放场景，实例代码参考 LongTextTtsActivity 类。
 
-### 环境配置
-- 添加实时语音识别 SDK aar 包 放在 libs 目录下，在 App 的 build.gradle 文件中添加以下代码。
-```
- implementation(name: 'libqcloudtts-release', ext: 'aar')
-```
-- 在 AndroidManifest.xml 添加如下权限：
+### 参数说明
+
+| 参数名称  | 类型   | 必填 | 说明                                                         |
+| --------- | ------ | ---- | ------------------------------------------------------------ |
+| appId     | int    | 是   | 腾讯云 ID，即 AppID，[获取地址](https://console.cloud.tencent.com/developer) |
+| secretId  | String | 是   | 腾讯云安全凭证，[获取地址](https://console.cloud.tencent.com/cam/capi) |
+| secretKey | String | 是   | 腾讯云安全凭证，获取地址同上                                 |
+| sessionId | String | 否   | 一次请求对应一个 SessionId，会原样返回                       |
+| projectId | String  | 否   | 项目 ID，用户自定义，默认为0，[获取地址](https://console.cloud.tencent.com/project) |
+| speed     | int | 否   | 语速，范围：[-2，2]，分别对应不同语速：0.6倍、0.8倍、1.0倍、1.2倍、1.5倍，默认为0 |
+| voiceType | int | 否   | tts 音色                                  |
+| language  | int | 否   | 主语言类型，默认中文                                         |
+
+## 快速入门
+### 在 AndroidManifest.xml 添加如下权限 
+
 ```
 < uses-permission android:name="android.permission.INTERNET"/>
 < uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 ```
 
-### 接口说明
-#### 获得 TTS 合成器实例
-```java
-//获得实例
-TtsController mTtsController = TtsController.getInstance();  
+### 初始化 TtsController 示例
 
-//销毁实例
-TtsController.release();
+通过 LongTextTtsController 构造 ttsController。
+```
+LongTextTtsController mTtsController = new LongTextTtsController();
+```
+在使用云 API 之前，请前往腾讯云 API 密钥页面申请安全凭证。安全凭证包括 SecretId 和 SecretKey。
+```
+SecretId 用于标识 API 调用者身份。
+SecretKey 用于加密签名字符串和服务器端验证签名字符串的密钥。
 ```
 
-#### 初始化引擎
-```java
-//第二个参数固定传入 TtsMode.ONLINE
-//TtsResultListener: 合成监听器，用于获取合成结果
-mTtsController.init(Context context,TtsMode.ONLINE,TtsResultListener listener) 
+>!这里只是示例，请根据用户实际申请的 SecretId 和 SecretKey 进行后续操作。
+
+```
+ /**直接鉴权**/
+mTtsController.init(this,
+	1257709062L,                           //腾讯云 appId
+	“AKIDzlIbgVXMPC**QaT6TZOwDF1WktQr4”,   //腾讯云 secretId 
+	“6xYsxngLo45sT**ORFuMZZLs9BzXt”        //腾讯云 secretKey
+);
+
+/**使用临时密钥鉴权
+ 1.通过sts 获取到临时证书,此步骤应在您的服务器端实现，详见https://cloud.tencent.com/document/product/598/33416
+ 2.通过临时密钥调用接口
+**/
+ mTtsController.init(this, 
+	 1257709062L,					//腾讯云 appId
+	“AKIDzlIbgVXMPC**QaT6TZOwDF1WktQr4”,   //腾讯云 临时的 secretId 
+	“6xYsxngLo45sT**ORFuMZZLs9BzXt”  ,      //腾讯云 临时的 secretKey
+	"sdfasdfdfds**fdgfgfdhghgjf"			//腾讯云 对应的token
+);
+
 ```
 
-#### 合成监听器，用于获取合成结果
-实例化 *TtsResultListener* 时，默认需要重写 *onSynthesizeData()* 和 *onError()* 方法。
-**onSynthesizeData()方法签名说明**
+### 设置自定义参数
+```
+//更多音色id可查看官网文档https://cloud.tencent.com/document/product/1073/37995
+public enum VoiceType {
+    VOICE_TYPE_Zhi_Yu(1001, "智瑜"),
+    VOICE_TYPE_Zhi_Yun(1004, "智云"),
+    VOICE_TYPE_Zhi_Ling(1002, "智聆"),
+    VOICE_TYPE_Zhi_Mei(1003, "智美"),
+    VOICE_TYPE_We_Jack(1050, "WeJack，英文男声"),
+    VOICE_TYPE_We_Rose(1051, "WeRose，英文女声"),
+    VOICE_TYPE_Xiao_Yao( 10510000,"智逍遥，阅读男声"),
+}
 
-| 参数               | 说明                                                  |
-| ------------------ | ----------------------------------------------------- |
-| byte[] bytes       | 语音数据                                              |
-| String utteranceId | 语句 ID                                                |
-| String text        | 文本                                                  |
-| int engineType     | 引擎类型；0：在线，1：离线；当前是纯在线 SDK，请忽略此参数 |
+public enum VoiceSpeed {
+    VOICE_SPEED_VERY_SLOW(-2, 0.6f, "0.6倍"),
+    VOICE_SPEED_SLOWDOWN(-1, 0.8f, "0.8倍"),
+    VOICE_SPEED_NORMAL(0, 1.0f, "正常语速(默认)"),
+    VOICE_SPEED_ACCELERATE(1, 1.2f, "1.2倍"),
+    VOICE_SPEED_VERY_FAST(2, 1.5f, "1.5倍"),
+}
 
-**onError()方法签名说明**
-
-| 参数               | 说明                     |
-| ------------------ | ------------------------ |
-| TtsError error     | 错误信息，无错误返回 null |
-| String utteranceId | 语句 ID（如果有则返回）   |
-| String text        | 文本（如果有则返回）      |
-
-**示例**
-```java
-TtsResultListener listener = new TtsResultListener() {
-
-    @Override
-    public void onSynthesizeData(byte[] bytes, String utteranceId, String text, int engineType) {
-    	// 您可以在这里将音频保存或者送入播放接口播放，可调用播放器入参接口入参
-    }
-    
-    @Override
-    public void onError(TtsError error, String utteranceId, String text) {
-      // 您可以在这里添加错误后处理
-    }
-  
-    @Override
-    public void onOfflineAuthInfo(QCloudOfflineAuthInfo offlineAuthInfo) {
-      //离在线SDK保留接口，请忽略，如果您后续升级为离线SDK或者离在线SDK，此接口将用于返回授权信息
-   }
+public enum VoiceLanguage {
+    VOICE_LANGUAGE_CHINESE(1, "中文（默认）"),
+    VOICE_LANGUAGE_ENGLISH(2, "英文"),
 }
 ```
 
-#### 合成文本入参接口
+#### 示例
+```
+//设置语速
+mTtsController.setVoiceSpeed(speed);
 
-| 接口                                        | 说明                                                         |
-| ------------------------------------------- | ------------------------------------------------------------ |
-| synthesize(String text, String utteranceId) | text 为需要合成的文本；utteranceId 为标记该文本的 ID，将随合成结果返回宿主层 |
-| synthesize(String text)                     | text 为需要合成的文本                                         |
+//设置音色
+mTtsController.setVoiceType(voice);
 
-**示例**
-```java
-//内部有维护队列，可持续添加语句，SDK内将依次合成
-TtsError error = null;
-//当返回的error不为null时，入参失败
-error = mTtsController.synthesize("今天天气不错","第1句");
-error = mTtsController.synthesize("腾讯云语音合成","第2句");
-error = mTtsController.synthesize("腾讯云AI","第3句");
-error = mTtsController.synthesize("腾讯云AI","第4句");
+//设置音量
+mTtsController.setVoiceVolume(volume);
 
-//取消未合成的任务并清空内部队列
-mTtsController.cancel();
+//设置语言
+mTtsController.setVoiceLanguage(language);
+
+//设置ProjectId
+mTtsController.setProjectId(0);
 ```
 
-#### TtsController 配置参数方法
+### 语音合成
 
-| 接口                          | 说明                                                         |
-| ----------------------------- | ------------------------------------------------------------ |
-| setSecretId(String s)         | 腾讯云安全凭证，[获取地址](https://console.cloud.tencent.com/cam/capi) |
-| setSecretKey(String s)        | 腾讯云安全凭证，获取地址同上                             |
-| setToken(String s)            | 若 STS 临时证书鉴权时需要设置 Token，请参见 [获取联合身份临时访问凭证](https://cloud.tencent.com/document/product/598/33416) |
-| setOnlineVoiceSpeed(float f)  | 设置在线所合成音频的语速,语速，范围：[-2，2]，分别对应不同语速：-2代表0.6倍，-1代表0.8倍，0代表1.0倍（默认），1代表1.2倍，2代表1.5倍，如果需要更细化的语速，可以保留小数点后一位，例如0.5 、1.1 、1.8等 |
-| setOnlineVoiceVolume(float f) | 设置在线所合成音频的音量                     |
-| setOnlineVoiceType(int i)     | 设置在线所合成音频的音色 ID，完整的音色 ID 列表请参见 [基础语音合成](https://cloud.tencent.com/document/product/1073/37995) |
-| setOnlineVoiceLanguage(int i) | 主语言类型：1-中文（默认），2-英文                             |
-| setOnlineCodec(String s)      | 在线模式编码格式，非业务必要不建议更改：默认mp3，目前支持"mp3"\"wav"\"pcm"，如更改为 pcm 不支持播放 |
-| setConnectTimeout(int i)      | 连接超时，范围：[500,30000]，单位ms，默认15000ms        |
-| setReadTimeout(int i)         | 读取超时，范围：[2200,60000]，单位ms，默认30000ms        |
+语音合成有两个接口：
 
-**示例**
-```java
-mTtsController.setSecretId("AKIDs*********LbFHp7");
-mTtsController.setSecretKey("D9tdAM******Lmxvc2");
-mTtsController.setOnlineVoiceSpeed(0.0); //配置语速
-mTtsController.setOnlineVoiceVolume(1.0);//配置音量
-mTtsController.setOnlineVoiceType(1001); //配置音色id 
-mTtsController.setOnlineVoiceLanguage(1);//配置主语言
-mTtsController.setOnlineCodec("mp3"); //配置合成格式
-mTtsController.setConnectTimeout(15 *1000); //连接超时时间
-mTtsController.setReadTimeout(30 *1000); //读取超时时间
+合成接口1：直接入参文本段落，使用 SDK 内部的规则切分文本，如果 sdk 的切分规则不符合您的业务需求，您可以选用合成接口2。
+
+合成接口2：入参切分好的句子集合，您需要确保列表内每句话长度不超过后端接口最大字符限制，建议文本中第一句话不要设的太长， demo 内附带了一份文本切分示例代码。
+>! 如果要使用 SSML 标记语言，请选择使用合成接口2，并确保入参列表中每一个元素不能超过150中文字符（不包括 SSML 标签）。如果选择合成接口1，入参 SSML 标签会被切分导致 SSML 标签无效，具体使用可以参考 demo，SSML 语法详见 [SSML 标记语言](https://cloud.tencent.com/document/product/1073/49575)。
+>
+```
+合成接口1：直接入参文本段落
+mTtsController.startTts(ttsText, mTtsExceptionHandler, new QCloudPlayerCallback() {
+	//播放开始
+	@Override
+	public void onTTSPlayStart() {
+ 	   Log.d("tts", "onPlayStart");
+	}
+
+	//音频缓冲中
+	@Override
+	public void onTTSPlayWait() {
+   	 Log.d("tts", "onPlayWait");
+	}
+
+	//缓冲完成，继续播放
+	@Override
+	public void onTTSPlayResume() {
+	    Log.d("tts", "onPlayResume");
+	}
+
+	//连续播放下一句
+	@Override
+	public void onTTSPlayNext() {
+	    Log.d("tts", "onPlayNext");
+	}
+
+	//播放中止
+	@Override
+	public void onTTSPlayStop() {
+	    Log.d("tts", "onPlayStop");
+	}
+
+	//播放结束
+	@Override
+	public void onTTSPlayEnd() {
+	    Log.d("tts", "onPlayEnd");
+	}
+	
+	//当前播放的音频对应的句子，以及这句话在文本队列数组中的序号
+	@Override
+	public void onTTSPlayText(String text, int lineSeq) {
+		Log.d("tts","onTTSPlayText:" + text + ":" + lineSeq);
+	}
+
+	//实时返回分段的音频缓存文件路径 ，业务需要时可以在这里获取到音频文件做其他处理
+	@Override
+	public void onTTSPlayAudioCachePath(String path) {
+		Log.d(TAG, "onTTSPlayAudioCachePath: "+path);
+	}	
+
+});
+//此方法能获取到sdk切分好的句子列表集合
+//List<String> TextArray = mTtsController.getTextArray(); 
+
 ```
 
-### 播放接口
-#### 初始化播放器
-如果 SDK 的内置播放器无法满足您的需求，您也可以使用自己实现的播放器替换。demo 中也额外提供了一份播放器源码，您可以修改播放器逻辑，源代码位于 MediaPlayerDemo.java，与 SDK 内置播放器一致。
-```java
-//使用SDK中提供的播放器
-QCloudMediaPlayer mediaPlayer = new QCloudMediaPlayer(new QCloudPlayerCallback() { 
-    
-    @Override
-    public void onTTSPlayStart() {
-        Log.d(TAG, "开始播放");
-    }
+```
+合成接口2：入参切分好的句子集合
 
-    @Override
-    public void onTTSPlayWait() {
-        Log.d(TAG, "播放完成，等待音频数据");
-    }
+合成语音的源文本，按UTF-8编码统一计算。单条句子中文最大支持150个汉字（全角标点符号算一个汉字）；英文最大支持500个字母（半角标点符号算一个字母）。
+见https://cloud.tencent.com/document/product/1073/37995。
 
-    @Override
-    public void onTTSPlayResume() {
-        Log.d(TAG, "恢复播放");
-    }
+List<String> lines = new ArrayList<>();
+lines.add("第一句。");
+lines.add("第二句。");
+mTtsController.startTts(lines, mTtsExceptionHandler, new QCloudPlayerCallback() {
+	//播放开始
+	@Override
+	public void onTTSPlayStart() {
+ 	   Log.d("tts", "onPlayStart");
+	}
 
-    @Override
-    public void onTTSPlayPause() {
-        Log.d(TAG, "暂停播放");
-    }
+	//音频缓冲中
+	@Override
+	public void onTTSPlayWait() {
+   	 Log.d("tts", "onPlayWait");
+	}
 
-    @Override
-    public void onTTSPlayNext(String text, String utteranceId) {
-        Log.d(TAG, "开始播放: " + utteranceId + "|" + text);
-    }
+	//缓冲完成，继续播放
+	@Override
+	public void onTTSPlayResume() {
+	    Log.d("tts", "onPlayResume");
+	}
 
-    @Override
-    public void onTTSPlayStop() {
-        Log.d(TAG, "播放停止，内部队列已清空");
-    }
+	//连续播放下一句
+	@Override
+	public void onTTSPlayNext() {
+	    Log.d("tts", "onPlayNext");
+	}
 
-    @Override
-    public void onTTSPlayError(QPlayerError error) {
-        Log.d(TAG, "播放器发生异常:"+error.getmCode() + ":" + error.getmMessage());
-    }
+	//播放中止
+	@Override
+	public void onTTSPlayStop() {
+	    Log.d("tts", "onPlayStop");
+	}
 
-    /**
-     * @param currentWord 当前播放的字符（此为预估值）
-     * @param currentIndex 当前播放的字符在所在的句子中的下标（此为预估值）
-     */
-    @Override
-    public void onTTSPlayProgress(String currentWord, int currentIndex) {
-        Log.d(TAG, "onTTSPlayProgress: " + currentWord + "|" + currentIndex);
-    }
+	//播放结束
+	@Override
+	public void onTTSPlayEnd() {
+	    Log.d("tts", "onPlayEnd");
+	}
+	
+	//当前播放的音频对应的句子，以及这句话在文本队列数组中的序号
+	@Override
+	public void onTTSPlayText(String text, int lineSeq) {
+		Log.d("tts","onTTSPlayText:" + text + ":" + lineSeq);
+	}
+
+	//实时返回分段的音频缓存文件路径 ，业务需要时可以在这里获取到音频文件做其他处理
+	@Override
+	public void onTTSPlayAudioCachePath(String path) {
+		Log.d(TAG, "onTTSPlayAudioCachePath: "+path);
+	}	
+
 });
 ```
 
-#### 播放器入参
-**enqueue()方法签名说明**
+### 接收异常
 
-| 参数               | 说明                             |
-| ------------------ | -------------------------------- |
-| byte[] bytes       | 返回音频流，通过传入字节数组播放 |
-| File audio         | 返回音频文件，通过传入文件播放   |
-| String text        | 音频对应的文本                   |
-| String utteranceId | 文本 ID                           |
-
-**示例**
-```java
-//通过音频数据入参
-QPlayerError err = mediaPlayer.enqueue(byte[] bytes,String text,String utteranceId);
-
-//通过音频文件入参
-QPlayerError err = mediaPlayer.enqueue(File audio,String text,String utteranceId);
 ```
-
-#### 暂停、恢复或停止播放 
-```
-mediaPlayer.PausePlay();
-mediaPlayer.ResumePlay();
-mediaPlayer.StopPlay();
+//接收接口异常
+private final TtsController.TtsExceptionHandler mTtsExceptionHandler = new TtsController.TtsExceptionHandler() {
+    @Override
+    public void onRequestException(TtsController.TtsException e) {
+        Log.e(TAG, "tts onRequestException");
+        Toast.makeText(TtsActivity.this, e.getErrMsg(), Toast.LENGTH_SHORT).show();
+    }
+};
 ```
 
 
-### 服务端错误码
+### 暂停、恢复或停止语音播放 
+```
+mTtsController.pause();
+mTtsController.resume(); 
+mTtsController.stop();
+```
+
+### 错误码
 请参考 [语音合成 API 文档](https://cloud.tencent.com/document/product/1073/37995)。

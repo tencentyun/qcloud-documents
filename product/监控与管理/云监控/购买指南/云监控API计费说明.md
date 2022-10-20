@@ -1,4 +1,4 @@
-云监控将计划于**2022年09月01日00:00:00**开始对部分 API 接口的请求进行计费，每个主账号的免费请求额度为100万次/月，超出免费额度后如需继续使用API接口请求监控数据，请在开通页手动开通“API 请求按量付费”，开通后系统将按照0.25元/万次请求进行计费。 如需查看 API 请求量，请进入控制台 > [资源消耗页](https://console.cloud.tencent.com/monitor/consumer/products)。
+云监控于**2022年09月01日00:00:00**开始对部分 API 接口的请求进行计费，每个主账号的免费请求额度为100万次/月，超出免费额度后如需继续使用API接口请求监控数据，请在开通页手动开通“API 请求按量付费”，开通后系统将按照0.25元/万次请求进行计费。 如需查看 API 请求量，请进入控制台 > [资源消耗页](https://console.cloud.tencent.com/monitor/consumer/products)。
 计费相关接口：[GetMonitorData](https://cloud.tencent.com/document/product/248/31014)
 
 

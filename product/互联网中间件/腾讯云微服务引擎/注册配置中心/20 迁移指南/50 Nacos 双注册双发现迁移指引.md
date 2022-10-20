@@ -28,14 +28,14 @@ Nacos 的核心功能主要是服务注册发现和配置管理，故热迁移�
 
 ## 操作步骤
 ### 注册发现热迁移
-1. 将提前下载好的 Nacos agent zip 包上传到部署 Nacos 服务所在的云服务器 CVM 或者容器中，并解压，可以被正常访问。
-2. [](id:step2)依次将自建 Naocs 集群中运行的服务部署到 TSE Nacos 集群中，部署时需要添加如下参数。
+1. 将提前下载好的 polaris java agent zip 包上传到部署 Nacos 服务所在的云服务器 CVM 或者容器中，并解压，可以被正常访问。
+2. [](id:step2)依次将自建 Nacos 集群中运行的服务部署到 TSE Nacos 集群中，部署时需要添加如下参数。
 <dx-codeblock>
 :::  sh
 -javaagent:/***/polaris-java-agent-v*/polaris-java-agent-bootstrap.jar  -Dtarget.nacos.server.addr=**.**.***.**
 :::
 </dx-codeblock>
->?三处`*`分别表示 Nacos agent zip 所在的目录路径、版本号和 TSE Nacos 客户端访问地址。
+>?三处`*`分别表示 polaris java agent zip 所在的目录路径、版本号和 TSE Nacos 客户端访问地址。
 3. 部署成功后，在 Nacos 原生控制台的服务管理页面可以看到注册好的服务。Nacos 原生控制台的访问方式请参见 [访问控制](https://cloud.tencent.com/document/product/1364/63998) 。此时服务在自建 Nacos 集群和 TSE Nacos 集群中均进行了注册。
 4. 观察自建的 Nacos 集群和 TSE 的 Nacos 集群，依次验证下注册、发现、反注册，看是否均符合预期。待所有服务均重新部署完毕后，在自建 Nacos 集群和 TSE Nacos 集群的控制台均能看到所有服务以及其下的实例信息。
 5. 重复上面的步骤，再次部署服务。部署时需要移除 [步骤2](#step2) 中添加的参数，并且将服务中原有的自建 Nacos 集群访问地址更新成 TSE Nacos 集群的客户端访问地址，此时用户的服务只在 TSE Nacos 集群中进行了注册。

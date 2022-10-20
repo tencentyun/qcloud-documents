@@ -29,8 +29,8 @@ Upload Part - Copy  请求用于实现将一个对象的分块内容从源路径
 ## 请求
 #### 请求示例
 
-```http
-PUT /examplebucket?partNumber=PartNumber&uploadId=UploadId  HTTP/1.1
+```shell
+PUT /<ObjectKey>?partNumber=PartNumber&uploadId=UploadId  HTTP/1.1
 Host: <Bucketname-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
@@ -125,7 +125,7 @@ uploadId|使用上传分块文件，必须先初始化分块上传。在初始�
 ## 实际案例
 #### 请求
 
-```HTTP
+```shell
 PUT /exampleobject?partNumber=1&uploadId=1505706248ca8373f8a5cd52cb129f4bcf85e11dc8833df34f4f5bcc456c99c42cd1ffa2f9 HTTP/1.1
 User-Agent: curl/7.19.7 (x86_64-redhat-linux-gnu) libcurl/7.19.7 NSS/3.13.1.0 zlib/1.2.3 libidn/1.18 libssh2/1.2.2
 Accept: */*

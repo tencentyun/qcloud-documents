@@ -1,6 +1,6 @@
 
 
-本文介绍超级节点特有的 Annotation 与示例，该 Annotation 针对 TKE 集群和 EKS 集群内超级节点上运行的 Pod 生效。
+本文介绍超级节点特有的 Annotation 与示例，该 Annotation 针对 TKE 标准集群和 TKE Serverless 集群内超级节点上运行的 Pod 生效。
 
 ## Annotation 使用方法
 ### 工作负载里添加 Pod 注解
@@ -65,7 +65,7 @@ eks.tke.cloud.tencent.com/mem: '16Gi' # 内存一定要以 Gi 为单位，以 G 
 ```yaml
 eks.tke.cloud.tencent.com/root-cbs-size: '50'  # 指定系统盘大小，超过20 Gi 额外计费
 ```
-
+>? 若使用镜像缓存时需要调整盘大小，请参考 [镜像缓存Annotation](https://cloud.tencent.com/document/product/457/44173#.E9.95.9C.E5.83.8F.E7.BC.93.E5.AD.98)。
 
 ### 规格自动升配
 
@@ -80,9 +80,10 @@ eks.tke.cloud.tencent.com/spec-auto-upgrade: 'true' # 遇到资源不足时，�
 如需指定 GPU，可在 Pod 上添加如下注解：
 
 ```yaml
-eks.tke.cloud.tencent.com/gpu-count: '1' # 指定 GPU 卡数。
-eks.tke.cloud.tencent.com/gpu-type: 'T4,V100' # 指定 GPU 型号，支持优先级顺序写法。
+eks.tke.cloud.tencent.com/gpu-type: 'T4,V100' # 指定 GPU 型号，支持优先级顺序写法，若使用1/4卡的 T4 vGPU 则指定 GPU 型号为1/4*T4。
 ```
+>? GPU 的卡数和规格需要您在 Request 和 Limit 中自行设置，建议参考对应型号的 GPU 规格设置合适的值。GPU 规格详情可参考 [资源规格](https://cloud.tencent.com/document/product/457/39808#gpu-.E8.A7.84.E6.A0.BC)。
+
 
 ### 指定 CPU 类型
 如需指定 CPU 类型，可在 Pod 上添加如下注解：
