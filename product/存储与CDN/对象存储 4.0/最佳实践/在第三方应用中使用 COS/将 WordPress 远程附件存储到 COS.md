@@ -61,7 +61,16 @@ COS 具有高扩展性、低成本、可靠和安全等特点，将媒体库附�
 
 ### **安装插件**
 
-下载插件源码，直接将源码上传到 WordPress 插件目录 wp-content/plugins，然后在后台启用插件。
+安装插件的方式包括在插件库中安装和源码安装。
+
+#### 在插件库中安装（推荐使用）
+
+在 WordPress 后台，单击**插件**，直接搜索 **tencentcloud-cos** 插件，单击**立即安装**即可。
+![](https://qcloudimg.tencent-cloud.cn/raw/9f5d069ef99050fff10b4d192f7ed7fe.png)
+
+#### 源码安装
+
+首先下载插件源码，然后将插件源码上传到 WordPress 插件目录`wp-content/plugins`，最后在后台启用。
 
 下面以 Ubuntu 为例安装插件：
 
