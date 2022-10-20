@@ -80,7 +80,7 @@ Flutter 3.x 版本 针对 Web 性能做了较多优化，强烈建议您使用�
 
 ### 升级 Flutter 3.x 版本
 
-从 Flutter 3.0 版本起，才可兼容 desktop 端，因此，如需使用，请升级至 Flutter 3.x 版本。
+从 Flutter 3.0 版本起，才可用于打包 desktop 端，因此，如需使用，请升级至 Flutter 3.x 版本。
 
 ### 引入 Flutter for Desktop 增补 SDK
 
