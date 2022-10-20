@@ -1,5 +1,5 @@
 ### A/B测试
-```
+```js
 const NAME = 'ABTestCookieName';
 const VALUE_A = 'VALUE_A';
 const VALUE_B = 'VALUE_B';
