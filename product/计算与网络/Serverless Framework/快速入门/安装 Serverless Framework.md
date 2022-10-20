@@ -30,7 +30,7 @@ npm i -g serverless-cloud-framework
 
 如果之前您已经安装过 Serverless Cloud Framework，可以通过以下命令升级到最新版。
 ```sh
-npm update -g scf
+npm update -g serverless-cloud-framework
 ```
 
 #### 查看版本信息
