@@ -1,7 +1,7 @@
 ## 功能简介
 
 腾讯云边缘安全加速平台（TencentCloud EdgeOne，下文简称为 EdgeOne）已经接入 Terraform，可以通过 Terraform 来实现快速配置。本文介绍如何使用
-Terraform 配置已经接入的站点。站点加速相关配置的说明，请参考[操作指南](https://cloud.tencent.com/document/product/1552/70863)。
+Terraform 来配置站点加速。站点加速相关配置的说明，请参考[操作指南](https://cloud.tencent.com/document/product/1552/70863)。
 
 ## 前置条件
 
@@ -10,8 +10,8 @@ Terraform 配置已经接入的站点。站点加速相关配置的说明，请�
 
 ## 操作步骤
 
-1. 您需要修改 Terraform 配置文件，添加站点的加速配置资源。
-   您可以在 Terraform Provider 文档页面上查看 [站点加速配置](https://registry.terraform.io/providers/tencentcloudstack/tencentcloud/latest/docs/resources/teo_zone_setting)
+1. 修改 Terraform 配置文件，添加站点加速配置的资源定义。
+   您可以在 Terraform Provider 文档页面上查看[站点加速配置](https://registry.terraform.io/providers/tencentcloudstack/tencentcloud/latest/docs/resources/teo_zone_setting)
    的参数定义。以下为示例配置文件 tencent_teo.tf 的内容：
 
 ```terraform
@@ -341,7 +341,7 @@ Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 ```
 
 4. 检查命令执行结果。
-   您可以通过`terraform show`命令检查站点加速配置是否生效，也可以登录 [边缘安全加速平台控制台](https://console.cloud.tencent.com/edgeone)来确认。
+   您可以通过`terraform show`命令检查站点加速配置是否生效，也可以登录[边缘安全加速平台控制台](https://console.cloud.tencent.com/edgeone)来确认。
 
 ```
 PS tf-doc> terraform state show tencentcloud_teo_zone_setting.example
