@@ -716,7 +716,7 @@ flutter pub add tencent_im_sdk_plugin_web
 我们的无 UI SDK(tencent_im_sdk_plugin) 4.1.9 版本起，可完美兼容 macOS、Windows 端。相比 Android 和 iOS 端，需要一些额外步骤。如下：
 
 ### 升级 Flutter 3.x 版本
-从 Flutter 3.0 版本起，才可完美兼容 desktop 端，因此，如需使用，请升级至 Flutter 3.x 版本。
+从 Flutter 3.0 版本起，才可兼容 desktop 端，因此，如需使用，请升级至 Flutter 3.x 版本。
 
 ### 引入 Flutter for Desktop 增补 SDK
 
