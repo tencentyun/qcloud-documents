@@ -11,7 +11,8 @@
     - 默认：当攻击流量满足以下其中一条，即发起告警。
        - DDoS 攻击：当攻击入流量 >= 2Gbps或者清洗流量 > 100Mbps。任一条件满足，即发起告警。
        - CC 攻击：当攻击入流量 > 1000QPS。
- >?CC 攻击的告警检测仅支持已购买 [DDoS 高防包](https://cloud.tencent.com/document/product/1021) 或 [DDoS 高防 IP](https://cloud.tencent.com/document/product/1014) 用户。
- >
     - 入流量带宽：检测出的攻击流量带宽。当入流量 >= 设置数值即发起告警。 
     - 清洗流量：被清洗的攻击流量。当清洗流量 >= 设置数值即发起告警。
+ 
+ >?CC 攻击的告警检测仅支持已购买 [DDoS 高防包](https://cloud.tencent.com/document/product/1021) 或 [DDoS 高防 IP](https://cloud.tencent.com/document/product/1014) 用户。
+ >
