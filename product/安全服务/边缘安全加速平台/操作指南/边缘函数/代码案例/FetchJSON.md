@@ -1,6 +1,6 @@
 ### Fetch JSON
 
-```
+```js
 /**
  * Example someHost is set up to take in a JSON request
  * Replace url with the host you wish to send requests to
