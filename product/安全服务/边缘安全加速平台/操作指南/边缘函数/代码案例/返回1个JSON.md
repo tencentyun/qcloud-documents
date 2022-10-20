@@ -1,6 +1,6 @@
 ### 返回1个JSON
 
-```
+```js
 addEventListener('fetch', event => {
   const data = {
     hello: 'world',
