@@ -1,6 +1,6 @@
 ### Fetch HTML
 
-```
+```js
 /**
  * Example someHost at URL is set up to respond with HTML
  * Replace URL with the host you wish to send requests to
