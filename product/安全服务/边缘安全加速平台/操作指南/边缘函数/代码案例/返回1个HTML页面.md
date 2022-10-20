@@ -1,6 +1,6 @@
 ### 返回1个HTML页面
 
-```
+```js
 const html = `<!DOCTYPE html>
 <body>
   <h1>Hello World</h1>
