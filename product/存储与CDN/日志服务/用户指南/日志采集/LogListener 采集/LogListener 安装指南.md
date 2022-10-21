@@ -34,10 +34,10 @@ LogListener 版本支持重要功能如下，详细版本功能信息请参考 [
 ### 1. 下载安装 LogListener
 
 
-LogListener 最新版本下载地址：[公网下载 LogListener](https://mirrors.tencent.com/install/cls/loglistener-linux-x64-2.8.2.tar.gz)、[内网下载 LogListener](http://mirrors.tencentyun.com/install/cls/loglistener-linux-x64-2.8.2.tar.gz)
+LogListener 最新版本下载地址：[公网下载 LogListener](https://mirrors.tencent.com/install/cls/loglistener-linux-x64.tar.gz)、[内网下载 LogListener](http://mirrors.tencentyun.com/install/cls/loglistener-linux-x64.tar.gz)
 
 以安装路径`/usr/local/`为例： 下载 LogListener 安装包并解压，解压路径为`/usr/local/` ，解压完成后进入 LogListener 目录`loglistener/tools`，执行安装命令 。
->?从2.8.3 版本开始，Loglistener 安装包不再添加版本号后缀，使用 loglistener-linux-x64 默认安装最新版本。如果需要安装特定版本可以在后面指定版本号，如将 loglistener-linux-x64 替换为 loglistener-linux-x64-2.8.0.tar.gz，将会指定安装2.8.0版本。
+>?从2.8.3 版本开始，Loglistener 安装包不再添加版本号后缀，使用 loglistener-linux-x64 默认安装最新版本。如果需要安装特定版本可以在后面指定版本号，如将 loglistener-linux-x64 替换为 loglistener-linux-x64-2.8.0，将会指定安装2.8.0版本。
 
 - 公网环境下，操作命令如下：
 ```plaintext
