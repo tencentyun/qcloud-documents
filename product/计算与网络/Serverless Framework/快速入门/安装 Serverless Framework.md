@@ -1,5 +1,5 @@
-## 操作场景
-您可以通过 [NPM 安装](#npm) 或 [二进制安装](#binary) 的方式，快速安装 Serverless Cloud Framework。
+
+您可以通过 NPM 安装 Serverless Cloud Framework。
 
 
 
@@ -24,13 +24,13 @@ $ npm -v
 
 在命令行中运行如下命令：
 ```sh
-npm install -g scf
+npm i -g serverless-cloud-framework
 ```
->?如 MacOS 提示无权限，则需要运行`sudo npm install -g scf`进行安装。
+>?如 MacOS 提示无权限，则需要运行`sudo npm i -g serverless-cloud-framework`进行安装。
 
 如果之前您已经安装过 Serverless Cloud Framework，可以通过以下命令升级到最新版。
 ```sh
-npm update -g scf
+npm update -g serverless-cloud-framework
 ```
 
 #### 查看版本信息

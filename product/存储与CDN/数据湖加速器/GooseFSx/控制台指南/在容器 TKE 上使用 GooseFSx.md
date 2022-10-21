@@ -30,7 +30,7 @@ Kubernetes 抽象 PV（PersistentVolume）和 PVC（PersistentVolumeClaim）来�
 >!请将里面的 local: path 更换成 GooseFSx 在宿主机上的挂载目录。
 
 
-```
+```yaml
 apiVersion: v1
 kind: PersistentVolume
 metadata:
@@ -44,7 +44,6 @@ spec:
   persistentVolumeReclaimPolicy: Delete
   storageClassName: local-storage
   local:
-    # Replaced by your local path.
 (将此处的path更换成宿主机挂载GooseFSx的路径，然后删除此句提醒)
     path: /goosefsx/x_c60_ow1j60r9_proxy
   nodeAffinity:
@@ -73,7 +72,7 @@ spec:
 
 ### 2. 定义 PVC 持久化卷申领的 yaml 文件样例`local_goosefsx_pvc.yaml`
 
-```
+```yaml
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -93,15 +92,15 @@ spec:
 
 |参数  |   说明  |
 |----|----|
-|name: local-goosefsx-pvc|定义持久卷申领的名称，根据实际情况进行修改。|
-|accessModes:  - ReadWriteMany|定义访问模式，与定义持久卷一样。|
-|resources: requests: storage: 10Gi|定义申领的资源，存储空间是10GiB。|
-|storageClassName: local-storage|定义持久卷申领 所属的类“local-storage”，持久卷必须属于同一个类“local-storage”；名称“local-storage”与storageclass存储类文件的name “local-storage”保持一致。|
+|name: local-goosefsx-pvc|   定义持久卷申领的名称，根据实际情况进行修改。|
+|accessModes:  - ReadWriteMany|  定义访问模式，与定义持久卷一样。|
+|resources: requests: storage: 10Gi|   定义存储容量，“10Gi”是10GiB存储容量，此参数不会限制文件系统所提供的容量；实际存储容量是购买 GooseFSx 的容量，并随 GooseFSx 扩容而动态扩展；比如，购买 GooseFSx 容量是4.5TiB，存储容量是4.5TiB，非10GiB，扩容 GooseFSx 容量到9TiB，存储容量是9TiB。|
+|storageClassName: local-storage|   定义持久卷申领 所属的类“local-storage”，持久卷必须属于同一个类“local-storage”；名称“local-storage”与storageclass存储类文件的name “local-storage”保持一致。|
 
 
 ### 3. 定义 StorageClass 存储类的 yaml 文件样例`local_goosefsx_storageclass.yaml`
 
-```
+```yaml
 kind: StorageClass
 apiVersion: storage.k8s.io/v1
 metadata:
@@ -124,7 +123,7 @@ volumeBindingMode: WaitForFirstConsumer
 
 执行如下命令创建 StorageClass：
 
-```
+```yaml
 kubectl apply -f local_goosefsx_storageclass.yaml
 ```
 
@@ -132,7 +131,7 @@ kubectl apply -f local_goosefsx_storageclass.yaml
 
 执行如下命令创建 PV：
 
-```
+```yaml
 kubectl apply -f local_goosefsx_pv.yaml
 ```
 
@@ -140,7 +139,7 @@ kubectl apply -f local_goosefsx_pv.yaml
 
 执行如下命令创建 PVC：
 
-```
+```yaml
 kubectl apply -f local_goosefsx_pvc.yaml
 ```
 
@@ -151,7 +150,7 @@ kubectl apply -f local_goosefsx_pvc.yaml
 
 挂载该 PVC 的 Pod 的 yaml 文件样例 `local_goosefsx_pod.yaml` 如下：
 
-```
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -177,14 +176,13 @@ spec:
       volumes:
         - name: local-goosefsx-pv
           persistentVolumeClaim:
-            # Replaced by your pvc name.
             claimName: local-goosefsx-pvc
 ```
 
 
 部署 Pod：
 
-```
+```yaml
 kubectl apply -f local_goosefsx_pod.yaml
 ```
 
@@ -192,7 +190,7 @@ kubectl apply -f local_goosefsx_pod.yaml
 
 查看 Pod 是否处于 ready 状态：
 
-```
+```yaml
 kubectl get pod
 ```
 
@@ -200,7 +198,7 @@ kubectl get pod
 
 登录到 Pod，查看挂载点是否正确，查看挂载点是否在线：
 
-```
+```yaml
 kubectl exec -ti local-goosefsx-dp-7fb9b9f877-fcttx   -- /bin/sh
 ```
 
@@ -219,7 +217,7 @@ kubectl exec -ti local-goosefsx-dp-7fb9b9f877-fcttx   -- /bin/sh
 ### 1. 定义 PV 的 yaml 文件
 
 定义 PV 的 yaml 文件样例 `pv.yaml` ：
-```
+```yaml
 apiVersion: v1
 kind: PersistentVolume
 metadata:
@@ -231,7 +229,6 @@ spec:
     storage: 10Gi
   csi:
     driver: com.tencent.cloud.csi.goosefsx
-    # Specify a unique volumeHandle like pv name or filesystem id.
     volumeHandle: csi-goosefsx-pv
   storageClassName: ""
 ```
@@ -241,7 +238,7 @@ spec:
 
 定义 PVC 的 yaml 文件样例 `pvc.yaml` ：
 
-```
+```yaml
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -252,9 +249,7 @@ spec:
   resources:
     requests:
       storage: 10Gi
-  # You can specify the pv name manually or just let kubernetes to bind the pv and pvc.
   volumeName: csi-goosefsx-pv
-  # goosefsx only supports static provisioning, the StorageClass name should be empty.
   storageClassName: ""
 
 ```
@@ -265,7 +260,7 @@ spec:
 ### 3. 定义 CSI driver 的 yaml 文件
 
 定义  CSI driver 的 yaml 文件样例 `csi-driver.yaml` ：
-```
+```yaml
 apiVersion: storage.k8s.io/v1
 kind: CSIDriver
 metadata:
@@ -284,7 +279,7 @@ spec:
 
 >!请将里面的 fileSystemId 更换成宿主机挂载的文件系统 ID。
 
-```
+```yaml
 kind: DaemonSet
 apiVersion: apps/v1
 metadata:
@@ -381,7 +376,7 @@ spec:
 
 定义 CSI rbac 的 yaml 文件样例 `csi-rbac.yaml` ：
 
-```
+```yaml
 apiVersion: v1
 kind: ServiceAccount
 metadata:
@@ -437,7 +432,7 @@ roleRef:
 
 执行如下命令配置 rbac、driver 和 node：
 
-```
+```yaml
 kubectl apply -f csi-rbac.yaml
 kubectl apply -f csi-driver.yaml
 kubectl apply -f csi-node.yaml
@@ -445,13 +440,13 @@ kubectl apply -f csi-node.yaml
 
 执行如下命令查看工作是否正常：
 
-```
+```yaml
 kubectl get ds -n kube-system
 ```
 
 执行如下命令创建 PV 和 PVC：
 
-```
+```yaml
 kubectl apply -f pv.yaml
 kubectl apply -f pvc.yaml
 ```
@@ -464,7 +459,7 @@ Pod 挂载该 PVC 的 `pod.yaml` 文件，样例如下：
 >!将里面的 claimName 替换相应的 PVC 名称，即定义 PVC 的 yaml 文件（例如，pvc.yaml 文件样例）的 name: csi-goosefsx-pvc 。
 
 
-```
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -490,7 +485,6 @@ spec:
       volumes:
         - name: csi-goosefsx
           persistentVolumeClaim:
-            # Replaced by your pvc name.
             claimName: csi-goosefsx-pvc
 
 ```
@@ -498,14 +492,13 @@ spec:
 部署 Pod：
 
 
-```
+```yaml
 kubectl apply -f pod.yaml
 ```
 
 
 查看 Pod 是否处于 ready 状态：
 
-```
+```yaml
 kubectl get pod
 ```
-

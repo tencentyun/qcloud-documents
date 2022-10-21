@@ -11,7 +11,7 @@ BOT 流量分析通过采集 BOT 流量管理中的数据，可以快速了解�
 1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/tea-flowanalysis)，在左侧导航栏中选择 **BOT 流量分析** > **BOT 流量详情**。
 2. 在 BOT 流量详情页面，单击左上角“全部域名”下拉框，选择要查看的域名。
 3. 在 BOT 流量详情页面，可以通过时间或筛选器，搜索全部域名或某个域名的 TOP10流量信息，并可以快速进入相关的日志中。
-![](https://qcloudimg.tencent-cloud.cn/raw/9ed0889e5173cfa9a0f8c37589b704cb.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/268be6ff5a4bebf98ee99bbea892d736.png)
 4. 在BOT 流量详情页面，选择所需访问源，单击**查看详情**，即可进入该访问源的详情页面。
 ![](https://qcloudimg.tencent-cloud.cn/raw/14013e0259023b286f2ddbb366eefbd0.png)
 
