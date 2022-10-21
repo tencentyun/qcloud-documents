@@ -5,13 +5,13 @@ Terraform 来配置站点加速。站点加速相关配置的说明，请参考[
 
 ## 前置条件
 
-1. 已完成 Terraform 的安装与配置，操作步骤请参考[安装和配置 Terraform]()。
-2. 已通过 Terraform 接入了站点，操作步骤请参考[通过 Terraform 创建站点](通过%20Terraform%20创建站点.md)。
+1. 已完成 Terraform 的安装与配置，操作步骤请参考[安装和配置 Terraform](https://cloud.tencent.com/document/product/1552/80472)。
+2. 已通过 Terraform 接入了站点，操作步骤请参考[通过 Terraform 创建站点](引用链接待生成)。
 
 ## 操作步骤
 
 1. 修改 Terraform 配置文件，添加站点加速配置的资源定义。
-   您可以在 Terraform Provider 文档页面上查看[站点加速配置](https://registry.terraform.io/providers/tencentcloudstack/tencentcloud/latest/docs/resources/teo_zone_setting)
+   您可以在 Terraform Provider 文档页面上查看 [站点加速配置](https://registry.terraform.io/providers/tencentcloudstack/tencentcloud/latest/docs/resources/teo_zone_setting)
    的参数定义。以下为示例配置文件 tencent_teo.tf 的内容：
 
 ```terraform

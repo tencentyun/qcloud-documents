@@ -5,14 +5,14 @@ Terraform 来配置 EdgeOne 站点的规则引擎，实现子域名差异化配�
 
 ## 前置条件
 
-1. 已完成 Terraform 的安装与配置，操作步骤请参考[安装和配置 Terraform]()。
-2. 已通过 Terraform 接入了站点，操作步骤请参考[通过 Terraform 创建站点](通过%20Terraform%20创建站点.md)。
+1. 已完成 Terraform 的安装与配置，操作步骤请参考[安装和配置 Terraform](https://cloud.tencent.com/document/product/1552/80472)。
+2. 已通过 Terraform 接入了站点，操作步骤请参考[通过 Terraform 创建站点](通过 Terraform 创建站点.md)。
 
 ## 操作步骤
 
 1. 修改 Terraform 配置文件，添加子域名 DNS 记录和规则引擎的资源定义。
-   您可以在 Terraform Provider 文档页面上查看[DNS 记录](https://registry.terraform.io/providers/tencentcloudstack/tencentcloud/latest/docs/resources/teo_dns_record)
-   和[规则引擎](https://registry.terraform.io/providers/tencentcloudstack/tencentcloud/latest/docs/resources/teo_rule_engine)
+   您可以在 Terraform Provider 文档页面上查看 [DNS 记录](https://registry.terraform.io/providers/tencentcloudstack/tencentcloud/latest/docs/resources/teo_dns_record)
+   和 [规则引擎](https://registry.terraform.io/providers/tencentcloudstack/tencentcloud/latest/docs/resources/teo_rule_engine)
    的参数定义。以下为示例配置文件 tencent_teo.tf 的内容：
 
 ```terraform

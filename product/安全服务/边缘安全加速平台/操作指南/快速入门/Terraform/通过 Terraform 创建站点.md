@@ -5,7 +5,7 @@ Terraform 快速添加 EdgeOne 站点。
 
 ## 前置条件
 
-1. 已完成 Terraform 的安装与配置，操作步骤请参考[安装和配置 Terraform]()。
+1. 已完成 Terraform 的安装与配置，操作步骤请参考[安装和配置 Terraform](https://cloud.tencent.com/document/product/1552/80472)。
 
 ## 操作步骤
 
@@ -154,6 +154,9 @@ Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 5. 修改接入站点的 DNS 配置。
    为使站点生效，以 NS 方式接入则需要修改站点的 NS 服务器，以 CNAME 方式接入则需要添加 CNAME 记录作为站点验证。
    请参考[站点接入方式](https://cloud.tencent.com/document/product/1552/70787)。
+
+   ![](https://qcloudimg.tencent-cloud.cn/raw/25c401d0261cd6e4ed587dfe538f543b.png)
+
 6. 验证站点已生效。
    执行步骤 5 之后等待几分钟，通过`terraform refresh`刷新资源状态，然后执行`terraform show`查看站点是否已经生效。
    以 NS 方式接入站点，生效后`status`字段的值应为`active`，以 CNAME 方式接入的站点，生效后`cname_status`字段的值应为`finished`。
