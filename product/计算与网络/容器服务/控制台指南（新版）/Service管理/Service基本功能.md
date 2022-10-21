@@ -12,6 +12,7 @@
    - **服务名称**：自定义。
    - **命名空间**：根据实际需求进行选择。
    - **访问设置**：请参考 [概述 ](https://cloud.tencent.com/document/product/457/45487) 并根据实际需求进行设置。
+   - **Workload绑定**：引用一个存量的 Workload，或自定义标签，该 Service 会根据自定义的标签选择拥有这些标签的 Workload。
 >?
 >- 如需使用已有负载均衡器，请参考 [使用已有 CLB](https://cloud.tencent.com/document/product/457/45491)。
 >- 由于4层 CLB 仅限制 **CLB VIP + 监听器协议 + 后端 RS VIP + 后端 RS 端口4元组唯一**，且未包含 CLB 监控端口。因此不支持 CLB 监听端口不同，协议及 RS 相同的场景。容器服务也不支持同一个业务对外开放相同协议的不同端口。
@@ -55,6 +56,7 @@ spec:
 - **kind**：标识 Service 资源类型。
 - **metadata**：Service 的名称、Label 等基本信息。
 - **metadata.annotations**：Service 的额外说明，可通过该参数设置腾讯云容器服务的额外增强能力。
+- **spec.selector**：该 Service 会根据这里标签选择器里的标签，选择拥有这些标签的 Workload
 - **spec.type**：标识 Service 的被访问形式。
   - **ClusterIP**：在集群内部公开服务，可用于集群内部访问。
   - **NodePort**：使用节点的端口映射到后端 Service，集群外可以通过节点 `IP:NodePort` 访问。
