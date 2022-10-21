@@ -10,7 +10,7 @@ TDSQL-C MySQL 版提供 Serverless 服务以满足企业对特定业务场景的
 ## 资源扩缩范围（CCU）
 CCU（CynosDB Compute Unit）为 Serverless 的计算计费单位，一个 CCU 近似等于1个 CPU 和 2GB 内存的计算资源，每个计费周期的 CCU 使用数量为：`数据库所使用的 CPU 核数` 与 `内存大小的1/2` 二者中取最大值。
 
-Serverless 服务需要设定弹性范围，详细弹性范围区间可参考 [Serverless 算力配置](https://cloud.tencent.com/document/product/1003/81821)。
+Serverless 服务需要设定弹性范围，详细弹性范围区间可参考 [算力配置](https://cloud.tencent.com/document/product/1003/81821)。
 
 建议在第一次设置弹性范围时，最小容量配置为0.25 CCU，最大容量选择较高的值。较小的容量设置可以让您的集群在完全空闲时最大限度地进行缩减，避免产生额外的费用，较大的容量可以在您的集群负载过大时最大限度地进行扩展，稳定度过业务峰值。
 >?
