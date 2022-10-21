@@ -1,4 +1,5 @@
 本文介绍 TDSQL-C MySQL 版 Serverless 服务的计费说明。
+
 ## 计费模式
 Serverless 服务的计算和存储独立计费：计算按 CCU 个数计费，存储按使用量 GB 计费，计费系统按秒计费，按小时结算。
 
