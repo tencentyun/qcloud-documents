@@ -125,7 +125,7 @@ Container 节点 Response 的内容：
 | 节点名称（关键字） | 父节点   | 描述           | 类型      |
 | :----------------- | :------- | :------------- | :-------- |
 | EventName          | Response | 固定值，为 TaskFinish    | String |
-| JobsDetail         | Response | 任务的详细信息           | Container数组 |
+| JobsDetail         | Response | 任务的详细信息           | Container 数组 |
 
 Container 节点 JobsDetail 的内容：
 <a href="https://cloud.tencent.com/document/product/460/76907#jobsDetail" target="_blank">同提交SDR to HDR任务接口中的 Response.JobsDetail</a>
