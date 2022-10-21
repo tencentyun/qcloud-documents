@@ -6,7 +6,7 @@
 ## 操作步骤
 1. 登录 [购买页](https://buy.cloud.tencent.com/cynosdb?regionId=8)，完成**数据库配置**设置。
 <table>
-<thead><tr><th>参数</th><th>说明</th></tr></thead>
+<thead><tr><th width=13%>参数</th><th>说明</th></tr></thead>
 <tbody>
 <tr>
 <td>数据库引擎</td>
@@ -43,43 +43,31 @@ CCU（CynosDB Compute Unit）为 Serverless 的计算计费单位，一个 CCU �
 <td>存储计费模式</td>
 <td>Serverless 版本默认存储模式为按量计费模式。</td></tr>
 </tbody></table>
-
 2. 选择实例数量，Serverless 服务支持批量购买同规格多个实例，然后单击**下一步**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/70e331d8851e9e7698a597ee8eab1df4.png)
 3. 完成**基础信息**设置和**高级配置**设置，确认费用后单击**立即购买**。
  - **基础信息**
 <table>
-<thead>
-<tr>
-<th>参数</th>
-<th>说明</th>
-</tr>
-</thead>
+<thead><tr><th width=13%>参数</th><th>说明</th></tr></thead>
 <tbody><tr>
 <td>集群名</td>
-<td>可选择创建后命名或立即命名。支持长度小于60的中文、英文、数字、<code>-</code>、<code>_</code>、<code>.</code>。</td>
-</tr>
+<td>可选择创建后命名或立即命名。支持长度小于60的中文、英文、数字、<code>-</code>、<code>_</code>、<code>.</code>。</td></tr>
 <tr>
 <td>管理员用户名</td>
-<td>默认为 root。</td>
-</tr>
+<td>默认为 root。</td></tr>
 <tr>
 <td>密码</td>
-<td>8 - 64个字符，包含大小写英文字母、数字和符号 <code>~!@#$%^&amp;*_-+=|\(){}[]:;'&lt;&gt;,.?/</code> 中的任意三种。</td>
-</tr>
+<td>8 - 64个字符，包含大小写英文字母、数字和符号 <code>~!@#$%^&amp;*_-+=|\(){}[]:;'&lt;&gt;,.?/</code> 中的任意三种。</td></tr>
 <tr>
 <td>默认字符集</td>
-<td>支持 UTF8、GBK、LATIN1、UTF8MB4。</td>
-</tr>
+<td>支持 UTF8、GBK、LATIN1、UTF8MB4。</td></tr>
 <tr>
 <td>自定义端口</td>
-<td>默认为3306，支持自定义输入。</td>
-</tr>
+<td>默认为3306，支持自定义输入。</td></tr>
 </tbody></table>
-
  - **高级配置**
 <table>
-<thead><tr><th>参数</th><th>说明</th></tr></thead>
+<thead><tr><th width=13%>参数</th><th>说明</th></tr></thead>
 <tbody><tr>
 <td>安全组</td>
 <td>选择或新建安全组。</td></tr>
@@ -103,3 +91,4 @@ CCU（CynosDB Compute Unit）为 Serverless 的计算计费单位，一个 CCU �
 <td>阅读并勾选协议条款。</td></tr>
 </tbody></table>
 4. 购买成功后，返回集群列表，待集群状态显示为**运行中**，即可正常使用。
+
