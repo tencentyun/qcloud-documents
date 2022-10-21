@@ -7,7 +7,7 @@
  * @param {string} someHost the host to send the request to
  * @param {string} url the URL to send the request to
  */
-const someHost = 'https://examples.eo-edgefunctions.com';
+const someHost = 'https://www.examples.com';
 const url = someHost + '/static/json';
 
 /**
