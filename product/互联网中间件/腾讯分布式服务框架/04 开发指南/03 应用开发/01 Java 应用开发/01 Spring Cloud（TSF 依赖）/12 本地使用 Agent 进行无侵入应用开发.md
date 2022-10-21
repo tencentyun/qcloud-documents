@@ -15,25 +15,142 @@
 **1. 在本地确保依赖了 2020 相关的 SDK 依赖。**
 在 `pom.xml` 中添加以下代码：
 ```xml
-<dependency>
-    <groupId>com.tencent.tsf</groupId>
-    <artifactId>femas-adaptor-tsf-springcloud-2020</artifactId>
-    <version><!-- 调整为 SDK 最新版本号 --></version> 
-</dependency>
+<properties>
+    <spring-boot-dependencies.version>2.4.6</spring-boot-dependencies.version>
+    <spring-cloud-dependencies.version>2020.0.2</spring-cloud-dependencies.version>
+    <consul.version>1.4.2</consul.version>
+    <feign-reactor.version>3.1.1</feign-reactor.version>
+</properties>
 
-<dependency>
-    <groupId>com.tencent.tsf</groupId>
-    <artifactId>femas-adaptor-tsf-springfox-2.10</artifactId>
-    <version><!-- 调整为 SDK 最新版本号 --></version> 
-</dependency>
+<dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-dependencies</artifactId>
+            <version>${spring-boot-dependencies.version}</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-dependencies</artifactId>
+            <version>${spring-cloud-dependencies.version}</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.ecwid.consul</groupId>
+            <artifactId>consul-api</artifactId>
+            <version>${consul.version}</version>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
+
+<dependencies>
+    <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-bootstrap</artifactId>
+    </dependency>
+
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+
+    <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-openfeign</artifactId>
+    </dependency>
+
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-autoconfigure</artifactId>
+    </dependency>
+
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-webmvc</artifactId>
+    </dependency>
+
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter</artifactId>
+    </dependency>
+
+    <dependency>
+        <groupId>io.springfox</groupId>
+        <artifactId>springfox-swagger2</artifactId>
+        <version>2.9.2</version>
+    </dependency>
+
+    <dependency>
+        <groupId>io.springfox</groupId>
+        <artifactId>springfox-swagger-ui</artifactId>
+        <version>2.9.2</version>
+    </dependency>
+
+    <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-consul-discovery</artifactId>
+    </dependency>
+
+    <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-consul-config</artifactId>
+    </dependency>
+
+    <dependency>
+        <groupId>io.projectreactor.netty</groupId>
+        <artifactId>reactor-netty</artifactId>
+    </dependency>
+
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-web</artifactId>
+    </dependency>
+
+    <dependency>
+        <groupId>com.playtika.reactivefeign</groupId>
+        <artifactId>feign-reactor-core</artifactId>
+        <version>${feign-reactor.version}</version>
+    </dependency>
+
+    <dependency>
+        <groupId>com.playtika.reactivefeign</groupId>
+        <artifactId>feign-reactor-webclient</artifactId>
+        <version>${feign-reactor.version}</version>
+    </dependency>
+
+    <dependency>
+        <groupId>com.playtika.reactivefeign</groupId>
+        <artifactId>feign-reactor-cloud</artifactId>
+        <version>${feign-reactor.version}</version>
+    </dependency>
+
+    <dependency>
+        <groupId>com.playtika.reactivefeign</groupId>
+        <artifactId>feign-reactor-spring-configuration</artifactId>
+        <version>${feign-reactor.version}</version>
+    </dependency>
+
+    <dependency>
+        <groupId>com.squareup.okhttp3</groupId>
+        <artifactId>okhttp</artifactId>
+        <version>3.14.9</version>
+    </dependency>
+
+</dependencies>
 ```
-**[](id:step2)2. 向 Application 类中添加注解 `@EnableTsf`：**
+**[](id:step2)2. 向 Application 类中添加相关开源启动注解 **
 
 <dx-codeblock>
 :::  java
 // 下面省略了无关的代码
 @SpringBootApplication
-@EnableTsf
+@EnableSwagger2
+@EnableDiscoveryClient
 public class ProviderApplication {
     public static void main(String[] args) {
         SpringApplication.run(ProviderApplication.class, args);
