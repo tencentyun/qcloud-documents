@@ -3,6 +3,8 @@ Flutter TUIKit 是基于 Flutter IM SDK 实现的一套 UI 组件，其中包含
 
 基于本套 UI 组件和内置的 IM 业务逻辑，您可以像搭积木一样，快速地在您 App 中，引入即时通信及用户关系链管理等模块。
 
+**接入前，您可以通过[我们的DEMO](https://cloud.tencent.com/document/product/269/70747#demo)，快速在线体验TUIKit各项能力。**
+
 >? 本含 UI 的 SDK tim_ui_kit 已开源，您可引入 [在线版本](https://pub.dev/packages/tim_ui_kit)，也可 [GitHub fork](https://github.com/tencentyun/TIMSDK/tree/master/Flutter/Demo/im-flutter-uikit) 后本地引入使用。
 
 目前包含的一级组件如下：
@@ -16,7 +18,7 @@ Flutter TUIKit 是基于 Flutter IM SDK 实现的一套 UI 组件，其中包含
 - [TIMUIKitGroup](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitGroup/TIMUIKitGroup-Implementation.html) 我的群聊
 - [TIMUIKitBlackList](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitBlackList/TIMUIKitBlackList-Implementation.html) 黑名单
 - [TIMUIKitNewContact](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitNewContact/TIMUIKitNewContact-Implementation.html) 新的联系人申请
-- [TIMUIKitSearch](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitSearch/TIMUIKitSearch-Implementation.html) 本地搜索，支持全局搜索及会话内搜索
+- [TIMUIKitSearch](https://cloud.tencent.com/document/product/269/79121) 本地搜索，支持全局搜索及会话内搜索
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/f140dd76be01a65abfb7e6ba2bf50ed5.png)
 

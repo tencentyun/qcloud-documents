@@ -21,6 +21,23 @@
 
 >? Web/macOS/Windows 平台需要简单的几步额外引入，详情请查看本文 [Web 兼容](#web) 和 [Desktop兼容](#pc) 部分。
 
+## 体验DEMO
+
+在开始接入前，您可以体验我们的DEMO，快速了解腾讯云IM Flutter跨平台SDK及TUIKit的能力。
+
+**以下各版本DEMO，均由同一Flutter项目制作打包而成。** Desktop(macOS/Windows)平台，SDK已支持，DEMO将于近期上线。
+
+<table style="text-align:center; vertical-align:middle; max-width: 800px">
+  <tr>
+    <th style="text-align:center;">移动端 APP</th>
+    <th style="text-align:center;">WEB - H5</th>
+  </tr>
+  <tr>
+    <td><div style="display: flex; justify-content: center; align-items: center; flex-direction: column; padding-top: 10px">iOS/Android APP，自动判断平台下载<img style="max-width:200px; margin: 20px 0 20px 0" src="https://qcloudimg.tencent-cloud.cn/raw/ca2aaff551410c74fce48008c771b9f6.png"/></div></td>
+    <td><div style="display: flex; justify-content: center; align-items: center; flex-direction: column; padding-top: 10px">手机扫码体验在线Web版DEMO<img style="max-width:200px; margin: 20px 0 20px 0" src="https://qcloudimg.tencent-cloud.cn/raw/3c79e8bb16dd0eeab35e894a690e0444.png"/></div></td>
+	 </tr>
+</table>
+
 ## 集成 IM SDK
 您可以通过 [pub add](https://pub.dev/packages/tencent_im_sdk_plugin) 的方式直接集成腾讯云 IM SDK（Flutter），或者在 pubspec.yaml 中写入 IM SDK 的方式来集成。
 

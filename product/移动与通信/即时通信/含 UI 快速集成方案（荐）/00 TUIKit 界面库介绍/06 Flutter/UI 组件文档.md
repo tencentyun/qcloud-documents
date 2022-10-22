@@ -15,6 +15,23 @@ TUIKit 中的组件在实现 UI 功能的同时，会调用 IM SDK 相应的接�
 
 >? 我们致力于打造一套支持 Flutter 全平台的即时通信IM SDK及TUIKit，帮助您一套代码，全平台运行。
 
+## 体验DEMO[](id:demo)
+
+您可以通过我们的DEMO，快速在线体验TUIKit各项能力。
+
+**以下各版本DEMO，均由同一Flutter项目引入TUIKit制作打包而成。**
+
+<table style="text-align:center; vertical-align:middle; max-width: 800px">
+  <tr>
+    <th style="text-align:center;">移动端 APP</th>
+    <th style="text-align:center;">WEB - H5</th>
+  </tr>
+  <tr>
+    <td><div style="display: flex; justify-content: center; align-items: center; flex-direction: column; padding-top: 10px">iOS/Android APP，自动判断平台下载<img style="max-width:200px; margin: 20px 0 20px 0" src="https://qcloudimg.tencent-cloud.cn/raw/ca2aaff551410c74fce48008c771b9f6.png"/></div></td>
+    <td><div style="display: flex; justify-content: center; align-items: center; flex-direction: column; padding-top: 10px">手机扫码体验在线Web版DEMO<img style="max-width:200px; margin: 20px 0 20px 0" src="https://qcloudimg.tencent-cloud.cn/raw/3c79e8bb16dd0eeab35e894a690e0444.png"/></div></td>
+	 </tr>
+</table>
+
 ## TUIKit 主要功能介绍
 TUIKit 按照功能主要分为**聊天**、**关系链**、**用户或群组资料**、**搜索**、**语音**几个类型的 UI 组件，每个类型的 UI 组件负责展示不同的内容。具体的 UI 组件描述如下表所示：
 
