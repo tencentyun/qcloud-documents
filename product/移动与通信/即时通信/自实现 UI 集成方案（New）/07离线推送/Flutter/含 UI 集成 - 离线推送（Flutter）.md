@@ -197,6 +197,9 @@ flutter pub add tim_ui_kit_push_plugin
 
 [并根据该指南](https://cloud.tencent.com/document/product/269/76803)，在插件市场，启用推送插件。
 
+>?
+>
+> 在进行以下步骤时，如果您有不确定的部分，可以直接参考我们的[DEMO源码](https://github.com/TencentCloud/TIMSDK/tree/master/Flutter/Demo/im-flutter-uikit)，了解具体写法。可重点关注 `lib/utils/push` 内文件写法，及外部如何调用。
 
 ### 步骤1：汇总常量类[](id:step_1)
 1. 完成 [接入准备（注册厂商）](#firstone)的配置后，可在即时通信 IM 的控制台首页右侧，查看我们后台为您的厂商渠道 App 信息分配的证书 ID。
@@ -656,7 +659,7 @@ _calling?.call(widget.selectedConversation.userID!, CallingScenes.Audio, offline
 2. 并在左上角新增`Push Notification`的 Capability。
 ![](https://qcloudimg.tencent-cloud.cn/raw/e1be71c63e505281aed6c7eb61c587ac.png)
 3. 执行`flutter pub get`安装好插件后进入 iOS 目录，执行：`pod install`安装依赖库。
-4. 将以下代码添加到 iOS 工程下`ios/Runner/AppDelegate.swift`文件`didFinishLaunchingWithOptions`方法中。
+4. 将以下代码添加到 iOS 工程下`ios/Runner/AppDelegate.swift`文件`didFinishLaunchingWithOptions`方法中。可参考我们的[DEMO](https://github.com/TencentCloud/TIMSDK/blob/master/Flutter/Demo/im-flutter-uikit/ios/Runner/AppDelegate.swift)。
 Objective-C：
 ```objc
 if (@available(iOS 10.0, *)) {
@@ -867,7 +870,7 @@ flutter pub add tim_ui_kit_push_plugin
 
 #### iOS
 
-如果您已经配置iOS端离线推送，可忽略本部分。若无，请在 `ios/Runner/AppDelegate.swift` 或 `ios/Runner/AppDelegate.m`文件中， `didFinishLaunchingWithOptions` 函数内，添加如下代码。可参考我们的DEMO。
+如果您已经配置iOS端离线推送，可忽略本部分。若无，请在 `ios/Runner/AppDelegate.swift` 或 `ios/Runner/AppDelegate.m`文件中， `didFinishLaunchingWithOptions` 函数内，添加如下代码。可参考我们的[DEMO](https://github.com/TencentCloud/TIMSDK/blob/master/Flutter/Demo/im-flutter-uikit/ios/Runner/AppDelegate.swift)。
 
 Objective-C:
 ```objc
