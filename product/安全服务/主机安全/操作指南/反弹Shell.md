@@ -25,7 +25,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/bcdc7940cf4f8d68af6850bebe9186b2.png)
 
 ### 白名单管理
-反弹 Shell 功能支持添加白名单，通过设置白名单提权条件，将满足条件的事件标记为白名单。
+反弹 Shell 功能支持添加白名单，通过设置白名单条件，将满足条件的事件标记为白名单。
 1. 登录 [主机安全控制台](https://console.cloud.tencent.com/cwp/manage/maliciousRequest)，在左侧导航栏，选择**入侵检测** > **反弹 Shell**，进入反弹 Shell 页面。
 2. 在“反弹 Shell ”页面，选择**白名单管理** > **添加白名单**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/f36aaa7248a35a8281de721de8a906d6.png)
@@ -43,7 +43,7 @@
 ![](https://main.qcloudimg.com/raw/c0a30d4174892453ff194d19c65aebd3.png)
 	-  **自定义设置列表字段**：在白名单列表上方，单击<img src="https://main.qcloudimg.com/raw/9ebb9fa1652d9154137fa1d934329043.png" style="margin:0;">，可设置列表展示字段，选择完成后，单击**确定**，即可设置成功。
 ![](https://qcloudimg.tencent-cloud.cn/raw/8b642e494487ec70736298f271081d35.png)
-	- **编辑**：在目标白名单的右侧操作栏，单击**处理**，可对已创建的白名单进行编辑。
+	- **编辑**：在目标白名单的右侧操作栏，单击**编辑**，可对已创建的白名单进行编辑。
 ![](https://main.qcloudimg.com/raw/bf735b637fbeb43a762220b4fad3e6af.png)
 	- **删除**：在白名单列表中，支持对已配置的白名单进行删除。
 ![](https://main.qcloudimg.com/raw/6517915f204ab26d4d5ccd04cc764695.png)
