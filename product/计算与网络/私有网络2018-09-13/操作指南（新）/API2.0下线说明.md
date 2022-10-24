@@ -69,37 +69,31 @@
 <th>接口功能</th>
 <th>API 2.0</th>
 <th>API 3.0</th>
-<th>备注</th>
 </tr>
 <tr>
 <td>创建子网</td>
 <td><a href="https://cloud.tencent.com/document/api/215/2097">CreateSubnet</a></td>
 <td><a href="https://cloud.tencent.com/document/api/215/2097">CreateSubnets</a></td>
-<td></td>
 </tr>
 <tr>
 <td>删除子网</td>
 <td><a href="https://cloud.tencent.com/document/api/215/1312">DeleteSubnet</a></td>
 <td><a href="https://cloud.tencent.com/document/api/215/15783">DeleteSubnet</a></td>
-<td></td>
 </tr>
 <tr>
 <td>修改子网名称</td>
 <td><a href="https://cloud.tencent.com/document/api/215/1313">ModifySubnetAttribute</a></td>
 <td><a href="https://cloud.tencent.com/document/api/215/15781">ModifySubnetAttribute</a></td>
-<td></td>
 </tr>
 <tr>
 <td>查询子网列表</td>
 <td><a href="https://cloud.tencent.com/document/api/215/1371">DescribeSubnetEx</a></td>
 <td><a href="https://cloud.tencent.com/document/api/215/15784">DescribeSubnets</a></td>
-<td></td>
 </tr>
 <tr>
 <td>查询子网详情</td>
 <td><a href="https://cloud.tencent.com/document/api/215/1311">DescribeSubnet</a></td>
 <td><a href="https://cloud.tencent.com/document/api/215/15784">DescribeSubnets</a></td>
-<td></td>
 </tr>
 </table>
 
@@ -109,49 +103,41 @@
 <th>接口功能</th>
 <th>API 2.0</th>
 <th>API 3.0</th>
-<th>备注</th>
 </tr>
 <tr>
 <td>创建路由表</td>
 <td><a href="https://cloud.tencent.com/document/api/215/1419">CreateRouteTable</a></td>
 <td><a href="https://cloud.tencent.com/document/api/215/15768">CreateRouteTable</a></td>
-<td></td>
 </tr>
 <tr>
 <td>删除路由表</td>
 <td><a href="https://cloud.tencent.com/document/api/215/1418">DeleteRouteTable</a></td>
 <td><a href="https://cloud.tencent.com/document/api/215/15771">DeleteRouteTable</a></td>
-<td></td>
 </tr>
 <tr>
 <td>修改路由表</td>
 <td><a href="https://cloud.tencent.com/document/api/215/1417">ModifyRouteTableAttribute</a></td>
 <td><a href="https://cloud.tencent.com/document/api/215/15766">ModifyRouteTableAttribute</a></td>
-<td></td>
 </tr>
 <tr>
 <td>查询路由表</td>
 <td><a href="https://cloud.tencent.com/document/api/215/1420">DescribeRouteTable</a></td>
 <td><a href="https://cloud.tencent.com/document/api/215/15763">DescribeRouteTables</a></td>
-<td></td>
 </tr>
 <tr>
 <td>修改子网关联的路由表</td>
 <td><a href="https://cloud.tencent.com/document/api/215/1416">AssociateRouteTable</a></td>
 <td><a href="https://cloud.tencent.com/document/api/215/15767">ReplaceRouteTableAssociation</a></td>
-<td></td>
 </tr>
 <tr>
 <td>添加路由策略</td>
 <td><a href="https://cloud.tencent.com/document/api/215/5688">CreateRoute</a></td>
 <td><a href="https://cloud.tencent.com/document/api/215/16724">CreateRoutes</a></td>
-<td></td>
 </tr>
 <tr>
 <td>删除路由策略</td>
 <td><a href="https://cloud.tencent.com/document/api/215/5689">DeleteRoute</a></td>
 <td><a href="https://cloud.tencent.com/document/api/215/16725">DeleteRoutes</a></td>
-<td></td>
 </tr>
 </table>
 
@@ -161,49 +147,41 @@
 <th>接口功能</th>
 <th>API 2.0</th>
 <th>API 3.0</th>
-<th>备注</th>
 </tr>
 <tr>
 <td>创建 VPC 网络 ACL</td>
 <td><a href="https://cloud.tencent.com/document/api/215/1437">CreateNetworkAcl</a></td>
 <td><a href="https://cloud.tencent.com/document/api/215/42162">CreateNetworkAcl</a></td>
-<td></td>
 </tr>
 <tr>
 <td>删除网络 ACL</td>
 <td><a href="https://cloud.tencent.com/document/api/215/1439">DeleteNetworkAcl</a></td>
 <td><a href="https://cloud.tencent.com/document/api/215/42161">DeleteNetworkAcl</a></td>
-<td></td>
 </tr>
 <tr>
 <td>修改网络 ACL 名称</td>
 <td><a href="https://cloud.tencent.com/document/api/215/1443">ModifyNetworkAcl</a></td>
 <td><a href="https://cloud.tencent.com/document/api/215/42158">ModifyNetworkAclAttribute</a></td>
-<td></td>
 </tr>
 <tr>
 <td>查询网络 ACL 列表</td>
 <td><a href="https://cloud.tencent.com/document/api/215/1441">DescribeNetworkAcl</a></td>
 <td><a href="https://cloud.tencent.com/document/api/215/42160">DescribeNetworkAcls</a></td>
-<td></td>
 </tr>
 <tr>
 <td>设置网络 ACL 规则</td>
 <td><a href="https://cloud.tencent.com/document/api/215/1444">ModifyNetworkAclEntry</a></td>
 <td><a href="https://cloud.tencent.com/document/api/215/42107">ModifyNetworkAclEntries</a></td>
-<td></td>
 </tr>
 <tr>
 <td>网络 ACL 绑定子网</td>
 <td><a href="https://cloud.tencent.com/document/api/215/1438">CreateSubnetAclRule</a></td>
 <td><a href="https://cloud.tencent.com/document/api/215/42163">AssociateNetworkAclSubnets</a></td>
-<td></td>
 </tr>
 <tr>
 <td>网络 ACL 解绑子网</td>
 <td><a href="https://cloud.tencent.com/document/api/215/1442">DeteleSubnetAclRule</a></td>
 <td><a href="https://cloud.tencent.com/document/api/215/42159">DisassociateNetworkAclSubnets</a></td>
-<td></td>
 </tr>
 </table>
 
@@ -213,61 +191,51 @@
 <th>接口功能</th>
 <th>API 2.0</th>
 <th>API 3.0</th>
-<th>备注</th>
 </tr>
 <tr>
 <td>创建弹性网卡</td>
 <td><a href="https://cloud.tencent.com/document/api/215/4811">CreateNetworkInterface</a></td>
 <td><a href="https://cloud.tencent.com/document/api/215/15818">CreateNetworkInterface</a></td>
-<td></td>
 </tr>
 <tr>
 <td>删除弹性网卡</td>
 <td><a href="https://cloud.tencent.com/document/api/215/4813">DeleteNetworkInterface</a></td>
 <td><a href="https://cloud.tencent.com/document/api/215/15822">DeleteNetworkInterface</a></td>
-<td></td>
 </tr>
 <tr>
 <td>查询弹性网卡信息</td>
 <td><a href="https://cloud.tencent.com/document/api/215/4814">DescribeNetworkInterfaces</a></td>
 <td><a href="https://cloud.tencent.com/document/api/215/15817">DescribeNetworkInterfaces</a></td>
-<td></td>
 </tr>
 <tr>
 <td>弹性网卡申请内网 IP</td>
 <td><a href="https://cloud.tencent.com/document/api/215/4817">AssignPrivateIpAddresses</a></td>
 <td><a href="https://cloud.tencent.com/document/api/215/15813">AssignPrivateIpAddresses</a></td>
-<td></td>
 </tr>
 <tr>
 <td>弹性网卡退还内网 IP</td>
 <td><a href="https://cloud.tencent.com/document/api/215/4819">UnassignPrivateIpAddresses</a></td>
 <td><a href="https://cloud.tencent.com/document/api/215/15814">UnassignPrivateIpAddresses</a></td>
-<td></td>
 </tr>
 <tr>
 <td>弹性网卡绑定云服务器</td>
 <td><a href="https://cloud.tencent.com/document/api/215/4820">AttachNetworkInterface</a></td>
 <td><a href="https://cloud.tencent.com/document/api/215/15819">AttachNetworkInterface</a></td>
-<td></td>
 </tr>
 <tr>
 <td>弹性网卡解绑云服务器</td>
 <td><a href="https://cloud.tencent.com/document/product/215/4822">DetachNetworkInterface</a></td>
 <td><a href="https://cloud.tencent.com/document/api/215/15816">DetachNetworkInterface</a></td>
-<td></td>
 </tr>
 <tr>
 <td>弹性网卡迁移</td>
 <td><a href="https://cloud.tencent.com/document/api/215/5384">MigrateNetworkInterface</a></td>
 <td><a href="https://cloud.tencent.com/document/api/215/15821">MigrateNetworkInterface</a></td>
-<td></td>
 </tr>
 <tr>
 <td>内网 IP 迁移</td>
 <td><a href="https://cloud.tencent.com/document/api/215/5385">MigratePrivateIpAddress</a></td>
 <td><a href="https://cloud.tencent.com/document/api/215/15820">MigratePrivateIpAddress</a></td>
-<td></td>
 </tr>
 </table>
 
@@ -277,18 +245,15 @@
 <th>接口功能</th>
 <th>API 2.0</th>
 <th>API 3.0</th>
-<th>备注</th>
 </tr>
 <tr>
 <td>查询VPC异步任务执行结果</td>
 <td><a href="https://cloud.tencent.com/document/api/215/5094">DescribeVpcTaskResult</a></td>
 <td><a href="https://cloud.tencent.com/document/api/215/59037">DescribeVpcTaskResult</a></td>
-<td></td>
 </tr>
 <tr>
 <td>查询账户属性</td>
 <td><a href="https://cloud.tencent.com/document/api/215/9499">DescribeAccountVpcAttributes</a></td>
 <td><a href="https://cloud.tencent.com/document/api/215/17875">DescribeAccountAttributes</a></td>
-<td></td>
 </tr>
 </table>
