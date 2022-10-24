@@ -22,11 +22,11 @@
 
 >? Web/macOS/Windows 平台需要简单的几步额外引入，详情请查看本文 [第七部分](#web) 和 [第八部分](#pc)。
 
-## 体验DEMO
+## 体验 DEMO
 
-在开始接入前，您可以体验我们的DEMO，快速了解腾讯云IM Flutter跨平台SDK及TUIKit的能力。
+在开始接入前，您可以体验我们的 DEMO，快速了解腾讯云 IM Flutter 跨平台 SDK 及 TUIKit 的能力。
 
-**以下各版本DEMO，均由同一Flutter项目引入TUIKit制作打包而成。** Desktop(macOS/Windows)平台，SDK已支持，DEMO将于近期上线。
+**以下各版本 DEMO，均由同一 Flutter 项目引入TUIKit 制作打包而成。** Desktop(macOS/Windows)平台，SDK 已支持，DEMO 将于近期上线。
 
 <table style="text-align:center; vertical-align:middle; max-width: 800px">
   <tr>
