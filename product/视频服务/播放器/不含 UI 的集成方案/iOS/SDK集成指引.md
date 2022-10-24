@@ -110,12 +110,27 @@ pod 命令执行完后，会生成集成了 SDK 的 `.xcworkspace` 后缀的工�
     
     //TXLiveBase 位于 "TXLiveBase.h" 头文件中
     [TXLiveBase setLicenceURL:licenceURL key:licenceKey]; 
+    // TXLiveBase.delegate = self;
     NSLog(@"SDK Version = %@", [TXLiveBase getSDKVersionStr]);
+}
+
+#pragma mark - TXLiveBaseDelegate
+- (void)onLicenceLoaded:(int)result Reason:(NSString *)reason {
+    NSLog(@"onLicenceLoaded: result:%d reason:%@", result, reason);
 }
 @end
 ```
 
+## 查看方法
+
+License 设置成功后（需稍等一段时间，具体时间长短依据网络情况而定），您可以通过调用如下方法查看 License 信息：
+
+```swift
+NSLog(@"%@", [TXLiveBase getLicenceInfo]);
+```
+
 [](id:faq)
+
 ## 常见问题
 1. 项目里面同时集成了直播 SDK/实时音视频/播放器等 LiteAVSDK 系列的多个 SDK 报符号冲突问题怎么解决？
 
