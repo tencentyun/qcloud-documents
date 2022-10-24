@@ -147,7 +147,7 @@ const initPushPlugin = () => {
 
 ### 步骤 3: 发消息时设置离线推送参数
 
-发送消息时，请您设置离线推送参数，具体请参见 [发消息时设置离线推送参数](https://comm.qq.com/im-react-native-doc/classes/MessageManager__________.V2TIMMessageManager.html#sendMessage)
+发送消息时，请您设置离线推送参数，具体请参见 [发消息时设置离线推送参数](https://comm.qq.com/im/doc/RN/zh/Api/V2TIMMessageManager/sendMessage.html)
 
 ```javascript
 import { TencentImSDKPlugin } from 'react-native-tim-js';
