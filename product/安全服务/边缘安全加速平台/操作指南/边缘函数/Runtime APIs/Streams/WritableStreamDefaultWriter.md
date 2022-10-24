@@ -16,22 +16,22 @@ class WritableStreamDefaultWriter {
 ```
 
 ### 属性
-- <span style="color: #0066FF">closed</span>: Promise&lt;void&gt; <br>
-&emsp; Returns a Promise that fulfills if the stream becomes closed, or rejects if the stream errors or the writer's lock is released.
-- <span style="color: #0066FF">ready</span>: Promise&lt;void&gt; <br>
-&emsp; Returns a Promise that resolves when the desired size of the stream's internal queue transitions from non-positive to positive, signaling that it is no longer applying backpressure.
-- <span style="color: #0066FF">desiredSize</span>: int<void><br>
-&emsp; Returns the desired size required to fill the stream's internal queue.
+- closed: Promise&lt;void&gt; <br>
+&emsp; 如果流已关闭，则转为 fulfilled 状态; 如果流发生错误或写端锁已释放，则转为 rejected 状态。
+- ready: Promise&lt;void&gt; <br>
+&emsp; 返回一个 Promise. 当流的内部队列的所需大小从非正变为正时，该 Promise 将转为 fulfilled 状态，表示它不再施加背压
+- desiredSize: int<void><br>
+&emsp; 返回填充流的内部队列所需的大小。
 
 
 ### 方法
-- <span style="color: #FFAA33;font-weight: bold;">write</span>(chunk: string | ArrayBuffer | ArrayBufferView):  Promise&lt;void&gt; <br>
-&emsp; 将 chunk 写入到流中; <strong style="color: red"> 不允许在 前一个写操作完成前，调用 write() 方法发起下一个写操作; </strong><br>
-- <span style="color: #FFAA33;font-weight: bold;">close</span>():  Promise&lt;void&gt; <br>
+- write(chunk: string | ArrayBuffer | ArrayBufferView):  Promise&lt;void&gt; <br>
+&emsp; 将 chunk 写入到流中; **不允许在 前一个写操作完成前，调用 write() 方法发起下一个写操作;**<br>
+- close():  Promise&lt;void&gt; <br>
 &emsp; 关闭当前流 <br>
-- <span style="color: #FFAA33;font-weight: bold;">abort</span>(reason?: string):  Promise&lt;string&gt; <br>
+- abort(reason?: string):  Promise&lt;string&gt; <br>
 &emsp; 终止当前流 <br>
-- <span style="color: #FFAA33;font-weight: bold;">releaseLock</span>(): void <br>
+- releaseLock(): void <br>
 &emsp;  取消与流的关联，并释放对流的锁定 <br>
 
 

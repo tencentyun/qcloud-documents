@@ -13,21 +13,21 @@ class ReadableStreamBYOBReader {
 ```
 
 ### 属性
-- <span style="color: #0066FF">closed</span>: Promise&lt;void&gt; <br>
+- closed: Promise&lt;void&gt; <br>
 &emsp; Returns a Promise that fulfills when the stream closes, or rejects if the stream throws an error or the reader's lock is released.
 
 ### 方法
-- <span style="color: #FFAA33;font-weight: bold;">read</span>(view: ArrayBufferView): Promise&lt;{value: ArrayBufferView, done: boolean}&gt; <br>
+- read(view: ArrayBufferView): Promise&lt;{value: ArrayBufferView, done: boolean}&gt; <br>
 &emsp; 从流中读取数据到 view 内存中; <br>
-&emsp; <strong style="color: red"> 不允许在 前一个读取操作完成前，调用 read() 方法发起下一个读取操作; </strong> <br>
-&emsp; <strong style="color: red"> Note that once the promise fulfills, the original view passed to the method will be detached and no longer usable. </strong> <br>
+&emsp; **不允许在 前一个读取操作完成前，调用 read() 方法发起下一个读取操作;** <br>
+&emsp; **Note that once the promise fulfills, the original view passed to the method will be detached and no longer usable.** <br>
 &emsp; 返回值:<br>
-  - If a chunk is available, the promise will be fulfilled with an object of the form { value: theChunk, done: false }.
-  - If the stream becomes closed, the promise will be fulfilled with an object of the form { value: theChunk, done: true }.
-  - If the stream becomes errored, the promise will be rejected with the relevant error.
-- <span style="color: #FFAA33;font-weight: bold;">cancel</span>(reason?: string): Promise&lt;string&gt; <br>
+  - 如果有一个 chunk 是可用的，Promise 将转为 fulfilled 状态，包含 { value: theChunk, done: false } 格式的对象。
+  - 如果流被关闭，Promise 将转为 fulfilled 状态，包含 { value: theChunk, done: true } 格式的对象。
+  - 如果流出错，Promise 将转为 rejected 状态，并包含相关错误信息。
+- cancel(reason?: string): Promise&lt;string&gt; <br>
 &emsp; 关闭流并结束读取操作 <br>
-- <span style="color: #FFAA33;font-weight: bold;">releaseLock</span>(): void <br>
+- releaseLock(): void <br>
 &emsp;  取消与流的关联，并释放对流的锁定 <br>
 
 ## 示例
