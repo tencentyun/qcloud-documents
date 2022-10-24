@@ -18,6 +18,15 @@
 >- IM Flutter SDK（无 UI）指代 [tencent_im_sdk_plugin](https://pub.dev/packages/tencent_im_sdk_plugin) 包，仅包括所有 IM 客户端 API 及监听回调。
 >- IM Flutter TUIKit（含 UI）指代 [tim_ui_kit](https://pub.dev/packages/tim_ui_kit) 包，在无 UI SDK 基础上，还包括完整 UI 组件库及业务逻辑。
 
+### IM Flutter TUIKit（含 UI） 0.1.8 @2022.10.21
+* 优化：文件批量下载队列，允许一次点击多个文件消息。
+* 优化：群组列表小部件可以自动更新。
+* 优化：相机拍摄支持性能相对较低的设备，自动调整分辨率。
+* 优化：支持自定义应用栏的颜色和文字样式，特别是在 `TIMUIKitChat` 组件上。
+* 修复：好友备注或昵称无法在群提示中显示。
+* 修正：视频播放错误。
+* 修正：几个错误。
+
 ### IM Flutter SDK（无 UI） 4.1.8 @2022.10.18
 - 新增：支持 PC 平台，包含 macOS 与 Windows
 - 新增：消息扩展
