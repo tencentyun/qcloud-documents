@@ -52,19 +52,19 @@ terraform  -version
 <dx-tabs>
 ::: 环境变量鉴权
 请将如下信息添加至环境变量配置：
-`YOUR_SECRET_ID` 及 `YOUR_SECRET_KEY` 请替换为 [获取凭证](#capi) 中的 `SecretId` 和 `SecretKey`。
+`<your-secret-id>` 及 `<your-secret-key>` 请替换为 [获取凭证](#capi) 中的 `SecretId` 和 `SecretKey`。
 ```
-export TENCENTCLOUD_SECRET_ID=YOUR_SECRET_ID
-export TENCENTCLOUD_SECRET_KEY=YOUR_SECRET_KEY
+export TENCENTCLOUD_SECRET_ID=<your-secret-id>
+export TENCENTCLOUD_SECRET_KEY=<your-secret-key>
 ```
 :::
 ::: 静态凭证鉴权
 在用户目录下创建 `provider.tf` 文件，输入如下内容：
-`my-secret-id` 及 `my-secret-key` 请替换为 [获取凭证](#capi) 中的 `SecretId` 和 `SecretKey`。
+`<your-secret-id>` 及 `<your-secret-key>` 请替换为 [获取凭证](#capi) 中的 `SecretId` 和 `SecretKey`。
 ```
 provider "tencentcloud" {
-    secret_id = "my-secret-id"
-    secret_key = "my-secret-key"
+    secret_id = "<your-secret-id>"
+    secret_key = "<your-secret-key>"
 }
 ```
 :::
