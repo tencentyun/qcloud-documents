@@ -17,25 +17,25 @@
 <td>创建私有网络</td>
 <td><a href="https://cloud.tencent.com/document/api/215/1309">CreateVpc</a></td>
 <td><a href="https://cloud.tencent.com/document/api/215/15774">CreateVpc</a></td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>删除私有网络</td>
 <td><a href="https://cloud.tencent.com/document/api/215/1307">DeleteVpc</a></td>
 <td><a href="https://cloud.tencent.com/document/api/215/15775">DeleteVpc</a></td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>修改私有网络名称</td>
 <td><a href="https://cloud.tencent.com/document/api/215/1310">ModifyVpcAttribute</a></td>
 <td><a href="https://cloud.tencent.com/document/api/215/15773">ModifyVpcAttribute</a></td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>查询私有网络列表</td>
 <td><a href="https://cloud.tencent.com/document/api/215/1372">DescribeVpcEx</a></td>
 <td><a href="https://cloud.tencent.com/document/api/215/15778">DescribeVpcs</a></td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>绑定私有网络内主机与 VIP</td>
@@ -47,19 +47,19 @@
 <td>创建私有网络和基础网络设备互通</td>
 <td><a href="https://cloud.tencent.com/document/api/215/2098">AttachClassicLinkVpc</a></td>
 <td><a href="https://cloud.tencent.com/document/api/215/15779">AttachClassicLinkVpc</a></td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>删除私有网络和基础网络设备互通</td>
 <td><a href="https://cloud.tencent.com/document/api/215/2097">DetachClassicLinkVpc</a></td>
 <td><a href="https://cloud.tencent.com/document/api/215/15777">DetachClassicLinkVpc</a></td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>查询私有网络和基础网络设备互通</td>
 <td><a href="https://cloud.tencent.com/document/api/215/2112">DescribeVpcClassicLink</a></td>
 <td><a href="https://cloud.tencent.com/document/api/215/15776">DescribeClassicLinkInstances</a></td>
-<td></td>
+<td>-</td>
 </tr>
 </table>
 
