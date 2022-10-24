@@ -13,5 +13,5 @@
 5. 单击右上角的**编辑**，设置相应参数：
  - 主分发协议类型：支持 HTTP 和 HTTPS。
  - 默认分发域名：默认使用系统分配的 `xxx.vod2.myqcloud.com`，也可以选择自定义 [添加](https://cloud.tencent.com/document/product/266/33371#.E6.B7.BB.E5.8A.A0.E5.9F.9F.E5.90.8D) 并完成 [解析](https://cloud.tencent.com/document/product/266/33371#.E8.A7.A3.E6.9E.90.E5.9F.9F.E5.90.8D) 的域名作为默认分发域名。
- - 播放密钥：帐号注册时系统已随机分配播放密钥，可以修改。<font color='red'>注意：</font>如果播放密钥已在生产环境使用，修改会导致原密钥派发的播放签名失效。
+ - 播放密钥：帐号注册时系统已随机分配播放密钥，可以修改。注意：如果播放密钥已在生产环境使用，修改会导致原密钥派发的播放签名失效。
 ![](https://qcloudimg.tencent-cloud.cn/raw/6572dc465eeb972f5fbe963faf889383.png)
