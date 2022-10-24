@@ -12,15 +12,15 @@ class FetchEvent {
 ```
 
 ### 属性
-- <span style="color: #0066FF">clientID</span>:  string<br>
+- clientID:  string<br>
 &emsp;Workers 引擎内部为每一个请求分配的 id 标识，方便 Workers 内部的日志记录;<br>
-- <span style="color: #0066FF">request</span>:   [Request](Request.md)<br>
+- request:   [Request](Request.md)<br>
 &emsp;客户端发送过来的 http 请求;<br>
 
 ### 方法
-- <span style="color: #FFAA33;font-weight: bold;">respondWith</span>(resp: [Response](Response.md) | Promise<[Response](Response.md)>)  void<br>
+- respondWith(resp: [Response](Response.md) | Promise<[Response](Response.md)>)  void<br>
 &emsp;回复响应给客户端<br>
-- <span style="color: #FFAA33;font-weight: bold;">waitUntil</span>(p: Promise<any>):  void<br>
+- waitUntil(p: Promise<any>):  void<br>
 &emsp;waitUntil 方法用于通知 Workers 引擎等待 promise 的完成，延长了事件处理的生命周期。
 
 ## 示例

@@ -18,7 +18,7 @@ class Headers {
 ```
 
 ### 构造方法
-- <span style="color: #0066FF">init </span><span style="border: 3px solid #F0F8FF;border-radius: 4rem;padding:0.375rem 0.375rem;font-color: #D3D3D3;font-size: 0.7rem;">Optional</span><br>
+- init  可选<br>
 &emsp;用于初始化新创建的 Headers 对象，取值有:<br>
   - 普通的 Object: 构造函数将会枚举 Object 包含的所有可枚举属性，设置到 Headers 对象中;
   - 数组 Array: 数组的每一个成员均是 key/value 对，构造函数遍历数组包含的所有 key/value 对，并设置到 Headers 对象中;
@@ -28,26 +28,26 @@ class Headers {
 无
 
 ### 方法
-- <span style="color: #FFAA33;font-weight: bold;">append</span>(name: string, value: string):  void<br>
+- append(name: string, value: string):  void<br>
 &emsp;追加一个新的值到该 header 中，若该 header 不存在，则直接添加; <br>
 &emsp;name 和 value 都不允许为空字符串; <br>
-- <span style="color: #FFAA33;font-weight: bold;">delete</span>(name: string):  void<br>
+- delete(name: string):  void<br>
 &emsp;从 Headers 对象中删除指定 header; name 不允许为空字符串; <br>
-- <span style="color: #FFAA33;font-weight: bold;">entries</span>():  iterator<br>
+- entries():  iterator<br>
 &emsp;获取 Headers 对象所有的 key/value 对数组
-- <span style="color: #FFAA33;font-weight: bold;">forEach</span>(cb: (name: string, value: string) => void | number):  void<br>
+- forEach(cb: (name: string, value: string) => void | number):  void<br>
 &emsp;遍历 Headers 对象所有的 header，若 cb 返回非零值，表示终止遍历;<br>
-&emsp;<span style="color:red;"><b>非标准方法, 添加此方法是为了高效的遍历 header;</b></span><br>
-- <span style="color: #FFAA33;font-weight: bold;">get</span>(name: string):  string<br>
+&emsp;<b>非标准方法, 添加此方法是为了高效的遍历 header;</b><br>
+- get(name: string):  string<br>
 &emsp;从 Headers 对象中获取指定 header 的值; name 不允许为空字符串; <br>
-- <span style="color: #FFAA33;font-weight: bold;">has</span>(name: string):  boolean<br>
+- has(name: string):  boolean<br>
 &emsp;判断 Headers 对象是否包含该 header; name 不允许为空字符串; <br>
-- <span style="color: #FFAA33;font-weight: bold;">keys</span>():  iterator<br>
+- keys():  iterator<br>
 &emsp;获取 Headers 对象包含的所有 key
-- <span style="color: #FFAA33;font-weight: bold;">set</span>(name: string, value: string):  void<br>
+- set(name: string, value: string):  void<br>
 &emsp;设置 Headers 对象的指定 header 值，若该 header 不存在，则直接添加一个新的 key/value 对; <br>
 &emsp;name 和 value 都不允许为空字符串; <br>
-- <span style="color: #FFAA33;font-weight: bold;">values</span>():  iterator<br>
+- values():  iterator<br>
 &emsp;获取 Headers 对象包含的所有 value
 
 ## 示例

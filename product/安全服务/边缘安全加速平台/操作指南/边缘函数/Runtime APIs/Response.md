@@ -34,49 +34,49 @@ class ResponseInit {
 ```
 
 ### 构造方法
-- <span style="color: #0066FF">body </span><span style="border: 3px solid #F0F8FF;border-radius: 4rem;padding:0.375rem 0.375rem;font-color: #D3D3D3;font-size: 0.7rem;">Optional</span><br>
+- body  可选<br>
 &emsp;可选参数，用于定义 Response 对象的 body 成员<br>
-- <span style="color: #0066FF">options </span><span style="border: 3px solid #F0F8FF;border-radius: 4rem;padding:0.375rem 0.375rem;font-color: #D3D3D3;font-size: 0.7rem;">Optional</span><br>
+- options  可选<br>
 &emsp;可选参数，包含希望被设置到返回的 Response 对象中的属性选项。可用的选项如下：<br>
   - status: 响应的状态码;
-  - statusText: 响应的状态码相关联的状态信息, <strong style="color:red;"> 必须是字符串类型，支持的最大长度为 4095，超出长度会被截断 </strong>;
+  - statusText: 响应的状态码相关联的状态信息, **必须是字符串类型，支持的最大长度为 4095，超出长度会被截断**;
   - headers: 响应的头部信息, 参考 [Headers](Headers.md);
 
 ### 属性
-- <span style="color: #0066FF">body</span>:  [ReadableStream](Streams/ReadableStream.md)<br>
+- body:  [ReadableStream](Streams/ReadableStream.md)<br>
 &emsp;响应体
-- <span style="color: #0066FF">bodyUsed</span>:  `boolean`<br>
+- bodyUsed:  `boolean`<br>
 &emsp;标识响应体是否已读取
-- <span style="color: #0066FF">headers</span>:  [Headers](Headers.md)<br>
+- headers:  [Headers](Headers.md)<br>
 &emsp;响应头部
-- <span style="color: #0066FF">ok</span>:  `boolean`<br>
+- ok:  `boolean`<br>
 &emsp;标识响应是否成功(状态码在 200-299 范围内)
-- <span style="color: #0066FF">status</span>:  `number`<br>
+- status:  `number`<br>
 &emsp;响应的状态代码
-- <span style="color: #0066FF">statusText</span>:  `string`<br>
+- statusText:  `string`<br>
 &emsp;响应的状态消息
-- <span style="color: #0066FF">url</span>:  `string`<br>
+- url:  `string`<br>
 &emsp;响应的 url
-- <span style="color: #0066FF">redirected</span>:  `boolean`<br>
+- redirected:  `boolean`<br>
   &emsp;标识该响应是否是重定向的结果
-- <span style="color: #0066FF">redirectUrls</span>:  `Array<string>`<br>
+- redirectUrls:  `Array<string>`<br>
   &emsp;重定向过程中使用的所有 URL
 
 ### 方法
-- <span style="color: #FFAA33;font-weight: bold;">arrayBuffer</span>():  Promise&lt;ArrayBuffer&gt;<br>
+- arrayBuffer():  Promise&lt;ArrayBuffer&gt;<br>
 &emsp;读取整个响应体，Returns a promise that resolves with an ArrayBuffer.
-- <span style="color: #FFAA33;font-weight: bold;">blob</span>():  Promise&lt;Blob&gt;<br>
+- blob():  Promise&lt;Blob&gt;<br>
 &emsp;读取整个响应体，Returns a promise that resolves with an Blob.
-- <span style="color: #FFAA33;font-weight: bold;">clone</span>(copyHeaders?: boolean):  Request<br>
+- clone(copyHeaders?: boolean):  Request<br>
 &emsp;创建当前响应对象的副本，若未设置copyHeaders或者copyHeaders为false, 返回的副本Response对象将会引用headers成员.<br>
-&emsp;<span style="color:red;"><b>标准未提供copyHeaders参数, 添加此参数主要是出于性能的考虑，避免无意义的拷贝;</b></span><br>
-- <span style="color: #FFAA33;font-weight: bold;">json</span>():  Promise&lt;object&gt;<br>
+&emsp;<b>标准未提供copyHeaders参数, 添加此参数主要是出于性能的考虑，避免无意义的拷贝;</b><br>
+- json():  Promise&lt;object&gt;<br>
 &emsp;读取整个响应体，Returns a promise that resolves with a JSON representation of the response body.
-- <span style="color: #FFAA33;font-weight: bold;">text</span>():  Promise&lt;string&gt;<br>
+- text():  Promise&lt;string&gt;<br>
 &emsp;读取整个响应体，Returns a promise that resolves with a string (text) representation of the response body.
-- <span style="color: #FFAA33;font-weight: bold;">getCookies</span>():  [Cookies](./NonStandard/Cookies.md)<br>
+- getCookies():  [Cookies](./NonStandard/Cookies.md)<br>
 &emsp;获取 Cookies 对象. 会自动解析 Set-Cookie 头部, 绑定 Cookies 对象到 Response.
-- <span style="color: #FFAA33;font-weight: bold;">setCookies</span>([Cookies](./NonStandard/Cookies.md)):  boolean<br>
+- setCookies([Cookies](./NonStandard/Cookies.md)):  boolean<br>
 &emsp;设置 Cookies 对象. 会忽略已有 Set-Cookie 头部, 以新设置的 Cookies 对象生成新的 Set-Cookie 头部.
 
 ## 示例

@@ -25,15 +25,15 @@ log(encoder.encoding);
 
 ### 属性
 
-- <span style="color: #0066FF">encoding</span>:  string<br>
+- encoding:  string<br>
 &emsp;编码器的编码类型，当前只会返回 "utf-8"
 
 ### 方法
 
-- <span style="color: #FFAA33;font-weight: bold;">encode</span>(input?: string | undefined):  Uint8Array<br>
+- encode(input?: string | undefined):  Uint8Array<br>
 &emsp;接受码点流作为输入，并提供 UTF-8 字节流作为输出;<br>
-&emsp;<strong style="color:red"> input 最大长度为 300M</strong>, 超出长度会抛出异常;<br>
-- <span style="color: #FFAA33;font-weight: bold;">encodeInto</span>(input: string, destination: Uint8Array):  {read: number, written: number}<br>
+&emsp;**input 最大长度为 300M**, 超出长度会抛出异常;<br>
+- encodeInto(input: string, destination: Uint8Array):  {read: number, written: number}<br>
 &emsp;接受码点流作为输入，输出的 UTF-8 字节流写入到 destination 字节数组中;<br>
 &emsp;返回值为包含如下成员的对象：
   - read: The number of UTF-16 units of code from the source that has been converted over to UTF-8.
@@ -59,14 +59,14 @@ class TextDecoder {
 
 ### 构造方法
 
-- <span style="color: #0066FF">utfLabel</span><span style="border: 3px solid #F0F8FF;border-radius: 4rem;padding:0.375rem 0.375rem;font-color: #D3D3D3;font-size: 0.7rem;">Optional</span><br>
+- utfLabel 可选<br>
 &emsp;可选参数，指定解码器类型，默认值为 "utf-8". 合法的 label 值可参考[MDN](https://developer.mozilla.org/en-US/docs/Web/API/Encoding_API/Encodings).<br>
-&emsp;<strong style="color:red;">注意：</strong>如下 label 值暂不支持<br>
+&emsp;**注意**：如下 label 值暂不支持<br>
   - "iso-8859-16"
   - "hz-gb-2312"
   - "csiso2022kr", "iso-2022-kr"
 &emsp;
-- <span style="color: #0066FF">options</span><span style="border: 3px solid #F0F8FF;border-radius: 4rem;padding:0.375rem 0.375rem;font-color: #D3D3D3;font-size: 0.7rem;">Optional</span><br>
+- options 可选<br>
 &emsp;可选对象，包含如下选项:<br>
   - fatal: 标识解码失败时是否抛出异常，默认值为 false;
   - ignoreBOM: 标识是否忽略 byte-order marker，默认值为 false;
@@ -81,18 +81,18 @@ log(decoder.ignoreBOM);
 
 ### 属性
 
-- <span style="color: #0066FF">encoding</span>:  string<br>
+- encoding:  string<br>
 &emsp;解码器类型
-- <span style="color: #0066FF">fatal</span>:  boolean<br>
+- fatal:  boolean<br>
 &emsp;当解码失败，标识是否抛出异常
-- <span style="color: #0066FF">ignoreBOM</span>:  boolean<br>
+- ignoreBOM:  boolean<br>
 &emsp;标识是否忽略 byte-order marker
 
 ### 方法
 
-- <span style="color: #FFAA33;font-weight: bold;">decode</span>(buffer?: ArrayBuffer | ArrayBufferView | undefined, options?: {stream: boolean} | undefined):  string<br>
+- decode(buffer?: ArrayBuffer | ArrayBufferView | undefined, options?: {stream: boolean} | undefined):  string<br>
 &emsp;对输入的字节流进行解码，参数说明如下:<br>
-  - buffer: 可选参数，表示待解码的字节流，若没有数据需要解码，则填入 undefined; <strong style="color: red">buffer 最大长度为 100M</strong>, 超出长度会抛出异常;<br>
+  - buffer: 可选参数，表示待解码的字节流，若没有数据需要解码，则填入 undefined; **buffer 最大长度为 100M**, 超出长度会抛出异常;<br>
   - options: 可选对象，用于流式解码，默认为非流式;<br>
 Set to true if processing the data in chunks, and false for the final chunk or if the data is not chunked. It defaults to false.
 

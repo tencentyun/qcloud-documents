@@ -6,9 +6,9 @@
 function fetch(resource: string | Request, init?: RequestInit): Promise<Response>
 ```
 
-- <span style="color: #0066FF">resource</span><br>
+- resource<br>
 &emsp;指定将要获取的资源;<br>
-- <span style="color: #0066FF">init</span><span style="border: 3px solid #F0F8FF;border-radius: 4rem;padding:0.375rem 0.375rem;font-color: #D3D3D3;font-size: 0.7rem;">Optional</span><br>
+- init 可选<br>
 &emsp;一个可选对象，包含希望被设置到此次请求中的属性选项，参考 [`RequestInit`](Request.md)
 
 ## 重定向

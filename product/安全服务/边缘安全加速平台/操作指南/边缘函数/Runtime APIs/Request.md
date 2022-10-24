@@ -58,23 +58,23 @@ let request = new Request(input [, options])
 
 ### 参数
 
-- <span style="color: #0066FF">input</span><br>
+- input<br>
 &emsp;定义我们将要fetch的资源，取值有:<br>
   - 一个直接包含资源 url 的字符串;
   - 已存在的 Request 对象: 拷贝传入的 Request 对象属性，并设置到返回的 Request 对象中，若 options 对象的 copyHeaders 属性为 false，则引用传入的 Request对象的 headers 属性;
-- <span style="color: #0066FF">options </span><span style="border: 3px solid #F0F8FF;border-radius: 4rem;padding:0.375rem 0.375rem;font-color: #D3D3D3;font-size: 0.7rem;">Optional</span><br>
+- options  可选<br>
 &emsp;一个可选对象，包含希望被设置到返回的 Request 对象中的属性选项
 
 #### `RequestInit`
 
-  - `method`: 请求的方法, <strong style="color:red;"> 必须是字符串类型，支持的最大长度为 4095，超出长度会被截断 </strong>;<br>
+  - `method`: 请求的方法, **必须是字符串类型，支持的最大长度为 4095，超出长度会被截断**;<br>
   - `headers`: 请求的头部信息，参考 [Headers](Headers.md); <br>
   - `body`: 请求体; <br>
   - `redirect`: 重定向策略，字符串类型，支持 `manual`、`error` 和 `follow`; 默认为 `follow`，即自动跟随重定向; <br>
   - `maxFollow`: 最大可重定向次数，默认为 12; <br>
   - `version`: HTTP 版本，字符串类型，目前支持 `HTTP/1.0`、`HTTP/1.1` 和 `HTTP/2.0`，默认为 `HTTP/1.1`; <br>
-  - `copyHeaders`: <span style="color:red;"><b>非标准选项</b></span>,&emsp;表示是否拷贝传入的Request对象的headers属性;<br>
-- `cf`: <span style="color:red;"><b>非标准选项</b></span>,&emsp;用于控制 workers 处理该请求的行为
+  - `copyHeaders`: <b>非标准选项</b>,&emsp;表示是否拷贝传入的Request对象的headers属性;<br>
+- `cf`: <b>非标准选项</b>,&emsp;用于控制 workers 处理该请求的行为
 
 #### `RequestInitCfProperties`
 
@@ -87,23 +87,23 @@ let request = new Request(input [, options])
 - `cacheTtlByStatus`: 缓存相关, 用于根据状态码指定缓存时长(单位s), 小于等于0不缓存
 
 ### 属性
-- <span style="color: #0066FF">body</span>:  [ReadableStream](Streams/ReadableStream.md)<br>
+- body:  [ReadableStream](Streams/ReadableStream.md)<br>
 &emsp;请求体
-- <span style="color: #0066FF">bodyUsed</span>:  `boolean`<br>
+- bodyUsed:  `boolean`<br>
 &emsp;标识请求体是否已读取
-- <span style="color: #0066FF">headers</span>:  [Headers](Headers.md)<br>
+- headers:  [Headers](Headers.md)<br>
 &emsp;请求头部
-- <span style="color: #0066FF">method</span>:  `string`<br>
+- method:  `string`<br>
 &emsp;请求方法，缺省值为 "GET"
-- <span style="color: #0066FF">redirect</span>:  `string`<br>
+- redirect:  `string`<br>
 &emsp;请求被重定向后的处理方式: follow, error, manual, 默认为 manual
-- <span style="color: #0066FF">maxFollow</span>:  `number`<br>
+- maxFollow:  `number`<br>
   &emsp;请求最多可重定向的次数
-- <span style="color: #0066FF">url</span>:  `string`<br>
+- url:  `string`<br>
 &emsp;请求的 url
-- <span style="color: #0066FF">version</span>:  `string`<br>
+- version:  `string`<br>
   &emsp;请求使用的 HTTP 协议版本
-- <span style="color: #0066FF">cf</span>:  `IncomingRequestCfProperties`<br>
+- cf:  `IncomingRequestCfProperties`<br>
   &emsp;一个对象，其中包含了由腾讯边缘网络提供的与客户请求相关的属性
 
 #### `IncomingRequestCfProperties`
@@ -113,42 +113,42 @@ let request = new Request(input [, options])
 目前包含如下信息：
 
 - `geo`: 一个对象，用于描述客户请求的位置，其中包含如下数据：
-  - `asn`<span style="border: 2px solid #F0F8FF;border-radius: 4rem;padding:0.375rem 0.375rem;font-color: #D3D3D3;font-size: 0.3rem;">Number</span><br>
+  - `asn`Number<br>
    自治区号，比如 12271 <br>
-  - `countryName`<span style="border: 2px solid #F0F8FF;border-radius: 4rem;padding:0.375rem 0.375rem;font-color: #D3D3D3;font-size: 0.3rem;">String</span><br>
+  - `countryName`String<br>
    国家名，比如 `"United States of America"` <br>
-  - `countryCodeAlpha2`<span style="border: 2px solid #F0F8FF;border-radius: 4rem;padding:0.375rem 0.375rem;font-color: #D3D3D3;font-size: 0.3rem;">String</span><br>
+  - `countryCodeAlpha2`String<br>
    国家的 ISO-3611 alpha2 代码，比如 `"US"` <br>
-  - `countryCodeAlpha3`<span style="border: 2px solid #F0F8FF;border-radius: 4rem;padding:0.375rem 0.375rem;font-color: #D3D3D3;font-size: 0.3rem;">String</span><br>
+  - `countryCodeAlpha3`String<br>
    国家的 ISO-3611 alpha3 代码，比如 `"USA"` <br>
-  - `countryCodeNumeric`<span style="border: 2px solid #F0F8FF;border-radius: 4rem;padding:0.375rem 0.375rem;font-color: #D3D3D3;font-size: 0.3rem;">String</span><br>
+  - `countryCodeNumeric`String<br>
    国家的 ISO-3611 numeric 代码，比如 `"840"` <br>
-  - `regionName`<span style="border: 2px solid #F0F8FF;border-radius: 4rem;padding:0.375rem 0.375rem;font-color: #D3D3D3;font-size: 0.3rem;">String</span><br>
+  - `regionName`String<br>
    区域名，比如 `"New York"` <br>
-  - `regionCode`<span style="border: 2px solid #F0F8FF;border-radius: 4rem;padding:0.375rem 0.375rem;font-color: #D3D3D3;font-size: 0.3rem;">String</span><br>
+  - `regionCode`String<br>
    区域代码，比如 `"US-NY"` <br>
-  - `cityName`<span style="border: 2px solid #F0F8FF;border-radius: 4rem;padding:0.375rem 0.375rem;font-color: #D3D3D3;font-size: 0.3rem;">String</span><br>
+  - `cityName`String<br>
    城市名，比如 `"new york"` <br>
-  - `latitude`<span style="border: 2px solid #F0F8FF;border-radius: 4rem;padding:0.375rem 0.375rem;font-color: #D3D3D3;font-size: 0.3rem;">Number</span><br>
+  - `latitude`Number<br>
    经度，比如 40.742802 <br>
-  - `longitude`<span style="border: 2px solid #F0F8FF;border-radius: 4rem;padding:0.375rem 0.375rem;font-color: #D3D3D3;font-size: 0.3rem;">Number</span><br>
+  - `longitude`Number<br>
    纬度，比如 -73.971199 <br>
 
 ### 方法
-- <span style="color: #FFAA33;font-weight: bold;">arrayBuffer</span>():  Promise&lt;ArrayBuffer&gt;<br>
+- arrayBuffer():  Promise&lt;ArrayBuffer&gt;<br>
 &emsp;读取整个请求体，Returns a promise that resolves with an ArrayBuffer.
-- <span style="color: #FFAA33;font-weight: bold;">blob</span>():  Promise&lt;Blob&gt;<br>
+- blob():  Promise&lt;Blob&gt;<br>
 &emsp;读取整个请求体，Returns a promise that resolves with an Blob.
-- <span style="color: #FFAA33;font-weight: bold;">clone</span>(copyHeaders?: boolean):  Request<br>
+- clone(copyHeaders?: boolean):  Request<br>
 &emsp;创建当前请求对象的副本，若未设置 copyHeaders 或者 copyHeaders 为 false, 返回的副本 Request 对象将会引用headers成员.<br>
-&emsp;<span style="color:red;"><b>标准未提供copyHeaders参数, 添加此参数主要是出于性能的考虑，避免无意义的拷贝;</b></span><br>
-- <span style="color: #FFAA33;font-weight: bold;">json</span>():  Promise&lt;object&gt;<br>
+&emsp;<b>标准未提供copyHeaders参数, 添加此参数主要是出于性能的考虑，避免无意义的拷贝;</b><br>
+- json():  Promise&lt;object&gt;<br>
 &emsp;读取整个请求体，Returns a promise that resolves with a JSON representation of the request body.
-- <span style="color: #FFAA33;font-weight: bold;">text</span>():  Promise&lt;string&gt;<br>
+- text():  Promise&lt;string&gt;<br>
 &emsp;读取整个请求体，Returns a promise that resolves with a string (text) representation of the request body.
-- <span style="color: #FFAA33;font-weight: bold;">getCookies</span>():  [Cookies](./NonStandard/Cookies.md)<br>
+- getCookies():  [Cookies](./NonStandard/Cookies.md)<br>
 &emsp;获取 Cookies 对象. 会自动解析 Cookie 头部, 绑定 Cookies 对象到 Request.
-- <span style="color: #FFAA33;font-weight: bold;">setCookies</span>([Cookies](./NonStandard/Cookies.md)):  boolean<br>
+- setCookies([Cookies](./NonStandard/Cookies.md)):  boolean<br>
 &emsp;设置 Cookies 对象. 会忽略已有 Cookie 头部, 以新设置的 Cookies 对象生成新的 Cookie 头部.
 
 ## 示例

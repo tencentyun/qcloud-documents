@@ -3,7 +3,7 @@
 * [WritableStream](Streams/WritableStream.md)
 * [TransformStream](Streams/TransformStream.md)
 
-<strong style="color: red;"> 流式处理，可能会修改 http 头部: Transfer-Encoding 为 chunked </strong>
+**流式处理，可能会修改 http 头部: Transfer-Encoding 为 chunked**
 
 ## 示例
 
