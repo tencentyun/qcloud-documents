@@ -8,10 +8,10 @@
 ### 私有网络
 <table>
 <tr>
-<th>接口功能</th>
-<th>API 2.0</th>
-<th>API 3.0</th>
-<th>备注</th>
+<th width="25%">接口功能</th>
+<th width="25%">API 2.0</th>
+<th width="25%">API 3.0</th>
+<th width="25%">备注</th>
 </tr>
 <tr>
 <td>创建私有网络</td>
@@ -66,9 +66,9 @@
 ### 子网
 <table>
 <tr>
-<th>接口功能</th>
-<th>API 2.0</th>
-<th>API 3.0</th>
+<th width="30%">接口功能</th>
+<th width="35%">API 2.0</th>
+<th width="35%">API 3.0</th>
 </tr>
 <tr>
 <td>创建子网</td>
@@ -100,9 +100,9 @@
 ### 路由表
 <table>
 <tr>
-<th>接口功能</th>
-<th>API 2.0</th>
-<th>API 3.0</th>
+<th width="30%">接口功能</th>
+<th width="35%">API 2.0</th>
+<th width="35%">API 3.0</th>
 </tr>
 <tr>
 <td>创建路由表</td>
@@ -144,9 +144,9 @@
 ### 网络 ACL
 <table>
 <tr>
-<th>接口功能</th>
-<th>API 2.0</th>
-<th>API 3.0</th>
+<th width="30%">接口功能</th>
+<th width="35%">API 2.0</th>
+<th width="35%">API 3.0</th>
 </tr>
 <tr>
 <td>创建 VPC 网络 ACL</td>
@@ -188,9 +188,9 @@
 ### 弹性网卡
 <table>
 <tr>
-<th>接口功能</th>
-<th>API 2.0</th>
-<th>API 3.0</th>
+<th width="30%">接口功能</th>
+<th width="35%">API 2.0</th>
+<th width="35%">API 3.0</th>
 </tr>
 <tr>
 <td>创建弹性网卡</td>
@@ -242,9 +242,9 @@
 ### 其他
 <table>
 <tr>
-<th>接口功能</th>
-<th>API 2.0</th>
-<th>API 3.0</th>
+<th width="30%">接口功能</th>
+<th width="35%">API 2.0</th>
+<th width="35%">API 3.0</th>
 </tr>
 <tr>
 <td>查询VPC异步任务执行结果</td>
