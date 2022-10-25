@@ -1,7 +1,7 @@
 注册事件监听器。
 
 ## 描述
-在一个边缘函数脚本中，一种类型的事件，只允许注册对应的一个事件监听器，重复注册的话，只有最后注册的事件监听器有效。
+在一个边缘函数中，一种类型的事件，只允许注册对应的一个事件监听器，重复注册的话，只有最后注册的事件监听器有效。
 ```typescript
 function addEventListener(type: string, listener: (ev: FetchEvent) => void): void;
 ```
