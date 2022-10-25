@@ -73,8 +73,7 @@ log(decoder.ignoreBOM);
 ### 方法
 - decode(buffer?: ArrayBuffer | ArrayBufferView | undefined, options?: {stream: boolean} | undefined):  string<br>对输入的字节流进行解码，参数说明如下:<br>
   - buffer：可选参数，表示待解码的字节流，若没有数据需要解码，则填入 undefined；**buffer 最大长度为 100M**，超出长度会抛出异常。<br>
-  - options: 可选对象，用于流式解码，默认为非流式。<br>
-  - 如果以 chunk 的方式处理数据，则设置为 true，但如果 chunk 已结束或数据未使用 chunk，则设置为 false。 默认值为 flase。
+  - options: 可选对象，用于流式解码，默认为非流式。<br>如果以 chunk 的方式处理数据，则设置为 true，但如果 chunk 已结束或数据未使用 chunk，则设置为 false。 默认值为 flase。
 
 ## 示例
 #### 基本使用
