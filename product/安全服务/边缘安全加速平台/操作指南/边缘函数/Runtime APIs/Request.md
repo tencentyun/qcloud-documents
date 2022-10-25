@@ -88,10 +88,10 @@ let request = new Request(input [, options])
 - maxFollow:  `number`<br>请求最多可重定向的次数。
 - url:  `string`<br>请求的 url。
 - version:  `string`<br>请求使用的 HTTP 协议版本。
-- cf:  `IncomingRequestCfProperties`<br>一个对象，其中包含了由腾讯边缘网络提供的与客户请求相关的属性。
+- cf：`IncomingRequestCfProperties`<br>一个对象，其中包含了由边缘安全加速平台提供的与客户请求相关的属性。
 
 #### IncomingRequestCfProperties
-除了标准 `Request` 对象的属性外，客户请求的 `request.cf` 对象中还包含由腾讯边缘网络提供的与请求相关的一些其他信息。目前包含如下信息：
+除了标准 `Request` 对象的属性外，客户请求的 `request.cf` 对象中还包含由边缘安全加速平台提供的与请求相关的一些其他信息。目前包含如下信息：
 
 - `geo`: 一个对象，用于描述客户请求的位置，其中包含如下数据：
   - `asn`Number<br>自治区号，例如12271。
