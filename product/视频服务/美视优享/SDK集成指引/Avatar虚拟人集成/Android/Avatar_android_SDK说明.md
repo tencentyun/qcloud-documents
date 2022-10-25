@@ -245,7 +245,7 @@ action 字段表示对 entityName 执行什么操作（action）。SDK 内定义
 	"chin_width": 0.0
 }
 ```
-分别是形变的名称和形变值，形变名称见素材设计规范，形变值取 -1.0 到 1.0 之间。
+分别是形变的名称和形变值，形变名称请参见 [素材设计规范](https://doc.weixin.qq.com/doc/w3_ALoA-gYYAAgV0MAAbjtQfO4EWXhI9?scode=AJEAIQdfAAoU7K9sLCAGMA3QZFAAg&version=4.0.19.6020&platform=win)，形变值取 -1.0 到 1.0 之间。
 :::
 ::: action 等于 replace 场景
 `action == replace` 时的value字段描述了子模型的3D变换信息、模型路径、材质路径。可以从素材根目录的 template.json 中找到每个模型的这些信息。
@@ -314,7 +314,7 @@ avatar 属性配置存放在 resources 文件夹下（路径为：`素材/custom
 <img src="https://qcloudimg.tencent-cloud.cn/raw/fcc5d2d5173afe13008b8369c63b1a32.png" width=800>
 
 这些配置文件是自动生成的，通常不需要手动配置。自动生成的方式如下：
-设计师按照设计规范，用TencentEffectStudio设计好一套形象后，运行我们提供的 resource_generator_gui 这个 App（目前仅支持 MacOS 平台），即可自动生成这些配置。详见设计规范说明。
+设计师按照设计规范，用TencentEffectStudio设计好一套形象后，运行我们提供的 resource_generator_gui 这个 App（目前仅支持 MacOS 平台），即可自动生成这些配置，详情请参见 [设计规范说明](https://doc.weixin.qq.com/doc/w3_ALoA-gYYAAgV0MAAbjtQfO4EWXhI9?scode=AJEAIQdfAAoU7K9sLCAGMA3QZFAAg&version=4.0.19.6020&platform=win)。
 
 
 
