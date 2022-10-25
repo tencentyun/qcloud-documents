@@ -17,7 +17,7 @@ RENAME COLUMN old_column_name TO new_column_name
 
 ## 示例
 ```
-alter table iceberg_rename rename column id to id 2
+alter table iceberg_rename rename column id to id_2
 ```
 
 
