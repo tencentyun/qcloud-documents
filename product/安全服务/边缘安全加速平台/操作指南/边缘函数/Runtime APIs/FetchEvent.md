@@ -1,4 +1,3 @@
-# FetchEvent
 FetchEvent 代表任何传入的 HTTP 请求事件，workers 脚本通过注册 "fetch" 事件的监听器实现对 HTTP 请求的处理。
 
 ## 语法
@@ -12,27 +11,20 @@ class FetchEvent {
 ```
 
 ### 属性
-- clientID:  string<br>
-&emsp;Workers 引擎内部为每一个请求分配的 id 标识，方便 Workers 内部的日志记录;<br>
-- request:   [Request](Request.md)<br>
-&emsp;客户端发送过来的 http 请求;<br>
+- clientID:  string<br>Workers 引擎内部为每一个请求分配的 id 标识，方便 Workers 内部的日志记录。
+- request:   [Request](https://cloud.tencent.com/document/product/1552/81902)<br>客户端发送过来的 HTTP 请求。
 
 ### 方法
-- respondWith(resp: [Response](Response.md) | Promise<[Response](Response.md)>)  void<br>
-&emsp;回复响应给客户端<br>
-- waitUntil(p: Promise<any>):  void<br>
-&emsp;waitUntil 方法用于通知 Workers 引擎等待 promise 的完成，延长了事件处理的生命周期。
+- respondWith(resp: [Response](https://cloud.tencent.com/document/product/1552/81901) | Promise<[Response](https://cloud.tencent.com/document/product/1552/81901)>)  void<br>回复响应给客户端。</br>
+- waitUntil(p: Promise<any>):  void<br>waitUntil 方法用于通知 Workers 引擎等待 promise 的完成，延长了事件处理的生命周期。</br>
 
 ## 示例
-
 ```js
 addEventListener('fetch', (event) => {
   event.respondWith(new Response('hello workers!'))
 })
 ```
-
-* 使用 waitUntil 方法异步上报统计数据<br>
-
+- 使用 waitUntil 方法异步上报统计数据
 ```js
 async function report(req) {
   let headers = req.headers;
@@ -51,9 +43,7 @@ addEventListener('fetch', (event) => {
   event.respondWith(Response('hello workers!'))
 });
 ```
-
-* 使用 waitUntil 方法异步缓存数据<br>
-
+- 使用 waitUntil 方法异步缓存数据
 ```js
 async function getCache(req) {
   // do something ...
@@ -104,4 +94,4 @@ addEventListener('fetch', (event) => {
 ```
 
 ## 参考
-* [FetchEvent](https://developer.mozilla.org/en-US/docs/Web/API/FetchEvent)
+- [FetchEvent](https://developer.mozilla.org/en-US/docs/Web/API/FetchEvent)
