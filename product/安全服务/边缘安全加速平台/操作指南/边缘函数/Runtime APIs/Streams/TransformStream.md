@@ -1,5 +1,4 @@
-# TransformStream
-代表了一对流，包括读端和写端。
+TransformStream 代表了一对流，包括读端和写端。
 
 ## 语法
 ```typescript
@@ -12,17 +11,12 @@ class TransformStream {
 ```
 
 ### 构造方法
-- transfromer  可选<br>
-&emsp; any, 当前实现会忽略该参数<br>
-- writableStrategy  可选<br>
-&emsp; 指定可写端的缓存区大小，以字节为单位，默认值为 32K, 最大值为 256K, 超过最大值则会自动调整为 256K <br>
-
+- transfromer  可选<br>any，当前实现会忽略该参数。
+- writableStrategy  可选<br>指定可写端的缓存区大小，以字节为单位，默认值为 32K，最大值为 256K，超过最大值则会自动调整为 256K。
 
 ### 属性
-- readable: [ReadableStream](ReadableStream.md)<br>
-&emsp; 可读端
-- writable: [WritableStream](WritableStream.md)<br>
-&emsp; 可写端
+- readable: [ReadableStream](https://cloud.tencent.com/document/product/1552/81909)<br>可读端。
+- writable: [WritableStream](https://cloud.tencent.com/document/product/1552/81922)<br>可写端。
 
 ## 示例
 ```js
@@ -60,4 +54,4 @@ addEventListener('fetch', (event) => {
 ```
 
 ## 参考
-* [TransformStream](https://developer.mozilla.org/en-US/docs/Web/API/TransformStream)
+- [TransformStream](https://developer.mozilla.org/en-US/docs/Web/API/TransformStream)
