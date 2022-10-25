@@ -1,4 +1,4 @@
-FetchEvent 代表任何传入的 HTTP 请求事件，workers 脚本通过注册 "fetch" 事件的监听器实现对 HTTP 请求的处理。
+FetchEvent 代表任何传入的 HTTP 请求事件，边缘函数通过注册 "fetch" 事件的监听器实现对 HTTP 请求的处理。
 
 ## 语法
 ```typescript
