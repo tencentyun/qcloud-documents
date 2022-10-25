@@ -1,4 +1,4 @@
-﻿## SDK 接入
+## SDK 接入
 
 SDK 的下载、接入、鉴权、跑通 Demo 请参见 [独立集成腾讯特效](https://cloud.tencent.com/document/product/616/65891)。
 
