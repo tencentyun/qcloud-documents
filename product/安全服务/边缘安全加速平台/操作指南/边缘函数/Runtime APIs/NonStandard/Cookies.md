@@ -1,9 +1,6 @@
-# Cookies
-
-Cookies 提供了一组 cookie 操作接口.
+Cookies 提供了一组 cookie 操作接口。
 
 ## 语法
-
 ```typescript
 class Cookie {
   readonly name: string;
@@ -28,81 +25,62 @@ class Cookies {
 ```
 
 ## 构造方法
-
-Cookie 对象暂不支持构造生成.
-
+Cookie 对象暂不支持构造生成。
 ```typescript
 let cookies = new Cookies(cookie_str?: string, is_setcookie?: boolean)
 ```
 
 ### 参数
+- cookie_str Optional<br>Cookie 字符串或者 Set-Cookie 字符串。
+- is_setcookie Optional<br>表示cookie_str 是 Set-Cookie 字符串. 默认为 false。
 
-- <span style="color: #0066FF">cookie_str</span><span style="border: 3px solid #F0F8FF;border-radius: 4rem;padding:0.375rem 0.375rem;font-color: #D3D3D3;font-size: 0.7rem;">Optional</span><br>
-&emsp;Cookie 字符串或者 Set-Cookie 字符串:<br>
-- <span style="color: #0066FF">is_setcookie </span><span style="border: 3px solid #F0F8FF;border-radius: 4rem;padding:0.375rem 0.375rem;font-color: #D3D3D3;font-size: 0.7rem;">Optional</span><br>
-&emsp;表示cookie_str 是 Set-Cookie 字符串. 默认为 false.
-
-补充说明:
-- 如果构造函数不带参数, 会创建空的 Cookies 对象.
-- 如果构造函数只带 cookie_str 参数或者两个参数都带,并且 is_setcookie 为 false, 会按照 Cookie 格式解析字符串, 创建的 Cookies 对象将包含解析出的 Cookie 对象集.
-- 如果构造函数两个参数都带, 并且 is_setcookie 为 true, 会按照 Set-Cookie 格式解析字符串, 创建的 Cookies 对象将包含解析出的 Cookie 对象. 
-- 相关匹配特殊字符将会自动转义, 解析出错将会抛出异常.
+>?
+>- 如果构造函数不带参数，会创建空的 Cookies 对象。
+>- 如果构造函数只带 cookie_str 参数或者两个参数都带，并且 is_setcookie 为 false，会按照 Cookie 格式解析字符串，创建的 Cookies 对象将包含解析出的 Cookie 对象集。
+>- 如果构造函数两个参数都带，并且 is_setcookie 为 true，会按照 Set-Cookie 格式解析字符串，创建的 Cookies 对象将包含解析出的 Cookie 对象。
+>- 相关匹配特殊字符将会自动转义, 解析出错将会抛出异常。
 
 ### 属性
-- <span style="color: #0066FF">Cookie.name</span>: string<br>
-&emsp;cookie name.
-- <span style="color: #0066FF">Cookie.value</span>: string<br>
-&emsp;cookie value.
-- <span style="color: #0066FF">Cookie.domain</span>: string<br>
-&emsp;为 cookie 属性. 指定该 cookie 的作用域名.
-- <span style="color: #0066FF">Cookie.path</span>: string<br>
-&emsp;为 cookie 属性. 指定该 cookie 的作用路径.
-- <span style="color: #0066FF">Cookie.expires</span>: string<br>
-&emsp;为 cookie 属性. 指定该 cookie 的最长有效时间, 应符合[HTTP Date首部](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Date)标准.
-- <span style="color: #0066FF">Cookie.max_age</span>: string<br>
-&emsp;为 cookie 属性. 指定该 cookie 失效之前需要经过的秒数.
-- <span style="color: #0066FF">Cookie.samesite</span>: string<br>
-&emsp;为 cookie 属性. 指定该 cookie 是否仅限于第一方或者同一站点上下文.
-- <span style="color: #0066FF">Cookie.httponly</span>: boolean<br>
-&emsp;为 cookie 属性. 指定是否限制 cookie 的作用范围在 HTTP 请求内.
-- <span style="color: #0066FF">Cookie.secure</span>: boolean<br>
-&emsp;为 cookie 属性. 指定 cookie 的安全属性.
+- Cookie.name: string<br>cookie name。
+- Cookie.value: string<br>cookie value。
+- Cookie.domain: string<br>为 cookie 属性. 指定该 cookie 的作用域名。
+- Cookie.path: string<br>为 cookie 属性. 指定该 cookie 的作用路径。
+- Cookie.expires: string<br>为 cookie 属性. 指定该 cookie 的最长有效时间, 应符合 [HTTP Date首部](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Date) 标准。
+- Cookie.max_age: string<br>为 cookie 属性. 指定该 cookie 失效之前需要经过的秒数。
+- Cookie.samesite: string<br>为 cookie 属性. 指定该 cookie 是否仅限于第一方或者同一站点上下文。
+- Cookie.httponly: boolean<br>为 cookie 属性. 指定是否限制 cookie 的作用范围在 HTTP 请求内。
+- Cookie.secure: boolean<br>为 cookie 属性. 指定 cookie 的安全属性。
 
 ### 方法
-- <span style="color: #FFAA33;font-weight: bold;">Cookies.get</span>(name?: string): null | Cookie | [Cookie]<br>
-&emsp;获取指定 Cookie 对象.
- - 参数 name 缺省, 表示获取所有 Cookie 对象. 否则表示获取指定 name 的 Cookie 对象.
- - 返回 null, 表示无对应 Cookie 对象.
- - 返回 Cookie, 表示只存在一个匹配的 Cookie 对象.
- - 返回 Cookie 数组, 表示存在多个匹配的 Cookie 对象.
-- <span style="color: #FFAA33;font-weight: bold;">Cookies.set</span>(name: string, value: string, options?: object): boolean<br>
-&emsp;覆盖添加 cookie. 
- - options 对象可以指定任意 Cookie 对象属性值. 
- - httponly 和 secure 默认值为 false, 如果显式指定 false 无意义, 将被忽略.
- - 返回 true, 表示添加成功, 返回 false, 表示添加失败, 超过了 Cookie 数量限制。
-- <span style="color: #FFAA33;font-weight: bold;">Cookies.append</span>(name: string, value: string, options?: object): boolean<br>
-&emsp;追加 cookie. 针对相同 name, 多个 value 的场景.
- - options 对象可以指定任意 Cookie 对象属性值. 
- - httponly 和 secure 默认值为 false, 如果显式指定 false 无意义, 将被忽略.
- - 返回 true, 表示添加成功, 返回 false, 表示添加失败, value 重复 或者 超过了 Cookie 数量限制。
-- <span style="color: #FFAA33;font-weight: bold;">Cookies.remove</span>(name: string, options?: object): boolean<br>
-&emsp;删除 cookie. options 对象指定的属性 domian 和 path 可支持*, 表示匹配所有.
+- Cookies.get(name?: string): null | Cookie | [Cookie]<br>获取指定 Cookie 对象。
+ - 参数 name 缺省，表示获取所有 Cookie 对象；否则表示获取指定 name 的 Cookie 对象。
+ - 返回 null，表示无对应 Cookie 对象。
+ - 返回 Cookie，表示只存在一个匹配的 Cookie 对象。
+ - 返回 Cookie 数组，表示存在多个匹配的 Cookie 对象。
+- Cookies.set(name: string, value: string, options?: object): boolean<br>覆盖添加 cookie。 
+ - options 对象可以指定任意 Cookie 对象属性值。 
+ - httponly 和 secure 默认值为 false，如果显式指定 false 无意义，将被忽略。
+ - 返回 true，表示添加成功；返回 false，表示添加失败, 超过了 Cookie 数量限制。
+- Cookies.append(name: string, value: string, options?: object): boolean<br>追加 cookie，针对相同 name, 多个 value 的场景。
+ - options 对象可以指定任意 Cookie 对象属性值。
+ - httponly 和 secure 默认值为 false，如果显式指定 false 无意义，将被忽略。
+ - 返回 true，表示添加成功，返回 false，表示添加失败，value 重复 或者 超过了 Cookie 数量限制。
+- Cookies.remove(name: string, options?: object): boolean<br>删除 cookie. options 对象指定的属性 domian 和 path 可支持*，表示匹配所有。
 
-补充说明:
-- Cookies 对象以 name+domain+path 为唯一key, 来管理 Cookie 对象集.
-- Cookies.set接口, 以 name+domain+path 为 key 覆盖添加 cookie. 不区分 options 缺省和空domain+空path.
-- Cookies.append接口, 以 name+domain+path 为 key 追加 cookie. 不区分 options 缺省和空domain+空path.
-- Cookies.delete接口, 以 name+domain+path 为 key 删除 cookie. 不区分 options 缺省和空domain+空path.
-- name 不能为空. value,domain,path,expires,max_age,samesite 字段可能为空.
-- 对于 name, 其中" ", """, "(", ")", ",", "/", ":", ";", "?", "<", "=", ">", "?", "@", "[", "]", "\", "{", "}", 0x00-0x1F, 0x7F-0xFF 将会被自动转义.
-- 对于 value, 其中" ", ",", ";", """, "\", 0x00-0x1F, 0x7F-0xFF 将会被自动转义.
-- 对于 domain,path,expires,max_age,samesite, 其中0x00-0x1F, 0x7F-0xFF, ";" 将会被自动转义.
-- Pivot-JS 限制 name 不超过64B, value,domain,path,expires,max_age,samesite 不超过1KB, 转义之后所有字段总长度不超过4KB, Cookie对象不超过64个.
+#### 补充说明
+- Cookies 对象以 name+domain+path 为唯一 key，来管理 Cookie 对象集。
+- Cookies.set 接口，以 name+domain+path 为 key 覆盖添加 cookie. 不区分 options 缺省和空 domain + 空 path。
+- Cookies.append 接口，以 name+domain+path 为 key 追加 cookie. 不区分 options 缺省和空 domain + 空 path。
+- Cookies.delete 接口，以 name+domain+path 为 key 删除 cookie. 不区分 options 缺省和空 domain + 空 path。
+- name 不能为空，value，domain，path，expires，max_age，samesite 字段可能为空。
+- 对于 name，其中" ", """, "(", ")", ",", "/", ":", ";", "?", "<", "=", ">", "?", "@", "[", "]", "\", "{", "}", 0x00-0x1F, 0x7F-0xFF 将会被自动转义.
+- 对于 value，其中" ", ",", ";", """, "\", 0x00-0x1F, 0x7F-0xFF 将会被自动转义。
+- 对于 domain，path，expires，max_age，samesite，其中0x00-0x1F，0x7F-0xFF，";" 将会被自动转义。
+- Pivot-JS 限制 name 不超过64B，value，domain，path，expires，max_age，samesite 不超过1KB，转义之后所有字段总长度不超过4KB，Cookie 对象不超过64个。
+
 
 ## 示例
-
 ### Cookies 对象构造
-
 ```js
 // empty
 let cookies = new Cookies();
