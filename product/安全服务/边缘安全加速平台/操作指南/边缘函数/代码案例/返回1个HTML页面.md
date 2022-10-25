@@ -1,4 +1,3 @@
-### 返回1个HTML页面
 
 ```js
 const html = `<!DOCTYPE html>
