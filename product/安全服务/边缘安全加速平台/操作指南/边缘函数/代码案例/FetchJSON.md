@@ -1,4 +1,3 @@
-### Fetch JSON
 
 ```js
 /**
