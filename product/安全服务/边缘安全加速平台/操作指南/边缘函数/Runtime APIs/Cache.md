@@ -36,7 +36,7 @@ class Cache {
 - 参数 options 只支持 ignoreMethod，为 true 时，会忽略 Request 原来的方法，作为 GET 处理。
 - 当参数 req 包含 Range 头部时，如果缓存的 Response 能够支持 Range 范围处理，返回 206 响应。
 - 当参数 req 包含 If-Modified-Since 头部时，如果缓存的 Response 存在 Last-Modified 头部，且 Last-Modified == If-Modified-Since，返回 304 响应。
-- 当参数 req 包含 If-None-Match 头部时, 如果缓存的 Response 存在 ETag 头部, 且 ETag == If-None-Match, 返回 304 响应.
+- 当参数 req 包含 If-None-Match 头部时，如果缓存的 Response 存在 ETag 头部，且 ETag == If-None-Match, 返回 304 响应。
 - match 接口底层实现不主动回源，缓存过期抛出 504 错误。
 
 ## Cache.put 补充说明
