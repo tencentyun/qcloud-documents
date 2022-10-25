@@ -1,4 +1,4 @@
-ReadableStreamBYOBReader 用于对可读流的进行操作的对象。不同于 `ReadableStreamDefaultReader`，其 `read` 方法传入一个 `ArrayBufferView` 类型参数，可将数据从流读取到 view 内存中。
+用于对可读流的进行操作的对象。不同于 `ReadableStreamDefaultReader`，其 `read` 方法传入一个 `ArrayBufferView` 类型参数，可将数据从流读取到 view 内存中。
 
 ## 语法
 ```typescript
