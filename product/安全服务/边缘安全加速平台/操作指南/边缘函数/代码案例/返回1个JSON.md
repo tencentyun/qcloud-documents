@@ -1,4 +1,3 @@
-### 返回1个JSON
 
 ```js
 addEventListener('fetch', event => {
