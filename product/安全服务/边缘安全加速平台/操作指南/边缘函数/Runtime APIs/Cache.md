@@ -29,14 +29,15 @@ class Cache {
 
 - Cache.match(req: string | Request, options?: object):  Promise&lt;Response | undefined&gt;<br>
 &emsp;获取 req 关联的缓存 Response. 返回 Promise 对象, 如果缓存 Response 存在, 则包含缓存 Response,
-&emsp;反之则包含 undefined.
+&emsp;反之则包含 undefined.<br>
+&emsp;options 参数说明: 
+  - ignoreMethod: boolean 是否忽略 Request 的方法名.
 - Cache.put(req: string | Request, rsp: Response):  Promise&lt;undefined&gt;<br>
 &emsp;设置 req 关联的缓存 Response. 返回 Promise 对象, 包含 undefined.<br>
 - Cache.delete(req: string | Request, options?: object):  Promise&lt;boolean&gt;<br>
-&emsp;删除 req 关联的缓存 Response. 返回 Promise 对象, 如果删除成功, 则包含 true, 反之则包含 false.
-
-*Cache.match, Cache.delete 方法中 options 参数说明:*
- - ignoreMethod: boolean 是否忽略 Request 的方法名
+&emsp;删除 req 关联的缓存 Response. 返回 Promise 对象, 如果删除成功, 则包含 true, 反之则包含 false.<br>
+&emsp;options 参数说明: 
+  - ignoreMethod: boolean 是否忽略 Request 的方法名.
 
 ## Cache.match 补充说明
 - 参数 req 只支持 GET 方法, 当类型为 string 时, 将被作为 URL 构造 Request 对象.
