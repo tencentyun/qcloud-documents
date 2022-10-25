@@ -1,4 +1,4 @@
-ReadableStreamDefaultReader 用于对可读流的进行操作的对象。
+用于对可读流的进行操作的对象。
 
 ## 语法
 ```typescript
@@ -14,7 +14,7 @@ class ReadableStreamDefaultReader {
 ```
 
 ### 属性
-- closed: Promise&lt;void&gt; <br>Returns a Promise that fulfills when the stream closes, or rejects if the stream throws an error or the reader's lock is released。
+- closed: Promise&lt;void&gt; <br>返回一个 Promise. 如果流已关闭，则转为 fulfilled 状态；如果流发生错误或读端锁已释放，则转为 rejected 状态。
 
 ### 方法
 - read(): Promise&lt;{value: Chunk, done: boolean}&gt; 
