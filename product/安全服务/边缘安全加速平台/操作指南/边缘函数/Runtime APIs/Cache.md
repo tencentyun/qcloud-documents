@@ -1,5 +1,3 @@
-# Cache
-
 Cache 提供了一组缓存操作接口。缓存的内容仅在当前数据中心有效，不会自动复制到其他数据中心。
 
 ## 语法
@@ -29,18 +27,19 @@ class Cache {
 
 - Cache.match(req: string | Request, options?: object):  Promise&lt;Response | undefined&gt;<br>
 &emsp;获取 req 关联的缓存 Response. 返回 Promise 对象, 如果缓存 Response 存在, 则包含缓存 Response,
-&emsp;反之则包含 undefined.
+&emsp;反之则包含 undefined.<br>
+&emsp;options 参数说明: 
+  - ignoreMethod: boolean 是否忽略 Request 的方法名.
 - Cache.put(req: string | Request, rsp: Response):  Promise&lt;undefined&gt;<br>
 &emsp;设置 req 关联的缓存 Response. 返回 Promise 对象, 包含 undefined.<br>
 - Cache.delete(req: string | Request, options?: object):  Promise&lt;boolean&gt;<br>
-&emsp;删除 req 关联的缓存 Response. 返回 Promise 对象, 如果删除成功, 则包含 true, 反之则包含 false.
-
-*Cache.match, Cache.delete 方法中 options 参数说明:*
- - ignoreMethod: boolean 是否忽略 Request 的方法名
+&emsp;删除 req 关联的缓存 Response. 返回 Promise 对象, 如果删除成功, 则包含 true, 反之则包含 false.<br>
+&emsp;options 参数说明: 
+  - ignoreMethod: boolean 是否忽略 Request 的方法名.
 
 ## Cache.match 补充说明
 - 参数 req 只支持 GET 方法, 当类型为 string 时, 将被作为 URL 构造 Request 对象.
-- 参数 options 只支持 ignoreMethod, 为 true 时, 会忽略 Request 原来的方法, 做为 GET 处理.
+- 参数 options 只支持 ignoreMethod, 为 true 时, 会忽略 Request 原来的方法, 作为 GET 处理.
 - 当参数 req 包含 Range 头部时, 如果缓存的 Response 能够支持 Range 范围处理, 返回 206 响应.
 - 当参数 req 包含 If-Modified-Since 头部时, 如果缓存的 Response 存在 Last-Modified 头部, 且 Last-Modified == If-Modified-Since, 返回 304 响应.
 - 当参数 req 包含 If-None-Match 头部时, 如果缓存的 Response 存在 ETag 头部, 且 ETag == If-None-Match, 返回 304 响应.
@@ -83,7 +82,7 @@ let cache = await caches.open("non-default");
 // do something ...
 ```
 
-### match, put, delete使用
+### match, put, delete 使用
 ```js
 async function handleRequest(event) {
     const request = event.request;
