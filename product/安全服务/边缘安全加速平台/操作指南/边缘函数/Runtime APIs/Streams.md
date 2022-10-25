@@ -1,12 +1,10 @@
-# Streams
-* [ReadableStream](Streams/ReadableStream.md)
-* [WritableStream](Streams/WritableStream.md)
-* [TransformStream](Streams/TransformStream.md)
+- [ReadableStream](https://cloud.tencent.com/document/product/1552/81914)
+- [WritableStream](https://cloud.tencent.com/document/product/1552/81922)
+- [TransformStream](https://cloud.tencent.com/document/product/1552/81923)
 
-**流式处理，可能会修改 http 头部: Transfer-Encoding 为 chunked**
+**流式处理，可能会修改 HTTP 头部: Transfer-Encoding 为 chunked**。
 
 ## 示例
-
 获取视频流的3个部分，通过流式处理，最终合并为响应流输出;
 ```js
 async function _combineStreams(sources, destination) {
@@ -54,4 +52,3 @@ addEventListener('fetch', (event) => {
   handleRequest(event);
 });
 ```
-
