@@ -22,7 +22,7 @@ function fetch(resource: string | Request, init?: RequestInit): Promise<Response
 | 303     | 除 `HEAD`/`GET` 外的所有方法都被转为 `GET` 方法 |
 | 307、308 |               保留原始方法               |
 
-除标准规定的 `redirect` 属性之外，还可以在 [RequestInit](https://cloud.tencent.com/document/product/1552/81898) 通过 `maxFollow` 属性配置最大可跟随次数，默认为 12；并且可以在 [RequestInit](https://cloud.tencent.com/document/product/1552/81898) 中通过 `redirectUrls` 获取所有重定向的 url 列表。
+除标准规定的 `redirect` 属性之外，还可以在 [RequestInit](https://cloud.tencent.com/document/product/1552/81898) 通过 `maxFollow` 属性配置最大可跟随次数，默认为 12；并且可以在 [Response](https://cloud.tencent.com/document/product/1552/81901) 中通过 `redirectUrls` 获取所有重定向的 url 列表。
 >!
 - 重定向的地址来源于响应中的 `Location` 头，如果未出现该头部，则不会跟随重定向。
 - `Location` 头部值可以是绝对 URL 或者相对 URL（详情请参见 [RFC-3986: URI Reference](https://www.rfc-editor.org/rfc/rfc3986#section-4.1)）。
