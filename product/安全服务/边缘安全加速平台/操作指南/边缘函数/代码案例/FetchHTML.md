@@ -1,5 +1,3 @@
-### Fetch HTML
-
 ```js
 /**
  * Example someHost at URL is set up to respond with HTML
