@@ -4,7 +4,7 @@
 
 ## 使用 Avatar 功能具体步骤
 
-###  步骤1：复制 Demo 中的文件:
+###  步骤1：复制 Demo 中的文件
 1. 在官网下载对应的demo工程，并解压。
 2. 将 Demo 中的 `demo/app/assets/MotionRes/avatarRes` 文件夹复制到您的工程中（和 Demo 位置保持一致）。
 3. 复制 Demo 中 `com.tencent.demo.avatar` 文件夹下的所有类到您的工程中。
