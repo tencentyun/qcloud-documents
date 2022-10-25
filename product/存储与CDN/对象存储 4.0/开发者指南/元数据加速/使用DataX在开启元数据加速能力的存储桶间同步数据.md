@@ -24,7 +24,7 @@ DataX 是开源异构数据源离线同步工具，实现了包括MySQL、SQL Se
 
 #### 安装 HADOOP-COS
 
-下载 HADOOP-COS 后，将 `hadoop-cos-2.x.x-${version}.jar` 、 `cos_api-bundle-${version}.jar` 和 `chdfs_hadoop_plugin_network-${version}.jar` 拷贝到 Datax 解压路径 `plugin/reader/hdfsreader/libs/` 以及 `plugin/writer/hdfswriter/libs/` 下。
+下载 HADOOP-COS 后，将 `hadoop-cos-2.x.x-${version}.jar` 、 `cos_api-bundle-${version}.jar` 和 `chdfs_hadoop_plugin_network-${version}.jar` 拷贝到 Datax 的解压路径 `plugin/reader/hdfsreader/libs/` 以及 `plugin/writer/hdfswriter/libs/` 下。
 
 ## 使用方法
 
