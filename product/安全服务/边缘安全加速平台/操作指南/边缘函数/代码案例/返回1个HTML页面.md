@@ -1,5 +1,7 @@
 ### 返回1个HTML页面
 
+直接在边缘函数里返回HTML页面内容
+
 ```js
 const html = `<!DOCTYPE html>
 <body>
