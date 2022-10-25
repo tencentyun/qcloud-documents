@@ -73,7 +73,7 @@ let cookies = new Cookies(cookie_str?: string, is_setcookie?: boolean)
 - Cookies.append 接口，以 name+domain+path 为 key 追加 cookie. 不区分 options 缺省和空 domain + 空 path。
 - Cookies.delete 接口，以 name+domain+path 为 key 删除 cookie. 不区分 options 缺省和空 domain + 空 path。
 - name 不能为空，value，domain，path，expires，max_age，samesite 字段可能为空。
-- 对于 name，其中" ", """, "(", ")", ",", "/", ":", ";", "?", "<", "=", ">", "?", "@", "[", "]", "\", "{", "}", 0x00-0x1F, 0x7F-0xFF 将会被自动转义.
+- 对于 name，其中" ", """, "(", ")", ",", "/", ":", ";", "?", "<", "=", ">", "?", "@", "[", "]", "\", "{", "}", 0x00-0x1F, 0x7F-0xFF 将会被自动转义。
 - 对于 value，其中" ", ",", ";", """, "\", 0x00-0x1F, 0x7F-0xFF 将会被自动转义。
 - 对于 domain，path，expires，max_age，samesite，其中0x00-0x1F，0x7F-0xFF，";" 将会被自动转义。
 - Pivot-JS 限制 name 不超过64B，value，domain，path，expires，max_age，samesite 不超过1KB，转义之后所有字段总长度不超过4KB，Cookie 对象不超过64个。
