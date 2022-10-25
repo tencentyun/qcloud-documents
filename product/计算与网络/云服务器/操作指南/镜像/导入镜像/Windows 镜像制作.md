@@ -57,14 +57,27 @@ bootmenupolicy          Standard
 
 #### 检查或安装 Virtio 驱动
 
-1. 打开**控制面板** > **程序和功能**，并在搜索栏中搜索 Virtio。
- - 若返回结果如下图示，则表示已安装了 Virtio 驱动。
+打开**控制面板** > **程序和功能**，并在搜索栏中搜索 Virtio。
+- 若返回结果如下图示，则表示已安装了 Virtio 驱动。
 ![](https://main.qcloudimg.com/raw/d8b0c17385de25bd41cdfcd291008f5c.png)
- - 若没有安装 Virtio 驱动，则需要手动安装。
-    - Microsoft Windows Server 2008 R2（标准版、数据中心版、企业版）、Microsoft Windows Server 2012 R2（标准版）、Microsoft Windows Server 2016（数据中心版）、Microsoft Windows Server 2019（数据中心版）请下载腾讯云定制版 Virtio。下载地址如下，请对应实际网络环境下载：
-      -  公网下载地址：`http://mirrors.tencent.com/install/windows/virtio_64_1.0.9.exe`
-      -  内网下载地址：`http://mirrors.tencentyun.com/install/windows/virtio_64_1.0.9.exe`
-    - 其它系统版本，请下载 [社区版本 virtio](https://www.linux-kvm.org/page/WindowsGuestDrivers/Download_Drivers)。
+- 若没有安装 Virtio 驱动，则需要手动安装。请结合您的实际情况，选择下载版本。
+<dx-alert infotype="explain" title="">
+- 腾讯云不支持导入 Windows Server 2003。
+- 若您使用 Windows Server 2008R2/2012R2/2016/2019/2022，请安装腾讯云定制版 VirtIO 驱动。
+- 若您使用其他版本 Windows 操作系统，请先尝试安装使用腾讯云定制版 VirtIO 驱动，如出现不稳定的情况，可尝试社区版 VirtIO 驱动。
+</dx-alert>
+<dx-tabs>
+::: （推荐）安装腾讯云定制版
+腾讯云定制版 Virtio 下载地址如下，请对应实际网络环境下载：
+- 公网下载地址：`http://mirrors.tencent.com/install/windows/virtio_64_1.0.9.exe`
+- 内网下载地址：`http://mirrors.tencentyun.com/install/windows/virtio_64_1.0.9.exe`
+:::
+::: 安装社区版
+请先尝试安装使用腾讯云定制版 VirtIO 驱动，如出现不稳定的情况，可尝试社区版 VirtIO 驱动。
+[点此下载社区版本 virtio](https://www.linux-kvm.org/page/WindowsGuestDrivers/Download_Drivers)
+:::
+</dx-tabs>
+
 
 #### 检查其它硬件相关的配置
 
@@ -88,15 +101,23 @@ bootmenupolicy          Standard
 :::
 ::: 使用\sdisk2vhd\s导出镜像[](id:Usedisk2vhd)
 当您的需要导出物理机上的系统或者不想使用平台工具导出时，可以使用 disk2vhd 工具进行导出。
-1. 安装并打开 disk2vhd 工具。
-[点此下载 disk2vhd 工具 >>](https://download.sysinternals.com/files/Disk2vhd.zip)
-3. 选择需要导出的镜像存放路径，勾选需要复制的卷，单击 **Create**。如下图所示：
+1. [点此下载](https://download.sysinternals.com/files/Disk2vhd.zip) disk2vhd 工具。
+2. 安装并运行 disk2vhd 工具。
 <dx-alert infotype="notice" title="">
-- disk2vhd 需要 Windows 预装 VSS（卷影拷贝服务）功能后才能运行。关于 VSS 功能的更多信息请参见 [Volume Shadow Copy Service](https://docs.microsoft.com/zh-cn/windows/win32/vss/volume-shadow-copy-service-portal?redirectedfrom=MSDN)。
-- 请勿勾选 “Use Vhdx”，目前系统不支持 vhdx 格式的镜像。
-- 建议勾选 “Use volume Shadow Copy”，使用卷影复制功能，将能更好地保证数据完整性。
+ - 请在非系统盘上安装并运行 disk2vhd 工具。
+ - disk2vhd 需要 Windows 预装 VSS（卷影拷贝服务）功能后才能运行。关于 VSS 功能的更多信息请参见 [Volume Shadow Copy Service](https://docs.microsoft.com/zh-cn/windows/win32/vss/volume-shadow-copy-service-portal?redirectedfrom=MSDN)。
 </dx-alert>
-<img src="https://main.qcloudimg.com/raw/68d9c4e5e7db49c4cefdd3785ce9b68d.jpg"/>
+3. 在打开的 disk2vhd 工具中，请根据以下信息进行配置后，单击 **Create** 导出镜像。
+ - **Use Vhdx**：请勿勾选，目前系统不支持 vhdx 格式的镜像。
+ - **Use volume Shadow Copy**：建议勾选 ，使用卷影复制功能，将能更好地保证数据完整性。
+ - **VHD File name**：生成 .vhd 文件的保存位置，请选择非系统盘。
+ - **Volume to include**：导出镜像要求导出整块系统盘，**请勾选您的系统盘所有分区**，否则在导入镜像时会产生无法进入系统的错误。
+系统盘分区通常为 C:\ 分区及其之前的启动引导分区、recovery 分区，数量通常为2 - 3个，需全部勾选。
+**配置示例**
+如下图所示，在 E 盘中运行 disk2vhd 工具后，勾选系统盘的所有分区（启动引导分区及 C:\ 分区），勾选 “Use volume Shadow Copy”，取消勾选 “Use Vhdx”。导出镜像后，生成的 .vhd 文件将保存至 E 盘。
+![](https://qcloudimg.tencent-cloud.cn/raw/390005b9633ee088af4566cba16a0d51.png)
+
+
 :::
 </dx-tabs>
 

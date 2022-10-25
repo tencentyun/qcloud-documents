@@ -8,7 +8,7 @@
 
 ## 相关说明
 
-关于域名定义、CDN 回源鉴权和 CDN 鉴权配置已在 [CDN 加速概述](/document/product/436/18669) 文档中介绍，此处不再赘述。
+关于域名定义、CDN 回源鉴权和 CDN 鉴权配置已在 [CDN 加速概述](https://cloud.tencent.com/document/product/436/18669) 文档中介绍，此处不再赘述。
 
 CDN 回源鉴权、CDN 鉴权配置会影响 CDN 加速域名和 COS 域名对源站存储桶的访问方式，具体情况如下表：
 
@@ -156,7 +156,7 @@ COS 控制台提供默认 CDN 加速、自定义 CDN 加速两种方式。
 
 - 公有读存储桶：CDN 边缘节点无需任何授权即可直接访问存储桶，无需开启回源鉴权。
 - 私有读存储桶：CDN 边缘节点需经回源鉴权验证服务身份，验证通过的 CDN 边缘节点才能访问存储桶中对象，选择开启**回源鉴权**。
-![](https://qcloudimg.tencent-cloud.cn/raw/1a6b94ff25e66573fced780ef4694381.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/6d05c90f04b276e21df88135af93f917.png)
 >!对于私有读存储桶，开启回源鉴权会使 CDN 边缘节点访问源站时无需携带签名，CDN 缓存资源会进行公网分发，导致数据的安全性受到影响，因此强烈建议开启 CDN 鉴权。
 
 开启**回源鉴权**后，在右侧单击**保存**，等待5分钟左右，自定义域名的添加与 CDN 加速即可部署完成。
@@ -166,18 +166,22 @@ COS 控制台提供默认 CDN 加速、自定义 CDN 加速两种方式。
 
 自定义域名部署完成后，CDN 鉴权栏会出现 CDN 鉴权功能设置链接，单击**设置**可直接进入 CDN 控制台进行 CDN 鉴权配置，具体操作方式详见 [鉴权配置](https://cloud.tencent.com/document/product/228/41622) 。
 
-#### 5. 解析域名
+#### 5. 配置 CDN 缓存自动刷新
+开启后，触发 COS 存储桶更新文件规则时，将自动刷新 CDN 缓存，可前往 COS 函数计算配置，操作指引请参见 [设置 CDN 缓存刷新](https://cloud.tencent.com/document/product/436/45597)。
+
+
+#### 6. 解析域名
 
 在自定义域名接入 CDN 后，系统会自动为您分配一个 CNAME 域名（以`.cdn.dnsv1.com`为后缀），您需要在域名服务提供商处完成 CNAME 的配置，具体请见 [CNAME 配置](https://cloud.tencent.com/document/product/228/3121) 。
 
 >!CNAME 域名不能直接访问。
 
 
-#### 6. 配置证书（可选）
+#### 7. 配置证书（可选）
 
 为自定义域名添加 HTTPS 证书，可前往 [CDN 控制台](https://console.cloud.tencent.com/cdn/certificate) 进行配置。 
 
-#### 7. 关闭功能
+#### 8. 关闭功能
 
 以上步骤完成后，即可通过自定义域名加速访问存储桶内资源。如需关闭自定义 CDN 加速，可通过以下方式关闭：
 

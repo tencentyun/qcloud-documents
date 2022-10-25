@@ -37,7 +37,7 @@ pip install Pyramid -t ./ -i https://pypi.tuna.tsinghua.edu.cn/simple
 #### 安装
 通过 npm 全局安装 [serverless cli](https://github.com/serverless/serverless)：
 ```shell
-$ npm install -g serverless
+$ npm install -g serverless-cloud-framework
 ```
 
 #### 配置

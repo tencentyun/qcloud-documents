@@ -59,7 +59,7 @@
 <tr>
 <td>入流量</td><td>cluster_view</td><td>Bytes</td><td>集群的入流量字节数统计。</td></tr>     
 <tr>
-<td>出流量</td><td>cluster_netout/td><td>Bytes</td><td>集群的出流量字节数统计。</td></tr>
+<td>出流量</td><td>cluster_netout</td><td>Bytes</td><td>集群的出流量字节数统计。</td></tr>
 <tr>
 <td rowspan="12">时延监控</td>
 <td>所有请求平均时延<td>avg_all_request_delay</br></td><td>ms</td><td>集群所有请求执行的平均时延。</td></tr>

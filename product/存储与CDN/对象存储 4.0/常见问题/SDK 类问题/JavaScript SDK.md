@@ -1,3 +1,17 @@
+### 上传时报错 cors error，该如何处理？
+报错如下图：
+![](https://qcloudimg.tencent-cloud.cn/raw/47bdd8a90f724d577a60f7b8dcb894e4.png)
+原因是存储桶的跨域访问没有正确设置，请 [参考文档](https://cloud.tencent.com/document/product/436/11488) 进行跨域设置。
+
+### 使用临时密钥操作时报错403，该如何处理？
+
+请检查申请临时密钥时填写的 action 和 allowPrefix 是否正确。
+1. 例如调用 cos.putObject()，但是 action 里并没有填写**name/cos:PutObject**，即没有 putObject 权限导致报错403。
+2. 例如操作的 Key 是`1.jpg`，但是 allowPrefix 填写的是`test/*`（只允许操作 `test/*`路径），即没有对应路径的操作权限导致报错403。
+
+若 aciton 和 allowPrefix 都正确，请参考 [临时密钥生成及使用指引](https://cloud.tencent.com/document/product/436/14048) 和 [访问 COS 时返回403错误码](https://cloud.tencent.com/document/product/436/54303)。
+字段说明：不同语言的 STS SDK，action 和 allowPrefix 所使用的字段不同，例如 STS JAVA SDK 使用的是allowActions和allowPrefixes字段，请注意留意 STS SDK 中的示例。
+
 ### 使用 JavaScript SDK 实现分块上传时，第一次上传成功后，后续请求都是403，该如何处理？
 
 请求出现403报错，可参考 [访问 COS 时返回403错误码](https://cloud.tencent.com/document/product/436/54303) 文档进行排查。如果您使用临时密钥进行分块上传，建议您检查是否被授予 [分块上传权限](https://cloud.tencent.com/document/product/436/31923#.E5.88.86.E5.9D.97.E4.B8.8A.E4.BC.A0)，以及授权路径是否正确。

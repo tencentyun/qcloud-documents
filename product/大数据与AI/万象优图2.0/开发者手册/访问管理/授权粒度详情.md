@@ -176,6 +176,30 @@
 | DescribeMediaWorkflowExecutions | 查看工作流执行实例   | 资源级   | qcs::ci:ap-shanghai:uid/1250000000:bucket/examplebucket-1250000000/* |
 | DescribeMediaWorkflows          | 查看工作流状态       | 资源级   | qcs::ci:ap-shanghai:uid/1250000000:bucket/examplebucket-1250000000/* |
 | GetPrivateM3U8                  | 生成私有m3u8视频     | 接口级   | *                                                            |
+| GenerateMediaInfo               | 获取媒体信息    | 资源级   | qcs::ci:ap-shanghai:uid/1250000000:bucket/examplebucket-1250000000/* |
+| GenerateSnapshot               | 调用截帧任务    | 资源级   | qcs::ci:ap-shanghai:uid/1250000000:bucket/examplebucket-1250000000/* |
+| ModifyM3U8Token                 | 刷新 hls 加密 token    | 资源级   | qcs::ci:ap-shanghai:uid/1250000000:bucket/examplebucket-1250000000/* |
+| CreateMediaTemplate             | 创建媒体处理模板    | 资源级   | qcs::ci:ap-shanghai:uid/1250000000:bucket/examplebucket-1250000000/* |
+| UpdateMediaTemplate             | 更新媒体处理模板    | 资源级   | qcs::ci:ap-shanghai:uid/1250000000:bucket/examplebucket-1250000000/* |
+| DeleteMediaTemplate             | 删除媒体处理模板    | 资源级   | qcs::ci:ap-shanghai:uid/1250000000:bucket/examplebucket-1250000000/* |
+| CreateMediaWorkflow             | 创建媒体处理工作流    | 资源级   | qcs::ci:ap-shanghai:uid/1250000000:bucket/examplebucket-1250000000/* |
+| UpdateMediaWorkflow             | 更新媒体处理工作流    | 资源级   | qcs::ci:ap-shanghai:uid/1250000000:bucket/examplebucket-1250000000/* |
+| DeleteMediaWorkflow             | 删除媒体处理工作流    | 资源级   | qcs::ci:ap-shanghai:uid/1250000000:bucket/examplebucket-1250000000/* |
+| TriggerMediaWorkflow            | 触发媒体处理工作流    | 资源级   | qcs::ci:ap-shanghai:uid/1250000000:bucket/examplebucket-1250000000/* |
+| UpdateMediaQueue                | 更新媒体处理队列    | 资源级   | qcs::ci:ap-shanghai:uid/1250000000:bucket/examplebucket-1250000000/* |
+| AddMediaQueue                   | 添加媒体处理队列    | 资源级   | qcs::ci:ap-shanghai:uid/1250000000:bucket/examplebucket-1250000000/* |
+| CreateMediaBucket               | 绑定媒体处理服务    | 资源级   | qcs::ci:ap-shanghai:uid/1250000000:bucket/examplebucket-1250000000/* |
+| DescribeMediaBuckets            | 查询媒体处理服务状态    | 资源级   | qcs::ci:ap-shanghai:uid/1250000000:bucket/examplebucket-1250000000/* |
+| DeleteMediaBucket               | 解绑媒体处理服务    | 资源级   | qcs::ci:ap-shanghai:uid/1250000000:bucket/examplebucket-1250000000/* |
+| CreateMediaJobs                 | 提交媒体处理任务    | 资源级   | qcs::ci:ap-shanghai:uid/1250000000:bucket/examplebucket-1250000000/* |
+| CancelMediaJob                  | 取消媒体处理任务    | 资源级   | qcs::ci:ap-shanghai:uid/1250000000:bucket/examplebucket-1250000000/* |
+| CreateInventoryTriggerJob       | 发起媒体处理批量任务    | 资源级   | qcs::ci:ap-shanghai:uid/1250000000:bucket/examplebucket-1250000000/* |
+| DescribeInventoryTriggerJob     | 查询媒体处理批量任务    | 资源级   | qcs::ci:ap-shanghai:uid/1250000000:bucket/examplebucket-1250000000/* |
+| DescribeInventoryTriggerJobs    | 批量拉取批量任务状态    | 资源级   | qcs::ci:ap-shanghai:uid/1250000000:bucket/examplebucket-1250000000/* |
+| CancelInventoryTriggerJob       | 取消批量处理任务    | 资源级   | qcs::ci:ap-shanghai:uid/1250000000:bucket/examplebucket-1250000000/* |
+| UpdateSpeedTranscodingProcessQueue  | 更新倍速转码队列    | 资源级   | qcs::ci:ap-shanghai:uid/1250000000:bucket/examplebucket-1250000000/* |
+| DescribeSpeedTranscodingProcessQueues | 查询倍速转码队列    | 资源级   | qcs::ci:ap-shanghai:uid/1250000000:bucket/examplebucket-1250000000/* |
+| CreateSpeedTranscodingProcessQueues   | 创建倍速转码队列    | 资源级   | qcs::ci:ap-shanghai:uid/1250000000:bucket/examplebucket-1250000000/* |
 
 ### 图片处理
 

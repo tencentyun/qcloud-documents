@@ -198,7 +198,7 @@ containerized.taskmanager.env.HADOOP_USER_NAME: hadoop
 containerized.master.env.HADOOP_USER_NAME: hadoop
 security.kerberos.login.principal: hadoop/172.28.28.51@EMR-OQPO48B9
 security.kerberos.login.keytab: emr.keytab
-security.kerberos.login.conf: krb5.conf.path
+security.kerberos.login.conf: ${krb5.conf.fileName}
 ```
 
 >! 历史 Oceanus 集群可能不支持该功能，您可通过 [在线客服](https://cloud.tencent.com/act/event/Online_service?from=doc_849) 联系我们升级集群管控服务，以支持 Kerberos 访问。

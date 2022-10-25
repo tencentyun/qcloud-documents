@@ -161,7 +161,7 @@ sudo qemu-img convert -f raw -O qcow2 /dev/sda /mnt/sdb/test.qcow2
 <table>
 	<tr><th>参数值</th><th>含义</th></tr>
 	<tr><td>qcow2</td><td>qcow2 格式</td></tr>
-	<tr><td>vpc</td><td>vhd 格式</td></tr>
+	<tr><td>vhd</td><td>vhd 格式</td></tr>
 	<tr><td>vmdk</td><td>vmdk 格式</td></tr>
 	<tr><td>raw</td><td>无格式</td></tr>
 </table>

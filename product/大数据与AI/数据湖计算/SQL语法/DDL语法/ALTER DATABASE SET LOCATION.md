@@ -1,11 +1,14 @@
-修改某个数据库的存储位置。
-## 语法
+## 说明
+- 支持内核：Presto。
+- 用途：修改数据库的存储路径。
+
+## 标准语法
 ```
-ALTER DATABASE database_name SET LOCATION cos_path;
+ALTER (DATABASE|SCHEMA) database_name SET LOCATION hdfs_path
 ```
 ## 参数
-- `[database_name]`：数据库名字。
-- `[cos_path]`：Tencent COS 对象存储路径。
+`[database_name]`：数据库名称。
+
 
 ## 示例
 ```

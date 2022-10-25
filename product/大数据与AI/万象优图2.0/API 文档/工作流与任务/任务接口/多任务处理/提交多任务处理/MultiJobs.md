@@ -62,6 +62,7 @@ Content-Type: application/xml
             <Object>output/animation.gif</Object>
         </Output>
         <UserData>This is my Animation job.</UserData>
+        <JobLevel>0</JobLevel>
     </Operation>
     <Operation>
         <Tag>Transcode</Tag>
@@ -72,6 +73,7 @@ Content-Type: application/xml
             <Object>output/transcode.mp4</Object>
         </Output>
         <UserData>This is my Trancode job.</UserData>
+        <JobLevel>0</JobLevel>
     </Operation>
     <Operation>
         <Tag>SmartCover</Tag>
@@ -88,6 +90,7 @@ Content-Type: application/xml
             <Object>output/smartcover-${Number}.jpg</Object>
         </Output>   
         <UserData>This is my SmartCover job.</UserData>
+        <JobLevel>0</JobLevel>
     </Operation>
     <QueueId>p2242ab62c7c94486915508540933a2c6</QueueId>
     <CallBack>http://callback.demo.com</CallBack>
@@ -117,6 +120,7 @@ Container 类型 Input 的具体数据描述如下：
 
 对于不同的任务类型，Operation 的内容不同，请参照以下链接：
 - <a href="https://cloud.tencent.com/document/product/460/76913#operation" target="_blank">音视频转码</a>
+- <a href="https://cloud.tencent.com/document/product/460/78248#operation" target="_blank">极速高清转码</a>
 - <a href="https://cloud.tencent.com/document/product/460/76900#operation" target="_blank">视频转动图</a>
 - <a href="https://cloud.tencent.com/document/product/460/76910#operation" target="_blank">视频截帧</a>
 - <a href="https://cloud.tencent.com/document/product/460/76909#operation" target="_blank">智能封面</a>
@@ -173,6 +177,7 @@ Container 类型 Input 的具体数据描述如下：
                 <Object>output/animation.gif</Object>
             </Output>
             <UserData>This is my Animation job.</UserData>
+            <JobLevel>0</JobLevel>
         </Operation>
     </JobsDetail>
     <JobsDetail>
@@ -199,6 +204,7 @@ Container 类型 Input 的具体数据描述如下：
                 <Object>output/transcode.mp4</Object>
             </Output>
             <UserData>This is my Trancode job.</UserData>
+            <JobLevel>0</JobLevel>
         </Operation>
     </JobsDetail>
     <JobsDetail>
@@ -230,6 +236,7 @@ Container 类型 Input 的具体数据描述如下：
                 <Object>output/smartcover-${Number}.jpg</Object>
             </Output>   
             <UserData>This is my SmartCover job.</UserData>
+            <JobLevel>0</JobLevel>
         </Operation>
     </JobsDetail>
 </Response>
@@ -249,6 +256,7 @@ Container 节点 Response 的内容：
 
 对于不同的任务类型，JobsDetail 的内容不同，请参照以下链接：
 - <a href="https://cloud.tencent.com/document/product/460/76913#jobsDetail" target="_blank">音视频转码</a>
+- <a href="https://cloud.tencent.com/document/product/460/78248#jobsDetail" target="_blank">极速高清转码</a>
 - <a href="https://cloud.tencent.com/document/product/460/76900#jobsDetail" target="_blank">视频转动图</a>
 - <a href="https://cloud.tencent.com/document/product/460/76910#jobsDetail" target="_blank">视频截帧</a>
 - <a href="https://cloud.tencent.com/document/product/460/76909#jobsDetail" target="_blank">智能封面</a>
@@ -282,7 +290,7 @@ Container 节点 Response 的内容：
 ```shell
 POST /jobs HTTP/1.1
 Authorization: q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0**********&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0ea057
-Host: examplebucket-1250000000.ci.ap-beijing.myqcloud.com
+Host: test-1234567890.ci.ap-chongqing.myqcloud.com
 Content-Length: 166
 Content-Type: application/xml
 
@@ -299,6 +307,7 @@ Content-Type: application/xml
             <Object>output/animation.gif</Object>
         </Output>
         <UserData>This is my Animation job.</UserData>
+        <JobLevel>0</JobLevel>
     </Operation>
     <Operation>
         <Tag>Transcode</Tag>
@@ -309,6 +318,7 @@ Content-Type: application/xml
             <Object>output/transcode.mp4</Object>
         </Output>
         <UserData>This is my Trancode job.</UserData>
+        <JobLevel>0</JobLevel>
     </Operation>
     <Operation>
         <Tag>SmartCover</Tag>
@@ -325,6 +335,7 @@ Content-Type: application/xml
             <Object>output/smartcover-${Number}.jpg</Object>
         </Output>   
         <UserData>This is my SmartCover job.</UserData>
+        <JobLevel>0</JobLevel>
     </Operation>
     <QueueId>p2242ab62c7c94486915508540933a2c6</QueueId>
     <CallBack>http://callback.demo.com</CallBack>
@@ -341,7 +352,7 @@ Content-Length: 230
 Connection: keep-alive
 Date: Mon, 28 Jun 2022 15:23:12 GMT
 Server: tencent-ci
-x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
+x-ci-request-id: NjMxMDJhYTNfMThhYTk0MGFfYmU1OV8zZjc=
 
 <Response>
     <JobsDetail>
@@ -368,6 +379,7 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
                 <Object>output/animation.gif</Object>
             </Output>
             <UserData>This is my Animation job.</UserData>
+            <JobLevel>0</JobLevel>
         </Operation>
     </JobsDetail>
     <JobsDetail>
@@ -394,6 +406,7 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
                 <Object>output/transcode.mp4</Object>
             </Output>
             <UserData>This is my Trancode job.</UserData>
+            <JobLevel>0</JobLevel>
         </Operation>
     </JobsDetail>
     <JobsDetail>
@@ -425,6 +438,7 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
                 <Object>output/smartcover-${Number}.jpg</Object>
             </Output>   
             <UserData>This is my SmartCover job.</UserData>
+            <JobLevel>0</JobLevel>
         </Operation>
     </JobsDetail>
 </Response>

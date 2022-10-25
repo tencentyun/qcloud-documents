@@ -14,9 +14,9 @@
 ## 操作步骤
 
 
-### 创建 EKS 集群
+### 创建 TKE Serverless 集群
 
-请参见 [创建集群](https://cloud.tencent.com/document/product/457/39813) 文档创建 EKS 集群。  
+请参见 [创建集群](https://cloud.tencent.com/document/product/457/39813) 文档创建 TKE Serverless 集群。  
 >?由于需要运行 GPU 训练任务，在创建集群时，请注意选择的容器网络所在区的支持资源，选择支持 GPU 的可用区，如下图所示：
 ![](https://main.qcloudimg.com/raw/58034799229973690611ef067cec37b5.png)
 
@@ -146,8 +146,8 @@ kubectl create -f [yaml_name]
 <dx-tabs>
 ::: 控制台查看
 在创建 Job 之后，默认进入 Job 管理页面。您也可以通过以下步骤进入 Job 管理页面：
-1. 登录容器服务控制台 ，在左侧导航栏中单击**弹性容器** > **[弹性集群](https://console.cloud.tencent.com/tke2/ecluster)**。  
-2. 在弹性集群列表中，单击需要查看的事件集群 ID，进入集群管理页面。  
+1. 登录容器服务控制台 ，在左侧导航栏中单击**弹性容器** > **[ Serverless 集群](https://console.cloud.tencent.com/tke2/ecluster)**。  
+2. 在 Serverless 集群列表中，单击需要查看的事件集群 ID，进入集群管理页面。  
 3. 选择**工作负载** > **Job**，在 Job 列表中单击上述步骤创建的 Job。  
 	- 选择**事件**页签在查看事件，如下图所示：
 	![](https://main.qcloudimg.com/raw/95eb57fa00729e0a4362fad69922ea0c.png)

@@ -35,7 +35,7 @@ CREATE TABLE `mysql_cdc_source_table` (
   `name` STRING,
   PRIMARY KEY (`id`) NOT ENFORCED -- 如果要同步的数据库表定义了主键, 则这里也需要定义
 ) WITH (
-  'connector' = 'mysql-cdc',	  -- 固定值 'mysql-cdc'
+  'connector' = 'mysql-cdc',      -- 固定值 'mysql-cdc'
   'hostname' = '192.168.10.22',   -- 数据库的 IP
   'port' = '3306',                -- 数据库的访问端口
   'username' = 'debezium',        -- 数据库访问的用户名（需要提供 SHOW DATABASES、REPLICATION SLAVE、REPLICATION CLIENT、SELECT 和 RELOAD 权限）
@@ -56,7 +56,7 @@ CREATE TABLE `mysql_cdc_source_table` (
 | password                                 | MySQL 数据库服务的密码                          | 是       | -                                            |
 | database-name                 | MySQL 数据库名称     | 是       | 数据库名称支持正则表达式以读取多个数据库的数据               |
 | table-name                               | MySQL 表名                  | 是       | 表名支持正则表达式以读取多个表的数据                         |
-| server-id  | 数据库客户端的一个 ID  | 否       | 该 ID 必须是 MySQL 集群中全局唯一的。建议针对同一个数据库的每个作业都设置不同的 ID 范围值，例如`5400-5405`。默认会随机生成一个5400 - 6400的值 |
+| server-id  | 数据库客户端的一个 ID  | 否       | 该 ID 必须是 MySQL 集群中全局唯一的。建议针对同一个数据库的每个作业都设置不同的 ID 范围值，例如`5400-5405`。默认会随机生成一个6400 - Integer.MAX_VALUE 的值 |
 | server-time-zone                         | 数据库在使用的会话时区                                       | 否       | 例如 Asia/Shanghai，该参数控制了 MySQL 中的 TIMESTAMP 类型如何转成 STRING 类型 |
 | append-mode                              | 开启 append 流模式                                             | 否       | Flink1.13及以上版本支持, 例如：将 mysql-cdc 数据以 append 的方式同步到 hive                |
 | debezium.min.row.count.to.stream.results | 当表的条数大于该值时，会使用分批读取模式                     | 否       | 默认值为1000。Flink 采用以下方式读取 MySQL 源表数据：<li/>全量读取：直接将整个表的数据读取到内存里。优点是速度快，缺点是会消耗对应大小的内存，如果源表数据量非常大，可能会有 OOM 风险<li/>分批读取：分多次读取，每次读取一定数量的行数，直到读取完所有数据。优点是读取数据量比较大的表没有 OOM 风险，缺点是读取速度相对较慢 |
@@ -167,7 +167,7 @@ CREATE TABLE `mysql_cdc_source_table` (
       `ingestion_ts` TIMESTAMP(3) METADATA FROM 'meta.ts',
       PRIMARY KEY (`id`) NOT ENFORCED -- 如果要同步的数据库表定义了主键, 则这里也需要定义
 ) WITH (
-      'connector' = 'mysql-cdc',	  -- 固定值 'mysql-cdc'
+      'connector' = 'mysql-cdc',      -- 固定值 'mysql-cdc'
       'hostname' = '192.168.10.22',   -- 数据库的 IP
       'port' = '3306',                -- 数据库的访问端口
       'username' = 'debezium',        -- 数据库访问的用户名（需要提供 SHOW DATABASES、REPLICATION SLAVE、REPLICATION CLIENT、SELECT 和 RELOAD 权限）
@@ -182,7 +182,7 @@ CREATE TABLE `mysql_cdc_source_table` (
 
 如果 MySQL 是一个分库分表的数据库，分成了 A_1、 A_2、A_3 ...等多个表，**且所有表的 schema 一致**，则可以通过 table-name 选项，指定一个正则表达式来匹配读取多张表，例如设置 table-name 为 **A\_.\*** ，监控所有 **A\_** 前缀的表。**database-name 选项也支持该功能**。
 
->? 如果 database-name 设置为正则匹配的话，需要使用`()`把正则式包围起来。 
+>? 如果 database-name 和 table-name 设置为正则匹配的话，需要使用`()`把正则式包围起来。 
 
 
 ## 类型映射
@@ -202,12 +202,12 @@ MySQL 的 CDC 和 Flink 字段类型对应关系如下：
 <tr>
 <td>TINYINT</td>
 <td>TINYINT</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>SMALLINT<br>TINYINT UNSIGNED</td>
 <td>SMALLINT</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>
@@ -215,19 +215,19 @@ INT<br>
 MEDIUMINT<br>
 SMALLINT UNSIGNED</td>
 <td>INT</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>
 BIGINT<br>
 INT UNSIGNED</td>
 <td>BIGINT</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>BIGINT UNSIGNED</td>
 <td>DECIMAL(20, 0)</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>
@@ -235,14 +235,14 @@ REAL<br>
 FLOAT<br>
 </td>
 <td>FLOAT</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>
 DOUBLE
 </td>
 <td>DOUBLE</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>
@@ -251,7 +251,7 @@ DECIMAL(p, s)<br>
 where p <= 38<br>
 </td>
 <td>DECIMAL(p, s)</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>
@@ -269,17 +269,17 @@ TINYINT(1)<br>
 BIT(1)
 </td>
 <td>BOOLEAN</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>DATE</td>
 <td>DATE</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>TIME [(p)]</td>
 <td>TIME [(p)]</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>TIMESTAMP [(p)]<br>
@@ -287,42 +287,42 @@ DATETIME [(p)]
 </td>
 <td>TIMESTAMP [(p)]
 </td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>
 CHAR(n)
 </td>
 <td>CHAR(n)</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>
 VARCHAR(n)
 </td>
 <td>VARCHAR(n)</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>
 BIT(n)
 </td>
 <td>BINARY(⌈n/8⌉)</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>
 BINARY(n)
 </td>
 <td>BINARY(n)</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>
 VARBINARY(N)
 </td>
 <td>VARBINARY(N)</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>
@@ -332,7 +332,7 @@ MEDIUMTEXT<br>
 LONGTEXT<br>
 </td>
 <td>STRING</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>
@@ -349,14 +349,14 @@ LONGBLOB<br>
 YEAR
 </td>
 <td>INT</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>
 ENUM
 </td>
 <td>STRING</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>
@@ -400,7 +400,7 @@ CREATE TABLE `mysql_cdc_source_table` (
   `name` STRING,
   PRIMARY KEY (`id`) NOT ENFORCED -- 如果要同步的数据库表定义了主键, 则这里也需要定义
 ) WITH (
-  'connector' = 'mysql-cdc',	  -- 固定值 'mysql-cdc'
+  'connector' = 'mysql-cdc',      -- 固定值 'mysql-cdc'
   'hostname' = '192.168.10.22',   -- 数据库的 IP
   'port' = '3306',                -- 数据库的访问端口
   'username' = 'debezium',        -- 数据库访问的用户名（需要提供 SHOW DATABASES、REPLICATION SLAVE、REPLICATION CLIENT、SELECT 和 RELOAD 权限）
@@ -435,8 +435,7 @@ FLUSH PRIVILEGES;
 
 
 ### 联合主键设置
-例如，下面的 DDL 设置了`index1`、`index2`、`index3`、`index4` 4个字段为联合主键索引，这4个字段必须定义在 DDL 的最前面，而且顺序要和 `PRIMARY KEY` 定义保持一致。
-
+例如，下面的 DDL 设置了`index1`、`index2`、`index3`、`index4` 4个字段为联合主键索引，要和 `PRIMARY KEY` 定义保持一致，顺序不会影响正常的同步。
 ```sql
 CREATE TABLE db_order_dim (
   `index1` STRING,
@@ -451,8 +450,8 @@ CREATE TABLE db_order_dim (
 );
 ```
 
-### server-id	定义
-建议显式的定义`server-id`，避免不同作业读取同一个库可能出现的冲突问题，可以设置为范围值，例如`5400-5405`，也可以是单个值。也可以使用 SQL Hints 来指定`server-id`
+### server-id   定义
+不建议显式的定义`server-id`，避免不同作业读取同一个库可能出现的冲突问题，可以设置为范围值，例如`5400-5405`。也可以使用 SQL Hints 来指定`server-id`
 
 ```sql
 SELECT * FROM source_table /*+ OPTIONS('server-id'='5401-5404') */ ;

@@ -1,7 +1,3 @@
-## 目录
-
-### Variables（变量）
-- [default](#default)
 
 ## Variables（变量）
 
@@ -10,22 +6,14 @@
 
 default: { base64Decoding: *any*; base64Encoding: *any*; cloudAPISignatureV3: *any*; md5Sum: *any*; sloginEncrypt: *any*; toArrayBuffer: *any*; uuid: *any* }
 
-Defined in typings/util.d.ts:16
 
 #### Type declaration
 
 - ##### base64Decoding:function
 
- - base64Decoding(input: *string*, encoding?: *"std"* | *"rawstd"* | *"url"* | *"rawurl"*, mode?: *"b"*): *string* | *ArrayBuffer*
-
-
-```
- Defined in typings/util.d.ts:58
-```
-
-
+  - base64Decoding(input: *string*, encoding?: *"std"* | *"rawstd"* | *"url"* | *"rawurl"*, mode?: *"b"*): *string* | *ArrayBuffer*
+ 
   base64 解码。
-
    - StdEncoding 是标准的 base64 编码，如 RFC 4648 中所定义。
    - RawStdEncoding 是标准的原始、未填充的 base64 编码，如 RFC 4648 第 3.2 节中所定义。 这与 StdEncoding 相同，但省略了填充字符。
    - URLEncoding 是 RFC 4648 中定义的备用 base64 编码。它通常用于 URL 和文件名。
@@ -39,34 +27,25 @@ Defined in typings/util.d.ts:16
     }
     ```
 
-#### Parameters
+  #### Parameters
 
-    - ##### input: *string*
-
-      输入
-
+  - ##### input: *string*
+输入
     - ##### Optional encoding: *"std"* | *"rawstd"* | *"url"* | *"rawurl"*
 
       可选，默认 std。可选 std、rawstd、url、rawurl
 
     - ##### Optional mode: *"b"*
-
       可选，为 b 返回 ArrayBuffer 类型
 
-    #### Returns *string* | *ArrayBuffer*
-
-    解码结果
+#### Returns *string* | *ArrayBuffer*
+解码结果
 
 - ##### base64Encoding:function
 
-  - base64Encoding(input: *string* | *ArrayBuffer*, encoding?: *"std"* | *"rawstd"* | *"url"* | *"rawurl"*): *string*
- 
-```
-Defined in typings/util.d.ts:36
-```
-
-  base64 编码。
-
+  - base64Encoding(input: *string* | *ArrayBuffer*, encoding?: *"std"* | *"rawstd"* | *"url"* | *"rawurl"*): *string
+  
+   base64 编码。
    - StdEncoding 是标准的 base64 编码，如 RFC 4648 中所定义。
    - RawStdEncoding 是标准的原始、未填充的 base64 编码，如 RFC 4648 第 3.2 节中所定义。 这与 StdEncoding 相同，但省略了填充字符。
    - URLEncoding 是 RFC 4648 中定义的备用 base64 编码。它通常用于 URL 和文件名。
@@ -80,27 +59,19 @@ Defined in typings/util.d.ts:36
     }
     ```
 
-    #### Parameters
-
-    - ##### input: *string* | *ArrayBuffer*
-
+  #### Parameters
+ - ##### input: *string* | *ArrayBuffer*
       输入
-
     - ##### Optional encoding: *"std"* | *"rawstd"* | *"url"* | *"rawurl"*
 
       可选，默认 std。可选 std、rawstd、url、rawurl
 
-    #### Returns *string*
-
-    编码结果
+#### Returns *string*
+编码结果
 
 - ##### cloudAPISignatureV3:function
 
   - cloudAPISignatureV3(param: *CloudAPISignatureV3Param*): *string*
-```
- Defined in typings/util.d.ts:164
-```
-
     腾讯云 api 签名方法 v3。
 
     ```js
@@ -138,7 +109,7 @@ Defined in typings/util.d.ts:36
     }
     ```
 
-    #### Parameters
+   #### Parameters
 
     - ##### param: *CloudAPISignatureV3Param*
 
@@ -151,9 +122,7 @@ Defined in typings/util.d.ts:36
 - ##### md5Sum:function
 
   - md5Sum(data: *string* | *ArrayBuffer*): *string*
-```
-  Defined in typings/util.d.ts:88
-```
+
     md5 加密。
 
     ```js
@@ -176,8 +145,6 @@ Defined in typings/util.d.ts:36
 
   - sloginEncrypt(salt: *number*, pwd: *string*, vcode: *string*): *string*
 
-  - Defined in typings/util.d.ts:121
-
     qq slogin 加密。
 
     ```js
@@ -189,7 +156,7 @@ Defined in typings/util.d.ts:36
     }
     ```
 
-    #### Parameters
+  #### Parameters
 
     - ##### salt: *number*
 
@@ -210,23 +177,20 @@ Defined in typings/util.d.ts:36
 - ##### toArrayBuffer:function
 
   - toArrayBuffer(data: *string* | *ArrayBuffer*): *ArrayBuffer*
-```
-  Defined in typings/util.d.ts:103
-```
+
 
     尝试从兼容类型返回字节数组。
-
-    ```js
+  ```js
     import util from 'pts/util';
     
     export default function () {
         console.log(util.toArrayBuffer("12345")); // [object ArrayBuffer]
     }
-    ```
+  ```
 
-    #### Parameters
+   #### Parameters
 
-    - ##### data: *string* | *ArrayBuffer*
+   - ##### data: *string* | *ArrayBuffer*
 
       数据
 
@@ -236,10 +200,7 @@ Defined in typings/util.d.ts:36
 
   - uuid(): *string*
 
-```
-  Defined in typings/util.d.ts:73
-```
-    uuid v4。
+ uuid v4。
 
     ```js
     import util from 'pts/util';
@@ -249,6 +210,6 @@ Defined in typings/util.d.ts:36
     }
     ```
 
-    #### Returns *string*
+  #### Returns *string*
 
     uuid 字符串

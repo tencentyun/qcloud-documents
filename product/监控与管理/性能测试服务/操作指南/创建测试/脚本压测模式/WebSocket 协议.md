@@ -6,7 +6,7 @@
  
 
 ## 概述
-- [WebSocket](https://zh.wikipedia.org/wiki/WebSocket) 是一种应用层通信协议，可在单个 TCP 连接上进行全双工通信。
+- [WebSocket](https://baike.baidu.com/item/WebSocket/1953845?fr=aladdin) 是一种应用层通信协议，可在单个 TCP 连接上进行全双工通信。
 - 不同于 HTTP 请求的客户端发起、服务端响应的一问一答模式，WebSocket 连接一旦建立，直到连接关闭之前，客户端、服务器之间都可源源不断地、双向地交换数据。因此，在压测场景中，基于 WebSocket 请求的脚本与基于 HTTP 请求的脚本，其结构和作用机制有所不同：
 	- 执行 HTTP 脚本的每个 VU 会持续不断地迭代主函数（`export default function() { ... }`），直到压测结束。
 	- 执行 WebSocket 脚本的每个 VU 不会持续迭代主函数，因为主函数会被建立连接的 `ws.connect` 方法阻塞，直到连接关闭。而在连接建立后的回调函数里（`function (socket) {...}`），会持续不断地监听和处理异步事件，直到压测结束。

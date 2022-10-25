@@ -13,7 +13,7 @@
 
 ## 步骤3：配置数据源表
 授权完成后，单击作业进入**作业开发-草稿**，从左侧列表拖入MySQL数据源。
-![](https://qcloudimg.tencent-cloud.cn/raw/894d101ec831c3133b751b576fc14cf0.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/d0e013fd2fe2b5bec8965cdba90a40e3.png)
 单击MySQL数据源可以进行数据源的配置。
 ![](https://qcloudimg.tencent-cloud.cn/raw/413ccbef32952618309114c33070e41a.png)
 
@@ -29,11 +29,11 @@
 单击下一步，配置需要进行同步的字段，并单击确认完成配置。
 ![](https://qcloudimg.tencent-cloud.cn/raw/64259b2e70fea04a0d79084ef6b7558d.png)
 再次返回画布，可以看到数据源已经配置完成。
-![](https://qcloudimg.tencent-cloud.cn/raw/8dda37eb2a8f4758c7c8e0555c303ab2.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/1d062fe5033f774f0ea830112d2e7f86.png)
 
 ## 步骤4：配置数据目的
 从左侧拖入数据目的，并与数据源相连。
-![](https://qcloudimg.tencent-cloud.cn/raw/679b42c132438835dc0ce7c80c65af5a.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/2cc532634ecad0253d0fb973204f4cda.png)
 单击数据目的对象，配置好数据库实例与库表选择
 ![](https://qcloudimg.tencent-cloud.cn/raw/f74808edc0937e8dd12c7265348015a9.png)
 单击下一步进行字段映射配置

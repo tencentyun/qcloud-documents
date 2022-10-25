@@ -357,7 +357,7 @@
 | ipType                 | 是       | int    | IP类型。<br>1：ipv4 <br>2：ipv6 <br>0：自动                              |
 | uploadType             | 是       | string | 上传使用的 HTTP Method，例如 POST/PUT                            |
 | uploadCustomHost       | 否       | int    | 自定 Host 中 IP 的选取方式。<br>0：随机。<br>1：轮询                     |
-| uploadCustomHostIp     | 否       | string | 自定义 Host 的设置，示例取值：<br>IPv4：192.168.2.1,192.168.2.5:[img.a.com](http://img.a.com/)\|192.168.2.1[8080]:[img.a.com](http://img.a.com/)\|<br>IPv6：[0:0:0:0:0:0:0:1][8080],[0:0:0:0:0:0:0:2][8081]:[www.a.com](http://www.a.com/)\| |
+| uploadCustomHostIp     | 否       | string | 自定义 Host 的设置，示例取值：<br>IPv4：192.168.2.1,192.168.2.5:img.a.com|192.168.2.1[8080]:img.a.com|<br>IPv6：[0:0:0:0:0:0:0:1][8080],[0:0:0:0:0:0:0:2][8081]:www.a.com|
 | uploadTransmissionSize | 是       | int    | 传输的大小，单位KB                                           |
 | uploadSpecificFileUrl  | 否       | string | 指定要上传文件的下载地址（先下载，后上传）。若不指定则会按照上传大小来随机生成要上传的内容 |
 | uploadFileMd5          | 否       | string | 通过 uploadSpecificFileUrl 指定文件时，文件的校验 MD5 只。     |
@@ -383,10 +383,10 @@
 | :----------------------- | :------- | :----- | :----------------------------------------------------------- |
 | ipType                   | 是       | int    | IP类型。<br>1：ipv4 <br>2：ipv6 <br>0：自动                              |
 | downloadCustomHost       | 否       | int    | 自定 Host 中 IP 的选取方式。<br>0：随机<br>1：轮询                 |
-| downloadCustomHostIp     | 否       | string | 自定义 Host 的设置，示例取值：<br>IPv4：192.168.2.1,192.168.2.5:[img.a.com](http://img.a.com/)\|192.168.2.1[8080]:[img.a.com](http://img.a.com/)\| <br>IPv6：[0:0:0:0:0:0:0:1][8080],[0:0:0:0:0:0:0:2][8081]:[www.a.com](http://www.a.com/)\| |
+| downloadCustomHostIp     | 否       | string | 自定义 Host 的设置，示例取值：<br>IPv4：192.168.2.1,192.168.2.5:img.a.com|192.168.2.1[8080]:img.a.com| <br>IPv6：[0:0:0:0:0:0:0:1][8080],[0:0:0:0:0:0:0:2][8081]:www.a.com |
 | downloadTransmissionSize | 是       | int    | 传输的大小，单位KB。                                           |
-| whiteList                | 否       | string | 域名劫持判断白名单.[www.baidu.com](http://www.baidu.com/):202.0.3.* （即 [www.baidu.com](http://www.baidu.com/) 域名下以202.0.3. 开头的IP都不认为是被劫持。 |
-| blackList                | 否       | string | 域名劫持判断黑名单.[www.baidu.com](http://www.baidu.com/):202.0.3.* （即 [www.baidu.com](http://www.baidu.com/) 域名下以202.0.3. 开头的IP都认为是被劫持。 |
+| whiteList                | 否       | string | 域名劫持判断白名单.www.baidu.com:202.0.3.* （即 www.baidu.com 域名下以202.0.3. 开头的 IP 都不认为是被劫持。 |
+| blackList                | 否       | string | 域名劫持判断黑名单.www.baidu.com:202.0.3.* （即 www.baidu.com 域名下以202.0.3. 开头的 IP 都认为是被劫持。 |
 | monitorTimeout           | 否       | int    | 检测超时 ，单位秒，默认60。                                    |
 
 #### 3.2.2.5. 页面性能
@@ -475,9 +475,9 @@
 | streamMonitorTimeout | 否       | int    | 检测超时，单位秒，默认60。                                     |
 | streamAddressType    | 是       | int    | 要检测资源的地址类型。<br>0：页面地址<br>1：资源地址                |
 | streamCustomHost     | 否       | int    | 自定 Host 中 IP 的选取方式。<br>0：随机<br>1：轮询                 |
-| streamCustomHostIp   | 否       | string | 自定义 Host 的设置，示例取值：<br>IPv4：192.168.2.1,192.168.2.5:[img.a.com](http://img.a.com/)\|192.168.2.1[8080]:[img.a.com](http://img.a.com/)\| <br>IPv6：[0:0:0:0:0:0:0:1][8080],[0:0:0:0:0:0:0:2][8081]:[www.a.com](http://www.a.com/)\| |
-| whiteList            | 否       | string | 域名劫持判断白名单.[www.baidu.com](http://www.baidu.com/):202.0.3.* （即[www.baidu.com](http://www.baidu.com/)域名下以202.0.3. 开头的IP都不认为是被劫持 |
-| blackList            | 否       | string | 域名劫持判断黑名单.[www.baidu.com](http://www.baidu.com/):202.0.3.* （即 [www.baidu.com](http://www.baidu.com/) 域名下以202.0.3. 开头的 IP 都认为是被劫持 |
+| streamCustomHostIp   | 否       | string | 自定义 Host 的设置，示例取值：<br>IPv4：192.168.2.1,192.168.2.5:img.a.com|192.168.2.1[8080]:img.a.com| <br>IPv6：[0:0:0:0:0:0:0:1][8080],[0:0:0:0:0:0:0:2][8081]:www.a.com|
+| whiteList            | 否       | string | 域名劫持判断白名单.www.baidu.com:202.0.3.* （即 www.baidu.com 域名下以202.0.3. 开头的 IP 都不认为是被劫持 |
+| blackList            | 否       | string | 域名劫持判断黑名单.www.baidu.com:202.0.3.* （即 www.baidu.com 域名下以202.0.3. 开头的 IP 都认为是被劫持 |
 
 ### Nodes 取值说明
 该取值用于选择具体的拨测点，可通过 [DescribeProbeTasks](https://cloud.tencent.com/document/api/280/66204) 获取拨测点机器对应的取值（其中的 Code 字段）。

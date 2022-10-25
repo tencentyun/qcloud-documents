@@ -17,7 +17,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/90c12f45665cac0d3ac9d76330e35c26.png)
 5. 通过 SSH 命令进行连接。
 ```
-bash ssh <主机帐号>@<IP地址>
+bash ssh -p 36000 <主机帐号>@<IP地址>
 ```
 
 ## 主机权限

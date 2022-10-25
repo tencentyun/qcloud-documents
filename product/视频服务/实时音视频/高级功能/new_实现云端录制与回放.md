@@ -1,7 +1,7 @@
 ## 场景说明
 在远程教育、秀场直播、视频会议、远程定损、金融双录、在线医疗等应用场景中，考虑取证、质检、审核、存档和回放等需求，常需要将整个视频通话或互动直播过程录制和存储下来的情况。
 
->? 下文将针对实时音视频最新推出的云端录制能力进行使用说明，如果您当前的TRTC应用（sdkappid）使用的是旧版云端录制，详情请参见 [旧版云端录制](https://cloud.tencent.com/document/product/647/16823)。判断当前应用的云端录制的类型和旧版云端录制能力切换为新版的方式，详情请参见 [控制台>云端录制说明](https://cloud.tencent.com/document/product/647/50768#.E4.BA.91.E7.AB.AF.E5.BD.95.E5.88.B6.E9.85.8D.E7.BD.AE)。
+>? 下文将针对实时音视频最新推出的云端录制能力进行使用说明，如果您当前的 TRTC 应用（sdkappid）使用的是旧版云端录制，详情请参见 [旧版云端录制](https://cloud.tencent.com/document/product/647/16823)。判断当前应用的云端录制的类型和旧版云端录制能力切换为新版的方式，详情请参见 [控制台>云端录制说明](https://cloud.tencent.com/document/product/647/50768#.E4.BA.91.E7.AB.AF.E5.BD.95.E5.88.B6.E9.85.8D.E7.BD.AE)。
 
 ## 功能说明
 通过 TRTC 的云端录制功能，您可以将房间中的每一个用户的音视频流都录制成独立的文件（单流录制），或者把同一个房间的音视频媒体流合流录制成一个文件（合流录制）。
@@ -17,14 +17,14 @@
 - 主播1的一个音视频 MP4 录制文件。
 - 主播2的一个音视频 MP4 录制文件。
 
-录制后台会把这些文件上传到您指定的云点播。为了保证录制文件的高可用，实时录制的格式为 HLS（m3u8+ts）最终录制任务结束时将由录制后台对 HLS 文件进行转封装后进行上传，具体录制流程如下：
-![](https://qcloudimg.tencent-cloud.cn/raw/c603679cf62f13213b5eafe1531b8f9e.png)
+录制后台会把这些文件上传到您指定的 [云点播](https://console.cloud.tencent.com/vod)。具体录制流程如下：
+![](https://qcloudimg.tencent-cloud.cn/raw/cdbc605589bc736c489349f38b490035.png)
 
 #### 合流录制
 如下图所示为合流录制的场景，房间1234里面有主播1和主播2都上行了音视频流，假设您订阅了主播1和主播2的音视频流，设置录制模式为合流录制，录制后台会分别拉取主播1和主播2的音视频流，并把他们的视频流按照您配置多画面模板进行合流，音频流进行混音，最后把媒体流混合成一路媒体文件。包含：合流后的的一个音视频 MP4 录制文件。
 
 录制后台会把这些文件上传到您指定的云点播，您需要通过回调保存对应录制文件的存于云点播的 [媒资信息](https://cloud.tencent.com/document/product/266/36451)。
-![](https://qcloudimg.tencent-cloud.cn/raw/362d6f011622439e5d46a4b6ab808ff7.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/d8b0f3d0e5ecea18b448843324268a10.png)
 
 [](id:mp4_file)
 ### 录制 MP4 文件说明
@@ -53,15 +53,15 @@ TRTC 提供了两种云端录制方案，分别是 API 调用录制和全局自�
 ### 方案一：API 录制
 [](id:action)
 #### 启动录制
-通过您的后台服务调用 REST API （CreateCloudRecording）来启动云端的录制，需要重点关注参数— **任务 ID（TaskId）**；这个参数是本次录制任务的唯一标识，您需要保存下这个任务 ID 作为后续针对这个录制任务接口操作的输入参数。
+通过您的后台服务调用 REST API （[CreateCloudRecording](https://cloud.tencent.com/document/api/647/73786)）来启动云端的录制，需要重点关注参数— **任务 ID（TaskId）**；这个参数是本次录制任务的唯一标识，您需要保存下这个任务 ID 作为后续针对这个录制任务接口操作的输入参数。
 
 [](id:RecordMode)
-#### 录制的模式（RecordMode）
+#### 录制的模式（[RecordMode](https://cloud.tencent.com/document/api/647/44055#RecordParams)）
 - 单流录制，实时录制房间内每个主播的音频视频 HLS 文件，转码后上传每个用户的 MP4 录制文件到云点播。
 - 合流录制，将房间内您所订阅所有主播的音视频流混录成一个 HLS 音视频文件, 转码后上传合流录制 MP4 文件到云点播。
 
 [](id:SubscribeStreamUserIds)
-#### 录制用户的黑白名单（SubscribeStreamUserIds）
+#### 录制用户的黑白名单（[SubscribeStreamUserIds](https://cloud.tencent.com/document/api/647/44055#RecordParams)）
 默认情况下，云端录制会订阅房间内所有的媒体流（最多25路）超过25个用户，默认录制最先进房的25位主播。您也可以通过该参数指定订阅的主播用户的黑白名单信息，当然我们也支持在录制的过程中进行更新操作。单流录制场景，如果房间内主播超过25人，可以通过设置订阅名单发起多次录制任务实现。
 
 [](id:rude)
@@ -124,7 +124,7 @@ TRTC 提供了两种云端录制方案，分别是 API 调用录制和全局自�
 ```
 
 [](id:MixLayoutMode)
-#### 合流录制的布局模式参数（MixLayoutMode）
+#### 合流录制的布局模式参数（[MixLayoutMode](https://cloud.tencent.com/document/api/647/44055#MixLayoutParams)）
 支持 [悬浮布局](#float)、[屏幕分享布局](#share)、[九宫格布局（默认）](#nine) 和 [自定义布局](#customize) 四种布局：
 
 - **悬浮布局**：[](id:float)
@@ -225,7 +225,7 @@ TRTC 提供了两种云端录制方案，分别是 API 调用录制和全局自�
 </tr></table>
 
 - **自定义布局**：[](id:customize)
-根据您的业务需要在 MixLayoutList 内自己定制每个主播画面的布局信息。
+根据您的业务需要在 [MixLayoutList](https://cloud.tencent.com/document/api/647/44055#MixLayoutParams) 内自己定制每个主播画面的布局信息。
 
 [](id:MixWatermark)
 #### 合流录制的水印参数 (MixWatermark)
@@ -240,25 +240,25 @@ TRTC 提供了两种云端录制方案，分别是 API 调用录制和全局自�
 | url    | 水印文件的存储 URL        |
 
 [](id:DescribeCloudRecording)
-#### 查询录制（DescribeCloudRecording）
+#### 查询录制（[DescribeCloudRecording](https://cloud.tencent.com/document/api/647/44055#StorageFile)）
 如果需要，您可以调用该接口查询录制服务的状态。
 >! 
 >- 只有录制任务存在的时候才能查询到信息，如果录制任务已经结束会返回错误。
 >- 如果是上传云点播任务，该接口返回的 StorageFile 为空。
 
 [](id:ModifyCloudRecording)
-#### 更新录制（ModifyCloudRecording）
+#### 更新录制（[ModifyCloudRecording](https://cloud.tencent.com/document/api/647/44055#SubscribeStreamUserIds)）
 如果需要，您可以调用该接口修改录制服务的参数，如订阅黑白名单 SubscribeStreamUserIds（单流和合流录制有效），录制的模板参数 MixLayoutParams（合流录制有效）。
 >! 更新操作是全量覆盖的操作，并不是增量更新的操作，您每次更新都需要携带全量的信息，包括模板参数 MixLayoutParams 和黑白名单 SubscribeStreamUserIds，因此您需要保存之前的启动录制的参数或者重新计算完整的录制相关参数。
 
 [](id:DeleteCloudRecording)
-#### 停止录制（DeleteCloudRecording）
+#### 停止录制（[DeleteCloudRecording](https://cloud.tencent.com/document/api/647/73785)）
 在录制结束之后需要调用停止录制（DeleteCloudRecording）的接口来结束录制任务，否则录制任务会等待到达预设的超时时间 MaxIdleTime 后自动结束。
 >! MaxIdleTime 的定义是房间内持续没有主播的状态超过 MaxIdleTime 的时长，这里如果房间是存在有主播，但是主播没有上行数据是不会进入超时的计时状态的，此时后台录制会持续工作。建议业务在录制结束的时候调用此接口结束录制任务。
 
 [](id:autoRecord)
 ### 方案二：全局自动录制
-要使用该种录制方案，请在控制台中开启云端录制功能，并且选择全局自动录制。
+要使用该种录制方案，请在 [实时音视频控制台 > 应用管理](https://console.cloud.tencent.com/trtc/app) 中开启云端录制功能，并且选择全局自动录制。
 ![](https://qcloudimg.tencent-cloud.cn/raw/468ebc6601ac4e52ce2ea7b7094018f9.png)
 TRTC 房间中的主播上行音视频后将触发启动录制任务，房间内主播都退房后超过设置的 MaxIdleTime（空闲等待时间，默认5s）将触发停止录制任务。
 
@@ -318,20 +318,14 @@ TRTC 房间中的主播上行音视频后将触发启动录制任务，房间内
 
 #### 事件类型说明
 
-| 字段名     | 类型 | 含义                                                        |
-| ----------------------------------------------------- | ---- | ----------------------------------------------------------- |
-| EVENT_TYPE_CLOUD_RECORDING_RECORDER_START        | [301](#301)  | 云端录制录制模块启动 |
-| EVENT_TYPE_CLOUD_RECORDING_RECORDER_STOP         | [302](#302)  | 云端录制录制模块退出 |
-| EVENT_TYPE_CLOUD_RECORDING_UPLOAD_START          | [303](#303)  | 云端录制上传模块启动 |
-| EVENT_TYPE_CLOUD_RECORDING_FILE_INFO | [304](#304) | 云端录制生成 M3U8 索引文件，第一次生成并且上传成功后回调 |
-| EVENT_TYPE_CLOUD_RECORDING_UPLOAD_STOP | [305](#305)  | 云端录制上传结束 |
-| EVENT_TYPE_CLOUD_RECORDING_FAILOVER | [306](#306)  | 云端录制发生迁移，原有的录制任务被迁移到新负载上时触发     |
-| EVENT_TYPE_CLOUD_RECORDING_FILE_SLICE | [307](#307)  | 云端录制生成 M3U8 文件（切出第一个 TS 分片） 生成后回调 |
-| EVENT_TYPE_CLOUD_RECORDING_UPLOAD_ERROR | [308](#308)  | 云端录制 上传模块发生错误 |
-| EVENT_TYPE_CLOUD_RECORDING_DOWNLOAD_IMAGE_ERROR | [309](#309)  | 云端录制下载解码图片文件发生错误 |
-| EVENT_TYPE_CLOUD_RECORDING_MP4_STOP | [310](#310)  | 云端录制 MP4 录制任务结束，回调包含录制的 MP4 文件名和详细信息 |
-| EVENT_TYPE_CLOUD_RECORDING_VOD_COMMIT | [311](#311)  | 云端录制 VOD 录制任务上传媒体资源完成 |
-| EVENT_TYPE_CLOUD_RECORDING_VOD_STOP | [312](#312)  | 云端录制 VOD 录制任务结束 |
+| 字段名                                          | 类型        | 含义                                                   |
+| ----------------------------------------------- | ----------- | ------------------------------------------------------ |
+| EVENT_TYPE_CLOUD_RECORDING_RECORDER_START       | [301](#301) | 云端录制录制模块启动                                   |
+| EVENT_TYPE_CLOUD_RECORDING_RECORDER_STOP        | [302](#302) | 云端录制录制模块退出                                   |
+| EVENT_TYPE_CLOUD_RECORDING_FAILOVER             | [306](#306) | 云端录制发生迁移，原有的录制任务被迁移到新负载上时触发 |
+| EVENT_TYPE_CLOUD_RECORDING_DOWNLOAD_IMAGE_ERROR | [309](#309) | 云端录制下载解码图片文件发生错误                       |
+| EVENT_TYPE_CLOUD_RECORDING_VOD_COMMIT           | [311](#311) | 云端录制 VOD 录制任务上传媒体资源完成                  |
+| EVENT_TYPE_CLOUD_RECORDING_VOD_STOP             | [312](#312) | 云端录制 VOD 录制任务结束                              |
 
 >! 录制后台是实时录制 HLS(m3u8+ts) 文件后转码成 MP4 后上传至点播平台的，301-309区间的回调状态为实时录制的中间状态，可以更加清晰的知晓录制任务的进行过程并记录状态，实际录制文件上传到点播成功会回调311事件，整体任务结束回调312事件。
 
@@ -342,7 +336,7 @@ TRTC 房间中的主播上行音视频后将触发启动录制任务，房间内
 | RoomId  | String/Number | 房间名（类型与客户端房间号类型一致） |
 | EventTs | Number        | 时间发生的 Unix 时间戳，单位为秒     |
 | UserId  | String        | 录制机器人的用户 ID                  |
-| TaskId  | String        | 录制ID，一次云端录制任务唯一的 ID     |
+| TaskId  | String        | 录制ID，一次云端录制任务唯一的 ID    |
 | Payload | JsonObject    | 根据不同事件类型定义不同             |
 
 - **事件类型为301**（EVENT_TYPE_CLOUD_RECORDING_RECORDER_START）时 Payload 的定义：[](id:301)
@@ -409,87 +403,6 @@ TRTC 房间中的主播上行音视频后将触发启动录制任务，房间内
   }
 }
 ```
-- **事件类型为303**（EVENT_TYPE_CLOUD_RECORDING_UPLOAD_START）时 Payload 的定义：[](id:303)
-<table>
-<thead><tr><th>字段名</th><th>类型</th><th>含义</th></tr></thead>
-<tbody><tr>
-<td>Status</td>
-<td>Number</td>
-<td>0：代表上传模块正常启动  <br>1：代表上传模块初始化失败</td>
-</tr>
-</tbody></table>
-```json
-{
-  "EventGroupId": 3,
-  "EventType": 303,
-  "CallbackTs": 1622191965320,
-  "EventInfo": {
-    "RoomId": "20015",
-    "EventTs": 1622191965,
-    "UserId": "xx",
-    "TaskId": "xx",
-    "Payload": {
-      "Status": 0
-    }
-  }
-}
-```
-- **事件类型为304**（EVENT_TYPE_CLOUD_RECORDING_FILE_INFO）时 Payload 的定义：[](id:304)
-<table>
-<thead><tr><th>字段名</th><th>类型</th><th>含义</th></tr></thead>
-<tbody><tr>
-<td>FileList</td>
-<td>String</td>
-<td>生成的 M3U8 文件名</td>
-</tr>
-</tbody></table>
-```json
-{
-  "EventGroupId": 3,
-  "EventType": 304,
-  "CallbackTs": 1622191965350,
-  "EventInfo": {
-    "RoomId": "20015",
-    "EventTs": 1622191965,
-    "UserId": "xx",
-    "TaskId": "xx",
-    "Payload": {
-      "FileList": "xx.m3u8"
-    }
-  }
-}
-```
-- **事件类型为305**（EVENT_TYPE_CLOUD_RECORDING_UPLOAD_STOP）时 Payload 的定义：[](id:305)
-<table>
-<thead>
-<tr>
-<th>字段名</th>
-<th>类型</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Status</td>
-<td>Number</td>
-<td>0：代表 HLS 文件上传任务已经完成<br>1：代表 HLS 文件上传任务已经完成，但至少有一片文件滞留在服务器或者备份存储上<br>2：代表滞留在服务器或者备份存储上的文件已经恢复上传</td>
-</tr>
-</tbody></table>
-```json
-{
-  "EventGroupId": 3,
-  "EventType": 305,
-  "CallbackTs": 1622191989674,
-  "EventInfo": {
-    "RoomId": "20015",
-    "EventTs": 1622191989,
-    "UserId": "xx",
-    "TaskId": "xx",
-    "Payload": {
-      "Status": 0
-    }
-  }
-}
-```
 - **事件类型为306**（EVENT_TYPE_CLOUD_RECORDING_FAILOVER）时 Payload 的定义：[](id:306)
 <table>
 <thead>
@@ -521,92 +434,6 @@ TRTC 房间中的主播上行音视频后将触发启动录制任务，房间内
   }
 }
 ```
-- **事件类型为307**（EVENT_TYPE_CLOUD_RECORDING_FILE_SLICE）时 Payload 的定义：[](id:307)
-<table>
-<thead>
-<tr>
-<th>字段名</th>
-<th>类型</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>FileName</td>
-<td>String</td>
-<td>M3U8 文件名</td>
-</tr>
-<tr>
-<td>UserId</td>
-<td>String</td>
-<td>本录制文件对应的用户 ID</td>
-</tr>
-<tr>
-<td>TrackType</td>
-<td>String</td>
-<td>audio/video/audio_video</td>
-</tr>
-<tr>
-<td>BeginTimeStamp</td>
-<td>Number</td>
-<td>录制开始时，服务器 UNIX 时间戳（毫秒)</td>
-</tr>
-</tbody></table>
-```json
-{
-  "EventGroupId": 3,
-  "EventType": 307,
-  "CallbackTs": 1622186289148,
-  "EventInfo": {
-    "RoomId": "xx",
-    "EventTs": "1622186289",
-    "UserId": "xx",
-    "TaskId": "xx",
-    "Payload": {
-      "FileName": "xx.m3u8",
-      "UserId": "xx",
-      "TrackType": "audio",
-      "BeginTimeStamp": 1622186279144
-    }
-  }
-}
-```
-- **事件类型为308**（EVENT_TYPE_CLOUD_RECORDING_UPLOAD_ERROR）时 Payload 的定义：[](id:308)
-<table>
-<thead>
-<tr>
-<th>字段名</th>
-<th>类型</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Code</td>
-<td>String</td>
-<td>上传模块的返回 code</td>
-</tr>
-<tr>
-<td>Message</td>
-<td>String</td>
-<td>上传模块的返回消息内容</td>
-</tr>
-</tbody></table>
-```json
-{
-  "EventGroupId": 3,
-  "EventType": 308,
-  "CallbackTs": 1622191989674,
-  "EventInfo": {
-    "RoomId": "20015",
-    "EventTs": 1622191989,
-    "UserId": "xx",
-    "TaskId": "xx",
-    "Payload": {
-      "Code": "xx",
-      "Message": "xx"
-    }
-  }
-}
-```
 - **事件类型为309**（EVENT_TYPE_CLOUD_RECORDING_DOWNLOAD_IMAGE_ERROR）时 Payload 的定义：[](id:309)
 <table>
 <thead>
@@ -634,96 +461,6 @@ TRTC 房间中的主播上行音视频后将触发启动录制任务，房间内
     "TaskId": "xx",
     "Payload": {
       "Url": "http://xx",
-    }
-  }
-}
-```
-- **事件类型为310**（EVENT_TYPE_CLOUD_RECORDING_MP4_STOP）时 Payload 的定义：[](id:310)
-<table>
-<thead>
-<tr>
-<th>字段名</th>
-<th>类型</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Status</td>
-<td>Number</td>
-<td>0：代表此次录制mp4任务已经正常退出，所有的文件均已上传<br>1：代表此次录制mp4任务已经正常退出，但至少有一片文件滞留在服务器或者备份存储上<br>2：代表此次录制mp4任务异常退出</td>
-</tr>
-<tr>
-<td>FileList</td>
-<td>Array</td>
-<td>所有生成的 MP4 文件名</td>
-</tr>
-<tr>
-<td>FileMessage</td>
-<td>Array</td>
-<td>所有生成的 MP4 文件信息</td>
-</tr>
-<tr>
-<td>FileName</td>
-<td>String</td>
-<td>MP4 文件名</td>
-</tr>
-<tr>
-<td>UserId</td>
-<td>String</td>
-<td>MP4 文件对应的用户 ID（当录制模式为合流模式时，此字段为空）</td>
-</tr>
-<tr>
-<td>TrackType</td>
-<td>String</td>
-<td>audio/video/audio_video</td>
-</tr>
-<tr>
-<td>MediaId</td>
-<td>String</td>
-<td>main/aux</td>
-</tr>
-<tr>
-<td>StartTimeStamp</td>
-<td>Number</td>
-<td>MP4 文件开始的 UNIX 时间戳（毫秒)</td>
-</tr>
-<tr>
-<td>EndTimeStamp</td>
-<td>Number</td>
-<td>MP4 文件结束的 UNIX 时间戳（毫秒)</td>
-</tr>
-</tbody></table>
-```json
-{
-  "EventGroupId": 3,
-  "EventType": 310,
-  "CallbackTs": 1622191989674,
-  "EventInfo": {
-    "RoomId": "20015",
-    "EventTs": 1622191989,
-    "UserId": "xx",
-    "TaskId": "xx",
-    "Payload": {
-      "Status": 0,
-      "FileList": ["xxxx1.mp4", "xxxx2.mp4"],
-      "FileMessage": [
-        {
-          "FileName": "xxxx1.mp4",
-          "UserId": "xxxx",
-          "TrackType": "audio_video",
-          "MediaId": "main",
-          "StartTimeStamp": 1622186279145,
-          "EndTimeStamp": 1622186282145
-        },
-        {
-          "FileName": "xxxx2.mp4",
-          "UserId": "xxxx",
-          "TrackType": "audio_video",
-          "MediaId": "main",
-          "StartTimeStamp": 1622186279153,
-          "EndTimeStamp": 1622186282153
-        }
-      ]
     }
   }
 }

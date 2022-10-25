@@ -12,6 +12,7 @@
 >
 ## 前提条件
 - 已准备文件远程拷贝软件，例如 WinSCP（建议从官方网站获取最新版本）。
+若您需部署到腾讯云云服务器，建议使用云服务器的文件上传功能。详情请参见 [上传文件到云服务器](https://cloud.tencent.com/document/product/1340/72845)。
 - 已准备远程登录工具，例如 PuTTY 或者 Xshell（建议从官方网站获取最新版本）。
 - 已在当前服务器中安装配置含有 `http_ssl_module` 模块的 Nginx 服务。
 - 安装 SSL 证书前需准备的数据如下：
@@ -52,6 +53,9 @@
 >?CSR 文件是申请证书时由您上传或系统在线生成的，提供给 CA 机构。安装时可忽略该文件。
 >
 3. 使用 “WinSCP”（即本地与远程计算机间的复制文件工具）登录 Nginx 服务器。
+>?
+>- WinSCP 上传文件操作可参考 [通过 WinSCP 上传文件到 Linux 云服务器](https://cloud.tencent.com/document/product/213/2131)。
+>- 若您需部署到腾讯云云服务器，建议使用云服务器的文件上传功能。详情请参见 [上传文件到云服务器](https://cloud.tencent.com/document/product/1340/72845)。
 4. 将已获取到的 `cloud.tencent.com_bundle.crt` 证书文件和 `cloud.tencent.com.key` 私钥文件从本地目录拷贝到 Nginx 服务器的 `/usr/local/nginx/conf` 目录（此处为 Nginx 默认安装目录，请根据实际情况操作）下。
 5. 远程登录 Nginx 服务器。例如，使用 [“PuTTY” 工具](https://cloud.tencent.com/document/product/213/35699#.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4) 登录。
 6. 编辑 Nginx 根目录下的 `conf/nginx.conf` 文件。修改内容如下：
@@ -90,11 +94,11 @@ server {
 ```
    - 若存在，请您重新配置或者根据提示修改存在问题。
    - 若不存在，请执行 [步骤8](#step8)。
-8. [](id:step8)在 Nginx 根目录下，通过执行以下命令重启 Nginx。
+8. [](id:step8)在 Nginx 根目录下，通过执行以下命令重载 Nginx。
 ```
 ./sbin/nginx -s reload
 ```
-9. 重启成功，即可使用 `https://cloud.tencent.com` 进行访问。
+9. 重载成功，即可使用 `https://cloud.tencent.com` 进行访问。
 
 ### HTTP 自动跳转 HTTPS 的安全配置（可选）
 如果您需要将 HTTP 请求自动重定向到 HTTPS。您可以通过以下操作设置：
@@ -144,11 +148,20 @@ server {
 ```
    - 若存在，请您重新配置或者根据提示修改存在问题。
    - 若不存在，请执行 [步骤3](#step3)。
-3. [](id:step3)在 Nginx 根目录下，通过执行以下命令重启 Nginx。
+3. [](id:step3)在 Nginx 根目录下，通过执行以下命令重载 Nginx。
 ```
 ./sbin/nginx -s reload
 ```
-9. 重启成功，即可使用 `http://cloud.tencent.com` 进行访问。
+9. 重载成功，即可使用 `https://cloud.tencent.com` 进行访问。
+ - 如果浏览器地址栏显示安全锁标识，则说明证书安装成功。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/45d7e33dd41abb06087edda4871222b5.png)
+ - 如果网站访问异常，可参考以下常见问题解决方案进行处理：
+    - [无法使用 HTTPS 访问网站](https://cloud.tencent.com/document/product/400/53650)
+    - [部署 SSL 证书后，浏览器提示 “网站连接不安全”](https://cloud.tencent.com/document/product/400/56830)
+    - [访问站点提示连接不安全？](https://cloud.tencent.com/document/product/400/5366)
+    - [SSL 证书过期后重新申请部署依然提示 HTTPS 不安全？](https://cloud.tencent.com/document/product/400/65727)
+    - [在服务器上部署 SSL 证书后访问资源出现 404 报错](https://cloud.tencent.com/document/product/400/53651)
+
 
 >!操作过程如果出现问题，请您 [联系我们](https://cloud.tencent.com/document/product/400/35259)。
 

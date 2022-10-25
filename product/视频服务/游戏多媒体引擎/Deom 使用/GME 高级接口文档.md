@@ -46,26 +46,6 @@ CheckDeviceMuteState();
 
 返回值为 0 代表关闭物理静音键，返回值为 1 代表打开物理静音键。
 
-### 检查麦克风设备状态
-
-<dx-alert infotype="explain" title="说明">
-此接口在 GME 2.8.4 以上版本 SDK 上生效
-</dx-alert>
-
-#### 函数原型
-
-```
-TestMic();
-```
-
-#### 返回值处理
-
-| 返回值                               | 含义                | 处理                                                         |
-| ------------------------------------ | ------------------- | ------------------------------------------------------------ |
-| ITMG_TEST_MIC_STATUS_AVAILABLE = 0   | 正常可用            | 无需处理                                                     |
-| ITMG_TEST_MIC_STATUS_NO_GRANTED = 2  | 未获得/拒绝授权权限 | 需要在打开麦克风之前获取下权限                               |
-| ITMG_TEST_MIC_STATUS_INVALID_MIC = 3 | 没有可用的设备      | 一般是 PC 设备上，没有可用的麦克风设备会报此错误，请提示插入耳机或麦克风 |
-| ITMG_TEST_MIC_STATUS_NOT_INIT = 5    | 没有初始化          | 在Init之后调用 EnableMic 接口                                |
 
 ### 设置 Android 蓝牙设备适配
 
@@ -252,9 +232,18 @@ virtual int TextToSpeech(const char* text, const char* voiceName,const char* lan
 | 参数         | 类型        | 含义                                           |
 | ------------ | ----------- | ---------------------------------------------- |
 | text         | const char* | 原始文本，不可为空，最大长度5000字符            |
-| voiceName    | const char* | 指定待翻译文本的语言，可为空，后台自动检测语音 |
+| voiceName    | const char* | 声音类型，提供英语及普通话的示例，如需其他语言请 [提交工单](https://console.cloud.tencent.com/workorder/category) 咨询 |
 | languageCode | const char* | 指定目标语言。不可为空                         |
 | speakingRate | float       | 音频语速，取值范围 [0.6-1.5]，1代表正常速度     |
+
+voiceName 说明如下：
+
+| 声音类型 | 性别 | 语言 |
+|---------|---------|---------|
+| cmn-CN-Standard-A | 女声 | 普通话 |
+| cmn-CN-Standard-B | 男声 | 普通话 |
+| en-US-Neural2-A | 女声 | 英语 |
+| en-US-Neural2-B | 男声 | 英语 |
 
 语言参数参考 [语言参数列表](https://cloud.tencent.com/document/product/607/30282)。
 

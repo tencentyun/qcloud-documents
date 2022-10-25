@@ -46,7 +46,7 @@ dependencies {
 
 >! 
 > - 如您当前使用的版本和最新版本跨度较大，请务必参考下方涉及版本的变更内容进行配置修改。
-> - 如无特殊情况，建议您对来自移动推送SDK 的各厂商推送 SDK 依赖包也同步进行升级替换。
+> - 如无特殊情况，建议您对来自移动推送 SDK 的各厂商推送 SDK 依赖包也同步进行升级替换。
 
 
 ### 通过其他合集工具包集成
@@ -91,7 +91,7 @@ implementation 'commons-codec:commons-codec:1.15'
 package com.meizu.cloud.pushinternal;
 public class R {
     public static final class drawable {
-		    // 资源文件 stat_sys_third_app_notify.png 请从移动推送SDK 压缩包魅族厂商依赖目录的 flyme-notification-res 文件夹获取，并复制到应用自己的资源目录下
+		    // 资源文件 stat_sys_third_app_notify.png 请从移动推送 SDK 压缩包魅族厂商依赖目录的 flyme-notification-res 文件夹获取，并复制到应用自己的资源目录下
         public static final int stat_sys_third_app_notify = com.tencent.android.tpns.demo.R.drawable.stat_sys_third_app_notify;
     }
 }
@@ -124,7 +124,7 @@ class R {
 }
 ```
 
-2. 请将移动推送SDK 压缩包 OPPO 厂商依赖目录的 jar 文件 commons-codec-1.15.jar、gson-2.6.2-sources.jar 新增复制到工程 app 模块 libs 目录下并引入工程，否则可能导致 OPPO 推送注册失败：
+2. 请将移动推送 SDK 压缩包 OPPO 厂商依赖目录的 jar 文件 commons-codec-1.15.jar、gson-2.6.2-sources.jar 新增复制到工程 app 模块 libs 目录下并引入工程，否则可能导致 OPPO 推送注册失败：
 ```groovy
 implementation files('libs/gson-2.6.2-sources.jar')
 implementation files('libs/commons-codec-1.15.jar')
@@ -163,7 +163,7 @@ implementation files('libs/commons-codec-1.15.jar')
         android:launchMode="singleInstance"
         android:theme="@android:style/Theme.Translucent.NoTitleBar">
         <intent-filter>
-            <action android:name="${applicationId}.OPEN_移动推送_ACTIVITY_V2" />
+            <action android:name="${applicationId}.OPEN_TPNS_ACTIVITY_V2" />
 
             <category android:name="android.intent.category.DEFAULT" />
         </intent-filter>
@@ -280,7 +280,7 @@ public class MessageReceiver extends XGPushBaseReceiver {
     <activity android:name="com.tencent.android.tpush.TpnsActivity"
         android:theme="@android:style/Theme.Translucent.NoTitleBar">
         <intent-filter>
-            <action android:name="${applicationId}.OPEN_移动推送_ACTIVITY" />
+            <action android:name="${applicationId}.OPEN_TPNS_ACTIVITY" />
             <category android:name="android.intent.category.DEFAULT" />
         </intent-filter>
         <intent-filter>

@@ -23,7 +23,7 @@
 ```
 4. **如果需要使用SDK内置录音器录音，在 AndroidManifest.xml 声明如下 service：**
 ```
-<service android:name="com.tencent.cloud.qcloudasrsdk.recorder.service.QCloudAudioMp3RecoderService" />
+<service android:name="com.tencent.cloud.qcloudasrsdk.onesentence.recorder.QCloudAudioMp3RecoderService" />
 ```
 
 ### 混淆规则

@@ -7,8 +7,11 @@ EXIF（Exchangeable Image File）全称为可交换图像文件，可记录数�
 
 ## 接口示例
 
-```
-download_url?exif
+```plaintext
+GET /<ObjectKey>?exif HTTP/1.1
+Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
+Date: <GMT Date>
+Authorization: <Auth String>
 ```
 
 ## 处理参数说明
@@ -17,7 +20,7 @@ download_url?exif
 
 | 参数         | 含义                                                         |
 | ------------ | ------------------------------------------------------------ |
-| download_url | 文件的访问链接，具体构成为&lt;BucketName-APPID>.cos.&lt;Region>.myqcloud.com/&lt;picture name>，<br>例如 `examplebucket-1250000000.cos.ap-shanghai.myqcloud.com/picture.jpeg`。 |
+| ObjectKey  | 对象文件名，例如 folder/sample.jpg。                           | 
 
 
 ## 实际案例

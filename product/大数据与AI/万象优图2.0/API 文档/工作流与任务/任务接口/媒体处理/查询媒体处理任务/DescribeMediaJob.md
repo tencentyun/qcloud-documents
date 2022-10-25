@@ -1,6 +1,6 @@
 ## 功能描述
 
-DescribeMediaJob 接口用于查询指定的任务。
+查询指定的任务。
 
 <div class="rno-api-explorer">
     <div class="rno-api-explorer-inner">
@@ -75,11 +75,12 @@ Container 节点 Response 的内容：
 
 | 节点名称（关键字） | 父节点   | 描述                                                         | 类型      |
 | :----------------- | :------- | :----------------------------------------------------------- | :-------- |
-| JobsDetail         | Response | 任务的详细信息                                            | Container |
+| JobsDetail         | Response | 任务的详细信息                                            | Container 数组 |
 | NonExistJobIds     | Response | 查询的 ID 中不存在任务，所有任务都存在时不返回               | String    |
 
 对于不同的任务类型，JobsDetail 的内容不同，请参照以下链接：
 - <a href="https://cloud.tencent.com/document/product/460/76913#jobsDetail" target="_blank">音视频转码</a>
+- <a href="https://cloud.tencent.com/document/product/460/78248#jobsDetail" target="_blank">极速高清转码</a>
 - <a href="https://cloud.tencent.com/document/product/460/76900#jobsDetail" target="_blank">视频转动图</a>
 - <a href="https://cloud.tencent.com/document/product/460/76910#jobsDetail" target="_blank">视频截帧</a>
 - <a href="https://cloud.tencent.com/document/product/460/76909#jobsDetail" target="_blank">智能封面</a>
@@ -99,11 +100,6 @@ Container 节点 Response 的内容：
 - <a href="https://cloud.tencent.com/document/product/460/76914#jobsDetail" target="_blank">语音合成</a>
 - <a href="https://cloud.tencent.com/document/product/460/76905#jobsDetail" target="_blank">音频降噪</a>
 
-
-
-</br>
-
-
 #### 错误码
 
 该请求操作无特殊错误信息，常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/460/42867) 文档。
@@ -116,7 +112,7 @@ Container 节点 Response 的内容：
 GET /jobs/j8d121820f5e411ec926ef19d53ba9c6f HTTP/1.1
 Accept: */*
 Authorization: q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0ea057
-Host: examplebucket-1250000000.ci.ap-beijing.myqcloud.com
+Host: test-1234567890.ci.ap-chongqing.myqcloud.com
 ```
 
 #### 响应
@@ -128,7 +124,7 @@ Content-Length: 666
 Connection: keep-alive
 Date: Mon, 28 Jun 2022 15:23:12 GMT
 Server: tencent-ci
-x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
+x-ci-request-id: NjMxMDJhYTNfMThhYTk0MGFfYmU1OV8zZjc=
 
 <Response>
     <JobsDetail>
@@ -171,6 +167,7 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
                 <Object>output/out.mp4</Object>
             </Output>
             <UserData>This is my data.</UserData>
+            <JobLevel>0</JobLevel>
         </Operation>
     </JobsDetail>
 </Response>
@@ -182,7 +179,7 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
 GET /jobs/j9c0a4726f6ac11ec96aaa9b64ab18d00 HTTP/1.1
 Accept: */*
 Authorization: q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0ea057
-Host: examplebucket-1250000000.ci.ap-beijing.myqcloud.com
+Host: test-1234567890.ci.ap-chongqing.myqcloud.com
 ```
 
 #### 响应
@@ -194,7 +191,7 @@ Content-Length: 666
 Connection: keep-alive
 Date: Mon, 28 Jun 2022 15:25:22 GMT
 Server: tencent-ci
-x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
+x-ci-request-id: NjMxMDJhYTNfMThhYTk0MGFfYmU1OV8zZjY=
 
 <Response>
     <JobsDetail>
@@ -237,6 +234,7 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
                 <Object>output/out.mp4</Object>
             </Output>
             <UserData>This is my data.</UserData>
+            <JobLevel>0</JobLevel>
             <MediaInfo>
                 <Format>
                     <Bitrate>834.736000</Bitrate>

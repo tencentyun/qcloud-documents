@@ -38,7 +38,7 @@ iOS、Android 上的应用可以通过集成腾讯云视立方·直播 SDK 来�
   </tr>
   <tr>
       <td >iOS</td>
-    <td style="text-align:center"><img src="https://main.qcloudimg.com/raw/82f6b81a28f310c5edc5c3237e326e2f.png" width="150"></td>
+    <td style="text-align:center">维护中</td>
   </tr>
 </table>
 
@@ -79,11 +79,12 @@ WebRTC 协议推流主要用于视频云的快直播（超低延时直播）推�
 [](id:set)
 ### 配置 OBS 插件
 1. **配置插件数据**。
-下载 [OBS 插件](https://mediacloud-76607.gzc.vod.tencent-cloud.com/TOBSWebRTC/Release/tencent_webrtc_plugin_20220509.zip)，把 data 文件里面的两个 `services.json` 和 `package.json` 文件，挪动到对应的 **obs-studio** > **rtmp-service** > **data** 目录进行覆盖。（`obs-studio` 默认安装在 C 盘，对应的目录为：`C:\Program Files\obs-studio\data\obs-plugins\rtmp-services`，请根据您的实际情况进行配置。）
+	1. 下载 [OBS 插件](https://mediacloud-76607.gzc.vod.tencent-cloud.com/TOBSWebRTC/Release/tencent_webrtc_plugin_20220509.zip)，把 data 文件里面的两个 `services.json` 和 `package.json` 文件，挪动到对应的 **data > obs-plugins > rtmp-services** 目录进行覆盖。（`obs-studio` 默认安装在 C 盘，对应的目录为：`C:\Program Files\obs-studio\data\obs-plugins\rtmp-services`，请根据您的实际情况进行配置。）
 ![](https://main.qcloudimg.com/raw/03859054448cb140d31f2a57a60d82aa.png)  
+	2. 将上述两个 JSON 文件复制至 `C:\Users\<计算机名>\AppData\Roaming\obs-studio\plugin_config\rtmp-services` 目录下进行覆盖。（`<计算机名>`根据您的实际情况填写即可）。
 2. **配置插件动态库**。
-将 `obs-plugins\64bit` 中的 dll 文件，挪动到对应的 **obs-studio** > **obs-plugins** > **64bit** 目录下。（`obs-studio` 默认安装在 C 盘，对应的目录为：`C:\Program Files\obs-studio\obs-plugins\64bit`，请根据您的实际情况进行配置。）
-<img src="https://qcloudimg.tencent-cloud.cn/raw/0fbf5009fcbbd2e9642af859ee2ccca6.png" width=650px>
+将 `obs-plugins\64bit` 中的 dll 文件，挪动到对应的 **obs-studio** > **obs-plugins** > **64bit** 目录下。（`obs-studio` 默认安装在 C 盘，对应的目录为：`C:\Program Files\obs-studio\obs-plugins\64bit`，请根据您的实际情况进行配置。）<br>
+<img src="https://qcloudimg.tencent-cloud.cn/raw/0fbf5009fcbbd2e9642af859ee2ccca6.png" width=700px>
 
 [](id:push)
 ### 配置推流链接

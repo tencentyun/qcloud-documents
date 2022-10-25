@@ -16,7 +16,7 @@
 - 在全量迁移过程通过有锁迁移来实现，锁表过程中会短暂阻塞写入操作。
 - [创建数据一致性校验](https://cloud.tencent.com/document/product/571/62564) 时，DTS 会使用执行迁移任务的账号在源库中写入系统库`__tencentdb__`，用于记录迁移任务过程中的数据对比信息。
   - 为保证后续数据对比问题可定位，迁移任务结束后不会删除源库中的`__tencentdb__`。
-  - `__tencentdb__`系统库占用空间非常小，约为源库存储空间的千分之一到万分之一（例如源库为50G，则`__tencentdb__`系统库约为 5K-50K） ，并且采用单线程，等待连接机制，所以对源库的性能几乎无影响，也不会抢占资源。 
+  - `__tencentdb__`系统库占用空间非常小，约为源库存储空间的千分之一到万分之一（例如源库为50GB，则`__tencentdb__`系统库约为5MB - 50MB），并且采用单线程，等待连接机制，所以对源库的性能几乎无影响，也不会抢占资源。 
 
 ## 前提条件
 - 已 [创建分布式数据库 TDSQL MySQL版](https://cloud.tencent.com/document/product/557/10236)。
@@ -85,7 +85,8 @@ GRANT INSERT, UPDATE, DELETE, DROP, SELECT, INDEX, ALTER, CREATE ON `__tencentdb
 <li>外键依赖：
 <ul>
 <li>外键依赖只能设置为 no action 和 restrict 两种类型。</li>
-<li>部分库表迁移时，有外键依赖的表必须齐全。</li></ul></li></td></tr>
+<li>部分库表迁移时，有外键依赖的表必须齐全。</li></ul></li>
+  <li>环境变量 innodb_stats_on_metadata 必须设置为 OFF。</li></td></tr>
 <tr> 
 <td>目标数据库要求</td>
 <td>
@@ -93,9 +94,6 @@ GRANT INSERT, UPDATE, DELETE, DROP, SELECT, INDEX, ALTER, CREATE ON `__tencentdb
 <li>目标库的空间大小须是源库待迁移库表空间的1.2倍以上。</li>
 <li>目标库不能有和源库冲突的库表。</li>
 </td></tr>
-<tr> 
-<td>其他要求</td>
-<td>环境变量 innodb_stats_on_metadata 必须设置为 off。</td></tr>
 </table>
 
 ## 操作步骤

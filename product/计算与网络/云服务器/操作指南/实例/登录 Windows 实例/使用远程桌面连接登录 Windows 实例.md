@@ -30,3 +30,4 @@ Windows
 <img src="https://main.qcloudimg.com/raw/3a9aa79200ace4a6ebd68a6e511a341d.png"/>
 4. 单击**确定**，即可登录到 Windows 实例。
 
+

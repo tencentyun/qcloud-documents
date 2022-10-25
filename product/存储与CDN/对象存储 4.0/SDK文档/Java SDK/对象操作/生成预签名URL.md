@@ -255,6 +255,8 @@ COSCredentials cred = new BasicSessionCredentials(tmpSecretId, tmpSecretKey, ses
 String bucketName = "examplebucket-1250000000";
 // 对象键(Key)是对象在存储桶中的唯一标识。详情请参见 [对象键](https://cloud.tencent.com/document/product/436/13324)
 String key = "exampleobject";
+//若key不是以“/”开头，则需要在key的开头加上“/”，否则直接resource_path=key
+String resource_path="/" + key;
 
 ClientConfig clientConfig = new ClientConfig(new Region("ap-beijing-1"));
 
@@ -277,7 +279,7 @@ headers.put("header1", "value1");
 // 请求的 HTTP 方法，上传请求用 PUT，下载请求用 GET，删除请求用 DELETE
 HttpMethodName method = HttpMethodName.GET;
 
-String sign = signer.buildAuthorizationStr(method, key, headers, params, cred, expirationDate, true);
+String sign = signer.buildAuthorizationStr(method, resource_path, headers, params, cred, expirationDate, true);
 ```
 
 ### 使用永久密钥
@@ -293,6 +295,8 @@ COSCredentials cred = new BasicCOSCredentials(secretId, secretKey);
 String bucketName = "examplebucket-1250000000";
 // 对象键(Key)是对象在存储桶中的唯一标识。详情请参见 [对象键](https://cloud.tencent.com/document/product/436/13324)
 String key = "exampleobject";
+//若key不是以“/”开头，则需要在key的开头加上“/”，否则直接resource_path=key
+String resource_path="/" + key;
 
 ClientConfig clientConfig = new ClientConfig(new Region("ap-beijing-1"));
 
@@ -315,7 +319,7 @@ headers.put("header1", "value1");
 // 请求的 HTTP 方法，上传请求用 PUT，下载请求用 GET，删除请求用 DELETE
 HttpMethodName method = HttpMethodName.GET;
 
-String sign = signer.buildAuthorizationStr(method, key, headers, params, cred, expirationDate, true);
+String sign = signer.buildAuthorizationStr(method, resource_path, headers, params, cred, expirationDate, true);
 ```
 
 ### 生成限速的预签名下载 URL
