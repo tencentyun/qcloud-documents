@@ -30,8 +30,8 @@ log(encoder.encoding);
 - encodeInto(input: string, destination: Uint8Array):  {read: number, written: number}
  - 接受码点流作为输入，输出的 UTF-8 字节流写入到 destination 字节数组中。
  - 返回值为包含如下成员的对象：
-    - read：The number of UTF-16 units of code from the source that has been converted over to UTF-8。
-    - written：The number of bytes modified in the destination Uint8Array。
+    - read：已转换为 UTF-8 的 UTF-16 单元数。
+    - written：目标 Uint8Array 中修改的字节数。
 
 ## TextDecoder
 解码器。将字节流作为输入，并提供码点流作为输出。
@@ -74,7 +74,8 @@ log(decoder.ignoreBOM);
 - decode(buffer?: ArrayBuffer | ArrayBufferView | undefined, options?: {stream: boolean} | undefined):  string<br>对输入的字节流进行解码，参数说明如下:<br>
   - buffer：可选参数，表示待解码的字节流，若没有数据需要解码，则填入 undefined；**buffer 最大长度为 100M**，超出长度会抛出异常。<br>
   - options: 可选对象，用于流式解码，默认为非流式。<br>
-Set to true if processing the data in chunks, and false for the final chunk or if the data is not chunked. It defaults to false.
+
+如果以 chunk 的方式处理数据，则设置为 true，但如果 chunk 已结束或数据未使用 chunk，则设置为 false。 默认值为 flase。
 
 ## 示例
 #### 基本使用
