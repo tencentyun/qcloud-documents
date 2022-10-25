@@ -10,6 +10,9 @@ Ingress 是允许访问到集群内 Service 的规则的集合，您可以通过
   - 不支持多个 Ingress 复用 CLB。
   - 不支持 Ingress 和 Service 共用 CLB。
   - 删除 Ingress 后，复用 CLB 绑定的后端云服务器需要自行解绑，同时会保留一个 `tag tke-clusterId: cls-xxxx`，需自行清理。
+  - 默认 CLB 的转发规则的限制是50个，如果您 Ingress 的转发规则超过50时，可通过 [在线咨询](https://cloud.tencent.com/online-service?from=doc_457) 提升负载均衡 CLB 的配额。
+  - Ingress 和 CLB 之间配置的管理和同步是由以 CLB ID 为名字的 LoadBalancerResource 类型的资源对象，请勿对该 CRD 进行任何操作，否则容易导致 Ingress 失效。
+
 
 ## Ingress 控制台操作指引
                                                                                                                                     

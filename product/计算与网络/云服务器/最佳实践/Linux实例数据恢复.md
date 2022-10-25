@@ -72,5 +72,5 @@ cd ./src
 ```
 ./extundelete  --restore-all  /dev/对应盘
 ```
-恢复后的文件位于同级目录的 `RECOVERED_FILES` 文件夹下，请确实是否有所需文件。
+恢复后的文件位于同级目录的 `RECOVERED_FILES` 文件夹下，请确认是否有所需文件。
 
