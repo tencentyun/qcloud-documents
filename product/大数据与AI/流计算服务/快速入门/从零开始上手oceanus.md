@@ -13,7 +13,7 @@
 
 ## 步骤3 新建作业
 选择控制台左侧菜单栏[工作空间](https://console.cloud.tencent.com/oceanus/workspace)。单击进入空间。
-![](https://qcloudimg.tencent-cloud.cn/raw/606291b01420b1a6bbf39081940f2f19.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/893c0135a7c946d48a68969c3565ec76.png)
 进入空间后，单击控制台左侧菜单栏 [作业管理](https://console.cloud.tencent.com/oceanus/job)，选择新建作业所在集群的地域，然后单击**新建**，单击**新建作业**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/b87501d8aa12bbe552bb5be48dd1c382.png)
 选择所需创建的作业，填写作业名称，选择运行集群，以上内容填写完成后，单击**确定**。
