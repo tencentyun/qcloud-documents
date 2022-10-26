@@ -1,4 +1,4 @@
-
+直接在边缘函数中返回 HTML 页面内容。
 ```js
 const html = `<!DOCTYPE html>
 <body>
