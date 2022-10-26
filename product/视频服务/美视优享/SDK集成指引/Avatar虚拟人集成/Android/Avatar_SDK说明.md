@@ -14,8 +14,8 @@ SDK 的下载、接入、鉴权、跑通 Demo 请参见 [独立集成腾讯特�
 	<th style="text-align:center">拍照捏脸流程</th>
 </tr>
 <tr>
-	<td><img src="https://qcloudimg.tencent-cloud.cn/raw/c5185834386c44e9b5fd0c9cdb03bf8a.png" style="height:650px"></td>
-	<td><img src="https://qcloudimg.tencent-cloud.cn/raw/b6f018b6a757a556c9f0682342330a4b.png"  style="height:650px"></td>
+	<td style="text-align:center"><img src="https://qcloudimg.tencent-cloud.cn/raw/c5185834386c44e9b5fd0c9cdb03bf8a.png" width=650></td>
+	<td style="text-align:center"><img src="https://qcloudimg.tencent-cloud.cn/raw/b6f018b6a757a556c9f0682342330a4b.png" width=550></td>
 </tr>
 </table>
 XMagicApi 的加载数据、捏脸、导出配置、拍照捏脸接口详情如下：
