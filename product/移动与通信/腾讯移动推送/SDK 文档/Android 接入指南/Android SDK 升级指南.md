@@ -7,20 +7,20 @@
 > - 如您当前使用的版本和最新版本跨度较大，请务必参考下方涉及版本的变更内容进行配置修改。
 > - 如无特殊情况，建议您对来自移动推送SDK 的各厂商推送 SDK 依赖版本号也同步进行升级修改。
 
-例如，当前使用的版本号为 1.3.3.3，最新版本号为 1.3.5.0，则将使用的推送 SDK 依赖版本号从 1.3.3.3 修改为 1.3.5.0：
+例如，当前使用的版本号为 1.3.3.3，最新版本号为 1.3.6.1，则将使用的推送 SDK 依赖版本号从 1.3.3.3 修改为 1.3.6.1：
 ```
 dependencies {
     //移动推送主包
-    implementation "com.tencent.tpns:tpns:1.3.5.0-release"
+    implementation "com.tencent.tpns:tpns:1.3.6.1-release"
 
     // 小米推送依赖包
-    implementation "com.tencent.tpns:xiaomi:1.3.5.0-release"
+    implementation "com.tencent.tpns:xiaomi:1.3.6.1-release"
 
     // 魅族推送依赖包
-    implementation "com.tencent.tpns:meizu:1.3.5.0-release"
+    implementation "com.tencent.tpns:meizu:1.3.6.1-release"
     
     // 华为推送依赖包
-    implementation "com.tencent.tpns:huawei:1.3.5.0-release"
+    implementation "com.tencent.tpns:huawei:1.3.6.1-release"
     // 华为推送 HMS Core Push 模块依赖包
     implementation 'com.huawei.hms:push:6.5.0.300'       
 
@@ -31,10 +31,10 @@ dependencies {
     implementation 'commons-codec:commons-codec:1.15'
 
     // vivo 推送依赖包
-    implementation "com.tencent.tpns:vivo:1.3.5.0-release"
+    implementation "com.tencent.tpns:vivo:1.3.6.1-release"
 
     // 荣耀推送依赖包
-    implementation "com.tencent.tpns:honor:1.3.5.0-release"
+    implementation "com.tencent.tpns:honor:1.3.6.1-release"
 }
 ```
 
@@ -51,6 +51,14 @@ dependencies {
 
 ### 通过其他合集工具包集成
 若您的工程通过其他三方合集工具包集成（如 MSDK、GCloud 等），请优先参考合集工具包提供的升级指南。
+
+## 移动推送 Android SDK 1.3.6.1
+移动推送1.3.2.0 升级了各厂商推送依赖版本，版本详情如下：
+- 华为 : 6.5.0.300
+- 小米 : 5.0.8
+- 魅族 : 4.1.0
+- OPPO : 3.1.0
+- vivo :  3.0.0.4
 
 ## 移动推送 Android SDK 1.3.2.0
 移动推送1.3.2.0 升级了各厂商推送依赖版本，版本详情如下：
