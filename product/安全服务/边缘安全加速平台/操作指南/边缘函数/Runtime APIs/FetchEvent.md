@@ -22,7 +22,7 @@ class FetchEvent {
 - 基础用法
 ```js
 addEventListener('fetch', (event) => {
-  event.respondWith(new Response('hello world!'))
+  event.respondWith(new Response('hello world!'))；
 })
 ```
 - 使用 waitUntil 方法异步上报统计数据
@@ -41,7 +41,7 @@ async function report(req) {
 
 addEventListener('fetch', (event) => {
   event.waitUntil(report(event.request));
-  event.respondWith(Response('hello world!'))
+  event.respondWith(Response('hello world!'))；
 });
 ```
 - 使用 waitUntil 方法异步缓存数据
