@@ -1,4 +1,5 @@
-### A/B测试
+通过cookie进行A/B测试控制。
+
 ```js
 const NAME = 'ABTestCookieName';
 const VALUE_A = 'VALUE_A';
