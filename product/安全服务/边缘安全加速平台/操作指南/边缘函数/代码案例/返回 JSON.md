@@ -1,4 +1,4 @@
-
+直接在边缘函数中返回 JSON 数据。
 ```js
 addEventListener('fetch', event => {
   const data = {
