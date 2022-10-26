@@ -146,7 +146,7 @@ CallResponse 描述如下：
       <th width="0px"  style="text-align:center">备注</td>
    </tr>
    <tr>
-      <td rowspan='3'>response</td>
+      <td rowspan='6'>response</td>
       <td>sessionId</td>
       <td>string</td>
       <td>是</td>
@@ -165,19 +165,19 @@ CallResponse 描述如下：
       <td>被叫号码</td>
    </tr>
    <tr>
-      <td colspan="2">callerPhoneNumber</td>
+      <td>callerPhoneNumber</td>
       <td>string</td>
       <td>是</td>
       <td>外呼时使用的主叫号码</td>
    </tr>	 	
    <tr>
-      <td colspan="2">serverType</td>
+      <td>serverType</td>
       <td>string</td>
       <td>是</td>
       <td>表示外呼时使用的端类型，可选值有：<br>staffSeat，staffPhoneSeat，staffExtensionSeat。<br>详细说明参见 <a href = "#ServerType">会话服务类型</a></td>
    </tr>	
    <tr>
-      <td colspan="2">remark</td>
+      <td>remark</td>
       <td>string</td>
       <td>否</td>
       <td>被叫号码备注</td>
@@ -649,7 +649,7 @@ CallResponse 描述如下：
 </table>
 
 ### 获取座席状态
-#### tccc.Agent.getStatus(): AgentStatus
+#### tccc.Agent.getStatus(): <a href = "#AgentStatus">AgentStatus</a>
 
 ## Devices（设备相关接口函数）
 ### 检测当前浏览器是否支持
@@ -697,12 +697,70 @@ CallResponse 描述如下：
 - video：视频会话
 - internal：内线会话
 
-<table>
+#### 电话会话呼入
+<table ><tbody ><tr>
+<th width="0px" colspan="2" style="text-align:center" >参数</th><th width="0px" style="text-align:center">类型</th><th width="0px" style="text-align:center">必填</th><th width="0px" style="text-align:center" >备注</th></tr>
 <tr>
-<th>参数</th>
-<th>类型</th>
-<th>必填</th>
-<th>备注</th>
+<td rowspan="11" >options<br>
+</td>
+<td>sessionId</td>
+<td>string</td>
+<td>是</td>
+<td>会话 ID</td>
+</tr>
+<tr>
+<td>type</td>
+<td>'phone'</td>
+<td>是</td>
+<td>电话会话类型</td>
+</tr>
+<tr>
+<td>timeout</td>
+<td>number</td>
+<td>是</td>
+<td>会话接入超时时长，0代表不超时</td>
+</tr>
+<tr>
+<td>calleePhoneNumber</td>
+<td>string</td>
+<td>是</td>
+<td>被叫号码</td>
+</tr>
+<tr>
+<td>callerPhoneNumber</td>
+<td>string</td>
+<td>否</td>
+<td>主叫号码</td>
+</tr>
+<tr>
+<td>callerLocation</td>
+<td>string</td>
+<td>否</td>
+<td>主叫号码归属地</td>
+</tr>
+<tr>
+<td>remark</td>
+<td>string</td>
+<td>否</td>
+<td>备注</td>
+</tr>
+<tr>
+<td>ivrPath</td>
+<td>{key: string, label: string}[]</td>
+<td>-</td>
+<td>用户的 IVR 按键路径，key 表示对应按键，label 表示对应的按键标签</td>
+</tr>
+<tr>
+<td>protectedCallee</td>
+<td>string</td>
+<td>否</td>
+<td>在开启号码映射时存在，表示被叫</td>
+</tr>
+<tr>
+<td>protectedCaller</td>
+<td>string</td>
+<td>否</td>
+<td>在开启号码映射时存在，表示主叫</td>
 </tr>
 <tr>
 <td>serverType</td>
@@ -710,84 +768,6 @@ CallResponse 描述如下：
 <td>是</td>
 <td>表示呼入到座席哪一端，staffSeat 为默认值，表示 Web 座席；StaffPhoneSeat 表示呼入到座席手机，MiniProgramSeat 表示小程序座席，staffExtensionSeat 表示呼入到座席绑定的话机</td>
 </tr>
-</table>
-
-#### 电话会话呼入
-<table ><tbody ><tr>
-<th width="0px" colspan="2" style="text-align:center" >参数</th><th width="0px" style="text-align:center">类型</th><th width="0px" style="text-align:center">必填</th><th width="0px" style="text-align:center" >备注</th></tr>
-
-<tr>
-<td rowspan="10" >options<br>
-</td>
-<td>sessionId</td>
-<td>string</td>
-<td>是</td>
-<td>会话 ID</td>
-</tr>
-
-<tr>
-<td>type</td>
-<td>'phone'</td>
-<td>是</td>
-<td>电话会话类型</td>
-</tr>
-
-<tr>
-<td>timeout</td>
-<td>number</td>
-<td>是</td>
-<td>会话接入超时时长，0代表不超时</td>
-</tr>
-
-<tr>
-<td>calleePhoneNumber</td>
-<td>string</td>
-<td>是</td>
-<td>被叫号码</td>
-</tr>
-
-<tr>
-<td>callerPhoneNumber</td>
-<td>string</td>
-<td>否</td>
-<td>主叫号码</td>
-</tr>
-
-<tr>
-<td>callerLocation</td>
-<td>string</td>
-<td>否</td>
-<td>主叫号码归属地</td>
-</tr>
-
-<tr>
-<td>remark</td>
-<td>string</td>
-<td>否</td>
-<td>备注</td>
-</tr>
-
-<tr>
-<td>ivrPath</td>
-<td>{key: string, label: string}[]</td>
-<td>-</td>
-<td>用户的 IVR 按键路径，key 表示对应按键，label 表示对应的按键标签</td>
-</tr>
-
-<tr>
-<td>protectedCallee</td>
-<td>string</td>
-<td>否</td>
-<td>在开启号码映射时存在，表示被叫</td>
-</tr>
-
-<tr>
-<td>protectedCaller</td>
-<td>string</td>
-<td>否</td>
-<td>在开启号码映射时存在，表示主叫</td>
-</tr>
-
 </tbody>
 </table>
 
