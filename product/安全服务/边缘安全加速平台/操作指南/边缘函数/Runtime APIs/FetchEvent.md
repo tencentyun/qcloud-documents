@@ -41,7 +41,7 @@ async function report(req) {
 
 addEventListener('fetch', (event) => {
   event.waitUntil(report(event.request));
-  event.respondWith(Response('hello workers!'))
+  event.respondWith(Response('hello world!'))
 });
 ```
 - 使用 waitUntil 方法异步缓存数据
