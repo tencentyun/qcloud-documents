@@ -1,5 +1,5 @@
 ﻿## 操作场景
-本文以云硬盘容量小于2TB为例，提供云硬盘的初始化操作指导。关于磁盘初始化场景的更多介绍，请参考 [初始化场景介绍](https://cloud.tencent.com/document/product/362/33065)。
+本文以云硬盘容量小于2TB为例，提供云硬盘的初始化操作指导。关于磁盘初始化场景的更多介绍，请参考 [初始化场景介绍](https://cloud.tencent.com/document/product/1207/63943)。
 
 
 ## 前提条件
@@ -108,17 +108,17 @@ df -TH
  <tr>
      <td nowrap="nowrap">使用弹性云硬盘的软链接<b>（推荐）</b></td>
      <td><b>优点</b>：每个弹性云硬盘的软链接固定且唯一，不会随卸载挂载、格式化分区等操作而改变。</br><b>缺点</b>：只有弹性云硬盘才有软链接。无法感知分区的格式化操作。</td>
-		 <td nowrap="nowrap">执行以下命令，查看弹性云硬盘的软链接。</br><pre style="color:white;">ls -l /dev/disk/by-id</pre></td>
-	</tr>
-	<tr>
-	   <td nowrap="nowrap">使用文件系统的 UUID</td>
-		 <td>可能会因文件系统的 UUID 变化而导致自动挂载设置失效。</br>例如，重新格式化文件系统后，文件系统的 UUID 将会发生变化。</td>
-		 <td nowrap="nowrap">执行以下命令，查看文件系统的 UUID。</br><pre style="color:white;">blkid /dev/vdb</pre></td>
+ <td nowrap="nowrap">执行以下命令，查看弹性云硬盘的软链接。</br><pre style="color:white;">ls -l /dev/disk/by-id</pre></td>
+</tr>
+<tr>
+   <td nowrap="nowrap">使用文件系统的 UUID</td>
+ <td>可能会因文件系统的 UUID 变化而导致自动挂载设置失效。</br>例如，重新格式化文件系统后，文件系统的 UUID 将会发生变化。</td>
+ <td nowrap="nowrap">执行以下命令，查看文件系统的 UUID。</br><pre style="color:white;">blkid /dev/vdb</pre></td>
   </tr>
-	<tr>
-	   <td nowrap="nowrap">使用设备名称</td>     
-		 <td>可能会因设备名称变化而导致自动挂载设置失效。</br>例如，迁移数据时将云服务器上的弹性云硬盘卸载后再次挂载，操作系统再次识别到该文件系统时，名称可能会变化。</td>
-		 <td nowrap="nowrap">执行以下命令，查看设备名称。</br><pre style="color:white;">fdisk -l</pre></td>
+<tr>
+   <td nowrap="nowrap">使用设备名称</td>     
+ <td>可能会因设备名称变化而导致自动挂载设置失效。</br>例如，迁移数据时将轻量应用服务器上的弹性云硬盘卸载后再次挂载，操作系统再次识别到该文件系统时，名称可能会变化。</td>
+ <td nowrap="nowrap">执行以下命令，查看设备名称。</br><pre style="color:white;">fdisk -l</pre></td>
  </tr>
 </table>
 8. 执行以下命令，备份 `/etc/fstab`  文件。以备份到  `/home` 目录下为例：
@@ -168,11 +168,11 @@ mount -a
 
 
 
-1. [登录 Linux 云服务器](https://cloud.tencent.com/document/product/213/5436)。
+1. [登录 Linux 轻量应用服务器](https://cloud.tencent.com/document/product/1207/44642)。
 2. 以 root 用户执行以下命令，查看磁盘名称。
  ```
 fdisk -l
-```  回显信息类似如下图，表示当前的云服务器有两块磁盘，“/dev/vda” 是系统盘，“/dev/vdb” 是新增数据盘。
+```  回显信息类似如下图，表示当前的轻量应用服务器有两块磁盘，“/dev/vda” 是系统盘，“/dev/vdb” 是新增数据盘。
 ![](https://main.qcloudimg.com/raw/aad842b12fec3ca583790bff609c9fb7.png)
 3. 执行以下命令，进入 fdisk 分区工具，开始对新增数据盘执行分区操作。
  ```
@@ -258,20 +258,20 @@ df -TH
          <th>优缺点</th>  
          <th>信息获取方式</th>  
      </tr>
-	   <tr>      
+   <tr>      
          <td nowrap="nowrap">使用弹性云硬盘的软链接<b>（推荐）</b></td>   
-	       <td><b>优点</b>：每个弹性云硬盘的软链接固定且唯一，不会随卸载挂载、格式化分区等操作而改变。<br><b>缺点</b>：只有弹性云硬盘才有软链接。无法感知分区的格式化操作。</td>
-	       <td nowrap="nowrap">执行以下命令，查看弹性云硬盘的软链接。</br><pre style="color:white;">ls -l /dev/disk/by-id</pre></td>
+       <td><b>优点</b>：每个弹性云硬盘的软链接固定且唯一，不会随卸载挂载、格式化分区等操作而改变。<br><b>缺点</b>：只有弹性云硬盘才有软链接。无法感知分区的格式化操作。</td>
+       <td nowrap="nowrap">执行以下命令，查看弹性云硬盘的软链接。</br><pre style="color:white;">ls -l /dev/disk/by-id</pre></td>
      </tr> 
-	   <tr>      
+   <tr>      
          <td nowrap="nowrap">使用文件系统的 UUID</td>   
-	       <td>可能会因文件系统的 UUID 变化而导致自动挂载设置失效。<br>例如，重新格式化文件系统后，文件系统的 UUID 将会发生变化。</td>
-	       <td nowrap="nowrap">执行以下命令，查看文件系统的 UUID。</br><pre style="color:white;">blkid /dev/vdb1</pre></td>
+       <td>可能会因文件系统的 UUID 变化而导致自动挂载设置失效。<br>例如，重新格式化文件系统后，文件系统的 UUID 将会发生变化。</td>
+       <td nowrap="nowrap">执行以下命令，查看文件系统的 UUID。</br><pre style="color:white;">blkid /dev/vdb1</pre></td>
      </tr> 
-	   <tr>      
+   <tr>      
          <td nowrap="nowrap">使用设备名称</td>   
-	       <td>可能会因设备名称变化而导致自动挂载设置失效。<br>例如，迁移数据时将云服务器上的弹性云硬盘卸载后再次挂载，操作系统再次识别到该文件系统时，名称可能会变化。</td>
-	       <td>执行以下命令，查看设备名称。</br><pre style="color:white;">fdisk -l</pre></td>
+       <td>可能会因设备名称变化而导致自动挂载设置失效。<br>例如，迁移数据时将轻量应用服务器上的弹性云硬盘卸载后再次挂载，操作系统再次识别到该文件系统时，名称可能会变化。</td>
+       <td>执行以下命令，查看设备名称。</br><pre style="color:white;">fdisk -l</pre></td>
      </tr> 
 </table>
 17. 执行以下命令，备份 `/etc/fstab 文件`。以备份到 `/home` 目录下为例：
@@ -315,5 +315,6 @@ UUID=d489ca1c-5057-4536-81cb-ceb2847f9954 /data/newpart   ext4 defaults     0   
 
 ## 相关操作
 [初始化云硬盘（大于等于2TB）](https://cloud.tencent.com/document/product/1207/81982)
+
 
 
