@@ -102,15 +102,16 @@ let request = new Request(input [, options])
   - `longitude`Number<br>纬度，例如 -73.971199。
 
 ### 方法
-- arrayBuffer():  Promise&lt;ArrayBuffer&gt;<br>读取整个请求体，Returns a promise that resolves with an ArrayBuffer。
-- blob():  Promise&lt;Blob&gt;<br>读取整个请求体，Returns a promise that resolves with an Blob。
-- clone(copyHeaders?: boolean):  Request
+- arrayBuffer():  Promise&lt;ArrayBuffer&gt;<br>返回一个 Promise，包含一个 ArrayBuffer 对象，表示整个请求体。
+- blob():  Promise&lt;Blob&gt;<br>返回一个 Promise，包含一个 Blob 对象，表示整个请求体。
+- clone(copyHeaders?: boolean):  Request
  - 创建当前请求对象的副本，若未设置 copyHeaders 或者 copyHeaders 为 false，返回的副本 Request 对象将会引用 headers 成员。
  - <b>标准未提供 copyHeaders 参数，添加此参数主要是出于性能的考虑，避免无意义的拷贝。</b>
-- json():  Promise&lt;object&gt;<br>读取整个请求体，Returns a promise that resolves with a JSON representation of the request body。
-- text():  Promise&lt;string&gt;<br>读取整个请求体，Returns a promise that resolves with a string (text) representation of the request body。
-- getCookies():  [Cookies](./NonStandard/Cookies.md)<br>获取 Cookies 对象，会自动解析 Cookie 头部, 绑定 Cookies 对象到 Request。
-- setCookies([Cookies](./NonStandard/Cookies.md)):  boolean<br>设置 Cookies 对象，会忽略已有 Cookie 头部，以新设置的 Cookies 对象生成新的 Cookie 头部。
+- json():  Promise&lt;object&gt;<br>返回一个 Promise，包含一个 JSON 对象，表示整个请求体。
+- text():  Promise&lt;string&gt;<br>返回一个 Promise, 包含一个 string，表示整个请求体。
+- getCookies():  [Cookies](https://cloud.tencent.com/document/product/1552/81905)<br>获取 Cookies 对象. 会自动解析 Cookie 头部，绑定 Cookies 对象到 Request。
+- setCookies([Cookies](https://cloud.tencent.com/document/product/1552/81905)):  boolean<br>设置 Cookies 对象. 会忽略已有 Cookie 头部，以新设置的 Cookies 对象生成新的 Cookie 头部。
+
 
 ## 示例
 ### 创建请求对象
