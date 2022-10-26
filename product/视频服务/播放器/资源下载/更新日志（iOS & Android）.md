@@ -5,6 +5,15 @@
 
 ## 播放器 SDK
 
+### 播放器 SDK 10.7 @ 2022.09.20
+
+**功能优化:**
+
+- Android&iOS：点播播放 startPlay 接口变更为 startVodPlay
+- Android&iOS： 直播播放 startPlay 接口变更为 startLivePlay
+- iOS：修复长时间退到后台，返回播放器，无法继续播放的问题
+- Android： 修复低版本 Android 系统部分视频播放失败问题
+
 ### 播放器 SDK 10.6 @ 2022.08.31
 
 **功能优化:** 

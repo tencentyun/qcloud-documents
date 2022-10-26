@@ -22,7 +22,7 @@ OpenCloudOS Kernel 为基于社区5.4 LTS 打造的稳定、高性能 kernel。�
 
 ## 使用 OpenCloudOS
 - 您可在创建实例，或重装已有实例操作系统时，选择公共镜像，并选择使用 OpenCloudOS 的相应版本。操作详情请参见  [创建实例](https://cloud.tencent.com/document/product/213/4855) 及 [重装系统](https://cloud.tencent.com/document/product/213/4933)。
-- 若您已有 CentOS 实例，也可参考 [CentOS 迁移 OpenCloudOS 指引](https://cloud.tencent.com/document/product/213/70717)，迁移至 OpenCloudOS。
+- 若您已有 CentOS 实例，也可参考 [CentOS 迁移 OpenCloudOS 指引](https://docs.opencloudos.org/guide/migrate/)，迁移至 OpenCloudOS。
 
 ## 获取 OpenCloudOS
 请前往 [OpenCloudOS 8.5](http://mirrors.tencent.com/opencloudos/8.5/isos/) 获取 OpenCloudOS。

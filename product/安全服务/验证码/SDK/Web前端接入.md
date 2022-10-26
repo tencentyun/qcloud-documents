@@ -54,7 +54,7 @@
             ipt.select();
             document.execCommand("Copy");
             document.body.removeChild(ipt);
-            alert('1. 返回结果（randstr、ticket）已复制到剪切板，ctrl+v 查看。\n2. 打开浏览器控制台，查看完整返回结果。');
+            alert('1. 返回结果（randstr、ticket）已复制到剪切板，ctrl+v 查看。2. 打开浏览器控制台，查看完整返回结果。');
         }
     }
 
@@ -66,7 +66,7 @@
       callback({
         ret: 0,
         randstr: '@'+ Math.random().toString(36).substr(2),
-        ticket,
+        ticket:ticket,
         errorCode: 1001,
         errorMessage: 'jsload_error',
       });
@@ -209,11 +209,13 @@ options 参数用于对验证码进行定制外观设置，默认可以设置为
 | ms     | 马来语               |
 | pl     | 波兰语               |
 | pt     | 葡萄牙语             |
-| ru     | 俄语                 |
-| es     | 西班牙语             |
-| th     | 泰语                 |
-| tr     | 土耳其语             |
-| vi     | 越南语               |
+| ru     |俄语                 |
+| es     |西班牙语             |
+| th     |泰语                 |
+| tr     |土耳其语             |
+| vi     |越南语               |
+| fil	     |菲律宾语               |
+| ur	     |乌尔都语               |
 
 ### 步骤3：调用验证码实例方法
 
@@ -240,7 +242,7 @@ function loadErrorCallback() {
 	callback({
 		ret: 0,
         randstr: '@'+ Math.random().toString(36).substr(2),
-        ticket,
+        ticket:ticket,
         errorCode: 1001,
         errorMessage: 'jsload_error',
 	});

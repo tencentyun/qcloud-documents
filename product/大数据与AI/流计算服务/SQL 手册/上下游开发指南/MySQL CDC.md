@@ -35,7 +35,7 @@ CREATE TABLE `mysql_cdc_source_table` (
   `name` STRING,
   PRIMARY KEY (`id`) NOT ENFORCED -- 如果要同步的数据库表定义了主键, 则这里也需要定义
 ) WITH (
-  'connector' = 'mysql-cdc',	  -- 固定值 'mysql-cdc'
+  'connector' = 'mysql-cdc',      -- 固定值 'mysql-cdc'
   'hostname' = '192.168.10.22',   -- 数据库的 IP
   'port' = '3306',                -- 数据库的访问端口
   'username' = 'debezium',        -- 数据库访问的用户名（需要提供 SHOW DATABASES、REPLICATION SLAVE、REPLICATION CLIENT、SELECT 和 RELOAD 权限）
@@ -167,7 +167,7 @@ CREATE TABLE `mysql_cdc_source_table` (
       `ingestion_ts` TIMESTAMP(3) METADATA FROM 'meta.ts',
       PRIMARY KEY (`id`) NOT ENFORCED -- 如果要同步的数据库表定义了主键, 则这里也需要定义
 ) WITH (
-      'connector' = 'mysql-cdc',	  -- 固定值 'mysql-cdc'
+      'connector' = 'mysql-cdc',      -- 固定值 'mysql-cdc'
       'hostname' = '192.168.10.22',   -- 数据库的 IP
       'port' = '3306',                -- 数据库的访问端口
       'username' = 'debezium',        -- 数据库访问的用户名（需要提供 SHOW DATABASES、REPLICATION SLAVE、REPLICATION CLIENT、SELECT 和 RELOAD 权限）
@@ -182,7 +182,7 @@ CREATE TABLE `mysql_cdc_source_table` (
 
 如果 MySQL 是一个分库分表的数据库，分成了 A_1、 A_2、A_3 ...等多个表，**且所有表的 schema 一致**，则可以通过 table-name 选项，指定一个正则表达式来匹配读取多张表，例如设置 table-name 为 **A\_.\*** ，监控所有 **A\_** 前缀的表。**database-name 选项也支持该功能**。
 
->? 如果 database-name 设置为正则匹配的话，需要使用`()`把正则式包围起来。 
+>? 如果 database-name 和 table-name 设置为正则匹配的话，需要使用`()`把正则式包围起来。 
 
 
 ## 类型映射
@@ -202,12 +202,12 @@ MySQL 的 CDC 和 Flink 字段类型对应关系如下：
 <tr>
 <td>TINYINT</td>
 <td>TINYINT</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>SMALLINT<br>TINYINT UNSIGNED</td>
 <td>SMALLINT</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>
@@ -215,19 +215,19 @@ INT<br>
 MEDIUMINT<br>
 SMALLINT UNSIGNED</td>
 <td>INT</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>
 BIGINT<br>
 INT UNSIGNED</td>
 <td>BIGINT</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>BIGINT UNSIGNED</td>
 <td>DECIMAL(20, 0)</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>
@@ -235,14 +235,14 @@ REAL<br>
 FLOAT<br>
 </td>
 <td>FLOAT</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>
 DOUBLE
 </td>
 <td>DOUBLE</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>
@@ -251,7 +251,7 @@ DECIMAL(p, s)<br>
 where p <= 38<br>
 </td>
 <td>DECIMAL(p, s)</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>
@@ -269,17 +269,17 @@ TINYINT(1)<br>
 BIT(1)
 </td>
 <td>BOOLEAN</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>DATE</td>
 <td>DATE</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>TIME [(p)]</td>
 <td>TIME [(p)]</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>TIMESTAMP [(p)]<br>
@@ -287,42 +287,42 @@ DATETIME [(p)]
 </td>
 <td>TIMESTAMP [(p)]
 </td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>
 CHAR(n)
 </td>
 <td>CHAR(n)</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>
 VARCHAR(n)
 </td>
 <td>VARCHAR(n)</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>
 BIT(n)
 </td>
 <td>BINARY(⌈n/8⌉)</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>
 BINARY(n)
 </td>
 <td>BINARY(n)</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>
 VARBINARY(N)
 </td>
 <td>VARBINARY(N)</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>
@@ -332,7 +332,7 @@ MEDIUMTEXT<br>
 LONGTEXT<br>
 </td>
 <td>STRING</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>
@@ -349,14 +349,14 @@ LONGBLOB<br>
 YEAR
 </td>
 <td>INT</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>
 ENUM
 </td>
 <td>STRING</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>
@@ -400,7 +400,7 @@ CREATE TABLE `mysql_cdc_source_table` (
   `name` STRING,
   PRIMARY KEY (`id`) NOT ENFORCED -- 如果要同步的数据库表定义了主键, 则这里也需要定义
 ) WITH (
-  'connector' = 'mysql-cdc',	  -- 固定值 'mysql-cdc'
+  'connector' = 'mysql-cdc',      -- 固定值 'mysql-cdc'
   'hostname' = '192.168.10.22',   -- 数据库的 IP
   'port' = '3306',                -- 数据库的访问端口
   'username' = 'debezium',        -- 数据库访问的用户名（需要提供 SHOW DATABASES、REPLICATION SLAVE、REPLICATION CLIENT、SELECT 和 RELOAD 权限）
@@ -450,8 +450,8 @@ CREATE TABLE db_order_dim (
 );
 ```
 
-### server-id	定义
-建议显式的定义`server-id`，避免不同作业读取同一个库可能出现的冲突问题，可以设置为范围值，例如`5400-5405`，也可以是单个值。也可以使用 SQL Hints 来指定`server-id`
+### server-id   定义
+不建议显式的定义`server-id`，避免不同作业读取同一个库可能出现的冲突问题，可以设置为范围值，例如`5400-5405`。也可以使用 SQL Hints 来指定`server-id`
 
 ```sql
 SELECT * FROM source_table /*+ OPTIONS('server-id'='5401-5404') */ ;

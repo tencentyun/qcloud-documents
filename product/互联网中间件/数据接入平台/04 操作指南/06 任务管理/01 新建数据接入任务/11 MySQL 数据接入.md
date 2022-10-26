@@ -10,7 +10,7 @@
 3. 填写任务名称，任务类型选择**数据接入**，数据目标类型选择 **MySQL数据接入**，单击**下一步**。
 4. 填写数据源配置信息，单击下一步。
    ![](https://qcloudimg.tencent-cloud.cn/raw/14f25ae429bb726545ba19edd3553c81.png)
-   - 数据源：选择提前创建好的 MySQL 连接。
+   - 数据源：选择提前创建好的 MySQL 连接。连接源设置的用户需要拥有 SELECT，RELOAD，SHOW DATABASES，REPLICATION SLAVE，REPLICATION CLIENT 的权限。
    - database：选择要监听的数据库。
    - 读取模式：支持**表模式**和**query 模式**。
      - 当读取模式为表模式时，需要选择 table。

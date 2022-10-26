@@ -48,7 +48,7 @@ CAM 可以为子用户/协作者赋予特定内容安全服务的访问权限，
 <td>全读写访问权限</td>
 </tr>
 <tr>
-<td>QcloudIMSFullAccess</td>
+<td>QcloudIMSReadOnlyAccess</td>
 <td>只读访问权限</td>
 </tr>
 <tr>

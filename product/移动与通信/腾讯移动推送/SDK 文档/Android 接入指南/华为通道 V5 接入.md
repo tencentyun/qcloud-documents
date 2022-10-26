@@ -67,7 +67,7 @@ android {
 dependencies {
 		// ... 程序其他依赖
 		implementation 'com.tencent.tpns:huawei:[VERSION]-release'      //  华为推送 [VERSION] 为当前最新 SDK 版本号，版本号可在 Android SDK 发布动态 查看
-		implementation 'com.huawei.hms:push:6.3.0.302'       // HMS Core Push 模块依赖包
+		implementation 'com.huawei.hms:push:6.5.0.300'       // HMS Core Push 模块依赖包
 		}
 ```
 

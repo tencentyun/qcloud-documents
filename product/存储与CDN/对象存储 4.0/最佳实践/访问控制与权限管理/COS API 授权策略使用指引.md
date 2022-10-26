@@ -96,9 +96,9 @@ Bucket API 策略的 resource 可以归纳为以下几种情况：
 - 操作全部地域的存储桶
 则策略的 resource 为`*`，**该策略限定的资源范围，存在由于权限范围过大导致数据安全风险，请谨慎配置**。
 - 仅允许操作指定地域的存储桶
-例如只允许操作 APPID 为1250000000，地域归属于北京（ap-beijing）的存储桶 examplebucket-1250000000，则策略的 resource 为`qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/*`。
+例如只允许操作 APPID 为1250000000，地域归属于北京（ap-beijing）的存储桶 examplebucket-1250000000，则策略的 resource 为`qcs::cos:ap-beijing:uid/1250000000:*`。
 - 仅允许操作指定地域且指定名称的存储桶
-例如只可操作 APPID 为1250000000，地域为 ap-beijing 且名称为 examplebucket-1250000000 的存储桶，则策略的 resource 为`qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/`。
+例如只可操作 APPID 为1250000000，地域为 ap-beijing 且名称为 examplebucket-1250000000 的存储桶，则策略的 resource 为`qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/*`。
 
 Bucket API 策略的 action 则因操作不同而取值不同，以下列举部分 Bucket API 授权策略，其他 Bucket API 授权策略可作参照。
 

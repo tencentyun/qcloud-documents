@@ -11,7 +11,7 @@ Serverless Components 可以通过非常简单的`serverless.yml`创建和部署
 - **秒级部署**
 大多数 Serverless Components 比传统的配置工具部署快20倍左右，Components 可以通过快速的部署和远端验证，有效减少本地模拟和调试的环节。
 
-### Serverless Framework Components 最佳实践
+### Serverless Cloud Framework Components 最佳实践
 
 - [@serverless/tencent-scf](https://github.com/serverless-components/tencent-scf/tree/master/) - 腾讯云云函数组件
 - [@serverless/tencent-express](https://github.com/serverless-components/tencent-express/tree/master/) - 快速部署基于 Express.js 的后端服务到腾讯云函数的组件
