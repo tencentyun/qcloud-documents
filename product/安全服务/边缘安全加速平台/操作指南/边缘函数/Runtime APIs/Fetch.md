@@ -40,7 +40,7 @@ function fetch(resource: string | Request, init?: RequestInit): Promise<Response
 ## 运行时限制
 考虑到边缘函数的性能以及安全性，目前对 `fetch` API 的调用有如下限制：
 - 次数限制：边缘函数的单次运行过程中总共可发起的 `fetch` 操作数目，默认为 64；超过该限制值之后的所有 `fetch` 操作都会直接失败抛出异常。
-- 并发限制：边缘函数 的单次运行过程中允许存在的最大未被 resolve 的 `fetch` 操作数目，默认为 8；超过该限制值之后的所有 `fetch` 操作都将被延迟发起，直到某个正在运行着的 `fetch` 被 resolve。
+- 并发限制：边缘函数的单次运行过程中允许存在的最大未被 resolve 的 `fetch` 操作数目，默认为 8；超过该限制值之后的所有 `fetch` 操作都将被延迟发起，直到某个正在运行着的 `fetch` 被 resolve。
 
 >!每一次重定向都算一次请求，且其优先级高于新发起的 `fetch` 操作。
 
