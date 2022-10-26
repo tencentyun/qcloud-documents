@@ -65,10 +65,10 @@ let request = new Request(input [, options])
 - `maxFollow`：最大可重定向次数，默认为 12。
 - `version`：HTTP 版本，字符串类型，目前支持 `HTTP/1.0`、`HTTP/1.1` 和 `HTTP/2.0`，默认为 `HTTP/1.1`。
 - `copyHeaders`：<b>非标准选项</b>，表示是否拷贝传入的 Request 对象的 headers 属性。
-- `cf`: <b>非标准选项</b>，用于控制 workers 处理该请求的行为。
+- `cf`: <b>非标准选项</b>，用于控制边缘函数处理该请求的行为。
 
 #### RequestInitCfProperties
-一个对象，其中包含用于控制 workers 处理该请求的行为的属性：
+一个对象，其中包含用于控制边缘函数处理该请求的行为的属性：
 - `resolveOverride`：在通过 `fetch(event.request)` 进行 CDN 回源时使用，用于指定源站域名(目前只支持域名，如 `www.qq.com`，不支持指定 HTTP 协议或者端口号)。
 - `cacheEverything`：缓存相关，用于指定缓存响应的所有头部。
 - `cacheKey`：缓存相关，用于指定自定义的缓存 key。
