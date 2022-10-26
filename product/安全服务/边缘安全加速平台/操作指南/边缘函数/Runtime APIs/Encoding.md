@@ -58,12 +58,6 @@ class TextDecoder {
   - fatal：标识解码失败时是否抛出异常，默认值为 false。
   - ignoreBOM：标识是否忽略 byte-order marker，默认值为 false。
 
-```js
-let decoder = new TextDecoder("utf-8", {fatal: true, ignoreBOM: true});
-log(decoder.encoding);
-log(decoder.fatal);
-log(decoder.ignoreBOM);
-```
 
 ### 属性
 - encoding:  string<br>解码器类型。
