@@ -18,10 +18,12 @@
      - CKafka Topic：选择在 CKafka 创建好的实例和 Topic，一条数据流出任务最多支持选择 5 个源 Topic，选中的 Topic 内的数据格式需要保持一致方可转储成功。详情参见 [Topic 管理](https://cloud.tencent.com/document/product/597/73566)。
    - 起始位置：选择转储时历史消息的处理方式，topic offset 设置。
 5. 设置上述信息后，单击**下一步**，单击**预览 Topic 数据**，将会选取**源 Topic** 中的第一条消息进行解析。
+
 >? 目前解析消息需要满足以下条件：
 >
 >- 消息为 JSON 字符串结构。
 >- 源数据必须为单层 JSON 格式，嵌套 JSON 格式可使用使用 [数据处理](https://cloud.tencent.com/document/product/1591/77082#3) 进行简单的消息格式转换。 
+
 6. （可选）开启数据处理规则，具体配置方法请参见 [简单数据处理](https://cloud.tencent.com/document/product/1591/74495)。
 7. 单击**下一步**，配置数据目标信息。
    ![](https://qcloudimg.tencent-cloud.cn/raw/a4edbd19313cdbe9573d4fdad296f2b8.png)
@@ -29,8 +31,6 @@
    - KEY：源 Topic 内数据不是 JSON 格式时，可以指定 key 组装为 JSON 投递到 CLS 中。默认为 content。
    - 日志集：选择日志集，日志集日志服务的项目管理单元，用于区分不同项目的日志。
    - 日志主题：自动创建日志主题或者选择已有日志主题。一个 [日志集](https://cloud.tencent.com/document/product/614/35676) 可以包含多个日志主题，一个日志主题对应一类应用或服务，建议将不同机器上的同类日志收集到同一个日志主题。
+   - 日志时间：可以指定源数据中的某一字段作为日志时间。
    - 角色授权：使用日志服务（CLS）产品功能，您需要授予一个第三方角色代替您执行访问相关产品权限。
 8. 单击**提交**，可以在任务列表看到刚刚创建的任务，在状态栏可以查看任务创建进度。
-
-
-
