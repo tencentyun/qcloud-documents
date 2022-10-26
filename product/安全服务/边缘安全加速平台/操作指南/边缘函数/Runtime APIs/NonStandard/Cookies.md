@@ -13,9 +13,7 @@ class Cookie {
   readonly httponly: boolean;
   readonly secure: boolean;
 }
-```
 
-```typescript
 class Cookies {
   static get(name?: string): null | Cookie | [Cookie];
   static set(name: string, value: string, options?: object): boolean;
