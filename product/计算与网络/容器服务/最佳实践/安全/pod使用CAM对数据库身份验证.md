@@ -27,7 +27,7 @@ kubectl get node
 ```shell
 kubectl get node 
 NAME         STATUS   ROLES    AGE   VERSION
-10.0.4.144   Ready    <none>   24h   v1.20.6-tke.25
+10.0.4.144   Ready    <none>   24h   v1.22.5-tke.1
 ```
 <dx-alert infotype="explain" title="">
 您可以通过 Kubernetes 命令行工具 Kubectl 从本地客户端机器连接到 TKE 集群。详情见 [连接集群](https://cloud.tencent.com/document/product/457/32191)。
@@ -183,7 +183,7 @@ MySQL [(none)]> SELECT * FROM mydb.user;
 ![](https://qcloudimg.tencent-cloud.cn/raw/683b300cb8d663bd903151304ed532d4.png)
 >! 根据您自身业务需求，选择或创建自定义的策略进行关联。本示例中在搜索框中搜索 QcloudSSMReadOnlyAccess 和 QcloudCDBReadOnlyAccess 进行与角色关联。
 >
-![](https://qcloudimg.tencent-cloud.cn/raw/2c0d2a990d9e4a25812b8768d19c2af9.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/0a419ec1c8fde2edf4be8d54ca44dc61.png)
 >! **RoleArn**的 value 值标识为`$my_pod_role_arn`。
 >
  
