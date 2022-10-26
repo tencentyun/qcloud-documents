@@ -43,7 +43,7 @@ class Headers {
 - values():  iterator<br>获取 Headers 对象包含的所有 value。
 
 ## 示例
-### Headers 对象的创建
+### 创建 Headers 对象
 - 通过普通的 object 对象创建
 ```js
 let h = new Headers({
