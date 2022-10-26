@@ -18,12 +18,11 @@
      - CKafka Topic：选择在 CKafka 创建好的实例和 Topic，一条数据流出任务最多支持选择 5 个源 Topic，选中的 Topic 内的数据格式需要保持一致方可转储成功。详情参见 [Topic 管理](https://cloud.tencent.com/document/product/597/73566)。
    - 起始位置：选择转储时历史消息的处理方式，topic offset 设置。
 5. 设置上述信息后，单击**下一步**，单击**预览 Topic 数据**，将会选取**源 Topic** 中的第一条消息进行解析。
-
 >? 目前解析消息需要满足以下条件：
 >
 >- 消息为 JSON 字符串结构。
 >- 源数据必须为单层 JSON 格式，嵌套 JSON 格式可使用使用 [数据处理](https://cloud.tencent.com/document/product/1591/77082#3) 进行简单的消息格式转换。 
-
+>
 6. （可选）开启数据处理规则，具体配置方法请参见 [简单数据处理](https://cloud.tencent.com/document/product/1591/74495)。
 7. 单击**下一步**，配置数据目标信息。
    ![](https://qcloudimg.tencent-cloud.cn/raw/a4edbd19313cdbe9573d4fdad296f2b8.png)
