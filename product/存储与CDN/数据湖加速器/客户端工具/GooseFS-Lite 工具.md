@@ -164,6 +164,11 @@ pid     mount_point     cos_path
 13815   /mnt/goosefs-lite-mnt/  cosn://examplebucket-1250000000/
 ```
 
+如果您需要在命令行中，同时指定多个挂载参数，可以使用逗号分隔多个参数，例如，下面的命令设置挂载点只读，且允许除其他用户访问挂载点：
+```
+./bin/goosefs-lite mount -o"ro,allow_other"  mnt/ cosn://examplebucket-1250000000/
+```
+
 ### 步骤6：卸载存储桶
 
 卸载存储桶示例：
@@ -213,8 +218,6 @@ ps -ef|grep goosefs-lite|grep -v grep
 #### -oro
 将挂载点设置为只读，不允许写入和删除操作。
 
-如果您需要在命令行中，同时指定多个挂载参数，可以使用逗号分隔多个参数，例如：
-./bin/goosefs-lite mount -o"ro,allow_other"  mnt/ cosn://examplebucket-1250000000/
 
 
 ### 常见问题
