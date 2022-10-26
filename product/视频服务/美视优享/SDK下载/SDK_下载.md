@@ -165,14 +165,18 @@ S 系列高级套餐提供高级美型功能，适用于对脸部美颜调整需
 </thead>
 <tbody><tr>
 <td>V1 - 00</td>
-<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.5.0.224/xmagic_res_all_ios.zip">DOWNLOAD</a></td>
-<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.5.0.205/xmagic_ALL_android_2.5.0.205.zip">DOWNLOAD</a></td>
-<td><ul style="margin:0">
+<td rowspan=3><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.5.0.224/xmagic_res_all_ios.zip">DOWNLOAD</a></td>
+<td rowspan=3><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.5.0.205/xmagic_ALL_android_2.5.0.205.zip">DOWNLOAD</a></td>
+<td rowspan=3><ul style="margin:0">
 		<li><a href="https://cloud.tencent.com/document/product/616/81918">Android Avatar 文档</a></li>
 		<li>iOS Avatar 文档</li>
 		</ul></td>
-<td><b>iOS 包大小：</b><ul style="margin:0"><li>arm64：6.4</li><li>mbundle：31.9m</li></ul><br>
-<b>Android 包大小：</b><ul style="margin:0"><li>arm64-v8a：30.5M</li><li>Barmeabi-v7a：23.4</li><li>MBassets：68.7</li><li>MBaar：1.2MB</li></ul></td>
+<td rowspan=3><b>iOS 包大小：</b><ul style="margin:0"><li>arm64：6.4m</li><li>bundle：31.9m</li></ul><br>
+<b>Android 包大小：</b><ul style="margin:0"><li>arm64-v8a：30.5MB</li><li>armeabi-v7a：23.4MB</li><li>assets：68.7MB</li><li>aar：1.2MB</li></ul></td>
+</tr><tr>
+<td>V1 - 01</td>
+</tr><tr>
+<td>V1 - 02</td>
 </tr>
 </tbody></table>
 
