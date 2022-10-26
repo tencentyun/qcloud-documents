@@ -19,9 +19,10 @@ class FetchEvent {
 - waitUntil(p: Promise<any>):  void<br>waitUntil 方法用于通知 Workers 引擎等待 promise 的完成，延长了事件处理的生命周期。</br>
 
 ## 示例
+- 基础用法
 ```js
 addEventListener('fetch', (event) => {
-  event.respondWith(new Response('hello workers!'))
+  event.respondWith(new Response('hello world!'))
 })
 ```
 - 使用 waitUntil 方法异步上报统计数据
