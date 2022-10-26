@@ -1,6 +1,11 @@
+Streams 提供了一种高效的 API，用于在边缘函数内实现不同连接间的数据传递。
+
 - [ReadableStream](https://cloud.tencent.com/document/product/1552/81914)
-- [WritableStream](https://cloud.tencent.com/document/product/1552/81922)
+- [ReadableStreamBYOBReader](https://cloud.tencent.com/document/product/1552/81925)
+- [ReadableStreamDefaultReader](https://cloud.tencent.com/document/product/1552/81924)
 - [TransformStream](https://cloud.tencent.com/document/product/1552/81923)
+- [WritableStream](https://cloud.tencent.com/document/product/1552/81922)
+- [WritableStreamDefaultWriter](https://cloud.tencent.com/document/product/1552/81927)
 
 **流式处理，可能会修改 HTTP 头部: Transfer-Encoding 为 chunked**。
 
