@@ -30,24 +30,24 @@ let cookies = new Cookies(cookie_str?: string, is_setcookie?: boolean)
 
 ### 参数
 - cookie_str Optional<br>Cookie 字符串或者 Set-Cookie 字符串。
-- is_setcookie Optional<br>表示cookie_str 是 Set-Cookie 字符串. 默认为 false。
+- is_setcookie Optional<br>表示 cookie_str 是 Set-Cookie 字符串，默认为 false。
 
 >?
 >- 如果构造函数不带参数，会创建空的 Cookies 对象。
 >- 如果构造函数只带 cookie_str 参数或者两个参数都带，并且 is_setcookie 为 false，会按照 Cookie 格式解析字符串，创建的 Cookies 对象将包含解析出的 Cookie 对象集。
 >- 如果构造函数两个参数都带，并且 is_setcookie 为 true，会按照 Set-Cookie 格式解析字符串，创建的 Cookies 对象将包含解析出的 Cookie 对象。
->- 相关匹配特殊字符将会自动转义, 解析出错将会抛出异常。
+>- 相关匹配特殊字符将会自动转义，解析出错将会抛出异常。
 
 ### 属性
 - Cookie.name: string<br>cookie name。
 - Cookie.value: string<br>cookie value。
-- Cookie.domain: string<br>为 cookie 属性. 指定该 cookie 的作用域名。
-- Cookie.path: string<br>为 cookie 属性. 指定该 cookie 的作用路径。
-- Cookie.expires: string<br>为 cookie 属性. 指定该 cookie 的最长有效时间, 应符合 [HTTP Date首部](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Date) 标准。
-- Cookie.max_age: string<br>为 cookie 属性. 指定该 cookie 失效之前需要经过的秒数。
-- Cookie.samesite: string<br>为 cookie 属性. 指定该 cookie 是否仅限于第一方或者同一站点上下文。
-- Cookie.httponly: boolean<br>为 cookie 属性. 指定是否限制 cookie 的作用范围在 HTTP 请求内。
-- Cookie.secure: boolean<br>为 cookie 属性. 指定 cookie 的安全属性。
+- Cookie.domain: string<br>cookie 属性。指定该 cookie 的作用域名。
+- Cookie.path: string<br>cookie 属性。指定该 cookie 的作用路径。
+- Cookie.expires: string<br>cookie 属性。指定该 cookie 的最长有效时间，应符合 [HTTP Date首部](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Date) 标准。
+- Cookie.max_age: string<br>cookie 属性。指定该 cookie 失效之前需要经过的秒数。
+- Cookie.samesite: string<br>cookie 属性。指定该 cookie 是否仅限于第一方或者同一站点上下文。
+- Cookie.httponly: boolean<br>cookie 属性。指定是否限制 cookie 的作用范围在 HTTP 请求内。
+- Cookie.secure: boolean<br>cookie 属性。指定 cookie 的安全属性。
 
 ### 方法
 - Cookies.get(name?: string): null | Cookie | [Cookie]<br>获取指定 Cookie 对象。
