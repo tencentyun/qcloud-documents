@@ -54,7 +54,7 @@ class Cache {
 
 ## Cache.delete 补充说明
 - 参数 req 只支持 GET 方法，当类型为 string 时，将被作为 URL 构造 Request 对象。
-- 未发生网络错误时, 总返回 true。
+- 未发生网络错误时，总返回 true。
 
 ## 示例
 ### 获取默认 cache 实例
