@@ -24,9 +24,7 @@ class Request {
   getCookies(): Cookies
   setCookies(cookies: Cookies): boolean
 }
-```
 
-```typescript
 class RequestInit{
   method?: string;
   headers?: object | Array<[string, string]> | Headers;
@@ -37,9 +35,7 @@ class RequestInit{
   copyHeaders?: boolean;
   cf?: RequestInitCfProperties
 }
-```
 
-```typescript
 class RequestInitCfProperties{
   resolveOverride?: string;
   cacheEverything?: boolean;
