@@ -6,9 +6,7 @@ class CacheStorage {
   readonly default: Cache;
   static open(name: string): Promise<Cache>;
 }
-```
 
-```typescript
 class Cache {
   static match(req: string | Request, options?: object): Promise<Response | undefined>;
   static put(req: Request, rsp: Response): Promise<undefined>;
