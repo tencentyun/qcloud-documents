@@ -1,4 +1,4 @@
-腾讯特效 SDK 提供了 11 种版本的 SDK，分别为 6 种基础版 SDK 和 5 种高级版 SDK。了解 11 个版本 SDK 的关系和各版本功能差异请参见 [计费概述](https://cloud.tencent.com/document/product/616/36807)。
+ 腾讯特效 SDK 提供了 14 种版本的 SDK，分别为 6 种基础版 SDK，5 种高级版 SDK和3种虚拟人 SDK。了解 14 个版本 SDK 的关系和各版本功能差异请参见 [计费概述](https://cloud.tencent.com/document/product/616/36807)。
 
 ## 移动端 SDK
 
@@ -147,6 +147,33 @@ S 系列高级套餐提供高级美型功能，适用于对脸部美颜调整需
 </tbody></table>
 
 > ! 包体大小瘦身，请参见 [SDK 包体瘦身（Android）](https://cloud.tencent.com/document/product/616/73016)、[SDK 包体瘦身（iOS）](https://cloud.tencent.com/document/product/616/76029)。
+
+### 虚拟人 SDK
+
+**V 系列虚拟人套餐提供虚拟形象 Animoji、形象制作（捏脸）与驱动等功能，适用于虚拟社交、虚拟直播等场景。**
+
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>iOS 平台 ZIP 包</th>
+<th>Android 平台 ZIP 包</th>
+<th>SDK 集成指引</th>
+<th>安装包增量</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>V1 - 00</td>
+<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.5.0.224/xmagic_res_all_ios.zip">DOWNLOAD</a></td>
+<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.5.0.205/xmagic_ALL_android_2.5.0.205.zip">DOWNLOAD</a></td>
+<td><ul style="margin:0">
+		<li><a href="https://cloud.tencent.com/document/product/616/81918">Android Avatar 文档</a></li>
+		<li>iOS Avatar 文档</li>
+		</ul></td>
+<td><b>iOS 包大小：</b><ul style="margin:0"><li>arm64：6.4</li><li>mbundle：31.9m</li></ul><br>
+<b>Android 包大小：</b><ul style="margin:0"><li>arm64-v8a：30.5M</li><li>Barmeabi-v7a：23.4</li><li>MBassets：68.7</li><li>MBaar：1.2MB</li></ul></td>
+</tr>
+</tbody></table>
 
 
 ## PC 端 SDK
