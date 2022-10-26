@@ -19,7 +19,7 @@ class WritableStream {
 - highWaterMark: uint<br>流的缓冲区大小，以字节为单位。
 
 ### 方法 
-- getWriter(): [WritableStreamDefaultWriter](https://cloud.tencent.com/document/product/1552/81927) <br>创建一个 Writer, 并锁定当前流，直至 Writer 调用 releaseLock() 方法释放锁。
+- getWriter(): [WritableStreamDefaultWriter](https://cloud.tencent.com/document/product/1552/81927) <br>创建一个 Writer，并锁定当前流，直至 Writer 调用 releaseLock() 方法释放锁。
 - close():  Promise&lt;void&gt; <br>关闭当前流。
 - abort(reason?: string):  Promise&lt;string&gt; <br>中止当前流。
 
