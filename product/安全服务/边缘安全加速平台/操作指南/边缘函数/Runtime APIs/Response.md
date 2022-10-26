@@ -133,7 +133,7 @@ addEventListener('fetch', (event) => {
 ### Cookies 对象操作
 - 获取 Cookies 对象
 ```js
-let rsp = new Response("hello workers!", {
+let rsp = new Response("hello world!", {
   status: 200,
   headers: {
     "Set-Cookie": "k1=v1; Domain=qq.com; Path=/; HttpOnly",
