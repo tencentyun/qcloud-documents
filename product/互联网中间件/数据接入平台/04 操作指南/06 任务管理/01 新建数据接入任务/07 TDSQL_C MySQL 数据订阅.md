@@ -14,9 +14,7 @@ DIP 支持订阅 TDSQL-C MySQL 版变更数据，免去对基于 CDC 的订阅�
 1. 登录 [DIP 控制台](https://console.cloud.tencent.com/ckafka/datahub-overview)。
 2. 在左侧导航栏单击**任务管理** > **任务列表**，选择好地域后，单击**新建任务**。
 3. 填写任务名称，任务类型选择**数据接入**，数据源类型选择 **TDSQL_C MySQL 数据订阅**，单击**下一步**。
-
 4. 填写数据源配置信息。
-
 <table>
 <thead>
 <tr>
@@ -33,12 +31,8 @@ DIP 支持订阅 TDSQL-C MySQL 版变更数据，免去对基于 CDC 的订阅�
 <td>支持三种选择方式：<ul><li>全部库表：订阅该连接关联的所有数据库表。</li><li>批量选择：支持手动勾选要订阅的数据库和表，支持订阅多个数据库、多个表。</li><li>正则匹配：支持使用正则匹配筛选订阅符合条件的表。</li></ul></td>
 </tr>
 </tbody></table>
-
-
 <img src="https://qcloudimg.tencent-cloud.cn/raw/4df62ff73d92de9ca2e1439773beeaf7.png" alt=""> 
-
 5. （可选）设置高级参数。
-
 <table>
 <thead>
 <tr>
@@ -71,17 +65,11 @@ DIP 支持订阅 TDSQL-C MySQL 版变更数据，免去对基于 CDC 的订阅�
 <td>默认采用 Debezium 格式，同时提供了兼容其他消息格式的能力。<ul><li>Canal 格式：详情介绍请参见 <a href="https://cloud.tencent.com/document/product/1591/79158">MySQL 订阅消息 Canal 格式说明</a>。</li><li>官方格式一：详情介绍请参见 <a href="https://cloud.tencent.com/document/product/1591/79157">MySQL 订阅消息官方格式说明</a>。</li></ul></td>
 </tr>
 </tbody></table>
-
-
-
-![](https://qcloudimg.tencent-cloud.cn/raw/be1f0d779bf8d99f11f352b0fa03b495.png) 
-
+<img src="https://qcloudimg.tencent-cloud.cn/raw/be1f0d779bf8d99f11f352b0fa03b495.png" alt=""> 
 6. 单击**下一步**，配置数据目标信息。
    分发到多个 Topic：支持将不同数据库表中的数据分发到不同的 Topic 中去。
-
    - 开启后：只能选择同一个 CKafka 实例下的 Topic。
    - 未开启：支持选择 **DIP Topic** 或者 **CKafka Topic**。
      ![](https://qcloudimg.tencent-cloud.cn/raw/0daa51f156dc33a3602f90b23208dec3.png)
-
 7. 单击**提交**，可以在任务列表看到刚刚创建的任务，在状态栏可以看到创建进度。
 
