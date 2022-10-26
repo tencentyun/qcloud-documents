@@ -21,7 +21,7 @@ A 系列基础套餐提供通用美型功能，适用于对脸部美颜调整要
 </thead>
 <tbody><tr>
 <td >基础版 A1 - 01</td>
-<td ><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.4.2.114/xmagic_res_a101_ios.zip">DOWNLOAD</a></td>
+<td ><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.5.0.224/xmagic_res_a101_ios.zip">DOWNLOAD</a></td>
 <td ><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.5.0.206/xmagic_A1-01_android_2.5.0.206.zip">DOWNLOAD</a></td>
 <td rowspan=6>
 <li/><a href="https://cloud.tencent.com/document/product/616/65894">iOS DOC</a>
@@ -35,7 +35,7 @@ A 系列基础套餐提供通用美型功能，适用于对脸部美颜调整要
 </tr>
 <tr>
 <td >基础版 A1 - 02</td>
-<td ><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.4.2.114/xmagic_res_a102_ios.zip">DOWNLOAD</a></td>
+<td ><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.5.0.224/xmagic_res_a102_ios.zip">DOWNLOAD</a></td>
 <td ><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.5.0.205/xmagic_A1-02_android_2.5.0.205.zip">DOWNLOAD</a></td>
 <td rowspan=2>
 <b>iOS 包大小：</b><ul style="margin:0"><li/>arm64：39.8m<li/>bundle：10.6m</ul><br>
@@ -44,12 +44,12 @@ A 系列基础套餐提供通用美型功能，适用于对脸部美颜调整要
 </tr>
 <tr>
 <td >基础版 A1 - 03</td>
-<td ><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.4.2.114/xmagic_res_a103_ios.zip">DOWNLOAD</a></td>
+<td ><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.5.0.224/xmagic_res_a103_ios.zip">DOWNLOAD</a></td>
 <td ><a href=" https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.5.0.205/xmagic_A1-03_android_2.5.0.205.zip">DOWNLOAD</a></td>
 </tr>
 <tr>
 <td >基础版 A1 - 04</td>
-<td ><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.4.2.114/xmagic_res_a104_ios.zip">DOWNLOAD</a></td>
+<td ><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.5.0.224/xmagic_res_a104_ios.zip">DOWNLOAD</a></td>
 <td ><a href=" https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.5.0.205/xmagic_A1-04_android_2.5.0.205.zip">DOWNLOAD</a></td>
 <td >
 <b>iOS 包大小：</b><ul style="margin:0"><li/>arm64：39.8m<li/>bundle：14.4m</ul><br>
@@ -58,7 +58,7 @@ A 系列基础套餐提供通用美型功能，适用于对脸部美颜调整要
 </tr>
 <tr>
 <td >基础版 A1 - 05</td>
-<td ><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.4.2.114/xmagic_res_a105_ios.zip">DOWNLOAD</a></td>
+<td ><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.5.0.224/xmagic_res_a105_ios.zip">DOWNLOAD</a></td>
 <td ><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.5.0.205/xmagic_A1-05_android_2.5.0.205.zip">DOWNLOAD</a></td>
 <td >
 <b>iOS 包大小：</b><ul style="margin:0"><li/>arm64：39.8m<li/>bundle：17.9m</ul><br>
@@ -67,7 +67,7 @@ A 系列基础套餐提供通用美型功能，适用于对脸部美颜调整要
 </tr>
 <tr>
 <td >基础版 A1 - 06</td>
-<td ><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.4.2.114/xmagic_res_a106_ios.zip">DOWNLOAD</a></td>
+<td ><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.5.0.224/xmagic_res_a106_ios.zip">DOWNLOAD</a></td>
 <td ><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.5.0.205/xmagic_A1-06_android_2.5.0.205.zip">DOWNLOAD</a></td>
 <td >
 <b>iOS 包大小：</b><ul style="margin:0"><li/>arm64：39.8m<li/>bundle：10.6m</ul><br>
@@ -92,7 +92,7 @@ S 系列高级套餐提供高级美型功能，适用于对脸部美颜调整需
 </thead>
 <tbody><tr>
 <td >高级版 S1 - 00</td>
-<td ><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.4.2.114/xmagic_res_s100_ios.zip">DOWNLOAD</a></td>
+<td ><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.5.0.224/xmagic_res_s100_ios.zip">DOWNLOAD</a></td>
 <td ><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.5.0.206/xmagic_S1-00_android_2.5.0.206.zip">DOWNLOAD</a></td>
 <td rowspan=5>
 <li/><a href="https://cloud.tencent.com/document/product/616/65894">iOS DOC</a>
@@ -110,7 +110,7 @@ S 系列高级套餐提供高级美型功能，适用于对脸部美颜调整需
 </tr>
 <tr>
 <td >高级版 S1 - 01</td>
-<td ><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.4.2.114/xmagic_res_s101_ios.zip">DOWNLOAD</a></td>
+<td ><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.5.0.224/xmagic_res_s101_ios.zip">DOWNLOAD</a></td>
 <td ><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.5.0.205/xmagic_S1-01_android_2.5.0.205.zip">DOWNLOAD</a></td>
 <td >
 <b>iOS 包大小：</b><ul style="margin:0"><li/>arm64：39.8m<li/>bundle：17.7m</ul><br>
@@ -119,7 +119,7 @@ S 系列高级套餐提供高级美型功能，适用于对脸部美颜调整需
 </tr>
 <tr>
 <td >高级版 S1 - 02</td>
-<td ><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.4.2.114/xmagic_res_s102_ios.zip">DOWNLOAD</a></td>
+<td ><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.5.0.224/xmagic_res_s102_ios.zip">DOWNLOAD</a></td>
 <td ><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.5.0.205/xmagic_S1-02_android_2.5.0.205.zip">DOWNLOAD</a></td>
 <td >
 <b>iOS 包大小：</b><ul style="margin:0"><li/>arm64：39.8m<li/>bundle：21.6m</ul><br>
@@ -128,7 +128,7 @@ S 系列高级套餐提供高级美型功能，适用于对脸部美颜调整需
 </tr>
 <tr>
 <td >高级版 S1 - 03</td>
-<td ><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.4.2.114/xmagic_res_s103_ios.zip">DOWNLOAD</a></td>
+<td ><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.5.0.224/xmagic_res_s103_ios.zip">DOWNLOAD</a></td>
 <td ><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.5.0.205/xmagic_S1-03_android_2.5.0.205.zip">DOWNLOAD</a></td>
 <td ></ul><br>
 <b>iOS 包大小：</b><ul style="margin:0"><li/>arm64：39.8m<li/>bundle：25m</ul><br>
@@ -137,7 +137,7 @@ S 系列高级套餐提供高级美型功能，适用于对脸部美颜调整需
 </tr>
 <tr>
 <td >高级版 S1 - 04</td>
-<td ><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.4.2.114/xmagic_res_s104_ios.zip">DOWNLOAD</a></td>
+<td ><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.5.0.224/xmagic_res_s104_ios.zip">DOWNLOAD</a></td>
 <td ><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.5.0.205/xmagic_S1-04_android_2.5.0.205.zip">DOWNLOAD</a></td>
 <td >
 <b>iOS 包大小：</b><ul style="margin:0"><li/>arm64：39.8m<li/>bundle：28.8m</ul><br>
@@ -146,7 +146,6 @@ S 系列高级套餐提供高级美型功能，适用于对脸部美颜调整需
 </tr>
 </tbody></table>
 
-> ! 包体大小瘦身，请参见 [SDK 包体瘦身（Android）](https://cloud.tencent.com/document/product/616/73016)、[SDK 包体瘦身（iOS）](https://cloud.tencent.com/document/product/616/76029)。
 
 [](id:Avatar)
 ### 虚拟人 SDK
@@ -179,6 +178,8 @@ S 系列高级套餐提供高级美型功能，适用于对脸部美颜调整需
 <td>V1 - 02</td>
 </tr>
 </tbody></table>
+
+> ! 包体大小瘦身，请参见 [SDK 包体瘦身（Android）](https://cloud.tencent.com/document/product/616/73016)、[SDK 包体瘦身（iOS）](https://cloud.tencent.com/document/product/616/76029)。
 
 [](id:pc)
 ## PC 端 SDK
