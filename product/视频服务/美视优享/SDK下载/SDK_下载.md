@@ -148,6 +148,7 @@ S 系列高级套餐提供高级美型功能，适用于对脸部美颜调整需
 
 > ! 包体大小瘦身，请参见 [SDK 包体瘦身（Android）](https://cloud.tencent.com/document/product/616/73016)、[SDK 包体瘦身（iOS）](https://cloud.tencent.com/document/product/616/76029)。
 
+[](id:Avatar)
 ### 虚拟人 SDK
 
 **V 系列虚拟人套餐提供虚拟形象 Animoji、形象制作（捏脸）与驱动等功能，适用于虚拟社交、虚拟直播等场景。**
@@ -175,7 +176,7 @@ S 系列高级套餐提供高级美型功能，适用于对脸部美颜调整需
 </tr>
 </tbody></table>
 
-
+[](id:pc)
 ## PC 端 SDK
 
 | 平台 | SDK 下载 | 集成指引 | 
@@ -183,6 +184,7 @@ S 系列高级套餐提供高级美型功能，适用于对脸部美颜调整需
 | Windows | [ZIP](https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Windows/1.0.0/sdk.zip) | [DOC](https://cloud.tencent.com/document/product/616/79232)|
 |Mac | [ZIP]( https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Mac/1.0.0/BeautySDK.zip)| [DOC](https://cloud.tencent.com/document/product/616/81187)|
 
+[](id:Flutter)
 ## 跨平台 SDK
 
 | 平台 | SDK 下载 | 集成指引 | 
