@@ -180,8 +180,7 @@ action 字段表示对 entityName 执行什么操作（action）。SDK 内定义
 ### value 字段
 <dx-tabs>
 ::: action 等于 changeColor 场景
-[](id:changeColor)
-**配置示例**
+**配置示例**[](id:changeColor)
 ```java
 {
 	"key": "baseColorFactor",
@@ -206,8 +205,7 @@ action 字段表示对 entityName 执行什么操作（action）。SDK 内定义
 <br>然后通过 subMeshIndex 和 materialIndex 的组合就能定位到具体的材质了。
 :::
 ::: action 等于 changeTexture 场景
-**[](id:changeTexture)
-**配置示例
+**配置示例**[](id:changeTexture)
 ```java
 {
 	"switchKey": "baseColorEnableTexture",
@@ -239,8 +237,7 @@ action 字段表示对 entityName 执行什么操作（action）。SDK 内定义
 - **textureOptions**：非必填。贴图解析参数。决定贴图的展开和渲染样式。如无特殊配置需求，不建议填写此字段。
 :::
 ::: action 等于 shapeValue 场景
-[](id:shapeValue)
-**配置示例**：
+**配置示例**：[](id:shapeValue)
 ```java
 {
 	"chin_length": 0.0,
@@ -251,8 +248,7 @@ action 字段表示对 entityName 执行什么操作（action）。SDK 内定义
 分别是形变的名称和形变值，形变名称请参见 [素材设计规范](https://doc.weixin.qq.com/doc/w3_ALoA-gYYAAgV0MAAbjtQfO4EWXhI9?scode=AJEAIQdfAAoU7K9sLCAGMA3QZFAAg&version=4.0.19.6020&platform=win)，形变值取 -1.0 到 1.0 之间。
 :::
 ::: action 等于 replace 场景
-[](id:replace)
-`action == replace` 时的 value 字段描述了子模型的3D变换信息、模型路径、材质路径。可以从素材根目录的 template.json 中找到每个模型的这些信息。
+`action == replace` 时的 value 字段描述了子模型的3D变换信息、模型路径、材质路径。可以从素材根目录的 template.json 中找到每个模型的这些信息。[](id:replace)
 **配置示例**
 ```java
 {
@@ -285,9 +281,7 @@ action 字段表示对 entityName 执行什么操作（action）。SDK 内定义
 - **subMeshConfigs**：必填。如上文对 subMeshIndex 和 materialIndex 的说明，一个 mesh 可以包含多个 subMesh，一个 subMesh 可以包含多个材质。subMeshConfigs 字段配置的就是 mesh 与材质的关联关系。materialResourceKeys 里的取值可以是 material 文件与素材根目录的相对路径（如配置示例所示），也可以是文件在手机上的绝对路径。
 :::
 ::: action 等于 basicTransform 场景
-[](id:basicTransform)
-
-**配置示例**：
+**配置示例**：[](id:basicTransform)
 ```java
 {
 	"position": {
