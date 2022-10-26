@@ -20,13 +20,13 @@ class Cache {
 ### 方法
 - CacheStorage.open(name: string):  Promise&lt;Cache&gt;<br>创建指定 name 的 cache 实例。
 - Cache.match(req: string | Request, options?: object):  Promise&lt;Response | undefined&gt;
-  - 获取 req 关联的缓存 Response. 返回 Promise 对象，如果缓存 Response 存在，则包含缓存 Response，反之则包含 undefined。
+  - 获取 req 关联的缓存 Response。返回 Promise 对象，如果缓存 Response 存在，则包含缓存 Response，反之则包含 undefined。
   - options 参数说明：
    ignoreMethod: boolean 是否忽略 Request 的方法名。
-- Cache.put(req: string | Request, rsp: Response):  Promise&lt;undefined&gt;<br>设置 req 关联的缓存 Response. 返回 Promise 对象，包含 undefined。
+- Cache.put(req: string | Request, rsp: Response):  Promise&lt;undefined&gt;<br>设置 req 关联的缓存 Response。返回 Promise 对象，包含 undefined。
 - Cache.delete(req: string | Request, options?: object):  Promise&lt;boolean&gt;
-  - 删除 req 关联的缓存 Response. 返回 Promise 对象，如果删除成功，则包含 true，反之则包含 false。
-  - emsp;options 参数说明： 
+  - 删除 req 关联的缓存 Response。返回 Promise 对象，如果删除成功，则包含 true，反之则包含 false。
+  - options 参数说明： 
    ignoreMethod: boolean 是否忽略 Request 的方法名。
 
 ## Cache.match 补充说明
@@ -48,7 +48,7 @@ class Cache {
  - 参数 req 不支持 GET 方法之外的其他方法。
  - 参数 rsp 不支持 206 Partial Content。
  - 参数 rsp 不支持 Vary: * 头部。
-- 当 Response 对象的 Cache-Control 头部表示不缓存时, 抛出 413 错误。
+- 当 Response 对象的 Cache-Control 头部表示不缓存时，抛出 413 错误。
 - 暂未对 body 大小做出限制。
 - 当 Response 对象为 416 Range Not Satisfiable 时，暂不缓存。
 
