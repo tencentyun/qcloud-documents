@@ -67,7 +67,7 @@ Topic（主题）是某一种分类的名字，消息在 Topic 中可以被存�
     <tr>
         <td style='text-align:left;'>segment.ms</td>
         <td style='text-align:left;'>-</td>
-        <td style='text-align:left;'>1day - 90days</td>
+        <td style='text-align:left;'>5mins - 90days</td>
         <td style='text-align:left;'>Segment 分片滚动的时长，单位为 ms，最小值为86400000ms。</td>
     </tr>
     <tr>

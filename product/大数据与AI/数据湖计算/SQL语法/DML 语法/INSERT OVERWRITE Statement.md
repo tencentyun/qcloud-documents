@@ -1,25 +1,46 @@
-INSERT OVERWRITE 语句使用新值覆盖表中的现有数据。插入的行可以由值表达式或查询结果指定。
+## 说明
+- 支持内核：Presto、SparkSQL。
+- 适用表范围：原生 Iceberg 表、外部表。
+- 用途：行级数据插入操作。
+
+>? Presto 仅支持在 Hive 数据源的分区表上执行 insert overwrite，非分区表以及 Iceberg 数据源的表暂时不支持这个用法。
 
 ## 语法
-- **Spark 引擎：**
 ```
-INSERT OVERWRITE [ TABLE ] table_identifier [ partition_spec [ IF NOT EXISTS ] ] [ ( column_list ) ]
-    { VALUES ( { value | NULL } [ , ... ] ) [ , ( ... ) ] | query }
+INSERT OVERWRITE table_identifier [ partition_spec ] [ ( column_list ) ]
+    { VALUES ( { value | NULL } [ , ... ] ) [ , ( ... ) ] | query 
 ```
-- **Presto 引擎：**不支持该语法
+
 
 ## 参数
-- `[ TABLE ]`：关键字，可省略。
-- `table_identifier`：表名。
-- `partition_spec [ IF NOT EXISTS ]`：分区列表，例如`PARTITION \(dt='2021-05-14'\) IF NOT EXISTS`。
+- `table_identifier`：指定表名，支持三段式，例如：catalog.database.table
+- `partition_spec`：分区列和值。例如 dt='2021-06-01'。
+- `column_list`：列的所有。
+- `query`：一个通用 Select 查询语句。
+	1. a SELECT statement
+	2. a TABLE statement
 
 ## 示例
-插入分区表：
 ```
-INSERT OVERWRITE students PARTITION 
-(student_id = 11215016) IF NOT EXISTS 
-(address, name) VALUES ('Hangzhou, China', 'Kent Yao Jr.')
+-- Insert Using a VALUES Clause
+INSERT OVERWRITE students VALUES
+    ('Ashua Hill', '456 Erica Ct, Cupertino', 111111),
+    ('Brian Reed', '723 Kern Ave, Palo Alto', 222222);
+
+-- Insert Using a SELECT Statement
+INSERT OVERWRITE students PARTITION (student_id = 222222)
+    SELECT name, address FROM persons WHERE name = "Dora Williams"
+
+-- Insert Using a TABLE Statement
+INSERT OVERWRITE students TABLE visiting_students
+
+-- Insert with a column list
+INSERT OVERWRITE students (address, name, student_id) VALUES
+    ('Hangzhou, China', 'Kent Yao', 11215016)
+
+-- Insert with both a partition spec and a column list
+INSERT OVERWRITE students PARTITION (student_id = 11215016) (address, name) VALUES
+    ('Hangzhou, China', 'Kent Yao Jr.')
 ```
 
-## 限制
-Presto 不支持 INSERT OVERWRITE 操作，如果需要覆写表和分区的话可以采用 spark 引擎执行。
+

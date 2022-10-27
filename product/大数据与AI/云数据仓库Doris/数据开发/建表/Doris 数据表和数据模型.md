@@ -264,7 +264,7 @@ PROPERTIES (
 | type       | INT           | Yes     | 日志类型     |
 | error_code | INT           | Yes     | 错误码       |
 | error_msg  | VARCHAR(1024) | No      | 错误详细信息 |
-| op_id      | BIGINT        | No      | 负责人id     |
+| op_id      | BIGINT        | No      | 负责人 ID     |
 | op_time    | DATETIME      | No      | 处理时间     |
 
 建表语句如下：
@@ -343,7 +343,7 @@ SELECT MIN(cost) FROM table;
 SELECT COUNT(*) FROM table;
 ```
 
-在其他数据库中，这类查询都会很快的返回结果。因为在实现上，我们可以通过如“导入时对行进行计数，保存 count 的统计信息”，或者在查询时“仅扫描某一列数据，获得 count 值”的方式，只需很小的开销，即可获得查询结果。但是在 Doris 的聚合模型中，这种查询的开销**非常大**。
+在其他数据库中，这类查询都会很快的返回结果。因为在实现上，我们可以通过如**导入时对行进行计数，保存 count 的统计信息**，或者在查询时**仅扫描某一列数据，获得 count 值**的方式，只需很小的开销，即可获得查询结果。但是在 Doris 的聚合模型中，这种查询的开销**非常大**。
 
 我们以刚才的数据为例：
 
@@ -394,7 +394,7 @@ Duplicate 模型没有聚合模型的这个局限性。因为该模型不涉及�
 ## 最佳实践
 因为数据模型在建表时就已经确定，且**无法修改**。所以，选择一个合适的数据模型**非常重要**。
 ### 数据模型选择
-Doris 数据模型上目前分为三类: AGGREGATE KEY, UNIQUE KEY, DUPLICATE KEY。三种模型中数据都是按KEY进行排序。
+Doris 数据模型上目前分为三类:：AGGREGATE KEY，UNIQUE KEY，DUPLICATE KEY。三种模型中数据都是按KEY进行排序。
 
 #### Aggregate 模型
 Aggregate 模型可以通过预聚合，极大地降低聚合查询时所需扫描的数据量和查询的计算量，非常适合有固定模式的报表类查询场景。但是该模型对 count( * ) 查询很不友好。同时因为固定了 Value 列上的聚合方式，在进行其他类型的聚合查询时，需要考虑语意正确性。
@@ -413,7 +413,7 @@ DISTRIBUTED BY HASH(siteid) BUCKETS 10;
 
 #### Unique 模型
 Unique 模型针对需要唯一主键约束的场景，Unique key 相同时，新记录覆盖旧记录，可以保证主键唯一性约束。适用于有更新需求的分析业务。目前 Unique key  实现上和 Aggregate key 的 REPLACE 聚合方法一样，二者本质上相同。但是无法利用 ROLLUP 等预聚合带来的查询优势（因为本质是 REPLACE，没有 SUM 这种聚合方式）。
->! Unique 模型仅支持整行更新，如果用户既需要唯一主键约束，又需要仅更新部分列（例如将多张源表的列合并后导入到一张 doris 表的情形），则可以考虑使用 Aggregate 模型，同时将非主键列的聚合类型设置为 REPLACE_IF_NOT_NULL。具体的用法可以参考[SQL手册]。
+>! Unique 模型仅支持整行更新，如果用户既需要唯一主键约束，又需要仅更新部分列（例如将多张源表的列合并后导入到一张 doris 表的情形），则可以考虑使用 Aggregate 模型，同时将非主键列的聚合类型设置为 REPLACE_IF_NOT_NULL。具体的用法可以参考 SQL 手册。
 >
 ```sql
 CREATE TABLE sales_order
@@ -446,8 +446,8 @@ DISTRIBUTED BY HASH(sessionid, visitorid) BUCKETS 10;
 ```
 
 ### 大宽表与 Star Schema（星形模型）
-业务方建表时，为了和前端业务适配，往往不对维度信息和指标信息加以区分，而将 Schema 定义成大宽表。对于 Doris 而言, 这类大宽表往往性能不尽如人意：
+业务方建表时，为了和前端业务适配，通常不对维度信息和指标信息加以区分，而将 Schema 定义成大宽表。对于 Doris 而言， 这类大宽表的性能不尽如人意：
 - Schema 中字段数比较多，聚合模型中可能 key 列比较多，导入过程中需要排序的列会增加。
 - 维度信息更新会反应到整张表中，而更新的频率直接影响查询的效率。
 
-使用过程中，建议用户尽量使用 Star Schema 区分维度表和指标表。频繁更新的维度表也可以放在 MySQL 外部表中。而如果只有少量更新, 可以直接放在 Doris 中。在 Doris 中存储维度表时，可对维度表设置更多的副本，提升 Join 的性能。
+使用过程中，建议用户尽量使用 Star Schema 区分维度表和指标表。频繁更新的维度表也可以放在 MySQL 外部表中。而如果只有少量更新， 可以直接放在 Doris 中。在 Doris 中存储维度表时，可对维度表设置更多的副本，提升 Join 的性能。

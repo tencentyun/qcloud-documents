@@ -14,7 +14,7 @@
 - 默认采用无锁方式，同步过程中对源库不加全局锁（FTWRL），仅对无主键的表加表锁，其他不加锁。
 - 数据同步时，DTS 会使用执行同步任务的账号在源库中写入系统库`__tencentdb__`，用于记录同步任务过程中的数据对比信息。
   - 为保证后续数据对比问题可定位，同步任务结束后不会删除源库中的`__tencentdb__`。
-  - `__tencentdb__`系统库占用空间非常小，约为源库存储空间的千分之一到万分之一（例如源库为50G，则`__tencentdb__`系统库约为 5K-50K） ，并且采用单线程，等待连接机制，所以对源库的性能几乎无影响，也不会抢占资源。 
+  - `__tencentdb__`系统库占用空间非常小，约为源库存储空间的千分之一到万分之一（例如源库为50GB，则`__tencentdb__`系统库约为5MB - 50MB），并且采用单线程，等待连接机制，所以对源库的性能几乎无影响，也不会抢占资源。 
 
 ## [前提条件](id:qttj)
 - 源数据库和目标数据库符合同步功能和版本要求，请参考 [数据同步支持的数据库](https://cloud.tencent.com/document/product/571/58672) 进行核对。
@@ -65,7 +65,7 @@ FLUSH PRIVILEGES;
 <li>实例参数要求：
 <ul>
 <li>源库 server_id 参数需要手动设置，且值不能设置为0。</li>
-<li>源库表的 row_format 不能设置为 FIXDE。</li>
+<li>源库表的 row_format 不能设置为 FIXED。</li>
 <li>源库和目标库 lower_case_table_names 变量必须设置一致。</li>
 <li>源库变量 connect_timeout设置数值必须大于10。</li></ul></li>
 <li>Binlog 参数要求：
@@ -81,7 +81,8 @@ FLUSH PRIVILEGES;
 <li>外键依赖：
 <ul>
 <li>外键依赖只能设置为 NO ACTION，RESTRICT 两种类型。</li>
-<li>部分库表同步时，有外键依赖的表必须齐全。</li></ul></li></td></tr>
+<li>部分库表同步时，有外键依赖的表必须齐全。</li></ul></li>
+  <li>环境变量 innodb_stats_on_metadata 必须设置为 OFF。</li></td></tr>
 <tr> 
 <td>目标数据库要求</td>
 <td>
@@ -89,9 +90,6 @@ FLUSH PRIVILEGES;
 <li>目标库需要有足够的存储空间，如果初始类型选择“全量数据初始化”，则目标库的空间大小须是源库待同步库表空间的1.2倍以上。</li>
 <li>目标库不能有和源库同名的表、视图等同步对象。</li>
 <li>目标库 max_allowed_packet 参数设置数值至少为4M。</li></td></tr>
-<tr> 
-<td>其他要求</td>
-<td>环境变量 innodb_stats_on_metadata 必须设置为 OFF。</td></tr>
 </table>
 
 ## 操作步骤

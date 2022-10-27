@@ -90,7 +90,8 @@ public class ProviderController {
 </dx-codeblock>
 
 <dx-alert infotype="explain" title="">
-依赖 spring-cloud-tsf-starter 后，将同时为您开启查看 API 文档能力，您可以通过  `ip:pot/swagger.html` 页面进行 API 查看。如果您不需要这个能力，可以在依赖中进行排除，示例如下：
+依赖 spring-cloud-tsf-starter 后，将同时为您开启查看 API 文档能力，您可以通过  `ip:port/swagger-ui.html` 页面进行 API 查看。若访问不成功，建议更新到最新版本的 SDK。
+如果您不需要这个能力，可以在依赖中进行排除，示例如下：
 <dx-codeblock>
 :::  xml
 <dependency>
@@ -104,7 +105,7 @@ public class ProviderController {
     </exclusions>
 </dependency>
 :::
-</dx-codeblock>排除后，不影响在 TSF 服务治理 > 接口列表中查询 API 的能力，仅仅不支持通过 `ip:pot/swagger.html` 查看。
+</dx-codeblock>排除后，不影响在 TSF 服务治理 > 接口列表中查询 API 的能力，仅仅不支持通过 `ip:port/swagger-ui.html` 查看。
 </dx-alert>
 
 

@@ -90,7 +90,7 @@ mysql> SELECT city, age, sum(cost), min(min_dwell_time) FROM table GROUP BY city
 Doris 会执行这些sql时会自动命中这个 ROLLUP 表。
 
 ### Duplicate 模型中的 ROLLUP
-因为 Duplicate 模型没有聚合的语意。所以该模型中的 ROLLUP，已经失去了“上卷”这一层含义。而仅仅是作为调整列顺序，以命中前缀索引的作用。我们将在 [前缀索引](https://cloud.tencent.com/document/product/1387/80214) 详细介绍前缀索引，以及如何使用 ROLLUP 改变前缀索引，以获得更好的查询效率。
+因为 Duplicate 模型没有聚合的语意。所以该模型中的 ROLLUP，已经失去了“上卷”这一层含义。而仅作为调整列顺序，以命中前缀索引的作用。我们将在 [前缀索引](https://cloud.tencent.com/document/product/1387/80214) 详细介绍前缀索引，以及如何使用 ROLLUP 改变前缀索引，以获得更好的查询效率。
 
 ## ROLLUP 调整前缀索引
 因为建表时已经指定了列顺序，所以一个表只有一种前缀索引。这对于使用其他不能命中前缀索引的列作为条件进行的查询来说，效率上可能无法满足需求。因此，我们可以通过创建 ROLLUP 来人为的调整列顺序。举例说明：

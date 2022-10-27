@@ -30,13 +30,6 @@
    - 在统计页，可查看该类 SQL 在 Host、User、SQL Code 维度的统计分析和执行时间轨迹。
 ![](https://main.qcloudimg.com/raw/1d18bfadaec8f62f78d959af4d065d49.png)
 
-## TDSQL-C for MySQL 高阶审计能力
-除全量请求分析能力外，TDSQL-C for MySQL 还额外支持**请求耗时（P99）分析**和**请求耗时（P95）分析**，更加精准深入。
-![](https://main.qcloudimg.com/raw/af0edc9aa78366371e44a7ae894fed36.png)
-
->! 该功能适用于 TDSQL- C MySQL 5.7 2.0.12 及以上版本，如果您的数据库不符合版本要求，需要对数据库进行升级。
->
-基于全量实时审计日志的分析能力，为用户提供针对SQL访问延迟的高阶分析能力。
 
 ## 未提交事务内容审计
 

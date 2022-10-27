@@ -14,7 +14,7 @@
 
 - 支持 Kafka 协议版本为：1.1.1及更早的版本。
 - 支持压缩方式：snappy，lz4。
-- 用户认证方式： SASL_PLAINTEXT。
+- 用户认证方式：SASL_PLAINTEXT。
 - 目前仅支持当前数据消费，不支持历史数据的消费。
 - Topic 中的数据保留时间为2小时。
 
@@ -52,7 +52,7 @@
 ### 内网消费和外网消费说明
 
 - **内网消费**：使用内网域名进行日志消费，流量费用为0.18元/GB。例如您的原始日志为100GB，消费时选择 Snappy 压缩，那么计量约为50GB，内网读流量费用为50GB * 0.18元，即9元。一般来说，如果您的消费端和日志主题在同一个 VPC 或者同一个地域，就可以使用内网消费。
-- **外网消费**：使用外网域名进行日志消费，流量费用为0.8元/GB。例如您的原始日志为100GB，消费时选择 Snappy 压缩，那么计量约为50GB，内网读流量费用为50GB * 0.8元，即40元。一般来说，如果您的消费端和日志主题不在同一个 VPC，也不在同一个地域，需要使用外网消费。
+- **外网消费**：使用外网域名进行日志消费，流量费用为0.8元/GB。例如您的原始日志为100GB，消费时选择 Snappy 压缩，那么计量约为50GB，外网读流量费用为50GB * 0.8元，即40元。一般来说，如果您的消费端和日志主题不在同一个 VPC，也不在同一个地域，需要使用外网消费。
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/25badd05f8c18e2dd0fadaba81bec3dc.png)
 
@@ -61,7 +61,7 @@
 
 1. 登录日志服务控制台，选择左侧导航栏中的 **[日志主题](https://console.cloud.tencent.com/cls/topic)**。
 2. 在“日志主题”页面，单击需要使用 Kafka 协议消费的日志主题 ID/名称，进入日志主题管理页面。
-3. 在日志主题管理页面中，单击 **Kafka协议消费**页签。
+3. 在日志主题管理页面中，单击 **Kafka 协议消费**页签。
 4. 单击右侧的**编辑**，将“当前状态”的开关按钮设置为打开状态后，单击**确定**。
 5. 控制台给出 Topic、host+port 的信息。用户可以复制信息，构造消费者 SDK。
 ![](https://qcloudimg.tencent-cloud.cn/raw/51c5dbb6f1f94e1aa5e9f99027a9a6b0.png)
@@ -92,6 +92,44 @@ for message in consumer:
     print ("Topic:[%s] Partition:[%d] Offset:[%d] Value:[%s]" % (message.topic, message.partition, message.offset, message.value))
     print('end')
 ```
+
+## 腾讯云Oceanus消费 CLS 日志
+在 Oceanus 控制台新建作业。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/5318b551bc537acb4bff0904361a2f6b.png)
+
+```
+CREATE TABLE `nginx_source`
+(   # 日志中字段
+    `@metadata` STRING,     
+    `@timestamp` TIMESTAMP, 
+    `agent` STRING,         
+    `ecs` STRING,           
+    `host` STRING,          
+    `input` STRING,         
+    `log` STRING,           
+    `message` STRING,       
+    `partition_id` BIGINT METADATA FROM 'partition' VIRTUAL,    -- kafka分区
+    `ts` TIMESTAMP(3) METADATA FROM 'timestamp'                 
+)  WITH (
+  'connector' = 'kafka',
+  #消费主题，用out+日志主题id拼接，例如"out-633a268c-XXXX-4a4c-XXXX-7a9a1a7baXXXX" 
+  'topic' = '${out-TopicID}',  
+  # 服务地址+端口，外网端口9096，内网端口9095,列子是内网消费，请根据您的实际情况填写
+  'properties.bootstrap.servers' = '${region}-producer.cls.tencentyun.com:9095',       
+  'properties.group.id' = 'YourConsumerGroup', 
+  'scan.startup.mode' = 'earliest-offset', 
+  'format' = 'json',
+  'json.fail-on-missing-field' = 'false', 
+  'json.ignore-parse-errors' = 'true' ,
+  #用户名是日志集合ID，例如ca5cXXXXdd2e-4ac0af12-92d4b677d2c6
+  #密码是用户的SecretId#SecretKey组合的字符串，比AKIDWrwkHYYHjvqhz1mHVS8YhXXXX#XXXXuXtymIXT0Lac注意不要丢失#。
+  'properties.sasl.jaas.config' = 'org.apache.kafka.common.security.plain.PlainLoginModule required username="${logsetID}" password="${SecretId}#${SecretKey}";',
+  'properties.security.protocol' = 'SASL_PLAINTEXT',
+  'properties.sasl.mechanism' = 'PLAIN'
+);
+
+```
+
 
 
 ## Flink 消费 CLS 日志
@@ -198,4 +236,3 @@ a1.channels.channel1.transactionCapacity = 100
 a1.sources.source_kafka.channels = channel1
 a1.sinks.sink_local.channel = channel1
 ```
-

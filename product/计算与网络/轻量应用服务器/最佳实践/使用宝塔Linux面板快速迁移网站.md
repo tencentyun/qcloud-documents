@@ -55,6 +55,6 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/105fb8a8b7d96658f1b0d10fb5e38604.png)
 
 ### 访问迁移后的网站
-1. 修改迁出服务器中网站的域名解析，将 DNS 解析的记录值修改为迁入服务器的公网 IP 地址。
+1. 修改迁出服务器中网站的域名解析，将 DNS 解析的记录值修改为迁入服务器的公网 IP 地址。具体操作请参见 [快速添加域名解析](https://cloud.tencent.com/document/product/302/3446)。
 2. 等待新的 DNS 解析生效后，使用浏览器访问网站域名，即可访问完成迁移后的网站。
 

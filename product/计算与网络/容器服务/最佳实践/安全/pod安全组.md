@@ -31,15 +31,15 @@ Pod 安全组将腾讯云 CVM 安全组与 Kubernetes Pod 集成。您可以使�
 1.  创建一个安全组以与您的 Pod 一起使用。以下步骤可帮助您创建一个简单的安全组，仅用于说明目的。在生产集群中，您的规则可能会有所不同。
     a. 检索集群的 VPC 和集群安全组的 ID。您在使用时可替换`my-cluster`。
     ```shell
-    my_cluster_name=cls-7d7wz8z6
-    my_cluster_vpc_id=$ ( tccli tke DescribeClusters --cli-unfold-argument --ClusterIds cls-7d7wz8z6 --filter Clusters [0].ClusterNetworkSettings.VpcId | sed 's/\"//g' )
-    my_cluster_security_group_id=$ ( tccli vpc DescribeSecurityGroups --cli-unfold-argument --Filters.0.Name security-group-name --Filters.0.Values tke-worker-security-for-cls-7d7wz8z6 --filter SecurityGroupSet [0].SecurityGroupId | sed 's/\"//g' )
+    my_cluster_name=my-cluster
+    my_cluster_vpc_id=$(tccli tke DescribeClusters --cli-unfold-argument --ClusterIds $my_cluster_name --filter Clusters[0].ClusterNetworkSettings.VpcId | sed 's/\"//g')
+    my_cluster_security_group_id=$(tccli vpc DescribeSecurityGroups --cli-unfold-argument --Filters.0.Name security-group-name --Filters.0.Values tke-worker-security-for-$my_cluster_name --filter SecurityGroupSet[0].SecurityGroupId | sed 's/\"//g')
     ```
     b. 为您的 Pod 创建安全组。您在使用时可替换`my-pod-security-group`。记下运行命令后输出中返回的安全组 ID，您将在后面的步骤中使用它。
     ```shell
     my_pod_security_group_name=my-pod-security-group
     tccli vpc CreateSecurityGroup --GroupName "my-pod-security-group" --GroupDescription "My pod security group"
-    my_pod_security_group_id=$ ( tccli vpc DescribeSecurityGroups --cli-unfold-argument --Filters.0.Name security-group-name --Filters.0.Values my-pod-security-group --filter SecurityGroupSet [0].SecurityGroupId | sed 's/\"//g' )
+    my_pod_security_group_id=$(tccli vpc DescribeSecurityGroups --cli-unfold-argument --Filters.0.Name security-group-name --Filters.0.Values my-pod-security-group --filter SecurityGroupSet[0].SecurityGroupId | sed 's/\"//g')
     echo $my_pod_security_group_id
     ```
     c. 允许您上一步中创建的 Pod 安全组到集群安全组的 TCP 和 UDP 端口53流量，以允许部署示例中 Pod 可以通过域名访问应用程序。
@@ -50,7 +50,7 @@ Pod 安全组将腾讯云 CVM 安全组与 Kubernetes Pod 集成。您可以使�
     d. 需要允许任何协议和端口从安全组关联的 Pod 到任意安全组关联的 Pod 的入站流量。并且允许安全组关联的 Pod 的任何协议和端口的出站流量。
     ```shell
     tccli vpc CreateSecurityGroupPolicies --cli-unfold-argument --SecurityGroupId $my_pod_security_group_id --SecurityGroupPolicySet.Ingress.0.Protocol ALL --SecurityGroupPolicySet.Ingress.0.Port ALL --SecurityGroupPolicySet.Ingress.0.SecurityGroupId $my_pod_security_group_id --SecurityGroupPolicySet.Ingress.0.Action ACCEPT
-    tccli vpc CreateSecurityGroupPolicies --cli-unfold-argument --SecurityGroupId sg-m32knm0b --SecurityGroupPolicySet.Egress.0.Protocol ALL --SecurityGroupPolicySet.Egress.0.Port ALL --SecurityGroupPolicySet.Egress.0.Action ACCEPT
+    tccli vpc CreateSecurityGroupPolicies --cli-unfold-argument --SecurityGroupId $my_pod_security_group_id --SecurityGroupPolicySet.Egress.0.Protocol ALL --SecurityGroupPolicySet.Egress.0.Port ALL --SecurityGroupPolicySet.Egress.0.Action ACCEPT
     ```
 
 2.  创建一个 Kubernetes 命名空间来部署资源。
@@ -67,12 +67,12 @@ Pod 安全组将腾讯云 CVM 安全组与 Kubernetes Pod 集成。您可以使�
       name: my-security-group-policy
       namespace: my-namespace
     spec:
-      podSelector:
+      podSelector: 
         matchLabels:
           app: my-app
       securityGroups:
         groupIds:
-          -   $my_pod_security_group_id
+          - $my_pod_security_group_id
     ```
 <dx-alert infotype="notice" title="">
 您为 Pod 指定的一个或多个安全组必须满足以下条件：
@@ -82,7 +82,7 @@ Pod 安全组将腾讯云 CVM 安全组与 Kubernetes Pod 集成。您可以使�
 - 它们必须具有必要的入站和出站规则才能与其他 Pod 进行通信。
 
 
-**安全组策略仅适用于新调度的 Pod。它们不会影响正在运行的 Pod。**
+**安全组策略仅适用于新调度的 Pod。它们不会影响正在运行的 Pod。如需存量 Pod 生效，则需要您确认存量 Pod 满足上述条件后手动重建。**
 </dx-alert>
     b. 部署策略。
     ```shell
@@ -110,14 +110,14 @@ Pod 安全组将腾讯云 CVM 安全组与 Kubernetes Pod 集成。您可以使�
         spec:
           terminationGracePeriodSeconds: 120
           containers:
-          -   name: nginx
-            image: nginx: latest
+          - name: nginx
+            image: nginx:latest
             ports:
-            -   containerPort: 80
+            - containerPort: 80
           nodeSelector:
             node.kubernetes.io/instance-type: eklet
-          tolerations:
-          -   effect: NoSchedule
+          tolerations: 
+          - effect: NoSchedule
             key: eks.tke.cloud.tencent.com/eklet
             operator: Exists
     ---
@@ -132,7 +132,7 @@ Pod 安全组将腾讯云 CVM 安全组与 Kubernetes Pod 集成。您可以使�
       selector:
         app: my-app
       ports:
-        -   protocol: TCP
+        - protocol: TCP
           port: 80
           targetPort: 80
     ```
@@ -143,7 +143,7 @@ Pod 安全组将腾讯云 CVM 安全组与 Kubernetes Pod 集成。您可以使�
     ```
 >! 如果您没有使用 nodeSelector 优先调度到超级节点，当 Pod 调度到其他节点的时候，安全组是不生效的并且 `kubectl describe pod` 会输出 `security groups is only support super node, node 10.0.0.1 is not super node`。
 >
-5.  查看使用示例应用程序部署的 Pod。截止现在为止此终端称为 `TerminalA`
+5.  查看使用示例应用程序部署的 Pod。截止现在为止此终端称为 `TerminalA`。
   ```shell
   kubectl get pods -n my-namespace -o wide
   ```
@@ -154,7 +154,7 @@ Pod 安全组将腾讯云 CVM 安全组与 Kubernetes Pod 集成。您可以使�
   my-deployment-866ffd8886-b7gzb   1/1     Running   0          85s   10.0.64.3    eklet-subnet-q21rasu6-8bpgyx9r   <none>           <none>
   ```
 
-6.  在另一个终端中进入任意 Pod，此终端称为 `TerminalB`。替换为上一步输出中返回的 Pod ID
+6.  在另一个终端中进入任意 Pod，此终端称为 `TerminalB`。替换为上一步输出中返回的 Pod ID。
   ```shell
   kubectl exec -it -n my-namespace my-deployment-866ffd8886-9zfrp -- /bin/bash
   ```
@@ -173,7 +173,7 @@ Pod 安全组将腾讯云 CVM 安全组与 Kubernetes Pod 集成。您可以使�
   ```
   您收到了响应是因为运行应用程序的所有 Pod 都与您创建的安全组关联。该安全组包含规则有：
 	1. 允许与安全组关联的所有 Pod 之间的所有流量。
-	2. 2. 允许 DNS 流量从该安全组出站到您的节点关联的集群安全组，这些节点正在运行 CoreDNS Pod，您的 Pod 会对 `my-app` 进行域名查找。
+	2. 允许 DNS 流量从该安全组出站到您的节点关联的集群安全组，这些节点正在运行 CoreDNS Pod，您的 Pod 会对 `my-app` 进行域名查找。
 
 8.  从 `TerminalA` 中，从集群安全组中删除允许 DNS 通信的安全组规则。
   ```shell
