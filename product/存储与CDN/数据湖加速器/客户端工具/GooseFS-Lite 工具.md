@@ -165,6 +165,11 @@ pid     mount_point     cos_path
 13815   /mnt/goosefs-lite-mnt/  cosn://examplebucket-1250000000/
 ```
 
+如果您需要在命令行中，同时指定多个挂载参数，可以使用逗号分隔多个参数，例如，下面的命令设置挂载点只读，且允许除其他用户访问挂载点：
+```
+./bin/goosefs-lite mount -o"ro,allow_other"  mnt/ cosn://examplebucket-1250000000/
+```
+
 ### 步骤6：卸载存储桶
 
 卸载存储桶示例：
@@ -206,6 +211,15 @@ export JAVA_OPTS=" -Xms16G -Xmx16G  -XX:MaxDirectMemorySize=16G -XX:+UseG1GC"
 ./bin/goosefs-lite mount /mnt/goosefs-lite-mnt/ cosn://examplebucket-1250000000/
 ps -ef|grep goosefs-lite|grep -v grep
 ```
+
+### 常用命令行挂载参数
+#### -oallow_other
+如果要允许其他用户访问挂载文件夹，可以在运行 GooseFS-Lite 的时候指定该参数。
+
+#### -oro
+将挂载点设置为只读，不允许写入和删除操作。
+
+
 
 ### 常见问题
 
@@ -302,3 +316,50 @@ systemctl status goosefs-lite
 # 查看挂载点列表
 /usr/local/goosefs-lite-1.0.0/bin/goosefs-lite stat
 ```
+
+#### 3. GooseFS-Lite 每天在某个时间段里 CPU 使用率较高，且向 COS 发出大量 Head、List 请求，产生大量请求次数费用，该怎么处理？
+这通常是由于您机器上存在定时扫盘任务导致的，Linux 系统上常见的扫盘程序是 updatedb，您可以将 GooseFS-Lite 挂载点目录，添加到 updatedb 的配置文件 /etc/updatedb.conf 文件的 PRUNEPATHS 配置项中，避免该程序的扫盘行为。此外，您可以使用 Linux 工具 auditd，查找访问 GooseFS-Lite 挂载点的程序：
+
+第一步，安装 auditd：
+
+Ubuntu:
+
+```
+ap-get install auditd -y
+```
+
+CentOS：
+
+```
+yum install audit audit-libs
+```
+
+第二步，启动 auditd 服务：
+
+```
+systemctl start auditd
+systemctl enable auditd
+```
+
+第三步，监控挂载目录，其中 -w 指定 GooseFS-Lite 挂载目录，-k 为输出在 audit 日志中的 key：
+
+```
+auditctl -w /usr/local/service/mnt/ -k goosefs_lite_mnt
+```
+
+第四步，根据日志确定访问程序：
+
+audit 的日志目录： /var/log/audit，查询命令：
+
+```
+ausearch -i|grep 'goosefs_lite_mnt'
+```
+
+第五步，停止 auditd 服务：
+如果您需要停止 auditd 服务，可以使用如下命令：
+
+```
+/sbin/service auditd stop
+```
+
+注意：如果访问挂载点的程序一直在运行，新启动的 auditd，并不会监控到该程序的访问行为；程序中关于挂载目录的多次调用，只会记录第一次。

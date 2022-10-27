@@ -7,7 +7,7 @@ COSFS 工具支持将对象存储（Cloud Object Storage，COS）存储桶挂载
 - 将本机数据上传至 COS，建议使用 [COS Migration 工具](https://cloud.tencent.com/document/product/436/15392) 或 [COSCMD 工具](https://cloud.tencent.com/document/product/436/10976)。
 
 ## 局限性
-**COSFS 基于 S3FS 构建， 读取和写入操作都经过磁盘中转，仅适合挂载后对文件进行简单的管理，不支持本地文件系统的一些功能用法，性能方面也无法代替云硬盘 CBS 或文件存储 CFS。** 需注意以下不适用的场景，例如：
+**COSFS 基于 S3FS 构建，读取和写入操作都经过磁盘中转，仅适合挂载后对文件进行简单的管理，不支持本地文件系统的一些功能用法，建议您使用 [腾讯云存储网关](https://cloud.tencent.com/product/csg)访问 COS，腾讯云存储网关可以将 COS 存储桶，以网络文件系统挂载到多个服务器上，用户可以使用 POSIX 文件协议，通过挂载点读写 COS 上的对象。** COSFS 使用，需注意以下不适用的场景，例如：
 
 - 随机或者追加写文件会导致整个文件的下载以及重新上传，您可以使用与 Bucket 在同一个地域的 CVM 加速文件的上传下载。
 - 多个客户端挂载同一个 COS 存储桶时，依赖用户自行协调各个客户端的行为。例如避免多个客户端写同一个文件等。
