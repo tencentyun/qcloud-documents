@@ -228,7 +228,7 @@ _controller.playWithModelNeedLicence(model);
 | 参数名 | 类型   | 描述               |
 | ------ | ------ | ------------------ |
 | fileId | String | 文件 id。必填 |
-| psign | String | 播放器签名，签名介绍和生成方式参见链接：https://cloud.tencent.com/document/product/266/42436 |
+| psign | String | 播放器签名，签名介绍和生成方式参见 [自定义监控相关文档](https://cloud.tencent.com/document/product/266/4243)。 |
 
 3. playAction
 
