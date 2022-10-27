@@ -1,5 +1,4 @@
-腾讯移动金融开发平台(Tencent Mobile FinTech Platform，TMF)整合了腾讯在移动产品 中开发、测试、发布和运营的技术能力，为银行、互联网金融、保险、证券客户提供一站式、 覆盖全生命周期的移动端金融技术平台。您可通过如下视频了解腾讯移动金融开发平台。
-<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/3518-61514"></iframe></div>
+腾讯移动开发平台(Tencent Mobile Framework，TMF)整合了腾讯在移动产品 中开发、测试、发布和运营的技术能力，为企业客户提供一站式、 覆盖全生命周期的移动端技术平台。您可通过如下视频了解腾讯移动开发平台。
 
 ## 组件功能及描述
 <table>
@@ -18,7 +17,7 @@
 <td>移动端极致浏览体验。</td>
 </tr>
 <tr>
-<td>高性能金融安全网关</td>
+<td>高性能安全网关</td>
 <td>控制客户端与服务端的安全连接。</td>
 </tr>
 <tr>
@@ -65,7 +64,7 @@
 <td>综合性能监控，问题定位及分析平台。</td>
 </tr>
 <tr>
-<td  rowspan="6">金融安全/合规</td>
+<td  rowspan="6">安全/合规</td>
 <td>App 加固</td>
 <td>针对应用各种安全缺陷的加固保护。</td>
 </tr>
@@ -86,7 +85,7 @@
 <td>支持国密加密算法。</td>
 </tr>
 <tr>
-<td>金融安全键盘（已认证）</td>
+<td>安全键盘（已认证）</td>
 <td>随机分布式虚拟安全键盘。</td>
 </tr>
 <tr>

@@ -31,8 +31,28 @@
   > ?关于如何购买腾讯云 Prometheus 实例，以及开通配套的 Grafana 实例，可以参见 [Prometheus 监控服务](https://cloud.tencent.com/document/product/1416/55778) 相关文档。
 2. 登录 [TSE 控制台](https://console.cloud.tencent.com/tse/kong)，进入需要的 Kong 网关实例详情页，在**访问控制**页查看 Kong 实例的内网节点地址。
 <img src="https://qcloudimg.tencent-cloud.cn/raw/1a6e0f62f25d1e5db96c3dc6960ca474.jpg"> 
-3. 若您使用 Prometheus agent，可以在 prometheus.yml 配置文件中的 scrape_configs.static_configs.targets 添加内网节点地址列表，注意端口必须为 8100。例如对于上图的内网地址列表，可以如下图配置。
-<img src="https://qcloudimg.tencent-cloud.cn/raw/4be3c3db0033e9be7a4426a34a757eea.png" width="720px"> 
+3. 若您使用 Prometheus agent，可以在 prometheus.yml 配置文件中的 scrape_configs.static_configs.targets 添加内网节点地址列表，注意端口必须为 8100。例如对于上图的内网地址列表，可以参照以下参数进行配置：
+<dx-codeblock>
+:::  yxml
+job_name: kong
+honor_timestamps: true
+metrics_path: /metrics
+scheme: http
+static_configs:
+- targets:
+  - 172.27.0.35:8100
+  - 172.27.0.133:8100
+  - 172.27.0.79:8100
+  labels:
+    instance: gateway-f3bdaaa7
+relabel_configs:
+  - source_labels: [__address__]
+    target_label: node
+
+:::
+</dx-codeblock>
+>!请配置 relabel_configs 信息，以保证指标上报准确。
+>
 4. 若您使用自定义程序的拉取方式，可以通过云原生网关 DescribeCloudNativeAPINodes 接口自动获取节点 IP 列表。
 
 ### 步骤3：在 Grafana 配置 Kong 模板的 Dashboard（可选）

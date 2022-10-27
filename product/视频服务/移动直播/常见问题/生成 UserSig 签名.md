@@ -20,7 +20,7 @@ usersig = hmacsha256(secretkey, (userid + sdkappid + currtime + expire +
 
 [](id:Key)
 ### 密钥获取
-访问云直播 [应用管理](https://console.cloud.tencent.com/live/license/appmanage) 可以查询计算 UserSig 用的密钥，方法如下：
+访问 [**云直播控制台**](https://console.cloud.tencent.com/live/livestat) > **应用管理** 可以查询计算 UserSig 用的密钥，方法如下：
 1. 选择一个应用并进入详情页面，如果还没有应用就创建一个。
 2. 进入**应用管理**页面，单击**查看密钥**按钮即可获得加密密钥。
 ![](https://main.qcloudimg.com/raw/e7a33567095b6930e5560dd901268186.png)

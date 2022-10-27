@@ -61,7 +61,7 @@
 
 ## 步骤3：生成播放器签名
 
-播放器签名，用于后续查询播放信息，生成方式请参考 [播放器签名文档](https://intl.cloud.tencent.com/document/product/266/38099) 。 本教程的播放器签名的 PayLoad 如下：
+播放器签名，用于后续查询播放信息，生成方式请参考 [播放器签名文档](https://cloud.tencent.com/document/product/266/45554) 。 本教程的播放器签名的 PayLoad 如下：
 
 ```json
 {

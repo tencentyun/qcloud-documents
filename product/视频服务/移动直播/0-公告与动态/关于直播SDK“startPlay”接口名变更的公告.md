@@ -1,9 +1,9 @@
-直播 SDK 预计在2022年09月14日发布移动端10.7版本，在该版本中接口 `startPlay` 的名称将做出变更。
+直播 SDK 预计在2022年09月19日发布移动端10.7版本，在该版本中接口 `startPlay` 的名称将做出变更。
 
 `startPlay` 接口在配置 SDK 播放功能时使用，代表开始播放。具体变更如下：
 
-- 直播播放新版接口 `V2TXLivePlayer` 的开始播放接口名由 `startPlay` 变更为 `startLivePlay`，详情参见 [API-iOS-拉流](https://cloud.tencent.com/document/product/454/56044#startplay)、[API-Android-拉流](https://cloud.tencent.com/document/product/454/56045#startplay)、[API-Flutter-拉流](https://cloud.tencent.com/document/product/454/71600#startplay)。
-- 直播播放旧版接口 `TXLivePlayer` 的开始播放接口名由 `startPlay` 变更为 `startLivePlay`，详情参见 [API-iOS-拉流](https://cloud.tencent.com/document/product/454/34762#startplay)、[API-Android-拉流](https://cloud.tencent.com/document/product/454/34775#startplay)。
+- 直播播放新版接口 `V2TXLivePlayer` 的开始播放接口名由 `startPlay` 变更为 `startLivePlay`，详情参见 [API-iOS-拉流](https://cloud.tencent.com/document/product/454/56044#startliveplay)、[API-Android-拉流](https://cloud.tencent.com/document/product/454/56045#startliveplay)、[API-Flutter-拉流](https://cloud.tencent.com/document/product/454/71600#startliveplay)。
+- 直播播放旧版接口 `TXLivePlayer` 的开始播放接口名由 `startPlay` 变更为 `startLivePlay`，详情参见 [API-iOS-拉流](https://cloud.tencent.com/document/product/454/34762#startliveplay)、[API-Android-拉流](https://cloud.tencent.com/document/product/454/34775#startliveplay)。
 
 >?
 >- 若您在移动端10.7以下版本的 SDK 中使用该接口，将不受本次变更影响。

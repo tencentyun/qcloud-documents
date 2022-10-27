@@ -13,44 +13,28 @@ UPDATE COMMIT_ON_SUCCESS ROLLBACK_ON_FAIL QUEUE_ON_PK 88 TARGET_AFFECT_ROW 1 tab
 UPDATE 和 INSERT 的 SQL 语句可以增加新关键字，以表达热点更新的功能，红色为新增内容。
 
 ### 2.1 UPDATE 语法
-```
-UPDATE [LOW_PRIORITY]
 
-       [COMMIT_ON_SUCCESS] [ROLLBACK_ON_FAIL] [QUEUE_ON_PK expr1] [TARGET_AFFECT_ROW expr2]
+UPDATE  <font color="red">[LOW_PRIORITY]
 
-       [IGNORE] table_reference
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[COMMIT_ON_SUCCESS] [ROLLBACK_ON_FAIL] [QUEUE_ON_PK expr1] [TARGET_AFFECT_ROW expr2]
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[IGNORE] table_reference </font color="red">
 
 SET col_name1={expr1|DEFAULT} [, col_name2={expr2|DEFAULT}] ...
 
 [WHERE where_condition]
 
-[ORDER BY ...]
-
-[LIMIT row_count]
-```
-
 ### 2.2 INSERT 语法
-```
-INSERT [LOW_PRIORITY | DELAYED | HIGH_PRIORITY]
 
-       [COMMIT_ON_SUCCESS] [ROLLBACK_ON_FAIL] [QUEUE_ON_PK expr]
+INSERT <font color="red">[LOW_PRIORITY | DELAYED | HIGH_PRIORITY]
 
-       [IGNORE]
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[COMMIT_ON_SUCCESS] [ROLLBACK_ON_FAIL] [QUEUE_ON_PK expr]
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[IGNORE] </font color="red">
 
 [INTO] tbl_name
 
 [PARTITION (partition_name,...)]
-
-[(col_name,...)]
-
-{VALUES | VALUE} ({expr | DEFAULT},...),(...),...
-
-[ ON DUPLICATE KEY UPDATE
-
-col_name=expr
-
-[, col_name=expr] ... ]
-```
 
 ### 2.3 说明
 1. UPDATE 只支持单对象更新，即支持 &quot;single-table-syntax&quot;，不支持 &quot;multiple-table-syntax&quot;。
@@ -65,7 +49,7 @@ col_name=expr
    * `TARGET_AFFECT_ROW expr`：指定热点更新影响的数据行。expr 是一个正整数（[1, MAX], MAX 是 8 位正数的最大值）。通常 expr 为 1，表示只有一行受到影响。
 
 ### 2.4 建议
-使用时，只在单语句事务中增加全部新增的参数使用，并且建议蓝色字体值匹配（可以不匹配）。
+使用时，只在单语句事务中增加全部新增的参数使用。
 ```
 UPDATE COMMIT_ON_SUCCESS ROLLBACK_ON_FAIL QUEUE_ON_PK 88 TARGET_AFFECT_ROW 1 table_name  SET k=k+1 WHERE id=88
 ```
@@ -106,8 +90,7 @@ UPDATE COMMIT_ON_SUCCESS ROLLBACK_ON_FAIL QUEUE_ON_PK 2 TARGET_AFFECT_ROW 1 hc_t
 | `hot_commodity`<br/>`_query_size` | 控制允许对多少个热点更新对象进行更新/插入操作 | 数值型 | 10000 | 起到限流的作用 |
 |` hot_commodity`<br/>`_query_size_modify_enable` | 控制能否修改<br/>`hot_commodity_query_size `| 布尔型 | false 不允许修改<br/>`hot_commodity`<br/>`_query_size `| 方便在单元测试中改<br/>`hot_commodity_query_size `|
 
-注意：如果 MyQL server 启动的时候，参数`hot_commodity_enable`是关闭的，则需要设置其为打开，重新启动 server，才能初始化全局的数据对象表。但如果`hot_commodity_query_size`值为 0，即使打开了`hot_commodity_enable`，也不能使用热点更新。所以热点更新功能需要同时设置：
-
+>!如果 MySQL server 启动的时候，参数`hot_commodity_enable`是关闭的，则需要设置其为打开，重新启动 server，才能初始化全局的数据对象表。但如果`hot_commodity_query_size`值为 0，即使打开了`hot_commodity_enable`，也不能使用热点更新。所以热点更新功能需要同时设置：
 - `hot_commodity_enable`=ON
 - `hot_commodity_query_size`=10000  为一个大于 0 的数值，建议控制在 10000、20000 左右，需要根据硬件环境和应用压力等实际情况测试确定其适合的值。
 - 启动 server。

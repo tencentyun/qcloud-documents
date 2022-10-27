@@ -11,7 +11,7 @@
 ![](https://main.qcloudimg.com/raw/002d2aeeb1349f12b3c811b1bbae7ea4.png)
 Web UI 地址链接跳转后，会提示输入用户名及密码，即在购买集群时设置的用户名及密码。
 ![](https://main.qcloudimg.com/raw/a0b4159c09c674773b2f3705abbd7d38.png)
-
+ 
 ## YARN 集成 Ranger
 >!请确保 YARN 相关服务运行正常并且当前集群已安装 Ranger。
 >

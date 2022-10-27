@@ -9,11 +9,28 @@ TUIKit 中的组件在实现 UI 功能的同时，会调用 IM SDK 相应的接�
 |---------|---------|
 | iOS  | 支持 |
 | Android  | 支持 |
-| [Web](#web)  | 支持，0.1.4版本起 |
+| [Web](#web)  | 支持，0.1.5版本起 |
 | macOS  | 开发中，敬请期待 |
 | Windows  | 开发中，敬请期待 |
 
-> 我们致力于打造一套支持 Flutter 全平台的即时通信IM SDK及TUIKit，帮助您一套代码，全平台运行。
+>? 我们致力于打造一套支持 Flutter 全平台的即时通信 IM SDK 及 TUIKit，帮助您一套代码，全平台运行。
+
+## 体验 DEMO[](id:demo)
+
+您可以通过我们的 DEMO，快速在线体验 TUIKit 各项能力。
+
+**以下各版本 DEMO，均由同一 Flutter 项目引入TUIKit 制作打包而成。**
+
+<table style="text-align:center; vertical-align:middle; max-width: 800px">
+  <tr>
+    <th style="text-align:center;">移动端 APP</th>
+    <th style="text-align:center;">WEB - H5</th>
+  </tr>
+  <tr>
+    <td><div style="display: flex; justify-content: center; align-items: center; flex-direction: column; padding-top: 10px">iOS/Android APP，自动判断平台下载<img style="max-width:200px; margin: 20px 0 20px 0" src="https://qcloudimg.tencent-cloud.cn/raw/ca2aaff551410c74fce48008c771b9f6.png"/></div></td>
+    <td><div style="display: flex; justify-content: center; align-items: center; flex-direction: column; padding-top: 10px">手机扫码体验在线 Web 版 DEMO<img style="max-width:200px; margin: 20px 0 20px 0" src="https://qcloudimg.tencent-cloud.cn/raw/3c79e8bb16dd0eeab35e894a690e0444.png"/></div></td>
+	 </tr>
+</table>
 
 ## TUIKit 主要功能介绍
 TUIKit 按照功能主要分为**聊天**、**关系链**、**用户或群组资料**、**搜索**、**语音**几个类型的 UI 组件，每个类型的 UI 组件负责展示不同的内容。具体的 UI 组件描述如下表所示：
@@ -28,7 +45,7 @@ TUIKit 按照功能主要分为**聊天**、**关系链**、**用户或群组资
 | [TIMUIKitProfile](#TIMUIKitProfile) / [TIMUIKitGroupProfile](#TIMUIKitGroupProfile) | 用户信息 及 群组信息 组件       |
 | [TIMUIKitSearch / TIMUIKitSearchMsgDetail](#search)      | 全局搜索/会话内搜索组件           |
 | [音视频通话插件](#calling)      | 单聊or群聊 的 语音通话&视频通话       |
-| [本地推送插件](#push)      | 接入厂商的离线推送 & 本地在线推送       |
+| [消息推送插件](#push)      | 接入厂商的离线推送 & 本地在线推送       |
 
 
 界面效果如下图所示：
@@ -126,8 +143,8 @@ TIMUIKitProfile 主要负责联系人的资料展示与管理。
 <img src="https://qcloudimg.tencent-cloud.cn/raw/e3831ff35e1571c8dbd6b26517cac819.png" style="zoom:40%;"/>
 
 ### 添加用户与群组 功能介绍[](id:add)
-TIMUIKitAddFriend为添加好友页面。
-TIMUIKitAddGroup为添加群组页面。
+TIMUIKitAddFriend 为添加好友页面。
+TIMUIKitAddGroup 为添加群组页面。
 界面效果如下图所示：
 <table style="text-align:center; vertical-align:middle; width:1000px">
   <tr>
@@ -168,7 +185,7 @@ TIMUIKitGroupProfile 主要负责群资料、群成员、群组权限的展示�
 ### 本地搜索 重点功能介绍[](id:search)
 TIMUIKitSearch 为本地全局搜索，支持搜索联系人、群聊、聊天记录。
 TIMUIKitSearchMsgDetail 为会话内聊天历史记录搜索。
-详情[可查看此文档](https://cloud.tencent.com/document/product/269/79121)，界面效果如下图所示：
+详情 [可查看此文档](https://cloud.tencent.com/document/product/269/79121)，界面效果如下图所示：
 <img src="https://qcloudimg.tencent-cloud.cn/raw/199a69d9da6126690a34c7bb01552081.png" style="zoom:40%;"/>
 
 
@@ -196,7 +213,7 @@ TIMUIKitSearchMsgDetail 为会话内聊天历史记录搜索。
 
 
 ### 消息推送重点功能介绍[](id:push)
-你可通过我们的[Flutter 推送插件](https://cloud.tencent.com/document/product/269/74605)集成消息推送能力，涵盖离线推送与在线推送。
+您可通过我们的 [Flutter 推送插件](https://cloud.tencent.com/document/product/269/74605) 集成消息推送能力，涵盖离线推送与在线推送。
 消息推送效果如下图所示：
 <img src="https://qcloudimg.tencent-cloud.cn/raw/b2717640d161ea0cea66d509311dc6a7.png" style="zoom:40%;"/>
 
