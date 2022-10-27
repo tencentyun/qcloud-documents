@@ -1,4 +1,4 @@
- 腾讯特效 SDK 提供了14种版本的 SDK，分别为 6 种基础版 SDK，5 种高级版 SDK和3种虚拟人 SDK。了解 14 个版本 SDK 的关系和各版本功能差异请参见 [计费概述](https://cloud.tencent.com/document/product/616/36807)。
+ 腾讯特效 SDK 提供了14种版本的 SDK，分别为 6 种基础版 SDK、5 种高级版 SDK、3种虚拟人 SDK。了解 14 个版本 SDK 的关系和各版本功能差异请参见 [计费概述](https://cloud.tencent.com/document/product/616/36807)。
 
 ## 移动端 SDK
 
@@ -193,7 +193,7 @@ X 系列提供单独的算法能力，集成更加灵活，业务拓展性更高
 </tr>
 </thead>
 <tbody><tr>
-<td>X1-01</td>
+<td>X1 - 01</td>
 <td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.5.0.224/xmagic_x1_01.zip">DOWNLOAD</a></td>
 <td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.5.0.205/xmagic_X1-01_android_2.5.0.205.zip">DOWNLOAD</a></td>
 <td><a href="https://cloud.tencent.com/document/product/616/81997">人像分割</a></td>
@@ -204,12 +204,11 @@ X 系列提供单独的算法能力，集成更加灵活，业务拓展性更高
 	<br><b>Android 包大小：</b>
 		<li>arm64-v8a：23.4MB</li>
 		<li>armeabi-v7a：18.4MB</li>
-		<li>assets：11.6MB</li>
-		<li>aar：1.2MB</li>
+		<li>assets：11.6MBaar：1.2MB</li>
 </td>
 </tr>
 <tr>
-<td>X1-02</td>
+<td>X1 - 02</td>
 <td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.5.0.224/xmagic_x1_02.zip">DOWNLOAD</a></td>
 <td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.5.0.205/xmagic_X1-02_android_2.5.0.205.zip">DOWNLOAD</a></td>
 <td><a href="https://cloud.tencent.com/document/product/616/81998">人脸点位</a></td>
