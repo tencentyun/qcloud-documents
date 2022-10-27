@@ -12,7 +12,7 @@ A 系列基础套餐提供通用美型功能，适用于对脸部美颜调整要
 <table>
 <thead>
 <tr>
-<th >版本</th>
+<th width=20%>版本</th>
 <th >iOS 平台 ZIP 包</th>
 <th >Android 平台 ZIP 包</th>
 <th >SDK 集成指引</th>
@@ -83,7 +83,7 @@ S 系列高级套餐提供高级美型功能，适用于对脸部美颜调整需
 <table>
 <thead>
 <tr>
-<th >版本</th>
+<th width=20%>版本</th>
 <th >iOS 平台 ZIP 包</th>
 <th >Android 平台 ZIP 包</th>
 <th >SDK 集成指引</th>
@@ -155,7 +155,7 @@ S 系列高级套餐提供高级美型功能，适用于对脸部美颜调整需
 <table>
 <thead>
 <tr>
-<th>版本</th>
+<th width=20%>版本</th>
 <th>iOS 平台 ZIP 包</th>
 <th>Android 平台 ZIP 包</th>
 <th>SDK 集成指引</th>
@@ -179,6 +179,52 @@ S 系列高级套餐提供高级美型功能，适用于对脸部美颜调整需
 </tr>
 </tbody></table>
 
+[](id:X_series)
+### X 系列原子能力
+X 系列提供单独的算法能力，集成更加灵活，业务拓展性更高，适用于对算法能力有需求的客户。
+<table>
+<thead>
+<tr>
+<th width=20%>版本</th>
+<th>iOS 平台 ZIP 包</th>
+<th>Android 平台 ZIP 包</th>
+<th>SDK 集成指引</th>
+<th>安装包增量</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>X1-01</td>
+<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.5.0.224/xmagic_x1_01.zip">DOWNLOAD</a></td>
+<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.5.0.205/xmagic_X1-01_android_2.5.0.205.zip">DOWNLOAD</a></td>
+<td><a href="https://cloud.tencent.com/document/product/616/81997">人像分割</a></td>
+<td>
+	<b>iOS 包大小：</b>
+		<li>arm64：6.4m</li>
+		<li>bundle：15.2m</li>
+	<br><b>Android 包大小：</b>
+		<li>arm64-v8a：23.4MB</li>
+		<li>armeabi-v7a：18.4MB</li>
+		<li>assets：11.6MBaar：1.2MB</li>
+</td>
+</tr>
+<tr>
+<td>X1-02</td>
+<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.5.0.224/xmagic_x1_02.zip">DOWNLOAD</a></td>
+<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.5.0.205/xmagic_X1-02_android_2.5.0.205.zip">DOWNLOAD</a></td>
+<td><a href="https://cloud.tencent.com/document/product/616/81998">人脸点位</a></td>
+<td>
+	<b>iOS 包大小：</b>
+		<li>arm64：6.4m</li>
+		<li>bundle：9.7m</li>
+	<br><b>Android 包大小：</b>
+		<li>arm64-v8a：23.4MB</li>
+		<li>armeabi-v7a：18.4MB</li>
+		<li>assets：6MB</li>
+		<li>aar：1.2MB</li>
+</td>
+</tr>
+</tbody></table>
+
 > ! 包体大小瘦身，请参见 [SDK 包体瘦身（Android）](https://cloud.tencent.com/document/product/616/73016)、[SDK 包体瘦身（iOS）](https://cloud.tencent.com/document/product/616/76029)。
 
 [](id:pc)
@@ -195,3 +241,5 @@ S 系列高级套餐提供高级美型功能，适用于对脸部美颜调整需
 | 平台 | SDK 下载 | 集成指引 | 
 |---------|---------|--------|
 | Flutter|  [ZIP]( https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Flutter/Latest/SDK.zip) | [DOC](https://cloud.tencent.com/document/product/616/81196)|
+
+
