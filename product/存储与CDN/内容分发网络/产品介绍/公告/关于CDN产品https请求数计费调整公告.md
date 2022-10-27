@@ -28,7 +28,7 @@ HTTPS 计费面向 CDN 开启证书配置产生 HTTPS 服务的用户，包括�
 
 
 ## FAQ
-### 什么情况会产生HTTPS计费？
+### 什么情况会产生 HTTPS 计费？
 当您的域名配置了证书且使用 HTTPS 请求服务，且 HTTPS 请求数每月超出300万次，则会产生 HTTPS 费用。
 ![](https://qcloudimg.tencent-cloud.cn/raw/c62ac55ed4a4a8e9174103cf3c8c47b2.png)
 
