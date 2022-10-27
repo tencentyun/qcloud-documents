@@ -161,6 +161,8 @@ SuperPlayerModel model = SuperPlayerModel();
 model.appId = 1500005830;
 model.videoId = new SuperPlayerVideoId();
 model.videoId.fileId = "8602268011437356984";
+// psign 即播放器组件签名，签名介绍和生成方式参见链接：https://cloud.tencent.com/document/product/266/42436
+model.videoId.pSign = "psignXXX" // 通过fileId播放必须填写
 _controller.playWithModelNeedLicence(model);
 ```
 
