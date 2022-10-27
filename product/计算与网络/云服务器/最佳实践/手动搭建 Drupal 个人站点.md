@@ -53,7 +53,7 @@ wget -P sites/default/files/translations https://ftp.drupal.org/files/translatio
 ```shellsession
 vi /etc/httpd/conf/httpd.conf
 ```
-2. 按 “**i**” 切换至编辑模式，找到 `Directory "/var/www/html"></Directory>` 中的 `AllowOverride None` 并替换为以下内容：
+2. 按 “**i**” 切换至编辑模式，找到 `<Directory "/var/www/html"></Directory>` 中的 `AllowOverride None` 并替换为以下内容：
 ```shellsession
 AllowOverride All
 ```
