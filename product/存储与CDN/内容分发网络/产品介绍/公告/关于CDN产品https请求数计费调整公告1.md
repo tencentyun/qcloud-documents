@@ -49,5 +49,5 @@ CDN 控制台可提供 HTTPS 请求数量，具体操作步骤如下：
 2.  若关闭了证书配置且已配置强制跳转 HTTP->HTTPS，也需一起关闭，操作如下图：
 ![](https://qcloudimg.tencent-cloud.cn/raw/d305c912dc59cdb4e68d94f035aabd20.png)
 单击**配置状态**开关进行关闭，等待部署完成。
-3. 若域名原来一直提供HTTPS服务，关闭证书后，为了避免HTTPS服务被拒绝，建议在「强制跳转」配置为Https->Http。
+3. 若域名原来一直提供 HTTPS 服务，关闭证书后，为了避免 HTTPS 服务被拒绝，建议在「强制跳转」配置为 HTTP->HTTPS。
 ![](https://qcloudimg.tencent-cloud.cn/raw/eff783907062b745ecf1caa498795ad4.png)
