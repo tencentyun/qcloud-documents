@@ -168,7 +168,7 @@ S 系列高级套餐提供高级美型功能，适用于对脸部美颜调整需
 <td rowspan=3><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.5.0.205/xmagic_ALL_android_2.5.0.205.zip">DOWNLOAD</a></td>
 <td rowspan=3><ul style="margin:0">
 		<li><a href="https://cloud.tencent.com/document/product/616/81918">Android Avatar 文档</a></li>
-		<li>iOS Avatar 文档</li>
+		<li><a href="https://cloud.tencent.com/document/product/616/81996">iOS Avatar 文档</a></li>
 		</ul></td>
 <td rowspan=3><b>iOS 包大小：</b><ul style="margin:0"><li>arm64：6.4m</li><li>bundle：31.9m</li></ul><br>
 <b>Android 包大小：</b><ul style="margin:0"><li>arm64-v8a：30.5MB</li><li>armeabi-v7a：23.4MB</li><li>assets：68.7MB</li><li>aar：1.2MB</li></ul></td>
