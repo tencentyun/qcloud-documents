@@ -1,4 +1,4 @@
- 腾讯特效 SDK 提供了14种版本的 SDK，分别为 6 种基础版 SDK、5 种高级版 SDK、3种虚拟人 SDK。了解 14 个版本 SDK 的关系和各版本功能差异请参见 [计费概述](https://cloud.tencent.com/document/product/616/36807)。
+ 腾讯特效 SDK 提供了16种版本的 SDK，分别为 6 种基础版 SDK、5 种高级版 SDK、3种虚拟人 SDK 和2种 X 系列原子能力。了解 16 个版本 SDK 的关系和各版本功能差异请参见 [计费概述](https://cloud.tencent.com/document/product/616/36807)。
 
 ## 移动端 SDK
 
