@@ -204,7 +204,8 @@ X 系列提供单独的算法能力，集成更加灵活，业务拓展性更高
 	<br><b>Android 包大小：</b>
 		<li>arm64-v8a：23.4MB</li>
 		<li>armeabi-v7a：18.4MB</li>
-		<li>assets：11.6MBaar：1.2MB</li>
+		<li>assets：11.6MB</li>
+		<li>aar：1.2MB</li>
 </td>
 </tr>
 <tr>
