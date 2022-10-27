@@ -161,8 +161,8 @@ SuperPlayerModel model = SuperPlayerModel();
 model.appId = 1500005830;
 model.videoId = new SuperPlayerVideoId();
 model.videoId.fileId = "8602268011437356984";
-// psign 即播放器组件签名，签名介绍和生成方式参见链接：https://cloud.tencent.com/document/product/266/42436
-model.videoId.pSign = "psignXXX" // 通过fileId播放必须填写
+// psign 即播放器签名，签名介绍和生成方式参见链接：https://cloud.tencent.com/document/product/266/42436
+model.videoId.pSign = "psignXXX"
 _controller.playWithModelNeedLicence(model);
 ```
 
@@ -222,13 +222,13 @@ _controller.playWithModelNeedLicence(model);
 | videoDescription | String | 视频描述 |
 | videoMoreDescription | String | 视频详细描述 |
 | playAction | int | action 包括 PLAY_ACTION_AUTO_PLAY、PLAY_ACTION_MANUAL_PLAY和PLAY_ACTION_PRELOAD，以下对参数含义会有详细介绍 |
- 
+
 2. SuperPlayerVideoId
 
 | 参数名 | 类型   | 描述               |
 | ------ | ------ | ------------------ |
 | fileId | String | 文件 id。必填 |
-| psign | String | v4 开启防盗链必填 |
+| psign | String | 播放器签名，签名介绍和生成方式参见链接：https://cloud.tencent.com/document/product/266/42436 |
 
 3. playAction
 
