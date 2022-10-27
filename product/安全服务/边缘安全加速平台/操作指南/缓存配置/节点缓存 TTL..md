@@ -9,7 +9,7 @@
 3. 在节点缓存 TTL 弹窗中，选择所需行为模式，单击**保存**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/ec756b72c67ef9ae47a086a29e91f78f.png)
   **参数说明：**
-    - 遵循源站（默认配置）：遵循源站的 Cache-Control 头部或 Last-Modified 头部。
+    - 遵循源站（默认配置）：遵循源站的 Cache-Control 头部。
     - 不缓存：不在节点缓存资源。
     - 自定义时间：自定义资源缓存时长。
 

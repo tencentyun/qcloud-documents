@@ -36,7 +36,7 @@ Windows 操作系统的本地计算机通过远程桌面登录 Windows 轻量应
 3. 在打开的窗口中，选择**已启用**，单击“选项”中的**显示**，在弹出窗口中输入 `TERMSRV/*`，并单击**确定**。如下图所示：
 ![](https://main.qcloudimg.com/raw/6ac18ce645ca0366d02c8f1b23a324e4.png)
 4. 单击**确定**。
-5. 在操作系统界面，单击 <img src="https://main.qcloudimg.com/raw/f0c84862ef30956c201c3e7c85a26eec.png" style="margin:-3px 0px">，打开 “Windows PowerShell” 窗口。
+5. 在您本地计算机的 Windows 界面，单击 <img src="https://main.qcloudimg.com/raw/f0c84862ef30956c201c3e7c85a26eec.png" style="margin:-3px 0px">，打开 “Windows PowerShell” 窗口。
 6. 在 “Windows PowerShell” 窗口中，输入 **gpupdate /force**，并按 **Enter** 更新组策略。如下图所示：
 ![](https://main.qcloudimg.com/raw/13554054a53501ff53699c55b7f55da3.png)
 7. 重新登录 Windows 轻量应用服务器，验证是否可成功登录。

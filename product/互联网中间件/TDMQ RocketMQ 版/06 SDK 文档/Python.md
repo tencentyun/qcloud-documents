@@ -84,8 +84,14 @@ from rocketmq.client import Producer, Message
 <td align="left">角色密钥，在 <strong><a href="https://console.cloud.tencent.com/tdmq/role">角色管理</a></strong> 页面复制<strong>密钥</strong>列复制。<img src="https://main.qcloudimg.com/raw/52907691231cc11e6e4801298ba90a6c.png" alt="img"></td>
 </tr>
 <tr>
-<td align="left">topicName</td>
-<td align="left">topicName 是<code>命名空间全称</code>+<code>%</code>+<code>topic 名称</code>。<li> 命名空间全称在控制台集群管理中 <code>Topic</code> 页签中页面复制，格式是**集群 ID +</li></td>
+        <td>topicName</td>
+        <td>topicName 是<code>命名空间全称</code>+<code>%</code>+<code>topic 名称</code>。
+				<ul style = "margin-bottom: 0px;"><li>命名空间全称可在控制台集群管理命名空间页签中复制，格式是<code>集群 ID</code> +<code>｜</code>+<code>命名空间</code>。
+            <img src = "https://qcloudimg.tencent-cloud.cn/raw/c483d23c09d2f728aaa08b195d9ddd40.png" style="width: 100%"></li><li>Topic 名称在控制台集群管理命名空间页签中复制具体 Topic 名称。
+            <img src = "https://qcloudimg.tencent-cloud.cn/raw/4b096254ae2fa8db0f45c1f864718915.png" style="width: 100%">
+						</li>
+						</ul>
+        </td>
 </tr>
 <tr>
 <td align="left">TAGS</td>

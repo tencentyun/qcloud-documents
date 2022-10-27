@@ -70,11 +70,11 @@ CDN 服务器接受到客户请求后，解析出 url 中的 timestamp 参数 + 
 </tr>
 </tbody></table>
 	- 拼接签名串：dimtm5evg50ijsx2hvuwyfoiu655e577978/test.jpg
-	- 计算签名串的 md5 值：md5hash = md5sum(pkeytimestampuri) =md5sum(dimtm5evg50ijsx2hvuwyfoiu655e577978/test.jpg) = ea68b93ac23ebbc6eebf7f163c6e9c4c
+	- 计算签名串的 md5 值：md5hash = md5sum(pkeytimestampuri) =md5sum(dimtm5evg50ijsx2hvuwyfoiu655e577978/test.jpg) = 33735d9a40ae17b0d3401abf82ffb222
 
 -   **生成鉴权 URL：**
-`http://cloud.tencent.com/ea68b93ac23ebbc6eebf7f163c6e9c4c/1582791032/test.jpg` 
-当客户端通过加密URL进行访问时，如果 CDN 服务器计算出来的 md5hash 值与访问请求中带的 md5hash 值相同，都为ea68b93ac23ebbc6eebf7f163c6e9c4c，则鉴权通过，反之鉴权失败。
+`http://cloud.tencent.com/33735d9a40ae17b0d3401abf82ffb222/5e577978/test.jpg` 
+当客户端通过加密URL进行访问时，如果 CDN 服务器计算出来的 md5hash 值与访问请求中带的 md5hash 值相同，都为33735d9a40ae17b0d3401abf82ffb222，则鉴权通过，反之鉴权失败。
 
 ## 注意事项 
 

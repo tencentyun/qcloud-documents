@@ -46,26 +46,6 @@ CheckDeviceMuteState();
 
 返回值为 0 代表关闭物理静音键，返回值为 1 代表打开物理静音键。
 
-### 检查麦克风设备状态
-
-<dx-alert infotype="explain" title="说明">
-此接口在 GME 2.8.4 以上版本 SDK 上生效
-</dx-alert>
-
-#### 函数原型
-
-```
-TestMic();
-```
-
-#### 返回值处理
-
-| 返回值                               | 含义                | 处理                                                         |
-| ------------------------------------ | ------------------- | ------------------------------------------------------------ |
-| ITMG_TEST_MIC_STATUS_AVAILABLE = 0   | 正常可用            | 无需处理                                                     |
-| ITMG_TEST_MIC_STATUS_NO_GRANTED = 2  | 未获得/拒绝授权权限 | 需要在打开麦克风之前获取下权限                               |
-| ITMG_TEST_MIC_STATUS_INVALID_MIC = 3 | 没有可用的设备      | 一般是 PC 设备上，没有可用的麦克风设备会报此错误，请提示插入耳机或麦克风 |
-| ITMG_TEST_MIC_STATUS_NOT_INIT = 5    | 没有初始化          | 在Init之后调用 EnableMic 接口                                |
 
 ### 设置 Android 蓝牙设备适配
 
