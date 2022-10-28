@@ -15,7 +15,7 @@
 ## 调整范围
 面向腾讯云 CDN 用户，加速类型为「内容分发网络 CDN」的域名，不包含加速类型为「全站加速网络 ECDN」的域名，如下图：
 ![](https://qcloudimg.tencent-cloud.cn/raw/b6a9efebab2ce586e40e147c9f3f5257.png)
-用户可以域名列表查看域名归属的加速类型，如下图：
+在域名列表可查看域名归属的加速类型，如下图：
 ![](https://qcloudimg.tencent-cloud.cn/raw/c9c1b644518e5ab5244d3052740c95cb.png)
 
 ## 调整时间
