@@ -201,12 +201,15 @@ public class AppAuthJavaDemo {
 ::: form 请求方式示例代码
 <dx-codeblock>
 :::  java
+package com.example.demo;
+
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.StringEntity;
+import org.apache.http.entity.ContentType;
+import org.apache.http.entity.mime.MultipartEntityBuilder;
+import org.apache.http.entity.mime.content.FileBody;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
@@ -214,11 +217,13 @@ import org.apache.http.util.EntityUtils;
 import javax.crypto.Mac;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
+import java.io.File;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-public class AppAuthJavaFormDemo {
+public class AppAuthDemo {
+
     private static final String MAC_NAME = "HmacSHA1";
     private static final String ENCODING = "UTF-8";
     private static final String HTTP_METHOD_GET = "GET";
@@ -276,41 +281,21 @@ public class AppAuthJavaFormDemo {
     }
 
 
+
     public static void main(String[] args) throws Exception {
         String environment = "";
-        String url = "http://service-xxxxxxx-xxxxxxxxxx.cq.apigw.tencentcs.com/appParam?name=clare&password=333";
-        String host = "service-xxxxxxx-xxxxxxxxxx.cq.apigw.tencentcs.com";
-        String apiAppKey = "APIDoMSRiefxxxxxxxxxxxxGz6AEEaFB";
-        String apiAppSecret = "I0IDUmr6xxxxxxxxxxxxxx3C5GUsN2Rjvp";
+        String url = "http://service-xxxx-xxxx.gz.apigw.tencentcs.com:80/";
+        String host = "service-xxxx-xxxx.gz.apigw.tencentcs.com";
+        String apiAppKey = "";
+        String apiAppSecret = "";
         String httpMethod = "POST";
-        String acceptHeader = "application/json";
-
-        String reqBody = "";
-        String contentType = "application/x-www-form-urlencoded";
-        String contentMD5 = "";
-
-        if (httpMethod.toUpperCase() == HTTP_METHOD_POST) {
-            // Parse form data and assemble request body
-            Map<String, String> reqBodyMap = new TreeMap<>();
-            reqBodyMap.put("type", "fruit");
-            reqBodyMap.put("fruitname", "apple");
-
-            StringBuffer reqBodyBuffer = new StringBuffer();
-            for (Map.Entry<String, String> e : reqBodyMap.entrySet()) {
-                reqBodyBuffer.append(e.getKey());
-                reqBodyBuffer.append("=");
-                reqBodyBuffer.append(e.getValue());
-                reqBodyBuffer.append("&");
-            }
-            reqBody = reqBodyBuffer.toString();
-            reqBody = reqBody.substring(0, reqBody.length() - 1);
-        }
-
-        // ContentType should be empty if request body is not present
-        if (reqBody.length() == 0) {
-            contentType = "";
-            reqBody = "";
-        }      
+        String acceptHeader =     ContentType.APPLICATION_OCTET_STREAM.toString();
+        String contentType =  ContentType.APPLICATION_OCTET_STREAM.toString();
+        MultipartEntityBuilder builder = MultipartEntityBuilder.create();
+        FileBody file = new FileBody(new File("demo.file"));
+        builder.addPart("file", file);
+        HttpEntity entity = builder.build();
+        String contentMD5 = base64Encode(DigestUtils.md5Hex(entity.getContent()).getBytes());
 
         // Parse URL and assemble string to sign
         URL parsedUrl = new URL(url);
@@ -319,44 +304,23 @@ public class AppAuthJavaFormDemo {
             pathAndParams = pathAndParams.substring(pathAndParams.indexOf(environment) + environment.length());
         }
 
-        String queryParams = "";
         if (parsedUrl.getQuery() != null) {
-            queryParams = parsedUrl.getQuery();
+            pathAndParams = pathAndParams + "?" + sortQueryParams(parsedUrl.getQuery());
         }
-        if (reqBody != "" && reqBody.length() > 0){
-            if(queryParams.length() > 0){
-                queryParams = queryParams + "&" + reqBody;
-            } else {
-                queryParams = reqBody;
-            }
-        }
-        if (queryParams != ""){
-            pathAndParams = pathAndParams + "?" + sortQueryParams(queryParams);
-        }
+
+        System.out.println("pathAndParams:"+ pathAndParams);
 
         String xDate = getGMTTime();
         String stringToSign = String.format("x-date: %s\n%s\n%s\n%s\n%s\n%s", xDate, httpMethod, acceptHeader, contentType, contentMD5, pathAndParams);
-        System.out.println("stringToSign:" + stringToSign);
-
         // Encode string with HMAC and base64
         byte[] hmacStr = HmacSHA1Encrypt(stringToSign, apiAppSecret);
         String signature = base64Encode(hmacStr);
         String authHeader = String.format("hmac id=\"%s\", algorithm=\"hmac-sha1\", headers=\"x-date\", signature=\"%s\"", apiAppKey, signature);
 
+        System.out.println(stringToSign);
         // Generate request
         CloseableHttpClient httpClient = HttpClients.createDefault();
         CloseableHttpResponse response = null;
-
-        // Send request
-        if (httpMethod.toUpperCase() == HTTP_METHOD_GET) {
-            HttpGet httpGet = new HttpGet(url);
-            httpGet.setHeader("Accept", acceptHeader);
-            httpGet.setHeader("Host", host);
-            httpGet.setHeader("x-date", xDate);
-            httpGet.setHeader("Authorization", authHeader);
-            response = httpClient.execute(httpGet);
-        }
-
         if (httpMethod.toUpperCase() == HTTP_METHOD_POST) {
             HttpPost httpPost = new HttpPost(url);
             httpPost.setHeader("Accept", acceptHeader);
@@ -365,20 +329,21 @@ public class AppAuthJavaFormDemo {
             httpPost.setHeader("Content-Type", contentType);
             httpPost.setHeader("Content-MD5", contentMD5);
             httpPost.setHeader("Authorization", authHeader);
-            StringEntity stringEntity = new StringEntity(reqBody, ENCODING);
-            httpPost.setEntity(stringEntity);
+            httpPost.setEntity(entity);
             response = httpClient.execute(httpPost);
         }
 
         // Receive response
         HttpEntity responseEntity = response.getEntity();
-
         if (responseEntity != null) {
             System.out.println("Response status code: " + response.getStatusLine());
             System.out.println("Response body: " + EntityUtils.toString(responseEntity));
         }
     }
+
 }
+
+
 :::
 </dx-codeblock>
 :::
