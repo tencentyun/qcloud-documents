@@ -165,7 +165,7 @@ S 系列高级套餐提供高级美型功能，适用于对脸部美颜调整需
 <tbody><tr>
 <td>V1 - 00</td>
 <td rowspan=3><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.5.0.224/xmagic_res_all_ios.zip">DOWNLOAD</a></td>
-<td rowspan=3><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.5.0.205/xmagic_ALL_android_2.5.0.205.zip">DOWNLOAD</a></td>
+<td rowspan=3><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/latest/xmagic_ALL_android_latest.zip">DOWNLOAD</a></td>
 <td rowspan=3><ul style="margin:0">
 		<li><a href="https://cloud.tencent.com/document/product/616/81918">Android Avatar 文档</a></li>
 		<li><a href="https://cloud.tencent.com/document/product/616/81996">iOS Avatar 文档</a></li>
@@ -195,7 +195,7 @@ X 系列提供单独的算法能力，集成更加灵活，业务拓展性更高
 <tbody><tr>
 <td>X1 - 01</td>
 <td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.5.0.224/xmagic_x1_01.zip">DOWNLOAD</a></td>
-<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.5.0.205/xmagic_X1-01_android_2.5.0.205.zip">DOWNLOAD</a></td>
+<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/latest/xmagic_X1-01_android_latest.zip">DOWNLOAD</a></td>
 <td><a href="https://cloud.tencent.com/document/product/616/81997">人像分割</a></td>
 <td>
 	<b>iOS 包大小：</b>
@@ -210,7 +210,7 @@ X 系列提供单独的算法能力，集成更加灵活，业务拓展性更高
 <tr>
 <td>X1 - 02</td>
 <td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.5.0.224/xmagic_x1_02.zip">DOWNLOAD</a></td>
-<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.5.0.205/xmagic_X1-02_android_2.5.0.205.zip">DOWNLOAD</a></td>
+<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/latest/xmagic_X1-02_android_latest.zip">DOWNLOAD</a></td>
 <td><a href="https://cloud.tencent.com/document/product/616/81998">人脸点位</a></td>
 <td>
 	<b>iOS 包大小：</b>
