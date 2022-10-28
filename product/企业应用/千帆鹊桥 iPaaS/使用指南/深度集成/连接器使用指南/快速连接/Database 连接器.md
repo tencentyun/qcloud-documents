@@ -22,8 +22,7 @@ Database 连接器目前支持的数据库有：MySQL、Oracle、PostgreSQL、SQ
 ![image-20210322164328964](https://main.qcloudimg.com/raw/98c6f0f4afc3899b27c176274daf0fb8/database1.png)
 
 ## 操作说明
-
-Database 连接器目前支持查询、插入、更新、删除、批量插入、批量合并、批量删除、存储过程（目前仅支持 SQL Server）操作。
+Database 连接器目前支持查询、插入、更新、删除、批量插入、批量合并、批量删除、存储过程（目前仅支持 SQL Server）操作。在配置连接器和集成流数据流转过程中，数据库字段类型与数据连接器 iPaaS 字段类型的映射关系见 [附录](#appendix)。
 
 ### 查询操作
 <dx-tabs>
@@ -798,8 +797,9 @@ Database 连接器目前支持查询、插入、更新、删除、批量插入�
 ![image-20210323145701162](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/img/Database/database26.png)
 
 
+[](id:appendix)
 ## 附录
-iPaaS Database 连接器会根据数据库字段类型将数据库字段值转换为数据连接器的 [核心类型](https://cloud.tencent.com/document/product/1270/73950#core-types)：
+Database 连接器会根据数据库字段类型将数据库字段值转换为数据连接器的 [核心类型](https://cloud.tencent.com/document/product/1270/73950#core-types)：
 MySQL 数据库与数据连接器的字段映射：
 
 | MySQL 字段    | iPaaS 数据类型 |
@@ -833,7 +833,7 @@ MySQL 数据库与数据连接器的字段映射：
 | LONGTEXT   | 字符串       |
 | JSON       | 字符串       |
 
-iPaaS Database 连接器不支持 MySQL 的空间数据类型、ENUM 类型、SET 类型的处理，对于不支持的 MySQL 字段类型统一按照字符串类型进行映射。
+Database 连接器不支持 MySQL 的空间数据类型、ENUM 类型、SET 类型的处理，对于不支持的 MySQL 字段类型统一按照字符串类型进行映射。
 Oracle 数据库与数据连接器的字段映射：
 
 | Oracle 字段                       | iPaaS 数据类型 |
@@ -860,4 +860,4 @@ Oracle 数据库与数据连接器的字段映射：
 | RAW                            | 字节数组      |
 | LONG RAW                       | 字节数组      |
 
-iPaaS Database 连接器不支持 Oracle 的 INTERVAL DAY TO SECOND 类型、INTERVAL YEAR TO MONTH 类型、ROWID 类型、UROWID 类型、ANSI, DB2 和 SQL/DS 数据类型、用户自定义等数据类型的处理，对于不支持的 Oracle 字段类型统一按照字符串类型进行映射。
+Database 连接器不支持 Oracle 的 INTERVAL DAY TO SECOND 类型、INTERVAL YEAR TO MONTH 类型、ROWID 类型、UROWID 类型、ANSI, DB2 和 SQL/DS 数据类型、用户自定义等数据类型的处理，对于不支持的 Oracle 字段类型统一按照字符串类型进行映射。

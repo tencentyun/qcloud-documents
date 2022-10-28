@@ -2,7 +2,7 @@
 
 ## 接口描述
 本接口服务采用 websocket 协议，对实时音频流进行识别，同步返回识别结果，达到“边说边出文字”的效果。
-在使用该接口前，需要在语音识别控制台开通服务，并进入 [API 密钥管理页面](https://console.cloud.tencent.com/cam/capi) 新建密钥，生成 AppID、SecretID 和 SecretKey，用于 API 调用时生成签名，签名将用来进行接口鉴权。
+在使用该接口前，需要 [开通语音识别服务](https://cloud.tencent.com/document/product/1093/54362)，并进入 [API 密钥管理页面](https://console.cloud.tencent.com/cam/capi) 新建密钥，生成 AppID、SecretID 和 SecretKey，用于 API 调用时生成签名，签名将用来进行接口鉴权。
 
 ## 接口要求
 集成实时语音识别 API 时，需按照以下要求。

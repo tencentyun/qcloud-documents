@@ -17,10 +17,27 @@
 | iOS | 支持 | 支持 |
 | Android | 支持 | 支持 |
 | [Web](#web) | 支持，4.1.1+2版本起 | 支持，0.1.5版本起 |
-| [macOS](#pc) | 支持，4.1.8版本起 | 即将上线 |
-| [Windows](#pc) | 支持，4.1.8版本起 | 即将上线 |
+| [macOS](#pc) | 支持，4.1.9版本起 | 即将上线 |
+| [Windows](#pc) | 支持，4.1.9版本起 | 即将上线 |
 
 >? Web/macOS/Windows 平台需要简单的几步额外引入，详情请查看本文 [第七部分](#web) 和 [第八部分](#pc)。
+
+## 体验 DEMO
+
+在开始接入前，您可以体验我们的 DEMO，快速了解腾讯云 IM Flutter 跨平台 SDK 及 TUIKit 的能力。
+
+**以下各版本 DEMO，均由同一 Flutter 项目引入TUIKit 制作打包而成。** Desktop(macOS/Windows)平台，SDK 已支持，DEMO 将于近期上线。
+
+<table style="text-align:center; vertical-align:middle; max-width: 800px">
+  <tr>
+    <th style="text-align:center;">移动端 APP</th>
+    <th style="text-align:center;">WEB - H5</th>
+  </tr>
+  <tr>
+    <td><div style="display: flex; justify-content: center; align-items: center; flex-direction: column; padding-top: 10px">iOS/Android APP，自动判断平台下载<img style="max-width:200px; margin: 20px 0 20px 0" src="https://qcloudimg.tencent-cloud.cn/raw/ca2aaff551410c74fce48008c771b9f6.png"/></div></td>
+    <td><div style="display: flex; justify-content: center; align-items: center; flex-direction: column; padding-top: 10px">手机扫码体验在线Web版DEMO<img style="max-width:200px; margin: 20px 0 20px 0" src="https://qcloudimg.tencent-cloud.cn/raw/3c79e8bb16dd0eeab35e894a690e0444.png"/></div></td>
+	 </tr>
+</table>
 
 ## 前提条件
 
@@ -713,10 +730,10 @@ flutter pub add tencent_im_sdk_plugin_web
 ![](https://qcloudimg.tencent-cloud.cn/raw/f88ddfbdc79fb7492f3ce00c2c583246.png)
 
 ## 第八部分：Flutter for Desktop(PC) 支持[](id:pc)
-我们的无 UI SDK(tencent_im_sdk_plugin) 4.1.8 版本起，可完美兼容 macOS、Windows 端。相比 Android 和 iOS 端，需要一些额外步骤。如下：
+我们的无 UI SDK(tencent_im_sdk_plugin) 4.1.9 版本起，可完美兼容 macOS、Windows 端。相比 Android 和 iOS 端，需要一些额外步骤。如下：
 
 ### 升级 Flutter 3.x 版本
-从 Flutter 3.0 版本起，才可完美兼容 desktop 端，因此，如需使用，请升级至 Flutter 3.x 版本。
+从 Flutter 3.0 版本起，才可用于打包 desktop 端，因此，如需使用，请升级至 Flutter 3.x 版本。
 
 ### 引入 Flutter for Desktop 增补 SDK
 
