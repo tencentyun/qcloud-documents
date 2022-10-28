@@ -5,7 +5,7 @@
 
 ## 播放器 SDK
 
-### 播放器 SDK 10.8@ 2022.10.27
+### 播放器 SDK 10.8 @ 2022.10.27
 **功能优化:**
 - Android&iOS：循环播放单轮结束增加 VOD_PLAY_EVT_LOOP_ONCE_COMPLETE 事件
 -  Android：合规优化启动时调用2次：NetworkInfo.getExtraInfo 问题
