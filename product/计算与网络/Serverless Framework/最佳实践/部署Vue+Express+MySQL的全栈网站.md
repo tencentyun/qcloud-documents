@@ -32,7 +32,7 @@ npm update -g serverless-cloud-framework
 通过如下命令直接下载该模板：
 
 ```bash
-scf init fullstack-mysql --name example
+scf init fullstack --name example
 cd example
 ```
 
