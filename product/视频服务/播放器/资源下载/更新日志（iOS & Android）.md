@@ -5,6 +5,18 @@
 
 ## 播放器 SDK
 
+### 播放器 SDK 10.8@ 2022.10.27
+**功能优化:**
+- Android&iOS：循环播放单轮结束增加VOD_PLAY_EVT_LOOP_ONCE_COMPLETE事件
+-  Android：合规优化启动时调用2次：NetworkInfo.getExtraInfo问题
+
+**缺陷修复**: 
+- Android&iOS：修复特殊场景导致私有加密视频播放失败问题
+- Andoird&iOS：修复部分视频通过gzip传输播放失败问题
+- Andoird&iOS：修复播放结束后进度条时长不匹配问题
+- iOS：修复appid&fileid播放v2协议取视频源地址错误问题
+
+
 ### 播放器 SDK 10.7 @ 2022.09.20
 
 **功能优化:**
