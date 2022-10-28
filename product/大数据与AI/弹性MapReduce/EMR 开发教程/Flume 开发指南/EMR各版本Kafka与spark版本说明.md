@@ -1,5 +1,5 @@
 ### 依赖关系
->!从 Spark2.3 起不再支持 Kafka0.8.2。
+>! Spark 从2.3 起不再支持 Kafka0.8.2，EMR 现网版本已集成 Spark2.4.3及以上版本，需要集成 kafka 0.10.0及更高版本。
 >
 
 | EMR 版本 | Spark | Kafka               | maven example                   |
@@ -14,9 +14,9 @@
 ```
 https://spark.apache.org/docs/{spark.version}/streaming-kafka-integration.html
 ```
-将 `{spark.version}` 替换为对应的 Spark 版本。例如查看2.0.2版本的依赖关系，访问链接如下：
+将 `{spark.version}` 替换为对应的 Spark 版本。例如查看3.2.2版本的依赖关系，访问链接如下：
 ```
-https://spark.apache.org/docs/2.0.2/streaming-kafka-integration.html
+https://spark.apache.org/docs/3.2.2/streaming-kafka-integration.html
 ```
-2. 查看依赖，单击相应链接可看到详细说明。
-![](https://main.qcloudimg.com/raw/490029cb98805a5c1a861adbc1ec2f70.png)
+2. 单击相应链接可看到详细集成说明。
+![](https://qcloudimg.tencent-cloud.cn/raw/652cc1ceb647278672314c2a552c316a.png)
