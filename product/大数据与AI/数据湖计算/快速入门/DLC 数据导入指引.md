@@ -7,7 +7,7 @@
 - 如您需要将日志服务 CLS 内的日志导入进行分析，可按照分区直接将日志投递到对象存储 COS 后通过数据湖计算 DLC 直接进行分析查询。相关操作可参见 [使用 DLC（Hive）分析 CLS 日志](https://cloud.tencent.com/document/product/614/74783)。
 - 如您需要将其他云服务（如数据库 CDB 等）数据导入对象存储 COS ，可以使用数据集成 DataInLong 进行导入。创建数据同步链路时，数据源选择需导出的云服务，目的端选择对象存储 COS 即可完成数据的导入。更多关于数据集成服务的使用介绍可参见 [数据集成](https://cloud.tencent.com/document/product/1580/73382)。
 
-您在进行数据导入时，如遇到问题，可以通过提交工单咨询我们为您提供解决方案。
+您在进行数据导入时，如遇到问题，可以通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 咨询我们为您提供解决方案。
 将数据导入到 COS 后，您可通过数据湖计算 DLC 控制台、API、SDK 进行 SQL 查询，实现建表、分析、结果导出等操作，详细操作可参见 [一分钟入门 DLC 数据分析](https://cloud.tencent.com/document/product/1342/72493)。
 
 ## 数据导入原生表[](id:数据代入原生表)
