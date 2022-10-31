@@ -321,17 +321,21 @@ mSuperPlayerView.playWithModelNeedLicence(model);
 :::  java
 //在未开启防盗链进行播放的过程中，如果出现了“no v4 play info”异常，建议您使用Adaptive-HLS(10)转码模板对视频进行转码，或直接获取源视频播放链接通过url方式进行播放。
 
-SuperPlayerModel *model = [[SuperPlayerModel alloc] init];
+```java
+SuperPlayerModel model = new SuperPlayerModel();
 model.appId = 1400329071;// 配置 AppId
-model.videoId = [[SuperPlayerVideoId alloc] init];
-model.videoId.fileId = @"5285890799710173650"; // 配置 FileId
-//私有加密播放需填写 psign， psign 即播放器组件签名，签名介绍和生成方式参见链接：https://cloud.tencent.com/document/product/266/42436
-//model.videoId.pSign = @"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6MTQwMDMyOTA3MSwiZmlsZUlkIjoiNTI4NTg5MDc5OTcxMDE3MzY1MCIsImN1cnJlbnRUaW1lU3RhbXAiOjEsImV4cGlyZVRpbWVTdGFtcCI6MjE0NzQ4MzY0NywidXJsQWNjZXNzSW5mbyI6eyJ0IjoiN2ZmZmZmZmYifSwiZHJtTGljZW5zZUluZm8iOnsiZXhwaXJlVGltZVN0YW1wIjoyMTQ3NDgzNjQ3fX0.yJxpnQ2Evp5KZQFfuBBK05BoPpQAzYAWo6liXws-LzU"; 
-[_playerView playWithModelNeedLicence:model];
+model.videoId = new SuperPlayerVideoId();
+model.videoId.fileId = "5285890799710173650"; // 配置 FileId
+// psign 即播放器签名，签名介绍和生成方式参见链接：https://cloud.tencent.com/document/product/266/42436
+model.videoId.pSign = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6MTQwMDMyOTA3MSwiZmlsZUlkIjoiNTI4NTg5MDc5OTcxMDE3MzY1MCIsImN1cnJlbnRUaW1lU3RhbXAiOjEsImV4cGlyZVRpbWVTdGFtcCI6MjE0NzQ4MzY0NywidXJsQWNjZXNzSW5mbyI6eyJ0IjoiN2ZmZmZmZmYifSwiZHJtTGljZW5zZUluZm8iOnsiZXhwaXJlVGltZVN0YW1wIjoyMTQ3NDgzNjQ3fX0.yJxpnQ2Evp5KZQFfuBBK05BoPpQAzYAWo6liXws-LzU";
+mSuperPlayerView.playWithModelNeedLicence(model);
+```
+
 :::
 </dx-codeblock>
 :::
 </dx-tabs>
+
 3. **退出播放**[](id:exitPlayer)
 当不需要播放器时，调用`resetPlayer`清理播放器内部状态，释放内存。
 ```java

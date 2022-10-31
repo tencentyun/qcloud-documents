@@ -1,5 +1,5 @@
 ## 操作场景
-本文主要介绍如何通过 Serverless Framework 的多个组件结合使用，快速部署一个全栈网站。
+本文主要介绍如何通过 Serverless Cloud Framework 的多个组件结合使用，快速部署一个全栈网站。
 
 该项目主要包含以下模块：
 
@@ -12,27 +12,15 @@
 
 ## 操作步骤
 
-### 1. 安装 Serverless Framework
-通过 npm 全局安装 Serverless Framework：
-
-```
-npm install -g serverless
-```
-
-如果之前您已经安装过 Serverless Framework，可以通过下列命令升级到最新版：
-
-```
-npm update -g serverless
-```
-
-安装完毕后，通过运行 `serverless -v` 命令，查看 Serverless Framework 的版本信息，如果有版本信息返回，则已经安装成功。
+### 1. 安装 Serverless Cloud Framework
+通过 npm 安装最新版本的 Serverless Cloud Framework，详情见 [安装 Serverless Cloud Framework](https://cloud.tencent.com/document/product/1154/42990)。
 
 ### 2. 初始化模板
 
 通过如下命令直接下载该模板：
 
 ```bash
-serverless init fullstack-mysql --name example
+scf init fullstack --name example
 cd example
 ```
 
@@ -77,7 +65,7 @@ ZONE=ap-shanghai-2
 在 `serverless.yml` 文件所在的项目根目录，运行以下指令，将会弹出二维码，直接扫码授权进行部署：
 
 ```bash
-sls deploy
+scf deploy
 ```
 >?如果鉴权失败，请参考 [权限配置](https://cloud.tencent.com/document/product/1154/43006) 进行授权。
 
@@ -94,5 +82,4 @@ TENCENT_SECRET_ID=123
 TENCENT_SECRET_KEY=123
 ```
 >?如果没有腾讯云账号，请先 [注册新账号](https://cloud.tencent.com/register)。
-
 
