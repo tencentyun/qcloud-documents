@@ -468,7 +468,8 @@ UI 组件全貌可参见 [本图文概览](https://cloud.tencent.com/document/pr
 flutter pub add tencent_im_sdk_plugin
 ```
 
-如果您的项目需要支持Web，请在执行后续步骤前，[查看 Web 兼容说明章节](#web)，引入 JS 文件。
+>? 
+> 如果您的项目还同时需要用于 [Web](#web) 或 [桌面端(macOS、Windows)](#pc)，一些额外的步骤是需要的，具体情况各自的链接。
 
 #### 完成 SDK 初始化
 

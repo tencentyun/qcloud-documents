@@ -48,6 +48,10 @@
 flutter pub add tencent_im_sdk_plugin
 ```
 
+>? 
+> 如果您的项目还同时需要用于 [Web](#web) 或 [桌面端(macOS、Windows)](#pc)，一些额外的步骤是需要的，具体请看文末。
+
+
 ### 在 pubspec.yaml 中写入
 ```
 dependencies:
