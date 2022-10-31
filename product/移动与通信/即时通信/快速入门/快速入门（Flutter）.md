@@ -729,6 +729,12 @@ flutter pub add tencent_im_sdk_plugin_web
 ```
 ![](https://qcloudimg.tencent-cloud.cn/raw/f88ddfbdc79fb7492f3ce00c2c583246.png)
 
+### 引入 Flutter for Web 增补 SDK
+
+```dart
+flutter pub add tencent_im_sdk_plugin_web
+```
+
 ## 第八部分：Flutter for Desktop(PC) 支持[](id:pc)
 我们的无 UI SDK(tencent_im_sdk_plugin) 4.1.9 版本起，可完美兼容 macOS、Windows 端。相比 Android 和 iOS 端，需要一些额外步骤。如下：
 

@@ -89,6 +89,12 @@ Flutter 3.x 版本 针对 Web 性能做了较多优化，强烈建议您使用�
 ```
 ![](https://qcloudimg.tencent-cloud.cn/raw/f88ddfbdc79fb7492f3ce00c2c583246.png)
 
+### 引入 Flutter for Web 增补 SDK
+
+```dart
+flutter pub add tencent_im_sdk_plugin_web
+```
+
 ## Flutter for Desktop(PC) 支持[](id:pc)
 
 我们的无 UI SDK(tencent_im_sdk_plugin) 4.1.9 版本起，可完美兼容 macOS、Windows 端。
