@@ -69,6 +69,6 @@ provider "tencentcloud" {
 ```
 :::
 </dx-tabs>
-4. 到此已完成 Terraform 安装和环境变量配置，可进行下一步：[通过 Terraform 创建站点](引用链接待生成)。
+4. 到此已完成 Terraform 安装和环境变量配置，可进行下一步：[通过 Terraform 创建站点]([引用链接待生成](https://cloud.tencent.com/document/product/1552/82136))。
 
 
