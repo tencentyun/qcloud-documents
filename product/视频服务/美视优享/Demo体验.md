@@ -6,7 +6,7 @@
 
 您可以直接下载我们的 Demo 进行功能体验。此外，还提供了美颜 Demo 工程以及场景化 Demo 工程，您可以根据当前项目需要进行针对性的调试。
 
->! 腾讯特效 TE iOS 平台 ZIP 包内囊括 **SDK** 和 **Demo 工程**，可前往下载 [iOS 端 ZIP 包](https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.5.0.224/demo.zip)。
+>! 腾讯特效 TE iOS 平台 ZIP 包内囊括 **SDK** 和 **Demo 工程**，可前往下载 [iOS 端 ZIP 包](https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/latest/demo.zip)。
 
 ### 美颜 Demo 展示
 
@@ -23,7 +23,7 @@
 <tr>
 <td>iOS</td>
 <td>升级维护中</a></td>
-<td> <a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.5.0.224/demo.zip">ZIP 包</a></td>
+<td> <a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/latest/demo.zip">ZIP 包</a></td>
 <td><a href="https://cloud.tencent.com/document/product/616/65894">DOC</a></td></tr>
 <tr>
 <td>Andriod</td>
@@ -69,7 +69,7 @@
 <td rowspan=2>直播 MLVB</td>
 <td>iOS</td>
 <td>升级维护中</td>
-<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.5.0.224/MLVB-API-Example.zip">ZIP 包</a></td>
+<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/latest/MLVB-API-Example.zip">ZIP 包</a></td>
 <td><a href="https://cloud.tencent.com/document/product/616/65887">DOC</a></td>
 </tr>
 <td>Andriod</td>
@@ -81,8 +81,7 @@
 <td rowspan=2>实时音视频 TRTC</td>
 <td>iOS</td>
 <td>升级维护中</td>
-<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.5.0.224/TRTC-API-Example.zip
-">ZIP 包</a></td>
+<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/latest/TRTC-API-Example.zip">ZIP 包</a></td>
 <td><a href="https://cloud.tencent.com/document/product/616/65892">DOC</a></td>
 </tr>
 <td>Andriod</td>
