@@ -5,7 +5,7 @@ EdgeOne DNS 支持多种记录类型的智能解析服务，根据用户所在�
 1. 登录 [边缘安全加速平台控制台](https://console.cloud.tencent.com/edgeone)，在左侧菜单栏中，单击**域名服务**。
 2. 在域名服务页面，选择所需站点，单击 **DNS 记录**。
 3. 在 DNS 记录页面，选择所需记录，单击**编辑**，编辑相关参数，单击**保存**。
-![](https://qcloudimg.tencent-cloud.cn/raw/5c310b6fd1d91ba64cf0aed423892285.png)
+![image](https://user-images.githubusercontent.com/115441986/198969342-e818ddaf-e1ef-47fb-a79a-62c5c173ff95.png)
 **参数说明：**
  - 记录类型及记录值：不同的记录类型有不同的用途。
 <table>
@@ -192,19 +192,9 @@ EdgeOne DNS 支持多种记录类型的智能解析服务，根据用户所在�
 > - 在代理加速下，TTL 默认为自动，无法选择。
 >- 实际情况一般 LDNS 缓存配置不一定遵循 TTL，导致解析记录更新生效时间经常远大于 TTL。
 
-
-## 切换 CNAME 接入[](id:change)
-在 NS 接入页面，单击列表右上角的**切换为 CNAME 接入**，可以切换至 CNAME 接入模式。首次切换需要进行 [站点验证](https://cloud.tencent.com/document/product/1552/70789)，如站点之前已经验证过，则会跳过验证，直接完成切换。切换之后：
-- 保留原有的 DNS 记录，A/AAAA/CNAME 记录可以编辑/删除，MX/NS/TXT/SRV/CAA 记录无法编辑只能删除。
-- 继承所有记录原有的代理模式，其中代理模式为“仅 DNS”的记录，切换后会变成“关闭代理”的状态。
-- 保留 EdgeOne 通用证书，但 CNAME 模式下证书无法自动更新，过期后将自动删除。
-- 保留所有子域名的自定义证书。
-
-![](https://qcloudimg.tencent-cloud.cn/raw/a4325ae0876db1179a574be6f6775042.png)
-
-
 ## DNS 配置
 支持 DNSSEC、自定义 NS 服务器、CNAME 加速等高级配置。
+![image](https://user-images.githubusercontent.com/115441986/198970746-ca038b1c-9898-4b6f-8185-0cff99f2b457.png)
 
 ### DNSSEC[](id:dnsses)
 DNSSEC (DNS Security Extension，DNS 安全扩展) 通过数字签名对 DNS 数据来源进行认证，有效保护解析结果的安全性与完整性，常用于应对 DNS 欺骗和 DNS 缓存污染。
@@ -212,8 +202,7 @@ DNSSEC (DNS Security Extension，DNS 安全扩展) 通过数字签名对 DNS 数
 1. 登录 [边缘安全加速平台控制台](https://console.cloud.tencent.com/edgeone)，在左侧菜单栏中，单击**域名服务**。
 2. 在域名服务页面，选择所需站点，单击**DNS 配置**。
 3. 在 DNS 配置页面，单击 DNSSEC 模块的![](https://qcloudimg.tencent-cloud.cn/raw/bfcf61e83f25591bfdd612e3faf66596.png)，经过二次确认后，开启 DNSSEC 功能并生成 DS 信息。
-![](https://qcloudimg.tencent-cloud.cn/raw/80d1829fa50c81075caa075677f95240.png)
-![](https://qcloudimg.tencent-cloud.cn/raw/61663e5e8ba50eec690a4d46c34b04af.png)
+![image](https://user-images.githubusercontent.com/115441986/198971064-35399e6e-b281-45a4-bc14-0616c94f204f.png)
 4. 根据上述信息，在域名注册商处添加 DS 记录，部分域名注册商的相关操作可参见如下文档。
  - [DNSimple](https://support.dnsimple.com/articles/cloudflare-ds-record/)
  - [GoDaddy](https://ph.godaddy.com/help/add-a-ds-record-23865)
