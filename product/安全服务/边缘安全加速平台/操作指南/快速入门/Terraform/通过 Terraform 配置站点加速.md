@@ -2,8 +2,8 @@
 腾讯云边缘安全加速平台（TencentCloud EdgeOne，下文简称为 EdgeOne）已经接入 Terraform，可以通过 Terraform 来实现快速配置。本文介绍如何使用 Terraform 来配置站点加速。站点加速相关配置的说明，详情请参见 [操作指南](https://cloud.tencent.com/document/product/1552/70863)。
 
 ## 前提条件
-- 已完成 Terraform 的安装与配置，操作步骤请参见 [安装和配置 Terraform](https://cloud.tencent.com/document/product/1552/80472)。
-- 已通过 Terraform 接入了站点，操作步骤请参见 [通过 Terraform 创建站点](引用链接待生成)。
+1. 已完成 Terraform 的安装与配置，操作步骤请参见 [安装和配置 Terraform](https://cloud.tencent.com/document/product/1552/80472)。
+2. 已通过 Terraform 接入了站点，操作步骤请参见 [通过 Terraform 创建站点](引用链接待生成)。
 
 ## 操作步骤
 1. 修改 Terraform 配置文件，添加站点加速配置的资源定义。
