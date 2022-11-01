@@ -48,14 +48,14 @@ fields_set("result", geo_parse(v("ip"),keep="province,city",ip_sep=","))
 ```
 
 
-## s_subnet_of 函数
+## is_subnet_of 函数
 ### 函数定义
 判断 IP 是否在该网段内, 支持多个网段。
 
 ### 语法描述
 
 ```
-is_subnet_of
+is_subnet_of(网段列表, ip)
 ```
 
 ### 参数说明
