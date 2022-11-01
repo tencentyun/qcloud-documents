@@ -4,7 +4,7 @@
 
 [TencentCloud Provider](https://github.com/tencentcloudstack/terraform-provider-tencentcloud) 基于 tencentcloud-sdk-go 实现，目前已经提供了超过183个 Resource 和158个 Data Source，覆盖计算、存储、网络、容器服务、负载均衡、中间件、数据库、云监控等超过30款产品，已满足众多用户的基本上云需求。
 
-您可通过 EdgeOne 提供的 [Terraform 文档](https://registry.terraform.io/providers/tencentcloudstack/tencentcloud/latest/docs) 及 [Terraform 编写样例](https://registry.terraform.io/providers/tencentcloudstack/tencentcloud/latest)，来快速了解并开始使用 Terraform。同时，[Terraform Module](https://registry.terraform.io/providers/tencentcloudstack/tencentcloud/latest) 已支持部分资源且仍在扩展中，请您保持关注。
+您可通过 EdgeOne 提供的 [Terraform 文档](https://registry.terraform.io/providers/tencentcloudstack/tencentcloud/latest/docs/resources/teo_zone) 及 [Terraform 编写样例](https://github.com/tencentcloudstack/terraform-provider-tencentcloud/tree/master/examples/tencentcloud-teo)，来快速了解并开始使用 Terraform。
 
 
 ## Terraform 优势
