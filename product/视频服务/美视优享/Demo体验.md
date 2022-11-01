@@ -51,8 +51,7 @@
 
 
 ### 场景化 Demo 展示
-
-此部分展示集成了 TE 的 MLVB、UGSV、TRTC Demo 工程，您可以根据当前项目需要进行针对性的调试。
+此部分展示集成了腾讯特效的直播 SDK、实时音视频 SDK、短视频 SDK Demo 工程，您可以根据当前项目需要进行针对性调试。
 
 <table>
 <thead>
@@ -121,16 +120,16 @@
 </tr>
 </thead>
 <tbody><tr>
-<td><img src="https://tencentcloud-76607.gzc.vod.tencent-cloud.com/doc/media1.gif"></td>
-<td><img src="https://tencentcloud-76607.gzc.vod.tencent-cloud.com/doc/media2.gif"></td>
-<td><img src="https://tencentcloud-76607.gzc.vod.tencent-cloud.com/doc/media3.gif"></td>
+<td><img src="https://tencentcloud-76607.gzc.vod.tencent-cloud.com/ugsv/Vlian.gif"></td>
+<td><img src="https://tencentcloud-76607.gzc.vod.tencent-cloud.com/ugsv/yanju.gif"></td>
+<td><img src="https://tencentcloud-76607.gzc.vod.tencent-cloud.com/ugsv/shoubi.gif"></td>
 </tr>
 </tbody></table>
 
 
 ### 滤镜模块
 
-内置优质高性能滤镜，实时画面预调色，结合图像融合技术，效果自然贴合，多达 37 款时尚滤镜供选择，包括白皙、自然、初恋、清透、告白、心动、清澄等。
+内置优质高性能滤镜，实时画面预调色，结合图像融合技术，效果自然贴合，多达 100+ 款时尚滤镜供选择，包括白皙、自然、初恋、清透、告白、心动、清澄等。
 
 ![](https://tencentcloud-76607.gzc.vod.tencent-cloud.com/doc/media4.gif)
 
@@ -141,17 +140,17 @@
 <table>
 <tr>
 <th colspan=4 align="center">2D 动效</th>
-<td align="center"><img src="https://tencentcloud-76607.gzc.vod.tencent-cloud.com/doc/media5.gif"></td>
-<td><img src="https://tencentcloud-76607.gzc.vod.tencent-cloud.com/doc/media6.gif"></td>
-<td><img src="https://tencentcloud-76607.gzc.vod.tencent-cloud.com/doc/media7.gif"></td>
-<td><img src="https://tencentcloud-76607.gzc.vod.tencent-cloud.com/doc/media8.gif"></td>
+<td align="center"><img src="https://tencentcloud-76607.gzc.vod.tencent-cloud.com/ugsv/2Dkeaimiao.gif"></td>
+<td><img src="https://tencentcloud-76607.gzc.vod.tencent-cloud.com/ugsv/2Dbingjingaixin.gif"></td>
+<td><img src="https://tencentcloud-76607.gzc.vod.tencent-cloud.com/ugsv/2Dmengmengxiogn.gif"></td>
+<td><img src="https://tencentcloud-76607.gzc.vod.tencent-cloud.com/ugsv/2Drixishaonv.gif"></td>
 </tr>
 <tr>
 <th colspan=4 align="center">3D 动效</th>
-<td align="center"><img src="https://tencentcloud-76607.gzc.vod.tencent-cloud.com/doc/media10.gif"></td>
-<td><img src="https://tencentcloud-76607.gzc.vod.tencent-cloud.com/doc/media11.gif"></td>
-<td><img src="https://tencentcloud-76607.gzc.vod.tencent-cloud.com/doc/media12.gif"></td>
-<td><img src="https://tencentcloud-76607.gzc.vod.tencent-cloud.com/doc/media13.gif"></td>
+<td align="center"><img src="https://tencentcloud-76607.gzc.vod.tencent-cloud.com/ugsv/3Dhudie.gif"></td>
+<td><img src="https://tencentcloud-76607.gzc.vod.tencent-cloud.com/ugsv/3Djinli.gif"></td>
+<td><img src="https://tencentcloud-76607.gzc.vod.tencent-cloud.com/ugsv/3Dningmengyayamao.gif"></td>
+<td><img src="https://tencentcloud-76607.gzc.vod.tencent-cloud.com/ugsv/3Dxiaogoumianju.gif"></td>
 </tr>
 </tbody></table>
 
@@ -159,13 +158,57 @@
 ### 美妆模块
 
 支持实时磨皮美白，精准定位面部五官，配合多套潮流妆容，一键打造自然美妆，流行妆容包括：桃花，元气，蜜桃，校花等。
-
-| 口红                                                         | 腮红                                                         | 立体                                                         |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| ![](https://tencentcloud-76607.gzc.vod.tencent-cloud.com/doc/media14.gif) | ![](https://tencentcloud-76607.gzc.vod.tencent-cloud.com/doc/media15.gif) | ![](https://tencentcloud-76607.gzc.vod.tencent-cloud.com/doc/media16.gif) |
+<table>
+<thead>
+<tr>
+<th rowspan=2>单点妆容</th>
+<th>口红</th>
+<th>腮红</th>
+<th>立体</th>
+</tr><tr>
+<td><img src="https://tencentcloud-76607.gzc.vod.tencent-cloud.com/ugsv/kouhogn.gif" width="300"></td>
+<td><img src="https://tencentcloud-76607.gzc.vod.tencent-cloud.com/ugsv/saihong.gif" width="300"></td>
+<td><img src="https://tencentcloud-76607.gzc.vod.tencent-cloud.com/ugsv/liti.gif" width="300"></td>
+</tr>
+<tr>
+<th rowspan=2>整体妆容</th>
+<th>南法</th>
+<th>女团</th>
+<th>奶凶</th>
+</tr><tr>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/d7e17b26c3ca7cf62e0502dbf158f12a.png" width="300"></td>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/2b568f6a4db1fd9198d2c6c8e8b3ba60.png" width="300"></td>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/9758a14a8a4db2b55abcd36e430f7952.png" width="300"></td>
+</tr>
+</tbody></table>
 
 ### 分割模块
 
 支持精准分割，实时抠像并叠加复杂的动效背景，9 款分割背景可供选择。
-![](https://qcloudimg.tencent-cloud.cn/raw/8aad0245d99f4cb993d1e45e08240376.png)
+
+<table>
+<thead>
+<tr>
+<th>背景模糊-弱</th>
+<th>背景模糊-强</th>
+<th>怪兽涂鸦</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/232ce7522de970078c30ee7321698fcc.png" width="300"></td>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/f48ef868bcfcef6a181afa47c02d82bf.png"  width="300"></td>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/517ff8c3a0a3091ba2cf43a1bc40227c.png" width="300"></td>
+</tr>
+</tbody></table>
+
+
+
+### 手势贴纸
+<table>
+<tr>
+<td><img src="https://tencentcloud-76607.gzc.vod.tencent-cloud.com/ugsv/yinhuanvhai.gif" width="300"></td>
+<td><img src="https://tencentcloud-76607.gzc.vod.tencent-cloud.com/ugsv/shouzhipaopao.gif"  width="300"></td>
+</tr>
+</tbody></table>
+
 
