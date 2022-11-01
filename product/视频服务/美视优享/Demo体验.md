@@ -130,8 +130,23 @@
 ### 滤镜模块
 
 内置优质高性能滤镜，实时画面预调色，结合图像融合技术，效果自然贴合，多达 100+ 款时尚滤镜供选择，包括白皙、自然、初恋、清透、告白、心动、清澄等。
-
-![](https://tencentcloud-76607.gzc.vod.tencent-cloud.com/doc/media4.gif)
+<table>
+<thead>
+<tr>
+<th>白茶</th>
+<th>春意</th>
+<th>冲浪</th>
+<th>爱情</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/e1f5ddad5a26bc98fd54475031cbf728.png" width="300"></td>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/b4db17969ffb527d1abba248e4ba6d0a.png" width="300"></td>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/07d9246be47bff1a916d9a370b376573.png" width="300"></td>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/f8da2680ad14fb8218791ac2185edb8e.png" width="300"></td>
+</tr>
+</tbody></table>
 
 ### 动效模块
 
@@ -185,7 +200,6 @@
 ### 分割模块
 
 支持精准分割，实时抠像并叠加复杂的动效背景，9 款分割背景可供选择。
-
 <table>
 <thead>
 <tr>
@@ -195,19 +209,21 @@
 </tr>
 </thead>
 <tbody><tr>
-<td><img src="https://qcloudimg.tencent-cloud.cn/raw/232ce7522de970078c30ee7321698fcc.png" width="300"></td>
-<td><img src="https://qcloudimg.tencent-cloud.cn/raw/f48ef868bcfcef6a181afa47c02d82bf.png"  width="300"></td>
-<td><img src="https://qcloudimg.tencent-cloud.cn/raw/517ff8c3a0a3091ba2cf43a1bc40227c.png" width="300"></td>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/232ce7522de970078c30ee7321698fcc.png" style="height: 400px;width: auto;"></td>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/f48ef868bcfcef6a181afa47c02d82bf.png"  style="height: 400px;width: auto;"></td>
+<td><img src="https://qcloudimg.tencent-cloud.cn/raw/517ff8c3a0a3091ba2cf43a1bc40227c.png" style="height: 400px;width: auto;"></td>
 </tr>
 </tbody></table>
 
 
 
+
 ### 手势贴纸
+做出对应的手势触发丰富有趣好玩的贴纸动效，可以识别比心、点赞、手掌等多个手势。
 <table>
 <tr>
-<td><img src="https://tencentcloud-76607.gzc.vod.tencent-cloud.com/ugsv/yinhuanvhai.gif" width="300"></td>
-<td><img src="https://tencentcloud-76607.gzc.vod.tencent-cloud.com/ugsv/shouzhipaopao.gif"  width="300"></td>
+<td><img src="https://tencentcloud-76607.gzc.vod.tencent-cloud.com/ugsv/yinhuanvhai.gif" style="height: 400px;width: auto;"></td>
+<td><img src="https://tencentcloud-76607.gzc.vod.tencent-cloud.com/ugsv/shouzhipaopao.gif"  style="height: 400px;width: auto;"></td>
 </tr>
 </tbody></table>
 
