@@ -181,7 +181,7 @@
 <th>腮红</th>
 <th>立体</th>
 </tr><tr>
-<td><img src="https://tencentcloud-76607.gzc.vod.tencent-cloud.com/ugsv/kouhogn.gif" width="300"></td>
+<td><img src="https://tencentcloud-76607.gzc.vod.tencent-cloud.com/ugsv/lipstick.gif" width="300"></td>
 <td><img src="https://tencentcloud-76607.gzc.vod.tencent-cloud.com/ugsv/saihong.gif" width="300"></td>
 <td><img src="https://tencentcloud-76607.gzc.vod.tencent-cloud.com/ugsv/liti.gif" width="300"></td>
 </tr>
