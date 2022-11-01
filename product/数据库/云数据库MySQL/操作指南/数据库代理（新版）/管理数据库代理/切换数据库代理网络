@@ -1,7 +1,7 @@
 本文为您介绍通过云数据库 MySQL 控制台切换数据库代理的网络。
 
 ## 前提条件
-已 [开通数据库代理](https://cloud.tencent.com/document/product/236/54653)。
+已 [开通数据库代理](https://cloud.tencent.com/document/product/236/82231)。
 
 ## 注意事项
 - 切换网络会导致该实例数据库代理 IP 变化，IP 默认保留24小时，最长保留时间支持设置168小时，旧的访问 IP 会失效，请及时修改客户端程序。
