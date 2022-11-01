@@ -6,6 +6,7 @@
 
 下图展示了规则引擎将数据转发给 MongoDB 的整个过程：
 ![](https://main.qcloudimg.com/raw/ce65ecf23f563cf2226c17e690cdcf1d.png)
+>?副本集实例版本要求不高于4.0，分片实例要求不低于4.0。
 
 ## 配置
 1. 登录 [物联网通信控制台](https://console.cloud.tencent.com/iotcloud)，单击左侧菜单**规则引擎**。
