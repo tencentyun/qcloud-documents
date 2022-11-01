@@ -48,6 +48,10 @@
 flutter pub add tencent_im_sdk_plugin
 ```
 
+>? 
+> 如果您的项目还同时需要用于 [Web](#web) 或 [桌面端(macOS、Windows)](#pc)，一些额外的步骤是需要的，具体请看文末。
+
+
 ### 在 pubspec.yaml 中写入
 ```
 dependencies:
@@ -88,6 +92,12 @@ Flutter 3.x 版本 针对 Web 性能做了较多优化，强烈建议您使用�
 <script src="./tim-js-friendship.js"></script>
 ```
 ![](https://qcloudimg.tencent-cloud.cn/raw/f88ddfbdc79fb7492f3ce00c2c583246.png)
+
+### 引入 Flutter for Web 增补 SDK
+
+```dart
+flutter pub add tencent_im_sdk_plugin_web
+```
 
 ## Flutter for Desktop(PC) 支持[](id:pc)
 

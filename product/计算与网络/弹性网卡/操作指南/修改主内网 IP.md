@@ -17,3 +17,5 @@
 ![](https://main.qcloudimg.com/raw/2b3675a7f30d2131c15bf529c2e7f6b1.png)
 6. 在弹窗内输入新的主内网 IP，单击**确定**即可。
 ![](https://main.qcloudimg.com/raw/3cffb3d3c6f99365df2ffe75c2c4004f.png)
+
+

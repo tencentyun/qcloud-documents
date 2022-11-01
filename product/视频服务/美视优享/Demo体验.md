@@ -6,7 +6,7 @@
 
 您可以直接下载我们的 Demo 进行功能体验。此外，还提供了美颜 Demo 工程以及场景化 Demo 工程，您可以根据当前项目需要进行针对性的调试。
 
->! 腾讯特效 TE iOS 平台 ZIP 包内囊括 **SDK** 和 **Demo 工程**，可前往下载 [iOS 端 ZIP 包](https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.5.0.224/demo.zip)。
+>! 腾讯特效 TE iOS 平台 ZIP 包内囊括 **SDK** 和 **Demo 工程**，可前往下载 [iOS 端 ZIP 包](https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/latest/demo.zip)。
 
 ### 美颜 Demo 展示
 
@@ -23,12 +23,12 @@
 <tr>
 <td>iOS</td>
 <td>升级维护中</a></td>
-<td> <a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.5.0.224/demo.zip">ZIP 包</a></td>
+<td> <a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/latest/demo.zip">ZIP 包</a></td>
 <td><a href="https://cloud.tencent.com/document/product/616/65894">DOC</a></td></tr>
 <tr>
 <td>Andriod</td>
-<td align="center"><img src="https://qcloudimg.tencent-cloud.cn/raw/87334db023ba47a712349735107b9818.png" width=120><br><a href="https://dldir1.qq.com/hudongzhibo/xmagic/xmagic-demo-2.5.0.205-signed.apk">单击下载</a></td>
-<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.5.0.205/xmagic_S1-04_android_2.5.0.205.zip">ZIP 包</a></td>
+<td align="center"><img src="https://qcloudimg.tencent-cloud.cn/raw/56c5bb85cb28e7a5e7a3db37156786b1.png" width=120><br><a href="https://dldir1.qq.com/hudongzhibo/xmagic/xmagic-demo-latest.apk">单击下载</a></td>
+<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/latest/xmagic_S1-04_android_latest.zip">ZIP 包</a></td>
 <td><a href="https://cloud.tencent.com/document/product/616/65891">DOC</a></td></tr>
 <tr>
 <td>Mac</td>
@@ -69,25 +69,24 @@
 <td rowspan=2>直播 MLVB</td>
 <td>iOS</td>
 <td>升级维护中</td>
-<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.5.0.224/MLVB-API-Example.zip">ZIP 包</a></td>
+<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/latest/MLVB-API-Example.zip">ZIP 包</a></td>
 <td><a href="https://cloud.tencent.com/document/product/616/65887">DOC</a></td>
 </tr>
 <td>Andriod</td>
-<td align="center"><img src="https://qcloudimg.tencent-cloud.cn/raw/902a3b47c3314d57348ce3229f4d2477.png" width=120><br><a href="https://dldir1.qq.com/hudongzhibo/xmagic/MLVB_App_2.5.0.205.apk">单击下载</td>
-<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.5.0.205.vcube/MLVB-API-Example.zip">ZIP 包</a></td>
+<td align="center"><img src="https://qcloudimg.tencent-cloud.cn/raw/116845c46c3710a61e905ae4609c8128.png" width=120><br><a href="https://dldir1.qq.com/hudongzhibo/xmagic/MLVB_Example_latest.apk">单击下载</td>
+<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/latest/MLVB-API-Example_latest.zip">ZIP 包</a></td>
 <td><a href="https://cloud.tencent.com/document/product/616/65888">DOC</a></td>
 </tr>
 <tr>
 <td rowspan=2>实时音视频 TRTC</td>
 <td>iOS</td>
 <td>升级维护中</td>
-<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/2.5.0.224/TRTC-API-Example.zip
-">ZIP 包</a></td>
+<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/iOS/latest/TRTC-API-Example.zip">ZIP 包</a></td>
 <td><a href="https://cloud.tencent.com/document/product/616/65892">DOC</a></td>
 </tr>
 <td>Andriod</td>
-<td align="center"><img src="https://qcloudimg.tencent-cloud.cn/raw/0d6a5f25aa308d223c8078ab17c2aeaa.png" width=120><br><a href="https://dldir1.qq.com/hudongzhibo/xmagic/TRTC_App_2.5.0.205.apk">单击下载</td>
-<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/2.5.0.205.vcube/TRTC-API-Example.zip">ZIP 包</a></td>
+<td align="center"><img src="https://qcloudimg.tencent-cloud.cn/raw/7dcc29471b907b9f0cef50ad7827443a.png" width=120><br><a href="https://dldir1.qq.com/hudongzhibo/xmagic/TRTC_Example_latest.apk">单击下载</td>
+<td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TencentEffect/Android/latest/TRTC-API-Example_latest.zip">ZIP 包</a></td>
 <td><a href="https://cloud.tencent.com/document/product/616/65889">DOC</a></td></tr>
 <tr>
 <td rowspan=2>短视频 UGSV</td>

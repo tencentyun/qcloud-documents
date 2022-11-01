@@ -17,7 +17,8 @@ Terraform 适用于多云方案，您可将相类似的基础结构部署到腾�
 # 以 NS 接入方式创建站点 test.com  
 resource "tencentcloud_teo_zone" "zone" {
   name           = "test.com"
-  plan_type      = "sta"
+  # 通过 zone_available_plans 查询您可用的套餐信息
+  plan_type      = "<your-plan-type>"
   type           = "full"
   paused         = false
   cname_speed_up = "enabled"
