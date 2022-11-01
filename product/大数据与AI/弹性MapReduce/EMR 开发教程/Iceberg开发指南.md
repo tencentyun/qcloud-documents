@@ -31,7 +31,7 @@ Iceberg 设计为以快照（Snapshot）的形式来管理表的各个历史版�
  - Spark 引擎
     - Spark-SQL 交互式命令行
 ```
-spark-sql --master local[*] --conf spark.sql.extensions=org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions --conf spark.sql.catalog.local=org.apache.iceberg.spark.SparkCatalog--conf spark.sql.catalog.local.type=hadoop --conf spark.sql.catalog.local.warehouse=/usr/hive/warehouse --jars /usr/local/service/iceberg/iceberg-spark3-runtime-0.11.0.jar
+spark-sql --master local[*] --conf spark.sql.extensions=org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions --conf spark.sql.catalog.local=org.apache.iceberg.spark.SparkCatalog --conf spark.sql.catalog.local.type=hadoop --conf spark.sql.catalog.local.warehouse=/usr/hive/warehouse --jars /usr/local/service/iceberg/iceberg-spark3-runtime-0.11.0.jar
 ```
     - 插入和查询数据
 ```
@@ -46,8 +46,9 @@ beeline -u jdbc:hive2://[hiveserver2_ip:hiveserver2_port] -n hadoop --hiveconf h
 ```
     - 查询数据
 ```
-ADD JAR /usr/local/service/hive/lib/iceberg-hive-runtime-0.11.0.jar;
-CREATE EXTERNAL TABLE t1 STORED BY 'org.apache.iceberg.mr.hive.HiveIcebergStorageHandler' LOCATION '/usr/hive/warehouse/default/t1';
+ADD JAR /usr/local/service/iceberg/iceberg-hive-runtime-0.11.0.jar;
+CREATE EXTERNAL TABLE t1 STORED BY 'org.apache.iceberg.mr.hive.HiveIcebergStorageHandler' LOCATION '/usr/hive/warehouse/default/t1' TBLPROPERTIES ('iceberg.catalog'='location_based_table');
+
 select count(*) from t1;
 ```
  - Flink 引擎
