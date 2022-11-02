@@ -94,14 +94,16 @@ metadata:
    name: cloud-premium
 
 # 安装了 CBS-CSI 组件的TKE集群请填写 provisioner 为 com.tencent.cloud.csi.cbs
-# 未安装 CBS-CSI 组件请填写 provisioner 为 cloud.tencent.com/qcloud-cbs
+# 未安装 CBS-CSI 组件请填写 provisioner 为 cloud.tencent.com/qcloud-cbs （该能力在1.20及以后版本废弃）
 provisioner: com.tencent.cloud.csi.cbs 
 
 parameters:
    type: CLOUD_PREMIUM
    renewflag: NOTIFY_AND_AUTO_RENEW
-   paymode: PREPAID
+   paymode: POSTPAID_BY_HOUR
    aspid: asp-123
+reclaimPolicy: Retain
+volumeBindingMode: WaitForFirstConsumer
 ```
 支持参数如下表：
 <table>
@@ -115,7 +117,13 @@ parameters:
 <td>zone</td> <td>用于指定可用区。如果指定，则云硬盘将创建到此可用区。如果不指定，则拉取所有 Node 的可用区信息，进行随机选取。  腾讯云各地域标识符请参见 <a href="https://cloud.tencent.com/document/product/213/6091">地域和可用区</a>。</td>
 </tr>
 <tr>
-<td>paymode</td> <td>云硬盘的计费模式，默认设置为 <code>POSTPAID</code> 模式，即按量计费，支持 Retain 保留和 Delete 删除策略，Retain 仅在高于1.8的集群版本生效。还可设置为 <code>PREPAID</code> 模式，即包年包月，仅支持 Retain 保留策略。</td>
+<td>paymode</td> <td>云硬盘的计费模式，默认设置为 <code>POSTPAID_BY_HOUR</code> 模式，即按量计费，支持 Retain 保留和 Delete 删除策略，Retain 仅在高于1.8的集群版本生效。还可设置为 <code>PREPAID</code> 模式，即包年包月，仅支持 Retain 保留策略。</td>
+</tr>
+<tr>
+<td>volumeBindingMode</td> <td>卷绑定模式，支持 Immediate（立即绑定）和 WaitForFirstConsumer（延迟调度）。</td>
+</tr>
+<tr>
+<td>reclaimPolicy</td> <td>回收策略，支持 Delete（删除）和 Delete（保留）。</td>
 </tr>
 <tr>
 <td>renewflag</td> <td>云硬盘的续费模式。默认为 <code>NOTIFY_AND_MANUAL_RENEW</code> 模式。<li><code>NOTIFY_AND_AUTO_RENEW</code> 模式代表所创建的云硬盘支持通知过期且按月自动续费。</li><li><code>NOTIFY_AND_MANUAL_RENEW</code> 模式代表所创建的云硬盘支持通知过期但不自动续费。</li><li> <code>DISABLE_NOTIFY_AND_MANUAL_RENEW</code> 模式则代表所创建的云硬盘不通知过期也不自动续费。</li></td>
