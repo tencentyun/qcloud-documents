@@ -29,12 +29,12 @@
 </tr>
 <tr>
 <td>内容分发网络 CDN</td>
-<td>CND 下载大文件</td>
+<td>CDN 下载大文件</td>
 <td>是</td>
 </tr>
 <tr>
 <td>内容分发网络 CDN</td>
-<td>CND 音视频点播</td>
+<td>CDN 音视频点播</td>
 <td>是</td>
 </tr>
 <tr>
