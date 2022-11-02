@@ -151,7 +151,7 @@ WordPress 站点将通过标准 OIDC 协议与 CIAM 对接，因此，我们首�
 
 
 ## 用户管理和操作日志
-使用 CIAM 接管 WordPress 登录后，可以登录数字身份管控平台（公众版）控制台查看相关用户信息和登录日志。
+使用 CIAM 接管 WordPress 登录后，可以登录账号风控平台控制台查看相关用户信息和登录日志。
 - 在[用户管理页面](https://console.cloud.tencent.com/ciam/user-management)，可查看已注册用户的列表及用户详情，并且可以进行编辑用户详情、重置用户密码或锁定、冻结、删除用户等操作，具体操作详情请参见 [用户管理](https://cloud.tencent.com/document/product/1441/60348)。
 ![](https://qcloudimg.tencent-cloud.cn/raw/5c950ee3d11f40347a4360aed7d04b1c.jpg)
 - 在[审计管理页面](https://console.cloud.tencent.com/ciam/audit-management)，可以查看用户登录的详细情况，详细操作请参见 [审计管理](https://cloud.tencent.com/document/product/1441/61159)。
