@@ -23,24 +23,23 @@ PAGViewer Beta 版现在支持在 Windows 下预览 PAG 文件。安装成功后
 :::
 </dx-tabs>
 
-### 步骤2：测试素材
+### 步骤2：测试
 下载 [pag_files.zip ](https://pag.art/file/pag_files.zip) 并解压，按照如下操作测试PAGViewer是否安装成功。
 1. 直接双击文件夹里的 pag 文件，即可看到动效的预览效果。
 ![](https://qcloudimg.tencent-cloud.cn/raw/2fd91a4dc8618b1889c304aa59a65884.png)
-2. 文件夹中的 **Replacement.pag** 文件是个占位图动效示例，你可以双击打开它后拖拽任意一张其他图片到窗口里，即可看到窗口里的动效效果被套用到了拖进去的图片上。您也可以直接使用压缩包里的 AE 源文件自行导出 pag 文件进行预览。
+2. 文件夹中的 **Replacement.pag** 文件是个占位图动效示例，你可以双击打开它后拖拽任意一张其他图片到窗口里，即可看到窗口里的动效效果被套用到了拖进去的图片上。您也可以直接使用压缩包里的 AE 源文件自行导出 pag 文件进行预览。<br>
 <img src="https://qcloudimg.tencent-cloud.cn/raw/ce66aeee00a2e3ad67d2e3a347a4a8e7.png" width=400/>
 
-如果本操作均能实现则表明 PAGViewer 安装成功。
+如果以上操作均能实现则表明 PAGViewer 安装成功。
 
 
 ### 步骤3：安装 PAG 导出插件
 1. 如果 AE 正在运行，则关闭。
-2. 打开 PAGViewer。
-	- 如果 PAGViewer 将自动检测是否需要安装/更新 AE 导出插件，按提示安装即可。
+2. 打开 PAGViewer。PAGViewer 将自动检测是否需要安装/更新 AE 导出插件，按提示安装即可。
 <img src="https://qcloudimg.tencent-cloud.cn/raw/9b59c1ecb9dee9a829079f1951f9a6ed.png" width=600/><br>
-	- 如果 PAGViewer 没有自动提示安装，则可以单击触发安装：
-		- MAC：单击菜单栏 **PAGViewer > 安装 AE 插件**。
-		- Windows：单击菜单栏 **文件 > 安装 AE 插件**。
+3. 如果 PAGViewer 没有自动提示安装，则可以单击触发安装：
+	- MAC：单击菜单栏 **PAGViewer > 安装 AE 插件**。
+	- Windows：单击菜单栏 **文件 > 安装 AE 插件**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/e8b5150eddd7448f0aceb15a40fdeb53.png)
 
 ### 步骤4：验证
