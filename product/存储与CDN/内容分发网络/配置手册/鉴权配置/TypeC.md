@@ -27,7 +27,7 @@
 </tr>
 <tr>
 <td>md5hash</td>
-<td>通过 MD5 算法计算出的固定长度为32位的字符串。具体计算公式如下： <br>•  md5hash = md5sum(pkeytimestampuri) 参数之间无任何符号  <br>•  pkey： 自定义密钥：由6 - 40位大小写字母、数字构成，密钥需要严格保密，仅客户端与服务端知晓。 <br>•   uri 资源访问路径以正斜线（/）开头。 <br>•  timestamp: 取值为上述中的timestamp。</td>
+<td>通过 MD5 算法计算出的固定长度为32位的字符串。具体计算公式如下： <br>•  md5hash = md5sum(pkeyurltimestamp)参数之间无任何符号  <br>•  pkey： 自定义密钥：由6 - 40位大小写字母、数字构成，密钥需要严格保密，仅客户端与服务端知晓。 <br>•   uri 资源访问路径以正斜线（/）开头。 <br>•  timestamp: 取值为上述中的timestamp。</td>
 </tr>
 </tbody></table>
 -  **鉴权逻辑说明**
@@ -69,12 +69,13 @@ CDN 服务器接受到客户请求后，解析出 url 中的 timestamp 参数 + 
 <td>dimtm5evg50ijsx2hvuwyfoiu65</td>
 </tr>
 </tbody></table>
-	- 拼接签名串：dimtm5evg50ijsx2hvuwyfoiu655e577978/test.jpg
-	- 计算签名串的 md5 值：md5hash = md5sum(pkeytimestampuri) =md5sum(dimtm5evg50ijsx2hvuwyfoiu655e577978/test.jpg) = 33735d9a40ae17b0d3401abf82ffb222
+	- 拼接签名串：dimtm5evg50ijsx2hvuwyfoiu65/test.jpg5e577978
+        - 计算签名串的 md5 值：md5hash = md5sum(pkeyurltimestamp)=md5sum(dimtm5evg50ijsx2hvuwyfoiu65/test.jpg5e577978)=7913fc0c5c9e92dd3633b7895152bbb2
+
 
 -   **生成鉴权 URL：**
-`http://cloud.tencent.com/33735d9a40ae17b0d3401abf82ffb222/5e577978/test.jpg` 
-当客户端通过加密URL进行访问时，如果 CDN 服务器计算出来的 md5hash 值与访问请求中带的 md5hash 值相同，都为33735d9a40ae17b0d3401abf82ffb222，则鉴权通过，反之鉴权失败。
+`http://cloud.tencent.com/7913fc0c5c9e92dd3633b7895152bbb2/5e577978/test.jpg`
+当客户端通过加密 URL 进行访问时，如果 CDN 服务器计算出来的 md5hash 值与访问请求中带的 md5hash 值相同，都为 7913fc0c5c9e92dd3633b7895152bbb2，则鉴权通过，反之鉴权失败。
 
 ## 注意事项 
 
