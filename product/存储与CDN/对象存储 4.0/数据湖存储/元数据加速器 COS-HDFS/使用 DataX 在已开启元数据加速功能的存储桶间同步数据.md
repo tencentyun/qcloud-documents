@@ -128,7 +128,7 @@ CLASS_PATH = ("%s/lib/*:%s/plugin/reader/hdfsreader/libs/*:%s/plugin/writer/hdfs
 将配置文件保存为 hdfs_job.json 文件，存放到 job 目录下，并执行以下命令行：
 
 ```bash
-[root@172 /usr/local/service/datax]# python bin/datax.py job/ofs_ofs_1.json 
+[root@172 /usr/local/service/datax]# python bin/datax.py job/hdfs_job.json 
 ```
 
 观察屏幕正常输出如下：
