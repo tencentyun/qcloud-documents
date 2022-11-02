@@ -24,7 +24,7 @@
 </thead>
 <tbody><tr>
 <td>内容分发网络 CDN</td>
-<td>CND 网页小文件</td>
+<td>CDN 网页小文件</td>
 <td>是</td>
 </tr>
 <tr>
