@@ -1,4 +1,4 @@
-﻿## 功能说明
+## 功能说明
 输入相机的 openGL 纹理，实时输出人脸52表情 BlendShape 数据，遵循苹果 ARKit 规范，详情请参见 [ARFaceAnchor](https://developer.apple.com/documentation/arkit/arfaceanchor/blendshapelocation)。您可以利用这些表情数据做一进步的开发，例如传到 Unity 中驱动您的模型。
 
 ## Android 集成指引
