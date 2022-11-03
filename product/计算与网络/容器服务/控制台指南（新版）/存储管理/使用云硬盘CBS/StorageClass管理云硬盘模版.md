@@ -6,7 +6,7 @@
 ## 控制台操作指引
 
 ### 创建 StorageClass[](id:create)
-1. 登录[ 容器服务控制台  ](https://console.cloud.tencent.com/tke2)，选择左侧栏中的**集群**。
+1. 登录[ 容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧栏中的**集群**。
 2. 在“集群管理”页中，单击需创建 StorageClass 的集群 ID，进入集群详情页。
 3. 选择左侧菜单栏中的**存储** > **StorageClass**。如下图所示：
 ![](https://main.qcloudimg.com/raw/18a3d5587e381e73328839b9186e071b.png)
