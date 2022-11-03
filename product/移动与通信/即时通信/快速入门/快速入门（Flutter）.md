@@ -204,6 +204,8 @@ TUIKit 是基于腾讯云 IM SDK 的一款 UI 组件库，它提供了一些通�
 
 本部分为快速使用TUIKit介绍，详细入门指引可参见 [TUIKit 集成基础功能](https://cloud.tencent.com/document/product/269/70746)。
 
+![](https://qcloudimg.tencent-cloud.cn/raw/f140dd76be01a65abfb7e6ba2bf50ed5.png)
+
 ### 前提条件
 
 您已经完成创建 Flutter 项目，或有可以基于的 Flutter 项目。
