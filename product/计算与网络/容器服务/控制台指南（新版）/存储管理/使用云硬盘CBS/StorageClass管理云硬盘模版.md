@@ -123,7 +123,7 @@ volumeBindingMode: WaitForFirstConsumer
 <td>volumeBindingMode</td> <td>卷绑定模式，支持 Immediate（立即绑定）和 WaitForFirstConsumer（延迟调度）。</td>
 </tr>
 <tr>
-<td>reclaimPolicy</td> <td>回收策略，支持 Delete（删除）和 Delete（保留）。</td>
+<td>reclaimPolicy</td> <td>回收策略，支持 Delete（删除）和 Retain（保留）。</td>
 </tr>
 <tr>
 <td>renewflag</td> <td>云硬盘的续费模式。默认为 <code>NOTIFY_AND_MANUAL_RENEW</code> 模式。<li><code>NOTIFY_AND_AUTO_RENEW</code> 模式代表所创建的云硬盘支持通知过期且按月自动续费。</li><li><code>NOTIFY_AND_MANUAL_RENEW</code> 模式代表所创建的云硬盘支持通知过期但不自动续费。</li><li> <code>DISABLE_NOTIFY_AND_MANUAL_RENEW</code> 模式则代表所创建的云硬盘不通知过期也不自动续费。</li></td>
