@@ -20,7 +20,7 @@
 | [macOS](#pc) | 支持，4.1.9版本起 | 即将上线 |
 | [Windows](#pc) | 支持，4.1.9版本起 | 即将上线 |
 
->? Web/macOS/Windows 平台需要简单的几步额外引入，详情请查看本文 [第七部分](#web) 和 [第八部分](#pc)。
+>? Web/macOS/Windows 平台需要简单的几步额外引入，详情请查看本文 [拓展更多平台](#more)。
 
 ## 体验DEMO
 
@@ -698,6 +698,8 @@ TencentImSDKPlugin.v2TIMManager
 - [自定义表情插件](https://cloud.tencent.com/document/product/269/80882)：TUIKit0.1.5版本后，无自带表情包，需要使用此插件，快速简便集成表情能力。支持 Emoji Unicode 编码及自定义图片表情。集成代码可参考我们的 [Demo](https://github.com/TencentCloud/TIMSDK/blob/master/Flutter/Demo/im-flutter-uikit/lib/src/pages/app.dart)。
 
 >?如果您有好的想法及建议，欢迎随时 [联系我们](https://cloud.tencent.com/online-service?from=doc_269&source=PRESALE)。
+
+[](id:more)
 
 ## 拓展更多平台
 
