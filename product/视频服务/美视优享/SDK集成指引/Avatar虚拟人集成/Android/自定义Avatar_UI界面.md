@@ -19,14 +19,14 @@
 
 ### 1. 加载 Avatar 资源
 ```java
- /**
+/**
      * 用于加载Avatar 资源
      *
-     * @param xmagicApi     XmagicApi对象
-     * @param avatarResName 名称
-     * @param isLoadLastConfigs 是否加载上次保存的数据
+     * @param xmagicApi      XmagicApi对象
+     * @param avatarResName  名称
+     * @param avatarSaveData 加载模型的默认配置，如果没有则传null
      */
-    public void loadAvatarRes(XmagicApi xmagicApi, String avatarResName,boolean isLoadLastConfigs)
+    public void loadAvatarRes(XmagicApi xmagicApi, String avatarResName, String avatarSaveData)
 ```
 
 ### 2. 获取面板数据

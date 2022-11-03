@@ -1,4 +1,4 @@
-在 [CNAME 接入方式](https://cloud.tencent.com/document/product/1552/70787#CNAME) 下，用户无需将 DNS 解析权转移给 EdgeOne，只需添加记录（子域名）并开启代理，在 DNS 解析商处添加指定的 CNAME 记录，即可接入 EdgeOne 安全/加速服务。
+在 CNAME 接入方式下，用户无需将 DNS 解析权转移给 EdgeOne，只需添加记录（子域名）并开启代理，在 DNS 解析商处添加指定的 CNAME 记录，即可接入 EdgeOne 安全/加速服务。
  
 
 ## 添加记录（子域名接入）[](id:add)
@@ -6,9 +6,10 @@
 
 1. 登录 [边缘安全加速平台控制台](https://console.cloud.tencent.com/edgeone)，在左侧菜单栏中，单击**域名服务**。
 2. 在域名服务页面，选择所需站点，单击**添加域名**。
-![](https://qcloudimg.tencent-cloud.cn/raw/f1bdaf680a843aa6af9f13d665c93665.png)
+![image](https://user-images.githubusercontent.com/115441986/198982372-96a48000-93a6-4b9c-b7e9-da864a9a488b.png)
 3. 填写相关参数，单击**保存**。
-![](https://qcloudimg.tencent-cloud.cn/raw/1ad684425c6fb23bf1399254f04c821a.png)
+![image](https://user-images.githubusercontent.com/115441986/198982460-71372abc-5513-48e3-9d81-0ef1b4e8a3a2.png)
+
 **参数说明：**
  - 加速域名：填写需开启加速的子域名，仅需输入子域名的前缀。
  - 源站类型：可选择 IPv4/IPv6/域名。
@@ -41,8 +42,18 @@
  - CNAME：开启代理后系统自动生成，用户需在 DNS 服务商处添加该 CNAME 记录。
  - HTTPS 证书：在 CNAME 接入方式下，系统不提供 EdgeOne 通用证书。需要手动为每个子域名关联证书，方可正常使用 HTTPS 服务。
 
-## 切换 NS 接入[](id:change)
-在 CNAME 接入页面，点击列表右上角**切换为 NS 接入**，可以切换至 NS 接入模式。切换后用户还需按要求修改 NS 服务器记录，修改生效后系统会通过邮件/短信/站内信通知。切换之后：
-- 保留所有 CNAME 接入记录及代理模式，“关闭代理”的记录会变成“仅 DNS”。
-- 保留所有子域名的自定义证书。
-![](https://qcloudimg.tencent-cloud.cn/raw/0b994e266d330fc04ca34148b3d5db59.png)
+4. 保存记录之后，EdgeOne会给您的子域名分配一个 CNAME，您还需要前往您的 DNS 解析服务商完成 CNAME 配置，才可以将用户的访问指向 EdgeOne 节点，使加速生效
+以下为腾讯云 DNSPod 控制台的配置方法：
+(1)复制当前域名的 CNAME 值
+![image](https://user-images.githubusercontent.com/115441986/199001721-6c326fc8-1556-4683-9a4f-422c6d8439b1.png)
+(2)前往 DNS 解析 DNSPod 控制台，找到对应的域名，单击解析按钮
+![image](https://user-images.githubusercontent.com/115441986/199006381-b5d914ef-2b2f-4972-a4d6-b7c99403789a.png)
+(3)点击添加记录。主机记录按照提示填写即可，记录类型选择 CNAME ，记录值填写第一步中复制的 CNAME，其他参数维持不变。
+![image](https://user-images.githubusercontent.com/115441986/199006620-fe3a9c40-812e-4442-9991-44565afeed24.png)
+(4)单击保存后，即可完成 CNAME 配置。
+
+5. 配置完成之后，域名服务列表中，CNAME 列出现绿色的 icon 则表示该 CNAME 记录已生效，该子域名正常加速中。
+![image](https://user-images.githubusercontent.com/115441986/199007807-b6c94562-53bb-42c8-ac2e-005f8bf1b71c.png)
+
+
+

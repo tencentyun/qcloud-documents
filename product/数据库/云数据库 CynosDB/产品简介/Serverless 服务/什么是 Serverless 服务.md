@@ -1,7 +1,7 @@
 Serverless 服务是腾讯云自研的新一代云原生关系型数据库 TDSQL-C MySQL 版的无服务器架构版，是全 Serverless 架构的云原生数据库。Serverless 服务支持按实际计算和存储资源使用量收取费用，不用不付费，将腾讯云云原生技术普惠用户。
 
-## Serverless 服务能力图示
-![](https://qcloudimg.tencent-cloud.cn/raw/ba74101421120bfb8b0299173794ed94.png)
+## Serverless 服务架构
+![](https://qcloudimg.tencent-cloud.cn/raw/0f3b12cc1be04a9e9851d3ecd65cf890.png)
 - 按需启动，不在需要时可关闭。
 - 自动扩展/收缩。
 - 缩放对应用程序无影响。

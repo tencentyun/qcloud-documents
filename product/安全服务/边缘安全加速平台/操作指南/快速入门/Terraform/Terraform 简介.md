@@ -4,7 +4,7 @@
 
 [TencentCloud Provider](https://github.com/tencentcloudstack/terraform-provider-tencentcloud) 基于 tencentcloud-sdk-go 实现，目前已经提供了超过183个 Resource 和158个 Data Source，覆盖计算、存储、网络、容器服务、负载均衡、中间件、数据库、云监控等超过30款产品，已满足众多用户的基本上云需求。
 
-您可通过 EdgeOne 提供的 [Terraform 文档](https://registry.terraform.io/providers/tencentcloudstack/tencentcloud/latest/docs) 及 [Terraform 编写样例](https://registry.terraform.io/providers/tencentcloudstack/tencentcloud/latest)，来快速了解并开始使用 Terraform。同时，[Terraform Module](https://registry.terraform.io/providers/tencentcloudstack/tencentcloud/latest) 已支持部分资源且仍在扩展中，请您保持关注。
+您可通过 EdgeOne 提供的 [Terraform 文档](https://registry.terraform.io/providers/tencentcloudstack/tencentcloud/latest/docs/resources/teo_zone) 及 [Terraform 编写样例](https://github.com/tencentcloudstack/terraform-provider-tencentcloud/tree/master/examples/tencentcloud-teo)，来快速了解并开始使用 Terraform。
 
 
 ## Terraform 优势
@@ -13,25 +13,26 @@ Terraform 适用于多云方案，您可将相类似的基础结构部署到腾�
 
 ### 基础设施及代码
 基础设施可以使用高级配置语法 HCL 进行描述，使得基础设施能够被代码化和版本化，从而可以进行共享和重复使用。示例如下：
-```
-# 以 NS 接入方式创建站点 test.com  
+```terraform
+# 以 NS 接入方式创建站点 example.com  
 resource "tencentcloud_teo_zone" "zone" {
-  name           = "test.com"
-  plan_type      = "sta"
+  zone_name      = "example.com"
+  # 通过 zone_available_plans 查询您可用的套餐信息
+  plan_type      = "<your-plan-type>"
   type           = "full"
   paused         = false
   cname_speed_up = "enabled"
 }
 
-# 创建 test.com 的 DNS 记录
+# 创建 example.com 的 DNS 记录
 resource "tencentcloud_teo_dns_record" "dns_record" {
   zone_id     = tencentcloud_teo_zone.zone.id
-  record_type = "A"
-  name        = "test.com"
+  type        = "A"
+  name        = "example.com"
   # 开启 CDN 加速服务
   mode        = "proxied"
-  content     = "2.2.2.2"
-  ttl         = 80
+  content     = "<your-backend-ip>"
+  ttl         = 60
 }
 ```
 
@@ -46,20 +47,19 @@ Terraform will perform the following actions:
   # tencentcloud_teo_dns_record.dns_record will be created
   + resource "tencentcloud_teo_dns_record" "dns_record" {
       + cname         = (known after apply)
-      + content       = "2.2.2.2"
+      + content       = "<your-backend-ip>"
       + created_on    = (known after apply)
       + domain_status = (known after apply)
       + id            = (known after apply)
       + locked        = (known after apply)
       + mode          = "proxied"
       + modified_on   = (known after apply)
-      + name          = "test.com"
+      + name          = "example.com"
       + priority      = (known after apply)
-      + record_type   = "A"
+      + type          = "A"
       + status        = (known after apply)
-      + ttl           = 80
+      + ttl           = 60
       + zone_id       = (known after apply)
-      + zone_name     = (known after apply)
     }
 
   # tencentcloud_teo_zone.zone will be created
@@ -70,7 +70,7 @@ Terraform will perform the following actions:
       + created_on              = (known after apply)
       + id                      = (known after apply)
       + modified_on             = (known after apply)
-      + name                    = "test.com"
+      + name                    = "example.com"
       + name_servers            = (known after apply)
       + original_name_servers   = (known after apply)
       + paused                  = false
