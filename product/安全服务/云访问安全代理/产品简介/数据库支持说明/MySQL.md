@@ -27,10 +27,9 @@
 
 
 ## 功能支持和使用限制
-
 ### 数据库
 
-- 支持**MySQL 5.7及以上**版本的数据库和兼容 MySQL 协议的数据库（如 `TDSQL`、`MariaDB`）。
+- 支持 **MySQL 5.7及以上**版本的数据库和兼容 MySQL 协议的数据库（如 `TDSQL`、`MariaDB`）。
 - 不支持**8.0及以上**版本新增的 SQL 语法。
 - 数据库、表和字段名不区分大小写。
 - 加密字段长度需预先扩容以支持存储明文加密后更大长度的密文。
@@ -91,47 +90,158 @@
 - 单次查询处理的数据大小需小于2^24字节。
 
 ## 常用 SQL 语句支持情况
+>?示例中已配置加密策略的字段名称为：crypto_column。
 
-> 示例中已配置加密策略的字段名称为: crypto_column
+- **插入语句**
+<table>
+<thead>
+<tr>
+<th width="20%">类型</th>
+<th width="20%">支持情况</th>
+<th width="60%">SQL 样例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>指定列名插入加密字段</td>
+<td>支持</td>
+<td>INSERT INTO table_a (id, col1, col2, crypto_column) VALUES (1, 'a', 'b', 'c');</td>
+</tr>
+<tr>
+<td>不指定列名插入加密字段</td>
+<td>支持</td>
+<td>INSERT INTO table_a VALUES (1, 'a', 'b', 'c');</td>
+</tr>
+</tbody></table>
 
-- **插入语句**：
+- **删除语句**
+<table>
+<thead>
+<tr>
+<th width="20%">类型</th>
+<th width="20%">支持情况</th>
+<th width="60%">SQL 样例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>加密字段作为查询条件</td>
+<td>支持</td>
+<td>DELETE FROM table_a WHERE crypto_column = 'c';</td>
+</tr>
+<tr>
+<td>加密字段作为子查询语句的查询条件</td>
+<td>支持</td>
+<td>DELETE FROM table_a WHERE col1 IN (SELECT col2 FROM table_b WHERE crypto_column = 'c');</td>
+</tr>
+</tbody></table>
 
-| 类型               | 支持情况  | SQL 样例                                                                           |
-| ------------      | -------- | ------------------------------------------------------------                       |
-| 指定列名插入加密字段   | 支持      | INSERT INTO table_a (id, col1, col2, crypto_column) VALUES (1, 'a', 'b', 'c'); |
-| 不指定列名插入加密字段  | 支持     | INSERT INTO table_a VALUES (1, 'a', 'b', 'c');                                  |
+- **更新语句**
+<table>
+<thead>
+<tr>
+<th width="20%">类型</th>
+<th width="20%">支持情况</th>
+<th width="60%">SQL 样例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>加密字段作为查询条件</td>
+<td>支持</td>
+<td>UPDATE table_a SET col1 = 'd' WHERE crypto_column = 'c';</td>
+</tr>
+<tr>
+<td>更新加密字段</td>
+<td>支持</td>
+<td>UPDATE table_a SET crypto_column = 'd' WHERE id = 1;</td>
+</tr>
+</tbody></table>
 
-- **删除语句**：
-
-| 类型                                       | 支持情况 | SQL 样例                                                     |
-| ----------------------------------------- | -------- | ------------------------------------------------------------ |
-| 加密字段作为查询条件                         | 支持     | DELETE FROM table_a WHERE crypto_column = 'c';               |
-| 加密字段作为子查询语句的查询条件               | 支持     | DELETE FROM table_a WHERE col1 IN (SELECT col2 FROM table_b WHERE crypto_column = 'c'); |
-
-- **更新语句**：
-
-| 类型                  | 支持情况  | SQL 样例                                     |
-| -------------------- | -------- | -------------------------------------------- |
-| 加密字段作为查询条件    | 支持     | UPDATE table_a SET col1 = 'd' WHERE crypto_column = 'c';|
-| 更新加密字段           | 支持     | UPDATE table_a SET crypto_column = 'd' WHERE id = 1; |
-
-- **查询语句**：
-
-| 类型                                         | 支持情况                             | SQL 样例                                                     |
-| ------------------------------------------- | ------------------------------------ | ------------------------------------------------------------ |
-| 加密字段作为返回结果，`SELECT`语法的支持         | 支持                                 | SELECT crypto_column FROM table_a; |
-| 加密字段作为返回结果，`SELECT *`语法的支持       | 支持                                 | SELECT * FROM table_a;                                      |
-| 加密字段使用别名                               | 支持                                | SELECT crypto_column a, col2 b  FROM table_a;                          |
-| 加密字段作为查询条件, 等值匹配                  | 支持                                | SELECT * FROM table_a WHERE crypto_column = 'c';                      |
-| 加密字段作为查询条件，`IN`条件查询              | 支持                                 | SELECT * FROM table_a WHERE crypto_column IN ('a', 'b', 'c');        |
-| 加密字段作为子查询的条件                        | 支持                                 | SELECT crypto_column FROM (select * FROM table_a WHERE crypto_column = 'c') a;  |
-| `JOIN`查询，加密字段作为`WHERE`条件             | 支持                                |  SELECT table_a.id FROM table_a JOIN table_b ON table_a.id = table_b.id WHERE table_a.crypto_column = 'c'; |
-| `JOIN`查询，加密字段作为`ON`条件                | 支持                                | SELECT table_a.id FROM table_a JOIN table_b ON table_a.id = table_b.id AND table_a.crypto_column = 'c';| 
-| `JOIN`查询，加密字段作为返回结果                 | 支持                                | SELECT table_a.crypto_column FROM table_a JOIN table_b ON table_a.id = table_b.id;|
-| `JOIN`查询，加密字段作为连表条件                 | 支持:连表的加密字段需配置相同密钥和算法   | SELECT table_a.id FROM table_a JOIN table_b ON table_a.crypto_column = table_b.crypto_column;|
-| `GROUP BY` 加密字段                           | 支持                                | SELECT * FROM table_a WHERE id>10 GROUP BY crypto_column; |
-| `ORDER BY` 加密字段                           | 不支持                              | SELECT * FROM table_a WHERE id>10 ORDER BY crypto_column; |
-| 加密字段模糊查询                               | 支持:需配置密文模糊检索算法             | SELECT * FROM table_a WHERE crypto_column LIKE '%cc%';|
-| 加密字段正则查询                               | 不支持                               |  SELECT * FROM table_a WHERE crypto_column REGEXP '^cc'; |
-| 加密字段范围查询                               | 不支持                               | SELECT * FROM table_a WHERE crypto_column > 'a' AND crypto_column < 'd';   |
-| 函数处理加密字段                               | 不支持                               |  SELECT * FROM table_a WHERE substr(crypto_column, 0, 2) = 'aa';    |
+- **查询语句**
+<table>
+<thead>
+<tr>
+<th width="20%">类型</th>
+<th width="20%">支持情况</th>
+<th width="60%">SQL 样例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>加密字段作为返回结果，<code>SELECT</code>语法的支持</td>
+<td>支持</td>
+<td>SELECT crypto_column FROM table_a;</td>
+</tr>
+<tr>
+<td>加密字段作为返回结果，<code>SELECT *</code>语法的支持</td>
+<td>支持</td>
+<td>SELECT * FROM table_a;</td>
+</tr>
+<tr>
+<td>加密字段使用别名</td>
+<td>支持</td>
+<td>SELECT crypto_column a, col2 b  FROM table_a;</td>
+</tr>
+<tr>
+<td>加密字段作为查询条件, 等值匹配</td>
+<td>支持</td>
+<td>SELECT * FROM table_a WHERE crypto_column = 'c';</td>
+</tr>
+<tr>
+<td>加密字段作为查询条件，<code>IN</code>条件查询</td>
+<td>支持</td>
+<td>SELECT * FROM table_a WHERE crypto_column IN ('a', 'b', 'c');</td>
+</tr>
+<tr>
+<td>加密字段作为子查询的条件</td>
+<td>支持</td>
+<td>SELECT crypto_column FROM (select * FROM table_a WHERE crypto_column = 'c') a;</td>
+</tr>
+<tr>
+<td><code>JOIN</code>查询，加密字段作为<code>WHERE</code>条件</td>
+<td>支持</td>
+<td>SELECT table_a.id FROM table_a JOIN table_b ON table_a.id = table_b.id WHERE table_a.crypto_column = 'c';</td>
+</tr>
+<tr>
+<td><code>JOIN</code>查询，加密字段作为<code>ON</code>条件</td>
+<td>支持</td>
+<td>SELECT table_a.id FROM table_a JOIN table_b ON table_a.id = table_b.id AND table_a.crypto_column = 'c';</td>
+</tr>
+<tr>
+<td><code>JOIN</code>查询，加密字段作为返回结果</td>
+<td>支持</td>
+<td>SELECT table_a.crypto_column FROM table_a JOIN table_b ON table_a.id = table_b.id;</td>
+</tr>
+<tr>
+<td><code>JOIN</code>查询，加密字段作为连表条件</td>
+<td>支持:连表的加密字段需配置相同密钥和算法</td>
+<td>SELECT table_a.id FROM table_a JOIN table_b ON table_a.crypto_column = table_b.crypto_column;</td>
+</tr>
+<tr>
+<td><code>GROUP BY</code> 加密字段</td>
+<td>支持</td>
+<td>SELECT * FROM table_a WHERE id&gt;10 GROUP BY crypto_column;</td>
+</tr>
+<tr>
+<td><code>ORDER BY</code> 加密字段</td>
+<td>不支持</td>
+<td>SELECT * FROM table_a WHERE id&gt;10 ORDER BY crypto_column;</td>
+</tr>
+<tr>
+<td>加密字段模糊查询</td>
+<td>支持:需配置密文模糊检索算法</td>
+<td>SELECT * FROM table_a WHERE crypto_column LIKE '%cc%';</td>
+</tr>
+<tr>
+<td>加密字段正则查询</td>
+<td>不支持</td>
+<td>SELECT * FROM table_a WHERE crypto_column REGEXP '^cc';</td>
+</tr>
+<tr>
+<td>加密字段范围查询</td>
+<td>不支持</td>
+<td>SELECT * FROM table_a WHERE crypto_column &gt; 'a' AND crypto_column &lt; 'd';</td>
+</tr>
+<tr>
+<td>函数处理加密字段</td>
+<td>不支持</td>
+<td>SELECT * FROM table_a WHERE substr(crypto_column, 0, 2) = 'aa';</td>
+</tr>
+</tbody></table>
