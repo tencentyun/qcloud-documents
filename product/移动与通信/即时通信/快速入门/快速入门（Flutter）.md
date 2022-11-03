@@ -686,7 +686,7 @@ TencentImSDKPlugin.v2TIMManager
 
 ## 高阶功能集成
 
-## 使用更多插件丰富 Flutter IM 使用体验
+### 使用更多插件丰富 Flutter IM 使用体验
 
 除 SDK 及 TUIKit 本体基础功能外，我们还提供了四个选装插件，帮助您丰富 IM 能力。
 
