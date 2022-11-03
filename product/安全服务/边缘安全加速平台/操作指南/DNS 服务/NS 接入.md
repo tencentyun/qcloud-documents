@@ -5,7 +5,7 @@ EdgeOne DNS 支持多种记录类型的智能解析服务，根据用户所在�
 1. 登录 [边缘安全加速平台控制台](https://console.cloud.tencent.com/edgeone)，在左侧菜单栏中，单击**域名服务**。
 2. 在域名服务页面，选择所需站点，单击 **DNS 记录**。
 3. 在 DNS 记录页面，选择所需记录，单击**编辑**，编辑相关参数，单击**保存**。
-![image](https://user-images.githubusercontent.com/115441986/198969342-e818ddaf-e1ef-47fb-a79a-62c5c173ff95.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/7e0e1932107a4d4e1de5e7152fb2cae5.png)
 **参数说明：**
  - 记录类型及记录值：不同的记录类型有不同的用途。
 <table>
@@ -75,7 +75,7 @@ EdgeOne DNS 支持多种记录类型的智能解析服务，根据用户所在�
 </tr>
 </thead>
 <tbody><tr>
-<th>A</th>
+<td>A</td>
 <td>✓</td>
 <td>✓</td>
 <td>×</td>
@@ -86,7 +86,7 @@ EdgeOne DNS 支持多种记录类型的智能解析服务，根据用户所在�
 <td>✓</td>
 </tr>
 <tr>
-<th>AAAA</th>
+<td>AAAA</td>
 <td>✓</td>
 <td>✓</td>
 <td>×</td>
@@ -97,7 +97,7 @@ EdgeOne DNS 支持多种记录类型的智能解析服务，根据用户所在�
 <td>✓</td>
 </tr>
 <tr>
-<th>CNAME</th>
+<td>CNAME</td>
 <td>×</td>
 <td>×</td>
 <td>×</td>
@@ -108,7 +108,7 @@ EdgeOne DNS 支持多种记录类型的智能解析服务，根据用户所在�
 <td>×</td>
 </tr>
 <tr>
-<th>MX</th>
+<td>MX</td>
 <td>✓</td>
 <td>✓</td>
 <td>×</td>
@@ -119,7 +119,7 @@ EdgeOne DNS 支持多种记录类型的智能解析服务，根据用户所在�
 <td>✓</td>
 </tr>
 <tr>
-<th>NS</th>
+<td>NS</td>
 <td>×</td>
 <td>×</td>
 <td>×</td>
@@ -130,7 +130,7 @@ EdgeOne DNS 支持多种记录类型的智能解析服务，根据用户所在�
 <td>×</td>
 </tr>
 <tr>
-<th>TXT</th>
+<td>TXT</td>
 <td>✓</td>
 <td>✓</td>
 <td>×</td>
@@ -141,7 +141,7 @@ EdgeOne DNS 支持多种记录类型的智能解析服务，根据用户所在�
 <td>✓</td>
 </tr>
 <tr>
-<th>SRV</th>
+<td>SRV<td>
 <td>✓</td>
 <td>✓</td>
 <td>×</td>
@@ -152,7 +152,7 @@ EdgeOne DNS 支持多种记录类型的智能解析服务，根据用户所在�
 <td>✓</td>
 </tr>
 <tr>
-<th>CAA</th>
+<td>CAA</td>
 <td>✓</td>
 <td>✓</td>
 <td>×</td>
@@ -194,15 +194,15 @@ EdgeOne DNS 支持多种记录类型的智能解析服务，根据用户所在�
 
 ## DNS 配置
 支持 DNSSEC、自定义 NS 服务器、CNAME 加速等高级配置。
-![image](https://user-images.githubusercontent.com/115441986/198970746-ca038b1c-9898-4b6f-8185-0cff99f2b457.png)
+<img src="https://qcloudimg.tencent-cloud.cn/raw/f4c5d581958eb2394b420ebd4782ae5c.png" width=978px>
 
 ### DNSSEC[](id:dnsses)
 DNSSEC (DNS Security Extension，DNS 安全扩展) 通过数字签名对 DNS 数据来源进行认证，有效保护解析结果的安全性与完整性，常用于应对 DNS 欺骗和 DNS 缓存污染。
 
 1. 登录 [边缘安全加速平台控制台](https://console.cloud.tencent.com/edgeone)，在左侧菜单栏中，单击**域名服务**。
-2. 在域名服务页面，选择所需站点，单击**DNS 配置**。
+2. 在域名服务页面，选择所需站点，单击 **DNS 配置**。
 3. 在 DNS 配置页面，单击 DNSSEC 模块的![](https://qcloudimg.tencent-cloud.cn/raw/bfcf61e83f25591bfdd612e3faf66596.png)，经过二次确认后，开启 DNSSEC 功能并生成 DS 信息。
-![image](https://user-images.githubusercontent.com/115441986/198971064-35399e6e-b281-45a4-bc14-0616c94f204f.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/a9813d370dcbff15a3ac029e27c91077.png)
 4. 根据上述信息，在域名注册商处添加 DS 记录，部分域名注册商的相关操作可参见如下文档。
  - [DNSimple](https://support.dnsimple.com/articles/cloudflare-ds-record/)
  - [GoDaddy](https://ph.godaddy.com/help/add-a-ds-record-23865)
