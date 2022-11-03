@@ -43,7 +43,7 @@ db.createUser({
 | **操作类型** | **支持的 SQL 操作**                                            |
 | ------------ | ------------------------------------------------------------ |
 | DML          | INSERT、UPDATE、DELETE                                       |
-| DDL          | INDEX：createIndexes、createIndex、dropIndex、dropIndexes<br>COLLECTION：createCollection、drop、collMod、renameCollection、convertToCapped<br>DATABASE：dropDatabase、copyDatabase |
+| DDL          | INDEX：createIndexes、createIndex、dropIndex、dropIndexes<br>COLLECTION：createCollection、drop、collMod、renameCollection<br>DATABASE：dropDatabase、copyDatabase |
 
 ## 环境要求
 
