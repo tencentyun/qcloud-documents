@@ -3,7 +3,7 @@
 以下为接入配置的步骤。
 ## 配置流程
 ### 使用 Cocoapod 集成
-WeBankService SDK 最低支持到 iOS9.0，请在构建项目时候注意，目前仅支持 Xcode11.0及更高版本编译。
+SDK 最低支持到 iOS9.0，请在构建项目时候注意，目前仅支持 Xcode11.0及更高版本编译。
 以下为接入配置的步骤：
 1. 将 TencentCloudHuiyanSDKFace_framework 文件夹拷贝到自己项目的 podfile 文件所在的同一目录。
 2. 将 TencentCloudHuiyanSDKWill_framework 文件夹拷贝到自己项目的 podfile 文件所在的同一目录。
@@ -22,7 +22,7 @@ Privacy - Microphone Usage Description
 ```
 
 ### 直接引用 framework
-WeBankService SDK 最低支持到 iOS9.0，请在构建项目时候注意。
+SDK 最低支持到 iOS9.0，请在构建项目时候注意。
 以下为接入配置的步骤：
 1. 引用以下资源文件到项目：
 ```

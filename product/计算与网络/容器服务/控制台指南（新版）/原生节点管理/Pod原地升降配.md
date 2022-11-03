@@ -1,13 +1,15 @@
 ## 概述
 
-根据 Kubernetes 的设计规范，Pod 运行过程中若需要临时修改容器参数，只能更新 `PodSpec` 后重新提交，这种方式会触发 Pod 删除重建，很难满足业务侧应对流量突发时无损变配诉求。原生节点针对 Pod 的 CPU、内存提供原地升降配能力，通过对 API Server 和 Kuberlet 进行升级改造，支持在不重启 Pod 的情况下修改 CPU、内存的 request/limit 值。本文主要介绍 Pod 资源原地更新功能的适用场景、工作原理和使用方式。
+根据 Kubernetes 的设计规范，Pod 运行过程中若需要临时修改容器参数，只能更新 `PodSpec` 后重新提交，这种方式会触发 Pod 删除重建，很难满足业务侧应对流量突发时无损变配诉求。原生节点针对 Pod 的 CPU、内存提供原地升降配能力，通过对 API Server 和 Kubelet 进行升级改造，支持在不重启 Pod 的情况下修改 CPU、内存的 request/limit 值。本文主要介绍 Pod 资源原地更新功能的适用场景、工作原理和使用方式。
 
 ## 前提条件
-- 该功能仅支持原生节点，可在原生节点产品试用时申请开启特性。
+- 该功能仅支持原生节点；
 - 仅支持 Kubernetes 版本 1.16 及以上版本集群，需要保证小版本为：
 	- kubernetes-v1.16.3-tke.30 及以上
 	- kubernetes-v1.18.4-tke.28 及以上
 	- kubernetes-v1.20.6-tke.24 及以上
+- 在创建节点时设置自定义 kubelet 参数：“feature-gates”=“EnableInPlacePodResize”，如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/47a4982f1d6bb336cb15ef609a46b96a.png)
 
 ## 适用场景
 #### 1. 应对流量突发，保障业务稳定性
@@ -118,7 +120,7 @@ Annotations: tke.cloud.tencent.com/resource-status:
 1. 只允许修改 Pod 的 CPU 和 Memory 资源。
 2. 只有 `PodSpec.Nodename` 不为空的情况下才能修改 Pod 资源。
 3. 资源修改范围：
-	- Pod 内每个 Container 的 limit 值只能调高，不允许调低。
+	- Pod 内每个 Container 的 limit 值可以调高或者降低，降低CPU可能会导致业务降频，降低 Mem 可能失败（kubelet 会在随后的 syncLoop 中重试降低 Memory）。
 	- Pod 内每个 Container 的 request 值可以调高 / 调低，但向上修改不能超过 Container 的 limit 值。
 4. Container 未设置 request/limit 值场景：
 	- 没有设置 limit 值的 Container 不允许设定新值。
