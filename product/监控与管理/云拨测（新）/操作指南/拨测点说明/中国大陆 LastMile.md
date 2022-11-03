@@ -2895,7 +2895,7 @@
     <td>中国移动</td>
     </tr>
     <tr>
-    <td rowspan=20>甘肃</td>
+    <td rowspan=19>甘肃</td>
     <td >白银市</td>
     <td>中国电信</td>
     </tr>
