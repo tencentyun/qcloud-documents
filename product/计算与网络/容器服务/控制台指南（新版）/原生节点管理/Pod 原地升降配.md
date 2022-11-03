@@ -8,7 +8,7 @@
 	- kubernetes-v1.16.3-tke.30 及以上
 	- kubernetes-v1.18.4-tke.28 及以上
 	- kubernetes-v1.20.6-tke.24 及以上
-- 在节点上设置kubelet参数“feature-gates”=“EnableInPlacePodResize”
+- 在节点上设置 kubelet 参数`feature-gates”=“EnableInPlacePodResize`
 
 ## 适用场景
 #### 1. 应对流量突发，保障业务稳定性
@@ -119,7 +119,7 @@ Annotations: tke.cloud.tencent.com/resource-status:
 1. 只允许修改 Pod 的 CPU 和 Memory 资源。
 2. 只有 `PodSpec.Nodename` 不为空的情况下才能修改 Pod 资源。
 3. 资源修改范围：
-	- Pod 内每个 Container 的 limit 值可以调高或者降低，降低CPU可能会导致业务降频，降低Mem可能失败（kubelet会在随后的syncLoop中重试降低Memory）。
+	- Pod 内每个 Container 的 limit 值可以调高或者降低，降低CPU可能会导致业务降频，降低 Mem 可能失败（kubelet 会在随后的 syncLoop 中重试降低 Memory）。
 	- Pod 内每个 Container 的 request 值可以调高 / 调低，但向上修改不能超过 Container 的 limit 值。
 4. Container 未设置 request/limit 值场景：
 	- 没有设置 limit 值的 Container 不允许设定新值。
