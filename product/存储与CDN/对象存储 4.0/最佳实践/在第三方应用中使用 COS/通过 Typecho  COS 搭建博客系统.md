@@ -63,7 +63,7 @@ yum install -y wget && wget -O install.sh http://download.bt.cn/install/install_
 ```plaintext
 https://github.com/Tencent-Cloud-Plugins/tencentcloud-typecho-plugin-cos/archive/refs/heads/master.zip
 ```
-2. 对压缩包进行解压后，复制 TypechoCosPlugin 文件夹到 Typecho 安装路径/usr/plugins/内。
+2. 对压缩包进行解压后，复制 TypechoCosPlugin 文件夹到 Typecho 安装路径/usr/plugins/内。复制 /var/Widget/Upload.php 到 Typecho 博客源码安装路径 /var/Widget/内，覆盖博客源码中的 /var/Widget/Upload.php 文件。
 3. 刷新 Typecho 的后台，即可看到该插件并启用插件。
 4. 启用插件后，设置插件相关参数以便关联到 COS，配置信息如下：
  - 基础设置
