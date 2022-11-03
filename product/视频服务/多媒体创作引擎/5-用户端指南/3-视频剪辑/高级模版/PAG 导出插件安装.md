@@ -35,7 +35,7 @@ PAGViewer Beta 版现在支持在 Windows 下预览 PAG 文件。安装成功后
 如果以上操作均能实现则表明 PAGViewer 安装成功。
 
 
-### 步骤3：安装 PAG 导出插件
+### 步骤3：安装 PAG 插件
 1. 如果 AE 正在运行，则关闭。
 2. 打开 PAGViewer。PAGViewer 将自动检测是否需要安装/更新 AE 导出插件，按提示安装即可。
 <img src="https://qcloudimg.tencent-cloud.cn/raw/9b59c1ecb9dee9a829079f1951f9a6ed.png" width=600/><br>
