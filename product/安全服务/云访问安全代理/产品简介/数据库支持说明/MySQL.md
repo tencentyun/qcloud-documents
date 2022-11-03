@@ -1,122 +1,81 @@
-## 对数据库字段类型的支持
-目前支持的字段类型如下：
+## 数据库字段类型支持情况
 
-| 字段类型    | 支持情况                                                | 可选算法 |
-| ----------- | ------------------------------------------------------- | -------- |
-| char        | <li>支持51个及以内汉字</li><li>支持155个及以内字母</li> | AES/SM4  |
-| varchar     | 支持                                                    | AES/SM4  |
-| tinytext    | <li>支持51个及以内汉字</li><li>支持155个及以内字母</li> | AES/SM4  |
-| text        | 支持                                                    | AES/SM4  |
-| mediumtext  | 支持                                                    | AES/SM4  |
-| longtext    | 支持                                                    | AES/SM4  |
-| tinyblob    | 支持                                                    | AES/SM4  |
-| blob        | 支持                                                    | AES/SM4  |
-| longblob    | 支持                                                    | AES/SM4  |
-| tinyint     | 不支持                                                  | -        |
-| smallint    | 不支持                                                  | -        |
-| mediumint   | 不支持                                                  | -        |
-| int/integer | 不支持                                                  | -        |
-| bigint      | 不支持                                                  | -        |
-| float       | 不支持                                                  | -        |
-| double      | 不支持                                                  | -        |
-| decimal     | 不支持                                                  | -        |
-| date        | 不支持                                                  | -        |
-| time        | 不支持                                                  | -        |
-| year        | 不支持                                                  | -        |
-| datetime    | 不支持                                                  | -        |
-| timestamp   | 不支持                                                  | -        |
+| 字段类型     | 字段加密  | 字段模糊查询 | 字段脱敏 |
+| ----------- | ------- | ------- | ------- |
+| char        | AES/SM4 |支持      | 支持    |
+| varchar     | AES/SM4 |支持      | 支持    | 
+| tinytext    | AES/SM4 |支持      | 支持    |
+| text        | AES/SM4 |支持      | 支持    |
+| mediumtext  | AES/SM4 |支持      | 支持    |
+| longtext    | AES/SM4 |支持      | 支持    |
+| tinyblob    | AES/SM4 |不支持    | 不支持  |
+| blob        | AES/SM4 |不支持    | 不支持  |
+| longblob    | AES/SM4 |不支持    | 不支持  |
+| tinyint     | -       | -       | 支持    |
+| smallint    | -       | -       | 支持    |
+| mediumint   | -       | -       | 支持    |
+| int/integer | -       | -       | 支持    |
+| bigint      | -       | -       | 支持    |
+| float       | -       | -       | 支持    |
+| double      | -       | -       | 支持    |
+| decimal     | -       | -       | 支持    |
+| date        | -       | -       | -      |
+| time        | -       | -       | -      |
+| year        | -       | -       | -      |
+| datetime    | -       | -       | -      |
+| timestamp   | -       | -       | -      |
 
-## 对 SQL 语句的支持
-对数据库查询语句的支持情况如下：
-- **插入语句**：
-
-| 类型         | 支持情况 | SQL 样例                                                     |
-| ------------ | -------- | ------------------------------------------------------------ |
-| 不指定列插入 | 支持     | insert into table_a  values ('a',1,'bbb','ccc','ddd',3.74, sysdate); |
-| 指定列插入   | 支持     | insert into  table_a(col1, col3, col4) values('a','bbb','ccc'); |
-
-- **删除语句**：
-
-| 类型                                       | 支持情况 | SQL 样例                                                     |
-| ------------------------------------------ | -------- | ------------------------------------------------------------ |
-| 等值匹配删除，策略配置在其中某个条件字段上 | 支持     | delete from table_a  where col1='aaa' and col3='bbb';        |
-| 带 in 的删除，策略配置在 in 字段上         | 支持     | delete from table_a  where col1 in ('a','b','c');            |
-| 带子查询的删除，策略在子查询的条件字段上   | 支持     | delete from table_a  where col1 in (select col2 from table_b where col3 = 1); |
-
-- **更新语句**：
-
-
-| 类型                 | 支持情况 | SQL 样例                                     |
-| -------------------- | -------- | -------------------------------------------- |
-| 策略配置在查询条件上 | 支持     | update table_a set  col1='aaa' where col2=1; |
-| 策略配置在更新字段上 | 支持     | update table_a set  col1='aaa' where col2=1; |
-
-- **查询语句**：
-
-| 类型                                                   | 支持情况                             | SQL 样例                                                     |
-| ------------------------------------------------------ | ------------------------------------ | ------------------------------------------------------------ |
-| 对 select * 语法的支持                                 | 支持                                 | select * from  table_a;                                      |
-| 条件字段等值匹配                                       | 支持                                 | select col1 from  table_a where col2=1;                      |
-| 条件字段范围查询                                       | 不支持                               | select col1 from  table_a where col1 > 'aaa' and col2 < 3;   |
-| 条件字段带函数                                         | 不支持                               | select col1 from  table_a where substr(col1,0,2) = 'aa';     |
-| 条件字段带 in                                          | 支持                                 | select col1 from  table_a where col1 in ('a',b','c');        |
-| SQL 语句中的表使用别名，选择字段及查询条件通过别名指定 | 支持                                 | select t.col1 from  table_a t where t.col2=1                 |
-| 关联查询，策略在条件字段中                             | 支持                                 | select table_a.col2,  table_b.col2 from table_a join table_b on table_a.col1 = table_b.col3 where  table_a.col4='ccc' |
-| 关联查询，策略在选择字段中                             | 支持                                 | select table_a.col2,  table_b.col2 from table_a join table_b on table_a.col1 = table_b.col3 where  table_a.col4='ccc' |
-| 关联查询时使用 select  *                               | 支持                                 | select * from table_a  join table_b on table_a.col1 = table_b.col3 where table_b.col4='fff'; |
-| 选择字段带别名                                         | 支持                                 | select col1 a, col2 b  from table_a                          |
-| 子查询-简单语法子查询，策略在子查询条件语句上          | 支持                                 | select col1 from  table_a where col1 in (select col2 from table_b where col3 = 1) |
-| 子查询-子查询中字段作为关联条件                        | 支持                                 | select a.col1 from table_a a  join (select col2,col3,col4 from table_b) t on a.col1=t.col3 where  t.col2='ddd' |
-| 子查询-策略配置在子查询条件字段上                      | 支持                                 | select t.col4 from  table_a a join (select col2,col3,col4 from table_b) t on a.col1=t.col3 where  t.col2='ddd' |
-| 子查询-结果集中带有子查询字段，且配置了策略            | 支持                                 | select t.col4 from  table_a a join (select col2,col3,col4 from table_b) t on a.col1=t.col3 where  t.col2='ddd' |
-| 对 exists 关键字的支持                                  | 支持                                 | select col1,col2,col3  from table_a where exists (select 1 from table_b where col3 = table_a.col1) |
-| 对 group by 语法的支持                                 | 支持                                 | select col1, col2 from table_a where col3 = 'bbb' group by col1,col2 |
-| 对数字类型的分组函数                                   | 不支持                               | select  sum(col2),avg(col2),min(col2),max(col2) from table_a where col1='aaa' |
-| 对 order by 的支持                                     | 只支持非加密字段的排序               | select * from table_a order by id desc                       |
-| 临时表                                                 | 支持                                 | select * from (select table1.col1,table1.col2,table1.col3,table2.id,table2.col4 from table1,table2 where table1.col1 = table2.col1 ) tmp |
 
 ## 功能支持和使用限制
 
 ### 数据库
-- 支持**5.7及以上**版本的 MySQL 数据库和兼容 MySQL 协议的数据库（如 TDSQL、MariaDB）。
-- 支持**8.0及以上版本**的数据库, 但不支持此系列版本新增的 SQL 语法。
-- 仅只支持 `utf8` 和 `utf8mb4` 字符集。
+
+- 支持**MySQL 5.7及以上**版本的数据库和兼容 MySQL 协议的数据库（如 `TDSQL`、`MariaDB`）。
+- 不支持**8.0及以上**版本新增的 SQL 语法。
 - 数据库、表和字段名不区分大小写。
-- 加密字段长度需预先扩容以支持更长长度的密文。
-- 加密字段需使用区分大小写的 collation，如 `utf8_general_bin`。
-- `information_schema`，`sys`，`mysql` 等内置数据库 CASB 会自动忽略。
+- 加密字段长度需预先扩容以支持存储明文加密后更大长度的密文。
+- 加密字段需使用**区分大小写**的`collation`，如 `utf8_general_bin`。
 
 ### 连接
-- 连接内不允许切换登录用户。
-- 不支持 SSL 连接, CASB 账号认证方式为 `mysql_native_password`。
-- CASB 连接后端 DB 的认证方式仅支持 `mysql_native_password` 和 `caching_sha2_password`。
+
+- 同一连接内不允许切换登录用户。
+- 仅只支持使用 `utf8` 和 `utf8mb4` 字符集连接代理。
+- 应用连接代理的账号认证方式支持 `mysql_native_password`。
+- 代理连接后端数据库的账号认证方式支持 `mysql_native_password` 和 `caching_sha2_password`。
 
 ### 加解密和脱敏
+
 - 加解密算法支持 `AES` 和 `SM4` 算法。
-- 仅支持 `string` 和 `blob` 类型的数据加解密。
-- 支持数值和字符串类型字段数据的动态脱敏。
+- 支持对字符串和二进制类型字段的加解密。
+- 支持对字符串和数值类型字段的动态脱敏。
+- 支持两个及以上连续字符的密文模糊查询，仅支持`LIKE`语法，不支持正则查询。
+- 密文模糊查询不支持转义字符，不支持`NO_BACKSLASH_ESCAPES`选项。
 - 加密后密文超过字段长度时会保存**明文**。
+- 同时存在密文和明文时，只能查询到到密文数据，存量明文数据需全量加密成密文。
 - 支持 `SELECT`, `INSERT`, `REPLACE`, `UPDATE`, `DELETE` 语句中  `WHERE、ON、IN、INSERT VALUE、SET` 等各字段中非表达式的值加解密。
 - 支持 `ROW` 条件中非表达式的值加解密，如支持 ` where (id, 'n2' , addr)=(2, name,'a2')` 中的字段加解密。
 - 支持 `table references` 和 `where condition` 中的子查询字段中非表达式的值加解密。
-- `UNION` 语句使用第一个 `SELECT 子句` 的加解密策略。 
+- `UNION` 语句使用第一个 `SELECT 子句` 的加解密策略。
 - 不支持存储过程的加解密。
-- 不支持 `INSERT INTO ... SELECT ...` 等不经过 CASB 处理的数据的加解密。
-- 连接查询时，JOIN 字段需选择同样的密钥，否则密文不一致，无法正确进行连接查询。
+- 不支持 `INSERT INTO ... SELECT ...` 等不经过代理处理的数据的加解密。
+- 连接查询时，`JOIN`连接字段需选择同样的密钥和加密算法，否则密文不一致，无法正确进行连接查询。
+- 支持`GROUP BY`, 但不保证和明文一致的顺序
+- `information_schema`，`sys`，`mysql` 等内置数据库不支持加解密和脱敏。
 
 ### 协议
+
 - 支持 `COM_QUERY`,`COM_STMT_PREPARE` 和 `COM_STMT_EXECUTE` 协议中字段加解密。
 - 不支持 `COM_STMT_SEND_LONG_DATA`，`COM_STMT_RESET` 协议。
 - 不支持 `COM_QUERY Protocol::LOCAL_INFILE_Data` 协议。
 
 ### 语句
+
 - DML 执行前，需先切换到或指定相应的库。
 - 加密字段不支持函数操作。
 - 加密字段不支持数学运算。
 - 加密字段不支持 `ORDER BY`。
-- 加密字段不支持 `LIKE` 查询和正则查询。
+- 加密字段不支持正则查询。
 - 不支持包含自定义变量的语句。
-- 不支持视图相关语句。
 - 不支持 `SELECT INTO` 语句。
 - 不支持 `mysqldump` 中使用 CASB 不支持的特性和条件。
 - 不支持 `CREATE TABLE xx AS SELECT`、`CHECK TABLE`、`CHECKSUM TABLE` 语法。
@@ -126,6 +85,53 @@
 - TDSQL 的 ShardKey 字段不能配置加密。
 
 ### 其他
+
 - 所有表结构必须预先在策略控制台定义，账号必须和相应数据源绑定后才能通过 proxy 操作相应的数据源。
 - 数据源删除后重新添加时，需断开存量连接，建立新的 MySQL 连接查询。
 - 单次查询处理的数据大小需小于2^24字节。
+
+## 常用 SQL 语句支持情况
+
+> 示例中已配置加密策略的字段名称为: crypto_column
+
+- **插入语句**：
+
+| 类型               | 支持情况  | SQL 样例                                                                           |
+| ------------      | -------- | ------------------------------------------------------------                       |
+| 指定列名插入加密字段   | 支持      | INSERT INTO table_a (id, col1, col2, crypto_column) VALUES (1, 'a', 'b', 'c'); |
+| 不指定列名插入加密字段  | 支持     | INSERT INTO table_a VALUES (1, 'a', 'b', 'c');                                  |
+
+- **删除语句**：
+
+| 类型                                       | 支持情况 | SQL 样例                                                     |
+| ----------------------------------------- | -------- | ------------------------------------------------------------ |
+| 加密字段作为查询条件                         | 支持     | DELETE FROM table_a WHERE crypto_column = 'c';               |
+| 加密字段作为子查询语句的查询条件               | 支持     | DELETE FROM table_a WHERE col1 IN (SELECT col2 FROM table_b WHERE crypto_column = 'c'); |
+
+- **更新语句**：
+
+| 类型                  | 支持情况  | SQL 样例                                     |
+| -------------------- | -------- | -------------------------------------------- |
+| 加密字段作为查询条件    | 支持     | UPDATE table_a SET col1 = 'd' WHERE crypto_column = 'c';|
+| 更新加密字段           | 支持     | UPDATE table_a SET crypto_column = 'd' WHERE id = 1; |
+
+- **查询语句**：
+
+| 类型                                         | 支持情况                             | SQL 样例                                                     |
+| ------------------------------------------- | ------------------------------------ | ------------------------------------------------------------ |
+| 加密字段作为返回结果，`SELECT`语法的支持         | 支持                                 | SELECT crypto_column FROM table_a; |
+| 加密字段作为返回结果，`SELECT *`语法的支持       | 支持                                 | SELECT * FROM table_a;                                      |
+| 加密字段使用别名                               | 支持                                | SELECT crypto_column a, col2 b  FROM table_a;                          |
+| 加密字段作为查询条件, 等值匹配                  | 支持                                | SELECT * FROM table_a WHERE crypto_column = 'c';                      |
+| 加密字段作为查询条件，`IN`条件查询              | 支持                                 | SELECT * FROM table_a WHERE crypto_column IN ('a', 'b', 'c');        |
+| 加密字段作为子查询的条件                        | 支持                                 | SELECT crypto_column FROM (select * FROM table_a WHERE crypto_column = 'c') a;  |
+| `JOIN`查询，加密字段作为`WHERE`条件             | 支持                                |  SELECT table_a.id FROM table_a JOIN table_b ON table_a.id = table_b.id WHERE table_a.crypto_column = 'c'; |
+| `JOIN`查询，加密字段作为`ON`条件                | 支持                                | SELECT table_a.id FROM table_a JOIN table_b ON table_a.id = table_b.id AND table_a.crypto_column = 'c';| 
+| `JOIN`查询，加密字段作为返回结果                 | 支持                                | SELECT table_a.crypto_column FROM table_a JOIN table_b ON table_a.id = table_b.id;|
+| `JOIN`查询，加密字段作为连表条件                 | 支持:连表的加密字段需配置相同密钥和算法   | SELECT table_a.id FROM table_a JOIN table_b ON table_a.crypto_column = table_b.crypto_column;|
+| `GROUP BY` 加密字段                           | 支持                                | SELECT * FROM table_a WHERE id>10 GROUP BY crypto_column; |
+| `ORDER BY` 加密字段                           | 不支持                              | SELECT * FROM table_a WHERE id>10 ORDER BY crypto_column; |
+| 加密字段模糊查询                               | 支持:需配置密文模糊检索算法             | SELECT * FROM table_a WHERE crypto_column LIKE '%cc%';|
+| 加密字段正则查询                               | 不支持                               |  SELECT * FROM table_a WHERE crypto_column REGEXP '^cc'; |
+| 加密字段范围查询                               | 不支持                               | SELECT * FROM table_a WHERE crypto_column > 'a' AND crypto_column < 'd';   |
+| 函数处理加密字段                               | 不支持                               |  SELECT * FROM table_a WHERE substr(crypto_column, 0, 2) = 'aa';    |
