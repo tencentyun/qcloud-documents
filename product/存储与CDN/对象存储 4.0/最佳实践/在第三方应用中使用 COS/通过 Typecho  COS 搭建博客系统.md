@@ -60,7 +60,7 @@ yum install -y wget && wget -O install.sh http://download.bt.cn/install/install_
 
 
 1. 配置完成后，在宝塔43.xxx.xxx.132目录下单击**远程下载**，填入以下插件链接，然后得到该插件的压缩文件。
-```
+```plaintext
 https://github.com/Tencent-Cloud-Plugins/tencentcloud-typecho-plugin-cos/archive/refs/heads/master.zip
 ```
 2. 对压缩包进行解压后，复制 TypechoCosPlugin 文件夹到 Typecho 安装路径/usr/plugins/内。
