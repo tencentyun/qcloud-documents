@@ -21,7 +21,7 @@ BMP 预合成导出模式可以支持所有的 AE 特效，设计师只需要关
 矢量预合成导出无法支持所有的 AE 特性，但我们推荐尽可能使用矢量预合成方式导出，可以获得更好的性能和更小的动效文件。目前已支持的矢量直接导出的 AE 特性如下：**（所有关键帧动效属性都支持）**
 
 #### 图层类型 (Layer Types)
-```
+```bash
 ├─ 虚拟对象 (Null Object)
 ├─ 实色图层 (Solid Layer)
 ├─ 文字图层 (Text Layer)
@@ -32,7 +32,7 @@ BMP 预合成导出模式可以支持所有的 AE 特效，设计师只需要关
 
 #### 变换 (Transforms)
 
-```
+```bash
 ├─ 定位点 (Anchor Point)
 ├─ 位置 (Position)
 ├─ 位置分离XY轴 (Position Separated X/Y )
@@ -43,7 +43,7 @@ BMP 预合成导出模式可以支持所有的 AE 特效，设计师只需要关
 
 #### 混合模式 (Blend Modes)
 
-```
+```bash
 ├─ 正常 (Normal)
 ├─ 变暗 (Darken)
 ├─ 相乘 (Multiply)
@@ -65,7 +65,7 @@ BMP 预合成导出模式可以支持所有的 AE 特效，设计师只需要关
 
 #### 轨道遮罩 (Track Mattes)
 
-```
+```bash
 ├─ 无 (None)
 ├─ Alpha 遮罩 (Alpha Matte)
 ├─ Alpha 反转遮罩 (Alpha Inverted Matte)
@@ -76,7 +76,7 @@ BMP 预合成导出模式可以支持所有的 AE 特效，设计师只需要关
 
 #### 蒙版 (Masks)
 
-```
+```bash
 ├─ 蒙版路径 (Mask Path)
 ├─ 蒙版扩展 (Mask Expansion)
 ├─ 蒙版模式 (Mask Modes)
@@ -91,7 +91,7 @@ BMP 预合成导出模式可以支持所有的 AE 特效，设计师只需要关
 
 #### 图层样式 (Layer Styles)
 
-```
+```bash
 ├─ 投影 (Drop Shadow)
 │  ├─ 颜色 (Color)
 │  ├─ 不透明度 (Opacity)
@@ -104,7 +104,7 @@ BMP 预合成导出模式可以支持所有的 AE 特效，设计师只需要关
 
 #### 特效 (Effect)
 
-```
+```bash
 ├─ 运动模糊 (Motion Blur)
 ├─ 高斯模糊（Gaussian Blur）
 ├─ 凹凸效果 (Bulge)
@@ -121,13 +121,13 @@ BMP 预合成导出模式可以支持所有的 AE 特效，设计师只需要关
 
 #### 其他图层属性 (Others Layer Properties)
 
-```
+```bash
 └─ 图层父级 (Layer Parenting)
 ```
 
 #### 形状图层 (Shapes)
 
-```
+```bash
 ├─ 组 (Group)
 ├─ 矩形 (Rectangle)
 ├─ 椭圆 (Ellipse)
@@ -145,7 +145,7 @@ BMP 预合成导出模式可以支持所有的 AE 特效，设计师只需要关
 
 #### 文本图层 (Texts)
 
-```
+```bask
 ├─ 源文本 (SourceText)
 │  ├─ 基线偏移 (Baseline Shift)
 │  ├─ 点文本 (Point Text)
@@ -216,19 +216,19 @@ BMP 预合成导出模式可以支持所有的 AE 特效，设计师只需要关
 
 #### 变换 (Transforms)
 
-```
+```bash
 └─3D 属性 (3D Properties)
 ```
 
 #### 文本图层 (Texts)
 
-```
+```bash
 ├─ 更多选项 (More Options)
 └─ 动效制作工具 (Animate)
 ```
 
 #### 图层效果 (Layer Effects)
-```
+```bash
 ├─ 浅色调 (Tint)
 ├─ 填充 (Fill)
 ├─ 描边 (Stroke)
