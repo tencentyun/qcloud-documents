@@ -8,7 +8,8 @@
 	- kubernetes-v1.16.3-tke.30 及以上
 	- kubernetes-v1.18.4-tke.28 及以上
 	- kubernetes-v1.20.6-tke.24 及以上
-- 在节点上设置 kubelet 参数 “feature-gates”=“EnableInPlacePodResize”
+- 在创建节点时设置自定义 kubelet 参数：“feature-gates”=“EnableInPlacePodResize”，如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/47a4982f1d6bb336cb15ef609a46b96a.png)
 
 ## 适用场景
 #### 1. 应对流量突发，保障业务稳定性
