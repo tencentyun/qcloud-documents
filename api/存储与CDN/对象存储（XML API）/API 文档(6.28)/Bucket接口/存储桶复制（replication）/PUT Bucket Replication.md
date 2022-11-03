@@ -11,7 +11,7 @@ PUT Bucket replication 用于向已启用版本控制的存储桶中配置存储
 
 #### 请求示例
 
-```http
+```plaintext
 PUT /?replication HTTP/1.1
 Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
@@ -33,7 +33,7 @@ request body
 
 用户在请求体中设置存储桶复制的具体配置信息。配置信息包括存储桶复制规则的启用状态、优先级、复制内容、筛选范围、目标存储桶的存储桶名称和存储地域等信息。
 
-```http
+```plaintext
 <ReplicationConfiguration>
     <Role>qcs::cam::uin/<OwnerUin>:uin/<SubUin></Role>
     <Rule>
@@ -99,12 +99,12 @@ request body
 
 ## 实际案例
 
-#### 案例一：根据前缀筛选的存储桶复制规则
+#### 案例一：指定对象前缀添加存储桶复制规则
 #### 请求
 
-以下 PUT Bucket replication 请求向存储桶`originbucket-1250000000`中添加一条存储桶复制配置。该存储桶复制配置中，指定复制前缀为`testPrefix`的对象内容，目标存储桶为广州的`destinationbucket-1250000000`。
+以下请求是对存储桶`originbucket-1250000000`添加一条存储桶复制配置。该存储桶复制配置中，将指定对象前缀为`testPrefix`的对象复制到归属为广州的目标存储桶`destinationbucket-1250000000`。
 
-```shell
+```plaintext
 PUT /?replication HTTP/1.1
 Date: Mon, 28 Aug 2017 02:53:38 GMT
 Authorization: q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1503888878;1503889238&q-key-time=1503888878;1503889238&q-header-list=host&q-url-param-list=replication&q-signature=254bf9cd3d6615e89a36ab652437f9d45c5f****
@@ -129,7 +129,7 @@ Content-Length: 312
 
 上述请求后，COS 返回以下响应，表明当前该跨地域配置已经成功设置完毕。
 
-```shell
+```plaintext
 HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 0
@@ -141,12 +141,12 @@ x-cos-request-id: NWQwMzQ3NmJfMjRiMjU4NjRfOTM4NV82ZDU1****
 x-cos-trace-id: OGVmYzZiMmQzYjA2OWNhODk0NTRkMTBiOWVmMDAxODc0OWRkZjk0ZDM1NmI1M2E2MTRlY2MzZDhmNmI5MWI1OWE4OGMxZjNjY2JiNTBmMTVmMWY1MzAzYzkyZGQ2ZWM4MzUyZTg1NGRhNWY0NTJiOGUyNTViYzgyNzgxZTEwOTY=
 ```
 
-#### 案例二：根据标签筛选的存储桶复制规则
+#### 案例二：指定对象标签添加存储桶复制规则
 #### 请求
 
-以下 PUT Bucket replication 请求向存储桶`originbucket-1250000000`中添加一条存储桶复制配置。该存储桶复制配置中，指定复制前缀为`test1`、标签为`<111, 232>`的对象，目标存储桶为广州的`destinationbucket-1250000000`。设置标签筛选后，规则内的同步删除对象必须置为 Disabled。
+以下请求是对存储桶`originbucket-1250000000`添加一条存储桶复制配置。该存储桶复制配置中，将指定对象前缀为`test1`、对象标签键值为`<111, 232>`的对象复制到地域为广州的目标存储桶`destinationbucket-1250000000`。设置对象标签筛选后，规则内的同步删除对象必须置为 Disabled。
 
-```shell
+```plaintext
 PUT /?replication HTTP/1.1
 Host: originbucket-1250000000.cos.ap-guangzhou.myqcloud.com
 Authorization: q-sign-algorithm=sha1&q-ak=AKIDYv3vWrwkHXVDfqkNj*********&q-sign-time=1667303319;1668303369&q-key-time=1667303319;1668303369&q-url-param-list=replication&q-header-list=content-md5;host&q-signature=78c13df3ce3bca422fcb994*****
@@ -181,7 +181,8 @@ Content-Type: application/x-www-form-urlencoded
 #### 响应
 
 上述请求后，COS 返回以下响应，表明当前该跨地域配置已经成功设置完毕。
-```shell
+
+```plaintext
 HTTP/1.1 200 OK
 Content-Length: 0
 Connection: keep-alive
@@ -191,16 +192,17 @@ x-cos-bucket-region: ap-guangzhou
 x-cos-request-id: NjM2MTA3ZGNfNmE1MGI3MDlfYWU5N1*******
 ```
 
-#### 案例三：设置多个复制到同一目标存储桶、筛选前缀有重叠的规则，通过 Priority 设置生效的优先级
+#### 案例三：设置多个复制到同一目标存储桶、指定对象前缀有重叠的规则，通过 Priority 设置生效的优先级
+
 #### 请求
 
-以下 PUT Bucket replication 请求向存储桶`originbucket-1250000000`中添加两条存储桶复制配置规则。
-- 规则1：指定复制前缀为`test1`、标签为`<a,	a>`的对象，目标存储桶为广州的`destinationbucket-1250000000`，目标存储类型为`Standard`，规则内的同步删除对象必须置为 Disabled，Priority 为1。
-- 规则2:指定复制前缀为`test1`、标签为`<b,b>`的对象，目标存储桶为广州的`destinationbucket-1250000000`，目标存储类型为`Standard_IA`，规则内的同步删除对象必须置为 Disabled，Priority 为2。
+以下请求是对存储桶`originbucket-1250000000`添加两条存储桶复制配置规则。
+- 规则1：指定复制对象前缀为`test1`、对象标签键值为`<a,a>`的对象，到地域为广州的目标存储桶`destinationbucket-1250000000`，目标存储类型为`Standard`，规则内的同步删除对象必须置为 Disabled，Priority 为1。
+- 规则2:指定复制对象前缀为`test1`、对象标签键值为`<b,b>`的对象，到地域为广州的目标存储桶`destinationbucket-1250000000`，目标存储类型为`Standard_IA`，规则内的同步删除对象必须置为 Disabled，Priority 为2。
 
 用户向存储桶`originbucket-1250000000`上传对象`test1/temp.txt`，上传同时打标签`<a,a>`和`<b,b>`，此时根据 Priority，规则1优先生效，复制到存储桶`destinationbucket-1250000000`对象的类型为`Standard`。
 
-```shell
+```plaintext
 PUT /?replication HTTP/1.1
 Host: originbucket-1250000000.cos.ap-guangzhou.myqcloud.com
 Authorization: q-sign-algorithm=sha1&q-ak=AKIDYv3vWrwkHXVDfqkNjoc9PP8a******&q-sign-time=1667309117;1668309167&q-key-time=1667309117;1668309167&q-url-param-list=replication&q-header-list=content-md5;host&q-signature=b5730a15142d4bbc9974e42814918435*******
@@ -255,7 +257,8 @@ Content-Type: application/x-www-form-urlencoded
 ```
 
 #### 响应
-```shell
+
+```plaintext
 HTTP/1.1 200 OK
 Content-Length: 0
 Connection: keep-alive
