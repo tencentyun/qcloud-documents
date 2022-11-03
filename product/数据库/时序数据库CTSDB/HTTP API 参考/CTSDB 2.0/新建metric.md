@@ -92,10 +92,7 @@ curl -u root:le201909 -H 'Content-Type:application/json' -X PUT 172.xx.xx.4:9201
 失败的返回：
 ```
   {
-    "error": {
-    "reason": "table ctsdb_test already exist",
-    "type": "metric_exception"
-    },
-    "status": 201
+    "acknowledged": true,
+    "message": "table ctsdb_test already exist"
    }
 ```
