@@ -221,7 +221,7 @@ mediaPlayer.StopPlay();
 | -103 | TTS_ERROR_CODE_DECODE_FAIL            | Response 解析失败                                 |
 | -104 | TTS_ERROR_CODE_SERVER_RESPONSE_ERROR  | 后端返回失败错误码，详细错误信息请查看后端错误码 |
 | -105 | TTS_ERROR_CODE_QUEUE_IS_FULL          | 合成队列已满                                     |
-| -106 | TTS_ERROR_CODE_CANCEL_FAILURE         | 取消识别，请稍后重试                             |
+| -106 | TTS_ERROR_CODE_CANCEL_FAILURE         | 取消失败，请稍后重试                             |
 | -900 | TTS_ERROR_CODE_OFFLINE_NOSUPPORT      | 当前 SDK 不支持离线合成能力，请使用 TtsMode.ONLINE  |
 
 
