@@ -3,7 +3,7 @@
 
 ## 实现方式
 面板配置信息可存放在任何路径， Demo 中存放在 assets，Demo 在首次使用面板文件时会复制到安装目录下。
-![](https://qcloudimg.tencent-cloud.cn/raw/b178070d012fca8cbbf275c0b1e84f44.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/5d189eae1fce1f079ed33394309144cb.png)
 
 **Json 结构和 UI 面板对应关系**：
 
@@ -31,16 +31,14 @@
 
 ### 2. 获取面板数据
 ```java
-  /**
+ /**
      * 获取avatar面板数据，
      *
-     * @param avatarResName avatar素材名称
-     * @param usCache       如果传入false需要将面板的数据也重新设置，所以传入false的前提是需要重新设置面板的数据
-     *   如果用户之前保存过，返回的是上次保存时面板的数据，如果用户没有保存过则返回默认的面板数据
+     * @param avatarResName      avatar素材名称
      * @param avatarDataCallBack 由于此方法会访问文件，所以会在子线程中进行文件操作，获取到数据后会在主线程回调
      *                           返回的数据是已经包含了resources文件夹下的数据
      */
-    public void getAvatarData(String avatarResName, boolean usCache, LoadAvatarDataCallBack avatarDataCallBack) 
+    public void getAvatarData(String avatarResName, String avatarSaveData, LoadAvatarDataCallBack avatarDataCallBack)
 ```
 
 ### 3. 从面板数据中解析出用户设置的属性或默认属性
@@ -49,19 +47,7 @@
 public static List<AvatarData> getUsedAvatarData(List<MainTab> mainTabList) 
 ```
 
-### 4. 将面板数据和拍照捏脸功能返回的数据进行合并
-```java
- /**
-     * 将面板数据和拍照页面获取到的数据进行整合
-     *
-     * @param avatarResName 素材名称
-     * @param avatarMap     属性数据，由拍照捏脸模块提供
-     * @return 返回面板可以使用的数据
-     */
-    public List<MainTab> getAvatarData(String avatarResName, Map<String, List<AvatarData>> avatarMap) 
-```
-
-###  5. 获取切换模型背景数据
+###  4. 获取切换模型背景数据
 ```java
  /**
      * 获取对应的plane Config数据
