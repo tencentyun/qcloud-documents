@@ -151,7 +151,7 @@ public class AvatarData {
 
 ## AvatarData 高级说明
 AvatarData 中，对捏脸起关键作用的是 entityName、action、value 三个字段。这三个字段的值是 SDK 在解析素材配置时自动填入的。大多数情况下，您不需要了解这三个字段的含义，仅在 UI 层展示时，如果是滑竿类型，则需要解析 value 中的形变 key-value 与 UI 操作进行对应。
-其中，AvatarData 要素分为：[entityName](#entityName)、[action](#action) 和 [value](#value) 字段
+其中，AvatarData 要素分为：[entityName](#entityName)、[action](#action) 和 [value](#action) 字段
 
 [](id:entityName)
 ### entityName 字段
@@ -159,9 +159,7 @@ AvatarData 中，对捏脸起关键作用的是 entityName、action、value 三�
 捏脸时，需要明确指定捏哪个部位，例如脸、眼睛、头发、上衣、鞋子 等等。entityName 字段就是描述这些身体部位名称的。
 
 [](id:action)
-
-### action 和 value字段
-
+### action 和 value 字段
 action 字段表示对 entityName 执行什么操作（action）。SDK 内定义了五种 action，均定义在`AvatarAction.java`中，每种 action 的含义及 value 要求如下：
 
 | action         | 含义                                                         | value要求                                                    |
