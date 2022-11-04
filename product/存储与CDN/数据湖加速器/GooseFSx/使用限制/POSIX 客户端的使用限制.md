@@ -101,7 +101,7 @@ GooseFSx 的 POSIX 客户端支持 Linux 和 Windows 操作系统，推荐的操
 | 单 GooseFSx 实例支持 POSIX 客户端个数 | 256        | 256个 POSIX 客户端可同时挂载一个 GooseFSx 实例。                      |
 | 单 POSIX 客户端挂载 GooseFSx 实例个数 | 1      | 一个 POSIX 客户端只能挂载一个 GooseFSx 实例。 |
 | POSIX 客户端最小配置 | 4核8GB        | POSIX 客户端推荐最小配置4核8GB内存。                      |
-| POSIX 客户端开放端口 | 22        | POSIX 客户端开放22端口，与 POSIX 客户端管理节点建立连接。                      |
+| POSIX 客户端开放端口 | <li>TCP：1191、22、10080、8445、60000-61000；<li> ICMP：ALL     |    POSIX 客户端开放必要端口，与 POSIX 客户端管理节点建立连接。详见 POSIX 客户端安全组规则(https://cloud.tencent.com/document/product/1424/77956#rule)                     |
 
 >? 
 > - 若在此表不能满足您的需求，或您有其他需求，您可咨询 [在线客服](https://cloud.tencent.com/act/event/Online_service?from=doc_582) 寻求帮助。
