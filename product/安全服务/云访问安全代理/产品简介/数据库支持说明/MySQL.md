@@ -50,7 +50,7 @@
 - 支持两个及以上连续字符的密文模糊查询，仅支持`LIKE`语法，不支持正则查询。
 - 密文模糊查询不支持转义字符，不支持`NO_BACKSLASH_ESCAPES`选项。
 - 加密后密文超过字段长度时会保存**明文**。
-- 同时存在密文和明文时，只能查询到到密文数据，存量明文数据需全量加密成密文。
+- 同时存在密文和明文时，只能查询到密文数据，存量明文数据需全量加密成密文。
 - 支持 `SELECT`, `INSERT`, `REPLACE`, `UPDATE`, `DELETE` 语句中  `WHERE、ON、IN、INSERT VALUE、SET` 等各字段中非表达式的值加解密。
 - 支持 `ROW` 条件中非表达式的值加解密，如支持 ` where (id, 'n2' , addr)=(2, name,'a2')` 中的字段加解密。
 - 支持 `table references` 和 `where condition` 中的子查询字段中非表达式的值加解密。
