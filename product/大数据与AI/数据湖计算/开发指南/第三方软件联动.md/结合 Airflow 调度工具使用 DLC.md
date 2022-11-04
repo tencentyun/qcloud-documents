@@ -107,7 +107,7 @@ with DAG(
 pip install jaydebeapi
 ```
 2. Airflow 各组件安装 java 环境。
-3. 准备好 [dlc-jdbc jar 包][https://dlc-jdbc-1304028854.cos.ap-beijing.myqcloud.com/dlc-jdbc-2.2.3-jar-with-dependencies.jar]。
+3. 准备好 [dlc-jdbc jar 包](https://dlc-jdbc-1304028854.cos.ap-beijing.myqcloud.com/dlc-jdbc-2.2.3-jar-with-dependencies.jar)。
 4. Airflow 各组件安装 jdbc module。
 ```python
 pip install apache-airflow-providers-jdbc
@@ -117,10 +117,10 @@ pip install apache-airflow-providers-jdbc
 Airflow 页面上没有 JDBC 的 Conn Type 可选，需要使用命令行添加 Connection。
 ```shell
 airflow connections add --conn-type jdbc \
---conn-host 'jdbc:dlc:dlc.tencentcloudapi.com?task_type=SQLTask&datasource_connection_name=DataLakeCatalog®ion=ap-guangzhou&data_engine_name=public-engine' \
+--conn-host 'jdbc:dlc:dlc.tencentcloudapi.com?task_type=SQLTask&datasource_connection_name=DataLakeCatalog&Region=ap-guangzhou&data_engine_name=public-engine' \
 --conn-extra '{"extra__jdbc__drv_path" : "/opt/airflow/plugins/dlc-jdbc-2.2.3-jar-with-dependencies.jar", "extra__jdbc__drv_clsname": "com.tencent.cloud.dlc.jdbc.DlcDriver"}' \
---conn-login 'xxx' \
---conn-password 'xxx'  dlc-jdbc
+--conn-login 'secretId' \
+--conn-password 'secretKey'  dlc-jdbc
 ```
 执行完成后可以在页面上看到新添加的 Connection。
 ![](https://qcloudimg.tencent-cloud.cn/raw/70dc4777ed98baf1265ca334cd0040d0.png)
