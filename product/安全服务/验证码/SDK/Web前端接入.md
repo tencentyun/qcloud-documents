@@ -59,18 +59,18 @@
     }
 
     // 定义验证码js加载错误处理函数
-    function loadErrorCallback() {
-      var appid = ''
-       // 生成容灾票据或自行做其它处理
-      var ticket = 'terror_1001_' + appid + Math.floor(new Date().getTime() / 1000);
-      callback({
-        ret: 0,
-        randstr: '@'+ Math.random().toString(36).substr(2),
-        ticket:ticket,
-        errorCode: 1001,
-        errorMessage: 'jsload_error',
-      });
-    }
+   function loadErrorCallback() {
+        var appid = '您的CaptchaAppId';
+        // 生成容灾票据或自行做其它处理
+        var ticket = 'terror_1001_' + appid + '_' + Math.floor(new Date().getTime() / 1000);
+        callback({
+          ret: 0,
+          randstr: '@'+ Math.random().toString(36).substr(2),
+          ticket: ticket,
+          errorCode: 1001,
+          errorMessage: 'jsload_error'
+        });
+     }
 
     // 定义验证码触发事件
     window.onload = function(){
