@@ -6,10 +6,8 @@
 
 ## 操作指南
 1. 登录 [边缘安全加速平台控制台](https://console.cloud.tencent.com/edgeone)，在左侧菜单栏中，单击**规则引擎**。
-2. 在规则引擎页面，选择所需站点，单击![](https://qcloudimg.tencent-cloud.cn/raw/fe4d4900f8ad69d506adc49bdb70fa32.png)可按需修改 HTTP 请求头规则。
->!目前仅支持匹配条件为全部（任意请求） 或 Host 时配置修改 HTTP 请求头操作。
->
-参数说明：
+2. 在规则引擎页面，选择所需站点，可按需配置修改  HTTP 请求头规则。如何使用规则引擎，请参见 [规则引擎](https://cloud.tencent.com/document/product/1552/70901)。
+配置项说明：
 <table>
 <thead>
 <tr>
