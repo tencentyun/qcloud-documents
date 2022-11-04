@@ -11,7 +11,7 @@
 <img src="https://qcloudimg.tencent-cloud.cn/raw/c82ae2cc6f05ee85bab3ac9e4810a3c7.png" width=800>
 - 左侧红框 subTabs 对应右侧二级菜单：
 <img src="https://qcloudimg.tencent-cloud.cn/raw/4ea127296fe999c32ae10eda949b8929.png" width=800>
-- 左侧的 icon 数据在 resources 文件夹中进行配置，右侧展示的是面板的配置数据，两者之间是通过面板数据中的**category 进行关联**，SDK 会解析 resources 文件夹中的数据，放入对应的 map 中，map 的 key 是 category 的值，所以在 Demo 中解析完 `panel.json` 文件后，可通过 SDK 提供的方法获取数据进行关联。
+- 左侧的 icon 数据在 resources 文件夹中进行配置，右侧展示的是面板的配置数据，两者之间是通过面板数据中的 **category 进行关联**，SDK 会解析 resources 文件夹中的数据，放入对应的 map 中，map 的 key 是 category 的值，所以在 Demo 中解析完 `panel.json` 文件后，可通过 SDK 提供的方法获取数据进行关联。
 ![](https://qcloudimg.tencent-cloud.cn/raw/bf53c4e59cd8cdbae61649eeba74399e.png)
 
 ## Demo 重要类说明
