@@ -312,7 +312,7 @@ void callMain() {
 1. 将以下代码添加到Podfile中:
 
 ```
-# 上一步构建的Flutter Module的路径
+// 上一步构建的Flutter Module的路径
 flutter_chat_application_path = '../tencent_chat_module'
 
 load File.join(flutter_chat_application_path, '.ios', 'Flutter', 'podhelper.rb')
@@ -378,10 +378,10 @@ Demo代码的逻辑是，使用新的路由，承载Chat的ViewController；Call
 新建 `FlutterUtils.swift` 文件，编写代码。本部分详细代码，可查看Demo源码。
 
 重点关注：
-    - private override init(): 初始化各 Flutter 引擎实例，注册Method Channel，监听事件。
-    - func reportChatInfo(): 将当前登录用户信息及SDKAPPID传至Flutter层，供其初始化SDK及登录。
-    - func launchCallFunc(): 用于拉起Call的Flutter页面，可被Call模块收到通话邀请触发，也可被Chat模块主动发起通话触发。
-    - func triggerNotification(msg: String): 将 iOS Native 层收到的通知点击事件，ext以JSON String的形式，传递至 Flutter Chat 模块。
+- private override init(): 初始化各 Flutter 引擎实例，注册Method Channel，监听事件。
+- func reportChatInfo(): 将用户登录信息和SDKAPPID透传至Flutter Module，使Flutter层得以初始化并登录腾讯云IM。
+- func launchCallFunc(): 用于拉起Call的Flutter页面，可被Call模块收到通话邀请触发，也可被Chat模块主动发起通话触发。
+- func triggerNotification(msg: String): 将 iOS Native 层收到的离线推送消息点击事件，及其包含的ext信息，以 JSON String形式，透传至 Flutter 层绑定的监听处理事件。用于处理离线推送点击跳转，例如至对应会话。
 
 **监听及转发离线推送点击事件**
 
@@ -404,7 +404,9 @@ Demo代码的逻辑是，使用新的路由，承载Chat的ViewController；Call
 
 ## 方案二：IM 和 Calling 承载于一个Flutter引擎中
 
-本方案，将Chat模块和Call模块，写在同一个Flutter引擎实例中
+本方案，将Chat模块和Call模块，写在同一个Flutter引擎实例中。
+
+这两个模块只能同时出现同时隐藏，仅需维护一个 Flutter引擎 即可。
 
 [![](https://qcloudimg.tencent-cloud.cn/raw/b622951f776a505e83f843de1f62fffc.png)](https://dscache.tencent-cloud.cn/upload/uploader/tencentcloudchat_flutter_add_to_app-1667532740459.zip)
 
@@ -473,3 +475,181 @@ tencent_chat_module/
 5. 新建 `group_profile.dart` 文件，用于承载TUIKit的群信息及群管理模块组件 `TIMUIKitGroupProfile`。详细代码可查看Demo源码。
 
 至此，统一的Flutter Module开发完成。
+
+### iOS Native 开发
+
+本文以 Swift 语言为例。
+
+>? 
+>
+> 以下代码结构，仅供参考，您可根据需要灵活组织，在iOS Native层面，引入上一步所构建的Flutter Module。
+
+进入您的iOS项目目录。
+
+如果您现有的应用程序，假设叫做 `MyApp`， 还没有Podfile，请按照[CocoaPods入门指南](https://guides.cocoapods.org/using/using-cocoapods.html)将 `Podfile` 添加到项目中。
+
+#### 引入 Flutter Module
+
+1. 将以下代码添加到Podfile中:
+
+```
+// 上一步构建的Flutter Module的路径
+flutter_chat_application_path = '../tencent_chat_module'
+
+load File.join(flutter_chat_application_path, '.ios', 'Flutter', 'podhelper.rb')
+```
+
+2. 对于每个需要嵌入Flutter的[Podfile target](https://guides.cocoapods.org/syntax/podfile.html#target)，调用 `install_all_flutter_pods(flutter_chat_application_path)`.
+
+```
+target 'MyApp' do
+  install_all_flutter_pods(flutter_chat_application_path)
+end
+```
+
+3. 在Podfile的 `post_install` 块中，调用 `flutter_post_install(installer)`，并完成 [腾讯云IM TUIKit](https://cloud.tencent.com/document/product/269/70747) 所需的权限声明，包括麦克风权限/相机权限/相册权限。
+
+```
+post_install do |installer|
+  flutter_post_install(installer) if defined?(flutter_post_install)
+  installer.pods_project.targets.each do |target|
+      flutter_additional_ios_build_settings(target)
+      target.build_configurations.each do |config|
+            config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= [
+              '$(inherited)',
+              'PERMISSION_MICROPHONE=1',
+              'PERMISSION_CAMERA=1',
+              'PERMISSION_PHOTOS=1',
+            ]
+          end
+    end
+end
+```
+
+4. 执行 `pod install`。
+> ?
+> 
+> - 在 `tencent_chat_module/pubspec.yaml` 中更改Flutter插件依赖时，请在Flutter Module目录中运行 `flutter pub get` 以刷新 `podhelper.rb` 脚本读取的插件列表。然后，从您iOS应用程序的根目录，再次执行 `pod install`。
+> - 对于 Apple Silicon 芯片 arm64 架构的 Mac电脑，可能需要执行 `arch -x86_64 pod install --repo-update`。
+
+`podhelper.rb` 脚本将您的插件 / `Flutter.framework` / `App.framework` 植入您的项目中。
+
+#### 在 iOS 项目中，管理Flutter引擎
+
+**创建一个FlutterEngine。**
+
+创建FlutterEngine的适当位置特定于您的主应用程序入口。作为一个例子，我们演示了如何在 `AppDelegate` 中的app启动时创建一个FlutterEngine，并公开为一个属性。
+
+```swift
+import UIKit
+import Flutter
+import FlutterPluginRegistrant
+
+@UIApplicationMain
+class AppDelegate: FlutterAppDelegate { // More on the FlutterAppDelegate.
+  lazy var flutterEngine = FlutterEngine(name: "tencent cloud chat")
+
+  override func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    // Runs the default Dart entrypoint with a default Flutter route.
+    flutterEngine.run();
+    GeneratedPluginRegistrant.register(with: self.flutterEngine);
+    return super.application(application, didFinishLaunchingWithOptions: launchOptions);
+  }
+}
+```
+
+**创建一个用于管理Flutter引擎的单例对象。**
+
+这个 Swift 单例对象，用于集中管理 Flutter Method Channel，并提供一系列与 Flutter Module 通信的方法，方便在项目中各处，直接调用。
+
+这些方法包括：
+- private override init(): 初始化 Method Channel，并为其绑定事件监听方法。
+- func reportChatInfo(): 将用户登录信息和SDKAPPID透传至Flutter Module，使Flutter层得以初始化并登录腾讯云IM。
+- func launchChatFunc(): 拉起或导航至 Flutter Module 所在 ViewController。
+- func triggerNotification(msg: String): 将 iOS Native 层收到的离线推送消息点击事件，及其包含的ext信息，以 JSON String形式，透传至 Flutter 层绑定的监听处理事件。用于处理离线推送点击跳转，例如至对应会话。
+
+详细代码可查看Demo源码。
+
+**监听及转发离线推送点击事件**
+
+离线推送的初始化/Token上报/点击事件对应的会话跳转处理，已在Flutter Chat模块中进行，因此，Native区域，仅需透传点击通知事件的ext即可。
+
+之所以这么做，是因为点击通知事件已在Native被拦截消费，Flutter层无法直接拿到，必须经由Native转发。
+
+在 `AppDelegate.swift` 文件中，新增如下代码。具体代码，可以参考Demo源码。
+
+![](https://qcloudimg.tencent-cloud.cn/raw/0ea48d21696a1e696ab98091983168f9.png)
+
+此时，iOS Native层编写完成。
+
+### Android Native 开发
+
+// TODO
+
+## 附加方案：在 Native 层，初始化并登录腾讯云IM
+
+有的时候，对于Chat和Call模块能力，您希望对于高频的简单应用场景，能深入嵌入您现有的业务逻辑中。
+
+例如对于游戏场景，在对局内，希望能直接发起会话。
+
+而您的完整功能Chat模块，使用Flutter实现，仅是您APP中一个重要性较低的子模块，因此不希望一上来就启动一个完整的Flutter Module。
+
+这个时候，您可以在Native层调用腾讯云IM  Native SDK的初始化及登录方法，此后，便可在您需要的高频简单场景，直接使用腾讯云IM Native SDK，构建 In-App Chat 能力。
+
+以 iOS Swift 代码为例，演示如何在 Native 层，初始化并登录。
+
+```swift
+func initTencentChat(){
+        if(isLoginSuccess == true){
+            return
+        }
+        let data = V2TIMManager.sharedInstance().initSDK(1400187352, config: nil);
+        if (data == true){
+            V2TIMManager.sharedInstance().login(
+                chatInfo.userID,
+                userSig: chatInfo.userSig,
+                succ: {
+                    self.isLoginSuccess = true
+                    self.reportChatInfo()
+                },
+                fail: onLoginFailed()
+            )
+        }
+}		
+```
+
+此后，在 Native 层面，便可直接使用Native SDK，搭建您的业务功能模块。详情可查阅 [iOS 快速入门]() 或 [Android 快速入门](https://cloud.tencent.com/document/product/269/36838)。
+
+**更详细代码，请查阅我们的Demo 源码。**
+
+[![](https://qcloudimg.tencent-cloud.cn/raw/b622951f776a505e83f843de1f62fffc.png)](https://dscache.tencent-cloud.cn/upload/uploader/tencentcloudchat_flutter_add_to_app-1667532740459.zip)
+
+
+-----
+
+
+
+至此，腾讯云IM Flutter - Native 混合开发方式已全部介绍完成。
+
+您可以基于本文档给出的方案，快速在您现有的原生开发 Android/iOS APP 中，使用 Flutter SDK，使用同一套Flutter代码，快速植入 Chat 和 Call 模块能力。
+
+如果您还有任何疑问，欢迎随时[联系我们](#contact)。
+
+
+-----
+
+
+## 引用与参考资料
+
+1. [Integrate a Flutter module into your Android project](https://docs.flutter.dev/development/add-to-app/android/project-setup).
+2. [Integrate a Flutter module into your iOS project](https://docs.flutter.dev/development/add-to-app/ios/project-setup).
+3. [Adding a Flutter screen to an iOS app](https://docs.flutter.dev/development/add-to-app/ios/add-flutter-screen?tab=no-engine-vc-swift-tab).
+4. [Multiple Flutter screens or views](https://docs.flutter.dev/development/add-to-app/multiple-flutters).
+
+[](id:contact)
+
+## 联系我们
+如果您在接入使用过程中有任何疑问，请加入 QQ 群：788910197 咨询。
+
+![](https://qcloudimg.tencent-cloud.cn/raw/eacb194c77a76b5361b2ae983ae63260.png)
+
