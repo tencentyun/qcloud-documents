@@ -14,6 +14,7 @@ GooseFSx POSIX 客户端指已部署 GooseFSx POSIX 客户端软件，并将 Goo
 
 - 已创建 GooseFSx 实例。创建指引请参见 [GooseFSx 实例](https://cloud.tencent.com/document/product/1424/77955)。
 - 已创建 POSIX 客户端管理节点。在创建 GooseFSx 实例时，会同步创建 POSIX 客户端管理节点。
+- 已为主机添加安全组规则，详见 [POSIX 客户端安全组规则](#rule)。若您同时为 POSIX 客户端设置拒绝策略的安全组，请确保未拒绝 POSIX 客户端安全组规则。
 
 #### 操作步骤
 
@@ -24,6 +25,7 @@ GooseFSx POSIX 客户端指已部署 GooseFSx POSIX 客户端软件，并将 Goo
 4. 单击**添加**，添加 POSIX 客户端。
 5. 在弹出的添加 POSIX 客户端对话框中，进行如下配置。
  - 通过主机名/主机 IP 模糊匹配，快速找到您需要添加 POSIX 客户端的主机；或者直接输入主机 IP。
+ >?请确认已为该主机添加安全组规则，详见 [POSIX 客户端安全组规则](#rule)。若您同时为 POSIX 客户端设置拒绝策略的安全组，请确保未拒绝 POSIX 客户端安全组规则。
  - 输入 root 帐号密码。
 6. 单击**确认**。
 创建过程预计需要几分钟，在 POSIX 客户端列表查看结果。
@@ -93,4 +95,12 @@ GooseFSx POSIX 客户端指已部署 GooseFSx POSIX 客户端软件，并将 Goo
 4. 勾选要删除的 POSIX 客户端，单击**删除**。
 
 
+[](id:rule)
+## POSIX 客户端安全组规则
 
+POSIX 客户端需要放通如下端口与 GooseFSx 通信，相关指引请参见 [配置安全组](https://cloud.tencent.com/document/product/213/15377)。若您同时为 POSIX 客户端设置拒绝策略的安全组，请确保未拒绝 POSIX 客户端安全组规则。
+ 
+| 协议 | 方向     | 端口                               | IP                      |
+| ---- | -------- | ---------------------------------- | ----------------------- |
+| TCP  | 入站规则 | 1191、22、10080、8445、60000-61000 | GooseFSx 所属 VPC 的所有 IP |
+| ICMP | 入站规则 | ALL                                | GooseFSx 所属 VPC 的所有 IP |
