@@ -3,12 +3,12 @@
 ## 1.29.13-Hoxton-Higher-RELEASE（2022-11-02）
 
 ### Bug 修复
-- 修复scg调用在filter中增加restTemplate或feign以后，scg最终调用目标下游服务的熔断功能失效的问题。
-- 修复TSF Consul与开源Consul双注册双发现的问题。
-- 修复swagger上报因为报文不完整出现空指针的问题。
+- 修复 scg 调用在filter中增加 restTemplate 或 feign 以后，scg 最终调用目标下游服务的熔断功能失效的问题。
+- 修复 TSF Consul 与开源 Consul 双注册双发现的问题。
+- 修复 swagger 上报因为报文不完整出现空指针的问题。
 
 ### 优化
-- 支持调用链中展示oceanbase监控。
+- 支持调用链中展示 oceanbase 监控。
 
 ## 1.29.11-Hoxton-Higher-RELEASE（2022-09-08）
 
