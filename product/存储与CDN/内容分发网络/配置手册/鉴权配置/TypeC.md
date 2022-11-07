@@ -70,7 +70,7 @@ CDN 服务器接受到客户请求后，解析出 url 中的 timestamp 参数 + 
 </tr>
 </tbody></table>
 	- 拼接签名串：dimtm5evg50ijsx2hvuwyfoiu65/test.jpg5e577978
-        - 计算签名串的 md5 值：md5hash = md5sum(pkeyurltimestamp)=md5sum(dimtm5evg50ijsx2hvuwyfoiu65/test.jpg5e577978)=7913fc0c5c9e92dd3633b7895152bbb2
+        - 计算签名串的 md5 值：md5hash = md5sum(pkeyuritimestamp)=md5sum(dimtm5evg50ijsx2hvuwyfoiu65/test.jpg5e577978)=7913fc0c5c9e92dd3633b7895152bbb2
 
 
 -   **生成鉴权 URL：**
