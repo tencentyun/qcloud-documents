@@ -1,0 +1,50 @@
+## 功能介绍
+许多用户在使用共享 PowerPoint 文件时，经常要用到演示者视图模式，目的是为了能够在共享内容的同时，在本地展示演示者视图。Microsoft PowerPoint 对于演示者视图的功能定位是在用户电脑连接了物理屏幕时使用，当用户仅有一个屏幕时，想要使用演示者模式就不太方便了。
+
+本文主要介绍几种使用腾讯会议的屏幕共享功能时开启演示者视图的方法。
+
+## 适用人群及场景
+### 适用人群
+IT 互联网从业者、金融理财行业从业者、学生、老师、政府机关工作人员等。
+
+### 场景
+教育培训、工作汇报、行业大会、毕业答辩等。
+
+## 使用条件
+### 版本要求
+- 3.10.0 版本及以上。
+- 个人版、会员、商业版、企业版用户。
+
+### 系统要求
+Windows、macOS
+
+## 使用注意事项
+- 此方法利用云端对文件进行转码，若文件较大建议您提前导入文件到腾讯文档。
+- 商业版、企业版暂时未开放共享腾讯文档功能，请等待后续版本更新。
+- 由于 Microsoft PowerPoint 的版本之间可能存在差别，以下的方法主要是以 Microsoft Office PowerPoint 2016 为例，如果发现某个方法不行时，建议尝试一下其他方法。 
+
+## 操作步骤
+### 步骤1：共享 PPT 应用后选择演示者视图模式放映
+1. 在会中底部工具栏单击**共享屏幕**，需要共享的 PPT 应用。
+![](https://qcloudimg.tencent-cloud.cn/raw/247cd89229b30be7fffc06ac568d51b4.png)
+2. 在您打开的 PPT 中单击**幻灯片放映**，选择**演示者视图**进入 PPT 演示模式即可。
+![](https://qcloudimg.tencent-cloud.cn/raw/b60218a4078fdc2d5c900e7adda073a6.png)
+
+### 步骤2：进入演示者视图后共享应用窗口
+1. 打开您要分享的 PPT，单击**幻灯片放映** > **演示者视图**进入 PPT 演示模式播放。
+![](https://qcloudimg.tencent-cloud.cn/raw/c1fc8b014734dd7e8665f3d2549f8865.png)
+2. 切换至腾讯会议窗口，在会中底部工具栏单击**共享屏幕**，选择共享 PPT 放映的窗口即可。
+![](https://qcloudimg.tencent-cloud.cn/raw/a6a978d6059aae999ebaf1b36a9ae95b.png)
+
+### 步骤3：进入普通 PPT 放映模式后切换至演示者视图
+1. 打开您要分享的 PPT，单击**幻灯片放映**，选中**从头开始**/**从当前幻灯片开始**播放。
+![](https://qcloudimg.tencent-cloud.cn/raw/af0aeae2bc98242d22210ac5e6ef8340.png)
+2. 切换至腾讯会议，在会中底部工具栏单击**共享屏幕**，选择共享 PPT 放映的窗口。
+![](https://qcloudimg.tencent-cloud.cn/raw/5466a4788adc2f8d9d4d3615be142b74.png)
+3. 在您放映的 PPT 窗口中选择切换至演示者视图即可。
+![](https://qcloudimg.tencent-cloud.cn/raw/03efa563c8016355bc3e53f17ce78d37.png)
+
+### 共享腾讯文档
+1. 在会中底部工具栏单击**共享屏幕** > **腾讯文档**，选择导入本地文件或在线文档单击**确认共享**即可。
+![](https://qcloudimg.tencent-cloud.cn/raw/f3e8bfb62ab7af6c14c50cb9210c3bb2.png)
+2. PPT 文件默认会进入演示模式，此时，您看到的是演示者视图，可以查看备注信息、操作页面翻页等，而其他参会成员![](https://qcloudimg.tencent-cloud.cn/raw/a32d46f5395f2b418fbc87fba34b1893.png)
