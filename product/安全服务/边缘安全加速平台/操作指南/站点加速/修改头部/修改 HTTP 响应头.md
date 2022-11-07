@@ -108,3 +108,25 @@ Error
 
 - 头部名称：Content-Disposition。
 - 头部值：常见配置示例如：`attachment;filename=FileName.txt`。
+
+### Access-Control-Allow-Methods
+设置跨域允许的 HTTP 请求方法。
+
+- 头部名称：Access-Control-Allow-Methods。
+- 头部值：可同时设置多个，例如 POST,GET,POTIONS。
+
+
+### Access-Control-Max-Age
+指定预检请求的结果在多少秒内有效。
+>?非简单的跨域请求，在正式通信之前，需要增加一次 HTTP 查询请求，称为“预请求”，用来查明这个跨域请求是不是安全可以接受的，如下请求会被视为非简单的跨域请求：
+以 GET、HEAD 或者 POST 以外的方式发起，或者使用 POST，但是请求数据类型为 application / x-www-form-urlencoded、 multipart / form-data、text / plain 以外的数据类型，如 application / xml 或者 text / xml。
+
+- 头部名称：Access-Control-Max-Age。
+- 头部值：输入秒数，例如1728000。
+
+
+### Content-Language
+指定访问页面所使用的语言。
+- 头部名称：Content-Language。
+- 头部值：例如 zh-CN 或 en-US。
+
