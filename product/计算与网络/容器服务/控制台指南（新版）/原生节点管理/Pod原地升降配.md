@@ -109,7 +109,7 @@ Annotations: tke.cloud.tencent.com/resource-status:
 | Accepted | 代表 Kubelet 发现 Pod 资源被修改，且节点上的资源足够 Admit 这个升降配后的 Pod。 | - |
 | Rejected | 代表 Pod 升降配请求被驳回。 | 驳回原因：Pod 变配后 Request 的资源值大于节点的 Allocate 值。 |
 | Completed | 代表 Pod 资源被成功修改，并变配后的资源设置在了容器上。 | - |
-| Completed | 代表由于某些问题当前升降配操作被推迟，推迟到 Pod 下次发生状态变化时再次触发变配。 | 可能出现的问题如下：<li>当前节点资源不够：节点 Allocate 资源量 - 其他 Pod 占用资源量 < 升降配 Pod 要求资源量。</li><li>状态落盘失败。</li> |
+| Deferred | 代表由于某些问题当前升降配操作被推迟，推迟到 Pod 下次发生状态变化时再次触发变配。 | 可能出现的问题如下：<li>当前节点资源不够：节点 Allocate 资源量 - 其他 Pod 占用资源量 < 升降配 Pod 要求资源量。</li><li>状态落盘失败。</li> |
 
 执行状态如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/55926b0a5b3dab95ceae780bafbe84a2.png)
