@@ -8,7 +8,8 @@ Flink 擅长处理无界和有界数据集 精确的时间控制和状态化使
 ```
 [hadoop@10 ~]$ hdfs dfs -ls cosn://$BUCKET_NAME/path
 Found 1 items
--rw-rw-rw-   1 hadoop hadoop      27040 2022-10-28 15:08 cosn://$BUCKET_NAME/path/LICENSE
+-rw-rw-rw-   1 hadoop hadoop      27040 2022-10-28 15:08 
+cosn://$BUCKET_NAME/path/LICENSE
 ```
 
 
@@ -21,9 +22,13 @@ Found 1 items
 [hadoop@10 ~]$ yarn-session.sh -jm 1024 -tm 1024 -n 1 -s 1 -nm wordcount-example -d
 ```
 ```
-/usr/local/service/flink/bin/flink run -m yarn-cluster /usr/local/service/flink/examples/batch/WordCount.jar --input cosn://$BUCKET_NAME/path/LICENSE -output cosn://$BUCKET_NAME/path/wdp_test
+/usr/local/service/flink/bin/flink run -m yarn-cluster 
+/usr/local/service/flink/examples/batch/WordCount.jar --input 
+cosn://$BUCKET_NAME/path/LICENSE -output 
+cosn://$BUCKET_NAME/path/wdp_test
 [hadoop@10 ~]$ hdfs dfs -ls cosn://$BUCKET_NAME/path/wdp_test
--rw-rw-rw-   1 hadoop hadoop       7484 2022-11-04 00:47 cosn://$BUCKET_NAME/path/wdp_test
+-rw-rw-rw-   1 hadoop hadoop       7484 2022-11-04 00:47 
+cosn://$BUCKET_NAME/path/wdp_test
 
 ```
 
