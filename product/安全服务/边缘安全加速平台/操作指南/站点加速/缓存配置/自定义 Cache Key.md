@@ -1,17 +1,74 @@
-
 ## 功能简介
-支持通过调整资源 URL 中的查询字符串、拼接 HTTP 请求头和配置忽略大小写，自定义调整资源 Cache Key（缓存资源的唯一标识），优化节点缓存，根据不同场景响应对应的资源，提升请求资源的加载速度。
+支持通过调整资源 URL 中的查询字符串和配置忽略大小写，拼接 HTTP 标头等，自定义调整资源 Cache Key（节点缓存资源的唯一标识），优化节点缓存，根据不同场景响应对应的资源，提升请求资源的加载速度。
+>?节点响应请求资源时，默认按照完整的请求 URL 作为缓存标识去匹配缓存资源，例如：请求 `https://www.example.com/images/example.jpg?key1=value1` 与 `https://www.example.com/images/example.jpg?key2=value2`  对应两个不同的节点 Cache Key ，因为其查询字符串不同。
 
-自定义 Cache Key 目前支持通过三个配置项实现：
-- 查询字符串，具体操作可参见 [查询字符串](https://cloud.tencent.com/document/product/1552/70751)。
-- HTTP 请求头，指定的 HTTP 请求头将被包含在 Cache Key 中，拼接在 URL 后方。只需输入 HTTP 请求头名称，例如：Accept-Language;User-Agent，Cache Key 里会自动包含头部对应的值。
-- 忽略大小写，具体操作可参见 [ 忽略大小写](https://cloud.tencent.com/document/product/1552/70750)。
+## 适用场景
+客户端访问请求的资源与其 URL 查询字符串，字符大小写，HTTP 表头或请求协议有关系，需按业务需要自定义灵活配置资源在节点的缓存标识，以使客户端能获取到适配的节点缓存。
 
-
-## 操作步骤[](id:bz)
+## 操作步骤
 1. 登录 [边缘安全加速平台控制台](https://console.cloud.tencent.com/edgeone)，在左侧菜单栏中，单击**规则引擎**。
-2. 在规则引擎页面，选择所需站点，单击![img](https://qcloudimg.tencent-cloud.cn/raw/fe4d4900f8ad69d506adc49bdb70fa32.png)或编辑存量规则，按需配置自定义 Cache Key 规则。
+2. 在规则引擎页面，选择所需站点，可按需配置自定义 Cache Key 规则。如何使用规则引擎，请参见 [规则引擎](https://cloud.tencent.com/document/product/1552/70901)。
+   配置项说明：
+<table>
+<thead>
+<tr>
+<th width="20%">配置项</th>
+<th width="80%">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">查询字符串</td>
+<td align="left">调整 URL 中的查询字符串后生成 Cache Key，默认保留原请求的全部查询参数。具体说明可参见 <a href="https://cloud.tencent.com/document/product/1552/70751">查询字符串</a>。</td>
+</tr>
+<tr>
+<td align="left">忽略大小写</td>
+<td align="left">是否忽略 URL 中英文字母的大小写，即使 URL(s) 内容一致 。具体说明可参见 <a href="https://cloud.tencent.com/document/product/1552/70750">忽略大小写</a>。</td>
+</tr>
+<tr>
+<td align="left">HTTP 请求头</td>
+<td align="left">资源会根据某些 HTTP 请求头而异，指定 HTTP 请求头拼接在 URL 后方生成 Cache Key 。只需输入 HTTP 请求头名称，例如：Accept-Language;User-Agent，Cache Key 里会自动包含头部对应的值。</td>
+</tr>
+<tr>
+<td align="left">Cookie</td>
+<td align="left">调整 Cookie 参数，将调整后的 Cookie 拼接在 URL 后方生成 Cache Key 。</td>
+</tr>
+<tr>
+<td align="left">请求协议</td>
+<td align="left">是否根据不同请求协议（HTTP/HTTPS）区分缓存，默认不区分。</td>
+</tr>
+</tbody></table>
+
+## 配置示例
+
+若域名 `www.example.com`  的自定义 Cache Key 配置如下：
+
+![](https://qcloudimg.tencent-cloud.cn/raw/090763cad03e233715b71ca39c3d9e4c.png)
+
+Cache Key 由 URL+My-Client-Header+Cookie 组成：不区分请求协议，忽略全部查询字符串，忽略 URL 大小写，拼接My-Client-Header和保留指定参数后的 Cookie。
+
+则客户端请求 A：
+
+URL：`https://www.example.com/path/demo.jpg?key1=value1&key2=value2`。
+
+HTTP 请求头：含 `My-Client-Header:fruit`。
+
+Cookie：name1=yummy;name2=tasty;name3=strawberry。
+
+与客户端请求 B：
+
+URL：`http://www.example.com/path/demo.JPG?key1=value1&key2=value2&key3=value3`。
+
+HTTP 请求头：含 `My-Client-Header:fruit`。
+
+Cookie：name1=yummy;name2=tasty;name3=blueberry。
+
+与客户端请求 C：
+
+URL：`http://www.example.com/path/demo.JPG?key1=value1&key2=value2&key3=value3&key4=value4`。
+
+HTTP 请求头：含 `My-Client-Header:sea`。
+
+Cookie：name1=yummy;name2=tasty;name3=fish。
 
 
-
-
+A 和 B 请求将会命中同一份缓存资源，C 命中另一份缓存资源。
