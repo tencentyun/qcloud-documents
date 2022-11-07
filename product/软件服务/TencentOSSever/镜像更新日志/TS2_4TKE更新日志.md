@@ -18,6 +18,17 @@
 <tr>
 <td>
 <ul class="params">
+<li>更新用户态软件</li>
+<li>更新内核至5.4.119-19-0009.11</li>
+<li>在 cloud_init 配置文件中开启 disk_setup</li>
+<li>修改镜像默认 open files 配置</li>
+</ul>
+</td>
+<td>2022-11-07</td>
+</tr>
+<tr>
+<td>
+<ul class="params">
 <li>更新 rdma 驱动至5.4-3.1.0.0LTS</li>
 <li>升级内核至5.4.119-19.0009.3</li>
 <li>更新用户态软件</li>
