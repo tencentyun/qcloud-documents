@@ -36,6 +36,8 @@
 2. **实现此 [QCloudSentenceRecognizerDelegate](#QCloudSentenceRecognizerDelegate) 协议方法**
 3. **调用示例**
 	- **通过语音 URL 调用**
+>? 支持8K 和16K 的引擎类型，引擎模型类型请参见 [EngSerViceType](https://cloud.tencent.com/document/product/1093/35646#2.-.E8.BE.93.E5.85.A5.E5.8F.82.E6.95.B0)。
+>
 ```objective-c
 //快捷接口
 - (void)recognizeWithUrl {
@@ -77,6 +79,8 @@ NSString *url = @"https://asr-audio-1256237915.cos.ap-shanghai.myqcloud.com/30s.
 }
 ```
 	- **通过语音数据调用**
+	- >? 支持8K 和16K 的引擎类型，引擎模型类型请参见 [EngSerViceType](https://cloud.tencent.com/document/product/1093/35646#2.-.E8.BE.93.E5.85.A5.E5.8F.82.E6.95.B0)。
+>
 ```objective-c
 //快捷接口
 - (void)recognizeWithAudioData {
@@ -122,6 +126,8 @@ NSString *url = @"https://asr-audio-1256237915.cos.ap-shanghai.myqcloud.com/30s.
 }
 ```
  - **通过 SDK 内置录音器调用**
+>? 支持16K 的引擎类型，引擎模型类型请参见 [EngSerViceType](https://cloud.tencent.com/document/product/1093/35646#2.-.E8.BE.93.E5.85.A5.E5.8F.82.E6.95.B0)。
+>
 ```objective-c
 //启动录音
   [_recognizer startRecognizeWithRecorder:@"16k_zh"];  //16k_zh > 识别引擎,传nil将默认使用16k_zh,支持的识别引擎以API文档为准，见https://cloud.tencent.com/document/product/1093/35646
