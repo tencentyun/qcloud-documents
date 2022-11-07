@@ -27,7 +27,7 @@
 </tr>
 <tr>
 <td>md5hash</td>
-<td>通过 MD5 算法计算出的固定长度为32位的字符串。具体计算公式如下： <br>•  md5hash = md5sum(pkeyurltimestamp)参数之间无任何符号  <br>•  pkey： 自定义密钥：由6 - 40位大小写字母、数字构成，密钥需要严格保密，仅客户端与服务端知晓。 <br>•   uri 资源访问路径以正斜线（/）开头。 <br>•  timestamp: 取值为上述中的timestamp。</td>
+<td>通过 MD5 算法计算出的固定长度为32位的字符串。具体计算公式如下： <br>•  md5hash = md5sum(pkeyuritimestamp)参数之间无任何符号  <br>•  pkey： 自定义密钥：由6 - 40位大小写字母、数字构成，密钥需要严格保密，仅客户端与服务端知晓。 <br>•   uri 资源访问路径以正斜线（/）开头。 <br>•  timestamp: 取值为上述中的timestamp。</td>
 </tr>
 </tbody></table>
 -  **鉴权逻辑说明**
