@@ -87,7 +87,7 @@ Namespace=QCE/TXMR_RANGER
 
 ## 入参说明
 
-查询弹性 MapReduce（Ranger-Admin）监控数据，入参取值如下：
+**查询弹性 MapReduce（Ranger-Admin）监控数据，入参取值如下：**
 
 Namespace=TXMR_RANGER
 &Instances.N.Dimensions.0.Name=host4rangerrangeradmin
@@ -97,7 +97,7 @@ Namespace=TXMR_RANGER
 
 
 
-查询弹性 MapReduce（Ranger-UserSync）监控数据，入参取值如下：
+**查询弹性 MapReduce（Ranger-UserSync）监控数据，入参取值如下：**
 
 Namespace=TXMR_RANGER
 &Instances.N.Dimensions.0.Name=host4rangerrangerusersync
