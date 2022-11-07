@@ -3,7 +3,7 @@
 ## 1.29.13-Hoxton-Higher-RELEASE（2022-11-02）
 
 ### Bug 修复
-- 修复 scg 调用在filter中增加 restTemplate 或 feign 以后，scg 最终调用目标下游服务的熔断功能失效的问题。
+- 修复 scg 调用在 filter 中增加 restTemplate 或 feign 以后，scg 最终调用目标下游服务的熔断功能失效的问题。
 - 修复 TSF Consul 与开源 Consul 双注册双发现的问题。
 - 修复 swagger 上报因为报文不完整出现空指针的问题。
 
