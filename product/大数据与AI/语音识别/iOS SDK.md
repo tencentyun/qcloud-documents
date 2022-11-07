@@ -79,7 +79,7 @@ NSString *url = @"https://asr-audio-1256237915.cos.ap-shanghai.myqcloud.com/30s.
 }
 ```
 	- **通过语音数据调用**
-	- >? 支持8K 和16K 的引擎类型，引擎模型类型请参见 [EngSerViceType](https://cloud.tencent.com/document/product/1093/35646#2.-.E8.BE.93.E5.85.A5.E5.8F.82.E6.95.B0)。
+>? 支持8K 和16K 的引擎类型，引擎模型类型请参见 [EngSerViceType](https://cloud.tencent.com/document/product/1093/35646#2.-.E8.BE.93.E5.85.A5.E5.8F.82.E6.95.B0)。
 >
 ```objective-c
 //快捷接口
