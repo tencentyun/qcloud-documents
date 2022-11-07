@@ -29,6 +29,6 @@
 
 若请求 URL `https://www.example.com/path0/path1/foo.html` 的访问 URL 重定向配置如下：
 
-![](https://qcloudimg.tencent-cloud.cn/raw/6a149d6339dd72eec0b20aff190b6879.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/8e5a2b2af622f99d7454c2e85c8fbfaf.png)
 
 则客户端请求：`https://www.example.com/path0/path1/foo.html?key1=value1` 回源会被重写为 `https://www.example.com/path1/foo.html` 获取请求资源。
