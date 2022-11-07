@@ -38,3 +38,26 @@
 
 如遇其他问题，请您尝试重新运行迁移工具。若仍然失败，请将配置信息（密钥信息请隐藏）与 log 目录打包后 [联系我们](https://cloud.tencent.com/document/product/436/37708)。
 
+### 任务未能全部执行完，在 error.log 中存在 java 异常 "java.nio.file.FileSystemLoopException"，该如何处理
+error.log 中异常信息类似：
+
+```
+2022-XX-XX XX:XX:XX [ERROR] [main:xxx] [com.qcloud.cos_migrate_tool.task.MigrateLocalTaskExecutor:] [MigrateLocalTaskExecutor.java:183]
+walk file tree error
+java.nio.file.FileSystemLoopException: /dataseal/xx1/file1
+at java.nio.file.FileTreeWalker.visit(FileTreeWalker.java:294)
+at java.nio.file.FileTreeWalker.next(FileTreeWalker.java:372)
+at java.nio.file.Files.walkFileTree(Files.java:2706)
+at com.qcloud.cos_migrate_tool.task.MigrateLocalTaskExecutor.buildTask(MigrateLocalTaskExecutor.java:176)
+at com.qcloud.cos_migrate_tool.task.TaskExecutor.run(TaskExecutor.java:244)
+at com.qcloud.cos_migrate_tool.app.App.main(App.java:135)
+```
+原因是待迁移的文件 "/dataseal/xx1/file1" 可能是1个软链接，指向了其父目录中的资源，可通过以下命令来确认
+
+```
+[root@TENCENT64 /dataseal/cos_migrate_tool_v5-master/log]# ll /dataseal/xx1/file1
+lrwxrwxrwx 1 xx xx xx xx   x xxxx /dataseal/xx1/file1 -> ../xx1/
+```
+
+如上图，软链接文件 "/dataseal/xx1/file1" 指向了父目录中 "/dataseal/xx1/" ，这会导致遍历产生环或者死循环，因此迁移任务会自动中止。
+建议提前删除此类文件（注意：在配置项 “excludes” 中排除这类文件的方法是无效的）。
