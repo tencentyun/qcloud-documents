@@ -68,7 +68,7 @@ tls.on(TLS.EVENT.SDK_READY, async() => {
 ```javascript
 tls.on(TLS.EVENT.ROOM_STATUS_CHANGE, async(data) => {
   
-}
+})
 ```
 
 ### TLS.EVENT.JOIN_GROUP
