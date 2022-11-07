@@ -4,10 +4,8 @@
 
 ## 操作步骤
 1. 登录 [边缘安全加速平台控制台](https://console.cloud.tencent.com/edgeone) ，在左侧菜单栏中，单击**规则引擎**。
-2. 在规则引擎页面，选择所需站点，单击![](https://qcloudimg.tencent-cloud.cn/raw/fe4d4900f8ad69d506adc49bdb70fa32.png)可按需配置修改 HTTP 响应头规则。
->!目前仅支持匹配条件为全部（任意请求） 或 Host 时配置修改 HTTP 响应头操作。
->
-参数说明：
+2. 在规则引擎页面，选择所需站点，可按需配置修改 HTTP 响应头规则。如何使用规则引擎，请参见 [规则引擎](https://cloud.tencent.com/document/product/1552/70901)。
+配置项说明：
 <table>
 <thead>
 <tr>
@@ -16,7 +14,7 @@
 </tr>
 </thead>
 <tbody><tr>
-<td>变更</td>
+<td>设置</td>
 <td>变更指定头部参数的取值为设置后的值<br>注意：<ul><li>若指定头部不存在，则会增加该头部</li><li>若头部已存在（即使有多个重复的头部），则会覆盖原有头部且唯一（合并多个重复的头部为1个头部）</td>
 </tr>
 <tr>
@@ -110,3 +108,25 @@ Error
 
 - 头部名称：Content-Disposition。
 - 头部值：常见配置示例如：`attachment;filename=FileName.txt`。
+
+### Access-Control-Allow-Methods
+设置跨域允许的 HTTP 请求方法。
+
+- 头部名称：Access-Control-Allow-Methods。
+- 头部值：可同时设置多个，例如 POST,GET,POTIONS。
+
+
+### Access-Control-Max-Age
+指定预检请求的结果在多少秒内有效。
+>?非简单的跨域请求，在正式通信之前，需要增加一次 HTTP 查询请求，称为“预请求”，用来查明这个跨域请求是不是安全可以接受的，如下请求会被视为非简单的跨域请求：
+以 GET、HEAD 或者 POST 以外的方式发起，或者使用 POST，但是请求数据类型为 application / x-www-form-urlencoded、 multipart / form-data、text / plain 以外的数据类型，如 application / xml 或者 text / xml。
+
+- 头部名称：Access-Control-Max-Age。
+- 头部值：输入秒数，例如1728000。
+
+
+### Content-Language
+指定访问页面所使用的语言。
+- 头部名称：Content-Language。
+- 头部值：例如 zh-CN 或 en-US。
+

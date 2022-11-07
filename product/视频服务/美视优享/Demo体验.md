@@ -135,16 +135,12 @@
 <tr>
 <th>白茶</th>
 <th>春意</th>
-<th>冲浪</th>
-<th>爱情</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><img src="https://qcloudimg.tencent-cloud.cn/raw/e1f5ddad5a26bc98fd54475031cbf728.png" width="300"></td>
 <td><img src="https://qcloudimg.tencent-cloud.cn/raw/b4db17969ffb527d1abba248e4ba6d0a.png" width="300"></td>
-<td><img src="https://qcloudimg.tencent-cloud.cn/raw/07d9246be47bff1a916d9a370b376573.png" width="300"></td>
-<td><img src="https://qcloudimg.tencent-cloud.cn/raw/f8da2680ad14fb8218791ac2185edb8e.png" width="300"></td>
 </tr>
 </tbody></table>
 
@@ -181,8 +177,8 @@
 <th>腮红</th>
 <th>立体</th>
 </tr><tr>
-<td><img src="https://tencentcloud-76607.gzc.vod.tencent-cloud.com/ugsv/lipstick.gif" width="300"></td>
-<td><img src="https://tencentcloud-76607.gzc.vod.tencent-cloud.com/ugsv/saihong.gif" width="300"></td>
+<td><img src="https://tencentcloud-76607.gzc.vod.tencent-cloud.com/ugsv/lipstick2.gif" width="300"></td>
+<td><img src="https://tencentcloud-76607.gzc.vod.tencent-cloud.com/ugsv/kouhogn.gif" width="300"></td>
 <td><img src="https://tencentcloud-76607.gzc.vod.tencent-cloud.com/ugsv/liti.gif" width="300"></td>
 </tr>
 <tr>

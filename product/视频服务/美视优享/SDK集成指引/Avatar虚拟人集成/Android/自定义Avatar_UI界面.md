@@ -3,7 +3,7 @@
 
 ## 实现方式
 面板配置信息可存放在任何路径， Demo 中存放在 assets，Demo 在首次使用面板文件时会复制到安装目录下。
-![](https://qcloudimg.tencent-cloud.cn/raw/b178070d012fca8cbbf275c0b1e84f44.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/5d189eae1fce1f079ed33394309144cb.png)
 
 **Json 结构和 UI 面板对应关系**：
 
@@ -11,7 +11,7 @@
 <img src="https://qcloudimg.tencent-cloud.cn/raw/c82ae2cc6f05ee85bab3ac9e4810a3c7.png" width=800>
 - 左侧红框 subTabs 对应右侧二级菜单：
 <img src="https://qcloudimg.tencent-cloud.cn/raw/4ea127296fe999c32ae10eda949b8929.png" width=800>
-- 左侧的 icon 数据在 resources 文件夹中进行配置，右侧展示的是面板的配置数据，两者之间是通过面板数据中的**category 进行关联**，SDK 会解析 resources 文件夹中的数据，放入对应的 map 中，map 的 key 是 category 的值，所以在 Demo 中解析完 `panel.json` 文件后，可通过 SDK 提供的方法获取数据进行关联。
+- 左侧的 icon 数据在 resources 文件夹中进行配置，右侧展示的是面板的配置数据，两者之间是通过面板数据中的 **category 进行关联**，SDK 会解析 resources 文件夹中的数据，放入对应的 map 中，map 的 key 是 category 的值，所以在 Demo 中解析完 `panel.json` 文件后，可通过 SDK 提供的方法获取数据进行关联。
 ![](https://qcloudimg.tencent-cloud.cn/raw/bf53c4e59cd8cdbae61649eeba74399e.png)
 
 ## Demo 重要类说明
@@ -31,16 +31,14 @@
 
 ### 2. 获取面板数据
 ```java
-  /**
+ /**
      * 获取avatar面板数据，
      *
-     * @param avatarResName avatar素材名称
-     * @param usCache       如果传入false需要将面板的数据也重新设置，所以传入false的前提是需要重新设置面板的数据
-     *   如果用户之前保存过，返回的是上次保存时面板的数据，如果用户没有保存过则返回默认的面板数据
+     * @param avatarResName      avatar素材名称
      * @param avatarDataCallBack 由于此方法会访问文件，所以会在子线程中进行文件操作，获取到数据后会在主线程回调
      *                           返回的数据是已经包含了resources文件夹下的数据
      */
-    public void getAvatarData(String avatarResName, boolean usCache, LoadAvatarDataCallBack avatarDataCallBack) 
+    public void getAvatarData(String avatarResName, String avatarSaveData, LoadAvatarDataCallBack avatarDataCallBack)
 ```
 
 ### 3. 从面板数据中解析出用户设置的属性或默认属性
@@ -49,19 +47,7 @@
 public static List<AvatarData> getUsedAvatarData(List<MainTab> mainTabList) 
 ```
 
-### 4. 将面板数据和拍照捏脸功能返回的数据进行合并
-```java
- /**
-     * 将面板数据和拍照页面获取到的数据进行整合
-     *
-     * @param avatarResName 素材名称
-     * @param avatarMap     属性数据，由拍照捏脸模块提供
-     * @return 返回面板可以使用的数据
-     */
-    public List<MainTab> getAvatarData(String avatarResName, Map<String, List<AvatarData>> avatarMap) 
-```
-
-###  5. 获取切换模型背景数据
+###  4. 获取切换模型背景数据
 ```java
  /**
      * 获取对应的plane Config数据
