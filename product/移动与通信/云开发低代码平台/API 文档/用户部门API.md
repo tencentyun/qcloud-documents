@@ -2,25 +2,20 @@
 - 安装 postman。
 - 获取腾讯云 secretId + secretKey，地址。
 
-
-
 <table>
-<tr>
-<th width="30%">公有云</th>
-<th width="75%"> 
-
-[API密钥管理](https://console.cloud.tencent.com/cam/capi)
-</th>
-</tr>
-<tr>
-<th width="30%">私有化</th>
-<th width="75%"> 
-
-修改Uin、AppId、EnvId、Message。登录任意 pod 里执行。
-
-
-<dx-codeblock>
-:::  html
+   <tr>
+      <th width="0%" >接口名称</td>
+      <th width="0%" >接口功能</td>
+   </tr>
+   <tr>
+      <td>公有云</td>
+      <td><a href="https://console.cloud.tencent.com/cam/capi">API 密钥管理</a>。</td>
+   </tr>
+   <tr>
+      <td>私有化</td>
+      <td>	
+修改 Uin、AppId、EnvId、Message。登录任意 pod 里执行。
+```html
  {
    curl -i -X POST \
   -H "Content-Type:application/json" \
@@ -38,15 +33,9 @@
   "Platform": "SERVICE"
 }' \
  'weda-idaas-mgr:8080/cloudbase.auth.v1.Mgr/AddClient'
-
-
-:::
-</dx-codeblock>
-</th>
-</tr>
-<tbody>
+```</td>
+   </tr>
 </table>
-
 
 - token 获取，注意：
  - **url：**https://{envId}.ap-shanghai.tcb-api.tencentcloudapi.com
@@ -595,11 +584,6 @@ http://lowcode-8g84r3rnf95853d9.ap-shanghai.tcbapi.tencentcloud.com/weda/auth/v1
 
 :::
 </dx-codeblock>
-
-
-
-
-
 
 
 ## 角色相关接口
