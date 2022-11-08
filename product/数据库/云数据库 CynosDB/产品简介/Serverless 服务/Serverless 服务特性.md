@@ -46,7 +46,7 @@ Serverless 服务的弹性策略一开始会根据用户购买时选择的容量
 
 TDSQL-C MySQL 版的接入层增加了一个恢复感知器（简称 perceptron）的模块来实现请求转发，perceptron 在和客户端握手之后，不断用户连接，恢复集群后，与 TDSQL-C MySQL 版握手，后续转发四层报文。
 整体流程设计采用了两个挑战随机数进行鉴权，以实现中继模块 preceptron 不存储用户名密码的情况下也可以完成用户名密码验证，保证了用户密码的安全性，也不会引入存储密码不一致的问题。
-![](https://qcloudimg.tencent-cloud.cn/raw/5d87f0e0d777724fa60d4b7a79e54e1e.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/2fa0215f51fe80c40964c4ba48bdc7d5.png)
 
 在实例暂停的状态下，如果有连接发起，MySQL 客户端首先会同 preceptron 进行 TCP 握手（P0），完成 TCP 握手后后，preceptron 会向客户端发送 “随机数 A” 进行挑战（P1），MySQL 客户端用自己的账号密码和 “随机数 A” 来计算并回复自己的 “登录解答 A”（P2）。由于 preceptron 并没有存储用户的账号密码，所以无法校验 “登录解答 A” 是否正确，但 preceptron 能区分客户端是 MySQL 客户端，还是其他类型的客户端（preceptron 在机器学习界是分类器，区分不同类型的客户端也是用他命名的原因之一）。校验 “登录解答 A” 将由 TDSQL-C MySQL 版计算层（下文简称 TDSQL-C）来完成，preceptron 通过管控唤醒 TDSQL-C 后（P3），开始下一步的登录校验流程。
 
