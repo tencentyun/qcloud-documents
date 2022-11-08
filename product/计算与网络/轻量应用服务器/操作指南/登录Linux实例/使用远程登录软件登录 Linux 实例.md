@@ -27,9 +27,9 @@ Windows
 使用 Ubuntu 镜像创建的实例默认禁用 `root` 用户名通过密码的方式登录实例。如需开启，请参考 [Ubuntu 系统如何使用 root 用户登录实例？](https://cloud.tencent.com/document/product/1207/44569#ubuntu-.E7.B3.BB.E7.BB.9F.E5.A6.82.E4.BD.95.E4.BD.BF.E7.94.A8-root-.E7.94.A8.E6.88.B7.E7.99.BB.E5.BD.95.E5.AE.9E.E4.BE.8B.EF.BC.9F)。
 
 ## 操作步骤
-
+### 使用密码登录
 <dx-tabs>
-::: 使用密码登录
+::: 通过 PuTTy 登录
 1. 下载 Windows 远程登录软件，即 PuTTY。
 PuTTY 的获取方式：[点此获取](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
 2. 双击 **putty.exe**，打开 PuTTY 客户端。
@@ -50,10 +50,32 @@ PuTTY 的获取方式：[点此获取](https://www.chiark.greenend.org.uk/~sgtat
 输入的密码默认不显示，如下图所示：
 ![](https://main.qcloudimg.com/raw/9e7ddc631de2a27bfd35f9225de85506.png)
 登录完成后，命令提示符左侧将显示当前登录轻量应用服务器的信息。
-
+请在此输入 1 正文
 :::
-::: 使用密钥登录
-**方式一：使用 PuTTy 登录**
+
+::: 通过 Xshell 登录
+1. 打开 Xshell 工具，单击**新建**，新建一个会话。
+![](https://qcloudimg.tencent-cloud.cn/raw/1435b988692fd303846706d86633dbd2.png)
+2. 在新建会话属性的弹窗中，输入轻量应用服务器的公网 IP，单击**确定**。
+![](https://qcloudimg.tencent-cloud.cn/raw/0d58ca247435475344d488c1c2079f30.png)
+3. 找到步骤2新建的会话，右键单击**属性**。
+![](https://qcloudimg.tencent-cloud.cn/raw/cc839b3456fb144845e94234a9c3207e.png)
+4. 在**连接** > **用户身份验证**页面，填写腾讯云轻量应用服务器的用户名和密码，单击**确定**。
+![](https://qcloudimg.tencent-cloud.cn/raw/68a4419ef520c4c99bc9d9d9ccfa6f8e.png)
+5. 找到步骤2新建的会话，单击**连接**。
+![](https://qcloudimg.tencent-cloud.cn/raw/4119e37578ce90899261cd2406b7dd90.png)
+登录成功后，界面显示如下（以 centos 为例）：
+![](https://qcloudimg.tencent-cloud.cn/raw/d2029b70a9885f22b721a04551dd954a.png)
+:::
+</dx-tabs>
+
+
+
+
+
+### 使用密钥登录
+<dx-tabs>
+::: 通过 PuTTy 登录
 1. 下载 Windows 远程登录软件，即 PuTTy。
 请分别下载 putty.exe 和 puttygen.exe 软件，PuTTy 的获取方式：[点此获取](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)。
 2. 双击 **puttygen.exe**，打开 PuTTy Key 客户端。
@@ -83,8 +105,9 @@ PuTTY 的获取方式：[点此获取](https://www.chiark.greenend.org.uk/~sgtat
 12. 若按照 [步骤4](#Step4) 设置了加密私钥的密码，则请输入后按 **Enter**，密码默认不显示。如下图所示：
 ![](https://main.qcloudimg.com/raw/401da3ef001f103115aa8ba8c54d6ec8.png)
 登录完成后，命令提示符左侧将显示当前登录轻量应用服务器的信息。
+:::
 
-**方式二：使用 Xshell 登录**
+::: 通过 Xshell 登录
 1. 打开 Xshell 工具，单击**新建**，新建一个会话。
 ![](https://qcloudimg.tencent-cloud.cn/raw/1435b988692fd303846706d86633dbd2.png)
 2. 在新建会话属性的弹窗中，输入轻量应用服务器的公网 IP，单击**确定**。
@@ -93,12 +116,14 @@ PuTTY 的获取方式：[点此获取](https://www.chiark.greenend.org.uk/~sgtat
 ![](https://qcloudimg.tencent-cloud.cn/raw/4119e37578ce90899261cd2406b7dd90.png)
 4. （可选）当出现”SSH安全警告“时，单击**接受并保存**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/8294dade6592e0868c390c254e4bd2cd.png)
-5. 单击**浏览** > **用户密钥**，选择从腾讯云创建的密钥，单击**确定**。
+5. 单击**浏览** > **用户密钥**，选择从腾讯云轻量应用服务器创建的密钥，单击**确定**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/71a561cfc4c7d740b9b3c572c942050e.png)
 登录成功后，界面显示如下（以 centos 为例）：
 ![](https://qcloudimg.tencent-cloud.cn/raw/d2029b70a9885f22b721a04551dd954a.png)
 :::
 </dx-tabs>
+
+
 
 
 
