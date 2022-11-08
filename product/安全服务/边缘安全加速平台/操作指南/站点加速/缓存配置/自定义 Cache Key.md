@@ -1,5 +1,5 @@
 ## 功能简介
-支持通过调整资源 URL 中的查询字符串和配置忽略大小写，拼接 HTTP 标头等，自定义调整资源 Cache Key（节点缓存资源的唯一标识），优化节点缓存，根据不同场景响应对应的资源，提升请求资源的加载速度。
+支持通过调整资源 URL 中的查询字符串和配置忽略大小写，拼接 HTTP 标头等，自定义调整资源 Cache Key，优化节点缓存，根据不同场景响应对应的资源，提升请求资源的加载速度。
 
 #### 什么是 Cache Key？
 Cache Key 是节点缓存资源的唯一标识。节点响应请求资源时，默认按照完整的请求 URL 作为 Cache Key（缓存标识）去匹配缓存资源，例如：请求 `https://www.example.com/images/example.jpg?key1=value1` 与 `https://www.example.com/images/example.jpg?key2=value2` 对应两个不同的节点 Cache Key ，因为其查询字符串不同。
