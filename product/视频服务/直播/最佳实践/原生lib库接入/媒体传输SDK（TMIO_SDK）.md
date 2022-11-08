@@ -18,6 +18,8 @@ TMIO SDK 当前已对流媒体协议 SRT 进行了封装优化，将会持续增
    - 基于 ARQ 及超时策略的重传机制。
    - 多链路传输优化，可支持广播、主备、聚合等多种传输选择。
 
+<video width="700px" height="auto" src="https://qcloudimg.tencent-cloud.cn/raw/ed56a488e204f3140416e8a451bfc57e.mp4 " controls  muted></video>
+
 ### 功能介绍
 - **基于 SRT 的流媒体传输功能**。
 - **基于 UDT 的低延时、安全可靠的传输设计**。
