@@ -1,5 +1,10 @@
 ## TCplayer 更新日志
 
+### TCplayer 4.6.0 @ 2022.11.04
+- 新增支持多音轨
+- 新增支持url形式的续播
+- 修复部分问题
+
 ### TCplayer 4.5.4 @ 2022.8.26
 - 新增支持快直播 abr，更新 txliveplayer
 - 新增支持 av1 in flv，更新 flv.js
