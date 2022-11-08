@@ -3,22 +3,25 @@ TMIO SDK（Tencent Media IO SDK）是针对当前日益丰富的流媒体传输�
 TMIO SDK 当前已对流媒体协议 SRT 进行了封装优化，将会持续增加其他主流协议的优化扩展。
 
 ### 能力优势
-- 多平台支持
-  包括 Android、iOS、Linux、Mac 和 windows。
-- 灵活的选择接入方式
+- **多平台支持**：包括 Android、iOS、Linux、Mac 和 windows。
+- **灵活的选择接入方式**：
    - 零代码入侵的代理模式， 请参见 [接入简介](#choose)。
    - 依托简单的 API 设计，可实现快速接入替换原有传输协议，请参见 [接入简介](#internal)。
-- API 接口设计简单，兼容性灵活性强。
+- **API 接口设计简单，兼容性灵活性强**：
    - 提供简单易用的接口设计。
    - 可根据业务需求场景选择合适的模式和策略。
    - 可扩展其他协议的定制优化。
-- 基于 SRT 的传输协议定制优化。
+- **基于 SRT 的传输协议定制优化**：
    - 抗随机丢包能力强。
    - 基于 UDT 的低延时传输。
    - 基于 ARQ 及超时策略的重传机制。
    - 多链路传输优化，可支持广播、主备、聚合等多种传输选择。
+- TMIO 支持 SRT 协议，可用于弱网、远距离传输场景中，提高上行稳定性和下行流畅度。
+<video width="500px" height="auto" src="https://qcloudimg.tencent-cloud.cn/raw/6761d955b4d38f11ef66059608cb6b75.mp4" controls  muted></video>
+- TMIO-SRT 支持多链路平滑迁移。网络不佳时，可流畅切换至备用链路，保持推流的稳定。
+<video width="500px" height="auto" src="https://qcloudimg.tencent-cloud.cn/raw/ed56a488e204f3140416e8a451bfc57e.mp4" controls  muted></video> 
 
-<video width="700px" height="auto" src="https://qcloudimg.tencent-cloud.cn/raw/ed56a488e204f3140416e8a451bfc57e.mp4 " controls  muted></video>
+
 
 ### 功能介绍
 - **基于 SRT 的流媒体传输功能**。
