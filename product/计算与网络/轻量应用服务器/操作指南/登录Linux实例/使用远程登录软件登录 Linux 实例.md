@@ -50,7 +50,6 @@ PuTTY 的获取方式：[点此获取](https://www.chiark.greenend.org.uk/~sgtat
 输入的密码默认不显示，如下图所示：
 ![](https://main.qcloudimg.com/raw/9e7ddc631de2a27bfd35f9225de85506.png)
 登录完成后，命令提示符左侧将显示当前登录轻量应用服务器的信息。
-请在此输入 1 正文
 :::
 
 ::: 通过 Xshell 登录
