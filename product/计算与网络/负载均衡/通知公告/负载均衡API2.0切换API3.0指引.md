@@ -106,7 +106,7 @@
 </tr>
 <tr>
 <td><a href="https://cloud.tencent.com/document/product/214/3601" target="_blank">ModifyLoadBalancerListener</a></br>（修改负载均衡监听器属性）</td>
-<td><a href="https://cloud.tencent.com/document/product/214/30681" target="_blank">ModifyLoadBalancerListener</a></br>（修改负载均衡监听器属性）</td>
+<td><a href="https://cloud.tencent.com/document/product/214/30681" target="_blank">ModifyListener</a></br>（修改负载均衡监听器属性）</td>
 </tr>
 </tbody></table>
 
