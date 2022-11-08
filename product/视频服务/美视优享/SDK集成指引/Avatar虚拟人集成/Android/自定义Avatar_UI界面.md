@@ -56,7 +56,7 @@ public static List<AvatarData> getUsedAvatarData(List<MainTab> mainTabList)
      * @param avatarType    背景类型
      * @return
      */
-    public AvatarData getAvatarPlaneTypeConfig(String avatarResName, AvatarType avatarType) 
+    public AvatarData getAvatarPlaneTypeConfig(String avatarResName, AvatarBgType avatarBgType) 
 ```
 
 ## 附录
