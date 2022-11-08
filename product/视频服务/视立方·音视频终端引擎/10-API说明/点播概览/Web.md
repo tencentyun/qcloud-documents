@@ -12,8 +12,8 @@ options 对象可配置的参数：
 
 | 名称    | 类型                      | 默认值                        |说明 |
 |------------|-----------------------------------|-----------------------------------|---------------------------------------|
-|  appID|  String |   无 |通过fileID播放点播媒体文件时必选，为对应腾讯云账号的appID|
-|  fileID|  String|无|通过fileID播放点播媒体文件时必选，为点播媒体文件的ID|
+|  appID|  String |   无 |通过 fileID 播放点播媒体文件时必选，为对应腾讯云账号的 appID|
+|  fileID|  String|无|通过 fileID 播放点播媒体文件时必选，为点播媒体文件的 ID|
 |  sources|  Array|无|播放器播放地址，格式：[{ src: '//path/to/video.mp4', type: 'video/mp4' }]|  
 |  width|  String/Number|  无| 播放器区域宽度，单位像素，按需设置，可通过 CSS 控制播放器尺寸。|
 |  height |  String/Number|  无|  播放器区域高度，单位像素，按需设置，可通过 CSS 控制播放器尺寸。|
