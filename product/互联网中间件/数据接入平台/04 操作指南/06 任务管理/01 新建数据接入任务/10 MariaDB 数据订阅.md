@@ -36,49 +36,59 @@ DIP 支持订阅  MariaDB 变更数据，本文介绍在 DIP 控制台创建 Mar
    </tr>
    </tbody></table>
 
-   ![](https://qcloudimg.tencent-cloud.cn/raw/404afbc6d13b64afcbe2953eddecd964.png) 
+   <img src="https://qcloudimg.tencent-cloud.cn/raw/404afbc6d13b64afcbe2953eddecd964.png" alt=""> 
 
-   5. （可选）设置高级参数。
+5. （可选）设置高级参数。
 
-   <table>
-   <thead>
-   <tr>
-   <th>参数</th>
-   <th>说明</th>
-   </tr>
-   </thead>
-   <tbody><tr>
-   <td>复制存量数据</td>
-   <td>开启后将复制源 MariaDB 数据库中的存量数据，开关一经打开，无论后续是否关闭，都无法新增需要监听的库。</td>
-   </tr>
-   <tr>
-   <td>订阅结构更新</td>
-   <td>订阅结构更新将订阅整个数据库实例所有对象的结构创建，删除以及修改。若数据目标配置选择分发到多个Topic 则不支持订阅结构更新。</td>
-   </tr>
-   <tr>
-   <td>包含原始 SQL 查询</td>
-   <td>是否包含生成变更事件的原始 SQL 查询。需要 MySQL 的配置项"binlog_rows_query_log_events"的值为"ON"。</td>
-   </tr>
-   <tr>
-   <td>分区策略</td>
-   <td>订阅数据写入，默认情况下根据主键 hash 到不同的分区。可以手动指定表的 hash 字段。</td>
-   </tr>
-   <tr>
-   <td>数据格式</td>
-   <td>默认采用 Debezium 格式，同时提供了兼容其他消息格式的能力。<ul><li>Canal 格式：详情介绍请参见 <a href="https://cloud.tencent.com/document/product/1591/79158">MySQL 订阅消息 Canal 格式说明</a>。</li><li>官方格式一：详情介绍请参见 <a href="https://cloud.tencent.com/document/product/1591/79157">MySQL 订阅消息官方格式说明</a>。</li></ul></td>
-   </tr>
-   </tbody></table>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>复制存量数据</td>
+<td>开启后将复制源 MariaDB 数据库中的存量数据，开关一经打开，无论后续是否关闭，都无法新增需要监听的库。</td>
+</tr>
+<tr>
+<td>订阅结构更新</td>
+<td>订阅结构更新将订阅整个数据库实例所有对象的结构创建，删除以及修改。若数据目标配置选择分发到多个Topic 则不支持订阅结构更新。</td>
+</tr>
+<tr>
+<td>包含原始 SQL 查询</td>
+<td>是否包含生成变更事件的原始 SQL 查询。需要 MySQL 的配置项"binlog_rows_query_log_events"的值为"ON"。</td>
+</tr>
+<tr>
+<td>分区策略</td>
+<td>订阅数据写入，默认情况下根据主键 hash 到不同的分区。可以手动指定表的 hash 字段。</td>
+</tr>
+<tr>
+<td>数据格式</td>
+<td>默认采用 Debezium 格式，同时提供了兼容其他消息格式的能力。<ul><li>Canal 格式：详情介绍请参见 <a href="https://cloud.tencent.com/document/product/1591/79158">MySQL 订阅消息 Canal 格式说明</a>。</li><li>官方格式一：详情介绍请参见 <a href="https://cloud.tencent.com/document/product/1591/79157">MySQL 订阅消息官方格式说明</a>。</li></ul></td>
+</tr>
+</tbody></table>
 
+<img src="https://qcloudimg.tencent-cloud.cn/raw/5e9583ffe15566fcbd5ca352125e11fd.png" alt=""> 
 
-   <img src="https://qcloudimg.tencent-cloud.cn/raw/5e9583ffe15566fcbd5ca352125e11fd.png" alt=""> 
+6. 单击**下一步**，配置数据目标信息。
 
-5. 单击**下一步**，配置数据目标信息。
+7. 分发到多个 Topic：支持将不同数据库表中的数据分发到不同的 Topic 中去。
 
-   分发到多个 Topic：支持将不同数据库表中的数据分发到不同的 Topic 中去。
+   - 开启后：支持自动创建 Topic 或者选择已有 Topic。
 
-      - 开启后：只能选择同一个 CKafka 实例下的 Topic。
-      - 未开启：支持选择 **DIP Topic** 或者 **CKafka Topic**。
-        ![](https://qcloudimg.tencent-cloud.cn/raw/0daa51f156dc33a3602f90b23208dec3.png)
+     - 自动创建 Topic：只能自动创建 CKafka Topic，自动创建的topic名是由database.schema.table形式构建。
+     - 选择已有 Topic：只能选择同一个 CKafka 实例下的 Topic。
 
-6. 单击**提交**，可以在任务列表看到刚刚创建的任务，在状态栏可以看到创建进度。
+   - 未开启：支持自动创建 Topic 或者选择已有 Topic。
+
+     - 自动创建 Topic：可以选择 CKafka Topic 或者 DIP Topic，若选择CKafka Topic，则需要指定目标CKafka 实例。支持批量连续命名或指定模式串命名，[参考文档](https://cloud.tencent.com/document/product/597/59246)。
+
+     - 选择已有 Topic：支持选择 **DIP Topic** 或者 **CKafka Topic**。选择 CKafka Topic 时，若实例设置了ACL 策略，请确保选中的 Topic 有读写权限。
+
+       ![](https://qcloudimg.tencent-cloud.cn/raw/1b9a55964e8486c6d773077d4a506805.png)
+
+8. 选择是否开启数据压缩，数据压缩可以减少网络 IO 传输量，减少磁盘存储空间，[数据压缩说明](https://cloud.tencent.com/document/product/597/40402)。
+
+9. 单击**提交**，可以在任务列表看到刚刚创建的任务，在状态栏可以看到创建进度。
    ![](https://qcloudimg.tencent-cloud.cn/raw/6e7de3ade04778916596742245176cd7.png)
