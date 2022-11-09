@@ -449,7 +449,7 @@ _cacheView.hidden = YES;
 | models           | NSArray      | 下载列表的视频数据模型   |
 | SuperPlayerModel | currentModel | 当前在播放的视频数据模型 |
 
-VideoCacheListView（视频下载列表），显示所有正在下载的和下载完成视频的列表view。点击时，如果正在下载，会暂停下载；如果暂时下载，会继续下载；如果下载完成，会跳转播放。
+VideoCacheListView（视频下载列表），显示所有正在下载的和下载完成视频的列表 View。点击时，如果正在下载，会暂停下载；如果暂时下载，会继续下载；如果下载完成，会跳转播放。
 
 <img src="http://1400155958.vod2.myqcloud.com/facd87c8vodcq1400155958/a69c6b2c387702307128674240/wt31IYPsdQoA.jpg" style="zoom: 33%;" />
 
