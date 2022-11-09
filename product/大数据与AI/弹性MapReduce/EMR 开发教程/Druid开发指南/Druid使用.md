@@ -30,11 +30,15 @@ E-MapReduce Druid 支持以 COS 作为 deep storage，本节介绍如何使用 C
 
 首先您需要确保 Druid 集群和目标 Hadoop 均开启了 COS 服务，可以在购买 Druid 集群和 Hadoop 集群时开启，也可以购买后在 EMR 控制台进行后配置 COS。
 
-在 Druid 配置管理中修改 common.runtime.properties 配置文件：
-- druid.storage.type：仍然为 hdfs
-- druid.storage.storageDirectory：`cosn://{bucket_name}/druid/segments`
-
+1. 在 Druid 配置管理中修改 common.runtime.properties 配置文件：
+	- druid.storage.type：仍然为 hdfs。
+	- druid.storage.storageDirectory：`cosn://{bucket_name}/druid/segments`。
 可以到 COS 上预先创建并设置 segments 目录和权限。
+
+2. 在 hdfs 配置管理中修改 core-site.xml 配置文件：
+	- fs.cosn.impl ：修改为 `org.apache.hadoop.fs.CosFileSystem` 。
+	- 新增配置项 `fs.AbstractFileSystem.cosn.impl`：修改为 `org.apache.hadoop.fs.CosN`。
+3. 将 [hadoop-cos](https://github.com/tencentyun/hadoop-cos/releases) 相关的 jar 包 （例如：cos_api-bundle-5.6.69.jar、hadoop-cos-2.8.5-8.1.6.jar）放到集群各个节点的/usr/local/service/druid/extensions/druid-hdfs-storage、/usr/local/service/druid/hadoopdependencies/hadoop-client/2.8.5、/usr/local/service/hadoop/share/hadoop/common/lib/⽬录下。
 
 保存配置并重启 Druid 集群相关服务。
 

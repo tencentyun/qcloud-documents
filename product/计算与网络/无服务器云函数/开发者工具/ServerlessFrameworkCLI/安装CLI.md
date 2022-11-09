@@ -7,12 +7,12 @@
 >
 在命令行中，执行以下命令。
 ```sh
-npm install -g scf
+npm i -g serverless-cloud-framework
 ```
-若 MacOS 或 Linux 系统提示无权限，则需执行 `sudo npm install -g scf` 命令进行安装。
+若 MacOS 或 Linux 系统提示无权限，则需执行 `sudo npm i -g serverless-cloud-framework` 命令进行安装。
 如果之前您已经安装过 Serverless Cloud Framework，可以通过下列命令升级到最新版：
 ```sh
-npm update -g scf
+npm update -g serverless-cloud-framework
 ```
 
 

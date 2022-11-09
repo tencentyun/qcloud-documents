@@ -1,3 +1,21 @@
+### 2.24.0 @2022.11.3
+
+**新增**
+
+- 支持微信小游戏环境集成。
+- 本地审核插件 [tim-profanity-filter-plugin](https://www.npmjs.com/package/tim-profanity-filter-plugin) ，支持本地审核功能。
+- [getFriendProfile](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getFriendProfile) 默认支持拉取好友自定义字段和资料自定义字段，提升产品体验。
+- [getGroupApplicationList](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getGroupApplicationList) 支持拉取全量的加群申请列表。
+- RESTAPI 修改好友自定义字段支持推送给 SDK。
+- 支持发送话题消息不计入未读。
+- 支持发送普通社群消息不计入未读。
+- 发送消息支持 voip push。
+
+**修复**
+
+- 好友资料相关的问题。
+
+
 ### 2.23.1 @2022.9.29
 
 **新增**

@@ -22,7 +22,6 @@ REQUEST:
 | IVRKeyPressed        | 字符串数组   | IVR 按键信息 （e.g. \["1","2","3"\])                  |
 | SeatUser             | 对象      | 客服信息，格式见下                                       |
 | UserRemark           | 字符串     | 用户备注                                            |
-| Satisfaction         | 对象      | 满意度信息{"id":"104","content":"满意"}                |
 | ClientData           | 字符串     | 客户端关联数据                                         |
 
 EndStatusString 枚举值
@@ -75,7 +74,6 @@ RESPONSE：
     "UserId":"oZB6q5c-tuMEz-ZiHOAkhW59a4AI",
     "UserNickName":"小君君",
     "IVRKeyPressed":null,
-    "Satisfaction":{"id":"104","content":"满意"},
     "SeatUser":{
         "Mail":"lululing@tencent.com",
         "Name":"lululing",

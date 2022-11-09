@@ -196,7 +196,7 @@ EXPOSE 20880
 
 #### 构建镜像
 
-容器镜像服务 TCR 提供了自动和手工构建镜像方式，详情可参见 [镜像构建](https://cloud.tencent.com/document/product/1141/50337) 文档。为展示具体的构建过程，本文采用手工构建方式。  
+容器镜像服务 TCR 提供了自动和手工构建镜像方式。为展示具体的构建过程，本文采用手工构建方式。  
 
 镜像名称需要符合规范 `ccr.ccs.tencentyun.com/[namespace]/[ImageName]:[镜像版本号]`：
 

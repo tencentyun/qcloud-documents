@@ -55,7 +55,7 @@ https://meeting.tencent.com/marketplace/authorize.html?corp_id={corpId}&sdk_id={
 ```Plaintext
 // 接入方302重定向到授权URL，如：
 
-https://meeting.tencent.com/authorize.html?corp_id=200000999&sdk_id=10066660661&redirect_uri=https%3a%2f%2fqq.com%2fcallback%3fa%3d1%26b%3d2&state=123456789
+https://meeting.tencent.com/marketplace/authorize.html?corp_id=200000999&sdk_id=10066660661&redirect_uri=https%3a%2f%2fqq.com%2fcallback%3fa%3d1%26b%3d2&state=123456789
 
 ```
 

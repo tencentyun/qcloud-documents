@@ -25,7 +25,7 @@ dependencies {
     implementation 'com.huawei.hms:push:6.5.0.300'       
 
     // OPPO 推送依赖包
-    implementation "com.tencent.tpns:oppo:1.3.5.0-release"
+    implementation "com.tencent.tpns:oppo:1.3.6.1-release"
     // 自 SDK 1.3.2.0 起，需一并加入以下依赖语句，否则可能导致 OPPO 推送注册失败
     implementation 'com.google.code.gson:gson:2.6.2'
     implementation 'commons-codec:commons-codec:1.15'
