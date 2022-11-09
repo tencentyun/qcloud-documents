@@ -576,10 +576,7 @@ public DynamicWaterConfig(String dynamicWatermarkTip, int tipTextSize, int tipTe
 
 支持用户在有网络的条件下缓存视频，随后在无网络的环境下观看；同时离线缓存的视频仅可在客户端内观看，不可被下载至本地，可有效防止下载视频的非法传播，保护视频安全。
 你可在 腾讯云视立方 App > 播放器 > 播放器组件 > 离线缓存（全屏）演示视频中，使用全屏观看模式后体验。
-
-<img src="http://1400155958.vod2.myqcloud.com/facd87c8vodcq1400155958/a8714349387702307128701255/XKE6yjeb87UA.jpg" style="zoom: 50%;" />
-
-#### 
+![](https://qcloudimg.tencent-cloud.cn/raw/d5e47d5d2a50b98a4a2cf04fbfa523b7.png)
 
 DownloadMenuListView（ 缓存选择列表视图），用于选择下载对应清晰度的视频。左上角选择清晰度后，再点击要下载的视频选项，出现对勾后，代表开始了下载。点击下方的 video download list 按钮后会跳转到 VideoDownloadListView 所在的 Activity。
 
@@ -620,7 +617,7 @@ public void initDownloadData(List<SuperPlayerModel> superPlayerModelList,
 | currentQuality       | VideoQuality           | 当前的视频清晰度 |
 | userName             | String                 | 用户名           |
 
-VideoDownloadListView（视频下载列表），显示所有正在下载的和下载完成视频的列表view。点击时，如果正在下载，会暂停下载；如果暂时下载，会继续下载；如果下载完成，会跳转播放。
+VideoDownloadListView（视频下载列表），显示所有正在下载的和下载完成视频的列表 View。点击时，如果正在下载，会暂停下载；如果暂时下载，会继续下载；如果下载完成，会跳转播放。
 
 <img src="http://1400155958.vod2.myqcloud.com/facd87c8vodcq1400155958/a69c6b2c387702307128674240/wt31IYPsdQoA.jpg" style="zoom: 33%;" />
 
