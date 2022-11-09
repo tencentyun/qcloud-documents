@@ -17,9 +17,9 @@ TMIO SDK 当前已对流媒体协议 SRT 进行了封装优化，将会持续增
    - 基于 ARQ 及超时策略的重传机制。
    - 多链路传输优化，可支持广播、主备、聚合等多种传输选择。
 - TMIO 支持 SRT 协议，可用于弱网、远距离传输场景中，提高上行稳定性和下行流畅度。
-<video width="500px" height="auto" src="https://qcloudimg.tencent-cloud.cn/raw/6761d955b4d38f11ef66059608cb6b75.mp4" controls  muted></video>
+<video width="500px" height="auto" src="https://qcloudimg.tencent-cloud.cn/raw/6761d955b4d38f11ef66059608cb6b75.mp4" controls="controls" autoplay="autoplay"></video>
 - TMIO-SRT 支持多链路平滑迁移。网络不佳时，可流畅切换至备用链路，保持推流的稳定。
-<video width="500px" height="auto" src="https://qcloudimg.tencent-cloud.cn/raw/ed56a488e204f3140416e8a451bfc57e.mp4" controls  muted></video> 
+<video width="500px" height="auto" src="https://qcloudimg.tencent-cloud.cn/raw/ed56a488e204f3140416e8a451bfc57e.mp4"controls="controls" autoplay="autoplay"></video> 
 
 
 
