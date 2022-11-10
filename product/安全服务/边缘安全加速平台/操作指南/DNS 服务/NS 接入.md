@@ -141,7 +141,7 @@ EdgeOne DNS 支持多种记录类型的智能解析服务，根据用户所在�
 <td>✓</td>
 </tr>
 <tr>
-<td>SRV<td>
+<td>SRV</td>
 <td>✓</td>
 <td>✓</td>
 <td>×</td>
@@ -226,5 +226,4 @@ DNSSEC (DNS Security Extension，DNS 安全扩展) 通过数字签名对 DNS 数
 1. 在 [域名服务页面](https://console.cloud.tencent.com/edgeone/dns?tab=config)，选择所需站点，单击**DNS 配置**。
 2. 在 DNS 配置页面，单击 CNAME 加速模块的“开关”，可关闭或开启 CNAME 加速功能。
 >?多级 CNAME 必须全部在 EdgeOne DNS，才能实现 IP 直出。
-
 

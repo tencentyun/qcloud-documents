@@ -224,7 +224,7 @@ WBFaceVerifyCustomerServiceDidFinishedNotification 通知中，通过获取该�
 | liveRate	| NSString	| 活体检测分数| 	-| 
 | similarity	| NSString	| 人脸比对分数| 	“仅活体检测” 类型不提供此分数| 
 | userImageString	| NSString	| 用户人脸核身图片	| 经过 Base64编码后的用户人脸核身图片，用来做比对认证的最优图| 
-| WbFaceError	| 自定义对象	| 人脸核身错误	| 意愿性成功时为 nil**| 
+| WbFaceError	| 自定义对象	| 人脸核身错误	| 意愿性成功时为 **nil**| 
 
 ### WBWillModeResult 说明
 | 字段名 | 类型 | 字段含义 |说明| 
