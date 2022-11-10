@@ -186,7 +186,7 @@ https://lowcode-8gm1omixe8f6360b.ap-shanghai.tcb-api.tencentcloudapi.com/weda/au
 https://lowcode-8gm1omixe8f6360b.ap-shanghai.tcb-api.tencentcloudapi.com/weda/auth/v1/prod/describeResourcesPermission
 ```
 - 资源类型：
- - app 应用
+ - App 应用
  - modelApp 模型应用
  - flow 流程
  - dataSource 数据源
