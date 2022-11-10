@@ -21,7 +21,7 @@
     <td>TencentOS Server 3.1(TK4)</td>
     <td>Tencent OS Server</td>
     <td>全量发布</td>
-    <td><li>推荐使用 Tencent OS Server 最新发行版</li><li>内核版本：5.4.119</li></td>
+    <td>推荐使用 Tencent OS Server 最新发行版<br>内核版本：5.4.119</td>
   </tr>
       <tr>
     <td><a href="https://console.cloud.tencent.com/cvm/image/detail?rid=1&id=img-9axl1k53">img-9axl1k53</a></td>
