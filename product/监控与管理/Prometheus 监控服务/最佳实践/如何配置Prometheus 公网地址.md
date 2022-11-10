@@ -11,7 +11,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/1726226e2764f8e6beaa0f5a6c7d08dd.png)  
 
 
-### 步骤2： 申请 CLB 跨 VPC 功能（内测功能）
+### 步骤2：申请 CLB 跨 VPC 功能（内测功能）
 1. 进入 [负载均衡跨地域绑定2.0及混合云部署内测申请页](https://cloud.tencent.com/apply/p/y72ehzwbwzk)。
 2. 根据填好资料，填写完后提交申请。
 
