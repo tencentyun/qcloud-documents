@@ -1,7 +1,7 @@
 ## 使用须知
 
 - **版本支持：**TKE 版本 ≥ v1.14.x
-- **节点支持：**：支持原生节点以及普通节点，推荐[原生节点](https://cloud.tencent.com/document/product/457/78197)，原生节点搭载FinOps理念，配合qgpu使用可全面提升GPU/CPU资源利用率。
+- **节点支持：**支持原生节点以及普通节点，推荐[原生节点](https://cloud.tencent.com/document/product/457/78197)，原生节点搭载FinOps理念，配合qgpu使用可全面提升GPU/CPU资源利用率。
 - **OS 支持**：推荐使用 TencentOS Server 3.1 (TK4) ，稳定高效。不推荐使用市场镜像，公共镜像更稳定、高效、更易维护。
 <table>
 <thead>
