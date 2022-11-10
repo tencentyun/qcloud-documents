@@ -136,7 +136,7 @@ XMagicApi 的加载数据、捏脸、导出配置、拍照捏脸接口详情如�
 
 ## AvatarData 高级说明
 AvatarData 是 SDK 自动从素材根目录的 custom_configs 目录中解析出来返回给应用层的。通常您不需要手动构造 AvataData。
-AvatarData 中，对捏脸起关键作用的是 [entityName](entityName)、[action](#action)，[value](#value) 三个字段。这3个字段的值是 SDK 在解析素材配置时自动填入的。大多数情况下，您不需要了解这3个字段的含义，仅在 UI 层展示时，如果是滑竿类型，则需要解析 value 中的形变 key-value 与 UI 操作进行对应。
+AvatarData 中，对捏脸起关键作用的是 [entityName](entityName)、[action](#action)，[value](#action) 三个字段。这3个字段的值是 SDK 在解析素材配置时自动填入的。大多数情况下，您不需要了解这3个字段的含义，仅在 UI 层展示时，如果是滑竿类型，则需要解析 value 中的形变 key-value 与 UI 操作进行对应。
 
 [](id:entityName)
 ### entityName 字段
