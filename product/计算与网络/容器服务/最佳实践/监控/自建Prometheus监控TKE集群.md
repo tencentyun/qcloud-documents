@@ -1,6 +1,5 @@
 
 
-
 本文主要描述使用自建 Prometheus 采集腾讯云容器服务 TKE 的监控数据时如何配置采集规则。TKE 集群内按照节点类型分为常规节点和超级节点，Prometheus 通过配置 `scrape_config` 来抓取节点和容器的监控数据，由于节点性质不同因此需要配置的采集规则略有差异。
 
 ## 常规节点采集规则
@@ -57,7 +56,7 @@
 
 **使用说明：**
 - 使用节点服务发现（`kubernetes_sd_configs` 的 role 为 `node`），抓取所有节点 `kubelet:10250` 暴露的几种监控数据。
-- 如果集群是普通节点与超级节点混用，排除超级节点 (`relabel_configs` 中将带 `node.kubernetes.io/instance-type: eklet` 这种 label 的 node 排除)。
+- 如果集群是普通节点与超级节点混用，排除超级节点（`relabel_configs` 中将带 `node.kubernetes.io/instance-type: eklet` 这种 label 的 node 排除）。
 - TKE 节点上的 kubelet 证书是自签的，需要忽略证书校验，所以 `insecure_skip_verify` 要置为 true。
 - kubelet 通过 `/metrics/cadvisor`, `/metrics` 与 `/metrics/probes` 路径分别暴露了容器 cadvisor 监控数据、kubelet 自身监控数据以及容器健康检查健康数据，为这三个不同路径分别配置采集 job 进行采集。
 
