@@ -22,7 +22,7 @@ Dashboard 支持最近访问面板、收藏面板和自定义面板三种方式�
 	- 最近访问面板：展示您最近访问的三个监控面板。
 	- 收藏面板：展示您所收藏的所有面板。
 	- 自定义面板：展示您所自定义的所有面板。
-  <img src="https://main.qcloudimg.com/raw/47736500875951a662e9c704605d603f.png"  style="margin:0;" width="80%">
+  <img src="https://qcloudimg.tencent-cloud.cn/raw/2632541cdb20ae937cb7cf0ea691dffc.png"  style="margin:0;" width="80%">
 
 > ? 如需收藏面板，请参见 [收藏 Dashboard ](https://cloud.tencent.com/document/product/248/46752)。
 
