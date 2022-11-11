@@ -1,6 +1,6 @@
-本文主要介绍如何快速运行 GME UnrealEngine Demo，并将工程示例代码接入到项目中。
+本文主要介绍如何快速运行 GME UnrealEngine Sample Project，并将工程示例代码接入到项目中。
 
-## 跑通 UnrealEngine Demo
+## 跑通 UnrealEngine Sample Project 
 
 ### 环境要求
 
@@ -18,7 +18,7 @@
 
 ### 2. 下载工程
 
-通过 [下载指引](https://cloud.tencent.com/document/product/607/18521) 下载 UnrealEngine Demo。
+通过 [下载指引](https://cloud.tencent.com/document/product/607/18521) 下载 UnrealEngine Demo。由于 UE5 和 UE4 的 Demo 配置不同，需要下载相对应引擎版本的 Sample Project。
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/d31444d037de015a99b4bf3884aec906.png)
 
