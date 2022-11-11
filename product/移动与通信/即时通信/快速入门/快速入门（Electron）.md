@@ -26,10 +26,8 @@
 ### 第一部分：创建应用
 
 1. 登录 [即时通信 IM 控制台](https://console.cloud.tencent.com/im)。
-  
   > ?如果您已有应用，请记录其 SDKAppID 并 [获取密钥信息](#step2)。
   > 同一个腾讯云帐号，最多可创建300个即时通信 IM 应用。若已有300个应用，您可以先 [停用并删除](https://cloud.tencent.com/document/product/269/32578#.E5.81.9C.E7.94.A8.2F.E5.88.A0.E9.99.A4.E5.BA.94.E7.94.A8) 无需使用的应用后再创建新的应用。**应用删除后，该 SDKAppID 对应的所有数据和服务不可恢复，请谨慎操作。**
-  
 2. 单击**创建新应用**，在**创建应用**对话框中输入您的应用名称，单击**确定**。
   ![](https://qcloudimg.tencent-cloud.cn/raw/febed2f15dee6ff09f066ba228c7fc27.png)
 3. 请保存 SDKAppID 信息。可在控制台总览页查看新建应用的状态、业务版本、SDKAppID、标签、创建时间以及到期时间。
@@ -42,6 +40,7 @@
 
 ### 第二部分: 选择适合的方法集成 Electron SDK
 IM 提供了两种方式来即成，您可以选择最合适的方案来即成：
+
 | 继承方式 | 适用场景 |
 | --- | --- |
 | 使用 DEMO | IM Demo包含完整的聊天功能，代码已开源，如果您需要实现聊天类似场景，可以使用 Demo进行二次开发。可立即体验 [Demo](https://cloud.tencent.com/document/product/269/36852)。 |
@@ -54,13 +53,10 @@ IM 提供了两种方式来即成，您可以选择最合适的方案来即成�
 ### 第三部分：使用 Demo
 
 1. 克隆即时通信 IM Electron Demo 源码到本地。
-  
   ```javascript
   git clone https://github.com/tencentyun/im_electron_demo.git
   ```
-  
 2. 安装项目依赖。
-  
   ```javascript
   // 项目根目录
   npm install
@@ -69,22 +65,19 @@ IM 提供了两种方式来即成，您可以选择最合适的方案来即成�
   cd src/client
   npm install
   ```
-
 3. 项目运行。
 ```javascript
 // 项目根目录
 npm start
-````
-
+```
 4. 项目打包。
-  
   ```javascript
   // mac打包
   npm run build:mac
   // windows打包
   npm run build:windows
   ```
-  
+	
 [](id:step4)
 ### 第四部分：自实现
 **安装 Electron SDK**
@@ -124,7 +117,7 @@ let {code} = await timRender.TIMLogin({
   userSig:"userSig" // 参考userSig生成
 })
 ```
->? 该账户仅限开发测试使用，应用上线前，正确的`UserSig` 签发方式是将`UserSig`的计算代码集成到您的服务端，并提供面向 APP的接口。在需要 `UserSig`时由您的 APP 向业务服务器发起请求获取动态 `UserSig`。更多详情请参见[服务端生成UserSig](https://cloud.tencent.com/document/product/269/32688#GeneratingdynamicUserSig)
+>? 该账户仅限开发测试使用，应用上线前，正确的`UserSig` 签发方式是将`UserSig`的计算代码集成到您的服务端，并提供面向 APP的接口。在需要 `UserSig`时由您的 APP 向业务服务器发起请求获取动态 `UserSig`。更多详情请参见 [服务端生成UserSig](https://cloud.tencent.com/document/product/269/32688#GeneratingdynamicUserSig)。
 
 **发送信息**
 此处以发送文本消息距离，`code`返回 0 则为消息发送成功。
@@ -204,27 +197,28 @@ timRenderInstance.TIMAddRecvNewMsgCallback(param);
 
 ## 常见问题
 
-### 支持哪些平台？
+#### 支持哪些平台？
 
 目前支持 Macos 和 Windows 两个平台。
 
-### 错误码如何查询？
+#### 错误码如何查询？
 
-IM SDK 的 API 层面错误码，请查看 [错误码](https://cloud.tencent.com/document/product/269/1671)
+IM SDK 的 API 层面错误码，请查看 [错误码](https://cloud.tencent.com/document/product/269/1671)。
 
-### 安装开发环境问题，出现`gypgyp ERR!ERR`错误如何解决？
+#### 安装开发环境问题，出现 `gypgyp ERR!ERR` 错误如何解决？
 
 请参见 [gypgyp ERR!ERR! ](https://stackoverflow.com/questions/57879150/how-can-i-solve-error-gypgyp-errerr-find-vsfind-vs-msvs-version-not-set-from-c)。
 
-### Mac 端 Demo 执行`npm run start` 会出现白屏，如何解决？
+#### Mac 端 Demo 执行 `npm run start` 会出现白屏，如何解决？
 
 Mac 端执行`npm run start` 会出现白屏，原因是渲染进程的代码还没有 build 完成，主进程打开的3000端口为空页面，当渲染进程代码 build 完成重新刷新窗口后即可解决问题。或者执行`cd src/client && npm run dev:react`, `npm run dev:electron`, 分开启动渲染进程和主进程。
 
-### `vue-cli-plugin-electron-builder` 构建的项目如何使用 `native modules`?
-使用`vue-cli-plugin-electron-builder` 构建的项目使用`native modules` 请参考[No native build was found for platform = xxx](https://github.com/nklayman/vue-cli-plugin-electron-builder/issues/1492)
+#### `vue-cli-plugin-electron-builder` 构建的项目如何使用 `native modules`?
+使用`vue-cli-plugin-electron-builder` 构建的项目使用`native modules` 请参见 [No native build was found for platform = xxx](https://github.com/nklayman/vue-cli-plugin-electron-builder/issues/1492)。
 
-### 用 `webpack`构建的项目如何使用 `native modules`?
-自己使用webpack 构建的项目使用native modules 请参考[Windows 下常见问题](https://blog.csdn.net/Yoryky/article/details/106780254)
+#### 用 `webpack` 构建的项目如何使用 `native modules`?
+自己使用webpack 构建的项目使用native modules 请参见 [Windows 下常见问题](https://blog.csdn.net/Yoryky/article/details/106780254)。
+
 ### 出现 `Dynamic Linking Error`?
 Dynamic Linking Error. electron-builder 配置
 ``` javascript
@@ -241,4 +235,5 @@ Dynamic Linking Error. electron-builder 配置
 
 ## 联系我们
 - 如果您在介入使用过程中有任何疑问，请加入 QQ 群：753897823 咨询。
-- 开发群 <img src="https://github.com/tencentyun/im_electron_demo/blob/main/icon/group.jpg" width="400" height="500" alt="二维码"/>
+- 开发群 
+<img src="https://qcloudimg.tencent-cloud.cn/raw/a85a8b1642c59d672e960f96cd08b2ae.jpg" width="400" height="500" alt="二维码"/> 
