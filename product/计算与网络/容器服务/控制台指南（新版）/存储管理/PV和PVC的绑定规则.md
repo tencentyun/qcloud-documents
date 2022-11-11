@@ -10,7 +10,7 @@
 	</tr>
 	<tr>
 	<td>Bound</td>
-	<td>当一个 PVC 与 PV 绑定之后，PVC 就会进入 Bound 的状态。</td>
+	<td>当一个 PVC 与 PV 绑定之后，PV 就会进入 Bound 的状态。</td>
 	</tr>
 	<tr>
 	<td>Released</td>

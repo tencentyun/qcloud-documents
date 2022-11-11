@@ -6,6 +6,27 @@
 	<th style="width: 25%;"><center>更新时间</center></th>
 	</tr>
 	<tr>
+<td><center>V3.10.160</td>	
+<td>
+1. Rooms 支持显示实时字幕。<br>
+2. Controller 支持显示聊天信息。<br>
+3. 支持查看参会人完整组织架构信息。<br>
+4. 支持副屏显示共享码和会议室信息。<br>
+5. 支持显示会议背景。
+</td>
+<td><center>2022-10-28</td>	
+	</tr>
+<tr>
+<td><center>V3.9.150</td>
+<td>
+1. Rooms 屏保支持轮播图片。<br>
+2. 自定义布局中宫格类型可选为当前发言人和自动填充。<br>
+3. 支持自动应答。<br>
+4. 支持设置联合品牌 Logo。
+</td>
+<td><center>2022-09-13</td>	
+	</tr>
+<tr>
 <td><center>V3.8.10</td>	
 <td>支持 Rooms 中控 API。</td>	
 <td><center>2022-08-11</td>	
@@ -89,6 +110,27 @@
 	<th style="width: 25%;"><center>更新时间</center></th>
 	</tr>
 	<tr>
+<td><center>V3.10.160</td>	
+<td>
+1. Rooms 支持显示实时字幕。<br>
+2. Controller 支持显示聊天信息。<br>
+3. 支持查看参会人完整组织架构信息。<br>
+4. 支持副屏显示共享码和会议室信息。<br>
+5. 支持显示会议背景。
+</td>
+<td><center>2022-10-28</td>	
+	</tr>
+<tr>
+<td><center>V3.9.150</td>	
+<td>
+1. Rooms 屏保支持轮播图片。<br>
+2. 自定义布局中宫格类型可选为当前发言人和自动填充。<br>
+3. 支持自动应答。<br>
+4. 支持设置联合品牌 Logo。
+</td>
+<td><center>2022-09-13</td>	
+	</tr>
+<tr>
 <td><center>V3.8.10</td>	
 <td>支持 Rooms 中控 API。</td>	
 <td><center>2022-08-11</td>	
@@ -168,7 +210,31 @@
 	<th style="width: 50%;"><center>更新内容</center></th>
 	<th style="width: 25%;"><center>更新时间</center></th>
 	</tr>
-		<tr>
+	<tr>
+<td><center>V3.10.160</td>	
+<td>
+1. Rooms 支持显示实时字幕。<br>
+2. Controller 支持显示聊天信息。<br>
+3. 支持查看参会人完整组织架构信息。<br>
+4. 优化对于触屏模式的判断。<br>
+5. 优化对于互动批注权限的管理。<br>
+6. 支持手势擦除白板内容及调整橡皮檫尺寸。<br>
+7. 支持显示会议背景。
+</td>
+<td><center>2022-10-28</td>		
+	</tr>
+<tr>
+<td><center>V3.9.150</td>
+<td>
+1. Rooms 屏保支持轮播图片。<br>
+2. 自定义布局中宫格类型可选为当前发言人和自动填充。<br>
+3. 支持 Rooms 自动应答。<br>
+4. 支持设置联合品牌 Logo。<br>
+5. 支持 Rooms 将白板内容保存为本地图片。
+</td>
+<td><center>2022-09-13</td>	
+	</tr>
+<tr>
 <td><center>V2.12.120</td>	
 <td>1. 优化了会议水印功能。<br>
 2. 优化了会议室管理页问题。<br>

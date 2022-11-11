@@ -35,7 +35,7 @@ function fetch(resource: string | Request, init?: RequestInit): Promise<Response
 目前支持对客户请求（`event.request`）发起 `fetch` 操作进行回源。该操作会触发原 CDN 流程，请求 CDN 配置指定的源站。如果命中缓存则使用缓存。
 >!
 >- 这里 `fetch` 的传入参数使用的是原始的客户请求对象 `event.request` ，只有该用法下才是 CDN 回源的语义。
-- 如果使用的并非原始的客户请求对象，例如新创建的Request对象作为 `fetch` 参数，则为普通子请求。
+- 如果使用的并非原始的客户请求对象，例如新创建的 Request 对象作为 `fetch` 参数，则为普通子请求。
 
 ## 运行时限制
 考虑到边缘函数的性能以及安全性，目前对 `fetch` API 的调用有如下限制：

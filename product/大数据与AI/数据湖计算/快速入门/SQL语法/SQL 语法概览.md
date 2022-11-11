@@ -39,6 +39,7 @@ DLC 支持的语法如下表所示：
 | 查看视图的列信息| [DESCRIBE VIEW](https://cloud.tencent.com/document/product/1342/61807)	| 
 | 创建函数	| [CREATE FUNCTION](https://cloud.tencent.com/document/product/1342/61808) | 
 |查看创建函数语法	|[SHOW FUNCTION](https://cloud.tencent.com/document/product/1342/81177)|
+|展示执行 sql 的逻辑或物理计划	|[EXPLAIN](https://cloud.tencent.com/document/product/1342/82413)|
 | 删除函数| [DROP FUNCTION](https://cloud.tencent.com/document/product/1342/61809)	| 
 | 查看数据库属性	| [DESCRIBE DATABASE](https://cloud.tencent.com/document/product/1342/61811) | 
 | 对数据表进行统计	|[ ANALYZE TABLES](https://cloud.tencent.com/document/product/1342/71414) | 

@@ -10,14 +10,12 @@
 
 ## 迁移限制
 
-- 在 TKE 集群中启用固定 ip 特性的工作负载，在迁移到 TKE Serverless 集群后，ip 会发生改变。
-- TKE Serverless 集群使用 containerd v1.4.3 作为运行时，与 docker 不一致，不兼容 Docker registry v2.5 以下版本、harbor v1.10 以下的版本的镜像。
-- TKE Serverless 集群中，每个 Pod 默认分配 20GiB 的免费临时磁盘空间，用于镜像存储，该盘随 Pod 的生命周期创建和销毁。
-- EKS 不支持 RDMA。
-- EKS 不支持自定义 net 前缀的内核参数。
-- EKS 不支持部署 DaemonSet 类型的工作负载。
-- EKS 不支持部署 NodePort 类型的服务。
-- EKS Pod 不支持监听 9100 端口及 62000 以上端口。
+- 在 TKE 集群中启用固定 IP 特性的工作负载，在迁移到 TKE Serverless 集群后，IP 会发生改变。可以在 Pod Template 中指定 IP 创建 Pod，使用方式示例：`eks.tke.cloud.tencent.com/pod-ip: "xx.xx.xx.xx"`
+- TKE Serverless 集群使用 containerd 作为运行时，与 docker 不一致，不兼容 Docker registry v2.5以下版本、harbor v1.10以下的版本的镜像。
+- TKE Serverless 集群中，每个 Pod 默认分配20Gi的临时磁盘空间，用于镜像存储，该盘随 Pod 的生命周期创建和销毁。若需使用更大磁盘空间，可以挂载其他类型的 volume 作数据存储，例如使用 PVC。
+- 在 TKE Serverless 集群中部署 DaemonSet 类型的工作负载时，需使用 sidecar 方式部署在业务 Pod 中。
+- TKE Serverless 集群部署 NodePort 类型的服务时，无法通过 NodeIP:Port 访问服务，需要通过 ClusterIP:Port 访问服务。
+- 部署在 TKE Serverless 集群上的 Pod 默认会通过9100端口，对外暴露监控数据。如果业务 Pod 本身需要监听9100端口，则可以在创建 Pod 时，在 Pod Template 中指定其他端口收集监控数据，避免跟业务的9100端口冲突。配置方式示例：`eks.tke.cloud.tencent.com/metrics-port: "9110"`
 - 除以上限制外，务必阅读 <a href="https://cloud.tencent.com/document/product/457/39815#.E5.85.B6.E4.BB.96.E8.AF.B4.E6.98.8E"> TKE Serverless 集群其他说明</a>。
 
 ## 迁移步骤

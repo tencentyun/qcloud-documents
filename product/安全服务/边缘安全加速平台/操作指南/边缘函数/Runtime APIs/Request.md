@@ -109,8 +109,8 @@ let request = new Request(input [, options])
  - <b>标准未提供 copyHeaders 参数，添加此参数主要是出于性能的考虑，避免无意义的拷贝。</b>
 - json():  Promise&lt;object&gt;<br>返回一个 Promise，包含一个 JSON 对象，表示整个请求体。
 - text():  Promise&lt;string&gt;<br>返回一个 Promise, 包含一个 string，表示整个请求体。
-- getCookies():  [Cookies](https://cloud.tencent.com/document/product/1552/81905)<br>获取 Cookies 对象. 会自动解析 Cookie 头部，绑定 Cookies 对象到 Request。
-- setCookies([Cookies](https://cloud.tencent.com/document/product/1552/81905)):  boolean<br>设置 Cookies 对象. 会忽略已有 Cookie 头部，以新设置的 Cookies 对象生成新的 Cookie 头部。
+- getCookies():  [Cookies](https://cloud.tencent.com/document/product/1552/81905)<br>获取 Cookies 对象，会自动解析 Cookie 头部，绑定 Cookies 对象到 Request。
+- setCookies([Cookies](https://cloud.tencent.com/document/product/1552/81905)):  boolean<br>设置 Cookies 对象，会忽略已有 Cookie 头部，以新设置的 Cookies 对象生成新的 Cookie 头部。
 
 
 ## 示例

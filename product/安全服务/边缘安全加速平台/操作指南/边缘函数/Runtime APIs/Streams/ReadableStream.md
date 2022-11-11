@@ -26,7 +26,7 @@ interface PipeToOptions {
 
 ### 方法
 - getReader(options?: {mode?: string}):  [ReadableStreamDefaultReader](https://cloud.tencent.com/document/product/1552/81924) | [ReadableStreamBYOBReader](https://cloud.tencent.com/document/product/1552/81925) 
- - 创建一个 Reader, 并锁定当前流，直至 Reader 调用 releaseLock() 释放锁。
+ - 创建一个 Reader，并锁定当前流，直至 Reader 调用 releaseLock() 释放锁。
  - options 参数用于指定 Reader 类型，取值有：
    - "byob"：表示创建 [ReadableStreamBYOBReader](ReadableStreamBYOBReader.md) 类型的 Reader。
    - undefined：未指定时，默认创建 [ReadableStreamDefaultReader](ReadableStreamDefaultReader.md) 类型的 Reader。

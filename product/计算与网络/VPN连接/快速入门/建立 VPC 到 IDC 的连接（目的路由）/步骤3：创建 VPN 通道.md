@@ -7,7 +7,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/9242378316b6df29091b9f87a2388fbe.png)
 5. 选择通信模式为目的路由，并单击**下一步**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/c349ff82a020df73928929a047e102e7.png)
-6. （可选）配置 IKE 参数，如果不需要高级配置，可直接单击**下一步**。
-7. （可选）配置 IPsec 参数，如果不需要配置，可直接单击**完成**。
+6. 配置 IKE 参数，需要与本地 IDC 侧配置一致，参数具体信息请参见 [创建 VPN 通道](https://cloud.tencent.com/document/product/554/52864)。本示例中默认的 IKE 参数已与 IDC 侧相匹配。
+7. 配置 IPSec 参数，需要与本地 IDC 侧配置一致，参数具体信息请参见 [创建 VPN 通道](https://cloud.tencent.com/document/product/554/52864)。本示例中默认的 IPSec 参数已与 IDC 侧相匹配。
 8. 创建成功后，返回 VPN 通道列表页，单击**更多**，选择**下载配置文件**并完成下载。
  ![](https://qcloudimg.tencent-cloud.cn/raw/541935eddec97bd9fb3c4d180f55b711.png)

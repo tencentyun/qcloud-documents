@@ -108,7 +108,6 @@ import java.security.Key;
 import java.security.Security;
 import java.util.Random;
 /**
- *  @author webank
  *     项目所依赖的类：
  *      List utils = [
  *      "commons-io:commons-io:2.7"，

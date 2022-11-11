@@ -14,6 +14,6 @@ EMR 集群已自动适配 CHDFS，创建 CHDFS 并合理设置权限，使 CHDFS
 5. 检查 CHDFS 与 EMR 集群连通性，使用 `hadoop fs` 命令行工具，运行 `hadoop fs –ls ofs://${mountpoint}/` 命令，这里 mountpoint 为挂载地址。若文件列表可正常列出，则表示已成功挂在 CHDFS。
 
 ### 场景二：存量集群挂载 CHDFS
->?存量集群：2019年12月31日前已创建的集群。
+>?存量集群：2019年12月31日前已创建的集群。 
 
 存量 EMR 集群挂载 CHDFS，可参考 [挂载 CHDFS](https://cloud.tencent.com/document/product/1105/36368)。

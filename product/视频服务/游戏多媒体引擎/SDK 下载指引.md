@@ -6,7 +6,7 @@
 
 ## 新手入门
 
-如果是第一次使用 SDK，下载之前可参考 [新手指引](https://cloud.tencent.com/document/product/607/51583) 注册服务。
+如果是第一次使用 SDK，下载之前可参见 [新手指引](https://cloud.tencent.com/document/product/607/51583) 注册服务。
 
 ## Sample Project 指引
 
@@ -56,14 +56,10 @@ v2.9.5 正式版本更新如下：
 </tr>
 </tbody></table>
 
-
-
 <dx-alert infotype="notice" title="更新注意">
-1、如果从旧版本升级到 2.9.5 版本，请参考 [更新指引](https://cloud.tencent.com/document/product/607/32535) 进行解决。
-2、目前 GME SDK 拆分多个动态库，请参考 [更新指引](https://cloud.tencent.com/document/product/607/32535) 查看各动态库功能。
-</dx-alert>
-
-
+-  如果从旧版本升级到 2.9.5 版本，请参见 [更新指引](https://cloud.tencent.com/document/product/607/32535) 进行解决。
+-  目前 GME SDK 拆分多个动态库，请参见 [更新指引](https://cloud.tencent.com/document/product/607/32535) 查看各动态库功能。
+</dx-alert> 
 
 ## SDK v2.9.5 正式版本下载
 

@@ -1,4 +1,4 @@
-向服务发送请求，并把响应内容作为 JSON 数据返回。
+向服务发送请求，并把响应内容作为 HTML 页面返回。
 ```js
 /**
  * Example someHost at URL is set up to respond with HTML

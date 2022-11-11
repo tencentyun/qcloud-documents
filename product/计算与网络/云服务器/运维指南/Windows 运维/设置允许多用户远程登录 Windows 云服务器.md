@@ -68,11 +68,11 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/862ee285c4eca41f300ef4d516eae8ba.png)
 4. 在弹出的“服务器激活向导”窗口中，单击**下一步**。
 5. 在“连接方法”设置中，本文选择 “Web 浏览器”，并单击**下一步**。如下图所示：
-您也可以结合实际情况选择其他连接方式。
+您也可以结合实际情况选择其他连接方式（例如自动连接）。
 ![](https://qcloudimg.tencent-cloud.cn/raw/0884f8fab22d476a2d07e1e60b65f515.png)
 6. 在“许可证服务器激活”中，输入 [步骤10](#Step10) 获取的许可证服务器 ID，并单击**下一步**。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/895e7b811fc170b870416f9aef7693ee.png)
-12. “服务器激活向导”窗口中提示“你已完成服务器激活向导”时，单击**下一步**进入许可证安装步骤。如下图所示：
+7. “服务器激活向导”窗口中提示“你已完成服务器激活向导”时，单击**下一步**进入许可证安装步骤。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/f50d694cf5f2000585b7851545649caf.png)
 
 

@@ -18,7 +18,7 @@
 不同语言不同协议注入 TraceID 方式不同，详情请查看以下文档指引，关联 TraceID。
 - [关联 TraceID-skywalking 协议（Java）](https://cloud.tencent.com/document/product/1463/68741)
 - [ 关联 TraceID-TAPM（Java）](https://cloud.tencent.com/document/product/1463/68737)
-- [ 关联 TraceID-OpenTelementry 增强探针（Java）](https://cloud.tencent.com/document/product/1463/79410)
+- [ 关联 TraceID-OpenTelementry 增强探针（Java）](https://cloud.tencent.com/document/product/1463/79421)
 
 ### 步骤2：在系统配置页面关联日志
 1. 进入 [应用性能观测控制台-系统配置](https://console.cloud.tencent.com/apm/monitor/settings)。

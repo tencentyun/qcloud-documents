@@ -317,6 +317,63 @@ new COS({
 })
 ```
 
+### 使用方式
+
+#### 回调方式
+文档里默认使用回调方式，使用代码如下:
+
+```js
+// 这里省略初始化过程和上传参数
+var cos = new COS({ ... });
+cos.uploadFile({ ... }, function(err, data) {
+  if (err) {
+    console.log('上传出错', err);
+  } else {
+    console.log('上传成功', data);
+  }
+});
+```
+
+#### Promise
+sdk同样支持 Promise 方式调用，比如上述回调方式的代码等同于以下代码:
+
+```js
+// 这里省略初始化过程和上传参数
+var cos = new COS({ ... });
+cos.uploadFile({ ... }).then(data => {
+  console.log('上传成功', data);
+}).catch(err => {
+  console.log('上传出错', err);
+});
+```
+
+#### 同步方式
+同步方式基于 JavaScript 的 async 和 await，上述回调方式的代码等同于以下代码:
+
+```js
+async function upload() {
+  // 这里省略初始化过程和上传参数
+  var cos = new COS({ ... });
+  try {
+    var data = await cos.uploadFile({ ... });
+    return { err: null, data: data }
+  } catch (err) {
+    return { err: err, data: null };
+  }
+}
+// 可以同步拿到请求的返回值,这里举例说明,实际返回的数据格式可以自定义
+var uploadResult = await upload();
+if (uploadResult.err) {
+  console.log('上传出错', uploadResult.err);
+} else {
+  console.log('上传成功', uploadResult.data);
+}
+```
+
+>! cos.getObjectUrl 目前只支持回调方式。
+>
+
+
 ### 使用技巧
 
 通常情况下我们只需要创建一个 COS SDK 实例，然后在需要调用SDK方法的地方直接使用这个实例即可，示例代码如下：

@@ -13,26 +13,14 @@
 ## 操作步骤
 
 ### 1. 安装 Serverless Cloud Framework
-通过 npm 全局安装 Serverless Cloud Framework：
-
-```
-npm install -g scf
-```
-
-如果之前您已经安装过 Serverless Cloud Framework，可以通过下列命令升级到最新版：
-
-```
-npm update -g scf
-```
-
-安装完毕后，通过运行 `scf -v` 命令，查看 Serverless Cloud Framework 的版本信息，如果有版本信息返回，则已经安装成功。
+通过 npm 安装最新版本的 Serverless Cloud Framework，详情见 [安装 Serverless Cloud Framework](https://cloud.tencent.com/document/product/1154/42990)。
 
 ### 2. 初始化模板
 
 通过如下命令直接下载该模板：
 
 ```bash
-scf init fullstack-mysql --name example
+scf init fullstack --name example
 cd example
 ```
 
