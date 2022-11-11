@@ -1,3 +1,15 @@
+### 2.24.1 @2022.11.11
+
+**新增**
+
+- 英文版 ts 声明文件。
+- restapi 修改好友自定义资料字段支持推送给 SDK。
+- 支持日本站、美国站以及国内 uin 跨站购买国际站资源。
+
+**修复**
+
+- [getMessageListHopping](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getMessageListHopping) 部分场景下返回结果异常的问题。
+
 ### 2.24.0 @2022.11.3
 
 **新增**
