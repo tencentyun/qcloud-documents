@@ -7,7 +7,7 @@ Apache Uniffle 是用于计算引擎的统一远程 Shuffle 服务（RSS，Remot
 - Shuffle 过程存在写放大和随机 IO 问题，当 Shuffle 数据过大时，会严重影响集群性能和稳定性。
 - Spark Shuffle 服务和 NodeManager 在同一进程，IO 负载较高时极易导致 NodeManager 重启，影响 Yarn 调度。
 
-RSS 基本特点
+## RSS 基本特点
 1. 将 Shuffle 数据存储在远程服务器，支持计算存储分离，计算存储混布等集群部署模式。
 2. 支持 Shuffle 数据聚合和数据缓存机制，最大化利用内存资源，降低对于磁盘的随机访问。
 3. 支持 Shuffle 数据的多种存储方式，如本地文件，HDFS 文件及混合模式等。
