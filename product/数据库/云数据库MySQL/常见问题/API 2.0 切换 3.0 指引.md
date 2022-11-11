@@ -13,32 +13,32 @@
 <tr>
 <td>DescribeCdbInstances</td>
  <td>DescribeDBInstances</td>
- <td>查询实例列表 <a href="https://cloud.tencent.com/document/api/236/15872">单击了解</a></td>
- <td>接口传参有较大变化，以 API 3.0 文档为准</td>
+ <td>查询实例列表 <a href="https://cloud.tencent.com/document/api/236/15872">单击了解</a>。</td>
+ <td>为降低使用复杂度，部分参数有变化，请参考相关 <a href="https://cloud.tencent.com/document/api/236/15872">API 文档</a>。</td>
  </tr>
  <tr>
 <td>QueryCdbStatisticsInfo</td>
  <td>GetAppStat</td>
- <td>下线该接口，停止调用，如需获取实例监控信息，可以调用 GetMonitorData 接口获取<a href="https://cloud.tencent.com/document/product/248/31014"> 单击了解</a></td>
- <td>接口传参无变化</td>
+ <td>下线该接口，停止调用，如需获取实例监控信息，可以调用 GetMonitorData 接口获取<a href="https://cloud.tencent.com/document/product/248/31014"> 单击了解</a>。</td>
+ <td>接口传参无变化。</td>
  </tr>
  <tr>
 <td>DescribeDBInstancesV3</td>
  <td>DescribeDBInstances</td>
- <td>查询实例列表 <a href="https://cloud.tencent.com/document/api/236/15872">单击了解</a></td>
-  <td>接口传参无变化</td>
- </tr> 
+ <td>查询实例列表 <a href="https://cloud.tencent.com/document/api/236/15872">单击了解</a>。</td>
+  <td>接口传参无变化。</td>
+ </tr>
  <tr>
 <td>GetCdbExportLogUrl</td>
  <td>GetDownloadUrl</td>
- <td>该接口可通过现网接口进行替换<br><li>type = slowlog_day 查询慢日志 DescribeSlowLogs <a href="https://cloud.tencent.com/document/product/236/15845">单击了解</a><br><li>type = errlog_day 查询实例错误日志 DescribeErrorLogData <a href="https://cloud.tencent.com/document/product/236/43041">单击了解</a><br><li>type = coldbackup 查询数据备份列表 DescribeBackups <a href="https://cloud.tencent.com/document/product/236/15842">单击了解</a><br><li>type = binlog 查询日志备份列表 DescribeBinlogs <a href="https://cloud.tencent.com/document/product/236/15843">单击了解</a></td>
-   <td>接口传参以 API 3.0 文档为准</td></tr>
+ <td>该接口可通过现网接口进行替换<br><li>type = slowlog_day 查询慢日志 DescribeSlowLogs <a href="https://cloud.tencent.com/document/product/236/15845">单击了解</a>。<br><li>type = errlog_day 查询实例错误日志 DescribeErrorLogData <a href="https://cloud.tencent.com/document/product/236/43041">单击了解</a>。<br><li>type = coldbackup 查询数据备份列表 DescribeBackups <a href="https://cloud.tencent.com/document/product/236/15842">单击了解</a>。<br><li>type = binlog 查询日志备份列表 DescribeBinlogs <a href="https://cloud.tencent.com/document/product/236/15843">单击了解</a>。</td>
+   <td>为降低使用复杂度，部分参数有变化，请参考相关 API 文档：<li><a href="https://cloud.tencent.com/document/product/236/15845">查询慢日志</a>。<li><a href="https://cloud.tencent.com/document/product/236/43041">查询实例错误日志</a>。<li><a href="https://cloud.tencent.com/document/product/236/15842">查询数据备份列表</a>。<li><a href="https://cloud.tencent.com/document/product/236/15843">查询日志备份列表</a>。</td>
+ </tr>
  <tr>
 <td>RenewCdb</td>
  <td>RenewDBInstance</td>
- <td>续费云数据库实例 <a href="https://cloud.tencent.com/document/api/236/30160">单击了解</a></td>
- <td>以 API 3.0 文档为准</td>
+ <td>续费云数据库实例 <a href="https://cloud.tencent.com/document/api/236/30160">单击了解</a>。</td>
+ <td>为降低使用复杂度，部分参数有变化，请参考相关 <a href="https://cloud.tencent.com/document/api/236/30160">API 文档</a>。</td>
  </tr>
 </tbody></table>
-
 
