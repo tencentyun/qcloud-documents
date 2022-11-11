@@ -255,9 +255,9 @@ canal client 调用 get 命令时，canal server 会产生数据 batch 发送给
 Binlog Load 只能支持 Unique 类型的目标表，且必须激活目标表的 Batch Delete 功能。
 开启 Batch Delete 的方法可以参考`ALTER TABLE PROPERTY` 中的批量删除功能。
 示例：
-```text
+```sql
 --create Mysql table
-CREATE TABLE `demo.source_test` (
+CREATE TABLE `source_test` (
   `id` int(11) NOT NULL COMMENT "",
   `name` int(11) NOT NULL COMMENT ""
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -281,7 +281,7 @@ ALTER TABLE target_test ENABLE FEATURE "BATCH_DELETE";
 ```text
 CREATE SYNC `demo`.`job`
 (
-FROM `demo`.`source_test1` INTO `target_test`
+FROM `source_test` INTO `target_test`
 (id,name)
 )
 FROM BINLOG
