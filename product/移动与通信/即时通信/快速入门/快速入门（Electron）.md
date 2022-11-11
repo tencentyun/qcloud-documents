@@ -219,7 +219,7 @@ Mac 端执行`npm run start` 会出现白屏，原因是渲染进程的代码还
 #### 用 `webpack` 构建的项目如何使用 `native modules`?
 自己使用webpack 构建的项目使用native modules 请参见 [Windows 下常见问题](https://blog.csdn.net/Yoryky/article/details/106780254)。
 
-### 出现 `Dynamic Linking Error`?
+#### 出现 `Dynamic Linking Error`?
 Dynamic Linking Error. electron-builder 配置
 ``` javascript
    extraFiles:[
