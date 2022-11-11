@@ -11,9 +11,9 @@
 
 目前支持 Macos 和 Windows 两个平台。
 
-## 体验 DEMO
+## 体验 DEMO
 
-在开始介入前，您可以体验我们的 [DEMO](https://cloud.tencent.com/document/product/269/36852) ，快速了解腾讯云 IM Electron SDK。
+在开始接入前，您可以体验我们的 [DEMO](https://cloud.tencent.com/document/product/269/36852) ，快速了解腾讯云 IM Electron SDK。
 
 ## 前提条件
 
