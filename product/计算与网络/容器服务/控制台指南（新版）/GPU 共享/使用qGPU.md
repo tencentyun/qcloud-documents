@@ -1,7 +1,70 @@
 ## 使用须知
 
 - **版本支持：**TKE 版本 ≥ v1.14.x
-- **OS 支持：**详情见 [TKE 支持的公共镜像列表](https://cloud.tencent.com/document/product/457/68289#tke-.E6.94.AF.E6.8C.81.E7.9A.84.E5.85.AC.E5.85.B1.E9.95.9C.E5.83.8F.E5.88.97.E8.A1.A8)。推荐使用 TencentOS Server 3.1 (TK4) ，公共镜像为更稳定、高效、易维护的使用方式。不推荐您使用市场镜像。
+- **节点支持：**支持原生节点以及普通节点，推荐[原生节点](https://cloud.tencent.com/document/product/457/78197)，原生节点搭载FinOps理念，配合qgpu使用可全面提升GPU/CPU资源利用率。
+- **OS 支持**：推荐使用 TencentOS Server 3.1 (TK4) ，稳定高效。不推荐使用市场镜像，公共镜像更稳定、高效、更易维护。
+<table>
+<thead>
+  <tr>
+    <th>镜像 ID</th>
+    <th>Os Name</th>
+    <th>控制台操作系统展示名</th>
+    <th>OS 类型</th>
+    <th>发布状态</th>
+    <th>备注</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td><a href="https://console.cloud.tencent.com/cvm/image/detail?rid=16&id=img-eb30mz89">img-eb30mz89</a></td>
+    <td>tlinux3.1x86_64</td>
+    <td>TencentOS Server 3.1(TK4)</td>
+    <td>Tencent OS Server</td>
+    <td>全量发布</td>
+    <td>推荐使用 Tencent OS Server 最新发行版<br>内核版本：5.4.119</td>
+  </tr>
+      <tr>
+    <td><a href="https://console.cloud.tencent.com/cvm/image/detail?rid=1&id=img-9axl1k53">img-9axl1k53</a></td>
+    <td>tlinux2.4(tkernel4)x86_64</td>
+    <td>TencentOS Server 2.4(TK4)</td>
+    <td>Tencent OS Server</td>
+    <td>全量发布</td>
+    <td>内核版本：5.4.119</td>
+  </tr>
+  <tr>
+    <td><a href="https://console.cloud.tencent.com/cvm/image/detail/8/PUBLIC_IMAGE/img-22trbn9x">img-22trbn9x</a></td>
+    <td>ubuntu20.04x86_64</td>
+    <td>Ubuntu Server 20.04.1 LTS 64bit</td>
+    <td>Ubuntu</td>
+    <td>内测中，请 <a href="https://console.cloud.tencent.com/workorder/category">提交工单</a> 进行申请</td>
+    <td>Ubuntu 20.04.1 公版内核</td>
+  </tr>
+  <tr>
+    <td><a href="https://console.cloud.tencent.com/cvm/image/detail?rid=1&id=img-pi0ii46r">img-pi0ii46r</a></td>
+    <td>ubuntu18.04.1x86_64</td>
+    <td>Ubuntu 18.04 LTS 64bit</td>
+    <td>Ubuntu</td>
+    <td>全量发布</td>
+    <td>Ubuntu 18.04.1 公版内核</td>
+  </tr>
+  <tr>
+    <td><a href="https://console.cloud.tencent.com/cvm/image/detail/8/PUBLIC_IMAGE/img-25szkc8t">img-25szkc8t</a></td>
+    <td>centos8.0x86_64</td>
+    <td>CentOS 8.0</td>
+    <td>CentOS</td>
+    <td>内测中，请 <a href="https://console.cloud.tencent.com/workorder/category">提交工单</a> 进行申请</td>
+    <td>Centos 8.0 公版内核</td>
+  </tr>
+  <tr>
+    <td><a href="https://console.cloud.tencent.com/cvm/image/detail?rid=1&id=img-9qabwvbn">img-9qabwvbn</a></td>
+    <td>centos7.6.0_x64</td>
+    <td>CentOS 7.6</td>
+    <td>CentOS</td>
+    <td>全量发布</td>
+    <td>Centos 7.6 公版内核</td>
+  </tr>
+</tbody>
+</table>
 - **GPU 卡架构：**支持 Volta（如 **V100**）、Turing（如 **T4**）、Ampere（如 **A100、A10**)。
 - **驱动版本：**支持驱动版本由镜像和机型所共同决定，具体可参考 [步骤3](#step3)。
 >? 为保证兼容性，我们推荐您在节点上安装 NVIDIA 驱动，无需在 POD 内部重复安装。

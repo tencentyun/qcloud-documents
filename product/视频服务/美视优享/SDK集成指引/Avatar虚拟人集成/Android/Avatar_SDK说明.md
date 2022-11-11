@@ -166,7 +166,7 @@ action 字段表示对 entityName 执行什么操作（action）。SDK 内定义
 | -------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | changeColor    | 修改当前材质的颜色，包括基础色、自发光色等颜色属性           | JsonObject 类型，必填。由素材制作工具自动生成。              |
 | changeTexture  | 修改当前材质的贴图，包括颜色纹理贴图、金属粗糙度纹理贴图、AO 纹理贴图、法线纹理贴图、自发光纹理贴图等等 | JsonObject 类型。必填。由素材制作工具自动生成。              |
-| shapeValue     | 修改blendShape形变值，一般用于面部细节形变微调               | JsonObject 类型。里面的key是形变名称，value是float类型的值。必填。由素材制作工具自动生成。 |
+| shapeValue     | 修改blendShape形变值，一般用于面部细节形变微调               | JsonObject 类型。里面的 key 是形变名称，value 是float 类型的值。必填。由素材制作工具自动生成。 |
 | replace        | 替换子模型，例如替换眼镜、发型、衣服等                       | JsonObject 类型。里面描述了新的子模型的3D变换信息、模型路径、材质路径。如果要隐藏当前位置的子模型，则使用null。由素材制作工具自动生成。 |
 | basicTransform | 调整位置、旋转、缩放。一般用于调整摄像机的远近、角度，从而实现模型全身和半身视角的切换 | JsonObject 类型。必填。由素材制作工具自动生成。              |
 
@@ -177,6 +177,5 @@ avatar 属性配置存放在 resources 文件夹下（路径为：`素材/custom
 
 这些配置文件是自动生成的，通常不需要手动配置。自动生成的方式如下：
 设计师按照设计规范，用TencentEffectStudio设计好一套形象后，运行我们提供的 resource_generator_gui 这个 App（目前仅支持 MacOS 平台），即可自动生成这些配置，详情请参见 [设计规范说明](https://doc.weixin.qq.com/doc/w3_ALoA-gYYAAgV0MAAbjtQfO4EWXhI9?scode=AJEAIQdfAAoU7K9sLCAGMA3QZFAAg&version=4.0.19.6020&platform=win)。
-
 
 

@@ -31,4 +31,4 @@
  - 自动分配IP：由系统自动分配新 IP 地址。
  - 指定IP：您可自定义子网 IP 地址。
  ![](https://qcloudimg.tencent-cloud.cn/raw/2d911c7ebfd7bcd21d2d5ef72ecef7e0.png)
-4. 待实例状态恢复为“**运行中**”时，完成从基础网络转 VPC 网络。
+4. 待实例状态恢复为**运行中**时，完成从基础网络转 VPC 网络。
