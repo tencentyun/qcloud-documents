@@ -30,7 +30,7 @@
 <td>本地 NVMe SSD 硬盘</td><td>本地 NVMe SSD 硬盘</td><td>本地 NVMe SSD 硬盘</td><td>SSD 云硬盘<br>增强型 SSD 云硬盘</td></tr>
 <tr>
 <td>性能</td>
-<td>IOPS 最高可达240000</td><td>IOPS 最高可达240000</td><td>-</td><td><li>SSD 云硬盘随机 IOPS 性能计算公式：<br>min{1800 + 30 × 容量（GB）, 26000}<li>SSD 云硬盘吞吐性能计算公式（MB/s）：<br>min{120 + 0.2 × 容量（GB）, 260}<li>增强型 SSD 云硬盘随机 IOPS 性能计算公式：<br>min{1800 + 50 × 容量（GB）, 50000}<li>增强型 SSD 云硬盘吞吐性能计算公式（MB/s）：<br>min{120 + 0.5 × 容量（GB）, 350}</td></tr>
+<td>IOPS 最高可达240000</td><td>IOPS 最高可达240000</td><td>IOPS 最高可达240000</td><td><li>SSD 云硬盘随机 IOPS 性能计算公式：<br>min{1800 + 30 × 容量（GB）, 26000}<li>SSD 云硬盘吞吐性能计算公式（MB/s）：<br>min{120 + 0.2 × 容量（GB）, 260}<li>增强型 SSD 云硬盘随机 IOPS 性能计算公式：<br>min{1800 + 50 × 容量（GB）, 50000}<li>增强型 SSD 云硬盘吞吐性能计算公式（MB/s）：<br>min{120 + 0.5 × 容量（GB）, 350}</td></tr>
 <tr>
 <td>适用场景</td>
 <td>游戏、互联网、物联网、零售电商、物流、保险、证券等行业应用</td>

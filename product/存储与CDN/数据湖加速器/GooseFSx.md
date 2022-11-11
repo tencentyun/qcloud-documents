@@ -26,6 +26,7 @@
 	<li style="list-style-type:none;"><a href="https://cloud.tencent.com/document/product/1424/77960">客户端的使用限制</a></li>
 	<li style="list-style-type:none;"><a href="https://cloud.tencent.com/document/product/1424/77961">关联存储桶的使用限制</a></li>
 	<li style="list-style-type:none;"><a href="https://cloud.tencent.com/document/product/1424/77962">数据流动任务的使用限制</a></li>
+		<li style="list-style-type:none;"><a href="https://cloud.tencent.com/document/product/1424/80905">文件处理能力的使用限制</a></li>
 	</ul>
 </dx-fold-block>
 </li>

@@ -1,4 +1,3 @@
-
 ## 查询版本
 ```
 postgres=> select tdsqlc_version();
