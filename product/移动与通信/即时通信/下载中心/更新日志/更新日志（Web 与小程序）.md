@@ -49,7 +49,7 @@
 
 **新增**
 
-- SDK 支持海外环境。
+- SDK 支持境外环境。
 - [getTotalUnreadMessageCount](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getTotalUnreadMessageCount)，支持获取会话未读总数。
 - [TOTAL_UNREAD_MESSAGE_COUNT_UPDATED](https://web.sdk.qcloud.com/im/doc/zh-cn/module-EVENT.html#.TOTAL_UNREAD_MESSAGE_COUNT_UPDATED)，接入侧监听此事件，可获取会话未读总数变更的通知。
 - [markGroupMemberList](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#markGroupMemberList)，支持标记直播群群成员（需开通旗舰版）。
@@ -499,7 +499,7 @@ Taro 3.x 集成 WebIM 时的兼容性问题。
 
 **新增**
 
-[TIM.create](https://web.sdk.qcloud.com/im/doc/zh-cn/TIM.html#.create) 接口新增 `oversea` 参数，设置为 `true` 时 SDK 使用海外域名，避免被干扰。
+[TIM.create](https://web.sdk.qcloud.com/im/doc/zh-cn/TIM.html#.create) 接口新增 `oversea` 参数，设置为 `true` 时 SDK 使用境外域名，避免被干扰。
 
 **修复**
 
