@@ -59,18 +59,18 @@
     }
 
     // 定义验证码js加载错误处理函数
-    function loadErrorCallback() {
-      var appid = ''
-       // 生成容灾票据或自行做其它处理
-      var ticket = 'terror_1001_' + appid + Math.floor(new Date().getTime() / 1000);
-      callback({
-        ret: 0,
-        randstr: '@'+ Math.random().toString(36).substr(2),
-        ticket:ticket,
-        errorCode: 1001,
-        errorMessage: 'jsload_error',
-      });
-    }
+   function loadErrorCallback() {
+        var appid = '您的CaptchaAppId';
+        // 生成容灾票据或自行做其它处理
+        var ticket = 'terror_1001_' + appid + '_' + Math.floor(new Date().getTime() / 1000);
+        callback({
+          ret: 0,
+          randstr: '@'+ Math.random().toString(36).substr(2),
+          ticket: ticket,
+          errorCode: 1001,
+          errorMessage: 'jsload_error'
+        });
+     }
 
     // 定义验证码触发事件
     window.onload = function(){
@@ -179,7 +179,7 @@ options 参数用于对验证码进行定制外观设置，默认可以设置为
 | bizState       | Any                   | 自定义透传参数，业务可用该字段传递少量数据，该字段的内容会被带入 callback 回调的对象中。 |
 | enableDarkMode | Boolean &#124; String | 开启自适应深夜模式或强制深夜模式。（**VTT 空间语义验证暂不支持该功能**）<li>开启自适应深夜模式: {"enableDarkMode": true}</li><li>强制深夜模式: {"enableDarkMode": 'force'}</li> |
 | sdkOpts        | Object                | 示例 {"width": 140, "height": 140}<br>仅支持移动端原生 webview 调用时传入，用来设置验证码loading加载弹窗的大小（**注意，并非验证码弹窗大小**）。 |
-| ready          | Function              | 验证码加载完成的回调，回调参数为验证码实际的宽高：<br>{"sdkView": {<br>"width": number,<br>"height": number<br>}}<br>该参数仅为查看验证码宽高使用，**请勿使用此参数直接设定宽高**。 |
+| ready          | Function              | 验证码加载完成的回调，回调参数为验证码实际的宽高（单位：px）：<br>{"sdkView": {<br>"width": number,<br>"height": number<br>}}<br>该参数仅为查看验证码宽高使用，**请勿使用此参数直接设定宽高**。 |
 | needFeedBack   | Boolean &#124; String | 隐藏帮助按钮或自定义帮助按钮链接。（**VTT 空间语义验证暂不支持自定义链接**） <br>隐藏帮助按钮: {"needFeedBack": false }<br>自定义帮助链接: {"needFeedBack": 'url地址' } |
 |loading|Boolean|是否在验证码加载过程中显示loading框。不指定该参数时，默认显示loading框。<li>显示loading框: {"loading": true}</li><li>不显示loading框: {"loading": false}</li>|
 | userLanguage   | String                | 指定验证码提示文案的语言，优先级高于控制台配置。（**VTT 空间语义、文字点选验证暂不支持语言配置**）<br/>支持传入值同 navigator.language 用户首选语言，大小写不敏感。<br/>详情参见 [userLanguage 配置参数](#userLanguage)。 |

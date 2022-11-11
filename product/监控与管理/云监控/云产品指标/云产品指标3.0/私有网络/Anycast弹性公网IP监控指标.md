@@ -25,6 +25,6 @@ Namespace=QCE/CEIP_SUMMARY
 **查询私有网络弹性公网 IP 监控接口监控数据，入参取值如下：**
 &Namespace=QCE/CEIP_SUMMARY
 &Instances.N.Dimensions.0.Name=eip
-&Instances.N.Dimensions.0.Value=弹性公网 IP 的唯一 ID
+&Instances.N.Dimensions.0.Value=弹性公网 IP 
 
 

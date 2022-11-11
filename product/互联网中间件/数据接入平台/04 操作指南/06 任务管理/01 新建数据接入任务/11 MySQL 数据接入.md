@@ -23,6 +23,3 @@
    - CKafka Topic：选择在 CKafka 创建好的 Topic，详情参见 [Topic 管理](https://cloud.tencent.com/document/product/597/73566)。
 6. 单击**提交**，可以在任务列表看到刚刚创建的任务，在状态栏可以看到创建进度。
    ![](https://qcloudimg.tencent-cloud.cn/raw/1bcbefe8c4d3bb3a48880ce0401f061f.png)
-
-
-

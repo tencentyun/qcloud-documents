@@ -4,6 +4,12 @@
 <tr><th width="13%">时间</th><th width="13%">版本</th><th width="74%">更新内容</th></tr>
 </thead>
   <tbody>
+	  <tr>
+    <td>2022-11-09</td>
+    <td>v1.22.5-tke.6</td>
+    <td>
+		<li>优化包年包月超级节点调度。(kube-scheduler)</li>	<li>优化云原生节点稳定性。(kubelet)</li>	<li>优化超级节点本地副本数调度。</li></td>
+  </tr>
 	    <tr>
     <td>2022-10-13</td>
     <td>v1.22.5-tke.5</td>
@@ -45,6 +51,14 @@
 </thead>
   <tbody>
 	    <tr>
+				  <tr>
+    <td>2022-11-09</td>
+    <td>v1.20.6-tke.28</td>
+    <td>
+		<li>优化包年包月超级节点调度。(kube-scheduler)</li>	<li>优化云原生节点稳定性。(kubelet)</li>	
+		<li>修复原生节点原地升降配 kubelet 异常退出。(kubelet)</li>
+		<li>优化超级节点本地副本数调度。</li></td>
+  </tr>
     <td>2022-10-13</td>
     <td>v1.20.6-tke.27</td>
     <td>
@@ -134,6 +148,13 @@
 <tr><th width="13%">时间</th><th width="13%">版本</th><th width="74%">更新内容</th></tr>
 </thead>
 <tbody>
+		  <tr>
+    <td>2022-11-09</td>
+    <td>	v1.18.4-tke.33</td>
+    <td>
+		<li>优化包年包月超级节点调度。(kube-scheduler)</li>
+		<li>优化超级节点本地副本数调度。</li></td>
+  </tr>
 	  <tr>
     <td>2022-10-13</td>
     <td>	v1.18.4-tke.30</td>
@@ -433,7 +454,7 @@ TKE 支持混合云节点。(kube-controller-manager)</td>
 </tr>
 </tbody></table>
 
-## 【停止维护】TKE kubernetes 1.14.3 revisions
+## （停止维护）TKE kubernetes 1.14.3 revisions
 <table>
 <thead>
 <tr><th width="13%">时间</th><th width="13%">版本</th><th width="74%">更新内容</th></tr>
@@ -569,7 +590,7 @@ TKE 支持混合云节点。(kube-controller-manager)</td>
 </tr>
 </tbody></table>
 
-## 【停止维护】TKE kubernetes 1.12.4 revisions
+## （停止维护）TKE kubernetes 1.12.4 revisions
 
 <table>
 <thead>
@@ -716,7 +737,7 @@ TKE 支持混合云节点。(kube-controller-manager)</td>
 </tr>
 </tbody></table>
 
-## 【停止维护】TKE kubernetes 1.10.5 revisions
+## （停止维护）TKE kubernetes 1.10.5 revisions
 
 <table>
 <thead>
@@ -829,7 +850,7 @@ TKE 支持混合云节点。(kube-controller-manager)</td>
 </tr>
 </tbody></table>                                                
 
-## 【停止维护】TKE kubernetes 1.8.13 revisions
+## （停止维护）TKE kubernetes 1.8.13 revisions
 
 <table>
 <thead>
@@ -868,7 +889,7 @@ TKE 支持混合云节点。(kube-controller-manager)</td>
 </tbody></table>
 
 
-## 【停止维护】TKE kubernetes 1.7.8 revisions
+## （停止维护）TKE kubernetes 1.7.8 revisions
 
 <table>
 <thead>
