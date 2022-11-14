@@ -5,7 +5,7 @@
 
 **可在很大程度上，降低您的工作量，快速在双端原生APP中，植入IM通信能力。**
 
-![](https://qcloudimg.tencent-cloud.cn/raw/c28c621153e684bdb64cf8ae3f92ea4c.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/54adc2b0587f9f30d56e96eb6461b969.png)
 
 ## 环境要求
 
