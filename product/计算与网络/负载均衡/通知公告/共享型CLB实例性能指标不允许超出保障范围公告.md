@@ -6,10 +6,10 @@
 <tr>
 <th width="7%">用户类型</th>
 <th >用户定义</th>
-<th width="20%">性能指标</th>
+<th width="25%">性能指标</th>
 <th width="15%">变更前性能指标超限表现</th>
 <th width="15%">变更后性能指标超限表现</th>
-<th width="15%">生效时间</th>
+<th width="14%">生效时间</th>
 </tr>
 <tr>
 <td>新购用户</td>
