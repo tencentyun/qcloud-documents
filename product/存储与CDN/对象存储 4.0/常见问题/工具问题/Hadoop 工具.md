@@ -15,12 +15,18 @@ HDFS 的回收站功能并不适用于 COS，使用 Hadoop-COS，通过`hdfs fs`
 ## 找不到类 CosFileSystem 问题
 ### 加载的时候提示没有找到类 CosFileSystem？提示 Error: java.lang.RuntimeException: java.lang.ClassNotFoundException: Class org.apache.hadoop.fs.CosFileSystem not found。
 
-**可能原因**
+**可能原因1**
 配置已经正确加载，但是 hadoop classpath 没有包含 Hadoop-COS jar 包位置。
 
 **解决办法**
 加载 Hadoop-COS jar 包位置到 hadoop classpath。
 
+**可能原因2**
+mapred-site.xml这个配置文件中mapreduce.application.classpath里没有包含 Hadoop-COS jar 包位置。
+
+**解决办法**
+在mapred-site.xml这个配置文件中，mapreduce.application.classpath里加上cosn jar所在路径，重启服务即可。
+![img](https://qcloudimg.tencent-cloud.cn/raw/04c63beec0bc34272e9acaa78141c7a9.png)
 
 ### 在使用官方 Hadoop 的时候提示没有找到类 CosFileSystem？
 
