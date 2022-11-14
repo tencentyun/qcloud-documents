@@ -1,12 +1,10 @@
-下面为您提供两种途径体验数据处理功能。
-
-## Web 端 Demo
+## 数据处理体验馆 Web 端 Demo
 
 您可直接在电脑端浏览器访问 [COS 数据处理体验馆](https://cloud.tencent.com/act/pro/cosExhibition)，使用示例文件或自行上传文件，体验 COS 的数据处理功能。
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/34abd2ef20c1f4a75eaf45c7ae4fe636.png)
 
-## 小程序 Demo
+## 数据处理体验馆小程序 Demo
 
 您可使用微信扫描下方的小程序码，使用示例文件或自行上传文件，体验 COS 的数据处理能力。
 
