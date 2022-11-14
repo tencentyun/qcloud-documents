@@ -35,7 +35,7 @@
  - 检查方法：
      1. 登录服务器，选择**开始** > **所有程序**>**启动**。
      1. 默认情况下此目录在是一个空目录，确认是否有非业务程序在该目录下。
-     1. 选择**开始** > **运行**，输入 `msconfi`g，查看是否存在命名异常的启动项目，若存在则取消勾选命名异常的启动项目，并到命令中显示的路径删除文件。
+     1. 选择**开始** > **运行**，输入 `msconfig`，查看是否存在命名异常的启动项目，若存在则取消勾选命名异常的启动项目，并到命令中显示的路径删除文件。
      1. 选择**开始** > **运行**，输入 `regedit`，打开注册表，查看开机启动项是否正常，特别注意如下三个注册表项：
         HKEY_CURRENT_USER\software\micorsoft\windows\currentversion\run
         HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run
