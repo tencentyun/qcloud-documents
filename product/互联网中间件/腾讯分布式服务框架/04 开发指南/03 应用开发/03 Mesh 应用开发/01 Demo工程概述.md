@@ -85,7 +85,7 @@ Spring Cloud 应用和 Mesh 应用相互调用时，如果要打通 tracing，�
 - **spec.yaml**：服务描述文件，具体解释请参见 [Mesh 开发使用指引](https://cloud.tencent.com/document/product/649/19049)
 - **apis 目录**：存放 API 定义的目录， 具体解释请参见 [Mesh 开发使用指引](https://cloud.tencent.com/document/product/649/19049)
 
-其中 star.sh、stop.sh、cmdline 的编写方法请参见 [程序包格式说明](https://cloud.tencent.com/document/product/649/30359)。
+其中 start.sh、stop.sh、cmdline 的编写方法请参见 [程序包格式说明](https://cloud.tencent.com/document/product/649/30359)。
 
 
 ### 容器应用工程目录

@@ -1,4 +1,4 @@
-本文主要介绍如何快速运行腾讯云即时通信 IM Demo（Electron）并了解集成 Electron SDK的方法。
+本文主要介绍如何快速运行腾讯云即时通信 IM Demo（Electron）并了解集成 Electron SDK 的方法。
 
 ## 环境要求
 
@@ -23,7 +23,7 @@
 
 [](id:step1)
 
-### 第一部分：创建应用
+### 步骤1：创建应用
 
 1. 登录 [即时通信 IM 控制台](https://console.cloud.tencent.com/im)。
   > ?如果您已有应用，请记录其 SDKAppID 并 [获取密钥信息](#step2)。
@@ -38,7 +38,7 @@
 [](id:step2)
 
 
-### 第二部分: 选择适合的方法集成 Electron SDK
+### 步骤2：选择适合的方法集成 Electron SDK
 IM 提供了两种方式来即成，您可以选择最合适的方案来即成：
 
 | 继承方式 | 适用场景 |
@@ -50,7 +50,7 @@ IM 提供了两种方式来即成，您可以选择最合适的方案来即成�
 
 
 [](id:step3)
-### 第三部分：使用 Demo
+### 步骤3：使用 Demo
 
 1. 克隆即时通信 IM Electron Demo 源码到本地。
   ```javascript
@@ -79,7 +79,7 @@ npm start
   ```
 	
 [](id:step4)
-### 第四部分：自实现
+### 步骤4：自实现
 **安装 Electron SDK**
 使用如下命令，安装 Electron SDK最新版本
 在命令行执行：
@@ -189,7 +189,7 @@ timRenderInstance.TIMAddRecvNewMsgCallback(param);
 详情可查看 [API 文档](https://comm.qq.com/im/doc/electron/zh/Callback/readme.html)
 
 [](id:step5)
-### 第五部分：使用更多插件丰富 IM 使用体验
+### 步骤5：使用更多插件丰富 IM 使用体验
 除 SDK 基础功能外，我们还提供了选装插件，帮助您丰富 IM 能力。
 - [音视频通话插件](https://cloud.tencent.com/document/product/647)：支持一对一/群组 音视频 通话。
 - [地理位置消息插件](https://cloud.tencent.com/document/product/269/80881) ：提供选取位置/发送位置及解析展示位置消息的能力。
@@ -219,7 +219,7 @@ Mac 端执行`npm run start` 会出现白屏，原因是渲染进程的代码还
 #### 用 `webpack` 构建的项目如何使用 `native modules`?
 自己使用webpack 构建的项目使用native modules 请参见 [Windows 下常见问题](https://blog.csdn.net/Yoryky/article/details/106780254)。
 
-### 出现 `Dynamic Linking Error`?
+#### 出现 `Dynamic Linking Error`?
 Dynamic Linking Error. electron-builder 配置
 ``` javascript
    extraFiles:[
