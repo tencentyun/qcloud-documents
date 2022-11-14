@@ -3,7 +3,6 @@
 ## 前提条件和限制
 
 - IPAMD 使用的角色策略被授权了 EIP 相关的接口权限。
-- 目前仅支持自动新建 EIP，不支持指定使用已有 EIP。
 - 目前 VPC-CNI 独占网卡非固定 IP 模式暂不支持 EIP 功能（v3.3.9及之后版本可支持）。
 - 当前集群删除时暂不支持回收该集群自动创建的 EIP。
 
@@ -65,12 +64,83 @@ spec:
 - **spec.template.annotations：tke.cloud.tencent.com/eip-claim-delete-policy: "Never"** 表明 Workload 的 Pod 的 EIP 也需要固定，Pod 销毁后不能变更。若不需要固定，则不添加该注解。
 - **spec.template.spec.containers.0.resources**：关联 EIP 的 Pod，您需要添加 requests 和 limits 限制，即 `tke.cloud.tencent.com/eip`，从而让调度器保证 Pod 调度到的节点仍有 EIP 资源可使用。
 
-
 #### 关键配置说明
 - 各节点可绑定的 EIP 资源受到相关配额限制和云服务器的绑定数量限制，详情可参考 [EIP使用限制](https://cloud.tencent.com/document/product/1199/41648#eip-.E9.85.8D.E9.A2.9D.E9.99.90.E5.88.B6)。
 各节点可绑定的最大 EIP 数量为**云服务器绑定数量 - 1**。
 - **tke.cloud.tencent.com/eip-attributes: '{"Bandwidth":"100","ISP":"BGP"}'**：当前只支持配置带宽和线路类型两个参数。`ISP`参数可配置为 `BGP`、`CMCC`、`CTCC`、`CUCC`，分别对应普通线路 BGP IP、静态单线 IP（网络运营商中国移动、中国电信、中国联通）。若不填写，则默认值为 100 Mbps 和 BGP。
 - 当前自动申请的 EIP 绑定后不收取 IP 资源费用，访问公网网络默认计费方式为`流量按小时后付费`，详情见 [EIP 计费概述 ](https://cloud.tencent.com/document/product/1199/41692)。
+
+## 指定 EIP
+如需自动关联指定 EIP，可参考以下 Yaml 示例：
+```
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    k8s-app: busybox
+  name: busybox
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      k8s-app: busybox
+      qcloud-app: busybox
+  serviceName: ""
+  template:
+    metadata:
+      annotations:
+        tke.cloud.tencent.com/networks: "tke-route-eni"
+        tke.cloud.tencent.com/vpc-ip-claim-delete-policy: Never
+        tke.cloud.tencent.com/eip-id-list: "eip-xxx1,eip-xxx2"
+      creationTimestamp: null
+      labels:
+        k8s-app: busybox
+        qcloud-app: busybox
+    spec:
+      containers:
+      - args:
+        - "10000000000"
+        command:
+        - sleep
+        image: busybox
+        imagePullPolicy: Always
+        name: busybox
+        resources:
+          limits:
+            tke.cloud.tencent.com/eni-ip: "1"
+            tke.cloud.tencent.com/eip: "1"
+          requests:
+            tke.cloud.tencent.com/eni-ip: "1"
+            tke.cloud.tencent.com/eip: "1"
+```
+- **tke.cloud.tencent.com/eip-id-list: "eip-xxx1,eip-xxx2"** 表明该 Workload 的 Pod 需要自动关联指定 EIP，且第一个副本使用 eipID 为 `eip-xxx1`的 EIP，第二个副本使用 eipID 为 `eip-xxx2`的 EIP。当前解析指定策略：Pod按照其名字末尾的编号依次选用注解中的 EIP，若名字末尾无编号（如deployment类型），则随机选用，冲突时只能有一个Pod关联成功。推荐无编号的 Pod 只指定单个 EIP。
+- **spec.template.spec.containers.0.resources**：关联 EIP 的 Pod，您需要添加 requests 和 limits 限制，即 `tke.cloud.tencent.com/eip`，从而让调度器保证 Pod 调度到的节点仍有 EIP 资源可使用。
+
+## 确保主动外访网络流量走 EIP
+当前集群内默认部署了 `ip-masq-agent` 组件，该组件默认会对集群内 Pod 的主动外访流量以所在节点的地址做 SNAT。此外，如果 vpc 内配置了 NAT 网关，则其对 Pod 的主动外访流量也有影响。因此，如需让 Pod 的主动外访流量走其关联的 EIP，则需修改相关配置和路由策略以达到效果。
+
+### 去除集群内 SNAT
+需修改集群内的 SNAT 规则来让关联 EIP 的 Pod 的主动外访流量不被做 SNAT：
+```
+kubectl -n kube-system edit cm ip-masq-agent-config
+```
+在`data.config`字段中加入键为`NonMasqueradeSrcCIDRs`的新字段，值为已关联 EIP 的 Pod 的**内网 IP** 网段列表，如 IP 为`172.16.0.2`，则要填写`172.16.0.2/32`。以下为样例：
+```
+apiVersion: v1
+data:
+  config: '{"NonMasqueradeCIDRs":["172.16.0.0/16","10.67.0.0/16"],"NonMasqueradeSrcCIDRs":["172.16.0.2/32"],"MasqLinkLocal":true,"ResyncInterval":"1m0s","MasqLinkLocalIPv6":false}'
+kind: ConfigMap
+metadata:
+  name: ip-masq-agent-config
+  namespace: kube-system
+```
+填写后保存退出即生效，该配置会在一分钟内同步热更新。
+
+该字段的作用是网段内的 Pod 主动外访流量不再做节点地址的 SNAT，如果填写较大的网段，则网段内的 Pod 也会不再做 SNAT，请慎重填写。
+
+### 调整 NAT 网关和 EIP 的优先级
+如果集群所在 VPC 内配置了 NAT 网关，请参考文档 [调整 NAT 网关和 EIP 的优先级](https://cloud.tencent.com/document/product/552/30012) 确保配置正确（查询路由表时要查询 Pod 所在子网关联的路由表），否则 Pod 的主动外访流量可能优先走 NAT 网关，而非 EIP。
 
 ## EIP 的保留和回收
 

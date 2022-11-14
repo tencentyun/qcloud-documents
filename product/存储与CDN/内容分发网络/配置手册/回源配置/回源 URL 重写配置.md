@@ -23,7 +23,7 @@
 |配置项|	说明|
 |--|--|
 |匹配设置|	1.默认为前缀匹配，例如：待重写回源 URL 为 /test，则将匹配 /test 下路径下的所有文件；<br>2.若勾选全路径匹配，则精准匹配至指定的文件路径，例如：待重写回源 URL 为 /test/a.jpg，则将精准匹配 /test/a.jpg 文件。|
-|待重写回源 URL|	1.以/开头，默认为前缀匹配，支持使用通配符 \* 匹配（例如：/test/\*/\*.jpg）。若指定文件目录，不能以“/”结尾（例如：/test）；<br>2.在全路径匹配模式下，不支持通配符 \*。|
+|待重写回源 URL|	1.以/开头，默认为前缀匹配，支持使用通配符 \* 匹配（例如：/test/\*/\*.jpg）。若指定文件目录，不能以“/”结尾（例如：/test）；<br>2.通配符 \* 也可以用于匹配 URL 的带参内容，例如 URL 为：/test/a.jpg?imageMogr2/thumbnail/!50px，可使用 /test/a.jpg\*，此处的通配符 \* 代表问号后所有参数内容；<br>3.在全路径匹配模式下，不支持通配符 \*。|
 |目标回源 HOST	|回源 Host 决定了回源请求访问到源站时访问的具体站点，默认为当前回源HOST；<br>1. 如果您回源的目标为腾讯云COS对象存储或第三方对象存储，建议指定回源HOST与当前回源HOST保持一致，否则可能会导致回源失败；<br>2. 如果您的回源目标为自有服务器源站内的其它站点，可修改回源HOST为对应站点域名，填写不包含`http://`或`https://`头。|
 |目标回源 Path|	以 / 开头（例如：/newtest/b.jpg），通配符 \* 可通过 $n 捕获（n=1,2,3....)，例如：<br>待重写回源URL配置为/test/\*/\*.jpg，目标回源Path配置为/newtest/$1/$2.jpg，则用户访问请求的回源URL为/test/a/b.jpg时，根据$1将捕获第一个通配符内容，即为a；$2将捕获第二个通配符内容，即为b，则实际回源URL将被改写为/newtest/a/b.jpg。|
 
@@ -47,3 +47,7 @@
 - 则当用户访问 URL 为：`http://example.com/test/a.jpg` 时，因高级回源规则配置，底部优先级最高，优先匹配文件目录回源规则，则该请求会回源至1.1.1.2源站服务器内；又由于回源 URL 重写规则，匹配最下方的规则，根据指定的回源 HOST 配置，回源将指向源站1.1.1.2的 `image.example.com` 站点内资源，所以最终回源访问路径为1.1.1.2服务器下的 `http://image.example.com/test/image/a.jpg`。
 - 当用户访问 URL 为：`http://example.com/test/a/b.jpg` 时，因高级回源规则配置，命中文件后缀规则，则该请求将回源至1.1.1.3源站服务器内；又由于回源 URL 重写配置规则，匹配第一条规则，根据所制定的 HOST 配置，则回源将指向源站1.1.1.3的 `image.example.com` 站点内资源，同时根据通配符捕获的规则，最终回源访问路径为1.1.1.3服务器下的：`http://image.example.com/newtest/a/b.jpg`。
 
+**示例三**
+用户访问域名为：example.com，源站服务器地址为1.1.1.1，回源 URL 重写配置规则如下：
+![](https://qcloudimg.tencent-cloud.cn/raw/c3f3d2ff75817def695dc008bd04a80e.png)
+当用户访问 URL 为：`http://example.com/test/a.jpg?imageMogr2/thumbnail/!50px` 时，命中回源URL重写的规则，根据所指定的 HOST 配置，则回源将指向源站1.1.1.1的 example.com 站点内资源，同时通过 $1 捕获通配符 \* 的所有内容，即原 URL 所携带的参数内容，最终回源访问路径为1.1.1.1服务器下的 `http://example.com/new/test/image/a.jpg?imageMogr2/thumbnail/!50px`。

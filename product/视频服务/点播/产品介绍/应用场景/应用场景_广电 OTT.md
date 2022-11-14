@@ -30,7 +30,7 @@
             版权保护
         </td>
 				<td>
-			 广电 OTT 媒体资源内容包罗万象，例如电影外、体育赛事、儿童动画、综艺等不一而足，在大屏消费不断攀升的现在，极易被不法分子盯上，制作盗版并传播，因此需要借助有效的版本保护手段，最大限度降低媒体资源泄露，或者在被盗录传播时能够追溯盗录者，震慑违法行为，维护平台合法权益。
+			 广电 OTT 媒体资源内容包罗万象，例如电影外、体育赛事、儿童动画、综艺等不一而足，在大屏消费不断攀升的现在，极易被不法分子盯上，制作盗版并传播，因此需要借助有效的版本保护手段，最大限度降低媒体资源泄露。
         </td>
 	</tr>
 	<tr>
@@ -103,9 +103,6 @@
 				<td>
 				<li>
 					<a href="https://cloud.tencent.com/document/product/266/78306" title="防盗链" target="_blank">防盗链</a></br>支持 Referer 防盗链和 Key 防盗链两种形式，防范非法盗链行为。
-				</li>
-				<li>
-					<a href="https://cloud.tencent.com/document/product/266/78308" title="盗录追溯" target="_blank">盗录追溯</a></br>支持普通图文水印、播放端浮动水印和溯源水印，实现对盗录者的追踪溯源。
 				</li>
 				<li>
 					<a href="https://cloud.tencent.com/document/product/266/78307" title="加密与 DRM" target="_blank">加密与 DRM</a></br>支持 HLS 私有加密和商业级 DRM，均能有效防范各类破解行为，为媒体版权保驾护航。

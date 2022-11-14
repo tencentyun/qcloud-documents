@@ -15,12 +15,14 @@
 	<td>单网卡可绑定辅助 IP 数</td><td>5</td><td>9</td><td>19</td><td>29</td>
 </tr>
 <tr>
-	<td>非固定 IP 模式（多网卡）单节点 Pod IP 上限</td><td>5</td><td>27</td><td>95</td><td>203</td>
+	<td>单节点 Pod IP 上限（多网卡）</td><td>5</td><td>27</td><td>95</td><td>203</td>
 </tr>
 <tr>
-	<td>固定 IP 模式（单网卡）单节点 Pod IP 上限</td><td>5</td><td>9</td><td>19</td><td>29</td>
+	<td>单节点 Pod IP 上限（单网卡）</td><td>5</td><td>9</td><td>19</td><td>29</td>
 </tr>
 </table>
+
+>! 支持多网卡的组件版本（非固定 IP 模式 ≥ v3.3，固定 IP 模式 ≥ v3.4）。
 
 各机型可绑定的网卡数量和单网卡可绑定的 IP 数量略有差异， 详情见 [弹性网卡使用限制](https://cloud.tencent.com/document/product/576/18527)。
 

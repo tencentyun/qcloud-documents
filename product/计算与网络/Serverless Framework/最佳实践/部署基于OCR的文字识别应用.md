@@ -1,5 +1,5 @@
 腾讯云文字识别（OCR）基于行业前沿的深度学习技术，将图片上的文字内容智能识别成为可编辑的文本，支持多场景下的印刷体、手写体文字识别，覆盖不同场景下的文字识别需求。
-通过 Serverless Framework Component 和 OCR SDK， 您可快速部署一个基于 COS + API + SCF 的通用文字识别应用，主要包含以下组件：
+通过 Serverless Cloud Framework Component 和 OCR SDK， 您可快速部署一个基于 COS + API + SCF 的通用文字识别应用，主要包含以下组件：
 
 - **Serverless RESTful API：** 通过云函数和 API 网关构建的 Express 框架实现  RESTful API。
 - **Serverless 静态网站：** 前端通过托管 React 静态页面到对象存储 COS 中。
@@ -14,34 +14,30 @@
 
 ### 安装
 
-通过 npm 全局安装 [Serverless Framework](https://github.com/serverless/serverless)：
+通过 npm 全局安装 [Serverless Cloud Framework](https://github.com/serverless/serverless)：
 
 ```shell
-$ npm install -g serverless
+$ npm i -g serverless-cloud-framework
 ```
 
-如果之前您已经安装过 Serverless Framework，可以通过下列命令升级到最新版：
+如果之前您已经安装过 Serverless Cloud Framework，可以通过下列命令升级到最新版：
 
 ```shell
-$ npm update -g serverless
+$ npm update scf
 ```
 
-安装完毕后，通过运行 `serverless -v` 命令，查看 Serverless Framework 的版本信息，确保版本信息不低于以下版本：
+安装完毕后，通过运行 `scf -v` 命令，查看 Serverless Cloud Framework 的版本信息，确保版本信息不低于1.0.2版本：
 
 ```shell
-$ serverless –v
-Framework Core: 1.74.1 (standalone)
-Plugin: 3.6.14
-SDK: 2.3.1
-Components: 2.31.6
+$ scf –v
 ```
 
 ### 配置
 
-1.新建一个本地文件夹，使用`serverless init`命令，下载相关 template。
+1.新建一个本地文件夹，使用`scf init`命令，下载相关 template。
 
 ```console
-$ serverless init ocr-app
+$ scf init ocr-app
 ```
 
 2.在模板中找到 `.env.example` 文件，并改名为 `.env` ，在里面输入您的账户、密钥信息和指定存储桶（此存储桶用于存放上传的图像）。
@@ -78,9 +74,9 @@ $ cd frontend && npm run start
 1.执行以下命令进行部署：
 
 ```bash
-$ sls deploy --all
+$ scf deploy --all
 
-serverless ⚡ framework
+serverless-cloud-framework
 
 backend: 
   region: ap-guangzhou
@@ -105,12 +101,12 @@ frontend:
 部署成功后，您可以使用浏览器访问项目产生的 website 链接，即可看到生成的网站，单击**上传图片**，项目即可通过 OCR SDK 完成文字识别。
 
 
-2.执行 `sls remove --all`，可移除项目。
+2.执行 `scf remove --all`，可移除项目。
 
 ```bash
-$  sls remove --all
+$  scf remove --all
 
-serverless ⚡ framework
+serverless-cloud-framework
 
 38s › tencent-fullstack › Success
 ```

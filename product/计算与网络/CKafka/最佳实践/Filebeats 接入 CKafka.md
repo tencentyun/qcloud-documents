@@ -123,3 +123,12 @@ output.kafka:
 </dx-codeblock>
 
 
+## 说明与注意
+- 发送数据到 CKafka，不能设置压缩 compression.codec。
+- 默认不支持 Gzip 压缩格式，如果需要支持，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请。
+Gzip 压缩对于 CPU 的消耗较高，使用 Gzip 会导致所有的消息都是 InValid 消息。
+- 使用 LZ4 压缩方法时，程序不能正常运行，可能的原因如下：
+消息格式错误。CKafka 默认版本为0.10.2，您需要使用 V1 版本的消息格式。
+- 不同 Kafka Client 的 SDK 设置方式不同，您可以通过开源社区进行查询（例如 [C/C++ Client 的说明](https://github.com/edenhill/librdkafka/blob/master/INTRODUCTION.md#compression)），设置消息格式的版本。
+
+

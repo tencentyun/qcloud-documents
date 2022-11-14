@@ -20,17 +20,17 @@ msp-agent安装包下载  [msp-agent](https://msp-agent-1258344699.cos.ap-beijin
 ![](https://qcloudimg.tencent-cloud.cn/raw/f208f788bb8d20cbc192e02b73460ead.png)
 >?
 >- msp-agent 是采用 master-worker 的分布式架构，一台 master 一般对应一到多台 worker。
->- master目录即为 master, worker 目录即为 worker;。
+>- master目录即为 master, worker 目录即为 worker。
 >- 如果需要部署多个 worker，把 worker 目录整体拷贝，然后修改相应参数后，按下面的启动方式启动即可。
 >- 单个服务器可以启动多个 worker 进程，但需要注意按下面参数说明修改相应参数，以防止端口冲突。
 
 ### 启动
 
 - 启动 master：
-cd <path>/msp-agent/master && ./bin/start.sh
+cd {path-to-msp-agent}/master && ./bin/start.sh
 
 - 启动 worker：
-cd <path>/msp-agent/worker && ./bin/start.sh
+cd {path-to-msp-agent}/worker && ./bin/start.sh
 
 ### 配置参数说明
 

@@ -17,6 +17,7 @@ LogListener 版本支持重要功能如下，详细版本功能信息请参考 [
 
 | LogListener 版本 | 支持功能           | 功能说明                      | 相关文档                             |
 | --------------- | ------------------------ | -------------------------- | --------------------------------- |
+| v2.8.0   | 支持GBK编码采集；优化json提取模式转义符    | Loglistener 支持采集GBK编码模式的日志文本 | -   |
 | v2.7.4   | 支持采集主机名 hostname    | Loglistener 会默认采集机器的主机名作为默认字段上报，以 \_\_HOSTNAME\_\_ 作为 key 展现，例如 \_\_HOSTNAME\_\_：VM-108-centos。   | -   |
 | v2.6.4   | 支持用户通过组合解析自定义复杂日志解析规则   | 使用 Loglistener 组合解析格式解析日志，此模式支持用户在控制台输入代码（JSON 格式）用来定义日志解析的流水线逻辑。   | [组合解析格式](https://cloud.tencent.com/document/product/614/61310)   |
 | v2.6.0   | 支持腾讯云 CVM 批量部署功能   | 支持用户在控制台选择 CVM 实例，接口批量下发部署 LogListener 任务，自动完成 LogListener 的安装部署（包括 accesskey，ID 配置，地域配置）。   | [CVM 批量部署 LogListener](https://cloud.tencent.com/document/product/614/60593)   |
@@ -29,18 +30,22 @@ LogListener 版本支持重要功能如下，详细版本功能信息请参考 [
 
 ## 安装启动
 
+
 ### 1. 下载安装 LogListener
 
-LogListener 最新版本下载地址：[公网下载 LogListener](https://mirrors.tencent.com/install/cls/loglistener-linux-x64-2.8.2.tar.gz)、[内网下载 LogListener](http://mirrors.tencentyun.com/install/cls/loglistener-linux-x64-2.8.2.tar.gz)
+
+LogListener 最新版本下载地址：[公网下载 LogListener](https://mirrors.tencent.com/install/cls/loglistener-linux-x64.tar.gz)、[内网下载 LogListener](http://mirrors.tencentyun.com/install/cls/loglistener-linux-x64.tar.gz)
 
 以安装路径`/usr/local/`为例： 下载 LogListener 安装包并解压，解压路径为`/usr/local/` ，解压完成后进入 LogListener 目录`loglistener/tools`，执行安装命令 。
+>?从2.8.3 版本开始，Loglistener 安装包不再添加版本号后缀，使用 loglistener-linux-x64 默认安装最新版本。如果需要安装特定版本可以在后面指定版本号，如将 loglistener-linux-x64 替换为 loglistener-linux-x64-2.8.0，将会指定安装2.8.0版本。
+
 - 公网环境下，操作命令如下：
 ```plaintext
-wget https://mirrors.tencent.com/install/cls/loglistener-linux-x64-2.8.2.tar.gz  && tar -zxvf loglistener-linux-x64-2.8.2.tar.gz -C /usr/local && cd /usr/local/loglistener-2.8.2/tools && ./loglistener.sh install
+wget http://mirrors.tencent.com/install/cls/loglistener-linux-x64.tar.gz && tar zxvf loglistener-linux-x64.tar.gz  -C /usr/local/ && cd /usr/local/loglistener/tools && ./loglistener.sh install
 ```
 - 内网环境下，操作命令如下：
 ```plaintext
-wget http://mirrors.tencentyun.com/install/cls/loglistener-linux-x64-2.8.2.tar.gz  && tar -zxvf loglistener-linux-x64-2.8.2.tar.gz -C /usr/local && cd /usr/local/loglistener-2.8.2/tools && ./loglistener.sh install
+wget http://mirrors.tencentyun.com/install/cls/loglistener-linux-x64.tar.gz && tar zxvf loglistener-linux-x64.tar.gz  -C /usr/local/ && cd /usr/local/loglistener/tools && ./loglistener.sh install
 ```
 
 ### 2. 初始化 LogListener
@@ -61,7 +66,7 @@ wget http://mirrors.tencentyun.com/install/cls/loglistener-linux-x64-2.8.2.tar.g
 | secretkey | [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 的一部分，SecretKey 是用于加密签名字符串和服务器端验证签名字符串的密钥 |
 | region    | region 表示日志服务所在的 [地域](https://cloud.tencent.com/document/product/614/18940)，此处填写域名简称，例如 ap-beijing、ap-guangzhou 等 |
 | network   | 表示 loglistener 通过哪种方式访问服务域名，取值：intra 内网访问（默认），internet 外网访问 |
-| ip        | 机器的 IP 标识。若不填写，loglistener 会自动获取本机的 IP 地址 |
+| IP        | 机器的 IP 标识。若不填写，loglistener 会自动获取本机的 IP 地址 |
 | label     | 机器组标示，标示机器组需要填写标示信息，多个标示按逗号分隔 |
 
 默认使用内网域名：
@@ -83,8 +88,13 @@ wget http://mirrors.tencentyun.com/install/cls/loglistener-linux-x64-2.8.2.tar.g
 > 
 
 ### 3. 启动 LogListener
+- loglistener2.8.3以上并且操作系统具有systemd
 
-成功安装后，执行 LogListener 启动命令：
+```plaintext
+systemctl start loglistenerd
+```
+- loglistener2.8.3以下或者loglistener2.8.3以上但是操作系统没有systemd
+
 ```plaintext
 /etc/init.d/loglistenerd start
 ```
@@ -108,17 +118,19 @@ wget http://mirrors.tencentyun.com/install/cls/loglistener-linux-x64-2.8.2.tar.g
 ```
 
 ### 3. LogListener 进程管理
-
+- loglistener2.8.3以上并且操作系统具有systemd
+```plaintext
+systemctl (start|restart|stop)  loglistenerd # 启动、重启、停止
+```
+- loglistener2.8.3以下或者loglistener2.8.3以上但是操作系统没有systemd
 ```plaintext
 /etc/init.d/loglistenerd (start|restart|stop) # 启动、重启、停止
 ```
 
 ### 4. 查看 LogListener 进程状态
-
 ```plaintext
 /etc/init.d/loglistenerd status
 ```
-
 LogListener 正常情况会运行两个进程：
 ![](https://main.qcloudimg.com/raw/e28d0d88d14a65567ce46794979dfc94.png)
 
@@ -127,7 +139,6 @@ LogListener 正常情况会运行两个进程：
 ```plaintext
 /etc/init.d/loglistenerd check
 ```
-
 ![](https://main.qcloudimg.com/raw/82430a9cb1aa364d2abfbc47ebae5ef5.png)
 
 
@@ -144,7 +155,7 @@ LogListener 正常情况会运行两个进程：
 #### 复用断点文件（不会重复采集日志）：
 
 1. 使用停止命令停止运行旧版本的 LogListener。
-2. 备份旧版本中的断点文件目录（`loglistener/data`）。例如，将旧版的断点文件备份至`/tmp/loglistener-backup`目录下。
+2. 备份旧版本中的断点文件目录（`loglistener/data`）。例如：将旧版的断点文件备份至`/tmp/loglistener-backup`目录下。
 <dx-codeblock>
 :::  plaintext
 cp -r loglistener-2.2.3/data /tmp/loglistener-backup/

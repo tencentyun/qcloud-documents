@@ -2,7 +2,7 @@
 
 图片压缩指在图片质量保持不变的情况，尽可能的减小图片大小，以达到节省图片存储空间、减少图片访问流量、提升图片访问速度的效果。
 
-对象存储（Cloud Object Storage，COS）基于 [数据万象（Cloud Infinite，CI）](https://cloud.tencent.com/document/product/460/6962) 产品推出了 WebP 压缩功能，可以在不影响显示效果的情况下，通过一定的优化算法删除 SVG 文件中的冗余信息，最终达到减少SVG文件体积的目的。
+对象存储（Cloud Object Storage，COS）基于 [数据万象（Cloud Infinite，CI）](https://cloud.tencent.com/document/product/460/6962) 产品推出了 SVG 压缩功能，可以在不影响显示效果的情况下，通过一定的优化算法删除 SVG 文件中的冗余信息，最终达到减少SVG文件体积的目的。
 
 ## 限制说明
 
@@ -83,3 +83,4 @@ Pic-Operations:
 | :------------------ | :----------------------------------------------------------- |
 | ObjectKey  | 对象文件名，例如 folder/sample.jpg。                           |
 | /format/&lt;Format> | 压缩格式，此处为 svgc。                                       |
+

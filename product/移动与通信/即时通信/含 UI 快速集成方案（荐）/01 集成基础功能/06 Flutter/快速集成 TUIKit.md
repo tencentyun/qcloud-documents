@@ -3,6 +3,8 @@ Flutter TUIKit 是基于 Flutter IM SDK 实现的一套 UI 组件，其中包含
 
 基于本套 UI 组件和内置的 IM 业务逻辑，您可以像搭积木一样，快速地在您 App 中，引入即时通信及用户关系链管理等模块。
 
+**接入前，您可以通过 [我们的 DEMO](https://cloud.tencent.com/document/product/269/70747#demo)，快速在线体验 TUIKit 各项能力。**
+
 >? 本含 UI 的 SDK tim_ui_kit 已开源，您可引入 [在线版本](https://pub.dev/packages/tim_ui_kit)，也可 [GitHub fork](https://github.com/tencentyun/TIMSDK/tree/master/Flutter/Demo/im-flutter-uikit) 后本地引入使用。
 
 目前包含的一级组件如下：
@@ -16,7 +18,7 @@ Flutter TUIKit 是基于 Flutter IM SDK 实现的一套 UI 组件，其中包含
 - [TIMUIKitGroup](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitGroup/TIMUIKitGroup-Implementation.html) 我的群聊
 - [TIMUIKitBlackList](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitBlackList/TIMUIKitBlackList-Implementation.html) 黑名单
 - [TIMUIKitNewContact](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitNewContact/TIMUIKitNewContact-Implementation.html) 新的联系人申请
-- [TIMUIKitSearch](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitSearch/TIMUIKitSearch-Implementation.html) 本地搜索，支持全局搜索及会话内搜索
+- [TIMUIKitSearch](https://cloud.tencent.com/document/product/269/79121) 本地搜索，支持全局搜索及会话内搜索
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/f140dd76be01a65abfb7e6ba2bf50ed5.png)
 
@@ -45,11 +47,19 @@ Flutter TUIKit 是基于 Flutter IM SDK 实现的一套 UI 组件，其中包含
 
 >? 我们致力于打造一套支持 Flutter 全平台的即时通信 IM SDK 及TUIKit，帮助您一套代码，全平台运行。
 
-## 操作步骤
+## 前提条件
+
+1. 您已 [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 帐号，并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
+2. 参照 [创建并升级应用](https://cloud.tencent.com/document/product/269/32577) 创建应用，并记录好 `SDKAppID`。
+3. 在 [IM 控制台](https://console.cloud.tencent.com/im) 选择您的应用，在左侧导航栏依次单击 **辅助工具** > **UserSig 生成&校验** ，创建两个 UserID 及其对应的 UserSig，复制`UserID`、`签名（Key）`、`UserSig`这三个，后续登录时会用到。
+![](https://main.qcloudimg.com/raw/8315da2551bf35ec85ce10fd31fe2f52.png)
+
+## 接入步骤
 如下会介绍如何使用 Flutter TUIKit 快速构建一个简单的即时通信应用。
 
 ### 步骤1：创建 Flutter 应用并添加权限
 请参见 [Flutter 文档](https://flutter.cn/docs/get-started/test-drive?tab=terminal) 快速创建一个 Flutter 应用。
+
 #### 配置权限[](id:permission)
 
 由于 TUIKit 运行，需要拍摄/相册/录音/网络等权限，需要您在 Native 的文件中手动声明，才可正常使用相关能力。
@@ -108,11 +118,11 @@ end
 flutter pub add tim_ui_kit
 ```
 
-如果您的项目需要支持 Web，请在执行后续步骤前，[查看 Web 兼容说明章节](#web)，引入JS文件。
+如果您的项目需要支持 Web，请在执行后续步骤前，[查看 Web 兼容说明章节](#web)，引入 JS 文件。
 
 ### 步骤2：初始化[](id:init)
 
-1. 在您应用启动时，初始化 TUIKit。
+1. 在您应用启动时，初始化 IM。
 2. 请务必保证先执行 [`TIMUIKitCore.getInstance()`](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitCore/getInstance.html) ，再调用初始化函数 [`init()`](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitCore/init.html) ，并将您的`sdkAppID`传入。
 3. 为方便您获取API报错及建议提醒用户的提示语，此处建议挂载一个 onTUIKitCallbackListener 监听，[详见此部分](#callback)。
 
@@ -266,11 +276,23 @@ class UserProfile extends StatelessWidget {
 
 此时，您的应用已经可以完成消息收发，管理好友关系，展示用户详情及展示会话列表。
 
-### 步骤6：[选装] 使用 Controller 控制 TUIKit[](id:controller)
+### 附加1：TUIKit 的更多能力
 
+您还可以继续使用以下 TUIKit 组件快速实现完整 IM 功能。
 
->?建议在 tim_ui_kit 0.1.5 以后版本中使用本功能。
+- [TIMUIKitContact](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitContact/TIMUIKitContact-Implementation.html)：联系人列表页面。
+- [TIMUIKitGroupProfile](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitGroupProfile/TIMUIKitGroupProfile-Implementation.html)：群资料页面，使用方式与 `TIMUIKitProfile` 基本一致。
+- [TIMUIKitGroup](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitGroup/TIMUIKitGroup-Implementation.html)：群列表界面。
+- [TIMUIKitBlackList](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitBlackList/TIMUIKitBlackList-Implementation.html)：黑名单列表界面。
+- [TIMUIKitNewContact](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitNewContact/TIMUIKitNewContact-Implementation.html)：联系人（好友）申请列表。如需在外部显示小红点，可使用 `TIMUIKitUnreadCount` 小红点组件，其会自动挂载监听。
+- [本地搜索](https://cloud.tencent.com/document/product/269/79121)：`TIMUIKitSearch` 全局搜索组件，支持全局搜索联系人/群组/聊天记录，也支持使用 `TIMUIKitSearchMsgDetail` 在特定会话中搜索聊天记录。两种模式取决于是否传入 `conversation`。
 
+UI 组件全貌可参见 [本全览文档](https://cloud.tencent.com/document/product/269/70747) 或 [详细文档](https://comm.qq.com/im/doc/flutter/zh/TUIKit/readme.html)。
+
+[](id:controller)
+### 附加2：[选装] 使用 Controller 控制 TUIKit
+
+>? 建议在 tim_ui_kit 0.1.5 及以后版本中使用本功能。
 
 通过上述步骤的快速集成，您已经可以搭建一套可用的 IM 模块。如果您有其他额外的控制操作需求，可以使用组件配套的 controller 完成。
 
@@ -323,19 +345,16 @@ _sendLocationMessage(String desc, double longitude, double latitude) async {
 :::
 </dx-codeblock>
 
+### 附加3：[选装] 使用更多插件丰富 TUIKit 使用体验
 
-### 更多能力
+除 TUIKit 本体基础功能外，我们还提供了四个选装插件，帮助您丰富 IM 能力。
 
-您还可以继续使用以下 TUIKit 插件快速实现完整 IM 功能。
+- [消息推送插件](https://cloud.tencent.com/document/product/269/74605)：支持厂商原生离线推送能力及在线推送能力，并支持推送您的其他业务消息，帮助您提高消息触达率。
+- [音视频通话插件](https://cloud.tencent.com/document/product/269/72485)：支持类似微信的 一对一/群组 音视频 通话。
+- [位置消息插件](https://cloud.tencent.com/document/product/269/80881)：提供选取位置/发送位置及解析展示位置消息的能力。
+- [自定义表情插件](https://cloud.tencent.com/document/product/269/80882)：0.1.5版本后， TUIKit 无自带表情包，需要使用此插件，快速简便集成表情能力。支持 emoji unicode 编码及自定义图片表情。集成过程可参考我们的 [Demo](https://github.com/TencentCloud/TIMSDK/blob/master/Flutter/Demo/im-flutter-uikit/lib/src/pages/app.dart)。
 
-- [TIMUIKitContact](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitContact/TIMUIKitContact-Implementation.html)：联系人列表页面。
-- [TIMUIKitGroupProfile](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitGroupProfile/TIMUIKitGroupProfile-Implementation.html)：群资料页面，使用方式与 `TIMUIKitProfile` 基本一致。
-- [TIMUIKitGroup](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitGroup/TIMUIKitGroup-Implementation.html)：群列表界面。
-- [TIMUIKitBlackList](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitBlackList/TIMUIKitBlackList-Implementation.html)：黑名单列表界面。
-- [TIMUIKitNewContact](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitNewContact/TIMUIKitNewContact-Implementation.html)：联系人（好友）申请列表。如需在外部显示小红点，可使用 `TIMUIKitUnreadCount` 小红点组件，其会自动挂载监听。
-- [本地搜索](https://cloud.tencent.com/document/product/269/79121)：`TIMUIKitSearch` 全局搜索组件，支持全局搜索联系人/群组/聊天记录，也支持使用 `TIMUIKitSearchMsgDetail` 在特定会话中搜索聊天记录。两种模式取决于是否传入 `conversation`。
-
-UI 组件全貌可参见 [本全览文档](https://cloud.tencent.com/document/product/269/70747) 或 [详细文档](https://comm.qq.com/im/doc/flutter/zh/TUIKit/readme.html)。
+>?更多实用的插件正在开发中，如果您有好的想法及建议，欢迎随时 [联系我们](https://cloud.tencent.com/online-service?from=doc_269&source=PRESALE)。
 
 ## Flutter for Web 支持[](id:web)
 
@@ -383,6 +402,16 @@ flutter pub cache clean
 flutter pub get
 ```
 
+### 在 Flutter 2.x 上，Android 构建报错 `Codepoint 984472 not found in font, aborting.` 怎么办？
+
+![](https://qcloudimg.tencent-cloud.cn/raw/017362112bb49e5ac2d94d76699b068a.png)
+
+在您的编译命令中，加入 `--no-tree-shake-icons`。如：
+
+```shell
+flutter build apk --no-tree-shake-icons --dart-define=SDK_APPID={您的SDKAPPID}
+```
+
 ### iOS 端 Pods 依赖无法安装成功怎么办？
 
 #### **尝试方案一：**配置运行后，如果报错，可以单击 **Product** > **Clean Build Folder**，清除产物后重新 `pod install` 或 `flutter run`。
@@ -405,7 +434,7 @@ sudo gem install ffi
 pod install --repo-update
 ```
 
-### 佩戴 Apple Watch 时，真机调试 iOS 报错
+### 佩戴 Apple Watch 时，真机调试 iOS 报错怎么办？
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/1ffcfe39a18329c86849d7d3b34b9a0e.png)
 
@@ -413,11 +442,11 @@ pod install --repo-update
 
 重新启动 Xcode（若打开），并重新 `flutter run` 即可。
 
-### Flutter 环境问题
+### Flutter 环境问题如何确认？
 
 如您需得知 Flutter 的环境是否存在问题，请运行 Flutter doctor 检测 Flutter 环境是否装好。
 
-### 使用 Flutter 自动生成的项目，引入 TUIKit 后，运行 Android 端报错
+### 使用 Flutter 自动生成的项目，引入 TUIKit 后，运行 Android 端报错怎么办？
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/d95efdd4ae50f13f38f4c383ca755ae7.png)
 
@@ -482,8 +511,6 @@ final isInitSuccess = await _coreInstance.init(
         print("Error from TUIKit: ${callbackValue.errorMsg}, Code: ${callbackValue.errorCode}");
         if (callbackValue.errorCode == 10004 && callbackValue.errorMsg!.contains("not support @all")) {
             Utils.toast(imt("当前群组不支持@全体成员"));
-        }else if (callbackValue.errorCode == 80001 && callbackValue.errorMsg!.contains("not support @all")) {
-            Utils.toast(imt("发言中有非法语句"));
         }else{
           Utils.toast(callbackValue.errorMsg ?? callbackValue.errorCode.toString());
         }
@@ -564,6 +591,7 @@ final isInitSuccess = await _coreInstance.init(
 | 6660410           | 其他文件正在接收中                                           | 用户点击下载文件消息时，前序下载任务还未完成                                |
 | 6660411           | 正在接收中                                                   | 用户点击下载文件消息                                                        |
 | 6660412           | 视频消息仅限 mp4 格式                                        | 用户发送了一条非 mp4 格式的视频消息                                         |
+| 6660413           | 已加入待下载队列，其他文件下载中                                                   | 已加入待下载队列，其他文件下载中                                         |
 | 6661001           | 无网络连接，无法修改                                         | 当用户试图在无网络环境下，修改群资料                                        |
 | 6661002           | 无网络连接，无法查看群成员                                   | 当用户试图在无网络环境下，修改群资料                                        |
 | 6661003           | 成功取消管理员身份                                           | 用户将群内其他用户移除管理员                                                |

@@ -244,7 +244,7 @@ public class Http {
 
 ### 使用 SCF DB SDK for MySQL 连接数据库[](id:SCFSDK)
 为了方便使用，云函数团队将 Node.js 和 Python 连接池最佳实践封装成了 SCF DB SDK for MySQL，请参考 [依赖安装](https://cloud.tencent.com/document/product/583/39780) 进行安装使用。支持 MySQL，CynosDB 及 TDSQL 三种 MySQL 协议的数据库。
->!SCF DB SDK 主要支持 MySQL 协议的数据库，如果您需使用腾讯云 Serverless DB（支持 PostgreSQL 及 NoSQL），推荐使用 [Serverless Framework 组件](https://cloud.tencent.com/document/product/583/45363)。
+>!SCF DB SDK 主要支持 MySQL 协议的数据库，如果您需使用腾讯云 Serverless DB（支持 PostgreSQL 及 NoSQL），推荐使用 [Serverless Cloud Framework 组件](https://cloud.tencent.com/document/product/583/45363)。
 
 SCF DB SDK for MySQL 具备以下特点：
 - 自动从环境变量初始化数据库客户端。

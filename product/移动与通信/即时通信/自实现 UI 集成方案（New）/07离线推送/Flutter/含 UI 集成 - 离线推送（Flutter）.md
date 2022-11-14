@@ -197,6 +197,7 @@ flutter pub add tim_ui_kit_push_plugin
 
 [并根据该指南](https://cloud.tencent.com/document/product/269/76803)，在插件市场，启用推送插件。
 
+>?在进行以下步骤时，如果您有不确定的部分，可以直接参考我们的 [DEMO 源码](https://github.com/TencentCloud/TIMSDK/tree/master/Flutter/Demo/im-flutter-uikit)，了解具体写法。可重点关注 `lib/utils/push` 内文件写法，及外部如何调用。
 
 ### 步骤1：汇总常量类[](id:step_1)
 1. 完成 [接入准备（注册厂商）](#firstone)的配置后，可在即时通信 IM 的控制台首页右侧，查看我们后台为您的厂商渠道 App 信息分配的证书 ID。
@@ -580,8 +581,8 @@ TIMUIKitChat(
 3. 如果上一步创建 OfflinePushInfo 时，在 ext 内传入了含 conversationID 的 JSON，此时即可直接跳转到对应 Chat。
 
 >?在后台跳转情况下，此时 Flutter 首页可能已经 unmounted，无法为跳转提供 context，因此建议启动时缓存一个 context，保证跳转成功。
-
->?建议在跳转成功后，及时清除通知栏中其他本应用的通知，避免太多 IM 消息堆积其中。调用插件中`clearAllNotification()`方法即可。
+>
+>建议在跳转成功后，及时清除通知栏中其他本应用的通知，避免太多 IM 消息堆积其中。调用插件中`clearAllNotification()`方法即可。
 >
 ```Dart
 BuildContext? _cachedContext;
@@ -656,7 +657,7 @@ _calling?.call(widget.selectedConversation.userID!, CallingScenes.Audio, offline
 2. 并在左上角新增`Push Notification`的 Capability。
 ![](https://qcloudimg.tencent-cloud.cn/raw/e1be71c63e505281aed6c7eb61c587ac.png)
 3. 执行`flutter pub get`安装好插件后进入 iOS 目录，执行：`pod install`安装依赖库。
-4. 将以下代码添加到 iOS 工程下`ios/Runner/AppDelegate.swift`文件`didFinishLaunchingWithOptions`方法中。
+4. 将以下代码添加到 iOS 工程下`ios/Runner/AppDelegate.swift`文件`didFinishLaunchingWithOptions`方法中。可参考我们的 [DEMO](https://github.com/TencentCloud/TIMSDK/blob/master/Flutter/Demo/im-flutter-uikit/ios/Runner/AppDelegate.swift)。
 Objective-C：
 ```objc
 if (@available(iOS 10.0, *)) {
@@ -716,11 +717,11 @@ TIMUIKitChat(
 
 如果您的业务中，有其他运营通知/订单通知等消息，需要推送，您可以参考本部分，使用服务端推送能力。
 
-> ?如果您在项目中，使用了其他推送SDK，如TPNS，会导致多个厂商底层SDK冲突，使得编译不通过。因此建议仅安装我们的推送插件即可，使用我们的服务端推送能力，下发IM消息和您的其他推送消息。
+> ?如果您在项目中，使用了其他推送 SDK，如 TPNS，会导致多个厂商底层 SDK 冲突，使得编译不通过。因此建议仅安装我们的推送插件即可，使用我们的服务端推送能力，下发 IM 消息和您的其他推送消息。
 
 ### 推送 API
-1. 全员推送：可参见 [本文档](https://cloud.tencent.com/document/product/269/45933)，使用服务端请求腾讯云IM的API，完成全员推送。此方案，还可自动按标签/属性等内容，精细化推送。
-2. 【无需旗舰版】针对特定成员的推送：可参见 [本文档](https://cloud.tencent.com/document/product/269/1612)，使用服务端，请求腾讯云IM的API，以批量发单聊消息的形式，给固定的用户ID列表，下发消息推送。该API上限500个用户，如果待发用户超过500人，可循环多次调用本API。
+1. 全员推送：可参见 [本文档](https://cloud.tencent.com/document/product/269/45933)，使用服务端请求腾讯云 IM 的 API，完成全员推送。此方案，还可自动按标签/属性等内容，精细化推送。
+2. 【无需旗舰版】针对特定成员的推送：可参见 [本文档](https://cloud.tencent.com/document/product/269/1612)，使用服务端，请求腾讯云IM的API，以批量发单聊消息的形式，给固定的用户 ID 列表，下发消息推送。该 API 上限500个用户，如果待发用户超过500人，可循环多次调用本 API。
 
 ### 推送方式
 
@@ -728,9 +729,9 @@ TIMUIKitChat(
 
 无论何种方案发送消息，建议  `From_Account` 使用单独配置的管理员账号，并透传 [离线推送信息](https://cloud.tencent.com/document/product/269/2720#.E7.A6.BB.E7.BA.BF.E6.8E.A8.E9.80.81-offlinepushinfo-.E8.AF.B4.E6.98.8E)，即可在客户端上，触发消息推送。
 
-`OfflinePushInfo` 的 `ext` 字段，同上文[步骤6](#step_6)所述，建议配置成，您可在客户端解析的，用于点击通知跳转的内容。建议使用 JSON 格式字符串。
+`OfflinePushInfo` 的 `ext` 字段，同上文 [步骤6](#step_6) 所述，建议配置成，您可在客户端解析的，用于点击通知跳转的内容。建议使用 JSON 格式字符串。
 
-OfflinePushInfo 详细字段[请参考本文档](https://cloud.tencent.com/document/product/269/2720#.E7.A6.BB.E7.BA.BF.E6.8E.A8.E9.80.81-offlinepushinfo-.E8.AF.B4.E6.98.8E)。
+OfflinePushInfo 详细字段 [请参考本文档](https://cloud.tencent.com/document/product/269/2720#.E7.A6.BB.E7.BA.BF.E6.8E.A8.E9.80.81-offlinepushinfo-.E8.AF.B4.E6.98.8E)。
 
 以全员推送的 JSON 包体举例：
 
@@ -867,7 +868,7 @@ flutter pub add tim_ui_kit_push_plugin
 
 #### iOS
 
-如果您已经配置iOS端离线推送，可忽略本部分。若无，请在 `ios/Runner/AppDelegate.swift` 或 `ios/Runner/AppDelegate.m`文件中， `didFinishLaunchingWithOptions` 函数内，添加如下代码。可参考我们的DEMO。
+如果您已经配置iOS端离线推送，可忽略本部分。若无，请在 `ios/Runner/AppDelegate.swift` 或 `ios/Runner/AppDelegate.m`文件中， `didFinishLaunchingWithOptions` 函数内，添加如下代码。可参考我们的 [DEMO](https://github.com/TencentCloud/TIMSDK/blob/master/Flutter/Demo/im-flutter-uikit/ios/Runner/AppDelegate.swift)。
 
 Objective-C:
 ```objc

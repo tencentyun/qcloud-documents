@@ -24,14 +24,14 @@ Iceberg 设计为以快照（Snapshot）的形式来管理表的各个历史版�
 
 ## 使用示例
 更多示例可参考 [Iceberg 官网示例](https://iceberg.apache.org/getting-started)。
+本文以 EMR- V3.3.0中的 Iceberg0.11.0版本为示例，不同EMR版本相关jar包名称可能有所差异，请您根据路径下实际名称取用。
 1. 登录 master 节点，切换为 hadoop 用户。
 2. Iceberg 相关的包放置在 `/usr/local/service/iceberg/` 下面。
 3. 使用计算引擎查询数据。
  - Spark 引擎
     - Spark-SQL 交互式命令行
 ```
-spark-sql --master local[*] --conf spark.sql.extensions=org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions--conf spark.sql.catalog.local=org.apache.iceberg.spark.SparkCatalog--conf spark.sql.catalog.local.type=hadoop --conf spark.sql.catalog.local.warehouse=/usr/hive/warehouse --jars /usr/local/service/iceberg/iceberg-spark3-runtime-0.11.0.jar
-
+spark-sql --master local[*] --conf spark.sql.extensions=org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions --conf spark.sql.catalog.local=org.apache.iceberg.spark.SparkCatalog --conf spark.sql.catalog.local.type=hadoop --conf spark.sql.catalog.local.warehouse=/usr/hive/warehouse --jars /usr/local/service/iceberg/iceberg-spark3-runtime-0.11.0.jar
 ```
     - 插入和查询数据
 ```
@@ -46,12 +46,13 @@ beeline -u jdbc:hive2://[hiveserver2_ip:hiveserver2_port] -n hadoop --hiveconf h
 ```
     - 查询数据
 ```
-ADD JAR /usr/local/service/hive/lib/iceberg-hive-runtime-0.11.0.jar;
-CREATE EXTERNAL TABLE t1 STORED BY 'org.apache.iceberg.mr.hive.HiveIcebergStorageHandler' LOCATION '/usr/hive/warehouse/default/t1';
+ADD JAR /usr/local/service/iceberg/iceberg-hive-runtime-0.11.0.jar;
+CREATE EXTERNAL TABLE t1 STORED BY 'org.apache.iceberg.mr.hive.HiveIcebergStorageHandler' LOCATION '/usr/hive/warehouse/default/t1' TBLPROPERTIES ('iceberg.catalog'='location_based_table');
+
 select count(*) from t1;
 ```
  - Flink 引擎
-    - 启动一个 Flink standalone 集群和 Flink 交互式
+    - 根据 Flink 和 Hive 版本在 [Maven 仓库](https://repo1.maven.org/maven2/org/apache/flink/) 下载相应版本 flink-sql-connector-hive 包，以 Flink standalone 模式为例，并使用 Flink shell 交互式命令行。
 ```
 wget https://repo1.maven.org/maven2/org/apache/flink/flink-sql-connector-hive-3.1.2_2.11/1.12.1/flink-sql-connector-hive-3.1.2_2.11-1.12.1.jar
 /usr/local/service/flink/bin/start-cluster.sh

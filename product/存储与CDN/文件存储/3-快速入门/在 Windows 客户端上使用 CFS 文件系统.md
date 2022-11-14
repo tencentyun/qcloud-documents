@@ -16,16 +16,15 @@
 挂载前，需要确认客户端与文件系统的网络可达性（需要在 Windows 客户端启用 Telnet 服务）。可以通过 telnet 命令验证（例如 telnet 192.168.1.1 445），具体各个协议及客户端要求开放端口信息如下：
 <table>
 	<tr><th>文件系统协议</th><th>客户端开放端口</th><th>确认网络联通性</th></tr>
-	<tr><td>NFS 3.0</td><td>111，892，2049</td><td>telnet 111或者892或者2049</td></tr>
-	<tr><td>NFS 4.0</td><td>2049</td><td>telnet 2049</td></tr>
+	<tr><td>NFS 3.0</td><td>111，892，2049</td><td>telnet 111，892和2049</td></tr>
 	<tr><td>CIFS/SMB</td><td>445</td><td>telnet 445</td></tr>
 </table>
 
+>?Windows 暂时不支持使用 NFSV4 挂载。
 
 ## 步骤3：挂载文件系统
 
 >? 建议使用 SMB 挂载 CFS。
->
 
 ### 挂载 CIFS/SMB 文件系统
 
@@ -163,7 +162,6 @@ SMB示例：
 ## 步骤5：终止资源
 
 >! 文件系统删除后，资源不可恢复，建议您删除文件系统之前，先备份资源。
->
 
 您可以从腾讯云控制台终止文件系统。进入腾讯云 [文件存储控制台](https://console.cloud.tencent.com/cfs/fs)，选中需要终止的文件系统，单击**删除**并**确认**，即可删除文件系统。
 

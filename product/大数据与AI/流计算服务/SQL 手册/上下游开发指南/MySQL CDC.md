@@ -35,7 +35,7 @@ CREATE TABLE `mysql_cdc_source_table` (
   `name` STRING,
   PRIMARY KEY (`id`) NOT ENFORCED -- 如果要同步的数据库表定义了主键, 则这里也需要定义
 ) WITH (
-  'connector' = 'mysql-cdc',	  -- 固定值 'mysql-cdc'
+  'connector' = 'mysql-cdc',      -- 固定值 'mysql-cdc'
   'hostname' = '192.168.10.22',   -- 数据库的 IP
   'port' = '3306',                -- 数据库的访问端口
   'username' = 'debezium',        -- 数据库访问的用户名（需要提供 SHOW DATABASES、REPLICATION SLAVE、REPLICATION CLIENT、SELECT 和 RELOAD 权限）
@@ -167,7 +167,7 @@ CREATE TABLE `mysql_cdc_source_table` (
       `ingestion_ts` TIMESTAMP(3) METADATA FROM 'meta.ts',
       PRIMARY KEY (`id`) NOT ENFORCED -- 如果要同步的数据库表定义了主键, 则这里也需要定义
 ) WITH (
-      'connector' = 'mysql-cdc',	  -- 固定值 'mysql-cdc'
+      'connector' = 'mysql-cdc',      -- 固定值 'mysql-cdc'
       'hostname' = '192.168.10.22',   -- 数据库的 IP
       'port' = '3306',                -- 数据库的访问端口
       'username' = 'debezium',        -- 数据库访问的用户名（需要提供 SHOW DATABASES、REPLICATION SLAVE、REPLICATION CLIENT、SELECT 和 RELOAD 权限）
@@ -400,7 +400,7 @@ CREATE TABLE `mysql_cdc_source_table` (
   `name` STRING,
   PRIMARY KEY (`id`) NOT ENFORCED -- 如果要同步的数据库表定义了主键, 则这里也需要定义
 ) WITH (
-  'connector' = 'mysql-cdc',	  -- 固定值 'mysql-cdc'
+  'connector' = 'mysql-cdc',      -- 固定值 'mysql-cdc'
   'hostname' = '192.168.10.22',   -- 数据库的 IP
   'port' = '3306',                -- 数据库的访问端口
   'username' = 'debezium',        -- 数据库访问的用户名（需要提供 SHOW DATABASES、REPLICATION SLAVE、REPLICATION CLIENT、SELECT 和 RELOAD 权限）
@@ -450,8 +450,8 @@ CREATE TABLE db_order_dim (
 );
 ```
 
-### server-id	定义
-建议显式的定义`server-id`，避免不同作业读取同一个库可能出现的冲突问题，可以设置为范围值，例如`5400-5405`，也可以是单个值。也可以使用 SQL Hints 来指定`server-id`
+### server-id   定义
+不建议显式的定义`server-id`，避免不同作业读取同一个库可能出现的冲突问题，可以设置为范围值，例如`5400-5405`。也可以使用 SQL Hints 来指定`server-id`
 
 ```sql
 SELECT * FROM source_table /*+ OPTIONS('server-id'='5401-5404') */ ;

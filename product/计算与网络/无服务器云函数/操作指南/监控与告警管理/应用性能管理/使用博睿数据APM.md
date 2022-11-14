@@ -87,10 +87,10 @@ except ImportError:
 
 
 
-### 使用 Serverless Framework 接入
+### 使用 Serverless Cloud Framework 接入
 
 
-您还可以使用 Serverless Framework 的 bonree component 上传博睿探针。本文以 Flask 框架为例，介绍如何使用bonree component来绑定和使用博睿探针。您也可以单独使用 bonree component 上传层，再进行 [层绑定](#bindagent)。
+您还可以使用 Serverless Cloud Framework 的 bonree component 上传博睿探针。本文以 Flask 框架为例，介绍如何使用bonree component来绑定和使用博睿探针。您也可以单独使用 bonree component 上传层，再进行 [层绑定](#bindagent)。
 
 
 #### 创建层并绑定至函数
@@ -148,7 +148,7 @@ inputs:
 4. 只使用 bonree component 便可以完成层的创建。在云函数中配置 layers 参数可以完成绑定操作，您也可以选择在云函数控制台手动绑定层。
 5. 在根目录下执行以下命令，进行应用部署。
 ```bash
-sls deploy
+scf deploy
 ```
 
 

@@ -5,11 +5,11 @@
 ### 安装对象存储扩展组件
 >? 若您的集群已安装 COS-CSI 扩展组件，则请跳过此步骤。
 >
-1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)。
+1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
 2. 选择左侧导航栏中的**集群**，进入集群管理界面。
 3. 选择需新建组件的集群 ID，单击集群详情页左侧栏中的**组件管理**。
 4. 在“组件管理”页面，单击**新建**，进入“新建组件”页面。
-5. 勾选** COS（腾讯云对象存储）**并单击完成即可。
+5. 勾选**COS（腾讯云对象存储）**并单击完成即可。
 
 ### 创建访问密钥 [](id:CreatAccessKey)
 >!为避免主账号密钥泄露造成您的云上资产损失，建议您参照 [安全设置策略 ](https://cloud.tencent.com/document/product/598/10592) 停止使用主账号登录控制台或者使用主账号密钥访问云 API，并使用已授予相关管理权限的子账号/协作者进行相关资源操作。
@@ -61,7 +61,7 @@
 4. 单击**新建**进入“新建 Secret” 页面，根据以下信息进行设置。如下图所示：
 ![](https://main.qcloudimg.com/raw/ae126ccc936ac209fcb33234fd607a28.png)
 	- **名称**：自定义，本文以 `cos-secret` 为例。
-	- **Secret 类型**：选择** Opaque**，该类型适用于保存密钥证书和配置文件，Value 将以 Base64 格式编码。
+	- **Secret 类型**：选择**Opaque**，该类型适用于保存密钥证书和配置文件，Value 将以 Base64 格式编码。
 	- **生效范围**：选择**指定命名空间**，请确保 Secret 创建在 `kube-system` 命名空间下。
 	- **内容**：此处用于设置 Secret 访问存储桶（Bucket）所需的访问密钥，需包含变量名 `SecretId` 和 `SecretKey` 及其分别所对应的变量值。请参考 [创建访问密钥 ](#CreatAccessKey) 完成创建，并前往 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 页面获取访问密钥。
 5. 单击**创建 Secret** 即可。

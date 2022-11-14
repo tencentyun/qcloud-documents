@@ -45,9 +45,9 @@
 4. 在弹出的**申请高可用虚拟 IP** 对话框中输入名称，选择 HAVIP 所在的私有网络和子网等信息，单击**确定**即可。
 >?HAVIP 的 IP 地址可以自动分配，也可以手动填写。如果您选择手动填写，请确认填写内网 IP 在所属子网网段内，且不属于系统保留 IP。例如，所属子网网段为：10.0.0.0/24，则可填的内网 IP 范围 为：10.0.0.2 - 10.0.0.254。
 >
-![](https://main.qcloudimg.com/raw/c0dfa6657293a92774d21b48d436a6e0.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/41cf780c146b5ef6429f3c37ff2aa04b.png)
 申请成功的 HAVIP 如下图所示。
-![](https://main.qcloudimg.com/raw/a3d894863e5405477aa9910487c5f198.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/add23ca5be144f2cfd8994a99f236db0.png)
 
 ### 步骤2：在主服务器和备服务器上安装 keepalived 软件（推荐1.2.24版本及以上）
 本文以 CentOS 7.6镜像类型服务器为例提供 keepalived 的安装方法。
@@ -58,17 +58,17 @@
  + 是 = 执行[2](#substep2)
  + 否 = 执行[3](#substep3)
 2. <span id="substep2">使用 yum 方式安装软件包。
-```plaintext
-yum install -y keepalived
-```
+	```plaintext
+	yum install -y keepalived
+	```
 3. 使用源码方式安装软件包。[](id:substep3)
-```plaintext
-tar zxvf keepalived-1.2.24.tar.gz
-cd keepalived-1.2.24
-./configure --prefix=/
-make; make install
-chmod +x /etc/init.d/keepalived   //防止出现 env: /etc/init.d/keepalived: Permission denied
-```
+	```plaintext
+	tar zxvf keepalived-1.2.24.tar.gz
+	cd keepalived-1.2.24
+	./configure --prefix=/
+	make; make install
+	chmod +x /etc/init.d/keepalived   //防止出现 env: /etc/init.d/keepalived: Permission denied
+	```
 
 ### 步骤3：配置 keepalived，绑定高可用 VIP 到主备云服务器
 1. 登录主节点云服务器 HAVIP-01，执行 `vim /etc/keepalived/keepalived.conf`，修改相关配置。
@@ -197,14 +197,14 @@ HAVIP-01 和 HAVIP-02 在本例中将被配置成“等权重节点”，即 sta
 >?此示例中 HAVIP-01 先启动 keepalived 服务，所以正常情况下，HAVIP-01 将被选择为主节点。
 >
 登录 [高可用虚拟 IP](https://console.cloud.tencent.com/vpc/havip) 控制台，可以看到 HAVIP 绑定的云服务器为主节点云 HAVIP-01，如下图所示。
-![](https://main.qcloudimg.com/raw/6c6755680da646ab26d5774873af82d5.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/aac201e5025147380d8c6d05e5c06b5a.png)
 
 
 ### 步骤4：**VIP 绑定弹性公网 IP（可选）**  
 1. 在 [高可用虚拟 IP](https://console.cloud.tencent.com/vpc/havip) 控制台，单击 [步骤1 ](#step1)中申请的 HAVIP 所在行的**绑定**。
-![](https://main.qcloudimg.com/raw/79e1e4c95b29f660997b987a8487bab4.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/b0545a39d8ce553cfe31b4b8b43d6ebe.png)
 2. 在弹出的**绑定弹性公网 IP** 对话框中选择待绑定的 EIP，并单击**确定**。如果没有可用的 EIP，请先在 [弹性公网 IP ](https://console.cloud.tencent.com/cvm/eip?rid=46)控制台申请。
-![](https://main.qcloudimg.com/raw/c679a9d21a4e039ae46db333e0e50dcf.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/1d940490c6f21f25c1b79bed6c9088a0.png)
 
 ### 步骤5：使用 notify_action.sh 进行简单的日志记录（可选）
 keepalived 主要日志仍然记录在“/var/log/message”中，可以通过添加 notify 的脚本来进行简单的日志记录。
