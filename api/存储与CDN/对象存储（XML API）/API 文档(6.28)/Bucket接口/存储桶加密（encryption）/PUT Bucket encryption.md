@@ -52,8 +52,8 @@ Authorization: Auth String
 | ServerSideEncryptionConfiguration  | 无                                 | 包含默认加密的配置参数                 | Container | 是       |
 | Rule                              | ServerSideEncryptionConfiguration  | 默认的服务端加密配置规则               | Container | 是       |
 | ApplyServerSideEncryptionByDefault | ServerSideEncryptionConfiguration.Rule                              | 服务端加密的默认配置信息               | Container | 是       |
-| SSEAlgorithm                       | ServerSideEncryptionConfiguration.Rule.ApplyServerSideEncryptionByDefault | 支持枚举值 AES256、KMS，AES256 代表使用 SSE-COS 模式，加密算法为 AES256；KMS 代表 SSE-KMS 模式 | String    | 是       |
-|KMSMasterKeyID                       | ServerSideEncryptionConfiguration.Rule.ApplyServerSideEncryptionByDefault | 当 SSEAlgorithm 的值为 KMS 时，用于指定 KMS 的用户主密钥 CMK，如不指定，则使用 COS 默认创建的 CMK，更多详细信息可参见 SSE-KMS 加密 | String    | 是       |
+| SSEAlgorithm                       | ServerSideEncryptionConfiguration.Rule.<br>ApplyServerSideEncryptionByDefault | 支持枚举值 AES256、KMS，AES256 代表使用 SSE-COS 模式，加密算法为 AES256；KMS 代表 SSE-KMS 模式 | String    | 是       |
+|KMSMasterKeyID                       | ServerSideEncryptionConfiguration.Rule.<br>ApplyServerSideEncryptionByDefault | 当 SSEAlgorithm 的值为 KMS 时，用于指定 KMS 的用户主密钥 CMK，如不指定，则使用 COS 默认创建的 CMK，更多详细信息可参见 SSE-KMS 加密 | String    | 是       |
 
 ## 响应
 
