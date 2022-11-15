@@ -112,7 +112,7 @@
            影视剧集 · 短视频· Feed流
         </div>
         <div class="demo-item-download">
-            <img src="https://qcloudimg.tencent-cloud.cn/raw/728d7f5fb63e5790ea3555e5940ef446.png">
+            <img src="https://qcloudimg.tencent-cloud.cn/raw/52c58077ac1f0f35b505324fbb7080a5.png">
         </div>
 								<div class="demo-item-link">
 				<a href="https://github.com/LiteAVSDK/Player_iOS">Demo 源码</a>
