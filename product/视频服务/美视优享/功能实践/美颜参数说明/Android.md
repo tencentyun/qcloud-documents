@@ -1,28 +1,56 @@
 ## 美颜
 ### 美白
 <table>
-<thead><tr><th colspan="2" width="40%">字段</th><th>取值</th></tr></thead>
-<tbody><tr><td colspan="2">category</td>
-<td>Category.BEAUTY</td></tr>
-<tr><td colspan="2">id</td>
-<td>null</td></tr>
-<tr><td colspan="2">resPath</td>
-<td>null</td></tr>
-<tr><td colspan="2">effKey</td>
-<td>BeautyConstant.BEAUTY_WHITEN</td></tr>
+<thead><tr><th colspan=2>字段</th><th colspan=2>取值</th></tr></thead>
+<tbody><tr>
+<td colspan=2>category</td>
+<td colspan=2>Category.BEAUTY</td>
+</tr>
 <tr>
-<td rowspan="5">effValue(XmagicPropertyValues)</td>
+<td colspan=2>id</td>
+<td colspan=2>null</td>
+</tr>
+<tr>
+<td colspan=2>resPath</td>
+<td colspan=2>null</td>
+</tr>
+<tr>
+<td colspan=2>effKey</td>
+<td colspan=2>BeautyConstant.BEAUTY_WHITEN</td>
+</tr>
+<tr>
+<td rowspan=6>effValue(XmagicPropertyValues)</td>
+<td>参数</td>
+<td>普通模式</td>
+<td>增强模式</td>
+</tr>
+<tr>
 <td>displayMinValue</td>
-<td>0</td></tr>
-<tr><td>displayMaxValue</td>
-<td>100</td></tr>
-<tr><td>displayDefaultValue</td>
-<td>30</td></tr>
-<tr><td>innerMinValue</td>
-<td>0</td></tr>
-<tr><td>innerMaxValue</td>
-<td>1</td></tr>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>displayMaxValue</td>
+<td>100</td>
+<td>100</td>
+</tr>
+<tr>
+<td>displayDefaultValue</td>
+<td>30</td>
+<td>30</td>
+</tr>
+<tr>
+<td>innerMinValue</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>innerMaxValue</td>
+<td>1</td>
+<td>1.8</td>
+</tr>
 </tbody></table>
+
 
 
 ### 磨皮
@@ -256,28 +284,56 @@
 
 ### V 脸
 <table>
-<thead><tr><th colspan="2" width="40%">字段</th><th>取值</th></tr></thead>
-<tbody><tr><td colspan="2">category</td>
-<td>Category.BEAUTY</td></tr>
-<tr><td colspan="2">id</td>
-<td>null</td></tr>
-<tr><td colspan="2">resPath</td>
-<td>null</td></tr>
-<tr><td colspan="2">effKey</td>
-<td>BeautyConstant.BEAUTY_FACE_V</td></tr>
+<thead><tr><th colspan=2>字段</th><th colspan=2>取值</th></tr></thead>
+<tbody><tr>
+<td colspan=2>category</td>
+<td colspan=2>Category.BEAUTY</td>
+</tr>
 <tr>
-<td rowspan="5">effValue(XmagicPropertyValues)</td>
+<td colspan=2>id</td>
+<td colspan=2>null</td>
+</tr>
+<tr>
+<td colspan=2>resPath</td>
+<td colspan=2>null</td>
+</tr>
+<tr>
+<td colspan=2>effKey</td>
+<td colspan=2>BeautyConstant.BEAUTY_FACE_V</td>
+</tr>
+<tr>
+<td rowspan=6>effValue(XmagicPropertyValues)</td>
+<td>参数</td>
+<td>普通模式</td>
+<td>增强模式</td>
+</tr>
+<tr>
 <td>displayMinValue</td>
-<td>0</td></tr>
-<tr><td>displayMaxValue</td>
-<td>100</td></tr>
-<tr><td>displayDefaultValue</td>
-<td>30</td></tr>
-<tr><td>innerMinValue</td>
-<td>0</td></tr>
-<tr><td>innerMaxValue</td>
-<td>1</td></tr>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>displayMaxValue</td>
+<td>100</td>
+<td>100</td>
+</tr>
+<tr>
+<td>displayDefaultValue</td>
+<td>30</td>
+<td>30</td>
+</tr>
+<tr>
+<td>innerMinValue</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>innerMaxValue</td>
+<td>1</td>
+<td>1.3</td>
+</tr>
 </tbody></table>
+
 
 ### 窄脸
 <table>
@@ -306,28 +362,56 @@
 
 ### 短脸
 <table>
-<thead><tr><th colspan="2" width="40%">字段</th><th>取值</th></tr></thead>
-<tbody><tr><td colspan="2">category</td>
-<td>Category.BEAUTY</td></tr>
-<tr><td colspan="2">id</td>
-<td>null</td></tr>
-<tr><td colspan="2">resPath</td>
-<td>null</td></tr>
-<tr><td colspan="2">effKey</td>
-<td>BeautyConstant.BEAUTY_FACE_SHORT</td></tr>
+<thead><tr><th colspan=2>字段</th><th colspan=2>取值</th></tr></thead>
+<tbody><tr>
+<td colspan=2>category</td>
+<td colspan=2>Category.BEAUTY</td>
+</tr>
 <tr>
-<td rowspan="5">effValue(XmagicPropertyValues)</td>
+<td colspan=2>id</td>
+<td colspan=2>null</td>
+</tr>
+<tr>
+<td colspan=2>resPath</td>
+<td colspan=2>null</td>
+</tr>
+<tr>
+<td colspan=2>effKey</td>
+<td colspan=2>BeautyConstant.BEAUTY_FACE_SHORT</td>
+</tr>
+<tr>
+<td rowspan=6>effValue(XmagicPropertyValues)</td>
+<td>参数</td>
+<td>普通模式</td>
+<td>增强模式</td>
+</tr>
+<tr>
 <td>displayMinValue</td>
-<td>0</td></tr>
-<tr><td>displayMaxValue</td>
-<td>100</td></tr>
-<tr><td>displayDefaultValue</td>
-<td>0</td></tr>
-<tr><td>innerMinValue</td>
-<td>0</td></tr>
-<tr><td>innerMaxValue</td>
-<td>1</td></tr>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>displayMaxValue</td>
+<td>100</td>
+<td>100</td>
+</tr>
+<tr>
+<td>displayDefaultValue</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>innerMinValue</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>innerMaxValue</td>
+<td>1</td>
+<td>1.3</td>
+</tr>
 </tbody></table>
+
 
 ### 脸型
 <table>
@@ -356,355 +440,745 @@
 
 ### 口红-复古红
 <table>
-<thead><tr><th colspan="2" width="40%">字段</th><th>取值</th></tr></thead>
-<tbody><tr><td colspan="2">category</td>
-<td>Category.BEAUTY</td></tr>
-<tr><td colspan="2">id</td>
-<td>XmagicConstant.BeautyConstant.BEAUTY_LIPS_LIPS_MASK</td></tr>
-<tr><td colspan="2">resPath</td>
-<td>/images/beauty/lips_fuguhong.png</td></tr>
-<tr><td colspan="2">effKey</td>
-<td>BeautyConstant.BEAUTY_MOUTH_LIPSTICK</td></tr>
+<thead><tr><th colspan=2>字段</th><th colspan=2>取值</th></tr></thead>
+<tbody><tr>
+<td colspan=2>category</td>
+<td colspan=2>Category.BEAUTY</td>
+</tr>
 <tr>
-<td rowspan="5">effValue(XmagicPropertyValues)</td>
+<td colspan=2>id</td>
+<td colspan=2>XmagicConstant.BeautyConstant.BEAUTY_LIPS_LIPS_MASK</td>
+</tr>
+<tr>
+<td colspan=2>resPath</td>
+<td colspan=2>/images/beauty/lips_fuguhong.png</td>
+</tr>
+<tr>
+<td colspan=2>effKey</td>
+<td colspan=2>BeautyConstant.BEAUTY_MOUTH_LIPSTICK</td>
+</tr>
+<tr>
+<td rowspan=6>effValue(XmagicPropertyValues)</td>
+<td>参数</td>
+<td>普通模式</td>
+<td>增强模式</td>
+</tr>
+<tr>
 <td>displayMinValue</td>
-<td>0</td></tr>
-<tr><td>displayMaxValue</td>
-<td>100</td></tr>
-<tr><td>displayDefaultValue</td>
-<td>50</td></tr>
-<tr><td>innerMinValue</td>
-<td>0</td></tr>
-<tr><td>innerMaxValue</td>
-<td>1</td></tr>
-</tbody></table>
-
-### 口红-蜜桃色
-<table>
-<thead><tr><th colspan="2" width="40%">字段</th><th>取值</th></tr></thead>
-<tbody><tr><td colspan="2">category</td>
-<td>Category.BEAUTY</td></tr>
-<tr><td colspan="2">id</td>
-<td>XmagicConstant.BeautyConstant.BEAUTY_LIPS_LIPS_MASK</td></tr>
-<tr><td colspan="2">resPath</td>
-<td>/images/beauty/lips_mitaose.png</td></tr>
-<tr><td colspan="2">effKey</td>
-<td>BeautyConstant.BEAUTY_MOUTH_LIPSTICK</td></tr>
+<td>0</td>
+<td>0</td>
+</tr>
 <tr>
-<td rowspan="5">effValue(XmagicPropertyValues)</td>
-<td>displayMinValue</td>
-<td>0</td></tr>
-<tr><td>displayMaxValue</td>
-<td>100</td></tr>
-<tr><td>displayDefaultValue</td>
-<td>50</td></tr>
-<tr><td>innerMinValue</td>
-<td>0</td></tr>
-<tr><td>innerMaxValue</td>
-<td>1</td></tr>
-</tbody></table>
-
-### 口红-珊瑚橘
-<table>
-<thead><tr><th colspan="2" width="40%">字段</th><th>取值</th></tr></thead>
-<tbody><tr><td colspan="2">category</td>
-<td>Category.BEAUTY</td></tr>
-<tr><td colspan="2">id</td>
-<td>XmagicConstant.BeautyConstant.BEAUTY_LIPS_LIPS_MASK</td></tr>
-<tr><td colspan="2">resPath</td>
-<td>/images/beauty/lips_shanhuju.png</td></tr>
-<tr><td colspan="2">effKey</td>
-<td>BeautyConstant.BEAUTY_MOUTH_LIPSTICK</td></tr>
+<td>displayMaxValue</td>
+<td>100</td>
+<td>100</td>
+</tr>
 <tr>
-<td rowspan="5">effValue(XmagicPropertyValues)</td>
-<td>displayMinValue</td>
-<td>0</td></tr>
-<tr><td>displayMaxValue</td>
-<td>100</td></tr>
-<tr><td>displayDefaultValue</td>
-<td>50</td></tr>
-<tr><td>innerMinValue</td>
-<td>0</td></tr>
-<tr><td>innerMaxValue</td>
-<td>1</td></tr>
-</tbody></table>
-
-### 口红-温柔粉
-<table>
-<thead><tr><th colspan="2" width="40%">字段</th><th>取值</th></tr></thead>
-<tbody><tr><td colspan="2">category</td>
-<td>Category.BEAUTY</td></tr>
-<tr><td colspan="2">id</td>
-<td>XmagicConstant.BeautyConstant.BEAUTY_LIPS_LIPS_MASK</td></tr>
-<tr><td colspan="2">resPath</td>
-<td>/images/beauty/lips_wenroufen.png</td></tr>
-<tr><td colspan="2">effKey</td>
-<td>BeautyConstant.BEAUTY_MOUTH_LIPSTICK</td></tr>
+<td>displayDefaultValue</td>
+<td>50</td>
+<td>50</td>
+</tr>
 <tr>
-<td rowspan="5">effValue(XmagicPropertyValues)</td>
-<td>displayMinValue</td>
-<td>0</td></tr>
-<tr><td>displayMaxValue</td>
-<td>100</td></tr>
-<tr><td>displayDefaultValue</td>
-<td>50</td></tr>
-<tr><td>innerMinValue</td>
-<td>0</td></tr>
-<tr><td>innerMaxValue</td>
-<td>1</td></tr>
-</tbody></table>
-
-### 口红-活力橙
-<table>
-<thead><tr><th colspan="2" width="40%">字段</th><th>取值</th></tr></thead>
-<tbody><tr><td colspan="2">category</td>
-<td>Category.BEAUTY</td></tr>
-<tr><td colspan="2">id</td>
-<td>XmagicConstant.BeautyConstant.BEAUTY_LIPS_LIPS_MASK</td></tr>
-<tr><td colspan="2">resPath</td>
-<td>/images/beauty/lips_huolicheng.png</td></tr>
-<tr><td colspan="2">effKey</td>
-<td>BeautyConstant.BEAUTY_MOUTH_LIPSTICK</td></tr>
+<td>innerMinValue</td>
+<td>0</td>
+<td>0</td>
+</tr>
 <tr>
-<td rowspan="5">effValue(XmagicPropertyValues)</td>
-<td>displayMinValue</td>
-<td>0</td></tr>
-<tr><td>displayMaxValue</td>
-<td>100</td></tr>
-<tr><td>displayDefaultValue</td>
-<td>50</td></tr>
-<tr><td>innerMinValue</td>
-<td>0</td></tr>
-<tr><td>innerMaxValue</td>
-<td>1</td></tr>
-</tbody></table>
-
-### 腮红-简约
-<table>
-<thead><tr><th colspan="2" width="40%">字段</th><th>取值</th></tr></thead>
-<tbody><tr><td colspan="2">category</td>
-<td>Category.BEAUTY</td></tr>
-<tr><td colspan="2">id</td>
-<td>XmagicConstant.BeautyConstant.BEAUTY_MAKEUP_MULTIPLY_MULTIPLY_MASK</td></tr>
-<tr><td colspan="2">resPath</td>
-<td>/images/beauty/saihong_jianyue.png</td></tr>
-<tr><td colspan="2">effKey</td>
-<td>BeautyConstant.BEAUTY_FACE_RED_CHEEK</td></tr>
-<tr>
-<td rowspan="5">effValue(XmagicPropertyValues)</td>
-<td>displayMinValue</td>
-<td>0</td></tr>
-<tr><td>displayMaxValue</td>
-<td>100</td></tr>
-<tr><td>displayDefaultValue</td>
-<td>50</td></tr>
-<tr><td>innerMinValue</td>
-<td>0</td></tr>
-<tr><td>innerMaxValue</td>
-<td>1</td></tr>
-</tbody></table>
-
-### 腮红-盛夏
-<table>
-<thead><tr><th colspan="2" width="40%">字段</th><th>取值</th></tr></thead>
-<tbody><tr><td colspan="2">category</td>
-<td>Category.BEAUTY</td></tr>
-<tr><td colspan="2">id</td>
-<td>XmagicConstant.BeautyConstant.BEAUTY_MAKEUP_MULTIPLY_MULTIPLY_MASK</td></tr>
-<tr><td colspan="2">resPath</td>
-<td>/images/beauty/saihong_shengxia.png</td></tr>
-<tr><td colspan="2">effKey</td>
-<td>BeautyConstant.BEAUTY_FACE_RED_CHEEK</td></tr>
-<tr>
-<td rowspan="5">effValue(XmagicPropertyValues)</td>
-<td>displayMinValue</td>
-<td>0</td></tr>
-<tr><td>displayMaxValue</td>
-<td>100</td></tr>
-<tr><td>displayDefaultValue</td>
-<td>50</td></tr>
-<tr><td>innerMinValue</td>
-<td>0</td></tr>
-<tr><td>innerMaxValue</td>
-<td>1</td></tr>
-</tbody></table>
-
-### 腮红-害羞
-<table>
-<thead><tr><th colspan="2" width="40%">字段</th><th>取值</th></tr></thead>
-<tbody><tr><td colspan="2">category</td>
-<td>Category.BEAUTY</td></tr>
-<tr><td colspan="2">id</td>
-<td>XmagicConstant.BeautyConstant.BEAUTY_MAKEUP_MULTIPLY_MULTIPLY_MASK</td></tr>
-<tr><td colspan="2">resPath</td>
-<td>/images/beauty/saihong_haixiu.png</td></tr>
-<tr><td colspan="2">effKey</td>
-<td>BeautyConstant.BEAUTY_FACE_RED_CHEEK</td></tr>
-<tr>
-<td rowspan="5">effValue(XmagicPropertyValues)</td>
-<td>displayMinValue</td>
-<td>0</td></tr>
-<tr><td>displayMaxValue</td>
-<td>100</td></tr>
-<tr><td>displayDefaultValue</td>
-<td>50</td></tr>
-<tr><td>innerMinValue</td>
-<td>0</td></tr>
-<tr><td>innerMaxValue</td>
-<td>1</td></tr>
-</tbody></table>
-
-### 腮红-成熟
-<table>
-<thead><tr><th colspan="2" width="40%">字段</th><th>取值</th></tr></thead>
-<tbody><tr><td colspan="2">category</td>
-<td>Category.BEAUTY</td></tr>
-<tr><td colspan="2">id</td>
-<td>XmagicConstant.BeautyConstant.BEAUTY_MAKEUP_MULTIPLY_MULTIPLY_MASK</td></tr>
-<tr><td colspan="2">resPath</td>
-<td>/images/beauty/saihong_chengshu.png</td></tr>
-<tr><td colspan="2">effKey</td>
-<td>BeautyConstant.BEAUTY_FACE_RED_CHEEK</td></tr>
-<tr>
-<td rowspan="5">effValue(XmagicPropertyValues)</td>
-<td>displayMinValue</td>
-<td>0</td></tr>
-<tr><td>displayMaxValue</td>
-<td>100</td></tr>
-<tr><td>displayDefaultValue</td>
-<td>50</td></tr>
-<tr><td>innerMinValue</td>
-<td>0</td></tr>
-<tr><td>innerMaxValue</td>
-<td>1</td></tr>
-</tbody></table>
-
-### 腮红-雀斑
-<table>
-<thead><tr><th colspan="2" width="40%">字段</th><th>取值</th></tr></thead>
-<tbody><tr><td colspan="2">category</td>
-<td>Category.BEAUTY</td></tr>
-<tr><td colspan="2">id</td>
-<td>XmagicConstant.BeautyConstant.BEAUTY_MAKEUP_MULTIPLY_MULTIPLY_MASK</td></tr>
-<tr><td colspan="2">resPath</td>
-<td>/images/beauty/saihong_queban.png</td></tr>
-<tr><td colspan="2">effKey</td>
-<td>BeautyConstant.BEAUTY_FACE_RED_CHEEK</td></tr>
-<tr>
-<td rowspan="5">effValue(XmagicPropertyValues)</td>
-<td>displayMinValue</td>
-<td>0</td></tr>
-<tr><td>displayMaxValue</td>
-<td>100</td></tr>
-<tr><td>displayDefaultValue</td>
-<td>50</td></tr>
-<tr><td>innerMinValue</td>
-<td>0</td></tr>
-<tr><td>innerMaxValue</td>
-<td>1</td></tr>
-</tbody></table>
-
-### 立体-自然
-<table>
-<thead><tr><th colspan="2" width="40%">字段</th><th>取值</th></tr></thead>
-<tbody><tr><td colspan="2">category</td>
-<td>Category.BEAUTY</td></tr>
-<tr><td colspan="2">id</td>
-<td>XmagicConstant.BeautyConstant.BEAUTY_SOFTLIGHT_SOFTLIGHT_MASK</td></tr>
-<tr><td colspan="2">resPath</td>
-<td>/images/beauty/liti_ziran.png</td></tr>
-<tr><td colspan="2">effKey</td>
-<td>BeautyConstant.BEAUTY_FACE_SOFTLIGHT</td></tr>
-<tr>
-<td rowspan="5">effValue(XmagicPropertyValues)</td>
-<td>displayMinValue</td>
-<td>0</td></tr>
-<tr><td>displayMaxValue</td>
-<td>100</td></tr>
-<tr><td>displayDefaultValue</td>
-<td>50</td></tr>
-<tr><td>innerMinValue</td>
-<td>0</td></tr>
-<tr><td>innerMaxValue</td>
-<td>1</td></tr>
-</tbody></table>
-
-### 立体-俊朗
-<table>
-<thead><tr><th colspan="2" width="40%">字段</th><th>取值</th></tr></thead>
-<tbody><tr><td colspan="2">category</td>
-<td>Category.BEAUTY</td></tr>
-<tr><td colspan="2">id</td>
-<td>XmagicConstant.BeautyConstant.BEAUTY_SOFTLIGHT_SOFTLIGHT_MASK</td></tr>
-<tr><td colspan="2">resPath</td>
-<td>/images/beauty/liti_junlang.png</td></tr>
-<tr><td colspan="2">effKey</td>
-<td>BeautyConstant.BEAUTY_FACE_SOFTLIGHT</td></tr>
-<tr>
-<td rowspan="5">effValue(XmagicPropertyValues)</td>
-<td>displayMinValue</td>
-<td>0</td></tr>
-<tr><td>displayMaxValue</td>
-<td>100</td></tr>
-<tr><td>displayDefaultValue</td>
-<td>50</td></tr>
-<tr><td>innerMinValue</td>
-<td>0</td></tr>
-<tr><td>innerMaxValue</td>
-<td>1</td></tr>
-</tbody></table>
-
-### 立体-光芒
-<table>
-<thead><tr><th colspan="2" width="40%">字段</th><th>取值</th></tr></thead>
-<tbody><tr><td colspan="2">category</td>
-<td>Category.BEAUTY</td></tr>
-<tr><td colspan="2">id</td>
-<td>XmagicConstant.BeautyConstant.BEAUTY_SOFTLIGHT_SOFTLIGHT_MASK</td></tr>
-<tr><td colspan="2">resPath</td>
-<td>/images/beauty/liti_guangmang.png</td></tr>
-<tr><td colspan="2">effKey</td>
-<td>BeautyConstant.BEAUTY_FACE_SOFTLIGHT</td></tr>
-<tr>
-<td rowspan="5">effValue(XmagicPropertyValues)</td>
-<td>displayMinValue</td>
-<td>0</td></tr>
-<tr><td>displayMaxValue</td>
-<td>100</td></tr>
-<tr><td>displayDefaultValue</td>
-<td>50</td></tr>
-<tr><td>innerMinValue</td>
-<td>0</td></tr>
-<tr><td>innerMaxValue</td>
-<td>1</td></tr>
-<tr>
+<td>innerMaxValue</td>
+<td>1</td>
+<td>1.3</td>
 </tr>
 </tbody></table>
 
+
+### 口红-蜜桃色
+<table>
+<thead><tr><th colspan=2>字段</th><th colspan=2>取值</th></tr></thead>
+<tbody><tr>
+<td colspan=2>category</td>
+<td colspan=2>Category.BEAUTY</td>
+</tr>
+<tr>
+<td colspan=2>id</td>
+<td colspan=2>XmagicConstant.BeautyConstant.BEAUTY_LIPS_LIPS_MASK</td>
+</tr>
+<tr>
+<td colspan=2>resPath</td>
+<td colspan=2>/images/beauty/lips_mitaose.png</td>
+</tr>
+<tr>
+<td colspan=2>effKey</td>
+<td colspan=2>BeautyConstant.BEAUTY_MOUTH_LIPSTICK</td>
+</tr>
+<tr>
+<td rowspan=6>effValue(XmagicPropertyValues)</td>
+<td>参数</td>
+<td>普通模式</td>
+<td>增强模式</td>
+</tr>
+<tr>
+<td>displayMinValue</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>displayMaxValue</td>
+<td>100</td>
+<td>100</td>
+</tr>
+<tr>
+<td>displayDefaultValue</td>
+<td>50</td>
+<td>50</td>
+</tr>
+<tr>
+<td>innerMinValue</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>innerMaxValue</td>
+<td>1</td>
+<td>1.3</td>
+</tr>
+</tbody></table>
+
+
+### 口红-珊瑚橘
+<table>
+<thead><tr><th colspan=2>字段</th><th colspan=2>取值</th></tr></thead>
+<tbody><tr>
+<td colspan=2>category</td>
+<td colspan=2>Category.BEAUTY</td>
+</tr>
+<tr>
+<td colspan=2>id</td>
+<td colspan=2>XmagicConstant.BeautyConstant.BEAUTY_LIPS_LIPS_MASK</td>
+</tr>
+<tr>
+<td colspan=2>resPath</td>
+<td colspan=2>/images/beauty/lips_shanhuju.png</td>
+</tr>
+<tr>
+<td colspan=2>effKey</td>
+<td colspan=2>BeautyConstant.BEAUTY_MOUTH_LIPSTICK</td>
+</tr>
+<tr>
+<td rowspan=6>effValue(XmagicPropertyValues)</td>
+<td>参数</td>
+<td>普通模式</td>
+<td>增强模式</td>
+</tr>
+<tr>
+<td>displayMinValue</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>displayMaxValue</td>
+<td>100</td>
+<td>100</td>
+</tr>
+<tr>
+<td>displayDefaultValue</td>
+<td>50</td>
+<td>50</td>
+</tr>
+<tr>
+<td>innerMinValue</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>innerMaxValue</td>
+<td>1</td>
+<td>1.3</td>
+</tr>
+</tbody></table>
+
+
+### 口红-温柔粉
+<table>
+<thead><tr><th colspan=2>字段</th><th colspan=2>取值</th></tr></thead>
+<tbody><tr>
+<td colspan=2>category</td>
+<td colspan=2>Category.BEAUTY</td>
+</tr>
+<tr>
+<td colspan=2>id</td>
+<td colspan=2>XmagicConstant.BeautyConstant.BEAUTY_LIPS_LIPS_MASK</td>
+</tr>
+<tr>
+<td colspan=2>resPath</td>
+<td colspan=2>/images/beauty/lips_wenroufen.png</td>
+</tr>
+<tr>
+<td colspan=2>effKey</td>
+<td colspan=2>BeautyConstant.BEAUTY_MOUTH_LIPSTICK</td>
+</tr>
+<tr>
+<td rowspan=6>effValue(XmagicPropertyValues)</td>
+<td>参数</td>
+<td>普通模式</td>
+<td>增强模式</td>
+</tr>
+<tr>
+<td>displayMinValue</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>displayMaxValue</td>
+<td>100</td>
+<td>100</td>
+</tr>
+<tr>
+<td>displayDefaultValue</td>
+<td>50</td>
+<td>50</td>
+</tr>
+<tr>
+<td>innerMinValue</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>innerMaxValue</td>
+<td>1</td>
+<td>1.3</td>
+</tr>
+</tbody></table>
+
+
+### 口红-活力橙
+<table>
+<thead><tr><th colspan=2>字段</th><th colspan=2>取值</th></tr></thead>
+<tbody><tr>
+<td colspan=2>category</td>
+<td colspan=2>Category.BEAUTY</td>
+</tr>
+<tr>
+<td colspan=2>id</td>
+<td colspan=2>XmagicConstant.BeautyConstant.BEAUTY_LIPS_LIPS_MASK</td>
+</tr>
+<tr>
+<td colspan=2>resPath</td>
+<td colspan=2>/images/beauty/lips_huolicheng.png</td>
+</tr>
+<tr>
+<td colspan=2>effKey</td>
+<td colspan=2>BeautyConstant.BEAUTY_MOUTH_LIPSTICK</td>
+</tr>
+<tr>
+<td rowspan=6>effValue(XmagicPropertyValues)</td>
+<td>参数</td>
+<td>普通模式</td>
+<td>增强模式</td>
+</tr>
+<tr>
+<td>displayMinValue</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>displayMaxValue</td>
+<td>100</td>
+<td>100</td>
+</tr>
+<tr>
+<td>displayDefaultValue</td>
+<td>50</td>
+<td>50</td>
+</tr>
+<tr>
+<td>innerMinValue</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>innerMaxValue</td>
+<td>1</td>
+<td>1.3</td>
+</tr>
+</tbody></table>
+
+
+### 腮红-简约
+<table>
+<thead><tr><th colspan=2>字段</th><th colspan=2>取值</th></tr></thead>
+<tbody><tr>
+<td colspan=2>category</td>
+<td colspan=2>Category.BEAUTY</td>
+</tr>
+<tr>
+<td colspan=2>id</td>
+<td colspan=2>XmagicConstant.BeautyConstant.BEAUTY_MAKEUP_MULTIPLY_MULTIPLY_MASK</td>
+</tr>
+<tr>
+<td colspan=2>resPath</td>
+<td colspan=2>/images/beauty/saihong_jianyue.png</td>
+</tr>
+<tr>
+<td colspan=2>effKey</td>
+<td colspan=2>BeautyConstant.BEAUTY_FACE_RED_CHEEK</td>
+</tr>
+<tr>
+<td rowspan=6>effValue(XmagicPropertyValues)</td>
+<td>参数</td>
+<td>普通模式</td>
+<td>增强模式</td>
+</tr>
+<tr>
+<td>displayMinValue</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>displayMaxValue</td>
+<td>100</td>
+<td>100</td>
+</tr>
+<tr>
+<td>displayDefaultValue</td>
+<td>50</td>
+<td>50</td>
+</tr>
+<tr>
+<td>innerMinValue</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>innerMaxValue</td>
+<td>1</td>
+<td>1.8</td>
+</tr>
+</tbody></table>
+
+
+### 腮红-盛夏
+<table>
+<thead><tr><th colspan=2>字段</th><th colspan=2>取值</th></tr></thead>
+<tbody><tr>
+<td colspan=2>category</td>
+<td colspan=2>Category.BEAUTY</td>
+</tr>
+<tr>
+<td colspan=2>id</td>
+<td colspan=2>XmagicConstant.BeautyConstant.BEAUTY_MAKEUP_MULTIPLY_MULTIPLY_MASK</td>
+</tr>
+<tr>
+<td colspan=2>resPath</td>
+<td colspan=2>/images/beauty/saihong_shengxia.png</td>
+</tr>
+<tr>
+<td colspan=2>effKey</td>
+<td colspan=2>BeautyConstant.BEAUTY_FACE_RED_CHEEK</td>
+</tr>
+<tr>
+<td rowspan=6>effValue(XmagicPropertyValues)</td>
+<td>参数</td>
+<td>普通模式</td>
+<td>增强模式</td>
+</tr>
+<tr>
+<td>displayMinValue</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>displayMaxValue</td>
+<td>100</td>
+<td>100</td>
+</tr>
+<tr>
+<td>displayDefaultValue</td>
+<td>50</td>
+<td>50</td>
+</tr>
+<tr>
+<td>innerMinValue</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>innerMaxValue</td>
+<td>1</td>
+<td>1.8</td>
+</tr>
+</tbody></table>
+
+
+### 腮红-害羞
+<table>
+<thead><tr><th colspan=2>字段</th><th colspan=2>取值</th></tr></thead>
+<tbody><tr>
+<td colspan=2>category</td>
+<td colspan=2>Category.BEAUTY</td>
+</tr>
+<tr>
+<td colspan=2>id</td>
+<td colspan=2>XmagicConstant.BeautyConstant.BEAUTY_MAKEUP_MULTIPLY_MULTIPLY_MASK</td>
+</tr>
+<tr>
+<td colspan=2>resPath</td>
+<td colspan=2>/images/beauty/saihong_haixiu.png</td>
+</tr>
+<tr>
+<td colspan=2>effKey</td>
+<td colspan=2>BeautyConstant.BEAUTY_FACE_RED_CHEEK</td>
+</tr>
+<tr>
+<td rowspan=6>effValue(XmagicPropertyValues)</td>
+<td>参数</td>
+<td>普通模式</td>
+<td>增强模式</td>
+</tr>
+<tr>
+<td>displayMinValue</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>displayMaxValue</td>
+<td>100</td>
+<td>100</td>
+</tr>
+<tr>
+<td>displayDefaultValue</td>
+<td>50</td>
+<td>50</td>
+</tr>
+<tr>
+<td>innerMinValue</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>innerMaxValue</td>
+<td>1</td>
+<td>1.8</td>
+</tr>
+</tbody></table>
+
+
+### 腮红-成熟
+<table>
+<thead><tr><th colspan=2>字段</th><th colspan=2>取值</th></tr></thead>
+<tbody><tr>
+<td colspan=2>category</td>
+<td colspan=2>Category.BEAUTY</td>
+</tr>
+<tr>
+<td colspan=2>id</td>
+<td colspan=2>XmagicConstant.BeautyConstant.BEAUTY_MAKEUP_MULTIPLY_MULTIPLY_MASK</td>
+</tr>
+<tr>
+<td colspan=2>resPath</td>
+<td colspan=2>/images/beauty/saihong_chengshu.png</td>
+</tr>
+<tr>
+<td colspan=2>effKey</td>
+<td colspan=2>BeautyConstant.BEAUTY_FACE_RED_CHEEK</td>
+</tr>
+<tr>
+<td rowspan=6>effValue(XmagicPropertyValues)</td>
+<td>参数</td>
+<td>普通模式</td>
+<td>增强模式</td>
+</tr>
+<tr>
+<td>displayMinValue</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>displayMaxValue</td>
+<td>100</td>
+<td>100</td>
+</tr>
+<tr>
+<td>displayDefaultValue</td>
+<td>50</td>
+<td>50</td>
+</tr>
+<tr>
+<td>innerMinValue</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>innerMaxValue</td>
+<td>1</td>
+<td>1.8</td>
+</tr>
+</tbody></table>
+
+
+### 腮红-雀斑
+<table>
+<thead><tr><th colspan=2>字段</th><th colspan=2>取值</th></tr></thead>
+<tbody><tr>
+<td colspan=2>category</td>
+<td colspan=2>Category.BEAUTY</td>
+</tr>
+<tr>
+<td colspan=2>id</td>
+<td colspan=2>XmagicConstant.BeautyConstant.BEAUTY_MAKEUP_MULTIPLY_MULTIPLY_MASK</td>
+</tr>
+<tr>
+<td colspan=2>resPath</td>
+<td colspan=2>/images/beauty/saihong_queban.png</td>
+</tr>
+<tr>
+<td colspan=2>effKey</td>
+<td colspan=2>BeautyConstant.BEAUTY_FACE_RED_CHEEK</td>
+</tr>
+<tr>
+<td rowspan=6>effValue(XmagicPropertyValues)</td>
+<td>参数</td>
+<td>普通模式</td>
+<td>增强模式</td>
+</tr>
+<tr>
+<td>displayMinValue</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>displayMaxValue</td>
+<td>100</td>
+<td>100</td>
+</tr>
+<tr>
+<td>displayDefaultValue</td>
+<td>50</td>
+<td>50</td>
+</tr>
+<tr>
+<td>innerMinValue</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>innerMaxValue</td>
+<td>1</td>
+<td>1.8</td>
+</tr>
+</tbody></table>
+
+
 ### 立体-自然
 <table>
-<thead><tr><th colspan="2" width="40%">字段</th><th>取值</th></tr></thead>
-<tbody><tr><td colspan="2">category</td>
-<td>Category.BEAUTY</td></tr>
-<tr><td colspan="2">id</td>
-<td>XmagicConstant.BeautyConstant.BEAUTY_SOFTLIGHT_SOFTLIGHT_MASK</td></tr>
-<tr><td colspan="2">resPath</td>
-<td>/images/beauty/liti_qingxin.png</td></tr>
-<tr><td colspan="2">effKey</td>
-<td>BeautyConstant.BEAUTY_FACE_SOFTLIGHT</td></tr>
+<thead><tr><th colspan=2>字段</th><th colspan=2>取值</th></tr></thead>
+<tbody><tr>
+<td colspan=2>category</td>
+<td colspan=2>Category.BEAUTY</td>
+</tr>
 <tr>
-<td rowspan="5">effValue(XmagicPropertyValues)</td>
+<td colspan=2>id</td>
+<td colspan=2>XmagicConstant.BeautyConstant.BEAUTY_SOFTLIGHT_SOFTLIGHT_MASK</td>
+</tr>
+<tr>
+<td colspan=2>resPath</td>
+<td colspan=2>/images/beauty/liti_ziran.png</td>
+</tr>
+<tr>
+<td colspan=2>effKey</td>
+<td colspan=2>BeautyConstant.BEAUTY_FACE_SOFTLIGHT</td>
+</tr>
+<tr>
+<td rowspan=6>effValue(XmagicPropertyValues)</td>
+<td>参数</td>
+<td>普通模式</td>
+<td>增强模式</td>
+</tr>
+<tr>
 <td>displayMinValue</td>
-<td>0</td></tr>
-<tr><td>displayMaxValue</td>
-<td>100</td></tr>
-<tr><td>displayDefaultValue</td>
-<td>50</td></tr>
-<tr><td>innerMinValue</td>
-<td>0</td></tr>
-<tr><td>innerMaxValue</td>
-<td>1</td></tr>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>displayMaxValue</td>
+<td>100</td>
+<td>100</td>
+</tr>
+<tr>
+<td>displayDefaultValue</td>
+<td>50</td>
+<td>50</td>
+</tr>
+<tr>
+<td>innerMinValue</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>innerMaxValue</td>
+<td>1</td>
+<td>1.3</td>
+</tr>
 </tbody></table>
+
+
+### 立体-俊朗
+<table>
+<thead><tr><th colspan=2>字段</th><th colspan=2>取值</th></tr></thead>
+<tbody><tr>
+<td colspan=2>category</td>
+<td colspan=2>Category.BEAUTY</td>
+</tr>
+<tr>
+<td colspan=2>id</td>
+<td colspan=2>XmagicConstant.BeautyConstant.BEAUTY_SOFTLIGHT_SOFTLIGHT_MASK</td>
+</tr>
+<tr>
+<td colspan=2>resPath</td>
+<td colspan=2>/images/beauty/liti_junlang.png</td>
+</tr>
+<tr>
+<td colspan=2>effKey</td>
+<td colspan=2>BeautyConstant.BEAUTY_FACE_SOFTLIGHT</td>
+</tr>
+<tr>
+<td rowspan=6>effValue(XmagicPropertyValues)</td>
+<td>参数</td>
+<td>普通模式</td>
+<td>增强模式</td>
+</tr>
+<tr>
+<td>displayMinValue</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>displayMaxValue</td>
+<td>100</td>
+<td>100</td>
+</tr>
+<tr>
+<td>displayDefaultValue</td>
+<td>50</td>
+<td>50</td>
+</tr>
+<tr>
+<td>innerMinValue</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>innerMaxValue</td>
+<td>1</td>
+<td>1.3</td>
+</tr>
+</tbody></table>
+
+
+### 立体-光芒
+<table>
+<thead><tr><th colspan=2>字段</th><th colspan=2>取值</th></tr></thead>
+<tbody><tr>
+<td colspan=2>category</td>
+<td colspan=2>Category.BEAUTY</td>
+</tr>
+<tr>
+<td colspan=2>id</td>
+<td colspan=2>XmagicConstant.BeautyConstant.BEAUTY_SOFTLIGHT_SOFTLIGHT_MASK</td>
+</tr>
+<tr>
+<td colspan=2>resPath</td>
+<td colspan=2>/images/beauty/liti_guangmang.png</td>
+</tr>
+<tr>
+<td colspan=2>effKey</td>
+<td colspan=2>BeautyConstant.BEAUTY_FACE_SOFTLIGHT</td>
+</tr>
+<tr>
+<td rowspan=6>effValue(XmagicPropertyValues)</td>
+<td>参数</td>
+<td>普通模式</td>
+<td>增强模式</td>
+</tr>
+<tr>
+<td>displayMinValue</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>displayMaxValue</td>
+<td>100</td>
+<td>100</td>
+</tr>
+<tr>
+<td>displayDefaultValue</td>
+<td>50</td>
+<td>50</td>
+</tr>
+<tr>
+<td>innerMinValue</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>innerMaxValue</td>
+<td>1</td>
+<td>1.3</td>
+</tr>
+</tbody></table>
+
+
+### 立体-清新
+<table>
+<thead><tr><th colspan=2>字段</th><th colspan=2>取值</th></tr></thead>
+<tbody><tr>
+<td colspan=2>category</td>
+<td colspan=2>Category.BEAUTY</td>
+</tr>
+<tr>
+<td colspan=2>id</td>
+<td colspan=2>XmagicConstant.BeautyConstant.BEAUTY_SOFTLIGHT_SOFTLIGHT_MASK</td>
+</tr>
+<tr>
+<td colspan=2>resPath</td>
+<td colspan=2>/images/beauty/liti_qingxin.png</td>
+</tr>
+<tr>
+<td colspan=2>effKey</td>
+<td colspan=2>BeautyConstant.BEAUTY_FACE_SOFTLIGHT</td>
+</tr>
+<tr>
+<td rowspan=6>effValue(XmagicPropertyValues)</td>
+<td>参数</td>
+<td>普通模式</td>
+<td>增强模式</td>
+</tr>
+<tr>
+<td>displayMinValue</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>displayMaxValue</td>
+<td>100</td>
+<td>100</td>
+</tr>
+<tr>
+<td>displayDefaultValue</td>
+<td>50</td>
+<td>50</td>
+</tr>
+<tr>
+<td>innerMinValue</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>innerMaxValue</td>
+<td>1</td>
+<td>1.3</td>
+</tr>
+</tbody></table>
+
 
 ### 瘦颧骨
 <table>
@@ -784,53 +1258,109 @@
 
 ### 亮眼
 <table>
-<thead><tr><th colspan="2" width="40%">字段</th><th>取值</th></tr></thead>
-<tbody><tr><td colspan="2">category</td>
-<td>Category.BEAUTY</td></tr>
-<tr><td colspan="2">id</td>
-<td>null</td></tr>
-<tr><td colspan="2">resPath</td>
-<td>null</td></tr>
-<tr><td colspan="2">effKey</td>
-<td>BeautyConstant.BEAUTY_EYE_LIGHTEN</td></tr>
+<thead><tr><th colspan=2>字段</th><th colspan=2>取值</th></tr></thead>
+<tbody><tr>
+<td colspan=2>category</td>
+<td colspan=2>Category.BEAUTY</td>
+</tr>
 <tr>
-<td rowspan="5">effValue(XmagicPropertyValues)</td>
+<td colspan=2>id</td>
+<td colspan=2>null</td>
+</tr>
+<tr>
+<td colspan=2>resPath</td>
+<td colspan=2>null</td>
+</tr>
+<tr>
+<td colspan=2>effKey</td>
+<td colspan=2>BeautyConstant.BEAUTY_EYE_LIGHTEN</td>
+</tr>
+<tr>
+<td rowspan=6>effValue(XmagicPropertyValues)</td>
+<td>参数</td>
+<td>普通模式</td>
+<td>增强模式</td>
+</tr>
+<tr>
 <td>displayMinValue</td>
-<td>0</td></tr>
-<tr><td>displayMaxValue</td>
-<td>100</td></tr>
-<tr><td>displayDefaultValue</td>
-<td>30</td></tr>
-<tr><td>innerMinValue</td>
-<td>0</td></tr>
-<tr><td>innerMaxValue</td>
-<td>1</td></tr>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>displayMaxValue</td>
+<td>100</td>
+<td>100</td>
+</tr>
+<tr>
+<td>displayDefaultValue</td>
+<td>30</td>
+<td>30</td>
+</tr>
+<tr>
+<td>innerMinValue</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>innerMaxValue</td>
+<td>1</td>
+<td>1.5</td>
+</tr>
 </tbody></table>
+
 
 ### 眼距
 <table>
-<thead><tr><th colspan="2" width="40%">字段</th><th>取值</th></tr></thead>
-<tbody><tr><td colspan="2">category</td>
-<td>Category.BEAUTY</td></tr>
-<tr><td colspan="2">id</td>
-<td>null</td></tr>
-<tr><td colspan="2">resPath</td>
-<td>null</td></tr>
-<tr><td colspan="2">effKey</td>
-<td>BeautyConstant.BEAUTY_EYE_DISTANCE</td></tr>
+<thead><tr><th colspan=2>字段</th><th colspan=2>取值</th></tr></thead>
+<tbody><tr>
+<td colspan=2>category</td>
+<td colspan=2>Category.BEAUTY</td>
+</tr>
 <tr>
-<td rowspan="5">effValue(XmagicPropertyValues)</td>
+<td colspan=2>id</td>
+<td colspan=2>null</td>
+</tr>
+<tr>
+<td colspan=2>resPath</td>
+<td colspan=2>null</td>
+</tr>
+<tr>
+<td colspan=2>effKey</td>
+<td colspan=2>BeautyConstant.BEAUTY_EYE_DISTANCE</td>
+</tr>
+<tr>
+<td rowspan=6>effValue(XmagicPropertyValues)</td>
+<td>参数</td>
+<td>普通模式</td>
+<td>增强模式</td>
+</tr>
+<tr>
 <td>displayMinValue</td>
-<td>-100</td></tr>
-<tr><td>displayMaxValue</td>
-<td>100</td></tr>
-<tr><td>displayDefaultValue</td>
-<td>0</td></tr>
-<tr><td>innerMinValue</td>
-<td>-1</td></tr>
-<tr><td>innerMaxValue</td>
-<td>1</td></tr>
+<td>-100</td>
+<td>-100</td>
+</tr>
+<tr>
+<td>displayMaxValue</td>
+<td>100</td>
+<td>100</td>
+</tr>
+<tr>
+<td>displayDefaultValue</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>innerMinValue</td>
+<td>-1</td>
+<td>-1.3</td>
+</tr>
+<tr>
+<td>innerMaxValue</td>
+<td>1</td>
+<td>1.3</td>
+</tr>
 </tbody></table>
+
 
 ### 眼角
 <table>
@@ -909,28 +1439,56 @@
 
 ### 鼻子位置
 <table>
-<thead><tr><th colspan="2" width="40%">字段</th><th>取值</th></tr></thead>
-<tbody><tr><td colspan="2">category</td>
-<td>Category.BEAUTY</td></tr>
-<tr><td colspan="2">id</td>
-<td>null</td></tr>
-<tr><td colspan="2">resPath</td>
-<td>null</td></tr>
-<tr><td colspan="2">effKey</td>
-<td>BeautyConstant.BEAUTY_NOSE_HEIGHT</td></tr>
+<thead><tr><th colspan=2>字段</th><th colspan=2>取值</th></tr></thead>
+<tbody><tr>
+<td colspan=2>category</td>
+<td colspan=2>Category.BEAUTY</td>
+</tr>
 <tr>
-<td rowspan="5">effValue(XmagicPropertyValues)</td>
+<td colspan=2>id</td>
+<td colspan=2>null</td>
+</tr>
+<tr>
+<td colspan=2>resPath</td>
+<td colspan=2>null</td>
+</tr>
+<tr>
+<td colspan=2>effKey</td>
+<td colspan=2>BeautyConstant.BEAUTY_NOSE_HEIGHT</td>
+</tr>
+<tr>
+<td rowspan=6>effValue(XmagicPropertyValues)</td>
+<td>参数</td>
+<td>普通模式</td>
+<td>增强模式</td>
+</tr>
+<tr>
 <td>displayMinValue</td>
-<td>-100</td></tr>
-<tr><td>displayMaxValue</td>
-<td>100</td></tr>
-<tr><td>displayDefaultValue</td>
-<td>0</td></tr>
-<tr><td>innerMinValue</td>
-<td>-1</td></tr>
-<tr><td>innerMaxValue</td>
-<td>1</td></tr>
+<td>-100</td>
+<td>-100</td>
+</tr>
+<tr>
+<td>displayMaxValue</td>
+<td>100</td>
+<td>100</td>
+</tr>
+<tr>
+<td>displayDefaultValue</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>innerMinValue</td>
+<td>-1</td>
+<td>-1.3</td>
+</tr>
+<tr>
+<td>innerMaxValue</td>
+<td>1</td>
+<td>1.3</td>
+</tr>
 </tbody></table>
+
 
 ### 白牙
 <table>
@@ -959,53 +1517,109 @@
 
 ### 祛皱
 <table>
-<thead><tr><th colspan="2" width="40%">字段</th><th>取值</th></tr></thead>
-<tbody><tr><td colspan="2">category</td>
-<td>Category.BEAUTY</td></tr>
-<tr><td colspan="2">id</td>
-<td>null</td></tr>
-<tr><td colspan="2">resPath</td>
-<td>null</td></tr>
-<tr><td colspan="2">effKey</td>
-<td>BeautyConstant.BEAUTY_FACE_REMOVE_WRINKLE</td></tr>
+<thead><tr><th colspan=2>字段</th><th colspan=2>取值</th></tr></thead>
+<tbody><tr>
+<td colspan=2>category</td>
+<td colspan=2>Category.BEAUTY</td>
+</tr>
 <tr>
-<td rowspan="5">effValue(XmagicPropertyValues)</td>
+<td colspan=2>id</td>
+<td colspan=2>null</td>
+</tr>
+<tr>
+<td colspan=2>resPath</td>
+<td colspan=2>null</td>
+</tr>
+<tr>
+<td colspan=2>effKey</td>
+<td colspan=2>BeautyConstant.BEAUTY_FACE_REMOVE_WRINKLE</td>
+</tr>
+<tr>
+<td rowspan=6>effValue(XmagicPropertyValues)</td>
+<td>参数</td>
+<td>普通模式</td>
+<td>增强模式</td>
+</tr>
+<tr>
 <td>displayMinValue</td>
-<td>0</td></tr>
-<tr><td>displayMaxValue</td>
-<td>100</td></tr>
-<tr><td>displayDefaultValue</td>
-<td>0</td></tr>
-<tr><td>innerMinValue</td>
-<td>0</td></tr>
-<tr><td>innerMaxValue</td>
-<td>1</td></tr>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>displayMaxValue</td>
+<td>100</td>
+<td>100</td>
+</tr>
+<tr>
+<td>displayDefaultValue</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>innerMinValue</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>innerMaxValue</td>
+<td>1</td>
+<td>1.3</td>
+</tr>
 </tbody></table>
+
 
 ### 祛法令纹
 <table>
-<thead><tr><th colspan="2" width="40%">字段</th><th>取值</th></tr></thead>
-<tbody><tr><td colspan="2">category</td>
-<td>Category.BEAUTY</td></tr>
-<tr><td colspan="2">id</td>
-<td>null</td></tr>
-<tr><td colspan="2">resPath</td>
-<td>null</td></tr>
-<tr><td colspan="2">effKey</td>
-<td>BeautyConstant.BEAUTY_FACE_REMOVE_LAW_LINE</td></tr>
+<thead><tr><th colspan=2>字段</th><th colspan=2>取值</th></tr></thead>
+<tbody><tr>
+<td colspan=2>category</td>
+<td colspan=2>Category.BEAUTY</td>
+</tr>
 <tr>
-<td rowspan="5">effValue(XmagicPropertyValues)</td>
+<td colspan=2>id</td>
+<td colspan=2>null</td>
+</tr>
+<tr>
+<td colspan=2>resPath</td>
+<td colspan=2>null</td>
+</tr>
+<tr>
+<td colspan=2>effKey</td>
+<td colspan=2>BeautyConstant.BEAUTY_FACE_REMOVE_LAW_LINE</td>
+</tr>
+<tr>
+<td rowspan=6>effValue(XmagicPropertyValues)</td>
+<td>参数</td>
+<td>普通模式</td>
+<td>增强模式</td>
+</tr>
+<tr>
 <td>displayMinValue</td>
-<td>0</td></tr>
-<tr><td>displayMaxValue</td>
-<td>100</td></tr>
-<tr><td>displayDefaultValue</td>
-<td>0</td></tr>
-<tr><td>innerMinValue</td>
-<td>0</td></tr>
-<tr><td>innerMaxValue</td>
-<td>1</td></tr>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>displayMaxValue</td>
+<td>100</td>
+<td>100</td>
+</tr>
+<tr>
+<td>displayDefaultValue</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>innerMinValue</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>innerMaxValue</td>
+<td>1</td>
+<td>1.3</td>
+</tr>
 </tbody></table>
+
 
 ### 祛眼袋
 <table>
