@@ -5,7 +5,7 @@
 ## 前提条件
 
 - 已开通日志服务（Cloud Log Service，CLS），并创建对应资源（如日志集和日志主题）。
-- 已在 [腾讯云控制台](https://console.cloud.tencent.com/cam/capi) 获取到 SecurityId 和 SecurityKey。
+- 已在 [腾讯云控制台](https://console.cloud.tencent.com/cam/capi) 获取到 SecretId 和 SecretKey。
 
 ## 操作步骤
 
