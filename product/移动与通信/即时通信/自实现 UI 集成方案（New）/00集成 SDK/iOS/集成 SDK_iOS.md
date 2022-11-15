@@ -41,6 +41,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 target 'App' do
 pod 'TXIMSDK_Plus_iOS'
+# pod 'TXIMSDK_Plus_Swift_iOS'
 end
 ```
 
@@ -51,6 +52,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 target 'App' do
 pod 'TXIMSDK_Plus_iOS_Bitcode'
+# pod 'TXIMSDK_Plus_Swift_iOS_Bitcode'
 end
 ```
 
@@ -61,6 +63,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 target 'App' do
 pod 'TXIMSDK_Plus_iOS_XCFramework'
+# pod 'TXIMSDK_Plus_Swift_iOS_XCFramework'
 end
 ```
 
@@ -71,6 +74,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 target 'App' do
 pod 'TXIMSDK_Plus_iOS_Bitcode_XCFramework'
+# pod 'TXIMSDK_Plus_Swift_iOS_Bitcode_XCFramework'
 end
 ```
 
