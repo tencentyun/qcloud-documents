@@ -8,12 +8,15 @@
 ## 注册话机说明
 1. 登录 [腾讯云呼叫中心 TCCC 管理工作台](https://cloud.tencent.com/document/product/679/73497#logintccc)。
 2. 左侧导航栏单击**电话客服>话机管理**进入来电弹屏页面，左上角单击**注册话机**。
-![](https://qcloudimg.tencent-cloud.cn/raw/3cc097b3d4d0a03d162ce9ffb59249b3.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/5bc6e796856c953bcbc91f93936f6054.png)
 3. 为话机设置一个**1到8开头，4到6位数字的分机号**，并设置话机的名称。
 ![](https://qcloudimg.tencent-cloud.cn/raw/961b00ebe6f71c0cb83746d52cc88799.png)
 4. 将分机注册信息配置到您的 SIP 话机上。
-![](https://qcloudimg.tencent-cloud.cn/raw/b1517a0340f2b6c40c0a8f71fa53859e.png)
-5. 请根据您的 SIP 话机类型，按照以下对应的操作指引，配置您的话机。
+<img src="https://qcloudimg.tencent-cloud.cn/raw/b1517a0340f2b6c40c0a8f71fa53859e.png" style="width:400px"> 
+5. 在浏览器内输入话机的**IPv4地址**进入话机管理页面，请根据您的 SIP 话机类型，按照以下对应的操作指引，配置您的话机。
+<img src="https://qcloudimg.tencent-cloud.cn/raw/3524ac2b199add643993313193d735ae.png" style="width:400px"> 
+
+
 <dx-tabs>
 ::: 亿联（yealink）
 标签、显示名、注册名、用户名处填写：话机分机号
