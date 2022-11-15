@@ -1,18 +1,18 @@
 ## 操作场景
-目前，[腾讯云原生数据库 TDSQL-C](https://cloud.tencent.com/document/product/1003/30505) 已支持 Serverless MySQL 版本，做到按实际使用的计算和存储量计费，按秒计量，按小时结算。Serverless Framework 的 CynosDB 组件也已经支持该类型数据库的创建。
+目前，[腾讯云原生数据库 TDSQL-C](https://cloud.tencent.com/document/product/1003/30505) 已支持 Serverless MySQL 版本，做到按实际使用的计算和存储量计费，按秒计量，按小时结算。Serverless Cloud Framework 的 CynosDB 组件也已经支持该类型数据库的创建。
 
 本文以 Node.js 开发语言的函数，指导您快速创建 TDSQL-C Serverless MySQL 实例，并在云函数中进行调用。
 
 ##  操作步骤
 
-| 操作步骤 | 操作说明 | 
+| 操作步骤 | 操作说明 |
 |---------|---------|
 | [步骤1：配置环境变量](#step1)|  - |
-| [步骤2：配置私有网络](#step2) | 通过 Serverless Framework VPC 组件 创建 VPC 和 子网，支持云函数和数据库的网络打通和使用。|
-| <nobr>[步骤3：配置 Serverless DB](#step3)</nobr> | 通过 Serverless Framework Cynosdb 组件创建 MySQL 实例，为云函数项目提供数据库服务。|
+| [步骤2：配置私有网络](#step2) | 通过 Serverless Cloud Framework VPC 组件 创建 VPC 和 子网，支持云函数和数据库的网络打通和使用。 |
+| <nobr>[步骤3：配置 Serverless DB](#step3)</nobr> | 通过 Serverless Cloud Framework Cynosdb 组件创建 MySQL 实例，为云函数项目提供数据库服务。 |
 | [步骤4：编写业务代码](#step4) | 通过 Serverless DB SDK 调用数据库，云函数支持直接调用 Serverless DB SDK，连接 PostgreSQL 数据库进行管理操作。|
-| [步骤5：部署应用](#step5) |  通过 Serverless Framework 部署项目至云端，并通过云函数控制台进行测试。|
-| [步骤6：移除项目（可选）](#remove) | 可通过 Serverless Framework 移除项目。|
+| [步骤5：部署应用](#step5) | 通过 Serverless Cloud Framework 部署项目至云端，并通过云函数控制台进行测试。 |
+| [步骤6：移除项目（可选）](#remove) | 可通过 Serverless Cloud Framework 移除项目。 |
 
 ### 步骤1：配置环境变量[](id:step1)
 1. 在本地建立目录，用于存放代码及依赖模块。本文以  `test-MySQL` 文件夹为例。
@@ -43,17 +43,17 @@ stage: dev
 component: vpc # (required) name of the component. In that case, it's vpc.
 name: mysql-app-vpc # (required) name of your vpc component instance.
 inputs:
-  region: ${env:REGION}
-  zone: ${env:ZONE}
-  vpcName: serverless-mysql
-  subnetName: serverless-mysql
+    region: ${env:REGION}
+    zone: ${env:ZONE}
+    vpcName: serverless-mysql
+    subnetName: serverless-mysql
 :::
 </dx-codeblock>
 
 ### 步骤3：配置 Serverless DB[](id:step3)
 1. 在 `test-MySQL` 下创建文件夹 `DB`。
 
-2. 在 `DB` 文件夹下新建 `serverless.yml` 文件，并输入以下内容，通过 Serverless Framework 组件完成云开发环境配置。
+2. 在 `DB` 文件夹下新建 `serverless.yml` 文件，并输入以下内容，通过 Serverless Cloud Framework 组件完成云开发环境配置。
 `serverless.yml` 示例内容如下（全量配置参考 [产品文档](https://github.com/serverless-components/tencent-cynosdb/blob/master/docs/configure.md)）：
 <dx-codeblock>
 :::  yml
@@ -79,18 +79,18 @@ inputs:
 <dx-codeblock>
 :::  js
 exports.main_handler = async (event, context, callback) => {
-  var mysql      = require('mysql2');
-  var connection = mysql.createConnection({
+    var mysql      = require('mysql2');
+    var connection = mysql.createConnection({
     host     : process.env.HOST,
     user     : 'root',
     password : process.env.PASSWORD
-  });
-  connection.connect();
-  connection.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
+    });
+    connection.connect();
+    connection.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
     if (error) throw error;
     console.log('The solution is: ', results[0].solution);
-  });
-  connection.end();
+    });
+    connection.end();
  }
 :::
 </dx-codeblock>
@@ -140,9 +140,9 @@ inputs:
 ```
 1. 使用命令行在 `test-MySQL` 下，执行以下命令进行部署。
 ```bash
-sls deploy
+scf deploy
 ```
- >?
+>?
 >- 部署时需要扫码授权，如果没有腾讯云账号，请先 [注册新账号](https://cloud.tencent.com/register)。
 >- 如果是子账号，请参考 [子账号权限配置](https://cloud.tencent.com/document/product/1154/43006#.E5.AD.90.E8.B4.A6.E5.8F.B7.E6.9D.83.E9.99.90.E9.85.8D.E7.BD.AE.3Ca-id.3D.22rightsprofile.22.3E.3C.2Fa.3E) 完成授权。
 
@@ -177,11 +177,11 @@ mysql-app-scf:
 ### 步骤6：移除项目（可选）[](id:step6)
 在 `test-MySQL` 目录下，执行以下命令可移除项目。
 ```
-sls remove
+scf remove
 ```
 返回如下结果，即为成功移除。
 ```
-serverless ⚡ framework
+serverless-cloud-framework
 4s › test-MySQL › Success
 ```
 
@@ -353,12 +353,12 @@ public class Http {
         config.setMaximumPoolSize(1);
         dataSource = new HikariDataSource(config);
     }
-
+    
     public String mainHandler(APIGatewayProxyRequestEvent requestEvent, Context context) {
         System.out.println("start main handler");
         System.out.println("requestEvent: " + requestEvent);
         System.out.println("context: " + context);
-
+    
         try (Connection conn = dataSource.getConnection(); PreparedStatement ps = conn.prepareStatement("SELECT * FROM employee")) {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -371,17 +371,17 @@ public class Http {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
+    
         APIGatewayProxyResponseEvent apiGatewayProxyResponseEvent = new APIGatewayProxyResponseEvent();
         apiGatewayProxyResponseEvent.setBody("API GW Test Success");
         apiGatewayProxyResponseEvent.setIsBase64Encoded(false);
         apiGatewayProxyResponseEvent.setStatusCode(200);
-
+    
         Map<String, String> headers = new HashMap<>();
         headers.put("Content-Type", "text");
         headers.put("Access-Control-Allow-Origin", "*");
         apiGatewayProxyResponseEvent.setHeaders(headers);
-
+    
         return apiGatewayProxyResponseEvent.toString();
     }
 }
@@ -410,7 +410,7 @@ exports.main_handler = async (event, context, callback) => {
     console.log('db2 callback query result:',results)
   })
   // no need to release pool
- 
+
   console.log('db2 query result:',result)
 }
 :::
@@ -429,11 +429,22 @@ def main_handler(event, context):
 
     connection = database().connection(autocommit=False)
     cursor = connection.cursor()
-
+    
     cursor.execute('SELECT * FROM name')
     myresult = cursor.fetchall()
-
+    
     for x in myresult:
         print(x)
 :::
 </dx-codeblock>
+
+  
+
+  
+
+  
+
+  
+
+  
+

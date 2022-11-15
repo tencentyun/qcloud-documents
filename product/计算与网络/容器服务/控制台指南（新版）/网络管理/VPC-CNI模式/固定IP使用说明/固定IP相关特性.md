@@ -14,7 +14,7 @@ kubectl get vip
 
 由于网络组件在集群范围内分配 IP 时会依据 `VpcIP` 信息找寻可用 IP，因此固定 IP 的地址若不使用需要及时回收（目前默认策略是永不回收），否则会导致 IP 浪费而无 IP 可用。本文介绍过期回收、手动回收及级联回收的 IP 回收方法。
 
-### 过期回收（默认支持）
+### 过期回收
 在 [创建集群](https://cloud.tencent.com/document/product/457/32189) 页面，容器网络插件选择**VPC-CNI**模式并且勾选**开启支持**固定Pod IP 支持，如下图所示：
 ![](https://main.qcloudimg.com/raw/ad1290436fa0ff66d8bb17abd2bab161.png)
 在高级设置中设置 IP 回收策略，可以设置 Pod 销毁后多少秒回收保留的固定 IP。如下图所示：
@@ -40,62 +40,6 @@ kubectl delete vipc <podname> -n <namespace>
 ```
 修改后，ipamd 会自动重启并生效。生效后，增量 Workload 可实现级联删除固定 IP，存量 Workload 暂不能支持。
 
-## 相关特性
-
-### 共享网卡模式的 Pod IP 自动关联弹性公网 IP（EIP）
-
-目前共享网卡的固定 IP 模式默认支持 Pod IP 自动关联 EIP。
-如需关联 EIP，可参考以下 Yaml 示例：
-```yaml
-apiVersion: apps/v1
-kind: StatefulSet
-metadata:
-  labels:
-    k8s-app: busybox
-  name: busybox
-  namespace: default
-spec:
-  replicas: 3
-  selector:
-    matchLabels:
-      k8s-app: busybox
-      qcloud-app: busybox
-  serviceName: ""
-  template:
-    metadata:
-      annotations:
-        tke.cloud.tencent.com/networks: "tke-route-eni"
-        tke.cloud.tencent.com/vpc-ip-claim-delete-policy: Never
-        tke.cloud.tencent.com/eip-attributes: ""
-        tke.cloud.tencent.com/eip-claim-delete-policy: "Never"
-      creationTimestamp: null
-      labels:
-        k8s-app: busybox
-        qcloud-app: busybox
-    spec:
-      containers:
-      - args:
-        - "10000000000"
-        command:
-        - sleep
-        image: busybox
-        imagePullPolicy: Always
-        name: busybox
-        resources:
-          limits:
-            tke.cloud.tencent.com/eni-ip: "1"
-            tke.cloud.tencent.com/eip: "1"
-          requests:
-            tke.cloud.tencent.com/eni-ip: "1"
-            tke.cloud.tencent.com/eip: "1"
-```
-
-- **spec.template.annotations：tke.cloud.tencent.com/eip-attributes: ""** 表明该 Workload 的 Pod 需要关联 EIP。
-- **spec.template.annotations：tke.cloud.tencent.com/eip-claim-delete-policy: "Never"** 表明 Workload 的 Pod 的 EIP 也需要固定，Pod 销毁后不能变更。若不需要固定，则不添加该注解。
-- **spec.template.spec.containers.0.resources**：关联 EIP 的 Pod，您需要添加 requests 和 limits 限制，即 `tke.cloud.tencent.com/eip`，从而让调度器保证 Pod 调度到的节点仍有 EIP 资源可使用。
->! 各节点可绑定的 EIP 资源受到相关配额限制和云服务器的绑定数量限制，详情可参考 [EIP使用限制](https://cloud.tencent.com/document/product/1199/41648#eip-.E9.85.8D.E9.A2.9D.E9.99.90.E5.88.B6)。
-各节点可绑定的最大 EIP 数量为**云服务器绑定数量 - 1**。
-
 
 ## 相关问题
 
@@ -108,16 +52,9 @@ kubectl get event
 ```
 
 - event 中显示 ENILimit，则是配额问题，可以通过为 VPC 调大弹性网卡数目配额来解决问题。
-- event 中显示下图信息则说明子网中的 IP 不足。
-![](https://main.qcloudimg.com/raw/1dc81abb2404b4add1941609b1214944.png)
-可以通过执行以下命令获取当前子网 IP 使用数目。
-```shell
-kubectl get vip | wc -l
-```
+- 查看集群内节点所在可用区的容器子网 IP 是否充足，如已耗尽则补充同可用区容器子网可解决。
 
-若已确认子网 IP 充足，但仍存在问题，则可能与底层的软限制有关。分析如下：
-以高配机型（每个节点关联的弹性网卡可以额外分配29个 IP）和配置的子网是 `/23` 为例，当集群有17个节点时，这些节点上理论能使用的 IP 资源为 17 *（29 + 1），即已经超过500了，可把 `/23` 的子网填满，此时 ipamd 会限制新的节点不再分配弹性网卡。为解决这个问题，可再添加一些子网，弹性网卡可以从新子网中创建并绑定到新添加的节点上，新的节点虽然能够加入集群，但是 Pod 不会调度到没有绑定弹性网卡的节点。
-如果不加限制，节点越加越多会导致能分给 Pod 的 IP 越来越少，因为弹性网卡本身会占用一个主 IP，这个主 IP 不能用于 Pod，所以添加一个节点，实际上子网可以分给 Pod 的 IP 会少一个。在极端情况下，存在分配给节点的辅助网卡都集中在一个子网中的情况，会限制整个集群中 Pod 的规模，并且只能通过驱逐旧的节点，添加子网后，再将节点加入集群才能恢复。
+
 
 
 ### 节点不能分配到弹性网卡，提示弹性网卡数量超出限制
@@ -140,5 +77,5 @@ kubectl get vip -oyaml
 ![](https://main.qcloudimg.com/raw/d7df85621d613f30e5109395de4c92bb.png)
 
 #### 解决方案
-目前腾讯云弹性网卡限制一个 VPC 下面最多绑定50个弹性网卡。您可 [在线咨询](https://cloud.tencent.com/online-service?from=doc_457) 申请提高配额，配额按地域生效。
+目前腾讯云弹性网卡限制一个 VPC 下面最多绑定1000个弹性网卡。您可 [在线咨询](https://cloud.tencent.com/online-service?from=doc_457) 申请提高配额，配额按地域生效。
 

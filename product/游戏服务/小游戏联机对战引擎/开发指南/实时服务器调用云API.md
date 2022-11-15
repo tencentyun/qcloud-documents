@@ -1,3 +1,5 @@
+>!由于产品逻辑已无法满足游戏行业技术发展，游戏联机对战引擎 MGOBE 将于2022年6月1日下线，请您在2022年5月31日前完成服务迁移。
+
 ## 操作场景
 该文档指导您通过实时服务器直接调用云 API。[下载示例代码 >>](https://mgobe-1258556906.cos.ap-shanghai.myqcloud.com/demo/mgobexs_capi_demo.zip) 
 

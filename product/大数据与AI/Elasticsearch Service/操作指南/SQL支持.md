@@ -13,7 +13,7 @@ POST /_xpack/sql?format=txt
 更多原生 SQL 解析器的 API 及使用方法请参见 [官方文档](https://www.elastic.co/guide/en/elasticsearch/reference/6.4/sql-rest.html)。
  
 ### 开源 SQL 解析插件
-- 7.5.1版本：
+- 7.5.1及以上版本：
 ```
 POST /_nlpcn/sql 
 {

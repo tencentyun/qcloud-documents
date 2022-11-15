@@ -13,7 +13,7 @@ Prometheus 本身支持 Remote Write 到一个外部存储，因此沿用这个�
 remote_write:
 
   - name: cm_prometheus # Remote write 的名称
-    url: http://ip:port/api/v1/prom/write  # 从 Prometheus 基本信息中获取 Remote Write 地址
+    url: http://ip:port/api/v1/prom/write  # 从 Prometheus 基本信息中获取 Remote Write 地址，建议加上双引号避免特殊字符解析错误
     remote_timeout: 30s # 根据实际情况设置
     bearer_token: k32*****trR # 从 Prometheus 基本信息中获取 Token 信息
 :::

@@ -1,3 +1,4 @@
+
 本文为您介绍在 MySQL 控制台查看异常告警（DBbrain）消息的操作。
 
 [异常告警（DBbrain）](https://cloud.tencent.com/document/product/1130/44957)通知服务为用户实时推送 MySQL 实例异常告警消息，方便用户及时便捷地了解数据库异常诊断问题。

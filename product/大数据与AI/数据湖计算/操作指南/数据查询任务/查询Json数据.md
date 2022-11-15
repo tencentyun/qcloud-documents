@@ -26,4 +26,4 @@ SELECT `user`.`shippingaddress`.`address1` FROM `order_demo` limit 10;
 {"name":"Andy", "age":30}
 {"name":"Justin", "age":19}
 ```
-- DLC 会自动将 Json 的一层级识别为数据表的属性列，其余嵌套结构识别为对应的属性值。
+- DLC 会自动将 Json 的第一层级识别为数据表的属性列，其余嵌套结构识别为对应的属性值。

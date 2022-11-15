@@ -78,7 +78,7 @@ spec:
                 secretKeyRef:
                   name: mongodb-secret-test
                   key: datasource
-          image: ssheehy/mongodb-exporter
+          image: ccr.ccs.tencentyun.com/rig-agent/mongodb-exporter:0.10.0
           imagePullPolicy: IfNotPresent
           name: mongodb-exporter
           ports:

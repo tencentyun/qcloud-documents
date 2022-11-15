@@ -97,8 +97,8 @@ byte [ ] CreateSDKBuffFromStr (String pSDKinfo, String buffer, String uDesIp, in
  - **调用示例：**
 ```
 String pSDKinfo = "566c2dea9420eb37-b6c8-566c2dea9420eb3710525135e8485e80806a2f9c";
-String uDesIp = "115.159.147.198";
-int uDesPort = 8899 ;
+String uDesIp = "1xx.xxx.xxx.xxx";
+int uDesPort = 8xx9 ;
 byte[] bytes = mark.CreateSDKBuffFromStr(pSDKinfo, "", uDesIp, uDesPort);
 ```
 
@@ -184,8 +184,8 @@ uint32_t CreateSDKBuffFromStr(char *pSDKinfo, uint8_t *buffer, char* uDstIp, uin
 <td>服务器端口</td>
 </tr>
 </table>
- 
- >!水印结果保存在参数 buffer 中，取20字节。
+>!水印结果保存在参数 buffer 中，取20字节。
+>
 3. 调用示例。
 **Swift 调用：**
 ```
@@ -194,7 +194,7 @@ uint32_t CreateSDKBuffFromStr(char *pSDKinfo, uint8_t *buffer, char* uDstIp, uin
 			as NSString).utf8String);
 					var buffer = UnsafeMutablePointer<UInt8>.allocate(capacity: 20);
 			let uDstIp = UnsafeMutablePointer<Int8>(mutating: (
-			"115.159.147.198" as NSString).utf8String);
+			"1xx.xxx.xxx.xxx" as NSString).utf8String);
 					let uDstport = UInt16.init("8899")!;
 
 			CreateSDKBuffFromStr(pSDKinfo, buffer, uDstIp, uDstport);
@@ -208,8 +208,8 @@ uint32_t CreateSDKBuffFromStr(char *pSDKinfo, uint8_t *buffer, char* uDstIp, uin
 
 			char *pSDKinfo = "566c2dea9420eb37-b6c8-566c2dea9420eb3710525135e8485e80806a2f9c";
 					uint8_t buffer[20];
-					char *uDstIp = "115.159.147.198";
-					uint16_t uDstPort = 8899;
+					char *uDstIp = "1xx.xxx.xxx.xxx";
+					uint16_t uDstPort = 8xx9;
 
 					CreateSDKBuffFromStr(pSDKinfo, buffer, uDstIp, uDstPort);
 
@@ -256,7 +256,7 @@ uint32_t CreateSDKBuffFromStr(char *pSDKinfo, uint8_t *buffer, char* uDstIp, uin
 </tr>
 </table>
 
- >!水印结果保存在参数 buffer 中，取20字节。
+>!水印结果保存在参数 buffer 中，取20字节。
 
 
 ### 接口调用
@@ -274,9 +274,9 @@ uint32_t CreateSDKBuffFromStr(char *pSDKinfo, uint8_t *buffer, char* uDstIp, uin
     uint8_t buffer[BUFFER_SIZE];
     memset(buffer, 0, BUFFER_SIZE);
     
-    int UDP_TEST_PORT = 8899;
+    int UDP_TEST_PORT = 8xx9;
     
-    const char * CONST_UDP_SERVER_IP  = "115.159.147.198";
+    const char * CONST_UDP_SERVER_IP  = "1xx.xxx.xxx.xxx";
     char * UDP_SERVER_IP = new char[strlen(CONST_UDP_SERVER_IP)];
     strcpy(UDP_SERVER_IP, CONST_UDP_SERVER_IP);
     

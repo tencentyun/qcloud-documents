@@ -1,6 +1,6 @@
 ## 命名空间
 
-Namespace=QCE/TBASE
+Namespace = QCE/TBASE
 
 ## 监控指标
 

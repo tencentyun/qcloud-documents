@@ -1,13 +1,3 @@
-代码示例：[PHP](https://github.com/TencentCloudBase/cloudbase-examples/tree/master/cloudbaserun/php)
-
-
-
-可单击下方按钮一键部署：
-
-<div style="background-color:#00A4FF; width: 125px; height: 35px; line-height:35px; text-align:center;"><a href="https://console.cloud.tencent.com/tcb/env/index?action=CreateAndDeployCloudBaseProject&appUrl=https%3A%2F%2Fgithub.com%2FTencentCloudBase%2Fcloudbase-examples&workDir=cloudbaserun%2Fphp&appName=php-hello-world" target="_blank"  style="color: white; font-size:13px;">部署到云开发</a></div>
-
-
-
 ## 步骤1：编写基础应用
 
 1. 创建名为 `helloworld-php` 的新目录，并转到此目录中：
@@ -41,8 +31,8 @@ FROM php:7.3-apache
 # 将本地代码复制到容器内
 COPY index.php /var/www/html/
 
-# Apache 配置文件内使用 8080 端口
-RUN sed -i 's/80/8080/g' /etc/apache2/sites-available/000-default.conf /etc/apache2/ports.conf
+# Apache 配置文件内使用 80 端口
+RUN sed -i 's/80/80/g' /etc/apache2/sites-available/000-default.conf /etc/apache2/ports.conf
 
 # 将 PHP 配置为开发环境
 # 如果您需要配置为生产环境，可以运行以下命令
@@ -78,6 +68,6 @@ helloworld-php   latest    1c8dfb88c823     8 seconds ago      411MB
 </dx-codeblock>
 
 
-## 步骤4：部署到 CloudBase 云托管
+## 步骤4：部署到云托管
 
 详情请参见 [部署服务](https://cloud.tencent.com/document/product/1243/46127) 与 [版本配置说明](https://cloud.tencent.com/document/product/1243/49177)。

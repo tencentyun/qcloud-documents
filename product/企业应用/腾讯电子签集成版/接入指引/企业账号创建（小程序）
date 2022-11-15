@@ -1,0 +1,68 @@
+本文档主要介绍腾讯电子签小程序的企业账号创建流程，总体流程如下： 
+![](https://qcloudimg.tencent-cloud.cn/raw/78456f7695c46e58d973397a22573d4e.png)
+
+
+## 前提条件
+创建企业前，所需根据您的企业类型，准备以下资料：
+
+| 主体类型 |     所需材料           |  
+| -------- | ---------------------------------------------- | 
+| 企业或个体工商户   | 营业执照照片、法定代表人或经营者的微信号或手机 |  
+| 党政机关及事业单位或其他组织 | 机构证件照片、加盖公章的超级管理员授权书 | 
+
+
+
+## 操作步骤
+### 步骤1：选择创建企业
+1. 选择创建企业前，需确保您的腾讯电子签个人账号已经完成实名认证。
+2. 您可通过 [小程序首页入口](#Home-entry) 或 [个人中心](#personal-center) 切换身份页面进入企业或机构创建流程：
+<dx-tabs>
+::: 方式一
+从首页入口创建[](id:Home-entry)从小程序首页左上角入口单击创建企业，进入创建流程。 
+![](https://qcloudimg.tencent-cloud.cn/raw/e0d598f10b8058b65bfd90e883f544fc.png)
+:::
+::: 方式二
+从个人中心切换身份创建[](id:personal-center)从个人中心切换身份页面进入创建流程，单击创建企业。 
+![](https://qcloudimg.tencent-cloud.cn/raw/e15120edcac1b9464f6e7678a916ef05.png) 
+:::
+</dx-tabs>
+
+
+### 步骤2：上传营业执照或机构证件
+1. 选择创建企业后，您可上传企业营业执照或机构证件图片，上传后系统将根据图片内容自动填充企业信息（主体类型，企业名称，统一社会信用代码，法定代表人或经营者姓名，企业地址），若识别不准确，您可以自行修改识别后的内容。 
+<img style="width:300px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/c16f24df44eebadc58fb53bad428c626.png" />
+2. 确认信息无误后，可单击**下一步**继续。
+![](https://qcloudimg.tencent-cloud.cn/raw/8622a41a63634dd95e5b3dbecfb9f4d1.png)
+
+
+### 步骤3：确认联系方式
+营业执照图片上传并识别信息成功后，请输入您在该企业的联系方式并完成验证码校验。 
+<img style="width:200px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/061da8b03c8c1241f1a87bb9b03bb84b.png" />
+
+### 步骤4：超级管理员授权
+联系方式验证通过后，系统将基于不同主体类型及您在企业中的身份，提供以下授权方式： 
+<dx-tabs>
+::: 主体类型：企业或个体工商户
+#### 情况1：您是企业法定代表人或个体工商户经营者
+您将进行人脸识别，操作成功后，则该企业创建成功，且您会成为该企业的超级管理员。
+<img style="width:600px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/6f51bd4b4f1b787a7b1c16c2d3a4472f.png" />
+#### 情况2：您是企业或个体工商户的员工
+1. 您需联系企业的法定代表人或经营者授权您作为该企业的超级管理员，授权成功后则完成企业创建流程。您可以选择通过微信或短信通知法定代表人或经营者。
+![](https://qcloudimg.tencent-cloud.cn/raw/2f81105a9115c67ba04099c3ea7ea38b.png)
+2. 法定代表人或经营者点开授权链接后，单击**立即签署**，将进入超管授权书签署流程。 
+![](https://qcloudimg.tencent-cloud.cn/raw/98327ca79e506291b990720031d57db4.png)
+3. 法定代表人或经营者阅读完超管授权确认书并完成手写签名后，单击**开始人脸识别**进入意愿确认流程，操作成功后，企业创建成功，此时您将成为该企业的超级管理员，同时操作的法定代表人或经营者也将同时加入到企业中并自动赋予“法定代表人”角色。
+![](https://qcloudimg.tencent-cloud.cn/raw/96c04c16dd04e69689f09d3d4524f757.png)
+:::
+::: 主体类型：党政机关事业单位或其他组织
+1. 单击下载超级管理员授权证书模板。
+![](https://qcloudimg.tencent-cloud.cn/raw/d140f2ab61a79da7491b3239063d6396.png)
+2. 请您按照模板要求填写相关信息并加盖机构公章后上传授权书，并等待授权书审核。
+![](https://qcloudimg.tencent-cloud.cn/raw/b6ca62b1f9ca697009eb6d21d5b4f657.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/c09eff37686e419a1d88a7817849b64b.png)
+3. 若授权书审核成功，则企业创建成功，届时您将收到企业创建成功的短信通知。 
+![](https://qcloudimg.tencent-cloud.cn/raw/f34ca3a3cbce5bdd2442987957cbac03.png)
+> !若授权书审核失败，请您根据审核失败的原因修改好授权书内容，单击**重新上传**完成授权书的更新 。
+![](https://qcloudimg.tencent-cloud.cn/raw/aad9ea77cce44d8d3108835199603154.png)
+:::
+</dx-tabs>

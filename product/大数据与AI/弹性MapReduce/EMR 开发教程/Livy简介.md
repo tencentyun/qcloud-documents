@@ -1,6 +1,7 @@
 Apache Livy 是一个可以通过 REST 接口与 Spark 集群进行交互的服务，它可以提交 Spark 作业或者 Spark 代码片段，同步或者异步的进行结果检索以及 Spark Context 上下文管理，Apache Livy 简化 Spark 和应用程序服务器之间的交互，从而使 Spark 能够用于交互式 Web/移动应用程序。
 
-**其他功能包括：**
+## Livy 特性
+Livy 还支持如下功能：
 - 由多个客户端长时间运行可用于多个 Spark 作业的 Spark 上下文。
 - 跨多个作业和客户端共享缓存的 RDD 或数据帧。
 - 可以同时管理多个 Spark 上下文，并且 Spark 上下文运行在群集（YARN/Mesos）而不是 Livy 服务器，以实现良好的容错性和并发性。
@@ -24,8 +25,12 @@ curl IP:8998/sessions
 curl -X POST IP:8998/sessions/0/statements -H "Content-Type:application/json" -d '{"code":"1+1"}'
 ```
 5. 计算圆周率（执行 jar 包）。
+步骤1：上传 jar 包到 hdfs，如上传至/usr/local/spark-examples_2.11-2.4.3.jar。
+步骤2：执行命令：
 ```
-curl -H "Content-Type: application/json" -X POST -d '{ "file":"/usr/local/service/spark/examples/jars/spark-examples_2.11-2.4.3.jar", "className":"org.apache.spark.examples.SparkPi" }' IP:8998/batches
+curl -H "Content-Type: application/json" -X POST -d 
+'{ "file":"/usr/local/spark-examples_2.11-2.4.3.jar", 
+"className":"org.apache.spark.examples.SparkPi" }' IP:8998/batches
 ```
 6. 查询代码片段执行是否成功，也可以直接在 UI 页面 `http://IP:8998/ui/session/0` 查看。
 ```

@@ -1,8 +1,9 @@
 本文主要介绍 TDMQ Pulsar 客户端与连接、客户端与生产/消费者之间的关系，并向开发者介绍客户端合理的使用方式，以便更高效、稳定地使用 TDMQ Pulsar 版的服务。
+<dx-alert infotype="explain" title="核心原则：">
+<ul style = "margin-bottom: 0px;"><li>一个进程一个 PulsarClient 即可。</li>
+<li>Producer、Consumer 是线程安全的，对于同一个 Topic，可以复用且最好复用。</li></ul>
+</dx-alert>
 
->**核心原则：**
->- 一个进程一个 PulsarClient 即可。
->- Producer、Consumer 是线程安全的，对于同一个 Topic，可以复用且最好复用。
 
 ## 客户端与连接
 
@@ -16,7 +17,7 @@ TDMQ Pulsar 客户端（以下简称 PulsarClient ）是应用程序连接到 TD
 
 当前 TDMQ Pulsar 版对生产/消费者的限制为：
 - 单个 Topic 生产者上限1000个。
-- 单个 Topic 消费者上限500个。
+- 单个 Topic 消费者上限2000个。
 
 
 

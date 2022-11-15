@@ -8,10 +8,10 @@
 
 ### 步骤1：创建云函数
 1. 登录 [云函数控制台](https://console.cloud.tencent.com/scf/list-create?rid=1&ns=default&functionName=multipart-upload-example&createType=empty)。
-2. 在【函数服务】页面，单击【新建】，创建一个 `Node.js` 云函数。
+2. 在**函数服务**页面，单击**新建**，创建一个 `Node.js` 云函数。
 创建时，具体参数如下：
 ![](https://main.qcloudimg.com/raw/d1c4281b2c510e76adeed6be134e5e53.png)
-3. 单击【完成】，完成云函数的创建。
+3. 单击**完成**，完成云函数的创建。
 
 ### 步骤2：编写代码并部署
 
@@ -106,7 +106,7 @@ exports.main_handler = async (event, context) => {
 
  ![](https://main.qcloudimg.com/raw/e2d612eab6577b138ce237b18077cf07.png)
 
-3. 单击【部署】，完成云函数的部署。
+3. 单击**部署**，完成云函数的部署。
 
 ### 步骤3：绑定 API 网关触发器
 

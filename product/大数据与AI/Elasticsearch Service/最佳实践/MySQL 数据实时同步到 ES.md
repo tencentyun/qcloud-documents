@@ -134,7 +134,7 @@ UNLOCK TABLES;
 1. mysql binlog 必须是 ROW 模式（腾讯云 TencentDB for MySQL 产品默认开启）。
 2. 要同步的 MySQL 数据表必须包含主键，否则直接忽略。如果数据表没有主键，UPDATE 和 DELETE 操作就会因为在 ES 中找不到对应的 document 而无法进行同步。
 3. 不支持程序运行过程中修改表结构。
-4. 要赋予用于连接 MySQL 的账户 RELOAD 权限、REPLICATION 权限。
+4. 要赋予用于连接 MySQL 的账户 RELOAD 权限、REPLICATION 权限、VIEW 权限(否则库上创建账户会导致程序异常退出)。
 ```
 GRANT REPLICATION SLAVE ON *.* TO 'elastic'@'172.16.32.44';
 GRANT RELOAD ON *.* TO 'elastic'@'172.16.32.44';
@@ -218,6 +218,19 @@ GRANT RELOAD ON *.* TO 'elastic'@'172.16.32.44';
 	2018/06/02 16:13:21 INFO  save position (mysql-bin.000001, 120)
 ```
 9. 测试：向 MySQL 中插入、修改、删除数据，都可以反映到 ES 中。
+10. ES 7.x 只允许存在(_doc)的表名,程序插入时 type 字段控制 表名,因此旧版本不受影响. 新版本因只允许_doc 所以 type 字段只能写_doc。
+```
+[[rule]]
+schema = "rule1"
+table = "table1"
+index = "table1"
+type = '_doc'
+[[rule]]
+schema = "rule2"
+table = "table2"
+index = "table2"
+type = "_doc"
+```
 
 ### 使用体验
 - `go-mysql-elasticsearch` 完成了最基本的 MySQL 实时同步数据到 ES 的功能，业务如果需要更深层次的功能如允许运行中修改 MySQL 表结构，可以进行自行定制化开发。

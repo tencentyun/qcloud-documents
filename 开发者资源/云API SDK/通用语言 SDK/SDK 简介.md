@@ -45,8 +45,8 @@ SDK 3.0支持全部 API 3.0下的云产品，本列表可能滞后于实际代�
 | [腾讯云搜](https://cloud.tencent.com/document/api/270/42321) | Tencent  Cloud Search，TCS                                   | yunsou       |
 | [自然语言处理](https://cloud.tencent.com/document/api/271/35484) | Natural  Language Process，NLP                               | nlp          |
 | [机器翻译](https://cloud.tencent.com/document/api/551/15612) | Tencent  Machine Translation，TMT                            | tmt          |
-| [智能钛弹性模型服务](https://cloud.tencent.com/document/api/1120/37543) | Tencent  Intelligence Elastic Model Service，TI-EMS          | tiems        |
-| [智能钛机器学习平台](https://cloud.tencent.com/document/api/851/42530) | Tencent Intelligence One-Stop Machine Learning Platfoem，TI-ONE | tione        |
+| [腾讯云 TI 平台 TI-EMS ](https://cloud.tencent.com/document/api/1120/37543) | TencentCloud TI Platform TI-EMS          | tiems        |
+| [腾讯云 TI 平台 TI-ONE ](https://cloud.tencent.com/document/api/851/42530) | TencentCloud TI Platform TI-ONE | tione        |
 | [金融联络机器人](https://cloud.tencent.com/document/api/656/18281) | Finance  Communication Robot，FCR                            | cr           |
 | [游戏多媒体引擎](https://cloud.tencent.com/document/api/607/35364) | Game  Multimedia Engine，GME                                 | gme          |
 | [智聆口语评测](https://cloud.tencent.com/document/api/884/19310) | Smart Oral  Evaluation，SOE                                  | soe          |
@@ -151,7 +151,6 @@ SDK 3.0支持全部 API 3.0下的云产品，本列表可能滞后于实际代�
 | [文件检测](https://cloud.tencent.com/document/product)              | - | tav        |
 | [腾讯云释义](https://cloud.tencent.com/document/product/1266)        | Tencent Cloud Explanation | tcex       |
 | [分布式消息队列](https://cloud.tencent.com/document/product/1179)      | Tencent Distributed Message Queue | tdmq       |
-| [智能钛机器学习](https://cloud.tencent.com/document/product)           | - | tia        |
 | [腾讯云IaC平台](https://cloud.tencent.com/document/product/1213)     | - | tic        |
 | [智能鉴黄](https://cloud.tencent.com/document/product/864)          | - | ticm       |
 | [文本内容安全](https://cloud.tencent.com/document/product/1124)       | Text Moderation System | tms        |
@@ -169,6 +168,7 @@ SDK 3.0支持全部 API 3.0下的云产品，本列表可能滞后于实际代�
 | [私有域解析 Private DNS](https://cloud.tencent.com/document/product/1338) | Private DNS | privatedns       |
 | [弹性微服务](https://cloud.tencent.com/document/product/1371)             | Tencent Cloud Elastic Microservice，TEM | tem              |
 | [腾讯云微服务引擎](https://cloud.tencent.com/document/product/1364)          | Tencent Cloud Service Engine，TSE | tse              |
+| [日志服务](https://cloud.tencent.com/document/product/614/56480)          | Cloud Log Service，CLS | cls              |
 
 ## API Explorer
 [API Explorer](https://console.cloud.tencent.com/api/explorer) 提供了在线调用、签名验证、 SDK 代码生成和快速检索接口等能力，能显著降低使用云 API 的难度。

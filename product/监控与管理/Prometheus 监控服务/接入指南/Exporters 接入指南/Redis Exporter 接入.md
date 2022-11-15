@@ -77,7 +77,7 @@ spec:
             secretKeyRef:
               name: redis-secret-test
               key: password
-        image: ccr.ccs.tencentyun.com/redis-operator/redis-exporter:1.12.0
+        image: ccr.ccs.tencentyun.com/rig-agent/redis-exporter:v1.32.0
         imagePullPolicy: IfNotPresent
         name: redis-exporter
         ports:

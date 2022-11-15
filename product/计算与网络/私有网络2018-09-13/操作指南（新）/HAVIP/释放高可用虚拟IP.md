@@ -1,4 +1,6 @@
 如果不再使用 HAVIP，可参考本文在控制台将其直接释放。
+>?目前 HAVIP 产品处于灰度优化中，如有需要，请提交 [内测申请](https://cloud.tencent.com/apply/p/azh0w1qoavk)。
+
 
 ## 前提条件
 仅**未绑定云服务器**的 HAVIP 支持释放。
@@ -8,5 +10,5 @@
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/)。
 2. 在左侧导航栏中，选择 **IP 与网卡** > **高可用虚拟 IP**，在列表中找到需要释放的 HAVIP。
 3. 单击操作栏下的**释放**。   
-     ![](https://main.qcloudimg.com/raw/7201ae9d91dccd39da8cda654a56f68d.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/57920885712afc539a415fe164ccecb0.png)
 4. 在弹出的释放确认对话框中，单击**确认**完成 HAVIP 的释放。

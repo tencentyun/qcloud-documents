@@ -1,8 +1,5 @@
 CloudShell 是网页版命令行工具，帮助您通过命令行管理腾讯云资源。您可以通过浏览器启动 CloudShell，启动时将会自动为您分配一台 Linux 管理机供您免费使用，该实例上已经预装 TCCLI 及 Terraform 等多种云管理工具和 SSH 及 VIM 等系统工具。
 
-<dx-alert infotype="explain" title="">
-使用 CloudShell 功能前需填写 [申请]( https://cloud.tencent.com/apply/p/pe2xeott9qc) 并提交，审核通过后即可开始使用。
-</dx-alert>
 
 
 
@@ -12,7 +9,7 @@ CloudShell 具备以下功能特性：
 CloudShell 启动时，会自动创建一台 Linux 虚拟机，供您独享使用。
 当会话处于活跃状态时，CloudShell 实例长期有效。每个登录云账号所拥有的管理权限等同于其在访问管理 CAM 中被授予的操作权限。同时，CloudShell 会对所有的登录用户进行安全认证，并实现虚拟机按用户隔离，保障运行环境的安全。
 - **持久性磁盘存储空间**
-CloudShell 免费提供1GB的持久存储（ 数据将会在最近一次会话的120天后随机器销毁），作为您在 CloudShell 实例上的 `/home/cloudshell/data/` 目录。您存储在主目录中的所有文件在不同会话、实例之间保持不变。
+CloudShell 免费提供1GB的持久存储（ 数据将会在最近一次会话的120天后随机器销毁），作为您在 CloudShell 实例上的 `/home/cloudshell/data/` 目录。您存储在该目录中的所有文件在不同会话、实例之间保持不变。
 - **语言及工具支持**
 CloudShell 实例多种语言支持及预装工具如下：
 <dx-accordion>
@@ -219,10 +216,15 @@ CloudShell 实例多种语言支持及预装工具如下：
 	<td>
 	长时间使用以及计算或网络密集型等恶意进程将不受支持，并可能会导致会话在没有任何警告的情况下被终止甚至禁用。</td>
   </tr>
-	  <tr>
+	<tr>
 	<td>机器销毁</td>
 	<td>
 当您30分钟无任何命令行会话操作即视为停止，停止30分钟后机器销毁。当您再次使用 CloudShell 时，会重新分配 Linux 机器。</td>
+  </tr>
+	<tr>
+	<td>访问限制</td>
+	<td>
+CloudShell 为用户的调试工具，仅支持通过公网域名访问，不支持通过内网访问除云 API 以外的其他业务。</td>
   </tr>
 </tbody>
 </table>
@@ -241,7 +243,7 @@ CloudShell 实例多种语言支持及预装工具如下：
 ::: 
 ::: 独立运行[](id:startMethodTwo)
 您可通过以下方式，独立运行 CloudShell：
- - 在浏览器中输入 `https://console.cloud.tencent.com/cloudshell`。
+ - 在浏览器中输入 `https://iaas.cloud.tencent.com/cloudshell`。
  - 进入 [API Explorer](https://console.cloud.tencent.com/api/explorer)，选择对应接口后单击**调试SDK示例代码**即可。如下图所示：
 ![](https://main.qcloudimg.com/raw/63f490b59e016ce0821a575d43f6398f.png)
  - 打开 API Inspector，单击 <img src="https://main.qcloudimg.com/raw/c355dd68f4d46b218bb1ca9dd8b268a3.png" style="margin:-3px 0px"> 即可。如下图所示：

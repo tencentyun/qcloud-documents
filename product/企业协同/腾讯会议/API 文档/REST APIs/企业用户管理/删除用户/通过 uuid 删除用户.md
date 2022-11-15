@@ -1,5 +1,9 @@
 ## 接口描述 
 **描述**：使用 uuid 删除企业用户，目前暂不支持 OAuth2.0 鉴权访问。
+<dx-alert infotype="notice" title="">
+此API不允许删除超级管理员，如需删除，请超级管理员前往 [管理后台](https://meeting.tencent.com/user-center/personal-information) > 企业管理 > 账户管理中转移超管角色。
+</dx-alert>
+
 **调用方式**：DELETE
 **接口请求域名**：
 ```Plaintext

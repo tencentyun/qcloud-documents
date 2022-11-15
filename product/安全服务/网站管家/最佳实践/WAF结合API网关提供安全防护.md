@@ -1,5 +1,5 @@
 
-本文档将介绍如何配置 Web 应用防火墙（WAF），使其对 API 网关上的 API 提供安全防护。
+本文档将介绍如何配置 Web 应用防火墙（WAF），为 API 网关上的 API 提供安全防护。
 
 ## 前提条件
 
@@ -9,7 +9,6 @@
 ## 操作步骤
 
 ### 步骤1：在 API 网关控制台绑定自定义域名
-
 参考 [配置自定义域名](https://cloud.tencent.com/document/product/628/11791) 文档，在 API 网关控制台绑定自定义域名。
 >!API 网关绑定自定义域名时，会校验自定义域名是否解析（通过 CNAME）到该服务的子域名。因此，您必须先将自定义域名解析（通过 CNAME）到 API 网关服务的子域名并配置绑定成功，再修改 DNS 记录，将自定义域名指向 WAF 的 CNAME 域名。
 >
@@ -18,22 +17,17 @@
 
 
 ### 步骤2：配置 WAF
-
-1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/waf/overview)，在左侧导航中，选择选择【实例管理】>【实例列表】，进入实例列表页面。
-2. 在实例列表页面，选择需要添加域名的实例，在右侧单击所属实例的【域名接入】。
-![](https://main.qcloudimg.com/raw/26e509138e71dd1d3e1d6a6a88fb5a09.png)
-3. 在域名接入页面 ，单击【添加域名】，进入添加域名页面。
-4. 在“域名配置”页面，根据实际情况填写相关字段，其中源站地址选择【域名】，并填写 API 网关服务的子域名，单击【保存】。
-![](https://main.qcloudimg.com/raw/8c83fbec08742ede0ddb19f762eaf90b.png)
+1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/tea-overview)，在左侧导航中，选择**域名列表**。
+2. 在域名列表页面，选择需要添加域名的实例，单击**添加域名**。
+![](https://qcloudimg.tencent-cloud.cn/raw/b4540907a1dce5d1a73ac1967a29c453.png)
+3. 在添加域名页面，配置相关参数，单击**确定**。
+![](https://qcloudimg.tencent-cloud.cn/raw/ed873dafff3e360f12edaa2ce772c994.png)
 5. 完成配置后，此时域名接入状态为“未配置 CNAME 记录”。
-<img src="https://main.qcloudimg.com/raw/46bf4804349321a264c8b0715c92a4b5.png">
+![](https://qcloudimg.tencent-cloud.cn/raw/ffdb677ca6308ae5f313f7666444ab19.png)
 
 
 ### 步骤3：修改 CNAME 记录
-
 1. 在 DNS 提供商中修改 CNAME 记录，将自定义域名指向 WAF 的 CNAME 域名。
-2. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/waf/config)，选择 【实例管理】>【域名接入】，进入域名接入页面。
-3. 在实例列表页面，选择需要添加域名的实例，在右侧单击所属实例的【域名接入】。
-![](https://main.qcloudimg.com/raw/26e509138e71dd1d3e1d6a6a88fb5a09.png)
-4. 在域名列表中，单击接入状态后面的刷新按钮，可以看到接入状态变为“正常防护”，至此接入配置完成。
-![](https://main.qcloudimg.com/raw/e26f4a5c7f9e21f6b2d57be2e6867480.png)
+2. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/tea-overview)，选择**域名列表**，进入域名列表页面，即可看到正常防护的界面。
+![](https://qcloudimg.tencent-cloud.cn/raw/04f0b5f1379ef012b8a709cc45a33af6.png)
+

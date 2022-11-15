@@ -16,13 +16,16 @@
 ### 开启配置
 
 单击开关，选择防盗链类型并填入列表，即可启用防盗链配置：
-![](https://qcloudimg.tencent-cloud.cn/raw/e98ae5773d62cc7a07131d128beffe70.png)
+
 
 **referer 黑名单：**
 
 - 若请求的 referer 字段匹配黑名单内设置的内容，CDN 节点拒绝返回该请求信息，直接返回403状态码。
 - 若请求的 referer 不匹配黑名单内设置的内容，则 CDN 节点正常返回请求信息。
 - 空referer选项勾选**拒绝空 referer访问** 选项时，此时若请求 referer 字段为空或无 referer 字段（如浏览器请求），则 CDN 节点拒绝返回该请求信息，返回403状态码。
+
+<img src="https://qcloudimg.tencent-cloud.cn/raw/a4d464b0ca1fe91eff1831d18acb8280.png" width="530px">
+
 
 **referer白名单：**
 
@@ -31,10 +34,12 @@
 - 当设置白名单时，CDN 节点只能返回符合该白名单内字符串内容的请求。
 - 空referer选项勾选**允许空 referer访问** 选项时，此时若请求 referer 字段为空或无 referer 字段（如浏览器请求），则 CDN 正常返回请求信息。
 
+<img src="https://qcloudimg.tencent-cloud.cn/raw/68f280cd104a2e3ff5211481758f8682.png" width="530px">
+
 **配置约束：**
 
 - 防盗链支持域名 / IP 规则，匹配方式为前缀匹配（仅支持路径情况下，域名的前缀匹配不支持），即假设配置名单为`www.abc.com`，则`www.abc.com/123`匹配，`www.abc.com.cn`不匹配；假设配置名单为`127.0.0.1`，则`127.0.0.1/123`也会匹配。
-- 防盗链支持通配符匹配，即假设名单为`*.qq.com`，则`www.qq.com`、`a.qq.com`均会匹配。
+- 防盗链支持通配符匹配，即假设名单为 `*.qq.com`，则 `www.qq.com`、`a.qq.com` 均会匹配，`qq.com` 因其域名级别与 `*.qq.com` 的域名级别不同，则不会被匹配。
 
 ### 关闭配置
 

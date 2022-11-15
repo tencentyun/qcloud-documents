@@ -43,8 +43,8 @@ Content-Type: application/x-www-form-urlencoded;charset=utf-8
 //请求体类型，请根据实际请求体内容设置。
 X-Client-Proto: http
 X-Client-Proto-Ver: HTTP/1.1
-X-Real-IP: 163.177.93.244
-X-Forwarded-For: 106.19.71.102, 163.177.93.244
+X-Real-IP: 163.xxx.xx.244
+X-Forwarded-For: 106.xxx.xx.102, 163.xxx.xx.244
 Date: Sun, 21 Sep 2017 06:18:21 GMT
 Authorization: hmac id="AKIDCgXXXXXXXX48pN", algorithm="hmac-sha1", headers="Date Host", signature="630123456789da9c"
 //签名，具体签名方法见认证与安全中的密钥计算方法
@@ -52,7 +52,7 @@ Authorization: hmac id="AKIDCgXXXXXXXX48pN", algorithm="hmac-sha1", headers="Dat
 - 最终发送的 HTTP 请求内至少包含两个 Header：Date 和 X-Date 二选一以及 Authorization，可以包含更多 header。如果使用 Date Header，服务端将不会校验时间；如果使用 X-Date Header，服务端将校验时间。
 - Date Header 的值为格林威治时间（GMT）格式的 HTTP 请求构造时间，例如 Fri, 09 Oct 2015 00:00:00 GMT。
 - X-Date Header 的值为格林威治时间（GMT）格式的 HTTP 请求构造时间，例如 Mon, 19 Mar 2018 12:08:40 GMT。X-Date Header 里的时间和当前时间的差值不能超过15分钟。
-- Authorization Header的组成可参考 [密钥对认证](https://cloud.tencent.com/document/product/628/11819)，多种语言生成签名的样例可参考 [多种语言生成签名](https://cloud.tencent.com/document/product/628/42189)。
+- Authorization Header的组成可参见 [密钥对认证](https://cloud.tencent.com/document/product/628/11819)，多种语言生成签名的样例可参见 [多种语言生成签名](https://cloud.tencent.com/document/product/628/42189)。
 
 
 ## 响应处理

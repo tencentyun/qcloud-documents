@@ -9,13 +9,14 @@
 
 ## 前提条件
 - 已准备远程文件拷贝软件，例如 WinSCP（建议从官方网站获取最新版本）。
+若您需部署到腾讯云云服务器，建议使用云服务器的文件上传功能。详情请参见 [上传文件到云服务器](https://cloud.tencent.com/document/product/1340/72845)。
 - 已准备远程登录工具，例如 PuTTY 或者 Xshell（建议从官方网站获取最新版本）。
 - 已购买国密标准（SM2）SSL 证书。
 - 安装 SSL 证书前需准备的数据如下：
 <table>
 <tr>
-<td>名称</td>
-<td>说明</td>
+<th>名称</th>
+<th>说明</th>
 </tr>
 <tr>
 <td>服务器的 IP 地址</td>
@@ -91,18 +92,21 @@ CORE_LIBS="$CORE_LIBS $OPENSSL/lib/libcrypto.a"
 ### 国密标准证书安装
 1. 已在 [SSL 证书管理控制台](https://console.cloud.tencent.com/ssl) 中下载并解压缩 `cloud.tencent.com` 证书文件包到本地目录。
 解压缩后，可获得相关类型的证书文件。 其中包含 Nginx 目录和 CSR 文件：
- - **文件夹名称**：Nginx
- - **文件夹内容**：
-    - `1_cloud.tencent.com_sign_bundle.crt` 证书文件
-    - `2_cloud.tencent.com_encrypt_bundle.crt` 证书文件
-    - `3_cloud.tencent.com.key` 私钥文件
-  - **CSR 文件内容**：
-    -   `cloud.tencent.com_sign.csr` 文件
-    - 	`cloud.tencent.com_encrypt.csr` 文件
-    
+   - **文件夹名称**：Nginx
+   - **文件夹内容**：
+     - `1_cloud.tencent.com_sign_bundle.crt` 证书文件
+     - `2_cloud.tencent.com_encrypt_bundle.crt` 证书文件
+     - `3_cloud.tencent.com.key` 私钥文件
+   - **CSR 文件内容**：
+     -  `cloud.tencent.com_sign.csr` 文件
+     - `cloud.tencent.com_encrypt.csr` 文件
+
 >?CSR 文件是申请证书时由您上传或系统在线生成的，提供给 CA 机构。安装时可忽略该文件。
 >
 2. 使用 “WinSCP”（即本地与远程计算机间的复制文件工具）登录 Nginx 服务器。
+>?
+>- WinSCP 上传文件操作可参考 [通过 WinSCP 上传文件到 Linux 云服务器](https://cloud.tencent.com/document/product/213/2131)。
+>- 若您需部署到腾讯云云服务器，建议使用云服务器的文件上传功能。详情请参见 [上传文件到云服务器](https://cloud.tencent.com/document/product/1340/72845)。
 3. 进入 `/usr/local/nginx/conf` 目录，新建 `sm2` 目录，将已获取到的 `1_cloud.tencent.com_sign_bundle.crt` 证书文件、`2_cloud.tencent.com_encrypt_bundle.crt` 证书文件、`3_cloud.tencent.com.key` 私钥文件从本地目录拷贝到该 `sm2` 目录下。
 4. 进入`/usr/local/nginx/conf` 目录，编辑 `nginx.conf` 文件，添加如下配置：
 ```
@@ -115,8 +119,8 @@ ssl_certificate /usr/local/nginx/conf/sm2/2_cloud.tencent.com_encrypt_bundle.crt
 ssl_certificate_key /usr/local/nginx/conf/sm2/3_cloud.tencent.com.key;
 #先配置签名证书，再配置加密证书，签名加密证书私钥key为同一个！
 ssl_session_timeout 5m;
-ssl_protocols TLSv1 TlSv1.1 TLSv1.2;
-ssl_ciphers SM2-WITH-SMS4SM3:ECDH:AESGCM:HIGH:MEDIUM:!RC4:!DH:!MD5:!aNULL:!eNULL;
+ssl_protocols TLSv1.1 TLSv1.2 TLSv1.3;
+ssl_ciphers ECC-SM4-SM3:ECDH:AESGCM:HIGH:MEDIUM:!RC4:!DH:!MD5:!aNULL:!eNULL;
 ssl_prefer_server_ciphers on;
 location / {
     root html;
@@ -130,15 +134,27 @@ location / {
 ```
 /usr/local/nginx/sbin/nginx -t
 ```
- - 若提示 `Syntax OK`，则表示配置正常，可以启动 Nginx 服务器。
- - 若提示非 `Syntax OK`，请您重新配置或者根据提示修改存在问题。
+    - 若提示 `Syntax OK`，则表示配置正常，可以启动 Nginx 服务器。
+    - 若提示非 `Syntax OK`，请您重新配置或者根据提示修改存在问题。
 6. 重新启动 Nginx 服务器，即可使用 `https://cloud.tencent.com` 进行访问。
+ - 如果浏览器地址栏显示安全锁标识，则说明证书安装成功。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/45d7e33dd41abb06087edda4871222b5.png)
+ - 如果网站访问异常，可参考以下常见问题解决方案进行处理：
+    - [无法使用 HTTPS 访问网站](https://cloud.tencent.com/document/product/400/53650)
+    - [部署 SSL 证书后，浏览器提示 “网站连接不安全”](https://cloud.tencent.com/document/product/400/56830)
+    - [访问站点提示连接不安全？](https://cloud.tencent.com/document/product/400/5366)
+    - [SSL 证书过期后重新申请部署依然提示 HTTPS 不安全？](https://cloud.tencent.com/document/product/400/65727)
+    - [在服务器上部署 SSL 证书后访问资源出现 404 报错](https://cloud.tencent.com/document/product/400/53651)
+
 
 ### 国际标准证书与国密标准证书双安装（可选）
 若您需要通过国际标准证书与国密标准证书双证书安装的方式解决浏览器兼容性问题。您可以通过以下操作设置：
 >?腾讯云提供免费的 DV 型 SSL 证书以供购买了国密标准 DNSPod 证书的用户顺利解决浏览器兼容问题。申请证书请查看 [域名型（DV）免费 SSL 证书](https://cloud.tencent.com/document/product/400/8422)。
 >
 1. 使用 “WinSCP”（即本地与远程计算机间的复制文件工具），将已获取到的国际标准证书压缩包中 Nginx 文件夹的 `1_root_bundle.crt` 证书文件、`2_cloud.tencent.com.key` 私钥文件从本地目录拷贝到 Nginx 服务器的`/usr/local/nginx/conf/sm2` 目录下。 
+>?
+>- WinSCP 上传文件操作可参考 [通过 WinSCP 上传文件到 Linux 云服务器](https://cloud.tencent.com/document/product/213/2131)。
+>- 若您需部署到腾讯云云服务器，建议使用云服务器的文件上传功能。详情请参见 [上传文件到云服务器](https://cloud.tencent.com/document/product/1340/72845)。
 2. 编辑 `/usr/local/nginx/conf` 目录下的 `ssl.conf` 文件。
 3. 请在 `server_name cloud.tencent.com` 下面换行，并添加如下内容：
 ```
@@ -151,8 +167,8 @@ ssl_certificate_key /usr/local/nginx/conf/sm2/2_cloud.tencent.com.key;
 ```
 /usr/local/nginx/sbin/nginx -t
 ```
- - 若提示 `Syntax OK` ，则表示配置正常，可以启动 Nginx 服务器。
- - 若提示非 `Syntax OK` ，请您重新配置或者根据提示修改存在问题。
+   - 若提示 `Syntax OK` ，则表示配置正常，可以启动 Nginx 服务器。
+   - 若提示非 `Syntax OK` ，请您重新配置或者根据提示修改存在问题。
 5. 重新启动 Nginx 服务器，即可解决浏览器浏览器兼容问题。
 
 >!操作过程如果出现问题，请您 [联系我们](https://cloud.tencent.com/document/product/400/35259)。

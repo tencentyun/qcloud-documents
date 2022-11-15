@@ -127,21 +127,21 @@ lib/TRTCChatSalonDemo/model/
 2. 调用 `registerListener` 函数注册组件的事件通知。
 3. 调用 `login` 函数完成组件的登录，请参考下表填写关键参数：
 <table>
-<tr>
+<thead><tr>
 <th>参数名</th>
 <th>作用</th>
-</tr>
+</tr></thead>
 <tr>
 <td>sdkAppId</td>
 <td>您可以在 <a href="https://console.cloud.tencent.com/trtc/app">实时音视频控制台</a> 中查看 SDKAppID。</td>
 </tr>
 <tr>
 <td>userId</td>
-<td>当前用户的 ID，字符串类型，只允许包含英文字母（a-z、A-Z）、数字（0-9）、连词符（-）和下划线（_）。</td>
+<td>当前用户的 ID，字符串类型，只允许包含英文字母（a-z、A-Z）、数字（0-9）、连词符（-）和下划线（_）。建议结合业务实际账号体系自行设置。</td>
 </tr>
 <tr>
 <td>userSig</td>
-<td>腾讯云设计的一种安全保护签名，获取方式请参考 <a href="https://cloud.tencent.com/document/product/647/17275">如何计算 UserSig</a>。</td>
+<td>腾讯云设计的一种安全保护签名，获取方式请参考 <a href="https://cloud.tencent.com/document/product/647/17275">如何计算及使用 UserSig</a>。</td>
 </tr>
 </table>
 

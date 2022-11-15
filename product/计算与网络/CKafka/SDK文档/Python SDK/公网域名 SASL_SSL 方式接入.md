@@ -12,7 +12,7 @@
 
 ## 操作步骤
 
-### 步骤一：准备工作
+### 步骤1：准备工作
 1. 创建接入点。
 	1. 在 **[实例列表](https://console.cloud.tencent.com/ckafka/index)** 页面，单击目标实例 ID，进入实例详情页。
 	2. 在 **基本信息** > **接入方式** 中，单击**添加路由策略**，在打开窗口中选择：`路由类型：公网域名接入`,`接入方式：SASL_SSL`。
@@ -23,7 +23,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/fb78b8290232e6342397a30a4c554ef9.png)
 
 3. 创建 Topic。
-在控制台 **topic 管理**页面新建 Topic（参考 [创建 Topic](https://cloud.tencent.com/document/product/597/20247#.E5.88.9B.E5.BB.BA-topic)）。
+在控制台 **topic 管理**页面新建 Topic（参见 [创建 Topic](https://cloud.tencent.com/document/product/597/20247#.E5.88.9B.E5.BB.BA-topic)）。
 
 4. 添加 Python 依赖库。 
 执行以下命令安装：
@@ -32,7 +32,7 @@ pip install kafka-python
 ```
 
 
-### 步骤二：生产消息
+### 步骤2：生产消息
 
 1. 修改生产消息程序 `producer.py` 中配置参数。
 ```python
@@ -74,7 +74,7 @@ producer.close()
 4. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的 **topic管理**页面，选择对应的 Topic ， 单击**更多** > **消息查询**，查看刚刚发送的消息。
 ![](https://main.qcloudimg.com/raw/ec5fbf218cf50ff3d760be15f6331867.png)
 
-### 步骤三：消费消息
+### 步骤3：消费消息
 
 1. 修改消费消息程序 consumer.py 中配置参数。
 ```python

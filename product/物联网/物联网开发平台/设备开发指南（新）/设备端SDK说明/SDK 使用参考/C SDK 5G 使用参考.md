@@ -3,7 +3,10 @@
 ## SDK 获取
 SDK 使用 Github 托管，可访问 Github 下载最新版本设备端 [C SDK 5G](https://github.com/tencentyun/qcloud-iot-explorer-5G-sdk-embedded)。
 
+
+
 ## 5G SDK 架构
+
 5G SDK 集成  IoT Explorer C SDK，通过 MQTT 协议与 IoT Explorer 保持双向连接，实现5G模组状态上报、用户指令下发等基础通信功能。5G SDK 架构图如下：
 ![architecture](https://main.qcloudimg.com/raw/49489e2ba2c9135cbebec7cc04d14ebd/5G-SDK-architecture.png)
 除此之外，SDK 还包括或者规划了以下功能：

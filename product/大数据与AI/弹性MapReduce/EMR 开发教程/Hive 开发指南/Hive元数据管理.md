@@ -2,7 +2,7 @@
 
 集群默认是独立自动购买一个 MetaDB 云数据库实例存储单元作为元数据存储地，与其余组件元数据一起存储，并随集群销毁而销毁 MetaDB 云数据库，若需保存元数据，需提前在云数据库中手动保存元数据。
 >!
->1. Hive 元数据与 Druid、Superset、Hue、Ranger、Oozie、Presto 组件元数据一起存储。
+>1. Hive 元数据与 Druid、Superset、Hue、Ranger、Oozie、Presto 组件元数据一起存储。  
 >2. 集群需要单独购买一个 MetaDB 作为元数据存储单元。
 >3. MetaDB 随集群销毁而销毁，即元数据随集群而销毁。
 

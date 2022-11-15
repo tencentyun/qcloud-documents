@@ -25,10 +25,10 @@
 <td>提供 API 接口</td>
 </tr>
 </tbody></table>
+4. 如果使用到高清音质请参见 [Unity 配置高清音质文档](https://cloud.tencent.com/document/product/607/67297) 进行解决。
 
-
-<dx-alert infotype="explain" title="Unity SDK 平台支持">
-Unity SDK 已同时集成 Windows、Mac、Android、iOS 平台架构。
+<dx-alert infotype="explain" title="平台支持">
+Unity SDK 已同时集成 Windows、Mac、Android、iOS、PlayStation、Xbox、Switch、WebGL 平台架构。
 </dx-alert>
 
 
@@ -55,6 +55,11 @@ Unity SDK 已同时集成 Windows、Mac、Android、iOS 平台架构。
 <img src="https://main.qcloudimg.com/raw/21e8b967c75ebdd2ea1686cfd434f89c.png"  width="65%" /></img>
 
 
+
+## Unity 2021配置
+如果使用的 Unity Editor 是 Unity 2021 及以上版本，需要将 Plugins > Android > Opensdk.plugin 下的 lib 文件夹，剪切后放在工程中 Plugins 文件中的 Android 目录下，与 Opensdk.plugin 同一级。
+
+<img src="https://qcloudimg.tencent-cloud.cn/raw/bc7156db71faf994654c824787bfb1a9.png"  width="65%" /></img>
 
 
 ## 音频设置
@@ -86,4 +91,5 @@ $ xattr -d com.apple.quarantine gmesdk.bundle
 <dx-alert infotype="explain" title="">
 此操作有风险，建议使用低版本的 MacOS 进行接入。
 </dx-alert>
+
 

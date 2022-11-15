@@ -1,6 +1,6 @@
 如需在云函数中访问 CloudBase 的各项服务，例如操作数据库、管理云文件等，可使用 CloudBase 服务端 SDK。
 
-例如，您可以在 Node.js 云函数中，使用 [CloudBase Node.js SDK](https://docs.cloudbase.net/api-reference/server/node-sdk/introduction.html) 调用 CloudBase 服务。
+例如，您可以在 Node.js 云函数中，使用 [CloudBase Node.js SDK](https://docs.cloudbase.net/api-reference/server/node-sdk/introduction) 调用 CloudBase 服务。
 
 ```js
 const cloudbase = require("@cloudbase/node-sdk");
@@ -118,5 +118,5 @@ exports.main = async (event, context) => {
 
 更多详细信息请参见：
 
-- [Node.js SDK 文档](https://docs.cloudbase.net/api-reference/server/node-sdk/introduction.html)
+- [Node.js SDK 文档](https://docs.cloudbase.net/api-reference/server/node-sdk/introduction)
 - [wx-server-sdk](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/reference-sdk-api/init/server.init.html)

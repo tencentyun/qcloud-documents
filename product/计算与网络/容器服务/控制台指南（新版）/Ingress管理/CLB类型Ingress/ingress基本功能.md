@@ -1,4 +1,4 @@
-## 简介
+## 简介 
 Ingress 是允许访问到集群内 Service 的规则的集合，您可以通过配置转发规则，实现不同 URL 可以访问到集群内不同的 Service。
 为了使 Ingress 资源正常工作，集群必须运行 Ingress-controller。TKE 服务在集群内默认启用了基于腾讯云负载均衡器实现的 `l7-lb-controller`，支持 HTTP、HTTPS，同时也支持在集群内自建其他 Ingress 控制器，您可以根据您的业务需要选择不同的 Ingress 类型。
 
@@ -10,12 +10,15 @@ Ingress 是允许访问到集群内 Service 的规则的集合，您可以通过
   - 不支持多个 Ingress 复用 CLB。
   - 不支持 Ingress 和 Service 共用 CLB。
   - 删除 Ingress 后，复用 CLB 绑定的后端云服务器需要自行解绑，同时会保留一个 `tag tke-clusterId: cls-xxxx`，需自行清理。
+  - 默认 CLB 的转发规则的限制是50个，如果您 Ingress 的转发规则超过50时，可通过 [在线咨询](https://cloud.tencent.com/online-service?from=doc_457) 提升负载均衡 CLB 的配额。
+  - Ingress 和 CLB 之间配置的管理和同步是由以 CLB ID 为名字的 LoadBalancerResource 类型的资源对象，请勿对该 CRD 进行任何操作，否则容易导致 Ingress 失效。
+
 
 ## Ingress 控制台操作指引
                                                                                                                                     
 ### 创建 Ingress
 
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
+1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)。
 2. 在左侧导航栏中，单击**集群**进入集群管理页面。
 3. 单击需要创建 Ingress 的集群 ID，进入待创建 Ingress 的集群管理页面。
 4. 选择**服务** > **Ingress**，进入 Ingress 信息页面。
@@ -38,7 +41,7 @@ Ingress 是允许访问到集群内 Service 的规则的集合，您可以通过
 
 #### 更新 YAML
 
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
+1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)。
 2. 在左侧导航栏中，单击**集群**，进入集群管理页面。
 3. 单击需要更新 YAML 的集群 ID，进入待更新 YAML 的集群管理页面。
 4. 选择**服务** > **Ingress**，进入 Ingress 信息页面。如下图所示：

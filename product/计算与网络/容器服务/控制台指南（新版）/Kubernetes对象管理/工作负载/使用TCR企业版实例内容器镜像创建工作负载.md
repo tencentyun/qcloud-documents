@@ -39,8 +39,8 @@ docker push demo-tcr.tencentcloudcr.com/docker/getting-started:latest
 ### 配置 TKE 集群访问 TCR 实例[](id:deployTKE)
 TCR 企业版实例支持网络访问控制，默认拒绝全部来源的外部访问。您可根据 TKE 集群的网络配置，选择通过公网或内网访问指定实例，拉取容器镜像。若 TKE 集群与 TCR 实例部署在同一地域，建议通过内网访问方式拉取容器镜像，可提升拉取速度，并节约公网流量成本。
 #### 使用 TCR 扩展组件进行快速配置（推荐）
-1. 登录容器服务控制台，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
-2. 在“集群管理”页面，选择集群 ID，进入集群详情页。 
+1. 登录容器服务控制台 ，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
+2. 在“集群管理”页面，选择集群 ID，进入集群详情页。  
 3. 在集群详情页面，选择左侧**组件管理**，进入“组件管理”页面，并单击**新建**。
 4. 在“新建扩展组件”页面，选择 “TCR” 组件。如下图所示：
 >? 当前 TCR 组件暂只支持 K8S 版本为 1.12、1.14、1.16、1.18、1.20 的集群，如集群版本暂不支持，请采用手动配置方式，或升级集群版本。
@@ -77,7 +77,7 @@ echo '172.21.17.69 demo.tencentcloudcr.com' >> /etc/hosts
 
 #### 2. 配置访问凭证[](id:issued)
 新建命名空间时参考以下步骤，下发访问凭证：
-1. 登录容器服务控制台，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
+1. 登录容器服务控制台 ，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
 2. 在“集群管理”页面，选择集群 ID，进入集群详情页。
 3. 选择左侧的**命名空间**，进入 “Namespace” 页面并单击**新建**。
 4. 进入“新建Namespace” 页面，勾选“自动下发容器镜像服务企业版访问凭证”，并选择该集群需访问的 TCR 实例。如下图所示：

@@ -43,11 +43,11 @@
 ![](https://main.qcloudimg.com/raw/2f6c1d0c3ce0b474b0b12bd9c6c9eec5.png)
 2. 登录 Linux 云服务器，具体操作请参考 [使用标准方式登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436) 。
 3. 执行以下命令，新建并编辑 `test.js` 文件。
-```
+```shellsession
 vim test.js
 ```
 4. 按 **i** 切换至编辑模式，将以下内容输入到文件中：
-```
+```javascript
 const http = require('http');
 const hostname = '0.0.0.0';
 const port = 8080;
@@ -60,15 +60,16 @@ server.listen(port, hostname, () => {
     console.log(`Server running at http://${hostname}:${port}/`);
 });
 ```
->?本文在 `test.js` 测试文件中设置端口号为8080，您可根据实际需求自行修改。
->
+<dx-alert infotype="explain" title="">
+本文在 `test.js` 测试文件中设置端口号为8080，您可根据实际需求自行修改。
+</dx-alert>
 5. 按 **Esc**，输入 **:wq**，保存文件并返回。
 4. 执行以下命令，进行测试。
-```
+```shellsession
 node test.js 
 ```
 6. 在本地浏览器中访问以下地址，查看项目是否正常运行。
-```
+```shellsession
 http://云服务器实例的公网 IP:已配置的端口号
 ```
 显示结果如下，则说明 Node.js 环境搭建成功。

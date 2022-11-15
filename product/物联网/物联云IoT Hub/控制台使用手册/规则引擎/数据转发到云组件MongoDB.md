@@ -1,8 +1,12 @@
+
+
 ## 概述
+
 规则引擎支持用户配置转发规则，将符合条件的设备上报数据转发到云组件 MongoDB ，您可以在 [MongoDB 控制台](https://console.cloud.tencent.com/mongodb) 或者使用云 API 创建 MongoDB 实例后，即可将设备消息写入到对应的 MongoDB 集合中。
 
 下图展示了规则引擎将数据转发给 MongoDB 的整个过程：
 ![](https://main.qcloudimg.com/raw/ce65ecf23f563cf2226c17e690cdcf1d.png)
+>?副本集实例版本要求不高于4.0，分片实例版本要求不低于4.0。
 
 ## 配置
 1. 登录 [物联网通信控制台](https://console.cloud.tencent.com/iotcloud)，单击左侧菜单**规则引擎**。

@@ -1,3 +1,4 @@
+
 ## 功能介绍
 快速加列功能是通过只修改数据字典的方法来实现大表快速加列，避免之前加列操作必须做的数据拷贝，从而大幅缩小大表加列所需的时间，减少对系统的影响。
 
@@ -24,3 +25,10 @@ ALTER TABLE t1 ADD COLUMN c INT, ADD COLUMN d INT DEFAULT 1000, ALGORITHM=INSTAN
 SET @@global.innodb_alter_table_default_algorithm=instant;
 ```
 通过该参数指定了缺省算法后，在不指明算法的情况下，将使用默认算法来进行 Alter Table 操作。
+
+### Instant Add Column 限制
+- 一条语句中只有加列操作，不支持有其他的操作在同一条语句的情况。
+- 新增列将会放到最后，不支持改变列的顺序。
+- 不支持在行格式为 COMPRESSED 的表上快速加列。
+- 不支持在已经有全文索引的表上快速加列。
+- 不支持在临时表上快速加列。

@@ -15,7 +15,7 @@
 ![](https://main.qcloudimg.com/raw/84b671532f95937776b8ff352043de41.jpg)
 
 新建技能后，就进入了基本配置页面：
-![](https://mc.qcloudimg.com/static/img/6017366d7278e6fe31c854c38e4dd65e/image.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/ac21a825287458435346b813db2a908f.png)
 - **技能 ID：** Skill 在腾讯云小微的唯一标识。
 - **技能类型：** 您在上个页面选择的技能类型。
 - **技能名称：**仅用户内部区分，不是用户在 Skill 市场上看到的最终名字。

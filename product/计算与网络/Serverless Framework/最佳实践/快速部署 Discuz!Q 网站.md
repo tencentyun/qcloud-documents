@@ -1,13 +1,13 @@
-腾讯云 Serverless 提供了基于 Serverless 架构的 Discuz！Q 全新部署方式。通过 [Serverless Framework Discuz！Q 组件](https://github.com/serverless-components/tencent-discuzq)，您可以三分钟部署一个 Discuz！Q 项目来搭建属于您的社区和论坛。
+腾讯云 Serverless 提供了基于 Serverless 架构的 Discuz!Q 全新部署方式。通过 [Serverless Cloud Framework Discuz!Q 组件](https://github.com/serverless-components/tencent-discuzq)，您可以三分钟部署一个 Discuz!Q 项目来搭建属于您的社区和论坛。
 
 ## 架构简介
 该组件主要为您创建以下资源：
 
 | 模块 | 说明 | 
 |---------|---------|
-| 云函数 SCF | 负责 Serverless Discuz！Q 的接入层实现，从而运行 Discuz！Q。 |
-| API 网关| Discuz！Q 的对外入口，实现了 RESTful API。 |
-| 文件储存 CFS  | Discuz！Q 代码的挂载和存储仓库。 |
+| 云函数 SCF | 负责 Serverless Discuz!Q 的接入层实现，从而运行 Discuz!Q。  |
+| API 网关| Discuz!Q 的对外入口，实现了 RESTful API。  |
+| 文件储存 CFS  | Discuz!Q 代码的挂载和存储仓库。  |
 | 私有网络 VPC | 内网打通云函数 SCF、CFS 之间的网络，保障网络隔离。|
 
 
@@ -18,24 +18,27 @@
 - （可选）准备好已备案的自定义域名，您也可以通过 Serverless 备案资源包完成备案，详情请参见 [ICP 备案](https://cloud.tencent.com/document/product/1154/50706)。
 
 ## 部署步骤
-您可以通过**控制台**或**命令行**完成 Serverless Discuz！Q 部署，步骤如下：
+您可以通过**控制台**或**命令行**完成 Serverless Discuz!Q 部署，步骤如下：
 
 
 
 ### 控制台部署
 
-1. 登录[ Serverless 应用控制台](https://console.cloud.tencent.com/sls?from=wpdocs)，单击**新建应用**。
-2. 选择**应用市场** > **快速部署一个Discuz！Q框架**，单击**下一步**。
-![](https://main.qcloudimg.com/raw/c93aec460abf0909fe586f3c867b39e4.png)
-3. 输入应用名，单击**完成**即可完成应用创建。
-![](https://main.qcloudimg.com/raw/d0ca3501aed949fd2e530ceac6c5f9e5.png)
-4. 在 Serverless 应用页，单击**安装应用**，按照页面提示，安装您的 Discuz！Q 项目，完成数据库配置、账号密码创建等操作。
+1. 登录[ Serverless 应用控制台](https://console.cloud.tencent.com/scf?from=wpdocs)，单击**新建应用**。
+2. 选择**应用市场** > **快速部署一个Discuz!Q框架**，单击**下一步**。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/3686e5c685e940ee633dca207044f2e2.png)
+3. 输入应用名和选择地域后，单击**完成**即可创建应用。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/e09240b4ef8fe440dcc3e78514913745.png)
+4. 在 Serverless 应用列表中，选择已创建的应用，进入应用详情页。
+5. 在**资源列表 > 基础信息**中，单击**安装地址**。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/b2701602ebf9acde064abe0a6de0f540.png)
+6. 在“安装 Discuz! Q”页中，按照页面提示，安装您的 Discuz!Q 项目，完成数据库配置、账号密码创建等操作。如下图所示：
 >! 请保证您绑定的数据库必须和应用本身在同一个 VPC 网络环境下，如果没有数据库实例，您可以参考 [TDSQL-C Serverless MySQL 数据库](https://cloud.tencent.com/document/product/1003/50853) 文档，创建一个 Serverless 数据库并完成绑定。
-![](https://main.qcloudimg.com/raw/5be323ac9c9264443ad555dfa1c36ed5.png)
-5. 完成安装后，单击**“访问应用”**，输入您的账户名和密码，即可访问您的 Discuz！Q 论坛。
+>
+![](https://qcloudimg.tencent-cloud.cn/raw/6923f4e96eadc2b0cac4146bcd75c6d4.png)
+7. 完成安装后，单击**访问应用**，输入您的账户名和密码，即可访问您的 Discuz!Q 论坛。如下图所示：
 ![](https://main.qcloudimg.com/raw/d89eee226f9dc5f125a6ea2a26d916e1.png)
-6. 部署后，您也可以单击您的应用名称，查看资源列表和部署日志。在资源列表页，您可以单击**新增**配置您的自定义域名。
-![](https://main.qcloudimg.com/raw/ef07a567abf3524586a72bb1c116ecbf.png)
+8. 部署完成后，您也可以在**资源列表 > 基础信息**中，查看应用的资源列表和部署日志。在资源列表页，您可以单击**新增**配置您的自定义域名。
 
 ### 命令行部署
 
@@ -60,10 +63,10 @@ name: discuz-qDemo
 └── .env # 环境变量文件
 :::
 </dx-codeblock>
-3. 在根目录下，执行 `sls deploy`，即可完成部署。示例如下：
+3. 在根目录下，执行 `scf deploy`，即可完成部署。示例如下： 
 <dx-codeblock>
 :::  sh
-$ sls deploy
+$ scf deploy
 
 serverless ⚡components
 Action: "deploy" - Stage: "dev" - App: "discuz-q" - Name: "discuz-qDemo"
@@ -99,4 +102,4 @@ dzqServerFaas:
     ...
 :::
 </dx-codeblock>
-4. 部署成功后，单击 `apigw` 部分输出的 URL，根据指引完成账号密码配置，即可开始使用您的 Discuz！Q 应用。
+4. 部署成功后，单击 `apigw` 部分输出的 URL，根据指引完成账号密码配置，即可开始使用您的 Discuz!Q 应用。

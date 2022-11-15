@@ -7,10 +7,11 @@
 
 
 
-## 示例软件版本
-本文搭建 Docker 环境使用软件版本及组成说明如下：
-操作系统：Linux 系统，本文以 CentOS 8.2 及 7.6 为例。
-
+## 示例操作系统
+本文使用云服务器实例操作系统以 CentOS 8.2 及 7.6 为例。
+若您使用了 TencentOS Server 操作系统，则需对应实际版本进行操作：
+  - TencentOS Server 2.4：镜像已预置 Docker，无需再次安装，可参考 [使用 Docker](#userDocker) 直接开始使用。
+  - TencentOS Server 3.1 (TK4)：请参考文档步骤进行搭建。
 
 ## 前提条件
 已购买 Linux 云服务器。如果您还未购买云服务器，请参考 [快速配置 Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)。
@@ -86,7 +87,7 @@ docker info
 </dx-tabs>
 
 
-### 使用 Docker
+### 使用 Docker[](id:userDocker)
 Docker 的基本使用命令如下：
 - 管理 Docker 守护进程。
  - 运行 Docker 守护进程：
@@ -178,7 +179,6 @@ docker login #执行后输入镜像仓库用户名及密码
 docker tag [镜像名]:[标签] [用户名]:[标签]
 docker push [用户名]:[标签]
 ```
-推送完成后，即可使用浏览器登录 Docker Hub 官网进行查看。
-
+推送完成后，即可使用浏览器登录 [Docker Hub 官网](https://hub.docker.com) 进行查看。
 
 

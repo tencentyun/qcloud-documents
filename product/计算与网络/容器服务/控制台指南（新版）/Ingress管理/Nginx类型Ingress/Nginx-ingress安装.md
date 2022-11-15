@@ -6,11 +6,13 @@
 
 ## 安装 NginxIngress 组件[](id:Nginx-ingress)
 
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的**集群**。
+
+
+1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的**集群**。
 2. 在“集群管理”页面单击目标集群 ID，进入集群详情页。
 3. 选择左侧菜单栏中的**组件管理**，进入 “组件列表” 页面。
 4. 在“组件列表”页面中选择**新建**，并在“新建组件”页面中勾选 NginxIngress。
-5. 单击**完成**即可安装组件。
+5. 单击**完成**即可安装组件。您可在**服务与路由 > NginxIngress**中查看组件详情。
 
 
 ## 安装方式
@@ -34,9 +36,15 @@ Nginx 作为关键的流量接入网关，不建议您将 Nginx 与其他业务�
 3. 在新建的 Nginx Ingress 组件详情页，单击**新增Nginx Ingress实例**（一个集群内可以同时存在多个 Nginx）。
 ![](https://main.qcloudimg.com/raw/75edc57adda78df364f9430a844eb1b5.png)
 4. 在弹出的窗口中，选择部署选项中的**指定DaemonSet节点池部署**，并按需设置其他参数。如下图所示：
-![](https://main.qcloudimg.com/raw/d640a06f25185e3a37d546533442e118.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/629cad10b9c34036f1a2416eff2c520a.png)
  - 节点池：配置节点池。
  - Nginx 配置：Requst 需设置比节点池的机型配置小（节点本身有资源预留）。Limit 可不设置。
+ - 镜像版本说明：
+     - Kubernetes 为 1.20 及以下版本的集群，Nginx Ingress 组件版本为 1.0.0，Nginx 实例的镜像版本只能选择 v41.0。
+     - Kubernetes 为 1.20 及以下版本的集群，Nginx Ingress 组件版本为 1.1.0，Nginx 实例的镜像版本只能选择 v41.0, v49.3。
+     - Kubernetes 大于等于 1.22 版本的集群，Nginx Ingress 组件版本只支持 1.1.0, Nginx 实例的镜像版本只能选择 v1.1.3。
+>? Nginx 实例的版本说明可参考 [ingress-nginx 文档](https://github.com/kubernetes/ingress-nginx)。升级集群可参考 [升级集群操作步骤](https://cloud.tencent.com/document/product/457/32192)。升级 Nginx Ingress 组件可参考 [组件升级操作步骤](https://cloud.tencent.com/document/product/457/49442)。
+>
 4. 单击**确定**即可完成安装。
 
 
@@ -51,9 +59,15 @@ Nginx 作为关键的流量接入网关，不建议您将 Nginx 与其他业务�
 2. 在集群中 [安装 NginxIngress 组件](#Nginx-ingress)。
 3. 在新建的 Nginx Ingress 组件详情页，单击**新增Nginx Ingress实例**（一个集群内可以同时存在多个 Nginx）。
 4. 在弹出的窗口中，选择部署选项中的**自定义Deployment+HPA 部署**，并按需设置其他参数。如下图所示：
-![](https://main.qcloudimg.com/raw/650626808a60e00fc989a09e8a5477bd.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/dc5d5ec9d0f1f41c95348753a6a424d2.png)
  - 节点调度策略：需自行指定。
  - Nginx 配置：Requst 需设置比节点池的机型配置小（节点本身有资源预留）。Limit 可不设置。
+ - 镜像版本说明：
+     - Kubernetes 为 1.20 及以下版本的集群，Nginx Ingress 组件版本为 1.0.0，Nginx 实例的镜像版本只能选择 v41.0。
+     - Kubernetes 为 1.20 及以下版本的集群，Nginx Ingress 组件版本为 1.1.0，Nginx 实例的镜像版本只能选择 v41.0, v49.3。
+     - Kubernetes 大于等于 1.22 版本的集群，Nginx Ingress 组件版本只支持 1.1.0, Nginx 实例的镜像版本只能选择 v1.1.3。
+>? Nginx 实例的版本说明可参考 [ingress-nginx 文档](https://github.com/kubernetes/ingress-nginx)。升级集群可参考 [升级集群操作步骤](https://cloud.tencent.com/document/product/457/32192)。升级 Nginx Ingress 组件可参考 [组件升级操作步骤](https://cloud.tencent.com/document/product/457/49442)。
+>
 5. 单击**确定**即可完成安装。
 
 
@@ -71,7 +85,7 @@ Nginx 作为关键的流量接入网关，不建议您将 Nginx 与其他业务�
 
 #### Globalrouter 模式集群使用普通 Loadbalancer 模式的 Service
 
-如果您的集群不支持 VPC-CNI 模式网络，您也可以通过常规的 Loadbalancer 模式 Service 接入流量。 
+如果您的集群不支持 VPC-CNI 模式网络，您也可以通过常规的 Loadbalancer 模式 Service 接入流量。  
 当前 TKE 上 LoadBalancer 类型的 Service 默认实现是基于 NodePort，CLB 会绑定各节点的 NodePort 作为后端 RS，将流量转发到节点的 NodePort，然后节点上再通过 iptables 或 ipvs 将请求路由到 Service 对应的后端 Pod。这种方案是最简单的方案，但流量会经过一层 NodePort，会多一层转发。可能存在以下问题：
 - 转发路径较长，流量到了 NodePort 还会再经过 k8s 内部负载均衡，通过 iptables 或 ipvs 转发到 Nginx，会增加一点网络耗时。
 - 经过 NodePort 必然发生 SNAT，如果流量过于集中容易导致源端口耗尽或者 conntrack 插入冲突导致丢包，引发部分流量异常。
@@ -96,7 +110,7 @@ Nginx 作为关键的流量接入网关，不建议您将 Nginx 与其他业务�
 您可以在 Nginx-ingress 组件详情页，Ningx 参数 tab 中选择的 Nginx-ingress 实例进行 YAML 编辑。
 >! 默认情况下配置参数不会重启 Nginx，生效时间有细微延迟。
 
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的**集群**。
+1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的**集群**。
 2. 在“集群管理”页面单击目标集群 ID，进入集群详情页。
 3. 选择左侧菜单栏中的**组件管理**，进入 “组件列表” 页面。
 4. 单击需要设置参数的组件右侧的**更新Nginx配置**，进入“Nginx配置”页面。
@@ -110,15 +124,15 @@ Nginx 作为关键的流量接入网关，不建议您将 Nginx 与其他业务�
 apiVersion: v1
 kind: ConfigMap
 metadata:
-     name: alpha-ingress-nginx-controller
-     namespace: kube-system
+  name: alpha-ingress-nginx-controller
+  namespace: kube-system
 data:
-     access-log-path: /var/log/nginx/nginx_access.log
-     error-log-path: /var/log/nginx/nginx_error.log
-     log-format-upstream: $remote_addr - $remote_user [$time_iso8601] $msec "$request" $status $body_bytes_sent "$http_referer" "$http_user_agent" $request_length $request_time [$proxy_upstream_name] [$proxy_alternative_upstream_name] [$upstream_addr] [$upstream_response_length] [$upstream_response_time] [$upstream_status] $req_id
-     keep-alive-requests: "10000"
-     max-worker-connections: "65536"
-     upstream-keepalive-connections: "200"
+  access-log-path: /var/log/nginx/nginx_access.log
+  error-log-path: /var/log/nginx/nginx_error.log
+  log-format-upstream: $remote_addr - $remote_user [$time_iso8601] $msec "$request" $status $body_bytes_sent "$http_referer" "$http_user_agent" $request_length $request_time [$proxy_upstream_name] [$proxy_alternative_upstream_name] [$upstream_addr] [$upstream_response_length] [$upstream_response_time] [$upstream_status] $req_id
+  keep-alive-requests: "10000"
+  max-worker-connections: "65536"
+  upstream-keepalive-connections: "200"
 ```
 
 >!

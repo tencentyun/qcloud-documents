@@ -1,5 +1,8 @@
 ## 操作场景
+
+
 ### 基本原理
+
 blufi 蓝牙辅助配网是针对 ESP32  Combo 芯片的配网方案，通过 BLE 创建指定的 GATT 服务，手机连接该 GATT SERVER，利用 BLE 的无线通信能力，将物联网设备连接所需的 SSID、PSW 等信息传输给 Wi-Fi+BLE 的 Combo 芯片或模组，使设备顺利接入物联网平台，继而完设备绑定等功能。
 
 目前腾讯连连小程序已支持采用 blufi 蓝牙辅助配网协议进行配网 Demo 开发，并提供相应的 [小程序 SDK](https://www.npmjs.com/package/qcloud-iotexplorer-appdev-sdk)。

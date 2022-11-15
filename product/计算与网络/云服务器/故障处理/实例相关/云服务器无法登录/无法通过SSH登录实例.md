@@ -1,7 +1,9 @@
->?
->- 本文来源于社区贡献，仅供参考，与腾讯云相关产品无关。您可前往 [社区](https://cloud.tencent.com/developer/ask) 获取更多帮助和支持。
->- 文中涉及的相关文件操作，请务必谨慎执行。如有必要，可通过创建快照等方式进行数据备份。
-> 
+<dx-alert infotype="explain" title="">
+- 本文来源于社区贡献，仅供参考，与腾讯云相关产品无关。您可前往 [社区](https://cloud.tencent.com/developer/ask) 获取更多帮助和支持。
+- 文中涉及的相关文件操作，请务必谨慎执行。如有必要，可通过创建快照等方式进行数据备份。
+</dx-alert>
+
+
 
 ## 现象描述
 [使用 SSH 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35700) 时，提示无法连接或者连接失败，导致无法正常登录 Linux 实例。
@@ -204,7 +206,7 @@ root 用户使用 SSH 登录 Linux 实例时，出现报错信息 “Permission 
 #### 处理步骤[](id:ProcessingSteps4)
 
 
-#### 检查及关闭 SELinux 服务
+#### 检查及关闭 SELinux 服务[](id:closeSELinux)
 1. [使用 VNC 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35701)。
 2. 执行以下命令，查看当前 SELinux 服务状态。
 ```
@@ -231,7 +233,7 @@ sed -i 's/SELINUX=enforcing/SELINUX=disabled/' /etc/selinux/config
 </dx-alert>
 
 
-#### 检查及调整 sshd 配置
+#### 检查及调整 sshd 配置[](id:sshconfig)
 1. [使用 VNC 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35701)。
 2. 执行以下命令，使用 VIM 编辑器进入 `sshd_config` 配置文件。
 ```shell
@@ -942,7 +944,7 @@ auth        required      pam_succeed_if.so uid <= 1000    # 修改策略
 连续多次输入错误密码，触发系统 pam 认证模块策略限制，导致用户被锁定。
 
 <dx-alert infotype="explain" title="">
-更多 pam 安全认证相关信息，请参考官网文档 [pam_tally2 - login counter (tallying) module](http://www.linux-pam.org/Linux-PAM-html/sag-pam_tally2.html?spm=a2c4g.11186623.0.0.44262fc7r2i3PU)。
+更多 pam 安全认证相关信息，请参考官网文档 [pam_tally2 - login counter (tallying) module](https://www.linux.org/docs/man8/pam_tally2.html)。
 </dx-alert>
 
 

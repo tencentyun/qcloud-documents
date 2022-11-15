@@ -1,4 +1,7 @@
-展示创建视图的语句。
+## 说明
+- 支持内核：Presto、SparkSQL。
+- 用途：展示创建视图的语句。
+
 ## 语法
 ```
 SHOW CREATE VIEW view_name

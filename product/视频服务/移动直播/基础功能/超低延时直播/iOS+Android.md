@@ -20,7 +20,7 @@
 <td>通过智能网络质量调控和编码优化降低卡顿率， 50%丢包率可正常视频观看。60%丢包率可正常语音连麦</td>
 </tr><tr>
 <td>灵活简单</td>
-<td>新的移动直播 V2 接口在设计上更加简单，尤其是在连麦等互动场景上，可以非常灵活的接入业务系统</td>
+<td>新的直播 SDK  V2 接口在设计上更加简单，尤其是在连麦等互动场景上，可以非常灵活的接入业务系统</td>
 </tr>
 </tbody></table>
 
@@ -44,7 +44,7 @@
 </tbody></table>
 
 ## 体验超低延时直播
-视频云工具包是腾讯云开源的一套完整的音视频服务解决方案，包含实时音视频（TRTC）、移动直播（MLVB）、短视频（UGC）等多个 SDK 的能力展示，其中包含超低延时直播相关体验 UI —**连麦演示( 新方案 )** 。
+视频云工具包是腾讯云开源的一套完整的音视频服务解决方案，包含实时音视频（TRTC）、直播 SDK、短视频（UGC）等多个 SDK 的能力展示，其中包含超低延时直播相关体验 UI —**连麦演示( 新方案 )** 。
 > ?因为超低延时播直播的特性（推流/播放），目前将其能力的展示整合在连麦演示（新方案）中，具体说明见下文。
 
 ### 源码及示例
@@ -93,7 +93,7 @@
 
 
 ## 接入工程
-新版本的移动直播 SDK，提供了新的 V2 接⼝：`V2TXLivePusher` (推流)、 `V2TXLivePlayer`  (拉流)，用于帮助客户实现**更加灵活、更低延时**的直播业务场景。同时考虑的客户对于标准直播的需求，移动直播 V2 接⼝兼容⽀持两种直播协议：
+新版本的直播 SDK，提供了新的 V2 接⼝：`V2TXLivePusher` (推流)、 `V2TXLivePlayer`  (拉流)，用于帮助客户实现**更加灵活、更低延时**的直播业务场景。同时考虑的客户对于标准直播的需求，直播 SDK  V2 接⼝兼容⽀持两种直播协议：
 
 | 协议类型 | 说明 |
 |---------|---------|
@@ -116,9 +116,9 @@
 > - 本文提到的生成 UserSig 的方案是在客户端代码中配置 UserSig，该 UserSig 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此 **该方法仅适合本地跑通 Demo 和功能调试** 。
 > - 正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/647/17275#Server)。
 
-> ? 在服务开通后，建议先可以编译&体验一下腾讯云提供的 SimpleCode（一个极简的 Demo），配合下文说明，方便您快速了解API 的使用。
-> - [Android](https://github.com/tencentyun/MLVBSDK/tree/master/Android/MLVB-API-Example)
-> - [iOS](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/MLVB-API-Example)
+> ? 在服务开通后，建议先可以编译&体验一下腾讯云提供的 SimpleCode（一个极简的 Demo），配合下文说明，方便您快速了解 API 的使用。
+> - [Android](https://github.com/LiteAVSDK/Live_Android/tree/main/MLVB-API-Example)
+> - [iOS](https://github.com/LiteAVSDK/Live_iOS/tree/main/MLVB-API-Example)
 
 
 [](id:step2)

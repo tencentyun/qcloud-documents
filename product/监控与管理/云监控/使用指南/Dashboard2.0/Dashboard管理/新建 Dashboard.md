@@ -8,7 +8,6 @@
 4. 单击面板区的<img src="https://main.qcloudimg.com/raw/4faa1888e40f4ae2f153ce82163988a7.png"  style="margin:0;" width="3%">，在弹出的窗口中填写面板名并选择 Dashboard 所属文件夹。
    ![](https://main.qcloudimg.com/raw/86fdfa7904029299afa8bfbf50f34da4.png)
 5. 单击**确定**即可快速创建 Dashboard。
-
 > ?如需编辑 Dashboard 名称或进行 Dashboard 全局配置（模板变量、链接管理、JSON等配置），请参见 [Dashboard 全局配置](https://cloud.tencent.com/document/product/248/46763)。
 
 

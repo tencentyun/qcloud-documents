@@ -65,7 +65,7 @@
    | ---------------- | ------------------------------------------------------------ |
    | bootstrapServers | 自建实例的broker列表，["ip1:port1","ip2:port2"]。            |
    | sourceZk         | 自建实例的zookeeper列表， ["zk1:port1","zk2:port2"]。        |
-   | instanceId       | 您在 [购买云上实例](https://cloud.tencent.com/document/product/597/57775) 中购买的 CKafka 实例的 ID，在控制台的【实例列表】页面复制。 |
+   | instanceId       | 您在 [购买云上实例](https://cloud.tencent.com/document/product/597/57775) 中购买的 CKafka 实例的 ID，在控制台的**实例列表**页面复制。 |
    | secretId         | 账号的密钥对-ID。                                            |
    | secretKey        | 账号的密钥对-密码。                                          |
    | region           | 您在 [购买云上实例](https://cloud.tencent.com/document/product/597/57775) 中选择的部署地域，脚本内注释附带各地域码。   |

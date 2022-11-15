@@ -2,13 +2,21 @@
 在配置同步任务时，可以选择 SQL 同步策略，设置后，只有满足设置条件的 SQL 数据才会同步到目标数据库，这样用户可以根据场景，灵活设置多个数据库之间的同步方案，或者进行数据表的拆分。
 
 DTS 支持如下维度的 SQL 过滤：
-- DML：支持类型 Insert、Update、Delete。
-- DDL：支持选择具体的 DDL 操作，如 CREATE TABLE、CREATE VIEW、 DROP INDEX 等。
+- DML 过滤：支持类型 Insert、Update、Delete。
+
+- DDL 过滤：支持选择具体的 DDL 操作，如 CREATE TABLE、CREATE VIEW、 DROP INDEX 等。
+
 - Where 条件过滤：支持对单个表设置自定义过滤条件。
+  
+> ?当前支持在如下数据同步链路中进行 DDL 过滤和 Where 条件过滤。
+>
+> - MySQL > MySQL/MariaDB/TDSQL-C MySQL
+> - MariaDB > MySQL/MariaDB
+> - Percona > MySQL/MariaDB
+> - TDSQL-C MySQL > MySQL/TDSQL-C MySQL
 
 ## 约束限制
-- 当前仅支持源库为 MySQL 数据库的同步场景中设置 DDL 过滤和 Where 条件过滤。
-- Where 条件过滤支持对单张表进行设置，需要对多张表进行过滤时，对每张表分别进行设置即可。
+Where 条件过滤支持对单张表进行设置，需要对多张表进行过滤时，对每张表分别进行设置即可。
 
 ## 操作步骤
 1. 在 [同步任务](https://console.cloud.tencent.com/dts/replication) 的**设置同步选项和同步对象**页面中，选择不同的 SQL 策略。

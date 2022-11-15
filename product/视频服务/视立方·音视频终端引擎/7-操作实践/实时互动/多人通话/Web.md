@@ -13,7 +13,7 @@
 - `mode`：实时音视频通话模式，设置为`rtc`
 - `sdkAppId`：您从腾讯云申请的 sdkAppId
 - `userId`：用户 ID
-- `userSig`：用户签名，计算方式请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)
+- `userSig`：用户签名，计算方式请参见 [如何计算及使用 UserSig](https://cloud.tencent.com/document/product/647/17275)
 
 ```javascript
 const client = TRTC.createClient({
@@ -32,11 +32,11 @@ const client = TRTC.createClient({
 ```javascript
 client
   .join({ roomId })
-  .catch(error => {
-    console.error('进房失败 ' + error);
-  })
   .then(() => {
     console.log('进房成功');
+  })
+  .catch(error => {
+    console.error('进房失败 ' + error);
   });
 ```
 
@@ -56,11 +56,11 @@ const localStream = TRTC.createStream({ userId, audio: true, video: true });
 ```javascript
 localStream
   .initialize()
-  .catch(error => {
-    console.error('初始化本地流失败 ' + error);
-  })
   .then(() => {
     console.log('初始化本地流成功');
+  })
+  .catch(error => {
+    console.error('初始化本地流失败 ' + error);
   });
 ```
 
@@ -68,17 +68,17 @@ localStream
 ```javascript
 client
   .publish(localStream)
-  .catch(error => {
-    console.error('本地流发布失败 ' + error);
-  })
   .then(() => {
     console.log('本地流发布成功');
+  })
+  .catch(error => {
+    console.error('本地流发布失败 ' + error);
   });
 ```
 
-4. 远端流通过监听事件[Client.on('stream-added')](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/module-Event.html#.STREAM_ADDED)获取，收到该事件后，通过 [Client.subscribe()](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/Client.html#subscribe) 订阅远端音视频流。
+4. 远端流通过监听事件[Client.on('stream-added')](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/module-ClientEvent.html#.STREAM_ADDED)获取，收到该事件后，通过 [Client.subscribe()](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/Client.html#subscribe) 订阅远端音视频流。
 >?
->- 请在 [Client.join()](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/Client.html#join) 进房前注册 [Client.on('stream-added')](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/module-Event.html#.STREAM_ADDED) 事件以确保您不会错过远端用户进房通知。
+>- 请在 [Client.join()](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/Client.html#join) 进房前注册 [Client.on('stream-added')](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/module-ClientEvent.html#.STREAM_ADDED) 事件以确保您不会错过远端用户进房通知。
 >- 远端流离开等其他事件可以在 [API 详细文档](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/module-Event.html) 中查看。
 ```javascript
 client.on('stream-added', event => {
@@ -100,12 +100,12 @@ client.on('stream-subscribed', event => {
 ```javascript
 localStream
   .initialize()
-  .catch(error => {
-    console.error('初始化本地流失败 ' + error);
-  })
   .then(() => {
     console.log('初始化本地流成功');
     localStream.play('local_stream');
+  })
+  .catch(error => {
+    console.error('初始化本地流失败 ' + error);
   });
 ```
  - 订阅远端流成功时播放远端流
@@ -124,14 +124,14 @@ client.on('stream-subscribed', event => {
 
 ```javascript
 client
-.leave()
-.then(() => {
-  // 退房成功，可再次调用client.join重新进房开启新的通话。
-})
-.catch(error => {
-  console.error('退房失败 ' + error);
-  // 错误不可恢复，需要刷新页面。
-});
+  .leave()
+  .then(() => {
+    // 退房成功，可再次调用client.join重新进房开启新的通话。
+  })
+  .catch(error => {
+    console.error('退房失败 ' + error);
+    // 错误不可恢复，需要刷新页面。
+  });
 ```
 
 >! 每个端在应用场景 appScene 上必须要进行统一，否则会出现一些不可预料的问题。

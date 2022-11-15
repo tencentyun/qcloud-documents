@@ -22,16 +22,15 @@ Dashboard 支持最近访问面板、收藏面板和自定义面板三种方式�
 	- 最近访问面板：展示您最近访问的三个监控面板。
 	- 收藏面板：展示您所收藏的所有面板。
 	- 自定义面板：展示您所自定义的所有面板。
-  <img src="https://main.qcloudimg.com/raw/47736500875951a662e9c704605d603f.png"  style="margin:0;" width="80%">
+  <img src="https://qcloudimg.tencent-cloud.cn/raw/2632541cdb20ae937cb7cf0ea691dffc.png"  style="margin:0;" width="80%">
 
 > ? 如需收藏面板，请参见 [收藏 Dashboard ](https://cloud.tencent.com/document/product/248/46752)。
 
 ## 调整 Dashboard 时间跨度和刷新频率
 
 Dashboard 默认展示近12小时的数据，监控数据默认实时刷新。 
-
 - 通过 Dashboard 右上角的时间选择控件，可调整面板中所有图表展示的数据区间和粒度。用户可回顾历史监控数据、进行排障定位问题。 
-  <img src="https://main.qcloudimg.com/raw/d89d4ce295991fa2feaa33b2c864d4f8.png"  style="margin:0;" width="80%">
+  <img src="https://qcloudimg.tencent-cloud.cn/raw/5c393844d3a554d17c4af796f5ec3177.png"  style="margin:0;" width="80%">
 - 通过 Dashboard 右上角的刷新按钮与时间间隔，用户可自行调整刷新频率或进行 Dashboard 刷新。
 	<img src="https://main.qcloudimg.com/raw/91c16dbb1a812f6f9cd1cef67ffce405.png"  style="margin:0;" width="80%">
 	

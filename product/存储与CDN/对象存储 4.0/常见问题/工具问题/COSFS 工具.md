@@ -63,10 +63,27 @@ source ~/.bashrc
 
 ### 如何设定 COSFS 开机自动挂载？
 
+需要先安装 fuse 包：
+```shell
+#CentOS系统
+#sudo yum install -y fuse
+
+#Ubuntu系统
+#sudo apt-get install fuse
+```
+
 在 /etc/fstab 文件中添加如下的内容，其中，_netdev 选项使得网络准备好后再执行当前命令：
 
 ```shell
 cosfs#examplebucket-1250000000 /mnt/cosfs fuse _netdev,allow_other,url=http://cos.ap-guangzhou.myqcloud.com,dbglevel=info
+```
+
+### 如何设置挂载点下的文件以及目录的用户和用户组？
+
+有些场景（例如 nginx 服务器），需要设置挂载点下的文件和目录的用户和用户组，例如 www 用户（uid=1002，gid=1002），则添加如下挂载参数：
+
+```shell
+-ouid=1002 -ogid=1002
 ```
 
 ### 如何挂载多个存储桶？
@@ -94,6 +111,11 @@ echo log-1250000000:AKIDXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX:GYYYYYYYYYYYYYYYYYYYYYYY
 ### COSFS 如何查看已使用的存储容量？
 COSFS 不支持直接查看已使用的存储容量。如果您想要统计 COS 存储桶的存储量，对于数据量较小的场景，请登录 COS 控制台进行查看；对于数据量大的场景，请使用 [清单](https://cloud.tencent.com/document/product/436/33703) 功能。
 
+### 如何查看有哪些进程访问了挂载目录？
+执行如下命令，即可查看哪些进程访问了挂载目录（如 /mnt/cosfs）。
+```
+lsof /mnt/cosfs 
+```
 
 
 ## 故障排查
@@ -245,6 +267,57 @@ rpm -ivh cosfs-1.0.19-centos7.0.x86_64.rpm --force
 
 COSFS 需要有根目录的 GetBucket 权限，因此您需要加上根目录的 GetBucket 权限以及对应目录的读权限授权，这样可以列出其它目录但是没有操作权限。
 
+### COSFS 每天在某个时间段里 CPU 使用率较高，且向 COS 发出大量 Head、List 请求，产生大量请求次数费用，该怎么处理？
+
+这通常是由于您机器上存在定时扫盘任务导致的，Linux 系统上常见的扫盘程序是 updatedb，您可以将 COSFS 挂载点目录，添加到 updatedb 的配置文件 /etc/updatedb.conf 文件的 PRUNEPATHS 配置项中，避免该程序的扫盘行为。此外，您可以使用 Linux 工具 auditd，查找访问 COSFS 挂载点的程序。
+
+操作步骤如下：
+
+步骤一：安装 auditd
+
+Ubuntu:
+
+```
+ap-get install auditd -y
+```
+
+CentOS：
+
+```
+ yum install audit audit-libs
+```
+
+步骤二：启动 auditd 服务
+
+```
+systemctl start auditd
+systemctl enable auditd
+```
+
+步骤三：监控挂载目录
+
+>?`-w` 指定 COSFS 挂载目录，`-k` 为输出在 audit 日志中的 key。
+
+```
+auditctl -w /usr/local/service/mnt/ -k cosfs_mnt
+```
+
+步骤四：根据日志确定访问程序
+
+audit 的日志目录： /var/log/audit，查询命令如下：
+
+```
+ausearch -i|grep 'cosfs_mnt'
+```
+
+步骤五：停止 auditd 服务
+如果您需要停止 auditd 服务，可以使用如下命令：
+
+```
+/sbin/service auditd stop
+```
+
+>!如果访问挂载点的程序一直在运行，新启动的 auditd，并不会监控到该程序的访问行为；程序中关于挂载目录的多次调用，只会记录第一次。
 
 ### 为什么执行 df 显示 COSFS 的 Size 和 Available 为256T？
 COS 存储桶的空间是无限大的，这里的 Available 为256T，仅作为展示 df 结果，实际上 COS 存储桶能存储的数据量远不止256T。
@@ -257,4 +330,3 @@ COSFS 不是基于硬盘的文件系统，所以不会有 inode。
 
 ### SUSE 12 SP3安装依赖包报"No provider of xxx found."错误，怎么办？
 请参考 [SUSE系统无法安装COSFS的解决方案](https://cloud.tencent.com/developer/article/1868019)。
-

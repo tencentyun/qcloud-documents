@@ -1,13 +1,13 @@
 对于在 iOS 平台上传视频的场景，云点播提供了 iOS 上传 SDK 。上传流程请参见 [客户端上传指引](/document/product/266/9219)。
 
 ## 源码下载
-1. [单击下载](https://ugcupload-1252463788.file.myqcloud.com/TXUGCUploadDemo_iOS.zip) iOS 上传 Demo 及源码。
+1. [单击下载](https://liteav.sdk.qcloud.com/download/ugc/LiteAVSDK_UGC_Upload_iOS.zip) iOS 上传 Demo 及源码。
 2. 将下载好的压缩包解压，可以看到 TXUGCUploadDemo 目录，上传源码在`TXUGCUploadDemo/upload`目录下。
 
 ## 集成上传库和源码
 
 1. 拷贝上传源码目录`TXUGCUploadDemo/upload`到您的工程中。
-2. 导入动态库`QCloudCore.framework`、`QCloudCOSXML.framework`和静态库`libmtasdk.a`（在`TXUGCUploadDemo/upload/COSSDK/`目录下）到您的工程中，并添加以下依赖库：
+2. 导入动态库`QCloudCore.framework`、`QCloudCOSXML.framework`（在`TXUGCUploadDemo/upload/COSSDK/`目录下）到您的工程中，并添加以下依赖库：
     ```
     1. CoreTelephony.framework
     2. Foundation.framework
@@ -93,6 +93,15 @@ publishParam.videoPath  = @"视频文件路径";
 断点续传的有效时间是1天，即同一个视频上传被中断，那么1天内再次上传可以直接从断点处上传，超过1天默认会重新上传完整视频。
 
 上传参数中的`enableResume`为断点续传开关，默认是开启的。
+
+#### 开启 https 上传
+
+将上传参数中 TXPublishParam 中的 enableHTTPS 置为 true 即可，默认 false。
+
+```objectivec
+TXPublishParam *publishParam = [[TXPublishParam alloc] init];
+publishParam.enableHTTPS  = true;
+```
 
 
 ## 图片和媒体上传

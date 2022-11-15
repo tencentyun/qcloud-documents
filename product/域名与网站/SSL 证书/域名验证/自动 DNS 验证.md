@@ -15,7 +15,7 @@
 4. 单击**域名信息**页签，选择您需要进行验证的域名，并单击**查看验证**。如下图所示：
 ![](https://main.qcloudimg.com/raw/96bff23854fa29b95d544dc60656274a.png)
 5. 在 “验证域名” 页面中，请根据页面提示，并在规定时间内添加解析记录。如下图所示：
-![](https://main.qcloudimg.com/raw/0bc82dd6a9d3d27bd8bda99942d18563.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/3e55ff722839d8c9a000a2dfc7264dd6.png)
 
 ### 步骤2：添加解析记录
 >!以下操作仅针对域名对应的域名解析商在腾讯云的情况下，若不在腾讯云，请您到域名对应的域名解析商处进行解析。
@@ -23,8 +23,8 @@
 1. 请您在**步骤1：查看验证信息（步骤1.5图例）**页面，获取**主机记录**以及**记录值**。
 2. 登录 [DNS 解析 DNSPod 管理控制台](https://console.cloud.tencent.com/cns)，查看新增域名，并单击操作栏的**解析**，进入**记录管理**页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/78d4f279fe2792b3873f6b2cb9e41788.png)
-3. 单击**添加记录**，添加 CNAME 解析记录。
-![](https://main.qcloudimg.com/raw/2ae5f247f8e8b641c3532895b227a4c0.png)
+3. 单击**添加记录**，添加 CNAME 解析记录。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/a49f8b2d6082d5eb201c2ba815518ac7.png)
 	- **主机记录**：填写获取的主机记录。
 	- **记录类型**：选择 “CNAME”。
 	- **线路类型**：选择 “默认” 类型，否则会导致部分用户无法解析。

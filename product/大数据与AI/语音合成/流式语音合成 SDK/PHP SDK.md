@@ -3,7 +3,7 @@
 接口请求域名：`tts.cloud.tencent.com/stream`  
 
 ## 开发环境
-登录 [腾讯云控制台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2F)，鼠标悬停到右上角您的账号处，选择【访问管理】>【访问密钥】>【API 密钥管理】，查看 AppID、SecretId 和 SecretKey。
+登录 [腾讯云控制台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2F)，鼠标悬停到右上角您的账号处，选择**访问管理 > 访问密钥 > API 密钥管理**，查看 AppID、SecretId 和 SecretKey。
 
 >?此版本 SDK 适用于 PHP5.4.16 及以上版本。
 
@@ -15,7 +15,7 @@
 ## 获取用户信息
 ### 获取 AppID，SecretId 和 SecretKey
 - 进入 [API 密钥管理页面](https://console.cloud.tencent.com/cam/capi)，获取 AppID、SecretId 和 SecretKey。 
-- 登录您的 [腾讯云控制台](https://console.cloud.tencent.com/) 账号，鼠标悬停到右上角账号名称处，选择【访问管理】>【访问密钥】>【API 密钥管理】，即可查看 AppID、SecretId 和 SecretKey。
+- 登录您的 [腾讯云控制台](https://console.cloud.tencent.com/) 账号，鼠标悬停到右上角账号名称处，选择**访问管理 > 访问密钥 > API 密钥管理**，即可查看 AppID、SecretId 和 SecretKey。
 
 
 ### 更改用户信息配置文件
@@ -43,7 +43,7 @@ static $APPID = 1255*********;
 | VoiceType | 否 | Int | 详见 [语音合成 API 文档中的 VoiceType 参数](https://cloud.tencent.com/document/product/1073/37995)。|
 | PrimaryLanguage | 否 | Int | 主语言类型：<br>1：中文（默认）<br>2：英文 |
 | SampleRate | 否 | Int | 音频采样率：<br>16000:16k（默认）<br>8000:8k |
-| Codec | 否 | String | 返回音频格式：pcm：返回二进制 pcm 音频，使用简单，但数据量大。|
+| Codec | 否 | String | 返回音频格式：<li>opus：返回多段含 opus 压缩分片音频<li>pcm：返回二进制 pcm 音频<li>mp3：返回二进制 mp3 音频|
 | ProjectId | 否 | Int | 项目 ID，可以根据控制台-账号中心-项目管理中的配置填写，如无配置，请填写默认项目 ID:0。 |
 | Timestamp | 是 | Int | 当前 UNIX 时间戳，可记录发起 API 请求的时间。如果与当前时间相差过大，会引起签名过期错误。SDK 会自动赋值当前时间戳。|
 | Expired | 是 | Int | 签名的有效期，是一个符合 UNIX Epoch 时间戳规范的数值，单位为秒；Expired 必须大于 Timestamp 且 Expired-Timestamp 小于90天。SDK 默认设置1小时。|

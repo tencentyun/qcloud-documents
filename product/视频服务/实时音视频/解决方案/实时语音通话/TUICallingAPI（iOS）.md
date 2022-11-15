@@ -9,28 +9,28 @@ TUICalling 是基于腾讯云实时音视频（TRTC）和即时通信 IM 服务�
  
 #### SDK 基础函数
 
-| API                                             | 描述                                             |
-| ----------------------------------------------- | ------------------------------------------------ |
-| [sharedInstance](#sharedinstance)               | 组件单例。                                       |
-| [call](#call) | C2C 邀请通话。                                   |
-| [receiveAPNSCalled](#receiveAPNSCalled)                     | 作为被邀请方接听来电。                                   |
-| [setCallingListener](#setCallingListener)               | 设置监听器。                                   |
-| [setCallingBell](#setCallingBell)                             | 设置铃声（建议在30s以内）   |
-| [enableMuteMode](#enableMuteMode)                                 | 开启静音模式 |
-| [enableCustomViewRoute](#enableCustomViewRoute)                               | 开启自定义视图       |
-
+| API                                             | 描述                      |
+| ----------------------------------------------- | ------------------------- |
+| [sharedInstance](#sharedinstance)               | 组件单例。                |
+| [call](#call)                                   | C2C 邀请通话。            |
+| [setCallingListener](#setcallinglistener)       | 设置监听器。              |
+| [setCallingBell](#setcallingbell)               | 设置铃声（建议在30s以内） |
+| [enableMuteMode](#enablemutemode)               | 开启静音模式              |
+| [enableCustomViewRoute](#enablecustomviewroute) | 开启自定义视图            |
 
 ## TUICallingListener API 概览
 [](id:TUICallingListener)
 
 #### 事件回调
 
-| API                 | 描述       |
-| ------------------- | ---------- |
-| [shouldShowOnCallView](#shouldShowOnCallView) | 被叫时请求拉起接听页面 |
-| [onCallStart](#onCallStart) | 呼叫开始回调。主叫、被叫均会触发 |
-| [onCallEnd](#onCallEnd) | 通话回调。主叫、被叫均会触发 |
-| [onCallEvent](#onCallEvent) | 通话事件回调 |
+| API                                           | 描述                             |
+| --------------------------------------------- | -------------------------------- |
+| [shouldShowOnCallView](#shouldshowoncallview) | 被叫时请求拉起接听页面           |
+| [onCallStart](#oncallstart)                   | 呼叫开始回调。主叫、被叫均会触发 |
+| [onCallEnd](#oncallend)                       | 通话回调。主叫、被叫均会触发     |
+| [onCallEvent](#oncallevent)                   | 通话事件回调                     |
+
+
 
 ## Type API 概览
 [](id:Type)
@@ -79,22 +79,6 @@ C2C 邀请通话。
 
 ```objc
 - (void)call:(NSArray<NSString *> *)userIDs type:(TUICallingType)type;
-```
-
-参数如下表所示：
-
-| 参数      | 类型    | 含义               |
-| --------- | ------- | ------------------ |
-| userIDs    | NSArray  | 通话用户 ID 列表      |
-| type | TUICallingType | 通话类型：音频/视频 |
-
-### receiveAPNSCalled
-[](id:receiveAPNSCalled)
-
-作为被邀请方接听来电。
-
-```objc
-- (void)receiveAPNSCalled:(NSArray<NSString *> *)userIDs type:(TUICallingType)type;
 ```
 
 参数如下表所示：
@@ -237,6 +221,8 @@ C2C 邀请通话。
 | type | TUICallingType | 通话类型：音频/视频 |
 | role | TUICallingRole | 用户角色类型：主叫/被叫 |
 | message | NSString | 事件的描述信息 |
+
+
 
 
 

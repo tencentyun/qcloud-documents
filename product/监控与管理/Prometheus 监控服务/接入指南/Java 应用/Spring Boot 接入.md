@@ -16,7 +16,7 @@
 >**若您使用spring boot 1.5 接入，接入时和2.0会有一定区别，需要注意如下几点：**
 1. 访问 `prometheus metrics` 的地址和2.0不一样，1.5默认的是`/prometheus`，即`http://localhost:8080/prometheus`。
 2. 若报401错误则表示没有权限(Whitelabel Error Page)，1.5默认对 `management` 接口加了安全控制，需要修改 `management.security.enabled=false`。
-3. 若项目中用 `bootstrap.yml` 来配置参数，在 `bootstrap.yml` 中需改 `management` 不启作用，需要在 `application.yml` 中修改，原因： spring boot 启动加载顺序有关。
+3. 若项目中用 `bootstrap.yml` 来配置参数，在 `bootstrap.yml` 中修改 `management` 不起作用，需要在 `application.yml` 中修改，原因： spring boot 启动加载顺序有关。
 4. `metric common tag` 不能通过 `yml` 来添加，只有通过代码加一个 `bean` 的方式添加，详细信息可参见 [spring boot 1.5 接入](https://micrometer.io/docs/ref/spring/1.5)。
 
 ### 修改应用的依赖及配置

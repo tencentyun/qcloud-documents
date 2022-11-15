@@ -1,6 +1,6 @@
 ## 命名空间
 
-Namespace=QCE/LOADBALANCE
+Namespace = QCE/LOADBALANCE
 
 
 

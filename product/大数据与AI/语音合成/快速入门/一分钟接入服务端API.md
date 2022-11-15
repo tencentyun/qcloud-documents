@@ -5,7 +5,7 @@
 ### 开通语音合成服务
 在调用语音合成相关接口前，您需要进入 [语音合成控制台](https://console.cloud.tencent.com/tts)，进行实名认证和人脸认证，认证完成后，阅读《用户协议》后勾选“我已阅读并同意《用户协议》”，然后单击【立即开通】。
 
-服务开通成功后，您将获得各项服务对应的免费调用额度，可在 [资源包管理页](https://console.cloud.tencent.com/tts/resourcebundle) 查看。同时您也可以在 [语音合成购买页](https://buy.cloud.tencent.com/tts) 中购买对应语音合成服务的资源包，若免费额度以及资源包调用次数耗尽，接口计费将自动转为后付费方式按月进行结算，具体计费标准可查看 [购买指南](https://cloud.tencent.com/document/product/1073/34112)。
+服务开通成功后，您将获得各项服务对应的免费调用额度，可在 [资源包管理页](https://console.cloud.tencent.com/tts/resourcebundle) 查看。同时您也可以在 [语音合成购买页](https://buy.cloud.tencent.com/tts) 中购买对应语音合成服务的资源包，若免费额度以及资源包调用次数耗尽，接口计费将自动转为后付费方式按日进行结算，具体计费标准可查看 [购买指南](https://cloud.tencent.com/document/product/1073/34112)。
 
 ### 调试语音合成接口
 语音合成服务开通成功后，进入语音合成 [API 3.0 Explorer](https://console.cloud.tencent.com/api/explorer?Product=tts&Version=2019-08-23&Action=TextToVoice&SignVersion=) 在线接口调试页面，选择需要调用的接口，并填写**输入参数**。输入参数在 API 3.0 Explorer 界面的“参数说明”选项卡中可以查看对应接口输入参数的具体含义。

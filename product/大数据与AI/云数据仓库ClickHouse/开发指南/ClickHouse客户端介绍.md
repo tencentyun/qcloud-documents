@@ -38,3 +38,4 @@ Connected to ClickHouse server version 19.16.12 revision 54427.
 |  --server_logs_file | 指定服务端日志保存路径 |
 
 其他参数可参考官方文档 [Command-line Client](https://clickhouse.tech/docs/en/interfaces/cli/)。
+  

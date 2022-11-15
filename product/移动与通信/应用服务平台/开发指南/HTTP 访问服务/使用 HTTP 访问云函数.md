@@ -73,7 +73,7 @@ hello gateway
 
 ### 返回 Object
 
-返回的 `Object` 会被转换为 JSON，同时 HTTP 响应的 `content-type` 会被设置为 `application/json`）：
+返回的 `Object` 会被转换为 JSON，同时 HTTP 响应的 `content-type` 会被设置为 `application/json`：
 
 ```js
 module.exports.main = async function () {
@@ -188,3 +188,5 @@ content-length: 9897
 
 <binary payload...>
 ```
+
+

@@ -1,4 +1,4 @@
-## 简介
+## 简介 
 
 ### 组件介绍
 内存溢出（Out of Memory，OOM）是指应用系统中存在无法回收的内存或使用的内存过多，最终使得程序运行要用到的内存大于能提供的最大内存。当 cgroup 内存不足时，Linux 内核会触发 cgroup OOM 来选择一些进程杀掉，以便能回收一些内存从而尽量继续保持系统继续运行。但 Linux 内核（尤其是3.10等低版本内核）对 cgroup OOM 的处理存在很多问题，频繁的 cgroup OOM 经常会带来节点故障（例如卡死、重启或进程异常但无法杀死）的情况。
@@ -32,7 +32,7 @@ threshold = limit - margin // 即 1000M - 20M = 980M
 
 | 策略 | 描述|
 |---------|---------|
-|process | 采用跟内核 cgroup OOM killer 相同的策略，在该 cgroup 内部，选择一个 oom_score 得分最高的进程杀掉。通过 oom-guard 发送 SIGKILL 来杀掉进程。 | 
+|process | 采用跟内核 cgroup OOM killer 相同的策略，在该 cgroup 内部，选择一个 oom_score 得分最高的进程杀掉。通过 oom-guard 发送 SIGKILL 来杀掉进程。  | 
 | container | 在该 cgroup 下选择一个 docker 容器，杀掉整个容器。| 
 | noop |  只记录日志，并不采取任何措施。| 
 
@@ -44,7 +44,7 @@ threshold = limit - margin // 即 1000M - 20M = 980M
 | system:oomguard     | ClusterRoleBinding |-                   | -            |
 | oom-guard           | DaemonSet          | 0.02核 CPU，120MB内存 | kube-system     |
 
-## 使用场景
+## 使用场景 
 应用于节点内存压力比较大，业务容器经常发生 OOM 导致节点故障的 Kubernetes 集群。
 
 ## 限制条件
@@ -55,7 +55,7 @@ threshold = limit - margin // 即 1000M - 20M = 980M
 
 ## 使用方法
 
-1. 登录[ 容器服务控制台 ](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的**集群**。
+1. 登录[ 容器服务控制台  ](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的**集群**。
 2. 在“集群管理”页面单击目标集群 ID，进入集群详情页。
 3. 选择左侧菜单栏中的**组件管理**，进入 “组件列表” 页面。
 4. 在“组件列表”页面中选择**新建**，并在“新建组件”页面中勾选 OOM-Guard。

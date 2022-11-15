@@ -66,7 +66,7 @@ spec:
     spec:
       containers:
       - name: postgres-exporter
-        image: wrouesnel/postgres_exporter:latest
+        image: ccr.ccs.tencentyun.com/rig-agent/postgres-exporter:v0.8.0
         args:
           - "--web.listen-address=:9187"
           - "--log.level=debug"

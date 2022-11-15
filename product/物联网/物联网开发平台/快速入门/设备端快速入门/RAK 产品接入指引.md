@@ -3,6 +3,8 @@
 ## 操作场景
 RAK LoRa 环境监测套件接入到物联网开发平台，通过物联网开发平台可以远程查看传感器的温度、湿度、GPS 等数据。本文档主要指导您如何在物联网开发平台控制台，接入 RAK LoRa 环境监测套件。
 
+
+
 ## 前提条件
 
 
@@ -94,7 +96,7 @@ RAK LoRa 环境监测套件接入到物联网开发平台，通过物联网开�
 1. 上行数据解析的脚本主函数为 RawToProtocol，其带有 fPort、bytes 两个入参： 
  - fPort：设备上报的 LoRaWAN 协议数据的 FPort 字段。 
  - bytes：设备上报的 LoRaWAN协议数据的 FRMPayload 字段。
-脚本主函数的出参为产品数据模版协议格式的对象。
+脚本主函数的出参为产品数据模板协议格式的对象。
 2. 打开 [文件](https://github.com/RAKWireless/RUI_LoRa_node_payload_decoder/blob/master/tencent/RAK5205SensorDataDecoder_for_tencent.js)，复制文件内容至“上行数据解析”文本框，覆盖原有内容，并提交。
 
 
@@ -125,9 +127,9 @@ RAK LoRa 环境监测套件接入到物联网开发平台，通过物联网开�
 
 1. 设备通过 USB 口连接到 PC，打开 com 工具设置设备三元组并启动 join：
 ```
-at+set_config=lora:dev_eui:60c5a8fffe75fefe
-at+set_config=lora:app_eui:800000000000001b
-at+set_config=lora:app_key:6fbdbb37b8c0dbd82af4e93f****4177
+at+set_config=lora:dev_eui:60c*************
+at+set_config=lora:app_eui:800*************
+at+set_config=lora:app_key:6fb**********************4177
 at+join
 ```
 ![](https://main.qcloudimg.com/raw/6a0663aa8a80c7f56d0c6296012f9db0.png)

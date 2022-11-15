@@ -104,7 +104,6 @@ Access-Control-Allow-Methods: POST
 
 | 错误码 |含义说明|
 |---------|---------|
-| 80001 | 消息文本安全打击 |
 | 60002 | HTTP 解析错误 ，请检查 HTTP 请求 URL 格式 |
 | 60003 | HTTP 请求 JSON 解析错误，请检查 JSON 格式 |
 | 60004 | 请求 URL 或 JSON 包体中帐号或签名错误 |

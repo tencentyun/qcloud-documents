@@ -1,6 +1,6 @@
 ## 集成 SDK
 
-本文主要介绍如何快速的将腾讯云 TEduBoard SDK 集成到您的项目中。如果您使用互动课堂方案，请前往 [互动课堂集成文档](https://github.com/tencentyun/TIC/blob/master/macOS/%E6%8E%A5%E5%85%A5%E6%96%87%E6%A1%A3.md)。
+本文主要介绍如何快速的将腾讯云 TEduBoard SDK 集成到您的项目中。如果您使用互动课堂方案，请前往 [互动课堂集成](https://github.com/tencentyun/TIC/blob/master/macOS/%E6%8E%A5%E5%85%A5%E6%96%87%E6%A1%A3.md)。
 
 ## 开发环境
 
@@ -56,7 +56,7 @@ pod 命令执行完后，会生成集成了 SDK 的 .xcworkspace 后缀的工程
 ### 手动集成
 
 1. 下载 [TEduBoard SDK](https://tic-res-1259648581.cos.ap-shanghai.myqcloud.com/sdk/macOS.zip)。
-2. 前往 [即时通讯官网](https://cloud.tencent.com/document/product/269/36887) 下载 IMSDK。互动白板默认使用 IMSDK 作为信令通道，如果您有独立的信令通道，请跳过此步。
+2. 前往 [即时通信 IM](https://cloud.tencent.com/document/product/269/36887) 下载 IMSDK。互动白板默认使用 IMSDK 作为信令通道，如果您有独立的信令通道，请跳过此步。
 3. 单击 Link Binary with Libraries 项展开，单击底下的“+”号图标去添加依赖库。
 ![](https://main.qcloudimg.com/raw/f2ce73bfbd06cb34c14147475142b539.jpg)
 
@@ -85,7 +85,7 @@ _boardController = [[TEduBoardController alloc] initWithAuthParam:authParam room
 [_boardController addDelegate:self];
 ```
 
-其中 `_sdkAppId`、`_userId`、`_userSig`、`_classId`为需要您自己填写的参数。
+其中 _sdkAppId、_userId、_userSig、_classId 为需要您自己填写的参数。
 
 #### 3. 白板窗口获取及显示
 在 `onTEBInit`  或 `onTEBHistroyDataSyncCompleted` 回调方法内，使用如下代码获取并显示白板视图。
@@ -101,13 +101,13 @@ _boardController = [[TEduBoardController alloc] initWithAuthParam:authParam room
 }
 ```
 
->!1. `onTEBInit` 表示白板创建并鉴权完成。<br>2. `onTEBHistroyDataSyncCompleted` 表示历史数据加载完成，此时可调用白板的相关接口。<br>3. SDK 所有回调都在主线程内执行，因此可以在回调里直接执行 UI 操作。
+>!1. onTEBInit 表示白板创建并鉴权完成。<br>2. onTEBHistroyDataSyncCompleted 表示历史数据加载完成，此时可调用白板的相关接口。<br>3. SDK 所有回调都在主线程内执行，因此可以在回调里直接执行 UI 操作。
 
 #### 4. 监听白板关键事件
-在 `onTEBError`和`onTEBWarning` 回调方法内监听白板事件
+在 onTEBError 和 onTEBWarning 回调方法内监听白板事件
 
-- [onTEBError 错误详情](https://cloud.tencent.com/document/product/1137/60711#.E9.94.99.E8.AF.AF.E4.BA.8B.E4.BB.B6)
-- [onTEBWarning 警告详情](https://cloud.tencent.com/document/product/1137/60711#.E8.AD.A6.E5.91.8A.E4.BA.8B.E4.BB.B6)
+- [onTEBError 错误详情](https://cloud.tencent.com/document/product/1137/39980#teduboarderrorcode)
+- [onTEBWarning 警告详情](https://cloud.tencent.com/document/product/1137/39980#teduboardwarningcode)
 
 ```objc
 // 监听白板错误事件
@@ -128,86 +128,95 @@ _boardController = [[TEduBoardController alloc] initWithAuthParam:authParam room
 
 步骤1：初始化 IMSDK
 ```objc
-TIMSdkConfig *config = [[TIMSdkConfig alloc] init];
-config.sdkAppId = sdkAppId;
-[[TIMManager sharedInstance] initSdk:config];
+V2TIMSDKConfig *config = [[V2TIMSDKConfig alloc] init];
+config.logLevel = V2TIM_LOG_WARN;
+[[V2TIMManager sharedInstance] initSDK:sdkAppID config:config];
+[[V2TIMManager sharedInstance] addIMSDKListener:listener];
+[[V2TIMManager sharedInstance] addAdvancedMsgListener:self];
 ```
+**以上示例为 TIM V2 版本代码，IM的版本请尽量用新版本，具体请查阅IM的更新日志 https://cloud.tencent.com/document/product/269/1606
 
-如果您有其他业务使用了 IMSDK 并期望 IMSDK 的生命周期与 App 的生命周期保持一致，请在 `AppDelegate` 的 `application:didFinishLaunchingWithOptions` 方法中初始化 IMSDK，否则请在登录前初始化 IMSDK，在登出后反初始化 IMSDK。
-
+如果您有其他业务使用了 IMSDK 并期望 IMSDK 的生命周期与 App 的生命周期保持一致，请在 AppDelegate 的 application:didFinishLaunchingWithOptions 方法中初始化 IMSDK，否则请在登录前初始化 IMSDK，在登出后反初始化 IMSDK。
 步骤2：登录 IMSDK
 ```objc
-TIMLoginParam *loginParam = [TIMLoginParam new];
-loginParam.identifier = userId;
-loginParam.userSig = userSig;
-loginParam.appidAt3rd = [@(_sdkAppId) stringValue];
-__weak typeof(self) ws = self;
-[[TIMManager sharedInstance] login:loginParam succ:^{
-  // 登录 IMSDK 成功
-} fail:^(int code, NSString *msg) {
-  // 登录 IMSDK 失败
+[[V2TIMManager sharedInstance] login:userID userSig:userSig succ:^{
+      // 登录 IMSDK 成功
+} fail:^(int code, NSString *desc) {
+      // 登录 IMSDK 失败
 }];
 ```
 
+**以上示例为 TIM V2 版本代码，IM的版本请尽量用新版本，具体请查阅IM的更新日志 https://cloud.tencent.com/document/product/269/1606
+
 步骤3：加入群组
+
 登录 IMSDK 成功后加入白板所在的群组。
+
 ```objc
-[[TIMGroupManager sharedInstance] joinGroup:group msg:nil succ:^{
-  // 加入 IM 群组成功
-  // 此时可以调用白板初始化接口创建白板
-} fail:^(int code, NSString *msg) {
-  // 加入 IM 群组失败
+[[V2TIMManager sharedInstance] joinGroup:classId msg:nil succ:^{
+    // 加入 IM 群组成功
+} fail:^(int code, NSString *desc) {
+    // 加入 IM 群组失败
 }];
 ```
+
+**以上示例为 TIM V2 版本代码，IM的版本请尽量用新版本，具体请查阅IM的更新日志 https://cloud.tencent.com/document/product/269/1606
 
 如果 IM 群组不存在，请先创建群组。
 
 ```objc
-TIMCreateGroupInfo *groupInfo = [[TIMCreateGroupInfo alloc] init];
-NSString *roomIdStr = [@(classId) stringValue];
-groupInfo.group = roomIdStr;
-groupInfo.groupName = roomIdStr;
+V2TIMGroupInfo *groupInfo = [[V2TIMGroupInfo alloc] init];
+groupInfo.groupID = classId;
+groupInfo.groupName = classId;
 groupInfo.groupType = @"Public";
-groupInfo.setAddOpt = YES;
-groupInfo.addOpt = TIM_GROUP_ADD_ANY;
+groupInfo.groupAddOpt = V2TIM_GROUP_ADD_ANY;
 __weak typeof(self) ws = self;
-[[TIMGroupManager sharedInstance] createGroup:groupInfo succ:^(NSString *groupId) {
-        [ws report:TIC_REPORT_CREATE_GROUP_END];
-  // 创建 IM 群组成功
-} fail:^(int code, NSString *msg) {
-  // 创建 IM 群组失败
+[[V2TIMManager sharedInstance] createGroup:groupInfo memberList:nil succ:^(NSString *groupID) {
+    // 创建 IM 群组成功
+} fail:^(int code, NSString *desc) {
+    // 创建 IM 群组失败
 }];
 ```
+
+**以上示例为 TIM V2 版本代码，IM的版本请尽量用新版本，具体请查阅IM的更新日志 https://cloud.tencent.com/document/product/269/1606
 
 >!1. 推荐业务后台使用 [IM REST API](https://cloud.tencent.com/document/product/269/1615) 提前创建群组。<br>2. 不同的群组类型，群组功能以及成员数量有所区别，具体请查看 [IM 群组系统](https://cloud.tencent.com/document/product/269/1502)。
 
 #### 6. 销毁白板
-调用 `unInit` 方法后，内部将彻底销毁白板并停止计费，请您确保此接口的调用。
+调用 unInit 方法后，内部将彻底销毁白板并停止计费，请您确保此接口的调用。
 ```objc
 [_boardController unInit];
 ```
-
 如果您使用 IMSDK 作为信令通道，请根据业务的需要决定是否退出群组、退出登录并反初始化。
 步骤1：退出群组
 ```objc
-[[TIMGroupManager sharedInstance] quitGroup:group succ:^{
-  // 退出 IM 群组成功
-} fail:^(int code, NSString *msg) {
-  // 退出 IM 群组失败
+[[V2TIMManager sharedInstance] quitGroup:classId succ:^{
+    // 登出 IMSDK 成功
+} fail:^(int code, NSString *desc) {
+    // 登出 IMSDK 失败
 }];
 ```
+
+**以上示例为 TIM V2 版本代码，IM的版本请尽量用新版本，具体请查阅IM的更新日志 https://cloud.tencent.com/document/product/269/1606
 
 步骤2：登出 IMSDK
 ```objc
-[[TIMManager sharedInstance] logout:^{
-  // 登出 IMSDK 成功
-} fail:^(int code, NSString *msg) {
-  // 登出 IMSDK 失败
+[[V2TIMManager sharedInstance] logout:^{
+    // 登出 IMSDK 成功
+} fail:^(int code, NSString *desc) {
+    // 登出 IMSDK 失败
 }];
 ```
 
+**以上示例为 TIM V2 版本代码，IM的版本请尽量用新版本，具体请查阅IM的更新日志 https://cloud.tencent.com/document/product/269/1606
+
 步骤3：反初始化 IMSDK
 ```objc
-[[TIMManager sharedInstance] unInit];
+[[V2TIMManager sharedInstance] removeIMSDKListener:self];
+[[V2TIMManager sharedInstance] removeAdvancedMsgListener:self];
+[[V2TIMManager sharedInstance] unInitSDK];
 ```
+
+**以上示例为 TIM V2 版本代码，IM的版本请尽量用新版本，具体请查阅IM的更新日志 https://cloud.tencent.com/document/product/269/1606
+
 如果您有其他业务使用了 IMSDK 并期望 IMSDK 的生命周期与 App 的生命周期保持一致，无需调用此接口。

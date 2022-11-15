@@ -2,6 +2,8 @@
 >?本文仅介绍与腾讯云专线相关的用户本地路由配置项，其他不做介绍，如需了解其他内容请查阅本地路由器文档或者联系各自路由器商咨询。
 
 ## 路由配置
+>?通过 BGP 连通的对接参数，Keepalive 及 holdtime 参数推荐使用缺省配置；推荐 Holdtime 时间60 * 3=180秒（此时 keepalive 报文周期60s）
+>
 ``` 
 # 设置物理接口
 interfaces <interface_number>
@@ -28,4 +30,9 @@ peer <bgp_peer_address> description <bgp_desc>
 ipv4-family unicast
 peer <bgp_peer_address> enable
 commit
+
+# 设置 eBGP 的BFD配置
+bgp <as_number>
+router-id <route_id>
+peer <bgp_peer_address> bfd min-tx-interval <time value> min-rx-interval <time value> detect-multiplier <value>
 ```

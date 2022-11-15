@@ -69,4 +69,4 @@
 <td>tez.tez-ui.history-url.base</td>
 <td><code>http://172.**.**.9:2000/tez-ui/</code></td>
 </tr>
-</tbody></table>
+</tbody></table>  

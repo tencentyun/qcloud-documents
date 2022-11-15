@@ -14,10 +14,14 @@ UserSig 的计算原理如下所示，其本质就是对 SDKAppID、UserID 和 E
 usersig = hmacsha256(secretkey, (userid + sdkappid + currtime + expire + 
                                  base64(userid + sdkappid + currtime + expire)))
 ```
+>?
+>- `currtime` 为当前系统的时间，`expire` 为签名过期的时间。
+>- 上述原理图仅做 UserSig 计算原理说明，如需了解具体的 UserSig 拼接代码实现方式，请参见 [客户端计算 UserSig](#Client) 和 [服务端计算 UserSig](#Server)。
+
 
 [](id:Key)
 ### 密钥获取
-访问云直播 [应用管理](https://console.cloud.tencent.com/live/license/appmanage) 可以查询计算 UserSig 用的密钥，方法如下：
+访问 [**云直播控制台**](https://console.cloud.tencent.com/live/livestat) > **应用管理** 可以查询计算 UserSig 用的密钥，方法如下：
 1. 选择一个应用并进入详情页面，如果还没有应用就创建一个。
 2. 进入**应用管理**页面，单击**查看密钥**按钮即可获得加密密钥。
 ![](https://main.qcloudimg.com/raw/e7a33567095b6930e5560dd901268186.png)
@@ -28,8 +32,8 @@ usersig = hmacsha256(secretkey, (userid + sdkappid + currtime + expire +
 
 | 语言版本 |  适用平台 | 源码位置 |
 |:---------:|:---------:|:---------:|
-| Objective-C | iOS  | [Github](https://github.com/tencentyun/MLVBSDK/blob/master/iOS/MLVB-API-Example/Debug/GenerateTestUserSig.h)|
-| Java | Android  | [Github](https://github.com/tencentyun/MLVBSDK/blob/master/Android/Demo/debug/src/main/java/com/tencent/liteav/debug/GenerateTestUserSig.java) |
+| Objective-C | iOS  | [Github](https://github.com/LiteAVSDK/Live_iOS/blob/main/MLVB-API-Example-OC/Debug/GenerateTestUserSig.h)|
+| Java | Android  | [Github](https://github.com/LiteAVSDK/Live_Android/blob/main/Demo/debug/src/main/java/com/tencent/liteav/debug/GenerateTestUserSig.java) |
 | Javascript | 小程序 | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/WXMini/pages/mlvb-live-room-demo/debug/GenerateTestUserSig.js)|
 
 ![](https://main.qcloudimg.com/raw/9f2bd1709904f3fd8601f6077d7b7a28.png)

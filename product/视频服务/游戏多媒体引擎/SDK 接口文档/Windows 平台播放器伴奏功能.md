@@ -1,5 +1,10 @@
+为方便开发者调试和接入腾讯云游戏多媒体引擎产品，本文主要为您介绍适用于使用 Windows 平台第三方播放器伴奏功能的相关技术。
 
-为方便开发者调试和接入腾讯云游戏多媒体引擎产品，本文主要为您介绍适用于使用 Windows 平台第三方播放器伴奏功能的相关技术文档。
+
+## 前提条件
+- 已完成 GME 应用创建，并获取 SDK AppID 和 Key。请参考 [服务开通指引]( https://cloud.tencent.com/document/product/607/10782)。
+- 已开通 **GME 实时语音服务**。请参考 [服务开通指引](https://cloud.tencent.com/document/product/607/10782)。
+- GME 使用前请对工程进行配置，否则 SDK 不生效。
 
 ## 配置头文件
 1. 请参考 [配置文档](https://cloud.tencent.com/document/product/607/19068)，完成 GME 工程配置。
@@ -23,7 +28,10 @@ virtual int StartAccompany(const char* playerPath, int playerPathLength, const c
 | playerPathLength|int|播放器路径长度|
 | mediaFilePath|const char*|音频资源路径，1. 某音频文件，2. 音频文件夹，可以不传（NULL）|
 | mediaFilePathLenght|int|音频资源路径长度|
-| sourceType|GMEAccompany_SourceType|设置采集对象，详细见下表|
+| sourceType|GMEAccompany_SourceType|设置采集对象，详细见 [下表](#sourceType)|
+
+[](id:sourceType)
+sourceType 说明：
 
 |参数     | 类型         |
 | ------------- |:-------------:|
@@ -41,48 +49,58 @@ int ret = ITMGAdcanceGetInstance()->StartAccompany(file, strlen(file), NULL, 0, 
 调用此参数，将停止挂钩。
 
 #### 函数原型
+```
 virtual int StopAccompany() = 0
-
+```
 
 ### 设置声音音量
 调用此参数，将设置挂钩的声音音量大小，数值100表示音量不增大也不衰减。数值范围为0到200。
 
 #### 函数原型
+```
 virtual int SetAccompanyVolume(int value) = 0;
-
+```
 ### 获取声音音量
 调用此参数，将获取挂钩的声音音量大小。
 
 #### 函数原型
+```
 virtual int GetAccompanyVolume(int* pVolume) = 0;
-
+```
 ### 获取实时声音音量
 调用此参数，将获取挂钩的实时声音音量，可以用来展示实时音量能量条。
 
 #### 函数原型
+```
 virtual int GetAccompanyVolumeDynamic(int* pVolume) = 0;
-
+```
 ### 设置采集设备音量
 调用此参数，设置采集设备声音音量，默认数值为100，数值范围为0到100，0代表静音。
 
 #### 函数原型
+```
 virtual int SetMicDeviceVolume(int vol) = 0;
-
+```
 ### 获取采集设备音量
 调用此参数，将获取采集设备声音音量。
 
 #### 函数原型
+```
 virtual int GetMicDeviceVolume() = 0;
-	
+```
+
 ### 设置播放设备音量
 调用此参数，设置播放设备声音音量，默认数值为100，数值范围为0到100，0代表静音。
 
 #### 函数原型
+```
 virtual int SetSpeakerDeviceVolume(int vol) = 0;
+```
 
 ### 获取播放设备音量
 调用此参数，将获取播放设备声音音量。
 
 #### 函数原型
+```
 virtual int GetSpeakerDeviceVolume() = 0;
-
+```

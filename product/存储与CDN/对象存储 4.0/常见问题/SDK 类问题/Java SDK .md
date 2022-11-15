@@ -15,7 +15,7 @@
 
 ### Java SDK 的默认超时时间是多少？
 
-Java SDK 默认连接超时时间为 45000ms，默认读写超时时间为 45000ms，可以使用 SDK 中的 SetConnectionTimeoutMs 方法和 SetReadWriteTimeoutMs 来进行调整。
+Java SDK 默认连接超时时间为 30000ms，默认读写超时时间为 30000ms，可以使用 SDK 中的 SetConnectionTimeoutMs 方法和 setSocketTimeout 来进行调整。
 
 ### Java SDK 上传速度慢，日志频繁打印 IOException，该如何处理？
 
@@ -220,4 +220,16 @@ Java SDK 默认使用长连接。
 可以使用 Java SDK 中的 [查询对象列表](https://cloud.tencent.com/document/product/436/10199#.E6.9F.A5.E8.AF.A2.E5.AF.B9.E8.B1.A1.E5.88.97.E8.A1.A8) 功能来列出存储桶内的对象，**使用 prefix 参数可以指定目录前缀**。
 
 
+
+### Java SDK 报错连接池已关闭，抛出异常： java.lang.IllegalStateException: Connection pool shut down，该如何处理？
+
+1. COSClient 是线程安全的类，允许多线程访问同一实例。
+因为实例内部维持了一个连接池，创建多个实例可能导致程序资源耗尽。请确保程序生命周期内实例只有一个，且在不再需要使用时，调用 COSClient.shutdown() 方法将其关闭。
+如果需要新建实例，请先将之前的实例关闭。**推荐一个进程里只使用一个 COSClient，在程序全部结束退出时才调用 COSClient.shutdown()**。
+2. 高级接口封装类的 TransferManager 中也使用了 COSClient，建议在程序全部结束退出时再调用 TransferManager.shutdownNow(false)。
+此外，如果在创建 TransferManager 实例时复用了其他 COSClient，请在关闭时加入参数 false（即 TransferManager.shutdownNow(false)），避免关闭复用的 COSClient，导致其他使用 COSClient 的地方报错。
+
+### Java SDK 报错请求过期，抛出异常：com.qcloud.cos.exception.CosServiceException: Request has expired (Status Code: 403; Error Code: AccessDenied)，该如何处理？
+
+由于签名过期导致，重新生成签名即可解决；若重新生成签名仍报相同的错误，可以再检查机器的本地时间是否为标准的北京时间。
 

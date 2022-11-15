@@ -2,9 +2,9 @@
 
 <table>
 	<tr><th>函数名称</th><th>语句</th><th>含义</th></tr>
-	<tr><td><a href="#json_array_contains">json_array_contains 函数</a></td><td>json_array_contain(x，value)</td><td>判断 JSON 数组中是否包含某个值。</td></tr>
+	<tr><td><a href="#json_array_contains">json_array_contains 函数</a></td><td>json_array_contains(x，value)</td><td>判断 JSON 数组中是否包含某个值。</td></tr>
 	<tr><td><a href="#json_array_get">json_array_get 函数</a></td><td>json_array_get(x，index)</td><td>获取 JSON 数组中某个下标对应的元素。</td></tr>
-	<tr><td><a href="#json_array_length">json_array_length 函数</a></td><td>json_array_length(x) </td><td>计算 JSON 数组中元素的数量。 </td></tr>
+	<tr><td><a href="#json_array_length">json_array_length 函数</a></td><td>json_array_length(x) </td><td>计算 JSON 数组中元素的数量。x 不是 JSON 数组时，返回 null。 </td></tr>
 	<tr><td><a href="#json_extract">json_extract 函数</a></td><td>json_extract(x，json_path)</td><td>从 JSON 对象或 JSON 数组中提取一组 JSON 值（数组或对象）。</td></tr>
 	<tr><td><a href="#json_extract_scalar">json_extract_scalar 函数</a></td><td>json_extract_scalar(x，json_path)</td><td>从 JSON 对象或 JSON 数组中提取一组标量值（字符串、整数或布尔值）。类似于 json_extract 函数。</td></tr>
 	<tr><td><a href="#json_format">json_format 函数</a></td><td>json_format(x)</td><td>把 JSON 类型转化成字符串类型。</td></tr>
@@ -83,7 +83,7 @@ varchar类型。
 <span id="json_array_length"></span>
 ## json_array_length 函数
 
-json_array_length 函数用于计算 JSON 数组中元素的数量。
+json_array_length 函数用于计算 JSON 数组中元素的数量。x 不是 JSON 数组时，返回 null。
 
 ### 语法
 
@@ -132,7 +132,7 @@ json_extract(x, json_path)
 | 参数      | 说明                                    |
 | --------- | --------------------------------------- |
 | x         | 参数值为 JSON 对象或 JSON 数组。            |
-| json_path | JSON 路径，格式为 $.store.book[0].title。 |
+| json_path | [JSONPath](https://goessner.net/articles/JsonPath/) 形式的 JSON 路径，例如 $.store.book[0].title。</br>注意：不支持需要遍历数组元素的 JSON 语法，例如  `$.store.book[*].author`、`$..book[(@.length-1)]`、`$..book[?(@.price<10)]` 等。 |
 
 ### 返回值类型
 
@@ -170,7 +170,7 @@ json_extract_scalar(x, json_path)
 | 参数      | 说明                                    |
 | --------- | --------------------------------------- |
 | x         | 参数值为 JSON 数组。                      |
-| json_path | JSON 路径，格式为 $.store.book[0].title。 |
+| json_path | [JSONPath](https://goessner.net/articles/JsonPath/) 形式的 JSON 路径，例如 $.store.book[0].title。</br>注意：不支持需要遍历数组元素的 JSON 语法，例如  `$.store.book[*].author`、`$..book[(@.length-1)]`、`$..book[?(@.price<10)]` 等。 |
 
 ### 返回值类型
 
@@ -286,7 +286,7 @@ bigint 类型。
 
 - 查询和分析语句
 ```
-* | SELECT json_size(json_parse('[1, 2, 3]'))
+* | SELECT json_size(json_parse('[1, 2, 3]'),'$')
 ```
 - 查询和分析结果
 ![image-20211101050932641](https://qcloudimg.tencent-cloud.cn/raw/3a5681b58d100b8527a32ebac9810866.png)

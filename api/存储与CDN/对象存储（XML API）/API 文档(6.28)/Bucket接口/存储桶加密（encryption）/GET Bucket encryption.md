@@ -46,7 +46,8 @@ Authorization: Auth String
 <ServerSideEncryptionConfiguration>
       <Rule>
             <ApplyServerSideEncryptionByDefault>
-                <SSEAlgorithm>AES256</SSEAlgorithm>
+                <SSEAlgorithm>AES256|KMS</SSEAlgorithm>
+                <KMSMasterKeyID>String</KMSMasterKeyID>
             </ApplyServerSideEncryptionByDefault>
       </Rule>
 </ServerSideEncryptionConfiguration>
@@ -58,9 +59,10 @@ Authorization: Auth String
 | 元素名称                           | 父节点                             | 描述                                                         | 类型      |
 | ---------------------------------- | ---------------------------------- | ------------------------------------------------------------ | --------- |
 | ServerSideEncryptionConfiguration  | 无                                 | 包含默认加密的配置参数                                       | Container |
-| Rules                              | ServerSideEncryptionConfiguration  | 默认的服务端加密配置规则                                     | Container |
-| ApplyServerSideEncryptionByDefault | Rules                              | 服务端加密的默认配置信息                                     | Container |
-| SSEAlgorithm                       | ApplyServerSideEncryptionByDefault | 要使用的服务端加密算法，枚举值：AES256 | String    |
+| Rule                              | ServerSideEncryptionConfiguration  | 默认的服务端加密配置规则                                     | Container |
+| ApplyServerSideEncryptionByDefault | ServerSideEncryptionConfiguration.Rule                              | 服务端加密的默认配置信息                                     | Container |
+| SSEAlgorithm                       | ServerSideEncryptionConfiguration.Rule.<br>ApplyServerSideEncryptionByDefault | 支持枚举值 AES256、KMS，AES256 代表使用 SSE-COS 模式，加密算法为 AES256；KMS 代表 SSE-KMS 模式 | String    |
+|KMSMasterKeyID                       | ServerSideEncryptionConfiguration.Rule.<br>ApplyServerSideEncryptionByDefault | 当 SSEAlgorithm 的值为 KMS 时，用于指定 KMS 的用户主密钥 CMK，如不指定，则使用 COS 默认创建的 CMK，更多详细信息可参见 SSE-KMS 加密 | String    | 是       |
 
 **错误码**
 
@@ -98,3 +100,4 @@ x-cos-request-id: NWQwNzUxNTBfMzdiMDJhMDlfOWM0Nl85NDFk****
       </Rule>
 </ServerSideEncryptionConfiguration>
 ```
+

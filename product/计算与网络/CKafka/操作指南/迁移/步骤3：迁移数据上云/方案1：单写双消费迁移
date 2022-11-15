@@ -19,7 +19,7 @@
 
 1. 旧的消费者保持不动，消费端新起消费者，配置新的集群的 bootstrap-server，消费新的 CKafka 集群。
 
-  需要配置 `--bootstrap-server` 中的 IP 为 CKafka 实例的接入网络，在控制台的实例详情页面【接入方式】模块的网络列复制。
+  需要配置 `--bootstrap-server` 中的 IP 为 CKafka 实例的接入网络，在控制台的实例详情页面**接入方式**模块的网络列复制。
 
   ```bash
 ./kafka-console-consumer.sh --bootstrap-server xxx.xxx.xxx.xxx:9092 --from-beginning --new-consumer --topic topicName --consumer.config ../config/consumer.properties

@@ -3,6 +3,8 @@
 >
 
 ## 路由配置
+>?通过 BGP 连通的对接参数，Keepalive 及 holdtime 参数推荐使用缺省配置；推荐 Holdtime 时间60 * 3=180秒（此时 keepalive 报文周期60s）
+>
 ``` 
 # 配置物理接口
 set interfaces <interface_number> description <interface_desc>
@@ -23,11 +25,15 @@ commit
 # 设置静态路由
 # 全局下配置到用户 IP 的静态路由
 set routing-options static route <customer_prefix/mask> next-hop <customer_interface_ip>
-例如:set routing-options static route 1.1.1.0/24 next-hop 192.168.1.2
+# 设置静态路由联动 BFD，RPM 模式可咨询设备商，此处以 BFD 为例
+set routing-options static route <customer_prefix/mask>bfd-liveness-detection minimum-interval <value> 
+
+例如:set routing-options static route 1.1.1.0/24 next-hop 192.168.1.2 bfd-liveness-detection minimum-interval 1000 
 
 # VRF 下配置到用户 IP 的静态路由:
 set routing-instances <vrf_name> routing-options static route <customer_prefix/mask> next-hop
 <customer_interface_ip>
 例如:set routing-instances cap routing-options static route 1.1.1.0/24 next-hop 192.168.1.2
 commit
+
 ```

@@ -1,14 +1,14 @@
 ## 操作场景
-该教程指导您通过 Serverless Framework 组件，快速创建一个 TDSQL-C Serverless 数据库实例。
+该教程指导您通过 Serverless Cloud Framework 组件，快速创建一个 TDSQL-C Serverless 数据库实例。
 
 
 ## 操作步骤
-### 1. 安装 Serverless Framework
+### 1. 安装 Serverless Cloud Framework
 
-通过 npm 全局安装最新版本的 Serverless Framework：
+通过 npm 全局安装最新版本的 Serverless Cloud Framework：
 
 ```bash
-$ npm install -g serverless
+$ npm install -g serverless-cloud-framework
 ```
 
 ### 2. 创建新目录
@@ -45,12 +45,12 @@ inputs:
 
 如您的账号未 [登录](https://cloud.tencent.com/login) 或 [注册](https://cloud.tencent.com/register) 腾讯云，您可以直接通过**微信**扫描命令行中的二维码进行授权登录和注册。
 
-通过 `sls` 命令进行部署，并可以添加 `--debug` 参数查看部署过程中的信息。
+通过 `scf` 命令进行部署，并可以添加 `--debug` 参数查看部署过程中的信息。
 
 ```bash
-$ sls deploy
+$ scf deploy
 ```
->?`sls` 命令是 `serverless` 命令的缩写。
+>?`scf` 命令是 `serverless` 命令的缩写。
 >
 部署完成后，可以在命令行看到创建的数据库实例信息：
 <img src="https://main.qcloudimg.com/raw/66e70fa9bf9147ff55790db19767dc78.png" width="70%">
@@ -58,7 +58,7 @@ $ sls deploy
 
 #### 4.1 开启外网访问
 
-如果需要数据库实例开启外网访问，只需添加 `enablePublicAccess` 配置为 `true`，如下：
+如果需要数据库实例开启外网访问，只需添加 `enablePublicAccess` 配置为 `true`，如下： 
 <dx-codeblock>
 :::  yml
 # serverless.yml
@@ -81,7 +81,7 @@ inputs:
 然后重新执行部署：
 
 ```bash
-$ sls deploy
+$ scf deploy
 ```
 
 #### 4.2 重置密码
@@ -89,7 +89,7 @@ $ sls deploy
 组件只支持重置 `root` 用户密码。例如，需要将密码重置为 `123456@abc` 只需运行如下命令：
 
 ```bash
-$ sls resetpwd --inputs adminPassword=123456@abc
+$ scf resetpwd --inputs adminPassword=123456@abc
 ```
 
 ### 5. 查看状态
@@ -97,7 +97,7 @@ $ sls resetpwd --inputs adminPassword=123456@abc
 在 `serverless.yml` 文件所在的目录下，通过如下命令查看部署状态：
 
 ```bash
-$ sls info
+$ scf info
 ```
 
 ### 账号配置（可选）

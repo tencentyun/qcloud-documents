@@ -3,7 +3,7 @@
 ## 进入项目
 
 1. 登录 [CODING 控制台](https://console.cloud.tencent.com/coding)，单击团队域名进入 CODING 使用页面。
-2. 单击页面右上角的 <img src ="https://main.qcloudimg.com/raw/d94a8e60dd3a41d0af07d72ae0e9d70e.png" style ="margin:0">，进入项目列表页面，单击项目图标进入目标项目。
+2. 点击团队首页左侧的“项目”按钮，进入项目列表页，选择目标项目。
 3. 选择左侧菜单**代码仓库**。
 
 Git 是一个灵活和强大的版本管理工具，正确使用能够有效促进团队协作，防止版本丢失。然而实践中，有些开发人员会或有意或无意地误用部分 Git 的功能，给团队带来困扰，甚至造成损失。不恰当的代码回滚操作是其中的主要问题之一。
@@ -223,6 +223,6 @@ Reflog 记录中，"to <分支名>"（如 moving from master to dev/pilot-001）
 
 ![](https://help-assets.codehub.cn/enterprise/20210408200046.png)
 
-此外，总体来讲，回滚要谨填，不要过于依赖回滚功能，避免使用"git push -f"。正如某哲人所说：**如果用到"git push -f"，你肯定哪里做错了！**
+此外，总体来讲，回滚要谨填，不要过于依赖回滚功能，避免使用"git push -f"。正如某哲人所说：**如果用到"git push -f"，您肯定哪里做错了！**
 
 ![](https://help-assets.codehub.cn/enterprise/20210408200104.png)

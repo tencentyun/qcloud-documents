@@ -2,16 +2,14 @@
 在腾讯云 EMR 上提供了开箱可用的 Alluxio 服务，以帮助腾讯云客户可以快速实现分布式内存级缓存加速、简化数据管理等。同时还可以通过腾讯云 EMR 控制台或 API 接口，使用配置下发功能，快速配置多层级缓存和元数据管理等，获取一站式监控告警等功能。
 
 ## 准备
-- 腾讯云 EMR 的 Hadoop 标准版本2.1.0版本及以上
-- 腾讯云 EMR 的 Hadoop 天穹版本1.0版本及以上
-
+腾讯云 EMR 的 Hadoop 标准版本2.1.0版本及以上。
 有关 EMR 中版本中支持具体的 Alluxio 的版本支持可参考 [组件版本](https://cloud.tencent.com/document/product/589/20279)。
 
 ## 创建基于 Alluxio 的 EMR 集群
 本节主要说明如何在腾讯云 EMR 上创建开箱即用的 Alluxio 集群。EMR 创建集群提供了购买页创建和 API 创建两种方式。
 
 ### 购买页创建集群
-您需要登录腾讯云 EMR [购买页](https://buy.cloud.tencent.com/emapreduce/)，在购买页选择支持的 Alluxio 发布版本，并且在可选组件列表中勾选 Alluxio 组件。
+您需要登录腾讯云 EMR [购买页](https://buy.cloud.tencent.com/emr)，在购买页选择支持的 Alluxio 发布版本，并且在可选组件列表中勾选 Alluxio 组件。
 ![](https://main.qcloudimg.com/raw/32d5f013d14def8a396951cd751e1352.png)
 其他的选项可根据业务具体业务场景，进行个性化配置，创建过程中的具体选项可参考 [创建 EMR 集群](https://cloud.tencent.com/document/product/589/10981)。
 

@@ -1,6 +1,4 @@
-
-
-## 简介
+## 简介 
 
 ### 数据卷类型
 
@@ -25,10 +23,6 @@
 	<td>使用已有 PersistentVolumeClaim 声明工作负载的存储，自动分配或新建 PersistentVolume 挂载到对应的 Pod 下。主要适用于 StatefulSet 创建的有状态应用。</td>
 	</tr>
 	<tr>
-	<td>使用腾讯云硬盘</td>
-	<td>腾讯云基于 CBS 扩展的 Kubernetes 的块存储插件。您可以指定一块腾讯云的 CBS 云硬盘挂载到容器的某一路径下，当容器迁移时，云硬盘会随之迁移。<b>使用云硬盘数据卷适用于数据的持久化保存，可用于 Mysql 等有状态服务。设置云硬盘数据卷的服务，实例数量最大为1。</b></td>
-	</tr>
-	<tr>
 	<td>使用 ConfigMap</td>
 	<td>ConfigMap 以文件系统的形式挂载到 Pod 上，支持自定义 ConfigMap 条目挂载到特定的路径。更多详情请参见 <a href="https://cloud.tencent.com/document/product/457/31717">ConfigMap 管理</a>。</td>
 	</tr>
@@ -51,7 +45,7 @@
 ## Volume 控制台操作指引
 ### 创建工作负载挂载数据卷
 
-1. 登录容器服务控制台，并选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
+1. 登录容器服务控制台 ，并选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
 2. 在“集群管理”页面，单击需要部署 Workload 的集群 ID，进入待部署 Workload 的集群管理页面。
 3. 在**工作负载**下，任意选择 Workload 类型，进入对应的信息页面。
 例如，选择**工作负载** > **DaemonSet**，进入 DaemonSet 信息页面。如下图所示：
@@ -95,13 +89,10 @@
         <td>主机路径</td><td>设置主机路径。<li>主机路径：该路径不能为空，例如当该容器需要访问 Docker 时主机路径可设置为<code>/var/lib/docker</code>。</li><li>检查类型：TKE 为您提供 NoChecks、DirectoryOrCreate 等多种检查类型，请仔细查阅控制台上每种类型介绍，并根据实际需求进行选择。</li></td>
     </tr>
     <tr>
-        <td> NFS 盘</td><td> NFS 路径：填写文件系统 CFS 或自建 NFS 地址。<li>如需创建文件系统，请参看<a herf="https://cloud.tencent.com/document/product/582/9132">创建文件系统及挂载点。</a></li><li> NFS 路径示例如<code>10.0.0.161:/</code>。该路径可登录 <a href="https://console.cloud.tencent.com/cfs" target="_blank">文件系统控制台</a>，单击目标文件系统 ID ，在**挂载点信息**页签的 “Linux 下挂载目录”中获取。</li></td>
+        <td> NFS 盘</td><td> NFS 路径：填写文件系统 CFS 或自建 NFS 地址。<li>如需创建文件系统，请参看<a herf="https://cloud.tencent.com/document/product/582/9132">创建文件系统及挂载点。</a></li><li> NFS 路径示例如<code>10.0.0.161:/</code>。该路径可登录 <a href="https://console.cloud.tencent.com/cfs" target="_blank">文件系统控制台</a>，单击目标文件系统 ID ，在<b>挂载点信息</b>页签的 “Linux 下挂载目录”中获取。</li></td>
     </tr>
     <tr>
         <td>已有 PVC</td><td>请选择 PVC：根据实际需求进行选择。</td>
-    </tr>
-    <tr>
-        <td>腾讯云硬盘</td><td>选择云硬盘：请根据实际需求进行选择。</td>
     </tr>
     <tr>
         <td>ConfigMap</td><td rowspan="2"><li>选择 ConfigMap：根据实际需求进行。</li><li>选项：提供“全部”和“指定部分Key”两种选择。</li><li>Items：当选择“指定部分Key” 选项时，可以通过添加 item 向特定路径挂载，如挂载点是 <code>/data/config</code>，子路径是 <code>dev</code>，最终会存储在 <code>/data/config/dev</code> 下。</li></td>

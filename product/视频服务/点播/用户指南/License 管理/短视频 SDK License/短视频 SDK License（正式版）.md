@@ -15,8 +15,6 @@
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | [精简版 SDK（UGC_Smart）](https://cloud.tencent.com/document/product/584/9366#sdk) | [点播流量资源包 10TB](https://buy.cloud.tencent.com/vod?t=ugsv&from=console-license-bottom-ugsv) |
 | [基础版 SDK（UGC）](https://cloud.tencent.com/document/product/584/9366#sdk) | [点播流量资源包 50TB、200TB 或 1PB](https://buy.cloud.tencent.com/vod?t=ugsv&from=console-license-bottom-ugsv) |
-| [企业版 SDK（UGC_Enterprise）](https://cloud.tencent.com/document/product/584/9366#sdk) | 请参见 [申请企业版本 License](#enterpriseli)                 |
-| [企业版 Pro SDK（EnterprisePro）](https://cloud.tencent.com/document/product/584/9366#sdk) | 请参见 [申请企业版本 License](#enterpriseli)                 |
 
 #### 操作步骤
 1. 进入**云点播控制台]**>**License 管理** >**[SDK License](https://console.cloud.tencent.com/vod/license/video)**，单击**创建应用并绑定License**按钮。填写 App Name、Package Name 和 Bundle ID并勾选功能模块**短视频**，根据实际需求选择**精简版**或**基础版**，完成后单击**下一步**。
@@ -53,13 +51,3 @@
 >! **短视频精简版正式版 License** 成功升级为**短视频基础版正式版 License** 后，原有绑定短视频精简版的套餐包（规格为 10TB 的云点播流量资源包）会进行释放，即结束绑定关系，此套餐包可重新绑定其他应用内的短视频 License。
 
 [](id:pro)[](id:enterpriseli)
-
-## 企业版本 License
-
-相比于基础版，企业版增加了基于腾讯优图实验室专利技术的人脸特效功能。使用企业版 License 可以开启优图实验室的 AI 功能。
-
-> ? 
-> - 企业版 License 基本配置方法与基础版 License 相同，具体请参见 配置查看 License。配置完成后需额外配置 [动效变脸](https://cloud.tencent.com/document/product/584/13509) 功能。
-> - 若您需开通企业版 License，请 [单击此处](https://cloud.tencent.com/product/x-magic)。
-
-

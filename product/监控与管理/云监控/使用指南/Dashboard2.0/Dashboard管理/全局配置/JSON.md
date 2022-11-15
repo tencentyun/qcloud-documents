@@ -11,7 +11,7 @@
 5. 单击 **JSON**，复制 JSON 模板，即可把 JSON 格式部署到您的自建系统，在您的系统可查看对应的 Dashboard。
    ![](https://main.qcloudimg.com/raw/50fffa2ed12cbf3d74fd6b0c95f5afe2.png)
 
-JSON 模板包含 Dashboard 的属性、模板变量、面板查询等字段，具体字段说明请参考下文。
+JSON 模板包含 Dashboard 的属性、模板变量、面板查询等字段，具体字段说明请参考下文：
 
 ## JSON 字段说明
 

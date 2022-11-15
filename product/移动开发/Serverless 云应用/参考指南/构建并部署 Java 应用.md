@@ -1,11 +1,5 @@
-代码示例：[Java](https://github.com/TencentCloudBase/cloudbase-examples/tree/master/cloudbaserun/java)
 
-可单击下方按钮一键部署：
-
-<div style="background-color:#00A4FF; width: 125px; height: 35px; line-height:35px; text-align:center;"><a href="https://console.cloud.tencent.com/tcb/env/index?action=CreateAndDeployCloudBaseProject&appUrl=https%3A%2F%2Fgithub.com%2FTencentCloudBase%2Fcloudbase-examples&workDir=cloudbaserun%2Fjava&appName=java-hello-world" target="_blank"  style="color: white; font-size:13px;">部署到云开发</a></div>
-
-
-## 步骤1：编写基础应用
+## 步骤1：编写基础应用（使用 spring boot 框架）
 
 1. 首先我们创建一个 Spring Boot 应用。使用 curl 和 unzip 命令新建一个空 Web 项目：
 <dx-codeblock>
@@ -58,14 +52,14 @@ public class HelloworldApplication {
 }
 :::
 </dx-codeblock>
-3. 在 `src/main/resources/application.properties` 中，将服务器端口设置成 `8080`：
+3. 在 `src/main/resources/application.properties` 中，将服务器端口设置成 `80`：
 <dx-codeblock>
 :::  URL
-server.port=8080
+server.port=80
 :::
 </dx-codeblock>
 <dx-alert infotype="explain" title="">
-以上代码会创建一个基本的 Web 服务器，并监听 `8080` 端口。
+以上代码会创建一个基本的 Web 服务器，并监听 `80` 端口。
 </dx-alert>
 
 
@@ -75,28 +69,48 @@ server.port=8080
 1. 在项目根目录下，创建一个名为 `Dockerfile` 的文件，内容如下：
 <dx-codeblock>
 :::  docker
-# 使用官方 maven/Java 8 镜像作为构建环境
-# https://hub.docker.com/_/maven
-FROM maven:3.6-jdk-11 as builder
+# 选择构建用基础镜像。如需更换，请到[dockerhub官方仓库](https://hub.docker.com/_/java?tab=tags)自行选择后替换。
+FROM maven:3.6.0-jdk-8-slim as build
 
-# 将代码复制到容器内
+# 指定构建过程中的工作目录
 WORKDIR /app
-COPY pom.xml .
-COPY src ./src
 
-# 构建项目
-RUN mvn package -DskipTests
+# 将src目录下所有文件，拷贝到工作目录中src目录下（.gitignore/.dockerignore中文件除外）
+COPY src /app/src
 
-# 使用 AdoptOpenJDK 作为基础镜像
-# https://hub.docker.com/r/adoptopenjdk/openjdk8
-# https://docs.docker.com/develop/develop-images/multistage-build/#use-multi-stage-builds
-FROM adoptopenjdk/openjdk11:alpine-slim
+# 将pom.xml文件，拷贝到工作目录下
+COPY settings.xml pom.xml /app/
 
-# 将 jar 放入容器内
-COPY --from=builder /app/target/helloworld-*.jar /helloworld.jar
+# 执行代码编译命令
+# 自定义settings.xml, 选用国内镜像源以提高下载速度
+RUN mvn -s /app/settings.xml -f /app/pom.xml clean package
 
-# 启动服务
-CMD ["java", "-Djava.security.egd=file:/d步骤1urandom", "-jar", "/helloworld.jar"]
+# 选择运行时基础镜像
+FROM alpine:3.13
+
+# 容器默认时区为UTC，如需使用上海时间请启用以下时区设置命令
+# RUN apk add tzdata && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && echo Asia/Shanghai > /etc/timezone
+
+# 安装依赖包，如需其他依赖包，请到alpine依赖包管理(https://pkgs.alpinelinux.org/packages?name=php8*imagick*&branch=v3.13)查找。
+# 选用国内镜像源以提高下载速度
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.tencent.com/g' /etc/apk/repositories \
+    && apk add --update --no-cache openjdk8-jre-base \
+    && rm -f /var/cache/apk/*
+
+# 指定运行时的工作目录
+WORKDIR /app
+
+# 将构建产物jar包拷贝到运行时目录中
+COPY --from=build /app/target/*.jar .
+
+# 暴露端口
+# 此处端口必须与部署时填写的端口一致，否则会部署失败。
+EXPOSE 80
+
+# 执行启动命令.
+# 写多行独立的CMD命令是错误写法！只有最后一行CMD命令会被执行，之前的都会被忽略，导致业务报错。
+# 请参考[Docker官方文档之CMD命令](https://docs.docker.com/engine/reference/builder/#cmd)
+CMD ["java", "-jar", "/app/springboot-1.0.jar"]
 :::
 </dx-codeblock>
 2. 添加一个 `.dockerignore` 文件，以从容器映像中排除文件：
@@ -125,6 +139,6 @@ helloworld-java   latest    c994813b495b     8 seconds ago      271MB
 </dx-codeblock>
 
 
-## 步骤4：部署到 CloudBase 云托管
+## 步骤4：部署到云托管
 
 详情请参见 [部署服务](https://cloud.tencent.com/document/product/1243/46127) 与 [版本配置说明](https://cloud.tencent.com/document/product/1243/49177)。

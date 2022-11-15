@@ -3,8 +3,8 @@
 
 ## iOS 接入流程
 1. 首先需要 [接入 TRTC](https://cloud.tencent.com/document/product/647/32221)，跑通流程。
-2. 根据实时语音识别 [音频流格式要求](https://cloud.tencent.com/document/product/1093/35799)，参考 [TRTC 技术文档](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html) 设置音频流格式。
-3. 在 [TRTC 接口协议](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html) 中设置音频源代理，并设置 ASR 读取音频源。
+2. 根据实时语音识别 [音频流格式要求](https://cloud.tencent.com/document/product/1093/35799)，参考 [TRTC 技术文档](https://cloud.tencent.com/document/product/647/32258 ) 设置音频流格式。
+3. 在 [TRTC 接口协议](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDelegate__ios.html) 中设置音频源代理，并设置 ASR 读取音频源。
 
 ```objective-c
 //1.TRTCAudioFrameDelegate 协议是 TRTC 获取音频源的协议，由于 ASR 识别16k或8k采样率的音频数据，所以需要设置 setAudioQuality 为 TRTCCloudDef#TRTC_AUDIO_QUALITY_SPEECH (流畅:采样率:16k;单声道;音频裸码率:16kbps)
@@ -17,19 +17,16 @@
 }
 ```
 4. ASR 音频源设置为第三方，并实现具体逻辑。
-
-4.1 接入第三方音频源需要在 ASR 接入部分实现 QCloudAudioDataSource 协议。代码示例如下：
+	- 接入第三方音频源需要在 ASR 接入部分实现 QCloudAudioDataSource 协议。代码示例如下：
 ```objective-c
 #import<QCloudSDK/QCloudSDK.h>
-
 //1.使用第三方外部数据源传入语音数据，自定义 data source 需要实现 QCloudAudioDataSource 协议
 QDAudioDataSource *dataSource = [[QDAudioDataSource alloc] init];
 
 //2.创建 QCloudRealTimeRecognizer 识别实例
 QCloudRealTimeRecognizer *realTimeRecognizer = [[QCloudRealTimeRecognizer alloc] initWithConfig:config dataSource:dataSource];
 ```
-4.2 接入 ASR 的 QCloudAudioDataSource 协议如下，[协议详情](https://cloud.tencent.com/document/product/1093/35723#QCloudAudioDataSource)。代码可参考工程中 QDAudioDataSource.m 文件。
-
+	- 接入 ASR 的 QCloudAudioDataSource 协议如下，[协议详情](https://cloud.tencent.com/document/product/1093/35723#QCloudAudioDataSource)。代码可参考工程中 QCloudDemoAudioDataSource.m  文件。
 ```objc
 @interface QDAudioDataSource : NSObject<QCloudAudioDataSource>
 @end
@@ -74,8 +71,24 @@ QCloudRealTimeRecognizer *realTimeRecognizer = [[QCloudRealTimeRecognizer alloc]
 ## Android 接入流程
 
 1. 首先需要 [接入 TRTC](https://cloud.tencent.com/document/product/647/32221)，跑通流程。
-2. 根据实时语音识别 [音频流格式要求](https://cloud.tencent.com/document/product/1093/35799)，参考 [TRTC 技术文档](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html) 设置音频流格式。
-3. 在 [TRTC 接口协议](http://doc.qcloudtrtc.com/group__TRTCCloudListener__android.html) 里设置音频源代理，并设置 ASR 读取音频源。
+2. 根据实时语音识别 [音频流格式要求](https://cloud.tencent.com/document/product/1093/35799)，参考 [TRTC 技术文档](https://cloud.tencent.com/document/product/647/32258) 设置音频流格式。
+3. 在 [TRTC 接口协议](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudListener__android.html) 里设置音频源代理，并设置 ASR 读取音频源。
+```java
+//1.TRTCCloudListener.TRTCAudioFrameListener 是 TRTC 获取本地麦克风采集到的音频数据回调  由于 ASR 识别16k或8k采样率的音频数据，所以需要设置 setAudioQuality 为 TRTCCloudDef#TRTC_AUDIO_QUALITY_SPEECH （流畅：采样率：16k；单声道；音频裸码率：16kbps）
+void onCapturedRawAudioFrame(TRTCCloudDef.TRTCAudioFrame trtcAudioFrame) {
+dataSource.writeByte(bytesToShort(trtcAudioFrame.data));; 
+} 
+//以下方法为把 bytes 数组转成 short 数组
+public static short[] bytesToShort(byte[] bytes) {
+    if (bytes == null) {
+        return null;
+    }
+    short[] shorts = new short[bytes.length / 2];
+ByteBuffer.wrap(bytes).order(ByteOrder.LITTLE_ENDIAN).asShortBuffer().get(shorts);
+    return shorts;
+}
+```
+
 4. ASR 音频源设置为第三方，并实现具体逻辑。
  - 接入第三方音频源需要在 ASR 接入部分实现 PcmAudioDataSource 接口。代码示例如下：
 ```java
@@ -139,19 +152,4 @@ private ConcurrentLinkedDeque<Short> getDataList() {
         return shortList;
     } 
 ```
- - TRTC 音频源接入 ASR 协议如下，[TRTC 协议详情](http://doc.qcloudtrtc.com/group__TRTCCloudListener__android.html)。
-```java
-//1.TRTCCloudListener.TRTCAudioFrameListener 是 TRTC 获取本地麦克风采集到的音频数据回调  由于 ASR 识别16k或8k采样率的音频数据，所以需要设置 setAudioQuality 为 TRTCCloudDef#TRTC_AUDIO_QUALITY_SPEECH （流畅：采样率：16k；单声道；音频裸码率：16kbps）
-void onCapturedRawAudioFrame(TRTCCloudDef.TRTCAudioFrame trtcAudioFrame) {
-dataSource.writeByte(bytesToShort(trtcAudioFrame.data));; 
-} 
-//以下方法为把 btyes 数组转成 short 数组
-public static short[] bytesToShort(byte[] bytes) {
-    if (bytes == null) {
-        return null;
-    }
-    short[] shorts = new short[bytes.length / 2];
-ByteBuffer.wrap(bytes).order(ByteOrder.LITTLE_ENDIAN).asShortBuffer().get(shorts);
-    return shorts;
-}
-```
+ 

@@ -3,6 +3,8 @@
 >
 
 ## 路由配置
+>?通过 BGP 连通的对接参数，Keepalive 及 holdtime 参数推荐使用缺省配置；推荐 Holdtime 时间60 * 3=180秒（此时 keepalive 报文周期60s）
+>
 ``` 
 # 配置物理接口
 interfaces <interface_number>
@@ -20,14 +22,28 @@ vlan-type dot1q <subinterface_vlanid>
 ip address <subinterface_ipaddress> <subinterface_netmask>
 commit
 
+# 配置静态路由 NQA 探测
+nqa test-instance <admin-name>< test-name>
+ test-type icmp  //默认测试类型
+ destination-address  x.x.x.x（nexthop-address ）//探测地址
+ interval seconds <value> //探测间隔
+ timeout <value> //超时时间
+ probe-count <value> //每次探测包数
+ frequency <value> //探测实例执行间隔
+ start now
+
+
 # 设置静态路由
 # 设置全局静态路由
-ip route-static <ip-address> <mask | mask-length> <nexthop-address>//<ip-address>为用户需要访问 Tencent 网络服务的目的网段
-例如:ip route-static 172.16.0.192 255.255.255.192 10.128.152.1
+ip route-static <ip-address> <mask | mask-length> <nexthop-address> track nqa  <admin-name>< test-name>
+//<ip-address>为用户需要访问 Tencent 网络服务的目的网段
+例如:ip route-static 172.16.0.192 255.255.255.192 10.128.152.1 track nqa user test
+
 
 # 设置 VRF 下用户访问 Tencent 静态路由
 ip route-static <vpn-instance vpn-instance-name> <ip-address> <mask | mask-length> <nexthop-
-address>
-例如:ip route-static vpn-instance GLOBAL 9.0.0.0 255.0.0.0 10.128.152.1
+address> track nqa  <admin-name>< test-name>
+例如:ip route-static vpn-instance GLOBAL 9.0.0.0 255.0.0.0 10.128.152.1 track nqa user test
 Commit
+
 ```

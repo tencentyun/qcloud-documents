@@ -1,5 +1,5 @@
 ## 操作场景
-本文档旨在帮助大家了解如何快速创建一个容器集群内的 Hello World 的 Node.js 版的服务。更多关于如何构建 Docker 镜像的教程可参阅 [如何构建 docker 镜像](https://cloud.tencent.com/document/product/457/9115)。
+本文档旨在帮助您了解如何快速创建一个容器集群内的 Hello World 的 Node.js 版的服务。更多关于如何构建 Docker 镜像的教程可参阅 [如何构建 docker 镜像](https://cloud.tencent.com/document/product/457/9115)。
 
 ## 前提条件
 
@@ -103,7 +103,7 @@ sudo docker push ccr.ccs.tencentyun.com/命名空间/helloworld:v1
 >- 已注册腾讯云账户，请前往 [注册页面](https://cloud.tencent.com/register) 填写相关信息注册腾讯云账户。
 >- 已创建集群，详情请参见 [创建集群](https://cloud.tencent.com/document/product/457/32189)。
 >
-1. 登录容器服务控制台，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
+1. 登录容器服务控制台 ，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
 2. 在“集群管理”页面，选择需创建服务的集群 ID，进入集群的工作负载 “Deployment” 页面并单击**新建**。如下图所示：
 ![](https://main.qcloudimg.com/raw/19997a6644943a2c6ec1587404eb8ca0.png)
 3. 在“新建Workload” 页面，根据以下信息，设置工作负载基本信息。如下图所示：
@@ -113,7 +113,7 @@ sudo docker push ccr.ccs.tencentyun.com/命名空间/helloworld:v1
  - **标签**：key = value 键值对，本例中标签默认值为 k8s-app = **helloworld**。
  - **命名空间**：根据实际需求进行选择。
  - **类型**：根据实际需求进行选择。
- - **数据卷**：根据实需求设置工作负载的挂载卷，详情请参见 [Volumne 管理](https://cloud.tencent.com/document/product/457/31713)。
+ - **数据卷**：根据实际需求设置工作负载的挂载卷，详情请参见 [Volumne 管理](https://cloud.tencent.com/document/product/457/31713)。
 4. 参考以下信息设置“实例内容器”。如下图所示：
 输入实例内容器名称，本文以 helloworld 为例
 ![](https://main.qcloudimg.com/raw/483f16423c0119de4f8f7a24699acdca.png)
@@ -130,13 +130,13 @@ sudo docker push ccr.ccs.tencentyun.com/命名空间/helloworld:v1
 ![](https://main.qcloudimg.com/raw/08f24d05d98670d6c2566d688388941f.png)
  - **手动调节**：设定实例数量，本文实例数量设置为1。可单击“+”或“-”控制实例数量。
  - **自动调节**：满足任一设定条件，则自动调节实例（pod）数目。详情请参见 [服务自动扩缩容](https://cloud.tencent.com/document/product/457/14209)。
-6.   根据以下提示，进行工作负载的访问设置。如下图所示：   
-![](https://main.qcloudimg.com/raw/3f722201e228c2bebc63cad0ea3d76c7.png)
+6.   根据以下提示，进行工作负载的访问设置。
  - **Service**：勾选“启用”。
- - **服务访问方式**：选择“提供公网访问”。
+ - **服务访问方式**：选择“公网LB访问”。
  - **负载均衡器**：根据实际需求进行选择。
  - **端口映射**：选择 TCP 协议，将容器端口和服务端口都设置为80 。
- >!服务所在集群的安全组需要放通节点网络及容器网络，同时需要放通30000 - 32768端口，否则可能会出现容器服务无法使用问题，详情请参见 [容器服务安全组设置](https://cloud.tencent.com/document/product/457/9084)。
+>!服务所在集群的安全组需要放通节点网络及容器网络，同时需要放通30000 - 32768端口，否则可能会出现容器服务无法使用问题，详情请参见 [容器服务安全组设置](https://cloud.tencent.com/document/product/457/9084)。
+>
 7. 单击**创建Workload**，完成 Hello World 服务的创建。
 
 ### 访问 Hello World 服务

@@ -1,60 +1,576 @@
-腾讯云视立方播放器 Player （以下简称播放器 Player）支持 Web、iOS、Android 和 Flutter 四大终端，云点播为客户提供了完整的 Demo 和播放器 Player 下载。
-[](id:downloadSDK)
-## SDK 下载 & Demo 
-<table>
-   <tr>
-      <th width="120px" style="text-align:center">终端类别</td>
-      <th width="70px" style="text-align:center">播放器类型</td>
-      <th width="0px"  style="text-align:center">SDK & Demo 下载地址</td>
-      <th width="0px" style="text-align:center">Demo 展示</td>
-      <th width="0px"  style="text-align:center">	使用文档</td>
-   </tr>
-   <tr>
-      <td style="text-align:center" rowspan='2'>Web 端</td>
-      <td>超级播放器</td>
-      <td><a href="https://cloud.tencent.com/document/product/266/58804#preparation">SDK</a></td>
-      <td><a href="https://imgcache.qq.com/open/qcloud/video/tcplayer/examples/vod/tcplayer-vod-base.html">Demo</a></td>
-      <td><a href="https://cloud.tencent.com/document/product/266/58804">Web - 超级播放器</a></td>
-   </tr>
-   <tr>
-      <td>超级播放器 Adapter</td>
-      <td><a href="https://cloud.tencent.com/document/product/266/58773#Integrated">SDK</a></td>
-      <td>-</td>
-      <td><a href="https://cloud.tencent.com/document/product/266/58773">Web - 超级播放器 Adapter</a></td>
-   </tr>
-   <tr>
-      <td style="text-align:center" rowspan='2'>iOS 端</td>
-      <td>超级播放器</td>
-      <td><a href="https://github.com/tencentyun/SuperPlayer_iOS">SDK + Demo</a></td>
-      <td><a><button style="width:120px;height: 120px;border:none;background-image:url(https://main.qcloudimg.com/raw/12c7da97cc910eda673cb19b66fc7cb3.png);background-size: cover;">
-</button></a></td>
-      <td><a href="https://cloud.tencent.com/document/product/266/58774">iOS - 超级播放器</a></td>
-   </tr>
-   <tr>
-      <td>超级播放器 Adapter</td>
-      <td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TXCPlayerAdapter/Release/1.0.0/TXCPlayerAdapterSDK_1.0.0_iOS.zip">SDK</a></td>
-      <td>-</td>
-      <td><a href="https://cloud.tencent.com/document/product/266/58775">iOS - 超级播放器 Adapter</a></td>
-   </tr>
-   <tr>
-      <td style="text-align:center" rowspan='2'>Android 端</td>
-      <td>超级播放器</td>
-      <td><a href="https://github.com/tencentyun/SuperPlayer_Android">SDK + Demo</a></td>
-      <td><a><button style="width:120px;height: 120px;border:none;background-image:url(https://main.qcloudimg.com/raw/6790ddaf4ffe4afd0ceb96b309a16496.png);background-size: cover;">
-</button></a></td>
-      <td><a href="https://cloud.tencent.com/document/product/266/7938">Android - 超级播放器</a></td>
-   </tr>
-   <tr>
-      <td>超级播放器 Adapter</td>
-      <td><a href="https://mediacloud-76607.gzc.vod.tencent-cloud.com/TXCPlayerAdapter/Release/1.0.0/TXCPlayerAdapterSDK_1.0.0_Android.zip">SDK</a></td>
-      <td>-</td>
-      <td><a href="https://cloud.tencent.com/document/product/266/58777">Android- 超级播放器 Adapter</a></td>
-   </tr>
-   <tr>
-      <td  style="text-align:center">Flutter 端</td>
-      <td>超级播放器</td>
-      <td><a href="https://github.com/tencentyun/SuperPlayer/tree/main/Flutter">SDK + Demo</a></td>
-	     <td><a href="https://github.com/tencentyun/SuperPlayer/tree/main/Flutter">Demo</a></td>
-	     <td><a href="https://cloud.tencent.com/document/product/266/58778">Flutter - 超级播放器</a></td>
-   </tr>
+<style>
+    .card-container {
+        width: 350px;
+        display: block;
+        float: left;
+        padding-left: 15px;
+        padding-right: 15px;
+        box-sizing: border-box;
+    }
+
+    .card {
+        border-radius: 10px;
+        padding-top: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 10px;
+        margin-top: 30px;
+        border: 1px solid #ebeef5;
+        background-color: #fff;
+        overflow: hidden;
+        box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
+        text-align: center;
+    }
+
+    .markdown-text-box img {
+        box-shadow: none;
+    }
+
+
+    .titlename {
+                color:#191919;
+        position: relative;
+        top: -2px;
+                font-weight: bolder;
+                font-size: larger;
+    }
+        
+        @media (max-width: 768px){
+                .card-container,
+                .scene-card-container{
+                        width: 100%;
+                }
+                .scene-card > div{
+                        width: 100%!important;
+                        margin-left: 0!important;
+                }
+                img {
+        box-shadow: none;
+    }
+        }
+</style>
+
+## 下载 SDK
+播放器 SDK 是腾讯云视立方产品家族的子产品之一，提供直播、点播场景的视频播放能力。
+您可以在 [产品功能](https://cloud.tencent.com/document/product/881/61375) 中查看 SDK 支持的功能清单，在 [Demo 体验](https://cloud.tencent.com/document/product/881/20204) 中获取各端 Demo 进行功能体验，在本页面中下载各端 SDK 并获取 Demo 源码。
+
+### Web SDK
+
+<div style="position: relative; box-sizing: border-box;  padding-bottom: 10px; margin-bottom: 10px; overflow:hidden">
+  <div class="card-container">
+      <div class="card">
+        <img src="https://main.qcloudimg.com/raw/7e2651085e3e3c6e32190e401a6dfd32.svg" data-nonescope="true">
+        <p class="titlename">Web 播放器 SDK</p>
+        <p style="color:#586376;">可用于直播播放和点播播放，适用于 PC 端浏览器和移动端浏览器。</p>
+        <a onclick="reportEvent({name: 'download-click-web', ext1: 'zip'})" target="_blank" href="https://web.sdk.qcloud.com/player/tcplayer/release/v4.5.2/release.zip">ZIP 下载</a>
+        <a style="margin-left: 10px;" onclick="reportEvent({name: 'download-click-web', ext1: 'github'})" target="_blank" href="https://cloud.tencent.com/document/product/881/77877">集成指引</a>
+        <a style="margin-left: 10px;" onclick="reportEvent({name: 'download-click-web', ext1: 'doc-sdk'})" target="_blank" href="https://tcplayer.vcube.tencent.com">Demo 示例</a>
+      </div>
+  </div>
+</div>
+
+### iOS & Android SDK
+
+<div style="position: relative; box-sizing: border-box;  padding-bottom: 10px; margin-bottom: 10px; overflow:hidden">
+        <div class="card-container">
+            <div class="card">
+                            <img src="https://main.qcloudimg.com/raw/b0211b0870806899009a17a4216ea65c.svg" data-nonescope="true">
+                                <p class="titlename">iOS 播放器 SDK</p>
+                <p style="color:#586376;">包含点播播放和直播播放功能，提供常见组件及场景化的 Demo 源码帮助快速搭建应用。</p>
+                                <a href="https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_Player_iOS_latest.zip">ZIP 下载</a>
+                <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/881/77878">集成指引</a>
+                                <a style="margin-left: 10px;" href="https://github.com/LiteAVSDK/Player_iOS">Demo 源码</a>
+            </div>
+        </div>
+			  <div class="card-container">
+            <div class="card">
+                                <img class="icon" src="https://main.qcloudimg.com/raw/613f2e15bed7c8297110676b52784b71.svg" data-nonescope="true">
+                                <p class="titlename">Android 播放器 SDK</p>
+                <p style="color:#586376;">包含点播播放和直播播放功能，提供常见组件及场景化的 Demo 源码帮助快速搭建应用。</p>
+                                <a href="https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_Player_Android_latest.zip">ZIP 下载</a>
+                 <a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/881/77881">集成指引</a>
+                                <a style="margin-left: 10px;" href="https://github.com/LiteAVSDK/Player_Android">Demo 源码</a>
+            </div>
+        </div>
+</div>
+
+
+### 跨平台 SDK
+
+<div style="position: relative; box-sizing: border-box;  padding-bottom: 10px; margin-bottom: 10px; overflow:hidden">
+        <div class="card-container">
+            <div class="card">
+									<img src="https://qcloudimg.tencent-cloud.cn/raw/3b6929f89ce1113bc2005873f2338de9.png" data-nonescope="true"/>
+									<p class="titlename">Flutter 播放器 SDK</p>
+                <p style="color:#586376;">基于 Flutter 框架封装的播放器 SDK，让您用一套代码快速构建出能够运行于各平台的 App。</p>
+								<a href="https://github.com/LiteAVSDK/Player_Flutter">ZIP 下载</a>
+								<a style="margin-left: 10px;" href="https://cloud.tencent.com/document/product/881/60729">集成指引</a>
+                <a style="margin-left: 10px;" href="https://github.com/LiteAVSDK/Player_Flutter">GitHub</a>
+            </div>
+        </div>
+</div>
+
+
+
+## SDK 能力清单
+<table selecttype="cells" ><colgroup><col  ><col width="155.63" ><col  ><col  ><col  ><col  ></colgroup>
+<tbody>
+<tr  ><th style="width:5%">功能模块</td>
+<th style="width:20%">功能项</td>
+<th style="width:70%">功能简介</td>
+<th style="width:1%">Web</td>
+<th style="width:1%">iOS & Android</td>
+<th style="width:1%">Flutter</td>
+</tr>
+
+<tr  ><td colspan="1" rowspan="14" >播放协议/格式</td>
+<td>点播或直播支持</td>
+<td>同时支持点播播放和直播播放能力</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+</tr>
+
+<tr  ><td>支持的直播播放格式</td>
+<td>支持 RTMP、FLV、HLS、DASH 和 WebRTC 等直播视频格式</td>
+<td>WebRTC、FLV、HLS、DASH</td>
+<td>RTMP、FLV、HLS</td>
+<td>RTMP、FLV、HLS</td>
+</tr>
+
+<tr  ><td>支持的点播播放格式</td>
+<td>支持HLS、DASH、MP4 和 MP3 等点播音视频格式</td>
+<td>HLS、MP4、MP3、FLV、DASH</td>
+<td>MP4、MP3、HLS、DASH</td>
+<td>MP4、MP3、HLS、DASH</td>
+</tr>
+
+<tr  ><td><a href="https://cloud.tencent.com/product/leb">快直播</a></td>
+<td>支持腾讯云毫秒级超低时延快直播播放</td>
+<td>&#10003;</td>
+<td>×</td>
+<td>×</td>
+</tr>
+
+<tr  ><td>DASH 协议支持</td>
+<td>支持标准协议的 DASH 视频播放</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+</tr>
+
+<tr  ><td>Quic 加速</td>
+<td>支持 Quic 传输协议，有效提升视频传输效率</td>
+<td>-</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+</tr>
+
+<tr  ><td>SDR/HDR 视频</td>
+<td>支持播放 SDR 视频和 HDR 10/HLG 标准的 HDR 视频</td>
+<td>-</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+</tr>
+
+<tr  ><td>H.264播放及软硬解</td>
+<td>支持播放H.264视频源，并支持软硬解</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+</tr>
+
+<tr  ><td>H.265 硬解</td>
+<td>支持对 H.265 视频源的硬解码播放</td>
+<td>-</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+</tr>
+
+<tr  ><td>纯音频播放</td>
+<td>支持 MP3 等文件纯音频播放</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+</tr>
+
+<tr  ><td>双声道音频</td>
+<td>支持播放双声道音频</td>
+<td>×</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+</tr>
+
+<tr  ><td>设置Http Header</td>
+<td>请求视频资源时，自定义 HTTP Headers 内容</td>
+<td>×</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+</tr>
+
+<tr  ><td>支持 HTTPS</td>
+<td>支持播放 HTTPS 的视频资源</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+</tr>
+
+<tr  ><td>HTTP 2.0</td>
+<td>支持 HTTP 2.0协议</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+</tr>
+
+<tr  ><td colspan="1" rowspan="6" >播放性能</td>
+<td>预下载</td>
+<td>支持提前下载指定视频文件内容，并支持配置预下载视频文件的大小及分辨率；可大幅减少首帧耗时，另外包含对低能耗的针对性优化，性能更佳</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+</tr>
+
+<tr  ><td>边播边缓存</td>
+<td>支持播放的同时缓存下载后面的内容，降低网络占用，可设置缓存策略</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+</tr>
+
+<tr  ><td>精准 seek</td>
+<td>支持在进度条上跳转到指定位置进行播放，移动端可精确到帧级别，Web 端精准到毫秒级</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+</tr>
+
+<tr  ><td>实时下载网速</td>
+<td>支持获取实时下载网速，既可根据业务需要给 C 端用户在卡顿时展示下载网速，也是使用自适应码率带宽预测模块的必要前提</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+</tr>
+
+<tr  ><td>多实例</td>
+<td>支持在一个界面添加多个播放器同时播放</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+</tr>
+
+<tr  ><td>动态追帧</td>
+<td>发生卡顿时，通过类似“快进”的方式追赶上当前直播进度，保证直播画面实时性</td>
+<td>&#10003;</td>
+<td>×</td>
+<td>×</td>
+</tr>
+
+<tr  ><td colspan="1" rowspan="25" >播放控制</td>
+<td>URL播放</td>
+<td>支持网络视频的 URL 方式播放，URL 可以为点播播放地址也可以为直播拉流地址</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+</tr>
+
+<tr  ><td>FileID 播放</td>
+<td>支持通过云点播文件标识 FileID 播放视频，包含多个清晰度的视频、缩略图、打点等信息</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+</tr>
+
+<tr  ><td>本地视频播放</td>
+<td>支持播放存储在本地的视频文件</td>
+<td>-</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+</tr>
+
+<tr  ><td>基础控制</td>
+<td>支持开始、结束、暂停和恢复等播放控制功能</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+</tr>
+
+<tr  ><td>画中画（小窗）播放</td>
+<td>支持切换到画中画以小窗形式播放，移动端同时支持在集成 App 内或 App 外的画中画播放</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+</tr>
+
+<tr  ><td>cache 内 seek</td>
+<td>支持已经缓存的视频内容在 seek 时不清除缓存内容并快速 seek</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+</tr>
+
+<tr  ><td>直播时移</td>
+<td>支持直播时移视频流播放，可设置开始、结束和当前支持时间，支持拖动</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+<td>×</td>
+</tr>
+
+<tr  ><td>进度条标记及缩略图预览</td>
+<td>支持在进度条上添加标记信息，并支持缩略图（雪碧图）预览</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+<td>x</td>
+</tr>
+
+<tr  ><td>设置封面</td>
+<td>支持设置播放视频的封面</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+</tr>
+
+<tr  ><td>重播</td>
+<td>支持视频播放结束后手动触发重播</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+</tr>
+
+<tr  ><td>循环播放</td>
+<td>支持视频播放结束后自动重播</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+</tr>
+
+<tr  ><td>列表播放</td>
+<td>支持依次播放视频列表中的视频，并且支持轮播，即在视频列表最后一个视频播放完成后，播放列表的第一个视频</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+</tr>
+
+<tr  ><td>断点续播</td>
+<td>支持从上次播放结束位置开始播放</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+</tr>
+
+<tr  ><td>自定义启播时间</td>
+<td>支持自定义视频开启播放的时间</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+</tr>
+
+<tr  ><td>倍速播放</td>
+<td>支持0.5~3倍的变速播放，音频实现变速不变调</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+</tr>
+
+<tr  ><td>后台播放</td>
+<td>支持界面切到后台后继续播放音频和视频</td>
+<td>-</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+</tr>
+
+<tr  ><td>播放回调</td>
+<td>支持对播放状态回调、首帧回调、播放完成或失败回调</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+</tr>
+
+<tr  ><td>播放失败重试</td>
+<td>播放失败时自动重试，支持直播的自动重连功能</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+</tr>
+
+<tr  ><td>音量设置</td>
+<td>支持实时调节系统音量和静音操作</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+</tr>
+
+<tr  ><td>清晰度切换</td>
+<td>支持用户流畅无卡顿的切换 HLS 视频的多路清晰度流</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+</tr>
+
+<tr  ><td>清晰度命名</td>
+<td>支持为不同清晰度流进行自定义命名</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+</tr>
+
+<tr  ><td>截图功能</td>
+<td>支持截取播放画面的任意一帧</td>
+<td>-</td>
+<td>&#10003;</td>
+<td>x</td>
+</tr>
+
+<tr  ><td>试看功能</td>
+<td>支持播放开启试看功能的视频</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+<td>x</td>
+</tr>
+
+<tr  ><td>弹幕</td>
+<td>支持在视频上方展示弹幕</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+<td>x</td>
+</tr>
+
+<tr  ><td>字幕导入</td>
+<td>支持导入自定义字幕文件</td>
+<td>&#10003;</td>
+<td>x</td>
+<td>x</td>
+</tr>
+
+<tr  ><td colspan="1" rowspan="8" ><a href="https://cloud.tencent.com/document/product/266/45552">视频安全</a></td>
+<td>referer 黑白名单</td>
+<td>支持通过播放请求中携带的 Referer 字段识别请求的来源，以黑名单或白名单方式对来源请求进行控制</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+</tr>
+
+<tr  ><td>Key 防盗链</td>
+<td>支持在播放链接中加入控制参数，控制链接的有效时间、试看时长、允许播放的 IP 数等</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+</tr>
+
+<tr  ><td>HLS加密</td>
+<td>支持基于 HLS 提供的 AES encryption 方案，使用密钥对视频数据加密</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+</tr>
+
+<tr  ><td>HLS私有加密</td>
+<td>支持在云点播的私有协议对视频进行加密，且仅能通过播放器 SDK 对加密后的视频进行解密播放，可有效防范多种浏览器插件和灰产工具的破解</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+</tr>
+
+<tr  ><td>商业DRM</td>
+<td>提供苹果 Fairplay、谷歌 Widevine 原生加密方案</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+<td>x</td>
+</tr>
+
+<tr  ><td>安全下载</td>
+<td>支持离线下载加密视频后，仅可通过播放器 SDK 对视频进行解密播放</td>
+<td>-</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+</tr>
+
+<tr  ><td>动态水印</td>
+<td>支持在播放界面添加不规则跑动的文字水印，有效防盗录</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+<td>x</td>
+</tr>
+
+<tr  ><td>溯源水印</td>
+<td>支持以极低的成本实现对视频盗录者的追溯</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+</tr>
+
+<tr  ><td colspan="1" rowspan="8" >显示效果</td>
+<td>自定义 UI</td>
+<td>SDK 提供含 UI 集成方案，提供包含 UI 界面的常用播放组件，可以根据自身需求选用</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+</tr>
+
+<tr  ><td>屏幕填充</td>
+<td>支持为视频画面选择不同填充模式，适应屏幕大小</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+<td>x</td>
+</tr>
+
+<tr  ><td>设置播放器尺寸</td>
+<td>支持自定义设置播放器的宽高</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+</tr>
+
+<tr  ><td>图片贴片</td>
+<td>支持暂停时，增加图片贴片用于广告展示</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+<td>x</td>
+</tr>
+
+<tr  ><td>视频镜像</td>
+<td>支持水平、垂直等方向的镜像</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+<td>x</td>
+</tr>
+
+<tr  ><td>视频旋转</td>
+<td>支持对视频画面按角度旋转，同时支持根据视频文件内部 rotate 参数自动旋转视频</td>
+<td>x</td>
+<td>&#10003;</td>
+<td>x</td>
+</tr>
+
+<tr  ><td>锁定屏幕</td>
+<td>支持锁屏功能，包含锁定旋转和隐藏界面元素</td>
+<td>-</td>
+<td>&#10003;</td>
+<td>x</td>
+</tr>
+
+<tr  ><td>亮度调节</td>
+<td>支持播放视频时调节系统亮度</td>
+<td>-</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+</tr>
+
+<tr  ><td colspan="1" rowspan="2" >增值功能</td>
+<td>终端极速高清 </td>
+<td>基于超分辨率技术提供终端的极速高清方案，针对在线视频在播放端进行实时后处理超分，在保证画质的前提下，帮助节省带宽；或在相同带宽条件下，提升视频播放清晰度与主观质量，详情参见 <a href="https://cloud.tencent.com/document/product/881/70829">终端极速高清</a></td>
+<td>x</td>
+<td>&#10003;</td>
+<td>x</td>
+</tr>
+
+<tr  ><td>播放质量监控</td>
+<td>基于播放数据上报，结合云点播和云直播服务，提供播放全链路的数据统计、质量监控及可视化分析服务，点播参见 <a href="https://cloud.tencent.com/document/product/1449/68147">点播播放数据</a>，直播参见 <a href="https://cloud.tencent.com/document/product/267/20382">SDK 质量监控</a></td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+</tr>
+
+</tbody>
 </table>
+
+>!表中“-”表示该端无需具备相应功能或不存在相关概念。

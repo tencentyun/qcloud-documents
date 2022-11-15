@@ -1,13 +1,16 @@
-使用 MSCK REPAIR TABLE 命令更新元数据的分区信息，修复表的分区信息，适用于分区表。
-## 语法
+## 说明
+- 支持内核：Presto、SparkSQL。
+- 适用表范围：原生 Iceberg 表、外部表。
+- 用途：更新数据表的分区信息。
+
+## 标准语法 
 ```
-MSCK [REPAIR] TABLE table_name;
+MSCK REPAIR TABLE table_identifier
 ```
 ## 参数
-- `REPAIR`：可选。
-- `table_name`：表名。
+`table_identifier`：表的名称。
 
 ## 示例
 ```
-MSCK REPAIR TABLE table_name;
+MSCK REPAIR TABLE t1
 ```

@@ -15,3 +15,4 @@
 ![](https://main.qcloudimg.com/raw/633c2f1f6d066902a7970adbd79898e5.png)
 4. 单击**确定**，等待配置成功后，您可以前往 [云直播管理控制台](https://console.cloud.tencent.com/live/domainmanage) 查看详情。如下图所示：
 ![](https://main.qcloudimg.com/raw/c1984ae682a0d52eacd1e334db28c033.png)
+

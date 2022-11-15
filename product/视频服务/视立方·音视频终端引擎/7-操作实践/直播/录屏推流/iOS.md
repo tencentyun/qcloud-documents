@@ -1,23 +1,15 @@
-## 版本支持
-本页文档所描述功能，在腾讯云视立方中支持情况如下：
 
-| 版本名称 | 基础直播 Smart | 互动直播 Live | 短视频 UGSV | 音视频通话 TRTC | 播放器 Player | 全功能 |
-| -------- | -------- | -------- | -------- | -------- | -------- | -------- |
-| 支持情况 | &#10003;  | &#10003;                                                            | -  | -  | -  | &#10003;  |
-| SDK 下载 <div style="width: 90px"/> | [下载](https://vcube.cloud.tencent.com/home.html?sdk=basicLive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=interactivelive) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=shortVideo) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=video) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=player) | [下载](https://vcube.cloud.tencent.com/home.html?sdk=allPart) |
-
-不同版本 SDK 包含的更多能力，具体请参见 [SDK 下载](https://cloud.tencent.com/document/product/1449/56978)。
 
 ## 概述
 
 录屏功能是 iOS 10 新推出的特性，苹果在 iOS 9 的 ReplayKit 保存录屏视频的基础上，增加了视频流实时直播功能，官方介绍见 [Go Live with ReplayKit](https://developer.apple.com/videos/play/wwdc2016/601/)。iOS 11 增强为 [ReplayKit2](https://developer.apple.com/videos/play/wwdc2017/606/)，进一步提升了 Replaykit 的易用性和通用性，并且可以对整个手机实现屏幕录制，并非只是支持 ReplayKit 功能，因此录屏推流建议直接使用 iOS 11 的 ReplayKit2 屏幕录制方式。系统录屏采用的是扩展方式，扩展程序有单独的进程，iOS 系统为了保证系统流畅，给扩展程序的资源相对较少，扩展程序内存占用过大也会被 Kill 掉。腾讯云 LiteAV SDK 在原有直播的高质量、低延迟的基础上，进一步降低系统消耗，保证了扩展程序稳定。
 
->!本文主要介绍 iOS 11 的 ReplayKit2 录屏使用 SDK 推流的方法，涉及 SDK 的使用介绍同样适用于其它方式的自定义推流。更详细的使用说明可以参考 [Demo](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/MLVB-API-Example-OC/Basic/LivePushScreen) 里 TXReplayKit_Screen 文件夹示例代码。
+>!本文主要介绍 iOS 11 的 ReplayKit2 录屏使用 SDK 推流的方法，涉及 SDK 的使用介绍同样适用于其它方式的自定义推流。更详细的使用说明可以参考 [Demo](https://github.com/LiteAVSDK/Live_iOS/blob/main/MLVB-API-Example-OC/Basic/LivePushScreen) 里 TXReplayKit_Screen 文件夹示例代码。
 
 ## 功能体验
 
-体验 iOS 录屏可以单击安装 [腾讯云视立方 App](https://itunes.apple.com/cn/app/%E8%A7%86%E9%A2%91%E4%BA%91%E5%B7%A5%E5%85%B7%E5%8C%85/id1152295397?mt=8) 或通过扫码进行安装。
-![](https://main.qcloudimg.com/raw/386c06636b522fbd0f85714acf73209b.png)
+体验 iOS 录屏可以通过扫码进行安装 腾讯云视立方 App。
+<img src="https://qcloudimg.tencent-cloud.cn/raw/c5c80643898881ed1a5151a15961d944.png" width=250px>
 >!录屏推流功能仅11.0以上系统可体验。
 
 ## 示例代码
@@ -25,8 +17,8 @@
 
 | 所属平台 |                         GitHub 地址                          |
 | :------: | :----------------------------------------------------------: |
-|   iOS    | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/MLVB-API-Example) |
-| Android  | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/Android/MLVB-API-Example) |
+|   iOS    | [Github](https://github.com/LiteAVSDK/Live_iOS/blob/main/MLVB-API-Example-OC) |
+| Android  | [Github](https://github.com/LiteAVSDK/Live_Android/tree/main/MLVB-API-Example) |
 
 #### 使用步骤
 1. 打开控制中心，长按屏幕录制按钮，选择 **视频云工具包**。

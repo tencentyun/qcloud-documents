@@ -1,3 +1,4 @@
+
 ## 检查详情
 - 检查要求：对源和目标数据库的如下参数值进行检查，如果源和目标库的参数值不一致，则会提示校验警告。警告不会阻塞迁移任务，但是会对业务有一定的影响，请评估后自行决定是否修改。
 TimeZone，lc_monetary，lc_numeric，array_nulls，server_encoding，DateStyle，extra_float_digits ，gin_fuzzy_search_limit，xmlbinary，constraint_exclusion。

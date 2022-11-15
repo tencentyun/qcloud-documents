@@ -26,7 +26,7 @@
 <dx-alert infotype="explain" title="">
 以 Cloudbase-init 工具安装在 `C:\Program Files\Cloudbase Solutions\` 目录下为例。
 </dx-alert>
-```
+```shell
 cd 'C:\Program Files\Cloudbase Solutions\Cloudbase-Init\conf'
 ```
 3. 执行以下命令，对 Windows 系统进行封装。
@@ -35,7 +35,7 @@ cd 'C:\Program Files\Cloudbase Solutions\Cloudbase-Init\conf'
 - 执行以下命令后，云服务器会自动关机。为了保证后续通过此镜像创建的云服务器 SID 唯一，在创建自定义镜像之前，请不要重新启动该台云服务器，否则此操作将仅对当前云服务器生效。  
 - 针对 Windows Server 2012 以及 Windows Server 2012 R2 的操作系统，执行以下命令后，该云服务器的帐户（Administrator）和密码会被清除。待重新启动云服务器后，请重置您的帐户和密码，并妥善保管新设置的密码。具体操作请参见 [重置实例密码](https://cloud.tencent.com/document/product/213/16566)。
 </dx-alert>
-```
+```shell
 C:\Windows\System32\sysprep\sysprep.exe /generalize /oobe /unattend:Unattend.xml
 ```
 4. 参考 [创建自定义镜像](https://cloud.tencent.com/document/product/213/4942)，将执行了 Sysprep 操作的云服务器实例制作成镜像，并使用该镜像创建云服务器实例。

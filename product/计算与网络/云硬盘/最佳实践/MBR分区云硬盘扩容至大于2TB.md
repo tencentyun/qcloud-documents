@@ -9,78 +9,77 @@
 ## 操作步骤
 1. 登录云服务器，详情请参见 [使用标准登录方式登录 Linux 实例（推荐）](https://cloud.tencent.com/document/product/213/5436)。
 2. 执行以下命令，查看分区类型是否为 MBR。
-```
+```shellsession
 fdisk -l
 ```
 若结果如下图所示（根据操作系统不同略有不同），则说明为 MBR 分区形式。
-![](https://qcloudimg.tencent-cloud.cn/raw/504b1b28343c7dffc09dd4f1057e35b1.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/294dcfd8c0e243f30ae9d50430ba2cc3.png)
 3. 执行以下命令，卸载分区。
-```
+```shellsession
 umount <挂载点>
 ```
 本文挂载点以 /data 为例，则执行：
-```
+```shellsession
 umount /data
 ```
 4. 执行以下命令，查看分区的卸载结果。
-```
+```shellsession
 lsblk
 ```
-若原分区 MOUNTPOINT 已显示为空，则表明卸载任务成功。本文以 `/dev/vdb1` 分区为例，返回结果如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/6813b4e3ec44ec7a5735f8b424e5ee9b.png)
+若原分区 MOUNTPOINT 已显示为空，则表明卸载任务成功。本文以 `/dev/vdb1` 分区为例，返回结果如下图所![](https://qcloudimg.tencent-cloud.cn/raw/67123caf1eb7052b07c4c4c186d6c232.png)
 5. 执行以下命令，进入 parted 分区工具。
-```
+```shellsession
 parted <磁盘路径>
 ```
 本文以磁盘路径以 `/dev/vdb` 为例，则执行：
-```
+```shellsession
 parted /dev/vdb
 ```
-5. 输入 `p` 并按 **Enter**，查看当前分区信息。回显信息类似如下图：
+6. 输入 `p` 并按 **Enter**，查看当前分区信息。回显信息类似如下图：
 ![](https://qcloudimg.tencent-cloud.cn/raw/f58f03bf910e52647645e9730c9f0307.png)
-6. 输入 `rm 分区号` 并按 **Enter**，删除待替换的末尾分区。
+7. 输入 `rm 分区号` 并按 **Enter**，删除待替换的末尾分区。
 本文示例中仅有1个分区，可输入 `rm 1` 并按 **Enter**，删除分区1。
-7. 输入 `p` 并按 **Enter**，查看当前分区信息，观察末尾分区是否已删除。
-8. 输入 `mklabel GPT` 并按 **Enter**，使用 GPT 分区形式重新划分分区。
-9. 在确认提示后输入 `Yes`，按 **Enter**。如下图所示：
+8. 输入 `p` 并按 **Enter**，查看当前分区信息，观察末尾分区是否已删除。
+9. 输入 `mklabel GPT` 并按 **Enter**，使用 GPT 分区形式重新划分分区。
+10. 在确认提示后输入 `Yes`，按 **Enter**。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/b8d89b8f1fc358e2e3c357aa04b1f02c.png)
-10. 输入 `mkpart primary 2048s 100%`，按 **Enter**，创建分区。
+11. 输入 `mkpart primary 2048s 100%`，按 **Enter**，创建分区。
 其中，`2048s` 表示硬盘初始容量，`100%` 表示磁盘截止容量，此处仅供参考，您可以根据业务需要自行规划磁盘分区数量及容量。
 <dx-alert infotype="notice" title="">
 以下情况可能导致数据丢失：
 - 选择的初始容量与原分区不一致。
 - 选择的截止容量小于扩容前的原分区容量的值。
 </dx-alert> 
-11. 输入 `p` 并按 **Enter**，查看新分区是否替换成功。回显信息类似如下图所示，则表示已成功替换：
+12. 输入 `p` 并按 **Enter**，查看新分区是否替换成功。回显信息类似如下图所示，则表示已成功替换：
 ![](https://qcloudimg.tencent-cloud.cn/raw/a48c842ae52e696d7ad03cca217638f3.png)
-12. 输入 `q` 并按 **Enter**，退出 parted 分区工具。
-12. 执行以下命令，挂载分区。
-```
+13. 输入 `q` 并按 **Enter**，退出 parted 分区工具。
+14. 执行以下命令，挂载分区。
+```shellsession
 mount <分区路径> <挂载点>
 ```
 本文以分区路径以 `/dev/vdb1`，挂载点 `/data` 为例，则执行：
-```
+```shellsession
 mount /dev/vdb1 /data
 ```
-13. 执行对应命令，扩容文件系统。
+15. 执行对应命令，扩容文件系统。
 <dx-tabs>
 ::: 扩容 ext 文件系统
 执行以下命令，扩容 ext 文件系统。
-```
+```shellsession
  resize2fs /dev/对应分区
 ```
 本文以分区路径以 `/dev/vdb1`，则执行：
-```
+```shellsession
  resize2fs /dev/vdb1
 ```
 :::
 ::: 扩容 xfs 文件系统
 执行以下命令，扩容 xfs 文件系统。
-```
- resize2fs /dev/对应分区
+```shellsession
+xfs_growfs /dev/对应分区
 ```
 本文以分区路径以 `/dev/vdb1`，则执行：
-```
+```shellsession
 xfs_growfs /dev/vdb1
 
 ```

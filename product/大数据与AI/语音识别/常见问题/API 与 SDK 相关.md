@@ -9,3 +9,6 @@
 
 ### 语音识别接口会限制音频文件的采样率吗？
 接口不会限制，但是采样率不符合标准，会影响到识别效果。
+<br>
+<br>
+<p align="right"><strong>问题没有解决，到 <a href="https://aistudio.cloud.tencent.com/faq"> AI Studio 技术答疑专题</a> 看看？</strong></p>   

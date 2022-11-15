@@ -162,7 +162,8 @@ public class PutExample {
         Configuration conf = HBaseConfiguration.create();
         conf.set("hbase.zookeeper.quorum","$quorum");
         conf.set("hbase.zookeeper.property.clientPort","$clientPort");
-
+        conf.set("zookeeper.znode.parent", "$znodePath");
+				
         Connection connection = ConnectionFactory.createConnection(conf);
         Admin admin = connection.getAdmin();
 

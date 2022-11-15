@@ -1,0 +1,42 @@
+## 操作场景
+防重放插件是 API 网关提供的针对重放攻击进行 API 保护的能力。您可以创建防重放插件并绑定到 API 生效，以保护您的后端服务。
+
+## 操作步骤
+### 步骤1：创建插件
+1. 登录 [API 网关控制台](https://console.cloud.tencent.com/apigateway)。
+2. 在左侧导航栏，单击**插件**，进入**插件列表**页面。
+3. 单击页面左上角的**新建**，选择插件类型为**防重放**，新建一个防重放插件。
+<table>
+<tr>
+<th>参数</th>
+<th>是否必填</th>
+<th>说明</th>
+</tr>
+<tr>
+<td>强制防重放</td>
+<td>否</td>
+<td>是否开启强制防重放，默认关闭，如需开启，请求头部须添加 x-apigw-nonce 字段。</td>
+</tr>
+<tr>
+<td>防重放时间</td>
+<td>否</td>
+<td>防重放有效时间，默认900，单位s，范围 1-1800。</td>
+</tr>
+</table>
+<img src = "https://qcloudimg.tencent-cloud.cn/raw/c52a519362aad9e81e2e61d5c2ea75a1.png"> 
+
+### 步骤2：绑定 API 并生效
+1. 在列表中选中刚刚创建好的插件，单击操作列的绑定 API。
+2. 在绑定 API 弹窗中选择服务和环境，并选择需要绑定插件的 API。
+
+
+## PluginData
+<dx-codeblock>
+:::  JSON
+{
+    "force_nonce":true, // 是否开启强制防重放，默认关闭，如需开启，请求头部必须添加x-apigw-nonce字段
+    "nonce_ttl":1       //  Nonce的有效时间， 默认900，单位s，取值范围 1-1800
+}
+:::
+</dx-codeblock>
+

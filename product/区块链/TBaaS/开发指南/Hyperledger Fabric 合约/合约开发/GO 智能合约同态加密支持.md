@@ -77,7 +77,7 @@ paitool 工具是同态加密 Paillier 算法的用户工具，主要实现了�
 
 
 ## Go 语言智能合约 paillier 包接口说明
-Go 语言智能合约 paillier 包是根据轻量同态加密 Paillier 算法实现的，该算法是由 Paillier Pascal 于1999年提出。用户在 TBaaS 平台中使用 Go 语言智能合约时，可直接 import paillier 包，使用相关的接口。该算法支持加法、减法、部分乘法，但对运算的输入和输出有范围限制，**即参与运算的数和运算结果的长度都不能比公钥长，否则会溢出**。
+Go 语言智能合约 paillier 包是根据轻量同态加密 Paillier 算法实现的，该算法是由 Paillier Pascal 于1999年提出。用户在 TBaaS 中使用 Go 语言智能合约时，可直接 import paillier 包，使用相关的接口。该算法支持加法、减法、部分乘法，但对运算的输入和输出有范围限制，**即参与运算的数和运算结果的长度都不能比公钥长，否则会溢出**。
 
 ### paillier 包支持接口
 <table>

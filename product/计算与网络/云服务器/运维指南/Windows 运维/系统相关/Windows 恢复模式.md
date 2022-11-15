@@ -24,13 +24,13 @@
 ## 解决方法
  Windows 进入到恢复模式后，用户可尝试继续启动运行，或自动修复。轻微问题 Windows 可自行修复。执行以下操作：
 1. 从 [控制台](https://console.cloud.tencent.com/cvm) 登录云服务器。
-2. 出现恢复模式界面，单击【Next】。如下图所示：
+2. 出现恢复模式界面，单击 **Next**。如下图所示：
 ![](//mc.qcloudimg.com/static/img/94a1cf0f55d2c449a9d026bbbad5e4cd/image.png)
-3. 出现系统恢复选项，单击【Next】，使用默认方案。如下图所示：
+3. 出现系统恢复选项，单击 **Next**，使用默认方案。如下图所示：
 ![](//mc.qcloudimg.com/static/img/d178865f822d2146eb3bb58f1b851294/image.png)
-4. 单击【Restart】，并快速按下键盘【F8】。如下图所示：
+4. 单击 **Restart**，并快速按下键盘 **F8**。如下图所示：
 ![](//mc.qcloudimg.com/static/img/ab2fdd697015fcb7e53b287052086b65/image.png)
-5. 选择【正常启动 Windows】。如下图所示：
+5. 选择**正常启动 Windows**。如下图所示：
 ![](//mc.qcloudimg.com/static/img/8079bcf59132ff587ec5caf46c84f27d/image.png)
 若 Windows 无法启动，则请在控制台中重新安装系统，详见 [使用控制台重装系统](https://cloud.tencent.com/document/product/213/4933#useConsole)。
 

@@ -1,3 +1,4 @@
+
 ## 支持环境
 - JDK 7版本及以上。
 - 调用地址：`tms.tencentcloudapi.com`。
@@ -41,7 +42,6 @@ Maven 是 Java 的依赖管理工具，支持您项目所需的依赖项，并�
 
 ## 使用 SDK[](id:SDK)
 以下为 TextModeration 接口的 demo 示例，其中 region 配置为广州，实际请按需配置。
-
 ```
 import com.tencentcloudapi.common.Credential;
 import com.tencentcloudapi.common.profile.ClientProfile;
@@ -75,3 +75,6 @@ public class TextModeration {
 	}
 }
 ```
+
+## 设置接口参数
+文本内容安全接口使用说明及参数说明详情请参见 [文本内容安全相关接口](https://cloud.tencent.com/document/product/1124/51860)。

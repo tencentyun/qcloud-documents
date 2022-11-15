@@ -41,3 +41,9 @@
 解决方法：在 Python 安装目录下，执行 `Install Certificates.command` 脚本，会自动安装 certifi 包，解决证书问题。
 
 
+
+
+
+
+
+

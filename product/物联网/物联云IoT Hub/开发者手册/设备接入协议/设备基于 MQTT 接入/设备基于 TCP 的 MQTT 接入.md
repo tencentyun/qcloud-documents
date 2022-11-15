@@ -1,3 +1,5 @@
+
+
 ## MQTT 协议说明
 
 目前物联网通信支持 MQTT 标准协议接入(兼容3.1.1版本协议)，具体的协议请参见 [MQTT 3.1.1](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html) 协议文档。
@@ -49,7 +51,7 @@ MQTT 协议支持通过设备证书和密钥签名两种方式接入物联网通
 username 字段的格式为：
 ${productId}${deviceName};${sdkappid};${connid};${expiry}
 注意：${} 表示变量，并非特定的拼接符号。
-```其中各字段含义如下：
+​```其中各字段含义如下：
 	- productId：产品 ID。
 	- deviceName： 设备名称。
 	- sdkappid：固定填12010126。
@@ -58,7 +60,7 @@ ${productId}${deviceName};${sdkappid};${connid};${expiry}
 3. 用 base64 对设备密钥进行解码得到原始密钥 raw_key。
 4. 用第3步生成的 raw_key，通过 HMAC-SHA1 或者 HMAC-SHA256 算法对 username 生成一串摘要，简称 Token。
 5. 按照物联网通信约束生成 password 字段，password 字段格式为：
-```plaintext
+​```plaintext
 password 字段格式为： 
 ${token};hmac 签名方法
 其中 hmac 签名方法字段填写第三步用到的摘要算法，可选的值有 hmacsha256 和 hmacsha1。
@@ -334,37 +336,37 @@ int main(int argc, char **argv)
     char *username     = NULL;
     int   username_len = 0;
     char  conn_id[MAX_CONN_ID_LEN];
-
+    
     char password[51]      = {0};
     char username_sign[41] = {0};
-
+    
     char   psk_base64decode[DECODE_PSK_LENGTH];
     size_t psk_base64decode_len = 0;
-
+    
     long cur_timestamp = 0;
-
+    
     if (argc != 4) {
         HAL_Printf("please ./qcloud-mqtt-sign product_id device_name device_secret\r\n");
         return -1;
     }
-
+    
     product_id    = argv[1];
     device_name   = argv[2];
     device_secret = argv[3];
-
+    
     /* first device_secret base64 decode */
     qcloud_iot_utils_base64decode((unsigned char *)psk_base64decode, DECODE_PSK_LENGTH, &psk_base64decode_len,
                                   (unsigned char *)device_secret, strlen(device_secret));
     HAL_Printf("device_secret base64 decode:");
     HexDump(psk_base64decode, psk_base64decode_len);
-
+    
     /* second create mqtt username
      * [productdevicename;appid;randomconnid;timestamp] */
     cur_timestamp = HAL_Timer_current_sec() + MAX_ACCESS_EXPIRE_TIMEOUT / 1000;
     if (cur_timestamp <= 0 || MAX_ACCESS_EXPIRE_TIMEOUT <= 0) {
         cur_timestamp = LONG_MAX;
     }
-
+    
     // 20 for timestampe length & delimiter
     username_len = strlen(product_id) + strlen(device_name) + QCLOUD_IOT_DEVICE_SDK_APPID_LEN + MAX_CONN_ID_LEN + 20;
     username     = (char *)HAL_Malloc(username_len);
@@ -372,23 +374,23 @@ int main(int argc, char **argv)
         HAL_Printf("malloc username failed!\r\n");
         return -1;
     }
-
+    
     get_next_conn_id(conn_id);
     HAL_Snprintf(username, username_len, "%s%s;%s;%s;%ld", product_id, device_name, QCLOUD_IOT_DEVICE_SDK_APPID,
                  conn_id, cur_timestamp);
-
+    
     /* third use psk_base64decode hamc_sha1 calc mqtt username sign crate mqtt
      * password */
     utils_hmac_sha1(username, strlen(username), username_sign, psk_base64decode, psk_base64decode_len);
     HAL_Printf("username sign: %s\r\n", username_sign);
     HAL_Snprintf(password, 51, "%s;hmacsha1", username_sign);
-
+    
     HAL_Printf("Client ID: %s%s\r\n", product_id, device_name);
     HAL_Printf("username : %s\r\n", username);
     HAL_Printf("password : %s\r\n", password);
-
+    
     HAL_Free(username);
-
+    
     return 0;
 }
 :::

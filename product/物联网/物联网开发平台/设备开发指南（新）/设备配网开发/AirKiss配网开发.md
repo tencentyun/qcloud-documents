@@ -4,6 +4,8 @@ AirKiss 是微信为 Wi-Fi 设备提供的配网技术，详情请参见 [AirKis
 
 其配网原理跟 SmartConfig 一样，如下所述：
 
+
+
 ### 基本原理
 
 1. 设备进入 Wi-Fi 混杂模式（promiscuous mode）以监听捕获周围的 Wi-Fi 报文。由于设备暂未联网，且 Wi-Fi 网络的数据帧已通过加密，设备无法获取 payload 的内容，但可以获取报文的某些特征数据，例如每个报文的长度，同时对于某些数据帧；例如 UDP 的广播包或多播包，其报文的帧头结构比较固定，较容易识别。
@@ -47,7 +49,7 @@ AirKiss 配网设备端与腾讯连连小程序及后台交互的数据协议操
 ```json
 	topic: $thing/up/service/ProductID/DeviceName
 	payload: {"method":"app_bind_token","clientToken":"client-1234","params": {"token":"6aa12345a9d529****777aa6e528a0fd"}}
-```设备端可以通过订阅主题 $thing/down/service/ProductID/DeviceName 来获取 token 上报的结果。
+​```设备端可以通过订阅主题 $thing/down/service/ProductID/DeviceName 来获取 token 上报的结果。
 
 >!如果设备需要通过动态注册来创建设备并获取设备密钥，则会先进行动态注册再连接 MQTT。
 >
@@ -57,7 +59,7 @@ AirKiss 配网设备端与腾讯连连小程序及后台交互的数据协议操
  - 如果 deviceReply 字段是"Previous_Error"，则为上一次配网的出错日志，只需要上报，不影响当此操作。
    错误日志 JSON 格式例子：
 
-```json
+​```json
 {"cmdType":2,"deviceReply":"Current_Error","log":"ESP WIFI connect error! (10, 2)"} 
 ```
 

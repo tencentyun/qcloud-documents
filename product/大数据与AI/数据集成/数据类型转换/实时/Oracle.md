@@ -1,0 +1,40 @@
+## 读取
+
+| Oracle 类型 | 内部类型 |
+|---------|---------|
+|NUMBER(p, s <= 0), p - s < 3	|TINYINT|
+|NUMBER(p, s <= 0), p - s < 5	|SMALLINT|
+|NUMBER(p, s <= 0), p - s < 10|	INT|
+| NUMBER(p, s <= 0), p - s < 19	| BIGINT| 
+| NUMBER(p, s <= 0), 19 <= p - s <= 38	| DECIMAL(p - s, 0)| 
+| NUMBER(p, s > 0)	| DECIMAL(p, s)| 
+| NUMBER(p, s <= 0), p - s > 38| 	STRING| 
+| FLOAT，BINARY_FLOAT	| FLOAT| 
+| DOUBLE PRECISION，BINARY_DOUBLE| 	DOUBLE| 
+| NUMBER(1)	| BOOLEAN| 
+| DATE，TIMESTAMP [(p)] | TIMESTAMP [(p)] [WITHOUT TIMEZONE]| 
+| TIMESTAMP [(p)] WITH TIME ZONE	| TIMESTAMP [(p)] WITH TIME ZONE| 
+| TIMESTAMP [(p)] WITH LOCAL TIME ZONE	| TIMESTAMP_LTZ [(p)]| 
+| CHAR(n)，NCHAR(n)，NVARCHAR2(n)，VARCHAR(n)，VARCHAR2(n)，CLOB，NCLOB，XML 类型	| STRING| 
+| BLOB，ROWID	|BYTES|
+|INTERVAL DAY TO SECOND，INTERVAL YEAR TO MONTH	| BIGINT| 
+
+## 写入
+
+| 内部类型 | Oracle 类型 | 
+|---------|---------|
+| FLOAT| 	BINARY_FLOAT| 
+| DOUBLE	| BINARY_DOUBLE| 
+| DECIMAL(p, s)	| SMALLINT，FLOAT(s)，DOUBLE PRECISION，REAL，NUMBER(p, s)| 
+| DATE	| DATE| 
+| DECIMAL(20, 0)	| -| 
+| FLOAT	| REAL，FLOAT4| 
+| DOUBLE	| FLOAT8，DOUBLE PRECISION| 
+| DECIMAL(p, s)	| NUMERIC(p, s)，DECIMAL(p, s)| 
+| BOOLEAN	| BOOLEAN| 
+| DATE	| DATE| 
+|TIMESTAMP [(p)][WITHOUT TIMEZONE]	|TIMESTAMP [(p)]WITHOUT TIMEZONE|
+|STRING	|CHAR(n)，VARCHAR(n)，CLOB(n)|
+|BYTES	|RAW(s)，BLOB|
+|ARRAY	|-|
+

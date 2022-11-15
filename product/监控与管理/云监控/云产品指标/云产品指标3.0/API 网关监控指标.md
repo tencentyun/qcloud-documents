@@ -57,7 +57,7 @@ Namespace=QCE/APIGATEWAY
 &Instances.N.Dimensions.0.Value=serviceId 的值
 &Instances.N.Dimensions.1.Name=environmentName
 &Instances.N.Dimensions.1.Value=环境名
-&Instances.N.Dimensions.2.Name=apiid
+&Instances.N.Dimensions.2.Name=apiId
 &Instances.N.Dimensions.2.Value=API 的 ID
 
 #### 3. 密钥对维度，入参取值（需要开启白名单）

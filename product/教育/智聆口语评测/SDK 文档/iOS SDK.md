@@ -1,51 +1,99 @@
 ## 概述
 腾讯云智聆口语评测（Smart Oral Evaluation，SOE）是腾讯云推出的语音评测产品，是基于口语类教育培训场景和腾讯云的语音处理技术，应用特征提取、声学模型和语音识别算法，为儿童和成人提供高准确度的口语发音评测。支持单词、句子和段落模式的评测，多维度反馈口语表现，可广泛应用于中文及英语口语类教学中。    
-TAISDK 是一款封装了腾讯云教育 AI 能力的 SDK，通过集成 SDK，用户可以快速接入相关产品功能，如数学作业批改、智聆口语评测等。本文档介绍智聆口语评测 iOS SDK 相关说明，如需其他产品的调用说明，可在对应产品的产品文档查看。
-详细的网络 API 说明请参见 [API 文档](https://cloud.tencent.com/document/product/884/19309)。
-单击 [示例链接](https://tec.qq.com/ai/soe#demos) 在线体验智聆口语评测 demo。
+TAISDK 是一款封装了腾讯云教育 AI 能力的 SDK，通过集成 SDK，用户可以快速接入相关产品功能，如数学作业批改、智聆口语评测等。本文档介绍智聆口语评测 iOS SDK 相关说明，通过封装 [TransmitOralProcessWithInit](https://cloud.tencent.com/document/api/884/32605) 接口，实现音频录制和音频文件上传等功能，如需其他产品的调用说明，可在对应产品的产品文档查看。
+>?详细的网络 API 说明请参见 [API 文档](https://cloud.tencent.com/document/product/884/19309)。
 
-## 总体流程
-### 1. 流程图
+## 流程图
 ![](https://main.qcloudimg.com/raw/adc1d339f5892577db7ab2c701ab8b06.jpg)
 
-### 2. 集成 demo 示例
-[下载 SDK](https://github.com/TencentCloud/tencentcloud-sdk-ios-soe) 地址。
-获取密钥（ 密钥获取⽅式⻅下⽂） 后到 TAIDemo/TAIDemo/PrivateInfo.m 根据需要填写 appId、secretId、secretKey、soeAppId 和hcmAppId（token 无需填写）。
-![](https://main.qcloudimg.com/raw/c9d27bfaa226bc2e513666c635b21d94.png)
-
 ## SDK 集成准备
-###  1. 添加第三方库依赖
+###  添加第三方库依赖
 第三方库 lame.framework 的主要目的是为了实现文件类型转换。本 SDK 依赖第三方库为 lame.framework，您只需将 SDK 和 lame.framework 直接引入项目中即可。
 
-### 2. 获取密钥
-SecretId 和 SecretKey 是使用 SDK 的安全凭证，您可以在**[访问管理](https://console.cloud.tencent.com/cam/overview)**>**访问密钥**>**[API 密钥管理](https://console.cloud.tencent.com/cam/capi)**中获取该凭证。
-![](https://main.qcloudimg.com/raw/273b67bc4d38af6cb9999e9f4663d268.png)
+### 获取密钥
+SecretId 和 SecretKey 是使用 SDK 的安全凭证，您可以在**[访问管理](https://console.cloud.tencent.com/cam/overview) > 访问密钥 > [API 密钥管理](https://console.cloud.tencent.com/cam/capi)** 中获取该凭证。
+>!密钥属于敏感信息，正式密钥仅可在调试使用，线上环境情况下，为了防止他人盗取，推荐使用 [临时签名](https://cloud.tencent.com/document/product/884/31888#:~:text=%E5%88%B0%E5%AE%A2%E6%88%B7%E7%AB%AF%E3%80%82-,%E4%B8%B4%E6%97%B6%E7%AD%BE%E5%90%8D,-policy%20%E7%A4%BA%E4%BE%8B%E5%A6%82%E4%B8%8B)，具体请参考 [签名](https://cloud.tencent.com/document/product/884/31888#5.-.E7.AD.BE.E5.90.8D) 相关内容。
 
-## SDK 集成步骤  
-### 1. 导入 SDK
-从 [Demo 源码](https://github.com/TencentCloud/tencentcloud-sdk-ios-soe) 中获取 SDK 并导入到工程。
-![](https://main.qcloudimg.com/raw/ba3691482e485a775bf4858cbfa7c327/20191231001.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/beb338c744a9eb44666f37c91ab0a80e.png)
 
-### 2. 调用接口
-#### 2.1 声明并定义对象：
-```objc
+### 设备准备
+准备一台 MacBook，一台 Apple 手机/ipad。
+
+## SDK DEMO 使用流程
+### 下载 demo
+从 github 下载 TAISDK [demo](https://github.com/TencentCloud/tencentcloud-sdk-ios-soe)。或者在终端输入 git 命令：
+```
+git clone https://github.com/TencentCloud/tencentcloud-sdk-ios-soe.git
+```
+如果无法使用 git 或不清楚如何使用，可以单击 [这里](https://github.com/TencentCloud/tencentcloud-sdk-ios-soe/archive/refs/heads/master.zip) 下载。
+
+### CocoaPods 集成
+1. 安装 CocoaPods
+打开终端输入命令：
+```
+sudo gem install cocoapods
+```
+2. 创建 Podfile 文件
+进入项目所在路径，输入以下命令行之后项目路径下会出现一个 Podfile 文件。
+```
+pod init
+```
+3. 编辑 Podfile 文件
+编辑 Podfile 文件，支持选择版本号。
+进入项目所在路径，输入以下命令行之后项目路径下会出现一个 Podfile 文件。
+```
+platform :ios, '8.0'
+target 'TAIDemo' do
+ pod 'TAISDK_iOS'
+end
+```
+4. 更新并安装 sdk
+在终端窗口中输入如下命令以更新本地库文件，并安装 TAI SDK。
+```
+pod install
+```
+或使用以下命令更新本地库版本：
+```
+pod update
+```
+pod 命令执行完后，会生成集成了 SDK 的 .xcworkspace 后缀的工程文件，双击打开即可。
+
+### 填写密钥
+在 TAIDemo/TAIDemo/PrivateInfo.m 下填写 appId、secretId 和 secretKey。 [TAIOralEvaluationParam 参数说明](https://cloud.tencent.com/document/product/884/31888#:~:text=TAIOralEvaluationParam%20%E5%8F%82%E6%95%B0%E8%AF%B4%E6%98%8E%EF%BC%9A)。
+![](https://qcloudimg.tencent-cloud.cn/raw/038efde5a4e922f0ff0f227f329d6d01.png)
+
+### 运行项目
+连接手机，run 项目，安装 App。由于模拟器无法获取录音权限，所以不推荐使用模拟器调试。
+
+### 使用 demo
+选择口语评测。
+![](https://qcloudimg.tencent-cloud.cn/raw/eba2e08984ae0b4b3d039eb51029cf06.png)
+单击**开始录音**或**外部 MP3文件**进行评测。
+![](https://qcloudimg.tencent-cloud.cn/raw/cc4e579745aff22a266a3c3e04923131.png)
+
+## SDK 使用方法
+### 版本设置
+demo 默认为当前最新版本，如果后续更新或使用老版本可以编辑 Podfile 文件，例如需要使用1.2.3.93版本，在 pod "TAISDK_iOS" 后加入版本号即可。可以使用 pod search TAISDK_iOS 查看版本信息。
+
+
+### 调用接口
+1. 声明并定义对象：
+```
 @property (strong, nonatomic) TAIOralEvaluation *oralEvaluation;
 self.oralEvaluation = [[TAIOralEvaluation alloc] init];
 self.oralEvaluation.delegate = self;
 ```
-
-#### 2.2 数据回调：
-```objc
+2. 数据回调：
+```
 - (void)oralEvaluation:(TAIOralEvaluation *)oralEvaluation onEvaluateData:(TAIOralEvaluationData *)data result:(TAIOralEvaluationRet *)result error:(TAIError *)error
 {
     //数据和结果回调（只有data.bEnd为YES，result有效）
 }
 ```
+>! 请在开始录制音频前设置回调函数，您将通过回调函数获取语音评测结果和错误信息。
 
->!请在开始录制音频前设置回调函数，您将通过回调函数获取语音评测结果和错误信息。
-
-### 3. 静音设置
-#### 3.1 初始化 TAIRecorderParam 对象，并设置相应参数
+### 静音检测设置
+1. 初始化 TAIRecorderParam 对象，并设置相应参数。
 请在开始调用 startRecordAndEvaluation（）函数前设置 TAIRecorderParam 参数，静音检测您可以通过 vadEnable 参数打开，并通过 vadInterval 参数设置静音检测时间间隔。
 ```
 TAIRecorderParam *recordParam = [[TAIRecorderParam alloc] init]; 
@@ -55,8 +103,7 @@ recordParam.vadEnable = YES;
 recordParam.vadInterval = 5000; 
 [self.oralEvaluation setRecorderParam:recordParam];
 ```
-
-#### 3.2 上层通知
+2. 上层通知
 当检测到静⾳或者录⾳分⻉变化时，通过 TAIOralEvaluationListener 通知上层。
 ```
 //检测到静音 
@@ -67,14 +114,14 @@ recordParam.vadInterval = 5000;
 //音量发生变化 
 - (void)oralEvaluation:(TAIOralEvaluation *)oralEvaluation onVolumeChanged:(NSInteger)volume 
 {     
-//回调录音分贝大小[0-120] 
+//回调录音分贝大小[0-120] ，默认20
 }
+
 ```
 
-
-### 4. 录制音频
-#### 4.1 内部录制（SDK 内部录制音频并传输，推荐）
-**4.1.1 初始化并设置相应参数**
+### 录制音频
+#### 内部录制（SDK 内部录制音频并传输，推荐）
+1. 初始化并设置相应参数
 初始化 TAIOraEvaluation 对象，并通过实例化对象 param 设置评测文本、客户 ID、密码等信息，详细参数信息请查看下文参数说明。
 ```
 TAIOralEvaluationParam *param = [[TAIOralEvaluationParam alloc] init]; 
@@ -89,26 +136,26 @@ param.fileType = TAIOralEvaluationFileType_Mp3;
 param.refText = @""; 
 param.secretId = @""; 
 param.secretKey = @"";
+param.token = @"";
 ```
-
-**4.1.2 开始录制**
-调⽤ startRecordAndEvaluation（）⽅法传⼊步骤3.1.1中设置的 param 参数，并设置回调函数，即可开始录制。
+2. 开始录制
+调用 startRecordAndEvaluation() 方法传入 TAIOralEvaluationParam 的 param 参数，并设置回调函数，即可开始录制。
 ```
-[self.oralEvaluation startRecordAndEvaluation:param callback:^(TAIError *error)      
-//结果返回 
+[self.oralEvaluation startRecordAndEvaluation:param callback:^(TAIError *error) {
+//结果返回
 }];
 ```
 
-**4.1.3 结束录制**
+3. 结束录制
 ```
 [self.oralEvaluation stopRecordAndEvaluation:^(TAIError *error) {    
 //结果返回 
 }];
 ```
 
-#### 4.2 外部录制（SDK 外部录制音频数据作为 API 调用参数）
+#### 外部录制（SDK 外部录制音频数据作为 API 调用参数）
 上传外部录制音频数据时，调用 oralEvaluation 方法，传入实例化后的 TAIOralEvaluationParam 对象及 TAIoralEvationData 对象，并设置回调函数获取错误信息。
-```objc
+```
 //初始化参数
 TAIOralEvaluationParam *param = [[TAIOralEvaluationParam alloc] init]; 
 param.sessionId = [[NSUUIDUUID] UUIDString]; 
@@ -121,7 +168,8 @@ param.scoreCoeff = 1.0;
 param.fileType = TAIOralEvaluationFileType_Mp3; 
 param.refText = @"hello guagua"; 
 param.secretId = @""; 
-param.secretKey = @"";  
+param.secretKey = @""; 
+param.token = @"";
 
 
 NSString *mp3Path = [[NSBundlemainBundle] pathForResource:@"hello_guagua"ofType:@"mp3"]; 
@@ -139,37 +187,29 @@ __weak typeof(self) ws = self;
 [self.oralEvaluation oralEvaluation:param data:data callback:^(TAIError *error) {     
     //接口调用结果返回 
 }];
-
-```
->!外部录制三种格式（mp3，wav/pcm，raw）目前仅支持16k采样率16bit编码单声道，如果有不一致可能会导致评估不准确或失败。
-
-
-
-### 5. 签名
-SecretKey 属于安全敏感参数，线上版本一般由业务后台生成 [临时 SecretKey](https://cloud.tencent.com/document/api/598/13896) 或者 SDK 外部签名返回到客户端。
-临时签名 policy 示例如下：
-```json
-{
-    "version": "2.0",
-    "statement": {
-        "effect": "allow",
-        "action": [
-            "soe:InitOralProcess",
-            "soe:ExtraOralProcess",
-            "soe:TransmitOralProcess",
-            "soe:TransmitOralProcessWithInit"
-        ],
-        "resource": "*"
-    }
-}
 ```
 
-- 内部签名：SDK 内部通过用户提供的 SecretKey 和 SecretId 计算签名，用户无需关心签名细节
-- 外部签名：SDK 外部调用 getStringToSign 获取签名字符串，然后根据 [签名规则-计算签名](https://cloud.tencent.com/document/product/884/30657#3.-.E8.AE.A1.E7.AE.97.E7.AD.BE.E5.90.8D) 进行签名。口语评测时需提供 SecretId、timestamp 和 signature 参数。
 
-```objc
+>! 外部录制三种格式（mp3，wav，raw/pcm）目前仅支持16k 采样率16bit 编码单声道，如果有不一致可能会导致评估不准确或失败。
+
+### 签名  [](id:SecretKey)
+#### 临时签名（推荐）
+SecretKey 属于安全敏感参数，线上版本一般由业务后台生成 [临时 SecretKey](https://cloud.tencent.com/document/product/1312/48195) 或者 SDK 外部签名返回到客户端。
+智聆口语评测 [获取联合身份临时访问凭证](https://cloud.tencent.com/document/product/1312/48195) 请求参数参考：
+```
+Name = "soe",
+Policy = "{\"version\": \"2.0\",\"statement\": {\"effect\": \"allow\",\"action\": [\"soe:TransmitOralProcessWithInit\"],\"resource\": \"*\"}}"
+```
+获取到临时凭证，需要填入Token，TmpSecretId（请求参数SecretId），TmpSecretKey（请求参数SecretKey）。临时凭证默认半小时有效期，需要重复获取。
+#### 内部签名（推荐）
+SDK 内部通过用户提供的 SecretKey 和 SecretId 计算签名，用户无需关心签名细节。
+
+#### 外部签名（不推荐）
+SDK 外部调用 getStringToSign 获取签名字符串，然后根据 [签名规则-计算签名](https://cloud.tencent.com/document/product/884/30657#3.-.E8.AE.A1.E7.AE.97.E7.AD.BE.E5.90.8D) 进行签名。口语评测时需提供 SecretId、timestamp 和 signature 参数。
+```
 //获取签名所需字符串
 - (NSString *)getStringToSign:(NSInteger)timestamp;
+
 ```
 >!时间戳 timestamp 必须和 TAIEvaluationParam 参数的 timestamp 一致。
 
@@ -183,9 +223,10 @@ SecretKey 属于安全敏感参数，线上版本一般由业务后台生成 [�
 | :----------------- | :--------------------------- | :------------- | :----------------------------------------------------------- |
 | appid              | NSString                     | 是             | 账号应用 ID                                                   |
 | timeout            | NSInteger                    | 否             | 超时时间，默认30秒                                           |
-| secretId           | NSString                     | 是             | 您在控制台获取的密钥 ID                                       |
-| secretKey          | NSString                     | 内部签名：必填 | 您在控制台获取的密钥 Key，在使用内部签名时必须设置此参数      |
-| signature          | NSString                     | 外部签名：必填 | 仅在使用外部签名时需要设置此参数，详细获取方式请查看上述5.签名 |
+| secretId           | NSString                     | 是             | 您在控制台获取的密钥 ID，临时密钥的 TmpSecretId                                       |
+| secretKey          | NSString                     | 内部签名：必填 | 您在控制台获取的密钥 Key，临时密钥的 TmpSecretKey      |
+| token	| NSString| 	临时签名：必填	| 临时密钥的 Token，仅在使用临时签名时需要设置此参数，详细获取方式请查看 [签名](https://cloud.tencent.com/document/product/884/31888#5.-.E7.AD.BE.E5.90.8D)| 
+| signature          | NSString                     | 外部签名：必填 | 仅在使用外部签名时需要设置此参数，详细获取方式请查看 [签名](https://cloud.tencent.com/document/product/884/31888#5.-.E7.AD.BE.E5.90.8D)| 
 | timestamp          | NSInteger                    | 外部签名：必填 | 秒级时间戳                                                   |
 | soeAppId           | NSString                     | 否             | 业务应用 ID                                                   |
 | sessionId          | NSString                     | 是             | 一次评测唯一标识                                             |
@@ -193,7 +234,6 @@ SecretKey 属于安全敏感参数，线上版本一般由业务后台生成 [�
 | evalMode           | TAIOralEvaluationEvalMode    | 是             | 评测模式                                                     |
 | isFixOn            | Bool                         | 是             | 用于设置是否开启单词映射                                     |
 | fileType           | TAIOralEvaluationFileType    | 是             | 用于设置输入的语音文件类型                                   |
-| storageMode        | TAIOralEvaluationStorageMode | 是             | 是否存储音频文件，用于设置是否存储及如何存储评测音频文件     |
 | serverType         | TAIOralEvaluationServerType  | 是             | 评测语言类型，可选为中文或英文                               |
 | scoreCoeff         | Float                        | 是             | 评价苛刻指数，取值为[1.0 - 4.0]范围内的浮点数，用于平滑不同年龄段的分数 |
 | refText            | NSString                     | 是             | 被评估语音对应的文本                                         |
@@ -284,13 +324,10 @@ SecretKey 属于安全敏感参数，线上版本一般由业务后台生成 [�
 | requestId | NSString   | 请求 ID，用于订单唯一标识                                   |
 
 
+## 错误码
+参考 API 文档 [错误码](https://cloud.tencent.com/document/api/884/30658)。
 
-
-
-
-
-
-
-
+## 常见问题
+**关于混淆规则**：SDK 内部有做混淆规则，不需要再次混淆。暂不提供混淆方法。
 
 

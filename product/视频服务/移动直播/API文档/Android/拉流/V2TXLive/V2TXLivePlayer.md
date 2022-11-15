@@ -92,12 +92,14 @@ public abstract int setRenderView(TextureView view);
 
 ***
 
-### startPlay
+### startLivePlay
 
 开始播放音视频流。
 ```
-public abstract int startPlay(String url);
+public abstract int startLivePlay(String url);
 ```
+
+>? 10.7 版本开始，`startPlay` 变更为 `startLivePlay`，需要通过 `V2TXLivePremier#setLicence` 或者 `TXLiveBase#setLicence` 设置 License 后方可成功播放，否则将播放失败（黑屏），全局仅设置一次即可。直播 License、短视频 License 和视频播放 License 均可使用，若您暂未获取上述 License ，可 [快速免费申请测试版 License](https://cloud.tencent.com/act/event/License) 以正常播放，正式版 License 需 [购买](https://cloud.tencent.com/document/product/454/34750)。
 
 #### 参数
 
@@ -248,12 +250,12 @@ public abstract int snapshot();
 
 ***
 
-### enableCustomRendering
+### enableObserveVideoFrame
 
 设置视频自定义渲染回调。通过该方法，可以获取解码后的每一帧视频画面，进行自定义渲染处理，添加自定义显示效果。
 >? 开启成功后可在 `V2TXLivePlayerObserver.onRenderVideoFrame` 回调中获取视频帧数据。
 ```
-public abstract int enableCustomRendering(
+public abstract int enableObserveVideoFrame(
         boolean enable,
         V2TXLivePixelFormat pixelFormat, 
         V2TXLiveBufferType bufferType);

@@ -1,11 +1,15 @@
-返回表的列信息以及元数据信息。
-## 语法
+## 说明
+- 支持内核：Presto、SparkSQL。
+- 用途：查看数据库属性。
+
+## 标准语法
 ```
-DESCRIBE SCHEMA|DATABASE [EXTENDED] DB_NAME;
+DESCRIBE SCHEMA|DATABASE [EXTENDED] DB_NAME
 ```
 ## 参数
-- SCHEMA|DATABASE：指定库为 SCHEMA 或者 DATABASE。
-- EXTENDED：该库是否为 EXTENDED。
+- `SCHEMA|DATABASE`：指定库为 SCHEMA 或者 DATABASE。
+- `EXTENDED`：该库是否为 EXTENDED。
+
 
 ## 示例
 ```

@@ -18,4 +18,4 @@
 
 ## 详细了解
 
-[金融云 COS](http://cloud.tencent.com/product/cos.html)
+[金融云 COS](http://cloud.tencent.com/product/cos)

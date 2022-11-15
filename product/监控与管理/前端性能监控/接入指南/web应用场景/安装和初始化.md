@@ -8,11 +8,18 @@
 <script src="https://cdn-go.cn/aegis/aegis-sdk/latest/aegis.min.js"></script>
 :::
 </dx-codeblock>
-2. 参考下列步骤新建一个 Aegis 实例，传入相应的配置，初始化 SDK 。
+该 cdn 使用 “h3-Q050” 协议，默认 cache-control 为 max-age=666，如果需要修改 cache-control，可以添加参数 max_age，例如
+<dx-codeblock>
+::: html
+<script src="https://cdn-go.cn/aegis/aegis-sdk/latest/aegis.min.js?max_age=3600"></script>
+:::
+</dx-codeblock>
+
+2. 参见下列步骤新建一个 Aegis 实例，传入相应的配置，初始化 SDK 。
 <dx-codeblock>
 :::  javascript
 const aegis = new Aegis({
-    id: 'XaKVn5BzYalQMRyjbO', // 应用ID，即上报key
+    id: 'pGUVFTCZyewhxxxxxx', // 应用ID，即上报ID
     uin: 'xxx', // 用户唯一 ID（可选）
     reportApiSpeed: true, // 接口测速
     reportAssetSpeed: true, // 静态资源测速
@@ -22,8 +29,6 @@ const aegis = new Aegis({
 </dx-codeblock>
 
 ## 以 NPM 方式安装并初始化 SDK
-
-
 1. 执行下列命令，在 npm 仓库安装 aegis-web-sdk。
  <dx-codeblock>
 ::: Linux
@@ -36,7 +41,7 @@ $ npm install --save aegis-web-sdk
 import Aegis from 'aegis-web-sdk';
 
 const aegis = new Aegis({
-    id: 'XaKVn5BzYalQMRyjbO', // 应用ID，即上报key
+    id: 'pGUVFTCZyewhxxxxxx', // 应用ID，即上报ID
     uin: 'xxx', // 用户唯一 ID（可选）
     reportApiSpeed: true, // 接口测速
     reportAssetSpeed: true, // 静态资源测速
@@ -50,3 +55,7 @@ const aegis = new Aegis({
 >- 错误监控：JS 执行错误、Promise 错误、Ajax 请求异常、资源加载失败、返回码异常、PV 上报、白名单检测等。  
 >- 测速功能：页面性能测速、接口测速、静态资源测速。
 >- 数据统计和分析：可在 [数据总览](https://console.cloud.tencent.com/rum/web) 上进行各个维度的数据分析。
+
+> ?aegis-sdk 默认使用 `https://aegis.qq.com` 作为上报域名，您可以通过 `hostUrl` 参数来控制上报域名。
+国内可以选择选择使用 `https://tamaegis.com` 作为上报域名。
+国外新加坡地区可以选择 `https://rumt-sg.com` 作为上报域名。

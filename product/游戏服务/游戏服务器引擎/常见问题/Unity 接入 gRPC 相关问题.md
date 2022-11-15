@@ -1,3 +1,5 @@
+>!由于产品逻辑已无法满足游戏行业技术发展，游戏服务器伸缩 GSE 将于2022年6月1日下线，请您在2022年5月31日前完成服务迁移。
+
 
 
 ### 将下载的 `grpc_unity_package.VERSION.zip` 文件解压到 Unity 项目中后，Unity Editor 报错 （例如[ 缺陷22251](https://github.com/grpc/grpc/issues/22251) 中描述）怎么处理？

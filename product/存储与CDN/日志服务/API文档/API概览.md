@@ -1,3 +1,7 @@
+>! 
+> - 本文档中 API 为日志服务旧版本 API，已不再更新，日志服务新增功能均不支持旧版本 API，强烈建议您使用 [日志服务 API 3.0](https://cloud.tencent.com/document/product/614/56480)。
+> - 创建日志主题、修改索引配置等管理类操作，请直接使用 [日志服务 API 3.0](https://cloud.tencent.com/document/product/614/56480)。日志采集可使用专为日志采集优化过的 [SDK](https://cloud.tencent.com/document/product/614/67157)。
+> 
 
 ## 日志管理
 

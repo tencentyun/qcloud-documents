@@ -1,4 +1,4 @@
-## 简介
+## 简介 
 
 [elastic-jupyter-operator](https://github.com/tkestack/elastic-jupyter-operator) 是 Kubernetes 原生的弹性 Jupyter 服务。为用户按需提供弹性的 Jupyter Notebook 服务。elastic-jupyter-operator 提供以下特性：
 

@@ -1,5 +1,5 @@
 ## 操作场景
-该任务指导您通过 Serverless Website 组件，快速构建一个 Serverless Hexo 站点。 
+该任务指导您通过 Serverless Website 组件，快速构建一个 Serverless Hexo 站点。  
 
 ## 前提条件
 - 已安装 [Node.js](https://nodejs.org/en/)（**2020年9月1日起，Serverless 组件不再支持 Node.js10.0 以下版本，请注意升级**）
@@ -12,9 +12,9 @@
 
 ## 操作步骤
 ### 1. 安装
-通过 npm 安装 Serverless Framework：
+通过 npm 安装 Serverless Cloud Framework：
 ```
-$ npm install -g serverless
+$ npm install -g serverless-cloud-framework
 ```
 
 通过 npm 安装 Hexo：
@@ -94,12 +94,12 @@ inputs:
 ```
 
 ### 3. 部署
-通过`sls deploy`命令进行部署，并可以添加`--debug`参数查看部署过程中的信息。
+通过`scf deploy`命令进行部署，并可以添加`--debug`参数查看部署过程中的信息。
 如您的账号未 [登录](https://cloud.tencent.com/login) 或 [注册](https://cloud.tencent.com/register) 腾讯云，您可以直接通过**微信**扫描命令行中的二维码进行授权登录和注册。
 ```
-$ sls deploy
+$ scf deploy
 
-serverless ⚡ framework
+serverless-cloud-framework
 Action: "deploy" - Stage: "dev" - App: "websiteApp" - Instance: "hexodemo"
 
 region:  ap-guangzhou
@@ -117,7 +117,7 @@ website: https://my-bucket-1258834142.cos-website.ap-guangzhou.myqcloud.com
 
 通过以下命令移除 Hexo 网站：
 ```console
-$ sls remove --debug
+$ scf remove --debug
 
   DEBUG ─ Flushing template state and removing all components.
   DEBUG ─ Starting Website Removal.

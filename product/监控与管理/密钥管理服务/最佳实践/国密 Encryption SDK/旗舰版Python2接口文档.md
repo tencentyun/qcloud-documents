@@ -1,3 +1,4 @@
+
 Python2 语言 SDK，底层使用 C 语言实现，上层通过 ctypes 封装后，提供接口供 Python2 语言调用。
 
 ## 错误码

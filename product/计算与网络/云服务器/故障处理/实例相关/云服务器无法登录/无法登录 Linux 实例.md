@@ -56,8 +56,8 @@
 **故障现象**：[使用 SSH 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35700) 时，提示无法连接或者连接失败。
 **处理步骤**：参考 [无法通过 SSH 方式登录 Linux 实例](https://cloud.tencent.com/document/product/213/37925) 进行排查。
 
-<span id="CryptographicProblem"></span>
-### 密码问题导致无法登录
+
+### 密码问题导致无法登录[](id:CryptographicProblem)
 **故障现象**：密码输入错误、忘记密码或者密码重置失败导致登录不成功。
 **解决方法**：请在 [腾讯云控制台](https://console.cloud.tencent.com/cvm/index) 重置该实例的密码，并重启实例。
 **处理步骤**：重置实例密码的方法请参考 [重置实例密码](https://cloud.tencent.com/document/product/213/16566)。
@@ -89,5 +89,4 @@
 
 
 ## 其他解决方案
-通过上述排查后，仍然不能连接 Linux 实例，请您保存自助诊断结果，通过 [在线支持](https://cloud.tencent.com/online-service?from=doc_213
-) 进行反馈。
+通过上述排查后，仍然不能连接 Linux 实例，请您保存自助诊断结果，通过 [在线支持](https://cloud.tencent.com/online-service?from=doc_213) 进行反馈。

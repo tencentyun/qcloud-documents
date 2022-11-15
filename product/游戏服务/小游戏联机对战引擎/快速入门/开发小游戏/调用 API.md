@@ -1,9 +1,7 @@
+>!由于产品逻辑已无法满足游戏行业技术发展，游戏联机对战引擎 MGOBE 将于2022年6月1日下线，请您在2022年5月31日前完成服务迁移。
 
+**gameInfo.gameId、gameInfo.secretKey、config.url 均需前往 [游戏联机对战引擎控制台](https://console.cloud.tencent.com/mgobe)，在游戏概览的基本信息里获取。**
 
-
-<dx-alert infotype="notice" title="">
-gameInfo.gameId、gameInfo.secretKey、config.url 均需前往 [游戏联机对战引擎控制台](https://console.cloud.tencent.com/mgobe)，在游戏概览的基本信息里获取。
-</dx-alert>
 
 
 1. 在 game.js 中输入以下代码，完成 SDK 初始化，获得 room 实例。

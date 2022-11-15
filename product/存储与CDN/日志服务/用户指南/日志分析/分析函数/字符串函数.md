@@ -1,15 +1,17 @@
 本文介绍字符串函数的基本语法和示例。
 
 >!
-> - 在 CLS 分析语句中，表示字符串的字符必须使用单引号（''）包裹，无符号包裹或被双引号（""）包裹的字符表示字段名或列名。例如：'status' 表示字符串 status，status 或 "status" 表示日志字段 status。
+> - 字符串必须使用单引号`''`包裹，无符号包裹或被双引号`""`包裹的字符表示字段或列名。例如`'status'`表示字符串 status，`status`或`"status"`表示日志字段 status。
+> - 字符串内本身包含单引号`'`时，需使用`''`（两个单引号）代表单引号本身。例如`'{''version'': ''1.0''}'`表示原始字符串{'version': '1.0'}。字符串内本身包含双引号`"`时无需特殊处理。
 > - 如下函数中的 key 参数均表示日志字段名称。
 > 
+
 
 | 函数名称                             | 说明                                                         | 示例                                |
 | ------------------------------------ | ------------------------------------------- | ------------------------------------------ |
 | chr(number)                          | 返回与输入参数指定的 ASCII 码位值匹配的字符。返回结果为 varchar 类型。 | 返回第77位 ASCII 码中匹配的字符值。</br> `* | SELECT chr(77)`   |
 | codepoint(string)                    | 把 ASCII 码形式的字段值转换为 BigInt 类型。返回结果为 integer 类型。 | 将 ASCII 码中的字符值转换为对应的位置。</br> `* | SELECT codepoint('M')` |
-| concat(key1, ..., keyN)              | 连接字符串 key1，key2，...keyN，与\|\|连接符连接效果一致。返回结果为 varchar 类型。 | 将多个字符串拼接成一个字符串。</br> `* | SELECT concat(remote_addr, host, time_local)` |
+| concat(key1, ..., keyN)              | 连接字符串 key1，key2，...keyN，与\|\|连接符连接效果一致。返回结果为 varchar 类型。注意：任意字符串为 null 时，返回结果为 null，如需跳过 null，可使用 concat_ws。 | 将多个字符串拼接成一个字符串。</br> `* | SELECT concat(remote_addr, host, time_local)` |
 | concat_ws(split_string,key0, ..., keyN)        | 以 split_string 作为分隔符连接字符串 key1，key2，...keyN。split_string可以为字符串或变量，如果 split_string 为 null，则结果为 null，且会跳过  key1，key2，...keyN 中的 null 值。返回结果为 varchar 类型。 | 以/作为分隔符进行字符串之间的连接。</br>`* | SELECT concat_ws('/', remote_addr,host,time_local)` |
 | concat_ws(split_string, array(varchar)) | 以 split_string 作为分隔符将数组内的元素连接为一个字符串。如果 split_string 为 null，则结果为 null，且会跳过数组中的 null 值。返回结果为 varchar 类型。</br> 注意：此函数中 array(varchar)参数为一个数组，不是字符串。 |以#作为分割符进行字符串之间的连接，此例中split函数的输出为array</br>`* | select concat_ws('#',split('cloud.tencent.com/product/cls', '/'))` |
 | format(format，args...)              | 使用格式 format 对参数 args 进行格式化输出。返回结果为 varchar 类型。 | 使用 format 格式 ‘IP 地址: %s, 域名: %s’ 对参数 remote_addr 和参数 host 进行格式化输出。</br> `* | SELECT format('IP地址: %s, 域名: %s', remote_addr, host)  ` |

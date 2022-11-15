@@ -1,4 +1,4 @@
-## 简介
+## 简介 
 PersistentVolume（PV）：集群内的存储资源。例如，节点是集群的资源。PV 独立于 Pod 的生命周期，根据不同的 StorageClass 类型创建不同类型的 PV。
 PersistentVolumeClaim（PVC）：集群内的存储请求。例如，PV 是 Pod 使用节点资源，PVC 则声明使用 PV 资源。当 PV 资源不足时，PVC 也可以动态创建 PV。
 
@@ -14,7 +14,7 @@ PersistentVolumeClaim（PVC）：集群内的存储请求。例如，PV 是 Pod 
 ### 静态创建 PV
 >?静态创建 PV 适用于已有存量云盘，并在集群内使用的场景。
 >
-1. 登录容器服务控制台，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
+1. 登录容器服务控制台 ，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
 2. 选择需创建 PV 的集群 ID，进入待创建 PV 的集群管理页面。
 3. 选择**存储** > **PersistentVolume**，进入 PersistentVolume 信息页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/3a34484015631e655b62a346ef44a125.png)
@@ -32,7 +32,7 @@ PersistentVolumeClaim（PVC）：集群内的存储请求。例如，PV 是 Pod 
 
 
 ### 创建 PVC[](id:createPVC2)
-1. 登录容器服务控制台，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
+1. 登录容器服务控制台 ，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
 2. 选择需创建 PVC 的集群 ID，进入待创建 PVC 的集群管理页面。
 3. 选择**存储** > **PersistentVolumeClaim**，进入 PersistentVolumeClaim 信息页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/3c1f7fd04a9de9d3002a7bf53efe8477.png)
@@ -49,7 +49,7 @@ PersistentVolumeClaim（PVC）：集群内的存储请求。例如，PV 是 Pod 
 > ? 若已有 PV 不足，系统将自动创建新的 PV。
 
 ### 创建 Workload 使用 PVC 数据卷
-1.  登录容器服务控制台，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
+1.  登录容器服务控制台 ，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
 2.  单击需要部署 Workload 的集群 ID，进入待部署 Workload 的集群管理页面。
 3. 在 “工作负载” 下，任意选择 Workload 类型，进入对应的信息页面。
 ![](https://main.qcloudimg.com/raw/087db7a85311be56aaf4b0bfbf60c886.png)

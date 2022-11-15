@@ -115,7 +115,7 @@ DELIMITER
 指定单个 ASCII 字符，用于分隔每行数据中的列。默认值为 TEXT 模式下的制表符，CSV 格式为逗号。在可读外部表的 TEXT 模式下，对于将非结构化数据加载到单列表中的特殊用例，可以将分隔符设置为 OFF。
 
 NULL
-指定表示 NULL 值的字符串。在 TEXT 模式下，默认值是 \N（反斜杠-N），CSV 模式中不含引号的空值。在 TEXT 模式下用户可能更希望不想将 NULL 值与空字符串区分开的情况下，也能使用 NULL 字符串。使用外部和 Web 表时，与此字符串匹配的任何数据项将被视为 NULL 值。使用外部和 Web 表格时，与此字符串匹配的任何数据项将被视为 NULL 值。
+指定表示 NULL 值的字符串。在 TEXT 模式下，默认值是 \N（反斜杠-N），CSV 模式中不含引号的空值。在 TEXT 模式下用户可能更希望不想将 NULL 值与空字符串区分开的情况下，也能使用 NULL 字符串。使用外部和 Web 表时，与此字符串匹配的任何数据项将被视为 NULL 值。
 
 作为 text 格式的示例，此 FORMAT 子句可用于指定两个单引号（''）的字符串为 NULL 值。
 
@@ -127,7 +127,7 @@ ESCAPE
 指定用于 C 转义序列的单个字符（例如 \n、\t、\100等）以及用于转义可能被视为行或列分隔符的数据字符。确保选择在实际列数据中的任何地方都不使用的转义字符。默认转义字符是文本格式文件的\（反斜杠）和 csv 格式文件的"（双引号），但是可以指定其他字符来表示转义，也可以禁用文本转义通过指定值 'OFF' 作为转义值，格式化的文件对于诸如文本格式的 Web 日志数据之类的数据非常有用，这些数据具有许多不希望转义的嵌入式反斜杠。
 
 NEWLINE
-指定数据文件中使用的换行符 – LF（换行符，x0A），CR（回车符号，0x0D）或 CRLF（回车加换行，0x0D 0x0A）。如果未指定，数据库的 Segment 将通过查看其接收的第一行数据并使用遇到的第一个换行符来检测换行类型。
+指定数据文件中使用的换行符 – LF（换行符，0x0A），CR（回车符号，0x0D）或 CRLF（回车加换行，0x0D 0x0A）。如果未指定，数据库的 Segment 将通过查看其接收的第一行数据并使用遇到的第一个换行符来检测换行类型。
 
 HEADER
 对于可读外部表，指定数据文件中的第一行是标题行（包含表列的名称），不应作为表的数据包含。如果使用多个数据源文件，则所有文件必须有标题行。
@@ -153,7 +153,7 @@ LOG ERRORS
 这是一个可选的子句，可以在 SEGMENT REJECT LIMIT 子句之前记录有关具有格式错误的行的信息。错误日志信息在内部存储，并使用数据库内置 SQL 函数 gp_read_error_log() 访问。
 
 SEGMENT REJECT LIMIT count [ROWS | PERCENT]
-在单行错误隔离模式下运行 COPY FROM 操作。如果输入行具有格式错误，则它们将被丢弃，前提是在加载操作期间在任何 Segment 实例上未达到拒绝限制计数。The 拒绝限制计数可以指定为行数（默认值）或总行数百分比（1-100）。如果使用 PERCENT，则每个 Segment 只有在处理了参数 gp_reject_percent_threshold 所指定的行数之后才开始计算坏行百分比。gp_reject_percent_threshold 的默认值为300行。诸如违反 NOT NULL、CHECK 或 UNIQUE 约束的约束错误仍将以“all-or-nothing”输入模式进行处理。如果没有达到限制，所有好的行将被加载，任何错误行被丢弃。
+在单行错误隔离模式下运行 COPY FROM 操作。如果输入行具有格式错误，则它们将被丢弃，前提是在加载操作期间在任何 Segment 实例上未达到拒绝限制计数。拒绝限制计数可以指定为行数（默认值）或总行数百分比（1-100）。如果使用 PERCENT，则每个 Segment 只有在处理了参数 gp_reject_percent_threshold 所指定的行数之后才开始计算坏行百分比。gp_reject_percent_threshold 的默认值为300行。诸如违反 NOT NULL、CHECK 或 UNIQUE 约束的约束错误仍将以“all-or-nothing”输入模式进行处理。如果没有达到限制，所有好的行将被加载，任何错误行被丢弃。
 
 注解：读取外部表时，如果未首先触发 SEGMENT REJECT LIMIT 或未指定 SEGMENT REJECT LIMIT，则数据库将限制可能包含格式错误的初始行数。如果前1000行被拒绝，则 COPY 操作将被停止并回滚。
 
@@ -164,7 +164,7 @@ DISTRIBUTED RANDOMLY
 用于为可写外部表格声明数据库分发策略。默认情况下，可写外部表是随机分布的。如果要从中导出数据的源表具有散列分发策略，则为可写外部表定义相同的分发密钥列可以通过消除在互连上移动行的需要来改善卸载性能。当用户发出诸如 `INSERT INTO wex_table SELECT * FROM source_table` 的卸载命令时，如果两个表具有相同的散列分布策略，则可以将卸载的行直接从 Segment 发送到输出位置。
 
 ## 示例
-创建一个名为 cos_tbl 的可读外部表使用的 COS 协议和 COS 指定读取广州 simple-bucket 下的所有文件，文件格式为 csv：
+创建一个使用 COS 协议的名为 cos_tbl 的可读外部表，并指定读取广州 simple-bucket cos 存储下的所有 CSV 文件，文件格式为 csv：
 ```sql
 CREATE READABLE EXTERNAL TABLE cos_tbl (c1 int, c2 text, c3 int)
 LOCATION('cos://cos.ap-guangzhou.myqcloud.com/simple-bucket/from_cos/ secretKey=xxx secretId=xxx')
@@ -198,7 +198,7 @@ cos:// {BUCKET}-{APPID}.cos.{REGION}.myqcloud.com/{PREFIX}
 - CREATE EXTERNAL TABLE 命令的 LOCATION 子句中只支持一个 URL。
 - 如果在 CREATE EXTERNAL TABLE 命令中未指定 NEWLINE 参数，则在特定前缀的所有数据文件中，换行符必须相同。如果某些具有相同前缀的数据文件中的换行字符不同，则对文件的读取操作可能会失败。
 - 对于可写入的 COS 外部表，只支持 INSERT 操作。不支持 UPDATE、DELETE 和 TRUNCATE 操作。
-- 利用数据库执行的并行处理 Segment 实例中，只读 COS 表的 COS 位置中的文件的大小应类似，文件数量应允许多个 Segment 从 COS 位置下载数据。例如，如果数据库系统由16个 Segment 组成，网络带宽足够，在 COS 位置创建16个文件允许每个 Segment 从一个文件下载 COS 位置。相比之下，如果位置只包含1或2个文件，则只有1或2个 Segment 下载数据。
+- 利用数据库执行的并行处理 Segment 实例中，只读 COS 表的 COS 位置中的文件的大小应类似，文件数量与 Segment 数量一致。
 
 ## 关于 COS 协议 URL
 对于 COS 协议，用户可以在 CREATE EXTERNAL TABLE 命令的 LOCATION 子句中指定文件的位置和可选的配置文件位置。语法如下：

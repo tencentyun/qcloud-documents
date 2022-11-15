@@ -3,7 +3,7 @@
 
 ### TAPD 支持哪些 Jenkins 版本？
 TAPD 目前支持集成 Jenkins 2.19 及以上版本。
-
+ 
 ### 支持哪些类型的 Jenkins 构建项目？
 TAPD 支持自由风格、Pipeline 风格的 Jenkins 构建项目，后续将进一步扩展。如果您有相关需求或建议，欢迎与我们交流，我们的邮箱是：support@tapd.cn。
 

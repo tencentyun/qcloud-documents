@@ -7,13 +7,18 @@
 ## 操作步骤
 1. 登录源数据库。
 2. 参考如下内容修改配置文件 `my.cnf`。 
-> ?`my.cnf` 配置文件的默认路径为 `/etc/my.cnf`，现场以实际情况为准。 
-> 
+> ?
+> - `my.cnf` 配置文件的默认路径为 `/etc/my.cnf`，现场以实际情况为准。 
+> - 建议源端 Binlog 日志至少保留3天及以上，否则可能会因任务暂停/中断时间大于 Binlog 日志保留时间，造成任务无法续传，进而导致任务失败。
+>    - 在 `my.cnf` 配置文件中修改会永久生效，如果用户仅想临时生效，请执行 `set global expire_logs_days=3` 命令修改。
+>    - MySQL 8.0版本及以上也可以使 `binlog_expire_logs_seconds` 来修改 Binlog 保留时间，该参数精确到秒级。
+>
 ```
 log_bin = MYSQL_BIN
 binlog_format = ROW
 server_id = 2 //建议设为大于1的整数，此处仅为示例。
 binlog_row_image = FULL
+expire_logs_days=3  //修改 binlog 的保留时间，建议大于等于3天
 ```
 3. 重启 MySQL 进程。 
 ```

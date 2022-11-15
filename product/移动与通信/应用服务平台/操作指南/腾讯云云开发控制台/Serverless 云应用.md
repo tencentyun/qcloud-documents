@@ -26,7 +26,7 @@
 
 
 1. 单击上述步骤创建的服务名称，进入服务管理页面。
-![](https://main.qcloudimg.com/raw/e6d93ba3b35ae55cf4d5a080ee704d7c.jpg)
+![](https://qcloudimg.tencent-cloud.cn/raw/25e5ea9d9e59603ce9585338198543af.png)
 2. 单击**新建版本**，可对新版本进行配置，详情参考如下步骤。
 
 #### 基础配置
@@ -57,7 +57,7 @@
 2. 单击**流量配置**，目前支持按源 IP 的流量灰度。
 ![](https://main.qcloudimg.com/raw/82ea48ad37c3b53261ca0adf41c86f0e.jpg)
 3. 选择对应版本的流量比例，所有版本流量百分比相加需为100%。
-![](https://main.qcloudimg.com/raw/74df775c9156da323a13c0bc51ba4f55.jpg)
+![](https://qcloudimg.tencent-cloud.cn/raw/271049289ecd83392ed67e6a60dea38f.png)
 
 
 
@@ -91,5 +91,5 @@
 
 
 ## 日志查询
-云应用运行的代码中的标准输出，都会被捕捉并上报到云开发的日志系统中。用户可在云开发日志管理中查看相应的日志，并使用日志的检索功能进行搜索，详情请参见 [日志管理](https://main.qcloudimg.com/raw/73f42e5d5f4895c3c88a6a25c5a4e3f3.png)。
+云应用运行的代码中的标准输出，都会被捕捉并上报到云开发的日志系统中。用户可在云开发日志管理中查看相应的日志，并使用日志的检索功能进行搜索，详情请参见 [日志管理](https://cloud.tencent.com/document/product/876/46903)。
 ![](https://main.qcloudimg.com/raw/73f42e5d5f4895c3c88a6a25c5a4e3f3.png)

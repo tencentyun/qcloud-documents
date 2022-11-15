@@ -22,7 +22,7 @@
     + 如果资源无法跳转，请在腾讯云控制台搜索对应产品，前往对应资源控制台，搜索该 VPC ID 下的对应资源，进行资源释放。
     +  如果是云数据库实例，在实例销毁后一定时间实例处于**隔离中**，该状态的实例实际并未释放资源，需执行**立即下线**或等待至实例自动下线后，才可执行删除 VPC 或子网操作。
    <dx-alert infotype="explain" title="">
-+ 云数据库中**立即下线**操作为异步操作，部分资源的回收可能存在延迟，不能立即删除 VPC，请稍作等待。
++ 云数据库中**立即下线**操作为异步操作，部分资源的回收可能存在延迟，请稍作等待，确保实例已完成下线后，再去删除 VPC 或子网。
 + 此处列举部分常用资源的释放指导，可参考：[删除云服务器](https://cloud.tencent.com/document/product/213/52425)、[删除负载均衡](https://cloud.tencent.com/document/product/214/15369) 、[删除弹性网卡](https://cloud.tencent.com/document/product/576/18536)、[删除对等连接](https://cloud.tencent.com/document/product/553/18848)、[删除基础网络互通](https://cloud.tencent.com/document/product/215/57840#.E5.88.A0.E9.99.A4.E5.9F.BA.E7.A1.80.E7.BD.91.E7.BB.9C.E4.BA.92.E9.80.9A.3Ca-id.3D.22release.22.3E.3C.2Fa.3E)、[删除 NAT 网关](https://cloud.tencent.com/document/product/552/18183)、[删除 VPN 网关](https://cloud.tencent.com/document/product/554/59292)、[删除专线网关](https://cloud.tencent.com/document/product/216/19258)、[删除流日志](https://cloud.tencent.com/document/product/682/18968)、[删除网络探测](https://cloud.tencent.com/document/product/215/20091#.E5.88.A0.E9.99.A4.E7.BD.91.E7.BB.9C.E6.8E.A2.E6.B5.8B)、[删除 HAVIP](https://cloud.tencent.com/document/product/215/53709)、[销毁云数据库 Redis](https://cloud.tencent.com/document/product/239/30898)、[销毁云数据库 MySQL](https://cloud.tencent.com/document/product/236/30305)。
 </dx-alert>
 4. 资源完全释放后，执行 [删除 VPC](https://cloud.tencent.com/document/product/215/51961) 和 [删除子网](https://cloud.tencent.com/document/product/215/53533) 验证是否可以删除成功。

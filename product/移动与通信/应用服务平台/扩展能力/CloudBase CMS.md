@@ -1,5 +1,12 @@
 CloudBase CMS 是云开发推出的开源、综合性内容数据管理运营平台，提供了丰富的内容管理功能，可扩展性强，易于二次开发，并支持 API 访问。支持在云开发控制台一键安装到已有的环境中，随时随地管理小程序和 Web 等多端产生的内容数据。无须编写代码即可使用，支持文本、富文本、Markdown、图片、文件、关联类型等多种类型的可视化编辑。
 
+<dx-alert infotype="notice" title="">
+CMS 属于免费的开源项目，目前已停止维护，详情请参见 [开源代码](https://github.com/TencentCloudBase/cloudbase-extension-cms)。二次开发的代码结构流程请参见 [二次开发文档](https://docs.cloudbase.net/cms/reference/dev)。
+</dx-alert>
+
+
+
+
 ## 功能特性
 
 | 特性       | 介绍                                                         |
@@ -23,10 +30,10 @@ CMS 扩展还可以用来配合开发网站应用和小程序应用，提升开�
 
 ## 工作原理
 
-使用 CMS 扩展时将在当前环境创建云函数、云数据库等资源，详情请参见 [部署详情](https://docs.cloudbase.net/cms/intro.html)。
+使用 CMS 扩展时将在当前环境创建云函数、云数据库等资源，详情请参见 [部署详情](https://docs.cloudbase.net/cms/intro)。
 ![](https://main.qcloudimg.com/raw/af882d4cb9d5262efe7cc1ee05ae3659.png)
 
 ## 相关文档
 
-CMS 详细使用说明，请参见 [CMS 文档](https://docs.cloudbase.net/cms/intro.html)。
+CMS 详细使用说明，请参见 [CMS 文档](https://docs.cloudbase.net/cms/intro)。
 

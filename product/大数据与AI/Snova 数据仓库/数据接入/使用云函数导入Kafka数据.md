@@ -119,3 +119,5 @@
 ![](https://main.qcloudimg.com/raw/3ad13178a24acf0e9a5cee2d630b3457.png)
 
 关于触发器参数配置可以参考 [CKafka 触发器](https://cloud.tencent.com/document/product/583/17530)。
+
+

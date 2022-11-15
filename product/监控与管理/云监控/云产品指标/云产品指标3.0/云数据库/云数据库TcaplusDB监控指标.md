@@ -1,5 +1,5 @@
 ## 命名空间
-Namespace=QCE/TCAPLUS
+Namespace = QCE/TCAPLUS
 
 ## 监控指标
 | 指标英文名       | 指标中文名 | 指标含义 | 单位   | 维度 |

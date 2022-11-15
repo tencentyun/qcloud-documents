@@ -6,7 +6,7 @@ DDoS 基础防护为免费服务，若您需其他 DDoS 防护解决方案，请
 
 ## 开通 DDoS 基础防护
 腾讯云云服务器在创建时可选择默认免费开通 DDoS 基础防护。在云服务器实例购买页面的“安全加固”中，勾选“免费开通”即可开通 DDoS 基础防护。如下图所示：
-![](https://main.qcloudimg.com/raw/bd794ba5e20c4fc7c882bb5a4d634100.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/a1dcacddc5c526a2f143a66b7dddffb4.png)
 开通后，您可在 [云服务器控制台概览页](https://console.cloud.tencent.com/cvm/overview) 或 DDoS 防护控制台的 [DDoS 基础防护](https://console.cloud.tencent.com/ddos/ddos-basic) 页面查看云服务器的防护配置。
 
 

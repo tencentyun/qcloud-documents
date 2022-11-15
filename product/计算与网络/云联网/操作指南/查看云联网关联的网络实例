@@ -1,0 +1,9 @@
+本文指导您如何查看云联网关联的实例。
+
+## 操作步骤
+1. 登录 [云联网控制台](https://console.cloud.tencent.com/vpc/ccn)。
+2. 单击需要查看关联实例的云联网 ID，或单击右侧的**管理实例**。 
+    ![](https://qcloudimg.tencent-cloud.cn/raw/db3359c1dc98e7605169b8c3203b491c.png)
+3. 进入“关联实例”界面后，可以看到该云联网当前关联的所有实例。
+![](https://qcloudimg.tencent-cloud.cn/raw/2672b214784665a85ada338e09081e57.png)
+

@@ -36,7 +36,7 @@
 
 ### 配置自建 Kafka 集群
 #### 修改自建 Kafka 集群配置
-自建 Kafka 集群连接时 `bootstrap-servers` 参数常常使用 hostname 而不是 IP 来连接。但用自建 Kafka 集群连接腾讯云上的 Oceanus 集群为全托管集群， Oceanus 集群的节点上无法解析自建集群的 hostname 与 IP 的映射关系，所以需要改监听器地址由 hostname 为 IP 地址连接的形式。
+自建 Kafka 集群连接时 `bootstrap-servers` 参数常使用 hostname 而不是 IP 来连接。但用自建 Kafka 集群连接腾讯云上的 Oceanus 集群为全托管集群， Oceanus 集群的节点上无法解析自建集群的 hostname 与 IP 的映射关系，所以需要改监听器地址由 hostname 为 IP 地址连接的形式。
 
 - 将 `config/server.properties` 配置文件中 `advertised.listeners` 参数配置为 IP 地址。
 ```shell
@@ -86,13 +86,12 @@ Kafka topic：uvpv-demo（浏览记录）
 
 | 字段        | 类型      | 含义         |
 | :---------- | :-------- | :----------- |
-| record_type | int       | 客户号       |
-| user_id     | varchar   | 客户 IP 地址   |
-| client_ip   | varchar   | 房间号       |
-| product_id  | Int       | 进入房间时间 |
+| record_type | int       | 记录类型       |
+| user_id     | varchar   | 用户 ID   |
+| client_ip   | varchar   | 客户端 IP       |
+| product_id  | Int       | 产品 ID |
 | create_time | timestamp | 创建时间     |
-
-
+    
 Kafka 内部采用 json 格式存储，数据格式如下：
 ```json
 # 浏览记录

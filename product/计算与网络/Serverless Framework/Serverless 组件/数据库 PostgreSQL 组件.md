@@ -15,7 +15,7 @@ PostgreSQL for Serverless（ServerlessDB）是一款基于 PostgreSQL 数据库�
 通过 npm 全局安装 [Serverless CLI](https://github.com/serverless/serverless)：
 
 ```shell
-$ npm install -g serverless
+$ npm install -g serverless-cloud-framework
 ```
 
 #### 账号配置
@@ -52,11 +52,11 @@ $ touch serverless.yml
 在`serverless.yml`中进行如下配置：
 ```yml
 # serverless.yml
-component: postgresql #(必填) 引用 component 的名称，当前用到的是 postgresql 组件
-name: serverlessDB # (必填) 该 postgresql 组件创建的实例名称
-org: test # (可选) 用于记录组织信息，默认值为您的腾讯云账户 appid
-app: serverlessDB # (可选) 该 sql 应用名称
-stage: dev # (可选) 用于区分环境信息，默认值是 dev
+component: postgresql #（必填） 引用 component 的名称，当前用到的是 postgresql 组件
+name: serverlessDB # （必填） 该 postgresql 组件创建的实例名称
+org: test # （可选） 用于记录组织信息，默认值为您的腾讯云账户 appid
+app: serverlessDB # （可选） 该 sql 应用名称
+stage: dev # （可选） 用于区分环境信息，默认值是 dev
 
 inputs:
   region: ap-guangzhou  # 可选 ap-guangzhou, ap-shanghai, ap-beijing
@@ -67,28 +67,28 @@ inputs:
     subnetId: subnet-xxxxxx
   extranetAccess: false
 ```
-PostgreSQL 组件支持0配置部署，您可以直接通过配置文件中的默认值进行部署。您依然可以修改更多可选配置来进一步开发该项目。
+PostgreSQL 组件支持 0 配置部署，您可以直接通过配置文件中的默认值进行部署。您依然可以修改更多可选配置来进一步开发该项目。
 
 [查看详细配置文档 >>](https://github.com/serverless-components/tencent-postgresql/blob/master/docs/configure.md)
 
->!当前 PGSQL for Serverless 仅支持**北京三区**，**广州二区**，**上海二区**三个地域的创建和部署，因此在填写 yaml 中的地域可用区时需要注意填写为正确的地域和对应的 VPC 子网信息。
+>! 当前 PGSQL for Serverless 仅支持**北京三区**，**广州二区**，**上海二区**三个地域的创建和部署，因此在填写 yaml 中的地域可用区时需要注意填写为正确的地域和对应的 VPC 子网信息。
 
 #### 部署
 
 如您的账号未 [登录](https://cloud.tencent.com/login) 或 [注册](https://cloud.tencent.com/register) 腾讯云，您可以直接通过**微信**扫描命令行中的二维码进行授权登录和注册。
 
-通过`sls`命令进行部署，并可以添加`--debug`参数查看部署过程中的信息：
->?`sls`是`serverless`命令的简写。
+通过`scf`命令进行部署，并可以添加`--debug`参数查看部署过程中的信息：
+>?`scf`是`serverless-cloud-framework`命令的简写。
 
 ```bash
-$ sls deploy
+$ scf deploy
 ```
 
 #### 移除
 通过以下命令移除部署的 DB 实例：
 
 ```bash
-$ sls remove
+$ scf remove
 ```
 
 ## 最佳实践
@@ -97,7 +97,3 @@ $ sls remove
 
 ## 更多组件
 您可以在 [Serverless Components](https://github.com/serverless/components) repo 中查询更多组件的信息。
-
-
-
-

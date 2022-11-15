@@ -3,6 +3,8 @@
 >
 
 ## 路由配置
+>?通过 BGP 连通的对接参数，Keepalive 及 holdtime 参数推荐使用缺省配置；推荐 Holdtime 时间60 * 3=180秒（此时 keepalive 报文周期60s）
+>
 ``` 
 # 配置物理接口
 interfaces <interface_number>
@@ -18,6 +20,20 @@ description <vlan_description>
 dot1q termination vid <vlanid>
 ip address <subinterface_ipaddress> <subinterface_netmask>
 
+# 配置静态路由NQA探测
+nqa entry <admin-name> < test-name>
+type icmp-echo  //默认测试类型
+destination-address  x.x.x.x（nexthop-address ）//探测地址
+interval seconds 2 //探测间隔
+frequency <value> //探测实例执行间隔
+history-record enable
+probe count  <value> //每次探测包数
+probe timeout <value> //超时时间 
+
+#配置track 
+track <number> nqa entry  <admin-name>< test-name> //track关联nqa
+
 # 设置静态路由
-ip route-static <Destination_IP_address> <Mask_of_the-IP_address> <VLAN_interface>
+ip route-static <Destination_IP_address> <Mask_of_the-IP_address> <VLAN_interface> track <number> 
+
 ```

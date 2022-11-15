@@ -34,8 +34,13 @@ Windows 使用远程桌面连接 Windows 实例时，提示 “由于没有远�
 
 
 ### 方案二：删除“远程桌面会话主机”角色
->? 如果您不想删除“远程桌面会话主机”角色，可跳过此步骤，前往 [微软官网](https://www.microsoft.com/zh-cn/) 购买与配置相应的证书授权。
->
+
+
+<dx-alert infotype="explain" title="">
+如果您不想删除“远程桌面会话主机”角色，可跳过此步骤，前往 [微软官网](https://www.microsoft.com/zh-cn/) 购买与配置相应的证书授权。
+</dx-alert>
+
+
 1. 在操作系统界面，单击 <img src="https://main.qcloudimg.com/raw/f779581f1ce3edfead8c725ce1504009.png" style="margin: 0;">，打开 “服务器管理器”。
 2. 单击 “服务器管理器” 右上方的**管理**，选择**删除角色和功能**。如下图所示：
 ![](https://main.qcloudimg.com/raw/c50d1df5fdf65abd3f301ba904e80817.png)

@@ -6,7 +6,9 @@
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。 
 2. 在列表中找到需要加入云联网的私有网络 VPC，单击其 ID 进入详情页，单击**立即关联**。
 ![](https://main.qcloudimg.com/raw/6ce503139704f389e85437908d162cae.png)
-3. 在弹窗中，填写对端的账号 ID 和云联网 ID，单击**确定**，提交申请 。
+3. 在弹窗中，填写对端的账号 ID 和云联网 ID，单击**确定**，提交申请。
+>?账号 ID 请填写主账号。
+>
  ![](https://main.qcloudimg.com/raw/26b68cca5e5d406cc2d75c121c6deef1.png)
 
 ## 同意申请（云联网账号操作）

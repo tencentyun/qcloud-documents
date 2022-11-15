@@ -2,7 +2,7 @@ Heartbeat 是轻量的运行状态监测数据采集器，支持 ICMP 监视（�
 
 ## 应用场景
 Hearbeat 通过主动探测来检测服务的可用性，可以通过给定 URL 列表对网站运行状况进行监控，支持通过 ICMP、TCP、HTTP 进行 ping 检测，同时也支持 TLS、身份验证和代理。Heartbeat 通过配置 monitors 进行检测指定主机或者网站的运行情况，目前支持三种 monitor：
-- ICMP：支持 IPV4 和 IPV6，发送 ICMP 请求检测服务是否可用，该 monitor 需要 root 权限。
+- ICMP：支持 IPV4 和 IPV6，发送 ICMP 请求检测服务是否可用，该 monitor 需要 root 权限。  
 - TCP：发送 TCP 请求检测服务是否可用。
 - HTTP：发送 HTTP 请求检测服务是否可以正常响应，以及响应状态码、响应头部或者内容是否正确。
 

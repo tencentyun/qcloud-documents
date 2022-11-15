@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b8706dd5-c00e-443c-8e6d-484a00dd6cf4" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectId" id="1xR6B35O5I6GtDUrrDtHdaoNpdk" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/示例教程/小程序" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\original\qcloud-documents\product\移动与通信\应用服务平台\示例教程\小程序" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b8706dd5-c00e-443c-8e6d-484a00dd6cf4" name="Default Changelist" comment="" />
+      <created>1630305414995</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1630305414995</updated>
+      <workItem from="1630305416206" duration="792000" />
+      <workItem from="1633746125842" duration="31000" />
+      <workItem from="1635472079072" duration="613000" />
+      <workItem from="1637803279336" duration="3388000" />
+      <workItem from="1638518860559" duration="161000" />
+      <workItem from="1639465624273" duration="764000" />
+      <workItem from="1639639860966" duration="4862000" />
+      <workItem from="1639705970425" duration="10061000" />
+      <workItem from="1640160802294" duration="612000" />
+      <workItem from="1640326258913" duration="8000" />
+      <workItem from="1641538082758" duration="8000" />
+      <workItem from="1642574640387" duration="2784000" />
+      <workItem from="1642748219506" duration="3866000" />
+      <workItem from="1643006393124" duration="5241000" />
+      <workItem from="1643073925895" duration="14843000" />
+      <workItem from="1644999265851" duration="2229000" />
+      <workItem from="1645061654124" duration="599000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="427" y="455" key="FileChooserDialogImpl" timestamp="1639709570415">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="427" y="455" key="FileChooserDialogImpl/0.0.2560.1400@0.0.2560.1400" timestamp="1639709570415" />
+    <state x="184" y="382" width="1209" height="594" key="find.popup" timestamp="1639706015579">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="184" y="382" width="1209" height="594" key="find.popup/0.0.2560.1400@0.0.2560.1400" timestamp="1639706015579" />
+  </component>
+</project>

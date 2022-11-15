@@ -33,8 +33,8 @@ ping examplebucket-1250000000.cos.ap-beijing.mqcloud.com
  - 是，请执行 [步骤3](#step03)。
  - 否，请执行 [步骤2](#step02)。
 2. <span id="step02"></span>以 Chrome 浏览器为例，检查浏览器是否设置了代理。
-    1. 打开 Chrome 浏览器，单击右上角的 <img src="https://main.qcloudimg.com/raw/41a048f92c3d6160faff7e211bacce76.png"/> > 【设置】，打开设置页面。
-    2. 单击【高级】，在“系统”栏中选择【在您计算机的代理设置】，打开操作系统的设置窗口。
+    1. 打开 Chrome 浏览器，单击右上角的 <img src="https://main.qcloudimg.com/raw/41a048f92c3d6160faff7e211bacce76.png"/> > **设置**，打开设置页面。
+    2. 单击**高级**，在“系统”栏中选择**在您计算机的代理设置**，打开操作系统的设置窗口。
     ![](https://main.qcloudimg.com/raw/debb2af04d7ee52d9013b940efa48abc.png)
     检查是否设置了代理。
      - 是，关闭代理。
@@ -54,7 +54,7 @@ coscmd probe -n 1 -s 20
  - 如果步骤4的速率等于客户端带宽速率，且未达到运营商承诺的带宽，请联系运营商客服。
  - 如果步骤4的速率等于客户端带宽速率，且达到了运营商承诺的带宽，请执行 [步骤6](#step06)。
 6. <span id="step06"></span>检查是否存在国内客户端访问海外节点 bucket，或者存在海外客户端访问国内节点 bucket。
- - 是，建议使用 COS 的全球加速功能。详情请参阅 [腾讯云COS全球加速让全球用户加速访问](https://cloud.tencent.com/developer/article/1667036) 和 [利用COS全球加速的高效率传输实践](https://cloud.tencent.com/developer/article/1768085)。
+ - 是，建议使用 COS 的全球加速功能。详情请参阅 [腾讯云 COS 全球加速让全球用户加速访问](https://cloud.tencent.com/developer/article/1667036) 和 [利用 COS 全球加速的高效率传输实践](https://cloud.tencent.com/developer/article/1768085)。
  - 否，请 [联系我们](https://cloud.tencent.com/document/product/436/37708)。
 
 <span id="ModifyCustomDomainNameResolution"></span>
@@ -90,3 +90,4 @@ CosXmlConfig config = new CosXmlConfig.Builder()
 .SetDebugLog(true) .Build(); //创建 CosXmlConfig 对象
 ```
 其他 SDK 调用请参见 [SDK 概览](https://cloud.tencent.com/document/product/436/6474)。
+

@@ -1,0 +1,1 @@
+python3 train.py --epochs 5 --log_dir /opt/ml/output/summary  --ckpt_dir /opt/ml/output --model_dir /opt/ml/model

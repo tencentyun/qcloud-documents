@@ -16,7 +16,7 @@ auto.offset.reset 参数设置有如下选项：
 以下情况可能会导致客户端触发该错误：
 - 客户端设置了 offset，然后一段时间内没有消费，但 Topic 设置了消息保留时间，当过了保留时间后， offset 在服务端已经被删除了，即发生了日志滚动，此时客户端再提交删除了的 offset，则会发生该错误。
 - 因为 SDK Bug、网络丢包等问题，导致客户端提交了异常的 offset，则会触发该错误。
-- 服务端有未同步副本，此时发生了 leader 切换，触发了 follower 副本的截断，此时如果客户端提交的 offset 在截断的范围之内，则会触发改错误。
+- 服务端有未同步副本，此时发生了 [leader 切换](https://cloud.tencent.com/document/product/597/55801#leader_change)，触发了 follower 副本的截断，此时如果客户端提交的 offset 在截断的范围之内，则会触发改错误。
 
 ## auto.offset.reset=none 使用说明
 

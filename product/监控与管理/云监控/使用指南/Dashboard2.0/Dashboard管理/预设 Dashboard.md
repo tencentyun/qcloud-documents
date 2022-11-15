@@ -5,7 +5,6 @@
 ## 相关限制
 
 云产品预设 Dashboard，只可读，不可写。
-
 - Dashboard 列表：支持查看、复制、收藏和设置默认 Dashboard。
 - Dashboard：不支持设置、删除、新增图表、拖拽图表、保存 Dashboard。
 - 图表：不支持图表编辑、删除、复制到当前 Dashboard。

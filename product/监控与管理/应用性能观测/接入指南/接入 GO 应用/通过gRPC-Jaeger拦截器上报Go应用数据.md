@@ -14,7 +14,7 @@
 2. 执行下列命令启动 Agent 。
 <dx-codeblock>
 :::  shell
- shell nohup ./jaeger-agent --reporter.grpc.host-port={{collectorRPCHostPort}} --agent.tags=token={{token}}
+nohup ./jaeger-agent --reporter.grpc.host-port={{collectorRPCHostPort}} --agent.tags=token={{token}}
 :::
 </dx-codeblock>
 
@@ -27,20 +27,21 @@
 2. 配置 Jaeger，创建 Trace 对象。示例如下：
 <dx-codeblock>
 :::  Go
-tracer, closer := trace.NewJaegerTracer("demo-service")
-	cfg := &jaegerConfig.Configuration{
-		ServiceName: clientServiceName,    //对其发起请求的的调用链，服务名称
-		Sampler: &jaegerConfig.SamplerConfig{  
-			Type:  "const",
-			Param: 1,
-		},
-		Reporter: &jaegerConfig.ReporterConfig{ //配置客户端如何上报trace信息，所有字段都是可选的
-			LogSpans:           true,
-			CollectorEndpoint: httpEndPoint,
-		},
-		Tags:        tags,   //设置tag，token等信息可存于此
-	}
-
+cfg := &jaegerConfig.Configuration{
+  ServiceName: grpcServerName, //对其发起请求的的调用链，叫什么服务
+  Sampler: &jaegerConfig.SamplerConfig{ //采样策略的配置，详情见4.1.1
+    Type:  "const",
+    Param: 1,
+  },
+  Reporter: &jaegerConfig.ReporterConfig{ //配置客户端如何上报trace信息，所有字段都是可选的
+    LogSpans:          true,
+    LocalAgentHostPort: endPoint,
+  },
+  //Token配置
+  Tags:        []opentracing.Tag{ //设置tag，token等信息可存于此
+    opentracing.Tag{Key: "token", Value: token}, //设置token
+  },
+}
 tracer, closer, err := cfg.NewTracer(jaegerConfig.Logger(jaeger.StdLogger)) //根据配置得到tracer
 :::
 </dx-codeblock>
@@ -63,39 +64,66 @@ if err := s.Serve(lis); err != nil {
 完整代码如下：
 <dx-codeblock>
 :::  Go
+// Copyright © 2019-2020 Tencent Co., Ltd.
+
+// This file is part of tencent project.
+// Do not copy, cite, or distribute without the express
+// permission from Cloud Monitor group.
+
 package grpcdemo
 
 import (
 	"context"
+	"fmt"
+	"github.com/opentracing/opentracing-go"
+	"github.com/uber/jaeger-client-go"
+	jaegerConfig "github.com/uber/jaeger-client-go/config"
 	"log"
 	"net"
+
 	"github.com/opentracing-contrib/go-grpc"
 	"google.golang.org/grpc"
-	pb "git.code.oa.com/taw/taw-simple-demo/examples/go-jaeger-demo/proto"
-	"git.code.oa.com/taw/taw-simple-demo/examples/go-jaeger-demo/trace"
 )
 
 const (
 	// 服务名 服务唯一标示，服务指标聚合过滤依据。
-	serverName = "demo-grpc-server"
-	serverPort = ":9090"
+	grpcServerName = "demo-grpc-server"
+	serverPort     = ":9090"
 )
 
 // server is used to implement proto.HelloTraceServer.
 type server struct {
-	pb.UnimplementedHelloTraceServer
+	UnimplementedHelloTraceServer
 }
 
 // SayHello implements proto.HelloTraceServer
-func (s *server) SayHello(ctx context.Context, in *pb.TraceRequest) (*pb.TraceResponse, error) {
+func (s *server) SayHello(ctx context.Context, in *TraceRequest) (*TraceResponse, error) {
 	log.Printf("Received: %v", in.GetName())
-	return &pb.TraceResponse{Message: "Hello " + in.GetName()}, nil
+	return &TraceResponse{Message: "Hello " + in.GetName()}, nil
 }
 
 // StartServer
 func StartServer() {
-	tracer, closer := trace.NewJaegerTracer(serverName)
+	cfg := &jaegerConfig.Configuration{
+		ServiceName: grpcServerName, //对其发起请求的的调用链，叫什么服务
+		Sampler: &jaegerConfig.SamplerConfig{ //采样策略的配置，详情见4.1.1
+			Type:  "const",
+			Param: 1,
+		},
+		Reporter: &jaegerConfig.ReporterConfig{ //配置客户端如何上报trace信息，所有字段都是可选的
+			LogSpans:           true,
+			LocalAgentHostPort: endPoint,
+		},
+		//Token配置
+		Tags: []opentracing.Tag{ //设置tag，token等信息可存于此
+			opentracing.Tag{Key: "token", Value: token}, //设置token
+		},
+	}
+	tracer, closer, err := cfg.NewTracer(jaegerConfig.Logger(jaeger.StdLogger)) //根据配置得到tracer
 	defer closer.Close()
+	if err != nil {
+		panic(fmt.Sprintf("ERROR: fail init Jaeger: %v\n", err))
+	}
 	lis, err := net.Listen("tcp", serverPort)
 	if err != nil {
 		log.Fatalf("failed to listen: %v", err)
@@ -103,11 +131,12 @@ func StartServer() {
 	s := grpc.NewServer(grpc.UnaryInterceptor(otgrpc.OpenTracingServerInterceptor(tracer)))
 
 	// 在gRPC服务器处注册我们的服务
-	pb.RegisterHelloTraceServer(s, &server{})
+	RegisterHelloTraceServer(s, &server{})
 	if err := s.Serve(lis); err != nil {
 		log.Fatalf("failed to serve: %v", err)
 	}
 }
+
 :::
 </dx-codeblock>
 
@@ -119,7 +148,22 @@ func StartServer() {
 2. 配置 Jaeger，创建 Trace 对象。
 <dx-codeblock>
 :::  shell
-tracer, closer := trace.NewJaegerTracer(clientServiceName)
+cfg := &jaegerConfig.Configuration{
+  ServiceName: grpcClientName, //对其发起请求的的调用链，叫什么服务
+  Sampler: &jaegerConfig.SamplerConfig{ //采样策略的配置，详情见4.1.1
+    Type:  "const",
+    Param: 1,
+  },
+  Reporter: &jaegerConfig.ReporterConfig{ //配置客户端如何上报trace信息，所有字段都是可选的
+    LogSpans:          true,
+    LocalAgentHostPort: endPoint,
+  },
+  //Token配置
+  Tags:        []opentracing.Tag{ //设置tag，token等信息可存于此
+    opentracing.Tag{Key: "token", Value: token}, //设置token
+  },
+}
+tracer, closer, err := cfg.NewTracer(jaegerConfig.Logger(jaeger.StdLogger)) //根据配置得到tracer
 :::
 </dx-codeblock>
 3. 建立连接，配置拦截器。
@@ -134,13 +178,21 @@ conn, err := grpc.Dial(serverAddress, grpc.WithInsecure(), grpc.WithBlock(),
 完整代码如下：
 <dx-codeblock>
 :::  Go
+// Copyright © 2019-2020 Tencent Co., Ltd.
+
+// This file is part of tencent project.
+// Do not copy, cite, or distribute without the express
+// permission from Cloud Monitor group.
+
 package grpcdemo
 
 import (
 	"context"
-	"git.code.oa.com/taw/taw-simple-demo/examples/go-jaeger-demo/proto"
-	"git.code.oa.com/taw/taw-simple-demo/examples/go-jaeger-demo/trace"
+	"fmt"
 	"github.com/opentracing-contrib/go-grpc"
+	"github.com/opentracing/opentracing-go"
+	"github.com/uber/jaeger-client-go"
+	jaegerConfig "github.com/uber/jaeger-client-go/config"
 	"google.golang.org/grpc"
 	"log"
 	"time"
@@ -148,16 +200,35 @@ import (
 
 const (
 	// 服务名 服务唯一标示，服务指标聚合过滤依据。
-	clientServiceName = "demo-grpc-client"
-	defaultName      = "heling TAM Tracing"
-	serverAddress    = "localhost:9090"
+	grpcClientName = "demo-grpc-client"
+	defaultName    = "TAW Tracing"
+	serverAddress  = "localhost:9090"
+	endPoint       = "xxxxx:6831" // 本地agent地址
+	token          = "abc"
 )
 
 // StartClient
 func StartClient() {
-	tracer, closer := trace.NewJaegerTracer(clientServiceName)
+	cfg := &jaegerConfig.Configuration{
+		ServiceName: grpcClientName, //对其发起请求的的调用链，叫什么服务
+		Sampler: &jaegerConfig.SamplerConfig{ //采样策略的配置，详情见4.1.1
+			Type:  "const",
+			Param: 1,
+		},
+		Reporter: &jaegerConfig.ReporterConfig{ //配置客户端如何上报trace信息，所有字段都是可选的
+			LogSpans:           true,
+			LocalAgentHostPort: endPoint,
+		},
+		//Token配置
+		Tags: []opentracing.Tag{ //设置tag，token等信息可存于此
+			opentracing.Tag{Key: "token", Value: token}, //设置token
+		},
+	}
+	tracer, closer, err := cfg.NewTracer(jaegerConfig.Logger(jaeger.StdLogger)) //根据配置得到tracer
 	defer closer.Close()
-
+	if err != nil {
+		panic(fmt.Sprintf("ERROR: fail init Jaeger: %v\n", err))
+	}
 	// 向服务端建立链接，配置拦截器
 	conn, err := grpc.Dial(serverAddress, grpc.WithInsecure(), grpc.WithBlock(),
 		grpc.WithUnaryInterceptor(otgrpc.OpenTracingClientInterceptor(tracer)))
@@ -166,11 +237,12 @@ func StartClient() {
 	}
 	defer conn.Close()
 
-	c := proto.NewHelloTraceClient(conn)
+	//
+	c := NewHelloTraceClient(conn)
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
 	defer cancel()
 	// 发起RPC调用
-	r, err := c.SayHello(ctx, &proto.TraceRequest{Name: defaultName})
+	r, err := c.SayHello(ctx, &TraceRequest{Name: defaultName})
 	if err != nil {
 		log.Fatalf("could not greet: %v", err)
 	}
@@ -179,4 +251,3 @@ func StartClient() {
 
 :::
 </dx-codeblock>
-

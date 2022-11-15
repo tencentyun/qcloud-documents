@@ -12,7 +12,7 @@
 npm i -g @cloudbase/cli hexo-cli
 :::
 </dx-codeblock>
-3. 执行完毕后，在本地新建名称为 Hexo 的文件夹。在该文件夹中，打开命令提示符，并执行如下命令进行初始化：
+3. <span id="step1.3"></span>执行完毕后，在本地新建名称为 Hexo 的文件夹。在该文件夹中，打开命令提示符，并执行如下命令进行初始化：
 <dx-codeblock>
 :::  plaintext
 hexo init
@@ -52,20 +52,20 @@ hexo s
 ```plaintext
 cloudbase login
 ```
-2. 执行命令时，系统将拉起浏览器授权，请登录上述 [步骤2](#step2.3) 中创建云开发环境的账号，进行确认授权。
+2. 执行命令时，系统将拉起浏览器授权，请登录上述 [步骤2.3](#step2.3) 中创建云开发环境的账号，进行确认授权。
 ![](https://main.qcloudimg.com/raw/07bbd145af217f65a4c321d977fdcb32.jpg)
 
 
 
 ## 步骤4：构建 Hexo 部署文件
 
-1. 打开命令提示符，进入到 [步骤1](#step1.3) 创建的 Hexo 文件夹中，执行如下命令：
+1. 打开命令提示符，进入到 [步骤1.3](#step1.3) 创建的 Hexo 文件夹中，执行如下命令：
 ```plaintext
 Hexo g
 ```
 2. Hexo 将会生成部署文件，默认将文件生成在 Public 文件夹下：
 ![](https://main.qcloudimg.com/raw/8d2308d3afe74030237f03545d9371fc.png)
-3. 执行如下命令，将 Hexo 部署到云开发静态托管中（需要将 EnvID 替换为 [步骤2](#step2.3) 中您创建的环境 ID）。
+3. 执行如下命令，将 Hexo 部署到云开发静态托管中（需要将 EnvID 替换为 [步骤2.3](#step2.3) 中您创建的环境 ID）。
 ```plaintext
 cloudbase hosting deploy public -e [EnvID]
 ```

@@ -3,7 +3,7 @@
 腾讯云视频通话功能的主要接口类。
 
 - **主要文档地址**：[TRTC Electron SDK](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/index.html)
-- **示例代码地址**：[TRTC Electron Demo](https://github.com/tencentyun/TRTCSDK/tree/master/Electron)
+- **示例代码地址**：[TRTC Electron Demo](https://github.com/LiteAVSDK/TRTC_Electron)
 
 ### 创建 TRTC 对象
 ```js
@@ -315,7 +315,8 @@ subscribeEvents(this.rtcCloud);
 | [onConnectionLost](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCallback.html#event:onConnectionLost) | SDK 与服务器的连接断开。 |
 | [onTryToReconnect](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCallback.html#event:onTryToReconnect) | SDK 尝试重新连接到服务器。 |
 | [onConnectionRecovery](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCallback.html#event:onConnectionRecovery) | SDK 与服务器的连接恢复。 |
-| [onSpeedTest](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCallback.html#event:onSpeedTest) | 服务器测速的回调，SDK 对多个服务器 IP 进行测速，每个 IP 的测速结果通过这个回调通知。 |
+| [onSpeedTest](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCallback.html#event:onSpeedTest) | 废弃接口：服务器测速的回调，SDK 对多个服务器 IP 进行测速，每个 IP 的测速结果通过这个回调通知。 |
+| [onSpeedTestResult](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCallback.html#event:onSpeedTestResult) | 网速测试的结果回调。 |
 
 
 ### 硬件设备事件回调
@@ -324,7 +325,7 @@ subscribeEvents(this.rtcCloud);
 |-----|-----|
 | [onCameraDidReady](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCallback.html#event:onCameraDidReady) | 摄像头准备就绪。 |
 | [onMicDidReady](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCallback.html#event:onMicDidReady) | 麦克风准备就绪。 |
-| [onUserVoiceVolume](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCallback.html#event:onUserVoiceVolume) | 用于提示音量大小的回调,包括每个 userId 的音量和远端总音量。 |
+| [onUserVoiceVolume](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCallback.html#event:onUserVoiceVolume) | 用于提示音量大小的回调，包括每个 userId 的音量和远端总音量；本地用户 userid 为''。 |
 | [onDeviceChange](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCallback.html#event:onDeviceChange) | 本地设备通断回调。 |
 | [onTestMicVolume](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCallback.html#event:onTestMicVolume) | 麦克风测试音量回调。 |
 | [onTestSpeakerVolume](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCallback.html#event:onTestSpeakerVolume) | 扬声器测试音量回调。 |

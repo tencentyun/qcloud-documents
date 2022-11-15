@@ -22,7 +22,7 @@
 <td>version（版本）</td><td>必填项，目前仅允许值为"2.0"。</td>
 </tr>
 <tr>
-<td>statemen（语句）</td><td>是用来描述一条或多条权限的详细信息。该元素包括 effect、action、resource，condition 等多个其他元素的权限或权限集合。一条策略有且仅有一个 statement 元素。</td>
+<td>statement（语句）</td><td>是用来描述一条或多条权限的详细信息。该元素包括 effect、action、resource，condition 等多个其他元素的权限或权限集合。一条策略有且仅有一个 statement 元素。</td>
 </tr>
 <tr>
 <td>effect（影响）</td><td>必填项，描述声明产生的结果是“允许”还是“显式拒绝”。包括 allow（允许）和 deny（显式拒绝）两种情况。</td>

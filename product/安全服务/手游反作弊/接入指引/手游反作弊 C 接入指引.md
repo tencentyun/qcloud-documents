@@ -1,3 +1,4 @@
+
 ##  准备工作
 - 接入安全 SDK，开发者需要完成以下步骤：
  1. 根据游戏运行平台和支持的 CPU 架构将 SDK 动态库拷贝到指定工程目录。
@@ -179,4 +180,4 @@ tp2_setgamestatus(TP2_GAME_STATUS_BACKEND);
  ![](https://mc.qcloudimg.com/static/img/75eef4a35cf89e8e1d02be304403377b/image.png)
 6. 打开 tlog.log 可查看安全 SDK 发送的数据，如图
  ![](https://mc.qcloudimg.com/static/img/50526870e79bb4d21d5b5bb0c333f86f/image.png)
-安全 SDK 除了在初始化时会上报一些进程基本信息，还会根据定期的安全扫描结果来发送数据，例如扫描到 App 证书签名不正确，内存被修改，外挂进程正在运行等信息。tlog.log 记录 SDK 发送的数据（只在测试时生成），一般 1 小时的数据是 20K 左右，可以查看``tlog.log``的大小来统计安全 SDK 发送的数据量。
+安全 SDK 除了在初始化时会上报一些进程基本信息，还会根据定期的安全扫描结果来发送数据，例如扫描到 App 证书签名不正确，内存被修改，外挂进程正在运行等信息。tlog.log 记录 SDK 发送的数据（只在测试时生成），一般 1 小时的数据是 20K 左右，可以查看 `tlog.log` 的大小来统计安全 SDK 发送的数据量。

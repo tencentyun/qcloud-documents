@@ -76,6 +76,4 @@ width: 300px;
 | :----------------------------------------------------------- | :--------------------------- |
 | [DeleteRoles](https://cloud.tencent.com/document/api/1179/62403) | 删除角色                     |
 | [DescribeBindVpcs](https://cloud.tencent.com/document/api/1179/52187) | 获取租户 VPC 绑定关系          |
-| [DescribeNamespaceBundlesOpt](https://cloud.tencent.com/document/api/1179/59039) | 运营端获取命名空间 bundle 列表 |
-| [DescribeNodeHealthOpt](https://cloud.tencent.com/document/api/1179/59038) | 运营端获取节点健康状态         |
 | [SendMsg](https://cloud.tencent.com/document/api/1179/56772) | 发送消息                     |
