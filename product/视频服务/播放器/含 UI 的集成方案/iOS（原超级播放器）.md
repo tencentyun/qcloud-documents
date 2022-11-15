@@ -483,4 +483,4 @@ for (TXVodDownloadMediaInfo *info in array) {
 
 在 **腾讯云视立方 App** > **播放器** 中可体验更多播放器组件功能。
 
-<img src="https://qcloudimg.tencent-cloud.cn/raw/52c58077ac1f0f35b505324fbb7080a5.png" >
+<img src="https://qcloudimg.tencent-cloud.cn/raw/52c58077ac1f0f35b505324fbb7080a5.png" width="150">
