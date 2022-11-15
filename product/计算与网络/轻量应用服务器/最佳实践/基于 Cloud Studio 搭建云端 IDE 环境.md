@@ -1,3 +1,4 @@
+
 ## 操作场景
 Cloud Studio 应用镜像是一个提供了轻量级，且功能强大的源代码编辑器的应用镜像，底层基于 VS Code 扩展实现，除了完全兼容 VS Code 所有能力外，还提供了额外扩展能力。您可以使用浏览器直接访问使用，对多种开发语言支持良好。Cloud Studio 应用镜像内置了对 JavaScript、TypeScript 和 Node.js 的支持，并为其他语言在运行时（如 C++、C#、Java、Python、PHP、Go、.NET）提供了丰富的扩展生态系统。镜像中已预置 Go、Python、Node.js、Clang 及 JDK 开发环境。
 
@@ -18,7 +19,7 @@ Cloud Studio 应用镜像是一个提供了轻量级，且功能强大的源代�
 3. 单击**立即购买**，并根据页面提示提交订单完成支付，返回轻量应用服务器控制台。
 4. 待实例创建完成后，在服务器列表中，选择并进入该实例的详情页。您可以在此页面查看 Cloud Studio 应用的各项配置信息。
 5. 选择**应用管理**页签，进入应用管理详情页。
-6. 在“应用内软件信息”栏中，单击 ![img](https://wdoc-76491.picgzc.qpic.cn/MTY4ODg1NjcyNjM3MTY2OA_127170_DXPIsukYirDJ9Hm4_1666879683?w=13&h=14)，复制获取 Cloud Studio 1.0.1 的管理员帐户密码的命令。
+6. 在“应用内软件信息”栏中，单击 ![](https://qcloudimg.tencent-cloud.cn/raw/b3dddaaafdaa1ede470b557a90433121.png)，复制获取 Cloud Studio 1.0.1 的管理员帐户密码的命令。
 7. 在“应用内软件信息”栏中，单击**登录**。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/b2e1b14cd007e7842513d0366ee551c7.png)
 8. 在弹出的登录窗口中，粘贴步骤 6 复制的命令并按 Enter。即可获取 Cloud Studio 管理员账号密码，请妥善保管并记录。

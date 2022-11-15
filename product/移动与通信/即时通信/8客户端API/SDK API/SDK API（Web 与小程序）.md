@@ -117,7 +117,7 @@ TIM 是 IM Web SDK 的命名空间，提供了创建 SDK 实例的静态方法 [
 | API | 描述 |
 | --- | --- |
 | [setSelfStatus](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#setSelfStatus) | 设置自己的自定义状态。 |
-| [getUserStatus](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#setSelfStatus) | 查询用户状态。 |
+| [getUserStatus](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getUserStatus) | 查询用户状态。 |
 | [subscribeUserStatus](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#subscribeUserStatus) | 订阅用户状态。 |
 | [unsubscribeUserStatus](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#unsubscribeUserStatus) | 取消订阅用户状态。 |
 
