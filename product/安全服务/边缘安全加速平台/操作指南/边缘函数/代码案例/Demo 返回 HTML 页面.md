@@ -25,10 +25,8 @@ addEventListener("fetch", (event) => {
 ## 示例预览
 
 在浏览器地址栏中输入边缘函数触发规则，即可预览到示例效果。
-
-<img width="609" alt="image" src="https://user-images.githubusercontent.com/117053395/201570530-cd559d8a-6d59-458a-8dbf-6097f92ad6d9.png">
+<img src="https://qcloudimg.tencent-cloud.cn/raw/14f8696020d287c3ec562d84033a7855.png" width=609px>
 
 ## 相关参考
-
 - [Runtime APIs: `addEventListener`](https://cloud.tencent.com/document/product/1552/81928)
 - [Runtime APIs: `Response`](https://cloud.tencent.com/document/product/1552/81917)
