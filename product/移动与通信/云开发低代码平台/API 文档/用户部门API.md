@@ -43,18 +43,6 @@
  - **client Id：**secretId
  - **client secret：**secretKey
 
->! 可以不用转换 oauth，像发送普通 post 请求一样，把 secretid:secretkey base64 一下，前面加上 Basic ，放在请求头的 Authorization 里，然后 body 内容。
-```body
-{
-  "grant_type":"client_credentials"
-}
-```
-直接 post 请求就可以。单击 Get New Access Token 获取 token, 然后按照下面正常访问即可。
-具体配置请参照下图：
-<img src = "https://qcloudimg.tencent-cloud.cn/raw/5de129b0b13aaa501eb725d41e9ee2ed.png" style="width: 80%"> 
-
-
-
 
 
 

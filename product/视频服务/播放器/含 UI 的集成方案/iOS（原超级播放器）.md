@@ -482,5 +482,4 @@ for (TXVodDownloadMediaInfo *info in array) {
 ### 腾讯云视立方 App
 
 在 **腾讯云视立方 App** > **播放器** 中可体验更多播放器组件功能。
-
-<img src="https://qcloudimg.tencent-cloud.cn/raw/5c383bc7826d4f4835c9a7232cf9b50e.png" width="150">
+App 升级维护中，Demo 源码仍可正常使用。
