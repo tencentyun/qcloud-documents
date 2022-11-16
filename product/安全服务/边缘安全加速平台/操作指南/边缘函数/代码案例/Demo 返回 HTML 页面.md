@@ -28,5 +28,5 @@ addEventListener("fetch", (event) => {
 <img src="https://qcloudimg.tencent-cloud.cn/raw/14f8696020d287c3ec562d84033a7855.png" width=609px>
 
 ## 相关参考
-- [Runtime APIs: `addEventListener`](https://cloud.tencent.com/document/product/1552/81928)
-- [Runtime APIs: `Response`](https://cloud.tencent.com/document/product/1552/81917)
+- [Runtime APIs: addEventListener](https://cloud.tencent.com/document/product/1552/81928)
+- [Runtime APIs: Response](https://cloud.tencent.com/document/product/1552/81917)
