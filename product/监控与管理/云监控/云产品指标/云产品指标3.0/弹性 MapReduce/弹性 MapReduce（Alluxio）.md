@@ -8,20 +8,101 @@ Namespace=QCE/TXMR_ALLUXIO
 
 ### Alluxio-Cluster
 
-| 指标英文名                                                 | 指标中文名                                   | 指标含义                                        | 指标单位 | 维度               |
-|------------------------------------------- | -------------------------------------------- | ----------------------------------------------- | -------- | ------------------ |
-| AlluxioClusterBytesBytesreadalluxio                        | 数据读写总量 BytesReadAlluxio                | 所有 worker 上报的从 Alluxio 存储读取的总字节数 | B        | id4alluxiooverview |
-| AlluxioClusterBytesBytesreadufsall                         | 数据读写总量 BytesReadUfsAll                 | 所有 worker 从所有 Alluxio UFSes 读取的字节总数 | B        | id4alluxiooverview |
-| AlluxioClusterBytesByteswrittenalluxio                     | 数据读写总量 BytesWrittenAlluxio             | 写入所有 worker 的 Alluxio 存储的总字节数       | B        | id4alluxiooverview |
-| AlluxioClusterBytesByteswrittenufsall                      | 数据读写总量 BytesWrittenUfsAll              | 所有 worker 写入所有 Alluxio UFSes 的总字节数   | B        | id4alluxiooverview |
-| AlluxioClusterBytesThroughputBytesreadalluxiothroughput    | 数据读写吞吐量 BytesReadAlluxioThroughput    | 所有 worker 从 Alluxio 存储读取数据的吞吐量     | B        | id4alluxiooverview |
-| AlluxioClusterBytesThroughputBytesreadufsthroughput        | 数据读写吞吐量 BytesReadUfsThroughput        | 所有 worker 从所有 Alluxio UFSes 读取的吞吐量   | B        | id4alluxiooverview |
-| AlluxioClusterBytesThroughputByteswrittenalluxiothroughput | 数据读写吞吐量 BytesWrittenAlluxioThroughput | 所有 worker 写入 Alluxio 存储的吞吐量           | B        | id4alluxiooverview |
-| AlluxioClusterBytesThroughputByteswrittenufsthroughput     | 数据读写吞吐量 BytesWrittenUfsThroughput     | 所有 worker 写入所有 Alluxio UFSes 的吞吐量     | B        | id4alluxiooverview |
-| AlluxioClusterCapacityCapacityfree                         | worker的层上容量 CapacityFree                | 所有 worker 的所有层上的总可用字节              | B        | id4alluxiooverview |
-| AlluxioClusterCapacityCapacitytotal                        | worker的层上容量 CapacityTotal               | 所有 worker 的所有层上的总容量                  | B        | id4alluxiooverview |
-| AlluxioClusterCapacityCapacityused                         | worker的层上容量 CapacityUsed                | 所有 worker 的所有层上的已用字节总数            | B        | id4alluxiooverview |
-| AlluxioClusterWorkersWorkers                               | worker 总数 Workers                           | 群集中的 active worker 总数                     | 个       | id4alluxiooverview |
+<table>
+<thead>
+<tr>
+<th><width=30%>指标英文名</th>
+<th><width=15%>指标中文名</th>
+<th><width=40%>指标含义</th>
+<th><width=5%>指标单位</th>
+<th><width=10%>维度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>AlluxioClusterBytesBytesreadalluxio</td>
+<td>数据读写总量 BytesReadAlluxio</td>
+<td>所有 worker 上报的从 Alluxio 存储读取的总字节数</td>
+<td>B</td>
+<td>id4alluxiooverview</td>
+</tr>
+<tr>
+<td>AlluxioClusterBytesBytesreadufsall</td>
+<td>数据读写总量 BytesReadUfsAll</td>
+<td>所有 worker 从所有 Alluxio UFSes 读取的字节总数</td>
+<td>B</td>
+<td>id4alluxiooverview</td>
+</tr>
+<tr>
+<td>AlluxioClusterBytesByteswrittenalluxio</td>
+<td>数据读写总量 BytesWrittenAlluxio</td>
+<td>写入所有 worker 的 Alluxio 存储的总字节数</td>
+<td>B</td>
+<td>id4alluxiooverview</td>
+</tr>
+<tr>
+<td>AlluxioClusterBytesByteswrittenufsall</td>
+<td>数据读写总量 BytesWrittenUfsAll</td>
+<td>所有 worker 写入所有 Alluxio UFSes 的总字节数</td>
+<td>B</td>
+<td>id4alluxiooverview</td>
+</tr>
+<tr>
+<td>AlluxioClusterBytesThroughputBytesreadalluxiothroughput</td>
+<td>数据读写吞吐量 BytesReadAlluxioThroughput</td>
+<td>所有 worker 从 Alluxio 存储读取数据的吞吐量</td>
+<td>B</td>
+<td>id4alluxiooverview</td>
+</tr>
+<tr>
+<td>AlluxioClusterBytesThroughputBytesreadufsthroughput</td>
+<td>数据读写吞吐量 BytesReadUfsThroughput</td>
+<td>所有 worker 从所有 Alluxio UFSes 读取的吞吐量</td>
+<td>B</td>
+<td>id4alluxiooverview</td>
+</tr>
+<tr>
+<td>AlluxioClusterBytesThroughputByteswrittenalluxiothroughput</td>
+<td>数据读写吞吐量 BytesWrittenAlluxioThroughput</td>
+<td>所有 worker 写入 Alluxio 存储的吞吐量</td>
+<td>B</td>
+<td>id4alluxiooverview</td>
+</tr>
+<tr>
+<td>AlluxioClusterBytesThroughputByteswrittenufsthroughput</td>
+<td>数据读写吞吐量 BytesWrittenUfsThroughput</td>
+<td>所有 worker 写入所有 Alluxio UFSes 的吞吐量</td>
+<td>B</td>
+<td>id4alluxiooverview</td>
+</tr>
+<tr>
+<td>AlluxioClusterCapacityCapacityfree</td>
+<td>worker的层上容量 CapacityFree</td>
+<td>所有 worker 的所有层上的总可用字节</td>
+<td>B</td>
+<td>id4alluxiooverview</td>
+</tr>
+<tr>
+<td>AlluxioClusterCapacityCapacitytotal</td>
+<td>worker的层上容量 CapacityTotal</td>
+<td>所有 worker 的所有层上的总容量</td>
+<td>B</td>
+<td>id4alluxiooverview</td>
+</tr>
+<tr>
+<td>AlluxioClusterCapacityCapacityused</td>
+<td>worker的层上容量 CapacityUsed</td>
+<td>所有 worker 的所有层上的已用字节总数</td>
+<td>B</td>
+<td>id4alluxiooverview</td>
+</tr>
+<tr>
+<td>AlluxioClusterWorkersWorkers</td>
+<td>worker 总数 Workers</td>
+<td>群集中的 active worker 总数</td>
+<td>个</td>
+<td>id4alluxiooverview</td>
+</tr>
+</tbody></table>
 
 
 ### Alluxio-Master
