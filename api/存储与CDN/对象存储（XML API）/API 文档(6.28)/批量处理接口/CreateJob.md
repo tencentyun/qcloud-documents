@@ -59,6 +59,7 @@ x-cos-appid: <APPID>
         </Spec>
     </Manifest>
     <Operation>
+        <COSDeleteObject></COSDeleteObject>
         <COSInitiateRestoreObject>   
             <ExpirationInDays> integer </ExpirationInDays>
             <JobTier> string </JobTier>
