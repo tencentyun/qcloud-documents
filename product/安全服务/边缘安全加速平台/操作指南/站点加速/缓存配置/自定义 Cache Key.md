@@ -44,9 +44,9 @@ Cache Key 是节点缓存资源的唯一标识。节点响应请求资源时，�
 
 若域名 `www.example.com`  的自定义 Cache Key 配置如下：
 
-![](https://qcloudimg.tencent-cloud.cn/raw/090763cad03e233715b71ca39c3d9e4c.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/dfb83780eecd2657c0a80ec953fb7f5f.png)
 
-Cache Key 由 URL+My-Client-Header+Cookie 组成：不区分请求协议，忽略全部查询字符串，忽略 URL 大小写，拼接My-Client-Header和保留指定参数后的 Cookie。
+Cache Key 由 URL+My-Client-Header+Cookie 组成：不区分请求协议（默认），忽略全部查询字符串，忽略 URL 大小写，拼接My-Client-Header和保留指定参数后的 Cookie。
 
 则客户端请求 A：
 
