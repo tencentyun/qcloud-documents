@@ -40,7 +40,7 @@ platform :macos, '10.10'
 source 'https://github.com/CocoaPods/Specs.git'
 
 target 'mac_test' do
-pod 'TXIMSDK_Pro_Mac'
+pod 'TXIMSDK_Plus_Pro_Mac'
 end
 ```
 
