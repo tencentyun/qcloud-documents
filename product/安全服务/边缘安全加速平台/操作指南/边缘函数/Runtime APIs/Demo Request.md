@@ -25,7 +25,7 @@ const request = new Request(input [, options])
 <td>input</td>
 <td>string | Request</td>
 <td>是</td>
-<td>一个直接包含资源 url 的字符串 或拷贝已存在的 Request 对象，若 options 对象的 copyHeaders 属性为 false，则引用传入的 Request 对象的 headers 属性</td>
+<td>一个直接包含资源 url 的字符串或拷贝已存在的 Request 对象，若 options 对象的 copyHeaders 属性为 false，则引用传入的 Request 对象的 headers 属性</td>
 </tr>
 <tr>
 <td>options</td>
@@ -141,13 +141,13 @@ const request = new Request(input [, options])
 <td align="left">cacheTtl</td>
 <td align="left">number</td>
 <td align="left">否</td>
-<td align="left">缓存相关，用于指定缓存时长(单位 s)，必需大于等于 0，等于 0 不缓存</td>
+<td align="left">缓存相关，用于指定缓存时长(单位s)，必需大于等于0，等于0不缓存</td>
 </tr>
 <tr>
 <td align="left">cacheTtlByStatus</td>
 <td align="left">{[key: string]: number}</td>
 <td align="left">否</td>
-<td align="left">缓存相关，用于根据状态码指定缓存时长(单位 s)，小于等于 0 不缓存</td>
+<td align="left">缓存相关，用于根据状态码指定缓存时长(单位s)，小于等于0不缓存</td>
 </tr>
 </tbody></table>
 
