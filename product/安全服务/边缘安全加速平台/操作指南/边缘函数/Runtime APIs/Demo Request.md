@@ -22,21 +22,21 @@ const request = new Request(input [, options])
 </tr>
 </thead>
 <tbody><tr>
-<td>nput</td>
+<td>input</td>
 <td>string | Request</td>
 <td>是</td>
 <td>一个直接包含资源 url 的字符串 或拷贝已存在的 Request 对象，若 options 对象的 copyHeaders 属性为 false，则引用传入的 Request 对象的 headers 属性</td>
 </tr>
 <tr>
 <td>options</td>
-<td>RequestInit</td>
+<td><a href="#RequestInit">RequestInit</a></td>
 <td>否</td>
 <td>初始化 Request 对象的属性值的选项</td>
 </tr>
 </tbody></table>
 
 
-#### RequestInit
+#### RequestInit[](id:RequestInit)
 
 初始化 Request 对象的属性值选项。
 
@@ -101,14 +101,14 @@ const request = new Request(input [, options])
 </tr>
 <tr>
 <td>cf</td>
-<td>RequestInitCfProperties</td>
+<td><a href="#RequestInitCfProperties">RequestInitCfProperties</a></td>
 <td>否</td>
 <td>-</td>
 <td><strong>非标准选项</strong>，用于控制边缘函数处理该请求的行为</td>
 </tr>
 </tbody></table>
 
-#### RequestInitCfProperties
+#### RequestInitCfProperties[](id:RequestInitCfProperties)
 非标准选项，用于控制边缘函数处理该请求的行为。
 <table>
 <thead>
@@ -187,10 +187,10 @@ const request = new Request(input [, options])
 请求使用的 HTTP 协议版本。
 
 ### cf
-`readonly` `cf: IncomingRequestCfProperties`
+`readonly` [`cf: IncomingRequestCfProperties`](#IncomingRequestCfProperties)
 一个对象，其中包含了由边缘安全加速平台提供的与客户请求相关的属性。
 
-#### IncomingRequestCfProperties
+#### IncomingRequestCfProperties[](id:IncomingRequestCfProperties)
 除了标准 [`Request`](https://developer.mozilla.org/en-US/docs/Web/API/Request) 对象的属性外，客户端请求的 `request.cf` 对象中还包含由边缘安全加速平台提供的与请求相关的一些其他信息。包含如下信息：
 <table>
 <thead>
@@ -203,13 +203,13 @@ const request = new Request(input [, options])
 </thead>
 <tbody><tr>
 <td>geo</td>
-<td>GeoProperties</td>
+<td><a href="#GeoProperties">GeoProperties</a></td>
 <td>一个对象，用于描述客户请求的位置</td>
 <td>-</td>
 </tr>
 </tbody></table>
 
-#### GeoProperties
+#### GeoProperties[](id:GeoProperties)
 一个对象，用于描述客户请求的位置。
 <table>
 <thead>
@@ -325,6 +325,6 @@ addEventListener('fetch', (event) => {
 }
 ```
 
-## 参考
-- [MDN 文档：Request](https://developer.mozilla.org/en-US/docs/Web/API/Request)
+## 相关参考
+- [MDN 官方文档：Request](https://developer.mozilla.org/en-US/docs/Web/API/Request)
 - [代码案列：修改请求头](https://cloud.tencent.com/document/product/1552/81938)
