@@ -35,6 +35,13 @@ dependencies {
 		api 'com.tencent.imsdk:imsdk-plus:版本号'
 }
 ```
+ - 如果使用增强版 Pro IM SDK，请添加如下依赖。
+```
+dependencies {
+		api 'com.tencent.imsdk:imsdk-plus-pro:版本号'
+}
+```
+
 >?“版本号”应替换为 SDK 的实际版本号，建议使用 [最新版本]( https://github.com/tencentyun/TIMSDK/tree/master/Android/IMSDK)。
 >以版本号是`5.4.666`为例：
 >```

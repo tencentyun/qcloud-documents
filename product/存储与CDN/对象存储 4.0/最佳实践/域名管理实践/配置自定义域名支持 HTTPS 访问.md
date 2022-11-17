@@ -1,10 +1,13 @@
 ## 简介
-用户可通过自有域名（自定义域名，例如`test.cos.com`）访问存储桶（Bucket）下的对象（Object）。具体操作指引如下：
+用户可通过自有域名（自定义域名，例如`example.com`）访问存储桶（Bucket）下的对象（Object）。具体操作指引如下：
 - [开启 CDN 加速时配置自定义域名支持 HTTPS 访问](#.E5.BC.80.E5.90.AF-cdn-.E5.8A.A0.E9.80.9F)
 - [关闭 CDN 加速时配置自定义域名支持 HTTPS 访问](#.E5.85.B3.E9.97.AD-cdn-.E5.8A.A0.E9.80.9F)
 
 
 ## 操作步骤
+
+
+
 ### 开启 CDN 加速
 
 #### 步骤1：绑定自定义域名
@@ -16,7 +19,7 @@
 
 ### 关闭 CDN 加速
 
-本章节主要以示例的形式介绍在对象存储（Cloud Object Storage，COS）中通过反向代理配置自定义域名（关闭 CDN 加速）支持 HTTPS 访问的操作步骤。本示例将实现不开启 CDN 加速的情况下，直接通过自定义域名`https://test.cos.com`访问所属地域为广州、名称为 testhttps-1250000000 的存储桶，具体操作步骤如下：
+本章节主要以示例的形式介绍在对象存储（Cloud Object Storage，COS）中通过反向代理配置自定义域名（关闭 CDN 加速）支持 HTTPS 访问的操作步骤。本示例将实现不开启 CDN 加速的情况下，直接通过自定义域名`https://example.com`访问所属地域为广州、名称为 testhttps-1250000000 的存储桶，具体操作步骤如下：
 
 #### 步骤1：绑定自定义域名
 
@@ -26,22 +29,22 @@ COS 国内公有云地域、新加坡地域已支持托管自定义源站域名�
 
 <span id="1"></span>
 - 方式一：通过 COS 控制台绑定自定义源站域名
-将存储桶 testhttps-1250000000 绑定到域名`https://test.cos.com`，关闭 CDN 加速，详细操作指引请参见 [开启自定义源站域名](https://cloud.tencent.com/document/product/436/36638) 文档。
+将存储桶 testhttps-1250000000 绑定到域名`https://example.com`，关闭 CDN 加速，详细操作指引请参见 [开启自定义源站域名](https://cloud.tencent.com/document/product/436/36638) 文档。
 ![](https://qcloudimg.tencent-cloud.cn/raw/b4adae8bfba22bf8d14bc282b628128d.png)
 <span id="2"></span>
 - 方式二：为域名配置反向代理
-在服务器上为域名`https://test.cos.com`配置反向代理。具体配置参考如下（以下 Nginx 配置仅供参考）：
+在服务器上为域名`https://example.com`配置反向代理。具体配置参考如下（以下 Nginx 配置仅供参考）：
 ```shell
 server {
     listen        443;
-    server_name  test.cos.com ;
+    server_name  example.com ;
 
     ssl on;
     ssl_certificate /usr/local/nginx/conf/server.crt;
     ssl_certificate_key /usr/local/nginx/conf/server.key;
 
-    error_log logs/test.cos.com.error_log;
-    access_log logs/test.cos.com.access_log;
+    error_log logs/example.com.error_log;
+    access_log logs/example.com.access_log;
     location / {
         root /data/www/;
         proxy_pass  http://testhttps-1250000000.cos.ap-guangzhou.myqcloud.com; //配置存储桶（Bucket）的默认下载域名 
@@ -58,7 +61,7 @@ ssl_certificate_key /usr/local/nginx/conf/server.key;
 
 #### 步骤2：解析域名到服务器
 
-在您域名的 DNS 解析服务商处解析您的域名。若您使用的是腾讯云 DNS 解析，请前往 [DNS 解析控制台](https://console.cloud.tencent.com/cns)，将域名`test.cos.com`解析到步骤2中的服务器的 IP 上，详细指引请参见 [快速添加域名解析](https://cloud.tencent.com/document/product/302/3446)。
+在您域名的 DNS 解析服务商处解析您的域名。若您使用的是腾讯云 DNS 解析，请前往 [DNS 解析控制台](https://console.cloud.tencent.com/cns)，将域名`example.com`解析到步骤1中的服务器的 IP 上，详细指引请参见 [快速添加域名解析](https://cloud.tencent.com/document/product/302/3446)。
 
 #### 步骤3：进阶配置
 

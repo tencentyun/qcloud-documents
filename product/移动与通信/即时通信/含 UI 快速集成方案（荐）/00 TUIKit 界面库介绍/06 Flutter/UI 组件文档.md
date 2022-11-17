@@ -13,13 +13,13 @@ TUIKit 中的组件在实现 UI 功能的同时，会调用 IM SDK 相应的接�
 | macOS  | 开发中，敬请期待 |
 | Windows  | 开发中，敬请期待 |
 
->? 我们致力于打造一套支持 Flutter 全平台的即时通信IM SDK及TUIKit，帮助您一套代码，全平台运行。
+>? 我们致力于打造一套支持 Flutter 全平台的即时通信 IM SDK 及 TUIKit，帮助您一套代码，全平台运行。
 
-## 体验DEMO[](id:demo)
+## 体验 DEMO[](id:demo)
 
-您可以通过我们的DEMO，快速在线体验TUIKit各项能力。
+您可以通过我们的 DEMO，快速在线体验 TUIKit 各项能力。
 
-**以下各版本DEMO，均由同一Flutter项目引入TUIKit制作打包而成。**
+**以下各版本 DEMO，均由同一 Flutter 项目引入TUIKit 制作打包而成。**
 
 <table style="text-align:center; vertical-align:middle; max-width: 800px">
   <tr>
@@ -28,7 +28,7 @@ TUIKit 中的组件在实现 UI 功能的同时，会调用 IM SDK 相应的接�
   </tr>
   <tr>
     <td><div style="display: flex; justify-content: center; align-items: center; flex-direction: column; padding-top: 10px">iOS/Android APP，自动判断平台下载<img style="max-width:200px; margin: 20px 0 20px 0" src="https://qcloudimg.tencent-cloud.cn/raw/ca2aaff551410c74fce48008c771b9f6.png"/></div></td>
-    <td><div style="display: flex; justify-content: center; align-items: center; flex-direction: column; padding-top: 10px">手机扫码体验在线Web版DEMO<img style="max-width:200px; margin: 20px 0 20px 0" src="https://qcloudimg.tencent-cloud.cn/raw/3c79e8bb16dd0eeab35e894a690e0444.png"/></div></td>
+    <td><div style="display: flex; justify-content: center; align-items: center; flex-direction: column; padding-top: 10px">手机扫码体验在线 Web 版 DEMO<img style="max-width:200px; margin: 20px 0 20px 0" src="https://qcloudimg.tencent-cloud.cn/raw/3c79e8bb16dd0eeab35e894a690e0444.png"/></div></td>
 	 </tr>
 </table>
 

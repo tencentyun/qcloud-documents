@@ -52,7 +52,7 @@ TencentImSDKPlugin.v2TIMManager.initSDK(
 );
 ```
 
-在本步骤，你可以针对 IM SDK 挂载一些监听，主要包括网络状态及用户信息变更等，详情可参见 [该文档](https://comm.qq.com/im-react-native-doc/interfaces/interface.V2TimSDKListener.html)。
+在本步骤，你可以针对 IM SDK 挂载一些监听，主要包括网络状态及用户信息变更等，详情可参见 [该文档](https://comm.qq.com/im/doc/RN/zh/Interface/Listener/V2TimSDKListener.html)。
 
 #### 登录测试账户
 1. 此时，您可以使用最开始的时候，在控制台生成的测试账户，完成登录验证。
@@ -226,7 +226,7 @@ const addAdvancedMsgListener = () => {
 ```
 
 此时，您已基本完成 IM 模块开发，可以发送接收消息，也可以进入不同的会话。
-您可以继续完成群组，用户资料，关系链，离线推送，本地搜索等相关功能开发，详情可参见 [SDK API 文档](https://comm.qq.com/im-react-native-doc/index.html)。
+您可以继续完成群组，用户资料，关系链，离线推送，本地搜索等相关功能开发，详情可参见 [SDK API 文档](https://comm.qq.com/im/doc/RN/zh/)。
 
 ## 联系我们
 

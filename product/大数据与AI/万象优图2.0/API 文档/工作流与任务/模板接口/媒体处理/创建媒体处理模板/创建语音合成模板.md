@@ -76,9 +76,25 @@ Container 类型 Request 的具体数据描述如下：
 | Name               | Request | 模板名称，仅支持中文、英文、数字、\_、\-和\* | String | 是       | 无                                                           |
 | Mode               | Request | 处理模式，默认值 Asyc                         | String | 否       | Asyc（异步合成）、Sync（同步合成）</br>当选择 Asyc 时，codec 只支持 pcm |
 | Codec              | Request | 音频格式，默认值 wav（同步）/pcm（异步）     | String | 否       | wav、mp3、pcm                                                |
-| VoiceType          | Request | 音色，默认值 ruxue                           | String | 否       | ruxue、aixiaonan、aixiaoxing                                   |
+| VoiceType          | Request | 音色，默认值 ruxue                           | String | 否       | 详见下表 |
 | Volume             | Request | 音量，默认值0                                | String | 否       | [-10,10]                                                     |
 | Speed              | Request | 语速，默认值100                              | String | 否       | [50,200]                                                     |
+
+支持的音色
+
+| 名称 | Voice 参数值 | Asyc（异步合成） | Sync（同步合成） |
+|---------|---------|---------|---------|
+| 茹雪   | ruxue       | 支持 | 支持 |
+| 爱小楠 | aixiaonan   | 不支持 | 支持 |
+| 爱小星 | aixiaoxing  | 支持 | 支持 |
+| 爱小诚 | aixiaocheng | 支持 | 支持 |
+| 爱小雪 | aixiaoxue   | 支持 | 支持 |
+| 爱小璐 | aixiaolu    | 支持 | 支持 |
+| 爱小栋 | aixiaodong  | 支持 | 支持 |
+| 爱小聊 | aixiaoliao  | 不支持 | 支持 |
+| 爱小倩 | aixiaoqian  | 支持 | 支持 |
+| 爱小阳 | aixiaoyang  | 支持 | 支持 |
+| Alice | alice        | 支持 | 支持 |
 
 音色说明
 
@@ -86,13 +102,25 @@ Container 类型 Request 的具体数据描述如下：
 |---------|---------|---------|---------|---------|---------|
 | 茹雪 | ruxue | 标准女声 |  通用场景 | 中文及中英文混合 | 标准版|
 | 爱小楠 | aixiaonan | 甜美女声 | 通用/社交场景 | 中文及中英文混合 | 精品版 |
-| 爱小星 | aixiaoxing | 解说男声 | 通用/解说场景 | 中文及中英文混合 | 精品版 |
+| 爱小星 | aixiaoxing | 元气男声 | 通用/解说场景 | 中文及中英文混合 | 精品版 |
+| 爱小诚 | aixiaocheng | 标准男声 | 通用场景 | 中文及中英文混合 | 标准版|
+| 爱小雪 | aixiaoxue   | 标准女声 |  通用/客服场景 | 中文及中英文混合 | 标准版|
+| 爱小璐 | aixiaolu    | 阅读女声 | 通用/有声书场景 | 中文及中英文混合 | 标准版|
+| 爱小栋 | aixiaodong  | 新闻男声 | 通用/新闻播报场景 | 中文及中英文混合 | 标准版|
+| 爱小聊 | aixiaoliao  | 情绪女声 | 通用/社交场景|  中文及中英文混合 | 精品版 |
+| 爱小倩 | aixiaoqian  | 元气女声 | 通用/社交场景|  中文及中英文混合| 精品版 |
+| 爱小阳 | aixiaoyang  | 广播男声 | 通用/新闻播报场景 | 中文及中英文混合 | 标准版|
+| Alice | alice        | 英文女声 | 通用场景 | 英文 | 标准版|
 
 多情感音色说明
 
 | 名称 | Voice 参数值 | 情绪分类 |
 |---------|---------|---------|
-| 爱小星 | aixiaoxing | 中性、广播、平静、兴奋 |
+| 爱小星 | aixiaoxing | 中性、兴奋 |
+| 爱小诚 | aixiaocheng | 中性、广播 |
+| 爱小雪 | aixiaoxue   | 中性、广播、客服|
+| 爱小璐 | aixiaolu    | 中性、故事、客服|
+
 
 ## 响应
 

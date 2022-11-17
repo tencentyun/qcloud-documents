@@ -2,8 +2,6 @@
 Windows 资源访问异常，提示 wait active error，如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/22016494ac69ded7f4736fff0dde8144.png)
 
-
-
 ## 可能原因
 远程桌面授权未激活，用户未加入 Remote Desktop Users 组。
 

@@ -34,7 +34,7 @@
 <tr>
 <td>算力配置</td>
 <td>选择算力配置 CCU（CynosDB Compute Unit）上下限，实例会根据选择资源范围自动进行弹性扩缩容。<dx-alert infotype="explain" title="">
-CCU（CynosDB Compute Unit）为 Serverless 的计算计费单位，一个 CCU 近似等于1个 CPU 和 2GB 内存的计算资源，每个计费周期的 CCU 使用数量为：数据库所使用的 CPU 核数 与 内存大小的1/2 二者中取最大值。算力配置可参考 [产品算力配置](https://cloud.tencent.com/document/product/1003/71887#CYNOSSLPZ)。
+CCU（CynosDB Compute Unit）为 Serverless 的计算计费单位，一个 CCU 近似等于1个 CPU 和 2GB 内存的计算资源，每个计费周期的 CCU 使用数量为：数据库所使用的 CPU 核数 与 内存大小的1/2 二者中取最大值。算力配置可参考 [服务算力配置](https://cloud.tencent.com/document/product/1003/81821)。
 </dx-alert></td></tr>
 <tr>
 <td>自动暂停</td>

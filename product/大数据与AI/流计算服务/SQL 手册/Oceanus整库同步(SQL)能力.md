@@ -8,7 +8,7 @@ Oceanus 提供了非常方便的 CDAS（CREATE DATABASE AS）SQL 语法，来支
 CREATE DATABASE IF NOT EXISTS <target_database>
 [COMMENT database_comment] 
 [WITH (key1=val1, key2=val2, ...)] -- 指明写入目标库的参数
-AS DATABASE <source_catalog>.<source_database> 	-- 需要同步的数据库
+AS DATABASE <source_catalog>.<source_database> 	-- source_database 是被同步的源数据库
 INCLUDING { ALL TABLES | TABLE 'table_name' }
 -- INCLUDING ALL TABLES 表示同步数据库中的所有表
 -- INCLUDING TABLE 'table' 表示同步数据库中特定的表，支持正则表达式，如 'order_.*';

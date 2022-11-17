@@ -153,8 +153,8 @@ SuperPlayerModel *model = [[SuperPlayerModel alloc] init];
 model.appId = 1400329071;// 配置 AppId
 model.videoId = [[SuperPlayerVideoId alloc] init];
 model.videoId.fileId = @"5285890799710173650"; // 配置 FileId
-//私有加密播放需填写 psign， psign 即播放器组件签名，签名介绍和生成方式参见链接：https://cloud.tencent.com/document/product/266/42436
-//model.videoId.pSign = @"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6MTQwMDMyOTA3MSwiZmlsZUlkIjoiNTI4NTg5MDc5OTcxMDE3MzY1MCIsImN1cnJlbnRUaW1lU3RhbXAiOjEsImV4cGlyZVRpbWVTdGFtcCI6MjE0NzQ4MzY0NywidXJsQWNjZXNzSW5mbyI6eyJ0IjoiN2ZmZmZmZmYifSwiZHJtTGljZW5zZUluZm8iOnsiZXhwaXJlVGltZVN0YW1wIjoyMTQ3NDgzNjQ3fX0.yJxpnQ2Evp5KZQFfuBBK05BoPpQAzYAWo6liXws-LzU"; 
+// psign 即播放器签名，签名介绍和生成方式参见链接：https://cloud.tencent.com/document/product/266/42436
+model.videoId.pSign = @"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6MTQwMDMyOTA3MSwiZmlsZUlkIjoiNTI4NTg5MDc5OTcxMDE3MzY1MCIsImN1cnJlbnRUaW1lU3RhbXAiOjEsImV4cGlyZVRpbWVTdGFtcCI6MjE0NzQ4MzY0NywidXJsQWNjZXNzSW5mbyI6eyJ0IjoiN2ZmZmZmZmYifSwiZHJtTGljZW5zZUluZm8iOnsiZXhwaXJlVGltZVN0YW1wIjoyMTQ3NDgzNjQ3fX0.yJxpnQ2Evp5KZQFfuBBK05BoPpQAzYAWo6liXws-LzU"; 
 [_playerView playWithModelNeedLicence:model];
 :::
 </dx-codeblock>
@@ -415,6 +415,59 @@ DynamicWaterModel 类参数说明：
 | textFont            | CGFloat  | 文字大小   |
 | textColor           | UIColor  | 文字颜色   |
 
+### 8、视频下载
+
+支持用户在有网络的条件下缓存视频，随后在无网络的环境下观看；同时离线缓存的视频仅可在客户端内观看，不可被下载至本地，可有效防止下载视频的非法传播，保护视频安全。
+你可在 腾讯云视立方 App > 播放器 > 播放器组件 > 离线缓存（全屏）演示视频中，使用全屏观看模式后体验。
+
+<img src="http://1400155958.vod2.myqcloud.com/facd87c8vodcq1400155958/a8714349387702307128701255/XKE6yjeb87UA.jpg" style="zoom: 50%;" />
+
+VideoCacheView（ 缓存选择列表视图），用于选择下载对应清晰度的视频。左上角选择清晰度后，再点击要下载的视频选项，出现对勾后，代表开始了下载。点击下方的 video download list 按钮后会跳转到 VideoDownloadListView 所在的 Activity。
+
+```objective-c
+// 步骤1：初始化缓存选择列表视图
+//@property (nonatomic, strong) VideoCacheView *cacheView;
+_cacheView = [[VideoCacheView alloc] initWithFrame:CGRectZero];
+_cacheView.hidden = YES;
+[self.playerView addSubview:_cacheView];
+
+// 步骤2：设置正在播放的视频选项
+[_cacheView setVideoModels:_currentPlayVideoArray currentPlayingModel:player.playerModel];
+
+// video download list 按钮的点击事件
+- (UIButton *)viewCacheListBtn;
+```
+
+```objective-c
+- (void)setVideoModels:(NSArray *)models currentPlayingModel:(SuperPlayerModel *)currentModel;
+```
+
+接口参数说明
+
+| 参数名           | 类型         | 描述                     |
+| ---------------- | ------------ | ------------------------ |
+| models           | NSArray      | 下载列表的视频数据模型   |
+| SuperPlayerModel | currentModel | 当前在播放的视频数据模型 |
+
+VideoCacheListView（视频下载列表），显示所有正在下载的和下载完成视频的列表 View。点击时，如果正在下载，会暂停下载；如果暂时下载，会继续下载；如果下载完成，会跳转播放。
+
+<img src="http://1400155958.vod2.myqcloud.com/facd87c8vodcq1400155958/a69c6b2c387702307128674240/wt31IYPsdQoA.jpg" style="zoom: 33%;" />
+
+
+
+```objective-c
+// 添加数据，数据从TXVodDownloadManager#getDownloadMediaInfoList 接口获取到
+NSArray<TXVodDownloadMediaInfo *> *array = [[[TXVodDownloadManager shareInstance] getDownloadMediaInfoList] mutableCopy];
+for (TXVodDownloadMediaInfo *info in array) {
+    VideoCacheListModel *model = [[VideoCacheListModel alloc] init];
+    model.mediaInfo = info;
+    [self.videoCacheArray addObject:model];
+}
+
+// 列表项支持点击播放、长按删除等操作
+- (void)longPress:(UILongPressGestureRecognizer *)longPress;  // 长按
+```
+
 ## Demo 体验
 
 更多完整功能可直接运行工程 Demo，或扫码下载移动端 Demo 腾讯云视立方 App体验。
@@ -429,5 +482,4 @@ DynamicWaterModel 类参数说明：
 ### 腾讯云视立方 App
 
 在 **腾讯云视立方 App** > **播放器** 中可体验更多播放器组件功能。
-
-<img src="https://qcloudimg.tencent-cloud.cn/raw/5c383bc7826d4f4835c9a7232cf9b50e.png" width="150">
+App 升级维护中，Demo 源码仍可正常使用。

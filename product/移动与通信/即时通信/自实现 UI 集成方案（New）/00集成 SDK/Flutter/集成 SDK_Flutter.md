@@ -9,7 +9,7 @@
 |iOS|Xcode 11.0及以上版本，真机调试请确保您的项目已设置有效的开发者签名。|
 
 ## 支持平台
-我们致力于打造一套支持 Flutter 全平台的即时通信IM SDK及TUIKit，帮助您一套代码，全平台运行。
+我们致力于打造一套支持 Flutter 全平台的即时通信 IM SDK 及 TUIKit，帮助您一套代码，全平台运行。
 
 | 平台 | 支持状态|
 |---------|---------|
@@ -21,11 +21,11 @@
 
 >? Web/macOS/Windows 平台需要简单的几步额外引入，详情请查看本文 [Web 兼容](#web) 和 [Desktop兼容](#pc) 部分。
 
-## 体验DEMO
+## 体验 DEMO
 
-在开始接入前，您可以体验我们的DEMO，快速了解腾讯云IM Flutter跨平台SDK及TUIKit的能力。
+在开始接入前，您可以体验我们的 DEMO，快速了解腾讯云 IM Flutter 跨平台 SDK 及 TUIKit 的能力。
 
-**以下各版本DEMO，均由同一Flutter项目制作打包而成。** Desktop(macOS/Windows)平台，SDK已支持，DEMO将于近期上线。
+**以下各版本 DEMO，均由同一 Flutter 项目制作打包而成。** Desktop(macOS/Windows)平台，SDK 已支持，DEMO 将于近期上线。
 
 <table style="text-align:center; vertical-align:middle; max-width: 800px">
   <tr>

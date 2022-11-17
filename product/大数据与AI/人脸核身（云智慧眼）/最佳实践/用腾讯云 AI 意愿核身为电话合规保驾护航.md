@@ -13,9 +13,9 @@
 
 2. 业务申请
 根据业务需求，选择相对应的接入模式，[申请对应的业务](https://console.cloud.tencent.com/faceid/access/scene)。
-![](https://qcloudimg.tencent-cloud.cn/raw/cc480f27c03a02c77670bd424fbdf94e.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/6c1518844a774572981cf32c7ac24a66.png)
 	- 选择接入方式，微信原生 H5 的接入方式有行业限制，且资质文件中主体与需要接入公众号主体一致，详细行业类目和资质材料请查阅 [微信 HTML5 及小程序资质文件列表](https://cloud.tencent.com/document/product/1007/42684)。
-	-  如果需要申请微信原生 H5（浮层模式）和微信小程序，但是没有对应的微信小程序和公众号，可以前往 [微信公众平台](https://mp.weixin.qq.com/) 进行申请。
+	-  如果需要申请微信原生 H5 和微信小程序，但是没有对应的微信小程序和公众号，可以前往 [微信公众平台](https://mp.weixin.qq.com/) 进行申请。
 
 3. 了解腾讯云 AI 意愿核身
 意愿核身详细内容请参见 [意愿核身接入指引](https://cloud.tencent.com/document/product/1007/65416)、[计费错误码](https://cloud.tencent.com/document/product/1007/47912) 等。
