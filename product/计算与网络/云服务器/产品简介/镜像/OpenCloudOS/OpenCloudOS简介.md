@@ -3,6 +3,8 @@
 
 OpenCloudOS 8.5是 OpenCloudOS 社区发布首个正式版本，其基础库和用户态组件完全与 CentOS 8兼容，并通过内核层面的优化和增强，能够提供给用户相比于 CentOS 8更优的解决方案。
 
+## OpenCloudOS 官方网址
+请访问OpenCloudOS官方链接：https://www.opencloudos.org/
 ## 适用说明
 OpenCloudOS 适用于云上绝大多数机型生产实例，包括云服务器，裸金属云服务器等。
 
