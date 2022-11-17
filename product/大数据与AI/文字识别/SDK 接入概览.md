@@ -9,6 +9,10 @@
 - [**身份证识别**](https://cloud.tencent.com/document/product/866/33524)
 - [**银行卡识别**](https://cloud.tencent.com/document/product/866/36216)
 - [**名片识别**](https://cloud.tencent.com/document/product/866/36214)
+- [**车辆 VIN 码识别**](https://cloud.tencent.com/document/product/866/34935)
+- [**车牌识别**](https://cloud.tencent.com/document/product/866/36211)
+- [**行驶证识别**](https://cloud.tencent.com/document/product/866/36209)
+- [**驾驶证识别**](https://cloud.tencent.com/document/product/866/36213)
 
 ![](https://main.qcloudimg.com/raw/d6bd440224ef23a574f47a30a8596018.png)
 
