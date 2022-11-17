@@ -1,3 +1,4 @@
 为提升服务质量，腾讯云计划于2022年11月xx日至2022年11月xx日对自动化助手 TAT 进行升级优化。如您账号名下的轻量应用服务器使用过自动化助手功能或安装过自动化助手，对应主账号将自动授权腾讯云自动化助手服务角色：TAT_QCSLinkedRolelnCommand。升级期间及升级后，该主账号及其子账号使用腾讯云自动化助手 TAT 及腾讯云轻量应用服务器 Lighthouse 功能不受影响。
 
-说明事项：您可以在腾讯云访问管理控制台[(https://console.cloud.tencent.com/cam/role)]()腾讯云访问管理控制台查看该自动化助手服务角色（[TAT_QCSLinkedRolelnCommand）]()的详细信息。
+说明事项：您可以在 [腾讯云访问管理控制台](https://console.cloud.tencent.com/cam/role) 腾讯云访问管理控制台查看该自动化助手服务角色（TAT_QCSLinkedRolelnCommand）的详细信息。
+注：具体升级时间待定，公告发布之前由产品确认。
