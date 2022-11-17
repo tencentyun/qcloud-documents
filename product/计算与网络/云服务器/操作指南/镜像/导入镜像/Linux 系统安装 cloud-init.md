@@ -251,7 +251,10 @@ source /etc/network/interfaces.d/*
 [](id:greeninitCloudInit)
 ### 手工下载绿色版 cloud-init 包方式
 若通过 [手工下载 cloud-init 源码包方式](#ManualDown) 安装不成功，可通过以下操作进行安装：
-1. 执行如下命令切换到 /usr/local 目录 cd /usr/local。
+1. 执行如下命令切换到 `/usr/local` 目录。
+```shellsession
+cd /usr/local
+```
 2. [点此获取](https://image-tools-1251783334.cos.ap-guangzhou.myqcloud.com/greeninit-x64-beta.tgz) 绿色版 cloud-init 包，下载的安装包上传到 /usr/lcoal 目录下。
 >!注意：安装目录必现是系统盘目录，不能跨文件系统，这里推荐安装到/usr/local 目录
 3. 执行以下命令，解压绿色版 cloud-init 包。
