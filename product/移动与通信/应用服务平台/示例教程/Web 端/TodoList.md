@@ -182,10 +182,8 @@
 ![](https://main.qcloudimg.com/raw/38cb96d9cf25f433a16857229a81dc84.png)
 
 ## 总结
-
 该版本的 Todo List 应用为入门教学案例，通过使用云开发中的登录授权、云函数、数据库、云存储、静态托管等功能，快速搭建了一个简易 Todo List 应用并开放给用户使用。
 
-目前应用内使用匿名登录方式，不支持多端设备共享 Todo List 记录。云开发团队提供了一个支持**邮件登录**方式的 [Todo List 应用实战项目](https://github.com/TCloudBase/WEB-TodoList)，支持多设备共享记录。您可以在此基础上开发更多功能，打造一个您的专属 Todo List 应用。
 
 
 
