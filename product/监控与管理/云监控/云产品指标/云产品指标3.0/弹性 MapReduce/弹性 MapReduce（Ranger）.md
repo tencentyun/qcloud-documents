@@ -89,7 +89,7 @@ Namespace=QCE/TXMR_RANGER
 
 **查询弹性 MapReduce（Ranger-Admin）监控数据，入参取值如下：**
 
-Namespace=TXMR_RANGER
+Namespace=QCE/TXMR_RANGER
 &Instances.N.Dimensions.0.Name=host4rangerrangeradmin
 &Instances.N.Dimensions.0.Value=EMR 实例中具体节点 IP
 &Instances.N.Dimensions.1.Name=id4trinotrinoworker
@@ -99,7 +99,7 @@ Namespace=TXMR_RANGER
 
 **查询弹性 MapReduce（Ranger-UserSync）监控数据，入参取值如下：**
 
-Namespace=TXMR_RANGER
+Namespace=QCE/TXMR_RANGER
 &Instances.N.Dimensions.0.Name=host4rangerrangerusersync
 &Instances.N.Dimensions.0.Value=EMR 实例中具体节点 IP
 &Instances.N.Dimensions.1.Name=id4rangerrangerusersync

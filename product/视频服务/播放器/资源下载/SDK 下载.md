@@ -63,7 +63,7 @@
         <p class="titlename">Web 播放器 SDK</p>
         <p style="color:#586376;">可用于直播播放和点播播放，适用于 PC 端浏览器和移动端浏览器。</p>
         <a onclick="reportEvent({name: 'download-click-web', ext1: 'zip'})" target="_blank" href="https://web.sdk.qcloud.com/player/tcplayer/release/v4.5.2/release.zip">ZIP 下载</a>
-        <a style="margin-left: 10px;" onclick="reportEvent({name: 'download-click-web', ext1: 'github'})" target="_blank" href="https://cloud.tencent.com/document/product/881/77877">集成指引</a>
+        <a style="margin-left: 10px;" target="_blank" href="https://cloud.tencent.com/document/product/881/77877">集成指引</a>
         <a style="margin-left: 10px;" onclick="reportEvent({name: 'download-click-web', ext1: 'doc-sdk'})" target="_blank" href="https://tcplayer.vcube.tencent.com">Demo 示例</a>
       </div>
   </div>
