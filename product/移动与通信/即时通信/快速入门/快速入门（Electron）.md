@@ -57,7 +57,7 @@ IM 提供了两种方式来即成，您可以选择最合适的方案来即成�
 1. 克隆即时通信 IM Electron Demo 源码到本地。
 
   ```javascript
-  git clone https://github.com/tencentyun/im_electron_demo.git
+  git clone https://github.com/TencentCloud/tc-chat-demo-electron.git
   ```
 
 2. 安装项目依赖。
