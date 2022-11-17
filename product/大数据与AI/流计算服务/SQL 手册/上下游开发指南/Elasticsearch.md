@@ -66,7 +66,7 @@ CREATE TABLE elasticsearch7_sink_table (
 | sink.bulk-flush.backoff.strategy    |                 否                 | DISABLED | 批量写入时，失败重试的策略。<li/>`DISABLED`：不重试。<li/>`CONSTANT`：等待 `sink.bulk-flush.backoff.delay` 选项设置的毫秒后重试。<li/>`EXPONENTIAL`：一开始等待 `sink.bulk-flush.backoff.delay` 选项设置的毫秒后重试，每次失败后将指数增加下次的等待时间。 |
 | sink.bulk-flush.backoff.max-retries |                 否                 |    8     | 批量写入时，最多失败重试的次数。                             |
 | sink.bulk-flush.backoff.delay       |                 否                 |   50ms   | 批量写入失败时，每次重试之间的等待间隔（对于 CONSTANT 策略而言）或间隔的初始基数（对于 EXPONENTIAL 策略而言）。 |
-| connection.max-retry-timeout        |                 否                 |    无    | 重试请求的最大超时时间。                                     |
+| connection.max-retry-timeout        |                 否                 |    无    | 重试请求的最大超时时间，例如："20 s"。                                     |
 | connection.path-prefix              |                 否                 |    无    | 指定每个 REST 请求的前缀，例如 `'/v1'`。通常不需要设置该选项。 |
 | format                              |                 否                 |   json   | 指定输出的格式，默认是内置的 `json` 格式，可以使用 前文（Kafka）描述过的 JSON 格式选项，例如 `json.fail-on-missing-field`、`json.ignore-parse-errors`、`json.timestamp-format.standard` 等。 |
 
