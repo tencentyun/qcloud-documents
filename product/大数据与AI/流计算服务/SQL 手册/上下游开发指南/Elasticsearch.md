@@ -19,30 +19,32 @@ Elasticsearch 只支持写入，可以作为 Tuple 数据流的目的表（Sink�
 ### 用作 Elasticsearch 6 数据目的（Sink）
 ```sql
 CREATE TABLE elasticsearch6_sink_table (
-    `id` INT,
-    `name` STRING
+	`id` INT,
+	`name` STRING,
+	PRIMARY KEY (`id`) NOT ENFORCED -- 对应 Elasticsearch 中的 _id
 ) WITH (
-    'connector' = 'elasticsearch-6',       -- 输出到 Elasticsearch 6
-    'username' = '$username',              -- 选填 用户名
-    'password' = '$password',              -- 选填 密码
-    'hosts' = 'http://10.28.28.94:9200',   -- Elasticsearch 的连接地址
-    'index' = 'my-index',                  -- Elasticsearch 的 Index 名
-    'document-type' = '_doc',              -- Elasticsearch 的 Document 类型
-    'format' = 'json'                      -- 输出数据格式，目前只支持 'json'
+	'connector' = 'elasticsearch-6', -- 输出到 Elasticsearch 6
+	'username' = '$username', -- 选填 用户名
+	'password' = '$password', -- 选填 密码
+	'hosts' = 'http://10.28.28.94:9200', -- Elasticsearch 的连接地址
+	'index' = 'my-index', -- Elasticsearch 的 Index 名
+	'document-type' = '_doc', -- Elasticsearch 的 Document 类型
+	'format' = 'json' -- 输出数据格式，目前只支持 'json'
 );
 ```
 ### 用作 Elasticsearch 7 数据目的（Sink）
 ```sql
 CREATE TABLE elasticsearch7_sink_table (
-    `id` INT,
-    `name` STRING
+	`id` INT,
+	`name` STRING,
+	PRIMARY KEY (`id`) NOT ENFORCED -- 对应 Elasticsearch 中的 _id
 ) WITH (
-    'connector' = 'elasticsearch-7',       -- 输出到 Elasticsearch 7
-    'username' = '$username',              -- 选填 用户名
-    'password' = '$password',              -- 选填 密码
-    'hosts' = 'http://10.28.28.94:9200',   -- Elasticsearch 的连接地址
-    'index' = 'my-index',                  -- Elasticsearch 的 Index 名
-    'format' = 'json'                      -- 输出数据格式，目前只支持 'json'
+	'connector' = 'elasticsearch-7', -- 输出到 Elasticsearch 7
+	'username' = '$username', -- 选填 用户名
+	'password' = '$password', -- 选填 密码
+	'hosts' = 'http://10.28.28.94:9200', -- Elasticsearch 的连接地址
+	'index' = 'my-index', -- Elasticsearch 的 Index 名
+	'format' = 'json' -- 输出数据格式，目前只支持 'json'
 );
 ```
 
