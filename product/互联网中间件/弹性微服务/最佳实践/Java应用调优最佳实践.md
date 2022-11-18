@@ -10,7 +10,7 @@
 
 ## 设置应用加速
 
-使用弹性微服务 Jar / War 方式部署，并选择 KONA JDK 11/Open JDK 11 运行环境，弹性微服务将默认开启应用加速功能，并且默认支持 SpringBoot 应用零改造加速。TEM 增强了 Open JDK 中的 AppCDS 特性，您无需改造原有的 SpringBoot 嵌套 Jar 包结构，TEM 将直接提供 Java 应用加速的最佳实践，实例扩容时的启动时间将缩短至10%～40%。
+使用弹性微服务 Jar / War 方式部署，并选择 KONA JDK 11/Open JDK 11 运行环境，弹性微服务将默认开启应用加速功能，并且默认支持 SpringBoot 应用零改造加速。弹性微服务增强了 Open JDK 中的 AppCDS 特性，您无需改造原有的 SpringBoot 嵌套 Jar 包结构，弹性微服务将直接提供 Java 应用加速的最佳实践，实例扩容时的启动时间将缩短至10%～40%。
 
 ## JVM 参数优化
 
