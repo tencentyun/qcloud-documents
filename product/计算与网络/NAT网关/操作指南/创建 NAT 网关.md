@@ -1,6 +1,6 @@
 NAT 网关可以为您私有网络内的云资源提供统一的公网访问出口。本文指导您如何创建一个公网 NAT 网关。
 NAT 网关分为传统型 NAT 网关和标准型 NAT 网关。如您申请开通了标准型 NAT 网关，则原小型、中型、大型 NAT 网关自动更名为传统型 NAT 网关，如未开通，则控制台只能创建传统型 NAT 网关，显示为 NAT 网关。
->?标准型 NAT 网关目前正在灰度测试中，如有需要，请提交[ 工单申请](https://console.cloud.tencent.com/workorder/category)。
+>?标准型 NAT 网关目前正在灰度测试中，如有需要，请提交[ 内测申请](https://cloud.tencent.com/apply/p/ojxjirnd5yi)。
 
 
 
