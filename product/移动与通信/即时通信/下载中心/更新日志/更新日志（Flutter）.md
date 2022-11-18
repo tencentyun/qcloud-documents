@@ -37,6 +37,7 @@
 - 多媒体消息默认不再返回URL，需通过`getMessageOnlineUrl`获取。
 - 媒体消息不默认不再返回localurl，需通过downloadMessage下载消息成功后才会返回。
 - `downloadMergerMessage`接口返回的多媒体消息也默认不再返回url，需通过`getMessageOnlineUrl`获取，默认不再返回`localURL`，需通过`downloadMessage`下载消息成功后才会返回。
+- 调用`downloadMessage`后，会把消息本身的`url`属性改为`null`，仅保留`localURL`。
 - 在`advanceMessageListener`中增加`onMessageDownloadProgressCallback`，当多媒体消息下载进度更新时会触发。
 - iOS端新增`disableBadgeNumber方`法，调用后，当应用切换到后台时，默认不设置应用角标。
 - 支持在您现有应用中添加Flutter模块，即混合开发，具体请参考[本文档](https://cloud.tencent.com/developer/article/2167243)实现。
