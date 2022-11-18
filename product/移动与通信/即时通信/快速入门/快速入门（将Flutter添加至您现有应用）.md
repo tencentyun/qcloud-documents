@@ -28,6 +28,17 @@
 
 开始之前，您需要了解腾讯云IM Flutter SDK及TUIKit的用法；及Flutter-原生混合开发原理。
 
+## 前序工作
+
+1. 您已 [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 帐号，并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
+
+2. 参照 [创建并升级应用](https://cloud.tencent.com/document/product/269/32577) 创建应用，并记录好 `SDKAppID`。
+
+3. 在 [IM 控制台](https://console.cloud.tencent.com/im) 选择您的应用，在左侧导航栏依次点击 **辅助工具**->**UserSig 生成&校验** ，创建两个 UserID 及其对应的 UserSig，复制`UserID`、`签名（Key）`、`UserSig`这三个，后续登录时会用到。
+![](https://main.qcloudimg.com/raw/8315da2551bf35ec85ce10fd31fe2f52.png)
+
+>? 该账户仅限开发测试使用。应用上线前，正确的 `UserSig` 签发方式是由服务器端生成，并提供面向 App 的接口，在需要 `UserSig` 时由 App 向业务服务器发起请求获取动态 `UserSig`。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/269/32688#GeneratingdynamicUserSig)。
+
 ### 腾讯云IM
 
 #### 总体入门
@@ -199,7 +210,6 @@ flutter build ios-framework --output=some/path/MyApp/Flutter/
 ```
 
 在 Xcode 中将生成的 frameworks 集成到你的既有应用中。例如，你可以在 `some/path/MyApp/Flutter/Release/` 目录拖拽 frameworks 到你的应用 target 编译设置的 General > Frameworks, Libraries, and Embedded Content 下，然后在 Embed 下拉列表中选择 “Embed & Sign”。
-
 
 ## 混合开发选型
 
@@ -401,7 +411,6 @@ tencent_chat_module/
       该组件用于注入[音视频通话插件所需绑定的navigatorKey](https://cloud.tencent.com/document/product/269/72485#.E6.AD.A5.E9.AA.A41.EF.BC.9A.E5.BC.95.E5.85.A5-navigatorkey)。
       详细代码可查看Demo源码。
 
-
 #### 配置各个Flutter引擎的入口
 
 开发完上述三个模块后，现在可完成最终对外暴露的main方法，作为Flutter引擎的入口。
@@ -521,6 +530,7 @@ Demo代码的逻辑是，使用新的路由，承载Chat的ViewController；Call
 新建 `FlutterUtils.swift` 文件，编写代码。本部分详细代码，可查看Demo源码。
 
 重点关注：
+
 - private override init(): 初始化各 Flutter 引擎实例，注册Method Channel，监听事件。
 - func reportChatInfo(): 将用户登录信息和SDKAPPID透传至Flutter Module，使Flutter层得以初始化并登录腾讯云IM。
 - func launchCallFunc(): 用于拉起Call的Flutter页面，可被Call模块收到通话邀请触发，也可被Chat模块主动发起通话触发。
@@ -588,6 +598,7 @@ Demo代码的逻辑是，使用新的路由，承载Chat和Call的Activity。
 Chat的Activity，由用户主动进入及退出；Call的Activity，由监听器或主动外呼，自动导航进及返回出。
 
 重点关注：
+
 - fun init(): 初始化各 Flutter 引擎实例，注册Method Channel，监听事件。
 - fun reportChatInfo(): 将用户登录信息和SDKAPPID透传至Flutter Module，使Flutter层得以初始化并登录腾讯云IM。
 - fun launchCallFunc(): 用于拉起Call的Flutter页面，可被Call模块收到通话邀请触发，也可被Chat模块主动发起通话触发。
@@ -629,7 +640,6 @@ class MyApplication : MultiDexApplication() {
 ![](https://qcloudimg.tencent-cloud.cn/raw/2ec45c1a8b3bd952bcb86a8095f91515.png)
 
 此时，Android Native层编写完成。
-
 
 [](id:single)
 
@@ -677,16 +687,18 @@ tencent_chat_module/
 
 全局状态，我们的IM SDK及Method Channel与Native通信状态，管理于 `ChatInfoModel` 中。
 
-接收到Native传来的用户信息及SDKAPPID后，调用 `_coreInstance.init()` 及 `_coreInstance.login() ` 初始化并登录腾讯云IM。并初始化音视频推送插件及离线推送插件，完成推送Token上报。
+接收到Native传来的用户信息及SDKAPPID后，调用 `_coreInstance.init()` 及 `_coreInstance.login()` 初始化并登录腾讯云IM。并初始化音视频推送插件及离线推送插件，完成推送Token上报。
 
 > ?
 >
 > 请根据 [离线推送接入指引](https://cloud.tencent.com/document/product/269/74605)，完成厂商离线推送功能接入，才可正常上报推送Token，使用推送功能。
 
 对于音视频通话插件，需要关注：
+
 - 监听收到新的通话邀请时，通过调用Native方法，让Native检测用户当前是否在本Flutter模块页面，如果不在，需要强制将前端页面调整至本模块，以展示来电页面。
 
 对于离线推送插件，需要关注：
+
 - 点击通知处理事件，来自Native透传，从 Map 中取出数据，跳转至对应的子模块，如某个具体会话。
 
 完成首页的制作，在未登录时展示加载动画；登录成功后，展示会话列表页面。
@@ -756,6 +768,7 @@ class AppDelegate: FlutterAppDelegate { // More on the FlutterAppDelegate.
 这个 Swift 单例对象，用于集中管理 Flutter Method Channel，并提供一系列与 Flutter Module 通信的方法，方便在项目中各处，直接调用。
 
 这些方法包括：
+
 - private override init(): 初始化 Method Channel，并为其绑定事件监听方法。
 - func reportChatInfo(): 将用户登录信息和SDKAPPID透传至Flutter Module，使Flutter层得以初始化并登录腾讯云IM。
 - func launchChatFunc(): 拉起或导航至 Flutter Module 所在 ViewController。
@@ -819,6 +832,7 @@ Demo代码的逻辑是，使用新的路由，承载Chat和Call的Activity。
 Chat的Activity，由用户主动进入及退出；Call的Activity，由监听器或主动外呼，自动导航进及返回出。
 
 重点关注：
+
 - fun init(): 初始化 Method Channel，并为其绑定事件监听方法。
 - fun reportChatInfo(): 将用户登录信息和SDKAPPID透传至Flutter Module，使Flutter层得以初始化并登录腾讯云IM。
 - fun launchChatFunc(): 拉起或导航至 Flutter Module 所在 ViewController。
@@ -915,6 +929,7 @@ func initTencentChat(){
 final CoreServicesImpl _coreInstance = TIMUIKitCore.getInstance();
 _coreInstance.setDataFromNative(userId: chatInfo?.userID ?? "");
 ```
+
 **更详细代码，请查阅我们的Demo 源码。**
 
 [![](https://qcloudimg.tencent-cloud.cn/raw/b622951f776a505e83f843de1f62fffc.png)](https://github.com/TencentCloud/tencentchat-add-flutter-to-app/tree/main/Initialize%20from%20Native)
@@ -928,7 +943,6 @@ _coreInstance.setDataFromNative(userId: chatInfo?.userID ?? "");
 如果您还有任何疑问，欢迎随时联系我们。
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/eacb194c77a76b5361b2ae983ae63260.png)
-
 
 ## Reference
 
