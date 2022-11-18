@@ -89,6 +89,8 @@ Flutter 3.x 版本 针对 Web 性能做了较多优化，强烈建议您使用�
 进入您项目的 `web/` 目录，使用 `npm` 或 `yarn` 安装相关JS依赖。初始化项目时，根据屏幕指引，进行即可。
 
 ```shell
+cd web
+
 npm init
 
 npm i tim-js-sdk

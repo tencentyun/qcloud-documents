@@ -376,6 +376,8 @@ TUIKit(tim_ui_kit) 0.1.5版本起，可完美兼容 Web 端。
 进入您项目的 `web/` 目录，使用 `npm` 或 `yarn` 安装相关JS依赖。初始化项目时，根据屏幕指引，进行即可。
 
 ```shell
+cd web
+
 npm init
 
 npm i tim-js-sdk
