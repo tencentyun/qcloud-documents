@@ -28,7 +28,7 @@
 
 开始之前，您需要了解腾讯云IM Flutter SDK及TUIKit的用法；及Flutter-原生混合开发原理。
 
-## 前序工作
+### 前序工作
 
 1. 您已 [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 帐号，并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
 
