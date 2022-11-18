@@ -767,6 +767,17 @@ npm i tim-upload-plugin
 flutter pub add tencent_im_sdk_plugin_desktop
 ```
 
+#### macOS修改
+
+打开 `macos/Runner/DebugProfile.entitlements` 文件。
+
+在 `<dict></dict>` 中，加入如下 `key-value` 键值对。
+
+```
+<key>com.apple.security.app-sandbox</key>
+<false/>
+```
+
 ## 常见问题
 
 ### iOS 端 Pods 依赖无法安装成功

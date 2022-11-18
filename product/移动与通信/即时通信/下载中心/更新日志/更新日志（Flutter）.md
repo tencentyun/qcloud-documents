@@ -43,6 +43,8 @@
 - 支持在您现有应用中添加Flutter模块，即混合开发，具体请参考[本文档](https://cloud.tencent.com/developer/article/2167243)实现。
 - PC端优化了底层动态库下载逻辑。
 - 升级底层SDK到6.8。
+- Web端底层SDK改造，请根据[此文档指引](https://cloud.tencent.com/document/product/269/68823#web)，通过 `npm` 方式，引入JS。
+- Mac端底层SDK改造，请根据[此文档指引](https://cloud.tencent.com/document/product/269/68823#pc)，修改引入。
 
 >?
 >

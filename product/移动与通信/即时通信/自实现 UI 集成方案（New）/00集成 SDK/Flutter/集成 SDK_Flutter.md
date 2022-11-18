@@ -130,6 +130,17 @@ flutter pub add tencent_im_sdk_plugin_web
 flutter pub add tencent_im_sdk_plugin_desktop
 ```
 
+#### macOS修改
+
+打开 `macos/Runner/DebugProfile.entitlements` 文件。
+
+在 `<dict></dict>` 中，加入如下 `key-value` 键值对。
+
+```
+<key>com.apple.security.app-sandbox</key>
+<false/>
+```
+
 ## 常见问题
 
 ### flutter pub get/add 失败如何解决？
