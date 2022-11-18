@@ -373,19 +373,24 @@ TUIKit(tim_ui_kit) 0.1.5版本起，可完美兼容 Web 端。
 
 >?如果您现有的 Flutter 项目不支持 Web，请在项目根目录下运行 `flutter create .` 添加 Web 支持。
 
-从 GitHub 下载下方两个 JS 文件，放置于项目的 `web` 路径内。
+进入您项目的 `web/` 目录，使用 `npm` 或 `yarn` 安装相关JS依赖。初始化项目时，根据屏幕指引，进行即可。
 
-- [tim-js-friendship.js](https://github.com/TencentCloud/TIMSDK/blob/master/Web/IMSDK/tim-js-friendship.js)
-- [将此文件重命名成 tim-upload-plugin.js](https://github.com/TencentCloud/TIMSDK/blob/master/Web/IMSDK/tim-upload-plugin/index.js)
+```shell
+npm init
 
-打开 `web/index.html` ，在 `<head> </head>` 间引入这两个JS文件。如下：
+npm i tim-js-sdk
 
-```html
-<script src='./tim-upload-plugin.js'></script>
-<script src="./tim-js-friendship.js"></script>
+npm i tim-upload-plugin
 ```
 
-![](https://qcloudimg.tencent-cloud.cn/raw/f88ddfbdc79fb7492f3ce00c2c583246.png)
+打开 `web/index.html` ，在 `<head> </head>` 间引入JS文件。如下：
+
+```html
+<script src="./node_modules/tim-upload-plugin/index.js"></script>
+<script src="./node_modules/tim-js-sdk/tim-js-friendship.js"></script>
+```
+
+![](https://qcloudimg.tencent-cloud.cn/raw/a4d25e02c546e0878ba59fcda87f9c76.png)
 
 ## 常见问题
 
