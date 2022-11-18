@@ -32,7 +32,7 @@
 - 修复：群组资料信息卡中长文本越界的问题。
 - 修正：一些错误。
 
-### IM Flutter SDK（无 UI） 5.0.0 @2022.11.18
+### IM Flutter SDK（无 UI） 5.0.1 @2022.11.18
 
 - 多媒体消息默认不再返回URL，需通过`getMessageOnlineUrl`获取。
 - 媒体消息不默认不再返回localurl，需通过downloadMessage下载消息成功后才会返回。
