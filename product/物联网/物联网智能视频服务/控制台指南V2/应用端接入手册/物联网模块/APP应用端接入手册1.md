@@ -73,11 +73,11 @@ self.h5Url = @"https://iot.cloud.tencent.com/explorer-h5";
 
 ## App Demo、SDK Demo 和 SDK 的关系   
 
-### iOS：
+#### iOS
 
 工程中已经包含 [App Demo](https://github.com/tencentyun/iot-link-ios/tree/master/Source/LinkApp)、[SDK Demo](https://github.com/tencentyun/iot-link-ios/tree/master/Source/LinkSDKDemo) 和 [SDK](https://github.com/tencentyun/iot-link-ios/tree/master/Source/SDK/LinkCore)，无需额外引入。
 
-### Android：
+#### Android
 
 工程中已经包含 [App Demo](https://github.com/tencentyun/iot-link-android/tree/master/app) 、[SDK Demo](https://github.com/tencentyun/iot-link-android/tree/master/sdkdemo)  和 [SDK](https://github.com/tencentyun/iot-link-android/tree/master/sdk)，无需额外引入。
 
