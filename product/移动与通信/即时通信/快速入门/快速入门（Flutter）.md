@@ -20,6 +20,7 @@
 | [Web](#web) | 支持，4.1.1+2版本起 | 支持，0.1.5版本起 |
 | [macOS](#pc) | 支持，4.1.9版本起 | 即将上线 |
 | [Windows](#pc) | 支持，4.1.9版本起 | 即将上线 |
+| [混合开发](https://cloud.tencent.com/developer/article/2167243) - *将Flutter SDK添加至现有原生应用* | 5.0.0版本起支持 | 0.2.0版本起支持 |
 
 >? Web/macOS/Windows 平台需要简单的几步额外引入，详情请查看本文 [拓展更多平台](#more)。
 
