@@ -5,7 +5,7 @@
 
 ## 防护配置
 1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/tea-botconfig)，在左侧导航栏中，选择**配置中心** > **BOT 与业务安全**。
-2. 在 BOT 与业务安全页面，左上角选择需要防护的域名，单击开启  **BOT 管理**。
+2. 在 BOT 与业务安全页面，左上角选择需要防护的域名，单击  **BOT 管理**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/6ebbdba50530929ed734fc9743584008.png)
 3. 在全局设置中，单击前端对抗模块的 **前往配置**
 ![](https://qcloudimg.tencent-cloud.cn/raw/0218d3e6eb5c3f457e4def9bc3c029b4.png)
