@@ -1,9 +1,16 @@
+# 使能边缘 CVM 节点上的 ENI 独立网卡
+
 ## 操作场景
-本文介绍如何启用 ENI 独立网卡，在 CVM 边缘节点的 pod 中绑定 ENI 独立网卡，实现高可用网络方案。
+如果用户将腾讯云上的 CVM 作为边缘节点加入边缘集群，平台支持启用 ENI 独立网卡，在 CVM 节点部署的 pod 中绑定 ENI 独立网卡，实现高可用网络方案。
+
+具体架构如下图所示：
+
+<div><img src="https://qcloudimg.tencent-cloud.cn/raw/3baa6e138a1f6620624a179ec4074ef9.png" width="100%" alt=""></img></div>
+
+用户也可以在 CVM 所在 VPC 上使用 ENI 对外暴露 Pod，然后将不同的 ENI 网卡绑定到 CLB 上，使能高性能网络转发能力
 
 - [启用 ENI 独立网卡](#openEniNetwork)
 - [关闭 ENI 独立网卡](#closeEniNetwork)
-
 
 
 ## 操作步骤
