@@ -1,13 +1,16 @@
 
-本文将快速引导您如何在云原生网关 Kong 中，发布后端服务为 HTTP 类型的 API。
-
 ## 概述
-您需要依次完成以下步骤：
+您可以为容器服务创建一个云原生网关，从注册中心或容器服务 TKE 关联服务，然后在网关中为服务创建路由策略，以便该服务通过网关对外提供服务。本指导以容器服务为例，您需要完成以下步骤：
+
 1. [创建 Kong 网关实例](#step1)
-2. [登录 Konga 控制台](#step2)
-3. [定义后端服务信息](#step3)
+2. [关联服务来源](#step2)
+3. [添加服务](#step3)
 4. [为服务配置路由规则](#step4)
 5. [调用 API](#step5)
+
+## 体验流程
+微服务如果部署到容器服务 TKE，云原生网关可直接从 TKE 关联服务。
+![](https://qcloudimg.tencent-cloud.cn/raw/4f4faf4d2f50526decf3939058cbac60.png)
 
 ## 操作步骤
 [](id:step1)
@@ -15,36 +18,38 @@
 参见 [实例管理](https://cloud.tencent.com/document/product/1364/72495)，创建一个 Kong 网关。
 
 [](id:step2)
-### 步骤2：登录 Konga 控制台
-单击创建好的 Kong 网关的 ID，进入基本信息页面，在页面上方选择**访问控制**页签，使用 **Konga 访问地址**模块的公网访问地址或内网访问地址和管理员账号密码，登录 Konga。
-![](https://qcloudimg.tencent-cloud.cn/raw/b98dd1db82f4bc4a6cfa7496f0038ebe.png)
-<dx-alert infotype="explain" title="">
-可配置公网访问策略，详情参见 [访问控制](https://cloud.tencent.com/document/product/1364/72496)。
-</dx-alert>
+### 步骤2：关联服务来源
+1. 单击创建好的 Kong 网关的 ID，进入基本信息页面。
+2. 在页面上方选择**服务管理**页签，在服务来源模块单击**新建**，服务来源类型选择**容器服务**，服务实例选择与 Kong 在同一 VPC下的可用实例，单击**提交**。
+<img src="https://qcloudimg.tencent-cloud.cn/raw/2cc9a9a9a24e9228e9d4a0e759f8f3c7.png"  style="width:700px">  
+
 
 [](id:step3)
-### 步骤3：定义后端服务信息
-1. 在 Konga 控制台左侧导航栏选择**Services**，单击**ADD NEW SERVICE**，添加服务。
-![](https://qcloudimg.tencent-cloud.cn/raw/817c7d569181e416aa7828aa24318a6e.png)
-2. 填写后端服务信息，单击**SUBMIT SERVICE**。
-![](https://qcloudimg.tencent-cloud.cn/raw/5c678c8f0343f2e11d9665352ac8c7a8.png)
-<dx-alert infotype="explain" title="">
-本步骤是指定在 Kong 收到 Client 端的请求后，转发到哪个后端服务。本例中的后端服务可以为腾讯云上或在互联网上的任何可以访问到的地址。
-</dx-alert>
+### 步骤3：添加服务
+1. 在服务列表模块，单击**新建**，选择上一步关联的服务来源。填写容器服务的命名空间名称和服务名称。
+<img src="https://qcloudimg.tencent-cloud.cn/raw/ef30fa2f30fb356ddc8280220cfda813.png"  style="width:500px">  
+容器服务的名称和所在的命名空间在容器服务控制台获取。
+<img src="https://qcloudimg.tencent-cloud.cn/raw/e8f1e4b2318c272b6350e952dfa3ef28.png"  style="width:700px">  
+2. 单击**提交**，创建完成后可以看到服务列表中服务的信息。
+<img src="https://qcloudimg.tencent-cloud.cn/raw/5e4228420763341362f78c8547cd4d8c.png"  style="width:700px">  
+3. 在页面上方选择访问控制页签，使用 Konga 访问地址模块的公网访问地址或内网访问地址和管理员账号密码，登录 Konga 控制台。
+>?可配置公网访问策略，详情参见 [访问控制](https://cloud.tencent.com/document/product/1364/72496)。
+>
+<img src="https://qcloudimg.tencent-cloud.cn/raw/cc65fe1d4692f0ac7b06c11cf9eb01e1.png"  style="width:700px">  
+4. 在 Konga，进入 Services 页面，会自动出现对应的容器服务。
+<img src="https://qcloudimg.tencent-cloud.cn/raw/516c972b8796378fa2571ed8c151ceee.png"  style="width:700px">  
 
 [](id:step4)
-### 步骤4：为后端服务配置路由
-1. 后端服务添加完成后，点击后端服务名称进入基本信息页面，单击**Routes** > **ADD ROUTE**，添加路由。
-![](https://qcloudimg.tencent-cloud.cn/raw/95a0c0ee6f0d45b5afb1dda2da0731b2.png)
-2. 创建匹配路由，设置好 Path 和 Method，单击**SUBMIT ROUTE**。
-![](https://qcloudimg.tencent-cloud.cn/raw/7b2e55f74444f914eb13bf721d6c7a9b.png)
-<dx-alert infotype="notice" title="">
-Host/Path/Method，填写后需要输入回车。
-</dx-alert>
+### 步骤4：为服务配置路由规则
+1. 单击服务名称进入基本信息页面，单击**Routes** > **ADD ROUTE**，添加路由。
+2. 设置好 Path 和 Method，单击**SUBMIT ROUTE**。
+>!Host/Path/Method，填写后需要输入回车。
+>
+<img src="https://qcloudimg.tencent-cloud.cn/raw/eaac139e341c3111d9990863f9fcaebc.png"  style="width:500px">  
 
 [](id:step5)
 ### 步骤5：调用 API
 1. 进入 Kong 网关的**访问控制**页面，获取负载均衡地址。
-![](https://qcloudimg.tencent-cloud.cn/raw/bf556922e84828150d5dc7ba7721da96.png)
-2. 使用负载均衡地址和配置的路由路径访问 API，执行curl 命令测试，已通过 Kong 访问到后端服务。
-![](https://qcloudimg.tencent-cloud.cn/raw/98fe2ab99311da9afff5cc23a1409760.png)
+<img src="https://qcloudimg.tencent-cloud.cn/raw/6ad05d54f7a9733a15696dd34f45fbe7.png"  style="width:700px">  
+2. 使用负载均衡地址和配置的路由路径访问 API，执行 curl 命令测试，已通过 Kong 访问到容器服务。
+<img src="https://qcloudimg.tencent-cloud.cn/raw/6d9f211bb944d9ae1d3b02aa2510e3da.png" style="width:500px"> 
