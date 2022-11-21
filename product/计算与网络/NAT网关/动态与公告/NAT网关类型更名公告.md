@@ -7,7 +7,7 @@
 |中型 | 传统型 NAT 网关-中型| 
 | 大型 | 传统型 NAT 网关-大型| 
 
-传统型 NAT 网关与标准型 NAT 网关对比请参见 [实例类型对比](https://tcloud.woa.com/document/product/552/12954#db)。
+传统型 NAT 网关与标准型 NAT 网关对比请参见 [实例类型对比](https://cloud.tencent.com/document/product/552/12954#db)。
 
 >?
 1. 本次变更仅当您开通标准型 NAT 网关时，原小型、中型、大型 NAT 网关类型名称才会变更为传统型 NAT 网关 - 小型、传统型 NAT 网关 - 中型、传统型 NAT 网关大型。后续标准型 NAT 网关全量后，原 NAT 网关类型名称将全部变更为传统型 NAT 网关。
