@@ -32,7 +32,7 @@
 
 ## 第一部分：创建测试用户
 
-在 [IM 控制台](https://console.cloud.tencent.com/im) 选择您的应用，在左侧导航栏依次点击 **辅助工具**->**UserSig 生成&校验** ，创建两个 UserID 及其对应的 UserSig，复制`UserID`、`签名（Key）`、`UserSig`这三个，后续登录时会用到。
+在 [IM 控制台](https://console.cloud.tencent.com/im) 选择您的应用，在左侧导航栏依次单击 **辅助工具** > **UserSig 生成&校验** ，创建两个 UserID 及其对应的 UserSig，复制`UserID`、`签名（Key）`、`UserSig`这三个，后续登录时会用到。
 
 >? 该账户仅限开发测试使用。应用上线前，正确的 `UserSig` 签发方式是由服务器端生成，并提供面向 App 的接口，在需要 `UserSig` 时由 App 向业务服务器发起请求获取动态 `UserSig`。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/269/32688#GeneratingdynamicUserSig)。
 
@@ -188,13 +188,11 @@ TIMResult res = TencentIMSDK.ConvGetConvList((int code, string desc, List<ConvIn
 您在此步骤中，需要先在 SDK 上挂载监听，然后处理回调事件，更新 UI。
 
 1. 挂载监听。
-
 ```c#
 TencentIMSDK.SetConvEventCallback((TIMConvEvent conv_event, List<ConvInfo> conv_list, string user_data)=>{
  // 处理回调逻辑
 });
 ```
-
 2. 处理回调事件，将最新的会话列表展示在界面上。
 
 ### 接收消息
