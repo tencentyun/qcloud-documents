@@ -3,7 +3,7 @@
 
 为了保障您的业务安全稳定，我们建议您把现有的 Windows Server 2008 R2 企业版 的云服务器更换到 Windows Server 的更高版本，推荐使用最新版本。
 
-如果您已充分评估并接受风险提醒，坚持继续使用 Windows Server 2008 R2 企业版 创建或重装实例，您仍可以通过导入 [自定义镜像](https://cloud.tencent.com/document/product/213/4942) 或者通过 [云市场](https://market.cloud.tencent.com/）的镜像来实现)。
+如果您已充分评估并接受风险提醒，坚持继续使用 Windows Server 2008 R2 企业版 创建或重装实例，您仍可以通过导入 [自定义镜像](https://cloud.tencent.com/document/product/213/4942) 或者通过 [云市场](https://market.cloud.tencent.com/）) 的镜像来实现。
 
 ## 风险提醒
 由于无法从微软获取 Windows Server 2008 的更新和补丁程序，腾讯云无法解决相关操作系统上问题，如您一直坚持继续使用 Windows Server 2008 R2 企业版 SP1 64位系统，请充分了解以下风险：
