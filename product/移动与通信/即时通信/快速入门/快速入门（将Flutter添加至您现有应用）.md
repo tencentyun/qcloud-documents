@@ -798,11 +798,11 @@ class AppDelegate: FlutterAppDelegate { // More on the FlutterAppDelegate.
 
 #### 引入 Flutter Module
 
-请参考[此部分](#android)，将Flutter module引入您的原生应用程序中。建议采用方式二。
+请参考 [此部分](#android)，将 Flutter module引入您的原生应用程序中。建议采用方式二。
 
-#### 在 Android 项目中，管理Flutter引擎
+#### 在 Android 项目中，管理 Flutter 引擎
 
-**创建一个用于管理Flutter引擎的单例对象。**
+**创建一个用于管理 Flutter 引擎的单例对象。**
 
 这个 Kotlin 单例对象，用于集中管理 Flutter Method Channel，并提供一系列与 Flutter Module 通信的方法，方便在项目中各处，直接调用。
 
@@ -827,14 +827,14 @@ flutterEngine = FlutterEngine(context)
 
 **继续完成该用于管理Flutter引擎的单例对象。**
 
-Demo代码的逻辑是，使用新的路由，承载Chat和Call的Activity。
+Demo 代码的逻辑是，使用新的路由，承载 Chat 和 Call 的 Activity。
 
-Chat的Activity，由用户主动进入及退出；Call的Activity，由监听器或主动外呼，自动导航进及返回出。
+Chat 的 Activity，由用户主动进入及退出；Call 的 Activity，由监听器或主动外呼，自动导航进及返回出。
 
 重点关注：
 
 - fun init(): 初始化 Method Channel，并为其绑定事件监听方法。
-- fun reportChatInfo(): 将用户登录信息和SDKAPPID透传至Flutter Module，使Flutter层得以初始化并登录腾讯云IM。
+- fun reportChatInfo(): 将用户登录信息和 SDKAPPID 透传至 Flutter Module，使 Flutter 层得以初始化并登录腾讯云IM。
 - fun launchChatFunc(): 拉起或导航至 Flutter Module 所在 ViewController。
 - fun triggerNotification(msg: String): 将 iOS Native 层收到的离线推送消息点击事件，及其包含的ext信息，以 JSON String形式，透传至 Flutter 层绑定的监听处理事件。用于处理离线推送点击跳转，例如至对应会话。
 
@@ -857,42 +857,40 @@ class MyApplication : MultiDexApplication() {
 
 **监听及转发离线推送点击事件**
 
-离线推送的初始化/Token上报/点击事件对应的会话跳转处理，已在Flutter Chat模块中进行，因此，Native区域，仅需透传点击通知事件的ext即可。
+离线推送的初始化/Token上报/点击事件对应的会话跳转处理，已在 Flutter Chat 模块中进行，因此，Native 区域，仅需透传点击通知事件的 ext 即可。
 
-之所以这么做，是因为点击通知事件已在Native被拦截消费，Flutter层无法直接拿到，必须经由Native转发。
+之所以这么做，是因为点击通知事件已在 Native 被拦截消费，Flutter 层无法直接拿到，必须经由 Native 转发。
 
-> 由于不同厂商的离线推送接入步骤不一致，本文以OPPO为例，全部厂商接入方案，可查看[本文档](https://cloud.tencent.com/document/product/269/75428).
+>? 由于不同厂商的离线推送接入步骤不一致，本文以 OPPO 为例，全部厂商接入方案，可查看 [本文档](https://cloud.tencent.com/document/product/269/75428)。
 
-在腾讯云IM控制台中，新增OPPO的推送证书，`点击后续动作` 选择 `打开应用内指定页面`，`应用内页面` 以 `Activity` 方式，配置一个用于处理离线推送信息的页面，建议为应用首页。如，我们的Demo配置为：`com.tencent.chat.android.MainActivity`.
+在腾讯云IM控制台中，新增 OPPO 的推送证书，`点击后续动作` 选择 `打开应用内指定页面`，`应用内页面` 以 `Activity` 方式，配置一个用于处理离线推送信息的页面，建议为应用首页。如，我们的 Demo 配置为：`com.tencent.chat.android.MainActivity`。
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/c0f8737ce6fa484479ffc9a1bec6c9c0.png)
 
-在上方控制台配置的用于离线推送的Activity文件中，新增如下代码。
+在上方控制台配置的用于离线推送的 Activity 文件中，新增如下代码。
 
-该代码的作用是，当厂商拉起相应Activity时，从Bundle中取出HashMap形式ext信息，触发单例对象中的方法，将这个信息，手动转发至Flutter中。具体代码，可以参考Demo源码。
+该代码的作用是，当厂商拉起相应 Activity 时，从 Bundle 中取出 HashMap 形式 ext 信息，触发单例对象中的方法，将这个信息，手动转发至 Flutter 中。具体代码，可以参考  Demo 源码。
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/2ec45c1a8b3bd952bcb86a8095f91515.png)
 
-此时，Android Native层编写完成。
+此时，Android Native 层编写完成。
 
 [](id:native)
 
 ## 附加方案：在 Native 层，初始化并登录腾讯云IM
 
-有的时候，对于Chat和Call模块能力，您希望对于高频的简单应用场景，能深入嵌入您现有的业务逻辑中。
+有的时候，对于 Chat 和 Call 模块能力，您希望对于高频的简单应用场景，能深入嵌入您现有的业务逻辑中。
 
 例如对于游戏场景，在对局内，希望能直接发起会话。
 
-而您的完整功能Chat模块，使用Flutter实现，仅是您APP中一个重要性较低的子模块，因此不希望一上来就启动一个完整的Flutter Module。
+而您的完整功能 Chat 模块，使用 Flutter 实现，仅是您 APP 中一个重要性较低的子模块，因此不希望一上来就启动一个完整的 Flutter Module。
 
-这个时候，您可以在Native层调用腾讯云IM  Native SDK的初始化及登录方法，此后，便可在您需要的高频简单场景，直接使用腾讯云IM Native SDK，构建 In-App Chat 能力。
+这个时候，您可以在 Native 层调用腾讯云 IM  Native SDK 的初始化及登录方法，此后，便可在您需要的高频简单场景，直接使用腾讯云 IM Native SDK，构建 In-App Chat 能力。
 
->?
-> 当然，在此种情况下，您也可以选择提前先在 Flutter 初始化并登录腾讯云IM，此时，您将不再需要在 Native 层再次初始化并登录。两端仅需初始化并登录一次，即可在双端都能使用。
+>?当然，在此种情况下，您也可以选择提前先在 Flutter 初始化并登录腾讯云IM，此时，您将不再需要在 Native 层再次初始化并登录。两端仅需初始化并登录一次，即可在双端都能使用。
+>由于 Flutter SDK 已自带 Native SDK，您不需要在 Native 层，再次引入，即可直接使用。
 
-由于Flutter SDK已自带Native SDK，您不需要在Native层，再次引入，即可直接使用。
-
-### Native初始化并登录
+### Native 初始化并登录
 
 以 iOS Swift 代码为例，演示如何在 Native 层，初始化并登录。
 
@@ -919,7 +917,7 @@ func initTencentChat(){
 }
 ```
 
-此后，在 Native 层面，便可直接使用Native SDK，搭建您的业务功能模块。详情可查阅 [iOS 快速入门]() 或 [Android 快速入门](https://cloud.tencent.com/document/product/269/36838)。
+此后，在 Native 层面，便可直接使用Native SDK，搭建您的业务功能模块。详情可查阅 [iOS 快速入门](https://cloud.tencent.com/document/product/269/68228) 或 [Android 快速入门](https://cloud.tencent.com/document/product/269/36838)。
 
 ### 初始化 Flutter TUIKit
 
@@ -930,15 +928,15 @@ final CoreServicesImpl _coreInstance = TIMUIKitCore.getInstance();
 _coreInstance.setDataFromNative(userId: chatInfo?.userID ?? "");
 ```
 
-**更详细代码，请查阅我们的Demo 源码。**
+**更详细代码，请查阅我们的 Demo 源码。**
 
 [![](https://qcloudimg.tencent-cloud.cn/raw/b622951f776a505e83f843de1f62fffc.png)](https://github.com/TencentCloud/tencentchat-add-flutter-to-app/tree/main/Initialize%20from%20Native)
 
------
+## 联系我们
 
-至此，腾讯云IM Flutter - Native 混合开发方式已全部介绍完成。
+至此，腾讯云 IM Flutter - Native 混合开发方式已全部介绍完成。
 
-您可以基于本文档给出的方案，快速在您现有的原生开发 Android/iOS APP 中，使用 Flutter SDK，使用同一套Flutter代码，快速植入 Chat 和 Call 模块能力。
+您可以基于本文档给出的方案，快速在您现有的原生开发 Android/iOS APP 中，使用 Flutter SDK，使用同一套 Flutter 代码，快速植入 Chat 和 Call 模块能力。
 
 如果您还有任何疑问，欢迎随时联系我们。
 
