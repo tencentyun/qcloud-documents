@@ -69,9 +69,9 @@ NAT 边界防火墙开关支持基于内网资产进行流量管控与安全防�
 >- 开启防火墙开关的子网 SNAT、DNAT 流量都会经过防火墙，关闭开关的子网 SNAT、DNAT 流量都走原先路径。
 >- 请勿前往私有网络控制台操作端口转发规则，否则可能造成网络中断。
 >
-![](https://qcloudimg.tencent-cloud.cn/raw/473a3162aeb929077c12a2359a1cac92.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/e17ae0b17ce490ad4467c52ecc79ef9e.png)
 	1. 在实例配置页面的端口转发页签下，单击**新建规则**。
-![](https://qcloudimg.tencent-cloud.cn/raw/ea7e908f4bf40e6698e4d0a9f139d788.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/473a3162aeb929077c12a2359a1cac92.png)
 	2. 在“新建端口转发规则”弹框中，用户可为当前 NAT 边界防火墙实例添加一条外部 IP 为用户所绑定的弹性 IP 的 DNAT 规则。
 >?
 >- 在外部 IP 端口下拉框内，提供的选项为当前 NAT 边界防火墙实例所绑定的弹性 IP。
