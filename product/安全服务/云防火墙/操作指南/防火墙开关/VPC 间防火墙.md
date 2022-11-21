@@ -81,23 +81,23 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/4297db05620764ab6a04385344e9c4fd.png)
 2. 在防火墙开关页面，单击![](https://qcloudimg.tencent-cloud.cn/raw/3ab29f514c114f26fdd157e67e15628a.png)关闭已开启的防护墙。
 ![](https://qcloudimg.tencent-cloud.cn/raw/861c4edcd14449430b1ccf5a749b4785.png)
-3. 在 VPC 间开关页面，单击**更多** > **销毁实例**。
+3. 在防火墙开关页面，单击**更多** > **销毁实例**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/88fc476b9e401c5c275b5f235d38390c.png)
 4. 在确认销毁窗口中，单击**确定**，即可销毁所选实例。
 >?销毁实例后，对应地域的 VPC 间防火墙实例将被回收，所有数据将清除，您的 VPC 间防火墙配额将会归还，系统会自动还原网络和路由设置。
 >
 
 #### 重新选择接入实例
->!
->- 当以私有网络模式接入 VPC 间防火墙，支持重新选择接入的 VPC 实例。
->- 云联网模式则接入云联网内的所有 VPC 实例。
->
 1. 在 VPC 间开关页面，选择所需实例，单击防火墙开关处的**数字**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/4297db05620764ab6a04385344e9c4fd.png)
 2. 在防火墙开关页面，单击![](https://qcloudimg.tencent-cloud.cn/raw/3ab29f514c114f26fdd157e67e15628a.png)关闭已开启的防护墙。
 ![](https://qcloudimg.tencent-cloud.cn/raw/861c4edcd14449430b1ccf5a749b4785.png)
-3. 在防火墙开关页面，单击 **更多** > **重新选择接入实例**，进入编辑 VPC 间防火墙页面。
-![](https://qcloudimg.tencent-cloud.cn/raw/904e5279e7560f5ac126b7d58025f72c.png)
+3. 在防火墙开关页面，单击**更多** > **重新选择接入实例**，进入编辑 VPC 间防火墙页面。
+>!
+>- 当以私有网络模式接入 VPC 间防火墙，支持重新选择接入的 VPC 实例。
+>- 云联网模式则接入云联网内的所有 VPC 实例。
+>
+![](https://qcloudimg.tencent-cloud.cn/raw/70df7a21e335aae5ae0cad25f5ebb5b7.png)
 4. 在编辑 VPC 间防火墙页面，选择所需实例，单击**下一步**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d8a0cf72381de0d7275c5363ea468b88.png)
 5. 选择选择部署的地域/可用区，单击**完成**，即可完成重新选择接入的实例。
