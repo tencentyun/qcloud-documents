@@ -468,6 +468,44 @@ for (TXVodDownloadMediaInfo *info in array) {
 - (void)longPress:(UILongPressGestureRecognizer *)longPress;  // 长按
 ```
 
+### 9、雪碧图和打点信息
+
+#### 打点信息
+
+支持在进度条关键位置添加文字介绍，用户点击后可显示打点位置的文字信息，以快速了解当前位置的视频信息。点击视频信息后，可以seek到打点信息位置。
+
+您可在腾讯云视立方 App > 播放器 > 播放器组件 > 腾讯云 视频中，使用全屏观看模式后体验。
+
+![](http://1500005830.vod2.myqcloud.com/6c9a5118vodcq1500005830/9f41662a387702307128322419/WnDHUMF9V3YA.jpg)
+
+#### 雪碧图
+
+支持用户在拖拽进度条或执行快进操作时查看视频缩略图，以快速了解指定进度的视频内容。缩略图预览基于视频雪碧图实现，您可以在云点播控制台中生成视频文件雪碧图，或直接生成雪碧图文件。
+您可在腾讯云视立方 App > 播放器 > 播放器组件 > 腾讯云 视频中，使用全屏观看模式后体验。
+
+![](http://1500005830.vod2.myqcloud.com/6c9a5118vodcq1500005830/ad1f6b93387702307128908283/6YIALRXty4EA.jpg)
+
+```objective-c
+// 步骤1：通过playWithModelNeedLicence播放器视频，才能在onPlayEvent回调中获取到雪碧图和打点信息数据
+[self.playerView playWithModelNeedLicence:playerModel];
+
+// 步骤2: playWithModelNeedLicence 在 VOD_PLAY_EVT_GET_PLAYINFO_SUCC 回调事件中取得关键帧和雪碧图信息
+NSString *imageSpriteVtt = [param objectForKey:VOD_PLAY_EVENT_IMAGESPRIT_WEBVTTURL]?:@"";
+NSArray<NSString *> *imageSpriteList = [param objectForKey:VOD_PLAY_EVENT_IMAGESPRIT_IMAGEURL_LIST];
+NSArray<NSURL *> *imageURLs = [self convertImageSpriteList:imageSpriteList];
+[self.imageSprite setVTTUrl:[NSURL URLWithString:imageSpriteVtt] imageUrls:imageURLs];
+
+// 步骤3: 将拿到的打点信息和雪碧图，并显示到界面上
+if (self.isFullScreen) {
+   thumbnail = [self.imageSprite getThumbnail:draggedTime];
+}
+if (thumbnail) {
+   [self.fastView showThumbnail:thumbnail withText:timeStr];
+}
+```
+
+
+
 ## Demo 体验
 
 更多完整功能可直接运行工程 Demo，或扫码下载移动端 Demo 腾讯云视立方 App体验。
