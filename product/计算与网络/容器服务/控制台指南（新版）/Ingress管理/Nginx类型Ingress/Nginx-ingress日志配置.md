@@ -92,3 +92,9 @@ spec:
 
 TKE Nginx-ingress 开启日志采集功能将会自动为您创建一个标准的日志仪表盘，您也可以根据业务需要自行在 CLS 控制台配置图表。如下图所示：
 ![](https://main.qcloudimg.com/raw/28674bb949ed77839b707cf80841e879.png)
+
+
+
+## 扩展
+
+如果需要自定义日志采集规则和索引，请[参考](https://cloud.tencent.com/document/product/457/77840)。
