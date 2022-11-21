@@ -26,19 +26,21 @@
 ### 步骤1：创建应用
 
 1. 登录 [即时通信 IM 控制台](https://console.cloud.tencent.com/im)。
+
   > ?如果您已有应用，请记录其 SDKAppID 并 [获取密钥信息](#step2)。
   > 同一个腾讯云帐号，最多可创建300个即时通信 IM 应用。若已有300个应用，您可以先 [停用并删除](https://cloud.tencent.com/document/product/269/32578#.E5.81.9C.E7.94.A8.2F.E5.88.A0.E9.99.A4.E5.BA.94.E7.94.A8) 无需使用的应用后再创建新的应用。**应用删除后，该 SDKAppID 对应的所有数据和服务不可恢复，请谨慎操作。**
+
 2. 单击**创建新应用**，在**创建应用**对话框中输入您的应用名称，单击**确定**。
   ![](https://qcloudimg.tencent-cloud.cn/raw/febed2f15dee6ff09f066ba228c7fc27.png)
 3. 请保存 SDKAppID 信息。可在控制台总览页查看新建应用的状态、业务版本、SDKAppID、标签、创建时间以及到期时间。
-   ![](https://main.qcloudimg.com/raw/ed34d9294a485d8d06b3bb7e0cc5ae59.png) 
+   ![](https://main.qcloudimg.com/raw/ed34d9294a485d8d06b3bb7e0cc5ae59.png)
 4. 单击创建后的应用，左侧导航栏单击**辅助工具**>**UserSig 生成&校验**，创建一个 UserID 及其对应的 UserSig，复制签名信息，后续登录使用。
   ![](https://main.qcloudimg.com/raw/8315da2551bf35ec85ce10fd31fe2f52.png)
 
 [](id:step2)
 
-
 ### 步骤2：选择适合的方法集成 Electron SDK
+
 IM 提供了两种方式来即成，您可以选择最合适的方案来即成：
 
 | 继承方式 | 适用场景 |
@@ -48,46 +50,59 @@ IM 提供了两种方式来即成，您可以选择最合适的方案来即成�
 
 为帮助您更好的理解 IM SDK 的各 API，我们还提供了 [API 文档](https://comm.qq.com/im/doc/electron/zh/)。
 
-
 [](id:step3)
+
 ### 步骤3：使用 Demo
 
 1. 克隆即时通信 IM Electron Demo 源码到本地。
+
   ```javascript
-  git clone https://github.com/tencentyun/im_electron_demo.git
+  git clone https://github.com/TencentCloud/tc-chat-demo-electron.git
   ```
+
 2. 安装项目依赖。
+
   ```javascript
   // 项目根目录
   npm install
-    
+
   // 渲染进程目录
   cd src/client
   npm install
   ```
+
 3. 项目运行。
+
 ```javascript
 // 项目根目录
 npm start
 ```
+
 4. 项目打包。
+
   ```javascript
   // mac打包
   npm run build:mac
   // windows打包
   npm run build:windows
   ```
-	
+
 [](id:step4)
+
 ### 步骤4：自实现
+
 **安装 Electron SDK**
 使用如下命令，安装 Electron SDK最新版本
 在命令行执行：
+
 ```
 npm install im_electron_sdk
 ```
+
 **完成 SDK 初始化**
+
 1. 在 `TimMain`中传入您的`sdkAppID`。
+
 ```javascript
 // 主进程
 const TimMain = require('im_electron_sdk/dist/main')
@@ -97,7 +112,9 @@ const tim = new TimMain({
   sdkappid:sdkappid
 })
 ```
+
 2. 调用`TIMInit`，完成 SDK 初始化
+
 ```javascript
 //渲染进程
 const TimRender = require('im_electron_sdk/dist/render')
@@ -105,10 +122,12 @@ const timRender = new TimRender();
 // 初始化
 timRender.TIMInit()
 ```
+
 3. 登录测试用户
 此时，您可以使用最开始的时候，在控制台申城的测试账户，完成登录验证。
 调用`timRender.TIMLogin`方法，登录一个测试用户。
 当返回值 `code`为0时，登录成功。
+
 ```javascript
 const TimRender = require('im_electron_sdk/dist/render')
 const timRender = new TimRender();
@@ -117,11 +136,13 @@ let {code} = await timRender.TIMLogin({
   userSig:"userSig" // 参考userSig生成
 })
 ```
+
 >? 该账户仅限开发测试使用，应用上线前，正确的`UserSig` 签发方式是将`UserSig`的计算代码集成到您的服务端，并提供面向 APP的接口。在需要 `UserSig`时由您的 APP 向业务服务器发起请求获取动态 `UserSig`。更多详情请参见 [服务端生成UserSig](https://cloud.tencent.com/document/product/269/32688#GeneratingdynamicUserSig)。
 
 **发送信息**
 此处以发送文本消息距离，`code`返回 0 则为消息发送成功。
 代码示例：
+
 ```javascript
 const TimRender = require('im_electron_sdk/dist/render')
 const timRender = new TimRender();
@@ -140,26 +161,31 @@ let param:MsgSendMessageParamsV2 = {    // param of TIMMsgSendMessage
   }
 let {code} = await timRender.TIMMsgSendMessageV2(param);
 ```
+
 >? 如果发送失败，可能是由于您的 sdkAppID 不支持陌生人发送消息，您可至控制台开启，用于测试。[请点击此链接](https://console.cloud.tencent.com/im/login-message)，关闭好友关系链检查。
 
 **获取会话列表**
 在上一个步骤中，完成发送测试消息，现在可登录另一个测试账户，拉取会话列表。
 常见应用场景为：
 在启动应用程序后立即获取会话列表，然后监听长链接以实时更新会话列表的变化。
+
 ```javascript
 let param:getConvList = {
             userData:userData,
         }
 let data:commonResult<convInfo[]> = await timRenderInstance.TIMConvGetConvList(param)
 ```
+
 此时，您可以看到您在上一步中，使用另一个测试账号发来的消息的会话。
 
 **接收消息**
 常见应用场景为：
+
 1. 界面进入新的会话后，首先一次性请求一定数量的历史消息，用于展示历史消息列表。
 2. 监听长链接，实时接收新的消息，将其添加进历史消息列表中。
 
 一次性请求历史消息列表
+
 ```javascript
 let param:MsgGetMsgListParams = {
         conv_id: conv_id,
@@ -176,6 +202,7 @@ let param:MsgGetMsgListParams = {
 
 监听实时获取新消息
 绑定 callback 示例代码如下：
+
 ```javascript
 let param : TIMRecvNewMsgCallbackParams = {
             callback: (...args)=>{},
@@ -187,13 +214,6 @@ timRenderInstance.TIMAddRecvNewMsgCallback(param);
 此时，您已基本完成 IM 模块开发，可以发送接收消息，也可以进入不同的会话。
 您可以继续完成 群组，用户资料，关系链，离线推送，本地搜索 等相关功能开发。
 详情可查看 [API 文档](https://comm.qq.com/im/doc/electron/zh/Callback/readme.html)
-
-[](id:step5)
-### 步骤5：使用更多插件丰富 IM 使用体验
-除 SDK 基础功能外，我们还提供了选装插件，帮助您丰富 IM 能力。
-- [音视频通话插件](https://cloud.tencent.com/document/product/647)：支持一对一/群组 音视频 通话。
-- [地理位置消息插件](https://cloud.tencent.com/document/product/269/80881) ：提供选取位置/发送位置及解析展示位置消息的能力。
-- [自定义表情插件](https://cloud.tencent.com/document/product/269/80882) ：快速便捷集成表情能力。
 
 ## 常见问题
 
@@ -207,20 +227,24 @@ IM SDK 的 API 层面错误码，请查看 [错误码](https://cloud.tencent.com
 
 #### 安装开发环境问题，出现 `gypgyp ERR!ERR` 错误如何解决？
 
-请参见 [gypgyp ERR!ERR! ](https://stackoverflow.com/questions/57879150/how-can-i-solve-error-gypgyp-errerr-find-vsfind-vs-msvs-version-not-set-from-c)。
+请参见 [gypgyp ERR!ERR!](https://stackoverflow.com/questions/57879150/how-can-i-solve-error-gypgyp-errerr-find-vsfind-vs-msvs-version-not-set-from-c)。
 
 #### Mac 端 Demo 执行 `npm run start` 会出现白屏，如何解决？
 
 Mac 端执行`npm run start` 会出现白屏，原因是渲染进程的代码还没有 build 完成，主进程打开的3000端口为空页面，当渲染进程代码 build 完成重新刷新窗口后即可解决问题。或者执行`cd src/client && npm run dev:react`, `npm run dev:electron`, 分开启动渲染进程和主进程。
 
 #### `vue-cli-plugin-electron-builder` 构建的项目如何使用 `native modules`?
+
 使用`vue-cli-plugin-electron-builder` 构建的项目使用`native modules` 请参见 [No native build was found for platform = xxx](https://github.com/nklayman/vue-cli-plugin-electron-builder/issues/1492)。
 
 #### 用 `webpack` 构建的项目如何使用 `native modules`?
+
 自己使用webpack 构建的项目使用native modules 请参见 [Windows 下常见问题](https://blog.csdn.net/Yoryky/article/details/106780254)。
 
 #### 出现 `Dynamic Linking Error`?
+
 Dynamic Linking Error. electron-builder 配置
+
 ``` javascript
    extraFiles:[
     {
@@ -234,6 +258,7 @@ Dynamic Linking Error. electron-builder 配置
 ```
 
 ## 联系我们
+
 - 如果您在介入使用过程中有任何疑问，请加入 QQ 群：753897823 咨询。
-- 开发群 
-<img src="https://qcloudimg.tencent-cloud.cn/raw/a85a8b1642c59d672e960f96cd08b2ae.jpg" width="400" height="500" alt="二维码"/> 
+- 开发群
+<img src="https://qcloudimg.tencent-cloud.cn/raw/a85a8b1642c59d672e960f96cd08b2ae.jpg" width="400" height="500" alt="二维码"/>

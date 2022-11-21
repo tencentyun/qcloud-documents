@@ -1,10 +1,10 @@
 ## 操作场景
 
-本文通过一个 demo 进行应用通过 Nginx 接入微服务引擎托管的 PolarisMesh 治理中心的全流程操作演示，帮助您快速了解如何使用服务治理中心。
+本文通过一个 demo 进行应用通过 Nginx 接入微服务引擎托管的 PolarisMesh 治理中心的全流程操作演示，帮助您快速了解如何使用北极星网格。
 
 ## 前提条件
 
-- 已创建 PolarisMesh 服务治理中心，请参见 [创建 PolarisMesh 治理中心](https://cloud.tencent.com/document/product/1364/65866)。
+- 已创建 PolarisMesh 北极星网格，请参见 [创建 PolarisMesh 治理中心](https://cloud.tencent.com/document/product/1364/65866)。
 - 本地编译构建打包机器环境已安装了 C/C++ 编译所需的工具（make, gcc, g++）等。
 - 根据您自身的业务，已准备好业务部署的资源，`虚拟机部署`、`容器化部署`选择其中一种方式即可。
   - **虚拟机部署**已创建 CVM 虚拟机，请参见 [创建 CVM 虚拟机](https://cloud.tencent.com/document/product/213/2936)。
@@ -91,7 +91,7 @@
 :::
 </dx-codeblock>
 2. 登录 [TSE 控制台](https://console.cloud.tencent.com/tse)。
-3. 在**治理中心**下的 **polarismesh** 页面，单击页面左上方下拉列表，选择目标地域。
+3. 在**北极星网格**下的 **polarismesh** 页面，单击页面左上方下拉列表，选择目标地域。
 4. 单击目标引擎的“ID”，进入基本信息页面。
 5. 查看访问地址，nginx-polaris 访问使用 gRPC 端口（8091）：
 ![](https://qcloudimg.tencent-cloud.cn/raw/e7dc5ac5f7c76a316ae68b667d8a365f.png)
