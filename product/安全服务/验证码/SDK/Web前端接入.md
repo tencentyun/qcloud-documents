@@ -170,7 +170,7 @@ options 参数用于对验证码进行定制外观设置，默认可以设置为
 
 >!
 >
->- 验证码弹窗内部不支持调整样式大小，如果需要调整，可在弹窗最外层用class=tcaptcha-transform的元素设置transform:scale();（更改大小可能会导致验证码图片失真，请谨慎修改）。举例如下：
+>- 验证码弹窗内部不支持调整样式大小，如果需要调整，可在弹窗最外层用 class=tcaptcha-transform 的元素设置 transform:scale();（更改大小可能会导致验证码图片失真，请谨慎修改）。举例如下：
 >```
 .tcaptcha_transform{
 
