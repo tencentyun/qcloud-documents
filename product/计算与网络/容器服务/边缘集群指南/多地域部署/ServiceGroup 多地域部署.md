@@ -174,7 +174,7 @@ spec:
 </div>
 
 > 这里可以看到，平台在NodeGroup包含的每个 NodeUnit 下都分别创建了一个 Kubernetes 标准的 Deployment，名字为**DeploymentGrid-NodeUnit**
-> 分别为`nginx-beijing`和`nginx-guagnzhou`
+> 根据上面的示例，这里分别为`nginx-beijing`和`nginx-guangzhou`
 
 #### 部署 ServiceGrid
 

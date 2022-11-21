@@ -5,7 +5,7 @@
 ## 场景介绍
 在边缘节点区分多个地域的情况下，每个地域都有独立的网络架构，需要在本地域对外提供 Ingress 服务能力，腾讯云边缘容器服务基于 `NodeUnit`的相关概念，在产品上支持在不同地域创建`Nginx-Ingress-Controller`的能力，同时通过`application-grid-wrapper`组件，可以将 Ingress-Controller 对 pod 的访问限制在本地域(NodeUnit 范围)之内，具体架构如下图：
 
-![](https://qcloudimg.tencent-cloud.cn/raw/425b5757c5b1f612269bac6692a53007.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/20e966b99f2a4e29e12060bf96a9a938.jpg)
 
 ## 操作步骤
 ### Nginx-Ingress-Controller 组件安装
@@ -17,7 +17,7 @@
 <div align="left"><img src="https://qcloudimg.tencent-cloud.cn/raw/376859db5cc03dd6de5e6b915a9d840d.jpg" width=100% title="service-group"></div>
 5. 点击已经部署的组件名称，进入组件详情页面
 <div align="left"><img src="https://qcloudimg.tencent-cloud.cn/raw/ca0bc6fc0e2d2db6946b632ec7c0c830.jpg" width=100% title="service-group"></div>
-6. 点击**新增Nginx Ingress 实例**，在指定的地域（NodeUnit）创建 Nginx-Ingress-Controller 实例
+6. 点击**新增Nginx Ingress 实例**，在指定的地域（NodeUnit）创建 Nginx-Ingress-Controller 实例 
 <div align="left"><img src="https://qcloudimg.tencent-cloud.cn/raw/1571ea7e36748f77bbf875535febae38.jpg" width=60% title="service-group"></div>
 
 - **NginxIngress 名称**：指定相应部署的 Ingress-Ingress-Controller 实例的名称，会创建相应的 daemonset
