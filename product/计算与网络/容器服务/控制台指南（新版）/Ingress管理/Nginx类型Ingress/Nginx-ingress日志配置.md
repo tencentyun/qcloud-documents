@@ -95,6 +95,6 @@ TKE Nginx-ingress 开启日志采集功能将会自动为您创建一个标准�
 
 
 
-## 扩展
+## 相关文档
 
-如果需要自定义日志采集规则和索引，请[参考](https://cloud.tencent.com/document/product/457/77840)。
+如果需要自定义日志采集规则和索引，请参考 [NginxIngress 自定义日志](https://cloud.tencent.com/document/product/457/77840)。
