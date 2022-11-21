@@ -58,7 +58,7 @@ docker info
 1. [使用标准方式登录 Linux 实例（推荐）](https://cloud.tencent.com/document/product/213/5436)。
 2. 依次执行以下命令，添加 yum 源。
 ```
-yum update
+yum update -y
 ```
 ```
 yum install epel-release -y
