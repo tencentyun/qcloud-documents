@@ -121,8 +121,8 @@ _playerView.fatherView = self.holderView;
 <br>获取到 License 信息后，在调用 SDK 的相关接口前，通过下面的接口初始化 License，建议在 `- [AppDelegate application:didFinishLaunchingWithOptions:]` 中进行如下设置：
 ```objective-c
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    NSString * const licenceURL = @"<获取到的licenseUrl>";
-    NSString * const licenceKey = @"<获取到的key>";
+    NSString * const licenceURL = @"<获取到的 licenseUrl>";
+    NSString * const licenceKey = @"<获取到的 key>";
         
     //TXLiveBase 位于 "TXLiveBase.h" 头文件中
     [TXLiveBase setLicenceURL:licenceURL key:licenceKey]; 
@@ -141,13 +141,13 @@ _playerView.fatherView = self.holderView;
 如果文件已存在腾讯云，则可以进入 [媒资管理](https://console.cloud.tencent.com/vod/media) ，找到对应的文件，查看 FileId。如下图所示，ID 即表示 FileId：
 ![](https://qcloudimg.tencent-cloud.cn/raw/8043a47a725586755f5db5575d5ff58d.png)
 >!
->- 通过 FileId 播放时，需要首先使用 Adaptive-HLS(10) 转码模板对视频进行转码，或者使用播放器组件签名 psign 指定播放的视频，否则可能导致视频播放失败。转码教程和说明可参见 [用播放器组件播放视频](https://cloud.tencent.com/document/product/266/46217)，psign 生成教程可参见 [psign 教程](https://cloud.tencent.com/document/product/266/42436)。
->- 若您在通过 FileId 播放时出现“no v4 play info”异常，则说明您可能存在上述问题，建议您根据上述教程调整。同时您也可以直接获取源视频播放链接，[通过 URL 播放](#url) 的方式实现播放。
+>- 通过 FileId 播放时，需要首先使用 Adaptive-HLS(10) 转码模板对视频进行转码，或者使用播放器组件签名 psign 指定播放的视频，否则可能导致视频播放失败。转码教程和说明可参见 [用播放器组件播放视频] (https://cloud.tencent.com/document/product/266/46217)，psign 生成教程可参见 [psign 教程](https://cloud.tencent.com/document/product/266/42436)。
+>- 若您在通过 FileId 播放时出现 “no v4 play info” 异常，则说明您可能存在上述问题，建议您根据上述教程调整。同时您也可以直接获取源视频播放链接，[通过 URL 播放](#url)  的方式实现播放。
 >- **未经转码的源视频在播放时有可能出现不兼容的情况，建议您使用转码后的视频进行播放。**
 
 <dx-codeblock>
 :::  java
-//在未开启防盗链进行播放的过程中，如果出现了“no v4 play info”异常，建议您使用Adaptive-HLS(10)转码模板对视频进行转码，或直接获取源视频播放链接通过url方式进行播放。
+//在未开启防盗链进行播放的过程中，如果出现了 “no v4 play info” 异常，建议您使用 Adaptive-HLS(10)转码模板对视频进行转码，或直接获取源视频播放链接通过 url 方式进行播放。
 
 SuperPlayerModel *model = [[SuperPlayerModel alloc] init];
 model.appId = 1400329071;// 配置 AppId
@@ -162,7 +162,7 @@ model.videoId.pSign = @"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6MTQwMDM
 ::: 使用 URL 播放[](id:url)
 ```java
 SuperPlayerModel *model = [[SuperPlayerModel alloc] init];
-model.videoURL = @"http://your_video_url.mp4";   // 配置您的播放视频url
+model.videoURL = @"http://your_video_url.mp4";   // 配置您的播放视频 url
 [_playerView playWithModelNeedLicence:model];
 ```
 :::
@@ -276,8 +276,8 @@ SuperPlayerWindowShared.backController = self;
 
 <img src="https://qcloudimg.tencent-cloud.cn/raw/f437e6d69b191a1e143a36edc61f7ebe.png" style="zoom:15%;" />
 
-* 当播放器组件设置为自动播放模式`PLAY_ACTION_AUTO_PLAY`时，视频自动播放，此时将在视频首帧加载出来之前展示封面。
-* 当播放器组件设置为手动播放模式`PLAY_ACTION_MANUAL_PLAY`时，需用户单击**播放**后视频才开始播放。在单击**播放**前将展示封面；在单击**播放**后到视频首帧加载出来前也将展示封面。
+* 当播放器组件设置为自动播放模式 `PLAY_ACTION_AUTO_PLAY` 时，视频自动播放，此时将在视频首帧加载出来之前展示封面。
+* 当播放器组件设置为手动播放模式 `PLAY_ACTION_MANUAL_PLAY` 时，需用户单击 **播放** 后视频才开始播放。在单击 **播放** 前将展示封面；在单击 **播放** 后到视频首帧加载出来前也将展示封面。
 
 视频封面支持使用网络 URL 地址或本地 File 地址，使用方式可参见下述指引。若您通过 FileID 的方式播放视频，则可直接在云点播内配置视频封面。
 
@@ -289,7 +289,7 @@ model.appId = 1400329071;
 model.videoId = videoId;
 //播放模式，可设置自动播放模式：PLAY_ACTION_AUTO_PLAY，手动播放模式：PLAY_ACTION_MANUAL_PLAY
 model.action  = PLAY_ACTION_MANUAL_PLAY; 
-//设定封面的地址为网络url地址，如果coverPictureUrl不设定，那么就会自动使用云点播控制台设置的封面
+//设定封面的地址为网络 url 地址，如果 coverPictureUrl 不设定，那么就会自动使用云点播控制台设置的封面
 model.customCoverImageUrl = @"http://1500005830.vod2.myqcloud.com/6c9a5118vodcq1500005830/cc1e28208602268011087336518/MXUW1a5I9TsA.png"; 
 [self.playerView playWithModelNeedLicence:model];
 ```
@@ -369,11 +369,11 @@ model.videoId = videoId;
 ![shikan2.png](https://qcloudimg.tencent-cloud.cn/raw/a65138cc85202239b73e52362172e00b.png)
 
 ```objective-c
- //步骤1：创建试看model
+ //步骤1：创建试看 model
  TXVipWatchModel *model = [[TXVipWatchModel alloc] init];
- model.tipTtitle = @"可试看15秒，开通VIP观看完整视频";
+ model.tipTtitle = @"可试看15秒，开通 VIP 观看完整视频";
  model.canWatchTime = 15;
- //步骤2：设置试看model
+ //步骤2：设置试看 model
  self.playerView.vipWatchModel = model;
  //步骤3：调用方法展示试看功能
  [self.playerView showVipTipView];
@@ -486,7 +486,7 @@ for (TXVodDownloadMediaInfo *info in array) {
 ![](http://1500005830.vod2.myqcloud.com/6c9a5118vodcq1500005830/ad1f6b93387702307128908283/6YIALRXty4EA.jpg)
 
 ```objective-c
-// 步骤1：通过playWithModelNeedLicence播放器视频，才能在onPlayEvent回调中获取到雪碧图和打点信息数据
+// 步骤1：通过 playWithModelNeedLicence 播放器视频，才能在 onPlayEvent 回调中获取到雪碧图和打点信息数据
 [self.playerView playWithModelNeedLicence:playerModel];
 
 // 步骤2: playWithModelNeedLicence 在 VOD_PLAY_EVT_GET_PLAYINFO_SUCC 回调事件中取得关键帧和雪碧图信息
