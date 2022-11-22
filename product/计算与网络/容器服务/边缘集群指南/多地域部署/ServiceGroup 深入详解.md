@@ -22,7 +22,7 @@ ServiceGroup 针对此场景设计，用户仅需使用 ServiceGroup 提供的 D
 ### 整体架构
 
 <div align="left">
-  <img src="https://qcloudimg.tencent-cloud.cn/raw/6f7a13796a04fed2ae418d5f7b822aae.png" width=70% title="service-group">
+  <img src="https://qcloudimg.tencent-cloud.cn/raw/63781bb68b9a414f9909e9a36f1ab581.jpg" width=100% title="service-group">
 </div>
 
 ### 基本概念
@@ -256,13 +256,13 @@ Events:            <none>
 #从上面可以看到，对于一个 servicegrid，都会创建一个 <servicename>-svc 的标准 Service；
 #！！！注意，这里的 Service 对应的后端 Endpoint 仍然为所有 pod 的 endpoint 地址，这里并不会按照 nodeunit 进行 endpoint 筛选
 
-# 在 beijing 地域的 pod 内执行下面的命令
+# 在 guangzhou 地域的 pod 内执行下面的命令
 [~]# curl 172.16.33.231|grep "node name"
         node name:      gz-2
 ...
 # 这里会随机返回 gz-2 或者 gz-3 的 node 名称，并不会跨 NodeUnit 访问到 bj-1 或者 bj-3
 
-# 在 guangzhou 地域的 pod 执行下面的命令
+# 在 beijing 地域的 pod 执行下面的命令
 [~]# curl 172.16.33.231|grep "node name"
         node name:      bj-3
 # 这里会随机返回 bj-1 或者 bj-3 的 node 名称，并不会跨 NodeUnit 访问到 gz-2 或者 gz-3

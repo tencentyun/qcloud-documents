@@ -495,12 +495,24 @@ badgeNumber：应用的角标数。
 #### 示例代码
 
 ```Objective-C
-/// TPNS网络连接成功
-/// _launchTag清零标识，比如冷启动/热启动时将此tag设置为YES
+/// 冷启动调用时机
+- (void)xgPushDidRegisteredDeviceToken:(nullable NSString *)deviceToken xgToken:(nullable NSString *)xgToken error:(nullable NSError *)error {
+    /// 在注册完成后上报角标数目
+    if (!error) {
+     /// 重置应用角标，-1不清空通知栏，0清空通知栏
+     [XGPush defaultManager].xgApplicationBadgeNumber = -1;
+        /// 重置服务端自动+1基数
+        [[XGPush defaultManager] setBadge:0];
+    }
+}
+
+/// 热启动调用时机
+/// _launchTag热启动标识，业务自行管理
 - (void)xgPushNetworkConnected {
     if (_launchTag) {
-        /// -1不清空通知栏，0清空通知栏
+        /// 重置应用角标，-1不清空通知栏，0清空通知栏
         [XGPush defaultManager].xgApplicationBadgeNumber = -1;
+        /// 重置服务端自动+1基数
         [[XGPush defaultManager] setBadge:0];
         _launchTag = NO;
     }
