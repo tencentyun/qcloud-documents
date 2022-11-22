@@ -420,7 +420,7 @@ DynamicWaterModel 类参数说明：
 支持用户在有网络的条件下缓存视频，随后在无网络的环境下观看；同时离线缓存的视频仅可在客户端内观看，不可被下载至本地，可有效防止下载视频的非法传播，保护视频安全。
 你可在 腾讯云视立方 App > 播放器 > 播放器组件 > 离线缓存（全屏）演示视频中，使用全屏观看模式后体验。
 
-<img src="http://1400155958.vod2.myqcloud.com/facd87c8vodcq1400155958/a8714349387702307128701255/XKE6yjeb87UA.jpg" style="zoom: 50%;" />
+<img src="https://qcloudimg.tencent-cloud.cn/raw/7f6d453e8cb13e5e2ec803ded4e7aad7.png" style="zoom: 50%;" />
 <dx-tabs>
 ::: VideoCacheView（ 缓存选择列表视图）
 用于选择下载对应清晰度的视频。左上角选择清晰度后，再点击要下载的视频选项，出现对勾后，代表开始了下载。点击下方的 video download list 按钮后会跳转到 VideoDownloadListView 所在的 Activity。
