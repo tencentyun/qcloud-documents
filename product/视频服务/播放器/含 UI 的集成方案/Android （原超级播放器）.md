@@ -95,7 +95,7 @@ dependencies {
    如果您需要集成历史版本的 LiteAVSDK_Player SDK ，可以在  [MavenCentral](https://repo1.maven.org/maven2/com/tencent/liteav/LiteAVSDK_Player/)  查看历史版本，然后通过下面的方式进行集成： 
 ```xml
 dependencies {
-	 // 集成8.5.10033 版本LiteAVSDK_Player SDK
+	 // 集成 8.5.10033 版本 LiteAVSDK_Player SDK
 	 implementation 'com.tencent.liteav:LiteAVSDK_Player:8.5.10033'
 }
 ```
@@ -260,7 +260,7 @@ ndk {
 ### 步骤5：使用播放器功能
 本步骤，用于指导用户创建和使用播放器，并使用播放器进行视频播放。
 1. **创建播放器**[](id:usePlayer)
-播放器主类为`SuperPlayerView`，创建后即可播放视频， 支持集成 FileID 或者 URL 进行播放。在布局文件创建 SuperPlayerView：
+播放器主类为 `SuperPlayerView`，创建后即可播放视频， 支持集成 FileID 或者 URL 进行播放。在布局文件创建 SuperPlayerView：
 ```xml
 <!-- 播放器组件-->
 <com.tencent.liteav.demo.superplayer.SuperPlayerView
@@ -298,11 +298,11 @@ public class MApplication extends Application {
 	- 直播播放：播放器组件可使用 [URL 播放 ](#url)的方式实现直播播放。通过传入 URL 地址，即可拉取直播音视频流进行直播播放。腾讯云直播URL生成方式可参见 [自主拼装直播 URL](https://cloud.tencent.com/document/product/267/32720)。
 <dx-tabs>
 ::: 通过 URL 播放（直播、点播）[](id:url)
-URL可以是点播文件播放地址，也可以是直播拉流地址，传入相应 URL 即可播放相应视频文件。
+URL 可以是点播文件播放地址，也可以是直播拉流地址，传入相应 URL 即可播放相应视频文件。
 ```java
 SuperPlayerModel model = new SuperPlayerModel();
 model.appId = 1400329073; // 配置 AppId
-model.url = "http://your_video_url.mp4";   // 配置您的播放视频url
+model.url = "http://your_video_url.mp4";   // 配置您的播放视频 url
 mSuperPlayerView.playWithModelNeedLicence(model);
 ```
 :::
@@ -398,7 +398,7 @@ mSuperPlayer.snapshot(new TXLivePlayer.ITXSnapshotListener() {
 ::: 清晰度切换[](id:resolution)
 用户可以根据需求选择不同的视频播放清晰度，如高清、标清或超清等。
 ```java
-//单击后触发的显示清晰度view代码接口
+//单击后触发的显示清晰度 view 代码接口
 showQualityView();
 //单击清晰度选项的回调接口为
 mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
