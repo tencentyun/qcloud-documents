@@ -10,14 +10,14 @@
 ## 配置流程
 假设客户已创建了业务 VPC，并在 VPC 内云服务器上部署相关业务，可按照如下流程配置：
 <dx-steps>
-- [创建NAT 网关并配置子网路由指向 NAT 网关](step1)
+- [创建 NAT 网关并配置子网路由指向 NAT 网关](step1)
 - [创建公网负载均衡 CLB 实例并配置监听器规则](step2)
 - [配置安全策略](step3)
 </dx-steps>
 
 ## 操作步骤
 ### 创建 NAT 网关并配置子网路由指向 NAT 网关[](id:step1)
-创建 NAT 网关并配置子网路由指向 NAT 网关，可以将子网流量引流到 NAT 网关，统一通过 NAT 网关上的公网 IP 来访问公网，从而隐藏内网 IP，实现安全的公网访问。详情请参见详 [NAT 快速入门](https://cloud.tencent.com/document/product/552/18186)。
+创建 NAT 网关并配置子网路由指向 NAT 网关，可以将子网流量引流到 NAT 网关，统一通过 NAT 网关上的公网 IP 来访问公网，从而隐藏内网 IP，实现安全的公网访问。详情请参见 [NAT 快速入门](https://cloud.tencent.com/document/product/552/18186)。
 
 #### 步骤一：创建 NAT 网关
 1. 登录 [NAT 网关控制台](https://console.cloud.tencent.com/vpc/nat?rid=1)。
@@ -33,7 +33,7 @@
 6. 单击**创建**完成以上配置后，关联此路由表的子网内的云服务器访问公网的流量将指向该 NAT 网关。
 
 #### 步骤三：（可选）配置 SNAT 规则
-NAT 支持绑定多个公网 IP，子网路由指向 NAT 网关时，默认子网下的云服务器均可通过 NAT 上的所有公网 IP 访问公网。如需指定云服务器通过 NAT 上指定的公网 IP 访问公网，则可以配置 SNAT 规则，详情请参见[ 创建SNAT 规则](https://cloud.tencent.com/document/product/552/52323#.E5.88.9B.E5.BB.BA-snat-.E8.A7.84.E5.88.99.3Ca-id.3D.22cjgz.22.3E.3C.2Fa.3E)。
+NAT 支持绑定多个公网 IP，子网路由指向 NAT 网关时，默认子网下的云服务器均可通过 NAT 上的所有公网 IP 访问公网。如需指定云服务器通过 NAT 上指定的公网 IP 访问公网，则可以配置 SNAT 规则，详情请参见[ 创建 SNAT 规则](https://cloud.tencent.com/document/product/552/52323#.E5.88.9B.E5.BB.BA-snat-.E8.A7.84.E5.88.99.3Ca-id.3D.22cjgz.22.3E.3C.2Fa.3E)。
 
 #### 步骤四：（可选）配置端口转发规则
 NAT 网关默认提供主动内访外的能力，如需要对外提供服务，也可以通过配置端口转换规则来实现。
