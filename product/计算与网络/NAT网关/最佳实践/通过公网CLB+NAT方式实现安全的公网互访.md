@@ -16,9 +16,11 @@
 - [操作验证](#step4)
 </dx-steps>
 
+
+
 ## 操作步骤
-### 创建 NAT 网关并配置子网路由指向 NAT 网关[](id:step1)
-<dx-fold-block title="">
+<dx-accordion>
+::: 创建 NAT 网关并配置子网路由指向 NAT 网关[](id:step1)
 创建 NAT 网关并配置子网路由指向 NAT 网关，可以将子网流量引流到 NAT 网关，统一通过 NAT 网关上的公网 IP 来访问公网，从而隐藏内网 IP，实现安全的公网访问。详情请参见 [NAT 快速入门](https://cloud.tencent.com/document/product/552/18186)。
 
 #### 步骤一：创建 NAT 网关
@@ -43,10 +45,8 @@ NAT 网关默认提供主动内访外的能力，如需要对外提供服务，�
 即可将 VPC 内云服务器的 [内网 IP，协议，端口] 映射成 [外网 IP，协议，端口]，使得云服务器上的资源可一对一地被外网访问，详情请参见[ 配置端口转发规则](https://cloud.tencent.com/document/product/552/18176)。
 >?NAT 网关的端口转换服务仅能提供一对一的对外访问服务，如需通过统一的 IP 地址对外提供服务，则参考如下步骤通过公网 CLB 来实现。
 >
-</dx-fold-block>
-
-### 创建公网负载均衡 CLB 实例并配置监听器规则[](id:step2)
-<dx-fold-block title="">
+:::
+::: 创建公网负载均衡 CLB 实例并配置监听器规则[](id:step2)
 通过创建公网 CLB，并配置监听器规则，使得外部客户端可通过 CLB 的外网 VIP 访问后端的云服务器业务，通过公网 CLB 的流量将转发至后端云服务器上。详情请参见 [负载均衡快速入门](https://cloud.tencent.com/document/product/214/8975)。
 
 #### 步骤一：购买负载均衡实例
@@ -61,23 +61,21 @@ NAT 网关默认提供主动内访外的能力，如需要对外提供服务，�
 3. 在**创建监听器**对话框中，逐步配置监听器健康检查，会话保持等相关参数，单击**提交**。
 4. 在右侧监听器详情中，单击**绑定**，为 CLB 绑定后端云服务器，并配置云服务器端口和权重，完成后单击**确定**。
     ![](https://qcloudimg.tencent-cloud.cn/raw/73314c69869f929c67cd2afd4e6956d5.png)
-</dx-fold-block>
-
-### 配置安全策略[](id:step3)
-<dx-fold-block title="">
+:::
+::: 配置安全策略[](id:step3)
 1. 创建完负载均衡后，您可以配置负载均衡的安全组来隔离公网流量，详情请参考[ 配置 CLB 安全组](https://cloud.tencent.com/document/product/214/14733#.E6.AD.A5.E9.AA.A4.E4.BA.8C.EF.BC.9A.E9.85.8D.E7.BD.AE-clb-.E5.AE.89.E5.85.A8.E7.BB.84)。
 2. 可以为云服务器绑定安全组，实现云服务器级别的流量控制，详情请参见[ 添加安全组规则](https://cloud.tencent.com/document/product/213/39740) 和 [关联实例至安全组](https://cloud.tencent.com/document/product/213/39751)。
 3. 可以[ 配置 WAF 对负载均衡的监听域名进行 Web 安全防护](https://cloud.tencent.com/document/product/214/49031)。
 4. 可以为 [NAT 网关绑定 DDoS 高防包](https://cloud.tencent.com/document/product/552/18185) 以抵御 DDoS 攻击。
-</dx-fold-block>
-
-### 操作验证[](id:step4)
-<dx-fold-block title="">
+:::
+::: 操作验证[](id:step4)
 1. 云服务器主动访问外网。
     ![](https://qcloudimg.tencent-cloud.cn/raw/1c390ab20ce53f39553e20ac81f37a23.png)
 2. 外网通过公网 CLB 的 VIP 访问后端业务。
     ![](https://qcloudimg.tencent-cloud.cn/raw/72e21cf523e96235f0fec77c035cf8e9.png)
-</dx-fold-block>
+:::
+</dx-accordion>
+
 
 		
 ## 相关文档
