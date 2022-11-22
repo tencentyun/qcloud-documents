@@ -421,10 +421,9 @@ DynamicWaterModel 类参数说明：
 你可在 腾讯云视立方 App > 播放器 > 播放器组件 > 离线缓存（全屏）演示视频中，使用全屏观看模式后体验。
 
 <img src="https://qcloudimg.tencent-cloud.cn/raw/7f6d453e8cb13e5e2ec803ded4e7aad7.png" style="zoom: 50%;" />
-<dx-tabs>
-::: VideoCacheView（ 缓存选择列表视图）
-用于选择下载对应清晰度的视频。左上角选择清晰度后，再点击要下载的视频选项，出现对勾后，代表开始了下载。点击下方的 video download list 按钮后会跳转到 VideoDownloadListView 所在的 Activity。
 
+- VideoCacheView（ 缓存选择列表视图）
+用于选择下载对应清晰度的视频。左上角选择清晰度后，再单击要下载的视频选项，出现对勾后，代表开始了下载。单击下方的 video download list 按钮后会跳转到 VideoDownloadListView 所在的 Activity。
 ```objective-c
 // 步骤1：初始化缓存选择列表视图
 //@property (nonatomic, strong) VideoCacheView *cacheView;
@@ -435,26 +434,31 @@ _cacheView.hidden = YES;
 // 步骤2：设置正在播放的视频选项
 [_cacheView setVideoModels:_currentPlayVideoArray currentPlayingModel:player.playerModel];
 
-// video download list 按钮的点击事件
+// video download list 按钮的单击事件
 - (UIButton *)viewCacheListBtn;
 ```
-
 ```objective-c
 - (void)setVideoModels:(NSArray *)models currentPlayingModel:(SuperPlayerModel *)currentModel;
 ```
-
 接口参数说明
+<table ><thead ><tr>
+<th >参数名</th><th >类型</th><th >描述</th></tr>
+</thead><tbody ><tr>
+<td>models</td>
+<td>NSArray</td>
+<td>下载列表的视频数据模型</td>
+</tr>
+<tr>
+<td>SuperPlayerModel</td>
+<td>currentModel</td>
+<td>当前在播放的视频数据模型</td>
+</tr>
+</tbody>
+</table>
 
-| 参数名           | 类型         | 描述                     |
-| ---------------- | ------------ | ------------------------ |
-| models           | NSArray      | 下载列表的视频数据模型   |
-| SuperPlayerModel | currentModel | 当前在播放的视频数据模型 |
-:::
-:::  VideoCacheListView（视频下载列表）
-显示所有正在下载的和下载完成视频的列表 View。点击时，如果正在下载，会暂停下载；如果暂时下载，会继续下载；如果下载完成，会跳转播放。
-
+- VideoCacheListView（视频下载列表）
+显示所有正在下载的和下载完成视频的列表 View。单击时，如果正在下载，会暂停下载；如果暂时下载，会继续下载；如果下载完成，会跳转播放。
 <img src="http://1400155958.vod2.myqcloud.com/facd87c8vodcq1400155958/a69c6b2c387702307128674240/wt31IYPsdQoA.jpg" style="zoom: 33%;" />
-
 ```objective-c
 // 添加数据，数据从 TXVodDownloadManager#getDownloadMediaInfoList 接口获取到
 NSArray<TXVodDownloadMediaInfo *> *array = [[[TXVodDownloadManager shareInstance] getDownloadMediaInfoList] mutableCopy];
@@ -464,11 +468,11 @@ for (TXVodDownloadMediaInfo *info in array) {
     [self.videoCacheArray addObject:model];
 }
 
-// 列表项支持点击播放、长按删除等操作
+// 列表项支持单击播放、长按删除等操作
 - (void)longPress:(UILongPressGestureRecognizer *)longPress;  // 长按
 ```
 
-::下载后的视频支持无网络情况下进行播放，播放时请参考如下代码：
+- 下载后的视频支持无网络情况下进行播放，播放时请参考如下代码：
 ```objective-c
 NSArray<TXVodDownloadMediaInfo *> *mediaInfoList = [[TXVodDownloadManager shareInstance] getDownloadMediaInfoList];
 TXVodDownloadMediaInfo *mediaInfo = [mediaInfoList firstObject];
@@ -480,8 +484,7 @@ SuperPlayerModel *playerModel = [[SuperPlayerModel alloc] init];
 playerModel.multiVideoURLs = multiVideoURLs;
 [self.playerView playWithModelNeedLicence:playerModel];A
 ```
-:::
-</dx-tabs>
+
 
 >! 视频文件下载无网络播放时，一定要通过获取下载列表并通过下载列表视频对象`TXxiodDownloadMediaInfo` 的 `PlayPath` 进行播放，切勿直接保存 PlayPath 对象。
 
@@ -489,7 +492,7 @@ playerModel.multiVideoURLs = multiVideoURLs;
 
 #### 打点信息
 
-支持在进度条关键位置添加文字介绍，用户点击后可显示打点位置的文字信息，以快速了解当前位置的视频信息。点击视频信息后，可以 seek 到打点信息位置。
+支持在进度条关键位置添加文字介绍，用户单击后可显示打点位置的文字信息，以快速了解当前位置的视频信息。单击视频信息后，可以 seek 到打点信息位置。
 
 您可在腾讯云视立方 App > 播放器 > 播放器组件 > 腾讯云 视频中，使用全屏观看模式后体验。
 
