@@ -482,7 +482,7 @@ superPlayerUrl.url = mediaInfo.playpath;
 NSArray<SuperPlayerUrl *> *multiVideoURLs = @[superPlayerUrl];
 SuperPlayerModel *playerModel = [[SuperPlayerModel alloc] init];
 playerModel.multiVideoURLs = multiVideoURLs;
-[self.playerView playWithModelNeedLicence:playerModel];A
+[self.playerView playWithModelNeedLicence:playerModel];
 ```
 
 
