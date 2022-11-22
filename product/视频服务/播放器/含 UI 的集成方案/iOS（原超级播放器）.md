@@ -421,8 +421,9 @@ DynamicWaterModel 类参数说明：
 你可在 腾讯云视立方 App > 播放器 > 播放器组件 > 离线缓存（全屏）演示视频中，使用全屏观看模式后体验。
 
 <img src="http://1400155958.vod2.myqcloud.com/facd87c8vodcq1400155958/a8714349387702307128701255/XKE6yjeb87UA.jpg" style="zoom: 50%;" />
-
-:: VideoCacheView（ 缓存选择列表视图），用于选择下载对应清晰度的视频。左上角选择清晰度后，再点击要下载的视频选项，出现对勾后，代表开始了下载。点击下方的 video download list 按钮后会跳转到 VideoDownloadListView 所在的 Activity。
+<dx-tabs>
+::: VideoCacheView（ 缓存选择列表视图）
+用于选择下载对应清晰度的视频。左上角选择清晰度后，再点击要下载的视频选项，出现对勾后，代表开始了下载。点击下方的 video download list 按钮后会跳转到 VideoDownloadListView 所在的 Activity。
 
 ```objective-c
 // 步骤1：初始化缓存选择列表视图
@@ -448,15 +449,14 @@ _cacheView.hidden = YES;
 | ---------------- | ------------ | ------------------------ |
 | models           | NSArray      | 下载列表的视频数据模型   |
 | SuperPlayerModel | currentModel | 当前在播放的视频数据模型 |
-
-:: VideoCacheListView（视频下载列表），显示所有正在下载的和下载完成视频的列表 View。点击时，如果正在下载，会暂停下载；如果暂时下载，会继续下载；如果下载完成，会跳转播放。
+:::
+:::  VideoCacheListView（视频下载列表）
+显示所有正在下载的和下载完成视频的列表 View。点击时，如果正在下载，会暂停下载；如果暂时下载，会继续下载；如果下载完成，会跳转播放。
 
 <img src="http://1400155958.vod2.myqcloud.com/facd87c8vodcq1400155958/a69c6b2c387702307128674240/wt31IYPsdQoA.jpg" style="zoom: 33%;" />
 
-
-
 ```objective-c
-// 添加数据，数据从TXVodDownloadManager#getDownloadMediaInfoList 接口获取到
+// 添加数据，数据从 TXVodDownloadManager#getDownloadMediaInfoList 接口获取到
 NSArray<TXVodDownloadMediaInfo *> *array = [[[TXVodDownloadManager shareInstance] getDownloadMediaInfoList] mutableCopy];
 for (TXVodDownloadMediaInfo *info in array) {
     VideoCacheListModel *model = [[VideoCacheListModel alloc] init];
@@ -478,9 +478,12 @@ superPlayerUrl.url = mediaInfo.playpath;
 NSArray<SuperPlayerUrl *> *multiVideoURLs = @[superPlayerUrl];
 SuperPlayerModel *playerModel = [[SuperPlayerModel alloc] init];
 playerModel.multiVideoURLs = multiVideoURLs;
-[self.playerView playWithModelNeedLicence:playerModel];
+[self.playerView playWithModelNeedLicence:playerModel];A
 ```
-::: **注意:** 视频文件下载无网络播放时，一定要通过获取下载列表并通过下载列表视频对象‘TXxiodDownloadMediaInfo’的PlayPath进行播放，切勿直接保存PlayPath对象
+:::
+</dx-tabs>
+
+>! 视频文件下载无网络播放时，一定要通过获取下载列表并通过下载列表视频对象`TXxiodDownloadMediaInfo` 的 `PlayPath` 进行播放，切勿直接保存 PlayPath 对象。
 
 ### 9、雪碧图和打点信息
 
