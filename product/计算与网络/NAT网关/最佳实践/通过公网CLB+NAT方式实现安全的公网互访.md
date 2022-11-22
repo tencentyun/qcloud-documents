@@ -22,7 +22,7 @@
 #### 步骤一：创建 NAT 网关
 1. 登录 [NAT 网关控制台](https://console.cloud.tencent.com/vpc/nat?rid=1)。
 2. 单击左上角的**新建**，在弹出框中依次配置参数。
-3. 参数配置完成后，按照界面提示完成购买即可。详情可参见 [创建 NAT 网关](https://cloud.tencent.com/document/product/552/83056)。
+3. 参数配置完成后，按照界面提示完成购买即可。详情请参见 [创建 NAT 网关](https://cloud.tencent.com/document/product/552/83056)。
 
 #### 步骤二：配置子网路由表指向 NAT 网关
 1. 在 NAT 实例列表中，单击目标 NAT 实例所在行的私有网络 ID。
