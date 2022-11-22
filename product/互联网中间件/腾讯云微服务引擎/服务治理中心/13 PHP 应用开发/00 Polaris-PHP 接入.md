@@ -1,10 +1,10 @@
 ## 操作场景
 
-本文通过一个 demo 进行 PHP 应用接入微服务引擎托管的 PolarisMesh 治理中心的全流程操作演示，帮助您快速了解如何使用服务治理中心。
+本文通过一个 demo 进行 PHP 应用接入微服务引擎托管的 PolarisMesh 治理中心的全流程操作演示，帮助您快速了解如何使用北极星网格。
 
 ## 前提条件
 
-- 已创建 PolarisMesh服务治理中心，请参见 [创建 PolarisMesh 治理中心](https://cloud.tencent.com/document/product/1364/65866)。
+- 已创建 PolarisMesh北极星网格，请参见 [创建 PolarisMesh 治理中心](https://cloud.tencent.com/document/product/1364/65866)。
 - 下载 Github 的 polaris-php 源码：
   - [php-7.x](https://github.com/polarismesh/polaris-php/tree/php-7.x)
   - [php-5.x](https://github.com/polarismesh/polaris-php/tree/php-5.x)
@@ -17,13 +17,13 @@
 ## 操作步骤
 
 1. 登录 [TSE 控制台](https://console.cloud.tencent.com/tse)。
-2. 在**治理中心**下的 **polarismesh** 页面，单击页面左上方下拉列表，选择目标地域。
+2. 在**北极星网格**下的 **polarismesh** 页面，单击页面左上方下拉列表，选择目标地域。
 3. 单击目标引擎的“ID”，进入基本信息页面。
 4. 查看访问地址，PHP 应用访问使用 gRPC 端口（8091）：
 ![](https://qcloudimg.tencent-cloud.cn/raw/e7dc5ac5f7c76a316ae68b667d8a365f.png)
 5. 修改 demo 中的注册中心地址
  1. 在下载到本地的 [demo 源码](https://github.com/polarismesh/polaris-php/tree/php-7.x) 目录下，分别找到`quickstart/consumer/polaris.yaml`以及`quickstart/provider/polaris.yaml`文件
- - 添加微服务引擎服务治理中心地址到项目配置文件中（这里已`quickstart/consumer/polaris.yaml`为例）。
+ - 添加微服务引擎北极星网格地址到项目配置文件中（这里已`quickstart/consumer/polaris.yaml`为例）。
 <dx-codeblock>
 :::  yaml
    global:
@@ -72,7 +72,7 @@
 :::
 </dx-codeblock>
 8. 确认部署结果
- 1. 进入前面提到的微服务治理中心实例页面。
+ 1. 进入前面提到的微北极星网格实例页面。
  - 选择**服务管理** > **服务列表**，查看微服务 EchoServerPHP 的实例数量：
     - 若实例数量值不为0，则表示已经成功接入微服务引擎。
     - 若实例数量为0，或者找不到`EchoServerPHP`服务名，则表示微服务应用接入微服务引擎失败。

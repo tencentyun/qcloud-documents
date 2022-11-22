@@ -10,7 +10,7 @@
 | [macOS](https://cloud.tencent.com/document/product/269/68823#pc) | 4.1.8版本起支持 | 即将上线 |
 | [Windows](https://cloud.tencent.com/document/product/269/68823#pc) | 4.1.8版本起支持 | 即将上线 |
 | [Windows](https://cloud.tencent.com/document/product/269/68823#pc) | 4.1.8版本起支持 | 即将上线 |
-| [混合开发](https://cloud.tencent.com/developer/article/2167243) - *将Flutter SDK添加至现有原生应用* | 5.0.0版本起支持 | 0.2.0版本起支持 |
+| [混合开发](https://cloud.tencent.com/developer/article/2167243) （将 Flutter SDK 添加至现有原生应用） | 5.0.0版本起支持 | 0.2.0版本起支持 |
 
 >? Web/macOS/Windows 平台需要简单的几步额外引入，详情请查看 [Web 兼容](https://cloud.tencent.com/document/product/269/68823#web) 和 [Desktop 兼容](https://cloud.tencent.com/document/product/269/68823#pc) 指引。
 
@@ -58,7 +58,6 @@
 ### IM Flutter TUIKit（含 UI） 0.1.8 @2022.10.21
 
 - 优化：文件批量下载队列，允许一次点击多个文件消息。
-
 - 优化：群组列表小部件可以自动更新。
 - 优化：相机拍摄支持性能相对较低的设备，自动调整分辨率。
 - 优化：支持自定义应用栏的颜色和文字样式，特别是在 `TIMUIKitChat` 组件上。
@@ -78,7 +77,6 @@
 ### IM Flutter TUIKit（含 UI） 0.1.7 @2022.10.18
 
 - 新增：支持大图片和 RAW 图片，特别是那些从最新版本的 iOS 和 iPhone 14 Pro 系列捕获的图片，在自动发送前压缩和格式化
-
 - 优化：性能和稳定性，特别是历史消息列表和启动
 - 优化：使初始化' TIMUIKitChat '为幂等操作
 - 优化：当滚动回底部时加载最新的消息
@@ -89,7 +87,6 @@
 ### IM Flutter TUIKit（含 UI） 0.1.5 @2022.09.22
 
 - 新增：Web支持。现在，您可以在 iOS/Android/Web 平台上实现 TUIKit
-
 - 新增：登录后检查磁盘存储，控制在`init`的`config`中
 - 新增：在`TIMUIKitChatConfig`中添加：`timeDividerConfig`、`notificationAndroidSound` 华为Google推送声音配置、`isSupportMarkdown` 文本消息是否支持Markdown解析 、`onTapLink`
 - 移除：默认Emoji列表，由于版权问题。您可以通过[tim_ui_kit_sticker_plugin](https://pub.dev/packages/tim_ui_kit_sticker_plugin)向TUIKit提供您自己的表情列表

@@ -41,7 +41,7 @@ mkdir -p ./pages/TUIKit && cp -r ./node_modules/@tencentcloud/chat-uikit-uniapp/
 ::: windows
 ```shell
 # windows
-npm i @tencentcloud\chat-uikit-uniapp && xcopy .\node_modules\@tencentcloud\chat-uikit-uniapp .\pages\TUIKit /i /e
+npm i @tencentcloud/chat-uikit-uniapp && xcopy .\node_modules\@tencentcloud\chat-uikit-uniapp .\pages\TUIKit /i /e
 ```
 ::: 
 </dx-tabs>

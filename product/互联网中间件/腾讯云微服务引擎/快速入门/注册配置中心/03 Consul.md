@@ -50,7 +50,7 @@
    <td>用于分类管理资源，选填，具体使用方法可参见 <a href="https://cloud.tencent.com/document/product/1364/74387">标签管理</a></td>
    </tr>
    </tbody></table>
-4. 单击**创建**，完成 consul 引擎创建。创建完成后单击引擎实例的“ID”，进入基本信息页面，选择**访问管理**页签可以获取 Eureka 注册中心实例访问 IP。
+4. 单击**创建**，完成 consul 引擎创建。创建完成后单击引擎实例的“ID”，进入基本信息页面，选择**访问管理**页签可以获取 Consul 注册中心实例访问 IP。
    ![](https://qcloudimg.tencent-cloud.cn/raw/fc5cae7f9723dd275ff059389221997c.png)
 
 
@@ -149,7 +149,7 @@
 
 1. 登录 [TSE 控制台](https://console.cloud.tencent.com/tse)。
 2. 在左侧导航栏选择 **consul**，单击目标实例的 ID，进入基本信息页面。
-3. 在页面上方选择**服务管理**页签，出现如下页面代表服务注册成功。单击服务名称或者操作栏的**查看实例列表**可以查看服务的详细信息，如ID、地址、端口等信息。
+3. 在页面上方选择**服务管理**页签，出现如下页面代表服务注册成功。单击服务名称或者操作栏的**查看实例列表**可以查看服务的详细信息，如 ID、地址、端口等信息。
    ![](https://qcloudimg.tencent-cloud.cn/raw/ca437e85cfe5c92c5a9e81990af9889e.png)
 4. 登录云服务器，执行如下命令，调用 consumer 接口访问 provider 服务。
    ```curl
