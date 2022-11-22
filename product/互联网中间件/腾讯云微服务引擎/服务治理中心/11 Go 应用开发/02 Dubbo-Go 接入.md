@@ -1,10 +1,10 @@
 ## 操作场景
 
-本文通过一个 demo 进行 dubbo-go 应用接入微服务引擎托管的 PolarisMesh 治理中心的全流程操作演示，帮助您快速了解如何使用服务治理中心。
+本文通过一个 demo 进行 dubbo-go 应用接入微服务引擎托管的 PolarisMesh 治理中心的全流程操作演示，帮助您快速了解如何使用北极星网格。
 
 ## 前提条件
 
-- 已创建 PolarisMesh 服务治理中心，请参见 [创建 PolarisMesh 治理中心](https://cloud.tencent.com/document/product/1364/65866)。
+- 已创建 PolarisMesh 北极星网格，请参见 [创建 PolarisMesh 治理中心](https://cloud.tencent.com/document/product/1364/65866)。
 - 下载 Github 的 [demo 源码](https://github.com/polarismesh/examples/tree/main/dubbo3/dubbogo) 到本地并解压。
 - 本地编译构建打包机器环境已安装了 golang 环境，并且能够访问 Github。
 - 当前仅支持 dubbo-go 的接口注册模型。
@@ -15,13 +15,13 @@
 ## 操作步骤
 
 1. 登录 [TSE 控制台](https://console.cloud.tencent.com/tse)。
-2. 在**治理中心**下的 **polarismesh** 页面，单击页面左上方下拉列表，选择目标地域。
+2. 在**北极星网格**下的 **polarismesh** 页面，单击页面左上方下拉列表，选择目标地域。
 3. 单击目标引擎的“ID”，进入基本信息页面。
 4. 查看访问地址，Dubbo-Go 应用访问使用 gRPC 端口（8091）：
 ![](https://qcloudimg.tencent-cloud.cn/raw/e7dc5ac5f7c76a316ae68b667d8a365f.png)
 5. 修改 demo 中的注册中心地址
  1. 在下载到本地的 [demo 源码](https://github.com/polarismesh/examples/tree/main/dubbo3/dubbogo) 目录下，分别找到`dubbo\dubbogo\provider\dubbogo.yaml`以及`dubbo\dubbogo\consumer\dubbogo.yaml`文件
- - 添加微服务引擎服务治理中心地址到项目配置文件中（这里已`dubbo\dubbogo\provider\dubbogo.yaml`为例）。
+ - 添加微服务引擎北极星网格地址到项目配置文件中（这里已`dubbo\dubbogo\provider\dubbogo.yaml`为例）。
 <dx-codeblock>
 :::  yaml
   dubbo:
@@ -89,7 +89,7 @@
 </dx-codeblock>  
     - 通过 TKE 部署并运行镜像
 8. 确认部署结果
- 1. 进入前面提到的微服务治理中心实例页面。
+ 1. 进入前面提到的微北极星网格实例页面。
  - 选择**服务管理** > **服务列表**，查看一下服务的实例数量：
     - 若实例数量值不为0，则表示已经成功接入微服务引擎
     - 若实例数量为0，或者找不到上述服务名，则表示`Dubbo-Go`应用接入微服务引擎失败。

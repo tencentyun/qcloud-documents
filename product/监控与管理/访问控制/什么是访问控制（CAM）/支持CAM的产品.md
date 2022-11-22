@@ -266,14 +266,13 @@
 
 ## 视频服务
 
-| 产品                                                         | CAM 中简称  | 授权粒度 | 控制台 | 根据标签进行授权 | 服务角色 | 参考文档                                                     |
-| ------------------------------------------------------------ | ----------- | -------- | ------ | ---------------- | -------- | ------------------------------------------------------------ |
-| [实时音视频](https://cloud.tencent.com/document/product/647) | trtc        | 资源级   | ✓      | ✓                | -        | [访问管理指南](https://cloud.tencent.com/document/product/647/46764) |
-| [云直播](https://cloud.tencent.com/document/product/267)     | consolelive | 资源级   | ✓      | ✓                | ✓        | [访问管理指南](https://cloud.tencent.com/document/product/267/34301) |
-| [云点播](https://cloud.tencent.com/document/product/266)     | consolevod  | 资源级   | ✓      | ✓                | ✓        | [访问管理指南](https://cloud.tencent.com/document/product/266/39337) |
-| [视频处理](https://cloud.tencent.com/document/product/862)   | mps         | 服务级   | ✓      | -                | ✓        | -                                                            |
-| [腾讯云剪](https://cloud.tencent.com/document/product/1156)  | cme         | 操作级   | ✓      | -                | ✓        | -                                                            |
-| [音视频终端引擎](https://cloud.tencent.com/document/product/1449) | vcube       | 操作级   | ✓      | -                | -        | -                                                            |
+| 产品                                                         | CAM 中简称 | 授权粒度 | 控制台 | 根据标签进行授权 | 服务角色 | 参考文档                                                     |
+| ------------------------------------------------------------ | ---------- | -------- | ------ | ---------------- | -------- | ------------------------------------------------------------ |
+| [实时音视频](https://cloud.tencent.com/document/product/647) | trtc       | 资源级   | ✓      | ✓                | -        | [访问管理指南](https://cloud.tencent.com/document/product/647/46764) |
+| [云点播](https://cloud.tencent.com/document/product/266)     | vod        | 资源级   | ✓      | ✓                | ✓        | [访问管理指南](https://cloud.tencent.com/document/product/266/39337) |
+| [视频处理](https://cloud.tencent.com/document/product/862)   | mps        | 服务级   | ✓      | -                | ✓        | -                                                            |
+| [腾讯云剪](https://cloud.tencent.com/document/product/1156)  | cme        | 操作级   | ✓      | -                | ✓        | -                                                            |
+| [音视频终端引擎](https://cloud.tencent.com/document/product/1449) | vcube      | 操作级   | ✓      | -                | -        | -                                                            |
 
 
 

@@ -1,10 +1,10 @@
 ## 操作场景
 
-本文通过一个 demo 进行 Golang 应用接入微服务引擎托管的 PolarisMesh 治理中心的全流程操作演示，帮助您快速了解如何在 Kubernetest 中使用 DNS 协议来体验使用服务治理中心的就近路由能力。
+本文通过一个 demo 进行 Golang 应用接入微服务引擎托管的 PolarisMesh 治理中心的全流程操作演示，帮助您快速了解如何在 Kubernetest 中使用 DNS 协议来体验使用北极星网格的就近路由能力。
 
 ## 前提条件
 
-- 已创建 PolarisMesh 服务治理中心，请参见 [创建 PolarisMesh 治理中心](https://cloud.tencent.com/document/product/1364/65866)。
+- 已创建 PolarisMesh 北极星网格，请参见 [创建 PolarisMesh 治理中心](https://cloud.tencent.com/document/product/1364/65866)。
 - 已准备好业务部署的容器资源。
   - 创建 TKE 容器集群，请参见 [创建 TKE 集群](https://cloud.tencent.com/document/product/457/32189)。
 - 下载 Github 的 [demo 源码](https://github.com/polarismesh/polaris-go/tree/main/examples/route/nearby/k8s) 到本地。
@@ -12,11 +12,11 @@
 ## 操作步骤
 
 1. 登录 [TSE 控制台](https://console.cloud.tencent.com/tse)。
-2. 在**治理中心**下的 **polarismesh** 页面，单击页面左上方下拉列表，选择目标地域。
+2. 在**北极星网格**下的 **polarismesh** 页面，单击页面左上方下拉列表，选择目标地域。
 3. 单击目标引擎的“ID”，进入基本信息页面。
 4. 查看访问地址，Golang 应用访问使用 gRPC 端口（8091）：
 ![](https://qcloudimg.tencent-cloud.cn/raw/e7dc5ac5f7c76a316ae68b667d8a365f.png)
-5. 将服务治理中心和 Kubernetes 集群进行关联，请参见 [关联 K8s 集群](https://cloud.tencent.com/document/product/1364/65869)。
+5. 将北极星网格和 Kubernetes 集群进行关联，请参见 [关联 K8s 集群](https://cloud.tencent.com/document/product/1364/65869)。
 6. 开启 polaris-sidecar 的注入能力。
 <dx-codeblock>
 :::  shell
@@ -28,7 +28,7 @@ kubectl label namespace default polaris-sidecar-mode=dns
 </dx-codeblock>
 7. 修改 demo 中的注册中心地址：
  1. 在下载到本地的 [demo 源码](https://github.com/polarismesh/polaris-go/tree/main/examples/route/nearby/k8s) 目录下，找到`configmap-provider.yaml`文件。
- - 添加微服务引擎服务治理中心地址到项目配置文件中（这里已`configmap-provider.yaml`为例）。
+ - 添加微服务引擎北极星网格地址到项目配置文件中（这里已`configmap-provider.yaml`为例）。
  - 修改位置信息获取插件名称到项目配置文件中（这里已`configmap-provider.yaml`为例）。
 <dx-codeblock>
 :::  yaml
@@ -62,7 +62,7 @@ kubectl apply -f ./
 :::
 </dx-codeblock>
 9. 确认部署结果：
- 1. 进入前面提到的微服务治理中心实例页面。
+ 1. 进入前面提到的微北极星网格实例页面。
  - 选择**服务管理** > **服务列表**，查看微服务 RouteNearbyEchoServer 的实例数量。
     - 若实例数量值不为0，则表示已经成功接入微服务引擎。
     - 若实例数量为0，或者找不到 RouteNearbyEchoServer 服务名，则表示微服务应用接入微服务引擎失败。

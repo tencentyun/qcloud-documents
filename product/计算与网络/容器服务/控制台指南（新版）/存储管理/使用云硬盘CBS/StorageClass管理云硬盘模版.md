@@ -46,6 +46,10 @@
    - **命名空间**：选择`default`。
    - **Provisioner**：选择**云硬盘CBS(CSI)**。
    - **读写权限**：云硬盘仅支持单机读写。
+>?
+>- 单机读写：当前仅支持云硬盘同时挂载到一台机器上，因此只能处理单机器的数据读写。
+>- 多机读写：文件存储/对象存储支持同时挂载到多台机器，可以处理多机器的数据读写。
+>
    - **StorageClass**：按需指定 StorageClass，本文选择已在 [创建 StorageClass](#create) 步骤中创建的 `cbs-test` 为例。
 >?
 >- PVC 和 PV 会绑定在同一个 StorageClass 下。

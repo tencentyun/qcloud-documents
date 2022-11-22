@@ -19,7 +19,7 @@ chmod 744 tencentcloud-cls-k8s-install.sh
 ./tencentcloud-cls-k8s-install.sh --region xxx --secretid xxx --secretkey xxx 
 ```
 安装完成后，CLS 会自动创建名为 `cls-k8s-随机 ID` 的默认机器组。
->! 安装 cls-provisioner Helm 前，请确保已在 Kubernetes 集群中安装 Helm 命令，详情请参见 [安装 Helm](https://docs.helm.sh/docs/intro/install/) 文档。
+>! 安装 cls-provisioner Helm 前，请确保已在 Kubernetes 集群中安装 Helm 命令（Helm 版本大于3.1），详情请参见 [安装 Helm](https://docs.helm.sh/docs/intro/install/) 文档。
 >
 
 ## 参数说明
