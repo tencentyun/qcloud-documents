@@ -83,11 +83,11 @@ pod 'SuperPlayer/Professional'
 1. 下载 SDK + Demo 开发包，腾讯云视立方 iOS 播放器项目为 [LiteAVSDK/Player_iOS](https://github.com/LiteAVSDK/Player_iOS)。
 2. 导入 `TXLiteAVSDK_Player.framework` 到工程中，并勾选 `Do Not Embed`。
 3. 将 Demo/TXLiteAVDemo/SuperPlayerKit/SuperPlayer 拷贝到自己的工程目录下。
-4. SuperPlayer依赖第三方库包括：AFNetworking、SDWebImage、Masonry、TXLiteAVSDK_Player
+4. SuperPlayer 依赖第三方库包括：AFNetworking、SDWebImage、Masonry、TXLiteAVSDK_Player
  1. 如果是手动集成 TXLiteAVSDK_Player，需要添加所需要的系统库和 library：
 <b>系统 Framework 库</b>：MetalKit, ReplayKit, SystemConfiguration, CoreTelephony, VideoToolbox, CoreGraphics, AVFoundation, Accelerate, MobileCoreServices, ,VideoToolbox
 <b>系统 Library 库:</b> libz, libresolv,  libiconv, libc++, libsqlite3
-具体操作步骤可以 [参考](https://cloud.tencent.com/document/product/266/73872)：定制开发 - 点播场景 - 接入文档 - SDK集成 步骤1 - 手动集成 SDK
+具体操作步骤可以 [参考](https://cloud.tencent.com/document/product/266/73872)：定制开发 - 点播场景 - 接入文档 - SDK 集成 步骤1 - 手动集成 SDK
 此外还需要把 TXLiteAVSDK_Player 文件下的 TXFFmpeg.xcframework 和 TXSoundTouch.scframework 以动态库的方式加进来如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/5834caae21d3413522c7d51d4b3b57b0.png)
  2. 如果是用 Pod 的方式集成 TXLiteAVSDK_Player，不需要添加任何库。
@@ -147,7 +147,7 @@ _playerView.fatherView = self.holderView;
 
 <dx-codeblock>
 :::  java
-//在未开启防盗链进行播放的过程中，如果出现了 “no v4 play info” 异常，建议您使用 Adaptive-HLS(10)转码模板对视频进行转码，或直接获取源视频播放链接通过 url 方式进行播放。
+//在未开启防盗链进行播放的过程中，如果出现了 “no v4 play info” 异常，建议您使用 Adaptive-HLS(10) 转码模板对视频进行转码，或直接获取源视频播放链接通过 url 方式进行播放。
 
 SuperPlayerModel *model = [[SuperPlayerModel alloc] init];
 model.appId = 1400329071;// 配置 AppId
@@ -180,7 +180,7 @@ model.videoURL = @"http://your_video_url.mp4";   // 配置您的播放视频 url
 
 ### 1、全屏播放
 
-播放器组件支持全屏播放，在全屏播放场景内，同时支持锁屏、手势控制音量和亮度、弹幕、截屏、清晰度切换等功能设置。功能效果可在 [**腾讯云视立方 App**](#qrcode) > **播放器** > **播放器组件** 中体验，单击界面右下角**全屏**即可进入全屏播放界面。
+播放器组件支持全屏播放，在全屏播放场景内，同时支持锁屏、手势控制音量和亮度、弹幕、截屏、清晰度切换等功能设置。功能效果可在 [**腾讯云视立方 App**](#qrcode) > **播放器** > **播放器组件** 中体验，单击界面右下角 **全屏** 即可进入全屏播放界面。
 
 <img src="https://qcloudimg.tencent-cloud.cn/raw/c70c3b14125319160f085cdc15ec5f89.png" style="zoom:25%;" />
 
@@ -197,7 +197,7 @@ model.videoURL = @"http://your_video_url.mp4";   // 配置您的播放视频 url
 <img src="https://qcloudimg.tencent-cloud.cn/raw/fe9de5fdf79e9b77e562deb5701bcb77.png" style="zoom:25%;" />
 <dx-tabs>
 ::: 返回窗口模式[](id:window)
-通过**返回**即可返回窗口播放模式，单击后 SDK 处理完全屏切换的逻辑后会触发的代理方法为：
+通过 **返回** 即可返回窗口播放模式，单击后 SDK 处理完全屏切换的逻辑后会触发的代理方法为：
 
 ```objective-c
 // 返回事件
@@ -249,14 +249,14 @@ CFDanmakuView：弹幕的属性在初始化时配置。
 播放器组件提供播放过程中截取当前视频帧功能，您可以把图片保存起来进行分享。单击截屏按钮后，由 SDK 内部处理，无截屏成功失败的回调，截取到的图片目录为手机相册。
 :::
 ::: 清晰度切换[](id:resolution)
-用户可以根据需求选择不同的视频播放清晰度，如高清、标清或超清等。单击后触发的显示清晰度view以及单击清晰度选项均由 SDK 内部处理，无回调。
+用户可以根据需求选择不同的视频播放清晰度，如高清、标清或超清等。单击后触发的显示清晰度 view 以及单击清晰度选项均由 SDK 内部处理，无回调。
 :::
 </dx-tabs>
 
 
 ### 2、悬浮窗播放
 
-播放器组件支持悬浮窗小窗口播放，可以在切换到应用内其它页面时，不打断视频播放功能。功能效果可在 [**腾讯云视立方 App**](#qrcode) > **播放器** > **播放器组件** 中体验，单击界面左上角**返回**，即可体验悬浮窗播放功能。
+播放器组件支持悬浮窗小窗口播放，可以在切换到应用内其它页面时，不打断视频播放功能。功能效果可在 [**腾讯云视立方 App**](#qrcode) > **播放器** > **播放器组件** 中体验，单击界面左上角 **返回**，即可体验悬浮窗播放功能。
 
 <img src="https://qcloudimg.tencent-cloud.cn/raw/e09da594726859c6cc7d7af894a3cccf.png" style="zoom:25%;" />
 
@@ -371,7 +371,7 @@ model.videoId = videoId;
 ```objective-c
  //步骤1：创建试看 model
  TXVipWatchModel *model = [[TXVipWatchModel alloc] init];
- model.tipTtitle = @"可试看15秒，开通 VIP 观看完整视频";
+ model.tipTtitle = @" 可试看15秒，开通 VIP 观看完整视频";
  model.canWatchTime = 15;
  //步骤2：设置试看 model
  self.playerView.vipWatchModel = model;
@@ -472,7 +472,7 @@ for (TXVodDownloadMediaInfo *info in array) {
 
 #### 打点信息
 
-支持在进度条关键位置添加文字介绍，用户点击后可显示打点位置的文字信息，以快速了解当前位置的视频信息。点击视频信息后，可以seek到打点信息位置。
+支持在进度条关键位置添加文字介绍，用户点击后可显示打点位置的文字信息，以快速了解当前位置的视频信息。点击视频信息后，可以 seek 到打点信息位置。
 
 您可在腾讯云视立方 App > 播放器 > 播放器组件 > 腾讯云 视频中，使用全屏观看模式后体验。
 
