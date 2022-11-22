@@ -59,12 +59,12 @@ remote: Total 2637 (delta 227), reused 524 (delta 170), pack-reused 1993
 <dx-tabs>
 ::: Gradle 自动加载（AAR）
 1. 下载 SDK + Demo 开发包，项目地址为 [Android](https://github.com/LiteAVSDK/Player_Android)。
-2. 把`Demo/superplayerkit`这个 module 复制到工程中，然后进行下面的配置：
-   - 在工程目录下的setting.gradle 导入`superplayerkit`。
+2. 把 `Demo/superplayerkit` 这个 module 复制到工程中，然后进行下面的配置：
+   - 在工程目录下的 setting.gradle 导入 `superplayerkit`。
    ```xml
    include ':superplayerkit'
    ```
-   - 打开`superplayerkit` 工程的 build.gradle 文件修改 compileSdkVersion，buildToolsVersion，minSdkVersion，targetSdkVersion 和 rootProject.ext.liteavSdk 的常量值。
+   - 打开 `superplayerkit`  工程的 build.gradle 文件修改 compileSdkVersion，buildToolsVersion，minSdkVersion，targetSdkVersion 和 rootProject.ext.liteavSdk 的常量值。
      ![](https://main.qcloudimg.com/raw/fd6bc41bfd8b80fe5e82e3345b6ce73f.png)
    ```xmls
    compileSdkVersion 26
@@ -80,8 +80,8 @@ remote: Total 2637 (delta 227), reused 524 (delta 170), pack-reused 1993
        implementation 'com.tencent.liteav:LiteAVSDK_Player:latest.release'
    }
    ```
-   请参见上面的步骤，把`common`模块导入到项目，并进行配置。
-3. 通过在 gradle 配置 mavenCentral 库，自动下载更新 LiteAVSDK，打开`app/build.gradle`，进行下面的配置：
+   请参见上面的步骤，把 `common` 模块导入到项目，并进行配置。
+3. 通过在 gradle 配置 mavenCentral 库，自动下载更新 LiteAVSDK，打开 `app/build.gradle`，进行下面的配置：
    ![](https://main.qcloudimg.com/raw/65439d399ec584871a7a9bc88ccaef46.png)
    1. 在 dependencies 中添加 LiteAVSDK_Player 的依赖。
 ```xml
@@ -92,20 +92,20 @@ dependencies {
 	 implementation 'com.github.ctiao:DanmakuFlameMaster:0.5.3'
 }
 ```
-   如果您需要集成历史版本的 LiteAVSDK_Player SDK ，可以在 [MavenCentral](https://repo1.maven.org/maven2/com/tencent/liteav/LiteAVSDK_Player/) 查看历史版本，然后通过下面的方式进行集成： 
+   如果您需要集成历史版本的 LiteAVSDK_Player SDK ，可以在  [MavenCentral](https://repo1.maven.org/maven2/com/tencent/liteav/LiteAVSDK_Player/)  查看历史版本，然后通过下面的方式进行集成： 
 ```xml
 dependencies {
 	 // 集成8.5.10033 版本LiteAVSDK_Player SDK
 	 implementation 'com.tencent.liteav:LiteAVSDK_Player:8.5.10033'
 }
 ```
-   2.  在 `app/build.gradle` defaultConfig 中，指定 App 使用的 CPU 架构（目前 LiteAVSDK 支持 armeabi 、 armeabi-v7a  和 arm64-v8a，可根据项目需求配置）。
+   2.  在  `app/build.gradle` defaultConfig  中，指定 App 使用的 CPU 架构（目前 LiteAVSDK 支持 armeabi 、 armeabi-v7a  和 arm64-v8a，可根据项目需求配置）。
 ```xmsl
 ndk {
 	 abiFilters "armeabi", "armeabi-v7a", "arm64-v8a"
 }
 ```
-   如果之前没有使用过9.4以及更早版本的 SDK 的 [下载缓存功能](https://cloud.tencent.com/document/product/881/20216#13.E3.80.81.E7.A6.BB.E7.BA.BF.E7.BC.93.E5.AD.98)（TXVodDownloadManager 中的相关接口），并且不需要在9.5及后续 SDK 版本播放9.4及之前缓存的下载文件，可以不需要该功能的 so 文件，达到减少安装包的体积，例如：在9.4及之前版本使用了 TXVodDownloadManager 类的 setDownloadPath 和 startDownloadUrl 函数下载了相应的缓存文件，并且应用内存储了 TXVodDownloadManager 回调的 getPlayPath 路径用于后续播放，这时候需要 libijkhlscache-master.so 播放该 getPlayPath 路径文件，否则不需要。可以在 app/build.gradle 中添加：
+   如果之前没有使用过9.4以及更早版本的 SDK 的 [下载缓存功能](https://cloud.tencent.com/document/product/881/20216#13.E3.80.81.E7.A6.BB.E7.BA.BF.E7.BC.93.E5.AD.98)（TXVodDownloadManager 中的相关接口），并且不需要在9.5及后续 SDK 版本播放9.4及之前缓存的下载文件，可以不需要该功能的 so 文件，达到减少安装包的体积，例如：在9.4及之前版本使用了 TXVodDownloadManager 类的 setDownloadPath 和 startDownloadUrl 函数下载了相应的缓存文件，并且应用内存储了 TXVodDownloadManager 回调的 getPlayPath 路径用于后续播放，这时候需要 libijkhlscache-master.so 播放该 getPlayPath 路径文件，否则不需要。可以在  app/build.gradle 中添加：
 ```xml
 packagingOptions {
 	exclude "lib/armeabi/libijkhlscache-master.so"
@@ -152,7 +152,7 @@ repositories {
 	 }
 }
 ```
-5. 在`app/build.gradle`中添加依赖：
+5. 在 `app/build.gradle` 中添加依赖：
 ```xml
 compile(name:'LiteAVSDK_Player_8.9.10349', ext:'aar')
 implementation project(':superplayerkit')
@@ -194,7 +194,7 @@ packagingOptions {
 ```xml
 include ':superplayerkit'
 ```
-3. 把 [步骤1](#smallStep_1) 解压得到的 libs 文件夹复制`superplayerkit`工程根目录。
+3. 把 [步骤1](#smallStep_1) 解压得到的 libs 文件夹复制 `superplayerkit`工程根目录。
 4. 修改`superplayerkit/build.gradle`文件：
 ![](https://main.qcloudimg.com/raw/ed66e7d887bc5c28c2eff45807037c23.png)
 ```xml
@@ -206,7 +206,7 @@ defaultConfig {
 	 minSdkVersion 19
 }
 ```
-请参见上面的步骤，把`common`模块导入到项目，并进行配置。
+请参见上面的步骤，把 `common`模块导入到项目，并进行配置。
    - 配置 sourceSets，添加 so 库引用代码。
 ```xml
 sourceSets{
@@ -315,11 +315,11 @@ mSuperPlayerView.playWithModelNeedLicence(model);
 ![](https://main.qcloudimg.com/raw/1a3677d5fe618227a117d7502be42793.png)
 >!
 >- 通过 FileID 播放时，需要首先使用 Adaptive-HLS(10) 转码模板对视频进行转码，或者使用播放器组件签名 psign 指定播放的视频，否则可能导致视频播放失败。转码教程和说明可参见 [用播放器组件播放视频](https://cloud.tencent.com/document/product/266/46217)，psign 生成教程可参见 [psign 教程](https://cloud.tencent.com/document/product/266/42436)。
->- 若您在通过 FileID 播放时出现“no v4 play info”异常，则说明您可能存在上述问题，建议您根据上述教程调整。同时您也可以直接获取源视频播放链接，[通过 URL 播放](#url) 的方式实现播放。
+>- 若您在通过 FileID 播放时出现 “no v4 play info” 异常，则说明您可能存在上述问题，建议您根据上述教程调整。同时您也可以直接获取源视频播放链接，[通过 URL 播放](#url) 的方式实现播放。
 >- **未经转码的源视频在播放时有可能出现不兼容的情况，建议您使用转码后的视频进行播放。**
 <dx-codeblock>
 :::  java
-//在未开启防盗链进行播放的过程中，如果出现了“no v4 play info”异常，建议您使用Adaptive-HLS(10)转码模板对视频进行转码，或直接获取源视频播放链接通过url方式进行播放。
+//在未开启防盗链进行播放的过程中，如果出现了 “no v4 play info” 异常，建议您使用 Adaptive-HLS(10) 转码模板对视频进行转码，或直接获取源视频播放链接通过 url 方式进行播放。
 
 ```java
 SuperPlayerModel model = new SuperPlayerModel();
@@ -337,7 +337,7 @@ mSuperPlayerView.playWithModelNeedLicence(model);
 </dx-tabs>
 
 3. **退出播放**[](id:exitPlayer)
-当不需要播放器时，调用`resetPlayer`清理播放器内部状态，释放内存。
+当不需要播放器时，调用 `resetPlayer` 清理播放器内部状态，释放内存。
 ```java
 mSuperPlayerView.resetPlayer();
 ```
@@ -440,19 +440,19 @@ mControllerCallback.onSwitchPlayMode(SuperPlayerDef.PlayerMode.WINDOW);
 
 <img src="https://qcloudimg.tencent-cloud.cn/raw/37075aaca891c0db91a57e2ee7f6a940.png" style="zoom:15%;" />
 
-* 当播放器组件设置为自动播放模式`PLAY_ACTION_AUTO_PLAY`时，视频自动播放，此时将在视频首帧加载出来之前展示封面；
-* 当播放器组件设置为手动播放模式`PLAY_ACTION_MANUAL_PLAY`时，需用户单击**播放**后视频才开始播放。在单击**播放**前将展示封面；在单击**播放**后到视频首帧加载出来前也将展示封面。
+* 当播放器组件设置为自动播放模式 `PLAY_ACTION_AUTO_PLAY` 时，视频自动播放，此时将在视频首帧加载出来之前展示封面；
+* 当播放器组件设置为手动播放模式 `PLAY_ACTION_MANUAL_PLAY` 时，需用户单击**播放**后视频才开始播放。在单击**播放**前将展示封面；在单击**播放**后到视频首帧加载出来前也将展示封面。
 
 视频封面支持使用网络 URL 地址或本地 File 地址，使用方式可参见下述指引。若您通过 FileID 的方式播放视频，则可直接在云点播内配置视频封面。
 
 ```java
 SuperPlayerModel model = new SuperPlayerModel();
-model.appId = "您的appid";
+model.appId = "您的 appid";
 model.videoId = new SuperPlayerVideoId();
-model.videoId.fileId = "您的fileId"; 
+model.videoId.fileId = "您的 fileId"; 
 //播放模式，可设置自动播放模式：PLAY_ACTION_AUTO_PLAY，手动播放模式：PLAY_ACTION_MANUAL_PLAY
 model.playAction = PLAY_ACTION_MANUAL_PLAY;
-//设定封面的地址为网络url地址，如果coverPictureUrl不设定，那么就会自动使用云点播控制台设置的封面
+//设定封面的地址为网络 url 地址，如果 coverPictureUrl 不设定，那么就会自动使用云点播控制台设置的封面
 model.coverPictureUrl = "http://1500005830.vod2.myqcloud.com/6c9a5118vodcq1500005830/cc1e28208602268011087336518/MXUW1a5I9TsA.png" 
 mSuperPlayerView.playWithModelNeedLicence(model);
 ```
@@ -469,7 +469,7 @@ mSuperPlayerView.playWithModelNeedLicence(model);
 <img src="https://qcloudimg.tencent-cloud.cn/raw/6d00357d02c0b5a56000d94e0c832922.png" style="zoom:25%;" />
 
 ```java
-//步骤1:构建轮播的List<SuperPlayerModel>
+//步骤1:构建轮播的 List<SuperPlayerModel>
 ArrayList<SuperPlayerModel> list = new ArrayList<>();
 SuperPlayerModel model = new VideoModel();
 model = new SuperPlayerModel();
@@ -509,7 +509,7 @@ public void playWithModelListNeedLicence(List<SuperPlayerModel> models, boolean 
 
 ```java
  方法一：
- //步骤1：创建视频mode
+ //步骤1：创建视频 mode
  SuperPlayerModel mode = new SuperPlayerModel();
  //...添加视频源信息
  //步骤2：创建试看信息 mode
@@ -544,17 +544,17 @@ VipWatchModel 接口参数说明：
 
 ```java
  方法一：
- //步骤1：创建视频mode
+ //步骤1：创建视频 mode
  SuperPlayerModel mode = new SuperPlayerModel();
  //...添加视频源信息
- //步骤2：创建水印信息mode
+ //步骤2：创建水印信息 mode
  DynamicWaterConfig dynamicWaterConfig = new DynamicWaterConfig("shipinyun", 30, Color.parseColor("#80FFFFFF"));
  mode.dynamicWaterConfig = dynamicWaterConfig;
  //步骤3：调用播放视频方法
  mSuperPlayerView.playWithModelNeedLicence(mode);
 
  方法二：
- //步骤1：创建水印信息mode
+ //步骤1：创建水印信息 mode
  DynamicWaterConfig dynamicWaterConfig = new DynamicWaterConfig("shipinyun", 30, Color.parseColor("#80FFFFFF"));
   //步骤2：调用设置动态水印功能方法
  mSuperPlayerView.setDynamicWatermarkConfig(dynamicWaterConfig);
@@ -588,7 +588,7 @@ mDownloadMenuView.initDownloadData(superPlayerModelList, mVideoQualityList, mDef
 // 步骤2：设置正在播放的视频选项
 mDownloadMenuView.setCurrentPlayVideo(mSuperplayerModel);
 
-// 步骤3：设置video download list 按钮的点击事件
+// 步骤3：设置 video download list 按钮的点击事件
 mDownloadMenuView.setOnCacheListClick(new OnClickListener() {
      @Override
      public void onClick(View v) {
@@ -597,7 +597,7 @@ mDownloadMenuView.setOnCacheListClick(new OnClickListener() {
      }
 });
 
-// 步骤4:通过动画展示view
+// 步骤4:通过动画展示 view
 mDownloadMenuView.show();
 ```
 
@@ -649,7 +649,7 @@ public void addCacheVideo(List<TXVodDownloadMediaInfo> mediaInfoList, boolean is
 
 #### 打点信息
 
-支持在进度条关键位置添加文字介绍，用户点击后可显示打点位置的文字信息，以快速了解当前位置的视频信息。点击视频信息后，可以seek到打点信息位置。
+支持在进度条关键位置添加文字介绍，用户点击后可显示打点位置的文字信息，以快速了解当前位置的视频信息。点击视频信息后，可以 seek 到打点信息位置。
 
 您可在腾讯云视立方 App > 播放器 > 播放器组件 > 腾讯云 视频中，使用全屏观看模式后体验。
 
@@ -663,17 +663,17 @@ public void addCacheVideo(List<TXVodDownloadMediaInfo> mediaInfoList, boolean is
 ![](http://1500005830.vod2.myqcloud.com/6c9a5118vodcq1500005830/ad1f6b93387702307128908283/6YIALRXty4EA.jpg)
 
 ```java
-// 步骤1：播放视频 superplayerModel的url变量需要为空，且videoId不为空，这样才会通过PlayWithField播放，才能在onPlayEvent回调中获取到打点信息和雪碧图数据
+// 步骤1：播放视频 superplayerModel的url 变量需要为空，且 videoId 不为空，这样才会通过 PlayWithField 播放，才能在 onPlayEvent 回调中获取到打点信息和雪碧图数据
 mSuperplayerView.play(superplayerModel);
 
-// 步骤2: PlayWithFileId播放时候 在 VOD_PLAY_EVT_GET_PLAYINFO_SUCC 回调事件中取得打点信息和雪碧图信息
+// 步骤2: PlayWithFileId 播放时候 在 VOD_PLAY_EVT_GET_PLAYINFO_SUCC 回调事件中取得打点信息和雪碧图信息
 public void onPlayEvent(TXVodPlayer player, int event, Bundle param) {
     switch (event) {
         case TXVodConstants.VOD_PLAY_EVT_GET_PLAYINFO_SUCC:
     
-            // 获取 雪碧图 图片链接URL
+            // 获取 雪碧图 图片链接 URL
             playImageSpriteInfo.imageUrls = param.getStringArrayList(TXVodConstants.EVT_IMAGESPRIT_IMAGEURL_LIST);
-            // 获取 雪碧图 web vtt描述文件下载URL
+            // 获取 雪碧图 web vtt 描述文件下载 URL
             playImageSpriteInfo.webVttUrl = param.getString(TXVodConstants.EVT_IMAGESPRIT_WEBVTTURL);
             // 获取 打点信息    
            ArrayList<String> keyFrameContentList =
@@ -697,9 +697,9 @@ public void onPlayEvent(TXVodPlayer player, int event, Bundle param) {
 　　}
 }
 
-// 步骤3: 将拿到的打点信息和雪碧图信息通过updateVideoImageSpriteAndKeyFrame方法赋值给对应的view。 
-// 雪碧图的view对应VideoProgressLayout组件中mIvThumbnail。
-// 打点信息的view对应PointSeekBar组件中的TCPointView。
+// 步骤3: 将拿到的打点信息和雪碧图信息通过 updateVideoImageSpriteAndKeyFrame 方法赋值给对应的 view。 
+// 雪碧图的 view 对应 VideoProgressLayout 组件中 mIvThumbnail。
+// 打点信息的 view 对应 PointSeekBar 组件中的 TCPointView。
 updateVideoImageSpriteAndKeyFrame(playImageSpriteInfo,keyFrameDescInfoList);
 ```
 
