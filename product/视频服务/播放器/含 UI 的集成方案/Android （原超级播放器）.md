@@ -18,7 +18,7 @@
 ### 步骤1：项目下载
 腾讯云视立方 Android 播放器组件的项目地址是 [SuperPlayer_Android](https://github.com/LiteAVSDK/Player_Android)。
 
-您可通过 **[下载播放器组件 ZIP 包](#zip)** 或 **[Git 命令下载](#git)** 的方式下载腾讯云视立方 Android 播放器组件项目工程。
+您可通过 **[下载播放器组件 ZIP 包](#zip)** 或  **[Git 命令下载](#git)** 的方式下载腾讯云视立方 Android 播放器组件项目工程。
 <dx-tabs>
 ::: 下载播放器组件 ZIP 包[](id:zip)
 您可以直接下面播放器组件 ZIP包，单击页面的 **Code** > **Download ZIP** 下载。
@@ -50,7 +50,7 @@ remote: Total 2637 (delta 227), reused 524 (delta 170), pack-reused 1993
 | superplayerdemo             | 播放器组件 Demo 代码                                         |
 | common                      | 工具类模块                                                   |
 | SDK                         | 视立方播放器 SDK，包括：LiteAVSDK_Player_x.x.x.aar，aar 格式提供的 SDK；LiteAVSDK_Player_x.x.x.zip，lib 和 jar 格式提供的 SDK |
-| Player说明文档(Android).pdf | 播放器组件使用文档                                           |
+| Player 说明文档 (Android).pdf | 播放器组件使用文档                                           |
 :::
 </dx-tabs>
 
@@ -124,11 +124,11 @@ packagingOptions {
 ::: Gradle 手动下载（AAR）
 1. 下载 SDK + Demo 开发包，项目地址为 [Android](https://github.com/LiteAVSDK/Player_Android)。
 2. 导入 `SDK/LiteAVSDK_Player_XXX.aar`（其中 XXX 为版本号）到 app 下面的 libs 文件夹以及复制 `Demo/superplayerkit` 这个 module 到工程中。
-3. 在工程目录下的 setting.gradle 导入`superplayerkit`。
+3. 在工程目录下的 setting.gradle 导入 `superplayerkit`。
 ```
 include ':superplayerkit'
 ```
-4. 打开`superplayerkit`工程的 build.gradle 文件修改 compileSdkVersion，buildToolsVersion，minSdkVersion，targetSdkVersion 和 rootProject.ext.liteavSdk 的常量值。
+4. 打开 `superplayerkit` 工程的 build.gradle 文件修改 compileSdkVersion，buildToolsVersion，minSdkVersion，targetSdkVersion 和 rootProject.ext.liteavSdk 的常量值。
 ![](https://main.qcloudimg.com/raw/479cb6ed7a29621998d1ee670e091437.png)
 ```xml
 compileSdkVersion 26
@@ -143,7 +143,7 @@ dependencies {
 	 implementation(name:'LiteAVSDK_Player_8.9.10349', ext:'aar')
 }
 ```
-请参见上面的步骤，把`common`模块导入到项目，并进行配置。
+请参见上面的步骤，把 `common` 模块导入到项目，并进行配置。
    - 配置 repositories
 ```xml
 repositories {
@@ -159,7 +159,7 @@ implementation project(':superplayerkit')
 // 播放器组件弹幕集成的第三方库
 implementation 'com.github.ctiao:DanmakuFlameMaster:0.5.3'
 ```
-6. 在项目`build.gradle`中添加：
+6. 在项目 `build.gradle` 中添加：
 ```xml
 allprojects {
 	 repositories {
@@ -188,14 +188,14 @@ packagingOptions {
 ::: 集成 SDK（jar+so）
 如果您不想集成 aar 库，也可以通过导入 jar 和 so 库的方式集成 LiteAVSDK：
 [](id:smallStep_1)
-1. 下载 SDK + Demo 开发包，项目地址为 [Android](https://github.com/LiteAVSDK/Player_Android)，下载完成后进行解压。在 SDK 目录找到SDK/LiteAVSDK_Player_XXX.zip（其中 XXX 为版本号），解压得到 libs 目录，里面包含 jar 文件和 so 文件夹，文件清单如下：
+1. 下载 SDK + Demo 开发包，项目地址为 [Android](https://github.com/LiteAVSDK/Player_Android)，下载完成后进行解压。在 SDK 目录找到 SDK/LiteAVSDK_Player_XXX.zip（其中 XXX 为版本号），解压得到 libs 目录，里面包含 jar 文件和 so 文件夹，文件清单如下：
  ![](https://main.qcloudimg.com/raw/f460962b610f2fd80f38ced46c26e5a5.png)
-2. 把`Demo/superplayerkit`这个 module 复制到工程中，然后在工程目录下的 setting.gradle 导入`superplayerkit`。
+2. 把 `Demo/superplayerkit` 这个 module 复制到工程中，然后在工程目录下的 setting.gradle 导入 `superplayerkit`。
 ```xml
 include ':superplayerkit'
 ```
 3. 把 [步骤1](#smallStep_1) 解压得到的 libs 文件夹复制 `superplayerkit`工程根目录。
-4. 修改`superplayerkit/build.gradle`文件：
+4. 修改 `superplayerkit/build.gradle` 文件：
 ![](https://main.qcloudimg.com/raw/ed66e7d887bc5c28c2eff45807037c23.png)
 ```xml
 compileSdkVersion 26
@@ -206,7 +206,7 @@ defaultConfig {
 	 minSdkVersion 19
 }
 ```
-请参见上面的步骤，把 `common`模块导入到项目，并进行配置。
+请参见上面的步骤，把 `common` 模块导入到项目，并进行配置。
    - 配置 sourceSets，添加 so 库引用代码。
 ```xml
 sourceSets{
@@ -294,7 +294,7 @@ public class MApplication extends Application {
 
 3. **播放视频**[](id:playe)
 本步骤用于指导用户播放视频。腾讯云视立方 Android 播放器组件可用于直播和点播两种播放场景，具体如下：
-	- 点播播放：播放器组件支持两种点播播放方式，可以 [通过 FileID 播放](#fileid) 腾讯云点播媒体资源，也可以直接使用 [URL 播放](#url) 地址进行播放。
+	- 点播播放：播放器组件支持两种点播播放方式，可以 [通过 FileID 播放](#fileid) 腾讯云点播媒体资源，也可以直接使用  [URL 播放] (#url) 地址进行播放。
 	- 直播播放：播放器组件可使用 [URL 播放 ](#url)的方式实现直播播放。通过传入 URL 地址，即可拉取直播音视频流进行直播播放。腾讯云直播URL生成方式可参见 [自主拼装直播 URL](https://cloud.tencent.com/document/product/267/32720)。
 <dx-tabs>
 ::: 通过 URL 播放（直播、点播）[](id:url)
@@ -315,7 +315,7 @@ mSuperPlayerView.playWithModelNeedLicence(model);
 ![](https://main.qcloudimg.com/raw/1a3677d5fe618227a117d7502be42793.png)
 >!
 >- 通过 FileID 播放时，需要首先使用 Adaptive-HLS(10) 转码模板对视频进行转码，或者使用播放器组件签名 psign 指定播放的视频，否则可能导致视频播放失败。转码教程和说明可参见 [用播放器组件播放视频](https://cloud.tencent.com/document/product/266/46217)，psign 生成教程可参见 [psign 教程](https://cloud.tencent.com/document/product/266/42436)。
->- 若您在通过 FileID 播放时出现 “no v4 play info” 异常，则说明您可能存在上述问题，建议您根据上述教程调整。同时您也可以直接获取源视频播放链接，[通过 URL 播放](#url) 的方式实现播放。
+>- 若您在通过 FileID 播放时出现 “no v4 play info” 异常，则说明您可能存在上述问题，建议您根据上述教程调整。同时您也可以直接获取源视频播放链接，[通过 URL 播放] (#url) 的方式实现播放。
 >- **未经转码的源视频在播放时有可能出现不兼容的情况，建议您使用转码后的视频进行播放。**
 <dx-codeblock>
 :::  java
@@ -361,7 +361,7 @@ mControllerCallback.onSwitchPlayMode(SuperPlayerDef.PlayerMode.FULLSCREEN);
 <img src="https://qcloudimg.tencent-cloud.cn/raw/76a85d975b7b0f0f58283418491d0f72.png" style="zoom:25%;" />
 <dx-tabs>
 ::: 返回窗口
-单击**返回**，即可返回至窗口播放模式。
+单击 **返回**，即可返回至窗口播放模式。
 ```java
 //单击后触发下面的接口
 mControllerCallback.onBackPressed(SuperPlayerDef.PlayerMode.FULLSCREEN);
