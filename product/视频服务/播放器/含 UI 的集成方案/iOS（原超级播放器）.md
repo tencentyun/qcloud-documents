@@ -194,7 +194,7 @@ model.videoURL = @"http://your_video_url.mp4";   // 配置您的播放视频 url
 
 #### 全屏播放界面功能介绍
 
-<img src="https://qcloudimg.tencent-cloud.cn/raw/fe9de5fdf79e9b77e562deb5701bcb77.png" style="zoom:25%;" />
+<img src="https://qcloudimg.tencent-cloud.cn/raw/b32f79217f2c6e9ffe2a7d25850722f3.png" style="zoom:25%;" />
 <dx-tabs>
 ::: 返回窗口模式[](id:window)
 通过 **返回** 即可返回窗口播放模式，单击后 SDK 处理完全屏切换的逻辑后会触发的代理方法为：
