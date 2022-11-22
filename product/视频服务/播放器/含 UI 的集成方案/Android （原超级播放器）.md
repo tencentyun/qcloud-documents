@@ -13,7 +13,7 @@
 1. 如何集成腾讯云视立方 Android 播放器组件
 2. 如何创建和使用播放器
 
- 
+
 ## 集成准备
 ### 步骤1：项目下载
 腾讯云视立方 Android 播放器组件的项目地址是 [SuperPlayer_Android](https://github.com/LiteAVSDK/Player_Android)。
@@ -663,10 +663,10 @@ public void addCacheVideo(List<TXVodDownloadMediaInfo> mediaInfoList, boolean is
 ![](http://1500005830.vod2.myqcloud.com/6c9a5118vodcq1500005830/ad1f6b93387702307128908283/6YIALRXty4EA.jpg)
 
 ```java
-// 步骤1：播放视频 superplayerModel的url变量需要为空，且videoId不为空，这样才会通过PlayWithField播放，才能在onPlayEvent回调中获取到 关键帧 雪碧图 数据
+// 步骤1：播放视频 superplayerModel的url变量需要为空，且videoId不为空，这样才会通过PlayWithField播放，才能在onPlayEvent回调中获取到打点信息和雪碧图数据
 mSuperplayerView.play(superplayerModel);
 
-// 步骤2: PlayWithFileId播放时候 在 VOD_PLAY_EVT_GET_PLAYINFO_SUCC 回调事件 中取得关键帧 雪碧图信息
+// 步骤2: PlayWithFileId播放时候 在 VOD_PLAY_EVT_GET_PLAYINFO_SUCC 回调事件中取得打点信息和雪碧图信息
 public void onPlayEvent(TXVodPlayer player, int event, Bundle param) {
     switch (event) {
         case TXVodConstants.VOD_PLAY_EVT_GET_PLAYINFO_SUCC:
@@ -675,13 +675,13 @@ public void onPlayEvent(TXVodPlayer player, int event, Bundle param) {
             playImageSpriteInfo.imageUrls = param.getStringArrayList(TXVodConstants.EVT_IMAGESPRIT_IMAGEURL_LIST);
             // 获取 雪碧图 web vtt描述文件下载URL
             playImageSpriteInfo.webVttUrl = param.getString(TXVodConstants.EVT_IMAGESPRIT_WEBVTTURL);
-            // 获取 关键帧内容信息    
+            // 获取 打点信息    
            ArrayList<String> keyFrameContentList =
                     param.getStringArrayList(TXVodConstants.EVT_KEY_FRAME_CONTENT_LIST);
-            // 获取 关键帧时间信息
+            // 获取 打点信息时间信息
             float[] keyFrameTimeArray = param.getFloatArray(TXVodConstants.EVT_KEY_FRAME_TIME_LIST);
         
-            // 构建 关键帧数据列表
+            // 构建 打点信息数据列表
             if (keyFrameContentList != null && keyFrameTimeArray != null
                     && keyFrameContentList.size() == keyFrameTimeArray.length) {
                 for (int i = 0; i < keyFrameContentList.size(); i++) {
@@ -697,9 +697,9 @@ public void onPlayEvent(TXVodPlayer player, int event, Bundle param) {
 　　}
 }
 
-// 步骤3: 将拿到的关键帧 雪碧图信息通过updateVideoImageSpriteAndKeyFrame方法赋值给对应的view。 
+// 步骤3: 将拿到的打点信息和雪碧图信息通过updateVideoImageSpriteAndKeyFrame方法赋值给对应的view。 
 // 雪碧图的view对应VideoProgressLayout组件中mIvThumbnail。
-// 关键帧的view对应PointSeekBar组件中的TCPointView。
+// 打点信息的view对应PointSeekBar组件中的TCPointView。
 updateVideoImageSpriteAndKeyFrame(playImageSpriteInfo,keyFrameDescInfoList);
 ```
 
