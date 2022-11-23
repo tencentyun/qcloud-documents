@@ -160,7 +160,7 @@ export default {
 
 ## 完整示例参考
 - [Vue2 Demo 示例](https://faceid-ecard-1254418846.cos.ap-chengdu.myqcloud.com/uni/ecard-sdk-uni/ecard-sdk-uniapp-demo-for-vue2.zip)
-- [Vue3 Demo示例](https://faceid-ecard-1254418846.cos.ap-chengdu.myqcloud.com/uni/ecard-sdk-uni/ecard-sdk-uniapp-demo-for-vue2.zip)
+- [Vue3 Demo示例](https://faceid-ecard-1254418846.cos.ap-chengdu.myqcloud.com/uni/ecard-sdk-uni/ecard-sdk-uniapp-demo-for-vue3.zip)
 
 ## 注意事项
 - 从 eID 数字身份⼩程序返回接⼊⽅⼩程序
