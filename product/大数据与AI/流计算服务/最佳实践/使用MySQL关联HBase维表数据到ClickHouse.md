@@ -1,4 +1,4 @@
-本文介绍了结合 MySQL 数据库、流计算 Oceanus、HBase 以及云数据仓库 ClickHouse 来构建实时数仓，并通过流计算 Oceanus 读取 MySQL 数据、关联 HBase 中的维表，最终将数据存入云数据仓库 ClickHouse 进行指标分析，实现完整实时数仓的全流程操作指导。
+本文介绍了结合 MySQL 数据库、流计算 Oceanus、HBase 以及云数据仓库 ClickHouse 来构建实时数仓，并通过流计算 Oceanus 读取 MySQL 数据、关联 HBase 中的维表，最终将数据存入云数据仓库 ClickHouse 进行指标分析，实现完整实时数仓的全流程操作指导。 
 
 ## 环境搭建
 ### 创建 Oceanus 集群

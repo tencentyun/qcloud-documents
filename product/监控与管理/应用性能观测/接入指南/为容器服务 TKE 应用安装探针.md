@@ -13,7 +13,7 @@
 
 若您从未通过 TKE 应用市场接入 APM ，请参考以下操作步骤：
 
-**前置步骤：**
+**前置步骤**
 1. 创建 TKE 集群，您可查看 [容器服务（TKE）相关文档](https://cloud.tencent.com/document/product/457)，了解并使用容器服务。
 2. 在 [应用性能观测控制台](https://console.cloud.tencent.com/apm/monitor/team)，创建 APM 业务系统。参考文档 [新建业务系统](https://cloud.tencent.com/document/product/1463/63511)。
 
@@ -41,7 +41,7 @@
 <tr>
 <td>  APM_TOKEN</td>
 <td>您的 APM  实例对应的上报 Token</td>
-<td> a. 在应用性能观测控制台-探针部署页面<br>选择 Java 语言-Opentelementry增强探上报方式。<br><br><img src="https://qcloudimg.tencent-cloud.cn/raw/1a9ed8112203421e565af4c108626c7e.png" width="70%"><br><br>b. 点击下一步，获取 Token。<br><img src="https://qcloudimg.tencent-cloud.cn/raw/c17e16415c3e201154a41f9a4b03b43f.png" width="70%"> </td>
+<td> 1. 在应用性能观测控制台-探针部署页面<br>选择 Java 语言-Opentelementry增强探上报方式。<br><br><img src="https://qcloudimg.tencent-cloud.cn/raw/1a9ed8112203421e565af4c108626c7e.png" width="70%"><br><br>2. 单击**下一步**，获取 Token。<br><img src="https://qcloudimg.tencent-cloud.cn/raw/c17e16415c3e201154a41f9a4b03b43f.png" width="70%"> </td>
 </tr>
 <tr>
 <td>CLUSTER_ID</td>
@@ -50,8 +50,8 @@
 </tr>
 <tr>
 <td>TKE_REGION</td>
-<td>此应用的 Kubernetes 集群 所在地域</td>
-<td>地域格式需要参考腾讯云规范地域格式，例如广州地域为ap-guangzhou，详见 <a href="https://cloud.tencent.com/document/product/213/6091">地域说明</a> 文档。 </td>
+<td>此应用的 Kubernetes 集群所在地域</td>
+<td>地域格式需要参考腾讯云规范地域格式，例如：广州地域为 ap-guangzhou，详见 <a href="https://cloud.tencent.com/document/product/213/6091">地域说明</a> 文档。 </td>
 </tr>
 </table>
 
@@ -59,13 +59,13 @@
 
 若您已经通过 TKE 应用市场的方式成功接入 APM，只需新增应用信息即可，请参考以下操作步骤：
 
-**操作说明：**
+**操作说明**
 您需要将新增的应用所在的 pod 打上 label，具体添加步骤可参考下列方法一或方法二：
 -  java-agent-app-name: service-name    // 服务名，例如：order-service
 -  java-agent-injected: "true"                   // pod 是否需要注入，默认写 true
 
 
-####  方法一：
+####  方法一
 
 **在 TKE 创建或修改 Deployment 配置时加上 label**
 
@@ -78,7 +78,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/0484128dcb29edafd304803620312f74.png)
 3. 单击**创建 Deployment**，即新增完成。
 
-####  方法二：
+####  方法二
 若已创建 Deployment，可直接点击 Deployment 名称修改 YAML 文件，按照如下格式修改。
 -  java-agent-app-name: service-name 
 -  java-agent-injected: "true"  
@@ -96,7 +96,7 @@ backend-service: APM 接入点信息
 则需要新增/修改 Label 信息为：`backend-service：pl.ap-beijing.apm.tencentcs.com`
 ![](https://qcloudimg.tencent-cloud.cn/raw/6cd9c98e00813c390859b1644a33c926.png)
 
-#### 方法一：
+#### 方法一
 
 在 TKE 创建或修改 Deployment 配置时加上 label。
 1. 进入 [容器服务控制台](https://console.cloud.tencent.com/tke2/cluster)，点击相关集群，进入工作负载-Deployment ，选择新建或修改 Deployment 。
@@ -105,7 +105,7 @@ backend-service: APM 接入点信息
 以 `backend-service：pl.ap-beijing.apm.tencentcs.com` 为例：
 ![](https://qcloudimg.tencent-cloud.cn/raw/bd6f5b01ff45d856bfe59959ca7d8a72.png)
 
-#### 方法二：
+#### 方法二
 
 若已创建 Deployment，可直接点击 Deployment 名称修改 YAML 文件，按照如下格式修改。
 以 `backend-service：pl.ap-beijing.apm.tencentcs.com` 为例：

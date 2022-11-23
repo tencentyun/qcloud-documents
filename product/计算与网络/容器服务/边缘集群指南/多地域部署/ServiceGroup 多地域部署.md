@@ -1,4 +1,3 @@
-# ServiceGroup 多地域部署
 
 ##  功能特点
 

@@ -1,6 +1,6 @@
 ## 功能描述
 
-提交一个只能封面任务。
+提交一个智能封面任务。
 
 <div class="rno-api-explorer">
     <div class="rno-api-explorer-inner">
