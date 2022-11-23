@@ -58,7 +58,7 @@ flutter pub add tencent-cloud-chat-sdk
 
 ```
 dependencies:
-  tencent-cloud-chat-sdk: "最新版本" //可在https://pub.dev/packages/tencent-cloud-chat-sdk上查看im flutter sdk的最新版本并使用
+  tencent-cloud-chat-sdk: "最新版本" //可在https://pub.dev/packages/tencent_im_sdk_plugin上查看im flutter sdk的最新版本并使用
 ```
 
 此时您的 editor 或许会自动 flutter pub get，如果没有请您在命令行中手动输入 flutter pub get。
@@ -110,7 +110,7 @@ npm i tim-upload-plugin
 ### 引入 Flutter for Web 增补 SDK
 
 ```dart
-flutter pub add tencent-cloud-chat-sdk_web
+flutter pub add tencent_im_sdk_plugin_web
 ```
 
 ## Flutter for Desktop(PC) 支持[](id:pc)
@@ -126,7 +126,7 @@ flutter pub add tencent-cloud-chat-sdk_web
 ### 引入 Flutter for Desktop 增补 SDK
 
 ```dart
-flutter pub add tencent-cloud-chat-sdk_desktop
+flutter pub add tencent_im_sdk_plugin_desktop
 ```
 
 #### macOS 修改
