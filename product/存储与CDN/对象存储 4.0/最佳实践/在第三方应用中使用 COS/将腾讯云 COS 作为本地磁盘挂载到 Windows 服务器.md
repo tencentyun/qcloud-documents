@@ -44,8 +44,9 @@
 12. 根据显示的腾讯云各地域的网关地址，查看存储桶的所属地域，选择对应的地域。
 本实践以广州为例，选择 `cos.ap-guangzhou.myqcloud.com`，输入**4**，按 **Enter**。
 13. 在显示的腾讯云 COS 的权限类型中，根据实际需求选择 default、public-read 等。此处选择的权限类型为对象权限类型，仅针对新上传的文件有效。本实践以 default 为例，输入**1**，按 **Enter**。
-14. 在显示的腾讯云对象存储的存储类型中，您可根据实际需求选择以何种存储类型将文件上传到 COS。本实践以 Default 为例，输入**1**，按 **Enter**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/7756d7599713939368c6bb42cd075d07.png)
+15. 在显示的腾讯云对象存储的存储类型中，您可根据实际需求选择以何种存储类型将文件上传到 COS。本实践以 Default 为例，输入**1**，按 **Enter**。
+![](https://qcloudimg.tencent-cloud.cn/raw/48e7f6c7d65d13d9fdde690e819bad6c.png)
  - Default 表示默认
  - Standard storage class 表示标准存储（STANDARD）
  - Archive storage mode 表示归档存储（ARCHIVE）
