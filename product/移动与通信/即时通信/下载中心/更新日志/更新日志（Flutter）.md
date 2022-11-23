@@ -24,7 +24,7 @@ IM Flutter TUIKit（含 UI）指代 [tencent-cloud-chat-uikit](https://pub.dev/p
 > 无UI的SDK现已从 [tencent_im_sdk_plugin](https://pub.dev/packages/tencent_im_sdk_plugin) 迁移至 [tencent-cloud-chat-sdk](https://pub.dev/packages/tencent-cloud-chat-sdk)；TUIKit现已从 [tim_ui_kit](https://pub.dev/packages/tim_ui_kit) 迁移至 [tencent-cloud-chat-uikit](https://pub.dev/packages/tencent-cloud-chat-uikit)。
 > 后续两个原始版本包将陆续不再维护，请所有客户尽快升级至最新版本，谢谢。
 
-### IM Flutter TUIKit（含 UI） 0.2.0 @2022.11.23
+### IM Flutter TUIKit（含 UI） 1.0.0 @2022.11.23
 
 - 新增：支持在您现有应用中添加Flutter模块，即混合开发，具体请参考[本文档](https://cloud.tencent.com/developer/article/2167243)实现。
 - 新增：自定义贴纸和表情符号。**使用方式有较大改变，具体请参考[本升级指引](https://cloud.tencent.com/document/product/269/80882)修改。**
