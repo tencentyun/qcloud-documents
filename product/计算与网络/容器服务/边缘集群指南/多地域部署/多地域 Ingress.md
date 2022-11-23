@@ -1,6 +1,6 @@
 
 
-# 多地域 Ingress 部署
+
 
 ## 场景介绍
 在边缘节点区分多个地域的情况下，每个地域都有独立的网络架构，需要在本地域对外提供 Ingress 服务能力，腾讯云边缘容器服务基于 `NodeUnit`的相关概念，在产品上支持在不同地域创建`Nginx-Ingress-Controller`的能力，同时通过`application-grid-wrapper`组件，可以将 Ingress-Controller 对 pod 的访问限制在本地域(NodeUnit 范围)之内，具体架构如下图：
