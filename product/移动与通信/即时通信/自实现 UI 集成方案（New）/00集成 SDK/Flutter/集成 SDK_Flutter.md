@@ -58,7 +58,7 @@ flutter pub add tencent-cloud-chat-sdk
 
 ```
 dependencies:
-  tencent-cloud-chat-sdk: "最新版本" //可在https://pub.dev/packages/tencent_im_sdk_plugin上查看im flutter sdk的最新版本并使用
+  tencent-cloud-chat-sdk: "最新版本" //可在https://pub.dev/packages/tencent-cloud-chat-sdk 上查看im flutter sdk的最新版本并使用
 ```
 
 此时您的 editor 或许会自动 flutter pub get，如果没有请您在命令行中手动输入 flutter pub get。
