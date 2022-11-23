@@ -71,7 +71,6 @@ IM 提供了三种方式来集成，您可以选择最合适的方案来集成�
 ### 跑通 Demo
 
 1. 下载 Demo 源码、安装依赖：
-
 ```shell
 # Clone the code
 git clone https://github.com/TencentCloud/tc-chat-demo-flutter.git
@@ -79,9 +78,7 @@ git clone https://github.com/TencentCloud/tc-chat-demo-flutter.git
 # Install dependencies
 flutter pub get
 ```
-
 2. 运行 Demo 项目：
-
 ```shell
 #启动demo项目，请替换SDK_APPID、KEY两个参数
 flutter run --dart-define=SDK_APPID={YOUR_SDKAPPID} --dart-define=ISPRODUCT_ENV=false --dart-define=KEY={YOUR_KEY}
@@ -767,15 +764,12 @@ flutter pub add tencent_im_sdk_plugin_desktop
 
 1. 搭载新款 Apple Silicon 的 Mac 设备，如 M1。
 ![](https://qcloudimg.tencent-cloud.cn/raw/dd87d8ff05aec0ecad461f12ef6c3020.png)
-
 ```shell
 cd ios
 sudo arch -x86_64 gem install ffi
 arch -x86_64 pod install --repo-update
 ```
-
 2. 搭载老款 Intel 芯片的 Mac 设备。
-
 ```shell
 cd ios
 sudo gem install ffi
@@ -799,7 +793,6 @@ pod install --repo-update
 ![](https://qcloudimg.tencent-cloud.cn/raw/d95efdd4ae50f13f38f4c383ca755ae7.png)
 
 1. 打开 `android\app\src\main\AndroidManifest.xml`，根据如下，补全 `xmlns:tools="http://schemas.android.com/tools"` / `android:label="@string/android_label"` 及 `tools:replace="android:label"`。
-
 ```xml
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="替换成您的 Android 端包名"
@@ -811,9 +804,7 @@ pod install --repo-update
         android:usesCleartextTraffic="true"
         android:requestLegacyExternalStorage="true">
 ```
-
 2. 打开 `android\app\build.gradle`，补全 `defaultConfig` 中 `minSdkVersion` 及 `targetSdkVersion`。
-
 ```gradle
 defaultConfig {
   applicationId "" // 替换成您的Android端包名
