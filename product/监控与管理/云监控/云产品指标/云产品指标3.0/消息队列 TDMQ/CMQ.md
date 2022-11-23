@@ -31,7 +31,7 @@ Namespace = QCE/TDMQ
 | Instances.N.Dimensions.0.Name  | environmentId | environmentId 的维度名称         | 输入 String 类型维度名称：environmentId  |
 | Instances.N.Dimensions.0.Value | environmentId | 具体命名空间          | 输入具体命名空间，例如："CMQ_QUEUE-test99"，可在 [DescribeCmqQueues](https://cloud.tencent.com/document/product/1179/55909) 接口中获取，字段名为 “NamespaceName” |
 | Instances.N.Dimensions.0.Name  | tenantId      | 集群 ID 的维度名称         | 输入 String 类型维度名称：tenantId       |
-| Instances.N.Dimensions.0.Value | tenantId      | 具体集群 ID                | 输入具体集群 ID，例如：cmq-xxxxxxxx ，可在 [DescribeCmqQueues](https://cloud.tencent.com/document/product/1179/55909) 接口中获取，字段名为 “TenantId” |
+| Instances.N.Dimensions.0.Value | tenantId      | 具体集群 ID                | 输入具体集群 ID，例如：cmqq-xxxxxxxx ，可在 [DescribeCmqQueues](https://cloud.tencent.com/document/product/1179/55909) 接口中获取，字段名为 “QueueId” |
 | Instances.N.Dimensions.0.Name  | topicName     | 主题名称的维度名称         | 输入 String 类型维度名称：topicName      |
 | Instances.N.Dimensions.0.Value | topicName     | 具体主题名称               | 具体主题名称，例如：testTopic          输入具体集群 ID，例如：cmq-xxxxxxxx ，可在 [DescribeCmqQueues](https://cloud.tencent.com/document/product/1179/55909) 接口中获取，字段名为 “QueueName” |
 | Instances.N.Dimensions.0.Name | appId | 主账号 APPID 的维度名称 | 输入 String 类型维度名称：appId |
