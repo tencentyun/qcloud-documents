@@ -1,4 +1,4 @@
-本方案结合腾讯云 Ckafka、流计算 Oceanus、腾讯云数据库 Elasticsearch、腾讯云 Prometheus 等，通过 Filebeat 实时监控系统日志和应用日志，将监控数据传输到腾讯云 Ckafka，再将 Kafka 中数据接入流计算 Oceanus，经过简单的业务逻辑处理输出到云数据库 Elasticsearch，利用云 Promethus 监控系统指标，利用云 Grafana 实现对 Oceanus 作业的个性化业务数据监控。
+本方案结合腾讯云 Ckafka、流计算 Oceanus、腾讯云数据库 Elasticsearch、腾讯云 Prometheus 等，通过 Filebeat 实时监控系统日志和应用日志，将监控数据传输到腾讯云 Ckafka，再将 Kafka 中数据接入流计算 Oceanus，经过简单的业务逻辑处理输出到云数据库 Elasticsearch，利用云 Promethus 监控系统指标，利用云 Grafana 实现对 Oceanus 作业的个性化业务数据监控。 
 ![](https://main.qcloudimg.com/raw/ca2f709f5a38530886d2e1cd81460f88.png)
 ## 方案架构  
 
