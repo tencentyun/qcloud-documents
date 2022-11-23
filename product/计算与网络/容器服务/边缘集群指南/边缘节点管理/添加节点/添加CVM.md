@@ -5,7 +5,7 @@
 
 ## 创建 CVM 节点
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的**集群**。
-2. 在集群管理页，单击需要创建 cvm 节点的边缘集群 ID，进入该集群详情页。
+2. 在集群管理页，单击需要创建 CVM 节点的边缘集群 ID，进入该集群详情页。
 3. 选择页面左侧**节点管理** > **节点**，进入节点列表页面，单击**创建cvm节点**。如下图
 ![创建 CVM](https://qcloudimg.tencent-cloud.cn/raw/80bb7dc932df0d7b5f1cf12dd00c30e9.jpg)
 4. 在“新建节点”页面，根据实际需求配置相关参数。这里的参数和 TKE 添加节点类似，详情请参见 [新增节点](https://cloud.tencent.com/document/product/457/32203)。
