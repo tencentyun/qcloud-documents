@@ -5,9 +5,9 @@
 
 ## 防护配置
 1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/tea-botconfig)，在左侧导航栏中，选择**配置中心** > **BOT 与业务安全**。
-2. 在 BOT 与业务安全页面，左上角选择需要防护的域名，单击  **BOT 管理**。
+2. 在 BOT 与业务安全页面，左上角选择需要防护的域名，单击**BOT 管理**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/6ebbdba50530929ed734fc9743584008.png)
-3. 在全局设置中，单击前端对抗模块的 **前往配置**
+3. 在全局设置中，单击前端对抗模块的**前往配置**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/0218d3e6eb5c3f457e4def9bc3c029b4.png)
 4. 在发现 AI 检出误报时，可以单击**添加白名单**定向加白特定的 URL 检出，减少误报。
 ![](https://qcloudimg.tencent-cloud.cn/raw/2bd80682ad084198ff765c18e78de0bb.png)
@@ -20,7 +20,7 @@
    - **规则描述**：策略的描述。
    - **加白 URL**：AI 评估的加白路径，影响 AI 评估的得分结果。
    - **规则开关**： AI 评估白名单的开关，开启状态时，当前 AI 评估白名单生效，在 URL 命中 AI 评估白名单时，AI 评估将不增加其分数，其 BOT 评估分值由威胁情报、智能统计进行提供。
-6.	配置完成AI策略相关配置之后，点击某场景配置页，单击AI策略模块的![](https://qcloudimg.tencent-cloud.cn/raw/25ee88daf408bcac2a80287e314e669c.png)， ，即可针对该场景开启AI策略模块
+6. 配置完成AI策略相关配置之后，单击某场景配置页，单击 AI 策略模块的![](https://qcloudimg.tencent-cloud.cn/raw/c9174793080a26017ba65359b80ddde0.png)。即可针对该场景开启 AI 策略模块。
 
 
 ## AI 评估最佳实践
