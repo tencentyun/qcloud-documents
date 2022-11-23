@@ -27,14 +27,14 @@ IM Flutter TUIKit（含 UI）指代 [tencent-cloud-chat-uikit](https://pub.dev/p
 ### IM Flutter TUIKit（含 UI） 0.2.0 @2022.11.23
 
 - 新增：支持在您现有应用中添加Flutter模块，即混合开发，具体请参考[本文档](https://cloud.tencent.com/developer/article/2167243)实现。
-- 新增：自定义短信贴纸和表情符号。**使用方式有较大改变，具体请参考[本升级指引](https://cloud.tencent.com/document/product/269/80882)修改。**
+- 新增：自定义贴纸和表情符号。**使用方式有较大改变，具体请参考[本升级指引](https://cloud.tencent.com/document/product/269/80882)修改。**
 - 优化：历史消息列表的加载时间，尤其是对于有大量媒体和文件消息的情况。
 - 优化：更多面板区域支持滚动。
 - 优化：滚动回到底部时加载最新消息，更加流畅。
 - 修复：Android 相册中的照片数量。
 - 修复：群组资料信息卡中长文本越界的问题。
 - 改动：**配合Calling音视频通话插件使用时，需要手动将通化记录信息组件，传入`TIMUIKitChat`的`messageItemBuilder` => `customMessageItemBuilder`中。详情可查看 [本升级指引](https://cloud.tencent.com/document/product/269/72485#updateuikit)。**
-- 修正：一些错误。
+- 修复：一些错误。
 
 >?
 >
