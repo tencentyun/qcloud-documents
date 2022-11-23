@@ -14,7 +14,7 @@
 | Flutter | SDK 最低要求 Flutter 2.2.0版本，TUIKit 集成组件库最低要求 Flutter 2.10.0 版本。|
 |Android|Android Studio 3.5及以上版本，App 要求 Android 4.1及以上版本设备。|
 |iOS|Xcode 11.0及以上版本，请确保您的项目已设置有效的开发者签名。|
-|腾讯云IM SDK|[tencent_im_sdk_plugin](https://pub.dev/packages/tencent_im_sdk_plugin) 5.0 及以上版本， [tim_ui_kit](https://pub.dev/packages/tim_ui_kit) 0.2 及以上版本。|
+|腾讯云IM SDK|[tencent_im_sdk_plugin](https://pub.dev/packages/tencent_im_sdk_plugin) 5.0 及以上版本， [tencent-cloud-chat-uikit](https://pub.dev/packages/tencent-cloud-chat-uikit) 1.0 及以上版本。|
 
 ## 快速了解
 
@@ -81,9 +81,11 @@ AAR 机制创建通用的 Android AAR 作为打包 Flutter module 的中介。�
 **具体步骤:**
 
 1. 在您的Flutter module中，运行：
+
 ```shell
 flutter build aar
 ```
+
 2. 然后，按照屏幕上的说明进行集成。
 ![](https://qcloudimg.tencent-cloud.cn/raw/32e9376de02da10e97a8c54b9ab2b51c.png)
 3. 您的应用程序现在将 Flutter 模块作为依赖项包括在内。
@@ -99,6 +101,7 @@ flutter build aar
 **具体步骤:**
 
 1. 将Flutter module作为一个子项目，添加至宿主APP的 `settings.gradle` 中：
+
 ```gradle
 // Include the host app project.
 include ':app'                                    // assumed existing content
@@ -108,6 +111,7 @@ evaluate(new File(                                                     // new
   'tencent_chat_module/.android/include_flutter.groovy'                // new
 ))                                                                     // new
 ```
+
 2. 在您应用中的 `app/build.gradle => dependencies` 中引入对Flutter module的 `implementation`:
 
 ```gradle
@@ -115,6 +119,7 @@ dependencies {
   implementation project(':flutter')
 }
 ```
+
 3. 您的应用程序现在将Flutter模块作为依赖项包括在内。
 
 [](id:ios)
@@ -136,19 +141,24 @@ dependencies {
 **具体步骤:**
 
 1. 将以下代码添加到 Podfile 中：
+
 ```
 // 上一步构建的Flutter Module的路径
 flutter_chat_application_path = '../tencent_chat_module'
 
 load File.join(flutter_chat_application_path, '.ios', 'Flutter', 'podhelper.rb')
 ```
+
 2. 对于每个需要嵌入 Flutter 的 [Podfile target](https://guides.cocoapods.org/syntax/podfile.html#target)，调用 `install_all_flutter_pods(flutter_chat_application_path)`。
+
 ```
 target 'MyApp' do
   install_all_flutter_pods(flutter_chat_application_path)
 end
 ```
+
 3. 在 Podfile 的 `post_install` 块中，调用 `flutter_post_install(installer)`，并完成 [腾讯云IM TUIKit](https://cloud.tencent.com/document/product/269/70747) 所需的权限声明，包括麦克风权限/相机权限/相册权限。
+
 ```
 post_install do |installer|
   flutter_post_install(installer) if defined?(flutter_post_install)
@@ -165,12 +175,13 @@ post_install do |installer|
     end
 end
 ```
+
 执行 `pod install`。
 > ?
 >
 > - 在 `tencent_chat_module/pubspec.yaml` 中更改Flutter插件依赖时，请在Flutter Module目录中运行 `flutter pub get` 以刷新 `podhelper.rb` 脚本读取的插件列表。然后，从您iOS应用程序的根目录，再次执行 `pod install`。
 > - 对于 Apple Silicon 芯片 arm64 架构的 Mac电脑，可能需要执行 `arch -x86_64 pod install --repo-update`。
-> 
+>
 > `podhelper.rb` 脚本将您的插件 / `Flutter.framework` / `App.framework` 植入您的项目中。
 
 ##### iOS 方式二：在 Xcode 中嵌入 frameworks
@@ -184,9 +195,11 @@ end
 **具体步骤:**
 
 1. 在您的Flutter module中，运行如下代码。下面的示例，假设您想要将framework生成到 `some/path/MyApp/Flutter/`。
+
 ```shell
 flutter build ios-framework --output=some/path/MyApp/Flutter/
 ```
+
 2. 在 Xcode 中将生成的 frameworks 集成到你的既有应用中。例如，你可以在 `some/path/MyApp/Flutter/Release/` 目录拖拽 frameworks 到你的应用 target 编译设置的 General > Frameworks, Libraries, and Embedded Content 下，然后在 Embed 下拉列表中选择 “Embed & Sign”。
 
 ## 混合开发选型
@@ -322,6 +335,7 @@ class CallInfo{
 **首先编写 IM 引擎。本模块所有代码及文件，均在 `lib/chat` 目录下。**
 
 1. 新建全局状态管理 Model，名为 `model.dart`。
+
 >?该 Model 用于挂载初始化并管理腾讯云 IM Flutter 模块，离线推送能力，全局状态管理，维护与 Native 间通信。是整个 Chat 模块的核心。
 >
 详细代码可查看 Demo 源码。重点关注三个部分：
@@ -329,6 +343,7 @@ class CallInfo{
     - `Future<void> handleClickNotification(Map<String, dynamic> msg)`：点击通知处理事件，来自Native透传，从 Map 中取出数据，跳转至对应的子模块，如某个具体会话。
     - `Future<void> initChat()`：初始化腾讯云IM/登录腾讯云 IM/并完成离线推送的初始化及Token上报。该方法使用线程锁机制，保证同时只能执行一个，并在初始化成功后，不重复执行。
 > ?请根据 [离线推送接入指引](https://cloud.tencent.com/document/product/269/74605)，完成厂商离线推送功能接入，才可正常上报推送 Token，使用推送功能。
+
 2. 新建 `chat_main.dart` 文件，用于 Chat 模块主入口。
    - 该页面也是 Flutter Chat 模块的首页。
    - 在 Demo 中，该页面在未登录前为加载状态，登录后展示会话列表。
@@ -342,6 +357,7 @@ class CallInfo{
 6. 新建 `user_profile.dart` 文件，用于承载 TUIKit 的用户信息及关系链管理模块组件 `TIMUIKitProfile`。详细代码可查看 Demo 源码。
 7. 新建 `group_profile.dart` 文件，用于承载 TUIKit 的群信息及群管理模块组件 `TIMUIKitGroupProfile`。详细代码可查看Demo源码。
 此时，Chat 模块已开发完成。最终结构如下：
+
 ```
 tencent_chat_module/
 ├── lib/
@@ -378,6 +394,7 @@ tencent_chat_module/
 开发完上述三个模块后，现在可完成最终对外暴露的 main 方法，作为 Flutter 引擎的入口。
 
 1. 默认入口。打开 `lib/main.dart` 文件，将 `main()` 方法改成一个空 MaterialApp 即可。该方法作为 Flutter Module 的默认入口，在Flutter多引擎，使用 FlutterEngineGroup 管理的背景下，如果没有子 Flutter Engine 不设置任何 entry point，这个方法就不会被用到。例如，在我们的场景中，这个默认 `main()` 方法就没有被用上。
+
 ```dart
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -391,7 +408,9 @@ void main() {
   ));
 }
 ```
+
 2. 配置 Chat 模块的入口。使用 `@pragma('vm:entry-point')` 注解，将该方法标记为一个 `entry-point` 入口。方法名 `chatMain` 即该入口的名称，在 Native 中，也使用该名称，创建对应 Flutter 引擎。使用全局 `ChangeNotifierProvider` 状态管理，维护 `ChatInfoModel` 数据及业务逻辑。
+
 ```dart
 @pragma('vm:entry-point')
 void chatMain() {
@@ -409,7 +428,9 @@ void chatMain() {
   );
 }
 ```
+
 3. 配置 Call 模块的入口。同理，该入口命名为 `callMain`。使用全局 `ChangeNotifierProvider` 状态管理，维护 `CallInfoModel` 数据及业务逻辑。
+
 ```dart
 @pragma('vm:entry-point')
 void callMain() {

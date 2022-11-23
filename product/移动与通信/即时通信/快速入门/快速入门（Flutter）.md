@@ -13,7 +13,7 @@
 
 我们致力于打造一套支持 Flutter 全平台的即时通信 IM SDK 及 TUIKit，帮助您一套代码，全平台运行。
 
-| 平台 | 无 UI SDK (tencent_im_sdk_plugin) | 含 UI 及基础业务逻辑 TUIKit (tim_ui_kit) |
+| 平台 | 无 UI SDK (tencent_im_sdk_plugin) | 含 UI 及基础业务逻辑 TUIKit (tencent-cloud-chat-uikit) |
 |---------|---------|---------|
 | iOS | 支持 | 支持 |
 | Android | 支持 | 支持 |
@@ -246,11 +246,11 @@ end
 
 #### 安装 IM TUIkit
 
-我们的 TUIkit 已经内含 IM SDK，因此仅需安装`tim_ui_kit`，不需要再安装基础 IM SDK。
+我们的 TUIkit 已经内含 IM SDK，因此仅需安装`tencent-cloud-chat-uikit`，不需要再安装基础 IM SDK。
 
 ```shell
 #在命令行执行：
-flutter pub add tim_ui_kit
+flutter pub add tencent-cloud-chat-uikit
 ```
 
 如果您的项目需要支持 Web，请在执行后续步骤前，[查看 Web 兼容说明章节](#web)，引入 JS 文件。
@@ -263,7 +263,7 @@ flutter pub add tim_ui_kit
 
 ```dart
 /// main.dart
-import 'package:tim_ui_kit/tim_ui_kit.dart';
+import 'package:tencent-cloud-chat-uikit/tencent-cloud-chat-uikit.dart';
 
 final CoreServicesImpl _coreInstance = TIMUIKitCore.getInstance();
   @override
@@ -287,7 +287,7 @@ final CoreServicesImpl _coreInstance = TIMUIKitCore.getInstance();
 2. 调用 [`_coreInstance.login`](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitCore/login.html) 方法，登录一个测试账户。
 
 ```dart
-import 'package:tim_ui_kit/tim_ui_kit.dart';
+import 'package:tencent-cloud-chat-uikit/tencent-cloud-chat-uikit.dart';
 
 final CoreServicesImpl _coreInstance = TIMUIKitCore.getInstance();
 _coreInstance.login(userID: userID, userSig: userSig);
@@ -307,7 +307,7 @@ _coreInstance.login(userID: userID, userSig: userSig);
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:tim_ui_kit/tim_ui_kit.dart';
+import 'package:tencent-cloud-chat-uikit/tencent-cloud-chat-uikit.dart';
 
 class Conversation extends StatelessWidget {
 const Conversation({Key? key}) : super(key: key);
@@ -347,7 +347,7 @@ return Scaffold(
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:tim_ui_kit/tim_ui_kit.dart';
+import 'package:tencent-cloud-chat-uikit/tencent-cloud-chat-uikit.dart';
 
 class Chat extends StatelessWidget {
 final V2TimConversation selectedConversation;
@@ -386,7 +386,7 @@ return TIMUIKitChat(
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:tim_ui_kit/tim_ui_kit.dart';
+import 'package:tencent-cloud-chat-uikit/tencent-cloud-chat-uikit.dart';
 
 class UserProfile extends StatelessWidget {
     final String userID;
@@ -690,7 +690,7 @@ TencentImSDKPlugin.v2TIMManager
 
 ### Flutter for Web支持[](id:web)
 
-我们的 SDK，TUIKit(tim_ui_kit) 0.1.5版本，无 UI SDK(tencent_im_sdk_plugin) 4.1.1+2 版本起，可完美兼容 Web 端。
+我们的 SDK，TUIKit(tencent-cloud-chat-uikit) 0.1.5版本，无 UI SDK(tencent_im_sdk_plugin) 4.1.1+2 版本起，可完美兼容 Web 端。
 
 相比 Android 和 iOS 端，需要一些额外步骤。如下：
 

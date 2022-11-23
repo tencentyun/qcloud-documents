@@ -2,7 +2,7 @@
 
 我们致力于打造一套支持 Flutter 全平台的即时通信 IM SDK 及 TUIKit，帮助您一套代码，全平台运行。
 
-| 平台 | 无 UI SDK (tencent_im_sdk_plugin) | 含 UI 及基础业务逻辑 TUIKit (tim_ui_kit) |
+| 平台 | 无 UI SDK (tencent_im_sdk_plugin) | 含 UI 及基础业务逻辑 TUIKit (tencent-cloud-chat-uikit) |
 |---------|---------|---------|
 | iOS | 所有版本支持 | 所有版本支持 |
 | Android | 所有版本支持 | 所有版本支持 |
@@ -19,7 +19,7 @@
 >?
 >
 >- IM Flutter SDK（无 UI）指代 [tencent_im_sdk_plugin](https://pub.dev/packages/tencent_im_sdk_plugin) 包，仅包括所有 IM 客户端 API 及监听回调。
->- IM Flutter TUIKit（含 UI）指代 [tim_ui_kit](https://pub.dev/packages/tim_ui_kit) 包，在无 UI SDK 基础上，还包括完整 UI 组件库及业务逻辑。
+>- IM Flutter TUIKit（含 UI）指代 [tencent-cloud-chat-uikit](https://pub.dev/packages/tencent-cloud-chat-uikit) 包，在无 UI SDK 基础上，还包括完整 UI 组件库及业务逻辑。
 
 ### IM Flutter TUIKit（含 UI） 0.2.0 @2022.11.22
 
