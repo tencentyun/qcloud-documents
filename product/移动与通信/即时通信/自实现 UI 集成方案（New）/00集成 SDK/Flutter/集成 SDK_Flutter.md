@@ -69,7 +69,6 @@ dependencies:
 
 ```
 import 'package:tencent-cloud-chat-sdk/tencent-cloud-chat-sdk.dart';
-
 ```
 
 ## Flutter for Web支持[](id:web)
