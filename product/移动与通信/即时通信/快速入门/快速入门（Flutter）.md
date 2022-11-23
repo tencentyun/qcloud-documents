@@ -13,14 +13,14 @@
 
 我们致力于打造一套支持 Flutter 全平台的即时通信 IM SDK 及 TUIKit，帮助您一套代码，全平台运行。
 
-| 平台 | 无 UI SDK (tencent_im_sdk_plugin) | 含 UI 及基础业务逻辑 TUIKit (tim_ui_kit) |
+| 平台 | 无 UI SDK (tencent_im_sdk_plugin) | 含 UI 及基础业务逻辑 TUIKit (tencent-cloud-chat-uikit) |
 |---------|---------|---------|
 | iOS | 支持 | 支持 |
 | Android | 支持 | 支持 |
 | [Web](#web) | 支持，4.1.1+2版本起 | 支持，0.1.5版本起 |
 | [macOS](#pc) | 支持，4.1.9版本起 | 即将上线 |
 | [Windows](#pc) | 支持，4.1.9版本起 | 即将上线 |
-| [混合开发](https://cloud.tencent.com/developer/article/2167243) （将 Flutter SDK 添加至现有原生应用） | 5.0.0版本起支持 | 0.2.0版本起支持 |
+| [混合开发](https://cloud.tencent.com/developer/article/2167243) （将 Flutter SDK 添加至现有原生应用） | 5.0.0版本起支持 | 1.0.0版本起支持 |
 
 >? Web/macOS/Windows 平台需要简单的几步额外引入，详情请查看本文 [拓展更多平台](#more)。
 
@@ -246,11 +246,11 @@ end
 
 #### 安装 IM TUIkit
 
-我们的 TUIkit 已经内含 IM SDK，因此仅需安装`tim_ui_kit`，不需要再安装基础 IM SDK。
+我们的 TUIkit 已经内含 IM SDK，因此仅需安装`tencent-cloud-chat-uikit`，不需要再安装基础 IM SDK。
 
 ```shell
 #在命令行执行：
-flutter pub add tim_ui_kit
+flutter pub add tencent-cloud-chat-uikit
 ```
 
 如果您的项目需要支持 Web，请在执行后续步骤前，[查看 Web 兼容说明章节](#web)，引入 JS 文件。
@@ -263,7 +263,7 @@ flutter pub add tim_ui_kit
 
 ```dart
 /// main.dart
-import 'package:tim_ui_kit/tim_ui_kit.dart';
+import 'package:tencent-cloud-chat-uikit/tencent-cloud-chat-uikit.dart';
 
 final CoreServicesImpl _coreInstance = TIMUIKitCore.getInstance();
   @override
@@ -287,7 +287,7 @@ final CoreServicesImpl _coreInstance = TIMUIKitCore.getInstance();
 2. 调用 [`_coreInstance.login`](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitCore/login.html) 方法，登录一个测试账户。
 
 ```dart
-import 'package:tim_ui_kit/tim_ui_kit.dart';
+import 'package:tencent-cloud-chat-uikit/tencent-cloud-chat-uikit.dart';
 
 final CoreServicesImpl _coreInstance = TIMUIKitCore.getInstance();
 _coreInstance.login(userID: userID, userSig: userSig);
@@ -307,7 +307,7 @@ _coreInstance.login(userID: userID, userSig: userSig);
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:tim_ui_kit/tim_ui_kit.dart';
+import 'package:tencent-cloud-chat-uikit/tencent-cloud-chat-uikit.dart';
 
 class Conversation extends StatelessWidget {
 const Conversation({Key? key}) : super(key: key);
@@ -347,7 +347,7 @@ return Scaffold(
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:tim_ui_kit/tim_ui_kit.dart';
+import 'package:tencent-cloud-chat-uikit/tencent-cloud-chat-uikit.dart';
 
 class Chat extends StatelessWidget {
 final V2TimConversation selectedConversation;
@@ -386,7 +386,7 @@ return TIMUIKitChat(
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:tim_ui_kit/tim_ui_kit.dart';
+import 'package:tencent-cloud-chat-uikit/tencent-cloud-chat-uikit.dart';
 
 class UserProfile extends StatelessWidget {
     final String userID;
@@ -567,6 +567,7 @@ getConversationList() async {
 您在此步骤中，需要先在 SDK 上挂载监听，然后处理回调事件，更新 UI。
 
 1. 挂载监听。
+
 ```dart
 await TencentImSDKPlugin.v2TIMManager
       .getConversationManager()
@@ -579,7 +580,9 @@ await TencentImSDKPlugin.v2TIMManager
             _onConversationListChanged(list);
     },
 ```
+
 2. 处理回调事件，将最新的会话列表展示在界面上。
+
 ```dart
 import 'package:tencent_im_sdk_plugin/tencent_im_sdk_plugin.dart';
 
@@ -687,7 +690,7 @@ TencentImSDKPlugin.v2TIMManager
 
 ### Flutter for Web支持[](id:web)
 
-我们的 SDK，TUIKit(tim_ui_kit) 0.1.5版本，无 UI SDK(tencent_im_sdk_plugin) 4.1.1+2 版本起，可完美兼容 Web 端。
+我们的 SDK，TUIKit(tencent-cloud-chat-uikit) 0.1.5版本，无 UI SDK(tencent_im_sdk_plugin) 4.1.1+2 版本起，可完美兼容 Web 端。
 
 相比 Android 和 iOS 端，需要一些额外步骤。如下：
 
@@ -764,12 +767,15 @@ flutter pub add tencent_im_sdk_plugin_desktop
 
 1. 搭载新款 Apple Silicon 的 Mac 设备，如 M1。
 ![](https://qcloudimg.tencent-cloud.cn/raw/dd87d8ff05aec0ecad461f12ef6c3020.png)
+
 ```shell
 cd ios
 sudo arch -x86_64 gem install ffi
 arch -x86_64 pod install --repo-update
 ```
+
 2. 搭载老款 Intel 芯片的 Mac 设备。
+
 ```shell
 cd ios
 sudo gem install ffi
@@ -793,6 +799,7 @@ pod install --repo-update
 ![](https://qcloudimg.tencent-cloud.cn/raw/d95efdd4ae50f13f38f4c383ca755ae7.png)
 
 1. 打开 `android\app\src\main\AndroidManifest.xml`，根据如下，补全 `xmlns:tools="http://schemas.android.com/tools"` / `android:label="@string/android_label"` 及 `tools:replace="android:label"`。
+
 ```xml
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="替换成您的 Android 端包名"
@@ -804,7 +811,9 @@ pod install --repo-update
         android:usesCleartextTraffic="true"
         android:requestLegacyExternalStorage="true">
 ```
+
 2. 打开 `android\app\build.gradle`，补全 `defaultConfig` 中 `minSdkVersion` 及 `targetSdkVersion`。
+
 ```gradle
 defaultConfig {
   applicationId "" // 替换成您的Android端包名

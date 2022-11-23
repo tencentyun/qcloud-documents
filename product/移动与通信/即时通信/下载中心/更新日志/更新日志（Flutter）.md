@@ -2,7 +2,7 @@
 
 我们致力于打造一套支持 Flutter 全平台的即时通信 IM SDK 及 TUIKit，帮助您一套代码，全平台运行。
 
-| 平台 | 无 UI SDK (tencent_im_sdk_plugin) | 含 UI 及基础业务逻辑 TUIKit (tim_ui_kit) |
+| 平台 | 无 UI SDK (tencent-cloud-chat-sdk) | 含 UI 及基础业务逻辑 TUIKit (tencent-cloud-chat-uikit) |
 |---------|---------|---------|
 | iOS | 所有版本支持 | 所有版本支持 |
 | Android | 所有版本支持 | 所有版本支持 |
@@ -10,34 +10,41 @@
 | [macOS](https://cloud.tencent.com/document/product/269/68823#pc) | 4.1.8版本起支持 | 即将上线 |
 | [Windows](https://cloud.tencent.com/document/product/269/68823#pc) | 4.1.8版本起支持 | 即将上线 |
 | [Windows](https://cloud.tencent.com/document/product/269/68823#pc) | 4.1.8版本起支持 | 即将上线 |
-| [混合开发](https://cloud.tencent.com/developer/article/2167243) （将 Flutter SDK 添加至现有原生应用） | 5.0.0版本起支持 | 0.2.0版本起支持 |
+| [混合开发](https://cloud.tencent.com/developer/article/2167243) （将 Flutter SDK 添加至现有原生应用） | 5.0.0版本起支持 | 1.0.0版本起支持 |
 
 >? Web/macOS/Windows 平台需要简单的几步额外引入，详情请查看 [Web 兼容](https://cloud.tencent.com/document/product/269/68823#web) 和 [Desktop 兼容](https://cloud.tencent.com/document/product/269/68823#pc) 指引。
 
 ## 更新日志
 
->?
->
->- IM Flutter SDK（无 UI）指代 [tencent_im_sdk_plugin](https://pub.dev/packages/tencent_im_sdk_plugin) 包，仅包括所有 IM 客户端 API 及监听回调。
->- IM Flutter TUIKit（含 UI）指代 [tim_ui_kit](https://pub.dev/packages/tim_ui_kit) 包，在无 UI SDK 基础上，还包括完整 UI 组件库及业务逻辑。
+IM Flutter SDK（无 UI）指代 [tencent-cloud-chat-sdk](https://pub.dev/packages/tencent-cloud-chat-sdk) 包，仅包括所有 IM 客户端 API 及监听回调。
 
-### IM Flutter TUIKit（含 UI） 0.2.0 @2022.11.18
+IM Flutter TUIKit（含 UI）指代 [tencent-cloud-chat-uikit](https://pub.dev/packages/tencent-cloud-chat-uikit) 包，在无 UI SDK 基础上，还包括完整 UI 组件库及业务逻辑。
+
+>?
+> 无UI的SDK现已从 [tencent_im_sdk_plugin](https://pub.dev/packages/tencent_im_sdk_plugin) 迁移至 [tencent-cloud-chat-sdk](https://pub.dev/packages/tencent-cloud-chat-sdk)；TUIKit现已从 [tim_ui_kit](https://pub.dev/packages/tim_ui_kit) 迁移至 [tencent-cloud-chat-uikit](https://pub.dev/packages/tencent-cloud-chat-uikit)。
+> 后续两个原始版本包将陆续不再维护，请所有客户尽快升级至最新版本，谢谢。
+
+### IM Flutter TUIKit（含 UI） 1.0.0 @2022.11.23
 
 - 新增：支持在您现有应用中添加Flutter模块，即混合开发，具体请参考[本文档](https://cloud.tencent.com/developer/article/2167243)实现。
-- 新增：自定义短信贴纸和表情符号。**使用方式有较大改变，具体请参考[本文档](https://cloud.tencent.com/document/product/269/80882)修改。**
+- 新增：自定义贴纸和表情符号。**使用方式有较大改变，具体请参考[本升级指引](https://cloud.tencent.com/document/product/269/80882)修改。**
 - 优化：历史消息列表的加载时间，尤其是对于有大量媒体和文件消息的情况。
 - 优化：更多面板区域支持滚动。
 - 优化：滚动回到底部时加载最新消息，更加流畅。
 - 修复：Android 相册中的照片数量。
 - 修复：群组资料信息卡中长文本越界的问题。
-- 修正：一些错误。
+- 改动：**配合Calling音视频通话插件使用时，需要手动将通化记录信息组件，传入`TIMUIKitChat`的`messageItemBuilder` => `customMessageItemBuilder`中。详情可查看 [本升级指引](https://cloud.tencent.com/document/product/269/72485#updateuikit)。**
+- 修复：一些错误。
 
-### IM Flutter SDK（无 UI） 5.0.1 @2022.11.18
+>?
+>
+> 升级至本版本的TUIKit，需要您重点关注表情部分（第二条）及音视频通话部分（倒数第二条）的改动，否则相关能力，将无法正常使用。
+> 如在修改过程中有任何疑问，欢迎随时联系我们咨询。
+
+### IM Flutter SDK（无 UI） 5.0.3 @2022.11.23
 
 - 多媒体消息默认不再返回URL，需通过`getMessageOnlineUrl`获取。
 - 媒体消息不默认不再返回localurl，需通过downloadMessage下载消息成功后才会返回。
-- `downloadMergerMessage`接口返回的多媒体消息也默认不再返回url，需通过`getMessageOnlineUrl`获取，默认不再返回`localURL`，需通过`downloadMessage`下载消息成功后才会返回。
-- 调用`downloadMessage`后，会把消息本身的`url`属性改为`null`，仅保留`localURL`。
 - 在`advanceMessageListener`中增加`onMessageDownloadProgressCallback`，当多媒体消息下载进度更新时会触发。
 - iOS端新增`disableBadgeNumber方`法，调用后，当应用切换到后台时，默认不设置应用角标。
 - 支持在您现有应用中添加Flutter模块，即混合开发，具体请参考[本文档](https://cloud.tencent.com/developer/article/2167243)实现。
@@ -49,7 +56,6 @@
 >?
 >
 > 本次更新对于多媒体消息及文件消息改动较大，请根据前四条，修改您现有获取并渲染此类消息的逻辑，否则无法展示。
-> Tips: 建议批量请求`getMessageOnlineUrl`，并批量更新消息列表UI，以保证性能体验。
 > 如在修改过程中有任何疑问，欢迎随时联系我们咨询。
 
 ### IM Flutter TUIKit（含 UI） 0.1.8 @2022.10.21
@@ -190,9 +196,9 @@
 - 目前群信息变更回调返回的数据为 key(string)-value(string) 形式，新增 key(string)-boolValue(bool) 形式
 - 修复会话实例少解析了 nameCard 字段问题
 - 新增群已读回执相关接口
-- [sendMessageReadReceptes](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/sendMessageReadReceipts.html) 发送群消息已读回执
-- [getMessageReadReceptes](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/getMessageReadReceipts.html) 获取自己发送消息的已读回执
-- [getgroupMessageReadMemeberList](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_message_manager/V2TIMMessageManager/getGroupMessageReadMemberList.html) 获取自己发送的群消息已读（未读）群成员列表
+- [sendMessageReadReceptes](https://pub.dev/documentation/tencent-cloud-chat-sdk/latest/manager_v2_tim_message_manager/V2TIMMessageManager/sendMessageReadReceipts.html) 发送群消息已读回执
+- [getMessageReadReceptes](https://pub.dev/documentation/tencent-cloud-chat-sdk/latest/manager_v2_tim_message_manager/V2TIMMessageManager/getMessageReadReceipts.html) 获取自己发送消息的已读回执
+- [getgroupMessageReadMemeberList](https://pub.dev/documentation/tencent-cloud-chat-sdk/latest/manager_v2_tim_message_manager/V2TIMMessageManager/getGroupMessageReadMemberList.html) 获取自己发送的群消息已读（未读）群成员列表
 - Flutter for Web 完善
 
 ### IM Flutter TUIKit（含 UI） 0.0.7 @2022.04.13
