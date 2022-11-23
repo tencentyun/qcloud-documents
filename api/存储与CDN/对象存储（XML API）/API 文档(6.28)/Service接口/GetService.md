@@ -162,7 +162,7 @@ GetService 支持通过请求参数根据存储桶标签、地域、创建时间
 
 | 节点名称（关键字） | 父节点                       | 描述                                                         | 类型   |
 | ------------------ | ---------------------------- | ------------------------------------------------------------ | ------ |
-| ID                 | ListAllMyBucketsResult.Owner | 存储桶持有者的完整 ID，格式为`qcs::cam::uin/[OwnerUin]:uin/[OwnerUin]`<br>例如`qcs::cam::uin/100000000001:uin/100000000001` | string |
+| ID                 | ListAllMyBucketsResult.Owner | 存储桶持有者的完整 ID，格式为 `qcs::cam::uin/[OwnerUin]:uin/[OwnerUin]`<br>例如`qcs::cam::uin/100000000001:uin/100000000001` | string |
 | DisplayName        | ListAllMyBucketsResult.Owner | 存储桶持有者的名字                                           | string |
 
 **Container 节点 Buckets 的内容：**
@@ -175,9 +175,9 @@ GetService 支持通过请求参数根据存储桶标签、地域、创建时间
 
 | 节点名称（关键字） | 父节点                                | 描述                                                         | 类型   |
 | ------------------ | ------------------------------------- | ------------------------------------------------------------ | ------ |
-| Name               | ListAllMyBucketsResult.Buckets.Bucket | 存储桶的名称，格式为`<BucketName-APPID>`<br>例如 `examplebucket-1250000000` | string |
+| Name               | ListAllMyBucketsResult.Buckets.Bucket | 存储桶的名称，格式为 `<BucketName-APPID>`<br>例如 `examplebucket-1250000000` | string |
 | Location           | ListAllMyBucketsResult.Buckets.Bucket | 存储桶所在地域，枚举值请参见 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224) 文档<br>例如 ap-beijing，ap-hongkong，eu-frankfurt 等 | Enum   |
-| CreationDate       | ListAllMyBucketsResult.Buckets.Bucket | 存储桶的创建时间，为 ISO8601 格式，例如2019-05-24T10:56:40Z    | date   |
+| CreationDate       | ListAllMyBucketsResult.Buckets.Bucket | 存储桶的创建时间，为 ISO8601 格式，例如 2019-05-24T10:56:40Z    | date   |
 
 #### 错误码
 
@@ -382,7 +382,7 @@ x-cos-request-id: NjM1MGY4ZTRfMWViMjM1MGFfYjg3MV8xNjdk****
 
 #### 案例五：根据创建时间过滤存储桶列表
 
-列出创建时间早于`2022-1-20 15:10:45`的存储桶。
+列出创建时间早于 `2022-1-20 15:10:45` 的存储桶。
 
 #### 请求
 
