@@ -8,7 +8,7 @@
 `CoreServicesImpl` 为 TIMUIKit 核心类，包含初始化、登录、登出、获取用户信息等方法。
 
 ```dart
-import 'package:tencent-cloud-chat-uikit/tencent-cloud-chat-uikit.dart';
+import 'package:tencent_cloud_chat_uikit/tencent_cloud_chat_uikit.dart';
 
 final CoreServicesImpl _coreInstance = TIMUIKitCore.getInstance();
 final V2TIMManager _sdkInstance = TIMUIKitCore.getSDKInstance();
@@ -88,7 +88,7 @@ _coreInstance.setTheme(TUITheme theme: theme) // 设置主题色
 `TIMUIKitConversation` 为会话组件，拉取用户会话列表，默认提供一套 UI，用户也可自定义会话条目。同时提供对应的 `TIMUIKitConversationController`。
 
 ```dart
-import 'package:tencent-cloud-chat-uikit/tencent-cloud-chat-uikit.dart';
+import 'package:tencent_cloud_chat_uikit/tencent_cloud_chat_uikit.dart';
 
 final TIMUIKitConversationController _controller =
       TIMUIKitConversationController();
@@ -165,7 +165,7 @@ TIMUIKitConversation(
 - 文件消息
 
 ```dart
-import 'package:tencent-cloud-chat-uikit/tencent-cloud-chat-uikit.dart';
+import 'package:tencent_cloud_chat_uikit/tencent_cloud_chat_uikit.dart';
 
 TIMUIKitChat(
     conversationID: "", /// 会话ID
@@ -298,7 +298,7 @@ TIMUIKitGroup(
 `TIMUIKitContact` 为联系人组件，提供联系人列表。
 
 ```dart
-import 'package:tencent-cloud-chat-uikit/tencent-cloud-chat-uikit.dart';
+import 'package:tencent_cloud_chat_uikit/tencent_cloud_chat_uikit.dart';
 
 TIMUIKitContact(
       topList: [
