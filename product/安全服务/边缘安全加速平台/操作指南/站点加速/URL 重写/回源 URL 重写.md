@@ -11,17 +11,21 @@
 <table>
 <thead>
 <tr>
-<th width="20%">配置项</th>
-<th width="80%">说明</th>
+<th align="left">类型</th>
+<th align="left">说明</th>
 </tr>
 </thead>
 <tbody><tr>
-<td align="left">类型</td>
-<td align="left">重写类型：<ul><li>增加路径前缀：增加指定路径前缀至请求 URL Path，例如请求 URL是 <code>http://www.example.com/path0/index.html</code>,增加的路径前缀为/prefix，则重写后的 URL 是 <code>http://www.example.com/prefix/path0/index.html</code></li><li> 移除路径前缀：移除请求 URL 的指定路径前缀内，例如请求 URL是 <code>http://www.example.com/path0/path1/index.html</code>，指定移除的路径前缀是/path0，则重写后的 URL 是 <code>http://www.example.com/path1/index.html</code></li><li>替换完整路径：替换完整的请求 URL Path，例如请求 URL是 <code>http://www.example.com/path0/index.html</code>，替换完整路径为/new/page.html，则重写后的 URL 是 <code>http://www.example.com/new/page.html</code></li></ul></td>
+<td align="left">增加路径前缀</td>
+<td align="left">增加指定路径前缀至请求 URL Path，例如请求 URL是 <code>http://www.example.com/path0/index.html</code>,增加的路径前缀为/prefix，则重写后的 URL 是 <code>http://www.example.com/prefix/path0/index.html</code>。</td>
 </tr>
 <tr>
-<td align="left">携带查询参数</td>
-<td align="left">是否携带原查询参数至目标 URL ，默认会携带</td>
+<td align="left">移除路径前缀</td>
+<td align="left">移除请求 URL 的指定路径前缀内，例如请求 URL是 <code>http://www.example.com/path0/path1/index.html</code>，指定移除的路径前缀是/path0，则重写后的 URL 是 <code>http://www.example.com/path1/index.html</code>。</td>
+</tr>
+<tr>
+<td align="left">替换完整路径</td>
+<td align="left">替换完整的请求 URL Path，例如请求 URL是 <code>http://www.example.com/path0/index.html</code>，替换完整路径为/new/page.html，则重写后的 URL 是 <code>http://www.example.com/new/page.html</code>。</td>
 </tr>
 </tbody></table>
 
