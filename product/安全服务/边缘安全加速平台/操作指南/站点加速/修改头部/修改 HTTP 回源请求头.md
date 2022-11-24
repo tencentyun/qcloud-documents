@@ -17,22 +17,34 @@
 </thead>
 <tbody><tr>
 <td>设置</td>
-<td>变更指定头部参数的取值为设置后的值，且头部唯一<br>注意：若指定头部不存在，则会增加该头部</td>
+<td>变更指定头部参数的取值为设置后的值，且头部唯一。<br>注意：若指定头部不存在，则会增加该头部。</td>
 </tr>
 <tr>
 <td>增加</td>
-<td>增加指定的头部<br>注意：若头部已存在，则会覆盖原有头部且唯一</td>
+<td>增加指定的头部。<br>注意：若头部已存在，则会覆盖原有头部且唯一。</td>
 </tr>
 <tr>
 <td>删除</td>
 <td>删除指定的头部</td>
 </tr>
 </tbody></table>
-
-| 头部类型 | 说明                                                         |
-| -------- | ------------------------------------------------------------ |
-| 自定义   | 自定义头部：<br>名称：1 - 100个字符，由数字0 - 9、字符a - z、A - Z，及特殊符 `-` 组成。<br/>值：1 - 1000个字符，不支持中文。 |
-| 预设头部 | 客户端信息头部：根据客户端 User-Agent 信息聚合的预设头部<br/>客户端设备类型：EO-Client-Device: Mobile/Desktop/SmartTV/Tablet/Others<br/>客户端操作系统：EO-Client-OS: \- Android/iOS/Windows/MacOS/Linux/Others<br/>客户端浏览器类型：EO-Client-Browser: Chrome/Safari/Firefox/IE/Others |
+头部类型说明：
+<table>
+<thead>
+<tr>
+<th>头部类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>自定义</td>
+<td>自定义头部。<ul><li>名称：1 - 100个字符，由数字0 - 9、字符a - z、A - Z，及特殊符 <code>-</code> 组成。</li><li>值：1 - 1000个字符，不支持中文。</td>
+</tr>
+<tr>
+<td>预设头部</td>
+<td><ul><li>客户端信息头部：根据客户端 User-Agent 信息聚合的预设头部。</li><li>客户端设备类型：EO-Client-Device: Mobile/Desktop/SmartTV/Tablet/Others。</li><li>客户端操作系统：EO-Client-OS: - Android/iOS/Windows/MacOS/Linux/Others。</li><li>客户端浏览器类型：EO-Client-Browser: Chrome/Safari/Firefox/IE/Others。</li></td>
+</tr>
+</tbody></table>
 
 
 ## 注意事项
