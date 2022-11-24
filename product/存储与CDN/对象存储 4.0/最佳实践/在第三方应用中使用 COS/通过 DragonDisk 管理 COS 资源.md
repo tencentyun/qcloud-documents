@@ -42,16 +42,14 @@ DragonDisk 是一个免费的文件管理工具，提供类似 Windows 资源管
 
 ### 创建存储桶
 
-1. 选择用户名并右键单击，在弹窗中输入完整的存储桶名称，例如 examplebucket-1250000000。
+1. 选择用户名并右键单击 **Create bucket**，在弹窗中输入完整的存储桶名称，例如 examplebucket-1250000000。
 ![](https://qcloudimg.tencent-cloud.cn/raw/46fd8b1296908a39b2949b7895dd1a60.png)
 2. 输入无误后，单击 **OK** 即可创建完成。
 关于存储桶的命名规范，请参见 [存储桶命名规范](https://cloud.tencent.com/document/product/436/13312#.E5.AD.98.E5.82.A8.E6.A1.B6.E5.91.BD.E5.90.8D.E8.A7.84.E8.8C.83)。
 
 ### 删除存储桶
 
-在存储桶列表中选择需删除存储桶，并在右键单击的菜单中选择删除。
-![](https://qcloudimg.tencent-cloud.cn/raw/c1e62d846d76f7fd5062d10ab243f085.png)
-
+在存储桶列表中选择需删除存储桶，并右键单击 **Delete bucket** 即可。
 
 
 ### 上传对象
@@ -90,18 +88,9 @@ DragonDisk 是一个免费的文件管理工具，提供类似 Windows 资源管
 
 
 
+## 结语
 
-
-
-
-
-
-
-
-
-
-
-
+当然，COS 不仅提供以上应用和服务，还提供多款热门开源应用，并集成腾讯云 COS 插件，欢迎点击“[此处](https://cloud.tencent.com/act/pro/Ecological-aggregation?from=18406)”一键启动，立即使用！
 
 
 

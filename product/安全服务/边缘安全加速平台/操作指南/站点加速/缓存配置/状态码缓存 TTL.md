@@ -8,7 +8,8 @@
 
 ## 操作步骤
 1. 登录 [边缘安全加速平台控制台](https://console.cloud.tencent.com/edgeone)，在左侧菜单栏中，单击**规则引擎**。
-3. 在规则引擎页面，选择所需站点，单击![img](https://qcloudimg.tencent-cloud.cn/raw/fe4d4900f8ad69d506adc49bdb70fa32.png)可按需配置状态码缓存 TTL 规则。
-3. 在规则引擎页面，操作选择**状态码缓存 TTL**，并按需配置其他参数，单击**保存发布**或**仅保存**。
->!目前支持的匹配类型为全部（任意请求），Host 或文件后缀。
->
+2. 在规则引擎页面，选择所需站点，可按需配置状态码缓存 TTL 规则。如何使用规则引擎，请参见 [规则引擎](https://cloud.tencent.com/document/product/1552/70901)。
+
+## 配置示例
+当请求的资源获取失败，源站响应404状态码时，希望节点缓存404状态码，且后续10秒内的请求直接由节点响应，而不是全部透传回源站，以减轻源站压力，可配置：
+![](https://qcloudimg.tencent-cloud.cn/raw/6bf0acd1d3e10314b9d844ad9360d271.png)

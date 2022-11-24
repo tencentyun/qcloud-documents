@@ -83,3 +83,8 @@ CloudBerry Explorer 是一款可用于管理对象存储（Cloud Object Storage�
 除了以上功能，CloudBerry Explorer 还支持其他功能，例如设置对象 ACL、查看对象元数据、自定义 Headers、获取对象 URL 等。用户可根据实际需求进行操作。
 
 
+## 结语
+
+当然，COS 不仅提供以上应用和服务，还提供多款热门开源应用，并集成腾讯云 COS 插件，欢迎点击“[此处](https://cloud.tencent.com/act/pro/Ecological-aggregation?from=18406)”一键启动，立即使用！
+
+

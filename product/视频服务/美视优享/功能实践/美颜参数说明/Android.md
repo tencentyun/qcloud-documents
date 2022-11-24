@@ -681,7 +681,7 @@
 </tr>
 </tbody></table>
 
-### 立体-自然
+### 立体-清新
 <table>
 <thead><tr><th colspan="2" width="40%">字段</th><th>取值</th></tr></thead>
 <tbody><tr><td colspan="2">category</td>

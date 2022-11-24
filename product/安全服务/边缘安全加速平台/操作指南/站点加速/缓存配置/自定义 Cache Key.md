@@ -28,7 +28,7 @@ Cache Key 是节点缓存资源的唯一标识。节点响应请求资源时，�
 </tr>
 <tr>
 <td align="left">HTTP 请求头</td>
-<td align="left">资源会根据某些 HTTP 请求头而异，指定 HTTP 请求头拼接在 URL 后方生成 Cache Key 。只需输入 HTTP 请求头名称，例如：Accept-Language;User-Agent，Cache Key 里会自动包含头部对应的值。</td>
+<td align="left">资源会根据某些客户端 HTTP 请求头而异，指定 HTTP 请求头拼接在 URL 后方生成 Cache Key 。只需输入 HTTP 请求头名称，例如：Accept-Language，Cache Key 里会自动包含头部对应的值。<br><br>若需要根据客户端信息，如不同设备或浏览器类型缓存，也可选择 EdgeOne 预设头部：<br> 根据客户端 User-Agent 和 IP 信息聚合的客户端信息头部<br>客户端设备类型：EO-Client-Device: Mobile/Desktop/SmartTV/Tablet/Others<br>客户端操作系统：EO-Client-OS: Android/iOS/Windows/MacOS/Linux/Others<br>客户端浏览器类型：EO-Client-Browser: Chrome/Safari/Firefox/IE/Others <br> 客户端 IP 所在地理位置：EO-Client-IPCountry: 两位字母国家/地区代码（ISO 3166-1 alpha-2 codes）</td>
 </tr>
 <tr>
 <td align="left">Cookie</td>
@@ -44,9 +44,9 @@ Cache Key 是节点缓存资源的唯一标识。节点响应请求资源时，�
 
 若域名 `www.example.com`  的自定义 Cache Key 配置如下：
 
-![](https://qcloudimg.tencent-cloud.cn/raw/090763cad03e233715b71ca39c3d9e4c.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/dfb83780eecd2657c0a80ec953fb7f5f.png)
 
-Cache Key 由 URL+My-Client-Header+Cookie 组成：不区分请求协议，忽略全部查询字符串，忽略 URL 大小写，拼接My-Client-Header和保留指定参数后的 Cookie。
+Cache Key 由 URL+My-Client-Header+Cookie 组成：不区分请求协议（默认），忽略全部查询字符串，忽略 URL 大小写，拼接My-Client-Header和保留指定参数后的 Cookie。
 
 则客户端请求 A：
 

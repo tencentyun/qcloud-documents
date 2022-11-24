@@ -7,6 +7,7 @@ GooseFS-FUSE 是基于 [FUSE](http://fuse.sourceforge.net/) 这个项目，并�
 - JDK 1.8及以上
 - Linux 系统：[libfuse](https://github.com/libfuse/libfuse) 2.9.3及以上（可以使用 2.8.3版本，但会提示一些警告）
 - MAC 系统：[osxfuse](https://osxfuse.github.io/) 3.7.1及以上
+- GooseFS-FUSE：[OpenJDK](https://downloads.tencentgoosefs.cn/goosefs/1.4.0/release/goosefs-fuse-1.4.0-bin.tar.gz)、[KonaJDK](https://downloads.tencentgoosefs.cn/goosefs/1.4.0/release/goosefs-fuse-1.4.0-bin-konajdk11.tar.gz)
 
 ## 用法
 

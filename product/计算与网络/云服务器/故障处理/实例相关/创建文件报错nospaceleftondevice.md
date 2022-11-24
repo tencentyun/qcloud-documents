@@ -1,5 +1,5 @@
 ## 现象描述
-在 Linux 云服务器中创建新文件时，出现 “no space left on device” 报错。
+在 Linux 云服务器中创建新文件的时候，出现 “no space left on device” 报错。
 
 
 ## 可能原因

@@ -78,6 +78,16 @@ pod 'TXIMSDK_Plus_iOS_Bitcode_XCFramework'
 end
 ```
 
+如果使用增强版 Pro SDK，请您按照如下方式设置 Podfile 文件：
+```
+platform :ios, '8.0'
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'App' do
+pod 'TXIMSDK_Plus_Pro_iOS'
+end
+```
+
 #### 4. 更新并安装 SDK
 在终端窗口中输入如下命令以更新本地库文件，并安装 TXIMSDK：
 ```
