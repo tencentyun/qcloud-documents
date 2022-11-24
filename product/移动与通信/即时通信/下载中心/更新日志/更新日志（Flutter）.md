@@ -9,7 +9,6 @@
 | [Web](https://cloud.tencent.com/document/product/269/68823#web) | 4.1.1+2版本起支持 | 0.1.5版本起支持 |
 | [macOS](https://cloud.tencent.com/document/product/269/68823#pc) | 4.1.8版本起支持 | 即将上线 |
 | [Windows](https://cloud.tencent.com/document/product/269/68823#pc) | 4.1.8版本起支持 | 即将上线 |
-| [Windows](https://cloud.tencent.com/document/product/269/68823#pc) | 4.1.8版本起支持 | 即将上线 |
 | [混合开发](https://cloud.tencent.com/developer/article/2167243) （将 Flutter SDK 添加至现有原生应用） | 5.0.0版本起支持 | 1.0.0版本起支持 |
 
 >? Web/macOS/Windows 平台需要简单的几步额外引入，详情请查看 [Web 兼容](https://cloud.tencent.com/document/product/269/68823#web) 和 [Desktop 兼容](https://cloud.tencent.com/document/product/269/68823#pc) 指引。
@@ -39,7 +38,7 @@ IM Flutter TUIKit（含 UI）指代 [tencent_cloud_chat_uikit](https://pub.dev/p
 >?升级至本版本的 TUIKit，需要您重点关注表情部分（第二条）及音视频通话部分（倒数第二条）的改动，否则相关能力，将无法正常使用。
 > 如在修改过程中有任何疑问，欢迎随时联系我们咨询。
 
-### IM Flutter SDK（无 UI） 5.0.3 @2022.11.23
+### IM Flutter SDK（无 UI） 5.0.4 @2022.11.23
 
 - 多媒体消息默认不再返回URL，需通过`getMessageOnlineUrl`获取。
 - 媒体消息不默认不再返回localurl，需通过downloadMessage下载消息成功后才会返回。
