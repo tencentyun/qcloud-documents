@@ -4,7 +4,7 @@ BOT 流量管理需要购买 WAF  [对应实例的增值服务](https://cloud.te
 ## 操作步骤
 1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/tea-botconfig)，在左侧导航栏中，选择**配置中心** > **BOT 与业务安全**，进入 BOT 与业务安全页面。
 2. 在 BOT 与业务安全页面，左上角选择需要防护的域名，单击 BOT 管理规则的![](https://qcloudimg.tencent-cloud.cn/raw/0b613028c41243c1b53951862a3284e9.png)，即可开启 BOT 流量分析。
-![](https://qcloudimg.tencent-cloud.cn/raw/ef65f105f033a8c2d85c623fc1d0a446.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/642d93faac4b01d62cf0b84583318040.png)
 **字段说明**
  - **BOT 管理规则开关**： 默认关闭，可根据需要开启。
 >?当且仅当域名 WAF 开关开启时，BOT 流量分析功能生效。
