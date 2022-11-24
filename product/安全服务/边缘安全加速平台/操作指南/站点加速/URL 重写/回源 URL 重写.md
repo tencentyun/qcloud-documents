@@ -33,6 +33,6 @@
 
 若请求 URL `https://www.example.com/path0/path1/foo.html` 的访问 URL 重定向配置如下：
 
-![](https://qcloudimg.tencent-cloud.cn/raw/8e5a2b2af622f99d7454c2e85c8fbfaf.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/6c63859c9a5199a367eee6e222804862.png)
 
-则客户端请求：`https://www.example.com/path0/path1/foo.html?key1=value1` 回源会被重写为 `https://www.example.com/path1/foo.html` 获取请求资源。
+则客户端请求：`https://www.example.com/path0/path1/foo.html?key1=value1` 回源会被重写为 `https://www.example.com/path1/foo.html?key1=value1`获取请求资源。若回源时还需忽略key1=value1 查询字符串，请使用 [回源请求参数设置](https://cloud.tencent.com/document/product/1552/82627) 操作。
