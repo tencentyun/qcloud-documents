@@ -1,5 +1,5 @@
 
-通过阅读本文，你可以了解在您现有的 Android / iOS 原生开发项目中，集成腾讯云 IM Flutter 的方法。
+通过阅读本文，您可以了解在您现有的 Android / iOS 原生开发项目中，集成腾讯云 IM Flutter 的方法。
 
 有的时候，使用 Flutter 重写您现有的应用程序是不现实的。如果您想在现有 APP 中，使用腾讯云 IM 的能力，推荐采用混合开发方案，即将 Flutter 模块，嵌入您的原生开发 APP 项目中。
 
@@ -108,8 +108,7 @@ evaluate(new File(                                                     // new
   'tencent_chat_module/.android/include_flutter.groovy'                // new
 ))                                                                     // new
 ```
-2. 在您应用中的 `app/build.gradle => dependencies` 中引入对Flutter module的 `implementation`:
-
+2. 在您应用中的 `app/build.gradle => dependencies` 中引入对Flutter module的 `implementation`：
 ```gradle
 dependencies {
   implementation project(':flutter')
@@ -177,19 +176,17 @@ end
 
 为 Flutter 引擎、已编译的 DART 代码和所有 Flutter 插件创建框架。手动嵌入框架，并在 Xcode 中更新现有应用程序的构建设置。
 
-通过手动编辑现有的 Xcode 项目，您可以生成必要的 framework 并将它们嵌入到应用程序中。如果您的团队成员无法在本地安装 Flutter SDK 和 CocoaPods，或者如果您不想在现有应用程序中使用 CocoaPods 作为依赖项管理器，则可以这样做。每次你在你的颤动模块中修改代码时，你都必须运行 `flutter build ios-framework`.
+通过手动编辑现有的 Xcode 项目，您可以生成必要的 framework 并将它们嵌入到应用程序中。如果您的团队成员无法在本地安装 Flutter SDK 和 CocoaPods，或者如果您不想在现有应用程序中使用 CocoaPods 作为依赖项管理器，则可以这样做。每次您在您的颤动模块中修改代码时，您都必须运行 `flutter build ios-framework`.
 
 因此，建议在线上环境，使用本方案。
 
 **具体步骤:**
 
 1. 在您的Flutter module中，运行如下代码。下面的示例，假设您想要将framework生成到 `some/path/MyApp/Flutter/`。
-
 ```shell
 flutter build ios-framework --output=some/path/MyApp/Flutter/
 ```
-
-2. 在 Xcode 中将生成的 frameworks 集成到你的既有应用中。例如，你可以在 `some/path/MyApp/Flutter/Release/` 目录拖拽 frameworks 到你的应用 target 编译设置的 General > Frameworks, Libraries, and Embedded Content 下，然后在 Embed 下拉列表中选择 “Embed & Sign”。
+2. 在 Xcode 中将生成的 frameworks 集成到您的既有应用中。例如，您可以在 `some/path/MyApp/Flutter/Release/` 目录拖拽 frameworks 到您的应用 target 编译设置的 General > Frameworks, Libraries, and Embedded Content 下，然后在 Embed 下拉列表中选择 “Embed & Sign”。
 
 ## 混合开发选型
 
