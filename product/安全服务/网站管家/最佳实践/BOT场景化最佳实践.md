@@ -1,21 +1,31 @@
 ## 功能介绍
 通过 BOT 与业务安全，用户可以在 BOT 管理中开启并配置对应模块内容，并结合 BOT 流量分析与访问日志进行观察和分析。根据流量分析提供的会话状态信息进行精细化策略设置，保护网站核心接口和业务免受 BOT 侵害。
 
-BOT 管理设置支持配置BOT场景类型、客户端风险识别（前端对抗）、威胁情报、AI 评估、智能统计、动作分数、自定义规则、Token 配置、合法爬虫模块，通过配置这些模块，实现对 BOT 的精细化管理。（BOT最佳实践流程图）
+BOT 管理设置支持配置 BOT 场景类型、客户端风险识别（前端对抗）、威胁情报、AI 评估、智能统计、动作分数、自定义规则、Token 配置、合法爬虫模块，通过配置这些模块，实现对 BOT 的精细化管理。BOT 最佳实践流程图如下所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/8f80bd7286dd6a1131c14caac08b5412.png)
-## 前提条件
-- BOT 流量管理需要购买 WAF [对应实例的扩展包]
 
+## 前提条件
+- BOT 流量管理需要购买 WAF [对应实例的扩展包](https://cloud.tencent.com/document/product/627/11730#bot-.E6.B5.81.E9.87.8F.E7.AE.A1.E7.90.86.3Ca-id.3D.22bot.22.3E.3C.2Fa.3E)。
 - 已在 [BOT 与业务安全页面](https://console.cloud.tencent.com/guanjia/tea-botconfig)，选择需要防护的域名，并开启 BOT 流量开关。
 ![](https://qcloudimg.tencent-cloud.cn/raw/ebf95eb82bfb4b6f66682fc20faae5ee.png)
-## BOT场景化配置
-该功能依托腾讯多年BOT治理的专家经验，针对BOT中常见的秒杀、爬价格/爬内容和登录等场景，从客户端风险识别（前端对抗）、威胁情报、AI策略、智能分析、动作得分、会话管理、合法爬虫和自定义规则等维度基于专家经验进行设置，解决客户配置难的问题，简单易用，轻松上手。
-1、登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/tea-botconfig)，在左侧导航栏中，选择**配置中心** > **BOT 与业务安全**。
-2、在 BOT 与业务安全页面，左上角选择需要防护的域名，单击 **BOT 管理**。
-3、在 BOT 管理页面，单击**新建场景**。
-4、填写场景名称、选择业务场景类型（多选：秒杀、登录、爬文案/爬内容和自定义场景）、选择客户端类型（访问防护目标的客户端类型）、填写优先级、填写生效范围，填写完毕后，单击 **立即创建**。即可完成场景配置
-     注：1）选中秒杀、登录和爬文案/爬内容 中的任意一个场景与自定义场景互斥。
-5、场景化管理列表中，将出现创建完成的场景卡片数据，即可进一步对其进行配置。
+
+
+## BOT 场景化配置
+该功能依托腾讯多年 BOT 治理的专家经验，针对 BOT 中常见的秒杀、爬价格/爬内容和登录等场景，从客户端风险识别（前端对抗）、威胁情报、AI 策略、智能分析、动作得分、会话管理、合法爬虫和自定义规则等维度基于专家经验进行设置，解决客户配置难的问题，简单易用，轻松上手。
+1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/tea-botconfig)，在左侧导航栏中，选择**配置中心** > **BOT 与业务安全**。
+2. 在 BOT 与业务安全页面，左上角选择需要防护的域名，单击 **BOT 管理**。
+3. 在 BOT 管理页面，单击**新建场景**。
+4. 在新建场景弹窗中，配置相关参数，单击**立即创建**。
+>!选中秒杀、登录和爬文案/爬内容 中的任意一个场景与自定义场景互斥。
+>
+**参数说明：**
+ - **场景名称**：
+ - **业务场景类型**：支持多选，可选择秒杀、登录、爬文案/爬内容和自定义场景。
+ - **客户端类型**：访问防护目标的客户端类型。
+ - **优先级**：
+ - **生效范围**：
+5. 场景化管理列表中，将出现创建完成的场景卡片数据，即可进一步对其进行配置。
+
 ## 会话管理
 用户可通过配置该功能，配置会话 Token 所在的位置，实现在同一 IP 下区分识别不同用户的访问行为，实现不影响其他用户的情况下，精准处置存在异常访问行为的用户。
 1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/tea-botconfig)，在左侧导航栏中，选择**配置中心** > **BOT 与业务安全**。
@@ -55,8 +65,7 @@ BOT 管理设置支持配置BOT场景类型、客户端风险识别（前端对�
 ![](https://qcloudimg.tencent-cloud.cn/raw/6ebbdba50530929ed734fc9743584008.png)
 2. 在 BOT 管理页面，在全局设置中，单击前端对抗模块的**前往配置**。
 4. 单击自动化工具识别的![](https://qcloudimg.tencent-cloud.cn/raw/5be282efe2247c29686330d3810c4acc.png)，确认白名单。
-5. 点击某场景配置页，单击**前端对抗**，单击该场景下前端对抗模块的![](https://qcloudimg.tencent-cloud.cn/raw/8257e4baf0c410e6765732438db68c70.png)，防护模式选择**拦截**，开启该前端对抗功能。
-
+5. 单击某场景配置页，单击**前端对抗**，单击该场景下前端对抗模块的![](https://qcloudimg.tencent-cloud.cn/raw/8257e4baf0c410e6765732438db68c70.png)，防护模式选择**拦截**，开启该前端对抗功能。
 5. 使用 CURL、SELENIUM、POSTMAN 请求结果分别如下所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/582fddd3ed6b0916dc438f06f755ed14.png)
 ![](https://qcloudimg.tencent-cloud.cn/raw/ddaf3356a3fc45199cab550f5342b8ba.png)
@@ -67,13 +76,11 @@ BOT 管理设置支持配置BOT场景类型、客户端风险识别（前端对�
 1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/tea-botconfig)，在左侧导航栏中，选择**配置中心** > **BOT 与业务安全**。
 2. 在 BOT 与业务安全页面，左上角选择需要防护的域名，单击 **BOT 管理**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/6ebbdba50530929ed734fc9743584008.png)
-2. 在 BOT 管理页面，在全局设置中，单击前端对抗模块的**前往配置**。
-
-4. 单击页面防调试的![](https://qcloudimg.tencent-cloud.cn/raw/5be282efe2247c29686330d3810c4acc.png)，确认白名单后。
+3. 在 BOT 管理页面，在全局设置中，单击前端对抗模块的**前往配置**。
+4. 单击页面防调试的![](https://qcloudimg.tencent-cloud.cn/raw/5be282efe2247c29686330d3810c4acc.png)，确认白名单。
 ![](https://qcloudimg.tencent-cloud.cn/raw/1716aeec5c852c48a17647d22ac57ca1.png)
-5. 点击某场景配置页，单击**前端对抗**，单击该场景下前端对抗模块的![](https://qcloudimg.tencent-cloud.cn/raw/8257e4baf0c410e6765732438db68c70.png)，防护模式选择**拦截**，开启该前端对抗功能。
-
-5. 使用 Chrome 请求结果如下所示：
+5. 单击某场景配置页，单击**前端对抗**，单击该场景下前端对抗模块的![](https://qcloudimg.tencent-cloud.cn/raw/8257e4baf0c410e6765732438db68c70.png)，防护模式选择**拦截**，开启该前端对抗功能。
+6. 使用 Chrome 请求结果如下所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/2123f885e0677cc1896172c628ff6528.png)
 
 ## 威胁情报
@@ -86,7 +93,7 @@ BOT 管理设置支持配置BOT场景类型、客户端风险识别（前端对�
 2. 在 BOT 管理页面，在全局设置中，单击威胁情报模块的**前往配置**。
 3. 在威胁情报页面，如果有 IDC 流量访问，单击 IDC 网络的**一键关闭**，关闭功能。
 ![](https://qcloudimg.tencent-cloud.cn/raw/e628289ef72e1b73e2ceeb5e8f1a17f3.png)
-4. 如果没有 IDC 流量访问， 点击某场景配置页，单击**智能统计**，单击该场景下威胁情报模块的![](https://qcloudimg.tencent-cloud.cn/raw/8257e4baf0c410e6765732438db68c70.png)，直接开启威胁情报功能即可。
+4. 如果没有 IDC 流量访问， 单击某场景配置页，单击**智能统计**，单击该场景下威胁情报模块的![](https://qcloudimg.tencent-cloud.cn/raw/8257e4baf0c410e6765732438db68c70.png)，直接开启威胁情报功能即可。
 ![](https://qcloudimg.tencent-cloud.cn/raw/7ab33c9518b9f2a6f0b12eb8ecaff9b1.png)
 
 ## AI 评估
@@ -108,10 +115,10 @@ AI 评估功能基于人工智能技术和腾讯风控实战沉淀，将风控�
 1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/tea-botconfig)，在左侧导航栏中，选择**配置中心** > **BOT 与业务安全**。
 2. 在 BOT 与业务安全页面，左上角选择需要防护的域名，单击 **BOT 管理**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/6ebbdba50530929ed734fc9743584008.png)
-2. 在 BOT 管理页面，在全局设置中，单击 AI 评估模块的**前往配置**。
-3. 在 AI 评估页面，单击**添加白名单**，输入名称、描述和加白 URL，单击**确定**。
+3. 在 BOT 管理页面，在全局设置中，单击 AI 评估模块的**前往配置**。
+4. 在 AI 评估页面，单击**添加白名单**，输入名称、描述和加白 URL，单击**确定**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/2250a8847f6e110e13b55b1bf9a70045.png)
-4. 点击某场景配置页，单击**智能统计**，单击该场景下AI策略模块的![](https://qcloudimg.tencent-cloud.cn/raw/8257e4baf0c410e6765732438db68c70.png)，直接开启AI策略功能即可。
+5. 单击某场景配置页，单击**智能统计**，单击该场景下 AI 策略模块的![](https://qcloudimg.tencent-cloud.cn/raw/8257e4baf0c410e6765732438db68c70.png)，直接开启 AI 策略功能即可。
 
 
 ## 智能统计
@@ -168,10 +175,8 @@ AI 评估功能基于人工智能技术和腾讯风控实战沉淀，将风控�
 
 ## 自定义规则
 通过配置自定义规则功能，可精准处置符合行为配置的爬虫，精准处置对应特征的访问特征请求。
-注：目前在创建BOT场景化时，已经根据场景类型内置相应场景的自定义规则集。
-
->?
->-目前在创建BOT场景化时，已经根据场景类型内置相应场景的自定义规则集。
+>!
+>- 目前在创建 BOT 场景化时，已经根据场景类型内置相应场景的自定义规则集。
 >- 本功能主要分析数据来源于 [BOT 流量分析](https://console.cloud.tencent.com/guanjia/tea-flowanalysis)。
 >- 该内容**只做使用分析参考，不能当做业务标准配置**，网络爬虫分为很多种，基本都是随着业务类型而变。
 
@@ -195,7 +200,7 @@ AI 评估功能基于人工智能技术和腾讯风控实战沉淀，将风控�
 1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/tea-botconfig)，在左侧导航栏中，选择**配置中心** > **BOT 与业务安全**。
 2. 在 BOT 与业务安全页面，左上角选择需要防护的域名，单击 **BOT 管理**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/6ebbdba50530929ed734fc9743584008.png)
-4. 点击某场景配置页，单击**自定义规则**，
+4. 单击某场景配置页，单击**自定义规则**。
 3. 在自定义规则页面，单击**添加配置**，根据上述分析，将设置 URL 重复比大于0.7（70%在这过程中，除该数据外没有大于70%的），将会话速度设置为大于500次分钟，单击**确定**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/eb7644dd8145317899c7746da1f74853.png)
-注：目前在创建BOT场景化时，已经根据场景类型内置相应场景的自定义规则集。
+>!目前在创建 BOT 场景化时，已经根据场景类型内置相应场景的自定义规则集。
