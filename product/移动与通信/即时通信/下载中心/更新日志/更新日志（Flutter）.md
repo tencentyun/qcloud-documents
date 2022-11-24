@@ -9,7 +9,6 @@
 | [Web](https://cloud.tencent.com/document/product/269/68823#web) | 4.1.1+2版本起支持 | 0.1.5版本起支持 |
 | [macOS](https://cloud.tencent.com/document/product/269/68823#pc) | 4.1.8版本起支持 | 即将上线 |
 | [Windows](https://cloud.tencent.com/document/product/269/68823#pc) | 4.1.8版本起支持 | 即将上线 |
-| [Windows](https://cloud.tencent.com/document/product/269/68823#pc) | 4.1.8版本起支持 | 即将上线 |
 | [混合开发](https://cloud.tencent.com/developer/article/2167243) （将 Flutter SDK 添加至现有原生应用） | 5.0.0版本起支持 | 1.0.0版本起支持 |
 
 >? Web/macOS/Windows 平台需要简单的几步额外引入，详情请查看 [Web 兼容](https://cloud.tencent.com/document/product/269/68823#web) 和 [Desktop 兼容](https://cloud.tencent.com/document/product/269/68823#pc) 指引。
