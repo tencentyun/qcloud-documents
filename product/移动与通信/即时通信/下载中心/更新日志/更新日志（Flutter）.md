@@ -41,7 +41,7 @@ IM Flutter TUIKit（含 UI）指代 [tencent_cloud_chat_uikit](https://pub.dev/p
 > 升级至本版本的TUIKit，需要您重点关注表情部分（第二条）及音视频通话部分（倒数第二条）的改动，否则相关能力，将无法正常使用。
 > 如在修改过程中有任何疑问，欢迎随时联系我们咨询。
 
-### IM Flutter SDK（无 UI） 5.0.3 @2022.11.23
+### IM Flutter SDK（无 UI） 5.0.4 @2022.11.23
 
 - 多媒体消息默认不再返回URL，需通过`getMessageOnlineUrl`获取。
 - 媒体消息不默认不再返回localurl，需通过downloadMessage下载消息成功后才会返回。

@@ -231,7 +231,7 @@ flutter build ios-framework --output=some/path/MyApp/Flutter/
 
 在我们的项目中，我们基于一个统一的 FlutterEngineGroup，来管理两个 FlutterEngine（Flutter 引擎），分别用于承载 Chat 和 Calling 模块。
 
-[![](https://qcloudimg.tencent-cloud.cn/raw/b622951f776a505e83f843de1f62fffc.png)](https://github.com/TencentCloud/tencentchat-add-flutter-to-app/tree/main/Multiple%20Flutter%20Engines)
+<a target="_blank" href="https://github.com/TencentCloud/tencentchat-add-flutter-to-app/tree/main/Multiple%20Flutter%20Engines"><img src="https://qcloudimg.tencent-cloud.cn/raw/b622951f776a505e83f843de1f62fffc.png" /></a>
 
 ### Flutter Module 开发
 
@@ -607,7 +607,7 @@ class MyApplication : MultiDexApplication() {
 
 这两个模块只能同时出现同时隐藏，仅需维护一个 Flutter 引擎即可。
 
-[![](https://qcloudimg.tencent-cloud.cn/raw/b622951f776a505e83f843de1f62fffc.png)](https://github.com/TencentCloud/tencentchat-add-flutter-to-app/tree/main/Single%20Flutter%20Engines)
+<a target="_blank" href="https://github.com/TencentCloud/tencentchat-add-flutter-to-app/tree/main/Single%20Flutter%20Engines"><img src="https://qcloudimg.tencent-cloud.cn/raw/b622951f776a505e83f843de1f62fffc.png" /></a>
 
 ### Flutter Module 开发
 
@@ -869,7 +869,7 @@ _coreInstance.setDataFromNative(userId: chatInfo?.userID ?? "");
 
 **更详细代码，请查阅我们的 Demo 源码。**
 
-[![](https://qcloudimg.tencent-cloud.cn/raw/b622951f776a505e83f843de1f62fffc.png)](https://github.com/TencentCloud/tencentchat-add-flutter-to-app/tree/main/Initialize%20from%20Native)
+<a target="_blank" href="https://github.com/TencentCloud/tencentchat-add-flutter-to-app/tree/main/Initialize%20from%20Native"><img src="https://qcloudimg.tencent-cloud.cn/raw/b622951f776a505e83f843de1f62fffc.png" /></a>
 
 ## 联系我们
 
