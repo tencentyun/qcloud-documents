@@ -30,8 +30,6 @@
 
 #### SID和命名空间的对应关系
 
-![enter image description here](/tencent/api/attachments/s3/url?attachmentid=269695)
-
 L5 SDI的格式：ModID:CmdID
 
 <b>强烈建议用户命名空间选择default或者Production，ModID取值范围为： [2, 192,000,000]</b>
