@@ -10,21 +10,21 @@
 
 ## 集成 IM SDK
 
-您可以通过 [pub add](https://pub.dev/packages/tencent-cloud-chat-sdk) 的方式直接集成腾讯云 IM SDK（Flutter），或者在 pubspec.yaml 中写入 IM SDK 的方式来集成。
+您可以通过 [pub add](https://pub.dev/packages/tencent_cloud_chat_sdk) 的方式直接集成腾讯云 IM SDK（Flutter），或者在 pubspec.yaml 中写入 IM SDK 的方式来集成。
 
 ### flutter pub add 安装
 
 在终端窗口中输入如下命令（需要提前安装 Flutter 环境）：
 
 ```
-flutter pub add tencent-cloud-chat-sdk
+flutter pub add tencent_cloud_chat_sdk
 ```
 
 ### 在 pubspec.yaml 中写入
 
 ```
 dependencies:
-  tencent-cloud-chat-sdk: ^5.0.0
+  tencent_cloud_chat_sdk: ^5.0.0
 ```
 
 此时您的 editor 或许会自动 flutter pub get，如果没有请您在命令行中手动输入 flutter pub get。
@@ -32,7 +32,7 @@ dependencies:
 ### 引入并初始化 SDK
 
 ```
-import 'package:tencent-cloud-chat-sdk/tencent-cloud-chat-sdk.dart';
+import 'package:tencent_cloud_chat_sdk/tencent_cloud_chat_sdk.dart';
 
 ```
 

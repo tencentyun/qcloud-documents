@@ -13,7 +13,7 @@
 
 我们致力于打造一套支持 Flutter 全平台的即时通信 IM SDK 及 TUIKit，帮助您一套代码，全平台运行。
 
-| 平台 | 无 UI SDK (tencent_im_sdk_plugin) | 含 UI 及基础业务逻辑 TUIKit (tencent-cloud-chat-uikit) |
+| 平台 | 无 UI SDK (tencent_cloud_chat_sdk) | 含 UI 及基础业务逻辑 TUIKit (tencent_cloud_chat_uikit) |
 |---------|---------|---------|
 | iOS | 支持 | 支持 |
 | Android | 支持 | 支持 |
@@ -243,11 +243,11 @@ end
 
 #### 安装 IM TUIkit
 
-我们的 TUIkit 已经内含 IM SDK，因此仅需安装`tencent-cloud-chat-uikit`，不需要再安装基础 IM SDK。
+我们的 TUIkit 已经内含 IM SDK，因此仅需安装`tencent_cloud_chat_uikit`，不需要再安装基础 IM SDK。
 
 ```shell
 #在命令行执行：
-flutter pub add tencent-cloud-chat-uikit
+flutter pub add tencent_cloud_chat_uikit
 ```
 
 如果您的项目需要支持 Web，请在执行后续步骤前，[查看 Web 兼容说明章节](#web)，引入 JS 文件。
@@ -260,7 +260,7 @@ flutter pub add tencent-cloud-chat-uikit
 
 ```dart
 /// main.dart
-import 'package:tencent-cloud-chat-uikit/tencent-cloud-chat-uikit.dart';
+import 'package:tencent_cloud_chat_uikit/tencent_cloud_chat_uikit.dart';
 
 final CoreServicesImpl _coreInstance = TIMUIKitCore.getInstance();
   @override
@@ -284,7 +284,7 @@ final CoreServicesImpl _coreInstance = TIMUIKitCore.getInstance();
 2. 调用 [`_coreInstance.login`](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitCore/login.html) 方法，登录一个测试账户。
 
 ```dart
-import 'package:tencent-cloud-chat-uikit/tencent-cloud-chat-uikit.dart';
+import 'package:tencent_cloud_chat_uikit/tencent_cloud_chat_uikit.dart';
 
 final CoreServicesImpl _coreInstance = TIMUIKitCore.getInstance();
 _coreInstance.login(userID: userID, userSig: userSig);
@@ -304,7 +304,7 @@ _coreInstance.login(userID: userID, userSig: userSig);
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:tencent-cloud-chat-uikit/tencent-cloud-chat-uikit.dart';
+import 'package:tencent_cloud_chat_uikit/tencent_cloud_chat_uikit.dart';
 
 class Conversation extends StatelessWidget {
 const Conversation({Key? key}) : super(key: key);
@@ -344,7 +344,7 @@ return Scaffold(
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:tencent-cloud-chat-uikit/tencent-cloud-chat-uikit.dart';
+import 'package:tencent_cloud_chat_uikit/tencent_cloud_chat_uikit.dart';
 
 class Chat extends StatelessWidget {
 final V2TimConversation selectedConversation;
@@ -383,7 +383,7 @@ return TIMUIKitChat(
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:tencent-cloud-chat-uikit/tencent-cloud-chat-uikit.dart';
+import 'package:tencent_cloud_chat_uikit/tencent_cloud_chat_uikit.dart';
 
 class UserProfile extends StatelessWidget {
     final String userID;
@@ -440,7 +440,7 @@ UI 组件全貌可参见 [本图文概览](https://cloud.tencent.com/document/pr
 在命令行执行：
 
 ```shell
-flutter pub add tencent_im_sdk_plugin
+flutter pub add tencent_cloud_chat_sdk
 ```
 
 >?
@@ -455,9 +455,9 @@ flutter pub add tencent_im_sdk_plugin
 将您的 `sdkAppID` 传入。
 
 ```Dart
-import 'package:tencent_im_sdk_plugin/enum/V2TimSDKListener.dart';
-import 'package:tencent_im_sdk_plugin/enum/log_level_enum.dart';
-import 'package:tencent_im_sdk_plugin/tencent_im_sdk_plugin.dart';
+import 'package:tencent_cloud_chat_sdk/enum/V2TimSDKListener.dart';
+import 'package:tencent_cloud_chat_sdk/enum/log_level_enum.dart';
+import 'package:tencent_cloud_chat_sdk/tencent_cloud_chat_sdk.dart';
 TencentImSDKPlugin.v2TIMManager.initSDK(
   sdkAppID: 0, // Replace 0 with the SDKAppID of your IM application when integrating
   loglevel: LogLevelEnum.V2TIM_LOG_DEBUG, // Log
@@ -478,7 +478,7 @@ TencentImSDKPlugin.v2TIMManager.initSDK(
 当返回值`res.code`为0时，登录成功。
 
 ```dart
-import 'package:tencent_im_sdk_plugin/tencent_im_sdk_plugin.dart';
+import 'package:tencent_cloud_chat_sdk/tencent_cloud_chat_sdk.dart';
 V2TimCallback res = await TencentImSDKPlugin.v2TIMManager.login(
   userID: userID,
   userSig: userSig,
@@ -500,7 +500,7 @@ V2TimCallback res = await TencentImSDKPlugin.v2TIMManager.login(
 代码示例：
 
 ```dart
-import 'package:tencent_im_sdk_plugin/tencent_im_sdk_plugin.dart';
+import 'package:tencent_cloud_chat_sdk/tencent_cloud_chat_sdk.dart';
 
 V2TimValueCallback<V2TimMsgCreateInfoResult> createMessage =
       await TencentImSDKPlugin.v2TIMManager
@@ -543,7 +543,7 @@ V2TimValueCallback<V2TimMessage> res = await TencentImSDKPlugin.v2TIMManager
 为了获取会话列表，需要维护`nextSeq`，记录当前位置。
 
 ```dart
-import 'package:tencent_im_sdk_plugin/tencent_im_sdk_plugin.dart';
+import 'package:tencent_cloud_chat_sdk/tencent_cloud_chat_sdk.dart';
 
 String nextSeq = "0";
 
@@ -581,7 +581,7 @@ await TencentImSDKPlugin.v2TIMManager
 2. 处理回调事件，将最新的会话列表展示在界面上。
 
 ```dart
-import 'package:tencent_im_sdk_plugin/tencent_im_sdk_plugin.dart';
+import 'package:tencent_cloud_chat_sdk/tencent_cloud_chat_sdk.dart';
 
 List<V2TimConversation> _conversationList = [];
 
@@ -620,7 +620,7 @@ _onConversationListChanged(List<V2TimConversation> list) {
 示例代码如下：
 
 ```dart
-import 'package:tencent_im_sdk_plugin/tencent_im_sdk_plugin.dart';
+import 'package:tencent_cloud_chat_sdk/tencent_cloud_chat_sdk.dart';
 
   V2TimValueCallback<List<V2TimMessage>> res = await TencentImSDKPlugin
       .v2TIMManager
@@ -646,7 +646,7 @@ import 'package:tencent_im_sdk_plugin/tencent_im_sdk_plugin.dart';
 绑定监听器示例代码如下：
 
 ```dart
-import 'package:tencent_im_sdk_plugin/tencent_im_sdk_plugin.dart';
+import 'package:tencent_cloud_chat_sdk/tencent_cloud_chat_sdk.dart';
 
 final adVancesMsgListener = V2TimAdvancedMsgListener(
 onRecvNewMessage: (V2TimMessage newMsg) {
@@ -687,7 +687,7 @@ TencentImSDKPlugin.v2TIMManager
 
 ### Flutter for Web支持[](id:web)
 
-我们的 SDK，TUIKit(tencent-cloud-chat-uikit) 0.1.5版本，无 UI SDK(tencent_im_sdk_plugin) 4.1.1+2 版本起，可完美兼容 Web 端。
+我们的 SDK，TUIKit(tencent_cloud_chat_uikit) 0.1.5版本，无 UI SDK(tencent_cloud_chat_sdk) 4.1.1+2 版本起，可完美兼容 Web 端。
 
 相比 Android 和 iOS 端，需要一些额外步骤。如下：
 
@@ -729,7 +729,7 @@ npm i tim-upload-plugin
 
 ### Flutter for Desktop(PC) 支持[](id:pc)
 
-我们的无 UI SDK(tencent_im_sdk_plugin) 4.1.9 版本起，可完美兼容 macOS、Windows 端。相比 Android 和 iOS 端，需要一些额外步骤。如下：
+我们的无 UI SDK(tencent_cloud_chat_sdk) 4.1.9 版本起，可完美兼容 macOS、Windows 端。相比 Android 和 iOS 端，需要一些额外步骤。如下：
 
 #### 升级 Flutter 3.x 版本
 

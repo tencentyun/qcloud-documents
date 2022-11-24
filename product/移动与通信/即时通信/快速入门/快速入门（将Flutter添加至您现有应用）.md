@@ -14,7 +14,7 @@
 | Flutter | SDK 最低要求 Flutter 2.2.0版本，TUIKit 集成组件库最低要求 Flutter 2.10.0 版本。|
 |Android|Android Studio 3.5及以上版本，App 要求 Android 4.1及以上版本设备。|
 |iOS|Xcode 11.0及以上版本，请确保您的项目已设置有效的开发者签名。|
-|腾讯云IM SDK|[tencent-cloud-chat-sdk](https://pub.dev/packages/tencent-cloud-chat-sdk) 5.0 及以上版本， [tencent-cloud-chat-uikit](https://pub.dev/packages/tencent-cloud-chat-uikit) 1.0 及以上版本。|
+|腾讯云IM SDK|[tencent_cloud_chat_sdk](https://pub.dev/packages/tencent_cloud_chat_sdk) 5.0 及以上版本， [tencent_cloud_chat_uikit](https://pub.dev/packages/tencent_cloud_chat_uikit) 1.0 及以上版本。|
 
 ## 快速了解
 
