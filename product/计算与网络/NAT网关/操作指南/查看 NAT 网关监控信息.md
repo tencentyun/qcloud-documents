@@ -36,7 +36,7 @@
 </tr>
 <tr>
 <td>并发连接数(个)</td>
-<td>NAT 网关可同时容纳的 TCP 和 UDP 连接数量</td>
+<td>NAT 网关可同时容纳的连接数量</td>
 </tr>
 <tr>
 <td>并发连接数使用率(%)</td>
@@ -52,7 +52,7 @@
 </tr>
 <tr>
 <td> 新建连接数（适用于标准型 NAT 网关）(个/秒)</td>
-<td>NAT 网关每秒新建的 TCP 和 UDP 的连接个数</td>
+<td>NAT 网关每秒新建的连接个数</td>
 </tr>
 <tr>
 <td>新建连接数使用率（适用于标准型 NAT 网关）(%)</td>
@@ -67,5 +67,8 @@
 <td>NAT 网关在统计粒度内，已建立的非活跃并发连接数</td>
 </tr>
 </table>
+<dx-alert infotype="explain" title="">
+标准型 NAT 网关正在灰度测试中，如需使用，请提交 [内测申请](https://cloud.tencent.com/apply/p/ojxjirnd5yi)。
+</dx-alert>
 4. （可选）您也可以在 NAT 网关列表中，单击需要查看的 NAT 网关条目中的监控按钮，即可查看监控信息。
 ![](https://main.qcloudimg.com/raw/2ae365dd7ca46296ec5d1464d142bd51.png)
