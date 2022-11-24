@@ -25,8 +25,8 @@ IM Flutter TUIKit（含 UI）指代 [tencent_cloud_chat_uikit](https://pub.dev/p
 
 ### IM Flutter TUIKit（含 UI） 1.0.0 @2022.11.23
 
-- 新增：支持在您现有应用中添加Flutter模块，即混合开发，具体请参考[本文档](https://cloud.tencent.com/developer/article/2167243)实现。
-- 新增：自定义贴纸和表情符号。**使用方式有较大改变，具体请参考[本升级指引](https://cloud.tencent.com/document/product/269/80882)修改。**
+- 新增：支持在您现有应用中添加Flutter模块，即混合开发，具体请参考[本文档](https://cloud.tencent.com/document/product/269/83153)实现。
+- 新增：自定义贴纸和表情符号。**使用方式有较大改变，具体请参考[本升级指引](https://cloud.tencent.com/document/product/269/80882#.E8.A1.A8.E6.83.85.E6.8F.92.E4.BB.B6.E5.8D.87.E7.BA.A7.E6.8C.87.E5.8D.97)修改。**
 - 优化：历史消息列表的加载时间，尤其是对于有大量媒体和文件消息的情况。
 - 优化：更多面板区域支持滚动。
 - 优化：滚动回到底部时加载最新消息，更加流畅。
@@ -46,7 +46,7 @@ IM Flutter TUIKit（含 UI）指代 [tencent_cloud_chat_uikit](https://pub.dev/p
 - 媒体消息不默认不再返回localurl，需通过downloadMessage下载消息成功后才会返回。
 - 在`advanceMessageListener`中增加`onMessageDownloadProgressCallback`，当多媒体消息下载进度更新时会触发。
 - iOS端新增`disableBadgeNumber方`法，调用后，当应用切换到后台时，默认不设置应用角标。
-- 支持在您现有应用中添加Flutter模块，即混合开发，具体请参考[本文档](https://cloud.tencent.com/developer/article/2167243)实现。
+- 支持在您现有应用中添加Flutter模块，即混合开发，具体请参考[本文档](https://cloud.tencent.com/document/product/269/83153)实现。
 - PC端优化了底层动态库下载逻辑。
 - 升级底层SDK到6.8。
 - Web端底层SDK改造，请根据[此文档指引](https://cloud.tencent.com/document/product/269/68823#web)，通过 `npm` 方式，引入JS。
