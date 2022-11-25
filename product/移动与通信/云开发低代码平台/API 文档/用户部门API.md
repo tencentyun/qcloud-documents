@@ -574,12 +574,3 @@ http://lowcode-8g84r3rnf95853d9.ap-shanghai.tcbapi.tencentcloud.com/weda/auth/v1
 </dx-codeblock>
 
 
-## 角色相关接口
-- [创建 weda 角色](https://tcloud4api.woa.com/document/product/1505/57776?!preview&!document=1)
-- [获取 weda 角色列表](https://tcloud4api.woa.com/document/product/1505/65781?!preview&!document=1)
-- [删除角色](https://tcloud4api.woa.com/document/product/1505/65782?!preview&!document=1)
-- [修改角色](https://tcloud4api.woa.com/document/product/1505/65783?!preview&!document=1)
-- [发布角色](https://tcloud4api.woa.com/document/product/1505/61281?!preview&!document=1)
-- [绑定角色](https://tcloud4api.woa.com/document/product/1505/57750?!preview&!document=1)
-- [角色关联的用户列表](https://tcloud4api.woa.com/document/product/1505/62532?!preview&!document=1)
-- [根据用户 id 获取角色 id](https://tcloud4api.woa.com/document/product/1505/59361?!preview&!document=1)
