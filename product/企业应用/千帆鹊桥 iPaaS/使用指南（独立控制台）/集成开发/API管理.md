@@ -73,7 +73,7 @@ API 名称、描述支持自定义。分组可选择默认分组、新建分组�
 1. 单击**调试** tab 页，进入 API 调试页面。在 API 调试页面，您可以配置此 API Endpoint 的请求 Header 和 Body 内容，并单击**发送请求**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/4c6e02a83131298733637f10e37ae17f.png)
 2. 随后即可获取到测试的结果。我们会将后端服务返回的 Response 状态码和结果返回给用户，方便进行进一步的调试工作。
-3. 右上角单击**发布**，可发布此 API 到功能环境。
+3. 右上角单击**发布**，可发布此 API 到多个环境。
 ![](https://qcloudimg.tencent-cloud.cn/raw/cc24769c3cc2e708bd3d3e2506bb52f0.png)
 4. 发布后，发布后的API状态为**运行中**。
 5. 右上角的**复制**，可将当前版本覆盖到配置中的版本。复制后，API 服务可以再次发布。一个 API 服务可以发布到多个环境。
@@ -92,43 +92,48 @@ API 名称、描述支持自定义。分组可选择默认分组、新建分组�
 自定义凭证的信息，保存即可。
 
 ### 订阅详情
-发布后的 API 服务，可以被该企业主 UIN 下的所有子 UIN 订阅并调用。未订阅的 API 服务，用户拿不到凭证，无法调用。
+上架后的 API 服务，可以被该企业主 UIN 下的所有子 UIN 订阅并调用。该菜单可以查看当前 API 服务被订阅的情况。
 ![](https://qcloudimg.tencent-cloud.cn/raw/2944ef2958cf2ca4549f7139a88b3348.png)
 此处可以看到订阅该 API 的所有用户名单，同时，可以移除某用户的订阅。
 
 ### 操作
 #### 删除 API 服务
-![](https://qcloudimg.tencent-cloud.cn/raw/397591f142a1c9053c34de29fae05345.png)
 单击**删除**，可删除当前 API 服务。删除后，该 API 服务下的所有配置将被清空，且无法恢复。运行中的服务不可直接删除，需先停止再删除。
+![](https://qcloudimg.tencent-cloud.cn/raw/397591f142a1c9053c34de29fae05345.png)
+
 
 
 #### API 服务上架与下架
 - 上架：运行中的API服务，可通过**上架**功能共享给企业的其他员工使用。在 **API 服务** > **操作** > **更多** > **上架**路径提交上架申请，提交后的 API 服务会被企业管理员审核，审核通过后可展示在 API 目录中，支持被当前主账号下的所有子账号订阅。
-![](https://qcloudimg.tencent-cloud.cn/raw/b8db2e0df40fb88bc49d45a89d7351db.png)
 - 下架：上架后的 API 服务，若不想继续被其他员工订阅，则可通过下架来完成。在 **API 服务** > **操作** > **更多** > **下架**路径提交下架申请，提交申请后需联系系统管理员或该项目的项目管理员进行审核，审核通过后即可下架，API 下架后不能被订阅。下架后的 API 服务会移出 API 目录。
-![](https://qcloudimg.tencent-cloud.cn/raw/197a3e6e81907e85ceb89c11e1e9169c.png)
-
+![](https://qcloudimg.tencent-cloud.cn/raw/b8db2e0df40fb88bc49d45a89d7351db.png)
 #### 查看发布历史
 发布后的 API 服务可以更改状态、环境等。在 **API 服务** > **操作** > **更多** > **查看发布历史**路径。此功能可查看到 API 服务发布后的历史情况（最多显示10条）。
-![](https://qcloudimg.tencent-cloud.cn/raw/74130b0116189a7731ef2d9eaf2d490b.png)
-
+![](https://qcloudimg.tencent-cloud.cn/raw/197a3e6e81907e85ceb89c11e1e9169c.png)
 
 ### API 目录
 API 目录展示已上架的 API 服务。类似一个 API 服务市场，上架后的服务，不局限项目维度，可以被当前主账号下的所有子账号查看、订阅并调用。
-![](https://qcloudimg.tencent-cloud.cn/raw/80fdb133fb109623ae360beb6bbde360.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/74130b0116189a7731ef2d9eaf2d490b.png)
 此页面可通过 API 服务的属性快速搜索服务。同时，可申请订阅或取消订阅 API 服务。
 
+
+
+
+
 #### 申请订阅
-![](https://qcloudimg.tencent-cloud.cn/raw/c95e2ea0f3477a715f4d14ff13251cf9.png)
 申请订阅 API 服务时，需选择或新建订阅凭证。将凭证与 API 服务关联上。待系统管理员审核后，即可成功订阅。
+![](https://qcloudimg.tencent-cloud.cn/raw/80fdb133fb109623ae360beb6bbde360.png)
+
+
 
 #### 取消订阅
-![](https://qcloudimg.tencent-cloud.cn/raw/57528cefe5814e8bd2f72fe66b257c80.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/c95e2ea0f3477a715f4d14ff13251cf9.png)
 取消订阅后将不能调用该 API 服务，此操作无需系统管理员审核。
 
 
 ### 订阅凭证
 此列表可展示或搜索所有的订阅凭证，同时，可新建凭证。订阅凭证用于订阅 API 目录中的服务。凭证即为某 API 服务的钥匙。在申请订阅 API 服务时将凭证与 API 服务关联上，调用的时候填写该凭证，即可成功调用该服务。
+![](https://qcloudimg.tencent-cloud.cn/raw/334ba7f48ee8d03e57810fb090944e83.png)
 ![](https://qcloudimg.tencent-cloud.cn/raw/d9e4d9e6e2ca191852a7d5bfaebe1336.png)
 同时，能看到该凭证各种鉴权类型的 Key 和 Secret，调用时直接复制即可使用。
 一个凭证支持与多个 API 服务关联。可在**订阅的 API** tab 页查看此凭证关联的所有 API 服务。
@@ -139,13 +144,14 @@ API 目录展示已上架的 API 服务。类似一个 API 服务市场，上架
 
 ### 审核管理
 审核管理分两个功能：我提交的和我审核的。涉及到审核的事项都在此功能页处理。
-![](https://qcloudimg.tencent-cloud.cn/raw/2fd53195b377dc997c427d9b2d063ed1.png)
+
 - 我提交的：展示个人提交的所有审核信息。全部角色都可见。
 ![](https://qcloudimg.tencent-cloud.cn/raw/c5dfb388c642f7caff8d0c2938ab4c81.png)
 - 我审核的：此页面展示需审核的信息。只有系统管理员和项目管理员角色能看到。其他角色访问页面数据为空。
  - 系统管理员审批全部项目 API 服务上下架或 API 服务订阅的请求。
  - 项目管理员审批所在项目内的 API 服务上下架或 API 服务订阅的请求。
 
+ ![](https://qcloudimg.tencent-cloud.cn/raw/2fd53195b377dc997c427d9b2d063ed1.png)
 
 ### 调用步骤：从用户侧调用 API（以 postman 为例）
 - API 服务无需验证的情况：
