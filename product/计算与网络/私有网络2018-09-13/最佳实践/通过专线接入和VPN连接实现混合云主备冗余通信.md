@@ -1,8 +1,10 @@
 当用户业务分别部署于云下数据中心和云上 VPC 中时，可通过专线接入或 VPN 连接实现云上云下业务互通，为提升业务高可用性，可同时创建专线接入和 VPN 连接服务，结合 VPC 路由优先级功能，配置两条链路为主备链路，来实现冗余通信。本文指导您如何配置专线和 VPC 主备链路来实现云上云下混合通信。
 >?
->+ 路由优先级功能目前处于内测中，如有需要，请 [在线咨询](https://cloud.tencent.com/online-service?from=sales&source=PRESALE)。
->+ VPC 路由表中根据不同的下一跳类型定义了不同的优先级，目前默认路由优先级为：云联网 > 专线网关 > VPN 网关 > 其他。
->+ 暂不支持控制台修改路由优先级，如需调整，请 [在线咨询](https://cloud.tencent.com/online-service?from=sales&source=PRESALE)。
+>- 路由优先级功能目前处于内测中，如有需要，请 [在线咨询](https://cloud.tencent.com/online-service?from=sales&source=PRESALE)。
+>- VPC 路由表中根据不同的下一跳类型定义了不同的优先级，目前默认路由优先级为：云联网 > 专线网关 > VPN 网关 > 其他。
+>- 暂不支持控制台修改路由优先级，如需调整，请 [在线咨询](https://cloud.tencent.com/online-service?from=sales&source=PRESALE)。
+>- 当故障发生后您需要在 VPC 手动切换路由，当前暂不支持自动切换。
+>
 
 
 
