@@ -32,9 +32,9 @@ Cache Key 是节点缓存资源的唯一标识。节点响应请求资源时，�
 资源会根据某些客户端 HTTP 请求头而异，指定 HTTP 请求头拼接在 URL 后方生成 Cache Key 。只需输入 HTTP 请求头名称。
 <ul><li>自定义头部：例如 X-Client-Header。</li>
 <li>预设头部：支持根据客户端 User-Agent 和 IP 信息聚合的客户端信息头部，满足根据不同设备或浏览器类型缓存的需求。</li><ul>
-<li>客户端设备类型：EO-Client-Device。<br>取值：Mobile、Desktop、SmartTV、Tablet 或 Others。</li>
-<li>客户端操作系统：EO-Client-OS。<br>取值：Android、iOS、Windows、MacOS、Linux 或 Others。</li>
-<li>客户端浏览器类型：EO-Client-Browser。<br>取值：Chrome、Safari、Firefox、IE 或 Others。</li>
+<li>客户端设备类型：EO-Client-Device。<br>取值：Mobile，Desktop，SmartTV，Tablet 或 Others。</li>
+<li>客户端操作系统：EO-Client-OS。<br>取值：Android，iOS，Windows，MacOS，Linux 或 Others。</li>
+<li>客户端浏览器类型：EO-Client-Browser。<br>取值：Chrome，Safari，Firefox，IE 或 Others。</li>
 <li>客户端 IP 所在地理位置：EO-Client-IPCountry。<br>取值：两位字母国家/地区代码（ISO 3166-1 alpha-2 codes）。</li></td>
 </tr>
 <tr>
