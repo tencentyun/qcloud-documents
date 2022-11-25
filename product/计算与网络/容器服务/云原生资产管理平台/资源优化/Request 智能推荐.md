@@ -97,7 +97,7 @@ Kubernetes 版本：1.10+
 4. 在弹窗中，单击**确认**，即可使用推荐的 Request 数值更新原始 Workload 里面的数值。
 >? 容器服务控制台中**一键更新 Workload Request** 功能会将工作负载迁移至 [原生节点](https://cloud.tencent.com/document/product/457/78197)，若您的集群原生节点上资源不足，会导致 Pod 发生 Pending。
 
-### 后台获取到推荐数值
+### 后台获取推荐数值
 
 Request 智能推荐组件会将每个工作负载的推荐值保存在该工作负载的 YAML 里，您可以通过标准的 Kuberentes API 获取每个工作负载的推荐值，然后集成到业务的发布系统中。如下所示查看工作负载下每个容器的 Request 推荐量：
 
