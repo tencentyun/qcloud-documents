@@ -1,4 +1,4 @@
-本文介绍如何将 [COS（腾讯云对象存储）](https://cloud.tencent.com/product/cos)数据导入到云数据仓库 ClickHouse。
+本文介绍如何将 [COS（腾讯云对象存储）](https://cloud.tencent.com/product/cos)数据导入到云数据仓库 ClickHouse。 
 
 ## 前提条件
 1. 数据源 COS 和云数据仓库 ClickHouse 集群须在同一个 VPC 下。
