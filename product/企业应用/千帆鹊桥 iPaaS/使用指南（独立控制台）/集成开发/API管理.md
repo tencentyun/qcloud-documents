@@ -23,18 +23,21 @@ API 服务支持的操作有：查看、新建 API、上架、下架、删除、
 API 管理功能支持 3.0.0 版本的 OpenAPI 规范。OpenAPI 3.0.0 规范的对象定义请参见 [OpenAPI Specification](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md)。用户可以通过单击**创建 API 服务**进入 API 创建界面。
 ![](https://qcloudimg.tencent-cloud.cn/raw/ab9b3cbc84a97eee6d0d8369d45c2277.png)
 创建 API 服务一共有2个步骤。
-1. 配置服务名称，协议与描述。服务名称和描述自定义即可，协议支持3种：HTTP、HTTPS、HTTP+HTTPS。分组可选择默认分组、新建分组。如下图所示。
+
+### 步骤一：配置服务名称，协议与描述。
+服务名称和描述自定义即可，协议支持3种：HTTP、HTTPS、HTTP+HTTPS。分组可选择默认分组、新建分组。如下图所示。
 ![](https://qcloudimg.tencent-cloud.cn/raw/7e6123d809d91d859a7298b7c01da47d.png)
-2. 配置策略信息
- - 配置黑白名单：您可以按需开启，开启后可以输入多条 IP 进行黑白名单的访问限制。
- - 基础流量控制：您可以按需开启，开启后可配置服务请求频率，每单位时间内允许的最大请求次数，填写范围为1 - 1000。
+
+### 步骤二：配置策略信息
+- 配置黑白名单：您可以按需开启，开启后可以输入多条 IP 进行黑白名单的访问限制。
+- 基础流量控制：您可以按需开启，开启后可配置服务请求频率，每单位时间内允许的最大请求次数，填写范围为1 - 1000。
 
  当上述配置全部完成后，单击**完成**，则会返回 API 服务列表，同时已经创建好的 API 服务信息将会展示在此处。
 ![](https://qcloudimg.tencent-cloud.cn/raw/c8e9abab1210a87f83b625b5659db817.png)
 
 ## 新建 API
 当我们创建好一个 API 服务之后，则代表此 API 已经生成，可以开始编辑其具体行为，包括 API 的请求路径（API Path）、请求方法、分组、鉴权策略、请求参数、策略配置、API 绑定的后端服务类型等操作。
-新建API一共有3个步骤（附步骤四以 postman 为例从用户侧调用 API）。
+新建 API 一共有3个步骤（附步骤四以 postman 为例从用户侧调用 API）。
 
 ### 步骤一：API 的基础配置
 ![](https://qcloudimg.tencent-cloud.cn/raw/b66da9824787768c8851fc8fd229364b.png)
