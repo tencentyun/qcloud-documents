@@ -115,7 +115,7 @@ metadata:
           memory: 125Mi
   ```
   
->! 注意：组件本身不会推荐 Limit，在控制台使用 Request 推荐值更新 Workload 时，会维持该 Workload Request 和 Limit 的比值以保证 QoS 不会发生变化。您如果后台获取到 Request 推荐值时，可以作为参考更新原始 Workload 的资源配置量。
+>! 组件本身不会推荐 Limit，在控制台使用 Request 推荐值更新 Workload 时，会维持该 Workload Request 和 Limit 的比值以保证 QoS 不会发生变化。您如果在后台获取到 Request 推荐值，可以作为参考更新原始 Workload 的资源配置量。
 
 
 
