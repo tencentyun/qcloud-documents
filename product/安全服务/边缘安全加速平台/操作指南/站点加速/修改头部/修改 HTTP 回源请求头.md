@@ -42,7 +42,7 @@
 </tr>
 <tr>
 <td>预设头部</td>
-<td><ul><li>客户端信息头部：根据客户端 User-Agent 信息聚合的预设头部。</li><li>客户端设备类型：EO-Client-Device: Mobile/Desktop/SmartTV/Tablet/Others。</li><li>客户端操作系统：EO-Client-OS: - Android/iOS/Windows/MacOS/Linux/Others。</li><li>客户端浏览器类型：EO-Client-Browser: Chrome/Safari/Firefox/IE/Others。</li></td>
+<td>根据客户端 User-Agent 和 IP 信息聚合的客户端信息头部。<ul><li>客户端设备类型：`EO-Client-Device: Mobile/Desktop/SmartTV/Tablet/Others`。</li><li>客户端操作系统：`EO-Client-OS: - Android/iOS/Windows/MacOS/Linux/Others`。</li><li>客户端浏览器类型：`EO-Client-Browser: Chrome/Safari/Firefox/IE/Others`。</li></td>
 </tr>
 </tbody></table>
 
