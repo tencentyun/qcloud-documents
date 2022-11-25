@@ -87,9 +87,9 @@ API 名称、描述支持自定义。分组可选择默认分组、新建分组�
 ### 调用凭证
 创建 API 服务时，若选择的鉴权策略为 NoAuth，则可忽略此选项，反之，若 API 服务需要鉴权，则需在此页面配置调用凭证。通过当前服务下的任意调用凭证，即可调用服务下任意 API。
 ![](https://qcloudimg.tencent-cloud.cn/raw/05c6c706d74599bec254ffdb115f4fb5.png)
-上图为凭证列表页，创建好的凭证会展示在此处，选择**新建凭证**，即可创建新的凭证。
+上图为凭证列表页，创建好的凭证会展示在此处，选择**新建凭证**，即可创建新的凭证。自定义凭证的信息，保存即可。
 ![](https://qcloudimg.tencent-cloud.cn/raw/028b0fb94946848eb8af9efcabed0e14.png)
-自定义凭证的信息，保存即可。
+
 
 ### 订阅详情
 上架后的 API 服务，可以被该企业主 UIN 下的所有子 UIN 订阅并调用。该菜单可以查看当前 API 服务被订阅的情况。
@@ -102,7 +102,6 @@ API 名称、描述支持自定义。分组可选择默认分组、新建分组�
 ![](https://qcloudimg.tencent-cloud.cn/raw/397591f142a1c9053c34de29fae05345.png)
 
 
-
 #### API 服务上架与下架
 - 上架：运行中的API服务，可通过**上架**功能共享给企业的其他员工使用。在 **API 服务** > **操作** > **更多** > **上架**路径提交上架申请，提交后的 API 服务会被企业管理员审核，审核通过后可展示在 API 目录中，支持被当前主账号下的所有子账号订阅。
 - 下架：上架后的 API 服务，若不想继续被其他员工订阅，则可通过下架来完成。在 **API 服务** > **操作** > **更多** > **下架**路径提交下架申请，提交申请后需联系系统管理员或该项目的项目管理员进行审核，审核通过后即可下架，API 下架后不能被订阅。下架后的 API 服务会移出 API 目录。
@@ -112,34 +111,24 @@ API 名称、描述支持自定义。分组可选择默认分组、新建分组�
 ![](https://qcloudimg.tencent-cloud.cn/raw/197a3e6e81907e85ceb89c11e1e9169c.png)
 
 ### API 目录
-API 目录展示已上架的 API 服务。类似一个 API 服务市场，上架后的服务，不局限项目维度，可以被当前主账号下的所有子账号查看、订阅并调用。
+API 目录展示已上架的 API 服务。类似一个 API 服务市场，上架后的服务，不局限项目维度，可以被当前主账号下的所有子账号查看、订阅并调用。此页面可通过 API 服务的属性快速搜索服务。同时，可申请订阅或取消订阅 API 服务。
 ![](https://qcloudimg.tencent-cloud.cn/raw/74130b0116189a7731ef2d9eaf2d490b.png)
-此页面可通过 API 服务的属性快速搜索服务。同时，可申请订阅或取消订阅 API 服务。
-
-
-
-
 
 #### 申请订阅
 申请订阅 API 服务时，需选择或新建订阅凭证。将凭证与 API 服务关联上。待系统管理员审核后，即可成功订阅。
 ![](https://qcloudimg.tencent-cloud.cn/raw/80fdb133fb109623ae360beb6bbde360.png)
 
-
-
 #### 取消订阅
-![](https://qcloudimg.tencent-cloud.cn/raw/c95e2ea0f3477a715f4d14ff13251cf9.png)
 取消订阅后将不能调用该 API 服务，此操作无需系统管理员审核。
-
+![](https://qcloudimg.tencent-cloud.cn/raw/c95e2ea0f3477a715f4d14ff13251cf9.png)
 
 ### 订阅凭证
-此列表可展示或搜索所有的订阅凭证，同时，可新建凭证。订阅凭证用于订阅 API 目录中的服务。凭证即为某 API 服务的钥匙。在申请订阅 API 服务时将凭证与 API 服务关联上，调用的时候填写该凭证，即可成功调用该服务。
+此列表可展示或搜索所有的订阅凭证，同时，可新建凭证。订阅凭证用于订阅 API 目录中的服务。凭证即为某 API 服务的钥匙。在申请订阅 API 服务时将凭证与 API 服务关联上，调用的时候填写该凭证，即可成功调用该服务。同时，能看到该凭证各种鉴权类型的 Key 和 Secret，调用时直接复制即可使用。
 ![](https://qcloudimg.tencent-cloud.cn/raw/334ba7f48ee8d03e57810fb090944e83.png)
-![](https://qcloudimg.tencent-cloud.cn/raw/d9e4d9e6e2ca191852a7d5bfaebe1336.png)
-同时，能看到该凭证各种鉴权类型的 Key 和 Secret，调用时直接复制即可使用。
 一个凭证支持与多个 API 服务关联。可在**订阅的 API** tab 页查看此凭证关联的所有 API 服务。
-![](https://qcloudimg.tencent-cloud.cn/raw/d2d282b13cacce4bf686e8117d46d163.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/d9e4d9e6e2ca191852a7d5bfaebe1336.png)
 新建凭证时，自定义相关属性即可。
-![](https://qcloudimg.tencent-cloud.cn/raw/c37b2d54cb883ba577fdc858d7749443.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/d2d282b13cacce4bf686e8117d46d163.png)
 
 
 ### 审核管理
@@ -153,7 +142,7 @@ API 目录展示已上架的 API 服务。类似一个 API 服务市场，上架
 
  ![](https://qcloudimg.tencent-cloud.cn/raw/2fd53195b377dc997c427d9b2d063ed1.png)
 
-### 调用步骤：从用户侧调用 API（以 postman 为例）
+### API 调用步骤：从用户侧调用 API（以 postman 为例）
 - API 服务无需验证的情况：
 ![](https://qcloudimg.tencent-cloud.cn/raw/c8f0989e13ad33d5180ae002220ded34.png)
 - API 服务需要 Basic Auth 的情况：
