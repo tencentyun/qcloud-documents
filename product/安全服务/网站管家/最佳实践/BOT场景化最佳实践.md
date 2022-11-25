@@ -150,7 +150,7 @@ AI 策略功能基于人工智能技术和腾讯风控实战沉淀，将风控�
 2. 在 BOT流量分析页面，左上角选择需要防护的域名，选择所需访问源，单击**查看详情**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/bffd30f0ad69ae1dfe41a9f7b01a9f9e.png)
 2. 在 BOT 流量详情页面的基础会话信息模块，查看城市和 IP 地区。
-![](https://qcloudimg.tencent-cloud.cn/raw/198bdeb4fe47d3eff32c8d375aa10d42.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/afecbe9db7580b55cade4f48f1ecb880.png)
 3. 当业务没有该地区的流量时，则表明此处评分为异常，可以自定义动作设置，进行一个更加细化的设置。
 4. 在 BOT 与业务安全页面，左上角选择需要防护的域名，单击 **BOT 管理**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/642d93faac4b01d62cf0b84583318040.png)
@@ -202,11 +202,11 @@ AI 策略功能基于人工智能技术和腾讯风控实战沉淀，将风控�
 2. 在 BOT流量分析页面，左上角选择需要防护的域名，选择所需访问源，目前根据展示，能看到该 IP 请求速度很快，URL 单一，并且是 IDC 类。
 ![](https://qcloudimg.tencent-cloud.cn/raw/8ff4e8e7e42a97d9d140a6ff3dfeb84d.png)
 3. 单击**查看详情**，通过基础会话信息可以看出，会话速度平均次数，总次数。也可以直接根据该条件进行设置。
-![](https://qcloudimg.tencent-cloud.cn/raw/922d225d3dd5465c5c47937bfc5d48ef.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/0df8e38b430747acd5ce198d475afa50.png)
 4. 在威胁情报页面，可以根据情报数据判断该 IP 是否有正常用户使用过。
-![](https://qcloudimg.tencent-cloud.cn/raw/3192733f9db74f091dc888ffb9d50d1e.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/175eafa0efa18d578a688ab9764de774.png)
 5. 在请求特征信息页面，可以查看请求详情。
-![](https://qcloudimg.tencent-cloud.cn/raw/58b97f89532c9759788f470ef77dcde4.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/8eb574df138e42f7fdbf51acb23e495a.png)
 
 ### 策略配置
 1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/tea-botconfig)，在左侧导航栏中，选择**配置中心** > **BOT 与业务安全**。
