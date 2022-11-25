@@ -63,24 +63,6 @@ API 名称、描述支持自定义。分组可选择默认分组、新建分组�
 ![](https://qcloudimg.tencent-cloud.cn/raw/bbe75cd876062ea62e04de343b606cfb.png)
 当上述配置全部完成后，单击**完成**，则会返回 API 列表，同时已经创建好的 API 信息将会展示在此处。
 
-
-#### 步骤四：从用户侧调用 API（以 postman 为例）
-- API 服务无需验证的情况：
-![](https://qcloudimg.tencent-cloud.cn/raw/c8f0989e13ad33d5180ae002220ded34.png)
-- API 服务需要 Basic Auth 的情况：
-![](https://qcloudimg.tencent-cloud.cn/raw/a6e7ec724140fff6bb9041094ec474fa.png)
-- API 服务需要 OAuth2.0的情况：
-  1. 在用户信息处获取 Client ID 和 Client Secret，在待访问的 API 服务页面获取 Access Token URL。
-![](https://qcloudimg.tencent-cloud.cn/raw/cecd4833d3f33ba7b9a01a0e9dfe9f0f.png)
-  2. 复制之后，在 postman 中创建一个新的请求，填写入上方的 Token 获取地址并使用 GET 方法（此处的鉴权方式应为 NoAuth）。随后选择 Params 标签页，输入 client 信息。输入方式：
-      - 第一列：key 为 client_id，value 为从上方复制的 Client ID 对应的内容。
-      - 第二列：key 为 client_sectet，value 为从上方复制的 Client Secret 对应的内容。
-  ![](https://qcloudimg.tencent-cloud.cn/raw/58be51e42e4bbad725c51af79ce2a4ea.png)
- 3. 单击 **send**，从界面下方的 body 处复制 access_token 字段的值。此即为本次调用时需要用到的 token 信息。
- ![](https://qcloudimg.tencent-cloud.cn/raw/4ed7d90ac9851708cf177e34b2d8c505.png)
-  4. 重新打开一个请求界面，填入需要请求的 API 域名，并选择 Bearer Token 模式。在右侧的 Token 处输入前面获得的 Token，单击 **send**，即可看到访问结果。
-  ![](https://qcloudimg.tencent-cloud.cn/raw/414baa58ca250f0535c4925536cb9ff9.png)
-
   
 ### API 列表页
 创建好的 API 会展示在 API 列表中，此页面可新建、查看和编辑 API。可发布 API、可设置、查看 API 描述文件和调用凭证，可查看 API 的订阅详情。
@@ -114,18 +96,19 @@ API 名称、描述支持自定义。分组可选择默认分组、新建分组�
 ![](https://qcloudimg.tencent-cloud.cn/raw/2944ef2958cf2ca4549f7139a88b3348.png)
 此处可以看到订阅该 API 的所有用户名单，同时，可以移除某用户的订阅。
 
-### 删除 API 服务
+### 操作
+#### 删除 API 服务
 ![](https://qcloudimg.tencent-cloud.cn/raw/397591f142a1c9053c34de29fae05345.png)
 单击**删除**，可删除当前 API 服务。删除后，该 API 服务下的所有配置将被清空，且无法恢复。运行中的服务不可直接删除，需先停止再删除。
 
 
-### API 服务上架与下架
+#### API 服务上架与下架
 - 上架：运行中的API服务，可通过**上架**功能共享给企业的其他员工使用。在 **API 服务** > **操作** > **更多** > **上架**路径提交上架申请，提交后的 API 服务会被企业管理员审核，审核通过后可展示在 API 目录中，支持被当前主账号下的所有子账号订阅。
 ![](https://qcloudimg.tencent-cloud.cn/raw/b8db2e0df40fb88bc49d45a89d7351db.png)
 - 下架：上架后的 API 服务，若不想继续被其他员工订阅，则可通过下架来完成。在 **API 服务** > **操作** > **更多** > **下架**路径提交下架申请，提交申请后需联系系统管理员或该项目的项目管理员进行审核，审核通过后即可下架，API 下架后不能被订阅。下架后的 API 服务会移出 API 目录。
 ![](https://qcloudimg.tencent-cloud.cn/raw/197a3e6e81907e85ceb89c11e1e9169c.png)
 
-### 查看发布历史
+#### 查看发布历史
 发布后的 API 服务可以更改状态、环境等。在 **API 服务** > **操作** > **更多** > **查看发布历史**路径。此功能可查看到 API 服务发布后的历史情况（最多显示10条）。
 ![](https://qcloudimg.tencent-cloud.cn/raw/74130b0116189a7731ef2d9eaf2d490b.png)
 
@@ -135,11 +118,11 @@ API 目录展示已上架的 API 服务。类似一个 API 服务市场，上架
 ![](https://qcloudimg.tencent-cloud.cn/raw/80fdb133fb109623ae360beb6bbde360.png)
 此页面可通过 API 服务的属性快速搜索服务。同时，可申请订阅或取消订阅 API 服务。
 
-### 申请订阅
+#### 申请订阅
 ![](https://qcloudimg.tencent-cloud.cn/raw/c95e2ea0f3477a715f4d14ff13251cf9.png)
 申请订阅 API 服务时，需选择或新建订阅凭证。将凭证与 API 服务关联上。待系统管理员审核后，即可成功订阅。
 
-### 取消订阅
+#### 取消订阅
 ![](https://qcloudimg.tencent-cloud.cn/raw/57528cefe5814e8bd2f72fe66b257c80.png)
 取消订阅后将不能调用该 API 服务，此操作无需系统管理员审核。
 
@@ -162,3 +145,21 @@ API 目录展示已上架的 API 服务。类似一个 API 服务市场，上架
 - 我审核的：此页面展示需审核的信息。只有系统管理员和项目管理员角色能看到。其他角色访问页面数据为空。
  - 系统管理员审批全部项目 API 服务上下架或 API 服务订阅的请求。
  - 项目管理员审批所在项目内的 API 服务上下架或 API 服务订阅的请求。
+
+
+### 调用步骤：从用户侧调用 API（以 postman 为例）
+- API 服务无需验证的情况：
+![](https://qcloudimg.tencent-cloud.cn/raw/c8f0989e13ad33d5180ae002220ded34.png)
+- API 服务需要 Basic Auth 的情况：
+![](https://qcloudimg.tencent-cloud.cn/raw/a6e7ec724140fff6bb9041094ec474fa.png)
+- API 服务需要 OAuth2.0的情况：
+  1. 在用户信息处获取 Client ID 和 Client Secret，在待访问的 API 服务页面获取 Access Token URL。
+![](https://qcloudimg.tencent-cloud.cn/raw/cecd4833d3f33ba7b9a01a0e9dfe9f0f.png)
+  2. 复制之后，在 postman 中创建一个新的请求，填写入上方的 Token 获取地址并使用 GET 方法（此处的鉴权方式应为 NoAuth）。随后选择 Params 标签页，输入 client 信息。输入方式：
+      - 第一列：key 为 client_id，value 为从上方复制的 Client ID 对应的内容。
+      - 第二列：key 为 client_sectet，value 为从上方复制的 Client Secret 对应的内容。
+  ![](https://qcloudimg.tencent-cloud.cn/raw/58be51e42e4bbad725c51af79ce2a4ea.png)
+ 3. 单击 **send**，从界面下方的 body 处复制 access_token 字段的值。此即为本次调用时需要用到的 token 信息。
+ ![](https://qcloudimg.tencent-cloud.cn/raw/4ed7d90ac9851708cf177e34b2d8c505.png)
+  4. 重新打开一个请求界面，填入需要请求的 API 域名，并选择 Bearer Token 模式。在右侧的 Token 处输入前面获得的 Token，单击 **send**，即可看到访问结果。
+  ![](https://qcloudimg.tencent-cloud.cn/raw/414baa58ca250f0535c4925536cb9ff9.png)
