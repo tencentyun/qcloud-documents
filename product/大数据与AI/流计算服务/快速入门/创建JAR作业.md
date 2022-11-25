@@ -6,7 +6,7 @@
 创建 JAR 作业需要上传已开发好的 JAR 包，您可以单击 [GitHub 链接](https://github.com/tencentyun/flink-hello-world/releases/tag/0.1)，下载我们提供的 WordCount 示例 JAR 包（文件名为 flink-hello-world-1.0.0.jar）来完成。
 
 ## 步骤2：上传 JAR 包
-登录 [流计算 Oceanus 控制台](https://console.cloud.tencent.com/oceanus)，选择**依赖管理 > 新建依赖**。在新建程序包中选择地域，该地域需与独享集群所在地域一致，默认使用本地上传的方式。单击**选择依赖**将打开本地文件选择窗口，选择步骤1中下载的 JAR 包并上传。填写程序包名称、程序包描述、版本说明后，单击**确定**完成新建程序包。完成新建后程序包列表将出现刚新建的程序包。
+登录 [流计算 Oceanus 控制台](https://console.cloud.tencent.com/oceanus)，选择**依赖管理 > 新建依赖**。在新建程序包中选择地域，该地域需与独享集群所在地域一致，默认使用本地上传的方式。单击**选择依赖**将打开本地文件选择窗口，选择步骤1中下载的 JAR 包并上传。填写程序包名称、程序包描述、版本说明后，单击**确定**完成新建程序包。完成新建后程序包列表将出现刚新建的程序包。 
 ![](https://main.qcloudimg.com/raw/c12ea28de74395978687f1d168219d8a.png)
 
 ## 步骤3：创建 JAR 作业

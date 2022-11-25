@@ -2,6 +2,11 @@
 
 Initiate Multipart Upload 接口请求实现初始化分块上传，成功执行此请求后将返回 UploadId，用于后续的 Upload Part 请求。
 
+>?
+>只有主账号或者被授权 Initiate Multipart Upload 接口权限的子账号可以调用该接口。
+>
+
+
 <div class="rno-api-explorer">
     <div class="rno-api-explorer-inner">
         <div class="rno-api-explorer-hd">

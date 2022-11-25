@@ -1,7 +1,8 @@
 ## 功能描述
 List Multipart Uploads 用于查询正在进行中的分块上传任务。单次请求操作最多列出1000个正在进行中的分块上传。
 
->! 该请求需要有存储桶的读权限。
+>! 
+>该请求需要有存储桶的读权限。同时需要主账号或者被授权 List Multipart Upload 接口权限的子账号可以调用该接口。
 >
 
 <div class="rno-api-explorer">

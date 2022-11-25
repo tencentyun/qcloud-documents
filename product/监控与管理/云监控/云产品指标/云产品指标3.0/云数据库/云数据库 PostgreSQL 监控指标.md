@@ -48,7 +48,8 @@ Namespace = QCE/POSTGRES
 | TupFetched      | 每秒索引扫描回表记录数     | 个    | 平均每秒通过索引扫描的 tupe 数量                             | resourceId | 5s、60s、300s |
 | TupReturned     | 每秒全表扫描记录数         | 个    | 平均每秒全表扫描的 tupe 数量                                 | resourceId | 5s、60s、300s |
 | Deadlocks       | 死锁数                     | 个    | 在一个采集周期内的所有死锁数                                 | resourceId | 5s、60s、300s |
-
+| Memory    | 内存占用量    | MB   | 内存已使用量                          | resourceId | 5s、60s、300s |
+| MemoryRate    | 内存使用率                 | %    | 内存已使用量占用总量的百分比                             | resourceId | 5s、60s、300s |
 
 
 > ?每个指标的统计粒度（Period）可取值不一定相同，可通过 [DescribeBaseMetrics](https://cloud.tencent.com/document/product/248/30351) 接口获取每个指标支持的统计粒度。

@@ -1,7 +1,7 @@
 ## 功能介绍
 YARN 资源调度提供了交互式的 YARN 资源队列调度管理能力，较文件式配置管理操作更便捷，目前支持 Fair Scheduler 和 Capacity Scheduler 两种类型的调度配置。
 - Fair Scheduler 是公平调度器，公平调度器将资源公平的分配给 yarn 上的各个作业，通过权重来调整资源的分配。
-- Capacity Scheduler 是容量调度器，容量调度器以分层的方式组织资源,可通过多层级的资源限制条件让多用户共享集群资源。
+- Capacity Scheduler 是容量调度器，容量调度器以分层的方式组织资源,可通过多层级的资源限制条件让多用户共享集群资源。 
 
 >!
 - 资源调度器默认使用公平调度器，配置管理 YARN 组件 fair-scheduler.xml 配置文件中的相关配置项参数保持与资源调度页一致。切换调度器为容量调度器，配置管理 YARN 组件 capacity-scheduler.xml 配置文件中的相关配置参数也保持与资源调度页一致。

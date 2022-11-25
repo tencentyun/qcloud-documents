@@ -1,9 +1,9 @@
 
-通过阅读本文，你可以了解在您现有的 Android / iOS 原生开发项目中，集成腾讯云IM Flutter 的方法。
+通过阅读本文，您可以了解在您现有的 Android / iOS 原生开发项目中，集成腾讯云 IM Flutter 的方法。
 
-有的时候，使用Flutter重写您现有的应用程序是不现实的。如果您想在现有APP中，使用腾讯云IM的能力，推荐采用混合开发方案，即将Flutter模块，嵌入您的原生开发APP项目中。
+有的时候，使用 Flutter 重写您现有的应用程序是不现实的。如果您想在现有 APP 中，使用腾讯云 IM 的能力，推荐采用混合开发方案，即将 Flutter 模块，嵌入您的原生开发 APP 项目中。
 
-**可在很大程度上，降低您的工作量，快速在双端原生APP中，植入IM通信能力。**
+**可在很大程度上，降低您的工作量，快速在双端原生 APP 中，植入 IM 通信能力。**
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/54adc2b0587f9f30d56e96eb6461b969.png)
 
@@ -14,7 +14,7 @@
 | Flutter | SDK 最低要求 Flutter 2.2.0版本，TUIKit 集成组件库最低要求 Flutter 2.10.0 版本。|
 |Android|Android Studio 3.5及以上版本，App 要求 Android 4.1及以上版本设备。|
 |iOS|Xcode 11.0及以上版本，请确保您的项目已设置有效的开发者签名。|
-|腾讯云IM SDK|[tencent_im_sdk_plugin](https://pub.dev/packages/tencent_im_sdk_plugin) 5.0 及以上版本， [tim_ui_kit](https://pub.dev/packages/tim_ui_kit) 0.2 及以上版本。|
+|腾讯云IM SDK|[tencent_cloud_chat_sdk](https://pub.dev/packages/tencent_cloud_chat_sdk) 5.0 及以上版本， [tencent_cloud_chat_uikit](https://pub.dev/packages/tencent_cloud_chat_uikit) 1.0 及以上版本。|
 
 ## 快速了解
 
@@ -60,7 +60,7 @@
 
 当您现有应用需要展示腾讯云IM相关页面时，可加载对应用于承载 Flutter 的 Activity（Android）或 ViewController（iOS）。
 
-当需要两端通信时，如传递当前用户信息，传递音视频通话数据，触发离线推送数据，可采用 [Method Channel](https://docs.flutter.dev/development/platform-integration/platform-channels#channels-and-platform-threading) 方式进行。触发另一端的方法使用 `invokeMethod`，监听另一端发来的方法调用使用 [预挂载的Method Channel监听器](https://docs.flutter.dev/development/platform-integration/platform-channels#executing-channel-handlers-on-background-threads)。
+当需要两端通信时，如传递当前用户信息，传递音视频通话数据，触发离线推送数据，可采用 [Method Channel](https://docs.flutter.dev/development/platform-integration/platform-channels#channels-and-platform-threading) 方式进行。触发另一端的方法使用 `invokeMethod`，监听另一端发来的方法调用使用 [预挂载的 Method Channel 监听器](https://docs.flutter.dev/development/platform-integration/platform-channels#executing-channel-handlers-on-background-threads)。
 
 [](id:android)
 
@@ -88,7 +88,7 @@ flutter build aar
 ![](https://qcloudimg.tencent-cloud.cn/raw/32e9376de02da10e97a8c54b9ab2b51c.png)
 3. 您的应用程序现在将 Flutter 模块作为依赖项包括在内。
 
-##### Android方式二：依赖Flutter module源代码
+##### Android 方式二：依赖Flutter module源代码
 
 源代码子项目机制是一个方便的一键构建过程，但需要 Flutter SDK。这是 Android Studio IDE 插件使用的机制。
 
@@ -98,7 +98,7 @@ flutter build aar
 
 **具体步骤:**
 
-1. 将Flutter module作为一个子项目，添加至宿主APP的 `settings.gradle` 中：
+1. 将 Flutter module 作为一个子项目，添加至宿主 APP 的 `settings.gradle` 中：
 ```gradle
 // Include the host app project.
 include ':app'                                    // assumed existing content
@@ -108,8 +108,7 @@ evaluate(new File(                                                     // new
   'tencent_chat_module/.android/include_flutter.groovy'                // new
 ))                                                                     // new
 ```
-2. 在您应用中的 `app/build.gradle => dependencies` 中引入对Flutter module的 `implementation`:
-
+2. 在您应用中的 `app/build.gradle => dependencies` 中引入对Flutter module的 `implementation`：
 ```gradle
 dependencies {
   implementation project(':flutter')
@@ -170,14 +169,14 @@ end
 >
 > - 在 `tencent_chat_module/pubspec.yaml` 中更改Flutter插件依赖时，请在Flutter Module目录中运行 `flutter pub get` 以刷新 `podhelper.rb` 脚本读取的插件列表。然后，从您iOS应用程序的根目录，再次执行 `pod install`。
 > - 对于 Apple Silicon 芯片 arm64 架构的 Mac电脑，可能需要执行 `arch -x86_64 pod install --repo-update`。
-> 
+>
 > `podhelper.rb` 脚本将您的插件 / `Flutter.framework` / `App.framework` 植入您的项目中。
 
 ##### iOS 方式二：在 Xcode 中嵌入 frameworks
 
 为 Flutter 引擎、已编译的 DART 代码和所有 Flutter 插件创建框架。手动嵌入框架，并在 Xcode 中更新现有应用程序的构建设置。
 
-通过手动编辑现有的 Xcode 项目，您可以生成必要的 framework 并将它们嵌入到应用程序中。如果您的团队成员无法在本地安装 Flutter SDK 和 CocoaPods，或者如果您不想在现有应用程序中使用 CocoaPods 作为依赖项管理器，则可以这样做。每次你在你的颤动模块中修改代码时，你都必须运行 `flutter build ios-framework`.
+通过手动编辑现有的 Xcode 项目，您可以生成必要的 framework 并将它们嵌入到应用程序中。如果您的团队成员无法在本地安装 Flutter SDK 和 CocoaPods，或者如果您不想在现有应用程序中使用 CocoaPods 作为依赖项管理器，则可以这样做。每次您在您的颤动模块中修改代码时，您都必须运行 `flutter build ios-framework`.
 
 因此，建议在线上环境，使用本方案。
 
@@ -187,7 +186,7 @@ end
 ```shell
 flutter build ios-framework --output=some/path/MyApp/Flutter/
 ```
-2. 在 Xcode 中将生成的 frameworks 集成到你的既有应用中。例如，你可以在 `some/path/MyApp/Flutter/Release/` 目录拖拽 frameworks 到你的应用 target 编译设置的 General > Frameworks, Libraries, and Embedded Content 下，然后在 Embed 下拉列表中选择 “Embed & Sign”。
+2. 在 Xcode 中将生成的 frameworks 集成到您的既有应用中。例如，您可以在 `some/path/MyApp/Flutter/Release/` 目录拖拽 frameworks 到您的应用 target 编译设置的 General > Frameworks, Libraries, and Embedded Content 下，然后在 Embed 下拉列表中选择 “Embed & Sign”。
 
 ## 混合开发选型
 
@@ -218,7 +217,7 @@ flutter build ios-framework --output=some/path/MyApp/Flutter/
 
 在我们的项目中，我们基于一个统一的 FlutterEngineGroup，来管理两个 FlutterEngine（Flutter 引擎），分别用于承载 Chat 和 Calling 模块。
 
-[![](https://qcloudimg.tencent-cloud.cn/raw/b622951f776a505e83f843de1f62fffc.png)](https://github.com/TencentCloud/tencentchat-add-flutter-to-app/tree/main/Multiple%20Flutter%20Engines)
+<a target="_blank" href="https://github.com/TencentCloud/tencentchat-add-flutter-to-app/tree/main/Multiple%20Flutter%20Engines"><img src="https://qcloudimg.tencent-cloud.cn/raw/b622951f776a505e83f843de1f62fffc.png" /></a>
 
 ### Flutter Module 开发
 
@@ -342,6 +341,7 @@ class CallInfo{
 6. 新建 `user_profile.dart` 文件，用于承载 TUIKit 的用户信息及关系链管理模块组件 `TIMUIKitProfile`。详细代码可查看 Demo 源码。
 7. 新建 `group_profile.dart` 文件，用于承载 TUIKit 的群信息及群管理模块组件 `TIMUIKitGroupProfile`。详细代码可查看Demo源码。
 此时，Chat 模块已开发完成。最终结构如下：
+
 ```
 tencent_chat_module/
 ├── lib/
@@ -378,6 +378,7 @@ tencent_chat_module/
 开发完上述三个模块后，现在可完成最终对外暴露的 main 方法，作为 Flutter 引擎的入口。
 
 1. 默认入口。打开 `lib/main.dart` 文件，将 `main()` 方法改成一个空 MaterialApp 即可。该方法作为 Flutter Module 的默认入口，在Flutter多引擎，使用 FlutterEngineGroup 管理的背景下，如果没有子 Flutter Engine 不设置任何 entry point，这个方法就不会被用到。例如，在我们的场景中，这个默认 `main()` 方法就没有被用上。
+
 ```dart
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -391,7 +392,9 @@ void main() {
   ));
 }
 ```
+
 2. 配置 Chat 模块的入口。使用 `@pragma('vm:entry-point')` 注解，将该方法标记为一个 `entry-point` 入口。方法名 `chatMain` 即该入口的名称，在 Native 中，也使用该名称，创建对应 Flutter 引擎。使用全局 `ChangeNotifierProvider` 状态管理，维护 `ChatInfoModel` 数据及业务逻辑。
+
 ```dart
 @pragma('vm:entry-point')
 void chatMain() {
@@ -409,7 +412,9 @@ void chatMain() {
   );
 }
 ```
+
 3. 配置 Call 模块的入口。同理，该入口命名为 `callMain`。使用全局 `ChangeNotifierProvider` 状态管理，维护 `CallInfoModel` 数据及业务逻辑。
+
 ```dart
 @pragma('vm:entry-point')
 void callMain() {
@@ -586,7 +591,7 @@ class MyApplication : MultiDexApplication() {
 
 这两个模块只能同时出现同时隐藏，仅需维护一个 Flutter 引擎即可。
 
-[![](https://qcloudimg.tencent-cloud.cn/raw/b622951f776a505e83f843de1f62fffc.png)](https://github.com/TencentCloud/tencentchat-add-flutter-to-app/tree/main/Single%20Flutter%20Engines)
+<a target="_blank" href="https://github.com/TencentCloud/tencentchat-add-flutter-to-app/tree/main/Single%20Flutter%20Engines"><img src="https://qcloudimg.tencent-cloud.cn/raw/b622951f776a505e83f843de1f62fffc.png" /></a>
 
 ### Flutter Module 开发
 
@@ -848,7 +853,7 @@ _coreInstance.setDataFromNative(userId: chatInfo?.userID ?? "");
 
 **更详细代码，请查阅我们的 Demo 源码。**
 
-[![](https://qcloudimg.tencent-cloud.cn/raw/b622951f776a505e83f843de1f62fffc.png)](https://github.com/TencentCloud/tencentchat-add-flutter-to-app/tree/main/Initialize%20from%20Native)
+<a target="_blank" href="https://github.com/TencentCloud/tencentchat-add-flutter-to-app/tree/main/Initialize%20from%20Native"><img src="https://qcloudimg.tencent-cloud.cn/raw/b622951f776a505e83f843de1f62fffc.png" /></a>
 
 ## 联系我们
 
