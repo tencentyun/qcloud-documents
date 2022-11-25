@@ -24,7 +24,7 @@ API 管理功能支持 3.0.0 版本的 OpenAPI 规范。OpenAPI 3.0.0 规范的�
 ![](https://qcloudimg.tencent-cloud.cn/raw/ab9b3cbc84a97eee6d0d8369d45c2277.png)
 创建 API 服务一共有2个步骤。
 
-### 步骤一：配置服务名称，协议与描述。
+### 步骤一：配置服务名称，协议与描述
 服务名称和描述自定义即可，协议支持3种：HTTP、HTTPS、HTTP+HTTPS。分组可选择默认分组、新建分组。如下图所示。
 ![](https://qcloudimg.tencent-cloud.cn/raw/7e6123d809d91d859a7298b7c01da47d.png)
 
