@@ -332,7 +332,7 @@ x-cos-request-id: NWNlN2RjYjdfZjhjODBiMDlfOWNlNF9hYzc2****
 #### 案例四：根据指定标签过滤存储桶列表
 
 
-存储桶 examplebucket-1250000000 的标签为<key1, value1>，存储桶 examplebucket1-1250000000 的标签为<key1, value1>和<key2, value2>。
+存储桶 examplebucket-1250000000 的标签为`<key1, value1>`，存储桶 examplebucket1-1250000000 的标签为`<key1, value1>`和`<key2, value2>`。
 
 #### 请求
 
@@ -422,5 +422,4 @@ x-cos-request-id: NjM2MzQwMWZfMmJiMjM1MGFfYTc******
 	</Buckets>
 </ListAllMyBucketsResult>
 ```
-
 
