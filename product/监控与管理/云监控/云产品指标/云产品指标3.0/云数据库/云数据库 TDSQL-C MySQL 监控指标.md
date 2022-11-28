@@ -6,8 +6,8 @@ Namespace=QCE/CYNOSDB_MYSQL
 ## 监控指标
 | 指标英文名                   | 指标中文名               | 单位  | 维度       | 统计粒度                     |
 | ---------------------------- | ------------------------ | ----- | ---------- | ---------------------------- |
-| BytesSent                    | 发送客户端流量           | MB/s  | InstanceId | 5s、60s、300s、3600s、86400s |
-| BytesReceived                | 接收客户端流量           | MB/s  | InstanceId | 5s、60s、300s、3600s、86400s |
+| BytesSent                    | 每秒发送客户端流量           | MB/s  | InstanceId | 5s、60s、300s、3600s、86400s |
+| BytesReceived                | 每秒接收客户端流量           | MB/s  | InstanceId | 5s、60s、300s、3600s、86400s |
 | ComDelete                    | 删除数                   | 个/秒 | InstanceId | 5s、60s、300s、3600s、86400s |
 | ComInsert                    | 插入数                   | 个/秒 | InstanceId | 5s、60s、300s、3600s、86400s |
 | ComUpdate                    | 更新数                   | 个/秒 | InstanceId | 5s、60s、300s、3600s、86400s |
