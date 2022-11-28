@@ -23,6 +23,11 @@ IM Flutter TUIKit（含 UI）指代 [tencent_cloud_chat_uikit](https://pub.dev/p
 > 无UI的SDK现已从 [tencent_im_sdk_plugin](https://pub.dev/packages/tencent_im_sdk_plugin) 迁移至 [tencent_cloud_chat_sdk](https://pub.dev/packages/tencent_cloud_chat_sdk)；TUIKit现已从 [tim_ui_kit](https://pub.dev/packages/tim_ui_kit) 迁移至 [tencent_cloud_chat_uikit](https://pub.dev/packages/tencent_cloud_chat_uikit)。
 > 后续两个原始版本包将陆续不再维护，请所有客户尽快升级至最新版本，谢谢。
 
+### IM Flutter TUIKit（含 UI） 1.0.1 @2022.11.28
+
+- 改动：移除 `MessageItemBuilder` 中的 `groupTRTCTipsItemBuilder`，请使用 `customMessageItemBuilder` 替代。
+- 改动：移除 `TIMUIKitConversation` 和 `TIMUIKitChat` 中对音视频通话记录消息的默认解析，需要手动将通化记录信息解析或组件传入。详情可查看 [本升级指引](https://cloud.tencent.com/document/product/269/72485#updateuikit)。
+
 ### IM Flutter TUIKit（含 UI） 1.0.0 @2022.11.23
 
 - 新增：支持在您现有应用中添加Flutter模块，即混合开发，具体请参考[本文档](https://cloud.tencent.com/document/product/269/83153)实现。
