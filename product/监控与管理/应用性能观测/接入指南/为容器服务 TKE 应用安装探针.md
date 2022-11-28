@@ -41,7 +41,7 @@
 <tr>
 <td>  APM_TOKEN</td>
 <td>您的 APM  实例对应的上报 Token</td>
-<td> 1. 在应用性能观测控制台-探针部署页面<br>选择 Java 语言-Opentelementry增强探上报方式。<br><br><img src="https://qcloudimg.tencent-cloud.cn/raw/1a9ed8112203421e565af4c108626c7e.png" width="70%"><br><br>2. 单击**下一步**，获取 Token。<br><img src="https://qcloudimg.tencent-cloud.cn/raw/c17e16415c3e201154a41f9a4b03b43f.png" width="70%"> </td>
+<td> 1. 在应用性能观测控制台-探针部署页面<br>选择 JAVA 语言-Opentelementry增强探上报方式。<br><br><img src="https://qcloudimg.tencent-cloud.cn/raw/1a9ed8112203421e565af4c108626c7e.png" width="70%"><br><br>2. 单击**下一步**，获取 Token。<br><img src="https://qcloudimg.tencent-cloud.cn/raw/c17e16415c3e201154a41f9a4b03b43f.png" width="70%"> </td>
 </tr>
 <tr>
 <td>CLUSTER_ID</td>

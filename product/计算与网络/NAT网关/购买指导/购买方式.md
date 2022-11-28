@@ -3,7 +3,7 @@
 
 ## 操作步骤
 ### 标准型 NAT 网关
->?标准型 NAT 网关目前正在灰度测试中，如有需要，请提交[ 内测申请](https://cloud.tencent.com/apply/p/ojxjirnd5yi)。
+>?标准型 NAT 网关正在灰度测试中，目前支持北京、上海、广州，如需使用，请提交 [内测申请](https://cloud.tencent.com/apply/p/ojxjirnd5yi)。
 >
 1. 登录[ NAT 网关控制台](https://console.cloud.tencent.com/vpc/nat?fromNav)。
 2. 选择地区和私有网络，单击**新建**。

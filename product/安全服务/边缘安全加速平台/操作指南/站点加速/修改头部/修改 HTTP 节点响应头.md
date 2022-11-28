@@ -4,7 +4,7 @@
 
 ## 操作步骤
 1. 登录 [边缘安全加速平台控制台](https://console.cloud.tencent.com/edgeone) ，在左侧菜单栏中，单击**规则引擎**。
-2. 在规则引擎页面，选择所需站点，可按需配置修改 HTTP 响应头规则。如何使用规则引擎，请参见 [规则引擎](https://cloud.tencent.com/document/product/1552/70901)。
+2. 在规则引擎页面，选择所需站点，可按需配置修改 HTTP 节点响应头规则。如何使用规则引擎，请参见 [规则引擎](https://cloud.tencent.com/document/product/1552/70901)。
 配置项说明：
 <table>
 <thead>
@@ -15,15 +15,15 @@
 </thead>
 <tbody><tr>
 <td>设置</td>
-<td>变更指定头部参数的取值为设置后的值<br>注意：<ul><li>若指定头部不存在，则会增加该头部</li><li>若头部已存在（即使有多个重复的头部），则会覆盖原有头部且唯一（合并多个重复的头部为1个头部）</td>
+<td>变更指定头部参数的取值为设置后的值，且头部唯一。<br>注意：若指定头部不存在，则会增加该头部。</td>
 </tr>
 <tr>
 <td>增加</td>
-<td>增加指定的头部<br>注意：<br>若头部已存在（即使有多个重复的头部），则会覆盖原有头部且唯一（合并多个重复的头部为1个头部）</td>
+<td>增加指定的头部。<br>注意：若头部已存在，则会覆盖原有头部且唯一。</td>
 </tr>
 <tr>
 <td>删除</td>
-<td>删除指定的头部</td>
+<td>删除指定的头部。</td>
 </tr>
 </tbody></table>
 
@@ -82,15 +82,15 @@ Error
 </tr>
 <tr>
 <td><code>http://cloud.tencent.com</code>, <code>https://cloud.tencent.com</code>,<code>http://www.b.com</code></td>
-<td>固定匹配：<ul><li>来源 <code>https://cloud.tencent.com</code>，命中列表，则响应添加头部： <code>Access-Control-Allow-Origin: https://cloud.tencent.com</code>。</li><li>来源为 <code>https://www.qq.com</code>，未命中列表，响应无变化。</li></td>
+<td>固定匹配：<ul><li>来源 <code>https://cloud.tencent.com</code>，命中列表，则响应添加头部： <code>Access-Control-Allow-Origin: https://cloud.tencent.com</code>。</li><li>来源为 <code>https://www.qq.com</code>，未命中列表，则不会响应跨域头部。</li></td>
 </tr>
 <tr>
 <td><code>https://*.tencent.com</code></td>
-<td>二级泛域名匹配：<ul><li>来源 <code>https://cloud.tencent.com</code>，命中列表，则响应添加头部： <code>Access-Control-Allow-Origin: https://cloud.tencent.com</code>。</li><li>来源为 <code>https://cloud.qq.com</code>，未命中列表，响应无变化。</li></td>
+<td>二级泛域名匹配：<ul><li>来源 <code>https://cloud.tencent.com</code>，命中列表，则响应添加头部： <code>Access-Control-Allow-Origin: https://cloud.tencent.com</code>。</li><li>来源为 <code>https://cloud.qq.com</code>，未命中列表，则不会响应跨域头部。</li></td>
 </tr>
 <tr>
 <td><code>https://cloud.tencent.com:8080</code></td>
-<td>端口匹配：<ul><li>来源为 <code>https://cloud.tencent.com:8080</code>，命中列表，则响应添加头部： <code>Access-Control-Allow-Origin:https://cloud.tencent.com:8080</code>。</li><li>来源为 <code>https://cloud.tencent.com</code>，未命中列表，响应无变化。</li>注意：若存在特殊端口，则需要在列表中填写相关信息，不支持任意端口匹配，必须指定。</td>
+<td>端口匹配：<ul><li>来源为 <code>https://cloud.tencent.com:8080</code>，命中列表，则响应添加头部： <code>Access-Control-Allow-Origin:https://cloud.tencent.com:8080</code>。</li><li>来源为 <code>https://cloud.tencent.com</code>，未命中列表，则不会响应跨域头部。</li>注意：不支持任意端口匹配，若存在特殊端口，则必须在头部值中指定该端口。</td>
 </tr>
 </tbody></table>
 
@@ -129,4 +129,3 @@ Error
 指定访问页面所使用的语言。
 - 头部名称：Content-Language。
 - 头部值：例如 zh-CN 或 en-US。
-
