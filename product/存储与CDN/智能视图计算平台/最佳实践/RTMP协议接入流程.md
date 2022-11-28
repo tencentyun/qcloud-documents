@@ -1,49 +1,90 @@
+本文将介绍设备如何通过 GB28181协议接入智能视图计算平台，以 IPC 配置为例。
 
-本文介绍如何将 RTMP 流接入至智能视图计算平台服务。**本文将以 OBS 软件推流为例，您可配置到您的设备端或所支持的软件端。**
+## 接入配置流程
 
-## 准备工作
-
-1. 开通 [智能视图计算平台](https://console.cloud.tencent.com/iss)。
-2. 完成智能视图计算平台 **服务配置**，详细请参见[创建服务配置](https://cloud.tencent.com/document/product/1344)。
-
-## 步骤 1：创建设备
+### 1.创建设备
 
 1. 登录 [智能视图计算平台控制台](https://console.cloud.tencent.com/iss)。
-2. 在左侧导航栏中，单击展开 **设备管理**，进入 **设备接入** 页面。
-3. 在**设备组织**下选择需要添加设备的组织。
-4. 单击 **添加设备**，根据需求可选择 **手动添加** 或 **批量导入**，操作如下。
-   ![](https://qcloudimg.tencent-cloud.cn/raw/537839e7172ee66244639cd4953bd89a.png)
-5. 以**手动添加**为例在弹出的窗口中，**接入协议** 选择 **RTMP** 并完善设备名称、服务节点等编辑项后单击 **确定**，完成设备添加。
-   ![](https://qcloudimg.tencent-cloud.cn/raw/a97fd2f8ccbd032aeb208429e5fdfe59.png)
+2. 在左侧导航栏中，选择**设备接入**功能。
+3. 先左侧自定义**设备组织**。
+4. 随后选择对应的设备组织，单击**添加设备**（可选择**手动添加**或**批量导入**，下文以手动添加为例讲解操作）。
+   ![](https://qcloudimg.tencent-cloud.cn/raw/43c9abe13d9d8024066d63cc44de4850.png)
+5. 完善弹窗中信息并单击确定，完成设备创建。
+   ![](https://qcloudimg.tencent-cloud.cn/raw/95420848825a642e7abf2c1529a7941a.png)
+6. 设备创建成功后初始状态为**未注册**。                                                        
+   ![](https://qcloudimg.tencent-cloud.cn/raw/1f863369a066be59fd554bf705cf116b.png)
 
-## 步骤 2：获取 RTMP 设备信息
+### 2.获取设备国标配置信息
 
-**设备接入** 页面，单击设备名称，进入刚创建的设备详情页面，**推流地址** 如下。
-![](https://qcloudimg.tencent-cloud.cn/raw/7e42aaa6b7090ee8fa69cbff55c9c78b.png)
+单击设备名称进入**设备详情**页面，查看并记录我们为设备生成的配置信息（ 如下图红框处）。
+![](https://qcloudimg.tencent-cloud.cn/raw/1073f1c46ec77a7ccb897401e7c52226.png)
 
-## 步骤 3：使用 OBS 进行推流
+>?可使用**导出设备信息**功能,批量导出设备配置信息。
 
-1. 进入 [OBS 官网](https://obsproject.com/download) 下载并安装推流工具。
+![](https://qcloudimg.tencent-cloud.cn/raw/0957822368d03723b50bda231ae5eb39.png)
 
-> ?OBS 是一个免费开源的视频录制和视频实时交流软件,其有多种功能并广泛使用在视频采集，直播等领域。
+### 3.登陆设备 Web 端进行配置
 
-1. 打开 OBS，单击底部工具栏的 **控件** > **设置** 按钮进入设置界面。
-   ![](https://qcloudimg.tencent-cloud.cn/raw/827599161fb4295169de06029aaee568.png)
-2. 单击 **推流** 进入推流设置页，进行如下设置：
-3. 选择服务类型为：自定义。
-4. 填写服务器地址：填写在步骤 2 推流地址中的 **服务器地址部分**，例如 **rtmp://61...152/live/**。
-5. 填写流密钥：填写在步骤 2 推流地址中 **流名称及之后的所有内容部分**，例如 **0d9...2S?token=cms_131...37A**。
-6. 单击右下角 **确定**。
-   ![](https://qcloudimg.tencent-cloud.cn/raw/5a384b9432ae28e14250abfd2b7f629a.png)
-7. 单击工具栏的 **控件** > **开始推流**，即可进行推流测试。
-   ![](https://qcloudimg.tencent-cloud.cn/raw/4c206f81474d3fb8a6bffe7529ffe9e0.png)
+1.海康威视设备配置示范（以 IPC 为例，NVR配置过程类似，不再赘述）
+![](https://qcloudimg.tencent-cloud.cn/raw/0cddbabf537b42d9c1f007dea6cb096d.png)
+
+<table>
+	<tr><th>配置参数</th><th>配置说明</th></tr>
+	<tr><td>传输协议</td><td>此处指信令的传输协议，建议选择 <b>UDP</b>。</td></tr>
+	<tr><td>协议版本</td><td>选择  <b> GB/T28181-2016</b>。</td></tr>
+	<tr><td>SIP 服务器 ID</td><td>填写步骤2平台生成的 SIP 服务器ID。</td></tr>
+	<tr><td>SIP 服务器域</td><td>填写步骤2平台生成的 SIP 服务器域（为 SIP 服务器ID的前10位）。</td></tr>
+	<tr><td>SIP 服务器地址</td><td>填写步骤2平台生成的 SIP 服务器IP。</td></tr>
+	<tr><td>SIP 服务器端口</td><td>填写步骤2平台生成的 SIP 服务器端口号。</td></tr>
+	<tr><td>SIP 用户名与 SIP 用户认证 ID</td><td>填写步骤2平台生成的设备 ID。</td></tr>
+	<tr><td>密码&密码确认</td><td>填写步骤2中的设备密码（即创建设备时输入的密码）。</td></tr>
+	<tr><td>注册有效期</td><td>设备注册到平台的有效期限。建议采用默认值3600s。</td></tr>
+	<tr><td>心跳周期</td><td>设备发送心跳信息的时间间隔。建议采用默认值60s。</td></tr>
+  <tr><td>最大超时次数</td><td>心跳连续超时达到“最大超时次数”，则认为设备无法与平台建立连接。建议采用默认值3次。</td></tr>
+	<tr><td>视频通道编码 ID</td><td>可自行设置20位编码，不重复即可，11-13位可填132。（NVR 设备配置此处时类似）。</td></tr>
+  <tr><td><strong>本地 SIP 服务器端口</strong></td><td><strong>部分海康设备若有此项配置（一般设备默认的本地 SIP 端口号为5060,可能会被局域网屏蔽），建议修改为5061、5062等其他端口号。</strong></td></tr>
+</table>
 
 
-## 步骤4：完成注册
+2.大华设备配置示范（以 IPC 为例，NVR配置过程类似，不再赘述）
+![](https://qcloudimg.tencent-cloud.cn/raw/c8dca15189650fa758addbd56d626d63.png)
 
-1. 切换至智能视图计算平台控制台，此时设备状态显示为**”在线“**，**表示设备注册成功已上线，即此时有流接入。**
+<table>
+	<tr><th>配置参数</th><th>配置说明</th></tr>
+	<tr><td>SIP 服务器编号</td><td>填写步骤2平台生成的 SIP 服务器 ID。</td></tr>
+	<tr><td>SIP 服务器域</td><td>填写步骤2平台生成的 SIP 服务器域（为 SIP 服务器 ID 的前10位）。</td></tr>
+	<tr><td>SIP 服务器 IP</td><td>填写步骤2平台生成的 SIP 服务器IP。</td></tr>
+	<tr><td>SIP 服务器端口</td><td>填写步骤2平台生成的 SIP 服务器端口号。</td></tr>
+	<tr><td>设备编号</td><td>填写步骤2平台生成的设备 ID。</td></tr>
+	<tr><td>注册密码</td><td>填写步骤2中的设备密码（即创建设备时输入的密码）。</td></tr>
+  <tr><td>本地 SIP 服务器端口</td><td>一般设备默认的本地 SIP 端口号为5060,可能会被局域网屏蔽，建议修改为5061、5062等其他端口号。</td></tr>
+	<tr><td>注册有效期</td><td>设备注册到平台的有效期限。建议采用默认值3600s。</td></tr>
+	<tr><td>心跳周期</td><td>设备发送心跳信息的时间间隔。建议采用默认值60s。</td></tr>
+  <tr><td>最大超时次数</td><td>心跳连续超时达到“最大超时次数”，则认为设备无法与平台建立连接。建议采用默认值3次。</td></tr>
+	<tr><td>通道编号</td><td>可自行设置20位编码，不重复即可，11-13位可填132。（NVR 设备配置此处时类似）</td></tr>
+</table>
 
-2. 点击 **实况预览**，查看实时流画面。
 
-   ![rtmp2](/Users/jason/Desktop/新版本配图/设备端配图/rtmp2.png)
+### 4.完成配置
+
+完成上述配置流程后，切换至[智能视图计算平台控制台](https://console.cloud.tencent.com/iss)，刷新**设备接入**页面。此时设备状态显示为”在线“，表示设备成功注册且已上线。
+![](https://qcloudimg.tencent-cloud.cn/raw/4d180a8d8f7a209d4094aac75bbc3182.png)
+
+## 音视频配置注意事项
+
+同一个网络，往往由于网络资源不足/波动大导致出现视频卡顿或实况失败的现象，建议按照如下配置视音频参数。
+
+>!1.不要开启厂商的任何私有编码,以及 smart264、smart265、SVC 等，否则无法成功注册！
+>2.某些厂商设备，在 NVR 配置页面修改其下摄像头的配置极有可能不生效，强烈建议登陆到 IPC 设备端配置！
+
+### 1.IPC音视频配置规范
+
+下图以海康威视 IPC 为例，其他厂商设备类似。
+![](https://qcloudimg.tencent-cloud.cn/raw/d410d87c38a50854c9ef3a6ef35f4a6b.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/86f4b6195605324b53b7e7b72558a6ed.png)
+
+### 2.NVR视音频配置规范
+
+下图以海康威视 NVR 为例，其他厂商设备类似。
+![](https://qcloudimg.tencent-cloud.cn/raw/8407c8e0b7a69c6f9da844b19b22e0ff.png)
 
