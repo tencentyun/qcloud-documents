@@ -48,7 +48,7 @@ https://api.meeting.qq.com/v1/meetings?meeting_code={meetingCode}&userid={userid
 |start_time  |String | 会议开始时间戳（单位秒）。 |
 |end_time  |String | 会议结束时间戳（单位秒）。 |
 |settings   |[会议媒体参数对象](#settings) |会议的配置，可为缺省配置。|
-| meeting_type      |  Integer  | 会议类型。    <br>0：一次性会议<br>1：周期性会议<br>2：微信专属会议<br>3：rooms投屏会议<br>5：个人会议号会议<br>6：网络研讨会     |
+| meeting_type      |  Integer  | 会议类型。    <br>0：一次性会议<br>1：周期性会议<br>2：微信专属会议<br>3：Rooms 投屏会议<br>5：个人会议号会议<br>6：网络研讨会     |
 | recurring_rule         | period_meeting | 周期性会议设置。                           |
 | sub_meetings           | 子会议对象数组 | 周期性子会议列表。                         |
 | has_more_sub_meeting   | Integer       | 0：无更多。  <br> 1：有更多子会议特例。      |
