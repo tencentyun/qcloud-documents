@@ -5,7 +5,7 @@
 ## 前提条件
 
 - 已创建 PolarisMesh 北极星网格，请参见 [创建 PolarisMesh 治理中心](https://cloud.tencent.com/document/product/1364/65866)。
-- 下载 Github 的 [demo 源码](https://github.com/polarismesh/examples/tree/main/dubbo3/dubbogo) 到本地并解压。
+- 下载 Github 的 [demo 源码](https://github.com/polarismesh/examples/tree/main/servicediscovery/dubbo3/dubbogo) 到本地并解压。
 - 本地编译构建打包机器环境已安装了 golang 环境，并且能够访问 Github。
 - 当前仅支持 dubbo-go 的接口注册模型。
 - 根据您自身的业务，已准备好业务部署的资源，虚拟机部署和容器化部署选择其中一种方式即可。
@@ -20,7 +20,7 @@
 4. 查看访问地址，Dubbo-Go 应用访问使用 gRPC 端口（8091）：
 ![](https://qcloudimg.tencent-cloud.cn/raw/e7dc5ac5f7c76a316ae68b667d8a365f.png)
 5. 修改 demo 中的注册中心地址
- 1. 在下载到本地的 [demo 源码](https://github.com/polarismesh/examples/tree/main/dubbo3/dubbogo) 目录下，分别找到`dubbo\dubbogo\provider\dubbogo.yaml`以及`dubbo\dubbogo\consumer\dubbogo.yaml`文件
+ 1. 在下载到本地的 [demo 源码](https://github.com/polarismesh/examples/tree/main/servicediscovery/dubbo3/dubbogo) 目录下，分别找到`dubbo\dubbogo\provider\dubbogo.yaml`以及`dubbo\dubbogo\consumer\dubbogo.yaml`文件
  - 添加微服务引擎北极星网格地址到项目配置文件中（这里已`dubbo\dubbogo\provider\dubbogo.yaml`为例）。
 <dx-codeblock>
 :::  yaml
