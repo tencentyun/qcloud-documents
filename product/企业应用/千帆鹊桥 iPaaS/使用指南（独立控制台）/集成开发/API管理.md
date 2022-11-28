@@ -142,7 +142,8 @@ API 目录展示已上架的 API 服务。类似一个 API 服务市场，上架
 
  ![](https://qcloudimg.tencent-cloud.cn/raw/2fd53195b377dc997c427d9b2d063ed1.png)
 
-### API 调用步骤：从用户侧调用 API（以 postman 为例）
+## API 调用步骤
+### 从用户侧调用 API（以 postman 为例）
 - API 服务无需验证的情况：
 ![](https://qcloudimg.tencent-cloud.cn/raw/c8f0989e13ad33d5180ae002220ded34.png)
 - API 服务需要 Basic Auth 的情况：
