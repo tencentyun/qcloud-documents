@@ -98,7 +98,7 @@
      5. 单击**确定**，提交所配置的规则。
 6. 导入规则，单击**导入规则**，可以从本地选择文件导入，您可以指定导入位置、下载导入模板和导出现有规则。
   ![](https://main.qcloudimg.com/raw/5245c289432715cc14408e86a65ecab6.png)
-7. 策略备份与回滚，请参见 [规则备份](https://cloud.tencent.com/document/product/1132/83204) 文档。
+7. 规则备份与回滚，请参见 [规则备份](https://cloud.tencent.com/document/product/1132/83204) 文档。
 
 
 ## 相关信息
