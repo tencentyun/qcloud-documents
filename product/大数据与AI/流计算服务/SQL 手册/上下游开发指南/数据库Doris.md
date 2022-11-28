@@ -1,6 +1,6 @@
 ## 介绍
 
-Flink Connector Doris 目前支持通过 Flink 将数据写入 Doris，基于 [开源版本](https://doris.apache.org/extending-doris/flink-doris-connector.html) 实现。
+Flink Connector Doris 目前支持通过 Flink 将数据写入 Doris，基于 [开源版本](https://doris.apache.org/zh-CN/docs/0.15/extending-doris/flink-doris-connector/) 实现。
 
 ## 版本说明
 
