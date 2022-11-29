@@ -35,7 +35,7 @@
 在浏览器 URL 处拿到 auth_code。
 ![](https://qcloudimg.tencent-cloud.cn/raw/501ff214d26fee45509f5544de61286a.jpg)
 
-### 步骤3：获取 access token
+### 步骤3：获取 access_token
 根据第二步中获取的 auth_code，调用此接口，替换 auth_code 内容。
 ![](https://qcloudimg.tencent-cloud.cn/raw/b31a65e00bba1a8191f6553a0c77fe01.jpg)
 获得 access_token，refresh_token 和 open_id。
@@ -53,6 +53,6 @@
 4. 查看调试结果。
 ![](https://qcloudimg.tencent-cloud.cn/raw/aa7ae85ab5d40fb9f64fd9cd532980da.jpg)
 
-### 步骤5：刷新 accessToken
+### 步骤5：刷新 access_token
 由于 access_token 有效期为6小时，在过期之后需要通过 refresh_token 刷新 access_token 字段，用于继续正常调试接口。在 Body 中将 refresh_token 字段内容替换为请求 access_token 时获取到的 refresh_token 值。
 ![](https://qcloudimg.tencent-cloud.cn/raw/8ed50722f03e5ff3b9df412faead48bb.jpg)
