@@ -71,7 +71,7 @@ http://Hostname/timestamp/md5hash/Filename
 | :-------- | :----------------------------------------------------------- |
 | Hostname  | 站点加速域名。                                                 |
 | Filename  | 资源访问路径，鉴权时 Filename 需以`/`开头。                  |
-| timestamp | 时间戳参数<br/>格式：YYYYMMDDHHMM，UTC+8 时间，例如201807301000。 |
+| timestamp | 时间戳参数。<br/>格式：YYYYMMDDHHMM，UTC+8 时间，例如201807301000。 |
 | md5hash   | 通过 MD5 算法计算出的固定长度为32位的字符串：<li>算法：MD5（密钥 + timestamp + /Filename）。</li><li>鉴权逻辑：若请求未过期，则节点比较此字符串值与请求 URL 中携带的 `md5hash` 值：两值相同，鉴权通过，响应请求；两值不同，鉴权失败，返回403。</li> |
 
 ### 方式 C
