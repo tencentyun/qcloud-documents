@@ -13,7 +13,7 @@
 
 <img width="600" src="https://qcloudimg.tencent-cloud.cn/raw/73a1edc1682ebd276215f64351917a07.png"/>
 
-> !请在项目 mianfest.json > 基础配置里边确认 Vue 版本选择。
+> !请在项目 mianfest.json => 基础配置里边确认 Vue 版本选择
 > ![](https://qcloudimg.tencent-cloud.cn/raw/456a65bd270b69ed6e8e9efe7c859ee4.png)
 
 HBuilder 不会默认创建 package.json 文件，因此您需要先创建 package.json 文件。请执行以下命令:
@@ -428,16 +428,43 @@ userID 信息，可通过 [即时通信 IM 控制台](https://console.cloud.tenc
 
 ## 更多高级特性
 
-### 接入音视频通话能力
+### 音视频通话 TUICallKit 插件
+TUICallKit 主要负责语音、视频通话。
+单聊通话示意图：
+<table style="text-align:center;vertical-align:middle;width:1000px">
+  <tr>
+    <th style="text-align:center;" width="500px">视频通话<br></th>
+    <th style="text-align:center;" width="500px">语音通话<br></th>
+  </tr>
+  <tr>
+    <td><img style="width:500px" src="https://qcloudimg.tencent-cloud.cn/raw/b412c178178c0052254f4f800559d7d4.png"  />    </td>
+    <td><img style="width:500px" src="https://qcloudimg.tencent-cloud.cn/raw/6b2b6878e714e77e578e3c962659e36b.jpg" />     </td>
+	 </tr>
+</table>
+
+群聊通话示意图：
+<table style="text-align:center;vertical-align:middle;width:1000px">
+  <tr>
+    <th style="text-align:center;" width="500px">视频通话<br></th>
+    <th style="text-align:center;" width="500px">语音通话<br></th>
+  </tr>
+  <tr>
+    <td><img style="width:500px" src="https://qcloudimg.tencent-cloud.cn/raw/5ca955c288c0c45b74e4fcfcb0ec6ebb.png"  />    </td>
+    <td><img style="width:500px" src="https://qcloudimg.tencent-cloud.cn/raw/068a66d2a99a910d516e645ffb06a23a.png" />     </td>
+	 </tr>
+</table>
 
 - 打包到 APP 请参考官网文档 [TUICallKit 集成方案](https://cloud.tencent.com/document/product/647/78732)
 - 打包到小程序请参考官网文档 [TUICallKit 集成方案](https://cloud.tencent.com/document/product/647/78912)
 
-### 接入离线推送能力
-
+### TUIOfflinePush 离线推送插件
+TUIOfflinePush 是腾讯云即时通信 IM Push 插件。目前离线推送支持 Android 和 iOS 平台，设备有：华为、小米、OPPO、vivo、魅族 和 苹果手机。
+效果如下图所示：
+<img src="https://qcloudimg.tencent-cloud.cn/raw/02e095b0f832c73caf5382495d7fc8d9.png" style="zoom:50%;"/>
 在 APP 中集成离线推送能力，请参考官网文档 [uni-app 离线推送](https://cloud.tencent.com/document/product/269/79124)
 
-### 常见问题
+
+## 常见问题
 
 #### 1. 什么是 UserSig？
 
@@ -459,11 +486,47 @@ UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并
 
 可能和微信开发者工具版本有关，请使用最新的开发者工具，以及确认稳定的调试基础库版本。
 
-### 参考文档
+#### 5. 小程序如果需要上线或者部署正式环境怎么办？
+
+请在**微信公众平台** > **开发** > **开发管理** > **开发设置** > **服务器域名**中进行域名配置：
+
+从v2.11.2起 SDK 支持了 WebSocket，WebSocket 版本须添加以下域名到 **socket 合法域名**：
+
+| 域名  | 说明  | 是否必须 |
+| --- | --- | --- |
+| `wss://wss.im.qcloud.com` | Web IM 业务域名 | 必须  |
+| `wss://wss.tim.qq.com` | Web IM 业务域名 | 必须  |
+
+将以下域名添加到 **request 合法域名**：
+
+| 域名  | 说明  | 是否必须 |
+| --- | --- | --- |
+| `https://web.sdk.qcloud.com` | Web IM 业务域名 | 必须  |
+| `https://webim.tim.qq.com` | Web IM 业务域名 | 必须  |
+| `https://api.im.qcloud.com` | Web IM 业务域名 | 必须  |
+
+将以下域名添加到 **uploadFile 合法域名**：
+
+| 域名  | 说明  | 是否必须 |
+| --- | --- | --- |
+| `https://cos.ap-shanghai.myqcloud.com` | 文件上传域名 | 必须  |
+| `https://cos.ap-shanghai.tencentcos.cn` | 文件上传域名 | 必须  |
+| `https://cos.ap-guangzhou.myqcloud.com` | 文件上传域名 | 必须  |
+
+将以下域名添加到 **downloadFile 合法域名**：
+
+| 域名  | 说明  | 是否必须 |
+| --- | --- | --- |
+| `https://cos.ap-shanghai.myqcloud.com` | 文件上传域名 | 必须  |
+| `https://cos.ap-shanghai.tencentcos.cn` | 文件上传域名 | 必须  |
+| `https://cos.ap-guangzhou.myqcloud.com` | 文件上传域名 | 必须  |
+
+
+## 参考文档
+
 - [快速入门（Web & H5)](https://cloud.tencent.com/document/product/269/68433)
 - [快速入门（小程序)](https://cloud.tencent.com/document/product/269/68376)
 
-
-### 技术咨询
+## 技术咨询
 
 了解更多详情您可 QQ 咨询：<dx-tag-link link="#QQ" tag="技术交流群">309869925</dx-tag-link>
