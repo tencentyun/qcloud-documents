@@ -25,7 +25,7 @@
 
 ### 3.登陆设备 Web 端进行配置
 
-1.海康威视设备配置示范（以 IPC 为例，NVR配置过程类似，不再赘述）
+1.海康威视设备配置示范（以 IPC 为例，NVR 配置过程类似，不再赘述）
 ![](https://qcloudimg.tencent-cloud.cn/raw/0cddbabf537b42d9c1f007dea6cb096d.png)
 
 <table>
@@ -67,7 +67,7 @@
 
 ### 4.完成配置
 
-完成上述配置流程后，切换至[智能视图计算平台控制台](https://console.cloud.tencent.com/iss)，刷新**设备接入**页面。此时设备状态显示为”在线“，表示设备成功注册且已上线。
+完成上述配置流程后，切换至 [智能视图计算平台控制台](https://console.cloud.tencent.com/iss)，刷新**设备接入**页面。此时设备状态显示为”在线“，表示设备成功注册且已上线。
 ![](https://qcloudimg.tencent-cloud.cn/raw/bc255daa383ea4bc0a12f76dec5b2092.png)
 
 ## 音视频配置注意事项
