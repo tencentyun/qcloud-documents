@@ -9,7 +9,7 @@
 3. 先左侧自定义**设备组织**。
 4. 随后选择对应的设备组织，单击**添加设备**（可选择**手动添加**或**批量导入**，下文以手动添加为例讲解操作）。
    ![](https://qcloudimg.tencent-cloud.cn/raw/43c9abe13d9d8024066d63cc44de4850.png)
-5. 完善弹窗中信息并单击确定，完成设备创建。
+5. 完善弹窗中信息并单击**确定**，完成设备创建。
    ![](https://qcloudimg.tencent-cloud.cn/raw/95420848825a642e7abf2c1529a7941a.png)
 6. 设备创建成功后初始状态为**未注册**。                                                        
    ![](https://qcloudimg.tencent-cloud.cn/raw/1f863369a066be59fd554bf705cf116b.png)
@@ -17,11 +17,11 @@
 ### 2.获取设备国标配置信息
 
 单击设备名称进入**设备详情**页面，查看并记录我们为设备生成的配置信息（ 如下图红框处）。
-![](https://qcloudimg.tencent-cloud.cn/raw/1073f1c46ec77a7ccb897401e7c52226.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/ebb35c343d702ca4d5c2de2bf83e942e.png)
 
 >?可使用**导出设备信息**功能,批量导出设备配置信息。
 
-![](https://qcloudimg.tencent-cloud.cn/raw/0957822368d03723b50bda231ae5eb39.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/b7acb3c0aec9dd916e3d5fb2fa9f5f6a.png)
 
 ### 3.登陆设备 Web 端进行配置
 
@@ -46,8 +46,8 @@
 </table>
 
 
-2.大华设备配置示范（以 IPC 为例，NVR配置过程类似，不再赘述）
-![](https://qcloudimg.tencent-cloud.cn/raw/c8dca15189650fa758addbd56d626d63.png)
+2.大华设备配置示范（以 IPC 为例，NVR 配置过程类似，不再赘述）
+![](https://qcloudimg.tencent-cloud.cn/raw/2966287e228fb177f9e872fd784778f7.png)
 
 <table>
 	<tr><th>配置参数</th><th>配置说明</th></tr>
@@ -68,7 +68,7 @@
 ### 4.完成配置
 
 完成上述配置流程后，切换至[智能视图计算平台控制台](https://console.cloud.tencent.com/iss)，刷新**设备接入**页面。此时设备状态显示为”在线“，表示设备成功注册且已上线。
-![](https://qcloudimg.tencent-cloud.cn/raw/4d180a8d8f7a209d4094aac75bbc3182.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/bc255daa383ea4bc0a12f76dec5b2092.png)
 
 ## 音视频配置注意事项
 
@@ -77,7 +77,7 @@
 >!1.不要开启厂商的任何私有编码,以及 smart264、smart265、SVC 等，否则无法成功注册！
 >2.某些厂商设备，在 NVR 配置页面修改其下摄像头的配置极有可能不生效，强烈建议登陆到 IPC 设备端配置！
 
-### 1.IPC音视频配置规范
+### 1.IPC 音视频配置规范
 
 下图以海康威视 IPC 为例，其他厂商设备类似。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d410d87c38a50854c9ef3a6ef35f4a6b.png)
