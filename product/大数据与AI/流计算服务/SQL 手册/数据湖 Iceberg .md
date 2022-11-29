@@ -13,7 +13,7 @@
 ## DDL 定义
 用作数据目的：
 ```sql
-CREATE TABLE `datagen` (
+CREATE TABLE `sink` (
 `id` bigint,
 `YCSB_KEY` string,
 `FIELD0` string,

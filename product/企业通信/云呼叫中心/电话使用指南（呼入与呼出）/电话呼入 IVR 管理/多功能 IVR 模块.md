@@ -150,3 +150,9 @@ https://www.customurl.com/fetchVariables
         }]"
 }
 ```
+## 转分机
+前提条件：完成 [SIP 话机注册](https://cloud.tencent.com/document/product/679/79223)。
+该模块中，输入目标座席的 SIP 话机分机号即可转接。
+![](https://qcloudimg.tencent-cloud.cn/raw/7aa6bc1d8b4dc48cb8987dc2eca7ab44.png)
+同一个转分机模块仅支持转**同一长度**的分机号，您需要在此进行设置：
+![](https://qcloudimg.tencent-cloud.cn/raw/4e2ebdd12e21ce3441d1dda3c6c60c00.png)

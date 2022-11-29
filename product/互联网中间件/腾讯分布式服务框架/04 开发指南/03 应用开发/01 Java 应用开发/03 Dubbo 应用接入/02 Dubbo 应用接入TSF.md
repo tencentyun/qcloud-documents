@@ -51,16 +51,9 @@ TSF Demo（**注册中心地址使用注册中心 IP 和端口替换**）：
 <dx-codeblock>
 :::  xml
 <dependency>
-	<groupId>com.tencent.tsf</groupId>
-	<artifactId>atom-extension-dubbo</artifactId>
-	<!-- 修改为对应的版本号 -->
-	<version>1.1.0-RELEASE</version>
-	<exclusions>
-		<exclusion>
-			<groupId>org.jboss.netty</groupId>
-			<artifactId>netty</artifactId>
-		</exclusion>
-	</exclusions>
+    <groupId>com.tencent.tsf</groupId>
+    <artifactId>atom-extension-dubbo</artifactId>
+    <version>1.1.4-RELEASE</version>
 </dependency>
 
 <!-- 1.1.0-RELEASE对应dubbo 2.6.8，依赖的netty版本是4.x -->

@@ -750,3 +750,10 @@ coscmd restore -r -d 3 -t Expedited examplefolder/
 ## 常见问题
 
 如您在使用 COSCMD 工具过程中，有相关的疑问，请参见 [COSCMD 工具类常见问题](https://cloud.tencent.com/document/product/436/30744)。
+
+
+## 结语
+
+当然，COS 不仅提供以上应用和服务，还提供多款热门开源应用，并集成腾讯云 COS 插件，欢迎点击“[此处](https://cloud.tencent.com/act/pro/Ecological-aggregation?from=18406)”一键启动，立即使用！
+
+

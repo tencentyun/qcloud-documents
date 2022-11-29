@@ -27,7 +27,7 @@ Content-Type: application/json
 Host: sample.portal.tencentciam.com
 
 {
-  "grant_type" : "https://sample.portal.tencentciam.com/oauth2/grant-type/otp/sms",
+  "grant_type" : "http://tencentciam.com/oauth2/grant-type/otp/sms",
   "client_id" : "TENANT_CLIENT_ID",
   "client_secret" : "TENANT_CLIENT_SECRET",
   "auth_source_id" : "MOCK_SMS_OTP_AUTH_SOURCE_ID",
@@ -43,7 +43,7 @@ Content-Type: application/json
 Host: sample.portal.tencentciam.com
 
 {
-  "grant_type" : "https://sample.portal.tencentciam.com/oauth2/grant-type/otp/email",
+  "grant_type" : "http://tencentciam.com/oauth2/grant-type/otp/email",
   "client_id" : "TENANT_CLIENT_ID",
   "client_secret" : "TENANT_CLIENT_SECRET",
   "auth_source_id" : "MOCK_EMAIL_OTP_AUTH_SOURCE_ID",

@@ -21,3 +21,4 @@ Flink 作业的 JobManager 负责整个作业的管理和调度工作，一旦�
 | 2      | Flink JobManager 启动期间发生了致命错误                      | 日志中搜索 `Fatal error occurred in the cluster entrypoint` 关键字附近的异常信息。<br>如果未能确定原因，请提 [工单](https://console.cloud.tencent.com/workorder) 联系技术支持排查 |
 | 239    | Flink 的执行线程发生了未捕获的致命错误                       | 日志中搜索 `produced an uncaught exception. Stopping the process` 等关键字附近的异常信息。<br>如果未能确定原因，请提 [工单](https://console.cloud.tencent.com/workorder) 联系技术支持排查 |
 
+

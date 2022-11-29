@@ -22,7 +22,7 @@
 >!构造请求头的时候，需注意自定义字段名的大小写。服务器端读取字段值时对大小写敏感。
 
 ## 授权方式
-下面将为您介绍 OAuth2.0 的授权步骤，按照步骤中描述的请求参数调用接口即可。具体如下：
+下面将为您介绍 OAuth 2.0的授权步骤，您可以使用 [Postman 模板调试](https://cloud.tencent.com/document/product/1095/83483)，按照步骤中描述的请求参数调用接口即可，具体如下：
 
 ### 步骤一：用户同意授权，获取 auth_code
 **接口描述**：用户同意授权。
@@ -55,7 +55,7 @@ https://meeting.tencent.com/marketplace/authorize.html?corp_id={corpId}&sdk_id={
 ```Plaintext
 // 接入方302重定向到授权URL，如：
 
-https://meeting.tencent.com/authorize.html?corp_id=200000999&sdk_id=10066660661&redirect_uri=https%3a%2f%2fqq.com%2fcallback%3fa%3d1%26b%3d2&state=123456789
+https://meeting.tencent.com/marketplace/authorize.html?corp_id=200000999&sdk_id=10066660661&redirect_uri=https%3a%2f%2fqq.com%2fcallback%3fa%3d1%26b%3d2&state=123456789
 
 ```
 

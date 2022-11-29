@@ -1,4 +1,4 @@
-初次使用腾讯云对象存储（Cloud Object Storage，COS），建议您先了解 COS [存储桶](https://cloud.tencent.com/document/product/436/13312)、[对象](https://cloud.tencent.com/document/product/436/13324)、[规格与限制](https://cloud.tencent.com/document/product/436/14518) 和  [常见问题](https://cloud.tencent.com/document/product/436/30748)。
+初次使用腾讯云对象存储（Cloud Object Storage，COS），建议您先了解 COS [存储桶](https://cloud.tencent.com/document/product/436/13312)、[对象](https://cloud.tencent.com/document/product/436/13324)、[规格与限制](https://cloud.tencent.com/document/product/436/14518) 和 [常见问题](https://cloud.tencent.com/document/product/436/30748)。
 
 COSBrowser 是 COS 推出的可视化界面工具，提供 Windows、macOS、Linux、Android 和 iOS 版本，让您可以使用更简单的交互，轻松实现对 COS 资源的查看、传输和管理。
 本文以 Windows 平台的 COSBrowser 为例，为您详细介绍如何创建存储桶、上传对象、下载对象以及如何分享对象。
@@ -27,12 +27,13 @@ Windows 版 COSBrowser 的系统要求：Windows 7 32/64位以上、Windows Serv
 
 ## 步骤3：创建存储桶
 
-1. 登录成功后，在工具界面中单击左上方的**添加桶**。
+1. 登录成功后，在工具界面中单击左上方的**创建桶**。
 2. 在弹出的窗口中，输入存储桶信息。
-![](https://main.qcloudimg.com/raw/1a3f4d103f53e495a9e46f5882258c46.png)
- - 名称：自定义存储桶名称，此处我们输入 examplebucket。
- - 所属地域：指存储桶的所属地域，选择与您最近的一个地区。例如，您在深圳，地域可以选择广州，即 ap-guangzhou。
+![](https://qcloudimg.tencent-cloud.cn/raw/cb247e5503e220e935ac093249b75470.png)
+ - 存储桶名称：自定义存储桶名称，此处我们输入 examplebucket。
+ - 地域：指存储桶的所属地域，选择与您最近的一个地区。例如，您在深圳，地域可以选择广州，即 ap-guangzhou。
  - 访问权限：指存储桶的访问权限，此处我们选择“私有读写”。
+ - 存储桶标签/多 AZ 特性为可选项，此处忽略。
 3. 单击**确定**，即可创建存储桶。
 
 
@@ -75,11 +76,11 @@ Windows 版 COSBrowser 的系统要求：Windows 7 32/64位以上、Windows Serv
 #### 方式二
 
 1. 单击 COSBrowser 工具右上角的<img src="https://main.qcloudimg.com/raw/b3de2bc7284b5aaba9b4f9af6c408205.jpg" style="margin:0;">，切换到列表视图（若已是在列表视图下，则无需进行此步骤）。
-1. 在文件右侧的操作栏下，单击**...**，在下拉菜单中，单击**分享**。
-![](https://main.qcloudimg.com/raw/7d168f33452645d934215639179a2097.png)
-2. 在弹出的自定义复制链接窗口中，配置文件链接。此处文件为私有读写权限，则需要选择**复制带签名的临时链接....**，链接在指定的时间内有效。
+2. 在文件右侧的操作栏下，单击**...**，在下拉菜单中，单击**分享**。
+![](https://qcloudimg.tencent-cloud.cn/raw/9f49955aa44cfaef177ad53d85fef336.png)
+3. 在弹出的自定义复制链接窗口中，配置文件链接。此处文件为私有读写权限，则需要选择**复制带签名的临时链接....**，链接在指定的时间内有效。
 ![](https://main.qcloudimg.com/raw/e8317ff57b37391f2bcc0dfe88aabacc.jpg)
-3. 单击**复制**，复制临时文件链接。您即可通过该链接访问文件。
+4. 单击**复制**，复制临时文件链接。您即可通过该链接访问文件。
 
 ## 更多功能
 

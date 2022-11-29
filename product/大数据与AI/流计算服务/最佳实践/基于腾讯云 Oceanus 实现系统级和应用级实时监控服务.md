@@ -1,4 +1,4 @@
-本方案结合腾讯云 Ckafka、流计算 Oceanus、腾讯云数据库 Elasticsearch、腾讯云 Prometheus 等，通过 Filebeat 实时监控系统日志和应用日志，将监控数据传输到腾讯云 Ckafka，再将 Kafka 中数据接入流计算 Oceanus，经过简单的业务逻辑处理输出到云数据库 Elasticsearch，利用云 Promethus 监控系统指标，利用云 Grafana 实现对 Oceanus 作业的个性化业务数据监控。
+本方案结合腾讯云 Ckafka、流计算 Oceanus、腾讯云数据库 Elasticsearch、腾讯云 Prometheus 等，通过 Filebeat 实时监控系统日志和应用日志，将监控数据传输到腾讯云 Ckafka，再将 Kafka 中数据接入流计算 Oceanus，经过简单的业务逻辑处理输出到云数据库 Elasticsearch，利用云 Promethus 监控系统指标，利用云 Grafana 实现对 Oceanus 作业的个性化业务数据监控。 
 ![](https://main.qcloudimg.com/raw/ca2f709f5a38530886d2e1cd81460f88.png)
 ## 方案架构  
 
@@ -73,51 +73,51 @@ top -d 10 >>/tmp/test.log
 filebeat 采集到的数据格式：
 ```json
 {
-	"@timestamp": "2021-08-30T10:22:52.888Z",
-	"@metadata": {
-		"beat": "filebeat",
-		"type": "_doc",
-		"version": "7.14.0"
-	},
-	"input": {
-		"type": "log"
-	},
-	"host": {
-		"ip": ["xx.xx.xx.xx", "xx::xx:xx:xx:xx"],
-		"mac": ["xx:xx:xx:xx:xx:xx"],
-		"hostname": "xx.xx.xx.xx",
-		"architecture": "x86_64",
-		"os": {
-			"type": "linux",
-			"platform": "centos",
-			"version": "7(Core)",
-			"family": "redhat",
-			"name": "CentOSLinux",
-			"kernel": "3.10.0-1062.9.1.el7.x86_64",
-			"codename": "Core"
-		},
-		"id": "0ea734564f9a4e2881b866b82d679dfc",
-		"name": "xx.xx.xx.xx",
-		"containerized": false
-	},
-	"agent": {
-		"name": "xx.xx.xx.xx",
-		"type": "filebeat",
-		"version": "7.14.0",
-		"hostname": "xx.xx.xx.xx",
-		"ephemeral_id": "6c0922a6-17af-4474-9e88-1fc3b1c3b1a9",
-		"id": "6b23463c-0654-4f8b-83a9-84ec75721311"
-	},
-	"ecs": {
-		"version": "1.10.0"
-	},
-	"log": {
-		"offset": 2449931,
-		"file": {
-			"path": "/tmp/test.log"
-		}
-	},
-	"message": "(B[m16root0-20000S0.00.00:00.00kworker/1:0H(B[m[39;49m[K"
+  "@timestamp": "2021-08-30T10:22:52.888Z",
+  "@metadata": {
+    "beat": "filebeat",
+    "type": "_doc",
+    "version": "7.14.0"
+  },
+  "input": {
+    "type": "log"
+  },
+  "host": {
+    "ip": ["xx.xx.xx.xx", "xx::xx:xx:xx:xx"],
+    "mac": ["xx:xx:xx:xx:xx:xx"],
+    "hostname": "xx.xx.xx.xx",
+    "architecture": "x86_64",
+    "os": {
+      "type": "linux",
+      "platform": "centos",
+      "version": "7(Core)",
+      "family": "redhat",
+      "name": "CentOSLinux",
+      "kernel": "3.10.0-1062.9.1.el7.x86_64",
+      "codename": "Core"
+    },
+    "id": "0ea734564f9a4e2881b866b82d679dfc",
+    "name": "xx.xx.xx.xx",
+    "containerized": false
+  },
+  "agent": {
+    "name": "xx.xx.xx.xx",
+    "type": "filebeat",
+    "version": "7.14.0",
+    "hostname": "xx.xx.xx.xx",
+    "ephemeral_id": "6c0922a6-17af-4474-9e88-1fc3b1c3b1a9",
+    "id": "6b23463c-0654-4f8b-83a9-84ec75721311"
+  },
+  "ecs": {
+    "version": "1.10.0"
+  },
+  "log": {
+    "offset": 2449931,
+    "file": {
+      "path": "/tmp/test.log"
+    }
+  },
+  "message": "(B[m16root0-20000S0.00.00:00.00kworker/1:0H(B[m[39;49m[K"
 }
 ```
 
@@ -234,9 +234,9 @@ metrics.reporter.promgateway.interval: 10 SECONDS
 #### 告警配置
 1. 进入腾讯云监控界面，单击 **Prometheus 监控**，点击已购买的实例进入服务管理页面，然后选择**告警策略 > 新建**，配置相关信息。具体操作参考 [接入 Prometheus 自定义监控](https://cloud.tencent.com/document/product/849/55239)。
 ![](https://main.qcloudimg.com/raw/087bcaae5b0399b72df65f2dc0cfa4b2.png)
-2. 设置告警通知。选择**选择模版**或**新建**，设置通知模版。
+2. 设置告警通知。选择**选择模板**或**新建**，设置通知模板。
 ![](https://main.qcloudimg.com/raw/7b45ce11c3cc10f8887c5b0b6fd3ac73.png)
-3. 短信通知消息
+3. 短信通知消息。
 ![](https://main.qcloudimg.com/raw/413c5a402ce361f4d753bb3016e976f9.png)
 
 ### 业务指标监控  

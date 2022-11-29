@@ -9,7 +9,7 @@
 
 ## 操作步骤
 
-1. 下载 CLS Log 插件安装包 [cls_log.zip](TODO)
+1. 下载 CLS Log 插件安装包 [cls_log.zip](https://kong-doc-1255960573.cos.ap-nanjing.myqcloud.com/cls-log.zip)。
 2. 通过 [使用自定义插件](https://cloud.tencent.com/document/product/1364/72498)，在网关实例插件配置中，上传安装 CLS Log 插件，并启用。
 ![](https://qcloudimg.tencent-cloud.cn/raw/f32c40c394816e9dff344137ddaf0f9f.png)
 3. 登录 Konga 控制台，在 PLUGINS 菜单中添加 CLS Log 插件全局开启，参数配置请参见下文中插件参数部分。

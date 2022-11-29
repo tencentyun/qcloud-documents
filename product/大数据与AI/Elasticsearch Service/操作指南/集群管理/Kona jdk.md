@@ -12,11 +12,6 @@ Tencent Kona JDK，是腾讯基于社区 Open JDK 定制开发的 JDK 版本，�
 - KonaFiber 协程：已经在IEG天美游戏业务合作落地，目前根据benchmark测试，协程创建/切换/调度等性能大幅超过社区Loom；
 - 支持 ARM 国产化 CPU；
 
-## Kona JDK 设置
-
-1. 操作页面：集群详情页-高级配置页面。
-2. 重启：切换JDK后，集群会重启，重启过程中不可进行变配升级等操作。
-![](https://qcloudimg.tencent-cloud.cn/raw/112fd19cba5f57d04daa41b68721351e.png)
 
 ## 数据对比
 

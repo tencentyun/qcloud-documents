@@ -52,7 +52,7 @@ ALTER TABLE t1 MODIFY COLUMN c BIGINT, ALGORITHM=INSTANT;
 - 不支持加密与压缩，不支持 redundant 格式。
 
 ## 效果对比
-对一张5kw的表（12GB）左右，分别进行秒加列和秒改列的操作，可以看到，正常情况下加列需要2分钟、改列需要21分钟左右；而使用秒加列和秒改列，几乎瞬间就能完成，真正实现秒级变更。
+对一张有5千万条数据的表，大小为12GB左右，分别进行秒加列和秒改列的操作，可以看到，正常情况下加列需要2分钟、改列需要21分钟左右；而使用秒加列和秒改列，几乎瞬间就能完成，真正实现秒级变更。
 <img src="https://main.qcloudimg.com/raw/d50bdfe19657d955204ba8fc8331d277.png"  style="zoom:80%;">
 
 

@@ -1,4 +1,4 @@
-Serverless Framework 通过项目配置文件 `serverless.yml` 完成应用的类型识别与资源配置，本地开发完成后的项目，必须先配置 yml 文件，才可以通过运行 `sls deploy` 命令，将 serverless.yml 中的配置文件和 inputs 中指定参数或代码目录会都被传入 Serverless Components 部署引擎中，从而完成云端部署。
+Serverless Cloud Framework 通过项目配置文件 `serverless.yml` 完成应用的类型识别与资源配置，本地开发完成后的项目，必须先配置 yml 文件，才可以通过运行 `scf deploy` 命令，将 serverless.yml 中的配置文件和 inputs 中指定参数或代码目录会都被传入 Serverless Components 部署引擎中，从而完成云端部署。
 
 ## 基本信息
 
@@ -44,7 +44,7 @@ inputs:
 ```
 
 ## 全量配置列表
-目前 Serverless Framework 各个组件的全量配置信息列表如下：
+目前 Serverless Cloud Framework 各个组件的全量配置信息列表如下：
 
 ### 基础组件
 <style>

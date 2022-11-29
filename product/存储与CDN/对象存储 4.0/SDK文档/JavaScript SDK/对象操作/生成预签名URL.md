@@ -3,7 +3,7 @@
 JavaScript SDK 提供获取对象 URL、获取请求预签名 URL 接口。
 
 >?
-> - 建议用户使用临时密钥生成预签名，通过临时授权的方式进一步提高预签名上传、下载等请求的安全性。申请临时密钥时，请遵循 [最小权限指引原则](https://cloud.tencent.com/document/product/436/38618)，防止泄漏目标存储桶或对象之外的资源。
+> - 建议用户使用临时密钥生成预签名，通过临时授权的方式进一步提高预签名上传、下载等请求的安全性。申请临时密钥时，请遵循 [最小权限指引原则](https://cloud.tencent.com/document/product/436/38618)，防止泄漏目标存储桶或对象之外的资源。申请临时密钥的action需添加`"name/cos:GetObject"`权限。
 > - 如果您一定要使用永久密钥来生成预签名，建议永久密钥的权限范围仅限于上传或下载操作，以规避风险。
 > 
 
@@ -128,7 +128,7 @@ cos.getObjectUrl({
     if (err) return console.log(err);
     var downloadUrl = data.Url + (data.Url.indexOf('?') > -1 ? '&' : '?') + 'response-content-disposition=attachment'; // 补充强制下载的参数
     /* 可拼接filename来实现下载时重命名 */
-    /* downloadUrl += '?filename=myname'; */
+    /* downloadUrl += ';filename=myname'; */
     // （推荐使用window.open()方式）这里是新窗口打开 url，如果需要在当前窗口打开，可以使用隐藏的 iframe 下载，或使用 a 标签 download 属性协助下载
     window.open(downloadUrl);
 });

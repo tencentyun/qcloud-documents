@@ -48,6 +48,11 @@ apt-get install vnc4server
 apt-get install tightvncserver
 ```
 :::
+::: Ubuntu 22.04
+```shellsession
+apt-get install tightvncserver
+```
+:::
 </dx-tabs>
 2. [](id:step02)执行以下命令，启动 VNC 服务，并设置 VNC 的密码。
 ```shellsession

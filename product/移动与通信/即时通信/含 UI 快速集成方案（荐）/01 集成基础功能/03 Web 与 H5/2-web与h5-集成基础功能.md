@@ -21,11 +21,18 @@ npm install -g @vue/cli@4.5.0 sass sass-loader@10.1.1
 通过 vue-cli 创建项目，并选择下图中所选配置项。
 <dx-codeblock>
 ::: shell
-vue create chat-example && cd chat-example
+vue create chat-example
 :::
 </dx-codeblock>
 
-<img style="width:800px;" src="https://qcloudimg.tencent-cloud.cn/raw/f65d2a15cde0c0baba9a24a5ba845f26.jpg">
+<img style="width:800px;" src="https://qcloudimg.tencent-cloud.cn/raw/3a0bb0d8681c08bccf319782add6951f.png">
+
+创建项目完成后，切换到项目所在目录
+<dx-codeblock>
+::: shell
+cd chat-example
+:::
+</dx-codeblock>
 
 ### 步骤2：下载 TUIKit 组件
 
@@ -42,7 +49,8 @@ mkdir -p ./src/TUIKit && cp -r ./node_modules/@tencentcloud/chat-uikit-vue/ ./sr
 ::: Windows\s 端
 <dx-codeblock>
 ::: shell
-npm i @tencentcloud/chat-uikit-vue && xcopy .\node_modules\@tencentcloud\chat-uikit-vue .\src\TUIKit /i /e
+npm i @tencentcloud/chat-uikit-vue 
+xcopy .\node_modules\@tencentcloud\chat-uikit-vue .\src\TUIKit /i /e
 :::
 </dx-codeblock>
 :::

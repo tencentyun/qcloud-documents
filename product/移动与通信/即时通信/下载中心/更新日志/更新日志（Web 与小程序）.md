@@ -1,3 +1,32 @@
+### 2.24.1 @2022.11.11
+
+**新增**
+
+- 英文版 ts 声明文件。
+- restapi 修改好友自定义资料字段支持推送给 SDK。
+
+**修复**
+
+- [getMessageListHopping](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getMessageListHopping) 部分场景下返回结果异常的问题。
+
+### 2.24.0 @2022.11.3
+
+**新增**
+
+- 支持微信小游戏环境集成。
+- 本地审核插件 [tim-profanity-filter-plugin](https://www.npmjs.com/package/tim-profanity-filter-plugin) ，支持本地审核功能。
+- [getFriendProfile](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getFriendProfile) 默认支持拉取好友自定义字段和资料自定义字段，提升产品体验。
+- [getGroupApplicationList](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getGroupApplicationList) 支持拉取全量的加群申请列表。
+- RESTAPI 修改好友自定义字段支持推送给 SDK。
+- 支持发送话题消息不计入未读。
+- 支持发送普通社群消息不计入未读。
+- 发送消息支持 voip push。
+
+**修复**
+
+- 好友资料相关的问题。
+
+
 ### 2.23.1 @2022.9.29
 
 **新增**
@@ -19,7 +48,7 @@
 
 **新增**
 
-- SDK 支持海外环境。
+- SDK 支持境外环境。
 - [getTotalUnreadMessageCount](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getTotalUnreadMessageCount)，支持获取会话未读总数。
 - [TOTAL_UNREAD_MESSAGE_COUNT_UPDATED](https://web.sdk.qcloud.com/im/doc/zh-cn/module-EVENT.html#.TOTAL_UNREAD_MESSAGE_COUNT_UPDATED)，接入侧监听此事件，可获取会话未读总数变更的通知。
 - [markGroupMemberList](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#markGroupMemberList)，支持标记直播群群成员（需开通旗舰版）。
@@ -469,7 +498,7 @@ Taro 3.x 集成 WebIM 时的兼容性问题。
 
 **新增**
 
-[TIM.create](https://web.sdk.qcloud.com/im/doc/zh-cn/TIM.html#.create) 接口新增 `oversea` 参数，设置为 `true` 时 SDK 使用海外域名，避免被干扰。
+[TIM.create](https://web.sdk.qcloud.com/im/doc/zh-cn/TIM.html#.create) 接口新增 `oversea` 参数，设置为 `true` 时 SDK 使用境外域名，避免被干扰。
 
 **修复**
 

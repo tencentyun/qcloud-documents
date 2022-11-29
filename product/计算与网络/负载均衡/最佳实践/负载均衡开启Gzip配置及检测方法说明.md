@@ -49,7 +49,7 @@ gzip_types text/html application/json;
 	- gzip_comp_level：Gzip 压缩比，范围为1 - 9。1压缩比最小处理速度最快，9压缩比最大但处理最慢（传输快但比较消耗 cpu）。
 语法: `gzip_comp_level 1..9`
 作用域: http，server，location
-	- gzip_types：匹配 MIME 类型进行压缩，默认"text/html" 类型是会被压缩的。 此外，Nginx 下的 Gzip 默认不压缩 javascript、图片等静态资源文件，可以通过gzip_types 指定需要压缩的 MIME 类型，非设置值则不进行压缩。 **例如，如果需要对 json 格式数据进行压缩，则需要在此语句中添加 application/json 类型数据**。
+	- gzip_types：匹配 MIME 类型进行压缩，默认"text/html" 类型是会被压缩的。 此外，Nginx 下的 Gzip 默认不压缩 javascript、图片等静态资源文件，可以通过gzip_types 指定需要压缩的 MIME 类型，非设置值则不进行压缩。**例如，如果需要对 json 格式数据进行压缩，则需要在此语句中添加 application/json 类型数据**。
 支持的类型如下：
 ```
 text/html text/plain text/css application/x-javascript text/javascript application/xml
@@ -64,4 +64,6 @@ text/html text/plain text/css application/x-javascript text/javascript applicati
 ```
 curl -I -H "Accept-Encoding: gzip, deflate" "http://cloud.tencent.com/example/"
 ```
+
+
 

@@ -144,7 +144,7 @@ COMMIT/*!*/;
 gtid-mode=on // 开启gtid模式
 enforce-gtid-consistency=1 // 强制gtid和事务的一致性
 ```
-在 GTID 模式下，主服务器可以不需要 Binlog 的文件名和偏移量，就能很方便的追踪事务、恢复数据、复制副本。
+在 GTID 模式下，主服务器可以不需要 Binlog 的文件名和偏移量，就能很方便的索引事务、恢复数据、复制副本。
 在 GTID 模式下，由于 GTID 的全局有效性，从节点将不再需要通过保存文件名和偏移量来定位主节点上的 Binlog 位置，而通过数据本身就可以定位了。在进行数据同步中，从节点会跳过执行任意被识别为已执行的 GTID 事务。
 GTID 的表现形式为一对坐标, `source_id`标识出主节点，`transaction_id`表示此事务在主节点上执行的顺序（最大263-1）。
 ```text
@@ -255,9 +255,9 @@ canal client 调用 get 命令时，canal server 会产生数据 batch 发送给
 Binlog Load 只能支持 Unique 类型的目标表，且必须激活目标表的 Batch Delete 功能。
 开启 Batch Delete 的方法可以参考`ALTER TABLE PROPERTY` 中的批量删除功能。
 示例：
-```text
+```sql
 --create Mysql table
-CREATE TABLE `demo.source_test` (
+CREATE TABLE `source_test` (
   `id` int(11) NOT NULL COMMENT "",
   `name` int(11) NOT NULL COMMENT ""
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -281,7 +281,7 @@ ALTER TABLE target_test ENABLE FEATURE "BATCH_DELETE";
 ```text
 CREATE SYNC `demo`.`job`
 (
-FROM `demo`.`source_test1` INTO `target_test`
+FROM `source_test` INTO `target_test`
 (id,name)
 )
 FROM BINLOG
@@ -363,7 +363,7 @@ binlog_desc
 #### CANAL 配置
 下面配置属于 canal 端的配置，主要通过修改 conf 目录下的 canal.properties 调整配置值。
 - `canal.ip`
-canal server 的 ip 地址。
+canal server 的 IP 地址。
 
 - `canal.port`
 canal server 的端口。

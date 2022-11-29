@@ -17,7 +17,7 @@
 - **优点**：只需修改 Kubernetes Service 资源配置即可。  
 - **缺点**：会存在潜在的 Pods（Endpoints）流量负载不均衡风险。  
 
-如需启用保留客户端 IP 功能，可在 Service 资源中配置字段 `Service.spec.externalTrafficPolicy`。该字段表示服务是否希望将外部流量路由到节点本地或集群范围的端点。有两个选项值：`Cluster`（默认）和  `Local` 方式。如下图所示：
+如需启用保留客户端 IP 功能，可在 Service 资源中配置字段 `Service.spec.externalTrafficPolicy`。该字段表示服务是否希望将外部流量路由到节点本地或集群范围的 Pods。有两个选项值：`Cluster`（默认）和  `Local` 方式。如下图所示：
 ![externalTrafficPolicy](https://main.qcloudimg.com/raw/a6ff4729ef98bedf5fd677030daf7d50.jpg)
  - `Cluster`：表示隐藏客户端源 IP，`LoadBalancer` 和 `NodePort` 类型服务流量可能会被转发到其他节点的 Pods。  
  -  `Local`：表示保留客户端源 IP 并避免 `LoadBalancer` 和 `NodePort` 类型的服务流量转发到其他节点的 Pods，详情请参考 [Kubernetes 设置外部负载均衡器说明](https://kubernetes.io/zh/docs/tasks/access-application-cluster/create-external-load-balancer/)。相关 YAML 配置示例如下：

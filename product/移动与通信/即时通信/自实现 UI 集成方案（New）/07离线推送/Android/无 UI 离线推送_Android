@@ -9,7 +9,7 @@
 TUIKitDemo 已经按照如下步骤接入了离线推送功能，文档中已有源码指引链接可供参考。
 
 ### 步骤1：注册应用到厂商推送平台
-离线推送功能依赖厂商原始通道，您需要将自己的应用注册到各个厂商的推送平台，得到 AppID 和 AppKey 等参数。目前国内支持的手机厂商有：[小米](https://dev.mi.com/console/doc/detail?pId=68)、[华为](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/service-introduction-0000001050040060)、[OPPO](https://open.oppomobile.com/wiki/doc#id=10195)、[VIVO](https://dev.vivo.com.cn/documentCenter/doc/281)、[魅族](http://open-wiki.flyme.cn/doc-wiki/index#id?129)，海外支持 [Google FCM](https://console.firebase.google.com/u/0/?hl=zh-cn)。
+离线推送功能依赖厂商原始通道，您需要将自己的应用注册到各个厂商的推送平台，得到 AppID 和 AppKey 等参数。目前国内支持的手机厂商有：[小米](https://dev.mi.com/console/doc/detail?pId=68)、[华为](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/service-introduction-0000001050040060)、[荣耀](https://developer.hihonor.com/cn/doc/guides/100368)、[OPPO](https://open.oppomobile.com/wiki/doc#id=10195)、[VIVO](https://dev.vivo.com.cn/documentCenter/doc/281)、[魅族](http://open-wiki.flyme.cn/doc-wiki/index#id?129)，境外支持 [Google FCM](https://console.firebase.google.com/u/0/?hl=zh-cn)。
 
 ### 步骤2：IM 控制台配置
 登录腾讯云 [即时通信 IM 控制台](https://console.qcloud.com/avc) ，添加各个厂商推送证书，并将您在步骤一中获取的各厂商的 AppId、AppKey、AppSecret 等参数配置给 IM 控制台的推送证书，其中 “单击后续动作” 参见步骤3。
@@ -37,6 +37,19 @@ TUIKitDemo 已经按照如下步骤接入了离线推送功能，文档中已有
    <tr> 
      <td><img src="https://qcloudimg.tencent-cloud.cn/raw/f8c7c0c9c259919c1f93e79707ddde1d.png" style="zoom:100%;" /></td> 
      <td>注：Client ID 对应 AppID，Client Secret 对应 AppSecret <img src="https://qcloudimg.tencent-cloud.cn/raw/4a79b2f269d0c0b521fddf80d88aca71.png" style="zoom:300%;" />
+</td> 
+   </tr> 
+</table>
+:::
+::: 荣耀
+<table> 
+   <tr> 
+     <th nowrap="nowrap">厂商推送平台</th> 
+     <th>IM 控制台配置</th> 
+   </tr> 
+   <tr> 
+     <td><img src="https://qcloudimg.tencent-cloud.cn/raw/57cbb38e7d8a4866612c64690b407c74.png" style="zoom:100%;" /></td> 
+     <td><img src="https://qcloudimg.tencent-cloud.cn/raw/dc2e008debe6e601615f09ac8fd9f4c5.png" style="zoom:200%;" />
 </td> 
    </tr> 
 </table>
@@ -177,6 +190,11 @@ public class OfflinePushLocalReceiver extends BroadcastReceiver {
      <td>打开应用内指定页面</td>  <td>intent://`您配置的 hostname`/`您配置的 path`#Intent;scheme=`您配置的协议，也就是你定义的 scheme`;launchFlags=0x4000000;component=`您应用跳转界面的完整类名`;end<br><br>TUIKitDemo 配置的是：intent://com.tencent.qcloud/detail#Intent;scheme=pushscheme;launchFlags=0x4000000;component=com.tencent.qcloud.tim.tuikit/com.tencent.qcloud.tim.demo.main.MainActivity;end
 </td> 
    </tr> 
+	 <tr> 
+     <td>荣耀</td> 
+     <td>打开应用内指定页面</td>  <td>intent://`您配置的 hostname`/`您配置的 path`#Intent;scheme=`您配置的协议，也就是你定义的 scheme`;launchFlags=0x4000000;component=`您应用跳转界面的完整类名`;end<br><br>TUIKitDemo 配置的是：intent://com.tencent.qcloud/detail#Intent;scheme=pushscheme;launchFlags=0x4000000;component=com.tencent.qcloud.tim.tuikit/com.tencent.qcloud.tim.demo.main.MainActivity;end
+</td> 
+   </tr> 
    <tr> 
      <td>魅族</td> 
      <td>打开应用内指定页面</td> 
@@ -216,6 +234,7 @@ public class OfflinePushLocalReceiver extends BroadcastReceiver {
          <intent-filter>
             <action android:name="android.intent.action.VIEW" />
             <category android:name="android.intent.category.DEFAULT" />
+            <category android:name="android.intent.category.BROWSABLE" />
             <!-- TUIKitDemo 配置的是：pushscheme://com.tencent.qcloud/detail -->
                 <data
                     android:host="您配置的 hostname"
@@ -340,6 +359,23 @@ uses-permission android:name="xxxx.permission.MIPUSH_RECEIVE" />
 </tr> 
 </table>
 :::
+::: 荣耀
+<table> 
+   <tr> 
+```
+<!-- ********荣耀推送设置start******** -->
+<service
+    android:name="xxxx.MyHonorMessageService"
+    android:exported="false">
+    <intent-filter>
+        <action android:name="com.hihonor.push.action.MESSAGING_EVENT" />
+    </intent-filter>
+</service>
+<!-- ********荣耀推送设置end******** -->
+```
+</tr> 
+</table>
+:::
 ::: OPPO
 <table> 
    <tr> 
@@ -452,8 +488,8 @@ uses-permission android:name="xxxx.permission.MIPUSH_RECEIVE" />
 :::
 </dx-tabs>
 
--  **vivo 适配**
-根据 vivo 厂商接入指引，需要将 APPID 和 APPKEY 添加到清单文件中，否则会出现编译问题：
+-  **vivo 和荣耀适配**
+根据 vivo 和荣耀厂商接入指引，需要将 APPID 和 APPKEY 添加到清单文件中，否则会出现编译问题：
 <dx-tabs>
 ::: 方法1
 <table> 
@@ -466,6 +502,7 @@ android {
         manifestPlaceholders = [
                 "VIVO_APPKEY" : "您应用分配的证书 APPKEY",
                 "VIVO_APPID" : "您应用分配的证书 APPID"
+                "HONOR_APPID" : "您应用分配的证书 APPID"
         ]
     }
 }
@@ -477,6 +514,7 @@ android {
 <table> 
 <tr> 
 ```
+// vivo begin
 <receiver android:name="com.tencent.qcloud.tim.demo.thirdpush.VIVOPushMessageReceiverImpl">
     <intent-filter>
         <!-- 接收push消息 -->
@@ -490,6 +528,21 @@ android {
 <meta-data tools:replace="android:value"
     android:name="com.vivo.push.app_id"
     android:value="您应用分配的证书 APPID" />
+// vivo end
+
+// honor begin
+<service
+    android:name="com.tencent.qcloud.tim.tuiofflinepush.oempush.MyHonorMessageService"
+    android:exported="false">
+    <intent-filter>
+        <action android:name="com.hihonor.push.action.MESSAGING_EVENT" />
+    </intent-filter>
+ </service>
+				
+<meta-data tools:replace="android:value"
+    android:name="com.hihonor.push.app_id"
+    android:value="您应用分配的证书 APPID" />
+// honor end
 ```
 </tr> 
 </table>
@@ -551,8 +604,6 @@ apply plugin: 'com.huawei.agconnect'
  ```
  dependencies {
     ......
-     // 主包
-    implementation 'com.tencent.tpns:tpns:1.3.3.3-release'
     // Google FCM
     implementation "com.tencent.tpns:fcm:1.3.3.3-release"
     // google 云消息传递
@@ -563,17 +614,20 @@ apply plugin: 'com.huawei.agconnect'
     implementation "com.tencent.tpns:meizu:1.3.3.3-release"
     // OPPO
     implementation "com.tencent.tpns:oppo:1.3.3.3-release"
+		implementation 'commons-codec:commons-codec:1.15'
     // vivo
     implementation "com.tencent.tpns:vivo:1.3.3.3-release"
     // 华为
     implementation 'com.tencent.tpns:huawei:1.3.3.3-release'
     implementation 'com.huawei.hms:push:5.0.2.300'
+		// honor
+    implementation 'com.tencent.tpns:honor:1.3.3.3-release'
 }
 ```
 
 -  **添加推送类**
 引入厂商推送类，各个厂商推送方式有区别，可以参见拷贝 [TUIOfflinePush 代码路径](https://github.com/TencentCloud/TIMSDK/tree/master/Android/TUIKit/TUIOfflinePush/tuiofflinepush/src/main/java/com/tencent/qcloud/tim/tuiofflinepush/OEMPush) 下如下文件：
-<img src="https://qcloudimg.tencent-cloud.cn/raw/e25a0e1de5649df68eed39545b4390af.png" style="zoom:50%;" />
+<img src="https://qcloudimg.tencent-cloud.cn/raw/c49453d05a01feba3950eb93c44e2971.png" style="zoom:50%;" />
 
 -  **推送服务注册**
 应合规要求，在用户同意隐私协议登录成功后，分别初始化注册各个厂商推送服务，并在注册结果回调处保存注册成功后的 token，并调用 [setOfflinePushConfig](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushManager.html#a494d6cafe50ba25503979a4e0f14c28e) 接口上报推送 token 至后台。部分厂商在注册后，调用一些接口也会返回 token，可以再次同步更新下，具体参见以下代码。
@@ -584,7 +638,37 @@ public void init() {
     if (BrandUtil.isBrandXiaoMi()) {
         // 小米离线推送
         MiPushClient.registerPush(this, PrivateConstants.XM_PUSH_APPID, PrivateConstants.XM_PUSH_APPKEY);
-    } else if (BrandUtil.isBrandHuawei()) {
+    } else if (BrandUtil.isBrandHonor()) {
+        HonorMessaging.getInstance(context).turnOnPush().addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+                public void onComplete(com.hihonor.push.sdk.tasks.Task<Void> task) {
+                    if (task.isSuccessful()) {
+                        TUIOfflinePushLog.i(TAG, "Honor turnOn push successfully.");
+                    } else {
+                        TUIOfflinePushLog.i(TAG, "Honor turnOn push failed." + task.getException());
+                    }
+                }
+        });
+
+        new Thread(new Runnable() {
+            @Override
+                public void run() {
+                    try {
+                        String pushToken = HonorInstanceId.getInstance(context).getPushToken();
+                        TUIOfflinePushLog.i(TAG, "Honor get pushToken " + pushToken);
+
+                        //判断pushToken是否为空
+                        if(!TextUtils.isEmpty(token)) {
+                            // 该 token 需要保存并调用 setOfflinePushConfig 接口上报 IMSDK
+                            String pushToken = token;
+                        }
+                    } catch (com.hihonor.push.sdk.common.data.ApiException e) {
+                        TUIOfflinePushLog.i(TAG, "Honor get pushToken failed, " + e);
+                    }
+                }
+        }).start();
+    }
+    else if (BrandUtil.isBrandHuawei()) {
         // 华为离线推送，设置是否接收Push通知栏消息调用示例
         HmsMessaging.getInstance(this).turnOnPush().addOnCompleteListener(new com.huawei.hmf.tasks.OnCompleteListener<Void>() {
             @Override
@@ -829,10 +913,13 @@ OPPO 手机收不到推送一般有以下几种情况：
 - 按照 OPPO 推送官网要求，在 Android 8.0 及以上系统版本的 OPPO 手机上必须配置 ChannelID，否则推送消息无法展示。配置方法可以参见 [setAndroidOPPOChannelID](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushInfo.html#a32d340e95395bb64cc3e8f62321aafe1)。
 - OPPO 安装应用通知栏显示默认关闭，需要确认下开关状态。
 
-#### 2、发送消息为自定义消息
+#### 2、Google FCM
+收不到推送需要确认下 IM 控制台是否正确上传证书。排查路径参照文档 “[IM 控制台配置](https://cloud.tencent.com/document/product/269/75428#.E6.AD.A5.E9.AA.A42.EF.BC.9Aim-.E6.8E.A7.E5.88.B6.E5.8F.B0.E9.85.8D.E7.BD.AE) - Google FCM”，对照示意图看下是否添加正确。
+
+#### 3、发送消息为自定义消息
 自定义消息的离线推送和普通消息不太一样，自定义消息的内容我们无法解析，不能确定推送的内容，所以默认不推送，如果您有推送需求，需要您在 [sendMessage](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMMessageManager.html#a318c40c8547cb9e8a0de7b0e871fdbfe) 的时候设置 [offlinePushInfo](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushInfo.html) 的 [desc](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushInfo.html#a78c8e202aa4e0859468ce40bde6fd602) 字段，推送的时候会默认展示 desc 信息。
 
-#### 3、设备通知栏设置影响
+#### 4、设备通知栏设置影响
 离线推送的直观表现就是通知栏提示，所以同其他通知一样受设备通知相关设置的影响，以华为为例：
 
 - “手机设置-通知-锁屏通知-隐藏或者不显示通知”，会影响锁屏状态下离线推送通知显示。
@@ -840,7 +927,7 @@ OPPO 手机收不到推送一般有以下几种情况：
 - “手机设置-通知-应用的通知管理-允许通知”，打开关闭会直接影响离线推送通知显示。
 - “手机设置-通知-应用的通知管理-通知铃声” 和 “手机设置-通知-应用的通知管理-静默通知”，会影响离线推送通知铃音的效果。
 
-#### 4、按照流程接入完成，还是收不到离线推送
+#### 5、按照流程接入完成，还是收不到离线推送
 - 首先在 IM 控制台通过 [离线测试工具](https://console.cloud.tencent.com/im-detail/tool-push-check) 自测下是否可以正常推送。
 推送异常情况，设备状态异常，需要检查下 IM 控制台配置各项参数是否正确，再者需要检查下代码初始化注册逻辑，包括厂商推送服务注册和 IM 设置离线推送配置相关逻辑是否正确设置。
 推送异常情况，设备状态正常，需要看下是否需要正确填写 channel ID 或者后台服务是否正常。

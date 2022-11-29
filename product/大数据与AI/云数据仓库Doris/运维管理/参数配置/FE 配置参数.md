@@ -321,7 +321,7 @@ show data （其他用法：HELP SHOW DATA）
 - 默认值：1M。
 - 是否可以动态配置：true。
 - 是否为 Master FE 节点独有的配置项：true。
-- SmallFileMgr 中单个文件存储的最大大小。
+- SmallFileMgr 中单个文件存储的最大值。
 
 ### `max_small_file_number`
 - 默认值：100。
@@ -1229,23 +1229,23 @@ Master FE 的 bdbje 同步策略。 如果您只部署一个 Follower FE，请�
 ### `sys_log_roll_interval`
 - 默认值：DAY。
 - 可选项：
-	- DAY：log 前缀是 yyyyMMdd。
-	- HOUR：log 前缀是 yyyyMMddHH。
+    - DAY：log 前缀是 yyyyMMdd。
+    - HOUR：log 前缀是 yyyyMMddHH。
 
 ### `sys_log_delete_age`
 - 默认值：7d。
 - 默认为 7 天，如果日志的最后修改时间为 7 天前，则将其删除。
 - 支持格式：
-	- 7d：7 天。
-	- 10h：10 小时。
-	- 60m：60 分钟。
-	- 120s：120 秒。
+    - 7d：7 天。
+    - 10h：10 小时。
+    - 60m：60 分钟。
+    - 120s：120 秒。
 
 ### `audit_log_dir`
 - 默认值：PaloFe.DORIS_HOME_DIR + "/log"。
 - 审计日志目录：
-	- 这指定了 FE 审计日志目录。
-	- 审计日志 fe.audit.log 包含所有请求以及相关信息，如  `user，host，cost，status ` 等。
+    - 这指定了 FE 审计日志目录。
+    - 审计日志 fe.audit.log 包含所有请求以及相关信息，如  `user，host，cost，status ` 等。
 
 ### `audit_log_roll_num`
 - 默认值：90。
@@ -1268,10 +1268,10 @@ Master FE 的 bdbje 同步策略。 如果您只部署一个 Follower FE，请�
 - 默认值：30d
 - 默认为 30 天，如果日志的最后修改时间为 30 天前，则将其删除。
 - 支持格式：
-	- 7d：7 天。
-	- 10h：10 小时。
-	- 60m：60 分钟。
-	- 120s：120 秒。
+    - 7d：7 天。
+    - 10h：10 小时。
+    - 60m：60 分钟。
+    - 120s：120 秒。
 
 ### `plugin_dir`
 - 默认值：DORIS_HOME + "/plugins。
@@ -1342,7 +1342,7 @@ Master FE 的 bdbje 同步策略。 如果您只部署一个 Follower FE，请�
 - 默认值：false。
 - 是否可以动态配置：true。
 - 是否为 Master FE 节点独有的配置项：true。
-- 如果设置为 true，系统会在副本调度逻辑中，立即删除冗余副本。这可能导致部分正在对对应副本写入的导入作业失败，但是会加速副本的均衡和修复速度。
+- 如果设置为 true，系统会在副本调度逻辑中，立即删除冗余副本。这可能导致部分正在对应副本写入的导入作业失败，但是会加速副本的均衡和修复速度。
 - 当集群中有大量等待被均衡或修复的副本时，可以尝试设置此参数，以牺牲部分导入成功率为代价，加速副本的均衡和修复。
 
 ### `repair_slow_replica`

@@ -183,5 +183,5 @@ jdbc:mysql://10.1.28.93:3306/CDB?rewriteBatchedStatements=true
 ```
 - 对于 PostgreSQL，建议在 url 连接参数后加入 reWriteBatchedInserts=true 参数。
 ```
-jdbc:postgresql://10.1.28.93:3306/PG?reWriteBatchedInserts=true&?currentSchema=数据库的Schema
+jdbc:postgresql://10.1.28.93:3306/PG?reWriteBatchedInserts=true&currentSchema=数据库的Schema
 ```

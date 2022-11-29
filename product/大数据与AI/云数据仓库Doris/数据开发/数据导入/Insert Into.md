@@ -66,7 +66,7 @@ Query OK, 0 rows affected (0.02 sec)
     
 2. 结果集不为空。
 在结果集不为空的情况下。返回结果分为如下几种情况：
-	1. Insert 执行成功并可见：
+    1. Insert 执行成功并可见：
 ```
 mysql> insert into tbl1 select * from tbl2;
 Query OK, 4 rows affected (0.38 sec)
@@ -106,7 +106,7 @@ show load where label="xxx";
 show transaction where id=4005;
 ```
 返回结果中的 `TransactionStatus` 列若为 `visible`，则表述数据可见。
-	2. Insert 执行失败
+    2. Insert 执行失败
 执行失败表示没有任何数据被成功导入，并返回如下：
 ```
 mysql> insert into tbl1 select * from tbl2 where k1 = "a";
@@ -153,9 +153,9 @@ TransactionStatus: VISIBLE
 
 - enable\_insert\_strict
 Insert Into 导入本身不能控制导入可容忍的错误率。用户只能通过 `enable_insert_strict` 这个 Session 参数用来控制。
-	- 当该参数设置为 false 时，表示至少有一条数据被正确导入，则返回成功。如果有失败数据，则还会返回一个 Label。
-	- 当该参数设置为 true 时，表示如果有一条数据错误，则导入失败。
-	- 默认为 false。可通过 `SET enable_insert_strict = true;` 来设置。 
+    - 当该参数设置为 false 时，表示至少有一条数据被正确导入，则返回成功。如果有失败数据，则还会返回一个 Label。
+    - 当该参数设置为 true 时，表示如果有一条数据错误，则导入失败。
+    - 默认为 false。可通过 `SET enable_insert_strict = true;` 来设置。 
         
 - query\_timeout
 Insert Into 本身也是一个 SQL 命令，因此 Insert Into 语句也受到 Session 变量 `query_timeout` 的限制。可以通过 `SET query_timeout = xxx;` 来增加超时时间，单位是秒。
@@ -207,4 +207,4 @@ INSERT INTO bj_store_sales WITH LABEL `label` SELECT id, total, user_id, sale_ti
 ```
 SHOW LOAD WARNINGS ON "http://ip:port/api/_load_error_log?file=__shard_13/error_log_insert_stmt_d2cac0a0a16d482d-9041c949a4b71605_d2cac0a0a16d482d_9041c949a4b71605";
 ```
-错误的原因通常如：源数据列长度超过目的数据列长度、列类型不匹配、分区不匹配、列顺序不匹配等等。
+错误的原因通常如：源数据列长度超过目的数据列长度、列类型不匹配、分区不匹配、列顺序不匹配等。

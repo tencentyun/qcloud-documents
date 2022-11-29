@@ -595,3 +595,12 @@ systemctl restart php-fpm
 ## 配置客户端访问
 
 NextCloud 官方提供桌面同步客户端和移动客户端，可在 NextCloud 官网或各大应用商店下载。在配置 NextCloud 时需输入 NextCloud 的服务端地址（域名或 IP），随后输入自己的用户名和密码并登录，即可开始使用客户端。
+
+
+
+## 结语
+
+当然，COS 不仅提供以上应用和服务，还提供多款热门开源应用，并集成腾讯云 COS 插件，欢迎点击“[此处](https://cloud.tencent.com/act/pro/Ecological-aggregation?from=18406)”一键启动，立即使用！
+
+
+

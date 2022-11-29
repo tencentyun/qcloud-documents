@@ -95,7 +95,7 @@
            功能演示 · 示例代码
         </div>
         <div class="demo-item-download">
-            <div class="demo-item-download-btn" onclick="window.open('https://tcplayer.vcube.tencent.com/');reportEvent({name: 'demo-click-web', ext1: 'api-sample'});">立即体验</div>
+            <div class="demo-item-download-btn" onclick="window.open('https://tcplayer.vcube.tencent.com/');">立即体验</div>
         </div>
 				<div class="demo-item-link-web">
 				<a href="https://cloud.tencent.com/document/product/881/77877">集成指引</a>
@@ -112,7 +112,7 @@
            影视剧集 · 短视频· Feed流
         </div>
         <div class="demo-item-download">
-            <img src="https://qcloudimg.tencent-cloud.cn/raw/728d7f5fb63e5790ea3555e5940ef446.png">
+            <img src="https://qcloudimg.tencent-cloud.cn/raw/52c58077ac1f0f35b505324fbb7080a5.png">
         </div>
 								<div class="demo-item-link">
 				<a href="https://github.com/LiteAVSDK/Player_iOS">Demo 源码</a>

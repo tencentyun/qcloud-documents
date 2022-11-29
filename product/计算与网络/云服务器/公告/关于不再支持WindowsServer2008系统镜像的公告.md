@@ -1,7 +1,9 @@
 ## 使用说明
 微软官方已于2020年1月14日起停止提供对 Windows Server 2008 相关操作系统的维护支持。腾讯云已于2020年3月16日正式下线 Windows Server 2008 R2 企业版 SP1 64位公共镜像。同时，在腾讯云运行 Windows Server 2008 R2 企业版 SP1 64位系统的腾讯云服务器，在此日期后无法再获得微软的更新和补丁，并将面临程序兼容性、不稳定性、安全等问题及风险。
 
-目前，无法使用此镜像创建新的或重装云服务器实例 ，但自定义镜像、服务市场镜像及导入镜像使用不受影响。为了保障您的业务安全稳定，我们建议您把现有的 Windows Server 2008 R2 企业版 SP1 64位系统的云服务器迁移到 Windows Server 的更高版本，如 Windows Server 2012。
+为了保障您的业务安全稳定，我们建议您把现有的 Windows Server 2008 R2 企业版 的云服务器更换到 Windows Server 的更高版本，推荐使用最新版本。
+
+如果您已充分评估并接受风险提醒，坚持继续使用 Windows Server 2008 R2 企业版 创建或重装实例，您仍可以通过导入 [自定义镜像](https://cloud.tencent.com/document/product/213/4942) 或者通过 [云市场](https://market.cloud.tencent.com/) 的镜像来实现。
 
 ## 风险提醒
 由于无法从微软获取 Windows Server 2008 的更新和补丁程序，腾讯云无法解决相关操作系统上问题，如您一直坚持继续使用 Windows Server 2008 R2 企业版 SP1 64位系统，请充分了解以下风险：

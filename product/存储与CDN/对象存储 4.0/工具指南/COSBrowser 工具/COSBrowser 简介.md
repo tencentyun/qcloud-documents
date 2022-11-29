@@ -30,10 +30,15 @@ COSBrowser 是腾讯云对象存储 COS 推出的可视化界面工具，让您�
       <td><a href="https://cos5.cloud.tencent.com/cosbrowser/cosbrowser-latest-linux.zip">Linux</a></td>
    </tr>
    <tr>
-      <td>移动端</td>
+      <td rowspan=2>移动端</td>
       <td>Android</td>
       <td>Android 4.4以上</td>
       <td><a href="https://cos5.cloud.tencent.com/cosbrowser/cosbrowser-latest.apk">Android</a></td>
+   </tr>
+   <tr>
+      <td>iOS</td>
+      <td>iOS 11以上</td>
+      <td><a href="https://apps.apple.com/cn/app/id1469323992">iOS</a></td>
    </tr>
    <tr>
       <td>网页版</td>
@@ -112,4 +117,8 @@ COSBrowser 移动端注重对资源的查看及监控，用户可以随时随地
 - 桌面端反馈：[issues](https://github.com/tencentyun/cosbrowser/issues)。
 - 移动端反馈：[issues_mobile](https://support.qq.com/embed/phone/67467)。
    
-   
+
+## 结语
+
+当然，COS 不仅提供以上应用和服务，还提供多款热门开源应用，并集成腾讯云 COS 插件，欢迎点击“[此处](https://cloud.tencent.com/act/pro/Ecological-aggregation?from=18406)”一键启动，立即使用！
+

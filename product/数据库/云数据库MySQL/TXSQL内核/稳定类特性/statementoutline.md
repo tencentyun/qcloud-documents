@@ -41,7 +41,7 @@ outline "select* from t1, t2 where t1.a = t2.a" set outline_info "OUTLINE:select
 
 ### 绑定 optimizer hint
 为了功能更加灵活，TXSQL 允许向 SQL 中增量添加 optimizer hint，同样的功能也可以通过直接绑定 outline 实现。
-语法形式为：`outline "sql" set outline_info "outline";`，注意 outline_info 后的字符串应该以 "OPT:" 开头，"OPT:" 之后为需要加入的 optimizer hint 信息。如给 s`elect *from t1 where t1.a in (select b from t2)` 这条 SQL 指定 MATERIALIZATION/DUPSWEEDOUT 的 SEMIJOIN。
+语法形式为：`outline "sql" set outline_info "outline";`，注意 outline_info 后的字符串应该以 "OPT:" 开头，"OPT:" 之后为需要加入的 optimizer hint 信息。如给 `select *from t1 where t1.a in (select b from t2)` 这条 SQL 指定 MATERIALIZATION/DUPSWEEDOUT 的 SEMIJOIN。
 ```
 outline "select* from t1 where t1.a in (select b from t2)" set outline_info "OPT:2#qb_name(qb2)";
 outline "select * from t1 where t1.a in (select b from t2)" set outline_info "OPT:1#SEMIJOIN(@qb2 MATERIALIZATION, DUPSWEEDOUT)";

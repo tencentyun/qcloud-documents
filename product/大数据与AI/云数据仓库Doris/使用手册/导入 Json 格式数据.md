@@ -9,22 +9,22 @@ Doris 从0.12版本开始支持 Json 格式的数据导入。
 关于以上导入方式的具体说明，请参阅相关文档。本文档主要介绍在这些导入方式中关于 Json 部分的使用说明。
 
 ## 支持的 Json 格式
-当前前仅支持以下两种 Json 格式：
+当前仅支持以下两种 Json 格式：
 
 1. 以 Array 表示的多行数据。
 以 Array 为根节点的 Json 格式。Array 中的每个元素表示要导入的一行数据，通常是一个 Object。示例如下：
 ```
 [
-		{ "id": 123, "city" : "beijing"},
-		{ "id": 456, "city" : "shanghai"},
-		...
+        { "id": 123, "city" : "beijing"},
+        { "id": 456, "city" : "shanghai"},
+        ...
 ]
 ```
 ```
 [
-		{ "id": 123, "city" : { "name" : "beijing", "region" : "haidian"}},
-		{ "id": 456, "city" : { "name" : "beijing", "region" : "chaoyang"}},
-		...
+        { "id": 123, "city" : { "name" : "beijing", "region" : "haidian"}},
+        { "id": 456, "city" : { "name" : "beijing", "region" : "chaoyang"}},
+        ...
 ]
 ```
 这种方式通常用于 Stream Load 导入方式，以便在一批导入数据中表示多行数据。
@@ -259,7 +259,7 @@ code    INT     NULL
 ```
 {"id": 100, "city": "beijing", "code" : 1}
 ```
-	- 不指定 Json Path：
+    - 不指定 Json Path：
 ```
 curl --location-trusted -u user:passwd -H "format: json" -T data.json http://localhost:8030/api/db1/tbl1/_stream_load
 ```
@@ -268,7 +268,7 @@ curl --location-trusted -u user:passwd -H "format: json" -T data.json http://loc
 100     beijing     1
 ```
         
-	- 指定 Json Path
+    - 指定 Json Path
 ```
 curl --location-trusted -u user:passwd -H "format: json" -H "jsonpaths: [\"$.id\",\"$.city\",\"$.code\"]" -T data.json http://localhost:8030/api/db1/tbl1/_stream_load
 ```
@@ -281,7 +281,7 @@ curl --location-trusted -u user:passwd -H "format: json" -H "jsonpaths: [\"$.id\
 ```
 {"id": 100, "content": {"city": "beijing", "code" : 1}}
 ```
-	- 指定 Json Path
+    - 指定 Json Path
 ```
 curl --location-trusted -u user:passwd -H "format: json" -H "jsonpaths: [\"$.id\",\"$.content.city\",\"$.content.code\"]" -T data.json http://localhost:8030/api/db1/tbl1/_stream_load
 ```
@@ -299,16 +299,16 @@ curl --location-trusted -u user:passwd -H "format: json" -H "jsonpaths: [\"$.id\
 {"id": 103, "city": "chongqing", "code" : 4},
 {"id": 104, "city": ["zhejiang", "guangzhou"], "code" : 5},
 {
-		"id": 105,
-		"city": {
-				"order1": ["guangzhou"]
-		}, 
-		"code" : 6
+        "id": 105,
+        "city": {
+                "order1": ["guangzhou"]
+        }, 
+        "code" : 6
 }
 ]
 ```
 
-	- 指定 Json Path：
+    - 指定 Json Path：
 ```
 curl --location-trusted -u user:passwd -H "format: json" -H "jsonpaths: [\"$.id\",\"$.city\",\"$.code\"]" -H "strip_outer_array: true" -T data.json http://localhost:8030/api/db1/tbl1/_stream_load
 ```

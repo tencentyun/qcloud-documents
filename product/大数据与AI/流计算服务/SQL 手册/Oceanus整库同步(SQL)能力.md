@@ -1,5 +1,5 @@
 ## 适用场景
-在实时湖仓的数据链路建设过程中，将传统关系型数据库(如 Mysql 等)中的**整库数据**低延迟、高吞吐的同步到下游的 OLAP 数据库 (如 Drois, Clickhouse)或者归档到对应的文件系统中(如 HDFS、Hive 表)，是一个非常普遍和强烈的需求。
+在实时湖仓的数据链路建设过程中，将传统关系型数据库（如 Mysql 等）中的**整库数据**低延迟、高吞吐的同步到下游的 OLAP 数据库（如 Doris, ClickHouse）或者归档到对应的文件系统中（如 HDFS、Hive 表），是一个非常普遍和强烈的需求。
 
 Oceanus 提供了非常方便的 CDAS（CREATE DATABASE AS）SQL 语法，来支持将数据库中的整库数据全量导入、增量实时同步写入到用户指定的下游系统中。
 
@@ -8,7 +8,7 @@ Oceanus 提供了非常方便的 CDAS（CREATE DATABASE AS）SQL 语法，来支
 CREATE DATABASE IF NOT EXISTS <target_database>
 [COMMENT database_comment] 
 [WITH (key1=val1, key2=val2, ...)] -- 指明写入目标库的参数
-AS DATABASE <source_catalog>.<source_database> 	-- 需要同步的数据库
+AS DATABASE <source_catalog>.<source_database> 	-- source_database 是被同步的源数据库
 INCLUDING { ALL TABLES | TABLE 'table_name' }
 -- INCLUDING ALL TABLES 表示同步数据库中的所有表
 -- INCLUDING TABLE 'table' 表示同步数据库中特定的表，支持正则表达式，如 'order_.*';

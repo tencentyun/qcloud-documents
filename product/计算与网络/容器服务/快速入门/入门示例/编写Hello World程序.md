@@ -4,7 +4,7 @@
 ## 前提条件
 
 - 已创建集群，详情请参见 [创建集群](https://cloud.tencent.com/document/product/457/32189)。
-- 已登录节点，且该节点已安装 Node.js。
+- 已登录节点，且该节点已安装 Node.js。详情请参见 [镜像部署 Node.js 环境](https://cloud.tencent.com/document/product/213/38236)。
 
 ## 操作步骤
 ### 编写代码制作镜像

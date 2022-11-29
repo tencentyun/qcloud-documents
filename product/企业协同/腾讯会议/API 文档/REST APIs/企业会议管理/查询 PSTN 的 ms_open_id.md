@@ -30,7 +30,7 @@ https://api.meeting.qq.com/v1/meetings/{meetingId}/phone/ms-open-id
       <td>operator_id_type</td>
       <td>Number</td>
       <td>必须</td>
-      <td>操作者 ID 的类型：<br>1：企业内用户 userid<br>2：openid<br>3：rooms_id<br>4：ms_open_id</td>
+      <td>操作者 ID 的类型：<br>1：企业内用户 userid</td>
    </tr>
    <tr>
       <td>phone_numbers</td>

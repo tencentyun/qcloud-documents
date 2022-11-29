@@ -99,6 +99,7 @@ Authorization: Auth String
 				</Owner>
 				<StorageClass>Enum</StorageClass>
 				<StorageTier>Enum</StorageTier>
+				<RestoreStatus>Enum</RestoreStatus>
 			</Contents>
 			<Contents>
 				<Key>string</Key>
@@ -111,6 +112,7 @@ Authorization: Auth String
 				</Owner>
 				<StorageClass>Enum</StorageClass>
 				<StorageTier>Enum</StorageTier>
+				<RestoreStatus>Enum</RestoreStatus>
 			</Contents>
 </ListBucketResult>
 ```
@@ -153,6 +155,7 @@ Authorization: Auth String
 | Owner | ListBucketResult.Contents | 对象持有者信息 | Container |
 | StorageClass | ListBucketResult.Contents | 对象存储类型。枚举值请参见 [存储类型](https://cloud.tencent.com/document/product/436/33417) 文档，例如 STANDARD_IA，ARCHIVE | Enum |
 | StorageTier | ListBucketResult.Contents | 当对象存储类型为智能分层存储时，指示对象当前所处的存储层，枚举值：FREQUENT（标准层），INFREQUENT（低频层）。仅当 StorageClass 为 INTELLIGENT_TIERING（智能分层）时才会返回该节点 | Enum |
+|RestoreStatus | ListBucketResult.Contents | 当对象存储类型为归档存储或深度归档存储时，指示对象的回热状态，支持枚举值 ONGOING、DONE、FAILED。当未向对象发起回热请求时，该字段为空；当发起回热请求后，回热进行中为 ONGING，回热已完成为 DONE，回热失败为 FAILED。仅当 StorageClass 为 ARCHIVE （归档）或 DEEP_ARCHIVE（深度归档）时才会返回该节点 | Enum |
 
 **Container 节点 Contents.Owner 的内容：**
 
@@ -232,7 +235,19 @@ x-cos-request-id: NWZkMTk4MDVfNjViODJhMDlfNDZkYl8xNzU0****
 					<DisplayName>1250000000</DisplayName>
           </Owner>
           <StorageClass>STANDARD_IA</StorageClass>
-			</Contents>
+      </Contents>
+      <Contents>
+          <Key>example-object-2.jpg</Key>
+          <LastModified>2020-12-10T04:37:30.000Z</LastModified>
+          <ETag>&quot;51370fc64b79d0d3c7c609635be1c41f&quot;</ETag>
+          <Size>20</Size>
+          <Owner>
+					<ID>1250000000</ID>
+					<DisplayName>1250000000</DisplayName>
+          </Owner>
+          <StorageClass>ARCHIVE</StorageClass>
+          <RestoreStatus>DONE</RestoreStatus>
+      </Contents>
 </ListBucketResult>
 ```
 

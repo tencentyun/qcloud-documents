@@ -1,4 +1,4 @@
-本文介绍通过 [Oceanus](https://cloud.tencent.com/product/oceanus) ETL 方式将外部数据源实时导入到云数据仓库 ClickHouse，支持的外部数据源有如下：
+本文介绍通过 [Oceanus](https://cloud.tencent.com/product/oceanus) ETL 方式将外部数据源实时导入到云数据仓库 ClickHouse，支持的外部数据源有如下： 
 
 <table>
 <thread>

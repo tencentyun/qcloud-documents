@@ -181,7 +181,7 @@ Pedersen 工具是 Pedersen 承诺的用户端工具。Pedersen 承诺是一个�
 
 ## Go 语言智能合约 Bulletproofs 包接口说明
 
-用户在 TBaaS 平台中使用 Go 语言智能合约时，可直接 import bulletproofs 包，使用相关的接口。当前接口支持验证范围证明与承诺的有效性，同态加法、减法、乘法、求相反数运算。
+用户在 TBaaS 中使用 Go 语言智能合约时，可直接 import bulletproofs 包，使用相关的接口。当前接口支持验证范围证明与承诺的有效性，同态加法、减法、乘法、求相反数运算。
 
 ### Bulletproofs 包支持接口
 <table>
@@ -290,5 +290,4 @@ Pedersen 工具是 Pedersen 承诺的用户端工具。Pedersen 承诺是一个�
 </table>
 
 <style> .bottom{ margin-bottom:0px !important;} </style>
-
 

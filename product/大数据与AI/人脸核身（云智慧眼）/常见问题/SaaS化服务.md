@@ -31,3 +31,6 @@ iOS App：拉起人脸核身时，initWithServerUrl 需要设置为`https:\\face
 
 ### Biztoken 一直有效吗？
 一次核身流程的标识，Biztoken 有效时间为7,200秒；完成认证后，三天内可用 Biztoken 多次获取验证结果信息。
+<br>
+<br>
+<p align="right"><strong>问题没有解决，到 <a href="https://aistudio.cloud.tencent.com/faq"> AI Studio 技术答疑专题</a> 看看？</strong></p>

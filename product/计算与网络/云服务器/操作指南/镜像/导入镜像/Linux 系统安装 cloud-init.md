@@ -1,3 +1,4 @@
+
 ## 操作场景
 
 Cloud-init 主要提供实例首次初始化时自定义配置的能力。如果导入的镜像没有安装 cloud-init 服务，基于该镜像启动的实例将无法被正常初始化，导致该镜像导入失败。本文档指导您安装 cloud-init 服务。
@@ -88,6 +89,7 @@ python3 setup.py install --init-system systemd
 </dx-alert>
 
 
+[](id:cloud-init)
 ### 修改 cloud-init 配置文件
 
 1. 根据不同操作系统，下载 cloud.cfg。
@@ -246,24 +248,29 @@ source /etc/network/interfaces.d/*
 ```
 
 ## 附录
-
-### 手工下载绿色版 cloud-init 包方式[](id:greeninitCloudInit)
+[](id:greeninitCloudInit)
+### 手工下载绿色版 cloud-init 包方式
 若通过 [手工下载 cloud-init 源码包方式](#ManualDown) 安装不成功，可通过以下操作进行安装：
-1. [点此获取](https://image-tools-1251783334.cos.ap-guangzhou.myqcloud.com/greeninit-x64-beta.tgz) 绿色版 cloud-init 包。
-2. 执行以下命令，解压绿色版 cloud-init 包。
+1. 执行如下命令切换到 `/usr/local` 目录。
+```shellsession
+cd /usr/local
+```
+2. [点此获取](https://image-tools-1251783334.cos.ap-guangzhou.myqcloud.com/greeninit-x64-beta.tgz) 绿色版 cloud-init 包，下载的安装包上传到 `/usr/local` 目录下。
+>!注意：安装目录必现是系统盘目录，不能跨文件系统，这里推荐安装到 `/usr/local` 目录
+3. 执行以下命令，解压绿色版 cloud-init 包。
 ```shellsession
 tar xvf greeninit-x64-beta.tgz 
 ```
-3. 执行以下命令，进入已解压的绿色版 cloud-init 包目录（即进入 greeninit 目录）。
+4. 执行以下命令，进入已解压的绿色版 cloud-init 包目录（即进入 greeninit 目录）。
 ```shellsession
 cd greeninit
 ```
-4. 执行以下命令，安装 cloud-init。
+5. 执行以下命令，安装 cloud-init。
 ```shellsession
 sh install.sh 
 ```
-
-### 解决无法安装 Python-pip 问题[](id:updateSoftware)
+[](id:updateSoftware)
+### 解决无法安装 Python-pip 问题
 若在安装 Python-pip 出现无此安装包或无法安装的错误，可对应实际使用的操作系统，参考以下步骤进行解决：
 <dx-tabs>
 ::: CentOS\s6/7系列

@@ -10,16 +10,16 @@
 
 #### 安装
 
-通过 npm 安装 Serverless：
+通过 npm 安装 Serverless Cloud Framework：
 
 ```console
-npm install -g serverless
+npm install -g serverless-cloud-framework
 ```
 
-如果之前您已经安装过 Serverless Framework，可以通过下列命令升级到最新版： 
+如果之前您已经安装过 Serverless Cloud Framework，可以通过下列命令升级到最新版： 
 
 ```console
-npm update -g serverless
+npm update -g serverless-cloud-framework
 ```
 
 ####  配置
@@ -65,7 +65,7 @@ inputs:
 
 执行以下命令进行扫码授权部署：
 ```console
-sls deploy
+scf deploy
 ```
 
 >?
@@ -76,7 +76,7 @@ sls deploy
 
 执行以下命令移除部署的 CDN 配置：
 ```console
-sls remove
+scf remove
 ```
 
 #### 账号配置（可选）
@@ -94,5 +94,4 @@ TENCENT_SECRET_KEY=123
 >?
 >- 如果没有腾讯云账号，请先 [注册新账号](https://cloud.tencent.com/register)。
 >- 如果已有腾讯云账号，可以在 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取 SecretId 和 SecretKey。
-
 

@@ -6,7 +6,7 @@
 通过 npm 全局安装 Serverless：
 
 ```console
-$ npm install -g serverless
+$ npm install -g serverless-cloud-framework
 ```
 
 ### 配置

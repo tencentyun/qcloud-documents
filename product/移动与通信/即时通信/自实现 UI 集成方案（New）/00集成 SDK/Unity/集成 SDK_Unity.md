@@ -9,9 +9,9 @@
 | iOS     | Xcode 11.0及以上版本，请确保您的项目已设置有效的开发者签名。 |
 
 ## UPM 集成（推荐）
+
 1. 修改 manifest.json 文件：
 ![](https://qcloudimg.tencent-cloud.cn/raw/88597bf131303e1b444baa33c641924e.png)
-
 2. 修改如下：
 ```json
 {
@@ -20,14 +20,11 @@
   }
 }
 ```
-
 3. 在 Unity Editor 中打开项目，等候依赖加载完毕，确认Tencent Cloud IM 已经加载完成。
 ![img](https://qcloudimg.tencent-cloud.cn/raw/d98dfb17bbee6c0319e370de6f2ba9dd.jpg)
-
-4. 该步骤为测试环节，您可下载 [IM_Api_Example](https://github.com/TencentCloud/TIMSDK/tree/master/Unity/im_unity_sdk_plus/Assets/IM_Api_Example)，解压后放入您的项目内。
+4. 该步骤为测试环节，您可下载 [IM_Api_Example](https://github.com/TencentCloud/tc-chat-sdk-unity/tree/main/Assets/IM_Api_Example)，解压后放入您的项目内。
    <img src="https://qcloudimg.tencent-cloud.cn/raw/7c7e35b688673c3bca02b95f6ca74e4a.png" width="70%">
-    > ?
-    >  IM_Api_Example 是我们提供的用来测试 SDK 接口回调数据的 Demo，您也可以在项目开发早期通过调用我们提供的接口来对您的应用进行操作。
+    > ?IM_Api_Example 是我们提供的用来测试 SDK 接口回调数据的 Demo，您也可以在项目开发早期通过调用我们提供的接口来对您的应用进行操作。
 
     将 `IM_Api_Example/Assets` 文件夹下所有场景拖入 `Build Settings`，并保证 `Main` 场景的顺序在第一位。
     <img src="https://qcloudimg.tencent-cloud.cn/raw/b4235594ea96e60960a31f8c7e7edd67.jpg" width="35%">
