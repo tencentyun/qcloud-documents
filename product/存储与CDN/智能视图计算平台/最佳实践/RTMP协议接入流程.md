@@ -25,7 +25,7 @@
 
 ### 3.登陆设备 Web 端进行配置
 
-1.海康威视设备配置示范（以 IPC 为例，NVR 配置过程类似，不再赘述）
+1. 海康威视设备配置示范（以 IPC 为例，NVR 配置过程类似，不再赘述）
 ![](https://qcloudimg.tencent-cloud.cn/raw/0cddbabf537b42d9c1f007dea6cb096d.png)
 
 <table>
@@ -46,7 +46,7 @@
 </table>
 
 
-2.大华设备配置示范（以 IPC 为例，NVR 配置过程类似，不再赘述）
+2. 大华设备配置示范（以 IPC 为例，NVR 配置过程类似，不再赘述）
 ![](https://qcloudimg.tencent-cloud.cn/raw/2966287e228fb177f9e872fd784778f7.png)
 
 <table>
@@ -74,16 +74,17 @@
 
 同一个网络，往往由于网络资源不足/波动大导致出现视频卡顿或实况失败的现象，建议按照如下配置视音频参数。
 
->!1.不要开启厂商的任何私有编码,以及 smart264、smart265、SVC 等，否则无法成功注册！
->2.某些厂商设备，在 NVR 配置页面修改其下摄像头的配置极有可能不生效，强烈建议登陆到 IPC 设备端配置！
+>!
+- 不要开启厂商的任何私有编码,以及 smart264、smart265、SVC 等，否则无法成功注册！
+- 某些厂商设备，在 NVR 配置页面修改其下摄像头的配置极有可能不生效，强烈建议登陆到 IPC 设备端配置！
 
-### 1.IPC 音视频配置规范
+### 1. IPC 音视频配置规范
 
 下图以海康威视 IPC 为例，其他厂商设备类似。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d410d87c38a50854c9ef3a6ef35f4a6b.png)
 ![](https://qcloudimg.tencent-cloud.cn/raw/86f4b6195605324b53b7e7b72558a6ed.png)
 
-### 2.NVR视音频配置规范
+### 2. NVR 视音频配置规范
 
 下图以海康威视 NVR 为例，其他厂商设备类似。
 ![](https://qcloudimg.tencent-cloud.cn/raw/8407c8e0b7a69c6f9da844b19b22e0ff.png)
