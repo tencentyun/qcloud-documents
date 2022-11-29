@@ -11,7 +11,7 @@
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)，单击左侧导航栏的**共享带宽包**。
 2. 在**共享带宽包**页面顶部，选择中国香港地域，单击左上角的**新建**。
 3. 在**新建共享带宽包**对话框中，输入名称，选择**精品 BGP**线路类型和计费模式后，单击**确定**。
-![](https://qcloudimg.tencent-cloud.cn/raw/e79207f5a4ed553bc5510c58ec9e7149.png)
+<img src="https://qcloudimg.tencent-cloud.cn/raw/a0467413f7d3b98212d0a606e56ec8bd.png" width="70%" /> 
 
 ### 步骤二：创建精品 BGP IP 线路类型的 EIP[](id:step2)
 创建精品 BGP IP 线路类型的 EIP，并将此 EIP 加入已创建好的精品 BGP 带宽包。
