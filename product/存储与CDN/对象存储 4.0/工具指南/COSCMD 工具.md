@@ -386,15 +386,25 @@ coscmd upload -rs --skipmd5 D:/doc doc
 ```plaintext
 coscmd upload -rs --delete D:/doc /
 ```
-- 操作示例 - D 盘 doc 文件夹中 .txt 和 .doc 的后缀文件选择忽略上传
+- 操作示例 - D 盘 doc 文件夹中 .txt 和 .doc 后缀的文件选择忽略上传
 ```plaintext
 coscmd upload -rs D:/doc / --ignore *.txt,*.doc
 ```
->! 在上传文件夹时，使用 `--ignore` 参数可以忽略某一类文件，使用 `--include` 参数可以过滤某一类文件，支持 shell 通配规则，支持多条规则，用逗号`,`分隔。当忽略一类后缀时，必须最后要输入`,` 或者加入`""`。
+- 操作示例 - D 盘 doc 文件夹中 .txt 后缀的文件选择忽略上传
+```plaintext
+coscmd upload -rs D:/doc / --ignore "*.txt"
+```
+>! 
+> - 在上传文件夹时，使用 `--ignore` 参数可以忽略某一类文件，使用 `--include` 参数可以过滤某一类文件，支持 shell 通配规则，支持多条规则，用逗号`,`分隔。当忽略一类后缀时，必须最后要输入`,` 或者加入`""`。如果 `""` 中包含多条逗号分隔的规则，以第一条规则为准。
+> - 如果您希望使用 `--ignore` 过滤特定文件夹内的所有文件，需要使用绝对路径，并在路径前后加入`""`。例如 `coscmd upload -rs D:/doc / --ignore "D:/doc/ignore_folder/*"`。
 >
 - 操作示例 - D 盘 doc 文件夹中 .txt 和 .doc 的后缀文件上传
 ```plaintext
 coscmd upload -rs D:/doc / --include *.txt,*.doc
+```
+- 操作示例 - D 盘 doc 文件夹中 .txt 后缀的文件上传
+```plaintext
+coscmd upload -rs D:/doc / --include "*.txt"
 ```
 
 
@@ -486,7 +496,7 @@ coscmd download -r doc D:/folder/
 ```
 - 操作示例 - 下载根目录文件，但跳过根目录下的 doc 目录
 ```plaintext
-coscmd download -r / D:/ --ignore doc/*
+coscmd download -r / D:/ --ignore "doc/*"
 ```
 - 操作示例 - 覆盖下载当前存储桶根目录下所有的文件
 ```plaintext
@@ -512,11 +522,21 @@ coscmd download -rs --delete / D:/examplefolder
 ```plaintext
 coscmd download -rs / D:/examplefolder --ignore *.txt,*.doc
 ```
->! 在下载文件夹时，使用 `--ignore` 参数可以忽略某一类文件，使用 `--include` 参数可以过滤某一类文件，支持 shell 通配规则，支持多条规则，用逗号`,`分隔。当忽略一类后缀时，必须最后要输入`,`或者使用双引号`""`。
+- 操作示例 - 忽略 .txt 后缀的文件
+```plaintext
+coscmd download -rs / D:/examplefolder --ignore "*.txt"
+```
+>! 
+> - 在上传文件夹时，使用 `--ignore` 参数可以忽略某一类文件，使用 `--include` 参数可以过滤某一类文件，支持 shell 通配规则，支持多条规则，用逗号`,`分隔。当忽略一类后缀时，必须最后要输入`,` 或者加入`""`。如果 `""` 中包含多条逗号分隔的规则，以第一条规则为准。
+> - 如果您希望使用 `--ignore` 过滤特定目内的所有文件，需要使用绝对路径，并在路径前后加入`""`。例如 `coscmd upload -rs D:/doc / --ignore "D:/doc/ignore_folder/*"`。
 >
 - 操作示例 - 过滤 .txt 和 .doc 的后缀文件
 ```plaintext
 coscmd download -rs / D:/examplefolder --include *.txt,*.doc
+- 操作示例 - 过滤 .txt 后缀的文件
+```
+```plaintext
+coscmd download -rs / D:/examplefolder --include "*.txt"
 ```
 >! 老版本的 mget 接口已经废除，download 接口使用分块下载，请使用 download 接口。
 >
@@ -755,5 +775,4 @@ coscmd restore -r -d 3 -t Expedited examplefolder/
 ## 结语
 
 当然，COS 不仅提供以上应用和服务，还提供多款热门开源应用，并集成腾讯云 COS 插件，欢迎点击“[此处](https://cloud.tencent.com/act/pro/Ecological-aggregation?from=18406)”一键启动，立即使用！
-
 
