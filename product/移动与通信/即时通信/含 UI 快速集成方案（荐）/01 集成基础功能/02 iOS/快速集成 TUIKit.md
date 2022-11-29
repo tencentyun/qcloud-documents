@@ -7,20 +7,17 @@ TUIKit 从 5.7.1435 版本开始支持模块化集成，您可以根据自己的
 - iOS 9.0 及以上
 
 ## CocoaPods 集成
-1. 安装 CocoaPods
+1. 安装 CocoaPods。
 在终端窗口中输入如下命令（需要提前在 Mac 中安装 Ruby 环境）：
 ```
 sudo gem install cocoapods
 ```
-
-2. 创建 Podfile 文件
+2. 创建 Podfile 文件。
 进入项目所在路径输入以下命令行，之后项目路径下会出现一个 Podfile 文件。
 ```
 pod init
 ```
-
-3. 根据业务需求在 Podfile 中添加对应的 TUIKit TUIKit 组件之间相互独立，添加或删除均不影响工程编译。
-  Podfile 配置示例如下：
+3. 根据业务需求在 Podfile 中添加对应的 TUIKit TUIKit 组件之间相互独立，添加或删除均不影响工程编译。  Podfile 配置示例如下：
   ```
   # Uncomment the next line to define a global platform for your project
   # ...
@@ -55,7 +52,6 @@ pod init
   end
   ```
 > ? 如果您使用的是 Swift，请开启 use_modular_headers!，并将头文件引用改成 @import 模块名形式引用。
-
 4. 执行以下命令，安装 TUIKit 组件。
 ```bash
 pod install
@@ -64,9 +60,8 @@ pod install
 ```bash
 pod repo update
 ```
-
   集成全部的 TUIKit 组件后的项目结构：
-  <img src="https://qcloudimg.tencent-cloud.cn/raw/19b13ff38225d07924eadf79123d2012.png" style="zoom:50%;"/>
+  <img src="https://qcloudimg.tencent-cloud.cn/raw/19b13ff38225d07924eadf79123d2012.png" style="zoom:50%;"/> 
 
 ## 快速搭建
 常用的聊天软件都是由会话列表、聊天窗口、好友列表、音视频通话等几个基本的界面组成，参考下面步骤，您仅需几行代码即可在项目中快速搭建这些 UI 界面。
@@ -198,19 +193,17 @@ TUI 组件支持在聊天界面对用户发起音视频通话，仅需要简单�
   </tr>
 </table>
 
-1. 开通音视频服务
+1. 开通音视频服务。
   1. 登录 [即时通信 IM 控制台](https://console.cloud.tencent.com/im) ，单击目标应用卡片，进入应用的基础配置页面。
   2. 在开通腾讯实时音视频服务功能区，单击**免费体验**即可开通 TUICallKit 的 7 天免费试用服务。
   3. 在弹出的开通实时音视频 TRTC 服务对话框中，单击确认，系统将为您在 [实时音视频控制台](https://console.cloud.tencent.com/trtc) 创建一个与当前 IM 应用相同 SDKAppID 的实时音视频应用，二者帐号与鉴权可复用。
-
-2. 集成 TUICallKit 组件
+2. 集成 TUICallKit 组件。
 在 podfile 文件中添加以下内容。
 ```objectivec
 // 集成音视频通话组件
 pod 'TUICallKit'                  
 ```
-
-3. 发起和接收视频或语音通话
+3. 发起和接收视频或语音通话。
 <table style="text-align:center;vertical-align:middle;width: 800px">
   <tr>
     <th style="text-align:center;" ><b>消息页发起通话<br></b></th>
@@ -226,12 +219,11 @@ pod 'TUICallKit'
 <li>当用户<strong>在线</strong>收到通话邀请时，TUIKit 会自动展示通话接收 UI，用户可以选择同意或者拒绝通话。</li>
 <li>当用户<strong>离线</strong>收到通话邀请时，如需唤起 App 通话，就要使用到离线推送能力，离线推送的实现请参考 <a href="#Step5.4">添加离线推送</a>。</li>
 </ul>
-
-4. 添加离线推送
+4. 添加离线推送。
 在使用离线推送之前，您需要开通 [IM 离线推送](https://cloud.tencent.com/document/product/269/75429) 服务。
 关于 App 的配置，您可以参考文档：[集成 TUIOfflinePush 跑通离线推送功能](https://cloud.tencent.com/document/product/269/74284)。
 
-配置完成后，当单击接收到的「音视频通话离线推送通知」时， TUICallKit 会自动拉起「音视频通话邀请界面」。
+配置完成后，当单击接收到的**音视频通话离线推送通知**时， TUICallKit 会自动拉起**音视频通话邀请界面**。
   
 ## 常见问题
 #### 提示 "target has transitive dependencies that include statically linked binaries" 如何处理？
