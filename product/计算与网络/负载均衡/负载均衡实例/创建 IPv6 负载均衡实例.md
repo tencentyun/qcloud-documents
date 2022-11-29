@@ -269,3 +269,5 @@ IPv6 负载均衡的架构如下图所示：
 
 ## 相关文档
 [购买云服务器并配置云服务器的 IPv6](https://cloud.tencent.com/document/product/215/47557#.E6.AD.A5.E9.AA.A4.E4.B8.89.EF.BC.9A.E8.B4.AD.E4.B9.B0.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8.E5.B9.B6.E9.85.8D.E7.BD.AE.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8.E7.9A.84-ipv6.3Ca-id.3D.22step3.22.3E.3C.2Fa.3E)
+
+
