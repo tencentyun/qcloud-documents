@@ -33,7 +33,7 @@ chat-uikit-uniapp 界面效果如下图所示：
 
 <img width="600" src="https://qcloudimg.tencent-cloud.cn/raw/73a1edc1682ebd276215f64351917a07.png"/>
 
-> !请在项目 mianfest.json ≥ 基础配置里边确认 Vue 版本选择
+> !请在项目 mianfest.json > 基础配置里边确认 Vue 版本选择。
 > ![](https://qcloudimg.tencent-cloud.cn/raw/456a65bd270b69ed6e8e9efe7c859ee4.png)
 
 HBuilder 不会默认创建 package.json 文件，因此您需要先创建 package.json 文件。请执行以下命令:
