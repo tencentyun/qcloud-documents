@@ -138,7 +138,6 @@ http://Hostname/Filename?sign=md5hash&t=timestamp
 
 
 ## 注意事项
-
-1. 鉴权通过后，节点将自动忽略鉴权相关参数后的 URL 作为缓存标识（Cache key），提高缓存命中率，减少回源。
+1. 鉴权通过后，节点会自动忽略 URL 中鉴权相关的参数再将其作为缓存标识（Cache key），提高缓存命中率，减少回源。
 2. 鉴权通过后，若未命中节点缓存，则会继续回源，实际回源 URL 将与 鉴权 URL 格式一致，保留鉴权参数。源站可按需忽略或二次校验，或使用 [回源请求参数设置](https://cloud.tencent.com/document/product/1552/82627) 操作配置回源是忽略相关鉴权参数。
 3. URL 中不能包含中文。
