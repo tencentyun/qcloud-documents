@@ -1,3 +1,4 @@
+
 RocksDB 是⼀个⾮常流⾏的⾼性能持久化 KV（key-value）存储，TXRocks 是腾讯 TXSQL 团队基于此开发的事务型存储引擎。
 
 相比 InnoDB 使用的 B+Tree 索引结构，TXRocks 使用的 LSM Tree 索引结构，可以节省相对比例的存储空间。InnoDB 的 B+Tree 分裂通常会导致页面半满，页面内空闲空间浪费，页面有效利用率相对比较低。TXRocks 的 SST 文件一般设置为 MB 量级或者更大，文件要4K对齐产生的浪费比例很低，SST 内部虽然也划分为 Block，但 Block 是不需要对齐的。另外，TXRocks 的 SST 文件采用前缀压缩，相同的前缀只会记录一份，同时 TXRocks 不同层的 SST 可以采用不同的压缩算法，进一步降低存储空间开销。通常情况下可降低50%存储空间。

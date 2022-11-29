@@ -13,18 +13,18 @@
 
 我们致力于打造一套支持 Flutter 全平台的即时通信 IM SDK 及 TUIKit，帮助您一套代码，全平台运行。
 
-| 平台 | 无 UI SDK (tencent_im_sdk_plugin) | 含 UI 及基础业务逻辑 TUIKit (tim_ui_kit) |
+| 平台 | 无 UI SDK (tencent_cloud_chat_sdk) | 含 UI 及基础业务逻辑 TUIKit (tencent_cloud_chat_uikit) |
 |---------|---------|---------|
 | iOS | 支持 | 支持 |
 | Android | 支持 | 支持 |
 | [Web](#web) | 支持，4.1.1+2版本起 | 支持，0.1.5版本起 |
 | [macOS](#pc) | 支持，4.1.9版本起 | 即将上线 |
 | [Windows](#pc) | 支持，4.1.9版本起 | 即将上线 |
-| [混合开发](https://cloud.tencent.com/developer/article/2167243) - *将Flutter SDK添加至现有原生应用* | 5.0.0版本起支持 | 0.2.0版本起支持 |
+| [混合开发](https://cloud.tencent.com/developer/article/2167243) （将 Flutter SDK 添加至现有原生应用） | 5.0.0版本起支持 | 1.0.0版本起支持 |
 
 >? Web/macOS/Windows 平台需要简单的几步额外引入，详情请查看本文 [拓展更多平台](#more)。
 
-## 体验 DEMO
+## 体验 Demo
 
 在开始接入前，您可以体验我们的 DEMO，快速了解腾讯云 IM Flutter 跨平台 SDK 及 TUIKit 的能力。
 
@@ -44,9 +44,7 @@
 ## 前序工作
 
 1. 您已 [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 帐号，并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
-
 2. 参照 [创建并升级应用](https://cloud.tencent.com/document/product/269/32577) 创建应用，并记录好 `SDKAppID`。
-
 3. 在 [IM 控制台](https://console.cloud.tencent.com/im) 选择您的应用，在左侧导航栏依次点击 **辅助工具**->**UserSig 生成&校验** ，创建两个 UserID 及其对应的 UserSig，复制`UserID`、`签名（Key）`、`UserSig`这三个，后续登录时会用到。
 ![](https://main.qcloudimg.com/raw/8315da2551bf35ec85ce10fd31fe2f52.png)
 
@@ -68,12 +66,11 @@ IM 提供了三种方式来集成，您可以选择最合适的方案来集成�
 
 [](id:part3)
 
-## 方案一：使用 Demo修改
+## 方案一：使用 Demo 修改
 
 ### 跑通 Demo
 
 1. 下载 Demo 源码、安装依赖：
-
 ```shell
 # Clone the code
 git clone https://github.com/TencentCloud/tc-chat-demo-flutter.git
@@ -81,9 +78,7 @@ git clone https://github.com/TencentCloud/tc-chat-demo-flutter.git
 # Install dependencies
 flutter pub get
 ```
-
 2. 运行 Demo 项目：
-
 ```shell
 #启动demo项目，请替换SDK_APPID、KEY两个参数
 flutter run --dart-define=SDK_APPID={YOUR_SDKAPPID} --dart-define=ISPRODUCT_ENV=false --dart-define=KEY={YOUR_KEY}
@@ -100,51 +95,34 @@ flutter run --dart-define=SDK_APPID={YOUR_SDKAPPID} --dart-define=ISPRODUCT_ENV=
 
 <dx-tabs>
 ::: Android 平台[](id:android)
-**1. 在 Android Studio 中安装 Flutter 和 Dart 插件。**
-Mac:
-打开插件设置（在 v3.6.3.0 以上的系统打开 Preferences > Plugins）=> 选择 Flutter 插件并点击 安装 => 当弹出安装 Dart 插件提示时，点击 Yes => 当弹出重新启动提示时，点击 Restart。
-
-Linux 或者 Windows 平台:
-打开插件设置 (位于 File > Settings > Plugins)= > 选择 Marketplace (扩展商店)，选择 Flutter plugin 然后点击 Install (安装)。
+1. 在 Android Studio 中安装 Flutter 和 Dart 插件。
+ - Mac 平台：打开插件设置（在 v3.6.3.0 以上的系统打开 Preferences > Plugins）=> 选择 Flutter 插件并点击 安装 => 当弹出安装 Dart 插件提示时，点击 Yes => 当弹出重新启动提示时，点击 Restart。
+ - Linux 或者 Windows 平台：打开插件设置 (位于 File > Settings > Plugins)= > 选择 Marketplace (扩展商店)，选择 Flutter plugin 然后点击 Install (安装)。
 ![](https://qcloudimg.tencent-cloud.cn/raw/481bc19b55b40051daa8e669325cd123.png)
-
-**2. 打开项目并获取依赖**
+2. 打开项目并获取依赖。
 在 Android Studio 中打开 `im-flutter-uikit` 目录。
 ![](https://qcloudimg.tencent-cloud.cn/raw/b22a52c14373a222f9bf55e79b04f12b.png)
-
 并在该路径执行命令安装依赖。
-
 ```shell
 flutter pub get
 ```
-
-**3. 配置环境变量。**
-
+3. 配置环境变量。
 在右上角运行按钮旁，鼠标hover `main.dart`，配置 `Edit Configurations`。
 ![](https://qcloudimg.tencent-cloud.cn/raw/e2db56849e86dab8f6f0ccb4d3374fce.png)
-
 在弹出窗口中，配置 `Additional run args`，输入环境变量（SDKAPPID等信息）。如：
-
 ```shell
 # 请替换SDK_APPID、KEY两个参数
 --dart-define=SDK_APPID={YOUR_SDKAPPID} --dart-define=ISPRODUCT_ENV=false --dart-define=KEY={YOUR_KEY}
 ```
-
 ![](https://qcloudimg.tencent-cloud.cn/raw/f022441399d2d6057b86e489593768ad.png)
-
-**4. 创建Android模拟器。**
-
+4. 创建Android模拟器。
 启动您刚安装好的模拟器，并选中其。
 ![](https://qcloudimg.tencent-cloud.cn/raw/e3aebdd2f6018c8f1fa10d5b5fb62c79.png)
-
-点击界面右上角 Device Manager，完成 Create devices，创建模拟器。如果您需要使用Google FCM推送能力，建议最好安装支持Google Play Store的设备。
+单击界面右上角 Device Manager，完成 Create devices，创建模拟器。如果您需要使用 Google FCM 推送能力，建议最好安装支持 Google Play Store 的设备。
 ![](https://qcloudimg.tencent-cloud.cn/raw/9db005b86f9ffa1052826fe5e11d219a.png)
-
-**5. 运行项目。**
-
-根据需要，点击下图左侧 Run ，或右侧 Debug，以运行项目。
+5. 运行项目。
+根据需要，单击下图左侧 Run ，或右侧 Debug，以运行项目。
 ![](https://qcloudimg.tencent-cloud.cn/raw/7b0d4d008f71e1d0d805c9fb3a5de437.png)
-
 >?UI 可能会有部分调整更新，请以最新版为准。
 :::
 ::: iOS 平台[](id:ios)
@@ -202,7 +180,7 @@ flutter pub get
 
 TUIKit 是基于腾讯云 IM SDK 的一款 UI 组件库，它提供了一些通用的 UI 组件，例如会话列表、聊天界面和联系人列表等，开发者可根据实际业务需求通过该组件库快速地搭建自定义 IM 应用。参见 [TUIKit 图文介绍](https://cloud.tencent.com/document/product/269/70747)。
 
-本部分为快速使用TUIKit介绍，详细入门指引可参见 [TUIKit 集成基础功能](https://cloud.tencent.com/document/product/269/70746)。
+本部分为快速使用 TUIKit 介绍，详细入门指引可参见 [TUIKit 集成基础功能](https://cloud.tencent.com/document/product/269/70746)。
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/f140dd76be01a65abfb7e6ba2bf50ed5.png)
 
@@ -261,20 +239,18 @@ post_install do |installer|
 end
 ```
 
->?
->
-> 如您需要用到推送能力，还需要添加推送相关权限，详情可查看 [Flutter 厂商消息推送插件集成指南](https://cloud.tencent.com/document/product/269/75430)。
+>?如您需要用到推送能力，还需要添加推送相关权限，详情可查看 [Flutter 厂商消息推送插件集成指南](https://cloud.tencent.com/document/product/269/75430)。
 
 #### 安装 IM TUIkit
 
-我们的 TUIkit 已经内含 IM SDK，因此仅需安装`tim_ui_kit`，不需要再安装基础 IM SDK。
+我们的 TUIkit 已经内含 IM SDK，因此仅需安装`tencent_cloud_chat_uikit`，不需要再安装基础 IM SDK。
 
 ```shell
 #在命令行执行：
-flutter pub add tim_ui_kit
+flutter pub add tencent_cloud_chat_uikit
 ```
 
-如果您的项目需要支持Web，请在执行后续步骤前，[查看 Web 兼容说明章节](#web)，引入JS文件。
+如果您的项目需要支持 Web，请在执行后续步骤前，[查看 Web 兼容说明章节](#web)，引入 JS 文件。
 
 #### 初始化
 
@@ -284,7 +260,7 @@ flutter pub add tim_ui_kit
 
 ```dart
 /// main.dart
-import 'package:tim_ui_kit/tim_ui_kit.dart';
+import 'package:tencent_cloud_chat_uikit/tencent_cloud_chat_uikit.dart';
 
 final CoreServicesImpl _coreInstance = TIMUIKitCore.getInstance();
   @override
@@ -300,9 +276,7 @@ final CoreServicesImpl _coreInstance = TIMUIKitCore.getInstance();
 }
 ```
 
->?
->
-> 请在本步骤await初始化完成后，才可执行后续步骤。
+>?请在本步骤 await 初始化完成后，才可执行后续步骤。
 
 #### 登录测试账户
 
@@ -310,7 +284,7 @@ final CoreServicesImpl _coreInstance = TIMUIKitCore.getInstance();
 2. 调用 [`_coreInstance.login`](https://comm.qq.com/im/doc/flutter/uikit-sdk-api/TIMUIKitCore/login.html) 方法，登录一个测试账户。
 
 ```dart
-import 'package:tim_ui_kit/tim_ui_kit.dart';
+import 'package:tencent_cloud_chat_uikit/tencent_cloud_chat_uikit.dart';
 
 final CoreServicesImpl _coreInstance = TIMUIKitCore.getInstance();
 _coreInstance.login(userID: userID, userSig: userSig);
@@ -330,7 +304,7 @@ _coreInstance.login(userID: userID, userSig: userSig);
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:tim_ui_kit/tim_ui_kit.dart';
+import 'package:tencent_cloud_chat_uikit/tencent_cloud_chat_uikit.dart';
 
 class Conversation extends StatelessWidget {
 const Conversation({Key? key}) : super(key: key);
@@ -370,7 +344,7 @@ return Scaffold(
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:tim_ui_kit/tim_ui_kit.dart';
+import 'package:tencent_cloud_chat_uikit/tencent_cloud_chat_uikit.dart';
 
 class Chat extends StatelessWidget {
 final V2TimConversation selectedConversation;
@@ -409,7 +383,7 @@ return TIMUIKitChat(
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:tim_ui_kit/tim_ui_kit.dart';
+import 'package:tencent_cloud_chat_uikit/tencent_cloud_chat_uikit.dart';
 
 class UserProfile extends StatelessWidget {
     final String userID;
@@ -466,7 +440,7 @@ UI 组件全貌可参见 [本图文概览](https://cloud.tencent.com/document/pr
 在命令行执行：
 
 ```shell
-flutter pub add tencent_im_sdk_plugin
+flutter pub add tencent_cloud_chat_sdk
 ```
 
 >?
@@ -481,9 +455,9 @@ flutter pub add tencent_im_sdk_plugin
 将您的 `sdkAppID` 传入。
 
 ```Dart
-import 'package:tencent_im_sdk_plugin/enum/V2TimSDKListener.dart';
-import 'package:tencent_im_sdk_plugin/enum/log_level_enum.dart';
-import 'package:tencent_im_sdk_plugin/tencent_im_sdk_plugin.dart';
+import 'package:tencent_cloud_chat_sdk/enum/V2TimSDKListener.dart';
+import 'package:tencent_cloud_chat_sdk/enum/log_level_enum.dart';
+import 'package:tencent_cloud_chat_sdk/tencent_cloud_chat_sdk.dart';
 TencentImSDKPlugin.v2TIMManager.initSDK(
   sdkAppID: 0, // Replace 0 with the SDKAppID of your IM application when integrating
   loglevel: LogLevelEnum.V2TIM_LOG_DEBUG, // Log
@@ -504,7 +478,7 @@ TencentImSDKPlugin.v2TIMManager.initSDK(
 当返回值`res.code`为0时，登录成功。
 
 ```dart
-import 'package:tencent_im_sdk_plugin/tencent_im_sdk_plugin.dart';
+import 'package:tencent_cloud_chat_sdk/tencent_cloud_chat_sdk.dart';
 V2TimCallback res = await TencentImSDKPlugin.v2TIMManager.login(
   userID: userID,
   userSig: userSig,
@@ -526,7 +500,7 @@ V2TimCallback res = await TencentImSDKPlugin.v2TIMManager.login(
 代码示例：
 
 ```dart
-import 'package:tencent_im_sdk_plugin/tencent_im_sdk_plugin.dart';
+import 'package:tencent_cloud_chat_sdk/tencent_cloud_chat_sdk.dart';
 
 V2TimValueCallback<V2TimMsgCreateInfoResult> createMessage =
       await TencentImSDKPlugin.v2TIMManager
@@ -569,7 +543,7 @@ V2TimValueCallback<V2TimMessage> res = await TencentImSDKPlugin.v2TIMManager
 为了获取会话列表，需要维护`nextSeq`，记录当前位置。
 
 ```dart
-import 'package:tencent_im_sdk_plugin/tencent_im_sdk_plugin.dart';
+import 'package:tencent_cloud_chat_sdk/tencent_cloud_chat_sdk.dart';
 
 String nextSeq = "0";
 
@@ -607,7 +581,7 @@ await TencentImSDKPlugin.v2TIMManager
 2. 处理回调事件，将最新的会话列表展示在界面上。
 
 ```dart
-import 'package:tencent_im_sdk_plugin/tencent_im_sdk_plugin.dart';
+import 'package:tencent_cloud_chat_sdk/tencent_cloud_chat_sdk.dart';
 
 List<V2TimConversation> _conversationList = [];
 
@@ -646,7 +620,7 @@ _onConversationListChanged(List<V2TimConversation> list) {
 示例代码如下：
 
 ```dart
-import 'package:tencent_im_sdk_plugin/tencent_im_sdk_plugin.dart';
+import 'package:tencent_cloud_chat_sdk/tencent_cloud_chat_sdk.dart';
 
   V2TimValueCallback<List<V2TimMessage>> res = await TencentImSDKPlugin
       .v2TIMManager
@@ -672,7 +646,7 @@ import 'package:tencent_im_sdk_plugin/tencent_im_sdk_plugin.dart';
 绑定监听器示例代码如下：
 
 ```dart
-import 'package:tencent_im_sdk_plugin/tencent_im_sdk_plugin.dart';
+import 'package:tencent_cloud_chat_sdk/tencent_cloud_chat_sdk.dart';
 
 final adVancesMsgListener = V2TimAdvancedMsgListener(
 onRecvNewMessage: (V2TimMessage newMsg) {
@@ -713,7 +687,7 @@ TencentImSDKPlugin.v2TIMManager
 
 ### Flutter for Web支持[](id:web)
 
-我们的 SDK，TUIKit(tim_ui_kit) 0.1.5版本，无 UI SDK(tencent_im_sdk_plugin) 4.1.1+2 版本起，可完美兼容 Web 端。
+我们的 SDK，TUIKit(tencent_cloud_chat_uikit) 0.1.5版本，无 UI SDK(tencent_cloud_chat_sdk) 4.1.1+2 版本起，可完美兼容 Web 端。
 
 相比 Android 和 iOS 端，需要一些额外步骤。如下：
 
@@ -755,7 +729,7 @@ npm i tim-upload-plugin
 
 ### Flutter for Desktop(PC) 支持[](id:pc)
 
-我们的无 UI SDK(tencent_im_sdk_plugin) 4.1.9 版本起，可完美兼容 macOS、Windows 端。相比 Android 和 iOS 端，需要一些额外步骤。如下：
+我们的无 UI SDK(tencent_cloud_chat_sdk) 4.1.9 版本起，可完美兼容 macOS、Windows 端。相比 Android 和 iOS 端，需要一些额外步骤。如下：
 
 #### 升级 Flutter 3.x 版本
 
@@ -790,15 +764,12 @@ flutter pub add tencent_im_sdk_plugin_desktop
 
 1. 搭载新款 Apple Silicon 的 Mac 设备，如 M1。
 ![](https://qcloudimg.tencent-cloud.cn/raw/dd87d8ff05aec0ecad461f12ef6c3020.png)
-
 ```shell
 cd ios
 sudo arch -x86_64 gem install ffi
 arch -x86_64 pod install --repo-update
 ```
-
 2. 搭载老款 Intel 芯片的 Mac 设备。
-
 ```shell
 cd ios
 sudo gem install ffi
@@ -822,7 +793,6 @@ pod install --repo-update
 ![](https://qcloudimg.tencent-cloud.cn/raw/d95efdd4ae50f13f38f4c383ca755ae7.png)
 
 1. 打开 `android\app\src\main\AndroidManifest.xml`，根据如下，补全 `xmlns:tools="http://schemas.android.com/tools"` / `android:label="@string/android_label"` 及 `tools:replace="android:label"`。
-
 ```xml
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="替换成您的 Android 端包名"
@@ -834,9 +804,7 @@ pod install --repo-update
         android:usesCleartextTraffic="true"
         android:requestLegacyExternalStorage="true">
 ```
-
 2. 打开 `android\app\build.gradle`，补全 `defaultConfig` 中 `minSdkVersion` 及 `targetSdkVersion`。
-
 ```gradle
 defaultConfig {
   applicationId "" // 替换成您的Android端包名

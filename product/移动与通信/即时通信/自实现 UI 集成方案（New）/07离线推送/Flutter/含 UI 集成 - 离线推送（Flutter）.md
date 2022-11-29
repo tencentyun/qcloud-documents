@@ -1,4 +1,4 @@
-腾讯云即时通信 IM 的终端用户需要随时都能够得知最新的消息，而由于移动端设备的性能与电量有限，当 App 处于后台时，为了避免维持长连接而导致的过多资源消耗，腾讯云即时通信 IM 推荐您使用各厂商提供的系统级推送通道来进行消息通知，系统级的推送通道相比第三方推送拥有更稳定的系统级长连接，可以做到随时接受推送消息，且资源消耗大幅降低。
+腾讯云即时通信 IM 的终端用户需要随时都能够得知最新的消息，而由于移动端设备的性能与电量有限，当 APP 处于后台时，为了避免维持长连接而导致的过多资源消耗，腾讯云即时通信 IM 推荐您使用各厂商提供的系统级推送通道来进行消息通知，系统级的推送通道相比第三方推送拥有更稳定的系统级长连接，可以做到随时接受推送消息，且资源消耗大幅降低。
 
 >?
 >
@@ -69,7 +69,7 @@
 
 请参见 [OPPO PUSH 服务开启指南](https://open.oppomobile.com/wiki/doc#id=10195) 注册开发者账号，创建应用，并开通 PUSH 服务。
 
-在 [OPPO 推送平台](https://push.oppo.com/) >**配置管理**>**应用配置**页面，您可以查看详细的应用信息。记录 AppId、AppKey、AppSecret 和 MasterSecret 信息。
+在 [OPPO 推送平台](https://push.oppo.com/) > **配置管理** > **应用配置**页面，您可以查看详细的应用信息。记录 AppId、AppKey、AppSecret 和 MasterSecret 信息。
 ![](https://qcloudimg.tencent-cloud.cn/raw/698b834d09e9baf6c19c6537a8763d0f.png)
 
 ##### 创建消息通道
@@ -96,7 +96,7 @@
 打开 [小米开放平台官网](https://dev.mi.com/console/) 进行注册并通过开发者认证。
  >?认证过程大约需要2天左右，请务必提前阅读 [小米推送服务启用指南](https://dev.mi.com/console/doc/detail?pId=68)，以免影响您的接入进度。
 
-在小米开放平台创建应用，并选择**应用服务**>**PUSH服务**，创建推送服务应用。
+在小米开放平台创建应用，并选择**应用服务** > **PUSH服务**，创建推送服务应用。
 ![](https://qcloudimg.tencent-cloud.cn/raw/2aa17cf6aea8514de9763a33b4fa7b03.png)
 
 小米推送服务应用创建完成后，在应用详情中，您可以查看详细的应用信息。
@@ -140,7 +140,7 @@
 2. 在华为推送平台中新建应用，详情参见 [创建应用](https://developer.huawei.com/consumer/cn/doc/distribution/app/agc-create_app)。记录**AppID**、**AppSecret** 信息。
 ![](https://main.qcloudimg.com/raw/2c02a68f87c37e5ac3680ab5d832b910.png)
 
->?若在**应用信息**>**我的应用**中无法找到 SecretKey，可前往项目**设置**>**常规**中查看 Client Secret。
+>?若在**应用信息** > **我的应用**中无法找到 SecretKey，可前往项目**设置** > **常规**中查看 Client Secret。
 >![](https://qcloudimg.tencent-cloud.cn/raw/b3a98c7f70f5f82f26d339d49d1cec47.png)
 
 ##### 配置 SHA256 证书指纹
@@ -159,12 +159,12 @@ apksigner sign --ks keystore.jks --ks-pass pass:您创建的keystore密码 --out
 
 ##### 获取华为推送配置文件
 
-登录华为开放平台，进入**我的项目**> 选择项目 > **项目设置**，下载华为应用最新配置文件 agconnect-services.json。放置于`android/app`目录下。
+登录华为开放平台，进入**我的项目** > 选择项目 > **项目设置**，下载华为应用最新配置文件 agconnect-services.json。放置于`android/app`目录下。
 ![](https://main.qcloudimg.com/raw/9929b0d6d8e6843f7d0109f0d5723128.png)
 
 ##### 打开推送服务开关
 
-在华为推送平台，单击**全部服务**>**推送服务**，进入推送服务页面。
+在华为推送平台，单击**全部服务** > **推送服务**，进入推送服务页面。
 ![](https://main.qcloudimg.com/raw/6e1ba602c237ca5766e4f029f4a5f93d.png)
 
 在**推送服务**页面，单击**立即开通**，详情请参见 [打开推送服务开关](https://developer.huawei.com/consumer/cn/doc/distribution/app/agc-enable_service#enable-service)。
@@ -183,10 +183,8 @@ apksigner sign --ks keystore.jks --ks-pass pass:您创建的keystore密码 --out
 ##### 开通服务
 
 1. 打开 [魅族开放平台官网](https://open.flyme.cn) 进行注册并通过开发者认证。
-
  >?认证过程大约需要3天左右，请务必提前阅读 [魅族 Flyme 推送接入文档](https://open.flyme.cn/)，以免影响您的接入进度。
-
-2. 登录魅族开放平台的管理控制台，选择**服务**>**集成推送服务**>**推送后台**，创建魅族推送服务应用。
+2. 登录魅族开放平台的管理控制台，选择**服务** > **集成推送服务** > **推送后台**，创建魅族推送服务应用。
 3. 魅族推送服务应用创建完成后，在应用详情中，您可以查看详细的应用信息。记录**应用包名**、**App ID**、**App Secret**信息。
  ![](https://main.qcloudimg.com/raw/d4ec7742c13579814761eb099dbfc8ea.png)
 
@@ -257,18 +255,15 @@ static final PushAppInfo appInfo = PushAppInfo(
 ##### 集成 Google Firebase Flutter 能力
 
 1. 请打开 pubspec.yaml 文件，添加对`firebase_core`的依赖，使用1.12.0版本。
-
 >?由于最新版 Google Firebase Flutter 插件最低支持的Dart版本为2.16.0，此处限制为2022年3月发布的1.12.0版本。
 >
 ```yaml
 dependencies:
   firebase_core: 1.12.0
 ```
-
 2. 执行`flutter pub get`完成安装。
 3. 在控制台内，执行以下命令，结合操作提示，完成配置 Google Firebase Flutter 项目。
 详见[Google FlutterFire 官方文档](https://firebase.flutter.dev/docs/overview)。
-
 ```shell
 // 安装Firebase CLI
 npm install -g firebase-tools
@@ -279,11 +274,9 @@ dart pub global activate flutterfire_cli
 // 生成配置文件
 flutterfire configure
 ```
-
 4. 执行该步骤后，会将此项目与您在 Google Firebase 创建的项目关联起来，执行结果可以参见下图：
 ![](https://qcloudimg.tencent-cloud.cn/raw/21aa8a7fc710746e7fafd28178f1e047.png)
 `main()`方法中初始化 FirebaseAPP。
-
 ```Dart
 WidgetsFlutterBinding.ensureInitialized();
 
@@ -301,7 +294,6 @@ await Firebase.initializeApp(
 
 1. 打开文件 `android/build.gradle` 。
 2. **buildscript**>**repositories & dependencies**下分别添加华为仓库地址和 HMS gradle 插件依赖：
-
 ```
 buildscript {
     repositories {
@@ -334,9 +326,7 @@ buildscript {
     }
 }
 ```
-
 3. 打开 `android/build.gradle` 文件，在**allprojects**>**repositories**下添加华为依赖仓库地址：
-
 ```
 allprojects {
     repositories {
@@ -346,8 +336,7 @@ allprojects {
     }
 }
 ```
-
-4. 登录华为开放平台，进入**我的项目**> 选择项目 > **项目设置**，下载华为应用最新配置文件 agconnect-services.json。放置于`android/app`目录下。
+4. 登录华为开放平台，进入**我的项目** > 选择项目 > **项目设置**，下载华为应用最新配置文件 agconnect-services.json。放置于`android/app`目录下。
 ![](https://main.qcloudimg.com/raw/9929b0d6d8e6843f7d0109f0d5723128.png)
 
 ##### 应用层引入 HMS SDK gradle 插件
@@ -415,16 +404,13 @@ AppID 及 AppKey 来自vivo开放平台-推送运营平台。
 #### 小米/OPPO/魅族
 
 1. 打开 `android/app/build.gradle` 文件，在 `defaultConfig` 中加入包名。
-
 ```
 defaultConfig {
     applicationId "${替换成您的包名}"
     ...
 }
 ```
-
 2. 打开 `android/app/src/main/AndroidManifest.xml` 文件，配置各厂商权限列表。
-
 ```xml
     <!--小米 开始-->
     <permission
@@ -456,12 +442,9 @@ defaultConfig {
 
 ### 步骤3：IM 初始化成功后初始化本推送插件
 
-调用插件`init`方法。该步骤会完成初始化各厂商通道，并申请厂商通知权限。
-
-请确保 IM SDK 初始化成功后，才可初始化本插件。
-
+1. 调用插件`init`方法。该步骤会完成初始化各厂商通道，并申请厂商通知权限。
+2. 请确保 IM SDK 初始化成功后，才可初始化本插件。
 >?由于国内大部分 Android 设备不支持 Google Service, 因此提供一个开关`isUseGoogleFCM`供开发者根据主要用户群体判断，是否启用 Google Firebase Cloud Messaging 推送服务。
-
 ```Dart
 import 'package:tim_ui_kit_push_plugin/tim_ui_kit_push_plugin.dart';
 
@@ -473,22 +456,16 @@ await cPush.init(
     appInfo: PushConfig.appInfo, // 传入STEP1做的appInfo
 );
 ```
-
 3. 初始化结束后，需要为部分厂商创建消息通道，如OPPO和小米均需此配置。调用`createNotificationChannel`方法即可。
-
 >?如果向厂商申请的 channel ID 一致，同一个 channel ID 调用一次即可。
-
 ```Dart
 cPush.createNotificationChannel(
   channelId: "new_message",
   channelName: "消息推送",
   channelDescription: "推送新聊天消息");
 ```
-
 4. 部分厂商（如 OPPO）默认不提供推送权限，需要开发者手动申请。调用`requireNotificationPermission`方法即可。
-
 >?申请权限的时机可由您自行决定，您可以在用户登录成功后再调用。
-
 ```Dart
 cPush.requireNotificationPermission();
 ```
@@ -665,7 +642,6 @@ void handleClickNotification(Map<String, dynamic> msg) async {
 
 1. 如果您使用到我们的 [tim_ui_kit_calling_plugin](https://pub.dev/packages/tim_ui_kit_calling_plugin) 插件，请将其升级至0.2.0版本以上，即可使用离线推送能力。
 2. 参见如下示例，直接在`call`方法第三个参数中，传入`offlinePush`对象即可。
-
 ```Dart
 final user = await sdkInstance.getLoginUser();
 final myId = user.data;
@@ -697,23 +673,18 @@ _calling?.call(widget.selectedConversation.userID!, CallingScenes.Audio, offline
 3. 执行`flutter pub get`安装好插件后进入 iOS 目录，执行：`pod install`安装依赖库。
 4. 将以下代码添加到 iOS 工程下`ios/Runner/AppDelegate.swift`文件`didFinishLaunchingWithOptions`方法中。可参考我们的 [DEMO](https://github.com/TencentCloud/tc-chat-demo-flutter/blob/main/ios/Runner/AppDelegate.swift)。
 Objective-C：
-
 ```objc
 if (@available(iOS 10.0, *)) {
   [UNUserNotificationCenter currentNotificationCenter].delegate = (id<UNUserNotificationCenterDelegate>) self;
 }
 ```
-
 Swift：
-
 ```swift
 if #available(iOS 10.0, *) {
   UNUserNotificationCenter.current().delegate = self as? UNUserNotificationCenterDelegate
 }
 ```
-
 5. 如果不使用 Google Firebase 套件，需要在`info.plist`加入如下字段。
-
 ```xml
 <key>flutter_apns.disable_firebase_core</key>
 <false/>
@@ -773,7 +744,7 @@ TIMUIKitChat(
 ### 推送 API
 
 1. 全员推送：可参见 [本文档](https://cloud.tencent.com/document/product/269/45933)，使用服务端请求腾讯云 IM 的 API，完成全员推送。此方案，还可自动按标签/属性等内容，精细化推送。
-2. 【无需旗舰版】针对特定成员的推送：可参见 [本文档](https://cloud.tencent.com/document/product/269/1612)，使用服务端，请求腾讯云IM的API，以批量发单聊消息的形式，给固定的用户 ID 列表，下发消息推送。该 API 上限500个用户，如果待发用户超过500人，可循环多次调用本 API。
+2. **无需旗舰版**针对特定成员的推送：可参见 [本文档](https://cloud.tencent.com/document/product/269/1612)，使用服务端，请求腾讯云IM的API，以批量发单聊消息的形式，给固定的用户 ID 列表，下发消息推送。该 API 上限500个用户，如果待发用户超过500人，可循环多次调用本 API。
 
 ### 推送方式
 
@@ -848,18 +819,18 @@ OfflinePushInfo 详细字段 [请参考本文档](https://cloud.tencent.com/docu
 2. 另外，一些厂商对于应用每天的推送数量也是有限制的，可以在厂商控制台查看应用每日限制的推送数量。
 如果离线推送消息出现推送不及时或者偶尔收不到情况，需要考虑下这里：
 
-- 华为：将推送消息分为服务与通讯类和资讯营销类，推送效果和策略不同。另外，消息分类还和自分类权益有关：
-  - 无自分类权益，推送消息厂商还会进行二次智能分类 。
-  - 有申请自分类权益，消息分类会按照自定义的分类进行推送。
+ - 华为：将推送消息分为服务与通讯类和资讯营销类，推送效果和策略不同。另外，消息分类还和自分类权益有关：
+    - 无自分类权益，推送消息厂商还会进行二次智能分类 。
+    - 有申请自分类权益，消息分类会按照自定义的分类进行推送。
   具体请参见 [厂商描述](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/message-classification-0000001149358835)。
-- vivo：将推送消息分为系统消息类和运营消息类，推送效果和策略不同。系统消息类型还会进行厂商的智能分类二次修正，若智能分类识别出不是系统消息，会自动修正为运营消息，如果误判可邮件申请反馈。另外，消息推送也受日推总数量限制，日推送量由应用在厂商订阅数统计决定。
+ - vivo：将推送消息分为系统消息类和运营消息类，推送效果和策略不同。系统消息类型还会进行厂商的智能分类二次修正，若智能分类识别出不是系统消息，会自动修正为运营消息，如果误判可邮件申请反馈。另外，消息推送也受日推总数量限制，日推送量由应用在厂商订阅数统计决定。
 具体请参见 [厂商描述1](https://dev.vivo.com.cn/documentCenter/doc/359) 或 [厂商描述2](https://dev.vivo.com.cn/documentCenter/doc/156)。
-- OPPO：将推送消息分为私信消息类和公信消息类，推送效果和策略不同。其中私信消息是针对用户有一定关注度，且希望能及时接收的信息，私信通道权益需要邮件申请。公信通道推送数量有限制。
+ - OPPO：将推送消息分为私信消息类和公信消息类，推送效果和策略不同。其中私信消息是针对用户有一定关注度，且希望能及时接收的信息，私信通道权益需要邮件申请。公信通道推送数量有限制。
 具体请参见 [厂商描述1](https://open.oppomobile.com/wiki/doc#id=11227) 或 [厂商描述2](https://open.oppomobile.com/wiki/doc#id=11210)。
-- 小米：将推送消息分为重要消息类和普通消息类，推送效果和策略不同。其中重要消息类型仅允许即时通讯消息、个人关注动态提醒、个人事项提醒、个人订单状态变化、个人财务提醒、个人状态变化、个人资源变化、个人设备提醒这8类消息推送，可以在厂商控制台申请开通。普通消息类型推送数量有限制。
+ - 小米：将推送消息分为重要消息类和普通消息类，推送效果和策略不同。其中重要消息类型仅允许即时通讯消息、个人关注动态提醒、个人事项提醒、个人订单状态变化、个人财务提醒、个人状态变化、个人资源变化、个人设备提醒这8类消息推送，可以在厂商控制台申请开通。普通消息类型推送数量有限制。
 具体请参见 [厂商描述1](https://dev.mi.com/console/doc/detail?pId=2422) 或 [厂商描述2](https://dev.mi.com/console/doc/detail?pId=2086)。
-- 魅族：推送消息数量有限制，具体可参见 [魅族平台合约](http://open.res.flyme.cn/fileserver/upload/file/202201/85079f02ac0841da859c1da0ef351970.pdf)。
-- FCM：推送上行消息频率有限制。
+ - 魅族：推送消息数量有限制，具体可参见 [魅族平台合约](http://open.res.flyme.cn/fileserver/upload/file/202201/85079f02ac0841da859c1da0ef351970.pdf)。
+ - FCM：推送上行消息频率有限制。
 具体请参见 [厂商描述](https://firebase.google.com/docs/cloud-messaging/concept-options?hl=zh-cn#upstream_throttling)。
 
 ## 收不到离线推送怎么排查？

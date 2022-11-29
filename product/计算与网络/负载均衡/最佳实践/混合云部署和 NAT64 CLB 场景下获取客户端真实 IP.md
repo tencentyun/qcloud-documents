@@ -12,7 +12,6 @@
 >- 该功能目前处于内测中，如需使用，请提交 [工单申请](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=163&source=0&data_title=%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%20CLB&level3_id=1068&radio_title=%E9%85%8D%E9%A2%9D/%E7%99%BD%E5%90%8D%E5%8D%95&queue=96&scene_code=41669&step=2)。
 >
 
-
 ## 应用场景
 ### 混合云部署场景
 在 [混合云部署](https://cloud.tencent.com/document/product/214/48181) 中，IDC 的 IP 和云上 VPC 的 IP 可能会有地址重叠，因此需要配置 SNAT IP，进行 SNAT 转换源 IP。对于服务端而言，无法获得真实源 IP，因此需要通过 TOA 进行获取。
@@ -44,8 +43,6 @@
 2. 登录 [负载均衡控制台](https://console.cloud.tencent.com/clb)，创建 TCP 监听器，详情请参见 [配置 TCP 监听器](https://cloud.tencent.com/document/product/214/36386)。
 3. 在“创建监听器”对话框中，开启 TOA 开关。
 ![](https://qcloudimg.tencent-cloud.cn/raw/c92df2a900b94e104d261c5dbb475202.png)
-
-
 
 
 ## [加载 TOA 模块](id:load-toa)

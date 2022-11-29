@@ -67,23 +67,23 @@
 防火墙实例创建完成后，可以对实例做一些操作，具体如下所示。
 
 #### 查看配置详情
-1. 在 [VPC 间开关页面](https://console.cloud.tencent.com/cfw/switch/vpc/vpc?tab=instance)，单击**防火墙实例 ID**或者是右侧的**详情**。
+1. 在[防火墙实例页面](https://console.cloud.tencent.com/cfw/switch/vpc/vpc?tab=instance)，单击**防火墙实例 ID**或者是右侧的**详情**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/839a64b69ea7040b859a77365e738838.png)
 2. 在防火墙实例页面，在可以查看实例的相关配置详情。
 ![](https://qcloudimg.tencent-cloud.cn/raw/54f5d048b0c7f9f9f4cee484b1b849b5.png)
 
 #### 查看防火墙开关
-在 VPC 间开关页面，单击**更多** > **查看防火墙开关**，可以查看实例对应的防火墙开关。
+在防火墙实例页面，单击**更多** > **查看防火墙开关**，可以查看实例对应的防火墙开关。
 ![](https://qcloudimg.tencent-cloud.cn/raw/38089e01f230c7f869766bd2006276c9.png)
 
 #### 销毁防火墙实例
-1. 在 VPC 间开关页面，选择所需实例，单击防火墙开关处的**数字**。
+1. 在防火墙实例页面，选择所需实例，单击防火墙开关处的**数字**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/4297db05620764ab6a04385344e9c4fd.png)
 2. 在防火墙开关页面，单击![](https://qcloudimg.tencent-cloud.cn/raw/3ab29f514c114f26fdd157e67e15628a.png)关闭已开启的防护墙。
 ![](https://qcloudimg.tencent-cloud.cn/raw/861c4edcd14449430b1ccf5a749b4785.png)
-3. 在 VPC 间开关页面，单击**更多** > **销毁实例**。
+3. 在防火墙实例页面，单击**更多** > **销毁实例**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/88fc476b9e401c5c275b5f235d38390c.png)
-4. 在确认销毁弹出中，单击**确定**，即可销毁所选实例。
+4. 在确认销毁窗口中，单击**确定**，即可销毁所选实例。
 >?销毁实例后，对应地域的 VPC 间防火墙实例将被回收，所有数据将清除，您的 VPC 间防火墙配额将会归还，系统会自动还原网络和路由设置。
 >
 
@@ -92,14 +92,27 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/4297db05620764ab6a04385344e9c4fd.png)
 2. 在防火墙开关页面，单击![](https://qcloudimg.tencent-cloud.cn/raw/3ab29f514c114f26fdd157e67e15628a.png)关闭已开启的防护墙。
 ![](https://qcloudimg.tencent-cloud.cn/raw/861c4edcd14449430b1ccf5a749b4785.png)
-3. 在防火墙开关页面，单击 **更多** > **重新选择接入实例**，进入编辑 VPC 间防火墙页面。
-![](https://qcloudimg.tencent-cloud.cn/raw/904e5279e7560f5ac126b7d58025f72c.png)
+3. 在防火墙开关页面，单击**更多** > **重新选择接入实例**，进入编辑 VPC 间防火墙页面。
+![](https://qcloudimg.tencent-cloud.cn/raw/70df7a21e335aae5ae0cad25f5ebb5b7.png)
+>!
+>- 当以私有网络模式接入 VPC 间防火墙，支持重新选择接入的 VPC 实例。
+>- 云联网模式则接入云联网内的所有 VPC 实例，不支持重新选择。
+>
 4. 在编辑 VPC 间防火墙页面，选择所需实例，单击**下一步**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d8a0cf72381de0d7275c5363ea468b88.png)
 5. 选择选择部署的地域/可用区，单击**完成**，即可完成重新选择接入的实例。
 >?异地灾备：勾选后，支持将主机和备机防火墙部署在不同可用区。
 >
 ![](https://qcloudimg.tencent-cloud.cn/raw/e70b43d04e0117eb41313281ad7498e8.png)
+
+#### 开启 ByPass
+重新选择接入实例后，添加开启 ByPass 内容，如下：
+
+ByPass 模式下当前实例下所有流量均不会过防火墙，所有防火墙配置将失效，建议在调试时使用。在防火墙实例页面，单击**更多** > **开启 ByPass**。
+>!调试完成请手动关闭 ByPass 模式。
+>
+![](https://qcloudimg.tencent-cloud.cn/raw/45c51c245d931d38fcf557543442f79e.png)
+
 
 ## 查看网络拓扑
 云防火墙提供了一个可视化视图，帮助您快速梳理 VPC间资产的访问关系，具体操作如下所示。
@@ -127,7 +140,7 @@
 2. 在确认开启弹窗中，单击**确定**，即可开启防护。 
 
 #### 关闭防护
-关闭开关后，系统会自动恢复相关路由表的路由策略，所有防火墙对应的本端-对端网络间的流量将恢复原先路劲，不会经过 VPC 间防火墙。
+关闭开关后，系统会自动恢复相关路由表的路由策略，所有防火墙对应的本端-对端网络间的流量将恢复原先路径，不会经过 VPC 间防火墙。
 1. 在 [VPC 间开关页面](https://console.cloud.tencent.com/cfw/switch/vpc/vpc?tab=instance)，单击**防火墙开关**，支持单个或全部关闭防火墙。
     - 单个：选择所需防火墙，单击防火墙开关的![](https://qcloudimg.tencent-cloud.cn/raw/d17747e4df84d5724919e7f8b54ff5f3.png)，弹出确认关闭弹窗。
 ![](https://qcloudimg.tencent-cloud.cn/raw/37cd5583d34a46f649d6159eb4adc84d.png)
@@ -136,10 +149,10 @@
 2. 在确认关闭弹窗中，单击**确定**，即可关闭防护。
 
 #### 查看规则
-1. 在防火墙开关页面，单击 **查看规则**，进入 VPC 间规则页面。
-![](https://qcloudimg.tencent-cloud.cn/raw/df1488d4b19c831887971f8725753ecd.png)
-2. 在 VPC 间规则页面，可以对规则进行查看和编辑，操作详情请参见 [访问控制-VPC 间规则](https://cloud.tencent.com/document/product/1132/46934)。
-![](https://qcloudimg.tencent-cloud.cn/raw/6030da610ad41f22b7b9757969ebe8c4.png)
+1. 在防火墙开关页面，单击**查看规则**，进入内网间规则页面。
+![](https://qcloudimg.tencent-cloud.cn/raw/c80573809908b06dca1b9463ca192f78.png)
+2. 在内网间规则页面，可以对规则进行查看和编辑，操作详情请参见 [访问控制-内网间规则](https://cloud.tencent.com/document/product/1132/46934)。
+![](https://qcloudimg.tencent-cloud.cn/raw/8e398e697222e7b13b16b204431923d3.png)
 
 #### 查看日志
 在防火墙开关页面，单击 **更多** > **查看日志**，可以选择查看流量访问控制日志或流量日志。
@@ -157,8 +170,7 @@
 ![](https://main.qcloudimg.com/raw/4695ad39e9521abf15790f5853aa302e.png)
 &nbsp;
 4. 您可以单击某个 VPC 节点，页面进入聚焦视图，显示以聚焦 VPC 为中心的拓扑结构。
-5. 彼此互通的 VPC 间通过连线相连接，连线中可以查看防火墙开关，您可以操作开关，也可以通过单击开关的图标，直接进入访问控制规则配置页面。
-&nbsp;
+5. 彼此互通的 VPC 间通过连线相连接，连线中可以查看防火墙开关，您可以操作开关，也可以通过单击防火墙的图标，直接进入访问控制规则配置页面。
 ![](https://main.qcloudimg.com/raw/068efc0cca7825bff46fface21af1313.png)
 
 ## VPC 间防火墙的异常场景说明
