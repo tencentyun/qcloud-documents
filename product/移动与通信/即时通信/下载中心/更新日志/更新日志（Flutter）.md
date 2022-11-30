@@ -13,7 +13,7 @@
 
 >? Web/macOS/Windows 平台需要简单的几步额外引入，详情请查看 [Web 兼容](https://cloud.tencent.com/document/product/269/68823#web) 和 [Desktop 兼容](https://cloud.tencent.com/document/product/269/68823#pc) 指引。
 
-## 更新日志
+## SDK 说明
 
 IM Flutter SDK（无 UI）指代 [tencent_cloud_chat_sdk](https://pub.dev/packages/tencent_cloud_chat_sdk) 包，仅包括所有 IM 客户端 API 及监听回调。
 
@@ -21,6 +21,8 @@ IM Flutter TUIKit（含 UI）指代 [tencent_cloud_chat_uikit](https://pub.dev/p
 
 >?无 UI 的 SDK 现已从 [tencent_im_sdk_plugin](https://pub.dev/packages/tencent_im_sdk_plugin) 迁移至 [tencent_cloud_chat_sdk](https://pub.dev/packages/tencent_cloud_chat_sdk)；TUIKit现已从 [tim_ui_kit](https://pub.dev/packages/tim_ui_kit) 迁移至 [tencent_cloud_chat_uikit](https://pub.dev/packages/tencent_cloud_chat_uikit)。
 > 后续两个原始版本包将陆续不再维护，请所有客户尽快升级至最新版本，谢谢。
+
+## 更新日志
 
 ### IM Flutter SDK（无 UI） 5.0.6 @2022.11.29
 
