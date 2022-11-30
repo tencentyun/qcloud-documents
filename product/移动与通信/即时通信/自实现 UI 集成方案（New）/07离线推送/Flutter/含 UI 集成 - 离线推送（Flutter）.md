@@ -449,7 +449,7 @@ AppID 及 AppKey 来自vivo开放平台-推送运营平台。
 
 ```gradle
 repositories {
-    maven { url 'https://developer.hihonor.com/repo/' }
+    maven { url 'https://developer.hihonor.com/repo/' }  // 新增
 }
 ```
 
