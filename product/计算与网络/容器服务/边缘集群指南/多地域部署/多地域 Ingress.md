@@ -14,7 +14,7 @@
 3. 选择页面左侧**组件管理**，进入组件列表页面，点击**新建**，添加 Ingress-Controller 边缘组件，单击**完成**。如下图所示：
 <div align="left"><img src="https://qcloudimg.tencent-cloud.cn/raw/0d12e39e5f5dbf6fd0bf43c83bd21da5.jpg" width=100% title="service-group"></div>
 4. 等待边缘组件安装完成。如下图所示：
-<div align="left"><img src="https://qcloudimg.tencent-cloud.cn/raw/376859db5cc03dd6de5e6b915a9d840d.jpg" width=100% title="service-group"></div>
+![](https://qcloudimg.tencent-cloud.cn/raw/5c3f00e83ac32292593d878707908391.png)
 5. 单击已经部署的组件名称，进入组件详情页面。如下图所示：
 <div align="left"><img src="https://qcloudimg.tencent-cloud.cn/raw/ca0bc6fc0e2d2db6946b632ec7c0c830.jpg" width=100% title="service-group"></div>
 6. 单击**新增Nginx Ingress 实例**，在指定的地域（NodeUnit）创建 Nginx-Ingress-Controller 实例。如下图所示：
