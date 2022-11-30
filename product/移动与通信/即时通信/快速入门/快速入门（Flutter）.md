@@ -13,7 +13,7 @@
 
 我们致力于打造一套支持 Flutter 全平台的即时通信 IM SDK 及 TUIKit，帮助您一套代码，全平台运行。
 
-| 平台 | 无 UI SDK (tencent_cloud_chat_sdk) | 含 UI 及基础业务逻辑 TUIKit (tencent_cloud_chat_uikit) |
+| 平台 | 无 UI SDK ([tencent_cloud_chat_sdk](https://pub.dev/packages/tencent_cloud_chat_sdk)) | 含 UI 及基础业务逻辑 TUIKit ([tencent_cloud_chat_uikit](https://pub.dev/packages/tencent_cloud_chat_uikit)) |
 |---------|---------|---------|
 | iOS | 支持 | 支持 |
 | Android | 支持 | 支持 |
