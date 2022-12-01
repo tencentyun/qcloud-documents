@@ -16,7 +16,6 @@
 - 已在云直播控制台的 **[域名管理](https://console.cloud.tencent.com/live/domainmanage)** 中成功 [添加自有域名](https://cloud.tencent.com/document/product/267/20381)，并验证域名归属权且域名 CNAME 地址状态为![](https://main.qcloudimg.com/raw/ed1ac2f8541f629814a3f2420b1eb79c.png)（CNAME 未配置）。
 
 
-
 ## 配置步骤
 本文以在腾讯云、阿里云、百度云、DNSPod、万网、新网配置 CNAME 域名解析为例。操作步骤仅供参考，如与实际配置不符，请以各自 DNS 服务商的信息为准。域名 CNAME 设置完成后，您可根据 [验证 CNAME 是否生效](#check) 所述方法验证域名是否已 CNAME 成功。
 
