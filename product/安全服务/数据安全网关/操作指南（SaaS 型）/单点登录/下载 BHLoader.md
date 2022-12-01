@@ -5,7 +5,6 @@ BHLoader 是用于调用本地客户端的程序，运维人员必须安装。�
 - 管理员已告知运维人员登录地址。
 - 运维人员已完成 [账号激活](https://cloud.tencent.com/document/product/1025/55183#step2)。
 
-
 ## 操作步骤
 1.	在浏览器中输入运维页面登录地址，打开堡垒机运维页面；输入手机号、密码登录堡垒机；也可以单击**账号密码**切换到账号名、密码方式登录。
 ![](https://main.qcloudimg.com/raw/9e6ff01bf36301cbfd3ef44a596affc3.png)
