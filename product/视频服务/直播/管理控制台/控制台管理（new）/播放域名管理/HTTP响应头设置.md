@@ -45,4 +45,3 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/2becbedf4b932ffdec4aa8448b58b84e.png)
 5. 配置完成后，您可以单击**提交**功能，系统会根据后台生效情况展示：`配置中，未生效`、`配置失败：失败原因`、`配置已生效`。
 ![](https://qcloudimg.tencent-cloud.cn/raw/5208a2f1d536e7570719277e62a29c90.png)
-
