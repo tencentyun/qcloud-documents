@@ -75,7 +75,7 @@
 以基于 XML 的 Java SDK 命令行为例，需填入参数如下：
 ```
 // 1 初始化身份信息
-COSCredentials cred = new BasicCOSCredentials("<主账号APPID>", "<子账号SecretId>", "<子账号SecretKey>");
+COSCredentials cred = new BasicCOSCredentials("<主账号 APPID>", "<子账号 SecretId>", "<子账号 SecretKey>");
 ```
 
 实例如下：
@@ -88,7 +88,7 @@ COSCredentials cred = new BasicCOSCredentials("1250000000", "AKIDasdfmRxHPa9oLhJ
 
 以 COSCMD 的配置命令为例，需填入的参数如下：
 ```sh
-coscmd config -u <主账号 APPID> -a <子账号 SecretId> -s <子账号SecretKey>  -b <主账号 bucketname> -r <主账号  bucket 所属地域>
+coscmd config -u <主账号 APPID> -a <子账号 SecretId> -s <子账号 SecretKey>  -b <主账号 bucketname> -r <主账号  bucket 所属地域>
 ```
 实例如下：
 ```sh
@@ -183,7 +183,7 @@ coscmd config -u 1250000000 -a AKIDasdfmRxHPa9oLhJp**** -s e8Sdeasdfas2238Vi****
 
 
 ### 示例4：为子账户配置某 IP 段的读写权限
-本示例中限制仅 IP 网段为`192.168.1.0/24`和`192.168.2.0/24`的地址具有读写权限，如下所示。
+本示例中限制仅 IP 网段为 `192.168.1.0/24` 和 `192.168.2.0/24` 的地址具有读写权限，如下所示。
 更丰富的生效条件填写，请参见 [生效条件](https://cloud.tencent.com/document/product/598/10608)。
 ```
 {
