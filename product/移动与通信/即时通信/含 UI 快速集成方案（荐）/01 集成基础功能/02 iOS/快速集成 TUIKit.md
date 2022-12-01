@@ -1,5 +1,8 @@
-TUIKit 从 5.7.1435 版本开始支持模块化集成，您可以根据自己的需求集成所需模块。
+﻿TUIKit 从 5.7.1435 版本开始支持模块化集成，您可以根据自己的需求集成所需模块。
+TUIKit 从 6.9.3557 版本开始新增了全新的简约版 UI 组件，之前版本 UI 组件依旧保留，我们称之为经典版 UI 组件，您可以根据需求自由选择经典版或简约版 UI 组件。
+
 如果您还不了解各个界面库的功能，可以查阅文档 [TUIKit 界面库介绍](https://cloud.tencent.com/document/product/269/37190)。
+
 下文将介绍如何集成 TUIKit 组件。 
 
 ## 开发环境要求
@@ -18,6 +21,10 @@ sudo gem install cocoapods
 pod init
 ```
 3. 根据业务需求在 Podfile 中添加对应的 TUIKit 组件之间相互独立，添加或删除均不影响工程编译。  Podfile 配置示例如下：
+
+<dx-tabs>
+
+::: 经典版
   ```
   # Uncomment the next line to define a global platform for your project
   # ...
@@ -35,23 +42,66 @@ pod init
     # use_modular_headers!
     
     # 集成聊天功能
-    pod 'TUIChat'
+    pod 'TUIChat/UI_Classic' 
     # 集成会话功能
-    pod 'TUIConversation'
+    pod 'TUIConversation/UI_Classic'
     # 集成关系链功能
-    pod 'TUIContact'
+    pod 'TUIContact/UI_Classic'
     # 集成群组功能
-    pod 'TUIGroup'
+    pod 'TUIGroup/UI_Classic' 
     # 集成搜索功能（需要购买旗舰版套餐）
-    pod 'TUISearch'
+    pod 'TUISearch/UI_Classic' 
     # 集成离线推送
     pod 'TUIOfflinePush'
     # 集成音视频通话功能
     pod 'TUICallKit'
-  
+		
   end
   ```
-> ? 如果您使用的是 Swift，请开启 use_modular_headers!，并将头文件引用改成 @import 模块名形式引用。
+:::
+
+::: 简约版
+  ```
+  # Uncomment the next line to define a global platform for your project
+  # ...
+  
+  # 防止 TUIKit 组件里的 *.xcassets 与您项目里面冲突。
+  install! 'cocoapods', :disable_input_output_paths => true
+  
+  # 请使用您的真实项目名称替换 your_project_name
+  target 'your_project_name' do
+    # Comment the next line if you don't want to use dynamic frameworks
+    # TUIKit 组件依赖了静态库，需要屏蔽此设置。
+    # use_frameworks!
+  
+    # 开启 modular headers。请按需开启，开启后 Pod 模块才能使用 @import 导入。
+    # use_modular_headers!
+    
+    # 集成聊天功能
+    pod 'TUIChat/UI_Minimalist' 
+    # 集成会话功能
+    pod 'TUIConversation/UI_Minimalist'
+    # 集成关系链功能
+    pod 'TUIContact/UI_Minimalist'
+    # 集成群组功能
+    pod 'TUIGroup/UI_Minimalist' 
+    # 集成搜索功能（需要购买旗舰版套餐）
+    pod 'TUISearch/UI_Minimalist' 
+    # 集成离线推送
+    pod 'TUIOfflinePush'
+    # 集成音视频通话功能
+    pod 'TUICallKit'
+		
+  end
+  ```
+:::
+</dx-tabs>
+
+> ?1、如果您直接 `pod 'TUIChat'`，不指定经典版或简约版，默认会集成两套版本 UI 组件。 
+> 2、经典版和简约版 UI 不能混用，集成多个组件时，您必须同时全部选择经典版 UI 或简约版 UI。
+> 例如，经典版 TUIChat 组件必须与经典版 TUIConversation、TUIContact、TUIGroup组件搭配使用。同理，简约版 TUIChat 组件必须与简约版 TUIConversation、TUIContact、TUIGroup 组件搭配使用。
+> 3、如果您使用的是 Swift，请开启 use_modular_headers!，并将头文件引用改成 @import 模块名形式引用。
+
 4. 执行以下命令，安装 TUIKit 组件。
 ```bash
 pod install
@@ -61,7 +111,7 @@ pod install
 pod repo update
 ```
   集成全部的 TUIKit 组件后的项目结构：
-  <img src="https://qcloudimg.tencent-cloud.cn/raw/19b13ff38225d07924eadf79123d2012.png" style="zoom:50%;"/> 
+  <img src="https://qcloudimg.tencent-cloud.cn/raw/42a839342ac69e1d87952a05458df0e4.png" style="zoom:50%;"/> 
 
 ## 快速搭建
 常用的聊天软件都是由会话列表、聊天窗口、好友列表、音视频通话等几个基本的界面组成，参考下面步骤，您仅需几行代码即可在项目中快速搭建这些 UI 界面。
@@ -92,13 +142,17 @@ SDKAppID 需要在 [即时通信 IM 控制台](https://console.cloud.tencent.com
 会话列表只需要创建 `TUIConversationListController` 对象即可。会话列表会从数据库中读取最近联系人，当用户点击联系人时，`TUIConversationListController` 将事件 `didSelectConversation` 回调给上层。
 
 示例代码如下所示：
+
+<dx-tabs>
+::: 经典版
 ```java
 #import "TUIConversationListController.h"
 
-@implementation ConversationController // 您自己的 ViewController
+// ConversationController 为您自己的 ViewController
+@implementation ConversationController 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // 创建 TUIConversationListController
+    // TUIConversationListController
     TUIConversationListController *vc = [[TUIConversationListController alloc] init];
     vc.delegate = self;
     // 把 TUIConversationListController 添加到自己的 ViewController
@@ -113,20 +167,50 @@ SDKAppID 需要在 [即时通信 IM 控制台](https://console.cloud.tencent.com
 }
 @end
 ```
+:::
+
+::: 简约版
+```java
+#import "TUIConversationListController_Minimalist.h"
+
+// ConversationController 为您自己的 ViewController
+@implementation ConversationController
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // TUIConversationListController_Minimalist
+    TUIConversationListController_Minimalist *vc = [[TUIConversationListController_Minimalist alloc] init];
+    vc.delegate = self;
+    // 把 TUIConversationListController_Minimalist 添加到自己的 ViewController
+    [self addChildViewController:vc];
+    [self.view addSubview:vc.view];
+}
+
+- (void)conversationListController:(TUIConversationListController_Minimalist *)conversationController 
+            didSelectConversation:(TUIConversationCell *)conversation
+{
+    // 会话列表点击事件，通常是打开聊天界面
+}
+@end
+```
+:::
+</dx-tabs>
 
 ### 步骤3：构建聊天窗口
 初始化聊天界面时，需要上层传入当前聊天界面对应的会话信息。
 
 示例代码如下所示：
+<dx-tabs>
+::: 经典版
 ```java
 #import "TUIC2CChatViewController.h"
 
-@implementation ChatViewController // 您自己的 ViewController
+// ChatViewController 为您自己的 ViewController
+@implementation ChatViewController
 - (void)viewDidLoad {
   // 创建会话信息
   TUIChatConversationModel *data = [[TUIChatConversationModel alloc] init];
   data.userID = @"userID";    
-  // 创建 TUIC2CChatViewController
+  // TUIC2CChatViewController
   TUIC2CChatViewController *vc = [[TUIC2CChatViewController alloc] init];  
   [vc setConversationData:data];
   // 把 TUIC2CChatViewController 添加到自己的 ViewController
@@ -136,14 +220,40 @@ SDKAppID 需要在 [即时通信 IM 控制台](https://console.cloud.tencent.com
 @end
 ```
 >? `TUIC2CChatViewController` 会自动拉取该用户的历史消息并展示出来。
+:::
+
+::: 简约版
+```java
+#import "TUIC2CChatViewController_Minimalist.h"
+
+// ChatViewController 为您自己的 ViewController
+@implementation ChatViewController
+- (void)viewDidLoad {
+  // 创建会话信息
+  TUIChatConversationModel *data = [[TUIChatConversationModel alloc] init];
+  data.userID = @"userID";    
+  // 创建 TUIC2CChatViewController_Minimalist
+  TUIC2CChatViewController_Minimalist *vc = [[TUIC2CChatViewController_Minimalist alloc] init];  
+  [vc setConversationData:data];
+  // 把 TUIC2CChatViewController 添加到自己的 ViewController
+  [self addChildViewController:vc];
+  [self.view addSubview:vc.view];
+}
+@end
+```
+>? `TUIC2CChatViewController_Minimalist` 会自动拉取该用户的历史消息并展示出来。
+:::
+</dx-tabs>
 
 ### 步骤4：构建通讯录界面
 通讯录界面不需要其它依赖，只需创建对象并显示出来即可。
-
+<dx-tabs>
+::: 经典版
 ```java
 #import "TUIContactController.h"
 
-@implementation ContactController // 您自己的 ViewController
+// ContactController 为您自己的 ViewController
+@implementation ContactController
 - (void)viewDidLoad {    
   // 创建 TUIContactController
   TUIContactController *vc = [[TUIContactController alloc] init];
@@ -163,8 +273,38 @@ SDKAppID 需要在 [即时通信 IM 控制台](https://console.cloud.tencent.com
 - (void)onGroupConversation:(TUICommonTableViewCell *)cell;
 @end
 ```
+:::
+
+::: 简约版
+```java
+#import "TUIContactController_Minimalist.h"
+
+// ContactController 为您自己的 ViewController
+@implementation ContactController
+- (void)viewDidLoad {    
+  // 创建 TUIContactController_Minimalist
+  TUIContactController_Minimalist *vc = [[TUIContactController_Minimalist alloc] init];
+  // 把 TUIContactController_Minimalist 添加到自己的 ViewController
+  [self addChildViewController:vc];
+  [self.view addSubview:vc.view];
+}
+@end
+```
+注意，上面代码只能将 `TUIContactController_Minimalist` 初始化并展示出来，其中的点击行为（例如点击好友、添加好友等），TUIKit 会通过 `TUIContactControllerListener_Minimalist` 抛给上层处理：
+```java
+@protocol TUIContactControllerListener_Minimalist <NSObject>
+@optional
+- (void)onSelectFriend:(TUICommonContactCell *)cell;
+- (void)onAddNewFriend:(TUICommonTableViewCell *)cell;
+- (void)onGroupConversation:(TUICommonTableViewCell *)cell;
+@end
+```
+:::
+</dx-tabs>
 
 例如，点击好友后，您可以将好友信息页展示出来：
+<dx-tabs>
+::: 经典版
 ```objectivec
 #import "TUIFriendProfileController.h"
 
@@ -178,6 +318,26 @@ SDKAppID 需要在 [即时通信 IM 控制台](https://console.cloud.tencent.com
     [self.navigationController pushViewController:(UIViewController *)vc animated:YES];
 }
 ```
+:::
+
+::: 简约版
+```objectivec
+#import "TUIFriendProfileController_Minimalist.h"
+
+- (void)onSelectFriend:(TUICommonContactCell *)cell
+{
+    TUICommonContactCellData *data = cell.contactData;
+    // 创建好友资料 vc
+    TUIFriendProfileController_Minimalist *vc = [[TUIFriendProfileController_Minimalist alloc] init];
+    vc.friendProfile = data.friendProfile;
+    // 展示好友资料 vc
+    [self.navigationController pushViewController:(UIViewController *)vc animated:YES];
+}
+```
+:::
+
+</dx-tabs>
+
 >? 您可以 [下载 TUIKitDemo 源码](https://cloud.tencent.com/document/product/269/68228)，查看更多的通讯录事件实现。
 
 ### 步骤5：构建音视频通话功能
