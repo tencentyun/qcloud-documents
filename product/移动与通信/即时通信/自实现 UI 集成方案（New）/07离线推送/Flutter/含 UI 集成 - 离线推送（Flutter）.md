@@ -436,6 +436,14 @@ AppID 及 AppKey 来自vivo开放平台-推送运营平台。
 </application>
 ```
 
+打开 `android/app/build.gradle` 文件，添加如下代码。
+
+```gradle
+repositories {
+    maven { url 'https://developer.hihonor.com/repo/' }  // 新增
+}
+```
+
 ##### 推送角标权限
 
 打开 `android/app/src/main/AndroidManifest.xml` 文件，如下添加 uses-permission 。
