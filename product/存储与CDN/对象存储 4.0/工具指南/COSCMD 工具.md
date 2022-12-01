@@ -521,8 +521,8 @@ coscmd download -rs / D:/examplefolder --ignore "*.txt"
 - 操作示例 - 过滤 .txt 和 .doc 的后缀文件
 ```plaintext
 coscmd download -rs / D:/examplefolder --include *.txt,*.doc
-- 操作示例 - 过滤 .txt 后缀的文件
 ```
+- 操作示例 - 过滤 .txt 后缀的文件
 ```plaintext
 coscmd download -rs / D:/examplefolder --include "*.txt"
 ```
