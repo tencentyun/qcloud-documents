@@ -1,7 +1,7 @@
 ## 问题描述
 
 Windows 操作系统的本地计算机通过 RDP 协议（如 MSTSC 方式）远程桌面连接登录 Windows 云服务器时，出现如下报错：
-你的凭据无法工作，之前用于连接到 `XXX.XXX.XXX.XXX` 的凭据无法工作。请输入新凭据。
+您的凭据无法工作，之前用于连接到 `XXX.XXX.XXX.XXX` 的凭据无法工作。请输入新凭据。
 ![](https://main.qcloudimg.com/raw/74c6302cc36d82e5add5d9ea872d4572.png)
 
 ## 处理步骤
@@ -65,5 +65,4 @@ Windows 操作系统的本地计算机通过 RDP 协议（如 MSTSC 方式）远
 3. 重新连接 Windows 云服务器，验证连接是否成功。
  - 是，任务结束。
  - 否，请通过 [在线支持](https://cloud.tencent.com/online-service?from=doc_213) 反馈。
-
 

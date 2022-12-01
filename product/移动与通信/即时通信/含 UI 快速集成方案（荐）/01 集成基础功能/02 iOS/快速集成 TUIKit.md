@@ -21,6 +21,7 @@ sudo gem install cocoapods
 pod init
 ```
 3. 根据业务需求在 Podfile 中添加对应的 TUIKit 组件之间相互独立，添加或删除均不影响工程编译。  Podfile 配置示例如下：
+
 <dx-tabs>
 
 ::: 经典版
@@ -262,6 +263,7 @@ SDKAppID 需要在 [即时通信 IM 控制台](https://console.cloud.tencent.com
 }
 @end
 ```
+
 注意，上面代码只能将 `TUIContactController` 初始化并展示出来，其中的点击行为（例如点击好友、添加好友等），TUIKit 会通过 `TUIContactControllerListener` 抛给上层处理：
 ```java
 @protocol TUIContactControllerListener <NSObject>

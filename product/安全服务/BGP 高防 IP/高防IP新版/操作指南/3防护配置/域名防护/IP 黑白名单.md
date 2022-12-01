@@ -13,8 +13,8 @@ DDoS 高防 IP 支持通过配置 IP 黑名单和白名单，实现对访问 DDo
 2. 在 CC 防护页面的左侧列表中，选中高防 IP 的 ID 下面的域名。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d2699b5321965d929c07908171c5b7c5.png)
 3. 在右侧 IP 黑白名单卡片中，单击**设置**，进入 IP 黑白名单列表。
-![](https://qcloudimg.tencent-cloud.cn/raw/228c67e3bc2dfca0b3f888fef1a0aeb9.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/292bcb896ccaeeecccb5c9772cf0e4f5.png)
 4. 单击**新建**，填写相关字段，填写完成后，单击**保存**。
-![](https://qcloudimg.tencent-cloud.cn/raw/f194795ae1053ef7dc0c0c128fa5d71a.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/222e4935fbcbb3b7074702bf185738cd.png)
 5. 新建完成后，IP 黑白名单列表将新增一条 IP 黑白名单规则，可以在右侧操作栏中，单击**删除**，删除 IP 黑白名单规则。
-![](https://qcloudimg.tencent-cloud.cn/raw/89b9cdbf6bc2b626e51aa222c3fda486.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/de5c79e41674e9262565b5b3c6a80f48.png)

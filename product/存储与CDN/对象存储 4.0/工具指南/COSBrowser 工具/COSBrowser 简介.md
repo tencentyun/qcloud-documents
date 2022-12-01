@@ -71,8 +71,8 @@ COSBrowser 桌面端支持以下功能：
 | [创建/删除存储桶](https://cloud.tencent.com/document/product/436/38103#createordelete) | 支持创建、删除存储桶                                         |
 | [查看存储桶详情](https://cloud.tencent.com/document/product/436/38103#viewbucket) | 支持查看存储桶基本信息                                       |
 | [查看统计数据](https://cloud.tencent.com/document/product/436/38103#count)           | 支持查看存储桶的当前存储量及对象总数                         |
-| [权限管理](https://cloud.tencent.com/document/product/436/38103#viewbucket) | 支持修改存储桶、对象的相关权限                               |
-| [设置版本控制](https://cloud.tencent.com/document/product/436/38103#viewbucket) | 支持开启、暂停存储桶版本控制                                 |
+| [权限管理](https://cloud.tencent.com/document/product/436/38103#acl) | 支持修改存储桶、对象的相关权限                               |
+| [设置版本控制](https://cloud.tencent.com/document/product/436/38103#version) | 支持开启、暂停存储桶版本控制                                 |
 | [添加访问路径](https://cloud.tencent.com/document/product/436/38103#addaccess) | 支持添加访问路径                                             |
 | [上传文件/文件夹](https://cloud.tencent.com/document/product/436/38103#upload) | 支持单个上传、批量上传、增量上传文件或文件夹至存储桶<br><br>注意：<br>1. 批量上传文件不要超过10万个<br>2. 不支持断点续传<br>3. 若迁移数据，或批量上传数据，请使用 [迁移服务平台 MSP](https://cloud.tencent.com/product/msp)     |
 | [下载文件/文件夹 ](https://cloud.tencent.com/document/product/436/38103#download) | 支持单个下载、批量下载、增量下载文件或文件夹至本地 <br><br>注意：<br>1. 批量下载文件不要超过10万个<br>2. 不支持断点续传          |
@@ -120,5 +120,5 @@ COSBrowser 移动端注重对资源的查看及监控，用户可以随时随地
 
 ## 结语
 
-当然，COS 不仅提供以上应用和服务，还提供多款热门开源应用，并集成腾讯云 COS 插件，欢迎点击“[此处](https://cloud.tencent.com/act/pro/Ecological-aggregation?from=18406)”一键启动，立即使用！
+当然，COS 不仅提供以上应用和服务，还提供多款热门开源应用，并集成腾讯云 COS 插件，欢迎点击 “[此处](https://cloud.tencent.com/act/pro/Ecological-aggregation?from=18406)” 一键启动，立即使用！
 
