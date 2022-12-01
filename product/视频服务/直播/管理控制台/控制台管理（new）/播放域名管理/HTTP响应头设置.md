@@ -5,7 +5,7 @@
 - 已登录 [云直播控制台](https://console.cloud.tencent.com/live)。
 - 已添加 [播放域名](https://cloud.tencent.com/document/product/267/20381)。
 
-[](id:limit)
+[](id:limit) 
 ## 使用限制
 - 最多可以支持10条配置。
 - 禁止重复的消息头，有多个取值的参数，可以通过参数：`值1,值2,值3` 来实现。
