@@ -1,4 +1,3 @@
-## Windows Server 操作系统使用说明
 
 1.  Windows 系统使用便利、受众广泛，但也是网络攻击和黑客入侵的重灾区。
  - 建议您定期 [备份数据](https://cloud.tencent.com/document/product/213/54836) 并安装杀毒防护软件，如 [微软电脑管家](https://pcmanager.microsoft.com/)（适用于 Windows Server 2019 及以上版本）或者第三方安全软件（例如360、火绒等），及时地更新杀毒软件和病毒库也有助于达到更好的防护效果。
