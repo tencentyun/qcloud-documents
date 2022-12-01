@@ -19,3 +19,5 @@
  ![](https://main.qcloudimg.com/raw/7aec8cdd2b3c29e33fef93eae7cb3111.png)
 3. 若需为未配置告警策略的产品事件配置告警，则在该产品事件右侧“告警配置”列单击**新增配置**，并在“新建策略”页面按需修改策略，然后单击**完成**。
  ![](https://main.qcloudimg.com/raw/7c78917c63d7c7f0521b83304c2c4cf5.png)
+
+
