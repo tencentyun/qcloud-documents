@@ -1,14 +1,11 @@
 
 ### 能否说明下使用插件所需要的 CAM 权限规则？
-
 可以给账号设置 `ReadOnlyAccess` (全局读权限)，也可以按照最小权限规则给予账号 `QcloudMonitorReadOnlyAccess` (云监控（MONITOR）只读访问权限) 和 `各个云产品的只读访问权限`。
 
 ### 插件支持在同一个 Panel 中多地域查询吗？
-
 如果在 Dashboard 中使用 `region` 模板变量，则仅支持单地域查询。多地域实例对比可在同一个 Panel 中建多个 Query Target。
 
 ### 插件支持在同地域多个实例对比吗？
-
 可以将模板变量中 `Selection Options` 下的 `Multi-value` 设置为 true。
 ![](https://main.qcloudimg.com/raw/da6acdd13a5fd82b52de1ec53364c0c5.png)
  Dashboard 中下拉框便可以进行多选实例，如图所示：
