@@ -69,7 +69,7 @@
 	<tr><td>性能优化</td><td>修复 getip 引发的 LogListener 工作异常。</td></tr>
 	<tr><td rowspan=2><b>v2.2.5</b></td><td>新功能</td><td>支持腾讯云织云环境部署。</td></tr>
 	<tr><td>体验优化</td><td>修复 getip  导致 core 的问题。</td></tr>
-	<tr><td><b>v2.2.4</b></td><td>体验优化</td><td><ul  style="margin: 0;"><li>安装和初始化改为：tools/loglistener.sh 的子命令 install 和 init。</li><li>启动改成: /etc/init.d/loglistenerd start|stop|restart。</li></ul></td></tr>
+	<tr><td><b>v2.2.4</b></td><td>体验优化</td><td><ul  style="margin: 0;"><li>安装和初始化改为：tools/loglistener.sh 的子命令 install 和 init。</li><li>启动改成: `/etc/init.d/loglistenerd start|stop|restart`。</li></ul></td></tr>
 	<tr><td><b>v2.2.3</b></td><td>体验优化</td><td>日志轮转 rename+create 不丢日志。</td></tr>
 	<tr><td><b>v2.2.2</b></td><td>体验优化</td><td>日志大小超过512KB自动截断。</td></tr>
 	<tr><td><b>更早版本</b></td><td>-</td><td><ul  style="margin: 0;"><li>2.2.2版本的 LogListener 支持完全正则采集。</li><li>2.1.4版本的 LogListener 支持多行全文格式。</li><li>2.1.1版本的 LogListener 支持日志结构化。</li></ul></td></tr>
