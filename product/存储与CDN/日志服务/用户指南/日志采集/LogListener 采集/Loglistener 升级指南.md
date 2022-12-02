@@ -24,11 +24,9 @@ Agent 升级异常或者因为版本限制无法使用自动升级时，可以�
 4. 在弹出的窗口中，开启 LogListener 开关，指定升级时间段（默认为当前时间至后两小时，如08:39～10:39）。
 ![](https://main.qcloudimg.com/raw/8ab92abd0048de161acf8ac7eaf93e79.png)
 5. 单击**确定**，目标机器组的**“自动升级”**栏变为**“已开启”**，即表示开启自动升级 LogListener 成功。
-
 >?
 > - 自动升级的时间段可选择任意时间段，系统会在用户指定的时间段每天进行检查。若满足升级条件，则进行自动升级；若不满足升级条件，则不进行操作。
 > - 如需对多个机器组进行 LogListener 自动升级，可以勾选多个目标机器组，单击**自动升级**进行批量升级。
-> 
 
 <span id="ManualUpdate"></span>
 ### 手动升级
@@ -41,11 +39,9 @@ Agent 升级异常或者因为版本限制无法使用自动升级时，可以�
 ![](https://main.qcloudimg.com/raw/8bea624ad0b2c4bd63e185487748fce9.png)
 系统默认升级至最新版本，当**“升级状态”**为**“已是最新版本”**时，即表示手动升级成功。
 <img src="https://main.qcloudimg.com/raw/5921fabe6ad45416cff49bab536fe1af.png" style="width: 87%" />
-
 >? 
 > - 当升级状态显示“不支持更新”时，表示不支持在控制台手动更新 LogListener，需要您自主下载新版本安装包进行相关的手动升级操作，详情请参见 [LogListener 安装指南](https://cloud.tencent.com/document/product/614/17414)。
 > - 当升级状态显示“心跳异常”时，请 [检查机器组状态](https://cloud.tencent.com/document/product/614/17424)。
-> 
 
 ### 半自动升级
 
