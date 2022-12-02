@@ -88,7 +88,7 @@ Linux 云服务器配置 IPv6 有两种方式：[工具配置](#gjpz) 和 [手�
 - **手动配置**：需要您对 Linux 命令有一定的熟练掌握程度。本文列举了几种常用镜像的手动配置方法供您参考，如果您有其他镜像类型的手动配置需求，请 <a href="https://console.cloud.tencent.com/workorder/category?step=0" target="_blank">提交工单</a> 申请。
 	- [CentOS 7.3/CentOS 7.5/ CentOS 7.6 配置 IPv6](#CentOS7.3)
 	- [CentOS 6.8 配置 IPv6](#CentOS6.8)
-	-  [Ubuntu 14/Ubuntu 16/Ubuntu 18 配置 IPv6](#Ubuntu18)
+	-  [Ubuntu 14/Ubuntu 16/Ubuntu 18/Ubuntu 20 配置 IPv6](#Ubuntu18)
 	- [Debian 8.2 配置 IPv6](#Debian8.2)
 	- [OpenSUSE 42 配置 IPv6](#Opensuse)
 	- [SUSE 10 配置IPv6](#suse)
@@ -318,7 +318,7 @@ ifconfig
 
 
 
-### Ubuntu 14/Ubuntu 16/Ubuntu 18 配置 IPv6[](id:Ubuntu18)
+### Ubuntu 14/Ubuntu 16/Ubuntu 18/Ubuntu 20 配置 IPv6[](id:Ubuntu18)
 1. 远程连接实例，具体操作请参见 [登录及远程连接](https://cloud.tencent.com/document/product/213/35701)。
 2. 检查实例是否已开启 IPv6 功能支持，执行如下命令：
 ```plaintext
