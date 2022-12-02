@@ -24,11 +24,11 @@
 | [enableHWAcceleration](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__ios.html#aa3ea979a6be5feba0da24f2b18555395) | 是否开启硬件加速。                                 |
 | [setExtentOptionInfo](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__ios.html#a842c8863f91f274031be0109a5cb28f5)                                          | 设置播放器业务参数，参数格式为<NSString *, id>               |
 
-### 播放基础接口  
+### 播放基础接口 
 | API                                                          | 描述                        |
 | ------------------------------------------------------------ | --------------------------- |
 | [startVodPlay](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__ios.html#a89ac47a6b808c8ca424a65adb8870bc6) | 播放 HTTP URL 形式地址。10.7 版本开始，`startPlay` 变更为 `startVodPlay`，需要通过 `V2TXLivePremier#setLicence` 或者 `TXLiveBase#setLicence` 设置 License 后方可成功播放，否则将播放失败（黑屏），全局仅设置一次即可。直播 License、短视频 License 和视频播放 License 均可使用，若您暂未获取上述 License ，可 [快速免费申请测试版 License](https://cloud.tencent.com/act/event/License) 以正常播放，正式版 License 需 [购买](https://cloud.tencent.com/document/product/1449/56981)。 |
-| [startVodPlayWithParams](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__ios.html#acfae73abaadc60e2e1091ffae0c5c700) | 以 fileId 形式播放。播放 HTTP URL 形式地址。10.7 版本开始，`startPlayWithParams` 变更为 `startVodPlayWithParams`，需要通过 `V2TXLivePremier#setLicence` 或者 `TXLiveBase#setLicence` 设置 License 后方可成功播放，否则将播放失败（黑屏），全局仅设置一次即可。直播 License、短视频 License 和视频播放 License 均可使用，若您暂未获取上述 License ，可 [快速免费申请测试版 License](https://cloud.tencent.com/act/event/License) 以正常播放，正式版 License 需 [购买](https://cloud.tencent.com/document/product/1449/56981)。 |
+| [startVodPlayWithParams](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__ios.html#acfae73abaadc60e2e1091ffae0c5c700) | 以 fileId 形式播放。10.7 版本开始，`startPlayWithParams` 变更为 `startVodPlayWithParams`，需要通过 `V2TXLivePremier#setLicence` 或者 `TXLiveBase#setLicence` 设置 License 后方可成功播放，否则将播放失败（黑屏），全局仅设置一次即可。直播 License、短视频 License 和视频播放 License 均可使用，若您暂未获取上述 License ，可 [快速免费申请测试版 License](https://cloud.tencent.com/act/event/License) 以正常播放，正式版 License 需 [购买](https://cloud.tencent.com/document/product/1449/56981)。 |
 | [stopPlay](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__ios.html#a7d59ca6180c4af0eb7bd63c08161f84d) | 停止播放。 |
 | [isPlaying](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__ios.html#a8438e3403946accc1986a05b89ee7b03) | 是否正在播放。      |
 | [pause](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayer__ios.html#a7167f5c196fc5e167bfabde1a730e81d) | 暂停播放，停止获取流数据,保留最后一帧画面。 |
