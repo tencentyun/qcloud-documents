@@ -1,4 +1,4 @@
-本文介绍标准账户类型的用户如何删除 IP 带宽包。
+本文介绍标准账户类型的用户如何删除后付费 IP 带宽包。
 
 ## 前提条件
 删除 IP 带宽包前，请确保包内的所有资源已全部移除，否则无法删除。详情请参见 [移除资源](https://cloud.tencent.com/document/product/684/39945)。
@@ -11,5 +11,3 @@
 ![](https://main.qcloudimg.com/raw/666914cbac559a050778e9517fd89796.png)
 4. 在弹出的对话框中，单击**确认**。
 ![](https://main.qcloudimg.com/raw/c89af13875d438b6f026d00e40a92aa5.png)
-
-
