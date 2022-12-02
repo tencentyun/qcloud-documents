@@ -44,7 +44,7 @@ CONQUEST 用称为支持函数的局部轨道表示 Kohn-Sham 本征态或密度
 
 ### THPC 创建集群
 请参见 [THPC Slurm 调度器-快速入门](https://cloud.tencent.com/developer/article/1993857?from=10680) 一文利用 THPC API 一键创建集群。这里采用的 THPC 集群配置信息如下` thpc.json` 文件所示，然后使用以下命令即可创建 THPC 集群。
->?由于是采用的按量付费方式创建集群，所以需要提前往账户里预充值超过 1 小时费用，否则会一直 `INIT_FAILED` 或出现创建不了 3 台 CVM。另外，请根据区域所提供的实例类型的实际情况选择合适的 `InstanceType`，否则也将无法正常创建。以下 json 文件中的花括号内的内容请根据实际情况自行修改成对应的内容，由于这并非是本文的目的，不再赘述。
+>?由于是采用的按量付费方式创建集群，所以需要提前往账户里预充值超过 1 小时费用，否则会一直 `INIT_FAILED` 或出现创建不了 3 台 CVM。另外，请根据区域所提供的实例类型的实际情况选择合适的 `InstanceType`，否则也将无法正常创建。以下 json 文件中的花括号内的内容请根据实际情况自行修改成对应的内容，字段含义请参考 THPC 官网 API 文档 [创建集群](https://cloud.tencent.com/document/api/1527/72102)。
 
 ```json
 	{
