@@ -113,7 +113,7 @@
 | [maxBufferSize](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVodPlayConfig__ios.html#aa4934cef81784d3a195a5d95a43953f5) | 最大预加载大小，单位 MB。                                    |
 | maxPreloadSize                                               | 设置预加载最大缓冲大小，单位：MB。                           |
 | firstStartPlayBufferTime                                     | 设置首缓需要加载的数据时长，单位 ms，默认值为100ms。          |
-| nextStartPlayBufferTime                                      | 缓冲时（缓冲数据不够引起的二次缓冲，或者seek引起的拖动缓冲）最少要缓存多长的数据才能结束缓冲，单位ms，默认值为250ms。 |
+| nextStartPlayBufferTime                                      | 缓冲时（缓冲数据不够引起的二次缓冲，或者 seek 引起的拖动缓冲）最少要缓存多长的数据才能结束缓冲，单位 ms，默认值为250ms。 |
 | overlayKey                                                   | 设置 HLS 安全加固加解密 key。                                   |
 | overlayIv                                                    | 设置 HLS 安全加固加解密 Iv。                                    |
 | extInfoMap                                                   | 设置拓展信息。                                               |
