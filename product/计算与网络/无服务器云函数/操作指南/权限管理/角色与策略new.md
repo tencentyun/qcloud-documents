@@ -64,7 +64,7 @@ SCF 默认的配置角色为 `SCF_QcsRole`，其角色详情如下：
 >! 在为运行角色添加策略时，除了选择预置策略外，还可以通过自定义策略的方式做更细粒度的权限划分，SCF 的策略语法遵循 CAM 的 [语法结构](https://cloud.tencent.com/document/product/598/10604) 和 [资源描述方式](https://cloud.tencent.com/document/product/598/10606)，策略语法以 JSON 格式为基础，具体可参考 [SCF 策略语法](https://cloud.tencent.com/document/product/583/47934)。
 >
 
-### 获取运行角色临时密钥信息：
+### 获取运行角色临时密钥信息
 在函数运行时，SCF 服务将会使用选定的运行角色完成临时 SecretId、SecretKey、SesstionToken 的申请。
 
 - 对于**非镜像创建的函数**:
