@@ -52,7 +52,6 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/f63bd2cb193115f281f320bb7c74ce1a.png)
 3. 单击子网/云服务器 ID，可跳转到相应资源详情界面。
 
-
 ## 删除 SNAT 规则
 如果您不需要为云服务器访问外网指定 EIP，可删除 SNAT 规则。
 - **单条删除**
