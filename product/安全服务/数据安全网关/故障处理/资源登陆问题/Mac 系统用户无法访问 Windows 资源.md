@@ -1,3 +1,4 @@
+
 ## 现象描述
 Mac 系统用户安装完 BHLoader 插件后访问 Windows 资源，提示未找到 Microsoft Remote Desktop，无法访问资源。如下图所示：
 

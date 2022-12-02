@@ -1,4 +1,4 @@
-# 现象描述
+## 现象描述
 Mac 系统使用 iTerm 客户端访问 Linux 服务器时，中文出现乱码。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/5877997ada02fa3e76bd762e94ead897.png)
 

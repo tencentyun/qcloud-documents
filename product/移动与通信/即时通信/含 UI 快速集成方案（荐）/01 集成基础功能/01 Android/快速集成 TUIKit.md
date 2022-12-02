@@ -13,8 +13,7 @@ TUIKit 从 6.9.3557 版本开始新增了全新的简约版 UI，之前的 UI �
   
 ## module 源码集成
 1. 从 [GitHub 下载](https://github.com/tencentyun/TIMSDK/tree/master/Android) TUIKit 源码。使 TUIKit 文件夹跟自己的工程文件夹同级，例如：
-<img src="https://qcloudimg.tencent-cloud.cn/raw/00bc0470857b850436663d9bf2ef9164.png" width="500"/>
-
+<img src="https://qcloudimg.tencent-cloud.cn/raw/00bc0470857b850436663d9bf2ef9164.png" width="500"/> 
 1. 根据实际业务需求在 settings.gradle 中添加对应的 TUI 组件。TUI 组件之间相互独立，添加或删除均不影响工程编译。
 ```groovy
 // 引入上层应用模块
@@ -56,7 +55,6 @@ project(':tuicommunity').projectDir = new File(settingsDir, '../TUIKit/TUICommun
 include ':tuicallkit'
 project(':tuicallkit').projectDir = new File(settingsDir, '../TUIKit/TUICallKit/tuicallkit')
 ```
-
 3. 在 APP 的 build.gradle 中添加：
 ```groovy
 dependencies {
@@ -70,12 +68,10 @@ dependencies {
     api project(':tuicallkit')  
 }
 ```
-
 4. 在 gradle.properties 文件中加入下行，表示自动转换三方库以兼容 AndroidX：
 ```properties
 android.enableJetifier=true
 ```
-
 [](id:buildStep5)
 5. 添加 maven 仓库 和 Kotlin 支持，在 root 工程的 build.gradle 文件（与 settings.gradle 同级）中添加：
 ```groovy
@@ -91,17 +87,12 @@ buildscript {
     }
 }
 ```
-
 6. 同步工程，编译运行。工程结构预期效果如图所示：<br>
-<img src="https://qcloudimg.tencent-cloud.cn/raw/454abb6051a7a94a08559d8404e5aec7.png" width="400"/>
-
+<img src="https://qcloudimg.tencent-cloud.cn/raw/454abb6051a7a94a08559d8404e5aec7.png" width="400"/> 
 7. 裁剪不需要的 UI 文件（可选）
 `经典版`和`简约版` UI 互不影响，可独立运行。`经典版`和`简约版`的 UI 文件都在各 TUI 组件中，放在不同的文件夹里，以 `TUIChat` 组件为例：
-
-<img src="https://qcloudimg.tencent-cloud.cn/raw/179a15bb72b24a09cf7440c50e5c3442.png" width="400"/>
-
+<img src="https://qcloudimg.tencent-cloud.cn/raw/179a15bb72b24a09cf7440c50e5c3442.png" width="400"/> 
 classicui 文件夹中存放的是`经典版` UI 文件，minimalistui 文件夹中存放的是`简约版` UI 文件, 如果您要集成简约版 UI，可直接删除 classicui 文件夹，同时删除 AndroidManifest.xml 文件中经典版 UI 对应的 Activity 和 Service 。
-
 > ?  经典版和简约版 UI 不能混用，集成多个组件时，您必须同时选择经典版 UI 或者 简约版 UI。
 
 ## 快速搭建

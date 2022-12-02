@@ -22,7 +22,6 @@ config.allowsInlineMediaPlayback = YES;
 ```
 <uses-permission android:name="android.permission.CAMERA" />
 <uses-permission android:name="android.permission.INTERNET" />
-<uses-permission android:name="android.permission.RECORD_AUDIO" />
 ```
  - 动态申请权限
     - 如果第三方编译的 targetSdkVersion >= 23，则需要动态申请权限。

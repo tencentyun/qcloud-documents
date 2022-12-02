@@ -39,7 +39,6 @@ Linux 实例默认用户名为 `root`，Ubuntu 系统实例默认用户名为 `u
 输入的密码默认不显示，登录完成后，命令提示符左侧将显示当前登录云服务器的信息。如下图所示：
 ![](https://main.qcloudimg.com/raw/69bd64692fdaffc0cbbbdd0b9d307722.png)
 
-
 ## 后续操作
 
 

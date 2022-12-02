@@ -80,6 +80,7 @@
 ### 管理自定义 Mock
 
 您可根据实际需求创建自定义 Mock，步骤如下：
+1. 找到需调用的 API 接口，并选择右侧功能区中的**数据模拟**后，单击**创建 Mock**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/749a611b2b7459154d3c9dd4f154c3a4.png)
 2. 在弹出的“创建Mock” 窗口中，按需输入 Mock 信息。Mock 数据需为合法的 JSON 数据，例如：
 ```json
