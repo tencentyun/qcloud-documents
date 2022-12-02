@@ -1,4 +1,4 @@
-本文介绍空间几何函数。
+本文将为您介绍空间几何函数。
 
 ## 基本概念
 
@@ -19,7 +19,7 @@
 `ST_Distance(ST_Point(-71.0882, 42.3607), ST_Point(-74.1197, 40.6976))` 计算平面上的两个点的距离，值为3.4577。
 `ST_Distance(to_spherical_geography(ST_Point(-71.0882, 42.3607)), to_spherical_geography(ST_Point(-74.1197, 40.6976)))` 计算球面上两个点的距离，值为312822.179。
 
-计算长度时（例如 ST_Distance()和ST_Length() ），单位为米，计算面积时（例如 ST_Area()），单位为平方米。
+计算长度时（例如：ST_Distance()和ST_Length() ），单位为米，计算面积时（例如：ST_Area()），单位为平方米。
 
 
 

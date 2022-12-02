@@ -22,7 +22,7 @@
       - 3.3 在“确认密钥信息”弹窗中，单击**确认**，完成启用 ENI 网卡。
  ![](https://qcloudimg.tencent-cloud.cn/raw/157c1d1d3ffedcb11e634c98459e60bb.png)
 4. 选择页面左侧**工作负载 > Deployment**，进入 deployment 列表页，若列表中已有 deployment，则跳过该步骤；否则，[新建 deployment](https://cloud.tencent.com/document/product/457/31705)。
-5. 选择页面左侧**节点管理 > 节点**，进入节点列表页，若列表中已有 CVM 节点，则跳过该步骤；否则，[新建 CVM 节点](https://cloud.tencent.com/document/product/457/42890#createCVMNode)。
+5. 选择页面左侧**节点管理 > 节点**，进入节点列表页，若列表中已有 CVM 节点，则跳过该步骤；否则，[新建 CVM 节点](https://cloud.tencent.com/document/product/457/83208)。
 6. 在目标边缘集群的 pod 中配置 ENI。
    - 配置截图：
 ![](https://qcloudimg.tencent-cloud.cn/raw/8f593ac9a04080b44ad57f0b6b5387c9.png)

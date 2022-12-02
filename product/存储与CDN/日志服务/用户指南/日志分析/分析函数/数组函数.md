@@ -2,7 +2,7 @@
 
 <table>
 	<tr><th>函数名称</th><th>语句</th><th>含义</th></tr>
-	<tr><td><a href="#subscript">下标运算符 []</a></td><td>[x]</td><td>[]用于获取数组中的某个元素。等同于 element_at 函数。</td></tr>
+	<tr><td><a href="#subscript">下标运算符 []</a></td><td>[x]</td><td>[]用于获取数组中的某个元素，等同于 element_at 函数。</td></tr>
 	<tr><td><a href="#array_agg">array_agg 函数</a></td><td>array_agg(x)</td><td>以数组形式返回 x 中的所有值。</td></tr>
 	<tr><td><a href="#array_distinct">array_distinct 函数</a></td><td>array_distinct(x)</td><td>数组去重，获取数组中的唯一元素。</td></tr>
 	<tr><td><a href="#array_except">array_except 函数</a></td><td>array_except(x,y)</td><td>计算 x，y 两个数组的差集。</td></tr>
