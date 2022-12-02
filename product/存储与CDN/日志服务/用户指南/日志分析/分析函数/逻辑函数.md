@@ -11,7 +11,7 @@
 ### 与 NULL 相关的逻辑运算
 a 和 b 分别取值 TRUE，FALSE 和 NULL 时的真值表如下：
 
-#### AND，OR 的真值表
+**AND，OR 的真值表**
 
 | a     | b     | a AND b | a OR b |
 | ----- | ----- | ------- | ------ |
@@ -25,7 +25,7 @@ a 和 b 分别取值 TRUE，FALSE 和 NULL 时的真值表如下：
 | NULL  | FALSE | FALSE   | NULL   |
 | NULL  | NULL  | NULL    | NULL   |
 
-#### NOT 的真值表
+**NOT 的真值表**
 
 | a     | NOT a |
 | ----- | ----- |
