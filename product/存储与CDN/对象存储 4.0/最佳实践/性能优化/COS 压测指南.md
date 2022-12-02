@@ -19,7 +19,7 @@ COSBench 是一款由 Intel 开源，用于对象存储的压测工具。腾讯�
 
 ## COSBench 实践步骤
 
-1. 从 [COSBench GitHub](https://github.com/intel-cloud/cosbench/releases) 网站下载 COSBench 0.4.2.c4.zip 压缩包，并在服务器上进行解压。
+1. 从 COSBench GitHub 网站 [下载 COSBench 0.4.2.c4.zip 压缩包](https://github.com/intel-cloud/cosbench/releases/tag/v0.4.2.c4)，并在服务器上进行解压。
 2. 安装 COSBench 的依赖库，执行如下命令。
  - 对于 centos 系统，执行如下命令安装依赖：
 ```
@@ -112,6 +112,7 @@ sudo apt install nmap openjdk-8-jdk
 ```plaintext
 -Dcom.amazonaws.services.s3.disableGetObjectMD5Validation=true
 ```
+![](https://qcloudimg.tencent-cloud.cn/raw/ac010bb86f091d709a0776b4e20a5858.png)
 5. 启动 cosbench 服务。
  - 对于 centos 系统，执行以下命令：
 ```plaintext

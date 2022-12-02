@@ -11,13 +11,12 @@ MongoDB 数据备份是腾讯云对象存储（Cloud Object Storage，COS）基�
 ## 操作步骤
 
 1. 登录 [对象存储控制台](https://console.cloud.tencent.com/cos5)。
-2. 在左侧导航中，单击**应用集成 > 数据备份**，找到 **MongoDB 数据备份**。
+2. 在左侧导航中，单击**应用集成 > 数据备份**，找到 **MongoDB 备份**。
 3. 单击**配置备份规则**，进入规则配置页面。
 4. 单击**添加函数**。
 >! 如果您尚未开通云函数服务，请前往 [云函数控制台](https://console.cloud.tencent.com/scf) 开通云函数服务，按照提示完成服务授权即可。
 >
 5. 在弹出的窗口中，配置如下信息：
-![](https://main.qcloudimg.com/raw/e6eaa0130a141a2d313e014ef0bd51d7.png)
  - **函数名称**：作为函数的唯一标识名称，创建后不可修改。您可以在 [云函数控制台](https://console.cloud.tencent.com/scf/list?rid=1&ns=default) 上查看该函数。
  - **关联存储桶**：存储 MongoDB 备份文件的存储桶。
  - **触发器周期**：MongoDB 数据备份函数通过定时触发器来触发备份转存操作，触发周期支持每天、每周及自定义周期。
