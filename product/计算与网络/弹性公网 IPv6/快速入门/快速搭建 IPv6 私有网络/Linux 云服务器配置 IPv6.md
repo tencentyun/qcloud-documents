@@ -88,7 +88,7 @@ Linux 云服务器配置 IPv6 有两种方式：[工具配置](#gjpz) 和 [手�
 - **手动配置**：需要您对 Linux 命令有一定的熟练掌握程度。本文列举了几种常用镜像的手动配置方法供您参考，如果您有其他镜像类型的手动配置需求，请 <a href="https://console.cloud.tencent.com/workorder/category?step=0" target="_blank">提交工单</a> 申请。
 	- [CentOS 7.3/CentOS 7.5/ CentOS 7.6 配置 IPv6](#CentOS7.3)
 	- [CentOS 6.8 配置 IPv6](#CentOS6.8)
-	-  [Ubuntu 14/Ubuntu 16/Ubuntu 18 配置 IPv6](#Ubuntu18)
+	-  [Ubuntu 14/Ubuntu 16/Ubuntu 18/Ubuntu 20 配置 IPv6](#Ubuntu18)
 	- [Debian 8.2 配置 IPv6](#Debian8.2)
 	- [OpenSUSE 42 配置 IPv6](#Opensuse)
 	- [SUSE 10 配置IPv6](#suse)
@@ -106,7 +106,7 @@ config_ipv6 工具可以为已开启 IPv6 且已分配 IPv6 地址的 CVM 实例
 
 #### **操作步骤**
 1. 登录云服务器，执行` ifconfig` 或 `ip address` 命令确定需要配置 IPv6 地址的网卡，如下图所示，本例 eth0 无 IPv6 地址（fe80::是本机私有地址）。
-  <img src="https://main.qcloudimg.com/raw/beda0d051a43188ac9f6d07aef63ef9b.png" width="50%" />
+  <img src="https://main.qcloudimg.com/raw/beda0d051a43188ac9f6d07aef63ef9b.png" width="50%" /> 
 2. 在云服务器中直接执行如下命令下载 config_ipv6 工具。
 ```plaintext
 wget https://iso-1251783334.cos.ap-guangzhou.myqcloud.com/scripts/config_ipv6.sh
@@ -120,7 +120,7 @@ chmod +x ./config_ipv6.sh  # 赋予执行权限
 ```
  ![](https://qcloudimg.tencent-cloud.cn/raw/fca150f96713bf049e3083a80b77b7d7.png)
 3. 执行 `ifconfig` 查询 IPv6 地址的配置情况，出现如下所示报文表示配置成功。
-  <img src="https://main.qcloudimg.com/raw/b6c466912558224a5543caaa72af668a.png" width="50%" />
+  <img src="https://main.qcloudimg.com/raw/b6c466912558224a5543caaa72af668a.png" width="50%" /> 
 4. （此步骤仅适用于 CoreOS 操作系统）重启云服务器，使上述配置生效。
 
 
@@ -318,7 +318,7 @@ ifconfig
 
 
 
-### Ubuntu 14/Ubuntu 16/Ubuntu 18 配置 IPv6[](id:Ubuntu18)
+### Ubuntu 14/Ubuntu 16/Ubuntu 18/Ubuntu 20 配置 IPv6[](id:Ubuntu18)
 1. 远程连接实例，具体操作请参见 [登录及远程连接](https://cloud.tencent.com/document/product/213/35701)。
 2. 检查实例是否已开启 IPv6 功能支持，执行如下命令：
 ```plaintext

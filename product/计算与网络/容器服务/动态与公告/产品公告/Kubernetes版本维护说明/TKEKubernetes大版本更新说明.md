@@ -1,3 +1,77 @@
+## 1.22 changes since 1.20
+### 重大更新
+#### PodSecurityPolicy 被废弃
+PodSecurityPolicy 在1.21被废弃，未来会在1.25中移除。可以评估和迁移到 Pod Security Admission 或者第三方的准入插件。
+
+#### 不可变 Secrets 和 ConfigMaps GA
+Secret 或者 ConfigMap 被设置为不可变后（`immutable: true`），kubelet 不再 watch 这些对象的变化并重新挂载到容器内，可以降低 apiserver 的负载。该特性在1.21进入 GA。
+
+#### CronJobs GA
+CronJobs 在1.21进入 GA（batch/v1），并且默认启用性能更好的新版本控制器 CronJobControllerV2。
+
+#### IPv4/IPv6 双栈支持进入 Beta
+双栈网络允许 Pod、服务和节点可以获得 IPv4 及 IPv6 地址，在1.21中，双栈网络从 alpha 升级到 beta，并默认启用。
+
+#### 优雅节点关闭
+该特性1.21进入 beta 阶段，允许在关闭节点时，通知 kubelet，优雅终止节点上的 Pod。
+
+#### 持久卷健康监控
+1.21引入该 alpha 特性，允许对 PV 进行监视，掌握卷的运行状况，在卷变得不健康时进行标记，此时工作负载可以作出反应，避免数据从不健康的卷上写入或读取。
+
+#### Server-side Apply GA
+Server-side Apply 通过声明式配置帮助用户及控制器管理资源，包括以声明方式创建或修改对象等。Server-side Apply 在1.22进入进入 GA 阶段。
+
+#### 外部凭证 GA
+从1.22开始，外部凭证进入 GA 阶段，对交互式登录流程插件提供更好的支持，更多信息可以参考 [sample-exec-plugin](https://github.com/ankeesler/sample-exec-plugin)。
+
+#### ETCD 更新至3.5.0
+1.22默认使用 ETCD 3.5.0版本，该版本改进了安全性、性能、监控以及开发者体验，修复了多个 bug，以及结构化日志记录、内置日志轮转等重要新功能。
+
+#### MemoryQoS
+1.22开始支持 alpha 版本的 MemoryQoS 特性，开启后，将使用 Cgroups v2 API 管理和控制内存分配与隔离，在内存资源发生竞争时，保障工作负载的内存使用，提高工作负载与节点的可用性。该特性由腾讯云提出并贡献给社区。
+
+#### 集群的 seccomp 默认配置
+1.22为 kubelet 引入了 `SeccompDefault` alpha 特性，结合 `--seccomp-default` 参数及配置，kubelet 将使用 `RuntimeDefault` seccomp 配置，而不是 `Unconfined`，从而提高工作负载的安全性。
+
+### 其他更新
+- GA 的特性：
+	- 1.21: EndpointSlice,Sysctls,PodDisruptionBudget
+	- 1.22: CSIServiceAccountToken
+- 进入 Beta 的特性：
+	- 1.21: TTLAfterFinished
+	- 1.22: SuspendJob,PodDeletionCost,NetworkPolicyEndPort
+- 1.22引入了新的调度器打分插件 `NodeResourcesFit`，用于代替 `NodeResourcesLeastAllocated`， `NodeResourcesMostAllocated`，`RequestedToCapacityRatio` 这三个插件。
+- 从1.22起，开启 alpha 特性 `APIServerTracing` 后，apiserver 支持分布式追踪；支持通过`--service-account-issuer` 参数设置多个 issuer，在变更 issuer 时，可以提供不间断服务。
+
+### 废弃和移除
+#### 移除的参数及功能
+1. Service TopologyKeys 被废弃，可以使用 Topology Aware Hints。
+2. kube-proxy
+	- 从1.21开始，在 ipvs 模式时，不再自动设置 `net.ipv4.conf.all.route_localnet=1`。升级的节点会保留 `net.ipv4.conf.all.route_localnet=1`，但是新节点继承系统默认值（一般为0）。
+	- 删除了 `--cleanup-ipvs` 参数；可以使用 `--cleanup` 参数。
+3. kube-controller-manager
+	- 从1.22开始，`--horizontal-pod-autoscaler-use-rest-clients` 参数被移除。
+	- `--port` 及`--address` 参数不再起作用，将在 1.24 版本中被移除。
+4. kube-scheduler：`--hard-pod-affinity-symmetric-weight` 及`--scheduler-name` 参数从1.22开始被移除，可使用 config 文件进行配置。
+5. kubelet：`DynamicKubeletConfig` 特性被废弃，并被默认关闭，启动 kubelet 如配置了`--dynamic-config-dir` 参数，将收到告警。
+
+#### 移除或废弃的版本
+1. CronJob batch/v2alpha1 版本从1.21开始被移除
+2. 从1.22开始以下类型的 Beta API 被移除：详情请参见 [Kubernetes 官网文档](https://kubernetes.io/docs/reference/using-api/deprecation-guide/#v1-22)。
+	- rbac.authorization.k8s.io/v1beta1
+	- admissionregistration.k8s.io/v1beta1
+	- apiextensions.k8s.io/v1beta1
+	- apiregistration.k8s.io/v1beta1
+	- authentication.k8s.io/v1beta1
+	- authorization.k8s.io/v1beta1
+	- certificates.k8s.io/v1beta1
+	- coordination.k8s.io/v1beta1
+	- extensions/v1beta1 及 networking.k8s.io/v1beta1 ingress API
+
+### Changelogs
+- [kubernetes1.22changelog](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.22.md#whats-new-major-themes)
+- [kubernetes1.21changelog](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.21.md#whats-new-major-themes)
+
 
 ## 1.20 changes since 1.18
 ### 重大更新
