@@ -1,101 +1,63 @@
 ## 命名空间
 
-Namespace=QCE/CDWCH
+Namespace=QCE/SNOVA
 
 ## 监控指标
 
-### 节点指标
-
-| 指标英文名                    | 指标中文名                 | 单位  | 维度           |
-| ----------------------------- | -------------------------- | ----- | -------------- |
-| Zookeeperrequest              | zk 请求数                  | 个    | InstanceId、IP |
-| Zookeepersession              | 当前 zk session 个数       | 个    | InstanceId、IP |
-| Zookeeperwatch                | zkwatch 个数               | 个    | InstanceId、IP |
-| Fileopen                      | 文件打开数                 | 个    | InstanceId、IP |
-| NodeLoad1                     | 节点一分钟负载             | -     | InstanceId、IP |
-| NodeLoad5                     | 5分钟负载                  | -     | InstanceId、IP |
-| NodeLoad15                    | 15分钟负载                 | -     | InstanceId、IP |
-| CpuLoadRate                   | CPU 负载比率               | %     | InstanceId、IP |
-| DiskUsage                     | 数据盘使用率               | %     | InstanceId、IP |
-| NodeNetworkReceiveBytesTotal  | 节点接收流量               | MB/s  | InstanceId、IP |
-| NodeNetworkTransmitBytesTotal | 节点流出流量               | MB/s  | InstanceId、IP |
-| MemUsage                      | 内存使用率                 | %     | InstanceId、IP |
-| CpuUsage                      | CPU 使用率                 | %     | InstanceId、IP |
-| CpuUsageAvg                   | CPU 平均使用率             | %     | InstanceId、IP |
-| Contextlockwait               | 上下文锁等待               | -     | InstanceId、IP |
-| Httpconnection                | HTTP 连接数                | 个    | InstanceId、IP |
-| Mergestimemilliseconds        | merge 所消耗的时间（速率） | ms    | InstanceId、IP |
-| Mysqlconnection               | mysql 方式的连接数         | 个    | InstanceId、IP |
-| Querythread                   | 查询线程数                 | 个    | InstanceId、IP |
-| Replicatedpartmerges          | 单位时间内的副本块合并个数 | 个/秒 | InstanceId、IP |
-| Replicatedpartmutations       | 单位时间内的副本块修改数   | 个/秒 | InstanceId、IP |
-| Tcpconnection                 | TCP 连接数                 | 个    | InstanceId、IP |
-| Merge                         | 合并数                     | 个    | InstanceId、IP |
-| Uptime                        | 启动时间                   | s     | InstanceId、IP |
-| CkUp                          | 1-存活，0-失活             | -     | InstanceId、IP |
-| Failedinsertquery             | 插入失败数                 | 个/秒 | InstanceId、IP |
-| Failedselectquery             | 查询失败数                 | 个/秒 | InstanceId、IP |
-| Query                         | 包含增删改查的 query 个数  | 个/秒 | InstanceId、IP |
-| Insertquery                   | 单位时间的 insert 执行次数 | 次    | InstanceId、IP |
-
-### ZK 指标
-
-| 指标英文名                    | 指标中文名         | 单位  | 维度           |
-| ----------------------------- | ------------------ | ----- | -------------- |
-| NodeLoad1                     | 节点一分钟负载     | -     | InstanceId、IP |
-| NodeLoad5                     | 5分钟负载          | -     | InstanceId、IP |
-| NodeLoad15                    | 15分钟负载         | -     | InstanceId、IP |
-| NodeNetworkReceiveBytesTotal  | 节点接收流量       | MB/s  | InstanceId、IP |
-| DiskUsage                     | 数据盘使用率       | %     | InstanceId、IP |
-| CpuUsage                      | CPU 使用率         | %     | InstanceId、IP |
-| NodeNetworkTransmitBytesTotal | 节点流出流量       | MB/s  | InstanceId、IP |
-| MemUsage                      | 内存使用率         | %     | InstanceId、IP |
-| PacketsSent                   | 发包个数           | 个    | InstanceId、IP |
-| ZkUp                          | zk 进程存活        | -     | InstanceId、IP |
-| GlobalSessions                | 全局 session 个数  | 个    | InstanceId、IP |
-| ConnectionRejected            | 拒绝链接个数       | 个    | InstanceId、IP |
-| JvmMemoryPoolBytesUsed        | jvm 内存池使用     | MB    | InstanceId、IP |
-| PacketsReceived               | 接收传输包的速率   | 个/秒 | InstanceId、IP |
-| RequestCommitQueued           | 请求提交队列个数   | 个    | InstanceId、IP |
-| PrepProcessorQueueTimeMs      | 预处理队列等待时间 | ms    | InstanceId、IP |
-| WatchCount                    | zk_watch 个数      | 个    | InstanceId、IP |
-| PrepProcessTime               | 预处理时间         | ms    | InstanceId、IP |
-
 ### 集群指标
 
-| 指标英文名                       | 指标中文名   | 单位  | 维度       |
-| -------------------------------- | ------------ | ----- | ---------- |
-| SumCkUp                          | 集群节点数   | None  | InstanceId |
-| SumCpuUsage                      | CPU 使用率   | %     | InstanceId |
-| SumDiskUsage                     | 数据盘使用率 | %     | InstanceId |
-| SumMemUsage                      | 内存使用率   | %     | InstanceId |
-| SumNodeNetworkReceiveBytesTotal  | 节点接收流量 | MB    | InstanceId |
-| SumNodeNetworkTransmitBytesTotal | 节点发送流量 | MB    | InstanceId |
-| SumQuery                         | 总查询数     | None  | InstanceId |
-| SumInsertquery                   | 插入数       | 个/秒 | InstanceId |
-| SumFailedinsertquery             | 插入失败数   | 个/秒 | InstanceId |
-| SumFailedselectquery             | 查询失败数   | 个/秒 | InstanceId |
+| 指标英文名  | 指标中文名               | 单位 | 维度                  |
+| ----------- | ------------------------ | ---- | --------------------- |
+| Connections | 连接数                   | 个   | appId、snovaClusterId |
+| LongTxNum   | 还在进行的长事务查询个数 | 个   | appId、snovaClusterId |
+| ResQueueNum | 默认资源队列使用情况     | 个   | appId、snovaClusterId |
+
+### 节点指标
+
+| 指标英文名                      | 指标中文名            | 单位  | 维度                        |
+| ------------------------------- | --------------------- | ----- | --------------------------- |
+| CpuUtilization                  | CPU 利用率            | %     | appId、snovaClusterId、host |
+| CpuUtilizationMaster            | CPU 利用率-主节点     | %     | appId、snovaClusterId、host |
+| MemUtilizationMaster            | 内存利用率-主节点     | %     | appId、snovaClusterId、host |
+| NetworkReceiveThroughput        | 网络接收吞吐量        | Mbps  | appId、snovaClusterId、host |
+| NetworkReceiveThroughputMaster  | 网络接收吞吐量-主节点 | Mbps  | appId、snovaClusterId、host |
+| NetworkTransmitThroughput       | 网络传输吞吐量        | Mbps  | appId、snovaClusterId、host |
+| NetworkTransmitThroughputMaster | 网络传输吞吐量-主节点 | Mbps  | appId、snovaClusterId、host |
+| PercentageDiskUsed              | 磁盘利用率            | %     | appId、snovaClusterId、host |
+| ReadIops                        | 读取 IOPS             | 个/秒 | appId、snovaClusterId、host |
+| WriteIops                       | 写入 IOPS             | 个/秒 | appId、snovaClusterId、host |
+| ReadLatency                     | 读取延时              | ms    | appId、snovaClusterId、host |
+| WriteLatency                    | 写入延时              | ms    | appId、snovaClusterId、host |
+| ReadThroughput                  | 磁盘读取吞吐量        | Mbps  | appId、snovaClusterId、host |
+| WriteThroughput                 | 磁盘写入吞吐量        | Mbps  | appId、snovaClusterId、host |
+| MemUtilization                  | 内存利用率            | %     | appId、snovaClusterId、host |
 
 ## 各维度对应参数总览
 
-| 参数名称                       | 维度名称   | 维度解释           | 格式                                  |
-| :----------------------------- | :--------- | :----------------- | :------------------------------------ |
-| Instances.N.Dimensions.0.Name  | InstanceId | 集群 ID 的维度名称 | 输入 String 类型维度名称：InstanceId  |
-| Instances.N.Dimensions.0.Value | InstanceId | 具体集群 ID        | 输入具体集群 ID，例如：cdwch-89d5vlvd |
-| Instances.N.Dimensions.1.Name  | IP         | 节点 IP 的维度名称 | 输入 String 类型维度名称：IP          |
-| Instances.N.Dimensions.1.Value | IP         | 具体节点 IP        | 输入具体节点 IP，例如：10.0.0.0       |
+| 数名称                         | 维度名称       | 维度解释               | 格式                                                         |
+| ------------------------------ | -------------- | ---------------------- | ------------------------------------------------------------ |
+| Instances.N.Dimensions.0.Name  | appId          | 主账号 APPID的维度名称 | 输入 String 类型维度名称：appId                              |
+| Instances.N.Dimensions.0.Value | appId          | 主账号 APPID           | 输入主账号具体 APPID，例如：1250000000。可在 [账号信息控制台中获取](https://console.cloud.tencent.com/developer) APPID。 |
+| Instances.N.Dimensions.0.Name  | snovaClusterId | 集群 ID 的维度名称     | 输入 String 类型维度名称：snovaClusterId                     |
+| Instances.N.Dimensions.0.Value | snovaClusterId | 具体集群 ID            | 输入具体集群 ID，例如：snova-12345678                        |
+| Instances.N.Dimensions.0.Name  | host           | 主机信息的维度名称     | 输入 String 类型维度名称：host                               |
+| Instances.N.Dimensions.0.Value | host           | 具体主机信息           | 输入具体主机信息，例如：mdw-snova-12345678 。不同节点的主机 ID 命名规则：<br><li> master 节点：mdw-{集群 ID} <li> master 备节点：smdw-{集群 ID} <li> 第一个计算节点：sdw1-{集群 ID} <li>  第二个计算节点：sdw2-{集群 ID}  <li>第三个计算节点：sdw3-{集群 ID} <li>  第四个计算节点sdw4-{集群 ID} |
 
 ## 入参说明
 
-**查询节点指标和 ZK 指标监控数据，入参取值如下：**
-&Namespace=QCE/CDWCH
-&Instances.N.Dimensions.0.Name=InstanceId
-&Instances.N.Dimensions.0.Value=具体集群 ID
-&Instances.N.Dimensions.1.Name=IP
-&Instances.N.Dimensions.1.Value=具体节点 IP
+**查询云数据仓库 PostgreSQL -集群指标监控数据，入参取值如下：**
+&Namespace=QCE/SNOVA
+&Instances.N.Dimensions.0.Name=appId
+&Instances.N.Dimensions.0.Value=主账号具体 APPID
+&Instances.N.Dimensions.1.Name=snovaClusterId
+&Instances.N.Dimensions.1.Value=集群 ID
 
-**查询集群指标监控数据，入参取值如下：**
-&Namespace=QCE/CDWCH
-&Instances.N.Dimensions.0.Name=InstanceId
-&Instances.N.Dimensions.0.Value=具体集群 ID
+**查询云数据仓库 PostgreSQL -节点指标监控数据，入参取值如下：**
+&Namespace=QCE/SNOVA
+&Instances.N.Dimensions.0.Name=appId
+&Instances.N.Dimensions.0.Value=主账号具体 APPID
+&Instances.N.Dimensions.1.Name=snovaClusterId
+&Instances.N.Dimensions.1.Value=集群 ID
+&Instances.N.Dimensions.2.Name=host
+&Instances.N.Dimensions.2.Value=主机信息，请根据各维度对应参数总览填写
 
