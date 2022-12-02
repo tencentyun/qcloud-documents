@@ -30,4 +30,4 @@
 1. 在对应弹性公网 IP 所在行的操作栏中，单击**解绑**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/106f2d8629ddb53feca3d5be805aca31.png)
 2. 在**确认解绑该弹性公网 IP** 弹窗中，单击**确定**，完成解绑。
-<img src="https://qcloudimg.tencent-cloud.cn/raw/7eae0906caac3676e257010be72b5c9c.png" width="70%">
+<img src="https://qcloudimg.tencent-cloud.cn/raw/7eae0906caac3676e257010be72b5c9c.png" width="70%"> 
