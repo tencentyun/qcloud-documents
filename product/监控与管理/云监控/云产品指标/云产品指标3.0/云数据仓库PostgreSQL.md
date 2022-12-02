@@ -41,7 +41,7 @@ Namespace=QCE/SNOVA
 | Instances.N.Dimensions.0.Name  | snovaClusterId | 集群 ID 的维度名称     | 输入 String 类型维度名称：snovaClusterId                     |
 | Instances.N.Dimensions.0.Value | snovaClusterId | 具体集群 ID            | 输入具体集群 ID，例如：snova-12345678                        |
 | Instances.N.Dimensions.0.Name  | host           | 主机信息的维度名称     | 输入 String 类型维度名称：host                               |
-| Instances.N.Dimensions.0.Value | host           | 具体主机信息           | 输入具体主机信息，例如：mdw-snova-12345678 。不同节点的主机 ID 命名规则：<br><li> master 节点：mdw-{集群 ID} <li> master 备节点：smdw-{集群 ID} <li> 第一个计算节点：sdw1-{集群 ID} <li>  第二个计算节点：sdw2-{集群 ID}  <li>第三个计算节点：sdw3-{集群 ID} <li>  第四个计算节点sdw4-{集群 ID} |
+| Instances.N.Dimensions.0.Value | host           | 具体主机信息           | 输入具体主机信息，例如：mdw-snova-12345678 。不同节点的主机 ID 命名规则：<br><li> master 节点：mdw-{集群 ID} <li> master 备节点：smdw-{集群 ID} <li> 第一个计算节点：sdw1-{集群 ID} <li>  第二个计算节点：sdw2-{集群 ID}  <li>第三个计算节点：sdw3-{集群 ID} <li>  第四个计算节点：sdw4-{集群 ID} |
 
 ## 入参说明
 
