@@ -106,7 +106,7 @@ config_ipv6 工具可以为已开启 IPv6 且已分配 IPv6 地址的 CVM 实例
 
 #### **操作步骤**
 1. 登录云服务器，执行` ifconfig` 或 `ip address` 命令确定需要配置 IPv6 地址的网卡，如下图所示，本例 eth0 无 IPv6 地址（fe80::是本机私有地址）。
-  <img src="https://main.qcloudimg.com/raw/beda0d051a43188ac9f6d07aef63ef9b.png" width="50%" />
+  <img src="https://main.qcloudimg.com/raw/beda0d051a43188ac9f6d07aef63ef9b.png" width="50%" /> 
 2. 在云服务器中直接执行如下命令下载 config_ipv6 工具。
 ```plaintext
 wget https://iso-1251783334.cos.ap-guangzhou.myqcloud.com/scripts/config_ipv6.sh
@@ -120,7 +120,7 @@ chmod +x ./config_ipv6.sh  # 赋予执行权限
 ```
  ![](https://qcloudimg.tencent-cloud.cn/raw/fca150f96713bf049e3083a80b77b7d7.png)
 3. 执行 `ifconfig` 查询 IPv6 地址的配置情况，出现如下所示报文表示配置成功。
-  <img src="https://main.qcloudimg.com/raw/b6c466912558224a5543caaa72af668a.png" width="50%" />
+  <img src="https://main.qcloudimg.com/raw/b6c466912558224a5543caaa72af668a.png" width="50%" /> 
 4. （此步骤仅适用于 CoreOS 操作系统）重启云服务器，使上述配置生效。
 
 
