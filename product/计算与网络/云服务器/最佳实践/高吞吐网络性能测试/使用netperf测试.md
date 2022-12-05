@@ -6,7 +6,7 @@
 HP 开发的网络性能测量工具，主要测试 TCP 及 UDP 吞吐量性能。测试结果主要反应系统向其他系统发送数据的速度，以及其他系统接收数据的速度。
 - SAR
 用于监控网络流量，运行示例如下：
-![](https://qcloudimg.tencent-cloud.cn/raw/d1b01491346ce0e7446f5339ee7a186c.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/46c92faf91ed6ab1a6e41463f71f34e5.png)
 字段解释如下：
 <table>
 <thead>
