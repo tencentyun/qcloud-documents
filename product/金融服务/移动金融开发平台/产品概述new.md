@@ -1,5 +1,4 @@
-腾讯移动开发平台(Tencent Mobile Framework，TMF)整合了腾讯在移动产品 中开发、测试、发布和运营的技术能力，为企业客户提供一站式、 覆盖全生命周期的移动端技术平台。您可通过如下视频了解腾讯移动开发平台。
-<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/3518-61514"></iframe></div>
+腾讯移动开发平台(Tencent Mobile Framework，TMF)整合了腾讯在移动产品 中开发、测试、发布和运营的技术能力，为企业客户提供一站式、 覆盖全生命周期的移动端技术平台。
 
 ## 组件功能及描述
 <table>
