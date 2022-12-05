@@ -37,19 +37,15 @@
 [腾讯云 EMR 环境](https://console.cloud.tencent.com/emr) 已经无缝集成 COS，您只需要完成以下几个步骤：
 
 1. 找到一台 EMR 机器，并在该机器上执行以下命令，检查 EMR 环境下所需要的服务的文件夹下包的版本是否符合环境依赖要求。
-```
+```plaintext
 find / -name "chdfs*" 
-find / -name "hadoop-cos*" 
-find / -name "cos_api*"
+find / -name "temrfs_hadoop*" 
 ```
+![](https://qcloudimg.tencent-cloud.cn/raw/cb73bf879c1b7c0aa3304392c6845c2d.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/654573077995cb16701af9635d7db351.png)
 
- <img src="https://qcloudimg.tencent-cloud.cn/raw/f85fede17c83b0c5c0d01184b7a79aad.png" alt="开启元数据加速能力" style="zoom:50%;" />
 
- <img src="https://qcloudimg.tencent-cloud.cn/raw/7c1224b404150b827855bcd83b007837.png" alt="开启元数据加速能力" style="zoom:50%;" />
-
- <img src="https://qcloudimg.tencent-cloud.cn/raw/39db31b625e627e92c9e5374f25678aa.png" alt="开启元数据加速能力" style="zoom:50%;" />
-
-查看搜索结果里确保三个 jar 包的版本符合上述环境依赖的要求。
+查看搜索结果里确保两个 jar 包的版本符合上述环境依赖的要求。
 
 2. 如果 chdfs-hadoop-plugin 版本的包需要更新，则执行以下步骤进行更新：
 
