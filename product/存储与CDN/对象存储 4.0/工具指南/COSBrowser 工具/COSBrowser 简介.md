@@ -60,7 +60,7 @@ COSBrowser 桌面端注重对资源的管理，用户可以通过 COSBrowser 批
 
 > !COSBrowser 桌面端会使用系统配置的代理来尝试网络连接，请确保您的代理配置正常或请停用无法连接互联网的代理配置。
 >
-> - Windows 用户可在操作系统的“Internet 选项”中查询。
+> - Windows 用户可在操作系统的 “Internet 选项”中查询。
 > - macOS 用户可在“网络偏好设置”中查询。
 > - Linux 用户可在系统设置 > 网络 > 网络代理中查询。
 
@@ -120,5 +120,5 @@ COSBrowser 移动端注重对资源的查看及监控，用户可以随时随地
 
 ## 结语
 
-当然，COS 不仅提供以上应用和服务，还提供多款热门开源应用，并集成腾讯云 COS 插件，欢迎点击 “[此处](https://cloud.tencent.com/act/pro/Ecological-aggregation?from=18406)” 一键启动，立即使用！
+当然，COS 不仅提供以上应用和服务，还提供多款热门开源应用，并集成腾讯云 COS 插件，欢迎点击 [此处](https://cloud.tencent.com/act/pro/Ecological-aggregation?from=18406) 一键启动，立即使用！
 
