@@ -34,14 +34,11 @@ Discuz! 论坛可以通过配置远程附件功能将论坛的附件保存在腾
 
 ### 补充说明
 
-1. PHP 7.2之后已经移除了\_\_autoload()函数，如果出现告警需要注释或删除 upload/source/class/class_core.php 文件中的"\_\_autoload()"函数。
+1. PHP 7.2之后已经移除了\_\_autoload()函数，如果出现告警需要注释或删除 upload/source/class/class_core.php 文件中的 "\_\_autoload()" 函数。
 ![](https://qcloudimg.tencent-cloud.cn/raw/6b510689dcbfd3fa7b244b8bee2611c3.png)
 2. Discuz!X 版本更新比较频繁，可能在最新的版本中代码和本次修改的代码会有重叠部分，建议使用文件比较工具认真比较合并，且在修改代码前做好本地备份。
 3. 当前扩展中不支持将历史附件上传到腾讯云的对象存储功能，如果需要同步历史附件到腾讯云存储中，需要站点维护人员手动上传历史附件。在同步历史附件前请做好全站备份。
->? 您可使用 [工具概览](https://cloud.tencent.com/document/product/436/6242) 中介绍的上传工具上传附件；或者通过对象存储控制台直接 [上传文件](https://cloud.tencent.com/document/product/436/13321)。附件存放在存储桶中的路径和附件在本地的'/upload/data/attachment/'目录下的相对路径需保持一致。
->
-
-
+>? 您可使用 [工具概览](https://cloud.tencent.com/document/product/436/6242) 中介绍的上传工具上传附件；或者通过对象存储控制台直接 [上传文件](https://cloud.tencent.com/document/product/436/13321)。附件存放在存储桶中的路径和附件在本地的 `/upload/data/attachment/` 目录下的相对路径需保持一致。
 
 ## 配置远程附件
 
@@ -49,7 +46,7 @@ Discuz! 论坛可以通过配置远程附件功能将论坛的附件保存在腾
 2. 依次进入**全局 > 上传设置 > 基本设置**。
 3. 在**基本设置**中选择 **启用远程附件**>**启用腾讯云远程附件**，在远程访问 URL 中填入腾讯云存储桶的访问域名。
 ![](https://qcloudimg.tencent-cloud.cn/raw/b93e681591fcff6e632e2627c5a2941c.png)
-4. 在"腾讯云远程附件"配置页面中配置腾讯云对象存储的 SecretId、SecretKey、所属区域、空间名称等信息。
+4. 在**腾讯云远程附件**配置页面中配置腾讯云对象存储的 SecretId、SecretKey、所属区域、空间名称等信息。
 ![](https://qcloudimg.tencent-cloud.cn/raw/9093cb35a7f5360d3fe3068ea7bc9129.png)
 配置项说明如下：
  - **SecretId**：在腾讯云云平台 API 密钥上申请的标识身份的 SecretId。可前往 [云 API 密钥](https://console.cloud.tencent.com/capi) 中创建和获取。
@@ -57,7 +54,7 @@ Discuz! 论坛可以通过配置远程附件功能将论坛的附件保存在腾
  - **所属地域**：在腾讯云服务器所在地域。关于地域说明请参见 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224)。
  - **空间名称**：COS 服务中存储桶的名称。详情请参见 [存储桶概述](https://cloud.tencent.com/document/product/436/13312)。
  - **远程访问 URL**：存储桶的访问域名。相关说明请参见 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224)。
-5. 填写好配置参数后，单击**测试远程附件**，如果提示“远程附件设置一切正常”，说明设置成功。然后保存配置。
+5. 填写好配置参数后，单击**测试远程附件**，如果提示**远程附件设置一切正常**，说明设置成功。然后保存配置。
 6. 发帖测试。
 <img src="https://main.qcloudimg.com/raw/5d984846af7d99780b21d4f1b6ca4045.png" width="90%" ></img>
 7. 单击附件图片，单击右上角的**在新窗口打开**图标。
@@ -75,4 +72,4 @@ Discuz! 论坛可以通过配置远程附件功能将论坛的附件保存在腾
 
 ## 结语
 
-当然，COS不仅提供以上应用和服务，还提供多款热门开源应用，并集成腾讯云COS插件，欢迎点击“[此处](https://cloud.tencent.com/act/pro/Ecological-aggregation?from=18406)”一键启动，立即使用！
+当然，COS不仅提供以上应用和服务，还提供多款热门开源应用，并集成腾讯云COS插件，欢迎点击 [此处](https://cloud.tencent.com/act/pro/Ecological-aggregation?from=18406) 一键启动，立即使用！
