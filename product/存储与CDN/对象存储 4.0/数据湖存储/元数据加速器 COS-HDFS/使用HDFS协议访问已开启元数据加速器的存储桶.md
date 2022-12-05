@@ -11,9 +11,8 @@
 ## 创建存储桶并配置 HDFS 协议
 
 1. 创建 COS 存储桶，并且开启元数据加速器。如下图所示：
-![开启元数据加速能力](https://qcloudimg.tencent-cloud.cn/raw/148ce1336e35c53d3f7ef4cd95e2a35c.png)
-当存储桶创建完成后，进入存储桶的**文件列表**页面，您可在该页面进行文件上传和下载操作。如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/f003af60724cacbb02d306460b501468.png)
+![开启元数据加速能力](https://qcloudimg.tencent-cloud.cn/raw/6c9b608b84ae11de0ab30c280f042476.png)
+当存储桶创建完成后，进入存储桶的**文件列表**页面，您可在该页面进行文件上传和下载操作。
 2. 在左侧菜单栏中，单击**性能配置 > 元数据加速能力**，可以看到元数据加速能力已开启。
 如果是第一次创建**需开启元数据加速**的存储桶，需要按照提示进行相应的**授权**操作，单击授权完成后，将自动开启 HDFS 协议，并且看到默认的存储桶挂载点信息。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/bfd53266983276e8755089134a5cb890.png)
@@ -186,5 +185,4 @@ HDFS 协议默认采用原生 POSIX ACL 方式进行鉴权，如果需要使用 
 1. 在 `core-stie.xml` 中配置 HDFS 协议相关挂载点信息，如 [创建存储桶并配置 HDFS 协议](#1) 所示。
 2. 通过 Hive、MR、Spark 等组件访问存储桶，请参见 [在计算集群中挂载 COS 存储桶](https://cloud.tencent.com/document/product/436/71550)。
 3. 默认情况下，采用原生 `POSIX ACL` 方式进行鉴权，如果需要使用 `Ranger 鉴权`，可参考 [COS Ranger 权限体系解决方案](https://cloud.tencent.com/document/product/436/51125)。
-
 
