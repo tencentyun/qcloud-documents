@@ -33,12 +33,12 @@
 5. 权限配置勾选“运行角色”，单击**新建运行角色**，跳转到“新建自定义角色”页面。
 6. 角色载体选择“云函数(scf)”，单击**下一步**。
 ![img](https://qcloudimg.tencent-cloud.cn/raw/845d7c142b0504c49f677564bc35294e.png)
-7. 配置角色策略，选择 QcloudCDNFullAccess 和 QcloudCIReadOnlyAccess，单击**下一步**。
+7. 配置角色策略，选择 **QcloudCDNFullAccess** 和 **QcloudCIReadOnlyAccess**，单击**下一步**。
 8. 为角色命名后，单击**完成**。
 9. 自定义角色创建完毕后，回到云函数创建页面，刷新角色下拉表，选择刚才新建的角色。
 10. 上述步骤完成后，单击**完成**，创建云函数。
 11. 再进入 [API 网关控制台](https://console.cloud.tencent.com/apigateway/service)，开通 API 网关服务。
 12. 您可以参考 [创建后端对接云函数 SCF 的 API](https://cloud.tencent.com/document/product/628/52201) 完成创建。
-13. 在发布环境选择“发布”，然后单击“发布服务”。
+13. 在发布环境选择**发布**，然后单击**发布服务**。
 14. 在数据万象“内容审核”页面，为图片或其他目标类型设置回调参数，回调 URL 设置为上一步创建的 API 网关的地址。
 15. 回调设置完成后，CDN 上的资源将会自动根据审核回调结果进行缓存刷新。
