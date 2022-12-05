@@ -23,7 +23,7 @@ Namespace=QCE/CDWCH
 | CpuUsage                      | CPU 使用率                 | %     | InstanceId、IP |
 | CpuUsageAvg                   | CPU 平均使用率             | %     | InstanceId、IP |
 | Contextlockwait               | 上下文锁等待               | -     | InstanceId、IP |
-| Httpconnection                | http 连接数                | 个    | InstanceId、IP |
+| Httpconnection                | HTTP 连接数                | 个    | InstanceId、IP |
 | Mergestimemilliseconds        | merge 所消耗的时间（速率） | ms    | InstanceId、IP |
 | Mysqlconnection               | mysql 方式的连接数         | 个    | InstanceId、IP |
 | Querythread                   | 查询线程数                 | 个    | InstanceId、IP |
