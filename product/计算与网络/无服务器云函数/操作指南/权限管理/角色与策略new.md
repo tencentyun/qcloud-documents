@@ -64,8 +64,11 @@ SCF 默认的配置角色为 `SCF_QcsRole`，其角色详情如下：
 >! 在为运行角色添加策略时，除了选择预置策略外，还可以通过自定义策略的方式做更细粒度的权限划分，SCF 的策略语法遵循 CAM 的 [语法结构](https://cloud.tencent.com/document/product/598/10604) 和 [资源描述方式](https://cloud.tencent.com/document/product/598/10606)，策略语法以 JSON 格式为基础，具体可参考 [SCF 策略语法](https://cloud.tencent.com/document/product/583/47934)。
 >
 
-### 使用运行角色获取环境变量
-在函数运行时，SCF 服务将会使用选定的运行角色完成临时 SecretId、SecretKey、SesstionToken 的申请，并以环境变量的形式将相关内容传递到运行环境中。如下图所示： 
+### 获取运行角色临时密钥信息
+在函数运行时，SCF 服务将会使用选定的运行角色完成临时 SecretId、SecretKey、SesstionToken 的申请。
+
+- 对于**非镜像创建的函数**:
+将以环境变量的形式将相关内容传递到运行环境中。如下图所示： 
 ![](https://main.qcloudimg.com/raw/04d1d326e4a383d44c4d019a2207ba6e.png)
 以 Python 为例，您可以通过如下代码将上述信息传递到函数运行环境中，并以环境变量的方式获取。
 ```python
@@ -73,3 +76,6 @@ secret_id = os.environ.get('TENCENTCLOUD_SECRETID')
 secret_key = os.environ.get('TENCENTCLOUD_SECRETKEY')
 token= os.environ.get('TENCENTCLOUD_SESSIONTOKEN')
 ```
+
+- 对于**镜像创建的函数**:
+将以 http header 的形式将相关内容传递到入参 context 中，具体请参见 [镜像函数入参说明](https://cloud.tencent.com/document/product/583/56051#.E5.87.BD.E6.95.B0.E5.85.A5.E5.8F.82)。

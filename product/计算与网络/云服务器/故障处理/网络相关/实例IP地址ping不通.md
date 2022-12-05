@@ -123,7 +123,7 @@ iptables -A OUTPUT -p icmp --icmp-type echo-reply -j ACCEPT
 国家工信部规定，对未取得许可或者未履行备案手续的网站不得从事互联网信息服务，否则就属于违法行为。为不影响网站长久正常运行，如需开办网站，建议您先办理网站备案，待备案成功取得通信管理局下发的 ICP 备案号后，才开通访问。
 - 如果您的域名没有备案，请先进行 [域名备案](https://console.cloud.tencent.com/beian)。
 - 如果您使用的是腾讯云的域名服务，您可以登录 [域名服务控制台](https://console.cloud.tencent.com/domain) 查看相应的域名情况。
-- 如果您的域名已备案，请 [检查域名解析](#CheckDNS)。
+- 如果您的域名已备案，请 [检查域名解析](#CheckDNS
 
 
 ### 检查域名解析[](id:CheckDNS)
@@ -131,7 +131,7 @@ iptables -A OUTPUT -p icmp --icmp-type echo-reply -j ACCEPT
 ping 不通域名的另外一个原因是由于域名解析没有正确地配置。如果您使用的是腾讯云的域名服务，您可以执行以下操作，检查域名解析。
 1. 登录 [域名服务控制台](https://console.cloud.tencent.com/domain)。
 2. 在“我的域名”管理页面，选择需检查域名解析的域名行，单击**解析**，查看域名解析详情。如下图所示：
-![](https://main.qcloudimg.com/raw/c350c1587af72d8a3529bcd7a98da856.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/84467abd08a414129180140650689ef7.png)
 
 
 ### 其他操作[](id:OtherOperations)

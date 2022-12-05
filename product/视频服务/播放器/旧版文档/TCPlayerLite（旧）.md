@@ -28,8 +28,7 @@ FLV|可用于点播|`http://xxx.vod.myqcloud.com/xxx.flv`|支持|不支持
 MP4|只适用点播|`http://xxx.vod.myqcloud.com/xxx.mp4`|支持|支持
 
  
->!
-> - 在不支持 WebRTC 的浏览器环境，传入播放器的 WebRTC 地址会自动进行协议转换来更好的支持媒体播放，默认在移动端转换为 HLS，PC 端转换为 FLV。
+>!在不支持 WebRTC 的浏览器环境，传入播放器的 WebRTC 地址会自动进行协议转换来更好的支持媒体播放，默认在移动端转换为 HLS，PC 端转换为 FLV。
 
 **功能支持**
 
@@ -553,8 +552,8 @@ webrtcstop
 TCPlayerLite 在不断更新及完善中，下面是 TCPlayerLite 发布的主版本介绍。
 
 <table>
-<tr><th>日期</th><th>版本</th><th>更新内容</th>
-</tr>
+<thead><tr><th>日期</th><th>版本</th><th>更新内容</th>
+</tr></thead><tbody>
 <tr>
 <td>2022.07.11</td>
 <td>2.4.5</td>
@@ -583,7 +582,6 @@ TCPlayerLite 在不断更新及完善中，下面是 TCPlayerLite 发布的主�
      <li>修复 seek 后 loading 不消失的 bug。</li>
 </td>
 </tr>
-
 <tr>
 <td>2022.04.20</td>
 <td>2.4.2</td>
