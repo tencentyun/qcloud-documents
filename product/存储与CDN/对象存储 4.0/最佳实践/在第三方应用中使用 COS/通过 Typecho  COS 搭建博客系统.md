@@ -45,7 +45,7 @@ yum install -y wget && wget -O install.sh http://download.bt.cn/install/install_
 3. 站点创建完成后，进入站点。
 4. 单击**文件**导航栏，在文件页面中单击**远程下载**，填入 Typecho 的 GitHub 源码地址：`https://github.com/typecho/typecho/releases/latest/download/typecho.zip`，然后单击**确认**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/be8318b9ad5ffebb8a8955ff46009638.png)
-5. Typecho 源码文件下载后，并完成解压，然后通过浏览器访问链接`http://43.xxx.xxx.132/install.php`（使用时请替换为自己的站点 IP）。
+5. Typecho 源码文件下载后，并完成解压，然后通过浏览器访问链接 `http://43.xxx.xxx.132/install.php`（使用时请替换为自己的站点 IP）。
 6. 根据页面提示，填写如下信息：
 ![](https://qcloudimg.tencent-cloud.cn/raw/e62c6ead50e2e0ecd69f5efd17dc178a.png)
 >?
@@ -59,11 +59,11 @@ yum install -y wget && wget -O install.sh http://download.bt.cn/install/install_
 ### 安装 COS 插件
 
 
-1. 配置完成后，在宝塔43.xxx.xxx.132目录下单击**远程下载**，填入以下插件链接，然后得到该插件的压缩文件。
+1. 配置完成后，在宝塔 43.xxx.xxx.132 目录下单击**远程下载**，填入以下插件链接，然后得到该插件的压缩文件。
 ```plaintext
 https://github.com/Tencent-Cloud-Plugins/tencentcloud-typecho-plugin-cos/archive/refs/heads/master.zip
 ```
-2. 对压缩包进行解压后，复制 TypechoCosPlugin 文件夹到 Typecho 安装路径/usr/plugins/内。复制 /var/Widget/Upload.php 到 Typecho 博客源码安装路径 /var/Widget/内，覆盖博客源码中的 /var/Widget/Upload.php 文件。
+2. 对压缩包进行解压后，复制 TypechoCosPlugin 文件夹到 Typecho 安装路径 /usr/plugins/ 内。复制 /var/Widget/Upload.php 到 Typecho 博客源码安装路径 /var/Widget/ 内，覆盖博客源码中的 /var/Widget/Upload.php 文件。
 3. 刷新 Typecho 的后台，即可看到该插件并启用插件。
 4. 启用插件后，设置插件相关参数以便关联到 COS，配置信息如下：
  - 基础设置
@@ -137,7 +137,7 @@ https://github.com/Tencent-Cloud-Plugins/tencentcloud-typecho-plugin-cos/archive
 打开宝塔面板，单击软件商店，在 php 这里单击选择7.2以上版本即可。
 ![img](https://qcloudimg.tencent-cloud.cn/raw/e34844f437da44e8c9dad59fd89ec337.png)
 
-2. 若提示“上传目录无法写入”等报错，则需要重新去 Typecho 官网下载最新安装包。
+2. 若提示**上传目录无法写入**等报错，则需要重新去 Typecho 官网下载最新安装包。
 ![img](https://qcloudimg.tencent-cloud.cn/raw/9107b833831b3249ccdc6451f14e4bb7.png)
 
 
@@ -145,5 +145,5 @@ https://github.com/Tencent-Cloud-Plugins/tencentcloud-typecho-plugin-cos/archive
 
 ## 结语
 
-当然，COS 不仅提供以上应用和服务，还提供多款热门开源应用，并集成腾讯云 COS 插件，欢迎点击“[此处](https://cloud.tencent.com/act/pro/Ecological-aggregation?from=18406)”一键启动，立即使用！
+当然，COS 不仅提供以上应用和服务，还提供多款热门开源应用，并集成腾讯云 COS 插件，欢迎点击 [此处](https://cloud.tencent.com/act/pro/Ecological-aggregation?from=18406) 一键启动，立即使用！
 
