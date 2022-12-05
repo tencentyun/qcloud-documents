@@ -10,7 +10,7 @@
 
 ## 创建存储桶并配置 HDFS 协议
 
-1. 创建 COS 存储桶，并且开启元数据加速器。如下图所示：
+1. [创建 COS 存储桶](https://cloud.tencent.com/document/product/436/13309)，并且开启元数据加速器。如下图所示：
 ![开启元数据加速能力](https://qcloudimg.tencent-cloud.cn/raw/6c9b608b84ae11de0ab30c280f042476.png)
 当存储桶创建完成后，进入存储桶的**文件列表**页面，您可在该页面进行文件上传和下载操作。
 2. 在左侧菜单栏中，单击**性能配置 > 元数据加速能力**，可以看到元数据加速能力已开启。
@@ -154,9 +154,7 @@ sh update_cos_jar.sh  https://hadoop-jar-beijing-1259378398.cos.ap-beijing.myqcl
 
 - 在客户端使用 Hadoop 命令行查看是否挂载成功。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/3dbfa5004cf6a3b9183fae20cfaa4e49.png)
-- 登录 [COS 控制台](https://console.cloud.tencent.com/cos)，查看存储桶文件列表，确认文件和目录是否一致。如下图所示：
-![查看文件列表](https://qcloudimg.tencent-cloud.cn/raw/91be8f7f8b78c43f867988a2a4079eae.png)
-
+- 登录 [COS 控制台](https://console.cloud.tencent.com/cos)，查看存储桶文件列表，确认文件和目录是否一致。
 
 ## Ranger 权限配置
 
