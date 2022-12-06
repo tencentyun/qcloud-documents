@@ -22,6 +22,13 @@ Kubernetes 抽象 PV（PersistentVolume）和 PVC（PersistentVolumeClaim）来�
 - 容器集群宿主机已挂载 GooseFSx 共享目录，参见 [GooseFSx 创建客户端](https://cloud.tencent.com/document/product/1424/77956)。
 
 
+## 使用限制
+
+1. GooseFSx 暂不支持 [TKE 超级节点](https://cloud.tencent.com/document/product/457/74014)，请使用 [TKE 节点池](https://cloud.tencent.com/document/product/457/43719) 来实现动态伸缩。 
+2. GooseFSx 暂不支持基于 StorageClass 动态创建 PV。
+
+
+
 
 ## Local PV 操作步骤
 
