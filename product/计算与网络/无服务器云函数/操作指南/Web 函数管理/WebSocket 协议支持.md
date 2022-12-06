@@ -66,5 +66,5 @@ WebSocket 客户端通过使用 API 网关触发器提供的 WS 连接，发起 
 
 目前可以通过如下的 Demo 代码来创建函数，体验 WebSocket 效果：
 
-- [Python 示例](https://github.com/awesome-scf/scf-python-code-snippet/tree/main/ws_python)：使用 [websockets 库](https://github.com/aaugustin/websockets) 实现 WebSocket 服务端。
+- [Python 示例](https://github.com/tencentyun/serverless-demo/tree/master/Webfunc-WSDemo-Python3)：使用 [websockets 库](https://github.com/aaugustin/websockets) 实现 WebSocket 服务端。
 - [Nodejs 示例](https://github.com/awesome-scf/scf-nodejs-code-snippet/tree/main/ws_node)：使用 [ws 库](https://github.com/websockets/ws) 实现 WebSocket 服务端。

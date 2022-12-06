@@ -6,8 +6,8 @@ Web 播放器是通过 HTML5 的 `<video>` 标签以及 Flash 实现视频播放
 ### 协议支持
 
 <table>
-<tr><th style="text-align:center">音视频协议</th><th>用途</th><th>URL 地址格式</th><th>PC 浏览器</th><th>移动浏览器</th>
-</tr>
+<thead><tr><th style="text-align:center">音视频协议</th><th>用途</th><th>URL 地址格式</th><th>PC 浏览器</th><th>移动浏览器</th>
+</tr></thead><tbody>
 <tr>
 <td style="text-align:center">MP3</td>
 <td>音频</td>

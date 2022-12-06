@@ -10,8 +10,8 @@ Web 超级播放器是通过 HTML5 的 `<video>` 标签以及 Flash 实现视频
 ### 协议支持
 
 <table>
-<tr><th style="text-align:center">音视频协议</th><th>用途</th><th>URL 地址格式</th><th>PC 浏览器</th><th>移动浏览器</th>
-</tr>
+<thead><tr><th style="text-align:center">音视频协议</th><th>用途</th><th>URL 地址格式</th><th>PC 浏览器</th><th>移动浏览器</th>
+</tr></thead><tbody>
 <tr>
 <td style="text-align:center">MP3</td>
 <td>音频</td>
@@ -68,7 +68,7 @@ Web 超级播放器是通过 HTML5 的 `<video>` 标签以及 Flash 实现视频
 
 ## 功能支持
 
-<Table>
+<table><thead>
   <tr>
     <th width="50px" style="text-align:center">功能\浏览器</th>
       <th width="50px" style="text-align:center">Chrome</th>
@@ -80,7 +80,7 @@ Web 超级播放器是通过 HTML5 的 `<video>` 标签以及 Flash 实现视频
       <th width="50px" style="text-align:center">微信</th>
       <th width="50px" style="text-align:center">Android Chrome</th>
       <th width="50px" style="text-align:center">IE 11</th>
-  </tr>
+  </tr></thead><tbody>
      <tr>
          <td style="text-align:center">播放器尺寸设置</td>
          <td style="text-align:center">&#10003;</td>
@@ -338,7 +338,7 @@ Web 超级播放器是通过 HTML5 的 `<video>` 标签以及 Flash 实现视频
          <td style="text-align:center">&#10003;</td>
          <td style="text-align:center">&#10003;</td>
     </tr>
-</Table>
+</tbody></table>
 <dx-alert infotype="explain" title="">
 - 视频编码格式仅支持 H.264 编码。
 - Chrome、Firefox 包括 Windows、macOS 平台。

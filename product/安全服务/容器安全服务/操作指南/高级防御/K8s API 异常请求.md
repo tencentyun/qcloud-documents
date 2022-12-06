@@ -7,9 +7,9 @@
 
 ### 安全状态和事件趋势
 - 安全状态将根据系统上报的安全事件，实时统计待处理的 K8s API 异常请求事件，以及按高危、中危、低危、提示来统计安全事件数量。
-![](https://qcloudimg.tencent-cloud.cn/raw/f118bc351fbf3f1230e514c7179f81ad.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/5d632901a342c0282fc0b26f8c958968.png)
 - 事件趋势将根据系统上报的安全事件，按命中的系统规则和自定义规则来统计近七天安全事件趋势。
-![](https://qcloudimg.tencent-cloud.cn/raw/7f7de4d8e9e8a7843a53f6f953acbbc6.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/fff9f363456a24c9f302b0f2ce63974f.png)
 
 ### 事件列表
 您可以选择“最近生成时间“来查看安全事件，或通过集群名称或集群 ID 来检索关联的安全事件。事件列表字段包括：
@@ -28,7 +28,7 @@
 
 #### 查看详情
 在事件列表中，单击**详情**，查看事件详情。详情包括事件详情，集群名称/ID，集群运行时组件，风险描述，建议方案，异常请求信息和 json 日志。
-![](https://qcloudimg.tencent-cloud.cn/raw/d0ba966c8e996b044bbfac02c9d15575.png)
+<img src="https://qcloudimg.tencent-cloud.cn/raw/d0ba966c8e996b044bbfac02c9d15575.png" width=700px>
 
 
 #### 处理事件
@@ -38,8 +38,9 @@
  - 添加白名单：
 >!若您确认该 K8s API 请求属于正常行为，可添加白名单放行规则，后续再出现该请求，将直接放行不再告警，请谨慎操作。
 >
-![](https://qcloudimg.tencent-cloud.cn/raw/0f930d841c6af7123228d4a3a4974129.png)
+<img src="https://qcloudimg.tencent-cloud.cn/raw/0f930d841c6af7123228d4a3a4974129.png" width=700px>
 >?添加白名单时，系统会根据加白的来源事件自动填入触发告警的字段和集群。如有需要，可手动调整白名单的生效字段和生效集群范围。
+>
  - 忽略：
  - 删除记录：
  
@@ -48,16 +49,15 @@
 
 ### 系统规则
 在规则配置页面，开启或关闭系统规则和自定义规则。单击系统**规则名称**，可查看全部系统规则类型，如下图所示。用户也可以通过此页面，关闭部分系统规则类型。
-![](https://qcloudimg.tencent-cloud.cn/raw/690fb1bc3c9147c4d3f5cd5bc2a72058.png)
+<img src="https://qcloudimg.tencent-cloud.cn/raw/690fb1bc3c9147c4d3f5cd5bc2a72058.png" width=700px>
 
 ### 自定义规则
 除容器安全服务产品提供的系统规则，用户也可以自定义创建规则。
 在规则配置页面，单击**创建规则**，配置相关参数，单击**保存**。
-![](https://qcloudimg.tencent-cloud.cn/raw/aab38111ccdf4a554aa5a565b4507890.png)
+<img src="https://qcloudimg.tencent-cloud.cn/raw/aab38111ccdf4a554aa5a565b4507890.png" width=700px>
 
 | 字段名称 | 字段详情                                                     |
 | -------- | ------------------------------------------------------------ |
 | 基础设置 | 包括自定义规则的名称，以及是否启用规则的开关。               |
 | 规则设置 | <li>在此部分配置告警和放行的字段，配置告警字段时需同步配置规则的威胁等级。</li><li>当配置内容多条时，单击下方的**添加规则**即可。</li><li>配置规则的具体内容时，单击匹配范围列的**编辑**，规则配置支持正则表达式。 |
 | 生效范围 | 用户可自定义选择配置规则的生效集群范围。<br>注意：**同一个集群只能绑定一个自定义规则**，如需对一个集群配置多条检测规则，建议在同一条规则中编辑添加。 |
-

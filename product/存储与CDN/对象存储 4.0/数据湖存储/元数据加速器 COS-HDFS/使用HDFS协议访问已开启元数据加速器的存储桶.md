@@ -10,7 +10,7 @@
 
 ## 创建存储桶并配置 HDFS 协议
 
-1. 创建 COS 存储桶，并且开启元数据加速器。如下图所示：
+1. [创建 COS 存储桶](https://cloud.tencent.com/document/product/436/13309)，并且开启元数据加速器。如下图所示：
 ![开启元数据加速能力](https://qcloudimg.tencent-cloud.cn/raw/6c9b608b84ae11de0ab30c280f042476.png)
 当存储桶创建完成后，进入存储桶的**文件列表**页面，您可在该页面进行文件上传和下载操作。
 2. 在左侧菜单栏中，单击**性能配置 > 元数据加速能力**，可以看到元数据加速能力已开启。
@@ -62,11 +62,11 @@ find / -name "cos_api*"
 ```
 sh update_cos_jar.sh  https://hadoop-jar-beijing-1259378398.cos.ap-beijing.myqcloud.com/hadoop_plugin_network/2.7  
 ```
-参数替换为对应地域的存储桶，例如广州地域，则替换为`https://hadoop-jar-guangzhou-1259378398.cos.ap-guangzhou.myqcloud.com/hadoop_plugin_network/2.7`。
+参数替换为对应地域的存储桶，例如广州地域，则替换为 `https://hadoop-jar-guangzhou-1259378398.cos.ap-guangzhou.myqcloud.com/hadoop_plugin_network/2.7`。
 在每一台 EMR 节点上执行以上步骤，直到机器上的 jar 包都替换完成。
 
 3. 如果 hadoop-cos 包或者 cos_api-bundle 版本的包需要更新，则执行以下步骤进行更新：
- - 将/usr/local/service/hadoop/share/hadoop/common/lib/hadoop-temrfs-1.0.5.jar 替换为 temrfs_hadoop_plugin_network-1.1.jar。
+ - 将 /usr/local/service/hadoop/share/hadoop/common/lib/hadoop-temrfs-1.0.5.jar 替换为 temrfs_hadoop_plugin_network-1.1.jar。
  - 在 core-site.xml，新增配置项：
     -  emr.temrfs.download.md5=822c4378e0366a5cc26c23c88b604b11
     -  emr.temrfs.download.version=2.7.5-8.1.5-1.0.6 （2.7.5替换为您的 hadoop 版本，8.1.5替换为您需要的 hadoop-cos 包的版本，但确保版本不低于8.1.5, cos_api-bundle 版本会自动适配）
@@ -74,8 +74,8 @@ sh update_cos_jar.sh  https://hadoop-jar-beijing-1259378398.cos.ap-beijing.myqcl
     -  emr.temrfs.tmp.cache.dir=/data/emr/hdfs/tmp/temrfs 
  - core-site.xml 中修改配置 fs.cosn.impl=com.qcloud.emr.fs.TemrfsHadoopFileSystemAdapter。
 
-4. 在 EMR 控制台配置 core-site.xml，新增配置项`fs.cosn.bucket.region` ， `fs.cosn.trsf.fs.ofs.bucket.region`该参数用于指定存储桶所在的 COS 地域，例如 `ap-shanghai`。
->!`fs.cosn.bucket.region`和`fs.cosn.trsf.fs.ofs.bucket.region`必须配置，该参数用于指定存储桶所在的 COS 地域，例如 `ap-shanghai`。
+4. 在 EMR 控制台配置 core-site.xml，新增配置项 `fs.cosn.bucket.region` ， `fs.cosn.trsf.fs.ofs.bucket.region` 该参数用于指定存储桶所在的 COS 地域，例如 `ap-shanghai`。
+>!`fs.cosn.bucket.region` 和 `fs.cosn.trsf.fs.ofs.bucket.region` 必须配置，该参数用于指定存储桶所在的 COS 地域，例如 `ap-shanghai`。
 >
 5. 重启 Yarn、Hive、Presto、Impala 等一些常驻服务。
 
@@ -84,7 +84,7 @@ sh update_cos_jar.sh  https://hadoop-jar-beijing-1259378398.cos.ap-beijing.myqcl
 
 1. [自建环境](https://docs.cloudera.com/csp/2.0.1/deployment/topics/csp-install-cdh.html) 需要下载环境依赖中的符合版本要求的三个 jar 包。
 2. 下载后，将上述三个安装包正确放置到 Hadoop 集群中每台服务器的 `classpath` 路径下，例如 `/usr/local/service/hadoop/share/hadoop/common/lib/`（根据实际情况放置，不同组件可能放置的位置也不一样）。
-3. 修改 hadoop-env.sh 文件。进入`$HADOOP_HOME/etc/hadoop`目录，编辑 hadoop-env.sh 文件，增加以下内容，将 cosn 相关 jar 包加入 Hadoop 环境变量：
+3. 修改 hadoop-env.sh 文件。进入 `$HADOOP_HOME/etc/hadoop` 目录，编辑 hadoop-env.sh 文件，增加以下内容，将 cosn 相关 jar 包加入 Hadoop 环境变量：
    ```shell
    for f in $HADOOP_HOME/share/hadoop/tools/lib/*.jar; do
      if [ "$HADOOP_CLASSPATH" ]; then
@@ -103,13 +103,13 @@ sh update_cos_jar.sh  https://hadoop-jar-beijing-1259378398.cos.ap-beijing.myqcl
            <value>org.apache.hadoop.fs.CosFileSystem</value>
    </property>
    
-   <!--用户存储桶的地域信息，格式形如ap-guangzhou-->    
+   <!--用户存储桶的地域信息，格式形如 ap-guangzhou-->    
    <property>
            <name>fs.cosn.bucket.region</name>
            <value>ap-guangzhou</value>
    </property>
    
-   <!--用户存储桶的地域信息，格式形如ap-guangzhou-->    
+   <!--用户存储桶的地域信息，格式形如 ap-guangzhou-->    
    <property>
            <name>fs.cosn.trsf.fs.ofs.bucket.region</name>
            <value>ap-guangzhou</value>
@@ -133,7 +133,7 @@ sh update_cos_jar.sh  https://hadoop-jar-beijing-1259378398.cos.ap-beijing.myqcl
            <value>XXXXXXXXXXXXXXXXXXXXXXXX</value>
    </property>
    
-   <!--配置账户的appid-->
+   <!--配置账户的 appid-->
    <property>
            <name>fs.cosn.trsf.fs.ofs.user.appid</name>
            <value>125XXXXXX</value>
@@ -154,9 +154,7 @@ sh update_cos_jar.sh  https://hadoop-jar-beijing-1259378398.cos.ap-beijing.myqcl
 
 - 在客户端使用 Hadoop 命令行查看是否挂载成功。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/3dbfa5004cf6a3b9183fae20cfaa4e49.png)
-- 登录 [COS 控制台](https://console.cloud.tencent.com/cos)，查看存储桶文件列表，确认文件和目录是否一致。如下图所示：
-![查看文件列表](https://qcloudimg.tencent-cloud.cn/raw/91be8f7f8b78c43f867988a2a4079eae.png)
-
+- 登录 [COS 控制台](https://console.cloud.tencent.com/cos)，查看存储桶文件列表，确认文件和目录是否一致。
 
 ## Ranger 权限配置
 

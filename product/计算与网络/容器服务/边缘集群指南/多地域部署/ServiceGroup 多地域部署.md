@@ -161,4 +161,4 @@ spec:
    - 从`guangzhou`地域的 Pod 中访问此 svc，后端只会访问到`guangzhou`地域的 3 个 pod 中。
   每个地域访问这个Service 都会被限制在本 NodeUnit 范围内
 
->? 此文档仅仅简单描述 `ServiceGroup` 的使用方式，如果想要了解详情，请参考文档 [ServiceGroup 深入详解](https://cloud.tencent.com/document/product/457/83217)。
+>? 此文档仅简单描述 `ServiceGroup` 的使用方式，如果想要了解详情，请参考文档 [ServiceGroup 深入详解](https://cloud.tencent.com/document/product/457/83217)。
