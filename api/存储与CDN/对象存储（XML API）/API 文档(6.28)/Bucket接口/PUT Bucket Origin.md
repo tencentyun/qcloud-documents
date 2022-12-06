@@ -107,9 +107,13 @@ Authorization: Auth String
                     <FixedFilePath>String</FixedFilePath>
                 </FixedFileConfiguration>
                 <!--回源文件的新增文件前缀-->
-                <Prefix></Prefix>
+				<PrefixConfiguration>
+					<Prefix></Prefix>
+				</PrefixConfiguration>
                 <!--回源文件的新增文件后缀-->
-                <Suffix></Suffix>
+				<SuffixConfiguration>
+					<Suffix></Suffix>
+				</SuffixConfiguration>
             </FileInfo>
         </OriginInfo>
     </OriginRule>
@@ -133,7 +137,7 @@ Container 节点 OriginRule 的内容：
 | 节点名称（关键字） | 父节点                         | 描述                                             | 类型      | 是否必选 |
 | :----------------- | :----------------------------- | :----------------------------------------------- | :-------- | :--- |
 |  RulePriority   |  OriginConfiguration.OriginRule   |  通过优先级区分规则执行先后  | Integer   |   是  |
-| OriginType         | OriginConfiguration.OriginRule | 回源类型，支持异步回源（Proxy）、同步回源（Mirror）和重定向回源（Redirect）三种模式。 枚举值：`Proxy|Mirror|Redirect`                       | Container |
+| OriginType         | OriginConfiguration.OriginRule | 回源类型，支持异步回源（Proxy）、同步回源（Mirror）和重定向回源（Redirect）三种模式。 枚举值：`Proxy`、`Mirror`、`Redirect`                      | Container |是|
 | OriginCondition             | OriginConfiguration.OriginRule | 回源配置，配置用户使用的 HTTP 传输协议等信息 | Container    | 是   |
 | OriginParameter | OriginConfiguration.OriginRule | 回源地址相关信息                                 | Container | 是   |
 | OriginInfo   | OriginConfiguration.OriginRule | 源站信息。例如源站域名或者源站 IP 等信息              | Container    | 是   |
@@ -150,16 +154,16 @@ Container 节点 OriginParameter 的内容：
 | 节点名称（关键字） | 父节点                         | 描述                                             | 类型      | 是否必选 |
 | :----------------- | :----------------------------- | :----------------------------------------------- | :-------- | :--- |
 | Protocol         | OriginConfiguration.OriginRule.<br/>OriginParameter | 回源使用的协议，枚举值为 HTTP（使用 HTTP 协议），HTTPS（使用 HTTPS 协议）、FOLLOW（跟随用户使用的协议），默认值为 FOLLOW。                        | String | 是   |
-| FollowQueryString         | OriginConfiguration.OriginRule.OriginParameter | 回源是否需要透传 HTTP 请求串，枚举值：`true|false`，默认为`true`                      | Boolean | 否   |
+| FollowQueryString         | OriginConfiguration.OriginRule.OriginParameter | 回源是否需要透传 HTTP 请求串，枚举值：`true`或`false`，默认为`true`                      | Boolean | 否   |
 | HttpHeader         | OriginConfiguration.OriginRule.OriginParameter | 是否需要设置 Http 头部传输配置。                    | Container | 否   |
-| FollowRedirection         | OriginConfiguration.OriginRule.OriginParameter | 源站`3XX`响应策略，枚举值`true|false`，选择 true 时跟随源站`3xx`重定向请求获取到资源，并将资源保存到 COS 上;选择`false`时透传`3XX`响应，不获取资源），默认为`true`。                        | Boolean | 否  |
-| HttpRedirectCode         | OriginConfiguration.OriginRule.OriginParameter | 仅支持`Redirect`和`Proxy`模式，设置重定向返回码参数，枚举值`301|302|307`，默认为`302` 。                      | String | 否  |
+| FollowRedirection         | OriginConfiguration.OriginRule.OriginParameter | 源站`3XX`响应策略，枚举值`true`或`false`，选择 true 时跟随源站`3xx`重定向请求获取到资源，并将资源保存到 COS 上;选择`false`时透传`3XX`响应，不获取资源），默认为`true`。                        | Boolean | 否  |
+| HttpRedirectCode         | OriginConfiguration.OriginRule.OriginParameter | 仅支持`Redirect`和`Proxy`模式，设置重定向返回码参数，枚举值`301`或`302`或`307`，默认为`302` 。                      | String | 否  |
 
 Container 节点 HttpHeader 的内容：
 
 | 节点名称（关键字） | 父节点                         | 描述                                             | 类型      | 是否必选 |
 | :----------------- | :----------------------------- | :----------------------------------------------- | :-------- | :--- |
-| FollowAllHeaders         | OriginConfiguration.OriginRule.OriginParameter.HttpHeader | 是否传输全部的请求头部，枚举值：`true|false`，默认为`false`。                        | Boolean | 否  |
+| FollowAllHeaders         | OriginConfiguration.OriginRule.OriginParameter.HttpHeader | 是否传输全部的请求头部，枚举值：`true`或`false`，默认为`false`。                        | Boolean | 否  |
 | NewHttpHeaders         | OriginConfiguration.OriginRule.OriginParameter.HttpHeader | 设置回源新增指定头部，最多10个。                        | Container | 否  |
 | FollowHttpHeaders         | OriginConfiguration.OriginRule.OriginParameter.HttpHeader | 设置回源透传原始请求的指定头部。                       | Container | 否  |
 | ForbidFollowHeaders         | OriginConfiguration.OriginRule.OriginParameter.HttpHeader | 设置回源不透传的原始请求的指定头部。                       | Container | 否  |
@@ -175,7 +179,7 @@ Container 节点 Header 的内容：
 
 | 节点名称（关键字） | 父节点                         | 描述                                             | 类型      | 是否必选 |
 | :----------------- | :----------------------------- | :----------------------------------------------- | :-------- | :--- |
-| Key         | OriginConfiguration.OriginRule.OriginParameter.HttpHeader.NewHttpHeader.UserMetaData | 用户设置的头部名称，默认为空。形式如`x-cos|oss|amz-ContentType|CacheControl|ContentDisposition|ContentEncoding|HttpExpiresDate|UserMetaData`                        | String | 否  |
+| Key         | OriginConfiguration.OriginRule.OriginParameter.HttpHeader.NewHttpHeader.UserMetaData | 用户设置的头部名称，默认为空。形式如 `x-A-B`，A 支持填入`cos`或`oss`或`amz`，B 支持填入`ContentType`或`CacheControl`或`ContentDisposition`或`ContentEncoding`或`HttpExpiresDate`或`UserMetaData`                        | String | 否  |
 | Value         | OriginConfiguration.OriginRule.OriginParameter.HttpHeader.NewHttpHeader.UserMetaData | 用户设置的头部值，默认为空。                        | String | 否  |
 
 Container 节点 OriginInfo 的内容：
@@ -197,9 +201,9 @@ Container 节点 FileInfo 的内容：
 
 | 节点名称（关键字） | 父节点                         | 描述                                             | 类型      | 是否必选 |
 | :----------------- | :----------------------------- | :----------------------------------------------- | :-------- | :--- |
-| Prefix         | OriginConfiguration.OriginRule.OriginInfo.FileInfo | 回源文件的新增文件前缀，默认为空。                        |  String | 否  |
-| Suffix         | OriginConfiguration.OriginRule.OriginInfo.FileInfo | 回源文件的新增文件后缀，默认为空。                        |  String | 否  |
-| FixedFileConfiguration         | OriginConfiguration.OriginRule.OriginInfo.FileInfo | 回源到固定的文件。                        |  String | 否  |
+| PrefixConfiguration         | OriginConfiguration.OriginRule.OriginInfo.FileInfo | 回源文件的前缀设置。                        | Container | 否  |
+| SuffixConfiguration         | OriginConfiguration.OriginRule.OriginInfo.FileInfo | 回源文件的后缀设置。                        | Container | 否  |
+| FixedFileConfiguration         | OriginConfiguration.OriginRule.OriginInfo.FileInfo | 回源到固定的文件。                        | Container | 否  |
 
 Container 节点 FixedFileConfiguration 的内容：
 
@@ -207,6 +211,19 @@ Container 节点 FixedFileConfiguration 的内容：
 | 节点名称（关键字） | 父节点                         | 描述                                             | 类型      | 是否必选 |
 | :----------------- | :----------------------------- | :----------------------------------------------- | :-------- | :--- |
 | FixedFilePath         | OriginConfiguration.OriginRule.OriginInfo.FileInfo.FixedFileConfiguration | 回源的固定文件路径。                        |  String | 否  |
+
+
+Container 节点 PrefixConfiguration 的内容：
+
+| 节点名称（关键字） | 父节点                         | 描述                                             | 类型      | 是否必选 |
+| :----------------- | :----------------------------- | :----------------------------------------------- | :-------- | :--- |
+| Prefix       | OriginConfiguration.OriginRule.OriginInfo.FileInfo. PrefixConfiguration | 回源文件的新增文件前缀，默认为空。                        |  String | 否  |
+
+Container 节点 SuffixConfiguration 的内容：
+
+| 节点名称（关键字） | 父节点                         | 描述                                             | 类型      | 是否必选 |
+| :----------------- | :----------------------------- | :----------------------------------------------- | :-------- | :--- |
+| Suffix         | OriginConfiguration.OriginRule.OriginInfo.FileInfo. SuffixConfiguration | 回源文件的新增文件后缀，默认为空。                        |  String | 否  |
 
 ## 响应
 
