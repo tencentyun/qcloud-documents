@@ -14,7 +14,7 @@ Fair Scheduler 是公平调度器，公平调度器将资源公平的分配给 y
 3. 单击**资源调度器开关**，打开开关后即可进行相关调度器配置。
 ![](https://qcloudimg.tencent-cloud.cn/raw/da6a4c4cb0f1b09a1a11f87877c302cd.png)
 4. 新建 Fair Scheduler 资源池
-调度器类型选择 Fair Scheduler 即可进行 Fair Scheduler 策略设置页面，单击**新建资源池**即可新建资源池，可对已有资源池进行编辑、新建子池、克隆、删除等操作。
+调度器类型选择 Fair Scheduler 即可进入 Fair Scheduler 策略设置页面，单击**新建资源池**即可新建资源池，可对已有资源池进行编辑、新建子池、克隆、删除等操作。
 ![](https://qcloudimg.tencent-cloud.cn/raw/4598532c402c263efc3552d77151401a.png)
 **字段与配置项对照表：**
 <table>
@@ -119,13 +119,15 @@ Fair Scheduler 是公平调度器，公平调度器将资源公平的分配给 y
 >? 如果 EMR 集群配置了定时扩容，建议将计划模式的计划有效时间设置在定时扩容之后。
 >
 ![](https://qcloudimg.tencent-cloud.cn/raw/7ae0572347df707c7389d85ff74ce488.png)
-![](https://qcloudimg.tencent-cloud.cn/raw/37b2ecb065c0df19d39e92a9eb360f5a.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/836621fc1a3aeca11ef1272c34e47dc7.png)
 6. 在资源调度页中选择**资源池**，在**配置集**下拉选项中，选择一个配置集。
 >? 资源池在不同配置集中的资源量限制相互独立，即可以按照业务分别进行配置，相互不影响。
 >
-![](https://qcloudimg.tencent-cloud.cn/raw/f96f07a7b414bb5b0ca842bc62c5e3fe.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/37b2ecb065c0df19d39e92a9eb360f5a.png)
 7. 在**配置集**下选择之前创建的资源池，按照业务进⾏资源量限制的调整。
+![](https://qcloudimg.tencent-cloud.cn/raw/f96f07a7b414bb5b0ca842bc62c5e3fe.png)
 ![](https://qcloudimg.tencent-cloud.cn/raw/c5a4ccb6eabee693c2539b9fa78d8e7d.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/0bdf077e98540416cb104b78a647a559.png)
 8. 资源池调整完后，单击**部署生效**，即可使设置生效。
 
 
