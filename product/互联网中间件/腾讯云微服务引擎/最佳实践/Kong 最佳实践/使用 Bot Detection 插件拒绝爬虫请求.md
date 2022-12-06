@@ -17,7 +17,7 @@ Bot Detection插件通过检查HTTP请求中User Agent字段，识别发起请�
 
 ## 操作步骤
 1. 登录 [TSE 控制台](https://console.cloud.tencent.com/tse/kong)，进入需要配置限流插件的 Kong 网关实例详情页，在配置管理页查看管理控制台登录方式。
-2. 登录 Konga 管理控制台，进入需要反爬虫的 Route 详情页，单击 Add Plugin 按钮，在插件市场的 Security 分组中选择 Bot Detection 插件，单击 Add Plugin。
+2. 登录 Konga 管理控制台，进入需要反爬虫的 Route 详情页，单击 **Add Plugin**，在插件市场的 Security 分组中选择 Bot Detection 插件，单击 **Add Plugin**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/e490691c4a201ccc2d4efd6106c12190.png)
 3. 插件配置中使用正则表达式填写需要配置限制的代理信息，例如，拒绝来自 Firefox 的爬虫请求，在 deny 中配置[".\*Firefox.\*"]。
 ![](https://qcloudimg.tencent-cloud.cn/raw/145a0111a8f065082d60b5bfca175963.png)
@@ -25,4 +25,4 @@ Bot Detection插件通过检查HTTP请求中User Agent字段，识别发起请�
 ![](https://qcloudimg.tencent-cloud.cn/raw/bb54de683a5e7854920c4de4d6137d52.png)
 
 ## 参考
-更多相关说明请参见 [Kong Bot Detection插件官方文档](https://docs.konghq.com/hub/kong-inc/bot-detection/)。
+更多相关说明请参见 [Kong Bot Detection 插件官方文档](https://docs.konghq.com/hub/kong-inc/bot-detection/)。
