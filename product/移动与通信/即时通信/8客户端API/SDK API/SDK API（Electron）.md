@@ -111,7 +111,7 @@
 | [TIMMsgGetMessageReadReceipts](https://comm.qq.com/im/doc/electron/zh/Api/groupManager/TIMMsgGetMessageReadReceipts.html)               | 获取消息已读回执               |
 | [TIMMsgSendMessageReadReceipts](https://comm.qq.com/im/doc/electron/zh/Api/groupManager/TIMMsgSendMessageReadReceipts.html)             | 发送消息已读回执               |
 
-                       |
+ 
 
 
 
