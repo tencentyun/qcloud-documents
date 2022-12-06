@@ -20,7 +20,7 @@ SQL Server 数据备份是腾讯云对象存储（Cloud Object Storage，COS）�
 <table>
    <tr>
       <td>函数名称</td>
-      <td>作为函数的唯一标识名称，创建后不可修改。您可以在<a href="https://console.cloud.tencent.com/scf/list?rid=1&ns=default">云函数控制台</a>上查看该函数。</td>
+      <td>作为函数的唯一标识名称，创建后不可修改。您可以在 <a href="https://console.cloud.tencent.com/scf/list?rid=1&ns=default">云函数控制台</a> 上查看该函数。</td>
    <tr>
       <td>关联存储桶</td>
       <td>存储 SQL Server 备份文件的存储桶。</td>
@@ -29,7 +29,7 @@ SQL Server 数据备份是腾讯云对象存储（Cloud Object Storage，COS）�
       <td>SQL Server 数据备份函数通过定时触发器来触发备份转存操作，触发周期支持每天、每周及自定义周期。</td>
    <tr>
       <td nowrap="nowrap">Cron 表达式</td>
-      <td>当触发器周期设置为自定义时，可通过 Cron 指定具体的触发周期规则。Cron 当前以 UTC +8 中国标准时间（China Standard Time）运行，即北京时间。详细配置策略请参见<a href="https://cloud.tencent.com/document/product/583/9708#cron-.E8.A1.A8.E8.BE.BE.E5.BC.8Ft">Cron 相关文档</a>。 </td>
+      <td>当触发器周期设置为自定义时，可通过 Cron 指定具体的触发周期规则。Cron 当前以 UTC +8 中国标准时间（China Standard Time）运行，即北京时间。详细配置策略请参见 <a href="https://cloud.tencent.com/document/product/583/9708#cron-.E8.A1.A8.E8.BE.BE.E5.BC.8Ft">Cron 相关文档</a>。 </td>
    <tr>
       <td>数据库实例</td>
       <td>当前存储桶所在地域的 SQL Server 数据库实例列表。</td>
