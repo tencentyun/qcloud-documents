@@ -70,7 +70,7 @@ spec:
 |----|----|
 |name: csi-goosefsx-local-pv   | 定义持久卷名称，根据实际情况进行修改。|
 |accessModes:  - ReadWriteMany|定义访问模式，“ReadWriteMany” 是指可被多个节点以读写方式挂载。|
-|storage: 10Gi|定义存储容量，“10Gi” 是10GiB 存储容量，此参数不会限制文件系统所供给的容量；实际存储容量是购买 GooseFSx 的容量，并随 GooseFSx 扩容而动态扩展；比如，购买 GooseFSx 容量是4.5TiB，存储容量是4.5TiB，非10GiB，扩容 GooseFSx 容量到9TiB，存储容量是9TiB。|
+|storage: 10Gi|定义存储容量，“10Gi” 是10GiB 存储容量，此参数不会限制文件系统所供给的容量；实际存储容量是购买 GooseFSx 的容量，并随 GooseFSx 扩容而动态扩展；例如，购买 GooseFSx 容量是4.5TiB，存储容量是4.5TiB，非10GiB，扩容 GooseFSx 容量到9TiB，存储容量是9TiB。|
 |volumeMode: Filesystem|定义持久卷模式，是文件系统。|
 |persistentVolumeReclaimPolicy: Delete|  定义回收策略，删除。|
 |storageClassName: local-storage |   定义持久卷所属的类 “local-storage”，持久卷申领必须属于同一个类 “local-storage”；名称 “local-storage” 与 storageclass 存储类文件的 name “local-storage”保持一致。|
