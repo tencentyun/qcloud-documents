@@ -76,7 +76,7 @@ bin/sql-client.sh
 3. 当出现以下画面则说明安装成功。注意默认的网页端口是8081。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d988fff8bdbbdcaad4f4a2452d5c9ec1.png)
 ![](https://qcloudimg.tencent-cloud.cn/raw/24bafef62a5f676b28f72f0693f851f9.png)
-![](https://qcloudimg.tencent-cloud.cn/raw/964a9da5f694cbd8565001f058a5f52f.png)
+ <img src="https://qcloudimg.tencent-cloud.cn/raw/964a9da5f694cbd8565001f058a5f52f.png" width="65%">
 
 ### 步骤5：使用 Flink 消费 CLS 日志数据
 1. 在 SQL Client 界面中，执行如下 SQL：
