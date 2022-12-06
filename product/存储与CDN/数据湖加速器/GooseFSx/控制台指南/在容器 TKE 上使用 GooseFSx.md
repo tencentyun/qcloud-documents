@@ -101,7 +101,7 @@ spec:
 |----|----|
 |name: local-goosefsx-pvc|   定义持久卷申领的名称，根据实际情况进行修改。|
 |accessModes:  - ReadWriteMany|  定义访问模式，与定义持久卷一样。|
-|resources: requests: storage: 10Gi|   定义存储容量，“10Gi” 是10GiB 存储容量，此参数不会限制文件系统所提供的容量；实际存储容量是购买 GooseFSx 的容量，并随 GooseFSx 扩容而动态扩展；比如，购买 GooseFSx 容量是4.5TiB，存储容量是4.5TiB，非10GiB，扩容 GooseFSx 容量到9TiB，存储容量是9TiB。|
+|resources: requests: storage: 10Gi|   定义存储容量，“10Gi” 是10GiB 存储容量，此参数不会限制文件系统所提供的容量；实际存储容量是购买 GooseFSx 的容量，并随 GooseFSx 扩容而动态扩展；例如，购买 GooseFSx 容量是4.5TiB，存储容量是4.5TiB，非10GiB，扩容 GooseFSx 容量到9TiB，存储容量是9TiB。|
 |storageClassName: local-storage|   定义持久卷申领 所属的类 “local-storage”，持久卷必须属于同一个类 “local-storage”；名称 “local-storage” 与 storageclass 存储类文件的 name “local-storage”保持一致。|
 
 
