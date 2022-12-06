@@ -2,6 +2,15 @@
 
 ## 会话相关接口
 
+<style>
+table th:first-of-type {
+    width: 50%;
+}
+table th:nth-of-type(2) {
+    width: 50%;
+}
+</style>
+
 | API                                                                                                                   | 描述               |
 | --------------------------------------------------------------------------------------------------------------------- | ------------------ |
 | [ConvCancelDraft](https://comm.qq.com/im/doc/unity/zh/api/ConvApi/ConvCancelDraft.html)                               | 取消会话草稿       |
@@ -76,7 +85,6 @@
 | [SetConfig](https://comm.qq.com/im/doc/unity/zh/api/IMSDKInit/SetConfig.html)         | 设置全局配置         |
 | [Uninit](https://comm.qq.com/im/doc/unity/zh/api/IMSDKInit/Uninit.html)               | 反初始化IM SDK       |
 
-    |
 
 ## 登录相关接口
 
