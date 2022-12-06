@@ -1,4 +1,6 @@
-边缘函数运行时会在全局注入 `caches` 对象，该对象提供了一组缓存操作接口。缓存的内容仅在当前数据节点有效，不会自动复制到其他数据节点。
+`Cache` 基于 Web APIs 标准 [Cache API](https://developer.mozilla.org/en-US/docs/Web/API/Cache) 进行设计。边缘函数运行时会在全局注入 `caches` 对象，该对象提供了一组缓存操作接口。
+
+>? 缓存的内容仅在当前数据节点有效，不会自动复制到其他数据节点。
 
 ## 构造函数
 - 使用 `caches.default` 可以获取默认的 cache 实例。
