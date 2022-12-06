@@ -1,5 +1,14 @@
 ## 事件回调接口
 
+<style>
+table th:first-of-type {
+    width: 50%;
+}
+table th:nth-of-type(2) {
+    width: 50%;
+}
+</style>
+
 | API                                                                                                                                                                                    | 描述                                             |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ |
 | [TIMAddRecvNewMsgCallback](https://comm.qq.com/im/doc/electron/zh/Api/advanceMessageManager/TIMAddRecvNewMsgCallback.html?h=TIMAddRecvNewMsgCallback)                                  | 增加接收新消息回调                               |
