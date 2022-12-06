@@ -3,7 +3,7 @@
 通过 DescribeInvocationTasks 查询到的命令输出限制最多24 KB。本⽂以云服务器为例，介绍如何配置使完成的命令输出上传⾄指定 COS 桶中。
 ## 前提条件
 1. 运⾏命令的⽬标实例是云服务器 CVM，此功能暂时不⽀持 Lighthouse。
-2. ⽬标实例状态需处于“运⾏中”，且已安装⾃动化助⼿客户端，详情请参⻅ [安装自动化助手客户端](https://cloud.tencent.com/document/product/1340/51945) 。
+2. ⽬标实例状态需处于 **运⾏中**，且已安装⾃动化助⼿客户端，详情请参⻅ [安装自动化助手客户端](https://cloud.tencent.com/document/product/1340/51945) 。
 3. 已创建⽤于存储命令输出的 COS 存储桶。
 
 ## 操作步骤
