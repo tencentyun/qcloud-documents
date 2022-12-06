@@ -156,8 +156,6 @@
 | deleteDownloadMediaInfo  | 删除下载信息。                                                 |
 | getDownloadMediaInfoList | 获取所有用户的下载列表信息。                                   |
 
-
-
 ## ITXVodDownloadListener
 
 腾讯云视频下载回调通知。
@@ -170,8 +168,6 @@
 | onDownloadFinish   | 下载结束。                                     |
 | onDownloadError    | 下载过程中遇到错误。                           |
 | hlsKeyVerify       | 下载 HLS，遇到加密的文件，将解密 Key 给外部校验。 |
-
-
 
 ## 错误码表
 
@@ -188,8 +184,6 @@
 | 2003 | PLAY_EVT_RCV_FIRST_I_FRAME | 网络接收到首个可渲染的视频数据包（IDR）。                   |
 | 2009 | PLAY_EVT_CHANGE_RESOLUTION | 视频分辨率改变。                                            |
 | 2011 | PLAY_EVT_CHANGE_ROTATION   | MP4 视频旋转角度。                                          |
-
-
 
 ### 警告事件
 
