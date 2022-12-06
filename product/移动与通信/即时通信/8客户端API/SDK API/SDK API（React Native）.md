@@ -1,5 +1,15 @@
 ## 初始化登录接口
+<style>
+table th:first-of-type {
+    width: 50%;
+}
+table th:nth-of-type(2) {
+    width: 50%;
+}
+</style>
+
 初始化并成功登录，是正常使用腾讯云 IM 服务的前提。
+
 
 | API                                                                                     | 描述                      |
 | --------------------------------------------------------------------------------------- | ------------------------- |
@@ -95,11 +105,10 @@
 | [removeConversationListener](https://comm.qq.com/im/doc/RN/zh/Api/V2TIMConversationManager/removeConversationListener.html)                   | 移除会话监听器             |
 | [setConversationDraft](https://comm.qq.com/im/doc/RN/zh/Api/V2TIMConversationManager/setConversationDraft.html)                               | 设置会话草稿               |
 
-             |
 
 ## 关系链相关接口
 
-| API                                                                                                                           | 描述                   |
+| API       | 描述                   |
 | ----------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
 | [acceptFriendApplication](https://comm.qq.com/im/doc/RN/zh/Api/V2TIMFriendshipManager/acceptFriendApplication.html)           | 同意好友申请           |
 | [addFriend](https://comm.qq.com/im/doc/RN/zh/Api/V2TIMFriendshipManager/addFriend.html)                                       | 添加好友               |
@@ -127,13 +136,13 @@
 
 ## 群组相关接口
 
-| API                                                                                                                | 描述                                     |
-| ------------------------------------------------------------------------------------------------------------------ | ---------------------------------------- |
-| [addGroupListener](https://comm.qq.com/im/doc/RN/zh/Api/V2TIMManager/addGroupListener.html）                       | 添加群组监听器                           |
-| [dismissGroup](https://comm.qq.com/im/doc/RN/zh/Api/V2TIMManager/dismissGroup.html）                               | 解散群组                                 |
-| [joinGroup](https://comm.qq.com/im/doc/RN/zh/Api/V2TIMManager/joinGroup.html）                                     | 加入群组                                 |
-| [quitGroup](https://comm.qq.com/im/doc/RN/zh/Api/V2TIMManager/quitGroup.html）                                     | 退出群组                                 |
-| [removeGroupListener](https://comm.qq.com/im/doc/RN/zh/Api/V2TIMManager/removeGroupListener.html）                 | 移除群组监听器                           |
+| API        | 描述                                     |
+| ----------------------------------- | ---------------------------------------- |
+| [addGroupListener](https://comm.qq.com/im/doc/RN/zh/Api/V2TIMManager/addGroupListener.html)                       | 添加群组监听器                           |
+| [dismissGroup](https://comm.qq.com/im/doc/RN/zh/Api/V2TIMManager/dismissGroup.html)                               | 解散群组                                 |
+| [joinGroup](https://comm.qq.com/im/doc/RN/zh/Api/V2TIMManager/joinGroup.html)                                     | 加入群组                                 |
+| [quitGroup](https://comm.qq.com/im/doc/RN/zh/Api/V2TIMManager/quitGroup.html)                                     | 退出群组                                 |
+| [removeGroupListener](https://comm.qq.com/im/doc/RN/zh/Api/V2TIMManager/removeGroupListener.html)                 | 移除群组监听器                           |
 | [acceptGroupApplication](https://comm.qq.com/im/doc/RN/zh/Api/V2TIMGroupManager/acceptGroupApplication.html)       | 同意某一条加群申请                       |
 | [createGroup](https://comm.qq.com/im/doc/RN/zh/Api/V2TIMGroupManager/createGroup.html)                             | 创建自定义群组                           |
 | [createTopicInCommunity](https://comm.qq.com/im/doc/RN/zh/Api/V2TIMGroupManager/createTopicInCommunity.html)       | 创建话题                                 |
