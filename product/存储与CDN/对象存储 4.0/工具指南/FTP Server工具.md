@@ -142,13 +142,17 @@ log_dir             = log                  # 设置日志的存放目录，默�
 
 ### 使用 Linux ftp 命令 访问 COS FTP Server
 
-1. 在 Linux 命令行 ，使用命令 `ftp [ip地址] [端口号]`，连接 COS FTP Server。例如以下命令 。
+1. 安装 Linux ftp 客户端
+```sh
+yum install -y ftp
+```
+2. 在 Linux 命令行 ，使用命令 `ftp [ip地址] [端口号]`，连接 COS FTP Server。例如以下命令 。
 ```sh
 ftp 192.xxx.xx.103 2121
 ```
  - ftp 命令中，IP 的设置对应配置示例文件`conf/vsftpd.conf.example`中的 **masquerade_address** 配置项。在本例中 IP 设置为192.xxx.xx.103。
  - ftp 命令中，端口的设置对应配置示例文件`conf/vsftpd.conf.example`中的 **listen_port** 配置项。在本例中设置为2121。
-2. 运行上述命令后，出现 **Name**和 **Password** 待输入项 ，输入 COS FTP Server 配置项 ftp_login_user_name 和 ftp_login_user_password 中配置的内容， 即可连接成功。
+3. 运行上述命令后，出现 **Name**和 **Password** 待输入项 ，输入 COS FTP Server 配置项 ftp_login_user_name 和 ftp_login_user_password 中配置的内容， 即可连接成功。
  - **Name**：对应配置示例文件`conf/vsftpd.conf.example`中的 **ftp_login_user_name** 配置项 （需要进行配置）。
  - **Password**：对应配置示例文件`conf/vsftpd.conf.example`中的 **ftp_login_user_password** 配置项 （需要进行配置）。
 
