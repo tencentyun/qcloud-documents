@@ -18,7 +18,7 @@
 2. 在左侧导航栏中，选择**实例管理**，进入实例管理页面。
 3. 单击**负载均衡 ID/名称**，进入该负载均衡管理页面。
 4. 找到并开启**日志服务CLS**。如下图所示：
-详情请参考 [配置访问日志](https://cloud.tencent.com/document/product/214/41379) 文档。
+详情请参考 [配置访问日志](https://cloud.tencent.com/document/product/214/41379)。
 ![img](https://main.qcloudimg.com/raw/5c6ff27e1e5f4d839ea61def06457ae3.png)
 
 
