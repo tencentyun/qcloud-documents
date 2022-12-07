@@ -10,5 +10,3 @@
   该页面展示了 SSL 客户端 ID、名称、与客户端相连的 SSL 服务端、证书生效时间、证书到期时间本、证书状态等信息。
  ![](https://qcloudimg.tencent-cloud.cn/raw/97398baae192ce6579365aa3ea7d444e.png)
   单击 SSL 服务端 ID 可以跳转至相连的 SSL 服务端，并查看服务端信息。
-
-
