@@ -7,8 +7,8 @@
 ### CLS 日志投递至 COS
 
 #### 创建投递任务
-1. 登录日志服务控制台，选择左侧导航栏中的 **投递任务管理** > **[投递至COS](https://console.cloud.tencent.com/cls/shipper/cos)**。
-2. 在“投递至COS” 页面中，单击**添加投递配置**，在弹出的“投递至COS”窗口中，配置并创建投递任务。
+1. 登录日志服务控制台，选择左侧导航栏中的 **投递任务管理 > [投递至 COS](https://console.cloud.tencent.com/cls/shipper/cos)**。
+2. 在“投递至 COS” 页面中，单击**添加投递配置**，在弹出的“投递至 COS”窗口中，配置并创建投递任务。
 如下配置项需要注意：
 <table>
 <thead>
