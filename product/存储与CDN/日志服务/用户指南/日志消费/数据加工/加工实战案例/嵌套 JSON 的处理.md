@@ -67,13 +67,12 @@ ext_json("content")
 ```
 fields_drop("content")
 ```
- 3. 丢弃不需要的字段 **bytes_sent,method,response_code_details,start_time**
+ 3. 丢弃不需要的字段 **bytes_sent,method,response_code_details,start_time**。
 ```
 fields_drop("bytes_sent","method","response_code_details","start_time")
 ```
 
 ## 加工结果
-
 ```
 [{"App":"App-1","user":"Tom"},
 {"App":"App-2","user":"Jerry"}]

@@ -12,7 +12,7 @@
    <tr>
       <th colspan="5"><center>流量费用</center></th>
       <th colspan="4"><center>存储费用</center></th>
-      <th colspan="1"><center>计算费用</center></th>
+      <th colspan="1"><center>数据处理费用</center></th>
       <th colspan="2"><center>其他费用</center></th>
    </tr>
    <tr>

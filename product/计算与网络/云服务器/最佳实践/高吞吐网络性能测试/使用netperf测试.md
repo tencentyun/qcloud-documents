@@ -8,13 +8,14 @@ HP 开发的网络性能测量工具，主要测试 TCP 及 UDP 吞吐量性能�
 用于监控网络流量，运行示例如下：
 ```shellsession
 sar -n DEV 1
-02:41:03 PM     IFACE   rxpck/s   txpck/s    rxkB/s    txkB/s   rxcmp/s   txcmp/s  rxmcst/s
+02:41:03 PM     IFACE   rxpck/s   txpck/s    rxkB/s    txkB/s   rxcmp/s   txcmp/s  rxmcst/s 
 02:41:04 PM      eth0 1626689.00      8.00  68308.62      1.65      0.00      0.00      0.00
 02:41:04 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00
 02:41:04 PM     IFACE   rxpck/s   txpck/s    rxkB/s    txkB/s   rxcmp/s   txcmp/s  rxmcst/s
 02:41:05 PM      eth0 1599900.00      1.00  67183.30      0.10      0.00      0.00      0.00
 02:41:05 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00
 ``` 
+
 字段解释如下：
 <table>
 <thead>

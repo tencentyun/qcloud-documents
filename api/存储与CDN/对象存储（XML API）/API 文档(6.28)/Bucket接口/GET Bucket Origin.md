@@ -54,7 +54,7 @@ Authorization: Auth String
         <RulePriority>Integer</RulePriority>
         <OriginType>Redirect|Proxy|Mirror</OriginType>
         <OriginCondition>
-            <!--回源设置的 HTTP 状态码设置根据回源类型决定，如果是 Proxy、Mirror 是404，如果是 Redirect 是4XX或5XX的任意状态码-->
+            <!--回源设置的 HTTP 状态码设置根据回源类型决定，如果是 Proxy、Mirror 是404，如果是 Redirect 是4XX 或5XX 的任意状态码-->
             <HTTPStatusCode>404</HTTPStatusCode>
             <Prefix></Prefix>
         </OriginCondition>
@@ -89,12 +89,12 @@ Authorization: Auth String
                     </Header>
                 </ForbidFollowHeaders>
             </HttpHeader>
-            <!--follow3xx参数-->
+            <!--follow3xx 参数-->
             <FollowRedirection>true|false</FollowRedirection>
             <!--重定向返回码参数只有在回源类型为 Redirect、Proxy 时可选，否则报参数错误-->
             <HttpRedirectCode>301|302|307</HttpRedirectCode>
         </OriginParameter>
-	<!--切备错误码，默认5XX切换备站，添加此选项后支持4XX切换备站  -->
+	<!--切备错误码，默认5XX 切换备站，添加此选项后支持4XX 切换备站  -->
         <HTTPStandbyCode>                        
             <StatusCode>404</StatusCode>
             <StatusCode>403</StatusCode>
@@ -162,7 +162,7 @@ Container 节点 OriginCondition 的内容：
 
 | 节点名称（关键字） | 父节点                         | 描述                                             | 类型      | 
 | :----------------- | :----------------------------- | :----------------------------------------------- | :-------- |
-| HTTPStatusCode         | OriginConfiguration.OriginRule.<br/>OriginCondition  | 触发回源的 HTTP 状态码，Proxy 和 Mirror 模式支持填写404，Redirect 模式支持填写4XX和5XX                        | String |
+| HTTPStatusCode         | OriginConfiguration.OriginRule.<br/>OriginCondition  | 触发回源的 HTTP 状态码，Proxy 和 Mirror 模式支持填写404，Redirect 模式支持填写4XX 和5XX                        | String |
 | Prefix         | OriginConfiguration.OriginRule.<br/>OriginCondition | 触发回源的文件前缀，默认为空，任意文件均可触发                        | String |
 
 Container 节点 OriginParameter 的内容：
@@ -170,16 +170,16 @@ Container 节点 OriginParameter 的内容：
 | 节点名称（关键字） | 父节点                         | 描述                                             | 类型      | 
 | :----------------- | :----------------------------- | :----------------------------------------------- | :-------- |
 | Protocol         | OriginConfiguration.OriginRule.<br/>OriginParameter | 回源使用的协议，枚举值为 HTTP（使用 HTTP 协议），HTTPS（使用 HTTPS 协议）、FOLLOW（跟随用户使用的协议），默认值为 FOLLOW。                        | String | 
-| FollowQueryString         | OriginConfiguration.OriginRule.OriginParameter | 回源是否需要透传 HTTP 请求串，枚举值：`true`或`false`，默认为`true`                      | Boolean |
+| FollowQueryString         | OriginConfiguration.OriginRule.OriginParameter | 回源是否需要透传 HTTP 请求串，枚举值：`true` 或 `false`，默认为 `true`                      | Boolean |
 | HttpHeader         | OriginConfiguration.OriginRule.OriginParameter | 是否需要设置 Http 头部传输配置。                    | Container |
-| FollowRedirection         | OriginConfiguration.OriginRule.OriginParameter | 源站`3XX`响应策略，枚举值`true`或`false`，选择 true 时跟随源站`3xx`重定向请求获取到资源，并将资源保存到 COS 上;选择`false`时透传`3XX`响应，不获取资源），默认为`true`。                        | Boolean | 
-| HttpRedirectCode         | OriginConfiguration.OriginRule.OriginParameter | 仅支持`Redirect`和`Proxy`模式，设置重定向返回码参数，枚举值`301`或`302`或`307`，默认为`302` 。                      | String | 
+| FollowRedirection         | OriginConfiguration.OriginRule.OriginParameter | 源站 `3XX` 响应策略，枚举值 `true` 或 `false`，选择 true 时跟随源站 `3xx` 重定向请求获取到资源，并将资源保存到 COS 上;选择 `false` 时透传 `3XX` 响应，不获取资源），默认为 `true`。                        | Boolean | 
+| HttpRedirectCode         | OriginConfiguration.OriginRule.OriginParameter | 仅支持 `Redirect` 和 `Proxy` 模式，设置重定向返回码参数，枚举值 `301` 或 `302` 或 `307`，默认为 `302` 。                      | String | 
 
 Container 节点 HttpHeader 的内容：
 
 | 节点名称（关键字） | 父节点                         | 描述                                             | 类型      | 
 | :----------------- | :----------------------------- | :----------------------------------------------- | :-------- |
-| FollowAllHeaders         | OriginConfiguration.OriginRule.OriginParameter.HttpHeader | 是否传输全部的请求头部，枚举值：`true`或`false`，默认为`false`。                        | Boolean |
+| FollowAllHeaders         | OriginConfiguration.OriginRule.OriginParameter.HttpHeader | 是否传输全部的请求头部，枚举值：`true` 或 `false`，默认为 `false`。                        | Boolean |
 | NewHttpHeaders         | OriginConfiguration.OriginRule.OriginParameter.HttpHeader | 设置回源新增指定头部，最多10个。                        | Container |
 | FollowHttpHeaders         | OriginConfiguration.OriginRule.OriginParameter.HttpHeader | 设置回源透传原始请求的指定头部。                       | Container |
 | ForbidFollowHeaders         | OriginConfiguration.OriginRule.OriginParameter.HttpHeader | 设置回源不透传的原始请求的指定头部。                       | Container |
@@ -195,7 +195,7 @@ Container 节点 Header 的内容：
 
 | 节点名称（关键字） | 父节点                         | 描述                                             | 类型      |
 | :----------------- | :----------------------------- | :----------------------------------------------- | :-------- | 
-| Key         | OriginConfiguration.OriginRule.OriginParameter.HttpHeader.NewHttpHeader.UserMetaData | 用户设置的头部名称，默认为空。形式如 `x-A-B`，A 支持填入`cos`或`oss`或`amz`，B 支持填入`ContentType`或`CacheControl`或`ContentDisposition`或`ContentEncoding`或`HttpExpiresDate`或`UserMetaData`                        | String | 
+| Key         | OriginConfiguration.OriginRule.OriginParameter.HttpHeader.NewHttpHeader.UserMetaData | 用户设置的头部名称，默认为空。形式如 `x-A-B`，A 支持填入 `cos` 或`oss`或`amz`，B 支持填入 `ContentType` 或 `CacheControl` 或 `ContentDisposition` 或 `ContentEncoding` 或 `HttpExpiresDate` 或 `UserMetaData`                        | String | 
 | Value         | OriginConfiguration.OriginRule.OriginParameter.HttpHeader.NewHttpHeader.UserMetaData | 用户设置的头部值，默认为空。                        | String |
 
 Container 节点 OriginInfo 的内容：

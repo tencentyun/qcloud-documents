@@ -1,7 +1,7 @@
 ## 场景描述
 
 小王把**用户操作和结果**的日志，以单行文本的格式采集到日志服务（Cloud Log Service，CLS），日志的格式和内容**不完全相同**。小王想编写一套语句，对不同格式的日志进行结构化。 
-经过梳理查看，日志基本分为三种格式：第一种包含有 **uin、requestid、action、Reqbody** 四个字段，第二种包含 **uin、requestid、action** 三个字段，第三种包含 **requestid、action、TaskId** 三个字段。
+经过梳理查看，日志基本分为三种格式：第一种包含有 **uin、requestid、action、Reqbody** 四个字段、第二种包含 **uin、requestid、action** 三个字段、第三种包含 **requestid、action、TaskId** 三个字段。
 
 ## 场景分析
 
