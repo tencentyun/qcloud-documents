@@ -73,12 +73,12 @@ Authorization: Auth String
                     </Header>
                 </ForbidFollowHeaders>
             </HttpHeader>
-            <!--follow3xx参数-->
+            <!--follow3xx 参数-->
             <FollowRedirection>true|false</FollowRedirection>
             <!--重定向返回码参数只有在回源类型为 Redirect、Proxy 时可选，否则报参数错误-->
             <HttpRedirectCode>301|302|307</HttpRedirectCode>
         </OriginParameter>
-	<!--切备错误码，默认5XX切换备站，添加此选项后支持4XX 切换备站  -->
+	<!--切备错误码，默认5XX 切换备站，添加此选项后支持4XX 切换备站  -->
         <HTTPStandbyCode>                        
             <StatusCode>404</StatusCode>
             <StatusCode>403</StatusCode>
