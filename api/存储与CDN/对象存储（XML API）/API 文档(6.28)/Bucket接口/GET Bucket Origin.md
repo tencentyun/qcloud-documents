@@ -89,7 +89,7 @@ Authorization: Auth String
                     </Header>
                 </ForbidFollowHeaders>
             </HttpHeader>
-            <!--follow3xx参数-->
+            <!--follow3xx 参数-->
             <FollowRedirection>true|false</FollowRedirection>
             <!--重定向返回码参数只有在回源类型为 Redirect、Proxy 时可选，否则报参数错误-->
             <HttpRedirectCode>301|302|307</HttpRedirectCode>
