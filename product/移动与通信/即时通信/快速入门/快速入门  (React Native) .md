@@ -230,13 +230,13 @@ const addAdvancedMsgListener = () => {
 
 ## 常见问题
 
-#### 运行demo时出现 `Undefined symbols for architecture x86_64 [duplicate]` 如何解决？
+#### 运行 demo 时出现 `Undefined symbols for architecture x86_64 [duplicate]` 如何解决？
 
-请参见[文档](https://stackoverflow.com/questions/71933392/react-native-ios-undefined-symbols-for-architecture-x86-64)。
+请参见 [文档](https://stackoverflow.com/questions/71933392/react-native-ios-undefined-symbols-for-architecture-x86-64)。
 
-#### 运行demo时出现 `Failed to resolve: react-native-0.71.0-rc.0-debug` 如何解决？
+#### 运行 demo 时出现 `Failed to resolve: react-native-0.71.0-rc.0-debug` 如何解决？
 
-请参见[文档](https://blog.csdn.net/weixin_44132277/article/details/127731985)。
+请参见 [文档](https://blog.csdn.net/weixin_44132277/article/details/127731985)。
 
 ## 联系我们
 
