@@ -131,7 +131,7 @@ Kubernetes 集群提供了服务注册的机制，只需要将您的服务以 `M
 3. 直连模式 `Service` 使用的工作负载需为 `VPC-CNI` 弹性网卡模式。  
 
 ### 控制台操作指引
-1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)。  
+1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。  
 2. 参考控制台[ 创建 Service ](https://cloud.tencent.com/document/product/457/45489#.E5.88.9B.E5.BB.BA-service)步骤，进入 “新建Service” 页面，根据实际需求设置 Service 参数。  
 主要参数信息需进行如下设置，如下图所示：
 

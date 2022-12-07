@@ -2,7 +2,7 @@
 
 ## 步骤1：创建集群
 首先您需要创建集群。集群是指容器运行所需云资源的集合，包含了若干台云主机、负载均衡器等腾讯云资源。
-1. 登录 [腾讯云容器服务控制台 ](https://console.cloud.tencent.com/ccs) 。
+1. 登录 [腾讯云容器服务控制台](https://console.cloud.tencent.com/ccs) 。
 2. 单击左侧导航栏中的**集群**，单击集群列表页的**+ 新建**。
 ![](//mc.qcloudimg.com/static/img/3e20524b9aaa91e937bcfd02270d69c7/image.png)
 3. 设置集群的基本信息。

@@ -65,7 +65,7 @@
 超级节点的采集配置文件如下所示：
 
 ```yaml
-    - job_name: eks # 采集超级节点监控数据
+    - job_name: TKE Serverless # 采集超级节点监控数据
       honor_timestamps: true
       metrics_path: '/metrics' # 所有健康数据都在这个路径
       params: # 通常需要加参数过滤掉 ipvs 相关的指标，因为可能数据量较大，打高 Pod 负载。

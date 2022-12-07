@@ -122,7 +122,7 @@ EOF
 生成的 Deployment 对象如下图所示：
 ![](https://main.qcloudimg.com/raw/556334a46666d4f74c18432ed6083c55.png)
 
->! 上述操作创建 `tke-deployment` 时并没有设置 CPU 或内存的 Request，Pod 中的 [Qos](https://kubernetes.io/docs/tasks/configure-pod-container/quality-service-pod/) 为 BestEffort，此时 Pod 容易被驱逐。建议您在创建业务的 Deployment 时设置 Request 及 Limit。如果您通过容器服务控制台 创建工作负载，控制台将自动为每个容器的 Request 和 Limits 设置默认值。  
+>! 上述操作创建 `tke-deployment` 时并没有设置 CPU 或内存的 Request，Pod 中的 [Qos](https://kubernetes.io/docs/tasks/configure-pod-container/quality-service-pod/) 为 BestEffort，此时 Pod 容易被驱逐。建议您在创建业务的 Deployment 时设置 Request 及 Limit。如果您通过容器服务控制台创建工作负载，控制台将自动为每个容器的 Request 和 Limits 设置默认值。  
 ![](https://main.qcloudimg.com/raw/3adff8df7f72b5bdc65734e5d3c7ba98.png)
 >
 

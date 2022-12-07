@@ -9,7 +9,7 @@ AI 环境是云原生 AI 服务的重要抽象概念。一个 AI 环境运行在
 
 ## 操作步骤
 ### 创建 AI 环境
-1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的**云原生 AI**。
+1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的**云原生 AI**。
 2. 在 “AI 环境列表页”，单击**新建**，进入 “新建 AI 环境” 页面，参考以下提示进行设置。如下图所示：
 ![](https://main.qcloudimg.com/raw/95476aec85eff15a71e0c33abf669311.png)
  - **环境名称**：自定义，可根据业务需求等信息进行命名，方便后续资源管理。
@@ -29,7 +29,7 @@ AI 环境是云原生 AI 服务的重要抽象概念。一个 AI 环境运行在
 
 ### 删除 AI 环境
 
-1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的**云原生 AI**。
+1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的**云原生 AI**。
 2. 在 “AI 环境” 列表页面，选择目标环境行的最右侧的**删除**按钮。
 3. 在 “删除 AI 环境” 弹窗中，阅读删除说明，单击**确定**删除 AI 环境。
 ![](https://main.qcloudimg.com/raw/e49551379b190b07400e220dbfe3d39f.png)

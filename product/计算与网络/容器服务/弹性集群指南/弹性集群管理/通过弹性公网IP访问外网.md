@@ -1,5 +1,5 @@
 
-目前 EKS 已经支持在 Pod 中绑定 EIP ，只需在 template annotation 中说明即可。详情请参见 [Annotation 说明](https://cloud.tencent.com/document/product/457/44173) 文档。
+目前 TKE Serverless 已经支持在 Pod 中绑定 EIP ，只需在 template annotation 中说明即可。详情请参见 [Annotation 说明](https://cloud.tencent.com/document/product/457/44173) 文档。
 
 与 EIP 相关的 Annotation 标识可参考下列表格：
 

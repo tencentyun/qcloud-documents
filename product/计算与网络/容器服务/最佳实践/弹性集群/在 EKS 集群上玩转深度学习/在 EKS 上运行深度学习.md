@@ -1,12 +1,12 @@
 ## 操作场景
 
-本系列文章将记录在 EKS 上部署深度学习的一系列实践，从直接部署 TensorFlow 到后续实现 Kubeflow 的部署，旨在提供一个较完整的容器深度学习实践方案。  
+本系列文章将记录在 TKE Serverless 上部署深度学习的一系列实践，从直接部署 TensorFlow 到后续实现 Kubeflow 的部署，旨在提供一个较完整的容器深度学习实践方案。  
 
 
 ## 前提条件
 
 
-本文将在上一篇文档 [构建深度学习容器镜像](https://cloud.tencent.com/document/product/457/60220) 基础上继续操作，利用自建集群，在 EKS 上运行深度学习任务。  
+本文将在上一篇文档 [构建深度学习容器镜像](https://cloud.tencent.com/document/product/457/60220) 基础上继续操作，利用自建集群，在 TKE Serverless 上运行深度学习任务。  
 自建镜像已上传到镜像仓库中：`ccr.ccs.tencentyun.com/carltk/tensorflow-model`，无需重新构建，可以直接拉取使用。  
 
 
@@ -146,7 +146,7 @@ kubectl create -f [yaml_name]
 <dx-tabs>
 ::: 控制台查看
 在创建 Job 之后，默认进入 Job 管理页面。您也可以通过以下步骤进入 Job 管理页面：
-1. 登录容器服务控制台 ，在左侧导航栏中单击**弹性容器** > **[ Serverless 集群](https://console.cloud.tencent.com/tke2/ecluster)**。  
+1. 登录容器服务控制台，在左侧导航栏中单击**弹性容器** > **[ Serverless 集群](https://console.cloud.tencent.com/tke2/ecluster)**。  
 2. 在 Serverless 集群列表中，单击需要查看的事件集群 ID，进入集群管理页面。  
 3. 选择**工作负载** > **Job**，在 Job 列表中单击上述步骤创建的 Job。  
 	- 选择**事件**页签在查看事件，如下图所示：
@@ -170,7 +170,7 @@ kubectl logs -f [pod_name]
 如下图所示：
 ![](https://main.qcloudimg.com/raw/f38ed0501b8a0fdda2049d11b9c477e4.png)
 ![](https://main.qcloudimg.com/raw/1cc1ffe53e8c03951fe70ccf53b8d8c6.png)
-因为 EKS 即用即消的特性，导致如果需要查看日志，必须当且仅当 Pod 处于 Running 状态时才可查看。解决方法请参见常见问题 [日志采集相关](https://cloud.tencent.com/document/product/457/60223)。  
+因为 TKE Serverless 即用即消的特性，导致如果需要查看日志，必须当且仅当 Pod 处于 Running 状态时才可查看。解决方法请参见常见问题 [日志采集相关](https://cloud.tencent.com/document/product/457/60223)。  
 
 #### 查看存储
 如果已经按照前面的配置 NFS ，此时可以前往挂载点，查看 NFS 内存储：
@@ -195,7 +195,7 @@ cd /mound_data
 
 ### 在 TKE 上使用 GPU 部署深度学习任务
 
-在 TKE 上部署和 EKS 的部署几乎没有区别。以 kubectl 通过 YAML 部署为例，有以下两点改动：
+在 TKE 上部署和 TKE Serverless 的部署几乎没有区别。以 kubectl 通过 YAML 部署为例，有以下两点改动：
 
 - 创建 TKE 节点时，选择带有 GPU 的节点。详情请参见 [新建 GPU 云服务器](https://cloud.tencent.com/document/product/457/32207#newGPUService) 文档。  
 - 因为节点自带 GPU 资源，因此无需 Annotations 和 Resources。在实践操作汇总，您可以保留 Annotations，TKE 不会处理这部分。Resources 则建议注释掉，因为在某些情况下可能会导致不合理的资源需求。  

@@ -47,7 +47,7 @@ Ingress 支持通过控制台和 YAML 两种方式进行重定向，具体步骤
 
 <dx-tabs>
 ::: 控制台方式
-1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的**集群**。
+1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的**集群**。
 2. 在“集群管理”页面，选择需修改 Ingress 的集群 ID。
 3. 在集群详情页，选择左侧**服务与路由** > **Ingress**。如下图所示：
    ![](https://main.qcloudimg.com/raw/69e9c55ea644144ea5848c98b9d0462a.png)

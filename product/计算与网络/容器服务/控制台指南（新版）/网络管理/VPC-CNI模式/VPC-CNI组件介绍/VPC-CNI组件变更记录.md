@@ -60,7 +60,7 @@ kubectl -nkube-system get deploy tke-eni-ip-scheduler -o jsonpath={.spec.templat
 <tr>
 	<td>v3.4.1</td><td>2022-01-21 </td>
     <td>
-<li>支持固定 IP Pod 弹 EKS 节点且 IP 不变。</li><li> 支持指定 EIP，相关注解`tke.cloud.tencent.com/eip-id-list`。</li><li> 支持独立网卡非固定 IP 模式绑定安全组。</li><li> 升级 CRD APIVersion 至 v1，支持 kubernetes 1.22。</li><li>修复固定 IP 模式下，IP 状态小概率不同步的问题。</li>
+<li>支持固定 IP Pod 弹 TKE Serverless 节点且 IP 不变。</li><li> 支持指定 EIP，相关注解`tke.cloud.tencent.com/eip-id-list`。</li><li> 支持独立网卡非固定 IP 模式绑定安全组。</li><li> 升级 CRD APIVersion 至 v1，支持 kubernetes 1.22。</li><li>修复固定 IP 模式下，IP 状态小概率不同步的问题。</li>
     </td><td>对业务无影响</td>
 </tr>
 <tr>
