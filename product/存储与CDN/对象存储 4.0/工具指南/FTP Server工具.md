@@ -22,7 +22,7 @@ COS FTP Server 支持通过 FTP 协议直接操作对象存储（Cloud Object St
 #### 系统环境
 
 - 操作系统：Linux，推荐使用腾讯 CentOS 系列 [云服务器](https://cloud.tencent.com/document/product/213)，暂时不支持 Windows 系统。
-- psutil 依赖的 Linux 系统包：python-devel（或 python-dev，依据不同的 Linux 发行版名字不同），通过 Linux 下的包管理工具添加，例如`yum install python-devel`或`aptitude install python-dev`。
+- psutil 依赖的 Linux 系统包：python-devel（或 python-dev，依据不同的 Linux 发行版名字不同），通过 Linux 下的包管理工具添加，例如 `yum install python-devel` 或 `aptitude install python-dev`。
 - Python 解释器版本：Python 2.7，请参见 [Python 安装与配置](https://cloud.tencent.com/document/product/436/10866) 进行安装与配置。
 >? FTP Server 工具不支持 Python 3。
 >
@@ -44,7 +44,7 @@ FTP Server 工具下载地址为：[cos-ftp-server](https://github.com/tencentyu
 ```bash
 python setup.py install   # 这里可能需要您的账号 sudo 或者拥有 root 权限。
 ```
-2. 将配置示例文件`conf/vsftpd.conf.example`复制命名为`conf/vsftpd.conf`，参考本文 [配置文件](#conf) 章节 ，正确配置 bucket 和用户信息。
+2. 将配置示例文件 `conf/vsftpd.conf.example` 复制命名为 `conf/vsftpd.conf`，参考本文 [配置文件](#conf) 章节 ，正确配置 bucket 和用户信息。
 3. 运行 ftp_server.py 启动 FTP Server：
 ```bash
 python ftp_server.py
@@ -64,7 +64,7 @@ python ftp_server.py
 
 #### 停止运行
 
-- 若您是直接运行，或 screen 方式放在后台运行的 FTP Server，您可以使用快捷键`Ctrl+C`停止 FTP Server 运行。 
+- 若您是直接运行，或 screen 方式放在后台运行的 FTP Server，您可以使用快捷键 `Ctrl+C` 停止 FTP Server 运行。 
 - 若您是通过 nohup 命令启动，可以使用下面方式停止：
 ```bash
 ps -ef | grep python | grep ftp_server.py | grep -v grep | awk '{print $2}' | xargs -I{} kill {}
@@ -74,7 +74,7 @@ ps -ef | grep python | grep ftp_server.py | grep -v grep | awk '{print $2}' | xa
 <a id="conf"></a>
 ## 配置文件
 
-FTP Server 工具的配置示例文件为`conf/vsftpd.conf.example`，请复制命名为 vsftpd.conf，并按照以下的配置项进行配置：
+FTP Server 工具的配置示例文件为 `conf/vsftpd.conf.example`，请复制命名为 vsftpd.conf，并按照以下的配置项进行配置：
 ```conf
 [COS_ACCOUNT_0]
 cos_secretid = COS_SECRETID    # 替换为您的 SECRETID
@@ -83,7 +83,7 @@ cos_bucket = examplebucket-1250000000
 cos_region = region   # 替换为您的存储桶地域
 cos_protocol = https
 #cos_endpoint = region.myqcloud.com
-home_dir = /home/user0      # 替换为您希望FTP挂载到的本地路径（需设置为机器上实际存在的路径，不支持软链接）
+home_dir = /home/user0      # 替换为您希望 FTP 挂载到的本地路径（需设置为机器上实际存在的路径，不支持软链接）
 ftp_login_user_name=user0   # 替换为用户自定义的账号
 ftp_login_user_password=pass0   # 替换为用户自定义的密码
 authority=RW                # 设置该用户的读写权限，R 表示读权限，W 表示写权限，RW 表示同时具备读写权限
@@ -96,7 +96,7 @@ cos_bucket = examplebucket-1250000000
 cos_region = region   # 替换为您的存储桶地域
 cos_protocol = https
 #cos_endpoint = region.myqcloud.com
-home_dir = /home/user1     # 替换为您希望FTP挂载到的本地路径（需设置为机器上实际存在的路径，不支持软链接）
+home_dir = /home/user1     # 替换为您希望 FTP 挂载到的本地路径（需设置为机器上实际存在的路径，不支持软链接）
 ftp_login_user_name=user1  # 替换为用户自定义的账号
 ftp_login_user_password=pass1   #替换为用户自定义的密码
 authority=RW               # 设置该用户的读写权限，R 表示读权限，W 表示写权限，RW 表示同时具备读写权限
@@ -150,11 +150,11 @@ yum install -y ftp
 ```sh
 ftp 192.xxx.xx.103 2121
 ```
- - ftp 命令中，IP 的设置对应配置示例文件`conf/vsftpd.conf.example`中的 **masquerade_address** 配置项。在本例中 IP 设置为192.xxx.xx.103。
- - ftp 命令中，端口的设置对应配置示例文件`conf/vsftpd.conf.example`中的 **listen_port** 配置项。在本例中设置为2121。
+ - ftp 命令中，IP 的设置对应配置示例文件 `conf/vsftpd.conf.example` 中的 **masquerade_address** 配置项。在本例中 IP 设置为 192.xxx.xx.103。
+ - ftp 命令中，端口的设置对应配置示例文件 `conf/vsftpd.conf.example` 中的 **listen_port**  配置项。在本例中设置为2121。
 3. 运行上述命令后，出现 **Name**和 **Password** 待输入项 ，输入 COS FTP Server 配置项 ftp_login_user_name 和 ftp_login_user_password 中配置的内容， 即可连接成功。
- - **Name**：对应配置示例文件`conf/vsftpd.conf.example`中的 **ftp_login_user_name** 配置项 （需要进行配置）。
- - **Password**：对应配置示例文件`conf/vsftpd.conf.example`中的 **ftp_login_user_password** 配置项 （需要进行配置）。
+ - **Name**：对应配置示例文件 `conf/vsftpd.conf.example` 中的 **ftp_login_user_name**  配置项 （需要进行配置）。
+ - **Password**：对应配置示例文件 `conf/vsftpd.conf.example` 中的 **ftp_login_user_password**  配置项 （需要进行配置）。
 
 ### 使用 FileZilla 访问 COS FTP Server
 
@@ -162,9 +162,9 @@ ftp 192.xxx.xx.103 2121
 2. 在 FileZilla 客户端配置 COS FTP Server 的访问信息后，单击**快速连接**。
  - **主机 (H)：**对应配置示例文件 conf/vsftpd.conf.example 中 **masquerade_address** 配置项。在本例中ip设置为192.xxx.xx.103。
 >!如果 COS FTP Server 处于某个网关或 NAT 后，可以通过该配置项将网关的 IP 地址或域名指定给 COS FTP Server 。
- - **用户名 (U)：**对应配置示例文件`conf/vsftpd.conf.example`中的 **ftp_login_user_name** 配置项 （需要进行配置）。
- - **密码 (W)：** 对应配置示例文件`conf/vsftpd.conf.example`中的 **ftp_login_user_password** 配置项 (需要进行配置）。
- - **端口 (P)：**对应配置示例文件`conf/vsftpd.conf.example`中的 **listen_port** 配置项。在本例中设置为2121。
+ - **用户名 (U)：**对应配置示例文件 `conf/vsftpd.conf.example` 中的  **ftp_login_user_name**  配置项 （需要进行配置）。
+ - **密码 (W)：** 对应配置示例文件 `conf/vsftpd.conf.example` 中的  **ftp_login_user_password**  配置项 (需要进行配置）。
+ - **端口 (P)：**对应配置示例文件 `conf/vsftpd.conf.example` 中的  **listen_port**  配置项。在本例中设置为2121。
 ![](https://main.qcloudimg.com/raw/0b11bc3b38392661cff8670b0fcbafba.png)
 
 
