@@ -257,3 +257,55 @@
 <td><a href="https://cloud.tencent.com/document/api/215/17875">DescribeAccountAttributes</a></td>
 </tr>
 </table>
+
+
+### 安全组
+<table>
+<tr>
+<th width="30%">接口功能</th>
+<th width="35%">API 2.0</th>
+<th width="35%">API 3.0</th>
+</tr>
+<tr>
+<td>查询实例关联安全组</td>
+<td><a href="">DescribeInstancesOfSecurityGroup</a></td>
+<td><a href="https://cloud.tencent.com/document/product/213/15728">DescribeInstances </a></td>
+<td>Filter参数带security-group-id</td>
+</tr>
+<tr>
+<td>查询安全组规则</td>
+<td><a href="">DescribeSecurityGroupPolicys/DescribeSecurityGroupPolicy</a></td>
+<td><a href="https://cloud.tencent.com/document/product/1108/47698">DescribeSecurityGroupPolicies</a></td>
+</tr>
+<tr>
+<td>删除安全组</td>
+<td><a href="">DeleteSecurityGroup</a></td>
+<td><a href="https://cloud.tencent.com/document/api/215/15803">DeleteSecurityGroup</a></td>
+</tr>
+<tr>
+<td>查看安全组</td>
+<td><a href="">DescribeSecurityGroupEx/DescribeSecurityGroups</a></td>
+<td><a href="https://cloud.tencent.com/document/api/215/15808">DescribeSecurityGroups</a></td>
+</tr>
+<tr>
+<td>替换单条安全组规则</td>
+<td><a href="">ModifySingleSecurityGroupPolicy</a></td>
+<td><a href="https://cloud.tencent.com/document/api/215/15811">ReplaceSecurityGroupPolicy</a></td>
+</tr>
+<tr>
+<td>修改安全组出站和入站规则</td>
+<td><a href="">ModifySecurityGroupPolicy</a></td>
+<td><a href="https://cloud.tencent.com/document/api/215/15810">ModifySecurityGroupPolicies</a></td>
+</tr>
+<tr>
+<td>查询网卡关联安全组</td>
+<td><a href="">DescribeNetworkInterfacesOfSecurityGroup</a></td>
+<td><a href="https://cloud.tencent.com/document/api/215/15817">DescribeNetworkInterfaces</a></td>
+<td>Filter参数带groups.security-group-id</td>
+</tr>
+<tr>
+<td>添加安全组规则</td>
+<td><a href="">CreateSecurityGroupPolicy</a></td>
+<td><a href="https://cloud.tencent.com/document/api/215/15807">CreateSecurityGroupPolicies</a></td>
+</tr>
+</table>
