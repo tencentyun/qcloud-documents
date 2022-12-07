@@ -19,7 +19,7 @@
 ###  pip 升级
 您可以执行如下命令查看您实例的 pip 版本。
 ```plaintext
-pip ——version
+pip --version
 ```
 若您实例的 pip2 版本低于 pip 9.0，您在执行 pip 升级和安装一些应用工具时会出现报错，您可以先执行如下命令升级 pip 到 pip2 的最新版本 pip 20.3.4。
 ```plaintext
