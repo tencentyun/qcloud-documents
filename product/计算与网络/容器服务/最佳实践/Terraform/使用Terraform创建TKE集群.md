@@ -99,9 +99,87 @@ resource "tencentcloud_kubernetes_cluster" "managed_cluster_example" {
 }
 ```
 
+
+2. （可选）若您首次使用腾讯云容器服务，您需要为当前服务角色授权，赋予容器服务操作权限后才能正常地访问您的其他云服务资源。如果您已完成过授权，请直接跳过此步骤。
+  - 您可以在首次登录 [容器服务控制台](https://console.cloud.tencent.com/tke2) 时，对当前账号授予腾讯云容器服务操作云服务器 CVM、负载均衡 CLB、云硬盘 CBS 等云资源的权限。详情请参见 [服务授权](https://cloud.tencent.com/document/product/457/43416#.E9.A2.84.E8.AE.BE.E7.AD.96.E7.95.A5-qcloudaccessfortkerole.3Ca-id.3D.22qcloudaccessfortkerole.22.3E.3C.2Fa.3E)。
+  - 您也可以在 Terraform 配置文件中完成授权。您需要在工作目录下新建 `cam.tf` 文件，文件内容如下：
+   ```
+   # 创建服务预设角色TKE_QCSRole
+   resource "tencentcloud_cam_role" "TKE_QCSRole" {
+     name        = "TKE_QCSRole"
+     document    = <<EOF
+   {
+     "statement": [
+       {
+         "action":"name/sts:AssumeRole",
+         "effect":"allow",
+         "principal":{
+           "service":"ccs.qcloud.com"
+         }
+       }
+     ],
+     "version":"2.0"
+   }
+   EOF
+     description = "当前角色为 腾讯云容器服务 服务角色，该角色将在已关联策略的权限范围内访问您的其他云服务资源。"
+   }
+   
+   # 创建服务预设角色IPAMDofTKE_QCSRole
+   resource "tencentcloud_cam_role" "IPAMDofTKE_QCSRole" {
+     name = "IPAMDofTKE_QCSRole"
+     document    = <<EOF
+   {
+     "statement": [
+       {
+         "action":"name/sts:AssumeRole",  
+         "effect":"allow",
+         "principal":{
+           "service":"ccs.qcloud.com"
+         }
+       }
+     ],
+     "version":"2.0"
+   }
+   EOF
+     description = "当前角色为 容器服务IPAMD支持 服务角色，该角色将在已关联策略的权限范围内访问您的其他云服务资源。"
+   }
+   
+   # 预设策略 QcloudAccessForTKERole
+   data "tencentcloud_cam_policies" "qca" {
+     name = "QcloudAccessForTKERole"
+   }
+   
+   # 预设策略 QcloudAccessForTKERoleInOpsManagement
+   data "tencentcloud_cam_policies" "ops_mgr" {
+     name = "QcloudAccessForTKERoleInOpsManagement"
+   }
+   
+   # 预设策略 QcloudAccessForIPAMDofTKERole
+   data "tencentcloud_cam_policies" "qcs_ipamd" {
+     name = "QcloudAccessForIPAMDofTKERole"
+   }
+   
+   # 角色TKE_QCSRole关联QcloudAccessForTKERole策略
+   resource "tencentcloud_cam_role_policy_attachment" "QCS_QCA" {
+     role_id   = lookup(tencentcloud_cam_role.TKE_QCSRole, "id")
+     policy_id = data.tencentcloud_cam_policies.qca.policy_list.0.policy_id
+   }
+   
+   # 角色TKE_QCSRole关联策略QcloudAccessForTKERoleInOpsManagement
+   resource "tencentcloud_cam_role_policy_attachment" "QCS_OpsMgr" {
+     role_id   = lookup(tencentcloud_cam_role.TKE_QCSRole, "id")
+     policy_id = data.tencentcloud_cam_policies.ops_mgr.policy_list.0.policy_id
+   }
+   
+   # 角色IPAMDofTKE_QCSRole关联策略QcloudAccessForIPAMDofTKERole
+   resource "tencentcloud_cam_role_policy_attachment" "QCS_Ipamd" {
+     role_id   = lookup(tencentcloud_cam_role.IPAMDofTKE_QCSRole, "id")
+     policy_id = data.tencentcloud_cam_policies.qcs_ipamd.policy_list.0.policy_id
+   }
+   ```
    
 
-2. 执行以下命令，初始化 Terraform 的运行环境。
+3. 执行以下命令，初始化 Terraform 的运行环境。
    ```
    terraform init
    ```
@@ -121,7 +199,7 @@ resource "tencentcloud_kubernetes_cluster" "managed_cluster_example" {
    ...
    ```   
 
-3. 执行以下命令，查看 Terraform 根据配置文件生成的资源规划。
+4. 执行以下命令，查看 Terraform 根据配置文件生成的资源规划。
    ```
    terraform plan
    ```
