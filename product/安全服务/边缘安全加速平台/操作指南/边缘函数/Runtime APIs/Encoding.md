@@ -258,17 +258,17 @@ const result = decoder.decode(buffer?: ArrayBuffer | ArrayBufferView | undefined
 			<td>boolean</td>
 			<td>false</td>
 			<td>
-        设置流式解码，默认为非流式。<br/>
+        设置流式解码，默认为 false 。<br/>
         <li>
           <font color="#9ba6b7">stream: true</font><br/>
           <div style="padding-left: 20px;padding-bottom: 6px">
-            表示以 <code>chunk</code> 的方式处理数据。
+            表示以 <code>chunk</code> 的方式处理数据，即流式解码。
           </div>
         </li>
         <li>
           <font color="#9ba6b7">stream: false</font><br/>
           <div style="padding-left: 20px;padding-bottom: 6px">
-            表示 <code>chunk</code> 已结束或未使用 <code>chunk</code> 处理数据。
+            表示 <code>chunk</code> 已结束或未使用 <code>chunk</code> 处理数据，即非流式解码。
           </div>
         </li>
       </td>
