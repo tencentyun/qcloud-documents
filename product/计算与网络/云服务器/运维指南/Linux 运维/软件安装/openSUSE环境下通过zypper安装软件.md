@@ -28,10 +28,6 @@ zypper se nginx
 ```
 zypper install nginx
 ```
-例如，安装 PHP 和 PHP-FPM 等软件，则可执行以下命令：
-```
-zypper install MySQL-server-community php5-mysql php5 php5-fpm
-```
 
 
 ### 查看已安装软件的信息
