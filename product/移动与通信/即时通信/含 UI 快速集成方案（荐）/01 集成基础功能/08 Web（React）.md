@@ -1,8 +1,7 @@
 
-
 [](id:required)
 ## 开发环境要求
-- React v18.0
+- React ≥ v18.0
 - TypeScript
 - node（12.13.0 ≤ node 版本 ≤ 17.0.0, 推荐使用 Node.js 官方 LTS 版本 16.17.0）
 - npm（版本请与 node 版本匹配）
@@ -11,7 +10,7 @@
 
 ### 步骤1：创建项目
 
-1. 创建一个新的 React 项目，您可自行选择是否需要使用 ts 模版。
+1. 创建一个新的 React 项目，您可自行选择是否需要使用 ts 模板。
 <dx-codeblock>
 :::  shell
 npx create-react-app sample-chat --template typescript
