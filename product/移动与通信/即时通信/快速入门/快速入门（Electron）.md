@@ -78,7 +78,7 @@ npm start
   npm run build:windows
   ```
 
->? demo中主进程的目录为`src/app/main.js`，渲染进程目录为`src/client`。如运行过程出现问题，可优先通过常见问题查找解决。
+>? demo 中主进程的目录为`src/app/main.js`，渲染进程目录为`src/client`。如运行过程出现问题，可优先通过常见问题查找解决。
 
 [](id:step4)
 
@@ -215,18 +215,25 @@ IM SDK 的 API 层面错误码，请查看 [错误码](https://cloud.tencent.com
 
 #### 安装开发环境问题，出现 `npm ERR! gyp ERR! stack TypeError: Cannot assign to read only property 'cflags' of object '#<Object>'` 错误如何解决？
 
-请降低node版本，建议使用16.18.1。
+请降低 node 版本，建议使用16.18.1。
+
 #### 安装开发环境问题，出现 `gypgyp ERR!ERR` 错误如何解决？
 
 请参见 [gypgyp ERR!ERR!](https://stackoverflow.com/questions/57879150/how-can-i-solve-error-gypgyp-errerr-find-vsfind-vs-msvs-version-not-set-from-c)。
 
-#### 执行 `npm install`出现错误`npm ERR! Fix the upstream dependency conflict, or retry`，如何解决？
+#### 执行 `npm install` 出现错误 `npm ERR! Fix the upstream dependency conflict, or retry`，如何解决？
 
 npmV7之前的版本遇到依赖冲突会忽视依赖冲突，继续进行安装
 npmV7版本开始不会自动进行忽略，需要用户手动输入命令
-请执行npm install --force
+请执行以下命令：
+<dx-codeblock>
+:::  sh
+npm install --force
+:::
+</dx-codeblock>
 
-#### 执行 `npm run start`出现错误`Error: error:0308010C:digital envelope routines::unsupported`，如何解决？
+
+#### 执行 `npm run start` 出现错误 `Error: error:0308010C:digital envelope routines::unsupported`，如何解决？
 
 请降低node版本，建议使用16.18.1。
 
