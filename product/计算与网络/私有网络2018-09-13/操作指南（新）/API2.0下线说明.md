@@ -239,24 +239,6 @@
 </tr>
 </table>
 
-### 其他
-<table>
-<tr>
-<th width="30%">接口功能</th>
-<th width="35%">API 2.0</th>
-<th width="35%">API 3.0</th>
-</tr>
-<tr>
-<td>查询VPC异步任务执行结果</td>
-<td><a href="https://cloud.tencent.com/document/api/215/5094">DescribeVpcTaskResult</a></td>
-<td><a href="https://cloud.tencent.com/document/api/215/59037">DescribeVpcTaskResult</a></td>
-</tr>
-<tr>
-<td>查询账户属性</td>
-<td><a href="https://cloud.tencent.com/document/api/215/9499">DescribeAccountVpcAttributes</a></td>
-<td><a href="https://cloud.tencent.com/document/api/215/17875">DescribeAccountAttributes</a></td>
-</tr>
-</table>
 
 
 ### 安全组
@@ -316,3 +298,24 @@
 <td>-</td>
 </tr>
 </table>
+
+### 其他
+<table>
+<tr>
+<th width="30%">接口功能</th>
+<th width="35%">API 2.0</th>
+<th width="35%">API 3.0</th>
+</tr>
+<tr>
+<td>查询VPC异步任务执行结果</td>
+<td><a href="https://cloud.tencent.com/document/api/215/5094">DescribeVpcTaskResult</a></td>
+<td><a href="https://cloud.tencent.com/document/api/215/59037">DescribeVpcTaskResult</a></td>
+</tr>
+<tr>
+<td>查询账户属性</td>
+<td><a href="https://cloud.tencent.com/document/api/215/9499">DescribeAccountVpcAttributes</a></td>
+<td><a href="https://cloud.tencent.com/document/api/215/17875">DescribeAccountAttributes</a></td>
+</tr>
+</table>
+
+
