@@ -78,6 +78,8 @@ npm start
   npm run build:windows
   ```
 
+>? demo中主进程的目录为`src/app/main.js`，渲染进程目录为`src/client`。如运行过程出现问题，可优先通过常见问题查找解决。
+
 [](id:step4)
 
 ### 步骤4：自实现
