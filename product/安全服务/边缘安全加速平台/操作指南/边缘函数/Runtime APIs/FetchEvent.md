@@ -1,4 +1,4 @@
-FetchEvent 代表任何传入的 HTTP 请求事件，边缘函数通过注册 `fetch` 事件监听器实现对 HTTP 请求的处理。
+**FetchEvent** 代表任何传入的 HTTP 请求事件，边缘函数通过注册 `fetch` 事件监听器实现对 HTTP 请求的处理。
 
 ## 描述
 在边缘函数中，使用 [addEventListener](https://cloud.tencent.com/document/product/1552/81928) 注册 `fetch` 事件监听器，生成 HTTP 请求事件 [FetchEvent](https://cloud.tencent.com/document/product/1552/81899) ，进而实现对 HTTP 请求的处理。

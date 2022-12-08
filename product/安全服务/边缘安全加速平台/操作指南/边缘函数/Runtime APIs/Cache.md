@@ -1,4 +1,4 @@
-`Cache` 基于 Web APIs 标准 [Cache API](https://developer.mozilla.org/en-US/docs/Web/API/Cache) 进行设计。边缘函数运行时会在全局注入 `caches` 对象，该对象提供了一组缓存操作接口。
+**Cache** 基于 Web APIs 标准 [Cache API](https://developer.mozilla.org/en-US/docs/Web/API/Cache) 进行设计。边缘函数运行时会在全局注入 `caches` 对象，该对象提供了一组缓存操作接口。
 
 >? 缓存的内容仅在当前数据节点有效，不会自动复制到其他数据节点。
 
@@ -67,23 +67,24 @@ cache.match(request: string | Request, options?: MatchOptions): Promise<Response
       <td>request</td>
       <td>string | <a href="/document/product/1552/81902">Request</a></td>
       <td>是</td>
-      <td>请求对象。<br>
-				<li>
-					<font color="#9ba6b7">GET</font><br/>
-					<div style="padding-left: 20px;padding-bottom: 6px">request 只支持 <code>GET</code> 方法，当类型为 string 时，将被作为 URL 构造 Request 对象。</div>
-				</li>
-				<li>
-					<font color="#9ba6b7">Range</font><br/>
-					<div style="padding-left: 20px;padding-bottom: 6px">request 包含 <code>Range</code> 头部时，如果缓存的 Response 能够支持 Range 范围处理，返回 206 响应。</div>
-				</li>
-				<li>
-					<font color="#9ba6b7">If-Modified-Since</font><br/>
-					<div style="padding-left: 20px;padding-bottom: 6px">request 包含 <code>If-Modified-Since</code> 头部时，如果缓存的 Response 存在 Last-Modified 头部，且 Last-Modified 与 If-Modified-Since 相等，返回 304 响应。</div>
-				</li>
-				<li>
-					<font color="#9ba6b7">If-None-Match</font><br/>
-					<div style="padding-left: 20px;padding-bottom: 6px">request 包含 <code>If-None-Match</code> 头部时，如果缓存的 Response 存在 ETag 头部，且 ETag 与 If-None-Match 相等, 返回 304 响应。</div>
-				</li>
+      <td>
+        请求对象。<br>
+        <li>
+          <font color="#9ba6b7">GET</font><br/>
+          <div style="padding-left: 20px;padding-bottom: 6px">request 只支持 <code>GET</code> 方法，当类型为 string 时，将被作为 URL 构造 Request 对象。</div>
+        </li>
+        <li>
+          <font color="#9ba6b7">Range</font><br/>
+          <div style="padding-left: 20px;padding-bottom: 6px">request 包含 <code>Range</code> 头部时，如果缓存的 Response 能够支持 Range 范围处理，返回 206 响应。</div>
+        </li>
+        <li>
+          <font color="#9ba6b7">If-Modified-Since</font><br/>
+          <div style="padding-left: 20px;padding-bottom: 6px">request 包含 <code>If-Modified-Since</code> 头部时，如果缓存的 Response 存在 Last-Modified 头部，且 Last-Modified 与 If-Modified-Since 相等，返回 304 响应。</div>
+        </li>
+        <li>
+          <font color="#9ba6b7">If-None-Match</font><br/>
+          <div style="padding-left: 20px;padding-bottom: 6px">request 包含 <code>If-None-Match</code> 头部时，如果缓存的 Response 存在 ETag 头部，且 ETag 与 If-None-Match 相等, 返回 304 响应。</div>
+        </li>
       </td>
     </tr>
     <tr>
