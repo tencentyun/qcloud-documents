@@ -62,10 +62,8 @@ db.settings.update({"_id":"balancer"},{"$set":{"activeWindow":{"start":"00:00","
 ```
 
 ### 写多数派优化
-#### 问题分析
-零售优码二维码为最核心的数据，为避免极端情况下的数据丢失和数据回归等风险，建议客户端采用  Write Concern 策略。具体信息，请参见 [MongoDB 官网 Write Concern](https://docs.mongodb.com/manual/reference/write-concern/)。 
-
-对数据可靠性要求比较高时，您可以将 Write Concern 的 `w` 选项设置为 majority，并使用 {j: true} 选项来保证写入时 journal 日志持久化之后才返回给客户端确认信息，可以避免数据回滚的现象。然而，写入性能明显下降。
+零售优码二维码为最核心的数据，为避免极端情况下的数据丢失和数据回归等风险，建议客户端采用 Write Concern 策略 。具体信息，请参见 [MongoDB 官网 Write Concern](https://docs.mongodb.com/manual/reference/write-concern/)。
+建议将 Write Concern 的 `w` 选项设置为 majority，并使用 {j: true} 选项来保证写入时 journal 日志持久化之后再返回给客户端确认信息，避免数据回滚现象。然而，可靠性保证的同时，写入性能明显下降。
 
 | 选项          | 描述                                                         | 场景                               |
 | :------------ | :----------------------------------------------------------- | :--------------------------------- |
@@ -73,21 +71,20 @@ db.settings.update({"_id":"balancer"},{"$set":{"activeWindow":{"start":"00:00","
 | {w: 1}        | 默认的 writeConcern 选项，数据写入到 Primary 就向客户端发送确认信息 | 兼顾性能与一定程度的数据可靠性     |
 | {w: majority} | 数据写入到副本集大多数节点后向客户端发送确认信息             | 数据完整性要求比较高、避免数据回滚 |
 
-#### 建议方案
-基于写性能考虑，当业务采用“写大多数”策略时，直接关闭链式复制功能，确保写链路过长引起的写性能下降。
+基于写性能考虑，当业务采用“写大多数”策略时，直接关闭链式复制功能，可解决写链路过长引起的写性能下降的问题。
 
 **链式复制**
 假设 A 节点(primary)、B 节点(secondary)、C 节点(secondary)，如果 B 节点从 A 节点同步数据，C 节点从 B 节点同步数据，这样 A->B->C 之间就形成了一个链式的同步结构，如下图所示。
 <img src="https://qcloudimg.tencent-cloud.cn/raw/1e7f346c4d614e99ffc32772b626a365.png"  style="zoom:60%;">
 
 **关闭链式复制**
-1. MongoDB 多节点副本集可以支持链式复制，执行如下命令确认当前副本集是否支持链式复制。
+1. MongoDB 分片集群一个分片就是一个副本集，执行如下命令，可确认当前副本集是否支持链式复制。
 ```
 1.    cmgo-xx:SECONDARY> rs.conf().settings.chainingAllowed  
 2.    true  
 3.    cmgo-xx:SECONDARY> 
 ```
-2. 判断当前副本集节点中是否存在有链式复制情况。您可以查看副本集中每个节点的同步源，如果同步源为 secondary 从节点，则说明副本集中存在链式复制。具体示例如下所示。
+2. 判断当前副本集节点中是否存在有链式复制情况。您可以查看副本集中每个节点的同步源，如果同步源为 secondary 从节点，则说明副本集中存在链式复制。具体示例，如下所示。
 ```
 1.    cmgo-xx:SECONDARY> rs.status().syncSourceHost  
 2.    xx.xx.xx.xx:7021  
