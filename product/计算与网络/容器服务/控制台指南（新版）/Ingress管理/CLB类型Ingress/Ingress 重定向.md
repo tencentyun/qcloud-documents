@@ -10,7 +10,7 @@
 - 网站部分内容做过调整，原始 URL 已经无法访问，可以重定向到一个新的提供服务的 URL。
 
 
-<dx-alert infotype="notice" title=" ">
+<dx-alert infotype="notice" title="">
 - 当用户使用重定向后，将会多出如下一条注解，该注解表明 Ingress 的转发规则由 TKE 管理，后期不能被删除和修改，否则将和 CLB 侧设置的重定向规则冲突。
 <dx-codeblock>
 :::  yaml
@@ -64,7 +64,7 @@ Ingress 支持通过控制台和 YAML 两种方式进行重定向，具体步骤
 
 #### 自动重定向：HTTP 重定向到 HTTPS
 
-<dx-alert infotype="notice" title=" ">
+<dx-alert infotype="notice" title="">
 仅对 HTTPS 协议的转发规则生效。
 </dx-alert>
 在 Ingress YAML 中配置如下注解：
