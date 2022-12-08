@@ -173,6 +173,7 @@ spec:
     - protocol: HTTPS
       port: 443
       defaultServer: "sample.tencent.com" # 默认域名
+      keepaliveEnable: 1                  # 监听器开启长连接
       domains:
       - domain: "sample.tencent.com"
         rules:
