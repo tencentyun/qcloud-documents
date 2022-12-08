@@ -254,6 +254,7 @@ static final PushAppInfo appInfo = PushAppInfo(
   oppo_app_id: , // OPPO APPID
   google_buz_id: , // Google FCM证书ID
   apple_buz_id: , // Apple证书ID
+  honor_buz_id: , // 荣耀证书ID
 );
  ```
 

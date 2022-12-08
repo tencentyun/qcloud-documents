@@ -6,7 +6,7 @@ Flutter TUIKit 是基于 Flutter IM SDK 实现的一套 UI 组件，其中包含
 
 **接入前，您可以通过 [我们的 DEMO](https://cloud.tencent.com/document/product/269/70747#demo)，快速在线体验 TUIKit 各项能力。**
 
->? 本含 TUIKit tencent_cloud_chat_uikit 已开源，您可引入 [在线版本](https://pub.dev/packages/tencent_cloud_chat_uikit)，也可 [GitHub fork](https://github.com/TencentCloud/TIMSDK/tree/master/Flutter/IMSDK/tencent_cloud_chat_uikit) 后本地引入使用。
+>? 本含 TUIKit tencent_cloud_chat_uikit 已开源，您可引入 [在线版本](https://pub.dev/packages/tencent_cloud_chat_uikit)，也可 [GitHub fork](https://github.com/TencentCloud/chat-uikit-flutter) 后本地引入使用。
 
 目前包含的一级组件如下：
 
