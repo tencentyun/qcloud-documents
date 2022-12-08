@@ -103,7 +103,7 @@
 2. 在“新建节点池”中，选中支持镜像，例如 **TencentOS Server 3.1 (TK4)** 并设置相关驱动。
 设置镜像并选择机型后, 可以根据需求选择 GPU 驱动的版本、CUDA 版本、cuDNN 版本。
 ![](https://main.qcloudimg.com/raw/1869ca364f14446013570f9398bf1315.jpg)
-<dx-alert infotype="explain" title=" ">
+<dx-alert infotype="explain" title="">
 - 勾选“后台自动安装 GPU 驱动”，将在系统启动时进行自动安装，预计耗时15-25分钟。支持的驱动版本由 OS 以及 GPU 机型共同决定，详情可参见 [GPU 后装驱动版本列表](https://cloud.tencent.com/document/product/560/30211#gpu-.E9.A9.B1.E5.8A.A8.E9.A2.84.E8.A3.85.E4.BF.A1.E6.81.AF.3Cspan-id.3D.22preloadgpudrive.22.3E.3C.2Fspan.3E)。
 - 如果您未勾选“后台自动安装 GPU 驱动”，为了保证 GPU 机型的正常使用，针对某些低版本 OS，将会为您默认安装 GPU 驱动，完整的默认驱动版本信息可参考下表：
 <table>
