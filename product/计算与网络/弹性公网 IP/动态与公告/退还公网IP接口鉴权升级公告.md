@@ -22,7 +22,7 @@
     ]
 }
 ```
-![](https://qcloudimg.tencent-cloud.cn/raw/761a112a03bbb608198bede3b19afabd.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/b05f6b0668b3d569d707cebea9c46707.png)
 5. 在策略列表中，找到需授权的策略，单击右侧**操作**列的**关联用户/组**。
 6. 在弹出的“关联用户/用户组”对话框中，单击左侧列表的目标用户项，将其添加至右侧的“已选择”列表中，单击**确定**。
-![](https://qcloudimg.tencent-cloud.cn/raw/8d959cfee0d1ef675117f3708477d491.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/6e1afcf09f07df99264e41f48e3cbaab.png)
