@@ -8,7 +8,9 @@
 1. 登录 [ Prometheus 服务监控控制台](https://console.cloud.tencent.com/monitor/prometheus)
 2. 单击对应的按量付费实例，进入 Prometheus 基本信息页。
 3. 在服务地址模块获取 HTTP API 地址。若您需要提高 Grafana 数据读取的安全性，可获取 Prometheus 实例的鉴权 Token，按照步骤2指引填入即可。
-   ![](https://qcloudimg.tencent-cloud.cn/raw/fc3139bae8d7f24562641271263c26cc.png)
+   
+   ![](https://qcloudimg.tencent-cloud.cn/raw/262b83c88264b5526876ef8bf168c941.png)
+
 
 ### 步骤2：在本地 Grafana 添加数据源
 1. 以**管理员账号**登录本地 Grafana 系统。
@@ -16,10 +18,10 @@
 3. 在 Data Sources页中单击 **Add data source**。
 4. 在 Add data source 页面中选择 **Prometheus**。
    ![](https://qcloudimg.tencent-cloud.cn/raw/412480d962cebcdb4d3a28c3fd23590f.png)
-5. 在 Settings 页签的 Name 字段输入自定义的名称，在 URL 字段中粘贴步骤1：获取的Prometheus 监控服务提供的 HTTP API。
-6. （可选）在 Custom HTTP Headers 区域单击+ Add header，设置 Header 为Authorization，设置 Value 为步骤1：获取的的鉴权 Token。
+5. 在 Settings 页签的 Name 字段输入自定义的名称，在 URL 字段中粘贴步骤1：「Grafana 数据源配置信息」中的 **HTTP API**。
+6. 在 Auth 区域开启 Basic Auth 开关，设置 User 为「Grafana 数据源配置信息」中的 **Basic auth user**，设置 Password 为「Grafana 数据源配置信息」中的 **Basic auth password**。
 7. 完成后单击 **save & test** 即可。
-   ![](https://qcloudimg.tencent-cloud.cn/raw/c106fdaecf13e211cf5e913624e2835a.png)
+   ![](https://qcloudimg.tencent-cloud.cn/raw/e1e262e95ba91c8cd1c72f09b8ab5b86.png)
 
 
 ### 步骤3：验证是否添加成功
