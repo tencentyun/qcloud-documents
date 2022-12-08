@@ -5,7 +5,7 @@
 ## 接口调用说明
 ### 请求 URL 示例
 ```
-https://console.tim.qq.com/v4/ConfigSvc/GetIPList?sdkappid=88888888&identifier=admin&usersig=xxx&random=99999999&contenttype=json&nettype=0
+https://xxxxxx/v4/ConfigSvc/GetIPList?sdkappid=88888888&identifier=admin&usersig=xxx&random=99999999&contenttype=json&nettype=0
 ```
  
 ### 请求参数说明
