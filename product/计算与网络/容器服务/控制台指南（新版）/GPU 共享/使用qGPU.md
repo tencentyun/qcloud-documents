@@ -1,7 +1,7 @@
 ## 使用须知
 
 - **版本支持：**TKE 版本 ≥ v1.14.x
-- **节点支持：**支持原生节点以及普通节点，推荐[原生节点](https://cloud.tencent.com/document/product/457/78197)，原生节点搭载FinOps理念，配合qgpu使用可全面提升GPU/CPU资源利用率。
+- **节点支持：**支持原生节点以及普通节点，推荐 [原生节点](https://cloud.tencent.com/document/product/457/78197)，原生节点搭载 FinOps 理念，配合 qGPU 使用可全面提升 GPU/CPU 资源利用率。
 - **OS 支持**：推荐使用 TencentOS Server 3.1 (TK4) ，稳定高效。不推荐使用市场镜像，公共镜像更稳定、高效、更易维护。
 <table>
 <thead>
@@ -65,7 +65,7 @@
   </tr>
 </tbody>
 </table>
-- **GPU 卡架构：**支持 Volta（如 **V100**）、Turing（如 **T4**）、Ampere（如 **A100、A10**)。
+- **GPU 卡架构：**支持 Volta（如 **V100**）、Turing（如 **T4**）、Ampere（如 **A100、A10**）。
 - **驱动版本：**支持驱动版本由镜像和机型所共同决定，具体可参考 [步骤3](#step3)。
 >? 为保证兼容性，我们推荐您在节点上安装 NVIDIA 驱动，无需在 POD 内部重复安装。
 >
@@ -92,7 +92,7 @@
 
 ### 步骤2：开启集群 qGPU 共享
 1. 单击目标集群 ID，进入集群详情页。
-2. 单击 **qGPU 共享**右侧的![](https://qcloudimg.tencent-cloud.cn/raw/3c0c17dc4eaeb54f190987b02f3cc2cb.png)，开启 qGPU 共享。如下图所示：
+2. 单击 **qGPU 共享**右侧的![](https://qcloudimg.tencent-cloud.cn/raw/ac424dc18407ca5df9d26132588673d5.png)，开启 qGPU 共享。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/1f86d47db6a4df577cdb5ffc4eddbd8a.png)
 开启后，**集群中所有新增 GPU 节点**默认开启 GPU 共享能力。您可以在 [步骤3](#step3) 中通过 Label 控制是否开启隔离能力。
 
