@@ -379,7 +379,7 @@ pod 'TUICallKit'
 <ul>
 <li>集成 TUICallKit 组件后，聊天界面和联系人资料界面默认会出现 “视频通话” 和 “语音通话” 两个按钮，当用户点击按钮时，TUIKit 会自动展示通话邀请 UI，并给对方发起通话邀请请求。</li>
 <li>当用户<strong>在线</strong>收到通话邀请时，TUIKit 会自动展示通话接收 UI，用户可以选择同意或者拒绝通话。</li>
-<li>当用户<strong>离线</strong>收到通话邀请时，如需唤起 App 通话，就要使用到离线推送能力，离线推送的实现请参考 [添加离线推送](https://cloud.tencent.com/document/product/269/74284)。</li>
+<li>当用户<strong>离线</strong>收到通话邀请时，如需唤起 App 通话，就要使用到离线推送能力，离线推送的实现请参见 <a href = "https://cloud.tencent.com/document/product/269/74284">添加离线推送</a>。</li>
 </ul>
 4. 添加离线推送。
 在使用离线推送之前，您需要开通 [IM 离线推送](https://cloud.tencent.com/document/product/269/75429) 服务。
@@ -400,7 +400,7 @@ use_frameworks! :linkage => :static
 腾讯云的 [音视频库](https://cloud.tencent.com/document/product/647/32689) 不能同时集成，会有符号冲突，如果您使用了非 [TRTC](https://cloud.tencent.com/document/product/647/32689#TRTC) 版本的音视频库，建议先去掉，然后 pod 集成 `TUICallKit/Professional` 版本，该版本依赖的 [LiteAV_Professional](https://cloud.tencent.com/document/product/647/32689#.E4.B8.93.E4.B8.9A.E7.89.88.EF.BC.88professional.EF.BC.89) 音视频库包含了音视频的所有基础能力。**如果您使用了 [LiteAV_Enterprise](https://cloud.tencent.com/document/product/647/32689#Enterprise) 音视频库，暂不支持和 TUICallKit 共存。**具体解决方案可以参考文档：[音视频常见问题](https://cloud.tencent.com/document/product/269/72441#.E5.B8.B8.E8.A7.81.E9.97.AE.E9.A2.98)。
 
 #### 通话邀请的超时时间默认是多久？
-通话邀请的默认超时时间是 30 秒.
+通话邀请的默认超时时间是 30 秒。
 
 #### 在邀请超时时间内，被邀请者如果离线再上线，能否立即收到邀请？
 
