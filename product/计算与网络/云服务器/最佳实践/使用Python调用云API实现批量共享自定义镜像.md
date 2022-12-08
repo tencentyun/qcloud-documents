@@ -12,7 +12,7 @@
 
 ## 操作步骤
 
-### 安装Python
+### 安装 Python
 1. 执行以下命令查看当前云服务器是否已经安装 Python 3.6+版本，若已安装，则可以跳过安装步骤。
 ```shellsession
 python --version
@@ -26,7 +26,7 @@ yum install python3
 ```shellsession
 sudo apt install python3
 ```
- - 其他操作系统您可以前往 Python 官网（https://www.python.org/doc/），下载Python 3.6+版本并上传至 Linux 服务器中，解压并安装 Python。
+ - 其他操作系统您可以前往 [Python 官网](https://www.python.org/doc/)，下载 Python 3.6+版本并上传至 Linux 服务器中，解压并安装 Python。
 3. 安装完成后，请执行以下命令核实 Python 版本。
 ```shellsession
 python --version
