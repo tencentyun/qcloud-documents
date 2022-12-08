@@ -15,7 +15,7 @@ CLS 支持您使用各类 Kafka producer SDK 采集日志，并通过 Kafka 协�
 - 支持 Kafka 协议版本为：0.11.0.X，1.0.X，1.1.X，2.0.X，2.1.X，2.2.X，2.3.X，2.4.X，2.5.X，2.6.X，2.7.X，2.8.X
 - 支持压缩方式：gzip，snappy，lz4
 - 当前使用 SASL_PLAINTEXT 认证。
-- 使用 Kafka 协议上传需要配置 RealtimeProducer 权限，详情请参考 [CLS 访问策略模版](https://cloud.tencent.com/document/product/614/68374)。
+- 使用 Kafka 协议上传需要配置 RealtimeProducer 权限，详情请参考 [CLS 访问策略模板](https://cloud.tencent.com/document/product/614/68374)。
 
 
 ## 配置方式
