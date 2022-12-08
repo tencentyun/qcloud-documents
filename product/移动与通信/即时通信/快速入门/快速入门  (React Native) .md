@@ -228,6 +228,16 @@ const addAdvancedMsgListener = () => {
 此时，您已基本完成 IM 模块开发，可以发送接收消息，也可以进入不同的会话。
 您可以继续完成群组，用户资料，关系链，离线推送，本地搜索等相关功能开发，详情可参见 [SDK API 文档](https://comm.qq.com/im/doc/RN/zh/)。
 
+## 常见问题
+
+#### 运行 demo 时出现 `Undefined symbols for architecture x86_64 [duplicate]` 如何解决？
+
+请参见 [文档](https://stackoverflow.com/questions/71933392/react-native-ios-undefined-symbols-for-architecture-x86-64)。
+
+#### 运行 demo 时出现 `Failed to resolve: react-native-0.71.0-rc.0-debug` 如何解决？
+
+请参见 [文档](https://blog.csdn.net/weixin_44132277/article/details/127731985)。
+
 ## 联系我们
 
 如果您在接入使用过程中有任何疑问，请加入 QQ 群：437955475 咨询。

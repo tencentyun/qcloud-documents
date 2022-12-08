@@ -3,7 +3,7 @@
 
 ## 前提条件
 
-- 已登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2/cluster?rid=1)。
+- 已登录 [容器服务控制台](https://console.cloud.tencent.com/tke2/cluster?rid=1)。
 - 集群内已 [部署 NginxIngress 组件](https://cloud.tencent.com/document/product/457/50503#Nginx-ingress)。
 - 已安装并创建业务需要的 Nginx-ingress 实例。
 

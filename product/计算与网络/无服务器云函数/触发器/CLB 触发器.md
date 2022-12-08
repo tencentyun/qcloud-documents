@@ -76,9 +76,9 @@ CLB 负载均衡发送到云函数的请求处理方式，和云函数响应给 
 | X-Stgw-Time |  请求发起的时间戳 |
 | X-Forwarded-Proto | 请求的 scheme 结构体|
 | X-Client-Proto-Ver | 协议类型 |
-| X-Real-IP | 客户端IP地址 |   
-| X-Forward-For | 经过的代理IP地址 |
-| X-Real-Port | 记录在 API 网关中配置过的 Path 参数以及实际取值。（可选，CLB 个性化配置） |
+| X-Real-IP | 客户端 IP 地址 |   
+| X-Forward-For | 经过的代理 IP 地址 |
+| X-Real-Port | 记录在 CLB 中配置过的 Path 参数以及实际取值。（可选，CLB 个性化配置） |
 | X-Vip | CLB 负载均衡的 VIP 地址（可选，CLB 个性化配置） |
 | X-Vport | CLB 负载均衡的 Vport（可选，CLB 个性化配置）  |
 | X-Url | 请求 CLB 负载均衡的 PATH（可选，CLB 个性化配置） |

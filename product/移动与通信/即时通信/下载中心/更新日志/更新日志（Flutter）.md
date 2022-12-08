@@ -26,7 +26,7 @@ IM Flutter TUIKit（含 UI）指代 [tencent_cloud_chat_uikit](https://pub.dev/p
 
 ### IM Flutter SDK（无 UI） 5.0.6 @2022.11.29
 
-- 修复：iOS Bundle version丢失问题。
+- 修复：iOS Bundle version 丢失问题。
 - 改进：升级底层 Native SDK 至 6.9.3557 版本。
 
 ### IM Flutter TUIKit（含 UI） 1.0.1 @2022.11.28
