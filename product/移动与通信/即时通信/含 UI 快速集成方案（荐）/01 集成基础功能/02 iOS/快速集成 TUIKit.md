@@ -108,6 +108,10 @@ pod install
 ```bash
 pod repo update
 ```
+之后执行以下命令，更新组件库的Pod版本
+```bash
+pod update
+```
   集成全部的 TUIKit 组件后的项目结构：
   <img src="https://qcloudimg.tencent-cloud.cn/raw/42a839342ac69e1d87952a05458df0e4.png" style="zoom:50%;"/> 
 
@@ -116,7 +120,7 @@ pod repo update
 
 > ? 关于 TUIKit 组件模块功能：
 > 1. 实操教学视频请参见：[极速集成 TUIKit（iOS）](https://cloud.tencent.com/edu/learning/course-3130-56699)。
-> 2. 如果想了解更多，您还可以 [下载并运行 TUIKitDemo 源码](https://cloud.tencent.com/document/product/269/68228)，内含常见功能示例。
+> 2. 如果想了解更多，您还可以 [下载并运行 TUIKitDemo 源码](https://github.com/TencentCloud/TIMSDK/tree/master/iOS)，内含常见功能示例。
 
 
 ### 步骤1：组件登录
@@ -336,7 +340,7 @@ SDKAppID 需要在 [即时通信 IM 控制台](https://console.cloud.tencent.com
 
 </dx-tabs>
 
->? 您可以 [下载 TUIKitDemo 源码](https://cloud.tencent.com/document/product/269/68228)，查看更多的通讯录事件实现。
+>? 您可以 [下载 TUIKitDemo 源码](https://github.com/TencentCloud/TIMSDK/tree/master/iOS)，查看更多的通讯录事件实现。
 
 ### 步骤5：构建音视频通话功能
 TUI 组件支持在聊天界面对用户发起音视频通话，仅需要简单几步就可以快速集成：
@@ -375,7 +379,7 @@ pod 'TUICallKit'
 <ul>
 <li>集成 TUICallKit 组件后，聊天界面和联系人资料界面默认会出现 “视频通话” 和 “语音通话” 两个按钮，当用户点击按钮时，TUIKit 会自动展示通话邀请 UI，并给对方发起通话邀请请求。</li>
 <li>当用户<strong>在线</strong>收到通话邀请时，TUIKit 会自动展示通话接收 UI，用户可以选择同意或者拒绝通话。</li>
-<li>当用户<strong>离线</strong>收到通话邀请时，如需唤起 App 通话，就要使用到离线推送能力，离线推送的实现请参考 <a href="#Step5.4">添加离线推送</a>。</li>
+<li>当用户<strong>离线</strong>收到通话邀请时，如需唤起 App 通话，就要使用到离线推送能力，离线推送的实现请参考 [添加离线推送](https://cloud.tencent.com/document/product/269/74284)。</li>
 </ul>
 4. 添加离线推送。
 在使用离线推送之前，您需要开通 [IM 离线推送](https://cloud.tencent.com/document/product/269/75429) 服务。

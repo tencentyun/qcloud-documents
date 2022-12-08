@@ -247,7 +247,7 @@ public class OfflinePushLocalReceiver extends BroadcastReceiver {
 
 ### 步骤4：配置厂商推送规则
 -  **应用离线参数配置**
-步骤二推送证书添加成功之后，IM 控制台会为您分配一个证书 ID，请您填充到  [PrivateConstants](https://github.com/TencentCloud/TIMSDK/blob/master/Android/TUIKit/TUIOfflinePush/tuiofflinepush/src/main/java/com/tencent/qcloud/tim/tuiofflinepush/PrivateConstants.java)  的配置参数里，该证书配置给 IM 控制台的 ID 会在注册推送服务和上报 token 时使用, 以小米为例：
+步骤二推送证书添加成功之后，IM 控制台会为您分配一个证书 ID，请您填充到  [PrivateConstants](https://github.com/TencentCloud/TIMSDK/blob/master/Android/TUIKit/TUIOfflinePush/tuiofflinepush/src/main/native/java/com.tencent.qcloud.tim.tuiofflinepush/PrivateConstants.java)  的配置参数里，该证书配置给 IM 控制台的 ID 会在注册推送服务和上报 token 时使用, 以小米为例：
 **推送证书 ID 如下：**
 ![](https://qcloudimg.tencent-cloud.cn/raw/772536e8a3f474572f5b85bfb2597fe1.png)
 **填充的参数如下：**
@@ -788,7 +788,7 @@ V2TIMManager.getOfflinePushManager().setOfflinePushConfig(v2TIMOfflinePushConfig
 
 ### 步骤6：前后台状态同步
 
- 如果您的应用退到后台，收到新消息时需要在手机通知栏进行展示，请您调用 IMSDK 的 [doBackground()](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushManager.html#a2b191294ac4d68a2d69e482eae1b638f) 接口，将应用的状态同步给 IM 后台；当应用回到前台时，请您调用 IMSDK 的 [doForeground()](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushManager.html#a4c2ff4eea609da1d0950648905fbf6aa) 接口，将应用的状态同步给 IM 后台。监听 App 前后台切换的方案推荐您参见 [TUIOfflinePushService](https://github.com/TencentCloud/TIMSDK/blob/master/Android/TUIKit/TUIOfflinePush/tuiofflinepush/src/main/java/com/tencent/qcloud/tim/tuiofflinepush/TUIOfflinePushService.java) 的 initActivityLifecycle() 相关逻辑。
+ 如果您的应用退到后台，收到新消息时需要在手机通知栏进行展示，请您调用 IMSDK 的 [doBackground()](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushManager.html#a2b191294ac4d68a2d69e482eae1b638f) 接口，将应用的状态同步给 IM 后台；当应用回到前台时，请您调用 IMSDK 的 [doForeground()](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushManager.html#a4c2ff4eea609da1d0950648905fbf6aa) 接口，将应用的状态同步给 IM 后台。监听 App 前后台切换的方案推荐您参见 [TUIOfflinePushService](https://github.com/TencentCloud/TIMSDK/blob/master/Android/TUIKit/TUIOfflinePush/tuiofflinepush/src/main/native/java/com.tencent.qcloud.tim.tuiofflinepush/TUIOfflinePushService.java) 的 initActivityLifecycle() 相关逻辑。
 
 ```
 // 应用切到后台时
