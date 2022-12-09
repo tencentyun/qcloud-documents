@@ -1,6 +1,6 @@
-本文主要介绍如何快速运行 GME UnrealEngine Sample Project，并将工程示例代码接入到项目中。
+本文主要介绍如何快速运行 GME Unreal Sample Project，并将工程示例代码接入到项目中。
 
-## 跑通 UnrealEngine Sample Project 
+## 跑通 Unreal Sample Project
 
 ### 环境要求
 
@@ -10,36 +10,34 @@
 
 ### 前提条件
 
-已 [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 账号，并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
+请提前申请开通 GME 实时语音、语音消息服务，获取到 AppId 以及 Key。申请 GME 服务，详情请参见 [服务开通](https://cloud.tencent.com/document/product/607/10782)，**appId 对应控制台的 AppID，authKey 对应控制台的权限密钥。** 
 
-### 1. 申请 GME 服务[](id:step1)
+### 操作步骤
 
-参考 [语音服务开通指引](https://cloud.tencent.com/document/product/607/10782)，申请 GME 实时语音服务，获取到实时语音 Appid 和 Key。
+#### 步骤1：下载工程
 
-### 2. 下载工程
+通过 [下载指引](https://cloud.tencent.com/document/product/607/18521) 下载 Unreal Sample Project。由于 UE5 和 UE4 的 Demo 配置不同，需要下载相对应引擎版本的 Sample Project。
 
-通过 [下载指引](https://cloud.tencent.com/document/product/607/18521) 下载 UnrealEngine Demo。由于 UE5 和 UE4 的 Demo 配置不同，需要下载相对应引擎版本的 Sample Project。
-
-![](https://qcloudimg.tencent-cloud.cn/raw/d31444d037de015a99b4bf3884aec906.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/5142cd8acd42ff05f500c4538fa88ff7.png)
 
 
-### 3. 配置工程
+#### 步骤2：配置工程
 
-下载后打开工程目录，路径 Source\UEDemo1 中，找到 UserConfig.cpp，将图中蓝色框处 appID 及 appKey 修改为 [步骤1](#step1) 中申请的 GME 实时语音服务 Appid 和 key。
+下载后打开工程目录，路径 Source\UEDemo1 中，找到 UserConfig.cpp，将图中红色框处 appID 及 appKey 修改为所申请的 GME 控制台 [服务管理-应用设置](https://console.cloud.tencent.com/gamegme) 中的 AppID 以及权限密钥。
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/9c503f9275f29da0c85c49ecbaf52f90.png)
 
-### 4. 编译运行
+#### 步骤3：编译运行
 
-#### 1. 运行程序
+**1）运行程序**
 
-单击编辑器运行按钮 <img src="https://qcloudimg.tencent-cloud.cn/raw/302e95d032818ed9e463a0b3b3417ce4.png" width="30">![]()，进入 Demo 运行程序。
+单击编辑器运行按钮 <img src="https://qcloudimg.tencent-cloud.cn/raw/302e95d032818ed9e463a0b3b3417ce4.png" width="30">![]()，进入运行程序。
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/eb1b9543db8a5c81c543939313228413.jpg)
 
-#### 2. 初始化
+**2）初始化**
 
-- UserId：相当于 openid，每个端的 openid 必须唯一。
+- UserID：相当于 openID，openID 是应用内用户的唯一标识符，每个端的 openid 必须唯一。
 - Voice Chat：实时语音功能界面。
 - Voice Message：语音消息功能界面。
 
@@ -47,7 +45,7 @@
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/b872b21122c244b443f7ff651048ca5b.jpg)
 
-#### 3. 实时语音进房
+**3）实时语音进房**
 
 - RoomId：房间号码，同房间的人可以互相语音交流。
 - RoomType：请使用 Fluency 进入房间。
@@ -58,20 +56,20 @@
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/4df80f35962207dcc5435eb78dd95138.jpg)
 
-#### 4. 实时语音功能
-界面上会显示进房的 Roomid 以及本端的 openid。
+**4）实时语音功能**
+界面上会显示进房的 RoomID 以及本端的 openID。
 
 - Mic：勾选打开麦克风。
 - Speaker：勾选打开扬声器。
 - 3D Voice Effect：勾选打开3D音效。
-- Voice Change：变声效果。
+- Voice Change：选择变声效果。
 
-本端勾选 Mic 及 Speaker 后，另一个终端的机器也重复以上步骤，进入相同的房间，也勾选 Mic 以及 Speaker，便可以互相实施沟通。
-如果两个终端都勾选 3D Voice Effect，通过键盘 【A】【S】【D】【W】改变方位，体验3D语音方位感。
+本端勾选 Mic 及 Speaker 后，另一个终端的机器也重复以上步骤，进入相同的房间，也勾选 Mic 以及 Speaker，便可以实现双方沟通。
+如果两个终端都勾选 3D Voice Effect，可通过键盘 【A】【S】【D】【W】改变方位，体验3D语音方位感。
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/3c34c7be421a1569cb47807990ae4d07.jpg)
 
-#### 5. 语音消息功能
+**5）语音消息功能**
 
 - Language：选择转文本的目标语音，例如说的是中文就选普通话。
 - Audio：录音后点击可以收听。
@@ -83,9 +81,9 @@
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/e2fecfdc7ed880315e6ec50179be2eaf.jpg)
 
-## 工程示例代码介绍
+## Sample Project 代码介绍
 
-使用 GME 实时语音主要的流程是 Init > EnterRoom > EnableMic > EnableSpeaker。Demo 主要的代码在 BaseViewController.cpp 以及 ExperientialDemoViewController.cpp 中。
+使用 GME 实时语音主要的流程是 Init > EnterRoom > EnableMic > EnableSpeaker。Sample Project主要的代码在 BaseViewController.cpp 以及 ExperientialDemoViewController.cpp 中。
 
 
 ### 初始化相关
@@ -190,7 +188,7 @@ void UExperientialDemoViewController::onCheckSpeaker(bool isChecked) {
 
 ### 3D 音效相关
 
-3D 音效的接入可以参考 [3D 音效文档](https://cloud.tencent.com/document/product/607/18218)。在 Demo 中，首先初始化 3D 音效功能，相关代码在 ExperientialDemoViewController.cpp 中。
+3D 音效的接入可以参考 [3D 音效文档](https://cloud.tencent.com/document/product/607/18218)。在工程中，首先初始化 3D 音效功能，相关代码在 ExperientialDemoViewController.cpp 中。
 
 ```
 void UExperientialDemoViewController::onCheckSpatializer(bool isChecked) {
