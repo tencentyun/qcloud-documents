@@ -1,6 +1,6 @@
 >!如果因自身业务需要对 OCR 识别的影像文件进行存储或其他用途，请合作方务必自行保存订单号，通过订单号拉取 OCR 识别的影像文件是唯一方式。
 
-合作方后台服务上送 sign、请求参数到身份证识别后台服务。
+合作方后台服务上传 sign、请求参数到身份证识别后台服务。
 - **请求 URL：**https://miniprogram-kyc.tencentcloudapi.com/api/paas/idcardocrapp?orderNo=xxx
 >!为方便查询耗时，该请求 url 后面请拼接 orderNo 订单号参数。
 
@@ -14,7 +14,7 @@
 |version | 接口版本号<br>默认值：1.0.0 | String | 20 | 是|
 |nonce | 随机数<br>32 位随机串（字母 + 数字组成的随机数） | String | 32 | 是|
 |sign | 签名：使用 [生成的签名](https://cloud.tencent.com/document/product/1007/35920) | String | 40 | 是|
-|orderNo | 订单号，字母/数字组成的字符串，由合作方上送，每次调用唯一 | String | 32 | 是|
+|orderNo | 订单号，字母/数字组成的字符串，由合作方上传，每次调用唯一 | String | 32 | 是|
 |userId | 用户的唯一标识（不要带有特殊字符） | String | 32 | 否|
 |idcardStr | 身份证人像面或者国徽面图片的 Base64，大小不超过20MB | String | 20971520 | 是|
 
@@ -22,21 +22,21 @@
 
 |参数 | 类型 | 说明|
 |----- | ------ | -----|
-|code	| String	| 身份证 OCR 识别结果的返回码<br>0：识别成功<br>其他：识别失败|
-|warning	| String	| Code=0 是有值，姓名和身份证外的非关键信息有误会提示，合作方可以根据 warning 来确定|
-|msg	| String	| 请求结果描述|
-|ocrId	| String	| 保留字段，内部标识|
-|orderNo	| String	| 订单号，字母/数字组成的字符串，由合作方上送，每次调用唯一，此信息为本次身份证 OCR 识别上送的信息|
-|name	| String	| 身份证识别结果：姓名|
-|sex	| String	| 身份证识别结果：性别|
-|nation	| String	| 身份证识别结果：民族|
-|birth	| String	| 身份证识别结果：出生日期|
-|idcard	| String	| 身份证识别结果：身份证号|
-|address	| String	| 身份证识别结果：地址<br>如果用户没有正确上传人像面，则没有该字段|
-|authority	| String	| 身份证识别结果：签发机关<br>如果用户没有正确上传国徽面，则没有该字段|
-|validDate	| String	| 身份证识别结果：有效日期<br>如果用户没有正确上传国徽面，则没有该字段|
-|multiWarning	| String	| 多重告警码，详情请参见 [身份证识别 API 错误码](https://cloud.tencent.com/document/product/1007/70934)|
-|clarity	| String	| 图片清晰度|
+|code | String  | 身份证 OCR 识别结果的返回码<br>0：识别成功<br>其他：识别失败|
+|warning  | String  | Code=0 是有值，姓名和身份证外的非关键信息有误会提示，合作方可以根据 warning 来确定|
+|msg  | String  | 请求结果描述|
+|ocrId  | String  | 保留字段，内部标识|
+|orderNo  | String  | 订单号，字母/数字组成的字符串，由合作方上传，每次调用唯一，此信息为本次身份证 OCR 识别上传的信息|
+|name | String  | 身份证识别结果：姓名|
+|sex  | String  | 身份证识别结果：性别|
+|nation | String  | 身份证识别结果：民族|
+|birth  | String  | 身份证识别结果：出生日期|
+|idcard | String  | 身份证识别结果：身份证号|
+|address  | String  | 身份证识别结果：地址<br>如果用户没有正确上传人像面，则没有该字段|
+|authority  | String  | 身份证识别结果：签发机关<br>如果用户没有正确上传国徽面，则没有该字段|
+|validDate  | String  | 身份证识别结果：有效日期<br>如果用户没有正确上传国徽面，则没有该字段|
+|multiWarning | String  | 多重告警码，详情请参见 [身份证识别 API 错误码](https://cloud.tencent.com/document/product/1007/70934)|
+|clarity  | String  | 图片清晰度|
 
 #### 响应示例：
 **人像面响应示例：**
@@ -46,25 +46,25 @@
     "msg":"请求成功",
     "bizSeqNo":"21062120001184493117265207455389",
     "result":{
-	       "bizSeqNo":"21062120001184493117265207455389",
-	       "transactionTime":"20210621172652",
-	       "ocrId":"54805d89208da5bac41b72fd6ca1be82",
-	       "orderNo":"1rjh4xez2vn4706nvb9x273812n21136",
-	       "name":"xxx",
-	       "sex":"男",
-	       "nation":"汉",
-	       "birth":"19881001",
-	       "address":"xxxxxxxxxxxxx",
-	       "idcard":"xxxxxxxxxxxxxxxxxx",
-	       "warning":"00000000",
-	       "sign":"2E5A4268DB6B347DF34194D903A6927B8C454AAF",
-	       "clarity":"64",
-	       "multiWarning":"00000000",
-	       "retry":"1",
-	       "success":false
-	 },
-	 "transactionTime":"20210621172652"
-	 }
+         "bizSeqNo":"21062120001184493117265207455389",
+         "transactionTime":"20210621172652",
+         "ocrId":"54805d89208da5bac41b72fd6ca1be82",
+         "orderNo":"1rjh4xez2vn4706nvb9x273812n21136",
+         "name":"xxx",
+         "sex":"男",
+         "nation":"汉",
+         "birth":"19881001",
+         "address":"xxxxxxxxxxxxx",
+         "idcard":"xxxxxxxxxxxxxxxxxx",
+         "warning":"00000000",
+         "sign":"2E5A4268DB6B347DF34194D903A6927B8C454AAF",
+         "clarity":"64",
+         "multiWarning":"00000000",
+         "retry":"1",
+         "success":false
+   },
+   "transactionTime":"20210621172652"
+   }
 ```
 
 **国徽面响应示例：**
@@ -75,20 +75,20 @@
     "bizSeqNo":"21062120001184438417304507864378",
     "result":{
           "bizSeqNo":"21062120001184438417304507864378",
-	         "transactionTime":"20210621173045",
-	         "ocrId":"d1e4111f858413e92784ddbdd5f03f35",
-	         "orderNo":"h1jw98k72ffe3de249qmf1723673v31v",
-	         "validDate":"20190128-20390128",
-	         "authority":"xxxxxx",
-	         "warning":"00000000",
-	         "sign":"1CCE440E241085898B41ECE87E01E6A9D15F74F6",
-	         "clarity":"72",
-	         "multiWarning":"00000000",
-	         "retry":"1",
-	         "success":false
-	 },
-	 "transactionTime":"20210621173045"
-	 }
+           "transactionTime":"20210621173045",
+           "ocrId":"d1e4111f858413e92784ddbdd5f03f35",
+           "orderNo":"h1jw98k72ffe3de249qmf1723673v31v",
+           "validDate":"20190128-20390128",
+           "authority":"xxxxxx",
+           "warning":"00000000",
+           "sign":"1CCE440E241085898B41ECE87E01E6A9D15F74F6",
+           "clarity":"72",
+           "multiWarning":"00000000",
+           "retry":"1",
+           "success":false
+   },
+   "transactionTime":"20210621173045"
+   }
 ```
 
 
