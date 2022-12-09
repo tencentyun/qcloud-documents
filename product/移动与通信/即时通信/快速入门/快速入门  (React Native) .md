@@ -52,7 +52,7 @@ TencentImSDKPlugin.v2TIMManager.initSDK(
 );
 ```
 
-在本步骤，你可以针对 IM SDK 挂载一些监听，主要包括网络状态及用户信息变更等，详情可参见 [该文档](https://comm.qq.com/im/doc/RN/zh/Interface/Listener/V2TimSDKListener.html)。
+在本步骤，您可以针对 IM SDK 挂载一些监听，主要包括网络状态及用户信息变更等，详情可参见 [该文档](https://comm.qq.com/im/doc/RN/zh/Interface/Listener/V2TimSDKListener.html)。
 
 #### 登录测试账户
 1. 此时，您可以使用最开始的时候，在控制台生成的测试账户，完成登录验证。
@@ -132,7 +132,7 @@ const getConversationList = async () => {
 };
 ```
 
-此时，你可以看到您在上一步中，使用另一个测试账号，发来消息的会话。
+此时，您可以看到您在上一步中，使用另一个测试账号，发来消息的会话。
 
 ##### 监听长链接实时获取会话列表
 
