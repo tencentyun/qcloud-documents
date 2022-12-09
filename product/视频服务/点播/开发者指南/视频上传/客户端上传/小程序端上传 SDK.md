@@ -129,4 +129,4 @@ getSignature: function(callback) {
 2. 默认支持断点续传和分片上传。
 3. 小程序域名信息中，`request` 和 `uploadFile` 为合法域名，只需加上 `vod2.qcloud.com` 即可。
 4.  小程序端默认判断当前页面的域名是 http: 时，使用 http: 域名上传。若判断域名非 http: 时，则使用 https: 域名上传。 
-5.  uni-app 集成小程序上传sdk，因平台限制，仅在微信和 QQ 等部分小程序平台支持分片上传，Android 和 iOS 平台 App 建议集成原生上传 SDK，否则可能影响大文件的上传质量。
+5.  uni-app 集成小程序上传 SDK，因平台限制，仅在微信和 QQ 等部分小程序平台支持分片上传，Android 和 iOS 平台 App 建议集成原生上传 SDK，否则可能影响大文件的上传质量。
