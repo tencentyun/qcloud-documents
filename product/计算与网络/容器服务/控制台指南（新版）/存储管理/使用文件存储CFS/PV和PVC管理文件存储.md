@@ -45,6 +45,7 @@
 
 ### 获取文件系统 fsid[](id:getFsid)
 >? 为了获取更好的稳定性，在使用 NFSV3 协议挂载时，需要指定待挂载文件系统对应的 FSID。
+>
 1. 在 [文件系统控制台](https://console.cloud.tencent.com/cfs/fs?rid=1)，单击需获取 FSID 的文件系统 ID，进入该文件系统详情页。
 2. 选择**挂载点信息**页签，从 “Linux 下挂载” 获取该文件系统的 FSID。如下图所示， `a43qadkl`为该文件系统的 FSID。
 ![](https://qcloudimg.tencent-cloud.cn/raw/981aff01c8e414bcbf657d01fed1762d.png)
