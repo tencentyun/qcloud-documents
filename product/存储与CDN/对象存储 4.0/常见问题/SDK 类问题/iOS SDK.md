@@ -1,10 +1,10 @@
 ### 手动集成 SDK 后，设置 QCloudCOSXMLEndPoint 实例的 regionName，抛出异常 “[__NSCFConstantString matchesRegularExpression:]: unrecognized selector sent to instance xxx”，该如何处理？
 
-**原因**：matchesRegularExpression 是 NSString 的分类提供的方法。Objective-C 链接器不会为每个方法建立符号表，只是为类建立了符号表。sdk 是静态库，如果静态库中定义了一份已经存在的类的分类，系统就会认为这个类已经存在，则不会将类和类的分类的代码整合起来，在最后的可执行代码中，就会缺少分类中的方法。
+**原因**：matchesRegularExpression 是 NSString 的分类提供的方法。Objective-C 链接器不会为每个方法建立符号表，只是为类建立了符号表。SDK 是静态库，如果静态库中定义了一份已经存在的类的分类，系统就会认为这个类已经存在，则不会将类和类的分类的代码整合起来，在最后的可执行代码中，就会缺少分类中的方法。
 
 **解决办法**：
-1. 在 target > Build Settings > All > Other Linker Flags 中添加-Objc 和-all_load 两个参数。
-2. -ObjC 会将静态库中的类和分类都加载到最后的可执行文件中，但是如果库中只有分类没有类的话，这个参数就会失效，就需要-all_load，该参数会把所有找到的目标文件都加到可执行文件中。
+1. 在 target > Build Settings > All > Other Linker Flags 中添加 `-Objc` 和 `-all_load` 两个参数。
+2. `-ObjC` 会将静态库中的类和分类都加载到最后的可执行文件中，但是如果库中只有分类没有类的话，这个参数就会失效，就需要 `-all_load`，该参数会把所有找到的目标文件都加到可执行文件中。
 3. 若上述方法依然没有解决该错误，请尝试关闭 bitcode。
  
 ### 集成 SDK 发送请求之后抛出异常“您没有配置默认的 OCR 服务配置，请配置之后再调用该方法或者您没有配置 Key 为 'xxx' 的 OCR 服务配置，请配置之后再调用该方法”，该如何处理？
@@ -43,7 +43,7 @@
 
 ### 集成 SDK 之后运行，代理“- (void)signatureWithFields:(QCloudSignatureFields *)fileds request:urlRequest:compelete:”没有被调用，该如何处理？
 
-**原因**：该代理方法是获取密钥/签名的方法，为了最大程度的保证密钥的有效性（调用签名过早容易过期），SDK 会在请求发出之前即`[task resume]`之前才会调用。
+**原因**：该代理方法是获取密钥/签名的方法，为了最大程度的保证密钥的有效性（调用签名过早容易过期），SDK 会在请求发出之前即 `task resume` 之前才会调用。
 
 **解决办法**：
 1. 请确保该代理方法所在的类在请求发出之前不会被销毁，建议将该代理方法在一个单例类中实现。
@@ -52,12 +52,12 @@
 
 ### SDK 能否缓存和复用密钥，在密钥过期之后重新请求新的密钥，该如何处理？
 
-sdk 提供了 QCloudCredentailFenceQueue 来实现密钥的缓存和复用，具体使用方法请参考 [快速入门](https://cloud.tencent.com/document/product/436/11280) 文档。
+SDK 提供了 QCloudCredentailFenceQueue 来实现密钥的缓存和复用，具体使用方法请参考 [快速入门](https://cloud.tencent.com/document/product/436/11280) 文档。
 
 ### 通过 SDK 的高级接口“QCloudCOSXMLUploadObjectRequest”抛出异常“不支持设置该类型的 body，支持的类型为 NSData、QCloudFileOffsetBody、NSURL”，该如何处理？
 
-sdk 目前只支持设置以下三种类型的 body：
-1. NSURL：文件的本地路径，通过[NSURL fileURLWithPath:@"文件在本地的路径"]初始化一个 URL。
+SDK 目前只支持设置以下三种类型的 body：
+1. NSURL：文件的本地路径，通过 `[NSURL fileURLWithPath:@"文件在本地的路径"]` 初始化一个 URL。
 2. NSData：二进制数据。
 3. QCloudFileOffsetBody：分块的 body，开发者一般不需要关心该类型，属于 SDK 高级接口内部使用的 body 类型。
 
@@ -69,28 +69,28 @@ SDK 只支持续传沙盒中的文件，如需使用断点续传的功能，请�
 
 请确保您设置好 body 之后，本地文件不会发生改变，例如文件在压缩过程中或者还没有完成写入之前调用了上传接口触发了上传，SDK 就会以当时的文件大小为准进行分块进行上传，从而导致上传到 cos 上的文件和本地文件大小不一致。
 
-### 集成 SDK 后，调用上传接口，报错 "您输入的body的URL不是本地URL，请检查后使用！"该如何处理？
+### 集成 SDK 后，调用上传接口，报错 "您输入的 body 的URL不是本地 URL，请检查后使用！"该如何处理？
 
 **解决办法：**
 请确保 URL 是以 file:// 开头，可以通过以下两种方式初始化 ：
-1. [NSURL URLWithString:@"file:////var/mobile/Containers/Data/Application/DBPF7490-D5U8-4ABF-A0AF-CC49D6A60AEB/Documents/exampleobject"]
-2. [NSURL fileURLWithPath:@"/var/mobile/Containers/Data/Application/DBPF7490-D5U8-4ABF-A0AF-CC49D6A60AEB/Documents/exampleobject"]
+1. `[NSURL URLWithString:@"file:////var/mobile/Containers/Data/Application/DBPF7490-D5U8-4ABF-A0AF-CC49D6A60AEB/Documents/exampleobject"]`
+2. `[NSURL fileURLWithPath:@"/var/mobile/Containers/Data/Application/DBPF7490-D5U8-4ABF-A0AF-CC49D6A60AEB/Documents/exampleobject"]`
 
 
 ### 集成 SDK 之后，调用上传接口，上传成功之后的文件大小为0，该如何处理？
 
 **解决办法：**
 1. 如果上传路径是文件在系统图库的路径，请检查是否有读取该文件的权限。例如：`file:///var/mobile/Media/DCIM/101APPLE/` 这个路径无法直接访问，需要通过 Photos 框架里的 request 方法获取照片。
-2. 如果 App 要兼容 iOS11，在上传图库视频时再调用`[[PHImageManager defaultManager] requestPlayerItemForVideo:asset options:option resultHandler:^(AVPlayerItem *playerItem, NSDictionary *info) {
+2. 如果 App 要兼容 iOS11，在上传图库视频时再调用 `[[PHImageManager defaultManager] requestPlayerItemForVideo:asset options:option resultHandler:^(AVPlayerItem *playerItem, NSDictionary *info) {
     //及时将文件移到沙盒中或者保存 playerItem
-    }];`方法获取 playerItem 之后将其保存起来，或者在该回调中将要上传的文件移到 App 的沙盒中。因为 iOS11中 playerItem 被销毁之后，文件的读权限就会失效，从而导致上传的文件大小为0。
-3. 如果上传的是 App 的沙盒中的文件，请检查上传的文件是否在沙盒的 tmp 文件夹下，例如` /var/mobile/Containers/Data/Application/0BFBB3FE-0FD0-46CB-ADDE-DDE08F6D62C3/tmp/`，该目录下的文件会被系统随时清理，请将要上传的文件移到安全的目录，保证文件在上传的过程中不会被清理，更多关于沙盒的描述请参考 [File System Basics](https://developer.apple.com/library/archive/documentation/FileManagement/Conceptual/FileSystemProgrammingGuide/FileSystemOverview/FileSystemOverview.html)。
+    }]`； 方法获取 playerItem 之后将其保存起来，或者在该回调中将要上传的文件移到 App 的沙盒中。因为 iOS11中 playerItem 被销毁之后，文件的读权限就会失效，从而导致上传的文件大小为0。
+3. 如果上传的是 App 的沙盒中的文件，请检查上传的文件是否在沙盒的 tmp 文件夹下，例如 ` /var/mobile/Containers/Data/Application/0BFBB3FE-0FD0-46CB-ADDE-DDE08F6D62C3/tmp/`，该目录下的文件会被系统随时清理，请将要上传的文件移到安全的目录，保证文件在上传的过程中不会被清理，更多关于沙盒的描述请参考 [File System Basics](https://developer.apple.com/library/archive/documentation/FileManagement/Conceptual/FileSystemProgrammingGuide/FileSystemOverview/FileSystemOverview.html)。
 
-### 集成 SDK 后使用高级接口上传报错“上传过程中MD5校验与本地不一致，请检查本地文件在上传过程中是否发生了变化：分块上传过程中，每上传完一个分块就会校验这个分块的 MD5 和本地片的 MD5 是否一致，不一致就报错”，该如何处理？
+### 集成 SDK 后使用高级接口上传报错“上传过程中 MD5校验与本地不一致，请检查本地文件在上传过程中是否发生了变化：分块上传过程中，每上传完一个分块就会校验这个分块的 MD5 和本地片的 MD5 是否一致，不一致就报错”，该如何处理？
 
-原因：该错误发生在上传大于1MB的文件的情况下，超过1MB的文件使用 SDK 上传时会根据将文件分成若干个1MB的文件进行分块上传，在上传完每一个分块之后会用后台返回的 etag 和本地文件的分块进行对比，如果发现不一致会抛出该错误。
+**原因：**该错误发生在上传大于1MB的文件的情况下，超过1MB的文件使用 SDK 上传时会根据将文件分成若干个1MB的文件进行分块上传，在上传完每一个分块之后会用后台返回的 etag 和本地文件的分块进行对比，如果发现不一致会抛出该错误。
 
-解决办法：请检查文件在上传的过程中是否发生改变。
+**解决办法：**请检查文件在上传的过程中是否发生改变。
 
 
 ### SDK 能否使用 CDN 加速域名进行访问？
@@ -99,9 +99,9 @@ SDK 只支持续传沙盒中的文件，如需使用断点续传的功能，请�
 
 ### SDK 如何设置请求的超时时间?
 
-解决：SDK 5.7.0 之后支持自定义请求的超时时间，可以通过以下方式设置：
+**解决：**SDK 5.7.0 之后支持自定义请求的超时时间，可以通过以下方式设置：
 1. 初始化 `QCloudServiceConfiguration *config = [QCloudServiceConfiguration new]`
-2. 设置  config 的`timeoutInterval` 属性即可，例如`设置  config 的.timeoutInterval = 30;`
+2. 设置  config 的 `timeoutInterval` 属性即可，例如设置 `config 的.timeoutInterval = 30;`
 
 
 ### COS iOS SDK 出现 crash，该如何处理？
@@ -110,4 +110,4 @@ SDK 只支持续传沙盒中的文件，如需使用断点续传的功能，请�
 
 ### “Undefined symbols for architecture arm64: "_ne10 init dsp", referenced from:”类错误，该如何处理？
 
-可以参考 [编译报错：Undefined symbols for architecture arm64](https://github.com/LiteAVSDK/Player_iOS/issues/277)。
+可以参见 [编译报错：Undefined symbols for architecture arm64](https://github.com/LiteAVSDK/Player_iOS/issues/277)。
