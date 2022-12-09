@@ -84,7 +84,7 @@ Passive mode on.
 500 Unknown command.
 425 Use PORT or PASV first.
 ```
-<img style="width:1200px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/67d2baf84797b1926f7d1fc9641f7dfe.png" />
+<img style="width:950px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/67d2baf84797b1926f7d1fc9641f7dfe.png" />
 
 ii. 在行首添加 `#`，注释 `listen_ipv6=YES` 配置参数，关闭监听 IPv6 sockets。
 ```
