@@ -1,6 +1,6 @@
 
 
-edgectl 是边缘节点管理工具，用于远程添加边缘节点。您可通过**节点管理** > **[脚本添加节点](https://cloud.tencent.com/document/product/457/42890#.E8.84.9A.E6.9C.AC.E6.B7.BB.E5.8A.A0.E8.8A.82.E7.82.B9)**操作获取该工具。  
+edgectl 是边缘节点管理工具，用于远程添加边缘节点。您可通过**节点管理** > **[脚本添加节点](https://cloud.tencent.com/document/product/457/83210)**操作获取该工具。  
 
 
 
@@ -146,7 +146,7 @@ NOTE:
    Install Edge Node: node-192.168.67.91 Success! ## 表示此边缘节点安装成功
 ```
 - 此边缘节点安装执行完成后, 可执行命令 `kubectl -n kube-system get pod` 查看所有 Pod 是否 Running。  
-- `edgectl install` 命令**一小时有效**，可在有效期内多次添加不同的节点，如过期失效请重新进行 [脚本添加节点](https://cloud.tencent.com/document/product/457/42890#.E8.84.9A.E6.9C.AC.E6.B7.BB.E5.8A.A0.E8.8A.82.E7.82.B9) 操作请求新的 edgectl。  
+- `edgectl install` 命令**一小时有效**，可在有效期内多次添加不同的节点，如过期失效请重新进行 [脚本添加节点](https://cloud.tencent.com/document/product/457/83210) 操作请求新的 edgectl。  
 - 要是安装过程中无提示退出，请参见 NOTE 中提示的安装日志位置 `logPath: /tmp/tke-edge-install.log` 查看具体的错误。  
 - 执行完没有 `Install Edge Node: node-192.168.67.91 Success!` 则认为安装失败，请查看安装日志排错。  
 

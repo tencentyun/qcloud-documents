@@ -94,13 +94,6 @@ Error
 </tr>
 </tbody></table>
 
-### Access-Control-Expose-Headers
-用于指定哪些头部可以作为响应的一部分暴露给客户端。
->?默认情况下，只有6种头部可以暴露给客户端：Cache-Control、Content-Language、Content-Type、Expires、Last-Modified、Pragma。
->
-- 头部名称：Access-Control-Expose-Headers。
-- 头部值：输入希望暴露给客户端的头部名称（除默认的6个头部外），多个值用“;”分隔，例如：`Content-Length`,`X-My-Header`。
-
 ### Content-Disposition
 用来激活浏览器的下载，同时可以设置默认的下载的文件名。
 

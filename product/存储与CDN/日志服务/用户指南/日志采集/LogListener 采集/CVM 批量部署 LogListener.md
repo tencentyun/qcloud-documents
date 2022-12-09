@@ -1,6 +1,6 @@
 ## 概述
 
-日志服务（Cloud Log Service，CLS）支持使用 LogListener 采集腾讯云云服务器（Cloud Virtual Machine，CVM）实例上的日志，在进行日志采集前，需要在 CVM 上部署安装 LogListener。为了更快捷的支持大量的 CVM 部署安装 LogListener，现支持用户在控制台选择 CVM 实例，接口批量下发部署 LogListener 任务，自动完成 LogListener 的安装部署（包括 accesskey，ID 配置，地域配置）。
+日志服务（Cloud Log Service，CLS）支持使用 LogListener 采集腾讯云云服务器（Cloud Virtual Machine，CVM）实例上的日志，在进行日志采集前，需要在 CVM 上部署安装 LogListener。为了更快捷的支持大量的 CVM 部署安装 LogListener，现支持用户在控制台选择 CVM 实例，接口批量下发部署 LogListener 任务，自动完成 LogListener 的安装部署（包括 accesskey、ID 配置、地域配置）。
 
 ## 前提条件
 
@@ -21,6 +21,4 @@ CVM 已 [安装腾讯云自动化助手（TencentCloud Automation Tools，TAT）
 7. 在导入机器组页面，根据实际需求，选择现有机器组或者创建机器组，单击**导入**，即可完成批量安装部署。
 ![](https://main.qcloudimg.com/raw/2de1ca726ac6273d5f047c24e2e1891b.png)
 >? 批量安装的 LogListener 为2.6.0及以上版本。
->
-
 

@@ -45,4 +45,4 @@
 开启 IP 黑白名单后，若您需关闭此功能，具体操作如下：
 1.选择 [域名管理](https://console.cloud.tencent.com/live/domainmanage)，单击需关闭 IP 黑白名单配置的**推流域名**或右侧的**管理**，进入域名管理页。
 2.在**高级配置> IP 黑白名单配置**中，单击![img](https://main.qcloudimg.com/raw/e72f89a0deb6858428dc3e93ce7e7088.png)按钮，选择关闭 IP 黑白名单。
-![](https://qcloudimg.tencent-cloud.cn/raw/c47a203613d62dc339431e50d22438ad.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/c47a203613d62dc339431e50d22438ad.png) 

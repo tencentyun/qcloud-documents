@@ -8,19 +8,19 @@
 
 #### Master 节点
 
-- **CPU**：工作主频1GHz以上，考虑到 Master 需要处理大量，建议生产环境使用多核架构处理器。
-- **物理内存**：1GB以上，生产环境建议使用8GB以上的物理内存配置。
-- **磁盘**：20GB以上，建议生产环境配备高性能的 NVME SSD 盘作为元数据缓存盘（RocksDB 模式）。
+- **CPU**：工作主频1GHz 及以上，考虑到 Master 需要处理大量，建议生产环境使用多核架构处理器。
+- **物理内存**：1GB 及以上，生产环境建议使用8GB 以上的物理内存配置。
+- **磁盘**：20GB 及以上，建议生产环境配备高性能的 NVME SSD 盘作为元数据缓存盘（RocksDB 模式）。
 
 #### Worker 节点
 
-- **CPU**：工作主频1GHz以上，考虑到 Worker 节点也需要处理大量的并发请求，同样建议生产环境使用多核架构处理器。
-- **物理内存**：2GB以上，生产环境建议根据性能需求选用合适的物理内存配置。例如，生产环境中需要将大量的数据块缓存到 Worker 节点的内存中或是采用 MEM + SSD/HDD 的混合存储时，需要根据实际可能会缓存到内存中的数据量来配备物理内存。无论使用何种缓存模式，生产环境都建议 Worker 节点配备16GB及以上的物理内存。
-- **磁盘**：20GB以上 SSD/HDD 盘，建议根据实际生产环境中所需要预热缓存的数据量大小来估计每个 Worker 节点所需配置的磁盘空间。另外，为了更好的性能体验，建议配备采用 NVME 接口的 SSD 盘作为 Worker 节点的数据盘。
+- **CPU**：工作主频1GHz 及以上，考虑到 Worker 节点也需要处理大量的并发请求，同样建议生产环境使用多核架构处理器。
+- **物理内存**：2GB 及以上，生产环境建议根据性能需求选用合适的物理内存配置。例如，生产环境中需要将大量的数据块缓存到 Worker 节点的内存中或是采用 MEM + SSD/HDD 的混合存储时，需要根据实际可能会缓存到内存中的数据量来配备物理内存。无论使用何种缓存模式，生产环境都建议 Worker 节点配备16GB 及以上的物理内存。
+- **磁盘**：20GB 及以上 SSD/HDD 盘，建议根据实际生产环境中所需要预热缓存的数据量大小来估计每个 Worker 节点所需配置的磁盘空间。另外，为了更好的性能体验，建议配备采用 NVME 接口的 SSD 盘作为 Worker 节点的数据盘。
 
 ### 软件环境
 
-- Red Hat Enterprise Linux 5.5+、Ubuntu Linux 12.04 LTS+（不使用批量部署时可以支持）、CentOS 7.4+以及TLinux 2.x（Tencent Linux 2.x），基于 Intel 架构 MacOS 10.8.3 以上版本。腾讯云 CVM 用户推荐使用 CentOS 7.4、Tencent（TLinux 2.x）或 TencentOS Server 2.4 版本的操作系统。
+- Red Hat Enterprise Linux 5.5+、Ubuntu Linux 12.04 LTS+（不使用批量部署时可以支持）、CentOS 7.4+以及 TLinux 2.x（Tencent Linux 2.x），基于 Intel 架构 MacOS 10.8.3 以上版本。腾讯云 CVM 用户推荐使用 CentOS 7.4、Tencent（TLinux 2.x）或 TencentOS Server 2.4 版本的操作系统。
 - OpenJDK 1.8/Oracle JDK 1.8，需要注意的是，未验证支持 JDK 1.9 及以上版本。
 - 支持 SSH 工具集（包括 SSH 和 SCP 工具）、Expect Shell（使用批量部署时需要）工具以及 Yum 包管理工具。
 
@@ -106,10 +106,10 @@ GooseFS 在 `scripts` 目录下提供了批量配置 SSH 免密登录以及批�
 GooseFS 在 `scripts` 目录下提供了批量配置 SSH 免密登录以及批量部署安装 GooseFS 的工具化脚本，用户在满足执行条件的前提下，可按照如下步骤完成批量部署任务：
 - 进入GooseFS解压目录，`cd ${GOOSEFS_HOME}`。
 - 配置 `conf/masters` 和 `conf/workers` 中的主机名或 IP 地址。
-- 然后进入到 `scripts` 目录中，认真填写 `commons.sh` 这一脚本文件中的`SCRIPT_EXEC_USER`和`SCRIPT_EXEC_PASSWORD`。再切换到 `root` 账户或使用 `sudo` 身份执行 `config_ssh.sh` 完成整个集群的免密登录配置。
+- 然后进入到 `scripts` 目录中，认真填写 `commons.sh` 这一脚本文件中的 `SCRIPT_EXEC_USER`和`SCRIPT_EXEC_PASSWORD`。再切换到 `root` 账户或使用 `sudo` 身份执行 `config_ssh.sh` 完成整个集群的免密登录配置。
 - 免密配置完成后，可以执行 `validate_env.sh` 工具，校验整个集群配置状态。
 - 创建配置文件目录软连接，`ln -s conf ~/.goosefs`。
-- 最后执行`goosefs copy .` 和 `goosefs copy ~/.goosefs` 将 goosefs 二进制包和配置文件分发到所有的节点。
+- 最后执行 `goosefs copy .` 和 `goosefs copy ~/.goosefs` 将 goosefs 二进制包和配置文件分发到所有的节点。
 
 在整个部署流程都成功完成以后，可以执行 `./bin/goosefs-start.sh all SudoMount` 来启动运行整个集群。默认配置下，所有的运行日志都会记录到 `${GOOSEFS_HOME}/logs` 下。
 
@@ -229,7 +229,7 @@ goosefs.master.journal.type=UFS
 goosefs.master.journal.folder=<JOURNAL_URI>
 ```
 
-需要注意的是，ZK模式的`JOURNAL_URI`必须使用共享存储。然后使用 `./bin/goosefs copyDir conf/` 将配置同步分发到集群中的所有节点。最后启动集群 `./bin/goosefs-start.sh all` 即可。
+需要注意的是，ZK 模式的 `JOURNAL_URI` 必须是共享存储系统的 URI。然后使用 `./bin/goosefs copyDir conf/` 将配置同步分发到集群中的所有节点。最后启动集群  `./bin/goosefs-start.sh all` 即可。
 
 
 ## GooseFS 的进程列表
