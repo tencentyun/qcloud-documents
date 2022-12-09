@@ -70,7 +70,22 @@ chroot_local_user=YES
 chroot_list_enable=YES
 chroot_list_file=/etc/vsftpd/chroot_list
 listen=YES
+pasv_enable=NO  #主动模式
 ```
+由于如下报错，并不是特别针对某系统才会出现的错误，所以针对 mac 和 linux 系统下连接时可以使用该命令被动模式连接：
+ `ftp -p ftpuser@82.157.170.23`  #平台设置为被动模式时，可以用该命令登录。或者在 `ftp  ftpuser@82.157.170.23` 连接成功后，需要连接 ftp 后执行 passive 即可，如下所示：
+```plaintext
+ftp> passive
+Passive mode on.
+```
+错报：
+``` plaintext
+500 Illegal PORT command.
+500 Unknown command.
+425 Use PORT or PASV first.
+```
+<img style="width:1200px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/67d2baf84797b1926f7d1fc9641f7dfe.png" />
+
 ii. 在行首添加 `#`，注释 `listen_ipv6=YES` 配置参数，关闭监听 IPv6 sockets。
 ```
 #listen_ipv6=YES
