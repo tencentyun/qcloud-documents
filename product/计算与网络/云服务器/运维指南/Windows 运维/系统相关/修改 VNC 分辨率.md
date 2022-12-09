@@ -85,3 +85,4 @@ Linux 实例分辨率与 VGA 的参数对照表如下：
 	<tr><th>分辨率</th><td>640 * 480</td><td>800 * 600</td><td>1024 * 768</td></tr>
 	<tr><th>VGA</th><td>786</td><td>789</td><td>792</td></tr>
 </table>
+
