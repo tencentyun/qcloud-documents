@@ -1,7 +1,3 @@
-
-
-
-
 腾讯云容器服务 TKE 具备通过 `service.kubernetes.io/tke-existed-lbid: <LoadBalanceId>` 注解实现使用已有负载均衡的功能，您可使用该注解指定集群 Service 资源关联的负载均衡实例。还提供了 **Service 负载均衡复用**功能，即指定多个 Service 使用同一个已有负载均衡，您可参考本文进行设置。
 
 ## 使用已有负载均衡的同步行为
@@ -35,7 +31,7 @@
 
 
 ## Service 示例
-```Yaml
+```yaml
 apiVersion: v1
 kind: Service
 metadata:
@@ -64,7 +60,7 @@ Service Controller 组件管理负载均衡生命周期时，仅支持购买按�
 ### 在同一端口暴露 TCP 和 UDP 服务
 Kubernetes 官方在 Service 的设计中具有限制：一个 Service 下暴露的多个端口协议必须相同。有许多游戏场景下的用户，有在同一个端口同时暴露 TCP 和 UDP 服务的需求，腾讯云负载均衡服务支持在同一个端口上同时监听 UDP 和 TCP 协议，此需求可以通过 Service 负载均衡复用来解决。
 例如以下 Service 配置，`game-service` 被描述为两个 Service 资源，描述的内容除了监听的协议以外基本相同。两个 Service 都通过注解指定使用已有负载均衡 `lb-6swtxxxx`。通过 kubectl 将以上资源应用到集群中，就可以实现在同一个负载均衡的端口上暴露多种协议的目的。
-```
+```yaml
 apiVersion: v1
 kind: Service
 metadata:

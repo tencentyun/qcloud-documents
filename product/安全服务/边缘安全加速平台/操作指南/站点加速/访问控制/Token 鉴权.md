@@ -71,7 +71,7 @@ http://Hostname/timestamp/md5hash/Filename
 | :-------- | :----------------------------------------------------------- |
 | Hostname  | 站点加速域名。                                                 |
 | Filename  | 资源访问路径，鉴权时 Filename 需以`/`开头。                  |
-| timestamp | 时间戳参数<br/>格式：YYYYMMDDHHMM，UTC+8 时间，例如201807301000。 |
+| timestamp | 时间戳参数。<br/>格式：YYYYMMDDHHMM，UTC+8 时间，例如201807301000。 |
 | md5hash   | 通过 MD5 算法计算出的固定长度为32位的字符串：<li>算法：MD5（密钥 + timestamp + /Filename）。</li><li>鉴权逻辑：若请求未过期，则节点比较此字符串值与请求 URL 中携带的 `md5hash` 值：两值相同，鉴权通过，响应请求；两值不同，鉴权失败，返回403。</li> |
 
 ### 方式 C
@@ -89,7 +89,7 @@ http://Hostname/md5hash/timestamp/Filename
 | Hostname  | 站点加速域名。                                                 |
 | Filename  | 资源访问路径，鉴权时 Filename 需以`/`开头。                  |
 | timestamp | 时间戳参数。<br/>格式：十六进制整型正数的 Unix 时间戳，是从 UTC 时间1970年01月01日00时00分00秒到现在的总秒数，其定义与所在时区无关。 |
-| md5hash   | 通过 MD5 算法计算出的固定长度为32位的字符串：<li>算法：MD5（密钥+ /Filename + timestamp ）。</li><li>鉴权逻辑：若请求未过期，则节点比较此字符串值与请求 URL 中携带的 `md5hash` 值：两值相同，鉴权通过，响应请求；两值不同，鉴权失败，返回403。</li> |
+| md5hash   | 通过 MD5 算法计算出的固定长度为32位的字符串：<li>算法：MD5（密钥+ /Filename + timestamp ）。注：计算时，十六进制的 timestamp 需过滤掉进制数标识0x。</li><li>鉴权逻辑：若请求未过期，则节点比较此字符串值与请求 URL 中携带的 `md5hash` 值：两值相同，鉴权通过，响应请求；两值不同，鉴权失败，返回403。</li> |
 
 ### 方式 D
 
@@ -108,7 +108,7 @@ http://Hostname/Filename?sign=md5hash&t=timestamp
 | sign      | 自定义设置的鉴权参数名称。                                     |
 | t         | 自定义设置的时间戳参数名称                                   |
 | timestamp | 时间戳参数。 <br/>格式：十进制整型正数的 Unix 时间戳，是从 UTC 时间1970年01月01日00时00分00秒到现在的总秒数，其定义与所在时区无关；或十六进制整型正数的 Unix 时间戳，是从 UTC 时间1970年01月01日00时00分00秒到现在的总秒数，其定义与所在时区无关。 |
-| md5hash   | 通过 MD5 算法计算出的固定长度为32位的字符串：<li>算法：MD5（密钥 + /Filename + timestamp）。 </li><li>鉴权逻辑：若请求未过期，则节点比较此字符串值与请求 URL 中携带的 `md5hash` 值：两值相同，鉴权通过，响应请求；两值不同，鉴权失败，返回403。</li> |
+| md5hash   | 通过 MD5 算法计算出的固定长度为32位的字符串：<li>算法：MD5（密钥 + /Filename + timestamp）。注：计算时，十六进制的 timestamp 需过滤掉进制数标识0x。 </li><li>鉴权逻辑：若请求未过期，则节点比较此字符串值与请求 URL 中携带的 `md5hash` 值：两值相同，鉴权通过，响应请求；两值不同，鉴权失败，返回403。</li> |
 
 ## 配置示例
 
@@ -138,7 +138,6 @@ http://Hostname/Filename?sign=md5hash&t=timestamp
 
 
 ## 注意事项
-
-1. 鉴权通过后，节点将自动忽略鉴权相关参数后的 URL 作为缓存标识（Cache key），提高缓存命中率，减少回源。
+1. 鉴权通过后，节点会自动忽略 URL 中鉴权相关的参数再将其作为缓存标识（Cache key），提高缓存命中率，减少回源。
 2. 鉴权通过后，若未命中节点缓存，则会继续回源，实际回源 URL 将与 鉴权 URL 格式一致，保留鉴权参数。源站可按需忽略或二次校验，或使用 [回源请求参数设置](https://cloud.tencent.com/document/product/1552/82627) 操作配置回源是忽略相关鉴权参数。
 3. URL 中不能包含中文。

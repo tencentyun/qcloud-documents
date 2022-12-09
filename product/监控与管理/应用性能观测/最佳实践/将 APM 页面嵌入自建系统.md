@@ -30,6 +30,14 @@ APM 满足不需要登录腾讯云控制台即可查询分析 APM 数据的诉�
 
 根据角色名访问腾讯云 STS 服务，调用 [AssumeRole](https://cloud.tencent.com/document/product/1312/48197) 接口，申请角色 CompanyOpsRole 的临时密钥。
 
+<dx-alert infotype="notice" title="">
+设置中可能存在以下风险，请参考安全意见进行操作：
+- 临时密钥有效期请勿设置过长，建议设置在 5 分钟以内，可通过 AssumeRole 参数 DurationSeconds 指定。
+- 包含参数的完整登录地址（https://cloud.tencent.com/login/roleAccessCallback?algorithm...）请勿暴露在公网。
+- 用户侧用于生成登录地址的系统需设置鉴权，例如内网身份校验，请勿设置成公开权限访问。
+</dx-alert>
+
+
 ## 生成 APM 访问链接
 
 ### 生成签名串

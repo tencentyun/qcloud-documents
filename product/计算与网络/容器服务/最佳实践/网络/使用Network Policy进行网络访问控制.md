@@ -23,7 +23,7 @@
 
 - nsa namespace 下的 Pod 可互相访问，而不能被其他任何 Pod 访问。  
     ```yaml
-    apiVersion: extensions/v1beta1
+    apiVersion: networking.k8s.io/v1
     kind: NetworkPolicy
     metadata:
       name: npa
@@ -38,7 +38,7 @@
     ```
 - nsa namespace 下的 Pod 不能被任何 Pod 访问。  
     ```yaml
-    apiVersion: extensions/v1beta1
+    apiVersion: networking.k8s.io/v1
     kind: NetworkPolicy
     metadata:
       name: npa
@@ -50,7 +50,7 @@
     ```
 - nsa namespace 下的 Pod 只在 6379/TCP 端口可以被带有标签 app: nsb 的 namespace 下的 Pod 访问，而不能被其他任何 Pod 访问。  
     ```yaml
-    apiVersion: extensions/v1beta1
+    apiVersion: networking.k8s.io/v1
     kind: NetworkPolicy
     metadata:
       name: npa
@@ -70,7 +70,7 @@
     ```
 - nsa namespace 下的 pod 可以访问 CIDR 为14.215.0.0/16的 network endpoint 的5978/TCP 端口，而不能访问其他任何 network endpoints（此方式可以用来为集群内的服务开访问外部 network endpoints 的白名单）。  
     ```yaml
-    apiVersion: extensions/v1beta1
+    apiVersion: networking.k8s.io/v1
     kind: NetworkPolicy
     metadata:
       name: npa
@@ -89,7 +89,7 @@
     ```
 - default namespace 下的 Pod 只在80/TCP 端口可以被 CIDR 为14.215.0.0/16的 network endpoint 访问，而不能被其他任何 network endpoints 访问。  
     ```yaml
-    apiVersion: extensions/v1beta1
+    apiVersion: networking.k8s.io/v1
     kind: NetworkPolicy
     metadata:
       name: npd
@@ -158,7 +158,7 @@
 2. 部署1000个 service，每个分别对应 2/6/8 个 Pod（Nginx），作为干扰组。  
 3. 部署 NetworkPolicy 规则，使得所有 Pod 都被选中，以便产生足够数量的 iptables 规则：
 ```
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
   name: npd

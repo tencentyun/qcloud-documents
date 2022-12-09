@@ -6,8 +6,8 @@ Nginx Controller 现已提供组件运行状态相关的监控数据，您可以
 
 ## 前提条件
 
-- 集群已关联云原生监控 Prometheus，操作详情可参见 [关联集群](https://cloud.tencent.com/document/product/457/49890)。
-- 云原生监控 Prometheus 需要与 Nginx 在同一个网络平面。
+- 集群已关联 Prometheus 监控，操作详情可参见 [关联集群](https://cloud.tencent.com/document/product/457/49890)。
+-  Prometheus 监控需要与 Nginx 在同一个网络平面。
 
 ## 采集指标
 
@@ -39,6 +39,6 @@ TKE Nginx-ingress 自动配置以下采集指标：
 
 ## Nginx-ingress 监控 Grafana 面板
 
-TKE Nginx-ingress 开启监控功能后将关联云原生监控 Prometheus，云原生监控 Prometheus 自带一个 Grafana，您可以在 Nginx-ingress 组件页面直接跳转到对应的 Grafana 面板，如下图所示：
+TKE Nginx-ingress 开启监控功能后将关联 Prometheus 监控，Prometheus 监控自带一个 Grafana，您可以在 Nginx-ingress 组件页面直接跳转到对应的 Grafana 面板，如下图所示：
 ![](https://main.qcloudimg.com/raw/fea3e7005e93a63b98e37243638ab2af.png)
 

@@ -1,3 +1,5 @@
+>!API 管理的独立环境与应用集成环境不互通。
+
 各大企业每天都有大量的 API 增长，同时越来越多公司开始公开 Web API，API 的使用场景正在累积。现在，每日 API 调用量在不断飙升，如何能够安全有效将这些 API 管理起来对于企业而言并不容易。
 
 腾讯云数据连接器提供 API 发布功能，可以一键将已发布的应用打包生成 API，方便用户进行管理和调用；同时提供了 API 管理能力，可以针对 API 进行访问权限管控和流量调度。
@@ -94,9 +96,3 @@ API Endpoint 指一个 API 服务可以连接的后端服务信息，包括 API 
 ![](https://qcloudimg.tencent-cloud.cn/raw/9b2f590152d6d03f7295c76a5d5e8792.png)
 随后即可获取到测试的结果。我们会将后端服务返回的 Response 状态码和结果返回给用户，方便进行进一步的调试工作。
 ![](https://qcloudimg.tencent-cloud.cn/raw/89ba06b81a08f9fed3f1822b78e9f2a1.png)
-
-
-
-
-
-   

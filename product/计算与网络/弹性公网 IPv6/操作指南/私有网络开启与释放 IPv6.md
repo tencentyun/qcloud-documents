@@ -8,5 +8,3 @@
  - 若该 VPC 尚未获取 IPv6 CIDR，可单击**获取**并确认操作，系统将为该 VPC 分配1个`/56`的 IPv6 CIDR。
  - 若该 VPC 已获取到 IPv6 CIDR，可单击**释放**并确认操作，系统将释放该 VPC 的 IPv6 CIDR。
 ![](https://main.qcloudimg.com/raw/7076ff0f3287fe555538cc5ad3a83f8b.png)
-
-
