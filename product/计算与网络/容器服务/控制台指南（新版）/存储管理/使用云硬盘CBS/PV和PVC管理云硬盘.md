@@ -1,5 +1,5 @@
 ## 操作场景
-腾讯云容器服务支持通过创建 PV/PVC，并在创建工作负载添加数据卷时使用已有 PVC，实现通过 PV 和 PVC 管理云硬盘。本文介绍如何通过控制台、Kubectl 两种方式实现 PV 和 PVC 管理云硬盘。
+腾讯云容器服务 TKE 支持通过创建 PV/PVC，并在创建工作负载添加数据卷时使用已有 PVC，实现通过 PV 和 PVC 管理云硬盘。本文介绍如何通过控制台、Kubectl 两种方式实现 PV 和 PVC 管理云硬盘。
 >!
 >-  云硬盘不支持跨可用区挂载。若挂载云硬盘类型 PV 的 Pod 迁移至其他可用区，将会导致挂载失败。
 >- 容器服务控制台不支持云硬盘扩容，可前往 [云硬盘控制台](https://console.cloud.tencent.com/cvm/cbs/index) 进行扩容操作。详情请参见 [扩容云硬盘](https://cloud.tencent.com/document/product/362/5747)。
