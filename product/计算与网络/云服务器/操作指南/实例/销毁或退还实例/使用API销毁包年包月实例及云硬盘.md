@@ -473,5 +473,4 @@ class TerminateTotalInstance(object):
 </dx-tabs>
 
 	
-
 	
