@@ -2,18 +2,18 @@
 
 我们致力于打造一套支持 Flutter 全平台的即时通信 IM SDK 及 TUIKit，帮助您一套代码，全平台运行。
 
-| 平台 | 无 UI SDK (tencent_cloud_chat_sdk) | 含 UI 及基础业务逻辑 TUIKit (tencent_cloud_chat_uikit) |
+| 平台 | 无 UI SDK ([tencent_cloud_chat_sdk](https://pub.dev/packages/tencent_cloud_chat_sdk)) | 含 UI 及基础业务逻辑 TUIKit ([tencent_cloud_chat_uikit](https://pub.dev/packages/tencent_cloud_chat_uikit)) |
 |---------|---------|---------|
 | iOS | 所有版本支持 | 所有版本支持 |
 | Android | 所有版本支持 | 所有版本支持 |
 | [Web](https://cloud.tencent.com/document/product/269/68823#web) | 4.1.1+2版本起支持 | 0.1.5版本起支持 |
 | [macOS](https://cloud.tencent.com/document/product/269/68823#pc) | 4.1.8版本起支持 | 即将上线 |
 | [Windows](https://cloud.tencent.com/document/product/269/68823#pc) | 4.1.8版本起支持 | 即将上线 |
-| [混合开发](https://cloud.tencent.com/developer/article/2167243) （将 Flutter SDK 添加至现有原生应用） | 5.0.0版本起支持 | 1.0.0版本起支持 |
+| [混合开发](https://cloud.tencent.com/document/product/269/83153) （将 Flutter SDK 添加至现有原生应用） | 5.0.0版本起支持 | 1.0.0版本起支持 |
 
 >? Web/macOS/Windows 平台需要简单的几步额外引入，详情请查看 [Web 兼容](https://cloud.tencent.com/document/product/269/68823#web) 和 [Desktop 兼容](https://cloud.tencent.com/document/product/269/68823#pc) 指引。
 
-## 更新日志
+## SDK 说明
 
 IM Flutter SDK（无 UI）指代 [tencent_cloud_chat_sdk](https://pub.dev/packages/tencent_cloud_chat_sdk) 包，仅包括所有 IM 客户端 API 及监听回调。
 
@@ -22,8 +22,22 @@ IM Flutter TUIKit（含 UI）指代 [tencent_cloud_chat_uikit](https://pub.dev/p
 >?无 UI 的 SDK 现已从 [tencent_im_sdk_plugin](https://pub.dev/packages/tencent_im_sdk_plugin) 迁移至 [tencent_cloud_chat_sdk](https://pub.dev/packages/tencent_cloud_chat_sdk)；TUIKit现已从 [tim_ui_kit](https://pub.dev/packages/tim_ui_kit) 迁移至 [tencent_cloud_chat_uikit](https://pub.dev/packages/tencent_cloud_chat_uikit)。
 > 后续两个原始版本包将陆续不再维护，请所有客户尽快升级至最新版本，谢谢。
 
+## 更新日志
+
+### IM Flutter SDK（无 UI） 5.0.6 @2022.11.29
+
+- 修复：iOS Bundle version 丢失问题。
+- 改进：升级底层 Native SDK 至 6.9.3557 版本。
+
+### IM Flutter TUIKit（含 UI） 1.0.1 @2022.11.28
+
+- 改动：移除 `MessageItemBuilder` 中的 `groupTRTCTipsItemBuilder`，请使用 `customMessageItemBuilder` 替代。
+- 改动：移除 `TIMUIKitConversation` 和 `TIMUIKitChat` 中对音视频通话记录消息的默认解析，需要手动将通化记录信息解析或组件传入。详情可查看 [本升级指引](https://cloud.tencent.com/document/product/269/72485#updateuikit)。
+
 ### IM Flutter TUIKit（含 UI） 1.0.0 @2022.11.23
 
+- 新增：支持在您现有应用中添加 Flutter 模块，即混合开发，具体请参见 [本文档](https://cloud.tencent.com/document/product/269/83153) 实现。
+- 新增：自定义贴纸和表情符号。**使用方式有较大改变，具体请参见 [本升级指引](https://cloud.tencent.com/document/product/269/80882#.E8.A1.A8.E6.83.85.E6.8F.92.E4.BB.B6.E5.8D.87.E7.BA.A7.E6.8C.87.E5.8D.97) 修改。**
 - 新增：支持在您现有应用中添加 Flutter 模块，即混合开发，具体请参见 [本文档](https://cloud.tencent.com/document/product/269/83153) 实现。
 - 新增：自定义贴纸和表情符号。**使用方式有较大改变，具体请参见 [本升级指引](https://cloud.tencent.com/document/product/269/80882#.E8.A1.A8.E6.83.85.E6.8F.92.E4.BB.B6.E5.8D.87.E7.BA.A7.E6.8C.87.E5.8D.97) 修改。**
 - 优化：历史消息列表的加载时间，尤其是对于有大量媒体和文件消息的情况。

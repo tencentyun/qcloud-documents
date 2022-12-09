@@ -1,3 +1,7 @@
+>!
+>- 试用公有云版本 API 管理需扫码申请（登录 [腾讯云数据连接器控制台](https://ipaas.cloud.tencent.com/)，单击 **API 管理**菜单即可申请）。
+>- API 管理的独立环境与应用集成环境不互通。
+
 ## 操作场景
 各大企业每天都有大量的 API 增长，同时越来越多公司开始公开 Web API，API 的使用场景正在累积。现在，每日 API 调用量在不断飙升，如何能够安全有效将这些 API 管理起来对于企业而言并不容易。
 腾讯云数据连接器提供 API 发布功能，可以一键将已发布的应用打包生成 API，方便用户进行管理和调用；同时提供了 API 管理能力，可以针对 API 进行访问权限管控和流量调度。
@@ -142,7 +146,8 @@ API 目录展示已上架的 API 服务。类似一个 API 服务市场，上架
 
  ![](https://qcloudimg.tencent-cloud.cn/raw/2fd53195b377dc997c427d9b2d063ed1.png)
 
-### API 调用步骤：从用户侧调用 API（以 postman 为例）
+## API 调用步骤
+### 从用户侧调用 API（以 postman 为例）
 - API 服务无需验证的情况：
 ![](https://qcloudimg.tencent-cloud.cn/raw/c8f0989e13ad33d5180ae002220ded34.png)
 - API 服务需要 Basic Auth 的情况：

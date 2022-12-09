@@ -82,6 +82,12 @@ ndctl list -R
 1. 在高版本的内核（5.1 以上且使用了 KMEM DAX 的驱动，如 TencentOS Server 3.1 的内核）支持下，可将 devdax 模式的 PMEM 进一步配置为 kmemdax，可使用 PMEM 扩充云服务器的内存。
 <dx-alert infotype="explain" title="">
 ndctl 和 daxctl 版本需大于 66。
+版本检测方法：
+- ndctl --version
+- daxctl --version 
+
+
+版本低于 66 的情况下，建议使用 TencentOS 3.1，提供有大于 66 版本的 ndctl/daxctl。
 </dx-alert>
 ```
 yum install -y daxctl

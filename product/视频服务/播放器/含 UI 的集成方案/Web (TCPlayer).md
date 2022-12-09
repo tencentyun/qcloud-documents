@@ -6,8 +6,8 @@ Web 播放器是通过 HTML5 的 `<video>` 标签以及 Flash 实现视频播放
 ### 协议支持
 
 <table>
-<tr><th style="text-align:center">音视频协议</th><th>用途</th><th>URL 地址格式</th><th>PC 浏览器</th><th>移动浏览器</th>
-</tr>
+<thead><tr><th style="text-align:center">音视频协议</th><th>用途</th><th>URL 地址格式</th><th>PC 浏览器</th><th>移动浏览器</th>
+</tr></thead><tbody>
 <tr>
 <td style="text-align:center">MP3</td>
 <td>音频</td>
@@ -355,7 +355,7 @@ Web 播放器是通过 HTML5 的 `<video>` 标签以及 Flash 实现视频播放
 ```html
  <link href="https://web.sdk.qcloud.com/player/tcplayer/release/v4.6.0/tcplayer.min.css" rel="stylesheet"/>
  <!--如果需要在 Chrome 和 Firefox 等现代浏览器中通过 H5 播放 Webrtc 视频，需要在 tcplayer.vx.x.x.min.js 之前引入 TXLivePlayer-x.x.x.min.js。-->
- <!--有些浏览器环境不支持 Webrtc，播放器会将 Webrtc 流地址自动转换为 HLS 格式地址，因此快直播场景同样需要引入hls.min.x.xx.xm.js。-->
+ <!--有些浏览器环境不支持 Webrtc，播放器会将 Webrtc 流地址自动转换为 HLS 格式地址，因此快直播场景同样需要引入 hls.min.x.xx.xm.js。-->
  <script src="https://web.sdk.qcloud.com/player/tcplayer/release/v4.6.0/libs/TXLivePlayer-1.2.3.min.js"></script>
  <!--如果需要在 Chrome 和 Firefox 等现代浏览器中通过 H5 播放 HLS 协议的视频，需要在 tcplayer.vx.x.x.min.js 之前引入 hls.min.x.xx.xm.js。-->
  <script src="https://web.sdk.qcloud.com/player/tcplayer/release/v4.6.0/libs/hls.min.1.1.5.js"></script>
@@ -429,6 +429,6 @@ var player = TCPlayer('player-container-id', { // player-container-id 为播放�
 </dx-tabs>
 
 ### 步骤4: 更多功能
-播放器可以结合云点播的服务端能力实现高级功能，比如自动切换自适应码流、预览视频缩略图、添加视频打点信息等。这些功能在 [播放长视频方案](https://cloud.tencent.com/document/product/266/64058) 中有详细的说明，可以参考文档实现。
+播放器可以结合云点播的服务端能力实现高级功能，例如自动切换自适应码流、预览视频缩略图、添加视频打点信息等。这些功能在 [播放长视频方案](https://cloud.tencent.com/document/product/266/64058) 中有详细的说明，可以参考文档实现。
 
 此外，播放器还提供更多其他功能，功能列表和使用方法请参见 [功能展示](https://tcplayer.vcube.tencent.com/) 页面。

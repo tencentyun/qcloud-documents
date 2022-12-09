@@ -38,7 +38,7 @@
         font-weight: bolder;
         font-size: larger;
     }
-        
+
         @media (max-width: 768px){
                 .card-container,
                 .scene-card-container{
@@ -93,6 +93,21 @@
         </div>
 				<div class="card-container">
             <div class="card">
+                <div>
+                            <img src="https://main.qcloudimg.com/raw/98394fa5d669de7fb7a187565d138cdb.svg" data-nonescope="true">
+                             <p class="titlename">Web（React）</p>
+                <div style="width: 100px; margin: auto;">
+                                <p style="height: 107.53px;display: flex; justify-content: center;
+                                align-items: center;"><input type="button" value="基础聊天" style="height: 30px;width: 110px;background-color: #006eff;
+    color: #fff;border: 1px solid #006eff;line-height: 30px;text-align: center;display: inline-block;cursor: pointer;outline: 0 none;
+    box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;border-radius: 15px;"  onclick="window.open('https://web.sdk.qcloud.com/im/demo/intl/index.html')" /></p>
+                 <a href="https://cloud.tencent.com/document/product/269/83556">快速入门</a>
+                </div>
+            </div>
+                </div>
+        </div>
+				<div class="card-container">
+            <div class="card">
                             <img src="https://main.qcloudimg.com/raw/98394fa5d669de7fb7a187565d138cdb.svg" data-nonescope="true">
                                 <p class="titlename">H5</p>
                 <div style="width: 100px; margin: auto;">
@@ -129,7 +144,7 @@
                                 <a href="https://cloud.tencent.com/document/product/269/68376">快速入门</a>
             </div>
         </div>
-				
+
 </div>
 </div>
 </div>

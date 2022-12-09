@@ -557,9 +557,49 @@ EMR 支持资源级授权，您可以指定子账号拥有特定资源的接口�
 <td >	获取集群 AccessKey</td>
 <td >	emr-instance|qcs::emr:${region}:uin/${uin}:emr-instance/$emrInstanceId</td>
 </tr>
+<tr>
+<td>DescribeAttachableDisks</td>
+<td>查询节点支持额外挂载的云盘</td>
+<td>emr-instance|qcs::emr:${region}:uin/${uin}:emr-instance/$emrInstanceId</td>
+</tr>
+<tr>
+<td>InquirePriceRenewDisks</td>
+<td>云盘续费询价</td>
+<td>emr-instance|qcs::emr:${region}:uin/${uin}:emr-instance/$emrInstanceId</td>
+</tr>
+<tr>
+<td>AttachDisks</td>
+<td>云盘挂载</td>
+<td>emr-instance|qcs::emr:${region}:uin/${uin}:emr-instance/$emrInstanceId</td>
+</tr>
+<tr>
+<td>DescribeNodeDataDisks</td>
+<td>查询节点数据盘信息</td>
+<td>emr-instance|qcs::emr:${region}:uin/${uin}:emr-instance/$emrInstanceId</td>
+</tr>
+<tr>
+<td>InquirePriceResizeDisks</td>
+<td>云盘扩容询价</td>
+<td>emr-instance|qcs::emr:${region}:uin/${uin}:emr-instance/$emrInstanceId</td>
+</tr>
+<tr>
+<td>ResizeDataDisks</td>
+<td>云盘扩容</td>
+<td>emr-instance|qcs::emr:${region}:uin/${uin}:emr-instance/$emrInstanceId</td>
+</tr>
+<tr>
+<td>ModifyAutoRenewFlag</td>
+<td>自动续费</td>
+<td>emr-instance|qcs::emr:${region}:uin/${uin}:emr-instance/$emrInstanceId</td>
+</tr>
+<tr>
+<td>ScaleOutCluster</td>
+<td>扩容集群节点</td>
+<td>emr-instance|qcs::emr:${region}:uin/${uin}:emr-instance/$emrInstanceId</td>
+</tr>
 </tbody>
 </table>
-		
+
 
 ## 支持接口级授权的 API 列表
 <table>
@@ -730,6 +770,9 @@ EMR 支持资源级授权，您可以指定子账号拥有特定资源的接口�
 <tr>
 <td >ModifyResourcesTags</td>
 <td >强制修改标签</td>
+</tr><tr>
+<td >CreateCluster</td>
+<td >创建集群</td>
 </tr>
 </tbody>
 </table>

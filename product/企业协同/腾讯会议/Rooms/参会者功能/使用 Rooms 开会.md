@@ -5,7 +5,7 @@
 - 麦克风：勾选后，加入会议会打开 Rooms 的麦克风。
 ![](https://main.qcloudimg.com/raw/7c269e67ce44cf13bde06b279ec95ae9.png)
 
-
+  
 ## 发起一场快速会议
 快速会议又称即时会议，可以立即发起一个会议；您可在腾讯会议 Rooms 的主界面单击**快速会议**，即可作为主持人发起一场会议。
 ![](https://main.qcloudimg.com/raw/2062a5ee0842f47fb4a4d509682cc48b.png)

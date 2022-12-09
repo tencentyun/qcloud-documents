@@ -95,3 +95,5 @@ service nginx restart
 ```
 cat /path/server/nginx/logs/access.log
 ```
+
+

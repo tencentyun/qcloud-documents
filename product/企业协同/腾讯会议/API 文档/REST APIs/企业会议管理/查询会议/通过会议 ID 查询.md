@@ -48,7 +48,7 @@ https://api.meeting.qq.com/v1/meetings/{meetingId}?userid={userid}&instanceid={i
 |start_time  |String | 会议开始时间戳（单位秒）。 |
 |end_time  |String | 会议结束时间戳（单位秒）。  |
 |settings   |[会议媒体参数对象](#settings) |会议的配置，可为缺省配置。|
-| meeting_type      |  Integer  | 会议类型。    <br>0：一次性会议<br>1：周期性会议<br>2：微信专属会议<br>3：rooms投屏会议<br>5：个人会议号会议<br>6：网络研讨会     |
+| meeting_type      |  Integer  | 会议类型。    <br>0：一次性会议<br>1：周期性会议<br>2：微信专属会议<br>3：Rooms 投屏会议<br>5：个人会议号会议<br>6：网络研讨会     |
 | recurring_rule         | period_meeting | 周期性会议设置。                           |
 | sub_meetings           | 子会议对象数组 | 周期性子会议列表。                         |
 | has_more_sub_meeting   | Integer        | 0：无更多子会议特例   <br>1：有更多子会议特例      |
@@ -61,7 +61,7 @@ https://api.meeting.qq.com/v1/meetings/{meetingId}?userid={userid}&instanceid={i
 |has_vote   | Boolean     | 是否有投票（会议创建人和主持人才有权限查询）。                                                     |
 |enable_enroll   | Boolean     | 是否激活报名。                                                     |
 |enable_host_key   | Boolean     | 是否开启主持人密钥。<br>true：开启<br>false：关闭                                                     |
-|host_key   | Boolean     | 主持人密钥，仅支持6位数字（会议创建人才有权限查询）。<br>如开启主持人密钥后没有填写此项，将自动分配一个6位数字的密钥。                                                    |
+|host_key   | String     | 主持人密钥，仅支持6位数字（会议创建人才有权限查询）。<br>如开启主持人密钥后没有填写此项，将自动分配一个6位数字的密钥。                                                    |
 |sync_to_wework  |Boolean    |会议是否同步至企业微信，该字段仅支持创建会议时设置，创建后无法修改。该配置仅支持与企业微信关联的企业。 <br>true：同步，默认同步<br>false：不同步| 
 |time_zone | String |	时区，可参见 [Oracle-TimeZone 标准](https://docs.oracle.com/middleware/1221/wcs/tag-ref/MISC/TimeZones.html)。 |
 |location | String |会议地点。最长支持18个汉字或36个英文字母。 |

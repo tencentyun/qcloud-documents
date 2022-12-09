@@ -16,16 +16,23 @@ Kubernetes 抽象 PV（PersistentVolume）和 PVC（PersistentVolumeClaim）来�
 
 ## 前提条件
 
-- 已创建容器集群。比如，腾讯云 TKE（Tencent Kubernetes Engine，TKE）容器集群或者自建K8S（Kubernetes）容器集群。
+- 已创建容器集群。例如，腾讯云 TKE（Tencent Kubernetes Engine，TKE）容器集群或者自建K8S（Kubernetes）容器集群。
 - 容器集群和 GooseFSx 实例在同一个 VPC、同一个子网里。
 - 容器集群宿主机的操作系统与 GooseFSx 兼容，可参见 [GooseFSx 兼容性列表](https://cloud.tencent.com/document/product/1424/77960)。
 - 容器集群宿主机已挂载 GooseFSx 共享目录，参见 [GooseFSx 创建客户端](https://cloud.tencent.com/document/product/1424/77956)。
 
 
+## 使用限制
+
+1. GooseFSx 暂不支持 [TKE 超级节点](https://cloud.tencent.com/document/product/457/74014)，请使用 [TKE 节点池](https://cloud.tencent.com/document/product/457/43719) 来实现动态伸缩。 
+2. GooseFSx 暂不支持基于 StorageClass 动态创建 PV。
+
+
+
 
 ## Local PV 操作步骤
 
-### 1. 定义 PV 持久化卷的 yaml 文件样例`local_goosefsx_pv.yaml`
+### 1. 定义 PV 持久化卷的 yaml 文件样例 `local_goosefsx_pv.yaml`
 
 >!请将里面的 local: path 更换成 GooseFSx 在宿主机上的挂载目录。
 
@@ -62,15 +69,15 @@ spec:
 |参数  |   说明  |
 |----|----|
 |name: csi-goosefsx-local-pv   | 定义持久卷名称，根据实际情况进行修改。|
-|accessModes:  - ReadWriteMany|定义访问模式，“ReadWriteMany”是指可被多个节点以读写方式挂载。|
-|storage: 10Gi|定义存储容量，“10Gi”是10GiB存储容量，此参数不会限制文件系统所供给的容量；实际存储容量是购买 GooseFSx 的容量，并随 GooseFSx 扩容而动态扩展；比如，购买 GooseFSx 容量是4.5TiB，存储容量是4.5TiB，非10GiB，扩容 GooseFSx 容量到9TiB，存储容量是9TiB。|
+|accessModes:  - ReadWriteMany|定义访问模式，“ReadWriteMany” 是指可被多个节点以读写方式挂载。|
+|storage: 10Gi|定义存储容量，“10Gi” 是10GiB 存储容量，此参数不会限制文件系统所供给的容量；实际存储容量是购买 GooseFSx 的容量，并随 GooseFSx 扩容而动态扩展；例如，购买 GooseFSx 容量是4.5TiB，存储容量是4.5TiB，非10GiB，扩容 GooseFSx 容量到9TiB，存储容量是9TiB。|
 |volumeMode: Filesystem|定义持久卷模式，是文件系统。|
 |persistentVolumeReclaimPolicy: Delete|  定义回收策略，删除。|
-|storageClassName: local-storage |   定义持久卷所属的类“local-storage”，持久卷申领必须属于同一个类“local-storage”；名称“local-storage”与 storageclass 存储类文件的 name “local-storage”保持一致。|
-|local: path: /goosefsx/x_c60_ow1j60r9_proxy  |   定义容器的存储空间来自宿主机的目录路径“/goosefsx/x_c60_ow1j60r9_proxy”，即 GooseFSx 在宿主机上的挂载目录，根据实际情况进行修改。|
+|storageClassName: local-storage |   定义持久卷所属的类 “local-storage”，持久卷申领必须属于同一个类 “local-storage”；名称 “local-storage” 与 storageclass 存储类文件的 name “local-storage”保持一致。|
+|local: path: /goosefsx/x_c60_ow1j60r9_proxy  |   定义容器的存储空间来自宿主机的目录路径 “/goosefsx/x_c60_ow1j60r9_proxy”，即 GooseFSx 在宿主机上的挂载目录，根据实际情况进行修改。|
 |nodeAffinity|  定义节点亲和性。|
 
-### 2. 定义 PVC 持久化卷申领的 yaml 文件样例`local_goosefsx_pvc.yaml`
+### 2. 定义 PVC 持久化卷申领的 yaml 文件样例 `local_goosefsx_pvc.yaml`
 
 ```yaml
 apiVersion: v1
@@ -94,11 +101,11 @@ spec:
 |----|----|
 |name: local-goosefsx-pvc|   定义持久卷申领的名称，根据实际情况进行修改。|
 |accessModes:  - ReadWriteMany|  定义访问模式，与定义持久卷一样。|
-|resources: requests: storage: 10Gi|   定义存储容量，“10Gi”是10GiB存储容量，此参数不会限制文件系统所提供的容量；实际存储容量是购买 GooseFSx 的容量，并随 GooseFSx 扩容而动态扩展；比如，购买 GooseFSx 容量是4.5TiB，存储容量是4.5TiB，非10GiB，扩容 GooseFSx 容量到9TiB，存储容量是9TiB。|
-|storageClassName: local-storage|   定义持久卷申领 所属的类“local-storage”，持久卷必须属于同一个类“local-storage”；名称“local-storage”与storageclass存储类文件的name “local-storage”保持一致。|
+|resources: requests: storage: 10Gi|   定义存储容量，“10Gi” 是10GiB 存储容量，此参数不会限制文件系统所提供的容量；实际存储容量是购买 GooseFSx 的容量，并随 GooseFSx 扩容而动态扩展；例如，购买 GooseFSx 容量是4.5TiB，存储容量是4.5TiB，非10GiB，扩容 GooseFSx 容量到9TiB，存储容量是9TiB。|
+|storageClassName: local-storage|   定义持久卷申领 所属的类 “local-storage”，持久卷必须属于同一个类 “local-storage”；名称 “local-storage” 与 storageclass 存储类文件的 name “local-storage”保持一致。|
 
 
-### 3. 定义 StorageClass 存储类的 yaml 文件样例`local_goosefsx_storageclass.yaml`
+### 3. 定义 StorageClass 存储类的 yaml 文件样例 `local_goosefsx_storageclass.yaml`
 
 ```yaml
 kind: StorageClass
@@ -114,7 +121,7 @@ volumeBindingMode: WaitForFirstConsumer
 
 |参数  |   说明  |
 |----|----|
-|name: local-storage|定义存储类的名称为“local-storage”，PV 持久化卷的 yaml 文件和 PVC 持久化卷申领的 yaml 文件会用上。|
+|name: local-storage|定义存储类的名称为 “local-storage”，PV 持久化卷的 yaml 文件和 PVC 持久化卷申领的 yaml 文件会用上。|
 |provisioner: kubernetes.io/no-provisioner|定义 PV 持久化卷的 provisioner，GooseFSx 的 PV 持久化卷比较简单，不需要通过 StorageClass 来自动创建 PV 持久化卷。|
 |volumeBindingMode：WaitForFirstConsumer|定义卷绑定模式，该模式将延迟 PersistentVolume 的绑定和制备，直到使用该 PersistentVolumeClaim 的 Pod 被创建。|
 

@@ -43,10 +43,3 @@ C:\Windows\System32\sysprep\sysprep.exe /generalize /oobe /unattend:Unattend.xml
 <dx-alert infotype="explain" title="">
 您可以通过执行 `whoami /user` 命令，查看云服务器的 SID。
 </dx-alert>
-
-
-
-
-
-
-
