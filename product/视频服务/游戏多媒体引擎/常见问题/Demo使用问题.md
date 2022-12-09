@@ -1,35 +1,35 @@
 
-### 如何下载 GME Demo 及 SDK？
+### 如何下载 GME Sample Project 及 SDK？
 
-下载 GME 相关的 Demo 及 SDK，详情请参见 [下载指引](https://cloud.tencent.com/document/product/607/18521) 。目前官网有 Unity 引擎 Demo、Cocos2D 引擎 Demo、Android 及 iOS 原生开发 Demo。
+下载 GME 相关的 Sample Project 及 SDK，详情请参见 [下载指引](https://cloud.tencent.com/document/product/607/18521) 。目前官网提供 Unity 引擎 、Unreal引擎、Cocos2D 引擎、Android 、iOS 、Windows、macOS 及 web 原生开发Sample Project。
 
-### GME 的 Windows Demo 应该使用什么版本的 VS 打开？
+### GME 的 Windows Sample Project 应该使用什么版本的 VS 打开？
 请使用 VS2015 打开。如果需要用 VS2010 打开则请自行对工程进行降级。
 
-### GME Demo 下载后，如何替换为自己申请的账号？
+### GME Sample Project 下载后，如何替换为自己申请的账号？
 
-- 需要在 [控制台](https://console.cloud.tencent.com/gamegme/detail/1400391524) 服务管理中获取 AppID 和权限密钥。
+- 需要在控制台 [服务管理-应用设置](https://console.cloud.tencent.com/gamegme) 中获取 AppID 和权限密钥。
 - 若使用您申请的 AppID ，则需要在 AVChatViewController 中的 GetAuthBuffer 中修改实时语音的 Key。
 
 
 ### GME 多个用户使用同一个 OpenID 会有影响吗？
-初始化 GME 引擎时候会使用到 OpenID，这个 OpenID 是唯一标识一个用户。多端同时使用一个 OpenID，例如异地多端登录可能会造成账号异常，无法正常使用 GME 功能。
+初始化 GME 引擎时候会使用到 OpenID，OpenID 是应用内用户的唯一标识符。多端同时使用一个 OpenID，例如异地多端登录可能会造成账号异常，无法正常使用 GME 功能。
 
 ### 房间内只有一个人，如何在本地体验效果？
 
-请在另一个终端设备使用 demo 进入同一房间即可。
+请在另一个终端设备使用 Sample Project 进入同一房间即可。
 
-### 使用 Demo 时，报错：errinfo=priv map info error，怎么办？
+### 使用 Sample Project 时，报错：errinfo=priv map info error，怎么办？
 
 相关进房参数出现错误，请检查 SDKAppID、权限密钥是否已经替换。
 
-### 如何使用已下载的 Demo？
+### 如何使用已下载的 Sample Projec或Demo？
 
 - 您可以请参见 [Demo 使用文档](https://cloud.tencent.com/document/product/607/43120)。
 - 如果是 Unity Demo，请参见 [Unity Demo 使用](https://cloud.tencent.com/document/product/607/48323)。
 
-### Unity 导出的 Demo 为何使用时候经常无声？
-Unity 的 Demo 中设置了  OnApplicationFocus，当程序失去焦点时，会 Pause 暂停语音，如果需要后台可播放声音，请将调用 Pause 接口的相关代码去掉即可。
+### Unity 导出的 Sample Projec 为何使用时候经常无声？
+Unity 的 Sample Projec 中设置了  OnApplicationFocus，当程序失去焦点时，会 Pause 暂停语音，如果需要后台可播放声音，请将调用 Pause 接口的相关代码去掉即可。
 
 ### 如何取得日志？
 
