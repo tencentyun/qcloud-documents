@@ -1,7 +1,7 @@
 本文介绍如何向已创建的边缘集群中添加腾讯云标准的 CVM 节点。您可以直接购买所需地域的腾讯云 CVM，将其直接加入边缘集群提供服务。这里和标准 TKE 托管集群的区别是，您可以购买不同地域不同 VPC 下的 CVM 节点加入同一个边缘集群，而不需要限制在边缘集群创建时所选择的 VPC 下。
 
 ## 前置条件
-请参考 [内外网访问能力使能](https://cloud.tencent.com/document/product/457/83206) 使能**外网访问**能力。
+请参考 [集群开启内外网访问](https://cloud.tencent.com/document/product/457/83206) 使能**外网访问**能力。
 
 ## 创建 CVM 节点
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的**集群**。

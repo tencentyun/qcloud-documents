@@ -22,4 +22,4 @@ LoRa Edge 的 Wi-Fi 扫描数据将使用腾讯地图高可信、高覆盖的 Wi
 
 - 使用 LoRaWAN® 连接的设备，详细操作指南见 [LoRa LR1110 快速入门](https://cloud.tencent.com/document/product/1081/71441)
 - 不使用 LoRaWAN® 连接的设备，使用与 LoRa Edge 相关的物模型，(菜单操作为：**物模型** > **添加标准功能** > **通用类型** -> **勾选“wifi 定位”**、**“GNSS 导航电文”**)，设备使用物模型协议上报相应的 JSON 字段即可。
-- 腾讯云物联网开发平台也将在下一步提供 LoRa Edge 定位解析接口，第三方云平台可以直接调用云 API，请求入参使用扫描数据，可获得位置解析结果。
+- 腾讯云物联网开发平台提供 [LoRa Edge 定位解析接口](https://cloud.tencent.com/document/product/1081/83128)，第三方云平台可以直接调用该云 API，请求入参使用GNSS 及 Wi-Fi 扫描数据，可获得位置解析结果。

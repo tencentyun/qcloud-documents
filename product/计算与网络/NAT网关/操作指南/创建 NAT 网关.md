@@ -3,7 +3,7 @@
 
 ## 操作步骤
 ### 标准型 NAT 网关
->?标准型 NAT 网关目前正在灰度测试中，如有需要，请提交[ 内测申请](https://cloud.tencent.com/apply/p/ojxjirnd5yi)。
+>?标准型 NAT 网关正在灰度测试中，目前支持北京、上海、广州、成都、重庆，如需使用，请提交 [内测申请](https://cloud.tencent.com/apply/p/ojxjirnd5yi)。
 >
 1. 登录[ NAT 网关控制台](https://console.cloud.tencent.com/vpc/nat?fromNav)。
 2. 选择地区和私有网络，单击**新建**。
@@ -19,7 +19,7 @@
 <tbody>
 <tr>
 <td>网关配置</td>
-<td><ul><li>计费模式：按量计费。</li><li>网关类型：选择标准型 NAT 网关，默认规格为200万并发连接数、10万新建连接数、5Gbps带宽。<li>网关名称：按需输入 NAT 网关名称，支持60个字符。</li><li>地域：选择 NAT 网关所属地域，当前标准型 NAT 网关仅支持北京、上海、广州。</li><li>私有网络：选择 NAT 网关所属的私有网络。</li><li>所属子网：选择子网。</li></ul></td>
+<td><ul><li>计费模式：按量计费。</li><li>网关类型：选择标准型 NAT 网关，默认规格为200万并发连接数、10万新建连接数、5Gbps带宽。<li>网关名称：按需输入 NAT 网关名称，支持60个字符。</li><li>地域：选择 NAT 网关所属地域，当前标准型 NAT 网关仅支持北京、上海、广州、成都、重庆。</li><li>私有网络：选择 NAT 网关所属的私有网络。</li><li>所属子网：选择子网。</li></ul></td>
 </tr>
 <tr>
 <td>弹性公网 IP 配置</td>

@@ -1,3 +1,4 @@
+
 TXRocks 的性能与 InnoDB 接近，但由于 LSM Tree 存储结构，减少了 InnoDB ⻚⾯半满和碎⽚浪费，相⽐ InnoDB，TXRocks 的存储空间可以节省更多，因此具备超高性价比。
 
 ## 背景信息

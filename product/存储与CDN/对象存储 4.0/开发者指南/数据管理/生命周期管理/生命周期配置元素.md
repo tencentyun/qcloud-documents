@@ -139,7 +139,7 @@
 指定 AbortIncompleteMultipartUpload 操作可以允许分块上传的指定 UploadId 任务在保持一段时间后删除，其不再提供续传或可被检索的特性。例如，设置7天后清除未完成的分块上传任务：
 ```xml
 <AbortIncompleteMultipartUpload>
-	<Days>7</Days>
+   <DaysAfterInitiation>7</DaysAfterInitiation>
 </AbortIncompleteMultipartUpload>
 ```
 

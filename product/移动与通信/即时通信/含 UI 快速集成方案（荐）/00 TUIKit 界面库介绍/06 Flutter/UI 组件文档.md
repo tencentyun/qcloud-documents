@@ -13,7 +13,7 @@ TUIKit 中的组件在实现 UI 功能的同时，会调用 IM SDK 相应的接�
 | [Web](#web)  | 支持，0.1.5版本起 |
 | macOS  | 开发中，敬请期待 |
 | Windows  | 开发中，敬请期待 |
-| [混合开发](https://cloud.tencent.com/developer/article/2167243) （将 Flutter SDK 添加至现有原生应用） | 1.0.0版本起支持 |
+| [混合开发](https://cloud.tencent.com/document/product/269/83153) （将 Flutter SDK 添加至现有原生应用） | 1.0.0版本起支持 |
 
 >? 我们致力于打造一套支持 Flutter 全平台的即时通信 IM SDK 及 TUIKit，帮助您一套代码，全平台运行。
 

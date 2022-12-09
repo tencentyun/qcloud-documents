@@ -26,19 +26,19 @@ Pod 水平自动扩缩特性由 Kubernetes API 资源和控制器实现。资源
 ## 前提条件
 
 - 已 [注册腾讯云账户](https://cloud.tencent.com/register)。  
-- 已登录 [腾讯云容器服务控制台 ](https://console.cloud.tencent.com/tke2)。  
+- 已登录 [腾讯云容器服务控制台](https://console.cloud.tencent.com/tke2)。  
 - 已创建 TKE 集群。关于创建集群，详情请参见 [创建集群](https://cloud.tencent.com/document/product/457/32189)。  
 
 ## 操作步骤
 ### 部署测试工作负载
 
-以 Deployment 资源类型的工作负载为例，创建一个单副本数，服务类型为  Web 服务的 “hpa-test” 工作负载。在容器服务控制台 创建Deployment 类型工作负载方法请参见 [Deployment 管理](https://cloud.tencent.com/document/product/457/31705)。  
+以 Deployment 资源类型的工作负载为例，创建一个单副本数，服务类型为  Web 服务的 “hpa-test” 工作负载。在容器服务控制台创建Deployment 类型工作负载方法请参见 [Deployment 管理](https://cloud.tencent.com/document/product/457/31705)。  
 本示例创建结果如下图所示： 
 ![image-20201105173748658](https://main.qcloudimg.com/raw/8f66b02ddfe9b5d5062c1f9e0e1e5333.png)
 
 ### 配置 HPA 
 
-在容器服务控制台 为测试工作负载绑定一个 HPA 配置，关于如何绑定配置 HPA 请参见 [HPA 操作步骤](https://cloud.tencent.com/document/product/457/37384#.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4)，本文以配置当网络出带宽达到0.15Mbps（150Kbps）时触发扩容的策略为例。如下图所示：
+在容器服务控制台为测试工作负载绑定一个 HPA 配置，关于如何绑定配置 HPA 请参见 [HPA 操作步骤](https://cloud.tencent.com/document/product/457/37384#.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4)，本文以配置当网络出带宽达到0.15Mbps（150Kbps）时触发扩容的策略为例。如下图所示：
 ![image-20201106155539282](https://main.qcloudimg.com/raw/c4f4e6e08382e71f087da5b49852a5fe.png)
 
 ### 功能验证

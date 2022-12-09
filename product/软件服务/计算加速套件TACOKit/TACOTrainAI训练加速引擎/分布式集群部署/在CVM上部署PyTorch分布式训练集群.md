@@ -56,7 +56,7 @@ curl -s -L http://mirrors.tencent.com/install/GPU/taco/get-nvidia-docker2.sh | s
 ### 下载 docker 镜像[](id:Step4)
 执行以下命令，下载 docker 镜像。
 ```shellsession
-docker pull ccr.ccs.tencentyun.com/qcloud/taco-train:torch111-cu113-cvm-0.4.1
+docker pull ccr.ccs.tencentyun.com/qcloud/taco-train:torch111-cu113-cvm-0.4.3
 ```
 该镜像包含的软件版本信息如下：
 - OS：Ubuntu 20.04.4 LTS
@@ -77,7 +77,7 @@ docker pull ccr.ccs.tencentyun.com/qcloud/taco-train:torch111-cu113-cvm-0.4.1
 ### 启动 docker 镜像[](id:Step5)
 执行以下命令，启动 docker 镜像。
 ```shellsession
-docker run -it --rm --gpus all --privileged --net=host -v /sys:/sys -v /dev/hugepages:/dev/hugepages -v /usr/local/tfabric/tools:/usr/local/tfabric/tools ccr.ccs.tencentyun.com/qcloud/taco-train:torch111-cu113-cvm-0.4.1
+docker run -it --rm --gpus all --privileged --net=host -v /sys:/sys -v /dev/hugepages:/dev/hugepages -v /usr/local/tfabric/tools:/usr/local/tfabric/tools ccr.ccs.tencentyun.com/qcloud/taco-train:torch111-cu113-cvm-0.4.3
 ```
 
 <dx-alert infotype="notice" title="">
@@ -258,7 +258,4 @@ Batch：128<br>
 - LightCC 和 HARP 只在多机分布式训练当中才有加速效果，单机8卡场景由于 NVLink 的高速带宽存在，一般不需要额外的加速就能达到比较高的线性加速比。
 - 上述 benchmark 脚本也可以支持除了 VGG16之外的其他模型。ModelName 请参考 [Keras Applications](https://pytorch.org/vision/stable/models.html)。
 - 上述 docker 镜像仅用于 demo，若您具备开发或者部署环境，请提供 OS/python/CUDA/torch 版本信息，并联系腾讯云售后提供特定版本的 TACO 加速组件。
-
-
-
 

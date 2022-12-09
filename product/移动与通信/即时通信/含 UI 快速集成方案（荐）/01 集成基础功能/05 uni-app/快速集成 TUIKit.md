@@ -1,4 +1,4 @@
-## 开发环境要求
+### 开发环境要求
 
 - HBuilderX
 - Vue 3
@@ -7,29 +7,34 @@
 - node（12.13.0 ≤ node 版本 ≤ 17.0.0, 推荐使用 Node.js 官方 LTS 版本 16.17.0）
 - npm（版本请与 node 版本匹配）
 
-## TUIKit 源码集成
+### TUIKit 源码集成
 
-### 步骤1：创建项目 （已有项目可忽略）
+#### 步骤 1：创建项目 （已有项目可忽略）
 
-<img width="800" src="https://qcloudimg.tencent-cloud.cn/raw/37fbf00a489a5145b801784428d62b06.png"/>
+<img width="600" src="https://qcloudimg.tencent-cloud.cn/raw/73a1edc1682ebd276215f64351917a07.png"/>
 
-> !
-> 请在项目 mianfest.json => 基础配置里边确认 Vue3 版本选择
+> !请在项目 mianfest.json > 基础配置里边确认 Vue 版本选择。
 > ![](https://qcloudimg.tencent-cloud.cn/raw/456a65bd270b69ed6e8e9efe7c859ee4.png)
 
 HBuilder 不会默认创建 package.json 文件，因此您需要先创建 package.json 文件。请执行以下命令:
-
 ```shell
 npm init -y
 ```
 
-### 步骤2：下载 TUIKit 组件
+#### 步骤 2：下载并引入 TUIKit 
+通过 [npm](https://www.npmjs.com/package/@tencentcloud/chat-uikit-uniapp) 方式下载 TUIKit 并集成组件。
+> !uni-app 打包到小程序涉及到体积问题，因此我们提供了以下两种集成方案：
+> - 打包 APP 或者 H5 端推荐方案一，主包集成
+> - TUIKit 如果作为 tabbar 页面，推荐方案一，主包集成（主包体积 1M）
+> - 客户线上环境，如果不需要本地换算 userSig ，可删除 debug 文件（节省 150kb)
+> - 打包小程序端，**有体积限制需求**，**推荐方案二，分包集成**（分包可节约 170kb）
 
-通过 [npm](https://www.npmjs.com/package/@tencentcloud/chat-uikit-uniapp) 方式下载 TUIKit 组件。
-为了方便您后续的拓展，建议您将 TUIKit 组件复制到自己工程的 pages 目录下，在自己的项目目录下执行以下命令：
+#### 方案一： 主包集成
 
+在 App.vue 页面引用 TUIKit 组件，为此您需要修改  App.vue 和 pages.json 文件。
 <dx-tabs>
-::: macOS
+:::  npm 下载
+为了方便您后续的拓展，建议您将 TUIKit 组件复制到自己工程的 pages 目录下，在自己的项目目录下执行以下命令：
 ```shell
 # macOS
 npm i @tencentcloud/chat-uikit-uniapp
@@ -37,27 +42,24 @@ npm i @tencentcloud/chat-uikit-uniapp
 ```shell
 mkdir -p ./pages/TUIKit && cp -r ./node_modules/@tencentcloud/chat-uikit-uniapp/ ./pages/TUIKit
 ```
-:::
-::: windows
 ```shell
 # windows
-npm i @tencentcloud/chat-uikit-uniapp && xcopy .\node_modules\@tencentcloud\chat-uikit-uniapp .\pages\TUIKit /i /e
+npm i @tencentcloud/chat-uikit-uniapp
 ```
-::: 
-</dx-tabs>
-
+```shell
+xcopy .\node_modules\@tencentcloud\chat-uikit-uniapp .\pages\TUIKit /i /e
+```
 
 成功后目录结构如图所示：  
-<img width="400" src="https://qcloudimg.tencent-cloud.cn/raw/4fa9ed4257ddf85a0a0bfe9a55dfe983.png"/>
+<img width="300" src="https://qcloudimg.tencent-cloud.cn/raw/4fa9ed4257ddf85a0a0bfe9a55dfe983.png"/>
 
-### 步骤3：引入 TUIKit 组件
 
-在 App.vue 文件引用 TUIKit 组件
-
+:::  
+:::  App.vue 文件
 ```javascript
 <script>
-import { TIM, TIMUploadPlugin, Aegis} from './pages/TUIKit/debug/tim.js';
 import { genTestUserSig, aegisID } from "./pages/TUIKit/debug/index.js";
+import { TIM, TIMUploadPlugin, Aegis } from './pages/TUIKit/debug/tim.js';
 const aegis = new Aegis({
 	id: aegisID, // 项目key
 	reportApiSpeed: true, // 接口测速
@@ -148,11 +150,8 @@ export default {
 /*每个页面公共css */
 </style>
 ```
-
-### 步骤4：配置 pages 路由
-
-在 pages.json 文件中的更新 pages 路由：
-
+::: 
+:::   pages.json 文件
 ```javascript
 {
   "pages": [
@@ -160,8 +159,6 @@ export default {
       "path": "pages/TUIKit/TUIPages/TUIConversation/index",
       "style": {
         "navigationBarTitleText": "云通信 IM",
-        "app-plus": {
-        }
       }
     },
     {
@@ -185,13 +182,6 @@ export default {
       }
     },
     {
-      "path": "pages/TUIKit/TUIPages/TUIMine/index",
-      "style": {
-        "navigationBarTitleText": "我的",
-        "app-plus": {}
-      }
-    },
-    {
       "path": "pages/TUIKit/TUIPages/TUIChat/components/message-elements/video-play",
       "style": {
         "navigationBarTitleText": "云通信 IM",
@@ -209,9 +199,6 @@ export default {
     },
     {
       "path": "pages/TUIKit/TUIPages/TUIGroup/memberOperate",
-      "style": {
-        "app-plus": {}
-      }
     }
   ],
   "globalStyle": {
@@ -223,20 +210,225 @@ export default {
 }
 ```
 
-### 步骤5： 获取 SDKAppID 、密钥与 userID
+
+:::
+</dx-tabs>
+
+#### 方案二： 分包集成 
+
+在 App.vue 页面引用 TUIKit 组件，为此您需要修改  App.vue 和 pages.json文件。
+<dx-tabs>
+:::  npm 下载
+为了方便您后续的拓展，建议您将 TUIKit 组件复制到自己工程的根目录下，在自己的项目目录下执行以下命令：
+```shell
+# macOS
+npm i @tencentcloud/chat-uikit-uniapp
+```
+```shell
+mkdir -p ./TUIKit && cp -r ./node_modules/@tencentcloud/chat-uikit-uniapp/ ./TUIKit && mv ./TUIKit/debug ./debug
+
+```
+```shell
+# windows
+npm i @tencentcloud/chat-uikit-uniapp
+```
+```shell
+xcopy .\node_modules\@tencentcloud\chat-uikit-uniapp .\TUIKit /i /e 
+```
+```shell
+move .\TUIKit\debug .\debug
+```
+成功后目录结构如图所示：  
+<img width="300" src="https://qcloudimg.tencent-cloud.cn/raw/096a95e6d06aa6e4b04c32398c750480.png"/>
+
+:::  
+:::  App.vue 文件
+在 App.vue 文件引用 TUIKit 组件
+```javascript
+<script>
+<script>
+import { genTestUserSig, aegisID } from "./debug/index.js";
+import { TIM, TIMUploadPlugin, Aegis } from "./debug/tim.js";
+const aegis = new Aegis({
+  id: aegisID, // 项目key
+  reportApiSpeed: true, // 接口测速
+});
+uni.$aegis = aegis;
+
+const config = {
+  userID: "", //User ID
+  SDKAppID: 0, // Your SDKAppID
+  secretKey: "", // Your secretKey
+};
+uni.$chat_SDKAppID = config.SDKAppID;
+const userSig = genTestUserSig(config).userSig;
+// 创建 sdk 实例
+uni.$TUIKit = TIM.create({
+  SDKAppID: uni.$chat_SDKAppID,
+});
+uni.$TIM = TIM;
+// 注册文件上传插件
+// #ifdef MP-WEIXIN || H5
+uni.$TUIKit.registerPlugin({
+  "tim-upload-plugin": TIMUploadPlugin,
+});
+// #endif
+// #ifdef APP-PLUS
+uni.$TUIKit.registerPlugin({
+  "cos-wx-sdk": TIMUploadPlugin,
+});
+// #endif
+export default {
+  onLaunch: function () {
+    this.bindTIMEvent();
+    this.login();
+  },
+  methods: {
+    login() {
+      // login TUIKit
+      uni.$TUIKit.login({ userID: config.userID, userSig }).then((res) => {
+        // sdk 初始化，当 sdk 处于ready 状态，才可以使用API，文档
+        uni.showLoading({
+          title: "初始化...",
+        });
+      });
+    },
+    bindTIMEvent() {
+      uni.$TUIKit.on(uni.$TIM.EVENT.SDK_READY, this.handleSDKReady);
+      uni.$TUIKit.on(uni.$TIM.EVENT.SDK_NOT_READY, this.handleSDKNotReady);
+      uni.$TUIKit.on(uni.$TIM.EVENT.KICKED_OUT, this.handleKickedOut);
+    },
+    // sdk ready 以后可调用 API
+    handleSDKReady(event) {
+      uni.setStorageSync("$chat_SDKReady", true);
+			uni.hideLoading();
+      uni.navigateTo({
+        url: "/TUIKit/TUIPages/TUIConversation/index",
+      });
+    },
+    handleSDKNotReady(event) {
+      uni.showToast({
+        title: "SDK 未完成初始化",
+      });
+    },
+
+    handleKickedOut(event) {
+      uni.clearStorageSync();
+      uni.showToast({
+        title: `${this.kickedOutReason(event.data.type)}被踢出，请重新登录。`,
+        icon: "none",
+      });
+    },
+
+    kickedOutReason(type) {
+      switch (type) {
+        case uni.$TIM.TYPES.KICKED_OUT_MULT_ACCOUNT:
+          return "由于多实例登录";
+        case uni.$TIM.TYPES.KICKED_OUT_MULT_DEVICE:
+          return "由于多设备登录";
+        case uni.$TIM.TYPES.KICKED_OUT_USERSIG_EXPIRED:
+          return "由于 userSig 过期";
+        case uni.$TIM.TIM.TYPES.KICKED_OUT_REST_API:
+          return "由于 REST API kick 接口踢出";
+        default:
+          return "";
+      }
+    },
+  },
+};
+</script>
+
+<style>
+/*每个页面公共css */
+</style>
+```
+::: 
+:::   pages.json 文件
+在 pages.json 文件中的更新 pages 路由：
+```javascript
+{
+  "pages": [
+    {
+      "path": "pages/index/index" // 自己项目首页
+    }
+  ],
+  "subPackages": [
+    {
+      "root": "TUIKit",
+      "pages": [
+        {
+          "path": "TUIPages/TUIConversation/index",
+          "style": {
+            "navigationBarTitleText": "云通信 IM",
+          }
+        },
+        {
+          "path": "TUIPages/TUIConversation/create",
+          "style": {
+            "navigationBarTitleText": "选择联系人",
+            "app-plus": {
+              "scrollIndicator": "none"
+            }
+          }
+        },
+        {
+          "path": "TUIPages/TUIChat/index",
+          "style": {
+            "navigationBarTitleText": "云通信 IM",
+            "app-plus": {
+              "scrollIndicator": "none", //当前页面不显示滚动条
+              "softinputNavBar": "none", // App平台在iOS上，webview中的软键盘弹出时，默认在软键盘上方有一个横条，显示着：上一项、下一项和完成等按钮
+              "bounce": "none", // 页面回弹
+            }
+          }
+        },
+        {
+          "path": "TUIPages/TUIChat/components/message-elements/video-play",
+          "style": {
+            "navigationBarTitleText": "云通信 IM",
+            "app-plus": {}
+          }
+        },
+        {
+          "path": "TUIPages/TUIGroup/index",
+          "style": {
+            "navigationBarTitleText": "群管理",
+            "app-plus": {
+              "scrollIndicator": "none"
+            }
+          }
+        },
+        {
+          "path": "TUIPages/TUIGroup/memberOperate",
+        }
+      ]
+    }
+  ],
+	"globalStyle": {
+	    "navigationBarTextStyle": "black",
+	    "navigationBarTitleText": "uni-app",
+	    "navigationBarBackgroundColor": "#F8F8F8",
+	    "backgroundColor": "#F8F8F8"
+	  }
+	}
+```
+:::
+</dx-tabs>
+
+#### 步骤 4： 获取 SDKAppID 、密钥与 userID
 
 设置 App.vue 文件示例代码中的相关参数 SDKAppID、secretKey 以及 userID ，其中 SDKAppID 和密钥等信息，可通过 [即时通信 IM 控制台](https://console.cloud.tencent.com/im) 获取，单击目标应用卡片，进入应用的基础配置页面。例如：
 ![image](https://user-images.githubusercontent.com/57951148/192587785-6577cc5e-acf9-423c-86d0-52c67234ab1f.png)
 userID 信息，可通过 [即时通信 IM 控制台](https://console.cloud.tencent.com/im) 进行创建和获取，单击目标应用卡片，进入应用的账号管理页面，即可创建账号并获取 userID。例如：  
 ![create user](https://user-images.githubusercontent.com/57951148/192585588-c5300d12-6bb5-45a4-831b-f7d733573840.png)
 
-### 步骤6：运行效果
+#### 步骤 5：运行效果
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/06ccb31cb4dd0ae0d93a15794f63bb81.png)
 
 ## 更多高级特性
 
-#### 音视频通话 TUICallKit 插件
+### 音视频通话 TUICallKit 插件
 TUICallKit 主要负责语音、视频通话。
 单聊通话示意图：
 <table style="text-align:center;vertical-align:middle;width:1000px">
@@ -262,14 +454,13 @@ TUICallKit 主要负责语音、视频通话。
 	 </tr>
 </table>
 
+- 打包到 APP 请参考官网文档 [TUICallKit 集成方案](https://cloud.tencent.com/document/product/647/78732)
+- 打包到小程序请参考官网文档 [TUICallKit 集成方案](https://cloud.tencent.com/document/product/647/78912)
 
-集成请参考官网文档 [TUICallKit 集成方案](https://cloud.tencent.com/document/product/647/78742)
-
-#### TUIOfflinePush 离线推送插件
+### TUIOfflinePush 离线推送插件
 TUIOfflinePush 是腾讯云即时通信 IM Push 插件。目前离线推送支持 Android 和 iOS 平台，设备有：华为、小米、OPPO、vivo、魅族 和 苹果手机。
 效果如下图所示：
 <img src="https://qcloudimg.tencent-cloud.cn/raw/02e095b0f832c73caf5382495d7fc8d9.png" style="zoom:50%;"/>
-
 在 APP 中集成离线推送能力，请参考官网文档 [uni-app 离线推送](https://cloud.tencent.com/document/product/269/79124)
 
 
@@ -330,6 +521,11 @@ UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并
 | `https://cos.ap-shanghai.tencentcos.cn` | 文件上传域名 | 必须  |
 | `https://cos.ap-guangzhou.myqcloud.com` | 文件上传域名 | 必须  |
 
+
+## 参考文档
+
+- [快速入门（Web & H5)](https://cloud.tencent.com/document/product/269/68433)
+- [快速入门（小程序)](https://cloud.tencent.com/document/product/269/68376)
 
 ## 技术咨询
 

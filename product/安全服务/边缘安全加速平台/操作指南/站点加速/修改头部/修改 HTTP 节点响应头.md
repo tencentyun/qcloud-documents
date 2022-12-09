@@ -82,24 +82,17 @@ Error
 </tr>
 <tr>
 <td><code>http://cloud.tencent.com</code>, <code>https://cloud.tencent.com</code>,<code>http://www.b.com</code></td>
-<td>固定匹配：<ul><li>来源 <code>https://cloud.tencent.com</code>，命中列表，则响应添加头部： <code>Access-Control-Allow-Origin: https://cloud.tencent.com</code>。</li><li>来源为 <code>https://www.qq.com</code>，未命中列表，响应无变化。</li></td>
+<td>固定匹配：<ul><li>来源 <code>https://cloud.tencent.com</code>，命中列表，则响应添加头部： <code>Access-Control-Allow-Origin: https://cloud.tencent.com</code>。</li><li>来源为 <code>https://www.qq.com</code>，未命中列表，则不会响应跨域头部。</li></td>
 </tr>
 <tr>
 <td><code>https://*.tencent.com</code></td>
-<td>二级泛域名匹配：<ul><li>来源 <code>https://cloud.tencent.com</code>，命中列表，则响应添加头部： <code>Access-Control-Allow-Origin: https://cloud.tencent.com</code>。</li><li>来源为 <code>https://cloud.qq.com</code>，未命中列表，响应无变化。</li></td>
+<td>二级泛域名匹配：<ul><li>来源 <code>https://cloud.tencent.com</code>，命中列表，则响应添加头部： <code>Access-Control-Allow-Origin: https://cloud.tencent.com</code>。</li><li>来源为 <code>https://cloud.qq.com</code>，未命中列表，则不会响应跨域头部。</li></td>
 </tr>
 <tr>
 <td><code>https://cloud.tencent.com:8080</code></td>
-<td>端口匹配：<ul><li>来源为 <code>https://cloud.tencent.com:8080</code>，命中列表，则响应添加头部： <code>Access-Control-Allow-Origin:https://cloud.tencent.com:8080</code>。</li><li>来源为 <code>https://cloud.tencent.com</code>，未命中列表，响应无变化。</li>注意：若存在特殊端口，则需要在列表中填写相关信息，不支持任意端口匹配，必须指定。</td>
+<td>端口匹配：<ul><li>来源为 <code>https://cloud.tencent.com:8080</code>，命中列表，则响应添加头部： <code>Access-Control-Allow-Origin:https://cloud.tencent.com:8080</code>。</li><li>来源为 <code>https://cloud.tencent.com</code>，未命中列表，则不会响应跨域头部。</li>注意：不支持任意端口匹配，若存在特殊端口，则必须在头部值中指定该端口。</td>
 </tr>
 </tbody></table>
-
-### Access-Control-Expose-Headers
-用于指定哪些头部可以作为响应的一部分暴露给客户端。
->?默认情况下，只有6种头部可以暴露给客户端：Cache-Control、Content-Language、Content-Type、Expires、Last-Modified、Pragma。
->
-- 头部名称：Access-Control-Expose-Headers。
-- 头部值：输入希望暴露给客户端的头部名称（除默认的6个头部外），多个值用“;”分隔，例如：`Content-Length`,`X-My-Header`。
 
 ### Content-Disposition
 用来激活浏览器的下载，同时可以设置默认的下载的文件名。

@@ -37,7 +37,7 @@ TKE 容器 Devops 功能提供了强大的云原生 Devops 服务，本文将介
 
 
 ### 访问容器 DevOps 
-登录容器服务控制台 ，选择左侧导航栏中的 **[DevOps](https://console.cloud.tencent.com/coding/container-devops)**，单击**立即使用**。如下图所示：
+登录容器服务控制台，选择左侧导航栏中的 **[DevOps](https://console.cloud.tencent.com/coding/container-devops)**，单击**立即使用**。如下图所示：
 ![](https://main.qcloudimg.com/raw/2ace8e2476fea433581b712463b73a22.png)
 
 

@@ -5,7 +5,7 @@
 Cache Key 是节点缓存资源的唯一标识。节点响应请求资源时，默认按照完整的请求 URL 作为 Cache Key（缓存标识）去匹配缓存资源，例如：请求 `https://www.example.com/images/example.jpg?key1=value1` 与 `https://www.example.com/images/example.jpg?key2=value2` 对应两个不同的节点 Cache Key ，因为其查询字符串不同。
 
 ## 适用场景
-客户端访问请求的资源与其 URL 查询字符串，字符大小写，HTTP 表头或请求协议有关系，需按业务需要自定义灵活配置资源在节点的缓存标识，以使客户端能获取到适配的节点缓存。
+客户端请求的资源与 URL 查询字符串，URL 字符大小写，HTTP 头部或请求协议有关，需要自定义配置资源在节点的缓存标识，实现客户端根据不同的请求行为适配到相应的节点缓存。
 
 ## 操作步骤
 1. 登录 [边缘安全加速平台控制台](https://console.cloud.tencent.com/edgeone)，在左侧菜单栏中，单击**规则引擎**。
@@ -28,7 +28,14 @@ Cache Key 是节点缓存资源的唯一标识。节点响应请求资源时，�
 </tr>
 <tr>
 <td align="left">HTTP 请求头</td>
-<td align="left">资源会根据某些客户端 HTTP 请求头而异，指定 HTTP 请求头拼接在 URL 后方生成 Cache Key 。只需输入 HTTP 请求头名称，例如：Accept-Language，Cache Key 里会自动包含头部对应的值。<br><br>若需要根据客户端信息，如不同设备或浏览器类型缓存，也可选择 EdgeOne 预设头部：<br> 根据客户端 User-Agent 和 IP 信息聚合的客户端信息头部<br>客户端设备类型：EO-Client-Device: Mobile/Desktop/SmartTV/Tablet/Others<br>客户端操作系统：EO-Client-OS: Android/iOS/Windows/MacOS/Linux/Others<br>客户端浏览器类型：EO-Client-Browser: Chrome/Safari/Firefox/IE/Others <br> 客户端 IP 所在地理位置：EO-Client-IPCountry: 两位字母国家/地区代码（ISO 3166-1 alpha-2 codes）</td>
+<td align="left">
+资源会根据某些客户端 HTTP 请求头而异，指定 HTTP 请求头拼接在 URL 后方生成 Cache Key 。只需输入 HTTP 请求头名称。
+<ul><li>自定义头部：例如 `X-Client-Header`。</li>
+<li>预设头部：支持根据客户端 `User-Agent` 和 IP 信息聚合的客户端信息头部，满足根据不同设备或浏览器类型缓存的需求。</li><ul>
+<li>客户端设备类型：`EO-Client-Device`。<br>取值：`Mobile`，`Desktop`，`SmartTV`，`Tablet` 或 `Others`。</li>
+<li>客户端操作系统：`EO-Client-OS`。<br>取值：Android，`iOS`，`Windows`，`MacOS`，`Linux` 或 `Others`。</li>
+<li>客户端浏览器类型：`EO-Client-Browser`。<br>取值：`Chrome`，`Safari`，`Firefox`，`IE` 或 `Others`。</li>
+<li>客户端 IP 所在地理位置：`EO-Client-IPCountry`。<br>取值：两位字母国家/地区代码（ISO 3166-1 alpha-2 codes）。</li></td>
 </tr>
 <tr>
 <td align="left">Cookie</td>

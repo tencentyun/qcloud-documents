@@ -4,7 +4,7 @@
 数据源 Kafka 集群和目的端云数据仓库 ClickHouse 集群必须在同一个 VPC 下。
 
 ## 操作步骤
-1. [登录](https://cloud.tencent.com/document/product/1299/49824) 云数据仓库 ClickHouse 集群，创建 Kafka 消费表。
+1. [登录](https://cloud.tencent.com/document/product/1299/49824) 云数据仓库 ClickHouse 集群，创建 Kafka 消费表。 
 ```
 	CREATE TABLE queue (
 			timestamp UInt64,

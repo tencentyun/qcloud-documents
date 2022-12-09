@@ -27,3 +27,5 @@
 ![](https://main.qcloudimg.com/raw/37e9fae5f1afdc2b51ede5ec9d10c491.png)
 4. 在弹窗中，修改该弹性公网 IPv6 的带宽上限，单击**调整**。
 ![](https://main.qcloudimg.com/raw/2edd77e622c0253a3884522a4c073f5c.png)
+
+
