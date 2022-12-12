@@ -12,7 +12,7 @@ const cache = caches.default;
 await caches.open('default');
 ```
 
-- 使用 `caches.open` 创建指定 namespace 的 cache 实例
+- 使用 `caches.open` 创建指定 namespace 的 cache 实例。
 ```typescript
 // 创建指定 namespace 的 cache 实例
 const cache = await caches.open(namespace); 
@@ -65,7 +65,7 @@ cache.match(request: string | Request, options?: MatchOptions): Promise<Response
   <tbody>
     <tr>
       <td>request</td>
-      <td>string | <a href="/document/product/1552/81902">Request</a></td>
+      <td>string | <a href="https://cloud.tencent.com/document/product/1552/81902">Request</a></td>
       <td>是</td>
       <td>
         请求对象。<br>
@@ -137,7 +137,7 @@ cache.put(request: string | Request, response: Response): Promise<undefined>
 	<tbody>
 		<tr>
 			<td>request</td>
-			<td>string | <a href="#[文档链接-Request]">Request</a></td>
+			<td>string | <a href="https://cloud.tencent.com/document/product/1552/81902">Request</a></td>
 			<td>是</td>
 			<td>
 				请求对象，缓存 key。
@@ -150,14 +150,14 @@ cache.put(request: string | Request, response: Response): Promise<undefined>
         <li>
           <font color="#9ba6b7">string</font><br/>
           <div style="padding-left: 20px;padding-bottom: 6px">
-            当参数 <code>request</code> 类型为 string 时，将被作为 URL 构造 <a href="/document/product/1552/81902">Request</a> 对象。
+            当参数 <code>request</code> 类型为 string 时，将被作为 URL 构造 <a href="https://cloud.tencent.com/document/product/1552/81902">Request</a> 对象。
           </div>
         </li>
 			</td>
 		</tr>
 		<tr>
 			<td>rsponse</td>
-			<td><a href="#[文档链接-Response]">Response</a></td>
+			<td><a href="https://cloud.tencent.com/document/product/1552/81917">Response</a></td>
 			<td>是</td>
 			<td>
         响应对象，缓存内容。<br>
@@ -222,7 +222,7 @@ cache.delete(request: string | Request, options?: DeleteOptions): Promise<boolea
   <tbody>
     <tr>
       <td>request</td>
-      <td>string | <a href="/document/product/1552/81902">Request</a></td>
+      <td>string | <a href="https://cloud.tencent.com/document/product/1552/81902">Request</a></td>
       <td>是</td>
       <td>
         请求对象，缓存 key。
@@ -272,6 +272,3 @@ cache.delete(request: string | Request, options?: DeleteOptions): Promise<boolea
 
 ## 参考
 - [MDN 官方文档：Cache](https://developer.mozilla.org/en-US/docs/Web/API/Cache)
-- [​How the Cache works](#文档链接)
-- [Example: using the Cache API](#文档链接)
-- [Example: caching POST requests](#文档链接)
