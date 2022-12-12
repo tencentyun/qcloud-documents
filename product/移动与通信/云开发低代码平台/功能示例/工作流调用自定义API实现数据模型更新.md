@@ -62,16 +62,14 @@ module.exports = async function (params, context) {
 <img style="width:978px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/6b15262ab0fc664743811e0bb9641b73.png" />
 
 ### 增加变量赋值事件
-在 **dataSource** 成功事件中添加**变量赋值**动作，变量名选择上面创建的**变量 id**。
-<img style="width:978px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/60c72ec00b3e192de9a385e16f492198.png" />
-**变量值**使用表达式 `event.detail._id`，其中 `event.detail._id` 表达式可以获取表单提交保存后的返回值，即提交数据在**合同**数据模型中的数据标识 id。
-<img style="width:978px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/e6f10376e1a54c0982874feec26e1b90.png" />
+选择**调用数据源**事件，将出参的新记录 ID（即数据标识 id）保存至上面创建的**变量 id**。
+<img style="width:978px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/6a9d328398db4b93390815dff95c3214.png" />
 
 ### 增加触发流程事件
-在**变量赋值**成功事件中添加**触发流程**动作，流程选择上面创建的**合同流程**。
-<img style="width:978px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/17920356eb434d760fb9b65820af14a0.png" />
+在**变量赋值**成功事件（即 `_setStateVal `成功）中添加**触发流程**动作，流程选择上面创建的**合同流程**。
+<img style="width:978px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/d2a02bbb203a62d5431592f98d2e9916.png" />
 **参数 id** 使用上面创建的变量 **id**，作为流程开发的传入变量参数。
-<img style="width:978px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/fad43ccd720f229cdb480e8fa1c23a87.png" />
+<img style="width:978px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/9b75d3886d222c620eae9c04d61fc8ca.png" />
 以上设置完成后，可以发布应用测试结果。
 
 ## 结果验证
@@ -83,6 +81,3 @@ module.exports = async function (params, context) {
 <img style="width:978px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/c2e498d479c944628d4d07c3ee2b81d0.png" />
 审批同意后，在数据详情页面会看到**审批状态**、**审批日期**出现预期值。
 <img style="width:978px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/53ed2d685bf5bf4bdf5004141ce378fc.png" />
-
-
-
