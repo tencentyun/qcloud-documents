@@ -57,7 +57,7 @@ var (
 )
 func init() {
    flag.BoolVar(&grpc, "grpc", false, "use grpc reporter")
-   //9.223.77.222:11800 需替换为 TAW 的私网接入点
+   //9.223.77.222:11800 需替换为 APM 的私网接入点
    flag.StringVar(&oapServer, "oap-server", "9.223.77.222:11800", "oap server address")
    flag.StringVar(&listenAddr, "listen-addr", "0.0.0.0:8809", "listen address")
    flag.StringVar(&serviceName, "service-name", "go2sky-server", "service name")
