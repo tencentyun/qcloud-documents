@@ -188,15 +188,15 @@ Container 节点 NewHttpHeaders、FollowHttpHeaders、ForbidFollowHeaders 的内
 
 | 节点名称（关键字） | 父节点                         | 描述                                             | 类型      |
 | :----------------- | :----------------------------- | :----------------------------------------------- | :-------- |
-| Header         | OriginConfiguration.OriginRule.OriginParameter.HttpHeader.NewHttpHeaders | 回源到源站时添加或者指定传递的自定义头部，默认为空。                        | Container | 
+| Header         | OriginConfiguration.OriginRule.OriginParameter.<br/>HttpHeader.NewHttpHeaders | 回源到源站时添加或者指定传递的自定义头部，默认为空。                        | Container | 
 
 Container 节点 Header 的内容：
 
 
 | 节点名称（关键字） | 父节点                         | 描述                                             | 类型      |
 | :----------------- | :----------------------------- | :----------------------------------------------- | :-------- | 
-| Key         | OriginConfiguration.OriginRule.OriginParameter.HttpHeader.NewHttpHeader.UserMetaData | 用户设置的头部名称，默认为空。形式如 `x-A-B`，A 支持填入 `cos` 或`oss`或`amz`，B 支持填入 `ContentType` 或 `CacheControl` 或 `ContentDisposition` 或 `ContentEncoding` 或 `HttpExpiresDate` 或 `UserMetaData`                        | String | 
-| Value         | OriginConfiguration.OriginRule.OriginParameter.HttpHeader.NewHttpHeader.UserMetaData | 用户设置的头部值，默认为空。                        | String |
+| Key         | OriginConfiguration.OriginRule.OriginParameter.<br/>HttpHeader.NewHttpHeader.UserMetaData | 用户设置的头部名称，默认为空。形式如 `x-A-B`，A 支持填入 `cos` 或 `oss` 或 `amz`，B 支持填入 `ContentType` 或 `CacheControl` 或 `ContentDisposition` 或 `ContentEncoding` 或 `HttpExpiresDate` 或 `UserMetaData`                        | String | 
+| Value         | OriginConfiguration.OriginRule.OriginParameter.<br/>HttpHeader.NewHttpHeader.UserMetaData | 用户设置的头部值，默认为空。                        | String |
 
 Container 节点 OriginInfo 的内容：
 
@@ -211,7 +211,7 @@ Container 节点 HostInfo 的内容：
 | :----------------- | :----------------------------- | :----------------------------------------------- | :-------- | 
 | HostName         | OriginConfiguration.OriginRule.<br/>OriginInfo.HostInfo | 源站域名或者源站 IP。                        | String | 
 |Weight         | OriginConfiguration.OriginRule.OriginInfo.HostInfo | 源站权重，Mirror 模式下配置了多个源站时，会根据权重按比例回源。                       |Integer | 
-| StandbyHostName_N         | OriginConfiguration.OriginRule.OriginInfo.HostInfo | 备份回源地址，最多支持填入10条备份回源地址，节点命名依次按照1-10编号，例如`StandbyHostName_1`、`StandbyHostName_2`......`StandbyHostName_10`                        | String |
+| StandbyHostName_N         | OriginConfiguration.OriginRule.OriginInfo.HostInfo | 备份回源地址，最多支持填入10条备份回源地址，节点命名依次按照1-10编号，例如 `StandbyHostName_1`、`StandbyHostName_2`......`StandbyHostName_10`                        | String |
 
 Container 节点 FileInfo 的内容：
 
@@ -226,20 +226,20 @@ Container 节点 FixedFileConfiguration 的内容：
 
 | 节点名称（关键字） | 父节点                         | 描述                                             | 类型      | 
 | :----------------- | :----------------------------- | :----------------------------------------------- | :-------- | 
-| FixedFilePath         | OriginConfiguration.OriginRule.OriginInfo.FileInfo.FixedFileConfiguration | 回源的固定文件路径。                        |  String | 
+| FixedFilePath         | OriginConfiguration.OriginRule.OriginInfo.<br/>FileInfo.FixedFileConfiguration | 回源的固定文件路径。                        |  String | 
 
 
 Container 节点 PrefixConfiguration 的内容：
 
 | 节点名称（关键字） | 父节点                         | 描述                                             | 类型      | 
 | :----------------- | :----------------------------- | :----------------------------------------------- | :-------- | 
-| Prefix       | OriginConfiguration.OriginRule.OriginInfo.FileInfo. PrefixConfiguration | 回源文件的新增文件前缀，默认为空。                        |  String |
+| Prefix       | OriginConfiguration.OriginRule.OriginInfo.<br/>FileInfo. PrefixConfiguration | 回源文件的新增文件前缀，默认为空。                        |  String |
 
 Container 节点 SuffixConfiguration 的内容：
 
 | 节点名称（关键字） | 父节点                         | 描述                                             | 类型      | 
 | :----------------- | :----------------------------- | :----------------------------------------------- | :-------- |
-| Suffix         | OriginConfiguration.OriginRule.OriginInfo.FileInfo. SuffixConfiguration | 回源文件的新增文件后缀，默认为空。                        |  String | 
+| Suffix         | OriginConfiguration.OriginRule.OriginInfo.<br/>FileInfo. SuffixConfiguration | 回源文件的新增文件后缀，默认为空。                        |  String | 
 
 ## 实际案例
 
@@ -297,3 +297,4 @@ x-cos-request-id: NWNjNTk2NTFfMmM4OGY3MGFfNTI1****
     </OriginRule>
 </OriginConfiguration>
 ```
+

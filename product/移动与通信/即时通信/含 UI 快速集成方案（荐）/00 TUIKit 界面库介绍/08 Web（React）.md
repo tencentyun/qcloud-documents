@@ -8,7 +8,7 @@ TUIKit 中的组件在实现 UI 功能的同时，会调用 IM SDK 相应的接�
 基于 React 开发的 TUIKit 界面风格更契合境外客户的使用习惯，而且支持国际化，如果您的业务有出海的需求，欢迎接入。
 
 ## TUIKit 组成
-TUIKit 主要分为 TUIChat、TUIConversation、TUIProfile、TUIManage 等模块，每个模块负责不同的内容，具体可参见 [开源代码](!https://github.com/TencentCloud/chat-uikit-react)。TUIKit Web 端界面效果如下图所示：
+TUIKit 主要分为 TUIChat、TUIConversation、TUIProfile、TUIManage 等模块，每个模块负责不同的内容，具体可参见 [开源代码](https://github.com/TencentCloud/chat-uikit-react)。TUIKit Web 端界面效果如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/14ed827eecc218306abc82d46c57252d.png)
 
 
