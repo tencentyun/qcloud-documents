@@ -41,7 +41,7 @@ func Init(ctx context.Context) *sdktrace.TracerProvider {
 	if err != nil {
 		log.Fatal(err)
 	}
-	//Resource 设置上报 Token，也可以直接配置环境变量来设置 token: OTEL_RESOURCE_ATTRIBUTES=token=xxxxxxxxx 如 config.yaml 里已配置，此处可忽略
+	//在 Resource 下设置上报 Token，也可以直接配置环境变量来设置 token: OTEL_RESOURCE_ATTRIBUTES=token=xxxxxxxxx 如 config.yaml 里已配置，此处可忽略
 	r,err := resource.New(ctx,[]resource.Option{
 		resource.WithAttributes(attribute.KeyValue{Key: "token",Value: attribute.StringValue("{上报token}"),}),
 	}...)
