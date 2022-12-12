@@ -211,7 +211,7 @@ Container 节点 HostInfo 的内容：
 | :----------------- | :----------------------------- | :----------------------------------------------- | :-------- | 
 | HostName         | OriginConfiguration.OriginRule.<br/>OriginInfo.HostInfo | 源站域名或者源站 IP。                        | String | 
 |Weight         | OriginConfiguration.OriginRule.OriginInfo.HostInfo | 源站权重，Mirror 模式下配置了多个源站时，会根据权重按比例回源。                       |Integer | 
-| StandbyHostName_N         | OriginConfiguration.OriginRule.OriginInfo.HostInfo | 备份回源地址，最多支持填入10条备份回源地址，节点命名依次按照1-10编号，例如`StandbyHostName_1`、`StandbyHostName_2`......`StandbyHostName_10`                        | String |
+| StandbyHostName_N         | OriginConfiguration.OriginRule.OriginInfo.HostInfo | 备份回源地址，最多支持填入10条备份回源地址，节点命名依次按照1-10编号，例如 `StandbyHostName_1`、`StandbyHostName_2`......`StandbyHostName_10`                        | String |
 
 Container 节点 FileInfo 的内容：
 
