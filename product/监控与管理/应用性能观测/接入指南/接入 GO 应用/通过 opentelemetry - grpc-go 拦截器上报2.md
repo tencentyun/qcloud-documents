@@ -107,7 +107,7 @@ func Init() *sdktrace.TracerProvider {
         }
     }()
 ```
-2. 建立链接，配置拦截器。
+2. 建立连接，配置拦截器。
 ```
     //向服务端建立连接，配置拦截器
     conn, err := grpc.DialContext(context.Background(), "localhost:7778", grpc.WithTransportCredentials(insecure.NewCredentials()), grpc.WithBlock())
