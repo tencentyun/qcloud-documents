@@ -70,7 +70,7 @@ sh update_cos_jar.sh  https://hadoop-jar-beijing-1259378398.cos.ap-beijing.myqcl
     -  emr.temrfs.tmp.cache.dir=/data/emr/hdfs/tmp/temrfs 
  - core-site.xml 中修改配置 fs.cosn.impl=com.qcloud.emr.fs.TemrfsHadoopFileSystemAdapter。
 
-4. 在 EMR 控制台配置 core-site.xml，新增配置项 `fs.cosn.bucket.region` ， `fs.cosn.trsf.fs.ofs.bucket.region` 该参数用于指定存储桶所在的 COS 地域，例如 `ap-shanghai`。
+4. 在 [EMR 控制台](https://console.cloud.tencent.com/emr) 配置 core-site.xml，新增配置项 `fs.cosn.bucket.region` ， `fs.cosn.trsf.fs.ofs.bucket.region` 该参数用于指定存储桶所在的 COS 地域，例如 `ap-shanghai`。
 >!`fs.cosn.bucket.region` 和 `fs.cosn.trsf.fs.ofs.bucket.region` 必须配置，该参数用于指定存储桶所在的 COS 地域，例如 `ap-shanghai`。
 >
 5. 重启 Yarn、Hive、Presto、Impala 等一些常驻服务。
