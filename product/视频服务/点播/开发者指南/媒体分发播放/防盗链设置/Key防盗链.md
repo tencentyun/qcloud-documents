@@ -2,6 +2,8 @@
 - 支持在视频 URL 中指定过期时间，他人获取后无法长期使用。
 - 支持在视频 URL 中指定最大允许播放 IP 数，他人获取后不能无限制地分发给更多人观看。
 - 支持在视频 URL 中指定试看时长，实现试看功能。
+- 支持在视频 URL 中指定地区访问限制，支持黑名单和白名单两种模式。
+- 支持在视频 URL 中指定 Referer 黑白名单。
 - 开发者使用密钥`KEY`对视频 URL 签名，并在 URL 中带上签名结果。只要用户密钥不泄露，其他用户无法伪造视频 URL。
 - CDN 节点检查视频 URL 中的参数和签名，对视频播放请求进行控制。如果请求检查不通过，则返回403响应码。
 - 支持的文件类型：MP4、TS、M3U8、FLV、AAC、MOV、WMV、AVI、MP3、RMVB、MKV、MPG、3GP、WEBM、M4V、ASF、F4V、WAV、MPEG、VOB、RM、WMA、DAT、M4A、MPD、M4S。
@@ -14,7 +16,7 @@
 
 防盗链 URL 的生成规则是在原始 URL 尾部，以 QueryString 的方式加入防盗链参数，形如：
 ```
-http://example.vod2.myqcloud.com/dir1/dir2/myVideo.mp4?t=[t]&exper=[exper]&rlimit=[rlimit]&us=[us]&sign=[sign]
+http://example.vod2.myqcloud.com/dir1/dir2/myVideo.mp4?t=[t]&exper=[exper]&rlimit=[rlimit]&us=[us]&whreg=[whreg]&bkreg=[bkreg]&whref=[whref]&bkref=[bkref]&sign=[sign]
 ```
 下面详细介绍防盗链 URL 中各个参数的含义和取值方法。
 
@@ -27,12 +29,16 @@ http://example.vod2.myqcloud.com/dir1/dir2/myVideo.mp4?t=[t]&exper=[exper]&rlimi
 | `exper`  | 否   | <li>试看时长，单位为秒，以十进制表示，不填或者填0表示不试看（即返回完整视频）<br><li>试看时长不要超过视频原始时长，否则可能导致播放失败 |
 | `rlimit` | 否   | <li>最多允许多少个不同 IP 的终端播放，以十进制表示，最大值为9，不填表示不做限制<br><li>当限制 URL 只能被1个人播放时，建议 rlimit 不要严格限制成1（例如可设置为3），因为移动端断网后重连 IP 可能改变 |
 | `us`     | 否   | <li>链接标识，用于随机化一个防盗链 URL，增强链接的唯一性<br><li>建议每次生成防盗链 URL 时，指定一个随机的 us 值|
+| `whreg`  | 否   | <li>允许访问的地区列表，支持1条 - 10条，用半角逗号分隔，取值为 [ISO 3166-1三位字母代码](https://www.iso.org/obp/ui/#search/code/) |
+| `bkreg`  | 否   | <li>禁止访问的地区列表，支持1条 - 10条，用半角逗号分隔，取值为 [ISO 3166-1三位字母代码](https://www.iso.org/obp/ui/#search/code/) |
+| `whref`  | 否   | <li>允许访问的域名列表，支持1条 - 10条，用半角逗号分隔。域名前不要带协议名（`http://`和`https://`），域名为前缀匹配（如填写`abc.com`，则`abc.com/123`和`abc.com.cn`也会匹配），且支持通配符`（*.abc.com）` |
+| `bkref`  | 否   | <li>禁止访问的域名列表，支持1条 - 10条，用半角逗号分隔。域名前不要带协议名（`http://`和`https://`），域名为前缀匹配（如填写`abc.com`，则`abc.com/123`和`abc.com.cn`也会匹配），且支持通配符`（*.abc.com）` |
 | `sign`   | 是   | <li>防盗链签名，以32个字符长的十六进制数表示，用于校验防盗链 URL 的合法性<br><li>签名校验失败将返回403响应码。下面将介绍 [签名计算公式](#formula) |
 
 
 #### [](id:formula)签名计算公式
 ```
-sign = md5(KEY + Dir + t + exper + rlimit + us )
+sign = md5(KEY + Dir + t + exper + rlimit + us + whref + bkref + whreg + bkreg)
 ```
 
 公式中的`+`代表字符串拼接，选填参数可以为空字符串。
