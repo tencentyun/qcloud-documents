@@ -1,6 +1,6 @@
 **Cookies** 提供了一组 cookie 操作接口。
 
->! `Cookies` 对象以 `name + domain + path` 为唯一 key, 管理 Cookie 对象集。
+>! Cookies 对象以 `name + domain + path` 为唯一 key, 管理 Cookie 对象集。
 
 ## 构造函数
 ```typescript

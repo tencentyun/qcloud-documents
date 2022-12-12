@@ -432,7 +432,7 @@ request.setCookies(cookies: Cookies): boolean;
 <table>
 	<thead>
 		<tr>
-			<th width="10%">属性名</th>
+			<th width="10%">参数名称</th>
 			<th width="15%">类型</th>
 			<th width="10%">必填</th>
 			<th width="65%">说明</th>
