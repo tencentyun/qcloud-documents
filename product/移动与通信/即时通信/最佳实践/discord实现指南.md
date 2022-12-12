@@ -12,7 +12,7 @@ Discord 是一款专为社群设计的免费网络实时通话软件与数字发
 
 ### 频道
 
-在服务器中可以建立名为频道的聊天管道，分为语音、文字(公告、版规[7])，其中的语音频道可以用来直播游戏与聊天等，频道可以设定与身份组整合各种权限，让 Discord 社群系统更加多样化
+在服务器中可以建立名为频道的聊天管道，分为语音、文字，其中的语音频道可以用来直播游戏与聊天等，频道可以设定与身份组整合各种权限，让 Discord 社群系统更加多样化
 
 ### 子区
 
@@ -148,7 +148,7 @@ V2TIMManager.getGroupManager().getJoinedCommunityList(new V2TIMValueCallback<Lis
 上一小节提到在获取已加入的服务器列表 API 中，没有返回未读数以及服务器状态等信息。需要注意的是，我们不仅仅要获取到这个数据，还需要监听这个数据的变化从而及时的更新客户端 UI，由于服务器使用IM社群实现，且社群在 IM 中不会产生会话，因此需要统计所有公有的频道的会话以及私有的频道会话之和。通过 [V2TIMTopicInfo](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMTopicInfo.html) 的 [getUnreadCount](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMTopicInfo.html#ac2e3266d20b348145d75079020ac50c7) 获取公有频道的未读数，由于私有频道由 work 群实现所以可通过 [getConversation](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMConversationManager.html#a619aaff2bb5664e094d2341819b95096) 来获取私有频道的未读数。
 
 ```java
-// 私有频道
+// 公有频道
 List<String> conversationIDList = new LinkedList();
 conversationIDList.add("GROUP_$GROUPID");
 V2TIMManager.getConversationManager().getConversationList(conversationIDList, new V2TIMValueCallback<List<V2TIMConversation>>() {
