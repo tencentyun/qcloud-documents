@@ -22,28 +22,24 @@ https://<环境ID>.ap-shanghai.tcb-api.tencentcloudapi.com
 ### 操作步骤
 
 1. 前往 [腾讯云控制台](https://console.cloud.tencent.com/cam/capi) 申请 SecretId + SecretKey。
-2. 使用 OAuth 2.0 鉴权方式换取 Access Token；
+2. 使用 OAuth 2.0 鉴权方式换取 Access Token。
 3. 使用 Access Token 请求开放接口并在 Request Header 中加入 `Authorization: Bearer <Access Token>`。
 
 ### 请求说明
-
 - API 的所有接口均通过 HTTPS 进行通信，均使用 UTF-8 编码。
 - 支持的 HTTP 请求方法：POST、GET、PATCH、DELETE。
-- Content-Type 类型： application/json;utf-8。
+- Content-Type 类型：`application/json;utf-8`。
 
 ### 参数说明
-
 接口包含三种参数类型：
-
-- **uri**：位于请求路由，形如 `GET /weda/odata/v1/pre/data_xxxx`。
-- **queryString**：位于 `?` 后，形如 `GET /weda/odata/v1/pre/data_xxxx?$filter=name eq '张三'`。
-- **body**：位于 POST 请求体，以标准 `json` 传入，形如 `POST /weda/odata/v1/pre/data_xxxx { "name": "张三" }`。
+- **uri：**位于请求路由，形如 `GET /weda/odata/v1/pre/data_xxxx`。
+- **queryString：**位于 `?` 后，形如 `GET /weda/odata/v1/pre/data_xxxx?$filter=name eq '张三'`。
+- **body：**位于 POST 请求体，以标准 `json` 传入，形如 `POST /weda/odata/v1/pre/data_xxxx { "name": "张三" }`。
 
 ### 代码示例
-
 <dx-tabs>
-::: NodeJS
-``` js
+:::NodeJS
+```js
 const Koa = require('koa');
 const fetch = require('node-fetch');
 const app = new Koa();
@@ -247,7 +243,7 @@ public class OpenApiClient {
 
 ## 快速体验：使用 Postman 调用开放接口
 1. 打开 Postman 工具，添加一个 GET 请求。进入 **Authorization** 页面完成相应配置。
-![](https://qcloudimg.tencent-cloud.cn/raw/3d826dc2e851bbdb91bdc114ccc03b07.png)
+<img style="width:978px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/3d826dc2e851bbdb91bdc114ccc03b07.png" />
 2. 进入 **headers** 页面，设置相应参数即可。
-![](https://qcloudimg.tencent-cloud.cn/raw/4936c09f61d694d4ba18875705e9199d.png)
+<img style="width:978px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/4936c09f61d694d4ba18875705e9199d.png" />
 
