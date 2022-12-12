@@ -505,8 +505,7 @@ V2TIMManager.getGroupManager().getGroupMemberList(groupID, filter, nextSeq , new
 #### 消息反馈
 
 消息反馈即为用户对消息进行扩展，如图所示：
-
-![image-20221206101925701](https://markdown-1252238885.cos.ap-guangzhou.myqcloud.com/2022-12-06-021926.png)
+<img src="https://markdown-1252238885.cos.ap-guangzhou.myqcloud.com/2022-12-06-021926.png" style="width:50%"> 
 
 因为所有有的消息类型均可以进行编辑和反馈，并且需要支持社群，因此我们建议将数据保存在 cloudCustomData 字段上，详细的的数据存储格式可以参考：
 
@@ -549,10 +548,10 @@ V2TIMManager.getMessageManager().modifyMessage(modifiedMessage, new V2TIMComplet
 ```
 
 #### 消息标注
+<img src="https://markdown-1252238885.cos.ap-guangzhou.myqcloud.com/2022-12-06-025114.png" style="width:60%"> 
 
-![image-20221206105113858](https://markdown-1252238885.cos.ap-guangzhou.myqcloud.com/2022-12-06-025114.png)
+<img src="https://markdown-1252238885.cos.ap-guangzhou.myqcloud.com/2022-12-06-025141.png" style="width:60%"> 
 
-![image-20221206105141118](https://markdown-1252238885.cos.ap-guangzhou.myqcloud.com/2022-12-06-025141.png)
 
 消息标注即用户在群聊中将消息进行标注，其他用户可以看到被标注的消息。由于社群暂不支持群属性，因此这里使用自定义消息实现消息标注能力。
 
