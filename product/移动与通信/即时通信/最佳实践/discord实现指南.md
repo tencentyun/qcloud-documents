@@ -1,4 +1,3 @@
-
 ## Discord 介绍
 
 Discord 是一款专为社群设计的免费网络实时通话软件与数字发行平台，主要针对游戏玩家、教育人士、朋友及商业人士，用户之间可以在软体的聊天频道通过讯息、图片、影片和音讯进行交流。
@@ -33,7 +32,7 @@ Discord 是一款专为社群设计的免费网络实时通话软件与数字发
 
 使用腾讯云 IM 实现 Discord 相关的功能，您需要提前了解腾讯云 IM 相关的基础概念以及本教程后续会提到的一些专有名词，包括但不限于如下内容：
 
-- sdkappid：腾讯云 IM 会给每个应用分配一个 sdkappid，在控制台创建应用后再应用详情页查看，开发者可以在初始化腾讯云IM客户端 SDK 和计算用户登录票据时使用。详情可参考无 UISDK [初始化](https://cloud.tencent.com/document/product/269/75291) 以及 [登录](https://cloud.tencent.com/document/product/269/75294) 文档。
+- SDKAppID：腾讯云 IM 会给每个应用分配一个 SDKAppID，在控制台创建应用后再应用详情页查看，开发者可以在初始化腾讯云IM客户端 SDK 和计算用户登录票据时使用。详情可参考无 UISDK [初始化](https://cloud.tencent.com/document/product/269/75291) 以及 [登录](https://cloud.tencent.com/document/product/269/75294) 文档。
 - 密钥：在腾讯云 IM 控制台应用详情页可查看当前应用密钥，在计算用户登录 SDK 票据时会用到
 - 用户账号：登录腾讯云 IM 用户必须在腾讯云 IM 的账号体系中，当用户使用客户端 SDK [登录](https://cloud.tencent.com/document/product/269/75294)成功时，腾讯云 IM 后台会自动创建 IM 用户。同时，可以使用腾讯云 IM 提供的服务端 API 将用户[导入到 IM 的用户体系](https://cloud.tencent.com/document/product/269/1608)中。
 - 群组：到目前为止，IM根据不同场景的需要，提供了 [5种类型的群](https://cloud.tencent.com/document/product/269/1502)，用户在群里发言，群成员均可收到消息。
@@ -47,7 +46,7 @@ Discord 是一款专为社群设计的免费网络实时通话软件与数字发
 
 ### 集成客户端&服务端 SDK
 
-在实现 Discord 相关的功能时，需要集成 IMSDK，腾讯云 IM 提供了丰富且易用的 SDK 以及服务端 API，使用同一 sdkappid 登录的应用，在各个端上消息互通。开发者可根据自己的业务需求场景以及技术栈进行评估，选择合适的 SDK。
+在实现 Discord 相关的功能时，需要集成 IMSDK，腾讯云 IM 提供了丰富且易用的 SDK 以及服务端 API，使用同一 SDKAppID 登录的应用，在各个端上消息互通。开发者可根据自己的业务需求场景以及技术栈进行评估，选择合适的 SDK。
 
 ## Discord 功能分析
 
@@ -55,7 +54,7 @@ Discord 是一款专为社群设计的免费网络实时通话软件与数字发
 
 如上图所示，Discord 的功能主要分为服务器、频道、以及子区，服务器与服务器之间是内容上的区别，如王者荣耀服务器，和平精英服务器等，在服务器内可以创建不同类型的频道，如文字频道，语音频道、公示频道等。用户的交流实际是在各个频道中进行的。当用户对交流的某一个内容有更多的想法时，可以选择对该内容创建子区来进行更多的交流。Discord 的核心玩法就如分析的这样，接下来本教程会逐一分析如何通过腾讯云 IM 来实现相关的功能。
 
->?**如涉及到代码演示，本教程以安卓端（Java SDK）为例进行展示，其他版本的SDK接口调用可参考文档 [无 UI 集成方案](https://cloud.tencent.com/document/product/269/75283) 部分。**
+>?**如涉及到代码演示，本教程以 Android 端（Java SDK）为例进行展示，其他版本的SDK接口调用可参考文档 [无 UI 集成方案](https://cloud.tencent.com/document/product/269/75283) 部分。**
 
 ### 服务器
 
@@ -616,7 +615,7 @@ V2TIMManager.getGroupManager().getGroupsInfo(groupIDList, new V2TIMValueCallback
 
 私信即 Discord 用户与用户之间可以发送消息，不管用户之间是否有好友关系。
 
-- 如果用户没有好友关系，发送消息除了需要知道用户 ID 之外，还需要在腾讯云 IM 控制台关闭 [发送消息检测](https://console.cloud.tencent.com/im/login-message) 关系链的选项，否者会发送消息失败。
+- 如果用户没有好友关系，发送消息除了需要知道用户 ID 之外，还需要在腾讯云 IM 控制台关闭 [发送消息检测](https://console.cloud.tencent.com/im/login-message) 关系链的选项，否则会发送消息失败。
 - 用户也可以先通过 [addFriend](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMFriendshipManager.html#a19d0f22aaea285e8cee85a5dd6ed9208) 接口添加好友，通过 [getFriendList](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMFriendshipManager.html#ae478de55db21d42b72a6c5a6a5d16624) 来获取自己的好友列表。
 
 相关代码如下：
