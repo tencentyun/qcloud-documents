@@ -3,7 +3,7 @@
 目前容器集群与用户 IDC 互通主要通过两种方式：**专线**和 **IPsec VPN**。
 >! 
 > - 本文档以已创建集群并已添加节点为例。关于如何创建集群，您可以参考 [创建集群](https://cloud.tencent.com/document/product/457/11741) 进行创建。
-> - 请先确保容器服务所在的 VPC 和您 IDC 机房已通过专线或 VPN 成功连接。若通道未连接，您可以参考 [VPN 通道未连通如何处理？](https://cloud.tencent.com/document/product/554/18904)。
+> - 请先确保容器服务所在的 VPC 和您 IDC 机房已通过专线或 VPN 成功连接。若通道未连接，您可以参考 [VPN 通道未连通如何处理](https://cloud.tencent.com/document/product/554/18904)。
 
 ## 操作步骤
 
