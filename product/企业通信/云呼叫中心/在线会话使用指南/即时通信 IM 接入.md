@@ -17,7 +17,7 @@
 </table>
 
  ## 接入步骤
- 1. 登录 [即时通信 IM 控制台在线客服](https://console.cloud.tencent.com/im/online-service) ，选择开通在线客服，具体可参见 [即时通信 IM 在线客服](https://cloud.tencent.com/document/product/269/79100)。
+ 1. 登录 [即时通信 IM 控制台在线客服](https://console.cloud.tencent.com/im/online-service) ，选择开通在线客服，具体可参见 [即时通信 IM 在线客服](https://cloud.tencent.com/document/product/269/79589)。
  2. 在线客服开通后，在渠道管理的即时通信 IM 渠道下可以看到已经绑定的客服虚拟号，则表示该客服虚拟号已绑定成功。
  ![](https://qcloudimg.tencent-cloud.cn/raw/5116f8bc010f18f5253fdb87933839e5.png)
  3. 单击**更新**，可更新该客服虚拟号绑定的会话服务流。

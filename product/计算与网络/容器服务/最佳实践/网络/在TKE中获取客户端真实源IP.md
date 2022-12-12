@@ -17,7 +17,7 @@
 - **优点**：只需修改 Kubernetes Service 资源配置即可。  
 - **缺点**：会存在潜在的 Pods（Endpoints）流量负载不均衡风险。  
 
-如需启用保留客户端 IP 功能，可在 Service 资源中配置字段 `Service.spec.externalTrafficPolicy`。该字段表示服务是否希望将外部流量路由到节点本地或集群范围的端点。有两个选项值：`Cluster`（默认）和  `Local` 方式。如下图所示：
+如需启用保留客户端 IP 功能，可在 Service 资源中配置字段 `Service.spec.externalTrafficPolicy`。该字段表示服务是否希望将外部流量路由到节点本地或集群范围的 Pods。有两个选项值：`Cluster`（默认）和  `Local` 方式。如下图所示：
 ![externalTrafficPolicy](https://main.qcloudimg.com/raw/a6ff4729ef98bedf5fd677030daf7d50.jpg)
  - `Cluster`：表示隐藏客户端源 IP，`LoadBalancer` 和 `NodePort` 类型服务流量可能会被转发到其他节点的 Pods。  
  -  `Local`：表示保留客户端源 IP 并避免 `LoadBalancer` 和 `NodePort` 类型的服务流量转发到其他节点的 Pods，详情请参考 [Kubernetes 设置外部负载均衡器说明](https://kubernetes.io/zh/docs/tasks/access-application-cluster/create-external-load-balancer/)。相关 YAML 配置示例如下：
@@ -58,7 +58,7 @@ spec:
 ![HttpHeader](https://main.qcloudimg.com/raw/f512625e5fff323a924ddb62a58e8a4b.jpg)
 
 #### 场景一：使用 TKE Ingress 获取真实源 IP
-[腾讯云负载均衡器](https://cloud.tencent.com/product/clb)（CLB 七层） 默认会将客户端真实源 IP 放至 HTTP Header 的 `X-Forwarded-For` 和 `X-Real-IP`  字段。当服务流量在经过 Service 四层转发后会保留上述字段，后端通过 Web 服务器代理配置或应用代码方式获取到客户端真实源 IP，详情请参见 [负载均衡如何获取客户端真实 IP](https://cloud.tencent.com/document/product/214/3728)。通过容器服务控制台 获取源 IP 步骤如下：
+[腾讯云负载均衡器](https://cloud.tencent.com/product/clb)（CLB 七层） 默认会将客户端真实源 IP 放至 HTTP Header 的 `X-Forwarded-For` 和 `X-Real-IP`  字段。当服务流量在经过 Service 四层转发后会保留上述字段，后端通过 Web 服务器代理配置或应用代码方式获取到客户端真实源 IP，详情请参见 [负载均衡如何获取客户端真实 IP](https://cloud.tencent.com/document/product/214/3728)。通过容器服务控制台获取源 IP 步骤如下：
 1. 为工作负载创建一个主机端口访问方式的 Service 资源，本文以 nginx 为例。如下图所示：
 ![](https://main.qcloudimg.com/raw/09c32efc5905dcc76fd97a84eb6a0511.png)
 2. 为该 Service 创建一个对应的 Ingress 访问入口，本文以 test 为例。如下图所示：
@@ -71,7 +71,7 @@ spec:
 Nginx Ingress 服务部署需要 Nginx Ingress 能直接感知客户端真实源 IP，可以采用保留客户端源 IP 的配置方式，详情请参见 [Kubernetes 设置外部负载均衡器说明](https://kubernetes.io/zh/docs/tasks/access-application-cluster/create-external-load-balancer/)。或通过 CLB 直通 Pod 的方式，详情请参见 [在 TKE 上使用负载均衡直通 Pod](https://cloud.tencent.com/document/product/457/48793)。当 Nginx Ingress 在转发请求时会通过 `X-Forwarded-For` 和 `X-Real-IP` 字段来记录客户端源 IP，后端可以通过此字段获得客户端真实源 IP。配置步骤如下：
 
 1. Nginx Ingress 可以通过 TKE 应用商店、自定义 YAML 配置或使用官方（helm 安装）方式安装，原理和部署方法请参见 [在 TKE 上部署 Nginx Ingress](https://cloud.tencent.com/document/product/457/47293)  中的部署方案1或方案3。若选择方案1部署，则需要修改 Nginx Ingress Controller Service 的 `externalTrafficPolicy` 字段值为 `Local` 。  
-安装完成后，会在容器服务控制台 自动为 Nginx Ingress Controller 服务创建一个 CLB（四层）访问入口，如下图所示：
+安装完成后，会在容器服务控制台自动为 Nginx Ingress Controller 服务创建一个 CLB（四层）访问入口，如下图所示：
 ![image-20200928153915958](https://main.qcloudimg.com/raw/09c32efc5905dcc76fd97a84eb6a0511.png)
 2. 为需转发的后端服务创建一个 Ingress 资源并配置转发规则。YAML 示例如下：
 ```yaml

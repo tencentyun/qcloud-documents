@@ -19,7 +19,7 @@ Dashboard 提供自定义监控面板的服务，用户可以跨产品跨实例�
 ## 步骤2：创建监控图表
 
 1. 在新建 Dashboard 页面的面板中单击**新建图表**创建监控图表。
-2. 在图表下方编辑指标信息和图表右侧定义图表名，编辑完后单击右上角的**保存**即可。详情请参见新建图表相关文档  [步骤1：新建指标](https://cloud.tencent.com/document/product/248/46761)。
+2. 在图表下方编辑指标信息和图表右侧定义图表名，编辑完后单击右上角的**保存**即可。详情请参见新建图表相关文档 [新建指标](https://cloud.tencent.com/document/product/248/46761)。
 ![](https://main.qcloudimg.com/raw/65c3fa64e6674ae43ce98ea06283fcce.png)
 
 ## 步骤3：查看监控图表

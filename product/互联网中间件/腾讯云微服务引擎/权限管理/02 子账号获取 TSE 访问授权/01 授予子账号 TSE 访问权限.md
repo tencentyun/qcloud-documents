@@ -87,13 +87,13 @@
 <td>容器服务（TKE）</td>
 <td>DescribeClusters</td>
 <td>拉取集群信息</td>
-<td>TSE 治理中心绑定 K8S 集群</td>
+<td>TSE 北极星网格绑定 K8S 集群</td>
 </tr>
 <tr>
 <td>容器服务（TKE）</td>
 <td>DescribeClusterSecurity</td>
 <td>拉取集群密钥信息</td>
-<td>TSE 治理中心绑定 K8S 集群</td>
+<td>TSE 北极星网格绑定 K8S 集群</td>
 </tr>
 </tbody></table>
    策略语法示例如下：

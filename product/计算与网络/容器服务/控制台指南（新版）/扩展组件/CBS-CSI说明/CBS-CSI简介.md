@@ -22,6 +22,7 @@ CBS-CSI 组件在集群内部署后，包含以下组件：
 - DaemonSet：每个 Node 提供一个 DaemonSet，简称为 NodePlugin。由 CBS-CSI Driver 和 node-driver-registrar 两个容器组成，负责向节点注册 Driver，并提供挂载能力。
 - StatefulSet 和 Deployment：简称为 Controller。由 Driver 和多个 Sidecar（external-provisioner、external-attacher、external-resizer、external-snapshotter、snapshot-controller）一起构成，提供创删卷、attach、detach、扩容、快照等能力。
 
+示例图如下：
 ![](https://main.qcloudimg.com/raw/f469674c69e02fc912b65d0babc001bd.png)
 
 

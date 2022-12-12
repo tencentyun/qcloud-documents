@@ -2306,7 +2306,7 @@
     <td>中国移动</td>
     </tr>
     <tr>
-    <td rowspan=4 >文昌市</td>
+    <td rowspan=3 >文昌市</td>
     <td>中国电信</td>
     </tr>
     <tr>
@@ -2315,7 +2315,7 @@
     <tr>
     <td>中国联通</td>
     </tr>
-    <td rowspan=2 >儋州市</td>
+    <td rowspan=2>儋州市</td>
     <td>中国电信</td>
     </tr>
     <tr>
@@ -2895,7 +2895,7 @@
     <td>中国移动</td>
     </tr>
     <tr>
-    <td rowspan=20>甘肃</td>
+    <td rowspan=19>甘肃</td>
     <td >白银市</td>
     <td>中国电信</td>
     </tr>
@@ -2955,9 +2955,6 @@
     <tr>
     <td rowspan=2 >天水市</td>
     <td>中国电信</td>
-    </tr>
-    <tr>
-    <td>中国移动</td>
     </tr>
     <tr>
     <td>中国移动</td>

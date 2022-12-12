@@ -17,24 +17,8 @@
 
 ### 安装
 
-通过 npm 全局安装 [Serverless Cloud Framework](https://github.com/serverless/serverless)：
-
-```shell
-npm install -g scf
-```
-
-如果之前您已经安装过 Serverless Cloud Framework，可以通过下列命令升级到最新版：
-
-```shell
-npm update -g scf
-```
-
-安装完毕后，通过运行 scf -v 命令，查看 Serverless Cloud Framework 的版本信息，确保版本信息不低于1.0.2版本。
-
-```shell
-$ scf –v
-```
-
+通过 npm 全局安装 Serverless Cloud Framework，详情见 [安装 Serverless Cloud Framework](https://cloud.tencent.com/document/product/1154/42990)。
+ 
 ### 配置
 
 1. 新建一个本地文件夹，使用 `scf init` 命令，下载相关 template。

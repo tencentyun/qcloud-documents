@@ -39,6 +39,8 @@ cos.putObjectCopy({
     Region: 'COS_REGION',  /* 存储桶所在地域，例如ap-beijing，必须字段 */
     Key: 'b/1.jpg',  /* 存储在桶里的对象键（例如1.jpg，a/b/test.txt），必须字段 */
     CopySource: 'examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/a/1.jpg', /* 必须 */
+    /* CopySource中的Key含中文时，需要自行转义 */
+    // CopySource: `examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/${encodeURIComponent('a/中文文件名.jpg')}`,
 }, function(err, data) {
     console.log(err || data);
 });

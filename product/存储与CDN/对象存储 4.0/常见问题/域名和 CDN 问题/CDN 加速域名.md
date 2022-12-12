@@ -1,6 +1,6 @@
 ### COS 如何开通 CDN？
 
-详情请参见 [开启默认 CDN 加速域名](https://cloud.tencent.com/document/product/436/36636) 和 [开启自定义 CDN 加速域名](https://cloud.tencent.com/document/product/436/36637)。
+详情请参见 [开启自定义 CDN 加速域名](https://cloud.tencent.com/document/product/436/36637)。
 
 ### COS 是否支持 CDN HTTPS 回源 COS？
 
@@ -39,6 +39,6 @@ COS 本身不支持自动刷新 CDN 缓存，但可以借助云函数 SCF 来设
 
 ### COS 自带 CDN 功能吗？
 
-COS 本身不带有 CDN 功能，需要用户自行配置，详情请参见 [开启默认 CDN 加速域名](https://cloud.tencent.com/document/product/436/36636) 和 [开启自定义 CDN 加速域名](https://cloud.tencent.com/document/product/436/36637)。
+COS 本身不带有 CDN 功能，需要用户自行配置，详情请参见 [开启自定义 CDN 加速域名](https://cloud.tencent.com/document/product/436/36637)。
 
 

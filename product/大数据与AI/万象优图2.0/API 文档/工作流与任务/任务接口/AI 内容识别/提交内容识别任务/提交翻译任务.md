@@ -98,28 +98,29 @@ Container 类型 Request 的具体数据描述如下：
 
 Container 类型 Input 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点        | 描述            | 类型   | 是否必选 | 限制 |
-| ------------------ | ------------- | --------------- | ------ | ---- | --- |
-| Object             | Request.Input | 源文档文件名   | String | 是   | 单文件（docx/xlsx/html/markdown/txt）：800万字符<br/>有页数的（pdf/pptx）：300页<br/>文本文件（txt）：10MB<br/>二进制文件（pdf\docx\pptx\xlsx）：60MB<br/> |
+| 节点名称（关键字） | 父节点        | 描述            | 类型   | 是否必选 | 限制                                                                                                                                                                                               |
+| ------------------ | ------------- | --------------- | ------ | ---- |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Object             | Request.Input | 源文档文件名   | String | 是   | 单文件（docx/xlsx/html/markdown/txt）：800万字符<br/>有页数的（pdf/pptx）：300页<br/>文本文件（txt）：10MB<br/>二进制文件（pdf\docx\pptx\xlsx）：60MB<br/>图片文件（jpg\jpeg\png）：10MB                                                |
 | Lang               | Request.Input | 文档语言类型 | String | 是   | zh：简体中文<br/>zh-hk：繁体中文<br/>zh-tw：繁体中文<br/>zh-tr：繁体中文<br/>en：英语<br/>ar：阿拉伯语<br/>de：德语<br/>es：西班牙语<br/>fr：法语<br/>id：印尼语<br/>it：意大利语<br/>ja：日语<br/>pt：葡萄牙语<br/>ru：俄语<br/>ko：韩语<br/>km：高棉语<br/>lo：老挝语 |
-| Type               | Request.Input | 文档类型    | String | 是   | pdf<br/>docx<br/>pptx<br/>xlsx<br/>txt<br/>xml<br/>html：只能翻译 HTML 里的文本节点，需要通过 JS 动态加载的不进行翻译<br/>markdown |
-| BasicType         | Request.Input | 原始文档类型 | String | 否   | 仅在 Type=pdf 时使用，仅支持 docx、pptx |
+| Type               | Request.Input | 文档类型    | String | 是   | pdf<br/>docx<br/>pptx<br/>xlsx<br/>txt<br/>xml<br/>html：只能翻译 HTML 里的文本节点，需要通过 JS 动态加载的不进行翻译<br/>markdown<br/>jpg<br/>jpeg<br/>png                                                                |
+| BasicType         | Request.Input | 原始文档类型 | String | 否   | 仅在 Type=pdf/jpg/jpeg/png 时使用，<br/>当值为pdf时，仅支持 docx、pptx<br/>当值为jpg/jpeg/png/webp时，仅支持txt，不填写此字段时，直接返回翻译结果                                                                                                             |
 
 Container 类型 Operation 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点            | 描述                                                         | 类型      | 是否必选 |
-| ------------------ | ----------------- | ------------------------------------------------------------ | --------- | ---- |
-| Translation         | Request.Operation | 指定 翻译 参数                                             | Container | 是   |
-| Output              | Request.Operation | 结果输出地址                                               | Container | 是   |
-| UserData            | Request.Operation | 透传用户信息, 可打印的 ASCII 码, 长度不超过1024                                           | String | 否 |
-| JobLevel            | Request.Operation | 任务优先级，级别限制：0 、1 、2。级别越大任务优先级越高，默认为0 | String | 否   |
+| 节点名称（关键字）    | 父节点            | 描述                                     | 类型        | 是否必选                      |
+|--------------| ----------------- |----------------------------------------|-----------|---------------------------|
+| Translation  | Request.Operation | 翻译参数                                   | Container | 是                         |
+| Output       | Request.Operation | 结果输出地址                                 | Container | 是（当NoNeedOutput为true时非必选） |
+| UserData     | Request.Operation | 透传用户信息, 可打印的 ASCII 码, 长度不超过1024        | String    | 否                         |
+| JobLevel     | Request.Operation | 任务优先级，级别限制：0 、1 、2 。级别越大任务优先级越高，默认为0   | String    | 否                         |
+| NoNeedOutput | Request.Operation | 仅输出结果，不生成结果文件true/false。该参数原文档类型为图片时有效 | String    | 否                         |
 
 Container 类型 Translation 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点                      | 描述                                   | 类型      | 是否必选 |限制 |
-| ------------------ | :------------------------ | -------------------------------------- | --------- | ---- |---- |
-| Lang               | Request.Operation.Translation | 目标语言类型 | String | 是   | 源语言类型为<br/>zh/zh-hk/zh-tw/zh-tr 时支持：en、ar、de、es、fr、id、it、ja、it、ru、ko、km、lo、pt<br/>en 时支持：zh、zh-hk、zh-tw、zh-tr、ar、de、es、fr、id、it、ja、it、ru、ko、km、lo、pt<br/>其他类型时支持：zh、zh-hk、zh-tw、zh-tr、en  |
-| Type               | Request.Operation.Translation | 文档类型    | String | 是   | 源文件类型与目标文件类型映射关系如下：<br/>docx：docx<br/> pptx：pptx<br/>xlsx：xlsx<br/>txt：txt<br/>xml：xml<br/>html：html<br/>markdown：markdown<br/>pdf：pdf docx |
+| 节点名称（关键字） | 父节点                      | 描述                                   | 类型      | 是否必选 | 限制                                                                                                                                                                                       |
+| ------------------ | :------------------------ | -------------------------------------- | --------- | ---- |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Lang               | Request.Operation.Translation | 目标语言类型 | String | 是   | 源语言类型为<br/>zh/zh-hk/zh-tw/zh-tr 时支持：en、ar、de、es、fr、id、it、ja、it、ru、ko、km、lo、pt<br/>en 时支持：zh、zh-hk、zh-tw、zh-tr、ar、de、es、fr、id、it、ja、it、ru、ko、km、lo、pt<br/>其他类型时支持：zh、zh-hk、zh-tw、zh-tr、en |
+| Type               | Request.Operation.Translation | 文档类型    | String | 是   | 源文件类型与目标文件类型映射关系如下：<br/>docx：docx<br/> pptx：pptx<br/>xlsx：xlsx<br/>txt：txt<br/>xml：xml<br/>html：html<br/>markdown：markdown<br/>pdf：pdf docx<br/>png：txt<br/>jpg：txt<br/>jpeg：txt         |
 
 Container 类型 Output 的具体数据描述如下：
 
@@ -200,17 +201,24 @@ Container 节点 JobsDetail 的内容：
 | StartTime          | Response.JobsDetail | 任务的开始时间                                               | String    |
 | EndTime            | Response.JobsDetail | 任务的结束时间                                               | String    |
 | QueueId            | Response.JobsDetail | 任务所属的队列 ID                                            | String    |
-| Input              | Response.JobsDetail | 同请求中的 Request.Input 节点                              | Container |
+| Input              | Response.JobsDetail | 同请求中的 Request.Input 节点。                              | Container |
 | Operation          | Response.JobsDetail | 该任务的规则                                                 | Container |
 
 Container 节点 Operation 的内容：
 
-| 节点名称（关键字）  | 父节点                        | 描述                                                         | 类型      |
-| :------------------ | :---------------------------- | :----------------------------------------------------------- | :-------- |
+| 节点名称（关键字）  | 父节点                        | 描述                                  | 类型      |
+| :------------------ | :---------------------------- |:------------------------------------| :-------- |
 | Translation | Response.JobsDetail.Operation | 同请求中的 Request.Operation.Translation |  Container |
 | Output      | Response.JobsDetail.Operation | 同请求中的 Request.Operation.Output      |  Container |
-| UserData    | Response.JobsDetail.Operation | 透传用户信息                             | String |
-| JobLevel    | Response.JobsDetail.Operation | 任务优先级                                                   | String |
+| UserData    | Response.JobsDetail.Operation | 透传用户信息                              | String |
+| JobLevel    | Response.JobsDetail.Operation | 任务优先级                               | String |
+| AITranslateResult    | Response.JobsDetail.Operation | 翻译结果详情                              | Container |
+
+Container 节点 AITranslateResult 的内容：
+
+| 节点名称（关键字）  | 父节点                        | 描述     | 类型     |
+| :------------------ | :---------------------------- |:-------|:-------|
+| Result    | Response.JobsDetail.Operation | 翻译结果内容 | String |
 
 
 #### 错误码
@@ -224,7 +232,7 @@ Container 节点 Operation 的内容：
 ```shell
 POST /ai_jobs HTTP/1.1
 Authorization: q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0ea057
-Host: test-123456789.ci.ap-beijing.myqcloud.com
+Host: test-1234567890.ci.ap-beijing.myqcloud.com
 Content-Length: 166
 Content-Type: application/xml
 

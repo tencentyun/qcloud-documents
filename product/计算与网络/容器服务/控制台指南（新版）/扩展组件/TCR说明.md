@@ -54,7 +54,7 @@ Kubernetes 集群拉取私有镜像需要创建访问凭证 Secret 资源，并�
 2. 配置免密拉取（默认启用）：可选自动下发当前操作用户的访问凭证，或指定用户名及密码，可选配置免密拉取生效的命名空间及 ServiceAccount。建议均使用默认配置，避免新建命名空间后无法使用该功能。
 4. 配置内网解析（高级功能）：确认集群与关联 TCR 实例已建立内网访问链路，并启用内网解析功能。请注意，本配置仅用于测试场景配置，建议直接使用TCR提供的内网链路自动解析功能，或直接使用 PrivateDNS 产品进行私有域解析配置，也可使用自建DNS服务自行管理解析。
 5. 创建插件完成后，如需修改插件相关配置，请删除插件并重新配置及安装。
->! 删除插件将不会同时删除自动创建的专属访问凭证，可前往 TCR 控制台手动禁用或删除。
+>! 删除插件将不会同时删除自动创建的专属访问凭证，可前往容器镜像服务控制台手动禁用或删除。
 
 ## 原理说明
 ### 概述 
@@ -76,7 +76,7 @@ TCR Assistant 是一个典型的 k8s Operator。在部署 TCR Assistant 时，�
 TCR Assistant 通过持续观察（watch） k8s 集群的 `Namespace` 和 `ServiceAccount` 资源，并在这些资源发生变更的时候，检查资源变化是否匹配 `ImagePullSecret` 中设定的规则来自动的为用户部署拉取**私有镜像仓库**所需要的 Secret 资源。程序通常部署在 k8s 集群内，使用 `in cluster` 模式访问 k8s master API。
 
 #### 创建 CRD 资源
-程序部署完成后，不会在目标 k8s 集群部署任何的 TCR 镜像拉取密钥。此时，需要我们使用 kubectl 或者通过 Client Go 新建 `ImagePullSecret` 资源。
+ 程序部署完成后，不会在目标 K8s 集群部署任何的 TCR 镜像拉取密钥。此时，需要我们使用 kubectl 或者通过 Client Go 新建 `ImagePullSecret` 资源。
 
 ```bash
 # 新建 ImagePullSecret 资源

@@ -1,11 +1,12 @@
 ## 什么是 TUIKit
+
 Flutter TUIKit 是基于 Flutter IM SDK 实现的一套 UI 组件，其中包含会话、聊天、关系链、群组及本地搜索等功能。
 
 基于本套 UI 组件和内置的 IM 业务逻辑，您可以像搭积木一样，快速地在您 App 中，引入即时通信及用户关系链管理等模块。
 
 **接入前，您可以通过 [我们的 DEMO](https://cloud.tencent.com/document/product/269/70747#demo)，快速在线体验 TUIKit 各项能力。**
 
->? 本含 UI 的 SDK tim_ui_kit 已开源，您可引入 [在线版本](https://pub.dev/packages/tim_ui_kit)，也可 [GitHub fork](https://github.com/tencentyun/TIMSDK/tree/master/Flutter/Demo/im-flutter-uikit) 后本地引入使用。
+>? 本含 TUIKit tencent_cloud_chat_uikit 已开源，您可引入 [在线版本](https://pub.dev/packages/tencent_cloud_chat_uikit)，也可 [GitHub fork](https://github.com/TencentCloud/chat-uikit-flutter) 后本地引入使用。
 
 目前包含的一级组件如下：
 
@@ -43,7 +44,7 @@ Flutter TUIKit 是基于 Flutter IM SDK 实现的一套 UI 组件，其中包含
 | [Web](#web)  | 支持，0.1.5版本起 |
 | macOS  | 开发中，敬请期待 |
 | Windows  | 开发中，敬请期待 |
-
+| [混合开发](https://cloud.tencent.com/document/product/269/83153) （将 Flutter SDK 添加至现有原生应用） | 1.0.0版本起支持 |
 
 >? 我们致力于打造一套支持 Flutter 全平台的即时通信 IM SDK 及TUIKit，帮助您一套代码，全平台运行。
 
@@ -55,9 +56,11 @@ Flutter TUIKit 是基于 Flutter IM SDK 实现的一套 UI 组件，其中包含
 ![](https://main.qcloudimg.com/raw/8315da2551bf35ec85ce10fd31fe2f52.png)
 
 ## 接入步骤
+
 如下会介绍如何使用 Flutter TUIKit 快速构建一个简单的即时通信应用。
 
 ### 步骤1：创建 Flutter 应用并添加权限
+
 请参见 [Flutter 文档](https://flutter.cn/docs/get-started/test-drive?tab=terminal) 快速创建一个 Flutter 应用。
 
 #### 配置权限[](id:permission)
@@ -67,6 +70,7 @@ Flutter TUIKit 是基于 Flutter IM SDK 实现的一套 UI 组件，其中包含
 **Android**
 
 打开 `android/app/src/main/AndroidManifest.xml` ，在 `<manifest></manifest>`中，添加如下权限。
+
 ```xml
     <uses-permission
         android:name="android.permission.INTERNET"/>
@@ -91,6 +95,7 @@ Flutter TUIKit 是基于 Flutter IM SDK 实现的一套 UI 组件，其中包含
 **iOS**
 
 打开 `ios/Podfile` ，在文件末尾新增如下权限代码。
+
 ```
 post_install do |installer|
   installer.pods_project.targets.each do |target|
@@ -111,11 +116,11 @@ end
 
 #### 安装 IM TUIkit
 
-我们的 TUIkit 已经内含 IM SDK，因此仅需安装`tim_ui_kit`，不需要再安装基础 IM SDK。
+我们的 TUIkit 已经内含 IM SDK，因此仅需安装`tencent_cloud_chat_uikit`，不需要再安装基础 IM SDK。
 
 ```shell
 #在命令行执行：
-flutter pub add tim_ui_kit
+flutter pub add tencent_cloud_chat_uikit
 ```
 
 如果您的项目需要支持 Web，请在执行后续步骤前，[查看 Web 兼容说明章节](#web)，引入 JS 文件。
@@ -130,7 +135,7 @@ flutter pub add tim_ui_kit
 
 ```dart
 /// main.dart
-import 'package:tim_ui_kit/tim_ui_kit.dart';
+import 'package:tencent_cloud_chat_uikit/tencent_cloud_chat_uikit.dart';
 
 final CoreServicesImpl _coreInstance = TIMUIKitCore.getInstance();
   @override
@@ -149,10 +154,12 @@ final CoreServicesImpl _coreInstance = TIMUIKitCore.getInstance();
 >!请在本步骤 await 初始化完成后，才可执行后续步骤。
 
 #### 登录测试账户
+
 1. 此时，您可以使用最开始的时候，在控制台生成的测试账户，完成登录验证。
 2. 调用 [`_coreInstance.login`](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitCore/login.html) 方法，登录一个测试账户。
+
 ```dart
-import 'package:tim_ui_kit/tim_ui_kit.dart';
+import 'package:tencent_cloud_chat_uikit/tencent_cloud_chat_uikit.dart';
 
 final CoreServicesImpl _coreInstance = TIMUIKitCore.getInstance();
 _coreInstance.login(userID: userID, userSig: userSig);
@@ -172,7 +179,7 @@ _coreInstance.login(userID: userID, userSig: userSig);
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:tim_ui_kit/tim_ui_kit.dart';
+import 'package:tencent_cloud_chat_uikit/tencent_cloud_chat_uikit.dart';
 
 class Conversation extends StatelessWidget {
 const Conversation({Key? key}) : super(key: key);
@@ -212,7 +219,7 @@ return Scaffold(
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:tim_ui_kit/tim_ui_kit.dart';
+import 'package:tencent_cloud_chat_uikit/tencent_cloud_chat_uikit.dart';
 
 class Chat extends StatelessWidget {
 final V2TimConversation selectedConversation;
@@ -251,7 +258,7 @@ return TIMUIKitChat(
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:tim_ui_kit/tim_ui_kit.dart';
+import 'package:tencent_cloud_chat_uikit/tencent_cloud_chat_uikit.dart';
 
 class UserProfile extends StatelessWidget {
     final String userID;
@@ -290,9 +297,10 @@ class UserProfile extends StatelessWidget {
 UI 组件全貌可参见 [本全览文档](https://cloud.tencent.com/document/product/269/70747) 或 [详细文档](https://comm.qq.com/im/doc/flutter/zh/TUIKit/readme.html)。
 
 [](id:controller)
+
 ### 附加2：[选装] 使用 Controller 控制 TUIKit
 
->? 建议在 tim_ui_kit 0.1.5 及以后版本中使用本功能。
+>? 建议在 tencent_cloud_chat_uikit 0.1.5 及以后版本中使用本功能。
 
 通过上述步骤的快速集成，您已经可以搭建一套可用的 IM 模块。如果您有其他额外的控制操作需求，可以使用组件配套的 controller 完成。
 
@@ -306,7 +314,7 @@ UI 组件全貌可参见 [本全览文档](https://cloud.tencent.com/document/pr
 | [TIMUIKitConversation](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitConversation/TIMUIKitConversation-Implementation.html) | [TIMUIKitConversationController](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitConversation/TIMUIKitConversationController.html) | 获取及刷新会话列表/会话置顶/设置会话的草稿/清空会话内所有消息/删除会话 等                                                                    |
 | [TIMUIKitProfile](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitProfile/TIMUIKitProfile-Implementation.html)                | [TIMUIKitProfileController](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitProfile/TIMUIKitProfileController.html)                | 删除联系人好友/置顶当前联系人的会话/将用户加入黑名单/修改被加好友方式/更新联系人备注名/设置联系人消息免打扰/添加联系人好友/更新自己的资料 等 |
 
-他们的使用方式一致，以 [TIMUIKitChatController](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitChat/TIMUIKitChatController.html) 举例用法。完整代码可[参考DEMO](https://github.com/TencentCloud/TIMSDK/blob/master/Flutter/Demo/im-flutter-uikit/lib/src/chat.dart)。
+他们的使用方式一致，以 [TIMUIKitChatController](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitChat/TIMUIKitChatController.html) 举例用法。完整代码可[参考DEMO](https://github.com/TencentCloud/tc-chat-demo-flutter/blob/main/lib/src/chat.dart)。
 
 1. 在使用到 [TIMUIKitChat](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitChat/TIMUIKitChat-Implementation.html) 的类中，实例化一个 [TIMUIKitChatController](https://comm.qq.com/im/doc/flutter/zh/TUIKit/TIMUIKitChat/TIMUIKitChatController.html) 对象。
 <dx-codeblock>
@@ -321,8 +329,8 @@ final TIMUIKitChatController _chatController = TIMUIKitChatController();
 Widget build(BuildContext context) {
   return TIMUIKitChat(
     controller: _chatController,
-		// ...其他参数
-	);
+  // ...其他参数
+ );
 }
 :::
 </dx-codeblock>
@@ -338,7 +346,7 @@ _sendLocationMessage(String desc, double longitude, double latitude) async {
     final messageInfo = locationMessageInfo.data!.messageInfo;
     _chatController.sendMessage(
         receiverID: _getConvID(),
-        groupID: _getConvID(),
+groupID:_getConvID(),
         convType: _getConvType(),
         messageInfo: messageInfo);
 }
@@ -352,13 +360,13 @@ _sendLocationMessage(String desc, double longitude, double latitude) async {
 - [消息推送插件](https://cloud.tencent.com/document/product/269/74605)：支持厂商原生离线推送能力及在线推送能力，并支持推送您的其他业务消息，帮助您提高消息触达率。
 - [音视频通话插件](https://cloud.tencent.com/document/product/269/72485)：支持类似微信的 一对一/群组 音视频 通话。
 - [位置消息插件](https://cloud.tencent.com/document/product/269/80881)：提供选取位置/发送位置及解析展示位置消息的能力。
-- [自定义表情插件](https://cloud.tencent.com/document/product/269/80882)：0.1.5版本后， TUIKit 无自带表情包，需要使用此插件，快速简便集成表情能力。支持 emoji unicode 编码及自定义图片表情。集成过程可参考我们的 [Demo](https://github.com/TencentCloud/TIMSDK/blob/master/Flutter/Demo/im-flutter-uikit/lib/src/pages/app.dart)。
+- [自定义表情插件](https://cloud.tencent.com/document/product/269/80882)：0.1.5版本后， TUIKit 无自带表情包，需要使用此插件，快速简便集成表情能力。支持 emoji unicode 编码及自定义图片表情。集成过程可参考我们的 [Demo](https://github.com/TencentCloud/tc-chat-demo-flutter/blob/main/lib/src/pages/app.dart)。
 
 >?更多实用的插件正在开发中，如果您有好的想法及建议，欢迎随时 [联系我们](https://cloud.tencent.com/online-service?from=doc_269&source=PRESALE)。
 
 ## Flutter for Web 支持[](id:web)
 
-TUIKit(tim_ui_kit) 0.1.5版本起，可完美兼容 Web 端。
+TUIKit(tencent_cloud_chat_uikit) 0.1.5版本起，可完美兼容 Web 端。
 
 相比 Android 和 iOS 端，需要一些额外步骤。如下：
 
@@ -366,37 +374,50 @@ TUIKit(tim_ui_kit) 0.1.5版本起，可完美兼容 Web 端。
 
 >?如果您现有的 Flutter 项目不支持 Web，请在项目根目录下运行 `flutter create .` 添加 Web 支持。
 
-从 GitHub 下载下方两个 JS 文件，放置于项目的 `web` 路径内。
+进入您项目的 `web/` 目录，使用 `npm` 或 `yarn` 安装相关JS依赖。初始化项目时，根据屏幕指引，进行即可。
 
-- [tim-js-friendship.js](https://github.com/TencentCloud/TIMSDK/blob/master/Web/IMSDK/tim-js-friendship.js)
-- [将此文件重命名成 tim-upload-plugin.js](https://github.com/TencentCloud/TIMSDK/blob/master/Web/IMSDK/tim-upload-plugin/index.js)
+```shell
+cd web
 
-打开 `web/index.html` ，在 `<head> </head>` 间引入这两个JS文件。如下：
+npm init
+
+npm i tim-js-sdk
+
+npm i tim-upload-plugin
+```
+
+打开 `web/index.html` ，在 `<head> </head>` 间引入JS文件。如下：
 
 ```html
-<script src='./tim-upload-plugin.js'></script>
-<script src="./tim-js-friendship.js"></script>
+<script src="./node_modules/tim-upload-plugin/index.js"></script>
+<script src="./node_modules/tim-js-sdk/tim-js-friendship.js"></script>
 ```
-![](https://qcloudimg.tencent-cloud.cn/raw/f88ddfbdc79fb7492f3ce00c2c583246.png)
+
+![](https://qcloudimg.tencent-cloud.cn/raw/a4d25e02c546e0878ba59fcda87f9c76.png)
 
 ## 常见问题
 
 ### Android 端报错 `compileSdkVersion` 不合适怎么办？
 
 1. 请在您项目的 `pubspec.yaml` 文件中，指定确保如下两个插件的版本。
+
 ```yaml
   video_thumbnail: ^0.5.3
   permission_handler: ^10.0.0
   flutter_local_notifications: 9.7.0
 ```
+
 2. 修改 `android/app/build.gradle` 文件，保证 `android => compileSdkVersion 33`。
+
 ```gradle
 android {
   compileSdkVersion 33
   ...
 }
 ```
+
 3. 执行如下命令，重新安装 Android 端依赖。
+
 ```shell
 flutter pub cache clean
 flutter pub get
@@ -414,20 +435,23 @@ flutter build apk --no-tree-shake-icons --dart-define=SDK_APPID={您的SDKAPPID}
 
 ### iOS 端 Pods 依赖无法安装成功怎么办？
 
-#### **尝试方案一：**配置运行后，如果报错，可以单击 **Product** > **Clean Build Folder**，清除产物后重新 `pod install` 或 `flutter run`。
+#### **尝试方案一：**配置运行后，如果报错，可以单击 **Product** > **Clean Build Folder**，清除产物后重新 `pod install` 或 `flutter run`
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/d495b2e8be86dac4b430e8f46a15cef4.png)
 
-#### **尝试方案二：**手动删除 `ios/Pods` 文件夹，及 `ios/Podfile.lock` 文件，并执行如下命令，重新安装依赖。
+#### **尝试方案二：**手动删除 `ios/Pods` 文件夹，及 `ios/Podfile.lock` 文件，并执行如下命令，重新安装依赖
 
 1. 搭载新款 Apple Silicon 的Mac设备，如 M1。
 ![](https://qcloudimg.tencent-cloud.cn/raw/dd87d8ff05aec0ecad461f12ef6c3020.png)
+
 ```shell
 cd ios
 sudo arch -x86_64 gem install ffi
 arch -x86_64 pod install --repo-update
 ```
+
 2. 搭载老款 Intel 芯片的 Mac 设备。
+
 ```shell
 cd ios
 sudo gem install ffi
@@ -474,7 +498,6 @@ defaultConfig {
 }
 :::
 </dx-codeblock>
-
 
 ### 如何动态切换 TUIKit 界面语言？
 
@@ -607,6 +630,7 @@ final isInitSuccess = await _coreInstance.init(
 | 6661403           | 设备存储空间不足，建议清理，以获得更好使用体验               | 在login成功后，会自动检测设备存储空间，如果不足1GB，会提示存储空间不足      |
 
 ## 联系我们[](id:contact)
+
 如果您在接入使用过程中有任何疑问，请加入 QQ 群：788910197 咨询。
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/eacb194c77a76b5361b2ae983ae63260.png)

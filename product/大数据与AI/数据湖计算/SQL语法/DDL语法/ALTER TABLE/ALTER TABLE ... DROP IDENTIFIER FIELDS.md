@@ -1,7 +1,7 @@
 ## 说明
 - 支持内核：SparkSQL。
 - 适用表类型：外部 Iceberg 表、原生 Iceberg 表。
-- 作用：删除 identifier fields 属性。
+- 用途：删除 identifier fields 属性。
 
 ## 语法
 ```

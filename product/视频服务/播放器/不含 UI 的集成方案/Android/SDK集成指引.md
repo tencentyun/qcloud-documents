@@ -150,8 +150,22 @@ public class MApplication extends Application {
         String licenceURL = ""; // 获取到的 licence url
         String licenceKey = ""; // 获取到的 licence key
         TXLiveBase.getInstance().setLicence(this, licenceURL, licenceKey);
+        TXLiveBase.setListener(new TXLiveBaseListener() {
+            @Override
+            public void onLicenceLoaded(int result, String reason) {
+                Log.i(TAG, "onLicenceLoaded: result:" + result + ", reason:" + reason);
+            }
+        });
     }
 }
+```
+
+## 查看方法
+
+License 设置成功后（需稍等一段时间，具体时间长短依据网络情况而定），您可以通过调用如下方法查看 License 信息：
+
+```java
+TXLiveBase.getInstance().getLicenceInfo();
 ```
 
 ## 常见问题

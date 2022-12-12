@@ -48,7 +48,7 @@ https://api.meeting.qq.com/v1/meetings/{meetingId}?userid={userid}&instanceid={i
 |start_time  |String | 会议开始时间戳（单位秒）。 |
 |end_time  |String | 会议结束时间戳（单位秒）。  |
 |settings   |[会议媒体参数对象](#settings) |会议的配置，可为缺省配置。|
-| meeting_type           | Integer        | 会议类型：<br>0：普通会议<br>1：周期性会议<br>5：个人会议号 |
+| meeting_type      |  Integer  | 会议类型。    <br>0：一次性会议<br>1：周期性会议<br>2：微信专属会议<br>3：Rooms 投屏会议<br>5：个人会议号会议<br>6：网络研讨会     |
 | recurring_rule         | period_meeting | 周期性会议设置。                           |
 | sub_meetings           | 子会议对象数组 | 周期性子会议列表。                         |
 | has_more_sub_meeting   | Integer        | 0：无更多子会议特例   <br>1：有更多子会议特例      |
@@ -61,7 +61,7 @@ https://api.meeting.qq.com/v1/meetings/{meetingId}?userid={userid}&instanceid={i
 |has_vote   | Boolean     | 是否有投票（会议创建人和主持人才有权限查询）。                                                     |
 |enable_enroll   | Boolean     | 是否激活报名。                                                     |
 |enable_host_key   | Boolean     | 是否开启主持人密钥。<br>true：开启<br>false：关闭                                                     |
-|host_key   | Boolean     | 主持人密钥，仅支持6位数字（会议创建人才有权限查询）。<br>如开启主持人密钥后没有填写此项，将自动分配一个6位数字的密钥。                                                    |
+|host_key   | String     | 主持人密钥，仅支持6位数字（会议创建人才有权限查询）。<br>如开启主持人密钥后没有填写此项，将自动分配一个6位数字的密钥。                                                    |
 |sync_to_wework  |Boolean    |会议是否同步至企业微信，该字段仅支持创建会议时设置，创建后无法修改。该配置仅支持与企业微信关联的企业。 <br>true：同步，默认同步<br>false：不同步| 
 |time_zone | String |	时区，可参见 [Oracle-TimeZone 标准](https://docs.oracle.com/middleware/1221/wcs/tag-ref/MISC/TimeZones.html)。 |
 |location | String |会议地点。最长支持18个汉字或36个英文字母。 |
@@ -92,7 +92,7 @@ https://api.meeting.qq.com/v1/meetings/{meetingId}?userid={userid}&instanceid={i
 | only_allow_enterprise_user_join | Boolean     | 是否仅企业内部成员可入会。 <br>true：仅企业内部用户可入会 <br>false：所有人可入会 |
 | auto_record_type | String     | 自动录制类型，仅客户端2.7及以上版本生效。<br>none：禁用 <br>local：本地录制 <br>cloud：云录制<br> |
 |participant_join_auto_record  | Boolean | 当有参会成员入会时立即开启云录制，默认值为 false 关闭，关闭时，主持人入会自动开启云录制；当设置为开启时，则有参会成员入会自动开启云录制。<br>说明：<br><li>该参数必须 auto_record_type 设置为“cloud”时才生效，该参数依赖企业账户设置，当企业强制锁定后，该参数必须与企业配置保持一致。<li>仅客户端2.7及以上版本生效。 |
-|enable_host_pause_auto_record | Boolean | 允许主持人暂停或者停止云录制，默认值为 true 开启，开启时，主持人允许暂停和停止云录制；当设置为关闭时，则主持人不允许暂停和关闭云录制。<br>说明：<br><li>该参数必须将 auto_record_type 设置为“cloud”时才生效，该参数依赖企业账户设置，当企业强制锁定后，该参数必须与企业配置保持一致。<li>仅客户端2.7及以上版本生效。 |
+|enable_host_pause_auto_record | Boolean | 允许主持人暂停或者停止云录制，默认值为 true 开启，开启时，主持人允许暂停和停止云录制；当设置为关闭时，则主持人不允许暂停和关闭云录制。<br>说明：<br><li>该参数必须将 auto_record_type 设置为“cloud”时才生效，该参数依赖企业账户设置，当企业强制锁定后，该参数必须与企业配置保持一致。</li><li>仅客户端2.7及以上版本生效。</li> |
 
 **子会议对象**
 

@@ -2,7 +2,7 @@
 ## 说明
 - 支持内核：SparkSQL。
 - 适用表类型：外部 Iceberg 表、原生 Iceberg 表。
-- 作用：变更字段名称。
+- 用途：变更字段名称。
 
 ## 语法
 ```
@@ -17,7 +17,7 @@ RENAME COLUMN old_column_name TO new_column_name
 
 ## 示例
 ```
-alter table iceberg_rename rename column id to id 2
+alter table iceberg_rename rename column id to id_2
 ```
 
 

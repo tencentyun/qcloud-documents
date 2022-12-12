@@ -46,7 +46,65 @@ Authorization: Auth String
 
 #### 请求参数
 
-此接口无请求参数。
+GetService 支持通过请求参数根据存储桶标签、地域、创建时间过滤存储桶。其中，根据存储桶标签过滤存储桶，仅支持传入一个存储桶标签。当存储桶包含多个存储桶标签时，只要其中任意一个为用户指定的存储桶标签，就会返回该存储桶。
+
+| 名称 | 描述 | 类型 | 是否必选 |
+| --- | --- | --- | --- |
+|tagkey | 支持根据存储桶标签过滤存储桶，仅支持传入一个存储桶标签，tagkey 用于传入标签键 | string | 否 |
+|tagvalue | 支持根据存储桶标签过滤存储桶，仅支持传入一个存储桶标签，tagvalue 用于传入标签值 | string | 否 |
+|region | 支持根据地域过滤存储桶，例如`region=ap-beijing`，COS 支持的地域可参考 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224)| string | 否 |
+|create-time | GMT 时间戳，和 range 参数一起使用，支持根据创建时间过滤存储桶，例如 `create-time=1642662645` |Timestamp | 否 |
+|range | 和 create-time 参数一起使用，支持根据创建时间过滤存储桶，支持枚举值 lt（创建时间早于 create-time）、gt（创建时间晚于 create-time）、lte（创建时间早于或等于 create-time）、gte（创建时间晚于或等于create-time） | string | 否 |
+
+
+当存储桶标签授权情况与 GetService 授权不同时，GetService 请求的鉴权和返回情况如下。
+
+<table>
+    <tr>
+        <th>存储桶标签授权情况</th>
+        <th>GetService 授权情况</th>
+        <th>GetService 请求</th>
+        <th>请求返回</th>
+    </tr>
+    <tr>
+        <td rowspan="4">主账号通过存储桶标签授权，授权了子账号存储桶标签 tagA 的资源操作权限。</td>
+        <td rowspan="2">没有授权 GetService 权限</td>
+        <td>携带存储桶标签参数 tagA</td>
+        <td>包含存储桶标签 tagA 的存储桶列表</td>
+    </tr>
+    <tr>
+        <td>不携带存储桶标签参数</td>
+        <td>Access Denied</td>
+    </tr>
+    <tr>
+        <td rowspan="2">额外授权 GetService 权限</td>
+        <td>携带存储桶标签参数 tagA</td>
+        <td>包含存储桶标签 tagA 的存储桶列表</td>
+    </tr>
+    <tr>
+        <td>不携带存储桶标签参数</td>
+        <td>所有存储桶列表</td>
+    </tr>
+    <tr>
+        <td rowspan="4">主账号没有通过存储桶标签授权，没有授权子账号存储桶标签 tagA 的资源操作权限。</td>
+        <td rowspan="2">没有授权 GetService 权限</td>
+        <td>携带存储桶标签参数 tagA</td>
+        <td>Access Denied</td>
+    </tr>
+    <tr>
+        <td>不携带存储桶标签参数</td>
+        <td>Access Denied</td>
+    </tr>
+    <tr>
+        <td rowspan="2">额外授权 GetService 权限</td>
+        <td>携带存储桶标签参数 tagA</td>
+        <td>包含存储桶标签 tagA 的存储桶列表</td>
+    </tr>
+    <tr>
+        <td>不携带存储桶标签参数</td>
+        <td>所有存储桶列表</td>
+    </tr>
+</table>
 
 #### 请求头
 
@@ -104,7 +162,7 @@ Authorization: Auth String
 
 | 节点名称（关键字） | 父节点                       | 描述                                                         | 类型   |
 | ------------------ | ---------------------------- | ------------------------------------------------------------ | ------ |
-| ID                 | ListAllMyBucketsResult.Owner | 存储桶持有者的完整 ID，格式为`qcs::cam::uin/[OwnerUin]:uin/[OwnerUin]`<br>例如`qcs::cam::uin/100000000001:uin/100000000001` | string |
+| ID                 | ListAllMyBucketsResult.Owner | 存储桶持有者的完整 ID，格式为 `qcs::cam::uin/[OwnerUin]:uin/[OwnerUin]`<br>例如`qcs::cam::uin/100000000001:uin/100000000001` | string |
 | DisplayName        | ListAllMyBucketsResult.Owner | 存储桶持有者的名字                                           | string |
 
 **Container 节点 Buckets 的内容：**
@@ -117,9 +175,9 @@ Authorization: Auth String
 
 | 节点名称（关键字） | 父节点                                | 描述                                                         | 类型   |
 | ------------------ | ------------------------------------- | ------------------------------------------------------------ | ------ |
-| Name               | ListAllMyBucketsResult.Buckets.Bucket | 存储桶的名称，格式为`<BucketName-APPID>`<br>例如 `examplebucket-1250000000` | string |
+| Name               | ListAllMyBucketsResult.Buckets.Bucket | 存储桶的名称，格式为 `<BucketName-APPID>`<br>例如 `examplebucket-1250000000` | string |
 | Location           | ListAllMyBucketsResult.Buckets.Bucket | 存储桶所在地域，枚举值请参见 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224) 文档<br>例如 ap-beijing，ap-hongkong，eu-frankfurt 等 | Enum   |
-| CreationDate       | ListAllMyBucketsResult.Buckets.Bucket | 存储桶的创建时间，为 ISO8601 格式，例如2019-05-24T10:56:40Z    | date   |
+| CreationDate       | ListAllMyBucketsResult.Buckets.Bucket | 存储桶的创建时间，为 ISO8601 格式，例如 2019-05-24T10:56:40Z    | date   |
 
 #### 错误码
 
@@ -180,7 +238,7 @@ x-cos-request-id: NWNlN2RjYjdfOGFiMjM1MGFfNTVjMl8zMmI1****
 </ListAllMyBucketsResult>
 ```
 
-#### 案例二：查询特定地域下的存储桶列表
+#### 案例二：查询特定地域下的存储桶列表（通过域名筛选）
 
 #### 请求
 
@@ -222,3 +280,146 @@ x-cos-request-id: NWNlN2RjYjdfZjhjODBiMDlfOWNlNF9hYzc2****
 	</Buckets>
 </ListAllMyBucketsResult>
 ```
+
+
+#### 案例三：查询特定地域下的存储桶列表（根据请求参数筛选）
+
+
+#### 请求
+
+```plaintext
+GET /?region=ap-beijing HTTP/1.1
+Host: service.cos.myqcloud.com
+Date: Fri, 24 May 2019 11:59:51 GMT
+Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1558699191;1558706391&q-key-time=1558699191;1558706391&q-header-list=date;host&q-url-param-list=&q-signature=c3f55f4ce2800fb343cf85ff536a9185a0c1****
+Connection: close
+```
+
+
+#### 响应
+
+
+```plaintext
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 495
+Connection: close
+Date: Fri, 24 May 2019 11:59:51 GMT
+Server: tencent-cos
+x-cos-request-id: NWNlN2RjYjdfZjhjODBiMDlfOWNlNF9hYzc2****
+
+<ListAllMyBucketsResult>
+	<Owner>
+		<ID>qcs::cam::uin/100000000001:uin/100000000001</ID>
+		<DisplayName>100000000001</DisplayName>
+	</Owner>
+	<Buckets>
+		<Bucket>
+			<Name>examplebucket1-</Name>
+			<Location>ap-beijing</Location>
+			<CreationDate>2019-05-24T11:49:50Z</CreationDate>
+		</Bucket>
+		<Bucket>
+			<Name>examplebucket2-1250000000</Name>
+			<Location>ap-beijing</Location>
+			<CreationDate>2019-05-24T11:51:50Z</CreationDate>
+		</Bucket>
+	</Buckets>
+</ListAllMyBucketsResult>
+```
+
+
+#### 案例四：根据指定标签过滤存储桶列表
+
+
+存储桶 examplebucket-1250000000 的标签为`<key1, value1>`，存储桶 examplebucket1-1250000000 的标签为`<key1, value1>`和`<key2, value2>`。
+
+#### 请求
+
+```plaintext
+GET /?tagkey=key1&tagvalue=value1 HTTP/1.1
+Host: service.cos.myqcloud.com
+Date: Fri, 24 May 2019 11:59:51 GMT
+Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1558699191;1558706391&q-key-time=1558699191;1558706391&q-header-list=date;host&q-url-param-list=&q-signature=c3f55f4ce2800fb343cf85ff536a9185a0c1****
+Connection: close
+```
+
+#### 响应
+
+```plaintext
+HTTP/1.1 200 OK
+Content-Length: 378
+Content-Type: application/xml
+Server: tencent-cos
+Connection: keep-alive
+Date: Thu, 20 Oct 2022 07:29:40 GMT
+x-cos-request-id: NjM1MGY4ZTRfMWViMjM1MGFfYjg3MV8xNjdk****
+
+<ListAllMyBucketsResult>
+	<Owner>
+		<ID>qcs::cam::uin/100000000001:uin/100000000001</ID>
+		<DisplayName>100000000001</DisplayName>
+	</Owner>
+	<Buckets>
+		<Bucket>
+			<Name>examplebucket-1250000000 </Name>
+			<Location>ap-guangzhou</Location>
+			<CreationDate>2022-04-11T03:01:49Z</CreationDate>
+			<BucketType>cos</BucketType>
+		</Bucket>
+	</Buckets>
+	<Buckets>
+		<Bucket>
+			<Name>examplebucket1-1250000000 </Name>
+			<Location>ap-guangzhou</Location>
+			<CreationDate>2022-04-12T03:01:49Z</CreationDate>
+			<BucketType>cos</BucketType>
+		</Bucket>
+	</Buckets>
+</ListAllMyBucketsResult>
+```
+
+
+#### 案例五：根据创建时间过滤存储桶列表
+
+列出创建时间早于 `2022-1-20 15:10:45` 的存储桶。
+
+#### 请求
+
+```plaintext
+GET /?range=lt&create-time=1642662645 HTTP/1.1
+Host: service.cos.myqcloud.com
+User-Agent: curl/7.64.1
+Accept: */*
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDYv3vWrwkHXVDfqk*****&q-sign-time=1667448802;1668448852&q-key-time=1667448802;1668448852&q-url-param-list=create-time;range&q-header-list=host&q-signature=a043c0593c8c4cd1caf570******
+```
+
+
+#### 响应
+
+
+```plaintext
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 5566
+Connection: keep-alive
+Date: Thu, 03 Nov 2022 04:14:23 GMT
+Server: tencent-cos
+x-cos-request-id: NjM2MzQwMWZfMmJiMjM1MGFfYTc******
+
+<ListAllMyBucketsResult>
+	<Owner>
+		<ID>qcs::cam::uin/100000000001:uin/100000000001</ID>
+		<DisplayName>100000000001</DisplayName>
+	</Owner>
+	<Buckets>
+		<Bucket>
+			<Name>examplebucket-1250000000</Name>
+			<Location>ap-beijing</Location>
+			<CreationDate>2021-11-23T03:02:12Z</CreationDate>
+			<BucketType>cos</BucketType>
+		</Bucket>
+	</Buckets>
+</ListAllMyBucketsResult>
+```
+

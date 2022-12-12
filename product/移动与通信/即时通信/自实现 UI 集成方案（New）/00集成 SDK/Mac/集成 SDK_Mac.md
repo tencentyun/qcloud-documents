@@ -23,7 +23,7 @@ pod init
 ```
 
 #### 3. 编辑 Podfile 文件
-编辑 Podfile 文件，按如下方式设置：
+如果使用增强版 SDK，请您按照如下方式设置 Podfile 文件：
 
 ```
 platform :macos, '10.10'
@@ -31,6 +31,16 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 target 'mac_test' do
 pod 'TXIMSDK_Mac'
+end
+```
+如果使用增强版 Pro SDK，请您按照如下方式设置 Podfile 文件：
+
+```
+platform :macos, '10.10'
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'mac_test' do
+pod 'TXIMSDK_Plus_Pro_Mac'
 end
 ```
 

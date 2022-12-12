@@ -1,13 +1,13 @@
 ## 操作场景
-用户不仅可以 [使用控制台配置日志采集](https://cloud.tencent.com/document/product/457/36771)，还可通过自定义资源定义（CustomResourceDefinitions，CRD）的方式配置日志采集。CRD 支持采集容器标准输出、容器文件和主机文件，支持多种日志采集格式。支持投递到 CLS 和 CKafka 等不同消费端。
+用户不仅可以 [使用控制台配置日志采集](https://cloud.tencent.com/document/product/457/36771)，还可通过自定义资源（CustomResourceDefinitions，CRD）的方式配置日志采集。CRD 支持采集容器标准输出、容器文件和主机文件，支持多种日志采集格式。支持投递到 CLS 和 CKafka 等不同消费端。
 
 ## 前提条件
-已在容器服务控制台 的 **[功能管理](https://console.cloud.tencent.com/tke2/ops/list?rid=8)** 中开启日志采集，详情参见 [开启日志采集](https://cloud.tencent.com/document/product/457/36771)。
+已在容器服务控制台的 **[运维功能管理](https://console.cloud.tencent.com/tke2/ops/list?rid=8)** 中开启日志采集，详情参见 [开启日志采集](https://cloud.tencent.com/document/product/457/36771)。
 
 
 
 ## 创建 CRD 投递日志到 CLS 
-您只需要定义 LogConfig CRD 即可创建采集配置，log-agent 根据 LogConfig CRD 的变化修改相应的日志服务 CLS 日志主题，并设置绑定的机器组。CRD 的格式如下:
+您只需要定义 LogConfig CRD 即可创建采集配置，log-agent 根据 LogConfig CRD 的变化修改相应的日志服务 CLS 日志主题，并设置绑定的机器组。CRD 的格式如下：
 ``` yaml
 apiVersion: cls.cloud.tencent.com/v1
 kind: LogConfig                              ## 默认值
@@ -57,7 +57,7 @@ spec:
       customLablels:
         k1: v1
 ```
-<dx-alert infotype="notice" title=" ">
+<dx-alert infotype="notice" title="">
 如果选择采集类型为“容器文件路径”时，对应的“容器文件路径”<b>不能为软链接</b>，否则会导致软链接的实际路径在采集器的容器内不存在，采集日志失败。
 </dx-alert>
 
@@ -65,10 +65,10 @@ spec:
 ### 配置 CLS 日志解析格式
 <dx-tabs>
 ::: 单行全文格式
-单行全文日志是指一行日志内容为一条完整的日志。日志服务在采集的时候，将使用换行符 `\n` 来作为一条日志日志的结束符。为了统一结构化管理，每条日志都会存在一个默认的键值 `__CONTENT__`，但日志数据本身不再进行日志结构化处理，也不会提取日志字段，日志属性的时间项由日志采集的时间决定。详情请参见 [单行全文格式](https://cloud.tencent.com/document/product/614/17421)。
+单行全文日志是指一条日志仅包含一行的内容，在采集的时候，将使用换行符`\n`来作为一条日志的结束符。为了统一结构化管理，每条日志都会存在一个默认的键值`__CONTENT__`，但日志数据本身不再进行日志结构化处理，也不会提取日志字段，日志属性的时间项由日志采集的时间决定。详情请参见 [单行全文格式](https://cloud.tencent.com/document/product/614/17421)。
 
-假设一条日志原始数据为：
-```
+假设您的一条日志原始数据为：
+```plaintext
 Tue Jan 22 12:08:15 CST 2019 Installed: libjpeg-turbo-static-1.2.90-6.el7.x86_64
 ```
 LogConfig 配置参考示例如下：
@@ -82,12 +82,12 @@ spec:
     logType: minimalist_log
 ```
 采集到日志服务的数据为：
-```
+```plaintext
 __CONTENT__:Tue Jan 22 12:08:15 CST 2019 Installed: libjpeg-turbo-static-1.2.90-6.el7.x86_64
 ```
 :::
 ::: 多行全文格式
-多行全文日志是指一条完整的日志数据可能跨占多行（例如 Java stacktrace）。该情况下无法使用换行符 `\n` 作为日志的结束标识符，为了使日志系统明确区分每条日志，采用首行正则的方式进行匹配，当某行日志匹配预先设置的正则表达式，即为一条日志的开头，而下一行首出现则作为该条日志的结束标识符。多行全文也会设置一个默认的键值 `__CONTENT__`，但日志数据本身不再进行日志结构化处理，也不会提取日志字段，日志属性的时间项由日志采集的时间决定。详情请参见 [多行全文格式](https://cloud.tencent.com/document/product/614/17422)。
+多行全文日志是指一条完整的日志数据跨占多行（例如 Java 程序日志）。该情况下无法使用换行符 `\n` 作为日志的结束标识符，为了使日志系统明确区分每条日志，采用首行正则的方式进行匹配，当某行日志匹配预先设置的正则表达式，即为一条日志的开头，而下一行首出现则作为该条日志的结束标识符。多行全文也会设置一个默认的键值 `__CONTENT__`，但日志数据本身不再进行日志结构化处理，也不会提取日志字段，日志属性的时间项由日志采集的时间决定。详情请参见 [多行全文格式](https://cloud.tencent.com/document/product/614/17422)。
 
 假设一条多行日志原始数据为：
 <dx-codeblock>

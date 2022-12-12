@@ -158,27 +158,38 @@ WebShell 已支持多种快捷键，您可在 WebShell 界面中查看已支持�
 
 
 
-您可通过该步骤，向实例上传本地文件，或将实例文件下载至本地。具体步骤如下：
+您可通过该步骤，向实例上传本地文件，或将实例文件下载至本地。具体步骤如下：<br>
 
+**上传文件：**
 1. 参考 [使用 WebShell 方式登录 Linux 实例](https://cloud.tencent.com/document/product/1207/44642)，登录实例。
-2. 选择 WebShell 界面工具栏中的 <img src="https://qcloudimg.tencent-cloud.cn/raw/81fbdd2c2b7cb70f17c508073496f58e.png" style="margin:-3px 0px">。
-3. 在弹出的菜单中，选择**上传**或**下载**。如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/a47daf701e2f526b7da764640e0b8793.png)
-具体操作步骤如下：
-    - **上传文件**：
-       1. 在弹出窗口的“选择上传文件和位置”窗口中，您可按需选择“本地上传”或 “URL上传”。
-       2. 选择“本地上传”，则请单击**点击上传**后选择本地文件。选择 “URL上传”，则请在 “URL地址”中输入需上传文件的 URL。
-       4. 选择需上传位置后，单击**确定**即可。
+2. 选择以下任意一种方式上传文件：
+	A. 拖拽上传。直接将本地文件拖进 WebShell 页面，即可上传文件。
+	B. 选择 WebShell 界面工具栏中的 <img src="https://qcloudimg.tencent-cloud.cn/raw/81fbdd2c2b7cb70f17c508073496f58e.png" style="margin:-3px 0px"> > **上传**，按需选择“本地上传”或 “URL上传”。
+	![](https://qcloudimg.tencent-cloud.cn/raw/be8bed15b836bc34773d87cd0e48105f.png)
+		&nbsp;&nbsp;a. 选择“本地上传”，则请单击**点击上传**后选择本地文件。选择 “URL上传”，则请在 “URL地址”中输入需上传文件的 URL。
+		&nbsp;&nbsp;b. 选择需上传位置后，单击**确定**即可。
 <dx-alert infotype="explain" title="">
 目前仅支持上传文件至  `home > lighthouse` 目录。
   </dx-alert>
-您可单击页面右下角的 <img src="https://qcloudimg.tencent-cloud.cn/raw/a78e204de7cde3473482732c8b9fef98.png" style="margin:-3px 0px">，在弹出窗口中查看操作结果。上传成功则如下图所示：
-    ![](https://qcloudimg.tencent-cloud.cn/raw/742c648fbb6191849f0f1b4ad31df288.png)
-    - **下载文件**：
-       1. 在弹出窗口的“下载文件”窗口中，依次再开目录，选择需下载的文件。
-       2. 单击**确定**，并在弹出窗口中，选择需存储的本地位置。
-       3. 您可单击页面右下角的 <img src="https://qcloudimg.tencent-cloud.cn/raw/a78e204de7cde3473482732c8b9fef98.png" style="margin:-3px 0px">，在弹出窗口中查看操作结果。下载成功则如下图所示：
-   ![](https://qcloudimg.tencent-cloud.cn/raw/5e54b868de203f3dd24e4213eb9ad194.png)
+3. 您可单击页面右下角的 <img src="https://qcloudimg.tencent-cloud.cn/raw/a78e204de7cde3473482732c8b9fef98.png" style="margin:-3px 0px">，在弹出窗口中查看操作结果。上传成功则如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/742c648fbb6191849f0f1b4ad31df288.png)
+
+
+
+
+**下载文件：**
+1. 参考 [使用 WebShell 方式登录 Linux 实例](https://cloud.tencent.com/document/product/1207/44642)，登录实例。
+2. 选择以下任意一种方式上传文件：
+ A：选择 WebShell 界面工具栏中的 <img src="https://qcloudimg.tencent-cloud.cn/raw/81fbdd2c2b7cb70f17c508073496f58e.png" style="margin:-3px 0px"> > **下载**。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/949a7c8ce622be22f5f74d029c42b3be.png)
+ B：选择所需文件右键 > 下载。
+<img style="width:900px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/47281d12404156294c8543d421afee8f.png" />
+
+3. 在弹出窗口的“下载文件”窗口中，依次再开目录，选择需下载的文件。
+4. 单击**确定**，并在弹出窗口中，选择需存储的本地位置。
+5. 您可单击页面右下角的 <img src="https://qcloudimg.tencent-cloud.cn/raw/a78e204de7cde3473482732c8b9fef98.png" style="margin:-3px 0px">，在弹出窗口中查看操作结果。下载成功则如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/5e54b868de203f3dd24e4213eb9ad194.png)
+
 
 :::
 ::: 使用实例自助检测[](id:selfCheck)
@@ -247,9 +258,3 @@ WebShell 已支持多种快捷键，您可在 WebShell 界面中查看已支持�
 
 :::
 </dx-accordion>
-
-
-
-
-
-
