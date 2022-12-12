@@ -25,7 +25,7 @@ Go2sky 是 Golang 提供给开发者实现 SkyWalking agent 探针的包，可�
 
 以下是基于 Go2Sky 的 Demo 改造示例，您可根据实际情况进行修改。
 
-1. 在 NewGRPCReporter 的时设置上报地址和 Authentication（上报地址与 Token 的获取方式参见 [步骤1](#step1)。
+1. 在 NewGRPCReporter 下上报地址和 Authentication（上报地址与 Token 的获取方式参见 [步骤1](#step1)。
 <dx-codeblock>
 :::  go
 report, err = reporter.NewGRPCReporter(
