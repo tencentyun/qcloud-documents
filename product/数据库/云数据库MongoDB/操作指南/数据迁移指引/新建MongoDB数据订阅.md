@@ -52,15 +52,15 @@ db.createUser({
  - 订阅实例名称：编辑当前数据订阅实例的名称。
  - 购买数量：单次购买最多支持10个任务。
 3. 购买成功后，返回数据订阅列表，选择刚才购买的任务，在**操作**列单击**配置订阅**。
-![img](https://write.woa.com/assets/token/download?token=ad893f66c0ef4104e2c02b45bdd85c415f654da5)
+![](https://qcloudimg.tencent-cloud.cn/raw/f51308eb148cf30e40bb4dc423bb6fff.png)
 4. 在配置数据库订阅页面，配置源库信息后，单击**测试连通性**，通过后单击**下一步**。
  - 接入类型：目前仅支持**云数据库**。
  - 云数据库实例：选择云数据库实例 ID。
  - 数据库帐号/密码：添加订阅实例的帐号和密码，帐号具有只读权限。
  - kafka 分区数量：设置 kafka 分区数量，增加分区数量可提高数据写入和消费的速度。单分区可以保障消息的顺序，多分区无法保障消息顺序，如果您对消费到消息的顺序有严格要求，请选择 kafka 分区数量为1。
-<img src="https://write.woa.com/assets/token/download?token=c2f4c6084c614a1e7f3d5682df514b6bfefe5810"  style="zoom:40%;">
+<img src="https://qcloudimg.tencent-cloud.cn/raw/9433884ea107b171728ebe644210d4c2.png"  style="zoom:40%;">
 5. 在订阅类型和对象选择页面，选择订阅参数后，单击**保存配置**。
-![img](https://write.woa.com/assets/token/download?token=a7c66f0ff6f1ab7ebf473aef40dfd2a4c2408cdc)
+![](https://qcloudimg.tencent-cloud.cn/raw/346774ee98c3e49bc8e35fd63464c39a.png)
 <table>
 <thead><tr><th>参数</th><th>说明</th></tr></thead>
 <tbody><tr>
@@ -82,7 +82,7 @@ db.createUser({
 6. 在预校验页面，预校验任务预计会运行2分钟 - 3分钟，预校验通过后，单击**启动**完成数据订阅任务配置。
 >?如果校验失败，请参考 [校验不通过处理方法](https://cloud.tencent.com/document/product/571/58685) 进行修正，并重新进行校验。
 >
-![img](https://write.woa.com/assets/token/download?token=7d623ab4493112523cdc32a3c47d2bdc6bd62428)
+![](https://qcloudimg.tencent-cloud.cn/raw/0c06e3d6bb88fe23f1462d37a48a0644.png)
 7. 订阅任务进行初始化，预计会运行3分钟 - 4分钟，初始化成功后进入**运行中**状态。
 
 ## 后续操作
