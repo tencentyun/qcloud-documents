@@ -93,4 +93,4 @@ addEventListener('fetch', async (event) => {
 >!每一次重定向都会计入请求次数，且其优先级高于新发起的 `fetch` 请求。
 
 ## 参考
-* [MDN 官方文档：fetch](https://developer.mozilla.org/en-US/docs/Web/API/fetch)
+- [MDN 官方文档：fetch](https://developer.mozilla.org/en-US/docs/Web/API/fetch)
