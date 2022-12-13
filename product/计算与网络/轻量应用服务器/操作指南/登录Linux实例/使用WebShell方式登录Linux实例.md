@@ -179,8 +179,12 @@ WebShell 已支持多种快捷键，您可在 WebShell 界面中查看已支持�
 
 **下载文件：**
 1. 参考 [使用 WebShell 方式登录 Linux 实例](https://cloud.tencent.com/document/product/1207/44642)，登录实例。
-2. 选择 WebShell 界面工具栏中的 <img src="https://qcloudimg.tencent-cloud.cn/raw/81fbdd2c2b7cb70f17c508073496f58e.png" style="margin:-3px 0px"> > **下载**。如下图所示：
+2. 选择以下任意一种方式上传文件：
+ A：选择 WebShell 界面工具栏中的 <img src="https://qcloudimg.tencent-cloud.cn/raw/81fbdd2c2b7cb70f17c508073496f58e.png" style="margin:-3px 0px"> > **下载**。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/949a7c8ce622be22f5f74d029c42b3be.png)
+ B：选择所需文件右键 > 下载。
+<img style="width:900px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/47281d12404156294c8543d421afee8f.png" />
+
 3. 在弹出窗口的“下载文件”窗口中，依次再开目录，选择需下载的文件。
 4. 单击**确定**，并在弹出窗口中，选择需存储的本地位置。
 5. 您可单击页面右下角的 <img src="https://qcloudimg.tencent-cloud.cn/raw/a78e204de7cde3473482732c8b9fef98.png" style="margin:-3px 0px">，在弹出窗口中查看操作结果。下载成功则如下图所示：
@@ -254,9 +258,3 @@ WebShell 已支持多种快捷键，您可在 WebShell 界面中查看已支持�
 
 :::
 </dx-accordion>
-
-
-
-
-
-

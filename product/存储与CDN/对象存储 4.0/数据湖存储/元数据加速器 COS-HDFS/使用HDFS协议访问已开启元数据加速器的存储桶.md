@@ -21,7 +21,7 @@
 3. 在 HDFS 权限配置栏中，单击**新增权限配置**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/b1708a946fae9c4722e1c809770ee26b.png)
 4. 在 VPC 网络名称列选择计算集群所在的 VPC 网络地址，在节点 IP 地址列填写 VPC 网段下需要放通的 IP 地址或者 IP 段，访问类型选择读写或者只读，配置完成后，单击**保存**即可。
->? HDFS 权限配置与原生 COS 权限体系存在差异。当您使用 HDFS 协议访问时，推荐通过配置 HDFS 权限授权指定 VPC 内机器访问 COS 存储桶，以便获取和原生 HDFS 一致的权限体验。
+>? **HDFS 权限配置**与原生 COS 权限体系存在差异。当您使用 HDFS 协议访问时，推荐通过配置 HDFS 权限授权指定 VPC 内机器访问 COS 存储桶，以便获取和原生 HDFS 一致的权限体验。
 
 ## 配置计算集群访问 COS
 
@@ -70,7 +70,7 @@ sh update_cos_jar.sh  https://hadoop-jar-beijing-1259378398.cos.ap-beijing.myqcl
     -  emr.temrfs.tmp.cache.dir=/data/emr/hdfs/tmp/temrfs 
  - core-site.xml 中修改配置 fs.cosn.impl=com.qcloud.emr.fs.TemrfsHadoopFileSystemAdapter。
 
-4. 在 EMR 控制台配置 core-site.xml，新增配置项 `fs.cosn.bucket.region` ， `fs.cosn.trsf.fs.ofs.bucket.region` 该参数用于指定存储桶所在的 COS 地域，例如 `ap-shanghai`。
+4. 在 [EMR 控制台](https://console.cloud.tencent.com/emr) 配置 core-site.xml，新增配置项 `fs.cosn.bucket.region` ， `fs.cosn.trsf.fs.ofs.bucket.region` 该参数用于指定存储桶所在的 COS 地域，例如 `ap-shanghai`。
 >!`fs.cosn.bucket.region` 和 `fs.cosn.trsf.fs.ofs.bucket.region` 必须配置，该参数用于指定存储桶所在的 COS 地域，例如 `ap-shanghai`。
 >
 5. 重启 Yarn、Hive、Presto、Impala 等一些常驻服务。
@@ -159,7 +159,7 @@ HDFS 协议默认采用原生 POSIX ACL 方式进行鉴权，如果需要使用 
 ### EMR 环境
 
 1. EMR 环境集成了 COSRanger 服务，在 EMR 集群购买时勾选 COSRanger 服务。
-2. 在 HDFS 协议的 HDFS 鉴权模式下，选择 Ranger 鉴权模式，配置上 Ranger 相应的地址信息即可。如下图所示：
+2. 在 HDFS 协议的 **HDFS 鉴权模式**下，选择 **Ranger 鉴权模式**，配置上 Ranger 相应的地址信息即可。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/c73328e1b15dba214d75a07fe3cdbc36.png)
  - 在 core-site.xml 中新增配置项：fs.cosn.credentials.provider，设置为 org.apache.hadoop.fs.auth.RangerCredentialsProvider。
  - 如果遇到 Ranger 相关问题，可参见 [Ranger 介绍说明](https://cloud.tencent.com/document/product/436/51125)。
@@ -167,7 +167,7 @@ HDFS 协议默认采用原生 POSIX ACL 方式进行鉴权，如果需要使用 
 ### 自建 Hadoop/CDH 等环境
 
 1. 配置 Ranger 服务，通过 Ranger 服务以 HDFS 协议访问 COS，详情请参见 [COS Ranger 权限体系解决方案](https://cloud.tencent.com/document/product/436/51125) 文档。
-2. 在 HDFS 协议的 HDFS 鉴权模式下，选择 Ranger 鉴权模式，配置上 Ranger 相应的地址信息即可。如下图所示：
+2. 在 HDFS 协议的 **HDFS 鉴权模式**下，选择 **Ranger 鉴权模式**，配置上 Ranger 相应的地址信息即可。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/c73328e1b15dba214d75a07fe3cdbc36.png)
  - 在 core-site.xml 中新增配置项：fs.cosn.credentials.provider，设置为：org.apache.hadoop.fs.auth.RangerCredentialsProvider。
  - 如果遇到 Ranger 相关问题，可参见 [Ranger 介绍说明](https://cloud.tencent.com/document/product/436/80261)。

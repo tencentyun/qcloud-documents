@@ -241,10 +241,9 @@ Container 节点 SuffixConfiguration 的内容：
 
 
 ## 实际案例
-
-#### 案例一：普通 Mirror 模式
-
-
+<dx-tabs>
+::: 案例1
+**普通 Mirror 模式**
 #### 请求
 
 ```plaintext
@@ -302,10 +301,9 @@ Date: Sun, 28 Apr 2019 12:02:45 GMT
 Server: tencent-cos
 x-cos-request-id: NWNjNTk2NTFfMmM4OGY3MGFfNadfadsfY2****
 ```
-
-
-#### 案例二：带权重的 Mirror 模式
-
+:::
+::: 案例2
+**带权重的 Mirror 模式**
 在如下示例中，回源会透传除 x-cos-example-header 之外原始请求的所有头部；规则指定了两个回源源站，源站1 `bucketname1-appid.cos.region.myqcloud.com` 和源站2 `bucketname2-appid.cos.region.myqcloud.com`，权重分别为8和2，80%的回源请求会访问源站1，20%的回源请求会访问源站2。
 
 
@@ -363,10 +361,9 @@ Date: Sun, 28 Apr 2019 12:02:25 GMT
 Server: tencent-cos
 x-cos-request-id: NWNjNTk2NTFfMmM4OGY3MGFfNTI1****
 ```
-
-#### 案例三：Proxy 模式
-
-
+:::
+::: 案例3
+**Proxy 模式**
 #### 请求
 
 ```plaintext
@@ -425,11 +422,9 @@ Date: Sun, 28 Apr 2019 12:02:45 GMT
 Server: tencent-cos
 x-cos-request-id: NWNjNTk2NTFfMmM4OGY3MGFfNadfadsfY****
 ```
-
-
-#### 案例四：Redirect 模式
-
-
+:::
+::: 案例4
+**Redirect 模式**
 #### 请求
 
 ```plaintext
@@ -472,5 +467,5 @@ Date: Sun, 28 Apr 2019 12:02:25 GMT
 Server: tencent-cos
 x-cos-request-id: NWNjNTk2NTFfMmM4OGY3MGFfNTI1****
 ```
-
-
+:::
+</dx-tabs>

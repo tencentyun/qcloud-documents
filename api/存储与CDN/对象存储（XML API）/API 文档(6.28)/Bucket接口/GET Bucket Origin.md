@@ -195,7 +195,7 @@ Container 节点 Header 的内容：
 
 | 节点名称（关键字） | 父节点                         | 描述                                             | 类型      |
 | :----------------- | :----------------------------- | :----------------------------------------------- | :-------- | 
-| Key         | OriginConfiguration.OriginRule.OriginParameter.<br/>HttpHeader.NewHttpHeader.UserMetaData | 用户设置的头部名称，默认为空。形式如 `x-A-B`，A 支持填入 `cos` 或`oss`或`amz`，B 支持填入 `ContentType` 或 `CacheControl` 或 `ContentDisposition` 或 `ContentEncoding` 或 `HttpExpiresDate` 或 `UserMetaData`                        | String | 
+| Key         | OriginConfiguration.OriginRule.OriginParameter.<br/>HttpHeader.NewHttpHeader.UserMetaData | 用户设置的头部名称，默认为空。形式如 `x-A-B`，A 支持填入 `cos` 或 `oss` 或 `amz`，B 支持填入 `ContentType` 或 `CacheControl` 或 `ContentDisposition` 或 `ContentEncoding` 或 `HttpExpiresDate` 或 `UserMetaData`                        | String | 
 | Value         | OriginConfiguration.OriginRule.OriginParameter.<br/>HttpHeader.NewHttpHeader.UserMetaData | 用户设置的头部值，默认为空。                        | String |
 
 Container 节点 OriginInfo 的内容：
@@ -211,7 +211,7 @@ Container 节点 HostInfo 的内容：
 | :----------------- | :----------------------------- | :----------------------------------------------- | :-------- | 
 | HostName         | OriginConfiguration.OriginRule.<br/>OriginInfo.HostInfo | 源站域名或者源站 IP。                        | String | 
 |Weight         | OriginConfiguration.OriginRule.OriginInfo.HostInfo | 源站权重，Mirror 模式下配置了多个源站时，会根据权重按比例回源。                       |Integer | 
-| StandbyHostName_N         | OriginConfiguration.OriginRule.OriginInfo.HostInfo | 备份回源地址，最多支持填入10条备份回源地址，节点命名依次按照1-10编号，例如`StandbyHostName_1`、`StandbyHostName_2`......`StandbyHostName_10`                        | String |
+| StandbyHostName_N         | OriginConfiguration.OriginRule.OriginInfo.HostInfo | 备份回源地址，最多支持填入10条备份回源地址，节点命名依次按照1-10编号，例如 `StandbyHostName_1`、`StandbyHostName_2`......`StandbyHostName_10`                        | String |
 
 Container 节点 FileInfo 的内容：
 
