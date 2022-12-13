@@ -10,7 +10,7 @@
 
 1. 登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse/instance/index)。
 2. 单击**新建**，进入轻量应用服务器购买页面。
-![](https://qcloudimg.tencent-cloud.cn/raw/f1dbf1b9550099977d07fc2b9a78139f.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/a8d0b68ec0210eef232d23534ea58207.png)
  - **地域**：建议选择靠近目标客户的地域，降低网络延迟、提高您的客户的访问速度。例如目标客户在 “深圳”，地域选择 “广州”。
  - **可用区**：默认勾选“随机分配”，也可自行选择可用区。
  - **镜像**：选择您需要的轻量应用服务器操作系统。此处我们选择 CentOS 8.0 系统镜像。
