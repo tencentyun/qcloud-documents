@@ -1,6 +1,6 @@
 
 
-使用缓存 API 缓存 POST 请求
+使用 Cache API 缓存 POST 请求
 
 ```js
 async function sha256(message) {
@@ -31,7 +31,6 @@ async function handlePostRequest(event) {
   
   // 匹配缓存
   let response = await cache.match(cacheKey);
-  log('tomtomyang test cache: handlePostRequest cache match', response);
   
   // 缓存没有命中
   if (!response) {
@@ -52,8 +51,6 @@ addEventListener('fetch', (event) => {
     return event.respondWith(new Response('Error thrown ' + e.message));
   }
 });
-
-
 
 
 ```
