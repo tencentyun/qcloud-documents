@@ -402,7 +402,7 @@ crypto.subtle.unwrapKey(format: string, wrappedKey: ArrayBuffer, unwrappingKey: 
 <tr>
 <td>SHA-256</td>
 <td>-</td>
-<td></td>
+<td>-</td>
 <td>-</td>
 <td>-</td>
 <td>-</td>
