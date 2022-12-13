@@ -8,7 +8,7 @@
 	<tr>
 <td><center>V3.11.170</td>	
 <td>
-1. Rooms 支持勿扰模式。
+1. Rooms 支持勿扰模式。<br>
 2. Rooms 支持三屏模式。
 </td>
 <td><center>2022-12-07</td>	
