@@ -242,211 +242,209 @@ crypto.subtle.unwrapKey(format: string, wrappedKey: ArrayBuffer, unwrappingKey: 
 
 ## 支持算法
 边缘函数支持 Web APIs 标准 [WebCrypto](https://www.w3.org/TR/WebCryptoAPI/) 定义的所有算法，详细如下表所示。
-
 <table>
-  <thead>
-    <tr>
-      <th width="200px">algorithm</th>
-      <th>encrypt()</br>decrypt()</th>
-      <th>sign()<br>verify()</th>
-      <th>wrapKey()<br>unwrapKey()</th>
-      <th>deriveKey()<br>deriveBits()</th>
-      <th>generateKey()</th>
-      <th>importKey()</th>
-      <th>exportKey()</th>
-      <th>digest()</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>RSASSA-PKCS1-v1_5</td>
-      <td></td>
-      <td>✓</td>
-      <td></td>
-      <td></td>
-      <td>✓</td>
-      <td>✓</td>
-      <td>✓</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>RSA-PSS</td>
-      <td></td>
-      <td>✓</td>
-      <td></td>
-      <td></td>
-      <td>✓</td>
-      <td>✓</td>
-      <td>✓</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>RSA-OAEP</td>
-      <td>✓</td>
-      <td></td>
-      <td>✓</td>
-      <td></td>
-      <td>✓</td>
-      <td>✓</td>
-      <td>✓</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>ECDSA</td>
-      <td></td>
-      <td>✓</td>
-      <td></td>
-      <td></td>
-      <td>✓</td>
-      <td>✓</td>
-      <td>✓</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>ECDH</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td>✓</td>
-      <td>✓</td>
-      <td>✓</td>
-      <td>✓</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>HMAC</td>
-      <td></td>
-      <td>✓</td>
-      <td></td>
-      <td></td>
-      <td>✓</td>
-      <td>✓</td>
-      <td>✓</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>AES-CTR</td>
-      <td>✓</td>
-      <td></td>
-      <td>✓</td>
-      <td></td>
-      <td>✓</td>
-      <td>✓</td>
-      <td>✓</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>AES-CBC</td>
-      <td>✓</td>
-      <td></td>
-      <td>✓</td>
-      <td></td>
-      <td>✓</td>
-      <td>✓</td>
-      <td>✓</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>AES-GCM</td>
-      <td>✓</td>
-      <td></td>
-      <td>✓</td>
-      <td></td>
-      <td>✓</td>
-      <td>✓</td>
-      <td>✓</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>AES-KW</td>
-      <td></td>
-      <td></td>
-      <td>✓</td>
-      <td></td>
-      <td>✓</td>
-      <td>✓</td>
-      <td>✓</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>HKDF</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td>✓</td>
-      <td></td>
-      <td>✓</td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>PBKDF2</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td>✓</td>
-      <td></td>
-      <td>✓</td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>SHA-1</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td>✓</td>
-    </tr>
-    <tr>
-      <td>SHA-256</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td>✓</td>
-    </tr>
-    <tr>
-      <td>SHA-384</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td>✓</td>
-    </tr>
-    <tr>
-      <td>SHA-512</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td>✓</td>
-    </tr>
-    <tr>
-      <td>MD5</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td>✓</td>
-    </tr>
-  </tbody>
-</table>
+<thead>
+<tr>
+<th width="12%">lgorithm</th>
+<th width="11%">encrypt() decrypt()</th>
+<th width="11%">sign() verify()</th>
+<th width="11%">wrapKey() unwrapKey()</th>
+<th width="11%">deriveKey() deriveBits()</th>
+<th width="11%">generateKey()</th>
+<th width="11%">importKey()</th>
+<th width="11%">exportKey()</th>
+<th width="11%">digest()</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>RSASSA-PKCS1-v1_5</td>
+<td>-</td>
+<td>✓</td>
+<td>-</td>
+<td>-</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>-</td>
+</tr>
+<tr>
+<td>RSA-PSS</td>
+<td>-</td>
+<td>✓</td>
+<td>-</td>
+<td>-</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>-</td>
+</tr>
+<tr>
+<td>RSA-OAEP</td>
+<td>✓</td>
+<td>-</td>
+<td>✓</td>
+<td>-</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>-</td>
+</tr>
+<tr>
+<td>ECDSA</td>
+<td>-</td>
+<td>✓</td>
+<td>-</td>
+<td>-</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>-</td>
+</tr>
+<tr>
+<td>ECDH</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>-</td>
+</tr>
+<tr>
+<td>HMAC</td>
+<td>-</td>
+<td>✓</td>
+<td>-</td>
+<td>-</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>-</td>
+</tr>
+<tr>
+<td>AES-CTR</td>
+<td>✓</td>
+<td>-</td>
+<td>✓</td>
+<td>-</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>-</td>
+</tr>
+<tr>
+<td>AES-CBC</td>
+<td>✓</td>
+<td>-</td>
+<td>✓</td>
+<td>-</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>-</td>
+</tr>
+<tr>
+<td>AES-GCM</td>
+<td>✓</td>
+<td>-</td>
+<td>✓</td>
+<td>-</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>-</td>
+</tr>
+<tr>
+<td>AES-KW</td>
+<td>-</td>
+<td>-</td>
+<td>✓</td>
+<td>-</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>-</td>
+</tr>
+<tr>
+<td>HKDF</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>✓</td>
+<td>-</td>
+<td>✓</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>PBKDF2</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>✓</td>
+<td>-</td>
+<td>✓</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>SHA-1</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>SHA-256</td>
+<td>-</td>
+<td></td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>SHA-384</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>SHA-512</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>MD5</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>✓</td>
+</tr>
+</tbody></table>
+
 
 ## 参考
 - [MDN 官方文档：Web Crypto API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API)
