@@ -5,7 +5,7 @@
 ## 查看帐号管理列表
 1. 登录 [SQL Server 控制台](https://console.cloud.tencent.com/sqlserver)。
 2. 在实例列表找到目标实例，单击其操作列的**管理**进入实例详情页。
-3. 单击**帐号管理**即可进入账号管理页。
+3. 单击**帐号管理**即可进入帐号管理页。
 ![](https://qcloudimg.tencent-cloud.cn/raw/710389c2196211ad2685625eadc0011d.png)
 
 ## 工具项
@@ -16,7 +16,7 @@
 | 搜索框 | 单击![](https://qcloudimg.tencent-cloud.cn/raw/4e9962a6b05796851af7e63f3bea18dc.png)进行过滤，支持模糊搜索帐号名快速查找相关账号。 |
 | 刷新 | 单击![](https://qcloudimg.tencent-cloud.cn/raw/309481e9077b12e66da812127caa683a.png)可刷新列表。 |
 
-## 账号列表字段信息
+## 帐号列表字段信息
 
 | 字段 | 说明 |
 |---------|---------|
