@@ -16,7 +16,7 @@
 | 搜索框 | 单击![](https://qcloudimg.tencent-cloud.cn/raw/4e9962a6b05796851af7e63f3bea18dc.png)进行过滤，支持模糊搜索帐号名快速查找相关账号。 |
 | 刷新 | 单击![](https://qcloudimg.tencent-cloud.cn/raw/309481e9077b12e66da812127caa683a.png)可刷新列表。 |
 
-## 帐号列表字段信息
+## 账号列表字段信息
 
 | 字段 | 说明 |
 |---------|---------|
@@ -29,7 +29,11 @@
 | 备注 | 显示对应账号的备注描述。 |
 | 操作 | <li>设置权限：为帐号设置对指定数据库的读写或只读权限。<li>重置密码：为帐号重置密码。<li>删除账号：删除对应账号。 |
 
+>?帐号列表的各个操作功能，均支持勾选多个帐号后，通过单击帐号列表上方的批量管理对应批量操作。
+>![](https://qcloudimg.tencent-cloud.cn/raw/d0fcf8973ccb6f6030b239f14bbe764d.png)
+
 ## 相关操作
+- [创建帐号](https://cloud.tencent.com/document/product/238/7521)
 - [修改帐号权限](https://cloud.tencent.com/document/product/238/43236)
 - [重置密码](https://cloud.tencent.com/document/product/238/43235)
 - [删除帐号](https://cloud.tencent.com/document/product/238/43237)
