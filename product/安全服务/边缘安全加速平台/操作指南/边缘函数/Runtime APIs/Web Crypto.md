@@ -210,7 +210,7 @@ crypto.subtle.unwrapKey(format: string, wrappedKey: ArrayBuffer, unwrappingKey: 
 ## CryptoKeyPair[](id:CryptoKeyPair)
 `CryptoKeyPair` 表示用加密算法生成的密钥对，详细参见 [MDN 官方文档：CryptoKeyPair](https://developer.mozilla.org/en-US/docs/Web/API/CryptoKeyPair)。不支持直接构造 CryptoKeyPair 对象，使用下述接口生成密钥对：
 
-- [crypto.subtle.generateKey](#:generateKey)
+- [crypto.subtle.generateKey](#generateKey)
 
 `CryptoKeyPair` 属性描述如下。
 
