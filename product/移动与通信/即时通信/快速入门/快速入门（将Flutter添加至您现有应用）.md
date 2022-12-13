@@ -863,7 +863,7 @@ _coreInstance.setDataFromNative(userId: chatInfo?.userID ?? "");
 
 如果您还有任何疑问，欢迎随时联系我们。
 
-![](https://qcloudimg.tencent-cloud.cn/raw/eacb194c77a76b5361b2ae983ae63260.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/a84877f32b95ee7c82e07e7c430e5d98.png)
 
 ## Reference
 

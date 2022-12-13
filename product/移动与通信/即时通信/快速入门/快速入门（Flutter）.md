@@ -816,6 +816,6 @@ defaultConfig {
 
 ## 联系我们
 
-如果您在接入使用过程中有任何疑问，请加入 QQ 群：788910197 咨询。
+如果您在接入使用过程中有任何疑问，请扫码加入微信群，或加入QQ群：788910197 咨询。
 
-![](https://qcloudimg.tencent-cloud.cn/raw/eacb194c77a76b5361b2ae983ae63260.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/a84877f32b95ee7c82e07e7c430e5d98.png)
