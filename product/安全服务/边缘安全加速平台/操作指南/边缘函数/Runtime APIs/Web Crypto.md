@@ -258,193 +258,192 @@ crypto.subtle.unwrapKey(format: string, wrappedKey: ArrayBuffer, unwrappingKey: 
 </thead>
 <tbody><tr>
 <td>RSASSA-PKCS1-v1_5</td>
-<td>-</td>
+<td style="color:#aaa">-</td>
 <td>✓</td>
-<td>-</td>
-<td>-</td>
+<td style="color:#aaa">-</td>
+<td style="color:#aaa">-</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
-<td>-</td>
+<td style="color:#aaa">-</td>
 </tr>
 <tr>
 <td>RSA-PSS</td>
-<td>-</td>
+<td style="color:#aaa">-</td>
 <td>✓</td>
-<td>-</td>
-<td>-</td>
+<td style="color:#aaa">-</td>
+<td style="color:#aaa">-</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
-<td>-</td>
+<td style="color:#aaa">-</td>
 </tr>
 <tr>
 <td>RSA-OAEP</td>
 <td>✓</td>
-<td>-</td>
+<td style="color:#aaa">-</td>
 <td>✓</td>
-<td>-</td>
+<td style="color:#aaa">-</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
-<td>-</td>
+<td style="color:#aaa">-</td>
 </tr>
 <tr>
 <td>ECDSA</td>
-<td>-</td>
+<td style="color:#aaa">-</td>
 <td>✓</td>
-<td>-</td>
-<td>-</td>
+<td style="color:#aaa">-</td>
+<td style="color:#aaa">-</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
-<td>-</td>
+<td style="color:#aaa">-</td>
 </tr>
 <tr>
 <td>ECDH</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
+<td style="color:#aaa">-</td>
+<td style="color:#aaa">-</td>
+<td style="color:#aaa">-</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
-<td>-</td>
+<td style="color:#aaa">-</td>
 </tr>
 <tr>
 <td>HMAC</td>
-<td>-</td>
+<td style="color:#aaa">-</td>
 <td>✓</td>
-<td>-</td>
-<td>-</td>
+<td style="color:#aaa">-</td>
+<td style="color:#aaa">-</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
-<td>-</td>
+<td style="color:#aaa">-</td>
 </tr>
 <tr>
 <td>AES-CTR</td>
 <td>✓</td>
-<td>-</td>
+<td style="color:#aaa">-</td>
 <td>✓</td>
-<td>-</td>
+<td style="color:#aaa">-</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
-<td>-</td>
+<td style="color:#aaa">-</td>
 </tr>
 <tr>
 <td>AES-CBC</td>
 <td>✓</td>
-<td>-</td>
+<td style="color:#aaa">-</td>
 <td>✓</td>
-<td>-</td>
+<td style="color:#aaa">-</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
-<td>-</td>
+<td style="color:#aaa">-</td>
 </tr>
 <tr>
 <td>AES-GCM</td>
 <td>✓</td>
-<td>-</td>
+<td style="color:#aaa">-</td>
 <td>✓</td>
-<td>-</td>
+<td style="color:#aaa">-</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
-<td>-</td>
+<td style="color:#aaa">-</td>
 </tr>
 <tr>
 <td>AES-KW</td>
-<td>-</td>
-<td>-</td>
+<td style="color:#aaa">-</td>
+<td style="color:#aaa">-</td>
 <td>✓</td>
-<td>-</td>
+<td style="color:#aaa">-</td>
 <td>✓</td>
 <td>✓</td>
 <td>✓</td>
-<td>-</td>
+<td style="color:#aaa">-</td>
 </tr>
 <tr>
 <td>HKDF</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
+<td style="color:#aaa">-</td>
+<td style="color:#aaa">-</td>
+<td style="color:#aaa">-</td>
 <td>✓</td>
-<td>-</td>
+<td style="color:#aaa">-</td>
 <td>✓</td>
-<td>-</td>
-<td>-</td>
+<td style="color:#aaa">-</td>
+<td style="color:#aaa">-</td>
 </tr>
 <tr>
 <td>PBKDF2</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
+<td style="color:#aaa">-</td>
+<td style="color:#aaa">-</td>
+<td style="color:#aaa">-</td>
 <td>✓</td>
-<td>-</td>
+<td style="color:#aaa">-</td>
 <td>✓</td>
-<td>-</td>
-<td>-</td>
+<td style="color:#aaa">-</td>
+<td style="color:#aaa">-</td>
 </tr>
 <tr>
 <td>SHA-1</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
+<td style="color:#aaa">-</td>
+<td style="color:#aaa">-</td>
+<td style="color:#aaa">-</td>
+<td style="color:#aaa">-</td>
+<td style="color:#aaa">-</td>
+<td style="color:#aaa">-</td>
+<td style="color:#aaa">-</td>
 <td>✓</td>
 </tr>
 <tr>
 <td>SHA-256</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
+<td style="color:#aaa">-</td>
+<td style="color:#aaa">-</td>
+<td style="color:#aaa">-</td>
+<td style="color:#aaa">-</td>
+<td style="color:#aaa">-</td>
+<td style="color:#aaa">-</td>
+<td style="color:#aaa">-</td>
 <td>✓</td>
 </tr>
 <tr>
 <td>SHA-384</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
+<td style="color:#aaa">-</td>
+<td style="color:#aaa">-</td>
+<td style="color:#aaa">-</td>
+<td style="color:#aaa">-</td>
+<td style="color:#aaa">-</td>
+<td style="color:#aaa">-</td>
+<td style="color:#aaa">-</td>
 <td>✓</td>
 </tr>
 <tr>
 <td>SHA-512</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
+<td style="color:#aaa">-</td>
+<td style="color:#aaa">-</td>
+<td style="color:#aaa">-</td>
+<td style="color:#aaa">-</td>
+<td style="color:#aaa">-</td>
+<td style="color:#aaa">-</td>
+<td style="color:#aaa">-</td>
 <td>✓</td>
 </tr>
 <tr>
 <td>MD5</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
+<td style="color:#aaa">-</td>
+<td style="color:#aaa">-</td>
+<td style="color:#aaa">-</td>
+<td style="color:#aaa">-</td>
+<td style="color:#aaa">-</td>
+<td style="color:#aaa">-</td>
+<td style="color:#aaa">-</td>
 <td>✓</td>
 </tr>
 </tbody></table>
-
 
 ## 参考
 - [MDN 官方文档：Web Crypto API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API)
