@@ -16,7 +16,9 @@
 
 
 >!1. 标准的容灾 ticket 格式为：
- `terror_{前端错误码，比如1006}_{CaptchaAppId}_{时间戳}`
+ ```.js
+ terror_{前端错误码，比如1006}_{CaptchaAppId}_{时间戳}
+ ```
 标准容灾 ticket 票据校验时，验证码返回 code = 21，其他 terror 开头的票据校验若识别不出 CaptchaAppId 时，将返回 code = 16。
 2. 容灾 ticket 来源包括：
  - 验证码自身为了在用户网络异常、系统异常情况下，保障业务正常运行而产生的 ticket。
