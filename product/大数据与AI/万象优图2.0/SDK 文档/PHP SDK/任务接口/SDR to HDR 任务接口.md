@@ -104,7 +104,7 @@ Container 类型 Operation 的具体数据描述如下：
 | UserData            | Request.Operation | 透传用户信息, 可打印的 ASCII 码, 长度不超过1024              | String         | 否       |
 | JobLevel            | Request.Operation | 任务优先级，级别限制：0 、1 、2。级别越大任务优先级越高，默认为0 | String         | 否       |
 
-> 说明：
+>?
 >
 > 提交 SDRtoHDR 任务必须传入转码参数。对于转码参数，优先使用 TranscodeTemplateId，无 TranscodeTemplateId 时使用 Transcode；对于水印参数，可以使用 WatermarkTemplateId 或Watermark 设置，WatermarkTemplateId 优先级更高。
 
