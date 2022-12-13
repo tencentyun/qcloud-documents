@@ -3,7 +3,7 @@
 
 ## 前提条件
 - 已 [注册腾讯云账户](https://cloud.tencent.com/register)。
--  已创建集群。关于创建集群，详情请参见 [创建集群](https://cloud.tencent.com/document/product/457/32189)。
+- 已创建集群。操作详情请参见 [创建集群](https://cloud.tencent.com/document/product/457/32189)。
 
 ## 操作步骤
 
