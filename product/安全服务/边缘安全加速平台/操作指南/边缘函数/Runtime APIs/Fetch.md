@@ -19,14 +19,14 @@ function fetch(request: string | Request, init?: RequestInit): Promise<Response>
   <tbody>
     <tr>
       <td>request</td>
-      <td>string | <a href="/document/product/1552/81902">Request</a></td>
+      <td>string | <a href="https://cloud.tencent.com/document/product/1552/81902">Request</a></td>
       <td>是</td>
       <td>指定将要获取的请求资源。</li>
       </td>
     </tr>
     <tr>
       <td>init</td>
-      <td><a href="/document/product/1552/81902">RequestInit</a></td>
+      <td><a href="https://cloud.tencent.com/document/product/1552/81902">RequestInit</a></td>
       <td>否</td>
       <td>
         请求对象的初始化配置项。详情请参见 <a href="https://cloud.tencent.com/document/product/1552/81902">RequestInit</a>
