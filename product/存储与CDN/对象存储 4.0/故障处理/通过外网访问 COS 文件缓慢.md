@@ -56,7 +56,7 @@ mtr examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 ```
 ![](https://qcloudimg.tencent-cloud.cn/raw/fb38db63ae5be18971e71d8492ef8c15.png)
 然后可以查看 Host 这一列，这些 IP 就是请求网络链路，对这些 IP 地址查看来源。
-例如，在北京访问重庆的存储桶，那么这里的 IP 就不能去其他地方，例如您发现中间一个 IP 跑到了香港，这就是有问题的。
+例如，在北京访问重庆的存储桶，那么这里的 IP 就不能去其他地方，例如您发现中间一个 IP 跑到了中国香港，这就是有问题的。
 
 4. 执行 nslookup 命令，查看域名解析是否正常。
 ```
@@ -91,12 +91,12 @@ tcpdump host examplebucket-1250000000.cos.ap-beijing.myqcloud.com -w test.cap
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/a60e9af0ed1406595380878a084aec0c.png)
 
-在 IP 地址这一列，这些 IP 就是请求网络链路，对这些 IP 地址查看来源。例如，在北京访问重庆的存储桶，那么这里的 IP 不会出现香港 IP，否则是有问题的。
+在 IP 地址这一列，这些 IP 就是请求网络链路，对这些 IP 地址查看来源。例如，在北京访问重庆的存储桶，那么这里的 IP 不会出现中国香港 IP，否则是有问题的。
 
 （4）如果上述没有问题，可进行抓包排查，可参见 [抓包教程](https://cloud.tencent.com/developer/article/1727282)。
 然后提交工单，由腾讯云工程师协助排查。在提交工单时，请将上面您所做的网络测试信息以及截图一并提供，以便快速定位问题。
 
-#### 场景3：黑窗口 linux 机器访问 COS 资源缓慢
+#### 场景3：黑窗口 Linux 机器访问 COS 资源缓慢
 
 1. 测试下域名的80端是否连通，操作命令如下：
 ```
