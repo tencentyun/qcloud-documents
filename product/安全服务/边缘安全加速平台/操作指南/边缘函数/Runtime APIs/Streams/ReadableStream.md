@@ -42,7 +42,7 @@ readable.getReader(options?: ReaderOptions): ReadableStreamDefaultReader | Reada
   </thead>
   <tbody>
     <tr>
-      <td>request</td>
+      <td>options</td>
       <td><a href="#ReaderOptions">ReaderOptions</td>
       <td>是</td>
       <td>生成 Reader 的配置项。</li>
@@ -69,7 +69,7 @@ readable.getReader(options?: ReaderOptions): ReadableStreamDefaultReader | Reada
 			<td>string</td>
 			<td>否</td>
 			<td>
-        <code>Reader</code> 类型，默认值为 <code>undefined</code>。取值说明如下：<br/>
+        <code>Reader</code> 类型，默认值为 <code>undefined</code>，取值说明如下。<br/>
         <li>
           <font color="#9ba6b7">undefined</font><br/>
           <div style="padding-left: 20px;padding-bottom: 6px">

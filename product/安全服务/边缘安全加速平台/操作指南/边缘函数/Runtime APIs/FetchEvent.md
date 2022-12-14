@@ -9,7 +9,7 @@
 // event 为 FetchEvent 对象
 addEventListener('fetch', (event) => {
   event.respondWith(new Response('hello world!'))；
-})
+});
 ```
 
 ## 属性
@@ -54,7 +54,7 @@ event.respondWith(response: Response | Promise<Response>): void;
       <td>response</td>
       <td>
         <a href="https://cloud.tencent.com/document/product/1552/81917">Response</a> | 
-        Promise&lt;Response&gt;
+        Promise&lt;<a href="https://cloud.tencent.com/document/product/1552/81917">Response</a>&gt;
       </td>
       <td>是</td>
       <td>
@@ -85,7 +85,7 @@ event.waitUntil(task: Promise<any>): void;
     <tr>
       <td>task</td>
       <td>
-        Promise&lt;Response&gt;
+        Promise&lt;<a href="https://cloud.tencent.com/document/product/1552/81917">Response</a>&gt;
       </td>
       <td>是</td>
       <td>

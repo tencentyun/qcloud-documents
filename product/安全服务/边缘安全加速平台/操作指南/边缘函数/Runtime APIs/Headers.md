@@ -118,7 +118,7 @@ headers.delete(name: string): void;
 headers.entries(): iterator;
 ```
 
-获取 `headers` 对象所有的 [name, value] 键值对数组，返回值参考 [MDN 官方文档：iterator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols)。
+获取 `headers` 对象所有的键值对（[name, value]）数组，返回值参考 [MDN 官方文档：iterator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols)。
 
 ### forEach
 ```typescript

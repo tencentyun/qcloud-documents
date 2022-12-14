@@ -4,6 +4,7 @@
 
 ## 构造函数
 - 使用 `caches.default` 可以获取默认的 cache 实例。
+
 ```typescript
 // 获取默认 cache 实例
 const cache = caches.default;
@@ -12,9 +13,10 @@ const cache = caches.default;
 await caches.open('default');
 ```
 
-- 使用 `caches.open` 创建指定 namespace 的 cache 实例。
+- 使用 `caches.open` 创建指定命名空间的 cache 实例。
+
 ```typescript
-// 创建指定 namespace 的 cache 实例
+// 创建指定命名空间的 cache 实例
 const cache = await caches.open(namespace); 
 ```
 
@@ -32,10 +34,12 @@ const cache = await caches.open(namespace);
   </thead>
   <tbody>
     <tr>
-      <td>name</td>
+      <td>namespace</td>
       <td>string</td>
       <td>是</td>
-      <td>缓存命名空间。<li>如果该值为 "default" 则表示默认实例，也可直接使用 caches.default 获取默认实例。</li>
+      <td>
+        缓存命名空间。
+        <li>如果该值为 "default" 则表示默认实例，也可直接使用 <code>caches.default</code> 获取默认实例。</li>
       </td>
     </tr>
   </tbody>
@@ -50,7 +54,7 @@ cache.match(request: string | Request, options?: MatchOptions): Promise<Response
 
 获取 request 关联的缓存 Response。返回一个 Promise 对象。如果缓存存在，则包含 Response 对象，反之包含 undefined。
 
->? `cache.match` 内部不会主动回源，缓存过期则会抛出 504 错误。
+>? **cache.match** 内部不会主动回源，缓存过期则会抛出 504 错误。
 
 #### 参数
 <table>
@@ -68,7 +72,7 @@ cache.match(request: string | Request, options?: MatchOptions): Promise<Response
       <td>string | <a href="https://cloud.tencent.com/document/product/1552/81902">Request</a></td>
       <td>是</td>
       <td>
-        请求对象。<br>
+        请求对象，headers 说明如下。<br>
         <li>
           <font color="#9ba6b7">GET</font><br/>
           <div style="padding-left: 20px;padding-bottom: 6px">request 只支持 <code>GET</code> 方法，当类型为 string 时，将被作为 URL 构造 Request 对象。</div>
@@ -111,7 +115,7 @@ cache.match(request: string | Request, options?: MatchOptions): Promise<Response
 			<td>ignoreMethod</td>
 			<td>boolean</td>
 			<td>true</td>
-			<td>是否忽略 Request 的方法名。为 true 时，会忽略 Request 原来的方法，作为 GET 处理</td>
+			<td>是否忽略 Request 的 method。为 true 时，会忽略 Request 原来的 method，作为 GET 处理。</td>
 		</tr>
 	</tbody>
 </table>
@@ -120,9 +124,9 @@ cache.match(request: string | Request, options?: MatchOptions): Promise<Response
 ```typescript
 cache.put(request: string | Request, response: Response): Promise<undefined>
 ```
-尝试使用给定的 request 作为 key，将 response 添加到缓存。无论缓存是否成功，均返回 Promise<undefined> 对象。
+尝试使用给定的 request 作为缓存 key，将 response 添加到缓存。无论缓存是否成功，均返回 Promise<undefined> 对象。
 
->? 当 `rsponse` 对象的 Cache-Control 头部表示不缓存时，抛出 413 错误。 
+>? 当参数 **response** 对象的 Cache-Control 头部表示不缓存时，抛出 413 错误。 
 
 #### 参数
 <table>
@@ -140,7 +144,7 @@ cache.put(request: string | Request, response: Response): Promise<undefined>
 			<td>string | <a href="https://cloud.tencent.com/document/product/1552/81902">Request</a></td>
 			<td>是</td>
 			<td>
-				请求对象，缓存 key。
+				缓存 key，说明如下。
 				<li>
           <font color="#9ba6b7">GET</font><br/>
           <div style="padding-left: 20px;padding-bottom: 6px">
@@ -160,11 +164,11 @@ cache.put(request: string | Request, response: Response): Promise<undefined>
 			<td><a href="https://cloud.tencent.com/document/product/1552/81917">Response</a></td>
 			<td>是</td>
 			<td>
-        响应对象，缓存内容。<br>
+        缓存内容，说明如下。<br>
         <li>
           <font color="#9ba6b7">Cache-Control</font><br/>
           <div style="padding-left: 20px;padding-bottom: 6px">
-            支持 s-maxage、max-age、no-store、no-cache、private；其中 no-store、no-cache、private 均表示不缓存，<code>cache.put</code>将返回 413 错误。
+            支持 s-maxage、max-age、no-store、no-cache、private；其中 no-store、no-cache、private 均表示不缓存，<code>cache.put</code> 将返回 413 错误。
           </div>
         </li>
         <li>
@@ -175,19 +179,19 @@ cache.put(request: string | Request, response: Response): Promise<undefined>
         <li>
           <font color="#9ba6b7">ETag</font><br/>
           <div style="padding-left: 20px;padding-bottom: 6px">
-            当 <code>cache.match</code> 参数 <code>request</code> 包含 If-None-Match 头部时，可关联 ETag 使用。
+            当 <strong>cache.match</strong> 参数 <code>request</code> 包含 If-None-Match 头部时，可关联 ETag 使用。
           </div>
         </li>
         <li>
           <font color="#9ba6b7">Last-Modified</font><br/>
           <div style="padding-left: 20px;padding-bottom: 6px">
-            当 <code>cache.match</code> 参数 request 包含 If-Modified-Since 头部时，可关联 Last-Modified 使用。
+            当 <strong>cache.match</strong> 参数 <code>request</code> 包含 If-Modified-Since 头部时，可关联 Last-Modified 使用。
           </div>
         </li>	
         <li>
           <font color="#9ba6b7">416 Range Not Satisfiable</font><br/>
           <div style="padding-left: 20px;padding-bottom: 6px">
-            当参数 response 对象为 416 Range Not Satisfiable 时，暂不缓存。
+            当参数 <code>response</code> 对象为 416 Range Not Satisfiable 时，暂不缓存。
           </div>
         </li>
 			</td>
@@ -225,7 +229,7 @@ cache.delete(request: string | Request, options?: DeleteOptions): Promise<boolea
       <td>string | <a href="https://cloud.tencent.com/document/product/1552/81902">Request</a></td>
       <td>是</td>
       <td>
-        请求对象，缓存 key。
+        缓存 key，说明如下。
         <li>
           <font color="#9ba6b7">GET</font><br/>
           <div style="padding-left: 20px;padding-bottom: 6px">
@@ -249,8 +253,8 @@ cache.delete(request: string | Request, options?: DeleteOptions): Promise<boolea
   </tbody>
 </table>
 
-
 #### DeleteOptions[](id:DeleteOptions)
+
 <table>
   <thead>
     <tr>
