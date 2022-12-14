@@ -213,5 +213,5 @@ readable.cancel(reason?: string): Promise<string>;
 
 结束当前流。
 
-## 参考
+## 相关参考 
 - [MDN 官方文档：ReadableStream](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream)

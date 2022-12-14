@@ -241,5 +241,5 @@ addEventListener('fetch', (event) => {
 });
 ```
 
-## 参考
+## 相关参考 
 - [MDN 官方文档：Response](https://developer.mozilla.org/en-US/docs/Web/API/Response)

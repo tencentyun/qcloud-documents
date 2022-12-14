@@ -95,5 +95,6 @@ event.waitUntil(task: Promise<any>): void;
   </tbody>
 </table>
 
-## 参考
+## 相关参考 
 - [MDN 官方文档：FetchEvent](https://developer.mozilla.org/en-US/docs/Web/API/FetchEvent)
+- [示例函数：返回 HTML 页面](#返回 HTML 页面.md)

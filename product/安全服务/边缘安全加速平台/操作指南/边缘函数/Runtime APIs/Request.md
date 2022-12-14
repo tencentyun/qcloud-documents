@@ -465,4 +465,5 @@ addEventListener('fetch', (event) => {
 
 ## 相关参考
 - [MDN 官方文档：Request](https://developer.mozilla.org/en-US/docs/Web/API/Request)
-- [代码案列：修改请求头](https://cloud.tencent.com/document/product/1552/81938)
+- [示例函数：修改请求头](https://cloud.tencent.com/document/product/1552/81938)
+- [示例函数：基于请求区域重定向](#基于请求区域重定向.md)

@@ -107,5 +107,6 @@ addEventListener('fetch', (event) => {
 });
 ```
 
-## 参考
+## 相关参考 
 - [MDN 官方文档：fetch](https://developer.mozilla.org/en-US/docs/Web/API/fetch)
+- [示例函数：获取远程资源返回](#获取远程资源返回.md)

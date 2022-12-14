@@ -467,8 +467,9 @@ addEventListener('fetch', async (event) => {
 });
 ```
 
-## 参考
+## 相关参考 
 - [MDN 官方文档：Web Crypto API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API)
 - [MDN 官方文档：SubtleCrypto](https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto#Methods)
 - [MDN 官方文档：CryptoKey](https://developer.mozilla.org/en-US/docs/Web/API/CryptoKey)
 - [MDN 官方文档：CryptoKeyPair](https://developer.mozilla.org/en-US/docs/Web/API/CryptoKeyPair)
+- [示例函数：防篡改校验](#防篡改校验.md)

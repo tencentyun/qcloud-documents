@@ -31,3 +31,4 @@ addEventListener("fetch", (event) => {
 ## 相关参考
 - [Runtime APIs: addEventListener](https://cloud.tencent.com/document/product/1552/81928)
 - [Runtime APIs: Response](https://cloud.tencent.com/document/product/1552/81917)
+- [Runtime APIs: FetchEvent](https://cloud.tencent.com/document/product/1552/81899)
