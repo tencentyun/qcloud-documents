@@ -43,27 +43,22 @@
 
 2. 执行 telnet 命令测试域名的 80 端口是否连通。
    操作命令：
-
 ```
 telnet examplebucket-1250000000.cos.ap-beijing.myqcloud.com 80
 ```
-
 >?关于 telnet 命令的安装方法，可分别查看 [Windows 安装命令参考文档](https://cloud.tencent.com/developer/article/1908610) 和 [Mac 电脑安装命令文档](https://cloud.tencent.com/developer/article/1594499)。
 
 3. 如果上述没有问题，再进行 MTR 网络测试，可参见 [网络排查工具 MTR 介绍文档](https://cloud.tencent.com/developer/article/1491610)。
    1. 安装 MTR
    2. 执行 `mtr COS 域名`，如下所示：
-
 ```
 mtr examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 ```
-
 ![](https://qcloudimg.tencent-cloud.cn/raw/fb38db63ae5be18971e71d8492ef8c15.png)
 然后可以查看 Host 这一列，这些 IP 就是请求网络链路，对这些 IP 地址查看来源。
 例如，在北京访问重庆的存储桶，那么这里的 IP 就不能去其他地方，例如您发现中间一个 IP 跑到了香港，这就是有问题的。
 
 4. 执行 nslookup 命令，查看域名解析是否正常。
-
 ```
 nslookup examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 ```
@@ -76,11 +71,9 @@ nslookup examplebucket-1250000000.cos.ap-beijing.myqcloud.com
  - [Mac 抓包](https://cloud.tencent.com/developer/article/2045860)（比较方便）
 
 执行 tcpdump 命令，如下所示：
-
 ```
 tcpdump host examplebucket-1250000000.cos.ap-beijing.myqcloud.com -w test.cap
 ```
-
 打开另外的窗口请求访问缓慢的资源，完成后中断（Ctrl+C）抓包，test.cap 文件就是抓包文件。
 
 然后提交工单，由腾讯云工程师协助排查。在提交工单时，请将上面您所做的网络测试信息以及截图一并提供，以便快速定位问题。
@@ -94,9 +87,10 @@ tcpdump host examplebucket-1250000000.cos.ap-beijing.myqcloud.com -w test.cap
 经过上述三步，如果确定只有 COS 资源访问缓慢，其他网站的资源访问正常。那么接下来可以在电脑端连接和手机一样的网络环境（例如连接同样的 wifi，或者电脑连接手机4G网络），再测试访问 COS 资源。
 （1）如果电脑端测试复现，可以参考上述 [场景1](#1) 进行排查。
 （2）如果电脑端也访问正常，只有移动端有问题，可以对移动端进行网络测试操作，操作方法可参见 [场景1中的第1步](#1)。
-（3）测试网络路由，使用手机测试 IP 路由信息，可直接访问 `http://www.webkaka.com/Tracert.aspx`，输入 COS 域名进行测试。 
+（3）测试网络路由，使用手机测试 IP 路由信息，可直接访问 `http://www.webkaka.com/Tracert.aspx`，输入 COS 域名进行测试。
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/a60e9af0ed1406595380878a084aec0c.png)
+
 在 IP 地址这一列，这些 IP 就是请求网络链路，对这些 IP 地址查看来源。例如，在北京访问重庆的存储桶，那么这里的 IP 不会出现香港 IP，否则是有问题的。
 
 （4）如果上述没有问题，可进行抓包排查，可参见 [抓包教程](https://cloud.tencent.com/developer/article/1727282)。
@@ -105,33 +99,25 @@ tcpdump host examplebucket-1250000000.cos.ap-beijing.myqcloud.com -w test.cap
 #### 场景3：黑窗口 linux 机器访问 COS 资源缓慢
 
 1. 测试下域名的80端是否连通，操作命令如下：
-
 ```
 telnet examplebucket-1250000000.cos.ap-beijing.myqcloud.com 80
 ```
-
 ![](https://qcloudimg.tencent-cloud.cn/raw/e4bbffa3a569b47f80d08aeeabf4b628.png)
 若不连通，对百度网站进行测试，请将上述的 COS 域名换为 `www.baidu.com`。查看百度是否可以连通，确认下本地网络环境。
 
 2. 执行 nslookup 命令，查看域名解析是否正常。
-
 ```
 nslookup examplebucket-1250000000.cos.ap-hongkong.myqcloud.com
 ```
-
 ![](https://qcloudimg.tencent-cloud.cn/raw/84d5890db0ae1c5a9025d59121f5ec38.png)
-
 这里可以直接确认下，本地的 IP 和 COS 给的 IP 是否是同一个运营商（可以直接把 IP 输入到百度搜索栏，然后按回车键，即可查看），例如都是电信或者联通运营商。
 
 3. 进行 MTR 网络测试，具体可参见 [场景1中的第3步](#1)。
 4. 使用 tcpdump 进行抓包，可参见 [抓包教程](https://cloud.tencent.com/developer/article/2045860)。
    执行 tcpdump 命令，如下所示：
-
 ```
 tcpdump host examplebucket-1250000000.cos.ap-hongkong.myqcloud.com -w test.cap
 ```
-
 在另外的窗口请求访问缓慢的资源，完毕之后中断（Ctrl+C）抓包，test.cap 文件就是抓包文件。
-
 然后提交工单，由腾讯云工程师协助排查。在提交工单时，请将上面您所做的网络测试信息以及截图一并提供，以便快速定位问题。
 
