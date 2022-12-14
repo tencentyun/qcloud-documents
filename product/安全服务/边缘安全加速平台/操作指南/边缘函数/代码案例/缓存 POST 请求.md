@@ -14,13 +14,11 @@ async function handlePostRequest(event) {
   const request = event.request;
   const body = await request.clone().text();
 
-  // 根据 body 计算 hash
   const hash = await sha256(body);
   const cacheUrl = new URL(request.url);
 
   cacheUrl.pathname = '/post' + cacheUrl.pathname + hash;
 
-  // 构建 cacheKey
   const cacheKey = new Request(cacheUrl.toString(), {
     headers: request.headers,
     method: 'GET',
@@ -28,10 +26,8 @@ async function handlePostRequest(event) {
   
   const cache = caches.default;
   
-  // 匹配缓存
   let response = await cache.match(cacheKey);
   
-  // 缓存没有命中
   if (!response) {
     response = await fetch(request);
     event.waitUntil(cache.put(cacheKey, response.clone()));
@@ -45,7 +41,7 @@ async function handlePostRequest(event) {
 addEventListener('fetch', (event) => {
   try {
     const request = event.request;
-    // 处理 POST 请求
+    // only handle post request
     if (request.method.toUpperCase() === 'POST') return event.respondWith(handlePostRequest(event));
     return event.respondWith(fetch(request));
   } catch (e) {
