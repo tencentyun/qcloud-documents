@@ -32,7 +32,7 @@
 
 1. 单击左侧导航栏**函数服务**，进入“函数服务”页面。
 2. 在页面上方选择**广州**地域，单击**新建**。如下图所示： 
-![](https://main.qcloudimg.com/raw/5f4a8d25b8387eaa6ea9aa73296d1519.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/ac5c98e4aec9ab8df2d482adf080621d.png)
 3. 在“新建函数”页面填写函数基础信息，单击**下一步**。如下图所示：  
 ![](https://qcloudimg.tencent-cloud.cn/raw/98a863f59d9aba533ff6003fbf33b210.png)
  - **创建方式**：选择 “模板函数”。
