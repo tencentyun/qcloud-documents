@@ -22,8 +22,7 @@ Serverless Web IDE 支持：
 2. 在函数列表中，单击函数名，进入该函数的详情页面。
 3. 在“函数管理”页面中，选择**函数代码** > **在线编辑**，即可查看并编辑函数。
 
->!
->- Java、Go 运行时暂不支持在线编辑，仅支持上传已经开发完成编译打包后的ZIP包或二进制文件。SCF 环境暂不提供 Java、Go 的编译能力。具体请参见 [Golang 部署指南](https://cloud.tencent.com/document/product/583/67385) 、[Java 部署指南](https://cloud.tencent.com/document/product/583/12216) 。
+>! Java、Go 运行时暂不支持在线编辑，仅支持上传已经开发完成编译打包后的 ZIP 包或二进制文件。SCF 环境暂不提供 Java、Go 的编译能力。具体请参见 [Golang 部署指南](https://cloud.tencent.com/document/product/583/67385) 、[Java 部署指南](https://cloud.tencent.com/document/product/583/12216)。
 
 
 ## 概览图
