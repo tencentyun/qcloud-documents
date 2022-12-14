@@ -16,7 +16,7 @@
 
 防盗链 URL 的生成规则是在原始 URL 尾部，以 QueryString 的方式加入防盗链参数，形如：
 ```
-http://example.vod2.myqcloud.com/dir1/dir2/myVideo.mp4?t=[t]&exper=[exper]&rlimit=[rlimit]&us=[us]&whreg=[whreg]&bkreg=[bkreg]&whref=[whref]&bkref=[bkref]&sign=[sign]
+http://example.vod2.myqcloud.com/dir1/dir2/myVideo.mp4?t=[t]&exper=[exper]&rlimit=[rlimit]&us=[us]&whreg=[whreg]&whref=[whref]&sign=[sign]
 ```
 下面详细介绍防盗链 URL 中各个参数的含义和取值方法。
 
@@ -24,16 +24,16 @@ http://example.vod2.myqcloud.com/dir1/dir2/myVideo.mp4?t=[t]&exper=[exper]&rlimi
 | 参数名 | 必选 | 说明                                                         |
 | ------ | ---- | ------------------------------------------------------------ |
 | `KEY`    | 是   | 开启 Key 防盗链时填写的密钥。必须由大小写字母（a - Z）或者数字（0 - 9）组成，长度在8 - 20个字符之间。建议在控制台中单击【生成KEY】生成，具体操作步骤请参见 [设置防盗链](https://cloud.tencent.com/document/product/266/33469#key-.E9.98.B2.E7.9B.97.E9.93.BE)。 |
-| `Dir`    | 是   | 视频原始 URL 的 PATH 中除去文件名的那部分路径。如果原始 URL 为`http://example.vod2.myqcloud.com/dir1/dir2/myVideo.mp4`，则播放路径为`/dir1/dir2/` |
-| `t`      | 是   | <li>播放地址的过期时间戳，以 Unix 时间的十六进制小写形式表示<br><li>过期后该 URL 将不再有效，返回403响应码。考虑到机器之间可能存在时间差，防盗链 URL 的实际过期时间一般比指定的过期时间长5分钟，即额外给出300秒的容差时间<br><li>建议过期时间戳不要过短，确保视频有足够时间完整播放 |
-| `exper`  | 否   | <li>试看时长，单位为秒，以十进制表示，不填或者填0表示不试看（即返回完整视频）<br><li>试看时长不要超过视频原始时长，否则可能导致播放失败 |
-| `rlimit` | 否   | <li>最多允许多少个不同 IP 的终端播放，以十进制表示，最大值为9，不填表示不做限制<br><li>当限制 URL 只能被1个人播放时，建议 rlimit 不要严格限制成1（例如可设置为3），因为移动端断网后重连 IP 可能改变 |
-| `us`     | 否   | <li>链接标识，用于随机化一个防盗链 URL，增强链接的唯一性<br><li>建议每次生成防盗链 URL 时，指定一个随机的 us 值|
-| `whreg`  | 否   | <li>允许访问的地区列表，支持1条 - 10条，用半角逗号分隔，取值为 [ISO 3166-1三位字母代码](https://www.iso.org/obp/ui/#search/code/) |
-| `bkreg`  | 否   | <li>禁止访问的地区列表，支持1条 - 10条，用半角逗号分隔，取值为 [ISO 3166-1三位字母代码](https://www.iso.org/obp/ui/#search/code/) |
-| `whref`  | 否   | <li>允许访问的域名列表，支持1条 - 10条，用半角逗号分隔。域名前不要带协议名（`http://`和`https://`），域名为前缀匹配（如填写`abc.com`，则`abc.com/123`和`abc.com.cn`也会匹配），且支持通配符（如 `*.abc.com`） |
-| `bkref`  | 否   | <li>禁止访问的域名列表，支持1条 - 10条，用半角逗号分隔。域名前不要带协议名（`http://`和`https://`），域名为前缀匹配（如填写`abc.com`，则`abc.com/123`和`abc.com.cn`也会匹配），且支持通配符（如 `*.abc.com`） |
-| `sign`   | 是   | <li>防盗链签名，以32个字符长的十六进制数表示，用于校验防盗链 URL 的合法性<br><li>签名校验失败将返回403响应码。下面将介绍 [签名计算公式](#formula) |
+| `Dir`    | 是   | 视频原始 URL 的 PATH 中除去文件名的那部分路径。如果原始 URL 为`http://example.vod2.myqcloud.com/dir1/dir2/myVideo.mp4`，则播放路径为`/dir1/dir2/`。 |
+| `t`      | 是   | <li>播放地址的过期时间戳，以 Unix 时间的十六进制小写形式表示。<br><li>过期后该 URL 将不再有效，返回403响应码。考虑到机器之间可能存在时间差，防盗链 URL 的实际过期时间一般比指定的过期时间长5分钟，即额外给出300秒的容差时间。<br><li>建议过期时间戳不要过短，确保视频有足够时间完整播放。 |
+| `exper`  | 否   | <li>试看时长，单位为秒，以十进制表示，不填或者填0表示不试看（即返回完整视频）。<br><li>试看时长不要超过视频原始时长，否则可能导致播放失败。 |
+| `rlimit` | 否   | <li>最多允许多少个不同 IP 的终端播放，以十进制表示，最大值为9，不填表示不做限制。<br><li>当限制 URL 只能被1个人播放时，建议 rlimit 不要严格限制成1（例如可设置为3），因为移动端断网后重连 IP 可能改变。 |
+| `us`     | 否   | <li>链接标识，用于随机化一个防盗链 URL，增强链接的唯一性。<br><li>建议每次生成防盗链 URL 时，指定一个随机的 us 值。|
+| `whreg`  | 否   | <li>允许访问的地区列表，支持1条 - 10条，用半角逗号分隔，取值为 [ISO 3166-1三位字母代码](https://www.iso.org/obp/ui/#search/code/)。 |
+| `bkreg`  | 否   | <li>禁止访问的地区列表，支持1条 - 10条，用半角逗号分隔，取值为 [ISO 3166-1三位字母代码](https://www.iso.org/obp/ui/#search/code/)。 |
+| `whref`  | 否   | <li>允许访问的域名列表，支持1条 - 10条，用半角逗号分隔。域名前不要带协议名（`http://`和`https://`），域名为前缀匹配（如填写`abc.com`，则`abc.com/123`和`abc.com.cn`也会匹配），且支持通配符（如 `*.abc.com`）。 |
+| `bkref`  | 否   | <li>禁止访问的域名列表，支持1条 - 10条，用半角逗号分隔。域名前不要带协议名（`http://`和`https://`），域名为前缀匹配（如填写`abc.com`，则`abc.com/123`和`abc.com.cn`也会匹配），且支持通配符（如 `*.abc.com`）。 |
+| `sign`   | 是   | <li>防盗链签名，以32个字符长的十六进制数表示，用于校验防盗链 URL 的合法性<br><li>签名校验失败将返回403响应码。下面将介绍 [签名计算公式](#formula)。 |
 
 
 #### [](id:formula)签名计算公式
