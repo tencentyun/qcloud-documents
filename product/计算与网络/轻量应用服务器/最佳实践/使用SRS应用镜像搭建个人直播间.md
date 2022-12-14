@@ -54,7 +54,7 @@ HLS（全称 HTTP Live Streaming）是 Apple 的动态码率自适应技术，�
 ### 安装及配置 OBS 推流软件
 1. 本文以选择 OBS 推流方式为例，请前往 [OBS 官网](https://obsproject.com/) 下载软件安装包，并完成安装。
 2. 运行 OBS 推流软件，界面基本介绍如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/4b712444756153f7fee95bc832dc1104.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/a38727518482862002976269e59dea7d.png)
   1. 直播画面。
   2. 场景分类。
   3. 媒体源设置。
@@ -71,8 +71,8 @@ HLS（全称 HTTP Live Streaming）是 Apple 的动态码率自适应技术，�
 6.  在主界面的“媒体源设置”中，选择 <img src="https://qcloudimg.tencent-cloud.cn/raw/590204a737fb7b1c194c6b44771de307.png" style="margin:-3px 0px"/>，在弹出菜单中，根据直播的内容选择源（本文直播内容以本地视频为例，则选择**媒体源**）。
 8. 在弹出“属性 '媒体源'”窗口中，选择要推流（直播）的内容，单击**确定**上传。本文以选择本地的视频资源为例，如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/1d8051c9e6382f850fd5eb52067e8c26.png)
-9. 单击“直播设置”中的**开始直播**，画面效果如下图所示。您可在 OBS 中右键单击画面，实时调整直播画面（例如大小、方向等）。
-![](https://qcloudimg.tencent-cloud.cn/raw/30e383f95dbfb24db9308ff26ca32c50.png)
+9. 单击“直播设置”中的**开始直播**(点击后会变成**停止直播**)，画面效果如下图所示。您可在 OBS 中右键单击画面，实时调整直播画面（例如大小、方向等）。
+![](https://qcloudimg.tencent-cloud.cn/raw/0ddd02cf2cef6709a3065072c0b19013.png)
 此时，您已可 [观看直播](#watchLive)，若您有使用多平台转播、云录制、云点播、本地录制等需求，请参考下文继续配置。
 
 
