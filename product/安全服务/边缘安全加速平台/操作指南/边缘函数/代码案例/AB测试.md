@@ -6,36 +6,37 @@ const VALUE_B = 'VALUE_B';
 const PATH_A = '/PATH_A';
 const PATH_B = '/PATH_B';
 
-async function handleRequest(req) {
-  const url = new URL(req.url);
-  // Enable Passthrough to allow direct access to control and test routes.
-  if (url.pathname.startsWith(PATH_A) || url.pathname.startsWith(PATH_B)) {
-    return fetch(req);
-  }
-  // Determine which group this requester is in.
-  const cookie = req.headers.get("cookie") || '';
-  if (cookie.includes(`${NAME}=${VALUE_A}`)) {
-    url.pathname = PATH_A + url.pathname;
-  } else if (cookie.includes(`${NAME}=${VALUE_B}`)) {
-    url.pathname = PATH_B + url.pathname;
-  } else {
-    // If there is no cookie, this is a new client. Choose a group and set the cookie.
-    const group = Math.random() < 0.5 ? VALUE_A : VALUE_B; // 50/50 split
-    if (group === VALUE_A) {
-      url.pathname = PATH_A + url.pathname;
-    } else {
-      url.pathname = PATH_B + url.pathname;
+async function handleRequest(request) {
+    const urlObject = new URL(request.url);
+
+    if (urlObject.pathname.startsWith(PATH_A) || urlObject.pathname.startsWith(PATH_B)) {
+        return fetch(request);
     }
 
-    const res = await fetch(url.toString());
-    res.headers.append("Set-Cookie", `${NAME}=${group}; path=/`);
-    return res;
-  }
-  return fetch(url.toString());
+    const cookies = new Cookies(request.headers.get('cookie'));
+    const cookie = cookies.get(NAME);
+    const cookieValue = cookie && cookie.value;
+
+    if (cookieValue === VALUE_A) {
+        urlObject.pathname = PATH_A + urlObject.pathname;
+        return fetch(urlObject.toString());
+    }
+    
+    if (cookieValue === VALUE_B) {
+        urlObject.pathname = PATH_B + urlObject.pathname;
+        return fetch(urlObject.toString());
+    }
+
+    const type = Math.random() < 0.5 ? VALUE_A : VALUE_B;
+    const path = type === VALUE_A ? PATH_A : PATH_B;
+    urlObject.pathname = path + urlObject.pathname;
+
+    const response = await fetch(urlObject.toString());
+    response.headers.append('Set-Cookie', `${NAME}=${type}; path=/`);
+    return response;
 }
 
 addEventListener('fetch', event => {
-  event.respondWith(handleRequest(event.request));
+    event.respondWith(handleRequest(event.request));
 });
-
 ```
