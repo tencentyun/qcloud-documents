@@ -129,7 +129,7 @@ iptables -A OUTPUT -p icmp --icmp-type echo-reply -j ACCEPT
 ### 重置 Windows 网络设置
 
 1. 请确认您的 VPC 网络是否支持 DHCP（如为2018年6月后创建的 VPC 网络，均支持 DHCP），若不支持，请确认网络设置中的静态 IP 是否正确。
-2. 如果支持 DHCP，查看 DHCP 分配到的内网 ip 是否正确，若不正确，您可通过官网的登陆功能（VNC 登陆），以管理员身份运行 PowerShell，在其中执行 `ipconfig /release` 以及 `ipconfig/renew` （无需重启机器）尝试令 DHCP 组件重新获取 IP。
+2. 如果支持 DHCP，查看 DHCP 分配到的内网 ip 是否正确，若不正确，您可通过官网的登录功能（VNC 登录），以管理员身份运行 PowerShell，在其中执行 `ipconfig /release` 以及 `ipconfig/renew` （无需重启机器）尝试令 DHCP 组件重新获取 IP。
 3. 若 DHCP 分配到的IP正确，但网络仍旧不通，可使用开始菜单中的【运行】功能，输入` ncpa.cpl `并单击确定。打开本地连接，尝试禁用、启用网卡。
 4. 若以上方式仍不能解决问题，可以管理员身份执行在 CMD 中执行以下命令并重启机器。
 ```plantext
