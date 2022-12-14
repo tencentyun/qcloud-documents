@@ -13,7 +13,7 @@
 
 ## 操作步骤
 
-### 模板部署 -- 一键部署 Nest.js 项目
+### 模板部署：一键部署 Nest.js 项目
 
 1. 登录 [Serverless 控制台](https://console.cloud.tencent.com/scf/index?rid=1)，单击左侧导航栏的**函数服务**。
 2. 在主界面上方选择期望创建函数的地域，并单击**新建**，进入函数创建流程。
@@ -27,7 +27,7 @@
 ![](https://main.qcloudimg.com/raw/c2d8e3d74650c1a06c23a386bae961b9.png)
 
 
-### 自定义部署 -- 快速迁移本地项目上云
+### 自定义部署：快速迁移本地项目上云
 
 
 #### 前提条件
