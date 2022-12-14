@@ -161,6 +161,23 @@ headers.values(): iterator;
 ```
 获取 `headers` 对象包含的所有 value，返回值参考 [MDN 官方文档：iterator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols)。
 
+## 示例代码
+```typescript
+function handleEvent() {
+  const headers = new Headers({
+    'my-header-x': 'hello world',
+  });
+
+  const response =  new Response('hello world', {
+    headers,
+  });
+  return response;
+}
+
+addEventListener('fetch', (event) => {
+  event.respondWith(handleEvent(event));
+});
+```
 
 ## 参考
 - [MDN 官方文档：Headers](https://developer.mozilla.org/en-US/docs/Web/API/Headers)

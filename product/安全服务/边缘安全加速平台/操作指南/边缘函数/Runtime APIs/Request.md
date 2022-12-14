@@ -453,14 +453,14 @@ request.setCookies(cookies: Cookies): boolean;
 ## 示例代码
 ```typescript
 async function handleRequest() {
-    const request = new Request('https://www.qq.com');
-    const response = await fetch(request);
-    return response;
+  const request = new Request('https://www.tencentcloud.com/');
+  const response = await fetch(request);
+  return response;
 }
 
 addEventListener('fetch', (event) => {
-  return event.respondWith(handleRequest(event));
-}
+  event.respondWith(handleRequest());
+});
 ```
 
 ## 相关参考

@@ -95,5 +95,17 @@ addEventListener('fetch', async (event) => {
 
 >!每一次重定向都会计入请求次数，且其优先级高于新发起的 `fetch` 请求。
 
+## 示例代码
+```js
+async function handleEvent(event) {
+  const response = await fetch('https://www.tencentcloud.com/');
+  return response;
+}
+
+addEventListener('fetch', (event) => {
+  event.respondWith(handleEvent(event));
+});
+```
+
 ## 参考
 - [MDN 官方文档：fetch](https://developer.mozilla.org/en-US/docs/Web/API/fetch)

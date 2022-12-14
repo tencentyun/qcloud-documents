@@ -254,5 +254,24 @@ cookies.remove(name: string, options?: Cookie): boolean;
 
 - cookies 中包含的 Cookie 对象总数不超过 64个。
 
+## 示例代码
+```typescript
+function handleEvent(event) {
+  const response = new Response('hello world');
+    
+  // 生成 cookies 对象
+  const cookies = new Cookies('ssid=helloworld; expires=Sun, 10-Dec-2023 03:10:01 GMT; path=/; domain=.tencentcloud.com; samesite=.tencentcloud.com', true);
+  
+  // 设置响应头 Set-Cookie
+  response.setCookies(cookies);
+
+  return response;
+}
+
+addEventListener('fetch', (event) => {    
+  event.respondWith(handleEvent(event));
+});
+```
+
 ## 参考
 - [MDN 官方文档：Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie)

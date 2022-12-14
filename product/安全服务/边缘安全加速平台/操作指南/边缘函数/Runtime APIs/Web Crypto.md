@@ -445,6 +445,28 @@ crypto.subtle.unwrapKey(format: string, wrappedKey: ArrayBuffer, unwrappingKey: 
 </tr>
 </tbody></table>
 
+## 示例代码
+```typescript
+function uint8ArrayToHex(arr) {
+	return Array.prototype.map.call(arr, (x) => ((`0${x.toString(16)}`).slice(-2))).join('');
+}
+
+async function handleEvent(event) {
+	const encodeArr = TextEncoder().encode('hello world');
+	// 执行 md5
+	const md5Buffer = await crypto.subtle.digest({ name: 'MD5' }, encodeArr);
+	// 输出十六进制字符串
+	const md5Str = uint8ArrayToHex(new Uint8Array(md5Buffer));
+	
+	const response = new Response(md5Str);
+	return response;
+}
+  
+addEventListener('fetch', async (event) => {    
+  event.respondWith(handleEvent(event));
+});
+```
+
 ## 参考
 - [MDN 官方文档：Web Crypto API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API)
 - [MDN 官方文档：SubtleCrypto](https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto#Methods)

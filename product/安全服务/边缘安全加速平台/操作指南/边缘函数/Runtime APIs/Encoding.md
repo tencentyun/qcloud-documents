@@ -276,6 +276,31 @@ const result = decoder.decode(buffer?: ArrayBuffer | ArrayBufferView | undefined
 	</tbody>
 </table>
 
+## 示例代码
+```typescript
+function handleEvent(event) {
+  // 编码器
+  const encoder = new TextEncoder();
+  const encodeText = encoder.encode('hello world');
+  
+  // 解码器
+  const decoder = new TextDecoder();
+  const decodeText = decoder.decode(encodeText);
+
+  // 客户端响应内容
+  const response = new Response(JSON.stringify({
+    encodeText: encodeText.toString(),
+    decodeText,
+  }));
+
+  return response;
+}
+
+addEventListener('fetch', (event) => {
+  event.respondWith(handleEvent(event));
+});
+```
+
 ## 参考
 * [MDN 官方文档：TextEncoder](https://developer.mozilla.org/en-US/docs/Web/API/TextEncoder)
 * [MDN 官方文档：TextDecoder](https://developer.mozilla.org/en-US/docs/Web/API/TextDecoder)
