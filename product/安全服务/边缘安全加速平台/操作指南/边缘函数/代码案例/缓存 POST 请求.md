@@ -32,7 +32,7 @@ async function handlePostRequest(event) {
     response = await fetch(request);
     event.waitUntil(cache.put(cacheKey, response.clone()));
   } else {
-    log(`Cache hit for: ${cacheKey.url}.`);
+    console.log(`Cache hit for: ${cacheKey.url}.`);
   }
 
   return response;
