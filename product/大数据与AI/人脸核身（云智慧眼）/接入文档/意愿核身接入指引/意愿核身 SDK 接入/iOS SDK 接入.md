@@ -39,6 +39,9 @@ TuringShieldCamRisk.framework
 TencentCloudHuiyanSDKFace.bundle
 TencentCloudHuiyanSDKWill.bundle
 face-tracker-v001.bundle
+KYCGMSDK.framework
+YTCv.framework
+YtSDKKitFrameworkTool.framework
 ```
 2. SDK 依赖以下系统框架,需要在 **BuildPhases > Link Binary With Libraries** 中添加，可以参考 Demo，具体依赖的系统库如下：
 ```
