@@ -24,7 +24,7 @@ COS.getAuthorization 方法用于计算鉴权凭证（Authorization），用以�
 
 获取文件下载的鉴权凭证：
 
-[//]: # '.cssg-snippet-get-authorization'
+[//]: # (.cssg-snippet-get-authorization)
 
 ```js
 // SECRETID 和 SECRETKEY请登录 https://console.cloud.tencent.com/cam/capi 进行查看和管理
@@ -62,7 +62,7 @@ var Authorization = COS.getAuthorization({
 
 示例一：获取不带签名 Object Url
 
-[//]: # '.cssg-snippet-get-presign-download-url-nosign'
+[//]: # (.cssg-snippet-get-presign-download-url-nosign)
 
 ```js
 var url = cos.getObjectUrl({
@@ -75,7 +75,7 @@ var url = cos.getObjectUrl({
 
 示例二：获取带签名 Object Url
 
-[//]: # '.cssg-snippet-get-presign-download-url'
+[//]: # (.cssg-snippet-get-presign-download-url)
 
 ```js
 var url = cos.getObjectUrl({
@@ -87,7 +87,7 @@ var url = cos.getObjectUrl({
 
 示例三：如果签名过程是异步获取，需要通过 callback 获取带签名 Url
 
-[//]: # '.cssg-snippet-get-presign-download-url-callback'
+[//]: # (.cssg-snippet-get-presign-download-url-callback)
 
 ```js
 cos.getObjectUrl(
@@ -105,7 +105,7 @@ cos.getObjectUrl(
 
 示例四：指定链接有效时间
 
-[//]: # '.cssg-snippet-get-presign-download-url-expiration'
+[//]: # (.cssg-snippet-get-presign-download-url-expiration)
 
 ```js
 cos.getObjectUrl(
@@ -124,7 +124,7 @@ cos.getObjectUrl(
 
 示例五：获取文件 Url 并下载文件
 
-[//]: # '.cssg-snippet-get-presign-download-url-then-fetch'
+[//]: # (.cssg-snippet-get-presign-download-url-then-fetch)
 
 ```js
 var request = require('request');
@@ -150,7 +150,7 @@ cos.getObjectUrl(
 
 示例六：生成预签名 URL，并在签名中携带 Query 和 Header
 
-[//]: # '.cssg-snippet-get-obejct-url-with-params'
+[//]: # (.cssg-snippet-get-obejct-url-with-params)
 
 ```js
 cos.getObjectUrl(
@@ -178,7 +178,7 @@ cos.getObjectUrl(
 
 示例一：获取预签名 Put Object 上传 Url
 
-[//]: # '.cssg-snippet-get-presign-upload-url'
+[//]: # (.cssg-snippet-get-presign-upload-url)
 
 ```js
 var request = require('request');
