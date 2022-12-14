@@ -31,8 +31,8 @@ http://example.vod2.myqcloud.com/dir1/dir2/myVideo.mp4?t=[t]&exper=[exper]&rlimi
 | `us`     | 否   | <li>链接标识，用于随机化一个防盗链 URL，增强链接的唯一性<br><li>建议每次生成防盗链 URL 时，指定一个随机的 us 值|
 | `whreg`  | 否   | <li>允许访问的地区列表，支持1条 - 10条，用半角逗号分隔，取值为 [ISO 3166-1三位字母代码](https://www.iso.org/obp/ui/#search/code/) |
 | `bkreg`  | 否   | <li>禁止访问的地区列表，支持1条 - 10条，用半角逗号分隔，取值为 [ISO 3166-1三位字母代码](https://www.iso.org/obp/ui/#search/code/) |
-| `whref`  | 否   | <li>允许访问的域名列表，支持1条 - 10条，用半角逗号分隔。域名前不要带协议名（`http://`和`https://`），域名为前缀匹配（如填写`abc.com`，则`abc.com/123`和`abc.com.cn`也会匹配），且支持通配符`（*.abc.com）` |
-| `bkref`  | 否   | <li>禁止访问的域名列表，支持1条 - 10条，用半角逗号分隔。域名前不要带协议名（`http://`和`https://`），域名为前缀匹配（如填写`abc.com`，则`abc.com/123`和`abc.com.cn`也会匹配），且支持通配符`（*.abc.com）` |
+| `whref`  | 否   | <li>允许访问的域名列表，支持1条 - 10条，用半角逗号分隔。域名前不要带协议名（`http://`和`https://`），域名为前缀匹配（如填写`abc.com`，则`abc.com/123`和`abc.com.cn`也会匹配），且支持通配符（如 `*.abc.com`） |
+| `bkref`  | 否   | <li>禁止访问的域名列表，支持1条 - 10条，用半角逗号分隔。域名前不要带协议名（`http://`和`https://`），域名为前缀匹配（如填写`abc.com`，则`abc.com/123`和`abc.com.cn`也会匹配），且支持通配符（如 `*.abc.com`） |
 | `sign`   | 是   | <li>防盗链签名，以32个字符长的十六进制数表示，用于校验防盗链 URL 的合法性<br><li>签名校验失败将返回403响应码。下面将介绍 [签名计算公式](#formula) |
 
 
