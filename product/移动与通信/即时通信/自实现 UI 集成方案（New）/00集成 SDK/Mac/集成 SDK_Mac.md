@@ -68,7 +68,7 @@ pod update
 
 pod 命令执行完后，会生成集成了 SDK 的 .xcworkspace 后缀的工程文件，双击打开即可。
 
-> ? 如果 pod install 和 pod update 命令执行失败，提示版本不匹配，请先试用 pod repo update 更新本地 cocoapods 库。
+> ? 如果 pod install 和 pod update 命令执行失败，提示版本不匹配，请先使用 pod repo update 更新本地 cocoapods 库。
 
 ### 手动集成
 
