@@ -45,7 +45,7 @@ function getSignature() {
 >? 
 - `url` 是您派发签名服务的 URL，更多相关信息请参见 [客户端上传指引](https://cloud.tencent.com/document/product/266/9219#.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4)。
 - `signature` 计算规则请参见 [客户端上传签名](/document/product/266/9221)。
-- **子应用**、**视频文件分类**、**任务流**等信息都包含在上传签名中，更多相关信息请参见 [签名参数说明](https://cloud.tencent.com/document/product/266/9221#.3Ca-id.3D.22p2.22.3E.3C.2Fa.3E.E7.AD.BE.E5.90.8D.E5.8F.82.E6.95.B0.E8.AF.B4.E6.98.8E)
+- **子应用**、**视频文件分类**、**任务流**等信息都包含在上传签名中，更多相关信息请参见 [签名参数说明](https://cloud.tencent.com/document/product/266/9221#.3Ca-id.3D.22p2.22.3E.3C.2Fa.3E.E7.AD.BE.E5.90.8D.E5.8F.82.E6.95.B0.E8.AF.B4.E6.98.8E)。
 
 ###  上传视频示例
 
