@@ -14,7 +14,8 @@ Active Directory Federation Services（ADFS）是 Microsoft's 推出的 Windows 
 ## 操作步骤
 ### 变更系统基础信息
 在云服务器内，进入控制面板>系统和安全>系统，在计算机名、域和工作组设置项，单击**更改设置**，修改计算机名、计算机全名、计算机描述、域信息，本文示例中信息如下：`adserver、adserver.testdomain.com、adserver、testdomain.com`。
-![](https://qcloudimg.tencent-cloud.cn/raw/c41f7a934bcf4465a4ccaecc1efe8318.png)
+<img style="width:978px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/c41f7a934bcf4465a4ccaecc1efe8318.png" />
+
 
 ### 安装部署 Microsoft AD
 1. 在云服务器内，进入 **Server Manager** > **Dashboard**，单击 **Add roles and features**，如下图所示：
@@ -40,7 +41,7 @@ Active Directory Federation Services（ADFS）是 Microsoft's 推出的 Windows 
 
 ### 安装 CA
 1.在云服务器内，进入 **Server Manager** > **Dashboard**，单击 **Add roles and features**，如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/6e62daaad1474f3c251869f4b0f749a2.png)
+<img style="width:978px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/6e62daaad1474f3c251869f4b0f749a2.png" />
 2. 一直单击 **Next** 直到 Server Roles 页面，Roles 选择 Active Directory Certificate Services，如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/f3ea0086af560b353f6922f6b869958a.png)
 3. 一直单击 **Next** 直到 AD CS-Server Roles 页面，Server Roles 选择 Certification Authority、Certification Authority Web Enrollment，如下图所示：
@@ -68,29 +69,37 @@ Active Directory Federation Services（ADFS）是 Microsoft's 推出的 Windows 
 ### 安装 ADFS 服务
 在配置前您需要给计算机或者指定的用户或者计算机授权证书颁发。安装 ADFS 前，需要创建和配置证书，本文中通过 IIS 进行证书申请。
 1. 在 IIS 管理器中，单击**服务器证书**，如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/0b49f4664cd74f8a8a1b1bc270748c31.png)
+<img style="width:978px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/0b49f4664cd74f8a8a1b1bc270748c31.png" />
+
 2、进入服务器证书页面，单击 **创建证书申请**，如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/a59d8264e9d2edb1e990379d1a22b6b2.png)
+<img style="width:978px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/a59d8264e9d2edb1e990379d1a22b6b2.png" />
 ![](https://qcloudimg.tencent-cloud.cn/raw/d14676f50d1dedf2455e39f2a3a2824f.png)
  ![](https://qcloudimg.tencent-cloud.cn/raw/e070da5b0a06b6f77dab3e91122702a7.png)
 ![](https://qcloudimg.tencent-cloud.cn/raw/a5b997c70e6a0fb86c5eed5cd3e47f14.png)
 3. 访问  `http://localhost/certsrv`，单击**申请证书 > 高级证书申请 > 使用 base64 编码**，如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/c9cad1c83817099ca2a385a7a220d444.png)
-![](https://qcloudimg.tencent-cloud.cn/raw/37ab1c3364acddef651b339d5233f7ff.png)
-![](https://qcloudimg.tencent-cloud.cn/raw/c5a8ec1e1b22e15b406bfbd5bd52fa7c.png)
+<img style="width:978px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/c9cad1c83817099ca2a385a7a220d444.png" />
+<img style="width:978px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/37ab1c3364acddef651b339d5233f7ff.png" />
+<img style="width:978px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/c5a8ec1e1b22e15b406bfbd5bd52fa7c.png" />
+
 4. 在弹出的提交证书申请页面，将申请证书保存的证书文件内容复制之后补充至以下输入框，证书模板选择 Web 服务器，单击**提交**。如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/15080a1c59c6390f17ca2247edebb5f5.png)
+<img style="width:978px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/15080a1c59c6390f17ca2247edebb5f5.png" />
+
 5. 提交之后，单击 **下载证书**，如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/a3301bacb18d0c646932a89c65f7fea0.png)
+<img style="width:978px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/a3301bacb18d0c646932a89c65f7fea0.png" />
+
 6. 在服务器证书页面，单击 **完成证书申请**，在弹出的页面选择步骤 5 下载的证书，如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/e31ca79c7ff60614837b049071e5cfa3.png)
+<img style="width:978px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/e31ca79c7ff60614837b049071e5cfa3.png" />
+
 ![](https://qcloudimg.tencent-cloud.cn/raw/2b044468721d83d7a1fbb123c0f2e847.png)
 7. 在网站 > Default Web Site 主页，右键单击 **编辑绑定**，如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/1a8ab8e9b388d9ad0567fb1e843eb858.png)
+<img style="width:978px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/1a8ab8e9b388d9ad0567fb1e843eb858.png" />
+
 8. 在弹出的网站绑定页面，单击 **添加**，选择类型为 https，IP 地址为全部未分配，端口为 80，SSL 证书为 test.cert，如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/00dff679c9a49898799cd4c138c8b3a2.png)
+<img style="width:978px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/00dff679c9a49898799cd4c138c8b3a2.png" />
+
 9. 在管理工具页面，单击 **证书颁发机构**，如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/2ba5c07e2fceaf021938e746478f3927.png)
+<img style="width:978px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/2ba5c07e2fceaf021938e746478f3927.png" />
+
 10. 在证书颁发机构页面，选择证件模板，右键单击**管理**，如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/eece2b526f8afc306ace6c8c1531e7c0.png)
 11. 参考下图进项配置：
