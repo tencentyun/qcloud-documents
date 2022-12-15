@@ -17,7 +17,7 @@
 
 ```javascript
 function orc() {
-  var key = '1/素材.jpeg';
+  var key = '素材.jpeg';
   var host = config.Bucket + '.cos.' + config.Region + '.myqcloud.com/' + key;
   var url = 'https://' + host;
   cos.request({

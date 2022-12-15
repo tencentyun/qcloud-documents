@@ -20,7 +20,7 @@ function getDocHtmlUrl() {
   cos.getObjectUrl({
     Bucket: config.Bucket,
     Region: config.Region,
-    Key: '1/文档.docx',
+    Key: '文档.docx',
     Query: {
       'ci-process': 'doc-preview', /* 必须，数据万象处理能力，文档预览固定为 doc-preview */
       dstType: 'html',
