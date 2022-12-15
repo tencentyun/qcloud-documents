@@ -474,3 +474,4 @@ addEventListener('fetch', async (event) => {
 - [MDN 官方文档：CryptoKeyPair](https://developer.mozilla.org/en-US/docs/Web/API/CryptoKeyPair)
 - [示例函数：防篡改校验](https://cloud.tencent.com/document/product/1552/84081)
 - [示例函数：m3u8 改写与鉴权](https://cloud.tencent.com/document/product/1552/84086)
+- [示例函数：缓存 POST 请求](https://cloud.tencent.com/document/product/1552/84079)
