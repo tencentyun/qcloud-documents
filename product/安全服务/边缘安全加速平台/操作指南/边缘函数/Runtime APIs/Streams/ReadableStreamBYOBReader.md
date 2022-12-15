@@ -53,5 +53,5 @@ reader.releaseLock(): void;
 取消与流的关联，并释放流的锁定。
 
 
-## 参考
+## 相关参考 
 - [MDN 官方文档：ReadableStreamBYOBReader](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStreamBYOBReader)

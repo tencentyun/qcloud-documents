@@ -1,6 +1,6 @@
-使用边缘函数生成 HTML 页面，并在浏览器端预览。
+使用边缘函数生成 HTML 页面，并在浏览器预览页面。
 
-```js
+```typescript
 const html = `
 <!DOCTYPE html>
   <body>
@@ -25,8 +25,10 @@ addEventListener("fetch", (event) => {
 ## 示例预览
 
 在浏览器地址栏中输入边缘函数触发规则，即可预览到示例效果。
+
 <img src="https://qcloudimg.tencent-cloud.cn/raw/14f8696020d287c3ec562d84033a7855.png" width=609px>
 
 ## 相关参考
 - [Runtime APIs: addEventListener](https://cloud.tencent.com/document/product/1552/81928)
 - [Runtime APIs: Response](https://cloud.tencent.com/document/product/1552/81917)
+- [Runtime APIs: FetchEvent](https://cloud.tencent.com/document/product/1552/81899)

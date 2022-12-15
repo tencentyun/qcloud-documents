@@ -73,8 +73,8 @@ const request = new Request(input: string | Request, init?: RequestInit)
       <td>body</td>
       <td>
         string |<br>
-        Blob | <br>
-        ArrayBuffer | <br>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/API/Blob">Blob</a> | <br>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer">ArrayBuffer</a> | <br>
         ArrayBufferView | <br>
         <a href="https://cloud.tencent.com/document/product/1552/81914">ReadableStream</a>
       </td>
@@ -173,7 +173,7 @@ const request = new Request(input: string | Request, init?: RequestInit)
 
 ## 实例属性
 
-### body
+### body[](id:body)
 ```typescript
 // request.body
 readonly body: ReadableStream;
@@ -343,7 +343,7 @@ readonly eo: IncomingRequestEoProperties;
 
 ## 实例方法
 
->! 获取请求体方法，接收 `HTTP body` 最大字节数为 1M，超出大小会抛出 OverSize 异常。超出大小时推荐使用 `request.body` 流式读取，详情参见 [ReadableStream](https://cloud.tencent.com/document/product/1552/81914)。
+>! 获取请求体方法，接收 `HTTP body` 最大字节数为 1M，超出大小会抛出 OverSize 异常。超出大小时推荐使用 [request.body](#body) 流式读取，详情参见 [ReadableStream](https://cloud.tencent.com/document/product/1552/81914)。
 
 ### arrayBuffer
 ```typescript
@@ -381,7 +381,7 @@ request.clone(copyHeaders?: boolean): Request;
 			<td>boolean</td>
 			<td>否</td>
 			<td>
-        开启复制请求头，默认值为 <code>false</code>。取值说明如下：<br/>
+        开启复制请求头，默认值为 <code>false</code>，取值说明如下。<br/>
         <li>
           <font color="#9ba6b7">true</font><br/>
           <div style="padding-left: 20px;padding-bottom: 6px">
@@ -453,16 +453,17 @@ request.setCookies(cookies: Cookies): boolean;
 ## 示例代码
 ```typescript
 async function handleRequest() {
-    const request = new Request('https://www.qq.com');
-    const response = await fetch(request);
-    return response;
+  const request = new Request('https://www.tencentcloud.com/');
+  const response = await fetch(request);
+  return response;
 }
 
 addEventListener('fetch', (event) => {
-  return event.respondWith(handleRequest(event));
-}
+  event.respondWith(handleRequest());
+});
 ```
 
 ## 相关参考
 - [MDN 官方文档：Request](https://developer.mozilla.org/en-US/docs/Web/API/Request)
-- [代码案列：修改请求头](https://cloud.tencent.com/document/product/1552/81938)
+- [示例函数：修改请求头](https://cloud.tencent.com/document/product/1552/81938)
+- [示例函数：基于请求区域重定向](#基于请求区域重定向.md)
