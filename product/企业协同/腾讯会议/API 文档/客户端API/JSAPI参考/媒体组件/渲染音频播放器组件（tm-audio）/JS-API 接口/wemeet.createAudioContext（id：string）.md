@@ -11,6 +11,6 @@
    <tr>
       <td>id</td>
       <td>String</td>
-      <td>tm-audio，组件的 id</td>
+      <td>tm-audio，组件的 ID。</td>
    </tr>
 </table>
