@@ -55,7 +55,7 @@ encoder.encodeInto(input: string, destination: Uint8Array): EncodeIntoResult;
 ```
 接受码点流作为输入，输出 `UTF-8` 字节流，并写入到参数 `destination` 字节数组中。
 
-- `encoder.encodeInto` 参数
+- 参数
 
 <table>
   <thead>
@@ -75,7 +75,7 @@ encoder.encodeInto(input: string, destination: Uint8Array): EncodeIntoResult;
     </tr>
     <tr>
       <td>destination</td>
-      <td>Uint8Array</td>
+      <td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array">Uint8Array</a></td>
       <td>是</td>
       <td>编码器输出值。</td>
     </tr>
@@ -83,7 +83,7 @@ encoder.encodeInto(input: string, destination: Uint8Array): EncodeIntoResult;
 </table>
 
 
-- `encoder.encodeInto` 返回值 `EncodeIntoResult`
+- 返回值 `EncodeIntoResult`
 
 <table>
   <thead>
@@ -102,7 +102,7 @@ encoder.encodeInto(input: string, destination: Uint8Array): EncodeIntoResult;
     <tr>
       <td>written</td>
       <td>number</td>
-      <td>目标 Uint8Array 中修改的字节数。</td>
+      <td>目标 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array">Uint8Array</a> 中修改的字节数。</td>
     </tr>
   </tbody>
 </table>
@@ -258,15 +258,15 @@ const result = decoder.decode(buffer?: ArrayBuffer | ArrayBufferView | undefined
 			<td>boolean</td>
 			<td>false</td>
 			<td>
-        设置流式解码，默认为 false 。<br/>
+        设置流式解码，默认为 false ，取值说明如下。<br/>
         <li>
-          <font color="#9ba6b7">stream: true</font><br/>
+          <font color="#9ba6b7">true</font><br/>
           <div style="padding-left: 20px;padding-bottom: 6px">
             表示以 <code>chunk</code> 的方式处理数据，即流式解码。
           </div>
         </li>
         <li>
-          <font color="#9ba6b7">stream: false</font><br/>
+          <font color="#9ba6b7">false</font><br/>
           <div style="padding-left: 20px;padding-bottom: 6px">
             表示 <code>chunk</code> 已结束或未使用 <code>chunk</code> 处理数据，即非流式解码。
           </div>
@@ -276,7 +276,33 @@ const result = decoder.decode(buffer?: ArrayBuffer | ArrayBufferView | undefined
 	</tbody>
 </table>
 
-## 参考
-* [MDN 官方文档：TextEncoder](https://developer.mozilla.org/en-US/docs/Web/API/TextEncoder)
-* [MDN 官方文档：TextDecoder](https://developer.mozilla.org/en-US/docs/Web/API/TextDecoder)
-* [MDN 官方文档：Encoding Label](https://developer.mozilla.org/en-US/docs/Web/API/Encoding_API/Encodings)
+## 示例代码
+```typescript
+function handleEvent(event) {
+  // 编码器
+  const encoder = new TextEncoder();
+  const encodeText = encoder.encode('hello world');
+  
+  // 解码器
+  const decoder = new TextDecoder();
+  const decodeText = decoder.decode(encodeText);
+
+  // 客户端响应内容
+  const response = new Response(JSON.stringify({
+    encodeText: encodeText.toString(),
+    decodeText,
+  }));
+
+  return response;
+}
+
+addEventListener('fetch', (event) => {
+  event.respondWith(handleEvent(event));
+});
+```
+
+## 相关参考 
+- [MDN 官方文档：TextEncoder](https://developer.mozilla.org/en-US/docs/Web/API/TextEncoder)
+- [MDN 官方文档：TextDecoder](https://developer.mozilla.org/en-US/docs/Web/API/TextDecoder)
+- [MDN 官方文档：Encoding Label](https://developer.mozilla.org/en-US/docs/Web/API/Encoding_API/Encodings)
+- [示例函数：防篡改校验](#防篡改校验.md)

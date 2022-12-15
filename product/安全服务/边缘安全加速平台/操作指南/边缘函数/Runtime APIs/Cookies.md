@@ -59,7 +59,7 @@ cookies.get(name?: string): null | Cookie | Array<Cookie>;
       <td>string</td>
       <td>否</td>
       <td>
-        <code>Cookie</code> 名称，取值说明如下：
+        <code>Cookie</code> 名称，取值说明如下。
         <li>
           <font color="#9ba6b7">缺省 name </font><br/>
           <div style="padding-left: 20px;padding-bottom: 6px">
@@ -155,9 +155,9 @@ cookies.get(name?: string): null | Cookie | Array<Cookie>;
 cookies.set(name: string, value: string, options?: Cookie): boolean;
 ```
 
-覆盖添加 Cookie。返回 true，表示添加成功，返回 false，表示添加失败, 超过了 cookies 数量限制。
+覆盖添加 Cookie。返回 true，表示添加成功，返回 false，表示添加失败（超过了 cookies 数量限制，详细参见 [cookies 大小限制](#CookiesLimit)）。
 
->? 以 `name + domain + path` 为唯一 key，覆盖添加 Cookie。
+>! 以 `name + domain + path` 为唯一 key，覆盖添加 Cookie。
 
 #### 参数
 
@@ -197,9 +197,9 @@ cookies.set(name: string, value: string, options?: Cookie): boolean;
 cookies.append(name: string, value: string, options?: Cookie): boolean;
 ```
 
-追加 Cookie，用于相同 name, 多个 value 的场景。返回 true，表示添加成功，返回 false，表示添加失败（value 重复或超过了 cookies 数量限制）。
+追加 Cookie，用于相同 name, 多个 value 的场景。返回 true，表示添加成功，返回 false，表示添加失败（value 重复或超过了 cookies 数量限制，详细参见 [cookies 大小限制](#CookiesLimit)）。
 
->? 以 `name + domain + path` 为唯一 key 追加 Cookie。
+>! 以 `name + domain + path` 为唯一 key 追加 Cookie。
 
 ### remove
 ```typescript
@@ -208,7 +208,7 @@ cookies.remove(name: string, options?: Cookie): boolean;
 
 删除 Cookie。
 
->? 以 `name + domain + path` 为唯一 key 删除 Cookie。
+>! 以 `name + domain + path` 为唯一 key 删除 Cookie。
 
 #### 参数
 
@@ -229,8 +229,8 @@ cookies.remove(name: string, options?: Cookie): boolean;
       <td><code>Cookie</code> 名称。</td>
     </tr>
     <tr>
-      <td>Cookie</td>
-      <td>string</td>
+      <td>options</td>
+      <td><a href="#Cookie">Cookie</a></td>
       <td>是</td>
       <td>
         <a href="#Cookie">Cookie</a> 属性配置项，其中属性 domian 和 path 可支持 *, 表示匹配所有。
@@ -241,24 +241,39 @@ cookies.remove(name: string, options?: Cookie): boolean;
 
 ## 使用限制
 ### 特殊字符自动转义
-- name
-name 为 ` " ( ) , / : ; ? < = > ? @ [ ] \ { }`，`0x00～0x1F`， `0x7F~0xFF` 将被自动转义。
+- name 值包含字符 ` " ( ) , / : ; ? < = > ? @ [ ] \ { }`，`0x00～0x1F`， `0x7F~0xFF` 将被自动转义。
 
-- value
-value 为 ` , ， ; " \`，`0x00~0x1F`，`0x7F~0xFF` 将被自动转义。
+- value 值包含字符 ` , ， ; " \`，`0x00~0x1F`，`0x7F~0xFF` 将被自动转义。
 
-### cookies 大小限制
-- Cookie 的 name 大小
-不超过64B。
+### cookies 大小限制[](id:CookiesLimit)
+- Cookie 属性 name 大小不超过 64B。
 
-- Cookie 属性 `value,domain,path,expires,max_age,samesite` 累计大小
-不超过1KB。
+- Cookie 属性 `value, domain, path, expires, max_age, samesite` 累计大小不超过 1KB。
 
-- cookies 转义后所有字段总长度
-不超过4KB。
+- cookies 转义后所有字段总长度不超过 4KB。
 
-- cookies 中包含的 Cookie 对象总数
-不超过64个。
+- cookies 中包含的 Cookie 对象总数不超过 64个。
 
-## 参考
+## 示例代码
+```typescript
+function handleEvent(event) {
+  const response = new Response('hello world');
+    
+  // 生成 cookies 对象
+  const cookies = new Cookies('ssid=helloworld; expires=Sun, 10-Dec-2023 03:10:01 GMT; path=/; domain=.tencentcloud.com; samesite=.tencentcloud.com', true);
+  
+  // 设置响应头 Set-Cookie
+  response.setCookies(cookies);
+
+  return response;
+}
+
+addEventListener('fetch', (event) => {    
+  event.respondWith(handleEvent(event));
+});
+```
+
+## 相关参考 
 - [MDN 官方文档：Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie)
+- [示例函数：AB测试](#AB测试.md)
+- [示例函数：设置 Cookie](#设置 Cookie.md)
