@@ -55,5 +55,5 @@ writable.abort(reason?: string): Promise<string>;
 
 ## 相关参考 
 - [MDN 官方文档：WritableStream](https://developer.mozilla.org/en-US/docs/Web/API/WritableStream)
-- [示例函数：合并资源流式响应](#合并资源流式响应.md)
-- [示例函数：m3u8 改写与鉴权](#m3u8 改写与鉴权.md)
+- [示例函数：合并资源流式响应](https://cloud.tencent.com/document/product/1552/84085)
+- [示例函数：m3u8 改写与鉴权](https://cloud.tencent.com/document/product/1552/84086)
