@@ -560,7 +560,7 @@ Future.delayed(const Duration(seconds: 5), () async {
 
 具体请查看 [Flutter 官方监听前后台切换方案](https://docs.flutter.dev/get-started/flutter-for/android-devs#how-do-i-listen-to-android-activity-lifecycle-events)。
 
-建议：在应用切换到 inactive/paused 状态前，使用插件中`setBadgeNum( int badgeNum )`方法，将最新未读数同步至桌面角标。
+建议：在应用切换到 inactive/paused 状态前，使用插件中`setBadgeNum( int badgeNum )`方法，将最新未读数同步至桌面角标。此处本插件支持配置iOS,  XIAOMI（MIUI6 - MIUI 11机型）, HUAWEI, HONOR, vivo 及 OPPO 设备角标。
 
 >?OPPO 角标属于 OPPO 侧高级权益，不默认开放。如需使用，请自行联系 OPPO 应用推送权益对接人。
 
