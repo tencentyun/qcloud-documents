@@ -473,3 +473,4 @@ addEventListener('fetch', async (event) => {
 - [MDN 官方文档：CryptoKey](https://developer.mozilla.org/en-US/docs/Web/API/CryptoKey)
 - [MDN 官方文档：CryptoKeyPair](https://developer.mozilla.org/en-US/docs/Web/API/CryptoKeyPair)
 - [示例函数：防篡改校验](#防篡改校验.md)
+- [示例函数：m3u8 改写与鉴权](#m3u8 改写与鉴权.md)

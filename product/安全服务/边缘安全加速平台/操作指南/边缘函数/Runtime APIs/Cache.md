@@ -276,3 +276,5 @@ cache.delete(request: string | Request, options?: DeleteOptions): Promise<boolea
 
 ## 相关参考 
 - [MDN 官方文档：Cache](https://developer.mozilla.org/en-US/docs/Web/API/Cache)
+- [示例函数：缓存 POST 请求](#缓存 POST 请求.md)
+- [示例函数：Cache API 使用](#Cache API 使用.md)

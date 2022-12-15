@@ -302,6 +302,7 @@ addEventListener('fetch', (event) => {
 ```
 
 ## 相关参考 
-* [MDN 官方文档：TextEncoder](https://developer.mozilla.org/en-US/docs/Web/API/TextEncoder)
-* [MDN 官方文档：TextDecoder](https://developer.mozilla.org/en-US/docs/Web/API/TextDecoder)
-* [MDN 官方文档：Encoding Label](https://developer.mozilla.org/en-US/docs/Web/API/Encoding_API/Encodings)
+- [MDN 官方文档：TextEncoder](https://developer.mozilla.org/en-US/docs/Web/API/TextEncoder)
+- [MDN 官方文档：TextDecoder](https://developer.mozilla.org/en-US/docs/Web/API/TextDecoder)
+- [MDN 官方文档：Encoding Label](https://developer.mozilla.org/en-US/docs/Web/API/Encoding_API/Encodings)
+- [示例函数：防篡改校验](#防篡改校验.md)

@@ -243,3 +243,6 @@ addEventListener('fetch', (event) => {
 
 ## 相关参考 
 - [MDN 官方文档：Response](https://developer.mozilla.org/en-US/docs/Web/API/Response)
+- [示例函数：返回 HTML 页面](#返回 HTML 页面.md)
+- [示例函数：修改响应头](#修改响应头.md)
+- [示例函数：AB测试](#AB测试.md)

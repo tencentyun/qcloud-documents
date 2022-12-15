@@ -98,3 +98,4 @@ event.waitUntil(task: Promise<any>): void;
 ## 相关参考 
 - [MDN 官方文档：FetchEvent](https://developer.mozilla.org/en-US/docs/Web/API/FetchEvent)
 - [示例函数：返回 HTML 页面](#返回 HTML 页面.md)
+- [示例函数：Cache API 使用](#Cache API 使用.md)
