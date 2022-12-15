@@ -53,5 +53,5 @@ addEventListener('fetch', (event) => {
 
 ## 相关参考 
 - [MDN 官方文档：addEventListener](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener)
-- [示例函数：返回 HTML 页面](#返回 HTML 页面.md)
-- [示例函数：返回 JSON](#返回 JSON.md)
+- [示例函数：返回 HTML 页面](https://cloud.tencent.com/document/product/1552/81941)
+- [示例函数：返回 JSON](https://cloud.tencent.com/document/product/1552/81942)
