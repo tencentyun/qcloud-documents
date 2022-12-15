@@ -91,7 +91,7 @@ pod 命令执行完后，会生成集成了 SDK 的 .xcworkspace 后缀的工程
 
 ![](https://main.qcloudimg.com/raw/39f16307b69c8f0d766349e5ed201ef4.png)
 
-#### 2. 集成 IM SDK
+#### 3. 集成 IM SDK
 
 **添加依赖库：**
 
@@ -112,14 +112,11 @@ pod 命令执行完后，会生成集成了 SDK 的 .xcworkspace 后缀的工程
 
 项目代码中使用 SDK 有两种方式：
 
-- 方式一： 在 Xcode -> Build Setting -> Header Search Paths 设置 ImSDKForMac_Plus.framework/Headers 路径，在项目需要使用 SDK API 的文件里，直接引用头文件"ImSDKForMac_Plus.h"。
-
+- 方式一： 在 Xcode > Build Setting > Header Search Paths 设置 ImSDKForMac_Plus.framework/Headers 路径，在项目需要使用 SDK API 的文件里，直接引用头文件"ImSDKForMac_Plus.h"。
 ```objectivec
 #import "ImSDKForMac_Plus.h"
 ```
-
 - 方式二：在项目需要使用 SDK API 的文件里，引入具体的头文件 <ImSDKForMac_Plus/ImSDKForMac_Plus.h>。
-
 ```objective-c
 #import <ImSDKForMac_Plus/ImSDKForMac_Plus.h>
 ```
