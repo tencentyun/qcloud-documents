@@ -109,7 +109,7 @@ WordPress 应用镜像 postfix 服务默认未加密。从安全性的角度考�
  - **SMTP 用户名**：填写您的邮箱地址。
  - **SMTP 密码**：填写授权码，不是 QQ 邮箱的密码。
  - **发件人名称**：可填写您的店铺名称。
- - **发件人**：可填写管理员的邮件地址。需为为有效的邮件地址，否则会报错。
+ - **发件人**：可填写管理员的邮件地址。需为有效的邮件地址，否则会报错。
 8. 在 “Which email features do you want to enable?” 步骤中，保持默认配置，单击 **Save and Continue**。
 9. 在 “Help Improve WP Mail SMTP + Smart Recommendations” 步骤中，单击 **Skip this Step**。
 10. 在 “Enter your WP Mail SMTP License Key” 步骤中，单击 **Skip this Step**。
