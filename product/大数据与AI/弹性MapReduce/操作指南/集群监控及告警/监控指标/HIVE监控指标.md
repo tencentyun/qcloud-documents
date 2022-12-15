@@ -22,7 +22,7 @@
 </tr><tr>
 <td >GCT </td>
 <td >s </td>
-<td >垃圾回收时间消耗 </td>
+<td >垃圾回收时间消耗 </td> 
 </tr><tr>
 <td >YGCT </td>
 <td >s </td>

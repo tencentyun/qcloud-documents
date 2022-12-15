@@ -19,7 +19,7 @@ COSBench 是一款由 Intel 开源，用于对象存储的压测工具。腾讯�
 
 ## COSBench 实践步骤
 
-1. 从 [COSBench GitHub](https://github.com/intel-cloud/cosbench/releases) 网站下载 COSBench 0.4.2.c4.zip 压缩包，并在服务器上进行解压。
+1. 从 COSBench GitHub 网站 [下载 COSBench 0.4.2.c4.zip 压缩包](https://github.com/intel-cloud/cosbench/releases/tag/v0.4.2.c4)，并在服务器上进行解压。
 2. 安装 COSBench 的依赖库，执行如下命令。
  - 对于 centos 系统，执行如下命令安装依赖：
 ```
@@ -92,7 +92,7 @@ sudo apt install nmap openjdk-8-jdk
 </tr>
 <tr>
 <td>csuffix</td>
-<td>用户的 APPID，需注意 APPID 前面带上符号<code>-</code>，例如 -1250000000</td>
+<td>用户的 APPID，需注意 APPID 前面带上符号 <code>-</code>，例如 -1250000000</td>
 </tr>
 <tr>
 <td>runtime</td>
@@ -112,6 +112,7 @@ sudo apt install nmap openjdk-8-jdk
 ```plaintext
 -Dcom.amazonaws.services.s3.disableGetObjectMD5Validation=true
 ```
+![](https://qcloudimg.tencent-cloud.cn/raw/ac010bb86f091d709a0776b4e20a5858.png)
 5. 启动 cosbench 服务。
  - 对于 centos 系统，执行以下命令：
 ```plaintext
@@ -126,12 +127,12 @@ sudo bash start-controller.sh &
 ```plaintext
 sudo bash cli.sh submit conf/s3-config-sample.xml
 ```
-并通过该网址`http://ip:19088/controller/index.html`（ip 替换为用户的压测机器 IP）查看执行状态：
+并通过该网址 `http://ip:19088/controller/index.html`（ip 替换为用户的压测机器 IP）查看执行状态：
 ![](https://main.qcloudimg.com/raw/77f1631fa15141332d123fb472bab7ac.png)
 此时可以看到五个执行阶段，如下图所示：
 ![](https://main.qcloudimg.com/raw/3ccb5a60253ceb20c6da9292582c4355.png)
-7. 下面展示的是所属地域为北京地域、32核、内网带宽为17Gbps的 CVM 进行上传和下载性能测试，包括以下2个阶段：
-    1. prepare 阶段：100个 worker 线程，上传1000个50MB对象。
+7. 下面展示的是所属地域为北京地域、32核、内网带宽为17Gbps 的 CVM 进行上传和下载性能测试，包括以下2个阶段：
+    1. prepare 阶段：100个 worker 线程，上传1000个50MB 对象。
     2. main 阶段：100个 worker 线程混合读写对象，运行300秒。
 
  经过以上阶段1和阶段2的性能压测，结果如下：

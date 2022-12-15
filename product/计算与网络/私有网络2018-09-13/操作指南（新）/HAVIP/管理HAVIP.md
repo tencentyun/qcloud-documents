@@ -10,7 +10,7 @@
  + **私有网络**：选择待创建 HAVIP 所在的私有网络。
  + **子网**：HAVIP 具有子网属性，请选择所在子网。
  + **IP 地址**：支持自动分配和手动填写。选择自动分配系统将从子网中分配一个 IP 地址；选择手动填写，需填写子网网段范围内的可用 IP 地址，且不能为系统保留 IP。例如，所属子网网段为：10.0.0.0/24，则可填的内网 IP 范围为：10.0.0.2 - 10.0.0.254。
-  ![](https://main.qcloudimg.com/raw/036b8d78f4b0de150fbd2d1bb2ae143d.png)
+	<img src="https://qcloudimg.tencent-cloud.cn/raw/8299b0024139f1b37625e79012c23317.png" width="70%"> 
 4. 单击**确定**，创建成功的 HAVIP 展示在列表中，状态为**未绑定云服务器**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/a9a55d52d64d0838ac6b7a6c3569bdfa.png)		
 

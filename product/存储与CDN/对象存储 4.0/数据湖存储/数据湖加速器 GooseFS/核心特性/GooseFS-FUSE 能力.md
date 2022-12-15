@@ -29,7 +29,7 @@ goosefs-fuse mounted at /mnt/people. See /lib/GooseFS/logs/fuse.log for logs
 
 ### 卸载 GooseFS-FUSE
 
-卸载 GooseFS-FUSE 时，需在该节点上启动 Shell，并进入$GOOSEFS_HOME 目录执行以下命令：
+卸载 GooseFS-FUSE 时，需在该节点上启动 Shell，并进入 $GOOSEFS_HOME 目录执行以下命令：
 ```
 $ integration/fuse/bin/goosefs-fuse umount mount_point
 ```
@@ -68,7 +68,7 @@ conf 目录下：
 - workers：worker 服务器的 IP 配置文件
 - goosefs-site.properties：goosefs 配置文件
 - libexec：goosefs-fuse 运行依赖的 lib 库文件
-- goosefs-fuse-1.3.0：goosefs-fuse 后台运行的 jar 包
+- goosefs-fuse-1.4.0：goosefs-fuse 后台运行的 jar 包
 - log：日志目录
 
 ## 可选配置
@@ -90,7 +90,7 @@ GooseFS-FUSE 基于标准的 GooseFS-core-client-fs 进行操作。如果您希�
 - 不支持对文件长度进行 truncate 操作。
 - 不支持 soft/hard link；GooseFS 没有 hard-link 和 soft-link 的概念，所以不支持与之相关的命令，例如 ln。此外关于 hard-link 的信息也不在 ll 的输出中显示。
 - 以对象存储作为底层存储时，Rename 操作非原子。
-- 只有当 GooseFS 的 GooseFS.security.group.mapping.class 选项设置为ShellBasedUnixGroupsMapping 的值时，文件的用户与分组信息才与 Unix 系统的用户分组对应。否则 chown 与 chgrp 的操作不生效，而 ll 返回的用户与分组为启动 GooseFS-FUSE 进程的用户与分组信息。
+- 只有当 GooseFS 的 GooseFS.security.group.mapping.class 选项设置为 ShellBasedUnixGroupsMapping 的值时，文件的用户与分组信息才与 Unix 系统的用户分组对应。否则 chown 与 chgrp 的操作不生效，而 ll 返回的用户与分组为启动 GooseFS-FUSE 进程的用户与分组信息。
 
 ## 性能考虑
 

@@ -3,7 +3,7 @@
 
 ## 前提条件
 1. 已完成 Terraform 的安装与配置，操作步骤请参见 [安装和配置 Terraform](https://cloud.tencent.com/document/product/1552/80472)。
-2. 已通过 Terraform 接入了站点，操作步骤请参见 [通过 Terraform 创建站点](引用链接待生成)。
+2. 已通过 Terraform 接入了站点，操作步骤请参见 [通过 Terraform 创建站点](https://cloud.tencent.com/document/product/1552/82136)。
 
 ## 操作步骤
 1. 修改 Terraform 配置文件，添加站点加速配置的资源定义。

@@ -1,6 +1,5 @@
 ## 功能简介
-腾讯云边缘安全加速平台（TencentCloud EdgeOne，下文简称为 EdgeOne）已经接入 Terraform，可以通过 Terraform 来实现快速配置。本文介绍如何使用
-Terraform 来配置 EdgeOne 站点的规则引擎，实现子域名差异化配置。
+腾讯云边缘安全加速平台（TencentCloud EdgeOne，下文简称为 EdgeOne）已经接入 Terraform，可以通过 Terraform 来实现快速配置。本文介绍如何使用 Terraform 来配置 EdgeOne 站点的规则引擎，实现子域名差异化配置。
 
 ## 前置条件
 1. 已完成 Terraform 的安装与配置，操作步骤请参见 [安装和配置 Terraform](https://cloud.tencent.com/document/product/1552/80472)。

@@ -20,9 +20,9 @@ cp 命令包含以下可选 flag：
 |   无       | --exclude       | 排除特定模式的文件                   |
 | -r        | --recursive     | 是否递归遍历文件夹下所有文件       |
 |   无       | --storage-class | 指定上传至文件的类型（默认 STANDARD） |
-|   无       | --part-size     | 文件分块大小（默认32MB）     |
+|   无       | --part-size     | 文件分块大小（默认32MB），单位MB     |
 |   无       | --thread-num    | 并发线程数（默认并发5）      |
-|   无       | --rate-limiting | 单链接速率限制（0.1~100MB/s）       |
+|   无       | --rate-limiting | 单链接速率限制（0.1~100MB/s），单位MB/s       |
 | 无 | --meta | 上传文件的元信息。包括部分 HTTP 标准属性（HTTP Header）以及以`x-cos-meta-`开头的用户自定义元数据（User Meta）。文件元信息格式为`header:value#header:value`，示例为`Expires:2022-10-12T00:00:00.000Z#Cache-Control:no-cache#Content-Encoding:gzip#x-cos-meta-x:x`。 |
 
 
@@ -33,7 +33,7 @@ cp 命令包含以下可选 flag：
 > - 当以分块形式上传/下载文件时，会默认开启断点续传。
 > - `--include` 和 `--exclude` 支持标准正则表达式的语法，您可以使用它来过滤出符合特定条件的文件。
 > - 使用 zsh 时，您可能需要在 pattern 串的两端加上双引号。
-```
+```plaintext
 ./coscli cp ~/test/ cos://bucket1/example/ -r --include ".*.txt" --meta=x-cos-meta-a:a#ContentType:text#Expires:2022-10-12T00:00:00.000Z
 ```
 
@@ -76,6 +76,13 @@ cp 命令包含以下可选 flag：
 ```plaintext
 ./coscli cp ~/test/ cos://bucket1/example/ -r --storage-class ARCHIVE
 ```
+
+#### 将本地的 file.txt 文件上传至 bucket1 桶并设置单链接速率限制为1.3MB/s
+
+```plaintext
+./coscli cp ~/file.txt cos://bucket1/file.txt --rate-limiting 1.3
+```
+
 
 ### 下载操作
 

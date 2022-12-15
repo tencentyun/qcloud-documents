@@ -30,9 +30,12 @@
 5. 在“选择功能”界面勾选“墨迹手写服务”和“桌面体验”，并在弹出的提示框中单击**确认**。如下图所示：
 ![](https://main.qcloudimg.com/raw/5f48c63aa27566abdd4202a09eb521d5.png)
 6. 选择**下一步**，并单击**安装**。安装完成后，参考界面上的提示重启服务器。
-7. 选择 <img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin:-5px 0px">，单击右上角的<img src="https://main.qcloudimg.com/raw/4851c97390178d2d8ae2e6385756eb3b.png" style="margin:-5px 0px">。在搜索中输入“磁盘管理”，并进行搜索。
-8. 在弹出的“磁盘清理”窗口中选择对应磁盘开始清理。如下图所示：
-![](https://main.qcloudimg.com/raw/b76f518b5b915b3316e89696ea94847f.png)
+7. 选择 <img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin:-5px 0px">，单击右上角的<img src="https://main.qcloudimg.com/raw/4851c97390178d2d8ae2e6385756eb3b.png" style="margin:-5px 0px">。在搜索中输入“磁盘清理”，并进行搜索。
+8. 在“磁盘清理搜索结果”中点击**创建并格式化硬盘分区**。
+9. 在弹出的“磁盘管理”窗口中点击**文件**，再点击**选项**。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/0714bd4dea0c4fb911d42a93c5aa5a3e.png)
+10. 在弹出的“磁盘清理”窗口中开始清理。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/58f213cabfb24e089b39800578a6d2c3.png)
 
 ### 磁盘日常维护
 #### 定期清理应用程序
@@ -46,3 +49,5 @@
 2. 选择需查看的实例 ID，进入实例详情页面。
 3. 在实例详情页面，选择**监控**页签，即可查看该实例下磁盘使用情况。如下图所示：
 ![](https://main.qcloudimg.com/raw/3f01000dd6fed6c35177d4122f77e4c1.png)
+
+  

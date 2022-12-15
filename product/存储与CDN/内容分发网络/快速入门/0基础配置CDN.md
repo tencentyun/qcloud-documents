@@ -13,7 +13,7 @@
 1. 登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)；
 2. 单击左侧菜单内的**域名管理**，进入域名管理列表；
 3. 单击**添加域名**，添加一个新域名；
-![](https://qcloudimg.tencent-cloud.cn/raw/7b2e10a5dfb8f3f619ba9901d8b85bd0.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/d6502f74dbfc26de629bc32fdfec583b.png)
 4. 配置加速域名基础信息：
 ![](https://qcloudimg.tencent-cloud.cn/raw/a3098a98bc764edff1789a70c11f85d4.png)
 
@@ -67,8 +67,8 @@
 
 |推荐配置项|	推荐配置的加速类型|	推荐配置|
 |--|--|--|
-|[节点缓存过期配置](https://cloud.tencent.com/document/product/228/47672)|	CDN 网页小文件/CDN 大文件下载/CDN 音视频点播/ECDN 动静加速|对不常更新的图片、JS等内容，可设置较长的缓存时间，以提高节点的资源命中率；对动态文件一律不缓存。<br><br>**注意：**<br>如果您的源站资源更新后需要立刻更新CDN节点缓存，可使用缓存刷新功能来主动更新CDN节点未过期的文件，更多请参考：[缓存刷新](https://cloud.tencent.com/document/product/228/6299)<br>**推荐可配置（按照规则顺序，规则2优先级需高于规则1）：**<br>1. 全部文件缓存30天；<br>文件后缀包括 php/jsp/asp/aspx 的文件类型一律不缓存。|
-|[缓存键规则配置](https://cloud.tencent.com/document/product/228/47671)	|CDN 网页小文件/CDN 大文件下载/CDN 音视频点播/ECDN 动静加速	|CDN 节点可按照用户请求 URL 的？后参数区分资源版本，如果当前资源未通过？后参数来区分版本，忽略？后参数，可以有效提高资源的命中率。<br>**推荐配置：**<br>1. 当前资源如果通过？参数进行了不同版本区分，建议不忽略参数或保留指定参数；<br>2. 针对未通过？后参数区分版本的资源，建议默认开启忽略参数配置。
+|[节点缓存过期配置](https://cloud.tencent.com/document/product/228/47672)|	CDN 网页小文件/CDN 大文件下载/CDN 音视频点播/ECDN 动静加速|对不常更新的图片、JS 等内容，可设置较长的缓存时间，以提高节点的资源命中率；对动态文件一律不缓存。<br><br>**注意：**<br>如果您的源站资源更新后需要立刻更新 CDN 节点缓存，可使用缓存刷新功能来主动更新 CDN 节点未过期的文件，更多请参考：[缓存刷新](https://cloud.tencent.com/document/product/228/6299)<br>**推荐可配置（按照规则顺序，规则2优先级需高于规则1）：**<br>1. 全部文件缓存30天；<br>2. 文件后缀包括 php/jsp/asp/aspx 的文件类型一律不缓存。|
+|[缓存键规则配置](https://cloud.tencent.com/document/product/228/47671)	|CDN 网页小文件/CDN 大文件下载/CDN 音视频点播/ECDN 动静加速	|CDN 节点可按照用户请求 URL 的`？`后参数区分资源版本，如果当前资源未通过`？`后参数来区分版本，忽略`？`后参数，可以有效提高资源的命中率。<br>**推荐配置：**<br>1. 当前资源如果通过`？`参数进行了不同版本区分，建议不忽略参数或保留指定参数；<br>2. 针对未通过`？`后参数区分版本的资源，建议默认开启忽略参数配置。
 |[浏览器缓存过期配置](https://cloud.tencent.com/document/product/228/50114)|	CDN 网页小文件/ECDN 动静加速	|浏览器缓存规则可将不常更新的文件类型缓存在用户浏览器上以提高用户的资源响应速度。<br>**推荐配置：**<br>指定不常更新的文件后缀或文件目录设置浏览器缓存时间，例如：文件后缀包括 jpg/png/gif/bmp/svg/webp 等图片文件，浏览器缓存时间为1小时。|
 
 

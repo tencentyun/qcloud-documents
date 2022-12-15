@@ -31,7 +31,7 @@
     <tr>
         <th>对比维度</th>
         <th>微服务平台 TSF</th>
-        <th>弹性微服务 TEM</th>
+        <th>弹性微服务</th>
     </tr>
     </thead>
     <tbody>

@@ -1,6 +1,5 @@
 ## 功能简介
-腾讯云边缘安全加速平台（TencentCloud EdgeOne，下文简称为 EdgeOne）已经接入 Terraform，可以通过 Terraform 来实现快速配置。本文介绍如何使用
-Terraform 快速添加 EdgeOne 站点。
+腾讯云边缘安全加速平台（TencentCloud EdgeOne，下文简称为 EdgeOne）已经接入 Terraform，可以通过 Terraform 来实现快速配置。本文介绍如何使用 Terraform 快速添加 EdgeOne 站点。
 
 ## 前提条件
 已完成 Terraform 的安装与配置，操作步骤请参见 [安装和配置 Terraform](https://cloud.tencent.com/document/product/1552/80472)。
@@ -25,7 +24,7 @@ provider "tencentcloud" {
 }
 resource "tencentcloud_teo_zone" "example" {
   zone_name = "example.com"
-  plan_type = "ent"
+  plan_type = "<your-plan-type>"
   tags = {
     "createdBy" = "terraform"
   }
@@ -123,7 +122,7 @@ tencentcloud_teo_zone.example: Creation complete after 6s [id=zone-2ag9gej58j36]
 Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 ```
 5. 修改接入站点的 DNS 配置。
-   为使站点生效，以 NS 方式接入则需要修改站点的 NS 服务器，以 CNAME 方式接入则需要添加 CNAME 记录作为站点验证。详情请参见 [站点接入方式](https://cloud.tencent.com/document/product/1552/70787)。
+   为使站点生效，以 NS 方式接入则需要修改站点的 NS 服务器，以 CNAME 方式接入则需要添加 TXT 记录作为站点验证。详情请参见 [站点接入方式](https://cloud.tencent.com/document/product/1552/70787)。
    ![](https://qcloudimg.tencent-cloud.cn/raw/25c401d0261cd6e4ed587dfe538f543b.png)
 6. 验证站点已生效。
    执行步骤 5 之后等待几分钟，通过`terraform refresh`刷新资源状态，然后执行`terraform show`查看站点是否已经生效。

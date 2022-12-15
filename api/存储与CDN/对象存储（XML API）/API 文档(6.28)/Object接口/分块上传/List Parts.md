@@ -2,6 +2,11 @@
 
 List Parts 用来查询特定分块上传中的已上传的块，即罗列出指定 UploadId 所属的所有已上传成功的分块。
 
+
+>?
+>只有主账号或者被授权 List Part 接口权限的子账号可以调用该接口。
+>
+
 <div class="rno-api-explorer">
     <div class="rno-api-explorer-inner">
         <div class="rno-api-explorer-hd">

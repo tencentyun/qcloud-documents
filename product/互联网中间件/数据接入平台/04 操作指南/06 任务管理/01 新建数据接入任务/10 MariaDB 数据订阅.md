@@ -31,7 +31,7 @@ DIP 支持订阅  MariaDB 变更数据，本文介绍在 DIP 控制台创建 Mar
    <td>支持三种选择方式：<ul><li>全部库表：订阅该连接关联的所有数据库表。</li><li>批量选择：支持手动勾选要订阅的数据库和表，支持订阅多个数据库、多个表。</li><li>正则匹配：支持使用正则匹配筛选订阅符合条件的表。</li></ul></td>
    </tr>
    </tbody></table>
-<img src="https://qcloudimg.tencent-cloud.cn/raw/404afbc6d13b64afcbe2953eddecd964.png" alt=""> 
+   <img src="https://qcloudimg.tencent-cloud.cn/raw/404afbc6d13b64afcbe2953eddecd964.png" alt="">  
 5. （可选）设置高级参数。
 <table>
 <thead>
@@ -46,7 +46,7 @@ DIP 支持订阅  MariaDB 变更数据，本文介绍在 DIP 控制台创建 Mar
 </tr>
 <tr>
 <td>订阅结构更新</td>
-<td>订阅结构更新将订阅整个数据库实例所有对象的结构创建，删除以及修改。若数据目标配置选择分发到多个Topic 则不支持订阅结构更新。</td>
+<td>订阅结构更新将订阅整个数据库实例所有对象的结构创建，删除以及修改。若数据目标配置选择分发到多个 Topic 则不支持订阅结构更新。</td>
 </tr>
 <tr>
 <td>包含原始 SQL 查询</td>
@@ -63,9 +63,14 @@ DIP 支持订阅  MariaDB 变更数据，本文介绍在 DIP 控制台创建 Mar
 </tbody></table>
 <img src="https://qcloudimg.tencent-cloud.cn/raw/5e9583ffe15566fcbd5ca352125e11fd.png" alt=""> 
 6. 单击**下一步**，配置数据目标信息。
-   分发到多个 Topic：支持将不同数据库表中的数据分发到不同的 Topic 中去。
-      - 开启后：只能选择同一个 CKafka 实例下的 Topic。
-      - 未开启：支持选择 **DIP Topic** 或者 **CKafka Topic**。
-        ![](https://qcloudimg.tencent-cloud.cn/raw/0daa51f156dc33a3602f90b23208dec3.png)
-7. 单击**提交**，可以在任务列表看到刚刚创建的任务，在状态栏可以看到创建进度。
+7. 分发到多个 Topic：支持将不同数据库表中的数据分发到不同的 Topic 中去。
+   - 开启后：支持自动创建 Topic 或者选择已有 Topic。
+     - 自动创建 Topic：只能自动创建 CKafka Topic，自动创建的 topic 名是由 database.schema.table 形式构建。
+     - 选择已有 Topic：只能选择同一个 CKafka 实例下的 Topic。
+   - 未开启：支持自动创建 Topic 或者选择已有 Topic。
+     - 自动创建 Topic：可以选择 CKafka Topic 或者 DIP Topic，若选择 CKafka Topic，则需要指定目标 CKafka 实例。支持批量连续命名或指定模式串命名，[参考文档](https://cloud.tencent.com/document/product/597/59246)。
+     - 选择已有 Topic：支持选择 **DIP Topic** 或者 **CKafka Topic**。选择 CKafka Topic 时，若实例设置了 ACL 策略，请确保选中的 Topic 有读写权限。
+       ![](https://qcloudimg.tencent-cloud.cn/raw/1b9a55964e8486c6d773077d4a506805.png)
+8. 选择是否开启数据压缩，数据压缩可以减少网络 IO 传输量，减少磁盘存储空间，[数据压缩说明](https://cloud.tencent.com/document/product/597/40402)。
+9. 单击**提交**，可以在任务列表看到刚刚创建的任务，在状态栏可以看到创建进度。
    ![](https://qcloudimg.tencent-cloud.cn/raw/6e7de3ade04778916596742245176cd7.png)

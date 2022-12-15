@@ -17,3 +17,4 @@
 >
    2. 状态确认。指示灯 SYS 长亮，即表示与云端正常通信，此时您可以通过腾讯云官网远程配置 Edge 设备。
    3. 若设备仍然不能正常上电，请[ 在线咨询](https://cloud.tencent.com/online-service?from=connect-us)。
+

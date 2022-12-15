@@ -13,3 +13,4 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/516a447431dcf7c0761c561ae0f700cf.png)
 5. 单击**创建**。VPN 网关创建完成后，系统随机分配公网 IP，如：`124.156.239.133`。
   ![](https://main.qcloudimg.com/raw/e906f7c547bb29fb267c3370039c3541.png)
+

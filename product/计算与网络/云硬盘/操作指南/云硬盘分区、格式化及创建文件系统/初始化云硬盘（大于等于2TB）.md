@@ -292,16 +292,16 @@ vi /etc/fstab
 ```plaintext
 <设备信息> <挂载点> <文件系统格式> <文件系统安装选项> <文件系统转储频率> <启动时的文件系统检查顺序>
 ```
-  - **（推荐）**以使用弹性云硬盘的软链接自动挂载为例，结合前文示例则添加：
- ```
+  - **（推荐）**以使用弹性云硬盘的软链接自动挂载为例，设备信息输入  `/dev/disk/by-id/virtio-disk-xxxxxxxx`，其中 `disk-xxxxxxxx` 为您需要设置自动挂载的云硬盘 ID，可在云硬盘 [控制台](https://console.cloud.tencent.com/cvm/cbs)  查看。
+ ```plaintext
 /dev/disk/by-id/virtio-disk-bm42ztpm-part1 /data/newpart2   ext4 defaults     0   2
 ```
   - 以使用磁盘分区的 UUID 自动挂载为例，结合前文示例则添加：
-```
+```plaintext
 UUID=fc3f42cc-2093-49c7-b4fd-c616ba6165f4 /data/newpart2   ext4 defaults     0   2
 ```
   - 以使用设备名称自动挂载为例，结合前文示例则添加：
-```
+```plaintext
 /dev/vdc1 /data/newpart2   ext4 defaults     0   2
 ```
 20. 按 **Esc**，输入 **:wq**，按 **Enter**。

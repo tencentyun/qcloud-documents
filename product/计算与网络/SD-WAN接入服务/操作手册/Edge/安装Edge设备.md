@@ -2,7 +2,6 @@
 >?Edge-1000 目前 POC 测试中，如需体验，请提交[ 工单申请](https://console.cloud.tencent.com/workorder/category)。
 >
 
-
 ## 背景信息
 **Edge 设备**：硬件设备形态，在用户 IDC、分支和门店安装 Edge 设备后，可自动与腾讯云网络连接。Edge 设备详情如下：
 <table>
@@ -41,7 +40,8 @@
 	2. 使用以下任意一种方式配置 WAN 口。
 		- 方式一：通过本地 Web 控制台配置。具体操作请参见 [在本地 Web 控制台配置 WAN 和 WLAN](https://cloud.tencent.com/document/product/1277/47252)。
 		- 方式二：（推荐）在 SD-WAN 接入服务控制台配置。具体操作请参见 [在控制台配置 WAN 口](https://cloud.tencent.com/document/product/1277/47271)。
->? 当 Edge 设备的 4G 网络正常（即插电后，LTE 灯长亮），或 Modem 可正常拨号上网时，才可以使用此方式。
+>?当 Edge 设备的 4G 网络正常（即插电后，LTE 灯长亮），或 Modem 可正常拨号上网时，才可以使用此方式。
+>
 	3. 配置 LAN 口，具体操作请参见  [配置 LAN 接口](https://cloud.tencent.com/document/product/1277/47270)。
 
 ## 后续操作

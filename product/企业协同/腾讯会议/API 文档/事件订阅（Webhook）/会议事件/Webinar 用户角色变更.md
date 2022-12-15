@@ -1,7 +1,7 @@
 ## 事件描述
 **事件名：**webinar.participant-role-changed
 **事件说明：**网络研讨会（Webinar）用户角色变更时触发该事件通知。
-
+ 
 ## 示例
 ```json
 {

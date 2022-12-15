@@ -168,6 +168,7 @@ SDK 3.0支持全部 API 3.0下的云产品，本列表可能滞后于实际代�
 | [私有域解析 Private DNS](https://cloud.tencent.com/document/product/1338) | Private DNS | privatedns       |
 | [弹性微服务](https://cloud.tencent.com/document/product/1371)             | Tencent Cloud Elastic Microservice，TEM | tem              |
 | [腾讯云微服务引擎](https://cloud.tencent.com/document/product/1364)          | Tencent Cloud Service Engine，TSE | tse              |
+| [日志服务](https://cloud.tencent.com/document/product/614/56480)          | Cloud Log Service，CLS | cls              |
 
 ## API Explorer
 [API Explorer](https://console.cloud.tencent.com/api/explorer) 提供了在线调用、签名验证、 SDK 代码生成和快速检索接口等能力，能显著降低使用云 API 的难度。

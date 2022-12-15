@@ -35,7 +35,6 @@ yum install -y fuse-devel java-11-openjdk-devel
 ```
 curl -LO https://downloads.tencentgoosefs.cn/goosefs-lite/goosefs-lite-1.0.2.tar.gz
 ```
-
 2. 执行如下命令，获取 GooseFS-Lite 的 Md5 文件：
 ```
 curl -LO https://downloads.tencentgoosefs.cn/goosefs-lite/goosefs-lite-1.0.2-md5.txt
@@ -158,12 +157,24 @@ mkdir -p /mnt/gooosefs-lite-mnt
 ./bin/goosefs-lite mount /mnt/goosefs-lite-mnt/ cosn://examplebucket-1250000000/
 ```
 
-查看本地挂载点和对应的 COS 存储桶，输出信息依次为进程 ID、本地挂载点和COS路径：
+查看本地挂载点和对应的 COS 存储桶，输出信息依次为进程 ID、本地挂载点和 COS 路径：
 ```
 $ ./bin/goosefs-lite stat
 pid     mount_point     cos_path
 13815   /mnt/goosefs-lite-mnt/  cosn://examplebucket-1250000000/
 ```
+
+如果您需要在命令行中，同时指定多个挂载参数，可以使用逗号分隔多个参数，例如，下面的命令设置挂载点只读，且允许除其他用户访问挂载点：
+```
+./bin/goosefs-lite mount -o"ro,allow_other"  mnt/ cosn://examplebucket-1250000000/
+```
+
+其中：
+- -oallow_other：如果要允许其他用户访问挂载文件夹，可以在运行 GooseFS-Lite 的时候指定该参数。
+- -oro：将挂载点设置为只读，不允许写入和删除操作。
+
+
+>?单个参数可通过 `-o` 指定，例如`-oro`；多个参数可通过逗号分割，例如`-o"ro,allow_other"`。
 
 ### 步骤6：卸载存储桶
 
@@ -206,6 +217,8 @@ export JAVA_OPTS=" -Xms16G -Xmx16G  -XX:MaxDirectMemorySize=16G -XX:+UseG1GC"
 ./bin/goosefs-lite mount /mnt/goosefs-lite-mnt/ cosn://examplebucket-1250000000/
 ps -ef|grep goosefs-lite|grep -v grep
 ```
+
+
 
 ### 常见问题
 
@@ -302,3 +315,54 @@ systemctl status goosefs-lite
 # 查看挂载点列表
 /usr/local/goosefs-lite-1.0.0/bin/goosefs-lite stat
 ```
+
+#### 3. GooseFS-Lite 每天在某个时间段里 CPU 使用率较高，且向 COS 发出大量 Head、List 请求，产生大量请求次数费用，该怎么处理？
+
+这通常是由于您机器上存在定时扫盘任务导致的，Linux 系统上常见的扫盘程序是 updatedb，您可以将 GooseFS-Lite 挂载点目录，添加到 updatedb 的配置文件 /etc/updatedb.conf 文件的 PRUNEPATHS 配置项中，避免该程序的扫盘行为。此外，您可以使用 Linux 工具 auditd，查找访问 GooseFS-Lite 挂载点的程序：
+
+操作步骤如下：
+
+步骤一：安装 auditd
+
+Ubuntu:
+
+```
+ap-get install auditd -y
+```
+
+CentOS：
+
+```
+yum install audit audit-libs
+```
+
+步骤二：启动 auditd 服务
+
+```
+systemctl start auditd
+systemctl enable auditd
+```
+
+步骤三：监控挂载目录
+>?`-w` 指定 GooseFS-Lite 挂载目录，`-k` 为输出在 audit 日志中的 key。
+
+```
+auditctl -w /usr/local/service/mnt/ -k goosefs_lite_mnt
+```
+
+步骤四：根据日志确定访问程序
+
+audit 的日志目录： /var/log/audit，查询命令如下：
+
+```
+ausearch -i|grep 'goosefs_lite_mnt'
+```
+
+步骤五：停止 auditd 服务
+如果您需要停止 auditd 服务，可以使用如下命令：
+
+```
+/sbin/service auditd stop
+```
+
+>!如果访问挂载点的程序一直在运行，新启动的 auditd，并不会监控到该程序的访问行为；程序中关于挂载目录的多次调用，只会记录第一次。

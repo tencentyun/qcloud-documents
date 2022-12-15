@@ -1,5 +1,16 @@
 基于 Spring Cloud Greenwich 版本 SDK，支持 spring boot 2.1.6。
 
+## 1.29.8-Greenwich-RELEASE（2022-11-15） 
+### Bug 修复
+- 修复 scg 调用在 filter 中增加 restTemplate 或 feign 以后，scg 最终调用目标下游服务的熔断功能失效的问题。
+- 修复 TSF Consul 与开源 Consul 双注册双发现的问题。
+- 修复 swagger 上报因为报文不完整出现空指针的问题。
+- 修复网关重定向异常后，网关调用链信息拓扑图异常的问题。
+
+### 新特性
+支持调用链中展示 oceanbase 监控。
+
+
 ## 1.29.5-Greenwich-RELEASE（2022-09-06）
 ### Bug 修复
 - 修复独立版虚拟机限流不生效的问题。

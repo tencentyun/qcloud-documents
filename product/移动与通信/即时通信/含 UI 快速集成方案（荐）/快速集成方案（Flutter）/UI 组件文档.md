@@ -1,11 +1,14 @@
 ## TIMUIKitCore[](id:timuikitcore)
+
 `TIMUIKitCore` 提供两个静态方法 `getInstance` 和 `getSDKInstance`。
+
 - `getInstance`：返回 `CoreServicesImpl` 实例。
 - `getSDKInstance`： 返回 SDK 实例。
 
 `CoreServicesImpl` 为 TIMUIKit 核心类，包含初始化、登录、登出、获取用户信息等方法。
+
 ```dart
-import 'package:tim_ui_kit/tim_ui_kit.dart';
+import 'package:tencent_cloud_chat_uikit/tencent_cloud_chat_uikit.dart';
 
 final CoreServicesImpl _coreInstance = TIMUIKitCore.getInstance();
 final V2TIMManager _sdkInstance = TIMUIKitCore.getSDKInstance();
@@ -32,7 +35,7 @@ _coreInstance.getUsersInfo(userIDList: ["123", "456"]);
 
 /// setOfflinePushConfig
 _coreInstance.setOfflinePushConfig(
-    businessID: businessID, // 	IM 控制台证书 ID，接入 TPNS 不需要填写
+    businessID: businessID, //  IM 控制台证书 ID，接入 TPNS 不需要填写
     token: token, // 注册应用到厂商平台或者 TPNS 时获取的 token
     isTPNSToken: false // 是否接入配置 TPNS，token 是否是从TPNS 获取
 )
@@ -72,18 +75,20 @@ _coreInstance.setTheme(TUITheme theme: theme) // 设置主题色
 ```
 
 ### 静态方法
+
 - **TIMUIKitCore.getInstance()**：
 返回 `CoreServicesImpl` 实例
 - **TIMUIKitCore.getSDKInstance()**：
 返回为 `V2TIMManager` 为 SDK 实例，具体使用方式请参见 [Flutter IM SDK 文档](https://comm.qq.com/im/doc/flutter/zh/SDKAPI/Api/V2TIMManager/readme.html)
 
-
 [](id:timuikitconversation)
+
 ## TIMUIKitConversation
+
 `TIMUIKitConversation` 为会话组件，拉取用户会话列表，默认提供一套 UI，用户也可自定义会话条目。同时提供对应的 `TIMUIKitConversationController`。
 
 ```dart
-import 'package:tim_ui_kit/tim_ui_kit.dart';
+import 'package:tencent_cloud_chat_uikit/tencent_cloud_chat_uikit.dart';
 
 final TIMUIKitConversationController _controller =
       TIMUIKitConversationController();
@@ -124,9 +129,10 @@ TIMUIKitConversation(
 ```
 
 [](id:timuikitconversationcontroller)
+
 ### TIMUIKitConversationController
 
-#### 方法:
+#### 方法
 
 - **loadData(int count)**：
 加载会话列表，count 为单次加载数量
@@ -143,11 +149,13 @@ TIMUIKitConversation(
 - **dipose()**：
 销毁
 
-
 [](id:timuikitchat)
+
 ## TIMUIKitChat
+
 `TIMUIKitChat` 为聊天组件，提供消息列表的展示及消息发送的能力，同时支持自定义各种消息类型的展示。同时可结合 TIMUIKitChatController 实现消息的本地存储及消息预渲染。
 目前支持的消息解析:
+
 - 文本消息
 - 图片消息
 - 视频消息
@@ -157,7 +165,7 @@ TIMUIKitConversation(
 - 文件消息
 
 ```dart
-import 'package:tim_ui_kit/tim_ui_kit.dart';
+import 'package:tencent_cloud_chat_uikit/tencent_cloud_chat_uikit.dart';
 
 TIMUIKitChat(
     conversationID: "", /// 会话ID
@@ -178,14 +186,14 @@ TIMUIKitChat(
 ### TIMUIKitChatController
 
 #### 方法
+
 - **setMessageListener({V2TimAdvancedMsgListener? listener})**：设置高级消息监听器
 - **removeMessageListener({V2TimAdvancedMsgListener? listener})**：移除高级消息监听器
 - **clearHistory()**：清除历史消息
 - **dispose()**：销毁
 
-
-
 [](id:timuikitprofile)
+
 ## TIMUIKitProfile
 
 `TIMUIKitProfile` 为用户详情展示，同时支持自定义添加操作项。
@@ -208,6 +216,7 @@ TIMUIKitProfile(
 ```
 
 ### TIMUIKitProfileController
+
 - **pinedConversation(bool isPined，String convID)**：
 会话置顶，`isPined` 为是否置顶，`convID` 为需要置顶的会话 ID
 - **addUserToBlackList(bool shouldAdd，String userID)**：
@@ -223,11 +232,12 @@ TIMUIKitProfile(
 - **addFriend(String userID)**：
 添加好友，`userID` 为被添加好友的用户 ID
 
-
-
 [](id:timuikitgroupprofile)
+
 ## TIMUIKitGroupProfile
+
 `TIMUIKitGroupProfile` 为群管理页面，同时支持自定义添加操作项。
+
 ```dart
 TIMUIKitGroupProfile(
     groupID: "", //群 ID 必填
@@ -235,9 +245,11 @@ TIMUIKitGroupProfile(
     bottomOperationListBuilder: () {}, // 底部操作项自定义构造器
 )
 ```
+
 `operationListBuilder` 及 `bottomOperationListBuilder` 主要给予用户可配置操作条目的能力，同时可结合子组件配合使用，可以自己选择搭配。
 
 ### 静态方法
+
 - **TIMUIKitGroupProfile.memberTile()**：
 群成员卡片、用于显示群成员概览、群成员列表、删除群成员等操作
 - **TIMUIKitGroupProfile.groupNotification()**：
@@ -251,9 +263,10 @@ TIMUIKitGroupProfile(
 - **TIMUIKitGroupProfile.nameCard()**：
 群昵称及修改
 
-
 [](id:timuikitblacklist)
+
 ## TIMUIKitBlackList
+
 `TIMUIKitBlackList` 为黑名单列表。
 
 ```dart
@@ -264,9 +277,10 @@ TIMUIKitBlackList(
 )
 ```
 
-
 [](id:timuikitgroup)
+
 ## TIMUIKitGroup
+
 `TIMUIKitGroup` 为群列表。
 
 ```dart
@@ -277,13 +291,14 @@ TIMUIKitGroup(
 )
 ```
 
-
 [](id:timuikitcontact)
+
 ## TIMUIKitContact
+
 `TIMUIKitContact` 为联系人组件，提供联系人列表。
 
 ```dart
-import 'package:tim_ui_kit/tim_ui_kit.dart';
+import 'package:tencent_cloud_chat_uikit/tencent_cloud_chat_uikit.dart';
 
 TIMUIKitContact(
       topList: [
@@ -299,10 +314,12 @@ TIMUIKitContact(
     );
 ```
 
-
 [](id:timuikitnewcontact)
+
 ## TIMUIKitNewContact
+
 `TIMUIKitNewContact` 为新的联系人界面。
+
 ```dart
 TIMUIKitNewContact(
     onAccept: (applicationInfo) {

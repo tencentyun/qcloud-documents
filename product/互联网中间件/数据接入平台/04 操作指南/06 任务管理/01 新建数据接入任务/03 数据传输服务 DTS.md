@@ -19,5 +19,5 @@ DIP 支持接入各种数据源产生的不同类型的数据，统一管理，�
 5. 选择数据目标 Topic，支持选择 **DIP Topic** 或者 **CKafka Topic**。
    - DIP Topic：选择在数据接入平台提前创建好的 Topic，详情参见 [Topic 管理](https://cloud.tencent.com/document/product/1591/77020)。
    - CKafka Topic：选择在 CKafka 创建好的 Topic，详情参见 [Topic 管理](https://cloud.tencent.com/document/product/597/73566)。
-6. 单击**提交**，可以在任务列表看到刚刚创建的任务，在状态栏可以看到创建进度。
-
+6. 选择是否开启数据压缩，数据压缩可以减少网络 IO 传输量，减少磁盘存储空间，[数据压缩说明](https://cloud.tencent.com/document/product/597/40402)。
+7. 单击**提交**，可以在任务列表看到刚刚创建的任务，在状态栏可以看到创建进度。

@@ -21,11 +21,18 @@ npm install -g @vue/cli@4.5.0 sass sass-loader@10.1.1
 通过 vue-cli 创建项目，并选择下图中所选配置项。
 <dx-codeblock>
 ::: shell
-vue create chat-example && cd chat-example
+vue create chat-example
 :::
 </dx-codeblock>
 
-<img style="width:800px;" src="https://qcloudimg.tencent-cloud.cn/raw/f65d2a15cde0c0baba9a24a5ba845f26.jpg">
+<img style="width:800px;" src="https://qcloudimg.tencent-cloud.cn/raw/3a0bb0d8681c08bccf319782add6951f.png">
+
+创建项目完成后，切换到项目所在目录
+<dx-codeblock>
+::: shell
+cd chat-example
+:::
+</dx-codeblock>
 
 ### 步骤2：下载 TUIKit 组件
 
@@ -42,7 +49,8 @@ mkdir -p ./src/TUIKit && cp -r ./node_modules/@tencentcloud/chat-uikit-vue/ ./sr
 ::: Windows\s 端
 <dx-codeblock>
 ::: shell
-npm i @tencentcloud/chat-uikit-vue && xcopy .\node_modules\@tencentcloud\chat-uikit-vue .\src\TUIKit /i /e
+npm i @tencentcloud/chat-uikit-vue 
+xcopy .\node_modules\@tencentcloud\chat-uikit-vue .\src\TUIKit /i /e
 :::
 </dx-codeblock>
 :::
@@ -178,7 +186,10 @@ npm run serve
 1. 项目启动之后单击左上角**发起单聊**。
 2. 进入**发起单聊**弹窗。在搜索栏输入 [步骤4](#step4) 中创建的 userID，选中后单击**完成**。
 3. 在输入框中输入消息并单击**发送**。
+	Web 端 “发送您的第一条消息” 具体步骤示例：
    ![](https://qcloudimg.tencent-cloud.cn/raw/b111b422237771635d8a8fe4826e5738.png)
+	H5 端 “发送您的第一条消息” 具体步骤示例：
+	![](https://qcloudimg.tencent-cloud.cn/raw/239afb314ee33326219c019663e65028.png)
 
 ## 常见问题
 
@@ -207,3 +218,15 @@ module.exports = {
 };
 :::
 </dx-codeblock>
+
+#### ERESOLVE unable to resolve dependency tree
+ npm install 的时候如出现 ERESOLVE unable to resolve dependency tree ，表示依赖安装冲突，可采用以下方式进行安装：
+  <dx-codeblock>
+  :::  shell
+	npm install --legacy-peer-deps
+  :::
+  </dx-codeblock>
+
+
+#### 如何使用 Vue2 版本接入？
+即时通信 IM - 含 UI 集成方案（ Web & H5 ） 目前仅支持 Vue3 版本接入，建议升级至 Vue3 版本体验最新含 UI 集成功能，或采用 [无 UI 集成方案](https://cloud.tencent.com/document/product/269/75285) 集成 IM SDK 。

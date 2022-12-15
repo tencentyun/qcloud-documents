@@ -145,8 +145,8 @@ systemctl restart network
 ```
  3. 配置策略路由规则。
 ```plaintext
-ip rule add from 192.168.1.5 table 10     #IP 请替换为主网卡上的 IP，请根据实际情况填写。
-ip rule add from 192.168.1.62 table 20     #IP 请替换为辅助网卡上的 IP，请根据实际情况填写。
+ip rule add from 192.168.1.5 table 10              #IP 请替换为主网卡上的 IP，请根据实际情况填写。
+ip rule add from 192.168.1.62 table 20             #IP 请替换为辅助网卡上的 IP，请根据实际情况填写。
 ```   
 7. 配置完成后，可用同一个子网下的 CVM，来 Ping 内网地址，能 Ping 通即说明配置成功。如无其他 CVM，可以给辅助网卡的内网 IP 绑定公网 IP，Ping 该公网 IP 来验证。
 
