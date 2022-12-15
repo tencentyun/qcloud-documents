@@ -17,6 +17,11 @@
 
 ```javascript
 function orc() {
+  var config = {
+    // 需要替换成您自己的存储桶信息
+    Bucket: 'examplebucket-1250000000', /* 存储桶，必须 */
+    Region: 'COS_REGION', /* 存储桶所在地域，必须字段 */
+  };
   var key = '素材.jpeg';
   var host = config.Bucket + '.cos.' + config.Region + '.myqcloud.com/' + key;
   var url = 'https://' + host;
