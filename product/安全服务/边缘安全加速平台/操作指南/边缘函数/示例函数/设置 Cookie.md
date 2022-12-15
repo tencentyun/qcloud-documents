@@ -27,4 +27,3 @@ addEventListener('fetch', (event) => {
 
 ```
 
-![image-20221214204900780](/Users/tomtomyang/Library/Containers/com.tencent.WeWorkMac/Data/Documents/Profiles/D711BAD185CCD117B3EAFB62BF1FABB4/Caches/Files/2022-12/31d6a097f33d11df7c0ce87ef73dc288/assets/image-20221214204900780.png)
