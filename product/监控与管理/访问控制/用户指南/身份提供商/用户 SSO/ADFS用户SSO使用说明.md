@@ -115,11 +115,12 @@ Active Directory Federation Services（ADFS）是 Microsoft's 推出的 Windows 
 1. 在服务器内浏览器访问 `https://adserver.testdomain.com/FederationMetadata/2007-06/FederationMetadata.xml`，将源数据 XML 下载至本地。
 2. 进入 [访问管理-用户 SSO 控制台](https://console.cloud.tencent.com/cam/idp/usersso)，单击右侧 **编辑**，设置 SSO 协议为 SAML，上传第 1 步保存的 XML 文件。
 3. 在服务器内进入 ADFS 管理页面，选择**信任关系** > **信赖方信任**，右键选择添加信赖方信任，单击 **启动**，补充联合元数据地址，元数据地址从第 2 步中获取，一直单击 **下一步**，如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/dafbb1d955917735ed1cb0174c56aa34.png)
-![](https://qcloudimg.tencent-cloud.cn/raw/69349b04b2398a9c886eb6ecafe53b71.png)
-![](https://qcloudimg.tencent-cloud.cn/raw/31b0bf40310bd5f54a38ac9036aafdcb.png)
+<img style="width:950px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/dafbb1d955917735ed1cb0174c56aa34.png" />
+<img style="width:950px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/69349b04b2398a9c886eb6ecafe53b71.png" />
+<img style="width:950px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/31b0bf40310bd5f54a38ac9036aafdcb.png" />
+
 4. 配置完后，效果如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/de077296157333014f2c73b2ada876ad.png)
+ <img style="width:950px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/de077296157333014f2c73b2ada876ad.png" />
 
 ### 为腾讯云 SP 配置 SAML 断言属性
 为保证腾讯云 SAML 响应定位到正确的子用户，SAML 断言中的 NameID 字段需要是腾讯云子用户名。SAML 断言中的 NameID 默认传入为（TESTDOMAIN\子用户名）格式，需正则表达式去除原有配置 TESTDOMAIN，仅保留子用户名（TESTDOMAIN 是前面的默认 NETBIOS 名）。
@@ -127,12 +128,13 @@ Active Directory Federation Services（ADFS）是 Microsoft's 推出的 Windows 
 `c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"]
  => issue(Type = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier", Issuer = c.Issuer, OriginalIssuer = c.OriginalIssuer, Value = regexreplace(c.Value, "(?<domain>[^\\]+)\\(?<user>.+)", "${user}"), ValueType = c.ValueType, Properties["http://schemas.xmlsoap.org/ws/2005/05/identity/claimproperties/format"] = "urn:oasis:names:tc:SAML:2.0:nameid-format:persistent");
 `
-![](https://qcloudimg.tencent-cloud.cn/raw/8521e2aef41f0dea752886f179e05b36.png)
-![](https://qcloudimg.tencent-cloud.cn/raw/78b3222e20690715071a77040ac8722f.png)
+ <img style="width:950px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/8521e2aef41f0dea752886f179e05b36.png" />
+ <img style="width:950px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/78b3222e20690715071a77040ac8722f.png" />
+
 
 ### 用户 SSO 登录
 1. 浏览器输入 `https://adserver.testdomain.com/adfs/ls/idpinitiatedsignon`。
 2. 输入用户名、密码信息，即可完成登录，如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/5d430cb8e87af118bc839322401dac44.png)
+ <img style="width:950px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/5d430cb8e87af118bc839322401dac44.png" />
 
 
