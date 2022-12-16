@@ -83,13 +83,9 @@ addEventListener('fetch', (event) => {
 
 在浏览器地址栏中输入边缘函数触发规则，即可预览到示例效果。
 
-- 未命中缓存
+- 未命中缓存。<br><img src="https://user-images.githubusercontent.com/117053395/207905110-edbb9983-6e27-4ed2-a24d-e8e8e961523e.png" width=609px>
 
-<img src="https://user-images.githubusercontent.com/117053395/207905110-edbb9983-6e27-4ed2-a24d-e8e8e961523e.png" width=609px>
-
-- 命中缓存
-
-<img src="https://user-images.githubusercontent.com/117053395/207905551-67e4ccd6-d5f3-45ed-acbe-5dcdc17cdb04.png" width=609px>
+- 命中缓存。<br><img src="https://user-images.githubusercontent.com/117053395/207905551-67e4ccd6-d5f3-45ed-acbe-5dcdc17cdb04.png" width=609px>
 
 ## 相关参考
 - [Runtime APIs: Fetch](https://cloud.tencent.com/document/product/1552/81897)
