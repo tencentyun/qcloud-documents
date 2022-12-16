@@ -10,30 +10,26 @@ TUICallKit 是腾讯云推出一款新的音视频通话 UI 组件，**是 TUICa
 欢迎您使用新的 TUICallKit 组件，在升级前您需要了解到：
 
 - **TUICalling 和 TUICallKit 支持相互呼叫**，升级前后，请保持 SDKAppID 不变，否则会影响相互通信；
-
 - TUICallKit 需要搭配 IM 音视频通话能力套餐，可以单击 [IM 控制台](https://console.cloud.tencent.com/im)，进入对应 SDKAppID 应用的 **基本配置** 页面，并在页面的右下角找到 **开通腾讯实时音视频服务** 功能区，单击 **免费体验** 即可开通 TUICallKit 的 7 天免费试用服务。如果需要正式应用上线，可以单击 [**前往加购**](https://buy.cloud.tencent.com/avc) 即可进入购买页面。
 
 <img width= 900px src="https://qcloudimg.tencent-cloud.cn/image/document/f98927f3fc851357ac5e491e6aed442b.png">
 
 >!M 音视频通话能力针对不同的业务需求提供了差异化的付费版本供您选择，您可以在 [IM 购买页](https://buy.cloud.tencent.com/avc) 了解包含功能并选购您适合的版本。
->
+
+
 ## 升级步骤
 
 TUICallKit 在设计之初就兼顾了 TUICalling 客户的升级诉求，仅需要简单两步就可以升级完成，预计花费 20 分钟；
 
 ### 下载&替换 TUICallKit
-1. 在 [Github](https://github.com/tencentyun/TUICallKit) 中克隆/下载代码，然后拷贝 Android 目录下的 tuicallkit 子目录到您当前工程中的 app 同级目录中，同时删除 tuicalling 目录，结果如下图：![](https://write-document-release-1258344699.cos-internal.ap-guangzhou.tencentcos.cn/100027119876/0fe197232cc311ed97e7525400c56988.png?q-sign-algorithm=sha1&q-ak=AKIDnVdPIeog8suZVgI6dj8EX0wc_3tiuCPDkQ7Wt7XCsledmxekjsVJnB-8HlmHMp-L&q-sign-time=1671156280;1671159880&q-key-time=1671156280;1671159880&q-header-list=&q-url-param-list=&q-signature=98db23ebbd865a58e7dd31da0bc8b1d990200e43&x-cos-security-token=DxsFQPrcu3Hm2QmTqCrGMpDWOEZIWLna4e2afe7ff81e7d39090ed44e2fc4ad3e2A0TvbcjnYhKc9yZD4kONuItausFd1vYXaE_plym7oZUdPWpVZzUOJcv-pHItNpREWVUWfyXlqhVjYk__iwyL7x7v6arBV8f3q5JN_Pv9tmBkEOE1tK2MzK5tUj422l4QW9pHIEdx-O-9Zg8EODDkiNQr4eM2VEamxGekVMuMqb76VXJF3lLRv82lbay0xTgbCUWEtN84_CddtZJi3EOWC7L12FBBVmly03Ld6XQCOeesmnTy0XC1FYyMTgjXHGEsHkuhfG51gDMquI_06q6ka-trvCp50bxcjrINbt9tpVt4yUmR_XZiwwlLhxz3fNcE5ee2cH6a0_9tSlwWsq6bBl-IdVYG6GL_6sxY0DhA3PrNMMx9y4qlH0-M0g9Nfhe)
-
+1. 在 [Github](https://github.com/tencentyun/TUICallKit) 中克隆/下载代码，然后拷贝 Android 目录下的 tuicallkit 子目录到您当前工程中的 app 同级目录中，同时删除 tuicalling 目录，结果如下图：
+![](https://qcloudimg.tencent-cloud.cn/image/document/5a303fecaaf55d53477ceacb50880827.png)
 2. 在工程根目录下找到 `setting.gradle` 文件，将`include ':tuicalling'`替换成`include ':tuicallkit'`
-
 3. 在 app 目录下找到 `build.gradle` 文件，将`api project(':tuicalling')`替换成`api project(':tuicallkit')`
    
 
-   > **说明：**
-   > 
-
-   > 如果您之前是配合 TUIChat、TUIContact 等IM 组件一起使用的话，执行完这个步骤即可正常使用 TUICallKit，TUICallKit 组件内部已经处理好兼容逻辑。
-   > 
+ >?如果您之前是配合 TUIChat、TUIContact 等IM 组件一起使用的话，执行完这个步骤即可正常使用 TUICallKit，TUICallKit 组件内部已经处理好兼容逻辑。
+ > 
 
 
 ### 修改 API 使用
@@ -41,11 +37,11 @@ TUICallKit 在设计之初就兼顾了 TUICalling 客户的升级诉求，仅需
 在完成上述步骤后，您的工程就无法正常编译了，需要将 TUICalling API 替换成新的TUICallKit API, 可以参照如下 API 对比信息，搜索替换即可。
 <table>
 <tr>
-<td rowspan="1" colSpan="1" >API 含义</td>
+<th rowspan="1" colSpan="1" >API 含义</th>
 
-<td rowspan="1" colSpan="1" >TUICalling（包名：com.tencent.liteav.trtccalling）</td>
+<th rowspan="1" colSpan="1" >TUICalling（包名：com.tencent.liteav.trtccalling）</th>
 
-<td rowspan="1" colSpan="1" >TUICallKit（包名：com.tencent.qcloud.tuikit.tuicallkit）</td>
+<th rowspan="1" colSpan="1" >TUICallKit（包名：com.tencent.qcloud.tuikit.tuicallkit）</th>
 
 <td rowspan="1" colSpan="1" >备注</td>
 </tr>
@@ -152,11 +148,10 @@ TUICallKit 在设计之初就兼顾了 TUICalling 客户的升级诉求，仅需
 </table>
 
 
-如下是此次升级过程中，变化较大的两个API的适配方案：
+如下是此次升级过程中，变化较大的两个 API 的适配方案：
 
 #### TUICalling.call 接口变更
 - **TUICalling 代码示例**
-
    ``` java
    //原接口
    void call(String[] userIDs, Type type);
@@ -167,7 +162,6 @@ TUICallKit 在设计之初就兼顾了 TUICalling 客户的升级诉求，仅需
    TUICallingImpl.sharedInstance(this).call(userIDs, TUICalling.Type.AUDIO);
    ```
 - **TUICallKit 代码示例**
-
    ``` java
    //新接口
    public void call(String userId, TUICallDefine.MediaType callMediaType)
@@ -178,7 +172,6 @@ TUICallKit 在设计之初就兼顾了 TUICalling 客户的升级诉求，仅需
 
 #### TUICalling.setCallingListener 接口变更
 - **TUICalling 代码示例**
-
    ``` java
    TUICallingImpl.sharedInstance(this).setCallingListener(new TUICalling.TUICallingListener() {
        @Override
@@ -200,7 +193,6 @@ TUICallKit 在设计之初就兼顾了 TUICalling 客户的升级诉求，仅需
    });
    ```
 - **TUICallKit 代码示例**
-
    ``` java
      private TUICallObserver mTUICallObserver = new TUICallObserver() {
        @Override
