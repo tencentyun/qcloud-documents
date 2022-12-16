@@ -1,20 +1,20 @@
 按照自建 K8S 集群安装 LogListener 部署完成后，就可以通过创建 LogConfig 或者通过控制台去设置采集配置，开始日志采集了
 如果出现日志采集异常，首先按照下面的流程自查一下
-1. 确认logconfig状态
+### 1. 确认logconfig状态
  - 查看集群所有的采集配置：kubectl get logconfig
  - 查看具体某一个采集配置： kubectl get logconfig xxx -o yaml
  - 查看 logconfig 同步的状态，status 非 Synced 状态都是异常的，异常信息会在 reason 里面，正常都是 success 的状态。
    如上 logconfig 的状态同步是成功的，那么采集异常的原因就是其他方面的。如下图所示:
 ![](https://qcloudimg.tencent-cloud.cn/raw/ffbc202c6c56603bff704ca6bd74457d.jpeg)
 想要进一步了解同步错误的原因，可以看下 cls-provisioner 的日志
-1. 查看 cls-provisioner 日志
+### 1. 查看 cls-provisioner 日志
  - 确定 cls-provisioner 的 Pod: kubectl get pods -n kube-system -o wide |grep cls-provisioner
  - 查看日志: kubectl logs cls-provisioner-xxx -n kube-system
 如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/8780c5adc9c7a5f79bf87417217beadc.png)
 查看 cls-provisione 的日志，来看同步错误的具体原因。
 >!cls-provisioner 组件的作用是和 CLS 服务端通信，将 logconfig 采集配置经过转换，同步到 CLS 服务端，这样采集器才能从服务端获取到采集配置，进而进行正常日志采集。
-1. 查看采集端日志
+### 1. 查看采集端日志
 如果采集配置同步正常，但是日志还是采集有异常，可以具体看下采集端的相关日志。
  - 查看软连是否建立成功。
 我们以采集标准输出为例：
