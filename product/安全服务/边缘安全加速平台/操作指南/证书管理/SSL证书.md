@@ -11,11 +11,9 @@ EdgeOne SSL列表页仅展示当前站点及子域名关联的证书，未关联
 <img width="289" alt="image" src="https://user-images.githubusercontent.com/114125357/208018574-fcf26c34-74f8-4f4a-a09e-153e1779e163.png">   
 
 
-2. 在EdgeOne SSL列表页单击**部署**后如下图所示：  
+2. 在EdgeOne SSL列表页单击**部署**后如下图所示，支持批量选择多个域名单击**确定**即可完成部署。  
 
 <img width="1394" alt="image" src="https://user-images.githubusercontent.com/114125357/208025967-a4bec6a2-afc3-435a-99a8-298770242300.png">   
-
-支持批量选择多个域名单击**确定**即可完成部署。  
 
 注意：证书单次部署最多支持选择100个域名，如您的域名个数超过100个请分批操作。  
 
