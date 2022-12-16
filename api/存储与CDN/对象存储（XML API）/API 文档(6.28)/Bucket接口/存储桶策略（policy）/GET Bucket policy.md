@@ -72,6 +72,8 @@ Authorization: Auth String
 }
 ```
 
+关于访问策略中的元素介绍，请参见 [访问策略语言概述](https://cloud.tencent.com/document/product/436/18023)。
+
 #### 错误码
 
 此接口遵循统一的错误响应和错误码，详情请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
