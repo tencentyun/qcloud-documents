@@ -39,7 +39,7 @@ Discuz! 论坛可以通过配置远程附件功能将论坛的附件保存在腾
 3. 在插件页面中单击**获取更多插件**。在 Discuz! 应用中心搜索“腾讯云对象存储”，选择并单击“安装应用”。
 4. 等待安装完成后，进入插件列表，即可看到已安装的 COS 插件。
 ![](https://qcloudimg.tencent-cloud.cn/raw/a9400929e88c4ee904100d84e7cc8904.png)
-5. 单击设置，开始配置 COS 插件，配置项说明如下：
+5. 单击**设置**，开始配置 COS 插件，配置项说明如下：
 ![](https://qcloudimg.tencent-cloud.cn/raw/e9a09e5c1ee366cdcfea1b12cfe87354.png)
 <table>
 <thead>
