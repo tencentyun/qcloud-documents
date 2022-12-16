@@ -51,7 +51,7 @@
 容器或 kubernetes 相关的元数据请参考下方表格：
 <table>
 	<tr>
-		<th>字段名</th> <th>含义</th>
+		<th  width=24%>字段名</th> <th width=71%>含义</th>
 	</tr>
 	<tr>
 		<td>container_id</td> <td>日志所属的容器 ID。</td>
@@ -88,45 +88,45 @@
 	- 增量：增量采集指从距离文件末尾1M处开始采集（若日志文件小于1M，等价于全量采集）。
  2. 编码模式：支持**UTF-8**和**GBK**。
  3.  提取模式：支持多种类型的提取模式，详情如下：
-	<table>
-	<thead>
-	<tr>
-	<th>解析模式</th>
-	<th>说明</th>
-	<th>相关文档</th>
-	</tr>
-	</thead>
-	<tbody><tr>
-	<td>单行全文</td>
-	<td>一条日志仅包含一行的内容，以换行符 \n 作为一条日志的结束标记，每条日志将被解析为键值为 <strong>CONTENT</strong> 的一行完全字符串，开启索引后可通过全文检索搜索日志内容。日志时间以采集时间为准。</td>
-	<td><a href="https://cloud.tencent.com/document/product/614/17421">单行全文格式</a></td>
-	</tr>
-	<tr>
-	<td>多行全文</td>
-	<td>指一条完整的日志跨占多行，采用首行正则的方式进行匹配，当某行日志匹配上预先设置的正则表达式，就认为是一条日志的开头，而下一个行首出现作为该条日志的结束标识符，也会设置一个默认的键值 <strong>CONTENT</strong>，日志时间以采集时间为准。支持自动生成正则表达式。</td>
-	<td><a href="https://cloud.tencent.com/document/product/614/17422">多行全文格式</a></td>
-	</tr>
-	<tr>
-	<td>单行 - 完全正则</td>
-	<td>指将一条完整日志按正则方式提取多个 key-value 的日志解析模式，您需先输入日志样例，其次输入自定义正则表达式，系统将根据正则表达式里的捕获组提取对应的 key-value。支持自动生成正则表达式。</td>
-	<td><a href="https://cloud.tencent.com/document/product/614/32817">单行 - 完全正则格式</a></td>
-	</tr>
-	<tr>
-	<td>多行 - 完全正则</td>
-	<td>适用于日志文本中一条完整的日志数据跨占多行（例如 Java 程序日志），可按正则表达式提取为多个 key-value 键值的日志解析模式，您需先输入日志样例，其次输入自定义正则表达式，系统将根据正则表达式里的捕获组提取对应的 key-value。支持自动生成正则表达式。</td>
-	<td><a href="https://cloud.tencent.com/document/product/614/52366">多行-完全正则格式</a></td>
-	</tr>
-	<tr>
-	<td>JSON</td>
-	<td>JSON 格式日志会自动提取首层的 key 作为对应字段名，首层的 value 作为对应的字段值，以该方式将整条日志进行结构化处理，每条完整的日志以换行符 \n 为结束标识符。</td>
-	<td><a href="https://cloud.tencent.com/document/product/614/17419">JSON 格式</a></td>
-	</tr>
-	<tr>
-	<td>分隔符</td>
-	<td>指一条日志数据可以根据指定的分隔符将整条日志进行结构化处理，每条完整的日志以换行符 \n 为结束标识符。日志服务在进行分隔符格式日志处理时，您需要为每个分开的字段定义唯一的 key，无效字段即无需采集的字段可填空，不支持所有字段均为空。</td>
-	<td><a href="https://cloud.tencent.com/document/product/614/17420">分隔符格式</a></td>
-	</tr>
-	</tbody></table>
+<table>
+<thead>
+<tr>
+<th width="15%">解析模式</th>
+<th width="60%">说明</th>
+<th width="20%">相关文档</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>单行全文</td>
+<td>一条日志仅包含一行的内容，以换行符 \n 作为一条日志的结束标记，每条日志将被解析为键值为 <strong>CONTENT</strong> 的一行完全字符串，开启索引后可通过全文检索搜索日志内容。日志时间以采集时间为准。</td>
+<td><a href="https://cloud.tencent.com/document/product/614/17421">单行全文格式</a></td>
+</tr>
+<tr>
+<td>多行全文</td>
+<td>指一条完整的日志跨占多行，采用首行正则的方式进行匹配，当某行日志匹配上预先设置的正则表达式，就认为是一条日志的开头，而下一个行首出现作为该条日志的结束标识符，也会设置一个默认的键值 <strong>CONTENT</strong>，日志时间以采集时间为准。支持自动生成正则表达式。</td>
+<td><a href="https://cloud.tencent.com/document/product/614/17422">多行全文格式</a></td>
+</tr>
+<tr>
+<td>单行 - 完全正则</td>
+<td>指将一条完整日志按正则方式提取多个 key-value 的日志解析模式，您需先输入日志样例，其次输入自定义正则表达式，系统将根据正则表达式里的捕获组提取对应的 key-value。支持自动生成正则表达式。</td>
+<td><a href="https://cloud.tencent.com/document/product/614/32817">单行 - 完全正则格式</a></td>
+</tr>
+<tr>
+<td>多行 - 完全正则</td>
+<td>适用于日志文本中一条完整的日志数据跨占多行（例如 Java 程序日志），可按正则表达式提取为多个 key-value 键值的日志解析模式，您需先输入日志样例，其次输入自定义正则表达式，系统将根据正则表达式里的捕获组提取对应的 key-value。支持自动生成正则表达式。</td>
+<td><a href="https://cloud.tencent.com/document/product/614/52366">多行-完全正则格式</a></td>
+</tr>
+<tr>
+<td>JSON</td>
+<td>JSON 格式日志会自动提取首层的 key 作为对应字段名，首层的 value 作为对应的字段值，以该方式将整条日志进行结构化处理，每条完整的日志以换行符 \n 为结束标识符。</td>
+<td><a href="https://cloud.tencent.com/document/product/614/17419">JSON 格式</a></td>
+</tr>
+<tr>
+<td>分隔符</td>
+<td>指一条日志数据可以根据指定的分隔符将整条日志进行结构化处理，每条完整的日志以换行符 \n 为结束标识符。日志服务在进行分隔符格式日志处理时，您需要为每个分开的字段定义唯一的 key，无效字段即无需采集的字段可填空，不支持所有字段均为空。</td>
+<td><a href="https://cloud.tencent.com/document/product/614/17420">分隔符格式</a></td>
+</tr>
+</tbody></table>
 - 过滤器：LogListener 仅采集符合过滤器规则的日志，Key 支持完全匹配，过滤规则支持正则匹配，如仅采集 `ErrorCode = 404` 的日志。您可以根据需求开启过滤器并配置规则。
 	<dx-alert infotype="explain" title="">
 	一个日志主题目前仅支持一个采集配置，请保证选用该日志主题的所有容器的日志都可以接受采用所选的日志解析方式。若在同一日志主题下新建了不同的采集配置，旧的采集配置会被覆盖。
