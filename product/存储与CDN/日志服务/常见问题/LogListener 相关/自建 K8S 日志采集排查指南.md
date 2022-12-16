@@ -32,6 +32,6 @@
 kubectl get pods -n kube-system -o wide |grep tke-log-agent
 首先找到日志采集异常 Pod 对应宿主机上的 tke-log-agent 的 Pod，然后查看 loglistener 日志
 kubectl logs tke-log-agent-xxx -n kube-system -c loglistener
-![](https://qcloudimg.tencent-cloud.cn/raw/61aeba6a3b3f39c08acfc6fa704bad1b.jpeg)
+![](https://qcloudimg.tencent-cloud.cn/raw/c15b99a09b5838c4f7706200f4329ed1.jpeg)
 确定是否有如上图所示类似 **readFile logs send succ!|topicid** 的字样，如果有，则表示日志成功采集到对应的 topic 了；如果没有如上的字样，那说明采集有问题，可以联系相关研发人员。
 如果已经采集到了 topic，但是检索不到，可以先看下是否打开 topic 的全文索引。
