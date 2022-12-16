@@ -1,4 +1,4 @@
-﻿## 操作场景
+## 操作场景
 Prometheus 提供了 Remote read 接口，该接口支持将一系列 Prometheus 协议的数据源组织为单一数据源查询。本文介绍如何使用自建 Prometheus 通过 Remote read 读取云托管 Prometheus 实例的数据。
 ## Remote Read 配置
 推荐配置 `prometheus.yml`如下：
