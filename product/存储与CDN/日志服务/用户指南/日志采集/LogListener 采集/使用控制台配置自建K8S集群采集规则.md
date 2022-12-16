@@ -26,26 +26,27 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/41edf54faada6c693cd7d99e1bfba031.png)
 #### **步骤**3**：**自建 K8S 集群采集配置**采集配置**
 - 日志源配置  
-1.采集规则名称：您可以自定义日志收集规则名称。  
-2.选择采集类型，并配置日志源。目前采集类型支持容器标准输出、容器文件路径和节点文件路径。
- - 容器标准输出日志
+ 1. 采集规则名称：您可以自定义日志收集规则名称。  
+ 1. 选择采集类型，并配置日志源。
+ 目前采集类型支持容器标准输出、容器文件路径和节点文件路径。
+   - 容器标准输出日志
 日志源支持**所有容器**、**指定工作负载**、**指定 Pod Lables** 三种类型。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/60eed298d3cd4ef8bb8556faf50fe592.png)
 ![](https://qcloudimg.tencent-cloud.cn/raw/fa82aae32f818eb6d1082ed6750c6e3f.png)
 ![](https://qcloudimg.tencent-cloud.cn/raw/e281138b15c97c2380679e813d18a11f.png)
- - 容器内文件日志 
-   - 日志源支持**指定工作负载**、**指定 Pod Lables** 两种类型。
-   - 采集文件路径支持文件路径和通配规则，例如当容器文件路径为 `/opt/logs/*.log`，可以指定采集路径为 `/opt/logs`，文件名为 `*.log`。如下图所示：
+   - 容器内文件日志 
+      - 日志源支持**指定工作负载**、**指定 Pod Lables** 两种类型。
+      - 采集文件路径支持文件路径和通配规则，例如当容器文件路径为 `/opt/logs/*.log`，可以指定采集路径为 `/opt/logs`，文件名为 `*.log`。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/dce6dca775d49d89de635e175cc3953d.png)
 ![](https://qcloudimg.tencent-cloud.cn/raw/591e2d927995b0cba95a22ac168fc3db.png)
 <dx-alert infotype="notice" title="">
 “容器文件路径” <b>不能为软链接</b>，否则会导致软链接的实际路径在采集器的容器内不存在，采集日志失败。
 </dx-alert>
- - 节点文件日志
-   - 采集路径支持以文件路径和通配规则的方式填写，例如当需要采集所有文件路径形式为 `/opt/logs/service1/*.log`，`/opt/logs/service2/*.log`，可以指定采集路径的文件夹为 `/opt/logs/service*`，文件名为 `*.log`。
+   - 节点文件日志
+      - 采集路径支持以文件路径和通配规则的方式填写，例如当需要采集所有文件路径形式为 `/opt/logs/service1/*.log`，`/opt/logs/service2/*.log`，可以指定采集路径的文件夹为 `/opt/logs/service*`，文件名为 `*.log`。
 ![](https://qcloudimg.tencent-cloud.cn/raw/aa11708dd718105178e9976f53191ea4.png)
 
- 3.元数据配置
+ 1. 元数据配置
 除了原始的日志内容， 日志服务还会带上容器或 kubernetes 相关的元数据（例如：产生日志的容器 ID）一起上报到 CLS，方便用户查看日志时追溯来源或根据容器标识、特征（例如：容器名、labels）进行检索。您可以自行选择是否需要上报这些元数据，按需勾选上传。
 容器或 kubernetes 相关的元数据请参考下方表格：
 <table>
@@ -80,7 +81,6 @@
 </dx-alert>
 
 >? 如果想采集部分 podlabel，需要手动输入想要的 label key (可以输入多个，每输入一个以回车结束)，命中的话会采集。
->
 -  解析规则配置  
  1. 配置采集策略。您可以选择**全量**或者**增量**。
 	- 全量：全量采集指从日志文件的开头开始采集。
