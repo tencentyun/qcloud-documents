@@ -66,15 +66,15 @@ GoodSync 是一个备份和文件同步程序。它用于在两个目录之间�
 ![](https://qcloudimg.tencent-cloud.cn/raw/59296360768a0043f9d31fbbff88cdd6.png)
 5. 在 **Server Address** 中输入 cos.<存储桶所属地域>.myqcloud.com  
 
->?存储桶所属地域可在 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224?from=10680) 中获取：
+>?存储桶所属地域可在 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224?from=10680) 中获取。
 
-本文存储桶所属地域为广州，因此输入 cos.ap-guangzhou.myqcloud.com。
+- 本文存储桶所属地域为广州，因此输入 **cos.ap-guangzhou.myqcloud.com**。
 
-在 **Initial path** 中输入/<存储桶名称>，本文输入**/goodsync-backup-********。（注意前面的"/"）  
+- 在 **Initial path** 中输入/<存储桶名称>，本文输入**/goodsync-backup-**。（注意前面的**"/"**）  
 
-在 **AWS Access Key ID** 中输入之前保存的子用户的 SecretId。
+- 在 **AWS Access Key ID** 中输入之前保存的子用户的 SecretId。
 
-在 **AWS Secret Access Key** 中输入之前保存的子用户的 SecretKey。
+- 在 **AWS Secret Access Key** 中输入之前保存的子用户的 SecretKey。
 
 上述配置如下图所示。  
 ![](https://qcloudimg.tencent-cloud.cn/raw/6573aef43eed858afdd1f177c4aadd5e.png)
