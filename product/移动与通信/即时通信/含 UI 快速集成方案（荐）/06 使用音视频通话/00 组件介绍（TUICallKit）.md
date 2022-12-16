@@ -67,17 +67,17 @@ TUICallKit 是腾讯云推出一款音视频通话 UI 组件，通过集成该�
 
 ## 服务开通
 
-**TUICallKit 需要获取音视频通话 SDK 套餐使用**，音视频通话 SDK 在整合了腾讯云[实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269/1498) 两个基础 PaaS 服务的基础上，在视频通话场景进行深度融合，推出针对通话场景的功能和 UI 设计。您可以在音视频通话 SDK 控制台中，一站式为您的应用[开通音视频通话业务](https://cloud.tencent.com/document/product/1640/79983#a3c3d156-aa4d-46ba-a0d0-44237a79db8f)；或者在 IM 控制台中，为您已有的 IM 聊天应用的基础上[开通音视频通话服务](https://cloud.tencent.com/document/product/269/72445#.E6.AD.A5.E9.AA.A41.EF.BC.9A.E5.BC.80.E9.80.9A.E9.9F.B3.E8.A7.86.E9.A2.91.E6.9C.8D.E5.8A.A1)。
+**TUICallKit 需要获取音视频通话 SDK 套餐使用**，音视频通话 SDK 在整合了腾讯云 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269/1498) 两个基础 PaaS 服务的基础上，在视频通话场景进行深度融合，推出针对通话场景的功能和 UI 设计。您可以在音视频通话 SDK 控制台中，一站式为您的应用 [开通音视频通话业务](https://cloud.tencent.com/document/product/1640/79983#a3c3d156-aa4d-46ba-a0d0-44237a79db8f)；或者在 IM 控制台中，为您已有的 IM 聊天应用的基础上 [开通音视频通话服务](https://cloud.tencent.com/document/product/269/72445#.E6.AD.A5.E9.AA.A41.EF.BC.9A.E5.BC.80.E9.80.9A.E9.9F.B3.E8.A7.86.E9.A2.91.E6.9C.8D.E5.8A.A1)。
 
 ## 功能与计费说明
 
-音视频通话 SDK 提供了 7 天的免费试用，您可以在控制台自助领取；您也可以[前往购买页选购正式版本](https://buy.cloud.tencent.com/vcube?type=call)开通正式的通话服务。
+音视频通话 SDK 提供了 7 天的免费试用，您可以在控制台自助领取；您也可以 [前往购买页选购正式版本](https://buy.cloud.tencent.com/vcube?type=call) 开通正式的通话服务。
 音视频通话 SDK 套餐内包含了音视频通话功能和 IM 基础服务功能，购买套餐会赠送对应的资源，超出赠送部分会按照对应产品的计费策略进行结算：
 
-- 购买套餐会赠送 TRTC 时长包，可抵扣音频或按比例抵扣不同分辨率视频的通话分钟消耗。可以额外购买[TRTC 时长包](https://cloud.tencent.com/document/product/647/44247#year)或者按[音视频时长后付费价格](https://cloud.tencent.com/document/product/647/44248)来结算超出部分的通话时长。
-- 购买套餐会赠送 1 万日活跃用户数（DAU）额度和 10 万峰值群组数，超出部分会按 [IM 后付费价格](https://cloud.tencent.com/document/product/269/11673#.E5.9F.BA.E7.A1.80.E6.9C.8D.E5.8A.A1.E8.B5.84.E8.B4.B9.3Ca-id.3D.22jc.22.3E.3C.2Fa.3E)进行结算
+- 购买套餐会赠送 TRTC 时长包，可抵扣音频或按比例抵扣不同分辨率视频的通话分钟消耗。可以额外购买 [TRTC 时长包](https://cloud.tencent.com/document/product/647/44247#year) 或者按 [音视频时长后付费价格](https://cloud.tencent.com/document/product/647/44248) 来结算超出部分的通话时长。
+- 购买套餐会赠送 1 万日活跃用户数（DAU）额度和 10 万峰值群组数，超出部分会按  [IM 后付费价格](https://cloud.tencent.com/document/product/269/11673#.E5.9F.BA.E7.A1.80.E6.9C.8D.E5.8A.A1.E8.B5.84.E8.B4.B9.3Ca-id.3D.22jc.22.3E.3C.2Fa.3E) 进行结算
 
-音视频通话 SDK 套餐的价格和功能对比参见表格，计费详细说明可参考[音视频通话 SDK 计费说明](https://cloud.tencent.com/document/product/1640/79968)：
+音视频通话 SDK 套餐的价格和功能对比参见表格，计费详细说明可参见 [音视频通话 SDK 计费说明](https://cloud.tencent.com/document/product/1640/79968)：
 
 <table>
   <tr>
