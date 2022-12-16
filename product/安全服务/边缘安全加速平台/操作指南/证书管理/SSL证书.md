@@ -15,5 +15,5 @@ EdgeOne SSL 证书支持将已托管至 SSL 的证书批量部署至已接入 Ed
 ![](https://qcloudimg.tencent-cloud.cn/raw/4d5d15545cee5d5a2b557fd8dacf73fa.png)
 3. 已完成证书部署的域名信息查看在 EdgeOne SSL 列表页单击<img src="https://qcloudimg.tencent-cloud.cn/raw/44d307b79b31749005e6f442fd0b3b2b.png" width=24px>后，如下图所示：  
 ![](https://qcloudimg.tencent-cloud.cn/raw/40c2abadd92aeddb9c058a2ad194c05e.png)
->?其中数字”1“代表的是证书已部署至 EdgeOne 域名的个数。
+>?其中数字1代表的是证书已部署至 EdgeOne 域名的个数。
 >
