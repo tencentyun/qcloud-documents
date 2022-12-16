@@ -17,7 +17,7 @@ EdgeOne SSL列表页仅展示当前站点及子域名关联的证书，未关联
 
 注意：证书单次部署最多支持选择100个域名，如您的域名个数超过100个请分批操作。  
 
-如果证书绑定的域名未接入在EdgeOne则会提示如下图所示：   
+如果证书绑定的域名未接入EdgeOne则会提示如下图所示：   
 
 <img width="1381" alt="image" src="https://user-images.githubusercontent.com/114125357/208025629-ff71520a-5741-4a73-9ff5-8e75beb82e50.png">    
 
