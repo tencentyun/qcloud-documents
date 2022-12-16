@@ -31,7 +31,7 @@ WebSocket 客户端通过使用 API 网关触发器提供的 WS 连接，发起 
 |断开情况|函数表现|函数状态码|
 |----------|-----------|-----------|
 |客户端或服务端发起连接结束、关闭连接操作，结束状态码为1000、1010（客户端发送）、1011（服务端发送）|函数正常执行结束，运行状态为成功|200|
-|客户端或服务端发起连接结束、关闭连接操作，结束状态码非1000、1010、1011|函数异常结束，运行状态为失败|439（服务端关闭）、456（客户端关闭）|
+|客户端或服务端发起连接结束、关闭连接操作，结束状态码非1000、1010、1011|函数异常结束，运行状态为失败|439（服务端关闭）<br>456（客户端关闭）|
 |在 WS 连接上无消息上行或下行发送，达到配置的空闲超时时间的情况下，连接被函数平台断开|函数异常结束，运行状态为失败|455|
 |在连接建立后持续使用，函数运行时间达到最大运行时长，连接被函数平台断开|函数异常结束，运行状态失败|433|
 
@@ -52,13 +52,14 @@ WebSocket 客户端通过使用 API 网关触发器提供的 WS 连接，发起 
 
 ### 创建函数
 
-1. 登录 [Serverless 控制台](https://console.cloud.tencent.com/scf/list?rid=1&ns=default)。
-2. 单击**新建**创建云函数，可以通过选择**自定义创建** > **选择 Web 函数** > **高级配置**来看到协议支持选项。如下图所示： 
-![](https://qcloudimg.tencent-cloud.cn/raw/02caa24cddfa1b16c95a7ee8255c4586.png)
-3. 通过勾选 WebSocket 支持，配置好 WebSocket 空闲超时时间，来完成 WebSocket协议支持。如下图所示： 
-![](https://main.qcloudimg.com/raw/5e72c2cd51f6a31a0c9f746e8bba8fc3.png)
-4. 同时在勾选 WebSocket 支持后，API 网关的协议支持同样将自动切换为 WS&WSS 支持，创建的 API 网关所提供的链接地址，也将是 Websocket 地址。如下图所示： 
-![](https://main.qcloudimg.com/raw/dd02d4e09577f26eaabbc33cfea4e97d.png)
+
+1. 登录 [Serverless 控制台](https://console.cloud.tencent.com/scf/index?rid=1)，单击左侧导航栏的**函数服务**。
+2. 在主界面上方选择期望创建函数的地域和命名空间，并单击**新建**，进入函数创建流程。
+3. 选择使用**从头开始**来新建函数，函数类型选择 **Web 函数**。
+4. 在**高级配置**中查看协议支持选项。通过勾选 **WebSocket 支持**，配置好 WebSocket 空闲超时时间，来完成 WebSocket协议支持。如下图所示： 
+![](https://qcloudimg.tencent-cloud.cn/raw/c21261dd8fed97a83afd6b3d55d4307f.png)
+4. 勾选 WebSocket 支持后，在**触发器配置**中，API 网关的协议支持同样将自动切换为 WS&WSS 支持，创建的 API 网关所提供的链接地址，也将是 Websocket 地址。如下图所示： 
+![](https://qcloudimg.tencent-cloud.cn/raw/af2779a5232189f799ef61bdf73fb868.png)
 >?在完成创建后，WebSocket 的协议支持不可取消，但可以根据需求修改空闲超时时间配置。
 
 
