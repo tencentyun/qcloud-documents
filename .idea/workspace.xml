@@ -5,14 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="17fb8973-4c4a-41fe-9f96-aa31da083355" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/qcloud-documents.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product/存储与CDN/对象存储 4.0/工具指南/COSDistCp 工具.md" beforeDir="false" afterPath="$PROJECT_DIR$/product/存储与CDN/对象存储 4.0/工具指南/COSDistCp 工具.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product/存储与CDN/对象存储 4.0/数据湖存储/元数据加速器 COS-HDFS/使用 Hadoop Filesystem API 代码访问 COS 元数据加速存储桶.md" beforeDir="false" afterPath="$PROJECT_DIR$/product/存储与CDN/对象存储 4.0/数据湖存储/元数据加速器 COS-HDFS/使用 Hadoop Filesystem API 代码访问 COS 元数据加速存储桶.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product/存储与CDN/对象存储 4.0/最佳实践/数据迁移/将 HDFS 数据迁移到已开启元数据加速功能的存储桶.md" beforeDir="false" afterPath="$PROJECT_DIR$/product/存储与CDN/对象存储 4.0/最佳实践/数据迁移/将 HDFS 数据迁移到已开启元数据加速功能的存储桶.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,6 +74,17 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
