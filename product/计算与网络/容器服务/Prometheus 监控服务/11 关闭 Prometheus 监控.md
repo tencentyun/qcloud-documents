@@ -6,7 +6,7 @@
 
 ## 操作步骤
 
-1. 登录**容器服务控制台**，选择左侧导航中的 **Prometheus 监控**。
+1. 登录 **[容器服务控制台](https://console.cloud.tencent.com/tke2)**，选择左侧导航中的 **[Prometheus 监控](https://console.cloud.tencent.com/tke2/prometheus2)**。
 2. 在**监控实例列表**页中找到需要删除的实例，单击实例名称右侧的**销毁/退还**。
 3. 在“销毁/退还”弹窗中确认监控实例信息后，单击**确定**。
 <dx-alert infotype="explain" title=" ">
