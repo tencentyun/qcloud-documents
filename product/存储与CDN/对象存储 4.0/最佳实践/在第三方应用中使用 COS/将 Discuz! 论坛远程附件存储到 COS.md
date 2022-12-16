@@ -37,9 +37,9 @@ Discuz! 论坛可以通过配置远程附件功能将论坛的附件保存在腾
 1. 在本地浏览器中访问地址 `CVM 公网 IP/index.php`，使用管理员账号登录后进入**管理中心**页面。
 2. 在页面上方单击**插件**。
 3. 在插件页面中单击**获取更多插件**。在 Discuz! 应用中心搜索“腾讯云对象存储”，选择并单击“安装应用”。
-4. 等待安装完成后，进入插件列表，即可看到已安装的 COS 插件。
+4. 等待安装完成后，进入**插件列表**，即可看到已安装的 COS 插件。
 ![](https://qcloudimg.tencent-cloud.cn/raw/a9400929e88c4ee904100d84e7cc8904.png)
-5. 单击**设置**，开始配置 COS 插件，配置项说明如下：
+5. 单击**设置**，开始配置 COS 插件，**配置项**说明如下：
 ![](https://qcloudimg.tencent-cloud.cn/raw/e9a09e5c1ee366cdcfea1b12cfe87354.png)
 <table>
 <thead>
@@ -81,4 +81,4 @@ Discuz! 论坛可以通过配置远程附件功能将论坛的附件保存在腾
 
 ## 结语
 
-当然，COS不仅提供以上应用和服务，还提供多款热门开源应用，并集成腾讯云COS插件，欢迎点击 [此处](https://cloud.tencent.com/act/pro/Ecological-aggregation?from=18406) 一键启动，立即使用！
+当然，COS 不仅提供以上应用和服务，还提供多款热门开源应用，并集成腾讯云 COS 插件，欢迎点击 [此处](https://cloud.tencent.com/act/pro/Ecological-aggregation?from=18406) 一键启动，立即使用！
