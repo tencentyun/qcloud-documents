@@ -1,3 +1,4 @@
+## 功能简介
 EdgeOne SSL 证书支持将已托管至 SSL 的证书批量部署至已接入 EdgeOne 的域名，适用于多域名或泛域名证书批量部署的场景，避免您多次重复繁琐的操作。如您需购买证书或上传自有证书请前往 [ SSL 证书控制台](https://console.cloud.tencent.com/ssl)。 
 
 ## 操作步骤
