@@ -7,6 +7,7 @@
    如上 logconfig 的状态同步是成功的，那么采集异常的原因就是其他方面的。如下图所示:
 ![](https://qcloudimg.tencent-cloud.cn/raw/ffbc202c6c56603bff704ca6bd74457d.jpeg)
 想要进一步了解同步错误的原因，可以看下 cls-provisioner 的日志
+
 ### 2. 查看 cls-provisioner 日志
  - 确定 cls-provisioner 的 Pod: kubectl get pods -n kube-system -o wide |grep cls-provisioner
  - 查看日志: kubectl logs cls-provisioner-xxx -n kube-system
@@ -14,6 +15,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/8780c5adc9c7a5f79bf87417217beadc.png)
 查看 cls-provisione 的日志，来看同步错误的具体原因。
 >!cls-provisioner 组件的作用是和 CLS 服务端通信，将 logconfig 采集配置经过转换，同步到 CLS 服务端，这样采集器才能从服务端获取到采集配置，进而进行正常日志采集。
+
 ### 3. 查看采集端日志
 如果采集配置同步正常，但是日志还是采集有异常，可以具体看下采集端的相关日志。
  - 查看软连是否建立成功。
