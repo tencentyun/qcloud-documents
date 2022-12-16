@@ -13,12 +13,19 @@ EdgeOne SSL列表页仅展示当前站点及子域名关联的证书，未关联
 
 2. 在EdgeOne SSL列表页单击**部署**后如下图所示：  
 
-<img width="1391" alt="image" src="https://user-images.githubusercontent.com/114125357/208019228-78f908fe-0546-41f7-bfd8-2da4be6cb531.png">    
+<img width="1394" alt="image" src="https://user-images.githubusercontent.com/114125357/208025967-a4bec6a2-afc3-435a-99a8-298770242300.png">   
 
-支持批量选择多个域名单击**确定**即可完成部署。
-注意：证书单次部署最多支持选择100个域名，如您的域名个数超过100个请分批操作。
+支持批量选择多个域名单击**确定**即可完成部署。  
 
-3. 已完成证书部署的域名信息查询在EdgeOne SSL列表页单击<img width="44" alt="image" src="https://user-images.githubusercontent.com/114125357/208019571-31161009-1b80-43db-96c0-6e019d1b21d0.png">后如下图所示：  
+注意：证书单次部署最多支持选择100个域名，如您的域名个数超过100个请分批操作。  
+
+如果证书绑定的域名未接入在EdgeOne会提示如下图所示：   
+
+<img width="1381" alt="image" src="https://user-images.githubusercontent.com/114125357/208025629-ff71520a-5741-4a73-9ff5-8e75beb82e50.png">    
+
+
+
+3. 已完成证书部署的域名信息查看在EdgeOne SSL列表页单击<img width="44" alt="image" src="https://user-images.githubusercontent.com/114125357/208019571-31161009-1b80-43db-96c0-6e019d1b21d0.png">后如下图所示：  
 <img width="256" alt="image" src="https://user-images.githubusercontent.com/114125357/208019616-2b90f08b-025e-4383-96b6-433972c27ddc.png">  
 其中数字”1“代表的是证书已部署至EdgeOne域名的个数。
 
