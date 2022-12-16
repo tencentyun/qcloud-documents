@@ -84,7 +84,6 @@ pip install -r requirements.txt -t .
 #!/bin/bash
 /var/lang/python3/bin/python3 manage.py runserver 9000
 ```
-
 3. 创建完成后，还需执行以下命令修改文件可执行权限，默认需要 `777` 或 `755` 权限才可以正常启动。示例如下：
 ```shell
 chmod 777 scf_bootstrap
