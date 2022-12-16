@@ -54,7 +54,7 @@ cache.match(request: string | Request, options?: MatchOptions): Promise<Response
 
 获取 request 关联的缓存 Response。返回一个 Promise 对象。如果缓存存在，则包含 Response 对象，反之包含 undefined。
 
->? **cache.match** 内部不会主动回源，缓存过期则会抛出 504 错误。
+>! **cache.match** 内部不会主动回源，缓存过期则会抛出 504 错误。
 
 #### 参数
 <table>
@@ -126,7 +126,7 @@ cache.put(request: string | Request, response: Response): Promise<undefined>
 ```
 尝试使用给定的 request 作为缓存 key，将 response 添加到缓存。无论缓存是否成功，均返回 Promise<undefined> 对象。
 
->? 当参数 **response** 对象的 Cache-Control 头部表示不缓存时，抛出 413 错误。 
+>! 当参数 **response** 对象的 Cache-Control 头部表示不缓存时，抛出 413 错误。 
 
 #### 参数
 <table>

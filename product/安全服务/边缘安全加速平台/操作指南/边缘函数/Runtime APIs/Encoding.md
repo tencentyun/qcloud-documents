@@ -25,7 +25,7 @@ encoder.encode(input?: string | undefined): Uint8Array
 ```
 接受码点流作为输入，并输出 `utf-8` 字节流。
 
->? **input 最大长度为 300M**，超出长度会抛出异常。
+>! **input 最大长度为 300M**，超出长度会抛出异常。
 
 - `encoder.encode` 参数
 
