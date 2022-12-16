@@ -4,12 +4,12 @@
 - 使用 `Response` 构造函数创建一个 Response 对象，用于 [event.respondWith](https://cloud.tencent.com/document/product/1552/81917) 响应。
 - 使用 <a href="https://cloud.tencent.com/document/product/1552/81897">fetch</a> 获取请求响应 Response 对象。
 
-### 构造方法
+## 构造函数
 ```typescript
 const response = new Response(body?: string | ArrayBuffer | Blob | ReadableStream | null | undefined, init?: ResponseInit);
 ```
 
-#### 参数
+### 参数
 
 <table>
   <thead>
@@ -76,15 +76,15 @@ const response = new Response(body?: string | ArrayBuffer | Blob | ReadableStrea
   </tbody>
 </table>
 
-### 属性
-#### body
+## 属性
+### body[](id:body)
 ```typescript
 // response.body
 readonly body: ReadableStream;
 ```
 响应体，详情参见 [ReadableStream](https://cloud.tencent.com/document/product/1552/81914)。
 
-#### bodyUsed
+### bodyUsed
 ```typescript
 // response.bodyUsed
 readonly bodyUsed: boolean;
@@ -92,7 +92,7 @@ readonly bodyUsed: boolean;
 
 标识响应体是否已读取。
 
-#### headers
+### headers
 ```typescript
 // response.headers
 readonly headers: Headers;
@@ -100,7 +100,7 @@ readonly headers: Headers;
 
 响应头部，详情参见 [Headers](https://cloud.tencent.com/document/product/1552/81903)。
 
-#### ok
+### ok
 ```typescript
 // response.ok
 readonly ok: boolean;
@@ -108,14 +108,14 @@ readonly ok: boolean;
 
 标识响应是否成功（状态码在 200-299 范围内）。
 
-#### status
+### status
 ```typescript
 // resposne.status
 readonly status: number;
 ```
 响应状态代码。
 
-#### statusText
+### statusText
 ```typescript
 // resposne.statusText
 readonly statusText: string;
@@ -123,14 +123,14 @@ readonly statusText: string;
 
 响应的状态消息。
 
-#### url
+### url
 ```typescript
 // response.url
 readonly url: string;
 ```
 响应的 url。
 
-#### redirected
+### redirected
 ```typescript
 // response.redirected
 readonly redirected: boolean;
@@ -138,7 +138,7 @@ readonly redirected: boolean;
 
 标识响应是否为重定向的结果。
 
-#### redirectUrls
+### redirectUrls
 ```typescript
 // response.redirectUrls
 readonly redirectUrls: Array<String>
@@ -146,9 +146,9 @@ readonly redirectUrls: Array<String>
 
 所有重定向 URL。
 
-### 方法
+## 方法
 
->! 获取响应体方法，接收 `HTTP body` 最大字节数为 1M，超出大小会抛出 OverSize 异常。超出大小时推荐使用 `response.body` 流式读取，详情参见 [ReadableStream](https://cloud.tencent.com/document/product/1552/81914)。
+>! 获取响应体方法，接收 `HTTP body` 最大字节数为 1M，超出大小会抛出 OverSize 异常。超出大小时推荐使用 [response.body](#:body) 流式读取，详情参见 [ReadableStream](https://cloud.tencent.com/document/product/1552/81914)。
 
 
 ### arrayBuffer
@@ -187,7 +187,7 @@ request.clone(copyHeaders?: boolean): Request;
 			<td>boolean</td>
 			<td>否</td>
 			<td>
-        开启复制响应头，默认值为 <code>false</code>。取值说明如下：<br/>
+        开启复制响应头，默认值为 <code>false</code>，取值说明如下。<br/>
         <li>
           <font color="#9ba6b7">true</font><br/>
           <div style="padding-left: 20px;padding-bottom: 6px">
@@ -233,5 +233,16 @@ request.setCookies(cookies: Cookies): boolean;
 
 设置 `response` 头部 cookie 值。 
 
-## 参考
+## 示例代码
+```typescript
+addEventListener('fetch', (event) => {
+  const response =  new Response('hello world');
+  event.respondWith(response);
+});
+```
+
+## 相关参考 
 - [MDN 官方文档：Response](https://developer.mozilla.org/en-US/docs/Web/API/Response)
+- [示例函数：返回 HTML 页面](https://cloud.tencent.com/document/product/1552/81941)
+- [示例函数：修改响应头](https://cloud.tencent.com/document/product/1552/81937)
+- [示例函数：AB测试](https://cloud.tencent.com/document/product/1552/81934)

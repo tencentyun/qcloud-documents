@@ -70,6 +70,25 @@ readonly writable: WritableStream;
 
 可写端，详情参见 [WritableStream](https://cloud.tencent.com/document/product/1552/81922)。
 
+## 示例代码
+```typescript
+async function handleEvent(event) {
+  // 生成可读端与可写端
+  const { readable, writable } = new TransformStream();
+  // 获取远程资源 
+  const response = await fetch('https://www.tencentcloud.com/');
+  // 流式响应客户端 
+  response.body.pipeTo(writable);
 
-## 参考
+  return new Response(readable, response);
+}
+
+addEventListener('fetch', (event) => {
+  event.respondWith(handleEvent(event));
+});
+```
+
+## 相关参考 
 - [MDN 官方文档：TransformStream](https://developer.mozilla.org/en-US/docs/Web/API/TransformStream)
+- [示例函数：合并资源流式响应](https://cloud.tencent.com/document/product/1552/84085)
+- [示例函数：m3u8 改写与鉴权](https://cloud.tencent.com/document/product/1552/84086)

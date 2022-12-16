@@ -9,7 +9,7 @@
 请检查申请临时密钥时填写的 action 和 allowPrefix 是否正确。
 
 1. 例如调用 cos.putObject()，但是 action 里并没有填写**name/cos:PutObject**，即没有 putObject 权限导致报错 403。
-2. 例如操作的 Key 是`1.jpg`，但是 allowPrefix 填写的是`test/*`（只允许操作 `test/*`路径），即没有对应路径的操作权限导致报错 403。
+2. 例如操作的 Key 是 `1.jpg`，但是 allowPrefix 填写的是 `test/*`（只允许操作 `test/*` 路径），即没有对应路径的操作权限导致报错 403。
 
 若 aciton 和 allowPrefix 都正确，请参考 [临时密钥生成及使用指引](https://cloud.tencent.com/document/product/436/14048) 和 [访问 COS 时返回 403 错误码](https://cloud.tencent.com/document/product/436/54303)。
 字段说明：不同语言的 STS SDK，action 和 allowPrefix 所使用的字段不同，例如 STS JAVA SDK 使用的是 allowActions 和 allowPrefixes 字段，请注意留意 STS SDK 中的示例。
