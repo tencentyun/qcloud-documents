@@ -23,11 +23,13 @@ WordPress 是一种使用 PHP 语言开发的平台，用户可以在支持 PHP 
 1. 在腾讯云访问管理控制台获取 [API 密钥管理](https://console.cloud.tencent.com/cam/capi)。
 ![](https://qcloudimg.tencent-cloud.cn/raw/0b327756b85c6aee1cbefe44a583b5b7.png)
 
+<span id="Request"></span>
 2. 依次填入**所属地域**、**空间名称**、**访问域名**，建议开启**自动重命名**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/b69ca4f0e6a082865bf2f9f4d5cf23e8.jpeg)
 ![](https://qcloudimg.tencent-cloud.cn/raw/c83918fe0f38a4e31d71f67057ed43e7.jpeg)
 ![](https://qcloudimg.tencent-cloud.cn/raw/25ee2c96c7d21de653914d4a381044bc.jpeg)
 
+<span id="Request"></span>
 3. 单击**保存配置**，提示“保存成功”即可。
 ![](https://qcloudimg.tencent-cloud.cn/raw/8c313f895ba06b6d9f26497d15eedae6.png)
 
@@ -37,8 +39,8 @@ WordPress 是一种使用 PHP 语言开发的平台，用户可以在支持 PHP 
 
 <span id="Request"></span>
 5. 同步完成后单击**一键替换**，将网站内容中所有静态文件地址替换为腾讯云 COS 文件地址。
-<span id="Request"></span>
 
+<span id="Request"></span>
 6. 访问网站[ 48zhai.cn](https://48zhai.cn/) 发现缺失了部分图片。
 ![](https://qcloudimg.tencent-cloud.cn/raw/036f832151007f61973d9ef262fd799e.png)
 
