@@ -91,7 +91,7 @@ COSDistCp 基于 MapReduce 框架实现，为多进程+多线程的架构，可�
 
 ### 查看 help 选项
 
-以参数`--help`执行命令，查看 COSDistCp 支持的参数，示例如下：
+以参数 `--help` 执行命令，查看 COSDistCp 支持的参数，示例如下：
 
 ```plaintext
 hadoop jar cos-distcp-${version}.jar --help
@@ -119,7 +119,7 @@ Total File Size: 1190133760
 
 ### 指定待迁移文件的源目录和目标目录
 
-以参数`--src` 和 `--dest`执行命令，示例如下：
+以参数 `--src` 和 `--dest` 执行命令，示例如下：
 
 ```plaintext
 hadoop jar cos-distcp-${version}.jar --src /data/warehouse --dest cosn://examplebucket-1250000000/data/warehouse
@@ -167,7 +167,7 @@ CosDistCp Counters
 
 ### 指定拷贝进程数以及每个拷贝进程内的拷贝线程数
 
-以参数`--taskNumber`和`--workersNumber`执行命令，COSDistCp 采用多进程+多线程的拷贝架构，您可以：
+以参数 `--taskNumber` 和 `--workersNumber` 执行命令，COSDistCp 采用多进程+多线程的拷贝架构，您可以：
 - 通过 `--taskNumber` 指定拷贝进程数目
 - 通过 `--workerNumber` 指定每个拷贝进程内的拷贝线程数
 
@@ -177,12 +177,12 @@ hadoop jar cos-distcp-${version}.jar --src /data/warehouse/ --dest cosn://exampl
 
 ### 跳过具有相同校验值文件，进行增量迁移
 
-以参数`--skipMode`执行命令。跳过源和目标具有相同长度和校验和文件的拷贝，默认值 length-checksum：
+以参数 `--skipMode` 执行命令。跳过源和目标具有相同长度和校验和文件的拷贝，默认值 length-checksum：
 ```plaintext
 hadoop jar cos-distcp-${version}.jar  --src /data/warehouse --dest cosn://examplebucket-1250000000/data/warehouse  --skipMode=length-checksum
 ```
 
-`--skipMode`选项用于在拷贝文件前，校验源文件和目标文件是否相同，若相同则跳过，可选 none（不校验）、length（长度）、checksum（CRC 值）和 length-checksum（长度 + CRC 值）。
+`--skipMode` 选项用于在拷贝文件前，校验源文件和目标文件是否相同，若相同则跳过，可选 none（不校验）、length（长度）、checksum（CRC 值）和 length-checksum（长度 + CRC 值）。
 
 如果源和目标文件系统的校验和算法不同，则会读取源端文件计算新的校验和。如果您的源是 HDFS，您可以通过如下方式，确定 HDFS 源是否支持 COMPOSITE-CRC32C 校验算法：
 
@@ -193,9 +193,9 @@ hadoop fs  -Ddfs.checksum.combine.mode=COMPOSITE_CRC -checksum /data/test.txt
 
 ### 迁移完成后的数据校验及增量迁移
 
-以参数`--diffMode`和`--diffOutput`执行命令：
+以参数 `--diffMode` 和 `--diffOutput` 执行命令：
 - `--diffMode` 可选值为 length 和 length-checksum。
- - `--diffMode=length`表示根据文件大小是否相同，获取差异文件列表。
+ - `--diffMode=length` 表示根据文件大小是否相同，获取差异文件列表。
  - `--diffMode=length-checksum`，根据文件大小和 CRC 检验和是否相同，获取差异文件列表。
 - `--diffOutput` 指定 diff 操作的输出目录。
 如果目标文件系统为 COS，且源文件系统的 CRC 算法与之不同，则 COSDistCp 会拉取源文件计算目的文件系统的 CRC，以进行相同 CRC 算法值的对比。以下示例中，在迁移完成后，使用 --diffMode 参数，根据文件大小和 CRC 值，校验源和目标文件是否相同：
@@ -230,7 +230,7 @@ hadoop  jar cos-distcp-${version}.jar --taskNumber=20 --src /data/warehouse --de
 
 ### 校验源文件和目标文件是否具有相同 CRC
 
-以参数`--checkMode`执行命令，文件拷贝完成时，校验源文件和目标文件长度及校验和是否一致，默认值 length-checksum。
+以参数 `--checkMode` 执行命令，文件拷贝完成时，校验源文件和目标文件长度及校验和是否一致，默认值 length-checksum。
 
 从非 COS 文件系统同步到 COS 时，如果源的 CRC 算法和 Hadoop-COS 的 CRC 算法不一致，则拷贝时计算 CRC，并在拷贝完成后，获取目标 COS 文件的 CRC，和计算得到的源文件 CRC 对比校验：
 
@@ -242,7 +242,7 @@ hadoop jar cos-distcp-${version}.jar   --src /data/warehouse --dest cosn://examp
 
 ### 限制单文件读取带宽
 
-以参数`--bandWidth`执行命令，数值单位为MB。限制每个迁移文件的读取带宽为10MB/s，示例如下：
+以参数 `--bandWidth` 执行命令，数值单位为MB。限制每个迁移文件的读取带宽为10MB/s，示例如下：
 
 ```plaintext
 hadoop jar cos-distcp-${version}.jar  --src /data/warehouse --dest cosn://examplebucket-1250000000/data/warehouse --bandWidth=10
@@ -266,7 +266,7 @@ hadoop jar  cos-distcp-${version}.jar --src /data/warehouse  --srcPrefixesFile f
 
 ### 对输入文件进行正则表达式过滤
 
-以参数`--srcPattern`执行命令，只同步 `/data/warehouse/` 目录下，以 .log 结尾的日志文件，示例如下：
+以参数 `--srcPattern` 执行命令，只同步 `/data/warehouse/` 目录下，以 .log 结尾的日志文件，示例如下：
 
 ```plaintext
 hadoop jar cos-distcp-${version}.jar  --src /data/warehouse/ --dest cosn://examplebucket-1250000000/data/warehouse --srcPattern='.*\.log$'
@@ -278,7 +278,7 @@ hadoop jar cos-distcp-${version}.jar  --src /data/warehouse/ --dest cosn://examp
 
 ### 指定 Hadoop-COS 的文件检验和类型
 
-以参数`--cosChecksumType`执行命令，默认 CRC32C，可选 CRC32C 和 CRC64。
+以参数 `--cosChecksumType` 执行命令，默认 CRC32C，可选 CRC32C 和 CRC64。
 
 ```plaintext
 hadoop jar cos-distcp-${version}.jar  --src /data/warehouse --dest cosn://examplebucket-1250000000/data/warehouse --cosChecksumType=CRC32C
@@ -286,7 +286,7 @@ hadoop jar cos-distcp-${version}.jar  --src /data/warehouse --dest cosn://exampl
 
 ### 指定 COS 文件的存储类型
 
-以参数`--storageClass`执行命令，示例如下：
+以参数 `--storageClass` 执行命令，示例如下：
 
 ```plaintext
 hadoop jar cos-distcp-${version}.jar --src /data/warehouse --dest cosn://examplebucket-1250000000/data/warehouse/ --outputManifest=manifest-2020-01-10.gz --storageClass=STANDARD_IA
@@ -295,7 +295,7 @@ hadoop jar cos-distcp-${version}.jar --src /data/warehouse --dest cosn://example
 
 ### 指定目标文件的压缩类型
 
-以参数`--outputCodec`执行命令，您可通过该参数，将 HDFS 中的数据实时压缩备份到 COS，节省存储成本。参数可选值为：keep、none、gzip、lzop、snappy，none 选项保存的目标文件为未压缩状态，keep 保持原来文件的压缩状态。示例如下：
+以参数 `--outputCodec` 执行命令，您可通过该参数，将 HDFS 中的数据实时压缩备份到 COS，节省存储成本。参数可选值为：keep、none、gzip、lzop、snappy，none 选项保存的目标文件为未压缩状态，keep 保持原来文件的压缩状态。示例如下：
 
 ```plaintext
 hadoop jar cos-distcp-${version}.jar --src /data/warehouse/logs --dest cosn://examplebucket-1250000000/data/warehouse/logs-gzip --outputCodec=gzip
@@ -306,7 +306,7 @@ hadoop jar cos-distcp-${version}.jar --src /data/warehouse/logs --dest cosn://ex
 
 ### 删除源文件
 
-以参数`--deleteOnSuccess`执行命令，将 `/data/warehouse`目录下文件从 HDFS 同步到 COS 后，立即删除源目录中的对应文件：
+以参数 `--deleteOnSuccess` 执行命令，将 `/data/warehouse` 目录下文件从 HDFS 同步到 COS 后，立即删除源目录中的对应文件：
 
 ```plaintext
 hadoop jar cos-distcp-${version}.jar --src /data/warehouse --dest cosn://examplebucket-1250000000/data/warehouse --deleteOnSuccess
@@ -317,7 +317,7 @@ hadoop jar cos-distcp-${version}.jar --src /data/warehouse --dest cosn://example
 
 ### 生成目标清单文件和指定上一次清单输出文件
 
-以参数`--outputManifest` 和`--previousManifest`执行命令。
+以参数 `--outputManifest` 和`--previousManifest`执行命令。
 
 - `--outputManifest` 该选项首先会在本地生成一个 gzip 压缩的 manifest.gz，并在迁移成功时，移动到 `--dest` 所指定的目录下。
 - `--previousManifest` 指定上一次 `--outputManifest` 输出文件，COSDistCp 会跳过相同长度大小的文件：
@@ -347,7 +347,7 @@ hadoop jar cos-distcp-${version}.jar --src /data/warehouse --dest cosn://example
 
 ### 拷贝文件的元信息
 
-以参数`--preserveStatus`执行命令，将源文件或源目录的 user、group、permission 和 timestamps（modification time 和 access time）拷贝到目标文件或目标目录，该参数在将文件从 HDFS 拷贝到 CHDFS 时生效。
+以参数 `--preserveStatus` 执行命令，将源文件或源目录的 user、group、permission 和 timestamps（modification time 和 access time）拷贝到目标文件或目标目录，该参数在将文件从 HDFS 拷贝到 CHDFS 时生效。
 示例如下：
 ```plaintext
 hadoop jar cos-distcp-${version}.jar --src /data/warehouse --dest cosn://examplebucket-1250000000/data/warehouse/ --preserveStatus=ugpt
@@ -375,7 +375,7 @@ hadoop jar cos-distcp-${version}.jar  --src /data/warehouse --dest cosn://exampl
 
 
 ### 拷贝文件失败时告警
-以参数`--completionCallbackClass`指定回调类路径执行命令，COSDistCp 会在拷贝任务完成的时候， 将收集的任务信息作为参数执行回调函数。用户自定义的回调函数，需要实现如下接口，前往 [下载回调示例代码](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-alarm-1.0.jar)：
+以参数 `--completionCallbackClass` 指定回调类路径执行命令，COSDistCp 会在拷贝任务完成的时候， 将收集的任务信息作为参数执行回调函数。用户自定义的回调函数，需要实现如下接口，前往 [下载回调示例代码](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-alarm-1.0.jar)：
 
 ```plaintext
 package com.qcloud.cos.distcp;
