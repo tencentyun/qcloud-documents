@@ -26,7 +26,7 @@ ClusterId = xxxx - xxxxxxx - xxxxxx - xxxxx
 
 | 字段名    | 类型   | 描述       | 是否必须 | 备注 |
 | :-------- | :----- | :--------- | :------- | :--- |
-| ClusterId | string | 服务节点id | 是       |      |
+| ClusterId | string | 服务节点 ID | 是       |      |
 
 ## 响应
 
