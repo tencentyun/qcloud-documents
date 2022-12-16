@@ -1,5 +1,7 @@
 使用边缘函数生成 HTML 页面，并在浏览器预览页面。
 
+## 示例代码
+
 ```typescript
 const html = `
 <!DOCTYPE html>
