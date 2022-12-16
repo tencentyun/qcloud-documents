@@ -15,7 +15,7 @@
 - 下载完成之后，正常安装即可。 
 
 ### 安装 webp 插件
-- PicGo 有一系列好用的插件，帮助扩展功能，比如压缩图片、添加水印等等。本文将以 **webp** 插件为例，演示如何在 PicGo 中使用插件。
+- PicGo 有一系列好用的插件，帮助扩展功能，例如压缩图片、添加水印等等。本文将以 **webp** 插件为例，演示如何在 PicGo 中使用插件。
 - webp 插件会在图片上传前将图片转为 .webp 格式，它相比于传统的 .jpg、.png 等格式，同等体积质量更高，同等质量体积更小。图片经过压缩之后再上传至 COS，对于节省存储空间，节省流量都很有帮助。如果对图片格式有特殊要求，不希望转换格式，可以省略这一步。
 - 打开 PicGo，进入**插件设置**，在搜索栏输入插件名字即可搜索并安装，非常方便。如下图：
 ![](https://qcloudimg.tencent-cloud.cn/raw/f8b7b3956b4d61fbcde451a899c3e04d.jfif)
@@ -37,8 +37,8 @@
 3. 创建成功后，来到**存储桶列表**，记录下**存储桶名称**，和**所属地域**的代号，如图示例，也就是 ap-beijing。
 ![](https://qcloudimg.tencent-cloud.cn/raw/61a91029c34f2e222903ab063570fbee.jfif)
 
-### 创建 API 秘钥
-1. 进入 **访问管理** - **访问秘钥** - [**API 秘钥管理**](https://console.cloud.tencent.com/cam/capi)，会提示是否使用子账号管理，可根据实际需要进行选择，这里我们直接使用主账号进行创建。
+### 创建 API 密钥
+1. 进入 **访问管理** - **访问密钥** - [**API 密钥管理**](https://console.cloud.tencent.com/cam/capi)，会提示是否使用子账号管理，可根据实际需要进行选择，这里我们直接使用主账号进行创建。
 ![](https://qcloudimg.tencent-cloud.cn/raw/ed5a357845ffbc36919919ee3ba4ba2a.jfif)
 2. 创建成功，将 **APPID**，**SecretId**，**SecretKey** 保存下来，非常重要，谨防外泄。
 ![](https://qcloudimg.tencent-cloud.cn/raw/2028b6934b743d007b781e1df51fb386.jfif)
