@@ -87,8 +87,8 @@ Secret 可用于存储密码、令牌、密钥等敏感信息，降低直接对�
 #### 方式一：通过指定文件创建 Secret[](id:SpecifyFile)
 1. 依次执行以下命令，获取 Pod 的用户名和密码。
 ```shell
-$ echo -n 'username' > ./username.txt
-$ echo -n 'password' > ./password.txt
+$ echo -n 'username' | base64 > ./username.txt
+$ echo -n 'password' | base64 > ./password.txt
 ```
 2. 执行 Kubectl 命令，创建 Secret。
 ```shell
