@@ -11,7 +11,9 @@ remote_read:
       password: token
 ```
 推荐使用 Basic Auth 方式访问云托管 Prometheus 实例，username 为账号 AppID ，password 为 **[Prometheus 控制台](https://console.cloud.tencent.com/monitor/prometheus)  > 基本信息 > 服务地址**中获取的 Token。
+
 <img src="https://qcloudimg.tencent-cloud.cn/raw/c445eb9bf0e0127446d900460a0095e0.png" width="60%">
+
 ## 注意事项
 * **配置 Remote read 的 Prometheus 需谨慎配置 `global:external_labels`**：
 	external_labels 会被附加在 Remote read 的查询条件中，不正确的 label 可能导致查询不到需要的数据。
