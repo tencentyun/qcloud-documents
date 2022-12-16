@@ -47,9 +47,9 @@ public class Demo {
 			conf.set("fs.cosn.trsf.fs.ofs.impl", "com.qcloud.chdfs.fs.CHDFSHadoopFileSystemAdapter");
 				conf.set("fs.cosn.trsf.fs.AbstractFileSystem.ofs.impl", "com.qcloud.chdfs.fs.CHDFSDelegateFSAdapter");
 				conf.set("fs.cosn.trsf.fs.ofs.tmp.cache.dir", "/data/chdfs_tmp_cache");
-				// appid根据实际appid进行替换
+				// appid 根据实际 appid 进行替换
 				conf.set("fs.cosn.trsf.fs.ofs.user.appid", "1250000000");
-				// region根据实际地域进行替换
+				// region 根据实际地域进行替换
 				conf.set("fs.cosn.trsf.fs.ofs.bucket.region", "ap-beijing")
 				// 其他可选配置项请参见 https://cloud.tencent.com/document/product/1105/36368 
 
@@ -220,5 +220,5 @@ public class Demo {
 3. 编译和运行。
 >?
 > - 运行前，请确保已正确设置 classpath。classpath 需包含 Hadoop common 包以及 元数据加速桶依赖的 Jar 包的路径。
-> - 对于 EMR 环境，如果您按照 [使用 HDFS 协议访问已开启元数据加速器的存储桶](https://cloud.tencent.com/document/product/436/68700) 逐步操作，那么 Hadoop common 包通常在 `/usr/local/service/hadoop/share/hadoop/common/` 目录下，元数据加速桶依赖的 Jar 包通常在`/usr/local/service/hadoop/share/hadoop/common/lib/` 目录下。
+> - 对于 EMR 环境，如果您按照 [使用 HDFS 协议访问已开启元数据加速器的存储桶](https://cloud.tencent.com/document/product/436/68700) 逐步操作，那么 Hadoop common 包通常在 `/usr/local/service/hadoop/share/hadoop/common/` 目录下，元数据加速桶依赖的 Jar 包通常在 `/usr/local/service/hadoop/share/hadoop/common/lib/` 目录下。
 > 
