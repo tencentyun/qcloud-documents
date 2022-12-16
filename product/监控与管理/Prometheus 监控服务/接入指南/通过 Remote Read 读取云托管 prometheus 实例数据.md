@@ -19,7 +19,7 @@ remote_read:
 * **避免出现相同的 series**：
 	对于完全相同的两个 series，Prometheus 会在查询合并时在每个时间点在随机一个 series 取值组成新的 series 作为查询结果，这会导致查询结果不准确。
 	在 Prometheus 的设计理念中不存在多副本冗余存储的情况，所以不会对这种场景提供支持。
-
+	
 ## Remote read 完整配置项
 >? `[]`中的配置项为可选项（本文展示 Prometheus:v2.40 版本配置，低版本可能缺少部分配置项，详见 [prometheus官方文档](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_read)）
 
