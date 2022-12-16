@@ -11,7 +11,7 @@
 
 若服务器没有公网地址，以上方法均无法正常进行。
 
-- 若服务器存在公网，考虑到公网带宽的成本，按量付费的100Mbps 就得25块每小时，[公网网络定价](https://buy.cloud.tencent.com/price/idc)，按照100Mbps 带宽全部跑满的情况下，300G 数据大约要6小时，差不多一天需要150元。
+- 若服务器存在公网，考虑到公网带宽的成本，按量付费的100Mbps 就得25块每小时，可参见 [公网网络定价](https://buy.cloud.tencent.com/price/idc)。按照100Mbps 带宽全部跑满的情况下，300G 数据大约要6小时，差不多一天需要150元。
 - 如果是按流量计费的带宽，以成都区为例，每G0.8元的费用，若每天300G 则每天为240元，费用较高。
 - 考虑到境外拍摄组传输的问题，直连到国内的服务器的效率不会很高，面临丢包，断连的问题。
 - 对于后者无公网 IP 的，内网似乎没有任何办法直接传输回本地，只能借助其他工具。例如内网传到一台有公网的机器上，但是如此一来又回到了第一个客户的问题。
@@ -56,7 +56,7 @@ COS 中的 CDN 适用于以下场景：
 同样 CDN 到 COS 之间的流量走的也是内网，流量费用按照未通过 CDN 直接访问源站产生的公网流量费用+ CDN 访问的费用进行收费。
 ![](https://qcloudimg.tencent-cloud.cn/raw/9ef93d97b8154ef91b0cecd7addcddf5.png)
 
-按流量计费的价格，请参见 [COS-CDN 计费说明](https://cloud.tencent.com/document/product/228/37849?from=10680)。
+按流量计费的价格，详情请参见 [COS-CDN 计费说明](https://cloud.tencent.com/document/product/228/37849?from=10680)。
 >?相较于 COS 在欧洲地区的0.5-0.9元/GB，CDN 只需要0.31元/GB，每 GB 省下了最多0.5元，成本直接减半。上述案例中300G 数据通过 COS 直接下载的价格为150元，而通过 CDN 只需要93元。
 
 ## 对比方案
@@ -138,14 +138,14 @@ COS 中的 CDN 适用于以下场景：
 进入对象存储 COS，云服务器 CVM，内容分发网络 CDN 控制台，首次打开会要求开通授权，根据指引操作即可。
 
 ### 创建存储桶
-可参考 [创建存储桶](https://cloud.tencent.com/document/product/436/13309)。
+详情请参见 [创建存储桶](https://cloud.tencent.com/document/product/436/13309)。
 
 >?创建存储桶时，地域要与 CVM 所在地域一致，否则将会通过公网收取费用。
 
 存储桶权限建议设置为私有读写。
 
 ### 创建 CDN 服务
-可参考 [从零开始配置 CDN](https://cloud.tencent.com/document/product/228/3149)。
+详情请参见 [从零开始配置 CDN](https://cloud.tencent.com/document/product/228/3149)。
 
 >?CDN 源站选择 COS 源，建议选择 https 回源，开启私有存储桶访问保证安全。加速类型选择大文件下载或根据业务场景选择。
 
@@ -154,9 +154,9 @@ COS 中的 CDN 适用于以下场景：
 ### CVM 内建议配置
 - 如无公网需要，建议不开通公网，从内网仍然可以访问到对象存储。
 
-- 若系统为 Windows，建议使用浏览器或 COSCMD 工具访问对象。通过浏览器直接访问对象地址即可在 CVM 进行下载，[COSCMD 工具指引](https://cloud.tencent.com/document/product/436/10976)。
+- 若系统为 Windows，建议使用浏览器或 COSCMD 工具访问对象。通过浏览器直接访问对象地址即可在 CVM 进行下载，可参见 [COSCMD 工具](https://cloud.tencent.com/document/product/436/10976) 指引。
 
-- Linux 系统建议直接使用 [COSFS](https://cloud.tencent.com/document/product/436/6883) 挂载到本地进行操作。
+- Linux 系统建议直接使用 [COSFS 工具](https://cloud.tencent.com/document/product/436/6883) 挂载到本地进行操作。
 
 ### 对象存储的本地数据上传
 此外还可以使用 CosBrowser 工具完成 CosBrowser 操作。
@@ -164,7 +164,7 @@ COS 中的 CDN 适用于以下场景：
 对象存储上传会分片上传，极大提升了稳定性，减少了资源内存的占用。且相较于 FTP，对象存储支持断点续传，即使遇到断网的情况，恢复网络后依然能继续上传。
 
 ### CVM 上传数据至对象存储
-参考 COSCMD 操作，[控制台操作](https://cloud.tencent.com/document/product/436/13321) 。
+可参见 COSCMD 操作 [上传对象](https://cloud.tencent.com/document/product/436/13321) 。
 
 若使用 Windows 服务器，可以安装图形化管理软件 **COSBrowser**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/cddabe2ff044c4939b7aeb8982d2c708.png)
