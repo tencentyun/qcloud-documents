@@ -19,7 +19,10 @@ function fetch(request: string | Request, init?: RequestInit): Promise<Response>
   <tbody>
     <tr>
       <td>request</td>
-      <td>string | <a href="https://cloud.tencent.com/document/product/1552/81902">Request</a></td>
+      <td>
+        string | <br>
+        <a href="https://cloud.tencent.com/document/product/1552/81902">Request</a>
+      </td>
       <td>是</td>
       <td>指定将要获取的请求资源。</li>
       </td>
@@ -29,7 +32,7 @@ function fetch(request: string | Request, init?: RequestInit): Promise<Response>
       <td><a href="https://cloud.tencent.com/document/product/1552/81902">RequestInit</a></td>
       <td>否</td>
       <td>
-        请求对象的初始化配置项。详情请参见 <a href="https://cloud.tencent.com/document/product/1552/81902">RequestInit</a>
+        请求对象的初始化配置项。详情请参见 <a href="https://cloud.tencent.com/document/product/1552/81902">RequestInit</a>。
       </td>
     </tr>
   </tbody>
@@ -83,14 +86,27 @@ addEventListener('fetch', async (event) => {
 </table>
 
 >! 重定向的地址来源于响应头 `Location`，若无该响应头，则不会重定向。
-- 响应头 `Location` 值可以是绝对 URL 或者相对 URL（详情请参见 [RFC-3986: URI Reference](https://www.rfc-editor.org/rfc/rfc3986#section-4.1)）。
+- 响应头 `Location` 值可以是绝对 URL 或者相对 URL，详情参见 [RFC-3986: URI Reference](https://www.rfc-editor.org/rfc/rfc3986#section-4.1)。
 
 ## 运行时限制
 边缘函数中使用 `fetch` 发起请求，存在以下限制：
-- 次数限制：边缘函数单次运行中可发起的 `fetch` 总次数为 64；超过该限制的 `fetch` 请求会请求失败，并抛出异常。
-- 并发限制：边缘函数单次运行中允许发起 `fetch` 最大并发数为8；超过该限制的 `fetch` 请求会被延迟发起，直到某个正在运行着的 `fetch` 被 resolve。
+- 次数限制：边缘函数单次运行中可发起的 `fetch` 总次数为 64，超过该限制的 `fetch` 请求会请求失败，并抛出异常。
+- 并发限制：边缘函数单次运行中允许发起 `fetch` 最大并发数为 8，超过该限制的 `fetch` 请求会被延迟发起，直到某个正在运行着的 `fetch` 被 resolve。
 
 >!每一次重定向都会计入请求次数，且其优先级高于新发起的 `fetch` 请求。
 
-## 参考
+## 示例代码
+```js
+async function handleEvent(event) {
+  const response = await fetch('https://www.tencentcloud.com/');
+  return response;
+}
+
+addEventListener('fetch', (event) => {
+  event.respondWith(handleEvent(event));
+});
+```
+
+## 相关参考 
 - [MDN 官方文档：fetch](https://developer.mozilla.org/en-US/docs/Web/API/fetch)
+- [示例函数：获取远程资源返回](https://cloud.tencent.com/document/product/1552/84083)

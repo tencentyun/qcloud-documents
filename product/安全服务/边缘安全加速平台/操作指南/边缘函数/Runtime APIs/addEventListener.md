@@ -2,11 +2,11 @@
 
 ## 描述
 
-在一个边缘函数中，一种类型的事件，只允许注册一个事件监听器，重复注册，只有最后注册的事件监听器有效。
-
 ```typescript
 function addEventListener(type: string, listener: (event: FetchEvent) => void): void;
 ```
+
+在一个边缘函数中，一种类型的事件，只允许注册一个事件监听器，重复注册，只有最后注册的事件监听器有效。
 
 ### 参数
 <table>
@@ -45,11 +45,13 @@ function addEventListener(type: string, listener: (event: FetchEvent) => void): 
 
 ## 示例代码
 ```js
-// 注册 fetch 请求事件，以及事件监听器
+// 注册 fetch 请求事件监听器
 addEventListener('fetch', (event) => {
-  event.respondWith(new Response("Hello World!"));
+  event.respondWith(new Response('Hello World!'));
 });
 ```
 
-## 参考
+## 相关参考 
 - [MDN 官方文档：addEventListener](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener)
+- [示例函数：返回 HTML 页面](https://cloud.tencent.com/document/product/1552/81941)
+- [示例函数：返回 JSON](https://cloud.tencent.com/document/product/1552/81942)

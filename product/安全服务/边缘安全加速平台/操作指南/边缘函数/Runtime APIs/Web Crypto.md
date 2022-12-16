@@ -44,15 +44,15 @@ crypto.getRandomValues(buffer: TypedArray): TypedArray;
 		<tr>
 			<td>buffer</td>
 			<td>
-        Int8Array |<br>
-        Uint8Array |<br>
-        Uint8ClampedArray |<br>
-        Int16Array |<br>
-        Uint16Array |<br>
-        Int32Array |<br>
-        Uint32Array |<br>
-        BigInt64Array |<br>
-        BigUint64Array 
+        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int8Array">Int8Array</a> |<br>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array">Uint8Array</a> |<br>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray">Uint8ClampedArray</a> |<br>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int16Array">Int16Array</a> |<br>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint16Array">Uint16Array</a> |<br>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int32Array">Int32Array</a> |<br>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint32Array">Uint32Array</a> |<br>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt64Array">BigInt64Array</a> |<br>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigUint64Array">BigUint64Array</a>
       </td>
 			<td>是</td>
 			<td>
@@ -72,7 +72,7 @@ crypto.randomUUID(): string;
 ## SubtleCrypto[](id:SubtleCrypto)
 提供常见的加密操作, 例如: 哈希、签名/验签、加解密等，详情参见 [MDN 官方文档：SubtleCrypto](https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto#Methods)。
 
->? `SubtleCrypto` 加密接口按功能分为两类：
+>? **SubtleCrypto** 加密接口按功能分为两类：
 - **加密功能**，包含 `encrypt/decrypt`、`sign/verify`、`digest`, 可以用来实现隐私和身份验证等安全功能。
 - **密钥管理功能**，包含 `generateKey`、`deriveKey`、`importKey/exportKey`, 可以用来管理密钥。
 
@@ -445,8 +445,33 @@ crypto.subtle.unwrapKey(format: string, wrappedKey: ArrayBuffer, unwrappingKey: 
 </tr>
 </tbody></table>
 
-## 参考
+## 示例代码
+```typescript
+function uint8ArrayToHex(arr) {
+	return Array.prototype.map.call(arr, (x) => ((`0${x.toString(16)}`).slice(-2))).join('');
+}
+
+async function handleEvent(event) {
+	const encodeArr = TextEncoder().encode('hello world');
+	// 执行 md5
+	const md5Buffer = await crypto.subtle.digest({ name: 'MD5' }, encodeArr);
+	// 输出十六进制字符串
+	const md5Str = uint8ArrayToHex(new Uint8Array(md5Buffer));
+	
+	const response = new Response(md5Str);
+	return response;
+}
+  
+addEventListener('fetch', async (event) => {    
+  event.respondWith(handleEvent(event));
+});
+```
+
+## 相关参考 
 - [MDN 官方文档：Web Crypto API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API)
 - [MDN 官方文档：SubtleCrypto](https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto#Methods)
 - [MDN 官方文档：CryptoKey](https://developer.mozilla.org/en-US/docs/Web/API/CryptoKey)
 - [MDN 官方文档：CryptoKeyPair](https://developer.mozilla.org/en-US/docs/Web/API/CryptoKeyPair)
+- [示例函数：防篡改校验](https://cloud.tencent.com/document/product/1552/84081)
+- [示例函数：m3u8 改写与鉴权](https://cloud.tencent.com/document/product/1552/84086)
+- [示例函数：缓存 POST 请求](https://cloud.tencent.com/document/product/1552/84079)

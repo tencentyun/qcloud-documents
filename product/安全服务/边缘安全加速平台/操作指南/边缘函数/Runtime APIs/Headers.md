@@ -118,7 +118,7 @@ headers.delete(name: string): void;
 headers.entries(): iterator;
 ```
 
-获取 `headers` 对象所有的 [name, value] 键值对数组，返回值参考 [MDN 官方文档：iterator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols)。
+获取 `headers` 对象所有的键值对（[name, value]）数组，返回值参考 [MDN 官方文档：iterator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols)。
 
 ### forEach
 ```typescript
@@ -161,6 +161,26 @@ headers.values(): iterator;
 ```
 获取 `headers` 对象包含的所有 value，返回值参考 [MDN 官方文档：iterator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols)。
 
+## 示例代码
+```typescript
+function handleEvent() {
+  const headers = new Headers({
+    'my-header-x': 'hello world',
+  });
 
-## 参考
+  const response =  new Response('hello world', {
+    headers,
+  });
+  return response;
+}
+
+addEventListener('fetch', (event) => {
+  event.respondWith(handleEvent(event));
+});
+```
+
+## 相关参考
 - [MDN 官方文档：Headers](https://developer.mozilla.org/en-US/docs/Web/API/Headers)
+- [示例函数：防篡改校验](https://cloud.tencent.com/document/product/1552/84081)
+- [示例函数：请求头鉴权](https://cloud.tencent.com/document/product/1552/81940)
+- [示例函数：修改响应头](https://cloud.tencent.com/document/product/1552/81937)
