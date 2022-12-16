@@ -13,7 +13,7 @@ async function fetchJquery(event, request) {
   event.waitUntil(cache.put(request, response.clone()));
   
   // 未命中缓存，设置响应头标识
-  response.headers.append('x-edgefunction-cache', 'miss');
+  response.headers.append('x-edgefunctions-cache', 'miss');
   return response;
 }
 
@@ -33,7 +33,7 @@ async function handleEvent(event) {
     }
 
     // 命中缓存，设置响应头标识
-    response.headers.append('x-edgefunction-cache', 'hit');
+    response.headers.append('x-edgefunctions-cache', 'hit');
 
     return response;
   } catch (e) {
@@ -52,9 +52,13 @@ addEventListener('fetch', (event) => {
 
 在浏览器地址栏中输入边缘函数触发规则，即可预览到示例效果。
 
-- 未命中缓存。<br><img src="https://user-images.githubusercontent.com/117053395/207877910-07f65f9a-871f-4bce-bd46-027207b3bb9d.png" width=609px>
+- 未命中缓存。
 
-- 命中缓存。<br><img src="https://user-images.githubusercontent.com/117053395/207879863-39a8d89f-c9ed-4d87-bd86-c5c91c1ae636.png" width=609px>
+<img src="https://user-images.githubusercontent.com/117053395/208015306-5d9ba9b4-b1a7-48c0-b2c1-868ade979cf7.png" width=609px>
+
+- 命中缓存。
+
+<img src="https://user-images.githubusercontent.com/117053395/208015231-8c93d07e-a919-49c3-9ad5-257b32f8f27b.png" width=609px>
 
 
 ## 相关参考
