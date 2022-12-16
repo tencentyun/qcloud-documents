@@ -5,10 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="17fb8973-4c4a-41fe-9f96-aa31da083355" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/qcloud-documents.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product/计算与网络/容器服务/控制台指南（新版）/第三方节点管理/第三方节点概述.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/product/计算与网络/容器服务/控制台指南（新版）/第三方节点管理/管理第三方节点池.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/product/存储与CDN/对象存储 4.0/工具指南/COSDistCp 工具.md" beforeDir="false" afterPath="$PROJECT_DIR$/product/存储与CDN/对象存储 4.0/工具指南/COSDistCp 工具.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product/存储与CDN/对象存储 4.0/数据湖存储/元数据加速器 COS-HDFS/使用 Hadoop Filesystem API 代码访问 COS 元数据加速存储桶.md" beforeDir="false" afterPath="$PROJECT_DIR$/product/存储与CDN/对象存储 4.0/数据湖存储/元数据加速器 COS-HDFS/使用 Hadoop Filesystem API 代码访问 COS 元数据加速存储桶.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product/存储与CDN/对象存储 4.0/最佳实践/数据迁移/将 HDFS 数据迁移到已开启元数据加速功能的存储桶.md" beforeDir="false" afterPath="$PROJECT_DIR$/product/存储与CDN/对象存储 4.0/最佳实践/数据迁移/将 HDFS 数据迁移到已开启元数据加速功能的存储桶.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +33,9 @@
   <component name="GoLibraries">
     <option name="indexEntireGoPath" value="false" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="23xG4RqQYRA71Qin4VDLEz7D0D7" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -48,7 +55,8 @@
     <property name="go.formatter.settings.were.checked" value="true" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.modules.go.list.on.any.changes.was.set" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/product/计算与网络/容器服务/控制台指南（新版）/注册节点管理" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.tabs" />
   </component>
   <component name="RecentsManager">
@@ -59,6 +67,18 @@
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="17fb8973-4c4a-41fe-9f96-aa31da083355" name="Changes" comment="" />
+      <created>1670915788335</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1670915788335</updated>
+      <workItem from="1670915788801" duration="4153000" />
+      <workItem from="1671159448827" duration="9347000" />
+    </task>
+    <servers />
+  </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
