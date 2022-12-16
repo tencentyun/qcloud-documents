@@ -1,4 +1,4 @@
-﻿按照自建 K8S 集群安装 LogListener 部署完成后，就可以通过创建 LogConfig 或者通过控制台去设置采集配置，开始日志采集了
+按照自建 K8S 集群安装 LogListener 部署完成后，就可以通过创建 LogConfig 或者通过控制台去设置采集配置，开始日志采集了
 如果出现日志采集异常，首先按照下面的流程自查一下
 1. 确认logconfig状态
  - 查看集群所有的采集配置：kubectl get logconfig
