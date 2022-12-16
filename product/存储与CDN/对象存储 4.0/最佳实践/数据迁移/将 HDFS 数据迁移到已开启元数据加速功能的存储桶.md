@@ -37,7 +37,7 @@
 
 **软件依赖**
 
-Hadoop-2.6.0及以上版本、Hadoop-COS 插件8.1.5及以上版本，同时 cos_api-bundle 插件版本与 Hadoop-COS 版本对应，具体查看 <a href="https://github.com/tencentyun/hadoop-cos/releases">COSN github releases</a> 确认。
+Hadoop-2.6.0及以上版本、Hadoop-COS 插件8.1.5及以上版本，同时 cos_api-bundle 插件版本与 Hadoop-COS 版本对应，详情请参见 <a href="https://github.com/tencentyun/hadoop-cos/releases">COSN github releases</a> 确认。
 
 **安装说明**
 
@@ -71,7 +71,7 @@ Hadoop-2.6.0及以上版本、Hadoop-COS 插件8.1.5及以上版本，同时 cos
 </table>
 
 >!
->- Hadoop-cos 自8.1.5版本开始支持`cosn://bucketname-appid/`方式访问元数据加速桶；
+>- Hadoop-cos 自8.1.5版本开始支持 `cosn://bucketname-appid/` 方式访问元数据加速桶；
 >- 元数据加速功能只能在创建存储桶时开启，开启后不支持关闭，请结合您的业务情况慎重考虑是否开启，同时注意旧版本的 Hadoop-cos 包不能正常访问已开启元数据加速功能的存储桶。
 
 2. 创建元数据加速存储桶，并配置元数据加速桶 HDFS 协议。详细步骤可参见 [使用 HDFS 协议访问已开启元数据加速器的存储桶](https://cloud.tencent.com/document/product/436/68700) 中的“创建存储桶并配置 HDFS 协议”章节。
@@ -129,7 +129,7 @@ Hadoop-2.6.0及以上版本、Hadoop-COS 插件8.1.5及以上版本，同时 cos
 
 一般情况下，迁移数据会先从 HDFS 存储数据开始迁移，会选定源 HDFS 集群待迁移的目录，目标段保持和源路径相同，如下所示：
 
-假设需要将 HDFS 路径`hdfs:///data/user/target`迁移到`cosn://{bucketname-appid}/data/user/target`。
+假设需要将 HDFS 路径 `hdfs:///data/user/target` 迁移到 `cosn://{bucketname-appid}/data/user/target`。
 
 为了保证迁移过程中，源端目录的文件不发生改变，会采用 HDFS 的快照功能，先给待迁移的目录打上快照，以当前日期作为快照文件名。
 
@@ -203,16 +203,16 @@ CosDistCp Counters
 
 #### （3）失败文件重迁移
 
-1. COSDistCp 工具不但可以解决大部分文件的迁移效率问题，同时也可以采用`--delete`参数支持 HDFS 和 COS 数据的完全一致。
+1. COSDistCp 工具不但可以解决大部分文件的迁移效率问题，同时也可以采用 `--delete` 参数支持 HDFS 和 COS 数据的完全一致。
 
 参数说明如下：
-- --delete参数使用时，需要携带`--deleteOutput=/xxx(自定义)`参数，但不可以携带`--diffMode`参数。
+- --delete参数使用时，需要携带 `--deleteOutput=/xxx(自定义)` 参数，但不可以携带 `--diffMode`参数。
 
 ```shell
 nohup hadoop jar /data01/jars/cos-distcp-1.10-2.8.5.jar -libjars /data01/jars/chdfs_hadoop_plugin_network-2.8.jar --src=--src=hdfs:///data/user/target/.snapshot/{当前日期} --dest=cosn://{bucket-appid}/data/user/target --temp=cosn://bucket-appid/distcp-tmp/ --preserveStatus=ugpt --skipMode=length-checksum --checkMode=length-checksum --cosChecksumType=CRC32C --taskNumber 6 --workerNumber 32 --bandWidth 200 --delete --deleteOutput=/dele-xx >> ./distcp.log &
 ```
 
-运行完成后，会将HDFS和COS的差异数据移动到 `trash` 目录下，并且在 `/xxx/failed` 目录下生成移动文件清单。删除`trash`目录下的数据可以采用`hadoop fs -rm URL` 或者`hadoop fs -rmr URL`。
+运行完成后，会将HDFS和COS的差异数据移动到 `trash` 目录下，并且在 `/xxx/failed` 目录下生成移动文件清单。删除 `trash` 目录下的数据可以采用 `hadoop fs -rm URL` 或者`hadoop fs -rmr URL`。
 
 ## 增量迁移
 
