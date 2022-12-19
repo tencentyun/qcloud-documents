@@ -27,19 +27,15 @@
 </tr>
 <tr>
 <td>NameNode</td>
-<td></td>
 </tr>
 <tr>
 <td>SecondaryNameNode</td>
-<td></td>
 </tr>
 <tr>
 <td>JournalNode</td>
-<td></td>
 </tr>
 <tr>
 <td>DataNode</td>
-<td></td>
 </tr>
 <tr>
 <td rowspan=4>Yarn</td>
@@ -47,15 +43,12 @@
 </tr>
 <tr>
 <td>NodeManager</td>
-<td></td>
 </tr>
 <tr>
 <td>JobHistoryServer</td>
-<td></td>
 </tr>
 <tr>
 <td>TimeLineServer</td>
-<td></td>
 </tr>
 <tr>
 <td rowspan=3>Hbase</td>
@@ -63,11 +56,9 @@
 </tr>
 <tr>
 <td>RegionServer</td>
-<td></td>
 </tr>
 <tr>
 <td>HbaseThrift</td>
-<td></td>
 </tr>
 <tr>
 <td rowspan=3>Hive</td>
@@ -75,11 +66,9 @@
 </tr>
 <tr>
 <td>HiveServer2</td>
-<td></td>
 </tr>
 <tr>
 <td>HiveWebHcat</td>
-<td></td>
 </tr>
 <tr>
 <td rowspan=2>Knox</td>
@@ -87,7 +76,6 @@
 </tr>
 <tr>
 <td>gateway</td>
-<td></td>
 </tr>
 <tr>
 <td>Oozie</td>
@@ -99,11 +87,9 @@
 </tr>
 <tr>
 <td>Supervisor</td>
-<td></td>
 </tr>
 <tr>
 <td>worker</td>
-<td></td>
 </tr>
 <tr>
 <td>Spark</td>
@@ -115,15 +101,12 @@
 </tr>
 <tr>
 <td>AlluxioJobMaster</td>
-<td></td>
 </tr>
 <tr>
 <td>AlluxioWorker</td>
-<td></td>
 </tr>
 <tr>
 <td>Alluxio-JobWorker</td>
-<td></td>
 </tr>
 <tr>
 <td rowspan=2>Ranger</td>
@@ -131,7 +114,6 @@
 </tr>
 <tr>
 <td>EnableUnixAuth</td>
-<td></td>
 </tr>
 <tr>
 <td>Livy</td>
@@ -147,7 +129,6 @@
 </tr>
 <tr>
 <td>Presto-Worker</td>
-<td></td>
 </tr>
 <tr>
 <td rowspan=2>Prestosql</td>
@@ -155,7 +136,6 @@
 </tr>
 <tr>
 <td>PrestoSQL-Worker</td>
-<td></td>
 </tr>
 <tr>
 <td>Cosranger</td>
@@ -167,7 +147,6 @@
 </tr>
 <tr>
 <td>StarRocksBroker</td>
-<td></td>
 </tr>
 <tr>
 <td rowspan=2>Doris</td>
@@ -175,7 +154,6 @@
 </tr>
 <tr>
 <td>DorisBroker</td>
-<td></td>
 </tr>
 <tr>
 <td rowspan=6>Druid</td>
@@ -183,23 +161,18 @@
 </tr>
 <tr>
 <td>coordinator</td>
-<td></td>
 </tr>
 <tr>
 <td>router</td>
-<td></td>
 </tr>
 <tr>
 <td>broker</td>
-<td></td>
 </tr>
 <tr>
 <td>historical</td>
-<td></td>
 </tr>
 <tr>
 <td>middleManager</td>
-<td></td>
 </tr>
 <tr>
 <td>Zeppelin</td>
