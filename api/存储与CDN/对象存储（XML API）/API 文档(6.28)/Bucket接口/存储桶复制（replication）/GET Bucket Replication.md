@@ -69,7 +69,7 @@ Authorization: Auth String
 | Bucket                   | ReplicationConfiguration.Rule.Destination | 资源标识符：<br>`qcs::cos:[region]::[BucketName-APPID]`      | String    | 
 | StorageClass             | ReplicationConfiguration.Rule.Destination | 存储类型，枚举值：STANDARD，INTELLIGENT_TIERING，STANDARD_IA，ARCHIVE，DEEP_ARCHIVE，默认值：原存储类型 | String    | 
 | DeleteMarkerReplication             | ReplicationConfiguration.Rule | 是否同步删除标记 |Container    |
-|Status             | ReplicationConfiguration.Rule. DeleteMarkerReplication | 是否同步删除标记，支持`Disabled`或`Enabled`。默认值为 `Enabled`，即同步删除标记 |String    |
+|Status             | ReplicationConfiguration.Rule. DeleteMarkerReplication | 是否同步删除标记，支持 `Disabled` 或 `Enabled`。默认值为 `Enabled`，即同步删除标记 |String    |
 
 #### 错误码
 
@@ -94,7 +94,7 @@ Content-Length: 0
 
 #### 响应
 
-上述请求后，COS 返回以下响应，表明当前该存储桶内的存储桶复制配置处于启用状态。该规则配置信息中，复制的内容为存储桶`originbucket-1250000000`内包含`testPrefix`前缀的所有对象。对象副本的存储类型默认跟随源存储桶内对象的存储类型。
+上述请求后，COS 返回以下响应，表明当前该存储桶内的存储桶复制配置处于启用状态。该规则配置信息中，复制的内容为存储桶 `originbucket-1250000000` 内包含 `testPrefix` 前缀的所有对象。对象副本的存储类型默认跟随源存储桶内对象的存储类型。
 
 ```plaintext
 Content-Type: application/xml
