@@ -1,5 +1,7 @@
 使用边缘函数生成 JSON，并在浏览器预览 JSON。
 
+## 示例代码
+
 ```typescript
 const data = {
   content: 'hello world',

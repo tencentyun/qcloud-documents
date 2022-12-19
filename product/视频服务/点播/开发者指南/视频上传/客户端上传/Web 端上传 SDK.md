@@ -5,7 +5,7 @@
 ### 引入 SDK
 
 #### script 引入方式
-未使用 webpack 的情况下，可通过 script 标签方式引入，该方式会暴露全局的`TcVod`变量。script 引入有下面两种方式：
+未使用 webpack 的情况下，可通过 script 标签方式引入，该方式会暴露全局的 `TcVod` 变量。script 引入有下面两种方式：
 - **下载到本地**
 	下载 [SDK 源码](https://github.com/tencentyun/vod-js-sdk-v6) 到本地，然后按以下方式引入：
 ```html
@@ -42,8 +42,10 @@ function getSignature() {
 };
 ```
 
->? `url`是您派发签名服务的 URL，更多相关信息请参见 [客户端上传指引](https://cloud.tencent.com/document/product/266/9219#.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4)。
-> `signature`计算规则请参见 [客户端上传签名](/document/product/266/9221)。
+>? 
+- `url` 是您派发签名服务的 URL，更多相关信息请参见 [客户端上传指引](https://cloud.tencent.com/document/product/266/9219#.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4)。
+- `signature` 计算规则请参见 [客户端上传签名](/document/product/266/9221)。
+- **子应用**、**视频文件分类**、**任务流**等信息都包含在上传签名中，更多相关信息请参见 [签名参数说明](https://cloud.tencent.com/document/product/266/9221#.3Ca-id.3D.22p2.22.3E.3C.2Fa.3E.E7.AD.BE.E5.90.8D.E5.8F.82.E6.95.B0.E8.AF.B4.E6.98.8E)。
 
 ###  上传视频示例
 
@@ -83,7 +85,7 @@ uploader.done().then(function (doneResult) {
 ```
 
 >?
->- `new TcVod(opts)`中的 opts 指该接口的相关参数，详细请参见 [TcVod 接口描述](#.E6.8E.A5.E5.8F.A3.E6.8F.8F.E8.BF.B0)。
+>- `new TcVod(opts)` 中的 opts 指该接口的相关参数，详细请参见 [TcVod 接口描述](#.E6.8E.A5.E5.8F.A3.E6.8F.8F.E8.BF.B0)。
 >- 上传方法根据用户文件的长度，自动选择普通上传以及分片上传，用户不用关心分片上传的每个步骤，即可实现分片上传。
 >- 如需上传至指定子应用下，请参见 [子应用体系 - 客户端上传](https://cloud.tencent.com/document/product/266/14574#.E5.AE.A2.E6.88.B7.E7.AB.AF.E4.B8.8A.E4.BC.A0)。
 
@@ -133,7 +135,7 @@ uploader.done().then(function (doneResult) {
 })
 ```
 
-`xxx_upload`与`xxx_progress`的回调值请参见 [分块上传/复制任务操作]( https://cloud.tencent.com/document/product/436/35649#.E4.B8.8A.E4.BC.A0.E5.88.86.E5.9D.97)。
+`xxx_upload` 与 `xxx_progress` 的回调值请参见 [分块上传/复制任务操作]( https://cloud.tencent.com/document/product/436/35649#.E4.B8.8A.E4.BC.A0.E5.88.86.E5.9D.97)。
 
 ### 取消上传
 
@@ -189,12 +191,12 @@ SDK 支持自动断点续传功能，无需做额外操作。当上传意外终�
 ## 常见问题
 
 1. **File 对象怎么获取？**
-使用`input`标签，`type`为`file`类型，即可拿到`File`对象。
+使用 `input` 标签，`type` 为 `file` 类型，即可拿到 `File` 对象。
 2. **上传的文件是否有大小限制?**
 最大支持60GB。
 3. **SDK 支持的浏览器版本有哪些？**
 Chrome、Firefox 等支持 HTML5 的主流浏览器，IE 方面支持的最低版本是 IE10。
 4. **如何实现类似暂停上传或恢复上传的功能？**
-SDK 底层已经自动实现了断点续传的功能，因此暂停的本质即是调用`uploader.cancel()`这个方法。同理，暂停后的恢复上传也是调用初始的`tcVod.upload`方法，区别在于恢复上传时调用该方法的参数，应该是之前缓存起来的参数（例如可以在启动上传时全局变量存储一份参数，上传完成后再清掉）。
+SDK 底层已经自动实现了断点续传的功能，因此暂停的本质即是调用 `uploader.cancel()` 这个方法。同理，暂停后的恢复上传也是调用初始的 `tcVod.upload` 方法，区别在于恢复上传时调用该方法的参数，应该是之前缓存起来的参数（例如可以在启动上传时全局变量存储一份参数，上传完成后再清掉）。
 5.  <b>Web 端上传 SDK 是否支持使用 https: 域名上传？ </b>
 可以支持。Web 端默认判断当前页面的域名是 http: 时，使用 http: 域名上传。若判断域名非 http: 时，则使用 https: 域名上传。 

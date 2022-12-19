@@ -25,7 +25,7 @@ encoder.encode(input?: string | undefined): Uint8Array
 ```
 接受码点流作为输入，并输出 `utf-8` 字节流。
 
->? **input 最大长度为 300M**，超出长度会抛出异常。
+>! **input 最大长度为 300M**，超出长度会抛出异常。
 
 - `encoder.encode` 参数
 
@@ -305,4 +305,4 @@ addEventListener('fetch', (event) => {
 - [MDN 官方文档：TextEncoder](https://developer.mozilla.org/en-US/docs/Web/API/TextEncoder)
 - [MDN 官方文档：TextDecoder](https://developer.mozilla.org/en-US/docs/Web/API/TextDecoder)
 - [MDN 官方文档：Encoding Label](https://developer.mozilla.org/en-US/docs/Web/API/Encoding_API/Encodings)
-- [示例函数：防篡改校验](#防篡改校验.md)
+- [示例函数：防篡改校验](https://cloud.tencent.com/document/product/1552/84081)

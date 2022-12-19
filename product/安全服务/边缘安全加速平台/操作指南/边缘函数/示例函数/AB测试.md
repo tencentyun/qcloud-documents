@@ -1,5 +1,7 @@
 在边缘函数中，使用 cookies 进行 A/B 测试控制。
 
+## 示例代码
+
 ```typescript
 // cookie 名称
 const cookieName = 'ABTest';

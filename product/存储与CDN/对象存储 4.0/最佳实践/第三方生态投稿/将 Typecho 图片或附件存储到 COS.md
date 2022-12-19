@@ -20,7 +20,7 @@ Typecho 原生支持 Markdown 排版语法，易读更易写。支持各类云�
 ![](https://qcloudimg.tencent-cloud.cn/raw/c058bd6ddaed93b97822592e2cc6af37.png)
 
 ### 设置腾讯云对象存储插件（Typecho 版）
-1. 点击设置，填写配置信息。
+1. 点击**设置**，填写配置信息。
 ![](https://qcloudimg.tencent-cloud.cn/raw/0b41383c2e27f457c365bff29b77ebb6.png)
 - 以下为基础设置（必填信息）
 ![](https://qcloudimg.tencent-cloud.cn/raw/2455bbda12ea32e624371ad3b173e9d1.png)
@@ -31,7 +31,7 @@ Typecho 原生支持 Markdown 排版语法，易读更易写。支持各类云�
 	| SecretKey | 用于验证 API 调用者的身份，可以简单类比为密码。可从 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 获取。 |
 | 所属地域      | 腾讯云 COS 存储桶所在地域。详情参见 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224)。     |
 | 存储桶名称     | 腾讯云 COS 服务中存储桶的名称。详情参见 [存储桶概述](https://cloud.tencent.com/document/product/436/13312)。    |
-| 对象存储路径    | 文件存储的前缀，为更接近 Typecho 默认设置，本插件默认为`usr/uploads`，可根据实际情况自行修改。                              |
+| 对象存储路径    | 文件存储的前缀，为更接近 Typecho 默认设置，本插件默认为 `usr/uploads`，可根据实际情况自行修改。                              |
 
 >?用户必须严格保管 SecretId、SecretKey 安全凭证，避免泄露，否则将危及财产安全。如已泄漏，请立刻禁用该安全凭证。
 
@@ -46,7 +46,7 @@ Typecho 原生支持 Markdown 排版语法，易读更易写。支持各类云�
 | 在本地保存         | 开启后，上传到 COS 的同时，自动在本地相同路径保存一份副本，会占用本地服务器的存储空间。                                                                                                                        |
 | 删除时同步删除本地备份   | 在**博客后台-管理-文件**删除文件时，是否同步删除本地服务器备份的文件副本（须开启**在本地保存**才会生效）。                                                                                                          |
 
-2. 配置填写完成后，单击保存即可。
+2. 配置填写完成后，单击**保存**即可。
 
 ## 使用插件
 1. 在博客后台撰写-撰写文章，通过上传附件/Ctrl+V粘贴上传图片/文件，检查插入的附件地址是否为COS域名（默认域名的后缀为myqcloud.com）。若为COS域名，则配置成功。
