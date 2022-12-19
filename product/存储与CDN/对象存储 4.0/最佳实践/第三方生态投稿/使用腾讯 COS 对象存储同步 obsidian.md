@@ -9,21 +9,22 @@ Obsidian 的 [数据存储](https://cloud.tencent.com/product/cdcs?from=10680) �
 
 ## COS 存储桶创建
 1. 登录腾讯云官网，打开 [COS 控制台](https://console.cloud.tencent.com/cos/bucket)。
-2. 切换到**存储桶列表**选项卡,单击创建存储桶并填写信息。
+2. 切换到**存储桶列表**选项卡,单击**创建存储桶**并填写信息。
 ![](https://qcloudimg.tencent-cloud.cn/raw/18a93af712dc8a649e2bce80b6241f24.png)
 ![](https://qcloudimg.tencent-cloud.cn/raw/a0400eec797c94d53efc14302d74b937.png)
 ![](https://qcloudimg.tencent-cloud.cn/raw/aa9a8998536a248a90e59c878606ef16.png)
- 为了您的 [数据安全](https://cloud.tencent.com/solution/data_protection?from=10680) 及防止被恶意盗刷而产生高额账单，建议选择私有读写访问权限。
+ 为了您的 [数据安全](https://cloud.tencent.com/solution/data_protection?from=10680) 及防止被恶意盗刷而产生高额账单，建议选择**私有读写**访问权限。
 3. 存储桶创建完成。
 4. Obsidian 插件安装与配置：
  1. 打开 Obsidian 设置。
 ![](https://qcloudimg.tencent-cloud.cn/raw/7f21749ad531c5d8c5444002b3c40bbf.png)
- 2. 找到第三方插件选项卡，单击关闭安全模式。
+ 2. 找到**第三方插件**选项卡，单击**关闭安全模式**。
  ![](https://qcloudimg.tencent-cloud.cn/raw/9e5f0422116a871bcf52ca4017d74a39.png)
- 3. 找到插件市场，单击浏览，搜索、安装并启用 remotely save。
+ 3. 找到**社区插件市场**，单击**浏览**，搜索、安装并启用 remotely save。
  ![](https://qcloudimg.tencent-cloud.cn/raw/deed7f8f6343fb694c34be4485553063.png)
  4. 配置，单击您刚才创建的 COS 存储桶，切换到概览页面，找到以下信息。 
 ![](https://qcloudimg.tencent-cloud.cn/raw/d60876034bdf170c03e5d16d1df14841.png) 
 5. 接着，创建 [腾讯云密钥](https://console.cloud.tencent.com/cos/bucket)。
 
 得到的 SecretId 即 Access Key ID，SecretKey 即 Secret Access Key， 其他配置根据自己需要设置即可。
+****
