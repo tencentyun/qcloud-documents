@@ -275,5 +275,5 @@ addEventListener('fetch', (event) => {
 
 ## 相关参考 
 - [MDN 官方文档：Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie)
-- [示例函数：AB测试](#AB测试.md)
-- [示例函数：设置 Cookie](#设置 Cookie.md)
+- [示例函数：AB测试](https://cloud.tencent.com/document/product/1552/81934)
+- [示例函数：设置 Cookie](https://cloud.tencent.com/document/product/1552/84080)

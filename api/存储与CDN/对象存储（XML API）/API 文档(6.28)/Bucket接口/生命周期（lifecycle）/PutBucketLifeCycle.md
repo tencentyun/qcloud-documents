@@ -62,54 +62,57 @@ Content-MD5: MD5
 
 ```shell
 <LifecycleConfiguration>
-      <Rule>
-            <ID></ID>
-            <Filter>
-                  <And>
-                        <Prefix></Prefix>
-                        <Tag>
-                              <Key></Key>
-                              <Value></Value>
-                        </Tag>
-                  </And>
-            </Filter>
-            <Status></Status>
-            <Transition>
-                  <Days></Days>
-                  <StorageClass></StorageClass>
-            </Transition>
-            <NoncurrentVersionExpiration>
-                  <NoncurrentDays></NoncurrentDays>
-            </NoncurrentVersionExpiration>
-      </Rule>
-      <Rule>
-            <ID></ID>
-            <Filter>
-                  <Prefix></Prefix>
-            </Filter>
-            <Status></Status>
-            <Transition>
-                  <Days></Days>
-                  <StorageClass></StorageClass>
-            </Transition>
-            <NoncurrentVersionTransition>
-                  <NoncurrentDays></NoncurrentDays>
-                  <StorageClass></StorageClass>
-            </NoncurrentVersionTransition>
-      </Rule>
-      <Rule>
-            <ID></ID>
-            <Filter>
-                  <Prefix></Prefix>
-            </Filter>
-            <Status></Status>
-            <Expiration>
-                  <ExpiredObjectDeleteMarker></ExpiredObjectDeleteMarker>
-            </Expiration>
-            <NoncurrentVersionExpiration>
-                  <NoncurrentDays></NoncurrentDays>
-            </NoncurrentVersionExpiration>
-      </Rule>
+    <Rule>
+        <ID></ID>
+        <Filter>
+            <And>
+                <Prefix></Prefix>
+                <Tag>
+                    <Key></Key>
+                    <Value></Value>
+                </Tag>
+            </And>
+        </Filter>
+        <Status></Status>
+        <Transition>
+            <Days></Days>
+            <StorageClass></StorageClass>
+        </Transition>
+        <NoncurrentVersionExpiration>
+            <NoncurrentDays></NoncurrentDays>
+        </NoncurrentVersionExpiration>
+    </Rule>
+    <Rule>
+        <ID></ID>
+        <Filter>
+            <Prefix></Prefix>
+        </Filter>
+        <Status></Status>
+        <Transition>
+            <Days></Days>
+            <StorageClass></StorageClass>
+        </Transition>
+        <NoncurrentVersionTransition>
+            <NoncurrentDays></NoncurrentDays>
+            <StorageClass></StorageClass>
+        </NoncurrentVersionTransition>
+    </Rule>
+    <Rule>
+        <ID></ID>
+        <Filter>
+            <Prefix></Prefix>
+        </Filter>
+        <Status></Status>
+        <Expiration>
+            <ExpiredObjectDeleteMarker></ExpiredObjectDeleteMarker>
+        </Expiration>
+        <NoncurrentVersionExpiration>
+            <NoncurrentDays></NoncurrentDays>
+        </NoncurrentVersionExpiration>
+        <AbortIncompleteMultipartUpload>
+            <DaysAfterInitiation></DaysAfterInitiation>
+        </AbortIncompleteMultipartUpload>
+    </Rule>
 </LifecycleConfiguration>
 ```
 
@@ -130,7 +133,6 @@ Content-MD5: MD5
 | Expiration                     | LifecycleConfiguration.Rule                                  | 规则过期属性                                                 | Container | 否       |
 | Transition                     | LifecycleConfiguration.Rule                                  | 规则转换属性，用于描述对象何时进行存储类型的转换和转换的存储类型        | Container | 否       |
 | Days                           | LifecycleConfiguration.Rule<br>.Transition 或 Expiration      | 指明规则对应的动作在对象最后的修改日期过后多少天操作：<br><li>如果是 Transition，该字段有效值是非负整数<br><li>如果是 Expiration，该字段有效值为正整数，最大支持3650天 | Integer   | 否       |
-| Date                           | LifecycleConfiguration.Rule<br>.Transition 或 Expiration      | 指明规则对应的动作在何时操作，支持 `2007-12-01T12:00:00.000Z`<br> 和 `2007-12-01T00:00:00+08:00` 这两种格式 | String    | 否       |
 | ExpiredObjectDeleteMarker      | LifecycleConfiguration.Rule<br>.Expiration                       | 删除过期对象删除标记，枚举值 true，false                     | String    | 否       |
 | AbortIncompleteMultipartUpload | LifecycleConfiguration.Rule                                  | 设置允许分片上传保持运行的最长时间                           | Container | 否       |
 | DaysAfterInitiation            | LifecycleConfiguration.Rule<br>.AbortIncompleteMultipartUpload | 指明分片上传开始后多少天内必须完成上传                       | Integer   | 是       |
