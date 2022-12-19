@@ -5,7 +5,7 @@
 - 已登录 [云直播控制台](https://console.cloud.tencent.com/live)。
 - 已添加 [播放域名](https://cloud.tencent.com/document/product/267/20381)。
 
-[](id:limit)
+[](id:limit) 
 ## 使用限制
 - 最多可以支持10条配置。
 - 禁止重复的消息头，有多个取值的参数，可以通过参数：`值1,值2,值3` 来实现。
@@ -45,4 +45,3 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/2becbedf4b932ffdec4aa8448b58b84e.png)
 5. 配置完成后，您可以单击**提交**功能，系统会根据后台生效情况展示：`配置中，未生效`、`配置失败：失败原因`、`配置已生效`。
 ![](https://qcloudimg.tencent-cloud.cn/raw/5208a2f1d536e7570719277e62a29c90.png)
-

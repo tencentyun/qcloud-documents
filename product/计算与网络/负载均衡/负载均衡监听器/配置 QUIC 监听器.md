@@ -1,4 +1,4 @@
-您可以在负载均衡实例上添加一个 [QUIC](https://www.chromium.org/quic) 监听器，转发来自客户端加密的 QUIC 协议请求。QUIC 协议的监听器，后端服务器可直接获取客户端的真实 IP。
+您可以在负载均衡实例上添加一个 QUIC 监听器，转发来自客户端加密的 QUIC 协议请求。QUIC 协议的监听器，后端服务器可直接获取客户端的真实 IP。
 
 QUIC（Quick UDP Internet Connection），又称为快速 UDP 互联网连接，是由 Google 提出的使用 UDP 进行多路并发传输的协议，QUIC 相比现在广泛应用的 TCP+TLS+HTTP2 协议有如下优势：
 - 减少连接建立时间。

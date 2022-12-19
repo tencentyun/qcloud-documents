@@ -1,6 +1,6 @@
 ## 操作场景
 
-如果对象存储（Cloud Object Storage，COS）存储桶开启了元数据加速，除了可以使用 Hadoop 命令行、大数据组件等方式操作外，还可以通过 Hadoop Filesystem API，使用 Java 代码来访问 元数据加速桶。本文指导您如何通过 Java 代码访问 元数据加速桶。
+如果对象存储（Cloud Object Storage，COS）存储桶开启了元数据加速，除了可以使用 Hadoop 命令行、大数据组件等方式操作外，还可以通过 Hadoop Filesystem API，使用 Java 代码来访问 元数据加速桶。本文指导您如何通过 Java 代码访问元数据加速桶。
 
 ## 前提条件
 
@@ -21,7 +21,7 @@
 </dependencies>
 ```
 2. 参考如下 hadoop 的代码进行修改。其中的配置项可参考 [配置项说明](https://cloud.tencent.com/document/product/1105/36368) 文档进行修改。**以及重点关注其中数据持久化和可见性相关的说明。**
-以下只列出了部分常见的文件系统的操作，其他的接口可参考 [Hadoop FileSystem 接口文档](https://hadoop.apache.org/docs/r2.8.2/api/org/apache/hadoop/fs/FileSystem.html)。
+   以下只列出了部分常见的文件系统的操作，其他的接口可参考 [Hadoop FileSystem 接口文档](https://hadoop.apache.org/docs/r2.8.2/api/org/apache/hadoop/fs/FileSystem.html)。
 ```java
 package com.qcloud.cos.demo;
 
@@ -44,16 +44,16 @@ public class Demo {
 				// 配置项可参见 https://cloud.tencent.com/document/product/1105/36368
 				// 以下配置是必填项
 
-			conf.set("fs.ofs.impl", "com.qcloud.chdfs.fs.CHDFSHadoopFileSystemAdapter");
-				conf.set("fs.AbstractFileSystem.ofs.impl", "com.qcloud.chdfs.fs.CHDFSDelegateFSAdapter");
-				conf.set("fs.ofs.tmp.cache.dir", "/data/chdfs_tmp_cache");
-				// appid根据实际appid进行替换
-				conf.set("fs.ofs.user.appid", "1250000000");
-				// region根据实际地域进行替换
-				conf.set("fs.ofs.bucket.region", "ap-beijing")
+			conf.set("fs.cosn.trsf.fs.ofs.impl", "com.qcloud.chdfs.fs.CHDFSHadoopFileSystemAdapter");
+				conf.set("fs.cosn.trsf.fs.AbstractFileSystem.ofs.impl", "com.qcloud.chdfs.fs.CHDFSDelegateFSAdapter");
+				conf.set("fs.cosn.trsf.fs.ofs.tmp.cache.dir", "/data/chdfs_tmp_cache");
+				// appid 根据实际 appid 进行替换
+				conf.set("fs.cosn.trsf.fs.ofs.user.appid", "1250000000");
+				// region 根据实际地域进行替换
+				conf.set("fs.cosn.trsf.fs.ofs.bucket.region", "ap-beijing")
 				// 其他可选配置项请参见 https://cloud.tencent.com/document/product/1105/36368 
 
-			String chdfsUrl = "ofs://examplebucket-12500000000/";
+			String chdfsUrl = "cosn://examplebucket-12500000000/";
 				return FileSystem.get(URI.create(chdfsUrl), conf);
 			}
 
@@ -176,12 +176,12 @@ public class Demo {
 
 
 				// 从本地复制文件
-				Path localFilePath = new Path("file:///home/hadoop/ofs_demo/data/exampleobject.txt");
+				Path localFilePath = new Path("file:///home/hadoop/cosn_demo/data/exampleobject.txt");
 				copyFileFromLocal(fs, chdfsFilePath, localFilePath);
 
 
 				// 获取文件到本地
-				Path localDownFilePath = new Path("file:///home/hadoop/ofs_demo/data/exampleobject.txt");
+				Path localDownFilePath = new Path("file:///home/hadoop/cosn_demo/data/exampleobject.txt");
 				copyFileToLocal(fs, chdfsFilePath, localDownFilePath);
 
 
@@ -218,8 +218,7 @@ public class Demo {
 }
 ```
 3. 编译和运行。
->? 
+>?
 > - 运行前，请确保已正确设置 classpath。classpath 需包含 Hadoop common 包以及 元数据加速桶依赖的 Jar 包的路径。
-> - 对于 EMR 环境，如果您按照 [使用 HDFS 协议访问已开启元数据加速器的存储桶](https://cloud.tencent.com/document/product/436/68700) 逐步操作，那么 Hadoop common 包通常在 `/usr/local/service/hadoop/share/hadoop/common/` 目录下，元数据加速桶依赖的 Jar 包通常在`/usr/local/service/hadoop/share/hadoop/common/lib/` 目录下。
+> - 对于 EMR 环境，如果您按照 [使用 HDFS 协议访问已开启元数据加速器的存储桶](https://cloud.tencent.com/document/product/436/68700) 逐步操作，那么 Hadoop common 包通常在 `/usr/local/service/hadoop/share/hadoop/common/` 目录下，元数据加速桶依赖的 Jar 包通常在 `/usr/local/service/hadoop/share/hadoop/common/lib/` 目录下。
 > 
-

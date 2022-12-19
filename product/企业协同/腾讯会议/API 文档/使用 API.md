@@ -15,9 +15,10 @@
 
 2. 在用户授权后，开发者可以获取到一个网页授权特有的接口调用凭证（网页授权 access_token），通过网页授权 access_token 可以进行授权后接口调用，例如：获取用户基本信息等。
 ![](https://main.qcloudimg.com/raw/343b7c3122df48926ffae2004b8e53e4.png)
-
+ 
 **授权步骤**
 1. 用户同意授权，获取 auth_code。
 2. 通过 auth_code 换取授权 access_token。
 3. 刷新 access_token（如有需要请进行刷新）。
 4. 拉取用户信息（检验凭证是否有效）。
+ 

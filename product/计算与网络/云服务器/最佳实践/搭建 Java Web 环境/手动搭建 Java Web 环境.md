@@ -69,10 +69,10 @@ java -version
 ### 步骤3：安装 Tomcat
 1. 执行以下命令，下载 Tomcat 源码包，您可根据实际需求下载不同版本 Tomcat。
 <dx-alert infotype="explain" title="">
-本文使用 Apache 官网提供下载网址，若出现下载链接失效等错误或需要其他 Tomcat 版本时，可前往 [Apache 官网](https://tomcat.apache.org/) 获取更多安装信息。
+本文的提供下载网址是外部源，若出现下载链接失效等错误或需要其他 Tomcat 版本时，可前往 [Apache 官网](https://tomcat.apache.org/) 获取更多安装信息。
 </dx-alert>
 ```shellsession
-wget https://mirrors.tuna.tsinghua.edu.cn/apache/tomcat/tomcat-8/v8.5.55/bin/apache-tomcat-8.5.55.tar.gz
+wget https://mirrors.tuna.tsinghua.edu.cn/apache/tomcat/tomcat-8/v8.5.84/bin/apache-tomcat-8.5.84.tar.gz
 ```
 2. 执行以下命令，解压 Tomcat 源码包。
 ```shellsession

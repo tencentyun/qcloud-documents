@@ -7,7 +7,7 @@
 ### 安装文件存储扩展组件
 >? 若您的集群已安装 CFS-CSI 的扩展组件，则请跳过此步骤。
 >
-1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)。
+1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
 2. 单击左侧导航栏中的**集群**，进入**集群管理**页面。
 3. 选择需新建组件的集群 ID，进入**集群详情**页面。
 4. 在“集群详情页”，选择**组件管理** > **新建**，进入**新建组件**页面。
@@ -45,6 +45,7 @@
 
 ### 获取文件系统 fsid[](id:getFsid)
 >? 为了获取更好的稳定性，在使用 NFSV3 协议挂载时，需要指定待挂载文件系统对应的 FSID。
+>
 1. 在 [文件系统控制台](https://console.cloud.tencent.com/cfs/fs?rid=1)，单击需获取 FSID 的文件系统 ID，进入该文件系统详情页。
 2. 选择**挂载点信息**页签，从 “Linux 下挂载” 获取该文件系统的 FSID。如下图所示， `a43qadkl`为该文件系统的 FSID。
 ![](https://qcloudimg.tencent-cloud.cn/raw/981aff01c8e414bcbf657d01fed1762d.png)
@@ -54,7 +55,7 @@
 ### 静态创建 PV[](id:pv)
 >? 静态创建 PV 适用于已有存量的文件存储，并在集群内使用的场景。
 >
-1. 登录容器服务控制台 ，选择左侧导航栏中的 [集群](https://console.cloud.tencent.com/tke2/cluster)。
+1. 登录容器服务控制台，选择左侧导航栏中的 [集群](https://console.cloud.tencent.com/tke2/cluster)。
 2. 在“集群管理”页面，选择需创建 PV 的集群 ID，进入待创建 PV 的集群管理页面。
 3. 选择左侧菜单栏中的**存储** > **PersistentVolume**，进入 “PersistentVolume” 页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/d3d74b0bb94b8621904c3d8403937b3d.png)

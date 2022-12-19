@@ -123,12 +123,12 @@ cloud:
   ownerUIN: "{腾讯云用户账号 ID}"
   secretID: "{腾讯云账号 secretID}"
   secretKey: "{腾讯云账号 secretKey}"
-  vpcID: "{EKS Pod 放置的 VPC ID}"
-  regionShort: "{EKS Pod 放置的 region 简称}"
-  regionLong: "{EKS Pod 放置的 region 全称}"
+  vpcID: "{TKE Serverless Pod 放置的 VPC ID}"
+  regionShort: "{TKE Serverless Pod 放置的 region 简称}"
+  regionLong: "{TKE Serverless Pod 放置的 region 全称}"
   subnets:
-    - id: "{EKS Pod 放置的子网 ID}"
-      zone: "{EKS Pod 放置的可用区}" 
+    - id: "{TKE Serverless Pod 放置的子网 ID}"
+      zone: "{TKE Serverless Pod 放置的可用区}" 
 eklet:
   PodUsedApiserver: "{当前集群的 API Server 地址}"
 ```

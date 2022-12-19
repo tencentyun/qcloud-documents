@@ -244,7 +244,7 @@ json_parse(x)
 
 ### 返回值类型
 
-JSON类型。
+JSON 类型。
 
 ### 示例
 

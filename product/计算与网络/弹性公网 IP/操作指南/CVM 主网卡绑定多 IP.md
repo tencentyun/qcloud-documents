@@ -156,10 +156,10 @@ ipconfig /all
 <td>上述 <a href="#step2">步骤2</a> 中的备用 DNS 服务器。如果未列出备用 DNS 服务器，则无需填写此参数。</td>
 </tr>
 </tbody></table>
-<img src="https://main.qcloudimg.com/raw/b18a69d6b39f097af3d52e498d0dcfb7.png" />
+<img src="https://main.qcloudimg.com/raw/b18a69d6b39f097af3d52e498d0dcfb7.png" /> 
 7. 单击**高级**，配置辅助内网 IP。
-8. 在“高级 TCP/IP 设置”弹窗中的 “IP 地址”模块下，单击**添加**。
-9. 在 “TCP/IP 地址”弹窗中，填写 [步骤二：绑定 EIP](#bindEIP) 配置的辅助内网 IP，上述 [步骤2](#step2) 中的子网掩码，单击**添加**。若有多个辅助 IP，请重复上一步与当前步骤。
+8. 在**高级 TCP/IP 设置**弹窗中的 “IP 地址”模块下，单击**添加**。
+9. 在 **TCP/IP 地址**弹窗中，填写 [步骤二：绑定 EIP](#bindEIP) 配置的辅助内网 IP，上述 [步骤2](#step2) 中的子网掩码，单击**添加**。若有多个辅助 IP，请重复上一步与当前步骤。
 ![](https://main.qcloudimg.com/raw/8bcb61eff44159b253eee726017e9744.png)
 10. 在 “Internet 协议版本4（TCP/IPv4）属性”弹窗中，单击**确定**。
 11. 在“以太网属性”弹窗中，单击**确定**即可完成配置。

@@ -25,5 +25,3 @@ sysctl -q net.ipv4.icmp_ratemask
 # 将以下代码中的“xxxx”修改为前三位数不变，最后一位数减8的数值，例如：6168改为6160，1819改为1811。
 sysctl -w net.ipv4.icmp_ratemask=xxxx
 ```
-
-

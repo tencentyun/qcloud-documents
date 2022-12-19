@@ -5,7 +5,7 @@
 >- 在没有主动退出登录的情况下，应用退后台、手机锁屏、或者应用进程被用户主动杀掉三种场景下，如果想继续接收到 IM 消息提醒，可以接入即时通信 IM 离线推送。
 >- 如果应用主动调用  logout 退出登录，或者多端登录被踢下线，即使接入了 IM 离线推送，也收不到离线推送消息。
 
-使用腾讯云 IM 厂商推送 Flutter 集成插件的离线推送能力，可快速接入主流厂商（苹果iOS/Google FCM/OPPO/VIVO/华为/小米/魅族）的离线推送。
+使用腾讯云 IM 厂商推送 Flutter 集成插件的离线推送能力，可快速接入主流厂商（苹果iOS/Google FCM/OPPO/VIVO/华为/小米/魅族/荣耀）的离线推送。
 
 本教程含接入腾讯云即时通信 IM 离线推送全流程。插件已封装上述厂商的 SDK，使用时仅需简单改造调用即可。
 
@@ -183,7 +183,9 @@ apksigner sign --ks keystore.jks --ks-pass pass:您创建的keystore密码 --out
 ##### 开通服务
 
 1. 打开 [魅族开放平台官网](https://open.flyme.cn) 进行注册并通过开发者认证。
+
  >?认证过程大约需要3天左右，请务必提前阅读 [魅族 Flyme 推送接入文档](https://open.flyme.cn/)，以免影响您的接入进度。
+
 2. 登录魅族开放平台的管理控制台，选择**服务** > **集成推送服务** > **推送后台**，创建魅族推送服务应用。
 3. 魅族推送服务应用创建完成后，在应用详情中，您可以查看详细的应用信息。记录**应用包名**、**App ID**、**App Secret**信息。
  ![](https://main.qcloudimg.com/raw/d4ec7742c13579814761eb099dbfc8ea.png)
@@ -193,6 +195,27 @@ apksigner sign --ks keystore.jks --ks-pass pass:您创建的keystore密码 --out
 1. 在 [IM 控制台-基础配置](https://console.cloud.tencent.com/im-detail) 右侧，添加 Android 证书。
 2. 选择魅族后，请填写相关信息。**单击后续动作**请选择：**打开应用**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/a24df4cdf8391853e589324a05c45c48.png)
+
+#### 荣耀
+
+##### 开通服务
+
+>?此处的荣耀，特指2020年下半年，从华为分离出去的 [独立新荣耀](https://www.hihonor.com/)。对于 [新荣耀手机](https://www.hihonor.com/) 的支持，从本插件2.0版本起。
+
+根据 [本指引](https://developer.hihonor.com/cn/kitdoc?category=base&kitId=11002&navigation=guides&docId=app-registration.md&token=)，注册荣耀开发者账号，并创建应用，申请开通推送服务。其中，需要填入 SHA256 证书指纹，请根据 [本文档生成](https://developer.hihonor.com/cn/kitdoc?category=base&kitId=11002&navigation=guides&docId=android-generate-appsign.md&token=)。
+
+记录下图中圈出的信息，后续需要使用。
+
+![](https://qcloudimg.tencent-cloud.cn/raw/57cbb38e7d8a4866612c64690b407c74.png)
+
+##### 上传证书至控制台
+
+在 [IM 控制台-基础配置](https://console.cloud.tencent.com/im/detail) 右侧，添加 Android 证书。选择 荣耀 后，请填写相关信息。
+
+- **单击后续动作**请选择为：打开应用内指定页面。
+- **应用内页面** 配置为：`tencent_im_push://${替换成您的包名}/honorMessage?#Intent;scheme=tencent_im_push;launchFlags=0x4000000;end`
+
+![](https://qcloudimg.tencent-cloud.cn/raw/fa94527aeb68b4f83b029a2f615de00d.png)
 
 ## 使用插件跑通离线推送（全览 + Android）
 
@@ -231,10 +254,12 @@ static final PushAppInfo appInfo = PushAppInfo(
   oppo_app_id: , // OPPO APPID
   google_buz_id: , // Google FCM证书ID
   apple_buz_id: , // Apple证书ID
+  honor_buz_id: , // 荣耀证书ID
 );
  ```
 
->?可参见我们DEMO [lib/utils/push/push_constant.dart文件](https://github.com/TencentCloud/TIMSDK/tree/master/Flutter/Demo/im-flutter-uikit/lib/utils/push/push_constant.dart) 中的做法。
+>?
+> 可参见我们DEMO [lib/utils/push/push_constant.dart文件](https://github.com/TencentCloud/chat-demo-flutter/blob/main/lib/utils/push/push_constant.dart) 中的做法。
 
 ### 步骤2：代码中添加厂商工程配置[](id:step_2)
 
@@ -277,6 +302,7 @@ flutterfire configure
 4. 执行该步骤后，会将此项目与您在 Google Firebase 创建的项目关联起来，执行结果可以参见下图：
 ![](https://qcloudimg.tencent-cloud.cn/raw/21aa8a7fc710746e7fafd28178f1e047.png)
 `main()`方法中初始化 FirebaseAPP。
+
 ```Dart
 WidgetsFlutterBinding.ensureInitialized();
 
@@ -351,13 +377,12 @@ android {
 }
 ```
 
-##### 华为/新荣耀推送角标权限
+##### 推送角标权限
 
 打开 `android/app/src/main/AndroidManifest.xml` 文件，如下添加 uses-permission 。
 
 ```xml
 <uses-permission android:name = "com.huawei.android.launcher.permission.CHANGE_BADGE "/>
-<uses-permission android:name = "com.hihonor.android.launcher.permission.CHANGE_BADGE" />
 ```
 
 #### vivo
@@ -401,14 +426,43 @@ AppID 及 AppKey 来自vivo开放平台-推送运营平台。
 <uses-permission android:name="com.vivo.notification.permission.BADGE_ICON" />
 ```
 
+#### 新荣耀
+
+打开 `android/app/src/main/AndroidManifest.xml` 文件，在 `<application></application>` 中，如下添加meta-data。
+
+```xml
+    <meta-data
+        android:name="com.hihonor.push.app_id"
+        android:value="填入您申请的荣耀 AppID"" />
+</application>
+```
+
+打开 `android/app/build.gradle` 文件，添加如下代码。
+
+```gradle
+repositories {
+    maven { url 'https://developer.hihonor.com/repo/' }  // 新增
+}
+```
+
+##### 推送角标权限
+
+打开 `android/app/src/main/AndroidManifest.xml` 文件，如下添加 uses-permission 。
+
+```xml
+<uses-permission android:name = "com.hihonor.android.launcher.permission.CHANGE_BADGE" />
+```
+
 #### 小米/OPPO/魅族
 
 1. 打开 `android/app/build.gradle` 文件，在 `defaultConfig` 中加入包名。
 ```
+
 defaultConfig {
     applicationId "${替换成您的包名}"
     ...
 }
+
 ```
 2. 打开 `android/app/src/main/AndroidManifest.xml` 文件，配置各厂商权限列表。
 ```xml
@@ -445,6 +499,7 @@ defaultConfig {
 1. 调用插件`init`方法。该步骤会完成初始化各厂商通道，并申请厂商通知权限。
 2. 请确保 IM SDK 初始化成功后，才可初始化本插件。
 >?由于国内大部分 Android 设备不支持 Google Service, 因此提供一个开关`isUseGoogleFCM`供开发者根据主要用户群体判断，是否启用 Google Firebase Cloud Messaging 推送服务。
+>
 ```Dart
 import 'package:tim_ui_kit_push_plugin/tim_ui_kit_push_plugin.dart';
 
@@ -458,6 +513,7 @@ await cPush.init(
 ```
 3. 初始化结束后，需要为部分厂商创建消息通道，如OPPO和小米均需此配置。调用`createNotificationChannel`方法即可。
 >?如果向厂商申请的 channel ID 一致，同一个 channel ID 调用一次即可。
+>
 ```Dart
 cPush.createNotificationChannel(
   channelId: "new_message",
@@ -466,6 +522,7 @@ cPush.createNotificationChannel(
 ```
 4. 部分厂商（如 OPPO）默认不提供推送权限，需要开发者手动申请。调用`requireNotificationPermission`方法即可。
 >?申请权限的时机可由您自行决定，您可以在用户登录成功后再调用。
+>
 ```Dart
 cPush.requireNotificationPermission();
 ```
@@ -642,6 +699,7 @@ void handleClickNotification(Map<String, dynamic> msg) async {
 
 1. 如果您使用到我们的 [tim_ui_kit_calling_plugin](https://pub.dev/packages/tim_ui_kit_calling_plugin) 插件，请将其升级至0.2.0版本以上，即可使用离线推送能力。
 2. 参见如下示例，直接在`call`方法第三个参数中，传入`offlinePush`对象即可。
+
 ```Dart
 final user = await sdkInstance.getLoginUser();
 final myId = user.data;
@@ -818,7 +876,6 @@ OfflinePushInfo 详细字段 [请参考本文档](https://cloud.tencent.com/docu
 1. 国内厂商都有消息分类机制，不同类型也会有不同的推送策略。如果想要推送及时可靠，需要按照厂商规则设置自己应用的推送类型为高优先级的系统消息类型或者重要消息类型。反之离线推送消息会受厂商推送消息分类影响，与预期会有差异。
 2. 另外，一些厂商对于应用每天的推送数量也是有限制的，可以在厂商控制台查看应用每日限制的推送数量。
 如果离线推送消息出现推送不及时或者偶尔收不到情况，需要考虑下这里：
-
  - 华为：将推送消息分为服务与通讯类和资讯营销类，推送效果和策略不同。另外，消息分类还和自分类权益有关：
     - 无自分类权益，推送消息厂商还会进行二次智能分类 。
     - 有申请自分类权益，消息分类会按照自定义的分类进行推送。
@@ -891,7 +948,6 @@ flutter pub add tim_ui_kit_push_plugin
 如果不存在，可手动将您的应用 Icon 复制进去，或通过 Android Studio 自动创建不同分辨率版本（`mipmap` 目录右键，`New` => `Image Asset`）。
 ![](https://qcloudimg.tencent-cloud.cn/raw/9641cb0de6a2172f57064d08f32a5a68.png)
 2. 打开 `android/app/src/main/AndroidManifest.xml` 文件，在您应用的主 activity 中，添加如下代码。
-
 ```xml
 <activity
     android:showWhenLocked="true"

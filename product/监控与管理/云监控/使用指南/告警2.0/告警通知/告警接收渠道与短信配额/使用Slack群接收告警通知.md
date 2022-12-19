@@ -1,13 +1,12 @@
-﻿您只需在 Slack 中新增应用的 Webhook 地址，并在告警通知模板配置该地址，即可使用 Slack 群接收告警通知。
+您只需要在 Slack 中新增应用的 Webhook 地址，并在告警通知模板配置该地址，即可使用 Slack 群接收告警通知。
 
-> ? Slack 群接收渠道暂不支持按通知时段接收告警通知。
 
 ## 步骤1：添加应用获取 Webhook 地址 
 
 1. 进入 [Slack 应用管理页](https://api.slack.com/apps)。
-2. 点击右上角的 **Create New App**，并选择 From scratch 方式创建。
+2. 单击右上角的 **Create New App**，并选择 From scratch 方式创建。
 3. 在配置页面填写应用名称，并选择对于的 Slack Workspace 创建一个 Slack APP。
-4. 在应用管理页面左侧菜单栏中，选择 **Incoming Webhooks** 并单击右上角的开启按钮。
+4. 在应用管理页面左侧菜单栏中，选择 **Incoming Webhooks** 并单击右上角的**开启**。
 5. 滑动到子窗口底部，单击 **Add New Webhook to Workspace**。
 <img src="https://qcloudimg.tencent-cloud.cn/raw/5ebbe0856c58f3a841f8f9793f01c7bc.png" height="60%" width="60%"> 
 6. 在配置页面中选择对应的应用，并单击 **allow**。

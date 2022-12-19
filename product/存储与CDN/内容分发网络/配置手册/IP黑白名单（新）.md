@@ -50,6 +50,6 @@
 若加速域名：`www.test.com` 的 IP 黑白名单配置如下：
 ![](https://qcloudimg.tencent-cloud.cn/raw/449aeac06e7c09d4a779588c410e72ed.png)
 则实际访问情况如下：
-1. 当用户端 IP 为1.1.1.1时，访问资源 `https://www.test.com/test/vod.mp4`，则匹配最下方黑名单规则饿，不允许该用户访问，返回403；
-2. 当用户端 IP 为1.1.1.2时，访问资源 `https://www.test.com/test/vod.mp4`，不匹配黑名单规则，但是匹配上方的白名单规则，不允许该IP用户访问，返回403；
-3. 当用户端 IP 为1.1.1.1时，访问资源 `https://www.test.com/test/vod.mp4`，不匹配黑名单规则，匹配白名单规则，允许该 IP 用户访问，将正常返回内容。
+1. 当用户端 IP 为1.1.1.1时，访问资源 `https://www.test.com/test/vod.mp4`，则匹配最下方黑名单规则，不允许该用户访问，返回403；
+2. 当用户端 IP 为1.1.1.2时，访问资源 `https://www.test.com/test/vod.mp4`，该 IP 不在黑名单规则内，不匹配黑名单规则，但是该用户访问内容匹配白名单规则，仅允许 IP 为1.1.1.1用户访问，该用户 IP 不符合，因此不允许该 IP 用户访问，返回403;
+3. 当用户端 IP 为1.1.1.1时，访问资源 `https://www.test.com/vod.mp4`，不匹配黑名单规则，匹配白名单规则，允许该 IP 用户访问，将正常返回内容。

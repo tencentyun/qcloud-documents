@@ -27,18 +27,18 @@ require dirname(__FILE__) . '/../vendor/autoload.php';
 
 $secretId = "SECRETID"; //替换为用户的 secretId，请登录访问管理控制台进行查看和管理，https://console.cloud.tencent.com/cam/capi
 $secretKey = "SECRETKEY"; //替换为用户的 secretKey，请登录访问管理控制台进行查看和管理，https://console.cloud.tencent.com/cam/capi
-$region = "ap-beijing"; //替换为用户的 region，已创建桶归属的region可以在控制台查看，https://console.cloud.tencent.com/cos5/bucket
+$region = "ap-beijing"; //替换为用户的 region，已创建桶归属的 region 可以在控制台查看，https://console.cloud.tencent.com/cos5/bucket
 $cosClient = new Qcloud\Cos\Client(
     array(
         'region' => $region,
-        'schema' => 'https', //协议头部，默认为http
+        'schema' => 'https', //协议头部，默认为 http
         'credentials'=> array(
             'secretId'  => $secretId ,
             'secretKey' => $secretKey)));
 try {
     // https://cloud.tencent.com/document/product/436/64324 通用文字识别
     $result = $cosClient->opticalOcrRecognition(array(
-        'Bucket' => 'examplebucket-125000000', //存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
+        'Bucket' => 'examplebucket-1250000000', //存储桶名称，由 BucketName-Appid 组成，可以在 COS 控制台查看 https://console.cloud.tencent.com/cos5/bucket
         'Key' => 'test01.pdf',
         'CiProcess' => 'OCR',
         'Type' => 'general',
@@ -58,16 +58,16 @@ try {
 
 #### 参数说明
 
-| 参数名称            | 描述                                                         | 类型    | 是否必选 |
-| :------------------ | :----------------------------------------------------------- | :------ | :------- |
-| ObjectKey           | 对象文件名，例如：folder/document.jpg。                      | String  | 是       |
-| ci-process          | 数据万象处理能力，图片文字识别固定为 OCR。                   | String  | 是       |
-| type                | OCR 的识别类型，有效值为 general，accurate，efficient，fast，handwriting。general 表示通用印刷体识别；accurate 表示印刷体高精度版；efficient 表示印刷体精简版；fast 表示印刷体高速版；handwriting 表示手写体识别。默认值为 general。 | String  | 否       |
-| language-type       | type 值为 general 时有效，表示识别语言类型。支持自动识别语言类型，同时支持自选语言种类，默认中英文混合(zh)，各种语言均支持与英文混合的文字识别。可选值请参见 [可识别的语言类型](https://cloud.tencent.com/document/product/436/64324#language-type)。 | String  | 否       |
-| ispdf               | type 值为 general、fast 时有效，表示是否开启 PDF 识别，有效值为 true 和 false，默认值为 false，开启后可同时支持图片和 PDF 的识别。 | Boolean | 否       |
-| pdf-pagenumber      | type 值为 general、fast 时有效，表示需要识别的 PDF 页面的对应页码，仅支持 PDF 单页识别，当上传文件为 PDF 且 ispdf 参数值为 true 时有效，默认值为1。 | Integer | 否       |
-| isword              | type 值为 general、accurate 时有效，表示识别后是否需要返回单字信息，有效值为 true 和 false，默认为 false。 | Boolean | 否       |
-| enable-word-polygon | type 值为 handwriting 时有效，表示是否开启单字的四点定位坐标输出，有效值为 true 和 false，默认值为 false。 | Boolean | 否       |
+| 参数名称          | 描述                                                         | 类型    | 是否必选 |
+| :---------------- | :----------------------------------------------------------- | :------ | :------- |
+| Key               | 对象文件名，例如：folder/document.jpg。                      | String  | 是       |
+| CiProcess         | 数据万象处理能力，图片文字识别固定为 OCR。                   | String  | 是       |
+| Type              | OCR 的识别类型，有效值为 general，accurate，efficient，fast，handwriting。general 表示通用印刷体识别；accurate 表示印刷体高精度版；efficient 表示印刷体精简版；fast 表示印刷体高速版；handwriting 表示手写体识别。默认值为 general。 | String  | 否       |
+| LanguageType      | type 值为 general 时有效，表示识别语言类型。支持自动识别语言类型，同时支持自选语言种类，默认中英文混合(zh)，各种语言均支持与英文混合的文字识别。可选值请参见 [可识别的语言类型](https://cloud.tencent.com/document/product/436/64324#language-type)。 | String  | 否       |
+| IsPDF             | type 值为 general、fast 时有效，表示是否开启 PDF 识别，有效值为 true 和 false，默认值为 false，开启后可同时支持图片和 PDF 的识别。 | Boolean | 否       |
+| PdfPageNumber     | type 值为 general、fast 时有效，表示需要识别的 PDF 页面的对应页码，仅支持 PDF 单页识别，当上传文件为 PDF 且 ispdf 参数值为 true 时有效，默认值为1。 | Integer | 否       |
+| IsWord            | type 值为 general、accurate 时有效，表示识别后是否需要返回单字信息，有效值为 true 和 false，默认为 false。 | Boolean | 否       |
+| EnableWordPolygon | type 值为 handwriting 时有效，表示是否开启单字的四点定位坐标输出，有效值为 true 和 false，默认值为 false。 | Boolean | 否       |
 
 #### 返回结果示例
 
@@ -92,8 +92,8 @@ GuzzleHttp\Command\Result Object
     [ContentType] => application/xml
     [ContentLength] => 3144
     [Key] => test01.pdf
-    [Bucket] => examplebucket-125000000
-    [Location] => examplebucket-125000000.cos.ap-guangzhou.myqcloud.com/test01.pdf
+    [Bucket] => examplebucket-1250000000
+    [Location] => examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/test01.pdf
     [Response] => Array
         (
             [Angel] => 359.99

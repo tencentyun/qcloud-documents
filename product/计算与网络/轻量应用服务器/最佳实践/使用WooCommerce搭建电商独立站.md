@@ -31,7 +31,7 @@ WooCommerce 是当前很受欢迎的电商独立站建站工具，具备开源�
 6. 在“应用内软件信息”中，单击“管理员登录地址”。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/8df37cd14409531f4678f597e2223b09.png)
 7. 在新打开的浏览器窗口中，输入 [步骤4](#Step4) 记录的账号和密码，单击**登录**。
-8. 选择左侧导航中的 **WooCommerce** > **Home**，进入如下图所示页面，您即可开始配置自己的独立电商站。
+8. 选择左侧导航中的 **WooCommerce** > **Home**，进入如下图所示页面，您即可开始配置自己的电商独立站。
 ![](https://qcloudimg.tencent-cloud.cn/raw/c3f958d021128402006e770d6c646252.png)
 您可参考 [WooCommerce](https://woocommerce.com/documentation/plugins/woocommerce/getting-started/) 文档，了解更多关于  WooCommerce 的入门信息。
 
@@ -236,7 +236,7 @@ WooCommerce 应用镜像考虑到安全性问题，默认未开启 postfix 服�
  - **SMTP 用户名**：填写您的邮箱地址。
  - **SMTP 密码**：填写授权码，不是 QQ 邮箱的密码。
  - **发件人名称**：可填写您的店铺名称。
- - **发件人**：可填写管理员的邮件地址。需为为有效的邮件地址，否则会报错。
+ - **发件人**：可填写管理员的邮件地址。需为有效的邮件地址，否则会报错。
 8. 在 “Which email features do you want to enable?” 步骤中，保持默认配置，单击 **Save and Continue**。
 9. 在 “Help Improve WP Mail SMTP + Smart Recommendations” 步骤中，单击 **Skip this Step**。
 10. 在 “Enter your WP Mail SMTP License Key” 步骤中，单击 **Skip this Step**。

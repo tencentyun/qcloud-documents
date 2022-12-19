@@ -186,7 +186,10 @@ npm run serve
 1. 项目启动之后单击左上角**发起单聊**。
 2. 进入**发起单聊**弹窗。在搜索栏输入 [步骤4](#step4) 中创建的 userID，选中后单击**完成**。
 3. 在输入框中输入消息并单击**发送**。
+	Web 端 “发送您的第一条消息” 具体步骤示例：
    ![](https://qcloudimg.tencent-cloud.cn/raw/b111b422237771635d8a8fe4826e5738.png)
+	H5 端 “发送您的第一条消息” 具体步骤示例：
+	![](https://qcloudimg.tencent-cloud.cn/raw/239afb314ee33326219c019663e65028.png)
 
 ## 常见问题
 
@@ -215,3 +218,15 @@ module.exports = {
 };
 :::
 </dx-codeblock>
+
+#### ERESOLVE unable to resolve dependency tree
+ npm install 的时候如出现 ERESOLVE unable to resolve dependency tree ，表示依赖安装冲突，可采用以下方式进行安装：
+  <dx-codeblock>
+  :::  shell
+	npm install --legacy-peer-deps
+  :::
+  </dx-codeblock>
+
+
+#### 如何使用 Vue2 版本接入？
+即时通信 IM - 含 UI 集成方案（ Web & H5 ） 目前仅支持 Vue3 版本接入，建议升级至 Vue3 版本体验最新含 UI 集成功能，或采用 [无 UI 集成方案](https://cloud.tencent.com/document/product/269/75285) 集成 IM SDK 。

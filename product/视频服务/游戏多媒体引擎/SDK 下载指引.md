@@ -21,12 +21,12 @@ v2.9.5 正式版本更新如下：
 <tbody><tr>
 <td>发布 SDK v2.9.5 正式版本</td>
 <td ><ul style="margin:0;">
-<li >实时语音新增指挥模式，加大对国战、SLG相关游戏的支持</li>
+<li >实时语音新增角色设置，加大对国战、SLG相关游戏的支持</li>
 <li >支持同时播放2路伴奏</li>
 <li >Android 12 蓝牙权限优化</li>
 </ul ></td>
 <td>2022-11-08</td> 
-<td><a href="https://cloud.tencent.com/document/product/607/78847">指挥模式文档</a></td>
+<td><a href="https://cloud.tencent.com/document/product/607/78847">实时语音角色设置</a></td>
 </tr>
 </tbody></table>
 

@@ -15,12 +15,19 @@ CLB 对 HTTPS 进行代理，无论是 HTTP 还是 HTTPS 请求，到了 CLB 转
 
 ## 3. 入门配置
 假定用户需要配置网站 `https://example.com` 。开发者希望用户在浏览器中输入网址时，直接键入 `www.example.com` 即可通过 HTTPS 协议安全访问。
-此时用户输入的 `www.example.com` 请求转发流程如下：
+
+负载均衡 CLB 的操作流程可参考以下文档：
+<dx-steps>
+-[创建负载均衡示例](https://cloud.tencent.com/document/product/214/6149)
+-[配置 HTTP 监听器](https://cloud.tencent.com/document/product/214/36384)
+-[管理后端服务器](https://cloud.tencent.com/document/product/214/6156)
+</dx-steps>
+
+用户输入的 `www.example.com` 请求转发流程如下：
 1. 该请求以 HTTP 协议传输，通过 VIP 访问负载均衡监听器的80端口，并被转发到后端云服务器的8080端口。
 2. 通过在腾讯云后端服务器的 Nginx 上配置 rewrite 操作，该请求经过8080端口，并被重写到 `https://example.com` 页面。
 3. 此时浏览器再次发送 `https://example.com` 请求到相应的 HTTPS 站点，该请求通过 VIP 访问负载均衡监听器的443端口，并被转发到后端云服务器的80端口。
 
-至此，请求转发完成。
 
 该操作在浏览器用户未感知的情况下，将用户的 HTTP 请求重写为更加安全的 HTTPS 请求。为实现以上请求转发操作，用户可以对后端服务器做如下配置：
 ```
@@ -53,5 +60,3 @@ server {
 	[....]
 }
 ```
-
-
