@@ -1,5 +1,5 @@
 ## 背景信息
-由于 WebShell 服务器扩容更新，2021年4月1日起 WebShell 代理 IP 地址将新增网段。您可在安全组中放通新增 WebShell 代理 IP 网段及用于远程登录的端口（默认为22端口）。
+由于 orcaterm 服务器扩容更新，2021年4月1日起 WebShell 代理 IP 地址将新增网段。您可在安全组中放通新增 WebShell 代理 IP 网段及用于远程登录的端口（默认为22端口）。
 >?WebShell 登录方式请参见 [使用标准登录方式登录 Linux 实例（推荐）](https://cloud.tencent.com/document/product/213/5436)。 
 >
 
