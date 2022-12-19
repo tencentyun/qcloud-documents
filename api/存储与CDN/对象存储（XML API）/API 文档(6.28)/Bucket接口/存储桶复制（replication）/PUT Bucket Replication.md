@@ -64,7 +64,7 @@ request body
 | Destination              | ReplicationConfiguration.Rule             | 目标存储桶信息                                               | Container | 是       |
 | Bucket                   | ReplicationConfiguration.Rule.Destination | 资源标识符：<br>`qcs::cos:<Region>::<BucketName-APPID>`      | String    | 是       |
 | DeleteMarkerReplication             | ReplicationConfiguration.Rule | 是否同步删除标记|Container    | 否       |
-|Status             | ReplicationConfiguration.Rule. DeleteMarkerReplication | 是否同步删除标记，支持`Disabled`或`Enabled`。默认值为 `Enabled`，即同步删除标记|String    | 否       |
+|Status             | ReplicationConfiguration.Rule. DeleteMarkerReplication | 是否同步删除标记，支持 `Disabled` 或 `Enabled`。默认值为 `Enabled`，即同步删除标记|String    | 否       |
 
 ## 响应
 
@@ -83,7 +83,7 @@ request body
 ## 实际案例
 #### 请求
 
-以下请求是对存储桶`originbucket-1250000000`添加一条存储桶复制配置。该存储桶复制配置中，指定复制对象前缀为`testPrefix`的对象，目标存储桶为广州的`destinationbucket-1250000000`。
+以下请求是对存储桶 `originbucket-1250000000` 添加一条存储桶复制配置。该存储桶复制配置中，指定复制对象前缀为 `testPrefix` 的对象，目标存储桶为广州的 `destinationbucket-1250000000`。
 
 ```plaintext
 PUT /?replication HTTP/1.1
