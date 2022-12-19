@@ -37,7 +37,7 @@ orcaterm 优点如下：
 :::
 </dx-tabs>
 3. 在打开的“标准登录 | Linux 实例”窗口，根据实际需求选择**密码登录**或者**密钥登录**方式进行登录。如下图所示：
-![](https://main.qcloudimg.com/raw/ec0f1315e3aacd5553fb63b645bb5387.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/5a424778f25d19c520de2aa44ca3999f.png)
 请参考以下说明填写登录所需信息：
  -  **端口**：默认为22，请按需填写。
  -  **用户名**：Linux 实例用户名默认为 root（Ubuntu 系统实例用户名默认为 ubuntu），请按需填写。
