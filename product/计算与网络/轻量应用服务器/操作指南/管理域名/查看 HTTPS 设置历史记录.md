@@ -17,7 +17,7 @@
  ![](https://qcloudimg.tencent-cloud.cn/raw/c701efbe3a1db456fa45802df980cb1d.png)
 
 3. 如该解析记录对应的 HTTPS 设置历史的记录超过 5 条，可以在悬停气泡最下方点击查看全部历史记录。
- <img style="width:700px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/8004e2355f562acc1a435b3b507368ac.png" />
+ <img style="width:700px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/4f68585493fee8f6e7cd104a4a53aa67.png" />
 :::
 ::: 方式二：在实例详情页查看 HTTPS 设置历史记录
 1.  登录轻量应用服务器控制台，选择左侧导航栏中的服务器。
@@ -26,7 +26,8 @@
 
  ![](https://qcloudimg.tencent-cloud.cn/raw/c701efbe3a1db456fa45802df980cb1d.png)
 4. 如该解析记录对应的 HTTPS 设置历史的记录超过 5 条，可以在悬停气泡最下方点击查看全部历史记录。
- <img style="width:700px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/ee647c959010e0f9703a7a61db2593ea.png" />
+ <img style="width:700px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/4f68585493fee8f6e7cd104a4a53aa67.png" />
+
 :::
 </dx-tabs>
 
