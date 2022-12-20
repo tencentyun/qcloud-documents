@@ -13,7 +13,9 @@
 ::: 方式一：在域名解析列表查看 HTTPS 设置历史记录
 1. 从域名页面进入域名解析列表。
 2. 将鼠标悬停在对应域名解析的 **HTTPS 设置历史记录** 一列，即可查看该域名解析对应 HTTPS 设置历史的记录。
- <img style="width:980px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/51c3fd04fc0b4ba683fe8e644c1c8baf.png" />
+
+ ![](https://qcloudimg.tencent-cloud.cn/raw/c701efbe3a1db456fa45802df980cb1d.png)
+
 3. 如该解析记录对应的 HTTPS 设置历史的记录超过 5 条，可以在悬停气泡最下方点击查看全部历史记录。
  <img style="width:700px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/8004e2355f562acc1a435b3b507368ac.png" />
 :::
@@ -21,8 +23,15 @@
 1.  登录轻量应用服务器控制台，选择左侧导航栏中的服务器。
 2. 在实例列表中，选择目标实例并进入实例详情页。
 3. 选择域名页签，将鼠标悬停在对应域名解析的 **HTTPS 设置历史记录** 一列，即可查看该域名解析对应 HTTPS 设置历史的记录。
- <img style="width:980px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/d87a763612d4cd736c0280d0fe703015.png" />
+
+ ![](https://qcloudimg.tencent-cloud.cn/raw/c701efbe3a1db456fa45802df980cb1d.png)
 4. 如该解析记录对应的 HTTPS 设置历史的记录超过 5 条，可以在悬停气泡最下方点击查看全部历史记录。
  <img style="width:700px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/ee647c959010e0f9703a7a61db2593ea.png" />
 :::
 </dx-tabs>
+
+
+
+
+
+
