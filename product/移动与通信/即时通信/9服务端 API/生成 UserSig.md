@@ -24,8 +24,8 @@ IM SDK 示例代码中提供的`GenerateTestUserSig`的开源模块可以帮忙�
 | Objective-C | iOS | [GenerateTestUserSig.h](https://github.com/tencentyun/TIMSDK/blob/master/iOS/Demo/TUIKitDemo/Private/GenerateTestUserSig.h) | 
 |Objective-C | Mac | [GenerateTestUserSig.h](https://github.com/tencentyun/TIMSDK/blob/master/Mac/Demo/TUIKitDemo/Debug/GenerateTestUserSig.h) |
 | C++ | Windows | [GenerateTestUserSig.h](https://github.com/tencentyun/TIMSDK/blob/master/Windows/Demo/IMApp/GenerateTestUserSig.h) |
-| Javascript | Web | [GenerateTestUserSig.js](https://github.com/TencentCloud/TIMSDK/blob/master/Web/Demo/debug/GenerateTestUserSig.js) |
-| Javascript | 小程序 | [GenerateTestUserSig.js](https://github.com/tencentyun/TIMSDK/tree/master/MiniProgram/TUIKit) | 
+| Javascript | Web | [GenerateTestUserSig.js](https://github.com/TencentCloud/chat-uikit-vue/blob/main/debug/GenerateTestUserSig.js) |
+| Javascript | 小程序 | [GenerateTestUserSig.js](https://github.com/TencentCloud/chat-uikit-wechat/blob/main/debug/GenerateTestUserSig.js) | 
 |Dart|Flutter|[GenerateTestUserSig.dart](https://github.com/TencentCloud/chat-demo-flutter/blob/main/lib/utils/GenerateUserSig.dart)|
 
 >!该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 Demo 和功能调试**。
