@@ -56,9 +56,9 @@ Ingress 支持通过控制台和 YAML 两种方式进行重定向，具体步骤
    - **手动**：会在“**转发配置**”下方出现一栏“**重定向转发配置**”。
      - “**转发配置**”里面填写的方式和普通 Ingress 的转发配置一样，后端是某个服务。
      - “**重定向转发配置**”里面填写的方式和普通 Ingress 的转发配置一样，但后端是某个“转发配置”里的某条路径。
-       ![](https://qcloudimg.tencent-cloud.cn/raw/925be39bf335bafbd7a04568d30d4be9.png)
+       ![](https://qcloudimg.tencent-cloud.cn/raw/fbdfcb1275d668462d3dc9fcfa606f54.png)
    - **自动**：仅对“**转发配置**”里的协议为 “HTTPS” 的路径生效，都将自动生成一个 “HTTP” 的路径，路径完全一样，只有协议不一样。“HTTP” 的路径的转发规则自动重定向到 “HTTPS” 的路径。
-       ![](https://qcloudimg.tencent-cloud.cn/raw/b5ff17871c271dc1f3ce50ae8bb5a451.png)
+       ![](https://qcloudimg.tencent-cloud.cn/raw/c1a0ecf33f2665deb36facf4b1079870.png)
 :::
 ::: YAML\s方式
 
