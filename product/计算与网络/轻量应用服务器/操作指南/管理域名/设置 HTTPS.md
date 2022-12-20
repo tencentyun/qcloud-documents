@@ -23,7 +23,7 @@
 1. 从域名页面进入域名解析列表，在对应域名解析的操作列点击设置 HTTPS：
  <img style="width:900px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/7863599594561ecef64f2f1a9b9dfcaa.png" />
 2. 选择 SSL 证书。
- <img style="width:500px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/d931ff4fd54803ee8e0a9b1adae90eb5.png" />
+ <img style="width:600px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/471f16c0ce1c5c545786fb224de4b0b5.png" />
 
 3. 单击确认即可。
 :::
@@ -35,7 +35,8 @@
  <img style="width:900px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/7ab12cff9898492a7691322e84e3a5a5.png" />
 4. 选择 SSL 证书。
 
- <img style="width:500px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/6c9f89c621eccc5c6f93ab5bf5a95145.png" />
+  <img style="width:600px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/471f16c0ce1c5c545786fb224de4b0b5.png" />
+
 5. 单击确认即可。
 :::
 </dx-tabs>
