@@ -101,7 +101,7 @@
 <tr>
 <td>Url </td>
 <td>string</td>
-<td>录像文件下载URL</td>
+<td>录像文件下载 URL</td>
 <td><li>URL 有效期是10分钟，过期后将拒绝访问，若需再用请重新获取 <br> <li>录像文件下载采用分块传输编码，响应头Transfer-Encoding:chunked <br><li>下载文件命名格式为{ChannelId}-{BeginTime}-{EndTime}.{FileType} </td>
 </tr>
 </tbody>
