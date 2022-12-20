@@ -55,5 +55,9 @@
 | StatusCode | int    | 错误码，200 OK，其他详见错误中心 |      |
 | Message    | string | 返回信息                         |      |
 | Data       | object | 返回结果                         |      |
-| Hls    | string | hls 回放 url |      |
 
++ Data
+
+| 字段名 | 类型   | 描述       | 备注 |
+| :----- | :----- | :--------- | :--- |
+| Hls    | string | hls 回放 url |      |
