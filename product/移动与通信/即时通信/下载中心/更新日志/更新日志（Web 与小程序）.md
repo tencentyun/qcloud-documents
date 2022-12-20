@@ -6,7 +6,7 @@
 - 支持消息扩展（旗舰版功能）。
 - 支持普通群和社群群属性。
 - 兼容 [wx.chooseMedia](https://developers.weixin.qq.com/miniprogram/dev/api/media/video/wx.chooseMedia.html)。
-- [Message.readReceiptInfo](https://web.sdk.qcloud.com/im/doc/zh-cn/Message.html) 支持 C2C 已读回执（数据结构跟 native 对齐）。
+- [Message.readReceiptInfo](https://web.sdk.qcloud.com/im/doc/zh-cn/Message.html) 支持 C2C 已读回执（数据结构跟 NativeIM 对齐）。
 - 错误码2101：未加入直播群不能向直播群发送消息。
 
 **变更**
