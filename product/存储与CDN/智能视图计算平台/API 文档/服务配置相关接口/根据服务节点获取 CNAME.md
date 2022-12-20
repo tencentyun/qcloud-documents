@@ -56,7 +56,7 @@ ClusterId = xxxx - xxxxxxx - xxxxxx - xxxxx
 | Message    | string | 返回消息                         |      |
 | Data       | object | 返回结果                         |      |
 
-+Data
++ Data
 
 | 字段名 | 类型   | 描述        | 是否必须 | 备注 |
 | :----- | :----- | :---------- | :------- | :--- |
