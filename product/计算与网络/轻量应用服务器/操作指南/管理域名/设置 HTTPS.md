@@ -24,7 +24,7 @@
  <img style="width:900px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/7863599594561ecef64f2f1a9b9dfcaa.png" />
 2. 选择 SSL 证书。
  <img style="width:900px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/d931ff4fd54803ee8e0a9b1adae90eb5.png" />
- 
+
 3. 单击确认即可。
 :::
 ::: 方式二：在实例详情页设置 HTTPS
@@ -39,21 +39,6 @@
 5. 单击确认即可。
 :::
 </dx-tabs>
-
-
-
-
-
-
-
-
-
 <dx-alert infotype="notice" title="">
 轻量应用服务器控制台只为您展示设置 HTTPS 的历史记录及其状态，且不支持通过本功能对已设置的 HTTPS 进行回退。如您部署的网站不再需要 HTTPS 加密，请参考 [删除 HTTPS 设置](https://tcloud.woa.com/document/product/1207/84362?!editLang=zh&!preview)。
 </dx-alert>
-
-
-
-
-
-
