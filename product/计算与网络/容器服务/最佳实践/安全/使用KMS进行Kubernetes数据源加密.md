@@ -32,12 +32,12 @@
 ![](https://main.qcloudimg.com/raw/ab708d6ade0bdd9dd12cd54e2cea35d9.png)
 
 ### 创建并获取访问密钥[](id:createCAM)
->?如已创建访问密钥，则请跳过此步骤。  
->
+在首次使用容器服务之前，请前往 [云 API 密钥页面](https://console.cloud.tencent.com/cam/capi) 申请安全凭证 SecretId 和 SecretKey。若已有可使用的安全凭证，则跳过该步骤。
+
 1. 登录[ 访问管理控制台](https://console.cloud.tencent.com/cam/overview)，选择左侧导航栏中的**访问密钥** > **API密钥管理**，进入 “API密钥管理”页面。  
-2. 在 “API密钥管理”页面中，单击**新建密钥**并等待创建完成。  
-3. 创建完成即可在 “API密钥管理”页面查看该密钥信息，包含 `SecretId`、`SecretKey`。如下图所示：
-![](https://main.qcloudimg.com/raw/106be1fd3e9f52f0d112b7f583b2d7df.png)
+2. 在 “API密钥管理”页面中，单击**新建密钥**，即可以创建一对 SecretId/SecretKey。
+3. 创建完成后在 “API密钥管理”页面查看该密钥信息，包含 `SecretId`、`SecretKey`。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/d87f2b77d247906f6ac654154f292b2b.png)
 
 ### 创建 DaemonSet 并部署 tke-kms-plugin
 
