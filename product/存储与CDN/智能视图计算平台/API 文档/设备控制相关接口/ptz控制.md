@@ -28,12 +28,6 @@
 }
 ```
 
-| 字段名    | 类型   | 描述     | 是否必须 | 备注                                                         |
-| :-------- | :----- | :------- | :------- | :----------------------------------------------------------- |
-| ChannelId | string | 通道 ID   | 必须     |                                                              |
-| Type      | string | 命令类型 | 必须     | 上:up,下:down,左:left,右:right,上左:leftup,上右:rightup,下左:leftdown,下右:rightdown,放大:zoomin,缩小:zoomout,聚焦远:focusfar,聚焦近:focusnear,光圈放大:irisin:,光圈缩小:irisout |
-| Speed     | int    | 命令描述 | 必须     | 速度值范围1-8，超出或不填默认为4                             |
-
 <table>
 <thead>
 <tr>
