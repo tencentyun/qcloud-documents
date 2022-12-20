@@ -133,7 +133,7 @@ pip install tencentserverless
 前往 [Github 代码托管地址](https://github.com/tencentyun/tencent-serverless-python)下载最新源码包，待源码包解压后依次执行以下命令进行安装。
 
 ```shell
-cd tencent-serverless-python
+cd tencent-serverless-python-master
 python setup.py install
 ```
 
