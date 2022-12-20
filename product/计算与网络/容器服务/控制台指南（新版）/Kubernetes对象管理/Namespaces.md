@@ -10,7 +10,7 @@ Namespaces 是 Kubernetes 在同一个集群中进行逻辑环境划分的对象
 2. 在集群列表中单击集群 ID，进入集群详情页。
 3. 选择“命名空间”，在命名空间页面单击**新建**。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/a4c7e0a2324a723a5bc945cb061e52bc.png)
-4. 在新建命名空间页面，设置命名空间名称，并选择镜像仓库秘钥下发方式。如下图所示：
+4. 在新建命名空间页面，设置命名空间名称，并选择镜像仓库密钥下发方式。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/9e2aaa8b10705286de0727682bf65d17.png)
 5. 单击**创建Namespace**。完成创建后，您可以在命名空间页面进行查看。
 
