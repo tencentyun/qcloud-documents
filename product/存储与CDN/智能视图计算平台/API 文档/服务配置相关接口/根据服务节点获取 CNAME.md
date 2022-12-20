@@ -55,4 +55,9 @@ ClusterId = xxxx - xxxxxxx - xxxxxx - xxxxx
 | StatusCode | int    | 错误码，200 OK，其他详见错误中心 |      |
 | Message    | string | 返回消息                         |      |
 | Data       | object | 返回结果                         |      |
+
++Data
+
+| 字段名 | 类型   | 描述        | 是否必须 | 备注 |
+| :----- | :----- | :---------- | :------- | :--- |
 | Data   | string | CNAME 记录值 | 是       |      |
