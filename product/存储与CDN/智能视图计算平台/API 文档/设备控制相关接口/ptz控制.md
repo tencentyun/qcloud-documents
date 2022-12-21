@@ -44,6 +44,7 @@
 <td> string</td>
 <td>通道 ID</td>
 <td>必须</td>
+<td>-</td>
 </tr>
 <tr>
 <td>Type</td>
@@ -83,9 +84,9 @@
 
 | 字段名     | 类型   | 描述                             | 备注 |
 | :--------- | :----- | :------------------------------- | :--- |
-| RequestId  | string | 请求 ID                           |      |
-| Code       | int    | 状态码，0 成功，500 操作失败     |      |
-| StatusCode | int    | 错误码，200 OK，其他详见错误中心 |      |
-| Message    | string | 返回消息                         |      |
-| Data       | object | 返回结果                         |      |
+| RequestId  | string | 请求 ID                           |  -    |
+| Code       | int    | 状态码，0 成功，500 操作失败     |    -  |
+| StatusCode | int    | 错误码，200 OK，其他详见错误中心 |  -    |
+| Message    | string | 返回消息                         |   -   |
+| Data       | object | 返回结果                         |  -    |
 
