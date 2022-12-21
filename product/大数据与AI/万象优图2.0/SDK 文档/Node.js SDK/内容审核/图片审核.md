@@ -138,8 +138,9 @@ Container 类型 Input 的具体数据描述如下，使用其中一种：
 
 | 节点名称（关键字） | 父节点        | 描述                                                         | 类型   | 是否必选 |
 | :----------------- | :------------ | :----------------------------------------------------------- | :----- | :--- |
-| Object             | Request.Input | 存储在 COS 存储桶中的图片文件名称，例如在目录 test 中的文件 image.jpg，则文件名称为 test/image.jpg。Object 和 Url 只能选择其中一种。 | String | 否   |
-| Url                | Request.Input | 图片文件的链接地址，例如 http://a-1250000.cos.ap-shanghai.myqcloud.com/image.jpg。Object 和 Url 只能选择其中一种。 | String | 否   |
+| Object             | Request.Input | 存储在 COS 存储桶中的图片文件名称，例如在目录 test 中的文件 image.jpg，则文件名称为 test/image.jpg。Content，Object 和 Url 只能选择其中一种。 | String | 否   |
+| Url                | Request.Input | 图片文件的链接地址，例如 http://a-1250000.cos.ap-shanghai.myqcloud.com/image.jpg。Content，Object 和 Url 只能选择其中一种。 | String | 否   |
+| Content                | Request.Input | 图片文件的内容，需要先经过 base64 编码。Content，Object 和 Url 只能选择其中一种，传入多个时仅一个生效，按 Content，Object， Url 顺序。 | String | 否   |
 | Interval           | Request.Input | 截帧频率，GIF 图检测专用，默认值为5，表示从第一帧（包含）开始每隔5帧截取一帧。 | Int    | 否   |
 | MaxFrames          | Request.Input | 最大截帧数量，GIF 图检测专用，默认值为5，表示只截取 GIF 的5帧图片进行审核，必须大于0。 | Int    | 否   |
 | DataId             | Request.Input | 图片标识，该字段在结果中返回原始内容，长度限制为512字节。      | String | 否   |
