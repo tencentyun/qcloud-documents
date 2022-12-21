@@ -3,7 +3,7 @@
 
 根据此文档指引，您可以使用默认语言包，也可自定义语言翻译表述，并增添额外的非自带语言的支持。
 
-![](https://qcloudimg.tencent-cloud.cn/raw/2df62f8a62453c063c396cb656dd07bc.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/4cec14c19abc5088d65f9071e18e4a7e.png)
 
 ## 使用自带语言
 
