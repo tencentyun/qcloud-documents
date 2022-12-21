@@ -29,7 +29,7 @@ function getDocHtmlUrl() {
     if (err) {
       console.log(err);
     } else {
-      // 使用浏览器打开url即可预览
+      // 使用浏览器打开 url 即可预览
       var url = data.Url;
       console.log(url);
     }
