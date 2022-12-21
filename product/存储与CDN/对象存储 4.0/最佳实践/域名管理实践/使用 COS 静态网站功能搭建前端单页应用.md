@@ -23,7 +23,7 @@
 ```
 npm install -g @vue/cli
 ```
-2. 执行如下命令，使用 vue-cli 快速生成一个 vue 项目，可参考 [官方文档](https://cli.vuejs.org/zh/guide/creating-a-project.html#vue-create)。
+2. 执行如下命令，使用 vue-cli 快速生成一个 vue 项目，可参见 [官方文档](https://cli.vuejs.org/zh/guide/creating-a-project.html#vue-create)。
 ```
 vue create vue-spa
 ```
@@ -111,7 +111,7 @@ npm run build
 
 原因可能是配置静态网站的时候，缺失配置或错误配置了**错误文档**导致，请再次回顾本文开头提供的标准配置截图，可以看到错误文档和索引文档均配置为 `index.html` 。
 
-由于单页应用的特性，我们需要保证在任何情况下都要成功访问到应用入口（一般为`index.html`），这样才能触发后续路由的一系列内部逻辑。
+由于单页应用的特性，我们需要保证在任何情况下都要成功访问到应用入口（一般为 `index.html`），这样才能触发后续路由的一系列内部逻辑。
 
 
 ### 切换路由之后，页面能正常显示，但 HTTP 状态码依然为404，怎样才能正常返回200？
