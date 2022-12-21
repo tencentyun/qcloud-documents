@@ -358,7 +358,7 @@ Web 播放器是通过 HTML5 的 `<video>` 标签以及 Flash 实现视频播放
  <!--有些浏览器环境不支持 Webrtc，播放器会将 Webrtc 流地址自动转换为 HLS 格式地址，因此快直播场景同样需要引入 hls.min.x.xx.xm.js。-->
  <script src="https://web.sdk.qcloud.com/player/tcplayer/release/v4.7.0/libs/TXLivePlayer-1.2.3.min.js"></script>
  <!--如果需要在 Chrome 和 Firefox 等现代浏览器中通过 H5 播放 HLS 协议的视频，需要在 tcplayer.vx.x.x.min.js 之前引入 hls.min.x.xx.xm.js。-->
- <script src="https://web.sdk.qcloud.com/player/tcplayer/release/v4.7.0/libs/hls.min.1.1.5.js"></script>
+ <script src="https://web.sdk.qcloud.com/player/tcplayer/release/v4.7.0/libs/hls.min.1.1.6.js"></script>
  <!--如果需要在 Chrome 和 Firefox 等现代浏览器中通过 H5 播放 FLV 格式的视频，需要在 tcplayer.vx.x.x.min.js 之前引入 flv.min.x.x.x.js。-->
  <script src="https://web.sdk.qcloud.com/player/tcplayer/release/v4.7.0/libs/flv.min.1.6.3.js"></script>
   <!--如果需要在 Chrome 和 Firefox 等现代浏览器中通过 H5 播放 DASH 视频，需要在 tcplayer.vx.x.x.min.js 之前引入 dash.min.x.x.x.js。-->
