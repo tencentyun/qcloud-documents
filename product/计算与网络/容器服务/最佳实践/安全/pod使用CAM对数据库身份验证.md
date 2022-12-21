@@ -14,7 +14,6 @@
 
 ### 步骤1：准备托管集群
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2/cluster?rid=1)，新建集群。
-![](https://qcloudimg.tencent-cloud.cn/raw/3fa78d22f9c353d427e28bb9e36a50af.png)
 <dx-alert infotype="explain" title="">
 - 如果您没有托管集群，您可以使用容器服务控制台创建 TKE 标准集群，详情见 [创建集群](https://cloud.tencent.com/document/product/457/32189)。
 - 如果您已有托管集群，请在集群详情页检查集群版本，当集群版本不满足要求时，请升级集群。对运行中的 Kubernetes 集群进行升级，详情见 [升级集群](https://cloud.tencent.com/document/product/457/32192)。
