@@ -1,6 +1,6 @@
 ## 功能描述
 
-用于获取设备本地录像URL地址。
+用于获取设备本地录像 URL 地址。
 
 ## 请求
 
@@ -30,13 +30,54 @@
 }
 ```
 
-| 字段名     | 类型   | 描述     | 必须 | 备注                                                         |
-| :--------- | :----- | :------- | :--- | :----------------------------------------------------------- |
-| ChannelId  | string | 通道id   | 是   |                                                              |
-| Start      | int64  | 起始时间 | 是   |                                                              |
-| End        | int64  | 结束时间 | 是   |                                                              |
-| StreamType | int    | 流类型   | 否   | 1：主码流；2：子码流（不可以和Resolution同时下发）           |
-| Resolution | string | 分辨率   | 否   | 1.QCIF；2.CIF；3.4CIF；4.D1；5.720P；6.1080P/I; 自定义的19201080等等（需设备支持） （不可以和StreamType同时下发） |
+<table>
+<thead>
+<tr>
+<th width=10%>字段名</th>
+<th width=10%>类型</th>
+<th width=10%>描述</th>
+<th width=10%>是否必须</th>
+<th width=40%>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ChannelId</td>
+<td>string</td>
+<td>通道 ID</td>
+<td>是</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Start</td>
+<td>int64</td>
+<td>起始时间</td>
+<td>是</td>
+<td>-</td>
+</tr>
+<tr>
+<td>End </td>
+<td>int64</td>
+<td> 结束时间</td>
+<td>是</td>
+<td>-</td>
+</tr>
+<tr>
+<td>StreamType</td>
+<td>int</td>
+<td>流类型</td>
+<td>否</td>
+<td><li>主码流<li>子码流（不可以和 Resolution 同时下发）</td>
+</tr>
+<tr>
+<td>Resolution</td>
+<td>string</td>
+<td>分辨率</td>
+<td>否</td>
+<td><li>QCIF<li>CIF<li>4CIF<li>D1<li>720P<li>1080P/I<li> 自定义的19201080等等（需设备支持） （不可以和 StreamType 同时下发）</td>
+</tr>
+</tbody>
+</table>
 
 ## 响应
 
@@ -62,15 +103,14 @@
 
 | 字段名     | 类型   | 描述                             | 备注 |
 | :--------- | :----- | :------------------------------- | :--- |
-| RequestId  | string | 请求id                           |      |
-| Code       | int    | 状态码，0 成功，500 操作失败     |      |
-| StatusCode | int    | 错误码，200 OK，其他详见错误中心 |      |
-| Message    | string | 返回消息                         |      |
-| Data       | object | 返回结果                         |      |
+| RequestId  | string | 请求 ID                           |   -   |
+| Code       | int    | 状态码，0 成功，500 操作失败     |   -   |
+| StatusCode | int    | 错误码，200 OK，其他详见错误中心 |    -  |
+| Message    | string | 返回消息                         |     - |
+| Data       | object | 返回结果                         |    -  |
 
-+Data
++ Data
 
 | 字段名 | 类型   | 描述         | 备注 |
 | :----- | :----- | :----------- | :--- |
-| Flv    | string | 录像播放地址 |      |
-
+| Flv    | string | 录像播放地址 |  -    |

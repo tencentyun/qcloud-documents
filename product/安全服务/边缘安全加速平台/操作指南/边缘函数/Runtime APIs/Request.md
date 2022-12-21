@@ -281,7 +281,7 @@ readonly eo: IncomingRequestEoProperties;
     <tr>
       <td>asn</td>
       <td>number</td>
-      <td>自治区号</td>
+      <td>ASN</td>
       <td>12271</td>
     </tr>
     <tr>

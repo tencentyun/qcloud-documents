@@ -25,7 +25,7 @@ Go2sky 是 Golang 提供给开发者实现 SkyWalking agent 探针的包，可�
 
 以下是基于 Go2Sky 的 Demo 改造示例，您可根据实际情况进行修改。
 
-1. 在 NewGRPCReporter 的时设置上报地址和 Authentication（上报地址与 Token 的获取方式参见 [步骤1](#step1)。
+1. 在 NewGRPCReporter 下上报地址和 Authentication（上报地址与 Token 的获取方式参见 [步骤1](#step1)。
 <dx-codeblock>
 :::  go
 report, err = reporter.NewGRPCReporter(
@@ -57,7 +57,7 @@ var (
 )
 func init() {
    flag.BoolVar(&grpc, "grpc", false, "use grpc reporter")
-   //9.223.77.222:11800 需替换为 TAW 的私网接入点
+   //9.223.77.222:11800 需替换为 APM 的私网接入点
    flag.StringVar(&oapServer, "oap-server", "9.223.77.222:11800", "oap server address")
    flag.StringVar(&listenAddr, "listen-addr", "0.0.0.0:8809", "listen address")
    flag.StringVar(&serviceName, "service-name", "go2sky-server", "service name")
