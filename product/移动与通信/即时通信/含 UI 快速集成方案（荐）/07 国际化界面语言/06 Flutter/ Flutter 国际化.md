@@ -159,7 +159,7 @@ I18nUtils(null, "ja");
 | 罗马尼亚语  | ro     | 俄语     | ru     |
 | 塞尔维亚语  | sr  | 斯洛伐克语  | sk     |
 | 斯洛文尼亚语 | sl     | 泰语     | th     |
-| 土耳其语   | tr     | 乌克兰语   | uk-UA  |
+| 土耳其语   | tr     | 乌克兰语   | uk  |
 | 中文（简体） | zh-Hans | 中文（繁体） | zh-Hant |
 
 完整版[请见此处](https://quickref.me/iso-639-1)。
