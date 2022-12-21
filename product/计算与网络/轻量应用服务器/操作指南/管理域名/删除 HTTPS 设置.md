@@ -6,7 +6,7 @@
 2. 在实例列表中，选择目标实例并进入实例详情页。
 3. 选择应用管理页签，在应用软件安装地址卡片中找到当前实例中 Web Server 的安装路径。
 
- <img style="width:900px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/9c42b61cc8b560051500335aaff8167b.png" />
+ <img style="width:700px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/9c42b61cc8b560051500335aaff8167b.png" />
 
 4. 登录服务器，进入步骤3中获取到的路径，并找到 Web Server 应用安装的目录。
 5. 在应用安装目录下找到 `主机名.conf` 的文件。
@@ -17,12 +17,12 @@
 
 
 6. 删除该文件。
-```properties
+```plaintext
 rm -f 搜索到的文件路径
  ```
  
 7. 重启 Nginx。
-```properties
+```plaintext
 sudo systemctl reload nginx
 ```
 
