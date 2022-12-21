@@ -23,7 +23,7 @@
 1. 从域名页面进入域名解析列表，在对应域名解析的操作列点击设置 HTTPS：
  <img style="width:900px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/7863599594561ecef64f2f1a9b9dfcaa.png" />
 2. 选择 SSL 证书。
- <img style="width:600px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/471f16c0ce1c5c545786fb224de4b0b5.png" />
+ <img style="width:400px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/471f16c0ce1c5c545786fb224de4b0b5.png" />
 
 3. 单击确认即可。
 :::
@@ -35,11 +35,11 @@
  <img style="width:900px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/7ab12cff9898492a7691322e84e3a5a5.png" />
 4. 选择 SSL 证书。
 
-  <img style="width:600px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/471f16c0ce1c5c545786fb224de4b0b5.png" />
+  <img style="width:400px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/471f16c0ce1c5c545786fb224de4b0b5.png" />
 
 5. 单击确认即可。
 :::
 </dx-tabs>
 <dx-alert infotype="notice" title="">
-轻量应用服务器控制台只为您展示设置 HTTPS 的历史记录及其状态，且不支持通过本功能对已设置的 HTTPS 进行回退。如您部署的网站不再需要 HTTPS 加密，请参考 [删除 HTTPS 设置](https://tcloud.woa.com/document/product/1207/84362?!editLang=zh&!preview)。
+轻量应用服务器控制台只为您展示设置 HTTPS 的历史记录及其状态，且不支持通过本功能对已设置的 HTTPS 进行回退。如您部署的网站不再需要 HTTPS 加密，请参考 [删除 HTTPS 设置](https://cloud.tencent.com/document/product/1207/84362)。
 </dx-alert>
