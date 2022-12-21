@@ -72,31 +72,31 @@
 <td>RequestId</td>
 <td>string</td>
 <td>请求 ID</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>Code</td>
 <td>int</td>
 <td>状态码，0 成功，500 操作失败</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>StatusCode</td>
 <td> int </td>
 <td>错误码，200 OK，其他详见错误中心</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>Message</td>
 <td>string</td>
 <td>返回消息</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>Data</td>
 <td>object</td>
 <td>返回结果</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>Url </td>
