@@ -25,8 +25,8 @@ K8S 1.4 之后的版本，`drain` 操作为先对节点进行封锁，再对节�
 #### 驱逐前检查
 驱逐的过程涉及了 Pod 的重建，可能会对集群中的服务造成影响，因此建议在驱逐前执行如下检查：
 1. 检查集群中的剩余节点是否有足够资源去运行待驱逐节点上的 Pod。  
-节点的资源分配情况可通过 TKE 控制台查看。在 “[集群列表](https://console.cloud.tencent.com/tke2/cluster)” 页面，选择集群 ID > **节点管理** > 节点，检查“节点列表”页面中的“已分配/总资源”。如下图所示：
-![](https://main.qcloudimg.com/raw/5ac6f7f2000b2389c4546c3e08644978.png)
+节点的资源分配情况可通过容器服务控制台查看。在 [集群列表](https://console.cloud.tencent.com/tke2/cluster) 页面，选择**目标集群 ID > 节点管理 > 节点**，检查“节点列表”页面中的“已分配/总资源”。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/97c72a7c33a459b3a3eddb3fe49ef97f.png)
 	如果节点的剩余资源不足，建议您向集群中新增节点，防止被驱逐的 Pod 出现无法运行的情况，从而对服务造成影响。  
 2. 检查集群中是否有配置主动驱逐保护 PodDisruptionBudget（PDB）。  
 主动驱逐保护会中断驱逐操作的执行，建议先删除主动驱逐保护 PDB。  
