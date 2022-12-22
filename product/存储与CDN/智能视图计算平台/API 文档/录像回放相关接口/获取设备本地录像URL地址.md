@@ -1,6 +1,6 @@
 ## 功能描述
 
-用于获取设备本地录像URL地址。
+用于获取设备本地录像 URL 地址。
 
 ## 请求
 
@@ -46,18 +46,21 @@
 <td>string</td>
 <td>通道 ID</td>
 <td>是</td>
+<td>-</td>
 </tr>
 <tr>
 <td>Start</td>
 <td>int64</td>
 <td>起始时间</td>
 <td>是</td>
+<td>-</td>
 </tr>
 <tr>
 <td>End </td>
 <td>int64</td>
 <td> 结束时间</td>
 <td>是</td>
+<td>-</td>
 </tr>
 <tr>
 <td>StreamType</td>
@@ -100,15 +103,14 @@
 
 | 字段名     | 类型   | 描述                             | 备注 |
 | :--------- | :----- | :------------------------------- | :--- |
-| RequestId  | string | 请求 ID                           |      |
-| Code       | int    | 状态码，0 成功，500 操作失败     |      |
-| StatusCode | int    | 错误码，200 OK，其他详见错误中心 |      |
-| Message    | string | 返回消息                         |      |
-| Data       | object | 返回结果                         |      |
+| RequestId  | string | 请求 ID                           |   -   |
+| Code       | int    | 状态码，0 成功，500 操作失败     |   -   |
+| StatusCode | int    | 错误码，200 OK，其他详见错误中心 |    -  |
+| Message    | string | 返回消息                         |     - |
+| Data       | object | 返回结果                         |    -  |
 
-+Data
++ Data
 
 | 字段名 | 类型   | 描述         | 备注 |
 | :----- | :----- | :----------- | :--- |
-| Flv    | string | 录像播放地址 |      |
-
+| Flv    | string | 录像播放地址 |  -    |

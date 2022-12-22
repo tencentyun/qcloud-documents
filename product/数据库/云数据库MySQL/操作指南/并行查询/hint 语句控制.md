@@ -8,7 +8,7 @@
 |---------|---------|---------|
 | 开启并行查询 | `SELECT /*+PARALLEL(x)*/ ... FROM ...;` | x 需大于0，x 表示该条 SQL 语句所使用的并行查询并行度。 |
 | 关闭并行查询 | `SELECT /*+PARALLEL(x)*/ ... FROM ...;` | x 设置为0，表示关闭并行查询能力。 |
-| 指定并行表 | 可通过以下两种方式指定允许哪些表执行或不执行并行查询计划：<li>通过 PARALLEL 可指定表执行并行查询计划<br>`SELECT /*+PARALLEL(t)*/ ... FROM ...;`<li>通过 NO_PARALLEL 可以指定表禁止执行并行查询计划<br>`SELECT /*+NO_PARALLEL(t)*/ ... FROM ...;` | t 为表的名称。 |
+| 指定并行表 | 可通过以下两种方式指定允许哪些表执行或不执行并行查询计划：<li>通过 PARALLEL 可指定表执行并行查询计划<br>`SELECT /*+PARALLEL(t)*/ ... FROM ...;`<li>通过 NO_PARALLEL 可以指定表禁止执行并行查询计划<br>`SELECT /*+NO_PARALLEL(t)*/ ... FROM ...;`</li> | t 为表的名称。 |
 | 同时指定并行表与并行查询并行度 | `SELECT /*+PARALLEL(t x)*/ * ... FROM ...;` | x 需大于0，x 表示该条 SQL 语句所使用的并行查询并行度，t 为表的名称。 |
 | 通过 hint 语句设置 session 级参数，仅对指定 SQL 语句生效 | `SELECT /*+SET_VAR(var=n)*/ * ... FROM ...;` | var 为支持 session 作用域的并行查询参数。|
 
@@ -19,7 +19,7 @@
 
 **场景二：**
 `select /*+PARALLEL（4）*/ * FROM t1，t2；`
-无论系统默认并行度数值为多少，强制该条语句使用并行度为4执行并行查询，设置该条语句的 txsql_parallel_degree = 4 ，当语句不符合并行查询执行条件时，将回退为串行查询。
+无论系统默认并行度数值为多少，强制该条语句使用并行度为4执行并行查询，设置该条语句的 txsql_parallel_degree = 4，当语句不符合并行查询执行条件时，将回退为串行查询。
 
 **场景三：**
 `select /*+PARALLEL（t1）*/ * FROM t1，t2；`
@@ -46,6 +46,6 @@
 设置单条语句的 txsql_optimizer_context_max_mem_size=500000，该条语句可申请的并行查询计划环境最大内存限制调整为500000。
 
 ## 相关文档
-- [开启或关闭并行查询]()
-- [查看并行查询]()
+- [开启或关闭并行查询](https://cloud.tencent.com/document/product/236/84349)
+- [查看并行查询](https://cloud.tencent.com/document/product/236/84351)
 
