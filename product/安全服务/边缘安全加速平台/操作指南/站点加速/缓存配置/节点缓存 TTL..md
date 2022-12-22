@@ -18,7 +18,7 @@
 <table>
 <thead>
 <tr>
-<th>配置项</th>
+<th width="30%">配置项</th>
 <th>源站无 Cache-Control 头时含三个选项</th>
 <th>详情</th>
 </tr>
@@ -37,27 +37,23 @@
 <td>-</td>
 </tr>
 </tbody></table>
- - 遵循默认缓存策略：
+ - 遵循默认缓存策略[](id:mr)：
 <table>
 <thead>
 <tr>
 <th width="30%">分类</th>
-<th width="30%">缓存</th>
-<th width="40%">文件后缀</th>
+<th width="70%">缓存</th>
 </tr>
 </thead>
 <tbody><tr>
 <td>源站含 Last-Modified 头</td>
 <td>缓存时间= ( 当前时间 - last_modified ) * 0.1。计算结果在10秒~3600秒及之间的，取计算结果时间；小于10秒的，按照10秒处理；大于3600秒的，按照3600秒处理</td>
-<td>-</td>
 </tr>
 <tr>
-<td rowspan=2>源站不含 Last-Modified 头</td>
-<td rowspan=2>依据文件后缀缓存</td>
-<td>动态文件后缀：php、aspx、asp、jsp、do、dwr、cgi、fcgi、action、ashx、axd、json，不缓存。</td>
+<td>源站不含 Last-Modified 头</td>
+<td>依据文件后缀缓存<ul><li>动态文件后缀：php、aspx、asp、jsp、do、dwr、cgi、fcgi、action、ashx、axd、json，不缓存。</li><li>静态文件后缀：以下列举的文件后缀缓存2小时，未匹配以下文件后缀的则不缓存。<ul><li> 图片：jpg、png、jpeg、webp、gif、heif、heic、kpg、ico。</li><li>网页：mp4、mp3、m3u8、ts、m4a、avi、m4s、ogg。</li><li>网页：html、js、css。</li><li>zip、7z、tar、br、gz、rar、bz2。</li><li>文档：doc、docx、xls、xlsx、pdf、ppt、pptx。</li><li>应用程序：apk、exe、bin。</li><li>其它：vsv、iso、jar、swf、chunk、atlas。</li></ul></td>
 </tr>
 <tr>
-<td>静态文件后缀：以下列举的文件后缀缓存2小时，未匹配以下文件后缀的则不缓存。<ul><li> 图片：jpg、png、jpeg、webp、gif、heif、heic、kpg、ico。</li><li>网页：mp4、mp3、m3u8、ts、m4a、avi、m4s、ogg。</li><li>网页：html、js、css。</li><li>zip、7z、tar、br、gz、rar、bz2。</li><li>文档：doc、docx、xls、xlsx、pdf、ppt、pptx。</li><li>应用程序：apk、exe、bin。</li><li>其它：vsv、iso、jar、swf、chunk、atlas。</li></ul></td>
 </tr>
 </tbody></table>
   - 不缓存：不在节点缓存资源。
