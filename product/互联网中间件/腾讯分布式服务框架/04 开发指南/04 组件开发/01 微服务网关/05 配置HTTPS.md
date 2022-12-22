@@ -1,3 +1,4 @@
+
 ## 操作场景
 本文档指导您通过 TSF 的微服务网关配置 HTTPS 访问。
 
@@ -8,12 +9,17 @@
 - 方式二：自己生成（通过 keytool 或 openssl 工具生成）
 
 ### 步骤2：配置证书信息
+
+> ?如果网关类型为 Envoy 网关，证书需要放在部署 Envoy 网关应用的时候配置的路径下。
+
 1. 将 SSL 证书放到 resources下 的 https 文件夹（可自定义名称）中：
 <img src="https://main.qcloudimg.com/raw/4aa46a1a1b0c8e37aef79246fb502cd3.png" width = "60%" />
 2. 在配置文件 application.yml 中设置证书的基本信息。如下：
 <dx-codeblock>
 :::  yml
-#  ssl证书相关配置
+
+# ssl证书相关配置
+
 server：
   ssl:
     #启用ssl
@@ -147,4 +153,3 @@ HTTPS 访问网关成功的显示如下：
 **问题描述**：当使用自签名证书时，Chrome 会拦截请求，并展示 ERR_CERT_INVALID，旧版本可以选择跳过，继续访问，但是新版本 Chrome 不允许继续，且提示：您的连接不是私密连接攻击者可能会试图从 XX.XX.XX.XX 窃取您的信息（例如：密码、通讯内容或信用卡信息）。
 
 **解决方案**：在 Chrome 该页面上，输入 thisisunsafe，即可进行访问，用来验证 HTTPS 配置是否成功。线上环境不推荐使用自签名证书。
-

@@ -1,6 +1,6 @@
 ## 功能描述
 
-用于根据服务节点获取CNAME值。
+用于根据服务节点获取 CNAME 值。
 
 ## 请求
 
@@ -26,7 +26,7 @@ ClusterId = xxxx - xxxxxxx - xxxxxx - xxxxx
 
 | 字段名    | 类型   | 描述       | 是否必须 | 备注 |
 | :-------- | :----- | :--------- | :------- | :--- |
-| ClusterId | string | 服务节点id | 是       |      |
+| ClusterId | string | 服务节点 ID | 是       |    -  |
 
 ## 响应
 
@@ -50,14 +50,14 @@ ClusterId = xxxx - xxxxxxx - xxxxxx - xxxxx
 
 | 字段名     | 类型   | 描述                             | 备注 |
 | :--------- | :----- | :------------------------------- | :--- |
-| RequestId  | string | 请求id                           |      |
-| Code       | int    | 状态码，0 成功，500 操作失败     |      |
-| StatusCode | int    | 错误码，200 OK，其他详见错误中心 |      |
-| Message    | string | 返回消息                         |      |
-| Data       | object | 返回结果                         |      |
+| RequestId  | string | 请求 ID                          |   -   |
+| Code       | int    | 状态码，0 成功，500 操作失败     |    -  |
+| StatusCode | int    | 错误码，200 OK，其他详见错误中心 | -     |
+| Message    | string | 返回消息                         |   -   |
+| Data       | object | 返回结果                         |  -    |
 
-+Data
++ Data
 
 | 字段名 | 类型   | 描述        | 是否必须 | 备注 |
 | :----- | :----- | :---------- | :------- | :--- |
-| Data   | string | CNAME记录值 | 是       |      |
+| Data   | string | CNAME 记录值 | 是       |   -   |

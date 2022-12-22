@@ -7,7 +7,7 @@ FileSystem connector 提供了对 `HDFS` 和 [COS](https://cloud.tencent.com/doc
 | :-------- | :--- |
 | 1.11      | 支持 |
 | 1.13      | 支持 |
-| 1.14      | 支持写入到 HDFS，不支持写入到 COS |
+| 1.14      | 支持 |
 
 ## 使用范围
 FileSystem 支持作为 Append-Only 数据流的目的表 (Sink)，目前还不支持 Upsert 数据流的目的表。FileSystem 目前支持以下格式的数据写入：
@@ -29,7 +29,7 @@ CREATE TABLE `hdfs_sink_table` (
     `part2` INT
 ) PARTITIONED BY (part1, part2) WITH (
     'connector' = 'filesystem',
-    'path' = 'hdfs://HDFS10000/data/',
+    'path' = 'hdfs://HDFS10000/data/', -- cosn://${buketName}/path/to/store/data
     'format' = 'json',
     'sink.rolling-policy.file-size' = '1M',
     'sink.rolling-policy.rollover-interval' = '10 min',
@@ -96,6 +96,24 @@ fs.cosn.userinfo.appid: COS 所属用户的 appid
 ![](https://main.qcloudimg.com/raw/56b95e89a8bddfec4a3d17ea5ee85bbd.png)
 
 [](id:jump)
+
+## COS 元数据加速桶配置
+1. 提供"Oceanus 集群 ID"和"COS 元数据加速桶名"，通过 [在线客服](https://cloud.tencent.com/online-service?from=doc_849) 联系我们开通 Oceanus 集群访问元数据加速桶的权限。
+2. 在作业参数 [高级参数](https://cloud.tencent.com/document/product/849/53391) 中添加如下参数。
+
+```
+fs.cosn.trsf.fs.AbstractFileSystem.ofs.impl: com.qcloud.chdfs.fs.CHDFSDelegateFSAdapter
+fs.cosn.trsf.fs.ofs.impl: com.qcloud.chdfs.fs.CHDFSHadoopFileSystemAdapter
+fs.cosn.trsf.fs.ofs.tmp.cache.dir: /tmp/chdfs/
+fs.cosn.trsf.fs.ofs.user.appid: COS 所属用户的 appid
+fs.cosn.trsf.fs.ofs.bucket.region: COS 所在的地域
+fs.cosn.trsf.fs.ofs.upload.flush.flag: true
+containerized.taskmanager.env.HADOOP_USER_NAME: hadoop
+containerized.master.env.HADOOP_USER_NAME: hadoop
+```
+
+>? 如果您的作业中同时访问了普通 COS 桶和启用元数据加速能力的 COS 桶，那么高级参数中还需要增加 COS 配置的参数。
+
 ## 手动上传对应 Jar 包
 1. 先下载对应 Jar 包到本地。
 不同 Flink 版本下载地址：[Flink 1.11](https://nightlies.apache.org/flink/flink-docs-release-1.11/dev/table/connectors/formats/) ，[Flink 1.13](https://nightlies.apache.org/flink/flink-docs-release-1.13/docs/connectors/table/formats/overview/)，[Flink 1.14](https://nightlies.apache.org/flink/flink-docs-release-1.14/docs/connectors/table/formats/overview/)  。 

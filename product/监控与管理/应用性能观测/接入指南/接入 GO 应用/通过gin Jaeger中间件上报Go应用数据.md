@@ -29,7 +29,7 @@ nohup ./jaeger-agent --reporter.grpc.host-port={{collectorRPCHostPort}} --agent.
 <dx-codeblock>
 :::  go
 cfg := &jaegerConfig.Configuration{
-  ServiceName: ginServerName, //对其发起请求的的调用链，叫什么服务
+  ServiceName: ginServerName, //对服务发起请求的调用链，填写服务名称
   Sampler: &jaegerConfig.SamplerConfig{ //采样策略的配置，详情见4.1.1
     Type:  "const",
     Param: 1,
@@ -96,7 +96,7 @@ const ginServerName = "demo-gin-server"
 func StartServer() {
 	//初始化jaeger，得到tracer
 	cfg := &jaegerConfig.Configuration{
-		ServiceName: ginServerName, //对其发起请求的的调用链，叫什么服务
+		ServiceName: ginServerName, //对服务发起请求的调用链，填写服务名称
 		Sampler: &jaegerConfig.SamplerConfig{ //采样策略的配置，详情见4.1.1
 			Type:  "const",
 			Param: 1,
@@ -142,7 +142,7 @@ func StartServer() {
 <dx-codeblock>
 :::  go
 cfg := &jaegerConfig.Configuration{
-  ServiceName: ginClientName, //对其发起请求的的调用链，叫什么服务
+  ServiceName: ginClientName, //对服务发起请求的的调用链，填写服务名称
   Sampler: &jaegerConfig.SamplerConfig{ //采样策略的配置，详情见4.1.1
     Type:  "const",
     Param: 1,
@@ -225,10 +225,10 @@ const (
 	token         = "abc"
 )
 
-// StartClient gin client 也是标准的 http client.
+// StartClient 下的 gin client 也是标准的 http client.
 func StartClient() {
 	cfg := &jaegerConfig.Configuration{
-		ServiceName: ginClientName, //对其发起请求的的调用链，叫什么服务
+		ServiceName: ginClientName, //对服务发起请求的调用链，填写服务名称
 		Sampler: &jaegerConfig.SamplerConfig{ //采样策略的配置，详情见4.1.1
 			Type:  "const",
 			Param: 1,

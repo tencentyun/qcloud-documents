@@ -32,8 +32,8 @@
 </tbody></table>
 
 
-### NAT 网关
->?如您开通了标准型 NAT 网关，则原小型、中型、大型 NAT 网关类型名称变更为传统型 NAT 网关 - 小型、传统型 NAT 网关 - 中型、传统型 NAT 网关 - 大型；如未开通，则控制台体验不变。
+### 传统型 NAT 网关
+>?原小型、中型、大型 NAT 网关已更名为传统型 NAT 网关-小型、传统型 NAT 网关-中型、传统型 NAT 网关-大型，详情请参见 [NAT 网关类型更名公告](https://cloud.tencent.com/document/product/552/83165)。
 >
 1. 登录[ NAT 网关控制台](https://console.cloud.tencent.com/vpc/nat?fromNav)。
 2. 选择地区和私有网络，单击**新建**。
