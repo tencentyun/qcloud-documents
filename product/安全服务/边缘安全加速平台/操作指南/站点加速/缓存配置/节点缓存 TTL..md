@@ -65,3 +65,9 @@
 > - 开启“强制缓存”时，节点缓存 TTL 按照配置的自定义时间，即使源站的 `Cache-Control` 为 `no-cache/no-store/private`等不缓存头
 > - 关闭“强制缓存”时，当源站的 `Cache-Control` 为 `no-cache/no-store/private` 等不缓存头，即使配置了自定义时间，节点仍不缓存资源，优先遵循源站的不缓存头
 > - 关闭“强制缓存”需前往 [规则引擎](https://cloud.tencent.com/document/product/1552/70901) 自定义配置节点缓存 TTL 规则。为了保证缓存效果，建议您保持开启“强制缓存”。
+> 
+3. 如需针对某个子域名或请求 URL等更细请求维度设置区别于站点全局的配置，请前往 [规则引擎](https://cloud.tencent.com/document/product/1552/70901) 创建自定义规则。
+
+附：整体节点缓存行为如下：
+
+![](https://qcloudimg.tencent-cloud.cn/raw/d59bfcafca7b12a1b258bfdf4047e716.png)
