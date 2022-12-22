@@ -15,13 +15,13 @@
 #### 创建命名空间
 新建的 TCR 企业版实例内无默认命名空间，且无法通过推送镜像自动创建。请参考 [创建命名空间](https://cloud.tencent.com/document/product/1141/41803#.E5.88.9B.E5.BB.BA.E5.91.BD.E5.90.8D.E7.A9.BA.E9.97.B4) 按需完成创建。
 建议命名空间名使用项目或团队名，本文以 `docker` 为例。创建成功后如下图所示：
-![](https://main.qcloudimg.com/raw/0863439831b93c49a243dccaeb0a9806.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/4db7d7f818d36fed176765221b441c65.png)
 
 #### 创建镜像仓库（可选）
 容器镜像托管在具体的镜像仓库内，请参考 [创建镜像仓库](https://cloud.tencent.com/document/product/1141/41811#.E5.88.9B.E5.BB.BA.E9.95.9C.E5.83.8F.E4.BB.93.E5.BA.93) 按需完成创建。镜像仓库名称请设置为期望部署的容器镜像名称，本文以 `getting-started` 为例。创建成功后如下图所示：
 >?通过 docker cli 或其他镜像工具，例如 jenkins 推送镜像至企业版实例内时，若镜像仓库不存在，将会自动创建，无需提前手动创建。
 >
-![](https://main.qcloudimg.com/raw/e2af4a28cdfe97f47bd54a24a61af88d.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/60990e3edfc5c826199965961fb3ec9e.png)
 
 #### 推送容器镜像
 您可通过 docker cli 或其他镜像构建工具，例如 jenkins 推送镜像至指定镜像仓库内，本文以 docker cli 为例。此步骤需要您使用一台安装有 Docker 的云服务器或物理机，并确保访问的客户端已在 [配置网络访问策略](https://cloud.tencent.com/document/product/1141/41836) 定义的公网或内网允许访问范围内。
