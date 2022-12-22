@@ -1,491 +1,334 @@
 ## 操作场景
-用户不仅可以 [使用控制台配置日志采集](https://cloud.tencent.com/document/product/457/36771)，还可通过自定义资源（CustomResourceDefinitions，CRD）的方式配置日志采集。CRD 支持采集容器标准输出、容器文件和主机文件，支持多种日志采集格式。支持投递到 CLS 和 CKafka 等不同消费端。
+您不仅可以 [使用控制台配置日志采集](https://cloud.tencent.com/document/product/457/36771)，还可通过自定义资源（CustomResourceDefinitions，CRD）的方式配置日志采集。CRD 支持采集容器标准输出、容器文件和主机文件，支持多种日志采集格式。支持投递到 CLS 和 CKafka 等不同消费端。
 
 ## 前提条件
-已在容器服务控制台的 **[运维功能管理](https://console.cloud.tencent.com/tke2/ops/list?rid=8)** 中开启日志采集，详情参见 [开启日志采集](https://cloud.tencent.com/document/product/457/36771)。
+已在容器服务控制台的 **[运维功能管理](https://console.cloud.tencent.com/tke2/ops/list?rid=8)** 中开启日志采集，操作详情见 [开启日志采集](https://cloud.tencent.com/document/product/457/83871)。
+
+
+## CRD 介绍
+
+### 结构总览
+
+```yaml
+apiVersion: cls.cloud.tencent.com/v1
+kind: LogConfig                 ## 默认值
+metadata:
+  name: test					## CRD资源名，在集群内唯一
+spec:
+  clsDetail:					## 投递到CLS的配置
+    ...
+  inputDetail:                  ## 采集数据源配置
+    ...
+  kafkaDetail:					## 投递到 ckafka 或者自建kafka配置
+    ...
+status:							## CRD资源状态
+  status: ""
+  code: ""						## 调用接口出错时，接口返回的错误码
+  reason: ""					## 出错原因
+```
+
+
+### clsDetail 字段说明
+
+>! topic 指定后不允许修改。
+
+
+```yaml
+  clsDetail:
+    ## 自动创建日志主题，需要同时指定日志集和主题的name
+    logsetName: test                    ## CLS日志集的name，若无该name的日志集，会自动创建，若有，会在该日志集下创建日志主题
+    topicName: test                     ## CLS日志主题的name，若无该name的日志主题，会自动创建
+	
+	# 选择已有日志集日志主题， 如果指定了日志集未指定日志主题，则会自动创建一个日志主题
+    logsetId: xxxxxx-xx-xx-xx-xxxxxxxx  ## CLS日志集的ID，日志集需要在CLS中提前创建
+    topicId: xxxxxx-xx-xx-xx-xxxxxxxx   ## CLS日志主题的ID，日志主题需要在CLS中提前创建，且没有被其它采集配置占用
+	
+    logType: json_log  ## 日志采集格式，json_log代表 json 格式，delimiter_log代表分隔符格式，minimalist_log代表单行全文格式，multiline_log代表多行全文格式，fullregex_log代表完全正则格式。默认为minimalist_log
+	logFormat: xxx                      ## 日志格式化方式
+	period: 30					        ## 生命周期，单位天，可取值范围1~3600。取值为3640时代表永久保存
+	partitionCount:                     ## Integer 类型，日志主题分区个数。默认创建1个，最大支持创建10个分区。
+	tags:                             ## 标签描述列表，通过指定该参数可以同时绑定标签到相应的日志主题。最大支持9个标签键值对，同一个资源只能绑定到同一个标签键下。
+	 - key: xxx							  ## 标签key
+	 value: xxx                      ## 标签value
+	autoSplit: false					## boolen 类型，是否开启自动分裂，默认值为true
+	maxSplitPartitions:
+	storageType: hot.                  ## 日志主题的存储类型，可选值 hot（标准存储），cold（低频存储）；默认为hot。
+	excludePaths:                      ## 采集黑名单路径列表
+	  - type: File						  ##  类型，选填File或Path 
+	      value: /xx/xx/xx/xx.log         ## type 对应的值
+	indexs: 							 ## 创建 topic 时可自定义索引方式和字段
+	  - indexName:   ## 需要配置键值或者元字段索引的字段，元字段Key无需额外添加__TAG__.前缀，与上传日志时对应的字段Key一致即可，腾讯云控制台展示时将自动添加__TAG__.前缀
+	      indexType:  ## 字段类型，目前支持的类型有：long、text、double
+	      tokenizer:  ## 字段的分词符，其中的每个字符代表一个分词符；仅支持英文符号及\n\t\r；long及double类型字段需为空；text类型字段推荐使用 @&?|#()='",;:<>[]{}/ \n\t\r\ 作为分词符；
+	      sqlFlag:   ## boolen 字段是否开启分析功能
+	      containZH: ## boolen 是否包含中文
+	region: ap-xxx                     ## topic 所在地域，用于跨地域投递
+    userDefineRule: xxxxxx             ## 用户自定义采集规则，Json格式序列化的字符串
+    extractRule: {}                    ## 提取、过滤规则。 如果设置了ExtractRule，则必须设置LogType
+```
+
+### inputDetail 字段说明
+```yaml
+  inputDetail:
+    type: container_stdout   ## 采集日志的类型，包括container_stdout（容器标准输出）、container_file（容器文件）、host_file（主机文件）
+
+    containerStdout:        ## 容器标准输出
+      namespace: default    ## 采集容器的kubernetes命名空间。支持多个命名空间，如果有多个命名空间使用","分隔，如：default,namespace。 如果不指定，代表所有命名空间。注意：与 excludeNamespace 不能同时指定
+      excludeNamespace: nm1,nm2   ## 排除采集容器的kubernetes命名空间。支持多个命名空间，如果有多个命名空间使用","分隔，如：nm1,nm2。 如果不指定，代表所有命名空间。 注意：与 namespace 不能同时指定
+	  nsLabelSelector: environment in (production),tier in (frontend) ## 根据命名空间label 筛选符合的 namespace
+      allContainers: false       ## 是否采集指定命名空间中的所有容器的标准输出。注意:allContainers=true 时不能同时指定 workloa，includeLabels 和 excludeLabels
+      container: xxx             ## 采集日志的容器名，为空时，代表采集所有符合容器的日志名。 注意：与 
+      excludeLabels:  ## 采集不包含包含指定label的Pod，与workload，namespace 和 excludeNamespace 不能同时指定
+        key2: value2  ## 支持匹配同一个key下多个value值的pod，例填写enviroment = production,qa表示当key为enviroment，value值为production或qa时，均会被排除，注意输入多个value值时请使用逗号隔开。如果同时指定了 includeLabels，则匹配与 includeLabels 交集的pod
+
+      includeLabels:  ## 采集包含指定label的Pod，与workload，namespace 和 excludeNamespace 不能同时指定
+        key: value1   ## 收集规则收集的日志会带上metadata，并上报到消费端。支持匹配同一个key下多个value值的pod，例填写enviroment = production,qa表示当key为enviroment，value值为production或qa时，均会被匹配，注意输入多个value值时请使用逗号隔开。 如果同时指定了 excludeLabels，则匹配与 excludeLabels 交集的pod
+		
+      metadataLabels:            ## 指定具体哪些pod label被当做元数据采集，如果不指定，则采集所有pod label为元数据
+      - label1
+      customLabels:              ## 用户自定义metadata
+        label: l1
+	  
+      workloads:
+      - container: xxx    ## 要采集的容器名，如果不指定，代表workload Pod中的所有容器
+        kind: deployment  ## workload类型，支持deployment、daemonset、statefulset、job、cronjob
+        name: sample-app  ## workload的名字
+        namespace: prod   ## workload的命名空间
+		
+    containerFile:  ## 容器内文件
+      namespace: default      ## 采集容器的kubernetes命名空间，必须指定一个命名空间	  
+      excludeNamespace: nm1,nm2   ## 排除采集容器的kubernetes命名空间。支持多个命名空间，如果有多个命名空间使用","分隔，如：nm1,nm2。 如果不指定，代表所有命名空间。 注意：与 namespace 不能同时指定
+      nsLabelSelector: environment in (production),tier in (frontend) ## 根据命名空间label 筛选符合的 namespace
+      container: xxx          ## 采集日志的容器名，为 * 时，代表采集所有符合容器的日志名
+      logPath: /var/logs      ## 日志文件夹，不支持通配符
+      filePattern: app_*.log  ## 日志文件名，支持通配符 * 和 ? ，* 表示匹配多个任意字符，? 表示匹配单个任意字符
+      customLabels:   ## 用户自定义metadata
+        key: value
+      excludeLabels:  ## 采集不包含包含指定label的Pod，与workload不能同时指定
+        key2: value2  ## 支持匹配同一个key下多个value值的pod，例填写enviroment = production,qa表示当key为enviroment，value值为production或qa时，均会被排除，注意输入多个value值时请使用逗号隔开。如果同时指定了 includeLabels，则匹配与 includeLabels 交集的pod
+
+      includeLabels:  ## 采集包含指定label的Pod，与workload不能同时指定
+        key: value1   ## 收集规则收集的日志会带上metadata，并上报到消费端。支持匹配同一个key下多个value值的pod，例填写enviroment = production,qa表示当key为enviroment，value值为production或qa时，均会被匹配，注意输入多个value值时请使用逗号隔开。 如果同时指定了 excludeLabels，则匹配与 excludeLabels 交集的pod
+      metadataLabels:        ## 指定具体哪些pod label被当做元数据采集，如果不指定，则采集所有pod label为元数据
+      - label1               ## pod label
+      workload:
+        container: xxx       ## 要采集的容器名，如果不指定，代表workload Pod中的所有容器
+        name: sample-app     ## workload的名字
+
+    hostFile:                ## 节点文件路径
+      filePattern: '*.log'   ## 日志文件名，支持通配符 * 和 ? ，* 表示匹配多个任意字符，? 表示匹配单个任意字符
+      logPath: /tmp/logs     ## 日志文件夹，不支持通配符
+      customLabels:          ## 用户自定义metadata
+        label1: v1
+```
+
+**extractRule 对象说明**
+
+| 名称 | 类型 | 必填项 | 描述 |
+|---------|---------|---------|---------|
+| timeKey | String | 否 | 时间字段的 key 名字，time_key 和 time_format 必须成对出现。 |
+| timeFormat | String | 否 | 时间字段的格式，参考 C 语言的 strftime 函数对于时间的格式说明输出参数。 |
+| delimiter | String | 否 | 分隔符类型日志的分隔符，只有 log_type 为 delimiter_log 时有效。 |
+| logRegex | String | 否 | 整条日志匹配规则，只有 log_type 为 fullregex_log 时有效。|
+| beginningRegex	 | String | 否 | 行首匹配规则，只有 log_type 为 multiline_log 或 fullregex_log 时有效。|
+| unMatchUpload | String | 否 | 解析失败日志是否上传，true 表示上传，false 表示不上传。 |
+| unMatchedKey | String | 否 | 失败日志的 key。 |
+| backtracking | String | 否 | 增量采集模式下的回溯数据量，默认-1（全量采集），0 表示增量。 |
+| keys | Array of String | 否 | 取的每个字段的 key 名字，为空的 key 代表丢弃这个字段，只有 log_type 为 delimiter_log 时有效，json_log 的日志使用 json 本身的 key。 |
+| filterKeys | Array of String | 否 | 需要过滤日志的 key，与 FilterRegex 按下标进行对应。 |
+| filterRegex | Array of String | 否 | 需要过滤日志的 key 对应的 regex，与 FilterKeys 按下标进行对应。 |
+| isGBK | String | 否 | 是否为 Gbk 编码。0: 否，1: 是。<br>注意：此字段可能返回 null，表示取不到有效值。 |
+| jsonStandard | String | 否 | 是否为标准 json。0: 否，1: 是。<br>注意：此字段可能返回 null，表示取不到有效值。 |
+
+
+### kafkaDetail 字段说明
+``` yaml
+  kafkaDetail:
+    brokers: x.x.x.x:p    ## 必填，broker地址，一般是域名:端口，多个地址以“,”分隔
+    topic: test		      ## 
+    kafkaType: CKafka     ## kafka 类型, CKafka - ckafka，SelfBuildKafka - 自建kafka
+    instanceId: xxxx      ## 当 kafkaType = CKafka， 设置ckafka实例 id
+	   logType: minimalist_log ## kafka 日志解析类型，"minimalist_log" 或 "" 单行全文，"multiline_log" 多行全文，"json" json 格式
+    timestampFormat: xxx   ## 时间戳的格式，默认是double
+    timestampKey: xxx      ## 时间戳的key值，默认是"@timestamp"
+	metadata:
+	  formatType: default   ## metatdata 格式。 "default" 默认格式（与 eks kafka 采集器相同），"filebeat" filebeat 格式，"fluent-bit" fluent-bit 格式
+    messageKey:            ## 支持指定一个Key，将日志投递到指定分区。默认不开启，日期随机投放；开启后带有同样Key的日志，将投递到相同的分区里。支持选择Pod字段作为Key，以Pod name为例，请选择Field>metadata.name
+      value: Field        ## 必填，topicID
+      valueFrom:
+        fieldRef: 
+          fieldPath: metadata.name ##  当key为Field时可选 metadata.name,metadata.namespace,spec.nodeName,spec.serviceAccountName
+```
 
 
 
-## 创建 CRD 投递日志到 CLS 
-您只需要定义 LogConfig CRD 即可创建采集配置，log-agent 根据 LogConfig CRD 的变化修改相应的日志服务 CLS 日志主题，并设置绑定的机器组。CRD 的格式如下：
+### status 字段说明
+
+| status | 说明 |
+|---------|---------|
+| 状态为空 | 初始状态 |
+| Synced | 采集配置处理成功 |
+| Stale | 采集配置处理失败 |
+
+
+## CRD 示例
+### 配置容器标准输出 CRD 示例
+<dx-tabs>
+::: 所有容器
+**指定命名空间**
+
+```yaml
+apiVersion: cls.cloud.tencent.com/v1
+kind: LogConfig
+metadata:
+  name: "test"
+spec:
+  clsDetail:
+    .......
+    topicId: xxxxxx-xx-xx-xx-xxxxxxxx
+  inputDetail:
+    containerStdout:
+      allContainers: true
+      namespace: default,kube-public
+    type: container_stdout
+
+```
+
+**排除命名空间**
+
+```yaml
+apiVersion: cls.cloud.tencent.com/v1
+kind: LogConfig
+metadata:
+  name: "test"
+spec:
+  clsDetail:
+    ........
+    topicId: xxxxxx-xx-xx-xx-xxxxxxxx
+  inputDetail:
+    containerStdout:
+      allContainers: true
+      excludeNamespace: kube-system,kube-node-lease
+    type: container_stdout
+
+```
+:::
+::: 指定工作负载
+```yaml
+apiVersion: cls.cloud.tencent.com/v1
+kind: LogConfig
+metadata:
+  name: "test"
+spec:
+  clsDetail:
+    ......
+    topicId: xxxxxx-xx-xx-xx-xxxxxxxx
+  inputDetail:
+    containerStdout:
+      allContainers: false
+      workloads:
+      - container: prod
+        kind: deployment
+        name: sample-app
+        namespace: kube-system
+    type: container_stdout
+```
+
+:::
+::: 指定 Pod Labels
 ``` yaml
 apiVersion: cls.cloud.tencent.com/v1
-kind: LogConfig                              ## 默认值
+kind: LogConfig
 metadata:
-  name: test                                ## CRD资源名，在集群内唯一
+  name: test
 spec:
   clsDetail:
-    # 注意：topic指定后不允许修改
-    # 自动创建日志主题，需要同时指定日志集和主题的name
-    logsetName: test                        ## CLS日志集的name，若无该name的日志集，会自动创建，若有，会在该日志集下创建日志主题
-    topicName: test                         ## CLS日志主题的name，若无该name的日志主题，会自动创建
-     
-    # 选择已有日志主题
-    topicId: xxxxxx-xx-xx-xx-xxxxxxxx       ## CLS日志主题的ID，日志主题需要在CLS中提前创建，且没有被其它采集配置占用
-    logType: minimalist_log                 ## 日志采集格式，json_log代表 json 格式，delimiter_log代表分隔符格式，minimalist_log代表单行全文格式，multiline_log代表多行全文格式，fullregex_log代表完全正则格式
-    extractRule:                            ## 提取、过滤规则
-      ...
+    ......
+    topicId: xxxxxx-xx-xx-xx-xxxxxxxx
   inputDetail:
-    type: container_stdout                  ## 采集日志的类型，包括container_stdout（容器标准输出）、container_file（容器文件）、host_file（主机文件）
-    
-    containerStdout:                        ## 容器标准输出
-      namespace: default                    ## 采集容器的kubernetes命名空间，如果不指定，代表所有命名空间
-      allContainers: false                  ## 是否采集指定命名空间中的所有容器的标准输出
-      container: xxx                        ## 采集日志的容器名，为空时，代表采集所有符合容器的日志名
-      includeLabels:                        ## 采集包含指定label的Pod
-        k8s-app: xxx                        ## 只采pod标签中配置"k8s-app=xxx"的pod产生的日志，与workloads、allContainers=true不能同时指定
-      workloads:                            ## 要采集的容器的Pod所属的kubernetes workload
-      - namespace: prod                     ## workload的命名空间
-        name: sample-app                    ## workload的名字
-        kind: deployment                    ## workload类型，支持deployment、daemonset、statefulset、job、cronjob
-        container: xxx                      ## 要采集的容器名，如果不指定，代表workload Pod中的所有容器
-	
-    containerFile:                          ## 容器内文件
-      namespace: default                    ## 采集容器的kubernetes命名空间，必须指定一个命名空间
-      container: xxx                        ## 采集日志的容器名，为 * 时，代表采集所有符合容器的日志名
-     includeLabels:                         ## 采集包含指定label的Pod
-        k8s-app: xxx                        ## 只采pod标签中配置"k8s-app=xxx"的pod产生的日志，与workload不能同时指定
-      workload:                             ## 要采集的容器的Pod所属的kubernetes workload
-        name: sample-app                    ## workload的名字                  
-        kind: deployment                    ## workload类型，支持deployment、daemonset、statefulset、job、cronjob
-      logPath: /opt/logs                    ## 日志文件夹，不支持通配符
-      filePattern: app_*.log                ## 日志文件名，支持通配符 * 和 ? ，* 表示匹配多个任意字符，? 表示匹配单个任意字符
-     
-    hostFile:                               ## 主机文件
-      logPath: /opt/logs                    ## 日志文件夹，支持通配符
-      filePattern: app_*.log                ## 日志文件名，支持通配符 * 和 ? ，* 表示匹配多个任意字符，? 表示匹配单个任意字符
-      customLablels:
-        k1: v1
+    containerStdout:
+      container: prod
+      excludeLabels:
+        key2: v2
+      includeLabels:
+        key1: v1
+      namespace: default,kube-system
+    type: container_stdout
 ```
-<dx-alert infotype="notice" title=" ">
-如果选择采集类型为“容器文件路径”时，对应的“容器文件路径”<b>不能为软链接</b>，否则会导致软链接的实际路径在采集器的容器内不存在，采集日志失败。
-</dx-alert>
-
-
-### 配置 CLS 日志解析格式
-<dx-tabs>
-::: 单行全文格式
-单行全文日志是指一条日志仅包含一行的内容，在采集的时候，将使用换行符`\n`来作为一条日志的结束符。为了统一结构化管理，每条日志都会存在一个默认的键值`__CONTENT__`，但日志数据本身不再进行日志结构化处理，也不会提取日志字段，日志属性的时间项由日志采集的时间决定。详情请参见 [单行全文格式](https://cloud.tencent.com/document/product/614/17421)。
-
-假设您的一条日志原始数据为：
-```plaintext
-Tue Jan 22 12:08:15 CST 2019 Installed: libjpeg-turbo-static-1.2.90-6.el7.x86_64
-```
-LogConfig 配置参考示例如下：
-```
-apiVersion: cls.cloud.tencent.com/v1
-kind: LogConfig
-spec:
-  clsDetail:
-    topicId: xxxxxx-xx-xx-xx-xxxxxxxx
-    # 单行日志
-    logType: minimalist_log
-```
-采集到日志服务的数据为：
-```plaintext
-__CONTENT__:Tue Jan 22 12:08:15 CST 2019 Installed: libjpeg-turbo-static-1.2.90-6.el7.x86_64
-```
-:::
-::: 多行全文格式
-多行全文日志是指一条完整的日志数据跨占多行（例如 Java 程序日志）。该情况下无法使用换行符 `\n` 作为日志的结束标识符，为了使日志系统明确区分每条日志，采用首行正则的方式进行匹配，当某行日志匹配预先设置的正则表达式，即为一条日志的开头，而下一行首出现则作为该条日志的结束标识符。多行全文也会设置一个默认的键值 `__CONTENT__`，但日志数据本身不再进行日志结构化处理，也不会提取日志字段，日志属性的时间项由日志采集的时间决定。详情请参见 [多行全文格式](https://cloud.tencent.com/document/product/614/17422)。
-
-假设一条多行日志原始数据为：
-<dx-codeblock>
-:::  log
-2019-12-15 17:13:06,043 [main] ERROR com.test.logging.FooFactory:
-java.lang.NullPointerException
-     at com.test.logging.FooFactory.createFoo(FooFactory.java:15)
-     at com.test.logging.FooFactoryTest.test(FooFactoryTest.java:11)
-:::
-</dx-codeblock>
-LogConfig 配置的参考如下：
-<dx-codeblock>
-:::  yaml
-apiVersion: cls.cloud.tencent.com/v1
-kind: LogConfig
-spec: 
-  clsDetail: 
-    topicId: xxxxxx-xx-xx-xx-xxxxxxxx
-    #多行日志
-    logType: multiline_log
-    extractRule: 
-      #只有以日期时间开头的行才被认为是新一条日志的开头，否则就添加换行符\n并追加到当前日志的尾部
-      beginningRegex: \d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2},\d{3}\s.+
-:::
-</dx-codeblock>
-采集到日志服务的数据为：
-<dx-codeblock>
-:::  log
-\_\_CONTENT__:2019-12-15 17:13:06,043 [main] ERROR com.test.logging.FooFactory:\njava.lang.NullPointerException\n    at com.test.logging.FooFactory.createFoo(FooFactory.java:15)\n    at com.test.logging.FooFactoryTest.test(FooFactoryTest.java:11)
-:::
-</dx-codeblock>
-:::
-::: 单行-完全正则格式
-完全正则格式通常用来处理结构化的日志，指将一条完整日志按正则方式提取多个 key-value 的日志解析模式。详情请参见  [完全正则格式](https://cloud.tencent.com/document/product/614/32817)。
-假设一条日志原始数据为：
-<dx-codeblock>
-:::  log
-10.135.46.111 - - [22/Jan/2019:19:19:30 +0800] "GET /my/course/1 HTTP/1.1" 127.0.0.1 200 782 9703 "http://127.0.0.1/course/explore?filter%5Btype%5D=all&filter%5Bprice%5D=all&filter%5BcurrentLevelId%5D=all&orderBy=studentNum" "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:64.0) Gecko/20100101 Firefox/64.0"  0.354 0.354
-:::
-</dx-codeblock>
-LogConfig 配置的参考如下：
-<dx-codeblock>
-:::  yaml
-apiVersion: cls.cloud.tencent.com/v1
-kind: LogConfig
-spec: 
-  clsDetail: 
-    topicId: xxxxxx-xx-xx-xx-xxxxxxxx
-    # 完全正则格式
-    logType: fullregex_log
-    extractRule: 
-      # 正则表达式，会根据()捕获组提取对应的value
-      logRegex: (\S+)[^\[]+(\[[^:]+:\d+:\d+:\d+\s\S+)\s"(\w+)\s(\S+)\s([^"]+)"\s(\S+)\s(\d+)\s(\d+)\s(\d+)\s"([^"]+)"\s"([^"]+)"\s+(\S+)\s(\S+).*
-      beginningRegex: (\S+)[^\[]+(\[[^:]+:\d+:\d+:\d+\s\S+)\s"(\w+)\s(\S+)\s([^"]+)"\s(\S+)\s(\d+)\s(\d+)\s(\d+)\s"([^"]+)"\s"([^"]+)"\s+(\S+)\s(\S+).*
-      # 提取的key列表，与提取的value的一一对应
-      keys:   ['remote_addr','time_local','request_method','request_url','http_protocol','http_host','status','request_length','body_bytes_sent','http_referer','http_user_agent','request_time','upstream_response_time']
-:::
-</dx-codeblock>
-采集到日志服务的数据为：
-<dx-codeblock>
-:::  log
-body_bytes_sent: 9703
-http_host: 127.0.0.1 
-http_protocol: HTTP/1.1
-http_referer: http://127.0.0.1/course/explore?filter%5Btype%5D=all&filter%5Bprice%5D=all&filter%5BcurrentLevelId%5D=all&orderBy=studentNum
-http_user_agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:64.0) Gecko/20100101 Firefox/64.0
-remote_addr: 10.135.46.111 
-request_length: 782
-request_method: GET
-request_time: 0.354
-request_url: /my/course/1
-status: 200
-time_local: [22/Jan/2019:19:19:30 +0800]
-upstream_response_time: 0.354
-:::
-</dx-codeblock>
-:::
-::: 多行-完全正则格式
-多行-完全正则模式适用于日志文本中一条完整的日志数据跨占多行（例如 Java 程序日志），可按正则表达式提取为多个 key-value 键值的日志解析模式。若不需要提取 key-value，请参阅多行全文格式进行配置。详情请参见  [多行-完全正则格式](https://cloud.tencent.com/document/product/614/52366)。
-
-假设一条日志原始数据为：
-<dx-codeblock>
-:::  log
-[2018-10-01T10:30:01,000] [INFO] java.lang.Exception: exception happened
-   at TestPrintStackTrace.f(TestPrintStackTrace.java:3)
-   at TestPrintStackTrace.g(TestPrintStackTrace.java:7)
-   at TestPrintStackTrace.main(TestPrintStackTrace.java:16)
-:::
-</dx-codeblock>
-LogConfig 配置的参考如下：
-<dx-codeblock>
-:::  yaml
-apiVersion: cls.cloud.tencent.com/v1
-kind: LogConfig
-spec: 
-  clsDetail: 
-    topicId: xxxxxx-xx-xx-xx-xxxxxxxx
-		#多行-完全正则格式
-		logType: multiline_fullregex_log
-		extractRule: 
-      #行首完全正则表达式，只有以日期时间开头的行才被认为是新一条日志的开头，否则就添加换行符\n并追加到当前日志的尾部
-			beginningRegex: \[\d+-\d+-\w+:\d+:\d+,\d+\]\s\[\w+\]\s.*
-      #正则表达式，会根据()捕获组提取对应的value
-      logRegex: \[(\d+-\d+-\w+:\d+:\d+,\d+)\]\s\[(\w+)\]\s(.*)
-			# 提取的 key 列表，与提取的 value 的一一对应
-			keys: 
-      - time 
-      - level 
-      - msg 
-:::
-</dx-codeblock>
-根据提取的 key，采集到日志服务的数据为：
-<dx-codeblock>
-:::  log
-time： 2018-10-01T10:30:01,000`
-level： INFO`
-msg：java.lang.Exception: exception happened
-   at TestPrintStackTrace.f(TestPrintStackTrace.java:3)
-   at TestPrintStackTrace.g(TestPrintStackTrace.java:7)
-   at TestPrintStackTrace.main(TestPrintStackTrace.java:16)
-:::
-</dx-codeblock>
-:::
-::: JSON\s格式
-JSON 格式日志会自动提取首层的 key 作为对应字段名。首层的 value 作为对应的字段值，以该方式将整条日志进行结构化处理，每条完整的日志以换行符 `\n` 为结束标识符。详情请参见  [JSON 格式](https://cloud.tencent.com/document/product/614/17419)。
-
-假设一条 JSON 日志原始数据为：
-<dx-codeblock>
-:::  log
-{"remote_ip":"10.135.46.111","time_local":"22/Jan/2019:19:19:34 +0800","body_sent":23,"responsetime":0.232,"upstreamtime":"0.232","upstreamhost":"unix:/tmp/php-cgi.sock","http_host":"127.0.0.1","method":"POST","url":"/event/dispatch","request":"POST /event/dispatch HTTP/1.1","xff":"-","referer":"http://127.0.0.1/my/course/4","agent":"Mozilla/5.0 (Windows NT 10.0; WOW64; rv:64.0) Gecko/20100101 Firefox/64.0","response_code":"200"}
-:::
-</dx-codeblock>
-LogConfig 配置的参考如下：
-<dx-codeblock>
-:::  log
-apiVersion: cls.cloud.tencent.com/v1
-kind: LogConfig
-spec:
-  clsDetail:
-    topicId: xxxxxx-xx-xx-xx-xxxxxxxx
-    # JSON格式日志
-    logType: json_log
-:::
-</dx-codeblock>
-采集到日志服务的数据为：
-<dx-codeblock>
-:::  log
-agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:64.0) Gecko/20100101 Firefox/64.0
-body_sent: 23
-http_host: 127.0.0.1
-method: POST
-referer: http://127.0.0.1/my/course/4
-remote_ip: 10.135.46.111
-request: POST /event/dispatch HTTP/1.1
-response_code: 200
-responsetime: 0.232
-time_local: 22/Jan/2019:19:19:34 +0800
-upstreamhost: unix:/tmp/php-cgi.sock
-upstreamtime: 0.232
-url: /event/dispatch
-xff: -
-:::
-</dx-codeblock>
-:::
-::: 分隔符格式
-分隔符日志是指一条日志数据可以根据指定的分隔符将整条日志进行结构化处理，每条完整的日志以换行符 `\n` 为结束标识符。日志服务在进行分隔符格式日志处理时，您需要为每个分开的字段定义唯一的 key。详情请参见 [分隔符格式](https://cloud.tencent.com/document/product/614/17420)。
-
-假设原始日志为：
-<dx-codeblock>
-:::  log
-10.20.20.10 ::: [Tue Jan 22 14:49:45 CST 2019 +0800] ::: GET /online/sample HTTP/1.1 ::: 127.0.0.1 ::: 200 ::: 647 ::: 35 ::: http://127.0.0.1/
-:::
-</dx-codeblock>
-LogConfig 配置的参考如下：
-<dx-codeblock>
-:::  yaml
-apiVersion: cls.cloud.tencent.com/v1
-kind: LogConfig
-spec: 
-  clsDetail: 
-    topicId: xxxxxx-xx-xx-xx-xxxxxxxx
-    #分隔符日志
-    logType: delimiter_log
-    extractRule: 
-      #分隔符
-      delimiter: ':::'
-      #提取的key列表，与被分割的字段一一对应
-      keys: ['IP','time','request','host','status','length','bytes','referer']
-:::
-</dx-codeblock>
-采集到日志服务的数据为：
-<dx-codeblock>
-:::  log
-IP: 10.20.20.10 
-bytes: 35
-host: 127.0.0.1 
-length: 647
-referer: http://127.0.0.1/
-request: GET /online/sample HTTP/1.1
-status: 200
-time: [Tue Jan 22 14:49:45 CST 2019 +0800]
-:::
-</dx-codeblock>
 :::
 </dx-tabs>
 
 
+### 配置容器文件路径 CRD 示例
+<dx-tabs>
+::: 指定工作负载
 
-
-
-## 创建 CRD 投递日志到 CKafka
-当前支持通过配置 CRD 采集 TKE 上的 Pod 日志至自建 Kafka 或者 CKafka，需要按如下配置自行定义日志源及日志消费端，CRD 配置完成后，日志采集器会按规则进行日志采集。
-CRD 具体配置如下：
-```
+```yaml
 apiVersion: cls.cloud.tencent.com/v1
-kind: LogConfig                          ## 默认值
+kind: LogConfig
 metadata:
-  name: test                                ## CRD资源名，在集群内唯一
+  name: test
 spec:
-  kafkaDetail:
-    kafkaType:       ## 必填，kafka 类型，“ckafka” 表示ckafka，“” 表示自建 kafka
-      type: string
-    instanceId:     ## ckafka实例ID
-      type: string
-    brokers: xxxxxx       ## 必填，broker地址，一般是域名:端口，多个地址以“,”分隔
-    topic: xxxxxx         ## 必填，topic名称        
-    messageKey:           ## 选填，指定pod字段作为key上传到指定分区
-      valueFrom:
-        fieldRef:
-          fieldPath: metadata.name   
-    timestampKey:          ## 时间戳的key，默认是@timestamp
-    timestampFormat:       ## 时间戳的格式，默认是double
+  clsDetail:
+    .......
+    topicId: xxxx-xx-xx-xx-xxxx
   inputDetail:
-    type: container_stdout                  ## 采集日志的类型，包括container_stdout（容器标准输出）、container_file（容器文件）
-
-    containerStdout:                        ## 容器标准输出
-      namespace: default                    ## 采集容器的kubernetes命名空间，如果不指定，代表所有命名空间
-      allContainers: false                  ## 是否采集指定命名空间中的所有容器的标准输出
-      container: xxx                        ## 采集日志的容器名，此处可不填
-      includeLabels:                        ## 采集包含指定label的Pod
-        k8s-app: xxx                        ## 只采pod标签中配置"k8s-app=xxx"的pod产生的日志，与workloads、allContainers=true不能同时指定
-      workloads:                            ## 要采集的容器的Pod所属的kubernetes workload
-      - namespace: prod                     ## workload的命名空间
-        name: sample-app                    ## workload的名字
-        kind: deployment                    ## workload类型，支持deployment、daemonset、statefulset、job、cronjob
-        container: xxx                      ## 要采集的容器名，如果填空，代表workload Pod中的所有容器
-
-    containerFile:                          ## 容器内文件
-      namespace: default                    ## 采集容器的kubernetes命名空间，必须指定一个命名空间
-      container: xxx                        ## 采集日志的容器名，此处可填*
-      includeLabels:                        ## 采集包含指定label的Pod
-        k8s-app: xxx                        ## 只采pod标签中配置"k8s-app=xxx"的pod产生的日志，与workload不能同时指定
-      workload:                             ## 要采集的容器的Pod所属的kubernetes workload
-        name: sample-app                    ## workload的名字                  
-        kind: deployment                    ## workload类型，支持deployment、daemonset、statefulset、job、cronjob
-      logPath: /opt/logs                    ## 日志文件夹，不支持通配符
-      filePattern: app_*.log                ## 日志文件名，支持通配符 * 和 ? ，* 表示匹配多个任意字符，? 表示匹配单个任意字符
-     
-      ...
-```
-
-
-## 采集日志的类型
-### 容器标准输出
-#### 示例1：采集 default 命名空间中的所有容器的标准输出
-```
-apiVersion: cls.cloud.tencent.com/v1
-kind: LogConfig
-spec:
-  inputDetail:
-    type: container_stdout
-    containerStdout:
-      namespace: default
-      allContainers: true
- ...
-```
-
-#### 示例2：采集 production 命名空间中属于 ingress-gateway deployment 的 pod 中的容器的标准输出
-```
-apiVersion: cls.cloud.tencent.com/v1
-kind: LogConfig
-spec:
-  inputDetail:
-    type: container_stdout
-    containerStdout:
-      allContainers: false
-      workloads:
-      - namespace: production
-        name: ingress-gateway
-        kind: deployment
-  ...
-```
-
-#### 示例3：采集 production 命名空间下 pod 标签中包含 “k8s-app=nginx” 的 pod 中的容器的标准输出
-```
-apiVersion: cls.cloud.tencent.com/v1
-kind: LogConfig
-spec:
-  inputDetail:
-    type: container_stdout
-    containerStdout:
-      namespace: production
-      allContainers: false
-      includeLabels:
-        k8s-app: nginx
-  ...
-```
-
-### 容器文件
-#### 示例1：采集 production 命名空间下属于 ingress-gateway deployment 的 pod 中的 nginx 容器中 `/data/nginx/log/` 路径下名为 `access.log` 的文件
-```
-apiVersion: cls.cloud.tencent.com/v1
-kind: LogConfig
-spec:
-  topicId: xxxxxx-xx-xx-xx-xxxxxxxx
-  inputDetail:
-    type: container_file
     containerFile:
-      namespace: production
+      container: prod
+      filePattern: '*.log'
+      logPath: /tmp/logs
+      namespace: kube-system
       workload:
-        name: ingress-gateway
-        type: deployment
-      container: nginx
-      logPath: /data/nginx/log
-      filePattern: access.log
-  ...
-```
-
-#### 示例2：采集 production 命名空间下 pod 标签包含 “k8s-app=ingress-gateway” 的 pod 中的 nginx 容器中 `/data/nginx/log/` 路径下名为 `access.log` 的文件
-```
-apiVersion: cls.cloud.tencent.com/v1
-kind: LogConfig
-spec:
-  inputDetail:
+        kind: deployment
+        name: sample-app
     type: container_file
-    containerFile:
-      namespace: production
-      includeLabels:
-        k8s-app: ingress-gateway
-      container: nginx
-      logPath: /data/nginx/log
-      filePattern: access.log
-  ...
 ```
-
-### 主机文件
-#### 示例：采集主机 `/data/` 路径下所有 `.log` 文件
-```
+:::
+::: 指定 Pod Labels
+```yaml
 apiVersion: cls.cloud.tencent.com/v1
 kind: LogConfig
+metadata:
+  name: test
 spec:
+  clsDetail:
+    .......
+    topicId: xxxx-xx-xx-xx-xxxx
   inputDetail:
-    type: host_file
-    hostFile:
-      logPath: /data
-      filePattern: *.log
-  ...
+    containerFile:
+      container: prod
+      filePattern: '*.log'
+      includeLabels:
+        key1: v1
+      excludeLabels:
+        key2: v2
+      logPath: /tmp/logs
+      namespace: default,kube-public
+    type: container_file
 ```
+:::
+</dx-tabs>
 
-### 元数据（Metadata）
-容器标准输出（container_stdout）以及容器文件（container_file），除原始的日志内容外，还需携带容器场景的元数据（例如产生日志的容器 ID）一起上报至日志服务。方便用户查看日志时追溯来源或根据容器标识、特征（例如容器名及 labels）进行检索。
-元数据如下表：
-<table>
-	<tr>
-		<th>字段名</th> <th>含义</th>
-	</tr>
-	<tr>
-		<td>cluster_id</td> <td>日志所属的集群 ID。</td>
-	</tr>
-	<tr>
-		<td>container_name</td> <td>日志所属的容器名称。</td>
-	</tr>
-	<tr>
-		<td>container_id</td> <td>日志所属的容器 ID。</td>
-	</tr>
-	<tr>
-		<td>image_name</td> <td>日志所属容器的镜像名称 IP。</td>
-	</tr>
-	<tr>
-		<td>namespace</td> <td>日志所属 Pod 的 namespace。</td>
-	</tr>
-	<tr>
-		<td>pod_uid</td> <td>日志所属 Pod 的 UID。</td>
-	</tr>
-	<tr>
-		<td>pod_name</td> <td>日志所属 Pod 的名字。</td>
-	</tr>
-	<tr>
-		<td>pod_ip</td> <td>日志所属 Pod 的 IP。</td>
-	</tr>
-	<tr>
-		<td>pod_lable_{label name}</td> <td>日志所属 Pod 的 label（例如一个 Pod 带有两个 label：app=nginx，env=prod，
-则在上传的日志会附带两个 metedata：pod_label_app:nginx，pod_label_env:prod）。
-</td>
-	</tr>
-</table>
-
-
-
-
-
+### 配置节点文件路径 CRD 示例
+```yaml
+apiVersion: cls.cloud.tencent.com/v1
+kind: LogConfig
+metadata:
+  creationTimestamp: "2022-03-13T12:48:49Z"
+  generation: 4
+  name: test
+  resourceVersion: "11729531"
+  selfLink: /apis/cls.cloud.tencent.com/v1/logconfigs/test
+  uid: 233f4b72-cfef-4a43-abb8-e4d033185097
+spec:
+  clsDetail:
+    .......
+    topicId: xxxx-xx-xx-xx-xxxx
+  inputDetail:
+    hostFile:
+      customLabels:
+        testmetadata: v1
+      filePattern: '*.log'
+      logPath: /var/logs
+    type: host_file
+```

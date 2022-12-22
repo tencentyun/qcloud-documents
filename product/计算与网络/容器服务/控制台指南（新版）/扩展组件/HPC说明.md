@@ -34,7 +34,7 @@ HPC（HorizontalPodCronscaler）是一种可以对 K8S workload 副本数进行�
 
 #### 环境要求
 
-<dx-alert infotype="explain" title=" ">
+<dx-alert infotype="explain" title="">
 您在创建集群时选择1.12.4以上版本集群，无需修改任何参数，开箱可用。
 </dx-alert>
 

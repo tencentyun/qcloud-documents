@@ -47,7 +47,7 @@
 
 判断实例的操作系统类型，选择不同的检查方式。
 - Linux 操作系统，请 [检查 Linux 内核参数和防火墙设置](#CheckLinux)。
-- Windows 操作系统，请 [检查 Windows 防火墙设置](#CheckWindows)。
+- Windows 操作系统，请 [检查 Windows 防火墙设置](#CheckWindows)，若非防火墙问题，可尝 [重置 Windows 网络设置](#reset)。
 
 
 #### 检查 Linux 内核参数和防火墙设置[](id:CheckLinux)
@@ -123,8 +123,18 @@ iptables -A OUTPUT -p icmp --icmp-type echo-reply -j ACCEPT
 国家工信部规定，对未取得许可或者未履行备案手续的网站不得从事互联网信息服务，否则就属于违法行为。为不影响网站长久正常运行，如需开办网站，建议您先办理网站备案，待备案成功取得通信管理局下发的 ICP 备案号后，才开通访问。
 - 如果您的域名没有备案，请先进行 [域名备案](https://console.cloud.tencent.com/beian)。
 - 如果您使用的是腾讯云的域名服务，您可以登录 [域名服务控制台](https://console.cloud.tencent.com/domain) 查看相应的域名情况。
-- 如果您的域名已备案，请 [检查域名解析](#CheckDNS
+- 如果您的域名已备案，请 [检查域名解析](#CheckDNS)。
 
+[](id:reset)
+### 重置 Windows 网络设置
+
+1. 请确认您的 VPC 网络是否支持 DHCP（如为2018年6月后创建的 VPC 网络，均支持 DHCP），若不支持，请确认网络设置中的静态 IP 是否正确。
+2. 如果支持 DHCP，查看 DHCP 分配到的内网 ip 是否正确，若不正确，您可通过官网的登录功能（VNC 登录），以管理员身份运行 PowerShell，在其中执行 `ipconfig /release` 以及 `ipconfig/renew` （无需重启机器）尝试令 DHCP 组件重新获取 IP。
+3. 若 DHCP 分配到的IP正确，但网络仍旧不通，可使用开始菜单中的【运行】功能，输入` ncpa.cpl `并单击确定。打开本地连接，尝试禁用、启用网卡。
+4. 若以上方式仍不能解决问题，可以管理员身份执行在 CMD 中执行以下命令并重启机器。
+```plantext
+reg delete "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Profiles"  /f
+```
 
 ### 检查域名解析[](id:CheckDNS)
 

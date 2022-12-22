@@ -1,7 +1,7 @@
-本文介绍云原生网关 Kong 如何将请求日志转存到 Kafka 实例。
+本文介绍云原生 API 网关 Kong 如何将请求日志转存到 Kafka 实例。
 
 ## 操作场景
-提供自建的 Kafka 以及对应的 topic 或使用腾讯云 [Ckafka](https://cloud.tencent.com/document/product/597) 产品, 根据下述操作，就可以将云原生网关的流量日志落盘到该 Kafka 实例上。 
+提供自建的 Kafka 以及对应的 topic 或使用腾讯云 [Ckafka](https://cloud.tencent.com/document/product/597) 产品, 根据下述操作，就可以将云原生 API 网关的流量日志落盘到该 Kafka 实例上。 
 
 ## 操作步骤
 1. 自定义插件的文件目录格式，其中 handler.lua 与 schema.lua 为必要文件。

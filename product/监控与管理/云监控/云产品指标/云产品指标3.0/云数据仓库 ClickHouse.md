@@ -55,7 +55,7 @@ Namespace=QCE/CDWCH
 | GlobalSessions                | 全局 session 个数  | 个    | InstanceId、IP |
 | ConnectionRejected            | 拒绝链接个数       | 个    | InstanceId、IP |
 | JvmMemoryPoolBytesUsed        | jvm 内存池使用     | MB    | InstanceId、IP |
-| PacketsReceived               | 接收传输包的速率   | 个/秒 | InstanceId、IP |
+| PacketsReceived               | 接收传输包的速率   | 个/秒 | InstanceId、IP|
 | RequestCommitQueued           | 请求提交队列个数   | 个    | InstanceId、IP |
 | PrepProcessorQueueTimeMs      | 预处理队列等待时间 | ms    | InstanceId、IP |
 | WatchCount                    | zk_watch 个数      | 个    | InstanceId、IP |
@@ -98,4 +98,3 @@ Namespace=QCE/CDWCH
 &Namespace=QCE/CDWCH
 &Instances.N.Dimensions.0.Name=InstanceId
 &Instances.N.Dimensions.0.Value=具体集群 ID
-

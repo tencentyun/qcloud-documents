@@ -10,7 +10,7 @@
 - 网站部分内容做过调整，原始 URL 已经无法访问，可以重定向到一个新的提供服务的 URL。
 
 
-<dx-alert infotype="notice" title=" ">
+<dx-alert infotype="notice" title="">
 - 当用户使用重定向后，将会多出如下一条注解，该注解表明 Ingress 的转发规则由 TKE 管理，后期不能被删除和修改，否则将和 CLB 侧设置的重定向规则冲突。
 <dx-codeblock>
 :::  yaml
@@ -56,15 +56,15 @@ Ingress 支持通过控制台和 YAML 两种方式进行重定向，具体步骤
    - **手动**：会在“**转发配置**”下方出现一栏“**重定向转发配置**”。
      - “**转发配置**”里面填写的方式和普通 Ingress 的转发配置一样，后端是某个服务。
      - “**重定向转发配置**”里面填写的方式和普通 Ingress 的转发配置一样，但后端是某个“转发配置”里的某条路径。
-       ![](https://main.qcloudimg.com/raw/7f045376ed79348b2cc67e9042c23f98.png)
+       ![](https://qcloudimg.tencent-cloud.cn/raw/fbdfcb1275d668462d3dc9fcfa606f54.png)
    - **自动**：仅对“**转发配置**”里的协议为 “HTTPS” 的路径生效，都将自动生成一个 “HTTP” 的路径，路径完全一样，只有协议不一样。“HTTP” 的路径的转发规则自动重定向到 “HTTPS” 的路径。
-     ![](https://main.qcloudimg.com/raw/372ed3c7e0d63f07fb54decf943cf3bd.png)
+       ![](https://qcloudimg.tencent-cloud.cn/raw/c1a0ecf33f2665deb36facf4b1079870.png)
 :::
 ::: YAML\s方式
 
 #### 自动重定向：HTTP 重定向到 HTTPS
 
-<dx-alert infotype="notice" title=" ">
+<dx-alert infotype="notice" title="">
 仅对 HTTPS 协议的转发规则生效。
 </dx-alert>
 在 Ingress YAML 中配置如下注解：

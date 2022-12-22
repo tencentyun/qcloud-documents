@@ -71,4 +71,3 @@ baseurl=http://mirrors.tencentyun.com/epel-archive/6/$basearch/
 9. 至此已完成 YUM 源切换，您可使用 `yum install` 命令安装所需软件。
 
 
-

@@ -32,7 +32,10 @@ cd rdesktop-1.8.3
 ```
 3. 依次执行以下命令，编译安装 rdesktop。
 ```shell
-./configure 
+yum install -y libX11-devel openssl-devel
+```
+```shell
+./configure --disable-credssp --disable-smartcard 
 ```
 ```shell
 make
