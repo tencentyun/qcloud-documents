@@ -176,7 +176,7 @@
 <dx-tabs>
 ::: 通过控制台设置
 在“新建 Workload 页面”，填写 GPU 相关资源，如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/9539ca990e24c089842113e25e6961fc.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/122b5487e234952701ff798a8e78c4a8.png)
 :::
 ::: 通过 YAML 设置
    通过 YAML 来设置相关 qGPU 资源：

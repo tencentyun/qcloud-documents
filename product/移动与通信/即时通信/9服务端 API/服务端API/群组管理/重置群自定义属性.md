@@ -6,9 +6,9 @@
 
 |群组类型 ID|是否支持此 REST API|
 |-----------|------------|
-|Private|不支持，同新版本中的 Work（好友工作群）|
-|Public|不支持|
-|ChatRoom|不支持，同新版本中的 Meeting（临时会议群）|
+|Private|支持，同新版本中的 Work（好友工作群）|
+|Public|支持|
+|ChatRoom|支持，同新版本中的 Meeting（临时会议群）|
 |AVChatRoom|支持|
 |Community（社群）|不支持|
 
