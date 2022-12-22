@@ -65,8 +65,7 @@ wget https://goosefs-cfg-bj-1308338417.cos.ap-beijing.myqcloud.com/client_env_pa
 ```
 wget https://goosefs-cfg-bj-1308338417.cos.ap-beijing.myqcloud.com/client_env_package/agent/install-goosefsx-client.sh
 ```
->?
->从任何地域的对象存储 COS 桶下载的部署脚本是一样的。
+>?从任何地域的对象存储 COS 桶下载的部署脚本是一样的。
 
 2. 修改部署脚本的权限，执行命令：
 ```
