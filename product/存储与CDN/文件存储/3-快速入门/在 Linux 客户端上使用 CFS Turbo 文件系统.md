@@ -14,7 +14,7 @@
 
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm)。
 2. 在实例列表中找到刚购买的云服务器，在右侧操作栏中单击**登录**。
-3. 在弹出的**登录Linux实例**窗口，选择**标准登录方式**，单击**立即登录**。
+3. 在弹出的**登录 Linux 实例**窗口，选择**标准登录方式**，单击**立即登录**。
 4. 在打开的 WebShell 登录页面，输入用户名和密码，单击**确定**。
 5. 执行如下命令，下载自动化工具。
 ```
@@ -93,7 +93,7 @@ sudo ./cfs_turbo_client_setup
 
 </table>
  
->!客户端版本不仅与操作系统版本相关，更重要的是内核的对应关系。目前Turbo支持兼容性列表内云上默认公共镜像的内核，若有特殊内核的需求，可 [提交工单与我们联系](https://cloud.tencent.com/online-service?source=PRESALE)。
+>!客户端版本不仅与操作系统版本相关，更重要的是内核的对应关系。目前 Turbo 支持兼容性列表内云上默认公共镜像的内核，若有特殊内核的需求，可 [提交工单与我们联系](https://cloud.tencent.com/online-service?source=PRESALE)。
 
 8. 登录文件存储控制台，进入 [文件系统](https://console.cloud.tencent.com/cfs/fs?rid=1) 管理页面。
 9. 单击需要操作的 Turbo 文件系统 ID/名称，选择**挂载点信息**页签。
@@ -116,4 +116,4 @@ sudo mount.lustre -o user_xattrXXXXXXXXXXXXXXXXXXX
 ```shell
 sudo mount.lustre XXXXXXXXXXXXXXXXXXX
 ```
-说明：若需要只读挂载，可在挂载时添加-o ro的指令。
+>?若需要只读挂载，可在挂载时添加 -o ro 的指令。
