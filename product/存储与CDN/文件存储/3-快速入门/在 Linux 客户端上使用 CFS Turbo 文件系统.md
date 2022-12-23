@@ -92,7 +92,7 @@ sudo ./cfs_turbo_client_setup
     </tr>
 
 </table>
-注意：客户端版本不仅与操作系统版本相关，更重要的是内核的对应关系。目前Turbo支持兼容性列表内云上默认公共镜像的内核，若有特殊内核的需求，[提交工单与我们联系](https://cloud.tencent.com/online-service?source=PRESALE&from=console_bar_cvm|instance|index)
+>!客户端版本不仅与操作系统版本相关，更重要的是内核的对应关系。目前Turbo支持兼容性列表内云上默认公共镜像的内核，若有特殊内核的需求，可 [提交工单与我们联系](https://cloud.tencent.com/online-service?source=PRESALE&from=console_bar_cvm|instance|index)。
 
 8. 登录文件存储控制台，进入 [文件系统](https://console.cloud.tencent.com/cfs/fs?rid=1) 管理页面。
 9. 单击需要操作的 Turbo 文件系统 ID/名称，选择**挂载点信息**页签。
