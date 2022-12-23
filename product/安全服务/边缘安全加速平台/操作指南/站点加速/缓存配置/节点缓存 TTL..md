@@ -37,7 +37,7 @@
 <td>-</td>
 </tr>
 </tbody></table>
- 遵循默认缓存策略[](id:mr)：
+<p><a id="mr"></a>遵循默认缓存策略：</p>
 <table>
 <thead>
 <tr>
