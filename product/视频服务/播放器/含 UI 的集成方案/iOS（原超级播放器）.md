@@ -495,8 +495,7 @@ playerModel.multiVideoURLs = multiVideoURLs;
 支持在进度条关键位置添加文字介绍，用户单击后可显示打点位置的文字信息，以快速了解当前位置的视频信息。单击视频信息后，可以 seek 到打点信息位置。
 
 您可在腾讯云视立方 App > 播放器 > 播放器组件 > 腾讯云 视频中，使用全屏观看模式后体验。
-
-![](http://1500005830.vod2.myqcloud.com/6c9a5118vodcq1500005830/9f41662a387702307128322419/WnDHUMF9V3YA.jpg)
+![](https://qcloudimg.tencent-cloud.cn/raw/3359f1b3ec8371974149b474adcd7b0a.png)
 
 #### 雪碧图
 
