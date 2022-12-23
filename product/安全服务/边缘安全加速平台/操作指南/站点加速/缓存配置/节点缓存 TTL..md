@@ -33,7 +33,7 @@
 <td>-</td>
 </tr>
 <tr>
-<td>自定义时间覆盖</td>
+<td>自定义时间</td>
 <td>-</td>
 </tr>
 </tbody></table>
