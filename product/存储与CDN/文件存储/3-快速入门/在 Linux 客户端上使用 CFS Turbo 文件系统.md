@@ -42,8 +42,8 @@ sudo ./cfs_turbo_client_setup
 <table>
 <table>
     <tr>
-        <td width = 30%>操作系统类型</td>
-        <td>操作系统版本</td>
+        <td width=30%>操作系统类型</td>
+        <td width=40%>操作系统版本</td>
     </tr>
     <tr>
         <td rowspan=8>CentOS</td>
