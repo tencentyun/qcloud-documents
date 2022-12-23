@@ -14,12 +14,12 @@
 2. 在缓存配置页面，选择所需站点，单击节点缓存 TTL 模块的**设置**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/923650d5517b0e4155915e242f3d27b4.png)
 配置项说明：
- - Cache-Control 头：
+ - 遵循源站 Cache-Control 头：
 <table>
 <thead>
 <tr>
 <th width="30%">配置项</th>
-<th>源站无 Cache-Control 头时含三个选项</th>
+<th>源站无 Cache-Control 头时</th>
 <th>详情</th>
 </tr>
 </thead>
@@ -37,7 +37,7 @@
 <td>-</td>
 </tr>
 </tbody></table>
- - 遵循默认缓存策略[](id:mr)：
+ 遵循默认缓存策略[](id:mr)：
 <table>
 <thead>
 <tr>
