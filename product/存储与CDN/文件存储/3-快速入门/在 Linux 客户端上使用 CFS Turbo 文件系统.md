@@ -30,19 +30,19 @@ sudo ./cfs_turbo_client_setup
 ```
  - 若返回如下信息，即表示安装成功。
 ![](https://main.qcloudimg.com/raw/71cc3fdd2e94887cf4976bb80692792c.png)
- - 若返回如下信息，即表示暂不支持该内核版本，可[提交工单与我们联系](https://cloud.tencent.com/online-service?source=PRESALE&from=console_bar_cvm|instance|index)
+ - 若返回如下信息，即表示暂不支持该内核版本，可 [提交工单与我们联系](https://cloud.tencent.com/online-service?source=PRESALE&from=console_bar_cvm|instance|index)
 ![](https://main.qcloudimg.com/raw/cf1eb0ca5d9f5097099f472ae3ff7929.png)
 
 
 <span id="ManualInstallation"></span>
-### 兼容性列表
 
+### 兼容性列表
 
 <span id="CVMKernelVersion"></span>
 <table>
 <table>
     <tr>
-        <td>操作系统类型</td>
+        <td width = 30%>操作系统类型</td>
         <td>操作系统版本</td>
     </tr>
     <tr>
