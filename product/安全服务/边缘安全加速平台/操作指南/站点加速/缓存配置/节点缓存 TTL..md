@@ -53,8 +53,6 @@
 <td>源站不含 Last-Modified 头</td>
 <td>依据文件后缀缓存<ul><li>动态文件后缀：php、aspx、asp、jsp、do、dwr、cgi、fcgi、action、ashx、axd、json，不缓存。</li><li>静态文件后缀：以下列举的文件后缀缓存2小时，未匹配以下文件后缀的则不缓存。<ul><li> 图片：jpg、png、jpeg、webp、gif、heif、heic、kpg、ico。</li><li>网页：mp4、mp3、m3u8、ts、m4a、avi、m4s、ogg。</li><li>网页：html、js、css。</li><li>zip、7z、tar、br、gz、rar、bz2。</li><li>文档：doc、docx、xls、xlsx、pdf、ppt、pptx。</li><li>应用程序：apk、exe、bin。</li><li>其它：vsv、iso、jar、swf、chunk、atlas。</li></ul></td>
 </tr>
-<tr>
-</tr>
 </tbody></table>
   - 不缓存：不在节点缓存资源。
   - 自定义时间：自定义资源缓存时长，默认开启“强制缓存”。
