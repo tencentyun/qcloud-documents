@@ -1,8 +1,12 @@
 Linux 云服务器配置 IPv6 有两种方式：[工具配置](#gjpz) 和 [手动配置](#manual)。请根据您的实际情况选择对应的方式，推荐您使用更高效的自动配置工具配置 IPv6 地址。
 
 >?默认云服务器的 IPv6 地址仅具有私网通信能力，若您想要通过该 IPv6 地址访问公网或被公网访问，则需通过弹性公网 IPv6 为该 IPv6 地址开通公网能力，操作详情请参见 [为云服务器的 IPv6 地址开通公网](https://cloud.tencent.com/document/product/1142/47665#step4)。
+>
 
 - **工具配置**：指通过工具一键配置 IPv6，根据镜像类型及购买时间的不同，使用的配置方法也不同，具体如下表所示。
+<dx-alert infotype="explain" title="">
+cent8.x/ubuntu 16/ubuntu 20无需单独配置，IPv6 信息将自动下发。
+</dx-alert>
 <table>
 <tbody>
 <tr>
