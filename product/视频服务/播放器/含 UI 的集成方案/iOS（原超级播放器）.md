@@ -502,7 +502,7 @@ playerModel.multiVideoURLs = multiVideoURLs;
 支持用户在拖拽进度条或执行快进操作时查看视频缩略图，以快速了解指定进度的视频内容。缩略图预览基于视频雪碧图实现，您可以在云点播控制台中生成视频文件雪碧图，或直接生成雪碧图文件。
 您可在腾讯云视立方 App > 播放器 > 播放器组件 > 腾讯云 视频中，使用全屏观看模式后体验。
 
-![](http://1500005830.vod2.myqcloud.com/6c9a5118vodcq1500005830/ad1f6b93387702307128908283/6YIALRXty4EA.jpg)
+![](https://qcloudimg.tencent-cloud.cn/raw/b311b34b30f46a962ea4c5138d1c2eb1.png)
 
 ```objective-c
 // 步骤1：通过 playWithModelNeedLicence 播放器视频，才能在 onPlayEvent 回调中获取到雪碧图和打点信息数据
