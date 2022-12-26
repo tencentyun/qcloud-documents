@@ -47,7 +47,7 @@ get A.txt /home/A.txt
 :::
 </dx-tabs>
 
-### MacOS FTP
+### Mac OS 系统使用 FTP 服务
 
 #### MacOS 本地终端
 1. 打开 MacOS 终端。
@@ -61,10 +61,12 @@ brew link --overwrite inetutils
 若 MacOS 系统的本地机器已安装了 FTP，请跳过此步骤，执行下一步。
 </dx-alert>
 3. 执行以下命令，在本地机器上连接轻量应用服务器，并根据界面提示，输入 FTP 服务的用户名和密码：
+```Plaintext
  	FTP 轻量应用服务器公网 IP。
+```
 4. 进入如下界面，即表示连接成功。
 
- <img style="width:600px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/d971ac0e9ce5a4e130f7293f2db86938.png" />
+ <img style="width:600px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/3e011bb9c5f06656502739d8b62a1508.png" />
 
 ### FileZilla
 1. 下载并安装 FileZilla。
