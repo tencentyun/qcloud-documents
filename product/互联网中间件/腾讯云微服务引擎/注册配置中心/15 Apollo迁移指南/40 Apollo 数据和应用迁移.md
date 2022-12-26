@@ -154,11 +154,11 @@ TSE Apollo 迁移任务支持通过公网的方式，接入源数据库类型为
 </tr>
 <tr>
 <td>实例参数检查</td>
-<td>1、源库变量 connect_timeout 必须大于10。 2、源库表的 row_format 不能为 FIXED。 3、源库表lower_case_table_names 变量必须为0。</td>
+<td>1. 源库变量 connect_timeout 必须大于10。 <br>2. 源库表的 row_format 不能为 FIXED。 <br>3. 源库表lower_case_table_names 变量必须为0。</td>
 </tr>
 <tr>
 <td>BINLOG相关参数检查</td>
-<td>1、log_bin 变量必须设置为 ON。 2、binlog_format 变量必须设置为 ROW。 3、binlog_row_image 必须设置为 FULL。 4、server_id 参数需要手动设置，且值不能设置为0。 5、不允许设置 do_db，ignore_db。</td>
+<td>1. log_bin 变量必须设置为 ON。 <br>2. binlog_format 变量必须设置为 ROW。 <br>3. binlog_row_image 必须设置为 FULL。 <br>4. server_id 参数需要手动设置，且值不能设置为0。 <br>5. 不允许设置 do_db，ignore_db。</td>
 </tr>
 <tr>
 <td>外键依赖检查</td>
