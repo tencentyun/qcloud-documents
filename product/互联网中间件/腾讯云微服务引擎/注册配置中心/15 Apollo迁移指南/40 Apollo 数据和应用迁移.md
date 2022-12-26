@@ -143,7 +143,7 @@ TSE Apollo 迁移任务支持通过公网的方式，接入源数据库类型为
 </thead>
 <tbody><tr>
 <td>innodb_stats_on_metadata</td>
-<td>源数据库环境变量参数 innodb_stats_on_metadata 需要设置为 OFF。  innodb_stats_on_metadata 参数开启时，每当查询 information_schema 元数据库里的表，Innodb 就会更新 information_schema.statistics 表，导致访问时间变长。关闭后可加快对于 schema 库表的访问。 MySQL 5.6.6 之前版本 innodb_stats_on_metadata 参数预设值为 ON，需要修改为 OFF。MySQL 5.6.6 及其以后的版本预设值为 OFF，不存在问题。</td>
+<td>源数据库环境变量参数 innodb_stats_on_metadata 需要设置为 OFF。  innodb_stats_on_metadata 参数开启时，每当查询 information_schema 元数据库里的表，Innodb 就会更新 information_schema.statistics 表，导致访问时间变长。关闭后可加快对于 schema 库表的访问。 <br>MySQL 5.6.6 之前版本 innodb_stats_on_metadata 参数预设值为 ON，需要修改为 OFF。MySQL 5.6.6 及其以后的版本预设值为 OFF，不存在问题。</td>
 </tr>
 <tr>
 <td>数据库版本</td>
