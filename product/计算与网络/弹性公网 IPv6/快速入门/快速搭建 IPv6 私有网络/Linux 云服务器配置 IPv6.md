@@ -15,13 +15,6 @@ cent8.x/ubuntu 16/ubuntu 20无需单独配置，IPv6 信息将自动下发。
 <th><strong>购买时间</strong></th>
 <th><strong>是否默认已开启 IPv6</strong></th>
 <th><strong>工具配置<br>（推荐）</strong></th>
-</tr><tr>
-<td >CentOS 8.0以上</td>
-<td >任何时间购买</td>
-<td >是</td>
-<td >
-<a href="#open">config_ipv6 工具</a>
-</td>
 </tr>
 <tr >
 <td rowspan="2">CentOS 7.5/CentOS 7.6</td>
