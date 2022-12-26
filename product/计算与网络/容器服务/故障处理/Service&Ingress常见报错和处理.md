@@ -11,11 +11,11 @@ Service/Ingress 作为用户直接对外提供服务的资源对象，如果异�
 <dx-tabs>
 ::: 通过控制台
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的**集群**。
-2. 在“集群管理”页面中，选择需要更新 YAML 的集群 ID，进入待更新 YAML 的集群管理页面。
+2. 在“集群管理”页面中，选择需要更新 YAML 的集群 ID，进入集群基本信息页面。
 3. 选择**服务与路由** > **Service** 或 **Ingress**，进入 Service 或 Ingress 信息页面。
 4. 单击某个具体的 Service 或 Ingress 名称。
 5. 在“事件”页签，可查看当前 Service 或 Ingress 的事件信息。如下图所示，可以查看当前 Service/Ingress 的 Event 报错代码。
- ![](https://qcloudimg.tencent-cloud.cn/raw/eb6f6147a577f73c9104fc0f616ac01f.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/4043c4e9101bfbe3a95ec0c0e361f62e.png)
 >! 资源事件只保存最近 1 小时内发生的事件，请尽快查阅。
 :::
 ::: 通过命令行
