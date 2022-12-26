@@ -1,4 +1,4 @@
-使用边缘函数生成 JSON，并在浏览器预览 JSON。
+使用边缘函数生成 JSON，并在浏览器端访问预览该 JSON。
 
 ## 示例代码
 
@@ -25,7 +25,7 @@ addEventListener('fetch', event => {
 
 ## 示例预览
 
-在浏览器地址栏中输入边缘函数触发规则，即可预览到示例效果。
+在浏览器地址栏中输入匹配到边缘函数触发规则的 URL，即可预览到示例效果。
 
 <img src="https://user-images.githubusercontent.com/117053395/207530749-40607bfc-8207-4dfd-9fd7-9ea5de6940d5.png" width=609px>
 

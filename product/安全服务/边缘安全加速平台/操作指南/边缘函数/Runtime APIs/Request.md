@@ -60,7 +60,7 @@ const request = new Request(input: string | Request, init?: RequestInit)
       <td>string</td>
       <td>否</td>
       <td>GET</td>
-      <td>请求方法 (<code>GET</code>, <code>POST</code>, etc.)。</td>
+      <td>请求方法 (<code>GET</code>、<code>POST</code> 等)。</td>
     </tr>
     <tr>
       <td>headers</td>
