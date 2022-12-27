@@ -23,9 +23,7 @@ Flutter TUIKit 是基于 Flutter IM SDK 实现的一套 UI 组件，其中包含
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/f140dd76be01a65abfb7e6ba2bf50ed5.png)
 
->?
->
-> 上图 TUIKit 界面语言支持自动或手动在 **简体中文/繁体中文/英文/日语/韩语** 间切换。国际化界面语言用法详情，或新增其他语言包，[可参考本文档](https://cloud.tencent.com/document/product/269/84481)。
+>?上图 TUIKit 界面语言支持自动或手动在 **简体中文/繁体中文/英文/日语/韩语** 间切换。国际化界面语言用法详情，或新增其他语言包，[可参考本文档](https://cloud.tencent.com/document/product/269/84481)。
 
 ## 环境要求
 
