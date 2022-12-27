@@ -16,7 +16,7 @@
 4. 单击**创建**。
 5. 选择存储桶左侧的**安全管理 > 跨域访问CORS设置**，单击**添加规则**。
 6. 在“添加跨域访问CORS规则”中，参考以下信息添加规则。
-![](https://qcloudimg.tencent-cloud.cn/raw/18725a0d8c03c20255b0b68247d9a147.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/2dd48b5d738d0bc025be463a79222453.png)
 主要参数信息如下，其余参数请保持默认设置：
  - **来源 Origin**：输入 <b>*</b>。
  - **操作 Methods**：勾选 “GET”。
@@ -59,7 +59,7 @@
 
 <dx-alert infotype="explain" title="">
 您可在**函数详情 > 触发管理**中获取 API 网关触发器访问路径，如下图所示： 
-![](https://main.qcloudimg.com/raw/79db3e509fe3710d0da4ef7bd59b1418.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/c580d7e995cd0d9f73fbd3458836b387.png)
 </dx-alert>
 
 
