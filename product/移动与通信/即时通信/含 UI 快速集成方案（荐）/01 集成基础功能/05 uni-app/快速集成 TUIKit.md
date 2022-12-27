@@ -23,7 +23,7 @@ HBuilder 不会默认创建 package.json 文件，因此您需要先创建 packa
 npm init -y
 ```
 
-### 步骤 2：下载并引入 TUIKit 
+### 步骤2：下载并引入 TUIKit 
 通过 [npm](https://www.npmjs.com/package/@tencentcloud/chat-uikit-uniapp) 方式下载 TUIKit 并集成组件。 [chat-uikit-uniapp github 源码集成](https://github.com/TencentCloud/chat-uikit-uniapp)
 > !uni-app 打包到小程序涉及到体积问题，因此我们提供了以下两种集成方案：
 > - 打包 APP 或者 H5 端推荐方案一，主包集成
