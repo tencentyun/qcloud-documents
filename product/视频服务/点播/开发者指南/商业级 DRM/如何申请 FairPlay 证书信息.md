@@ -10,14 +10,13 @@
 1. 访问 [苹果 FairPlay 页面](https://developer.apple.com/streaming/fps/)，点击页面底部链接 `Request FPS Deployment Package` 后，你将看到一个表单页面。
 
 >! 你需要拥有一个苹果开发者账号，成功登陆后才能看到表单。
-
-![image-20220426181021189](https://qcloudimg.tencent-cloud.cn/raw/c8533ed9e4cf2b7961058eb9e5cd502a.png)
+>![image-20220426181021189](https://qcloudimg.tencent-cloud.cn/raw/c8533ed9e4cf2b7961058eb9e5cd502a.png)
 
 2. 填写页面申请表单，提交后等待苹果公司审批。
 
 ![image-20220426181021190](https://qcloudimg.tencent-cloud.cn/raw/5f905c0a865990ba4f1705fabdcdd652.png)
 
-3. 当苹果公司通过申请后，你将得到一个`FPS_Deployment_Package.zip` 压缩包 。
+3. 当苹果公司通过申请后，你将得到一个 `FPS_Deployment_Package.zip` 压缩包 。
 
    > ? 在申请过程中，您将会被询问是否已完成密钥服务器模块（KSM）的实现和测试，对此可以回答： 
    >
@@ -34,27 +33,28 @@
 1. 创建私钥文件（`privatekey.pem`），执行以下命令：
 
    ```shell
-openssl genrsa -aes256 -out privatekey.pem 1024
+   openssl genrsa -aes256 -out privatekey.pem 2048
    ```
+
    在创建过程中，需要指定私钥密码，务必将私钥密码记录下来，后续步骤需要使用到。另外，建议私钥密码不要超过32个字符。
-   
-   ![image-20220421115813168](https://qcloudimg.tencent-cloud.cn/raw/ce0f6e159601c772694e79c69648e343.png)
-   
+
+   ![image-20220421115813168](https://qcloudimg.tencent-cloud.cn/raw/c820dd647fb46eb6bbb57733f227b140.png)
+
 2. 创建证书签名请求（`certreq.csr`），执行以下命令：
 
    ```shell
    openssl req -new -sha1 -key privatekey.pem -out certreq.csr -subj "/CN=SubjectName/OU=OrganizationalUnit/O=Organization/C=US"
    ```
+
    在创建过程中，需要输入在创建私钥文件时指定的私钥密码。
-   
+
    ![image-20220421115929084](https://qcloudimg.tencent-cloud.cn/raw/25c7097a4633a2429b0f7173c0f255b6.png)
-   
 
 ## 第三步：生成 FPS 证书（FairPlay Streaming Certificate）
 
 访问 [苹果开发者页面](https://developer.apple.com/account)，获取 FPS 证书和 ASK。
 
-1. 访问到 [苹果开发者页面](https://developer.apple.com/account)，点击左侧导航栏`Certificates, Identifiers & Profiles`
+1. 访问到 [苹果开发者页面](https://developer.apple.com/account)，点击左侧导航栏 `Certificates, Identifiers & Profiles`
 
    ![image-20220419113745847](https://qcloudimg.tencent-cloud.cn/raw/29e8bb1b63a60c877f17dd0c39d9e8d5.png)
 
@@ -77,8 +77,7 @@ openssl genrsa -aes256 -out privatekey.pem 1024
 6. 上一步结束后，会出现一个弹框，让你再次确认是否已将 `ASK` 备份，确认已备份后，点击 `Generate` 按钮。
 
    >! 请务必确认已将 ASK 备份，此步骤完成后将无法再次查询 ASK。
-
-   ![image-20220419115103618](https://qcloudimg.tencent-cloud.cn/raw/808347b36d824de46b6cbb84654d20c8.png)
+   >![image-20220419115103618](https://qcloudimg.tencent-cloud.cn/raw/808347b36d824de46b6cbb84654d20c8.png)
 
 7. 当以上步骤完成后，证书列表页面中将出现刚才所创建的 FPS 证书，并且证书类型为 `FairPlay Streaming`。
 
