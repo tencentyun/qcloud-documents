@@ -107,7 +107,7 @@ hls 协议的播放地址：http://live.myhost.com/live/streamd1001.m3u8
 TRTC 相关 API 接口可使用 API 文档页面提供的 SDK。
 
 ### 8. 费用相关
-
+在本次实践操作过程中涉及到的费用如下：
 - [音视频时长计费说明](https://cloud.tencent.com/document/product/647/44248)
 - [CDN 拉流费用](https://cloud.tencent.com/document/product/267/34175)
 - [云端混流转码费用](https://cloud.tencent.com/document/product/647/49446)

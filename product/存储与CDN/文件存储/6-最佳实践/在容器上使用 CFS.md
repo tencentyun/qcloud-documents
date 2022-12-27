@@ -90,12 +90,13 @@ CFS 通过 NFS/私有协议提供了一个共享访问的目录空间给多个 P
 	<tr><td>是否指定PersistentVolume</td><td>选择指定，并选择刚才创建的 PV。</td></tr>
 </table>
 4. 创建 Deployment，具体操作请参见 [创建 Deployment](https://cloud.tencent.com/document/product/457/31705#.E5.88.9B.E5.BB.BA-deployment) 文档。
-![](https://qcloudimg.tencent-cloud.cn/raw/0a89ec374033162ec1740b982762e32a.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/391961269e4bdfc6f53d5c88fbfcbd51.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/d70a761711e767537545e9727a22c6ad.png)
 相关的关键配置项如下：
 <table>
 	<tr><th>配置项</th><th>配置项说明</th></tr>
 	<tr><td>数据卷</td><td>根据实际需求，对数据卷进行命名，并选中刚创建的 PVC。</td></tr>
-	<tr><td>挂载点</td><td>选择对应的数据卷，指定在容器本地的挂载路径。若需要指定文件系统的子路径挂载，需保证该目录已经存在，需要注意的是这里的目录不需要以/开头，直接填写对应的目录名称即可。</br>若该目录不存在，希望容器协助自动创建，则可指定环境变量，CSI 插件将会以变量值的名称作为目录名，自动在文件系统的根路径下创建该目录，并提供给容器进行挂载。</td></tr>
+	<tr><td>挂载点</td><td>选择对应的数据卷，指定在容器本地的挂载路径。对于自动创建子目录的场景，目前有两种方案可以使用。</br>方案一，挂载点选择subPath，直接填写希望挂载的路径名称如test，则CSI插件会自动在文件系统跟路径下创建test目录，并自动挂载至容器的指定目录下。</br>方案二，添加环境变量，并给环境变量赋值。挂载点选择subPathExpr，并选择对应的环境变量。则CSI 插件将会以该环境变量的变量值作为目录名，自动在文件系统的根路径下创建该目录，并自动挂载至容器的指定目录下。</td></tr>
 </table>
 配置完成后，单击<b>创建Workload</b>，系统将基于此配置创建容器，并挂载 CFS。
 

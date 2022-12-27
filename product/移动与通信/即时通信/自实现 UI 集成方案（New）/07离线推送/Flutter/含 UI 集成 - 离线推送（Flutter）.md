@@ -14,7 +14,7 @@
 >?
 >
 > - 如果您的应用已经自行完成厂商离线推送，仅需查看本教程 [第一步](#step_1) 和 [第五步](#step_5)，在控制台内录入厂商信息，并在应用登录后，上报证书 ID 即可。
-> - 如果您的应用有其他内容的消息需要推送，包括运营消息等，或在接入其他第三方推送SDK报错冲突，[可参考本部分，使用全员推送，解决问题](#push_to_all)。
+> - 如果您的应用有其他内容的消息需要推送，包括运营消息等，或在接入其他第三方推送 SDK 报错冲突，[可参考本部分，使用全员推送，解决问题](#push_to_all)。**建议不要和第三方推送 SDK，如 TPNS，混用。**
 > - 如果您的应用不需要离线推送，或场景不满足离线推送的需求，请直接看本文最后一节 [“在线推送-在本地创建新消息通知”](#online_push) 在线推送部分。
 
 ## 插件 API 概览
@@ -26,8 +26,9 @@
 | 构造函数（TimUiKitPushPlugin） | 实例化一个Push插件对象，并确定是否使用Google Service FCM |
 | init | 初始化插件，绑定点击通知回调事件及传入厂商渠道信息 |
 | uploadToken | 自动获取设备Token及证书ID，自动上传至腾讯云IM服务端 |
+| clearToken | 清除服务端上本设备的推送Token，达到屏蔽通知的效果 |
 | requireNotificationPermission | 申请推送权限 |
-| setBadgeNum | 设置未读数角标 【仅支持部分Android设备，可参见API代码参数说明】 |
+| setBadgeNum | 设置未读数角标 （iOS设备需要[先禁用IM SDK自带的设置角标功能](#iosbadge)） |
 | clearAllNotification | 清除通知栏内，当前应用，所有的通知 |
 | getDevicePushConfig | 获取当前厂商的推送相关信息，含机型/证书ID/Token |
 | getDevicePushToken | 获取当前厂商的推送Token |
@@ -560,7 +561,7 @@ Future.delayed(const Duration(seconds: 5), () async {
 
 具体请查看 [Flutter 官方监听前后台切换方案](https://docs.flutter.dev/get-started/flutter-for/android-devs#how-do-i-listen-to-android-activity-lifecycle-events)。
 
-建议：在应用切换到 inactive/paused 状态前，使用插件中`setBadgeNum( int badgeNum )`方法，将最新未读数同步至桌面角标。iOS 角标由 IM SDK 自动管理，此处本插件支持配置 XIAOMI（MIUI6 - MIUI 11机型）, HUAWEI, HONOR, vivo 及 OPPO 设备角标。
+建议：在应用切换到 inactive/paused 状态前，使用插件中`setBadgeNum( int badgeNum )`方法，将最新未读数同步至桌面角标。此处本插件支持配置iOS,  XIAOMI（MIUI6 - MIUI 11机型）, HUAWEI, HONOR, vivo 及 OPPO 设备角标。
 
 >?OPPO 角标属于 OPPO 侧高级权益，不默认开放。如需使用，请自行联系 OPPO 应用推送权益对接人。
 
@@ -792,6 +793,23 @@ TIMUIKitChat(
         )
 )
 ```
+
+[](id:iosbadge)
+
+### 步骤5：前后台切换监听
+
+本步骤整体方案与Android的步骤5一致，此处不再重复提及。
+
+对于iOS平台，仅需额外关注。iOS的IM SDK已自带设置应用icon角标能力。如果您需要设置自定义角标，除了调用 `setBadgeNum` 方法外，还需要禁用IM SDK的自动设置角标功能，避免冲突。代码如下：
+
+```dart
+TencentImSDKPlugin.v2TIMManager.callExperimentalAPI(
+    api: 'disableBadgeNumber',
+    param: true
+);
+```
+
+本代码仅需在程序启动后，执行一次即可。
 
 ## 推送您的其他业务消息[](id:push_to_all)
 
@@ -1109,6 +1127,6 @@ void onClickNotification(Map<String, dynamic> msg) async {
 
 ## 联系我们[](id:contact)
 
-如果您在接入使用过程中有任何疑问，请加入 QQ 群：788910197 咨询。
+如果您在接入使用过程中有任何疑问，请扫码加入微信群，或加入QQ群：788910197 咨询。
 
-![](https://qcloudimg.tencent-cloud.cn/raw/eacb194c77a76b5361b2ae983ae63260.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/e830ae8c7b8d9253eb71e7c3d9f7b2be.png)

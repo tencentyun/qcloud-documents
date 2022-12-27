@@ -31,7 +31,7 @@
 
 | 字段名    | 类型   | 描述           | 必须 | 备注                                              |
 | :-------- | :----- | :------------- | :--- | :------------------------------------------------ |
-| ChannelId | string | 通道 ID         | 是   |                                                   |
+| ChannelId | string | 通道 ID         | 是   |                  -                                 |
 | BeginTime | string | 下载的开始时间 | 是   | UTC 秒数，开始和结束时间段最长为30分钟，且不能跨天 |
 | EndTime   | string | 下载的结束时间 | 是   | UTC 秒数，开始和结束时间段最长为30分钟，且不能跨天 |
 | FileType  | string | 文件格式       | 是   | "mp4"：mp4格式，"ts"：ts文件格式                  |
@@ -72,31 +72,31 @@
 <td>RequestId</td>
 <td>string</td>
 <td>请求 ID</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>Code</td>
 <td>int</td>
 <td>状态码，0 成功，500 操作失败</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>StatusCode</td>
 <td> int </td>
 <td>错误码，200 OK，其他详见错误中心</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>Message</td>
 <td>string</td>
 <td>返回消息</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>Data</td>
 <td>object</td>
 <td>返回结果</td>
-<td></td>
+<td>-</td>
 </tr>
 <tr>
 <td>Url </td>

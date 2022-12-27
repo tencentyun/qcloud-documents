@@ -1,5 +1,5 @@
 ## 背景信息
-腾讯云公共镜像 CentOS 7 系列的部分镜像中，默认安装 CentOS 发行版自带的Python 2-pip 8.1.2，此版本 pip 不具备选择兼容 Python 版本的能力，安装软件默认选择最新的包，而最新的 pip 和部分常用应用工具的最新版本（例如 NumPY）已经不支持 Python 2，这将导致您在执行命令升级 pip（pip install pip --upgrade）和安装一些应用工具时可能出现不兼容报错。为了保障最便捷的使用体验，腾讯云对公共镜像 CentOS 7 系列中部分镜像进行了 pip 更新。
+腾讯云公共镜像 CentOS 7 系列的部分镜像中，默认安装 CentOS 发行版自带的Python 2-pip 8.1.2，此版本 pip 不具备选择兼容 Python 版本的能力，安装软件默认选择最新的包，而最新的 pip 和部分常用应用工具的最新版本（例如 NumPy）已经不支持 Python 2，这将导致您在执行命令升级 pip（pip install pip --upgrade）和安装一些应用工具时可能出现不兼容报错。为了保障最便捷的使用体验，腾讯云对公共镜像 CentOS 7 系列中部分镜像进行了 pip 更新。
 
 ## 更新内容及范围
 本次 CentOS 7 系列更新的公共镜像范围如下列表所示，列表中的公共镜像默认安装 Python 2，其 pip 由 pip 8.1.2 升级至 [pip 20.3.4](https://pypi.org/project/pip/20.3.4/)。

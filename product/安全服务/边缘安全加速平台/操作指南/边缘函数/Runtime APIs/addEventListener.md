@@ -1,4 +1,4 @@
-注册事件监听器，用于触发边缘函数脚步的执行。当前仅支持 `fetch` 请求事件，通过注册 `fetch` 事件监听器，生成 HTTP 请求事件 [FetchEvent](https://cloud.tencent.com/document/product/1552/81899) ，进而实现对 HTTP 请求的处理。
+注册事件监听器，用于触发边缘函数脚本的执行。当前仅支持 `fetch` 请求事件，通过注册 `fetch` 事件监听器，生成 HTTP 请求事件 [FetchEvent](https://cloud.tencent.com/document/product/1552/81899) ，进而实现对 HTTP 请求的处理。
 
 ## 描述
 

@@ -267,6 +267,6 @@ Dynamic Linking Error. electron-builder 配置
 
 ## 联系我们
 
-- 如果您在介入使用过程中有任何疑问，请加入 QQ 群：753897823 咨询。
-- 开发群：
-<img src="https://qcloudimg.tencent-cloud.cn/raw/a85a8b1642c59d672e960f96cd08b2ae.jpg" width="400" height="500" alt="二维码"/> 
+如果您在接入使用过程中有任何疑问，请扫码加入微信群，或加入QQ群：753897823 咨询。
+
+![](https://qcloudimg.tencent-cloud.cn/raw/dbf4d02c6229db536d9ad018c91f8bf0.png)
