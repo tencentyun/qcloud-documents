@@ -6,7 +6,7 @@
 function addEventListener(type: string, listener: (event: FetchEvent) => void): void;
 ```
 
-在一个边缘函数中，一种类型的事件，只允许注册一个事件监听器，重复注册，只有最后注册的事件监听器有效。
+在一个边缘函数中，一种类型的事件，只允许注册一个事件监听器，若重复注册，只有最后注册的事件监听器有效。
 
 ### 参数
 <table>

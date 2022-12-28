@@ -2,7 +2,7 @@
 
 >? 边缘函数中，可通过两种方式获得 `Request` 对象：
 - 使用 Request 构造函数创建一个 Request 对象，用于 Fetch API 的操作。
-- 使用 FetchEvent 对象 event.request，获得当前请求的 Request 对象。
+- 使用 FetchEvent 对象 [event.request](https://cloud.tencent.com/document/product/1552/81902)，获得当前请求的 Request 对象。
 
 ## 构造函数
 ```typescript
@@ -245,7 +245,7 @@ readonly eo: IncomingRequestEoProperties;
 
 #### IncomingRequestEoProperties[](id:IncomingRequestEoProperties)
 
-客户端请求 `event.request` 对象包含 `eo` 属性，其信息如下：
+客户端请求 [event.request](https://cloud.tencent.com/document/product/1552/81902) 对象包含 `eo` 属性，其信息如下：
 
 <table>
   <thead>
@@ -282,61 +282,61 @@ readonly eo: IncomingRequestEoProperties;
       <td>asn</td>
       <td>number</td>
       <td>ASN</td>
-      <td>12271</td>
+      <td>0</td>
     </tr>
     <tr>
       <td>countryName</td>
       <td>string</td>
       <td>国家名</td>
-      <td>United States of America</td>
+      <td>China</td>
     </tr>
     <tr>
       <td>countryCodeAlpha2</td>
       <td>string</td>
-      <td>国家的 ISO-3611 alpha2 代码</td>
-      <td>US</td>
+      <td>国家的 <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO-3611 alpha2</a> 代码</td>
+      <td>CN</td>
     </tr>
     <tr>
       <td>countryCodeAlpha3</td>
       <td>string</td>
-      <td>国家的 ISO-3611 alpha3 代码</td>
-      <td>USA</td>
+      <td>国家的 <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">ISO-3611 alpha3</a> 代码</td>
+      <td>CHN</td>
     </tr>
     <tr>
       <td>countryCodeNumeric</td>
       <td>string</td>
-      <td>国家的 ISO-3611 numeric 代码</td>
-      <td>840</td>
+      <td>国家的 <a href="https://en.wikipedia.org/wiki/ISO_3166-1_numeric">ISO-3611 numeric</a> 代码</td>
+      <td>156</td>
     </tr>
     <tr>
       <td>regionName</td>
       <td>string</td>
       <td>区域名</td>
-      <td>New York</td>
+      <td>Guangdong</td>
     </tr>
     <tr>
       <td>regionCode</td>
       <td>string</td>
       <td>区域代码</td>
-      <td>US-NY</td>
+      <td>CN-GD</td>
     </tr>
     <tr>
       <td>cityName</td>
       <td>string</td>
       <td>城市名</td>
-      <td>new york</td>
+      <td>shen zhen</td>
     </tr>
     <tr>
       <td>latitude</td>
       <td>number</td>
       <td>经度</td>
-      <td>40.742802</td>
+      <td>22.547001</td>
     </tr>
     <tr>
       <td>longitude</td>
       <td>number</td>
       <td>纬度</td>
-      <td>-73.971199</td>
+      <td>114.085945</td>
     </tr>
   </tbody>
 </table>
