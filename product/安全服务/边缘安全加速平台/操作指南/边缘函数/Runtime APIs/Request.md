@@ -281,62 +281,62 @@ readonly eo: IncomingRequestEoProperties;
     <tr>
       <td>asn</td>
       <td>number</td>
-      <td>ASN</td>
-      <td>0</td>
+      <td><a href="https://en.wikipedia.org/wiki/Autonomous_system_(Internet)">ASN</a></td>
+      <td>132203</td>
     </tr>
     <tr>
       <td>countryName</td>
       <td>string</td>
       <td>国家名</td>
-      <td>China</td>
+      <td>Singapore</td>
     </tr>
     <tr>
       <td>countryCodeAlpha2</td>
       <td>string</td>
       <td>国家的 <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO-3611 alpha2</a> 代码</td>
-      <td>CN</td>
+      <td>SG</td>
     </tr>
     <tr>
       <td>countryCodeAlpha3</td>
       <td>string</td>
       <td>国家的 <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">ISO-3611 alpha3</a> 代码</td>
-      <td>CHN</td>
+      <td>SGP</td>
     </tr>
     <tr>
       <td>countryCodeNumeric</td>
       <td>string</td>
       <td>国家的 <a href="https://en.wikipedia.org/wiki/ISO_3166-1_numeric">ISO-3611 numeric</a> 代码</td>
-      <td>156</td>
+      <td>702</td>
     </tr>
     <tr>
       <td>regionName</td>
       <td>string</td>
       <td>区域名</td>
-      <td>Guangdong</td>
+      <td>-</td>
     </tr>
     <tr>
       <td>regionCode</td>
       <td>string</td>
       <td>区域代码</td>
-      <td>CN-GD</td>
+      <td>AA-AA</td>
     </tr>
     <tr>
       <td>cityName</td>
       <td>string</td>
       <td>城市名</td>
-      <td>shen zhen</td>
+      <td>singapore</td>
     </tr>
     <tr>
       <td>latitude</td>
       <td>number</td>
       <td>经度</td>
-      <td>22.547001</td>
+      <td>1.29027</td>
     </tr>
     <tr>
       <td>longitude</td>
       <td>number</td>
       <td>纬度</td>
-      <td>114.085945</td>
+      <td>103.851959</td>
     </tr>
   </tbody>
 </table>
