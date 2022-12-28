@@ -329,13 +329,13 @@ readonly eo: IncomingRequestEoProperties;
     <tr>
       <td>latitude</td>
       <td>number</td>
-      <td>经度</td>
+      <td>纬度</td>
       <td>1.29027</td>
     </tr>
     <tr>
       <td>longitude</td>
       <td>number</td>
-      <td>纬度</td>
+      <td>经度</td>
       <td>103.851959</td>
     </tr>
   </tbody>
