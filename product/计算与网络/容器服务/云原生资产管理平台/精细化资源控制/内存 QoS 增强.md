@@ -14,7 +14,7 @@
 3. 在修改 QoS Agent 的组件配置页面，勾选 **内存 QoS 增强**。
 4. 单击**完成**。
 5. 部署业务。
-6. 部署关联该业务的 PodQOS 对象，选择需要作用的业务，如下图所示：
+6. 部署关联该业务的 PodQOS 对象，选择需要作用的业务，示例如下：
 ```yaml
 apiVersion: ensurance.crane.io/v1alpha1
 kind: PodQOS
@@ -48,7 +48,7 @@ spec:
 3. 在修改 QoS Agent 的组件配置页面，勾选 **内存 QoS 增强**。
 4. 单击**完成**。
 5. 部署业务。
-6. 部署关联该业务的 PodQOS 对象，选择需要作用的业务，如下图所示：
+6. 部署关联该业务的 PodQOS 对象，选择需要作用的业务，示例如下：
 ```yaml
 apiVersion: ensurance.crane.io/v1alpha1
 kind: PodQOS
@@ -63,17 +63,7 @@ spec:
       memWatermark:
         watermarkRatio: 50	# watermarkRatio 取值范围为[-75,75]；负值表示降低水位，主要针对在线容器；正值表示抬升水位；主要针对离线容器；
 ```
-
-
-
-
-
-
-
-针对离线业务创建PodQOS对象
-
-
-
+针对离线业务创建 PodQOS 对象：
 ```
 apiVersion: ensurance.crane.io/v1alpha1
 kind: PodQOS
@@ -101,19 +91,18 @@ spec:
 
 ## 功能三：pagecache limit
 
-### **功能介绍**
+### 功能介绍
 
-进行容器级别的 pagecache 隔离
+进行容器级别的 pagecache 隔离。
 
-### **使用方式**
+### 使用方式
 
-1. 部署 [QoS Agent](https://cloud.tencent.com/document/product/457/79774)
-2. 在集群里的【扩展组件】里，找到部署成功的 QoS Agent，点击右侧的【更新配置】
-3. 在修改 QoS Agent 的组件配置页面，勾选【内存 QoS 增强】后面的方框
-4. 点击下方的【完成】按钮
-5. 部署业务
-6. 部署关联该业务的 PodQOS 对象，选择需要作用的业务，如下图所示：
-
+1. 部署 [QoS Agent](https://cloud.tencent.com/document/product/457/79774)。
+2. 在集群里的“扩展组件”页面，找到部署成功的 QoS Agent，单击右侧的**更新配置**。
+3. 在修改 QoS Agent 的组件配置页面，勾选 **内存 QoS 增强**。
+4. 单击**完成**。
+5. 部署业务。
+6. 部署关联该业务的 PodQOS 对象，选择需要作用的业务，示例如下：
 ```yaml
 apiVersion: ensurance.crane.io/v1alpha1
 kind: PodQOS
