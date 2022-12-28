@@ -1,4 +1,3 @@
-# CPU 使用优先级
 
 ## 功能介绍
 
@@ -29,14 +28,12 @@ TODO：表格格式需要调整成：
 
 ## 使用方式
 
-1. 部署 [QoS Agent](https://cloud.tencent.com/document/product/457/79774)
-2. 在集群里的【扩展组件】里，找到部署成功的 QoS Agent，点击右侧的【更新配置】
-3. 在修改 QoS Agent 的组件配置页面，勾选【CPU 使用优先级】后面的方框
-4. 点击下方的【完成】按钮
-
-5. 部署离线业务
+1. 部署 [QoS Agent](https://cloud.tencent.com/document/product/457/79774)。
+2. 在集群里的“扩展组件”页面，找到部署成功的 QoS Agent，单击右侧的**更新配置**。
+3. 在修改 QoS Agent 的组件配置页面，勾选**CPU 使用优先级**。
+4. 单击**完成**。
+5. 部署离线业务。
 6. 部署关联离线业务的 PodQOS 对象，选择需要降低优先级的业务，如下图所示：
-
 ```yaml
 apiVersion: ensurance.crane.io/v1alpha1
 kind: PodQOS
