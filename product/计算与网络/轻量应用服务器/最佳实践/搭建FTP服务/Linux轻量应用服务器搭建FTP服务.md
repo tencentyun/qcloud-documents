@@ -171,11 +171,11 @@ ls -l /home/test
 sudo ldd `which vsftpd`|grep ssl
 ```
 2. 本文使用的 CentOS 7.6 默认安装了 OpenSSL。如实例操作系统未安装 OpenSSL ，则需要先执行以下命令安装 OpenSSL 后再进行以下步骤，如已安装，则跳过此步。
-### CentOS
+#### CentOS
 ```plaintext
 sudo yum install openssl
 ```
-### Ubuntu
+#### Ubuntu
 ```plaintext
 sudo apt-get install openssl 
 sudo apt-get install libssl-dev
