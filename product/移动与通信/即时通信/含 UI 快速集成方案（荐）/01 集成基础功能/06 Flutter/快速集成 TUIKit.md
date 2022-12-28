@@ -23,9 +23,7 @@ Flutter TUIKit 是基于 Flutter IM SDK 实现的一套 UI 组件，其中包含
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/f140dd76be01a65abfb7e6ba2bf50ed5.png)
 
->?
->
-> 上图 TUIKit 界面语言支持自动或手动在 **简体中文/繁体中文/英文/日语/韩语** 间切换。如有多语言相关咨询，可 [联系我们](#contact)。
+>?上图 TUIKit 界面语言支持自动或手动在 **简体中文/繁体中文/英文/日语/韩语** 间切换。国际化界面语言用法详情，或新增其他语言包，[可参考本文档](https://cloud.tencent.com/document/product/269/84481)。
 
 ## 环境要求
 
@@ -499,15 +497,9 @@ defaultConfig {
 :::
 </dx-codeblock>
 
-### 如何动态切换 TUIKit 界面语言？
+### 如果国际化界面语言？
 
-调用 `I18nUtils(null, language);` 即可。如：
-
-```dart
-I18nUtils(null, LanguageEnum.en);
-```
-
-> ?如需固定使用某语言，可在 [初始化 TUIKit](#init) 时，使用 language 参数传入。
+国际化界面语言用法详情，或新增其他语言包，[可参考本文档](https://cloud.tencent.com/document/product/269/84481)。
 
 ### 如何获取 API 接口调用报错/Flutter 层报错/弹窗提示信息？[](id:callback)
 
