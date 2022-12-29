@@ -27,7 +27,7 @@ echo 64 > /sys/block/$DISK_HOLDER/queue/max_sectors_kb
 
 
 
-## 功能一：磁盘 IOPS 限制（direct IO+buffer IO）
+## 功能一：磁盘 IOPS 限制（direct IO + buffer IO）
 
 1. 根据上述使用限制部署组件、打开相关开关、输入相关磁盘、执行相关命令。
 2. 部署业务。
@@ -61,7 +61,7 @@ cgroup v1 无法支持限速的主要原因在于异步刷脏页的时候，内�
 
 
 
-## 功能二：磁盘 BPS 限制（direct IO****+buffer IO****)
+## 功能二：磁盘 BPS 限制（direct IO + buffer IO)
 
 1. 根据上述使用限制部署组件、打开相关开关、输入相关磁盘、执行相关命令。
 2. 部署业务。
