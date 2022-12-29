@@ -26,7 +26,7 @@ bash +x tencentcloud-cls-k8s-install.sh
 
 5. 参数说明
 secretid：腾讯云账户访问 ID   
-secretkey：腾讯云账户访问秘钥   
+secretkey：腾讯云账户访问密钥   
 region：CLS 服务地域   
 docker_root：集群 Docker 的根目录，默认是/var/lib/docker，如果集群不是这个默认目录，需要指定具体的 Docker 的根目录。
 cluster_id：集群 ID，如果不指定，在安装期间会生成一个默认 ID（最好指定一个集群 ID，默认生成的 ID 的可读性较差）。
