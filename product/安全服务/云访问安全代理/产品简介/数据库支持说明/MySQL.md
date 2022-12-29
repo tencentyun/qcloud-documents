@@ -8,9 +8,6 @@
 | text        | AES/SM4 |支持      | 支持    |
 | mediumtext  | AES/SM4 |支持      | 支持    |
 | longtext    | AES/SM4 |支持      | 支持    |
-| tinyblob    | AES/SM4 |不支持    | 不支持  |
-| blob        | AES/SM4 |不支持    | 不支持  |
-| longblob    | AES/SM4 |不支持    | 不支持  |
 | tinyint     | -       | -       | 支持    |
 | smallint    | -       | -       | 支持    |
 | mediumint   | -       | -       | 支持    |
@@ -19,6 +16,9 @@
 | float       | -       | -       | 支持    |
 | double      | -       | -       | 支持    |
 | decimal     | -       | -       | 支持    |
+| tinyblob    | -       | -       | -      |
+| blob        | -       | -       | -      |
+| longblob    | -       | -       | -      |
 | date        | -       | -       | -      |
 | time        | -       | -       | -      |
 | year        | -       | -       | -      |
@@ -41,6 +41,7 @@
 - 仅只支持使用 `utf8` 和 `utf8mb4` 字符集连接代理。
 - 应用连接代理的账号认证方式支持 `mysql_native_password`。
 - 代理连接后端数据库的账号认证方式支持 `mysql_native_password` 和 `caching_sha2_password`。
+- CASB代理集群升级时会造成连接中断，请确保业务支持连接断开后的自动重连。
 
 ### 加解密和脱敏
 
@@ -48,6 +49,7 @@
 - 支持对字符串和二进制类型字段的加解密。
 - 支持对字符串和数值类型字段的动态脱敏。
 - 支持两个及以上连续字符的密文模糊查询，仅支持`LIKE`语法，不支持正则查询。
+- 配置密文模糊查询策略的字段值必须为空或不少于两个字符。
 - 密文模糊查询不支持转义字符，不支持`NO_BACKSLASH_ESCAPES`选项。
 - 加密后密文超过字段长度时会保存**明文**。
 - 同时存在密文和明文时，只能查询到密文数据，存量明文数据需全量加密成密文。
@@ -83,11 +85,31 @@
 - 除了 TDSQL 增删改查语句的行首注释外，SQL 语句中的其余注释不会生效。
 - TDSQL 的 ShardKey 字段不能配置加密。
 
+### binlog
+- 支持外部组件（如canal）使用COM_BINLOG_DUMP协议连接代理实时读取解密后的binlog信息。
+- 支持根据当前字段加解密策略解密binlog中已加密的字段值。
+- 不支持对已删除/已变更策略的历史密文数据解密。
+- 仅支持`binlog_format`格式为`ROW`的binlog。
+- 连接代理时时仅支持`utf8`和`utf8mb4`字符集。
+- 不支持`slave`设置代理为`master`的方式设置主从同步。主从数据库请参考[设置主从节点](https://cloud.tencent.com/document/product/1303/71557)。
+- 支持以下协议的binlog密文解密：
+  - WRITE_ROWS_EVENTv1
+  - UPDATE_ROWS_EVENTv1
+  - DELETE_ROWS_EVENTv1
+  - WRITE_ROWS_EVENTv2
+  - UPDATE_ROWS_EVENTv2
+  - DELETE_ROWS_EVENTv2
+  - WRITE_ROWS_COMPRESSED_EVENT_V1
+  - UPDATE_ROWS_COMPRESSED_EVENT_V1
+  - DELETE_ROWS_COMPRESSED_EVENT_V1
+- *_ROWS_COMPRESSED_EVENT_V1协议仅支持zlib压缩算法。
+
 ### 其他
 
 - 所有表结构必须预先在策略控制台定义，账号必须和相应数据源绑定后才能通过 proxy 操作相应的数据源。
 - 数据源删除后重新添加时，需断开存量连接，建立新的 MySQL 连接查询。
 - 单次查询处理的数据大小需小于2^24字节。
+
 
 ## 常用 SQL 语句支持情况
 >?示例中已配置加密策略的字段名称为：crypto_column。
