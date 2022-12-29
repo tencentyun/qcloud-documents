@@ -34,15 +34,13 @@ network：使用内网还是外网，默认使用外网。
 api_network: 云 API 使用内网还是外网，默认使用外网(internet)。 
 api_region：云 API 的地域，地域详情请参见 [可用地域](https://cloud.tencent.com/document/product/614/18940) 文档。
 
-示例：
+ 示例：
+ 广州组件部署：
+ ```
+ ./tencentcloud-cls-k8s-install.sh --secretid xxx --secretkey xx --region ap-guangzhou  --network internet --api_region ap-guangzhou
+ ```
 
-广州组件部署：
-```
-./tencentcloud-cls-k8s-install.sh --secretid xxx --secretkey xx --region ap-guangzhou  --network internet --api_region ap-guangzhou
-```
-
-
-6. 查看 
+6. 查看
 	1. 查看安装 Helm 包
 	安装成功后，查看 Helm 安装 tencent-cloud-cls-log。
 	```
