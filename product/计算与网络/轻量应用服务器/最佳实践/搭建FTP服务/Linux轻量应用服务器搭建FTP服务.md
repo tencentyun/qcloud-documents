@@ -211,5 +211,5 @@ ssl_sslv3=NO
 8. 使用 FileZilla 进行连接测试。
 
  <img style="width:700px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/d0ca85b60a79752057a448af35478164.png" />
- <img style="width:700px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/b268d7a8b4f6d8a191dd5ea1014d3aa9.png" />
+ <img style="width:700px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/43486b6945e1489f4b4c524d1fac6de3.png" />
 
