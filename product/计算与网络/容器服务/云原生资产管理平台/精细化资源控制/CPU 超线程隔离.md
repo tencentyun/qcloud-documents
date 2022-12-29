@@ -28,7 +28,7 @@
 4. 勾选 **CPU 使用优先级**，用于标识高优先级业务。
 5. 单击**完成**。
 6. 部署业务。
-7. 部署关联该业务的 PodQOS 对象，选择需要使用超线程隔离的 Workload 的 Label，如下图所示：
+7. 部署关联该业务的 PodQOS 对象，选择需要使用超线程隔离的 Workload 的 Label，示例如下：
 ```yaml
 apiVersion: ensurance.crane.io/v1alpha1
 kind: PodQOS
