@@ -1,4 +1,4 @@
-在边缘函数中，使用 `Cache API` 缓存 POST 请求。
+该示例对 POST 请求 body 计算 SHA-256 签名，作为缓存 key 的一部分，并使用 [Cache API](https://cloud.tencent.com/document/product/1552/81893) 将响应内容进行缓存，若存在缓存，则使用缓存内容响应客户端，否则使用 [Fetch API](https://cloud.tencent.com/document/product/1552/81897) 发起子请求获取远程资源。实现了，使用边缘函数缓存 POST 请求。
 
 ## 示例代码
 

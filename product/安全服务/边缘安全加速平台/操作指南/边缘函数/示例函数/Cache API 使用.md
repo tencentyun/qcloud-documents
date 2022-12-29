@@ -1,4 +1,4 @@
-在边缘函数中，使用 `fetch API` 获取远程资源 jquery，借助 `Cache API` 把资源缓存到 EdgeOne 边缘节点，缓存时长为 10s。
+在边缘函数中，使用 [Fetch API](https://cloud.tencent.com/document/product/1552/81897) 获取远程资源 jQuery.js，借助 [Cache API](https://cloud.tencent.com/document/product/1552/81893) 把资源缓存到 EdgeOne 边缘节点，缓存时长为 10s。
 
 ## 示例代码 
 

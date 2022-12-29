@@ -1,5 +1,3 @@
-# CPU Burst
-
 ## 功能介绍
 
 部分业务使用 Quota 限制 cgroup 占用 CPU 的份额，在有的场景下，cgoup 会达到 Quota 的限制，此时会导致业务的性能收到影响。CPU Burst，可以让 cgroup 中的进程在达到 Quota 限制时，可以超出一定的 Quota 限额，从而达到提高业务性能的目的。
@@ -12,12 +10,12 @@
 
 ## 使用方式
 
-1. 部署 [QoS Agent](https://cloud.tencent.com/document/product/457/79774)
-2. 在集群里的【扩展组件】里，找到部署成功的 QoS Agent，点击右侧的【更新配置】
-3. 在修改 QoS Agent 的组件配置页面，勾选 CPU Burst 后面的方框
-4. 点击下方的【完成】按钮
+1. 部署 [QoS Agent](https://cloud.tencent.com/document/product/457/79774)。
+2. 在集群里的“扩展组件”页面，找到部署成功的 QoS Agent，单击右侧的**更新配置**。
+3. 在修改 QoS Agent 的组件配置页面，勾选 **CPU Burst**。
+4. 单击**完成**。
 
-部署 PodQOS 对象，选择作用的 Pod 和 burstQuota
+部署 PodQOS 对象，选择作用的 Pod 和 burstQuota，示例如下：
 
 ```yaml
 apiVersion: ensurance.crane.io/v1alpha1

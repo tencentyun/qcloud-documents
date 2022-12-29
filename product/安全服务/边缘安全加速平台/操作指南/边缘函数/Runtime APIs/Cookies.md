@@ -23,13 +23,13 @@ const cookies = new Cookies(cookieStr?: string, isSetCookie?: boolean);
       <td>cookieStr</td>
       <td>string</td>
       <td>否</td>
-      <td>`Cookie` 字符串或者 `Set-Cookie` 字符串。</td>
+      <td>Cookie 字符串或者 <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie">Set-Cookie</a> 字符串。</td>
     </tr>
     <tr>
       <td>isSetCookie</td>
       <td>boolean</td>
       <td>否</td>
-      <td>参数 `cookieStr` 是否是 `Set-Cookie` 字符串，默认为 false。</td>
+      <td>参数 cookieStr 是否是 <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie">Set-Cookie</a> 字符串，默认为 false。</td>
     </tr>
   </tbody>
 </table>

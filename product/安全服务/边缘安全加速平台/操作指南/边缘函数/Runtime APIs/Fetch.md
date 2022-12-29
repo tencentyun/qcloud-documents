@@ -1,4 +1,4 @@
-基于 Web APIs 标准 [fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) 进行设计。边缘函数运行时可使用 `fetch` 发起异步请求，获取远程资源。
+基于 Web APIs 标准 [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) 进行设计。边缘函数运行时可使用 `fetch` 发起异步请求，获取远程资源。
 
 ## 描述 
 ```typescript
