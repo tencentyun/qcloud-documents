@@ -20,35 +20,36 @@ PullComplete
 
 ```json
 {
-    "EventType": "PullComplete", 
+    "EventType": "PullComplete",
     "PullCompleteEvent": {
-        "TaskId": "125676836723-Pull-f5ac8127b3b6b85cdc13f237c6005d8", 
+        "TaskId": "125676836723-Pull-f5ac8127b3b6b85cdc13f237c6005d8",
         "Status": "FINISH",
-        "ErrCode": 0, 
-        "Message": "SUCCESS", 
-        "FileId": "14508071098244959037", 
+        "ErrCode": 0,
+        "Message": "SUCCESS",
+        "FileId": "14508071098244959037",
         "MediaBasicInfo": {
-            "Name": "动物世界", 
-            "Description": "", 
-            "CreateTime": "2019-01-09T16:36:22Z", 
-            "UpdateTime": "2019-01-09T16:36:24Z", 
-            "ExpireTime": "9999-12-31T23:59:59Z", 
-            "ClassId": 0, 
-            "ClassName": "其他", 
-            "ClassPath": "其他", 
-            "CoverUrl": "", 
-            "Type": "mp4", 
-            "MediaUrl": "http://125676836723.vod2.myqcloud.com/xxx/xxx/xxx.mp4", 
-            "TagSet": [ ], 
-            "StorageRegion": "ap-guangzhou-2", 
+            "Name": "动物世界",
+            "Description": "",
+            "CreateTime": "2019-01-09T16:36:22Z",
+            "UpdateTime": "2019-01-09T16:36:24Z",
+            "ExpireTime": "9999-12-31T23:59:59Z",
+            "ClassId": 0,
+            "ClassName": "其他",
+            "ClassPath": "其他",
+            "CoverUrl": "",
+            "Type": "mp4",
+            "MediaUrl": "http://125676836723.vod2.myqcloud.com/xxx/xxx/xxx.mp4",
+            "TagSet": [ ],
+            "StorageRegion": "ap-guangzhou-2",
             "SourceInfo": {
-                "SourceType": "Upload", 
+                "SourceType": "Upload",
                 "SourceContext": ""
-            }, 
+            },
             "Vid": ""
-        }, 
-        "FileUrl": "http://125676836723.vod2.myqcloud.com/xxx/xxx/xxx.mp4", 
+        },
+        "FileUrl": "http://125676836723.vod2.myqcloud.com/xxx/xxx/xxx.mp4",
         "ProcedureTaskId": "",
+        "ReviewAudioVideoTaskId":"",
         "SessionContext": "",
         "SessionId": ""
     }
@@ -64,36 +65,37 @@ PullComplete
     "Response": {
         "EventSet": [
             {
-                "EventHandle": "EventHandleX", 
-                "EventType": "PullComplete", 
+                "EventHandle": "EventHandleX",
+                "EventType": "PullComplete",
                 "PullCompleteEvent": {
-                    "TaskId": "125676836723-Pull-f5ac8127b3b6b85cdc13f237c6005d8", 
+                    "TaskId": "125676836723-Pull-f5ac8127b3b6b85cdc13f237c6005d8",
                     "Status": "FINISH",
-                    "ErrCode": 0, 
-                    "Message": "SUCCESS", 
-                    "FileId": "14508071098244959037", 
+                    "ErrCode": 0,
+                    "Message": "SUCCESS",
+                    "FileId": "14508071098244959037",
                     "MediaBasicInfo": {
-                        "Name": "动物世界", 
-                        "Description": "", 
-                        "CreateTime": "2019-01-09T16:36:22Z", 
-                        "UpdateTime": "2019-01-09T16:36:24Z", 
-                        "ExpireTime": "9999-12-31T23:59:59Z", 
-                        "ClassId": 0, 
-                        "ClassName": "其他", 
-                        "ClassPath": "其他", 
-                        "CoverUrl": "", 
-                        "Type": "mp4", 
-                        "MediaUrl": "http://125676836723.vod2.myqcloud.com/xxx/xxx/xxx.mp4", 
-                        "TagSet": [ ], 
-                        "StorageRegion": "ap-guangzhou-2", 
+                        "Name": "动物世界",
+                        "Description": "",
+                        "CreateTime": "2019-01-09T16:36:22Z",
+                        "UpdateTime": "2019-01-09T16:36:24Z",
+                        "ExpireTime": "9999-12-31T23:59:59Z",
+                        "ClassId": 0,
+                        "ClassName": "其他",
+                        "ClassPath": "其他",
+                        "CoverUrl": "",
+                        "Type": "mp4",
+                        "MediaUrl": "http://125676836723.vod2.myqcloud.com/xxx/xxx/xxx.mp4",
+                        "TagSet": [ ],
+                        "StorageRegion": "ap-guangzhou-2",
                         "SourceInfo": {
-                            "SourceType": "Upload", 
+                            "SourceType": "Upload",
                             "SourceContext": ""
-                        }, 
+                        },
                         "Vid": ""
-                    }, 
-                    "FileUrl": "http://125676836723.vod2.myqcloud.com/xxx/xxx/xxx.mp4", 
+                    },
+                    "FileUrl": "http://125676836723.vod2.myqcloud.com/xxx/xxx/xxx.mp4",
                     "ProcedureTaskId": "",
+                    "ReviewAudioVideoTaskId":"",
                     "SessionContext": "",
                     "SessionId": ""
                 }
@@ -102,4 +104,3 @@ PullComplete
     }
 }
 ```
-
