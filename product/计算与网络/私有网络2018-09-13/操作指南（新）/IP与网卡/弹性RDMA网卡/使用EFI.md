@@ -24,7 +24,7 @@ EFI 相比于传统的 TCP 传输，提供更低的延迟和更高的吞吐量�
 
 - 在实例控制台创建并绑定。
 
-  i. 登陆 [实例控制台](https://console.cloud.tencent.com/cvm/instance)。
+  i. 登录 [实例控制台](https://console.cloud.tencent.com/cvm/instance)。
 
   ii. 选择实例，选择**弹性网卡**列表页，单击**绑定弹性网卡。**
 
@@ -43,7 +43,7 @@ EFI 相比于传统的 TCP 传输，提供更低的延迟和更高的吞吐量�
 ​	   iv. 点击**确定**即可。
 - 私有网络控制台创建后绑定。
 
-  i. 登陆 [私有网络控制台](https://console.cloud.tencent.com/vpc)。
+  i. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc)。
 
   ii. 单击左侧目录中的** IP 与网卡>弹性网卡**，进入弹性网卡列表页。
 
@@ -53,7 +53,7 @@ EFI 相比于传统的 TCP 传输，提供更低的延迟和更高的吞吐量�
 
   v. 点击 **确定** 即可。
 
-  vi. 登陆 [实例控制台](https://console.cloud.tencent.com/cvm/instance)。
+  vi. 登录 [实例控制台](https://console.cloud.tencent.com/cvm/instance)。
 
   vii. 选择实例，选择 **弹性网卡** 列表页，单击 **绑定弹性网卡。**
 
@@ -71,7 +71,7 @@ EFI 相比于传统的 TCP 传输，提供更低的延迟和更高的吞吐量�
 
 3. 远程连接 CVM 实例。
 
-   具体操作，请参见 [登陆 Linux 实例](https://cloud.tencent.com/document/product/213/16515)。
+   具体操作，请参见 [登录 Linux 实例](https://cloud.tencent.com/document/product/213/16515)。
 
 4. 在实例内查看弹性网卡。
 
