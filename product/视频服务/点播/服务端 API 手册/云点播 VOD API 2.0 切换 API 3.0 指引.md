@@ -74,10 +74,8 @@
 
 <tr>
 <td   colspan="1" rowspan="1" align="" valign="middle"><p>CreateSimpleAesTemplate</p></td>
- <td   colspan="1" rowspan="1" align="" valign="middle"><p>/</p></td>
- <td   colspan="1" rowspan="1" align="" valign=""><p>原有 API 对应的加密功能属于 <a href="https://cloud.tencent.com/document/product/266/9638">HLS 普通加密</a>，已不再推荐使用。</p>
-
-<p>建议您尽快升级到 <a href="https://cloud.tencent.com/document/product/266/73073">HLS 私有加密</a>。</p></td>
+ <td   colspan="1" rowspan="1" align="" valign="middle"><p>CreateSimpleAesTemplate</p></td>
+ <td   colspan="1" rowspan="1" align="" valign=""><p>API 3.0 接口暂时不支持公开调用，如有需要，请 <a href="https://cloud.tencent.com/online-service?from=doc_266">联系我们。</a></p></td>
  </tr>
 
 <tr>
@@ -160,7 +158,7 @@
 
 <tr>
 <td   colspan="1" rowspan="1" align="" valign="bottom"><p><a href="https://cloud.tencent.com/document/api/266/54177">DescribeDrmDataKey</a></p></td>
- <td   colspan="1" rowspan="1" align="" valign="middle"><p><a href="https://cloud.tencent.com/document/product/266/54177">DescribeDrmDataKey</a></p></td>
+ <td   colspan="1" rowspan="1" align="" valign="middle"><p><a href="https://cloud.tencent.com/document/api/266/54177">DescribeDrmDataKey</a></p></td>
  <td   colspan="1" rowspan="1" align="" valign=""></td>
  </tr>
 
@@ -202,7 +200,7 @@
 
 <tr>
 <td   colspan="1" rowspan="1" align="" valign="bottom"><p><a href="https://cloud.tencent.com/document/product/266/7823">DescribeVodInfo</a></p></td>
- <td   colspan="1" rowspan="1" align="" valign="middle"><p><a href="https://cloud.tencent.com/document/product/266/31763">DescribeMediaInfos</a></p></td>
+ <td   colspan="1" rowspan="1" align="" valign="middle"><p><a href="https://cloud.tencent.com/document/api/266/31763">DescribeMediaInfos</a></p></td>
  <td   colspan="1" rowspan="1" align="" valign=""></td>
  </tr>
 
@@ -286,10 +284,8 @@
 
 <tr>
 <td   colspan="1" rowspan="1" align="" valign="middle"><p>ModifySimpleAesTemplate</p></td>
- <td   colspan="1" rowspan="1" align="" valign="middle"><p>/</p></td>
- <td   colspan="1" rowspan="1" align="" valign=""><p>原有 API 对应的加密功能属于 <a href="https://cloud.tencent.com/document/product/266/9638">HLS 普通加密</a>，已不再推荐使用。</p>
-
-<p>建议您尽快升级到<a href="https://cloud.tencent.com/document/product/266/73073">HLS 私有加密</a>。</p></td>
+ <td   colspan="1" rowspan="1" align="" valign="middle"><p>ModifySimpleAesTemplate</p></td>
+ <td   colspan="1" rowspan="1" align="" valign=""><p>API 3.0 接口暂时不支持公开调用，如有需要，请 <a href="https://cloud.tencent.com/online-service?from=doc_266">联系我们</a>。</p></td>
  </tr>
 
 <tr>
@@ -307,13 +303,13 @@
 <tr>
 <td   colspan="1" rowspan="1" align="" valign="middle"><p>ProcessCosMedia</p></td>
  <td   colspan="1" rowspan="1" align="" valign="middle"><p>/</p></td>
- <td   colspan="1" rowspan="1" align="" valign=""><p>云点播已不支持对 COS 文件发起媒体处理，如您仍然需要直接对 COS 文件发起媒体处理，建议您使用 MPS 产品的<a href="https://cloud.tencent.com/document/product/862/37578">接口</a>。</p></td>
+ <td   colspan="1" rowspan="1" align="" valign=""><p>云点播已不支持对 COS 文件发起媒体处理，如您仍然需要直接对 COS 文件发起媒体处理，建议您使用 MPS 产品的 <a href="https://cloud.tencent.com/document/product/862/37578">接口</a>。</p></td>
  </tr>
 
 <tr>
 <td   colspan="1" rowspan="1" align="" valign="middle"><p><a href="https://cloud.tencent.com/document/product/266/9642">ProcessFile</a></p></td>
  <td   colspan="1" rowspan="1" align="" valign="middle"><p><a href="https://cloud.tencent.com/document/product/266/33427">ProcessMedia</a></p></td>
- <td   colspan="1" rowspan="1" align="" valign=""><p>API 3.0 接口 ProcessMedia 可以对指定视频 ID 发起转码、截图、转自适应码流、AI 处理等一系列操作</p></td>
+ <td   colspan="1" rowspan="1" align="" valign=""><p>API 3.0 接口暂时不支持公开调用，如有需要，请 <a href="https://cloud.tencent.com/online-service?from=doc_266">联系我们</a>。</p></td>
  </tr>
 
 <tr>
@@ -324,10 +320,8 @@
 
 <tr>
 <td   colspan="1" rowspan="1" align="" valign="bottom"><p>QuerySimpleAesTemplate</p></td>
- <td   colspan="1" rowspan="1" align="" valign="middle"><p>/</p></td>
- <td   colspan="1" rowspan="1" align="" valign=""><p>原有 API 对应的加密功能属于 <a href="https://cloud.tencent.com/document/product/266/9638">HLS 普通加密</a>，已不再推荐使用。</p>
-
-<p>建议您尽快升级到<a href="https://cloud.tencent.com/document/product/266/73073">HLS 私有加密</a>。</p></td>
+ <td   colspan="1" rowspan="1" align="" valign="middle"><p>DescribeSimpleAesTemplate</p></td>
+ <td   colspan="1" rowspan="1" align="" valign=""><p>API 3.0 接口暂时不支持公开调用，如有需要，请 <a href="https://cloud.tencent.com/online-service?from=doc_266">联系我们</a>。</p></td>
  </tr>
 
 <tr>
