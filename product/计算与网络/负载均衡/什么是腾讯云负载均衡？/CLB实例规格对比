@@ -4,9 +4,9 @@ CLB 实例规格分为：共享型和性能容量型。
 
 <table>
 <tr>
-<th>对比项</th>
-<th>共享型</th>
-<th colspan="2">性能容量型</th>
+<th  width="12%">对比项</th>
+<th width="44%">共享型</th>
+<th colspan="2" width="44%">性能容量型</th>
 </tr>
 <tr>
 <td rowspan="5">性能上限</td>
