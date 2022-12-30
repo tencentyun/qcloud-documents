@@ -11,7 +11,7 @@ ASP.NET 应用镜像提供了开源的服务端 Web 应用程序框架，可用�
 ## 操作步骤
 1. 登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse/instance/index)，在 **服务器** 页面单击新建。
 2. 在轻量应用服务器购买页面，选择所需配置完成轻量应用服务器购买。如下图所示：
-3. 其中，**镜像** 选择为应用模板 > Web 开发场景 > ASP.NET 应用模板，其他参数可参考 购买方式 进行选择。
+ 其中，**镜像** 选择为应用模板 > Web 开发场景 > ASP.NET 应用模板，其他参数可参考 购买方式 进行选择。
 <dx-alert infotype="explain" title="">
 应用模板即应用镜像。
 查看镜像说明详情请参见[ 基本概念](https://cloud.tencent.com/document/product/1207/79254)。
