@@ -74,9 +74,10 @@ Active Directory Federation Services（ADFS）是 Microsoft's 推出的 Windows 
 <img style="width:978px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/0b49f4664cd74f8a8a1b1bc270748c31.png" />
 3. 进入服务器证书页面，单击 **创建证书申请**，如下图所示：
 <img style="width:978px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/a59d8264e9d2edb1e990379d1a22b6b2.png" />
-![](https://qcloudimg.tencent-cloud.cn/raw/d14676f50d1dedf2455e39f2a3a2824f.png)
+
+ ![](https://qcloudimg.tencent-cloud.cn/raw/d14676f50d1dedf2455e39f2a3a2824f.png)
  ![](https://qcloudimg.tencent-cloud.cn/raw/e070da5b0a06b6f77dab3e91122702a7.png)
-![](https://qcloudimg.tencent-cloud.cn/raw/a5b997c70e6a0fb86c5eed5cd3e47f14.png)
+ ![](https://qcloudimg.tencent-cloud.cn/raw/a5b997c70e6a0fb86c5eed5cd3e47f14.png)
 4. 访问  `http://localhost/certsrv`，单击**申请证书 > 高级证书申请 > 使用 base64 编码**，如下图所示：
 <img style="width:978px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/c9cad1c83817099ca2a385a7a220d444.png" />
 <img style="width:978px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/37ab1c3364acddef651b339d5233f7ff.png" />
@@ -87,7 +88,8 @@ Active Directory Federation Services（ADFS）是 Microsoft's 推出的 Windows 
 <img style="width:978px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/a3301bacb18d0c646932a89c65f7fea0.png" />
 7. 在服务器证书页面，单击 **完成证书申请**，在弹出的页面选择步骤 5 下载的证书，如下图所示：
 <img style="width:978px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/e31ca79c7ff60614837b049071e5cfa3.png" />
-![](https://qcloudimg.tencent-cloud.cn/raw/2b044468721d83d7a1fbb123c0f2e847.png)
+
+ ![](https://qcloudimg.tencent-cloud.cn/raw/2b044468721d83d7a1fbb123c0f2e847.png)
 8. 在网站 > Default Web Site 主页，右键单击 **编辑绑定**，如下图所示：
 <img style="width:978px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/1a8ab8e9b388d9ad0567fb1e843eb858.png" />
 9. 在弹出的网站绑定页面，单击 **添加**，选择类型为 https，IP 地址为全部未分配，端口为 80，SSL 证书为 test.cert，如下图所示：
