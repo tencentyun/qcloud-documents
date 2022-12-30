@@ -23,7 +23,8 @@ EFI 功能正在邀测中，邀测支持 GPU 计算型 PNV4ne。如需使用，�
 
 2. 两种方式创建启用 EFI 的弹性网卡。
 
-- 在实例控制台创建并绑定。
+
+ - 在实例控制台创建并绑定。
 
   i. 登录 [实例控制台](https://console.cloud.tencent.com/cvm/instance)。
 
