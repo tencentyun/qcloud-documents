@@ -1,4 +1,3 @@
-# 使用 EFI
 ## 操作场景
 本文介绍如何在 CVM 实例上配置 EFI，实现在 VPC 网络下体验超低延迟的 RDMA 功能。弹性 RDMA 网卡（Elastic Fabric Interface，EFI）是一种可以绑定到 CVM 实例的虚拟网卡，EFI 必须依附于弹性网卡（ENI）开启 RDMA 设备。EFI 完全复用了弹性网卡所属的网络，让您无需改变业务组网，即可在原有网络下使用 RDMA 功能，体验 RDMA 带来的超低延迟。
 
