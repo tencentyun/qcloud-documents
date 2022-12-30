@@ -6,7 +6,7 @@ DROP TABLE 会将原数据库文件 (.ibd) 重命名为一个新的临时文件�
 该功能无需用户操作，由内核自动完成，其原理是在删除表时，为表的数据文件在另外一个目录中创建一个硬连接。当执行 drop table 后，删除的只是该文件的一个硬连接。之后后台线程扫描到硬连接目录中有需要删除的文件，自动在后台 truncate 前面 drop 掉表数据文件。
 
 ## 支持版本
-- 内核版本 MySQL 5.6 20190203 及以上
+- 内核版本 MySQL 5.6 20220303 及以上
 - 内核版本 MySQL 5.7 20190203 及以上
 - 内核版本 MySQL 8.0 20200630 及以上
 
@@ -38,4 +38,7 @@ DROP TABLE 会将原数据库文件 (.ibd) 重命名为一个新的临时文件�
 | innodb_async_truncate_size         | Yes  | int    | 128  | 128 - 168 | 异步 DROP TABLE 在后台每次 truncate 文件大小，单位MB。 |
 :::
 </dx-tabs>
+
+>?用户目前无法直接修改以上参数的参数值，如需修改可 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行修改。
+>
 
