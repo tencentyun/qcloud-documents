@@ -44,7 +44,7 @@
 <dubbo:registry address="multicast://224.5.6.7:1234"/>
 ```
 
-- TSF Demo（**注册中心地址使用注册中心 IP 和端口替换**）：[下载地址->>](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91/dubbo/dubbo3%20%E6%8E%A5%E5%85%A5.md)
+- TSF Demo（**注册中心地址使用注册中心 IP 和端口替换**）：[下载地址->>](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91/dubbo/dubbo3-demo.zip)
 xml 格式：
 ```xml
 <dubbo:registry address="tsf://127.0.0.1:8500">
