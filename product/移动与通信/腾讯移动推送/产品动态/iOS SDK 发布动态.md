@@ -10,7 +10,7 @@
 <tr>
  <td>SDK 1.3.9.3 版本发布 </td>
  <td>  
-  <li> 修复：修复已知问题</li>
+  修复：修复已知问题
  </td>
  <td>2022-12-14</td>
  <td><a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</a></td>
