@@ -75,8 +75,8 @@ scopeSelector 由多个 MatchExpressions 组成，这些 MatchExpressions 之间
 
 其中 ScopeName 包括 QOSClass，Priority，Namespace 三种；
 
-* QOSClass 是指希望关联具有特定的 QOSClass 的 Workload，Values 可以填：Guaranteed，Burstable，BestEffort中的一种或多种；
-* Priority 是指指希望关联具有特定的Priority的workload，Values可以填特定的priority数值，如["1000", "2000-3000"]，支持priority范围；
+* QOSClass 是指希望关联具有特定的 QOSClass 的 Workload，Values 可以填：Guaranteed，Burstable，BestEffort 中的一种或多种；
+* Priority 是指希望关联具有特定的 Priority 的 workload，Values 可以填特定的 priority 数值，如["1000", "2000-3000"]，支持 priority 范围；
 * Namespace 是指希望关联特定的 Namespace 的 Workload，Values 可以填一个或个多。
 
 Operator 包含两种，分别是 In 和 NotIn，不填默认为 In。

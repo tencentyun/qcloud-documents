@@ -11,14 +11,14 @@
 ## UPM 集成（推荐）
 
 1. 修改 manifest.json 文件：
-![](https://qcloudimg.tencent-cloud.cn/raw/88597bf131303e1b444baa33c641924e.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/881d625bf3ee2e736db22762e8763c18.png)
 2. 修改如下：
 ```json
-{
-    "dependencies":{
-    "com.tencent.imsdk.unity":"https://github.com/TencentCloud/TIMSDK.git#unity"
-  }
-}
+   {
+     "dependencies":{
+       "com.tencent.imsdk.unity":"https://github.com/TencentCloud/chat-sdk-unity.git#unity"
+     }
+   }
 ```
 3. 在 Unity Editor 中打开项目，等候依赖加载完毕，确认Tencent Cloud IM 已经加载完成。
 ![img](https://qcloudimg.tencent-cloud.cn/raw/d98dfb17bbee6c0319e370de6f2ba9dd.jpg)

@@ -1,9 +1,48 @@
+## TKE kubernetes 1.24.4 revisions
+
+<dx-alert infotype="explain" title="">
+Kubernetes 1.24通过 Dockershim 对 Docker 的支持已移除，新建节点的容器运行时请使用 Containerd，通过 Docker 构建的镜像可以继续使用。更多信息可请参考 [Dockershim Removal FAQ](https://kubernetes.io/blog/2022/02/17/dockershim-faq/?spm=a2c4g.11186623.0.0.48413edcVJKrrD)。
+</dx-alert>
+
+
+<table>
+<thead>
+<tr><th width="13%">时间</th><th width="13%">版本</th><th width="74%">更新内容</th></tr>
+</thead>
+  <tbody>
+	  <tr>
+    <td>2022-12-08</td>
+    <td>v1.24.4-tke.3</td>
+    <td>
+		<li>支持 Containerd 运行时的磁盘用量指标。(kubelet)</li>
+		<li>支持扩展调度器 Prebind 及 Unreserve 操作。(kube-scheduler)</li>
+		<li>支持 TKE Serverless 超级节点。(kube-controller-manager,kube-scheduler)</li></td>
+  </tr>
+	    <tr>
+    <td>2022-05-07</td>
+    <td>v1.22.5-tke.5</td>
+		<td>
+<li>更新以镜像方式运行 kube-proxy 时的启动方式，自动适配所在节点的 iptables 运行模式，以支持默认使用 nf_tables 模式运行 iptables 的操作系统。(kube-proxy)</li>
+<li>允许 TKE 托管集群使用的特殊网段。(kube-apiserver)</li>
+<li>revert pr63066，修复 LB 健康检查与 IPVS 的问题。(kube-proxy)</li>
+<li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/112299">PR112299</a>，优化 apiserver gzip 压缩级别。</li></td>
+  </tbody>
+</table>
+
+
+
 ## TKE kubernetes 1.22.5 revisions
 <table>
 <thead>
 <tr><th width="13%">时间</th><th width="13%">版本</th><th width="74%">更新内容</th></tr>
 </thead>
   <tbody>
+		  <tr>
+    <td>2022-12-08</td>
+    <td>	v1.22.5-tke.7</td>
+    <td>修复容器网卡默认名称被设置为 eth1的问题。(kubelet)
+</td>
+  </tr>
 	  <tr>
     <td>2022-11-09</td>
     <td>v1.22.5-tke.6</td>
@@ -309,7 +348,7 @@ TKE 支持混合云节点。(kube-controller-manager)</td>
 
 
 
-## TKE kubernetes 1.16.3 revisions
+## （停止维护）TKE kubernetes 1.16.3 revisions
 <table><thead>
 <tr><th width="13%">时间</th><th width="13%">版本</th><th width="74%">更新内容</th></tr>
 </thead>
