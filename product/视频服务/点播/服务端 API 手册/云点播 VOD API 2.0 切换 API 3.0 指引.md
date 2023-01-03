@@ -75,7 +75,7 @@
 <tr>
 <td   colspan="1" rowspan="1" align="" valign="middle"><p>CreateSimpleAesTemplate</p></td>
  <td   colspan="1" rowspan="1" align="" valign="middle"><p>CreateSimpleAesTemplate</p></td>
- <td   colspan="1" rowspan="1" align="" valign=""><p>API 3.0 接口暂时不支持公开调用，如有需要，请 <a href="https://cloud.tencent.com/online-service?from=doc_266">联系我们。</a></p></td>
+ <td   colspan="1" rowspan="1" align="" valign=""><p>API 3.0 接口不支持公开调用，如有需要，请 <a href="https://cloud.tencent.com/online-service?from=doc_266">联系我们。</a></p></td>
  </tr>
 
 <tr>
@@ -285,7 +285,7 @@
 <tr>
 <td   colspan="1" rowspan="1" align="" valign="middle"><p>ModifySimpleAesTemplate</p></td>
  <td   colspan="1" rowspan="1" align="" valign="middle"><p>ModifySimpleAesTemplate</p></td>
- <td   colspan="1" rowspan="1" align="" valign=""><p>API 3.0 接口暂时不支持公开调用，如有需要，请 <a href="https://cloud.tencent.com/online-service?from=doc_266">联系我们</a>。</p></td>
+ <td   colspan="1" rowspan="1" align="" valign=""><p>API 3.0 接口不支持公开调用，如有需要，请 <a href="https://cloud.tencent.com/online-service?from=doc_266">联系我们</a>。</p></td>
  </tr>
 
 <tr>
@@ -307,9 +307,9 @@
  </tr>
 
 <tr>
-<td   colspan="1" rowspan="1" align="" valign="middle"><p><a href="https://cloud.tencent.com/document/product/266/9642">ProcessFile</a></p></td>
- <td   colspan="1" rowspan="1" align="" valign="middle"><p><a href="https://cloud.tencent.com/document/product/266/33427">ProcessFile</a></p></td>
- <td   colspan="1" rowspan="1" align="" valign=""><p>API 3.0 接口暂时不支持公开调用，如有需要，请 <a href="https://cloud.tencent.com/online-service?from=doc_266">联系我们</a>。</p></td>
+<td   colspan="1" rowspan="1" align="" valign="middle"><p>ProcessFile</p></td>
+ <td   colspan="1" rowspan="1" align="" valign="middle"><p>ProcessFile</p></td>
+ <td   colspan="1" rowspan="1" align="" valign=""><p>API 3.0 接口不支持公开调用，如有需要，请 <a href="https://cloud.tencent.com/online-service?from=doc_266">联系我们</a>。</p></td>
  </tr>
 
 <tr>
@@ -321,7 +321,7 @@
 <tr>
 <td   colspan="1" rowspan="1" align="" valign="bottom"><p>QuerySimpleAesTemplate</p></td>
  <td   colspan="1" rowspan="1" align="" valign="middle"><p>DescribeSimpleAesTemplate</p></td>
- <td   colspan="1" rowspan="1" align="" valign=""><p>API 3.0 接口暂时不支持公开调用，如有需要，请 <a href="https://cloud.tencent.com/online-service?from=doc_266">联系我们</a>。</p></td>
+ <td   colspan="1" rowspan="1" align="" valign=""><p>API 3.0 接口不支持公开调用，如有需要，请 <a href="https://cloud.tencent.com/online-service?from=doc_266">联系我们</a>。</p></td>
  </tr>
 
 <tr>
