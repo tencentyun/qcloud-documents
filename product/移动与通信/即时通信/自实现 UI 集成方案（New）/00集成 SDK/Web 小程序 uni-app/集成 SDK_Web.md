@@ -149,7 +149,6 @@ tim.registerPlugin({
 <dx-codeblock>
 :::  js
 
-<!-- tim-js.js 和 tim-upload-plugin.js 可以从 https://github.com/TencentCloud/TIMSDK/tree/master/Web/IMSDK 获取 -->
 <script src="./tim-js.js"></script>
 <script src="./tim-upload-plugin.js"></script>
 <script>
