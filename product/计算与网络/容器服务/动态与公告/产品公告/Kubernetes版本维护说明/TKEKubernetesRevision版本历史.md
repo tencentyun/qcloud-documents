@@ -24,8 +24,8 @@ Kubernetes 1.24通过 Dockershim 对 Docker 的支持已移除，新建节点的
 		<td>
 <li>更新以镜像方式运行 kube-proxy 时的启动方式，自动适配所在节点的 iptables 运行模式，以支持默认使用 nf_tables 模式运行 iptables 的操作系统。(kube-proxy)</li>
 <li>允许 TKE 托管集群使用的特殊网段。(kube-apiserver)</li>
-<li>revert <a href="https://github.com/kubernetes/kubernetes/pull/112299">pr63066</a>，修复 LB 健康检查与 IPVS 的问题。(kube-proxy)</li>
-<li>合并PR112299，优化 apiserver gzip 压缩级别。</li></td>
+<li>revert pr63066，修复 LB 健康检查与 IPVS 的问题。(kube-proxy)</li>
+<li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/112299">PR112299</a>，优化 apiserver gzip 压缩级别。</li></td>
   </tbody>
 </table>
 
