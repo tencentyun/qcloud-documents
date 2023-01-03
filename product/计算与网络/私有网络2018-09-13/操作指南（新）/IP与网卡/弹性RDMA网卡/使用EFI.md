@@ -35,7 +35,9 @@ EFI 功能正在邀测中，邀测支持 GPU 计算型 PNV4ne。如需使用，�
 - 绑定辅助网卡至实例前，请确认目标实例的主网卡和辅助网卡不在同一子网内，否则可能因为默认路由导致辅助网卡的 RDMA 功能在某些情况下不可用。如果您知道如何解决并确定要这样使用，请忽略本提示。
 - 若需要实现多个支持 EFI 的实例间通信，请保证不同实例的 EFI 弹性网卡在同 vpc 同子网内。
  </dx-alert>
-  <img style="width:800px; max-width: inherit;" src="https://wdoc-76491.picgzc.qpic.cn/MTY4ODg1NDgzMjM4OTI2NQ_196918_X248QhF-iZqizdZ-_1669729563?w=1066&h=1340" />
+ 
+ ![])
+  <img style="width:800px; max-width: inherit;" src="(https://qcloudimg.tencent-cloud.cn/raw/2b9d4043ba767b6129aa1bc110720092.png" />
 
  将启用 EFI 的辅助弹性网卡绑定至实例后，如需解绑，必须先停止压力，即停止实例内的通信操作。
 
