@@ -36,8 +36,7 @@ EFI 功能正在邀测中，邀测支持 GPU 计算型 PNV4ne。如需使用，�
 - 若需要实现多个支持 EFI 的实例间通信，请保证不同实例的 EFI 弹性网卡在同 vpc 同子网内。
  </dx-alert>
  
- ![])
-  <img style="width:800px; max-width: inherit;" src="(https://qcloudimg.tencent-cloud.cn/raw/2b9d4043ba767b6129aa1bc110720092.png" />
+ ![](https://qcloudimg.tencent-cloud.cn/raw/da433af559635f216c064c74c8d2d9bf.png)
 
  将启用 EFI 的辅助弹性网卡绑定至实例后，如需解绑，必须先停止压力，即停止实例内的通信操作。
 
@@ -47,12 +46,13 @@ EFI 功能正在邀测中，邀测支持 GPU 计算型 PNV4ne。如需使用，�
 
   i. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc)。
 
-  ii. 单击左侧目录中的** IP 与网卡>弹性网卡**，进入弹性网卡列表页。
+  ii. 单击左侧目录中的 **IP 与网卡>弹性网卡**，进入弹性网卡列表页。
 
   iii. 选择地区和私有网络，单击+新建。
 
-  iv. 在弹窗中输入名称，选择辅助弹性网卡的所属私有网络、子网后，为网卡分配 IP，打开**弹性 RDMA 接口**开关。      
-	<img style="width:800px; max-width: inherit;" src="https://wdoc-76491.picgzc.qpic.cn/MTY4ODg1NDgzMjM4OTI2NQ_134559_y9N1e_TU_w8_bXrU_1669729499?w=1256&h=1280" />  
+  iv. 在弹窗中输入名称，选择辅助弹性网卡的所属私有网络、子网后，为网卡分配 IP，打开**弹性 RDMA 接口**开关。   
+	
+	 ![](https://qcloudimg.tencent-cloud.cn/raw/d907dd8c2625d1c1cbebb5f3a7b90412.png)
 
   v. 点击 **确定** 即可。
 
@@ -66,7 +66,8 @@ EFI 功能正在邀测中，邀测支持 GPU 计算型 PNV4ne。如需使用，�
 - 绑定辅助网卡至实例前，请确认目标实例的主网卡和辅助网卡不在同一子网内，否则可能因为默认路由导致辅助网卡的 RDMA 功能在某些情况下不可用。如果您知道如何解决并确定要这样使用，请忽略本提示。
 - 若需要实现多个支持 EFI 的实例间通信，请保证不同实例的 EFI 弹性网卡在同 vpc 同子网内。
  </dx-alert>
-  	<img style="width:800px; max-width: inherit;" src="https://wdoc-76491.picgzc.qpic.cn/MTY4ODg1NDgzMjM4OTI2NQ_533979_aSjDApYUbKMCZNTR_1669729145?w=1074&h=920" />  
+ 
+  ![](https://qcloudimg.tencent-cloud.cn/raw/883f7131ae7b8c0f36969a7ca16c1c23.png)
 
  ix. 点击**确定**即可。
 
@@ -102,5 +103,5 @@ sh install.sh
  iv. 确认安装结果。
 
  - 当出现如下信息时，表示安装成功。                
-	<img style="width:800px; max-width: inherit;" src="https://wdoc-76491.picgzc.qpic.cn/MTY4ODg1NDgzMjM4OTI2NQ_698968_v9I28HvqNBsdxSjY_1669887120?w=1280&h=1012.464046021093" />  
+![](https://qcloudimg.tencent-cloud.cn/raw/dfaf630688c7f409424b982d992fdbe0.png)
  - 如果提示安装失败，您可以查看错误输出进行相关操作，尝试重新安装驱动。
