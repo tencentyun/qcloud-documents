@@ -348,7 +348,7 @@ TKE 支持混合云节点。(kube-controller-manager)</td>
 
 
 
-## TKE kubernetes 1.16.3 revisions
+## （停止维护）TKE kubernetes 1.16.3 revisions
 <table><thead>
 <tr><th width="13%">时间</th><th width="13%">版本</th><th width="74%">更新内容</th></tr>
 </thead>
