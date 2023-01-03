@@ -15,19 +15,19 @@
 <tr>
 <td   colspan="1" rowspan="1" align="" valign="bottom"><p><a href="https://cloud.tencent.com/document/product/266/14190">AddKeyFrameDesc</a></p></td>
  <td   colspan="1" rowspan="1" align="" valign="middle"><p><a href="https://cloud.tencent.com/document/product/266/31762">ModifyMediaInfo</a></p></td>
- <td   colspan="1" rowspan="1" align="" valign=""></td>
+ <td   colspan="1" rowspan="1" align="" valign="">-</td>
  </tr>
 
 <tr>
 <td   colspan="1" rowspan="1" align="" valign="bottom"><p><a href="https://cloud.tencent.com/document/product/266/9756">ApplyUpload</a></p></td>
  <td   colspan="1" rowspan="1" align="" valign="middle"><p><a href="https://cloud.tencent.com/document/product/266/31767">ApplyUpload</a></p></td>
- <td   colspan="1" rowspan="1" align="" valign=""></td>
+ <td   colspan="1" rowspan="1" align="" valign="">-</td>
  </tr>
 
 <tr>
 <td   colspan="1" rowspan="1" align="" valign="bottom"><p><a href="https://cloud.tencent.com/document/product/266/11607">ApplyUploadWatermark</a></p></td>
  <td   colspan="1" rowspan="1" align="" valign="middle"><p><a href="https://cloud.tencent.com/document/product/266/33772">CreateWatermarkTemplate</a></p></td>
- <td   colspan="1" rowspan="1" align="" valign=""></td>
+ <td   colspan="1" rowspan="1" align="" valign="">-</td>
  </tr>
 
 <tr>
@@ -39,7 +39,7 @@
 <tr>
 <td   colspan="1" rowspan="1" align="" valign="bottom"><p><a href="https://cloud.tencent.com/document/product/266/9757">CommitUpload</a></p></td>
  <td   colspan="1" rowspan="1" align="" valign="middle"><p><a href="https://cloud.tencent.com/document/product/266/31766">CommitUpload</a></p></td>
- <td   colspan="1" rowspan="1" align="" valign=""></td>
+ <td   colspan="1" rowspan="1" align="" valign="">-</td>
  </tr>
 
 <tr>
@@ -51,7 +51,7 @@
 <tr>
 <td   colspan="1" rowspan="1" align="" valign="bottom"><p><a href="https://cloud.tencent.com/document/product/266/7819">ConfirmEvent</a></p></td>
  <td   colspan="1" rowspan="1" align="" valign="middle"><p><a href="https://cloud.tencent.com/document/product/266/33434">ConfirmEvents</a></p></td>
- <td   colspan="1" rowspan="1" align="" valign=""></td>
+ <td   colspan="1" rowspan="1" align="" valign="">-</td>
  </tr>
 
 <tr>
@@ -63,7 +63,7 @@
 <tr>
 <td   colspan="1" rowspan="1" align="" valign="middle"><p><a href="https://cloud.tencent.com/document/product/266/7812">CreateClass</a></p></td>
  <td   colspan="1" rowspan="1" align="" valign="middle"><p><a href="https://cloud.tencent.com/document/product/266/31772">CreateClass</a></p></td>
- <td   colspan="1" rowspan="1" align="" valign=""></td>
+ <td   colspan="1" rowspan="1" align="" valign="">-</td>
  </tr>
 
 <tr>
@@ -87,199 +87,199 @@
 <tr>
 <td   colspan="1" rowspan="1" align="" valign="bottom"><p><a href="https://cloud.tencent.com/document/product/266/9910">CreateTranscodeTemplate</a></p></td>
  <td   colspan="1" rowspan="1" align="" valign="middle"><p><a href="https://cloud.tencent.com/document/product/266/9910">CreateTranscodeTemplate</a></p></td>
- <td   colspan="1" rowspan="1" align="" valign=""></td>
+ <td   colspan="1" rowspan="1" align="" valign="">-</td>
  </tr>
 
 <tr>
 <td   colspan="1" rowspan="1" align="" valign="bottom"><p><a href="https://cloud.tencent.com/document/product/266/7826">CreateVodTags</a></p></td>
  <td   colspan="1" rowspan="1" align="" valign="middle"><p><a href="https://cloud.tencent.com/document/product/266/31762">ModifyMediaInfo</a></p></td>
- <td   colspan="1" rowspan="1" align="" valign=""></td>
+ <td   colspan="1" rowspan="1" align="" valign="">-</td>
  </tr>
 
 <tr>
 <td   colspan="1" rowspan="1" align="" valign="bottom"><p><a href="https://cloud.tencent.com/document/product/266/11599">CreateWatermarkTemplate</a></p></td>
  <td   colspan="1" rowspan="1" align="" valign="middle"><p><a href="https://cloud.tencent.com/document/product/266/33772">CreateWatermarkTemplate</a></p></td>
- <td   colspan="1" rowspan="1" align="" valign=""></td>
+ <td   colspan="1" rowspan="1" align="" valign="">-</td>
  </tr>
 
 <tr>
 <td   colspan="1" rowspan="1" align="" valign="bottom"><p><a href="https://cloud.tencent.com/document/product/266/13442">DeleteKeyFrameDesc</a></p></td>
  <td   colspan="1" rowspan="1" align="" valign="middle"><p><a href="https://cloud.tencent.com/document/product/266/31762">ModifyMediaInfo</a></p></td>
- <td   colspan="1" rowspan="1" align="" valign=""></td>
+ <td   colspan="1" rowspan="1" align="" valign="">-</td>
  </tr>
 
 <tr>
 <td   colspan="1" rowspan="1" align="" valign="bottom"><p><a href="https://cloud.tencent.com/document/product/266/7838">DeleteVodFile</a></p></td>
  <td   colspan="1" rowspan="1" align="" valign="middle"><p><a href="https://cloud.tencent.com/document/product/266/31764">DeleteMedia</a></p></td>
- <td   colspan="1" rowspan="1" align="" valign=""></td>
+ <td   colspan="1" rowspan="1" align="" valign="">-</td>
  </tr>
 
 <tr>
 <td   colspan="1" rowspan="1" align="" valign="bottom"><p><a href="https://cloud.tencent.com/document/product/266/11604">DeleteWatermarkTemplate</a></p></td>
  <td   colspan="1" rowspan="1" align="" valign="middle"><p><a href="https://cloud.tencent.com/document/api/266/33770">DeleteWatermarkTemplate</a></p></td>
- <td   colspan="1" rowspan="1" align="" valign=""></td>
+ <td   colspan="1" rowspan="1" align="" valign="">-</td>
  </tr>
 
 <tr>
 <td   colspan="1" rowspan="1" align="" valign="bottom"><p><a href="https://cloud.tencent.com/document/product/266/7813">DescribeAllClass</a></p></td>
  <td   colspan="1" rowspan="1" align="" valign="middle"><p><a href="https://cloud.tencent.com/document/product/266/31770">DescribeAllClass</a></p></td>
- <td   colspan="1" rowspan="1" align="" valign=""></td>
+ <td   colspan="1" rowspan="1" align="" valign="">-</td>
  </tr>
 
 <tr>
 <td   colspan="1" rowspan="1" align="" valign="bottom"><p>DescribeAutoScreenShot</p></td>
  <td   colspan="1" rowspan="1" align="" valign="middle"><p>/</p></td>
- <td   colspan="1" rowspan="1" align="" valign=""></td>
+ <td   colspan="1" rowspan="1" align="" valign="">-</td>
  </tr>
 
 <tr>
 <td   colspan="1" rowspan="1" align="" valign="bottom"><p><a href="https://cloud.tencent.com/document/product/266/15330">DescribeCdnDetailStat</a></p></td>
  <td   colspan="1" rowspan="1" align="" valign="middle"><p><a href="https://cloud.tencent.com/document/product/266/50519">DescribeCDNStatDetails</a></p></td>
- <td   colspan="1" rowspan="1" align="" valign=""></td>
+ <td   colspan="1" rowspan="1" align="" valign="">-</td>
  </tr>
 
 <tr>
 <td   colspan="1" rowspan="1" align="" valign="bottom"><p><a href="https://cloud.tencent.com/document/product/266/15329">DescribeCdnRegionIspDetailStat</a></p></td>
  <td   colspan="1" rowspan="1" align="" valign="middle"><p><a href="https://cloud.tencent.com/document/product/266/50519">DescribeCDNStatDetails</a></p></td>
- <td   colspan="1" rowspan="1" align="" valign=""></td>
+ <td   colspan="1" rowspan="1" align="" valign="">-</td>
  </tr>
 
 <tr>
 <td   colspan="1" rowspan="1" align="" valign="bottom"><p><a href="https://cloud.tencent.com/document/product/266/15290">DescribeCdnStat</a></p></td>
  <td   colspan="1" rowspan="1" align="" valign="middle"><p><a href="https://cloud.tencent.com/document/product/266/38291">DescribeCDNUsageData</a></p></td>
- <td   colspan="1" rowspan="1" align="" valign=""></td>
+ <td   colspan="1" rowspan="1" align="" valign="">-</td>
  </tr>
 
 <tr>
 <td   colspan="1" rowspan="1" align="" valign="bottom"><p><a href="https://cloud.tencent.com/document/product/266/7814">DescribeClass</a></p></td>
  <td   colspan="1" rowspan="1" align="" valign="middle"><p><a href="https://cloud.tencent.com/document/product/266/31770">DescribeAllClass</a></p></td>
- <td   colspan="1" rowspan="1" align="" valign=""></td>
+ <td   colspan="1" rowspan="1" align="" valign="">-</td>
  </tr>
 
 <tr>
 <td   colspan="1" rowspan="1" align="" valign="bottom"><p><a href="https://cloud.tencent.com/document/api/266/54177">DescribeDrmDataKey</a></p></td>
  <td   colspan="1" rowspan="1" align="" valign="middle"><p><a href="https://cloud.tencent.com/document/api/266/54177">DescribeDrmDataKey</a></p></td>
- <td   colspan="1" rowspan="1" align="" valign=""></td>
+ <td   colspan="1" rowspan="1" align="" valign="">-</td>
  </tr>
 
 <tr>
 <td   colspan="1" rowspan="1" align="" valign="bottom"><p><a href="https://cloud.tencent.com/document/product/266/15333">DescribePlayStatTopFiles</a></p></td>
  <td   colspan="1" rowspan="1" align="" valign="middle"><p><a href="https://cloud.tencent.com/document/product/266/53311">DescribeDailyMostPlayedStat</a></p></td>
- <td   colspan="1" rowspan="1" align="" valign=""></td>
+ <td   colspan="1" rowspan="1" align="" valign="">-</td>
  </tr>
 
 <tr>
 <td   colspan="1" rowspan="1" align="" valign="bottom"><p><a href="https://cloud.tencent.com/document/product/266/8227">DescribeRecordPlayInfo</a></p></td>
  <td   colspan="1" rowspan="1" align="" valign="middle"><p><a href="https://cloud.tencent.com/document/product/266/31763">DescribeMediaInfos</a></p></td>
- <td   colspan="1" rowspan="1" align="" valign=""></td>
+ <td   colspan="1" rowspan="1" align="" valign="">-</td>
  </tr>
 
 <tr>
 <td   colspan="1" rowspan="1" align="" valign="bottom"><p><a href="https://cloud.tencent.com/document/product/266/15332">DescribeStorage</a></p></td>
  <td   colspan="1" rowspan="1" align="" valign="middle"><p><a href="https://cloud.tencent.com/document/product/266/41463">DescribeStorageData</a></p></td>
- <td   colspan="1" rowspan="1" align="" valign=""></td>
+ <td   colspan="1" rowspan="1" align="" valign="">-</td>
  </tr>
 
 <tr>
 <td   colspan="1" rowspan="1" align="" valign="bottom"><p><a href="https://cloud.tencent.com/document/product/266/15339">DescribeTranscodeStat</a></p></td>
  <td   colspan="1" rowspan="1" align="" valign="middle"><p><a href="https://cloud.tencent.com/document/product/266/41464">DescribeMediaProcessUsageData</a></p></td>
- <td   colspan="1" rowspan="1" align="" valign=""></td>
+ <td   colspan="1" rowspan="1" align="" valign="">-</td>
  </tr>
 
 <tr>
 <td   colspan="1" rowspan="1" align="" valign="bottom"><p><a href="https://cloud.tencent.com/document/product/266/8814">DescribeVodCover</a></p></td>
  <td   colspan="1" rowspan="1" align="" valign="middle"><p><a href="https://cloud.tencent.com/document/product/266/31762">ModifyMediaInfo</a></p></td>
- <td   colspan="1" rowspan="1" align="" valign=""></td>
+ <td   colspan="1" rowspan="1" align="" valign="">-</td>
  </tr>
 
 <tr>
 <td   colspan="1" rowspan="1" align="" valign="bottom"><p><a href="https://cloud.tencent.com/document/product/266/15331">DescribeVodHosts</a></p></td>
  <td   colspan="1" rowspan="1" align="" valign="middle"><p><a href="https://cloud.tencent.com/document/product/266/54176">DescribeVodDomains</a></p></td>
- <td   colspan="1" rowspan="1" align="" valign=""></td>
+ <td   colspan="1" rowspan="1" align="" valign="">-</td>
  </tr>
 
 <tr>
 <td   colspan="1" rowspan="1" align="" valign="bottom"><p><a href="https://cloud.tencent.com/document/product/266/7823">DescribeVodInfo</a></p></td>
  <td   colspan="1" rowspan="1" align="" valign="middle"><p><a href="https://cloud.tencent.com/document/api/266/31763">DescribeMediaInfos</a></p></td>
- <td   colspan="1" rowspan="1" align="" valign=""></td>
+ <td   colspan="1" rowspan="1" align="" valign="">-</td>
  </tr>
 
 <tr>
 <td   colspan="1" rowspan="1" align="" valign="bottom"><p><a href="https://cloud.tencent.com/document/product/266/7825">DescribeVodPlayInfo</a></p></td>
  <td   colspan="1" rowspan="1" align="" valign="middle"><p><a href="https://cloud.tencent.com/document/product/266/31813">SearchMedia</a></p></td>
- <td   colspan="1" rowspan="1" align="" valign=""></td>
+ <td   colspan="1" rowspan="1" align="" valign="">-</td>
  </tr>
 
 <tr>
 <td   colspan="1" rowspan="1" align="" valign="bottom"><p><a href="https://cloud.tencent.com/document/product/266/7824">DescribeVodPlayUrls</a></p></td>
  <td   colspan="1" rowspan="1" align="" valign="middle"><p><a href="https://cloud.tencent.com/document/product/266/31763">DescribeMediaInfos</a></p></td>
- <td   colspan="1" rowspan="1" align="" valign=""></td>
+ <td   colspan="1" rowspan="1" align="" valign="">-</td>
  </tr>
 
 <tr>
 <td   colspan="1" rowspan="1" align="" valign="bottom"><p><a href="https://cloud.tencent.com/document/product/266/15332">DescribeVodStorage</a></p></td>
  <td   colspan="1" rowspan="1" align="" valign="middle"><p><a href="https://cloud.tencent.com/document/product/266/41463">DescribeStorageData</a></p></td>
- <td   colspan="1" rowspan="1" align="" valign=""></td>
+ <td   colspan="1" rowspan="1" align="" valign="">-</td>
  </tr>
 
 <tr>
 <td   colspan="1" rowspan="1" align="" valign="bottom"><p><a href="https://cloud.tencent.com/document/product/266/15334">GetCdnLogList</a></p></td>
  <td   colspan="1" rowspan="1" align="" valign="middle"><p><a href="https://cloud.tencent.com/document/product/266/47706">DescribeCdnLogs</a></p></td>
- <td   colspan="1" rowspan="1" align="" valign=""></td>
+ <td   colspan="1" rowspan="1" align="" valign="">-</td>
  </tr>
 
 <tr>
 <td   colspan="1" rowspan="1" align="" valign="bottom"><p><a href="https://cloud.tencent.com/document/product/266/12624">GetPlayStatLogList</a></p></td>
  <td   colspan="1" rowspan="1" align="" valign="middle"><p><a href="https://cloud.tencent.com/document/product/266/51026">DescribeDailyPlayStatFileList</a></p></td>
- <td   colspan="1" rowspan="1" align="" valign=""></td>
+ <td   colspan="1" rowspan="1" align="" valign="">-</td>
  </tr>
 
 <tr>
 <td   colspan="1" rowspan="1" align="" valign="bottom"><p><a href="https://cloud.tencent.com/document/product/266/11724">GetTaskInfo</a></p></td>
  <td   colspan="1" rowspan="1" align="" valign="middle"><p><a href="https://cloud.tencent.com/document/product/266/33431">DescribeTaskDetail</a></p></td>
- <td   colspan="1" rowspan="1" align="" valign=""></td>
+ <td   colspan="1" rowspan="1" align="" valign="">-</td>
  </tr>
 
 <tr>
 <td   colspan="1" rowspan="1" align="" valign="bottom"><p><a href="https://cloud.tencent.com/document/product/266/11722">GetTaskList</a></p></td>
  <td   colspan="1" rowspan="1" align="" valign="middle"><p><a href="https://cloud.tencent.com/document/product/266/33430">DescribeTasks</a></p></td>
- <td   colspan="1" rowspan="1" align="" valign=""></td>
+ <td   colspan="1" rowspan="1" align="" valign="">-</td>
  </tr>
 
 <tr>
 <td   colspan="1" rowspan="1" align="" valign="bottom"><p>GetUserStatus</p></td>
  <td   colspan="1" rowspan="1" align="" valign="middle"><p>/</p></td>
- <td   colspan="1" rowspan="1" align="" valign=""></td>
+ <td   colspan="1" rowspan="1" align="" valign="">-</td>
  </tr>
 
 <tr>
 <td   colspan="1" rowspan="1" align="" valign="bottom"><p><a href="https://cloud.tencent.com/document/product/266/8586">GetVideoInfo</a></p></td>
  <td   colspan="1" rowspan="1" align="" valign="middle"><p><a href="https://cloud.tencent.com/document/api/266/31763">DescribeMediaInfos</a></p></td>
- <td   colspan="1" rowspan="1" align="" valign=""></td>
+ <td   colspan="1" rowspan="1" align="" valign="">-</td>
  </tr>
 
 <tr>
 <td   colspan="1" rowspan="1" align="" valign="bottom"><p>GetVodFileCount</p></td>
  <td   colspan="1" rowspan="1" align="" valign="middle"><p>/</p></td>
- <td   colspan="1" rowspan="1" align="" valign=""></td>
+ <td   colspan="1" rowspan="1" align="" valign="">-</td>
  </tr>
 
 <tr>
 <td   colspan="1" rowspan="1" align="" valign="bottom"><p>GetVodFileStatInfo</p></td>
  <td   colspan="1" rowspan="1" align="" valign="middle"><p>/</p></td>
- <td   colspan="1" rowspan="1" align="" valign=""></td>
+ <td   colspan="1" rowspan="1" align="" valign="">-</td>
  </tr>
 
 <tr>
 <td   colspan="1" rowspan="1" align="" valign="bottom"><p>LiveRealTimeClip</p></td>
  <td   colspan="1" rowspan="1" align="" valign="middle"><p><a href="https://cloud.tencent.com/document/product/266/32587">LiveRealTimeClip</a></p></td>
- <td   colspan="1" rowspan="1" align="" valign=""></td>
+ <td   colspan="1" rowspan="1" align="" valign="">-</td>
  </tr>
 
 <tr>
 <td   colspan="1" rowspan="1" align="" valign="bottom"><p><a href="https://cloud.tencent.com/document/product/266/7815">ModifyClass</a></p></td>
  <td   colspan="1" rowspan="1" align="" valign="middle"><p><a href="https://cloud.tencent.com/document/product/266/31769">ModifyClass</a></p></td>
- <td   colspan="1" rowspan="1" align="" valign=""></td>
+ <td   colspan="1" rowspan="1" align="" valign="">-</td>
  </tr>
 
 <tr>
@@ -291,13 +291,13 @@
 <tr>
 <td   colspan="1" rowspan="1" align="" valign="bottom"><p><a href="https://cloud.tencent.com/document/product/266/7828">ModifyVodInfo</a></p></td>
  <td   colspan="1" rowspan="1" align="" valign="middle"><p><a href="https://cloud.tencent.com/document/product/266/31762">ModifyMediaInfo</a></p></td>
- <td   colspan="1" rowspan="1" align="" valign=""></td>
+ <td   colspan="1" rowspan="1" align="" valign="">-</td>
  </tr>
 
 <tr>
 <td   colspan="1" rowspan="1" align="" valign="bottom"><p><a href="https://cloud.tencent.com/document/product/266/7817">MultiPullVodFile</a></p></td>
  <td   colspan="1" rowspan="1" align="" valign="middle"><p><a href="https://cloud.tencent.com/document/product/266/35575">PullUpload</a></p></td>
- <td   colspan="1" rowspan="1" align="" valign=""></td>
+ <td   colspan="1" rowspan="1" align="" valign="">-</td>
  </tr>
 
 <tr>
@@ -315,7 +315,7 @@
 <tr>
 <td   colspan="1" rowspan="1" align="" valign="bottom"><p><a href="https://cloud.tencent.com/document/product/266/7818">PullEvent</a></p></td>
  <td   colspan="1" rowspan="1" align="" valign="middle"><p><a href="https://cloud.tencent.com/document/product/266/33433">PullEvents</a></p></td>
- <td   colspan="1" rowspan="1" align="" valign=""></td>
+ <td   colspan="1" rowspan="1" align="" valign="">-</td>
  </tr>
 
 <tr>
@@ -327,25 +327,25 @@
 <tr>
 <td   colspan="1" rowspan="1" align="" valign="bottom"><p><a href="https://cloud.tencent.com/document/product/266/9912">QueryTranscodeTemplate</a></p></td>
  <td   colspan="1" rowspan="1" align="" valign="middle"><p><a href="https://cloud.tencent.com/document/api/266/33769">DescribeTranscodeTemplates</a></p></td>
- <td   colspan="1" rowspan="1" align="" valign=""></td>
+ <td   colspan="1" rowspan="1" align="" valign="">-</td>
  </tr>
 
 <tr>
 <td   colspan="1" rowspan="1" align="" valign="bottom"><p><a href="https://cloud.tencent.com/document/product/266/9913">QueryTranscodeTemplateList</a></p></td>
  <td   colspan="1" rowspan="1" align="" valign="middle"><p><a href="https://cloud.tencent.com/document/api/266/33769">DescribeTranscodeTemplates</a></p></td>
- <td   colspan="1" rowspan="1" align="" valign=""></td>
+ <td   colspan="1" rowspan="1" align="" valign="">-</td>
  </tr>
 
 <tr>
 <td   colspan="1" rowspan="1" align="" valign="bottom"><p><a href="https://cloud.tencent.com/document/product/266/11606">QueryWatermarkTemplate</a></p></td>
  <td   colspan="1" rowspan="1" align="" valign="middle"><p><a href="https://cloud.tencent.com/document/api/266/33768">DescribeWatermarkTemplates</a></p></td>
- <td   colspan="1" rowspan="1" align="" valign=""></td>
+ <td   colspan="1" rowspan="1" align="" valign="">-</td>
  </tr>
 
 <tr>
 <td   colspan="1" rowspan="1" align="" valign="bottom"><p><a href="https://cloud.tencent.com/document/product/266/11608">QueryWatermarkTemplateList</a></p></td>
  <td   colspan="1" rowspan="1" align="" valign="middle"><p><a href="https://cloud.tencent.com/document/api/266/33768">DescribeWatermarkTemplates</a></p></td>
- <td   colspan="1" rowspan="1" align="" valign=""></td>
+ <td   colspan="1" rowspan="1" align="" valign="">-</td>
  </tr>
 
 <tr>
@@ -357,7 +357,7 @@
 <tr>
 <td   colspan="1" rowspan="1" align="" valign="bottom"><p>RegisterVod</p></td>
  <td   colspan="1" rowspan="1" align="" valign="middle"><p>/</p></td>
- <td   colspan="1" rowspan="1" align="" valign=""></td>
+ <td   colspan="1" rowspan="1" align="" valign="">-</td>
  </tr>
 
 <tr>
@@ -369,7 +369,7 @@
 <tr>
 <td   colspan="1" rowspan="1" align="" valign="bottom"><p>SetVodPlayStatus</p></td>
  <td   colspan="1" rowspan="1" align="" valign="middle"><p>/</p></td>
- <td   colspan="1" rowspan="1" align="" valign=""></td>
+ <td   colspan="1" rowspan="1" align="" valign="">-</td>
  </tr>
 
 <tr>
