@@ -5,7 +5,7 @@
 
 制定分三阶段灰度切换至 EdgeOne：首先灰度1%，其次30%，最后100%。
 
-![](https://qcloudimg.tencent-cloud.cn/raw/9fbd9c59c70a4c105fa5fa940efff6b8.png)
+<img src="https://qcloudimg.tencent-cloud.cn/raw/9fbd9c59c70a4c105fa5fa940efff6b8.png" width=700px>
 
 
 ## 步骤一：添加站点和域名
