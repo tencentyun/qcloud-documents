@@ -213,7 +213,7 @@ OrcaTerm 已支持多种快捷键，您可在 OrcaTerm 界面中查看已支持�
 <dx-alert infotype="explain" title="">
 - 最多支持同时打开5个标签。
 - 标签将以 `（递增数字）实例 ID` 命名，帮助您区分标签。
-</dx-alert> <img src="https://qcloudimg.tencent-cloud.cn/raw/b978c74d0b6c127e0948de0a39716dc4.png"/>
+</dx-alert> <img src="https://qcloudimg.tencent-cloud.cn/raw/0728ea1b064247a70ee8cb0d8d2b9738.png"/>
 
 
 :::
