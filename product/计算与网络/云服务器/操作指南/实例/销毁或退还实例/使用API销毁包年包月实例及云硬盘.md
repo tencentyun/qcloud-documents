@@ -282,18 +282,16 @@ func (c \*TerminateInstancesAndCbs) Process(instanceId string) {
 main 程序示例代码：
 <dx-codeblock>
 :::  python
-# -*- coding: utf-8 -*-
+-- coding: utf-8 --
 import sys
 from tencentcloud.common.exception.tencent_cloud_sdk_exception import TencentCloudSDKException
 from TerminateTotalInstance import TerminateTotalInstance
 
 if __name__ == '__main__':
     try:
-        id = "xxxxxx"  // 请替换为实际使用的 SecretID
-        key = "xxxxxx"	// 请替换为实际使用的 SecretKey
         region = "ap-beijing"
         ins = "ins-irmer45l"
-        TerminateTotalInstance(sid, skey, region=region).process(instance_id=instance_id)
+        TerminateTotalInstance(region=region).process(instance_id=instance_id)
         print("done!")
     except TencentCloudSDKException as e:
         print(e)
