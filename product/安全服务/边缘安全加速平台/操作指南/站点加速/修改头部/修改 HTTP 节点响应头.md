@@ -45,7 +45,6 @@ Content-Length
 Content-Location
 Content-MD5
 Content-Range
-Content-Range
 Content-Type
 Date
 Error
