@@ -44,7 +44,7 @@ k8s 集群版本 >= 1.16
 3. CA 判断该节点是否符合缩容条件。您可以按需设置以下不缩容条件（满足条件的节点不会被 CA 缩容）：
   - 含有本地存储的节点。
 	- 含有 Kube-system namespace 下非 DaemonSet 管理的 Pod 的节点。
-4. CA 驱逐节点上的 Pod 后释放/关机节点（不会处理包年包月节点）。
+4. CA 驱逐节点上的 Pod 后释放/关机节点。
 	- 完全空闲节点可并发缩容（可设置最大并发缩容数）。
 	- 非完全空闲节点逐个缩容。
 ![](https://qcloudimg.tencent-cloud.cn/raw/ad66907e5c1694ffb55e81b3f6b9e556.png)
