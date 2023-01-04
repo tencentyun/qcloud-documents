@@ -27,10 +27,10 @@ Nacos 的核心功能为服务注册发现与配置管理，故一次完整的�
 
 ## 操作步骤
 
-### 步骤一：配置数据同步
-通过 TSE Nacos 的配置数据同步能力，将源 Nacos 数据库导入与同步至 TSE Nacos 集群。请参考 [Nacos 配置数据迁移](https://cloud.tencent.com/document/product/1364/84650)。
+### 步骤1：配置数据同步
+通过 TSE Nacos 的配置数据同步能力，将源 Nacos 数据库导入与同步至 TSE Nacos 集群。请参见 [Nacos 配置数据迁移](https://cloud.tencent.com/document/product/1364/84650)。
 
-### 步骤二：服务注册发现迁移
+### 步骤2：服务注册发现迁移
 1. 将提前下载好的 polaris java agent zip 包上传到您的服务所部署的云服务器 CVM 或者容器中，并解压，确认该位置可以被正常访问。
 2. [](id:step2)依次将当前注册至自建 Nacos 集群中的服务重新部署并双注册至 TSE Nacos，部署时需要添加如下参数。
 <dx-codeblock>
@@ -39,7 +39,7 @@ Nacos 的核心功能为服务注册发现与配置管理，故一次完整的�
 :::
 </dx-codeblock>
 >?三处`*`分别表示 polaris java agent zip 所在的目录路径、版本号和 TSE Nacos 客户端访问地址。
-3. 部署成功后，在 TSE Nacos 原生控制台的服务管理页面可以看到注册的服务。Nacos 原生控制台的访问方式请参见 [访问控制](https://cloud.tencent.com/document/product/1364/63998) 。此时服务在自建 Nacos 集群和 TSE Nacos 集群中均进行了注册。
+3. 部署成功后，在 TSE Nacos 原生控制台的服务管理页面可以看到注册的服务。Nacos 原生控制台的访问方式请参见 [访问控制](https://cloud.tencent.com/document/product/1364/63998)。此时服务在自建 Nacos 集群和 TSE Nacos 集群中均进行了注册。
 4. 观察自建的 Nacos 集群和 TSE 的 Nacos 集群，依次验证下注册、发现、反注册，看是否均符合预期。待所有服务均重新部署完毕后，在自建 Nacos 集群和 TSE Nacos 集群的控制台均能看到所有服务以及其下的实例信息。
 5. 重复上面的步骤，依次再次部署服务。部署时需要移除 [步骤2](#step2) 中添加的参数，并且将服务中原有的自建 Nacos 集群访问地址更新成 TSE Nacos 集群的客户端访问地址，此时用户的服务只在 TSE Nacos 集群中进行了注册。
 >?如果您使用了域名访问，则无需重新部署服务，只需要更新域名对应的 Nacos 客户端访问 IP 即可。
