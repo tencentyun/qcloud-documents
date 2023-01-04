@@ -315,10 +315,10 @@ from tencentcloud.cbs.v20170312 import cbs_client, models as cbs_models
 
 
 class TerminateTotalInstance(object):
-    def __init__(self, sid, skey, region):
-        self.sid = sid
-        self.skey = skey
-        self.cred = credential.Credential(self.sid, self.skey)
+    def __init__(self, region):
+     # 默认读取环境变量 TENCENTCLOUD_SECRET_ID 和 TENCENTCLOUD_SECRET_KEY 获取 secretId 和 secretKey
+  # 更多凭证管理方式，请参考：https://github.com/TencentCloud/tencentcloud-sdk-python#%E5%87%AD%E8%AF%81%E7%AE%A1%E7%90%86
+        self.cred = credential.EnvironmentVariableCredential().get_credential()
         self.cbs_client = self.__create_cbs_client(region)
         self.cvm_client = self.__create_cvm_client(region)
 
@@ -326,9 +326,8 @@ class TerminateTotalInstance(object):
         # 如果是根据token获取的身份， 这里需要判断一下token是否有效
         # 如果无效， 重新获取cred
         if not self.cred:
-            self.cred = credential.Credential(self.sid, self.skey)
+            self.cred = credential.EnvironmentVariableCredential().get_credential()
         return self.cred
-
     def process(self, instance_id):
         # 获取云盘
         cbs_ids = self.describe_disks_for_instance(instance_id)
