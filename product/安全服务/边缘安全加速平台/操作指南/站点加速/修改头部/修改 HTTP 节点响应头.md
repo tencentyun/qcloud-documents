@@ -93,14 +93,6 @@ WWW-Authenticate
 </tr>
 </tbody></table>
 
-### Content-Disposition
-用来激活浏览器的下载，同时可以设置默认的下载的文件名。
-
-服务端向客户端浏览器发送文件时，如果是浏览器支持的文件类型，如 TXT、JPG 等类型，会默认直接使用浏览器打开，如果需要提示用户保存，则可以通过配置 Content-Disposition 字段覆盖浏览器默认行为。
-
-- 头部名称：Content-Disposition。
-- 头部值：常见配置示例如：`attachment;filename=FileName.txt`。
-
 ### Access-Control-Allow-Methods
 设置跨域允许的 HTTP 请求方法。
 
@@ -121,3 +113,12 @@ WWW-Authenticate
 指定访问页面所使用的语言。
 - 头部名称：Content-Language。
 - 头部值：例如 zh-CN 或 en-US。
+
+### Content-Disposition
+用来激活浏览器的下载，同时可以设置默认的下载的文件名。
+
+服务端向客户端浏览器发送文件时，如果是浏览器支持的文件类型，如 TXT、JPG 等类型，会默认直接使用浏览器打开，如果需要提示用户保存，则可以通过配置 Content-Disposition 字段覆盖浏览器默认行为。
+
+- 头部名称：Content-Disposition。
+- 头部值：常见配置示例如：`attachment;filename=FileName.txt`。
+
