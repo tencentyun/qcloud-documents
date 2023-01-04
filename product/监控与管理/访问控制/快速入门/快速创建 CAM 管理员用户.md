@@ -6,7 +6,7 @@
 1. 登录 [访问管理控制台](https://console.cloud.tencent.com/cam)，在左侧导航栏中，选择**用户**>**用户列表**，进入用户列表管理页面。
 2. 在用户列表管理页面，单击**新建用户**，在新建用户页面单击**快速创建**，进入快速新建用户页面。
 3. 在快速新建用户页面，根据页面提示设置用户信息和是否重置密码。
-![](https://qcloudimg.tencent-cloud.cn/raw/21ccfea42f882ad90f5dd2e2ae9aaefe.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/46e92eed4d66990b8f1a9945778513d8.png)
 >?
 >- 快速创建子用户时，默认拥有管理员权限（即绑定 AdministratorAccess 策略）。
 >- 您可以通过单击 ![](https://main.qcloudimg.com/raw/565d4957e8bb8eac6e0348c951da2f7e.png) 图标修改用户信息，若绑定的策略不为 AdministratorAccess，则新建的子用户不具备管理员权限。

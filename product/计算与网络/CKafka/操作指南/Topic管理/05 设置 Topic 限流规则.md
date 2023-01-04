@@ -11,7 +11,7 @@
 1. 登录 [CKafka 控制台](https://console.cloud.tencent.com/ckafka)。
 2. 在左侧导航栏选择**实例列表**，单击目标实例的“ID/名称”，进入实例详情页。
 3. 在实例详情页，单击 **topic 管理**标签页。
-4. 单击操作列的**编辑** > **限流**，设置限流阈值。
+4. 单击操作列的**更多** > **限流**，设置限流阈值。
   ![](https://qcloudimg.tencent-cloud.cn/raw/3963798dd53c757c0a4f72f24e66d34b.png)
   - topic 最大生产流量：不含副本流量，取值范围为1MB/s到该实例购买的最大带宽/该 Topic 副本数。
   - topic 最大消费流量：取值范围为1MB/s到该实例购买的最大带宽。

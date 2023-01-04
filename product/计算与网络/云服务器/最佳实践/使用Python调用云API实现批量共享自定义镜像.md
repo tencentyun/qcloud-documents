@@ -1,5 +1,5 @@
 ## 操作步骤
-本文介绍如何通过 Python SDK 调用 API 接口，通过子用户批量共享云服务器自定义镜像。若您具备类似需求，或需了解如何使用 SDK，可参考本文进行操作。
+本文介绍如何通过 Python SDK 调用 API 接口，通过子用户批量共享云服务器自定义镜像。若您具备类似需求，或想了解如何使用 SDK，可参考本文进行操作。
 
 
 ## 前提条件[](id:preconditions)
@@ -13,10 +13,23 @@
 ## 操作步骤
 
 ### 安装 Python
-1. 前往 [Python 官网](https://www.python.org/doc/)，在调用机器上下载并安装 Python 3.6+ 版本。
-2. 安装完成后，请执行以下命令查看 Python 版本。
+1. 执行以下命令查看当前云服务器是否已经安装 Python 3.6+版本，若已安装，则可以跳过安装步骤。
 ```shellsession
-python -V
+python --version
+```
+2. 若您的云服务器没有安装 Python。
+ - CentOS 操作系统的云服务器可以执行以下命令安装。
+```shellsession
+yum install python3
+```
+ - Ubuntu/Debian 操作系统的云服务器可以执行以下命令安装。
+```shellsession
+sudo apt install python3
+```
+ - 其他操作系统您可以前往 [Python 官网](https://www.python.org/doc/)，下载 Python 3.6+版本并上传至 Linux 服务器中，解压并安装 Python。
+3. 安装完成后，请执行以下命令核实 Python 版本。
+```shellsession
+python --version
 ```
 
 ### 创建代码

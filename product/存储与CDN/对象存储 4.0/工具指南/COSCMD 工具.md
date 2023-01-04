@@ -38,7 +38,6 @@ pip install coscmd
 ```
 安装成功之后，用户可以通过 `-v` 或者 `--version` 命令查看当前的版本信息。
 >! 使用 Windows 安装后，需要将 `C:\python_install_dir;` 和 `C:\python_install_dir\Scripts` 两个路径加入到环境变量中。 
->
 
 #### 1.2 pip 更新
 
@@ -58,12 +57,11 @@ python setup.py install
 ```
 
 >! Python 版本为2.6时，pip 安装依赖库时容易失败，推荐使用该方法安装。 
->
 
 #### 3. 离线安装
 
 >! 请确保两台机器的 Python 版本保持一致，否则会出现安装失败的情况。
->
+
 ```sh
 # 在有外网的机器下运行如下命令
 mkdir coscmd-packages
@@ -150,7 +148,6 @@ coscmd upload -h  //查看 upload 命令使用方法
 COSCMD 工具在运行前会首先从配置文件中读取运行时所需的必要信息，COSCMD 会默认从 `~/.cos.conf` 中读取配置项。
 
 >? 配置前，您需要先在 COS 控制台创建一个用于配置参数的存储桶（例如 configure-bucket-1250000000），并创建密钥信息。
->
 
 一个配置文件的示例如下所示：
 ```plaintext
@@ -224,7 +221,6 @@ coscmd config -a AChT4ThiXAbpBDEFGhT4ThiXAbp**** -s WE54wreefvds3462refgwewe****
 >?
 > - 通过 `-b <BucketName-APPID>` 参数指定存储桶名称，存储桶的命名格式为 BucketName-APPID，此处填写的存储桶名称必须为此格式。
 > - 通过 `-r <region>` 指定 Region， 可以指定存储桶的所属地域。 
->
 
 - 命令格式
 ```plaintext
@@ -292,7 +288,6 @@ coscmd -s upload D:/picture.jpg /
 ### 创建存储桶
 
 >? 执行创建存储桶命令时，请携带参数 `-b <BucketName-APPID>` 指定存储桶名称和 `-r <Region>` 指定所属地域。若直接执行 coscmd createbucket，则会报错，原因是不指定存储桶名称和所属地域，则相当于对已存在的存储桶（即配置参数时所填的存储桶）进行创建。
->
 
 - 命令格式
 ```plaintext
@@ -306,7 +301,6 @@ coscmd -b examplebucket-1250000000 -r ap-beijing createbucket
 ### 删除存储桶
 
 >? `coscmd deletebucket` 的用法仅对配置参数时的存储桶有效。建议配合 `-b <BucketName-APPID>` 指定 Bucket 和 `-r <region>` 指定 Region 使用。
->
 
 - 命令格式
 ```plaintext
@@ -321,8 +315,6 @@ coscmd -b examplebucket-1250000000 -r ap-beijing deletebucket
 coscmd -b examplebucket-1250000000 -r ap-beijing deletebucket -f
 ```
 >! 使用 `-f` 参数则会强制删除该存储桶，包括所有文件、开启版本控制之后历史文件夹、上传产生的碎片，请谨慎操作。
->
-
 
 ## 常用对象命令
 
@@ -386,20 +378,29 @@ coscmd upload -rs --skipmd5 D:/doc doc
 ```plaintext
 coscmd upload -rs --delete D:/doc /
 ```
-- 操作示例 - D 盘 doc 文件夹中 .txt 和 .doc 的后缀文件选择忽略上传
+- 操作示例 - D 盘 doc 文件夹中 .txt 和 .doc 后缀的文件选择忽略上传
 ```plaintext
 coscmd upload -rs D:/doc / --ignore *.txt,*.doc
 ```
->! 在上传文件夹时，使用 `--ignore` 参数可以忽略某一类文件，使用 `--include` 参数可以过滤某一类文件，支持 shell 通配规则，支持多条规则，用逗号`,`分隔。当忽略一类后缀时，必须最后要输入`,` 或者加入`""`。
+- 操作示例 - D 盘 doc 文件夹中 .txt 后缀的文件选择忽略上传
+```plaintext
+coscmd upload -rs D:/doc / --ignore "*.txt"
+```
+>! 
+> - 在上传文件夹时，使用 `--ignore` 参数可以忽略某一类文件，使用 `--include` 参数可以过滤某一类文件，支持 shell 通配规则，支持多条规则，用逗号 `,` 分隔。当忽略一类后缀时，必须最后要输入 `,` 或者加入 `""`。如果 `""` 中包含多条逗号分隔的规则，以第一条规则为准。
+> - 如果您希望使用 `--ignore` 过滤特定文件夹内的所有文件，需要使用绝对路径，并在路径前后加入 `""`。例如 `coscmd upload -rs D:/doc / --ignore "D:/doc/ignore_folder/*"`。
 >
 - 操作示例 - D 盘 doc 文件夹中 .txt 和 .doc 的后缀文件上传
 ```plaintext
 coscmd upload -rs D:/doc / --include *.txt,*.doc
 ```
-
+- 操作示例 - D 盘 doc 文件夹中 .txt 后缀的文件上传
+```plaintext
+coscmd upload -rs D:/doc / --include "*.txt"
+```
 
 > !
-> - 当上传大于10MB的文件，COSCMD 即采用分块上传方式，命令用法和简单上传一致，即 `coscmd upload <localpath> <cospath>`。
+> - 当上传大于10MB 的文件，COSCMD 即采用分块上传方式，命令用法和简单上传一致，即 `coscmd upload <localpath> <cospath>`。
 > - COSCMD 支持大文件断点上传功能；当分块上传大文件失败时，重新上传该文件只会上传失败的分块，而不会从头开始（请保证重新上传的文件的目录以及内容和上传的目录保持一致）。
 > - COSCMD 分块上传时会对每一块进行 MD5 校验。
 > - COSCMD 上传默认会携带 `x-cos-meta-md5` 的头部，值为该文件的 md5 值，如果带上 --skipmd5 参数则不携带该头部。
@@ -430,12 +431,10 @@ coscmd list -v
 ```
 
 >?
-> - 请将"<>"中的参数替换为您需要查询文件列表的 COS 上文件的路径（cospath）。`<cospath>` 为空默认查询当前存储桶根目录。
+> - 请将 "<>" 中的参数替换为您需要查询文件列表的 COS 上文件的路径（cospath）。`<cospath>` 为空默认查询当前存储桶根目录。
 > - 使用 `-a` 查询全部文件。
 > - 使用 `-r` 递归查询，并且会在末尾返回列出文件的数量和大小之和。
 > - 使用 `-n num` 设置查询数量的最大值。
-> 
-
 
 ### 查看文件信息
 
@@ -450,8 +449,7 @@ coscmd info <cospath>
 coscmd info doc/picture.jpg
 ```
 
->? 请将"<>"中的参数替换为您需要显示的 COS 上文件的路径（cospath）。
->
+>? 请将 "<>" 中的参数替换为您需要显示的 COS 上文件的路径（cospath）。
 
 
 ### 下载文件或文件夹
@@ -486,7 +484,7 @@ coscmd download -r doc D:/folder/
 ```
 - 操作示例 - 下载根目录文件，但跳过根目录下的 doc 目录
 ```plaintext
-coscmd download -r / D:/ --ignore doc/*
+coscmd download -r / D:/ --ignore "doc/*"
 ```
 - 操作示例 - 覆盖下载当前存储桶根目录下所有的文件
 ```plaintext
@@ -494,7 +492,7 @@ coscmd download -rf / D:/examplefolder/
 ```
 >! 若本地存在同名文件，则会下载失败，需要使用 `-f` 参数覆盖本地文件。
 >
-- 操作示例 - 同步下载当前 bucket 根目录下所有的文件，跳过 md5校验相同的同名文件
+- 操作示例 - 同步下载当前 bucket 根目录下所有的文件，跳过 md5 校验相同的同名文件
 ```plaintext
 coscmd download -rs / D:/examplefolder
 ```
@@ -512,14 +510,23 @@ coscmd download -rs --delete / D:/examplefolder
 ```plaintext
 coscmd download -rs / D:/examplefolder --ignore *.txt,*.doc
 ```
->! 在下载文件夹时，使用 `--ignore` 参数可以忽略某一类文件，使用 `--include` 参数可以过滤某一类文件，支持 shell 通配规则，支持多条规则，用逗号`,`分隔。当忽略一类后缀时，必须最后要输入`,`或者使用双引号`""`。
+- 操作示例 - 忽略 .txt 后缀的文件
+```plaintext
+coscmd download -rs / D:/examplefolder --ignore "*.txt"
+```
+>! 
+> - 在上传文件夹时，使用 `--ignore` 参数可以忽略某一类文件，使用 `--include` 参数可以过滤某一类文件，支持 shell 通配规则，支持多条规则，用逗号 `,` 分隔。当忽略一类后缀时，必须最后要输入 `,` 或者加入 `""`。如果 `""` 中包含多条逗号分隔的规则，以第一条规则为准。
+> - 如果您希望使用 `--ignore` 过滤特定目内的所有文件，需要使用绝对路径，并在路径前后加入 `""`。例如 `coscmd upload -rs D:/doc / --ignore "D:/doc/ignore_folder/*"`。
 >
 - 操作示例 - 过滤 .txt 和 .doc 的后缀文件
 ```plaintext
 coscmd download -rs / D:/examplefolder --include *.txt,*.doc
 ```
+- 操作示例 - 过滤 .txt 后缀的文件
+```plaintext
+coscmd download -rs / D:/examplefolder --include "*.txt"
+```
 >! 老版本的 mget 接口已经废除，download 接口使用分块下载，请使用 download 接口。
->
 
 
 ### 获取带签名的下载 URL
@@ -539,8 +546,7 @@ coscmd signurl doc/picture.jpg -t 100
 
 >?
 > - 请将 "<>" 中的参数替换为您需要获取下载 URL 的 COS 上文件的路径（cospath）。
-> - 使用 `-t time` 设置该 URL 中签名的有效时间（单位为秒）, 默认为10000s。
->
+> - 使用 `-t time` 设置该 URL 中签名的有效时间（单位为秒）, 默认为10000s
 
 
 ### 删除文件或文件夹
@@ -549,8 +555,8 @@ coscmd signurl doc/picture.jpg -t 100
 ```plaintext
 coscmd delete <cospath>
 ```
->! 请将"<>"中的参数替换为您需要删除的 COS 上文件的路径（cospath），工具会提示用户是否确认进行删除操作。
->
+>! 请将 "<>" 中的参数替换为您需要删除的 COS 上文件的路径（cospath），工具会提示用户是否确认进行删除操作。
+
 - 操作示例 - 删除 doc/exampleobject.txt
 ```plaintext
 coscmd delete doc/exampleobject.txt
@@ -579,7 +585,6 @@ coscmd delete -r doc/ --versions
 >?
 >- 批量删除需要输入 `y` 确定，使用 `-f` 参数则可以跳过确认直接删除。
 >- 需注意，执行删除文件夹命令，将会删除当前文件夹及其文件。但删除版本控制的文件，需要指定版本 ID 进行删除。
-
 
 ### 查询分块上传文件碎片
 
@@ -636,15 +641,13 @@ coscmd -b examplebucket1-1250000000 -r ap-guangzhou copy -r examplebucket2-12500
 ```
 
 > ?
-> - 请将"<>"中的参数替换为您需要复制的 COS 上文件的路径（sourcepath），和您需要复制到 COS 上文件的路径（cospath）。
+> - 请将 "<>" 中的参数替换为您需要复制的 COS 上文件的路径（sourcepath），和您需要复制到 COS 上文件的路径（cospath）。
 > - sourcepath 的格式为：`<BucketName-APPID>.cos.<region>.myqcloud.com/<cospath>`。
 > - 使用 -d 参数可以设置 `x-cos-metadata-directive` 参数，可选值为 Copy 和 Replaced，默认为 Copy。
 > - 使用 -H 参数设置 HTTP header 时，请务必保证格式为 JSON，示例：`coscmd copy -H -d Replaced "{'x-cos-storage-class':'Archive','Content-Language':'zh-CN'}" <localpath> <cospath>`。更多头部请参见 [PUT Object - Copy](https://cloud.tencent.com/document/product/436/10881) 文档。
-> 
 
 ### 移动文件或文件夹
 >! 移动命令的 `<sourcepath>` 和 `<cospath>` 不能相同，否则会导致文件被删除。原因在于 move 命令会先复制，再删除，`<sourcepath>` 路径下的文件最终会被删除。
->
 #### 移动文件命令格式
 ```plaintext
 coscmd move <sourcepath> <cospath> 
@@ -675,13 +678,11 @@ coscmd move -r <sourcepath> <cospath>
 coscmd -b examplebucket1-1250000000 -r ap-guangzhou move -r examplebucket2-1250000000.cos.ap-guangzhou.myqcloud.com/examplefolder doc/
 ```
 
-
 > ?
-> - 请将"<>"中的参数替换为您需要移动的 COS 上文件的路径（sourcepath），和您需要移动到 COS 上文件的路径（cospath）。
+> - 请将 "<>" 中的参数替换为您需要移动的 COS 上文件的路径（sourcepath），和您需要移动到 COS 上文件的路径（cospath）。
 > - sourcepath 的格式为：`<BucketName-APPID>.cos.<region>.myqcloud.com/<cospath>`。
 > - 使用 -d 参数可以设置 `x-cos-metadata-directive` 参数，可选值为 Copy 和 Replaced，默认为 Copy。
 > - 使用 -H 参数设置 HTTP header 时，请务必保证格式为 JSON，示例：`coscmd move -H -d Replaced "{'x-cos-storage-class':'Archive','Content-Language':'zh-CN'}" <localpath> <cospath>`。更多头部请参见 [PUT Object - copy](https://cloud.tencent.com/document/product/436/10881) 文档。
-> 
 
 ### 设置对象访问权限
 
@@ -720,7 +721,6 @@ coscmd getbucketversioning
 > !
 >- 请将 "<>" 中的参数替换为您需要版本控制状态（status）。
 >- 一旦您对存储桶启用了版本控制，它将无法返回到未启用版本控制状态（初始状态）。但是，您可以对该存储桶暂停版本控制，这样后续上传的对象将不会产生多个版本。
->
 
 ### 恢复归档文件
 
@@ -745,8 +745,12 @@ coscmd restore -r -d 3 -t Expedited examplefolder/
 > - 请将 "<>" 中的参数替换为您需要查询文件列表的 COS 上文件的路径（cospath）。
 > - 使用 `-d <day>` 设置临时副本的过期时间，默认值：7。
 > - 使用 `-t <tier>` 指定恢复模式，枚举值：Expedited （快速取回模式），Standard （标准取回模式），Bulk（批量取回模式），默认值：Standard。
->
 
 ## 常见问题
 
 如您在使用 COSCMD 工具过程中，有相关的疑问，请参见 [COSCMD 工具类常见问题](https://cloud.tencent.com/document/product/436/30744)。
+
+## 结语
+
+当然，COS 不仅提供以上应用和服务，还提供多款热门开源应用，并集成腾讯云 COS 插件，欢迎点击“[此处](https://cloud.tencent.com/act/pro/Ecological-aggregation?from=18406)”一键启动，立即使用！
+

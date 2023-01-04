@@ -83,5 +83,3 @@ LAN（Local Area Network）即局域网端口，Edge 设备通过 LAN 口连接�
 </tr>
 </table>	
 10. （可选）重复步骤8-步骤9，配置其他 LAN 接口。
-
-

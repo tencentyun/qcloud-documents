@@ -15,6 +15,9 @@
 |私有网络|[私有网络迁移 API 3.0指引](https://cloud.tencent.com/document/product/215/81827)|
 |云监控	|[云监控迁移 API 3.0指引](https://cloud.tencent.com/document/product/248/81039)|
 |DNSPod	|[DNSPod 迁移 API 3.0指引](https://docs.dnspod.cn/notices/api-2-upgrade/)|
+|云数据库 Redis	|[云数据库 Redis 迁移 API 3.0指引](https://cloud.tencent.com/document/product/239/83200)|
+|云数据库 MySQL	|[云数据库 MySQL 迁移 API 3.0指引](https://cloud.tencent.com/document/product/236/82663)|
+|负载均衡	|[负载均衡迁移 API 3.0指引](https://cloud.tencent.com/document/product/214/82364)|
 
 ## 热点问题
 #### 不迁移 API 3.0有什么影响？

@@ -37,7 +37,7 @@
 
 ### 数据卷的注意事项
 
-- **创建数据卷后，需在**实例内容器**模块设置容器的挂载点。**
+- 创建数据卷后，需在**实例内容器**模块设置容器的挂载点。
 - 同一个服务下，数据卷的名称和容器设置的挂载点不能重复。
 - 本地硬盘数据卷源路径为空时，系统将分配 `/var/lib/kubelet/pods/pod_name/volumes/kubernetes.io~empty-dir` 临时目录，且使用临时的数据卷生命周期与实例的生命周期保持一致。
 - 数据卷挂载未设置权限，默认设置为读写权限。
@@ -45,11 +45,11 @@
 ## Volume 控制台操作指引
 ### 创建工作负载挂载数据卷
 
-1. 登录容器服务控制台 ，并选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
+1. 登录容器服务控制台，并选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
 2. 在“集群管理”页面，单击需要部署 Workload 的集群 ID，进入待部署 Workload 的集群管理页面。
 3. 在**工作负载**下，任意选择 Workload 类型，进入对应的信息页面。
 例如，选择**工作负载** > **DaemonSet**，进入 DaemonSet 信息页面。如下图所示：
-![](https://main.qcloudimg.com/raw/0098359fed5ce7eb42658604962f3165.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/0ea26e6c67ad8e6e5308c95c2f3b9067.png)
 4. 单击**新建**，进入 “新建Workload” 页面。
 5. [](id:Step5)根据页面信息，设置工作负载名、命名空间等信息。并在“数据卷”中，单击**添加数据卷**添加数据卷。
 6. 根据实际需求，选择数据卷的存储方式，本文以**使用腾讯云硬盘**为例。

@@ -1,3 +1,34 @@
+### 2.25.0 @2022.12.8
+
+**新增**
+
+- [clearHistoryMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#clearHistoryMessage) 接口，支持清空本地及云端消息。
+- 支持消息扩展（旗舰版功能）。
+- 支持普通群和社群群属性。
+- 兼容 [wx.chooseMedia](https://developers.weixin.qq.com/miniprogram/dev/api/media/video/wx.chooseMedia.html)。
+- [Message.readReceiptInfo](https://web.sdk.qcloud.com/im/doc/zh-cn/Message.html) 支持 C2C 已读回执（数据结构跟 NativeIM 对齐）。
+- 错误码2101：未加入直播群不能向直播群发送消息。
+
+**变更**
+
+- 日志上报备份通道使用独立集群域名 `https://events.im.qcloud.com`（小程序平台需新增一个受信域名配置）。
+
+**修复**
+
+- cookies blocked 导致的运行时错误（Failed to read the 'localStorage' property from 'Window': Access is denied for this document）。
+
+
+### 2.24.1 @2022.11.11
+
+**新增**
+
+- 英文版 ts 声明文件。
+- restapi 修改好友自定义资料字段支持推送给 SDK。
+
+**修复**
+
+- [getMessageListHopping](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getMessageListHopping) 部分场景下返回结果异常的问题。
+
 ### 2.24.0 @2022.11.3
 
 **新增**
@@ -37,7 +68,7 @@
 
 **新增**
 
-- SDK 支持海外环境。
+- SDK 支持境外环境。
 - [getTotalUnreadMessageCount](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getTotalUnreadMessageCount)，支持获取会话未读总数。
 - [TOTAL_UNREAD_MESSAGE_COUNT_UPDATED](https://web.sdk.qcloud.com/im/doc/zh-cn/module-EVENT.html#.TOTAL_UNREAD_MESSAGE_COUNT_UPDATED)，接入侧监听此事件，可获取会话未读总数变更的通知。
 - [markGroupMemberList](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#markGroupMemberList)，支持标记直播群群成员（需开通旗舰版）。
@@ -487,7 +518,7 @@ Taro 3.x 集成 WebIM 时的兼容性问题。
 
 **新增**
 
-[TIM.create](https://web.sdk.qcloud.com/im/doc/zh-cn/TIM.html#.create) 接口新增 `oversea` 参数，设置为 `true` 时 SDK 使用海外域名，避免被干扰。
+[TIM.create](https://web.sdk.qcloud.com/im/doc/zh-cn/TIM.html#.create) 接口新增 `oversea` 参数，设置为 `true` 时 SDK 使用境外域名，避免被干扰。
 
 **修复**
 

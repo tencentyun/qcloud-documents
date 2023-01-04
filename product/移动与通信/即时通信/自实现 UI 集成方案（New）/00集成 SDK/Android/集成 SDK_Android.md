@@ -8,7 +8,7 @@
 您可以选择使用 Gradle 自动加载的方式，或者手动下载 aar 再将其导入到您当前的工程项目中。
 
 ### 方法一：自动加载（aar）
-由于 JCenter 官方将停止服务，后续的 IM SDK 会发布到 Maven Central 库，您可以通过配置 gradle 自动下载更新。
+您可以通过配置 gradle 自动下载更新已经发布到 Maven Central 库的 IM SDK。
 只需要用 Android Studio 打开需要集成 SDK 的工程，然后通过如下三个步骤修改 app/build.gradle 文件，就可以完成 SDK 集成：
 
 #### 步骤1：添加 SDK 依赖
@@ -35,6 +35,13 @@ dependencies {
 		api 'com.tencent.imsdk:imsdk-plus:版本号'
 }
 ```
+ - 如果使用增强版 Pro IM SDK，请添加如下依赖。
+```
+dependencies {
+		api 'com.tencent.imsdk:imsdk-plus-pro:版本号'
+}
+```
+
 >?“版本号”应替换为 SDK 的实际版本号，建议使用 [最新版本]( https://github.com/tencentyun/TIMSDK/tree/master/Android/IMSDK)。
 >以版本号是`5.4.666`为例：
 >```

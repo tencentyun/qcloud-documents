@@ -21,7 +21,7 @@ eid-enhance.faceid.qq.com
 uni-app 开发接⼊具体参照 [uni 官⽹](https://uniapp.dcloud.net.cn/)。
 
 ### 步骤⼆：下载并配置 mp_ecard_sdk 源码
-1. [下载 sdk 源码](https://faceid-ecard-1254418846.cos.ap-chengdu.myqcloud.com/uni/cloud-mp-ecard-uni-sdk-v1.0.0.zip)。
+1. [下载 sdk 源码](https://faceid-ecard-1254418846.cos.ap-chengdu.myqcloud.com/uni/ecard-sdk-uni/cloud-mp-ecard-uni-sdk-release.zip)。
 2. 配置 sdk 源码。
 	- ⽅法⼀：项⽬根⽬录配置（推荐）
 		1. 将 sdk 源码包 mp_ecard_sdk ⽂件夹拷⻉到项⽬根⽬录。
@@ -157,6 +157,10 @@ export default {
 
 ## 接⼊时序图
 ![](https://qcloudimg.tencent-cloud.cn/raw/62040b3b1c495342f8a31c68d1e34bfd.png)
+
+## 完整示例参考
+- [Vue2 Demo 示例](https://faceid-ecard-1254418846.cos.ap-chengdu.myqcloud.com/uni/ecard-sdk-uni/ecard-sdk-uniapp-demo-for-vue2.zip)
+- [Vue3 Demo示例](https://faceid-ecard-1254418846.cos.ap-chengdu.myqcloud.com/uni/ecard-sdk-uni/ecard-sdk-uniapp-demo-for-vue3.zip)
 
 ## 注意事项
 - 从 eID 数字身份⼩程序返回接⼊⽅⼩程序

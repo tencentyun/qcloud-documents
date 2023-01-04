@@ -101,3 +101,6 @@ Amazon Simple Storage Service（Amazon S3，下文简称 S3）是 AWS 最早推�
 ## 结语
 
 COS 不保证与 S3 的完全兼容，如果您在应用中使用 COS 服务时遇到任何问题，您可以 [联系我们](https://cloud.tencent.com/document/product/436/37708)。联系时，请说明您是从该文档中看到的指引，并提供相关应用的名称和截图等信息，以便我们可以更快的帮您解决问题。
+
+当然，COS 不仅提供以上应用和服务，还提供多款热门开源应用，并集成腾讯云 COS 插件，欢迎点击“[此处](https://cloud.tencent.com/act/pro/Ecological-aggregation?from=18406)”一键启动，立即使用！
+

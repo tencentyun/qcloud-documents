@@ -11,17 +11,21 @@
 <table>
 <thead>
 <tr>
-<th width="20%">配置项</th>
-<th width="80%">说明</th>
+<th align="left">类型</th>
+<th align="left">说明</th>
 </tr>
 </thead>
 <tbody><tr>
-<td align="left">类型</td>
-<td align="left">重写类型：<ul><li>增加路径前缀：增加指定路径前缀至请求 URL Path，例如请求 URL是 <code>http://www.example.com/path0/index.html</code>,增加的路径前缀为/prefix，则重写后的 URL 是 <code>http://www.example.com/prefix/path0/index.html</code></li><li> 移除路径前缀：移除请求 URL 的指定路径前缀内，例如请求 URL是 <code>http://www.example.com/path0/path1/index.html</code>，指定移除的路径前缀是/path0，则重写后的 URL 是 <code>http://www.example.com/path1/index.html</code></li><li>替换完整路径：替换完整的请求 URL Path，例如请求 URL是 <code>http://www.example.com/path0/index.html</code>，替换完整路径为/new/page.html，则重写后的 URL 是 <code>http://www.example.com/new/page.html</code></li></ul></td>
+<td align="left">增加路径前缀</td>
+<td align="left">增加指定路径前缀至请求 URL Path，例如请求 URL是 <code>http://www.example.com/path0/index.html</code>,增加的路径前缀为/prefix，则重写后的 URL 是 <code>http://www.example.com/prefix/path0/index.html</code>。</td>
 </tr>
 <tr>
-<td align="left">携带查询参数</td>
-<td align="left">是否携带原查询参数至目标 URL ，默认会携带</td>
+<td align="left">移除路径前缀</td>
+<td align="left">移除请求 URL 的指定路径前缀内，例如请求 URL是 <code>http://www.example.com/path0/path1/index.html</code>，指定移除的路径前缀是/path0，则重写后的 URL 是 <code>http://www.example.com/path1/index.html</code>。</td>
+</tr>
+<tr>
+<td align="left">替换完整路径</td>
+<td align="left">替换完整的请求 URL Path，例如请求 URL是 <code>http://www.example.com/path0/index.html</code>，替换完整路径为/new/page.html，则重写后的 URL 是 <code>http://www.example.com/new/page.html</code>。</td>
 </tr>
 </tbody></table>
 
@@ -29,6 +33,6 @@
 
 若请求 URL `https://www.example.com/path0/path1/foo.html` 的访问 URL 重定向配置如下：
 
-![](https://qcloudimg.tencent-cloud.cn/raw/8e5a2b2af622f99d7454c2e85c8fbfaf.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/6c63859c9a5199a367eee6e222804862.png)
 
-则客户端请求：`https://www.example.com/path0/path1/foo.html?key1=value1` 回源会被重写为 `https://www.example.com/path1/foo.html` 获取请求资源。
+则客户端请求：`https://www.example.com/path0/path1/foo.html?key1=value1` 回源会被重写为 `https://www.example.com/path1/foo.html?key1=value1`获取请求资源。若回源时还需忽略 key1=value1 查询字符串，请使用 [回源请求参数设置](https://cloud.tencent.com/document/product/1552/82627) 操作。

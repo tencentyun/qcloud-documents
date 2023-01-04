@@ -34,7 +34,7 @@ GME Unity SDK 支持 il2cpp 编译。
 <img src="https://main.qcloudimg.com/raw/335c9d806cd2d5fe11b5f6a04a6fad80.png"  width="25%" /></img>
 库文件列表如下：
 ```
-libc+.tbd
+libc++.tbd
 CoreMedia.framework
 libresolv.tbd
 AVFoundation.framework

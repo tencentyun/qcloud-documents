@@ -55,6 +55,24 @@
    </tr>
 </table>
 
+水印的文字内容需要经过 URL 安全的 Base64 编码，可引入`js-base64`来解决。
+
+示例代码如下：
+
+```javascript
+1. 项目内安装依赖
+npm install --save js-base64
+
+2. 代码里引入 encode 方法
+import { encode } from 'js-base64';
+
+// 文字水印内容
+var text = '腾讯云万象优图';
+// 有效的文字水印
+var safeBase64 = encode(text).replaceAll('+', '-').replaceAll('/', '_').replaceAll('=', '');
+// 可使用如下Pic-Operations
+'Pic-Operations': `{"is_pic_info": 1, "rules": [{"fileid": "waterMask.jpg", "rule": "watermark/2/text/${safeBase64}"}]}`
+```
 
 
 ## 上传时使用图片处理
@@ -191,6 +209,7 @@ cos.getObjectUrl(
   },
   function (err, data) {
     if (data) {
+      // 使用浏览器打开url预览或触发浏览器下载
       console.log(data.URL);
     }
   },
@@ -209,6 +228,7 @@ cos.getObjectUrl(
   },
   function (err, data) {
     if (data) {
+      // 使用浏览器打开url预览或触发浏览器下载
       console.log(data.URL);
     }
   },

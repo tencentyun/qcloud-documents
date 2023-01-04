@@ -7,5 +7,3 @@
 ![](https://main.qcloudimg.com/raw/5e17f34c9acd1931042ebbf2bb6c1155.png)
 4. 选择一个已获取到 IPv6 CIDR 的子网，在其所在行的操作栏下，选择**更多** > **释放 IPv6 CIDR**，并确定操作，系统将回收该子网的 IPv6 CIDR。
 ![](https://main.qcloudimg.com/raw/597025125e3034a3859d26d19b1441e8.png)
-
-

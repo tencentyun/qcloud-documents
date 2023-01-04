@@ -1,4 +1,29 @@
 
+## 2022年11月
+
+<table>
+	<tr>
+		<th width=20%>动态名称</th>
+    <th width=44%>动态描述</th>
+    <th width=16%>发布时间</th>
+    <th width=20%>相关文档</th>
+	</tr>
+	<tr>
+        <td>SDK 1.3.7.2 版本发布</td>
+	<td>
+		<li>升级：小米推送 SDK 5.1.0</li>
+		<li>升级：华为推送 SDK 6.7.0.300</li>
+		<li>修复：华为智选机型角标展示</li>
+		</td>
+        <td>2022-11-08</td><td>
+		<li><a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</a></li>
+		<li><a href="https://cloud.tencent.com/document/product/548/56364">Android SDK 升级指南</a></li>
+</td>
+    </tr>
+<tr>
+</table>
+
+
 ## 2022年09月
 
 <table>

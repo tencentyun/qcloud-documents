@@ -43,7 +43,6 @@ iOS、Android 上的应用可以通过集成腾讯云视立方·直播 SDK 来�
 </table>
 
 
-
 [](id:web)
 ## Web 接入
 ### 接入说明

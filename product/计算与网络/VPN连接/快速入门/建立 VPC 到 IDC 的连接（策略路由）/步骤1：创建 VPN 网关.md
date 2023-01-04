@@ -16,3 +16,10 @@
 <img src="https://qcloudimg.tencent-cloud.cn/raw/ef90c5804e09c2c5bb76f562a2026253.png" width="70%">
 >?标签为选配，请保持默认。
 >
+
+## 相关文档
+[步骤2：创建对端网关](https://cloud.tencent.com/document/product/554/18990)
+[步骤3：创建 VPN 通道](https://cloud.tencent.com/document/product/554/18991)
+[步骤4：本地网关加载配置](https://cloud.tencent.com/document/product/554/18992)
+[步骤5：配置路由表](https://cloud.tencent.com/document/product/554/18993)
+[步骤6：激活 VPN 隧道](https://cloud.tencent.com/document/product/554/18994)

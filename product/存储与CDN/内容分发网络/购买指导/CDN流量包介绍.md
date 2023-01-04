@@ -426,6 +426,6 @@ CDN 流量包是用于抵扣内容分发网络（Content Delivery Network，CDN�
 
 ## 如何购买、设置自动续订和自助退费
 
-- 流量包优惠活动正在进行中， 您可以 [立即购买](https://buy.cloud.tencent.com/cdn_package) 。
+- 流量包优惠活动正在进行中，您可以前往 [折扣活动](https://cloud.tencent.com/document/product/228/74782) 立即查看选购。
 - 自动续订与自助退费等更多流量包管理操作，请参见 [流量包管理](https://cloud.tencent.com/document/product/228/6306)。
 

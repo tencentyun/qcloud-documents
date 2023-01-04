@@ -26,6 +26,7 @@
 
 
 ### 磨皮
+
 <table>
 <thead><tr><th colspan="2" width="40%">字段</th><th>取值</th></tr></thead>
 <tbody><tr><td colspan="2">category</td>
@@ -72,8 +73,9 @@
 <tr><td>innerMinValue</td>
 <td>0</td></tr>
 <tr><td>innerMaxValue</td>
-<td>2</td></tr>
+<td>1</td></tr>
 </tbody></table>
+
 
 ### 对比度
 <table>
@@ -140,16 +142,17 @@
 <tr>
 <td rowspan="5">effValue(XmagicPropertyValues)</td>
 <td>displayMinValue</td>
-<td>0</td></tr>
+<td>-100</td></tr>
 <tr><td>displayMaxValue</td>
 <td>100</td></tr>
 <tr><td>displayDefaultValue</td>
 <td>0</td></tr>
 <tr><td>innerMinValue</td>
-<td>0</td></tr>
+<td>-1</td></tr>
 <tr><td>innerMaxValue</td>
-<td>2</td></tr>
+<td>1</td></tr>
 </tbody></table>
+
 
 ### 大眼
 <table>
@@ -678,7 +681,7 @@
 </tr>
 </tbody></table>
 
-### 立体-自然
+### 立体-清新
 <table>
 <thead><tr><th colspan="2" width="40%">字段</th><th>取值</th></tr></thead>
 <tbody><tr><td colspan="2">category</td>
@@ -717,16 +720,17 @@
 <tr>
 <td rowspan="5">effValue(XmagicPropertyValues)</td>
 <td>displayMinValue</td>
-<td>-100</td></tr>
+<td>0</td></tr>
 <tr><td>displayMaxValue</td>
 <td>100</td></tr>
 <tr><td>displayDefaultValue</td>
 <td>0</td></tr>
 <tr><td>innerMinValue</td>
-<td>-1</td></tr>
+<td>0</td></tr>
 <tr><td>innerMaxValue</td>
 <td>1</td></tr>
 </tbody></table>
+
 
 ### 下巴
 <table>

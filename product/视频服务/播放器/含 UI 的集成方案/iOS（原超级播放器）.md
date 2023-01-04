@@ -83,11 +83,11 @@ pod 'SuperPlayer/Professional'
 1. 下载 SDK + Demo 开发包，腾讯云视立方 iOS 播放器项目为 [LiteAVSDK/Player_iOS](https://github.com/LiteAVSDK/Player_iOS)。
 2. 导入 `TXLiteAVSDK_Player.framework` 到工程中，并勾选 `Do Not Embed`。
 3. 将 Demo/TXLiteAVDemo/SuperPlayerKit/SuperPlayer 拷贝到自己的工程目录下。
-4. SuperPlayer依赖第三方库包括：AFNetworking、SDWebImage、Masonry、TXLiteAVSDK_Player
+4. SuperPlayer 依赖第三方库包括：AFNetworking、SDWebImage、Masonry、TXLiteAVSDK_Player
  1. 如果是手动集成 TXLiteAVSDK_Player，需要添加所需要的系统库和 library：
 <b>系统 Framework 库</b>：MetalKit, ReplayKit, SystemConfiguration, CoreTelephony, VideoToolbox, CoreGraphics, AVFoundation, Accelerate, MobileCoreServices, ,VideoToolbox
 <b>系统 Library 库:</b> libz, libresolv,  libiconv, libc++, libsqlite3
-具体操作步骤可以 [参考](https://cloud.tencent.com/document/product/266/73872)：定制开发 - 点播场景 - 接入文档 - SDK集成 步骤1 - 手动集成 SDK
+具体操作步骤可以 [参考](https://cloud.tencent.com/document/product/266/73872)：定制开发 - 点播场景 - 接入文档 - SDK 集成 步骤1 - 手动集成 SDK
 此外还需要把 TXLiteAVSDK_Player 文件下的 TXFFmpeg.xcframework 和 TXSoundTouch.scframework 以动态库的方式加进来如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/5834caae21d3413522c7d51d4b3b57b0.png)
  2. 如果是用 Pod 的方式集成 TXLiteAVSDK_Player，不需要添加任何库。
@@ -121,8 +121,8 @@ _playerView.fatherView = self.holderView;
 <br>获取到 License 信息后，在调用 SDK 的相关接口前，通过下面的接口初始化 License，建议在 `- [AppDelegate application:didFinishLaunchingWithOptions:]` 中进行如下设置：
 ```objective-c
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    NSString * const licenceURL = @"<获取到的licenseUrl>";
-    NSString * const licenceKey = @"<获取到的key>";
+    NSString * const licenceURL = @"<获取到的 licenseUrl>";
+    NSString * const licenceKey = @"<获取到的 key>";
         
     //TXLiveBase 位于 "TXLiveBase.h" 头文件中
     [TXLiveBase setLicenceURL:licenceURL key:licenceKey]; 
@@ -141,13 +141,13 @@ _playerView.fatherView = self.holderView;
 如果文件已存在腾讯云，则可以进入 [媒资管理](https://console.cloud.tencent.com/vod/media) ，找到对应的文件，查看 FileId。如下图所示，ID 即表示 FileId：
 ![](https://qcloudimg.tencent-cloud.cn/raw/8043a47a725586755f5db5575d5ff58d.png)
 >!
->- 通过 FileId 播放时，需要首先使用 Adaptive-HLS(10) 转码模板对视频进行转码，或者使用播放器组件签名 psign 指定播放的视频，否则可能导致视频播放失败。转码教程和说明可参见 [用播放器组件播放视频](https://cloud.tencent.com/document/product/266/46217)，psign 生成教程可参见 [psign 教程](https://cloud.tencent.com/document/product/266/42436)。
->- 若您在通过 FileId 播放时出现“no v4 play info”异常，则说明您可能存在上述问题，建议您根据上述教程调整。同时您也可以直接获取源视频播放链接，[通过 URL 播放](#url) 的方式实现播放。
+>- 通过 FileId 播放时，需要首先使用 Adaptive-HLS(10) 转码模板对视频进行转码，或者使用播放器组件签名 psign 指定播放的视频，否则可能导致视频播放失败。转码教程和说明可参见 [用播放器组件播放视频] (https://cloud.tencent.com/document/product/266/46217)，psign 生成教程可参见 [psign 教程](https://cloud.tencent.com/document/product/266/42436)。
+>- 若您在通过 FileId 播放时出现 “no v4 play info” 异常，则说明您可能存在上述问题，建议您根据上述教程调整。同时您也可以直接获取源视频播放链接，[通过 URL 播放](#url)  的方式实现播放。
 >- **未经转码的源视频在播放时有可能出现不兼容的情况，建议您使用转码后的视频进行播放。**
 
 <dx-codeblock>
 :::  java
-//在未开启防盗链进行播放的过程中，如果出现了“no v4 play info”异常，建议您使用Adaptive-HLS(10)转码模板对视频进行转码，或直接获取源视频播放链接通过url方式进行播放。
+//在未开启防盗链进行播放的过程中，如果出现了 “no v4 play info” 异常，建议您使用 Adaptive-HLS(10) 转码模板对视频进行转码，或直接获取源视频播放链接通过 url 方式进行播放。
 
 SuperPlayerModel *model = [[SuperPlayerModel alloc] init];
 model.appId = 1400329071;// 配置 AppId
@@ -162,7 +162,7 @@ model.videoId.pSign = @"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6MTQwMDM
 ::: 使用 URL 播放[](id:url)
 ```java
 SuperPlayerModel *model = [[SuperPlayerModel alloc] init];
-model.videoURL = @"http://your_video_url.mp4";   // 配置您的播放视频url
+model.videoURL = @"http://your_video_url.mp4";   // 配置您的播放视频 url
 [_playerView playWithModelNeedLicence:model];
 ```
 :::
@@ -178,9 +178,9 @@ model.videoURL = @"http://your_video_url.mp4";   // 配置您的播放视频url
 [](id:moreFeature)
 ## 功能使用[](id:moreFeature)
 
-### 1、全屏播放
+### 全屏播放
 
-播放器组件支持全屏播放，在全屏播放场景内，同时支持锁屏、手势控制音量和亮度、弹幕、截屏、清晰度切换等功能设置。功能效果可在 [**腾讯云视立方 App**](#qrcode) > **播放器** > **播放器组件** 中体验，单击界面右下角**全屏**即可进入全屏播放界面。
+播放器组件支持全屏播放，在全屏播放场景内，同时支持锁屏、手势控制音量和亮度、弹幕、截屏、清晰度切换等功能设置。功能效果可在 [**腾讯云视立方 App**](#qrcode) > **播放器** > **播放器组件** 中体验，单击界面右下角 **全屏** 即可进入全屏播放界面。
 
 <img src="https://qcloudimg.tencent-cloud.cn/raw/c70c3b14125319160f085cdc15ec5f89.png" style="zoom:25%;" />
 
@@ -194,10 +194,10 @@ model.videoURL = @"http://your_video_url.mp4";   // 配置您的播放视频url
 
 #### 全屏播放界面功能介绍
 
-<img src="https://qcloudimg.tencent-cloud.cn/raw/fe9de5fdf79e9b77e562deb5701bcb77.png" style="zoom:25%;" />
+<img src="https://qcloudimg.tencent-cloud.cn/raw/c13f5c6be605f02619bc38fa63d20cad.png" style="zoom:25%;" />
 <dx-tabs>
 ::: 返回窗口模式[](id:window)
-通过**返回**即可返回窗口播放模式，单击后 SDK 处理完全屏切换的逻辑后会触发的代理方法为：
+通过 **返回** 即可返回窗口播放模式，单击后 SDK 处理完全屏切换的逻辑后会触发的代理方法为：
 
 ```objective-c
 // 返回事件
@@ -249,14 +249,14 @@ CFDanmakuView：弹幕的属性在初始化时配置。
 播放器组件提供播放过程中截取当前视频帧功能，您可以把图片保存起来进行分享。单击截屏按钮后，由 SDK 内部处理，无截屏成功失败的回调，截取到的图片目录为手机相册。
 :::
 ::: 清晰度切换[](id:resolution)
-用户可以根据需求选择不同的视频播放清晰度，如高清、标清或超清等。单击后触发的显示清晰度view以及单击清晰度选项均由 SDK 内部处理，无回调。
+用户可以根据需求选择不同的视频播放清晰度，如高清、标清或超清等。单击后触发的显示清晰度 view 以及单击清晰度选项均由 SDK 内部处理，无回调。
 :::
 </dx-tabs>
 
 
-### 2、悬浮窗播放
+### 悬浮窗播放
 
-播放器组件支持悬浮窗小窗口播放，可以在切换到应用内其它页面时，不打断视频播放功能。功能效果可在 [**腾讯云视立方 App**](#qrcode) > **播放器** > **播放器组件** 中体验，单击界面左上角**返回**，即可体验悬浮窗播放功能。
+播放器组件支持悬浮窗小窗口播放，可以在切换到应用内其它页面时，不打断视频播放功能。功能效果可在 [**腾讯云视立方 App**](#qrcode) > **播放器** > **播放器组件** 中体验，单击界面左上角 **返回**，即可体验悬浮窗播放功能。
 
 <img src="https://qcloudimg.tencent-cloud.cn/raw/e09da594726859c6cc7d7af894a3cccf.png" style="zoom:25%;" />
 
@@ -270,14 +270,14 @@ CFDanmakuView：弹幕的属性在初始化时配置。
 SuperPlayerWindowShared.backController = self;
 ```
 
-### 3、视频封面
+### 视频封面
 
 播放器组件支持用户自定义视频封面，用于在视频接收到首帧画面播放回调前展示。功能效果可在 [**腾讯云视立方 App**](#qrcode) > **播放器** > **播放器组件** > **自定义封面演示** 视频中体验。
 
 <img src="https://qcloudimg.tencent-cloud.cn/raw/f437e6d69b191a1e143a36edc61f7ebe.png" style="zoom:15%;" />
 
-* 当播放器组件设置为自动播放模式`PLAY_ACTION_AUTO_PLAY`时，视频自动播放，此时将在视频首帧加载出来之前展示封面。
-* 当播放器组件设置为手动播放模式`PLAY_ACTION_MANUAL_PLAY`时，需用户单击**播放**后视频才开始播放。在单击**播放**前将展示封面；在单击**播放**后到视频首帧加载出来前也将展示封面。
+* 当播放器组件设置为自动播放模式 `PLAY_ACTION_AUTO_PLAY` 时，视频自动播放，此时将在视频首帧加载出来之前展示封面。
+* 当播放器组件设置为手动播放模式 `PLAY_ACTION_MANUAL_PLAY` 时，需用户单击 **播放** 后视频才开始播放。在单击 **播放** 前将展示封面；在单击 **播放** 后到视频首帧加载出来前也将展示封面。
 
 视频封面支持使用网络 URL 地址或本地 File 地址，使用方式可参见下述指引。若您通过 FileID 的方式播放视频，则可直接在云点播内配置视频封面。
 
@@ -289,12 +289,12 @@ model.appId = 1400329071;
 model.videoId = videoId;
 //播放模式，可设置自动播放模式：PLAY_ACTION_AUTO_PLAY，手动播放模式：PLAY_ACTION_MANUAL_PLAY
 model.action  = PLAY_ACTION_MANUAL_PLAY; 
-//设定封面的地址为网络url地址，如果coverPictureUrl不设定，那么就会自动使用云点播控制台设置的封面
-model.customCoverImageUrl = @"http://1500005830.vod2.myqcloud.com/6c9a5118vodcq1500005830/cc1e28208602268011087336518/MXUW1a5I9TsA.png"; 
+//设定封面的地址为网络 url 地址，如果 coverPictureUrl 不设定，那么就会自动使用云点播控制台设置的封面
+model.customCoverImageUrl = @"https://qcloudimg.tencent-cloud.cn/raw/fa01162f1c7e123b1ee4ac77e3563ce3.png"; 
 [self.playerView playWithModelNeedLicence:model];
 ```
 
-### 4、视频列表轮播
+### 视频列表轮播
 
 播放器组件支持视频列表轮播，即在给定一个视频列表后：
 
@@ -339,10 +339,10 @@ model.videoId = videoId;
 | index         | NSInteger | 开始播放的视频索引 |
 
 
-### 5、画中画功能
+### 画中画功能
 
 画中画（PictureInPicture）在 iOS 9就已经推出了，不过之前都只能在 iPad 上使用，iPhone 要使用画中画需更新到 iOS 14才能使用。
-目前腾讯云播放器可以支持应用内和应用外画中画能力，极大的满足用户的诉求。使用前需要开通后台模式，步骤为：XCode 选择对应的 Target -> Signing & Capabilities -> Background Modes，勾选“Audio, AirPlay, and Picture in Picture”。
+目前腾讯云播放器可以支持应用内和应用外画中画能力，极大的满足用户的诉求。使用前需要开通后台模式，步骤为：XCode 选择对应的 Target -> Signing & Capabilities -> Background Modes，勾选  “Audio, AirPlay, and Picture in Picture”。
 ![](https://qcloudimg.tencent-cloud.cn/raw/116e1e741f80d810502221fd143d8434.png)
 
 <img style="width:600px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/5dae5c4068591d3c7c344dd4c8985960.png" />
@@ -360,7 +360,7 @@ model.videoId = videoId;
 [_vodPlayer exitPictureInPicture];
 ```
 
-### 6、视频试看
+### 视频试看
 
 播放器组件支持视频试看功能，可以适用于非 VIP 试看等场景，开发者可以传入不同的参数来控制视频试看时长、提示信息、试看结束界面等。功能效果可在 [**腾讯云视立方 App** ](#qrcode) > **播放器** > **播放器组件** > **试看功能演示** 视频中体验。
 
@@ -369,11 +369,11 @@ model.videoId = videoId;
 ![shikan2.png](https://qcloudimg.tencent-cloud.cn/raw/a65138cc85202239b73e52362172e00b.png)
 
 ```objective-c
- //步骤1：创建试看model
+ //步骤1：创建试看 model
  TXVipWatchModel *model = [[TXVipWatchModel alloc] init];
- model.tipTtitle = @"可试看15秒，开通VIP观看完整视频";
+ model.tipTtitle = @" 可试看15秒，开通 VIP 观看完整视频";
  model.canWatchTime = 15;
- //步骤2：设置试看model
+ //步骤2：设置试看 model
  self.playerView.vipWatchModel = model;
  //步骤3：调用方法展示试看功能
  [self.playerView showVipTipView];
@@ -386,7 +386,7 @@ model.videoId = videoId;
 | tipTtitle    | NSString | 试看提示信息    |
 | canWatchTime | float    | 试看时长，单位为妙 |
 
-### 7、动态水印
+### 动态水印
 
 播放器组件支持在播放界面添加不规则跑动的文字水印，有效防盗录。全屏播放模式和窗口播放模式均可展示水印，开发者可修改水印文本、文字大小、颜色。功能效果可在 [**腾讯云视立方 App**](#qrcode) > **播放器** > **播放器组件** > **动态水印演示** 视频中体验。
 
@@ -415,15 +415,15 @@ DynamicWaterModel 类参数说明：
 | textFont            | CGFloat  | 文字大小   |
 | textColor           | UIColor  | 文字颜色   |
 
-### 8、视频下载
+### 视频下载
 
 支持用户在有网络的条件下缓存视频，随后在无网络的环境下观看；同时离线缓存的视频仅可在客户端内观看，不可被下载至本地，可有效防止下载视频的非法传播，保护视频安全。
-你可在 腾讯云视立方 App > 播放器 > 播放器组件 > 离线缓存（全屏）演示视频中，使用全屏观看模式后体验。
+您可在腾讯云视立方 App > 播放器 > 播放器组件 > 离线缓存（全屏）演示视频中，使用全屏观看模式后体验。
 
-<img src="http://1400155958.vod2.myqcloud.com/facd87c8vodcq1400155958/a8714349387702307128701255/XKE6yjeb87UA.jpg" style="zoom: 50%;" />
+<img src="https://qcloudimg.tencent-cloud.cn/raw/7f6d453e8cb13e5e2ec803ded4e7aad7.png" style="zoom: 50%;" />
 
-VideoCacheView（ 缓存选择列表视图），用于选择下载对应清晰度的视频。左上角选择清晰度后，再点击要下载的视频选项，出现对勾后，代表开始了下载。点击下方的 video download list 按钮后会跳转到 VideoDownloadListView 所在的 Activity。
-
+- VideoCacheView（ 缓存选择列表视图）
+用于选择下载对应清晰度的视频。左上角选择清晰度后，再单击要下载的视频选项，出现对勾后，代表开始了下载。单击下方的 video download list 按钮后会跳转到 VideoDownloadListView 所在的 Activity。
 ```objective-c
 // 步骤1：初始化缓存选择列表视图
 //@property (nonatomic, strong) VideoCacheView *cacheView;
@@ -434,29 +434,33 @@ _cacheView.hidden = YES;
 // 步骤2：设置正在播放的视频选项
 [_cacheView setVideoModels:_currentPlayVideoArray currentPlayingModel:player.playerModel];
 
-// video download list 按钮的点击事件
+// video download list 按钮的单击事件
 - (UIButton *)viewCacheListBtn;
 ```
-
 ```objective-c
 - (void)setVideoModels:(NSArray *)models currentPlayingModel:(SuperPlayerModel *)currentModel;
 ```
-
 接口参数说明
+<table ><thead ><tr>
+<th >参数名</th><th >类型</th><th >描述</th></tr>
+</thead><tbody ><tr>
+<td>models</td>
+<td>NSArray</td>
+<td>下载列表的视频数据模型</td>
+</tr>
+<tr>
+<td>SuperPlayerModel</td>
+<td>currentModel</td>
+<td>当前在播放的视频数据模型</td>
+</tr>
+</tbody>
+</table>
 
-| 参数名           | 类型         | 描述                     |
-| ---------------- | ------------ | ------------------------ |
-| models           | NSArray      | 下载列表的视频数据模型   |
-| SuperPlayerModel | currentModel | 当前在播放的视频数据模型 |
-
-VideoCacheListView（视频下载列表），显示所有正在下载的和下载完成视频的列表 View。点击时，如果正在下载，会暂停下载；如果暂时下载，会继续下载；如果下载完成，会跳转播放。
-
+- VideoCacheListView（视频下载列表）
+显示所有正在下载的和下载完成视频的列表 View。单击时，如果正在下载，会暂停下载；如果暂时下载，会继续下载；如果下载完成，会跳转播放。
 <img src="http://1400155958.vod2.myqcloud.com/facd87c8vodcq1400155958/a69c6b2c387702307128674240/wt31IYPsdQoA.jpg" style="zoom: 33%;" />
-
-
-
 ```objective-c
-// 添加数据，数据从TXVodDownloadManager#getDownloadMediaInfoList 接口获取到
+// 添加数据，数据从 TXVodDownloadManager#getDownloadMediaInfoList 接口获取到
 NSArray<TXVodDownloadMediaInfo *> *array = [[[TXVodDownloadManager shareInstance] getDownloadMediaInfoList] mutableCopy];
 for (TXVodDownloadMediaInfo *info in array) {
     VideoCacheListModel *model = [[VideoCacheListModel alloc] init];
@@ -464,9 +468,62 @@ for (TXVodDownloadMediaInfo *info in array) {
     [self.videoCacheArray addObject:model];
 }
 
-// 列表项支持点击播放、长按删除等操作
+// 列表项支持单击播放、长按删除等操作
 - (void)longPress:(UILongPressGestureRecognizer *)longPress;  // 长按
 ```
+
+- 下载后的视频支持无网络情况下进行播放，播放时请参考如下代码：
+```objective-c
+NSArray<TXVodDownloadMediaInfo *> *mediaInfoList = [[TXVodDownloadManager shareInstance] getDownloadMediaInfoList];
+TXVodDownloadMediaInfo *mediaInfo = [mediaInfoList firstObject];
+SuperPlayerUrl *superPlayerUrl = [[SuperPlayerUrl alloc] init];
+superPlayerUrl.title = @"*********";
+superPlayerUrl.url = mediaInfo.playpath;
+NSArray<SuperPlayerUrl *> *multiVideoURLs = @[superPlayerUrl];
+SuperPlayerModel *playerModel = [[SuperPlayerModel alloc] init];
+playerModel.multiVideoURLs = multiVideoURLs;
+[self.playerView playWithModelNeedLicence:playerModel];
+```
+
+
+>! 视频文件下载无网络播放时，一定要通过获取下载列表并通过下载列表视频对象`TXxiodDownloadMediaInfo` 的 `PlayPath` 进行播放，切勿直接保存 PlayPath 对象。
+
+### 雪碧图和打点信息
+
+#### 打点信息
+
+支持在进度条关键位置添加文字介绍，用户单击后可显示打点位置的文字信息，以快速了解当前位置的视频信息。单击视频信息后，可以 seek 到打点信息位置。
+
+您可在腾讯云视立方 App > 播放器 > 播放器组件 > 腾讯云 视频中，使用全屏观看模式后体验。
+![](https://qcloudimg.tencent-cloud.cn/raw/3359f1b3ec8371974149b474adcd7b0a.png)
+
+#### 雪碧图
+
+支持用户在拖拽进度条或执行快进操作时查看视频缩略图，以快速了解指定进度的视频内容。缩略图预览基于视频雪碧图实现，您可以在云点播控制台中生成视频文件雪碧图，或直接生成雪碧图文件。
+您可在腾讯云视立方 App > 播放器 > 播放器组件 > 腾讯云 视频中，使用全屏观看模式后体验。
+
+![](https://qcloudimg.tencent-cloud.cn/raw/b311b34b30f46a962ea4c5138d1c2eb1.png)
+
+```objective-c
+// 步骤1：通过 playWithModelNeedLicence 播放器视频，才能在 onPlayEvent 回调中获取到雪碧图和打点信息数据
+[self.playerView playWithModelNeedLicence:playerModel];
+
+// 步骤2: playWithModelNeedLicence 在 VOD_PLAY_EVT_GET_PLAYINFO_SUCC 回调事件中取得关键帧和雪碧图信息
+NSString *imageSpriteVtt = [param objectForKey:VOD_PLAY_EVENT_IMAGESPRIT_WEBVTTURL]?:@"";
+NSArray<NSString *> *imageSpriteList = [param objectForKey:VOD_PLAY_EVENT_IMAGESPRIT_IMAGEURL_LIST];
+NSArray<NSURL *> *imageURLs = [self convertImageSpriteList:imageSpriteList];
+[self.imageSprite setVTTUrl:[NSURL URLWithString:imageSpriteVtt] imageUrls:imageURLs];
+
+// 步骤3: 将拿到的打点信息和雪碧图，并显示到界面上
+if (self.isFullScreen) {
+   thumbnail = [self.imageSprite getThumbnail:draggedTime];
+}
+if (thumbnail) {
+   [self.fastView showThumbnail:thumbnail withText:timeStr];
+}
+```
+
+
 
 ## Demo 体验
 
@@ -482,5 +539,4 @@ for (TXVodDownloadMediaInfo *info in array) {
 ### 腾讯云视立方 App
 
 在 **腾讯云视立方 App** > **播放器** 中可体验更多播放器组件功能。
-
-<img src="https://qcloudimg.tencent-cloud.cn/raw/5c383bc7826d4f4835c9a7232cf9b50e.png" width="150">
+App 升级维护中，Demo 源码仍可正常使用。

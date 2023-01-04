@@ -4,13 +4,14 @@
 ## 准备工作
 
 1. 请 [注册腾讯云账号](https://cloud.tencent.com/register?s_url=https%3A%2F%2Fcloud.tencent.com%2F)，注册成功后即可使用腾讯云服务，已注册可忽略此步骤。
-2. 登录腾讯云 [云开发控制台](https://console.cloud.tencent.com/tcb)，您在填写环境名称之后，单击**下一步**，直接提交授权并使用云开发服务。
-   ![](https://main.qcloudimg.com/raw/a93584a3b38cbd035501b0f3b8ac2d56.png)
-   如果您之前创建过环境，可以继续使用已创建的**按量计费环境**，或者再次**新建环境**。
-   ![](https://main.qcloudimg.com/raw/68f9e9836035f548aa840ad1c2a17a77.png)
-3. <span id="step1.3"></span>开通成功之后，单击环境名称，进入 [环境总览](https://console.cloud.tencent.com/tcb/env/overview) 页面，如下所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/a2860d0f52afff9800cb66d5a60d4d03.jpg)
-> !请记住您的环境 ID，这个 ID 在后续步骤将被使用。您可单击**环境Id**右侧的<img src="https://main.qcloudimg.com/raw/a06f957521023a64e977041f9181f251.jpg"  style="margin:0;">图标进行复制。
+2. 在新建环境窗口中，根据实际需求填写环境名称，选择**套餐**，单击**立即开通**即可开通环境。
+<img style="width:978px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/e049812a62553fd28aff74e12af7a6d9.png" />
+3. <span id="step1.3"></span>开通成功之后，单击环境名称，进入环境总览页面。请记住您的环境 ID，这个 ID 在后续步骤将被使用，如下所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/9bd73d8d527c1e9aa7a0935c9a912fef.png)
+4. 单击左侧菜单栏中的**静态网站托管**，在页面中单击**开通静态托管服务**。
+<img style="width:978px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/531b34297e477ab275d0238b47f38184.png" /><br>
+当您能看到如下界面时，即说明静态网站托管开通成功。
+![](https://main.qcloudimg.com/raw/c76868e35d23f97bbd39f261073385a6.jpg)
 
 ## 步骤1：开启匿名登录
 
@@ -182,10 +183,8 @@
 ![](https://main.qcloudimg.com/raw/38cb96d9cf25f433a16857229a81dc84.png)
 
 ## 总结
-
 该版本的 Todo List 应用为入门教学案例，通过使用云开发中的登录授权、云函数、数据库、云存储、静态托管等功能，快速搭建了一个简易 Todo List 应用并开放给用户使用。
 
-目前应用内使用匿名登录方式，不支持多端设备共享 Todo List 记录。云开发团队提供了一个支持**邮件登录**方式的 [Todo List 应用实战项目](https://github.com/TCloudBase/WEB-TodoList)，支持多设备共享记录。您可以在此基础上开发更多功能，打造一个您的专属 Todo List 应用。
 
 
 

@@ -92,6 +92,7 @@ Content-MD5: MD5
         <Field>ReplicationStatus</Field>
         <Field>Tag</Field>
         <Field>Crc64</Field>
+        <Field>x-cos-meta-*</Field>
 	</OptionalFields>
 </InventoryConfiguration>
 ```
@@ -112,7 +113,7 @@ Content-MD5: MD5
 | StartTime              | Period                 | 需要分析的对象创建的起始时间，参数为秒级时间戳，如1568688761 | String    | 否       |
 | EndTime                | Period                 | 需要分析的对象创建的结束时间，参数为秒级时间戳，如1568688762 | String    | 否       |
 | OptionalFields         | InventoryConfiguration | 设置清单结果中应包含的分析项目                               | Container | 否       |
-| Field                  | OptionalFields         | 清单结果中可选包含的分析项目名称，可选字段包括：Size，LastModifiedDate，StorageClass，ETag，IsMultipartUploaded，ReplicationStatus，Tag，Crc64<br/>注意，如果筛选条件里使用了对象标签，在这里也必须添加Tag | String    | 否       |
+| Field                  | OptionalFields         | 清单结果中可选包含的分析项目名称，可选字段包括：`Size`，`LastModifiedDate`，`StorageClass`，`ETag`，`IsMultipartUploaded`，`ReplicationStatus`，`Tag`，`Crc64`，`x-cos-meta-*`<br/>注意，如果筛选条件里使用了对象标签，在这里也必须添加 Tag<br/>此外，也支持用户填写`x-cos-meta-*`形式的自定义头部，如`x-cos-meta-testheader`。清单会将相应的对象元数据输出，若对象不包含该元数据，则为空。 | String    | 否       |
 | Schedule               | InventoryConfiguration | 配置清单任务周期                                             | Container | 是       |
 | Frequency              | Schedule               | 清单任务周期，可选项为按日或者按周，枚举值：Daily、Weekly    | String    | 是       |
 | Destination            | InventoryConfiguration | 描述存放清单结果的信息                                       | Container | 是       |
@@ -274,3 +275,70 @@ Server: tencent-cos
 x-cos-request-id: NTlhMzg1ZWVfMjQ4OGY3MGFfMWE1NF8****
 ```
 
+#### 案例三：清单支持输出对象的自定义头部
+
+#### 请求 
+
+该示例向存储桶`examplebucket-1250000000`中添加一条名为 list3 的清单任务。
+
+- 该清单任务分析存储桶中前缀为 myPrefix ，且有对象标签含有{age:18}的对象及其所有版本。
+- 分析频次为每天一次。
+- 分析维度包括 Size ， LastModifiedDate， StorageClass，ETag，Tag，x-cos-meta-myheader。
+- 分析结果将以 CSV 格式文件存储在存储桶 inventorybucket-1250000000 中。
+
+```shell
+PUT /?inventory&id=list2 HTTP/1.1
+Date: Mon, 28 Aug 2018 02:53:38 GMT
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1503888878;1503889238&q-key-time=1503888878;1503889238&q-header-list=host&q-url-param-list=inventory&q-signature=254bf9cd3d6615e89a36ab652437f9d45c5f****
+Content-MD5: AAq9nzrpsz5LJ4UEe1f6Q==
+Host: examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com
+Content-Length: 1024
+
+<?xml version = "1.0" encoding = "UTF-8">
+<InventoryConfiguration xmlns = "http://....">
+    <Id>list3</Id>
+    <IsEnabled>true</IsEnabled>
+    <Destination>
+        <COSBucketDestination>
+            <Format>CSV</Format>
+            <AccountId>100000000001</AccountId>
+            <Bucket>qcs::cos:ap-guangzhou::inventorybucket-1250000000</Bucket>
+        </COSBucketDestination>
+    </Destination>
+    <Schedule>
+        <Frequency>Daily</Frequency>
+    </Schedule>
+    <Filter>
+    	<And>
+        	<Prefix>myPrefix</Prefix>
+            <Tag>
+                <Key>age</Key>
+                <Value>18</Value>
+            </Tag>
+        </And>
+    </Filter>
+    <IncludedObjectVersions>All</IncludedObjectVersions>
+    <OptionalFields>
+        <Field>Size</Field>
+        <Field>LastModifiedDate</Field>
+        <Field>StorageClass</Field>
+        <Field>ETag</Field>
+        <Field>Tag</Field>
+        <Field>Crc64</Field>
+        <Field>x-cos-meta-myheader</Field>
+	</OptionalFields>
+</InventoryConfiguration>
+```
+
+#### 响应
+
+上述请求后，COS 返回以下响应，表明该清单任务 list3 已经成功设置完毕。
+
+```shell
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 0
+Date: Mon, 28 Aug 2018 02:53:38 GMT
+Server: tencent-cos
+x-cos-request-id: NTlhMzg1ZWVfMjQ4OGY3MGFfMWE1NF8****
+```

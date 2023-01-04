@@ -23,10 +23,10 @@ TMIO SDK 当前已对流媒体协议 SRT 进行了封装优化，将会持续增
 ### 效果展示
 **TMIO 支持 SRT 协议，可用于弱网、远距离传输场景中，提高上行稳定性和下行流畅度。**如下测试场景中，RTMP推流在10%丢包率时已播放卡顿，SRT推流在10%甚至30%丢包率时仍能保持稳定和低延迟。
 
-<video width="500px" height="auto" src="https://qcloudimg.tencent-cloud.cn/raw/6761d955b4d38f11ef66059608cb6b75.mp4" controls  muted></video>
+<video width="500px" height="auto" src="https://qcloudimg.tencent-cloud.cn/raw/8d165df8dec666b05a013a3def596e0b.mp4" controls  muted></video>
 **TMIO-SRT 支持多链路平滑迁移。网络不佳时，可流畅切换至备用链路，保持推流的稳定。**
 
-<video width="500px" height="auto" src="https://qcloudimg.tencent-cloud.cn/raw/ed56a488e204f3140416e8a451bfc57e.mp4" controls  muted></video> 
+<video width="500px" height="auto" src="https://qcloudimg.tencent-cloud.cn/raw/12b687f741d3dac58700fbf55b565550.mp4" controls  muted></video> 
 
 
 
@@ -55,7 +55,7 @@ TMIO SDK 当前已对流媒体协议 SRT 进行了封装优化，将会持续增
 [](id:choose)
 ### 选择代理模式
 #### Tmio Proxy 模式接入方式
-<img src="https://qcloudimg.tencent-cloud.cn/raw/137c7bccf3021ea66f3275ef3a058acc.jpeg" width=700>
+![](https://qcloudimg.tencent-cloud.cn/raw/137c7bccf3021ea66f3275ef3a058acc.jpeg)
 
 #### 操作步骤
 1. **创建 Tmio Proxy**：
@@ -164,7 +164,7 @@ proxy_.stop();
 [](id:internal)
 ### 内部集成
 #### Tmio SDK 内部集成接入方式
-<img src="https://qcloudimg.tencent-cloud.cn/raw/ffad74f4bebbc9cea6eb780a937dc0b9.jpeg" width=700>
+![](https://qcloudimg.tencent-cloud.cn/raw/ffad74f4bebbc9cea6eb780a937dc0b9.jpeg)
 
 #### 接入流程
 1. **创建 Tmio&配置参数**（代码示例）：

@@ -13,7 +13,7 @@
 3. 单击**创建日志主题**，在弹出的创建日志集窗口中，填写相关信息：
    - 日志主题名称：例如 project_test
    - 日志集名称：例如nginx
-![img](https://main.qcloudimg.com/raw/6e2ff86cd07c0e132bee42850dfa678f.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/44f716ce856b8ab206afe72acd58aadb.png)
 4. 单击**确定**，即可创建日志集和主题。
 5. 日志主题新增成功，将进入日志主题管理页，如下图所示：  ![img](https://main.qcloudimg.com/raw/14416fdbda5ac39e4a650d1e37a5118c.png)
 
@@ -25,7 +25,7 @@
   - **创建方式**：选择**模板创建**。
   - **模糊搜索**：输入“CLS 消息转储至 COS”，并进行搜索。
 3. 单击模板中的**查看详情**，即可在弹出的“模板详情”窗口中查看相关信息，支持下载操作。
- ![](https://main.qcloudimg.com/raw/284c66cef7e6aa99cb77b17c0c0f40e8.png)
+ ![](https://qcloudimg.tencent-cloud.cn/raw/351d731f4e14ed8cdb107bf2b7c998da.png)
 4. 基本信息配置完成之后，单击**下一步**，进入函数配置页面。
     - **函数名称**：命名为 “CLSdemo”。
     - 选择**北京**地域

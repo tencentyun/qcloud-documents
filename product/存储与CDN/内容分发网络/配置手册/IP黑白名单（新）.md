@@ -8,41 +8,48 @@
 
 ### 查看配置
 登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，在菜单栏里选择**域名管理**，单击域名右侧**管理**，即可进入域名配置页面，第二栏**访问控制**中可看到 IP 黑白名单配置，默认情况下为关闭状态：
-![](https://main.qcloudimg.com/raw/d6f183e43bc1c025abe0d293a410630b.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/de0be8b731597e6e834e1cb01cf6b05c.png)
 
 ### 开启配置
 
-单击开关，选择黑名单 / 白名单，并填入 IP 或 IP 段列表并单击**确认**，即可启用 IP 黑 / 白名单配置：
-<img src="https://qcloudimg.tencent-cloud.cn/raw/f20840d78b837d952f9e2aa4f7c3d31e.png" width="600px">
+单击开关即可开启配置，首次开启配置时，如果不存在规则，将默认弹出新增规则页面。开启后，IP黑/白名单将按照规则优先级生效，最下方的规则优先级最高。
+>! 若您的加速域名服务区域为全球加速，设置的IP黑名单与白名单会全球生效，不支持境内、境外差异化配置。
+
+#### 新增/修改规则
+您可以在 IP 黑名单中，单击**新增规则**按钮，新增一条 IP 黑白名单规则。
+![](https://qcloudimg.tencent-cloud.cn/raw/ee273d8e24c7368ed3a79ee79f5fc975.png)
 **IP 黑名单**
 用户端 IP 匹配黑名单中的 IP 或 IP 段时 ，访问 CDN 节点时将直接返回403状态码。
 **IP 白名单**
 用户端 IP 未匹配白名单中的 IP 或 IP 段时 ，访问 CDN 节点时将直接返回403状态码。
 **配置约束**
-- IP 黑名单与 IP 白名单二选一，不可同时配置。
-- IP 黑白名单各至多可输入200个。
-- IPv4仅支持 /8、/16、/24 网段，不支持其他网段；IPv6支持全网段。
+- 单个规则中，IP 黑名单与 IP 白名单二选一，不可同时配置。
+- IP 黑白名单各至多可输入500个。
 - 不支持IP:端口形式的黑白名单。
 - 不支持配置 IPV4 及 IPV6 保留地址及网段作为 IP 黑白名单。
+- 规则优先级为优先匹配最下方优先级。
+![](https://qcloudimg.tencent-cloud.cn/raw/959c010c9f9ba5d98e7b75aed50dbd59.png)
+如需修改规则，可以在规则右侧的操作列表中，单击**修改**按钮修改规则内容。
+![](https://qcloudimg.tencent-cloud.cn/raw/4ac404dcf485bd54a42621ba461366e8.png)
 
+#### 调整规则优先级
+如需调整规则优先级，您可以在规则列表上方，单击**调整优先级**进入优先级调整模式，进入后页面如下，通过操作一栏中，可对规则优先级进行调整，上箭头代表规则向上移动，下箭头代表规则向下移动。调整后，单击**保存**即可保存当前的规则优先级顺序。
+>!列表底部的优先级大于列表顶部。
+>
+![](https://qcloudimg.tencent-cloud.cn/raw/5e0e10c8b2bf26d836cba28d60238912.png)
+
+#### 删除规则
+如需删除规则，您可以在规则的操作栏中，单击**删除**按钮，删除该规则将弹窗进行确认，确认后即永久删除该规则。
+![](https://qcloudimg.tencent-cloud.cn/raw/698546b7156a98ed98aba08de3388293.png)
 
 ### 关闭配置
-您可以通过 IP 黑白名单配置开关进行一键关闭，开关为关闭状态时，即便下方存在已有配置，仍不会现网生效，下次单击开启时，会先行进行配置的二次确认，不会立即发布至全网生效：
-![](https://main.qcloudimg.com/raw/905c706c90a33f79e86b139187e1bfbc.png)
-
->!若您的加速域名服务区域为全球加速，设置的 IP 黑名单与白名单会全球生效，不支持境内、境外差异化配置。
+单击配置状态右侧开关，即可关闭配置，关闭配置情况下，您仍可修改IP黑白名单规则，但是不会立即发布至现网，仅当开启配置时，规则才会生效。
+![](https://qcloudimg.tencent-cloud.cn/raw/4e79995432bf2ed2af296e14235ac31f.png)
 
 ## 配置示例
-
-若加速域名 `www.test.com` 的 IP 白名单配置如下：
-![](https://qcloudimg.tencent-cloud.cn/raw/a1f4e9d3ef474635d93693ef761d13a3.png)
+若加速域名：`www.test.com` 的 IP 黑白名单配置如下：
+![](https://qcloudimg.tencent-cloud.cn/raw/449aeac06e7c09d4a779588c410e72ed.png)
 则实际访问情况如下：
-1. 用户端 IP 为1.1.1.1的用户访问资源 `http://www.test.com/test.txt`，匹配白名单1.0.0.0/8，正常返回内容。
-2. 用户端 IP 为2.1.1.1的用户访问资源 `http://www.test.com/test.txt`，未匹配白名单，返回403。
-
-若加速域名 `www.test.com` 的 IP 黑名单配置如下：
-![](https://qcloudimg.tencent-cloud.cn/raw/a0bd155807084516b72fd0ae764290dd.png)
-则实际访问情况如下：
-1. 用户端 IP 为1.1.1.1的用户访问资源 `http://www.test.com/test.txt`，匹配黑名单1.0.0.0/8，返回403。
-2. 用户端 IP 为2.1.1.1的用户访问资源 `http://www.test.com/test.txt`，未匹配黑名单，正常返回内容。
-
+1. 当用户端 IP 为1.1.1.1时，访问资源 `https://www.test.com/test/vod.mp4`，则匹配最下方黑名单规则，不允许该用户访问，返回403；
+2. 当用户端 IP 为1.1.1.2时，访问资源 `https://www.test.com/test/vod.mp4`，该 IP 不在黑名单规则内，不匹配黑名单规则，但是该用户访问内容匹配白名单规则，仅允许 IP 为1.1.1.1用户访问，该用户 IP 不符合，因此不允许该 IP 用户访问，返回403;
+3. 当用户端 IP 为1.1.1.1时，访问资源 `https://www.test.com/vod.mp4`，不匹配黑名单规则，匹配白名单规则，允许该 IP 用户访问，将正常返回内容。

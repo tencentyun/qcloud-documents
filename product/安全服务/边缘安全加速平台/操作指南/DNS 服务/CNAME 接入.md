@@ -47,7 +47,7 @@
   2. 前往 [DNS 解析 DNSPod 控制台](https://console.cloud.tencent.com/cns)，找到对应的域名，单击**解析**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/3d068cbf6fb9925e250be20b2b65d8b9.png)
  3. 单击**添加记录**。主机记录按照提示填写即可，记录类型选择 CNAME ，记录值填写第一步中复制的 CNAME，其他参数维持不变。
-![image](https://user-images.githubusercontent.com/115441986/199006620-fe3a9c40-812e-4442-9991-44565afeed24.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/5895c2fca06b3cc2054b7f101f0fecaf.png)
  4. 单击**保存**后，即可完成 CNAME 配置。
 5. 配置完成之后，域名服务列表中，CNAME 列出现绿色的 icon 则表示该 CNAME 记录已生效，该子域名正常加速中。
 ![](https://qcloudimg.tencent-cloud.cn/raw/b9cf10f7a1f07ab74d21f1e1ede5b669.png)

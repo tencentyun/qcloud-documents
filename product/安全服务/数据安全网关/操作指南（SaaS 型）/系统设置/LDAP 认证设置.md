@@ -2,6 +2,7 @@
 当企业内部使用 LDAP 时，用户可以使用 LDAP 账号登录堡垒机，管理人员也可以直接从 LDAP 同步用户到堡垒机，这样就不需要单独维护堡垒机的用户管理体系，简化管理流程。
 >?如果您有 LDAP 认证的需求，请 [联系我们](https://cloud.tencent.com/online-service?from=connect-us) 开通该功能。
 
+
 ## 操作步骤
 1. 登录 [堡垒机控制台](https://console.cloud.tencent.com/dsgc/bh)，单击**立即进入**，进入SaaS 型堡垒机控制台。
 ![](https://qcloudimg.tencent-cloud.cn/raw/b2f6673b0cad7c2f423a6b6e287179af.png)

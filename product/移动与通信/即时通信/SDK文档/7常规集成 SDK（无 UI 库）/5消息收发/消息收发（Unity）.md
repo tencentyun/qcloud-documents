@@ -29,7 +29,7 @@ public static void MsgSendMessage() {
         Message message = new Message();
         message.message_conv_id = conv_id;
         message.message_conv_type = TIMConvType.kTIMConv_C2C;// 群消息为TIMConvType.kTIMConv_Group
-        List<Elem> messageElems = new List<Elem>(); 
+        List<Elem> messageElems = new List<Elem>();
         Elem textMessage = new Elem(); // 创建消息
         textMessage.elem_type = TIMElemType.kTIMElem_Text;
         textMessage.text_elem_content = "这是一个普通文本消息";
@@ -37,10 +37,10 @@ public static void MsgSendMessage() {
         message.message_elem_array = messageElems;
         StringBuilder messageId = new StringBuilder(128);
 
-        TIMResult res = TencentIMSDK.MsgSendMessage(conv_id, TIMConvType.kTIMConv_C2C, message, messageId, (int code, string desc, 						string json_param, string user_data)=>{
+        TIMResult res = TencentIMSDK.MsgSendMessage(conv_id, TIMConvType.kTIMConv_C2C, message, messageId, (int code, string desc,       string json_param, string user_data)=>{
           // 消息发送异步结果
         });
-  			// 消息发送同步返回的消息ID messageId
+     // 消息发送同步返回的消息ID messageId
 }
 ```
 
@@ -52,19 +52,19 @@ public static void MsgSendMessage() {
         Message message = new Message();
         message.message_conv_id = conv_id;
         message.message_conv_type = TIMConvType.kTIMConv_C2C;// 群消息为TIMConvType.kTIMConv_Group
-        List<Elem> messageElems = new List<Elem>(); 
+        List<Elem> messageElems = new List<Elem>();
         Elem imageMessage = new Elem(); // 创建消息
         imageMessage.elem_type = TIMElemType.kTIMElem_Image;
         imageMessage.image_elem_orig_path = "/Users/xxx/xxx.png"; // 文件绝对路径
-  			imageMessage.image_elem_level = TIMImageLevel.kTIMImageLevel_Orig; // 原图发送
+     imageMessage.image_elem_level = TIMImageLevel.kTIMImageLevel_Orig; // 原图发送
         messageElems.Add(imageMessage);
         message.message_elem_array = messageElems;
         StringBuilder messageId = new StringBuilder(128);
 
-        TIMResult res = TencentIMSDK.MsgSendMessage(conv_id, TIMConvType.kTIMConv_C2C, message, messageId, (int code, string desc, 						string json_param, string user_data)=>{
+        TIMResult res = TencentIMSDK.MsgSendMessage(conv_id, TIMConvType.kTIMConv_C2C, message, messageId, (int code, string desc,       string json_param, string user_data)=>{
           // 消息发送异步结果
         });
-  			// 消息发送同步返回的消息ID messageId
+     // 消息发送同步返回的消息ID messageId
 }
 ```
 
@@ -72,7 +72,7 @@ public static void MsgSendMessage() {
 
 ```c#
 TencentIMSDK.SetMsgElemUploadProgressCallback((Message message, int index, int cur_size, int total_size, string user_data)=>{
-	// message 当前正在发送的消息实例
+ // message 当前正在发送的消息实例
   // index 当前正在上传的文件序号
   // cur_size 当前正在上传的文件大小MB
   // total_size 当前正在上传的文件总大小
@@ -102,7 +102,7 @@ TencentIMSDK.RecvNewMsgCallback((List<Message> message, string user_data)=>{
 | message_is_from_self                  | 消息是否来自自己                                             |
 | message_platform                      | 发送消息的平台                                               |
 | message_is_read                       | 消息是否已读                                                 |
-| message_is_online_msg                 | 消息是否是在线消息，false 表示普通消息，true 表示阅后即焚消息，默认为 false |
+| message_is_online_msg                 | 消息是否是在线消息，false 表示普通消息，true 表示在线消息，默认为 false |
 | message_is_peer_read                  | 消息是否被会话对方已读                                       |
 | message_status                        | 消息当前状态                                                 |
 | message_unique_id                     | 消息的唯一标识，推荐使用 kTIMMsgMsgId                        |
@@ -119,4 +119,3 @@ TencentIMSDK.RecvNewMsgCallback((List<Message> message, string user_data)=>{
 | message_sender_group_member_info      | 消息发送者在群里面的信息，只有在群会话有效。目前仅能获取字段 kTIMGroupMemberInfoIdentifier、kTIMGroupMemberInfoNameCard 其他的字段建议通过 TIMGroupGetMemberInfoList 接口获取 |
 | message_offlie_push_config            | 消息的离线推送设置                                           |
 | message_excluded_from_last_message    | 是否作为会话的 lasgMessage，true - 不作为，false - 作为      |
-

@@ -43,18 +43,6 @@
  - **client Id：**secretId
  - **client secret：**secretKey
 
->! 可以不用转换 oauth，像发送普通 post 请求一样，把 secretid:secretkey base64 一下，前面加上 Basic ，放在请求头的 Authorization 里，然后 body 内容。
-```body
-{
-  "grant_type":"client_credentials"
-}
-```
-直接 post 请求就可以。单击 Get New Access Token 获取 token, 然后按照下面正常访问即可。
-具体配置请参照下图：
-<img src = "https://qcloudimg.tencent-cloud.cn/raw/5de129b0b13aaa501eb725d41e9ee2ed.png" style="width: 80%"> 
-
-
-
 
 
 
@@ -186,7 +174,7 @@ https://lowcode-8gm1omixe8f6360b.ap-shanghai.tcb-api.tencentcloudapi.com/weda/au
 https://lowcode-8gm1omixe8f6360b.ap-shanghai.tcb-api.tencentcloudapi.com/weda/auth/v1/prod/describeResourcesPermission
 ```
 - 资源类型：
- - app 应用
+ - App 应用
  - modelApp 模型应用
  - flow 流程
  - dataSource 数据源
@@ -586,12 +574,3 @@ http://lowcode-8g84r3rnf95853d9.ap-shanghai.tcbapi.tencentcloud.com/weda/auth/v1
 </dx-codeblock>
 
 
-## 角色相关接口
-- [创建 weda 角色](https://tcloud4api.woa.com/document/product/1505/57776?!preview&!document=1)
-- [获取 weda 角色列表](https://tcloud4api.woa.com/document/product/1505/65781?!preview&!document=1)
-- [删除角色](https://tcloud4api.woa.com/document/product/1505/65782?!preview&!document=1)
-- [修改角色](https://tcloud4api.woa.com/document/product/1505/65783?!preview&!document=1)
-- [发布角色](https://tcloud4api.woa.com/document/product/1505/61281?!preview&!document=1)
-- [绑定角色](https://tcloud4api.woa.com/document/product/1505/57750?!preview&!document=1)
-- [角色关联的用户列表](https://tcloud4api.woa.com/document/product/1505/62532?!preview&!document=1)
-- [根据用户 id 获取角色 id](https://tcloud4api.woa.com/document/product/1505/59361?!preview&!document=1)

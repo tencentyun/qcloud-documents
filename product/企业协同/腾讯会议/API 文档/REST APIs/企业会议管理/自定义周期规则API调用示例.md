@@ -1,6 +1,6 @@
 >?
 >- recurring_type：0至4为常规周期性会议，5为自定义周期性会议。recurring_type 为5时，customized_recurring_type、customized_recurring_step、customized_recurring_days 才会生效，否则会被忽略。
-- 修改会议与预定会议的 API 传参时类似，需注意修改会议时 recurring_rule 中若填写了 sub_meeting_id，则表示修改该子会议时间，不可与周期性会议规则同时修改。如不填写，默认修改整个周期性会议时间。
+- 修改会议与预定会议的 API 传参类似，需注意修改会议时 recurring_rule 中若填写了 sub_meeting_id，则表示修改该子会议时间，不可与周期性会议规则同时修改。如不填写，默认修改整个周期性会议时间。
 - customized_recurring_days 指定哪些天重复，使用二进制表示，多选是二进制相加后的值。且需要包括预定会议日期（即第一个会议的日期），否则会返回如下报错信息：
 ```
 {

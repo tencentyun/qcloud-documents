@@ -14,3 +14,5 @@ Edge 实例与 Edge 设备绑定后，如果您需要更换 Edge 设备 ，可�
 ![](https://qcloudimg.tencent-cloud.cn/raw/903c2d311492f7d136a43fc7db987cb8.png)
 5. 在弹出的**更换 SN 号** 页面中输入新的设备 SN，并单击**确定**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/3a5ece2ed0a44e9074173b0427c02d4b.png)
+
+

@@ -1,170 +1,165 @@
-各大企业每天都有大量的 API 增长，同时越来越多公司开始公开 Web API，API 的使用场景正在累积。现在，每日 API 调用量在不断飙升，如何能够安全有效将这些 API 管理起来对于企业而言并不容易。
+>!
+>- 试用公有云版本 API 管理需扫码申请（登录 [腾讯云数据连接器控制台](https://ipaas.cloud.tencent.com/)，单击 **API 管理**菜单即可申请）。
+>- API 管理的独立环境与应用集成环境不互通。
 
+## 操作场景
+各大企业每天都有大量的 API 增长，同时越来越多公司开始公开 Web API，API 的使用场景正在累积。现在，每日 API 调用量在不断飙升，如何能够安全有效将这些 API 管理起来对于企业而言并不容易。
 腾讯云数据连接器提供 API 发布功能，可以一键将已发布的应用打包生成 API，方便用户进行管理和调用；同时提供了 API 管理能力，可以针对 API 进行访问权限管控和流量调度。
 
-
-## API 管理主页
-
-登录 [腾讯云数据连接器控制台](https://ipaas.cloud.tencent.com/apimanage)，在左侧导航栏单击 **集成开发** > **API管理**，即可进入 API 管理的主页。
-
-在 API 管理主页，您可以创建或查看 API，API 列表中展示有 API 服务名称、API 服务状态、API 服务域名、API 更新时间、API服务的数据统计、endpoint 统计、API 服务的鉴权方式用户数量以及操作等内容。同时，每个 API 服务均可展开，查看下属的 endpoint 的信息和状态。
-![](https://qcloudimg.tencent-cloud.cn/raw/e2ae555cc4321dcb2a2c601c90ac3ecf.png)
+## 操作步骤
+### API 管理主页
+登录 [腾讯云数据连接器控制台](https://ipaas.cloud.tencent.com/apimanage)，在左侧导航栏单击 **集成开发** > **API 管理**，即可进入 API 管理的主页。
+在 API 管理主页，您可以创建或查看 API 服务、可以查看 API 目录、管理 API 订阅凭证，同时可对 API 服务进行审核管理。
+![](https://qcloudimg.tencent-cloud.cn/raw/cc540644652384ec58f60a7d4d954d6c.png)
 
 
-## 创建 API 服务[](id:service)
+### API 服务列表
+此页面可创建或查看 API 服务。创建完成的 API 服务展示在此列表，项目内所有成员都可查看。
+![](https://qcloudimg.tencent-cloud.cn/raw/3bc3caee37b4106f9b76f17ebc0dfd29.png)
+API 服务状态有三种：配置中、运行中、已停止。鼠标可 hover 到**服务域名**处查看该 API 服务的发布环境和域名。
+API 服务支持的操作有：查看、新建 API、上架、下架、删除、查看描述文件、查看发布历史。
 
-API 管理功能支持 3.0.0 版本的 OpenAPI 规范。OpenAPI 3.0.0 规范的对象定义请参考 [OpenAPI Specification](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md)。用户可以通过单击**创建 API 服务**进入 API 创建界面。
-
-创建 API 服务可以通过 API 描述文件创建，也可以通过页面手动创建。
-
-<dx-tabs>
-::: 通过 API 描述文件创建
-1. 在 [API 管理](https://ipaas.cloud.tencent.com/apimanage) 页面，单击**创建API服务**，在基本配置中配置以下信息，完成后单击**下一步：策略信息**。
-	- 创建方式：选择“创建自配置文件”
-	- 上传描述文件：上传 YAML 或 JSON 格式的文件，大小100KB以内
-	- 支持格式：YAML、JSON 
->?如果您需要更多帮助，如获取API描述文档样例文件，请参考 [API描述文件样例](https://document-1259649581.cos.ap-guangzhou.myqcloud.com/API%E7%AE%A1%E7%90%86%EF%BC%88%E6%96%B0%EF%BC%89/case.yaml)。
->
-![](https://qcloudimg.tencent-cloud.cn/raw/df19c01382aa8cc8453c1705d9536e40.png)
-2. 在策略信息中配置以下信息，单击**完成**即可创建一个 API 服务。
- - 配置鉴权策略：支持 BasicAuth、OAuth2.0 和无验证（即不填写检测策略）
- - 配置黑白名单：您可以按需开启，开启后可以输入多条 IP 进行黑白名单的访问限制
- - 开启访问限制：
-	 - 请求频率策略：从配置时间起，每单位时间内允许的最大请求次数，填写范围为1 - 1000
-	 - 访问限制策略：从配置时间算起，每单位自然时间内允许的最大访问次数，填写范围为1 - 1000
-![](https://qcloudimg.tencent-cloud.cn/raw/2f41891374cfb709dcc65036e4a3730d.png)
-:::
-::: 通过页面手动创建
-1. 在 [API 管理](https://ipaas.cloud.tencent.com/apimanage) 页面，单击**创建API服务**，在基本配置中配置以下信息，完成后单击**下一步：策略信息**。
- - 创建方式：选择“手动创建”
- - API名称：请输入 API 名称
- - 协议：支持 HTTP、HTTPS、HTTP&HTTPS 协议类型
- - 版本：请输入版本号
- - 描述（选填）：对此 API服 务的一些简单描述
- - 标签（选填）：如果有分组的需要，希望日后可以通过标签来进行快速的 API 服务筛选工作，还可以配置标签信息
-![](https://qcloudimg.tencent-cloud.cn/raw/bdafd02e426294352fc2f6238492afef.png)
-2. 在策略信息中配置以下信息，单击**完成**即可创建一个 API 服务。
- - 配置鉴权策略：支持 BasicAuth、OAuth2.0 和无验证（即不填写检测策略）
- - 配置黑白名单：您可以按需开启，开启后可以输入多条 IP 进行黑白名单的访问限制
- - 开启访问限制：
-	 - 请求频率策略：从配置时间起，每单位时间内允许的最大请求次数，填写范围为1 - 1000
-	 - 访问限制策略：从配置时间算起，每单位自然时间内允许的最大访问次数，填写范围为1 - 1000
-![](https://qcloudimg.tencent-cloud.cn/raw/e3210000dae28d43482ffb1a1345fca8.png)
-
-:::
-</dx-tabs>
+>!
+>- 只有服务状态为**配置中**的 API 服务才可有新建 API 和删除的操作。
+>- 只有服务状态为**运行中**的 API 服务才可进行上架和下架的操作。
+>- 单击 API 服务的名称可跳转到 API 列表页。
 
 
+### 创建 API 服务
+API 管理功能支持 3.0.0 版本的 OpenAPI 规范。OpenAPI 3.0.0 规范的对象定义请参见 [OpenAPI Specification](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md)。用户可以通过单击**创建 API 服务**进入 API 创建界面。
+![](https://qcloudimg.tencent-cloud.cn/raw/ab9b3cbc84a97eee6d0d8369d45c2277.png)
+创建 API 服务一共有2个步骤。
 
-## 创建 API Endpoint[](id:endpoint)
+#### 步骤一：配置服务名称，协议与描述。
+服务名称和描述自定义即可，协议支持3种：HTTP、HTTPS、HTTP+HTTPS。分组可选择默认分组、新建分组。如下图所示。
+![](https://qcloudimg.tencent-cloud.cn/raw/7e6123d809d91d859a7298b7c01da47d.png)
 
-当我们创建好一个 API 服务之后，则代表此 API 已经生成，可以开始编辑其具体行为。
-API Endpoint 指一个 API 服务可以连接的后端服务信息，包括 API 的访问路径（API Path）、API 的调用方式、分组、API Endpoint 绑定的后端服务类型，最近修改时间以及一些操作。
-![](https://qcloudimg.tencent-cloud.cn/raw/5c7cab2e6650f031c68ef5afc703e405.png)
+#### 步骤二：配置策略信息
+- 配置黑白名单：您可以按需开启，开启后可以输入多条 IP 进行黑白名单的访问限制。
+- 基础流量控制：您可以按需开启，开启后可配置服务请求频率，每单位时间内允许的最大请求次数，填写范围为1 - 1000。
+
+ 当上述配置全部完成后，单击**完成**，则会返回 API 服务列表，同时已经创建好的 API 服务信息将会展示在此处。
+![](https://qcloudimg.tencent-cloud.cn/raw/c8e9abab1210a87f83b625b5659db817.png)
+
+### 新建 API
+当我们创建好一个 API 服务之后，则代表此 API 已经生成，可以开始编辑其具体行为，包括 API 的请求路径（API Path）、请求方法、分组、鉴权策略、请求参数、策略配置、API 绑定的后端服务类型等操作。
+新建 API 一共有3个步骤（附步骤四以 postman 为例从用户侧调用 API）。
+
+#### 步骤一：API 的基础配置
+![](https://qcloudimg.tencent-cloud.cn/raw/b66da9824787768c8851fc8fd229364b.png)
+API 名称、描述支持自定义。分组可选择默认分组、新建分组。
+- 请求方法支持：GET、POST、PATCH、PUT、DELETE、HEAD。
+- 鉴权策略支持：NoAuth、BasicAuth、OAuth2.0、HMAC。
+- 后弹服务类型支持：集成流、第三方服务、数据库、Mock。集成流、第三方服务、Mock 的请求参数可自行添加，最多添加30条。
+![](https://qcloudimg.tencent-cloud.cn/raw/c77ed08f54ff871e2b1703b0176f4bdc.png)
+- 数据库类型支持新建或选择 MySQL 类型的数据源。
+![](https://qcloudimg.tencent-cloud.cn/raw/eceac720481e715399bd36a566372857.png)
 
 
-默认新创建好的 API 服务是没有已绑定的 Endpoint 信息的，需要进行创建完成首次的绑定工作。
-1. 在 [API 管理](https://ipaas.cloud.tencent.com/apimanage) 页面，单击目标 API 后**添加API Endpoint**，进行 API Endpoint 基本配置。完成后单击**下一步：策略信息**。
-	- 访问路径：访问路径必须要以“/”开头
-	- 后端服务：支持选择现成的集成流或者绑定第三方服务 BASE URL
-	 - 当选择的后端服务为“集成流”模式时，集成流只可以选择已发布的，并且配置了拥有 HTTP 监听能力组件的流。
-	 - 当选择“第三方服务BASE URL”时，在资源路径处输入资源链接
-	- 描述：选填<br>
-	![](https://qcloudimg.tencent-cloud.cn/raw/33a3849ac726749f82a97486873417c1.png)
-2. 在策略信息页面，配置以下信息，完成后单击**下一步：参数信息**。
->?
->- 与 API 服务的策略信息配置方式类似，允许用户在此 Endpoint 所归属的 API 服务的策略限制基础上，配置第二层策略限制。两层限制共同生效。
->- 配置鉴权策略：您可以单击“同步服务策略”，一键同步上层的API服务策略，或者手动填写新的管理策略。
->此处可选择的鉴权策略范围为上层 API 服务的鉴权策略，即若上层 API 服务只允许 OAuth 2.0 的鉴权方式，则下层的 API Endpoint 只允许配置 OAuth 2.0，而不能配置 Basic Auth。
->
-![](https://qcloudimg.tencent-cloud.cn/raw/cafb0cc228b1766be4864bb418ca5308.png)
-3. 在参数信息页面，您可以配置访问此 API Endpoint 时可以选用的方法（API Method）和每种方法对应的调用参数信息。
-   - API 调用方法可以多选，若想取消，则可以反选想要删除的方法。
-   - 每一个参数后都提供了一系列操作，分别为：向上移动、向下移动、删除此参数，为此参数添加备注以及选择该参数是否必填。
-![](https://qcloudimg.tencent-cloud.cn/raw/e2f260674377db120f64d46f1b1dba2d.png)
-4. 当上述配置全部完成后，单击**完成**，则会返回 API 列表，同时已经创建好的 Endpoint 信息将会展现在此。
+#### 步骤二：后端配置
+![](https://qcloudimg.tencent-cloud.cn/raw/bfb79548c6642c9eb6f93f8886073bc2.png)
+- 选择集成流时：需选择webhook触发的且在运行中的集成流。
+- 后端超时时间：可默认系统预设的，也可自定义。
+- 请求方法：根据用户需求选择即可。支持：GET、POST、PATCH、PUT、DELETE、HEAD。
 
-## API 测试与运维 
 
-腾讯云数据连接器 API 管理平台同时还提供了完整的运维方案。查看步骤如下：
-1. 在 [API 管理](https://ipaas.cloud.tencent.com/apimanage) 页面，找到目标 API 服务，单击操作列的数据统计图标，进入运维页面。
-![](https://qcloudimg.tencent-cloud.cn/raw/fc7e776439c689793aca416b6d7b3331.png)
-2. 在运维页面，您可以查看此 API 在规定时间范围内的请求记录和状态汇总。
-![](https://qcloudimg.tencent-cloud.cn/raw/b64777c12ce31aca0a4995c027526d22.png)
+#### 步骤三：配置响应示例
+![](https://qcloudimg.tencent-cloud.cn/raw/bbe75cd876062ea62e04de343b606cfb.png)
+当上述配置全部完成后，单击**完成**，则会返回 API 列表，同时已经创建好的 API 信息将会展示在此处。
 
-同时，为了方便用户对配置完成的 API 进行在线的调试，我们还提供了通过控制台实时发送测试请求并且获取模拟测试结果的机制。操作步骤如下：
-1. 在 [API 管理](https://ipaas.cloud.tencent.com/apimanage) 页面，单击目标 API 服务名称前面的![](https://qcloudimg.tencent-cloud.cn/raw/d04f6623eab2d6d840ecd8b54f986fe2.png)，显示访问路径。
-2. 在访问路径中，单击操作列的**调试**，进入 API调试页面。
-![](https://qcloudimg.tencent-cloud.cn/raw/0722a1ea4cc694741e22ab8f067331c2.png)
-3. 在 API 调试页面，您可以配置此 API Endpoint 的请求 Header 和 Body 内容，并单击**发送请求**。
-![](https://qcloudimg.tencent-cloud.cn/raw/9b7a502d2542a2cce7ac4e6843da4fc1.png)
-随后即可获取到测试的结果。我们会将后端服务返回的 Response 状态码和结果返回给用户，方便进行进一步的调试工作。
-![](https://qcloudimg.tencent-cloud.cn/raw/0a55c29f24282a66d94d70f1e6c0b3f4.png)
+  
+### API 列表页
+创建好的 API 会展示在 API 列表中，此页面可新建、查看和编辑 API。可发布 API、可设置、查看 API 描述文件和调用凭证，可查看 API 的订阅详情。
+![](https://qcloudimg.tencent-cloud.cn/raw/d7a474d433639407627c7c8426c5e6b4.png)
 
-## API 用户管理
-### 功能概述
-用户管理功能允许 API 的提供者帮助其用户添加及管理账号、分配权限，并获取请求 API 时所需要的所有必要信息。
-在 [API 管理](https://ipaas.cloud.tencent.com/apimanage) 页面，找到目标 API 服务，单击**用户数量**，进入用户管理页面。
-![](https://qcloudimg.tencent-cloud.cn/raw/4a619b5393472eb059c71976f088c3ae.png)
-API 服务提供方可以将会以类似管理者的视角去统一管理用户，允许查看用户的 OAuth 信息并分享给用户以便用户调用，或者进行用户的封禁和启用。
-![](https://qcloudimg.tencent-cloud.cn/raw/d652a42e627aa354df47e28d69e68b38.png)
+左侧是 API 列表，右侧默认 tab 页是 API 的详细配置信息：API 的访问路径、请求方法、参数、后端服务类型等都可在此处查看。
 
-添加用户的时候需要提供以下用户信息，以便能够更好的记录和维护。同时，此处的用户名称和用户密码也将作为对应 API 服务的 Basic Auth 验证方式。
-![](https://qcloudimg.tencent-cloud.cn/raw/9a887b6eca815885896527cd2c4b448c.png)
+1. 单击**调试** tab 页，进入 API 调试页面。在 API 调试页面，您可以配置此 API Endpoint 的请求 Header 和 Body 内容，并单击**发送请求**。
+![](https://qcloudimg.tencent-cloud.cn/raw/4c6e02a83131298733637f10e37ae17f.png)
+2. 随后即可获取到测试的结果。我们会将后端服务返回的 Response 状态码和结果返回给用户，方便进行进一步的调试工作。
+3. 右上角单击**发布**，可发布此 API 到多个环境。
+![](https://qcloudimg.tencent-cloud.cn/raw/cc24769c3cc2e708bd3d3e2506bb52f0.png)
+4. 发布后，发布后的API状态为**运行中**。
+5. 右上角的**复制**，可将当前版本覆盖到配置中的版本。复制后，API 服务可以再次发布。一个 API 服务可以发布到多个环境。
+6. 可在 API 详情页可查看其日志和监控。日志与监控详细信息参见 [运维中心-监控管理](https://cloud.tencent.com/document/product/1270/80363) 和 [运维中心-运行日志](https://cloud.tencent.com/document/product/1270/80364)。
+7. 发布后的 API 服务可停止服务。
 
-当创建好用户之后，则可以通过**查看详细信息**按钮获取到用户的 client ID、client Secret等内容
-![](https://qcloudimg.tencent-cloud.cn/raw/b4d6ad0301ea46b60a1e21927c5ecc7f.png)
+### 描述文件
+描述文件是针对当前 API 服务的说明，左侧展示 YAML/JSON 格式文件，右侧对应展示 Swagger 可视化内容。
+![](https://qcloudimg.tencent-cloud.cn/raw/913f09c1af003898b973087d31f9fb44.png)
 
->?当前仅支持 API 服务提供方手动帮助客户添加成员信息和账户信息，客户的自助注册的能力暂不支持。
+### 调用凭证
+创建 API 服务时，若选择的鉴权策略为 NoAuth，则可忽略此选项，反之，若 API 服务需要鉴权，则需在此页面配置调用凭证。通过当前服务下的任意调用凭证，即可调用服务下任意 API。
+![](https://qcloudimg.tencent-cloud.cn/raw/05c6c706d74599bec254ffdb115f4fb5.png)
+上图为凭证列表页，创建好的凭证会展示在此处，选择**新建凭证**，即可创建新的凭证。自定义凭证的信息，保存即可。
+![](https://qcloudimg.tencent-cloud.cn/raw/028b0fb94946848eb8af9efcabed0e14.png)
 
-### 使用流程
-#### 步骤1：创建 API 服务及其 API Endpoint
-具体操作请参考 [创建 API 服务](#service) 、[创建 API Endpoint](#endpoint)。
 
-#### 步骤2：获取 API 请求地址
-1. 在 API 服务列表中获取 API 服务的域名。
-![](https://qcloudimg.tencent-cloud.cn/raw/33daea97aa1ea5bc9132ecbfa4dd43ea.png)
-2. 在 API Endpoint 列表中获取需要请求的 Endpoint 路径。
-![](https://qcloudimg.tencent-cloud.cn/raw/4a5fb20d1006717e302c4772548c3007.png)
-3. 将 Endpoint 路径拼接在 API 服务域名后面，即可获取完整的 API 请求域名。**请将此域名保存，[步骤4](#step4) 中会用到**。
+### 订阅详情
+上架后的 API 服务，可以被该企业主 UIN 下的所有子 UIN 订阅并调用。该菜单可以查看当前 API 服务被订阅的情况。
+![](https://qcloudimg.tencent-cloud.cn/raw/2944ef2958cf2ca4549f7139a88b3348.png)
+此处可以看到订阅该 API 的所有用户名单，同时，可以移除某用户的订阅。
 
-#### 步骤3：获取用户请求 API 的权限
-1. 在 [API 管理](https://ipaas.cloud.tencent.com/apimanage) 页面，找到目标 API 服务，单击**用户数量**，进入用户管理页面。
-![](https://qcloudimg.tencent-cloud.cn/raw/4a619b5393472eb059c71976f088c3ae.png)
-2. 单击**添加/编辑**，并配置以下信息。<br>
-![](https://qcloudimg.tencent-cloud.cn/raw/9a887b6eca815885896527cd2c4b448c.png)
-3. 帮助用户填写必要信息，默认选择用户进入入口的目标 API 服务名称。
-![](https://qcloudimg.tencent-cloud.cn/raw/9a887b6eca815885896527cd2c4b448c.png)
-4. 绑定好 API 服务之后，返回用户管理列表获取此用户的 OAuth 信息（当前系统会默认给添加的用户进行自动审批，所以无需手动审批操作），并复制保存 OAuth 的 Token 获取地址、Client ID、Client Secret 等信息，连同用户的账号和密码一同分享给用户。
-![](https://qcloudimg.tencent-cloud.cn/raw/c3f0d78f35767df1201052c5d01afd16.png)
+### 操作
+#### 删除 API 服务
+单击**删除**，可删除当前 API 服务。删除后，该 API 服务下的所有配置将被清空，且无法恢复。运行中的服务不可直接删除，需先停止再删除。
+![](https://qcloudimg.tencent-cloud.cn/raw/397591f142a1c9053c34de29fae05345.png)
 
-[](id:step4)
-#### 步骤4：从用户侧调用 API（以 postman 为例）
-API 服务无需验证的情况：
-![](https://qcloudimg.tencent-cloud.cn/raw/f964a769a60ac3a8b9c366460073fc6a.png)
-API 服务需要 Basic Auth 的情况(对应API服务的 Endpoint 安全策略需要绑定Basic Auth)：
-![](https://qcloudimg.tencent-cloud.cn/raw/36e5f6eef4b7e646a3820b475cc9a959.png)
-API 服务需要 OAuth2.0的情况（对应 API 服务的 Endpoint 安全策略需要绑定OAuth2.0）：
-1. 在用户信息处获取 Client ID 和 Client Secret，在待访问的 API 服务页面获取 Access Token URL。 
-<dx-tabs>
-::: 获取 OAuth 信息
-	![](https://qcloudimg.tencent-cloud.cn/raw/a36e2451969708e9cb60a50443acf75f.png)
-:::
-::: 获取 token 地址
-![](https://qcloudimg.tencent-cloud.cn/raw/23196e5b182e85c91e2597d66b0ece5c.png)
-token 地址如下：
-![](https://qcloudimg.tencent-cloud.cn/raw/01e63bf123e4ed43baccb1095d0ab16d.png)
-:::
-</dx-tabs>
 
-2. 复制之后，在 postman 中创建一个新的请求，填写入上方的 token 获取地址并使用“GET”方法（此处的鉴权方式应为“NoAuth”）。随后选择 Params 标签页，输入 client 信息。输入方式：
-	- 第一列：key 为 client_id，value 为从上方复制的 Client ID 对应的内容
-	- 第二列：key 为 client_sectet，value 为从上方复制的 Client Secret 对应的内容
-	
-![](https://qcloudimg.tencent-cloud.cn/raw/bb936f5bc3090384e45c56df5e4a354f.png)
+#### API 上架与下架
+- 上架：运行中的API服务，可通过**上架**功能共享给企业的其他员工使用。在 **API 服务** > **操作** > **更多** > **上架**路径提交上架申请，提交后的 API 服务会被企业管理员审核，审核通过后可展示在 API 目录中，支持被当前主账号下的所有子账号订阅。
+- 下架：上架后的 API 服务，若不想继续被其他员工订阅，则可通过下架来完成。在 **API 服务** > **操作** > **更多** > **下架**路径提交下架申请，提交申请后需联系系统管理员或该项目的项目管理员进行审核，审核通过后即可下架，API 下架后不能被订阅。下架后的 API 服务会移出 API 目录。
+![](https://qcloudimg.tencent-cloud.cn/raw/b8db2e0df40fb88bc49d45a89d7351db.png)
+#### 查看发布历史
+发布后的 API 服务可以更改状态、环境等。在 **API 服务** > **操作** > **更多** > **查看发布历史**路径。此功能可查看到 API 服务发布后的历史情况（最多显示10条）。
+![](https://qcloudimg.tencent-cloud.cn/raw/197a3e6e81907e85ceb89c11e1e9169c.png)
 
-3. 单击 **send**，从界面下方的“body”处复制“access_token”字段的值。此即为本次调用时需要用到的 token 信息。
-![](https://qcloudimg.tencent-cloud.cn/raw/44b750b810cf09c5a6e182a785bbe2bf.png)
+### API 目录
+API 目录展示已上架的 API 服务。类似一个 API 服务市场，上架后的服务，不局限项目维度，可以被当前主账号下的所有子账号查看、订阅并调用。此页面可通过 API 服务的属性快速搜索服务。同时，可申请订阅或取消订阅 API 服务。
+![](https://qcloudimg.tencent-cloud.cn/raw/74130b0116189a7731ef2d9eaf2d490b.png)
 
-4. 重新打开一个请求界面，填入需要请求的 API 域名，并选择 Bearer Token 模式。在右侧的“Token”处输入前面获得的token，单击 **send**，即可看到访问结果。
-![](https://qcloudimg.tencent-cloud.cn/raw/388ff8dbc3f595e44a2c6342e74d4707.png)
+#### 申请订阅
+申请订阅 API 服务时，需选择或新建订阅凭证。将凭证与 API 服务关联上。待系统管理员审核后，即可成功订阅。
+![](https://qcloudimg.tencent-cloud.cn/raw/80fdb133fb109623ae360beb6bbde360.png)
+
+#### 取消订阅
+取消订阅后将不能调用该 API 服务，此操作无需系统管理员审核。
+![](https://qcloudimg.tencent-cloud.cn/raw/c95e2ea0f3477a715f4d14ff13251cf9.png)
+
+### 订阅凭证
+此列表可展示或搜索所有的订阅凭证，同时，可新建凭证。订阅凭证用于订阅 API 目录中的服务。凭证即为某 API 服务的钥匙。在申请订阅 API 服务时将凭证与 API 服务关联上，调用的时候填写该凭证，即可成功调用该服务。同时，能看到该凭证各种鉴权类型的 Key 和 Secret，调用时直接复制即可使用。
+![](https://qcloudimg.tencent-cloud.cn/raw/334ba7f48ee8d03e57810fb090944e83.png)
+一个凭证支持与多个 API 服务关联。可在**订阅的 API** tab 页查看此凭证关联的所有 API 服务。
+![](https://qcloudimg.tencent-cloud.cn/raw/d9e4d9e6e2ca191852a7d5bfaebe1336.png)
+新建凭证时，自定义相关属性即可。
+![](https://qcloudimg.tencent-cloud.cn/raw/d2d282b13cacce4bf686e8117d46d163.png)
+
+
+### 审核管理
+审核管理分两个功能：我提交的和我审核的。涉及到审核的事项都在此功能页处理。
+
+- 我提交的：展示个人提交的所有审核信息。全部角色都可见。
+![](https://qcloudimg.tencent-cloud.cn/raw/c5dfb388c642f7caff8d0c2938ab4c81.png)
+- 我审核的：此页面展示需审核的信息。只有系统管理员和项目管理员角色能看到。其他角色访问页面数据为空。
+ - 系统管理员审批全部项目 API 服务上下架或 API 服务订阅的请求。
+ - 项目管理员审批所在项目内的 API 服务上下架或 API 服务订阅的请求。
+
+ ![](https://qcloudimg.tencent-cloud.cn/raw/2fd53195b377dc997c427d9b2d063ed1.png)
+
+## API 调用步骤
+### 从用户侧调用 API（以 postman 为例）
+- API 服务无需验证的情况：
+![](https://qcloudimg.tencent-cloud.cn/raw/c8f0989e13ad33d5180ae002220ded34.png)
+- API 服务需要 Basic Auth 的情况：
+![](https://qcloudimg.tencent-cloud.cn/raw/a6e7ec724140fff6bb9041094ec474fa.png)
+- API 服务需要 OAuth2.0的情况：
+  1. 在用户信息处获取 Client ID 和 Client Secret，在待访问的 API 服务页面获取 Access Token URL。
+![](https://qcloudimg.tencent-cloud.cn/raw/cecd4833d3f33ba7b9a01a0e9dfe9f0f.png)
+  2. 复制之后，在 postman 中创建一个新的请求，填写入上方的 Token 获取地址并使用 GET 方法（此处的鉴权方式应为 NoAuth）。随后选择 Params 标签页，输入 client 信息。输入方式：
+      - 第一列：key 为 client_id，value 为从上方复制的 Client ID 对应的内容。
+      - 第二列：key 为 client_sectet，value 为从上方复制的 Client Secret 对应的内容。
+  ![](https://qcloudimg.tencent-cloud.cn/raw/58be51e42e4bbad725c51af79ce2a4ea.png)
+ 3. 单击 **send**，从界面下方的 body 处复制 access_token 字段的值。此即为本次调用时需要用到的 token 信息。
+ ![](https://qcloudimg.tencent-cloud.cn/raw/4ed7d90ac9851708cf177e34b2d8c505.png)
+  4. 重新打开一个请求界面，填入需要请求的 API 域名，并选择 Bearer Token 模式。在右侧的 Token 处输入前面获得的 Token，单击 **send**，即可看到访问结果。
+  ![](https://qcloudimg.tencent-cloud.cn/raw/414baa58ca250f0535c4925536cb9ff9.png)

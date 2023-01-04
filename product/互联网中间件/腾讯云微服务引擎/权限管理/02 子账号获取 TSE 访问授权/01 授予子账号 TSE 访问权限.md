@@ -27,7 +27,7 @@
 1. 使用 TSE 的过程中，涉及到访问用户其他的云产品资源（VPC、TKE 等），如查看用户子网所在的可用区信息等场景。因此，需要授予子账号访问其他云产品的权限，详细操作参见 [步骤1：授予子账号访问其他云产品的权限](#step1)。
 2. 子账号使用 TSE 还需要获得读写权限，详细操作参见 [步骤2：授予子账号使用 TSE 的权限](#step2)。
 
->? 使用云原生网关时，子账号授权操作请参见 [子账号获取云原生网关权限](https://cloud.tencent.com/document/product/1364/72786)。
+>? 使用云原生 API 网关时，子账号授权操作请参见 [子账号获取云原生 API 网关权限](https://cloud.tencent.com/document/product/1364/72786)。
 
 
 
@@ -87,13 +87,13 @@
 <td>容器服务（TKE）</td>
 <td>DescribeClusters</td>
 <td>拉取集群信息</td>
-<td>TSE 治理中心绑定 K8S 集群</td>
+<td>TSE 北极星网格绑定 K8S 集群</td>
 </tr>
 <tr>
 <td>容器服务（TKE）</td>
 <td>DescribeClusterSecurity</td>
 <td>拉取集群密钥信息</td>
-<td>TSE 治理中心绑定 K8S 集群</td>
+<td>TSE 北极星网格绑定 K8S 集群</td>
 </tr>
 </tbody></table>
    策略语法示例如下：

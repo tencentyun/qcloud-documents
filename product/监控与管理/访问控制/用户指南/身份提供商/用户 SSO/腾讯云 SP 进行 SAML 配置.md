@@ -5,7 +5,7 @@
 1. 腾讯云账号登录 [访问管理控制台](https://console.cloud.tencent.com/cam/overview)。
 2. 在左侧导航栏中，单击**身份提供商** > **用户SSO**。
 3. 在用户 SSO 管理页面可查看当前用户 SSO 状态和配置信息。
-![](https://main.qcloudimg.com/raw/4b445c32eb144f30025f156dd4fe3eb2.jpg)
+![](https://qcloudimg.tencent-cloud.cn/raw/6873914fa24866d44ce3790a8348ecaa.png)
 4. 单击用户 SSO 后的开关按钮，可开启或关闭用户 SSO。
 	- 开启状态：此时 CAM 子用户不能通过账号密码的方式登录腾讯云，所有 CAM 子用户统一跳转到企业 IdP 登录页面进行身份认证。
 	- 关闭状态：此时 CAM 子用户可以通过账号密码的方式登录腾讯云，用户 SSO 设置不会生效。
@@ -14,5 +14,3 @@
 >?
 >- 元数据文档由企业 IdP 提供，一般为 XML 格式，包含 IdP 的登录服务地址以及 X.509 公钥证书（用于验证 IdP 所颁发的 SAML 断言的有效性）。
 >- 若企业 IdP 只提供元数据访问地址，可复制地址到浏览器打开，并保存为 XML 格式的文件后再上传。
-
-

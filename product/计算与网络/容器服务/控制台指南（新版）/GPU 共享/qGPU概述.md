@@ -8,6 +8,4 @@ qGPU 依托 TKE 对外开源的 [Elastic GPU](https://github.com/elastic-ai/elas
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/bff6e5677c81fb9117a284b880261c67.png)
 
-
-## qGPU 计费
-qGPU 目前仅支持**按量计费后付费**方式，以小时为单位整点结算。详情见 [关于 TKE qGPU 自2022年8月15日起按量计费的通知](https://cloud.tencent.com/document/product/457/76613)。
+ 

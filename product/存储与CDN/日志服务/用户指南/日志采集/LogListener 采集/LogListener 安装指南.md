@@ -10,6 +10,7 @@ LogListener 仅支持64位 Linux 操作系统环境（暂不支持 Windows），
 | Ubuntu（64位）                                               | Ubuntu Server_14.04.1_LTS_64位、Ubuntu Server_16.04.1_LTS_64位、Ubuntu Server_18.04.1_LTS_64位 |
 | Debian（64位）                                               | Debian_8.2_64位、Debian_9.0_64位                             |
 | openSUSE（64位）                                             | openSUSE_42.3_64位                                           |
+|TencentOS Server|	TencentOS Server 3.1、TencentOS Server 2.4|
 
 ## 支持功能
 
@@ -36,7 +37,7 @@ LogListener 版本支持重要功能如下，详细版本功能信息请参考 [
 
 LogListener 最新版本下载地址：[公网下载 LogListener](https://mirrors.tencent.com/install/cls/loglistener-linux-x64.tar.gz)、[内网下载 LogListener](http://mirrors.tencentyun.com/install/cls/loglistener-linux-x64.tar.gz)
 
-以安装路径`/usr/local/`为例： 下载 LogListener 安装包并解压，解压路径为`/usr/local/` ，解压完成后进入 LogListener 目录`loglistener/tools`，执行安装命令 。
+以安装路径`/usr/local/`为例： 下载 LogListener 安装包并解压，解压路径为`/usr/local/` ，解压完成后进入 LogListener 目录`/usr/local/loglistener/tools`，执行安装命令 。
 >?从2.8.3 版本开始，Loglistener 安装包不再添加版本号后缀，使用 loglistener-linux-x64 默认安装最新版本。如果需要安装特定版本可以在后面指定版本号，如将 loglistener-linux-x64 替换为 loglistener-linux-x64-2.8.0，将会指定安装2.8.0版本。
 
 - 公网环境下，操作命令如下：

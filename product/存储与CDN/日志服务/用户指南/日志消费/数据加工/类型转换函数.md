@@ -1,6 +1,6 @@
 ## 简介
 
-函数提供了常见的类型转换，将字段值专为 int，float，bool 和 Str。
+函数提供了常见的类型转换，将字段值专为 int、float、bool 和 Str。
 
 ## ct_int 函数
 

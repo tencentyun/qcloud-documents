@@ -6,7 +6,7 @@
 ### 使用示例
 假设在游戏公司 A 中，有两个项目 webpage 和 app，其中员工 m 为 webpage 的开发员工，员工 n 为 app 的开发员工，在创建授权策略时，需要保证不同团队内的员工能够访问其工作所需的资源，同时随着公司发展要考虑后续的扩展性。
 
-可以通过使用资源标签和 CAM 角色标签来为支持 ABAC 策略的产品创建授权策略。当您的员工希望通过联合身份到腾讯云中时，其属性将应用到腾讯云中的角色标签中。然后，您可以使用 ABAC 来允许或拒绝基于这些属性的访问。
+可以通过使用资源标签和 CAM 角色标签来为支持 ABAC 策略的产品创建授权策略。当您的员工希望通过联合身份访问到腾讯云中时，其属性将应用到腾讯云中的角色标签中。然后，您可以使用 ABAC 来允许或拒绝基于这些属性的访问。
 >?
 >- 通过 [支持标签的产品](https://cloud.tencent.com/document/product/651/30727)，了解哪些产品支持基于标签的授权。
 >- 通过 [生效条件概述](https://cloud.tencent.com/document/product/598/73088)，了解授权策略中支持哪些标记条件键。
@@ -158,7 +158,7 @@
 
 #### 验证点1：使用不同的子用户登录后，只能访问到对应项目下的云服务器
 1. 使用子用户 m-developer 登录 [腾讯云控制台](https://console.cloud.tencent.com/)，在控制台右上角，单击账号下的**切换角色**。
-![](https://qcloudimg.tencent-cloud.cn/raw/0c213170e58a4621a39c1d614c689b73.png) 
+![](https://qcloudimg.tencent-cloud.cn/raw/0087ae2927998b74ec3590cb98c6a4f9.png) 
 2. 在切换角色页面，应用选择 web（子用户 m-developer 的标签 value），角色选择 access-developer-role，单击**切换角色**。   
 ![](https://qcloudimg.tencent-cloud.cn/raw/b80b6ab6e4001fd2356819e68223524e.png)
 3. 以角色身份登录腾讯云控制台，进入 CVM [**实例**](https://console.cloud.tencent.com/cvm/instance/index?rid=1) 页面。
