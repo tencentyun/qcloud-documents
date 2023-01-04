@@ -59,7 +59,7 @@
 <td>Accept</td>
 <td>Accept-Charset</td>
 <td>Accept-Encoding</td>
-<td>Accept-Language<</td>
+<td>Accept-Language</td>
 </tr>
 </thead>
 <tbody><tr>
