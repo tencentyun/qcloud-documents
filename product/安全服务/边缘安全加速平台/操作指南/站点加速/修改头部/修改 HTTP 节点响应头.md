@@ -34,32 +34,32 @@
 - 一个修改 HTTP 请求头操作中，可添加多条不同类型操作，最多30条，执行顺序为从上至下。
 - 部分标准头部不支持修改，清单如下：
 ```js.
-Date
-Expires
-Content-Type
-Content-Encoding
-Content-Length
-Transfer-Encoding
-Cache-Control
-If-Modified-Since
-Last-Modified
-Connection
-Content-Range
-ETag
 Accept-Ranges
 Age
+Allow
 Authentication-Info
-Proxy-Authenticate
-Retry-After
-Set-Cookie
-Vary
-WWW-Authenticate
+Cache-Control
+Connection
+Content-Encoding
+Content-Length
 Content-Location
 Content-MD5
 Content-Range
-Meter
-Allow
+Content-Range
+Content-Type
+Date
 Error
+ETag
+Expires
+If-Modified-Since
+Last-Modified
+Meter
+Proxy-Authenticate
+Retry-After
+Set-Cookie
+Transfer-Encoding
+Vary
+WWW-Authenticate
 ```
 
 ## 配置示例
