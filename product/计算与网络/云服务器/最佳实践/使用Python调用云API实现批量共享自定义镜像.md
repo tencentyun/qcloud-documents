@@ -42,8 +42,9 @@ from tencentcloud.common.profile.http_profile import HttpProfile
 from tencentcloud.common.exception.tencent_cloud_sdk_exception import TencentCloudSDKException
 from tencentcloud.cvm.v20170312 import cvm_client, models
 
-# 此处添加SecretId 与 SecretKey
-cred = credential.Credential("SecretId", "SecretKey")
+# 默认读取环境变量 TENCENTCLOUD_SECRET_ID 和 TENCENTCLOUD_SECRET_KEY 获取 secretId 和 secretKey
+# 更多凭证管理方式，请参考：https://github.com/TencentCloud/tencentcloud-sdk-python#%E5%87%AD%E8%AF%81%E7%AE%A1%E7%90%86
+cred = credential.EnvironmentVariableCredential().get_credential()
 httpProfile = HttpProfile()
 httpProfile.endpoint = "cvm.tencentcloudapi.com"
 clientProfile = ClientProfile()
