@@ -22,15 +22,14 @@
 3. 返回 Android Studio 创建TMF项目页面，配置项目参数，填写项目名称、包名，并选择编程语言、存储位置和控制台下载的应用配置文件（JSON）路径，单击 **Next**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/bb3352ee185c5b70776226bcb0180edc.png)
 **字段说明**：
- - Name: 项目名称。
- - Package Name: 应用包名，**需与控制台配置的包名一致，否则运行时校验无法通过**。
- - Language: 开发语言选择。
- - Save location: 项目存储路径。
- - ConfigFile location: 应用配置文件（tmf-android-configuratsion.json）路径。
+  - Name: 项目名称。
+  - Package Name: 应用包名，**需与控制台配置的包名一致，否则运行时校验无法通过**。
+  - Language: 开发语言选择。
+  - Save location: 项目存储路径。
+  - ConfigFile location: 应用配置文件（tmf-android-configuratsion.json）路径。
 4. 选择产品基线与依赖组件，单击 **Finish**，结束向导。
 ![](https://qcloudimg.tencent-cloud.cn/raw/201d9618f5ef1fca46a9dfbc38d380ab.png)
 5. 创建完成，开始编码。
-
 
 
 ### 步骤三：已有工程
