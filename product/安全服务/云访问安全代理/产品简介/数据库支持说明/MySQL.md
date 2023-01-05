@@ -43,7 +43,7 @@
 - 同一连接内不允许切换登录用户。
 - 应用连接代理的账号认证方式支持 `mysql_native_password`。
 - 代理连接后端数据库的账号认证方式支持 `mysql_native_password` 和 `caching_sha2_password`。
-- CASB代理集群升级时会造成连接中断，请确保业务支持连接断开后的自动重连。
+- CASB 代理集群升级时会造成连接中断，请确保业务支持连接断开后的自动重连。
 
 ### 加解密和脱敏
 
@@ -97,7 +97,7 @@
 - 只能使用代理账号`casb_binlogdump`连接代理同步binlog，[创建代理账号](https://cloud.tencent.com/document/product/1303/64635)。
 - 连接代理时仅支持`utf8`和`utf8mb4`字符集。
 - 不支持对已删除/已变更策略的历史密文数据解密。
-- 不支持脱敏和CASB访问控制。
+- 不支持脱敏和 CASB 访问控制。
 - 不支持`slave`设置代理为`master`的方式设置主从同步。主从数据库请参考[设置主从节点](https://cloud.tencent.com/document/product/1303/71557)。
 - 支持以下协议的binlog密文解密：
   - WRITE_ROWS_EVENTv1
@@ -240,7 +240,7 @@
 </tr>
 <tr>
 <td><code>JOIN</code>查询，加密字段作为连表条件</td>
-<td>支持:连表的加密字段需配置相同密钥和算法</td>
+<td>支持：连表的加密字段需配置相同密钥和算法</td>
 <td>SELECT table_a.id FROM table_a JOIN table_b ON table_a.crypto_column = table_b.crypto_column;</td>
 </tr>
 <tr>
