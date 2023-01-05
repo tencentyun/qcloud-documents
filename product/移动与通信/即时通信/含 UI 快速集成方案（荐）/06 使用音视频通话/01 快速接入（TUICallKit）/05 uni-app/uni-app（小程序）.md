@@ -25,7 +25,7 @@ TUIKit 组件具备单人视频通话和语音通话功能，并且实现了小�
 
    <img src="https://qcloudimg.tencent-cloud.cn/raw/097117038028a96ee62818115ea85cdf.png" style="zoom:75%;" />
    
->= **友情提示**：单击免费体验以后，部分之前使用过 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 服务的用户会收到`[-100013]:TRTC service is  suspended. Please check if the package balance is 0 or the Tencent Cloud accountis in arrears`，
+>= **友情提示**：单击**免费体验**以后，部分之前使用过 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 服务的用户会收到`[-100013]:TRTC service is  suspended. Please check if the package balance is 0 or the Tencent Cloud accountis in arrears`，
 >
 >因为新的 IM 音视频通话能力是整合了腾讯云 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269/42440) 两个基础的 PaaS 服务，所以当 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 的免费额度（10000分钟）已经过期或者耗尽，就会导致开通此项服务失败，这里您可以单击[ TRTC 控制台](https://console.cloud.tencent.com/trtc/app)，找到对应 SDKAppID 的应用管理页，示例如图，开通后付费功能后，再次**启用应用**即可正常体验音视频通话能力。
 ><img style="zoom:75%;" src="https://qcloudimg.tencent-cloud.cn/raw/a568f2790baf160f4aff4f42f60e8c1c.png" />
