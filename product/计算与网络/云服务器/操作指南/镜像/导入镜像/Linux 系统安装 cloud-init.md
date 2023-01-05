@@ -36,47 +36,47 @@ Cloud-init 主要提供实例首次初始化时自定义配置的能力。如果
     <td rowspan="3">rpm</td>
     <td rowspan="2">CentOS</td>
     <td>7</td>
-    <td>下载链接</td>
-    <td></td>
+    <td><a href="https://gerryguan-1306210569.cos.ap-chongqing.myqcloud.com/cloud-init/packages/centos7.6/qcloud-python-3.7.10-1.el7.x86_64.rpm">qcloud-python</a></td>
+    <td><a href=" https://gerryguan-1306210569.cos.ap-chongqing.myqcloud.com/cloud-init/packages/centos7.6/cloud-init-20.1.0011-1.el7.x86_64.rpm" target="_blank" rel="noopener noreferrer">cloud-init</a></td>
   </tr>
   <tr>
     <td>8</td>
-    <td></td>
-    <td></td>
+    <td><a href="https://gerryguan-1306210569.cos.ap-chongqing.myqcloud.com/cloud-init/packages/kylin10sp1/aarch64/qcloud-python-3.7.10-1.ky10.aarch64.rpm">qcloud-python</a></td>
+    <td><a href="  https://gerryguan-1306210569.cos.ap-chongqing.myqcloud.com/cloud-init/packages/kylin10sp1/aarch64/cloud-init-20.1.0011-1.ky10.aarch64.rpm" target="_blank" rel="noopener noreferrer">cloud-init</a></td>
   </tr>
   <tr>
     <td>Fedora</td>
     <td>36</td>
-    <td></td>
-    <td></td>
+    <td><a href="https://gerryguan-1306210569.cos.ap-chongqing.myqcloud.com/cloud-init/packages/fedora36/qcloud-python-3.7.10-2.fc36.x86_64.rpm">qcloud-python</a></td>
+    <td><a href="https://gerryguan-1306210569.cos.ap-chongqing.myqcloud.com/cloud-init/packages/ubuntu20.04/cloud-init_20.1.0011-1_arm64.deb" target="_blank" rel="noopener noreferrer">cloud-init</a></td>
   </tr>
   <tr>
     <td rowspan="5">deb</td>
     <td rowspan="3">Debian</td>
     <td>11</td>
-    <td></td>
-    <td></td>
+    <td><a href=" https://gerryguan-1306210569.cos.ap-chongqing.myqcloud.com/cloud-init/packages/debian11/qcloud-python_3.7.10-1_amd64.deb" target="_blank" rel="noopener noreferrer">qcloud-python</a></td>
+    <td><a href=" https://gerryguan-1306210569.cos.ap-chongqing.myqcloud.com/cloud-init/packages/debian11/cloud-init_20.1.0011-1_amd64.deb" target="_blank" rel="noopener noreferrer">cloud-init</a></td>
   </tr>
   <tr>
     <td>10</td>
-    <td></td>
-    <td></td>
+    <td><a href="https://gerryguan-1306210569.cos.apchongqing.myqcloud.com/cloud-init/packages/debian10/qcloud-python_3.7.10-1_amd64.deb" target="_blank" rel="noopener noreferrer">qcloud-python</a></td>
+    <td><a href="https://gerryguan-1306210569.cos.ap-chongqing.myqcloud.com/cloud-init/packages/debian10/cloud-init_20.1.0011-1_amd64.deb" target="_blank" rel="noopener noreferrer">cloud-init</a></td>
   </tr>
   <tr>
     <td>9</td>
-    <td></td>
-    <td></td>
+    <td><a href="https://gerryguan-1306210569.cos.ap-chongqing.myqcloud.com/cloud-init/packages/debian9/qcloud-python_3.7.10-1_amd64.deb" target="_blank" rel="noopener noreferrer">qcloud-python</a></td>
+    <td><a href="https://gerryguan-1306210569.cos.ap-chongqing.myqcloud.com/cloudinit/packages/debian9/qcloud-python_3.7.10-1_amd64.deb" target="_blank" rel="noopener noreferrer">cloud-init</a></td>
   </tr>
   <tr>
     <td rowspan="2">Ubuntu</td>
     <td>22.04</td>
-    <td></td>
-    <td></td>
+    <td><a href=" https://gerryguan-1306210569.cos.ap-chongqing.myqcloud.com/cloud-init/packages/ubuntu22.04/qcloud-python_3.7.10-1_amd64.deb" target="_blank" rel="noopener noreferrer">qcloud-python</a></td>
+    <td><a href="https://gerryguan-1306210569.cos.ap-chongqing.myqcloud.com/cloud-init/packages/ubuntu22.04/cloud-init_20.1.0011-1_amd64.deb" target="_blank" rel="noopener noreferrer">cloud-init</a></td>
   </tr>
   <tr>
     <td>20.04</td>
-    <td></td>
-    <td></td>
+    <td><a href=" https://gerryguan-1306210569.cos.ap-chongqing.myqcloud.com/cloud-init/packages/ubuntu20.04/qcloud-python_3.7.10-1_arm64.deb" target="_blank" rel="noopener noreferrer">qcloud-python</a></td>
+    <td><a href="https://gerryguan-1306210569.cos.ap-chongqing.myqcloud.com/cloud-init/packages/ubuntu20.04/cloud-init_20.1.0011-1_arm64.deb" target="_blank" rel="noopener noreferrer">cloud-init</a></td>
   </tr>
 </tbody>
 </table>
