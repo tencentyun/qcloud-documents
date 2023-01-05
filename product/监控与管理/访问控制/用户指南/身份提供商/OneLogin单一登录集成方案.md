@@ -42,7 +42,7 @@ OneLogin 是一家云身份访问管理解决方案提供商，可以通过其�
 | 国际站 | https://intl.cloud.tencent.com/login/saml|https://intl.cloud.tencent.com/login/saml|https://intl.cloud.tencent.com/login/saml|
 >?SAML Recipient 为跳转的腾讯云页面，如您需要指定其他页面，可使用https://cloud.tencent.com/login/saml?s_url=xxxx 形式指定，其中 xxxx 为需要指定的地址，需要做 urlencode。
 >
-3. 单击 **Parameters**，选择 **Add parameter**，添加以下两条配置信息。
+3. 单击 **Parameters**，单击<image style="margin:0;" src="https://main.qcloudimg.com/raw/98a24d12696834b52f559d0abe490fd2.png">，添加以下两条配置信息。
 <table>
 	<tr>
 		<th>Field name</th>
