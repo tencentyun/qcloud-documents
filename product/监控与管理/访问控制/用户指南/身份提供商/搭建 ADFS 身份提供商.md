@@ -86,7 +86,7 @@ Active Directory Federation Services（ADFS）是 Microsoft's 推出的 Windows 
 7. 选择 [步骤5](#step5) 保存的证书文件，保持页面默认信息，一直单击**下一步**>**完成**。
 8. 参考申请证书的 [步骤3](#step3)，右键单击**个人**，单击**所有任务**>**导出**。如下图所示：
 ![](https://main.qcloudimg.com/raw/460d0c31c83acc14e4b80a708bf994e4.png)
-9.在证书导出向导页面，选择“是，导出私钥”，勾选“组或用户名（建议）”，单击下一步，完成导出保存文件。<span id="step9">如下图所示：
+9.在证书导出向导页面，选择“是，导出私钥”，勾选“组或用户名（建议）”，一直单击下一步，完成导出保存文件。<span id="step9">如下图所示：
 ![](https://main.qcloudimg.com/raw/c35cd7d547864b496ba063ff4c332666.png)
 ![](https://main.qcloudimg.com/raw/febcb2723b415cab110bac765ecde927.png)
 
