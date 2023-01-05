@@ -7,12 +7,12 @@ Deployment 声明了 Pod 的模板和控制 Pod 的运行策略，适用于部�
 [](id:creatDeployment)
 ### 创建 Deployment
 1. 登录容器服务控制台，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
-2. 单击需要创建 Deployment 的集群 ID，进入待创建 Deployment 的集群管理页面。如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/32ddc3911ed33700d526d8342d03e97a.png)
+2. 单击需要创建 Deployment 的集群 ID，进入集群详情页面。
 3. 单击**新建**，进入 “新建Deployment” 页面。根据实际需求，设置 Deployment 参数。关键参数信息如下：
- - **工作负载名**：输入自定义名称。
+ - **名称**：自定义工作负载名称。
  - **标签**：一个键 - 值对（Key-Value），用于对资源进行分类管理。详情请参见 [通过标签查询资源](https://cloud.tencent.com/document/product/651/36479)。  
  - **命名空间**：根据实际需求进行选择。
+ - **OS类型**：支持选择 Linux 和 Windows。
  - **数据卷（选填）**：为容器提供存储，目前支持临时路径、主机路径、云硬盘数据卷、文件存储 NFS、配置文件、PVC，还需挂载到容器的指定路径中。
  - **实例内容器**：根据实际需求，为 Deployment 的一个 Pod 设置一个或多个不同的容器。
     - **名称**：自定义。
