@@ -33,12 +33,14 @@
 - 不支持**8.0及以上**版本新增的 SQL 语法。
 - 数据库、表和字段名不区分大小写。
 - 加密字段长度需预先扩容以支持存储明文加密后更大长度的密文。
+
+### 字符集
+- `character_set_connection`必须为`utf8`或`utf8mb4`，即仅只支持客户端或应用使用 `utf8` 和 `utf8mb4` 字符集连接代理。
 - 加密字段需使用**区分大小写**的`collation`，如 `utf8_general_bin`。
 
 ### 连接
 
 - 同一连接内不允许切换登录用户。
-- 仅只支持使用 `utf8` 和 `utf8mb4` 字符集连接代理。
 - 应用连接代理的账号认证方式支持 `mysql_native_password`。
 - 代理连接后端数据库的账号认证方式支持 `mysql_native_password` 和 `caching_sha2_password`。
 - CASB代理集群升级时会造成连接中断，请确保业务支持连接断开后的自动重连。
@@ -86,11 +88,16 @@
 - TDSQL 的 ShardKey 字段不能配置加密。
 
 ### binlog
-- 支持外部组件（如canal）使用COM_BINLOG_DUMP协议连接代理实时读取解密后的binlog信息。
+
+>? binlog功能内测中，如有需求，请[联系我们](https://cloud.tencent.com/act/event/connect-service)。
+
+- 支持外部组件（如canal）使用`COM_BINLOG_DUMP`协议连接代理实时读取解密后的binlog数据。
 - 支持根据当前字段加解密策略解密binlog中已加密的字段值。
-- 不支持对已删除/已变更策略的历史密文数据解密。
 - 仅支持`binlog_format`格式为`ROW`的binlog。
-- 连接代理时时仅支持`utf8`和`utf8mb4`字符集。
+- 只能使用代理账号`casb_binlogdump`连接代理同步binlog，[创建代理账号](https://cloud.tencent.com/document/product/1303/64635)。
+- 连接代理时仅支持`utf8`和`utf8mb4`字符集。
+- 不支持对已删除/已变更策略的历史密文数据解密。
+- 不支持脱敏和CASB访问控制。
 - 不支持`slave`设置代理为`master`的方式设置主从同步。主从数据库请参考[设置主从节点](https://cloud.tencent.com/document/product/1303/71557)。
 - 支持以下协议的binlog密文解密：
   - WRITE_ROWS_EVENTv1
@@ -102,7 +109,7 @@
   - WRITE_ROWS_COMPRESSED_EVENT_V1
   - UPDATE_ROWS_COMPRESSED_EVENT_V1
   - DELETE_ROWS_COMPRESSED_EVENT_V1
-- *_ROWS_COMPRESSED_EVENT_V1协议仅支持zlib压缩算法。
+- `WRITE_ROWS_COMPRESSED_EVENT_V1`,`UPDATE_ROWS_COMPRESSED_EVENT_V1`,`DELETE_ROWS_COMPRESSED_EVENT_V1`协议的压缩算法仅支持zlib。
 
 ### 其他
 
