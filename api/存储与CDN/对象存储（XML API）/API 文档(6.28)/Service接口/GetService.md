@@ -57,7 +57,7 @@ GetService 支持通过请求参数根据存储桶标签、地域、创建时间
 |range | 和 create-time 参数一起使用，支持根据创建时间过滤存储桶，支持枚举值 lt（创建时间早于 create-time）、gt（创建时间晚于 create-time）、lte（创建时间早于或等于 create-time）、gte（创建时间晚于或等于create-time） | string | 否 |
 
 
-当存储桶标签授权情况与 GetService 授权不同时，GetService 请求的鉴权和返回情况如下。
+当存储桶标签授权情况与 GetService 授权不同时，GetService 请求的鉴权和返回情况如下。关于标签鉴权的授权方法 ，可参见 [授权子账号按照存储桶标签拉取存储桶列表](https://cloud.tencent.com/document/product/436/34694)。
 
 <table>
     <tr>
