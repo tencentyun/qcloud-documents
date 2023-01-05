@@ -26,8 +26,7 @@
 
 #### 配置交付流水线
 1. 登录容器镜像服务控制台，选择左侧导航栏中的**[交付流水线](https://console.cloud.tencent.com/tcr/pipeline)**。
-2. 在“交付流水线”页面中，单击**新建**。如下图所示： 
-![](https://main.qcloudimg.com/raw/44bb72abb2fdbcfb9c81c67b268102c7.png)
+2. 在“交付流水线”页面中，单击**新建**。
 3. 在“基本信息”步骤中，配置以下参数，单击**下一步：镜像配置**。如下图所示： 
 ![](https://main.qcloudimg.com/raw/994c48cf95f48aaae61ac041325739c1.png)
  - **流水线名称**：设置交付流水线名称。
