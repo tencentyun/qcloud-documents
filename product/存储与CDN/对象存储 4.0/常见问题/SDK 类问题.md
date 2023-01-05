@@ -1,3 +1,7 @@
+
+## SDK 通用问题
+
+
 ### 通过指定文件流或文件句柄方式上传时，实际上传的内容被截断或大小为0，该如何处理？
 
 当使用文件流或文件句柄等方式上传时，该流或句柄通常会包含一个偏移量指针，如果您在通过 COS 上传前使用了该流或句柄，那么其偏移量指针可能没有指向文件的起始位置，SDK 上传时默认从该偏移量指向位置开始读取内容，因此可能导致内容被截断或直接上传了空文件。建议您检查该偏移量，在必要时手动将偏移量指向起始位置。
@@ -35,4 +39,21 @@ COS 中的目录是虚拟的，实际是一个以 / 结尾的对象。您可以�
 ### 使用 COS SDK 获取 ObjectList，同样的前缀规则和数据结构返回不同的结果？
 
 为了满足用户使用习惯，对象存储在**控制台、COSbrowser** 等图形化工具中模拟了「文件夹」或「目录」的展示方式，具体实现是通过创建一个键值为 project/，内容为空的对象，展示方式上模拟了传统文件夹。因此通过 SDK 获取的 ObjectList 会包含对象名以 `/` 结尾的空对象。
+
+
+## SDK 常见问题
+
+
+- [Android SDK 常见问题](https://cloud.tencent.com/document/product/436/50745)
+- [C SDK 常见问题](https://cloud.tencent.com/document/product/436/56528)
+- [.NET（C#）SDK 常见问题](https://cloud.tencent.com/document/product/436/56527)
+- [Go SDK 常见问题](https://cloud.tencent.com/document/product/436/56529)
+- [iOS SDK 常见问题](https://cloud.tencent.com/document/product/436/50747)
+- [Java SDK 常见问题](https://cloud.tencent.com/document/product/436/50746)
+- [JavaScript SDK 常见问题](https://cloud.tencent.com/document/product/436/56530)
+- [PHP SDK 常见问题](https://cloud.tencent.com/document/product/436/56142)
+- [Python SDK 常见问题](https://cloud.tencent.com/document/product/436/56531)
+- [小程序 SDK 常见问题](https://cloud.tencent.com/document/product/436/50748)
+
+
 
