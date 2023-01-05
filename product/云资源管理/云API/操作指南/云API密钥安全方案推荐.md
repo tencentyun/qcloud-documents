@@ -2,7 +2,7 @@
 
 ## 方案1：通过环境变量读取 SecretId 和 SecretKey
 将 SecretId 和 SecretKey 预先配置到环境变量中，在代码运行时从环境变量中读取 SecretId 和 SecretKey 的值，代码示例如下：
-```plaintext
+```python
 import os
 from tencentcloud.common import credential
 from tencentcloud.common.exception.tencent_cloud_sdk_exception import TencentCloudSDKException
@@ -27,9 +27,10 @@ except TencentCloudSDKException as err:
 
 ## 方案2：使用临时密钥
 不在代码中使用持久 SecretId 和 SecretKey，而是使用通过 [GetFederationToken](https://cloud.tencent.com/document/product/1312/48195) 接口换取的用户临时密钥，同时根据权限最小化原则赋予相关权限。代码示例如下：
-```plaintext
-# 换取临时密钥的 SDK 示例
+```python
+# 换取临时秘钥的 SDK 示例
 import json
+import os
 from tencentcloud.common import credential
 from tencentcloud.common.profile.client_profile import ClientProfile
 from tencentcloud.common.profile.http_profile import HttpProfile
