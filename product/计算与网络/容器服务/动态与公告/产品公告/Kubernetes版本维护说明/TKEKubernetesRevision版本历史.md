@@ -20,7 +20,7 @@ Kubernetes 1.24通过 Dockershim 对 Docker 的支持已移除，新建节点的
   </tr>
 	    <tr>
     <td>2022-05-07</td>
-    <td>v1.22.5-tke.5</td>
+    <td>v1.24.4-tke.1</td>
 		<td>
 <li>更新以镜像方式运行 kube-proxy 时的启动方式，自动适配所在节点的 iptables 运行模式，以支持默认使用 nf_tables 模式运行 iptables 的操作系统。(kube-proxy)</li>
 <li>允许 TKE 托管集群使用的特殊网段。(kube-apiserver)</li>
