@@ -25,9 +25,10 @@ IM Flutter TUIKit（含 UI）指代 [tencent_cloud_chat_uikit](https://pub.dev/p
 ## 更新日志
 
 ### IM Flutter TUIKit（含 UI） 1.2.0 @2023.1.6
+
 - 修复：聊天组件，从录音状态，切换至输入状态时，输入框无法显示问题。
 - 修复：合并转发至多个接收者，只有第一个接收者收到消息的问题。
-- 优化：messageItemBuilder 可用于合并消息页面展示。
+- 优化：`MessageItemBuilder` 可用于合并消息页面展示。
 
 ### IM Flutter TUIKit（含 UI） 1.1.0 @2022.12.27
 
