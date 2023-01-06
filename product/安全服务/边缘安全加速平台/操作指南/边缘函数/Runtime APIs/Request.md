@@ -394,7 +394,7 @@ request.text(): Promise<string>;
 request.getCookies(): Cookies;
 ```
 
-获取 `request` 头部 cookie，并自动解析为 [Cookies](https://cloud.tencent.com/document/product/1552/81905) 对象。
+获取 `request` 头部 cookie，并自动解析为 [Cookies](https://cloud.tencent.com/document/product/1552/83932) 对象。
 
 ### setCookies
 ```typescript
@@ -417,7 +417,7 @@ request.setCookies(cookies: Cookies): boolean;
 	<tbody>
 		<tr>
 			<td>cookies</td>
-			<td><a href="https://cloud.tencent.com/document/product/1552/81905">Cookies</a></td>
+			<td><a href="https://cloud.tencent.com/document/product/1552/83932">Cookies</a></td>
 			<td>否</td>
 			<td>
         新的 Cookies 对象。
