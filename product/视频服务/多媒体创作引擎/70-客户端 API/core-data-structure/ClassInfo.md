@@ -8,8 +8,6 @@
 ; 接下来是参数说明
 字段 | 类型 | 描述
 ------- | ------- | -------
-Platform | String | 平台。
-Owner | [Entity](https://cloud.tencent.com/document/api/1156/40360#Entity) | 归属者。
 Name | String | 分类名称。
 ClassPath | String | 分类路径。
 ClassId | Integer | 分类 ID。
