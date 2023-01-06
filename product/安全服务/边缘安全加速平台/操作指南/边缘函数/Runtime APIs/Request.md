@@ -143,30 +143,6 @@ const request = new Request(input: string | Request, init?: RequestInit)
         <li>IPv6 无需使用方括号包裹。</li>
       </td>
     </tr>
-    <tr>
-      <td align="left">cacheEverything</td>
-      <td align="left">boolean</td>
-      <td align="left">否</td>
-      <td align="left">缓存相关，用于指定缓存响应的所有头部。</td>
-    </tr>
-    <tr>
-      <td align="left">cacheKey</td>
-      <td align="left">string</td>
-      <td align="left">否</td>
-      <td align="left">缓存相关，用于指定自定义的缓存 key。</td>
-    </tr>
-    <tr>
-      <td align="left">cacheTtl</td>
-      <td align="left">number</td>
-      <td align="left">否</td>
-      <td align="left">缓存相关，用于指定缓存时长(单位s)，必需大于等于0，等于0不缓存。</td>
-    </tr>
-    <tr>
-      <td align="left">cacheTtlByStatus</td>
-      <td align="left">{[key: string]: number}</td>
-      <td align="left">否</td>
-      <td align="left">缓存相关，用于根据状态码指定缓存时长(单位s)，小于等于0不缓存</td>
-    </tr>
   </tbody>
 </table>
 
