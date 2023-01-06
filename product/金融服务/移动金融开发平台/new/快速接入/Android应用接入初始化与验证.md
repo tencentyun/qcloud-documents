@@ -2,11 +2,10 @@
 
 ### 步骤一：初始化
 
-在您的 Application 类中初始化 TMFBase，TMFBase 相关定义请参见[ 基础库API](../进阶指南/基础库API.md)。
-
+在您的 Application 类中初始化 TMFBase，TMFBase 相关定义请参见[ 基础库API](https://cloud.tencent.com/document/product/1034/85319)。
 >!
-> 1. TMF不支持多进程，请您只在主进程进行初始化TMFBase。
-> 2. 初始化 TMFBase 需要您指定 buildNo, buildNo 是 TMF 引入的应用版本号，一般为6-7位数字，是应用更新、热修复判断版本更新的重要依据，具体使用规则请参见[ buildNo](../../../06应用发布/应用发布/接入Android/使用.md#buildno)。
+> - TMF不支持多进程，请您只在主进程进行初始化TMFBase。
+> - 初始化 TMFBase 需要您指定 buildNo, buildNo 是 TMF 引入的应用版本号，一般为6-7位数字，是应用更新、热修复判断版本更新的重要依据，具体使用规则请参见[ buildNo](https://cloud.tencent.com/document/product/1034/33148#buildNo)。
 > 
 ```java
 public class MyApplication extends Application {
