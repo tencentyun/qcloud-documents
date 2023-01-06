@@ -7,7 +7,7 @@
 
 ## 操作指南
 ### 查询方式
-登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，选择左侧目录的【节点查询】，进入功能页。
+登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，选择左侧目录的 **IP 归属查询**，进入功能页。
 ![](https://main.qcloudimg.com/raw/2cef9ef14588bf79841e072d5eecc04a.png)
 ### 使用约束
 - 在文本框中输入多条需要验证的 IP 地址，一行一个。

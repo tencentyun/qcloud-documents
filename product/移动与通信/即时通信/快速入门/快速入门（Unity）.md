@@ -46,18 +46,17 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/f07ae1bb4db4ca5f43f6acc563aafa8c.png)
 或打开一个已有 Unity 项目。
 2. 通过 IDE（如：Visual Studio Code）打开项目：
-![](https://qcloudimg.tencent-cloud.cn/raw/1a21933037a72a6bd4c8ed14f08c6ca7.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/881d625bf3ee2e736db22762e8763c18.png)
 3. 根据目录，找到 Packages/manifest.json，并修改依赖如下：
-
 ```json
    {
      "dependencies":{
-       "com.tencent.imsdk.unity":"https://github.com/TencentCloud/tc-chat-sdk-unity.git#unity"
+       "com.tencent.imsdk.unity":"https://github.com/TencentCloud/chat-sdk-unity.git#unity"
      }
    }
 ```
 
-为帮助您更好的理解 IM SDK 的各 API，我们还提供了[API Example](https://github.com/TencentCloud/tc-chat-sdk-unity/tree/main/Assets/IM_Api_Example)，演示各 API 的调用及监听的触发。
+为帮助您更好的理解 IM SDK 的各 API，我们还提供了 [API Example](https://github.com/TencentCloud/tc-chat-sdk-unity/tree/main/Assets/IM_Api_Example)，演示各 API 的调用及监听的触发。
 
 [](id:part3)
 
@@ -316,6 +315,6 @@ Library/PackageCache/com.unity.textmeshpro@3.0.1/Scripts/Editor/TMP_PackageUtili
 
 ## 联系我们
 
-如果您在接入使用过程中有任何疑问，请加入 QQ 群：764231117 咨询。
+如果您在接入使用过程中有任何疑问，请扫码加入微信群，或加入QQ群：764231117 咨询。
 
-<img style="width: 200px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/0a958e8572783faf746ea3233781322c.jpg" />
+![](https://qcloudimg.tencent-cloud.cn/raw/26c9444af94d60e1c606f94cda7cff9d.png)

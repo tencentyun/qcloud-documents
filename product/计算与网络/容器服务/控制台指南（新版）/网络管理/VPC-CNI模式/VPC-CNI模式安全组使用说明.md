@@ -41,8 +41,10 @@
 
 
 
-- 修改现存的 tke-eni-ipamd deployment：`kubectl edit deploy tke-eni-ipamd -n kube-system`。
-
+- 修改现存的 tke-eni-ipamd deployment：
+```
+kubectl edit deploy tke-eni-ipamd -n kube-system
+```
 - 执行以下命令，在 `spec.template.spec.containers[0].args` 中加入启动参数。
 修改后，ipamd 会自动重启并生效。
 生效后，存量节点上的辅助弹性网卡没有关联安全组的会按以下策略绑定安全组，如果绑定了也会与设置的安全组强同步，除非之前已开启特性，节点安全组已设置。增量节点的弹性网卡则都会绑定以下安全组。

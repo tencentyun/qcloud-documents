@@ -73,7 +73,7 @@ uname -r
 ```
 返回类似如下结果，当前系统使用的内核版本为`2.6.32-642.6.2.el6.x86_64`。
 ![](https://main.qcloudimg.com/raw/739b19fc7af96d6de7872df0a498b7b6.png)
-3. 前往 [Linux 内核下载页面](https://www.kernel.org/pub/linux/kernel/?spm=a2c4g.11186623.2.26.7e4179b4zo5WVJ)，下载对应的内核版本源码。
+3. 前往 [Linux 内核下载页面](https://www.kernel.org/pub/linux/kernel/?spm=a2c4g.11186623.2.26.7e4179b4zo5WVJ)，下载对应的或最接近的内核版本源码。
 例如，`2.6.32-642.6.2.el6.x86_64`版本的内核下载 `linux-2.6.32.tar.gz` 的安装包，其下载路径为：`https://mirrors.edge.kernel.org/pub/linux/kernel/v2.6/linux-2.6.32.tar.gz`。
 4. 执行以下命令，切换目录。
 ```shellsession
@@ -156,6 +156,7 @@ find /lib/modules/"$(uname -r)"/ -name "virtio.*" | grep -E "virtio.*"
 grep -E "virtio.*" < /lib/modules/"$(uname -r)"/modules.builtin
 ```
 如果任一命令的返回结果输出 `virtio_blk`、`virtio_pci.virtio_console` 等文件列表，即表明您已经正确安装了 Virtio 驱动。
+
 
 
 

@@ -92,6 +92,7 @@ ping example.com
 ![](https://qcloudimg.tencent-cloud.cn/raw/80856c8d02b87e6b00ef44df88941e89.png)
 9. 单击**确定**，重启实例使配置生效。
 <dx-alert infotype="explain" title="">
-对于作为客户端的 CVM 实例，不推荐使用已加入域的客户端实例来创建自定义镜像，否则新镜像创建的实例会报错“服务器上的安全数据库没有此工作站信任关系”。如果确实需要，建议您在创建新的自定义镜像前先退出域。
+对于作为域成员的计算机（CVM 实例）不推荐使用已加入域的计算机来创建自定义镜像，否则新镜像创建的实例会报错“服务器上的安全数据库没有此工作站信任关系”。如果确实需要，建议您在创建新的自定义镜像前先退出域，并做 Sysprep 动作，确保每一台加入域的计算器具有唯一 SID，有关 Sysprep 详情请参见 [通过 Sysprep 实现云服务器入域后 SID 唯一](https://cloud.tencent.com/document/product/213/43498)。
+
 </dx-alert>
 

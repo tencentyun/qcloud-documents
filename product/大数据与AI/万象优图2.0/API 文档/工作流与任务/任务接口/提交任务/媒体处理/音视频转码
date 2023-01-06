@@ -1,0 +1,696 @@
+## 功能描述
+
+提交一个转码任务。
+
+<div class="rno-api-explorer">
+    <div class="rno-api-explorer-inner">
+        <div class="rno-api-explorer-hd">
+            <div class="rno-api-explorer-title">
+                推荐使用 API Explorer
+            </div>
+            <a href="https://console.cloud.tencent.com/api/explorer?Product=cos&Version=2018-11-26&Action=CreateAnimationTemplate&SignVersion=" class="rno-api-explorer-btn" hotrep="doc.api.explorerbtn" target="_blank"><i class="rno-icon-explorer"></i>点击调试</a>
+        </div>
+        <div class="rno-api-explorer-body">
+            <div class="rno-api-explorer-cont">
+                API Explorer 提供了在线调用、签名验证、SDK 代码生成和快速检索接口等能力。您可查看每次调用的请求内容和返回结果以及自动生成 SDK 调用示例。
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+## 请求
+
+#### 请求示例
+
+```shell
+POST /jobs HTTP/1.1
+Host: <BucketName-APPID>.ci.<Region>.myqcloud.com
+Date: <GMT Date>
+Authorization: <Auth String>
+Content-Length: <length>
+Content-Type: application/xml
+
+<body>
+```
+
+>?
+>
+>- Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+>- 通过子账号使用时，需要授予相关的权限，详情请参见 [授权粒度详情](https://cloud.tencent.com/document/product/460/41741) 文档。
+
+
+#### 请求头
+
+此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/460/42865) 文档。
+
+#### 请求体
+
+该请求操作的实现需要有如下请求体。
+
+```shell
+<Request>
+    <Tag>Transcode</Tag>
+    <Input>
+        <Object>input/demo.mp4</Object>
+    </Input>
+    <Operation>
+        <TemplateId>t1460606b9752148c4ab182f55163ba7cd</TemplateId>
+        <WatermarkTemplateId>t1318c5f428d474afba1797f84091cbe22</WatermarkTemplateId>
+        <WatermarkTemplateId>t1318c5f428d474afba1797f84091cbe23</WatermarkTemplateId>
+        <WatermarkTemplateId>t1318c5f428d474afba1797f84091cbe24</WatermarkTemplateId>
+        <RemoveWatermark>
+            <Dx>150</Dx>
+            <Dy>150</Dy>
+            <Width>75</Width>
+            <Height>75</Height>
+        </RemoveWatermark>
+        <Subtitles>
+            <Subtitle>
+                <Url>https://test-xxx.cos.ap-chongqing.myqcloud.com/test1.srt</Url>
+            </Subtitle>
+            <Subtitle>
+                <Url>https://test-xxx.cos.ap-chongqing.myqcloud.com/test2.srt</Url>
+            </Subtitle>
+        </Subtitles>
+        <DigitalWatermark>
+            <Type>Text</Type>
+            <Message>123456789ab</Message>
+            <Version>V1</Version>
+            <IgnoreError>false</IgnoreError>
+        </DigitalWatermark>
+        <Output>
+            <Region>ap-chongqing</Region>
+            <Bucket>test-123456789</Bucket>
+            <Object>output/out.${ext}</Object>
+        </Output>
+        <UserData>This is my data.</UserData>
+        <JobLevel>0</JobLevel>
+    </Operation>
+    <CallBack>http://callback.demo.com</CallBack>
+    <CallBackFormat>JSON<CallBackFormat>
+</Request>
+```
+
+具体的数据描述如下：
+
+| 节点名称（关键字） | 父节点 | 描述           | 类型      | 是否必选 |
+| ------------------ | ------ | -------------- | --------- | -------- |
+| Request            | 无     | 保存请求的容器 | Container | 是       |
+
+Container 类型 Request 的具体数据描述如下：
+
+| 节点名称（关键字） | 父节点  | 描述                                                         | 类型      | 是否必选 |
+| ------------------ | ------- | ------------------------------------------------------------ | --------- | -------- |
+| Tag                | Request | 创建任务的Tag：Transcode                                     | String    | 是       |
+| Input              | Request | 待操作的文件信息                                             | Container | 是       |
+| Operation          | Request | 操作规则                                                     | Container | 是       |
+| QueueType          | Request | 任务所在的队列类型，限制为 SpeedTranscoding, 表示为开启倍速转码 | String    | 否       |
+| CallBackFormat     | Request | 任务回调格式，JSON 或 XML，默认 XML，优先级高于队列的回调格式 | String    | 否       |
+| CallBackType       | Request | 任务回调类型，Url 或 TDMQ，默认 Url，优先级高于队列的回调类型 | String    | 否       |
+| CallBack           | Request | 任务回调地址，优先级高于队列的回调地址。设置为 no 时，表示队列的回调地址不产生回调 | String    | 否       |
+| CallBackMqConfig   | Request | 任务回调TDMQ配置，当 CallBackType 为 TDMQ 时必填。详情见 [CallBackMqConfig](https://cloud.tencent.com/document/product/460/78927#CallBackMqConfig) | Container | 否       |
+
+
+Container 类型 Input 的具体数据描述如下：
+
+| 节点名称（关键字） | 父节点        | 描述     | 类型   | 是否必选 |
+| ------------------ | ------------- | -------- | ------ | -------- |
+| Object             | Request.Input | 文件路径 | String | 是       |
+
+<span id="operation"></span>
+Container 类型 Operation 的具体数据描述如下：
+
+| 节点名称（关键字）  | 父节点            | 描述                                                         | 类型       | 是否必选 |
+| ------------------- | ----------------- | ------------------------------------------------------------ | ---------- | -------- |
+| TemplateId          | Request.Operation | 转码模板 ID                                                  | String     | 否       |
+| Transcode           | Request.Operation | 转码模板参数                                                 | Container  | 否       |
+| WatermarkTemplateId | Request.Operation | 水印模板 ID，可以传多个水印模板 ID，最多传3个。              | String数组 | 否       |
+| Watermark           | Request.Operation | 水印模板参数，同创建水印模板接口中的 <a href="https://cloud.tencent.com/document/product/460/77099#Watermark" target="_blank">Request.Watermark</a>  ，最多传3个。 | Container  | 否       |
+| RemoveWatermark     | Request.Operation | 去除水印参数, H265、AV1编码暂不支持该参数                    | Container  | 否       |
+| Subtitles           | Request.Operation | 字幕参数, H265、AV1编码和非mkv封装 暂不支持该参数            | Container  | 否       |
+| DigitalWatermark    | Request.Operation | 数字水印参数,详情见 <a href="https://cloud.tencent.com/document/product/460/78927#DigitalWatermark" target="_blank">DigitalWatermark</a> | Container  | 否       |
+| Output              | Request.Operation | 结果输出配置                                                 | Container  | 是       |
+| UserData            | Request.Operation | 透传用户信息, 可打印的 ASCII 码, 长度不超过1024              | String     | 否       |
+| JobLevel            | Request.Operation | 任务优先级，级别限制：0 、1 、2 。级别越大任务优先级越高，默认为0 | String     | 否       |
+
+
+>? 对于转码参数，优先使用优先使用 TemplateId，无 TemplateId 时使用 Transcode；对于水印参数，可以使用 WatermarkTemplateId 或 Watermark 设置，WatermarkTemplateId 优先级更高。
+
+Container 类型 Transcode 的具体数据描述如下：
+
+| 节点名称（关键字） | 父节点                      | 描述                                                         | 类型          | 必选 |
+| ------------------ | :-------------------------- | ------------------------------------------------------------ | ------------- | ---- |
+| TimeInterval       | Request.Operation.Transcode | 同创建转码模板接口中的 <a href="https://cloud.tencent.com/document/product/460/77093#TimeInterval " target="_blank">Request.TimeInterval</a> | Container     | 否   |
+| Container          | Request.Operation.Transcode | 同创建转码模板接口中的 <a href="https://cloud.tencent.com/document/product/460/77093#Container " target="_blank">Request.Container</a> | Container     | 否   |
+| Video              | Request.Operation.Transcode | 同创建转码模板接口中的 <a href="https://cloud.tencent.com/document/product/460/77093#Video " target="_blank">Request.Video </a> | Container     | 否   |
+| Audio              | Request.Operation.Transcode | 同创建转码模板接口中的 <a href="https://cloud.tencent.com/document/product/460/77093#Audio " target="_blank">Request.Audio</a> | Container     | 否   |
+| TransConfig        | Request.Operation.Transcode | 同创建转码模板接口中的 <a href="https://cloud.tencent.com/document/product/460/77093#TransConfig " target="_blank">Request.TransConfig</a> | Container     | 否   |
+| AudioMix           | Request.Operation.Transcode | 混音参数, 详情见 <a href="https://cloud.tencent.com/document/product/460/78927#AudioMix" target="_blank">AudioMix</a> | Container数组 | 否   |
+| AudioMixArray      | Request.Operation.Transcode | 混音参数数组, 最多同时传2个。详情见 <a href="https://cloud.tencent.com/document/product/460/78927#AudioMixArray" target="_blank">AudioMixArray</a> | Container数组 | 否   |
+
+>? AudioMix 和 AudioMixArray 同时设置时, AudioMixArray 无效。
+
+
+Container 类型 RemoveWatermark 的具体数据描述如下：
+
+| 节点名称（关键字） | 父节点                            | 描述                                   | 类型   | 必选 |
+| ------------------ | :-------------------------------- | -------------------------------------- | ------ | ---- |
+| Dx                 | Request.Operation.RemoveWatermark | 距离左上角原点 x 偏移，范围为[1, 4096] | string | 是   |
+| Dy                 | Request.Operation.RemoveWatermark | 距离左上角原点 y 偏移，范围为[1, 4096] | string | 是   |
+| Width              | Request.Operation.RemoveWatermark | 宽，范围为[1, 4096]                    | string | 是   |
+| Height             | Request.Operation.RemoveWatermark | 高，范围为[1, 4096]                    | string | 是   |
+
+Container 类型 Subtitles 的具体数据描述如下：
+
+| 节点名称（关键字） | 父节点                      | 描述     | 类型          | 必选 |
+| ------------------ | :-------------------------- | -------- | ------------- | ---- |
+| Subtitle           | Request.Operation.Subtitles | 字幕参数 | Container数组 | 是   |
+
+Container 类型 Subtitle 的具体数据描述如下：
+
+| 节点名称（关键字） | 父节点                               | 描述                 | 类型   | 必选 |
+| ------------------ | :----------------------------------- | -------------------- | ------ | ---- |
+| Url                | Request.Operation.Subtitles.Subtitle | 同 bucket 的字幕地址 | string | 是   |
+
+Container 类型 Output 的具体数据描述如下：
+
+| 节点名称（关键字） | 父节点                   | 描述             | 类型   | 是否必选 |
+| ------------------ | ------------------------ | ---------------- | ------ | -------- |
+| Region             | Request.Operation.Output | 存储桶的地域     | String | 是       |
+| Bucket             | Request.Operation.Output | 存储结果的存储桶 | String | 是       |
+| Object             | Request.Operation.Output | 输出结果的文件名 | String | 是       |
+
+Request.Operation.Output.Object 支持的通配符如下：
+
+| 通配符   | 含义     |
+| -------- | -------- |
+| ${ext}   | 封装格式 |
+| ${jobid} | 任务Id   |
+
+## 响应
+
+#### 响应头
+
+此接口仅返回公共响应头部，详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/460/42866) 文档。
+
+#### 响应体
+
+该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
+
+``` shell
+<Response>
+    <JobsDetail>
+        <Code>Success</Code>
+        <Message/>
+        <JobId>j8d121820f5e411ec926ef19d53ba9c6f</JobId>
+        <State>Submitted</State>
+        <Progress>0</Progress>
+        <CreationTime>2022-06-27T15:23:10+0800</CreationTime>
+        <StartTime>-</StartTime>
+        <EndTime>-</EndTime>
+        <QueueId>p2242ab62c7c94486915508540933a2c6</QueueId>
+        <Tag>Transcode</Tag>
+        <Input>
+            <BucketId>test-123456789</BucketId>
+            <Object>input/demo.mp4</Object>
+            <Region>ap-chongqing</Region>
+        </Input>
+        <Operation>
+            <TemplateId>t1460606b9752148c4ab182f55163ba7cd</TemplateId>
+            <TemplateName>trans_993874</TemplateName>
+            <WatermarkTemplateId>t1318c5f428d474afba1797f84091cbe22</WatermarkTemplateId>
+            <WatermarkTemplateId>t1318c5f428d474afba1797f84091cbe23</WatermarkTemplateId>
+            <WatermarkTemplateId>t1318c5f428d474afba1797f84091cbe24</WatermarkTemplateId>
+            <RemoveWatermark>
+                <Dx>150</Dx>
+                <Dy>150</Dy>
+                <Width>75</Width>
+                <Height>75</Height>
+            </RemoveWatermark>
+            <Subtitles>
+                <Subtitle>
+                    <Url>https://test-xxx.cos.ap-chongqing.myqcloud.com/test1.srt</Url>
+                </Subtitle>
+                <Subtitle>
+                    <Url>https://test-xxx.cos.ap-chongqing.myqcloud.com/test2.srt</Url>
+                </Subtitle>
+            </Subtitles>
+            <DigitalWatermark>
+                <Type>Text</Type>
+                <Message>123456789ab</Message>
+                <Version>V1</Version>
+                <IgnoreError>false</IgnoreError>
+                <State>Running</State>
+            </DigitalWatermark>
+            <Output>
+                <Region>ap-chongqing</Region>
+                <Bucket>test-123456789</Bucket>
+                <Object>output/out.${ext}</Object>
+            </Output>
+            <UserData>This is my data.</UserData>
+            <JobLevel>0</JobLevel>
+        </Operation>
+    </JobsDetail>
+</Response>
+```
+
+具体的数据内容如下：
+
+| 节点名称（关键字） | 父节点 | 描述           | 类型      |
+| :----------------- | :----- | :------------- | :-------- |
+| Response           | 无     | 保存结果的容器 | Container |
+
+Container 节点 Response 的内容：
+
+| 节点名称（关键字） | 父节点   | 描述           | 类型      |
+| :----------------- | :------- | :------------- | :-------- |
+| JobsDetail         | Response | 任务的详细信息 | Container |
+
+<span id="jobsDetail"></span>
+Container 节点 JobsDetail 的内容：
+
+| 节点名称（关键字） | 父节点              | 描述                                                         | 类型      |
+| :----------------- | :------------------ | :----------------------------------------------------------- | :-------- |
+| Code               | Response.JobsDetail | 错误码，只有 State 为 Failed 时有意义                        | String    |
+| Message            | Response.JobsDetail | 错误描述，只有 State 为 Failed 时有意义                      | String    |
+| JobId              | Response.JobsDetail | 新创建任务的 ID                                              | String    |
+| Tag                | Response.JobsDetail | 新创建任务的 Tag：Transcode                                  | String    |
+| State              | Response.JobsDetail | 任务的状态，为 Submitted、Running、Success、Failed、Pause、Cancel 其中一个 | String    |
+| Progress           | Response.JobsDetail | 任务进度百分比，只有在State为 Submitted、Running、Success、Pause 时有意义，范围为[0, 100] | String    |
+| CreationTime       | Response.JobsDetail | 任务的创建时间                                               | String    |
+| StartTime          | Response.JobsDetail | 任务的开始时间                                               | String    |
+| EndTime            | Response.JobsDetail | 任务的结束时间                                               | String    |
+| QueueId            | Response.JobsDetail | 任务所属的队列 ID                                            | String    |
+| Input              | Response.JobsDetail | 该任务的输入资源地址                                         | Container |
+| Operation          | Response.JobsDetail | 该任务的规则                                                 | Container |
+
+Container 节点 Input 的内容：
+
+| 节点名称（关键字） | 父节点                    | 描述             | 类型   |
+| ------------------ | ------------------------- | ---------------- | ------ |
+| Region             | Response.JobsDetail.Input | 存储桶的地域     | String |
+| Bucket             | Response.JobsDetail.Input | 存储结果的存储桶 | String |
+| Object             | Response.JobsDetail.Input | 输出结果的文件名 | String |
+
+Container 节点 Operation 的内容：
+
+| 节点名称（关键字）  | 父节点                        | 描述                                          | 类型           |
+| :------------------ | :---------------------------- | :-------------------------------------------- | :------------- |
+| TemplateId          | Response.JobsDetail.Operation | 任务的模板 ID                                 | String         |
+| TemplateName        | Response.JobsDetail.Operation | 任务的模板名称, 当 TemplateId 存在时返回      | String         |
+| Transcode           | Response.JobsDetail.Operation | 同请求中的 Request.Operation.Transcode        | Container      |
+| Watermark           | Response.JobsDetail.Operation | 同请求中的 Request.Operation.Watermark        | Container 数组 |
+| RemoveWatermark     | Response.JobsDetail.Operation | 同请求中的 Request.Operation.RemoveWatermark  | Container      |
+| WatermarkTemplateId | Response.JobsDetail.Operation | 水印模板 ID                                   | String 数组    |
+| Output              | Response.JobsDetail.Operation | 同请求中的 Request.Operation.Output           | Container      |
+| MediaInfo           | Response.JobsDetail.Operation | 输出文件的媒体信息，任务未完成时不返回        | Container      |
+| MediaResult         | Response.JobsDetail.Operation | 输出文件的基本信息，任务未完成时不返回        | Container      |
+| DigitalWatermark    | Response.JobsDetail.Operation | 同请求中的 Request.Operation.DigitalWatermark | Container      |
+| UserData            | Response.JobsDetail.Operation | 透传用户信息                                  | String         |
+| JobLevel            | Response.JobsDetail.Operation | 任务优先级                                    | String         |
+
+Container 节点 MediaInfo 的内容：
+同 [GenerateMediaInfo](https://cloud.tencent.com/document/product/460/38935) 接口中的 Response.MediaInfo 节点。
+
+Container 节点 MediaResult 的内容：
+详情见 <a href="https://cloud.tencent.com/document/product/460/78927#MediaResult" target="_blank">MediaResult</a>
+
+
+#### 错误码
+
+该请求操作无特殊错误信息，常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/460/42867) 文档。
+
+## 实际案例
+
+#### 请求1：使用转码模板 ID
+
+```shell
+POST /jobs HTTP/1.1
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0ea057
+Host: test-1234567890.ci.ap-chongqing.myqcloud.com
+Content-Length: 166
+Content-Type: application/xml
+
+<Request>
+    <Tag>Transcode</Tag>
+    <Input>
+        <Object>input/demo.mp4</Object>
+    </Input>
+    <Operation>
+        <TemplateId>t1460606b9752148c4ab182f55163ba7cd</TemplateId>
+        <WatermarkTemplateId>t1318c5f428d474afba1797f84091cbe22</WatermarkTemplateId>
+        <WatermarkTemplateId>t1318c5f428d474afba1797f84091cbe23</WatermarkTemplateId>
+        <WatermarkTemplateId>t1318c5f428d474afba1797f84091cbe24</WatermarkTemplateId>
+        <RemoveWatermark>
+            <Dx>150</Dx>
+            <Dy>150</Dy>
+            <Width>75</Width>
+            <Height>75</Height>
+        </RemoveWatermark>
+        <Subtitles>
+            <Subtitle>
+                <Url>https://test-xxx.cos.ap-chongqing.myqcloud.com/test1.srt</Url>
+            </Subtitle>
+            <Subtitle>
+                <Url>https://test-xxx.cos.ap-chongqing.myqcloud.com/test2.srt</Url>
+            </Subtitle>
+        </Subtitles>
+        <DigitalWatermark>
+            <Type>Text</Type>
+            <Message>123456789ab</Message>
+            <Version>V1</Version>
+            <IgnoreError>false</IgnoreError>
+        </DigitalWatermark>
+        <Output>
+            <Region>ap-chongqing</Region>
+            <Bucket>test-123456789</Bucket>
+            <Object>output/out.${ext}</Object>
+        </Output>
+        <UserData>This is my data.</UserData>
+        <JobLevel>0</JobLevel>
+    </Operation>
+    <CallBack>http://callback.demo.com</CallBack>
+    <CallBackFormat>JSON<CallBackFormat>
+</Request>
+```
+
+#### 响应1
+
+```shell
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 230
+Connection: keep-alive
+Date: Mon, 28 Jun 2022 15:23:12 GMT
+Server: tencent-ci
+x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
+
+<Response>
+    <JobsDetail>
+        <Code>Success</Code>
+        <Message/>
+        <JobId>j8d121820f5e411ec926ef19d53ba9c6f</JobId>
+        <State>Submitted</State>
+        <Progress>0</Progress>
+        <CreationTime>2022-06-27T15:23:11+0800</CreationTime>
+        <StartTime>-</StartTime>
+        <EndTime>-</EndTime>
+        <QueueId>p2242ab62c7c94486915508540933a2c6</QueueId>
+        <Tag>Transcode</Tag>
+        <Input>
+            <BucketId>test-123456789</BucketId>
+            <Object>input/demo.mp4</Object>
+            <Region>ap-chongqing</Region>
+        </Input>
+        <Operation>
+            <TemplateId>t1460606b9752148c4ab182f55163ba7cd</TemplateId>
+            <TemplateName>trans_993874</TemplateName>
+            <WatermarkTemplateId>t1318c5f428d474afba1797f84091cbe22</WatermarkTemplateId>
+            <WatermarkTemplateId>t1318c5f428d474afba1797f84091cbe23</WatermarkTemplateId>
+            <WatermarkTemplateId>t1318c5f428d474afba1797f84091cbe24</WatermarkTemplateId>
+            <RemoveWatermark>
+                <Dx>150</Dx>
+                <Dy>150</Dy>
+                <Width>75</Width>
+                <Height>75</Height>
+            </RemoveWatermark>
+            <Subtitles>
+                <Subtitle>
+                    <Url>https://test-xxx.cos.ap-chongqing.myqcloud.com/test1.srt</Url>
+                </Subtitle>
+                <Subtitle>
+                    <Url>https://test-xxx.cos.ap-chongqing.myqcloud.com/test2.srt</Url>
+                </Subtitle>
+            </Subtitles>
+            <DigitalWatermark>
+                <Type>Text</Type>
+                <Message>123456789ab</Message>
+                <Version>V1</Version>
+                <IgnoreError>false</IgnoreError>
+                <State>Running</State>
+            </DigitalWatermark>
+            <Output>
+                <Region>ap-chongqing</Region>
+                <Bucket>test-123456789</Bucket>
+                <Object>output/out.${ext}</Object>
+            </Output>
+            <UserData>This is my data.</UserData>
+            <JobLevel>0</JobLevel>
+        </Operation>
+    </JobsDetail>
+</Response>
+```
+
+
+#### 请求2：使用转码处理参数
+
+```shell
+POST /jobs HTTP/1.1
+Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0ea057
+Host: test-1234567890.ci.ap-chongqing.myqcloud.com
+Content-Length: 166
+Content-Type: application/xml
+
+<Request>
+    <Tag>Transcode</Tag>
+    <Input>
+        <Object>input/demo.mp4</Object>
+    </Input>
+    <Operation>
+        <Transcode>
+            <Container>
+                <Format>mp4</Format>
+            </Container>
+            <Video>
+                <Codec>H.264</Codec>
+                <Profile>high</Profile>
+                <Bitrate>1000</Bitrate>
+                <Width>1280</Width>
+                <Fps>30</Fps>
+                <Preset>medium</Preset>
+            </Video>
+            <Audio>
+                <Codec>aac</Codec>
+                <Samplerate>44100</Samplerate>
+                <Bitrate>128</Bitrate>
+                <Channels>4</Channels>
+            </Audio>
+            <TransConfig>
+                <AdjDarMethod>scale</AdjDarMethod>
+                <IsCheckReso>false</IsCheckReso>
+                <ResoAdjMethod>1</ResoAdjMethod>
+            </TransConfig>
+            <TimeInterval>
+                <Start>0</Start>
+                <Duration>60</Duration>
+            </TimeInterval>
+            <AudioMixArray>
+                <AudioSource>https://test-xxx.cos.ap-chongqing.myqcloud.com/mix1.mp3</AudioSource>
+                <MixMode>Once</MixMode>
+                <Replace>true</Replace>
+                <EffectConfig>
+                    <EnableStartFadein>true</EnableStartFadein>
+                    <StartFadeinTime>3</StartFadeinTime>
+                    <EnableEndFadeout>false</EnableEndFadeout>
+                    <EndFadeoutTime>0</EndFadeoutTime>
+                    <EnableBgmFade>true</EnableBgmFade>
+                    <BgmFadeTime>1.7</BgmFadeTime>
+                </EffectConfig>
+            </AudioMixArray>
+            <AudioMixArray>
+                <AudioSource>https://test-xxx.cos.ap-chongqing.myqcloud.com/mix2.mp3</AudioSource>
+                <MixMode>Once</MixMode>
+                <Replace>true</Replace>
+                <EffectConfig>
+                    <EnableStartFadein>true</EnableStartFadein>
+                    <StartFadeinTime>3</StartFadeinTime>
+                    <EnableEndFadeout>false</EnableEndFadeout>
+                    <EndFadeoutTime>0</EndFadeoutTime>
+                    <EnableBgmFade>true</EnableBgmFade>
+                    <BgmFadeTime>1.7</BgmFadeTime>
+                </EffectConfig>
+            </AudioMixArray>
+        </Transcode>
+        <Watermark>
+            <Type>Text</Type>
+            <LocMode>Absolute</LocMode>
+            <Dx>128</Dx>
+            <Dy>128</Dy>
+            <Pos>TopRight</Pos>
+            <StartTime>0</StartTime>
+            <EndTime>100.5</EndTime>
+            <Text>
+                <Text>水印内容</Text>
+                <FontSize>30</FontSize>
+                <FontType>simfang.ttf</FontType>
+                <FontColor>0xRRGGBB</FontColor>
+                <Transparency>30</Transparency>
+            </Text>
+        </Watermark>
+        <RemoveWatermark>
+            <Dx>150</Dx>
+            <Dy>150</Dy>
+            <Width>75</Width>
+            <Height>75</Height>
+        </RemoveWatermark>
+        <Subtitles>
+            <Subtitle>
+                <Url>https://test-xxx.cos.ap-chongqing.myqcloud.com/test1.srt</Url>
+            </Subtitle>
+            <Subtitle>
+                <Url>https://test-xxx.cos.ap-chongqing.myqcloud.com/test2.srt</Url>
+            </Subtitle>
+        </Subtitles>
+        <DigitalWatermark>
+            <Type>Text</Type>
+            <Message>123456789ab</Message>
+            <Version>V1</Version>
+            <IgnoreError>false</IgnoreError>
+        </DigitalWatermark>
+        <Output>
+            <Region>ap-chongqing</Region>
+            <Bucket>test-123456789</Bucket>
+            <Object>output/out.${ext}</Object>
+        </Output>
+        <UserData>This is my data.</UserData>
+        <JobLevel>0</JobLevel>
+    </Operation>
+    <CallBack>http://callback.demo.com</CallBack>
+    <CallBackFormat>JSON<CallBackFormat>
+</Request>
+```
+
+#### 响应2
+
+```shell
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 230
+Connection: keep-alive
+Date: Mon, 28 Jun 2022 15:23:12 GMT
+Server: tencent-ci
+x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
+
+<Response>
+    <JobsDetail>
+        <Code>Success</Code>
+        <Message/>
+        <JobId>j8d121820f5e411ec926ef19d53ba9c6f</JobId>
+        <State>Submitted</State>
+        <Progress>0</Progress>
+        <CreationTime>2022-06-27T15:23:10+0800</CreationTime>
+        <StartTime>-</StartTime>
+        <EndTime>-</EndTime>
+        <QueueId>p2242ab62c7c94486915508540933a2c6</QueueId>
+        <Tag>Transcode</Tag>
+        <Input>
+            <BucketId>test-123456789</BucketId>
+            <Object>input/demo.mp4</Object>
+            <Region>ap-chongqing</Region>
+        </Input>
+        <Operation>
+            <Transcode>
+                <Container>
+                    <Format>mp4</Format>
+                </Container>
+                <Video>
+                    <Codec>H.264</Codec>
+                    <Profile>high</Profile>
+                    <Bitrate>1000</Bitrate>
+                    <Width>1280</Width>
+                    <Fps>30</Fps>
+                    <Preset>medium</Preset>
+                </Video>
+                <Audio>
+                    <Codec>aac</Codec>
+                    <Samplerate>44100</Samplerate>
+                    <Bitrate>128</Bitrate>
+                    <Channels>4</Channels>
+                </Audio>
+                <TransConfig>
+                    <AdjDarMethod>scale</AdjDarMethod>
+                    <IsCheckReso>false</IsCheckReso>
+                    <ResoAdjMethod>1</ResoAdjMethod>
+                </TransConfig>
+                <TimeInterval>
+                    <Start>0</Start>
+                    <Duration>60</Duration>
+                </TimeInterval>
+                <AudioMixArray>
+                    <AudioSource>https://test-xxx.cos.ap-chongqing.myqcloud.com/mix1.mp3</AudioSource>
+                    <MixMode>Once</MixMode>
+                    <Replace>true</Replace>
+                    <EffectConfig>
+                        <EnableStartFadein>true</EnableStartFadein>
+                        <StartFadeinTime>3</StartFadeinTime>
+                        <EnableEndFadeout>false</EnableEndFadeout>
+                        <EndFadeoutTime>0</EndFadeoutTime>
+                        <EnableBgmFade>true</EnableBgmFade>
+                        <BgmFadeTime>1.7</BgmFadeTime>
+                    </EffectConfig>
+                </AudioMixArray>
+                <AudioMixArray>
+                    <AudioSource>https://test-xxx.cos.ap-chongqing.myqcloud.com/mix2.mp3</AudioSource>
+                    <MixMode>Once</MixMode>
+                    <Replace>true</Replace>
+                    <EffectConfig>
+                        <EnableStartFadein>true</EnableStartFadein>
+                        <StartFadeinTime>3</StartFadeinTime>
+                        <EnableEndFadeout>false</EnableEndFadeout>
+                        <EndFadeoutTime>0</EndFadeoutTime>
+                        <EnableBgmFade>true</EnableBgmFade>
+                        <BgmFadeTime>1.7</BgmFadeTime>
+                    </EffectConfig>
+                </AudioMixArray>
+            </Transcode>
+            <Watermark>
+                <Type>Text</Type>
+                <LocMode>Absolute</LocMode>
+                <Dx>128</Dx>
+                <Dy>128</Dy>
+                <Pos>TopRight</Pos>
+                <StartTime>0</StartTime>
+                <EndTime>100.5</EndTime>
+                <Text>
+                    <Text>水印内容</Text>
+                    <FontSize>30</FontSize>
+                    <FontType></FontType>
+                    <FontColor>0xRRGGBB</FontColor>
+                    <Transparency>30</Transparency>
+                </Text>
+            </Watermark>
+            <RemoveWatermark>
+                <Dx>150</Dx>
+                <Dy>150</Dy>
+                <Width>75</Width>
+                <Height>75</Height>
+            </RemoveWatermark>
+            <Subtitles>
+                <Subtitle>
+                    <Url>https://test-xxx.cos.ap-chongqing.myqcloud.com/test1.srt</Url>
+                </Subtitle>
+                <Subtitle>
+                    <Url>https://test-xxx.cos.ap-chongqing.myqcloud.com/test2.srt</Url>
+                </Subtitle>
+            </Subtitles>
+            <DigitalWatermark>
+                <Type>Text</Type>
+                <Message>123456789ab</Message>
+                <Version>V1</Version>
+                <IgnoreError>false</IgnoreError>
+                <State>Running</State>
+            </DigitalWatermark>
+            <Output>
+                <Region>ap-chongqing</Region>
+                <Bucket>test-123456789</Bucket>
+                <Object>output/out.${ext}</Object>
+            </Output>
+            <UserData>This is my data.</UserData>
+            <JobLevel>0</JobLevel>
+        </Operation>
+    </JobsDetail>
+</Response>
+```

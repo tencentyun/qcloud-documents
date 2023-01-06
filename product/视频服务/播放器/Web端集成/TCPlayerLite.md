@@ -609,7 +609,7 @@ webrtcstop
 TCPlayerLite 在不断更新及完善中，下面是 TCPlayerLite 发布的主版本介绍。
 
 <table>
-<tr><th>日期</th><th>版本</th><th>更新内容</th>
+<thead><tr><th>日期</th><th>版本</th><th>更新内容</th>
 </tr><tr>
 <td>2021.06.25</td>
 <td>2.4.1</td>

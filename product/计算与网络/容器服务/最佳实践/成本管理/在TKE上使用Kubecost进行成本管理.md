@@ -174,7 +174,7 @@ kubectl get pods -n kubecost -o wide
 
 ### 更改服务访问方式
 
-1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2/cluster)。  
+1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2/cluster)。  
 2. 单击对应的集群 ID/名称，进入集群管理页面。  
 3. 单机**服务和路由** > **Service**进入 Service 页面。  
 4. 找到您想要更改的 Service，在其右侧操作栏下单击**更新访问方式**进入更新访问方式页面。  

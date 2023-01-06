@@ -6,7 +6,7 @@ Flutter TUIKit 是基于 Flutter IM SDK 实现的一套 UI 组件，其中包含
 
 **接入前，您可以通过 [我们的 DEMO](https://cloud.tencent.com/document/product/269/70747#demo)，快速在线体验 TUIKit 各项能力。**
 
->? 本含 TUIKit tencent_cloud_chat_uikit 已开源，您可引入 [在线版本](https://pub.dev/packages/tencent_cloud_chat_uikit)，也可 [GitHub fork](https://github.com/TencentCloud/TIMSDK/tree/master/Flutter/IMSDK/tencent_cloud_chat_uikit) 后本地引入使用。
+>? 本含 TUIKit tencent_cloud_chat_uikit 已开源，您可引入 [在线版本](https://pub.dev/packages/tencent_cloud_chat_uikit)，也可 [GitHub fork](https://github.com/TencentCloud/chat-uikit-flutter) 后本地引入使用。
 
 目前包含的一级组件如下：
 
@@ -23,9 +23,7 @@ Flutter TUIKit 是基于 Flutter IM SDK 实现的一套 UI 组件，其中包含
 
 ![](https://qcloudimg.tencent-cloud.cn/raw/f140dd76be01a65abfb7e6ba2bf50ed5.png)
 
->?
->
-> 上图 TUIKit 界面语言支持自动或手动在 **简体中文/繁体中文/英文** 间切换。如有多语言相关咨询，可 [联系我们](#contact)。
+>?上图 TUIKit 界面语言支持自动或手动在 **简体中文/繁体中文/英文/日语/韩语** 间切换。国际化界面语言用法详情，或新增其他语言包，[可参考本文档](https://cloud.tencent.com/document/product/269/84481)。
 
 ## 环境要求
 
@@ -44,7 +42,7 @@ Flutter TUIKit 是基于 Flutter IM SDK 实现的一套 UI 组件，其中包含
 | [Web](#web)  | 支持，0.1.5版本起 |
 | macOS  | 开发中，敬请期待 |
 | Windows  | 开发中，敬请期待 |
-| [混合开发](https://cloud.tencent.com/developer/article/2167243) （将 Flutter SDK 添加至现有原生应用） | 1.0.0版本起支持 |
+| [混合开发](https://cloud.tencent.com/document/product/269/83153) （将 Flutter SDK 添加至现有原生应用） | 1.0.0版本起支持 |
 
 >? 我们致力于打造一套支持 Flutter 全平台的即时通信 IM SDK 及TUIKit，帮助您一套代码，全平台运行。
 
@@ -499,15 +497,9 @@ defaultConfig {
 :::
 </dx-codeblock>
 
-### 如何动态切换 TUIKit 界面语言？
+### 如果国际化界面语言？
 
-调用 `I18nUtils(null, language);` 即可。如：
-
-```dart
-I18nUtils(null, LanguageEnum.en);
-```
-
-> ?如需固定使用某语言，可在 [初始化 TUIKit](#init) 时，使用 language 参数传入。
+国际化界面语言用法详情，或新增其他语言包，[可参考本文档](https://cloud.tencent.com/document/product/269/84481)。
 
 ### 如何获取 API 接口调用报错/Flutter 层报错/弹窗提示信息？[](id:callback)
 
@@ -631,6 +623,6 @@ final isInitSuccess = await _coreInstance.init(
 
 ## 联系我们[](id:contact)
 
-如果您在接入使用过程中有任何疑问，请加入 QQ 群：788910197 咨询。
+如果您在接入使用过程中有任何疑问，请扫码加入微信群，或加入QQ群：788910197 咨询。
 
-![](https://qcloudimg.tencent-cloud.cn/raw/eacb194c77a76b5361b2ae983ae63260.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/e830ae8c7b8d9253eb71e7c3d9f7b2be.png)

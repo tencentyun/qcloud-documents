@@ -215,7 +215,7 @@ spec:
     app: nginx
     version: v2
 ```
-您可登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2/cluster)，在集群的工作负载详情页查看部署情况。如下图所示：
+您可登录 [容器服务控制台](https://console.cloud.tencent.com/tke2/cluster)，在集群的工作负载详情页查看部署情况。如下图所示：
 <img src="https://main.qcloudimg.com/raw/4d3411bb5f9301d4ff8bee25066c64be.png">
 3. 创建 Ingress，对外暴露服务，指向 v1 版本的服务。YAML 示例如下：
 

@@ -27,4 +27,3 @@ Anycast CLB 由内网负载均衡绑定 Anycast EIP 来提供 Anycast 能力，�
 ## 相关文档
 - [Anycast 公网加速](https://cloud.tencent.com/document/product/644)
 - [内网负载均衡实例绑定 EIP](https://cloud.tencent.com/document/product/214/65682)
-
