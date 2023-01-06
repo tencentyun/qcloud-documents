@@ -68,7 +68,7 @@ SET table.optimizer.mysql-cdc-source.merge.enabled=true;
 
 create catalog my_mysql with (
     'type' = 'jdbc',
-    'default-database' = 'test',
+    'default-database' = 'trade_log',
     'username' = 'root',
     'password' = 'XXX',
     'base-url' = 'jdbc:mysql://ip:port'
