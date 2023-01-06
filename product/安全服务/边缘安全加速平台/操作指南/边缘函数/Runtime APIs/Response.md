@@ -148,7 +148,7 @@ readonly redirectUrls: Array<String>
 
 ## 方法
 
->! 获取响应体方法，接收 `HTTP body` 最大字节数为 1M，超出大小会抛出 OverSize 异常。超出大小时推荐使用 [response.body](#:body) 流式读取，详情参见 [ReadableStream](https://cloud.tencent.com/document/product/1552/81914)。
+>! 获取响应体方法，接收 `HTTP body` 最大字节数为 1M，超出大小会抛出 OverSize 异常。超出大小时推荐使用 [response.body](#body) 流式读取，详情参见 [ReadableStream](https://cloud.tencent.com/document/product/1552/81914)。
 
 
 ### arrayBuffer
@@ -224,7 +224,7 @@ request.text(): Promise<string>;
 request.getCookies(): Cookies;
 ```
 
-获取 `response` 头部 cookie，并自动解析为 [Cookies](https://cloud.tencent.com/document/product/1552/81905) 对象。
+获取 `response` 头部 cookie，并自动解析为 [Cookies](https://cloud.tencent.com/document/product/1552/83932) 对象。
 
 ### setCookies
 ```typescript
