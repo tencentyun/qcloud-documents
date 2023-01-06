@@ -47,6 +47,7 @@ function addEventListener(type: string, listener: (event: FetchEvent) => void): 
 ```js
 // 注册 fetch 请求事件监听器
 addEventListener('fetch', (event) => {
+  // 响应客户端
   event.respondWith(new Response('Hello World!'));
 });
 ```
