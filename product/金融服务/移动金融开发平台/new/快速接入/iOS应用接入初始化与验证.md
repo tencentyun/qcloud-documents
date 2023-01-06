@@ -10,7 +10,7 @@
    end
 ```
 2. 在命令行执行 `pod install` 命令接入相关 TMF SDK。
-3. 从 [控制台下载配置文件](../../在控制台创建应用/下载配置文件.md) `tmf-ios-configurations.json`，并将文件导入工程目录下。  
+3. 从控制台下载配置文件`tmf-ios-configurations.json`，并将文件导入工程目录下。  
    <img src="https://qcloudimg.tencent-cloud.cn/raw/4b3832474790ccc0685c275f68df0f1d.png" width=50% style="border: 1.5px solid">
 4. 在工程的 `AppDelegate` 文件中引入 `TMFBase.h` 头文件和 `TMFSharkCenter.h`。然后在`-application:didFinishLaunchingWithOptions:`方法中进行 TMFBase 的初始化。
 
