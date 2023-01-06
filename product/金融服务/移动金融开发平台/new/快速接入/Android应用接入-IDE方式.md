@@ -14,7 +14,7 @@
 
 
 ### 步骤二：新建工程
-1. 登录控制台，下载应用配置文件(tmf-android-configurations.json)。
+1. 登录 [控制台](https://console.cloud.tencent.com/tmf)，下载应用配置文件(tmf-android-configurations.json)。
 2. 在 Android Studio 欢迎页面，单击 **Start a New TMF Project**，创建项目。   
 ![](https://qcloudimg.tencent-cloud.cn/raw/f3dcddf0549f71a9d42aefb03f69969d.png)
 >?您也可以通过单击 **File** > **New** > **Start a New TMF Project**，创建项目。
@@ -33,7 +33,7 @@
 
 
 ### 步骤三：已有工程
-1. 登录控制台，下载应用配置文件(tmf-android-configurations.json)。
+1. 登录 [控制台](https://console.cloud.tencent.com/tmf)，下载应用配置文件(tmf-android-configurations.json)。
 2. 在编码界面右侧侧边栏单击 **TMF**，打开 TMF 助手。
 ![](https://qcloudimg.tencent-cloud.cn/raw/ac1628da1f1126aca4fb91b6855492ce.png)
 3. 单击 **点击转换**，即可将现有的非 TMF 工程转换为 TMF 工程，此操作会在 gradle 中配置 maven 信息，以及在工程目录下生成 .tmf.config.json 文件并添加基线配置。
