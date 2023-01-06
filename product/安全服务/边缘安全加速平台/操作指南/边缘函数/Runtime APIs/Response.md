@@ -1,7 +1,7 @@
 **Response** 代表 HTTP 响应，基于 Web APIs 标准 [Response](https://developer.mozilla.org/en-US/docs/Web/API/Response) 进行设计。
 
 >? 边缘函数中，可通过两种方式获得 `Response` 对象：
-- 使用 `Response` 构造函数创建一个 Response 对象，用于 [event.respondWith](https://cloud.tencent.com/document/product/1552/81917) 响应。
+- 使用 `Response` 构造函数创建一个 Response 对象，用于 [event.respondWith](https://cloud.tencent.com/document/product/1552/81899#respondwith) 响应。
 - 使用 <a href="https://cloud.tencent.com/document/product/1552/81897">fetch</a> 获取请求响应 Response 对象。
 
 ## 构造函数
