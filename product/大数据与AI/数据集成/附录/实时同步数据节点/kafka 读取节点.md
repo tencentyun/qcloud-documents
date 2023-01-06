@@ -8,7 +8,7 @@
 ### 创建 kafka 节点
 1. 在数据集成页面左侧目录栏单击**实时同步**。
 2. 在实时同步页面上方选择**单表同步**新建（可选择表单和画布模式）并进入配置页面。
-3. 单击左侧**读取**/**写入**，单击选择 kafka 节点并配置节点信息。
+3. 单击左侧**读取**，单击选择 kafka 节点并配置节点信息。
 ![](https://qcloudimg.tencent-cloud.cn/raw/6beb9ff521c0e55386140d93bce5ae19.png)
 4. 参数说明：
 <table>
@@ -24,7 +24,7 @@
 </tr>
 <tr>
 <td>数据源</td>
-<td>kafka 读取/写入端数据源类型支持 kafka、Ckafka</td>
+<td>kafka 读取端数据源类型支持 kafka、Ckafka</td>
 </tr>
 <tr>
 <td>topic</td>
