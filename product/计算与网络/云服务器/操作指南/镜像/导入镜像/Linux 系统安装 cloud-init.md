@@ -21,15 +21,15 @@ Cloud-init 主要提供实例首次初始化时自定义配置的能力。如果
 - cloud-init是腾讯云基于社区20.1版本研发的，适配腾讯云运行环境的专属cloud-init。
 - cloud-init二制包支持如下OS:
 </dx-alert>
-<table style="undefined;table-layout: fixed; width: 1370px">
+<table style="undefined;table-layout: fixed; width: 1300px">
 <colgroup>
-<col style="width: 47px">
-<col style="width: 78px">
-<col style="width: 168px">
-<col style="width: 200px">
+<col style="width: 35px">
+<col style="width: 50px">
+<col style="width: 120px">
+<col style="width: 150px">
+<col style="width: 130px">
 <col style="width: 150px">
 <col style="width: 200px">
-<col style="width: 300px">
 </colgroup>
 <thead>
   <tr>
