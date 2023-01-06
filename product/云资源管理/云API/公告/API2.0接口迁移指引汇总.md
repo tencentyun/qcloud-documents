@@ -50,7 +50,7 @@
   </tr>
   <tr>
     <td>弹性公网IP</td>
-    <td><a href="https://cloud.tencent.com/document/product/1199/83744?from_wecom=1">弹性公网 IP API 2.0切换 API 3.0指引</a></td>
+    <td><a href="https://cloud.tencent.com/document/product/1199/83744">弹性公网 IP API 2.0切换 API 3.0指引</a></td>
   </tr>
 </tbody>
 </table>
@@ -135,10 +135,6 @@
     <td><a href="https://cloud.tencent.com/document/product/457/46276">Kubernetes API</a></td>
   </tr>
   <tr>
-    <td>GetClustersResourceStatus</td>
-    <td><a href="https://tcloud4api.woa.com/document/product/457/86325?!preview&!document=1">DescribeClustersResourceStatus</a></td>
-  </tr>
-  <tr>
     <td>GetLogDaemonStatus</td>
     <td>已下线，无对应V3接口</td>
   </tr>
@@ -175,11 +171,6 @@
     <td>1. uuid 转化为 InstanceIds<br>2. 其他过滤条件放到 Filters 中维护</td>
   </tr>
   <tr>
-    <td>DescribeInstancesOfferings</td>
-    <td><a href="https://tcloud4api.woa.com/document/product/213/70236?!preview&!document=1">DescribeInstancesOfferings</a></td>
-    <td>直接替代</td>
-  </tr>
-  <tr>
     <td>DescribeInstancesStatusV3</td>
     <td><a href="https://cloud.tencent.com/document/product/213/15738">DescribeInstancesStatus</a></td>
     <td>直接替代</td>
@@ -192,11 +183,6 @@
   <tr>
     <td>DescribeZoneAbility</td>
     <td><a href="https://cloud.tencent.com/document/product/213/15707">DescribeZones</a></td>
-    <td>-</td>
-  </tr>
-  <tr>
-    <td>GetAppCvmOverviewStatistics</td>
-    <td><a href="https://tcloud4api.woa.com/document/product/213/61204?!preview&!document=1">DescribeInstanceStatistics</a></td>
     <td>-</td>
   </tr>
   <tr>
