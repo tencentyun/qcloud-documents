@@ -135,6 +135,10 @@
     <td><a href="https://cloud.tencent.com/document/product/457/46276">Kubernetes API</a></td>
   </tr>
   <tr>
+    <td>GetClustersResourceStatus</td>
+    <td>已下线，无对应V3接口</td>
+  </tr>	
+  <tr>
     <td>GetLogDaemonStatus</td>
     <td>已下线，无对应V3接口</td>
   </tr>
