@@ -27,8 +27,8 @@ Cloud-init 主要提供实例首次初始化时自定义配置的能力。如果
     <th rowspan="2">类型</th>
     <th rowspan="2">OS</th>
     <th rowspan="2">版本</th>
-    <th colspan="2">x86_64</th>
-    <th colspan="2">arm64</th>
+    <th colspan="2" style="text-align:center">x86_64</th>
+    <th colspan="2" style="text-align:center">arm64</th>
   </tr>
   <tr>
     <th>qcloud-python</th>
