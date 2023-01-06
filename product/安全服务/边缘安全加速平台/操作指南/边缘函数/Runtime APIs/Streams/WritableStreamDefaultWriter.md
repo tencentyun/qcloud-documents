@@ -1,6 +1,6 @@
 **WritableStreamDefaultWriter** 用于可写流的操作。基于 Web APIs 标准 [WritableStreamDefaultWriter](https://developer.mozilla.org/en-US/docs/Web/API/WritableStreamDefaultWriter) 进行设计。
 
- >! 不支持直接构造 `WritableStreamDefaultWriter` 对象，使用 [WritableStream.getWriter](https://cloud.tencent.com/document/product/1552/81922) 方法得到。
+ >! 不支持直接构造 `WritableStreamDefaultWriter` 对象，使用 [WritableStream.getWriter](https://cloud.tencent.com/document/product/1552/81922#getwriter) 方法得到。
 
 ## 描述
 ```typescript
