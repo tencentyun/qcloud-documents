@@ -15,7 +15,7 @@ Cloud-init 主要提供实例首次初始化时自定义配置的能力。如果
 
 ## 操作步骤
 <dx-tabs>
-::: 下载 cloud-init 二进制包[](id:binary)
+::: 下载cloud-init \s二进制包[](id:binary)
 <dx-alert infotype="explain" title="">
 - cloud-init 依赖于 qcloud-python, qcloud-python 是腾讯云重新编译打包的软件包，是单独的 python 环境，仅用于 cloud-init 运行环境，安装在 `/usr/local/qcloud/python` 目录下，与系统中默认的 python 不相冲突。
 - cloud-init 是腾讯云基于社区20.1版本研发的，适配腾讯云运行环境的专属 cloud-init。
@@ -140,7 +140,7 @@ Cloud-init 主要提供实例首次初始化时自定义配置的能力。如果
 </tbody>
 </table>
 
-### 下载 cloud-init 二进制包
+### 下载 cloud-init 二进制包[](id:binary)
 1. 下载上述安装包。
 
 2. 如果系统中已经有 cloud-init，请排查并执行如下命令，清理残留
@@ -354,7 +354,7 @@ apt-get/yum install cloud-init
 
 
 
-### 修改 cloud-init 配置文件
+### 修改 cloud-init 配置文件[](id:cloud-init)
 1. 根据不同操作系统，下载 cloud.cfg。
  - [点此下载](https://cloudinit-1251783334.cos.ap-guangzhou.myqcloud.com/ubuntu/cloud.cfg) Ubuntu 操作系统的 cloud.cfg。
  - [点此下载](https://cloudinit-1251783334.cos.ap-guangzhou.myqcloud.com/centos/cloud.cfg) CentOS 操作系统的 cloud.cfg。
