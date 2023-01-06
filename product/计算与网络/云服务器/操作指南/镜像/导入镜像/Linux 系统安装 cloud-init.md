@@ -3,7 +3,7 @@
 
 Cloud-init 主要提供实例首次初始化时自定义配置的能力。如果导入的镜像没有安装 cloud-init 服务，基于该镜像启动的实例将无法被正常初始化，导致该镜像正常导入失败。本文档指导您安装 cloud-init 服务。
 安装 cloud-init 推荐以下三种方式：
-- 通过 [二进制软件包](#binary)
+- 通过 [下载 cloud-init 二进制包](#binary)
 - 通过 [手工下载 cloud-init 源码包方式](#ManualDown) 
 - 通过 [使用软件源上的 cloud-init 包方式](#SoftSources)
 
@@ -18,19 +18,10 @@ Cloud-init 主要提供实例首次初始化时自定义配置的能力。如果
 ::: 下载 cloud-init 二进制包[](id:binary)
 <dx-alert infotype="explain" title="">
 - cloud-init 依赖于 qcloud-python, qcloud-python 是腾讯云重新编译打包的软件包，是单独的 python 环境，仅用于 cloud-init 运行环境，安装在 `/usr/local/qcloud/python` 目录下，与系统中默认的 python 不相冲突。
-- cloud-init是腾讯云基于社区20.1版本研发的，适配腾讯云运行环境的专属cloud-init。
-- cloud-init二制包支持如下OS:
+- cloud-init 是腾讯云基于社区20.1版本研发的，适配腾讯云运行环境的专属 cloud-init。
+- cloud-init 二制包支持如下 OS:
 </dx-alert>
-<table style="undefined;table-layout: fixed; width: 1300px">
-<colgroup>
-<col style="width: 35px">
-<col style="width: 50px">
-<col style="width: 120px">
-<col style="width: 150px">
-<col style="width: 130px">
-<col style="width: 150px">
-<col style="width: 200px">
-</colgroup>
+<table>
 <thead>
   <tr>
     <th rowspan="2">类型</th>
@@ -64,7 +55,7 @@ Cloud-init 主要提供实例首次初始化时自定义配置的能力。如果
     <td><a href="https://gerryguan-1306210569.cos.ap-chongqing.myqcloud.com/cloud-init/packages/centos8.2/aarch64/cloud-init-20.1.0011-3.el8.aarch64.rpm">cloud-init-20.1.0011-3.el8.aarch64.rpm</a></td>
   </tr>
   <tr>
-    <td rowspan="3">Fedora</td>
+    <td>Fedora</td>
     <td>36</td>
     <td><a href="https://gerryguan-1306210569.cos.ap-chongqing.myqcloud.com/cloud-init/packages/fedora36/qcloud-python-3.7.10-2.fc36.x86_64.rpm">qcloud-python-3.7.10-2.fc36.x86_64.rpm</a></td>
     <td><a href="https://gerryguan-1306210569.cos.ap-chongqing.myqcloud.com/cloud-init/packages/ubuntu20.04/cloud-init_20.1.0011-1_arm64.deb">cloud-init_20.1.0011-1_arm64.deb</a></td>
@@ -72,6 +63,7 @@ Cloud-init 主要提供实例首次初始化时自定义配置的能力。如果
     <td>NA</td>
   </tr>
   <tr>
+    <td>Kylin</td>
     <td>20sp1</td>
     <td><a href="https://gerryguan-1306210569.cos.ap-chongqing.myqcloud.com/cloud-init/packages/kylin10sp1/x86_64/qcloud-python-3.7.10-1.ky10.x86_64.rpm">qcloud-python-3.7.10-1.ky10.x86_64.rpm</a></td>
     <td><a href="https://gerryguan-1306210569.cos.ap-chongqing.myqcloud.com/cloud-init/packages/kylin10sp1/x86_64/cloud-init-20.1.0011-2.ky10.x86_64.rpm">cloud-init-20.1.0011-2.ky10.x86_64.rpm</a></td>
@@ -79,6 +71,7 @@ Cloud-init 主要提供实例首次初始化时自定义配置的能力。如果
     <td><a href="https://gerryguan-1306210569.cos.ap-chongqing.myqcloud.com/cloud-init/packages/kylin10sp1/aarch64/cloud-init-20.1.0011-1.ky10.aarch64.rpm">cloud-init-20.1.0011-1.ky10.aarch64.rpm</a></td>
   </tr>
   <tr>
+    <td>openSUSE</td>
     <td>15.4</td>
     <td><a href="https://gerryguan-1306210569.cos.ap-chongqing.myqcloud.com/cloud-init/packages/opensuse15.4/qcloud-python-3.7.10-2.x86_64.rpm">qcloud-python-3.7.10-2.x86_64.rpm</a></td>
     <td><a href="https://gerryguan-1306210569.cos.ap-chongqing.myqcloud.com/cloud-init/packages/opensuse15.4/cloud-init-20.1.0011-2.x86_64.rpm">cloud-init-20.1.0011-2.x86_64.rpm</a></td>
@@ -147,21 +140,21 @@ Cloud-init 主要提供实例首次初始化时自定义配置的能力。如果
 </tbody>
 </table>
 
-### 下载 cloud-init 源码包
+### 下载 cloud-init 二进制包
 1. 下载上述安装包。
 
-2. 如果系统中已经有cloud-init，请排查并执行如下命令，清理残留
+2. 如果系统中已经有 cloud-init，请排查并执行如下命令，清理残留
 ```shellsession
 rm -rf /var/lib/cloud
 rm -rf /etc/cloud
 rm -rf /usr/local/bin/cloud*
 ```
 3. 根据操作系统，执行如下命令：
-  - Ubuntu /debian系列，执行以下命令：
+  - deb 系列，执行以下命令：
   ```shellsession
   dpkg -i *.deb
 ```
- - centos系列, 执行如下命令：
+ - rpm 系列, 执行如下命令：
  ```shellsession
  rpm -ivh *.rpm
  ```
