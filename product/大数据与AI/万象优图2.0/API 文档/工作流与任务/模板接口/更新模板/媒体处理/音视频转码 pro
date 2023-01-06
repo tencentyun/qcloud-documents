@@ -84,7 +84,7 @@ Content-Type: application/xml
 
 | 节点名称（关键字） | 父节点 | 描述                                                         | 类型      | 必选 |
 | :----------------- | :----- | :----------------------------------------------------------- | :-------- | ---- |
-| Request            | 无     | <a href="https://cloud.tencent.com/document/product/460/77094#Request" target="_blank">同创建转码 Pro 模板接口的 Request</a> | Container | 是   |
+| Request            | 无     | <a href="https://cloud.tencent.com/document/product/460/84732#Request" target="_blank">同创建转码 Pro 模板接口的 Request</a> | Container | 是   |
 
 
 ## 响应
@@ -137,7 +137,7 @@ Content-Type: application/xml
 
 | 节点名称（关键字） | 父节点 | 描述                                                         | 类型      |
 | :----------------- | :----- | :----------------------------------------------------------- | :-------- |
-| Response           | 无     | <a href="https://cloud.tencent.com/document/product/460/77094#Response" target="_blank">同创建转码 Pro 模板接口的 Response</a> | Container |
+| Response           | 无     | <a href="https://cloud.tencent.com/document/product/460/84732#Response" target="_blank">同创建转码 Pro 模板接口的 Response</a> | Container |
 
 #### 错误码
 
