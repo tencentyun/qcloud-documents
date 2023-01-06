@@ -104,7 +104,8 @@ event.passThroughOnException(): void;
 用于防止运行时响应异常信息。当函数代码抛出未处理的异常时，边缘函数会将此请求转发回源站，进而增强服务的可用性.
 
 ## 示例代码
-### 使用 respondWith  
+- 未调用接口 `event.respondWith`，边缘函数将当前请求转发回源站。
+
 ```typescript
 function handleRequest(request) {
   return new Response('Edge Functions, Hello World!');
@@ -123,7 +124,8 @@ addEventListener('fetch', event => {
 });
 ```
 
-### 使用 passThroughOnException 
+- 当函数代码抛出未处理的异常时，边缘函数会将此请求转发回源站。
+
 ```typescript
 addEventListener('fetch', event => {
   // 当函数代码抛出未处理的异常时，边缘函数会将此请求转发回源站 
