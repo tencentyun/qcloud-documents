@@ -47,7 +47,7 @@ Kubernetes 1.24通过 Dockershim 对 Docker 的支持已移除，新建节点的
  <br>c. 支持对跟 watch 中的对象有关的更新请求进行限速，避免瞬间产生过多更新事件。</ul></li>
 <li>超级节点支持在需要时运行 DaemonSet Pod。(kube-controller-manager)</li>
 <li>支持超级节点 DaemonSet Pod 的 exec/logs 命令。(kube-apiserver)</li>
-<li>当发生 list/watch too old, too large 及过多对象时记录指标(kube-apiserver)：<code> watch_too_old_objects_events_total,list_too_large_objects_events_total,list_too_many_objects_events_total,watch_too_many_objects_events_total</code></li>
+<li>当发生 list/watch too old, too large 及过多对象时记录指标(kube-apiserver)：<code> watch_too_old_objects_events_total</code>,<code>list_too_large_objects_events_total</code>,<code>list_too_many_objects_events_total</code>,<code>watch_too_many_objects_events_total</code></li>
 <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/108754">PR108754</a>，修复偶发挂载 ConfigMap/Secrets 卷时报未注册错误的问题。(kubelet)</li>
 <li>支持 Pod 资源原地更新。(kube-apiserver,kubelet)</li>
 </td>
