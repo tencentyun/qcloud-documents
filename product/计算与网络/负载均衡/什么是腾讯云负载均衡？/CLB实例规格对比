@@ -1,0 +1,46 @@
+CLB 实例规格分为：共享型和性能容量型。
+- 共享型实例在性能保障范围内，可独享性能上限，无需与其它实例共享集群资源。超出保障范围的部分与其他实例共享集群资源，可能存在性能抢占现象。
+- 性能容量型实例提供性能保障，在性能保障范围内无共享实例互相抢占资源，转发性能不受其它实例的影响。
+
+<table>
+<tr>
+<th  width="12%">对比项</th>
+<th width="44%">共享型</th>
+<th colspan="2" width="44%">性能容量型</th>
+</tr>
+<tr>
+<td rowspan="5">性能上限</td>
+<td rowspan="5">每分钟并发连接数：50,000，每秒新建连接数：5,000，每秒查询数：5000 </td>
+<td>按量计费</td>
+<td>超强型1（每分钟并发连接数：1,000,000，每秒新建连接数：100,000，每秒查询数：50,000，带宽上限：10Gbps）</td>
+</tr>
+<tr>
+<td rowspan="4">包年包月</td>
+<td>标准型（每分钟并发连接数：100,000，每秒新建连接数：10,000，每秒查询数：10,000，带宽上限：2Gbps）</td>
+
+</tr>
+<tr>
+<td>高阶型1（每分钟并发连接数：200,000，每秒新建连接数：20,000，每秒查询数：20,000，带宽上限：4Gbps）</td>
+</tr>
+<tr>
+<td>高阶型2（每分钟并发连接数：500,000，每秒新建连接数：50,000，每秒查询数：30,000，带宽上限：6Gbps）</td>
+</tr>
+<tr>
+<td>超强型1（每分钟并发连接数：1,000,000，每秒新建连接数：100,000，每秒查询数：50,000，带宽上限：10Gbps）</td>
+</tr>
+<tr>
+<td>限速能力</td>
+<td>超过性能上限保障范围的部分会与其它实例共享集群资源，可能存在性能抢占现象</td>
+<td  colspan="2">超过规格对应的性能上限后会被限速丢包</td>
+</tr>
+<tr>
+<td>计费项</td>
+<td><a href="https://cloud.tencent.com/document/product/214/8848">CLB 实例费</a>、<a href="https://cloud.tencent.com/document/product/214/42935">网络费</a>、<a href="https://cloud.tencent.com/document/product/214/42936">跨域绑定费</a></br>其中：</br><ul><li>仅公网 CLB 实例收取网络费用，内网 CLB 实例不收取网络费用</li><li>跨域绑定费仅开启跨地域绑定功能后会收取，不开启则不收取</li></ul></td>
+<td   colspan="2"><a href="https://cloud.tencent.com/document/product/214/8848">CLB 实例费</a>、<a href="https://cloud.tencent.com/document/product/214/42935">网络费</a>、<a href="https://cloud.tencent.com/document/product/214/58387">性能容量单位 LCU 费用</a>、<a href="https://cloud.tencent.com/document/product/214/42936">跨域绑定费</a></br>其中：</br><ul><li>仅公网 CLB 实例收取网络费用，内网 CLB 实例不收取网络费用</li><li>跨域绑定费仅开启跨地域绑定功能后会收取，不开启则不收取</li></ul></td>
+</tr>
+<tr>
+<td>产品能力</td>
+<td>无差异</td>
+<td   colspan="2">无差异</td>
+</tr>
+</table>

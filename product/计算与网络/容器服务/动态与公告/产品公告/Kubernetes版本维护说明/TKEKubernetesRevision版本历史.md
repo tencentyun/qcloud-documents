@@ -1,9 +1,63 @@
+## TKE kubernetes 1.24.4 revisions
+
+<dx-alert infotype="explain" title="">
+Kubernetes 1.24通过 Dockershim 对 Docker 的支持已移除，新建节点的容器运行时请使用 Containerd，通过 Docker 构建的镜像可以继续使用。更多信息可请参考 [Dockershim Removal FAQ](https://kubernetes.io/blog/2022/02/17/dockershim-faq/?spm=a2c4g.11186623.0.0.48413edcVJKrrD)。
+</dx-alert>
+
+
+<table>
+<thead>
+<tr><th width="13%">时间</th><th width="13%">版本</th><th width="74%">更新内容</th></tr>
+</thead>
+  <tbody>
+	  <tr>
+    <td>2022-12-08</td>
+    <td>v1.24.4-tke.3</td>
+    <td>
+		<li>支持 Containerd 运行时的磁盘用量指标。(kubelet)</li>
+		<li>支持扩展调度器 Prebind 及 Unreserve 操作。(kube-scheduler)</li>
+		<li>支持 TKE Serverless 超级节点。(kube-controller-manager,kube-scheduler)</li></td>
+  </tr>
+	    <tr>
+    <td>2022-05-07</td>
+    <td>v1.24.4-tke.1</td>
+		<td>
+<li>更新以镜像方式运行 kube-proxy 时的启动方式，自动适配所在节点的 iptables 运行模式，以支持默认使用 nf_tables 模式运行 iptables 的操作系统。(kube-proxy)</li>
+<li>允许 TKE 托管集群使用的特殊网段。(kube-apiserver)</li>
+<li>revert pr63066，修复 LB 健康检查与 IPVS 的问题。(kube-proxy)</li>
+<li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/112299">PR112299</a>，优化 apiserver gzip 压缩级别。</li></td>
+  </tbody>
+</table>
+
+
+
 ## TKE kubernetes 1.22.5 revisions
 <table>
 <thead>
 <tr><th width="13%">时间</th><th width="13%">版本</th><th width="74%">更新内容</th></tr>
 </thead>
   <tbody>
+			  <tr>
+    <td>2023-01-05</td>
+    <td>	v1.22.5-tke.8</td>
+    <td>
+<li>kube-apiserver 优先级和公平性的特性增强：(kube-apiserver)
+ <ul> a. 限速时考虑 list 请求的资源类型的对象数，对象数越多，并发 QPS 越低，APIServer 占用的资源也将显著减少，能有效提升集群稳定性，避免雪崩。若业务组件会发出大量 list 请求，升级后可能延时会增加、APIServer 返回限速重试等。
+ <br>b. 支持基于 userAgent 限速、支持令牌桶限速，支持对任意类型的组件进行限速、熔断。
+ <br>c. 支持对跟 watch 中的对象有关的更新请求进行限速，避免瞬间产生过多更新事件。</ul></li>
+<li>超级节点支持在需要时运行 DaemonSet Pod。(kube-controller-manager)</li>
+<li>支持超级节点 DaemonSet Pod 的 exec/logs 命令。(kube-apiserver)</li>
+<li>当发生 list/watch too old, too large 及过多对象时记录指标(kube-apiserver)：<code> watch_too_old_objects_events_total</code>,<code>list_too_large_objects_events_total</code>,<code>list_too_many_objects_events_total</code>,<code>watch_too_many_objects_events_total</code></li>
+<li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/108754">PR108754</a>，修复偶发挂载 ConfigMap/Secrets 卷时报未注册错误的问题。(kubelet)</li>
+<li>支持 Pod 资源原地更新。(kube-apiserver,kubelet)</li>
+</td>
+  </tr>
+		  <tr>
+    <td>2022-12-08</td>
+    <td>	v1.22.5-tke.7</td>
+    <td>修复容器网卡默认名称被设置为 eth1的问题。(kubelet)
+</td>
+  </tr>
 	  <tr>
     <td>2022-11-09</td>
     <td>v1.22.5-tke.6</td>
@@ -50,7 +104,28 @@
 <tr><th width="13%">时间</th><th width="13%">版本</th><th width="74%">更新内容</th></tr>
 </thead>
   <tbody>
-	    <tr>
+		  <tr>
+    <td>2023-01-05</td>
+    <td>v1.20.6-tke.30</td>
+    <td>
+<li> 合并 <a href="https://github.com/kubernetes/kubernetes/pull/104833">PR104833</a>，把 API 优先级和公平性中控制器的锁优化为读写锁。(kube-apiserver)</li>
+<li>超级节点支持在需要时运行 DaemonSet Pod。(kube-controller-manager)</li> 
+<li> 合并 <a href="https://github.com/kubernetes/kubernetes/pull/102576">PR102576</a>，删除遗留 Pod 卷时不再使用 RemoveAll，避免删除卷相关的数据。(kubelet)</li>
+<li> 允许带有特定 annotation 的 DaemonSet pod 调度到超级节点。(kube-controller-manager)</li> 
+<li> 为超级节点本地副本数策略添加开关。(kube-scheduler)</li> 
+<li>kube-apiserver 优先级和公平性的特性增强：(kube-apiserver)
+ <ul> a. 限速时考虑 list 请求的资源类型的对象数，对象数越多，并发 QPS 越低，APIServer 占用的资源也将显著减少，能有效提升集群稳定性，避免雪崩。若业务组件会发出大量 list 请求，升级后可能延时会增加、APIServer 返回限速重试等。
+ <br>b. 支持基于 userAgent 限速、支持令牌桶限速，支持对任意类型的组件进行限速、熔断。
+ <br>c. 支持对跟 watch 中的对象有关的更新请求进行限速，避免瞬间产生过多更新事件。</ul></li>
+<li>超级节点支持固定 IP。(kube-scheduler)</li>
+<li>为超级节点相关功能添加开关。(kube-scheduler)</li>
+<li>当发生 list/watch too old, too large 及过多对象时记录指标(kube-apiserver)：<code> watch_too_old_objects_events_total</code>,<code>list_too_large_objects_events_total</code>,<code>list_too_many_objects_events_total</code>,<code>watch_too_many_objects_events_total</code></li>
+<li>增加 Watch 缓存的容量指标：<code>watch_cache_capacity</code>。(kube-apiserver)</li>
+<li>使用 ConfigMap Informer 优化超级节点调度性能。(kube-scheduler)</li>
+<li>支持通过环境变量 DEFAULT_LOWER_BOUND_CAPACITY 设置 watch 缓存数量的最小值。(kube-apiserver)</li>
+<li>增加 AllowLocalConnection 开关，开启时允许外部请求访问本地地址。(kubelet)</li>
+</td>
+  </tr>
 				  <tr>
     <td>2022-11-09</td>
     <td>v1.20.6-tke.28</td>
@@ -148,6 +223,17 @@
 <tr><th width="13%">时间</th><th width="13%">版本</th><th width="74%">更新内容</th></tr>
 </thead>
 <tbody>
+<tr>
+    <td>2023-01-05</td>
+    <td>v1.18.4-tke.34</td>
+    <td>
+<li>超级节点支持在需要时运行 DaemonSet Pod。(kube-controller-manager)</li> 
+<li> 合并 <a href="https://github.com/kubernetes/kubernetes/pull/102576">PR102576</a>，删除遗留 Pod 卷时不再使用 RemoveAll，避免删除卷相关的数据。(kubelet)</li>
+<li> 原地更新支持降低资源 limit。(kube-apiserver)</li> 
+<li>修复日志轮转时未删除已终止容器的问题。(kubelet)</li>
+<li>当发生 list/watch too old, too large 及过多对象时记录指标(kube-apiserver)：<code> watch_too_old_objects_events_total</code>,<code>list_too_large_objects_events_total</code>,<code>list_too_many_objects_events_total</code>,<code>watch_too_many_objects_events_total</code></li>
+</td>
+  </tr>
 		  <tr>
     <td>2022-11-09</td>
     <td>	v1.18.4-tke.33</td>
@@ -309,7 +395,7 @@ TKE 支持混合云节点。(kube-controller-manager)</td>
 
 
 
-## TKE kubernetes 1.16.3 revisions
+## （停止维护）TKE kubernetes 1.16.3 revisions
 <table><thead>
 <tr><th width="13%">时间</th><th width="13%">版本</th><th width="74%">更新内容</th></tr>
 </thead>

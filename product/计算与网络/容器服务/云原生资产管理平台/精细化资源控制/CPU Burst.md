@@ -15,7 +15,7 @@
 3. 在修改 QoS Agent 的组件配置页面，勾选 **CPU Burst**。
 4. 单击**完成**。
 
-部署 PodQOS 对象，选择作用的 Pod 和 burstQuota
+部署 PodQOS 对象，选择作用的 Pod 和 burstQuota，示例如下：
 
 ```yaml
 apiVersion: ensurance.crane.io/v1alpha1
