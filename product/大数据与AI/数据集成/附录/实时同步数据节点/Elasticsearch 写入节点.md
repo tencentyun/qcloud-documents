@@ -1,25 +1,10 @@
-## ClickHouse
-支持的版本：
-
-| 节点 | Driver | Group Id|Artifact Id	|
-|---------|---------|---------|---------|	
-| ClickHouse	| ClickHouse| 	ru.yandex.clickhouse| 	clickhouse-jdbc| 
-
-### 配置 ClickHouse 节点
-1. 在数据集成页面左侧目录栏单击**实时同步**。
-2. 在实时同步页面上方选择**单表同步**新建（可选择表单和画布模式）并进入配置页面。
-3. 单击左侧**写入**，单击选择 ClickHouse 节点并配置节点信息。
-![](https://qcloudimg.tencent-cloud.cn/raw/34a8f1177a06560c5fc49f1d0b4db481.png)
-4. 预览字段并与写入节点配置字段映射，单击**保存**。
-
-## Elasticsearch
-支持的版本：
+## 支持的版本
 
 | 节点 | 版本|
 |---------|---------|
 | Elasticsearch	| Elasticsearch：6.x，7.x| 
 
-### 配置 Elasticsearch 节点
+## 配置 Elasticsearch 节点
 1. 在数据集成页面左侧目录栏单击**实时同步**。
 2. 在实时同步页面上方选择**单表同步**新建（可选择表单和画布模式）并进入配置页面。
 3. 单击左侧**写入**，单击选择 Elasticsearch 节点并配置节点信息。
@@ -58,17 +43,3 @@
 </tr>
 </tbody></table>
 5. 预览数据字段并与读取节点配置字段映射，单击**保存**。
-
-## Hive
-支持的版本：
-
-| 节点 | 版本|
-|---------|---------|
-|Hive 	|Hive: 1.x, 2.x, 3.x|
-
-### 配置 Hive 节点
-1. 在数据集成页面左侧目录栏单击**实时同步**。
-2. 在实时同步页面上方选择**单表同步**新建（可选择表单和画布模式）并进入配置页面。
-3. 单击左侧**写入**，单击选择 Hive 节点并配置节点信息。
-![](https://qcloudimg.tencent-cloud.cn/raw/3ff1d236356174c7a68e2889114dc356.png)
-4. 预览数据字段并与读取节点配置字段映射，单击**保存**。

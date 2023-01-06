@@ -6,6 +6,7 @@
 >!
 > - TMF不支持多进程，请您只在主进程进行初始化TMFBase。
 > - 初始化 TMFBase 需要您指定 buildNo, buildNo 是 TMF 引入的应用版本号，一般为6-7位数字，是应用更新、热修复判断版本更新的重要依据，具体使用规则请参见[ buildNo](https://cloud.tencent.com/document/product/1034/33148#buildNo)。
+> - 由于灰度时未正式发布新版，新包版本号仍为旧版本号，此时使用 buildNo 仍然可以比较版本大小，定向对灰度用户进行升级。
 > 
 ```java
 public class MyApplication extends Application {
