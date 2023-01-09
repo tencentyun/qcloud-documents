@@ -41,7 +41,7 @@
 <tr>
 <td>  APM_TOKEN</td>
 <td>您的 APM  实例对应的上报 Token</td>
-<td> 1. 在应用性能观测控制台-探针部署页面<br>选择 JAVA 语言-Opentelementry增强探上报方式。<br><br><img src="https://qcloudimg.tencent-cloud.cn/raw/1a9ed8112203421e565af4c108626c7e.png" width="70%"><br><br>2. 单击**下一步**，获取 Token。<br><img src="https://qcloudimg.tencent-cloud.cn/raw/c17e16415c3e201154a41f9a4b03b43f.png" width="70%"> </td>
+<td> 1. 在应用性能观测控制台-探针部署页面<br>选择 JAVA 语言-Opentelementry增强探上报方式。<br><br><img src="https://qcloudimg.tencent-cloud.cn/raw/1a9ed8112203421e565af4c108626c7e.png" width="70%"><br><br>2. 单击<b>下一步</b>，获取 Token。<br><img src="https://qcloudimg.tencent-cloud.cn/raw/c17e16415c3e201154a41f9a4b03b43f.png" width="70%"> </td>
 </tr>
 <tr>
 <td>CLUSTER_ID</td>
@@ -61,8 +61,12 @@
 
 **操作说明**
 您需要将新增的应用所在的 pod 打上 label，具体添加步骤可参考下列方法一或方法二：
+
+```
 -  java-agent-app-name: service-name    // 服务名，例如：order-service
 -  java-agent-injected: "true"                   // pod 是否需要注入，默认写 true
+```
+
 
 
 ####  方法一
@@ -73,15 +77,21 @@
 1. 进入 [容器服务控制台](https://console.cloud.tencent.com/tke2/cluster)，单击相关集群，进入工作负载-Deployment ，选择新建或修改 Deployment 。
 ![](https://qcloudimg.tencent-cloud.cn/raw/5fa3ed1ba4068155966ec30711eae2d4.png)
 2. 在 Labels  配置项中新增 label 。
+```
  - java-agent-app-name = service-name   
  - java-agent-injected = true
+```
+
 ![](https://qcloudimg.tencent-cloud.cn/raw/0484128dcb29edafd304803620312f74.png)
 3. 单击**创建 Deployment**，即新增完成。
 
 ####  方法二
 若已创建 Deployment，可直接点击 Deployment 名称修改 YAML 文件，按照如下格式修改。
+```
 -  java-agent-app-name: service-name 
 -  java-agent-injected: "true"  
+```
+
 ![](https://qcloudimg.tencent-cloud.cn/raw/c262ae8caa3fe588dc9dcc7001a5bcf4.png) 
 
 
