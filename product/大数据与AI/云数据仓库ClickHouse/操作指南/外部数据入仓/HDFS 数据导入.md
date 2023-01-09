@@ -1,4 +1,4 @@
-本文介绍如何从 [HDFS](https://cloud.tencent.com/product/chdfs) 中导入数据到云数据仓库 ClickHouse。
+本文介绍如何从 [HDFS](https://cloud.tencent.com/product/chdfs) 中导入数据到云数据仓库 ClickHouse。 
 
 ## 前提条件
 1. 访问 HDFS 的数据需要具备对 HDFS 的读权限。如何设置权限，请参见访问控制概述。

@@ -3,7 +3,7 @@
 ## 查看列表信息
 1. 登录 [SD-WAN 接入服务控制台](https://console.cloud.tencent.com/sas/edge)。
 2. 在实例列表中查看目标实例信息。
-	 ![](https://main.qcloudimg.com/raw/f7f65dad0017451d59197a9224ebe431.png)
+![](https://main.qcloudimg.com/raw/f7f65dad0017451d59197a9224ebe431.png)
 <table>
 <thead>
 <tr>

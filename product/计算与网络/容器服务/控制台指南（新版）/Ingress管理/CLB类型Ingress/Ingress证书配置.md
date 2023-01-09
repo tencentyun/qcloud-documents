@@ -18,8 +18,9 @@
 
 
 ## 示例
-TKE 支持通过 Ingress 中的 `spec.tls` 的字段，为 Ingress 创建的 CLB HTTPS 监听器配置证书。其中，secretName 为包含腾讯云证书 ID 的 Kubernetes Secret 资源。  示例如下：
+TKE 支持通过 Ingress 中的 `spec.tls` 的字段，为 Ingress 创建的 CLB HTTPS 监听器配置证书。其中，secretName 为包含腾讯云证书 ID 的 Kubernetes Secret 资源。示例如下：
 #### Ingress
+通过 YAML 创建：
 ```yaml
 spec:
     tls:
@@ -29,7 +30,8 @@ spec:
 ```
 
 #### Secret
-- 通过 YAML 进行创建：
+<dx-tabs>
+::: 通过 YAML 创建
 ```yaml
 apiVersion: v1
 stringData:
@@ -40,14 +42,19 @@ metadata:
     namespace: default
 type: Opaque
 ```
+:::
+::: 通过控制台创建
+您可以通过**容器服务控制台**创建，操作详情可参考 [创建 Secret](https://cloud.tencent.com/document/product/457/31718#.E5.88.9B.E5.BB.BA-secret)。
+在“新建Secret” 页面，Secret 主要参数配置如下：
+ - **名称**：自定义，本文以 cos-secret 为例。
+ - **Secret类型**：选择 **Opaque**，该类型适用于保存密钥证书和配置文件，Value 将以 Base64 格式编码。
+ - **生效范围**：按需选择，需确保与 Ingress 在同一 Namespace 下。
+ - **内容**：变量名设置为 `qcloud_cert_id`，变量值配置为服务器证书所对应的证书 ID。
 
-- 通过**容器服务控制台 **进行创建：
-  操作详情可参考 [创建 Secret](https://cloud.tencent.com/document/product/457/31718#.E5.88.9B.E5.BB.BA-secret)。在“新建Secret” 页面，Secret 主要参数配置如下：
-    - **名称**：自定义，本文以 cos-secret 为例。
-    - **Secret类型**：选择 **Opaque**，该类型适用于保存密钥证书和配置文件，Value 将以 Base64 格式编码。
-    - **生效范围**：按需选择，需确保与 Ingress 在同一 Namespace 下。
-    - **内容**：变量名设置为 `qcloud_cert_id`，变量值配置为 qcloud_cert_id 所对应的证书 ID。
+:::
+</dx-tabs>
 
+>! 若您需要配置双向证书，则 Secret 除了要添加“服务器证书”外，还需要添加“客户端CA证书”。此时该 Secret 还需要额外添加一个键值对：变量名为：`qcloud_ca_cert_id`，变量值配置为“客户端CA证书”所对应的证书ID。
 
 
 ## Ingress 证书配置行为
@@ -129,20 +136,23 @@ kubectl edit secrets [secret-name]
 与创建 Secret 相同，修改 Secret 证书 ID 需要进行 Base64 编码，请根据实际需求选择 Base64 手动编码或者指定 `stringData` 进行 Base64 自动编码。
 
 ### 更新 Ingress 对象
-
-#### 通过控制台更新
-1. 登录 [腾讯云容器服务控制台 ](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的**集群**。
+<dx-tabs>
+::: 通过控制台更新
+1. 登录 [腾讯云容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的**集群**。
 2. 在“集群管理”页面，选择需修改 Ingress 的集群 ID。
 3. 在集群详情页，选择左侧**服务与路由** > **Ingress**。如下图所示：
 ![](https://main.qcloudimg.com/raw/69e9c55ea644144ea5848c98b9d0462a.png)
 4. 单击目标 Ingress 所在行右侧的**更新转发配置**。
 5. 在“更新转发配置”页面中，根据实际情况进行转发配置规则更新。
 6. 单击**更新转发配置**即可完成更新操作。
-
-#### 通过 yaml 更新
+:::
+::: 通过 YAML 更新
 执行以下命令，使用默认编辑器打开需修改的 ingress，修改 yaml 文件并保存即可完成更新操作。
 ```
 kubectl edit ingress <ingressname> -n <namespaces>
 ```
+:::
+</dx-tabs>
+ 
 
 

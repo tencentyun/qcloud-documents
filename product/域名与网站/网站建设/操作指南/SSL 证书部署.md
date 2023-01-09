@@ -24,7 +24,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/64726d0c23668f5abe4e75d26abb9678.png)
 4. 在弹出的 “开启 https 窗口” 中，单击**浏览**上传证书与私钥文件。如下图所示：
 ![](https://main.qcloudimg.com/raw/d276400ebbd532393623d3dfe4f30cad.png)
- - **证书文件**：请上传证书目录下 .crt 后缀证书文件。
+ - **证书文件**：请上传证书目录下 .crt 或 .pem 后缀证书文件。
  - **私钥文件**：请上传证书目录下 .key 后缀私钥文件。
 5. 单击**确认上传**。证书状态为 “证书部署成功” 即可完成部署证书操作。如下图所示：
 ![](https://main.qcloudimg.com/raw/a66d1a4865cc733d8e7fc635ad913eb2.png)

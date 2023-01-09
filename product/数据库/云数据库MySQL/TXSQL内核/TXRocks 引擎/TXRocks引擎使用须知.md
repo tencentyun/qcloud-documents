@@ -1,7 +1,7 @@
 TXRocks 是腾讯 TXSQL 团队基于 RocksDB 开发的事务型存储引擎，兼具更加节省存储空间和写⼊放⼤更低的优势。
 
 ## 产品介绍
-TXRocks 是腾讯 TXSQL 团队基于 RocksDB 的事务型存储引擎，得益于 RocksDB LSM Tree 存储结构，既减少了 InnoDB ⻚⾯半满和碎⽚浪费，⼜可以使⽤紧凑格式存储，因此 TXRocks 在保持与 InnoDB 接近的性能的前提下，存储空间相⽐ InnoDB 可以节省⼀半甚⾄更多，⾮常适合对事务读写性能有要求，且数据存储量⼤的业务。
+TXRocks 是腾讯 TXSQL 团队基于 RocksDB 的事务型存储引擎，得益于 RocksDB LSM Tree 存储结构，既减少了 InnoDB 页面半满和碎片浪费，又可以使用紧凑格式存储，因此 TXRocks 在保持与 InnoDB 接近性能的前提下，存储空间相比 InnoDB 可以节省一半甚至更多，非常适合对事物读写性能有要求，且数据存储量大的业务。
 
 ## 前提条件
 数据库版本须为 MySQL 5.7、8.0，架构为双节点。

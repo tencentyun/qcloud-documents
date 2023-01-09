@@ -32,7 +32,10 @@
 </tr>
 <tr>
 <td>启用长连接</td>
-<td>启用后，CLB 与后端服务之间使用长连接，CLB 不再透传源 IP，请从 XFF 中获取源 IP。为保证正常转发，请在 CLB 上打开安全组默认放通或者在 CVM 的安全组上放通 `100.127.0.0/16`。</td>
+<td>开启后，CLB 与后端服务之间使用长连接，CLB 不再透传源 IP，请从 XFF 中获取源 IP。为保证正常转发，请在 CLB 上打开安全组默认放通或者在 CVM 的安全组上放通100.127.0.0/16。
+<dx-alert infotype="explain" title="">
+开启后，CLB 与后端服务的连接数范围在请求[QPS, QPS*60]区间波动，具体数值取决于连接复用率。若后端服务对连接数上限有限制，则建议谨慎开启。此功能目前处于内测中，如需使用，请提交 [内测申请](https://cloud.tencent.com/apply/p/tsodp6qm21)。
+</dx-alert></td>
 <td><span>选择已有证书</span></td>
 </tr>
 <tr>

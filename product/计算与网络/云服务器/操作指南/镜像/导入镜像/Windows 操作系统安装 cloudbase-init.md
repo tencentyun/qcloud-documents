@@ -85,3 +85,4 @@ volumes_to_extend=1,2
  - 如存在 Unblock 选项，则需勾选 Unblock，并单击 **OK** 退出。 
  - 如不存在 Unblock 选项，则请跳过本步骤。
 5. 将 `C:\Program Files\Cloudbase Solutions\Cloudbase-Init\Python\Lib\site-packages\cloudbaseinit\plugins\common` 路径下的 `localscripts.py` 替换为 [准备软件](#PreparationSoftware) 中的  `localscripts.py` 文件。
+

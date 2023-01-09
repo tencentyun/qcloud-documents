@@ -32,7 +32,10 @@ COS 通过数据万象 imageMogr2 接口提供 HEIF 压缩功能。
 #### 1. 下载时处理
 
 ```plaintext
-download_url?imageMogr2/format/heif
+GET /<ObjectKey>?imageMogr2/format/heif HTTP/1.1
+Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
+Date: <GMT Date>
+Authorization: <Auth String>
 ```
 
 #### 2. 上传时处理
@@ -52,6 +55,9 @@ Pic-Operations:
 }
 ```
 
+>? Pic-Operations 为 json 格式的字符串，具体参数信息可参考 [图片持久化处理](https://cloud.tencent.com/document/product/460/18147)。
+>
+
 #### 3. 云上数据处理
 
 ```http
@@ -70,17 +76,21 @@ Pic-Operations:
 }
 ```
 
->? 本篇文档中的实际案例仅包含**下载时处理**，该类处理不会保存处理后的图片至存储桶。如有保存需求，请使用**上传时处理**或**云上数据处理**方式。
->
+>? 
+> - Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+> - 通过子账号使用时，需要授予相关的权限，详情请参见 [授权粒度详情](https://cloud.tencent.com/document/product/460/41741) 文档。
+> 
 
 ## 处理参数说明
 
 | 参数             | 含义                                                         |
 | :--------------- | :----------------------------------------------------------- |
-| download_url     | 文件的访问链接，具体构成为&lt;BucketName-APPID>.cos.&lt;Region>.myqcloud.com/&lt;picture name>， 例如`examplebucket-1250000000.cos.ap-shanghai.myqcloud.com/picture.jpeg`。 |
+| ObjectKey  | 对象文件名，例如 folder/sample.jpg。                           | 
 | /format/&lt;Format> | 压缩格式，此处为 heif。                                       |
 
 ## 实际案例
+
+>? 本篇文档中的实际案例仅包含**下载时处理**，该类处理不会保存处理后的图片至存储桶。如有保存需求，请使用**上传时处理**或**云上数据处理**方式。
 
 假设原图格式为 png，图片大小为1335.2KB，如下图所示。
 ![img](https://example-1258125638.cos.ap-shanghai.myqcloud.com/sample.png)

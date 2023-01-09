@@ -429,7 +429,7 @@ table td {
 </table>
 
 >?跟 OBS 的差异?
-移动直播 SDK 相比于 OBS 功能较少，唯一的优势在于低延迟，配合 TXLivePlayer 的 RTMP_ACC 超低延时播放，可以将达到400ms以内的延迟效果。
+直播 SDK 相比于 OBS 功能较少，唯一的优势在于低延迟，配合 TXLivePlayer 的 RTMP_ACC 超低延时播放，可以将达到400ms以内的延迟效果。
 
 <h2 id="XiaoChengXu">小程序源码（1.2.693）</h2>
 

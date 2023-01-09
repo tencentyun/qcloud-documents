@@ -23,6 +23,8 @@ COS 通过数据万象 imageMogr2 接口提供 WebP 压缩功能。
 >?
 >- WebP 压缩为付费服务，费用同基础图片处理，由数据万象收取，具体费用请参见数据万象 [图片处理费用](https://cloud.tencent.com/document/product/460/58117)。
 >- 图片转换为 WebP 格式后，部分浏览器无法读取 WebP 图片的 exif 信息，导致没有旋转。您可参见 [旋转](https://cloud.tencent.com/document/product/436/44882) 文档，增加 auto-orient 参数，对原图旋转后再进行压缩。
+>- WebP 压缩默认继承原始图片的质量参数。您可参见 [质量变换](https://cloud.tencent.com/document/product/436/44884) 文档，通过修改图片质量来调节压缩率。
+>
 
 
 
@@ -31,7 +33,10 @@ COS 通过数据万象 imageMogr2 接口提供 WebP 压缩功能。
 #### 1. 下载时处理
 
 ```plaintext
-download_url?imageMogr2/format/webp
+GET /<ObjectKey>?imageMogr2/format/webp HTTP/1.1
+Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
+Date: <GMT Date>
+Authorization: <Auth String>
 ```
 
 #### 2. 上传时处理
@@ -51,6 +56,9 @@ Pic-Operations:
 }
 ```
 
+>? Pic-Operations 为 json 格式的字符串，具体参数信息可参考 [图片持久化处理](https://cloud.tencent.com/document/product/460/18147)。
+>
+
 #### 3. 云上数据处理
 
 ```http
@@ -69,17 +77,23 @@ Pic-Operations:
 }
 ```
 
->? 本篇文档中的实际案例仅包含**下载时处理**，该类处理不会保存处理后的图片至存储桶。如有保存需求，请使用**上传时处理**或**云上数据处理**方式。
->
+>? 
+> - Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+> - 通过子账号使用时，需要授予相关的权限，详情请参见 [授权粒度详情](https://cloud.tencent.com/document/product/460/41741) 文档。
+
+
 
 ## 处理参数说明
 
 | 参数             | 含义                                                         |
 | :--------------- | :----------------------------------------------------------- |
-| download_url     | 文件的访问链接，具体构成为&lt;BucketName-APPID>.cos.&lt;Region>.myqcloud.com/&lt;picture name>， 例如`examplebucket-1250000000.cos.ap-shanghai.myqcloud.com/picture.jpeg`。 |
+| ObjectKey  | 对象文件名，例如 folder/sample.jpg。                           |
 | /format/&lt;Format> | 压缩格式，此处为 webp。                                       |
 
 ## 实际案例
+
+>? 本篇文档中的实际案例仅包含**下载时处理**，该类处理不会保存处理后的图片至存储桶。如有保存需求，请使用**上传时处理**或**云上数据处理**方式。
+>
 
 假设原图格式为 png，图片大小为1335.2KB，如下图所示：
 ![img](https://example-1258125638.cos.ap-shanghai.myqcloud.com/sample.png)

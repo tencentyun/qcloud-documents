@@ -9,16 +9,13 @@ $ kubectl create ns fluid-system
 
 ### 2. 下载 fluid
 
-下载 [fluid-0.6.0.tgz](https://cos-data-lake-release-1253960454.cos.ap-guangzhou.myqcloud.com/fluid.tgz) 安装包。
-
->!您也可以前往 Fluid 官方页面 [Fluid Releases](https://github.com/fluid-cloudnative/fluid/releases) 中下载最新版本，但一些机器从中国境内访问时可能存在网络问题。
->
+您可以前往 Fluid 官方页面 [Fluid Releases](https://github.com/fluid-cloudnative/fluid/releases) 中下载 Fluid 0.6.0 以上版本；默认情况下，推荐使用最新版本。
 
 
 ### 3. 使用 Helm 安装 Fluid
 
 ```shell
-$ helm install --set runtime.goosefs.enabled=true fluid fluid-0.6.0.tgz
+$ helm install --set runtime.goosefs.enabled=true fluid fluid-0.8.0.tgz
 ```
 
 ### 4. 查看 Fluid 的运行状态
@@ -38,7 +35,7 @@ goosefsruntime-controller-654fb74447-cldsv     1/1     Running   0          108s
 
 ### 5. 自定义镜像
 
-解压 `fluid-0.6.0.tgz`，修改默认`values.yaml`文件：
+解压 `fluid-0.8.0.tgz`，修改默认`values.yaml`文件：
 ```yaml
 runtime:
   mountRoot: /runtime-mnt
@@ -47,18 +44,18 @@ runtime:
     portRange: 26000-32000
     enabled: false
     init:
-      image: fluidcloudnative/init-users:v0.6.0-116a5be
+      image: fluidcloudnative/init-users:v0.8.0-116a5be
     controller:
-      image: fluidcloudnative/goosefsruntime-controller:v0.6.0-116a5be
+      image: fluidcloudnative/goosefsruntime-controller:v0.8.0-116a5be
     runtime:
-      image: ccr.ccs.tencentyun.com/goosefs/goosefs:v1.0.1
+      image: ccr.ccs.tencentyun.com/qcloud/goosefs:v1.2.0
     fuse:
-      image: ccr.ccs.tencentyun.com/goosefs/goosefs-fuse:v1.0.1
+      image: ccr.ccs.tencentyun.com/qcloud/goosefs:v1.2.0
 ```
 
 您可以修改 `goosefs` 相关的默认 `image` 内容，如放到自己的 `repo` 上。待修改完成后，重新使用 `helm package fluid` 打包，并使用如下命令，更新`fluid`版本。
 ```shell
-helm upgrade --install fluid fluid-0.6.0.tgz
+helm upgrade --install fluid fluid-0.8.0.tgz
 ```
 
 ### 6. 更新 crd
@@ -80,7 +77,7 @@ goosefsruntimes.data.fluid.io                    2021-04-13T13:31:38Z
 kubectl delete crd goosefsruntimes.data.fluid.io
 ```
 
-然后解压 `fluid-0.6.0.tgz`：
+然后解压 `fluid-0.8.0.tgz`：
 
 ```shell
 $ ls -l fluid/

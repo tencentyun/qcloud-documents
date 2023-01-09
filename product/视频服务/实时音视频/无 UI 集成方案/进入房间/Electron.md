@@ -67,11 +67,11 @@ TRTCParams 由很多的字段构成，但通常您只需要关心如下几个字
 import { TRTCParams, TRTCRoleType, TRTCAppScene } from 'trtc-electron-sdk';
 
 const param = new TRTCParams();
-params.sdkAppId = 1400000123;
-params.userId = "denny";  
-params.roomId = 123321;
-params.userSig = "xxx";
-params.role = TRTCRoleType.TRTCRoleAnchor;
+param.sdkAppId = 1400000123;
+param.userId = "denny";  
+param.roomId = 123321;
+param.userSig = "xxx";
+param.role = TRTCRoleType.TRTCRoleAnchor;
 
 // 如果您的场景是“在线直播”，请将应用场景设置为 TRTC_APP_SCENE_LIVE
 rtcCloud.enterRoom(param, TRTCAppScene.TRTCAppSceneLIVE);

@@ -205,7 +205,7 @@ func main() {
 ```
 
 ### 使用临时证书上传
-传入临时证书的相关密钥信息，使用临时证书验证身份并进行上传。
+传入 [临时证书](https://cloud.tencent.com/document/product/1312/48195) 的相关密钥信息，使用临时证书验证身份并进行上传。
 ```
 package main
 

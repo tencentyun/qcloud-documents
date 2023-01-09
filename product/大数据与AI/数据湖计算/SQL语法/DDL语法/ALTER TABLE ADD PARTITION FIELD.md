@@ -1,6 +1,9 @@
-对 Iceberg 表新增分区字段信息。
-## 语法
+## 说明
+- 支持内核：Presto、SparkSQL。
+- 适用表范围：原生 Iceberg 表、外部表。
+- 用途：为数据表新增单个分区字段。
 
+## 标准语法
 ```
 ALTER TABLE table_name ADD PARTITION partition_column | hidden_partition_spec [AS alias]
 
@@ -28,7 +31,6 @@ ALTER TABLE prod.db.sample ADD PARTITION FIELD truncate(data, 4)
 ALTER TABLE prod.db.sample ADD PARTITION FIELD years(ts)
 -- use optional AS keyword to specify a custom name for the partition field 
 ALTER TABLE prod.db.sample ADD PARTITION FIELD bucket(16, id) AS shard
-
 ```
 
 

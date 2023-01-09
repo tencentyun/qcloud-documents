@@ -1,5 +1,5 @@
 
-本文说明 VPC-CNI 各网络模式 Pod 数量默认限制，如不满足需求，可以 [提交工单](https://console.cloud.tencent.com/workorder/category/create?level1_id=6&level2_id=350&level1_name=%E8%AE%A1%E7%AE%97%E4%B8%8E%E7%BD%91%E7%BB%9C&level2_name=%E5%AE%B9%E5%99%A8%E6%9C%8D%E5%8A%A1CCS) 调整限制。
+本文说明 VPC-CNI 各网络模式 Pod 数量默认限制。
 
 ## 共享网卡 Pod 数量限制
 
@@ -15,12 +15,14 @@
 	<td>单网卡可绑定辅助 IP 数</td><td>5</td><td>9</td><td>19</td><td>29</td>
 </tr>
 <tr>
-	<td>非固定 IP 模式（多网卡）单节点 Pod IP 上限</td><td>5</td><td>27</td><td>95</td><td>203</td>
+	<td>单节点 Pod IP 上限（多网卡）</td><td>5</td><td>27</td><td>95</td><td>203</td>
 </tr>
 <tr>
-	<td>固定 IP 模式（单网卡）单节点 Pod IP 上限</td><td>5</td><td>9</td><td>19</td><td>29</td>
+	<td>单节点 Pod IP 上限（单网卡）</td><td>5</td><td>9</td><td>19</td><td>29</td>
 </tr>
 </table>
+
+>! 支持多网卡的组件版本（非固定 IP 模式 ≥ v3.3，固定 IP 模式 ≥ v3.4）。
 
 各机型可绑定的网卡数量和单网卡可绑定的 IP 数量略有差异， 详情见 [弹性网卡使用限制](https://cloud.tencent.com/document/product/576/18527)。
 

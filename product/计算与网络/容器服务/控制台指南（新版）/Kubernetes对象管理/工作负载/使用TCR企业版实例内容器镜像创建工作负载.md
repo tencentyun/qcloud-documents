@@ -15,13 +15,13 @@
 #### 创建命名空间
 新建的 TCR 企业版实例内无默认命名空间，且无法通过推送镜像自动创建。请参考 [创建命名空间](https://cloud.tencent.com/document/product/1141/41803#.E5.88.9B.E5.BB.BA.E5.91.BD.E5.90.8D.E7.A9.BA.E9.97.B4) 按需完成创建。
 建议命名空间名使用项目或团队名，本文以 `docker` 为例。创建成功后如下图所示：
-![](https://main.qcloudimg.com/raw/0863439831b93c49a243dccaeb0a9806.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/4db7d7f818d36fed176765221b441c65.png)
 
 #### 创建镜像仓库（可选）
 容器镜像托管在具体的镜像仓库内，请参考 [创建镜像仓库](https://cloud.tencent.com/document/product/1141/41811#.E5.88.9B.E5.BB.BA.E9.95.9C.E5.83.8F.E4.BB.93.E5.BA.93) 按需完成创建。镜像仓库名称请设置为期望部署的容器镜像名称，本文以 `getting-started` 为例。创建成功后如下图所示：
 >?通过 docker cli 或其他镜像工具，例如 jenkins 推送镜像至企业版实例内时，若镜像仓库不存在，将会自动创建，无需提前手动创建。
 >
-![](https://main.qcloudimg.com/raw/e2af4a28cdfe97f47bd54a24a61af88d.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/60990e3edfc5c826199965961fb3ec9e.png)
 
 #### 推送容器镜像
 您可通过 docker cli 或其他镜像构建工具，例如 jenkins 推送镜像至指定镜像仓库内，本文以 docker cli 为例。此步骤需要您使用一台安装有 Docker 的云服务器或物理机，并确保访问的客户端已在 [配置网络访问策略](https://cloud.tencent.com/document/product/1141/41836) 定义的公网或内网允许访问范围内。
@@ -39,7 +39,7 @@ docker push demo-tcr.tencentcloudcr.com/docker/getting-started:latest
 ### 配置 TKE 集群访问 TCR 实例[](id:deployTKE)
 TCR 企业版实例支持网络访问控制，默认拒绝全部来源的外部访问。您可根据 TKE 集群的网络配置，选择通过公网或内网访问指定实例，拉取容器镜像。若 TKE 集群与 TCR 实例部署在同一地域，建议通过内网访问方式拉取容器镜像，可提升拉取速度，并节约公网流量成本。
 #### 使用 TCR 扩展组件进行快速配置（推荐）
-1. 登录容器服务控制台 ，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
+1. 登录容器服务控制台，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
 2. 在“集群管理”页面，选择集群 ID，进入集群详情页。  
 3. 在集群详情页面，选择左侧**组件管理**，进入“组件管理”页面，并单击**新建**。
 4. 在“新建扩展组件”页面，选择 “TCR” 组件。如下图所示：
@@ -77,7 +77,7 @@ echo '172.21.17.69 demo.tencentcloudcr.com' >> /etc/hosts
 
 #### 2. 配置访问凭证[](id:issued)
 新建命名空间时参考以下步骤，下发访问凭证：
-1. 登录容器服务控制台 ，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
+1. 登录容器服务控制台，选择左侧导航栏中的 **[集群](https://console.cloud.tencent.com/tke2/cluster)**。
 2. 在“集群管理”页面，选择集群 ID，进入集群详情页。
 3. 选择左侧的**命名空间**，进入 “Namespace” 页面并单击**新建**。
 4. 进入“新建Namespace” 页面，勾选“自动下发容器镜像服务企业版访问凭证”，并选择该集群需访问的 TCR 实例。如下图所示：

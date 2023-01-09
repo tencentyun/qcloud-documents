@@ -12,7 +12,7 @@ Nginx Controller 需要搜集以下日志并提供给用户：
 
 
 ## 前提条件 
-已在容器服务控制台 的 **[功能管理](https://console.cloud.tencent.com/tke2/ops/list?rid=8)**中开启日志采集，详情参见 [开启日志采集](https://cloud.tencent.com/document/product/457/36771)。
+已在容器服务控制台的 **[功能管理](https://console.cloud.tencent.com/tke2/ops/list?rid=8)** 中开启日志采集，详情参见 [开启日志采集](https://cloud.tencent.com/document/product/457/36771)。
 
 
 
@@ -92,3 +92,9 @@ spec:
 
 TKE Nginx-ingress 开启日志采集功能将会自动为您创建一个标准的日志仪表盘，您也可以根据业务需要自行在 CLS 控制台配置图表。如下图所示：
 ![](https://main.qcloudimg.com/raw/28674bb949ed77839b707cf80841e879.png)
+
+
+
+## 相关文档
+
+如果需要自定义日志采集规则和索引，请参考 [NginxIngress 自定义日志](https://cloud.tencent.com/document/product/457/77840)。

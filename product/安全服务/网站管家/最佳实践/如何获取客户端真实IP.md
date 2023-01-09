@@ -1,6 +1,6 @@
 ## WAF 获取客户端真实 IP 说明
 WAF 通过反向代理的方式实现网站安全防护，用户访问 WAF 防护的域名时，会在 HTTP 头部字段中添加一条 X-Forwarded-For 记录，用于记录用户真实 IP，其记录格式为 `X-Forwarded-For:用户 IP`。如果用户访问域名存在多级代理，WAF 将记录靠近 WAF 上一条的代理服务器 IP。例如：
-场景一：用户＞WAF＞源站，X-Forwarded-For 记录为：`X-Forwarded-For:用户真实 IP`
+场景一：用户＞WAF＞源站，X-Forwarded-For 记录为：`X-Forwarded-For:用户真实 IP`。
 场景二：用户＞CDN > WAF＞源站，X-Forwarded-For 记录为： `X-Forwarded-For:用户真实 IP,X-Forwarded-For:CDN 回源地址`。
 >?
 	>- 场景二中，需要在 WAF [添加域名](https://console.cloud.tencent.com/guanjia/waf/config/add) 时，选择代理情况为“是”，选择代理接入后，可能存在客户端 IP 被伪造的风险。如果您使用腾讯云 CDN，不存在客户端 IP 被伪造的风险，腾讯云 CDN 会对 X-Forwarded-For 信息进重置，只填写 CDN 获取的客户端 IP。（如果使用代理接入，攻击者需要在能直接对 WAF VIP 地址进行请求的情况下才会产生影响，代理接入时用户无法探测到 WAF VIP 地址，请避免代理接入时 WAF VIP 地址泄露）。
@@ -14,15 +14,15 @@ WAF 通过反向代理的方式实现网站安全防护，用户访问 WAF 防�
 
 ## [IIS 7 配置方案](id:IIS7)
 1. 下载与安装插件 [F5XForwardedFor](https://devcentral.f5.com/s/articles/x-forwarded-for-log-filter-for-windows-servers) 模块，根据自己的服务器操作系统版本将`x86\Release`或者`x64\Release`目录下的`F5XFFHttpModule.dll`和`F5XFFHttpModule.ini`拷贝到某个目录，这里假设为`C:\F5XForwardedFor`，确保 IIS 进程对该目录有读取权限。
-2. 选择【IIS 服务器】，双击【模块】功能。
+2. 选择 **IIS 服务器**，双击**模块**功能。
 ![](https://main.qcloudimg.com/raw/1682f2fd88f83f059d871013f5e76451.png)
-3. 单击【配置本机模块】。
+3. 单击**配置本机模块**。
 ![](https://main.qcloudimg.com/raw/bdc74f95150f9d3d88dcbb0f5e81ec9e.png)
-4. 在弹出框中单击【注册】。
+4. 在弹出框中单击**注册**。
 ![](https://main.qcloudimg.com/raw/3638128094c12515cb30de141524bfd0.png)
 5. 添加下载的 DLL 文件，如下图所示：
 ![](https://main.qcloudimg.com/raw/9f8fac869d34ac4e308bd3c428da10af.png)
-6. 添加完成后，勾选并单击【确定】。
+6. 添加完成后，勾选并单击**确定**。
 ![](https://main.qcloudimg.com/raw/aa8de7ebd04123fde03e9d1d487447bf.png)
 7. 在 IIS 服务器的 “ISAPI 和 CGI 限制”中，添加如上两个 DLL ，并将限制设置为允许。
 ![](https://main.qcloudimg.com/raw/57243f4da04233238db2de9690ed7f1d.png)
@@ -54,7 +54,7 @@ RPAFheader X-Forwarded-For
 
 
 ## [Nginx 配置方案](id:Nginx)
-1. 当 Nginx 作为服务器时，获取客户端真实 IP，需使用 http_realip_module 模块，默认安装的 Nginx 是没有编译 http_realip_module 模块的，需要重新编译 Nginx，在configure 增加 --with-http_realip_module 选项， 确保 http_realip_module 模块编译进 nginx 中 。编译代码如下：
+1. 当 Nginx 作为服务器时，获取客户端真实 IP，需使用 http_realip_module 模块，默认安装的 Nginx 是没有编译 http_realip_module 模块的，需要重新编译 Nginx，在 configure 增加 --with-http_realip_module 选项，确保 http_realip_module 模块编译进 nginx 中。编译代码如下：
 ```
 wget  http://nginx.org/download/nginx-1.14.0.tar.gz 
 tar  zxvf nginx-1.14.0.tar.gz 

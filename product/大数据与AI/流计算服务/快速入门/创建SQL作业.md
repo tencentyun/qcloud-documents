@@ -3,7 +3,7 @@
 流计算作业 SQL 作业需运行于流计算独享集群，若还没有集群，请参考 [创建独享集群](https://cloud.tencent.com/document/product/849/48298)。
 
 ## 步骤1：创建 SQL 作业
-登录 [流计算 Oceanus 控制台](https://console.cloud.tencent.com/oceanus)，进入某一工作空间后，单击左侧导航**作业管理**，进入作业管理页面，单击**新建作业**，作业类型选中 SQL 作业，输入作业名称，并选择一个运行中的集群，新建的 SQL 作业将运行于此集群，单击**确定**后，即成功创建作业。
+登录 [流计算 Oceanus 控制台](https://console.cloud.tencent.com/oceanus)，进入某一工作空间后，单击左侧导航**作业管理**，进入作业管理页面，单击**新建作业**，作业类型选中 SQL 作业，输入作业名称，并选择一个运行中的集群，新建的 SQL 作业将运行于此集群，单击**确定**后，即成功创建作业。 
 ![](https://qcloudimg.tencent-cloud.cn/raw/5361c726541f973bebc7cc6ba6ab1415.png)
 
 ## 步骤2：流计算服务委托授权

@@ -1,4 +1,4 @@
-TUIRoom 是基于腾讯云实时音视频（TRTC）和即时通信 IM 服务组合而成的，支持以下功能：
+﻿TUIRoom 是基于腾讯云实时音视频（TRTC）和即时通信 IM 服务组合而成的，支持以下功能：
 - 主持人创建房间，参会人员输入房间号后进入房间。
 - 参会人员之间进行屏幕分享。
 - 支持发送各种文本消息和自定义消息。
@@ -29,7 +29,7 @@ TUIRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体�
 | [CreateRoom](#createroom)                 | 创建房间（主持人调用）。           |
 | [DestroyRoom](#destroyroom)               | 销毁房间（主持人调用）。           |
 | [EnterRoom](#enterroom)                   | 进入房间（参会成员调用）。         |
-| [LeaveRoom](#leaveroom)                   | 离开房间（参会成员或主持人调用）。 |
+| [LeaveRoom](#leaveroom)                   | 离开房间（参会成员调用）。 |
 | [GetRoomInfo](#getroominfo)               | 获取房间信息。                     |
 | [GetRoomUsers](#getroomusers)             | 获取房间内所有成员信息。           |
 | [GetUserInfo](#getuserinfo)               | 获取某个用户的信息。               |
@@ -76,16 +76,16 @@ TUIRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体�
 | [StartCallingRoll](#startcallingroll)               | 主持人开始点名。                                        |
 | [StopCallingRoll](#stopcallingroll)                 | 主持人结束点名。                                        |
 | [ReplyCallingRoll](#replycallingroll)               | 成员回复主持人点名。                                    |
-| [SendSpeechInvitation](#sendspeechinvitation)       | 主持人邀请成员发言。                                    |
-| [CancelSpeechInvitation](#cancelspeechinvitation)   | 主持人取消邀请成员发言。                                |
-| [ReplySpeechInvitation](#replyspeechinvitation)     | 成员同意/拒绝主持人的申请发言。                         |
-| [SendSpeechApplication](#sendspeechapplication)     | 成员申请发言。                                          |
-| [CancelSpeechApplication](#cancelspeechapplication) | 成员取消申请发言。                                      |
-| [ReplySpeechApplication](#replyspeechapplication)   | 主持人同意/拒绝成员的申请发言。                         |
+| [SendSpeechInvitation](#sendspeechinvitation)       | 主持人邀请参会成员发言。                                    |
+| [CancelSpeechInvitation](#cancelspeechinvitation)   | 主持人取消邀请参会成员发言。                                |
+| [ReplySpeechInvitation](#replyspeechinvitation)     | 参会成员同意/拒绝主持人的申请发言。                         |
+| [SendSpeechApplication](#sendspeechapplication)     | 参会成员申请发言。                                          |
+| [CancelSpeechApplication](#cancelspeechapplication) | 参会成员取消申请发言。                                      |
+| [ReplySpeechApplication](#replyspeechapplication)   | 主持人同意/拒绝参会成员的申请发言。                         |
 | [ForbidSpeechApplication](#forbidspeechapplication) | 主持人禁止申请发言。                                    |
-| [SendOffSpeaker](#sendoffspeaker)                   | 主持人令成员停止发言。                                  |
+| [SendOffSpeaker](#sendoffspeaker)                   | 主持人令参会成员停止发言。                                  |
 | [SendOffAllSpeakers](#sendoffallspeakers)           | 主持人令全体停止发言。                                  |
-| [ExitSpeechState](#exitspeechstate)                 | 成员停止发言，转变为观众。                               |
+| [ExitSpeechState](#exitspeechstate)                 | 参会成员停止发言，转变为观众。                               |
 
 ### 基础组件接口函数
 
@@ -171,10 +171,10 @@ TUIRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体�
 | [OnSpeechApplicationCancelled](#onspeechapplicationcancelled) | 用户取消申请发言回调。             |
 | [OnReceiveReplyToSpeechApplication](#onreceivereplytospeechapplication) | 主持人同意发言申请回调。           |
 | [OnSpeechApplicationForbidden](#onspeechapplicationforbidden) | 主持人禁止申请发言回调。           |
-| [OnOrderedToExitSpeechState](#onorderedtoexitspeechstate)  | 成员被请求停止发言的回调。         |
-| [OnCallingRollStarted](#oncallingrollstarted)                | 主持人开始点名，成员收到的回调。   |
-| [OnCallingRollStopped](#oncallingrollstopped)                | 主持人结束点名，成员收到的回调。   |
-| [OnMemberReplyCallingRoll](#onmemberreplycallingroll)        | 成员回复点名，主持人收到的回调。   |
+| [OnOrderedToExitSpeechState](#onorderedtoexitspeechstate)  | 参会成员被请求停止发言的回调。         |
+| [OnCallingRollStarted](#oncallingrollstarted)                | 主持人开始点名，参会成员收到的回调。   |
+| [OnCallingRollStopped](#oncallingrollstopped)                | 主持人结束点名，参会成员收到的回调。   |
+| [OnMemberReplyCallingRoll](#onmemberreplycallingroll)        | 参会成员回复点名，主持人收到的回调。   |
 | [OnChatRoomMuted](#onchatroommuted)                          | 主持人更改聊天室是否禁言回调。     |
 | [OnMicrophoneMuted](#onmicrophonemuted)                      | 主持人设置禁用麦克风回调。         |
 | [OnCameraMuted](#oncameramuted)                              | 主持人设置禁用摄像头回调。         |
@@ -324,7 +324,7 @@ virtual std::vector<TUIUserInfo> GetRoomUsers() = 0;
 
 ### GetUserInfo
 
-获取房间成员信息。
+获取成员信息。
 ```C++
 virtual const TUIUserInfo* GetUserInfo(const std::string& user_id) = 0;
 ```
@@ -621,7 +621,7 @@ virtual int StopCallingRoll() = 0;
 
 ### ReplyCallingRoll
 
-成员回复主持人点名。
+参会成员回复主持人点名。
 ```C++
 virtual int ReplyCallingRoll(Callback callback) = 0;
 ```
@@ -634,7 +634,7 @@ virtual int ReplyCallingRoll(Callback callback) = 0;
 
 ### SendSpeechInvitation
 
-主持人邀请成员发言。
+主持人邀请参会成员发言。
 ```C++
 virtual int SendSpeechInvitation(const std::string& user_id, Callback callback) = 0;
 ```
@@ -648,7 +648,7 @@ virtual int SendSpeechInvitation(const std::string& user_id, Callback callback) 
 
 ### CancelSpeechInvitation
 
-主持人取消邀请成员发言。
+主持人取消邀请参会成员发言。
 ```C++
 virtual int CancelSpeechInvitation(const std::string& user_id, Callback callback) = 0;
 ```
@@ -662,7 +662,7 @@ virtual int CancelSpeechInvitation(const std::string& user_id, Callback callback
 
 ### ReplySpeechInvitation
 
-成员同意/拒绝主持人的发言邀请。
+参会成员同意/拒绝主持人的发言邀请。
 ```C++
 virtual int ReplySpeechInvitation(bool agree, Callback callback) = 0;
 ```
@@ -676,7 +676,7 @@ virtual int ReplySpeechInvitation(bool agree, Callback callback) = 0;
 
 ### SendSpeechApplication
 
-成员申请发言。
+参会成员申请发言。
 ```C++
 virtual int SendSpeechApplication(Callback callback) = 0;
 ```
@@ -689,7 +689,7 @@ virtual int SendSpeechApplication(Callback callback) = 0;
 
 ### CancelSpeechApplication
 
-成员取消申请发言。
+参会成员取消申请发言。
 ```C++
 virtual int CancelSpeechApplication(Callback callback) = 0;
 ```
@@ -702,7 +702,7 @@ virtual int CancelSpeechApplication(Callback callback) = 0;
 
 ### ReplySpeechApplication
 
-主持人同意/拒绝成员的申请发言。
+主持人同意/拒绝参会成员的申请发言。
 ```C++
 virtual int ReplySpeechApplication(const std::string& user_id, bool agree, Callback callback) = 0;
 ```
@@ -729,7 +729,7 @@ virtual int ForbidSpeechApplication(bool forbid) = 0;
 
 ### SendOffSpeaker
 
-主持人令成员停止发言。
+主持人令参会成员停止发言。
 ```C++
 virtual int SendOffSpeaker(const std::string& user_id, Callback callback) = 0;
 ```
@@ -756,7 +756,7 @@ virtual int SendOffAllSpeakers(Callback callback) = 0;
 
 ### ExitSpeechState
 
-成员停止发言，转变为观众。
+参会成员停止发言，转变为观众。
 ```C++
 virtual int ExitSpeechState() = 0;
 ```
@@ -1190,7 +1190,7 @@ virtual void OnSpeechApplicationForbidden(bool forbidden) = 0;
 
 ### OnOrderedToExitSpeechState
 
-成员被请求停止发言的回调。
+参会成员被请求停止发言的回调。
 ```C++
 virtual void OnOrderedToExitSpeechState() = 0;
 ```
@@ -1204,14 +1204,14 @@ virtual void OnCallingRollStarted() = 0;
 
 ### OnCallingRollStopped
 
-主持人结束点名，成员收到的回调。
+主持人结束点名，参会成员收到的回调。
 ```C++
 virtual void OnCallingRollStopped() = 0;
 ```
 
 ### OnMemberReplyCallingRoll
 
-成员回复点名，主持人收到的回调。
+参会成员回复点名，主持人收到的回调。
 ```C++
 virtual void OnMemberReplyCallingRoll(const std::string& user_id) = 0;
 ```

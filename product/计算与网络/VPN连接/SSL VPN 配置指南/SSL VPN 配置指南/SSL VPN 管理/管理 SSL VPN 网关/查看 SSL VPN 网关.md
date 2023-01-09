@@ -6,8 +6,9 @@
 3. 单击具体的 SSL VPN 网关 ID，进入 SSL VPN 网关详情页。
  ![](https://qcloudimg.tencent-cloud.cn/raw/d1139111b966fdea6a9245fe739b07bd.png)
 4. 在该页面中，您可以查阅 SSL VPN 网关的详细信息。
-![](https://main.qcloudimg.com/raw/531603c8d19a4f7b3a532b2c869fd4f7.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/31c1ab5e978ab8dd55e2a11395288e17.png)
 
 ## 设置 VPN 网关列表展示列
 如果您需要对 VPN 网关列表展示列进行自定义设置，可单击右侧搜索框旁边的设置按钮，并选择需要展示的字段，然后单击**确定**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/40f515dd97a0e1c39ccf783401d57ed9.png)
+

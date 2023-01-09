@@ -19,8 +19,8 @@ TkeServiceConfig 不会帮您配置并修改协议、端口、域名以及转发
  - `spec.loadBalancer.l7Listeners.port`：监听端口
  - `spec.loadBalancer.l7Listeners.domains[].domain`：域名
  - `spec.loadBalancer.l7Listeners.domains[].rules[].url`：转发路径
- - `spec.loadBalancer.l7listeners.protocol.domain.rules.url.forwardType`: 指定后端协议
-    - 后端协议是指 CLB 与后端服务之间的协议：后端协议选择 HTTP 时，后端服务需部署 HTTP 服务。后端协议选中 HTTPS 时，后端服务需部署 HTTPS 服务，HTTPS 服务的加解密会让后端服务消耗更多资源。更多请查看 [CLB 配置 HTTPS 监听器](https://cloud.tencent.com/document/product/214/36385)
+ - `spec.loadBalancer.l7listeners.protocol.domain.rules.url.forwardType`：指定后端协议。
+    - 后端协议是指 CLB 与后端服务之间的协议：后端协议选择 HTTP 时，后端服务需部署 HTTP 服务。后端协议选中 HTTPS 时，后端服务需部署 HTTPS 服务，HTTPS 服务的加解密会让后端服务消耗更多资源。更多请查看 [CLB 配置 HTTPS 监听器](https://cloud.tencent.com/document/product/214/36385)。
 
 >?当您的域名配置为默认值，即公网或内网 VIP 时，可以通过 domain 填空值的方式进行配置。
 
@@ -172,6 +172,8 @@ spec:
             enable: false
     - protocol: HTTPS
       port: 443
+      defaultServer: "sample.tencent.com" # 默认域名
+      keepaliveEnable: 1                  # 监听器开启长连接
       domains:
       - domain: "sample.tencent.com"
         rules:
@@ -182,7 +184,8 @@ spec:
             sessionExpireTime: 3600
           healthCheck:
             enable: true
-            intervalTime: 10
+            intervalTime: 10 # intervalTime 要大于 timeout，否则会出错
+            timeout: 5 # timeout 要小于 intervalTime，否则会出错
             healthNum: 2
             unHealthNum: 2
             httpCheckPath: "/checkHealth"

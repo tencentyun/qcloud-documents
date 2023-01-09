@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2088ee3b-347a-4995-80ac-0163c7fc7f1e" name="变更" comment="">
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/全局禁言管理/查询全局禁言.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/全局禁言管理/查询全局禁言.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/全局禁言管理/设置全局禁言.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/全局禁言管理/设置全局禁言.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/关系链管理/删除分组.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/关系链管理/删除分组.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/关系链管理/删除好友.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/关系链管理/删除好友.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/关系链管理/删除所有好友.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/关系链管理/删除所有好友.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/关系链管理/删除黑名单.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/关系链管理/删除黑名单.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/关系链管理/导入好友.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/关系链管理/导入好友.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/关系链管理/拉取分组.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/关系链管理/拉取分组.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/关系链管理/拉取好友.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/关系链管理/拉取好友.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/关系链管理/拉取指定好友.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/关系链管理/拉取指定好友.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/关系链管理/拉取黑名单.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/关系链管理/拉取黑名单.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/关系链管理/更新好友.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/关系链管理/更新好友.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/关系链管理/校验好友.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/关系链管理/校验好友.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/关系链管理/校验黑名单.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/关系链管理/校验黑名单.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/关系链管理/添加分组.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/关系链管理/添加分组.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/关系链管理/添加好友.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/关系链管理/添加好友.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/关系链管理/添加黑名单.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/关系链管理/添加黑名单.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/单聊消息/修改单聊历史消息.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/单聊消息/修改单聊历史消息.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/单聊消息/单发单聊消息.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/单聊消息/单发单聊消息.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/单聊消息/导入单聊消息.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/单聊消息/导入单聊消息.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/单聊消息/拉取单聊消息扩展.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/单聊消息/拉取单聊消息扩展.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/单聊消息/撤回单聊消息.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/单聊消息/撤回单聊消息.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/单聊消息/查询单聊未读消息计数.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/单聊消息/查询单聊未读消息计数.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/单聊消息/查询单聊消息.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/单聊消息/查询单聊消息.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/单聊消息/设置单聊消息已读.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/单聊消息/设置单聊消息已读.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/单聊消息/设置单聊消息扩展.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/单聊消息/设置单聊消息扩展.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/最近联系人/删除单个会话.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/最近联系人/删除单个会话.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/最近联系人/拉取会话列表.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/最近联系人/拉取会话列表.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/修改群成员资料.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/修改群成员资料.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/修改群组基础资料.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/修改群组基础资料.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/修改群聊历史消息.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/修改群聊历史消息.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/修改群自定义属性.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/修改群自定义属性.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/创建群组.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/创建群组.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/删除指定用户发送的消息.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/删除指定用户发送的消息.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/删除群组成员.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/删除群组成员.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/在群组中发送普通消息.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/在群组中发送普通消息.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/在群组中发送系统通知.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/在群组中发送系统通知.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/增加群组成员.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/增加群组成员.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/导入群基础资料.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/导入群基础资料.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/导入群成员.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/导入群成员.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/导入群消息.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/导入群消息.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/批量禁言和取消禁言.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/批量禁言和取消禁言.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/拉取群历史消息.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/拉取群历史消息.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/拉取群消息已读回执信息.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/拉取群消息已读回执信息.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/拉取群消息已读回执详情.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/拉取群消息已读回执详情.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/拉取群消息扩展.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/拉取群消息扩展.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/查询用户在群组中的身份.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/查询用户在群组中的身份.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/清空群自定义属性.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/清空群自定义属性.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/直播群广播消息.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/直播群广播消息.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/群成员封禁.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/群成员封禁.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/群成员解封.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/群成员解封.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/群组消息撤回.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/群组消息撤回.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/获取APP中的所有群组.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/获取APP中的所有群组.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/获取封禁群成员列表.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/获取封禁群成员列表.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/获取用户所加入的群组.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/获取用户所加入的群组.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/获取直播群在线人数.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/获取直播群在线人数.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/获取直播群在线成员列表.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/获取直播群在线成员列表.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/获取群组成员详细资料.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/获取群组成员详细资料.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/获取群组被禁言用户列表.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/获取群组被禁言用户列表.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/获取群组详细资料.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/获取群组详细资料.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/获取群自定义属性.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/获取群自定义属性.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/解散群组.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/解散群组.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/设置成员未读消息计数.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/设置成员未读消息计数.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/设置直播群成员标记.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/设置直播群成员标记.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/设置群消息扩展.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/设置群消息扩展.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/话题管理/修改话题资料.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/话题管理/修改话题资料.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/话题管理/创建话题.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/话题管理/创建话题.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/话题管理/获取话题资料.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/话题管理/获取话题资料.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/话题管理/解散话题.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/话题管理/解散话题.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/转让群主.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/转让群主.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/重置群自定义属性.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/群组管理/重置群自定义属性.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/账号管理/删除帐号.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/账号管理/删除帐号.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/账号管理/失效帐号登录态.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/账号管理/失效帐号登录态.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/账号管理/导入单个帐号.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/账号管理/导入单个帐号.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/账号管理/导入多个帐号.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/账号管理/导入多个帐号.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/账号管理/查询帐号.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/账号管理/查询帐号.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/账号管理/查询帐号在线状态.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/账号管理/查询帐号在线状态.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/资料管理/拉取资料.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/资料管理/拉取资料.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/资料管理/设置资料.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/资料管理/设置资料.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/运营管理/下载最近消息记录.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/运营管理/下载最近消息记录.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/运营管理/拉取运营数据.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/运营管理/拉取运营数据.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9服务端 API/服务端API/运营管理/获取服务器 IP 地址.md" beforeDir="false" afterPath="$PROJECT_DIR$/9服务端 API/服务端API/运营管理/获取服务器 IP 地址.md" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2Hqb5uGbjrXOegpQ1otME2AEAwO" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/ofiles/product/移动与通信/即时通信&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="2088ee3b-347a-4995-80ac-0163c7fc7f1e" name="变更" comment="" />
+      <created>1669015381048</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1669015381048</updated>
+      <workItem from="1669015382323" duration="1307000" />
+      <workItem from="1669270898689" duration="17000" />
+      <workItem from="1669947856298" duration="1365000" />
+      <workItem from="1670463749582" duration="3107000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

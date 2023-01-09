@@ -1,3 +1,4 @@
+
 ## 支持环境
 - PHP 5.6.33 版本及以上。
 - 调用地址：`tms.tencentcloudapi.com`。
@@ -49,15 +50,15 @@ use TencentCloud\ Tms\ V20201229\ Models\ TextModerationRequest;
 try {
 	$cred = new Credential("SecretId", "SecretKey");
 	$httpProfile = new HttpProfile();
-	$httpProfile - > setEndpoint("tms.tencentcloudapi.com");
+	$httpProfile -> setEndpoint("tms.tencentcloudapi.com");
 	$clientProfile = new ClientProfile();
-	$clientProfile - > setHttpProfile($httpProfile);
+	$clientProfile -> setHttpProfile($httpProfile);
 	$client = new TmsClient($cred, "ap-guangzhou", $clientProfile);
 	$req = new TextModerationRequest();
 	$params = array();
-	$req - > fromJsonString(json_encode($params));
-	$resp = $client - > TextModeration($req);
-	print_r($resp - > toJsonString());
+	$req -> fromJsonString(json_encode($params));
+	$resp = $client -> TextModeration($req);
+	print_r($resp -> toJsonString());
 } catch (TencentCloudSDKException $e) {
 	echo $e;
 }

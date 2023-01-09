@@ -1,6 +1,6 @@
 ## 什么是自定义 DNS 
 
-为了方便运维管理，您的作业可能会使用域名的方式访问外部资源（消息队列 CKafka、云数据库 MySQL等），您可以使用自定义 DNS 的方式进行域名解析。自定义 DNS 的原理请参考 Kubernetes 官网文档 [自定义 DNS 服务](https://kubernetes.io/zh/docs/tasks/administer-cluster/dns-custom-nameservers/)。您一般会使用两种方式来完成域名解析。
+为了方便运维管理，您的作业可能会使用域名的方式访问外部资源（消息队列 CKafka、云数据库 MySQL等），您可以使用自定义 DNS 的方式进行域名解析。自定义 DNS 的原理请参考 Kubernetes 官网文档 [自定义 DNS 服务](https://kubernetes.io/zh/docs/tasks/administer-cluster/dns-custom-nameservers/)。您一般会使用两种方式来完成域名解析。 
 
 1. host 映射。如下示例，您可以使用 `kafka.example.com` 来访问 IP 为`172.17.0.2`的 CKafka 实例。
 ``` 
@@ -15,13 +15,11 @@ example.com {
 ```
 
 ## 如何自定义 DNS 
-
 您可以在集群详情页里设置自定义 DNS。请注意：若您同时配置了 host 映射和 DNS 域名解析，优先选择 DNS 域名解析。 
 
 ### 操作步骤
-
 1. 在 **[集群管理](https://console.cloud.tencent.com/oceanus/cluster) > 集群信息**中可设置自定义 DNS。
-![](https://qcloudimg.tencent-cloud.cn/raw/d10aa240b3bbaf44bea0a20e761c6d74.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/85f7eb127224817f59fd25bdd5207dc4.png)
 2. 在弹窗中设置 host 或域名，单击**确认**保存设置，保存后可以再次进行修改。
 ![](https://qcloudimg.tencent-cloud.cn/raw/8f964ab7f19d3aa938a2f84e8d379938.png)
 

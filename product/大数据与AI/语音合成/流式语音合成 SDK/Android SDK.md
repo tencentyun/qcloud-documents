@@ -1,5 +1,5 @@
+>? 当前文档适用于 V1.5.3版本及以下 SDK。建议正在使用旧版 SDK 的客户及时升级到 [新版 SDK](https://cloud.tencent.com/document/product/1073/80487)，以获取更好的使用体验。
 ## 开发相关
-
 ### 开发准备
 
 - 支持 Android 4.0 以上版本 API LEVEL 16，支持手机与平板。
@@ -8,8 +8,7 @@
 - 服务端 [API 文档](https://cloud.tencent.com/document/product/1073/37995)。
 
 ### 下载安装 SDK
-
-- 语音合成 Android SDK [联系我们](https://cloud.tencent.com/act/event/connect-service#/)。
+- 语音合成 [Android SDK](https://console.cloud.tencent.com/tts/download)。
 - 解压后即是示例代码工程，工程目录 `libqcloudtts-demo/libs` 下的 aar 文件即 SDK 包。
 - 用 Android Studio 打开此工程查看语音合成示例代码。
 - 文本合成接口：基于基础语音合成接口封装，支持不限字数长文本入参，SDK内部会将文本切分为短句多次请求合成，也支持入参切分好的句子集合  ，支持播放暂停与恢复，适合实时播放场景，实例代码参考 LongTextTtsActivity 类。
@@ -119,10 +118,11 @@ mTtsController.setProjectId(0);
 
 语音合成有两个接口：
 
-合成接口1：直接入参文本段落，使用SDK内部的规则切分文本，如果sdk的切分规则不符合您的业务需求，您可以选用合成接口2。
+合成接口1：直接入参文本段落，使用 SDK 内部的规则切分文本，如果 sdk 的切分规则不符合您的业务需求，您可以选用合成接口2。
 
-合成接口2：入参切分好的句子集合，您需要确保列表内每句话长度不超过后端接口最大字符限制，建议文本中第一句话不要设的太长，demo内附带了一份文本切分示例代码。
-
+合成接口2：入参切分好的句子集合，您需要确保列表内每句话长度不超过后端接口最大字符限制，建议文本中第一句话不要设的太长， demo 内附带了一份文本切分示例代码。
+>! 如果要使用 SSML 标记语言，请选择使用合成接口2，并确保入参列表中每一个元素不能超过150中文字符（不包括 SSML 标签）。如果选择合成接口1，入参 SSML 标签会被切分导致 SSML 标签无效，具体使用可以参考 demo，SSML 语法详见 [SSML 标记语言](https://cloud.tencent.com/document/product/1073/49575)。
+>
 ```
 合成接口1：直接入参文本段落
 mTtsController.startTts(ttsText, mTtsExceptionHandler, new QCloudPlayerCallback() {

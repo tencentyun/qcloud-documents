@@ -1,13 +1,18 @@
-删除指定的函数。
+## 说明
+- 支持内核：Presto、SparkSQL。
+- 用途：删除自定义的函数。
+
 ## 语法
 ```
-DROP FUNCTION [ IF EXISTS ] function_name
+DROP FUNCTION [IF EXISTS] function_name
 ```
 ## 参数
-- IF EXISTS：存在就删除。
-- function_name：函数名。
+`function_name`：需要删除的函数名称。
 
 ## 示例
 ```
-DROP FUNCTION udf_add2;
+DROP FUNCTION IF EXISTS `FUNC`
+
+DROP FUNCTION `FUNC
+
 ```

@@ -46,7 +46,7 @@
  
 ### 分辨率码率参照表
 
-| 分辨率定义 | 宽高比 | 建议码率 | 高端配置 |
+| 分辨率定义 | 宽高比 | 建议码率（VideoCall） | 建议码率（LIVE） |
 |:-------------:|:-------------:|:-------------:|:-------------:|
 | TRTCVideoResolution_120_120 | 1:1 |   80kbps | 120kbps|
 | TRTCVideoResolution_160_160 | 1:1 | 100kbps | 150kbps|
@@ -67,6 +67,7 @@
 | TRTCVideoResolution_640_360 | 16:9 | 550kbps | 900kbps|
 | TRTCVideoResolution_960_540 | 16:9 | 850kbps | 1300kbps|
 | TRTCVideoResolution_1280_720 | 16:9 | 1200kbps | 1800kbps|
+|TRTCVideoResolution_1920_1080 	| 16:9 | 2000kbps| 3000kbps |
 
 ## TRTCNetworkQosParam
 ### QosPreference

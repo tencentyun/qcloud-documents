@@ -9,10 +9,9 @@
 
 ## Android Demo
 
-您可以通过手机自带的浏览器扫描二维码下载 Android 端 Demo 安装包，或 [单击此处](https://recorder-10018504.cos.ap-shanghai.myqcloud.com/shaw/apk/cloud_render_12161423/%E8%85%BE%E8%AE%AF%E4%BA%91%E6%B8%B2%E6%9F%93.apk) 立即下载。
+您可以通过手机自带的浏览器扫描二维码下载 Android 端 Demo 安装包，或 [单击此处](https://cg-sdk-1258344699.file.myqcloud.com/tcr/demo/%E8%85%BE%E8%AE%AF%E4%BA%91%E6%B8%B2%E6%9F%93.apk) 立即下载。
 
-<img src="https://qcloudimg.tencent-cloud.cn/raw/54e823df375addbda464581db7fe0484.png" width=200>
-
+<img src="https://qcloudimg.tencent-cloud.cn/raw/37b33046a7964a28680fdb2fc36fea16.png" width=200>
 
 ## 云端游场景
 

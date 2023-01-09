@@ -4,10 +4,10 @@
 ## 操作步骤
 ### 安装
 
- 通过 npm 安装最新版本的 Serverless Framework： 
+ 通过 npm 安装最新版本的 Serverless Cloud Framework： 
 
 ```shell
-$ npm install -g serverless
+$ npm install -g serverless-cloud-framework
 ```
 
 ### 配置
@@ -37,11 +37,11 @@ inputs:
 
 ### 部署
 
-运行 sls deploy 进行部署：
+运行 scf deploy 进行部署：
 
 ```bash
-$ sls deploy
-serverless ⚡ framework
+$ scf deploy
+serverless-cloud-framework
 Action: "deploy" - Stage: "dev" - App: "appDemo" - Instance: "vpcDemo"
 
 region:     ap-guangzhou
@@ -57,16 +57,16 @@ subnetName: serverless
 
 如您的账号未 [登录](https://cloud.tencent.com/login) 或 [注册](https://cloud.tencent.com/register) 腾讯云，您可以直接通过**微信**扫描命令行中的二维码进行授权登录和注册。
 
->?`sls`是`serverless`命令的简写。
+>?`scf`是`serverless-cloud-framework`命令的简写。
 
 ### 查看信息
 
-运行 `sls info` 进行查看部署成功的信息：
+运行 `scf info` 进行查看部署成功的信息：
 
 ```bash
-$ sls info
+$ scf info
 
-serverless ⚡ framework
+serverless-cloud-framework
 
 Status:       active
 Last Action:  deploy (5 minutes ago)
@@ -88,9 +88,9 @@ vpcDemo › Info successfully loaded
 通过以下命令移除部署的 VPC：
 
 ```bash
-$ sls remove
+$ scf remove
 
-serverless ⚡ framework
+serverless-cloud-framework
 Action: "remove" - Stage: "dev" - App: "appDemo" - Instance: "vpcDemo"
 
 6s › vpcDemo › Success

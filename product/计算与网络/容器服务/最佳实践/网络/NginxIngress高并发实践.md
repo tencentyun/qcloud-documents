@@ -124,7 +124,7 @@ data:
   keep-alive-requests: "10000"
   # nginx 与 upstream 保持长连接的最大空闲连接数 (不是最大连接数)，默认 320，在高并发下场景下调大，避免频繁建联导致 TIME_WAIT 飙升。  
   # 参考: https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/configmap/#upstream-keepalive-connections
-  upstream-keepalive-connections: "200"
+  upstream-keepalive-connections: "2000"
   # 每个 worker 进程可以打开的最大连接数，默认 16384。  
   # 参考: https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/configmap/#max-worker-connections
   max-worker-connections: "65536"

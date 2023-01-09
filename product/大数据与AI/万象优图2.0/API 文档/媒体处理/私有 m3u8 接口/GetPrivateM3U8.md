@@ -7,7 +7,7 @@ GetPrivateM3U8 接口用于获取私有 M3U8 ts 资源的下载授权。（此�
 #### 请求示例
 
 ```plaintext
-GET /for-test.m3u8?ci-process=pm3u8&expires= HTTP/1.1
+GET /<ObjectKey>?ci-process=pm3u8&expires= HTTP/1.1
 Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: <GMT Date>
 Authorization: <Auth String>
@@ -15,7 +15,10 @@ Content-Length: <length>
 
 ```
 
->?Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+>? 
+> - Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+> - 通过子账号使用时，需要授予相关的权限，详情请参见 [授权粒度详情](https://cloud.tencent.com/document/product/460/41741) 文档。
+> 
 
 #### 请求参数
 

@@ -4,20 +4,7 @@ TUIKaraoke 是一个开源的音视频 UI 组件，通过在项目中集成 TUIK
 
 >?TUIKit 系列组件同时使用了腾讯云 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269/42440) 两个基础 PaaS 服务，开通实时音视频后会同步开通即时通信IM服务。即时通信 IM 服务详细计费规则请参见 [即时通信 - 价格说明](https://cloud.tencent.com/document/product/269/11673)，TRTC 开通会默认关联开通 IM SDK 的体验版，仅支持100个 DAU。
 
-<table>
-     <tr>
-         <th width=20%  style="text-align:center">聊天</th>  
-         <th width=20%  style="text-align:center">点歌播放</th>  
-         <th width=20%  style="text-align:center">音效管理</th>  
-         <th width=20%  style="text-align:center">发送礼物</th>  
-     </tr>
-<tr>
-<td><img src="https://qcloudimg.tencent-cloud.cn/raw/03ff7ceeebe570311fe631144546d36a.png"/></td>
-<td><img src="https://qcloudimg.tencent-cloud.cn/raw/eb8260dd1eb5ef9128052a607596ee68.png"/></td>
-<td><img src="https://qcloudimg.tencent-cloud.cn/raw/18c63d92b16f6bb6daaa65b2e59e40a6.png"/></td>
-<td><img src="https://qcloudimg.tencent-cloud.cn/raw/26a685599659c27f5a3c99d20aefbc0b.png"/></td>
-</tr>
-</table>
+![](https://qcloudimg.tencent-cloud.cn/raw/ac88b8905650c371cfa7d524f95e4e6c.png)
 
 
 ## 组件集成
@@ -62,7 +49,7 @@ pod install
 ![](https://qcloudimg.tencent-cloud.cn/raw/3d6ebfa2a1e4ae5d3af3ecd564fb1463.png)
 - **Secretkey**：**TRTC 应用密钥**，和 SDKAppId 对应，进入 [TRTC 应用管理](https://console.cloud.tencent.com/trtc/app) 后，SecretKey 信息如上图所示。
 - **userId**：当前用户的 ID，字符串类型，长度不超过32字节，不支持使用特殊字符，建议使用英文或数字，可结合业务实际账号体系自行设置。
-- **userSig**：根据 SDKAppId、userId，Secretkey 等信息计算得到的安全保护签名，您可以单击 [这里](https://console.cloud.tencent.com/trtc/usersigtool) 直接在线生成一个调试的 UserSig，也可以参照我们的 [TUICalling示例工程](https://github.com/tencentyun/TUICalling/blob/main/Android/App/src/main/java/com/tencent/liteav/demo/LoginActivity.java#L74)自行计算，更多信息见 [如何计算及使用 UserSig](https://cloud.tencent.com/document/product/647/17275)。
+- **userSig**：根据 SDKAppId、userId，Secretkey 等信息计算得到的安全保护签名，您可以单击 [这里](https://console.cloud.tencent.com/trtc/usersigtool) 直接在线生成一个调试的 UserSig，也可以参照我们的 [TUIKaraoke示例工程](https://github.com/tencentyun/TUIKaraoke/blob/main/iOS/Example/Debug/GenerateTestUserSig.swift#:~:text=class%20func%20genTestUserSig(identifier%3A%20String)%20%2D%3E%20String%20%7B) 自行计算，更多信息见 [如何计算及使用 UserSig](https://cloud.tencent.com/document/product/647/17275)。
 
 
 ### 步骤四：实现在线KTV场景

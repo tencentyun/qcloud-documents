@@ -51,7 +51,7 @@ Coding 是实现 CICD 流程的工具。Coding 提供整套的研发流程管理
 ### 开通 DevOps 服务
 > ! 该步骤以初次使用 DevOps 服务的主账号用户为例，如已开通服务则可跳过此步骤，进行 [创建项目并创建代码仓库](#createProduct)。  
 
-1. 登录容器服务控制台 ，选择左侧导航栏中的 **[DevOps](https://console.cloud.tencent.com/coding/container-devops)**。  
+1. 登录容器服务控制台，选择左侧导航栏中的 **[DevOps](https://console.cloud.tencent.com/coding/container-devops)**。  
 2. 进入“容器 DevOps”页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/6f1e13d45996ec30637a0c8d3db9348b.png)
 3. 选择**开通服务** > **前往访问管理**，进入“角色管理”页面。如下图所示：
@@ -61,7 +61,7 @@ Coding 是实现 CICD 流程的工具。Coding 提供整套的研发流程管理
 5. 完善团队信息后单击**确定**，即可开通 DevOps 服务。  
 
 ### 创建项目并创建代码仓库[](id:createProduct)
-1. 登录容器服务控制台 ，选择左侧导航栏中的 **[DevOps](https://console.cloud.tencent.com/coding/container-devops)**。  
+1. 登录容器服务控制台，选择左侧导航栏中的 **[DevOps](https://console.cloud.tencent.com/coding/container-devops)**。  
 2. 进入“容器 DevOps”页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/8c30f351eb48428dfaef9ef7afa3f252.png)
 3. 单击**立即使用**，跳转至**Coding DevOps**页面。  
@@ -103,8 +103,7 @@ kubectl  create secret docker-registry coding --docker-server=coding的registry�
 
 1. 登录 Coding DevOps ，选择左侧导航中的 **[项目](https://tencent-test.coding.net/user/projects)**，进入项目管理页。  
 2. 在“项目管理页”中，单击需要创建制品库的项目名称，进入该项目详情页。  
-3. 在左侧导航栏中选择**持续集成** > **构建计划** > **创建构建计划**，进入**选择构建计划模板**页面。如下图所示：
-![](https://main.qcloudimg.com/raw/82dd4540bab7095f50c4eb78805899d2.png)
+3. 在左侧导航栏中选择**持续集成** > **构建计划**选择新建构建计划。
 4. 根据实际情况选择构建计划模板，并确认模板默认设置信息，单击**确认**即可完成。  
 本文以选择 Golang+Gin+Docker 模板为例，进行 go 项目演示。以下视频将为您介绍具体的操作步骤：
 <div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2962-55143?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>

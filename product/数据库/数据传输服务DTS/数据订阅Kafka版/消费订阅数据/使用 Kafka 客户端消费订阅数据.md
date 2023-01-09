@@ -1,13 +1,17 @@
+## 操作场景
+
 数据订阅 Kafka 版中，您可以通过0.11版本及以上的 [Kafka 客户端](http://kafka.apache.org/downloads) 进行消费订阅数据，本文为您提供了 Java、Go、Python 语言的客户端消费 Demo 示例，方便您快速测试消费数据的流程，了解数据格式解析的方法。
 
-需要注意 **Demo 并不包含消费数据的用法演示，仅对数据做了打印处理，您需要在此基础上自行编写数据处理逻辑**，您也可以使用其他语言的 Kafka 客户端消费并解析数据。
+在配置订阅任务中，您可以选择不同的订阅数据格式，ProtoBuf、Avro 和 Json。ProtoBuf 和 Avro 采用二进制格式，消费效率更高，Json 采用轻量级的文本格式，更加简单易用。选择的订阅数据格式不同，参考的 Demo 示例也不同。
+
+本场景提供 Protobuf 订阅版本的 Demo 示例，并且 Demo 中已包含 Protobuf 协议文件，无需另外下载。如果您选择自行下载 [Protobuf 协议文件]( https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/subscribe.proto)，请使用 Protobuf 3.X 版本进行代码生成，以便数据结构可以正确兼容。
 
 ## 注意事项
 
-- 数据序列化协议目前采用了 Protobuf 协议，请下载 [Protobuf 协议文件]( https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/subscribe.proto)，并使用 Protobuf 3.X 版本进行代码生成，以便数据结构可以正确兼容。
-  本章节的消费 Demo 中已包含此协议文件，如您直接使用 Demo 代码，可以不用重复下载。
-
+- **Demo 并不包含消费数据的用法演示，仅对数据做了打印处理，您需要在此基础上自行编写数据处理逻辑**，您也可以使用其他语言的 Kafka 客户端消费并解析数据。
 - 目前不支持通过外网连接数据订阅的 Kafka 进行消费，只支持腾讯云内网的访问，并且订阅的数据库实例所属地域与数据消费的地域相同。
+- DTS 订阅 Kafka 的消息投递语义采用的是至少一次（at least once），所以在特殊情况下消费到的数据可能存在重复。如订阅任务发生重启，重启后拉取源端的 Binlog 会从中断的位点往前多拉取一些，导致重复投递消息。控制台修改订阅对象、恢复异常任务等操作都可能会导致消息重复。如果业务对重复数据敏感，需要用户在消费 Demo 中根据业务数据增加去重逻辑。
+
 
 ## 消费 Demo 下载
 | Demo 语言 | 云数据库 MySQL、MariaDB、TDSQL-C MySQL           | TDSQL MySQL                                | TDSQL PostgreSQL                             |
@@ -110,7 +114,7 @@ message Event {
     DDLEvent        ddlEvent        = 4;  //binlog 中的 ddl 事件
     RollbackEvent   rollbackEvent   = 5;  //rollback 事件，当前版本无意义
     HeartbeatEvent  heartbeatEvent  = 6;  //源库定时发送的心跳事件
-    CheckpointEvent checkpointEvent = 7;  //订阅后台添加的 checkpoint 事件，用于 Kafka 的 checkpoint 机制
+    CheckpointEvent checkpointEvent = 7;  //订阅后台添加的 checkpoint 事件，每10秒自动生成一个，用于 Kafka 生产和消费位点管理
     repeated KVPair properties      = 15;
 }
 ```
@@ -165,6 +169,7 @@ message Envelope {
 
 ```
 7. 对 Entries.items 依次处理，打印原始 Entry 结构或者转化为 SQL 语句。
+8. 当消费到 Checkpoint 消息时，做一次 Kafka 位点提交。Checkpoint 消息是订阅后台定时写入 Kafka 的特殊消息，每10秒一个。 
 
 ## 数据库字段映射和存储
 

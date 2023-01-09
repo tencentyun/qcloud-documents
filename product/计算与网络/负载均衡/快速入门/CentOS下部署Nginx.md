@@ -55,4 +55,3 @@ URL is image/index.html
 ![](https://main.qcloudimg.com/raw/58c504ca0c2e624f0ddb582d1f280760.png)
 - rs-1 的 /image/index.html 页面：
 ![](https://main.qcloudimg.com/raw/98d56c43e02b8b7bd6b09e95e48625f9.png)
-

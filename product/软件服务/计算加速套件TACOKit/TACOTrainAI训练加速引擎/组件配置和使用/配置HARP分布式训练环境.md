@@ -36,12 +36,7 @@ HugePages_Total:      50
 ```
  - 检查是否产生了配置文件：
 ```plaintext
-ls
+ls -l /usr/local/tfabric/tools/config/ztcp*.conf
 ```
-返回如下结果，表示已产生配置文件。
-```plaintext
-/usr/local/tfabric/tools/config/ztcp*.conf
-/usr/local/tfabric/tools/config/ztcp1.conf  /usr/local/tfabric/tools/config/ztcp4.conf  /usr/local/tfabric/tools/config/ztcp7.conf
-/usr/local/tfabric/tools/config/ztcp2.conf  /usr/local/tfabric/tools/config/ztcp5.conf  /usr/local/tfabric/tools/config/ztcp.conf
-/usr/local/tfabric/tools/config/ztcp3.conf  /usr/local/tfabric/tools/config/ztcp6.conf
-```
+返回结果如下图所示，表示已产生配置文件。
+![](https://qcloudimg.tencent-cloud.cn/raw/c779075e6997af803ef4eed17e1958da.png)

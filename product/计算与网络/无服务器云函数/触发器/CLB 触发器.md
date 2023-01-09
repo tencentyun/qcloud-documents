@@ -11,7 +11,7 @@ CLB 触发器通过同步调用的方式来调用函数。有关调用类型的�
 
 ## CLB 触发器配置
 
-CLB 触发器支持在  **[云函数控制台](https://console.cloud.tencent.com/scf/index)** 或在  **[负载均衡控制台](https://console.cloud.tencent.com/clb/index)** 中进行配置。
+CLB 触发器支持在  **[Serverless 控制台](https://console.cloud.tencent.com/scf/index)** 或在  **[负载均衡控制台](https://console.cloud.tencent.com/clb/index)** 中进行配置。
 <dx-tabs>
 ::: 云函数控制台
 在**云函数控制台**中，支持 [在触发方式中添加 CLB 负载均衡触发器](https://cloud.tencent.com/document/product/583/30230#.E9.80.9A.E8.BF.87.E6.8E.A7.E5.88.B6.E5.8F.B0.E5.AE.8C.E6.88.90.E8.A7.A6.E5.8F.91.E5.99.A8.E5.88.9B.E5.BB.BA)、支持选取已有 CLB 负载均衡或新建主机路由规则、支持配置 URL 请求路径。
@@ -76,9 +76,9 @@ CLB 负载均衡发送到云函数的请求处理方式，和云函数响应给 
 | X-Stgw-Time |  请求发起的时间戳 |
 | X-Forwarded-Proto | 请求的 scheme 结构体|
 | X-Client-Proto-Ver | 协议类型 |
-| X-Real-IP | 客户端IP地址 |   
-| X-Forward-For | 经过的代理IP地址 |
-| X-Real-Port | 记录在 API 网关中配置过的 Path 参数以及实际取值。（可选，CLB 个性化配置） |
+| X-Real-IP | 客户端 IP 地址 |   
+| X-Forward-For | 经过的代理 IP 地址 |
+| X-Real-Port | 记录在 CLB 中配置过的 Path 参数以及实际取值。（可选，CLB 个性化配置） |
 | X-Vip | CLB 负载均衡的 VIP 地址（可选，CLB 个性化配置） |
 | X-Vport | CLB 负载均衡的 Vport（可选，CLB 个性化配置）  |
 | X-Url | 请求 CLB 负载均衡的 PATH（可选，CLB 个性化配置） |

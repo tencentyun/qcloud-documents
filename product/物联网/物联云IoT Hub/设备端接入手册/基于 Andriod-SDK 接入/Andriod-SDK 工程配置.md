@@ -1,3 +1,5 @@
+
+
 腾讯云物联网设备端 Andriod SDK 依靠安全且性能强大的数据通道，为物联网领域开发人员提供设备端快速接入云端，并和云端进行双向通信的能力。开发人员只需完成工程的相应配置即可完成设备的接入。
 
 ## 前提条件
@@ -15,7 +17,7 @@ dependencies {
 >?用户可根据 [版本说明](https://cloud.tencent.com/document/product/634/48712) 把上述x.x.x设置成最新版本。
 >
  - 依赖本地 SDK 源码构建：
-  修改应用模块的 [build.gradle](https://github.com/tencentyun/iot-device-java/blob/master/hub/hub-android-demo/build.gradle)，使应用模块依赖源码，示例如下：
+    修改应用模块的 [build.gradle](https://github.com/tencentyun/iot-device-java/blob/master/hub/hub-android-demo/build.gradle)，使应用模块依赖源码，示例如下：
 ```gr
 dependencies {
 			implementation project(':hub:hub-device-android')

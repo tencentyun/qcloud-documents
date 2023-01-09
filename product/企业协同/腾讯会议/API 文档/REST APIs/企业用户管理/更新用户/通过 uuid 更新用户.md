@@ -14,7 +14,7 @@ https://api.meeting.qq.com/v1/users?uuid={uuid}
 
 | 参数名称   | 必选 | 参数类型 | 参数描述                                                     |
 | ---------- | ---- | -------- | ------------------------------------------------------------ |
-| email      | 否   | String   | 新的邮箱地址。                                                 |
+| email      | 否   | String   | 邮箱地址，同企业内须保证唯一。                                                |
 | username   | 否   | String   | 新的用户昵称。                                                 |
 | phone      | 否   | String   | 手机号码。                                                     |
 | avatar_url | 否   | String   | 头像地址。                                                     |

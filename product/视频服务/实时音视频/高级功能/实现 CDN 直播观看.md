@@ -84,11 +84,11 @@ userSig 的计算方法请参见 [如何计算及使用 UserSig](https://cloud.t
 
 - **拼装 streamId 的计算规则**
  <table>
-<tr>
+<thead><tr>
 <th>拼装</th>
 <th>2020年01月09日及此后新建的应用</th>
 <th>2020年01月09日前创建且使用过的应用</th>
-</tr>
+</tr></thead>
 <tr>
 <td>拼装规则</td>
 <td>streamId = urlencode(sdkAppId_roomId_userId_streamType)</td>
@@ -116,6 +116,7 @@ userSig 的计算方法请参见 [如何计算及使用 UserSig](https://cloud.t
 
 [](id:step5)
 ### 步骤5：给 SDK 配置 License 授权
+音视频通话（TRTC）SDK 提供了功能全面性能强大的直播播放能力，可轻松配合云直播实现 CDN 直播观看功能。若您使用移动端（iOS&Android）10.1及其之后版本的音视频通话（TRTC）SDK 实现 CDN 直播观看，则须配置 License 授权，否则可跳过本步骤。
 1. 获取 License 授权：
 	- 若您已获得相关 License 授权，需在 [云直播控制台](https://console.cloud.tencent.com/live/license) 获取 License URL 和 License Key。
 	![](https://qcloudimg.tencent-cloud.cn/raw/7053ac66fd06b9f178bf416d9d52ea21.png)
@@ -240,10 +241,10 @@ CDN 直播观看需要使用**云直播**的资源进行直播分发。云直播
 >! TRTC 的播放能力无需 License 授权。
 >
 您可直接 [购买视频播放 License](https://buy.cloud.tencent.com/vcube)，或通过 [购买的云点播流量包](https://buy.cloud.tencent.com/vod) 免费获赠视频播放 License 或 短视频 License，两种 License 均可用于解锁 SDK 的视频播放功能。并且点播资源包可以抵扣云点播的播放产生的日结流量，详细说明请参见 [云点播预付费资源包](https://cloud.tencent.com/document/product/266/14667)。
- License 计费说明参见 [腾讯云视立方License](https://cloud.tencent.com/document/product/1449/56972#.E8.85.BE.E8.AE.AF.E4.BA.91.E8.A7.86.E7.AB.8B.E6.96.B9-license)，License 购买完成后可参考[License操作指引](https://cloud.tencent.com/document/product/1449/56981)进行新增和续期等操作。
+ License 计费说明参见 [腾讯云视立方License](https://cloud.tencent.com/document/product/1449/56972#.E8.85.BE.E8.AE.AF.E4.BA.91.E8.A7.86.E7.AB.8B.E6.96.B9-license)，License 购买完成后可参考 [License 操作指引](https://cloud.tencent.com/document/product/1449/56981) 进行新增和续期等操作。
 
 
 ## 常见问题
-**为什么房间里只有一个人时画面又卡又模糊?**
+**为什么房间里只有一个人时画面又卡又模糊？**
 请将 `enterRoom` 中 TRTCAppScene 参数指定为 **TRTCAppSceneLIVE**。
 VideoCall 模式针对视频通话做了优化，所以在房间中只有一个用户时，画面会保持较低的码率和帧率以节省用户的网络流量，看起来会感觉又卡又模糊。

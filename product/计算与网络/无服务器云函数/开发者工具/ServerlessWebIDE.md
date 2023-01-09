@@ -18,9 +18,12 @@ Serverless Web IDE 支持：
 ## 使用方式
 
 
-1. 登录 [云函数控制台](https://console.cloud.tencent.com/scf/index?rid=1)，在左侧选择**函数服务**。
+1. 登录 [Serverless 控制台](https://console.cloud.tencent.com/scf/index?rid=1)，在左侧选择**函数服务**。
 2. 在函数列表中，单击函数名，进入该函数的详情页面。
 3. 在“函数管理”页面中，选择**函数代码** > **在线编辑**，即可查看并编辑函数。
+
+>! Java、Go 运行时暂不支持在线编辑，仅支持上传已经开发完成编译打包后的 ZIP 包或二进制文件。SCF 环境暂不提供 Java、Go 的编译能力。具体请参见 [Golang 部署指南](https://cloud.tencent.com/document/product/583/67385) 、[Java 部署指南](https://cloud.tencent.com/document/product/583/12216)。
+
 
 ## 概览图
 
@@ -76,7 +79,7 @@ Serverless Web IDE 提供手动部署和自动部署两种函数部署方式，�
 
 在资源管理器函数文件上单击右键展开的列表中，包含了函数相关的全部操作。除部署、测试、新增测试模板等操作外，还提供以下内容：
 
-- **生成 serverless.yml**：将函数当前的配置写入配置文件 serverless.yml，可以使用 Serverless Framework 命令行工具进行二次开发；
+- **生成 serverless.yml**：将函数当前的配置写入配置文件 serverless.yml，可以使用 Serverless Cloud Framework 命令行工具进行二次开发；
 - **丢弃当前修改**：重新拉取云端已经部署的函数覆盖当前工作区。
 
 ## IDE 操作
@@ -209,7 +212,7 @@ Serverless Web IDE 中常用命令、运行环境和预置的扩展版本如下�
 <td style="text-align:center">1.9.5</td>
 </tr>
 <tr>
-<td style="text-align:center"><a href="https://cloud.tencent.com/document/product/583/44751">Serverless Framework CLI</a></td>
+<td style="text-align:center"><a href="https://cloud.tencent.com/document/product/583/44751">Serverless Cloud Framework</a></td>
 <td style="text-align:center">3.2.1</td>
 </tr>
 </tbody>
@@ -277,7 +280,7 @@ Serverless Web IDE 中常用命令、运行环境和预置的扩展版本如下�
 
 ## 配额限制
 
-- IDE 为每个用户提供5GB的存储空间，超出将无法执行写入操作，请及时清理。
+- IDE 为每个用户提供5GB的存储空间，超出将无法执行写入操作，请及时清理。（删除函数不会清空 IDE 的存储空间，请您备份工作空间更改后，手动进行“重置工作空间”操作。您也可以选择切换到旧版编辑器以规避此限制。）
 - 为保证体验，不建议在多个浏览器页面中同时打开3个以上的函数。
 
 ## 注意事项

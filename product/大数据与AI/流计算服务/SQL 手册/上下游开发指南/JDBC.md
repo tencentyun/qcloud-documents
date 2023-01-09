@@ -2,6 +2,7 @@
 JDBC Connector 提供了对 MySQL、PostgreSQL、Oracle 等常见的数据库读写支持。
 
 目前 Oceanus 提供的 `flink-connector-jdbc` Connector 组件已经内置了 MySQL 和 PostgreSQL 的驱动程序。若需要连接 Oracle 等其他的数据库，可通过附加**自定义程序包**的方式，上传相应的 JDBC Driver 的 JAR 包。
+>! CDW PostgreSQL 只能使用 PostgreSQL connector。
 
 ## 版本说明
 
@@ -183,5 +184,5 @@ jdbc:mysql://10.1.28.93:3306/CDB?rewriteBatchedStatements=true
 ```
 - 对于 PostgreSQL，建议在 url 连接参数后加入 reWriteBatchedInserts=true 参数。
 ```
-jdbc:postgresql://10.1.28.93:3306/PG?reWriteBatchedInserts=true&?currentSchema=数据库的Schema
+jdbc:postgresql://10.1.28.93:3306/PG?reWriteBatchedInserts=true&currentSchema=数据库的Schema
 ```

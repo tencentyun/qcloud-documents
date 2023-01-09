@@ -28,7 +28,7 @@ const config = {
     },
     reporter: {
         logSpans: true,
-        collectorEndpoint: 'http://ap-guangzhou.apm.tencentcs.com:14268/api/traces', // 接入点，比前在应用性能监控获取的接入点多了 api/traces
+        collectorEndpoint: 'http://ap-guangzhou.apm.tencentcs.com:14268/api/traces', // 接入点，此前在应用性能监控获取的接入点多了 api/traces
     },
 };
 

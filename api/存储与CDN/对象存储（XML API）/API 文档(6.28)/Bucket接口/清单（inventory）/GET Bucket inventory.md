@@ -99,6 +99,9 @@ Authorization: Auth String
         <Field>StorageClass</Field>
         <Field>IsMultipartUploaded</Field>
         <Field>ReplicationStatus</Field>
+        <Field>Tag</Field>
+        <Field>Crc64</Field>
+        <Field>x-cos-meta-*</Field>
 	</OptionalFields>
 </InventoryConfiguration>
 ```
@@ -109,17 +112,22 @@ Authorization: Auth String
 | ----------------------- | ----------------------- | ------------------------------------------------------------ | --------- |
 | Inventory Configuration | 无                      | 包含清单的配置参数                                         | Container |
 | Id                      | Inventory Configuration | 清单的名称，与请求参数中的 ID 对应                           | Container |
-| IsEnabled               | Inventory Configuration | 清单是否启用的标识：<br><li>如果设置为 true，清单功能将生效<br><li>如果设置为 false，将不生成任何清单 | String    |
-| IncludedObject Versions | Inventory Configuration | 是否在清单中包含对象版本：<br><li>如果设置为 All ，清单中将会包含所有对象版本，并在清单中增加 VersionId， IsLatest， DeleteMarker 这几个字段<br><li>如果设置为 Current，则清单中不包含对象版本信息 | String    |
+| IsEnabled               | Inventory Configuration | 清单是否启用的标识：<ul  style="margin: 0;"><li>如果设置为 true，清单功能将生效</li><li>如果设置为 false，将不生成任何清单</li></ul> | String    |
+| IncludedObject Versions | Inventory Configuration | 是否在清单中包含对象版本：<ul  style="margin: 0;"><li>如果设置为 All ，清单中将会包含所有对象版本，并在清单中增加 VersionId， IsLatest， DeleteMarker 这几个字段</li><li>如果设置为 Current，则清单中不包含对象版本信息</li></ul> | String    |
 | Filter                  | Inventory Configuration | 筛选待分析对象。清单功能将分析符合 Filter 中设置的前缀的对象 | Container |
-| Prefix                  | Filter                  | 需要分析的对象的前缀                                   | String    |
-| OptionalFields          | Inventory Configuration | 设置清单结果中应包含的分析维度                            | Container |
-| Field                   | OptionalFields          | 清单结果中可选包含的分析维度名称，可选字段包括：  Size， LastModifiedDate，  StorageClass， ETag， IsMultipartUploaded，  ReplicationStatus | String    |
-| Schedule                | Inventory Configuration | 配置清单任务周期                                           | Container |
-| Frequency               | Schedule                | 清单任务周期，可选项为按日或者按周                         | String    |
-| Destination             | Inventory Configuration | 描述存放清单结果的信息                                     | Container |
-| COSBucket Destination   | Destination             | 清单结果导出后存放的存储桶信息                             | Container |
-| Bucket                  | COSBucket Destination   | 清单分析结果的存储桶名                                    | String    |
+| And                     | Filter                  | 筛选待分析对象时，如果同时需要前缀与对象标签条件，需要用 And 包装  | Container |
+| Prefix                  | And                  | 需要分析的对象的前缀                                         | String    |
+| Tag                     | And                     | 筛选待分析对象时，可以用对象标签（支持多个）作为过滤条件   | Container |
+| Period                  | Filter                  | 需要分析的对象的创建时间范围                                 | Container |
+| StartTime               | Period                  | 需要分析的对象创建的起始时间，参数为秒级时间戳，如1568688761 | String    |
+| EndTime                 | Period                  | 需要分析的对象创建的结束时间，参数为秒级时间戳，如1568688762 | String    |
+| OptionalFields          | Inventory Configuration | 设置清单结果中应包含的分析维度                               | Container |
+| Field                   | OptionalFields          | 清单结果中可选包含的分析项目名称，可选字段包括：`Size`，`LastModifiedDate`，`StorageClass`，`ETag`，`IsMultipartUploaded`，`ReplicationStatus`，`Tag`，`Crc64`，`x-cos-meta-*`<br/>注意，如果筛选条件里使用了对象标签，在这里也必须添加 Tag<br/>此外，也支持用户填写`x-cos-meta-*`形式的自定义头部，如`x-cos-meta-testheader`。清单会将相应的对象元数据输出，若对象不包含该元数据，则为空 | String    |
+| Schedule                | Inventory Configuration | 配置清单任务周期                                             | Container |
+| Frequency               | Schedule                | 清单任务周期，可选项为按日或者按周                           | String    |
+| Destination             | Inventory Configuration | 描述存放清单结果的信息                                       | Container |
+| COSBucket Destination   | Destination             | 清单结果导出后存放的存储桶信息                               | Container |
+| Bucket                  | COSBucket Destination   | 清单分析结果的存储桶名                                       | String    |
 | AccountId               | COSBucket Destination   | 存储桶的所有者 ID                                            | String    |
 | Prefix                  | COSBucket Destination   | 清单分析结果的前缀                                         | String    |
 | Format                  | COSBucket Destination   | 清单分析结果的文件形式，可选项为 CSV 格式和 ORC 格式       | String    |
@@ -131,6 +139,8 @@ Authorization: Auth String
 此接口遵循统一的错误响应和错误码，详情请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 ## 实际案例
+
+#### 案例一：获取指定对象前缀的清单任务
 
 #### 请求
 
@@ -187,6 +197,69 @@ x-cos-request-id: NTlhMzg1ZWVfMjQ4OGY3MGFfMWE1NF84Y2M
         <Field>StorageClass</Field>
         <Field>IsMultipartUploaded</Field>
         <Field>ReplicationStatus</Field>
+	</OptionalFields>
+</InventoryConfiguration>
+```
+
+#### 案例二：获取指定对象前缀和对象标签的清单任务
+
+#### 请求
+
+下述请求示例展示了从存储桶`examplebucket-1250000000`中获取清单任务为 list2 的配置信息。
+
+```shell
+GET /?inventory&id=list2 HTTP/1.1
+Date: Mon, 28 Aug 2018 02:53:38 GMT
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1503895278;1503895638&q-key-time=1503895278;1503895638&q-header-list=host&q-url-param-list=inventory&q-signature=f77900be432072b16afd8222b4b349aabd83****
+Host: examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com
+```
+
+#### 响应
+
+上述请求后，COS 返回以下响应，表明当前该存储桶内的清单任务 list2 处于启用状态。
+
+- 该清单任务分析存储桶`examplebucket-1250000000`中前缀为 myPrefix，且含有对象标签{age:18}的对象及其所有版本。
+- 分析频次为每天一次。
+- 分析维度包括 Size，LastModifiedDate， StorageClass，ETag，Tag。
+- 分析结果将以 CSV 格式文件存储在存储桶 inventorybucket-1250000000 中。
+
+```shell
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 331
+Date: Mon, 28 Aug 2018 02:53:39 GMT
+Server: tencent-cos
+x-cos-request-id: NTlhMzg1ZWVfMjQ4OGY3MGFfMWE1NF84Y2M
+<?xml version = "1.0" encoding = "UTF-8">
+<InventoryConfiguration xmlns = "http://....">
+    <Id>list2</Id>
+    <IsEnabled>true</IsEnabled>
+    <Destination>
+        <COSBucketDestination>
+            <Format>CSV</Format>
+            <AccountId>1250000000</AccountId>
+            <Bucket>qcs::cos:ap-guangzhou::inventorybucket-1250000000</Bucket>
+        </COSBucketDestination>
+    </Destination>
+    <Schedule>
+        <Frequency>Daily</Frequency>
+    </Schedule>
+    <Filter>
+    	<And>
+        	<Prefix>myPrefix</Prefix>
+            <Tag>
+                <Key>age</Key>
+                <Value>18</Value>
+            </Tag>
+        </And>
+    </Filter>
+    <IncludedObjectVersions>All</IncludedObjectVersions>
+    <OptionalFields>
+        <Field>Size</Field>
+        <Field>LastModifiedDate</Field>
+        <Field>StorageClass</Field>
+        <Field>ETag</Field>
+        <Field>Tag</Field>
 	</OptionalFields>
 </InventoryConfiguration>
 ```

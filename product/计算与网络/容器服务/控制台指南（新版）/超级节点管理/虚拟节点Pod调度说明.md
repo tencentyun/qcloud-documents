@@ -1,7 +1,7 @@
 
 ## 计费方式
 
-调度到虚拟节点上的 Pod 支持预付费、后付费（按量计费、竞价）的两种计费模式，计费详情请参见 [弹性容器计费概述 ](https://cloud.tencent.com/document/product/457/39807)、[弹性容器产品定价](https://cloud.tencent.com/document/product/457/39806)、[弹性容器购买限制](https://cloud.tencent.com/document/product/457/39821)。
+调度到超级节点上的 Pod 支持预付费、后付费（按量计费、竞价）的两种计费模式，计费详情请参见 [弹性容器计费概述 ](https://cloud.tencent.com/document/product/457/39807)、[弹性容器产品定价](https://cloud.tencent.com/document/product/457/39806)、[弹性容器购买限制](https://cloud.tencent.com/document/product/457/39821)。
 
 
 ## Kubernetes 版本
@@ -10,22 +10,22 @@
 
 ## 默认配额
 
-默认每个集群仅可将**100个 Pod** 调度到虚拟节点上。若您需要超过以上配额的资源，可填写提升配额申请，由腾讯云对您的实际需求进行评估，评估通过之后将为您提升配额。
+默认每个集群仅可将**100个 Pod** 调度到超级节点上。若您需要超过以上配额的资源，可填写提升配额申请，由腾讯云对您的实际需求进行评估，评估通过之后将为您提升配额。
 
 ### 申请提升配额操作指引
 1. 请 [提交工单](https://console.cloud.tencent.com/workorder/category) ，选择**人工支持**或者**其他问题** > **立即创建**，进入创建工单信息填写页面。
-2. 在问题描述中填写“期望提升集群虚拟节点 Pod 配额”，注明目标地区及目标配额，并按照页面提示填写您可用的手机号等信息。
+2. 在问题描述中填写“期望提升集群超级节点 Pod 配额”，注明目标地区及目标配额，并按照页面提示填写您可用的手机号等信息。
 3. 填写完成后，单击**在线咨询**即可。
 
 ## Pod 配置说明
 
 ### Pod 规格配置
 
-Pod 的规格配置是容器运行时可用资源和使用服务计费的依据，请务必了解虚拟节点 Pod 的资源规格配置和指定方法，详情请参见 [资源规格](https://cloud.tencent.com/document/product/457/39808) 和 [指定资源规格](https://cloud.tencent.com/document/product/457/44174)。
+Pod 的规格配置是容器运行时可用资源和使用服务计费的依据，请务必了解超级节点 Pod 的资源规格配置和指定方法，详情请参见 [资源规格](https://cloud.tencent.com/document/product/457/39808) 和 [指定资源规格](https://cloud.tencent.com/document/product/457/44174)。
 
 ### Pod 临时存储
 
-每个调度到虚拟节点上的 Pod 创建时会分配不超过20GiB的临时镜像存储。
+每个调度到超级节点上的 Pod 创建时会分配不超过20GiB的临时镜像存储。
 
 >!
 >- 临时镜像存储将于 Pod 生命周期结束时删除，请勿用于存储重要数据。
@@ -34,17 +34,17 @@ Pod 的规格配置是容器运行时可用资源和使用服务计费的依据�
 
 ### Pod 网络
 
-调度到虚拟节点上的 Pod 采用的是与云服务器、云数据库等云产品平级的 VPC 网络，每个 Pod 都会占用一个 VPC 子网 IP。
+调度到超级节点上的 Pod 采用的是与云服务器、云数据库等云产品平级的 VPC 网络，每个 Pod 都会占用一个 VPC 子网 IP。
 
 Pod 与 Pod、Pod 与其他同 VPC 云产品间可直接通过 VPC 网络通信，没有性能损耗。
 
 ### Pod 隔离性
 
-调度到虚拟节点上的 Pod 拥有与云服务器完全一致的安全隔离性。Pod 在腾讯云底层物理服务器上调度创建，创建时会通过虚拟化技术保证 Pod 间的资源隔离。
+调度到超级节点上的 Pod 拥有与云服务器完全一致的安全隔离性。Pod 在腾讯云底层物理服务器上调度创建，创建时会通过虚拟化技术保证 Pod 间的资源隔离。
 
 ### 其他 Pod 特殊配置
 
-调度到虚拟节点上的 Pod 可以通过在 yaml 中定义 `template annotation` 的方式，实现为 Pod 绑定安全组、分配资源、分配 EIP 等能力。配置方法见下表：
+调度到超级节点上的 Pod 可以通过在 yaml 中定义 `template annotation` 的方式，实现为 Pod 绑定安全组、分配资源、分配 EIP 等能力。配置方法见下表：
 
 >!
 >- 如果不指定安全组，则 Pod 会默认绑定节点池指定的安全组。请确保安全组的网络策略不影响该 Pod 正常工作，例如，Pod 启用 80 端口提供服务，请放通入方向 80 端口的访问。
@@ -138,22 +138,22 @@ Pod 与 Pod、Pod 与其他同 VPC 云产品间可直接通过 VPC 网络通信�
 
 ### Workload 限制
 
-DaemonSet 类型工作负载的 Pod 不会调度到虚拟节点上。
+DaemonSet 类型工作负载的 Pod 不会调度到超级节点上。
 
 ### Service 限制
 
-采用 [GlobalRouter 网络模式](https://cloud.tencent.com/document/product/457/50354) 的集群 service 如果开启了 externaltrafficpolicy = local，流量不会转发到调度到虚拟节点上的 Pod。
+采用 [GlobalRouter 网络模式](https://cloud.tencent.com/document/product/457/50354) 的集群 service 如果开启了 externaltrafficpolicy = local，流量不会转发到调度到超级节点上的 Pod。
 
 ### Volume 限制
 
-挂载 hostPath 类型数据卷的 Pod 不会调度到虚拟节点上。
+挂载 hostPath 类型数据卷的 Pod 不会调度到超级节点上。
 
 
 ### 其他限制
 
-- 没有任何服务器节点的空集群暂时无法正常使用虚拟节点功能。
-- 开启了 [固定 IP ](https://cloud.tencent.com/document/product/457/34994)的 Pod 暂不支持调度到虚拟节点上。
-- 指定了 hostPort 的 Pod 不会调度到虚拟节点上。
+- 没有任何服务器节点的空集群暂时无法正常使用超级节点功能。
+- 开启了 [固定 IP ](https://cloud.tencent.com/document/product/457/34994)的 Pod 暂不支持调度到超级节点上。
+- 指定了 hostPort 的 Pod 不会调度到超级节点上。
 - 指定了 hostIP 配置的 Pod 默认会把 Pod IP 作为 hostIP。
-- 如果开启了反亲和性特性，同工作负载 Pod 仅会在虚拟节点上创建一个。
-- 如果容器日志存储在指定的节点文件中，也是通过节点文件进行的日志采集，则无法采集虚拟节点上的 Pod 日志。
+- 如果开启了反亲和性特性，同工作负载 Pod 仅会在超级节点上创建一个。
+- 如果容器日志存储在指定的节点文件中，也是通过节点文件进行的日志采集，则无法采集超级节点上的 Pod 日志。

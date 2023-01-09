@@ -27,8 +27,8 @@
 
 ### 步骤3：接入服务[](id:step3)
 
-为了方便用户接入，Prometheus 监控服务对常用的`开发语言`/`中间件`/`大数据`进行了集成，用户只需根据指引即可对相应的组件进行监控，同时提供了开箱即用的 Grafana 监控大盘。
-![](https://qcloudimg.tencent-cloud.cn/raw/8c84e8c323f612c53a1d9d6578f02684.png)
+为了方便用户接入，Prometheus 监控服务对常用的`开发`/`中间件`/`大数据`进行了集成，用户只需根据指引即可对相应的组件进行监控，同时提供了开箱即用的 Grafana 监控大盘。
+![](https://qcloudimg.tencent-cloud.cn/raw/7d1136b5da27869051f3fd10734c614a.png)
 
 ### 步骤4：Grafana 查看监控数据[](id:step4)
 

@@ -12,7 +12,7 @@
 - **镜像**：建议选择**公共镜像**，支持自动安装 GPU 驱动。若您选择**自定义镜像**，则需要自行安装 GPU 驱动。
  - 操作系统请使用 CentOS 8.0/CentOS 7.8/Ubuntu 20.04/Ubuntu 18.04/TecentOS 3.1/TencentOS 2.4。
  - 若您选择**公共镜像**，则请勾选“后台自动安装GPU驱动”，实例将在系统启动后预装对应版本驱动。如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/3e9e1639e8e120e6ad0050d060f3e006.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/6cc967fbe8293c06e311cbbd3aa8a879.png)
 
 
 ### 配置实例环境[](id:Step2)
@@ -56,7 +56,7 @@ curl -s -L http://mirrors.tencent.com/install/GPU/taco/get-nvidia-docker2.sh | s
 ### 下载 docker 镜像[](id:Step4)
 执行以下命令，下载 docker 镜像。
 ```shellsession
-docker pull ccr.ccs.tencentyun.com/qcloud/taco-train:torch111-cu113-cvm-0.4.1
+docker pull ccr.ccs.tencentyun.com/qcloud/taco-train:torch111-cu113-cvm-0.4.3
 ```
 该镜像包含的软件版本信息如下：
 - OS：Ubuntu 20.04.4 LTS
@@ -77,7 +77,7 @@ docker pull ccr.ccs.tencentyun.com/qcloud/taco-train:torch111-cu113-cvm-0.4.1
 ### 启动 docker 镜像[](id:Step5)
 执行以下命令，启动 docker 镜像。
 ```shellsession
-docker run -it --rm --gpus all --privileged --net=host -v /sys:/sys -v /dev/hugepages:/dev/hugepages -v /usr/local/tfabric/tools:/usr/local/tfabric/tools ccr.ccs.tencentyun.com/qcloud/taco-train:torch111-cu113-cvm-0.4.1
+docker run -it --rm --gpus all --privileged --net=host -v /sys:/sys -v /dev/hugepages:/dev/hugepages -v /usr/local/tfabric/tools:/usr/local/tfabric/tools ccr.ccs.tencentyun.com/qcloud/taco-train:torch111-cu113-cvm-0.4.3
 ```
 
 <dx-alert infotype="notice" title="">
@@ -258,7 +258,4 @@ Batch：128<br>
 - LightCC 和 HARP 只在多机分布式训练当中才有加速效果，单机8卡场景由于 NVLink 的高速带宽存在，一般不需要额外的加速就能达到比较高的线性加速比。
 - 上述 benchmark 脚本也可以支持除了 VGG16之外的其他模型。ModelName 请参考 [Keras Applications](https://pytorch.org/vision/stable/models.html)。
 - 上述 docker 镜像仅用于 demo，若您具备开发或者部署环境，请提供 OS/python/CUDA/torch 版本信息，并联系腾讯云售后提供特定版本的 TACO 加速组件。
-
-
-
 

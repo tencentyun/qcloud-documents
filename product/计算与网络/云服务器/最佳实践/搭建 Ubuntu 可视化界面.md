@@ -19,6 +19,10 @@ VNC 服务使用 TCP 协议，默认使用5901端口。则需在实例已绑定�
 ```shellsession
 sudo -i
 ```
+3. 执行以下命令，清除缓存。
+```shellsession
+apt-get clean all
+```
 3. 执行以下命令，更新和获取最新的软件及版本信息。
 ```shellsession
 apt-get update
@@ -40,6 +44,11 @@ apt-get install vnc4server
 ```
 :::
 ::: Ubuntu 20.04
+```shellsession
+apt-get install tightvncserver
+```
+:::
+::: Ubuntu 22.04
 ```shellsession
 apt-get install tightvncserver
 ```

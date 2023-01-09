@@ -415,7 +415,7 @@ confg.token = self.deviceToken;
 
 ## 交流与反馈
 
-欢迎加入 QQ 群进行技术交流和反馈问题，QQ 群：**QQ: 592465424**。
-<img src="https://qcloudimg.tencent-cloud.cn/raw/ca5f8724cd5a9002abc454f80bf3df12.png" alt="592465424" style="zoom:50%;" />
+欢迎加入 QQ 群进行技术交流和反馈问题。
+<img src="https://qcloudimg.tencent-cloud.cn/raw/e2050d5b5c894c7da725f8e25c5bfe82.jpg" style="zoom:20%;" />
 
 

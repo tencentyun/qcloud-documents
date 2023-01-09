@@ -86,12 +86,12 @@ services:
 </dx-codeblock>
 
 
-### 步骤2：利用 decK 工具导入配置到云原生网关 Kong
+### 步骤2：利用 decK 工具导入配置到云原生 API 网关 Kong
 
 1. 打开终端，运行如下命令查看`Kong.yaml`中的配置与云原生 **Kong** 网关的配置差异性。
 <dx-codeblock>
 :::  sh
-# 注意将 kong-tencent 替换为腾讯云云原生网关Kong的代理地址
+# 注意将 kong-tencent 替换为腾讯云云原生 API 网关Kong的代理地址
 deck --kong-addr http://kong-tencent/admin-api diff
 creating service tencent
 creating route 040b0c62-4d31-4286-a595-1832e55bf568
@@ -105,7 +105,7 @@ Summary:
 2. 运行如下命令将`Kong.yaml`中的配置导入腾讯云云原生 **Kong** 网关中。
 <dx-codeblock>
 :::  sh
-# 注意 kong-tencent 替换为腾讯云云原生网关Kong的代理地址
+# 注意 kong-tencent 替换为腾讯云云原生 API 网关Kong的代理地址
 deck --kong-addr http://kong-tencent/admin-api sync
 creating service tencent
 creating route 040b0c62-4d31-4286-a595-1832e55bf568

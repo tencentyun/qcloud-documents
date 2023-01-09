@@ -1,5 +1,4 @@
 开启智能防护后，AI 智能防护基于腾讯云的大数据能力，能够自主学习网站业务流量基线，结合算法分析攻击异常，并自动下发精确的防护规则，动态调整业务防护模型，帮助您及时发现并阻断恶意攻击。
->?该功能为灰度上线阶段，部分用户暂无法使用敬请期待全量上线。
 
 ## 前提条件
 - 您需要成功 [购买 DDoS 高防包](https://cloud.tencent.com/document/product/1021/43894)，并设置防护对象。
@@ -16,10 +15,13 @@
 >
 ![](https://qcloudimg.tencent-cloud.cn/raw/080d63287105c7b0f0a6fd750bbf6a33.png)
 4. 在智能 CC 防护卡片中，单击**设置**。
-![](https://qcloudimg.tencent-cloud.cn/raw/c668f2346f27e6a766579482d3bc29dc.png)
-5. 在智能 CC 防护页面中，单击**创建**，输入需要防护的域名，开启智能 CC 开关，单击**保存**。一条智能 CC 防护规则创建完成。完成后也可对该规则进行删除和编辑操作。
-![](https://qcloudimg.tencent-cloud.cn/raw/4a9645ec6033acfdc1ca59451b91a136.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/31f69096004cf14fcf7415fcb186cdba.png)
+5. 在智能 CC 防护页面中，单击**新建**，输入需要防护的域名，开启智能 CC 开关，选择防护状态，单击**保存**。
+>?观察模式下智能生成防护规则但不生效。
+>
+![](https://qcloudimg.tencent-cloud.cn/raw/2b7ea653c8a824212a9b81ae0505b658.png)
+
 6. 创建并开启智能 CC 防护后，基于每次攻击，智能防护自动生成防护规则。智能防护下发的规则存在**单次有效期**，单次攻击结束后，防护规则自动失效并清除。若需要针对下一次攻击调整。请单击右侧**查看**进行智能防护规则编辑。
 ![](https://qcloudimg.tencent-cloud.cn/raw/97fb3fb4f22391edf1124c77cd7c42e5.png)
 7. 智能防护规则基于单次攻击自动生成与生效。智能防护下发的规则存在单次有效期，单次攻击结束后，防护规则自动失效并清除。根据防护需求，可单击**删除**，删除对应防护规则。
-![](https://qcloudimg.tencent-cloud.cn/raw/25c59b6b0b2fed4ced764ad11716d6a4.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/a56fb4f5b174a964fa3d45dc9e6c79f8.png)

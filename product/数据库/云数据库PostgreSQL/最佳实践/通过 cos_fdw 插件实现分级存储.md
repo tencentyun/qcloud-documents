@@ -55,8 +55,8 @@ postgres=>
 ```
 sudo yum install libxml2-devel libcurl-devel -y
 ```
-5. 访问 COSFS 的 [github 下载地址](https://github.com/tencentyun/cosfs/releases/download/v1.0.19/cosfs-1.0.19-centos7.0.x86_64.rpm)，下载 cosfs 的安装包。
-6. 下载完成后将此安装包上传⾄此服务器中。再执⾏下列命令将 cosfs 安装成功。
+5. 访问 COSFS 的 [github 下载地址](https://github.com/tencentyun/cosfs/releases/download/v1.0.19/cosfs-1.0.19-centos7.0.x86_64.rpm)，下载 COSFS 的安装包。
+6. 下载完成后将此安装包上传⾄此服务器中。再执⾏下列命令将 COSFS 安装成功。
 ```
 rpm -ivh cosfs-1.0.19-centos7.0.x86_64.rpm
 ```

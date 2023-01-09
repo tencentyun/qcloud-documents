@@ -6,7 +6,7 @@
 <th width=15%>指标单位</th>
 <th width=45%>指标含义 </th>
 </tr><tr>
-<td rowspan=2>GC 次数 </td>
+<td rowspan=2>GC 次数 </td> 
 <td >YGC </td>
 <td >次 </td>
 <td >	Young GC 次数</td>

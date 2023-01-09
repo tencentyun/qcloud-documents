@@ -53,14 +53,6 @@
 5. 学生根据  [onReceiveNewInvitation](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMSignalingListener.html#aecc2341ca87eb58be37fdadf7a58c014) 回调中的 `inviteeList` 和 `data` 字段判断被邀请者里有自己且是发言操作，则调用 [accept](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMSignalingManager.html#a4cd3629a0952db7c59186e0c222e17a0) 接口发言。
 6. 如果有学生发言，所有人都可以收到  [onInviteeAccepted](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMSignalingListener.html#af4896215b6bf6febda701c100566b04c) 回调，判断 `data` 中的字段为“发言操作”，展示发言成员列表。
 
-## 交流&反馈
-
-欢迎加入 QQ 群进行技术交流和反馈问题，QQ 群：**592465424**。
-
-![img](https://qcloudimg.tencent-cloud.cn/raw/ca5f8724cd5a9002abc454f80bf3df12.png)
-
-
-
 ## 常见问题
 
 ### 1. 用户 A 邀请用户 B 时，用户 C 可以邀请用户 B 吗？
@@ -90,3 +82,8 @@ App 热启动（App 在后台，点击 App 图标启动）时，不管是单聊�
 ### 6. 信令回调中 inviteID 是不是唯一的？
 是唯一的。inviteID 唯一标识了一组信令消息（包括邀请、同意/拒绝、超时）。
 
+
+## 交流&反馈
+
+欢迎加入 QQ 群进行技术交流和反馈问题。
+<img src="https://qcloudimg.tencent-cloud.cn/raw/e2050d5b5c894c7da725f8e25c5bfe82.jpg" style="zoom:20%;"/>

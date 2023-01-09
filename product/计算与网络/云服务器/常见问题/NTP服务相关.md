@@ -12,7 +12,7 @@ server time1.tencentyun.com minpoll 4 maxpoll 5
 ```
 配置完成后如下图所示，输入 **:wq** 保存更改并退出。
 ![](https://main.qcloudimg.com/raw/02d6457d29b4c573605e3c79c5ccfc9f.png)
-3. 重启 ntpd 服务后，执行 `ntpd -p` 命令，即可查看 poll 值为16（即2<sup>4</sup>）。如下图所示：
+3. 重启 ntpd 服务后，执行 `ntpq -p` 命令，即可查看 poll 值为16（即2<sup>4</sup>）。如下图所示：
 ![](https://main.qcloudimg.com/raw/9fa0c72751de74d3b6e72cc1ca831952.png)
 
 ### 腾讯云提供的 ntpd 时间源服务器所提供的时间是从什么源头获取的？

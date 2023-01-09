@@ -10,12 +10,12 @@
 
 ### 查看配置
 
-登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，在菜单栏里选择【域名管理】，单击域名右侧【管理】，即可进入域名配置页面，第二栏【访问控制】中可看到 UA 黑白名单配置，默认情况下为关闭状态：
+登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，在菜单栏里选择**域名管理**，单击域名右侧**管理**，即可进入域名配置页面，第二栏**访问控制**中可看到 UA 黑白名单配置，默认情况下为关闭状态：
 ![](https://main.qcloudimg.com/raw/5105eca56650c784e3e5965172619322.png)
 
 ### 新增规则
-单击【新增规则】，可按需逐条添加黑(白)名单：
-![](https://main.qcloudimg.com/raw/74bae0674238aa3f37bc9853c823e62f.png)
+单击**新增规则**，可按需逐条添加黑(白)名单：
+![](https://qcloudimg.tencent-cloud.cn/raw/060ecc2191d849e78ea8f04700e303ab.png)
 
 
  

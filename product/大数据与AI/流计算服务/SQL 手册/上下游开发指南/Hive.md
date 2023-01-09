@@ -55,7 +55,7 @@ containerized.taskmanager.env.HADOOP_USER_NAME: hadoop
 containerized.master.env.HADOOP_USER_NAME: hadoop
 ```
 
->? Flink SQL 中使用 Hive 表 testdb.hive_table，这里 CREATE TABLE 的表名对应 Hive 库的表名，库名通过 hive-database 参数指定。
+>? Flink SQL 中使用 Hive 表 testdb.hive_table，这里 CREATE TABLE 的表名对应 Hive 库的表名（Flink 1.13支持通过hive-table参数配置覆盖该值），库名通过 hive-database 参数指定。
 
 
 ## WITH 参数
@@ -66,6 +66,7 @@ containerized.master.env.HADOOP_USER_NAME: hadoop
 | connector                                  | 是   | 无           | Flink-1.13支持，填 'hive' 选择使用 hive connector。          |
 | hive-version                               | 是   | 无           | EMR 创建的 Hive 集群对应的版本。                             |
 | hive-database                              | 是   | 无           | 数据要写入的 Hive database。                                 |
+| hive-table                                 | 否   | 无           | Flink-1.13支持，填写后该值会作为Hive库的对应表名             |
 | sink.partition-commit.trigger              | 否   | process-time | 分区关闭策略。可选值包括：<li/>process-time：当分区创建超过一定时间之后将这个分区关闭，分区创建时间为分区创建时的物理时间。<li/>partition-time：当分区创建超过一定时间之后将这个分区关闭，分区创建时间从分区中抽取出来。partition-time 依赖于 watermark 生成，需要配合 wartermark 才能支持自动分区发现。当 watermark 时间超过了 `从分区抽取的时间` 与 `delay 参数配置时间` 之和后会提交分区。 |
 | sink.partition-commit.delay                | 否   | 0s           | 分区关闭延迟。当分区在创建超过一定时间之后将被关闭。         |
 | sink.partition-commit.policy.kind          | 是   | 无           | 用于提交分区的策略。可选值可以组合使用，可选值包括：<li/>success-file：当分区关闭时将在分区对应的目录下生成一个 \_success 的文件。<li/>metastore：向 Hive Metastore 更新分区信息。<li/>custom：用户实现的自定义分区提交策略。 |
@@ -197,13 +198,13 @@ containerized.taskmanager.env.HADOOP_USER_NAME: hadoop
 containerized.master.env.HADOOP_USER_NAME: hadoop
 security.kerberos.login.principal: hadoop/172.28.28.51@EMR-OQPO48B9
 security.kerberos.login.keytab: emr.keytab
-security.kerberos.login.conf: krb5.conf.path
+security.kerberos.login.conf: ${krb5.conf.fileName}
 ```
 
 >! 历史 Oceanus 集群可能不支持该功能，您可通过 [在线客服](https://cloud.tencent.com/act/event/Online_service?from=doc_849) 联系我们升级集群管控服务，以支持 Kerberos 访问。
 
 ## 注意事项
-1. 如果 Flink 作业正常运行，日志中没有报错，但是客户端查不到这个 Hive 表，可以使用如下命令对 Hive 表进行修复（需要将 `hive_table_xxx` 替换为要修复的表名）。
+如果 Flink 作业正常运行，日志中没有报错，但是客户端查不到这个 Hive 表，可以使用如下命令对 Hive 表进行修复（需要将 `hive_table_xxx` 替换为要修复的表名）。
 ```
 msck repair table hive_table_xxx;
 ```

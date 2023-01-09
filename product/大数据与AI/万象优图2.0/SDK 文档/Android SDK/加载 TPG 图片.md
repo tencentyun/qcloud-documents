@@ -31,7 +31,7 @@ implementation 'com.qcloud.cos:cloud-infinite:1.2.1'
 CloudInfinite cloudInfinite = new CloudInfinite();
 // 根据用户所选万象基础功能 options 进行 Transformation；
 CITransformation transform = new CITransformation();
-transform.format(CIImageFormat.TPG, CIImageLoadOptions.LoadTypeAcceptHeader);
+transform.format(CIImageFormat.TPG, CIImageLoadOptions.LoadTypeUrlFooter);
 // 构建图片 CIImageLoadRequest
 CIImageLoadRequest request = cloudInfinite.requestWithBaseUrlSync(url, transform);
 ```

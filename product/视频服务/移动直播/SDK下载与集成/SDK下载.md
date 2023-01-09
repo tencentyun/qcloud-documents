@@ -171,9 +171,9 @@
     <th width="10%" style="text-align:center">功能模块</th>
     <th width="14%" style="text-align:center">功能项</th>
     <th  style="text-align:center">功能简介</th>
-    <th width="10%" style="text-align:center">直播 SDK（基础版）</th>
-    <th width="10%" style="text-align:center">直播 SDK</th>
-    <th width="10%" style="text-align:center">全功能版 SDK</th>  
+    <th width="15%" style="text-align:center">直播 SDK（基础版）</th>
+    <th width="15%" style="text-align:center">直播 SDK</th>
+    <th width="15%" style="text-align:center">全功能版 SDK</th>  
   </tr>
   <tr>
     <td rowspan='1' style="text-align:center">界面</td>
@@ -216,8 +216,8 @@
   <tr>
     <td style="text-align:center">HLS 播放</td>
     <td style="text-align:left">用于实现 HLS（m3u8）协议的直播播放功能。</td>
-    <td style="text-align:center">&#10003;</td>
-    <td style="text-align:center">&#10003;</td>
+    <td style="text-align:center">×</td>
+    <td style="text-align:center">×</td>
     <td style="text-align:center">&#10003;</td>
   </tr>
 	<tr>
@@ -231,7 +231,7 @@
     <td style="text-align:center">点播播放</td>
     <td style="text-align:center">点播播放</td>
     <td style="text-align:left">用于实现视频点播回放功能。</td>
-    <td style="text-align:center">&#10003;（不支持 FLV 格式）</td>
+    <td style="text-align:center">&#10003;</td>
     <td style="text-align:center">×</td>
     <td style="text-align:center">&#10003;</td>
   </tr>
@@ -251,7 +251,7 @@
     <td style="text-align:center">&#10003;</td>
   </tr>
   <tr>
-      <td rowspan='18' style="text-align:center">采集拍摄</td>
+      <td rowspan='11' style="text-align:center">采集拍摄</td>
       <td style="text-align:center">屏比</td>
       <td>支持16:9，4:3，1:1多种屏比拍摄。</td>
       <td style="text-align:center">&#10003;</td>
@@ -328,4 +328,17 @@
       <td style="text-align:center">&#10003;</td>
       <td style="text-align:center">&#10003;</td>
    </tr>
+	 <tr>
+		<td rowspan=2=>安装包增量</td>
+		<td colspan=2>Android</td>
+		<td>armv7：4.15M<br>arm64：4.53M</td>
+		<td>armv7：5.00M<br>arm64：5.49M</td>
+		<td>armv7：9.15M<br>arm64：10.4M</td>
+	</tr>
+	<tr>
+		<td colspan=2>iOS</td>
+		<td>arm64：2.7M</td>
+		<td>arm64：3.63M</td>
+		<td>arm64：5.69M</td>
+	</tr>
 </table>

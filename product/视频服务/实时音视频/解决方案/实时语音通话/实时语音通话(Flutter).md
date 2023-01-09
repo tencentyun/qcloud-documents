@@ -4,7 +4,7 @@
 
 ### 步骤1：创建新的应用
 
-1. 登录实时音视频控制台，选择**开发辅助**>**[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)**。
+1. 登录实时音视频控制台，选择**开发辅助** > **[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)**。
 2. 输入应用名称，例如 `TestAudioCall` ，单击**创建**。
 
 >!本功能同时使用了腾讯云 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269) 两个基础 PaaS 服务，开通实时音视频后会同步开通即时通信 IM 服务。 即时通信 IM 属于增值服务，详细计费规则请参见 [即时通信 IM 价格说明](https://cloud.tencent.com/document/product/269/11673)。
@@ -115,7 +115,8 @@ dependencies:
 1. 调用 `TRTCCalling.sharedInstance()` 获取组件实例。
 2. 调用 `login(SDKAppID, userId, userSig)` 完成组件的登录，其中几个关键参数的填写请参考下表：
  <table>
-<tr><th>参数名</th><th>作用</th></tr>
+<thead><tr><th>参数名</th><th>作用</th></tr>
+</thead>
 <tr>
 <td>SDKAppID</td>
 <td>您可以在 <a href="https://console.cloud.tencent.com/trtc/app">实时音视频控制台</a> 中查看 SDKAppID。</td>

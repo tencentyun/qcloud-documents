@@ -1,4 +1,3 @@
-
 以下视频将帮助您快速了解 Web 和小程序端 SDK API：
 <div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2298-33477?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
 
@@ -17,7 +16,7 @@ TIM 是 IM Web SDK 的命名空间，提供了创建 SDK 实例的静态方法 [
 | 基本概念 | 说明 |
 | :--- | :---- |
 | Message（消息） | IM SDK 中 [Message](https://web.sdk.qcloud.com/im/doc/zh-cn/Message.html) 表示要发送给对方的内容，消息包括若干属性，例如自己是否为发送者，发送人帐号以及消息产生时间等。 |
-| Conversation（会话） | IM SDK 中 [Conversation](https://web.sdk.qcloud.com/im/doc/zh-cn/Conversation.html) 分为两种：<li> C2C（Client to Client）会话，表示单聊情况，自己与对方建立的对话。</li><li> GROUP（群）会话，表示群聊情况下群内成员组成的会话。 |
+| Conversation（会话） | IM SDK 中 [Conversation](https://web.sdk.qcloud.com/im/doc/zh-cn/Conversation.html) 分为两种：<li> C2C（Client to Client）会话，表示单聊情况，自己与对方建立的对话。</li><li> GROUP（群）会话，表示群聊情况下群内成员组成的会话。</li> |
 | Profile（资料） | IM SDK 中 [Profile](https://web.sdk.qcloud.com/im/doc/zh-cn/Profile.html) 描述个人的常用基本信息，例如昵称、性别、个性签名以及头像地址等。 |
 | Friend（好友） | IM SDK 中 [Friend](https://web.sdk.qcloud.com/im/doc/zh-cn/Friend.html) 描述好友的常用基本信息，例如备注、分组等。 |
 | FriendApplication（好友申请）	| IM SDK 中 [FriendApplication](https://web.sdk.qcloud.com/im/doc/zh-cn/FriendApplication.html) 描述好友申请的常用基本信息，例如加好友来源、备注等。 |
@@ -66,6 +65,7 @@ TIM 是 IM Web SDK 的命名空间，提供了创建 SDK 实例的静态方法 [
 | [createCustomMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#createCustomMessage) | 创建自定义消息。 |
 | [createFaceMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#createFaceMessage) | 创建表情消息。 |
 | [createFileMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#createFileMessage) | 创建文件消息。 |
+| [createLocationMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#createLocationMessage) | 创建地理位置消息。 |
 | [createMergerMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#createMergerMessage) | 创建合并消息。 |
 | [downloadMergerMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#downloadMergerMessage) | 下载合并消息。 |
 | [createForwardMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#createForwardMessage) | 创建转发消息。 |
@@ -73,18 +73,41 @@ TIM 是 IM Web SDK 的命名空间，提供了创建 SDK 实例的静态方法 [
 | [revokeMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#revokeMessage) | 撤回消息。 |
 | [resendMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#resendMessage) | 重发消息。 |
 | [deleteMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#deleteMessage) | 删除消息。 |
+| [setMessageExtensions](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#setMessageExtensions) | 设置消息扩展。 |
+| [getMessageExtensions](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getMessageExtensions) | 获取消息扩展。 |
+| [deleteMessageExtensions](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#deleteMessageExtensions) | 删除消息扩展。 |
 
 ### 会话
 | API | 描述 |
 | --- | --- |
+| [modifyMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#modifyMessage) | 变更消息。
 | [getMessageList](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getMessageList) | 获取消息列表。  |
+| [getMessageListHopping](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getMessageListHopping) | 根据指定的消息 sequence 或 消息时间拉取会话的消息列表。|
+| [sendMessageReadReceipt](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#sendMessageReadReceipt) | 发送消息已读回执。|
+| [getMessageReadReceiptList](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getMessageReadReceiptList) | 拉取已读回执列表。|
+| [getGroupMessageReadMemberList](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getGroupMessageReadMemberList) | 获取群消息已读（或未读）群成员列表。|
+| [findMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#findMessage) | 根据 messageID 查询会话的本地消息。|
 | [setMessageRead](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#setMessageRead) | 设置消息已读。  |
 | [getConversationList](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getConversationList) | 获取会话列表。 |
 | [getConversationProfile](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getConversationProfile) | 获取会话资料。 |
 | [deleteConversation](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#deleteConversation) | 删除会话。 |
+| [clearHistoryMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#clearHistoryMessage) | 清空单聊或群聊本地及云端的消息（不删除会话）。 |
 | [pinConversation](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#pinConversation) | 置顶或取消置顶会话。 |
 | [setAllMessageRead](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#setAllMessageRead) | 将所有会话的未读消息设置为已读。 |
 | [setMessageRemindType](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#setMessageRemindType) | 设置会话消息提醒类型，您可以使用此接口实现“消息免打扰”，“拒收消息”的功能。 |
+| [getTotalUnreadMessageCount](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getTotalUnreadMessageCount) | 获取会话未读总数。|
+
+### 会话分组
+| API | 描述 |
+| --- | --- |
+| [setConversationCustomData](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#setConversationCustomData) | 设置会话自定义数据。|
+| [markConversation](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#markConversation) | 标记会话。 |
+| [getConversationGroupList](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getConversationGroupList) | 获取会话分组列表。|
+| [createConversationGroup](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#createConversationGroup) | 创建会话分组。|
+| [deleteConversationGroup](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#deleteConversationGroup) | 删除会话分组。|
+| [renameConversationGroup](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#renameConversationGroup) | 重命名会话分组。|
+| [addConversationsToGroup](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#addConversationsToGroup) | 添加会话到一个会话分组。|
+| [deleteConversationsFromGroup](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#deleteConversationsFromGroup) | 从一个会话分组中删除会话。|
 
 ### 资料
 | API | 描述 |
@@ -95,6 +118,14 @@ TIM 是 IM Web SDK 的命名空间，提供了创建 SDK 实例的静态方法 [
 | [getBlacklist](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getBlacklist) | 获取我的黑名单列表。 |
 | [addToBlacklist](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#addToBlacklist) | 添加用户到黑名单列表。 |
 | [removeFromBlacklist](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#removeFromBlacklist) | 将用户从黑名单中移除。 |
+
+### 用户状态
+| API | 描述 |
+| --- | --- |
+| [setSelfStatus](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#setSelfStatus) | 设置自己的自定义状态。 |
+| [getUserStatus](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getUserStatus) | 查询用户状态。 |
+| [subscribeUserStatus](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#subscribeUserStatus) | 订阅用户状态。 |
+| [unsubscribeUserStatus](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#unsubscribeUserStatus) | 取消订阅用户状态。 |
 
 ### 关系链
 | API | 描述 |
@@ -130,6 +161,7 @@ TIM 是 IM Web SDK 的命名空间，提供了创建 SDK 实例的静态方法 [
 | [searchGroupByID](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#searchGroupByID) | 搜索群组。 |
 | [getGroupOnlineMemberCount](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getGroupOnlineMemberCount) | 获取直播群在线人数。 |
 | [changeGroupOwner](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#changeGroupOwner) | 转让群组。 |
+| [getGroupApplicationList](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getGroupApplicationList) | 获取加群申请列表。|
 | [handleGroupApplication](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#handleGroupApplication) | 处理申请加群。 |
 | [initGroupAttributes](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#initGroupAttributes) | 初始化群属性。 |
 | [setGroupAttributes](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#setGroupAttributes) | 设置群属性。 |
@@ -147,3 +179,13 @@ TIM 是 IM Web SDK 的命名空间，提供了创建 SDK 实例的静态方法 [
 | [setGroupMemberRole](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#setGroupMemberRole) | 修改群成员角色。 |
 | [setGroupMemberNameCard](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#setGroupMemberNameCard) | 设置群成员名片。 |
 | [setGroupMemberCustomField](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#setGroupMemberCustomField) | 设置群成员自定义字段。 |
+| [markGroupMemberList](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#markGroupMemberList) | 标记群成员。|
+
+### 话题
+| API | 描述 |
+| --- | --- |
+| [getJoinedCommunityList](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getJoinedCommunityList) | 获取当前用户已经加入的支持话题的社群列表。 |
+| [createTopicInCommunity](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#createTopicInCommunity) | 创建话题。 |
+| [deleteTopicFromCommunity](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#deleteTopicFromCommunity) | 删除话题。 |
+| [updateTopicProfile](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#updateTopicProfile) | 更新话题资料。 |
+| [getTopicList](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getTopicList) |获取话题列表。|

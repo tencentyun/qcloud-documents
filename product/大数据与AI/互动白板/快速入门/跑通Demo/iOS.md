@@ -27,19 +27,7 @@ Demo 的测试账号为公共账号，多人同时登录会被强制退出，为
 ![](https://main.qcloudimg.com/raw/ee28f8f7c5d0da78044e3a55b636a30b.png)
 
 
-#### 2. 开通音视频服务
-
-Demo 集成了实时音视频 TRTC SDK，为保证音视频功能的正常使用，请开通音视频服务。
-
-步骤一： 登录 [即时通信 IM 控制台](https://console.cloud.tencent.com/im) ，单击目标应用卡片，进入应用的基础配置页面。
-步骤二： 单击**开通腾讯实时音视频服务**区域的**立即开通**。
-步骤三： 在弹出的开通实时音视频 TRTC 服务对话框中，单击**确认**。
-
-系统将为您在 [实时音视频控制台](https://console.cloud.tencent.com/trtc/app) 创建一个与相同 SDKAppID 的实时音视频应用，互动白板，IM，实时音视频三者的账号与鉴权可复用。
-
-![](https://main.qcloudimg.com/raw/15e5dda6aa294b4860c73433d69f01b6.png)
-
-#### 3. 配置测试账号
+#### 2. 配置测试账号
 
 步骤一：登录 [即时通信 IM 控制台](https://console.cloud.tencent.com/im)，单击 SDKAppID 对应的应用。
 

@@ -18,6 +18,37 @@
 <tr>
 <td>
 <ul class="params">
+<li>更新用户态软件</li>
+<li>更新内核至5.4.119-19-0009.11</li>
+<li>在 cloud_init 配置文件中开启 disk_setup</li>
+<li>修改镜像默认 open files 配置</li>
+</ul>
+</td>
+<td>2022-11-07</td>
+</tr>
+<tr>
+<td>
+<ul class="params">
+<li>更新用户态软件</li>
+<li>更新内核至5.4.119-19-0009.6</li>
+<li>新增预装 kernel-debuginfo 包</li>
+<li>移除预装 docker-ce 包</li>
+</ul>
+</td>
+<td>2022-10-13</td>
+</tr>
+<tr>
+<td>
+<ul class="params">
+<li>更新内核至5.4.119-19.0009.3</li>
+<li>更新其他用户态软件</li>
+</ul>
+</td>
+<td>2022-07-21</td>
+</tr>
+<tr>
+<td>
+<ul class="params">
 <li>升级博通网卡驱动至1.10.2-218.1.182.18</li>
 </ul>
 </td>
@@ -98,4 +129,5 @@
 <style>
  .params{ margin-bottom:0px !important}
 </style>
+
 

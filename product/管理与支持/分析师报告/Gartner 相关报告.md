@@ -2,7 +2,7 @@
 
 **报告名称：**全球云 AI 开发者服务魔力象限
 **腾讯云情况：**腾讯云继去年之后再度入选 Gartner 云 AI 开发者服务魔力象限，被评为“Challenger”。腾讯优图实验室是在视觉服务和深度学习领域中领先的人工智能研究中心之一。
-[查看详情](https://qcloudimg.tencent-cloud.cn/raw/a5fa8ad488d86373d2caf9418b6026e7/Magic_Quadrant_for_C_746705_ndx.pdf)
+[查看详情](https://www.gartner.com/reprints/tencent-csig-cloud?id=1-29ETTDWI&ct=220316&st=sb)
 
 ### 2021年07月
 **报告名称：**全球云基础及平台服务魔力象限报告  

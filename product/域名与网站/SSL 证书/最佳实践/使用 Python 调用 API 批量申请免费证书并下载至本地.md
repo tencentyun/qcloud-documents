@@ -11,18 +11,18 @@
 
 ## 操作步骤
 1. 打开命令提示符，查看 Python 版本。命令行如下：
-```
+```plaintext
 python -V
 ```
 2. 查看 Python 目前已经安装的第三方模块，命令行如下：
-```
+```plaintext
 pip list
 ```
 ![](https://qcloudimg.tencent-cloud.cn/raw/a9e6874edf016baa7f88f52352222dcb.png)
 >!例如缺少 requests，可通过 `pip install requests` 安装该模块。
 >
 3. 通过 pip 安装腾讯云 Python SDK。命令行如下：
-```
+```plaintext
 pip install -i https://mirrors.tencent.com/pypi/simple/ --upgrade tencentcloud-sdk-python
 ```
 3. 前往 [Github 仓库](https://github.com/tencentcloud/tencentcloud-sdk-python) 或者 [Gitee 仓库](https://gitee.com/tencentcloud/tencentcloud-sdk-python) 下载最新代码至本地，并进行解压。

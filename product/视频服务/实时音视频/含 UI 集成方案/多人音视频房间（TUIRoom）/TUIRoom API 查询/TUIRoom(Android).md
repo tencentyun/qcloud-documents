@@ -1,4 +1,4 @@
-1. TUIRoom 是基于腾讯云实时音视频（TRTC）和即时通信 IM 服务组合而成的，支持以下功能：
+﻿1. TUIRoom 是基于腾讯云实时音视频（TRTC）和即时通信 IM 服务组合而成的，支持以下功能：
 - 主持人创建房间，进入房间人员输入房间号后进入房间。
 - 进入房间人员之间进行屏幕分享。
 - 支持发送各种文本消息和自定义消息。
@@ -26,8 +26,8 @@ TUIRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体�
 | ----------------------------------------- | ---------------------------------- |
 | [createRoom](#createroom)                 | 创建房间（主持人调用）。       |
 | [destroyRoom](#destroyroom)               | 销毁房间（主持人调用）。       |
-| [enterRoom](#enterroom)                   | 进入房间（进入房间成员调用）。 |
-| [leaveRoom](#leaveroom)                   | 离开房间（其他房间成员调用）。 |
+| [enterRoom](#enterroom)                   | 进入房间（参会成员调用）。 |
+| [leaveRoom](#leaveroom)                   | 离开房间（参会成员调用）。 |
 | [getRoomInfo](#getroominfo)               | 获取房间信息。                 |
 | [getRoomUsers](#getroomusers)             | 获取房间内所有成员信息。       |
 | [getUserInfo](#getuserinfo)               | 获取某个用户的信息。           |
@@ -70,16 +70,16 @@ TUIRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体�
 | [kickOffUser](#kickoffuser)                         | 移除房间内的某人（主持人调用）。                        |
 | [startCallingRoll](#startcallingroll)               | 主持人开始点名。                                        |
 | [stopCallingRoll](#stopcallingroll)                 | 主持人结束点名。                                        |
-| [replyCallingRoll](#replycallingroll)               | 成员回复主持人点名。                                    |
+| [replyCallingRoll](#replycallingroll)               | 参会成员回复主持人点名。                                    |
 | [sendSpeechInvitation](#sendspeechinvitation)       | 主持人邀请成员发言。                                    |
 | [cancelSpeechInvitation](#cancelspeechinvitation)   | 主持人取消邀请成员发言。                                |
-| [replySpeechInvitation](#replyspeechinvitation)     | 成员同意/拒绝主持人的申请发言。                         |
-| [sendSpeechApplication](#sendspeechapplication)     | 成员申请发言。                                          |
-| [replySpeechApplication](#replyspeechapplication)   | 主持人同意/拒绝成员的申请发言。                         |
+| [replySpeechInvitation](#replyspeechinvitation)     | 参会成员同意/拒绝主持人的申请发言。                         |
+| [sendSpeechApplication](#sendspeechapplication)     | 参会成员申请发言。                                          |
+| [replySpeechApplication](#replyspeechapplication)   | 主持人同意/拒绝参会成员的申请发言。                         |
 | [forbidSpeechApplication](#forbidspeechapplication) | 主持人禁止申请发言。                                    |
-| [sendOffSpeaker](#sendoffspeaker)                   | 主持人令成员停止发言。                                  |
+| [sendOffSpeaker](#sendoffspeaker)                   | 主持人令参会成员停止发言。                                  |
 | [sendOffAllSpeakers](#sendoffallspeakers)           | 主持人令全体停止发言。                                  |
-| [exitSpeechState](#exitspeechstate)                 | 成员停止发言，转变为观众。                              |
+| [exitSpeechState](#exitspeechstate)                 | 参会成员停止发言，转变为观众。                              |
 
 ### 屏幕分享接口
 
@@ -151,14 +151,14 @@ TUIRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体�
 | [onReceiveSpeechApplication](#onreceivespeechapplication)    | 主持人收到用户发言申请的回调。     |
 | [onSpeechApplicationCancelled](#onspeechapplicationcancelled) | 用户取消申请发言回调。             |
 | [onSpeechApplicationForbidden](#onspeechapplicationforbidden) | 主持人禁止申请发言回调。           |
-| [onOrderedToExitSpeechState](#onorderedtoexitspeechstate)    | 成员被请求停止发言的回调。         |
-| [onCallingRollStarted](#oncallingrollstarted)                | 主持人开始点名，成员收到的回调。   |
-| [onCallingRollStopped](#oncallingrollstopped)                | 主持人结束点名，成员收到的回调。   |
-| [onMemberReplyCallingRoll](#onmemberreplycallingroll)        | 成员回复点名，主持人收到的回调。   |
+| [onOrderedToExitSpeechState](#onorderedtoexitspeechstate)    | 参会成员被请求停止发言的回调。         |
+| [onCallingRollStarted](#oncallingrollstarted)                | 主持人开始点名，参会成员收到的回调。   |
+| [onCallingRollStopped](#oncallingrollstopped)                | 主持人结束点名，参会成员收到的回调。   |
+| [onMemberReplyCallingRoll](#onmemberreplycallingroll)        | 参会成员回复点名，主持人收到的回调。   |
 | [onChatRoomMuted](#onchatroommuted)                          | 主持人更改聊天室是否禁言回调。     |
 | [onMicrophoneMuted](#onmicrophonemuted)                      | 主持人设置禁用麦克风回调。         |
 | [onCameraMuted](#oncameramuted)                              | 主持人设置禁用摄像头回调。         |
-| [onReceiveKickedOff](#onreceivekickedoff)                    | 成员收到主持人踢人的回调。         |
+| [onReceiveKickedOff](#onreceivekickedoff)                    | 参会成员收到主持人踢人的回调。         |
 
 
 ### 统计和质量回调
@@ -246,7 +246,7 @@ void destroyRoom(TUIRoomCoreCallback.ActionCallback callback);
 
 ### enterRoom
 
-进入房间（加入房间成员调用）。
+进入房间（参会成员调用）。
 ```java
 void enterRoom(String roomId, TUIRoomCoreCallback.ActionCallback callback);
 ```
@@ -259,14 +259,14 @@ void enterRoom(String roomId, TUIRoomCoreCallback.ActionCallback callback);
 | callback | UIRoomCoreCallback.ActionCallback | 结果回调。  |
 
 
-加入房间成员进入房间的正常调用流程如下：
-1. **进入房间成员**调用 `enterRoom` 并传入 roomId 即可进入房间房间。
-2. **进入房间成员**调用 `startCameraPreview()` 打开摄像头预览，调用 `startLocalAudio()` 打开麦克风采集。
-3. **进入房间成员**收到 `onRemoteUserCameraAvailable` 的事件，调用 `startRemoteView()`开始播放视频。
+加入参会成员进入房间的正常调用流程如下：
+1. **参会成员**调用 `enterRoom` 并传入 roomId 即可进入房间房间。
+2. **参会成员**调用 `startCameraPreview()` 打开摄像头预览，调用 `startLocalAudio()` 打开麦克风采集。
+3. **参会成员**收到 `onRemoteUserCameraAvailable` 的事件，调用 `startRemoteView()`开始播放视频。
 
 ### leaveRoom
 
-离开房间（进入房间成员调用）。
+离开房间（参会成员调用）。
 ```java
  void leaveRoom(TUIRoomCoreCallback.ActionCallback callback);
 ```
@@ -293,7 +293,7 @@ TUIRoomCoreDef.RoomInfo getRoomInfo();
 
 ### getUserInfo
 
-获取房间成员信息。
+获取成员信息。
 ```java
 void getUserInfo(String userId, TUIRoomCoreCallback.UserInfoCallback callback);
 ```
@@ -605,7 +605,7 @@ void kickOffUser(String userId, TUIRoomCoreCallback.ActionCallback callback);
 
 ### replyCallingRoll
 
-成员回复主持人点名。
+参会成员回复主持人点名。
 ```java
 void replyCallingRoll(TUIRoomCoreCallback.ActionCallback callback);
 ```
@@ -619,7 +619,7 @@ void replyCallingRoll(TUIRoomCoreCallback.ActionCallback callback);
 
 ### sendSpeechInvitation
 
-主持人邀请成员发言。
+主持人邀请参会成员发言。
 ```java
 void sendSpeechInvitation(String userId, TUIRoomCoreCallback.InvitationCallback callback);
 ```
@@ -633,7 +633,7 @@ void sendSpeechInvitation(String userId, TUIRoomCoreCallback.InvitationCallback 
 
 ### cancelSpeechInvitation
 
-主持人取消邀请成员发言。
+主持人取消邀请参会成员发言。
 ```java
  void cancelSpeechInvitation(String userId, TUIRoomCoreCallback.ActionCallback callback);
 ```
@@ -647,7 +647,7 @@ void sendSpeechInvitation(String userId, TUIRoomCoreCallback.InvitationCallback 
 
 ### replySpeechInvitation
 
-成员同意/拒绝主持人的发言邀请。
+参会成员同意/拒绝主持人的发言邀请。
 ```java
 void replySpeechInvitation(boolean agree, TUIRoomCoreCallback.ActionCallback callback);
 ```
@@ -661,7 +661,7 @@ void replySpeechInvitation(boolean agree, TUIRoomCoreCallback.ActionCallback cal
 
 ### sendSpeechApplication
 
-成员申请发言。
+参会成员申请发言。
 ```java
 void sendSpeechApplication(TUIRoomCoreCallback.InvitationCallback callback);
 ```
@@ -674,7 +674,7 @@ void sendSpeechApplication(TUIRoomCoreCallback.InvitationCallback callback);
 
 ### cancelSpeechApplication
 
-成员取消申请发言。
+参会成员取消申请发言。
 ```java
 void cancelSpeechApplication(TUIRoomCoreCallback.ActionCallback callback);
 ```
@@ -687,7 +687,7 @@ void cancelSpeechApplication(TUIRoomCoreCallback.ActionCallback callback);
 
 ### replySpeechApplication
 
-主持人同意/拒绝成员的申请发言。
+主持人同意/拒绝参会成员的申请发言。
 ```java
 void replySpeechApplication(boolean agree, String userId, TUIRoomCoreCallback.ActionCallback callback);
 ```
@@ -717,7 +717,7 @@ void replySpeechApplication(boolean agree, String userId, TUIRoomCoreCallback.Ac
 
 ### sendOffSpeaker
 
-主持人令成员停止发言。
+主持人令参会成员停止发言。
 ```java
 void sendOffSpeaker(String userId, TUIRoomCoreCallback.ActionCallback callback);
 ```
@@ -744,7 +744,7 @@ void sendOffAllSpeakers(TUIRoomCoreCallback.ActionCallback callback);
 
 ### exitSpeechState
 
-成员停止发言，转变为观众。
+参会成员停止发言，转变为观众。
 ```java
 void exitSpeechState(TUIRoomCoreCallback.ActionCallback callback);
 ```
@@ -1189,7 +1189,7 @@ void onSpeechApplicationForbidden(boolean isForbidden);
 
 ### onOrderedToExitSpeechState
 
-成员被请求停止发言的回调。
+参会成员被请求停止发言的回调。
 ```java
 void onOrderedToExitSpeechState(String userId);
 ```
@@ -1203,21 +1203,21 @@ void onOrderedToExitSpeechState(String userId);
 
 ### onCallingRollStarted
 
-主持人开始点名，成员收到的回调。
+主持人开始点名，参会成员收到的回调。
 ```java
 void onCallingRollStarted(String userId);
 ```
 
 ### onCallingRollStopped
 
-主持人结束点名，成员收到的回调。
+主持人结束点名，参会成员收到的回调。
 ```java
 void onCallingRollStopped(String userId);
 ```
 
 ### onMemberReplyCallingRoll
 
-成员回复点名，主持人收到的回调。
+参会成员回复点名，主持人收到的回调。
 ```java
 void onMemberReplyCallingRoll(String userId);
 ```

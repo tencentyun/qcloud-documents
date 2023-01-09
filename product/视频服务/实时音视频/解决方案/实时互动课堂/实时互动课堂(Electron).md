@@ -13,7 +13,7 @@ TRTC 实时互动课堂是一款开源的在线课堂软件，支持一名教师
 您可以下载、安装我们已经构建好的 App 安装包， 体验实时互动课堂的能力效果。除了基础的实时音视频通话、白板分享、屏幕分享、文字聊天功能，还提供了全员禁麦、学生举手申请发言、老师邀请学生发言、点名、签到等丰富的课堂互动功能。
 
 <table>
-<tr><th style="text-align:center">教师端</th><th style="text-align:center">学生端</th><tr>
+<thead><tr><th style="text-align:center">教师端</th><th style="text-align:center">学生端</th><tr>
 <tr><td><img src="https://web.sdk.qcloud.com/trtc/electron/download/resources/education-v2/preview-teacher.gif"/></td><td><img src="https://web.sdk.qcloud.com/trtc/electron/download/resources/education-v2/preview-student.gif"/></td><tr>
 </table>
 

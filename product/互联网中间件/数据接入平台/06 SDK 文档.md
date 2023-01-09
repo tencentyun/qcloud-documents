@@ -75,7 +75,7 @@ public class SendMessage
 
 ### 步骤4：消息查询
 
-数据发送成功后，可以在消息查询页面，查看数据是否发送成功，详情参见 [消息查询](https://cloud.tencent.com/document/product/597/53176)。
+数据发送成功后，可以在消息查询页面，查看数据是否发送成功，详情参见 [消息查询](https://cloud.tencent.com/document/product/1591/77047)。
 
 
 

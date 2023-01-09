@@ -1,3 +1,4 @@
+
 ## 支持环境
 - Python 2.7，3.6至3.9版本。
 - 调用地址：`tms.tencentcloudapi.com`。
@@ -32,7 +33,18 @@ import ClientProfile from tencentcloud.common.profile.http_profile
 import HttpProfile from tencentcloud.common.exception.tencent_cloud_sdk_exception
 import TencentCloudSDKException from tencentcloud.tms.v20201229
 import tms_client, models
-try: cred = credential.Credential("SecretId", "SecretKey") httpProfile = HttpProfile() httpProfile.endpoint = "tms.tencentcloudapi.com"
-clientProfile = ClientProfile() clientProfile.httpProfile = httpProfile client = tms_client.TmsClient(cred, "ap-guangzhou", clientProfile) req = models.TextModerationRequest() params = {}
-req.from_json_string(json.dumps(params)) resp = client.TextModeration(req) print(resp.to_json_string()) except TencentCloudSDKException as err: print(err)
+try: 
+    cred = credential.Credential("SecretId", "SecretKey") 
+    httpProfile = HttpProfile() 
+    httpProfile.endpoint = "ims.tencentcloudapi.com"
+    clientProfile = ClientProfile() 
+    clientProfile.httpProfile = httpProfile 
+    client = ims_client.ImsClient(cred, "ap-guangzhou", clientProfile) 
+    req = models.ImageModerationRequest() 
+    params = {}
+    req.from_json_string(json.dumps(params)) 
+    resp = client.ImageModeration(req) 
+    print(resp.to_json_string()) 
+except TencentCloudSDKException as err: 
+    print(err)
 ```

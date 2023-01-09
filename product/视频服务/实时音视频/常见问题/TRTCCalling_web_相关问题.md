@@ -110,3 +110,9 @@ TRTC Web SDK 对浏览器的详细支持度，请参见 [TRTC Web SDK 对浏览�
 
 - 不支持接收离线消息。
 - 支持离线消息推送，可以通过 call / groupCall 中的 [offlinePushInfo](https://cloud.tencent.com/document/product/647/49790#call) 添加需要推送的消息。
+
+[](id:i13)
+### Error: TRTCClient.getMediaDevicesAuth - failed to get user video steam - NotReadableError: Could not start video source？
+
+- **原因**：系统没有给浏览器开启摄像头权限。
+- **解决方案**：在系统设置中找到相机（Windows）/ 摄像头（Mac），开启对应浏览器的权限。

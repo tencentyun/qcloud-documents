@@ -10,7 +10,7 @@
 
 ### 专享型 API 网关
 
-专享型 API 网关是基于腾讯云 API 网关专享实例实现的 TKE Ingress Controller，适用于有多个 TKE 集群，需要统一接入层的场景、以及对接入层有认证、流控等诉求的场景。详情可参见 [API 网关类型 Ingress](https://cloud.tencent.com/document/product/457/65124)。API Gateway Ingress 主要有以下优势：
+专享型 API 网关是基于腾讯云 API 网关专享实例实现的 TKE Ingress Controller，适用于有多个 TKE 集群，需要统一接入层的场景、以及对接入层有认证、流控等诉求的场景。详情可参见 [API 网关类型 Ingress](https://cloud.tencent.com/document/product/457/65125)。API Gateway Ingress 主要有以下优势：
 - API 网关直接连接 TKE 集群的 Pod，无任何中间节点。
 - 一个 API 网关 TKE 通道可以同时对接多个 TKE 服务，多个服务间采用加权轮询算法分配流量。
 - 支持 API 网关提供的认证鉴权、流量控制、灰度分流、缓存、熔断降级等高级能力拓展。

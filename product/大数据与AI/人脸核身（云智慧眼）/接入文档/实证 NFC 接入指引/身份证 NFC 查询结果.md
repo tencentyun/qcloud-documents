@@ -38,9 +38,7 @@
 | version| 版本号，默认值：1.0.0| 字符串| 20| 是| 
 | sign| 签名值，使用本页第一步生成的签名| 字符串| 40| 是| 
 | reqId| 本次身份证NFC读取唯一标识| 字符串| 40| 是| 
-
-请求示例：`https://miniprogram-kyc.tencentcloudapi.com/api/v2/nfcpaas/getIdcardNfcResult?orderNo=xxx`
-
+|getPhoto	|是否需要获取 NFC 识别的身份证图片文件，值为1则返回图片	|字符串	|1|	否|
 
 ### 响应
 响应参数：
@@ -110,7 +108,6 @@ import java.security.Key;
 import java.security.Security;
 import java.util.Random;
 /**
- *  @author webank
  *     项目所依赖的类：
  *      List utils = [
  *      "commons-io:commons-io:2.7"，

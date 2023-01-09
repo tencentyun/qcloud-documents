@@ -20,7 +20,7 @@ Tencentcloud-Serverless-Nodejs SDK 的功能特性可分为以下几点：
 已安装 Node.js 8.9 及以上版本。
 - 运行环境
 已安装 tencentcloud-serverless-nodejs SDK，支持 Windows、Linux 和 Mac 操作系统。
-- 建议使用 [Serverless Framework CLI](https://cloud.tencent.com/document/product/583/37510)，可快速部署本地云函数。
+- 建议使用 [Serverless Cloud Framework](https://cloud.tencent.com/document/product/583/37510)，可快速部署本地云函数。
 
 ### 安装 tencentcloud-serverless-nodejs SDK
 #### 通过 npm 安装（推荐）
@@ -101,7 +101,7 @@ exports.main_handler = async (event, context) => {
  - 代码提交方式：选择**本地上传 zip 包**。
     将 `testNodejsSDK` 目录下的所有文件压缩为 zip 格式，并上传到云端。
 4. 
-在 [云函数控制台](https://console.cloud.tencent.com/scf/list) 中的函数详情页面，通过进入函数代码子页面，单击**运行**，测试运行函数。输出结果如下：
+在 [Serverless 控制台](https://console.cloud.tencent.com/scf/list) 单击新建的云函数，进入**函数管理**的**代码编辑**页面，然后单击**测试**，运行函数。输出结果如下：
 ```shell
 "Already invoked a function!"
 ```
