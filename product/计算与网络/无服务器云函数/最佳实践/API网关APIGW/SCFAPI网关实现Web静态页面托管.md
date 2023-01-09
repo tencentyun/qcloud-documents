@@ -8,13 +8,13 @@
  - **创建方式**：选择**模板创建**。
  - **模糊搜索**：输入 “Web 静态页面托管”“Python3.6”，并进行搜索。
  单击模板中的**查看详情**，即可在弹出的“模板详情”窗口中查看相关信息，支持下载操作。
-![](https://main.qcloudimg.com/raw/847f64a37bb760cfae6660bae0426e2e.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/300f63e7a7013ffa736fb5b3f71d8eaf.png)
 3. 在**基础配置**中，默认生成**函数名称**，可根据使用需求自行修改。保持默认配置，单击**完成**，跳转到**部署日志**中查看函数和触发器创建进度。如下图所示： 
 ![](https://main.qcloudimg.com/raw/1e8a51f478f6016058e930b258d66f1f.png)
 4. 函数及触发器创建完成后，可在“部署日志”中点击快速访问链接，如下图所示： 
-![](https://main.qcloudimg.com/raw/ae2606d4c8ebad54a514f6cdc52e999e.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/5df91fe4c16373ccaa7d5aaa1d2a64e7.png)
 或在“触发管理”页中获取 API 网关触发器访问路径，如下图所示： 
-![](https://main.qcloudimg.com/raw/79db3e509fe3710d0da4ef7bd59b1418.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/e88b2f88e44a3ec9503e55de41c814b6.png)
 查看 Web 页面。如下图所示： 
 ![](https://main.qcloudimg.com/raw/4f0b9e29419f69aef24e922a9c016faf.png) 
 

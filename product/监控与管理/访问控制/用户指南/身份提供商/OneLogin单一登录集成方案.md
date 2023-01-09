@@ -36,13 +36,30 @@ OneLogin 是一家云身份访问管理解决方案提供商，可以通过其�
 ![](https://main.qcloudimg.com/raw/2211da7f372415f536a81795d3a02207.png)
 
 您可以根据您的腾讯云账号所在站点进行配置：
-|所在站点 | SAML Consumer URL| SAML Audience | SAML Recipient|
-|---------|---------|---------|---------|
-| 中国站 | https://cloud.tencent.com/login/saml|https://cloud.tencent.com|https://cloud.tencent.com/login/saml|
-| 国际站 | https://intl.cloud.tencent.com/login/saml|https://intl.cloud.tencent.com/login/saml|https://intl.cloud.tencent.com/login/saml|
+<table>
+    <tr>
+        <th>所在站点</th>
+        <th>SAML Consumer URL</th>
+				<th>SAML Audience</th>
+				<th>SAML Recipient</th>
+    </tr>
+    <tr>
+        <td>中国站</td>
+        <td>https://cloud.tencent.com/login/saml</td>
+				 <td>https://cloud.tencent.com</td>
+				  <td>https://cloud.tencent.com/login/saml</td>
+    </tr>
+    <tr>
+        <td>国际站</td>
+        <td>https://intl.cloud.tencent.com/login/saml</td>
+				 <td>	https://intl.cloud.tencent.com/login/saml</td>
+				  <td>https://intl.cloud.tencent.com/login/saml</td>
+    </tr>
+</table>
+
 >?SAML Recipient 为跳转的腾讯云页面，如您需要指定其他页面，可使用https://cloud.tencent.com/login/saml?s_url=xxxx 形式指定，其中 xxxx 为需要指定的地址，需要做 urlencode。
 >
-3. 单击 **Parameters**，选择 **Add parameter**，添加以下两条配置信息。
+3. 单击 **Parameters**，单击<image style="margin:0;" src="https://main.qcloudimg.com/raw/98a24d12696834b52f559d0abe490fd2.png">，添加以下两条配置信息。
 <table>
 	<tr>
 		<th>Field name</th>

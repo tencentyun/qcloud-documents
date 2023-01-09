@@ -24,6 +24,28 @@ IM Flutter TUIKit（含 UI）指代 [tencent_cloud_chat_uikit](https://pub.dev/p
 
 ## 更新日志
 
+### IM Flutter TUIKit（含 UI） 1.2.0 @2023.01.06
+
+- 修复：聊天组件，从录音状态，切换至输入状态时，输入框无法显示问题。
+- 修复：合并转发至多个接收者，只有第一个接收者收到消息的问题。
+- 优化：`MessageItemBuilder` 可用于合并消息页面展示。
+
+### IM Flutter TUIKit（含 UI） 1.1.0 @2022.12.27
+
+- 新增：支持日语和韩语两种新语言，参考[这篇文档](https://cloud.tencent.com/document/product/269/84481)。
+- 新增：支持添加新语言，或修改翻译，参考[这篇文档](https://cloud.tencent.com/document/product/269/84481)。
+- 新增：TUIKit默认嵌入了表情插件。现在我们支持三种类型的表情：Unicode Emoji，小图片Emoji和大图片表情，使用已经进行了优化，参考[这篇文档](https://cloud.tencent.com/document/product/269/80882)。
+- 优化：主题，更多定制化能力支持。
+- 优化：输入区域、键盘、贴纸面板和更多面板的动画。
+- 优化：表情符号，包括Unicode和小图像，可以插入到文本消息中的任何位置。
+- 优化：个人资料中的头像可以用大图预览。
+- 优化：个人资料文件中的用户ID可以复制。
+- 优化：多个UI细节，包括`TIMUIKitAddFriend`、`TIMUIKitAddGroup`、`TIMUIKitGroupProfile`和`TIMUIKitProfile`。
+- 优化：`TIMUIKitGroupProfile`和`TIMUIKitProfile`支持通过修改ID变更内容。
+- 优化：`TIMUIKitGroupChat` 在点击下载图片/视频按钮后，下载中，展示Loading动画。
+- 修复：一些错误。
+
+
 ### IM Flutter SDK（无 UI） 5.0.6 @2022.11.29
 
 - 修复：iOS Bundle version 丢失问题。
@@ -477,6 +499,6 @@ add web support
 
 ## 联系我们[](id:contact)
 
-如果您在接入使用过程中有任何疑问，请加入 QQ 群：788910197 咨询。
+如果您在接入使用过程中有任何疑问，请扫码加入微信群，或加入QQ群：788910197 咨询。
 
-![](https://qcloudimg.tencent-cloud.cn/raw/eacb194c77a76b5361b2ae983ae63260.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/e830ae8c7b8d9253eb71e7c3d9f7b2be.png)

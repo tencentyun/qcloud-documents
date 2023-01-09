@@ -34,3 +34,4 @@ vim /etc/sysctl.conf
 ```bash
 sysctl -p
 ```
+

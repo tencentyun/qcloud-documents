@@ -178,7 +178,7 @@ model.videoURL = @"http://your_video_url.mp4";   // 配置您的播放视频 url
 [](id:moreFeature)
 ## 功能使用[](id:moreFeature)
 
-### 1、全屏播放
+### 全屏播放
 
 播放器组件支持全屏播放，在全屏播放场景内，同时支持锁屏、手势控制音量和亮度、弹幕、截屏、清晰度切换等功能设置。功能效果可在 [**腾讯云视立方 App**](#qrcode) > **播放器** > **播放器组件** 中体验，单击界面右下角 **全屏** 即可进入全屏播放界面。
 
@@ -254,7 +254,7 @@ CFDanmakuView：弹幕的属性在初始化时配置。
 </dx-tabs>
 
 
-### 2、悬浮窗播放
+### 悬浮窗播放
 
 播放器组件支持悬浮窗小窗口播放，可以在切换到应用内其它页面时，不打断视频播放功能。功能效果可在 [**腾讯云视立方 App**](#qrcode) > **播放器** > **播放器组件** 中体验，单击界面左上角 **返回**，即可体验悬浮窗播放功能。
 
@@ -270,7 +270,7 @@ CFDanmakuView：弹幕的属性在初始化时配置。
 SuperPlayerWindowShared.backController = self;
 ```
 
-### 3、视频封面
+### 视频封面
 
 播放器组件支持用户自定义视频封面，用于在视频接收到首帧画面播放回调前展示。功能效果可在 [**腾讯云视立方 App**](#qrcode) > **播放器** > **播放器组件** > **自定义封面演示** 视频中体验。
 
@@ -290,11 +290,11 @@ model.videoId = videoId;
 //播放模式，可设置自动播放模式：PLAY_ACTION_AUTO_PLAY，手动播放模式：PLAY_ACTION_MANUAL_PLAY
 model.action  = PLAY_ACTION_MANUAL_PLAY; 
 //设定封面的地址为网络 url 地址，如果 coverPictureUrl 不设定，那么就会自动使用云点播控制台设置的封面
-model.customCoverImageUrl = @"http://1500005830.vod2.myqcloud.com/6c9a5118vodcq1500005830/cc1e28208602268011087336518/MXUW1a5I9TsA.png"; 
+model.customCoverImageUrl = @"https://qcloudimg.tencent-cloud.cn/raw/fa01162f1c7e123b1ee4ac77e3563ce3.png"; 
 [self.playerView playWithModelNeedLicence:model];
 ```
 
-### 4、视频列表轮播
+### 视频列表轮播
 
 播放器组件支持视频列表轮播，即在给定一个视频列表后：
 
@@ -339,7 +339,7 @@ model.videoId = videoId;
 | index         | NSInteger | 开始播放的视频索引 |
 
 
-### 5、画中画功能
+### 画中画功能
 
 画中画（PictureInPicture）在 iOS 9就已经推出了，不过之前都只能在 iPad 上使用，iPhone 要使用画中画需更新到 iOS 14才能使用。
 目前腾讯云播放器可以支持应用内和应用外画中画能力，极大的满足用户的诉求。使用前需要开通后台模式，步骤为：XCode 选择对应的 Target -> Signing & Capabilities -> Background Modes，勾选  “Audio, AirPlay, and Picture in Picture”。
@@ -360,7 +360,7 @@ model.videoId = videoId;
 [_vodPlayer exitPictureInPicture];
 ```
 
-### 6、视频试看
+### 视频试看
 
 播放器组件支持视频试看功能，可以适用于非 VIP 试看等场景，开发者可以传入不同的参数来控制视频试看时长、提示信息、试看结束界面等。功能效果可在 [**腾讯云视立方 App** ](#qrcode) > **播放器** > **播放器组件** > **试看功能演示** 视频中体验。
 
@@ -386,7 +386,7 @@ model.videoId = videoId;
 | tipTtitle    | NSString | 试看提示信息    |
 | canWatchTime | float    | 试看时长，单位为妙 |
 
-### 7、动态水印
+### 动态水印
 
 播放器组件支持在播放界面添加不规则跑动的文字水印，有效防盗录。全屏播放模式和窗口播放模式均可展示水印，开发者可修改水印文本、文字大小、颜色。功能效果可在 [**腾讯云视立方 App**](#qrcode) > **播放器** > **播放器组件** > **动态水印演示** 视频中体验。
 
@@ -415,10 +415,10 @@ DynamicWaterModel 类参数说明：
 | textFont            | CGFloat  | 文字大小   |
 | textColor           | UIColor  | 文字颜色   |
 
-### 8、视频下载
+### 视频下载
 
 支持用户在有网络的条件下缓存视频，随后在无网络的环境下观看；同时离线缓存的视频仅可在客户端内观看，不可被下载至本地，可有效防止下载视频的非法传播，保护视频安全。
-你可在 腾讯云视立方 App > 播放器 > 播放器组件 > 离线缓存（全屏）演示视频中，使用全屏观看模式后体验。
+您可在腾讯云视立方 App > 播放器 > 播放器组件 > 离线缓存（全屏）演示视频中，使用全屏观看模式后体验。
 
 <img src="https://qcloudimg.tencent-cloud.cn/raw/7f6d453e8cb13e5e2ec803ded4e7aad7.png" style="zoom: 50%;" />
 
@@ -488,22 +488,21 @@ playerModel.multiVideoURLs = multiVideoURLs;
 
 >! 视频文件下载无网络播放时，一定要通过获取下载列表并通过下载列表视频对象`TXxiodDownloadMediaInfo` 的 `PlayPath` 进行播放，切勿直接保存 PlayPath 对象。
 
-### 9、雪碧图和打点信息
+### 雪碧图和打点信息
 
 #### 打点信息
 
 支持在进度条关键位置添加文字介绍，用户单击后可显示打点位置的文字信息，以快速了解当前位置的视频信息。单击视频信息后，可以 seek 到打点信息位置。
 
 您可在腾讯云视立方 App > 播放器 > 播放器组件 > 腾讯云 视频中，使用全屏观看模式后体验。
-
-![](http://1500005830.vod2.myqcloud.com/6c9a5118vodcq1500005830/9f41662a387702307128322419/WnDHUMF9V3YA.jpg)
+![](https://qcloudimg.tencent-cloud.cn/raw/3359f1b3ec8371974149b474adcd7b0a.png)
 
 #### 雪碧图
 
 支持用户在拖拽进度条或执行快进操作时查看视频缩略图，以快速了解指定进度的视频内容。缩略图预览基于视频雪碧图实现，您可以在云点播控制台中生成视频文件雪碧图，或直接生成雪碧图文件。
 您可在腾讯云视立方 App > 播放器 > 播放器组件 > 腾讯云 视频中，使用全屏观看模式后体验。
 
-![](http://1500005830.vod2.myqcloud.com/6c9a5118vodcq1500005830/ad1f6b93387702307128908283/6YIALRXty4EA.jpg)
+![](https://qcloudimg.tencent-cloud.cn/raw/b311b34b30f46a962ea4c5138d1c2eb1.png)
 
 ```objective-c
 // 步骤1：通过 playWithModelNeedLicence 播放器视频，才能在 onPlayEvent 回调中获取到雪碧图和打点信息数据

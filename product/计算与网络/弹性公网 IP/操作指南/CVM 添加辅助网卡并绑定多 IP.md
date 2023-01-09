@@ -125,7 +125,7 @@ cp ifcfg-eth0 ifcfg-eth1
    3. 按 “i” 切换至编辑模式，把配置文件内容修改为以下内容：
 ```
 DEVICE='eth1' # 此处填写步骤1中查看到的需配置的弹性网卡名称，请根据实际填写
- NM_CONTROLLED='yes'
+ NM_CONTROLLED='no'
  ONBOOT='yes'
  # 配置主ip
 IPADDR0=10.0.0.7 # 此处填写步骤一：添加辅助网卡中手动填写的主 IP，请根据实际填写

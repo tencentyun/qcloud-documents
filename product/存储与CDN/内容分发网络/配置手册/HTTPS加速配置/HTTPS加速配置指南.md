@@ -28,7 +28,7 @@
 登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，在左侧菜单栏选择**域名管理**，单击域名操作列的**管理**，进入域名配置页面，切换 Tab 至 **HTTPS 配置**，即可找到 **HTTPS 配置**。您可在此处编辑及管理该域名的证书配置。
 ![](https://qcloudimg.tencent-cloud.cn/raw/37f323e8a22034a992839cd5e6b7532c.png)
 单击**配置证书**按钮，新增一个域名证书，新增证书可以以下三种方式：
-![](https://qcloudimg.tencent-cloud.cn/raw/62890fd49c606e2d53a827fc46cbb44a.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/7ecf2c307ba1238936dda8f22830a7de.png)
 
 |配置方法|	说明|
 |--|--|

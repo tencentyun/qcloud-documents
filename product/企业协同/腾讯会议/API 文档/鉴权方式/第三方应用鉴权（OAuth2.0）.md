@@ -1,6 +1,4 @@
-腾讯会议 OAuth2.0 鉴权访问，需要先通过 OAuth2.0 鉴权成功后，换取到 AccessToken 和 OpenId，以此访问腾讯会议 Rest API。
-- AccessToken：用于表示 OAuth2.0 鉴权成功 token 信息。
-- OpenId：用于表示 OAuth2.0 鉴权用户信息。
+创建应用后即可获取应用凭证信息，具体可参见 [第三方应用接入指引](https://cloud.tencent.com/document/product/1095/83663)。
 
 ## 公共参数
 公共参数是用于标识用户和接口鉴权目的的参数，如非必要，在每个接口单独的接口文档中不再对这些参数进行说明，但每次请求均需要携带这些参数，才能正常发起请求。

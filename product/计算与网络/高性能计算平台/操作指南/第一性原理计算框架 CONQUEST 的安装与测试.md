@@ -29,12 +29,8 @@ CONQUEST 用称为支持函数的局部轨道表示 Kohn-Sham 本征态或密度
 
 最简单的选择是为每个支持功能使用一个 PAO（通常这最多可以计算 1,000 个原子）。对于超出此系统大小的对角化，将使用复合基础，其中将多个 PAO 组合为较小的一组支持功能（多站点支持功能或 MSSF）。使用 MSSF，可以在 HPC 平台上计算 3,000 多个原子。对于线性缩放，需要更注意基集（更多详细信息，请参见 [Linear Scaling](https://conquest.readthedocs.io/en/latest/groundstate.html#gs-on)）。
 ## 编译安装指南
-为了更好地符合可能存在的多种环境需求，笔者就自己所有的一些平台进行了测试和实践，主要分为以下几类，并以独立文章的形式分别介绍：
-- [ARM篇](https://lisz.me/tech/conquest/conquest-arm) ：该类主要包含 Mac M1，树莓派以及 ARM [服务器](https://cloud.tencent.com/product/cvm?from=10680)。
-- [Intel 篇](https://lisz.me/tech/conquest/conquest-intel)：该类主要包括普通 PC 和 x86 服务器。
-- [Slurm 篇](https://lisz.me/tech/conquest/docker/conquest-slurm)：该类主要是应用于 HPC 环境下，当然也适合个人在高性能服务器上运行。
 
-这里仅以 Intel 篇和腾讯云提供的 THPC 环境为例介绍一下从零开始编译安装 CONQUEST。由于 THPC 目前只支持 CentOS 7 镜像的 SLURM 调度，相应环境也会和个人博文中有所不同。
+这里以 Intel 篇和腾讯云提供的 THPC 环境为例介绍一下从零开始编译安装 CONQUEST。由于 THPC 目前只支持 CentOS 7 镜像的 SLURM 调度。
 
 ### 依赖环境
 - Intel 编译器（含 icc、mpiifort）
@@ -44,7 +40,7 @@ CONQUEST 用称为支持函数的局部轨道表示 Kohn-Sham 本征态或密度
 
 ### THPC 创建集群
 请参见 [THPC Slurm 调度器-快速入门](https://cloud.tencent.com/developer/article/1993857?from=10680) 一文利用 THPC API 一键创建集群。这里采用的 THPC 集群配置信息如下` thpc.json` 文件所示，然后使用以下命令即可创建 THPC 集群。
->?由于是采用的按量付费方式创建集群，所以需要提前往账户里预充值超过 1 小时费用，否则会一直 `INIT_FAILED` 或出现创建不了 3 台 CVM。另外，请根据区域所提供的实例类型的实际情况选择合适的 `InstanceType`，否则也将无法正常创建。以下 json 文件中的花括号内的内容请根据实际情况自行修改成对应的内容，由于这并非是本文的目的，不再赘述。
+>?由于是采用的按量付费方式创建集群，所以需要提前往账户里预充值超过 1 小时费用，否则会一直 `INIT_FAILED` 或出现创建不了 3 台 CVM。另外，请根据区域所提供的实例类型的实际情况选择合适的 `InstanceType`，否则也将无法正常创建。以下 json 文件中的花括号内的内容请根据实际情况自行修改成对应的内容，字段含义请参考 THPC 官网 API 文档 [创建集群](https://cloud.tencent.com/document/api/1527/72102)。
 
 ```json
 	{

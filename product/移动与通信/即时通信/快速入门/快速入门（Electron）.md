@@ -2,10 +2,10 @@
 
 ## 环境要求
 
-| 平台  | 版本  |
-| --- | --- |
+| 平台     | 版本                |
+| -------- | ------------------- |
 | Electron | 13.1.5 及以上版本。 |
-| Node.js | v14.2.0 |
+| Node.js  | v14.2.0             |
 
 ## 支持平台
 
@@ -41,10 +41,10 @@
 
 IM 提供了两种方式来即成，您可以选择最合适的方案来即成：
 
-| 继承方式 | 适用场景 |
-| --- | --- |
+| 继承方式  | 适用场景                                                                                                                                                                |
+| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 使用 DEMO | IM Demo包含完整的聊天功能，代码已开源，如果您需要实现聊天类似场景，可以使用 Demo进行二次开发。可立即体验 [Demo](https://cloud.tencent.com/document/product/269/36852)。 |
-| 自实现 | 如果 Demo 不能满足您应用的功能界面需求，可以使用该方法。 |
+| 自实现    | 如果 Demo 不能满足您应用的功能界面需求，可以使用该方法。                                                                                                                |
 
 为帮助您更好的理解 IM SDK 的各 API，我们还提供了 [API 文档](https://comm.qq.com/im/doc/electron/zh/)。
 
@@ -77,6 +77,8 @@ npm start
   // windows打包
   npm run build:windows
   ```
+
+>? demo 中主进程的目录为`src/app/main.js`，渲染进程目录为`src/client`。如运行过程出现问题，可优先通过常见问题查找解决。
 
 [](id:step4)
 
@@ -211,9 +213,29 @@ timRenderInstance.TIMAddRecvNewMsgCallback(param);
 
 IM SDK 的 API 层面错误码，请查看 [错误码](https://cloud.tencent.com/document/product/269/1671)。
 
+#### 安装开发环境问题，出现 `npm ERR! gyp ERR! stack TypeError: Cannot assign to read only property 'cflags' of object '#<Object>'` 错误如何解决？
+
+请降低 node 版本，建议使用16.18.1。
+
 #### 安装开发环境问题，出现 `gypgyp ERR!ERR` 错误如何解决？
 
 请参见 [gypgyp ERR!ERR!](https://stackoverflow.com/questions/57879150/how-can-i-solve-error-gypgyp-errerr-find-vsfind-vs-msvs-version-not-set-from-c)。
+
+#### 执行 `npm install` 出现错误 `npm ERR! Fix the upstream dependency conflict, or retry`，如何解决？
+
+npmV7之前的版本遇到依赖冲突会忽视依赖冲突，继续进行安装
+npmV7版本开始不会自动进行忽略，需要用户手动输入命令
+请执行以下命令：
+<dx-codeblock>
+:::  sh
+npm install --force
+:::
+</dx-codeblock>
+
+
+#### 执行 `npm run start` 出现错误 `Error: error:0308010C:digital envelope routines::unsupported`，如何解决？
+
+请降低node版本，建议使用16.18.1。
 
 #### Mac 端 Demo 执行 `npm run start` 会出现白屏，如何解决？
 
@@ -245,6 +267,6 @@ Dynamic Linking Error. electron-builder 配置
 
 ## 联系我们
 
-- 如果您在介入使用过程中有任何疑问，请加入 QQ 群：753897823 咨询。
-- 开发群：
-<img src="https://qcloudimg.tencent-cloud.cn/raw/a85a8b1642c59d672e960f96cd08b2ae.jpg" width="400" height="500" alt="二维码"/> 
+如果您在接入使用过程中有任何疑问，请扫码加入微信群，或加入QQ群：753897823 咨询。
+
+![](https://qcloudimg.tencent-cloud.cn/raw/dbf4d02c6229db536d9ad018c91f8bf0.png)

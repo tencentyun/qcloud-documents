@@ -158,7 +158,7 @@
 
 #### 验证点1：使用不同的子用户登录后，只能访问到对应项目下的云服务器
 1. 使用子用户 m-developer 登录 [腾讯云控制台](https://console.cloud.tencent.com/)，在控制台右上角，单击账号下的**切换角色**。
-![](https://qcloudimg.tencent-cloud.cn/raw/0c213170e58a4621a39c1d614c689b73.png) 
+![](https://qcloudimg.tencent-cloud.cn/raw/0087ae2927998b74ec3590cb98c6a4f9.png) 
 2. 在切换角色页面，应用选择 web（子用户 m-developer 的标签 value），角色选择 access-developer-role，单击**切换角色**。   
 ![](https://qcloudimg.tencent-cloud.cn/raw/b80b6ab6e4001fd2356819e68223524e.png)
 3. 以角色身份登录腾讯云控制台，进入 CVM [**实例**](https://console.cloud.tencent.com/cvm/instance/index?rid=1) 页面。

@@ -71,12 +71,15 @@ vim ifcfg-eth1
 > 
     + 方式一：静态手工配置 IP
 ```plaintext
-DEVICE='eth1' # 此处填写步骤1中查看到的需配置的弹性网卡名称，请根据实际填写
-NM_CONTROLLED='yes'
-ONBOOT='yes'
-IPADDR='192.168.1.62'  # 此处填写弹性网卡上的 IP 地址，请根据实际填写
-NETMASK='255.255.255.192'  # 此处填写子网掩码，请根据实际填写
-#GATEWAY='192.168.1.1'  # 填写网卡所在子网的网关 IP 地址，请根据实际填写，本例由于 eth1 和 eth0 在同一个子网，已经定义了网关，这里不再重复填写，避免网关冲突
+BOOTPROTO=static
+DEVICE=eth0     # 此处填写步骤1中查看到的需配置的弹性网卡名称，请根据实际填写
+ONBOOT=yes
+PERSISTENT_DHCLIENT=yes
+TYPE=Ethernet
+USERCTL=no
+IPADDR='192.168.1.62'     # 此处填写弹性网卡上的 IP 地址，请根据实际填写
+NETMASK='255.255.255.192'     # 此处填写子网掩码，请根据实际填写
+#GATEWAY='192.168.1.1'     # 填写网卡所在子网的网关 IP 地址，请根据实际填写，本例由于 eth1 和 eth0 在同一个子网，已经定义了网关，这里不再重复填写，避免网关冲突
 ```
 	+ 方式二：动态获取 IP 地址
 ```plaintext

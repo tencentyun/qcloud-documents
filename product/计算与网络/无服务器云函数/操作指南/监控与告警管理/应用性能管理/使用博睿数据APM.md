@@ -344,7 +344,7 @@ Python 支持的框架及库如下：
 <td>1.6.0及以上2.0.0</td>
 </tr>
 <tr>
-<td>Logging：</td>
+<td>Logging</td>
 <td>标准库</td>
 </tr>
 <tr>

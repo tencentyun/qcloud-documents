@@ -32,7 +32,7 @@
 
 登录腾讯云 [即时通信 IM 控制台](https://console.qcloud.com/avc) ，添加各个厂商推送证书，并将您获取的各厂商的 AppID、AppKey、AppSecret 等参数配置给 IM 控制台的推送证书。
 <dx-alert infotype="notice" title="">
-由于各大厂商的官网会不定时更新，以下各设备详情流程可能会与官网存在差异，发生差异时，请参见各厂商官网详情：[小米](https://dev.mi.com/console/doc/detail?pId=68)、[华为](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/service-introduction-0000001050040060)、[OPPO](https://open.oppomobile.com/wiki/doc#id=10195)、[vivo](https://dev.vivo.com.cn/documentCenter/doc/281)、[魅族](http://open-wiki.flyme.cn/doc-wiki/index#id?129)。
+由于各大厂商的官网会不定时更新，以下各设备详情流程可能会与官网存在差异，发生差异时，请参见各厂商官网详情：[小米](https://dev.mi.com/console/doc/detail?pId=68)、[华为](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/service-introduction-0000001050040060)、[OPPO](https://open.oppomobile.com/wiki/doc#id=10195)、[vivo](https://dev.vivo.com.cn/documentCenter/doc/281)、[魅族](https://open.flyme.cn/docs?id=8)。
 </dx-alert>
 
 <dx-tabs>
