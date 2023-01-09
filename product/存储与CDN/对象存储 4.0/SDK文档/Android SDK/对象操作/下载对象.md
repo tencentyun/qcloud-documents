@@ -29,7 +29,7 @@ TransferConfig transferConfig = new TransferConfig.Builder().build();
 TransferManager transferManager = new TransferManager(cosXmlService,
         transferConfig);
 
-// 存储桶名称，由bucketname-appid 组成，appid必须填入，可以在COS控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
+// 存储桶名称，由 bucketname-appid 组成，appid 必须填入，可以在 COS 控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
 String bucket = "examplebucket-1250000000";
 String cosPath = "exampleobject"; //对象在存储桶中的位置标识符，即称对象键
 //本地目录路径
@@ -118,7 +118,7 @@ TransferConfig transferConfig = new TransferConfig.Builder().build();
 //初始化 TransferManager
 TransferManager transferManager = new TransferManager(cosXmlService,
         transferConfig);
-// 存储桶名称，由bucketname-appid 组成，appid必须填入，可以在COS控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
+// 存储桶名称，由 bucketname-appid 组成，appid 必须填入，可以在 COS 控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
 String bucket = "examplebucket-1250000000";
 String cosPath = "exampleobject"; //对象在存储桶中的位置标识符，即称对象键
 //本地目录路径
@@ -205,6 +205,37 @@ try {
 } catch (CosXmlClientException clientException) {
     clientException.printStackTrace();
 }
+```
+
+>?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/Android/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/TransferDownloadObject.java) 查看。
+
+#### 示例代码六: 匿名下载（不用传入密钥，对公开文件进行下载）
+
+[//]: # (.cssg-snippet-transfer-download-resumable)
+```java
+// 初始化 TransferConfig，这里使用默认配置，如果需要定制，请参考 SDK 接口文档
+TransferConfig transferConfig = new TransferConfig.Builder().build();
+// 初始化 TransferManager
+CosXmlServiceConfig cosXmlServiceConfig = new CosXmlServiceConfig.Builder()
+        .setRegion("ap-guangzhou")
+        .builder();
+// 匿名下载生成 CosXmlService 不需要传入密钥生成器
+CosXmlService cosXmlService = new CosXmlService(context, cosXmlServiceConfig);
+TransferManager transferManager = new TransferManager(cosXmlService, transferConfig);
+// 存储桶名称，由 bucketname-appid 组成，appid 必须填入，可以在 COS 控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
+String bucket = "examplebucket-1250000000";
+String cosPath = "exampleobject"; //对象在存储桶中的位置标识符，即称对象键
+// 本地目录路径
+String savePathDir = context.getExternalCacheDir().toString();
+// 本地保存的文件名，若不填（null），则与 COS 上的文件名一样
+String savedFileName = "exampleobject";
+
+GetObjectRequest getObjectRequest = new GetObjectRequest(bucket, cosPath, savePathDir, savedFileName);
+
+Context applicationContext = context.getApplicationContext(); // application
+// context
+COSXMLDownloadTask cosxmlDownloadTask =
+        transferManager.download(applicationContext, getObjectRequest);
 ```
 
 >?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/Android/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/TransferDownloadObject.java) 查看。

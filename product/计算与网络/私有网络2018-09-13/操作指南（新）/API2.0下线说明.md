@@ -1,4 +1,4 @@
-私有网络 API 已全面升级至3.0版本，基于2.0版本接口访问时延较高和使用复杂的考虑，原私有网络 API 2.0 接口服务将不再提供技术支持，并将于**2023年01月01日**起下线。如果您的业务还在使用私有网络 API 2.0 相关接口，建议尽快将服务升级至 API 3.0 接口，以免对您的业务造成影响。
+私有网络 API 已全面升级至3.0版本，基于2.0版本接口访问时延较高和使用复杂的考虑，原私有网络 API 2.0 接口服务将不再提供技术支持，并于**2023年01月01日**起下线。如果您的业务还在使用私有网络 API 2.0 相关接口，建议尽快将服务升级至 API 3.0 接口，以免对您的业务造成影响。
 
 请您参照如下对比，找到您需要升级的新接口，完成升级：
 - 2.0文档：[API 概览](https://cloud.tencent.com/document/product/215/909)
@@ -239,6 +239,66 @@
 </tr>
 </table>
 
+
+
+### 安全组
+<table>
+<tr>
+<th width="25%">接口功能</th>
+<th width="25%">API 2.0</th>
+<th width="25%">API 3.0</th>
+<th width="25%">备注</th>
+</tr>
+<tr>
+<td>查询实例关联安全组</td>
+<td>DescribeInstancesOfSecurityGroup</td>
+<td><a href="https://cloud.tencent.com/document/product/213/15728">DescribeInstances </a></td>
+<td>Filter参数带security-group-id</td>
+</tr>
+<tr>
+<td>查询安全组规则</td>
+<td>DescribeSecurityGroupPolicys/DescribeSecurityGroupPolicy</td>
+<td><a href="https://cloud.tencent.com/document/product/1108/47698">DescribeSecurityGroupPolicies</a></td>
+<td>-</td>
+</tr>
+<tr>
+<td>删除安全组</td>
+<td>DeleteSecurityGroup</td>
+<td><a href="https://cloud.tencent.com/document/api/215/15803">DeleteSecurityGroup</a></td>
+<td>-</td>
+</tr>
+<tr>
+<td>查看安全组</td>
+<td>DescribeSecurityGroupEx/DescribeSecurityGroups</td>
+<td><a href="https://cloud.tencent.com/document/api/215/15808">DescribeSecurityGroups</a></td>
+<td>-</td>
+</tr>
+<tr>
+<td>替换单条安全组规则</td>
+<td>ModifySingleSecurityGroupPolicy</td>
+<td><a href="https://cloud.tencent.com/document/api/215/15811">ReplaceSecurityGroupPolicy</a></td>
+<td>-</td>
+</tr>
+<tr>
+<td>修改安全组出站和入站规则</td>
+<td>ModifySecurityGroupPolicy</td>
+<td><a href="https://cloud.tencent.com/document/api/215/15810">ModifySecurityGroupPolicies</a></td>
+<td>-</td>
+</tr>
+<tr>
+<td>查询网卡关联安全组</td>
+<td>DescribeNetworkInterfacesOfSecurityGroup</td>
+<td><a href="https://cloud.tencent.com/document/api/215/15817">DescribeNetworkInterfaces</a></td>
+<td>Filter参数带groups.security-group-id</td>
+</tr>
+<tr>
+<td>添加安全组规则</td>
+<td>CreateSecurityGroupPolicy</td>
+<td><a href="https://cloud.tencent.com/document/api/215/15807">CreateSecurityGroupPolicies</a></td>
+<td>-</td>
+</tr>
+</table>
+
 ### 其他
 <table>
 <tr>
@@ -257,3 +317,5 @@
 <td><a href="https://cloud.tencent.com/document/api/215/17875">DescribeAccountAttributes</a></td>
 </tr>
 </table>
+
+

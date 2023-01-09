@@ -32,7 +32,7 @@
 
 ## 第一部分：创建测试用户
 
-在 [IM 控制台](https://console.cloud.tencent.com/im) 选择您的应用，在左侧导航栏依次点击 **辅助工具**->**UserSig 生成&校验** ，创建两个 UserID 及其对应的 UserSig，复制`UserID`、`签名（Key）`、`UserSig`这三个，后续登录时会用到。
+在 [IM 控制台](https://console.cloud.tencent.com/im) 选择您的应用，在左侧导航栏依次单击 **辅助工具** > **UserSig 生成&校验** ，创建两个 UserID 及其对应的 UserSig，复制`UserID`、`签名（Key）`、`UserSig`这三个，后续登录时会用到。
 
 >? 该账户仅限开发测试使用。应用上线前，正确的 `UserSig` 签发方式是由服务器端生成，并提供面向 App 的接口，在需要 `UserSig` 时由 App 向业务服务器发起请求获取动态 `UserSig`。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/269/32688#GeneratingdynamicUserSig)。
 
@@ -46,17 +46,17 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/f07ae1bb4db4ca5f43f6acc563aafa8c.png)
 或打开一个已有 Unity 项目。
 2. 通过 IDE（如：Visual Studio Code）打开项目：
-![](https://qcloudimg.tencent-cloud.cn/raw/1a21933037a72a6bd4c8ed14f08c6ca7.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/881d625bf3ee2e736db22762e8763c18.png)
 3. 根据目录，找到 Packages/manifest.json，并修改依赖如下：
 ```json
-{
-  "dependencies":{
-    "com.tencent.imsdk.unity":"https://github.com/TencentCloud/TIMSDK.git#unity"
-  }
-}
+   {
+     "dependencies":{
+       "com.tencent.imsdk.unity":"https://github.com/TencentCloud/chat-sdk-unity.git#unity"
+     }
+   }
 ```
 
-为帮助您更好的理解 IM SDK 的各 API，我们还提供了[API Example](https://github.com/TencentCloud/TIMSDK/tree/master/Unity/im_unity_sdk_plus/Assets/IM_Api_Example)，演示各 API 的调用及监听的触发。
+为帮助您更好的理解 IM SDK 的各 API，我们还提供了 [API Example](https://github.com/TencentCloud/tc-chat-sdk-unity/tree/main/Assets/IM_Api_Example)，演示各 API 的调用及监听的触发。
 
 [](id:part3)
 
@@ -263,6 +263,7 @@ TencentIMSDK.AddRecvNewMsgCallback((List<Message> message, string user_data) => 
 详情可查看 [自实现 UI 集成 SDK 文档](https://cloud.tencent.com/document/product/269/75260)。
 
 [](id:part5)
+
 ## 第五部分：#Unity for WebGL 支持[](id:web)
 
 Tencent Cloud IM SDK (Unity 版本) 自 `1.8.1` 版本起支持构建 WebGL。
@@ -272,10 +273,12 @@ Tencent Cloud IM SDK (Unity 版本) 自 `1.8.1` 版本起支持构建 WebGL。
 ### 引入 JS
 
 从 GitHub 下载下方三个JS文件，放置于项目构建 WebGL 产物的文件夹内。
+
 - [tim-js](https://github.com/TencentCloud/TIMSDK/blob/master/Web/IMSDK/tim-js.js)
 - [tim-js-friendship.js](https://github.com/TencentCloud/TIMSDK/blob/master/Web/IMSDK/tim-js-friendship.js)
 - [将此文件重命名成 tim-upload-plugin.js](https://github.com/TencentCloud/TIMSDK/blob/master/Web/IMSDK/tim-upload-plugin/index.js)
 打开 `index.html` ，并引入这三个JS文件。如下：
+
 ```html
 <script src="./tim-js.js"></script>
 <script src="./tim-js-friendship.js"></script>
@@ -285,19 +288,24 @@ Tencent Cloud IM SDK (Unity 版本) 自 `1.8.1` 版本起支持构建 WebGL。
 ## 常见问题
 
 #### 支持哪些平台？
+
 目前支持 iOS、Android、Windows Mac 和 WebGL。
 
 #### Android 单击 Build And Run 报错找不到可用设备？
+
 确保设备没被其他资源占用，或单击 Build 生成 apk 包，再拖动进模拟器里运行。
 
 #### iOS 第一次运行报错？
+
 按照上面的 Demo 运行配置后，如果报错，可以单击**Product**>**Clean**，清除产物后重新 Build，或者关闭 Xcode 重新打开再次 Build。
 
 #### 2019.04版 Unity，iOS 平台报错？
+
 Library/PackageCache/com.unity.collab-proxy@1.3.9/Editor/UserInterface/Bootstrap.cs(23,20): error CS0117: 'Collab' does not contain a definition for 'ShowChangesWindow'
 在 Editor 工具栏单击**Window**>**Package Manager**，将 Unity Collaborate 降级到1.2.16。
 
 #### 2019.04版 Unity，iOS 平台报错？
+
 Library/PackageCache/com.unity.textmeshpro@3.0.1/Scripts/Editor/TMP_PackageUtilities.cs(453,84): error CS0103: The name 'VersionControlSettings' does not exist in the current context
 打开源码，把`|| VersionControlSettings.mode != "Visible Meta Files"`这部分代码删除即可。
 
@@ -306,6 +314,7 @@ Library/PackageCache/com.unity.textmeshpro@3.0.1/Scripts/Editor/TMP_PackageUtili
 - IM SDK 的 API 层面错误码，请查看 [该文档](https://cloud.tencent.com/document/product/269/1671)。
 
 ## 联系我们
-如果您在接入使用过程中有任何疑问，请加入 QQ 群：764231117 咨询。
 
-<img style="width: 200px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/0a958e8572783faf746ea3233781322c.jpg" />
+如果您在接入使用过程中有任何疑问，请扫码加入微信群，或加入QQ群：764231117 咨询。
+
+![](https://qcloudimg.tencent-cloud.cn/raw/26c9444af94d60e1c606f94cda7cff9d.png)

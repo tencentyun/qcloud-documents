@@ -2,7 +2,7 @@
 
 ## 前提条件
 - 已有容器服务 TKE 托管集群（以下称作集群 A ），且集群版本需 >= 1.18 及以上。
-- 已创建迁移目标的弹性容器服务 TKE Serverless 集群（以下称作集群 B），集群版本需 >= 1.20 及以上，创建 TKE Serverless 集群请参见 [创建集群](https://cloud.tencent.com/document/product/457/39813)。
+- 已创建迁移目标的 TKE Serverless 集群（以下称作集群 B），集群版本需 >= 1.20 及以上，创建 TKE Serverless 集群请参见 [创建集群](https://cloud.tencent.com/document/product/457/39813)。
 - 集群 A 和 集群 B 需要共用同一个腾讯云 COS 存储桶作为 Velero 后端存储，配置 COS 存储桶请参见 [配置对象存储](https://cloud.tencent.com/document/product/457/50122#.E9.85.8D.E7.BD.AE.E5.AF.B9.E8.B1.A1.E5.AD.98.E5.82.A8)。
 - 集群 A 和 集群 B 建议在同一 VPC 下（如果需要备份 PVC 中的数据，必须在同一 VPC 下）。
 - 确保镜像资源在迁移后可以正常拉取，在 TKE Serverless 集群中配置镜像仓库请参见 [镜像仓库相关](https://cloud.tencent.com/document/product/457/54755#.E5.BC.B9.E6.80.A7.E9.9B.86.E7.BE.A4.E5.A6.82.E4.BD.95.E4.BD.BF.E7.94.A8.E8.87.AA.E5.BB.BA.E7.9A.84.E8.87.AA.E7.AD.BE.E5.90.8D.E9.95.9C.E5.83.8F.E4.BB.93.E5.BA.93.E6.88.96-http-.E5.8D.8F.E8.AE.AE.E9.95.9C.E5.83.8F.E4.BB.93.E5.BA.93.EF.BC.9F)。
@@ -56,7 +56,7 @@ velero install  --provider aws  \
 --use-volume-snapshots=false \
 --backup-location-config region=ap-guangzhou,s3ForcePathStyle="true",s3Url=https://cos.ap-guangzhou.myqcloud.com
 ```
->! EKS 不支持部署 Daemonset，因此本文示例都不支持使用 restic 插件。
+>! TKE Serverless 集群不支持部署 Daemonset，因此本文示例都不支持使用 restic 插件。
 >
 	- 如不需要备份 PVC，安装示例如下：
 ```plaintext
@@ -169,18 +169,18 @@ spec:
      --patch '{"spec":{"accessMode":"ReadWrite"}}'
   ```
 
-## 使用 EKS 常见问题
+## 使用 Serverless 集群常见问题
 - 拉取镜像失败：请参见 [镜像仓库](https://cloud.tencent.com/document/product/457/54755)。
-- 域名解析失败：常见于 Pod 镜像拉取失败、投递日志到自建 kafka 失败，请参见 [ Serverless 集群自定义 DNS 服务](https://cloud.tencent.com/document/product/457/63735)。
+- 域名解析失败：常见于 Pod 镜像拉取失败、投递日志到自建 kafka 失败，请参见 [Serverless 集群自定义 DNS 服务](https://cloud.tencent.com/document/product/457/63735)。
 - 日志投递到 CLS 失败：首次使用 TKE Serverless 集群投递日志到 CLS，需要为服务授权，请参见 [首次授权](https://cloud.tencent.com/document/product/457/56751#.E9.A6.96.E6.AC.A1.E6.8E.88.E6.9D.83.3Ca-id.3D.22role.22.3E.3C.2Fa.3E)。
 - 每个集群默认仅可创建 100 个 Pod，若需要创建超过配额的资源，请参见 [默认配额](https://cloud.tencent.com/document/product/457/53030#.E9.BB.98.E8.AE.A4.E9.85.8D.E9.A2.9D)。
-- Pod 频繁被销毁重建，报错 `Timeout to ensure pod sandbox`：EKS Pod 内的组件会与管控面通讯以保持健康检测，当 Pod 创建完后，Pod 持续 6 分钟网络不通，则会被管控面发起销毁重建。此时需检查 Pod 关联的安全组是否放通了 169.254 路由的访问。
+- Pod 频繁被销毁重建，报错 `Timeout to ensure pod sandbox`：TKE Serverless 集群 Pod 内的组件会与管控面通讯以保持健康检测，当 Pod 创建完后，Pod 持续 6 分钟网络不通，则会被管控面发起销毁重建。此时需检查 Pod 关联的安全组是否放通了 169.254 路由的访问。
 - Pod 端口访问不通 / not ready：
-  - 业务容器端口是否与 EKS 管控面端口有冲突，请参见 [端口限制](https://cloud.tencent.com/document/product/457/39815#.E7.AB.AF.E5.8F.A3.E9.99.90.E5.88.B6)
+  - 业务容器端口是否与 TKE Serverless 集群管控面端口有冲突，请参见 [端口限制](https://cloud.tencent.com/document/product/457/39815#.E7.AB.AF.E5.8F.A3.E9.99.90.E5.88.B6)
   - Pod 可以 ping 成功，但是 telnet 失败，检查安全组。
 - 创建实例时，可以使用如下特性加快拉取镜像速度：请参见 [镜像缓存](https://cloud.tencent.com/document/product/457/65908) 与 [镜像复用](https://cloud.tencent.com/document/product/457/54980#FAQ8)。
-- 业务日志转存：EKS job 类型的业务在退出后，底层资源就被回收，此时 Kubectl logs 无法查看容器日志，对于需要 debug 的场景不友好。可通过延迟销毁或者设置 terminationMessage 字段将业务日志转存，请参见 [设置容器终止消息](https://cloud.tencent.com/document/product/457/54980#FAQ5)。
-- Pod 频繁重启，报错 `ImageGCFailed`：EKS Pod 默认磁盘大小为 20GiB, 如果磁盘使用空间达到 80%，EKS 管控面就会触发容器镜像的回收流程，尝试回收未使用的容器镜像来释放磁盘空间。如果未能释放任何空间，则会有一条事件提醒：`ImageGCFailed: failed to garbage collect required amount of images`，提醒用户磁盘空间不足。常见磁盘空间不足的原因有：
+- 业务日志转存：Serverless 容器服务 job 类型的业务在退出后，底层资源就被回收，此时 Kubectl logs 无法查看容器日志，对于需要 debug 的场景不友好。可通过延迟销毁或者设置 terminationMessage 字段将业务日志转存，请参见 [设置容器终止消息](https://cloud.tencent.com/document/product/457/54980#FAQ5)。
+- Pod 频繁重启，报错 `ImageGCFailed`：TKE Serverless 集群 Pod 默认磁盘大小为 20GiB, 如果磁盘使用空间达到 80%，TKE Serverless 集群管控面就会触发容器镜像的回收流程，尝试回收未使用的容器镜像来释放磁盘空间。如果未能释放任何空间，则会有一条事件提醒：`ImageGCFailed: failed to garbage collect required amount of images`，提醒用户磁盘空间不足。常见磁盘空间不足的原因有：
   - 业务有大量临时输出。
   - 业务持有已删除的文件描述符，导致磁盘空间未释放。
 

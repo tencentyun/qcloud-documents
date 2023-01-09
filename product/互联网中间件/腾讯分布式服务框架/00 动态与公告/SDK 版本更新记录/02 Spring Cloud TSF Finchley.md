@@ -1,5 +1,18 @@
 基于 Spring Cloud Finchley 版本 SDK，支持 spring boot 2.0.x。
 
+## 1.29.19-Finchley-RELEASE（2022-11-15）
+
+### Bug 修复
+- 修复 scg 调用在 filter 中增加 restTemplate 或 feign 以后，scg 最终调用目标下游服务的熔断功能失效的问题。
+- 修复 TSF Consul 与开源 Consul 双注册双发现的问题。
+- 修复 swagger 上报因为报文不完整出现空指针的问题。
+- 修复网关重定向异常后，网关调用链信息拓扑图异常的问题。
+
+### 新特性
+- 支持调用链中展示 oceanbase 监控。
+
+
+
 ## 1.40.0-Finchley-RELEASE（2022-09-06）
 ### 新特性
 - 支持微服务网关可扩展性。支持使用 TSF 网关 SDK 的同时，自定义网关路由策略、支持 websocket、支持跨域等原生网关能力。

@@ -1,3 +1,4 @@
+
 PostGIS 是关系型数据库 PostgreSQL 的一个扩展，PostGIS 提供如下空间信息服务功能：空间对象、空间索引、空间操作函数和空间操作符。同时，PostGIS 遵循 OpenGIS 的规范。
 
 PostGIS 支持所有的空间数据类型，这些类型包括：点（POINT）、线（LINESTRING）、多边形（POLYGON）、多点（MULTIPOINT）、多线（MULTILINESTRING）、多多边形（MULTIPOLYGON）和集合对象集（GEOMETRYCOLLECTION）等。

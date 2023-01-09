@@ -9,7 +9,7 @@
 2. 安装 CloudBase CLI。打开命令提示符，执行如下命令：
 <dx-codeblock>
 :::  plaintext
-npm i -g @cloudbase/cli hexo-cli
+sudo npm i -g @cloudbase/cli hexo-cli
 :::
 </dx-codeblock>
 3. <span id="step1.3"></span>执行完毕后，在本地新建名称为 Hexo 的文件夹。在该文件夹中，打开命令提示符，并执行如下命令进行初始化：
@@ -27,23 +27,17 @@ hexo s
 预览后，在浏览器中打开 [localhost:4000](http://localhost:4000)，即可看到部署的 Hexo 博客。![](https://main.qcloudimg.com/raw/5b91e6303e40aea5c1d5f0cfc521dc4a.png)
 
 ## 步骤2：创建云开发环境
-
 1. 登录腾讯云 [云开发控制台](https://console.cloud.tencent.com/tcb)，单击**立即创建并使用**，新建一个环境来进行部署。
-   ![](https://main.qcloudimg.com/raw/4b8ab97312e8cf697d3de48bf8c6d507.jpg)
-   如果您之前创建过环境，可以继续使用已创建的**按量计费**环境，或者再次**新建环境**。
-    ![](https://main.qcloudimg.com/raw/ac440a0f9e91f1f1dd3ac779d28ca008.jpg)
-2. 在新建环境窗口中，根据实际需求填写环境名称，选择**按量计费**，单击**立即开通**即可开通环境。
-   ![](https://main.qcloudimg.com/raw/5516e22060227892fe254d6027d343bf.jpg)
-3. <span id="step2.3"></span>开通成功之后，单击环境名称，进入环境总览页面。如下所示：
-   ![](https://main.qcloudimg.com/raw/c7fb3e0eaacfd716fddd0914a43eff00.jpg)
->!请记住您的环境 ID，这个 ID 在后续步骤将被使用。您可单击**环境Id**右侧的<img src="https://main.qcloudimg.com/raw/a06f957521023a64e977041f9181f251.jpg"  style="margin:0;">图标进行复制。
-4. 单击左侧菜单栏中的**静态网站托管**，在页面中单击**开启使用**，开通静态托管服务。
-![](https://main.qcloudimg.com/raw/b2722f1c74c77d582802a0ddedf1823c.png)
-当您能看到如下界面时，即说明开通成功。
+   如果您之前创建过环境，可以继续使用已创建的环境，或者再次**新建环境**。
+![](https://qcloudimg.tencent-cloud.cn/raw/fca84c8fc0c7322302664d9461f753bc.png)
+2. 在新建环境窗口中，根据实际需求填写环境名称，选择**套餐**，单击**立即开通**即可开通环境。
+<img style="width:978px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/e049812a62553fd28aff74e12af7a6d9.png" />
+3. <span id="step1.3"></span>开通成功之后，单击环境名称，进入环境总览页面。请记住您的环境 ID，这个 ID 在后续步骤将被使用，如下所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/9bd73d8d527c1e9aa7a0935c9a912fef.png)
+4. 单击左侧菜单栏中的**静态网站托管**，在页面中单击**开通静态托管服务**。
+<img style="width:978px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/531b34297e477ab275d0238b47f38184.png" /><br>
+当您能看到如下界面时，即说明静态网站托管开通成功。
 ![](https://main.qcloudimg.com/raw/c76868e35d23f97bbd39f261073385a6.jpg)
-
-
-
 
 
 ## 步骤3：初始化云开发 CLI

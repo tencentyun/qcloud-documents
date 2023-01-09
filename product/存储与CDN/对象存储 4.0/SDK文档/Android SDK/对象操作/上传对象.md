@@ -40,7 +40,7 @@ TransferConfig transferConfig = new TransferConfig.Builder().build();
 TransferManager transferManager = new TransferManager(cosXmlService,
         transferConfig);
 
-// 存储桶名称，由bucketname-appid 组成，appid必须填入，可以在COS控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
+// 存储桶名称，由 bucketname-appid 组成，appid 必须填入，可以在 COS 控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
 String bucket = "examplebucket-1250000000";
 String cosPath = "exampleobject"; //对象在存储桶中的位置标识符，即称对象键
 String srcPath = new File(context.getCacheDir(), "exampleobject")
@@ -52,6 +52,14 @@ String uploadId = null;
 COSXMLUploadTask cosxmlUploadTask = transferManager.upload(bucket, cosPath,
         srcPath, uploadId);
 
+//设置初始化分块上传回调(5.9.7版本以及后续版本支持)
+cosxmlUploadTask.setInitMultipleUploadListener(new InitMultipleUploadListener() {
+    @Override
+    public void onSuccess(InitiateMultipartUpload initiateMultipartUpload) {
+        //用于下次续传上传的 uploadId
+        String uploadId = initiateMultipartUpload.uploadId;
+    }
+});
 //设置上传进度回调
 cosxmlUploadTask.setCosXmlProgressListener(new CosXmlProgressListener() {
     @Override
@@ -101,7 +109,7 @@ TransferConfig transferConfig = new TransferConfig.Builder().build();
 TransferManager transferManager = new TransferManager(cosXmlService,
         transferConfig);
 
-// 存储桶名称，由bucketname-appid 组成，appid必须填入，可以在COS控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
+// 存储桶名称，由 bucketname-appid 组成，appid 必须填入，可以在 COS 控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
 String bucket = "examplebucket-1250000000";
 String cosPath = "exampleobject"; //对象在存储桶中的位置标识符，即称对象键
 
@@ -145,7 +153,7 @@ TransferConfig transferConfig = new TransferConfig.Builder().build();
 TransferManager transferManager = new TransferManager(cosXmlService,
         transferConfig);
 
-// 存储桶名称，由bucketname-appid 组成，appid必须填入，可以在COS控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
+// 存储桶名称，由 bucketname-appid 组成，appid 必须填入，可以在 COS 控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
 String bucket = "examplebucket-1250000000";
 String cosPath = "exampleobject"; //对象在存储桶中的位置标识符，即称对象键
 
@@ -191,7 +199,7 @@ TransferConfig transferConfig = new TransferConfig.Builder().build();
 TransferManager transferManager = new TransferManager(cosXmlService,
         transferConfig);
 
-// 存储桶名称，由bucketname-appid 组成，appid必须填入，可以在COS控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
+// 存储桶名称，由 bucketname-appid 组成，appid 必须填入，可以在 COS 控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
 String bucket = "examplebucket-1250000000";
 String cosPath = "exampleobject"; //对象在存储桶中的位置标识符，即称对象键
 
@@ -395,7 +403,7 @@ PUT Object 接口可以上传一个对象至指定存储桶中，该操作需要
 
 [//]: # (.cssg-snippet-put-object)
 ```java
-// 存储桶名称，由bucketname-appid 组成，appid必须填入，可以在COS控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
+// 存储桶名称，由 bucketname-appid 组成，appid必须填入，可以在 COS 控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
 String bucket = "examplebucket-1250000000";
 String cosPath = "exampleobject"; //对象位于存储桶中的位置标识符，即对象键。
 String srcPath = new File(context.getCacheDir(), "exampleobject")
@@ -515,7 +523,7 @@ cosXmlService.postObjectAsync(postObjectRequest, new CosXmlResultListener() {
 
 [//]: # (.cssg-snippet-list-multi-upload)
 ```java
-// 存储桶名称，由bucketname-appid 组成，appid必须填入，可以在COS控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
+// 存储桶名称，由 bucketname-appid 组成，appid 必须填入，可以在 COS 控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
 String bucket = "examplebucket-1250000000";
 ListMultiUploadsRequest listMultiUploadsRequest =
         new ListMultiUploadsRequest(bucket);
@@ -555,7 +563,7 @@ cosXmlService.listMultiUploadsAsync(listMultiUploadsRequest,
 
 [//]: # (.cssg-snippet-init-multi-upload)
 ```java
-// 存储桶名称，由bucketname-appid 组成，appid必须填入，可以在COS控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
+// 存储桶名称，由 bucketname-appid 组成，appid 必须填入，可以在 COS 控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
 String bucket = "examplebucket-1250000000";
 String cosPath = "exampleobject"; //对象在存储桶中的位置标识符，即对象键。
 
@@ -596,7 +604,7 @@ cosXmlService.initMultipartUploadAsync(initMultipartUploadRequest,
 
 [//]: # (.cssg-snippet-upload-part)
 ```java
-// 存储桶名称，由bucketname-appid 组成，appid必须填入，可以在COS控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
+// 存储桶名称，由 bucketname-appid 组成，appid 必须填入，可以在 COS 控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
 String bucket = "examplebucket-1250000000";
 String cosPath = "exampleobject"; //对象在存储桶中的位置标识符，即对象键
 UploadPartRequest uploadPartRequest = new UploadPartRequest(bucket, cosPath,
@@ -646,7 +654,7 @@ cosXmlService.uploadPartAsync(uploadPartRequest, new CosXmlResultListener() {
 
 [//]: # (.cssg-snippet-list-parts)
 ```java
-// 存储桶名称，由bucketname-appid 组成，appid必须填入，可以在COS控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
+// 存储桶名称，由 bucketname-appid 组成，appid 必须填入，可以在 COS 控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
 String bucket = "examplebucket-1250000000";
 String cosPath = "exampleobject"; //对象在存储桶中的位置标识符，即对象键。
 
@@ -685,7 +693,7 @@ cosXmlService.listPartsAsync(listPartsRequest, new CosXmlResultListener() {
 #### 示例代码
 [//]: # (.cssg-snippet-complete-multi-upload)
 ```java
-// 存储桶名称，由bucketname-appid 组成，appid必须填入，可以在COS控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
+// 存储桶名称，由 bucketname-appid 组成，appid 必须填入，可以在 COS 控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
 String bucket = "examplebucket-1250000000";
 String cosPath = "exampleobject"; //对象在存储桶中的位置标识符，即对象键。
 
@@ -728,7 +736,7 @@ cosXmlService.completeMultiUploadAsync(completeMultiUploadRequest,
 
 [//]: # (.cssg-snippet-abort-multi-upload)
 ```java
-// 存储桶名称，由bucketname-appid 组成，appid必须填入，可以在COS控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
+// 存储桶名称，由 bucketname-appid 组成，appid 必须填入，可以在 COS 控制台查看存储桶名称。 https://console.cloud.tencent.com/cos5/bucket
 String bucket = "examplebucket-1250000000";
 String cosPath = "exampleobject"; //对象在存储桶中的位置标识符，即对象键。
 

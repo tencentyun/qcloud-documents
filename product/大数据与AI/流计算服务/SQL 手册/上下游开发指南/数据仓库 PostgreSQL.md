@@ -10,9 +10,7 @@ JDBC-PG Connector 提供了对 CDW PostgreSQL 数据库写支持。
 | 1.14       | 不支持     |
 
 ## 使用范围
-
 支持用作数据目的表（sink），用于 Tuple 数据流表和用于 Upsert 数据流表（需要指定主键）。
->! 不能与 jdbc connector 共用。
 
 ## DDL 定义
 ### 用作数据目的（Tuple Sink）
@@ -56,7 +54,7 @@ CREATE TABLE `jdbc_upsert_sink_table` (
 
 | 参数值                     | 必填 | 默认值 | 描述                                                         |
 | -------------------------- | ---- | ------ | ------------------------------------------------------------ |
-| connector                  | 是   | 无     | 连接数据库时，需要填写 `'jdbc'`。                            |
+| connector                  | 是   | 无     | 连接数据库时，需要填写 `'jdbcPG'`。                            |
 | url                        | 是   | 无     | JDBC 数据库的连接 URL。                                      |
 | table-name                 | 是   | 无     | 数据库表名。                                                 |
 | driver                     | 否   | 无     | JDBC Driver 的类名。如果不输入，则自动从 url 中推断。        |

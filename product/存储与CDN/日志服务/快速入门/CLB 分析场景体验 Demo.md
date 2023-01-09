@@ -26,19 +26,19 @@
 资源初始化过程需约等待2分钟。
 ![](https://qcloudimg.tencent-cloud.cn/raw/d451c8679b6e49f432ebdf914fc19c8f.png)
 4. 初始化完成后，可以执行如下操作：
- - 单击 **Demo内容 > 进入检索页**，查看检索分析详情。
- - 单击 **Demo内容 > 查看仪表盘**，查看预置仪表盘。
- - 单击 **Demo内容 > 查看告警**，查看监控告警详情。
- - 单击 **Demo内容 > 查看日志主题**，查看日志主题详情。
+ - 单击 **Demo 内容 > 进入检索页**，查看检索分析详情。
+ - 单击 **Demo 内容 > 查看仪表盘**，查看预置仪表盘。
+ - 单击 **Demo 内容 > 查看告警**，查看监控告警详情。
+ - 单击 **Demo 内容 > 查看日志主题**，查看日志主题详情。
 
 ### 重置 Demo
 
 1. 登录 [日志服务控制台](https://console.cloud.tencent.com/cls/overview)。
-2. 在**概览**页面的**日志中心**中，找到对应Demo，并单击 **Demo内容 > 重置Demo**。当 Demo 日志过期时，可以通过重置再次启用。
+2. 在**概览**页面的**日志中心**中，找到对应Demo，并单击 **Demo 内容 > 重置 Demo**。当 Demo 日志过期时，可以通过重置再次启用。
 ![](https://qcloudimg.tencent-cloud.cn/raw/ebe535082785cef371518416f39f38f7.png)
 
 ### 关闭 Demo
 
 1. 登录 [日志服务控制台](https://console.cloud.tencent.com/cls/overview)。
-2. 在**概览**页面的**日志中心**中，找到对应 Demo，并单击 **Demo内容 > 删除Demo**。
+2. 在**概览**页面的**日志中心**中，找到对应 Demo，并单击 **Demo 内容 > 删除 Demo**。
 3. 在弹出的提示框中，单击**确认**，Demo 日志停止写入，且删除 Demo 资源。

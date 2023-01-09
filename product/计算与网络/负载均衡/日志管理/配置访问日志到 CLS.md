@@ -124,7 +124,7 @@
 <tr><td>tcpinfo_rtt</td><td> TCP 连接的 RTT。 </td><td>long</td></tr>
 <tr><td>connection</td><td> 连接 ID。 </td><td>long</td></tr>
 <tr><td>connection_requests</td><td> 连接上的请求个数。 </td><td>long</td></tr>
-<tr><td>ssl_handshake_time</td><td>记录 SSL 握手各阶段耗时，格式：x:x:x:x:x:x:x。其中
+<tr><td>ssl_handshake_time</td><td>记录 SSL 握手各阶段耗时，格式：x:x:x:x:x:x:x。其中，冒号分隔的字符串，单位是ms，每个阶段耗时若小于1ms则显示为0。
 <ul><li>第1个字段表示是否 SSL 会话复用。</li>
 <li>第2个字段表示完整的握手时间。</li>
 <li>3~7表示 SSL 各阶段耗时。</li>

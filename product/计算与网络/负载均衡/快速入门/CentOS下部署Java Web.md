@@ -157,6 +157,7 @@ cd /usr/local/tomcat/bin
 ```
 运行结果如下：
 ![](https://main.qcloudimg.com/raw/c118899986968ecd5982eb8cdb2beff9.png)
+
 ### 方法二
 1. 设置快捷启动，在任何地方都可以通过 service tomcat start 来启动 Tomcat。
 ```

@@ -18,7 +18,7 @@
  - 子账号登录控制台时，会自动切换到默认主账号上，并拥有默认主账号所授予的访问权限。
  - 切换开发商之后，子账号会拥有切换到的主账号授权的访问权限，而切换前的主账号授予的访问权限会立即失效。
 - 用户组是多个相同职能的用户（子账号）的集合。您可以根据业务需求创建不同的用户组，为用户组关联适当的策略，以分配不同权限。
- 
+
 ## 操作步骤
 授权子账号访问 COS 分为三个步骤：创建子账号、对子账号授予权限、子账号访问 COS 资源。
 
@@ -32,22 +32,24 @@
  - **访问方式**：选择编程访问和腾讯云控制台访问。其他配置可按需选择。
 4. 填写用户信息完毕后，单击**下一步**，进行身份验证。
 5. 身份验证完毕，设置子用户权限。根据系统提供的策略选择，可配置简单的策略，例如 COS 的存储桶列表的访问权限，只读权限等。如需配置更复杂的策略，可进行 [步骤2：对子账号授予权限](#.E6.AD.A5.E9.AA.A42.EF.BC.9A.E5.AF.B9.E5.AD.90.E8.B4.A6.E5.8F.B7.E6.8E.88.E4.BA.88.E6.9D.83.E9.99.90)。
-6. 确认输入的用户信息无误后，单击**完成**即可创建子账号。
+6. 设置用户标签，该项为可选项，可按需设置，单击**下一步**。
+7. 确认配置信息无误后，单击**完成**即可创建子账号。
 
 
 <span id="对子账号授予权限"></span>
 ### 步骤2：对子账号授予权限
-对子账号授予权限可通过 CAM，对子账号（用户）或用户组进行策略配置。
+
+
+创建自定义策略或者选择已有策略，并将策略关联到子账号。
+
 1. 登录 [CAM 控制台](https://console.cloud.tencent.com/cam)。
 2. 选择**策略 > 新建自定义策略 > 按策略语法创建**，进入策略创建页面。
 3. 您可按照实际需求选择**空白模板**自定义授权策略，或选择与 COS 相关联的**系统模板**，单击**下一步**。
-![](https://main.qcloudimg.com/raw/9c60306242955be93fa0bfbd5cea2bda.jpg)
 4. 输入便于您记忆的策略名称，若您选择**空白模板**，则需要输入您的策略语法，详情请参见 [策略示例](#策略示例)。您可将策略内容复制粘贴到**策略内容**编辑框内，确认输入无误后单击**完成**即可。
-![](https://main.qcloudimg.com/raw/6f48b23fd7b995c1613cdd1e8323b389.png)
 5. 创建完成后，将刚才已创建的策略关联到子账号。
-![](https://main.qcloudimg.com/raw/381ee6bc64f5aa56124148b1b1a24318.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/4d96f5afbdae0b5157ed8d6a47f7c8b4.png)
 6. 勾选子账号并单击**确定**授权后，即可使用子账号访问所限定的 COS 资源。
-![](https://main.qcloudimg.com/raw/c37f96e1a2db3f74066ca48c1b09d538.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/f6a1d02ce4720284a74c05a08c45ec56.png)
 
 ### 步骤3：子账号访问 COS 资源
 
@@ -63,30 +65,32 @@
 4. 单击 **API 密钥**页签，并单击**新建密钥**为该子账号创建 SecretId 和 SecretKey。
 
 至此您就可以通过子账号的 SecretId 和 SecretKey、主账号的 APPID，访问 COS 资源。 
-
->!
->子账号需通过 XML API 或基于 XML API 的 SDK 访问 COS 资源。
+>!子账号需通过 XML API 或基于 XML API 的 SDK 访问 COS 资源。
 
 
 #### 基于 XML 的 Java SDK 访问示例
 
 以基于 XML 的 Java SDK 命令行为例，需填入参数如下：
 ```
-// 1 初始化身份信息
-COSCredentials cred = new BasicCOSCredentials("<主账号APPID>", "<子账号SecretId>", "<子账号SecretKey>");
+// 初始化身份信息
+COSCredentials cred = new BasicCOSCredentials("<主账号 APPID>", "<子账号 SecretId>", "<子账号 SecretKey>");
 ```
 
 实例如下：
 ```
-// 1 初始化身份信息
-COSCredentials cred = new BasicCOSCredentials("1250000000", "AKIDasdfmRxHPa9oLhJp****", "e8Sdeasdfas2238Vi****");
+String secretId = System.getenv("secretId");//子账号的 SecretId，授权遵循最小权限指引，降低使用风险。子账号密钥获取可参考 https://cloud.tencent.com/document/product/598/37140
+String secretKey = System.getenv("secretKey");//子账号的的 SecretKey，授权遵循最小权限指引，降低使用风险。子账号密钥获取可参考 https://cloud.tencent.com/document/product/598/37140
+COSCredentials cred = new BasicCOSCredentials(secretId, secretKey);
+
+// 初始化身份信息
+COSCredentials cred = new BasicCOSCredentials("<主账号 APPID>", secretId, secretKey);
 ```
 
 #### COSCMD 命令行工具访问示例
 
 以 COSCMD 的配置命令为例，需填入的参数如下：
 ```sh
-coscmd config -u <主账号 APPID> -a <子账号 SecretId> -s <子账号SecretKey>  -b <主账号 bucketname> -r <主账号  bucket 所属地域>
+coscmd config -u <主账号 APPID> -a <子账号 SecretId> -s <子账号 SecretKey>  -b <主账号 bucketname> -r <主账号  bucket 所属地域>
 ```
 实例如下：
 ```sh
@@ -181,7 +185,7 @@ coscmd config -u 1250000000 -a AKIDasdfmRxHPa9oLhJp**** -s e8Sdeasdfas2238Vi****
 
 
 ### 示例4：为子账户配置某 IP 段的读写权限
-本示例中限制仅 IP 网段为`192.168.1.0/24`和`192.168.2.0/24`的地址具有读写权限，如下所示。
+本示例中限制仅 IP 网段为 `192.168.1.0/24` 和 `192.168.2.0/24` 的地址具有读写权限，如下所示。
 更丰富的生效条件填写，请参见 [生效条件](https://cloud.tencent.com/document/product/598/10608)。
 ```
 {
@@ -202,3 +206,4 @@ coscmd config -u 1250000000 -a AKIDasdfmRxHPa9oLhJp**** -s e8Sdeasdfas2238Vi****
     ]
 }
 ```
+

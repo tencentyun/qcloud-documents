@@ -110,3 +110,11 @@ ghost restart
 2. 单击上传图片，在浏览器抓包可以看到 upload 请求成功，并返回了图片对应的 COS 链接。
 ![](https://qcloudimg.tencent-cloud.cn/raw/a875407bd72738c5d2ddbfb4d41acd0a.jpg)
 
+
+
+
+## 结语
+
+当然，COS 不仅提供以上应用和服务，还提供多款热门开源应用，并集成腾讯云 COS 插件，欢迎点击“[此处](https://cloud.tencent.com/act/pro/Ecological-aggregation?from=18406)”一键启动，立即使用！
+
+

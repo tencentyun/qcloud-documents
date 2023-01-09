@@ -21,7 +21,7 @@
  
 
 ### 方式二：从路由表控制台开始操作
-1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/nat?rid=1)，在左侧目录中单击**路由表**。
+1. 登录 [路由表控制台](https://console.cloud.tencent.com/vpc/route?rid=1)。
 2. 在路由表列表中，单击需要访问公网的子网所关联的路由表 ID 进入详情页。
 ![](https://main.qcloudimg.com/raw/d9149a32b451867c5ccd4c171f58d963.png)
 3. 在路由表基本信息页面，单击**+新增路由策略**。

@@ -1,5 +1,5 @@
 ## 操作场景
-本文介绍如何在 M6ce 实例中构建 Tencent SGX 机密计算环境，并演示如何使用 intel SGXSDK 验证 SGX 功能。
+本文介绍了如何在 M6ce 实例中构建 Tencent SGX 机密计算环境，并演示如何使用 intel SGXSDK 验证 SGX 功能。
 
 
 ## 前提条件

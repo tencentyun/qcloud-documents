@@ -16,7 +16,7 @@ Python 作业的开发页面如下所示：
 在**开发调试**页面，选择主程序包及其版本，并输入入口类和入口类参数，选择好平台提供的 Python 环境，单击**作业参数**并在侧边弹出的参数界面中设置参数值，然后单击**保存**，保存作业配置和参数信息。
 主程序包可以是单独的 Python 文件或者是 zip 程序包。如果主程序包为 Python 文件，则入口类不需要填写；主程序包为 Zip，则需要指定其入口类，如下图所示：
 ![-w712](https://mweb-1306209138.cos.ap-guangzhou.myqcloud.com/2022/03/02/16462229073302.jpg)
-数据文件会被解压到 Python worker 进程的工作目录下。如果数据文件所在的压缩包名称为 archive.zip，则在 Python 自定义函数中可以编写以下代码来访问 archive.zip 数据文件。
+数据文件会被解压到 Python worker 进程的工作目录下。如果数据文件所在的压缩包名称为 archive.zip，则在 Python 自定义函数中可以编写以下代码来访问 archive.zip 数据文件。 
 ```
 def my_udf():  
         with open("archive.zip/mydata/data.txt") as f: 

@@ -16,14 +16,14 @@ REST API 是即时通信 IM 提供给 App 后台的 HTTP 管理接口，其主�
 
 REST API 的 URL 格式如下：
 ```
-https://console.tim.qq.com/$ver/$servicename/$command?sdkappid=$SDKAppID&identifier=$identifier&usersig=$usersig&random=99999999&contenttype=json
+https://xxxxxx/$ver/$servicename/$command?sdkappid=$SDKAppID&identifier=$identifier&usersig=$usersig&random=99999999&contenttype=json
 ```
 其中各个参数的含义以及取值如下（参数名称及其取值均区分大小写）：
 
 | 参数  | 含义  | 取值  |
 |---------|---------|---------|
 | https    |请求协议      | 请求协议为 HTTPS，请求方式为 POST       |
-| console.tim.qq.com |请求域名  | 固定为`console.tim.qq.com`      |
+| xxxxxx |专属域名  | <li>中国：`console.tim.qq.com`</li><li>新加坡：`adminapisgp.im.qcloud.com`</li><li>首尔： `adminapikr.im.qcloud.com`</li><li>法兰克福：`adminapiger.im.qcloud.com`</li><li>孟买：`adminapiind.im.qcloud.com`</li><li>硅谷：`adminapiusa.im.qcloud.com`</li>|
 | ver  | 协议版本号 | 固定为`v4`  |
 | servicename  | 内部服务名，不同的 servicename 对应不同的服务类型 |示例：<br>`v4/im_open_login_svc/account_import`，其中`im_open_login_svc`为`servicename`<br/>更多详情请参见 [REST API 接口列表](https://cloud.tencent.com/document/product/269/1520) |
 | command  | 命令字，与 servicename 组合用来标识具体的业务功能 |示例：<br>`v4/im_open_login_svc/account_import`，其中`account_import`为`command`<br/>更多详情请参见 [REST API 接口列表](https://cloud.tencent.com/document/product/269/1520) |

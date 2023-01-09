@@ -1,20 +1,12 @@
 ## 操作场景
-本文档介绍如何通过 netperf 进行云服务器高吞吐网络性能测试。
+本文档介绍了如何通过 netperf 进行云服务器高吞吐网络性能测试。
 
 ## 工具介绍
 - Netperf
 HP 开发的网络性能测量工具，主要测试 TCP 及 UDP 吞吐量性能。测试结果主要反应系统向其他系统发送数据的速度，以及其他系统接收数据的速度。
 - SAR
 用于监控网络流量，运行示例如下：
-```shellsession
-sar -n DEV 1
-02:41:03 PM     IFACE   rxpck/s   txpck/s    rxkB/s    txkB/s   rxcmp/s   txcmp/s  rxmcst/s
-02:41:04 PM      eth0 1626689.00      8.00  68308.62      1.65      0.00      0.00      0.00
-02:41:04 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00
-02:41:04 PM     IFACE   rxpck/s   txpck/s    rxkB/s    txkB/s   rxcmp/s   txcmp/s  rxmcst/s
-02:41:05 PM      eth0 1599900.00      1.00  67183.30      0.10      0.00      0.00      0.00
-02:41:05 PM        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00
-``` 
+![](https://qcloudimg.tencent-cloud.cn/raw/46c92faf91ed6ab1a6e41463f71f34e5.png)
 字段解释如下：
 <table>
 <thead>

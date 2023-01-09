@@ -2,9 +2,13 @@
 Typecho 是开源的博客建站平台，具有轻量、高效、稳定等特点，操作界面简洁友好。该镜像基于 CentOS 7.6 64 位操作系统，并已预置 Nginx、PHP、MariaDB 软件。您可以使用它快速搭建博客、企业官网、电商、论坛等各类网站。
 
 ## 操作步骤
-1. 登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse)，在“服务器”页面单击**新建**。
-2. 在轻量应用服务器购买页面，选择所需配置完成轻量应用服务器购买。
-其中，“镜像”选择为**应用镜像** > **Typecho 1.2.0**，其他参数可参考 [购买方式](https://cloud.tencent.com/document/product/1207/44580) 进行选择。
+1. 登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse/instance/index)，在 **服务器** 页面单击 **新建**。
+2. 在轻量应用服务器购买页面，选择所需配置完成轻量应用服务器购买。如下图所示：
+其中，“镜像”选择为应用模板 > 网站场景 > Typecho 应用模板，其他参数可参考 购买方式 进行选择。
+<dx-alert infotype="explain" title="">
+应用模板即应用镜像。
+查看镜像说明详情请参见[ 基本概念](https://cloud.tencent.com/document/product/1207/79254)。
+</dx-alert>
 3. 返回轻量应用服务器控制台，待实例创建完成后，在服务器列表中，选择并进入该实例的详情页。
 您可以在此页面查看 Typecho 应用的各项配置信息。
 4. 选择**应用管理**页签，进入应用管理详情页。

@@ -1,6 +1,11 @@
 ## 功能描述
 Abort Multipart Upload 用来实现舍弃一个分块上传并删除已上传的块。当您调用 Abort Multipart Upload 时，如果有正在使用这个 Upload Parts 上传块的请求，则 Upload Parts 会返回失败。当该 UploadId 不存在时，会返回404 NoSuchUpload。
 
+>?
+>只有主账号或者被授权 Abort Multipart Upload 接口权限的子账号可以调用该接口。
+>
+
+
 >! 建议您及时完成分块上传或者舍弃分块上传，因为已上传但是未终止的块会占用存储空间进而产生存储费用。
 >
 

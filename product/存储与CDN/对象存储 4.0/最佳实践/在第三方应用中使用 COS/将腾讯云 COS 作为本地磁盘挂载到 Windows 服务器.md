@@ -3,7 +3,7 @@
 
 而对于喜欢使用 Windows 服务器的用户，使用 COSBrowser 工具大多只能当做网盘，对服务器上的直接使用程序或者操作并不友好。本文将介绍如何使存储价格低廉的对象存储挂载到 Windows 服务器上映射为本地磁盘。
 
->? 本案例实践适用于 Windows 7/Windows Server 2012/2016/2019，Windows Server 2022或更高版本的系统可自行尝试。
+>? 本案例实践适用于 Windows 7 / Windows Server 2012 / 2016 / 2019 / 2022系统。
 >
 
 ## 操作步骤
@@ -11,29 +11,31 @@
 
 本案例实践使用到以下三种软件，您可选择安装适用于自己所使用系统的软件版本：
 1. 前往 [Github](https://github.com/billziss-gh/winfsp/releases) 下载 Winfsp。
-待下载完成后，按步骤默认安装即可。
+本实践下载的版本为 winfsp-1.12.22301，下载完成后，按步骤默认安装即可。
 >?Windows Server 2012 R2 不适用于 Winfsp 1.12.22242版本，可适用于 Winfsp 1.11.22176版本。
 2. 前往 [Git 官网](https://gitforwindows.org/) 或者 [Github](https://github.com/git-for-windows/git/releases/) 下载 Git 工具。
-本实践下载的版本为 Git-2.31.1-64-bit.exe，下载完成后，按步骤默认安装即可。
+本实践下载的版本为 Git-2.38.1-64-bit，下载完成后，按步骤默认安装即可。
 3. 前往 [Rclone 官网](https://rclone.org/downloads/) 或者 [Github](https://github.com/rclone/rclone/releases) 下载 Rclone 工具。
-本实践下载的版本是 rclone-v1.55.0-windows-amd64.zip，该软件无需安装，下载后，只需解压到任意一个英文目录下即可（如果解压到的路径含有中文将有可能会报错）。本实践案例路径举例为 E:\AutoRclone。
+本实践下载的版本是 rclone-v1.60.1-windows-amd64，该软件无需安装，下载后，只需解压到任意一个英文目录下即可（如果解压到的路径含有中文将有可能会报错）。本实践案例路径举例为 E:\AutoRclone。
 
 >? Github 下载速度可能比较慢甚至打不开，可自行在其他官方渠道进行下载。
 >
 
 ### 配置 Rclone
 
->!以下配置步骤以 Rclone v1.55.0版本为例，其他版本的配置过程可能存在一定差异，请注意相应调整。
+>!以下配置步骤以 rclone-v1.60.1-windows-amd64 版本为例，其他版本的配置过程可能存在一定差异，请注意相应调整。
 
 
-1. 打开任意文件夹，并在左侧导航目录下找到**此电脑**，单击右键选择**属性 > 高级系统设置 > 环境变量 > 系统变量 > Path**，单击**新建**。
-2. 在弹出的窗口中，填写 Rclone 解压后的路径（E:\AutoRclone），单击**确定**。
-3. 打开 Windows Powershell，输入`rclone --version` 命令，按 **Enter**，查看 Rclone 是否成功安装。
+1. 打开任意文件夹，并在左侧导航目录下找到 **此电脑**，单击右键选择 **属性 > 高级系统设置 > 环境变量 > 系统变量 > Path**，单击**新建**。
+2. 在弹出的窗口中，填写 Rclone 解压后的路径（E:\AutoRclone），单击 **确定**。
+3. 打开 Windows Powershell，输入 `rclone --version` 命令，按 **Enter**，查看 Rclone 是否成功安装。
 4. 确认 Rclone 安装成功后，在 Windows Powershell 中，输入 `rclone config` 命令，按 **Enter**。
 5. 在 Windows Powershell 中，输入 **n** ，按 **Enter**，新建一个 New remote。
 6. 在 Windows Powershell 中，输入该磁盘的名称，例如 myCOS，按 **Enter**。
-7.  在显示的选项中，选择包含腾讯云的选项，即输入**4**，按 **Enter**。
-8. 在显示的选项中，选择包含腾讯云 COS 的选项，输入**11**，按 **Enter**。
+7.  在显示的选项中，选择包含 “Tencent COS” 的选项，即输入 **5**，按 **Enter**。
+![](https://qcloudimg.tencent-cloud.cn/raw/edd4b224879b2c854c9a32167d3f2aaa.png)
+8. 在显示的选项中，选择包含 “TencentCOS” 的选项，输入 **21**，按 **Enter**。
+![](https://qcloudimg.tencent-cloud.cn/raw/c7ada8335827fff90078628f05927141.png)
 9. 执行到 `env_auth>` 时，按 Enter。
 10. 执行到 `access_key_id>` 时，输入腾讯云 COS 的访问密钥 SecretId，按 **Enter**。
 >? 此处建议使用子账号权限，可前往 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 查看自己的 SecretId 和 SecretKey。
@@ -41,27 +43,29 @@
 11. 执行到 `secret_access_key>` 时，输入腾讯云 COS 的访问密钥 SecretKey，按 **Enter**。
 12. 根据显示的腾讯云各地域的网关地址，查看存储桶的所属地域，选择对应的地域。
 本实践以广州为例，选择 `cos.ap-guangzhou.myqcloud.com`，输入**4**，按 **Enter**。
-13. 在显示的腾讯云 COS 的权限类型中，根据实际需求选择 private 或者 public-read。此处选择的权限类型为对象权限类型，仅针对新上传的文件有效。本实践以 public-read 为例，输入**2**，按 **Enter**。
-14. 在显示的腾讯云对象存储的存储类型中，您可根据实际需求选择以何种存储类型将文件上传到 COS。本实践以 Default 为例，输入**1**，按 **Enter**。
+13. 在显示的腾讯云 COS 的权限类型中，根据实际需求选择 default、public-read 等。此处选择的权限类型为对象权限类型，仅针对新上传的文件有效。本实践以 default 为例，输入**1**，按 **Enter**。
+![](https://qcloudimg.tencent-cloud.cn/raw/7756d7599713939368c6bb42cd075d07.png)
+15. 在显示的腾讯云对象存储的存储类型中，您可根据实际需求选择以何种存储类型将文件上传到 COS。本实践以 Default 为例，输入**1**，按 **Enter**。
+![](https://qcloudimg.tencent-cloud.cn/raw/48e7f6c7d65d13d9fdde690e819bad6c.png)
  - Default 表示默认
  - Standard storage class 表示标准存储（STANDARD）
- - Infrequent access storage mode 表示低频存储（Standard_IA）
  - Archive storage mode 表示归档存储（ARCHIVE）
->?如需设置智能分层存储或者深度归档存储类型，请采用**修改配置文件**的方式，在配置文件中，将 storage_class 的值设置为 INTELLIGENT_TIERING 或 DEEP_ARCHIVE 即可。
+ - Infrequent access storage mode 表示低频存储（STANDARD_IA）
+>?如需设置智能分层存储或者深度归档存储类型，请采用 **修改配置文件** 的方式，在配置文件中，将 storage_class 的值设置为 INTELLIGENT_TIERING 或 DEEP_ARCHIVE 即可。关于存储类型的更多介绍，请参见 [存储类型概述](https://cloud.tencent.com/document/product/436/33417)。
 >
 15. 执行到 `Edit advanced config? (y/n)` 时，按 **Enter**。
 16. 确认信息无误后，按 **Enter**。
 17. 输入 **q**，完成配置。
-
+![](https://qcloudimg.tencent-cloud.cn/raw/9cd97c7d75b1b9cfd42a244c03d00fff.png)
 
 ### 修改配置文件
 
-以上步骤配置完成后，将会生成一个名称为 rclone.conf 的配置文件，一般位于 `C:\Users\用户名\.config\rclone` 文件夹下。如果您想要修改 rclone 的配置，可直接对其进行修改。
->?想要查询配置文件的位置，可执行`rclone config file`进行查询。
+以上步骤配置完成后，将会生成一个名称为 rclone.conf 的配置文件，一般位于 `C:\Users\用户名\AppData\Roaming\rclone` 文件夹下。如果您想要修改 rclone 的配置，可直接对其进行修改。如若未找到该配置文件，可在命令窗口执行 `rclone config file` 命令查看其配置文件。
+
 
 ### 挂载 COS 为本地磁盘
 
-1. 打开已安装的 Git CMD，并输入执行命令。此处提供了两种使用场景（二选一），您可根据实际需求选择其中一种。
+1. 打开已安装的 Git Bash，并输入执行命令。此处提供了两种使用场景（二选一），您可根据实际需求选择其中一种。
 <ul>
 <li>如果映射为局域网共享驱动器（推荐），则执行命令如下：
 <pre>
@@ -136,7 +140,10 @@ CreateObject("WScript.Shell").Run "cmd /c E:\AutoRclone\startup_rclone.bat",0
  - Amazon S3 Bucket：输入存储桶路径，或选择存储桶名称。可单击右侧按钮选择存储桶。该处展示的是步骤2设置的广州地域下的存储桶。（一个存储桶独立映射为一个磁盘）。
  - Mapped drives letter：设置磁盘的盘符名称，请不要与本地的 C、D、E 盘等重复。
 5. 确认以上信息单击 **Add new drive**。
-6. 在本地计算机的**我的电脑**中，即可找到该磁盘。如果想把所有的存储桶都映射到 Windows 服务器中，请重复以上步骤。
+6. 在本地计算机的 **我的电脑** 中，即可找到该磁盘。如果想把所有的存储桶都映射到 Windows 服务器中，请重复以上步骤。
 
 
+## 结语
+
+当然，COS 不仅提供以上应用和服务，还提供多款热门开源应用，并集成腾讯云 COS 插件，欢迎点击 “[此处](https://cloud.tencent.com/act/pro/Ecological-aggregation?from=18406)” 一键启动，立即使用！
 

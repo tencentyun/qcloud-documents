@@ -51,7 +51,7 @@
 </tbody></table>
 
 ### 后付费带宽包
->?常规BGP后付费带宽包目前处于内测阶段，如需使用，请提交 [内测申请](https://cloud.tencent.com/apply/p/8o8lmsr5nj8) 或联系您的商务经理申请开通。
+>?常规 BGP 后付费带宽包目前处于内测阶段，如需使用，请提交 [内测申请](https://cloud.tencent.com/apply/p/8o8lmsr5nj8) 或联系您的商务经理申请开通。
 >
 <table>
 <thead>

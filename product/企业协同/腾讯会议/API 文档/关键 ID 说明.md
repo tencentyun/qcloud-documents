@@ -13,5 +13,4 @@
 | operator_id | 接口操作者 ID，与 operator_id_type 配合使用，根据 operator_id_type 的类型不同，operator_id 表示的含义不同。 | 
 | to_operator_id_type | 接口被操作者 ID 的类型。目前包括以下类型：<br>1：userid<br>2：open_id<br>3：rooms_id<br>4：ms_open_id<br>5：meeting_room_id  | 
 | to_operator_id | 接口被操作者 ID，与 to_operator_id_type 配合使用，根据 to_operator_id_type 的类型不同，to_operator_id 表示的含义不同。 | 
-
-
+| meeting_type   | 会议类型。    <br>0：一次性会议<br>1：周期性会议<br>2：微信专属会议<br>3：Rooms 投屏会议<br>5：个人会议号会议<br>6：网络研讨会     |

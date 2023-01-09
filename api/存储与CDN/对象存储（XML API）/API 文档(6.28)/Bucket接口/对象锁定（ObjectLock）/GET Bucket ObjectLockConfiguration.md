@@ -67,3 +67,37 @@ Authorization: Auth String
 此接口遵循统一的错误响应和错误码，详情请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
  
+## 实际案例
+
+#### 请求
+以下示例表示获取存储桶 examplebucket-1250000000 的对象锁定配置。
+
+```plaintext
+GET /?object-lock= HTTP/1.1
+Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
+Authorization: Auth String
+```
+
+#### 响应
+
+
+```plaintext
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 180
+Connection: keep-alive
+Date: Fri, 09 Dec 2022 08:31:25 GMT
+Server: tencent-cos
+x-cos-request-id: NjM5MmYyNWNfMzBkMDM4MGJfMmUzNzFfM****
+
+<ObjectLockConfiguration>
+	<ObjectLockEnabled>Enabled</ObjectLockEnabled>
+	<Rule>
+		<DefaultRetention>
+			<Days>1</Days>
+		</DefaultRetention>
+	</Rule>
+</ObjectLockConfiguration>
+```
+
+

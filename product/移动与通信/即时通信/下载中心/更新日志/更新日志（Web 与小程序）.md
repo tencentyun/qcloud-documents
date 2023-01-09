@@ -1,10 +1,29 @@
+### 2.25.0 @2022.12.8
+
+**新增**
+
+- [clearHistoryMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#clearHistoryMessage) 接口，支持清空本地及云端消息。
+- 支持消息扩展（旗舰版功能）。
+- 支持普通群和社群群属性。
+- 兼容 [wx.chooseMedia](https://developers.weixin.qq.com/miniprogram/dev/api/media/video/wx.chooseMedia.html)。
+- [Message.readReceiptInfo](https://web.sdk.qcloud.com/im/doc/zh-cn/Message.html) 支持 C2C 已读回执（数据结构跟 NativeIM 对齐）。
+- 错误码2101：未加入直播群不能向直播群发送消息。
+
+**变更**
+
+- 日志上报备份通道使用独立集群域名 `https://events.im.qcloud.com`（小程序平台需新增一个受信域名配置）。
+
+**修复**
+
+- cookies blocked 导致的运行时错误（Failed to read the 'localStorage' property from 'Window': Access is denied for this document）。
+
+
 ### 2.24.1 @2022.11.11
 
 **新增**
 
 - 英文版 ts 声明文件。
 - restapi 修改好友自定义资料字段支持推送给 SDK。
-- 支持日本站、美国站以及国内 uin 跨站购买国际站资源。
 
 **修复**
 

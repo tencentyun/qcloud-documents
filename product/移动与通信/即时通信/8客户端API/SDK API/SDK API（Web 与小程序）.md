@@ -65,6 +65,7 @@ TIM 是 IM Web SDK 的命名空间，提供了创建 SDK 实例的静态方法 [
 | [createCustomMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#createCustomMessage) | 创建自定义消息。 |
 | [createFaceMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#createFaceMessage) | 创建表情消息。 |
 | [createFileMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#createFileMessage) | 创建文件消息。 |
+| [createLocationMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#createLocationMessage) | 创建地理位置消息。 |
 | [createMergerMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#createMergerMessage) | 创建合并消息。 |
 | [downloadMergerMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#downloadMergerMessage) | 下载合并消息。 |
 | [createForwardMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#createForwardMessage) | 创建转发消息。 |
@@ -72,6 +73,9 @@ TIM 是 IM Web SDK 的命名空间，提供了创建 SDK 实例的静态方法 [
 | [revokeMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#revokeMessage) | 撤回消息。 |
 | [resendMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#resendMessage) | 重发消息。 |
 | [deleteMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#deleteMessage) | 删除消息。 |
+| [setMessageExtensions](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#setMessageExtensions) | 设置消息扩展。 |
+| [getMessageExtensions](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getMessageExtensions) | 获取消息扩展。 |
+| [deleteMessageExtensions](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#deleteMessageExtensions) | 删除消息扩展。 |
 
 ### 会话
 | API | 描述 |
@@ -87,9 +91,11 @@ TIM 是 IM Web SDK 的命名空间，提供了创建 SDK 实例的静态方法 [
 | [getConversationList](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getConversationList) | 获取会话列表。 |
 | [getConversationProfile](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getConversationProfile) | 获取会话资料。 |
 | [deleteConversation](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#deleteConversation) | 删除会话。 |
+| [clearHistoryMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#clearHistoryMessage) | 清空单聊或群聊本地及云端的消息（不删除会话）。 |
 | [pinConversation](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#pinConversation) | 置顶或取消置顶会话。 |
 | [setAllMessageRead](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#setAllMessageRead) | 将所有会话的未读消息设置为已读。 |
 | [setMessageRemindType](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#setMessageRemindType) | 设置会话消息提醒类型，您可以使用此接口实现“消息免打扰”，“拒收消息”的功能。 |
+| [getTotalUnreadMessageCount](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getTotalUnreadMessageCount) | 获取会话未读总数。|
 
 ### 会话分组
 | API | 描述 |
@@ -155,6 +161,7 @@ TIM 是 IM Web SDK 的命名空间，提供了创建 SDK 实例的静态方法 [
 | [searchGroupByID](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#searchGroupByID) | 搜索群组。 |
 | [getGroupOnlineMemberCount](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getGroupOnlineMemberCount) | 获取直播群在线人数。 |
 | [changeGroupOwner](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#changeGroupOwner) | 转让群组。 |
+| [getGroupApplicationList](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getGroupApplicationList) | 获取加群申请列表。|
 | [handleGroupApplication](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#handleGroupApplication) | 处理申请加群。 |
 | [initGroupAttributes](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#initGroupAttributes) | 初始化群属性。 |
 | [setGroupAttributes](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#setGroupAttributes) | 设置群属性。 |
@@ -172,6 +179,7 @@ TIM 是 IM Web SDK 的命名空间，提供了创建 SDK 实例的静态方法 [
 | [setGroupMemberRole](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#setGroupMemberRole) | 修改群成员角色。 |
 | [setGroupMemberNameCard](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#setGroupMemberNameCard) | 设置群成员名片。 |
 | [setGroupMemberCustomField](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#setGroupMemberCustomField) | 设置群成员自定义字段。 |
+| [markGroupMemberList](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#markGroupMemberList) | 标记群成员。|
 
 ### 话题
 | API | 描述 |
