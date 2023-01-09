@@ -2,8 +2,6 @@
 
 本文仅介绍在对象存储（Cloud Object Storage，COS）控制台上添加自定义加速域名及开启 CDN 加速，若要从 CDN 控制台添加自定义域名，请参见 CDN  [接入域名](https://cloud.tencent.com/document/product/228/41215) 文档。 
 
->? 通过 COS 控制台添加自定义域名上限为10个。
->
 
 ## 操作步骤
 
