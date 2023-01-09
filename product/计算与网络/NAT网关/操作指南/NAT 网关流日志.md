@@ -1,9 +1,12 @@
-NAT 网关提供流日志采集功能，通过对 NAT 网关流量的采集分析，并形成日志记录和图表分析，以便您能及时了解跨域通信情况，根据日志快速定位问题并解决，从而提升业务可用性及运维效率。
+NAT 网关提供流日志采集功能，通过对 NAT 网关流量的采集分析，并形成日志记录和图表分析，以便您能及时了解业务通信情况，根据日志快速定位问题并解决，从而提升业务可用性及运维效率。
 >?
->+ 目前网络流日志处于内测中，如有需要，请 [在线咨询](https://cloud.tencent.com/online-service?from=sales&source=PRESALE)。
+>+ 目前 NAT 网关流日志处于内测中，如有需要，请 [在线咨询](https://cloud.tencent.com/online-service?from=sales&source=PRESALE)。
 >+ 流日志本身不会产生费用，数据存储在日志服务中，将按日志服务的 [标准收费](https://cloud.tencent.com/document/product/614/11323)。
->+ 流日志数据存储在日志服务 CLS 中，请确保已完成 [授权流日志访问 CLS 权限](https://cloud.tencent.com/document/product/682/63357)，否则无法在 CLS 上查询到日志数据。
->
+
+## 前提条件
++ 流日志数据存储在日志服务 CLS 中，请确保已完成 [授权流日志访问 CLS 权限](https://cloud.tencent.com/document/product/682/63357)，否则无法在 CLS 上查询到日志数据。
++ 已创建[日志集和日志主题](https://cloud.tencent.com/document/product/682/18967)。
+
 
 ## 操作步骤
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)，在左侧导航栏中单击**流日志** > **日志列表**。
@@ -29,7 +32,7 @@ NAT 网关提供流日志采集功能，通过对 NAT 网关流量的采集分�
 </tr>
 <tr>
 <td>采集类型</td>
-<td>指定流日志应捕获被安全组或 ACL 已拒绝流量、已接受流量、或所有流量。</td>
+<td>您无需选择，此处为全部，即采集流经 NAT 网关上的所有流量。</td>
 </tr>
 <tr>
 <td>日志集</td>

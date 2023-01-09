@@ -26,5 +26,3 @@ SSL VPN 网关和 SSL 服务端创建完成后，您还需要在腾讯云侧创�
 </table>
 5. 完成 SSL 客户端参数设置后，单击**确定**，当**证书状态**为**可用**表示创建完成。
 ![](https://qcloudimg.tencent-cloud.cn/raw/a1377b94b539a8ecd9a4f13b5bea2415.png)
-
-

@@ -1,5 +1,103 @@
+### 2.7.8 @ 2022.09.20
+* 链接地址：https://res.qcloudtiw.com/board/2.7.8/TEduBoard.min.js
+
+- 新增接口
+  1. 开启多点触控 enableMultiTouch
+  2. 设置元修改信令同步频率，该值的允许范围为[5, 20] setSyncFps
+
+- 更新接口
+  1. updateElementById 更新元素新增位置偏移类型 TEduElementOperatorType.CHANGE_POSITION
+  2. setToolType 接口增加类型：坐标系TEDU_BOARD_TOOL_TYPE_COORDINATE
+
+- Bug及优化处理
+  1. 优化圆规操作
+  2. 图形拟合优化
+  3. 其他已知问题优化
+
+### 2.7.7 @ 2022.08.31
+* 链接地址：https://res.qcloudtiw.com/board/2.7.7/TEduBoard.min.js
+
+- 新增接口
+  1. 获取元素信息 getElementById
+  2. 设置元素样式 updateElementById
+  3. 设置荧光笔颜色，画笔颜色用于所有荧光笔绘制 setHighlighterColor
+  4. 获取荧光笔颜色 getHighlighterColor
+  5. 开启绘制涂鸦过程中自动拟合图形 enablePenAutoFit
+  6. 设置图形样式 setGraphStyle
+  7. 获取图形样式 getGraphStyle
+
+- 废弃接口：
+  1. 废弃setLineStyle，请使用setGraphStyle
+  2. 废弃getLineStyle，请使用getGraphStyle
+
+- 新增功能
+  1. 增加数学教具圆规
+  2. 新增几何图形（直角三角形，等腰三角形，平行四边形，立方体，圆柱体，圆锥）
+  3. 其他功能
+
+- Bug及优化处理
+  1. PPT翻页优化
+  2. 其他已知问题优化
+
+### 2.7.6 @ 2022.08.16
+* 链接地址：https://res.qcloudtiw.com/board/2.7.6/TEduBoard.min.js
+
+- 新增功能
+  1. 新增数学教具功能，支持直尺，三角形，量角器;
+  2. 新增获取 ppt 备注功能;
+
+- Bug 修复
+  1. 其他已知问题修复。
+
+### 2.7.5 @ 2022.08.01
+* 链接地址：https://res.qcloudtiw.com/board/2.7.5/TEduBoard.min.js
+
+- 新增功能
+  1. PPT 老版本转码，支持 mp3,mp4 播放同步;
+  2. PPT 新版本转码，支持 mp3,mp4 播放同步;
+  3. 错误和警告事件增加上报;
+
+- Bug及优化处理
+  1. 修复获取资源的时候 Host 缺少协议的问题
+  2. 其他已知问题修复。
+
+### 2.7.4 @ 2022.07.04
+* 链接地址：https://res.qcloudtiw.com/board/2.7.4/TEduBoard.min.js
+
+- 新增功能
+  1. 在小程序的 webview 版本中支持 mp3、mp4 播放；
+  2. 课件预加载时回调，返回预加载的进度值；
+
+- 调整事件
+  1. 添加多媒体资源码率过高告警回调类型(TEDU_BOARD_WARNING_IMAGE_MEDIA_BITRATE_TOO_LARGE);
+
+- Bug 修复
+  1. 橡皮擦除在移动快的时候会导致擦除不干净的情况，会漏掉一些点；
+  2. ppt 转码问题，转码文件被系统认为了是 pad，只响应滑动翻页，不响应点击事件了；
+  3. 其他已知问题修复。
+
+### 2.7.3 @ 2022.05.20
+* 链接地址：https://res.qcloudtiw.com/board/2.7.3/TEduBoard.min.js
+
+- 调整初始化参数
+  1. 权限配置下，新增 customCursorIcon 参数：是否自定义鼠标样式,默认 false 显示系统自带样式，true 时需要根据返回的鼠标位置，自定义鼠标样式
+
+- 调整事件
+  1. 自定义鼠标样式时，坐标位置回调(TEB_BOARD_CURSOR_POSITION)，用户根据位置，自定义鼠标样式
+
+- 新增接口
+  1. 是否本地显示自己的别名(setOwnerNickNameVisible)，设置为 false 时，画笔部分不显示自己的 NickName
+
+- 优化历史数据拉取
+  1. 首帧渲染只拉取活跃白板的历史数据
+  2. 用户翻页的时候会由操作者拉取，对应白板页的历史数据，然后广播给房间内其他用户
+
+- Bug 修复
+  1. 针对 Android 端处理视频铺满问题;
+  2. 其他已知问题修复。
+
 ### 2.7.2 @ 2022.04.01
-* 链接地址：[https://res.qcloudtiw.com/board/2.7.2/TEduBoard.min.js]()
+* 链接地址：https://res.qcloudtiw.com/board/2.7.2/TEduBoard.min.js
 
 - 错误码调整
   1. [错误码](https://doc.qcloudtiw.com/web/TEduBoard.html#.TEduBoardErrorCode) 新增 `TEDU_BOARD_MAX_BOARD_LIMITED` 错误码，在单个房间内白板页总数量达到上限后触发。
@@ -10,7 +108,7 @@
 
 
 ### 2.7.1 @ 2022.02.28
-* 链接地址：[https://res.qcloudtiw.com/board/2.7.1/TEduBoard.min.js]()
+* 链接地址：https://res.qcloudtiw.com/board/2.7.1/TEduBoard.min.js
 
 - 功能优化
   1. 白板资源和课件资源备份域名优化。
@@ -18,7 +116,7 @@
   1. 优化历史数据加载耗时。
 
 ### 2.7.0 @ 2022.01.31
-* 链接地址：[https://res.qcloudtiw.com/board/2.7.0/TEduBoard.min.js]()
+* 链接地址：https://res.qcloudtiw.com/board/2.7.0/TEduBoard.min.js
 
 - Bug 修复
   1. 修复偶现对线条进行点擦后，线条有抖动的问题。

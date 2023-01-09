@@ -15,7 +15,7 @@
 - 默认采用无锁迁移来实现，迁移过程中对源库不加全局锁（FTWRL），仅对无主键的表加表锁，其他不加锁。
 - [创建数据一致性校验](https://cloud.tencent.com/document/product/571/62564) 时，DTS 会使用执行迁移任务的账号在源库中写入系统库`__tencentdb__`，用于记录迁移任务过程中的数据对比信息。
   - 为保证后续数据对比问题可定位，迁移任务结束后不会删除源库中的`__tencentdb__`。
-  - `__tencentdb__`系统库占用空间非常小，约为源库存储空间的千分之一到万分之一（例如源库为50G，则`__tencentdb__`系统库约为 5K-50K） ，并且采用单线程，等待连接机制，所以对源库的性能几乎无影响，也不会抢占资源。 
+  - `__tencentdb__`系统库占用空间非常小，约为源库存储空间的千分之一到万分之一（例如源库为50GB，则`__tencentdb__`系统库约为5MB - 50MB），并且采用单线程，等待连接机制，所以对源库的性能几乎无影响，也不会抢占资源。 
 
 ## 前提条件
 
@@ -29,6 +29,7 @@ CREATE USER '迁移帐号'@'%' IDENTIFIED BY '迁移密码';
 GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO '迁移帐号'@'%'; 
 //源端若为腾讯云 MariaDB 数据库，需要提交工单进行 RELOAD 授权，其他场景请用户参照代码授权
 //源库为阿里云数据库时，不需要授权 SHOW DATABASES，其他场景则需要授权。阿里云数据库授权，请参考 https://help.aliyun.com/document_detail/96101.html
+//如果选择迁移触发器和事件，需要同时授权 TRIGGER 和 EVENT 权限
 GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '迁移帐号'@'%'; 
 GRANT SELECT ON *.* TO '迁移帐号';
 ```
@@ -38,6 +39,7 @@ CREATE USER '迁移帐号'@'%' IDENTIFIED BY '迁移密码';
 GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO '迁移帐号'@'%'; 
 //源端若为腾讯云 MariaDB 数据库，需要提交工单进行 RELOAD 授权，其他场景请用户参照代码授权
 //源库为阿里云数据库时，不需要授权 SHOW DATABASES，其他场景则需要授权。阿里云数据库授权，请参考 https://help.aliyun.com/document_detail/96101.html
+//如果选择迁移触发器和事件，需要同时授权 TRIGGER 和 EVENT 权限
 GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO '迁移帐号'@'%'; 
 GRANT SELECT ON `mysql`.* TO '迁移帐号'@'%';
 GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
@@ -108,13 +110,15 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 <li>MySQL 5.6 及以上版本 gtid_mode 变量不为 ON 时会报警告，建议打开 gtid_mode。</li>
 <li>不允许设置 do_db, ignore_db 过滤条件。</li>
 <li>源实例为从库时，log_slave_updates 变量必须设置为 ON。</li>
+<li>建议源库 Binlog 日志至少保留3天及以上，否则可能会因任务暂停/中断时间大于 Binlog 日志保留时间，造成任务无法续传，进而导致任务失败。</li>
 </ul></li>
 <li>外键依赖：
 <ul>
 <li>外键依赖只能设置为 NO ACTION，RESTRICT 两种类型。</li>
 <li>部分库表迁移时，有外键依赖的表必须齐全。</li>
 </ul></li>
-<li>DTS 对数据类型为 FLOAT 的迁移精度为38位，对数据类型为 DOUBLE 的迁移精度为308位，需要确认是否符合预期。</li></ul></td></tr>
+<li>DTS 对数据类型为 FLOAT 的迁移精度为38位，对数据类型为 DOUBLE 的迁移精度为308位，需要确认是否符合预期。</li>
+<li>环境变量 innodb_stats_on_metadata 必须设置为 OFF。</li></ul></td></tr>
 <tr> 
 <td>目标数据库要求</td>
 <td>
@@ -122,9 +126,6 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 <li>目标库的空间大小须是源库待迁移库表空间的1.2倍以上。（全量数据迁移会并发执行 INSERT 操作，导致目标数据库的表产生碎片，因此全量迁移完成后目标数据库的表存储空间很可能会比源实例的表存储空间大）</li>
 <li>目标库不能有和源库同名的表、视图等迁移对象。</li>
 <li>目标库 max_allowed_packet 参数设置数值至少为4M。</li></td></tr>
-<tr> 
-<td>其他要求</td>
-<td>环境变量 innodb_stats_on_metadata 必须设置为 OFF。</td></tr>
 </table>
 
 ## 操作步骤
@@ -207,8 +208,8 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 </tbody></table>
 4. 在设置迁移选项及选择迁移对象页面，设置迁移类型、对象，单击**保存**。
 >?
->- 如果用户在迁移过程中确定会使用 gh-ost、pt-osc 等工具对某张表做 Online DDL，则**迁移对象**需要选择这个表所在的整个库（或者整个实例），不能仅选择这个表，否则无法迁移 Online DDL 变更产生的临时表数据到目标数据库。
->- 如果用户在迁移过程中确定会对某张表使用 rename 操作（例如将 table A rename 为 table B），则**迁移对象**需要选择 table A 所在的整个库（或者整个实例），不能仅选择 table A，否则系统会报错。 
+>
+>如果用户在迁移过程中确定会对某张表使用 rename 操作（例如将 table A rename 为 table B），则**迁移对象**需要选择 table A 所在的整个库（或者整个实例），不能仅选择 table A，否则系统会报错。 
 >
 ![](https://qcloudimg.tencent-cloud.cn/raw/e365a098b966d0bb3b063b02b20bc3e8.png)
 <table>
@@ -226,8 +227,12 @@ GRANT SELECT ON 待迁移的库.* TO '迁移帐号';
 <ul><li>高级对象的迁移是一次性动作，仅支持迁移在任务启动前源库中已有的高级对象，在任务启动后，新增的高级对象不会同步到目标库中。</li><li>存储过程和函数，在“源库导出”阶段进行迁移；触发器和事件，没有增量任务，在任务结束时进行迁移，有增量任务，在用户单击<b>完成</b>操作后开始迁移，所以单击<b>完成</b>后，任务的过渡时间会略微增加。
 </li>更多详情，请参考 <a href="https://cloud.tencent.com/document/product/571/74624">迁移高级对象</a>。</ul></td></tr>
 <tr>
-<td>指定对象</td>
-<td>在源库对象中选择待迁移的对象，然后将其移到已选对象框中。</td></tr>
+<td>已选对象</td>
+<td><ul><li>支持库表映射（库表重命名），将鼠标悬浮在库名、表名上即显示编辑按钮，单击后可在弹窗中填写新的名称。</li><li>选择高级对象进行迁移时，建议不要进行库表重命名操作，否则可能会导致高级对象迁移失败。</li></ul></td></tr>
+    <tr>
+<td>是否同步 Online DDL 临时表</td>
+<td>如果使用 gh-ost、pt-osc 工具对源库中的表执行 Online DDL 操作，DTS 支持将 Online DDL 变更产生的临时表迁移到目标库。<ul><li>勾选 gh-ost，DTS 会将 gh-ost 工具产生的临时表名（`_表名_ghc`、`_表名_gho`、`_表名_del`）迁移到目标库。</li>
+<li>勾选 pt-osc， DTS 会将 pt-osc 工具产生的临时表名（`_表名_new`、 `_表名_old`）迁移到目标库。</li></ul>更多详情请参考 <a href="https://cloud.tencent.com/document/product/571/75889">迁移 Online DDL 临时表</a>。</td></tr>
 </tbody></table>
 5. 在校验任务页面，进行校验，校验任务通过后，单击**启动任务**。
  - 如果校验任务不通过，可以参考 [校验不通过处理方法](https://cloud.tencent.com/document/product/571/61639) 修复问题后重新发起校验任务。

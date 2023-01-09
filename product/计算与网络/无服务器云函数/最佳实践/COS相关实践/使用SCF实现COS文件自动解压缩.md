@@ -20,7 +20,7 @@
 ![](https://main.qcloudimg.com/raw/281c1a18f036e40cf839e8c214877e55.png)
 2. 单击 “zip 文件解压函数”中的**添加函数**。在弹出的“创建zip文件解压函数”窗口中配置如下信息。如下图所示： 
 ![](https://main.qcloudimg.com/raw/04a703414d12484b5fc7717eee7fcf0a.png)
- - **函数名称**：将自动在对应地域下创建函数，函数名称作为函数的唯一标识名称，创建后不可修改。您可以在 [云函数控制台](https://console.cloud.tencent.com/scf/list?rid=1&ns=default) 上查看该函数。
+ - **函数名称**：将自动在对应地域下创建函数，函数名称作为函数的唯一标识名称，创建后不可修改。您可以在 [Serverless 控制台](https://console.cloud.tencent.com/scf/list?rid=1&ns=default) 上查看该函数。
  - **事件类型**：事件是指触发云函数的操作。以上传操作为例，上传的方式可能是调用 `PUT Object` 接口或 `POST Object` 接口，当选择事件为**Put 方法创建**时，只有通过 `PUT Object` 接口上传的压缩包会触发解压缩。
 > !如果您的文件是通过简单上传、分块上传或跨地域复制等渠道上传到存储桶中，建议选择**全部创建**事件。
 > 
@@ -39,4 +39,4 @@
 2. 在文件列表页面，单击**上传文件**，选择任意一个 .zip 压缩文件上传。如下图所示： 
 ![](https://main.qcloudimg.com/raw/a0e9a028160c2b31d0b4d6b885d9981f.png)
 3. 刷新当前存储桶，检查是否生成解压后的文件。
-4. 切换至**函数计算**查看日志或进入 [云函数控制台](https://console.cloud.tencent.com/scf/list?rid=1&ns=default) 查看执行结果，在**日志查询**中可以看到打印出来的日志信息。
+4. 切换至**函数计算**查看日志或进入 [Serverless 控制台](https://console.cloud.tencent.com/scf/list?rid=1&ns=default) 查看执行结果，在**日志查询**中可以看到打印出来的日志信息。

@@ -9,8 +9,7 @@ TUIPusher & TUIPlayer 的优势：
 + 直接接入腾讯云实时音视频 TRTC、腾讯云即时通信 IM 以及腾讯云超级播放器 TCPlayer 等基础 SDK，方便客户灵活扩展业务功能。
 + Web 端易于用户使用，易于功能迭代的天然优势。
 
-![TUIPusher演示](https://web.sdk.qcloud.com/component/tuiliveroom/assets/pusher.gif)
-![TUIPlayer演示](https://web.sdk.qcloud.com/component/tuiliveroom/assets/player.gif)
+![](https://qcloudimg.tencent-cloud.cn/raw/d36ecef9608d14b1168df3748558d714.png)
 
 ## 快速体验
 
@@ -197,10 +196,7 @@ URL 域名及协议支持情况请参考如下表格：
 | 本地开发环境 | `http://[本机IP]` | 支持 | 不支持 | 不支持 | - |
 
 ### 防火墙限制
-TUIPusher & TUIPlayer 依赖以下端口进行数据传输，请将其加入防火墙白名单。
-- TCP 端口：8687
-- UDP 端口：8000，8080，8800，843，443，16285
-- 域名：qcloud.rtc.qq.com
+在使用 TUIPusher & TUIPlayer 时，用户可能因防火墙限制导致无法正常进行音视频通话，请参考 [应对防火墙限制相关](https://cloud.tencent.com/document/product/647/34399) 将相应端口及域名添加至防火墙白名单中。
 
 ## 结语
 在后续的迭代中, TRTC Web 端推拉流组件会逐渐与 iOS、Andriod 等各端连通，并在 Web 端实现观众连麦、高级美颜、自定义布局、转推多平台、上传图片文字音乐等能力，欢迎大家多多使用、提出您的宝贵意见。

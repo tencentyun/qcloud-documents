@@ -3,16 +3,16 @@
 
 
 ## 操作步骤
-1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/)，在左侧导航栏中，选择**IP 与网卡** > **高可用虚拟 IP**。 
+1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/)，在左侧导航栏中，选择 **IP 与网卡** > **高可用虚拟 IP**。 
 2. 在 HAVIP 管理页面，选择所在地域，单击**申请**。
 3. 在弹出的**申请高可用虚拟 IP** 对话框中，配置 HAVIP 的参数。
- + 名称：填写 HAVIP 的名称。
- + 私有网络：选择待创建 HAVIP 所在的私有网络。
- + 子网：HAVIP 具有子网属性，请选择所在子网。
- + IP 地址：支持自动分配和手动填写。选择自动分配系统将从子网中分配一个 IP 地址；选择手动填写，需填写子网网段范围内的可用 IP 地址，且不能为系统保留 IP，例如，所属子网网段为：10.0.0.0/24，则可填的内网 IP 范围为：10.0.0.2 - 10.0.0.254。
-  ![](https://main.qcloudimg.com/raw/036b8d78f4b0de150fbd2d1bb2ae143d.png)
+ + **名称**：填写 HAVIP 的名称。
+ + **私有网络**：选择待创建 HAVIP 所在的私有网络。
+ + **子网**：HAVIP 具有子网属性，请选择所在子网。
+ + **IP 地址**：支持自动分配和手动填写。选择自动分配系统将从子网中分配一个 IP 地址；选择手动填写，需填写子网网段范围内的可用 IP 地址，且不能为系统保留 IP。例如，所属子网网段为：10.0.0.0/24，则可填的内网 IP 范围为：10.0.0.2 - 10.0.0.254。
+	<img src="https://qcloudimg.tencent-cloud.cn/raw/8299b0024139f1b37625e79012c23317.png" width="70%"> 
 4. 单击**确定**，创建成功的 HAVIP 展示在列表中，状态为**未绑定云服务器**。
-    ![](https://main.qcloudimg.com/raw/eced960b793c2897d3267b7a7a3c8ccb.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/a9a55d52d64d0838ac6b7a6c3569bdfa.png)		
 
 ## 后续操作
 HAVIP 用于配合第三方 HA 软件使用，创建后还需要在第三方 HA 软件中操作（HAVIP 只是被操作的对象，作为可被声明绑定的内网 IP，操作的发起方为第三方 HA 软件，不在 HAVIP 的控制台实现绑定和解绑）。即：在第三方 HA 软件中，将 HAVIP 指定为可漂移的 VIP（Virtual IP Address），然后由第三方 HA 软件通过 ARP 协议指定 HAVIP 要绑定的网卡。示意图如下：
@@ -45,12 +45,12 @@ vrrp_instance VI_1 {
 	}
 </code></pre>
 
-在云服务器的 HA 软件中配置了 HAVIP 后，控制台中该 HAVIP 的状态将变更为【已绑定云服务器】。
-![](https://main.qcloudimg.com/raw/f22aaa2b2b9aeb72e445c27f8702e089.png)
+在云服务器的 HA 软件中配置了 HAVIP 后，控制台中该 HAVIP 的状态将变更为**已绑定云服务器**。
+![](https://qcloudimg.tencent-cloud.cn/raw/d07d0e95d211146b96c3d12c7641d2e7.png)
 
-常见配置案例请参考：
+常见配置案例请参见：
 + [最佳实践 - 用 HAVIP+Keepallved 搭建高可用主备集群](https://cloud.tencent.com/document/product/215/20186)
-+ [最佳实践 - 用 HAVIP + Windows Server Failover Cluster 搭建高可用 DB](https://cloud.tencent.com/document/product/215/20187) 
++ [最佳实践 - 用 HAVIP+Windows Server Failover Cluster 搭建高可用 DB](https://cloud.tencent.com/document/product/215/20187) 
 
 ## 相关文档
 高可用虚拟 IP 与普通内网 IP 类似，均支持在控制台绑定或解绑 EIP，如果您有公网通信的需求，可参考 [绑定或解绑 EIP](https://cloud.tencent.com/document/product/215/53706)，如无，可不绑定 EIP。

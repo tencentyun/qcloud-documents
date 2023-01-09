@@ -31,6 +31,8 @@ slmgr /ato
    - Windows Server 2012 R2 数据中心版：`W3GGN-FT8W3-Y4M27-J84CP-Q3VJ9`
    - Windows Server 2016：`CB7KF-BWN84-R7R2Y-793K2-8XDDG`
    - Windows Server 2019：`WMDGN-G9PQG-XVVXX-R3X43-63DFG`
+   - Windows Server 2022：`WX4NM-KYWYW-QJJR4-XV3QB-6VM33`
+更多 ProductKey 信息请参见 [密钥管理服务 (KMS) 客户端激活和产品密钥](https://docs.microsoft.com/zh-cn/windows-server/get-started/kms-client-activation-keys)。
 4. 重启云服务器，使配置生效。详情请参见 [重启实例](https://cloud.tencent.com/document/product/213/4928)。
 
 
@@ -64,7 +66,7 @@ slmgr.vbs /ato
 slmgr.vbs /rilc 
 ```
 2. 命令执行完毕后，可重复执行 `(Get-ItemProperty...` 命令进行验证，返回值仍为1960。
-3. 执行以下命令，激活系统。
+3. 执行以下命令，激活系统，重启云服务器。
 ```
 slmgr.vbs /ato
 ```
@@ -73,11 +75,10 @@ slmgr.vbs /ato
 ::: 方法3
 1. 卸载任意 msi 程序。
 2. 重复执行 `(Get-ItemProperty...` 命令进行验证，返回值可能产生变化。但重启系统后，内存限制仍为2GB。
-2. 执行以下命令，激活系统。
+2. 执行以下命令，激活系统，重启云服务器。
 ```
 slmgr.vbs /ato
 ``` 
 :::
 </dx-tabs>
-
 

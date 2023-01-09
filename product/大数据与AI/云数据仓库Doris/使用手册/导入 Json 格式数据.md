@@ -9,22 +9,22 @@ Doris 从0.12版本开始支持 Json 格式的数据导入。
 关于以上导入方式的具体说明，请参阅相关文档。本文档主要介绍在这些导入方式中关于 Json 部分的使用说明。
 
 ## 支持的 Json 格式
-当前前仅支持以下两种 Json 格式：
+当前仅支持以下两种 Json 格式：
 
 1. 以 Array 表示的多行数据。
 以 Array 为根节点的 Json 格式。Array 中的每个元素表示要导入的一行数据，通常是一个 Object。示例如下：
 ```
 [
-		{ "id": 123, "city" : "beijing"},
-		{ "id": 456, "city" : "shanghai"},
-		...
+        { "id": 123, "city" : "beijing"},
+        { "id": 456, "city" : "shanghai"},
+        ...
 ]
 ```
 ```
 [
-		{ "id": 123, "city" : { "name" : "beijing", "region" : "haidian"}},
-		{ "id": 456, "city" : { "name" : "beijing", "region" : "chaoyang"}},
-		...
+        { "id": 123, "city" : { "name" : "beijing", "region" : "haidian"}},
+        { "id": 456, "city" : { "name" : "beijing", "region" : "chaoyang"}},
+        ...
 ]
 ```
 这种方式通常用于 Stream Load 导入方式，以便在一批导入数据中表示多行数据。
@@ -39,7 +39,22 @@ Doris 从0.12版本开始支持 Json 格式的数据导入。
 { "id": 123, "city" : { "name" : "beijing", "region" : "haidian" }}
 ```
 这种方式通常用于 Routine Load 导入方式，如表示 Kafka 中的一条消息，即一行数据。
-        
+
+3. 以固定分隔符分隔的多行 Object 数据。
+Object 表示的一行数据即表示要导入的一行数据，示例如下：
+```json
+{ "id": 123, "city" : "beijing"}
+{ "id": 456, "city" : "shanghai"}
+...
+```
+这种方式通常用于 Stream Load 导入方式，以便在一批导入数据中表示多行数据。
+这种方式必须配合设置 `read_json_by_line=true` 使用，特殊分隔符还需要指定`line_delimiter`参数，默认`\n`。Doris 在解析时会按照分隔符分隔，然后解析其中的每一行 Object 作为一行数据。
+
+### fuzzy_parse 参数
+在 [STREAM LOAD](https://cloud.tencent.com/document/product/1387/70832) 中，可以添加 `fuzzy_parse` 参数来加速 JSON 数据的导入效率。
+这个参数通常用于导入 **以 Array 表示的多行数据** 这种格式，所以一般要配合 `strip_outer_array=true` 使用。
+这个功能要求 Array 中的每行数据的**字段顺序完全一致**。Doris 仅会根据第一行的字段顺序做解析，然后以下标的形式访问之后的数据。该方式可以提升 3-5X 的导入效率。
+
 ## Json Path
 Doris 支持通过 Json Path 抽取 Json 中指定的数据。
 
@@ -244,7 +259,7 @@ code    INT     NULL
 ```
 {"id": 100, "city": "beijing", "code" : 1}
 ```
-	- 不指定 Json Path：
+    - 不指定 Json Path：
 ```
 curl --location-trusted -u user:passwd -H "format: json" -T data.json http://localhost:8030/api/db1/tbl1/_stream_load
 ```
@@ -253,7 +268,7 @@ curl --location-trusted -u user:passwd -H "format: json" -T data.json http://loc
 100     beijing     1
 ```
         
-	- 指定 Json Path
+    - 指定 Json Path
 ```
 curl --location-trusted -u user:passwd -H "format: json" -H "jsonpaths: [\"$.id\",\"$.city\",\"$.code\"]" -T data.json http://localhost:8030/api/db1/tbl1/_stream_load
 ```
@@ -266,7 +281,7 @@ curl --location-trusted -u user:passwd -H "format: json" -H "jsonpaths: [\"$.id\
 ```
 {"id": 100, "content": {"city": "beijing", "code" : 1}}
 ```
-	- 指定 Json Path
+    - 指定 Json Path
 ```
 curl --location-trusted -u user:passwd -H "format: json" -H "jsonpaths: [\"$.id\",\"$.content.city\",\"$.content.code\"]" -T data.json http://localhost:8030/api/db1/tbl1/_stream_load
 ```
@@ -284,16 +299,16 @@ curl --location-trusted -u user:passwd -H "format: json" -H "jsonpaths: [\"$.id\
 {"id": 103, "city": "chongqing", "code" : 4},
 {"id": 104, "city": ["zhejiang", "guangzhou"], "code" : 5},
 {
-		"id": 105,
-		"city": {
-				"order1": ["guangzhou"]
-		}, 
-		"code" : 6
+        "id": 105,
+        "city": {
+                "order1": ["guangzhou"]
+        }, 
+        "code" : 6
 }
 ]
 ```
 
-	- 指定 Json Path：
+    - 指定 Json Path：
 ```
 curl --location-trusted -u user:passwd -H "format: json" -H "jsonpaths: [\"$.id\",\"$.city\",\"$.code\"]" -H "strip_outer_array: true" -T data.json http://localhost:8030/api/db1/tbl1/_stream_load
 ```

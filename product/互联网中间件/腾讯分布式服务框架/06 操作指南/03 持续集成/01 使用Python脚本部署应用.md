@@ -4,14 +4,14 @@ TSF 应用可以使用 Python 脚本来部署。
 
 在开始持续集成之前，需要完成下述的准备工作：
 
-1. 保证机器上安装的 Python 版本不低于 `2.7.14` 版本，并已安装 PIP 等 Python 包管理工具。
+1. 保证机器上安装的 Python 版本不低于 `3.0` 版本，并已安装 PIP 等 Python 包管理工具。
 2. 获取腾讯云的 [访问密钥](https://cloud.tencent.com/document/product/598/37140)（SecretId 和 SecretKey）。
 3. 在 TSF 平台创建了[部署组](https://console.cloud.tencent.com/tsf/group)。
 4. 了解 Python 脚本使用。
 
 ## 虚拟机应用部署准备
 
-1. 机器上保证安装的 Python 版本不低于 `2.7.14` 版本，并已安装 PIP 等 Python 包管理工具。
+1. 机器上保证安装的 Python 版本不低于 `3.0` 版本，并已安装 PIP 等 Python 包管理工具。
 2. 从 [GitHub仓库](https://github.com/tencentyun/tsf-snippet/blob/master/upload_virtual_machine_deploy.py) 下载虚拟机部署 Python 脚本。
 3. 修改脚本中的secret_id 、secret_key 为腾讯云访问密钥，region 为 TSF 服务所在地域。
 <dx-codeblock>
@@ -51,7 +51,7 @@ pip install requests cos-python-sdk-v5
 
 ## 容器应用部署准备
 
-1. 保证机器上能够构建、上传镜像（镜像及 Dockerfile 编写参见 [制作容器镜像](https://cloud.tencent.com/document/product/649/73794)，仓库使用请参见 [镜像管理](https://cloud.tencent.com/document/product/649/16695)）。保证 Python 版本不低于2.7.14版本，并已安装 PIP 等 Python 包管理工具。
+1. 保证机器上能够构建、上传镜像（镜像及 Dockerfile 编写参见 [制作容器镜像](https://cloud.tencent.com/document/product/649/50610)，仓库使用请参见 [镜像管理](https://cloud.tencent.com/document/product/649/16695)）。保证 Python 版本不低于2.7.14版本，并已安装 PIP 等 Python 包管理工具。
 2. 从 [GitHub仓库](https://github.com/tencentyun/tsf-snippet/blob/master/upload_container_deploy.py) 下载容器部署 Python 脚本。
 3. 修改脚本中的 secret_id 、secret_key 为腾讯云访问密钥，region 为 TSF 服务所在地域。修改脚本中的 docker_build_command、docker_push_command 为实际的 docker build 和 push 命令。
 <dx-codeblock>
@@ -81,4 +81,4 @@ python2.7.14 upload_container_deploy.py group-zvw397wa v1
 </dx-codeblock>
 
 
-> !docker 相关命令必须按照 [制作容器镜像](https://cloud.tencent.com/document/product/649/73794) 和 [镜像管理](https://cloud.tencent.com/document/product/649/16695) 调整为用户自己的账号和应用名。
+> !docker 相关命令必须按照 [制作容器镜像](https://cloud.tencent.com/document/product/649/50610) 和 [镜像管理](https://cloud.tencent.com/document/product/649/16695) 调整为用户自己的账号和应用名。

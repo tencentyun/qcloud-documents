@@ -1,7 +1,8 @@
 ## 功能描述
 List Multipart Uploads 用于查询正在进行中的分块上传任务。单次请求操作最多列出1000个正在进行中的分块上传。
 
->! 该请求需要有存储桶的读权限。
+>! 
+>该请求需要有存储桶的读权限。同时需要主账号或者被授权 List Multipart Upload 接口权限的子账号可以调用该接口。
 >
 
 <div class="rno-api-explorer">
@@ -31,7 +32,7 @@ Authorization: Auth String
 ```
 
 >? 
-> - Host: &lt;BucketName-APPID>.cos.&lt;Region>.myqcloud.com，其中 &lt;BucketName-APPID> 为带 APPID 后缀的存储桶名字，例如 examplebucket-1250000000，可参阅 [存储桶概览 > 基本信息](https://cloud.tencent.com/document/product/436/48921#.E5.9F.BA.E6.9C.AC.E4.BF.A1.E6.81.AF) 和 [存储桶概述 > 存储桶命名规范](https://cloud.tencent.com/document/product/436/13312#.E5.AD.98.E5.82.A8.E6.A1.B6.E5.91.BD.E5.90.8D.E8.A7.84.E8.8C.83) 文档；&lt;Region> 为 COS 的可用地域，可参阅 [地域和访问域名](http://cloud.tencent.com/document/product/436/6224) 文档。
+> - Host: &lt;BucketName-APPID>.cos.&lt;Region>.myqcloud.com，其中 &lt;BucketName-APPID> 为带 APPID 后缀的存储桶名字，例如 examplebucket-1250000000，可参见 [存储桶概览 > 基本信息](https://cloud.tencent.com/document/product/436/48921#.E5.9F.BA.E6.9C.AC.E4.BF.A1.E6.81.AF) 和 [存储桶概述 > 存储桶命名规范](https://cloud.tencent.com/document/product/436/13312#.E5.AD.98.E5.82.A8.E6.A1.B6.E5.91.BD.E5.90.8D.E8.A7.84.E8.8C.83) 文档；&lt;Region> 为 COS 的可用地域，可参见 [地域和访问域名](http://cloud.tencent.com/document/product/436/6224) 文档。
 > - Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 > 
 
@@ -48,7 +49,7 @@ Authorization: Auth String
 | delimiter        | 定界符为一个符号，对 Object 名字包含指定前缀且第一次出现 delimiter 字符之间的 Object 作为一组元素：common prefix。若无 prefix，则从路径起点开始。 | String | 否    |
 | encoding-type    | 规定返回值的编码格式，合法值：url。                               | String | 否    |
 | prefix           | 限定返回的 Object key 必须以 Prefix 作为前缀。</br>注意使用 prefix 查询时，返回的 key 中仍会包含 Prefix。 | String | 否    |
-| max-uploads      | 设置最大返回的 multipart 数量，合法取值从1到1000，默认1000。                       | String | 否    |
+| max-uploads      | 设置最大返回的 multipart 数量，合法取值从1到1000，默认1000。                       | int | 否    |
 | key-marker       | 与 upload-id-marker 一起使用：<Br/><li>当 upload-id-marker 未被指定时，ObjectName 字母顺序大于 key-marker 的条目将被列出。<Br/><li>当 upload-id-marker 被指定时，ObjectName 字母顺序大于 key-marker 的条目被列出，ObjectName 字母顺序等于 key-marker 同时 UploadId 大于 upload-id-marker 的条目将被列出。 | String | 否    |
 | upload-id-marker | 与 key-marker 一起使用：<Br/><li>当 key-marker 未被指定时，upload-id-marker 将被忽略。<Br/><li>当 key-marker 被指定时，ObjectName字母顺序大于 key-marker 的条目被列出，ObjectName 字母顺序等于 key-marker 同时 UploadId 大于 upload-id-marker 的条目将被列出。 | String | 否    |
 
@@ -105,13 +106,13 @@ Container 节点 ListMultipartUploadsResult 的内容：
 
 |节点名称（关键字）|父节点|描述|类型|
 |:---|:-- |:--|:--|
-| Bucket | ListMultipartUploadsResult | 分块上传的目标 Bucket，由用户自定义字符串和系统生成 APPID 数字串由中划线连接而成，例如`examplebucket-1250000000`。|  String |
+| Bucket | ListMultipartUploadsResult | 分块上传的目标 Bucket，由用户自定义字符串和系统生成 APPID 数字串由中划线连接而成，例如 `examplebucket-1250000000`。|  String |
 | Encoding-Type | ListMultipartUploadsResult | 规定返回值的编码格式，合法值：url。 |  String |
 | KeyMarker | ListMultipartUploadsResult| 列出条目从该 key 值开始。 |  String |
 | UploadIdMarker | ListMultipartUploadsResult | 列出条目从该 UploadId 值开始。 |  String |
 | NextKeyMarker | ListMultipartUploadsResult | 假如返回条目被截断，则返回的 NextKeyMarker 就是下一个条目的起点。 | String |
 | NextUploadIdMarker | ListMultipartUploadsResult | 假如返回条目被截断，则返回的 UploadId 就是下一个条目的起点。 |  String |
-| MaxUploads | ListMultipartUploadsResult | 设置最大返回的 multipart 数量，合法取值从0 - 1000。 |  String |
+| MaxUploads | ListMultipartUploadsResult | 设置最大返回的 multipart 数量，合法取值从0 - 1000。 |  int |
 | IsTruncated | ListMultipartUploadsResult | 返回条目是否被截断，布尔值：TRUE，FALSE。 |  Boolean |
 | Prefix | ListMultipartUploadsResult | 限定返回的 Objectkey 必须以 Prefix 作为前缀，</br>注意使用 prefix 查询时，返回的 key 中仍会包含 Prefix。 |  String |
 | Delimiter | ListMultipartUploadsResult | 定界符为一个符号，对 object 名字包含指定前缀且第一次出现 delimiter 字符之间的 object 作为一组元素：common prefix。若无 prefix，则从路径起点开始。 |  String |

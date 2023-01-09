@@ -1,15 +1,14 @@
 ## 连接方式
 连接 TDSQL-C MySQL 版的方式如下：
 - **内网地址连接**：通过内网地址连接 TDSQL-C MySQL 版，使用云服务器 CVM 直接连接云数据库的内网地址，这种连接方式使用内网高速网络，延迟低。
- - 云服务器和数据库须是同一账号，且同一个[ VPC](https://cloud.tencent.com/document/product/215/20046) 内（保障同一个地域）。
- - 内网地址系统默认提供，可在 [控制台](https://console.cloud.tencent.com/cynosdb) 的集群列表或集群详情页查看。
+ - 云服务器和数据库须是同一账号，且同一个 [VPC](https://cloud.tencent.com/document/product/215/20046) 内（保障同一个地域）。
+ - 内网地址系统默认提供，可在 [控制台](https://console.cloud.tencent.com/cynosdb/mysql#/) 的集群列表或集群详情页查看。
 >?对于不同的 VPC 下（包括同账号/不同账号，同地域/不同地域）的云服务器和数据库，内网连接方式请参见 [云联网](https://cloud.tencent.com/document/product/877)。
 >
-- **外网地址连接**：通过外网地址连接 TDSQL-C MySQL 版。外网地址需 [手动开启](#waiwang)，可在 [控制台](https://console.cloud.tencent.com/cynosdb) 的实例详情页查看，不需要时也可关闭。
+- **外网地址连接**：通过外网地址连接 TDSQL-C MySQL 版。外网地址需 [手动开启](#waiwang)，可在控制台的实例详情页查看，不需要时也可关闭。
  - 开启外网地址，会使您的数据库服务暴露在公网上，可能导致数据库被入侵或攻击。建议您使用内网连接数据库。 
  - 云数据库外网访问适用于开发或辅助管理数据库，不建议正式业务访问使用，因为可能存在不可控因素会导致外网访问不可用（例如 DDOS 攻击、突发大流量访问等）。
 - **通过 DMC 连接**：通过数据管理平台（Database Management Console，DMC）访问 TDSQL-C MySQL 版。
-
 
 ## 内外网连接 TDSQL-C MySQL 版
 ### 从 Windows 云服务器连接
@@ -27,10 +26,10 @@
 >
 ![](https://main.qcloudimg.com/raw/1af292f989f03f3e02e1200b77cb70c1.png)
 5. 打开 MySQL Workbench，选择 **Database** > **Connect to Database**，输入 MySQL 数据库实例的内网（或外网）地址和用户名、密码，单击 **OK** 进行登录。
-   - Hostname：输入内网（或外网）地址。在 [控制台](https://console.cloud.tencent.com/cynosdb) 的集群详情页可查看到目标数据库的内网（或外网）地址。若为外网地址，请确认是否已开启，请参见 [开启外网地址](#waiwang)。
-   - Port：内网（或外网）对应端口。
-   - Username：默认为 root。
-   - Password：Username 对应的密码。如忘记密码可在 [控制台](https://console.cloud.tencent.com/cynosdb) 进行修改。
+ - Hostname：输入内网（或外网）地址。在 [控制台](https://console.cloud.tencent.com/cynosdb/mysql#/) 的集群详情页可查看到目标数据库的内网（或外网）地址。若为外网地址，请确认是否已开启，请参见 [开启外网地址](#waiwang)。
+ - Port：内网（或外网）对应端口。
+ - Username：默认为 root。
+ - Password：Username 对应的密码。如忘记密码可在控制台进行修改。
 ![](https://main.qcloudimg.com/raw/9c9e5dcc8a2bb9fa15fa4d98a18308f1.png)
 6. 登录成功的页面如图 所示，在此页面上您可以看到数据库的各种模式和对象，您可以开始创建表，进行数据插入和查询等操作。
 ![](https://main.qcloudimg.com/raw/33f081e99c384258bbc5ed3683ed4d7d.png)
@@ -44,26 +43,27 @@ yum install mysql
 提示 `Complete!` 说明 MySQL 客户端安装完成。
 ![](https://main.qcloudimg.com/raw/16c77e28c40ae9be9a182b1c61843ecd.png)
 3. 根据不同连接方式，选择相应的操作：
-   - **内网连接时：**
+ - **内网连接时：**
     1. 执行如下命令，登录到 TDSQL-C MySQL 版集群。
 ```
 mysql -h hostname -P port -u username -p
 ```
-       - hostname：替换为目标集群的内网地址，在 [控制台](https://console.cloud.tencent.com/cynosdb) 的集群详情页可查看内网地址。
-       - port：替换为内网端口号。
+      - hostname：替换为目标集群的内网地址，在 [控制台](https://console.cloud.tencent.com/cynosdb/mysql#/) 的集群详情页可查看内网地址。
+      - port：替换为内网端口号。
 		- username：替换为默认的用户名 root。
 示例：内网地址为10.0.168.14:5308，用户名为 root，连接命令输入为 `mysql -h 10.0.168.14 -P 5308 -u root -p`。
-    2. 在提示 `Enter password：` 后输入集群的 root 帐号对应的密码，如忘记密码可在 [控制台](https://console.cloud.tencent.com/cynosdb) 进行修改。
-    本例中提示 `MySQL [(none)]>` 说明成功登录到 TDSQL-C MySQL 版。![](https://main.qcloudimg.com/raw/83b8a95cf4b99919b5899510691289b4.png)
-   - **外网连接时：**
+    2. 在提示 `Enter password：` 后输入集群的 root 帐号对应的密码，如忘记密码可在控制台进行修改。
+    本例中提示 `MySQL [(none)]>` 说明成功登录到 TDSQL-C MySQL 版。
+![](https://main.qcloudimg.com/raw/83b8a95cf4b99919b5899510691289b4.png)
+ - **外网连接时：**
     1. 执行如下命令，登录到 TDSQL-C MySQL 版集群。
 ```
 mysql -h hostname -P port -u username -p
 ```
-       - hostname：替换为目标集群的外网地址，在  [控制台](https://console.cloud.tencent.com/cynosdb) 的集群详情页可查看外网地址和端口号。若外网地址未开启，请参见 [开启外网地址](#waiwang) 开启。
+       - hostname：替换为目标集群的外网地址，在 [控制台](https://console.cloud.tencent.com/cynosdb/mysql#/) 的集群详情页可查看外网地址和端口号。若外网地址未开启，请参见 [开启外网地址](#waiwang) 开启。
        - port：替换为外网端口号。
        - username：替换为外网连接用户名，用于外网连接，建议您在控制台单独创建帐号便于连接控制管理。
-    2. 在提示 `Enter password：` 后输入外网连接用户名对应的密码，如忘记密码可在 [控制台](https://console.cloud.tencent.com/cynosdb) 进行修改。
+    2. 在提示 `Enter password：` 后输入外网连接用户名对应的密码，如忘记密码可在控制台进行修改。
     本例中 hostname 为 59281c4exxx.myqcloud.com，外网端口号为15311。
 ![](https://main.qcloudimg.com/raw/16839344da3a588be93d814de224277a.png)
 4. 在 `MySQL \[(none)]>` 提示符下可以发送 SQL 语句到要执行的 TDSQL-C MySQL 版服务器，具体命令行请参见 [mysql Client Commands](https://dev.mysql.com/doc/refman/5.7/en/mysql-commands.html)。
@@ -72,16 +72,16 @@ mysql -h hostname -P port -u username -p
 
 
 ## 通过 DMC 平台连接
-1. 登录 [控制台](https://console.cloud.tencent.com/cynosdb)，在集群列表，单击**操作**列的**登录**。
+1. 登录 [控制台](https://console.cloud.tencent.com/cynosdb/mysql#/)，在集群列表，单击**操作**列的**登录**。
 2. 在数据管理控制台的登录界面，帐号输入 root，密码为之前在创建集群时配置的 root 帐户的密码，单击**登录**。
->?DMC 平台可便捷地访问实例、操作库表级、管理实例会话、实时监控、InnoDB 锁等待、SQL 窗口等。
+>?[DMC 平台](https://cloud.tencent.com/document/product/1222/70529) 可便捷地访问实例、操作库表级、管理实例会话、实时监控、InnoDB 锁等待、SQL 窗口等。
 >
 ![](https://main.qcloudimg.com/raw/d07b1477bd524f23fbaa9450c352c49f.png)
 
 ## [附录1：开启外网连接地址](id:waiwang)
 >?使用外网连接时，需要先开启数据库的外网地址。
 >
-1. 登录 [控制台](https://console.cloud.tencent.com/cynosdb)，在集群列表，单击集群 ID，进入集群详情页面。
+1. 登录 [控制台](https://console.cloud.tencent.com/cynosdb/mysql#/)，在集群列表，单击集群 ID，进入集群详情页面。
 2. 在集群详情页的连接外网地址处，单击**开启**。
 ![](https://main.qcloudimg.com/raw/09b186229ae121fe32c53317727ef8b8.png)
 3. 在弹出的对话框，单击**确定**。

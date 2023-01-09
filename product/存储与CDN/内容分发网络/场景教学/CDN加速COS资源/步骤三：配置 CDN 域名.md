@@ -1,23 +1,17 @@
 1. 登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，在左侧导航栏中，单击**域名管理**进入域名管理页面，单击**添加域名**。
-![](https://qcloudimg.tencent-cloud.cn/raw/0087b126c9ab20a9ca88cac1f5b7da2b.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/cab23bbfda82f8b7f31573ffd9ba4e06.png)
 2. 域名配置
 根据您的网站信息，配置如下：
 <br>
-<img src="https://qcloudimg.tencent-cloud.cn/raw/4174695327716c620ac6548f4a15b867.png" width="70%">
+<img src="https://qcloudimg.tencent-cloud.cn/raw/b88ea5a51c8a88982b8a611c9ad0ba00.png" width="70%">
 <br>
-如上图所示，当接入域名为泛域名，或已被其他用户接入，或首次接入一个新域名时，需要验证域名的归属权。若您的域名解析商为腾讯云，可以按照如下图配置TXT解析记录（针对主域名添加即可），完成验证即可添加该域名。更多详情请参见 <a href="https://cloud.tencent.com/document/product/228/61702">域名归属权验证</a>。
-<img src="https://qcloudimg.tencent-cloud.cn/raw/83ac2aa53904274c22c7649f73f37581.png">
+如上图所示，当接入域名为泛域名，或已被其他用户接入，或首次接入一个新域名时，需要验证域名的归属权。若您的域名解析商为腾讯云，可以按照如下图配置 TXT 解析记录（针对主域名添加即可），完成验证即可添加该域名。更多详情请参见 <a href="https://cloud.tencent.com/document/product/228/61702">域名归属权验证</a>。
+<img src="https://qcloudimg.tencent-cloud.cn/raw/022e30a743cab94bb4b88a62498f4128.png">
 3. 源站配置
 源站的用途：源站即为存储网站资源的服务器，当用户请求的资源在 CDN 节点无缓存，节点会读取域名配置的源站信息，回源拉取资源并缓存在节点。因此，源站信息务必填写准确，保证 CDN 能正常回源取到对应的资源。
 根据您的源站信息，配置如下。
-<img src="https://qcloudimg.tencent-cloud.cn/raw/c7d4c13b20f3a53e0a8e87ab4d3726b3.png" width="80%">
-4. 服务配置
-根据您的平均文件大小和文件更新频率，分片回源无需开启，节点缓存过期配置如下：
-其中：
-	- 若开启分片回源，且文件大于4M，默认会按照1M分片大小逐片回源拉取；
-	- 若配置了缓存策略，CDN 节点会按照设定的缓存策略缓存资源，但并不是严格按照配置的时间生效，可能会由于资源访问热度低触发缓存淘汰机制，在设置的缓存时间前就从节点上删除。更多详情请参见 [节点缓存过期配置](https://cloud.tencent.com/document/product/228/47672)。
-	- **若源站资源更新后，需要立刻更新 CDN 节点的缓存，您可使用 [缓存刷新](https://console.cloud.tencent.com/cdn/refresh) 功能主动更新 CDN 节点未过期的缓存，使 CDN 节点缓存与源站资源保持一致。注意，刷新 UR L需使用CDN加速域名，而非 COS 源站域名。**
-<img src="https://qcloudimg.tencent-cloud.cn/raw/7b5bd45507691aa7a99025463ed49010.png" width="80%">
+<br>
+<img src="https://qcloudimg.tencent-cloud.cn/raw/25988b12fb15f27aafc645ac91923e6d.png" width="70%">
 <table>
 <thead>
 <tr>
@@ -26,16 +20,21 @@
 </tr>
 </thead>
 <tbody><tr>
-<td>分片回源</td>
-<td>平均文件大小500KB，无需勾选“开启分片回源”<br>• 若您的资源都是静态小文件（&lt;4M），或源站为 COS 源站且已使用数据处理类功能（例如：图片处理），不建议开启分片回源，开启后会影响回源；<br>• 若您的资源都是静态大文件，且源站已支持 Range 请求，或源站为 COS 源站且未使用数据处理类功能（例如：图片处理），建议开启分片回源，提升分发效率和响应速度。</td>
+<td>源站类型</td>
+<td>网站源站为稳定运行业务的自有服务器，<strong>选择“自有源”即可</strong></td>
 </tr>
 <tr>
-<td>节点缓存过期配置</td>
-<td>根据网站资源的更新频率设置自定义的缓存策略，若无特殊需求，采用默认的即可。缓存策略配置方法请参见&nbsp;  <a href="https://cloud.tencent.com/document/product/228/47672">节点缓存过期配置</a>。</td>
+<td>回源协议</td>
+<td>只支持HTTP回源，<strong>回源协议选择“HTTP”即可。</strong><br>可以根据源站实际支持的协议类型，按需选择，确保选择的回源协议是源站支持的。</td>
+</tr>
+<tr>
+<td>源站地址</td>
+<td><strong>填写源站的服务器 IP 即可。</strong><br>• 支持配置多个 IP 作为源站，回源时会进行轮询回源；<br>• 支持增加配置端口（0 - 65535）和权重（1 - 100）：源站:端口:权重（端口可缺省：源站::权重），HTTPS 协议暂时仅支持443端口；<br>• 支持配置域名作为源站，此域名需要与业务加速域名不一致。</td>
+</tr>
+<tr>
+<td>回源 HOST</td>
+<td>• 定义：CDN 节点在回源时，在源站访问的站点域名，默认为加速域名。<br>•  源站地址与回源 HOST 的区别：源站配置的 IP/域名能够指引 CDN 节点回源时找到对应的源站服务器，服务器上可能存在若干 Web 站点，回源 HOST 指明了资源所在的站点。根据实际业务场景配置即可<br>• 如何填写：若通过加速域名即可回源获取到资源，无需修改回源 HOST；若需要通过非加速域名才能回源获取到资源，填写对应的域名即可。</td>
 </tr>
 </tbody></table>
-5. 用量封顶配置
-希望将访问带宽控制在5000Mbps，配置如下：
-<img src="https://qcloudimg.tencent-cloud.cn/raw/e754e3766a8f85325d45ddccb329fd9b.png" width="80%">
-6. 单击**确认提交**，在弹出的页面中单击**返回域名管理**即可在域名列表中看到您添加的域名。
-<img src="https://qcloudimg.tencent-cloud.cn/raw/ff47244b3c32375334887f6e33977ac0.png" width="80%">
+4. 单击**确认添加**后，即可完成添加域名，同时，腾讯云 CDN 根据您的加速类型为您提供了该域名的推荐配置，您可以参考 [推荐配置](https://cloud.tencent.com/document/product/228/3149#.E7.AC.AC.E4.BA.8C.E6.AD.A5.EF.BC.9A.E6.8E.A8.E8.8D.90.E9.85.8D.E7.BD.AE) 来进行配置，或单击**返回域名管理**完成域名添加。
+![](https://qcloudimg.tencent-cloud.cn/raw/c1747591525a657b3851ea84b0dd945a.png)

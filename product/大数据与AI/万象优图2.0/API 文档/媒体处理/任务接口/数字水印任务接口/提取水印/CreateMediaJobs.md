@@ -17,8 +17,12 @@ Content-Type: application/xml
 <body>
 ```
 
->? Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
->
+
+>? 
+> - Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+> - 通过子账号使用时，需要授予相关的权限，详情请参见 [授权粒度详情](https://cloud.tencent.com/document/product/460/41741) 文档。
+> 
+
 
 
 #### 请求头
@@ -76,10 +80,10 @@ Container 类型 Operation 的具体数据描述如下：
 
 Container 类型 ExtractDigitalWatermark 的具体数据类型描述如下：
 
-| 节点名称（关键字） | 父节点            | 描述                                                         | 类型      | 是否必选 | 默认值 | 限制 |
-| ------------------ | ----------------- | ------------------------------------------------------------ | --------- | ---- | ---- | ---- |
-| Type               | Request.Operation.ExtractDigitalWatermark | 水印类型      | String | 是 | | Text |
-| Version            | Request.Operation.ExtractDigitalWatermark | 水印版本     | String | 是 | | V1 |
+| 节点名称（关键字） | 父节点            | 描述                                                         | 类型      | 是否必选 | 限制 |
+| ------------------ | ----------------- | ------------------------------------------------------------ | --------- | ---- | ---- |
+| Type               | Request.Operation.ExtractDigitalWatermark | 水印类型      | String | 是 | Text |
+| Version            | Request.Operation.ExtractDigitalWatermark | 水印版本     | String | 是 | V1 |
 
 
 ## 响应

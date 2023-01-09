@@ -1,7 +1,8 @@
 
-为保证安全，物联网平台会验证每个接入设备的合法性，为此提供了多种认证方式，满足不同的使用场景及各种资源的设备接入。您可以观看以下视频了解腾讯云物联网通信设备接入说明。
-<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2896-54332?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
 
+为保证安全，物联网平台会验证每个接入设备的合法性，为此提供了多种认证方式，满足不同的使用场景及各种资源的设备接入。您可以观看以下视频了解腾讯云物联网通信设备接入说明。
+
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2896-54332?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
 ## 设备身份信息
 从设备密钥形式区分，分为证书设备和密钥设备。证书方式安全性更高，但需要消耗较多的软硬件资源。
  - 证书设备要通过平台的安全认证，必须具备四元组信息：产品 ID（ProductId）、设备名（DeviceName）、设备证书文件（DeviceCert）、设备私钥文件（DevicePrivateKey），其中证书文件和私钥文件由平台生成，且一一对应。
@@ -57,7 +58,7 @@
 | -----------------------------------| ----------------------------------  |
 | HAL_GetProductID                  	| 获取产品 ID    |
 | HAL_GetDevName                   	| 获取设备名    |
-| HAL_GetDevSec                      | 获取设备密钥，若写入时加密加扰，读取时需解密解扰   |	
+| HAL_GetDevSec                      | 获取设备密钥，若写入时加密加扰，读取时需解密解扰   |
 
 ####  应用示例
 -  初始化连接参数

@@ -33,7 +33,7 @@
 <td>ME 12+</td>
 </tr>
 <tr>
-<td>Safri 7+</td>
+<td>Safari 7+</td>
 </tr>
 <tr>
 <td>Opera 12.1+</td>
@@ -52,7 +52,7 @@
 <td>Firefox 27+</td>
 </tr>
 <tr>
-<td>Safri 7+</td>
+<td>Safari 7+</td>
 </tr>
 <tr>
 <td>Opera 16+</td>
@@ -68,7 +68,7 @@
 <td>ME 79+</td>
 </tr>
 <tr>
-<td>Safri 14+</td>
+<td>Safari 14+</td>
 </tr>
 <tr>
 <td>Opera 57+</td>

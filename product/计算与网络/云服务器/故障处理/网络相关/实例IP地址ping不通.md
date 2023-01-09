@@ -25,7 +25,7 @@
 
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)。
 2. 在“实例列表”页面中，选择需要 ping 通的实例 ID/实例名，进入该实例的详情页面。如下图所示：
-![](https://main.qcloudimg.com/raw/4b5735b3ef4ecbe9a0d131927112d4ba.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/d90e03b056c338f25d9cd20d6415f8a3.png)
 3. 在“网络信息”栏，查看实例是否配置了公网 IP。
  - 是，请 [检查安全组设置](#CheckSecurityGroupSetting)。
  - 否，请 [EIP 绑定云资源](https://cloud.tencent.com/document/product/1199/41702)。
@@ -37,7 +37,7 @@
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)。
 2. 在“实例列表”页面中，选择需要安全组设置的实例 ID/实例名，进入该实例的详情页面。
 3. 选择**安全组**页签，进入该实例的安全组管理页面。如下图所示：
-![](https://main.qcloudimg.com/raw/e413734149ef1a4d09bfb5d3c6fc47f2.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/5880372a92c092aba58b8706fc859eca.png)
 4. 根据查看实例所使用的安全组以及详细的入站和出站规则，判断实例关联的安全组是否允许 ICMP。
  - 是，请 [检查系统设置](#CheckOSSetting)。
  - 否，请将 ICMP 协议策略设置为允许。
@@ -47,7 +47,7 @@
 
 判断实例的操作系统类型，选择不同的检查方式。
 - Linux 操作系统，请 [检查 Linux 内核参数和防火墙设置](#CheckLinux)。
-- Windows 操作系统，请 [检查 Windows 防火墙设置](#CheckWindows)。
+- Windows 操作系统，请 [检查 Windows 防火墙设置](#CheckWindows)，若非防火墙问题，可尝 [重置 Windows 网络设置](#reset)。
 
 
 #### 检查 Linux 内核参数和防火墙设置[](id:CheckLinux)
@@ -125,13 +125,23 @@ iptables -A OUTPUT -p icmp --icmp-type echo-reply -j ACCEPT
 - 如果您使用的是腾讯云的域名服务，您可以登录 [域名服务控制台](https://console.cloud.tencent.com/domain) 查看相应的域名情况。
 - 如果您的域名已备案，请 [检查域名解析](#CheckDNS)。
 
+[](id:reset)
+### 重置 Windows 网络设置
+
+1. 请确认您的 VPC 网络是否支持 DHCP（如为2018年6月后创建的 VPC 网络，均支持 DHCP），若不支持，请确认网络设置中的静态 IP 是否正确。
+2. 如果支持 DHCP，查看 DHCP 分配到的内网 ip 是否正确，若不正确，您可通过官网的登录功能（VNC 登录），以管理员身份运行 PowerShell，在其中执行 `ipconfig /release` 以及 `ipconfig/renew` （无需重启机器）尝试令 DHCP 组件重新获取 IP。
+3. 若 DHCP 分配到的IP正确，但网络仍旧不通，可使用开始菜单中的【运行】功能，输入` ncpa.cpl `并单击确定。打开本地连接，尝试禁用、启用网卡。
+4. 若以上方式仍不能解决问题，可以管理员身份执行在 CMD 中执行以下命令并重启机器。
+```plantext
+reg delete "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Profiles"  /f
+```
 
 ### 检查域名解析[](id:CheckDNS)
 
 ping 不通域名的另外一个原因是由于域名解析没有正确地配置。如果您使用的是腾讯云的域名服务，您可以执行以下操作，检查域名解析。
 1. 登录 [域名服务控制台](https://console.cloud.tencent.com/domain)。
 2. 在“我的域名”管理页面，选择需检查域名解析的域名行，单击**解析**，查看域名解析详情。如下图所示：
-![](https://main.qcloudimg.com/raw/c350c1587af72d8a3529bcd7a98da856.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/84467abd08a414129180140650689ef7.png)
 
 
 ### 其他操作[](id:OtherOperations)
@@ -140,3 +150,5 @@ ping 不通域名的另外一个原因是由于域名解析没有正确地配置
 - 域名 ping 不通，请检查您的网站配置。
 - 公网 IP ping 不通，请附上实例的相关信息和双向 MTR 数据（从本地到云服务器以及云服务器到本地），通过 [在线支持](https://cloud.tencent.com/online-service?from=doc_213) 联系工程师协助定位。
 MTR 的使用方法请参考 [服务器网络延迟和丢包处理](https://cloud.tencent.com/document/product/213/14638)。
+
+

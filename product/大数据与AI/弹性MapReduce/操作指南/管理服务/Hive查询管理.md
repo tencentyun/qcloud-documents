@@ -4,7 +4,7 @@
 ## 操作步骤
 1. 登录 [EMR 控制台](https://console.cloud.tencent.com/emr)，在集群列表中单击对应的集群 **ID/名称**进入集群详情页。
 2. 在集群详情页中单击**集群服务**目录，然后选择 Hive 服务名称或 Hive 服务右上角**操作 > 查询管理**，即可进行相关作业查询、查询语句、查询计划、执行总览、Profile 等信息。
-![](https://qcloudimg.tencent-cloud.cn/raw/ab8fc074cbd79d5e7988971d83e6a8ae.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/4369ab0b96cbe2642d4d6a031160b16f.png)
 3. 单击应用 ID 可跳转至 Yarn 应用管理并选中 Hive 查询所关联的 Yarn 作业集。
 >! 2022年6月8日后新购集群同步选择 Hive 均支持查询管理功能；2022年6月8日前已部署 Hive 组件的集群若需使用 Hive 查询管理需联系售后人员评估。
 

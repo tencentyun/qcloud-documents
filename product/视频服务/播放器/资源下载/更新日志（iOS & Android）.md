@@ -1,4 +1,74 @@
+此页面仅更新播放器 SDK 的版本历史，如您想了解全功能版 SDK 的版本历史，请参见 [全功能版 SDK 版本历史](https://cloud.tencent.com/document/product/1449/76109)。
+
+> ? 全功能版 SDK 是多个基础 SDK 的集合，它包含了直播、短视频、音视频通话（TRTC）和播放器等子产品 SDK 的功能模块。
+
+
 ## 播放器 SDK
+
+### 播放器 SDK 10.8 @ 2022.10.27
+**功能优化:**
+- Android&iOS：循环播放单轮结束增加 VOD_PLAY_EVT_LOOP_ONCE_COMPLETE 事件
+-  Android：合规优化启动时调用2次：NetworkInfo.getExtraInfo 问题
+ 
+**缺陷修复**: 
+- Android&iOS：修复特殊场景导致私有加密视频播放失败问题
+- Andoird&iOS：修复部分视频通过 gzip 传输播放失败问题
+- Andoird&iOS：修复播放结束后进度条时长不匹配问题
+- iOS：修复 appid&fileid 播放 v2 协议取视频源地址错误问题
+
+
+### 播放器 SDK 10.7 @ 2022.09.20
+
+**功能优化:**
+
+- Android&iOS：点播播放 startPlay 接口变更为 startVodPlay
+- Android&iOS： 直播播放 startPlay 接口变更为 startLivePlay
+- iOS：修复长时间退到后台，返回播放器，无法继续播放的问题
+- Android： 修复低版本 Android 系统部分视频播放失败问题
+
+### 播放器 SDK 10.6 @ 2022.08.31
+
+**功能优化:** 
+
+- Android&iOS：fileid 播放方式新增雪碧图、URL 等信息回调
+- Android&iOS：包体大小优化
+
+**缺陷修复:** 
+
+-  iOS：修复部分场景下私有加密视频离线下载播放失败问题
+
+### 播放器 SDK 10.5 @ 2022.08.12
+**缺陷修复**: 
+- Android&iOS：修复播放失败不带视频格式后缀短链异常
+
+### 播放器 SDK 10.4.0 @ 2022.07.21
+
+**功能优化:** 
+Android&iOS：HLS 直播支持自适应播放。
+
+**缺陷修复:** 
+- Android：修复 onNetStatus 和进度回调间隔异常 。
+- Android：修复播放器没有调用 setConfig 引起的空指针异常。
+- iOS：修复部分场景下重播卡顿问题。
+
+
+### 播放器 SDK 10.3.0 @ 2022.07.06
+**新功能：** 
+iOS：视频播放支持画中画模式。
+
+**缺陷修复：** 
+- Android：修复硬解后台连续播放视频列表会中断问题。
+- Android&iOS：修复 Seek 完成事件不回调问题。
+
+### 播放器 SDK 10.2.0 @ 2022.06.23
+**功能优化：** 
+Android&iOS：优化播放过程中回调 cachedBytes、IP 地址等参数。
+
+**缺陷修复：** 
+- Android&iOS：修复硬解播放H265格式视频失败问题。
+- Android&iOS：修复播放 HLS 直播异常。
+- iOS：修复某些场景下获取 supportedBitrates 异常。
+
 ### 播放器 SDK 10.1.0 @ 2022.05.31
 - Android&iOS： 视频超分效果优化
 - Android&iOS：修复嵌套 m3u8 refer header 子流传递问题
@@ -6,10 +76,10 @@
 - Android&iOS： 优化播放器内核性能
 
 ### 播放器 SDK 9.5.29040 @ 2022.05.13
-- Android&iOS：修复播放带封面 mp3 失败的问题。
+Android&iOS：修复播放带封面 mp3 失败的问题。
 
 ### 播放器 SDK 9.5.29036 @ 2022.05.06
-- Android：修复 SurfaceView 重复 Add 和 Remove 导致黑屏问题。
+Android：修复 SurfaceView 重复 Add 和 Remove 导致黑屏问题。
 
 ### 播放器 SDK Android 9.5.29035, iOS 9.5.29036 @ 2022.04.28
 - Android&iOS：新增视频预下载功能。
@@ -22,10 +92,10 @@
 - Android&iOS： 支持启播前指定偏好分辨率播放，找最适合的分辨率启播。
 
 ### 播放器 SDK 9.5.29015 @ 2022.03.25
-- Android：优化播放性能。
+Android：优化播放性能。
 
 ### 播放器 SDK 9.5.29011 @ 2022.03.10
-- iOS： 优化版本适配问题。
+iOS： 优化版本适配问题。
 
 ### 播放器 SDK 9.5.29009  @ 2022.03.03
 - Android&iOS：支持终端极速高清，可通过插件接入。
@@ -73,10 +143,10 @@ Android：修复点播播放器断网后的回调事件逻辑错误的问题。
 - Android&iOS：修复 VodPlayer 播放特定视频 seek 慢的问题。
 - Android&iOS：修复点播暂停播放后，调 seek 设置进度，画面显示慢的问题。
 
-## 超级播放器 Adapter
-### 超级播放器 Adapter 1.2.0 @ 2022.03.10
-- Android&iOS：支持通过 FileId 播放自适应码流、转码和原始视频。
+## 播放器 Adapter
+### 播放器 Adapter 1.2.0 @ 2022.03.10
+Android&iOS：支持通过 FileId 播放自适应码流、转码和原始视频。
 
-### 超级播放器 Adapter 发布 @ 2021.07.22
-- 首次发布 iOS & Android 超级播放器 Adapter。
+### 播放器 Adapter 发布 @ 2021.07.22
+首次发布 iOS & Android 播放器组件 Adapter。
 

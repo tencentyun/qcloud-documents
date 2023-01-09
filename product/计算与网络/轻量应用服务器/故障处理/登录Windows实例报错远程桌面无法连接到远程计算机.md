@@ -38,7 +38,7 @@
 ### 检查实例远程登录端口（3389）是否放通
 1. 在实例详情页面中，选择**防火墙**页签。
 2. 检查实例的防火墙是否放通远程登录接口（默认远程桌面端口：3389）。如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/c5e3626c744eff84c824236598dec6e8.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/27182b835a65d7b8bdd32bc3573f611c.png)
  - 是，请进行下一步。
  - 否，请编辑对应的防火墙规则，进行放通。操作方法请参考 [添加防火墙规则](https://cloud.tencent.com/document/product/1207/44577#.E6.B7.BB.E5.8A.A0.E9.98.B2.E7.81.AB.E5.A2.99.E8.A7.84.E5.88.99)。
 

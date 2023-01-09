@@ -89,7 +89,7 @@ public class MyAppGlideModule extends AppGlideModule {
         //注册 TPG 静态图片解码器
         registry.prepend(InputStream.class, Bitmap.class, new TpgDecoder(glide.getBitmapPool()));
         //注册 TPG 动图解码器
-        ByteBufferTpgGifDecoder byteBufferTpgGifDecoder = new ByteBufferTpgGifDecoder(context, glide.getBitmapPool());
+        ByteBufferTpgGifDecoder byteBufferTpgGifDecoder = new ByteBufferTpgGifDecoder(context, glide.getBitmapPool(), glide.getArrayPool());
         registry.prepend(InputStream.class, GifDrawable.class, new StreamTpgGifDecoder(byteBufferTpgGifDecoder));
         registry.prepend(ByteBuffer.class, GifDrawable.class, byteBufferTpgGifDecoder);
         /*------------------解码器 结束-------------------------*/
@@ -106,7 +106,7 @@ registry.prepend(InputStream.class, Bitmap.class, new TpgDecoder(glide.getBitmap
 #### 加载动图类型 TPG 图片
 
 ```
-ByteBufferTpgGifDecoder byteBufferTpgGifDecoder = new ByteBufferTpgGifDecoder(context, glide.getBitmapPool());
+ByteBufferTpgGifDecoder byteBufferTpgGifDecoder = new ByteBufferTpgGifDecoder(context, glide.getBitmapPool(), glide.getArrayPool());
 registry.prepend(InputStream.class, GifDrawable.class, new StreamTpgGifDecoder(byteBufferTpgGifDecoder));
 registry.prepend(ByteBuffer.class, GifDrawable.class, byteBufferTpgGifDecoder);
 ```

@@ -2,8 +2,7 @@
 
 APK 动态打包插件功能识别终端用户请求 URL 中的特定参数，在 CDN 边缘将该参数携带的信息动态地写入 APK ，实现在 CDN 边缘对 APK 进行动态打包。APK 动态打包要求使用腾讯云 COS 作为源站。
 
-> ?
-> - 当前仅中国境内节点支持 APK 动态打包功能。
+> ? 当前仅中国境内节点支持 APK 动态打包功能。
 
 ## 适用场景
 
@@ -76,7 +75,7 @@ apk名称：test.apk
 | 5 - 20 万次请求 （不含） |           2元           |
 |      20 万次请求以上      |           1元           |
 
-- APK 采用 SCF 触发母包处理任务，超过 SCF 免费试用额度可能会产生云函数费用，具体请见 [SCF 免费额度](https://cloud.tencent.com/document/product/583/12282)。
+- APK 采用 SCF 触发母包处理任务，SCF为收费服务，具体请见 [云函数计费说明](https://cloud.tencent.com/document/product/583/17299)。
 
 >? 如需 APK 动态打包月结计费，请 [联系我们](https://cloud.tencent.com/online-service?from=doc_228)。
 

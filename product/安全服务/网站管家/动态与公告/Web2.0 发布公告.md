@@ -1,6 +1,5 @@
 为提升非中国大陆地区的业务接入和防护能力配置体验，自2022年6月6日起，Web 应用防火墙（WAF）的产品能力全新升级。升级后，接入更稳定，防护能力更强大、流量管理支持更精细，并支持 BOT 行为管理和日志服务的增值能力。
->?当前该版本灰度更新中，体验新版功能请 [联系我们](https://cloud.tencent.com/online-service) 进行购买。
->
+
 同时，控制台将增加中国大陆和非中国大陆地区划分，并支持通过“地区切换”来对两个地区实例进行切换，管理不同地区的实例资源。详细如下图，支持在  [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/tea-overview) 进行切换：
 ![](https://qcloudimg.tencent-cloud.cn/raw/49e3438c06bbbde696f498f1283d402f.png)
 具体对不同类型的 WAF 实例影响如下：

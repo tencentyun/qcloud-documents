@@ -175,3 +175,6 @@ rdesktop -u Administrator -p <your-password> <hostname or IP address>
 <td>用户正在观看一段已最大化为全屏的 30 FPS 视频。</td>
 </tr>
 </table>
+
+ 
+ 

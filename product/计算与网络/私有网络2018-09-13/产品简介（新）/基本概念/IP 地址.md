@@ -57,7 +57,7 @@ IP 地址分为两类：IPv4 地址和 IPv6 地址，IPv4 应用广泛，但网�
 </tr>
 <tr>
 <td colspan="2" >IP 资源费用</td>
-<td>普通公网 IP 不收取 IP资源费用，仅收取 <a href="https://cloud.tencent.com/document/product/1199/51693">公网网络费用</a> 。</td>
+<td>普通公网 IP 不收取 IP资源费用，仅收取 <a href="https://cloud.tencent.com/document/product/1199/51693">公网网络费用</a>。</td>
 <td>IP 资源费用是弹性公网 IP 费用组成的一部分，针对传统账户类型和标准账户类型，不同类型的账户收费情况不同，详情请参见 <a href="https://cloud.tencent.com/document/product/1199/41692#.E8.B4.B9.E7.94.A8.E7.BB.84.E6.88.90">费用组成</a>。</td>
 </tr>
 <tr>
@@ -66,8 +66,7 @@ IP 地址分为两类：IPv4 地址和 IPv6 地址，IPv4 应用广泛，但网�
 <td>每个账户每个地域（Region）可申请：20个。</td>
 </tr>
 <tr>
-<td colspan="2">每台云服务器绑定公网 IP（包括普通公网 IP 和 EIP）数配额请参见 <a href="https://cloud.tencent.com/document/product/1199/41648?!#.E7.BB.91.E5.AE.9A.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8.E9.99.90.E5.88.B6" target="_blank">绑定云服务器限制
-</a>。
+<td colspan="2">每台云服务器绑定公网 IP（包括普通公网 IP 和 EIP）数配额请参见 <a href="https://cloud.tencent.com/document/product/1199/41648?!#.E7.BB.91.E5.AE.9A.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8.E9.99.90.E5.88.B6" target="_blank">绑定云服务器限制</a>。
 </td>
 </tr>
 <tr>
@@ -84,7 +83,7 @@ IP 地址分为两类：IPv4 地址和 IPv6 地址，IPv4 应用广泛，但网�
 </tr>
 <tr>
 <td>释放 IP</td>
-<td>如果您不再需要该公网 IP，可在 <a href="https://console.cloud.tencent.com/cvm" target="_blank">云服务器控制台 </a>的操作栏下，选择【更多】>【IP/网卡】>【退还公网 IP】进行退还。</td>
+<td>如果您不再需要该公网 IP，可在 <a href="https://console.cloud.tencent.com/cvm" target="_blank">云服务器控制台 </a>的操作栏下，选择<b>更多</b> > <b>IP/网卡</b> > <b>退还公网 IP</b> 进行退还。</td>
 <td>可以在弹性公网 IP 控制台释放，详情请参见 <a href="https://cloud.tencent.com/document/product/1199/41704" target="_blank"> 释放 EIP</a>。</td>
 </tr>
 <tr>
@@ -103,7 +102,7 @@ IP 地址分为两类：IPv4 地址和 IPv6 地址，IPv4 应用广泛，但网�
 >
 ![](https://main.qcloudimg.com/raw/b6b711d2112705d73ba86649d2459143.png)
 ### 内网 IPv6 地址
-内网 IPv6 地址是腾讯云 IPv6 内网服务的实现形式，无法通过内网 IPv6 访问 Internet。在创建云服务器实例时，可选择免费分配 IPv6 地址，系统将自动分配，亦可在创建后再进行获取，在私有网络环境下，内网 IPv6 地址也可由用户自定义。
+内网 IPv6 地址是腾讯云 IPv6 内网服务的实现形式，无法通过内网 IPv6 访问 Internet。在创建云服务器实例时，如果对应子网已开通 IPv6 服务，可选择免费分配 IPv6 地址，系统将自动分配，亦可在创建后再进行获取，在私有网络环境下，内网 IPv6 地址也可由用户自定义。
 
 #### 属性
 - IPv6 内网服务具有用户属性，不同用户间相互隔离，即默认无法经由 IPv6 内网访问另一个用户的云服务。
@@ -123,4 +122,3 @@ IP 地址分为两类：IPv4 地址和 IPv6 地址，IPv4 应用广泛，但网�
 - 如需快速搭建一个 IPv4 私有网络（VPC），请参见 [快速搭建 IPv4 私有网络](https://cloud.tencent.com/document/product/215/30716)。
 - 如需快速搭建一个 IPv6 私有网络（VPC），请参见[ 快速搭建 IPv6 私有网络](https://cloud.tencent.com/document/product/215/47557)。
 - 如需了解弹性公网 IP 相关内容，请参见 [弹性公网 IP](https://cloud.tencent.com/document/product/215/37567)。
-

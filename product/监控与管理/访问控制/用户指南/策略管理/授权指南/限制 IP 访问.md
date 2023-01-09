@@ -1,7 +1,9 @@
 ## 操作场景
 本文档介绍如何通过自定义策略限制子账号访问 IP，设置成功后，子账号将通过所设置的 IP 管理主账号下的资源，或者拒绝子账号通过设置的 IP 管理主账号下资源。
+
 ## 前提条件
 需要设置的产品支持按 IP 限制业务访问，详细可参考 [常见问题](https://cloud.tencent.com/document/product/598/18795#.E6.9C.89.E5.93.AA.E4.BA.9B.E4.BA.91.E6.9C.8D.E5.8A.A1.E6.94.AF.E6.8C.81.E9.99.90.E5.88.B6-ip-.E8.AE.BF.E9.97.AE.EF.BC.9F)。
+
 ## 操作步骤
 1. 进入 [策略](https://console.cloud.tencent.com/cam/policy) 管理页面，单击左上角的**新建自定义策略**。
 3. 在弹出的选择创建方式窗口中，单击**按策略生成器创建**，进入选择服务和操作页面。
@@ -14,7 +16,7 @@
 
 ## 使用示例
 以下示例表示用户必须在 10.217.182.3/24 或者 111.21.33.72/24 网段才能调用云 API 访问 cos:PutObject，如下图：
-![](https://main.qcloudimg.com/raw/80dae3b183a7682b60188d9ed8fae31e.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/52d1fc571eb7f0f6c67e10a123cccccc.png)
 
 策略语法如下：
 ```json

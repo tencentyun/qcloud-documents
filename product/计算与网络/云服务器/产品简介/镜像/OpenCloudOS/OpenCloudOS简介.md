@@ -7,21 +7,22 @@ OpenCloudOS 8.5是 OpenCloudOS 社区发布首个正式版本，其基础库和�
 OpenCloudOS 适用于云上绝大多数机型生产实例，包括云服务器，裸金属云服务器等。
 
 <dx-alert infotype="notice" title="">
-目前 OpenCloudOS 未预装 GPU驱动，若需在 GPU 实例上使用，则请手动安装 GPU 驱动。
+目前 OpenCloudOS 未预装 GPU 驱动，若需在 GPU 实例上使用，则请手动安装 GPU 驱动。
 </dx-alert>
 
 
 
 
 ## OpenCloudOS 镜像版本
-目前已支持在腾讯云上使用 OpenCloudOS 8.5版本镜像，该镜像与 CentOS 8用户态完全兼容，配套了基于社区5.4 LTS 的 OpenCLoudOS Kernel。
+目前已支持在腾讯云上使用 OpenCloudOS 8.5版本镜像，该镜像与 CentOS 8用户态完全兼容，配套了基于社区5.4 LTS 的 OpenCloudOS Kernel。
 
 
 ## OpenCloudOS 内核
 OpenCloudOS Kernel 为基于社区5.4 LTS 打造的稳定、高性能 kernel。包含社区最新关键特性，及针对不同业务场景做的针对性优化。在保证 kernel 稳定的同时，保持技术上不断的更新迭代。
 
 ## 使用 OpenCloudOS
-您可在创建实例，或重装已有实例操作系统时，选择公共镜像，并选择使用 OpenCloudOS 的相应版本。操作详情请参见  [创建实例](https://cloud.tencent.com/document/product/213/4855) 及 [重装系统](https://cloud.tencent.com/document/product/213/4933)。
+- 您可在创建实例，或重装已有实例操作系统时，选择公共镜像，并选择使用 OpenCloudOS 的相应版本。操作详情请参见  [创建实例](https://cloud.tencent.com/document/product/213/4855) 及 [重装系统](https://cloud.tencent.com/document/product/213/4933)。
+- 若您已有 CentOS 实例，也可参考 [CentOS 迁移 OpenCloudOS 指引](https://docs.opencloudos.org/guide/migrate/)，迁移至 OpenCloudOS。
 
 ## 获取 OpenCloudOS
 请前往 [OpenCloudOS 8.5](http://mirrors.tencent.com/opencloudos/8.5/isos/) 获取 OpenCloudOS。

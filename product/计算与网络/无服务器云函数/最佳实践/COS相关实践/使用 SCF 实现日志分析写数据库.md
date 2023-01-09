@@ -33,7 +33,7 @@
  - **创建方式**：选择**模板创建**。
  - **模糊搜索**：输入“日志分析写数据库”，并进行搜索。
 单击模板中的**查看详情**，即可在弹出的“模板详情”窗口中查看相关信息，支持下载操作。
-![](https://main.qcloudimg.com/raw/2f8df5014e3d70d2911ffd83e3d4159a.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/f1260da67488f31ac4d3134d368f237c.png)
 4. 函数名称默认填充，可根据需要自行修改。按照引导配置环境变量、运行角色和私有网络：
 <dx-tabs>
 ::: 环境变量
@@ -101,7 +101,7 @@
 1. 下载 [测试样例](https://main.qcloudimg.com/raw/6e0d4837eefd0ce77dac8a3973acdf39.zip) 中的日志文件，并解压出 demo-scf1.txt。
 2. 切换至 [对象存储控制台](https://console.cloud.tencent.com/cos/bucket)，选择创建好的存储桶 loganalysis，单击**上传文件**。
 3. 在弹出的“上传文件”窗口中，选择下载好的 demo-scf1.txt，单击**确定上传**。
-4. 切换至 [云函数控制台](https://console.cloud.tencent.com/scf/list?rid=8&ns=default)，查看执行结果。
+4. 切换至 [Serverless 控制台](https://console.cloud.tencent.com/scf/list?rid=8&ns=default)，查看执行结果。
 在函数详情页面中选择**日志查询**页签，可以看到打印出的日志信息。如下图所示： 
 ![](https://main.qcloudimg.com/raw/b4d8dd0a4a236ab4cb35f2e7d3160649.png)
 5. 切换至 MySQL 管理界面，查看数据库中的分析结果。

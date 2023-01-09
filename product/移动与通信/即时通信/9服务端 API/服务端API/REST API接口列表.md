@@ -9,7 +9,7 @@
 | 导入多个帐号 | [v4/im_open_login_svc/multiaccount_import](https://cloud.tencent.com/document/product/269/4919) |
 | 删除帐号  | [v4/im_open_login_svc/account_delete](https://cloud.tencent.com/document/product/269/36443) |
 | 查询帐号  | [v4/im_open_login_svc/account_check](https://cloud.tencent.com/document/product/269/38417)  | 
-| 失效帐号登录态  | [v4/im_open_login_svc/kick](https://cloud.tencent.com/document/product/269/3853) |
+| 失效帐号登录状态  | [v4/im_open_login_svc/kick](https://cloud.tencent.com/document/product/269/3853) |
 | 查询帐号在线状态 | [ v4/openim/query_online_status](https://cloud.tencent.com/document/product/269/2566) |
 
 ## 单聊消息
@@ -89,7 +89,7 @@
 | 获取用户所加入的群组   | [v4/group_open_http_svc/get_joined_group_list](https://cloud.tencent.com/document/product/269/1625) |
 | 查询用户在群组中的身份 | [v4/group_open_http_svc/get_role_in_group](https://cloud.tencent.com/document/product/269/1626) |
 | 批量禁言和取消禁言     | [v4/group_open_http_svc/forbid_send_msg](https://cloud.tencent.com/document/product/269/1627) |
-| 获取被禁言群成员列表 | [v4/group_open_http_svc/get_group_shutted_uin](https://cloud.tencent.com/document/product/269/2925) |
+| 获取被禁言群成员列表 | [v4/group_open_http_svc/get_group_muted_account](https://cloud.tencent.com/document/product/269/2925) |
 | 在群组中发送普通消息   | [v4/group_open_http_svc/send_group_msg](https://cloud.tencent.com/document/product/269/1629) |
 | 在群组中发送系统通知   | [v4/group_open_http_svc/send_group_system_notification](https://cloud.tencent.com/document/product/269/1630) |
 | 撤回群消息           | [v4/group_open_http_svc/group_msg_recall](https://cloud.tencent.com/document/product/269/12341) |
@@ -102,10 +102,14 @@
 | 拉取群历史消息         | [v4/group_open_http_svc/group_msg_get_simple](https://cloud.tencent.com/document/product/269/2738) |
 |获取直播群在线人数|[v4/group_open_http_svc/get_online_member_num](https://cloud.tencent.com/document/product/269/49180)|
 |获取群自定义属性|[v4/group_open_attr_http_svc/get_group_attr](https://cloud.tencent.com/document/product/269/67012)|
+|获取封禁群成员列表|[v4/group_open_http_svc/get_group_ban_member](https://cloud.tencent.com/document/product/269/79248)|
+|群成员封禁|[v4/group_open_http_svc/ban_group_member](https://cloud.tencent.com/document/product/269/79249)|
+|群成员解封|[v4/group_open_http_svc/unban_group_member](https://cloud.tencent.com/document/product/269/79250)|
 |修改群自定义属性|[v4/group_open_http_svc/modify_group_attr](https://cloud.tencent.com/document/product/269/67010)|
 |清空群自定义属性|	[v4/group_open_http_svc/clear_group_attr](https://cloud.tencent.com/document/product/269/67009)|
 |重置群自定义属性|[v4/group_open_http_svc/set_group_attr](https://cloud.tencent.com/document/product/269/67011)|
 |修改群聊历史消息|[v4/openim/modify_group_msg](https://cloud.tencent.com/document/product/269/74741)|
+|直播群广播消息|[v4/group_open_http_svc/send_broadcast_msg](https://cloud.tencent.com/document/product/269/77402)|
 
 ## 全局禁言管理
 | 功能说明 |接口 |

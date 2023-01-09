@@ -6,7 +6,6 @@
 您可以参考 [访问管理-主账号访问密钥管理](https://cloud.tencent.com/document/product/598/40488) 和 [访问管理-子账号访问密钥管理](https://cloud.tencent.com/document/product/598/37140) 文档，配置、管理 API 访问密钥。
 >!您的 API 密钥代表您的账号身份和所拥有的权限，**等同于登录密码**，切勿泄露他人。
 
-
 ## 步骤3：授权子用户/协作者
 
 ### 内容安全产品授权
@@ -48,7 +47,7 @@ CAM 可以为子用户/协作者赋予特定内容安全服务的访问权限，
 <td>全读写访问权限</td>
 </tr>
 <tr>
-<td>QcloudIMSFullAccess</td>
+<td>QcloudIMSReadOnlyAccess</td>
 <td>只读访问权限</td>
 </tr>
 <tr>

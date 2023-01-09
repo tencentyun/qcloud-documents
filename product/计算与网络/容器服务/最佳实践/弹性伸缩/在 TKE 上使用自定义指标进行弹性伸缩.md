@@ -68,8 +68,8 @@ func main() {
 
 
 ### 部署业务程序
+将前面的程序打包成容器镜像，然后部署到集群，例如使用 Deployment 部署:
 
-通过使用 Deployment 部署，将业务程序进行容器化并部署到 TKE 集群。示例如下：
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
@@ -88,7 +88,7 @@ spec:
     spec:
       containers:
       - name: httpserver
-        image: imroc.tencentcloudcr.com/test/httpserver:v1
+        image: registry.imroc.cc/test/httpserver:custom-metrics
         imagePullPolicy: Always
 
 ---

@@ -45,7 +45,7 @@ umount /data
 ```
 2. 执行以下命令，下载工具。
 ```shellsession
-wget -O /tmp/devresize.py https://tencentcloud.coding.net/p/tencentcloud/d/tencentcloud-cbs-tools/git/raw/master/devresize/devresize.py?download=true
+wget -O /tmp/devresize.py https://raw.githubusercontent.com/tencentyun/tencentcloud-cbs-tools/master/devresize/devresize.py
 ```
 3. 执行以下命令，使用扩容工具进行扩容。
 ```shellsession
@@ -196,7 +196,7 @@ mount <新分区路径> <新挂载点>
 ```
 本文以新分区路径 `/dev/vdb2`，新挂载点 `/data1` 为例，则执行：
 ```shellsession
-mount /dev/vdb1 /data2
+mount /dev/vdb2 /data1
 ```
 9. 执行以下命令，查看新分区信息。
 ```shellsession

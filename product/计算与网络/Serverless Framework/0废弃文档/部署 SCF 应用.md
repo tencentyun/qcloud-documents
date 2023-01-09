@@ -1,10 +1,10 @@
 ## 操作场景
-**腾讯云 SCF 云函数组件**通过使用 [Tencent Serverless Framework](https://github.com/serverless/components/tree/cloud)，基于云上 Serverless 服务（云函数及触发器等），实现“0”配置，便捷开发，极速部署您的第一个云函数，该组件支持丰富的配置扩展，提供了目前最易用、低成本并且弹性伸缩的云函数的开发、配置及部署能力。
+**腾讯云 SCF 云函数组件**通过使用 [Tencent Serverless Cloud Framework](https://github.com/serverless/components/tree/cloud)，基于云上 Serverless 服务（云函数及触发器等），实现“0”配置，便捷开发，极速部署您的第一个云函数，该组件支持丰富的配置扩展，提供了目前最易用、低成本并且弹性伸缩的云函数的开发、配置及部署能力。
 
 SCF 组件特性介绍：
 
 - **按需付费**：按照请求的使用量进行收费，没有请求时无需付费。
-- **"0"配置**：只需要关心项目代码，之后部署即可，Serverless Framework 会搞定所有配置。
+- **"0"配置**：只需要关心项目代码，之后部署即可，Serverless Cloud Framework 会搞定所有配置。
 - **极速部署**：仅需几秒，部署您的整个云函数应用。
 - **实时日志**：通过实时日志的输出查看业务状态，便于直接在云端开发应用。
 - **云端调试**：针对 Node.js 框架支持一键云端调试能力，屏蔽本地环境的差异。
@@ -13,7 +13,7 @@ SCF 组件特性介绍：
 ## 操作步骤
 #### 1. 安装
 
-通过 npm 安装最新版本的 Serverless Framework：
+通过 npm 安装最新版本的 Serverless Cloud Framework：
 ```
 $ npm install -g serverless
 ```
@@ -40,7 +40,7 @@ $ cd scf-demo
 
 #### 3. 部署
 
-在`serverless.yml`文件下的目录中运行`serverless deploy`进行云函数的部署部署完毕后，您可以在命令行的输出中查看到对应云函数的网关触发器提供的 URL 地址，点击地址即可查看云函数的部署效果。
+在`serverless.yml`文件下的目录中运行`serverless-cloud-framework deploy`进行云函数的部署部署完毕后，您可以在命令行的输出中查看到对应云函数的网关触发器提供的 URL 地址，点击地址即可查看云函数的部署效果。
 
 如您的账号未 [登录](https://cloud.tencent.com/login) 或 [注册](https://cloud.tencent.com/register) 腾讯云，您可以直接通过**微信**扫描命令行中的二维码进行授权登录和注册。
 
@@ -49,41 +49,7 @@ $ cd scf-demo
 
 #### 4. 配置
 
-腾讯云 SCF 组件支持“0”配置部署，也就是可以直接通过配置文件中的默认值进行部署。但您依然可以修改更多可选配置来进一步开发该项目。
-
-以下是腾讯云 SCF 组件的`serverless.yml`完整配置说明：
-
-```yml
-# serverless.yml
-
-component: scf # (必填) 引用 component 的名称，当前用到的是 tencent-scf 组件
-name: scfdemo # (必填) 该组件创建的实例名称
-org: test # (可选) 用于记录组织信息，默认值为您的腾讯云账户 appid
-app: scfApp # (可选) 该 SCF 应用名称
-stage: dev # (可选) 用于区分环境信息，默认值是 dev
-
-inputs:
-  name: scfFunctionName
-  src: ./src
-  runtime: Nodejs10.15 # 云函数的运行时环境。除 Nodejs10.15 外，可选值为：Python2.7、Python3.6、Nodejs6.10、Nodejs8.9、PHP5、PHP7、Golang1、Java8。
-  region: ap-guangzhou
-  handler: index.main_handler
-  events:
-    - apigw:
-        name: serverless_api
-        parameters:
-          protocols:
-            - http
-            - https
-          serviceName:
-          description: The service of Serverless Framework
-          environment: release
-          endpoints:
-            - path: /index
-              method: GET
-```
-
-查看 [全量配置及配置说明 >>](https://github.com/serverless-components/tencent-scf/blob/master/docs/configure.md)
+腾讯云 SCF 组件支持“0”配置部署，也就是可以直接通过配置文件中的默认值进行部署。但您依然可以修改更多可选配置来进一步开发该项目。腾讯云 SCF 组件的`serverless.yml`完整配置说明请参考 [全量配置及配置说明](https://github.com/serverless-components/tencent-scf/blob/master/docs/configure.md)。
 
 当您根据该配置文件更新配置字段后，再次运行 `serverless deploy` 或者 `serverless` 就可以更新配置到云端。
 

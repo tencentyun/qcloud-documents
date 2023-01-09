@@ -28,28 +28,31 @@ API 网关提供 JSON 请求方式和 form 请求方式的示例代码，请您�
 const https = require('https')
 const crypto = require('crypto')
 
+
 // 应用 ApiAppKey
-const apiAppKey = 'APIDLIA6tMfqsinsadaaaaaaaapHLkQ1z0kO5n5P'
+const apiAppKey = ''
 // 应用 ApiAppSecret
-const apiAppSecret = 'Dc44ACV2Da3Gm9JVaaaaaaaaumYRI4CZfVG8Qiuv'
+const apiAppSecret = ''
 
 const dateTime = new Date().toUTCString()
 const body = {
-  arg1: 'a',
-  arg2: 'b',
+  data: '中文'
 }
-const md5 = crypto.createHash('md5').update(JSON.stringify(body), 'utf8').digest('hex')
+
+const bodyStr = JSON.stringify(body)
+const md5 = crypto.createHash('md5').update(bodyStr, 'utf8').digest('hex')
 const contentMD5 = Buffer.from(md5).toString('base64')
+
 const options = {
-  hostname: 'service-xxxxxxxx-1234567890.gz.apigw.tencentcs.com',
+  hostname: 'service-e1a368l4-1253970226.cq.apigw.tencentcs.com',
   port: 443,
-  path: '/data',
+  path: '/app_auth',
   method: 'POST',
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json',
     'Content-MD5': contentMD5,
-    'Content-Length': JSON.stringify(body).length,
+    'Content-Length': Buffer.byteLength(bodyStr),
     'x-date': dateTime,
   },
 }
@@ -75,8 +78,9 @@ const req = https.request(options, (res) => {
 req.on('error', (error) => {
   console.error(error)
 })
-req.write(JSON.stringify(body))
+req.write(bodyStr)
 req.end()
+
 :::
 </dx-codeblock>
 

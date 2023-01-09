@@ -16,13 +16,13 @@
 等待攻击结束后进行自助解封或者自动解封。
 
 ## 处理步骤
-1. 登录 [DDoS 防护管理控制台](https://console.cloud.tencent.com/ddos/unblock/list)，在左侧导航中，选择**自助解封**页面，查看自助解封剩余次数。
+1. 登录 [DDoS 防护管理控制台](https://console.cloud.tencent.com/ddos/dashboard/overview)，在左侧导航中，选择**自助解封**页面，查看自助解封剩余次数。
     - 若自助解封剩余次数为0，则跳转到 [步骤5](#step5)，或等待自动解封。
     - 若自助解封剩余次数不为0，则跳转到 [步骤2](#step2)。
 >?自动解封时间，请参考控制台 [解封操作](https://console.cloud.tencent.com/ddos/unblock/list) 页面的“预计解封时间”项。
 >
 ![](https://main.qcloudimg.com/raw/0940057005414cb6849468cce70acf18.png)
-2. [](id:step2)查看攻击是否已停止，请单击 [防护概览](https://console.cloud.tencent.com/ddos/antiddos-native/overview/ddos) 查看。
+2. [](id:step2)查看攻击是否已停止，请单击 [防护概览](https://console.cloud.tencent.com/ddos/dashboard/overview) 查看。
    - 若是，则跳转到 [步骤3](#step3)。
    - 若否，待攻击停止时，继续执行解封操作，执行 [步骤3](#step3)。
 >?攻击如果持续进行未停止，则无法进行解封，需等待攻击结束自助解封或自动解封。

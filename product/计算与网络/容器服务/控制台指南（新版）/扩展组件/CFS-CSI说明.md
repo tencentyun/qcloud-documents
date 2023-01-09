@@ -1,7 +1,7 @@
 
 ## 简介 
 ### 组件介绍
-Kubernetes-csi-tencentloud CFS 插件实现 CSI 的接口，可帮助您在容器集群中使用腾讯云文件存储。
+Kubernetes-csi-tencentcloud CFS 插件实现 CSI 的接口，可帮助您在容器集群中使用腾讯云文件存储。
 
 > ! 1.12 集群需要修改 kubelet 配置，增加 `\--feature-gates=KubeletPluginsWatcher=false\`。
 
@@ -25,7 +25,7 @@ CFS 接入简单，您无需调节自身业务结构，或者是进行复杂的�
 ## 操作步骤
 ### 安装并设置 CFS 扩展组件
 
-1. 登录 [容器服务控制台 ](https://console.qcloud.com/tke2)，在左侧导航栏中选择**集群**。
+1. 登录 [容器服务控制台](https://console.qcloud.com/tke2)，在左侧导航栏中选择**集群**。
 2. 在“集群管理”页面单击目标集群 ID，进入集群详情页。
 3. 选择左侧菜单栏中的**组件管理**，进入 “组件列表” 页面。
 4. 在“组件列表”页面中选择**新建**，并在“新建组件”页面中勾选 CFS。

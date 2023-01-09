@@ -14,10 +14,10 @@
 3. 单击**创建日志主题**，在弹出的创建日志集窗口中，填写相关信息：
   - 日志主题名称：例如 project_test
   - 日志集名称：例如 nginx
-![](https://main.qcloudimg.com/raw/6e2ff86cd07c0e132bee42850dfa678f.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/b26be5acc54a7b89e6786b9c8304552e.png)
 4. 单击**确定**，即可创建日志集和主题。
 5. 日志主题新增成功，将进入日志主题管理页，如下图所示： 
-   ![](https://main.qcloudimg.com/raw/14416fdbda5ac39e4a650d1e37a5118c.png)
+   ![](https://qcloudimg.tencent-cloud.cn/raw/3d771923e98dbf5f67298dbef727b9f7.png)
 
 
 
@@ -32,7 +32,7 @@
  - **创建方式**：选择**模板函数**。
  - **模糊搜索**：输入“CLS数据转存到CKAFKA”，并进行搜索。
 3. 单击模板中的**查看详情**，即可在弹出的“模板详情”窗口中查看相关信息，支持下载操作。
-<img src="https://main.qcloudimg.com/raw/5abe24345c11c2d76a8509dfbd633fdd.png" width="100%"></img>
+![](https://qcloudimg.tencent-cloud.cn/raw/ff631be2e26ec033d7b75c21749ea357.png)
 4. 基本信息配置完成之后，单击**下一步**，进入函数配置页面。
 5. 函数配置保持默认配置，单击**完成**，完成函数的创建。
 >!  函数需要在**函数配置**页面中，选择和 Ckafka 相同的 VPC 和子网。如下图所示： 
@@ -56,7 +56,7 @@
 
 ### 测试函数功能
 1. 下载 [测试样例](https://main.qcloudimg.com/raw/6e0d4837eefd0ce77dac8a3973acdf39.zip) 中的日志文件，并解压出 demo-scf1.txt，导入至源端 CLS 服务。
-2. 切换至 [云函数控制台](https://console.cloud.tencent.com/scf/list?rid=8&ns=default)，查看执行结果。
+2. 切换至 [Serverless 控制台](https://console.cloud.tencent.com/scf/list?rid=8&ns=default)，查看执行结果。
 在函数详情页面中选择**日志查询**页签，可以看到打印出的日志信息。如下图所示： 
 ![](https://main.qcloudimg.com/raw/b4d8dd0a4a236ab4cb35f2e7d3160649.png)
 3. 切换至 [Ckafka 控制台](https://console.cloud.tencent.com/ckafka)，查看数据转储及加工结果。

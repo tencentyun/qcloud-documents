@@ -35,3 +35,6 @@
 2. 公共参数 Region 决定的是要访问业务资源所在区，例如 Region=ap-beijing 就是要操作北京区的资源。
    如果域名中不指定地域信息则是就近接入 。就近接入可能会存在问题。如果解析不到 IP 会默认到广州地域里面。另外域名地域和公共参数 Region 可以不一致 但是可能会增加耗时。建议客户域名和公共参数 Region 选择相同的地域。
    (建议域名和公共参数 Region 统一使用 ap-guangzhou )
+<br>
+<br>
+<p align="right"><strong>问题没有解决，到 <a href="https://aistudio.cloud.tencent.com/faq"> AI Studio 技术答疑专题</a> 看看？</strong></p>

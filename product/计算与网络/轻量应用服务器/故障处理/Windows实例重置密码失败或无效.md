@@ -9,11 +9,11 @@
 导致重置实例密码失败或者不生效的可能原因如下：
 - 轻量应用服务器中的 `cloudbase-init` 组件损坏、被修改、禁止或者未启动。
 - 轻量应用服务器上安装了例如360安全卫士或火绒等第三方安全软件，则有可能因第三方安全软件拦截了重置密码组件 `cloudbase-init`，导致重置实例密码失效。
-
+- 轻量应用服务器入侵被加密导致密码不生效，建议备份好数据，进行重装系统。
 
 ## 处理步骤
 
-根据引起密码重置不成功的可能原因，提供以下两种检查方式：
+- 根据引起密码重置不成功的可能原因，提供以下两种检查方式：
 
 ### 检查 cloudbase-init 服务
 
@@ -38,6 +38,7 @@
 8. 在操作系统界面，右键单击 <img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin: -3px 0px;"></img>，在弹出的菜单中选择**运行**。
 9. 在“运行”窗口中输入 **regedit**，并按 **Enter** 打开“注册表编辑器”窗口。
 9. 在“注册表编辑器”窗口左侧的注册表导航中，依次展开 **HKEY_LOCAL_MACHINE** > **SOFTWARE** > **Cloudbase Solutions** > **Cloudbase-Init** 目录。
+![](https://qcloudimg.tencent-cloud.cn/raw/0e840b213efeac583d803fe1a6f960e2.png)
 10. 找到并双击打开 **ins-xxx** 下的全部 “LocalScriptsPlugin” 注册表，并检查 LocalScriptsPlugin 的数值数据是否为2。如下图所示：
 ![](https://main.qcloudimg.com/raw/2394613b372459707e8209c38e2a4105.png)
  - 是，执行下一步。

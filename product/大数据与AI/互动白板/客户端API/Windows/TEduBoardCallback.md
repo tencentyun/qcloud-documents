@@ -592,3 +592,13 @@ virtual void onTEBBoardScrollChanged(const char * boardId, int trigger, double s
 | scrollTop | double | 顶部滚动百分比距离 |
 | scale | int | 白板缩放比 |
 
+### onTEBElementsPositionChange
+框选工具选中元素回调 
+``` C++
+virtual void onTEBElementsPositionChange(const TEduBoardSelectedElementInfoList &selElementList)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| selElementList | const TEduBoardSelectedElementInfoList & | 选中的元素列表 ID  |

@@ -1,4 +1,7 @@
-该创建一个由类名实现的函数。
+## 说明
+支持内核：Presto、SparkSQL。
+用途：创建一个由类名实现的函数。
+
 ## 语法
 ```
 CREATE  FUNCTION [db_name.]function_name AS class_name
@@ -12,8 +15,6 @@ CREATE  FUNCTION [db_name.]function_name AS class_name
 ## 示例
 ```
 CREATE FUNCTION `MYFUNC` AS 'myclass' USING JAR 'hdfs:///path/to/jar'
-```
 
-```
 CREATE FUNCTION `MYFUNC` AS 'myclass' USING "JAR 'hdfs:///path/to/jar', FILE 'file:///usr/local/'
 ```

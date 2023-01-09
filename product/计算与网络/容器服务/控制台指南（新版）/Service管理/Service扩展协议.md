@@ -3,7 +3,7 @@
  Service 是 Kubernetes 暴露应用程序到集群外的一种机制与抽象，您可以通过 Serivce 访问集群内的应用程序。
 
 
-<dx-alert infotype="notice" title=" ">
+<dx-alert infotype="notice" title="">
 - 在 [直连场景](https://cloud.tencent.com/document/product/457/41897) 下接入，使用扩展协议时没有任何限制，支持 TCP 和 UDP 协议混用。
 - 非直连场景下，ClusterIP 和 NodePort 模式支持混用。但社区对 LoadBalance 类型的 Service 有限制，目前仅能使用同类型协议。
 - 当 LoadBalance 声明为 TCP 时，端口可以使用扩展协议的能力，将负载均衡的协议变更为 TCP_SSL、HTTP、HTTPS。
@@ -30,7 +30,7 @@
 
 
 ### 注解名称
-`service.cloud.tencent.com/specify-protocol`
+**service.cloud.tencent.com/specify-protocol**
 
 ### 扩展协议注解示例
 
@@ -60,14 +60,14 @@
 ::: TCP/UDP混合示例
 <dx-codeblock>
 ::: xml 
-{"80":{"protocol":["TCP","UDP"]}} # 仅[直连模式](https://cloud.tencent.com/document/product/457/41897)支持
+{"80":{"protocol":["TCP","UDP"]}} # 仅直连模式支持，详情见https://cloud.tencent.com/document/product/457/41897 
 :::
 </dx-codeblock>
 :::
 ::: 混合示例
 <dx-codeblock>
 ::: xml 
- {"80":{"protocol":["TCP_SSL","UDP"],"tls":"cert-secret"}} # 仅[直连模式](https://cloud.tencent.com/document/product/457/41897)支持
+ {"80":{"protocol":["TCP_SSL","UDP"],"tls":"cert-secret"}} # 仅直连模式支持，详情见https://cloud.tencent.com/document/product/457/41897 
 :::
 </dx-codeblock>
 :::
@@ -83,9 +83,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-    annotations:  
-      service.cloud.tencent.com/specify-protocol: '{"80":{"protocol":["TCP_SSL"],"tls":"cert-secret"}}' # 若要使用别的协议，修改该键值对的值为上述内容
-    name: test
+  annotations:  
+    service.cloud.tencent.com/specify-protocol: '{"80":{"protocol":["TCP_SSL"],"tls":"cert-secret"}}' # 若要使用别的协议，修改该键值对的值为上述内容
+  name: test
    ....
 ```
 :::
@@ -109,8 +109,8 @@ apiVersion: v1
 kind: Service
 metadata:
   annotations:
-      service.cloud.tencent.com/direct-access: "true"  #EKS 集群默认是直连模式，TKE 集群请务必先参照文档开启直连模式。
-      service.cloud.tencent.com/specify-protocol: '{"80":{"protocol":["TCP"]},"8080":{"protocol":["UDP"]}}'   # 指定 80 端口 TCP 协议，8080 端口 UDP 协议。
+    service.cloud.tencent.com/direct-access: "true"  #TKE Serverless 集群默认是直连模式，TKE 集群请务必先参照文档开启直连模式。
+    service.cloud.tencent.com/specify-protocol: '{"80":{"protocol":["TCP"]},"8080":{"protocol":["UDP"]}}'   # 指定 80 端口 TCP 协议，8080 端口 UDP 协议。
   name: nginx
 spec:
   externalTrafficPolicy: Cluster

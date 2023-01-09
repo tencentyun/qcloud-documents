@@ -10,9 +10,7 @@ JDBC-PG Connector 提供了对 CDW PostgreSQL 数据库写支持。
 | 1.14       | 不支持     |
 
 ## 使用范围
-
 支持用作数据目的表（sink），用于 Tuple 数据流表和用于 Upsert 数据流表（需要指定主键）。
->! 不能与 jdbc connector 共用。
 
 ## DDL 定义
 ### 用作数据目的（Tuple Sink）
@@ -56,7 +54,7 @@ CREATE TABLE `jdbc_upsert_sink_table` (
 
 | 参数值                     | 必填 | 默认值 | 描述                                                         |
 | -------------------------- | ---- | ------ | ------------------------------------------------------------ |
-| connector                  | 是   | 无     | 连接数据库时，需要填写 `'jdbc'`。                            |
+| connector                  | 是   | 无     | 连接数据库时，需要填写 `'jdbcPG'`。                            |
 | url                        | 是   | 无     | JDBC 数据库的连接 URL。                                      |
 | table-name                 | 是   | 无     | 数据库表名。                                                 |
 | driver                     | 否   | 无     | JDBC Driver 的类名。如果不输入，则自动从 url 中推断。        |
@@ -73,6 +71,8 @@ CREATE TABLE `jdbc_upsert_sink_table` (
 | sink.buffer-flush.max-rows | 否   | 100    | 批量输出时，缓存中最多缓存多少数据。如果设置为0，表示禁止输出缓存。 |
 | sink.buffer-flush.interval | 否   | 1s     | 批量输出时，每批次最大的间隔（毫秒）。**如果 `'sink.buffer-flush.max-rows'` 设为 `'0'`，而这个选项不为零，则说明启用纯异步输出功能，即数据输出到算子、从算子最终写入数据库这两部分线程完全解耦。** |
 | sink.max-retries           | 否   | 3      | 数据库写入失败时，最多重试的次数。                           |
+|write-mode	|否	|insert	|以 copy 模式写入，可选 insert/copy|
+|copy-delimiter	|否 |	&#x399	|copy 模式下面，字段分割符|
 
 ## 代码示例
 ```
@@ -126,5 +126,5 @@ INSERT INTO jdbc_upsert_sink_table select * from mysql_cdc_source_table;
 通过设置 sink.buffer-flush 开头的两个参数，可以实现批量写入数据库。建议配合相应底层数据库的参数，以达到更好的批量写入效果，否则底层仍然会一条一条写入，效率不高。
 - 对于 PostgreSQL，建议在 url 连接参数后加入 reWriteBatchedInserts=true 参数。
 ```
-jdbc:postgresql://10.1.28.93:3306/PG?reWriteBatchedInserts=true&?currentSchema=数据库的Schema
+jdbc:postgresql://10.1.28.93:3306/PG?reWriteBatchedInserts=true&currentSchema=数据库的Schema
 ```

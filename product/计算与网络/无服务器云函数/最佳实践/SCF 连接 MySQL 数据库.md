@@ -35,7 +35,7 @@
 ### 使用 SDK 连接数据库[](id:SDK)
 
 #### 配置环境变量和私有网络
-1. 登录 [云函数控制台](https://console.cloud.tencent.com/scf)，单击左侧导航栏中的**函数服务**。
+1. 登录 [Serverless 控制台](https://console.cloud.tencent.com/scf)，单击左侧导航栏中的**函数服务**。
 2. 单击需连接数据库的函数名，进入该函数的“函数配置”页面，参考以下信息进行配置。
  - 新增**环境变量**，并参考以下表格填写。如下图所示： 
 ![](https://main.qcloudimg.com/raw/94a17932ae2a1968d6ab19be4aa3fb91.png)
@@ -244,7 +244,7 @@ public class Http {
 
 ### 使用 SCF DB SDK for MySQL 连接数据库[](id:SCFSDK)
 为了方便使用，云函数团队将 Node.js 和 Python 连接池最佳实践封装成了 SCF DB SDK for MySQL，请参考 [依赖安装](https://cloud.tencent.com/document/product/583/39780) 进行安装使用。支持 MySQL，CynosDB 及 TDSQL 三种 MySQL 协议的数据库。
->!SCF DB SDK 主要支持 MySQL 协议的数据库，如果您需使用腾讯云 Serverless DB（支持 PostgreSQL 及 NoSQL），推荐使用 [Serverless Framework 组件](https://cloud.tencent.com/document/product/583/45363)。
+>!SCF DB SDK 主要支持 MySQL 协议的数据库，如果您需使用腾讯云 Serverless DB（支持 PostgreSQL 及 NoSQL），推荐使用 [Serverless Cloud Framework 组件](https://cloud.tencent.com/document/product/583/45363)。
 
 SCF DB SDK for MySQL 具备以下特点：
 - 自动从环境变量初始化数据库客户端。
@@ -252,7 +252,7 @@ SCF DB SDK for MySQL 具备以下特点：
 - 云函数团队会持续关注 issue，确保获得连接即可用，不需要关注数据库连接。
 
 #### 配置环境变量和私有网络
-1. 登录 [云函数控制台](https://console.cloud.tencent.com/scf)，单击左侧导航栏中的**函数服务**。
+1. 登录 [Serverless 控制台](https://console.cloud.tencent.com/scf)，单击左侧导航栏中的**函数服务**。
 2. 单击需连接数据库的函数 ID，进入该函数的“函数配置”页面，参考以下信息进行配置。
  - 新增**环境变量**，请参考以下表格填写，如下图所示： 
 ![](https://main.qcloudimg.com/raw/46c8b2aab4d4463dd16e1e063b318e36.png)

@@ -77,7 +77,7 @@ Ledger 和 entry 分别对应不同的元数据。
 
 ![](https://main.qcloudimg.com/raw/0fe7cafe153a9042051a712f0437fc26.png)
 
-如上图所示，ledger 选用了4个 bookie 节点（bookie1-4 这4个节点），每次写入3个节点，当收到2个写入确认即代表消息存储成功。当前 ledger 选中的 ensemble 从 entry 1开始，使用 bookie1、bookie2、bookie3 进行写入，写入 entry 2的时候选用 bookie2、bookie3、bookie4写入，而 entry 3 则会根据计算结果，写入 bookie3、bookie4、bookie1。
+如上图所示，ledger 选用了4个 bookie 节点（bookie1-4 这4个节点），每次写入3个节点，当收到2个写入确认即代表消息存储成功。当前 ledger 选中的 ensemble 从 entry 1开始，使用 bookie1、bookie2、bookie3 进行写入，写入 entry 2的时候选用 bookie2、bookie3、bookie4 写入，而 entry 3 则会根据计算结果，写入 bookie3、bookie4、bookie1。
 
 
 

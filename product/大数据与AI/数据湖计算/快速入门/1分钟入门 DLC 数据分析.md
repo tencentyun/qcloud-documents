@@ -10,12 +10,18 @@
 >? 系统会默认为每个用户开通基于 presto 内核的共享 public-engine，方便您可以快速试用，无需先购买独享集群。
 
 详细权限授予步骤参见 [子账号权限管理](https://cloud.tencent.com/document/product/1342/61976)。
+### 配置查询结果路径
+首次使用 DLC，需要先配置查询结果路径，配置完毕后，查询结果会保存到该 COS 路径下。
+1. 登录 [数据湖计算 DLC 控制台](https://console.cloud.tencent.com/dlc)，选择**服务地域**。
+2. 左侧导航菜单进入**数据探索**。
+3. 在**库表**页面下，单击**配置查询结果路径**，指定存储的 COS 路径。如果您的账号中没有可用的 COS 存储桶，可通过 [对象存储控制台](https://console.cloud.tencent.com/cos) 创建。
+![](https://qcloudimg.tencent-cloud.cn/raw/a2a794a7a8a9eba82f54d78b53362c21.png)
 
 ## 分析步骤
 ### 步骤1：创建数据库
 如果您对 SQL 语句熟悉，可直接在查询中编写 create database 语句，跳过创建向导。
 1. 登录 [数据湖计算 DLC 控制台](https://console.cloud.tencent.com/dlc)，选择**服务地域**。
-2. 左侧导航菜进入**数据探索**。
+2. 左侧导航菜单进入**数据探索**。
 3. 选择**库表**，单击“+”，选择**创建数据库**进行数据库新建。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/dd7c1a210e5a81a31dbd3cb54401efed.png)
 4. 右上角选择执行引擎后，执行生成的 create database 语句，完成建库。
@@ -25,7 +31,7 @@
 ### 步骤2：创建外表
 如果您对 SQL 语句熟悉，可直接在查询中编写 create table 语句，跳过创建向导。
 1. 登录[ 数据湖计算 DLC 控制台](https://console.cloud.tencent.com/dlc)，选择服务地域。
-2. 左侧导航菜进入**数据探索**。
+2. 左侧导航菜单进入**数据探索**。
 3. 选择库表，选中当前创建的表后，右键单击，选择**创建外表向导**。
 
 >? 外表一般指数据文件放到您自己账号下的 COS 桶，DLC 可以直接建立外表进行分析，无需额外加载数据。基于外表的特性，例如在执行 drop table 等动作时，DLC 并不会删除您的原始数据，只会删除 table 的元信息。
@@ -46,7 +52,7 @@
 ![](https://qcloudimg.tencent-cloud.cn/raw/594e37c741e8501706147ccae3a9c98e.png)
 
 
-### 步骤4：执行 sql 分析
+### 步骤3：执行 sql 分析
 数据准备完备后，您就可以开始书写 SQL 分析语句，选择合适的计算引擎，开始数据分析。
 ![](https://qcloudimg.tencent-cloud.cn/raw/433b56e9351557cb25fd1e23cb8e2d4a.png)
 
@@ -58,9 +64,3 @@ select * from `DataLakeCatalog`.`demo2`.`demo_audit_table` where _c5 = 'S
 ```
 执行结果如下：
 ![](https://qcloudimg.tencent-cloud.cn/raw/ab60c721a3660daf3e9369b9ac673bd4.png)
-
-
-
-
-
-

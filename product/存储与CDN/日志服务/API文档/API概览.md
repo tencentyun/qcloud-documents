@@ -1,3 +1,25 @@
+>! 
+> - 本文档中 API 为日志服务旧版本 API，已不再更新，日志服务新增功能均不支持旧版本 API，强烈建议您使用 [日志服务 API 3.0](https://cloud.tencent.com/document/product/614/56480)。
+> - 创建日志主题、修改索引配置等管理类操作，请直接使用 [日志服务 API 3.0](https://cloud.tencent.com/document/product/614/56480)。日志采集可使用专为日志采集优化过的 [SDK](https://cloud.tencent.com/document/product/614/67157)。
+
+## API 升级指引
+常用旧版本 API 可按下表升级为新版本 API（日志服务 API3.0）:
+
+| 旧：日志服务 API 2017 | API 文档链接                                                  | 新：日志服务API 3.0       | API 文档链接                                                  |
+| --------------------- | ------------------------------------------------------------ | ------------------------- | ------------------------------------------------------------ |
+| /topic                | [获取日志主题信息](https://cloud.tencent.com/document/product/614/16887)<br />[修改日志主题](https://cloud.tencent.com/document/product/614/16884) | DescribeTopicsModifyTopic | [获取日志主题列表](https://cloud.tencent.com/document/product/614/56454)<br />[修改日志主题](https://cloud.tencent.com/document/product/614/56453) |
+| /searchlog            | [搜索日志](https://cloud.tencent.com/document/product/614/16875) | SearchLog                 | [检索分析日志](https://cloud.tencent.com/document/product/614/56447) |
+| /index                | [获取索引信息](https://cloud.tencent.com/document/product/614/16906)<br />[修改索引信息](https://cloud.tencent.com/document/product/614/16905) | DescribeIndexModifyIndex  | [获取索引配置信息](https://cloud.tencent.com/document/product/614/56443)<br />[修改索引](https://cloud.tencent.com/document/product/614/56442) |
+| /shipper              | [获取投递配置](https://cloud.tencent.com/document/product/614/16894) | DescribeShipperTasks      | [获取投递任务列表](https://cloud.tencent.com/document/product/614/58745) |
+| /pulllogs             | [消费数据](https://cloud.tencent.com/document/product/614/39246) | OpenKafkaConsumer         | [打开Kafka协议消费](https://cloud.tencent.com/document/product/614/72339) |
+| /consumergroups       | [获取消费组列表](https://cloud.tencent.com/document/product/614/39252) | OpenKafkaConsumer         | [打开Kafka协议消费](https://cloud.tencent.com/document/product/614/72339) |
+| /consumerheartbeat    | [消费者心跳](https://cloud.tencent.com/document/product/614/39250) | OpenKafkaConsumer         | [打开Kafka协议消费](https://cloud.tencent.com/document/product/614/72339) |
+| /cursor               | [获取消费游标](https://cloud.tencent.com/document/product/614/39245) | OpenKafkaConsumer         | [打开Kafka协议消费](https://cloud.tencent.com/document/product/614/72339) |
+| /consumergroupcursor  | [获取消费组游标](https://cloud.tencent.com/document/product/614/39249)<br />[修改消费组游标](https://cloud.tencent.com/document/product/614/39254) | OpenKafkaConsumer         | [打开Kafka协议消费](https://cloud.tencent.com/document/product/614/72339) |
+
+>?其中/pulllogs、/consumergroups、/consumerheartbeat、/cursor、/consumergroupcursor 接口为日志服务数据消费相关接口，该功能已升级为更加符合开源标准的 Kafka 协议消费功能，您可参照 [Kafka 协议消费](https://cloud.tencent.com/document/product/614/72651) 进行整体升级。
+
+
 
 ## 日志管理
 

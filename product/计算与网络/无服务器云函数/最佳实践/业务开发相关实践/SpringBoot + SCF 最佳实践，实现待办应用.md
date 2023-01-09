@@ -22,10 +22,10 @@ SCF 提供模板函数，按照如下流程操作可使用 Web 函数快速创�
 
 #### 创建函数[](id:createwebfunc)
 
-1.  登录 [云函数控制台](https://console.cloud.tencent.com/scf)。
+1.  登录 [Serverless 控制台](https://console.cloud.tencent.com/scf)。
 2.  在**函数服务页**中单击**新建**。
 3. 在**新建**页中，选择**模板创建**，并搜索关键词 `springboot`、`webfunc`。在查询结果中选择 **SpringBoot 待办应用**并单击**下一步**。如下图所示： 
-![](https://qcloudimg.tencent-cloud.cn/raw/2d969cfd33c1af14c8a4d913e758a079.png )
+![](https://qcloudimg.tencent-cloud.cn/raw/8375f087c62abcaeaec075eec1761055.png)
 4. 保持默认配置，单击**完成**，完成函数创建。
 
 
@@ -75,7 +75,7 @@ SCF 提供模板函数，按照如下流程操作可使用 Web 函数快速创�
 >! 在 scf_bootstrap 文件所在目录执行 `chmod 755 scf_bootstrap` 来保证 scf_bootstrap 文件具有可执行权限。
 
 -   将 `scf_bootstrap` 文件与生成的 jar 包一起打包为 zip 部署到云函数。部署函数步骤如下：
-    1. 登录 [云函数控制台](https://console.cloud.tencent.com/scf)。
+    1. 登录 [Serverless 控制台](https://console.cloud.tencent.com/scf)。
     2. 在**函数服务页**中单击**新建**。
     3. 在**新建**页中，选择**从头开始**。参考以下内容进行配置：
           **函数类型**：web 函数
@@ -83,7 +83,7 @@ SCF 提供模板函数，按照如下流程操作可使用 Web 函数快速创�
           **提交方法**：本地上传 zip 包
           **函数代码**：单击上传选择打包好的 zip 文件
     4. 其他保持默认配置，单击**完成**即可完成函数创建。如下图所示： 
-  ![](https://qcloudimg.tencent-cloud.cn/raw/a7d6a46da50b4b036052fbffbbdc3f64.png )
+  ![](https://qcloudimg.tencent-cloud.cn/raw/47435bf318b76ccd654d8c933283c18e.png)
 
 
 
@@ -96,7 +96,7 @@ SCF 提供模板函数，按照如下流程操作可使用事件函数快速创�
 >! 本模板仅作为示例提供，待办事项数据实际存储在实例缓存中，不作为持久化存储。
 
 #### 创建函数[](id:createnew)
-1.  登录 [云函数控制台](https://console.cloud.tencent.com/scf)。
+1.  登录 [Serverless 控制台](https://console.cloud.tencent.com/scf)。
 2.  在**函数服务页**中单击**新建**。
 3. 在**新建**页中，选择**模板创建**，并搜索关键词 `springboot`。在查询结果中选择 **SpringBoot** 并单击**下一步**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/65b09f8bb55d040c671e14f8181f4042.png )
@@ -107,16 +107,16 @@ SCF 提供模板函数，按照如下流程操作可使用事件函数快速创�
 >! 如果在创建函数过程中已经创建好 API 网关触发器，核对已有触发器与下文配置一致即可。
 
 1.  函数创建完成后，在**触发管理**页签，单击**创建触发器**。
- ![](https://qcloudimg.tencent-cloud.cn/raw/ca56ea1857c4d2cc9fc80b278850cf4f.png )
+ ![](https://qcloudimg.tencent-cloud.cn/raw/78981025e175e9e3da400976f4695f43.png)
 2.  在弹窗中进行触发器配置。参考以下内容进行选择，其余保持默认配置，单击**提交**。
  -   触发方式：API 网关触发
  -   集成响应：启用
 3.  创建完成后需要调整 API 网关触发器的参数，单击 **API 服务名**跳转到 API 网关控制台进行下一步操作。如下图所示： 
-![](https://qcloudimg.tencent-cloud.cn/raw/54306b91af946ec7fc47625ec2323630.png )
+![](https://qcloudimg.tencent-cloud.cn/raw/e6440035461b285ab268ed31b6310eb6.png)
 4.  在 API 网关控制台找到函数使用的 API，单击**编辑**。如下图所示： 
-![](https://qcloudimg.tencent-cloud.cn/raw/05698d7a681e6d031c1b72438cdc42fe.png )
+![](https://qcloudimg.tencent-cloud.cn/raw/292cb15221766fd686fb8be95262c39d.png)
 修改前端配置页面中的路径为 `/todos`，单击**立即完成**，并按照引导发布服务。如下图所示： 
-![](https://qcloudimg.tencent-cloud.cn/raw/46c44df4249e235e7ef2101956d60c53.png )
+![](https://qcloudimg.tencent-cloud.cn/raw/29bda7c8beb2bd2feaf0a9f317fd2fa8.png)
 
 #### 测试函数
 
@@ -168,7 +168,7 @@ SCF 提供模板函数，按照如下流程操作可使用事件函数快速创�
   编译完成后可在 `build/libs` 目录下获取到打包完成的 jar 包，选择后缀为 `-all` 的 jar 包。
 
 -   将编译生成的 jar 包部署到云函数。部署函数步骤如下：
-   1. 登录 [云函数控制台](https://console.cloud.tencent.com/scf)。
+   1. 登录 [Serverless 控制台](https://console.cloud.tencent.com/scf)。
    2. 在**函数服务页**中单击**新建**。
    3. 在**新建**页中，选择**从头开始**。参考以下内容进行配置：
      **函数类型**：事件函数函数
@@ -177,7 +177,4 @@ SCF 提供模板函数，按照如下流程操作可使用事件函数快速创�
 		 **执行方法**：com.tencent.scfspringbootjava8.ScfHandler:: mainHandler
 		 **函数代码**：单击上传选择打包好的 zip 文件
 	4. 其他保持默认配置，单击**完成**即可完成函数创建。如下图所示： 
-![](https://qcloudimg.tencent-cloud.cn/raw/7dc7b8546a710bfe12f9852a7a0f0563.png )
-
-
-
+![](https://qcloudimg.tencent-cloud.cn/raw/e0c8682df86c8ca534c0c15d50fbf2f7.png)

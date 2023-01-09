@@ -1,3 +1,4 @@
+
 ## 简介
 为方便数据库管理员的日常运维，DBbrain 为您提供了 Tencent MongoDB Status 工具，此工具主要完成实时流量及存储引擎监控，可以实现实例级 MongoDB Status 和单节点级的 MongoDB Status。
 

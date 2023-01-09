@@ -1,6 +1,6 @@
 ## 简介
 
-使用腾讯云产品时会产生大量日志，这些日志记录了您的业务情况，有助于您分析业务情况，为您的业务发展和决策提供辅助。您可以利用 COS 的存储能力持久化存储云产品日志，同时您可以通过 API、SDK 或者工具等方式，方便快捷地从 COS 上获取日志并进行分析。
+使用腾讯云产品时会产生大量日志，这些日志记录了您的业务情况，有助于您分析业务情况，为您的业务发展和决策提供辅助。您可以利用对象存储（Cloud Object Storage，COS）的存储能力持久化存储云产品日志，同时您可以通过 API、SDK 或者工具等方式，方便快捷地从 COS 上获取日志并进行分析。
 
 使用 COS 存储云产品日志，可以帮您解决以下问题：
 
@@ -36,7 +36,7 @@
 | 云产品名称&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      | 日志投递文档                                                 | 日志投递间隔&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        | 日志投递路径                                                 |
 | --------------- | ------------------------------------------------------------ | -------------------- | ------------------------------------------------------------ |
 |云审计 CA |[点此查阅](https://cloud.tencent.com/document/product/629/11985) | 10-15分钟 |  cloudaudit/customprefix/timestamp|
-| 消息队列 CKafka | [点此查阅](https://cloud.tencent.com/document/product/597/17273) | 5分钟 - 60分钟<br>可指定投递间隔 | instance id/topic id/timestamp                           |
+| 消息队列 CKafka | [点此查阅](https://cloud.tencent.com/document/product/436/54233) | 5分钟 - 60分钟<br>可指定投递间隔 | instance id/topic id/timestamp                           |
 | 对象存储 COS    | [点此查阅](https://cloud.tencent.com/document/product/436/17040) | 5分钟                | 路径前缀可自行指定，推荐设置可识别的路径，例如 cos_bucketname_access_log/timestamp |
 
 >?消息队列支持投递该产品上产生的消息数据，如果您需要获取创建 CKafka 实例等行为日志，可以选择投递云审计产品的日志。
@@ -75,17 +75,17 @@ CLS 投递到 COS 支持如下三种方式投递：
 | cosbrowser     | [点此查阅](https://cloud.tencent.com/document/product/436/38103#download ) |
 | coscmd         | [点此查阅](https://cloud.tencent.com/document/product/436/10976#.E4.B8.8B.E8.BD.BD.E6.96.87.E4.BB.B6.E6.88.96.E6.96.87.E4.BB.B6.E5.A4.B9 ) |
 | Android SDK    | [点此查阅](https://cloud.tencent.com/document/product/436/46416) |
-| C SDK          | [点此查阅](https://cloud.tencent.com/document/product/436/35558#.E4.B8.8B.E8.BD.BD.E5.AF.B9.E8.B1.A1 ) |
-| C++ SDK        | [点此查阅](https://cloud.tencent.com/document/product/436/35161#.E4.B8.8B.E8.BD.BD.E5.AF.B9.E8.B1.A1 ) |
-| .NET SDK       | [点此查阅](https://cloud.tencent.com/document/product/436/32819#.E4.B8.8B.E8.BD.BD.E5.AF.B9.E8.B1.A1 ) |
-| Go SDK         | [点此查阅](https://cloud.tencent.com/document/product/436/35057#.E4.B8.8B.E8.BD.BD.E5.AF.B9.E8.B1.A1 ) |
+| C SDK          | [点此查阅](https://cloud.tencent.com/document/product/436/65657) |
+| C++ SDK        | [点此查阅](https://cloud.tencent.com/document/product/436/35161#.E4.B8.8B.E8.BD.BD.E5.AF.B9.E8.B1.A1) |
+| .NET SDK       | [点此查阅](https://cloud.tencent.com/document/product/436/47230) |
+| Go SDK         | [点此查阅](https://cloud.tencent.com/document/product/436/65646) |
 | iOS SDK        | [点此查阅](https://cloud.tencent.com/document/product/436/46382) |
-| Java SDK       | [点此查阅](https://cloud.tencent.com/document/product/436/35215#.E4.B8.8B.E8.BD.BD.E5.AF.B9.E8.B1.A1 ) |
-| JavaScript SDK | [点此查阅](https://cloud.tencent.com/document/product/436/35649#.E4.B8.8B.E8.BD.BD.E5.AF.B9.E8.B1.A1 ) |
-| Node.js SDK    | [点此查阅]( https://cloud.tencent.com/document/product/436/36119#.E4.B8.8B.E8.BD.BD.E5.AF.B9.E8.B1.A1) |
-| PHP SDK        | [点此查阅](https://cloud.tencent.com/document/product/436/34282#.E4.B8.8B.E8.BD.BD.E5.AF.B9.E8.B1.A1 ) |
-| Python SDK     | [点此查阅](https://cloud.tencent.com/document/product/436/35151 ) |
-| 小程序 SDK     | [点此查阅](https://cloud.tencent.com/document/product/436/36160#.E4.B8.8B.E8.BD.BD.E5.AF.B9.E8.B1.A1 ) |
+| Java SDK       | [点此查阅](https://cloud.tencent.com/document/product/436/65937) |
+| JavaScript SDK | [点此查阅](https://cloud.tencent.com/document/product/436/64961) |
+| Node.js SDK    | [点此查阅](https://cloud.tencent.com/document/product/436/64981) |
+| PHP SDK        | [点此查阅](https://cloud.tencent.com/document/product/436/64285) |
+| Python SDK     | [点此查阅](https://cloud.tencent.com/document/product/436/65821) |
+| 小程序 SDK     | [点此查阅](https://cloud.tencent.com/document/product/436/64992) |
 | API            | [点此查阅](https://cloud.tencent.com/document/product/436/7753 ) |
 
 ### 使用 COS Select 对日志进行分析

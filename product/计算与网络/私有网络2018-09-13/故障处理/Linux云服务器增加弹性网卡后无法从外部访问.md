@@ -139,3 +139,5 @@ ip rule add from 10.0.0.14 table 20     #  IP为弹性网卡的 IP，20为弹性
   - 如返回如下报文，表示已 ping 通，问题解决，结束。
   - 如依然无法 ping 通，请记录问题信息，并联系 [在线支持](https://cloud.tencent.com/online-service) 进一步定位处理。
  	![](https://qcloudimg.tencent-cloud.cn/raw/461b62ee3bc52d8a426afe9a7ba2a046.png)
+
+

@@ -41,39 +41,39 @@ Namespace = QCE/TKE2
     </thead>
     <tbody>
         <tr>
-            <td><span>Instances.N.Dimensions.N.Name</span></td>
+            <td><span>Conditions.N.Dimensions.N.Name</span></td>
             <td rowspan="2"><span>必选</span></td>
             <td><span>tke_cluster_instance_id</span></td>
             <td><span>集群的维度名称</span></td>
             <td><span>输入 String 类型维度名称：tke_cluster_instance_id</span></td>
         </tr>
         <tr>
-            <td><span>Instances.N.Dimensions.N.Value</span></td>
+            <td><span>Conditions.N.Dimensions.N.Value</span></td>
             <td><span>tke_cluster_instance_id</span></td>
             <td><span>具体集群 ID</span></td>
             <td><span>输入具体集群 ID，例如：cls-fvkxp123</span></td>
         </tr>
         <tr>
-            <td><span>Instances.N.Dimensions.N.Name</span></td>
+            <td><span>Conditions.N.Dimensions.N.Name</span></td>
              <td rowspan="6"><span>非必选（可不选，也可选择一项或多项）</span></td>
             <td><span>namespace</span></td>
             <td><span>命名空间的维度名称</span></td>
             <td><span>输入 String 类型维度名称：namespace</span></td>
         </tr>
         <tr>
-            <td><span>Instances.N.Dimensions.N.Value</span></td>
+            <td><span>Conditions.N.Dimensions.N.Value</span></td>
             <td><span>namespace</span></td>
             <td><span>具体命名空间</span></td>
             <td><span>输入具体命名空间，例如：kube-system</span></td>
         </tr>
         <tr>
-            <td><span>Instances.N.Dimensions.N.Name</span></td>
+            <td><span>Conditions.N.Dimensions.N.Name</span></td>
             <td><span>pvc_name</span></td>
             <td><span>PVC 云盘名称的维度名称</span></td>
             <td><span>输入 String 类型维度名称：pvc_name</span></td>
         </tr>
         <tr>
-            <td><span>Instances.N.Dimensions.N.Value</span></td>
+            <td><span>Conditions.N.Dimensions.N.Value</span></td>
             <td><span>pvc_name</span></td>
             <td><span>具体 PVC 云盘名称</span></td>
             <td><span>输入具体 PVC 云盘名称，例如：cbs-pvc</span></td>
@@ -88,21 +88,21 @@ Namespace = QCE/TKE2
 
 **集群（必填参数）入参取值如下：**
 &Namespace=QCE/TKE2
-&Instances.N.Dimensions.0.Name=tke_cluster_instance_id
-&Instances.N.Dimensions.0.Value=cls-fvkxp123
+&Conditions.N.Dimensions.0.Name=tke_cluster_instance_id
+&Conditions.N.Dimensions.0.Value=cls-fvkxp123
 
 **根据命名空间入参取值如下：**
 &Namespace=QCE/TKE2
-&Instances.N.Dimensions.0.Name=tke_cluster_instance_id
-&Instances.N.Dimensions.0.Value=cls-fvkxp123
-&Instances.N.Dimensions.1.Name=namespace
-&Instances.N.Dimensions.1.Value=kube-system
+&Conditions.N.Dimensions.0.Name=tke_cluster_instance_id
+&Conditions.N.Dimensions.0.Value=cls-fvkxp123
+&Conditions.N.Dimensions.1.Name=namespace
+&Conditions.N.Dimensions.1.Value=kube-system
 
 **根据 VPC 云盘名称入参取值如下：**
 &Namespace=QCE/TKE2
-&Instances.N.Dimensions.0.Name=tke_cluster_instance_id
-&Instances.N.Dimensions.0.Value=cls-fvkxp123
-&Instances.N.Dimensions.1.Name=pvc_name
-&Instances.N.Dimensions.1.Value=cbs-pvc
+&Conditions.N.Dimensions.0.Name=tke_cluster_instance_id
+&Conditions.N.Dimensions.0.Value=cls-fvkxp123
+&Conditions.N.Dimensions.1.Name=pvc_name
+&Conditions.N.Dimensions.1.Value=cbs-pvc
 
 

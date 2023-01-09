@@ -4,7 +4,7 @@
 
 ## 基本用法
 
-使用 [pts/grpc API](https://pts-js-api-1258344701.cos-website.ap-nanjing.myqcloud.com/docs/modules/grpc.html) 提供的接口，您可以创建 gRPC client，发送 gRPC 请求。
+使用 [pts/grpc API](https://cloud.tencent.com/document/product/1484/75805) 提供的接口，您可以创建 gRPC client，发送 gRPC 请求。
 
 ### 协议上传
 
@@ -57,10 +57,11 @@ import grpc from 'pts/grpc';
 
 const client = new grpc.Client();
 
-client.load('addsvc.proto');
+// 加载协议文件根目录中的 addsvc.proto
+client.load([], 'addsvc.proto');
 
 export default () => {
-  client.connect('grpcb.in:9000', { insecure: true });
+  client.connect([], 'grpcb.in:9000', { insecure: true });
 
   const rsp = client.invoke('addsvc.Add/Sum', {
     a: 1,

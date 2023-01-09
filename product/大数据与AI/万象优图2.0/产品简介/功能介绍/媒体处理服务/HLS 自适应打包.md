@@ -6,7 +6,7 @@
 
 - 视频网站：根据网络自动切换码率不影响用户观看。
 - 短视频终端：根据网络自动切换码率不影响用户观看。
-- 在线会议、在线教育：适应网络情况提升通讯质量。
+- 在线教育：适应网络情况提升通讯质量。
 
 ## 使用方法
 
@@ -19,5 +19,5 @@
 您可以通过控制台、API 方式创建工作流：
 
 - 控制台方式：您可以在控制台创建工作流来使用 HLS 自适应打包功能，详情请参见 [工作流](https://cloud.tencent.com/document/product/460/46488)。
-- API 方式：您可使用 API 接口创建 HLS 自适应打包工作流，使用详情请参见 [API 文档](https://cloud.tencent.com/document/product/460/45945)。
+- API 方式：您可使用 API 接口创建 HLS 自适应打包工作流，使用详情请参见 [API 文档](https://cloud.tencent.com/document/product/460/76856)。
 

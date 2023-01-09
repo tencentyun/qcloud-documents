@@ -13,19 +13,19 @@
 ### 取消邀请
 邀请者可以在超时前且被邀请者未处理前取消邀请 [cancel](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMSignalingManager.html#a9d69707620f038d6e47356cdaa3ab9bd)。被邀请者会收到取消通知 [onInvitationCancelled](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMSignalingListener.html#adbdb9fe903e032b94a82330649484642)，该邀请流程结束。
 
-![取消邀请](https://sdk-im-1252463788.cos.ap-hongkong.myqcloud.com/tools/resource/signaling/01_signaling_c2c_cancel.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/bcf70feec44b902f3c335c365257ee4a.png)
 
 ### 接受邀请
 被邀请者收到邀请通知 [onReceiveNewInvitation](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMSignalingListener.html#aecc2341ca87eb58be37fdadf7a58c014) 后可以在超时前且邀请者取消前接受邀请 [accept](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMSignalingManager.html#a4cd3629a0952db7c59186e0c222e17a0)，邀请者会收到接受邀请通知 [onInviteeAccepted](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMSignalingListener.html#af4896215b6bf6febda701c100566b04c)，所有被邀请者处理完后（包括接受、拒绝、超时）该邀请流程结束。
 
-![接受/拒绝邀请](https://sdk-im-1252463788.cos.ap-hongkong.myqcloud.com/tools/resource/signaling/02_signaling_c2c_accept_reject.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/5ec6585f8cb83ba263c44f4b09987d68.png)
 
 ### 拒绝邀请
 被邀请者收到邀请通知 [onReceiveNewInvitation](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMSignalingListener.html#aecc2341ca87eb58be37fdadf7a58c014)后可以在超时前且邀请者取消前拒绝邀请 [reject](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMSignalingManager.html#ad9510bf8a333189fd1a0c1eafbde2266)，邀请者会收到拒绝邀请通知 [onInviteeRejected](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMSignalingListener.html#ad351469b5f2f3b36833ae9832ed80d27)，所有被邀请者处理完后（包括接受、拒绝、超时）该邀请流程结束。
 ### 邀请超时
 若邀请接口的超时时间大于0，且被邀请者未在超时时间之内响应则邀请超时，邀请者和被邀请者都会收到超时通知 [onInvitationTimeout](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMSignalingListener.html#ac5ee85faf06f5deb359afdf6d88d43f5)，所有被邀请者处理完后（包括接受、拒绝、超时）该邀请流程结束。若邀请接口的超时时间等于0，则不会有超时通知。
 
-![邀请超时](https://sdk-im-1252463788.cos.ap-hongkong.myqcloud.com/tools/resource/signaling/03_signaling_c2c_timeout.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/829e9bc78175bbdf31b9b2083cd82553.png)
 
 ## 应用场景案例
 ### 音视频通话
@@ -42,7 +42,7 @@
 5. 通话结束即某一方挂断电话，该用户退出 TRTC 房间。对方收到 TRTC SDK 的 `onRemoteUserLeaveRoom` 回调后计算通话总时长并再次发起一次邀请，此邀请的自定义数据中标明是结束通话并附带通话时长，方便 UI 界面做展示。
 
 **时序图**
-![](https://sdk-im-1252463788.cos.ap-hongkong.myqcloud.com/tools/resource/signaling/04_time_squence.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/94dc2eeed51a761a996139eb5d78b1c5.png)
 
 ### 教育场景中老师邀请学生举手发言
 该场景为老师先让同学们举手，再从举手的同学中选一个同学进行发言。详细流程如下：
@@ -52,13 +52,6 @@
 4. 老师从举手成员列表中邀请某个同学进行发言，调用  [inviteInGroup](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMSignalingManager.html#ad51059e9f430650da09bcae01f0bb3b8) 接口，此时自定义 `data` 中填入“发言操作”，学生们都收到 [onReceiveNewInvitation](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMSignalingListener.html#aecc2341ca87eb58be37fdadf7a58c014) 回调。
 5. 学生根据  [onReceiveNewInvitation](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMSignalingListener.html#aecc2341ca87eb58be37fdadf7a58c014) 回调中的 `inviteeList` 和 `data` 字段判断被邀请者里有自己且是发言操作，则调用 [accept](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMSignalingManager.html#a4cd3629a0952db7c59186e0c222e17a0) 接口发言。
 6. 如果有学生发言，所有人都可以收到  [onInviteeAccepted](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMSignalingListener.html#af4896215b6bf6febda701c100566b04c) 回调，判断 `data` 中的字段为“发言操作”，展示发言成员列表。
-
-## 交流&反馈
-
-欢迎加入 QQ 群进行技术交流和反馈问题，QQ 群：**592465424**。
-
-![img](https://qcloudimg.tencent-cloud.cn/raw/ca5f8724cd5a9002abc454f80bf3df12.png)
-
 
 
 ## 常见问题
@@ -73,7 +66,7 @@ SDK 提供的信令接口（ [iOS](https://im.sdk.qcloud.com/doc/zh-cn/categoryV
 * 邀请操作，上层语义可以理解成**请求建连**。
 * 挂断操作，上层语义可以理解成**请求挂断**。
 
-可以使用 IM SDK 的**邀请**接口，结合自定义 data 来表示当前的邀请是**请求建连**还是**请求挂断**，由 IM 透传给对端处理。可以参见 TUICalling （ [iOS](https://github.com/TencentCloud/TIMSDK/blob/master/iOS/TUIKit/TUICalling/Source/Model/Impl/TRTCCalling%2BSignal.m) | [Android](https://github.com/TencentCloud/TIMSDK/blob/master/Android/TUIKit/TUICalling/tuicalling/src/main/java/com/tencent/liteav/trtccalling/model/TRTCCalling.java) ）组件的挂断逻辑。
+可以使用 IM SDK 的**邀请**接口，结合自定义 data 来表示当前的邀请是**请求建连**还是**请求挂断**，由 IM 透传给对端处理。
 
 ### 4. 发送信令邀请时，对于信令邀请超时的处理逻辑是怎么样的？
 * 当邀请发送方和接收方都在线时，超时信令由接收方触发，且发送方和接收方都会收到 `onInvitationTimeout` 回调。
@@ -90,3 +83,7 @@ App 热启动（App 在后台，点击 App 图标启动）时，不管是单聊�
 ### 6. 信令回调中 inviteID 是不是唯一的？
 是唯一的。inviteID 唯一标识了一组信令消息（包括邀请、同意/拒绝、超时）。
 
+## 交流&反馈
+
+欢迎加入 QQ 群进行技术交流和反馈问题。
+<img src="https://qcloudimg.tencent-cloud.cn/raw/e2050d5b5c894c7da725f8e25c5bfe82.jpg" style="zoom:20%;"/>

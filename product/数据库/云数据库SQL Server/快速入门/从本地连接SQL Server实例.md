@@ -5,14 +5,45 @@
 根据云上数据库实例类型的不同，连接方式也有所差异：
 若从本地连接云上高可用/集群版 SQL Server 实例，可通过以下3种方案进行连接。
 - 方案1：通过 [VPN](https://cloud.tencent.com/document/product/554/18980) 或 [专线](https://cloud.tencent.com/document/product/216/7557) 或 [云联网](https://cloud.tencent.com/document/product/877/18768) 连接，更安全更稳定。
-- 方案2：通过外网连接，可 [绑定 CLB 开启外网服务](#CLBKQWW)。
+- 方案2：通过外网连接，可在控制台 [开启外网地址](#kqwwdz) 或 [绑定 CLB 开启外网服务](#CLBKQWW)。
 - 方案3：借助 [具有外网 IP 的 Linux 云服务器进行端口映射](#WWIPLJSL)。
 
-若从本地连接基础版 SQL Server 实例，可通过以下2种方案进行连接。
+若从本地连接基础版 SQL Server 实例，可通过以下3种方案进行连接。
 - 方案1：通过 [VPN](https://cloud.tencent.com/document/product/554/18980) 或 [专线](https://cloud.tencent.com/document/product/216/7557) 或 [云联网](https://cloud.tencent.com/document/product/877/18768) 连接，更安全更稳定。
-- 方案2：借助 [具有外网 IP 的 Linux 云服务器进行端口映射](#WWIPLJSL)。
+- 方案2：通过外网连接，可在控制台 [开启外网地址](#kqwwdz)。
+- 方案3：借助 [具有外网 IP 的 Linux 云服务器进行端口映射](https://cloud.tencent.com/document/product/238/11627#WWIPLJSL)。
 
-以下分别介绍通过绑定 CLB 开启外网服务，在本地通过 SSMS 连接到 SQL Server 实例，及借助具有外网 IP 的 Linux 云服务器进行端口映射，在本地通过 SSMS 连接到 SQL Server 实例这两种方案。
+下文分别介绍如下连接方案：
+- 通过控制台开启外网地址，在本地通过 SSMS 连接到 SQL Server 实例。
+- 通过绑定 CLB 开启外网服务，在本地通过 SSMS 连接到 SQL Server 实例。
+- 借助具有外网 IP 的 Linux 云服务器进行端口映射，在本地通过 SSMS 连接到 SQL Server 实例。
+
+## 通过控制台开启外网地址在本地通过 SSMS 连接到 SQL Server 实例
+[](id:kqwwdz)
+### 步骤1：开启外网地址
+1. 登录 [SQL Server 控制台](https://console.cloud.tencent.com/sqlserver)。
+2. 选择地域，在实例列表单击需要开启外网的实例 ID 或**操作**列的**管理**。
+3. 在**实例详情**页的**基本信息** > **外网地址**后，单击**开通**。
+4. 在开通外网设置窗口阅读并勾选提示，单击**确定**。
+5. 开通成功后，在实例详情页基本信息下查询实例的外网 IP 地址和端口号。
+>?关于开启外网详细的注意事项和步骤，可参见 [开启外网地址](https://cloud.tencent.com/document/product/238/77966)。
+
+### 步骤2：通过外网连接 SQL Server 实例
+1. 在本地下载并安装 [SQL Server Management Studio](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16)。SQL Server Management Studio 相关介绍请参见 [使用 SQL Server Management Studio](https://docs.microsoft.com/zh-cn/sql/ssms/sql-server-management-studio-ssms?view=sql-server-ver15)。
+2. 本地启动 SQL Server Management Studio。在 **Connect to server**  页面，填写相关信息连接云数据库。单击 **Connect**，稍等几分钟后，SQL Server Management Studio 将连接到您的数据库实例。
+ - **Server type**：选择 Database Engine。
+ - **Server name**：实例的外网 IP 地址和端口号，需用英文逗号隔开。
+ -  **Authentication**：选择 SQL Server Authentication。
+ -  **Login 和 Password**：在实例**帐号管理**页创建帐号时，填写的帐号名和密码。
+![](https://main.qcloudimg.com/raw/14d90aa2eda6c841680f0fdc74db8219.png)
+3. 连接到数据库后，可以查看到 SQL Server 的标准内置系统数据库（master、model、msdb 和 tempdb）。
+![](https://main.qcloudimg.com/raw/c65c02197b506bd5b326128f1a3983a0.png)
+4.  现在您可以开始创建自己的数据库并对数据库运行查询。选择 **File** > **New** > **Query with Current Connection**，键入以下 SQL 查询：
+```
+select @@VERSION
+```
+运行查询，SQL Server Management Studio 会返回 SQL Server 版的腾讯云云数据库实例。
+![](https://qcloudimg.tencent-cloud.cn/raw/620a6143d5687581e9f2892e3fb76130.png)
 
 ## [绑定 CLB 开启外网服务在本地通过 SSMS 连接到 SQL Server 实例](id:CLBKQWW)
 ### 步骤1：新购负载均衡
@@ -99,4 +130,5 @@ select @@VERSION
 ```
 运行查询，SQL Server Management Studio 会返回 SQL Server 版的腾讯云云数据库实例。
 ![](https://qcloudimg.tencent-cloud.cn/raw/620a6143d5687581e9f2892e3fb76130.png)
+
 

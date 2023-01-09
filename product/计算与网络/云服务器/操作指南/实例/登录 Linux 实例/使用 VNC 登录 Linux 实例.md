@@ -39,7 +39,6 @@ Linux 实例默认用户名为 `root`，Ubuntu 系统实例默认用户名为 `u
 输入的密码默认不显示，登录完成后，命令提示符左侧将显示当前登录云服务器的信息。如下图所示：
 ![](https://main.qcloudimg.com/raw/69bd64692fdaffc0cbbbdd0b9d307722.png)
 
-
 ## 后续操作
 
 
@@ -47,4 +46,5 @@ Linux 实例默认用户名为 `root`，Ubuntu 系统实例默认用户名为 `u
 -  [Linux 常用操作及命令](https://cloud.tencent.com/document/product/213/2150) 
 - [搭建 WordPress 个人站点](https://cloud.tencent.com/document/product/213/34064)
 - [搭建 Discuz! 论坛](https://cloud.tencent.com/document/product/213/34065)
+
 

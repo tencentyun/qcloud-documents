@@ -63,7 +63,7 @@ CosConfig 涉及的参数如下：
 停止录制的触发条件：
 
 - TRTC 房间被销毁。当 TRTC 房间超过300s没有主播，房间会自动销毁。
-- 主动调用移除用户接口，将录制观众踢出房间。
+- 主动调用移除用户接口，将录制观众移出房间。
 - 使用 RoomId 的用户停止录制，需要调用 [移除用户](https://cloud.tencent.com/document/api/647/40496) 接口。
 - 使用 StrRoomId 的用户停止录制时，需要调用 [移除用户（字符串房间号）](https://cloud.tencent.com/document/product/647/50426)接口。
 
@@ -94,7 +94,7 @@ Files 数组中每一项为 JSON Object，如下：
 
 1. 登录云函数控制台，选择左侧导航栏中的 **[函数服务](https://console.cloud.tencent.com/scf/list)**。
 2. 在“函数服务”页面上方选择**广州**地域，并单击**新建**进入新建函数页面，根据页面相关信息提示进行配置。如下图所示： 
-![](https://main.qcloudimg.com/raw/ad9bfaa54392bd207c60acec846e3616.jpg)
+![](https://qcloudimg.tencent-cloud.cn/raw/07b3903812da1d978f6206839872db74.png)
    - **创建方式**：选择**模板创建**。
    - **模糊搜索**：输入“TRTC”进行搜索，选择**单流音视频录制**。
      单击模板中的**查看详情**，即可在弹出的“模板详情”窗口中查看相关信息，支持下载操作。

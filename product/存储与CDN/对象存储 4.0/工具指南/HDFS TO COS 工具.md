@@ -1,5 +1,5 @@
 ## 功能说明
-HDFS TO COS 工具用于将 HDFS 上的数据拷贝到腾讯云对象存储 COS 上。
+HDFS TO COS 工具用于将 HDFS 上的数据拷贝到腾讯云对象存储（Cloud Object Storage，COS）上。
 
 ## 使用环境
 #### 系统环境
@@ -21,15 +21,14 @@ JDK 1.7或1.8。
 
 ## 使用方法
 
->?下面以 Linux 为例介绍如何使用。
+>? 下面以 Linux 为例介绍如何使用。
+>
 
 ### 查看帮助
 
 ```
 ./hdfs_to_cos_cmd -h
 ```
-执行结果如下图所示：
-![](https://main.qcloudimg.com/raw/9f83bc3b2446e27254936e7fe6d7d281.png)
 
 ### 文件拷贝
 

@@ -43,7 +43,7 @@
    - 程序包类型：选择名称为`consul-provider-0.1.1-SNAPSHOT.jar `的程序包。
    - 启动参数：选填。
    - 更新方式：选择立即更新。
-   - 健康检查：可选。详情参见 [健康检查](https://cloud.tencent.com/document/product/649/52359)。
+   - 健康检查：可选。详情参见 [健康检查](https://cloud.tencent.com/document/product/649/15525)。
    - 描述：可选。
 8. 单击**完成**，应用部署成功后，部署组中**已启动/总机器数**的数值发生变化。
 ![](https://qcloudimg.tencent-cloud.cn/raw/c216e554c443f4aae755b880c8e85196.png)
@@ -57,7 +57,7 @@
 
 ### 方式1：使用公网访问验证服务间调用
 
-1. 在集群云主机列表页面，获取 consumer 服务所在云服务器的公网IP。
+1. 在集群云主机列表页面，获取 consumer 服务所在云服务器的公网 IP。
 ![](https://qcloudimg.tencent-cloud.cn/raw/595b537823a3ec75324d51ee52b9e577.png)
 2. 使用浏览器访问 consumer 应用的 URL 并调用 provider 服务，格式为`http://<云服务器实例公网IP>:8001/ping-provider`，返回结果如下：
    ![](https://qcloudimg.tencent-cloud.cn/raw/1db530654c9c8b62846758cbd30ab2dc.png)

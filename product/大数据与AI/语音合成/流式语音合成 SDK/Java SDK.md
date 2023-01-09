@@ -3,7 +3,7 @@
 ## 依赖环境
 1. 依赖环境：JDK 1.8版本及以上。
 2. 从 [腾讯云控制台](https://console.cloud.tencent.com/tts) 开通相应产品。
-3. 获取 SecretID、SecretKey。
+3. 进入 [API 密钥管理页面](https://console.cloud.tencent.com/cam/capi)，获取 SecretId 和 SecretKey。
 
 ## 获取安装
 安装 Java SDK 前，先获取安全凭证。在第一次使用 SDK 之前，用户首先需要在腾讯云控制台上申请安全凭证，安全凭证包括 SecretID 和 SecretKey，SecretID 是用于标识 API 调用者的身份，SecretKey 是用于加密签名字符串和服务器端验证签名字符串的密钥，SecretKey 必须严格保管，避免泄露。

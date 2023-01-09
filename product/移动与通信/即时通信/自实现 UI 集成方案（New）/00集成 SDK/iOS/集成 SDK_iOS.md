@@ -1,5 +1,5 @@
 
-本文主要介绍如何快速地将腾讯云 IM SDK(iOS) 集成到您的项目中，只要按照如下步骤进行配置，就可以完成 SDK 的集成工作。
+本文主要介绍如何快速将腾讯云即时通信 IM SDK 集成到您的 iOS 项目中。
 
 ## 开发环境要求
 - Xcode 9.0+。
@@ -41,6 +41,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 target 'App' do
 pod 'TXIMSDK_Plus_iOS'
+# pod 'TXIMSDK_Plus_Swift_iOS'
 end
 ```
 
@@ -51,6 +52,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 target 'App' do
 pod 'TXIMSDK_Plus_iOS_Bitcode'
+# pod 'TXIMSDK_Plus_Swift_iOS_Bitcode'
 end
 ```
 
@@ -61,6 +63,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 target 'App' do
 pod 'TXIMSDK_Plus_iOS_XCFramework'
+# pod 'TXIMSDK_Plus_Swift_iOS_XCFramework'
 end
 ```
 
@@ -71,6 +74,17 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 target 'App' do
 pod 'TXIMSDK_Plus_iOS_Bitcode_XCFramework'
+# pod 'TXIMSDK_Plus_Swift_iOS_Bitcode_XCFramework'
+end
+```
+
+如果使用增强版 Pro SDK，请您按照如下方式设置 Podfile 文件：
+```
+platform :ios, '8.0'
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'App' do
+pod 'TXIMSDK_Plus_Pro_iOS'
 end
 ```
 

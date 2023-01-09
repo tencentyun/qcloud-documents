@@ -431,7 +431,7 @@
 <td >s</td>
 <td >进程运行时长</td>
 </tr><tr>
-<td rowspan=2>工作线程数</td>
+<td rowspan=2>工作线程数 </td>
 <td >DaemonThreadCount</td>
 <td >个</td>
 <td >进程的 Daemon 线程个数</td>

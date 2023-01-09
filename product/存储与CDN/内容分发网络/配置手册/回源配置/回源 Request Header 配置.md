@@ -6,6 +6,7 @@
 >- 腾讯云 CDN 默认支持携带 X-Forwarded-For（真实客户端 IP）和 X-Forwarded-Proto（真实客户端请求协议），您无需再配置。
 >- 若您已对全部文件配置增加头部 X-Forward-For，建议您删除该规则，使用默认的标准头部 X-Forwarded-For 即可 **（请注意此处头部参数的名称变化）**。
 >- 2021年12月6日后创建的域名，会默认配置头部 Tencent-Acceleration-Domain-Name（加速域名），您可在配置处修改删除。
+>- 如果您的回源链路中包含有 CLB 负载均衡产品或其他 Nginx 代理，请注意避免配置使用 X-Real-IP 请求头。详情参考：[回源链路包含 CLB 负载均衡时，回源 HTTP 请求头如何配置？](https://cloud.tencent.com/document/product/228/73703#m6)
 
 ## 操作指南
 

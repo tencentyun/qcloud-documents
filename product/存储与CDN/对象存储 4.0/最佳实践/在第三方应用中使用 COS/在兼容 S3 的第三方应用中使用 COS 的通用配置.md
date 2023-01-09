@@ -62,7 +62,7 @@ Amazon Simple Storage Service（Amazon S3，下文简称 S3）是 AWS 最早推�
 <tbody>
 <tr>
 <td>提供商/服务提供商/<br>存储服务提供商/<br>Service&nbsp;Provider/<br>Storage&nbsp;Provider/<br>Provider 等</td>
-<td>这里主要是选择应用应使用哪种存储，可能存在以下几种情况：<br><li>如果该选项中有类似 S3 兼容存储/S3 Compatible等字样的选项，那么优先使用这个选项。<br></li><li>如果只有 amazon web services/AWS/Amazon S3 等字样，那么先使用这个选项，但是在后面的配置中需留意我们的进一步说明。<br></li><li>如果没有类似选项，但是在应用的说明中有提到支持 S3 服务或 S3 兼容服务，那么您可以继续后面的配置，但同样需要留意我们的进一步说明。<br></li><li>如果是其他情况，很抱歉，该应用可能不能使用 COS 服务。</li></td>
+<td>这里主要是选择应用应使用哪种存储，可能存在以下几种情况：<br><li>如果该选项中有类似 S3 兼容存储/S3 Compatible 等字样的选项，那么优先使用这个选项。<br></li><li>如果只有 amazon web services/AWS/Amazon S3 等字样，那么先使用这个选项，在后面的服务端点/服务地址/服务 URL/Endpoint/Custom Endpoint/Server URL 等配置中，需留意这些配置项的相关说明。<br></li><li>如果没有类似选项，但是在应用的说明中有提到支持 S3 服务或 S3 兼容服务，那么您可以继续后面的服务端点/服务地址/服务 URL/Endpoint/Custom Endpoint/Server URL 等配置，且需留意这些配置项的相关说明。<br></li><li>如果是其他情况，很抱歉，该应用可能不能使用 COS 服务。</li></td>
 </tr>
 <tr>
 <td>服务端点/服务地址/服务&nbsp;URL/Endpoint/Custom Endpoint/Server URL 等</td>
@@ -101,3 +101,6 @@ Amazon Simple Storage Service（Amazon S3，下文简称 S3）是 AWS 最早推�
 ## 结语
 
 COS 不保证与 S3 的完全兼容，如果您在应用中使用 COS 服务时遇到任何问题，您可以 [联系我们](https://cloud.tencent.com/document/product/436/37708)。联系时，请说明您是从该文档中看到的指引，并提供相关应用的名称和截图等信息，以便我们可以更快的帮您解决问题。
+
+当然，COS 不仅提供以上应用和服务，还提供多款热门开源应用，并集成腾讯云 COS 插件，欢迎点击“[此处](https://cloud.tencent.com/act/pro/Ecological-aggregation?from=18406)”一键启动，立即使用！
+

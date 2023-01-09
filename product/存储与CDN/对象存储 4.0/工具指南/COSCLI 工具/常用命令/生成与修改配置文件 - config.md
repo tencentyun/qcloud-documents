@@ -48,8 +48,8 @@ config set 子命令包含以下可选 flag：
 
 | flag 简写 | flag 全称    | flag 用途         |
 | --------- | ------------ | ----------------- |
-| -i        | --secret_id  | 设置 secret ID。  |
-| -k        | --secret_key | 设置 secret key。 |
+| 无      | --secret_id  | 设置 secret ID。  |
+| 无       | --secret_key | 设置 secret key。 |
 | -t        | --token      | 设置 token。      |
 
 ## 操作示例

@@ -11,7 +11,7 @@
 ### 操作步骤
 本节通过创建一个简单的 QT 项目，介绍如何在 Visual Studio 工程中集成 C++ SDK。
 
-### 步骤1：下载 SDK
+#### 步骤1：下载 SDK
 1. [下载 SDK](https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_TRTC_Win_latest.zip)，解压并打开。
 本文示例中，您只需要引用 SDK 目录下 C++ 版的 SDK 文件即可。以64位为例，其 SDK 位置为 `./SDK/CPlusPlus/Win64/` 下，主要包含以下几个部分：
 <table>
@@ -31,21 +31,21 @@
 </tr>
 </tbody></table>
 
-### 步骤2：新建工程[](id:using_cpp_qt_step2)
+#### 步骤2：新建工程[](id:using_cpp_qt_step2)
 以 Visual Studio 2015 为例，在确保本地已经安装了 [QT](https://download.qt.io/archive/qt/5.9/5.9.1/qt-opensource-windows-x86-5.9.1.exe) 和 [VS 开发插件](https://download.qt.io/archive/vsaddin/2.6.0/qt-vsaddin-msvc2015-2.6.0.vsix) 的前提下，打开 Visual Studio。新建一个名字叫 `TRTCDemo` 的 QT 应用程序，如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/17f1d06f0b14108318cf167048e1887a.png)
 为了便于介绍如何快速集成，在向导中我们选择 **Qt Widgets Application** 类型，单击**确定**，在之后的页面中单击 **Next** 直到工程创建完成即可。
 
-### 步骤3：拷贝文件[](id:using_cpp_qt_step3)
+#### 步骤3：拷贝文件[](id:using_cpp_qt_step3)
 将解压后的 SDK 文件夹拷贝到 TRTCDemo.vcxproj 所在目录下，如下图所示：
 >?当前只需要 C++ SDK，可以将 SDK 路径下的 CSharp 目录删除。
 >
 ![](https://qcloudimg.tencent-cloud.cn/raw/ba31b4ac0c00c1749b95bbf40f4065a5.png)
 
-### 步骤4：修改工程配置[](id:using_cpp_qt_step4)
+#### 步骤4：修改工程配置[](id:using_cpp_qt_step4)
 打开 TRTCDemo 属性页，在**解决方案资源管理器** >**TRTCDemo 工程的右键菜单** > **属性**，请按照以下步骤进行配置：
 1. **添加包含目录：**
-在 **C/C++** > **常规** > **附件包含目录**，以64位为例，添加 SDK 头文件目录 `$(ProjectDir)SDK\CPlusPlus\Win64\include` 和 `$(ProjectDir)SDK\CPlusPlus\Win64\include\TRTC`，如下图所示：
+在 **C/C++** > **常规** > **附加包含目录**，以64位为例，添加 SDK 头文件目录 `$(ProjectDir)SDK\CPlusPlus\Win64\include` 和 `$(ProjectDir)SDK\CPlusPlus\Win64\include\TRTC`，如下图所示：
 >?如果为32位，则需要将 SDK 头文件目录设为 `$(ProjectDir)SDK\CPlusPlus\Win32\include` 和 `$(ProjectDir)SDK\CPlusPlus\Win32\include\TRTC`。
 >
 ![](https://qcloudimg.tencent-cloud.cn/raw/91adc6849773ef65225968121a15a78a.png)
@@ -63,7 +63,7 @@
 >
 ![](https://qcloudimg.tencent-cloud.cn/raw/3ca8cdbfbc5bfc31ae87bad68a872261.png)
 
-### 步骤5：打印 SDK 版本号[](id:using_cpp_qt_step5)
+#### 步骤5：打印 SDK 版本号[](id:using_cpp_qt_step5)
 1. 在 `TRTCDemo.cpp` 文件顶部增加头文件引入，代码如下：
 ``` c++
 #include "ITRTCCloud.h"

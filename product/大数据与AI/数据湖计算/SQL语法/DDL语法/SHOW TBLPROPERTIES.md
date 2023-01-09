@@ -1,4 +1,8 @@
-列出命名表的表属性。
+## 说明
+- 支持内核：Presto、SparkSQL。
+- 适用表范围：原生表、外部表。
+- 用途：列出命名表的表属性。
+
 ## 语法
 ```
 SHOW TBLPROPERTIES table_name [('property_name')]

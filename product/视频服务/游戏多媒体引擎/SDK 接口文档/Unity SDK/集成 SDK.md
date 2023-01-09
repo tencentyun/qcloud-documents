@@ -25,10 +25,10 @@
 <td>提供 API 接口</td>
 </tr>
 </tbody></table>
+4. 如果使用到高清音质请参见 [Unity 配置高清音质文档](https://cloud.tencent.com/document/product/607/67297) 进行解决。
 
-
-<dx-alert infotype="explain" title="Unity SDK 平台支持">
-Unity SDK 已同时集成 Windows、Mac、Android、iOS 平台架构。
+<dx-alert infotype="explain" title="平台支持">
+Unity SDK 已同时集成 Windows、Mac、Android、iOS、PlayStation、Xbox、Switch、WebGL 平台架构。
 </dx-alert>
 
 

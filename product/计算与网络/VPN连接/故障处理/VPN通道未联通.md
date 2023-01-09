@@ -44,3 +44,5 @@ display current-configuration configuration ipsec  policy
    - 若否，请修改相应参数，确保两端配置一致，然后再查看 VPN 通道状态是否已联通，如已联通，则问题解决，结束；如未联通，则继续执行 [步骤6](#step6)。
 6. [](id:step6)请收集以上检查信息，并[ 提交工单 ](https://console.cloud.tencent.com/workorder/category)或联系设备厂商跟进处理。
 
+
+
