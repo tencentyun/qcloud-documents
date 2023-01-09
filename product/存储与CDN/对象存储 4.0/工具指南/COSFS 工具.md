@@ -186,7 +186,7 @@ chmod 640 /etc/passwd-cosfs
 
 >? 您需要将 &lt;&gt; 的参数替换为您的信息。
 > - &lt;BucketName-APPID&gt;为存储桶名称格式，关于存储桶命名规范，请参见 [存储桶命名规范](https://cloud.tencent.com/document/product/436/13312#.E5.AD.98.E5.82.A8.E6.A1.B6.E5.91.BD.E5.90.8D.E8.A7.84.E8.8C.83)。
-> - &lt;SecretId&gt; 和 &lt;SecretKey&gt;为密钥信息，您可前往访问管理控制台的 [云 API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中查看和创建。
+> - &lt;SecretId&gt; 和 &lt;SecretKey&gt;为密钥信息，建议使用子账号密钥，授权遵循 [最小权限指引](https://cloud.tencent.com/document/product/436/38618)，降低使用风险。子账号密钥获取可参考 [子账号访问密钥管理](https://cloud.tencent.com/document/product/598/37140)。
 > - 您也可以将密钥配置在文件 $HOME/.passwd-cosfs 中，或通过 -opasswd_file=[path] 指定密钥文件路径，同时您需要将密钥文件的权限值设置为600。
 > 
 
