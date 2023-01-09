@@ -11,12 +11,16 @@ CVM 或 Lighthouse 已 [安装腾讯云自动化助手（TencentCloud Automation
 1. 登录 [日志服务控制台](https://console.cloud.tencent.com/cls)。
 2. 在左侧导航栏中，单击**概览机器组管理**，进入机器组管理页面。
 3. 在页面右上方点击**实例批量部署**。
-  ![](https://qcloudimg.tencent-cloud.cn/raw/9cb4eb34b553f6fb400b80615a60bb51.png)
+    ![](https://qcloudimg.tencent-cloud.cn/raw/9cb4eb34b553f6fb400b80615a60bb51.png)
 4. 在实例批量部署页面， 选择服务器类型：CVM 或 Lighthouse。（支持同时为 CVM 和 Lighthouse 服务器批量部署 LogListener）
-  ![](https://qcloudimg.tencent-cloud.cn/raw/2a04673e56ffbddf78389225027b50d9.png)
+    ![](https://qcloudimg.tencent-cloud.cn/raw/2a04673e56ffbddf78389225027b50d9.png)
 5. 进一步勾选需要部署 LogListener 的 CVM 或 Lighthouse 实例，输入 SecretId 信息（SecretId 和 SecretKey），并根据需求自定义设置高级配置项 - 机器标识。
-  >? 如果您的机器 IP 地址经常变动, 建议配置机器标识，详情请查看 [通过配置机器标识创建机器组](https://cloud.tencent.com/document/product/614/17412#.E9.80.9A.E8.BF.87.E9.85.8D.E7.BD.AE.E6.9C.BA.E5.99.A8.E6.A0.87.E8.AF.86.E5.88.9B.E5.BB.BA.E6.9C.BA.E5.99.A8.E7.BB.84)。
-  
+
+> ?
+> - 安装LogListener需要提供SecretId和SecretKey，密钥信息用于上传日志，[查看获取方式](https://console.cloud.tencent.com/cam/capi)。
+> - 请确保填写密钥信息对应的账号拥有日志上传的权限。 如何配置权限请参考[账号授权](https://cloud.tencent.com/document/product/614/68373)。
+> - 如果您的机器 IP 地址经常变动, 建议配置机器标识，详情请查看 [通过配置机器标识创建机器组](https://cloud.tencent.com/document/product/614/17412#.E9.80.9A.E8.BF.87.E9.85.8D.E7.BD.AE.E6.9C.BA.E5.99.A8.E6.A0.87.E8.AF.86.E5.88.9B.E5.BB.BA.E6.9C.BA.E5.99.A8.E7.BB.84)。
+
   ![](https://qcloudimg.tencent-cloud.cn/raw/7df7713452c03fed43c81c36b90b9e07.png)
 
 6. 单击**下一步**。
@@ -29,5 +33,3 @@ CVM 或 Lighthouse 已 [安装腾讯云自动化助手（TencentCloud Automation
 ![](https://main.qcloudimg.com/raw/2de1ca726ac6273d5f047c24e2e1891b.png)
 
 >? 批量安装的 LogListener 为2.6.0及以上版本。
-
-
