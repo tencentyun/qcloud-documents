@@ -512,7 +512,7 @@ defaultConfig {
 
 ```Dart
 final TimUiKitPushPlugin cPush = TimUiKitPushPlugin(
-  isUseGoogleFCM: bool, // 是否启用Google Firebase Cloud Messaging，默认true启用。国内版推送插件无此参数。
+  isUseGoogleFCM: bool, // 是否启用Google Firebase Cloud Messaging，默认true启用。中国大陆版无此参数。
 );
 await cPush.init(
     pushClickAction: pushClickAction, // 单击通知后的事件回调，会在STEP6讲解
@@ -549,7 +549,7 @@ cPush.requireNotificationPermission();
 
 ``` Dart
 final TimUiKitPushPlugin cPush = TimUiKitPushPlugin(
-    isUseGoogleFCM: true, // 国内版推送插件无此参数
+    isUseGoogleFCM: true, // 中国大陆版无此参数
   );
 
 Future.delayed(const Duration(seconds: 5), () async {
@@ -662,7 +662,7 @@ TIMUIKitChat(
 ```Dart
 BuildContext? _cachedContext;
 final TimUiKitPushPlugin cPush = TimUiKitPushPlugin(
-  isUseGoogleFCM: true, // 国内版推送插件无此参数
+  isUseGoogleFCM: true, // 中国大陆版无此参数
 );
 
 @override
@@ -761,7 +761,7 @@ if #available(iOS 10.0, *) {
 
 ```Dart
 final TimUiKitPushPlugin cPush = TimUiKitPushPlugin(
-  isUseGoogleFCM: true, // 国内版推送插件无此参数
+  isUseGoogleFCM: true, // 中国大陆版无此参数
 );
 cPush.init(
     pushClickAction: pushClickAction, // 单击通知后的事件回调，会在STEP6讲解
@@ -1008,7 +1008,7 @@ if #available(iOS 10.0, *) {
 
 ```dart
 final TimUiKitPushPlugin cPush = TimUiKitPushPlugin(
-  isUseGoogleFCM: true, // 国内版推送插件无此参数
+  isUseGoogleFCM: true, // 中国大陆版无此参数
 );
 
 cPush.init(
@@ -1097,7 +1097,7 @@ cPush.displayDefaultNotificationForMessage(
 ```Dart
 BuildContext? _cachedContext;
 final TimUiKitPushPlugin cPush = TimUiKitPushPlugin(
-  isUseGoogleFCM: true, // 国内版推送插件无此参数
+  isUseGoogleFCM: true, // 中国大陆版无此参数
 );
 
 @override
