@@ -65,9 +65,7 @@
 4. 单击 **API 密钥**页签，并单击**新建密钥**为该子账号创建 SecretId 和 SecretKey。
 
 至此您就可以通过子账号的 SecretId 和 SecretKey、主账号的 APPID，访问 COS 资源。 
-
->!
->子账号需通过 XML API 或基于 XML API 的 SDK 访问 COS 资源。
+>!子账号需通过 XML API 或基于 XML API 的 SDK 访问 COS 资源。
 
 
 #### 基于 XML 的 Java SDK 访问示例
@@ -80,8 +78,8 @@ COSCredentials cred = new BasicCOSCredentials("<主账号 APPID>", "<子账号 S
 
 实例如下：
 ```
-String secretId = System.getenv("secretId");//子账号的 SecretId，授权遵循最小权限指引，降低使用风险。子账号密钥获取可参考https://cloud.tencent.com/document/product/598/37140
-String secretKey = System.getenv("secretKey");//子账号的的 SecretKey，授权遵循最小权限指引，降低使用风险。子账号密钥获取可参考https://cloud.tencent.com/document/product/598/37140
+String secretId = System.getenv("secretId");//子账号的 SecretId，授权遵循最小权限指引，降低使用风险。子账号密钥获取可参考 https://cloud.tencent.com/document/product/598/37140
+String secretKey = System.getenv("secretKey");//子账号的的 SecretKey，授权遵循最小权限指引，降低使用风险。子账号密钥获取可参考 https://cloud.tencent.com/document/product/598/37140
 COSCredentials cred = new BasicCOSCredentials(secretId, secretKey);
 
 // 初始化身份信息
