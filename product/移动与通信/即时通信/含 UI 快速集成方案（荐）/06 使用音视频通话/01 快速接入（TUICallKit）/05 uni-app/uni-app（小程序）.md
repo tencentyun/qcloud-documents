@@ -43,7 +43,7 @@ mkdir -p ./wxcomponents/TUICallKit && cp -r ./node_modules/@tencentcloud/call-ui
 npm i @tencentcloud/call-uikit-wechat
 ```
 ```shell
-xcopy .\node_modules\@tencentcloud\chat-uikit-uniapp .\wxcomponents\TUICallKit /i /e
+xcopy .\node_modules\@tencentcloud\call-uikit-wechat .\wxcomponents\TUICallKit /i /e
 ```
 成功后目录结构如图所示：  
 <img width="300" src="https://qcloudimg.tencent-cloud.cn/raw/a2f115d1b8cbd85bca9f6c6edd7e31f2.png"/>

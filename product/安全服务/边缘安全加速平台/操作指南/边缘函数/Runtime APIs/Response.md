@@ -1,7 +1,7 @@
 **Response** 代表 HTTP 响应，基于 Web APIs 标准 [Response](https://developer.mozilla.org/en-US/docs/Web/API/Response) 进行设计。
 
 >? 边缘函数中，可通过两种方式获得 `Response` 对象：
-- 使用 `Response` 构造函数创建一个 Response 对象，用于 [event.respondWith](https://cloud.tencent.com/document/product/1552/81917) 响应。
+- 使用 `Response` 构造函数创建一个 Response 对象，用于 [event.respondWith](https://cloud.tencent.com/document/product/1552/81899#respondwith) 响应。
 - 使用 <a href="https://cloud.tencent.com/document/product/1552/81897">fetch</a> 获取请求响应 Response 对象。
 
 ## 构造函数
@@ -148,7 +148,7 @@ readonly redirectUrls: Array<String>
 
 ## 方法
 
->! 获取响应体方法，接收 `HTTP body` 最大字节数为 1M，超出大小会抛出 OverSize 异常。超出大小时推荐使用 [response.body](#:body) 流式读取，详情参见 [ReadableStream](https://cloud.tencent.com/document/product/1552/81914)。
+>! 获取响应体方法，接收 `HTTP body` 最大字节数为 1M，超出大小会抛出 OverSize 异常。超出大小时推荐使用 [response.body](#body) 流式读取，详情参见 [ReadableStream](https://cloud.tencent.com/document/product/1552/81914)。
 
 
 ### arrayBuffer
@@ -224,7 +224,7 @@ request.text(): Promise<string>;
 request.getCookies(): Cookies;
 ```
 
-获取 `response` 头部 cookie，并自动解析为 [Cookies](https://cloud.tencent.com/document/product/1552/81905) 对象。
+获取 `response` 头部 cookie，并自动解析为 [Cookies](https://cloud.tencent.com/document/product/1552/83932) 对象。
 
 ### setCookies
 ```typescript

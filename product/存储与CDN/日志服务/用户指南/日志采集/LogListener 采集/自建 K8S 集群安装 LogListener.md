@@ -1,3 +1,4 @@
+
 本文介绍如何在自建 Kubernetes 集群上安装 LogListener 组件，从而将日志收集到日志服务（Cloud Log Service，CLS）。
 
 在自建 Kubernetes 集群上安装 LogListener 组件的过程中，可以按步骤参考以下操作：
@@ -8,12 +9,7 @@
 2. 安装 Helm
 安装详情可参考 [安装 Helm](https://docs.helm.sh/docs/intro/install/) 。
 
-3. 发版
-```
-helm package ./helm/cls-loglistener
-```  
-
-4. 安装
+3. 安装 LogListener
 ```
 wget https://mirrors.tencent.com/install/cls/k8s/tencentcloud-cls-k8s-install.sh
 ```
@@ -24,7 +20,7 @@ bash +x tencentcloud-cls-k8s-install.sh
 ./tencentcloud-cls-k8s-install.sh --region ap-guangzhou --secretid xxx --secretkey xxx
 ```
 
-5. 参数说明
+4. 参数说明
 <table>
 	<tr>
 		<th>参数名</th>
@@ -70,7 +66,7 @@ bash +x tencentcloud-cls-k8s-install.sh
   ./tencentcloud-cls-k8s-install.sh --secretid xxx --secretkey xx --region ap-guangzhou  --network internet --api_region ap-guangzhou
   ```
 
-6. 查看 
+5. 查看 
 	1. 查看安装 Helm 包
 	安装成功后，查看 Helm 安装 tencent-cloud-cls-log。
 	```
@@ -87,7 +83,7 @@ bash +x tencentcloud-cls-k8s-install.sh
 	
 	使用上述命令查看组件是否都启动正常，正常情况下，每台宿主机上都会启动一个 tke-log-agent 的采集 pod 和一个 cls-provisioner 的 pod。
 
-7. 升级
+6. 升级
 
 	1. Kubernetes 版本是1.13以上的版本：
 	```
@@ -115,8 +111,7 @@ bash +x tencentcloud-cls-k8s-install.sh
 	./upgrade-1.13.sh
 	```
 
-
-8. 卸载
+7. 卸载
 使用下面命令可以卸载已经安装的 tencent-cloud-cls-log helm 包。
 	```
 	helm uninstall tencent-cloud-cls-log -n kube-system
@@ -126,7 +121,7 @@ bash +x tencentcloud-cls-k8s-install.sh
 kubectl delete secret -n kube-system cls-k8s
 ```
 
-9. 异常排查
+8. 异常排查
 可参考 [自建 K8S 日志采集排查指南](https://cloud.tencent.com/document/product/614/84182) 文档。
 
 

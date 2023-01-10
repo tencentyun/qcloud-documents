@@ -11,7 +11,7 @@
 ProjectId | String | 项目 ID。
 Name | String | 项目名称。
 Owner | [Entity](https://cloud.tencent.com/document/api/1156/40360#Entity) | 归属者。
-Category | Array  String | 项目类别，取值有：<li>Default：编辑项目</li><li>Live：直播剪辑项目</li><li>StreamConnet：云转推项目</li>
+Category | String | 项目类别，取值有：<li>Default：编辑项目</li><li>Live：直播剪辑项目</li><li>StreamConnet：云转推项目</li>
 Description | String | 描述信息。
 WHRatio | String | 宽高比。
 CoverUrl | String | 项目封面URL。

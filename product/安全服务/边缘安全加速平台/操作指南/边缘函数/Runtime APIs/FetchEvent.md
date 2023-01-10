@@ -39,6 +39,8 @@ event.respondWith(response: Response | Promise<Response>): void;
 
 边缘函数接管客户端的请求，并使用该方法，返回自定义响应内容。 
 
+>! 事件监听器 `addEventListener` 的 `fetch` 事件回调中，需要调用接口 `event.respondWith()` 响应客户端，若未调用该接口，边缘函数会将当前请求转发回源站。
+
 #### 参数
 <table>
   <thead>
@@ -63,7 +65,6 @@ event.respondWith(response: Response | Promise<Response>): void;
     </tr>
   </tbody>
 </table>
-
 
 ### waitUntil
 ```typescript
@@ -94,6 +95,44 @@ event.waitUntil(task: Promise<any>): void;
     </tr>
   </tbody>
 </table>
+
+### passThroughOnException
+```typescript
+event.passThroughOnException(): void;
+```
+
+用于防止运行时响应异常信息。当函数代码抛出未处理的异常时，边缘函数会将此请求转发回源站，进而增强服务的可用性.
+
+## 示例代码
+- 未调用接口 `event.respondWith`，边缘函数将当前请求转发回源站。
+
+```typescript
+function handleRequest(request) {
+  return new Response('Edge Functions, Hello World!');
+}
+
+addEventListener('fetch', event => {
+  const request = event.request;
+  // 请求 url 包含字符串 /ignore/ ，边缘函数会将当前请求转发回源站。
+  if (request.url.indexOf('/ignore/') !== -1) {
+    // 未调用接口 event.respondWith
+    return;
+  }
+
+  // 在边缘函数中，自定义内容响应客户端
+  event.respondWith(handleRequest(request));
+});
+```
+
+- 当函数代码抛出未处理的异常时，边缘函数会将此请求转发回源站。
+
+```typescript
+addEventListener('fetch', event => {
+  // 当函数代码抛出未处理的异常时，边缘函数会将此请求转发回源站 
+  event.passThroughOnException();
+  throw new Error('Throw error');
+});
+```
 
 ## 相关参考 
 - [MDN 官方文档：FetchEvent](https://developer.mozilla.org/en-US/docs/Web/API/FetchEvent)

@@ -85,6 +85,7 @@ from qcloud_cos import CosS3Client
 from qcloud_cos import CosServiceError
 from qcloud_cos import CosClientError
 import sys
+import os
 import logging
 import hashlib
 
@@ -92,10 +93,10 @@ logging.basicConfig(level=logging.INFO, stream=sys.stdout)
 
 # 设置用户属性, 包括 SecretId, SecretKey, Region
 # APPID 已在配置中移除，请在参数 Bucket 中带上 APPID。Bucket 由 BucketName-APPID 组成。
-secret_id = COS_SECRETID           # 替换为您的 SecretId 信息
-secret_key = COS_SECRETKEY         # 替换为您的 SecretKey 信息
+secret_id = os.environ['COS_SECRET_ID']     # 用户的 SecretId，建议使用子账号密钥，授权遵循最小权限指引，降低使用风险。子账号密钥获取可参考 https://cloud.tencent.com/document/product/598/37140
+secret_key = os.environ['COS_SECRET_KEY']   # 用户的 SecretKey，建议使用子账号密钥，授权遵循最小权限指引，降低使用风险。子账号密钥获取可参考 https://cloud.tencent.com/document/product/598/37140
 region = 'ap-beijing'      # 替换为您的 Region, 这里以北京为例
-token = None               # 使用临时密钥需要传入 Token，默认为空，可不填
+token = None               # 临时密钥的 Token，临时密钥生成和使用指引参见 https://cloud.tencent.com/document/product/436/14048
 config = CosConfig(Region=region, SecretId=secret_id, SecretKey=secret_key, Token=token)  # 获取配置对象
 client = CosS3Client(config)
 ```
