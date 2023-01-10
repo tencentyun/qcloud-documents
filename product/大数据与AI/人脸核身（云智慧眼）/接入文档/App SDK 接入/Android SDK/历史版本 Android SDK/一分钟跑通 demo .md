@@ -42,7 +42,7 @@ HuiYanAuth.setFaceIdTokenCreateFunction(new CreateFaceIdToken() {
 
 
 ## demo 合规声明
-由于 Demo 运行方式与正式 App 运行方式有所差异，为实现 Demo 正常运行以便向您提供尽可能全面的 SDK 功能体验，我们在 Demo 中引用了部分依赖库（okhttp），且仅限于在 Demo 场景下使用。当您接入正式 SDK 产品时请按照 SDK 正式集成文档进行操作。
+由于 Demo 运行方式与正式 App 运行方式有所差异，为实现 Demo 正常运行以便向您提供尽可能全面的 SDK 功能体验，我们在 Demo 中引用了部分依赖库（okhttp），且仅限于在 Demo 场景下使用。当您接入正式 SDK 产品时请按照 SDK 正式 [集成文档](https://cloud.tencent.com/document/product/1007/85566) 进行操作。
 ```xml
 <!-- Demo注册的可选权限  -->
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
