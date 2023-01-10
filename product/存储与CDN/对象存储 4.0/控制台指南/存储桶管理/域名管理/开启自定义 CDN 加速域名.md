@@ -2,8 +2,6 @@
 
 本文仅介绍在对象存储（Cloud Object Storage，COS）控制台上添加自定义加速域名及开启 CDN 加速，若要从 CDN 控制台添加自定义域名，请参见 CDN  [接入域名](https://cloud.tencent.com/document/product/228/41215) 文档。 
 
->? 通过 COS 控制台添加自定义域名上限为10个。
->
 
 ## 操作步骤
 
@@ -13,7 +11,7 @@
 >? 若您之前在老版本 COS 控制台使用过“自定义域名”，则在新版控制台不显示“自定义 CDN 加速域名”，仍显示“自定义域名”。
 >
 ![](https://qcloudimg.tencent-cloud.cn/raw/6d05c90f04b276e21df88135af93f917.png)
-  - **域名**：输入待绑定的自定义域名（例如`www.example.com`）。请确保输入的域名已备案，并已在 DNS 服务商处设置好对应的 CNAME，详情请参见 [CNAME 配置](https://cloud.tencent.com/document/product/228/3121)。若您在接入的自定义 CDN 加速域名为以下情况，则需要进行域名归属权验证，详情请查看 [域名归属验证](https://cloud.tencent.com/document/product/228/61702) 文档。
+  - **域名**：输入待绑定的自定义域名（例如 `www.example.com`）。请确保输入的域名已备案，并已在 DNS 服务商处设置好对应的 CNAME，详情请参见 [CNAME 配置](https://cloud.tencent.com/document/product/228/3121)。若您在接入的自定义 CDN 加速域名为以下情况，则需要进行域名归属权验证，详情请查看 [域名归属验证](https://cloud.tencent.com/document/product/228/61702) 文档。
      - 首次接入该域名
      - 该域名已被其他用户接入
      - 接入域名为泛域名

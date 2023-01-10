@@ -15,6 +15,8 @@ Oracle 9i 或以上版本，支持 Oracle Secure Backup Cloud Module，详见 [O
 
 1. 前往 [Oracle 官网](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/rcmrf/oracle-secure-backup-osb-cloud-module.html#GUID-964AADD2-3405-4476-8698-E9F2133CB5B7) 获取最新版本，安装 OSB。
 2. 将下载的 osbws_installer.zip 压缩包解压，并根据实际 COS 服务的 SecretId、SecretKey、地域和 endpoint 参数配置，执行如下命令，安装 OSB。
+>!建议优先使用子账号密钥，授权遵循 [最小权限指引](https://cloud.tencent.com/document/product/436/38618)，降低使用风险，子账号密钥获取可参见 [子账号访问密钥管理](https://cloud.tencent.com/document/product/598/37140)。
+>
 ```
 java -jar osbws_install.jar -AWSID <SecretId> -AWSKey <SecretKey> -walletDir $ORACLE_HOME/osbws_wallet -libDir $ORACLE_HOME/lib -location <地域> -awsEndPoint <endpoint>
 
