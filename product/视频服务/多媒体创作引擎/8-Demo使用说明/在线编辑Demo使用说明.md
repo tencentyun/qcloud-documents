@@ -84,6 +84,11 @@
 
 ### 步骤5：部署 Demo 服务[](id:p4)
 1. 下载 [**项目源码**](https://vs-cdn.tencent-cloud.com/resources/cme-node-demo-feature-iframe-2.0.zip)。
+
+>!
+>- 建议用户使用子账号密钥 + 环境变量的方式调用 SDK，提高 SDK 使用的安全性。为子账号授权时，请遵循 [最小权限指引原则](https://cloud.tencent.com/document/product/436/38618)，防止泄漏目标存储桶或对象之外的资源。
+>- 如果您一定要使用永久密钥，建议遵循 [最小权限指引原则](https://cloud.tencent.com/document/product/436/38618) 对永久密钥的权限范围进行限制。
+
 2. **配置文件**
 配置文件在 config.js 上，按如下方式进行配置：
 ```javascript
@@ -97,7 +102,7 @@ const config = {
 }
 ```
 >!这里的配置文件仅用于 Demo 展示，开发者可以根据自身业务需求调整和进行管理。
-3. **搭建环境**
+1. **搭建环境**
 <dx-tabs>
 ::: Linux 下安装 Node.js
 1. Node 官网下载已经编译好的版本，直接解压安装：
@@ -105,12 +110,12 @@ const config = {
 wget https://nodejs.org/dist/v10.9.0/node-v10.9.0-linux-x64.tar.xz
 tar xf node-v10.9.0-linux-x64.tar.xz
 ```
-2. 配置软链接或环境变量(这里根据自己的解压路径设置)：
+1. 配置软链接或环境变量(这里根据自己的解压路径设置)：
 ```text
 ln -s /usr/local/nodejs/bin/npm /usr/local/bin/
 ln -s /usr/local/nodejs/bin/node /usr/local/bin/
 ```
-3. 执行 node、npm 命令查看版本，如果出现版本号，说明已经安装成功：
+1. 执行 node、npm 命令查看版本，如果出现版本号，说明已经安装成功：
 ```text
 node -v
 npm -v
@@ -126,7 +131,7 @@ npm -v
 ```
 :::
 </dx-tabs>
-4. **部署服务**
+1. **部署服务**
 	1. 官网 [下载 Demo](https://vs-cdn.tencent-cloud.com/resources/cme-node-demo-feature-iframe-2.0.zip)。
 	2. 运行命令 npm install 自动安装依赖包 。
 	3. 运行命令 npm start，启动服务。
