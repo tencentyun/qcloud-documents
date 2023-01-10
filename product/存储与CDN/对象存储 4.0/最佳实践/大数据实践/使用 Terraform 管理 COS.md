@@ -12,6 +12,13 @@ Terraform 安装简单，具体请参见 [腾讯云 Terraform 应用指南（一
 
 ### 步骤1：初始化
 
+
+
+>!
+>建议使用子账号密钥，授权遵循 [最小权限指引](https://cloud.tencent.com/document/product/436/38618)，降低使用风险。子账号密钥获取可参考 [子账号访问密钥管理](https://cloud.tencent.com/document/product/598/37140)。
+
+
+
 1. 创建工作目录，例如 terraform-test 目录。
 2. 为 Terraform 创建或准备好腾讯云账号，并获取 SecretID 和 SecretKey。
 3. 编写 provider 配置文件，将您的 SecretID 和 SecretKey 等账号信息写入配置文件 provider.tf，保存在工作目录（terraform-test 目录）下，配置文件 provider.tf 示例如下：
@@ -135,5 +142,4 @@ data "tencentcloud_cos_bucket_object" "mycos" {
 执行`terraform destroy`命令删除工作目录下的所有资源。
 
 若需删除指定的存储桶或对象，从配置文件中，删除定义该存储桶或对象资源的配置信息，然后执行`terraform apply`命令。建议您使用`terraform show`命令来检查删除结果。
-
 

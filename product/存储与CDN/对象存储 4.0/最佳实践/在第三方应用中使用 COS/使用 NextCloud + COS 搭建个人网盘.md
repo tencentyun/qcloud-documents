@@ -483,9 +483,9 @@ systemctl start nginx
 
 ### 获取 API 密钥
 
-1. 登录腾讯云 [访问密钥控制台](https://console.cloud.tencent.com/cam/capi)。
-2. 记录表格中**密钥**中的**SecretId**和**SecretKey**。如果表格中没有有效密钥，可单击左上角**新建密钥**创建新的密钥。
-   ![](https://main.qcloudimg.com/raw/39ad3be8edd97e4c72d4b5c745032b16.png)
+建议使用子账号密钥，授权遵循 [最小权限指引](https://cloud.tencent.com/document/product/436/38618)，降低使用风险，子账号密钥获取可参考 [子账号访问密钥管理](https://cloud.tencent.com/document/product/598/37140)。
+
+
 
 ### 修改 NextCloud 服务端配置文件
 
