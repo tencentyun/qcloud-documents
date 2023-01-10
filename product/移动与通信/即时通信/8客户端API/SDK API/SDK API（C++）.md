@@ -82,6 +82,7 @@
 | [setMessageExtensions](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMMessageManager.html#a01d4d98b44f8b1dfdeff3abf1cd71d41) | 设置消息扩展 |
 | [getMessageExtensions](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMMessageManager.html#a7d0ec9f6d4201d916eb2861b19443605) | 获取消息扩展 |
 | [deleteMessageExtensions](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMMessageManager.html#a319ceed3323c5005b3630ef1598d5886) | 删除消息扩展 |
+| [translateText](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMMessageManager.html#ad4df190bf4089a64f69b84a874a60028) | 翻译文本消息 |
 
 ## 群组相关接口
 
