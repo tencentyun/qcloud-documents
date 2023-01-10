@@ -23,7 +23,7 @@
 
 | API | 说明 |
 |---------|---------|
-| 构造函数（TimUiKitPushPlugin） | 实例化一个Push插件对象，并确定是否使用Google Service FCM |
+| 构造函数（TimUiKitPushPlugin） | 实例化一个Push插件对象，并确定是否使用Google FCM |
 | init | 初始化插件，绑定点击通知回调事件及传入厂商渠道信息 |
 | uploadToken | 自动获取设备Token及证书ID，自动上传至腾讯云IM服务端 |
 | clearToken | 清除服务端上本设备的推送Token，达到屏蔽通知的效果 |
@@ -55,6 +55,8 @@
 ### Android
 
 #### Google FCM
+
+>? 如果您的应用不面向海外客户，可不完成本Google FCM系列操作。
 
 1. 前往 [Google Firebase控制台](https://console.firebase.google.com/) 创建一个项目，无需启用 Google Analysis。
 ![](https://qcloudimg.tencent-cloud.cn/raw/80c3108f8685752170721ac51052aead.png)
@@ -220,9 +222,22 @@ apksigner sign --ks keystore.jks --ks-pass pass:您创建的keystore密码 --out
 
 ## 使用插件跑通离线推送（全览 + Android）
 
-在您的项目中安装 IM Flutter 离线推送插件：
+在您的项目中安装 IM Flutter 离线推送插件。
+
+请注意，我们提供两个版本的消息推送插件，中国大陆版和国际版。iOS都使用APNS通道，但安卓通道有差异。
+
+| 版本类型 | 包名 | Google FCM 支持 | 国内厂商原生支持 | 描述 |
+|---------|---------|---------|---------|---------|
+| 中国大陆版 | [tencent_chat_push_for_china](https://pub.dev/packages/tencent_chat_push_for_china) | 否 | 是 | 安卓离线推送仅走国内厂商原生通道 |
+| 国际版 | [tim_ui_kit_push_plugin](https://pub.dev/packages/tim_ui_kit_push_plugin) | 是 | 是 | 在配置Google FCM相关信息，且当前设备Google FCM可用的情况下，优先使用Google FCM通道，其次再尝试国内厂商通道 |
+
+请根据目标客户群里，选用合适的推送插件。
 
 ```shell
+// 国内版
+flutter pub add tencent_chat_push_for_china
+
+// 国际版
 flutter pub add tim_ui_kit_push_plugin
 ```
 
@@ -238,8 +253,6 @@ flutter pub add tim_ui_kit_push_plugin
 3. 该类支持配置所有您需要接入厂商推送机型的信息。无需完整填写构造函数字段。若需要使用某个厂商平台，请完整填写该平台相关字段。
 
  ```Dart
-import 'package:tim_ui_kit_push_plugin/model/appInfo.dart';
-
 static final PushAppInfo appInfo = PushAppInfo(
   hw_buz_id: , // 华为证书ID
   mi_app_id: , // 小米APPID
@@ -265,6 +278,8 @@ static final PushAppInfo appInfo = PushAppInfo(
 ### 步骤2：代码中添加厂商工程配置[](id:step_2)
 
 #### Google FCM
+
+>? 如果您的应用不面向海外客户，可不完成本Google FCM系列操作。如需要，请保证使用的推送插件为国际版[tim_ui_kit_push_plugin](https://pub.dev/packages/tim_ui_kit_push_plugin)。
 
 ##### 兼容 Android 模拟器调试
 
@@ -311,11 +326,6 @@ await Firebase.initializeApp(
   options: DefaultFirebaseOptions.currentPlatform,
 );
 ```
-
-##### 不选装 Google FCM 推送
-
-1. 由于国内大部分机型不支持 Google Service，开发者可无需执行此配置。
-2. 后续引入插件时，将`isUseGoogleFCM`字段设为 false 即可。
 
 #### 华为
 
@@ -499,19 +509,17 @@ defaultConfig {
 
 1. 调用插件`init`方法。该步骤会完成初始化各厂商通道，并申请厂商通知权限。
 2. 请确保 IM SDK 初始化成功后，才可初始化本插件。
->?由于国内大部分 Android 设备不支持 Google Service, 因此提供一个开关`isUseGoogleFCM`供开发者根据主要用户群体判断，是否启用 Google Firebase Cloud Messaging 推送服务。
->
-```Dart
-import 'package:tim_ui_kit_push_plugin/tim_ui_kit_push_plugin.dart';
 
+```Dart
 final TimUiKitPushPlugin cPush = TimUiKitPushPlugin(
-  isUseGoogleFCM: bool, // 是否启用Google Firebase Cloud Messaging，默认true启用
+  isUseGoogleFCM: bool, // 是否启用Google Firebase Cloud Messaging，默认true启用。中国大陆版无此参数。
 );
 await cPush.init(
     pushClickAction: pushClickAction, // 单击通知后的事件回调，会在STEP6讲解
     appInfo: PushConfig.appInfo, // 传入STEP1做的appInfo
 );
 ```
+
 3. 初始化结束后，需要为部分厂商创建消息通道，如OPPO和小米均需此配置。调用`createNotificationChannel`方法即可。
 >?如果向厂商申请的 channel ID 一致，同一个 channel ID 调用一次即可。
 >
@@ -540,10 +548,8 @@ cPush.requireNotificationPermission();
 >- 建议初始化推送插件成功后，间隔5秒，再上报 Token，以防偶发网络波动导致厂商 SDK 生成 Token 延误。
 
 ``` Dart
-import 'package:tim_ui_kit_push_plugin/tim_ui_kit_push_plugin.dart';
-
 final TimUiKitPushPlugin cPush = TimUiKitPushPlugin(
-    isUseGoogleFCM: false,
+    isUseGoogleFCM: true, // 中国大陆版无此参数
   );
 
 Future.delayed(const Duration(seconds: 5), () async {
@@ -656,7 +662,7 @@ TIMUIKitChat(
 ```Dart
 BuildContext? _cachedContext;
 final TimUiKitPushPlugin cPush = TimUiKitPushPlugin(
-  isUseGoogleFCM: false,
+  isUseGoogleFCM: true, // 中国大陆版无此参数
 );
 
 @override
@@ -754,9 +760,9 @@ if #available(iOS 10.0, *) {
 调用插件`init`方法。该步骤会完成初始化各厂商通道，并申请厂商通知权限。该步骤建议在应用启动后就执行调用。
 
 ```Dart
-import 'package:tim_ui_kit_push_plugin/tim_ui_kit_push_plugin.dart';
-
-final TimUiKitPushPlugin cPush = TimUiKitPushPlugin();
+final TimUiKitPushPlugin cPush = TimUiKitPushPlugin(
+  isUseGoogleFCM: true, // 中国大陆版无此参数
+);
 cPush.init(
     pushClickAction: pushClickAction, // 单击通知后的事件回调，会在STEP6讲解
     appInfo: PushConfig.appInfo, // 传入STEP1做的appInfo
@@ -954,6 +960,10 @@ OPPO 手机收不到推送一般有以下几种情况：
 在您的项目中安装 IM Flutter 推送插件：
 
 ```shell
+// 国内版
+flutter pub add tencent_chat_push_for_china
+
+// 国际版
 flutter pub add tim_ui_kit_push_plugin
 ```
 
@@ -997,7 +1007,9 @@ if #available(iOS 10.0, *) {
 请在 IM SDK 初始化完成后，初始化本 Push 插件。实例化一个 `cPush` 插件类，供后续调用。
 
 ```dart
-final TimUiKitPushPlugin cPush = TimUiKitPushPlugin();
+final TimUiKitPushPlugin cPush = TimUiKitPushPlugin(
+  isUseGoogleFCM: true, // 中国大陆版无此参数
+);
 
 cPush.init(
   // 此处绑定点击通知的跳转函数，下文会介绍
@@ -1085,8 +1097,8 @@ cPush.displayDefaultNotificationForMessage(
 ```Dart
 BuildContext? _cachedContext;
 final TimUiKitPushPlugin cPush = TimUiKitPushPlugin(
-      isUseGoogleFCM: false,
-    );
+  isUseGoogleFCM: true, // 中国大陆版无此参数
+);
 
 @override
 void initState() {
