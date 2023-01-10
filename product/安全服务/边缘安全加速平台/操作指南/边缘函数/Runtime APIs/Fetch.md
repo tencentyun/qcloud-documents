@@ -29,10 +29,10 @@ function fetch(request: string | Request, init?: RequestInit): Promise<Response>
     </tr>
     <tr>
       <td>init</td>
-      <td><a href="https://cloud.tencent.com/document/product/1552/81902">RequestInit</a></td>
+      <td><a href="https://cloud.tencent.com/document/product/1552/81902#RequestInit">RequestInit</a></td>
       <td>否</td>
       <td>
-        请求对象的初始化配置项。详情请参见 <a href="https://cloud.tencent.com/document/product/1552/81902">RequestInit</a>。
+        请求对象的初始化配置项。详情请参见 <a href="https://cloud.tencent.com/document/product/1552/81902#RequestInit">RequestInit</a>。
       </td>
     </tr>
   </tbody>
@@ -57,7 +57,7 @@ addEventListener('fetch', async (event) => {
 
 ## 重定向
 
-`fetch` 支持 `3xx` 重定向状态码。可使用第二个参数 `init.redirect` 属性进行设置，更多重定向配置，请查看 [RequestInit](https://cloud.tencent.com/document/product/1552/81902)。
+`fetch` 支持 `3xx` 重定向状态码。可使用第二个参数 `init.redirect` 属性进行设置，更多重定向配置，请查看 [RequestInit](https://cloud.tencent.com/document/product/1552/81902#RequestInit)。
 
 
 - 重定向规则遵从 Web APIs 标准 [fetch API](https://fetch.spec.whatwg.org/#http-redirect-fetch)，针对不同状态码有不同的跟随规则：

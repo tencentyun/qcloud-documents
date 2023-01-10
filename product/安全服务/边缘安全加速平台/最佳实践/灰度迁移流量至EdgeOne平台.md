@@ -5,7 +5,7 @@
 
 制定分三阶段灰度切换至 EdgeOne：首先灰度1%，其次30%，最后100%。
 
-<img width="631" alt="image" src="https://user-images.githubusercontent.com/116173601/208424586-f5870946-c994-4ad5-86cf-9c2f0e0e4f1e.png">
+<img src="https://qcloudimg.tencent-cloud.cn/raw/9fbd9c59c70a4c105fa5fa940efff6b8.png" width=700px>
 
 
 ## 步骤一：添加站点和域名
@@ -39,5 +39,4 @@
 ## 步骤五：完成灰度流程
 100%灰度服务一段时间，确认服务没问题后，可以选择停用和关闭流量调度策略，停用和关闭对您的服务没有影响，流量依然全部采用 EdgeOne 服务。
 ![](https://qcloudimg.tencent-cloud.cn/raw/6ff66eb5df1796f11874533d9f2b8693.png)
-
 

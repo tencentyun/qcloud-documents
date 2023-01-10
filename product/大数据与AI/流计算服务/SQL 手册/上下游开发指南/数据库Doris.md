@@ -43,7 +43,7 @@ CREATE TABLE doris_sink_table (
 | sink.batch.size     | 单次写 BE 的最大行数                                         | 否       | 默认100        |
 | sink.max-retries    | 写 BE 失败之后的重试次数                                     | 否       | 默认1          |
 | sink.batch.interval | flush 间隔时间，超过该时间后异步线程将缓存中数据写入 BE。默认值为1秒，支持时间单位 ms、s、min、h 和 d。设置为0，表示关闭定期写入 | 否       | 默认1s         |
-| sink.properties.\*  | Stream load 的导入 [参数](https://doris.apache.org/master/zh-CN/administrator-guide/config/fe_config.html#%E9%85%8D%E7%BD%AE%E9%A1%B9%E5%88%97%E8%A1%A8)。例如 `sink.properties.column_separator' = ','`等 | 否       | -              |
+| sink.properties.\*  | Stream load 的导入 [参数](https://doris.apache.org/zh-CN/docs/dev/data-operate/import/import-way/stream-load-manual/)。例如 `sink.properties.column_separator' = ','`等 | 否       | -              |
 
 
 ## 类型映射
@@ -90,13 +90,15 @@ CREATE TABLE doris_sink_table (
   </tr>
   <tr>
     <td>DATE</td>
-    <td rowspan="5">STRING</td>
+		    <td>DATE</td>
   </tr>
   <tr>
     <td>DATETIME</td>
+		    <td>TIMESTAMP</td>
   </tr>
    <tr>
     <td>CHAR</td>
+		    <td rowspan="3">STRING</td>
   </tr>
   <tr>
     <td>LARGEINT</td>

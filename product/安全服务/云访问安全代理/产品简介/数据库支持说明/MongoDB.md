@@ -33,4 +33,4 @@
 | $.addr.name                  | 支持        | 支持        | 结构体内字段              |
 | $.books[*]                   | 支持        | 支持        | 数组内所有元素             |
 | $.books[-1:]                 | 不支持       | 不支持       | 数组内部分元素             |
-| $.friends[?(@.name)].phone   | 不支持       | 不支持       | 具有name属性的，取phone的值  |
+| $.friends[?(@.name)].phone   | 不支持       | 不支持       | 具有 name 属性的，取 phone 的值  |
