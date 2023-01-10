@@ -40,7 +40,7 @@ NextCloud 服务端采用 PHP 编写，数据库可以使用 SQLite、MySQL、Ma
 
 ### Web 服务器及 PHP 运行时
 
-NextCloud 服务端通过`.htaccess`指定了部分配置，因此使用 Apache 服务器软件时可直接使用 NextCloud 服务端自带的配置项。Nginx 是近些年发展较快的 Web 服务器软件，相对 Apache 具有安装配置简单、资源占用少、负载能力更强的优点，通过将 NextCloud 服务端中的`.htaccess`配置转写为 Nginx 的配置，亦可很好的支持 NextCloud 服务端的运行，本文将使用 Nginx 服务器软件，并提供完整的 Nginx 配置示例可供参考。
+NextCloud 服务端通过 `.htaccess` 指定了部分配置，因此使用 Apache 服务器软件时可直接使用 NextCloud 服务端自带的配置项。Nginx 是近些年发展较快的 Web 服务器软件，相对 Apache 具有安装配置简单、资源占用少、负载能力更强的优点，通过将 NextCloud 服务端中的 `.htaccess` 配置转写为 Nginx 的配置，亦可很好的支持 NextCloud 服务端的运行，本文将使用 Nginx 服务器软件，并提供完整的 Nginx 配置示例可供参考。
 
 PHP 运行时目前已经发展到 PHP 7，主要维护的版本包括7.2、7.3和7.4，这3个版本均支持 NextCloud 服务端，我们使用最新的7.4即可。此外，NextCloud 还依赖 PHP 的部分扩展模块，下文将详细介绍具体的扩展模块要求。
 
@@ -48,7 +48,7 @@ PHP 运行时目前已经发展到 PHP 7，主要维护的版本包括7.2、7.3�
 
 腾讯云目前提供基础网络和私有网络（VPC）环境。基础网络是腾讯云上所有用户的公共网络资源池，所有云服务器的内网 IP 地址都由腾讯云统一分配，无法自定义网段划分、IP 地址。私有网络是用户在腾讯云上建立的一块逻辑隔离的网络空间，在私有网络内，用户可以自由定义网段划分、IP 地址和路由策略。目前基础网络由于资源紧缺且无法扩增等功能，新注册账号及部分新建可用区均不再支持基础网络，因此本文将以私有网络为例进行后续的演示。
 
->? 有关私有网络的进一步介绍，请参阅 [私有网络产品概述](https://cloud.tencent.com/document/product/215/20046)。
+>? 有关私有网络的进一步介绍，请参见 [私有网络产品概述](https://cloud.tencent.com/document/product/215/20046)。
 >
 
 ## 云硬盘与对象存储的对比
@@ -324,7 +324,7 @@ chown -R nginx:nginx /var/www
 3. 备份当前的 Nginx 配置文件 `/etc/nginx/nginx.conf`，您可以：
  1. 执行 `cp /etc/nginx/nginx.conf ~/nginx.conf.bak` 将当前配置文件备份到家（HOME）目录。
  2. 使用 SFTP 或 SCP 等软件将当前配置文件下载到本地计算机。
-4. 将`/etc/nginx/nginx.conf` 修改或替换为如下内容：
+4. 将 `/etc/nginx/nginx.conf` 修改或替换为如下内容：
 ```plaintext
 # For more information on configuration, see:
 #   * Official English Documentation: http://nginx.org/en/docs/
