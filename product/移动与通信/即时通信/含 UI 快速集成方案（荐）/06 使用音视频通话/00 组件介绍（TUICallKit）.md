@@ -153,7 +153,7 @@ TUICallKit 属于 IM 增值服务之一，需要您单独开通/购买后使用�
 <td style="text-align: center">✓</td>
 </tr>
 <tr>
-<td>支持本地录音增益和 AI 降噪</td>
+<td>TUIChat 发送语音消息支持 AI 降噪和自动增益</td>
 <td style="text-align: center">-</td>
 <td style="text-align: center">-</td>
 <td style="text-align: center">✓</td>
