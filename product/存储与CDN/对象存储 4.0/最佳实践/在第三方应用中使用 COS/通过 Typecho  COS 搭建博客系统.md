@@ -17,7 +17,7 @@
 ### 安装 Typecho
 
 
-您可以在 [Typecho 官方页面](http://typecho.org/download) 下载 Typecho 的最新版并查看安装指南。您也可以通过宝塔面板安装。宝塔面板安装指引请参见 [宝塔官网](https://www.bt.cn/)。下面以宝塔安装 Typecho 为例。
+您可以在 [Typecho 官方页面](http://typecho.org/download) 下载 Typecho 的最新版并查看官方安装指南进行安装。您也可以通过宝塔面板安装。宝塔面板安装指引请参见 [宝塔官网](https://www.bt.cn/)。下面以宝塔安装 Typecho 为例。
 
 #### 安装宝塔
 1. 首先准备一台 CVM 机器，然后安全组的入站规则和出站规则按照如下配置：
@@ -45,7 +45,7 @@ yum install -y wget && wget -O install.sh http://download.bt.cn/install/install_
 3. 站点创建完成后，进入站点。
 4. 单击**文件**导航栏，在文件页面中单击**远程下载**，填入 Typecho 的 GitHub 源码地址：`https://github.com/typecho/typecho/releases/latest/download/typecho.zip`，然后单击**确认**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/be8318b9ad5ffebb8a8955ff46009638.png)
-5. Typecho 源码文件下载后，并完成解压，然后通过浏览器访问链接`http://43.xxx.xxx.132/install.php`（使用时请替换为自己的站点 IP）。
+5. Typecho 源码文件下载后，并完成解压，然后通过浏览器访问链接 `http://43.xxx.xxx.132/install.php`（使用时请替换为自己的站点 IP）。
 6. 根据页面提示，填写如下信息：
 ![](https://qcloudimg.tencent-cloud.cn/raw/e62c6ead50e2e0ecd69f5efd17dc178a.png)
 >?
@@ -59,11 +59,11 @@ yum install -y wget && wget -O install.sh http://download.bt.cn/install/install_
 ### 安装 COS 插件
 
 
-1. 配置完成后，在宝塔43.xxx.xxx.132目录下单击**远程下载**，填入以下插件链接，然后得到该插件的压缩文件。
+1. 配置完成后，在宝塔 43.xxx.xxx.132 目录下单击**远程下载**，填入以下插件链接，然后得到该插件的压缩文件。
+```plaintext
+https://github.com/Tencent-Cloud-Plugins/tencentcloud-typecho-plugin-cos/archive/refs/heads/master.zip
 ```
-https://github.com/cnhongv/typecho-cos-plugin/archive/refs/tags/v1.0.1.zip
-```
-2. 复制 TypechoCosPlugin 文件夹到 Typecho 安装路径/usr/plugins/内。
+2. 对压缩包进行解压后，复制 TypechoCosPlugin 文件夹到 Typecho 安装路径 /usr/plugins/ 内。复制 /var/Widget/Upload.php 到 Typecho 博客源码安装路径 /var/Widget/ 内，覆盖博客源码中的 /var/Widget/Upload.php 文件。
 3. 刷新 Typecho 的后台，即可看到该插件并启用插件。
 4. 启用插件后，设置插件相关参数以便关联到 COS，配置信息如下：
  - 基础设置
@@ -93,8 +93,8 @@ https://github.com/cnhongv/typecho-cos-plugin/archive/refs/tags/v1.0.1.zip
       <td>文件所存储的 COS 路径，插件默认路径为 usr/uploads，可自行修改。</td>
    </tr>
 </table>
-<img style="width:700px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/bcd04f122386c569cfeac1779572dab9.png" />
- - 高级设置（可选）
+<img style="width:700px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/c97981a92144d65ba74dd78ab3ed6595.jpg" />
+ - 高级设置
 <table>
    <tr>
       <th width="0%" >配置项</td>
@@ -121,7 +121,7 @@ https://github.com/cnhongv/typecho-cos-plugin/archive/refs/tags/v1.0.1.zip
       <td>当您在<b>博客后台</b>删除文件时，是否同步删除本地服务器备份的文件副本（前提是已开启<b>在本地保存</b>才会生效）。</td>
    </tr>
 </table>
-<img style="width:700px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/d18236891f7b60bcb21915949f5d975c.png" />
+<img style="width:700px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/6bed3fb18e64975319954b7aa06c64f9.jpg" />
 5. 完成以上设置后，即可完成博客系统的搭建，上传图片即可显示该 COS 的存储桶域名。
 ![](https://qcloudimg.tencent-cloud.cn/raw/6c935d172d1153f3c23a6d0ef757a59d.png)
 
@@ -137,10 +137,13 @@ https://github.com/cnhongv/typecho-cos-plugin/archive/refs/tags/v1.0.1.zip
 打开宝塔面板，单击软件商店，在 php 这里单击选择7.2以上版本即可。
 ![img](https://qcloudimg.tencent-cloud.cn/raw/e34844f437da44e8c9dad59fd89ec337.png)
 
-2. 若提示“上传目录无法写入“”等报错，则需要重新去 Typecho 官网下载最新安装包。
+2. 若提示**上传目录无法写入**等报错，则需要重新去 Typecho 官网下载最新安装包。
 ![img](https://qcloudimg.tencent-cloud.cn/raw/9107b833831b3249ccdc6451f14e4bb7.png)
 
 
 
 
+## 结语
+
+当然，COS 不仅提供以上应用和服务，还提供多款热门开源应用，并集成腾讯云 COS 插件，欢迎点击 [此处](https://cloud.tencent.com/act/pro/Ecological-aggregation?from=18406) 一键启动，立即使用！
 

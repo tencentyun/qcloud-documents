@@ -32,4 +32,4 @@ spec:
               servicePort: 80
             path: /
 ```
->? `kubernetes.io/ingress.existLbId: lb-mgzu3mpx` 注解表明了该 Ingress 将使用已有负载均衡 `lb-mgzu3mpx` 进行 Ingress 服务配置。
+`kubernetes.io/ingress.existLbId: lb-mgzu3mpx` 注解表明了该 Ingress 将使用已有负载均衡 `lb-mgzu3mpx` 进行 Ingress 服务配置。

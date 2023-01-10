@@ -3,11 +3,11 @@ Dashboard 支持最近访问面板、收藏面板和自定义面板三种方式�
 ## 准备工作
 
 1. 登录 [云监控控制台](https://console.cloud.tencent.com/monitor)。
-2. 在左侧导航栏中单击 **Dashboard** > **Dashboard 列表**，进入 Dashboard 列表页。
+2. 在左侧导航栏中单击 **Dashboard > Dashboard 列表**，进入 Dashboard 列表页。
 
 ## 全屏查看
 
-1. 在 Dashboard 列表中找到您需要查看的 Dashboard，单击对应的面板名，进入 Dashboard管理页。
+1. 在 Dashboard 列表中找到您需要查看的 Dashboard，单击对应的面板名，进入 Dashboard 管理页。
 2. 单击![](https://main.qcloudimg.com/raw/9bd9730e6a3135b097d648f752399fac.png)即可全屏查看 Dashboard。
 
 ## 退出全屏
@@ -22,8 +22,7 @@ Dashboard 支持最近访问面板、收藏面板和自定义面板三种方式�
 	- 最近访问面板：展示您最近访问的三个监控面板。
 	- 收藏面板：展示您所收藏的所有面板。
 	- 自定义面板：展示您所自定义的所有面板。
-  <img src="https://main.qcloudimg.com/raw/47736500875951a662e9c704605d603f.png"  style="margin:0;" width="80%">
-
+  <img src="https://qcloudimg.tencent-cloud.cn/raw/2632541cdb20ae937cb7cf0ea691dffc.png"  style="margin:0;" width="80%">
 > ? 如需收藏面板，请参见 [收藏 Dashboard ](https://cloud.tencent.com/document/product/248/46752)。
 
 ## 调整 Dashboard 时间跨度和刷新频率

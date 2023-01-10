@@ -25,7 +25,7 @@ Logback 是 Apache 的一个开源项目。通过使用 Logback，我们可以�
 <dependency>
     <groupId>com.tencentcloudapi.cls</groupId>
     <artifactId>tencentcloud-cls-logback-appender</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.3</version>
 </dependency>
 ```
 

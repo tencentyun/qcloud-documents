@@ -4,7 +4,7 @@
 本文为您介绍如何通过控制台开启数据加密功能，以及如何加密或解密数据。
 
 ## 限制条件
-- TDE 加密功能当前仅支持 MySQL 8.0.24 版本和香港地区 Percona 5.7 版本。
+- TDE 加密功能当前仅支持 MySQL 8.0.24 及以上版本和 Percona 5.7 版本。
 >?如需使用 TDE 加密功能，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请。
 - 需开通 [密钥管理服务 KMS](https://cloud.tencent.com/document/product/573/38406)。如未开通，请根据 TDE 加密功能引导进行开通。
 - 需获得 KMS 密钥权限。如未开通，请根据 TDE 加密功能引导进行开通。

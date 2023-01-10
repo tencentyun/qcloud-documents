@@ -118,7 +118,6 @@ SDK 3.0支持全部 API 3.0下的云产品，本列表可能滞后于实际代�
 | [定制建模](https://cloud.tencent.com/document/product/1029)         | Anti Fraud Customized | afc        |
 | [音频内容检测](https://cloud.tencent.com/document/product/1219)       | Audio Moderation System | ams        |
 | [汽车精准获客服务](https://cloud.tencent.com/document/product/1244)     | Automotive Precise Customer Acquisition Service | apcas      |
-| [正版图库直通车](https://cloud.tencent.com/document/product/1181)      | Authorized Picture Express | ape        |
 | [API 网关](https://cloud.tencent.com/document/product/628)         | API Gateway | apigateway |
 | [应用与服务编排工作流](https://cloud.tencent.com/document/product/1272)   | Application Services Workflow | asw        |
 | [网站备案](https://cloud.tencent.com/document/product/243)          | - | ba         |
@@ -168,6 +167,7 @@ SDK 3.0支持全部 API 3.0下的云产品，本列表可能滞后于实际代�
 | [私有域解析 Private DNS](https://cloud.tencent.com/document/product/1338) | Private DNS | privatedns       |
 | [弹性微服务](https://cloud.tencent.com/document/product/1371)             | Tencent Cloud Elastic Microservice，TEM | tem              |
 | [腾讯云微服务引擎](https://cloud.tencent.com/document/product/1364)          | Tencent Cloud Service Engine，TSE | tse              |
+| [日志服务](https://cloud.tencent.com/document/product/614/56480)          | Cloud Log Service，CLS | cls              |
 
 ## API Explorer
 [API Explorer](https://console.cloud.tencent.com/api/explorer) 提供了在线调用、签名验证、 SDK 代码生成和快速检索接口等能力，能显著降低使用云 API 的难度。

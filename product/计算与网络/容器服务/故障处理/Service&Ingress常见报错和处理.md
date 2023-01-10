@@ -10,12 +10,12 @@ Service/Ingress 作为用户直接对外提供服务的资源对象，如果异�
 ## 如何查看 Service/Ingress Event 的报错信息？
 <dx-tabs>
 ::: 通过控制台
-1. 登录 [容器服务控制台 ](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的**集群**。
-2. 在“集群管理”页面中，选择需要更新 YAML 的集群 ID，进入待更新 YAML 的集群管理页面。
+1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的**集群**。
+2. 在“集群管理”页面中，选择需要更新 YAML 的集群 ID，进入集群基本信息页面。
 3. 选择**服务与路由** > **Service** 或 **Ingress**，进入 Service 或 Ingress 信息页面。
 4. 单击某个具体的 Service 或 Ingress 名称。
 5. 在“事件”页签，可查看当前 Service 或 Ingress 的事件信息。如下图所示，可以查看当前 Service/Ingress 的 Event 报错代码。
- ![](https://qcloudimg.tencent-cloud.cn/raw/eb6f6147a577f73c9104fc0f616ac01f.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/4043c4e9101bfbe3a95ec0c0e361f62e.png)
 >! 资源事件只保存最近 1 小时内发生的事件，请尽快查阅。
 :::
 ::: 通过命令行
@@ -84,7 +84,7 @@ kubectl get event | grep service
 | E4048  | Ingress 存在域名声明了多个默认证书                            | TLS 字段中声明了多个没有 Host 配置的 Secret。删除至只剩一个。 | 资源同步被阻塞，用户更新可能导致负载均衡后端不能正常更新。 |
 | E4049  | Ingress 存在某个固定域名声明了多个证书                        | TLS 字段中有一个域名声明了多个 Secret。删除至只剩一个。      | 资源同步被阻塞，用户更新可能导致负载均衡后端不能正常更新。 |
 | E4051  | 用户手动外挂配置指定了系统自动化生成的配置                   | 详情可参见 [Ingress 使用 TkeServiceConfig 配置 CLB](https://cloud.tencent.com/document/product/457/45700)，改用其他名称的资源。 | 暂无                                                       |
-| E4052  | Ingress 中转发规则指定的域名不符合正则要求                   | 检查并修改错误域名一般错误原因域名不带"."，比如 Host: test 域名用大写，比如 Host: Test.com 正则：`(\*\|[a-z0-9]([-a-z0-9]*[a-z0-9])?)(\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)+ `| 资源同步被阻塞，用户更新可能导致负载均衡后端不能正常更新。 |
+| E4052  | Ingress 中转发规则指定的域名不符合正则要求                   | 检查并修改错误域名一般错误原因域名不带"."，如 Host: test 域名用大写，如 Host: Test.com 正则：`(\*\|[a-z0-9]([-a-z0-9]*[a-z0-9])?)(\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)+ `| 资源同步被阻塞，用户更新可能导致负载均衡后端不能正常更新。 |
 | E4053  | 子网 IP 用尽，无法创建负载均衡                                 | 三种方案：<br />1. 更换其他有足够 IP 的子网新建子网。<br />2. 更新 Service 注解使用新的子网 ID。<br />3. 改为使用公网类型的负载均衡。 | 新增资源没有流量接入                                       |
 | E4054  | 后端数量达到上限                                             | [提交工单](https://console.cloud.tencent.com/workorder/category) 申请负载均衡后端数量 Quota。 | 后端更新可能失败，用户滚动更新时可能导致断流               |
 | E4055  | 子网不存在或格式错误，无法创建负载均衡                       | 三种方案：<br />1. 更换其他有足够 IP 的子网新建子网。<br />2. 更新 Service 注解使用新的子网 ID。<br />3. 改为使用公网类型的负载均衡。 | 新增资源没有流量接入                                       |

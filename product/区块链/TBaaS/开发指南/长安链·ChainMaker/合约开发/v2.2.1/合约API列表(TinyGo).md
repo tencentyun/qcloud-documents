@@ -1,4 +1,4 @@
-ChainMake Go (TinyGo)  语言版本智能合约有丰富的 API 接口，供用户在撰写智能合约的时候与链进行交互，代码实现详情可以参考[API 接口代码实现](https://docs.chainmaker.org.cn/v2.2.1/html/operation/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6.html#go-tinygo)。
+ChainMaker Go (TinyGo)  语言版本智能合约有丰富的 API 接口，供用户在撰写智能合约的时候与链进行交互，代码实现详情可以参考[API 接口代码实现](https://docs.chainmaker.org.cn/v2.2.1/html/operation/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6.html#go-tinygo)。
 
 <dx-alert infotype="notice" title="">
 - 当前在 v2.2.1 版本的长安链网络中，仅支持通过 TBaaS 控制台对存量 TinyGo 合约进行升级，不再支持 TinyGo 合约创建。

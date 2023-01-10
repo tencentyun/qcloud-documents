@@ -1,7 +1,7 @@
 本场景介绍使用 DTS 创建腾讯云 [TDSQL PostgreSQL 版](https://cloud.tencent.com/document/product/1129) 的数据订阅任务操作指导。
 
 ## 前提条件
-- 已准备好待订阅的 [TDSQL PostgreSQL 版](https://cloud.tencent.com/document/product/1129/39893)，并且各数据库版本符合要求，请参见 [数据订阅支持的数据库](https://cloud.tencent.com/document/product/571/59965)。
+- 已准备好待订阅的 [TDSQL PostgreSQL 版](https://cloud.tencent.com/document/product/1129/39893)，并且数据库版本符合要求，请参见 [数据订阅支持的数据库](https://cloud.tencent.com/document/product/571/59965)。
 - 已在源端实例中创建订阅帐号，需要帐号权限如下： LOGIN 和 REPLICATION 权限。
   LOGIN 和 REPLICATION 授权请 [提交工单](https://console.cloud.tencent.com/workorder/category) 处理。
 - 订阅帐号必须拥有被订阅表的 select 权限，如果是整库订阅，那么订阅帐号要拥有该 schema 下所有表的 select 权限，具体授权语句如下：

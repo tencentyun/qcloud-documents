@@ -40,7 +40,7 @@
 <input type="button" value="前往下载播放器 SDK 及 Demo 跳转链接" class="inbuttom" onclick="window.open('https://cloud.tencent.com/document/product/881/20205');reportEvent({name: 'demo-click-web', ext1: 'pusher'});" />
 
 ## 多场景组合
-支持上述多种音视频终端使用场景组合使用，可下载全功能版 SDK（可选择 iOS 和 Android 版本），仅需集成一个 SDK 便可实现互动直播、短视频、美颜特效、音视频通话等全部音视频终端能力。
+支持上述多种音视频终端使用场景组合使用，可下载全功能版 SDK（可选择 iOS 和 Android 版本），仅需集成一个 SDK 便可实现互动直播、短视频、音视频通话等全部音视频终端能力。
 ![](https://qcloudimg.tencent-cloud.cn/raw/1dc18a5333b579a7953d0b997902cc90.png)
 <input type="button" value="前往下载全功能 SDK 及 Demo 跳转链接" class="inbuttom" onclick="window.open('https://cloud.tencent.com/document/product/454/7873#ALL');reportEvent({name: 'demo-click-web', ext1: 'pusher'});" />
 

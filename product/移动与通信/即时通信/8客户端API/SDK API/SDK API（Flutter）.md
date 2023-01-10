@@ -1,9 +1,10 @@
 <dx-alert infotype="notice" title="温馨提示">
-即时通信 IM 为您准备了 Flutter 的 API 调用示例，您可以访问 [GitHub](https://github.com/TencentCloud/TIMSDK/tree/master/Flutter/IMSDK/im-flutter-plugin/tencent_im_sdk_plugin/example) 获取源码。扫描下方二维码即可体验 API 调用示例 Demo：
+即时通信 IM 为您准备了 Flutter 的 API 调用示例，您可以访问 [GitHub](https://github.com/TencentCloud/chat-sdk-flutter/tree/main/example) 获取源码。扫描下方二维码即可体验 API 调用示例 Demo：
 ![](https://main.qcloudimg.com/raw/4658a0d24c33f6ec42b07bc8e36234d9.png)
 </dx-alert infotype="notice" title="温馨提示">
 
 ## 初始化登录接口
+
 初始化并成功登录，是正常使用腾讯云 IM 服务的前提。
 
 | API                                                                                                                 | 描述                            |
@@ -23,8 +24,8 @@
 | [getOfflinePushManager](https://comm.qq.com/im/doc/flutter/zh/SDKAPI/Api/V2TIMManager/getOfflinePushManager.html)   | 获取版本号                      |
 | [getSignalingManager](https://comm.qq.com/im/doc/flutter/zh/SDKAPI/Api/V2TIMManager/getSignalingManager.html)       | 信令入口                        |
 
-
 ## 信令接口
+
 | API                                                                                                                            | 描述             |
 | ------------------------------------------------------------------------------------------------------------------------------ | ---------------- |
 | [addSignalingListener](https://comm.qq.com/im/doc/flutter/zh/SDKAPI/Api/V2TIMSignalingManager/addSignalingListener.html)       | 添加信令监听     |
@@ -58,6 +59,7 @@
 | [appendMessage](https://comm.qq.com/im/doc/flutter/zh/SDKAPI/Api/V2TIMMessageManager/appendMessage.html)                           | 添加多Element消息  |
 
 ## 消息收发接口
+
 如果您需要收发图片、视频、文件等富媒体消息，并需要撤回消息、标记已读、查询历史消息等高级功能，推荐使用下面这套高级消息接口（原3.6.0前的高级消息部分接口已弃用，请使用新版创建消息接口后调用发送消息接口）。
 
 | API                                                                                                                                            | 描述                                                                                                                                             |
@@ -92,11 +94,12 @@
 | [getMessageReadReceipts](https://comm.qq.com/im/doc/flutter/zh/SDKAPI/Api/V2TIMMessageManager/getMessageReadReceipts.html)                     | 获取自己发送消息的已读回执                                                                                                                       |
 | [getGroupMessageReadMemberList](https://comm.qq.com/im/doc/flutter/zh/SDKAPI/Api/V2TIMMessageManager/getGroupMessageReadMemberList.html)       | 获取自己发送的群消息已读（未读）群成员列表                                                                                                       |
 
-
 ## 群组相关接口
+
 腾讯云 IM SDK 支持五种预设的群组类型，每种类型都有其适用场景：
-- 工作群（Work）	：类似普通微信群，创建后不能自由加入，必须由已经在群的用户邀请入群，同旧版本中的 Private，同旧版本中的 Private。
-- 公开群（Public）	：类似 QQ 群，用户申请加入，但需要群主或管理员审批。
+
+- 工作群（Work） ：类似普通微信群，创建后不能自由加入，必须由已经在群的用户邀请入群，同旧版本中的 Private，同旧版本中的 Private。
+- 公开群（Public） ：类似 QQ 群，用户申请加入，但需要群主或管理员审批。
 - 会议群（Meeting）：适合跟 [TRTC](https://cloud.tencent.com/product/trtc) 结合实现视频会议和在线教育等场景，支持随意进出，支持查看进群前的历史消息，同旧版本中的 ChatRoom，同旧版本中的 ChatRoom。
 - 社群（Community）：创建后可以随意进出，适合用于知识分享和游戏交流等超大社区群聊场景。
 - 直播群（AVChatRoom）：适合直播弹幕聊天室等场景，支持随意进出，人数无上限。
@@ -139,6 +142,7 @@
 | [getTopicInfoList](https://comm.qq.com/im/doc/flutter/zh/SDKAPI/Api/V2TIMGroupManager/getTopicInfoList.html)                   | 获取话题属性的列表                                                    |
 
 ## 会话列表相关接口
+
 会话列表，即登录微信或 QQ 后首屏看到的列表，包含会话节点、会话名称、群名称、最后一条消息以及未读消息数等元素。
 
 | API                                                                                                                                                       | 描述                       |
@@ -155,6 +159,7 @@
 | [setConversationDraft](https://comm.qq.com/im/doc/flutter/zh/SDKAPI/Api/V2TIMConversationManager/setConversationDraft.html)                               | 设置会话草稿               |
 
 ## 用户资料相关接口
+
 包含查询用户资料、修改个人资料以及屏蔽某人消息（即把某用户加入黑名单中）的相关接口。
 
 | API                                                                                                                     | 描述                                         |
@@ -168,6 +173,7 @@
 | [getBlackList](https://comm.qq.com/im/doc/flutter/zh/SDKAPI/Api/V2TIMFriendshipManager/getBlackList.html)               | 获取黑名单列表                               |
 
 ## 离线推送相关接口
+
 如果想要在 App 切后台时依然能够实时收到 IM 消息，可以使用离线推送服务。由于大陆境内尚没有统一的推送服务，Android 的离线推送需要针对不同厂商的手机进行 [逐一适配](https://cloud.tencent.com/document/product/269/75428)。
 
 | API                                                                                                                        | 描述                           |
@@ -178,6 +184,7 @@
 | [setOfflinePushConfig](https://comm.qq.com/im/doc/flutter/zh/SDKAPI/Api/V2TIMOfflinePushManager/setOfflinePushConfig.html) | 设置离线推送配置信息           |
 
 ## 好友管理相关接口
+
 腾讯云 IM 在收发消息时默认不检查是不是好友关系，您可以在 [**控制台**](https://console.cloud.tencent.com/im) >**功能配置**>**登录与消息**>**好友关系检查**中开启"发送单聊消息检查关系链"开关，并使用如下接口增删好友和管理好友列表。
 
 | API                                                                                                                                       | 描述                                                   |

@@ -23,5 +23,8 @@ VNC 登录是腾讯云为用户提供的一种通过 Web 浏览器远程连接�
  - 进入服务器详情页，选择**概要**页签，单击“远程登录”中 “VNC登录”下的**登录**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/547e186c2861e19d981da32c6489aad5.png)
 成功登录后，您可参考 [最佳实践](https://cloud.tencent.com/document/product/1207/45116) 及 [第三方教程](https://cloud.tencent.com/document/product/1207/58793)，进行搭建中小型网站、Web 应用、博客、论坛、小程序/小游戏、电商、云盘/图床、云端开发测试和学习环境等轻量级、低负载且访问量适中的应用。
+3. 在弹出的登录窗口中，选择左上角的**发送远程命令**，单击 **Ctrl-Alt-Delete** 进入系统登录界面。如下图所示：
+  ![](https://main.qcloudimg.com/raw/c80f6463097d758333c443b618560094.png)
+4. 输入登录密码，按 **Enter**，即可登录到 Windows 云服务器。
 
-
+ 

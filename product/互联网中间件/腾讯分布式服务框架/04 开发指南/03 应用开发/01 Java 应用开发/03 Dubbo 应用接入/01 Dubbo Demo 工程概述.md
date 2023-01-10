@@ -1,5 +1,5 @@
 ## 获取 Demo
-本 Demo 工程基于 Alibaba Dubbo 版本 SDK 开发，下载地址：[Demo 下载](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/demo/dubbo/tsf-dubbo-alibaba-demo-1.1.7.zip) 。
+本 Demo 工程基于 Alibaba Dubbo 版本 SDK 开发，下载地址：[Demo 下载](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/demo/dubbo/tsf-dubbo-alibaba-demo-1.1.7.rar)。
 
 >?
 >- 本 Demo 工程仅是示例，现存的 Dubbo 应用接入 TSF 可以直接参见 [Dubbo 应用接入TSF](https://cloud.tencent.com/document/product/649/13947)。

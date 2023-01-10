@@ -1,5 +1,64 @@
 >! tccc 是加载 SDK 后的全局变量，可直接访问。
+
+
+
 ## 通用结构
+[](id:AgentStatus)
+### AgentStatus
+座席状态。
+<table>
+<tr>
+<th>字段</th>
+<th>描述</th>
+</tr>
+<tr>
+<td>free</td>
+<td>空闲</td>
+</tr>
+<tr>
+<td>busy</td>
+<td>忙碌</td>
+</tr>
+<tr>
+<td>arrange</td>
+<td>话后整理</td>
+</tr>
+<tr>
+<td>notReady</td>
+<td>示忙</td>
+</tr>
+<tr>
+<td>rest</td>
+<td>小休</td>
+</tr>
+</table>
+
+[](id:ServerType)
+### ServerType
+端服务类型，描述电话类型会话时使用的端类型。
+<table>
+<tr>
+<th>字段</th>
+<th>描述</th>
+</tr>
+<tr>
+<td>staffSeat</td>
+<td>Web 座席类型</td>
+</tr>
+<tr>
+<td>staffPhoneSeat</td>
+<td>座席手机类型</td>
+</tr>
+<tr>
+<td>miniProgramSeat</td>
+<td>小程序类型</td>
+</tr>
+<tr>
+<td>staffExtensionSeat</td>
+<td>话机类型</td>
+</tr>
+</table>
+
 ### CommonSDKResponse
 <table>
    <tr>
@@ -26,7 +85,7 @@
 
 ## Call（电话客服和音频客服相关接口函数）
 ### 电话呼出
-**tccc.Call.startOutboundCall(options): Promise<CommonSDKResponse>**
+#### tccc.Call.startOutboundCall(options): Promise&lt;CommonSDKResponse>
 <table ><tbody ><tr>
 <th width="0px" colspan="2" >参数</th><th width="0px" >类型</th><th width="0px" >必填</th><th width="0px" >备注</th></tr>
 <tr>
@@ -77,9 +136,57 @@
 </tbody>
 </table>
 
+#### tccc.Call.startOutboundCall(options): Promise&lt;CallResponse>
+CallResponse 描述如下：
+<table>
+   <tr>
+      <th width="0px" style="text-align:center" colspan="2">参数</td>
+      <th width="0px" style="text-align:center">类型</td>
+      <th width="0px"  style="text-align:center">必填</td>
+      <th width="0px"  style="text-align:center">备注</td>
+   </tr>
+   <tr>
+      <td rowspan='6'>response</td>
+      <td>sessionId</td>
+      <td>string</td>
+      <td>是</td>
+      <td>指定会话 ID</td>
+   </tr>
+   <tr>
+      <td>calleeLocation</td>
+      <td>string</td>
+      <td>否</td>
+      <td>被叫号码归属地址</td>
+   </tr>
+   <tr>
+      <td>calleePhoneNumber</td>
+      <td>string</td>
+      <td>是</td>
+      <td>被叫号码</td>
+   </tr>
+   <tr>
+      <td>callerPhoneNumber</td>
+      <td>string</td>
+      <td>是</td>
+      <td>外呼时使用的主叫号码</td>
+   </tr>	 	
+   <tr>
+      <td>serverType</td>
+      <td>string</td>
+      <td>是</td>
+      <td>表示外呼时使用的端类型，可选值有：<br>staffSeat，staffPhoneSeat，staffExtensionSeat。<br>详细说明参见 <a href = "#ServerType">会话服务类型</a></td>
+   </tr>	
+   <tr>
+      <td>remark</td>
+      <td>string</td>
+      <td>否</td>
+      <td>被叫号码备注</td>
+   </tr>		 
+</table>
+
 
 ### 接听会话
-**tccc.Call.accept(options): Promise<CommonSDKResponse>**
+#### tccc.Call.accept(options): Promise&lt;CommonSDKResponse>
 <table>
    <tr>
       <th width="0px" style="text-align:center" colspan="2">参数</td>
@@ -97,7 +204,7 @@
 </table>
 
 ### 挂断会话
-**tccc.Call.hungUp(options): Promise<CommonSDKResponse>**
+#### tccc.Call.hungUp(options): Promise&lt;CommonSDKResponse>
 <table>
    <tr>
       <th width="0px" style="text-align:center" colspan="2">参数</td>
@@ -115,7 +222,7 @@
 </table>
 
 ### 删除会话
-**tccc.Call.deleteCall(options)**
+#### tccc.Call.deleteCall(options)
 <table>
    <tr>
       <th width="0px" style="text-align:center" colspan="2">参数</td>
@@ -133,7 +240,7 @@
 </table>
 
 ### 静音
-**tccc.Call.muteMic(options): Promise<CommonSDKResponse>**
+#### tccc.Call.muteMic(options): Promise&lt;CommonSDKResponse>
 <table>
    <tr>
       <th width="0px" style="text-align:center" colspan="2">参数</td>
@@ -151,7 +258,7 @@
 </table>
 
 ### 取消静音
-**tccc.Call.unmuteMic(options): Promise<CommonSDKResponse>**
+#### tccc.Call.unmuteMic(options): Promise&lt;CommonSDKResponse>
 <table>
    <tr>
       <th width="0px" style="text-align:center" colspan="2">参数</td>
@@ -169,7 +276,7 @@
 </table>
 
 ### 当前是否静音
-**tccc.Call.isMicMuted(options): Promise<CommonSDKResponse>**
+#### tccc.Call.isMicMuted(options): Promise&lt;CommonSDKResponse>
 <table>
    <tr>
       <th width="0px" style="text-align:center" colspan="2">参数</td>
@@ -187,7 +294,7 @@
 </table>
 
 ### 发起内部通话
-**tccc.Call.startInternalCall(): Promise<CommonSDKResponse>**
+#### tccc.Call.startInternalCall(): Promise&lt;CommonSDKResponse>
 <table>
    <tr>
       <th width="0px" style="text-align:center" colspan="2">参数</td>
@@ -200,7 +307,7 @@
       <td>calleeUserId</td>
       <td>string</td>
       <td>是</td>
-      <td>被叫坐席账号</td>
+      <td>被叫座席账号</td>
    </tr>
    <tr>
       <td>useMobile</td>
@@ -211,7 +318,7 @@
 	 </table>
 
 ### 转接会话
-#### tccc.Call.transfer(): Promise<CommonSDKResponse>
+#### tccc.Call.transfer(): Promise&lt;CommonSDKResponse>
 <table>
    <tr>
       <th width="0px" style="text-align:center" colspan="2">参数</td>
@@ -236,12 +343,12 @@
       <td>userId</td>
       <td>string</td>
       <td>否</td>
-      <td>转接到指定坐席</td>
+      <td>转接到指定座席</td>
    </tr>
 </table>
 
 ### 呼叫保持
-#### tccc.Call.hold(): Promise<CommonSDKResponse>
+#### tccc.Call.hold(): Promise&lt;CommonSDKResponse>
 <table>
    <tr>
       <th width="0px" style="text-align:center" colspan="2">参数</td>
@@ -259,7 +366,7 @@
 </table>
 
 ### 取消通话保持
-#### tccc.Call.unHold(): Promise<CommonSDKResponse>
+#### tccc.Call.unHold(): Promise&lt;CommonSDKResponse>
 <table>
    <tr>
       <th width="0px" style="text-align:center" colspan="2">参数</td>
@@ -277,7 +384,7 @@
 </table>
 
 ### 发送分机号
-#### tccc.Call.sendDigits(): Promise<CommonSDKResponse>
+#### tccc.Call.sendDigits(): Promise&lt;CommonSDKResponse>
 <table>
    <tr>
       <th width="0px" style="text-align:center" colspan="2">参数</td>
@@ -302,7 +409,7 @@
 
 ## Chat（在线客服相关接口函数）
 ### 接听会话
-#### tccc.Chat.accept(options): Promise<CommonSDKResponse>
+#### tccc.Chat.accept(options): Promise&lt;CommonSDKResponse>
 <table>
    <tr>
       <th width="0px" style="text-align:center" colspan="2">参数</td>
@@ -320,7 +427,7 @@
 </table>
 
 ### 结束会话
-#### tccc.Chat.end(options): Promise<CommonSDKResponse>
+#### tccc.Chat.end(options): Promise&lt;CommonSDKResponse>
 <table>
    <tr>
       <th width="0px" style="text-align:center" colspan="2">参数</td>
@@ -338,7 +445,7 @@
 </table>
 
 ### 转接会话
-#### tccc.Chat.transfer(): Promise<CommonSDKResponse>
+#### tccc.Chat.transfer(): Promise&lt;CommonSDKResponse>
 <table>
    <tr>
       <th width="0px" style="text-align:center" colspan="2">参数</td>
@@ -363,13 +470,13 @@
       <td>userId</td>
       <td>string</td>
       <td>否</td>
-      <td>转接到指定坐席</td>
+      <td>转接到指定座席</td>
    </tr>
 </table>
 
 ## Video（视频客服相关接口函数）
 ### 接听会话
-#### tccc.Video.accept(options): Promise<CommonSDKResponse>
+#### tccc.Video.accept(options): Promise&lt;CommonSDKResponse>
 <table>
    <tr>
       <th width="0px" style="text-align:center" colspan="2">参数</td>
@@ -387,7 +494,7 @@
 </table>
 
 ### 挂断会话
-#### tccc.Video.end(options): Promise<CommonSDKResponse>
+#### tccc.Video.end(options): Promise&lt;CommonSDKResponse>
 <table>
    <tr>
       <th width="0px" style="text-align:center" colspan="2">参数</td>
@@ -405,7 +512,7 @@
 </table>
 
 ### 静音
-#### tccc.Video.muteMic(options): Promise<CommonSDKResponse>
+#### tccc.Video.muteMic(options): Promise&lt;CommonSDKResponse>
 <table>
    <tr>
       <th width="0px" style="text-align:center" colspan="2">参数</td>
@@ -423,7 +530,7 @@
 </table>
 
 ### 取消静音
-#### tccc.Video.unmuteMic(options): Promise<CommonSDKResponse>
+#### tccc.Video.unmuteMic(options): Promise&lt;CommonSDKResponse>
 <table>
    <tr>
       <th width="0px" style="text-align:center" colspan="2">参数</td>
@@ -441,7 +548,7 @@
 </table>
 
 ### 关闭摄像头
-#### tccc.Video.muteVideo(options): Promise<CommonSDKResponse>
+#### tccc.Video.muteVideo(options): Promise&lt;CommonSDKResponse>
 <table>
    <tr>
       <th width="0px" style="text-align:center" colspan="2">参数</td>
@@ -459,7 +566,7 @@
 </table>
 
 ### 开启摄像头
-#### tccc.Video.unmuteVideo(options): Promise<CommonSDKResponse>
+#### tccc.Video.unmuteVideo(options): Promise&lt;CommonSDKResponse>
 <table>
    <tr>
       <th width="0px" style="text-align:center" colspan="2">参数</td>
@@ -477,7 +584,7 @@
 </table>
 
 ### 转接会话
-#### tccc.Video.transfer(): Promise<CommonSDKResponse>
+#### tccc.Video.transfer(): Promise&lt;CommonSDKResponse>
 <table>
    <tr>
       <th width="0px" style="text-align:center" colspan="2">参数</td>
@@ -502,19 +609,23 @@
       <td>userId</td>
       <td>string</td>
       <td>否</td>
-      <td>转接到指定坐席</td>
+      <td>转接到指定座席</td>
    </tr>
 </table>
 
-## Agent（坐席状态相关接口函数）
+
+
+## Agent（座席状态相关接口函数）
+更多座席状态枚举类型请参见 [座席状态](https://cloud.tencent.com/document/product/679/76069)。
+
 ### 上线
 #### tccc.Agent.online(): void 
 
 ### 下线
 #### tccc.Agent.offline(): void
 
-### 设置坐席状态
-#### tccc.Agent.setStatus(optoins): Promise<CommonSDKResponse>
+### 设置座席状态
+#### tccc.Agent.setStatus(optoins): Promise&lt;CommonSDKResponse>
 <table>
    <tr>
       <th width="0px" style="text-align:center" colspan="2">参数</td>
@@ -527,7 +638,7 @@
       <td>status</td>
       <td>string</td>
       <td>是</td>
-      <td><li>坐席状态，可选值：</li><li>free: 空闲</li><li>rest: 小休</li><li>arrange: 话后整理</li><li>notReady: 示忙</li><li>stopNotReady: 停止示忙</li></td>
+      <td><li>座席状态，可选值：</li><li>free: 空闲</li><li>rest: 小休</li><li>arrange: 话后整理</li><li>notReady: 示忙</li><li>stopNotReady: 停止示忙</li></td>
    </tr>
    <tr>
       <td>restReason</td>
@@ -536,6 +647,9 @@
       <td>小休原因</td>
    </tr>
 </table>
+
+### 获取座席状态
+#### tccc.Agent.getStatus(): <a href = "#AgentStatus">AgentStatus</a>
 
 ## Devices（设备相关接口函数）
 ### 检测当前浏览器是否支持
@@ -576,89 +690,84 @@
 
 ### 会话呼入
 #### tccc.events.callIn
-会话呼入类型包括
-- phone: 电话会话
-- im: 在线会话
-- voip: 音频会话
-- video: 视频会话
-- internal: 内线会话
+会话呼入类型包括：
+- phone：电话会话
+- im：在线会话
+- voip：音频会话
+- video：视频会话
+- internal：内线会话
 
 #### 电话会话呼入
 <table ><tbody ><tr>
 <th width="0px" colspan="2" style="text-align:center" >参数</th><th width="0px" style="text-align:center">类型</th><th width="0px" style="text-align:center">必填</th><th width="0px" style="text-align:center" >备注</th></tr>
-
 <tr>
-<td rowspan="10" >options<br>
+<td rowspan="11" >options<br>
 </td>
 <td>sessionId</td>
 <td>string</td>
 <td>是</td>
 <td>会话 ID</td>
 </tr>
-
 <tr>
 <td>type</td>
 <td>'phone'</td>
 <td>是</td>
 <td>电话会话类型</td>
 </tr>
-
 <tr>
 <td>timeout</td>
 <td>number</td>
 <td>是</td>
 <td>会话接入超时时长，0代表不超时</td>
 </tr>
-
 <tr>
 <td>calleePhoneNumber</td>
 <td>string</td>
 <td>是</td>
 <td>被叫号码</td>
 </tr>
-
 <tr>
 <td>callerPhoneNumber</td>
 <td>string</td>
 <td>否</td>
 <td>主叫号码</td>
 </tr>
-
 <tr>
 <td>callerLocation</td>
 <td>string</td>
 <td>否</td>
 <td>主叫号码归属地</td>
 </tr>
-
 <tr>
 <td>remark</td>
 <td>string</td>
 <td>否</td>
 <td>备注</td>
 </tr>
-
 <tr>
 <td>ivrPath</td>
 <td>{key: string, label: string}[]</td>
 <td>-</td>
 <td>用户的 IVR 按键路径，key 表示对应按键，label 表示对应的按键标签</td>
 </tr>
-
 <tr>
 <td>protectedCallee</td>
 <td>string</td>
 <td>否</td>
 <td>在开启号码映射时存在，表示被叫</td>
 </tr>
-
 <tr>
 <td>protectedCaller</td>
 <td>string</td>
 <td>否</td>
 <td>在开启号码映射时存在，表示主叫</td>
 </tr>
-
+<tr>
+<td>serverType</td>
+<td>'staffSeat' | 'staffPhoneSeat' | 'staffExtensionSeat'</td>
+<td>是</td>
+<td>表示呼入到座席哪一端，staffSeat 为默认值，表示 Web 座席；StaffPhoneSeat 表示呼入到座席手机，MiniProgramSeat 表示小程序座席，staffExtensionSeat 表示呼入到座席绑定的话机</td>
+</tr>
 </tbody>
 </table>
 
@@ -889,11 +998,11 @@
       <td>peerUserId</td>
       <td>string</td>
       <td>是</td>
-      <td>主叫坐席的账号</td>
+      <td>主叫座席的账号</td>
    </tr>
 </table> 
 
-### 坐席接入会话
+### 座席接入会话
 #### tccc.evens.userAccessed
 <table>
    <tr>
@@ -939,11 +1048,33 @@
       <th width="0px"  style="text-align:center">备注</td>
    </tr>
    <tr>
-      <td rowspan='2'>options</td>
+      <td rowspan='4'>options</td>
       <td>sessionId</td>
       <td>string</td>
       <td>是</td>
       <td>指定会话 ID</td>
+   </tr>
+   <tr>
+      <td>closeBy</td>
+      <td>string</td>
+      <td>是</td>
+      <td>表示挂断方：
+			<li>client：用户挂断</li>
+			<li>seat：座席挂断</li>
+			<li>admin：系统挂断</li>
+			<li>timer：定时器挂断</li></td>
+   </tr>
+		<tr>
+      <td>mainReason</td>
+      <td>string</td>
+      <td>否</td>
+      <td>仅在电话类型，并且挂断方为"admin"时存在，表示挂断原因</td>
+   </tr>
+	 		<tr>
+      <td>subReason</td>
+      <td>string</td>
+      <td>否</td>
+      <td>仅在电话类型，并且挂断方为"admin"时存在，表示挂断的详细原因</td>
    </tr>
 </table>
 
@@ -998,5 +1129,23 @@
       <td>string</td>
       <td>是</td>
       <td>指定会话 ID</td>
+   </tr>
+</table>
+
+### 座席状态变更事件
+#### tccc.events.statusChanged
+<table>
+   <tr>
+      <th width="0px" style="text-align:center" colspan="2">参数</td>
+      <th width="0px" style="text-align:center">类型</td>
+      <th width="0px"  style="text-align:center">必填</td>
+      <th width="0px"  style="text-align:center">备注</td>
+   </tr>
+   <tr>
+      <td rowspan='2'>options</td>
+      <td>status</td>
+      <td><a href = "#AgentStatus">AgentStatus</a></td>
+      <td>否</td>
+      <td>详细说明请参见 <a href = "https://cloud.tencent.com/document/product/679/76069">座席状态</a></td>
    </tr>
 </table>

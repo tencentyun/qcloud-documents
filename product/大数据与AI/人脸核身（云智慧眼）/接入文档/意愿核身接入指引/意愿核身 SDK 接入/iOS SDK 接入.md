@@ -2,8 +2,8 @@
 
 以下为接入配置的步骤。
 ## 配置流程
-### IOS动作/光线活体：使用 Cocoapod 集成
-WeBankService SDK 最低支持到 iOS9.0，请在构建项目时候注意，目前仅支持 Xcode11.0及更高版本编译。
+### 使用 Cocoapod 集成
+SDK 最低支持到 iOS11.0，请在构建项目时候注意，目前仅支持 Xcode11.0及更高版本编译。
 以下为接入配置的步骤：
 1. 将 TencentCloudHuiyanSDKFace_framework 文件夹拷贝到自己项目的 podfile 文件所在的同一目录。
 2. 将 TencentCloudHuiyanSDKWill_framework 文件夹拷贝到自己项目的 podfile 文件所在的同一目录。
@@ -21,8 +21,8 @@ Privacy - Camera Usage Description
 Privacy - Microphone Usage Description
 ```
 
-### IOS 动作数字光线活体：直接引用 framework
-WeBankService SDK 最低支持到 iOS9.0，请在构建项目时候注意。
+### 直接引用 framework
+SDK 最低支持到 iOS11.0，请在构建项目时候注意。
 以下为接入配置的步骤：
 1. 引用以下资源文件到项目：
 ```
@@ -39,6 +39,9 @@ TuringShieldCamRisk.framework
 TencentCloudHuiyanSDKFace.bundle
 TencentCloudHuiyanSDKWill.bundle
 face-tracker-v001.bundle
+KYCGMSDK.framework
+YTCv.framework
+YtSDKKitFrameworkTool.framework
 ```
 2. SDK 依赖以下系统框架,需要在 **BuildPhases > Link Binary With Libraries** 中添加，可以参考 Demo，具体依赖的系统库如下：
 ```
@@ -55,6 +58,7 @@ Accelerate.framework
 WebKit.framework
 libc++.tbd
 libz.tbd
+videoToolbox.framework
 ```
 3. SDK 需要使用相机权限，请在 info.plist 中添加：
 ```
@@ -223,7 +227,7 @@ WBFaceVerifyCustomerServiceDidFinishedNotification 通知中，通过获取该�
 | liveRate	| NSString	| 活体检测分数| 	-| 
 | similarity	| NSString	| 人脸比对分数| 	“仅活体检测” 类型不提供此分数| 
 | userImageString	| NSString	| 用户人脸核身图片	| 经过 Base64编码后的用户人脸核身图片，用来做比对认证的最优图| 
-| WbFaceError	| 自定义对象	| 人脸核身错误	| 意愿性成功时为 nil**| 
+| WbFaceError	| 自定义对象	| 人脸核身错误	| 意愿性成功时为 **nil**| 
 
 ### WBWillModeResult 说明
 | 字段名 | 类型 | 字段含义 |说明| 

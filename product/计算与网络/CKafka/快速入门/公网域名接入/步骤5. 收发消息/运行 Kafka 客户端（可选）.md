@@ -97,10 +97,10 @@ java -version
 - topic：将 XXXX 替换成 topic 名称，在控制台 **topic 管理**页面获取。
 </dx-alert>
       输入消息内容之后按回车，即可看到消费端也几乎同时收到消息。
-      生产消息：
-<img src = "https://qcloudimg.tencent-cloud.cn/raw/34e000095c6bd53b191d644593c466a8.png"> 
-      消费消息：
-<img src = "https://qcloudimg.tencent-cloud.cn/raw/14ec265fe6ef5edd5f95c98891245637.png">  
+<ul><li>生产消息：
+<img src = "https://qcloudimg.tencent-cloud.cn/raw/34e000095c6bd53b191d644593c466a8.png"> </li>
+      <li>消费消息：
+<img src = "https://qcloudimg.tencent-cloud.cn/raw/14ec265fe6ef5edd5f95c98891245637.png">  </li></ul>
 3. 在 CKafka 控制台消息查询页面，查询刚刚发送的消息内容。
    ![](https://main.qcloudimg.com/raw/cca4f62e86898eec49d8a9cde7ae9fa8.png)
     消息详情如下：

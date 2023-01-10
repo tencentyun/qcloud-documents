@@ -43,6 +43,12 @@
 <td>自定义策略</td>
 </tr>
 <tr>
+<td>DescribeIncomeExpensesList</td>
+<td>查看收支明细</td>
+<td>子用户/协作者只有主 UIN 及主 UIN 的成员账号的收支明细只读权限，没有其他财务权限。</td>
+<td>自定义策略</td>
+</tr>
+<tr>
 <td>DescribeVoucherList</td>
 <td>获取代金券列表</td>
 <td>子用户/协作者只有主 UIN 的代金券只读权限，没有其他财务权限。</td>

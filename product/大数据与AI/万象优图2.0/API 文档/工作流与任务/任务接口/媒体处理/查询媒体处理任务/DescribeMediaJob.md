@@ -75,7 +75,7 @@ Container 节点 Response 的内容：
 
 | 节点名称（关键字） | 父节点   | 描述                                                         | 类型      |
 | :----------------- | :------- | :----------------------------------------------------------- | :-------- |
-| JobsDetail         | Response | 任务的详细信息                                            | Container |
+| JobsDetail         | Response | 任务的详细信息                                            | Container 数组 |
 | NonExistJobIds     | Response | 查询的 ID 中不存在任务，所有任务都存在时不返回               | String    |
 
 对于不同的任务类型，JobsDetail 的内容不同，请参照以下链接：

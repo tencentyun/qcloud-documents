@@ -419,7 +419,7 @@ dali = dict(
 ```
 模型运行过程如下图所示， 单个 epoch 的时间在20s以内：
 ![](https://qcloudimg.tencent-cloud.cn/raw/0b9d0c91d5a05acd5808b8e71211e4a8.png)
-结果显示模型在验证集上达到的最佳准确率为66.62%。我们也可以通过增加模型的参数量，例如修改模型为 `v![](https://qcloudimg.tencent-cloud.cn/raw/34f6f93aa9479375e23ccee3dd31dd68.png)
+结果显示模型在验证集上达到的最佳准确率为66.62%。
 
 
 ## 总结

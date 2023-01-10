@@ -99,6 +99,9 @@ Authorization: Auth String
         <Field>StorageClass</Field>
         <Field>IsMultipartUploaded</Field>
         <Field>ReplicationStatus</Field>
+        <Field>Tag</Field>
+        <Field>Crc64</Field>
+        <Field>x-cos-meta-*</Field>
 	</OptionalFields>
 </InventoryConfiguration>
 ```
@@ -119,7 +122,7 @@ Authorization: Auth String
 | StartTime               | Period                  | 需要分析的对象创建的起始时间，参数为秒级时间戳，如1568688761 | String    |
 | EndTime                 | Period                  | 需要分析的对象创建的结束时间，参数为秒级时间戳，如1568688762 | String    |
 | OptionalFields          | Inventory Configuration | 设置清单结果中应包含的分析维度                               | Container |
-| Field                   | OptionalFields          | 清单结果中可选包含的分析维度名称，可选字段包括：  Size， LastModifiedDate，  StorageClass， ETag， IsMultipartUploaded，  ReplicationStatus，Tag，Crc64 | String    |
+| Field                   | OptionalFields          | 清单结果中可选包含的分析项目名称，可选字段包括：`Size`，`LastModifiedDate`，`StorageClass`，`ETag`，`IsMultipartUploaded`，`ReplicationStatus`，`Tag`，`Crc64`，`x-cos-meta-*`<br/>注意，如果筛选条件里使用了对象标签，在这里也必须添加 Tag<br/>此外，也支持用户填写`x-cos-meta-*`形式的自定义头部，如`x-cos-meta-testheader`。清单会将相应的对象元数据输出，若对象不包含该元数据，则为空 | String    |
 | Schedule                | Inventory Configuration | 配置清单任务周期                                             | Container |
 | Frequency               | Schedule                | 清单任务周期，可选项为按日或者按周                           | String    |
 | Destination             | Inventory Configuration | 描述存放清单结果的信息                                       | Container |
@@ -260,4 +263,3 @@ x-cos-request-id: NTlhMzg1ZWVfMjQ4OGY3MGFfMWE1NF84Y2M
 	</OptionalFields>
 </InventoryConfiguration>
 ```
-

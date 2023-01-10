@@ -13,27 +13,24 @@
 ## 操作步骤
 
 
-### 模板部署 -- 一键部署 Express 项目
+### 模板部署：一键部署 Express 项目
 
 
 1. 登录 [Serverless 控制台](https://console.cloud.tencent.com/scf/index?rid=1)，单击左侧导航栏的**函数服务**。
-2. 在主界面上方选择期望创建函数的地域，并单击**新建**，进入函数创建流程。
+2. 在主界面上方选择期望创建函数的地域和命名空间，并单击**新建**，进入函数创建流程。
 3. 选择使用**模板创建**来新建函数，在搜索框里输入 `WebFunc` 筛选所有 Web 函数模板，选择**Express 框架模板**并单击**下一步**。如下图所示： 
 ![](https://qcloudimg.tencent-cloud.cn/raw/df4f73bb133d688101c753b01f72d45c.png)
 4. 在**新建**页面，您可以查看模板项目的具体配置信息并进行修改。
 5. 单击**完成**即可创建函数。函数创建完成后，您可在**函数管理**页面查看 Web 函数的基本信息。
-6. 在“触发管理”页中，单击**创建触发器**。
-7. 在弹窗中确认触发器信息，单击**提交**。如下图所示： 
-![](https://qcloudimg.tencent-cloud.cn/raw/86f8a5daa977bce1cb85f088fc77db47.png)
-8. 在“触发管理”页中，您可以通过访问路径 URL，访问您部署的 Express 项目。如下图所示： 
-![](https://qcloudimg.tencent-cloud.cn/raw/e70001f73240731f12ccd6cb00dbcc66.png)
+6. 单击左侧菜单栏中的**触发管理**，查看访问路径 URL，访问您部署的 Express 项目。如下图所示： 
+![](https://qcloudimg.tencent-cloud.cn/raw/2a9b4c54c03da9ead651ed54e2105e69.png)
 7. 单击访问路径 URL，即可访问服务 Express 项目。如下图所示： 
 ![](https://main.qcloudimg.com/raw/022395bbdc8315c16c4d6ef92d4ecb4d.png)
 
 
 
 
-### 自定义部署 -- 快速迁移本地项目上云
+### 自定义部署：快速迁移本地项目上云
 
 
 #### 前提条件
@@ -108,5 +105,5 @@ chmod 777 scf_bootstrap
 
 
 #### 开发管理
-部署完成后，即可在 SCF 控制台快速访问并测试您的 Web 服务，并且体验云函数多项特色功能，例如层绑定、日志管理等，享受 Serverless 架构带来的低成本、弹性扩缩容等优势。如下图所示： 
+部署完成后，即可在 Serverless 控制台快速访问并测试您的 Web 服务，并且体验云函数多项特色功能，例如层绑定、日志管理等，享受 Serverless 架构带来的低成本、弹性扩缩容等优势。如下图所示： 
 ![](https://main.qcloudimg.com/raw/9f331485a9c171fa26ae79b178f815e0.png)

@@ -36,3 +36,12 @@ SSL（Secure Sockets Layer）认证是客户端到云数据库服务器端的认
 8. 等待**开启 SSL** 的状态为**已开启**，单击**下载证书**。
 9. 在页面左下角，将获取到的证书 **-crt.zip** 放在服务端，使用 SSL 加密方式访问数据库。
 客户端 Java 代码连接示例，请参见 [Java 连接示例](https://cloud.tencent.com/document/product/239/30885)；客户端 Python 程序代码连接示例，请参见 [Python 连接示例](https://cloud.tencent.com/document/product/239/30887)。
+
+## 相关 API
+
+| API 接口 | 接口含义 | 
+|---------|---------|
+| [OpenSSL](https://cloud.tencent.com/document/api/239/81239) | 开启 SSL | 
+| [CloseSSL](https://cloud.tencent.com/document/api/239/81240) | 关闭 SSL | 
+
+

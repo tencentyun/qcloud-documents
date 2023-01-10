@@ -1,4 +1,4 @@
-腾讯云 Serverless 提供了基于 Serverless 架构的 Discuz!Q 全新部署方式。通过 [Serverless Framework Discuz!Q 组件](https://github.com/serverless-components/tencent-discuzq)，您可以三分钟部署一个 Discuz!Q 项目来搭建属于您的社区和论坛。
+腾讯云 Serverless 提供了基于 Serverless 架构的 Discuz!Q 全新部署方式。通过 [Serverless Cloud Framework Discuz!Q 组件](https://github.com/serverless-components/tencent-discuzq)，您可以三分钟部署一个 Discuz!Q 项目来搭建属于您的社区和论坛。
 
 ## 架构简介
 该组件主要为您创建以下资源：
@@ -24,7 +24,7 @@
 
 ### 控制台部署
 
-1. 登录[ Serverless 应用控制台](https://console.cloud.tencent.com/sls?from=wpdocs)，单击**新建应用**。
+1. 登录[ Serverless 应用控制台](https://console.cloud.tencent.com/scf?from=wpdocs)，单击**新建应用**。
 2. 选择**应用市场** > **快速部署一个Discuz!Q框架**，单击**下一步**。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/3686e5c685e940ee633dca207044f2e2.png)
 3. 输入应用名和选择地域后，单击**完成**即可创建应用。如下图所示：
@@ -63,10 +63,10 @@ name: discuz-qDemo
 └── .env # 环境变量文件
 :::
 </dx-codeblock>
-3. 在根目录下，执行 `sls deploy`，即可完成部署。示例如下： 
+3. 在根目录下，执行 `scf deploy`，即可完成部署。示例如下： 
 <dx-codeblock>
 :::  sh
-$ sls deploy
+$ scf deploy
 
 serverless ⚡components
 Action: "deploy" - Stage: "dev" - App: "discuz-q" - Name: "discuz-qDemo"

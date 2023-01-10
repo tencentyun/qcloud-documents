@@ -13,6 +13,61 @@
  
 
 ## log-agent 版本迭代记录
+
+#### v1.1.7
+<table>
+<thead>
+<tr>
+<th width=20%>类别</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<th>Feature</th>
+<td>
+<li> 增加 logConfig-max-threshold 参数，当 logconfig 达到一定数量后，升级或重启会使用 informer 查询 workload 信息。</li>
+<li> 优化获取 docker root 的方式，增加优先通过 api 的方式获取。</li>
+<li> kafka 采集支持自定义 metadata，支持 SASL 认证。</li>
+</td>
+</tr>
+<tr>
+<th>Bugfix</th>
+<td>
+<li> 修复 log-agent 启动是获取 kubelet 参数错误的问题。</li>
+<li> 修复替换 topicID 时，获取 logset 接口调用错误。</li>
+<li>CLS 不区分大小写，cls-provisioner 修复大小写敏感问题。</li>
+<li>log-agent 默认支持 csi，不再单独判断比较 StorageClasses 的 Provisioner。</li>
+</td>
+</tr>
+</tbody></table>
+
+
+#### v1.1.6
+<table>
+<thead>
+<tr>
+<th width=20%>类别</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<th>Feature</th>
+<td>
+<li> 增加 kafka 采集器对于容器标准输出的多行采集正则格式匹配。</li>
+<li> 环境变量增加 tag 云 API 地址配置。</li></td>
+</tr>
+<tr>
+<th>Bugfix</th>
+<td>
+<li> 深圳、天津等无 CLS 服务地域，agent 自动创建 topic 同步集群标签失败。</li>
+<li> 修复 kafka 采集器 metadata 前缀捕获 containerd 格式问题。</li>
+<li> 修复 cls-provisionert 同步 CLS 遗漏增量、全量选项。</li>
+<li> 加载 logconfig 过程中查询 workload 信息通过 informer 查找，减少 apiserver 负载。</li>
+</td>
+</tr>
+</tbody></table>
+
+
 #### v1.1.5
 <table>
 <thead>
@@ -23,7 +78,7 @@
 </thead>
 <tbody><tr>
 <th>Feature</th>
-<td>CLS 投递地域增加 圣保罗、上海自动驾驶专区</td>
+<td>CLS 投递地域增加圣保罗、上海自动驾驶专区。</td>
 </tr>
 <tr>
 <th>Bugfix</th>
@@ -109,13 +164,13 @@ CLS 低频存储支持设置索引。
 <th>Feature</th>
 <td>
 <li> loglistener支持使用 CPU 多核。</li>
-<li> loglistener 内存支持自适应 loglistener limit设置, 限制 limit mem 100M为 loglistener 最大使用内存。</li>
+<li> loglistener 内存支持自适应 loglistener limit 设置, 限制 limit mem 100M为 loglistener 最大使用内存。</li>
 </td>
 </tr>
 <tr>
 <th>Bugfix</th>
 <td>
-修复log-agent 更新 volume link的时未处理错误返回，导致更新失败不会重试问题。
+修复 log-agent 更新 volume link 的时未处理错误返回，导致更新失败不会重试问题。
 </td>
 </tr>
 </tbody></table>

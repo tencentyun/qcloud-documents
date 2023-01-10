@@ -16,16 +16,15 @@
 挂载前，需要确认客户端与文件系统的网络可达性（需要在 Windows 客户端启用 Telnet 服务）。可以通过 telnet 命令验证（例如 telnet 192.168.1.1 445），具体各个协议及客户端要求开放端口信息如下：
 <table>
 	<tr><th>文件系统协议</th><th>客户端开放端口</th><th>确认网络联通性</th></tr>
-	<tr><td>NFS 3.0</td><td>111，892，2049</td><td>telnet 111或者892或者2049</td></tr>
-	<tr><td>NFS 4.0</td><td>2049</td><td>telnet 2049</td></tr>
+	<tr><td>NFS 3.0</td><td>111，892，2049</td><td>telnet 111，892和2049</td></tr>
 	<tr><td>CIFS/SMB</td><td>445</td><td>telnet 445</td></tr>
 </table>
 
+>?Windows 暂时不支持使用 NFSV4 挂载。
 
 ## 步骤3：挂载文件系统
 
 >? 建议使用 SMB 挂载 CFS。
->
 
 ### 挂载 CIFS/SMB 文件系统
 
@@ -50,7 +49,7 @@ net use X: \\10.10.11.12\fjie120
 2. 在**这台电脑**单击右键，选择**映射网络驱动器**。 
 ![](https://qcloudimg.tencent-cloud.cn/raw/4c83cd3c42e4baef67471acac5663872.png)
 3. 在弹出的窗口中，设置"驱动器"盘符名称及文件夹（即在 CIFS/SMB 文件系统中看到的挂载目录），单击**完成**。
-![](https://qcloudimg.tencent-cloud.cn/raw/d3367db4c535db5533f8b1a137a7ccfc.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/2bf2a57f718356feb592d98905560ed7.png)
 4. 进入已经挂载的文件系统中，右键新建一个文件验证读写的正确性。
 <img src="https://main.qcloudimg.com/raw/208537681d0ab96cd801e22332a419a9.jpeg" width="80%">
 
@@ -111,11 +110,11 @@ net start nfsclnt
 
 在 CMD 命令行工具中，输入如下命令，挂载文件系统。其中，系统缺省子目录为 FSID。
 ```bash
-mount  <挂载点IP>:/<FSID> <共享目录名称>:
+mount -o nolock mtype=hard  <挂载点IP>:/<FSID> <共享目录名称>:
 ```
 示例：
 ```bash
-mount 10.10.0.12:/z3r6k95r X:
+mount -o nolock mtype=hard 10.10.0.12:/z3r6k95r X:
 ```
 >! FSID 挂载命令可以到**文件存储控制台 > 文件系统详情 > 挂载点信息**中获取。
 >
@@ -127,7 +126,7 @@ mount 10.10.0.12:/z3r6k95r X:
 2. 在**这台电脑**单击右键，选择**映射网络驱动器**。 
 ![](https://qcloudimg.tencent-cloud.cn/raw/4c83cd3c42e4baef67471acac5663872.png)
 3. 在弹出的窗口中，设置"驱动器"盘符名称及文件夹（即在 NFS 文件系统中看到的挂载目录），单击**完成**。
-![](https://qcloudimg.tencent-cloud.cn/raw/d3367db4c535db5533f8b1a137a7ccfc.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/0412a53bbc4b0d10cf12ee64ee59dccd.png)
 4. 打开 CMD 命令行工具，输入`mount`命令，检查上述文件系统是否使用了 root 权限进行挂载。
 ![](https://qcloudimg.tencent-cloud.cn/raw/99f9f7193c869d5f5dc3a61c2f4cf83e.png)
 UID 与 GID 分别为0，即表示文件系统使用了 root 权限挂载，此时可以开始正常使用文件系统了。若 UID 与GID 分别为 -2 等其他值，则可能导致无法正常写入数据等，请重复前面的步骤、保证文件系统是以 root 权限挂载。
@@ -163,7 +162,6 @@ SMB示例：
 ## 步骤5：终止资源
 
 >! 文件系统删除后，资源不可恢复，建议您删除文件系统之前，先备份资源。
->
 
 您可以从腾讯云控制台终止文件系统。进入腾讯云 [文件存储控制台](https://console.cloud.tencent.com/cfs/fs)，选中需要终止的文件系统，单击**删除**并**确认**，即可删除文件系统。
 

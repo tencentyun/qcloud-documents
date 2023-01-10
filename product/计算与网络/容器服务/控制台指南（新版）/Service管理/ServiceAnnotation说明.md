@@ -144,10 +144,10 @@ Service Local 模式下仅绑定有 Pod 存在的节点。
 
  
 ---
-### kubernetes.io/service.internetChargeType
+### service.kubernetes.io/qcloud-loadbalancer-internet-charge-type
 **说明：**
 负载均衡的付费类型，当前仅在创建时支持配置，创建后不支持修改付费类型，创建后修改本注解无效。
-指定创建负载均衡时，负载均衡的付费类型。请配合 `kubernetes.io/service.internetMaxBandwidthOut` 注解一起使用。
+指定创建负载均衡时，负载均衡的付费类型。请配合 `service.kubernetes.io/qcloud-loadbalancer-internet-max-bandwidth-out` 注解一起使用。
 
 **可选值：**
 <table>
@@ -166,16 +166,16 @@ Service Local 模式下仅绑定有 Pod 存在的节点。
 `kubernetes.io/service.internetChargeType: "TRAFFIC_POSTPAID_BY_HOUR"`
  
 ---
-### kubernetes.io/service.internetMaxBandwidthOut
+### service.kubernetes.io/qcloud-loadbalancer-internet-max-bandwidth-out
 **说明：**
 CLB 带宽设置，当前仅在创建时支持配置，创建后不支持修改带宽，创建后修改本注解无效。
-指定创建负载均衡时，负载均衡的最大出带宽，仅对公网属性的 LB 生效。需配合 `kubernetes.io/service.internetChargeType` 注解一起使用。
+指定创建负载均衡时，负载均衡的最大出带宽，仅对公网属性的 LB 生效。需配合 `service.kubernetes.io/qcloud-loadbalancer-internet-charge-type` 注解一起使用。
 
 **可选值：**
 范围支持1到2048，单位 Mbps。
 
 **使用示例：**
-`kubernetes.io/service.internetMaxBandwidthOut: "2048"`
+`service.kubernetes.io/qcloud-loadbalancer-internet-max-bandwidth-out: "2048"`
  
 
 

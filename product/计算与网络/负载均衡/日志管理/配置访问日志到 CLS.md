@@ -6,8 +6,9 @@
 
 >?
 >- 当前负载均衡仅七层协议（HTTP/HTTPS）支持配置访问日志到 CLS，四层协议（TCP/UDP/TCP SSL）不支持配置访问日志到 CLS。
-- 负载均衡配置访问日志到 CLS 的功能免费，用户仅需支付日志服务 CLS 的费用。
-- 仅支持日志服务 CLS 的地域支持此功能，详情请参见 CLS 的 [可用地域](https://cloud.tencent.com/document/product/614/18940)。
+>- 负载均衡配置访问日志到 CLS 的功能免费，用户仅需支付日志服务 CLS 的费用。
+>- 当前仅部分地域支持此功能，实际以控制台支持的地域为准。
+>
 
 
 
@@ -116,6 +117,7 @@
 <tr><td>http_host</td><td> 请求域名，即 HTTP 头部中的 Host。</td><td>text</td></tr>
 <tr><td>http_user_agent</td><td> HTTP 协议头的 user_agent 字段。</td><td>text</td></tr>
 <tr><td>http_referer</td><td> HTTP 请求来源。 </td><td>text</td></tr>
+<tr><td>http_x_forward_for</td><td> HTTP 请求中 x_forward_for header 的内容。 </td><td>text</td></tr>
 <tr><td>request_time</td><td> 请求处理时间：从收到客户端的第一个字节开始，直到给客户端发送的最后一个字节为止，包括客户端请求到 CLB、CLB 转发请求到 RS、RS 响应数据到 CLB、CLB 转发数据到客户端的总时间。</td><td>double</td></tr>
 <tr><td>upstream_response_time</td><td> 整个后端请求所花费时间：从开始 CONNECT RS 到从 RS 接收完应答的时间。</td><td>double</td></tr>
 <tr><td>upstream_connect_time</td><td> 和 RS 建立 TCP 连接所花费时间：从开始 CONNECT RS 到开始发送 HTTP 请求的时间。</td><td>double</td></tr>
@@ -123,7 +125,7 @@
 <tr><td>tcpinfo_rtt</td><td> TCP 连接的 RTT。 </td><td>long</td></tr>
 <tr><td>connection</td><td> 连接 ID。 </td><td>long</td></tr>
 <tr><td>connection_requests</td><td> 连接上的请求个数。 </td><td>long</td></tr>
-<tr><td>ssl_handshake_time</td><td>记录 SSL 握手各阶段耗时，格式：x:x:x:x:x:x:x。其中
+<tr><td>ssl_handshake_time</td><td>记录 SSL 握手各阶段耗时，格式：x:x:x:x:x:x:x。其中，冒号分隔的字符串，单位是ms，每个阶段耗时若小于1ms则显示为0。
 <ul><li>第1个字段表示是否 SSL 会话复用。</li>
 <li>第2个字段表示完整的握手时间。</li>
 <li>3~7表示 SSL 各阶段耗时。</li>

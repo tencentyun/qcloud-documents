@@ -41,6 +41,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 target 'App' do
 pod 'TXIMSDK_Plus_iOS'
+# pod 'TXIMSDK_Plus_Swift_iOS'
 end
 ```
 
@@ -51,6 +52,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 target 'App' do
 pod 'TXIMSDK_Plus_iOS_Bitcode'
+# pod 'TXIMSDK_Plus_Swift_iOS_Bitcode'
 end
 ```
 
@@ -61,6 +63,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 target 'App' do
 pod 'TXIMSDK_Plus_iOS_XCFramework'
+# pod 'TXIMSDK_Plus_Swift_iOS_XCFramework'
 end
 ```
 
@@ -71,6 +74,17 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 target 'App' do
 pod 'TXIMSDK_Plus_iOS_Bitcode_XCFramework'
+# pod 'TXIMSDK_Plus_Swift_iOS_Bitcode_XCFramework'
+end
+```
+
+如果使用增强版 Pro SDK，请您按照如下方式设置 Podfile 文件：
+```
+platform :ios, '8.0'
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'App' do
+pod 'TXIMSDK_Plus_Pro_iOS'
 end
 ```
 

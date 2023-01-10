@@ -69,7 +69,7 @@ http://云服务器实例的公网 IP/phpmyadmin
 ![](https://main.qcloudimg.com/raw/db6f66fcf913ee0deab2648614661607.png)
 5. 在“选择数据库驱动”页面，保持所有默认设置不变。并单击**下一个**。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/f5abc8af19ab2d5bba35c30cc93ea81b.png)
-6. 在“数据库设置”页面根据以下提示填写相关信息，并单击**向后**。如下图所示：
+6. 在“数据库设置”页面根据以下提示填写相关信息，并单击**下一个**。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/8873410be54ffa9eadb8bce370f50867.png)
  - **数据库主机**：填写 `127.0.0.1`。
  - **数据库用户名**：请输入 `root`。

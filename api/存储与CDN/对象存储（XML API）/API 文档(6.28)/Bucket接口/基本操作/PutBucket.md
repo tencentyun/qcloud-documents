@@ -64,6 +64,15 @@ Authorization: Auth String
 
 此接口除使用公共请求头部外，还支持以下请求头部，了解公共请求头部详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
+| 名称                | 描述                                                         | 类型    | 是否必选 |
+| ------------------- | ------------------------------------------------------------ | ------- | -------- |
+| x-cos-tagging      | 在创建存储桶的同时，为存储桶添加标签，最多可设置50个标签。例如 `key1=value1&key2=value2`。| string  | 否       |
+
+
+**访问控制列表（ACL）相关头部**
+
+在创建存储桶时可以通过指定下列请求头部来设置存储桶的访问权限：
+
 | 名称                     | 描述                                                         | 类型   | 是否必选 |
 | ------------------------ | ------------------------------------------------------------ | ------ | -------- |
 | x-cos-acl                | 定义存储桶的访问控制列表（ACL）属性。枚举值请参见 [ACL 概述](https://cloud.tencent.com/document/product/436/30752#.E9.A2.84.E8.AE.BE.E7.9A.84-acl) 文档中存储桶的预设 ACL 部分，如 private，public-read 等，默认为 private | Enum   | 否       |
@@ -191,3 +200,28 @@ Date: Thu, 04 Jun 2020 06:06:10 GMT
 Server: tencent-cos
 x-cos-request-id: NWVkODhmNTFfM2JiODJhMDlfMjg4NmFfMzA5ZmE2****
 ```
+
+#### 案例四：创建存储桶同时添加存储桶标签
+
+以下请求示例，用于在北京地域创建存储桶 `examplebucket-1250000000`，同时为存储桶添加两个存储桶标签 `<a,a>` 和 `<b,b>`。
+
+#### 请求
+
+```plaintext
+PUT / HTTP/1.1
+Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
+x-cos-tagging: a=a&b=b
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDYv3vWrwkHXVDf******&q-sign-time=1667446950;1668447000&q-key-time=1667446950;1668447000&q-url-param-list=&q-header-list=host;x-cos-tagging&q-signature=6d0ef3446f29aca9f28f66a031******
+```
+
+#### 响应
+
+```plaintext
+HTTP/1.1 200 OK
+Content-Length: 0
+Connection: keep-alive
+Date: Thu, 03 Nov 2022 03:43:30 GMT
+Server: tencent-cos
+x-cos-request-id: NjM2MzM4ZTJfZDRiNTE0M********
+```
+

@@ -52,7 +52,7 @@ TencentImSDKPlugin.v2TIMManager.initSDK(
 );
 ```
 
-在本步骤，你可以针对 IM SDK 挂载一些监听，主要包括网络状态及用户信息变更等，详情可参见 [该文档](https://comm.qq.com/im-react-native-doc/interfaces/interface.V2TimSDKListener.html)。
+在本步骤，您可以针对 IM SDK 挂载一些监听，主要包括网络状态及用户信息变更等，详情可参见 [该文档](https://comm.qq.com/im/doc/RN/zh/Interface/Listener/V2TimSDKListener.html)。
 
 #### 登录测试账户
 1. 此时，您可以使用最开始的时候，在控制台生成的测试账户，完成登录验证。
@@ -132,7 +132,7 @@ const getConversationList = async () => {
 };
 ```
 
-此时，你可以看到您在上一步中，使用另一个测试账号，发来消息的会话。
+此时，您可以看到您在上一步中，使用另一个测试账号，发来消息的会话。
 
 ##### 监听长链接实时获取会话列表
 
@@ -226,8 +226,21 @@ const addAdvancedMsgListener = () => {
 ```
 
 此时，您已基本完成 IM 模块开发，可以发送接收消息，也可以进入不同的会话。
-您可以继续完成群组，用户资料，关系链，离线推送，本地搜索等相关功能开发，详情可参见 [SDK API 文档](https://comm.qq.com/im-react-native-doc/index.html)。
+您可以继续完成群组，用户资料，关系链，离线推送，本地搜索等相关功能开发，详情可参见 [SDK API 文档](https://comm.qq.com/im/doc/RN/zh/)。
+
+## 常见问题
+
+#### 运行 demo 时出现 `Undefined symbols for architecture x86_64 [duplicate]` 如何解决？
+
+请参见 [文档](https://stackoverflow.com/questions/71933392/react-native-ios-undefined-symbols-for-architecture-x86-64)。
+
+#### 运行 demo 时出现 `Failed to resolve: react-native-0.71.0-rc.0-debug` 如何解决？
+
+请参见 [文档](https://blog.csdn.net/weixin_44132277/article/details/127731985)。
 
 ## 联系我们
 
-如果您在接入使用过程中有任何疑问，请加入 QQ 群：437955475 咨询。
+如果您在接入使用过程中有任何疑问，请扫码加入微信群，或加入QQ群：437955475 咨询。
+
+![](https://qcloudimg.tencent-cloud.cn/raw/095e39d0943d3670585659251c5a3b6d.png)
+

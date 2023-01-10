@@ -1,7 +1,7 @@
 ## 简介
 TencentOS Server 是腾讯云针对云的场景研发的 Linux 操作系统，提供特定的功能及性能优化，为云服务器实例中的应用程序提供更高的性能及更加安全可靠的运行环境。TencentOS Server 目前开放使用，用户态环境与 CentOS 保持兼容，在 CentOS 上开发的应用程序可直接在 TencentOS Server 上运行。
 
-更多关于 TencentOS Server 的介绍，参见 [TencentOS Server 文档](https://cloud.tencent.com/document/product/1397/72777)。
+如果想了解更多关于 TencentOS Server 的介绍，参见 [TencentOS Server 文档](https://cloud.tencent.com/document/product/1397/72777)。
 
 
 ## 相关操作

@@ -85,13 +85,13 @@ npm run serve
 完成项目运行后，可在浏览器中打开相应页面。
 ```
 # 检索分析页面：将以下网址中的 ${Region} 和 ${TopicId}，替换为对应的地域和日志主题ID，即可访问。${Query}为检索语句，可以为空。
-http://localhost:3001/search?region=${Region}&topic_id=${TopicId}&query=${Query}&time=now-h,now
+http://localhost:3001/cls/search?region=${Region}&topic_id=${TopicId}&query=${Query}&time=now-h,now
 
 # 检索分析页面: 将以下网址中的 ${Region} ${logset_name} ${topic_name}，替换为对应的地域、日志集名称、日志主题名称，即可访问。
-http://localhost:3001/search?region=${Region}&topic_name=${TopicName}&logset_name=${LogsetName}
+http://localhost:3001/cls/search?region=${Region}&topic_name=${TopicName}&logset_name=${LogsetName}
 
 # 仪表盘页面：将以下网址中的 ${dashboardId} 替换为仪表盘ID，即可访问。
-http://localhost:3001/dashboard?id=${dashboardId}&time=now-7d,now
+http://localhost:3001/cls/dashboard/d?id=${dashboardId}&time=now-7d,now
 ```
 地域参数格式为`ap-shanghai`, 检索页面参数设置请参考 [检索页面参数设置](https://cloud.tencent.com/document/product/614/39331) 文档。
 :::
@@ -106,7 +106,7 @@ function prepareSdkFrame(url) {
    ifrm.style.height = "960px";
    document.body.appendChild(ifrm);
 }
-const url = 'http://localhost:3001/search?region=${Region}&topic_id=${TopicId}&query=${Query}&time=now-h,now'
+const url = 'http://localhost:3001/cls/search?region=${Region}&topic_id=${TopicId}&query=${Query}&time=now-h,now'
 
 prepareSdkFrame(url)
 ```

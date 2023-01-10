@@ -18,8 +18,9 @@
 </table>
 
 ## [常规 BGP 带宽包](id:bgp)
->? 目前仅标准账户类型支持预付费带宽包，传统账户类型需升级后才能使用，升级详情请参见  [账户类型升级说明](https://cloud.tencent.com/document/product/1199/49090#judge)。
+
 ### 预付费带宽包
+>? 目前仅标准账户类型支持预付费带宽包，传统账户类型需升级后才能使用，升级详情请参见  [账户类型升级说明](https://cloud.tencent.com/document/product/1199/49090#judge)。
 <table>
 <thead>
 <tr>
@@ -50,6 +51,8 @@
 </tbody></table>
 
 ### 后付费带宽包
+>?常规 BGP 后付费带宽包目前处于内测阶段，如需使用，请提交 [内测申请](https://cloud.tencent.com/apply/p/8o8lmsr5nj8) 或联系您的商务经理申请开通。
+>
 <table>
 <thead>
 <tr>
