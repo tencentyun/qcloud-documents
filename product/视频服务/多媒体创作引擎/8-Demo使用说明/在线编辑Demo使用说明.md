@@ -94,8 +94,8 @@
 ```javascript
 const config = {
     port: 9090,  // demo 端口号，开发者可以替换为自己的端口号
-    secretId: "You SecretId",  // 配置准备工作中 步骤3 获取到的 SecretId 
-    secretKey: "You SecretKey",  // 配置准备工作中 步骤3 获取到的 SecretKey
+    secretId: "You SecretId",  // 用户的 SecretId，建议使用子账号密钥，授权遵循最小权限指引，降低使用风险。子账号密钥获取可参考https://cloud.tencent.com/document/product/598/37140
+    secretKey: "You SecretKey",  // 用户的 SecretKey，建议使用子账号密钥，授权遵循最小权限指引，降低使用风险。子账号密钥获取可参考https://cloud.tencent.com/document/product/598/37140
     vodSubAppId: 140****274 ,  // 配置创建智能创作平台时使用的云点播子应用 Id
     platform: "14****274 ",  // 配置准备工作中 步骤2 创建的平台 Id 
     vodFileClassId: 8****1  // 云点播的媒资分类Id
