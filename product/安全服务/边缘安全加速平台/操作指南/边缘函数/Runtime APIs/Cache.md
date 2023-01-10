@@ -52,7 +52,7 @@ const cache = await caches.open(namespace);
 cache.match(request: string | Request, options?: MatchOptions): Promise<Response | undefined>
 ```
 
-获取 request 关联的缓存 [Response](https://cloud.tencent.com/document/product/1552/81893)。返回一个 Promise 对象。如果缓存存在，则包含 Response 对象，反之包含 undefined。
+获取 request 关联的缓存 [Response](https://cloud.tencent.com/document/product/1552/81917)。返回一个 Promise 对象。如果缓存存在，则包含 Response 对象，反之包含 undefined。
 
 >! **cache.match** 内部不会主动回源，缓存过期则会抛出 504 错误。
 
@@ -124,7 +124,7 @@ cache.match(request: string | Request, options?: MatchOptions): Promise<Response
 ```typescript
 cache.put(request: string | Request, response: Response): Promise<undefined>
 ```
-尝试使用给定的 request 作为缓存 key，将 response 添加到缓存。无论缓存是否成功，均返回 Promise<undefined> 对象。
+尝试使用给定的 request 作为缓存 key，将 response 添加到缓存。无论缓存是否成功，均返回 `Promise<undefined>` 对象。
 
 >! 当参数 **response** 对象的 Cache-Control 头部表示不缓存时，抛出 413 错误。 
 
@@ -276,5 +276,5 @@ cache.delete(request: string | Request, options?: DeleteOptions): Promise<boolea
 
 ## 相关参考 
 - [MDN 官方文档：Cache](https://developer.mozilla.org/en-US/docs/Web/API/Cache)
-- [示例函数：缓存 POST 请求](https://cloud.tencent.com/document/product/1552/84079)
+- [示例函数：缓存 POST 请求](https://cloud.tencent.com/document/product/1552/84024)
 - [示例函数：Cache API 使用](https://cloud.tencent.com/document/product/1552/84023)

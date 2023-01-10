@@ -143,30 +143,6 @@ const request = new Request(input: string | Request, init?: RequestInit)
         <li>IPv6 无需使用方括号包裹。</li>
       </td>
     </tr>
-    <tr>
-      <td align="left">cacheEverything</td>
-      <td align="left">boolean</td>
-      <td align="left">否</td>
-      <td align="left">缓存相关，用于指定缓存响应的所有头部。</td>
-    </tr>
-    <tr>
-      <td align="left">cacheKey</td>
-      <td align="left">string</td>
-      <td align="left">否</td>
-      <td align="left">缓存相关，用于指定自定义的缓存 key。</td>
-    </tr>
-    <tr>
-      <td align="left">cacheTtl</td>
-      <td align="left">number</td>
-      <td align="left">否</td>
-      <td align="left">缓存相关，用于指定缓存时长(单位s)，必需大于等于0，等于0不缓存。</td>
-    </tr>
-    <tr>
-      <td align="left">cacheTtlByStatus</td>
-      <td align="left">{[key: string]: number}</td>
-      <td align="left">否</td>
-      <td align="left">缓存相关，用于根据状态码指定缓存时长(单位s)，小于等于0不缓存</td>
-    </tr>
   </tbody>
 </table>
 
@@ -418,7 +394,7 @@ request.text(): Promise<string>;
 request.getCookies(): Cookies;
 ```
 
-获取 `request` 头部 cookie，并自动解析为 [Cookies](https://cloud.tencent.com/document/product/1552/81905) 对象。
+获取 `request` 头部 cookie，并自动解析为 [Cookies](https://cloud.tencent.com/document/product/1552/83932) 对象。
 
 ### setCookies
 ```typescript
@@ -441,7 +417,7 @@ request.setCookies(cookies: Cookies): boolean;
 	<tbody>
 		<tr>
 			<td>cookies</td>
-			<td><a href="https://cloud.tencent.com/document/product/1552/81905">Cookies</a></td>
+			<td><a href="https://cloud.tencent.com/document/product/1552/83932">Cookies</a></td>
 			<td>否</td>
 			<td>
         新的 Cookies 对象。
@@ -465,5 +441,5 @@ addEventListener('fetch', (event) => {
 
 ## 相关参考
 - [MDN 官方文档：Request](https://developer.mozilla.org/en-US/docs/Web/API/Request)
-- [示例函数：修改请求头](https://cloud.tencent.com/document/product/1552/81938)
+- [示例函数：Cache API 使用](https://cloud.tencent.com/document/product/1552/84023)
 - [示例函数：基于请求区域重定向](https://cloud.tencent.com/document/product/1552/84084)

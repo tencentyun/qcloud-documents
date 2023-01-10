@@ -1,6 +1,6 @@
  **ReadableStreamDefaultReader** 用于可读流操作，基于 Web APIs 标准 [ReadableStreamDefaultReader](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStreamDefaultReader) 进行设计。
 
- >! 不支持直接构造 `ReadableStreamDefaultReader` 对象，使用 [ReadableStream.getReader](https://cloud.tencent.com/document/product/1552/81914) 方法得到。
+ >! 不支持直接构造 `ReadableStreamDefaultReader` 对象，使用 [ReadableStream.getReader](https://cloud.tencent.com/document/product/1552/81914#getreader) 方法得到。
 
 ## 描述
 

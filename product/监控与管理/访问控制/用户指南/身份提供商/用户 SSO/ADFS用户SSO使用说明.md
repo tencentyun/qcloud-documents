@@ -129,13 +129,15 @@ Active Directory Federation Services（ADFS）是 Microsoft's 推出的 Windows 
 
 ### 为腾讯云 SP 配置 SAML 断言属性
 为保证腾讯云 SAML 响应定位到正确的子用户，SAML 断言中的 NameID 字段需要是腾讯云子用户名。SAML 断言中的 NameID 默认传入为（TESTDOMAIN\子用户名）格式，需正则表达式去除原有配置 TESTDOMAIN，仅保留子用户名（TESTDOMAIN 是前面的默认 NETBIOS 名）。
-自定义规则为：
-`c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"]
- => issue(Type = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier", Issuer = c.Issuer, OriginalIssuer = c.OriginalIssuer, Value = regexreplace(c.Value, "(?<domain>[^\\]+)\\(?<user>.+)", "${user}"), ValueType = c.ValueType, Properties["http://schemas.xmlsoap.org/ws/2005/05/identity/claimproperties/format"] = "urn:oasis:names:tc:SAML:2.0:nameid-format:persistent");
-`
+自定义规则为：**安装 ADFS 服务**中步骤3 申请证书所在文件内的txt内容。
+![](https://qcloudimg.tencent-cloud.cn/raw/1f3b77256d1baefd8e27e7c50145ed25.png)
  <img style="width:950px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/8521e2aef41f0dea752886f179e05b36.png" />
  <img style="width:950px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/78b3222e20690715071a77040ac8722f.png" />
-
+>?若出现请求终止，无法创建 SSL/TLS 安全通道时，可通过 powershell 执行方式后重启服务器解决。
+32位机器：
+Set-ItemProperty -Path 'HKLM:\SOFTWARE\Wow6432Node\Microsoft\.NetFramework\v4.0.30319' -Name 'SchUseStrongCrypto' -Value '1' -Type DWord
+64位机器：
+Set-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\.NetFramework\v4.0.30319' -Name 'SchUseStrongCrypto' -Value '1' -Type DWord
 
 ### 用户 SSO 登录
 1. 浏览器输入 `https://adserver.testdomain.com/adfs/ls/idpinitiatedsignon`。

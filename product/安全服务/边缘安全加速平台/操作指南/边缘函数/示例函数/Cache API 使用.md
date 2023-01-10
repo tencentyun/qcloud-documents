@@ -54,11 +54,11 @@ addEventListener('fetch', (event) => {
 
 - 未命中缓存。
 
-<img src="https://user-images.githubusercontent.com/117053395/208015306-5d9ba9b4-b1a7-48c0-b2c1-868ade979cf7.png" width=609px>
+<img src="https://qcloudimg.tencent-cloud.cn/raw/45da06feda14ed3fc64a55959d9fff9e.png" width=609px>
 
 - 命中缓存。
 
-<img src="https://user-images.githubusercontent.com/117053395/208015231-8c93d07e-a919-49c3-9ad5-257b32f8f27b.png" width=609px>
+<img src="https://qcloudimg.tencent-cloud.cn/raw/66b0ac34804739b86883612930354eb4.png" width=609px>
 
 
 ## 相关参考
