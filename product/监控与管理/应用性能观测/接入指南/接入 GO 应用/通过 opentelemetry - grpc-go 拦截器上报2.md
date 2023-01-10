@@ -1,4 +1,4 @@
-本文将为您介绍如何上报 Jaeger HTTP 上报 Go 应用数据。
+本文将为您介绍如何通过 opentelemetry - grpc-go 上报 Go 应用数据。
 
 ## 操作步骤
 
