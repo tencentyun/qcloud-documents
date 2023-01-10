@@ -3,12 +3,12 @@
 
 ## 连接场景
 根据云上数据库实例类型的不同，连接方式也有所差异：
-若从本地连接云上高可用/集群版 SQL Server 实例，可通过以下3种方案进行连接。
+若从本地连接云上双节点（原高可用版/集群版） SQL Server 实例，可通过以下3种方案进行连接。
 - 方案1：通过 [VPN](https://cloud.tencent.com/document/product/554/18980) 或 [专线](https://cloud.tencent.com/document/product/216/7557) 或 [云联网](https://cloud.tencent.com/document/product/877/18768) 连接，更安全更稳定。
 - 方案2：通过外网连接，可在控制台 [开启外网地址](#kqwwdz) 或 [绑定 CLB 开启外网服务](#CLBKQWW)。
 - 方案3：借助 [具有外网 IP 的 Linux 云服务器进行端口映射](#WWIPLJSL)。
 
-若从本地连接基础版 SQL Server 实例，可通过以下3种方案进行连接。
+若从本地连接单节点（原基础版） SQL Server 实例，可通过以下3种方案进行连接。
 - 方案1：通过 [VPN](https://cloud.tencent.com/document/product/554/18980) 或 [专线](https://cloud.tencent.com/document/product/216/7557) 或 [云联网](https://cloud.tencent.com/document/product/877/18768) 连接，更安全更稳定。
 - 方案2：通过外网连接，可在控制台 [开启外网地址](#kqwwdz)。
 - 方案3：借助 [具有外网 IP 的 Linux 云服务器进行端口映射](https://cloud.tencent.com/document/product/238/11627#WWIPLJSL)。
