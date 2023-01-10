@@ -143,6 +143,9 @@ CREATE TABLE `clickhouse_dimension` (
 | DATE                           | Date                                                         |
 | TIMESTAMP                      | DateTime                                                     |
 | TIMESTAMP WITH LOCAL TIME ZONE | DateTime，示例 DateTime64(3, 'Asia/Shanghai')                 |
+| Array                          | Array|
+| Map                            | Map|
+| Row | Tuple|
 
 ## 代码示例
 
