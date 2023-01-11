@@ -896,8 +896,7 @@ private void handleOfflinePush() {
 		
 ```
 
->!
->- FCM 单击通知栏的消息会默认跳转至应用的默认 Launcher 界面，您可以在界面启动的 onResume() 方法中，通过调用 getIntent().getExtras() 获取透传的离线推送参数再自定义跳转。
+>!FCM 单击通知栏的消息会默认跳转至应用的默认 Launcher 界面，您可以在界面启动的 onResume() 方法中，通过调用 getIntent().getExtras() 获取透传的离线推送参数再自定义跳转。
  
 以上完成后，当您的应用退到后台或者进程被杀掉时，消息会进行离线推送通知栏展示，可单击通知栏跳转到设定的应用界面，完成实现离线推送功能。
 
@@ -930,19 +929,17 @@ String msgID = V2TIMManager.getMessageManager().sendMessage(v2TIMMessage, isGrou
 ```
 
 >!
-> 1、IMSDK  6.1.2155  及以上版本支持。
-> 2、接口支持华为、小米、FCM 和 APNS。
+>1. IMSDK  6.1.2155  及以上版本支持。
+>2. 接口支持华为、小米、FCM 和 APNS。
 
 
 ### 2、Android 8.0 及以后系统设置需要通过 channel 实现
-- #### 华为 & ANPS
+- **华为 & ANPS**
+华为、APNS 仍然调用 [setAndroidSound()](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushInfo.html#a3ff923225d5a79802a02c47a07e07fc5) 和 [setIOSSound()](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushInfo.html#acffd09150398b06c3d7eb42baee5aee1) 来设置离线推送铃音提示。
 
-#### 华为、APNS 仍然调用 [setAndroidSound()](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushInfo.html#a3ff923225d5a79802a02c47a07e07fc5) 和 [setIOSSound()](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushInfo.html#acffd09150398b06c3d7eb42baee5aee1) 来设置离线推送铃音提示。
-- #### 小米
-
+- **小米**
 #### 步骤1：登录厂商控制台 [创建 channel 并做好配置](https://dev.mi.com/console/doc/detail?pId=2422#_2)，其中铃音文件需要添加到您本地 Android Studio 工程的 raw 目录下。
-<img src="https://qcloudimg.tencent-cloud.cn/raw/79a73f0b02d72833c59f50989882c890.png" style="zoom:100%;" />
-
+<img src="https://qcloudimg.tencent-cloud.cn/raw/79a73f0b02d72833c59f50989882c890.png" style="zoom:100%;" /> 
 #### 步骤2：发送消息指定自定义铃音的 channel ID，详见 [setAndroidXiaoMiChannelID](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushInfo.html#ac769aec48cdbc9a57416c5a79504617a) 。
 ```
 V2TIMOfflinePushInfo v2TIMOfflinePushInfo = new V2TIMOfflinePushInfo();
@@ -966,8 +963,7 @@ String msgID = V2TIMManager.getMessageManager().sendMessage(v2TIMMessage, isGrou
  }
 });
 ```
-- #### FCM
-
+- **FCM**
 #### 步骤1：创建需要自定义铃音的 channel。
 [TUIOfflinePush](https://github.com/TencentCloud/TIMSDK/tree/master/Android/TUIKit/TUIOfflinePush/tuiofflinepush) 组件已经默认创建好带自定义铃音的 channel。铃音文件需要添加到您本地 Android Studio 工程的 raw 目录下，并指定铃音名称和 channel ID 的名称，详见 [PrivateConstants](https://github.com/TencentCloud/TIMSDK/blob/master/Android/TUIKit/TUIOfflinePush/tuiofflinepush/src/main/native/java/com.tencent.qcloud.tim.tuiofflinepush/PrivateConstants.java)。
 ```
@@ -1013,8 +1009,8 @@ String msgID = V2TIMManager.getMessageManager().sendMessage(v2TIMMessage, isGrou
 ```
 
 >!
-> 1、IMSDK 7.0.3754 及以上版本支持。
-> 2、FCM 自定义铃声或者设置 channnel id 仅支持证书模式。
+> 1. IMSDK 7.0.3754 及以上版本支持。
+> 2. FCM 自定义铃声或者设置 channnel id 仅支持证书模式。
 > <img src="https://qcloudimg.tencent-cloud.cn/raw/3b889e4b7a4c75c3748f3ad01d876cf4.png" style="zoom:30%;" />
 
 ## 常见问题
@@ -1059,7 +1055,7 @@ OPPO 手机收不到推送一般有以下几种情况：
 1、国内厂商都有消息分类机制，不同类型也会有不同的推送策略。如果想要推送及时可靠，需要按照厂商规则设置自己应用的推送类型为高优先级的系统消息类型或者重要消息类型。反之，离线推送消息会受厂商推送消息分类影响，与预期会有差异。
 2、另外，一些厂商对于应用每天的推送数量也是有限制的，可以在厂商控制台查看应用每日限制的推送数量。
 如果离线推送消息出现推送不及时或者偶尔收不到情况，需要考虑下这里：
-- 华为：华为推送从 EMUI 10.0版本开始将通知消息智能分成两个级别：「服务与通讯」和「资讯营销」。EMUI 10.0之前的版本没有对通知消息进行分类，只有一个级别，消息全部通过“默认通知”渠道展示，等价于 EMUI 10.0的服务与通讯。资讯营销类消息的每日推送数量自2023年01月05日起根据应用类型对推送数量进行上限管理，服务与通讯类消息每日推送数量不受限。另外，消息分类还和自分类权益有关：
+- 华为：华为推送从 EMUI 10.0版本开始将通知消息智能分成两个级别：**服务与通讯**和**资讯营销**。EMUI 10.0之前的版本没有对通知消息进行分类，只有一个级别，消息全部通过“默认通知”渠道展示，等价于 EMUI 10.0的服务与通讯。资讯营销类消息的每日推送数量自2023年01月05日起根据应用类型对推送数量进行上限管理，服务与通讯类消息每日推送数量不受限。另外，消息分类还和自分类权益有关：
   - 无自分类权益，推送消息厂商还会进行二次智能分类 。
   - 有申请自分类权益，且推送消息携带 category 字段，消息会按照自定义的分类进行推送，详见 [setAndroidHuaWeiCategory](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushInfo.html#ad9dea3cb382c0c1a3c1a63738697fc1f)。
 具体请参见 [厂商描述1](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/message-classification-0000001149358835) 或 [厂商描述2](https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/message-restriction-description-0000001361648361?ha_source=hms5)。
