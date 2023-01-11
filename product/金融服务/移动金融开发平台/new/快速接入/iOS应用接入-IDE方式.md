@@ -6,19 +6,19 @@
 >?如果您想在现有工程中使用 TMF，可以跳过本步骤。
 >
 1. 单击**创建工程**进行工程创建。
-   <img src="https://qcloudimg.tencent-cloud.cn/raw/0b017958a9f54a7af4784b400df91de2.png" width=70%> 
+<img src="https://qcloudimg.tencent-cloud.cn/raw/0b017958a9f54a7af4784b400df91de2.png" width=70%> 
 2. 输入项目名称，然后单击**下一步**。
-   <img src="https://qcloudimg.tencent-cloud.cn/raw/53a07fc74b57ff6ecec967c578811f81.png" width=70%> 
+<img src="https://qcloudimg.tencent-cloud.cn/raw/53a07fc74b57ff6ecec967c578811f81.png" width=70%> 
 3. 选择合适的基线版本，然后单击**下一步**。
-   <img src="https://qcloudimg.tencent-cloud.cn/raw/c3c59e3221c2bbb448b05fa7c2c53ead.png" width=70%> 
+<img src="https://qcloudimg.tencent-cloud.cn/raw/c3c59e3221c2bbb448b05fa7c2c53ead.png" width=70%> 
 4. 勾选想要集成的TMF SDK，然后单击**下一步**。  
-   <img src="https://qcloudimg.tencent-cloud.cn/raw/c231688e7028d2459dd0562c257a6f5e.png" width=70%> 
+<img src="https://qcloudimg.tencent-cloud.cn/raw/c231688e7028d2459dd0562c257a6f5e.png" width=70%> 
 5. 选择工程存放路径，单击**下一步**完成创建。
 
 
 ## 导入工程
 1. 将项目的 xcworkspace 文件拖入方框或单击选择文件。
->?该过程会自动解析出该工程的SDK静态库和动态库。
+>?该过程会自动解析出该工程的 SDK 静态库和动态库。
 >
 <img src="https://qcloudimg.tencent-cloud.cn/raw/ace14abfed3d902cd8c2e55b2fe26f26.png" width=70%>  
 2. 在编辑模块中登录控制台，选择应用并下载配置文件。
