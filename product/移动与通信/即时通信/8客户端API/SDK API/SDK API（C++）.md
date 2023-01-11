@@ -50,7 +50,6 @@
 | [AddAdvancedMsgListener](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMMessageManager.html#a498688ee0f672f114e28d830761dfbf8) | 设置高级消息的事件监听器， 请不要同 [AddSimpleMsgListener](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMManager.html#ad039bd93fe1a09cf45034697e1c1328f) 混用 |
 | [RemoveAdvancedMsgListener](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMMessageManager.html#a7e27cbe3f0cc26e09de0bdee8b192bea) | 移除高级消息的事件监听器                                     |
 | [CreateTextMessage](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMMessageManager.html#ab96fac17ae7cb4d1e367dff40aa0694c) | 创建文本消息                                                 |
-| [CreateTextAtMessage](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMMessageManager.html#afa39182f419c621fc929eb3929206107) | 创建 @ 文本消息                                              |
 | [CreateCustomMessage](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMMessageManager.html#a3af1cc2c76c41f3e48080134502ac8d5) | 创建自定义消息                                               |
 | [CreateImageMessage](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMMessageManager.html#a1f066186491a282c98f9cf7296720775) | 创建图片消息                                                 |
 | [CreateSoundMessage](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMMessageManager.html#a017a0c2902d045a70a9d5b686154984e) | 创建语音消息                                                 |
@@ -60,6 +59,8 @@
 | [CreateFaceMessage](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMMessageManager.html#a72c548e00aed06ef99aca1d55d5895c2) | 创建表情消息                                                 |
 | [CreateMergerMessage](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMMessageManager.html#afc00a2a85b3d29ccfc472ea6544eccf3) | 创建合并转发消息                                             |
 | [CreateForwardMessage](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMMessageManager.html#aaff05e59893cb1cfe5a806e700e1e270) | 创建单条转发消息                                             |
+| [CreateTargetedGroupMessage](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMMessageManager.html#aceeef38fd6308e91154cdd8310c6012f) | 创建定向群消息                                         |
+| [CreateAtSignedGroupMessage](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMMessageManager.html#af34abe1b5eac3df820a76e9710bc5fba) | 创建带 @ 标记的群消息                                   |
 | [SendMessage](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMMessageManager.html#a42db237e7ae52cd2aa7edebf4f435c61) | 发送消息，消息对象可以由 CreateXXXMessage 接口创建得来     |
 | [SetC2CReceiveMessageOpt](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMMessageManager.html#adf166f08b68a5df8de19d152bcf868b3) | 设置单聊消息免打扰                                           |
 | [GetC2CReceiveMessageOpt](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMMessageManager.html#a30a4979460e73c897b6130ba40356afa) | 获取单聊消息免打扰状态                                       |
@@ -81,6 +82,7 @@
 | [setMessageExtensions](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMMessageManager.html#a01d4d98b44f8b1dfdeff3abf1cd71d41) | 设置消息扩展 |
 | [getMessageExtensions](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMMessageManager.html#a7d0ec9f6d4201d916eb2861b19443605) | 获取消息扩展 |
 | [deleteMessageExtensions](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMMessageManager.html#a319ceed3323c5005b3630ef1598d5886) | 删除消息扩展 |
+| [translateText](https://im.sdk.qcloud.com/doc/zh-cn/classV2TIMMessageManager.html#ad4df190bf4089a64f69b84a874a60028) | 翻译文本消息 |
 
 ## 群组相关接口
 

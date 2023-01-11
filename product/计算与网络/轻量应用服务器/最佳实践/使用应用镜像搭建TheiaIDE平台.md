@@ -11,7 +11,6 @@ Theia IDE 是一套构建基于 Web 的云端 IDE 的开源框架，是一个可
 查看镜像说明详情请参见[ 基本概念](https://cloud.tencent.com/document/product/1207/79254)。
 </dx-alert>
 
- ![](https://qcloudimg.tencent-cloud.cn/raw/60d3a57b5ef616e4d49e4dbcf77a4a77.png)
 	- **地域**：建议选择靠近目标客户的地域，降低网络延迟、提高您的客户的访问速度。例如目标客户在 “深圳”，则地域选择 “广州”。
 	- **镜像**：选择 “Theia IDE 1.21.1” 应用镜像。
 	- **可用区**：默认勾选“随机分配”，也可自行选择可用区。
