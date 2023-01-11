@@ -933,7 +933,7 @@ String msgID = V2TIMManager.getMessageManager().sendMessage(v2TIMMessage, isGrou
 >2. 接口支持华为、小米、FCM 和 APNS。
 
 
-### 2、Android 8.0 及以后系统设置需要通过 channel 实现
+### 2、Android 8.0 及以后系统设置需要通过 channel 实现。
 - **华为 & ANPS**
 华为、APNS 仍然调用 [setAndroidSound()](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushInfo.html#a3ff923225d5a79802a02c47a07e07fc5) 和 [setIOSSound()](https://im.sdk.qcloud.com/doc/zh-cn/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushInfo.html#acffd09150398b06c3d7eb42baee5aee1) 来设置离线推送铃音提示。
 
