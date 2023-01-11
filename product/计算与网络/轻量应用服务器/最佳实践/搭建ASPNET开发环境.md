@@ -17,7 +17,6 @@ ASP.NET 应用镜像提供了开源的服务端 Web 应用程序框架，可用�
 查看镜像说明详情请参见[ 基本概念](https://cloud.tencent.com/document/product/1207/79254)。
 </dx-alert>
 
- ![](https://qcloudimg.tencent-cloud.cn/raw/dc936a6436e34fe82dc6ebcfdfcd1373.png)
  - **地域、可用区**：建议选择靠近目标客户的地域及可用区，降低网络延迟、提高您的客户的访问速度。例如目标客户在 “深圳”，地域选择 “广州”。
  - **镜像**：选择 “ASP.NET” 应用镜像。
  - **实例套餐**：按照所需的服务器配置（CPU、内存、系统盘、峰值带宽、每月流量），选择一种实例套餐。
