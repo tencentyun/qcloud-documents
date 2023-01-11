@@ -176,7 +176,8 @@ pod update
 	is also present at [com.tencent.liteav:LiteAVSDK_Player:10.8.0.13065] AndroidManifest.xml:22:9-41 value=(@string/app_name).
 	Suggestion: add 'tools:replace="android:label"' to <application> element at AndroidManifest.xml:8:4-51:19 to override.
 ```
-**解决方法**：由于播放器安卓 SDK 的 AndroidManifest 已经定义过 label，而 flutter 新建项目之后，在安卓目录的 AndroidManifest 也会定义 label，此处建议根据错误提示，进入您的安卓项目目录，在 AndroidManifest 的根节点`manifest`节点下增加` xmlns:tools="http://schemas.android.com/tools" `，并在 application 节点下增加`'tools:replace="android:label"'`。
+**解决方法**：
+由于播放器安卓 SDK 的 AndroidManifest 已经定义过 label，而 flutter 新建项目之后，在安卓目录的 AndroidManifest 也会定义 label，此处建议根据错误提示，进入您的安卓项目目录，在 AndroidManifest 的根节点`manifest`节点下增加` xmlns:tools="http://schemas.android.com/tools" `，并在 application 节点下增加`'tools:replace="android:label"'`。
 
 6. 集成 superPlayer 之后，出现如下版本错误：
 ```text
