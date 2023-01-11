@@ -90,7 +90,6 @@ spec:
     metadata:
       annotations:
         tke.cloud.tencent.com/networks: "tke-route-eni"
-        tke.cloud.tencent.com/vpc-ip-claim-delete-policy: Never
         tke.cloud.tencent.com/eip-id-list: "eip-xxx1,eip-xxx2"
       creationTimestamp: null
       labels:
@@ -154,6 +153,7 @@ Pod 启用自动关联 EIP 特性后，网络组件会为该 Pod 在同 namespac
 ![](https://main.qcloudimg.com/raw/ad1290436fa0ff66d8bb17abd2bab161.png)
 在高级设置中设置 IP 回收策略，可以设置 Pod 销毁后多少秒回收保留的固定 IP。如下图所示：
 ![](https://main.qcloudimg.com/raw/a9adcfc9618452c4afd45dfdd27c050f.png)
+对于**存量集群**，也可支持变更：
 
 #### tke-eni-ipamd 组件版本 >= v3.5.0
 1. 登录 [容器服务控制台](https://console.qcloud.com/tke2)，单击左侧导航栏中**集群**。
