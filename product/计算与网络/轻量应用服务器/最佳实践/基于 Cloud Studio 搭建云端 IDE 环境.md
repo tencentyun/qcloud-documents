@@ -14,7 +14,6 @@ Cloud Studio 应用镜像是一个提供了轻量级，且功能强大的源代�
 查看镜像说明详情请参见[ 基本概念](https://cloud.tencent.com/document/product/1207/79254)。
 </dx-alert>
 
- ![](https://qcloudimg.tencent-cloud.cn/raw/666d332516de4114882d9516718cb1f8.png)
 	- **地域**：建议选择靠近目标客户的地域，降低网络延迟、提高您的客户的访问速度。例如目标客户在 “深圳”，则地域选择 “广州”。
 	- **镜像**：选择 “Cloud Studio 1.0.1” 应用镜像。
 	- **可用区**：默认勾选“随机分配”，也可自行选择可用区。
