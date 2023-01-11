@@ -282,6 +282,7 @@ X-TC-Region: ap-guangzhou
 #### 5. API 3.0签名 V3示例
 
 ```c++
+#include <cstdlib>
 #include <iostream>
 #include <iomanip>
 #include <sstream>
@@ -378,8 +379,10 @@ string HexEncode(const string &input)
 int main()
 {
     // 密钥参数
-    string SECRET_ID = "AKIDz8krbsJ5**********mLPx3EXAMPLE";
-    string SECRET_KEY = "Gu5t9xGAR***********EXAMPLE";
+    // 需要设置环境变量 TENCENTCLOUD_SECRET_ID，值为示例的 AKIDz8krbsJ5**********mLPx3EXAMPLE
+    string SECRET_ID = getenv("TENCENTCLOUD_SECRET_ID");
+    // 需要设置环境变量 TENCENTCLOUD_SECRET_KEY，值为示例的 Gu5t9xGAR***********EXAMPLE
+    string SECRET_KEY = getenv("TENCENTCLOUD_SECRET_KEY");
 
     string service = "cvm";
     string host = "cvm.tencentcloudapi.com";
