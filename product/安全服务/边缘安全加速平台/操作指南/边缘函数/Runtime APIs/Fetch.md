@@ -86,6 +86,7 @@ addEventListener('fetch', async (event) => {
 </table>
 
 >! 重定向的地址来源于响应头 `Location`，若无该响应头，则不会重定向。
+
 - 响应头 `Location` 值可以是绝对 URL 或者相对 URL，详情参见 [RFC-3986: URI Reference](https://www.rfc-editor.org/rfc/rfc3986#section-4.1)。
 
 ## 运行时限制

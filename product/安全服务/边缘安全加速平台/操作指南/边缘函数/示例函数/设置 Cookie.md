@@ -27,7 +27,7 @@ addEventListener('fetch', (event) => {
 
 在浏览器地址栏中输入匹配到边缘函数触发规则的 URL，即可预览到示例效果。
 
-<img src="https://qcloudimg.tencent-cloud.cn/raw/cae2b6697894cb8ed150c7ca095e79b5.png" width=609px>
+<img src="https://qcloudimg.tencent-cloud.cn/raw/74692d5f11272623ac12f77c38eb247f.png" width=609px>
 
 ## 相关参考
 - [Runtime APIs: Cookies](https://cloud.tencent.com/document/product/1552/83932)

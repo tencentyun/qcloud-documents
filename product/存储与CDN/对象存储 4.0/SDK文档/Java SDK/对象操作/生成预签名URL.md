@@ -25,15 +25,15 @@ COSClient 实例是并发安全的，这里推荐一个进程只创建一个 COS
 COSClient createCOSClient() {
     // 设置用户身份信息。
     // SECRETID 和 SECRETKEY 请登录访问管理控制台 https://console.cloud.tencent.com/cam/capi 进行查看和管理
-    String secretId = "SECRETID";
-    String secretKey = "SECRETKEY";
+    String secretId = System.getenv("secretId");//用户的 SecretId，建议使用子账号密钥，授权遵循最小权限指引，降低使用风险。子账号密钥获取可参见 https://cloud.tencent.com/document/product/598/37140
+    String secretKey = System.getenv("secretKey");//用户的 SecretKey，建议使用子账号密钥，授权遵循最小权限指引，降低使用风险。子账号密钥获取可参见 https://cloud.tencent.com/document/product/598/37140
     COSCredentials cred = new BasicCOSCredentials(secretId, secretKey);
 
     // ClientConfig 中包含了后续请求 COS 的客户端设置：
     ClientConfig clientConfig = new ClientConfig();
 
     // 设置 bucket 的地域
-    // COS_REGION 请参照 https://cloud.tencent.com/document/product/436/6224
+    // COS_REGION 请参见 https://cloud.tencent.com/document/product/436/6224
     clientConfig.setRegion(new Region("COS_REGION"));
 
     // 设置请求协议, http 或者 https
@@ -60,14 +60,14 @@ COSClient createCOSClient() {
 ### 使用临时密钥创建 COSClient
 
 如果要使用临时密钥请求 COS，则需要用临时密钥创建 COSClient。
-本 SDK 并不能生成临时密钥，而需要使用额外的操作来生成，参考 [临时密钥生成](https://cloud.tencent.com/document/product/436/14048#cos-sts-sdk)。
+本 SDK 并不能生成临时密钥，而需要使用额外的操作来生成，详情请参见 [临时密钥生成](https://cloud.tencent.com/document/product/436/14048#cos-sts-sdk)。
 
 ```java
 
 // 创建 COSClient 实例，这个实例用来后续调用请求
 COSClient createCOSClient() {
     // 这里需要已经获取到临时密钥的结果。
-    // 临时密钥的生成参考 https://cloud.tencent.com/document/product/436/14048#cos-sts-sdk
+    // 临时密钥的生成参见 https://cloud.tencent.com/document/product/436/14048#cos-sts-sdk
     String tmpSecretId = "TMPSECRETID";
     String tmpSecretKey = "TMPSECRETKEY";
     String sessionToken = "SESSIONTOKEN";
@@ -78,7 +78,7 @@ COSClient createCOSClient() {
     ClientConfig clientConfig = new ClientConfig();
 
     // 设置 bucket 的地域
-    // COS_REGION 请参照 https://cloud.tencent.com/document/product/436/6224
+    // COS_REGION 请参建 https://cloud.tencent.com/document/product/436/6224
     clientConfig.setRegion(new Region("COS_REGION"));
 
     // 设置请求协议, http 或者 https
@@ -244,7 +244,7 @@ Request 成员说明：
 
 ```java
 // 这里需要已经获取到临时密钥的结果。
-// 临时密钥的生成参考 https://cloud.tencent.com/document/product/436/14048#cos-sts-sdk
+// 临时密钥的生成参见 https://cloud.tencent.com/document/product/436/14048#cos-sts-sdk
 String tmpSecretId = "TMPSECRETID";
 String tmpSecretKey = "TMPSECRETKEY";
 String sessionToken = "SESSIONTOKEN";
@@ -255,7 +255,7 @@ COSCredentials cred = new BasicSessionCredentials(tmpSecretId, tmpSecretKey, ses
 String bucketName = "examplebucket-1250000000";
 // 对象键(Key)是对象在存储桶中的唯一标识。详情请参见 [对象键](https://cloud.tencent.com/document/product/436/13324)
 String key = "exampleobject";
-//若key不是以“/”开头，则需要在key的开头加上“/”，否则直接resource_path=key
+//若key不是以“/”开头，则需要在 key 的开头加上“/”，否则直接 resource_path=key
 String resource_path="/" + key;
 
 ClientConfig clientConfig = new ClientConfig(new Region("ap-beijing-1"));
@@ -334,7 +334,7 @@ String sign = signer.buildAuthorizationStr(method, resource_path, headers, param
 public static void GenerateSimplePresignedDownloadUrl() {
         // 1 初始化用户身份信息(secretId, secretKey)
         COSCredentials cred = new BasicCOSCredentials("secretId", "secretKey");
-        // 2 设置bucket的区域, COS地域的简称请参照 https://www.qcloud.com/document/product/436/6224
+        // 2 设置bucket的区域, COS地域的简称请参见 https://www.qcloud.com/document/product/436/6224
         ClientConfig clientConfig = new ClientConfig(new Region("COS_REGION"));
         // 如果要获取 https 的 url 则在此设置，否则默认获取的是 http url
         clientConfig.setHttpProtocol(HttpProtocol.https);

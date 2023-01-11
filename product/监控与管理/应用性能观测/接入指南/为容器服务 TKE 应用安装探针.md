@@ -2,7 +2,7 @@
 
 您可以使用在容器服务（TKE） 中的应用市场服务 - tapm-operator，快速安装应用性能观测 APM 的探针。即可监控追踪容器服务中的应用，查看应用相关的监控指标、链路及日志。本文将会为您介绍如何在容器服务（TKE）侧安装 APM 探针。
 
->?当前仅支持 java 语言- Opentelementry 增强探针。后续将会支持更多探针和语言，敬请期待。
+>?当前仅支持 Java 语言- Opentelementry 增强探针。后续将会支持更多探针和语言，敬请期待。
 
 
 
@@ -41,7 +41,7 @@
 <tr>
 <td>  APM_TOKEN</td>
 <td>您的 APM  实例对应的上报 Token</td>
-<td> 1. 在应用性能观测控制台-探针部署页面<br>选择 java 语言-Opentelementry增强探上报方式。<br><br><img src="https://qcloudimg.tencent-cloud.cn/raw/1a9ed8112203421e565af4c108626c7e.png" width="70%"><br><br>2. 单击<b>下一步</b>，获取 Token。<br><img src="https://qcloudimg.tencent-cloud.cn/raw/c17e16415c3e201154a41f9a4b03b43f.png" width="70%"> </td>
+<td> 1. 在应用性能观测控制台-探针部署页面<br>选择 Java 语言-Opentelementry增强探上报方式。<br><br><img src="https://qcloudimg.tencent-cloud.cn/raw/1a9ed8112203421e565af4c108626c7e.png" width="70%"><br><br>2. 单击<b>下一步</b>，获取 Token。<br><img src="https://qcloudimg.tencent-cloud.cn/raw/c17e16415c3e201154a41f9a4b03b43f.png" width="70%"> </td>
 </tr>
 <tr>
 <td>CLUSTER_ID</td>

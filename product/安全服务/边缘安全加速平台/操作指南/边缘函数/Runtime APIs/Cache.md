@@ -124,7 +124,7 @@ cache.match(request: string | Request, options?: MatchOptions): Promise<Response
 ```typescript
 cache.put(request: string | Request, response: Response): Promise<undefined>
 ```
-尝试使用给定的 request 作为缓存 key，将 response 添加到缓存。无论缓存是否成功，均返回 Promise<undefined> 对象。
+尝试使用给定的 request 作为缓存 key，将 response 添加到缓存。无论缓存是否成功，均返回 `Promise<undefined>` 对象。
 
 >! 当参数 **response** 对象的 Cache-Control 头部表示不缓存时，抛出 413 错误。 
 
