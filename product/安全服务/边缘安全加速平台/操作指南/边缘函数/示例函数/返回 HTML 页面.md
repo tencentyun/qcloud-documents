@@ -1,4 +1,4 @@
-使用边缘函数生成 HTML 页面，并在浏览器预览页面。
+使用边缘函数生成 HTML 页面，并在浏览器端访问预览该 HTML 页面。
 
 ## 示例代码
 
@@ -27,9 +27,8 @@ addEventListener('fetch', event => {
 
 ## 示例预览
 
-在浏览器地址栏中输入边缘函数触发规则，即可预览到示例效果。
-
-<img src="https://user-images.githubusercontent.com/117053395/208013444-3e76d2b3-2d46-45ba-b7f5-8680d09cf3e8.png" width=609px>
+在浏览器地址栏中输入匹配到边缘函数触发规则的 URL，即可预览到示例效果。
+<img src="https://qcloudimg.tencent-cloud.cn/raw/19798af91910d6d580cadd827eb21e0c.png" width=609px>
 
 ## 相关参考
 - [Runtime APIs: addEventListener](https://cloud.tencent.com/document/product/1552/81928)

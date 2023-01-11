@@ -5,7 +5,7 @@
 - 通过 npm 和 script 方式将 IM SDK 集成到您的 Web 项目中，推荐使用 npm 集成。
 - 通过 npm 方式将 IM SDK 集成到您的小程序或者 uni-app 项目中。
 - 通过集成上传插件 [tim-upload-plugin](https://www.npmjs.com/package/tim-upload-plugin)，实现更快更安全的富文本消息资源上传。
-- 通过集成本地审核插件 [tim-profanity-filter-plugin](https://www.npmjs.com/package/tim-profanity-filter-plugin)，在客户端本地检测由即时通信 SDK 发送的文本内容，支持对已配置的敏感词进行拦截或者替换处理，为您的产品体验和业务安全保驾护航。
+- 通过集成本地审核插件 [tim-profanity-filter-plugin](https://www.npmjs.com/package/tim-profanity-filter-plugin)，在客户端本地检测由即时通信 SDK 发送的文本内容，支持对已配置的敏感词进行拦截或者替换处理，为您的产品体验和业务安全保驾护航。本地审核功能的开通和配置方法，详情请参见 [控制台指南](https://cloud.tencent.com/document/product/269/83050#.E6.9C.AC.E5.9C.B0.E5.AE.A1.E6.A0.B8)。
 
 ### npm 集成（推荐）
 
@@ -149,7 +149,6 @@ tim.registerPlugin({
 <dx-codeblock>
 :::  js
 
-<!-- tim-js.js 和 tim-upload-plugin.js 可以从 https://github.com/TencentCloud/TIMSDK/tree/master/Web/IMSDK 获取 -->
 <script src="./tim-js.js"></script>
 <script src="./tim-upload-plugin.js"></script>
 <script>

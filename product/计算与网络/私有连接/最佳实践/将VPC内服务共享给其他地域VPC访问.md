@@ -15,7 +15,7 @@ VPC 是您独有的云上私有网络，不同 VPC 之间默认完全隔离。�
 + 已创建服务提供方 VPC2 和服务使用方 VPC1，以及跨地域服务使用方 VPC3。
 + 在服务提供方 VPC2 中已创建内网4层 CLB 实例，并在 CLB 后端云服务器实例中部署相关服务资源，请确保后端云服务器实例可以正常处理负载均衡转发的请求，具体请参加 [负载均衡快速入门](https://cloud.tencent.com/document/product/214/8975)。
 + **请确保服务提供方 VPC2 中负载均衡后端云服务器关联的安全组已放通11.163.0.0/16地址段**，如下图所示。   
-	<img src="https://main.qcloudimg.com/raw/0462ab7efa311e9fb253e147628e2f7a.png" width="80%" />
+<img src="https://main.qcloudimg.com/raw/0462ab7efa311e9fb253e147628e2f7a.png" width="80%" /> 
 
 ## 操作步骤
 [](id:step1)
@@ -25,7 +25,7 @@ VPC 是您独有的云上私有网络，不同 VPC 之间默认完全隔离。�
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=16)。
 2. 在左侧导航栏单击**私有连接** > **终端节点服务**。
 3. 单击**新建**，在弹出的新建终端节点服务界面，配置相关参数。
-    <img src="https://main.qcloudimg.com/raw/ca3c8b893bdd15975b85a23d78db9805.png" width="50%" /></br>
+    <img src="https://main.qcloudimg.com/raw/ca3c8b893bdd15975b85a23d78db9805.png" width="50%" /> </br>
 <table>
 <tr>
 <th width="12%">参数名称</th>
@@ -60,7 +60,7 @@ VPC 是您独有的云上私有网络，不同 VPC 之间默认完全隔离。�
 >
 1. 单击左侧导航栏单击**终端节点**。
 2. 单击**新建**，在弹出的新建终端节点界面，配置相关参数。
-    <img src="https://main.qcloudimg.com/raw/24cb315ff0ef57647686e498d0ab2e31.png" width="50%" /><br>
+    <img src="https://main.qcloudimg.com/raw/24cb315ff0ef57647686e498d0ab2e31.png" width="50%" /> <br>
 <table>
 <tr>
 <th width="12%">参数名称</th>
@@ -113,15 +113,15 @@ VPC 是您独有的云上私有网络，不同 VPC 之间默认完全隔离。�
 >?如果服务器没有安装 telnet，请先执行 `yum install telnet` 安装 telnet。
 >
 	获取终端节点 VIP：
- <img src="https://main.qcloudimg.com/raw/d21dc32174c18fc67e4f549c44b86086.png" width="70%" /><br>
+ <img src="https://main.qcloudimg.com/raw/d21dc32174c18fc67e4f549c44b86086.png" width="70%" /> <br>
    获取 CLB 的 VPORT：
- <img src="https://main.qcloudimg.com/raw/922dc796b2d687354a355ab6fe845437.png" width="70%" /><br>
+ <img src="https://main.qcloudimg.com/raw/922dc796b2d687354a355ab6fe845437.png" width="70%" /> <br>
   返回如下信息，表示访问成功：
-<img src="https://main.qcloudimg.com/raw/8f9817596cf774d69605ab30bfaed49e.png" width="50%" /><br>
+<img src="https://main.qcloudimg.com/raw/8f9817596cf774d69605ab30bfaed49e.png" width="50%" /> <br>
 - 验证重庆地域下 VPC3 通过成都地域服务使用方 VPC1 中的终端节点访问服务提供方 VPC2：
  1.  登录 VPC3 下的某台 CVM，通过 VIP + VPORT 访问服务提供方的后端服务。该 VIP 为 VPC1 中终端节点获取的 VIP，本例中为172.16.2.16，VPORT 为 VPC2 中 CLB 的监听端口，本例为1044。
  2.  依然使用 telnet 验证连通性，执行 telnet *VIP VPORT*。
 >?如果服务器没有安装 telnet，请先执行 `yum install telnet` 安装 telnet。
 >
 	返回信息如下，表示访问成功：<br>
-	<img src="https://main.qcloudimg.com/raw/2504940fd846c6cb3a37a8fd2b8812ec.png" width="50%" />
+	<img src="https://main.qcloudimg.com/raw/2504940fd846c6cb3a37a8fd2b8812ec.png" width="50%" /> 

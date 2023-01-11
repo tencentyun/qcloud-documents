@@ -68,7 +68,7 @@ TUICallKit 属于 IM 增值服务之一，需要您单独开通/购买后使用�
 <td style="text-align: center">380,000分钟/月</td>
 </tr>
 <tr>
-<td style="text-align: center;width:60px" rowspan=13>通话相关功能</td>
+<td style="text-align: center;width:60px" rowspan=14>通话相关功能</td>
 <td>微信同款 UI 设计</td>
 <td style="text-align: center">✓</td>
 <td style="text-align: center">✓</td>
@@ -147,6 +147,13 @@ TUICallKit 属于 IM 增值服务之一，需要您单独开通/购买后使用�
 </tr>
 <tr>
 <td>AI 降噪</td>
+<td style="text-align: center">-</td>
+<td style="text-align: center">-</td>
+<td style="text-align: center">✓</td>
+<td style="text-align: center">✓</td>
+</tr>
+<tr>
+<td>TUIChat 发送语音消息支持 AI 降噪和自动增益</td>
 <td style="text-align: center">-</td>
 <td style="text-align: center">-</td>
 <td style="text-align: center">✓</td>

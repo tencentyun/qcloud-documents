@@ -3,9 +3,14 @@ Theia IDE 是一套构建基于 Web 的云端 IDE 的开源框架，是一个可
 
 
 ## 操作步骤
-1. 登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse/instance/index)。
-2. 单击**新建**，进入轻量应用服务器购买页面。如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/60d3a57b5ef616e4d49e4dbcf77a4a77.png)
+1. 登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse/instance/index)，在 **服务器** 页面单击新建。
+2. 在轻量应用服务器购买页面，选择所需配置完成轻量应用服务器购买。如下图所示：
+其中，“镜像”选择为应用模板 > 开发工具场景 > Theia IDE 应用模板，其他参数可参考 购买方式 进行选择。
+<dx-alert infotype="explain" title="">
+应用模板即应用镜像。
+查看镜像说明详情请参见[ 基本概念](https://cloud.tencent.com/document/product/1207/79254)。
+</dx-alert>
+
 	- **地域**：建议选择靠近目标客户的地域，降低网络延迟、提高您的客户的访问速度。例如目标客户在 “深圳”，则地域选择 “广州”。
 	- **镜像**：选择 “Theia IDE 1.21.1” 应用镜像。
 	- **可用区**：默认勾选“随机分配”，也可自行选择可用区。

@@ -1,7 +1,7 @@
 本文为您介绍创建初始化实例后，通过内网或外网地址来连接 MySQL 实例。
 
 ## 准备工作
-- 准备已初始化好的 MySQL 实例，请参见 [初始化 MySQL 实例](https://cloud.tencent.com/document/product/236/3128)。
+- 准备好 MySQL 实例，请参见 [创建 MySQL 实例](https://cloud.tencent.com/document/product/236/3128)。
 - 准备好数据库帐号并授权允许访问 MySQL 的 IP，请参见 [创建帐号](https://cloud.tencent.com/document/product/236/35794)、[修改授权访问的主机地址](https://cloud.tencent.com/document/product/236/35796)，您也可以直接使用 root 帐号。
 - 配置云服务器 CVM 和 MySQL 的安全组出入站规则，来限制允许访问 MySQL 的 IP，请参见 [管理云数据库安全组](https://cloud.tencent.com/document/product/236/9537)。
 

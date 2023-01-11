@@ -35,6 +35,10 @@ ghost install local
 
 
 ## 将 Ghost 关联到 COS存储桶
+
+>!建议使用子账号密钥，授权遵循 [最小权限指引](https://cloud.tencent.com/document/product/436/38618)，降低使用风险。子账号密钥获取可参考 [子账号访问密钥管理](https://cloud.tencent.com/document/product/598/37140)。
+
+
 1. 修改 Ghost 项目根目录下的 config.development.json 配置文件，添加如下配置：
 ```json
   "storage": {
@@ -116,5 +120,4 @@ ghost restart
 ## 结语
 
 当然，COS 不仅提供以上应用和服务，还提供多款热门开源应用，并集成腾讯云 COS 插件，欢迎点击“[此处](https://cloud.tencent.com/act/pro/Ecological-aggregation?from=18406)”一键启动，立即使用！
-
 

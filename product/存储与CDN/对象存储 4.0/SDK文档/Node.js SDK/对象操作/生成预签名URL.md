@@ -30,8 +30,8 @@ COS.getAuthorization 方法用于计算鉴权凭证（Authorization），用以�
 // SECRETID 和 SECRETKEY 请登录 https://console.cloud.tencent.com/cam/capi 进行查看和管理
 var COS = require('cos-nodejs-sdk-v5');
 var Authorization = COS.getAuthorization({
-  SecretId: 'SECRETID',
-  SecretKey: 'SECRETKEY',
+  SecretId: process.env.SecretId, // 推荐使用环境变量获取；用户的 SecretId，建议使用子账号密钥，授权遵循最小权限指引，降低使用风险。子账号密钥获取可参见 https://cloud.tencent.com/document/product/598/37140
+  SecretKey: process.env.SecretKey, // 推荐使用环境变量获取；用户的 SecretKey，建议使用子账号密钥，授权遵循最小权限指引，降低使用风险。子账号密钥获取可参见 https://cloud.tencent.com/document/product/598/37140
   Method: 'get',
   Key: 'a.jpg',
   Expires: 60,

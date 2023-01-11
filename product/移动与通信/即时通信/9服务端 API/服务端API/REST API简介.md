@@ -23,7 +23,7 @@ https://xxxxxx/$ver/$servicename/$command?sdkappid=$SDKAppID&identifier=$identif
 | 参数  | 含义  | 取值  |
 |---------|---------|---------|
 | https    |请求协议      | 请求协议为 HTTPS，请求方式为 POST       |
-| xxxxxx |专属域名  | <li>中国：`console.tim.qq.com`</li><li>新加坡：`adminapisgp.im.qcloud.com`</li><li>首尔： `adminapikr.im.qcloud.com`</li><li>法兰克福：`adminapiger.im.qcloud.com`</li><li>孟买：`adminapiind.im.qcloud.com`</li>|
+| xxxxxx |专属域名  | <li>中国：`console.tim.qq.com`</li><li>新加坡：`adminapisgp.im.qcloud.com`</li><li>首尔： `adminapikr.im.qcloud.com`</li><li>法兰克福：`adminapiger.im.qcloud.com`</li><li>孟买：`adminapiind.im.qcloud.com`</li><li>硅谷：`adminapiusa.im.qcloud.com`</li>|
 | ver  | 协议版本号 | 固定为`v4`  |
 | servicename  | 内部服务名，不同的 servicename 对应不同的服务类型 |示例：<br>`v4/im_open_login_svc/account_import`，其中`im_open_login_svc`为`servicename`<br/>更多详情请参见 [REST API 接口列表](https://cloud.tencent.com/document/product/269/1520) |
 | command  | 命令字，与 servicename 组合用来标识具体的业务功能 |示例：<br>`v4/im_open_login_svc/account_import`，其中`account_import`为`command`<br/>更多详情请参见 [REST API 接口列表](https://cloud.tencent.com/document/product/269/1520) |

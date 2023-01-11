@@ -14,8 +14,15 @@ WordPress 是全球最流行的开源的博客和内容管理网站的建站平�
 
 ## 操作步骤
 
-1. 登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse)。
-2. 单击**新建**，进入轻量应用服务器购买页面。
+1. 登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse/instance/index)，在 **服务器** 页面单击新建。
+2. 在轻量应用服务器购买页面，选择所需配置完成轻量应用服务器购买。如下图所示：
+  其中，“镜像”选择为应用模板 > 网站场景 > WordPress 应用模板，其他参数可参考 购买方式 进行选择。
+<dx-alert infotype="explain" title="">
+应用模板即应用镜像。
+查看镜像说明详情请参见[ 基本概念](https://cloud.tencent.com/document/product/1207/79254)。
+</dx-alert>
+
+ ![](https://qcloudimg.tencent-cloud.cn/raw/173e530505bb3d827474b5b8247a21e7.png)
  - **地域**：建议选择靠近目标客户的地域，降低网络延迟、提高您的客户的访问速度。例如目标客户在 “深圳”，地域选择 “广州”。
  - **可用区**：默认勾选“随机分配”，也可自行选择可用区。
  - **镜像**：选择 “WordPress 5.7.1” 应用镜像。

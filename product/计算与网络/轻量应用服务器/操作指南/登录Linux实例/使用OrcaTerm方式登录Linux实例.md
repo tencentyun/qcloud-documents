@@ -31,7 +31,7 @@ Windows，Linux 或者 Mac OS
  - 使用 [应用镜像](https://cloud.tencent.com/document/product/1207/44361#appOS) 创建的实例，可在实例详情页选择**应用管理**，单击页面右上角的**登录**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/5ce9b1c13518ec9d17b6fa5a79a9f6cd.png)
 登录成功界面如下图所示：
-![](https://qcloudimg.tencent-cloud.cn/raw/c35791160e39774e72a7f0b1cc25f8b2.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/ada571d01b40eea998b914cac03d5b7b.png)
     - 成功登录后，您可参考 [最佳实践](https://cloud.tencent.com/document/product/1207/45116) 及 [第三方教程](https://cloud.tencent.com/document/product/1207/58793)，进行搭建中小型网站、Web 应用、博客、论坛、小程序/小游戏、电商、云盘/图床、云端开发测试和学习环境等轻量级、低负载且访问量适中的应用。
     - WebSehll 界面功能丰富，您可参考 [更多 OrcaTerm 功能](#wedShellWork) 使用移动端的虚拟键盘，在控制台上更改 OrcaTerm 外观、上传/下载文件、发起实例自助检测、开启多会话、分屏、获取提示，开启轻量应用服务器的便捷使用。
 
@@ -213,7 +213,7 @@ OrcaTerm 已支持多种快捷键，您可在 OrcaTerm 界面中查看已支持�
 <dx-alert infotype="explain" title="">
 - 最多支持同时打开5个标签。
 - 标签将以 `（递增数字）实例 ID` 命名，帮助您区分标签。
-</dx-alert> <img src="https://qcloudimg.tencent-cloud.cn/raw/b978c74d0b6c127e0948de0a39716dc4.png"/>
+</dx-alert> <img src="https://qcloudimg.tencent-cloud.cn/raw/0728ea1b064247a70ee8cb0d8d2b9738.png"/>
 
 
 :::
@@ -227,7 +227,7 @@ OrcaTerm 已支持多种快捷键，您可在 OrcaTerm 界面中查看已支持�
 <dx-alert infotype="explain" title="">
 - 最多支持同时4个分屏。
 - 分屏将以 `（递增数字）实例 ID` 命名，帮助您进行区分。
-</dx-alert> <img src="https://qcloudimg.tencent-cloud.cn/raw/4d4b2c02d5173c92fe189c358c71a29f.png"/>
+</dx-alert> <img src="https://qcloudimg.tencent-cloud.cn/raw/a728109914be625fef86de80a5a0eb65.png"/>
 
 
 :::
@@ -253,7 +253,7 @@ OrcaTerm 已支持多种快捷键，您可在 OrcaTerm 界面中查看已支持�
 4. 在“轻量应用服务器”控制台页面，选择实例所在地域，并单击实例卡片中的 <img src="https://qcloudimg.tencent-cloud.cn/raw/278e10214177bff2c64ae55480c99493.png" style="margin:-3px 0px">。
 5. 在弹出窗口中，单击**登录**。
 6. 登录成功后，可选择键盘右上方的**虚拟**。开启后如下图所示，您可再次单击**系统**切换回手机系统键盘。
-![](https://qcloudimg.tencent-cloud.cn/raw/87ca1e1fb1ac9d20f664a19722a639bd.jpg)
+![](https://qcloudimg.tencent-cloud.cn/raw/4b7d0c48fb3da02ccf3ab06e9ad50be4.png)
 
 
 

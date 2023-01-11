@@ -117,6 +117,7 @@
 <tr><td>http_host</td><td> 请求域名，即 HTTP 头部中的 Host。</td><td>text</td></tr>
 <tr><td>http_user_agent</td><td> HTTP 协议头的 user_agent 字段。</td><td>text</td></tr>
 <tr><td>http_referer</td><td> HTTP 请求来源。 </td><td>text</td></tr>
+<tr><td>http_x_forward_for</td><td> HTTP 请求中 x-forward-for header 的内容。 </td><td>text</td></tr>
 <tr><td>request_time</td><td> 请求处理时间：从收到客户端的第一个字节开始，直到给客户端发送的最后一个字节为止，包括客户端请求到 CLB、CLB 转发请求到 RS、RS 响应数据到 CLB、CLB 转发数据到客户端的总时间。</td><td>double</td></tr>
 <tr><td>upstream_response_time</td><td> 整个后端请求所花费时间：从开始 CONNECT RS 到从 RS 接收完应答的时间。</td><td>double</td></tr>
 <tr><td>upstream_connect_time</td><td> 和 RS 建立 TCP 连接所花费时间：从开始 CONNECT RS 到开始发送 HTTP 请求的时间。</td><td>double</td></tr>

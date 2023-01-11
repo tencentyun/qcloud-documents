@@ -2,7 +2,7 @@
 
 >? 边缘函数中，可通过两种方式获得 `Request` 对象：
 - 使用 Request 构造函数创建一个 Request 对象，用于 Fetch API 的操作。
-- 使用 FetchEvent 对象 event.request，获得当前请求的 Request 对象。
+- 使用 FetchEvent 对象 [event.request](https://cloud.tencent.com/document/product/1552/81902)，获得当前请求的 Request 对象。
 
 ## 构造函数
 ```typescript
@@ -60,7 +60,7 @@ const request = new Request(input: string | Request, init?: RequestInit)
       <td>string</td>
       <td>否</td>
       <td>GET</td>
-      <td>请求方法 (<code>GET</code>, <code>POST</code>, etc.)。</td>
+      <td>请求方法 (<code>GET</code>、<code>POST</code> 等)。</td>
     </tr>
     <tr>
       <td>headers</td>
@@ -143,30 +143,6 @@ const request = new Request(input: string | Request, init?: RequestInit)
         <li>IPv6 无需使用方括号包裹。</li>
       </td>
     </tr>
-    <tr>
-      <td align="left">cacheEverything</td>
-      <td align="left">boolean</td>
-      <td align="left">否</td>
-      <td align="left">缓存相关，用于指定缓存响应的所有头部。</td>
-    </tr>
-    <tr>
-      <td align="left">cacheKey</td>
-      <td align="left">string</td>
-      <td align="left">否</td>
-      <td align="left">缓存相关，用于指定自定义的缓存 key。</td>
-    </tr>
-    <tr>
-      <td align="left">cacheTtl</td>
-      <td align="left">number</td>
-      <td align="left">否</td>
-      <td align="left">缓存相关，用于指定缓存时长(单位s)，必需大于等于0，等于0不缓存。</td>
-    </tr>
-    <tr>
-      <td align="left">cacheTtlByStatus</td>
-      <td align="left">{[key: string]: number}</td>
-      <td align="left">否</td>
-      <td align="left">缓存相关，用于根据状态码指定缓存时长(单位s)，小于等于0不缓存</td>
-    </tr>
   </tbody>
 </table>
 
@@ -245,7 +221,7 @@ readonly eo: IncomingRequestEoProperties;
 
 #### IncomingRequestEoProperties[](id:IncomingRequestEoProperties)
 
-客户端请求 `event.request` 对象包含 `eo` 属性，其信息如下：
+客户端请求 [event.request](https://cloud.tencent.com/document/product/1552/81902) 对象包含 `eo` 属性，其信息如下：
 
 <table>
   <thead>
@@ -281,62 +257,62 @@ readonly eo: IncomingRequestEoProperties;
     <tr>
       <td>asn</td>
       <td>number</td>
-      <td>ASN</td>
-      <td>12271</td>
+      <td><a href="https://en.wikipedia.org/wiki/Autonomous_system_(Internet)">ASN</a></td>
+      <td>132203</td>
     </tr>
     <tr>
       <td>countryName</td>
       <td>string</td>
       <td>国家名</td>
-      <td>United States of America</td>
+      <td>Singapore</td>
     </tr>
     <tr>
       <td>countryCodeAlpha2</td>
       <td>string</td>
-      <td>国家的 ISO-3611 alpha2 代码</td>
-      <td>US</td>
+      <td>国家的 <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO-3611 alpha2</a> 代码</td>
+      <td>SG</td>
     </tr>
     <tr>
       <td>countryCodeAlpha3</td>
       <td>string</td>
-      <td>国家的 ISO-3611 alpha3 代码</td>
-      <td>USA</td>
+      <td>国家的 <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">ISO-3611 alpha3</a> 代码</td>
+      <td>SGP</td>
     </tr>
     <tr>
       <td>countryCodeNumeric</td>
       <td>string</td>
-      <td>国家的 ISO-3611 numeric 代码</td>
-      <td>840</td>
+      <td>国家的 <a href="https://en.wikipedia.org/wiki/ISO_3166-1_numeric">ISO-3611 numeric</a> 代码</td>
+      <td>702</td>
     </tr>
     <tr>
       <td>regionName</td>
       <td>string</td>
       <td>区域名</td>
-      <td>New York</td>
+      <td>-</td>
     </tr>
     <tr>
       <td>regionCode</td>
       <td>string</td>
       <td>区域代码</td>
-      <td>US-NY</td>
+      <td>AA-AA</td>
     </tr>
     <tr>
       <td>cityName</td>
       <td>string</td>
       <td>城市名</td>
-      <td>new york</td>
+      <td>singapore</td>
     </tr>
     <tr>
       <td>latitude</td>
       <td>number</td>
-      <td>经度</td>
-      <td>40.742802</td>
+      <td>纬度</td>
+      <td>1.29027</td>
     </tr>
     <tr>
       <td>longitude</td>
       <td>number</td>
-      <td>纬度</td>
-      <td>-73.971199</td>
+      <td>经度</td>
+      <td>103.851959</td>
     </tr>
   </tbody>
 </table>
@@ -418,7 +394,7 @@ request.text(): Promise<string>;
 request.getCookies(): Cookies;
 ```
 
-获取 `request` 头部 cookie，并自动解析为 [Cookies](https://cloud.tencent.com/document/product/1552/81905) 对象。
+获取 `request` 头部 cookie，并自动解析为 [Cookies](https://cloud.tencent.com/document/product/1552/83932) 对象。
 
 ### setCookies
 ```typescript
@@ -441,7 +417,7 @@ request.setCookies(cookies: Cookies): boolean;
 	<tbody>
 		<tr>
 			<td>cookies</td>
-			<td><a href="https://cloud.tencent.com/document/product/1552/81905">Cookies</a></td>
+			<td><a href="https://cloud.tencent.com/document/product/1552/83932">Cookies</a></td>
 			<td>否</td>
 			<td>
         新的 Cookies 对象。
@@ -465,5 +441,5 @@ addEventListener('fetch', (event) => {
 
 ## 相关参考
 - [MDN 官方文档：Request](https://developer.mozilla.org/en-US/docs/Web/API/Request)
-- [示例函数：修改请求头](https://cloud.tencent.com/document/product/1552/81938)
+- [示例函数：Cache API 使用](https://cloud.tencent.com/document/product/1552/84023)
 - [示例函数：基于请求区域重定向](https://cloud.tencent.com/document/product/1552/84084)
