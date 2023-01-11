@@ -22,7 +22,6 @@ WordPress 是全球最流行的开源的博客和内容管理网站的建站平�
 查看镜像说明详情请参见[ 基本概念](https://cloud.tencent.com/document/product/1207/79254)。
 </dx-alert>
 
- ![](https://qcloudimg.tencent-cloud.cn/raw/173e530505bb3d827474b5b8247a21e7.png)
  - **地域**：建议选择靠近目标客户的地域，降低网络延迟、提高您的客户的访问速度。例如目标客户在 “深圳”，地域选择 “广州”。
  - **可用区**：默认勾选“随机分配”，也可自行选择可用区。
  - **镜像**：选择 “WordPress 5.7.1” 应用镜像。
