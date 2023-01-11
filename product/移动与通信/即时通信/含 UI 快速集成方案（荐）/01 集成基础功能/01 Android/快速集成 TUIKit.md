@@ -273,6 +273,30 @@ api project(':tuicallkit')
 	2. 集成 TUICallKit 组件。
 	3. 通过 TUICallKit 发起通话邀请的时候，默认会生成一条离线推送消息。
 
+5. **附加增值能力**
+集成 TUIChat 和 TUICallkit 的组件后，在聊天界面发送语音消息时，即可**录制带 AI 降噪和自动增益的语音消息**。该功能需要购买 [音视频通话能力](https://cloud.tencent.com/document/product/1640/79968) 进阶版及以上套餐，仅 IMSDK 7.0 及以上版本支持。当套餐过期后，录制语音消息会切换到系统 API 进行录音。
+下面是使用两台华为 P10 同时录制的语音消息对比：
+<table style="text-align:center;vertical-align:middle;width: 800px">
+  <tr>
+    <th style="text-align:center;" ><b>系统录制的语音消息<br></b></th>
+    <th style="text-align:center;" ><b>TUICallkit 录制的带 AI 降噪和自动增益的语音消息<br></b></th>
+  </tr>
+  <tr>
+    <td>
+      <audio id="audio" controls="" preload="none" >
+	<source id="m4a" src="https://im.sdk.cloudcachetci.com/tools/resource/rain_system_record.m4a">
+      </audio>
+    </td>
+		
+    <td>
+      <audio id="audio" controls="" preload="none">
+	<source id="m4a" src="https://im.sdk.cloudcachetci.com/tools/resource/rain_tuicallkit_record_with_agc_aidenoise.m4a">
+      </audio>
+    </td>
+  </tr>
+</table>
+	
+
 >? 更多实操教学视频请参见：[极速集成 TUIKit（Android）](https://cloud.tencent.com/edu/learning/course-3130-56399)。
 
 
