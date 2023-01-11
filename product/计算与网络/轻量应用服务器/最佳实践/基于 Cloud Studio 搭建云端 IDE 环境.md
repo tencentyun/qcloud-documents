@@ -76,7 +76,7 @@ Cloud Studio 目前支持 Python、Java、Go、C/C++ 及 Node.js 语言。该步
 ![](https://qcloudimg.tencent-cloud.cn/raw/d938e4a879e93f0fa764e21ab8049cd2.png)
 :::
 ::: 界面方式
-当您打开 main.py 文件，编辑器会提示您是否要按装 Python 插件，选在安装，安装完后就可以通过界面方式运行程序了。如下图所示：
+当您打开 main.py 文件，编辑器会提示您是否要安装 Python 插件，选在安装，安装完后就可以通过界面方式运行程序了。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/95c3da58de083832fc9ecf12dd77ea7f.png)
 :::
 </dx-tabs>
