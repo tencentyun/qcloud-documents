@@ -27,8 +27,8 @@ kubectl get vip
 3. 在集群详情页面，选择左侧**组件管理**。
 4. 在组件管理页面中，找到**eniipamd**组件，选择**更新配置**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/8ba9443b2e1da9800b429060adf89416.png)
-5. 在更新配置页面，填写固定IP回收策略里的过期时间，并点击完成。
-![](https://qcloudimg.tencent-cloud.cn/raw/99188dc9de98aa3e23613820665d4cb0.png)
+5. 在更新配置页面，填写固定IP回收策略里的过期时间，并单击**完成**。
+![](https://qcloudimg.tencent-cloud.cn/raw/a2bc5969ed3ca840a8519ca6da8e2a96.png)
 
 #### tke-eni-ipamd 组件版本 < v3.5.0 或组件管理中无 eniipamd 组件
 - 修改现存的 tke-eni-ipamd deployment：`kubectl edit deploy tke-eni-ipamd -n kube-system`。
