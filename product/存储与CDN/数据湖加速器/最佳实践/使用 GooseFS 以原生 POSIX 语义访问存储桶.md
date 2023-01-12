@@ -24,7 +24,7 @@ GooseFS 在 GooseFS V1.3+ 版本集成了最新版本的 COSN interface（COSN V
 3. 安装 GooseFS V1.3+ 以上版本的 GooseFS 客户端和服务端安装包。可前往 [产品动态](https://cloud.tencent.com/document/product/1424/68331) 下载最新版本的 GooseFS 软件。
  - 安装 GooseFS 前，必须先安装 [Java 8 或者更高的版本](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html)。
  - 安装 GooseFS 前，必须先安装 [SSH](https://www.ssh.com/ssh/)，确保能通过 SSH 连接到 LocalHost，并远程登录。
-4. 安装完成后，在 `core-site.properties`文件中修改访问协议的配置，即可通过原生的 POSIX 协议访问指定存储桶。
+4. 安装完成后，在 `core-site.properties` 文件中修改访问协议的配置，即可通过原生的 POSIX 协议访问指定存储桶。
 
 ## 操作步骤
 
@@ -51,8 +51,8 @@ GooseFS 在 GooseFS V1.3+ 版本集成了最新版本的 COSN interface（COSN V
 ### 下载并安装好 GooseFS
 
 1. 务必按照上方的**前提条件**，安装好对应的 JDK、SSH 以及依赖的 JAR 包。
-JAR 包需要放到各节点 classpath 下保证任务启动能正常加载，例如`$HADOOP_HOME/share/hadoop/common/lib/`下。
-2. 参考 [产品动态](https://cloud.tencent.com/document/product/1424/68331)，从官方仓库下载 GooseFS 安装包到本地。
+JAR 包需要放到各节点 classpath 下保证任务启动能正常加载，例如 `$HADOOP_HOME/share/hadoop/common/lib/`下。
+2. 可参见 [产品动态](https://cloud.tencent.com/document/product/1424/68331)，从官方仓库下载 GooseFS 安装包到本地。
 3. 执行如下命令，对安装包进行解压。
 ```
 $ tar -zxvf goosefs-1.3.0-bin.tar.gz
@@ -63,14 +63,14 @@ $ cd goosefs-1.3.0
 ```
 $ cp conf/goosefs-site.properties.template conf/goosefs-site.properties
 ```
-5. 在配置文件 `conf/goosefs-site.properties` 中，将 `goosefs.master.hostname` 设置为`localhost`：
+5. 在配置文件 `conf/goosefs-site.properties` 中，将 `goosefs.master.hostname` 设置为 `localhost`：
 ```
 $ echo  "goosefs.master.hostname=localhost">> conf/goosefs-site.properties
 ```
 
 ### 修改配置文件以支持通过 POSIX 语义访问 COS
 
-1. 在完成 GooseFS 初步安装后，编辑`core-site.xml`文件，新增以下基本配置：
+1. 在完成 GooseFS 初步安装后，编辑 `core-site.xml` 文件，新增以下基本配置：
 >!
 >- 建议用户尽量避免在配置中使用永久密钥，采取配置子账号密钥或者临时密钥的方式有助于提升业务安全性。为子账号授权时建议按需授权子账号可执行的操作和资源，避免发生预期外的数据泄露。
 >- 如果您一定要使用永久密钥，建议对永久密钥的权限范围进行限制，可通过限制永久密钥的可执行操作、资源范围和条件（访问 IP 等），提升使用安全性。
@@ -95,7 +95,7 @@ $ echo  "goosefs.master.hostname=localhost">> conf/goosefs-site.properties
          <value>org.apache.hadoop.fs.CosFileSystem</value>
 </property>
 
-<!--用户存储桶的地域信息，格式形如ap-guangzhou-->      
+<!--用户存储桶的地域信息，格式形如 ap-guangzhou-->      
 <property>
          <name>fs.cosn.bucket.region</name>
          <value>ap-guangzhou</value>
@@ -107,6 +107,6 @@ $ echo  "goosefs.master.hostname=localhost">> conf/goosefs-site.properties
          <value>/tmp/hadoop_cos</value>
 </property>
 ```
-2. 将` core-site.xml`同步到所有`hadoop`节点上。
+2. 将 ` core-site.xml` 同步到所有 `hadoop` 节点上。
 完成这一步骤后，即可通过 POSIX 语义访问 COS 存储桶。
 
