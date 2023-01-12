@@ -14,7 +14,7 @@
 
 ### Kubernetes 的部署
 
-详细的 Kubernetes 部署可参考 [Kubernetes 的官方文档](https://kubernetes.io/zh/docs/setup/#production-environment)。
+详细的 Kubernetes 部署可参见 [Kubernetes 的官方文档](https://kubernetes.io/zh/docs/setup/#production-environment)。
 
 ### 使用 GooseFS 加速 Spark 数据访问
 
@@ -25,16 +25,16 @@
 
 #### 基于 Fluid 部署运行 GooseFS on Kubernetes
 
-Fluid 是 CNCF 基金会下的一个开源 Kubernetes 原生的分布式数据集编排和加速引擎，主要服务于云原生场景下的数据密集型应用，例如大数据应用、AI 应用等，详细介绍可参考 [fluid](https://github.com/fluid-cloudnative/fluid)。
+Fluid 是 CNCF 基金会下的一个开源 Kubernetes 原生的分布式数据集编排和加速引擎，主要服务于云原生场景下的数据密集型应用，例如大数据应用、AI 应用等，详细介绍可参见 [fluid](https://github.com/fluid-cloudnative/fluid)。
 
-Fluid 也在 0.6.0 版本中正式集成了 GooseFS 的 Runtime（详见 [更新日志](https://github.com/fluid-cloudnative/fluid/blob/master/CHANGELOG.md)），因此基于 Fluid 部署 GooseFS 加速 Spark 应用详情可参考 [腾讯云 GooseFS 官网文档](https://cloud.tencent.com/document/product/1424/68316)，这里也推荐 Fluid-0.7.0 以上版本部署运行 GooseFS。
+Fluid 也在 0.6.0 版本中正式集成了 GooseFS 的 Runtime（详见 [更新日志](https://github.com/fluid-cloudnative/fluid/blob/master/CHANGELOG.md)），因此基于 Fluid 部署 GooseFS 加速 Spark 应用详情可参见 [腾讯云 GooseFS 官网文档](https://cloud.tencent.com/document/product/1424/68316)，这里也推荐 Fluid-0.7.0 以上版本部署运行 GooseFS。
 
 #### 在 Kubernetes 中运行 Spark on GooseFS
 
 #### 前置条件
 
-1. Spark on Kubernetes 采用的是 Spark 官网推荐 Kubernetes Native 部署运行架构，详细的部署运行方法可参考 [Spark 的官网文档](https://spark.apache.org/docs/2.4.8/running-on-kubernetes.html)。
-2. 已部署 GooseFS 集群。GooseFS 的集群部署可参考 [使用自建集群部署](https://cloud.tencent.com/document/product/1424/68299)。
+1. Spark on Kubernetes 采用的是 Spark 官网推荐 Kubernetes Native 部署运行架构，详细的部署运行方法可参见 [Spark 的官网文档](https://spark.apache.org/docs/2.4.8/running-on-kubernetes.html)。
+2. 已部署 GooseFS 集群。GooseFS 的集群部署可参见 [使用自建集群部署](https://cloud.tencent.com/document/product/1424/68299)。
 >! 部署 GooseFS Worker 的时候，需要配置 goosefs.worker.hostname=$(hostname -i)，否则 Spark pod 中的 client 会无法解析 GooseFS 的 Worker 地址。
 >
 
