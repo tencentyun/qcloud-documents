@@ -63,5 +63,3 @@ http://云服务器实例的公网 IP/phpinfo.php
 - 云服务器的网络问题，可参考 [IP 地址](https://cloud.tencent.com/document/product/213/17285)、[端口与安全组](https://cloud.tencent.com/document/product/213/2502)。
 
 
-
-
