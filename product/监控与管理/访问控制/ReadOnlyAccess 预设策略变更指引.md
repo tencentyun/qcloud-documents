@@ -6,7 +6,7 @@ CAM 于2022年7月14日（周四）09:00 - 2022年7月29日（周五）变更 Re
 
 ### 写接口
 
-剔除写接口列表如下，剔除之后，您的子账号将没有相关接口操作及调用权限，如您有调用该接口但未授权，请参考 [创建自定义策略 - 按策略语法创建](https://cloud.tencent.com/document/product/598/37739#.E6.8C.89.E7.AD.96.E7.95.A5.E8.AF.AD.E6.B3.95.E5.88.9B.E5.BB.BA) 给对应的子账号 [授权](https://cloud.tencent.com/document/product/598/10602) 即可。
+剔除写接口列表如下，剔除之后，您的子账号将没有相关接口操作及调用权限，如您有调用该接口但未授权，请参考 [创建自定义策略 - 按策略语法创建](https://cloud.tencent.com/document/product/598/37739#.E6.8C.89.E7.AD.96.E7.95.A5.E8.AF.AD.E6.B3.95.E5.88.9B.E5.BB.BA) 给对应的子账号 [授权](https://cloud.tencent.com/document/product/598/10602) 。
 
 <table>
 <thead>
