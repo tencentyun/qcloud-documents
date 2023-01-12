@@ -19,6 +19,23 @@ kubectl get vip
 ![](https://main.qcloudimg.com/raw/ad1290436fa0ff66d8bb17abd2bab161.png)
 在高级设置中设置 IP 回收策略，可以设置 Pod 销毁后多少秒回收保留的固定 IP。如下图所示：
 ![](https://qcloudimg.tencent-cloud.cn/raw/7b4e1bb316ef0ca41faba5eaab4b590b.png)
+对于**存量集群**，也可支持变更：
+
+#### tke-eni-ipamd 组件版本 >= v3.5.0
+1. 登录 [容器服务控制台](https://console.qcloud.com/tke2)，单击左侧导航栏中**集群**。
+2. 在“集群管理”页面，选择需设置过期时间的集群 ID，进入集群详情页。
+3. 在集群详情页面，选择左侧**组件管理**。
+4. 在组件管理页面中，找到**eniipamd**组件，选择**更新配置**。
+![](https://qcloudimg.tencent-cloud.cn/raw/8ba9443b2e1da9800b429060adf89416.png)
+5. 在更新配置页面，填写固定IP回收策略里的过期时间，并单击**完成**。
+![](https://qcloudimg.tencent-cloud.cn/raw/a2bc5969ed3ca840a8519ca6da8e2a96.png)
+
+#### tke-eni-ipamd 组件版本 < v3.5.0 或组件管理中无 eniipamd 组件
+- 修改现存的 tke-eni-ipamd deployment：`kubectl edit deploy tke-eni-ipamd -n kube-system`。
+- 执行以下命令，在 `spec.template.spec.containers[0].args` 中加入/修改启动参数。
+```yaml
+- --claim-expired-duration=1h # 可填写不小于 5m 的任意值 
+```
 
 ### 手动回收
 对于急需回收的 IP 地址，需要先确定需回收的 IP 被哪个 Pod 占用，找到对应的 Pod 的名称空间和名称，执行以下命令通过手动回收：

@@ -5,7 +5,7 @@
 
 ## 操作步骤
 
-### 步骤一：软件安装
+### 步骤一：软件安装[](id:install)
 1. 在 Android Studio 中，通过 **Android Studio** > **Preference**打开设置对话框。
 2. 在页面左侧，单击 **Plugins**，然后在右上方单击<img src="https://qcloudimg.tencent-cloud.cn/raw/e618f71cd3c5384c31735f3354a2c805.png" width="2%"> ，并在下拉菜单中单击 **Install Plugin from Disk**。  
 ![](https://qcloudimg.tencent-cloud.cn/raw/fcd3ebc926d99ac2030545568852947d.png)
@@ -13,7 +13,7 @@
 4. 安装完成后，单击 **Restart IDE**，重启 Android Studio，您即可开始使用 TMF 插件。
 
 
-### 步骤二：新建工程
+### 步骤二：新建工程[](id:new)
 1. 登录 [控制台](https://console.cloud.tencent.com/tmf)，下载应用配置文件(tmf-android-configurations.json)。
 2. 在 Android Studio 欢迎页面，单击 **Start a New TMF Project**，创建项目。   
 ![](https://qcloudimg.tencent-cloud.cn/raw/f3dcddf0549f71a9d42aefb03f69969d.png)
@@ -32,7 +32,7 @@
 5. 创建完成，开始编码。
 
 
-### 步骤三：已有工程
+### 步骤三：已有工程[](id:import)
 1. 登录 [控制台](https://console.cloud.tencent.com/tmf)，下载应用配置文件(tmf-android-configurations.json)。
 2. 在编码界面右侧侧边栏单击 **TMF**，打开 TMF 助手。
 ![](https://qcloudimg.tencent-cloud.cn/raw/ac1628da1f1126aca4fb91b6855492ce.png)
