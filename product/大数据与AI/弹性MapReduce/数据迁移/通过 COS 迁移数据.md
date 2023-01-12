@@ -7,9 +7,13 @@
 2. 工具配置
 配置文件统一放在工具目录里的 conf 目录，将需要同步的 HDFS 集群的 core-site.xml 拷贝到 conf 中，其中包含了 NameNode 的配置信息，编辑配置文件 cos_info.conf，包括 appid、bucket、region 以及密钥信息。
 3. 命令参数说明
+>! 
+>- 建议用户使用子账号密钥，遵循 最小权限原则说明，防止泄漏目标存储桶或对象之外的资源。
+>- 如果您一定要使用永久密钥，建议遵循 最小权限原则说明 对永久密钥的权限范围进行限制。
+>
 ```
- -ak <ak>                                the cos secret id
- -appid,--appid <appid>                  the cos appid
+-ak <ak>                                the cos secret id # 用户的 SecretId，建议使用子账号密钥，授权遵循最小权限指引，降低使用风险。子账号密钥获取可参考：https://cloud.tencent.com/document/product/598/37140
+-appid,--appid <appid>                  the cos appid
 -bucket,--bucket <bucket_name>          the cos bucket name
 -cos_info_file,--cos_info_file <arg>    the cos user info config default is ./conf/cos_info.conf
 -cos_path,--cos_path <cos_path>         the absolute cos folder path
@@ -17,8 +21,9 @@
 -hdfs_conf_file,--hdfs_conf_file <arg>  the hdfs info config default is ./conf/core-site.xml
 -hdfs_path,--hdfs_path <hdfs_path>      the hdfs path
 -region,--region <region>               the cos region. legal value cn-south, cn-east, cn-north, sg
--sk <sk>                                the cos secret key
+-sk <sk>                                the cos secret key # 用户的 SecretKey，建议使用子账号密钥，授权遵循最小权限指引，降低使用风险。子账号密钥获取可参考：https://cloud.tencent.com/document/product/598/37140
 -skip_if_len_match,--skip_if_len_match  skip upload if hadoop file length match cos
+
 ```
 4. 执行迁移 
 ```shell
