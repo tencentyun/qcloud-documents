@@ -42,6 +42,15 @@ done
 
 
 ## Impala 基础操作
+由于不同 Impala 版本社区组件接口协议及路径默认值变化，不同版本 impala-shell 路径如下表所示。
+
+| lmapala 版本 | impala-shell 路径 | impala-shell 默认链接端口 |
+|---------|---------|---------|
+| 4.1.0/4.0.0 | /data/lmpala/shell | 27009 |
+| 3.4.0|  /data/lmpala/shell | 27001| 
+| 2.10.0  | /data/lmpala/bin | 27001| 
+
+以下操作以 Impala3.4.0版本为示例：
 ### 连接 Impala
 登录 EMR 集群的 Master 节点，切换到 Hadoop 用户并且进入 Impala 目录，并连接 Impala：
 ```
