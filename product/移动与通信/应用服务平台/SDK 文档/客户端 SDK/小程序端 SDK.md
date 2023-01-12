@@ -4,7 +4,7 @@
 ### 支持版本
 在开发过程中，请在微信开发者工具中，单击工具菜单中的**设置**，在**项目设置** > **本地设置** > **调试基础库**中选择2.2.3或以上版本。
 
-
+ 
 ### 开发文档
 
 * [云存储](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/guide/storage.html)
