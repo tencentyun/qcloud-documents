@@ -26,9 +26,8 @@
 >
 5. 编辑 `core-site.xml` 文件，新增以下基本配置：
 >!
->- 建议用户使用子账号密钥 + 环境变量的方式调用 SDK，提高 SDK 使用的安全性。为子账号授权时，请遵循 [最小权限指引原则](https://cloud.tencent.com/document/product/436/38618)，防止泄漏目标存储桶或对象之外的资源。
->- 如果您一定要使用永久密钥，建议遵循 [最小权限指引原则](https://cloud.tencent.com/document/product/436/38618) 对永久密钥的权限范围进行限制。
-
+>- 建议用户尽量避免在配置中使用永久密钥，采取配置子账号秘钥或者临时密钥的方式有助于提升业务安全性。为子账号授权时请遵循 [最小权限指引原则](https://cloud.tencent.com/document/product/436/38618)，避免发生预期外的数据泄露。
+>- 如果您一定要使用永久密钥，建议对永久密钥的权限范围进行限制，可参考 [最小权限指引原则](https://cloud.tencent.com/document/product/436/38618) 通过限制永久密钥的可执行操作、资源范围和条件（访问 IP 等），提升使用安全性。
 
 ```
 <!--账户的 API 密钥信息。可登录 [访问管理控制台](https://console.cloud.tencent.com/capi) 查看云 API 密钥。-->
