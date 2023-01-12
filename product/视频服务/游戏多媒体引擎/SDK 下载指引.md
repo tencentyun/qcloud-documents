@@ -31,6 +31,12 @@ v2.9.6 正式版本更新如下：
 <td>2023-01-06</td> 
 <td><a href="https://cloud.tencent.com/document/product/607/18218">3D语音</a></td>
 </tr>
+<tr>
+<td>发布 Electorn SDK v2.0.2 正式版本</td>
+<td >增加对 Electorn 框架的适配优化</td>
+<td>2023-01-12</td> 
+<td><a href="https://cloud.tencent.com/document/product/607/85613">集成 SDK</a></td>
+</tr>
 </tbody></table>
 
 <dx-alert infotype="notice" title="更新注意">
@@ -51,6 +57,7 @@ v2.9.6 正式版本更新如下：
 | iOS        | v2.9.6         | 2023-01-06 | [下载](https://dldir1v6.qq.com/hudongzhibo/QCloud_TGP/GME/GME2.9.6/iOS/GME_ios_audio_sdk_2.9.6.58d0bafb.zip) | [下载](https://dldir1v6.qq.com/hudongzhibo/QCloud_TGP/GME/GME2.9.6/iOS/GME_ios_audio_example_2.9.6.58d0bafb.zip) | [快速入门](https://cloud.tencent.com/document/product/607/56374) |
 | Android    | v2.9.6        | 2023-01-06 | [下载](https://dldir1v6.qq.com/hudongzhibo/QCloud_TGP/GME/GME2.9.6/Android/GME_android_audio_sdk_2.9.6.58d0bafb.zip) | [下载](https://dldir1v6.qq.com/hudongzhibo/QCloud_TGP/GME/GME2.9.6/Android/GME_android_audio_example_2.9.6.58d0bafb.zip) | [快速入门](https://cloud.tencent.com/document/product/607/56374) |
 | macOS     | v2.9.6          | 2023-01-06 | [下载](https://dldir1v6.qq.com/hudongzhibo/QCloud_TGP/GME/GME2.9.6/Mac/GME_mac_audio_sdk_2.9.6.58d0bafb.zip) | [下载](https://dldir1v6.qq.com/hudongzhibo/QCloud_TGP/GME/GME2.9.6/Mac/GME_mac_audio_demo_2.9.6.58d0bafb.zip) | [快速入门](https://cloud.tencent.com/document/product/607/56374) |
+|Electorn|v2.0.2|2023-01-12|[下载](https://www.npmjs.com/package/gme-electron-sdk)|[下载](https://dldir1v6.qq.com/hudongzhibo/QCloud_TGP/GME/GME2.9.6/Other/GME_Electron_Audio_Demo_2.0.2.9fbe5db7.zip)|[接口文档](https://cloud.tencent.com/document/product/607/85614)|
 | Web      | -          | 2021-06-11 | [下载](https://dldir1.qq.com/hudongzhibo/QCloud_TGP/GME/GME2.8.1/H5/GME_Web_SDK_2.8.1.47.zip) | [下载](https://dldir1.qq.com/hudongzhibo/QCloud_TGP/GME/GME2.8.1/H5/GME_Web_Demo_2.8.1.47.zip) | [接口文档](https://cloud.tencent.com/document/product/607/32157) |
 
 
