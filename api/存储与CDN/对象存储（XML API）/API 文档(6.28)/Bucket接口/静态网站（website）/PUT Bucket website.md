@@ -158,7 +158,7 @@ Authorization: Auth String
 | Protocol | WebsiteConfigura<br>tion.RoutingRules.<br>RoutingRule.Redirect | 指定重定向规则的目标协议，只能设置为 https | String | 否 |
 | ReplaceKeyWith | WebsiteConfigura<br>tion.RoutingRules.<br>RoutingRule.Redirect | 指定重定向规则的具体重定向目标的对象键，替换方式为替换整个原始请求的对象键 | String | ReplaceKeyWith 与 ReplaceKeyPrefixWith 必选其一 |
 | ReplaceKeyPrefixWith | WebsiteConfigura<br>tion.RoutingRules.<br>RoutingRule.Redirect | 指定重定向规则的具体重定向目标的对象键，替换方式为替换原始请求中所匹配到的前缀部分，仅可在 Condition 为 KeyPrefixEquals 时设置 | String | ReplaceKeyWith 与 ReplaceKeyPrefixWith 必选其一|
-| URLRedirect          | WebsiteConfigura tion.RoutingRules. RoutingRule.Redirect | 重定向规则中 URL 是否跟随替换内容做更改。枚举值：Enabled、Disabled。默认值为 Enabled  | String | 是      |
+| URLRedirect          | WebsiteConfigura tion.RoutingRules. RoutingRule.Redirect | 重定向规则中 URL 是否跟随替换内容做更改。枚举值：Enabled、Disabled。默认值为 Enabled  | String | 否      |
 
 
 ## 响应
