@@ -5,7 +5,7 @@
 - 已经在控制台创建应用。
 
 ## 操作步骤
-### 步骤一：软件安装
+### 步骤一：软件安装[](id:install)
 1. [下载 IDE 开发工具 Apollo](https://tmf-warehouse-1257849200.cos.ap-beijing.myqcloud.com/tmf/ide/TMFApollo.zip)。
 >?文件下载完成后浏览器可能会提示存在危险，请选择保留。
 >
