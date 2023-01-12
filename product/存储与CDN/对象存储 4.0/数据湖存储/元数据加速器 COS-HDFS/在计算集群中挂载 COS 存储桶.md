@@ -3,7 +3,7 @@
 对象存储（Cloud Object Storage，COS）可以通过开启元数据加速能力，拥有 HDFS 协议访问的能力。开启元数据加速能力后，COS 会为存储桶生成一个挂载点，您可以通过下载 [HDFS 客户端](https://github.com/tencentyun/chdfs-hadoop-plugin/tree/master/jar)，在客户端中输入该挂载点挂载 COS。本文将详细介绍如何在计算集群中挂载开启元数据加速的存储桶。
 
 >! 
-> - Hadoop-cos 自8.1.5版本开始支持`cosn://bucketname-appid/`方式访问元数据加速桶。
+> - Hadoop-cos 自8.1.5版本开始支持 `cosn://bucketname-appid/` 方式访问元数据加速桶。
 > - 元数据加速功能只能在创建存储桶时开启，开启后不支持关闭，请结合您的业务情况**慎重考虑**是否开启，同时注意旧版本的 Hadoop-cos 包不能正常访问已开启元数据加速功能的存储桶。
 > 
 
@@ -21,10 +21,10 @@
 1. 下载 [Hadoop 客户端工具安装包](https://github.com/tencentyun/hadoop-cos/releases)。
 2. 下载 [POSIX Hadoop 客户端工具安装包](https://github.com/tencentyun/chdfs-hadoop-plugin/tree/master/jar)。
 3. 下载 [cos java sdk 安装包](https://search.maven.org/artifact/com.qcloud/cos_api-bundle/5.6.69/jar)。
-4. 将安装包放到各节点 classpath 下保证任务启动能正常加载，例如`$HADOOP_HOME/share/hadoop/common/lib/`下。
+4. 将安装包放到各节点 classpath 下保证任务启动能正常加载，例如 `$HADOOP_HOME/share/hadoop/common/lib/` 下。
 >! EMR 环境下自带依赖 jar 包，无需安装，可直接通过 POSIX 语义访问元数据加速桶。如需使用 s3 协议访问，则更改 fs.cosn.posix_bucket.fs.impl 配置项，详情请参见下文。
 >
-5. 编辑 `core-site.xml`文件，新增以下基本配置：
+5. 编辑 `core-site.xml` 文件，新增以下基本配置：
 >!
 >- 建议用户使用子账号密钥 + 环境变量的方式调用 SDK，提高 SDK 使用的安全性。为子账号授权时，请遵循 [最小权限指引原则](https://cloud.tencent.com/document/product/436/38618)，防止泄漏目标存储桶或对象之外的资源。
 >- 如果您一定要使用永久密钥，建议遵循 [最小权限指引原则](https://cloud.tencent.com/document/product/436/38618) 对永久密钥的权限范围进行限制。
@@ -50,7 +50,7 @@
 		 <value>org.apache.hadoop.fs.CosFileSystem</value>
 </property>
 
-<!--用户存储桶的地域信息，格式形如ap-guangzhou-->      
+<!--用户存储桶的地域信息，格式形如 ap-guangzhou-->      
 <property>
 		 <name>fs.cosn.bucket.region</name>
 		 <value>ap-guangzhou</value>
@@ -65,8 +65,8 @@
 6. 将 `core-site.xml`同步到所有`hadoop`节点上。
 >?对于 EMR 集群，以上步骤3、4可在 EMR 控制台的组件管理中，修改 HDFS 配置即可。
 >
-7. 使用 `hadoop fs` 命令行工具，运行`hadoop fs -ls cosn://${bucketname-appid}/`命令，这里 `bucketname-appid` 为挂载地址，即存储桶名称。如果正常列出文件列表，则说明已经成功挂载 COS 存储桶。
-8. 用户也可使用 `hadoop` 其他配置项，或者 `mr` 任务在开启了元数据加速能力的 COS 存储桶上运行数据任务。对于 `mr` 任务，可以通过`-Dfs.defaultFS=ofs://${bucketname-appid}/`将本次任务的默认输入输出 `FS` 改为对应的存储桶。
+7. 使用 `hadoop fs` 命令行工具，运行 `hadoop fs -ls cosn://${bucketname-appid}/` 命令，这里 `bucketname-appid` 为挂载地址，即存储桶名称。如果正常列出文件列表，则说明已经成功挂载 COS 存储桶。
+8. 用户也可使用 `hadoop` 其他配置项，或者 `mr` 任务在开启了元数据加速能力的 COS 存储桶上运行数据任务。对于 `mr` 任务，可以通过 `-Dfs.defaultFS=ofs://${bucketname-appid}/` 将本次任务的默认输入输出 `FS` 改为对应的存储桶。
 
 ## 配置项说明
 
@@ -98,7 +98,7 @@
 | ------------------------ | ------------------ | ---------------- |
 | fs.cosn.trsf.fs.AbstractFileSystem.ofs.impl | com.qcloud.chdfs.fs.CHDFSDelegateFSAdapter                      |      元数据桶访问实现类                                           |
 | fs.cosn.trsf.fs.ofs.impl                    | com.qcloud.chdfs.fs.CHDFSHadoopFileSystemAdapter                |     元数据桶访问实现类                                                          |
-| fs.cosn.trsf.fs.ofs.tmp.cache.dir           | 格式形如 /data/emr/hdfs/tmp/posix-cosn/  |请设置一个实际存在的本地目录，运行过程中产生的临时文件会暂时放于此处。同时建议配置各节点该目录足够的空间和权限，例如"/data/emr/hdfs/tmp/posix-cosn/"                                                                      |
+| fs.cosn.trsf.fs.ofs.tmp.cache.dir           | 格式形如 /data/emr/hdfs/tmp/posix-cosn/  |请设置一个实际存在的本地目录，运行过程中产生的临时文件会暂时放于此处。同时建议配置各节点该目录足够的空间和权限，例如`"/data/emr/hdfs/tmp/posix-cosn/"`                                                                      |
 | fs.cosn.trsf.fs.ofs.user.appid              | 格式形如 12500000000  | 必填。用户 appid |
 | fs.cosn.trsf.fs.ofs.bucket.region           | 格式形如 ap-beijing  | 必填。用户 bucket 对应 region |
 
@@ -109,7 +109,7 @@ S3协议访问方式需要设置如下配置，其他可选项请参见 [Hadoop-
 
 | 配置项                 | 配置项内容     | 说明 |
 | ------------------------ | ------------------ | ---------------- |
-| fs.cosn.posix_bucket.fs.impl         | org.apache.hadoop.fs.CosNFileSystem |      POSIX 方式访问配置为 com.qcloud.chdfs.fs.CHDFSHadoopFileSystemAdapter S3 协议方式访问配置为 org.apache.hadoop.fs.CosNFileSystem， 默认 POSIX 方式访问。                                        |
+| fs.cosn.posix_bucket.fs.impl         | org.apache.hadoop.fs.CosNFileSystem |      POSIX 方式访问配置为 `com.qcloud.chdfs.fs.CHDFSHadoopFileSystemAdapter S3` 协议方式访问配置为 `org.apache.hadoop.fs.CosNFileSystem`， 默认 POSIX 方式访问。                                        |
 
 
 ### 5. 注意事项
