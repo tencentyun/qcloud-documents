@@ -177,14 +177,14 @@ pod update
 	Suggestion: add 'tools:replace="android:label"' to <application> element at AndroidManifest.xml:8:4-51:19 to override.
 ```
 **解决方法**：
-由于播放器安卓 SDK 的 AndroidManifest 已经定义过 label，而 flutter 新建项目之后，在安卓目录的 AndroidManifest 也会定义 label，此处建议根据错误提示，进入您的安卓项目目录，在 AndroidManifest 的根节点`manifest`节点下增加` xmlns:tools="http://schemas.android.com/tools" `，并在 application 节点下增加`'tools:replace="android:label"'`。
+由于播放器 Android SDK 的 AndroidManifest 已经定义过 label，而 flutter 新建项目之后，在 Android 目录的 AndroidManifest 也会定义 label，此处建议根据错误提示，进入您的 Android 项目目录，在 AndroidManifest 的根节点`manifest`节点下增加` xmlns:tools="http://schemas.android.com/tools" `，并在 application 节点下增加`'tools:replace="android:label"'`。
 
 6. 集成 superPlayer 之后，出现如下版本错误：
 ```text
 uses-sdk:minSdkVersion 16 cannot be smaller than version 19 declared in library [:super_player]
 ```
 **解决方法**：
-目前播放器安卓 SDK 最小支持版本为 android 19，flutter 部分版本默认安卓最小支持版本为 android 16。建议您将最小支持版本提高到 android 19。具体修改方法为，进入您的安卓项目的主 module 下，一般为`app`目录，将该目录下的`build.gradle`中的`minSdkVersion`修改为19。
+目前播放器 Android SDK 最小支持版本为 android 19，flutter 部分版本默认 Android 最小支持版本为 android 16。建议您将最小支持版本提高到 android 19。具体修改方法为，进入您的 Android 项目的主 module 下，一般为`app`目录，将该目录下的`build.gradle`中的`minSdkVersion`修改为19。
 
 ## 更多功能
 
