@@ -178,10 +178,10 @@ including all tables
 作业运行拓扑图展开后如下：
 ![](https://qcloudimg.tencent-cloud.cn/raw/bf442eaef6fb0702161fdcdafab8ed78.png)
 
-#### 同步到hive自动建表示例:
+#### 同步到 Hive 自动建表示例:
 
-* 作业需要提前配置连接Hive服务的jar包，详细配置可以参考 [获取 Hive 连接配置 jar 包](https://cloud.tencent.com/document/product/849/55238#hive-.E9.85.8D.E7.BD.AE)
-* 因为mysql中timestamp和datetime字段和hive中相应类型精度不匹配，暂时不支持同步带有这两种字段的hive表
+* 作业需要提前配置连接 Hive 服务的 jar 包，详细配置可以参考 [获取 Hive 连接配置 jar 包](https://cloud.tencent.com/document/product/849/55238#hive-.E9.85.8D.E7.BD.AE)
+* 因为 MySQL 中 timestamp 和 datetime 字段和 Hive 中相应类型精度不匹配，暂时不支持同步带有这两种字段的 Hive 表
 
 ```sql
 SET table.optimizer.mysql-cdc-source.merge.enabled=true;
