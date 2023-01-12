@@ -31,3 +31,4 @@
 ![](https://main.qcloudimg.com/raw/a342916ce1a4701e6a872d00f4b1365e.png)
 6. 单击**确定**即可执行迁移操作。
 刷新 [专用宿主机](https://console.cloud.tencent.com/cvm/cdh) 页面，即可查看迁移后的实例所对应的宿主机已更新，并且实例状态为“已关机”。
+

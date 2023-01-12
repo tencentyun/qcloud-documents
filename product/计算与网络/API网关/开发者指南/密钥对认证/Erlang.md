@@ -37,8 +37,8 @@ request_api() ->
         Url = "http://service-xxxxxxxx-1234567890.ap-beijing.apigateway.myqcloud.com/release/xxxxx",
         Source = "xxxxxx",
         GMTDate = now_to_utc_string(),
-        SecretId = "xxxDf4estwodtdzoke1234567890i3j9jv18wt9u",
-        SecretKey = "xxxSNF0CEp3OhN4t91234567890AWrct960X9192",
+        SecretId = 'your SecretId', %% 密钥对的 SecretId
+        SecretKey = 'your SecretKey', %% 密钥对的 SecretKey
         Sign = simple_sign(Source, GMTDate, SecretId, SecretKey),
         Header = [
                 {"Source", Source},

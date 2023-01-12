@@ -128,3 +128,4 @@ sudo /usr/local/lighthouse/softwares/apache/bin/httpd -k restart
 ```
 至此已成功设置 HTTPS 的自动跳转，您可使用 `http://cloud.tencent.com` 自动跳转至 HTTPS 页面。
  
+

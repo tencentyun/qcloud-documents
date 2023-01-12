@@ -5,7 +5,7 @@ USB Client：CentOS 7.6 操作系统的云服务器
 USB Server：Debian 操作系统的本地计算机
 
 ## 注意事项
-不同发行版的 Linux 操作系统安装 USB/IP 的方式，以及内核模块名称略有不同。您可前往对应 Linux 系统官方发行版页面，查看当前使用的 Linux 系统是否支持 USB/IP 功能。
+不同发行版的 Linux 操作系统安装 USB/IP 的方式，以及内核模块名称略有不同。您可前往对应 Linux 系统官方法行版页面，查看当前使用的 Linux 系统是否支持 USB/IP 功能。
 
 
 ## 操作步骤
@@ -95,3 +95,4 @@ Bus 002 Device 002:ID096e:031b Feitian Technologies, Inc.
 Bus 002 Device 001:ID1d6b:0002 Linux Foundation 2.0 root hub
 Bus 001 Device 001:ID1d6b:0001 Linux Foundation 1.1 root hub
 ```
+
