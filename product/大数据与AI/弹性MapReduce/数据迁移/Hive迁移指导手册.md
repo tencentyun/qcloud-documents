@@ -10,22 +10,22 @@ mysqldump -hX.X.X.X -uroot -pXXXX --single-transaction --set-gtid-purged=OFF hiv
 # 如果数据库用户不是 root，请用正确的用户名  
 # hivemetastore 是 Hive 元数据库名 
 ```
-2. 确认目标 Hive 表数据在 HDFS 中的缺省路径。
-Hive 表数据在 HDFS 中的缺省路径由 `hive-site.xml` 中的 `hive.metastore.warehouse.dir` 指定。如果 Hive 表在 HDFS 的存储位置依然保持与源 Hive 一致，那么需要修改为与源 Hive 数据库中的值一致。例如，源 `hive-site.xml` 中 `hive.metastore.warehouse.dir` 为下面的值。
+2. 确认目标集群 Hive 表数据在 HDFS 中的默认存储路径。
+Hive 表数据在 HDFS 中的默认存储路径由 `hive-site.xml` 中的 `hive.metastore.warehouse.dir` 配置项指定。如果目标集群 Hive 表在 HDFS 的存储路径需要与源集群 Hive 表路径一致，可以参考以下示例对配置文件进行修改。例如，源集群 `hive-site.xml` 中 `hive.metastore.warehouse.dir` 为下面的值。
 ```
 <property>  
     <name>hive.metastore.warehouse.dir</name>  
     <value>/apps/hive/warehouse</value>  
 </property>  
 ```
-目标 `hive-site.xml` 中 `hive.metastore.warehouse.dir` 为下面的值。
+目标集群 `hive-site.xml` 中 `hive.metastore.warehouse.dir` 为下面的值。
 ```
 <property>  
     <name>hive.metastore.warehouse.dir</name>  
     <value>/usr/hive/warehouse</value>  
 </property>  
 ```
-如果 Hive 表在 HDFS 的存储位置依然保持与源 Hive 一致，那么修改目标 `hive-site.xml` 中的 `hive.metastore.warehouse.dir`，即为：
+如果目标集群 Hive 表在 HDFS 的存储位置依然保持与源集群 Hive 一致，那么修改目标 `hive-site.xml` 中的 `hive.metastore.warehouse.dir`，即为：
 ```
 <property>  
     <name>hive.metastore.warehouse.dir</name>  
