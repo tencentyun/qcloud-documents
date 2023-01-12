@@ -6,8 +6,8 @@ FileSystem connector 提供了对 `HDFS` 和 [COS](https://cloud.tencent.com/doc
 | Flink 版本 | 说明 |
 | :-------- | :--- |
 | 1.11      | 支持 |
-| 1.13      | 支持 |
-| 1.14      | 支持 |
+| 1.13      | 支持，支持常见的lzo、snappy压缩算法 |
+| 1.14      | 支持写入到 HDFS，不支持写入到 COS，不支持lzo、snappy压缩算法 |
 
 ## 使用范围
 FileSystem 支持作为 Append-Only 数据流的目的表 (Sink)，目前还不支持 Upsert 数据流的目的表。FileSystem 目前支持以下格式的数据写入：
@@ -218,4 +218,41 @@ INSERT INTO `hdfs_sink_table`
 SELECT id, name, part1, part2
 FROM datagen_source_table;
 ```
+
+## compressible-fs connector使用说明
+* 只支持在flink 1.13版本使用
+* 支持对于csv和json两种format的写入，其它诸如avro、parquet、orc文件格式已经自带压缩功能
+* 支持LzopCodec、SnappyCodec 两种压缩算法
+* 支持写入hdfs和cos文件，使用方法和filesystem一致
+
+
+#### 用作数据目的
+```sql
+CREATE TABLE `hdfs_sink_table` (
+    `id` INT,
+    `name` STRING,
+    `part1` INT,
+    `part2` INT
+) PARTITIONED BY (part1, part2) WITH (
+    'connector' = 'compressible-fs',
+    'hadoop.compression.codec' = 'LzopCodec',
+    'path' = 'hdfs://HDFS10000/data/',
+    'format' = 'json',
+    'sink.rolling-policy.file-size' = '1M',
+    'sink.rolling-policy.rollover-interval' = '10 min',
+    'sink.partition-commit.delay' = '1 s',
+    'sink.partition-commit.policy.kind' = 'success-file'
+);
+```
+
+## WITH 参数
+
+* 除上文中filesystem connector支持的参数外，compressible-fs额外特有的参数有以下三个:
+
+
+| 参数值                                     | 必填 | 默认值       | 描述                                                         |
+| ------------------------------------------ | ---- | ------------ | ------------------------------------------------------------ |
+| hadoop.compression.codec              | 否   | 无        |  使用的压缩算法，可选值为LzopCodec和SnappyCodec，不指定时，按照默认的文件格式写入。|
+| filename.suffix      | 否   | 无        | 最终写入文件名，如果没有声明，则会按照支持的压缩算法生成特定的后缀名，如果采用了非lzop和snappy压缩算法且未声明该值，则文件后缀为空 |
+| filepath.contain.partition-key         | 否   | false         | 写入分区文件时，最终的写入路径是否包括分区字段，默认不包括。举个例子，假设写入一个按天分区dt=12和按小时分区ht=24的分区路径，默认的分区路径为12/24 而非 dt=12/ht=24 |
 

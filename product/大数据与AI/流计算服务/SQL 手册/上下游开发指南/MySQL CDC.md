@@ -66,6 +66,8 @@ CREATE TABLE `mysql_cdc_source_table` (
 | scan.incremental.snapshot.chunk.size     | 当读取表的快照时，表快照捕获的表的块大小(行数)             | 否       | 默认为 8096     |
 | scan.lazy-calculate-splits.enabled     | 全量阶段JM中数据分片懒加载避免数据量太大，分片数据太多导致JM OOM             | 否       | 默认为 true   |
 | scan.newly-added-table.enabled     | 动态加表            | 否       | 默认为 false                                         |
+   | scan.split-key.mode                      | 联合主键作为 splitkey 的模式                                           | 否    | 取值为 default / specific；其中 default 为默认逻辑，采用联合主键的第一个字段作为 splitkey；设置为 specific  需要设置 scan.split-key.specific-column 指定联合主键中的某个字段|
+   | scan.split-key.specific-column           | 指定联合主键中某个字段作为 splitkey                                        | 否    | 当 scan.split-key.mode 为 specific 时必填。取值为联合主键中某个字段名|
 | connect.timeout     | 尝试连接到 MySQL 数据库服务器后在超时之前等待的最长时间             | 否       | 默认 30s                       |
 | connect.max-retries     | 建立MySQL连接尝试最大的次数             | 否       | 默认 3                                         |
 | connection.pool.size     | 连接池大小             | 否       | 默认 20                                         |
@@ -85,66 +87,82 @@ CREATE TABLE `mysql_cdc_source_table` (
 <th>描述</th>
 </tr>
 <tr>
-<td>database_name</td>
+<td>database_name/meta.database_name</td>
 <td>STRING NOT NULL</td>
 <td>包含该 Row 的数据库名称</td>
 </tr>
 <tr>
-<td>table_name</td>
+<td>table_name/meta.table_name</td>
 <td>STRING NOT NULL</td>
 <td>包含该 Row 的表名称</td>
 </tr>
 <tr>
-<td>op_ts</td>
+<td>op_ts/meta.op_ts</td>
 <td>TIMESTAMP_LTZ(3) NOT NULL</td>
 <td>Row 在数据库中进行更改的时间</td>
 </tr>
 <tr>
-<td>batch_id</td>
+<td>meta.batch_id</td>
 <td>BIGINT</td>
 <td>binlog 的批 id</td>
 </tr>
 <tr>
-<td>is_ddl</td>
+<td>meta.is_ddl</td>
 <td>BOOLEAN</td>
 <td>是否 DDL 语句</td>
 </tr>
 <tr>
-<td>mysql_type</td>
+<td>meta.mysql_type</td>
 <td>MAP</td>
 <td>数据表结构</td>
 </tr>
 <tr>
-<td>update_before</td>
+<td>meta.update_before</td>
 <td>ARRAY</td>
 <td>未修改前字段的值</td>
 </tr>
 <tr>
-<td>pk_names</td>
+<td>meta.pk_names</td>
 <td>ARRAY</td>
 <td>主键字段名</td>
 </tr>
 <tr>
-<td>sql</td>
+<td>meta.sql</td>
 <td>STRING</td>
 <td>暂时为空</td>
 </tr>
 <tr>
-<td>sql_type</td>
+<td>meta.sql_type</td>
 <td>MAP</td>
 <td>sql_type 表的字段到 Java 数据类型 ID 的映射</td>
 </tr>
 <tr>
-<td>ts</td>
+<td>meta.ts</td>
 <td>TIMESTAMP_LTZ(3) NOT NULL</td>
 <td>收到该 ROW 并处理的当前时间</td>
 </tr>
 <tr>
-<td>op_type</td>
+<td>meta.op_type</td>
 <td>STRING</td>
 <td>数据库操作类型，例如 INSERT/DELETE 等</td>
 </tr>
+<tr>
+<td>meta.file</td>
+<td>STRING</td>
+<td>全量阶段时为空。增量阶段时为数据来自的 binlog 文件名，例如 mysql-bin.000101</td>
+</tr>
+<tr>
+<td>meta.pos</td>
+<td>BIGINT</td>
+<td>全量阶段时为0。增量阶段时为数据来自的 binlog 文件偏移，例如 143127802</td>
+</tr>
+<tr>
+<td>meta.gtid</td>
+<td>STRING</td>
+<td>全量阶段时为 null。增量阶段时为数据对应的 gtid 值，例如 3d3c4464-c320-11e9-8b3a-6c92bf62891a:66486240</td>
+</tr>
 </table>
+
 
 
 ## 使用示例
