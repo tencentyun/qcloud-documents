@@ -48,13 +48,13 @@ including all tables
 ```
 
 
-### Mysql-CDC 元数据字段读取
+### MySQL-CDC 元数据字段读取
 
-* mysql-cdc connector除支持提取物理表的字段外，还支持了[元数据字段列表](https://cloud.tencent.com/document/product/849/52698#.E5.8F.AF.E7.94.A8.E5.85.83.E6.95.B0.E6.8D.AE.EF.BC.88flink1.13-.E5.8F.8A.E4.BB.A5.E4.B8.8A.E7.89.88.E6.9C.AC.E5.8F.AF.E4.BD.BF.E7.94.A8.EF.BC.89)可以提取。整库同步功能中也提供了一个options配置参数，可以用来控制同步所需的元数据字段。
+* MySQL CDC connector除支持提取物理表的字段外，还支持了[元数据字段列表](https://cloud.tencent.com/document/product/849/52698#.E5.8F.AF.E7.94.A8.E5.85.83.E6.95.B0.E6.8D.AE.EF.BC.88flink1.13-.E5.8F.8A.E4.BB.A5.E4.B8.8A.E7.89.88.E6.9C.AC.E5.8F.AF.E4.BD.BF.E7.94.A8.EF.BC.89)可以提取。整库同步功能中也提供了一个 options 配置参数，可以用来控制同步所需的元数据字段。
 
 | 参数                               | 解释                                                         |
 | ---------------------------------- | ------------------------------------------------------------ |
-| oceanus.source.include-metadata.fields                    |  需要同步的sorce表的元字段，格式为'table_name:table_name;meta.batch_id:batch_id', 元数据字段定义通过分号;分隔，每个元数据字段格式为metadataColumn:alias， 第一部分为实际对应的元数据column，第二部分为重命名后的值。|
+| oceanus.source.include-metadata.fields                    |  需要同步的 source 表的元字段，格式为 'table_name:table_name;meta.batch_id:batch_id', 元数据字段定义通过分号;分隔，每个元数据字段格式为 metadataColumn:alias， 第一部分为实际对应的元数据 column，第二部分为重命名后的值。|
 
 * 注意: 元数据字段会按照声明的顺序，追加到源表之后
 
@@ -86,7 +86,7 @@ including all tables
 
 
 ## 使用方法
-1. 首先注册 Mysql 的 Catalog，作为待同步的数据源表，示例如下：
+1. 首先注册 MySQL 的 Catalog，作为待同步的数据源表，示例如下：
 ```sql
 create catalog my_mysql with (
     'type' = 'jdbc',
@@ -214,11 +214,11 @@ including all tables
 
 
 ## 使用提醒
-1. 目前只支持同步 Mysql 类型数据库作为整库同步的源表。
-2. 目前同步到目标端时，除 Hudi 和 Hive （需要提前注册hive catalog）作为目标表外，其它的目标端还不支持自动建表，需要事先在目标端中建立和 Mysql 库中数据表对应的表结构。
-3. 推荐搭配 Mysql CDC Source 复用功能开启，一起使用，可以降低对 DB 的压力。
+1. 目前只支持同步 MySQL 类型数据库作为整库同步的源表。
+2. 目前同步到目标端时，除 Hudi 和 Hive （需要提前注册 Hive Catalog）作为目标表外，其它的目标端还不支持自动建表，需要事先在目标端中建立和 Mysql 库中数据表对应的表结构。
+3. 推荐搭配 MySQL CDC Source 复用功能开启，一起使用，可以降低对数据库的压力。
 4. CDAS 语法没有限制下游输出的类型，理论上可以同步到**任意的**下游类型。
-5. 当同步的表的数量非常多的时候，flink 生成的单个 task 的 name 会非常长，导致 metric 系统占用大量的内存，影响作业稳定性，Oceanus 针对这种情况引入了 `pipeline.task-name-length` 参数来限制 taskName 的长度，能极大的提高作业稳定性和日志可读性。（适用 Flink 1.13 和1.14版本）。
+5. 当同步的表的数量非常多的时候，flink 生成的单个 task 的 name 会非常长，导致 metric 系统占用大量的内存，影响作业稳定性，Oceanus 针对这种情况引入了 `pipeline.task-name-length` 参数来限制 taskName 的长度，能极大的提高作业稳定性和日志可读性。（适用 Flink-1.13 和 Flink-1.14 版本）。
 可以在作业的中配置生效：
 ```sql
 set pipeline.task-name-length=80;
