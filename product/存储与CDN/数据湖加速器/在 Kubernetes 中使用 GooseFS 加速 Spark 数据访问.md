@@ -61,7 +61,12 @@ $ docker image ls
 首先，需要保证 GooseFS 集群已经启动运行，并且容器能够访问到 GooseFS Master/Worker 的 IP 和端口，然后按照以下步骤进行测试验证：
 
 1. 在 GooseFS 中创建一个用于测试的 namespace，例如这里创建一个 /spark-cosntest 的namespace，并放入测试数据文件。
+>!
+>- 建议用户尽量避免在配置中使用永久密钥，采取配置子账号密钥或者临时密钥的方式有助于提升业务安全性。为子账号授权时建议按需授权子账号可执行的操作和资源，避免发生预期外的数据泄露。
+>- 如果您一定要使用永久密钥，建议对永久密钥的权限范围进行限制，可通过限制永久密钥的可执行操作、资源范围和条件（访问 IP 等），提升使用安全性。
+>
 ```shell
+# 建议使用子账号密钥或者临时密钥的方式完成配置，提升配置安全性。为子账号授权时建议按需授权子账号可执行的操作和资源
 $ goosefs ns create spark-cosntest cosn://goosefs-test-125000000/ --secret fs.cosn.userinfo.secretId=AKIDXXXXXXXXX --secret fs.cosn.userinfo.secretKey=XXXXXXXXXX --attribute fs.cosn.bucket.region=ap-xxxx
 # 放入一个测试数据文件
 $ goosefs fs copyFromLocal LICENSE /spark-cosntest

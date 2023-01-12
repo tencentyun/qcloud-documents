@@ -71,8 +71,13 @@ $ echo  "goosefs.master.hostname=localhost">> conf/goosefs-site.properties
 ### 修改配置文件以支持通过 POSIX 语义访问 COS
 
 1. 在完成 GooseFS 初步安装后，编辑`core-site.xml`文件，新增以下基本配置：
+>!
+>- 建议用户尽量避免在配置中使用永久密钥，采取配置子账号密钥或者临时密钥的方式有助于提升业务安全性。为子账号授权时建议按需授权子账号可执行的操作和资源，避免发生预期外的数据泄露。
+>- 如果您一定要使用永久密钥，建议对永久密钥的权限范围进行限制，可通过限制永久密钥的可执行操作、资源范围和条件（访问 IP 等），提升使用安全性。
+>
 ```
 <!--账户的 API 密钥信息。可登录 [访问管理控制台](https://console.cloud.tencent.com/capi) 查看云 API 密钥。-->
+<!--建议使用子账号密钥或者临时密钥的方式完成配置，提升配置安全性。为子账号授权时建议按需授权子账号可执行的操作和资源-->
 <property>
          <name>fs.cosn.userinfo.secretId/secretKey</name>
          <value>AKIDxxxxxxxxxxxxxxxxxxxxx</value>
